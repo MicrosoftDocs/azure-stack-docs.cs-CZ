@@ -6,18 +6,19 @@ author: PatAltimore
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 05/02/2019
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: 7d9cfd742473c7a7050978a25f4b574fa0e4ba8c
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
-ms.translationtype: HT
+ms.openlocfilehash: 67149ffa1d602cb0bbab020f0af3f317cb0aac4d
+ms.sourcegitcommit: 91c5056cb6d9bbd852132bebfbefa05b6b4d6cb3
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985330"
+ms.locfileid: "64988152"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integrace datových center Azure Stack – Identity
+
 Azure Stack pomocí Azure Active Directory (Azure AD) nebo Active Directory Federation Services (AD FS) můžete nasadit jako zprostředkovatele identity. Volba je třeba provést před nasazením služby Azure Stack. V případě připojení můžete použít Azure AD nebo AD FS. Odpojené scénáři je podporována pouze služba AD FS.
 
 > [!IMPORTANT]
@@ -56,8 +57,8 @@ Tyto informace se vyžaduje jako vstup pro automatizaci parametry:
 
 |Parametr|Popis|Příklad:|
 |---------|---------|---------|
-|CustomADGlobalCatalog|Plně kvalifikovaný název domény cílové doménové struktuře služby Active Directory<br>Chcete integrovat s|Contoso.com|
-|CustomADAdminCredentials|Uživatel s oprávněním ke čtení protokolu LDAP|YOURDOMAIN\graphservice|
+|`CustomADGlobalCatalog`|Plně kvalifikovaný název domény cílové doménové struktuře služby Active Directory<br>Chcete integrovat s|Contoso.com|
+|`CustomADAdminCredentials`|Uživatel s oprávněním ke čtení protokolu LDAP|YOURDOMAIN\graphservice|
 
 ### <a name="configure-active-directory-sites"></a>Konfigurace lokalit služby Active Directory
 
@@ -101,6 +102,13 @@ Pro tento postup použijte počítač v síti datového centra, který může ko
 
    > [!IMPORTANT]
    > Počkejte místní přihlašovací údaje (Get-Credential není podporována v privilegovaných koncový bod) a zadejte přihlašovací údaje účtu služby Graph.
+
+3. **Register-DirectoryService** rutina má volitelné parametry, které můžete použít v některých scénářích existující služby Active Directory ověření nezdaří. Při spuštění této rutiny, ověří, že zadaná doména je kořenová doména, se dá kontaktovat server globálního katalogu a zadaný účet uděluje přístup pro čtení.
+
+   |Parametr|Popis|
+   |---------|---------|
+   |`-SkipRootDomainValidation`|Určuje, že podřízené domény musí používat, místo doporučené kořenové domény.|
+   |`-Force`|Vynechá všechny ověřovací kontroly.|
 
 #### <a name="graph-protocols-and-ports"></a>Graf protokoly a porty
 

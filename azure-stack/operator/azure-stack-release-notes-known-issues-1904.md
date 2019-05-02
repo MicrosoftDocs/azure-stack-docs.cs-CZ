@@ -16,16 +16,16 @@ ms.date: 05/02/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 05/02/2019
-ms.openlocfilehash: 1588d403d62e416367ea59c70e28e456cb17495a
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
-ms.translationtype: HT
+ms.openlocfilehash: 8b061b3c6843540bcf1d6a6379b9181a9d757c5d
+ms.sourcegitcommit: 91c5056cb6d9bbd852132bebfbefa05b6b4d6cb3
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 05/01/2019
-ms.locfileid: "64987615"
+ms.locfileid: "64988118"
 ---
-# <a name="azure-stack-known-issues"></a>Azure Stack – známé problémy
+# <a name="azure-stack-1904-known-issues"></a>Azure Stack 1904 známé problémy
 
-Tento článek uvádí známé problémy s podporovanou verzí služby Azure Stack. Seznam se aktualizuje jako nové verze, vydání opravy hotfix.
+V tomto článku najdete seznam známých problémů v 1904 verzi služby Azure Stack. V seznamu je aktualizovat, protože nové problémy jsou označeny.
 
 > [!IMPORTANT]  
 > V této části najdete před instalací této aktualizace.
