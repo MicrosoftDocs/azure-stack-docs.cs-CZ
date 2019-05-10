@@ -27,7 +27,8 @@
           href: azure-stack-subscribe-services.md
         - name: Vytvoření virtuálního počítače ze šablony
           href: azure-stack-create-vm-template.md
-    - name: Hybridní cloudové vzory
+    - name: Hybridní cloudové aplikace
+      href: azure-stack-hybrid-cloud-patterns.md
       items:
         - name: Nasazení aplikací na platformy Azure a Azure Stack
           href: azure-stack-solution-pipeline.md
@@ -95,7 +96,7 @@
               href: azure-stack-network-overview.md
             - name: Aspekty sítí
               href: azure-stack-network-differences.md
-            - name: VPN Gateway
+            - name: Brány VPN Gateway
               items:
                 - name: Připojení pomocí VPN
                   href: azure-stack-connect-vpn.md
@@ -170,7 +171,7 @@
               maintainContext: true
             - name: Spusťte prostředí PowerShell pomocí Dockeru
               href: azure-stack-powershell-user-docker.md
-            - name: Instalace sady Visual Studio
+            - name: Nainstalovat Visual Studio
               href: azure-stack-install-visual-studio.md
             - name: Použít veřejný klíč SSH
               href: azure-stack-dev-start-howto-ssh-public-key.md
@@ -222,6 +223,8 @@
               href: azure-stack-deploy-template-portal.md
             - name: Nasazení s využitím PowerShellu
               href: azure-stack-deploy-template-powershell.md
+            - name: Nasazení pomocí rozhraní příkazového řádku
+              href: azure-stack-deploy-template-command-line.md
             - name: Nasazení s využitím sady Visual Studio
               href: azure-stack-deploy-template-visual-studio.md
     - name: Povolit poskytovatele cloudových služeb

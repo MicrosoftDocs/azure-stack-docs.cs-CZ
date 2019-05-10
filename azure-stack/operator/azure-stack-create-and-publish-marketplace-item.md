@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/08/2019
+ms.date: 05/07/2019
 ms.author: sethm
 ms.reviewer: avishwan
-ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: 8c77441f458e87a3b8da60541261338abb78057c
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.lastreviewed: 05/07/2019
+ms.openlocfilehash: 59e86e15289833d63b85314a84d0bb9e60dc5da8
+ms.sourcegitcommit: ccd86bd0862c45de1f6a4993f783ea2e186c187a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985424"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65172573"
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>Vytvoření a publikování položky Marketplace
 
@@ -40,10 +40,10 @@ ms.locfileid: "64985424"
    /Contoso.TodoList/DeploymentTemplates/
    ```
 
-3. [Vytvoření šablony Azure Resource Manageru] ((/Azure/Azure-Resource-Manager/Resource-Group-Authoring-Templates) nebo výběr šablony z Githubu. Položka Marketplace používá tuto šablonu k vytvoření prostředku.
+3. [Vytvoření šablony Azure Resource Manageru](/azure/azure-resource-manager/resource-group-authoring-templates) nebo výběr šablony z Githubu. Položka Marketplace používá tuto šablonu k vytvoření prostředku.
 
-    > [!Note]  
-    > Nikdy intenzivně kódu všechny tajné kódy, jako jsou kódy product key, heslo nebo žádné identifikovatelné informace o zákaznících v šablony Azure Resource Manageru. Soubory JSON šablony jsou přístupné bez nutnosti ověřování po publikování v galerii. Store všech tajných kódů v [Vault]((/azure/azure-resource-manager/resource-manager-keyvault-parameter) klíč a volání je z v rámci šablony.
+    > [!NOTE]  
+    > Nikdy intenzivně kódu všechny tajné kódy, jako jsou kódy product key, heslo nebo žádné identifikovatelné informace o zákaznících v šablony Azure Resource Manageru. Soubory JSON šablony jsou přístupné bez nutnosti ověřování po publikování v galerii. Store všech tajných kódů v [služby Key Vault](/azure/azure-resource-manager/resource-manager-keyvault-parameter) a zavoláme z v rámci šablony.
 
 4. Pokud chcete mít jistotu, že je úspěšně nasazena na prostředek, otestujte šablonu s rozhraními API sady Microsoft Azure Stack.
 5. Pokud vaše šablony závisí na image virtuálního počítače, postupujte podle pokynů a [přidat image virtuálního počítače do služby Azure Stack](azure-stack-add-vm-image.md).
@@ -54,6 +54,7 @@ ms.locfileid: "64985424"
    > Všechny čtyři ikony velikosti (malá, střední, velká široký) jsou požadovány pro vytváření položky Marketplace správně.
    >
    >
+
 8. V **Manifest.json** změňte **název** k názvu položky Marketplace. Také změnit **vydavatele** na název vaší společnosti.
 9. V části **artefakty**, změňte **název** a **cesta** do správné informace pro šablony Azure Resource Manageru, který jste zahrnuli:
 
@@ -84,7 +85,7 @@ ms.locfileid: "64985424"
     ```
 
     > [!NOTE]
-    > Úplná cesta k výstupní balíčku musí existovat. Například pokud výstupní cesta je C:\MarketPlaceItem\yourpackage.azpkg, složka C:\MarketPlaceItem musí existovat.
+    > Úplná cesta k výstupní balíčku musí existovat. Například, pokud je výstupní cesta je C:\MarketPlaceItem\yourpackage.azpkg složce **C:\MarketPlaceItem** musí existovat.
     >
     >
 
@@ -108,7 +109,8 @@ ms.locfileid: "64985424"
 4. Přejděte na portál. Nyní je vidět položku Marketplace. na portálu, jako operátor nebo jako uživatel. Balíček může trvat několik minut.
 
 5. Položky Marketplace se nyní uložil do Tržiště Azure Stack. Můžete ho odstranit z umístění úložiště objektů Blob.
-    > [!Caution]  
+
+    > [!CAUTION]  
     > Všechny artefakty výchozí galerie a Galerie vlastních artefaktů jsou teď k dispozici bez ověřování v rámci následující adresy URL:  
 `https://adminportal.[Region].[external FQDN]:30015/artifact/20161101/[Template Name]/DeploymentTemplates/Template.json`
 `https://portal.[Region].[external FQDN]:30015/artifact/20161101/[Template Name]/DeploymentTemplates/Template.json`
@@ -139,28 +141,28 @@ ms.locfileid: "64985424"
 
 | Název | Požaduje se | Type | Omezení | Popis |
 | --- | --- | --- | --- | --- |
-| Zobrazovaný název |X |String |Doporučení 80 znaků. |Na portálu se nemusí zobrazit název vaší položky řádně Pokud je delší než 80 znaků. |
-| PublisherDisplayName |X |String |Doporučení 30 znaků |Na portálu nemusí řádně zobrazit název vydavatele, pokud je delší než 30 znaků. |
+| Zobrazovaný název |X |String |Doporučení 80 znaků. |Název položky na portálu nezobrazí správně, pokud je delší než 80 znaků. |
+| PublisherDisplayName |X |String |Doporučení 30 znaků |Název vydavatele na portálu nezobrazí správně, pokud je delší než 30 znaků. |
 | PublisherLegalName |X |String |Maximálně 256 znaků. | |
 | Souhrn |X |String |60 až 100 znaků | |
 | LongSummary |X |String |140 až 256 znaků |Není zatím k dispozici ve službě Azure Stack. |
-| Popis |X |[HTML](https://auxdocs.azurewebsites.net/en-us/documentation/articles/gallery-metadata#html-sanitization) |500 až 5 000 znaků | |
+| Popis |X |[HTML](https://github.com/Azure/portaldocs/blob/master/gallery-sdk/generated/index-gallery.md#gallery-item-metadata-html-sanitization) |500 až 5 000 znaků | |
 
-### <a name="images"></a>Image
+### <a name="images"></a>Obrázky
 
 Na webu Marketplace používá následující ikony:
 
 | Název | Šířka | Výška | Poznámky |
 | --- | --- | --- | --- |
 | Široký |255 px |115 px |Vždycky se vyžaduje |
-| Dlouhodobé používání |115 px |115 px |Vždycky se vyžaduje |
-| Střednědobé používání |90 px |90 px |Vždycky se vyžaduje |
-| Krátkodobé používání |40 px |40 px |Vždycky se vyžaduje |
-| Snímek obrazovky |533 px |32 px |Nepovinné |
+| Velká |115 px |115 px |Vždycky se vyžaduje |
+| Středně velká |90 px |90 px |Vždycky se vyžaduje |
+| Malá |40 px |40 px |Vždycky se vyžaduje |
+| Snímek obrazovky |533 px |32 px |Volitelná |
 
 ### <a name="categories"></a>Categories
 
-Každá položka Marketplace by měl být s klíčovým slovem kategorii, která určuje, kde se položka zobrazí v Uživatelském rozhraní portálu. Můžete zvolit jednu existující kategorie ve službě Azure Stack (výpočetní prostředky, Data + úložiště, atd.) nebo zvolit nové.
+Každá položka Marketplace by měl být s klíčovým slovem kategorii, která určuje, kde se položka zobrazí v Uživatelském rozhraní portálu. Můžete zvolit jednu existující kategorie ve službě Azure Stack (**Compute**, **Data + úložiště**atd), nebo zvolit nové.
 
 ### <a name="links"></a>Odkazy
 
@@ -177,12 +179,12 @@ Kromě předchozích metadat můžete Marketplace autoři uvádějí data dvojic
 
 | Název | Požaduje se | Type | Omezení | Popis |
 | --- | --- | --- | --- | --- |
-| Zobrazovaný název |X |String |Maximálně 25 znaků | |
-| Hodnota |X |String |Maximálně 30 znaků | |
+| Zobrazovaný název |X |String |Maximálně 25 znaků. | |
+| Hodnota |X |String |Maximálně 30 znaků. | |
 
 ### <a name="html-sanitization"></a>Sanitizace HTML
 
-Pro všechna pole, která umožňuje HTML jsou povoleny následující prvky a atributy:
+Pro všechna pole, která umožňuje HTML, následující [elementy a atributy jsou povoleny](https://github.com/Azure/portaldocs/blob/master/gallery-sdk/generated/index-gallery.md#gallery-item-metadata-html-sanitization):
 
 `h1, h2, h3, h4, h5, p, ol, ul, li, a[target|href], br, strong, em, b, i`
 
@@ -197,3 +199,8 @@ Ikon a textu pro položky Marketplace, jak je vidět na portálu Azure Stack se.
 ### <a name="marketplace-item-details-blade"></a>Okno s podrobnostmi o položky Marketplace
 
 ![Okno s podrobnostmi o položky Marketplace](media/azure-stack-create-and-publish-marketplace-item/image3.png)
+
+## <a name="next-steps"></a>Další postup
+
+* [Přehled služby Azure Stack Marketplace](azure-stack-marketplace.md)
+* [Stažení položek z Marketplace](azure-stack-download-azure-marketplace-item.md)

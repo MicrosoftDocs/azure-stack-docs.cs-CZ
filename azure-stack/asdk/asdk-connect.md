@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 05/06/2019
 ms.author: jeffgilb
 ms.reviewer: knithinc
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 027ecdee933a7f63be506f93b108071cabc34b71
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: f9678374d07dfad78b7d8fe0cf66c02ea1ccd5be
+ms.sourcegitcommit: ccd86bd0862c45de1f6a4993f783ea2e186c187a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64983818"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65172417"
 ---
 # <a name="connect-to-the-asdk"></a>Připojte se k ASDK
 
@@ -101,7 +101,7 @@ Add-AzsVpnConnection `
 
 ```
 
-Pokud je instalace úspěšná, **azurestack** se zobrazí v seznamu připojení VPN.
+Pokud je instalace úspěšná, **Azure Stack** se zobrazí v seznamu připojení VPN.
 
 ![Připojení k síti](media/asdk-connect/vpn.png)  
 
@@ -116,7 +116,7 @@ Pokud je instalace úspěšná, **azurestack** se zobrazí v seznamu připojení
       -Password $Password
     ```
 
-  * V místním počítači, vybrat **nastavení sítě** > **VPN** > **azurestack** > **připojení**. Na řádku přihlásit, zadejte uživatelské jméno (**AzureStack\AzureStackAdmin**) a heslo.
+  * V místním počítači, vybrat **nastavení sítě** > **VPN** > **Azure Stack** > **připojení**. Na řádku přihlásit, zadejte uživatelské jméno (**AzureStack\AzureStackAdmin**) a heslo.
 
 Při prvním připojení se zobrazí výzva k instalaci kořenového certifikátu služby Azure Stack z **AzureStackCertificateAuthority** v úložišti certifikátů místního počítače. Tento krok přidává do seznamu důvěryhodných hostitelů ASDK certifikační autority (CA). Klikněte na tlačítko **Ano** k instalaci certifikátu.
 
@@ -133,4 +133,4 @@ Přihlásit pomocí přihlašovacích údajů příslušné předplatné vytvoř
 
 ## <a name="next-steps"></a>Další postup
 
-[Řešení potíží](asdk-troubleshooting.md)
+[Odstraňování potíží](asdk-troubleshooting.md)

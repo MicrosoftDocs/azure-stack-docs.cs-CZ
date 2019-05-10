@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2019
+ms.date: 05/02/2019
 ms.author: sethm
 ms.reviewer: harik
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 9cfb61f5aca9d3e00f5ad6e07151e62fb4a70a60
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: c4c77cc08b1452c34ca7eba123a38b9d20001645
+ms.sourcegitcommit: 20becab55ac2bd4b7a974ed3928238412a22a4a6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64984721"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65030540"
 ---
 # <a name="azure-stack-servicing-policy"></a>Údržba zásad služby Azure Stack
 
@@ -66,9 +66,9 @@ Opravy hotfix se stahují a instalují stejně jako regulární úplnou aktualiz
 
 ## <a name="keep-your-system-under-support"></a>Zachovat systému v rámci podpory
 
-Pokračujte k získání podpory, je nutné zachovat vašeho nasazení Azure stacku aktuální. Zásady odložení aktualizace je: Pro nasazení Azure Stack tak si zachováte podpory se musí spustit nedávno vydané verze aktualizace nebo spustit některý z dvě předchozí verze aktualizace. Opravy hotfix, se nepovažují aktualizace hlavní verze. Pokud cloudu služby Azure Stack je za *více než dvě aktualizace*, je to považovat za nedodržení a musíte aktualizovat alespoň minimální podporovaná verze získání podpory.
+Pokračujte k získání podpory, je nutné zachovat vašeho nasazení Azure stacku aktuální. Zásady odložení aktualizace je: pro nasazení Azure Stack tak si zachováte podporu, musí spustit nedávno vydané verze aktualizace nebo spusťte jeden z dvě předchozí verze aktualizace. Opravy hotfix, se nepovažují aktualizace hlavní verze. Pokud cloudu služby Azure Stack je za *více než dvě aktualizace*, je to považovat za nedodržení a musíte aktualizovat alespoň minimální podporovaná verze získání podpory.
 
-Například pokud nejvíce dostupného aktualizovanou verzi je 1805 a předchozí dva balíčky aktualizace byly verze 1804 a 1803, 1803 a 1804 zůstanou na podporu. Je však 1802 bez podpory. Zásady platí, pokud neexistuje žádná verze pro měsíc nebo dvě. Například pokud v aktuální verzi je 1805 a nebyly žádné verzi 1804, předchozí dva balíčky aktualizací 1803 a 1802 zůstanou na podporu.
+Například pokud nejvíce dostupného aktualizovanou verzi je 1904 a předchozí dva balíčky aktualizace byly verze 1903 a 1902, 1902 a 1903 zůstanou na podporu. Je však 1901 bez podpory. Zásady platí, pokud neexistuje žádná verze pro měsíc nebo dvě. Například pokud aktuální verze je 1807 a došlo bez uvolnění 1806, předchozí dva balíčky aktualizací 1805 a 1804 zůstanou na podporu.
 
 Balíčky aktualizací softwaru společnosti Microsoft jsou mimo kumulativní a vyžadovat předchozí aktualizace balíčku nebo opravu hotfix jako předpoklad. Pokud se rozhodnete odložení jeden nebo více aktualizací, zvažte celkové modulu runtime, pokud chcete získat nejnovější verzi.
 

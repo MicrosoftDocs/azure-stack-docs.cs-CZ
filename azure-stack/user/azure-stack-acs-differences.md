@@ -15,12 +15,12 @@ ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviwer: xiaofmao
 ms.lastreviewed: 01/30/2019
-ms.openlocfilehash: 3d1fb9e7a3d25e9eeab0f1f2a0cc1a48ed6112a2
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: e2bfea5cb7bb068a4cf3ca64dc3852b450a37066
+ms.sourcegitcommit: 61de365c93eb7435891867f9808ec37486882d7f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985987"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65097088"
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Úložiště Azure Stack: Rozdíly a aspekty
 
@@ -38,7 +38,7 @@ Tento článek shrnuje známé rozdíly Azure Stack Storage ze služby Azure Sto
 |Šifrování služby Azure storage pro neaktivní uložená data|256bitového šifrování AES. Podpora šifrování pomocí klíčů spravovaných zákazníkem ve službě Key Vault.|Nástroj BitLocker 128bitové šifrování AES. Šifrování pomocí klíčů spravovaných zákazníkem není podporováno.
 |Typ účtu úložiště|Účty pro obecné účely V1, V2 a Blob storage|Pouze pro obecné účely V1.
 |Možnosti replikace|Místně redundantní úložiště, geograficky redundantní úložiště, geograficky redundantní úložiště jen pro čtení a zónově redundantní úložiště|Místně redundantní úložiště.
-|Premium Storage|Plně podporované.|Je možné zřídit, ale bez omezení výkonu nebo záruk.
+|Premium Storage|Poskytuje vysoký výkon a úložiště s nízkou latencí. V účtech úložiště úrovně premium podporují jenom objekty BLOB stránky.|Je možné zřídit, ale bez omezení výkonu nebo záruk. Nebude blokovat, s využitím objektů BLOB bloku, doplňovací objekty BLOB, tabulky a fronty v účtech úložiště úrovně premium.
 |Spravované disky|Premium a standard podporována|Podporovány, pokud používáte verzi 1808 nebo novější.
 |Název objektu blob|1 024 znaků (2 048 bajtů)|880 znaků (1,760 bajty)
 |Maximální velikost objektu blob bloku|4,75 TB (100 MB × 50 000 bloků)|4,75 TB (100 MB × 50 000 bloků) pro verzi 1802 update nebo novější verze. 50 000 × 4 MB (přibližně 195 GB) pro předchozí verze.

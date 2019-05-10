@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2018
+ms.date: 05/06/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 12/12/2018
-ms.openlocfilehash: 113760a1c2fbbb024aee50904c14509398d9e24b
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 3a5b506cdb7441ef60d4731718cafa8aa267c078
+ms.sourcegitcommit: ccd86bd0862c45de1f6a4993f783ea2e186c187a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64983868"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65172437"
 ---
 # <a name="azure-stack-deployment-planning-considerations"></a>Co zvážit při plánování nasazení Azure Stack
 Než nasadíte Azure Stack Development Kit (ASDK), zkontrolujte, zda že splňuje požadavky popsané v tomto článku hostitelského počítače development kit.
@@ -81,7 +81,7 @@ Pokud vaše prostředí není připojený k Internetu, nebo nechcete používat 
 > Pokud nasadíte pomocí služby AD FS, je nutné znovu nasadit Azure Stack pro přepnutí do služby Azure AD.
 
 ### <a name="azure-active-directory-accounts"></a>Účty služby Azure Active Directory
-Nasazení Azure Stack pomocí účtu Azure AD, musíte připravit účet Azure AD, před spuštěním Powershellový skript nasazení. Tento účet stane globálním správcem tenanta Azure AD. Používá se ke zřízení a delegování aplikace a instanční objekty pro všechny služby Azure Stack, které pracují s Azure Active Directory a rozhraní Graph API. Používá se také jako vlastník výchozí předplatné poskytovatele (který můžete později změnit). K portálu správce systému služby Azure Stack se můžete přihlásit pomocí tohoto účtu.
+Nasazení Azure Stack pomocí účtu Azure AD, musíte připravit účet Azure AD, před spuštěním Powershellový skript nasazení. Tento účet stane globálním správcem tenanta Azure AD. Používá se ke zřízení a delegování aplikace a instanční objekty pro všechny služby Azure Stack, které pracují s Azure Active Directory a rozhraní Graph API. Používá se také jako vlastník výchozí předplatné poskytovatele (který můžete později změnit). Na portálu správce systému služby Azure Stack se můžete přihlásit pomocí tohoto účtu.
 
 1. Vytvoření účtu služby Azure AD, který je správcem adresáře nejméně jedné služby Azure AD. Pokud už účet máte, můžete ho použít. Jinak můžete jej vytvořit zdarma na [ https://azure.microsoft.com/free/ ](https://azure.microsoft.com/free/) (v Číně, navštivte <https://go.microsoft.com/fwlink/?LinkID=717821> místo). Pokud budete chtít později [registraci Azure Stack v Azure](asdk-register.md), také musíte mít předplatné v tomto nově vytvořeném účtu.
    
@@ -90,12 +90,12 @@ Nasazení Azure Stack pomocí účtu Azure AD, musíte připravit účet Azure A
    
    | **Účet Azure Active Directory** | **Podporuje?** |
    | --- | --- |
-   | Pracovní nebo školní účet s platným veřejným předplatným Azure |Ano |
-   | Účet Microsoft s platným veřejným předplatným Azure |Ano |
+   | Pracovní nebo školní účet s platným globální předplatným Azure |Ano |
+   | Account Microsoft s platným globální předplatným Azure |Ano |
    | Pracovní nebo školní účet s platným čínským předplatným Azure |Ano |
    | Pracovní nebo školní účet s platným US Government předplatným Azure |Ano |
 
-Po nasazení není potřeba oprávnění globálního správce Azure Active Directory. Některé operace však může vyžadovat přihlašovací údaje globálního správce. Například skript instalační program zprostředkovatele prostředků nebo nová funkce vyžaduje oprávnění bylo uděleno. Můžete buď dočasně znovu vytvořit oprávnění účtu globálního správce nebo použijte samostatné globální správce účtu, který je vlastníkem *výchozí předplatné poskytovatele*.
+Po nasazení není potřeba oprávnění globálního správce Azure Active Directory. Některé operace však může vyžadovat přihlašovací údaje globálního správce. Například skript instalační program zprostředkovatele prostředků nebo nová funkce vyžaduje oprávnění bylo uděleno. Můžete dočasně obnovit oprávnění globálního správce účtu, nebo použít samostatné globální správce účtu, který je vlastníkem *výchozí předplatné poskytovatele*.
 
 ## <a name="network"></a>Síť
 ### <a name="switch"></a>Přepínač

@@ -3,25 +3,24 @@ title: Integrované systémy pro nasazení list pro službu Azure Stack | Dokume
 description: Zjistěte, jak nainstalovat a používat nástroj pro nasazení listu pro nasazení Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: wamota
+manager: femila
 editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/19/2019
-ms.date: 04/29/2019
-ms.author: v-jay
+ms.date: 04/19/2019
+ms.author: wamota
 ms.reviewer: wamota
 ms.lastreviewed: 04/19/2019
-ms.openlocfilehash: eb904e022ec9e9645c45c313a27b5fdc4c82b195
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: d75915f110b6316f4621f66b1f91b010f735d165
+ms.sourcegitcommit: ccd86bd0862c45de1f6a4993f783ea2e186c187a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64292857"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65172668"
 ---
 # <a name="deployment-worksheet-for-azure-stack-integrated-systems"></a>List nasazení pro integrované systémy Azure Stack
 
@@ -48,7 +47,7 @@ Pro každou verzi list nasazení je nutné provést jednorázovou instalace modu
 2. V okně Powershellu nainstalujte modul z [Galerie prostředí PowerShell](https://www.powershellgallery.com/packages/Azs.Deployment.Worksheet/):
 
    ```PowerShell
-   Install-Module -Name Azs.Deployment.Worksheet -RequiredVersion 1.1902.TBD.1 -Repository PSGallery
+   Install-Module -Name Azs.Deployment.Worksheet -Repository PSGallery
    ```
 
 Pokud se zobrazí zpráva o instalaci z nedůvěryhodného úložiště, stiskněte **Y** a pokračujte v instalaci.

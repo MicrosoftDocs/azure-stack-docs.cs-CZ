@@ -11,22 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2019
+ms.date: 05/07/2019
 ms.author: sethm
 ms.reviewer: alfredop
-ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: 68ba971ada087bed31a65db037963b601953f1c6
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 05/07/2019
+ms.openlocfilehash: 476ffeaf7712e5cee22befbc822545382f808de5
+ms.sourcegitcommit: 39ba6d18781aed98b29ac5e08aac2d75c37bf18c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64296597"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65386620"
 ---
 # <a name="delegate-offers-in-azure-stack"></a>Delegování nabídek v Azure Stacku
 
 *Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
 
-Jako operátory Azure stacku často chcete umístit jiní lidé starosti přihlašování uživatelů a vytvoření předplatného. Například pokud jste poskytovatel služeb, může být vhodné prodejci v systému k podepisování zákazníci se těmito věcmi a spravovat za vás. Nebo, pokud jste součástí centrální skupina IT v organizaci, může být vhodné delegovat registraci uživatele na další IT zaměstnance.
+Jako operátory Azure stacku můžete chtít umístit jiní lidé starosti přihlašování uživatelů a vytvoření předplatného. Například pokud jste poskytovatel služeb, může být vhodné prodejci v systému k podepisování zákazníci se těmito věcmi a spravovat za vás. Nebo, pokud jste součástí centrální skupina IT v organizaci, může být vhodné delegovat registraci uživatele na další IT zaměstnance.
 
 Delegování usnadňuje dosažení a správě více uživatelů, než můžete provést sami, jak je znázorněno na následujícím obrázku:
 
@@ -34,9 +34,7 @@ Delegování usnadňuje dosažení a správě více uživatelů, než můžete p
 
 Delegování delegované poskytovatele spravuje nabídky (delegovanou nabídku) a koncovým zákazníkům získat předplatná v rámci této nabídky bez zásahu od správce systému.
 
-## <a name="understand-delegation-roles-and-steps"></a>Principy delegování role a kroky
-
-### <a name="delegation-roles"></a>Delegování role
+## <a name="delegation-roles"></a>Delegování role
 
 Následující role jsou součástí delegování:
 
@@ -46,7 +44,7 @@ Následující role jsou součástí delegování:
 
 * *Uživatelé* zaregistrovat nabídky a jejich použití ke správě své úlohy vytváření virtuálních počítačů, ukládání dat a tak dále.
 
-### <a name="delegation-steps"></a>Postup delegování
+## <a name="delegation-steps"></a>Postup delegování
 
 Existují dva základní kroky pro nastavení delegování:
 
@@ -58,7 +56,7 @@ Následující obrázek znázorňuje postup pro nastavení delegování:
 
 ![Vytvoření delegované poskytovatele a povolit jejich registrace uživatele](media/azure-stack-delegated-provider/image2.png)
 
-#### <a name="delegated-provider-requirements"></a>Požadavky na delegované poskytovatele
+### <a name="delegated-provider-requirements"></a>Požadavky na delegované poskytovatele
 
 Uživatel tak, aby fungoval jako delegované poskytovatele, vytvoří relaci se hlavní poskytovatele tak, že vytvoříte odběr. Toto předplatné identifikuje delegované poskytovatele tak, že má právo k dispozici delegované nabídky jménem hlavní zprostředkovatele.
 

@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: asganesh
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: 55439e1af1a5244c265572bfe6d01b26800312db
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: b68618bf1755310471901e89b8b154e34e3c0794
+ms.sourcegitcommit: ccd86bd0862c45de1f6a4993f783ea2e186c187a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985416"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65172719"
 ---
 # <a name="azure-stack-datacenter-integration"></a>Integrace datových center Azure Stack
 
@@ -33,7 +33,7 @@ Jako zákazník Azure Stack by měl očekáváte, že tyto fáze:
 |-----|-----|-----|-----|-----|-----|-----|
 |**Microsoft**|Kontaktovat partnera poskytovat předprodejní podporu.|Příprava licencování softwaru a smlouvách podle potřeby.|Zadejte požadované nástroje ke shromažďování požadavky na integraci datacenter a dokumentace pro zákazníka.|Poskytovat nejnovější základní sestavení a nástroje řetězu aktualizace měsíční čím dál.|neuvedeno|Pracovníci podpory společnosti Microsoft vám pomůže s problémy nasazení.|
 |**Partner**|Doporučujeme možnosti řešení na základě požadavků zákazníků.<br><br>Navrhnout testování konceptu (POC) v případě potřeby.<br><br>Vytvořte obchodní vztah.<br><br>Při rozhodování o úroveň podpory.|Příprava nezbytné smlouvy u zákazníka.<br><br>Vytvořte nákupní objednávky zákazníka.<br><br>Při rozhodování o doručení časové osy.<br><br>Připojte zákazník s Microsoftem v případě potřeby.|Poskytněte nezbytné školení pro zvýšení zajištění možnosti integrace přehled o všech požadavcích pro nasazení a datového centra zákazníka.<br><br>Zákazníkovi pomohli s ověření shromážděná data k zajištění úplnost a přesnosti.|Použijte poslední sestavení ověřené směrného plánu.<br><br>Použijte požadované sady Microsoft deployment toolkit.|Dodávejte hardwaru na webu zákazníka.|Zpracovat pracovník místní nasazení.<br><br>Rackem a skříní zásobníku.<br><br>Nasazení hostitele (HLH) životního cyklu hardwaru.<br><br>Nasazení Azure Stack.<br><br>Můžete předat do odběratele.|
-|**Zákazníka**|Popsat zamýšlené použití případy a určete požadavky.|Určení model fakturace můžete použít, kontrolovat a schvalovat smluv.|Dokončení nasazení listu a ujistěte se, že všechny požadavky na nasazení jsou splněny a je připravený k nasazení.|neuvedeno|Příprava datacentra tím, že zajišťuje všechny požadované power a chlazením, ohraničení připojení a další požadavek integrace vyžaduje datacenter jsou na místě.|Být k dispozici během nasazení zadat přihlašovací údaje předplatného a podpoře nějaké otázky pro zadaná data.|
+|**Zákazníka**|Popsat zamýšlené použití případy a určete požadavky.|Určení model fakturace můžete použít, kontrolovat a schvalovat smluv.|Dokončení [list nasazení](azure-stack-deployment-worksheet.md)a zkontrolujte všechny požadavky na nasazení jsou splněny a připravené na nasazení.|neuvedeno|Příprava datacentra tím, že zajišťuje všechny požadované power a chlazením, ohraničení připojení a další požadavek integrace vyžaduje datacenter jsou na místě.|Být k dispozici během nasazení zadat přihlašovací údaje předplatného a podpoře nějaké otázky pro zadaná data.|
 | | | | | | | |
 
 

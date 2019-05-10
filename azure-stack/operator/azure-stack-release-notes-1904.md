@@ -1,5 +1,5 @@
 ---
-title: Aktualizace služby Azure Stack 1904 | Dokumentace Microsoftu
+title: Zpráva k vydání verze Azure Stack 1904 | Dokumentace Microsoftu
 description: Další informace o aktualizaci 1904 pro integrované systémy Azure Stack, včetně novinek, známé problémy a kde se stáhnout aktualizaci.
 services: azure-stack
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/02/2019
+ms.date: 05/06/2019
 ms.author: sethm
 ms.reviewer: ''
-ms.lastreviewed: 05/02/2019
-ms.openlocfilehash: fd93ba34b712d5f6c4dc71c226e176f44a7bc6dc
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.lastreviewed: 05/06/2019
+ms.openlocfilehash: 7047c44ec4828c07eeaefdf29bcfef3762942b21
+ms.sourcegitcommit: 405075e7826ba2fa545dbf5498160219ef8d2db5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64987626"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65453728"
 ---
 # <a name="azure-stack-1904-update"></a>Aktualizace služby Azure Stack 1904
 
@@ -48,6 +48,8 @@ Tento článek popisuje obsah balíčku 1904 aktualizace. Obsahuje novinky vylep
 ### <a name="improvements"></a>Vylepšení
 
 <!-- Changes and product improvements with tangible customer-facing value. -->
+
+- Datová část aktualizace 1904 obsahuje aktualizace komponenty služby Azure Stack, které neobsahují příslušný operační systém hostitele služby Azure Stack. To umožňuje určitá aktualizace zařadit do oboru. V důsledku toho očekávaná doba, jak trvá dokončení aktualizace 1904 menší (přibližně 16 hodin, ale přesné časy se může lišit). Tento pokles v modulu runtime je podobný aktualizace 1903. Následné aktualizace však mohou obsahovat aktualizace operačního systému, zdání různé běhové moduly. Aktualizace budoucí pokyny, podobně jako očekávaný čas, který aktualizace v závislosti na payload zahrnuta.
 
 - Zásobník softwarově definované sítě (SDN) byla v 1904 významná vylepšení. Tato vylepšení zvýšit celkový údržby a spolehlivost komponent SDN ve službě Azure Stack.
 
@@ -159,6 +161,9 @@ Před instalací této aktualizace, ujistěte se, že ke kontrole následující
 - [Známé problémy](azure-stack-release-notes-known-issues-1904.md)
 - [Aktualizace zabezpečení](azure-stack-release-notes-security-updates-1904.md)
 - [Kontrolní seznam před a po instalaci aktualizace aktivity](azure-stack-release-notes-checklist.md)
+
+> [!NOTE]
+> Ujistěte se, že používáte nejnovější verzi [Azure Stack Capacity Planner](https://aka.ms/azstackcapacityplanner) nástroj k provedení úlohy plánování a velikosti. Nejnovější verze obsahuje opravy chyb a nabízí nové funkce, které se vydávají s každou aktualizaci Azure Stack.
 
 ## <a name="download-the-update"></a>Stáhnout aktualizaci.
 

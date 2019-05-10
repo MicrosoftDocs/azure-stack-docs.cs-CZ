@@ -13,16 +13,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.custom: ''
-ms.date: 02/08/2019
+ms.date: 05/06/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 7a78a5101e37ee1deeef3cb5923009bc08f26751
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 2e260145b2e17dd4475d81f576d84e0145fbc199
+ms.sourcegitcommit: ccd86bd0862c45de1f6a4993f783ea2e186c187a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64983802"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65172387"
 ---
 # <a name="deploy-the-asdk-from-the-command-line"></a>Nasazení ASDK z příkazového řádku
 ASDK je vývoj a testování prostředí, které můžete nasadit k vyhodnocení a k předvedení funkcí služby Azure Stack a služeb. K jeho získání pracovat, musíte připravit prostředí hardwaru a spustit některé skripty (bude to trvat i několik hodin). Potom můžete přihlásit na portály správce a uživatele chcete začít používat Azure Stack.
@@ -65,7 +65,7 @@ Pokud chcete nakonfigurovat počítač hostitele ASDK Execution CloudBuilder.vhd
 > Ujistěte se, že máte před restartováním přímé fyzické nebo KVM přístup k hostitelskému počítači development kit. Při prvním spuštění virtuálního počítače, budete vyzváni k dokončení instalace systému Windows Server. Zadejte stejné přihlašovací údaje správce, který jste použili pro přihlášení na hostitelském počítači development kit. 
 
 ### <a name="prepare-the-development-kit-host-using-powershell"></a>Příprava hostitele development kit pomocí Powershellu 
-Po vývojová sada hostitelský počítač úspěšně spustí do bitové kopie CloudBuilder.vhdx, přihlaste se pomocí stejných přihlašovacích údajů místního správce jste použili k přihlášení na hostitelském počítači development kit (a, které jste zadali jako součást dokončení Windows Server Při instalaci hostitelském počítači spuštěn z virtuálního pevného disku). 
+Po development kit hostitelský počítač úspěšně spustí do bitové kopie CloudBuilder.vhdx, přihlaste se pomocí stejné přihlašovací údaje místního správce jste použili k přihlášení na hostitelském počítači development kit (a, které jste zadali jako součást dokončení Windows Server Při instalaci hostitelském počítači spuštěn z virtuálního pevného disku). 
 
 > [!NOTE]
 > Volitelně můžete také nakonfigurovat [nastavení telemetrie Azure Stack](asdk-telemetry.md#set-telemetry-level-in-the-windows-registry) *před* instalaci ASDK.
@@ -93,7 +93,7 @@ Spusťte následující příkazy Powershellu k nasazení vývojové sady pomoc�
 
 Několik minut, než se do instalace ASDK, se zobrazí výzva přihlašovacích údajů Azure AD. Musíte zadat přihlašovací údaje globálního správce pro vašeho tenanta Azure AD. 
 
-Po nasazení není potřeba oprávnění globálního správce Azure Active Directory. Některé operace však může vyžadovat přihlašovací údaje globálního správce. Například skript instalační program zprostředkovatele prostředků nebo nová funkce vyžaduje oprávnění bylo uděleno. Můžete buď dočasně znovu vytvořit oprávnění účtu globálního správce nebo použijte samostatné globální správce účtu, který je vlastníkem *výchozí předplatné poskytovatele*.
+Po nasazení není potřeba oprávnění globálního správce Azure Active Directory. Některé operace však může vyžadovat přihlašovací údaje globálního správce. Například skript instalační program zprostředkovatele prostředků nebo nová funkce vyžaduje oprávnění bylo uděleno. Můžete dočasně obnovit oprávnění globálního správce účtu, nebo použít samostatné globální správce účtu, který je vlastníkem *výchozí předplatné poskytovatele*.
 
 ### <a name="deploy-azure-stack-using-ad-fs"></a>Nasazení Azure Stack pomocí služby AD FS 
 K nasazení vývojové sady **pomocí služby AD FS jako zprostředkovatele identity**, spusťte následující příkazy Powershellu (stačí přidat parametr - UseADFS): 
@@ -144,10 +144,10 @@ Pokud vaše prostředí nemá server DHCP, je nutné zahrnout další parametry 
 |AdminPassword|Požaduje se|Nastaví účet místního správce a všechny další uživatelské účty na všech virtuálních počítačích vytvořených jako součást nasazení vývojové sady. Toto heslo musí odpovídat aktuální heslo místního správce na hostiteli.|
 |InfraAzureDirectoryTenantName|Požaduje se|Nastaví adresář tenanta. Tento parametr použijte k určení konkrétního adresáře ve kterém má účet AAD oprávnění ke správě více adresářů. Úplný název Tenanta adresáře služby AAD ve formátu. onmicrosoft.com, nebo Azure AD ověřit vlastní název domény.|
 |TimeServer|Požaduje se|Tento parametr použijte k určení serveru určený čas. Tento parametr musí být ve formě IP adresy serveru platný čas. Názvy serverů nejsou podporovány.|
-|InfraAzureDirectoryTenantAdminCredential|Nepovinné|Nastaví Azure Active Directory uživatelské jméno a heslo. Tyto přihlašovací údaje Azure musí být identifikátor organizace.|
-|InfraAzureEnvironment|Nepovinné|Vyberte prostředí Azure, se kterou chcete zaregistrovat toto nasazení Azure Stack. Mezi možnosti patří veřejný Azure, Azure – Čína, Azure – pro státní správu USA.|
-|DNSForwarder|Nepovinné|DNS server se vytvoří jako součást nasazení Azure Stack. Povolit počítačům uvnitř řešení k překladu názvů mimo razítka, zadejte existující infrastrukturu DNS server. Server DNS v razítku předá požadavky na řešení Neznámý název k tomuto serveru.|
-|Znovu spustit|Nepovinné|Pomocí tohoto příznaku znovu spustit nasazení. Používá se všechny předchozí vstup. Znovu zadávat data dříve k dispozici není podporována, protože jsou generovány a použita pro nasazení několika jedinečné hodnoty.|
+|InfraAzureDirectoryTenantAdminCredential|Volitelná|Nastaví Azure Active Directory uživatelské jméno a heslo. Tyto přihlašovací údaje Azure musí být identifikátor organizace.|
+|InfraAzureEnvironment|Volitelná|Vyberte prostředí Azure, se kterou chcete zaregistrovat toto nasazení Azure Stack. Mezi možnosti patří globální Azure, Azure – Čína, Azure – pro státní správu USA.|
+|DNSForwarder|Volitelná|DNS server se vytvoří jako součást nasazení Azure Stack. Povolit počítačům uvnitř řešení k překladu názvů mimo razítka, zadejte existující infrastrukturu DNS server. Server DNS v razítku předá požadavky na řešení Neznámý název k tomuto serveru.|
+|Znovu spustit|Volitelná|Pomocí tohoto příznaku znovu spustit nasazení. Používá se všechny předchozí vstup. Nutnosti opětovného zadávání dat, dříve poskytnuté není podporována, protože jsou generovány a použita pro nasazení několika jedinečné hodnoty.|
 
 
 ## <a name="perform-post-deployment-configurations"></a>Provedení konfigurace po nasazení

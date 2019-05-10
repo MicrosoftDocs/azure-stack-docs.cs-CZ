@@ -16,12 +16,12 @@ ms.date: 03/21/2019
 ms.author: sethm
 ms.reviewer: scottnap
 ms.lastreviewed: 10/24/2018
-ms.openlocfilehash: 981e16fdcf636f6fbe587896f45c31bf4ac59900
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: cfa4ec1209e78d8e7281048b6d6685ac5488734d
+ms.sourcegitcommit: 61de365c93eb7435891867f9808ec37486882d7f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985667"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65097067"
 ---
 # <a name="connect-azure-stack-to-azure-using-vpn"></a>Připojení k Azure pomocí VPN Azure Stack
 
@@ -121,7 +121,7 @@ Nejprve vytvořte síťovým prostředkům pro Azure. Následující pokyny ukaz
 
 10. Zkontrolujte **Souhrn** a potom vyberte **OK**.
 
-## <a name="create-a-virtual-machine"></a>Vytvoření virtuálního počítače
+## <a name="create-a-virtual-machine"></a>Vytvořit virtuální počítač
 
 Teď vytvořte virtuální počítač v Azure a umístění podsítě virtuálních počítačů ve vaší virtuální síti.
 
@@ -233,9 +233,9 @@ Pokud chcete zkontrolovat připojení k síti VPN, vytvořte dva virtuální po�
 6. Zadejte **předplatné**, **skupiny prostředků**, a **umístění**a pak vyberte **OK**.
 7. Na **velikost** části této instance, vyberte velikost virtuálního počítače a pak vyberte **vyberte**.
 8. Na **nastavení** části, přijměte výchozí hodnoty. Ujistěte se, že **Azs-VNet** je vybraná virtuální síť. Ověřte, že podsíť je nastavená na **10.1.0.0/24**. Pak vyberte **OK**.
-9. Na **Souhrn** části, zkontrolujte nastavení a pak vyberte * OK **.
+9. Na **Souhrn** části, zkontrolujte nastavení a pak vyberte **OK**.
 
-## <a name="test-the-connection"></a>Otestování připojení
+## <a name="test-the-connection"></a>Otestovat připojení
 
 Po vytvoření připojení site-to-site, měli byste ověřit, že můžete získat data v obou směrech. Tímto způsobem testu pomocí příkazu ping je nejjednodušší způsob, jak otestovat připojení:
 
@@ -256,7 +256,7 @@ Po vytvoření připojení site-to-site, měli byste ověřit, že můžete zís
 
 5. Přihlaste se pomocí účtu, který jste nakonfigurovali při vytváření virtuálního počítače.
 6. Otevřete prostředí Windows PowerShell řádku se zvýšenými oprávněními.
-7. Zadejte **ipconfig /all**.
+7. Typ **ipconfig/all**.
 8. Ve výstupu vyhledejte **IPv4 adresu**a potom uložte adresu pro pozdější použití. Jde o adresu, která pomocí příkazu ping z Azure. V ukázkovém prostředí je adresa **10.1.0.4**, ale ve vašem prostředí může být jiná. By měla spadat do **10.1.0.0/24** podsítě, kterou jste vytvořili dříve.
 9. Pokud chcete vytvořit pravidlo brány firewall, které umožňuje virtuálnímu počítači reagovat na příkazy ping pro zjištění, spusťte následující příkaz Powershellu:
 
@@ -274,7 +274,7 @@ Po vytvoření připojení site-to-site, měli byste ověřit, že můžete zís
 4. V části pro virtuální počítač, vyberte **připojit**.
 5. Přihlaste se pomocí účtu, který jste nakonfigurovali při vytváření virtuálního počítače.
 6. Otevřete zvýšenými **prostředí Windows PowerShell** okna.
-7. Zadejte **ipconfig /all**.
+7. Typ **ipconfig/all**.
 8. Měla by se zobrazit IPv4 adresu, která spadá do **10.100.0.0/24**. V ukázkovém prostředí je adresa **10.100.0.4**, ale vaše adresa může být jiný.
 9. Pokud chcete vytvořit pravidlo brány firewall, které umožňuje virtuálnímu počítači reagovat na příkazy ping pro zjištění, spusťte následující příkaz Powershellu:
 

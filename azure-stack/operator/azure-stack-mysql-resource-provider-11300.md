@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/10/2018
+ms.date: 05/06/2019
 ms.author: jeffgilb
 ms.reviewer: jiahan
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: 78362cfe0113c82bb490c46cae167ff42ba90e29
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 0cf5ac92d3150060a96007ab3c64939992a74b51
+ms.sourcegitcommit: ccd86bd0862c45de1f6a4993f783ea2e186c187a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985295"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65172535"
 ---
 # <a name="mysql-resource-provider-11300--release-notes"></a>Poznámky k verzi poskytovatele 1.1.30.0 prostředků MySQL
 
@@ -57,7 +57,7 @@ Tato verze poskytovatele prostředků Azure Stack MySQL zahrnuje následující 
 
 - **SKU MySQL může trvat až hodinu, uvidí na portálu**. Může trvat až hodinu nově vytvořený skladová jednotka byla viditelná jenom pro použití při vytváření nových databází MySQL. 
 
-    **Alternativní řešení**: Žádné.
+    **Alternativní řešení**: Žádné
 
 - **Znovu použít přihlašovací údaje MySQL**. Při pokusu o vytvoření nové databáze MySQL přihlášení pomocí stejné uživatelské jméno jako stávající přihlašovací údaje v rámci stejného předplatného způsobí opětovné použití stejné přihlašovací údaje a stávající heslo. 
 

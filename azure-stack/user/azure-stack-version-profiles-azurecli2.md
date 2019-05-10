@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2019
+ms.date: 05/08/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: a0f01a70be83a556dfa0f8839711c2de1e7c688e
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 05/08/2019
+ms.openlocfilehash: 69eb6e676fb8c134e0184d4df7df95ba0c75e854
+ms.sourcegitcommit: 879165a66ff80f1463b6bb46e2245684224a9b92
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64301206"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65473878"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Použití profilů verzí API pomocí Azure CLI ve službě Azure Stack
 
@@ -81,69 +81,20 @@ Můžete nastavit veřejně přístupném koncovém bodu, který je hostitelem s
 
 ### <a name="install-or-upgrade-cli"></a>Instalace nebo upgrade rozhraní příkazového řádku
 
-Přihlaste se k vaší pracovní stanici a nainstalovat rozhraní příkazového řádku. Azure Stack vyžaduje verzi 2.0 nebo novější z rozhraní příkazového řádku Azure. Nejnovější verze profilů rozhraní API vyžaduje aktuální verzi rozhraní příkazového řádku.  Rozhraní příkazového řádku můžete nainstalovat pomocí kroků popsaných v [instalace rozhraní příkazového řádku Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) článku. Pokud chcete ověřit, zda byla instalace úspěšná, otevřete okno příkazového řádku nebo terminálu a spusťte následující příkaz:
+Přihlaste se k vaší pracovní stanici a nainstalovat rozhraní příkazového řádku. Azure Stack vyžaduje verzi 2.0 nebo novější z rozhraní příkazového řádku Azure. Nejnovější verze profilů rozhraní API vyžaduje aktuální verzi rozhraní příkazového řádku.  Rozhraní příkazového řádku můžete nainstalovat pomocí kroků popsaných v [instalace rozhraní příkazového řádku Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) článku. 
 
-```shell
-az --version
-```
+1. Pokud chcete ověřit, zda byla instalace úspěšná, otevřete okno příkazového řádku nebo terminálu a spusťte následující příkaz:
 
-Měli byste vidět verzi rozhraní příkazového řádku Azure a dalších závislých knihoven nainstalovaných v počítači.
-
-### <a name="install-python-on-windows"></a>Nainstalovat Python ve Windows
-
-1. Nainstalujte [Python 3 ve vašem systému](https://www.python.org/downloads/).
-
-2. Upgradujte. PIP je Správce balíčků pro Python. Otevřete příkazový řádek nebo řádku Powershellu se zvýšenými oprávněními a zadejte následující příkaz:
-
-    ```powershell  
-    python -m pip install --upgrade pip
+    ```shell
+    az --version
     ```
 
-3. Nainstalujte **osobní** modulu. [Osobní](https://pypi.org/project/certifi/) je modul a kolekci kořenových certifikátů pro ověření důvěryhodnosti certifikátů SSL při ověření identity hostitele TLS. Otevřete příkazový řádek nebo řádku Powershellu se zvýšenými oprávněními a zadejte následující příkaz:
+    Měli byste vidět verzi rozhraní příkazového řádku Azure a dalších závislých knihoven nainstalovaných v počítači.
 
-    ```powershell
-    pip install certifi
-    ```
+    ![Rozhraní příkazového řádku Azure na umístění Azure Stack Pythonu](media/azure-stack-version-profiles-azurecli2/cli-python-location.png)
 
-### <a name="install-python-on-linux"></a>Instalace Pythonu v Linuxu
+2. Poznamenejte si umístění Pythonu rozhraní příkazového řádku. Pokud spouštíte ASDK, musíte do tohoto umístění přidávat certifikát.
 
-1. Image Ubuntu 16.04 je součástí Python 2.7 a ve výchozím nastavení nainstalován Python 3.5. Vaše verze Pythonu 3 můžete ověřit spuštěním následujícího příkazu:
-
-    ```bash  
-    python3 --version
-    ```
-
-2. Upgradujte. PIP je Správce balíčků pro Python. Otevřete příkazový řádek nebo řádku Powershellu se zvýšenými oprávněními a zadejte následující příkaz:
-
-    ```bash  
-    sudo -H pip3 install --upgrade pip
-    ```
-
-3. Nainstalujte **osobní** modulu. [Osobní](https://pypi.org/project/certifi/) je kolekce kořenové certifikáty pro ověření důvěryhodnosti certifikátů SSL při ověření identity hostitele TLS. Otevřete příkazový řádek nebo řádku Powershellu se zvýšenými oprávněními a zadejte následující příkaz:
-
-    ```bash
-    pip3 install certifi
-    ```
-
-### <a name="install-python-on-macos"></a>Instalace Pythonu v systému macOS
-
-1. Nainstalujte [Python 3 ve vašem systému](https://www.python.org/downloads/). Pro vydané verze Pythonu 3.7 Python.org poskytuje dvě možnosti binární instalačního programu pro stažení. Výchozí varianta je 64-bit – jen a funguje v systému macOS 10.9 (Mavericks) nebo novějším. Vaše verze pythonu zkontrolujte, že otevřete terminál a zadáte následující příkaz:
-
-    ```bash  
-    python3 --version
-    ```
-
-2. Upgradujte. PIP je Správce balíčků pro Python. Otevřete příkazový řádek nebo řádku Powershellu se zvýšenými oprávněními a zadejte následující příkaz:
-
-    ```bash  
-    sudo -H pip3 install --upgrade pip
-    ```
-
-3. Nainstalujte **osobní** modulu. [Osobní](https://pypi.org/project/certifi/) je modul a kolekci kořenových certifikátů pro ověření důvěryhodnosti certifikátů SSL při ověření identity hostitele TLS. Otevřete příkazový řádek nebo řádku Powershellu se zvýšenými oprávněními a zadejte následující příkaz:
-
-    ```bash
-    pip3 install certifi
-    ```
 
 ## <a name="windows-azure-ad"></a>Windows (Azure AD)
 
@@ -153,15 +104,20 @@ Tato část vás provede procesem nastavení rozhraní příkazového řádku Po
 
 Pokud používáte ASDK, musíte důvěřovat certifikátu kořenové certifikační Autority na vzdáleném počítači. Nebude potřeba to udělat pomocí integrovaných systémů.
 
-Důvěřovat certifikátu kořenové certifikační Autority Azure stacku, přidejte je do existujícího certifikátu Python.
+Důvěřovat certifikátu kořenové certifikační Autority Azure stacku, přidejte je do existujícího certifikátu Python pro pomocí Azure CLI nainstalovanou verzi Pythonu. Může používat vlastní instance jazyka Python. Azure CLI zahrnuje svou vlastní verzi Pythonu.
 
-1. Najdete umístění certifikátu na svém počítači. Umístění se může lišit v závislosti na tom, kam jste nainstalovali Python. Otevřete příkazový řádek nebo řádku Powershellu se zvýšenými oprávněními a zadejte následující příkaz:
+1. Najdete umístění certifikátu na svém počítači.  Umístění získáte spuštěním příkazu `az --version`.
+
+2. Přejděte do složky, který obsahuje, které jste aplikaci v Pythonu rozhraní příkazového řádku. Chcete spustit tuto verzi pythonu. Pokud nastavíte Pythonu ve vašem systému CESTU, spustit jazyk Python spustí vlastní verzi jazyka Python. Místo toho můžete spustit verze používané v rozhraní příkazového řádku a přidání certifikátu do této verze. Například může být vaše rozhraní příkazového řádku Python v: `C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\`.
+
+    Pomocí následujících příkazů:
 
     ```powershell  
-      python -c "import certifi; print(certifi.where())"
+    cd "c:\pathtoyourcliversionofpython"
+    .\python -c "import certifi; print(certifi.where())"
     ```
 
-    Poznamenejte si umístění certifikátu. Například, `~/lib/python3.5/site-packages/certifi/cacert.pem`. Konkrétní cestu bude záviset na váš operační systém a verzi Pythonu, který jste nainstalovali.
+    Poznamenejte si umístění certifikátu. Například, `C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\lib\site-packages\certifi\cacert.pem`. Konkrétní cestu bude záviset na váš operační systém a instalaci rozhraní příkazového řádku.
 
 2. Důvěřujete certifikátu kořenové certifikační Autority Azure stacku připojením k existující certifikát Python.
 
@@ -207,12 +163,12 @@ Důvěřovat certifikátu kořenové certifikační Autority Azure stacku, přid
 
 2. Zaregistrujte vašeho prostředí. Při běhu používat následující parametry `az cloud register`.
 
-    | Hodnota | Příklad: | Popis |
+    | Value | Příklad: | Popis |
     | --- | --- | --- |
     | Název prostředí | AzureStackUser | Použití `AzureStackUser` pro uživatelské prostředí. Pokud operátor, zadat `AzureStackAdmin`. |
     | Koncový bod Resource Manageru | https://management.local.azurestack.external | **ResourceManagerUrl** je v Azure Stack Development Kit (ASDK): `https://management.local.azurestack.external/` **ResourceManagerUrl** v integrovaných systémech je: `https://management.<region>.<fqdn>/` Načíst metadata vyžaduje: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` Pokud máte dotaz týkající se koncový bod integrovaný systém, obraťte se na váš operátor cloudu. |
     | Koncový bod úložiště | local.azurestack.external | `local.azurestack.external` je ASDK. Pro integrovaný systém můžete použít koncový bod pro váš systém.  |
-    | Přípona Keyvalut | . vault.local.azurestack.external | `.vault.local.azurestack.external` je ASDK. Pro integrovaný systém můžete použít koncový bod pro váš systém.  |
+    | Přípona trezor klíčů | . vault.local.azurestack.external | `.vault.local.azurestack.external` je ASDK. Pro integrovaný systém můžete použít koncový bod pro váš systém.  |
     | Image virtuálního počítače alias doc koncový bod- | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | Identifikátor URI dokumentu, který obsahuje aliasy image virtuálního počítače. Další informace najdete v tématu [### nastavení koncového bodu virtuálního počítače aliasy](#set-up-the-virtual-machine-aliases-endpoint). |
 
     ```azurecli  
@@ -228,7 +184,7 @@ Důvěřovat certifikátu kořenové certifikační Autority Azure stacku, přid
 1. Aktualizujte konfiguraci vašeho prostředí použít profil pro konkrétní verze rozhraní API Azure Stack. Pokud chcete aktualizovat konfiguraci, spusťte následující příkaz:
 
     ```azurecli
-    az cloud update --profile 2018-03-01-hybrid
+    az cloud update --profile 2019-03-01-hybrid
    ```
 
     >[!NOTE]  
@@ -327,12 +283,12 @@ Pokud používáte ASDK, musíte důvěřovat certifikátu kořenové certifika�
 
 2. Zaregistrujte vašeho prostředí. Při běhu používat následující parametry `az cloud register`.
 
-    | Hodnota | Příklad: | Popis |
+    | Value | Příklad: | Popis |
     | --- | --- | --- |
     | Název prostředí | AzureStackUser | Použití `AzureStackUser` pro uživatelské prostředí. Pokud operátor, zadat `AzureStackAdmin`. |
     | Koncový bod Resource Manageru | https://management.local.azurestack.external | **ResourceManagerUrl** je v Azure Stack Development Kit (ASDK): `https://management.local.azurestack.external/` **ResourceManagerUrl** v integrovaných systémech je: `https://management.<region>.<fqdn>/` Načíst metadata vyžaduje: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` Pokud máte dotaz týkající se koncový bod integrovaný systém, obraťte se na váš operátor cloudu. |
     | Koncový bod úložiště | local.azurestack.external | `local.azurestack.external` je ASDK. Pro integrovaný systém můžete použít koncový bod pro váš systém.  |
-    | Přípona Keyvalut | . vault.local.azurestack.external | `.vault.local.azurestack.external` je ASDK. Pro integrovaný systém můžete použít koncový bod pro váš systém.  |
+    | Přípona trezor klíčů | . vault.local.azurestack.external | `.vault.local.azurestack.external` je ASDK. Pro integrovaný systém můžete použít koncový bod pro váš systém.  |
     | Image virtuálního počítače alias doc koncový bod- | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | Identifikátor URI dokumentu, který obsahuje aliasy image virtuálního počítače. Další informace najdete v tématu [### nastavení koncového bodu virtuálního počítače aliasy](#set-up-the-virtual-machine-aliases-endpoint). |
 
     ```azurecli  
@@ -408,7 +364,7 @@ Pokud používáte ASDK, musíte důvěřovat certifikátu kořenové certifika�
 
 Důvěřujete certifikátu kořenové certifikační Autority Azure stacku připojením k existující certifikát Python.
 
-1. Najdete umístění certifikátu na svém počítači. Umístění se může lišit v závislosti na tom, kam jste nainstalovali Python. Budete muset mít pip a osobní [nainstalovaným modulem](#install-python-on-linux). Můžete použít následující příkaz Pythonu na příkazovém řádku bash:
+1. Najdete umístění certifikátu na svém počítači. Umístění se může lišit v závislosti na tom, kam jste nainstalovali Python. Je potřeba mít pip a nainstalovaným modulem osobní. Můžete použít následující příkaz Pythonu na příkazovém řádku bash:
 
     ```bash  
     python3 -c "import certifi; print(certifi.where())"
@@ -443,12 +399,12 @@ Následující kroky použijte pro připojení ke službě Azure Stack:
 
 2. Zaregistrujte vašeho prostředí. Při běhu používat následující parametry `az cloud register`.
 
-    | Hodnota | Příklad: | Popis |
+    | Value | Příklad: | Popis |
     | --- | --- | --- |
     | Název prostředí | AzureStackUser | Použití `AzureStackUser` pro uživatelské prostředí. Pokud operátor, zadat `AzureStackAdmin`. |
     | Koncový bod Resource Manageru | https://management.local.azurestack.external | **ResourceManagerUrl** je v Azure Stack Development Kit (ASDK): `https://management.local.azurestack.external/` **ResourceManagerUrl** v integrovaných systémech je: `https://management.<region>.<fqdn>/` Načíst metadata vyžaduje: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` Pokud máte dotaz týkající se koncový bod integrovaný systém, obraťte se na váš operátor cloudu. |
     | Koncový bod úložiště | local.azurestack.external | `local.azurestack.external` je ASDK. Pro integrovaný systém můžete použít koncový bod pro váš systém.  |
-    | Přípona Keyvalut | . vault.local.azurestack.external | `.vault.local.azurestack.external` je ASDK. Pro integrovaný systém můžete použít koncový bod pro váš systém.  |
+    | Přípona trezor klíčů | . vault.local.azurestack.external | `.vault.local.azurestack.external` je ASDK. Pro integrovaný systém můžete použít koncový bod pro váš systém.  |
     | Image virtuálního počítače alias doc koncový bod- | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | Identifikátor URI dokumentu, který obsahuje aliasy image virtuálního počítače. Další informace najdete v tématu [### nastavení koncového bodu virtuálního počítače aliasy](#set-up-the-virtual-machine-aliases-endpoint). |
 
     ```azurecli  
@@ -519,7 +475,7 @@ Pokud používáte ASDK, musíte důvěřovat certifikátu kořenové certifika�
 
 Důvěřujete certifikátu kořenové certifikační Autority Azure stacku připojením k existující certifikát Python.
 
-1. Najdete umístění certifikátu na svém počítači. Umístění se může lišit v závislosti na tom, kam jste nainstalovali Python. Budete muset mít pip a osobní [nainstalovaným modulem](#install-python-on-linux). Můžete použít následující příkaz Pythonu na příkazovém řádku bash:
+1. Najdete umístění certifikátu na svém počítači. Umístění se může lišit v závislosti na tom, kam jste nainstalovali Python. Je potřeba mít pip a nainstalovaným modulem osobní. Můžete použít následující příkaz Pythonu na příkazovém řádku bash:
 
     ```bash  
     python3 -c "import certifi; print(certifi.where())"
@@ -554,12 +510,12 @@ Následující kroky použijte pro připojení ke službě Azure Stack:
 
 2. Zaregistrujte vašeho prostředí. Při běhu používat následující parametry `az cloud register`.
 
-    | Hodnota | Příklad: | Popis |
+    | Value | Příklad: | Popis |
     | --- | --- | --- |
     | Název prostředí | AzureStackUser | Použití `AzureStackUser` pro uživatelské prostředí. Pokud operátor, zadat `AzureStackAdmin`. |
     | Koncový bod Resource Manageru | https://management.local.azurestack.external | **ResourceManagerUrl** je v Azure Stack Development Kit (ASDK): `https://management.local.azurestack.external/` **ResourceManagerUrl** v integrovaných systémech je: `https://management.<region>.<fqdn>/` Načíst metadata vyžaduje: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` Pokud máte dotaz týkající se koncový bod integrovaný systém, obraťte se na váš operátor cloudu. |
     | Koncový bod úložiště | local.azurestack.external | `local.azurestack.external` je ASDK. Pro integrovaný systém můžete použít koncový bod pro váš systém.  |
-    | Přípona Keyvalut | . vault.local.azurestack.external | `.vault.local.azurestack.external` je ASDK. Pro integrovaný systém můžete použít koncový bod pro váš systém.  |
+    | Přípona trezor klíčů | . vault.local.azurestack.external | `.vault.local.azurestack.external` je ASDK. Pro integrovaný systém můžete použít koncový bod pro váš systém.  |
     | Image virtuálního počítače alias doc koncový bod- | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | Identifikátor URI dokumentu, který obsahuje aliasy image virtuálního počítače. Další informace najdete v tématu [### nastavení koncového bodu virtuálního počítače aliasy](#set-up-the-virtual-machine-aliases-endpoint). |
 
     ```azurecli  

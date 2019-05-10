@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 02/06/2019
+ms.date: 05/02/2019
 ms.author: jeffgilb
 ms.reviewer: wamota
 ms.lastreviewed: 02/06/2019
-ms.openlocfilehash: 1f87633568a5a66c016b53f062f11ca733730092
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 262b1790b102483daca1a77d475815b34aa7a1b2
+ms.sourcegitcommit: 61de365c93eb7435891867f9808ec37486882d7f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985230"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65097115"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure Stack – integrace datových center – publikování koncových bodů
 
@@ -46,10 +46,10 @@ Interní infrastrukturu virtuálních IP adres nejsou uvedené, protože nejsou 
 |Azure Resource Manager (správce)|Adminmanagement.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |Portál (uživatel)|Portál.  *&lt;oblast >.&lt; plně kvalifikovaný název domény >*|HTTPS|443|
 |Azure Resource Manageru (uživatel)|Správa.  *&lt;oblast >.&lt; plně kvalifikovaný název domény >*|HTTPS|443|
-|Graph|Graph.*&lt;region>.&lt;fqdn>*|HTTPS|443|
+|Graf|Graph.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |Seznam odvolaných certifikátů|Crl.*&lt;region>.&lt;fqdn>*|HTTP|80|
 |DNS|&#42;.*&lt;region>.&lt;fqdn>*|TCP A UDP|53|
-|Hostování | *.hosting.\<region>.\<fqdn> | HTTPS | 443 |
+|Hosting | *.hosting.\<region>.\<fqdn> | HTTPS | 443 |
 |Key Vault (uživatel)|&#42;.Vault.  *&lt;oblast >.&lt; plně kvalifikovaný název domény >*|HTTPS|443|
 |Key Vault (správce)|&#42;.adminvault.  *&lt;oblast >.&lt; plně kvalifikovaný název domény >*|HTTPS|443|
 |Fronta úložiště|&#42;.queue.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
@@ -75,7 +75,7 @@ Azure Stack podporuje pouze transparentní proxy servery. V nasazení tam, kde t
 |---------|---------|---------|---------|---------|
 |Identita|login.windows.net<br>login.microsoftonline.com<br>graph.windows.net<br>https:\//secure.aadcdn.microsoftonline-p.com<br>office.com|HTTP<br>HTTPS|80<br>443|Veřejné virtuální IP adresy – velikost/27<br>Infrastruktura veřejných sítě|
 |Syndikace Marketplace|https:\//management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://*.azureedge.net<br>https://&#42;.microsoftazurestack.com|HTTPS|443|Veřejné virtuální IP adresy – velikost/27|
-|Opravy a aktualizace|https://&#42;.azureedge.net|HTTPS|443|Veřejné virtuální IP adresy – velikost/27|
+|Opravy a aktualizace|https://&#42;.azureedge.net<br>https:\//aka.ms/azurestackautomaticupdate|HTTPS|443|Veřejné virtuální IP adresy – velikost/27|
 |Registrace|https:\//management.azure.com|HTTPS|443|Veřejné virtuální IP adresy – velikost/27|
 |Využití|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.net |HTTPS|443|Veřejné virtuální IP adresy – velikost/27|
 |Windows Defender|\*.wdcp.microsoft.com<br>\*.wdcpalt.microsoft.com<br>\*.wd.microsoft.com<br>\*.update.microsoft.com<br>\*.download.microsoft.com<br>https:\//www.microsoft.com/pkiops/crl<br>https:\//www.microsoft.com/pkiops/certs<br>https:\//crl.microsoft.com/pki/crl/products<br>https:\//www.microsoft.com/pki/certs<br>https:\//secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|Veřejné virtuální IP adresy – velikost/27<br>Infrastruktura veřejných sítě|

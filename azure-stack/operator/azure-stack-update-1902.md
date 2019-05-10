@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2019
+ms.date: 05/07/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.lastreviewed: 04/20/2019
-ms.openlocfilehash: 719fa829f5dca122fdb219608c5b40aa255297c8
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.lastreviewed: 05/07/2019
+ms.openlocfilehash: a220bdef3a1243510bf7d9ace5991cd638c93f28
+ms.sourcegitcommit: 39ba6d18781aed98b29ac5e08aac2d75c37bf18c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64984095"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65387143"
 ---
 # <a name="azure-stack-1902-update"></a>Aktualizace služby Azure Stack 1902
 
@@ -123,6 +123,9 @@ Azure Stack opravy hotfix platí pouze pro integrované systémy Azure Stack; Ne
 - Vylepšení kolekce inventáře hardwaru v Get AzureStackStampInformation.
 
 - Abychom vylepšili spolehlivost operací spuštěných v infrastruktuře ERCS, zvyšuje paměť pro každou instanci ERCS z 8 GB až 12 GB. Při instalaci Azure Stack integrované systémy výsledkem je 12 GB zvýšení celkové.
+
+<!-- 110303935 IcM Reported by HKEX -->
+- 1902 opravuje problém ve službě Network řadiče virtuálního přepínače, ve kterém jsou všechny virtuální počítače v konkrétním uzlu přešel do režimu offline.  Problém způsobil, že uvízne ve primárního ztrátě stavu, kdy primární nelze kontaktovat, ale role nebyl převzalo jiné, v pořádku instance, které nebylo možné vyřešit pouze kontaktujte služby podpory společnosti Microsoft.
 
 > [!IMPORTANT]
 > Aby se zajistilo procesu opravy a aktualizace výsledkem minimem výpadků tenanta, ujistěte se, že vaše služby Azure Stack razítko má více než 12 GB volného místa v **kapacity** okno. Zobrazí se tato paměť zvýšit v **kapacity** okno po úspěšné instalaci aktualizace.
@@ -226,6 +229,8 @@ Toto jsou známé problémy této verze sestavení po instalaci.
    - Pokud jste nakonfigurovali prostředí s více tenanty, nasazování virtuálních počítačů v rámci služby předplacené asociovaná s adresářem hosta může selhat s interní chybovou zprávu. Pokud chcete chybu vyřešit, postupujte podle kroků v [v tomto článku](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) změna konfigurace všech vašich adresářů hosta.
 
 - Virtuální počítač s Ubuntu 18.04 vytvořené pomocí SSH autorizace povolená neumožňuje použití klíčů SSH pro přihlášení. Jako alternativní řešení použít přístup k virtuálním počítačům pro Linuxové rozšíření k implementaci klíče SSH po zřízení, nebo ověřování pomocí hesla.
+
+- Nelze odebrat škálovací sady z **Virtual Machine Scale Sets** okno. Jako alternativní řešení, vyberte škálovací sady, že chcete odebrat, klikněte **odstranit** tlačítko **přehled** podokně.
 
 ### <a name="networking"></a>Sítě  
 

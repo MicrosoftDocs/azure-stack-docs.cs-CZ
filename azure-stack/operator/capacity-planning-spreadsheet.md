@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2018
+ms.date: 05/06/2019
 ms.author: jeffgilb
 ms.reviewer: prchint
 ms.lastreviewed: 12/11/2018
-ms.openlocfilehash: 459398f5f40ae5fb28dfa4ac73b94aecca7304eb
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: da0740cd416af26f3e9c284c2ff405d6e06ffcb7
+ms.sourcegitcommit: ccd86bd0862c45de1f6a4993f783ea2e186c187a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64296861"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65172637"
 ---
 # <a name="azure-stack-capacity-planner"></a>Capacity Planner služby Azure Stack
 Azure Stack Capacity Planner je tabulka pro plánování kapacity prostředků Azure Stack. Capacity planner vám poskytuje schopnost navrhovat různých přidělení výpočetní prostředky a zobrazit, jak by přizpůsobit přes výběr nabídky hardwaru. Níže jsou uvedené podrobné pokyny pro použití kalkulačky Azure Stack.
@@ -32,7 +32,7 @@ Následuje krátký popis součástí Azure stacku Capacity Planner tabulky, kte
 |Název karty|Popis|
 |-----|-----|
 |Verze právní omezení|Stručný přehled účelu kalkulačky, číslo verze a datum vydání.|
-|Pokyny|Poskytuje podrobné pokyny pro použití nástroje Capacity Planner služby Azure Stack.|
+|Instrukce|Poskytuje podrobné pokyny pro použití nástroje Capacity Planner služby Azure Stack.|
 |DefinedSolutionSKUs|Vícesloupcové tabulky obsahující až o pěti definice hardwaru. Příklady jsou položky v tomto listu. Cílem je, že uživatel změní podrobnosti pro vyhledání konfigurace systému považují za pro používání nebo zakoupení.|
 |DefineByVMFootprint|Najdete vhodný hardware SKU tak, že vytvoříte kolekci různé velikosti a množství virtuálních počítačů.|
 |DefineByWorkloadFootprint|Najdete vhodný hardware SKU tak, že vytvoříte kolekci úloh služby Azure Stack.|

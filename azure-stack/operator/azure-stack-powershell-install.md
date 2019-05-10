@@ -3,25 +3,24 @@ title: Instalace Powershellu pro Azure Stack | Dokumentace Microsoftu
 description: Zjistěte, jak nainstalovat prostředí PowerShell pro Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: mattbriggs
+manager: femila
 editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-origin.date: 04/13/2019
-ms.date: 04/29/2019
-ms.author: v-jay
+ms.date: 05/09/2019
+ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 04/13/2019
-ms.openlocfilehash: d523e981663218f39815e3bfe3911f8c8f4c363f
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 05/09/2019
+ms.openlocfilehash: a1923c06d31ff32e1c7e5d50e3b70330d16d25c5
+ms.sourcegitcommit: c755c7eac0f871960f9290591421cf5990b9e734
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64293759"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506137"
 ---
 # <a name="install-powershell-for-azure-stack"></a>Instalace Powershellu pro Azure Stack
 
@@ -29,7 +28,7 @@ ms.locfileid: "64293759"
 
 Pro práci s vaším cloudovým, je nutné nainstalovat kompatibilní moduly Powershellu služby Azure Stack. Kompatibilita je povolená díky funkci s názvem *profilů API*.
 
-Profily rozhraní API poskytují způsob, jak spravovat verze rozdíly mezi Azure a Azure Stack. Profilu verze rozhraní API je sada modulů Azure Powershellu pro Resource Manager s konkrétní verzí rozhraní API. Každá Cloudová platforma obsahuje sadu podporovaných profilů verzí API. Například Azure Stack jako podporuje verzi konkrétní profil **2018-03-01hybridní**. Při instalaci profilu jsou nainstalovány moduly Powershellu pro Azure Resource Manager, které odpovídají zadaný profil. Profily jsou používány pro Azure Stack verze 1811 nebo starší. Verze Azure Stack 1901 nebo novější, mohou vývojáři moduly AzureRM **2.4.0** k instalaci správné moduly Powershellu pro Azure Resource Manager.
+Profily rozhraní API poskytují způsob, jak spravovat verze rozdíly mezi Azure a Azure Stack. Profilu verze rozhraní API je sada modulů Azure Powershellu pro Resource Manager s konkrétní verzí rozhraní API. Každá Cloudová platforma obsahuje sadu podporovaných profilů verzí API. Například Azure Stack jako podporuje verzi konkrétní profil **2018-03-01hybridní**. Při instalaci profilu jsou nainstalovány moduly Powershellu pro Azure Resource Manager, které odpovídají zadaný profil.
 
 Můžete nainstalovat kompatibilní moduly Powershellu v Internetu připojený, částečně připojeno nebo odpojených scénářů, služby Azure Stack. Tento článek vás provede podrobné pokyny pro tyto scénáře.
 
@@ -97,7 +96,19 @@ Instalace má tři kroky:
 
 Spusťte následující skript prostředí PowerShell k instalaci těchto modulů na pracovní stanici vývoje:
 
-- Azure Stack verze 1901 nebo novější, pouze nainstalovat následující moduly níže:
+- Pro 1904 byl sestavení nebo novější:
+
+    ```powershell  
+    # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
+    Install-Module -Name AzureRM.BootStrapper
+    
+    # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
+    Get-AzureRMProfile -Update
+    Use-AzureRmProfile -Profile 2019-03-01-hybrid -Force
+    Install-Module -Name AzureStack -RequiredVersion 1.7.2
+    ```
+  
+- Azure Stack verze 1903 nebo starší, pouze nainstalovat následující moduly níže:
 
     ```powershell  
     # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
@@ -123,21 +134,6 @@ Spusťte následující skript prostředí PowerShell k instalaci těchto modul�
 
     Install-Module -Name AzureStack -RequiredVersion 1.6.0
     ```
-
-- Azure Stack 1810 nebo starší, nainstalovat s použitím profilu **AzureRM.Bootstrapper**:
-
-    ```powershell  
-    # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
-    Install-Module -Name AzureRM.BootStrapper
-
-    # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
-    Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
-
-    Install-Module -Name AzureStack -RequiredVersion 1.5.0
-    ```
-
-> [!Note]  
-> Upgrade prostředí Azure PowerShell z **2017-03-09-profile** k **2018-03-01hybridní**, podrobnosti najdete [Průvodce migrací](https://github.com/azure/azure-powershell/blob/AzureRM/documentation/migration-guides/Stack/migration-guide.2.3.0.md).
 
 ### <a name="enable-additional-storage-features"></a>Povolení funkcí dalšího úložiště
 
@@ -289,4 +285,4 @@ Ve scénářích, které vyžadují přístup k Internetu proxy server je nutné
 - [Stáhněte si nástroje pro Azure Stack z Githubu](azure-stack-powershell-download.md)
 - [Konfigurace prostředí PowerShell uživatele Azure stacku](../user/azure-stack-powershell-configure-user.md)
 - [Konfigurace prostředí PowerShell pro operátory Azure stacku](azure-stack-powershell-configure-admin.md)
-- [Správa profilů verzí rozhraní API ve službě Azure Stack](../user/azure-stack-version-profiles.md)
+- [Správa profilů verzí API ve službě Azure Stack](../user/azure-stack-version-profiles.md)

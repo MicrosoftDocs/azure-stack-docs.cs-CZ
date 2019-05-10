@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2019
+ms.date: 05/06/2019
 ms.author: jeffgilb
 ms.reviewer: jiahan
 ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: 647ddb8ec7d2230e5b92c34d4b146ec1121d6793
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 3f18c3799db31551495f8a674393bb6dd49f0859
+ms.sourcegitcommit: ccd86bd0862c45de1f6a4993f783ea2e186c187a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64984800"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65172508"
 ---
 # <a name="sql-resource-provider-11300-release-notes"></a>Poznámky k verzi 1.1.30.0 poskytovatele prostředků SQL
 
@@ -59,7 +59,7 @@ Tato verze poskytovatele prostředků Azure Stack SQL zahrnuje následující vy
 
 - **SKU SQL může trvat až hodinu, uvidí na portálu**. Může trvat až hodinu nově vytvořený skladová jednotka byla viditelná jenom pro použití při vytváření nové databáze SQL. 
 
-    **Alternativní řešení**: Žádné.
+    **Alternativní řešení**: Žádné
 
 - **Znovu použít přihlášeních SQL**. Pokus o vytvoření nové SQL přihlásit se pomocí stejné uživatelské jméno jako stávající přihlašovací údaje v rámci stejného předplatného způsobí opětovné použití stejné přihlašovací údaje a stávající heslo. 
 

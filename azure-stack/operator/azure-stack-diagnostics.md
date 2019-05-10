@@ -11,12 +11,12 @@ ms.date: 04/30/2019
 ms.author: jeffgilb
 ms.reviewer: adshar
 ms.lastreviewed: 11/20/2018
-ms.openlocfilehash: aaa929924399eb7e999bccdaa45e5ae9ce0dfa3a
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 9aa090f301a7444736773744215981214e41747e
+ms.sourcegitcommit: eb7ea8aee806b5c770397fa6ccf24cef2d6308bf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985363"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65431525"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Azure Stack diagnostické nástroje
 
@@ -104,7 +104,7 @@ Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -Filter
 * Shromažďování protokolů z role virtuálních počítačů a BareMetal filtrování pro soubory protokolu pro toto časové období před 8 hodin až 2 hodiny před datem:
 
   ```powershell
-  Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
+  Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
   ```
 
 * Shromažďování protokolů a uložit je do zadaného kontejneru objektů blob v Azure Storage. Obecná syntaxe pro tuto operaci je následující:

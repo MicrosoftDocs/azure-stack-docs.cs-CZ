@@ -10,12 +10,12 @@ ms.date: 05/02/2019
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: 67149ffa1d602cb0bbab020f0af3f317cb0aac4d
-ms.sourcegitcommit: 91c5056cb6d9bbd852132bebfbefa05b6b4d6cb3
+ms.openlocfilehash: ec0a4b0dc020d9c2c977c7b75b1785cfc98446f6
+ms.sourcegitcommit: 61de365c93eb7435891867f9808ec37486882d7f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64988152"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65097108"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integrace datových center Azure Stack – Identity
 
@@ -46,7 +46,7 @@ Požadavky:
 
 |Komponenta|Požadavek|
 |---------|---------|
-|Graph|Microsoft Active Directory 2012/2012 R2/2016|
+|Graf|Microsoft Active Directory 2012/2012 R2/2016|
 |AD FS|Windows Server 2012/2012 R2/2016|
 
 ## <a name="setting-up-graph-integration"></a>Nastavení integrace grafu
@@ -55,10 +55,10 @@ Graf podporuje pouze integraci s jednou doménovou strukturou Active Directory. 
 
 Tyto informace se vyžaduje jako vstup pro automatizaci parametry:
 
-|Parametr|Popis|Příklad:|
-|---------|---------|---------|
-|`CustomADGlobalCatalog`|Plně kvalifikovaný název domény cílové doménové struktuře služby Active Directory<br>Chcete integrovat s|Contoso.com|
-|`CustomADAdminCredentials`|Uživatel s oprávněním ke čtení protokolu LDAP|YOURDOMAIN\graphservice|
+|Parametr|Parametr list nasazení|Popis|Příklad:|
+|---------|---------|---------|---------|
+|`CustomADGlobalCatalog`|Plně kvalifikovaný název domény doménové struktury služby AD FS|Plně kvalifikovaný název domény cílové doménové struktuře služby Active Directory<br>Chcete integrovat s|Contoso.com|
+|`CustomADAdminCredentials`| |Uživatel s oprávněním ke čtení protokolu LDAP|YOURDOMAIN\graphservice|
 
 ### <a name="configure-active-directory-sites"></a>Konfigurace lokalit služby Active Directory
 
@@ -127,10 +127,10 @@ Služba Graph ve službě Azure Stack používá následující protokoly a port
 
 Tyto informace se vyžaduje jako vstup pro automatizaci parametry:
 
-|Parametr|Popis|Příklad:|
-|---------|---------|---------|
-|CustomAdfsName|Název zprostředkovatele deklarací identity.<br>Zobrazí se tak na cílové stránce služby AD FS.|Contoso|
-|CustomAD<br>FSFederationMetadataEndpointUri|Federační metadata odkaz| https:\//ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml |
+|Parametr|Parametr list nasazení|Popis|Příklad:|
+|---------|---------|---------|---------|
+|CustomAdfsName|Název poskytovatele služby AD FS|Název zprostředkovatele deklarací identity.<br>Zobrazí se tak na cílové stránce služby AD FS.|Contoso|
+|CustomAD<br>FSFederationMetadataEndpointUri|ADFS Metadata URI|Federační metadata odkaz| https:\//ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml |
 
 
 ### <a name="trigger-automation-to-configure-claims-provider-trust-in-azure-stack"></a>Aktivování automatizace ke konfiguraci vztahu důvěryhodnosti zprostředkovatele deklarací identity ve službě Azure Stack

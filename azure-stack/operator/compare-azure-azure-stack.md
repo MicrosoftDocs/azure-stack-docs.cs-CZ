@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 03/29/2019
+ms.date: 05/03/2019
 ms.author: jeffgilb
 ms.reviewer: unknown
 ms.custom: ''
 ms.lastreviewed: 03/29/2019
-ms.openlocfilehash: fb8b3e2cd973fc2e42540cd7ba45392829f605f8
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: d604175cede436dc7d07020271d61c19f2fd542a
+ms.sourcegitcommit: 61de365c93eb7435891867f9808ec37486882d7f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64984441"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65097131"
 ---
 # <a name="differences-between-global-azure-azure-stack-and-azure-stack-hci"></a>Rozdíly mezi globální Azure, Azure Stack a Azure Stack HCL
 
@@ -59,8 +59,8 @@ Kromě poskytovatelů prostředků je popsáno výše, jsou k dispozici další 
 
 - Service Fabric
 - Služby kontejnerů Kubernetes
-- IoT Hub a centra událostí
-- Etherium Blockchain
+- IoT Hub a Event Hubs
+- Ethereum Blockchain
 - Cloud Foundry
 
 ### <a name="example-use-cases-for-azure-stack"></a>Vzorové případy použití pro službu Azure Stack:
