@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/10/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 03/27/2019
-ms.openlocfilehash: e89a2fc4adbe4a9d399cec67608c1c63748692e7
-ms.sourcegitcommit: 39ba6d18781aed98b29ac5e08aac2d75c37bf18c
+ms.openlocfilehash: 1fcdcdc4f592056ce3da5074b2371fde91b47c85
+ms.sourcegitcommit: 426380a3a27954cd609ba52d1066d9d69f5267fe
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65387134"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65532386"
 ---
 # <a name="azure-stack-1901-update"></a>Aktualizace služby Azure Stack 1901
 
@@ -221,6 +221,8 @@ Tuto aktualizaci nainstaluje následující aktualizace:
 Další informace o těchto ohrožení zabezpečení, klikněte na výše uvedené odkazy nebo najdete v článcích znalostní báze Microsoft [4480977](https://support.microsoft.com/en-us/help/4480977).
 
 ## <a name="known-issues-with-the-update-process"></a>Známé problémy s proces aktualizace
+
+- Při pokusu o instalaci aktualizace služby Azure Stack, stav aktualizace může selhat a změnu stavu na **PreparationFailed**. To je způsobeno aktualizace poskytovateli prostředků (URP) není schopen správně přenosu souborů z kontejneru úložiště do sdílené složky interní infrastruktury pro zpracování. Počínaje verzí 1901 (1.1901.0.95), můžete alternativně vyřešit tento problém kliknutím **aktualizovat** znovu (ne **Resume**). URP potom vyčistí soubory z předchozího pokusu o a znovu spustí stahování.
 
 - Při spuštění [testovací AzureStack](azure-stack-diagnostic-test.md), pokud **AzsInfraRoleSummary** nebo **AzsPortalApiSummary** test se nezdaří, zobrazí se výzva ke spuštění  **Test-AzureStack** s `-Repair` příznak.  Pokud spustíte tento příkaz, selže s následující chybová zpráva:  `Unexpected exception getting Azure Stack health status. Cannot bind argument to parameter 'TestResult' because it is null.`
 

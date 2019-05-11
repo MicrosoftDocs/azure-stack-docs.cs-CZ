@@ -15,12 +15,12 @@ ms.date: 04/25/2019
 ms.author: mabrigg
 ms.reviewer: justini
 ms.lastreviewed: 02/11/2019
-ms.openlocfilehash: 124dc554e18f6d387a3e41d37809d43276094879
-ms.sourcegitcommit: 0d8ccf2a32b08ab9bcbe13d54c7c3dce2379757f
+ms.openlocfilehash: 147e6b7555d67b562b44102bfd022e954a87e0ae
+ms.sourcegitcommit: 2b6a0b3b4dc63c26df3d0535d630d640ff232fb0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64490128"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65521228"
 ---
 # <a name="apply-updates-in-azure-stack"></a>Použití aktualizací ve službě Azure Stack
 
@@ -68,14 +68,14 @@ Pokud používáte verzi integrovaných systémech 1807 nebo starší, musíte s
 
 Pokud společnosti Microsoft nebo výrobce OEM balíčku aktualizace pro Azure Stack je k dispozici, stáhněte si balíček do umístění, který je dosažitelný z Azure Stack a zkontrolovat obsah balíčku. Balíček aktualizací se obvykle skládá z následujících souborů:
 
-- Samoobslužné extrahování `<PackageName>.exe` souboru. Tento soubor obsahuje datovou část aktualizace, například nejnovější kumulativní aktualizaci pro Windows Server.
+- Samoobslužné extrahování `<PackageName>.zip` souboru. Tento soubor obsahuje datovou část aktualizace, například nejnovější kumulativní aktualizaci pro Windows Server.
 
-- Odpovídající `<PackageName>.bin` soubory. Tyto soubory poskytují kompresi pro datovou část, který je přidružen *název_balíčku*soubor .exe.
+- Odpovídající `<PackageName>.bin` soubory. Tyto soubory poskytují kompresi pro datovou část, který je přidružen *název_balíčku*soubor .zip.
 
 - A `Metadata.xml` souboru. Tento soubor obsahuje základní informace o aktualizaci, třeba vydavatele, název, požadovaných součástí, velikost a adresa URL podpory cestu.
 
 > [!IMPORTANT]  
-> Po použití balíčku aktualizace Azure Stack 1901 formát balení pro balíčky aktualizací pro Azure Stack přejde od .exe, .bin(s) a formátu XML .zip(s) a formátu XML. Operátoři Azure stacku, které se připojily razítka nebude mít vliv. Operátoři Azure stacku, které jsou odpojené jednoduše naimportuje soubory XML a .zip s použitím stejného procesu popsané níže.
+> Po použití balíčku aktualizace Azure Stack 1901 formát balení pro balíčky aktualizací pro Azure Stack přejde od ZIP, .bin(s) a formátu XML .zip(s) a formátu XML. Operátoři Azure stacku, které se připojily razítka nebude mít vliv. Operátoři Azure stacku, které jsou odpojené jednoduše naimportuje soubory XML a .zip s použitím stejného procesu popsané níže.
 
 ## <a name="import-and-install-updates"></a>Import a aktualizace
 
@@ -102,13 +102,14 @@ Následující postup ukazuje, jak importovat a nainstalovat balíčky aktualiza
  
     ![Ukazuje, jak nahrát soubory balíčku](media/azure-stack-apply-updates/ApplyUpdates5.png)
 
-6. V části **nahrát objekt blob**, klikněte na ikonu složky, vyhledejte soubor .exe balíček aktualizace a pak klikněte na tlačítko **otevřít** v okně Průzkumníka souborů.
+6. V části **nahrát objekt blob**, klikněte na ikonu složky, přejděte k souboru ZIP balíčku aktualizace a pak klikněte na tlačítko **otevřít** v okně Průzkumníka souborů.
   
 7. V části **nahrát objekt blob**, klikněte na tlačítko **nahrát**.
   
     ![Ukazuje, kde kvůli nahrání každého souboru balíčku](media/azure-stack-apply-updates/ApplyUpdates6.png)
 
-8. Zopakujte kroky 6 a 7 pro *název_balíčku*soubor .bin a soubory Metadata.xml. Pokud zahrnutý import souboru doplňkové Notice.txt.
+8. Zopakujte kroky 6 a 7 pro *název_balíčku*soubor .bin a soubory Metadata.xml. Pokud zahrnutý import souboru doplňkové Notice.txt. Všimněte si, že soubory budou ZIP počínaje 1901, nikoli soubor .bin a ZIP – nadále importovat soubor XML jako obvykle.
+
 9. Až budete hotovi, můžete zkontrolovat oznámení (ikona zvonku v pravém horním rohu portálu). Oznámení měl označovat, že se nahrávání dokončí.
 10. Přejděte zpět na Aktualizovat dlaždici na řídicím panelu. Na dlaždici měl označovat, že je k dispozici aktualizace. Kliknutím na dlaždici ke kontrole nově přidané aktualizace balíčku.
 11. K instalaci aktualizace, vyberte balíček, který je označen jako **připravené** a buď klikněte pravým tlačítkem na balíček a vyberte **aktualizovat**, nebo klikněte na tlačítko **aktualizovat** akce nahoře .

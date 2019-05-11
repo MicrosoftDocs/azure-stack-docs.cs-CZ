@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/10/2019
 ms.author: sethm
 ms.reviewer: hectorl
-ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 4438fdb5b97a4e08632b9c4f55fc03c91ef3aa97
-ms.sourcegitcommit: 405075e7826ba2fa545dbf5498160219ef8d2db5
+ms.lastreviewed: 05/10/2019
+ms.openlocfilehash: f2e20377a976c5dba7a63d9f8cf8b3e2d100e060
+ms.sourcegitcommit: 426380a3a27954cd609ba52d1066d9d69f5267fe
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65453718"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65532262"
 ---
 # <a name="azure-stack-1904-known-issues"></a>Azure Stack 1904 známé problémy
 
@@ -29,6 +29,13 @@ V tomto článku najdete seznam známých problémů v 1904 verzi služby Azure 
 
 > [!IMPORTANT]  
 > V této části najdete před instalací této aktualizace.
+
+## <a name="update-process"></a>Proces aktualizace
+
+- Použít: Tento problém se vztahuje na všechny podporované verze.
+- Příčina: Při pokusu o instalaci aktualizace služby Azure Stack, stav aktualizace může selhat a změnu stavu na **PreparationFailed**. To je způsobeno aktualizace poskytovateli prostředků (URP) není schopen správně přenosu souborů z kontejneru úložiště do sdílené složky interní infrastruktury pro zpracování.
+- Náprava: Počínaje verzí 1901 (1.1901.0.95), můžete alternativně vyřešit tento problém kliknutím **aktualizovat** znovu (ne **Resume**). URP potom vyčistí soubory z předchozího pokusu o a znovu spustí stahování.
+- Výskyt: Obecné
 
 ## <a name="portal"></a>Portál
 
@@ -139,15 +146,14 @@ Pokud jste povolení diagnostiky spouštění na virtuálním počítači, ale o
 - Náprava: Přístup k virtuálním počítačům pro rozšíření Linuxu použít k implementaci klíče SSH po zřízení, nebo použít ověřování pomocí hesla.
 - Výskyt: Obecné
 
-## <a name="infrastructure-backup"></a>Infrastruktura zálohování
-
-<!--Bug 3615401 - scheduler config lost; new issue in YYMM;  hectorl-->
-Jakmile povolíte automatické zálohování, služba Plánovač přejde do stavu zakázáno neočekávaně. Služba zálohování řadiče zjistí, že jsou zakázány automatické zálohování a vyvolat upozornění na portálu správce. Když jsou zakázány automatické zálohování, očekává se toto upozornění.
+### <a name="compute-host-agent-alert"></a>COMPUTE upozornění agenta hostitele
 
 - Použít: Jedná se o nový problém s verzí 1904.
-- Příčina: Tento problém je z důvodu chyby ve službě, která vede ke ztrátě konfiguraci plánovače. Tato chyba se nezmění, umístění úložiště, uživatelské jméno, heslo nebo šifrovací klíč.
-- Náprava: Chcete-li tento problém zmírnit, otevře se okno nastavení zálohování řadiče v poskytovateli prostředků infrastruktury zálohování a vyberte **povolit automatické zálohování**. Nezapomeňte nastavit požadovanou četnost a uchování období.
-- Výskyt: Nízký
+- Příčina: "Compute agent hostitele" upozornění se zobrazí po restartování uzlu v jednotce škálování. Restartování se změní výchozí nastavení spuštění pro výpočetní služby hostitele agenta.
+- Náprava:
+  - Toto upozornění můžete ignorovat. Agent neodpovídá nemá žádný vliv na operátor a operace uživatelů nebo uživatelské aplikace. Výstraha se znovu za 24 hodin propojení se zavře, ručně.
+  - Podpora Microsoftu může napravit problém tak, že změníte nastavení spuštění pro službu. Tento postup vyžaduje otevření lístku podpory. Pokud uzel se restartuje znovu, zobrazí se nová výstraha.
+- Výskyt: Obecné
 
 <!-- ## Storage -->
 <!-- ## SQL and MySQL-->

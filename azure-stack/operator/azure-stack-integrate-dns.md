@@ -11,12 +11,12 @@ ms.author: jeffgilb
 ms.reviewer: wfayed
 ms.lastreviewed: 05/09/2019
 keywords: ''
-ms.openlocfilehash: 294c811b9ddf86455b91f180663aa4b3814a7b34
-ms.sourcegitcommit: c755c7eac0f871960f9290591421cf5990b9e734
+ms.openlocfilehash: a0b41e88fb7c56eec83b4e9e60f30d4f2f16cb4f
+ms.sourcegitcommit: 2b6a0b3b4dc63c26df3d0535d630d640ff232fb0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506156"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65521317"
 ---
 # <a name="azure-stack-datacenter-integration---dns"></a>Integrace datových center Azure Stack – DNS
 
@@ -55,17 +55,17 @@ Aby bylo možné přeložit názvy DNS pro koncové body služby Azure Stack a i
 
 ### <a name="dns-name-labels"></a>Popisky názvů DNS
 
-Azure Stack podporuje přidání DNS název popisku na veřejné IP adresy, abyste měli překlad názvů pro veřejné IP adresy. To může představovat pohodlný způsob pro uživatele k dosažení aplikace a služby hostované ve službě Azure Stack podle názvu. Popisek názvu DNS používá obor názvů trochu jinak než koncové body infrastruktury. Následující obor názvů příklad výše zobrazí se následující obor názvů pro popisky názvů DNS:
+Azure Stack podporuje přidání DNS název popisku na veřejné IP adresy, abyste měli překlad názvů pro veřejné IP adresy. To může představovat pohodlný způsob pro uživatele k dosažení aplikace a služby hostované ve službě Azure Stack podle názvu. Popisek názvu DNS používá obor názvů trochu jinak než koncové body infrastruktury. Po předchozí příklad oboru názvů zobrazí se následující obor názvů pro popisky názvů DNS:
 
 `*.east.cloudapp.cloud.fabrikam.com`
 
-Proto pokud tenanta označuje hodnotu **Myapp** do pole popisku názvu DNS z prostředku veřejné IP adresy vytvoří záznam A pro **myapp** v zóně **east.cloudapp.cloud.fabrikam.com**  na externím serveru DNS pro Azure Stack. Výsledný plně kvalifikovaný název domény zobrazil následujícím způsobem:
+Proto pokud tenanta označuje hodnotu **Myapp** do pole popisku názvu DNS z prostředku veřejné IP adresy vytvoří záznam A pro **myapp** v zóně **east.cloudapp.cloud.fabrikam.com**  na externím serveru DNS pro Azure Stack. Výsledný název plně kvalifikované domény se zobrazí takto:
 
 `myapp.east.cloudapp.cloud.fabrikam.com`
 
-Pokud chcete využít tuto funkci a použít tento obor názvů, je potřeba integrovat, které jsou hostiteli externí zóny DNS pro službu Azure Stack se servery DNS, které jsou hostiteli nadřazenou zónu, kterou chcete použít i servery DNS. To je obor názvů jiný než obor názvů pro koncové body služby Azure Stack, takže budete muset cerate k další delegování nebo pravidlo pro podmíněné předávání pro tento.
+Pokud chcete využít tuto funkci a použít tento obor názvů, je potřeba integrovat, které jsou hostiteli externí zóny DNS pro službu Azure Stack se servery DNS, které jsou hostiteli nadřazenou zónu, kterou chcete použít i servery DNS. Toto je obor názvů jiný než obor názvů pro koncové body služby Azure Stack, proto je nutné vytvořit další delegování nebo pravidlo pro podmíněné předávání aplikace.
 
-Další informace o tom, jak funguje Popisek názvu DNS najdete v tématu [pomocí DNS ve službě Azure Stack](../user/azure-stack-dns.md). 
+Další informace o tom, jak funguje Popisek názvu DNS najdete v tématu [pomocí DNS ve službě Azure Stack](../user/azure-stack-dns.md).
 
 ## <a name="resolution-and-delegation"></a>Překládání a delegování
 

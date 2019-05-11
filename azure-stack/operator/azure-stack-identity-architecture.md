@@ -3,26 +3,25 @@ title: Architektura identity pro službu Azure Stack | Dokumentace Microsoftu
 description: Další informace o architektuře identitu, která vám pomůže s využitím Azure stacku.
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: PatAltimore
+manager: femila
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-origin.date: 02/11/2019
-ms.date: 03/04/2019
-ms.author: v-jay
+ms.topic: conceptual
+ms.date: 05/09/2019
+ms.author: patricka
 ms.reviewer: fiseraci
-ms.lastreviewed: 02/11/2019
-ms.openlocfilehash: 9ae8a55d04c34ec65d964927fd25c3bc01adeae4
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 05/09/2019
+ms.openlocfilehash: e09451c1bf49a2de075388f555cb7b80e70db63f
+ms.sourcegitcommit: 426380a3a27954cd609ba52d1066d9d69f5267fe
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64297697"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65532321"
 ---
 # <a name="identity-architecture-for-azure-stack"></a>Architektura identity pro službu Azure Stack
 
@@ -35,14 +34,14 @@ Zprostředkovatel identity, kterou zvolíte můžete omezit možnosti, včetně 
 
 |Funkce nebo scénáře        |Azure AD  |AD FS  |
 |------------------------------|----------|-------|
-|Připojení k Internetu     |Ano       |Nepovinné|
+|Připojení k Internetu     |Ano       |Volitelná|
 |Podpora pro více tenantů     |Ano       |Ne      |
 |Položky nabídky na webu Marketplace |Ano       |Ano. Vyžaduje použití [offline syndikace Marketplace](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario) nástroj.|
 |Podpora pro Active Directory Authentication Library (ADAL) |Ano |Ano|
 |Podpora nástrojů, jako je Azure CLI, Visual Studio a prostředí PowerShell  |Ano |Ano|
 |Vytvoření instančních objektů na webu Azure portal     |Ano |Ne|
 |Vytvoření instančních objektů s certifikáty      |Ano |Ano|
-|Vytvoření instančních objektů s tajnými kódy (klíče)    |Ano |Ne|
+|Vytvoření instančních objektů s tajnými kódy (klíče)    |Ano |Ano|
 |Aplikace můžou využívat službu grafu           |Ano |Ne|
 |Aplikace můžete použít zprostředkovatele identity pro přihlášení |Ano |Ano. Vyžaduje aplikacím federování s místní instancí AD FS. |
 
@@ -101,4 +100,3 @@ Tato topologie obsahuje následující vlastnosti:
 ## <a name="next-steps"></a>Další postup
 - [Přehled identity](azure-stack-identity-overview.md)   
 - [Integrace datových center - identity](azure-stack-integrate-identity.md)
-<!-- Update_Description: link update -->

@@ -16,12 +16,12 @@ ms.date: 04/12/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/29/2019
-ms.openlocfilehash: b2e3944be7a7d5322683d21cca7e558020a82d7e
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: fa1cdc4937e75a8d87a6faa16048a800b62e79be
+ms.sourcegitcommit: 2b6a0b3b4dc63c26df3d0535d630d640ff232fb0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64306178"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65521308"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Položky Azure Marketplace k dispozici pro službu Azure Stack
 
@@ -31,7 +31,7 @@ ms.locfileid: "64306178"
 
 Pokaždé, když jsou dostupné aktualizace rozšíření virtuálních počítačů (VM), které používáte, musí si je stáhnout. Rozšíření dodávané v rámci produktu se neaktualizují v normální proces opravy a aktualizace; Podívejte se proto často aktualizací. Další rozšíření jsou dostupné jenom přes správu webu Marketplace.
 
-|  | Název položky | Popis | Vydavatel | OS Type |
+|  | Název položky | Popis | Vydavatel | Typ operačního systému |
 | --- | --- | --- | --- | --- |
 |![SQL IaaS Extension](media/azure-stack-marketplace-azure-items/cse.png) | [SQL IaaS Extension](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| **Stáhněte si toto rozšíření nasazení jakékoli systému SQL Server na webu Windows Marketplace položku – toto rozšíření je povinný.** | Microsoft | Windows |
 |![Rozšíření vlastních skriptů](media/azure-stack-marketplace-azure-items/cse.png) | [Rozšíření vlastních skriptů](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-customscript)| **Stáhněte si tuto aktualizaci na verzi v poli vlastní skript rozšíření pro Windows.** | Microsoft | Windows |
@@ -55,7 +55,7 @@ Microsoft Azure Stack podporuje následující virtuální počítače Azure Mar
 |  | Název položky | Popis | Vydavatel |
 | --- | --- | --- | --- |
 | ![Windows Server](media/azure-stack-marketplace-azure-items/windowsserver.png) | [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer) | Řešení podnikové úrovně, které jsou jednoduché nasazení, nákladově efektivní, zaměřená na aplikace a zaměřené na uživatele. Tyto Image jsou pravidelně aktualizovány s nejnovějšími opravami. **Důležité informace: Image stáhli dříve, než 18. ledna 2018 musí být odstraněny a nahrazeny nejnovější verze.** | Microsoft |
-| ![Zkušební verze služby SharePoint Server 2013](media/azure-stack-marketplace-azure-items/sharepoint.png) | [Zkušební verze služby SharePoint Server 2013](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2013Trial) | Microsoft SharePoint Server 2013 – zkušební verze na Windows Server 2012 Datacenter a Visual Studio 2017 community edition. | Microsoft |
+| ![Zkušební verze služby SharePoint Server 2013](media/azure-stack-marketplace-azure-items/sharepoint.png) | [Zkušební verze služby SharePoint Server 2013](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2013Trial) | Microsoft SharePoint Server 2013 – zkušební verze na Windows Server 2012 Datacenter a Visual Studio 2019 community edition. | Microsoft |
 | ![Zkušební verze služby SharePoint serveru 2016](media/azure-stack-marketplace-azure-items/sharepoint.png) | [Zkušební verze služby SharePoint serveru 2016](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2016Trial) | Microsoft SharePoint Server 2016 – zkušební verze na Windows Server 2016 Datacenter. | Microsoft |
 | ![SQL Server 2014 SP2 on Windows Server 2012 R2](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2014 SP2 v systému Windows Server 2012 R2](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2014sp2-ws2012r2)
 ) | SQL Server 2014 Service Pack 2. **Vyžaduje ke stažení:** SQL IaaS Extension. | Microsoft |

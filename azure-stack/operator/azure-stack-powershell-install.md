@@ -15,12 +15,12 @@ ms.date: 05/09/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: a1923c06d31ff32e1c7e5d50e3b70330d16d25c5
-ms.sourcegitcommit: c755c7eac0f871960f9290591421cf5990b9e734
+ms.openlocfilehash: 1c555f39bdf37314bae05666d39daca50cde2c4e
+ms.sourcegitcommit: 426380a3a27954cd609ba52d1066d9d69f5267fe
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506137"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65532243"
 ---
 # <a name="install-powershell-for-azure-stack"></a>Instalace Powershellu pro Azure Stack
 
@@ -96,7 +96,7 @@ Instalace má tři kroky:
 
 Spusťte následující skript prostředí PowerShell k instalaci těchto modulů na pracovní stanici vývoje:
 
-- Pro 1904 byl sestavení nebo novější:
+- Pro Azure Stack 1904 nebo novější:
 
     ```powershell  
     # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
@@ -180,7 +180,18 @@ Instalace je třeba provést čtyři kroky:
 
 ### <a name="install-azure-stack-powershell"></a>Instalace Azure Stack PowerShellu
 
-- Azure Stack 1901 nebo novější.
+- Azure Stack 1904 byl nebo novější.
+
+    ```powershell
+    Import-Module -Name PowerShellGet -ErrorAction Stop
+    Import-Module -Name PackageManagement -ErrorAction Stop
+
+    $Path = "<Path that is used to save the packages>"
+    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.5.0
+    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.7.2
+    ```
+
+- Azure Stack 1903 nebo starší.
 
     ```powershell
     Import-Module -Name PowerShellGet -ErrorAction Stop

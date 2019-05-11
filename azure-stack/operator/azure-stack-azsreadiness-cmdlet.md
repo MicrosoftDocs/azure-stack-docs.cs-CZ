@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/30/2018
+ms.date: 05/09/2019
 ms.author: sethm
 ms.reviewer: unknown
-ms.lastreviewed: 12/04/2018
-ms.openlocfilehash: 03efa5e8e0dbb3ec29748383914d3d0361bc124b
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.lastreviewed: 05/09/2019
+ms.openlocfilehash: 1f8d7573d9d3da54ddb5fa7aae85ba15d1db4c3c
+ms.sourcegitcommit: 2b6a0b3b4dc63c26df3d0535d630d640ff232fb0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64986166"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65521250"
 ---
 # <a name="start-azsreadinesschecker-cmdlet-reference"></a>Reference k rutinám Start AzsReadinessChecker
 
@@ -209,7 +209,7 @@ $PaaSCertificates = @{
     'PaaSFTPCert' = @{'pfxPath' = '<Path to FTP PFX>';'pfxPassword' = (ConvertTo-SecureString -String '<Password for PFX>' -AsPlainText -Force)}
     'PaaSSSOCert' = @{'pfxPath' = '<Path to SSO PFX>';'pfxPassword' = (ConvertTo-SecureString -String '<Password for PFX>' -AsPlainText -Force)}
 }
-Start-AzsReadinessChecker -PaaSCertificates $PaaSCertificates - RegionName east -FQDN azurestack.contoso.com
+Start-AzsReadinessChecker -PaaSCertificates $PaaSCertificates -RegionName east -FQDN azurestack.contoso.com
 ```
 
 V tomto příkladu je vytvořena zatřiďovací tabulku s cesty a heslo pro každý certifikát PaaS. Certifikáty můžete vynechat. `Start-AzsReadinessChecker` kontroluje, zda každá PFX cesta existuje a ověřuje pomocí oblast **východ** a plně kvalifikovaný název domény externího **azurestack.contoso.com**.
@@ -241,7 +241,7 @@ V tomto příkladu jsou požadované pro zabezpečení, přihlašovací údaje �
 
 ### <a name="example-validate-azure-identity-with-deployment-data-deployment-support"></a>Příklad: ověření identit Azure pomocí nasazení dat. (podpora nasazení)
 
-```PowerSHell
+```PowerShell
 $serviceAdminCredential = Get-Credential -Message "Enter Credentials for Service Administrator of Azure Active Directory Tenant e.g. serviceadmin@contoso.onmicrosoft.com"
 Start-AzsReadinessChecker -AADServiceAdministrator $serviceAdminCredential -DeploymentDataJSONPath .\contoso-deploymentdata.json
 ```
@@ -278,7 +278,7 @@ Start-AzsReadinessChecker -PfxPassword $password -PfxPath .\certificates\ssl.pfx
 
 V tomto příkladu je požadované pro zabezpečení heslo souboru PFX. Soubor Ssl.pfx je importovat do úložiště certifikátů místního počítače, znovu exportovat pomocí stejného hesla a uložit jako Ssl_new.pfx. Tento postup se používá při ověřování certifikátu příznakem, že privátní klíč nemá **místního počítače** sadu atributů je přerušený řetěz certifikátů, irelevantní certifikáty nacházejí v PFX nebo řetěz certifikátů v nesprávném pořadí.
 
-### <a name="example-view-validation-report-deployment-support"></a>Příklad: Zobrazit sestavu ověření (podpora nasazení)
+### <a name="example-view-validation-report-deployment-and-support"></a>Příklad: Zobrazit sestavu ověření (nasazení a podporu)
 
 ```powershell
 Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json
@@ -305,8 +305,8 @@ Určuje název oblasti nasazení Azure Stack.
 |Zadejte:                       |String        |
 |Pozice:                   |s názvem         |
 |Výchozí hodnota:              |Žádný          |
-|Přijměte kanálový vstup:      |False         |
-|Přijměte zástupné znaky: |False         |
+|Přijměte kanálový vstup:      |False (Nepravda)         |
+|Přijměte zástupné znaky: |False (Nepravda)         |
 
 ### <a name="-fqdn"></a>-FQDN
 
@@ -317,8 +317,8 @@ Určuje nasazení Azure stacku externí plně kvalifikovaný název domény, tak
 |Zadejte:                       |String        |
 |Pozice:                   |s názvem         |
 |Výchozí hodnota:              |ExternalFQDN, ExternalDomainName |
-|Přijměte kanálový vstup:      |False         |
-|Přijměte zástupné znaky: |False         |
+|Přijměte kanálový vstup:      |False (Nepravda)         |
+|Přijměte zástupné znaky: |False (Nepravda)         |
 
 ### <a name="-identitysystem"></a>-IdentitySystem
 
@@ -330,8 +330,8 @@ Určuje Azure Stack nasazení identity systému platné hodnoty, AAD nebo AD FS,
 |Pozice:                   |s názvem         |
 |Výchozí hodnota:              |Žádný          |
 |Platné hodnoty:               |"AAD", "ADFS"  |
-|Přijměte kanálový vstup:      |False         |
-|Přijměte zástupné znaky: |False         |
+|Přijměte kanálový vstup:      |False (Nepravda)         |
+|Přijměte zástupné znaky: |False (Nepravda)         |
 
 ### <a name="-pfxpassword"></a>-PfxPassword
 
@@ -342,8 +342,8 @@ Určuje heslo přidružené soubory certifikátů PFX.
 |Zadejte:                       |SecureString |
 |Pozice:                   |s názvem    |
 |Výchozí hodnota:              |Žádný     |
-|Přijměte kanálový vstup:      |False    |
-|Přijměte zástupné znaky: |False    |
+|Přijměte kanálový vstup:      |False (Nepravda)    |
+|Přijměte zástupné znaky: |False (Nepravda)    |
 
 ### <a name="-paascertificates"></a>-PaaSCertificates
 
@@ -354,8 +354,8 @@ Určuje zatřiďovací tabulku obsahující cesty a heslo pro certifikáty PaaS.
 |Zadejte:                       |Zatřiďovací tabulka |
 |Pozice:                   |s názvem    |
 |Výchozí hodnota:              |Žádný     |
-|Přijměte kanálový vstup:      |False    |
-|Přijměte zástupné znaky: |False    |
+|Přijměte kanálový vstup:      |False (Nepravda)    |
+|Přijměte zástupné znaky: |False (Nepravda)    |
 
 ### <a name="-deploymentdatajsonpath"></a>-DeploymentDataJSONPath
 
@@ -366,8 +366,8 @@ Určuje konfigurační soubor JSON nasazení dat. Azure Stack. Tento soubor je v
 |Zadejte:                       |String   |
 |Pozice:                   |s názvem    |
 |Výchozí hodnota:              |Žádný     |
-|Přijměte kanálový vstup:      |False    |
-|Přijměte zástupné znaky: |False    |
+|Přijměte kanálový vstup:      |False (Nepravda)    |
+|Přijměte zástupné znaky: |False (Nepravda)    |
 
 ### <a name="-pfxpath"></a>-PfxPath
 
@@ -378,8 +378,8 @@ Určuje cestu k problematické certifikát, který vyžaduje rutiny import/expor
 |Zadejte:                       |String   |
 |Pozice:                   |s názvem    |
 |Výchozí hodnota:              |Žádný     |
-|Přijměte kanálový vstup:      |False    |
-|Přijměte zástupné znaky: |False    |
+|Přijměte kanálový vstup:      |False (Nepravda)    |
+|Přijměte zástupné znaky: |False (Nepravda)    |
 
 ### <a name="-exportpfxpath"></a>-ExportPFXPath  
 
@@ -390,8 +390,8 @@ Určuje cílovou cestu pro výsledný soubor PFX z rutiny importu/exportu.
 |Zadejte:                       |String   |
 |Pozice:                   |s názvem    |
 |Výchozí hodnota:              |Žádný     |
-|Přijměte kanálový vstup:      |False    |
-|Přijměte zástupné znaky: |False    |
+|Přijměte kanálový vstup:      |False (Nepravda)    |
+|Přijměte zástupné znaky: |False (Nepravda)    |
 
 ### <a name="-subject"></a>– Předmět
 
@@ -402,8 +402,8 @@ Určuje seřazený slovník předmětu pro generování žádosti o certifikát.
 |Zadejte:                       |Kolekce OrderedDictionary   |
 |Pozice:                   |s názvem    |
 |Výchozí hodnota:              |Žádný     |
-|Přijměte kanálový vstup:      |False    |
-|Přijměte zástupné znaky: |False    |
+|Přijměte kanálový vstup:      |False (Nepravda)    |
+|Přijměte zástupné znaky: |False (Nepravda)    |
 
 ### <a name="-requesttype"></a>Typ RequestType-
 
@@ -418,8 +418,8 @@ Určuje typ SAN žádosti o certifikát. Platné hodnoty jsou **MultipleCSR**, *
 |Pozice:                   |s názvem    |
 |Výchozí hodnota:              |Žádný     |
 |Platné hodnoty:               |'MultipleCSR','SingleCSR' |
-|Přijměte kanálový vstup:      |False    |
-|Přijměte zástupné znaky: |False    |
+|Přijměte kanálový vstup:      |False (Nepravda)    |
+|Přijměte zástupné znaky: |False (Nepravda)    |
 
 ### <a name="-outputrequestpath"></a>-OutputRequestPath
 
@@ -430,8 +430,8 @@ Určuje cílovou cestu pro soubory žádosti o certifikát. Adresář již musí
 |Zadejte:                       |String   |
 |Pozice:                   |s názvem    |
 |Výchozí hodnota:              |Žádný     |
-|Přijměte kanálový vstup:      |False    |
-|Přijměte zástupné znaky: |False    |
+|Přijměte kanálový vstup:      |False (Nepravda)    |
+|Přijměte zástupné znaky: |False (Nepravda)    |
 
 ### <a name="-aadserviceadministrator"></a>-AADServiceAdministrator
 
@@ -442,8 +442,8 @@ Určuje správce služby Azure Active Directory se použije pro nasazení Azure 
 |Zadejte:                       |PSCredential   |
 |Pozice:                   |s názvem    |
 |Výchozí hodnota:              |Žádný     |
-|Přijměte kanálový vstup:      |False    |
-|Přijměte zástupné znaky: |False    |
+|Přijměte kanálový vstup:      |False (Nepravda)    |
+|Přijměte zástupné znaky: |False (Nepravda)    |
 
 ### <a name="-aaddirectorytenantname"></a>-AADDirectoryTenantName
 
@@ -454,8 +454,8 @@ Určuje název služby Azure Active Directory se použije pro nasazení Azure st
 |Zadejte:                       |String   |
 |Pozice:                   |s názvem    |
 |Výchozí hodnota:              |Žádný     |
-|Přijměte kanálový vstup:      |False    |
-|Přijměte zástupné znaky: |False    |
+|Přijměte kanálový vstup:      |False (Nepravda)    |
+|Přijměte zástupné znaky: |False (Nepravda)    |
 
 ### <a name="-azureenvironment"></a>-AzureEnvironment
 
@@ -467,8 +467,8 @@ Určuje instanci služby Azure obsahující účtů, adresářů a předplatnýc
 |Pozice:                   |s názvem    |
 |Výchozí hodnota:              |Žádný     |
 |Platné hodnoty:               |'AzureCloud','AzureChinaCloud','AzureUSGovernment' |
-|Přijměte kanálový vstup:      |False    |
-|Přijměte zástupné znaky: |False    |
+|Přijměte kanálový vstup:      |False (Nepravda)    |
+|Přijměte zástupné znaky: |False (Nepravda)    |
 
 ### <a name="-registrationaccount"></a>-RegistrationAccount
 
@@ -479,8 +479,8 @@ Určuje účet registrace pro registrace Azure Stack.
 |Zadejte:                       |String   |
 |Pozice:                   |s názvem    |
 |Výchozí hodnota:              |Žádný     |
-|Přijměte kanálový vstup:      |False    |
-|Přijměte zástupné znaky: |False    |
+|Přijměte kanálový vstup:      |False (Nepravda)    |
+|Přijměte zástupné znaky: |False (Nepravda)    |
 
 ### <a name="-registrationsubscriptionid"></a>-RegistrationSubscriptionID
 
@@ -491,8 +491,8 @@ Určuje ID předplatného registrace pro registrace Azure Stack.
 |Zadejte:                       |Guid     |
 |Pozice:                   |s názvem    |
 |Výchozí hodnota:              |Žádný     |
-|Přijměte kanálový vstup:      |False    |
-|Přijměte zástupné znaky: |False    |
+|Přijměte kanálový vstup:      |False (Nepravda)    |
+|Přijměte zástupné znaky: |False (Nepravda)    |
 
 ### <a name="-reportpath"></a>-ReportPath
 
@@ -502,9 +502,9 @@ Určuje cestu pro sestavu připravenosti, výchozí hodnota je aktuální adres�
 |----------------------------|---------|
 |Zadejte:                       |String   |
 |Pozice:                   |s názvem    |
-|Výchozí hodnota:              |Vše      |
-|Přijměte kanálový vstup:      |False    |
-|Přijměte zástupné znaky: |False    |
+|Výchozí hodnota:              |Všechny      |
+|Přijměte kanálový vstup:      |False (Nepravda)    |
+|Přijměte zástupné znaky: |False (Nepravda)    |
 
 ## <a name="optional-parameters"></a>Volitelné parametry
 
@@ -525,8 +525,8 @@ ACSBlob, ACSQueue, ACSTable, ADFS, Admin Portal, ARM Admin, ARM Public, Graph, K
 |Zadejte:                       |String   |
 |Pozice:                   |s názvem    |
 |Výchozí hodnota:              |.\Certificates |
-|Přijměte kanálový vstup:      |False    |
-|Přijměte zástupné znaky: |False    |
+|Přijměte kanálový vstup:      |False (Nepravda)    |
+|Přijměte zástupné znaky: |False (Nepravda)    |
 
 ### <a name="-includepaas"></a>-IncludePaaS  
 
@@ -536,9 +536,9 @@ Určuje, zda by měl PaaS služby/hostitele přidat do žádosti o certifikát.
 |----------------------------|------------------|
 |Zadejte:                       |SwitchParameter   |
 |Pozice:                   |s názvem             |
-|Výchozí hodnota:              |False             |
-|Přijměte kanálový vstup:      |False             |
-|Přijměte zástupné znaky: |False             |
+|Výchozí hodnota:              |False (Nepravda)             |
+|Přijměte kanálový vstup:      |False (Nepravda)             |
+|Přijměte zástupné znaky: |False (Nepravda)             |
 
 ### <a name="-reportsections"></a>-ReportSections
 
@@ -548,10 +548,10 @@ Určuje, zda jenom zobrazit souhrn, sestavy vynechá podrobností.
 |----------------------------|---------|
 |Zadejte:                       |String   |
 |Pozice:                   |s názvem    |
-|Výchozí hodnota:              |Vše      |
+|Výchozí hodnota:              |Všechny      |
 |Platné hodnoty:               |'Certificate','AzureRegistration','AzureIdentity','Jobs','All' |
-|Přijměte kanálový vstup:      |False    |
-|Přijměte zástupné znaky: |False    |
+|Přijměte kanálový vstup:      |False (Nepravda)    |
+|Přijměte zástupné znaky: |False (Nepravda)    |
 
 ### <a name="-summary"></a>-Summary
 
@@ -561,9 +561,9 @@ Určuje, zda jenom zobrazit souhrn, sestavy vynechá podrobností.
 |----------------------------|------------------|
 |Zadejte:                       |SwitchParameter   |
 |Pozice:                   |s názvem             |
-|Výchozí hodnota:              |False             |
-|Přijměte kanálový vstup:      |False             |
-|Přijměte zástupné znaky: |False             |
+|Výchozí hodnota:              |False (Nepravda)             |
+|Přijměte kanálový vstup:      |False (Nepravda)             |
+|Přijměte zástupné znaky: |False (Nepravda)             |
 
 ### <a name="-cleanreport"></a>-CleanReport
 
@@ -574,9 +574,9 @@ Odebere předchozí historie spuštění a ověřování a zapíše ověření d
 |Zadejte:                       |SwitchParameter   |
 |Aliasy:                    |cf                |
 |Pozice:                   |s názvem             |
-|Výchozí hodnota:              |False             |
-|Přijměte kanálový vstup:      |False             |
-|Přijměte zástupné znaky: |False             |
+|Výchozí hodnota:              |False (Nepravda)             |
+|Přijměte kanálový vstup:      |False (Nepravda)             |
+|Přijměte zástupné znaky: |False (Nepravda)             |
 
 ### <a name="-outputpath"></a>-OutputPath
 
@@ -587,8 +587,8 @@ Určuje vlastní cesta pro uložení sestavy připravenost JSON a podrobný soub
 |Zadejte:                       |String            |
 |Pozice:                   |s názvem             |
 |Výchozí hodnota:              |$ENV:TEMP\AzsReadinessChecker  |
-|Přijměte kanálový vstup:      |False             |
-|Přijměte zástupné znaky: |False             |
+|Přijměte kanálový vstup:      |False (Nepravda)             |
+|Přijměte zástupné znaky: |False (Nepravda)             |
 
 ### <a name="-confirm"></a>– Potvrzení
 
@@ -599,9 +599,9 @@ Výzvy k potvrzení před spuštěním rutiny.
 |Zadejte:                       |SwitchParameter   |
 |Aliasy:                    |cf                |
 |Pozice:                   |s názvem             |
-|Výchozí hodnota:              |False             |
-|Přijměte kanálový vstup:      |False             |
-|Přijměte zástupné znaky: |False             |
+|Výchozí hodnota:              |False (Nepravda)             |
+|Přijměte kanálový vstup:      |False (Nepravda)             |
+|Přijměte zástupné znaky: |False (Nepravda)             |
 
 ### <a name="-whatif"></a>-WhatIf
 
@@ -612,6 +612,6 @@ Ukazuje, co by se stalo při spuštění rutiny. Rutina není spuštěna.
 |Zadejte:                       |SwitchParameter   |
 |Aliasy:                    |wi                |
 |Pozice:                   |s názvem             |
-|Výchozí hodnota:              |False             |
-|Přijměte kanálový vstup:      |False             |
-|Přijměte zástupné znaky: |False             |
+|Výchozí hodnota:              |False (Nepravda)             |
+|Přijměte kanálový vstup:      |False (Nepravda)             |
+|Přijměte zástupné znaky: |False (Nepravda)             |

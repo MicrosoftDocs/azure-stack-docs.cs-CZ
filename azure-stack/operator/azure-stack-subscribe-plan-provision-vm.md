@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/09/2019
-ms.author: efemmano
-ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: b0dba609acd7b12cdb95c1ec3e40ad906674244d
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.date: 05/10/2019
+ms.author: sethm
+ms.lastreviewed: 05/10/2019
+ms.openlocfilehash: 792589eabf13b9aca493e230f7e3e93cfab21736
+ms.sourcegitcommit: 426380a3a27954cd609ba52d1066d9d69f5267fe
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64984753"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65532369"
 ---
 # <a name="create-subscriptions-to-offers-in-azure-stack"></a>Vytvářet předplatná na nabídky ve službě Azure Stack
 
@@ -92,7 +92,7 @@ Jako uživatel můžete se přihlásit k portálu user portal k vyhledání a p�
 
 Pokud nabídka má doplňkový plán, můžete přidat tento plán k vašemu předplatnému kdykoli.  
 
-1. Na portálu user portal, vyberte **všechny služby**. Části **Obecné** vyberte **předplatná**a potom vyberte předplatné, který chcete změnit. Pokud jsou k dispozici žádné doplňkové plány **+ přidat plán** je aktivní a dlaždice pro **doplňkové plány**. 
+1. Na portálu user portal, vyberte **všechny služby**. Části **Obecné** vyberte **předplatná**a potom vyberte předplatné, který chcete změnit. Pokud jsou k dispozici žádné doplňkové plány **+ přidat plán** je aktivní a dlaždice pro **doplňkové plány**.
 
    Pokud **+ přidat plán** není aktivní, pak nejsou žádné doplňkové plány pro nabídku spojený s tímto předplatným.
 

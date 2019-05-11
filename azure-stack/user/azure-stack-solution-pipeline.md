@@ -15,12 +15,12 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 11/07/2018
-ms.openlocfilehash: 44a510b8110bacbb51b987a0393f1bc04c594fcd
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 3b98714a6cbc3601f98d5f9dfcb26edb5182cfa4
+ms.sourcegitcommit: 2b6a0b3b4dc63c26df3d0535d630d640ff232fb0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985766"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65521239"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Kurz: Nasazení aplikací na platformy Azure a Azure Stack
 
@@ -94,7 +94,7 @@ V tomto kurzu se předpokládá, že máte některé základní znalosti o Azure
 ### <a name="developer-tool-requirements"></a>Požadavky na nástroj pro vývojáře
 
 * Vytvoření [pracovní prostor služby Azure DevOps](https://docs.microsoft.com/azure/devops/repos/tfvc/create-work-workspaces). Proces registrace vytvoří projekt s názvem **MyFirstProject**.
-* [Instalace sady Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio) a [přihlášení ke službám Azure DevOps](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services).
+* [Nainstalovat Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/install-visual-studio) a [přihlášení ke službám Azure DevOps](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services).
 * Připojte se k projektu a [místně ho naklonujte](https://www.visualstudio.com/docs/git/gitquickstart).
 
   > [!Note]
@@ -195,7 +195,7 @@ Nastavit obor na úrovni předplatného, skupinu prostředků nebo prostředek. 
 
 7. Vyberte **Uložit** k dokončení přiřazení role. Zobrazí se vaše aplikace v seznamu Uživatelé přiřazení k roli pro tento obor.
 
-### <a name="role-based-access-control"></a>Řízení přístupu na základě rolí
+### <a name="role-based-access-control"></a>Řízení přístupu na základě role
 
 Azure na základě rolí řízení přístupu (RBAC) poskytuje propracovanou správu přístupu pro Azure. Pomocí RBAC můžete řídit úroveň přístupu, který uživatelé potřebují ke své práci. Další informace o řízení přístupu na základě rolí najdete v tématu [spravovat přístup k prostředkům předplatného Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal?toc=%252fazure%252factive-directory%252ftoc.json).
 
@@ -211,7 +211,7 @@ Vytvoření osobní přístupový Token pro přístup ke službám Azure DevOps.
 
 2. Vyberte **spravovat zabezpečení** na stránku vytvoření tokenu přístupu.
 
-    ![Přihlášení uživatele](media/azure-stack-solution-hybrid-pipeline/000_17.png)
+    ![Přihlašování uživatelů](media/azure-stack-solution-hybrid-pipeline/000_17.png)
 
     ![Vyberte projekt](media/azure-stack-solution-hybrid-pipeline/000_18.png)
 
@@ -392,7 +392,7 @@ Vytvoření kanál pro vydávání verzí je posledním krokem v aplikaci proces
 
 4. Na **přidání artefaktu**, z **zdroj (definice sestavení)** rozevírací nabídky vyberte aplikaci sestavení cloudu Azure.
 
-    ![Přidání artefaktu](media/azure-stack-solution-hybrid-pipeline/103.png)
+    ![Přidat artefakt](media/azure-stack-solution-hybrid-pipeline/103.png)
 
 5. Na **kanálu** kartu, vyberte možnost **1 fáze**, **1 úloha** propojit **zobrazit úlohy prostředí**.
 
@@ -428,7 +428,7 @@ Vytvoření kanál pro vydávání verzí je posledním krokem v aplikaci proces
 
 13. Na **vyberte šablonu**, přidat jiné prostředí. Vyberte si **nasazení služby Azure App Service** a pak vyberte **použít**.
 
-    ![Vyberte šablonu](media/azure-stack-solution-hybrid-pipeline/112.png)
+    ![Vybrat šablonu](media/azure-stack-solution-hybrid-pipeline/112.png)
 
 14. Zadejte "Azure Stack" jako **název prostředí**.
 
