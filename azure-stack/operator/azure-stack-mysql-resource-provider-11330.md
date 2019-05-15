@@ -3,7 +3,7 @@ title: Azure Stack MySQL prostředků poskytovatele 1.1.30.0 poznámky k verzi |
 description: Další informace o novinky v nejnovější Azure Stack MySQL prostředků poskytovatele aktualizaci, včetně všech známých problémů a kde ho můžete stáhnout.
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2019
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: 020fc2f56fe73ab87212ee61496722e8c179e17a
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: b5e649768f075f4e448520c648a77aa64351842a
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64294045"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618089"
 ---
 # <a name="mysql-resource-provider-11330--release-notes"></a>Poznámky k verzi poskytovatele 1.1.33.0 prostředků MySQL
 
@@ -56,7 +56,7 @@ Tato verze poskytovatele prostředků Azure Stack MySQL zahrnuje následující 
 
 - **SKU MySQL může trvat až hodinu, uvidí na portálu**. Může trvat až hodinu nově vytvořený skladová jednotka byla viditelná jenom pro použití při vytváření nových databází MySQL. 
 
-    **Alternativní řešení**: Žádné.
+    **Alternativní řešení**: Žádné
 
 - **Znovu použít přihlašovací údaje MySQL**. Při pokusu o vytvoření nové databáze MySQL přihlášení pomocí stejné uživatelské jméno jako stávající přihlašovací údaje v rámci stejného předplatného způsobí opětovné použití stejné přihlašovací údaje a stávající heslo. 
 
