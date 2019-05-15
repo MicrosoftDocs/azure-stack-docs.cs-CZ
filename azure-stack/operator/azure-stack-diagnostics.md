@@ -2,21 +2,21 @@
 title: Diagnostika v Azure Stacku
 description: Tom, jak shromažďovat soubory protokolů pro diagnostiku ve službě Azure Stack
 services: azure-stack
-author: jeffgilb
+author: mattbriggs
 manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
 ms.date: 04/30/2019
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: adshar
 ms.lastreviewed: 11/20/2018
-ms.openlocfilehash: 9aa090f301a7444736773744215981214e41747e
-ms.sourcegitcommit: eb7ea8aee806b5c770397fa6ccf24cef2d6308bf
+ms.openlocfilehash: c2f552035fdffebbb24fbd64e5c416179853c51e
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65431525"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618035"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Azure Stack diagnostické nástroje
 

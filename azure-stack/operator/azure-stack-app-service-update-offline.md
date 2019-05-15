@@ -3,8 +3,8 @@ title: Aktualizace služby Azure App Service Offline | Dokumentace Microsoftu
 description: Podrobné pokyny pro offline aktualizaci služby Azure App Service ve službě Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: mattbriggs
+manager: femila
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
@@ -12,16 +12,15 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/27/2019
-ms.date: 04/29/2019
-ms.author: v-jay
+ms.date: 02/27/2019
+ms.author: anwestg
 ms.reviewer: anwestg
-ms.openlocfilehash: 53b45a6ac5ef8aef1e8d07b242303ed0f248f506
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: b266614ee4fb426740d9e083efe10e1de0dddee9
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64295112"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618718"
 ---
 # <a name="offline-update-of-azure-app-service-on-azure-stack"></a>Offline aktualizace služby Azure App Service ve službě Azure Stack
 

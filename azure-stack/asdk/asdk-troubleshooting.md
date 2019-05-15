@@ -3,7 +3,7 @@ title: Řešení potíží s Microsoft Azure Stack | Dokumentace Microsoftu
 description: Azure Stack Development Kit (ASDK) informace o odstraňování potíží.
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2019
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: a890e02ae1f2447db6fd25329881a4daa4e489b2
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 70985ce475ecfe956646941c6b61d70176639eac
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64986064"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65617488"
 ---
 # <a name="microsoft-azure-stack-development-kit-asdk-troubleshooting"></a>Řešení potíží s Microsoft Azure Stack Development Kit (ASDK)
 Tento článek obsahuje běžné informace o odstraňování potíží pro ASDK. Pokud dochází k problému, který nebyl zdokumentován, nezapomeňte zaškrtnout [fórum MSDN pro Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) informace a požádejte o pomoc.  

@@ -3,7 +3,7 @@ title: Odebrání poskytovatele prostředků MySQL ve službě Azure Stack | Dok
 description: Zjistěte, jak můžete odebrat poskytovatele prostředků MySQL z nasazení služby Azure Stack.
 services: azure-stack
 documentationCenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/06/2019
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: quying
 ms.lastreviewed: 11/20/2018
-ms.openlocfilehash: 69624d94be7742256b1adf6ed22100a6d3b826d8
-ms.sourcegitcommit: ccd86bd0862c45de1f6a4993f783ea2e186c187a
+ms.openlocfilehash: e26553193d0310101f928efe454844a06da7b0e6
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65172329"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65617947"
 ---
 # <a name="remove-the-mysql-resource-provider"></a>Odebrat poskytovatele prostředků MySQL
 

@@ -3,25 +3,24 @@ title: Používání databáze poskytnutých poskytovatele prostředků MySQL ad
 description: Vytvoření a Správa databází MySQL zřízené s využitím poskytovatele prostředků MySQL adaptéru
 services: azure-stack
 documentationCenter: ''
-author: WenJason
-manager: digimobile
+author: mattbriggs
+manager: femila
 editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/12/2019
-ms.date: 03/04/2019
-ms.author: v-jay
+ms.date: 02/12/2019
+ms.author: mabrigg
 ms.reviewer: quying
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 6eaba728b794c0102ec4e28791b218efa28b51b5
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 4cf406461c7a231617d40c50d2b5491bb4427b63
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64296223"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618637"
 ---
 # <a name="create-mysql-databases"></a>Vytvoření databáze MySQL
 Uživatele služby Azure Stack, se vytvořilo nabídky, která zahrnuje databázová služba MySQL můžete vytvářet a spravovat databáze MySQL samoobslužného portálu user portal.
@@ -68,5 +67,3 @@ Heslo můžete změnit pomocí změny na instanci serveru MySQL.
 ## <a name="next-steps"></a>Další postup
 
 [Aktualizace poskytovatele prostředků MySQL](azure-stack-mysql-resource-provider-update.md)
-
-<!-- Update_Description: wording update -->

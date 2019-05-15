@@ -3,7 +3,7 @@ title: Správa poskytovatele prostředků MySQL ve službě Azure Stack | Dokume
 description: Zjistěte, jak můžete spravovat službu poskytovatele prostředků MySQL ve službě Azure Stack.
 services: azure-stack
 documentationCenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/06/2019
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 24e1e315a9b52693cb2b9ff26bf424ee8e9d4f3f
-ms.sourcegitcommit: ccd86bd0862c45de1f6a4993f783ea2e186c187a
+ms.openlocfilehash: d9d91dce762265da498a0a1232b023c2956edefd
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65172313"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65617869"
 ---
 # <a name="mysql-resource-provider-maintenance-operations"></a>Operace údržby poskytovatele prostředků MySQL
 

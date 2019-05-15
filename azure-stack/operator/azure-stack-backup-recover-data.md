@@ -3,8 +3,8 @@ title: Obnovit ze ztráty dat v pomocí infrastruktury služby zálohování Azu
 description: Při katastrofických selhání způsobuje Azure Stack selhání, můžete obnovit data vaší infrastruktury při obnovení vašeho nasazení Azure stacku.
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: mattbriggs
+manager: femila
 editor: ''
 ms.assetid: 2ECE8580-0BDE-4D4A-9120-1F6771F2E815
 ms.service: azure-stack
@@ -12,17 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/12/2019
-ms.date: 03/04/2019
-ms.author: v-jay
+ms.date: 02/12/2019
+ms.author: mabrigg
 ms.reviewer: hectorl
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: 3fd91ef17415e2c6ebb735fdedb098f8aa319d8c
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: f459804d33871ec97bf50e55ed01685001dcbfc7
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64292417"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65617910"
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>Obnovit ze ztráty dat
 
@@ -76,5 +75,3 @@ Azure Stack podporuje typy nasazení volá režimu obnovení cloudu. Tento reži
 ## <a name="next-steps"></a>Další postup
 
 Další informace o osvědčených postupech pro [pomocí infrastruktury služby Backup](azure-stack-backup-best-practices.md).
-
-<!-- Update_Description: update metedata properties -->

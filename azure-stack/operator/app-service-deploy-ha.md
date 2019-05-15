@@ -3,7 +3,7 @@ title: Nasazení Azure Stack App Service v konfiguraci s vysokou dostupností | 
 description: Zjistěte, jak nasadit službu App Service ve službě Azure Stack pomocí konfiguraci s vysokou dostupností.
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2019
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: a5311427e15fb690d70aca1da570d2c717e6176c
-ms.sourcegitcommit: 41927cb812e6a705d8e414c5f605654da1fc6952
+ms.openlocfilehash: 78476afd09d6c85fbe5790568dd46366beaf1991
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64477225"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618356"
 ---
 # <a name="deploy-app-service-in-a-highly-available-configuration"></a>Nasadit službu App Service v konfiguraci s vysokou dostupností
 
@@ -171,9 +171,9 @@ Nasazení poskytovatele prostředků App Service, postupujte podle těchto krok�
     ![Očekávané chybové dialogové okno](media/app-service-deploy-ha/08.png)
 
     Pokud jste se rozhodli nasadit do existující virtuální sítě a interní IP adresu pro připojení k souborovému serveru, je nutné přidat odchozí pravidlo zabezpečení, povolení provozu SMB mezi podsítě pracovního procesu a souborový server. Přejděte na WorkersNsg portálu pro správu a přidat odchozí pravidlo zabezpečení s následujícími vlastnostmi:
-    - Zdroj: Všechny
+    - Zdroj: Vše
     - Zdrojový rozsah portů: *
-    - Cíl: IP adresy
+    - Cíl: Adresy IP
     - Rozsah cílových IP adres: Rozsah IP adres pro souborový server
     - Rozsah cílových portů: 445
     - Protokol: TCP

@@ -3,7 +3,7 @@ title: Nabízí vysoce dostupné databáze MySQL v Azure stacku | Dokumentace Mi
 description: Zjistěte, jak vytvořit poskytovatele prostředků MySQL Server hostitelský počítač a vysoce dostupné databáze MySQL pomocí služby Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/12/2019
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: quying
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: f620b8f2d1abe4d656e8f7cf8c34a5798d517e2a
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 1b1ebd27f87030b34b132eb31c4b4ae83f13a3b0
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64300513"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618224"
 ---
 # <a name="tutorial-offer-highly-available-mysql-databases"></a>Kurz: Nabízí vysoce dostupné databáze MySQL
 
@@ -110,11 +110,11 @@ Ve výchozím nastavení je nakonfigurován žádný veřejný přístup pro MyS
 
 1. Na portálu správce, přejděte do skupiny prostředků vytvořené při nasazování clusteru MySQL a vybrat skupinu zabezpečení sítě (**výchozí podsíť sg**):
 
-   ![open (otevírá)](media/azure-stack-tutorial-mysqlrp/6.png)
+   ![otevřít](media/azure-stack-tutorial-mysqlrp/6.png)
 
 2. Vyberte **příchozí pravidla zabezpečení** a potom klikněte na tlačítko **přidat**.<br><br>Zadejte **3306** v **rozsah cílových portů** a volitelně také popis v **název** a **popis** pole. Klikněte na Přidat a zavřete dialogové okno pravidla zabezpečení příchozích dat.
 
-   ![open (otevírá)](media/azure-stack-tutorial-mysqlrp/7.png)
+   ![otevřít](media/azure-stack-tutorial-mysqlrp/7.png)
 
 ### <a name="configure-external-access-to-the-mysql-cluster"></a>Konfigurace externího přístupu k MySQL cluster
 Předtím, než je MySQL cluster se dá přidat jako hostitele služby Azure Stack MySQL serveru, musí být povolená externí přístup.

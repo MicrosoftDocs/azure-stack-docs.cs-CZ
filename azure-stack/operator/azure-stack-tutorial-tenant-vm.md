@@ -3,7 +3,7 @@ title: Virtuální počítače zpřístupnit uživatelům Azure stacku | Dokumen
 description: Zjistěte, jak zajistit dostupnost virtuálních počítačů ve službě Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/12/2019
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: unknown
 ms.lastreviewed: 09/11/2018
 ms.custom: mvc
-ms.openlocfilehash: 3fa165c5c921c9539e5ceea82ff3b8dd00f787a8
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 949161cd90099d5b9486d7a10524fd915692c897
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64984570"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618394"
 ---
 # <a name="tutorial-make-virtual-machines-available-to-your-azure-stack-users"></a>Kurz: zpřístupníte virtuálních počítačů pro vaše uživatele Azure stacku
 
@@ -53,7 +53,7 @@ Nabídky jsou skupiny jednoho nebo několika plánů, které poskytovatelé pře
 
 1. V **nová nabídka**, zadejte **zobrazovaný název** a **název prostředku**a pak vyberte novou nebo existující **skupiny prostředků**. Zobrazovaný název představuje popisný název nabídky. Název prostředku, což je název, který správci používají pro práci s nabídkou jako s prostředkem Azure Resource Manageru můžete zobrazit pouze operátor cloudu.
 
-   ![Zobrazované jméno](media/azure-stack-tutorial-tenant-vm/image02.png)
+   ![Display name](media/azure-stack-tutorial-tenant-vm/image02.png)
 
 1. Vyberte **základní plány**a **plán** vyberte **přidat** pro přidání do nabídky nový plán.
 

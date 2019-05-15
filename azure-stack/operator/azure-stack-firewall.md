@@ -3,8 +3,8 @@ title: Integrované systémy pro Azure Stack firewall plánování pro službu A
 description: Popisuje aspekty brány firewall služby Azure Stack pro nasazení na víc uzlů Azure stacku Azure připojené.
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: mattbriggs
+manager: femila
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
@@ -12,17 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/12/2019
-ms.date: 03/04/2019
-ms.author: v-jay
+ms.date: 02/12/2019
+ms.author: mabrigg
 ms.reviewer: wfayed
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 023201d221ee5d7ec884c6a760407e8da8340d3f
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: a98f89866fd7679a0d6ce7c6ecb40d7e8e8b51e7
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64297587"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618687"
 ---
 # <a name="azure-stack-firewall-integration"></a>Integrace brány firewall služby Azure Stack
 Doporučuje se použít zařízení brány firewall umožňující zabezpečení Azure stacku. Brány firewall můžete chránit proti věci jako jsou útoky distribuované útok na dostupnost služby (DDOS), zjišťování neoprávněných vniknutí a kontrolu obsahu. Ale zároveň může stát kritickým bodem propustnost pro služby Azure storage jako objekty BLOB, tabulky a fronty.

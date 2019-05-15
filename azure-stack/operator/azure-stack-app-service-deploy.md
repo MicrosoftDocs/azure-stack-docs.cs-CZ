@@ -3,7 +3,7 @@ title: 'Nasazení služeb App Services: Azure Stack | Dokumentace Microsoftu'
 description: Podrobné pokyny k nasazení služby App Service ve službě Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.date: 02/27/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 2a5fc0a9fdfd68d2dd693695b7ffec2cfe8a7e77
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 6db643e1123a27fe1716aeeb5ec97d6497764632
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64982273"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618954"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Přidání poskytovatele prostředků App Service do služby Azure Stack
 
@@ -122,7 +122,7 @@ Nasazení poskytovatele prostředků App Service, postupujte podle těchto krok�
 
 10. Pro každý soubor polí tři certifikátu vyberte **Procházet** a přejděte k souboru příslušný certifikát. Musíte zadat heslo pro každý certifikát. Tyto certifikáty jsou ty, které jste vytvořili [vytvořit požadované certifikáty krok](azure-stack-app-service-before-you-get-started.md#get-certificates). Vyberte **Další** po zadání všech informací.
 
-    | Box | Příklad názvu souboru certifikátu |
+    | Pole | Příklad názvu souboru certifikátu |
     | --- | --- |
     | **Výchozí soubor certifikátu SSL služby App Service** | \_.appservice.local.AzureStack.external.pfx |
     | **Soubor certifikátu SSL služby App Service API** | api.appservice.local.AzureStack.external.pfx |
@@ -144,7 +144,7 @@ Nasazení poskytovatele prostředků App Service, postupujte podle těchto krok�
     | Role | Minimální instance | Minimální SKU | Poznámky |
     | --- | --- | --- | --- |
     | Kontrolér | 1 | Standard_A2 - (2 virtuální procesory a 3584 MB) | Spravuje a udržuje stav cloudové služby App Service. |
-    | Správa | 1 | Standard_A2 - (2 virtuální procesory, 3584 MB) | Slouží ke správě koncových bodů aplikace služby Azure Resource Manageru a rozhraní API, rozšíření portálu (admin, tenanta, portálu Functions) a datové služby. Pro podporu převzetí služeb při selhání, vyšší doporučenou instance až na 2. |
+    | Vedení | 1 | Standard_A2 - (2 virtuální procesory, 3584 MB) | Slouží ke správě koncových bodů aplikace služby Azure Resource Manageru a rozhraní API, rozšíření portálu (admin, tenanta, portálu Functions) a datové služby. Pro podporu převzetí služeb při selhání, vyšší doporučenou instance až na 2. |
     | Vydavatel | 1 | Standard_A1 - (1 virtuální procesor, 1792 MB) | Publikuje obsahu prostřednictvím nasazení pomocí FTP a web. |
     | FrontEnd | 1 | Standard_A1 - (1 virtuální procesor, 1792 MB) | Směruje žádosti do aplikace služby App Service. |
     | Sdílených pracovních serverů | 1 | Standard_A1 - (1 virtuální procesor, 1792 MB) | Hostitelé web nebo aplikace rozhraní API a aplikace Azure Function App. Můžete chtít přidat další instance. Jako operátor můžete definovat vaši nabídku a zvolte všechny úroveň skladové položky. Na úrovních musí mít minimálně jeden virtuální procesor. |
@@ -199,9 +199,9 @@ Nasazení poskytovatele prostředků App Service, postupujte podle těchto krok�
 
     Pokud nasazení provádíte do existující virtuální sítě a pomocí interní IP adresu pro připojení k souborovému serveru, je nutné přidat odchozí pravidlo zabezpečení. Toto pravidlo aktivuje přenosy SMB mezi podsítě pracovního procesu a souborový server.  Chcete-li to provést, přejděte na WorkersNsg v portálu pro správu a přidat odchozí pravidlo zabezpečení s následujícími vlastnostmi:
 
-    - Zdroj: Všechny
+    - Zdroj: Vše
     - Zdrojový rozsah portů: *
-    - Cíl: IP adresy
+    - Cíl: Adresy IP
     - Rozsah cílových IP adres: Rozsah IP adres pro souborový server
     - Rozsah cílových portů: 445
     - Protokol: TCP

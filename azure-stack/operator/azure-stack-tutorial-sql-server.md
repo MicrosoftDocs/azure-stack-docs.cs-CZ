@@ -3,8 +3,8 @@ title: Zpřístupnění databáze SQL pro vaše uživatele Azure stacku | Dokume
 description: Kurz k instalaci poskytovatele prostředků SQL serveru a vytvořte nabízí, která umožní uživatelům Azure stacku vytvářet databáze SQL.
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: mattbriggs
+manager: femila
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
@@ -12,18 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-origin.date: 02/12/2019
-ms.date: 04/29/2019
-ms.author: v-jay
+ms.date: 02/12/2019
+ms.author: mabrigg
 ms.reviewer: quying
 ms.lastreviewed: 11/05/2018
 ms.custom: mvc
-ms.openlocfilehash: 26ab5b0528f54a351c7168269cb1cfb4b1e13f9e
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: e65bebf5b6126455ef1294fabeb1450f91689d5d
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64292098"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618385"
 ---
 # <a name="tutorial-make-sql-databases-available-to-your-azure-stack-users"></a>Kurz: zpřístupnění databáze SQL pro vaše uživatele Azure stacku
 
@@ -89,5 +88,3 @@ Pokračujte k dalším kurzu se dozvíte, jak:
 
 > [!div class="nextstepaction"]
 > [Zpřístupnění webové, mobilní a API apps pro vaše uživatele]( azure-stack-tutorial-app-service.md)
-
-<!-- Update_Description: wording update -->

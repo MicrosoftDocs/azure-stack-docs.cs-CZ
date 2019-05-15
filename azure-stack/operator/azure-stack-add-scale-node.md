@@ -3,7 +3,7 @@ title: Přidat škálování uzlů Azure Stack | Dokumentace Microsoftu
 description: Přidáte uzly do jednotek škálování ve službě Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2019
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: 17da540bd6077b8e045f125fd3cf13dc0e043000
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 7a2ba164c5d35bc1f5b52d3ff68c18b7b3e47dcd
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64293374"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618934"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack"></a>Přidat další škálovací jednotku uzly ve službě Azure Stack
 
@@ -106,7 +106,7 @@ Stav jednotky škálování a škálovací jednotku uzly se dá načíst pomocí
 
 |Status               |Popis  |
 |---------------------|---------|
-|Spuštěno              |Všechny uzly jsou aktivně účasti v jednotce škálování.|
+|Běží              |Všechny uzly jsou aktivně účasti v jednotce škálování.|
 |Zastaveno              |Uzel jednotka škálování je mimo provoz nebo nedostupný.|
 |Rozbalení            |Jeden nebo více uzlů jednotky škálování se aktuálně přidávají jako výpočetní kapacitu.|
 |Konfigurace úložiště  |Došlo k rozbalení výpočetní kapacity a konfigurace úložiště je spuštěná.|
@@ -117,11 +117,11 @@ Stav jednotky škálování a škálovací jednotku uzly se dá načíst pomocí
 
 |Status                |Popis  |
 |----------------------|---------|
-|Spuštěno               |Uzel je aktivně účasti v jednotce škálování.|
+|Běží               |Uzel je aktivně účasti v jednotce škálování.|
 |Zastaveno               |Uzel není k dispozici.|
 |Přidávání                |Uzel je aktivně přidává na jednotce škálování.|
 |Probíhají opravy             |Uzel je aktivně opraví.|
-|Údržba           |Uzel pozastaví a žádné aktivní uživatel úloha běží. |
+|údržba           |Uzel pozastaví a žádné aktivní uživatel úloha běží. |
 |Vyžaduje nápravy  |Byla zjištěna chyba, která vyžaduje uzel, který má být opraven.|
 
 

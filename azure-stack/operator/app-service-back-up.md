@@ -3,8 +3,8 @@ title: Zálohování služby App Service ve službě Azure Stack | Dokumentace M
 description: Podrobné pokyny pro zálohování Azure stacku App Service.
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digiomobile
+author: mattbriggs
+manager: femila
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
@@ -12,17 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/21/2019
-ms.date: 04/01/2019
-ms.author: v-jay
+ms.date: 04/23/2019
+ms.author: mabrigg
 ms.reviewer: apwestgarth
 ms.lastreviewed: 03/21/2019
-ms.openlocfilehash: cb4542d7926fd119fab38d281c6d6e44ecd0029c
-ms.sourcegitcommit: cd54fc560ebf2f4efbb42021232716d6c331dba9
+ms.openlocfilehash: dff128ad86de23aae0bf8fe4848d256510a80d85
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "64329574"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618324"
 ---
 # <a name="back-up-app-service-on-azure-stack"></a>Zálohování služby App Service ve službě Azure Stack
 

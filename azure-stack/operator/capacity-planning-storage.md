@@ -3,7 +3,7 @@ title: Úložiště plánování kapacity pro Azure Stack | Dokumentace Microsof
 description: Další informace o plánování pro nasazení Azure Stack kapacity úložiště.
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2019
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: prchint
 ms.lastreviewed: 02/20/2019
-ms.openlocfilehash: 1d111d56d58869121f6833fe5c7ea15664883aaa
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 549428b7a47065dfcb0bdb55ff100332b066f4bc
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64984474"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618899"
 ---
 # <a name="azure-stack-storage-capacity-planning"></a>Plánování kapacity úložiště s Azure Stack
 Azure Stack úložiště plánování kapacity informace jako pomoc při plánování řešení se úložiště udržet pod naleznete v následujících částech.

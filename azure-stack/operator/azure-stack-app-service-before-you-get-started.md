@@ -3,7 +3,7 @@ title: Před nasazením služby App Service ve službě Azure Stack | Dokumentac
 description: Kroky k dokončení před nasazením služby App Service ve službě Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.date: 03/11/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: 2728a37811e67de52dda2d259f692593fbcc270c
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 9b9e624abb23ef5c1bd0ae80e2338fdc0b1469ab
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64290844"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618271"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Před zahájením práce s App Service ve službě Azure Stack
 
@@ -365,7 +365,7 @@ Postupujte následovně:
 | AzureStackAdminCredential | Požaduje se | Null | Pověření správce služby Azure AD. |
 | CertificateFilePath | Požaduje se | Null | **Úplná cesta** pro soubor certifikátu aplikace identity vygeneruje dříve. |
 | CertificatePassword | Požaduje se | Null | Heslo, který pomáhá chránit soukromý klíč certifikátu. |
-| Prostředí | Nepovinné | AzureCloud | Název podporované Cloudovém prostředí, ve kterém je k dispozici cílové služby Azure Active Directory Graph.  Povolené hodnoty: "AzureCloud."AzureChinaCloud",", azureusgovernment nebo' "AzureGermanCloud".|
+| Prostředí | Volitelná | AzureCloud | Název podporované Cloudovém prostředí, ve kterém je k dispozici cílové služby Azure Active Directory Graph.  Povolené hodnoty: "AzureCloud."AzureChinaCloud",", azureusgovernment nebo' "AzureGermanCloud".|
 
 ## <a name="create-an-active-directory-federation-services-application"></a>Vytvoření aplikace Active Directory Federation Services
 

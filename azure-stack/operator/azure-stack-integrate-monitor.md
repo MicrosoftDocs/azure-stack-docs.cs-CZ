@@ -3,7 +3,7 @@ title: Integrace externí řešení pro monitorování pomocí služby Azure Sta
 description: Zjistěte, jak Azure Stack integrujte externí řešení monitorování ve vašem datovém centru.
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
 ms.date: 02/06/2019
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 02/06/2019
-ms.openlocfilehash: 98fdd9c1d69b8c4199987123517f2edefba0d6e2
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 2871b5183833830368307c5d2b5152e3909fd3ea
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985244"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618829"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Integrace externí řešení pro monitorování pomocí služby Azure Stack
 

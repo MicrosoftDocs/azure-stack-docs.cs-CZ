@@ -3,7 +3,7 @@ title: Nasadit službu App Service offline prostředí ve službě Azure Stack |
 description: Podrobné informace o tom, jak nasadit službu App Service v odpojeném prostředí Azure Stack zabezpečené službou AD FS.
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.date: 02/27/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: d65489d0c401158b83ac20f4314fe6bdae886107
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 1dfe1cba366d9b30c53a43724741c9a9e0f65819
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64983825"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618531"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Přidání poskytovatele prostředků App Service pro odpojené prostředí Azure Stack zabezpečené službou AD FS
 
@@ -125,7 +125,7 @@ Chcete-li nasadit službu App Service v odpojeném prostředí, musíte nejdří
 
 11. Pro každý ze tří polí souboru certifikátu, klikněte na tlačítko **Procházet** a potom přejděte k souboru příslušný certifikát. Musíte zadat heslo pro každý certifikát. Tyto certifikáty jsou ty, které jste vytvořili [vytvořit požadované certifikáty krok](azure-stack-app-service-before-you-get-started.md#get-certificates). Klikněte na tlačítko **Další** po zadání všech informací.
 
-    | Box | Příklad názvu souboru certifikátu |
+    | Pole | Příklad názvu souboru certifikátu |
     | --- | --- |
     | **Výchozí soubor certifikátu SSL služby App Service** | \_.appservice.local.AzureStack.external.pfx |
     | **Soubor certifikátu SSL služby App Service API** | api.appservice.local.AzureStack.external.pfx |
@@ -164,7 +164,7 @@ Chcete-li nasadit službu App Service v odpojeném prostředí, musíte nejdří
     | Role | Minimální instance | Minimální SKU | Poznámky |
     | --- | --- | --- | --- |
     | Kontrolér | 1 | Standard_A2 - (2 virtuální procesory a 3584 MB) | Spravuje a udržuje stav cloudové služby App Service. |
-    | Správa | 1 | Standard_A2 - (2 virtuální procesory, 3584 MB) | Slouží ke správě koncových bodů aplikace služby Azure Resource Manageru a rozhraní API, rozšíření portálu (admin, tenanta, portálu Functions) a datové služby. Pro podporu převzetí služeb při selhání, vyšší doporučenou instance až na 2. |
+    | Vedení | 1 | Standard_A2 - (2 virtuální procesory, 3584 MB) | Slouží ke správě koncových bodů aplikace služby Azure Resource Manageru a rozhraní API, rozšíření portálu (admin, tenanta, portálu Functions) a datové služby. Pro podporu převzetí služeb při selhání, vyšší doporučenou instance až na 2. |
     | Vydavatel | 1 | Standard_A1 - (1 virtuální procesor, 1792 MB) | Publikuje obsahu prostřednictvím nasazení pomocí FTP a web. |
     | FrontEnd | 1 | Standard_A1 - (1 virtuální procesor, 1792 MB) | Směruje žádosti do aplikace služby App Service. |
     | Sdílených pracovních serverů | 1 | Standard_A1 - (1 virtuální procesor, 1792 MB) | Hostitelé web nebo aplikace rozhraní API a aplikace Azure Function App. Můžete chtít přidat další instance. Jako operátor můžete definovat vaši nabídku a zvolte všechny úroveň skladové položky. Na úrovních musí mít minimálně jeden virtuální procesor. |
@@ -211,9 +211,9 @@ Chcete-li nasadit službu App Service v odpojeném prostředí, musíte nejdří
 
 > [!NOTE]
 > Pokud jste se rozhodli nasadit do existující virtuální sítě a interní IP adresu pro připojení k souborovému serveru, je nutné přidat odchozí pravidlo zabezpečení, povolení provozu SMB mezi podsítě pracovního procesu a souborový server.  Chcete-li to provést, přejděte na WorkersNsg v portálu pro správu a přidat odchozí pravidlo zabezpečení s následujícími vlastnostmi:
-> * Zdroj: Všechny
+> * Zdroj: Vše
 > * Zdrojový rozsah portů: *
-> * Cíl: IP adresy
+> * Cíl: Adresy IP
 > * Rozsah cílových IP adres: Rozsah IP adres pro souborový server
 > * Rozsah cílových portů: 445
 > * Protokol: TCP

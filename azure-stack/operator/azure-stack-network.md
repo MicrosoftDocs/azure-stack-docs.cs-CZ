@@ -3,7 +3,7 @@ title: Sítě důležité informace o integraci pro integrované systémy Azure 
 description: Zjistěte, co vám pomůžou naplánovat integrace sítě datového centra pomocí služby Azure Stack víc uzlů.
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2019
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 08/30/2018
-ms.openlocfilehash: 6286b8531a85abe6378b7ada419af7eb9f86b40e
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: a839faa7ec5a93a506ad967f3449ee1788f1a21a
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985005"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618494"
 ---
 # <a name="network-connectivity"></a>Připojení k síti
 Tento článek obsahuje informace o síťové infrastruktury Azure Stack vám pomohou rozhodnout, jak nejlépe integrovat do vaší stávající síťové prostředí Azure Stack. 
@@ -45,7 +45,7 @@ V následující tabulce jsou uvedeny logické sítě a přidružené podsítě 
 | Veřejné virtuální IP adresy | Azure Stack používá celkem 31 adres z této sítě. Osm veřejné IP adresy se používají pro malou skupinu služby Azure Stack a zbývající jsou používány tenantské virtuální počítače. Pokud máte v plánu služby App Service a poskytovatele prostředků SQL, 7 další adresy se používají. Zbývající 15 IP adresy jsou vyhrazené pro budoucí služby Azure. | / 26 (62 hostitelů) - /22 (1022 hostitelů)<br><br>Doporučené = /24 (254 hostiteli) | 
 | Přepínač infrastruktury | Point-to-Point IP adresy pro účely směrování, vyhrazené přepnou rozhraní pro správu a zpětné smyčky adresy přiřazené k přepínači. | /26 | 
 | Infrastruktura | Ke komunikaci se používá pro interní komponenty služby Azure Stack. | /24 |
-| Private | Používá pro síť úložiště a privátní virtuální IP adresy. | /24 | 
+| Privátní | Používá pro síť úložiště a privátní virtuální IP adresy. | /24 | 
 | BMC | Slouží ke komunikaci s pro správu základní desky na fyzických hostitelích. | /26 | 
 | | | |
 

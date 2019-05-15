@@ -3,7 +3,7 @@ title: Co je Azure Stack? | Dokumenty Microsoft
 description: Zjistěte, jak vám Azure Stack umožňuje provozovat služby Azure ve vašem datovém centru.
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 03/29/2019
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: unknown
 ms.custom: ''
 ms.lastreviewed: 03/29/2019
-ms.openlocfilehash: 382fc49caf12a578584c8680edb30a321e82ea00
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: f8206c658170a16e517e64a328d188c015b9e394
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985057"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618067"
 ---
 # <a name="azure-stack-overview"></a>Přehled služby Azure Stack
 
@@ -75,7 +75,7 @@ Můžete také nasadit Azure Stack buď **připojené** k Internetu (a do Azure)
 
 > Další informace najdete v tématu důležité informace týkající se [připojené](azure-stack-connected-deployment.md) a [odpojení](azure-stack-disconnected-deployment.md) modely nasazení. 
 
-### <a name="identity-provider"></a>Zprostředkovatel identity 
+### <a name="identity-provider"></a>Poskytovatel identit 
 Azure Stack použije Azure Active Directory (Azure AD) nebo Active Directory Federation Services (AD FS) jako zprostředkovatele identity pro vytvoření identity služby Azure Stack. 
 
 > [!IMPORTANT]
