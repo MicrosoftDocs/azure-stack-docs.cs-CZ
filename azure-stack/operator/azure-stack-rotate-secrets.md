@@ -14,13 +14,13 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.reviewer: ppacent
 ms.author: mabrigg
-ms.lastreviewed: 04/15/2019
-ms.openlocfilehash: 3098381f13835cc2062df36a967412bf98a4547f
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.lastreviewed: 05/14/2019
+ms.openlocfilehash: 4b758cce6741440f5b6a4c00de045e9a4fc8f530
+ms.sourcegitcommit: 1655b2ef4d01d69ceeb52bc16f922bdc19cb968d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64984701"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65706326"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Otočit tajné kódy ve službě Azure Stack
 
@@ -34,7 +34,7 @@ Všechny certifikáty, hesla, zabezpečené řetězce a klíčů používaných 
 
 - **Externích tajných klíčů**
 
-Certifikáty služby infrastruktury pro externí služby, které poskytuje operátor Azure stacku. Externích tajných klíčů rozsah zahrnuje certifikáty pro následující služby:
+Certifikáty služby infrastruktury externích služeb, které jsou k dispozici v operátor Azure stacku. Externích tajných klíčů rozsah zahrnuje certifikáty pro následující služby:
 
 - Portál správce
 - Veřejný portál
@@ -300,11 +300,11 @@ Start-SecretRotation [-ReRun] [-Internal]
 
 | Parametr | Type | Požaduje se | Umístění | Výchozí | Popis |
 | -- | -- | -- | -- | -- | -- |
-| `PfxFilesPath` | String  | False  | s názvem  | Žádný  | Cesta sdílení souborů na **\Certificates** síťové adresáře, který obsahuje všechny externí certifikáty koncový bod. Povinné pouze v případě otáčení externích tajných klíčů. Adresář end musí být **\Certificates**. |
-| `CertificatePassword` | SecureString | False  | s názvem  | Žádný  | Heslo pro všechny certifikáty v PfXFilesPath – k dispozici. Požadovaná hodnota, pokud PfxFilesPath víceklientského externích tajných klíčů se otočí. |
-| `Internal` | String | False | s názvem | Žádný | Interní příznak musí použít, kdykoli operátory Azure stacku chce otočit interní infrastruktury tajných kódů. |
-| `PathAccessCredential` | PSCredential | False  | s názvem  | Žádný  | Přihlašovací údaje prostředí PowerShell pro sdílení souborů systému **\Certificates** síťové adresáře, který obsahuje všechny externí certifikáty koncový bod. Povinné pouze v případě otáčení externích tajných klíčů.  |
-| `ReRun` | SwitchParameter | False  | s názvem  | Žádný  | Opětovné spuštění se musí použít kdykoli otočení tajného kódu je opakování po neúspěšném pokusu. |
+| `PfxFilesPath` | String  | False (Nepravda)  | s názvem  | Žádný  | Cesta sdílení souborů na **\Certificates** síťové adresáře, který obsahuje všechny externí certifikáty koncový bod. Povinné pouze v případě otáčení externích tajných klíčů. Adresář end musí být **\Certificates**. |
+| `CertificatePassword` | SecureString | False (Nepravda)  | s názvem  | Žádný  | Heslo pro všechny certifikáty v PfXFilesPath – k dispozici. Požadovaná hodnota, pokud PfxFilesPath víceklientského externích tajných klíčů se otočí. |
+| `Internal` | String | False (Nepravda) | s názvem | Žádný | Interní příznak musí použít, kdykoli operátory Azure stacku chce otočit interní infrastruktury tajných kódů. |
+| `PathAccessCredential` | PSCredential | False (Nepravda)  | s názvem  | Žádný  | Přihlašovací údaje prostředí PowerShell pro sdílení souborů systému **\Certificates** síťové adresáře, který obsahuje všechny externí certifikáty koncový bod. Povinné pouze v případě otáčení externích tajných klíčů.  |
+| `ReRun` | SwitchParameter | False (Nepravda)  | s názvem  | Žádný  | Opětovné spuštění se musí použít kdykoli otočení tajného kódu je opakování po neúspěšném pokusu. |
 
 ### <a name="examples"></a>Příklady
 

@@ -3,24 +3,23 @@ title: Velikosti virtuálních počítačů, které jsou podporované ve služb�
 description: Referenční informace pro velikosti podporovaných virtuálních počítačů ve službě Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: mattbriggs
+manager: femila
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/02/2019
-ms.date: 04/29/2019
-ms.author: v-jay
+ms.date: 04/02/2019
+ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: d2507fd649e10cd442af86195a731caaf467e8d9
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: ab8c6c32a21afffd590a6f98359e051c7208b6ec
+ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64300425"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65712267"
 ---
 # <a name="virtual-machine-sizes-supported-in-azure-stack"></a>Velikosti virtuálních počítačů, které jsou podporované ve službě Azure Stack
 
@@ -92,7 +91,7 @@ Pro obecné účely velikosti virtuálních počítačů nabízejí vyvážený 
 ### <a name="dv2-series"></a>Dv2-series
 |Velikost     |Virtuální procesory     |Paměť (GiB) | Dočasné úložiště (GiB)  | Operační systém maximální propustnost disku (IOPS) | Maximální propustnost dočasného úložiště (IOPS) | Maximální počet datových disků nebo propustnost (IOPS) | Maximální počet síťových karet |
 |-------------------|----|----|-----|----|------|------------|---------|
-|**Standard_D1_v2** |1   |3,5 |50   |500 |3000  |4 / 4×500   |1 |
+|**Standard_D1_v2** |1   |3,5 |50   |500 |3000  |4 / 4×500   |2 |
 |**Standard_D2_v2** |2   |7   |100  |500 |6000  |8 / 8×500   |2 |
 |**Standard_D3_v2** |4   |14  |200  |500 |12000 |16 / 16×500 |4 |
 |**Standard_D4_v2** |8   |28  |400  |500 |24000 |32 / 32×500 |8 |
@@ -108,7 +107,7 @@ Pro obecné účely velikosti virtuálních počítačů nabízejí vyvážený 
 |**Standard_DS5_v2** |16  |56  |112 |1000 |64000 |64 / 64x2300 |8 |
 
 
-## <a name="compute-optimized"></a>Optimalizované z hlediska výpočetních služeb
+## <a name="compute-optimized"></a>Optimalizováno pro výpočty
 ### <a name="f-series"></a>F-series
 *Vyžaduje verzi služby Azure Stack 1804 nebo novější*
 
@@ -146,7 +145,7 @@ Pro obecné účely velikosti virtuálních počítačů nabízejí vyvážený 
 |**Standard_F64s_v2** |64  |128 |512  |1000 |128000 |32 / 32x2300  |8 |
 
 
-## <a name="memory-optimized"></a>Optimalizované z hlediska paměti
+## <a name="memory-optimized"></a>Optimalizováno pro paměť
 
 Paměť optimalizované velikosti virtuálních počítačů poskytuje vysokou poměr paměti na procesor, který je navržený pro servery relačních databází, střední a velké mezipaměti a analýzu v paměti.
 
@@ -187,5 +186,3 @@ Paměť optimalizované velikosti virtuálních počítačů poskytuje vysokou p
 ## <a name="next-steps"></a>Další postup
 
 [Důležité informace týkající se virtuálních počítačů v Azure stacku](azure-stack-vm-considerations.md)
-
-<!-- Update_Description: wording update -->

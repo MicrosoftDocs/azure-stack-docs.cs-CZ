@@ -16,12 +16,12 @@ ms.author: mabrigg
 ms.custom: mvc
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 04b2f2a5e4e9caa8e8eacc47b44c60a6884a6837
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: d6293aec1d9a4a7ce58442b21302c09162cc3a61
+ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64986033"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65712445"
 ---
 # <a name="quickstart-create-a-windows-server-virtual-machine-by-using-powershell-in-azure-stack"></a>Rychlý start: Vytvoření virtuálního počítače s Windows serverem pomocí prostředí PowerShell ve službě Azure Stack
 
@@ -42,11 +42,14 @@ Virtuální počítač (VM) Windows serveru 2016 můžete vytvořit pomocí Azur
 
 * Azure Stack vyžaduje určitou verzi prostředí Azure PowerShell k vytváření a správě prostředků. Pokud nemáte nakonfigurované pro službu Azure Stack Powershellu, postupujte podle kroků pro [nainstalovat](../operator/azure-stack-powershell-install.md) prostředí PowerShell.
 
-* S Azure Stack Powershellu nastavit je potřeba připojení k prostředí Azure Stack. Pokyny naleznete v tématu [připojit ke službě Azure Stack pomocí prostředí PowerShell jako uživatel](azure-stack-powershell-configure-user.md).
+* S Azure Stack Powershellu nastavení bude nutné se připojit k prostředí Azure Stack. Pokyny naleznete v tématu [připojit ke službě Azure Stack pomocí prostředí PowerShell jako uživatel](azure-stack-powershell-configure-user.md).
 
 ## <a name="create-a-resource-group"></a>Vytvoření skupiny prostředků
 
-Skupina prostředků je logický kontejner, do které služby Azure Stack se nasazují a spravují prostředky. Vývojová sada nebo systém integrovat Azure Stack spusťte následující blok kódu a vytvořte skupinu prostředků. Pro všechny proměnné v tomto dokumentu jsou přiřazeny hodnoty, můžete použít tyto hodnoty nebo přiřazení nové hodnoty.
+Skupina prostředků je logický kontejner, do které služby Azure Stack se nasazují a spravují prostředky. Vývojová sada nebo systém integrovat Azure Stack spusťte následující blok kódu a vytvořte skupinu prostředků. 
+
+> [!NOTE]
+> Hodnoty jsou přiřazeny pro všechny proměnné v příkladech kódu. Pokud chcete, ale můžete přiřadit nové hodnoty.
 
 ```powershell
 # Create variables to store the location and resource group names.
@@ -109,7 +112,7 @@ $pip = New-AzureRmPublicIpAddress `
 
 ### <a name="create-a-network-security-group-and-a-network-security-group-rule"></a>Vytvoření skupiny zabezpečení sítě a pravidla skupiny zabezpečení sítě
 
-Skupina zabezpečení sítě zabezpečuje virtuální počítač pomocí příchozích a odchozích pravidel. Umožňuje vytvořit příchozí pravidlo pro port 3389 povolovat příchozí připojení ke vzdálené ploše a příchozí pravidlo pro port 80 povolit příchozí webový provoz.
+Skupina zabezpečení sítě zabezpečuje virtuální počítač pomocí příchozích a odchozích pravidel. Pojďme vytvořit příchozí pravidlo pro port 3389 povolovat příchozí připojení ke vzdálené ploše a příchozí pravidlo pro port 80 povolit příchozí webový provoz.
 
 ```powershell
 # Create an inbound network security group rule for port 3389
@@ -159,7 +162,7 @@ $nic = New-AzureRmNetworkInterface `
   -NetworkSecurityGroupId $nsg.Id
 ```
 
-## <a name="create-a-virtual-machine"></a>Vytvoření virtuálního počítače
+## <a name="create-a-virtual-machine"></a>Vytvořit virtuální počítač
 
 Vytvořte konfiguraci virtuálního počítače. Tato konfigurace zahrnuje nastavení používané při nasazení virtuálního počítače. Příklad: přihlašovací údaje, velikost a image virtuálního počítače.
 
@@ -214,7 +217,7 @@ Get-AzureRmPublicIpAddress `
   -ResourceGroupName $ResourceGroupName | Select IpAddress
 ```
 
-Pomocí následujícího příkazu vytvořte s virtuálním počítačem relaci vzdálené plochy. IP adresu nahraďte veřejnou IP adresou vašeho virtuálního počítače. Po zobrazení výzvy zadejte uživatelské jméno a heslo, které jste použili při vytváření virtuálního počítače.
+Pomocí následujícího příkazu vytvořte s virtuálním počítačem relaci vzdálené plochy. IP adresu nahraďte veřejnou IP adresou (*publicIPAddress*) vašeho virtuálního počítače. Po zobrazení výzvy zadejte uživatelské jméno a heslo použité při vytváření virtuálního počítače.
 
 ```powershell
 mstsc /v <publicIpAddress>
@@ -222,7 +225,7 @@ mstsc /v <publicIpAddress>
 
 ## <a name="install-iis-via-powershell"></a>Instalace služby IIS pomocí PowerShellu
 
-Když jste přihlášeni k virtuálnímu počítači Azure, můžete k instalaci služby IIS a k aktivaci pravidla místní brány firewall pro povolení webového provozu použít jeden řádek PowerShellu. Otevřete příkazový řádek PowerShellu a spusťte následující příkaz:
+Teď, když jste přihlášení k virtuálnímu počítači Azure, můžete použít jeden řádek Powershellu k instalaci IIS a aktivace pravidla místní brány firewall pro povolení webového provozu. Otevřete příkazový řádek PowerShellu a spusťte následující příkaz:
 
 ```powershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
@@ -230,11 +233,11 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 ## <a name="view-the-iis-welcome-page"></a>Zobrazení úvodní stránky služby IIS
 
-S nainstalovanou službou IIS a s portem 80 otevřete na svém virtuálním počítači můžete zobrazit výchozí úvodní stránka IIS webovém prohlížeči podle svého výběru. Použití *publicIpAddress* popsanou v předchozí části pro návštěvu výchozí stránky.
+S nainstalovanou službou IIS a s portem 80 otevřete na svém virtuálním počítači můžete použít libovolný prohlížeč Chcete-li zobrazit výchozí úvodní stránka služby IIS. Použití *publicIpAddress* popsanou v předchozí části pro návštěvu výchozí stránky.
 
 ![Výchozí web služby IIS](./media/azure-stack-quick-create-vm-windows-powershell/default-iis-website.png)
 
-## <a name="delete-the-virtual-machine"></a>Odstranění virtuálního počítače
+## <a name="delete-the-virtual-machine"></a>Odstraňte virtuální počítač
 
 Pokud už nepotřebujete, použijte následující příkaz k odebrání skupiny prostředků, která obsahuje virtuální počítač a související prostředky:
 

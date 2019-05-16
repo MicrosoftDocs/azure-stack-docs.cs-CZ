@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2019
+ms.date: 05/15/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 04/20/2019
-ms.openlocfilehash: fad8c68683b965c6716e600d2ea171c7e508d203
-ms.sourcegitcommit: 426380a3a27954cd609ba52d1066d9d69f5267fe
+ms.openlocfilehash: 5e0b19e753380c519704f9b2064ff56245004896
+ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65532331"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65712330"
 ---
 # <a name="azure-stack-1903-update"></a>Aktualizace služby Azure Stack 1903
 
@@ -216,7 +216,8 @@ Toto jsou známé problémy této verze sestavení po instalaci.
 ### <a name="app-service"></a>App Service
 
 <!-- 2352906 - IS ASDK -->
-- Před vytvořením první funkce Azure v rámci předplatného, zaregistrujte poskytovatele prostředků úložiště.
+- Tenanti musí zaregistrovat zprostředkovatele prostředku úložiště před vytvořením své první funkce Azure v rámci předplatného.
+- Některé tenanta portálu uživatelské prostředí jsou v 1903; přerušeno z důvodu nekompatibility s rozhraní portálu hlavně uživatelského rozhraní pro sloty nasazení, testování v produkčním prostředí a lokality rozšíření. Chcete-li tento problém obejít, použijte [modulu Powershellu pro Azure App Service](/azure/app-service/deploy-staging-slots#automate-with-powershell) nebo [rozhraní příkazového řádku Azure](/cli/azure/webapp/deployment/slot?view=azure-cli-latest). Prostředí portálu se obnoví v nadcházející verzi služby Azure App Service v Azure stacku 1.6 (aktualizací 6).
 
 <!-- ### Usage -->
 

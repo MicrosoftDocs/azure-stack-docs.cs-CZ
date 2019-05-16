@@ -15,34 +15,35 @@ ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: shnatara
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 29adea1cb8c07acc309ef7aae2856b9a14759de3
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: b35368804423a4647b84000d95adf41ee5fe09b2
+ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985892"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65712464"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Nasazení clusteru Service Fabric v Azure stacku
 
 Použití **Service Fabric Cluster** položku z Azure Marketplace k nasazení zabezpečeného clusteru Service Fabric v Azure stacku. 
 
-Další informace o práci s platformou Service Fabric najdete v tématu [přehled Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) a [scénáře zabezpečení clusteru Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security), dokumentace k Azure.
+Další informace o práci s platformou Service Fabric najdete v tématu [přehled Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) a [scénáře zabezpečení clusteru Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) v dokumentaci k Azure.
 
-Cluster Service Fabric v Azure stacku nepoužívá Microsoft.ServiceFabric poskytovatele prostředků. Místo toho ve službě Azure Stack clusteru Service Fabric je škálovací sady s nastavenou předinstalovaný software pomocí Desired State Configuration (DSC) virtuálních počítačů.
+Cluster Service Fabric v Azure stacku nepoužívá Microsoft.ServiceFabric poskytovatele prostředků. Místo toho ve službě Azure Stack je cluster Service Fabric virtuálního počítače škálovací sady s použitím předinstalovaný software [Desired State Configuration (DSC)](https://docs.microsoft.com/powershell/dsc/overview/overview).
 
 ## <a name="prerequisites"></a>Požadavky
 
 Následující jsou nutné k nasazení clusteru Service Fabric:
 1. **Certifikát clusteru**  
-   To je certifikát X.509 serveru, které přidáte do trezoru klíčů při nasazování Service Fabric. 
+   To je certifikát X.509 serveru, které přidáte do služby Key Vault při nasazování Service Fabric. 
    - **CN** na tento certifikát se musí shodovat plně kvalifikovaný název domény (FQDN) clusteru Service Fabric můžete vytvořit. 
    - Certifikát musí být ve formátu PFX, veřejné a soukromé klíče jsou povinné. 
      Zobrazit [požadavky](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) pro vytvoření tohoto certifikátu na straně serveru.
 
      > [!NOTE]  
-     > Pro účely testování můžete použít certifikát podepsaný svým držitelem místní server certifikátu x.509. Certifikáty podepsané svým držitelem tak, aby odpovídala plně kvalifikovaný název domény clusteru není nutné.
+     > Pro účely testování můžete použít certifikát podepsaný svým držitelem místní server certifikátu X.509. Certifikáty podepsané svým držitelem tak, aby odpovídala plně kvalifikovaný název domény clusteru není nutné.
 
-1. **Klient pro správu certifikátů** jedná se o certifikát, který klient použije k ověření do clusteru Service Fabric, který může být podepsaný držitelem. Zobrazit [požadavky](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) pro vytvoření tohoto certifikátu klienta.
+1. **Klient pro správu certifikátů**  
+   Toto je certifikát, který klient použije k ověření do clusteru Service Fabric, který může být podepsaný držitelem. Zobrazit [požadavky](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) pro vytvoření tohoto certifikátu klienta.
 
 1. **Následující položky musí být dostupné v Tržišti Azure Stack:**
     - **Windows Server 2016** – šablony k vytvoření clusteru používá image Windows serveru 2016.  
@@ -51,15 +52,15 @@ Následující jsou nutné k nasazení clusteru Service Fabric:
 
 
 ## <a name="add-a-secret-to-key-vault"></a>Přidání tajného klíče do služby Key Vault
-Pokud chcete nasadit cluster Service Fabric, je nutné zadat správný trezor klíčů *identifikátor tajného kódu* nebo adresu URL pro cluster Service Fabric. Šablony Azure Resource Manageru vezme jako vstupní údaje trezoru klíčů. Šablonu pak načte příslušný certifikát clusteru při instalaci clusteru Service Fabric.
+Pokud chcete nasadit cluster Service Fabric, je nutné zadat správný služby Key Vault *identifikátor tajného kódu* nebo adresu URL pro cluster Service Fabric. Šablony Azure Resource Manageru vezme jako vstupní údaje služby Key Vault. Šablonu pak načte příslušný certifikát clusteru při instalaci clusteru Service Fabric.
 
 > [!IMPORTANT]  
-> Přidání tajného klíče do trezoru klíčů pro použití se službou Service Fabric, musíte použít PowerShell. Nepoužívejte na portálu.  
+> Přidání tajného klíče do služby Key Vault pro použití se službou Service Fabric, musíte použít PowerShell. Nepoužívejte na portálu.  
 
-Pomocí následujícího skriptu vytvořte trezor klíčů a přidat *certifikát clusteru* k němu. (Viz [požadavky](#prerequisites).) Před spuštěním skriptu projděte si ukázkový skript a aktualizujte uvedené parametry, aby odpovídaly vašemu prostředí. Tento skript se také výstupní hodnoty, které je potřeba zadat do šablony Azure Resource Manageru. 
+Použijte tento skript k vytvoření služby Key Vault a přidat *certifikát clusteru* k němu. (Viz [požadavky](#prerequisites).) Před spuštěním skriptu projděte si ukázkový skript a aktualizujte uvedené parametry, aby odpovídaly vašemu prostředí. Tento skript se také výstupní hodnoty, které je potřeba zadat do šablony Azure Resource Manageru. 
 
 > [!TIP]  
-> Předtím, než můžete úspěšně skript, musí být veřejná nabídka, která zahrnuje služby pro výpočty, síť, úložiště a trezoru klíčů. 
+> Předtím, než můžete úspěšně skript, musí být veřejná nabídka, která zahrnuje služby pro výpočty, síť, úložiště a služby Key Vault. 
 
   ```powershell
     function Get-ThumbprintFromPfx($PfxFilePath, $Password) 
@@ -119,7 +120,7 @@ Pomocí následujícího skriptu vytvořte trezor klíčů a přidat *certifiká
    ``` 
 
 
-Další informace najdete v tématu [Spravovat trezor klíčů ve službě Azure Stack s prostředím PowerShell](azure-stack-key-vault-manage-powershell.md).
+Další informace najdete v tématu [Správa služby Key Vault ve službě Azure Stack s prostředím PowerShell](azure-stack-key-vault-manage-powershell.md).
 
 ## <a name="deploy-the-marketplace-item"></a>Nasadit položky Marketplace
 
@@ -135,12 +136,12 @@ Další informace najdete v tématu [Spravovat trezor klíčů ve službě Azure
 
    ![Nastavení sítě](media/azure-stack-solution-template-service-fabric-cluster/image4.png)
 
-1. Na *zabezpečení* stránky, přidá hodnoty, které jste získali z [vytvoření Azure Key Vaultu](#add-a-secret-to-key-vault) a nahrajete ji tajný klíč.
+1. Na *zabezpečení* stránky, přidá hodnoty, které jste získali z [vytváření služby Azure Key Vault](#add-a-secret-to-key-vault) a nahrajete ji tajný klíč.
 
    Pro *kryptografický otisk klientského certifikátu správce*, zadejte kryptografický otisk *správce klientský certifikát*. (Viz [požadavky](#prerequisites).)
    
-   - Zdrojový trezor klíčů:  Zadejte celé *id trezoru klíčů* řetězec ve výsledcích skriptu. 
-   - Adresa URL certifikátu clusteru: Zadejte úplnou adresu URL z *tajný klíč Id* ve výsledcích skriptu. 
+   - Zdrojový trezor klíčů:  Zadejte celé `keyVault id` řetězec ve výsledcích skriptu. 
+   - Adresa URL certifikátu clusteru: Zadejte úplnou adresu URL z `Secret Id` ve výsledcích skriptu. 
    - Kryptografický otisk certifikátu clusteru: Zadejte *kryptografický otisk certifikátu clusteru* ve výsledcích skriptu.
    - Klient pro správu kryptografické otisky certifikátu: Zadejte *kryptografický otisk klientského certifikátu správce* vytvořené v rámci požadavků. 
 
@@ -157,14 +158,14 @@ Cluster Service Fabric můžete přistupovat pomocí rozhraní Service Fabric Ex
 
 
 ### <a name="use-service-fabric-explorer"></a>Použít Service Fabric Explorer
-1.  Ověřte, že webový prohlížeč má přístup k vaší certifikát klienta pro správu a ověřit cluster Service Fabric.  
+1.  Zajistěte, aby prohlížeč má přístup k vaší certifikát klienta pro správu a ověřit cluster Service Fabric.  
 
     a. Otevřete aplikaci Internet Explorer a přejděte na **Možnosti Internetu** > **obsahu** > **certifikáty**.
   
     b. S certifikáty, vyberte **Import** spustit *Průvodce importem certifikátu*a potom klikněte na tlačítko **Další**. Na *importovat soubor* stránce klikněte na **Procházet**a vyberte **správce klientský certifikát** jste poskytli šablonu Azure Resource Manageru.
         
        > [!NOTE]  
-       > Tento certifikát není certifikát clusteru, který byl dříve přidán do trezoru klíčů.  
+       > Tento certifikát není certifikát clusteru, který byl dříve přidán do služby Key Vault.  
 
     c. Ujistěte se, že máte "Formát Personal Information Exchange" vybrali v rozevíracím seznamu rozšíření okna Průzkumníka souborů.  
 
@@ -184,16 +185,16 @@ Cluster Service Fabric můžete přistupovat pomocí rozhraní Service Fabric Ex
 
 1. Chcete-li vyhledat adresu URL pro Service Fabric Explorer a koncový bod připojení klienta, zkontrolujte výsledky nasazení šablony.
 
-1. V prohlížeči přejděte na https://*plně kvalifikovaný název domény*: 19080. Nahraďte *plně kvalifikovaný název domény* s plně kvalifikovaný název vašeho clusteru Service Fabric z kroku 2.   
-   Pokud jste použili certifikát podepsaný svým držitelem, zobrazí se vám upozornění, že připojení není zabezpečený. Přejděte na webovou stránku, vyberte **. Další informace**a potom **přejděte na webovou stránku**. 
+1. V prohlížeči přejděte na <https://*FQDN*:19080>. Nahraďte *plně kvalifikovaný název domény* s plně kvalifikovaný název vašeho clusteru Service Fabric z kroku 2.   
+   Pokud jste použili certifikát podepsaný svým držitelem, zobrazí se vám upozornění, že není zabezpečené připojení. Pokud chcete pokračovat na web, vyberte **. Další informace**a potom **přejděte na webovou stránku**. 
 
 1. K ověření serveru, musíte vybrat certifikát pro použití. Vyberte **víc možností**, vyberte příslušný certifikát a potom klikněte na tlačítko **OK** pro připojení k Service Fabric Explorer. 
 
-   ![Ověření](media/azure-stack-solution-template-service-fabric-cluster/image14.png)
+   ![Ověřit](media/azure-stack-solution-template-service-fabric-cluster/image14.png)
 
 
 
-## <a name="use-service-fabric-powershell"></a>Použití Powershellu pro Service Fabric
+### <a name="use-service-fabric-powershell"></a>Použití Powershellu pro Service Fabric
 
 1. Nainstalujte *Microsoft Azure Service Fabric SDK* z [Příprava vývojového prostředí ve Windows](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started#install-the-sdk-and-tools) v dokumentaci k Azure Service Fabric.  
 

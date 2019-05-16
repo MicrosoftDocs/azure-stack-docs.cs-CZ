@@ -1,6 +1,6 @@
 ---
 title: Vytvoření virtuálního počítače s Windows ve službě Azure Stack pomocí rozhraní příkazového řádku Azure | Dokumentace Microsoftu
-description: Zjistěte, jak vytvořit virtuální počítač s Windows ve službě Azure Stack pomocí Azure CLI
+description: Vytvoření virtuálního počítače s Windows ve službě Azure Stack pomocí Azure CLI
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,14 +15,14 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.custom: mvc
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 67e0ccfa883e79d66eb9ca38a6cf15f00154c487
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: ccc0590248ead0d01d2ce5b4e5af8f8140638bf2
+ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64301140"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65712374"
 ---
-# <a name="quickstart-create-a-windows-server-virtual-machine-by-using-azure-cli-in-azure-stack"></a>Rychlý start: vytvoření virtuálního počítače s Windows serverem pomocí Azure CLI ve službě Azure Stack
+# <a name="quickstart-create-a-windows-server-virtual-machine-using-azure-cli-in-azure-stack"></a>Rychlý start: Vytvoření virtuálního počítače s Windows serverem pomocí Azure CLI ve službě Azure Stack
 
 ‎*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
 
@@ -45,15 +45,15 @@ Skupina prostředků je logický kontejner, ve kterém můžete nasadit a spravo
 > [!NOTE]
 >  Hodnoty jsou přiřazeny pro všechny proměnné v příkladech kódu. Pokud chcete, ale můžete přiřadit nové hodnoty.
 
-Následující příklad vytvoří skupinu prostředků myResourceGroup v místním umístění.
+Následující příklad vytvoří skupinu prostředků myResourceGroup v místním umístění:
 
 ```cli
 az group create --name myResourceGroup --location local
 ```
 
-## <a name="create-a-virtual-machine"></a>Vytvoření virtuálního počítače
+## <a name="create-a-virtual-machine"></a>Vytvořit virtuální počítač
 
-Vytvoření virtuálního počítače (VM) s použitím [az vm vytvořit](/cli/azure/vm#az-vm-create) příkazu. Následující příklad vytvoří virtuální počítač s názvem můjvp přesměrovat. Tento příklad používá Demouser pro uživatelské jméno správce a Demouser@123 jako heslo uživatele. Tyto hodnoty změňte na něco, co je pro vaše prostředí vhodný.
+Vytvoření virtuálního počítače (VM) s použitím [az vm vytvořit](/cli/azure/vm#az-vm-create) příkazu. Následující příklad vytvoří virtuální počítač s názvem můjvp přesměrovat. Tento příklad používá Demouser pro uživatelské jméno admin a Demouser@123 jako heslo správce. Tyto hodnoty změňte na něco, co je pro vaše prostředí vhodný.
 
 ```cli
 az vm create \
@@ -65,13 +65,13 @@ az vm create \
   --location local
 ```
 
-Když se vytvoří virtuální počítač, **PublicIPAddress** parametr ve výstupu obsahuje veřejnou IP adresu pro virtuální počítač. Tato adresa zapište, protože mu umožní přístup k virtuálnímu počítači potřebujete.
+Když se vytvoří virtuální počítač, **PublicIPAddress** parametr ve výstupu obsahuje veřejnou IP adresu pro virtuální počítač. Tuto adresu zapište, protože ho potřebovat k použití virtuálního počítače.
 
 ## <a name="open-port-80-for-web-traffic"></a>Otevření portu 80 pro webový provoz
 
 Protože tento virtuální počítač bude spouštět na webovém serveru IIS, budete muset otevřít port 80 pro přenosy z Internetu.
 
-Použití [az vm open-port](/cli/azure/vm) příkaz pro otevření portu 80.
+Použití [az vm open-port](/cli/azure/vm) příkaz pro otevření portu 80:
 
 ```cli
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
@@ -79,7 +79,7 @@ az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 
 ## <a name="connect-to-the-virtual-machine"></a>Připojení k virtuálnímu počítači
 
-Pomocí následujícího příkazu k vytvoření připojení vzdálené plochy k virtuálnímu počítači. Nahraďte "Veřejné IP adresy" s IP adresou vašeho virtuálního počítače. Po zobrazení výzvy zadejte uživatelské jméno a heslo, které jste použili pro virtuální počítač.
+Pomocí následujícího příkazu k vytvoření připojení vzdálené plochy k virtuálnímu počítači. Nahraďte "Veřejné IP adresy" s IP adresou vašeho virtuálního počítače. Když se zobrazí výzva, zadejte uživatelské jméno a heslo, které jste použili pro virtuální počítač.
 
 ```
 mstsc /v <Public IP Address>
@@ -95,7 +95,7 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 ## <a name="view-the-iis-welcome-page"></a>Zobrazení úvodní stránky služby IIS
 
-Chcete-li zobrazit výchozí úvodní stránka IIS můžete použít webový prohlížeč podle vašeho výběru. Pro návštěvu výchozí stránky použijte veřejnou IP adresu, které jsou popsané v předchozí části.
+Chcete-li zobrazit výchozí úvodní stránka IIS, můžete použít libovolný prohlížeč. Pro návštěvu výchozí stránky použijte veřejnou IP adresu uvedené v předchozí části:
 
 ![Výchozí web služby IIS](./media/azure-stack-quick-create-vm-windows-cli/default-iis-website.png)
 

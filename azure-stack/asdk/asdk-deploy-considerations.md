@@ -12,33 +12,36 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/06/2018
+ms.date: 05/13/2019
 ms.author: mabrigg
 ms.reviewer: misainat
-ms.lastreviewed: 12/12/2018
-ms.openlocfilehash: 85484e7428c4b384c2081d4f55af5e79259cc9d8
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.lastreviewed: 05/13/2019
+ms.openlocfilehash: 9cb349ec19edd493ca994b406b9311fe27bed242
+ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617506"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65712230"
 ---
 # <a name="azure-stack-deployment-planning-considerations"></a>Co zvážit při plánování nasazení Azure Stack
+
 Než nasadíte Azure Stack Development Kit (ASDK), zkontrolujte, zda že splňuje požadavky popsané v tomto článku hostitelského počítače development kit.
 
-
 ## <a name="hardware"></a>Hardware
+
 | Komponenta | Minimální | Doporučené |
 | --- | --- | --- |
 | Diskové jednotky: Operační systém |1 disk s operačním systémem s alespoň 200 GB místa pro systémový oddíl (SSD nebo HDD) |Jeden disk s operačním systémem a alespoň 200 GB místa pro systémový oddíl (SSD nebo pevný disk) |
 | Diskové jednotky: Obecný vývoj sady dat<sup>*</sup>  |Čtyři disky. Každý disk nabízí minimálně 240 GB místa (SSD nebo HDD). Všechny dostupné disky se používají. |Čtyři disky. Každý disk nabízí minimálně 400 GB místa (SSD nebo HDD). Všechny dostupné disky se používají. |
 | COMPUTE: Procesor |Duální soket: 16 fyzických jader (celkem) |Duální soket: 20 fyzických jader (celkem) |
-| COMPUTE: Memory (Paměť) |192 GB RAM |256 GB RAM |
+| COMPUTE: Memory (Paměť) |192 GB PAMĚTI RAM |256 GB PAMĚTI RAM |
 | COMPUTE: SYSTÉMU BIOS |Povolená technologie Hyper-V (s podporou SLAT) |Povolená technologie Hyper-V (s podporou SLAT) |
 | Síť: NIC |Certifikace pro Windows Server 2012 R2. Specializované funkce se nepožadují |Certifikace pro Windows Server 2012 R2. Specializované funkce se nepožadují |
 | Hardwarová certifikace loga |[Certifikované pro systém Windows Server 2012 R2](https://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |[Certifikované pro systém Windows Server 2016](https://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |
 
 <sup>*</sup> Potřebujete víc než to doporučuje kapacitu, když plánujete přidat řadu [položky marketplace](../operator/azure-stack-create-and-publish-marketplace-item.md) z Azure.
+
+### <a name="hardware-notes"></a>Poznámky k hardwaru
 
 **Konfigurace datových disků:** Všechny datové jednotky musí být stejného typu (všechny SAS, všechny SATA nebo všechna NVMe) a kapacitu. Pokud použijete disky SAS, musí být diskové jednotky připojené pomocí jedné cesty (žádné funkce MPIO, podpora více cest je zajištěna).
 
@@ -63,6 +66,22 @@ Než nasadíte Azure Stack Development Kit (ASDK), zkontrolujte, zda že splňuj
 **Příklad HBA**: Adaptér LSI 9207-8i, LSI-9300-8i nebo LSI-9265-8i v režimu průchodu
 
 Dostupné jsou ukázkové OEM konfigurace.
+
+### <a name="storage-resiliency-for-the-asdk"></a>Odolnost proti chybám úložiště pro ASDK
+
+Jako jeden uzel systému ASDK není určená pro produkční redundance systémech pro Azure Stack integrované ověřování. Však můžete zvýšit úroveň základní redundance úložiště ASDK prostřednictvím ideální kombinaci disků HDD a SDD jednotky. Můžete nasadit konfigurace Dvoucestný zrcadlový svazek, podobně jako RAID1, nikoli jednoduchý odolnost proti chybám konfigurace, která se podobá 0. Pomocí základní konfigurace prostorů úložiště s přímým dostatek kapacity, typ a počet jednotek.
+
+Pro účely konfigurace Dvoucestný zrcadlový svazek úložiště odolnost proti chybám:
+
+- Kapacita HDD v systému větší než dvě terabajtů.
+- Pokud nemáte k dispozici vlastnosti jednotek SSD ve vašich ASDK, musíte alespoň osm pevné disky pro dvoucestné zrcadlové svazky konfiguraci.
+- Pokud máte disky SSD v ASDK, spolu s pevné disky, budete potřebovat aspoň pět HDD. Šest HHDs se však doporučuje. Šest pevné disky by také se doporučuje mít odpovídající aspoň tři jednotky SSD v systému, abyste měli jeden mezipaměti (SSD Solid-State Drive) slouží dvě kapacitu disků (HDD).
+
+Příklad konfigurace Dvoucestný zrcadlový svazek:
+
+- Osm HDD
+- Tři SSD / šest pevný disk
+- Čtyři SSD / osm pevný disk
 
 ## <a name="operating-system"></a>Operační systém
 |  | **Požadavky** |
@@ -126,4 +145,7 @@ Azure Stack vyžaduje přístup k Internetu, buď přímo nebo prostřednictvím
 
 
 ## <a name="next-steps"></a>Další postup
-[Stáhněte si balíček pro nasazení ASDK](asdk-download.md)
+
+- [Stáhněte si balíček pro nasazení ASDK](asdk-download.md)
+- Další informace o prostory úložiště – přímé, naleznete v tématu [přehled prostorů úložiště s přímým](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview).
+

@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2019
+ms.date: 05/15/2019
 ms.author: sethm
 ms.reviewer: hectorl
-ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: f2e20377a976c5dba7a63d9f8cf8b3e2d100e060
-ms.sourcegitcommit: 426380a3a27954cd609ba52d1066d9d69f5267fe
+ms.lastreviewed: 05/15/2019
+ms.openlocfilehash: 86817d0d22854bf2bb0d2372f2a25e15a3de7c48
+ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65532262"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65712311"
 ---
 # <a name="azure-stack-1904-known-issues"></a>Azure Stack 1904 známé problémy
 
@@ -69,10 +69,18 @@ V tomto článku najdete seznam známých problémů v 1904 verzi služby Azure 
 
 ### <a name="marketplace-management"></a>Správa webu Marketplace
 
-- Použít: Tento problém se týká 1904.
+- Použít: Jedná se o nový problém s verzí 1904.
 - Příčina: Na obrazovce správy marketplace není viditelný, při přihlášení k portálu správce.
 - Náprava: Aktualizujte prohlížeč.
 - Výskyt: Občasně
+
+### <a name="marketplace-management"></a>Správa webu Marketplace
+
+- Použít: Tento problém se týká 1904.
+- Příčina: Při filtrování výsledků v okně "Přidat z Azure" na kartě Správa webu Marketplace v portálu správce, může se zobrazit nesprávné filtrované výsledky. 
+- Náprava: Řazení výsledků podle názvu sloupce a výsledky budou opraveny. 
+- Výskyt: Občasně
+
 
 ### <a name="upload-blob"></a>Nahrát objekt blob
 
@@ -83,26 +91,26 @@ V tomto článku najdete seznam známých problémů v 1904 verzi služby Azure 
 
 ## <a name="networking"></a>Sítě
 
-### <a name="load-balancer"></a>Load Balancer
+### <a name="load-balancer"></a>Nástroj pro vyrovnávání zatížení
 
 #### <a name="add-backend-pool"></a>Přidat back-endový fond
 
 - Použít: Tento problém se vztahuje na všechny podporované verze.
 - Příčina: Na portálu user portal, pokud se pokusíte přidat **back-endový fond** k **nástroje pro vyrovnávání zatížení**, operace se nezdaří s chybovou zprávou **nepovedlo se aktualizovat nástroj pro vyrovnávání zatížení...** .
-- Náprava: Pomocí prostředí PowerShell, CLI nebo šablony Resource Manageru pro přidružení k prostředku nástroje pro vyrovnávání zatížení back-endový fond.
+- Náprava: Pomocí prostředí PowerShell, CLI nebo šablony Azure Resource Manageru můžete přidružit back-endový fond prostředků nástroje pro vyrovnávání zatížení.
 - Výskyt: Obecné
 
 #### <a name="create-inbound-nat"></a>Vytvoření příchozích pravidel NAT
 
 - Použít: Tento problém se vztahuje na všechny podporované verze.
 - Příčina: Na portálu user portal, pokud se pokusíte vytvořit **příchozí pravidlo NAT** pro **nástroje pro vyrovnávání zatížení**, operace se nezdaří s chybovou zprávou **nepovedlo se aktualizovat nástroj pro vyrovnávání zatížení...** .
-- Náprava: Pomocí prostředí PowerShell, CLI nebo šablony Resource Manageru pro přidružení k prostředku nástroje pro vyrovnávání zatížení back-endový fond.
+- Náprava: Pomocí prostředí PowerShell, CLI nebo šablony Azure Resource Manageru můžete přidružit back-endový fond prostředků nástroje pro vyrovnávání zatížení.
 - Výskyt: Obecné
 
-#### <a name="create-load-balancer"></a>Vytvoření nástroje pro vyrovnávání zatížení
+#### <a name="create-load-balancer"></a>Vytvořit nástroj pro vyrovnávání zatížení
 
 - Použít: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: V portálu user portal **vytvořit nástroj pro vyrovnávání zatížení** okno zobrazuje možnost pro vytvoření **standardní** SKU nástroje pro vyrovnávání zatížení. Tato možnost není podporována ve službě Azure Stack.
+- Příčina: V portálu user portal **vytvořit Load Balancer** okno zobrazuje možnost pro vytvoření **standardní** SKU nástroje pro vyrovnávání zatížení. Tato možnost není podporována ve službě Azure Stack.
 - Náprava: Místo toho použijte možnosti nástroje pro vyrovnávání zatížení základní.
 - Výskyt: Obecné
 
@@ -110,7 +118,7 @@ V tomto článku najdete seznam známých problémů v 1904 verzi služby Azure 
 
 - Použít: Tento problém se vztahuje na všechny podporované verze.
 - Příčina: V portálu user portal **vytvořit veřejnou IP adresu** okno zobrazuje možnost pro vytvoření **standardní** SKU. **Standardní** SKU se nepodporuje v Azure stacku.
-- Náprava: Místo toho použijte základní SKU pro veřejnou IP adresu.
+- Náprava: Použití **základní** SKU místo pro veřejné IP adresy.
 - Výskyt: Obecné
 
 ## <a name="compute"></a>Compute
@@ -149,15 +157,19 @@ Pokud jste povolení diagnostiky spouštění na virtuálním počítači, ale o
 ### <a name="compute-host-agent-alert"></a>COMPUTE upozornění agenta hostitele
 
 - Použít: Jedná se o nový problém s verzí 1904.
-- Příčina: "Compute agent hostitele" upozornění se zobrazí po restartování uzlu v jednotce škálování. Restartování se změní výchozí nastavení spuštění pro výpočetní služby hostitele agenta.
+- Příčina: A **agent hostitele výpočetního** upozornění se zobrazí po restartování uzlu v jednotce škálování. Restartování se změní výchozí nastavení spuštění pro výpočetní služby hostitele agenta.
 - Náprava:
   - Toto upozornění můžete ignorovat. Agent neodpovídá nemá žádný vliv na operátor a operace uživatelů nebo uživatelské aplikace. Výstraha se znovu za 24 hodin propojení se zavře, ručně.
   - Podpora Microsoftu může napravit problém tak, že změníte nastavení spuštění pro službu. Tento postup vyžaduje otevření lístku podpory. Pokud uzel se restartuje znovu, zobrazí se nová výstraha.
 - Výskyt: Obecné
 
+## <a name="app-service"></a>App Service
+
+- Tenanti musí zaregistrovat zprostředkovatele prostředku úložiště před vytvořením své první funkce Azure v rámci předplatného.
+- Některé tenanta portálu uživatelské prostředí jsou v 1903; přerušeno z důvodu nekompatibility s rozhraní portálu hlavně uživatelského rozhraní pro sloty nasazení, testování v produkčním prostředí a lokality rozšíření. Chcete-li tento problém obejít, použijte [modulu Powershellu pro Azure App Service](/azure/app-service/deploy-staging-slots#automate-with-powershell) nebo [rozhraní příkazového řádku Azure](/cli/azure/webapp/deployment/slot?view=azure-cli-latest). Prostředí portálu se obnoví v nadcházející verzi služby Azure App Service v Azure stacku 1.6 (aktualizací 6).
+
 <!-- ## Storage -->
 <!-- ## SQL and MySQL-->
-<!-- ## App Service -->
 <!-- ## Usage -->
 <!-- ### Identity -->
 <!-- ### Marketplace -->

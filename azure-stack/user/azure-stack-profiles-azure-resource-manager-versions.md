@@ -14,16 +14,16 @@ ms.date: 05/08/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 05/08/2019
-ms.openlocfilehash: 0d088dcfaf97173d267a1f4638751650b7befba2
-ms.sourcegitcommit: 879165a66ff80f1463b6bb46e2245684224a9b92
+ms.openlocfilehash: 36fd25897e2d45d454f8e1f956f5e72991d45059
+ms.sourcegitcommit: 1655b2ef4d01d69ceeb52bc16f922bdc19cb968d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65473803"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65706268"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Verze rozhraní API poskytovatele prostředků podporované profily ve službě Azure Stack
 
-Vyhledejte poskytovatele prostředků a čísla verze pro každý profil rozhraní API používané ve službě Azure Stack v tomto článku. V tabulkách v tomto článku jsou uvedeny verze podporované pro každý poskytovatel prostředků a rozhraní API verze profilů. Každý poskytovatel prostředků obsahuje sadu typů prostředků a čísla konkrétní verzi. 
+Vyhledejte poskytovatele prostředků a čísla verze pro každý profil rozhraní API používané ve službě Azure Stack v tomto článku. V tabulkách v tomto článku jsou uvedeny verze podporované pro každý poskytovatel prostředků a rozhraní API verze profilů. Každý poskytovatel prostředků obsahuje sadu typů prostředků a čísla konkrétní verzi.
 
 Profil rozhraní API používá tři zásady vytváření názvů:
 
@@ -33,10 +33,10 @@ Profil rozhraní API používá tři zásady vytváření názvů:
 
 Vysvětlení profilů rozhraní API a verze vydávání verzí pro službu Azure Stack najdete v tématu [profilů verzí API spravovat ve službě Azure Stack](azure-stack-version-profiles.md).
 
-> [!Note]  
+> [!Note]
 > **Nejnovější** profil rozhraní API obsahuje nejnovější verzi rozhraní API poskytovatele prostředků a není uvedená v tomto článku.
 
-## <a name="overview-of-2019---03-01-hybrid"></a>Přehled 2019 - 03-01hybridní
+## <a name="overview-of-the-2019-03-01-hybrid-profile"></a>Přehled profilu 2019-03-01hybridní
 
 | Poskytovatel prostředků | verze API-version |
 |-----------------------------------------------|-----------------------------------------------------|
@@ -50,9 +50,9 @@ Vysvětlení profilů rozhraní API a verze vydávání verzí pro službu Azure
 | Microsoft.Authorization (operace zásad) | 2016-09-01 |
 | Microsoft.Insights | 2018-01-01 |
 
-Seznam verzí pro každý typ prostředku pro zprostředkovatele v profilu rozhraní API najdete v tématu [podrobnosti 2019-03-01hybridní](#details-for-the-2019-03-01-hybrid) profilu.
+Seznam verzí pro každý typ prostředku pro zprostředkovatele v profilu rozhraní API najdete v tématu [Podrobnosti profilu 2019-03-01hybridní](#details-for-the-2019-03-01-hybrid-profile).
 
-## <a name="details-for-the-2019-03-01-hybrid"></a>Podrobnosti o 2019-03-01hybridní
+## <a name="details-for-the-2019-03-01-hybrid-profile"></a>Podrobnosti o profilu. 2019-03-01hybridní
 
 ### <a name="microsoftauthorization"></a>Microsoft.Authorization
 

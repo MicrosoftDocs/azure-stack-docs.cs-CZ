@@ -16,12 +16,12 @@ ms.date: 02/21/2019
 ms.author: sethm
 ms.reviewer: justini
 ms.lastreviewed: 11/14/2018
-ms.openlocfilehash: b2f2427f7dcf9265f379995f1e854c382e24a9c7
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 37e5ef80462f7e31d18972de007303b12b5a3108
+ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64297873"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65712247"
 ---
 # <a name="use-azure-resource-manager-templates-in-azure-stack"></a>Použití šablon Azure Resource Manageru ve službě Azure Stack
 
@@ -35,7 +35,7 @@ Jsou k dispozici v následujících šablon rychlý Start [Githubu](https://aka.
 
 ## <a name="deploy-sharepoint-server-non-high-availability-deployment"></a>Nasazení serveru SharePoint (nasazení vysoké dostupnosti)
 
-Pomocí rozšíření PowerShell DSC pro [Vytvoření farmy serverů SharePoint Server 2013](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/sharepoint-2013-non-ha) , který obsahuje následující zdroje:
+Pomocí prostředí PowerShell [Desired State Configuration](https://docs.microsoft.com/powershell/dsc/overview/overview) rozšíření (DSC) [Vytvoření farmy serverů SharePoint Server 2013](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/sharepoint-2013-non-ha) , který obsahuje následující zdroje:
 
 * Virtuální síť
 * 3 účty úložiště
@@ -77,7 +77,7 @@ Pomocí rozšíření PowerShell DSC ke konfiguraci existujícího virtuálního
 
 ## <a name="cancel-a-running-template-deployment"></a>Zrušit běžící šablona nasazení
 
-Chcete-li zrušit spuštěné nasazení šablony, použijte [Stop-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/stop-azurermresourcegroupdeployment) rutiny Powershellu.
+Chcete-li zrušit spuštěné nasazení šablony, použijte [Stop-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/stop-azurermresourcegroupdeployment) PowerShell [rutiny](https://docs.microsoft.com/powershell/developer/cmdlet/cmdlet-overview).
 
 ## <a name="next-steps"></a>Další postup
 

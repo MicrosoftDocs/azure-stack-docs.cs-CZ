@@ -16,12 +16,12 @@ ms.date: 05/06/2019
 ms.author: sethm
 ms.reviewer: ''
 ms.lastreviewed: 05/06/2019
-ms.openlocfilehash: 7047c44ec4828c07eeaefdf29bcfef3762942b21
-ms.sourcegitcommit: 405075e7826ba2fa545dbf5498160219ef8d2db5
+ms.openlocfilehash: 78a42d458f77385114c476bd810cea89380423fa
+ms.sourcegitcommit: 1655b2ef4d01d69ceeb52bc16f922bdc19cb968d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65453728"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65706305"
 ---
 # <a name="azure-stack-1904-update"></a>Aktualizace služby Azure Stack 1904
 
@@ -149,6 +149,8 @@ Tento článek popisuje obsah balíčku 1904 aktualizace. Obsahuje novinky vylep
 - Opravili jsme problém, ve kterém Pokud uživatel, který byl přiřadit roli přispěvatele k předplatnému, ale nebyl přidělen explicitní oprávnění ke čtení, byla generována chyba, kterou si přečíst **... Klient "somelogonaccount@domain.com" s objektem ID {GUID} nemá oprávnění k provedení akce...**  při pokusu o uložení změny k prostředku.
 
 - Opravili jsme problém, ve kterém byla prázdná obrazovka správu webu marketplace, pokud nástroj v režimu offline syndikace byl použit k nahrávání obrázků a některý z nich chybí ikona URI(s).
+
+- Opravili jsme chybu, která zabránila produktů, které se nepovedlo stáhnout odstranit v marketplace správu.
 
 ### <a name="security-updates"></a>Aktualizace zabezpečení
 

@@ -15,18 +15,18 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.custom: mvc
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: aa744414b554d5da72a63e8af6371bc94b2d6b39
-ms.sourcegitcommit: 41927cb812e6a705d8e414c5f605654da1fc6952
+ms.openlocfilehash: d31ee453dda8bb83ff24c07902d7a1250490bb08
+ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64477392"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65712383"
 ---
-# <a name="quickstart-create-a-linux-server-virtual-machine-by-using-azure-cli-in-azure-stack"></a>Rychlý start: vytvoření serveru virtuálního počítače s Linuxem pomocí Azure CLI ve službě Azure Stack
+# <a name="quickstart-create-a-linux-server-virtual-machine-using-azure-cli-in-azure-stack"></a>Rychlý start: Vytvoření serveru virtuálního počítače s Linuxem pomocí Azure CLI ve službě Azure Stack
 
 *Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
 
-Můžete vytvořit virtuální počítač Ubuntu Server 16.04 LTS pomocí Azure CLI. Postupujte podle kroků v tomto článku, jak vytvořit a používat virtuální počítač. Tento článek také obsahuje postup:
+Můžete vytvořit virtuální počítače s Ubuntu Server 16.04 LTS pomocí Azure CLI. Postupujte podle kroků v tomto článku, jak vytvořit a používat virtuální počítač. Tento článek také obsahuje postup:
 
 * Připojení k virtuálnímu počítači pomocí vzdáleného klienta.
 * Nainstalovat webový server NGINX a zobrazit výchozí domovskou stránku.
@@ -38,7 +38,7 @@ Můžete vytvořit virtuální počítač Ubuntu Server 16.04 LTS pomocí Azure 
 
    Tržiště Azure Stack neobsahuje image Linuxu ve výchozím nastavení. Získat Azure Stack operátor poskytnout **Ubuntu Server 16.04 LTS** image chcete použít. Operátor, který můžete použít postup popsaný v [stažení položek z marketplace z Azure do služby Azure Stack](../operator/azure-stack-download-azure-marketplace-item.md) článku.
 
-* Azure Stack vyžaduje určitou verzi rozhraní příkazového řádku Azure můžete vytvořit a spravovat prostředky. Pokud nemáte rozhraní příkazového řádku Azure, který je nakonfigurovaný pro službu Azure Stack, přihlaste se k [sada](../asdk/asdk-connect.md#connect-to-azure-stack-using-rdp), nebo na základě Windows externí klienta máte [připojené prostřednictvím sítě VPN](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn) a postupujte podle kroků pro [ instalace a konfigurace rozhraní příkazového řádku Azure](azure-stack-version-profiles-azurecli2.md).
+* Azure Stack vyžaduje určitou verzi rozhraní příkazového řádku Azure můžete vytvořit a spravovat prostředky. Pokud nemáte rozhraní příkazového řádku Azure, který je nakonfigurovaný pro službu Azure Stack, přihlaste se k [sada](../asdk/asdk-connect.md#connect-to-azure-stack-using-rdp) (nebo na základě Windows externí klienta Pokud jste [připojené prostřednictvím sítě VPN](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn)) a postupujte podle kroků pro [ instalace a konfigurace rozhraní příkazového řádku Azure](azure-stack-version-profiles-azurecli2.md).
 
 * Veřejný klíč SSH s názvem id_rsa.pub uložen v adresáři .ssh uživatelského profilu Windows. Podrobné informace o vytváření klíčů SSH najdete v tématu [jak použít veřejný klíč SSH](azure-stack-dev-start-howto-ssh-public-key.md).
 
@@ -47,17 +47,17 @@ Můžete vytvořit virtuální počítač Ubuntu Server 16.04 LTS pomocí Azure 
 Skupina prostředků je logický kontejner, ve kterém můžete nasadit a spravovat prostředky služby Azure Stack. Z vývojová sada nebo ve službě Azure Stack integrovaného systému, spustit [vytvořit skupiny az](/cli/azure/group#az-group-create) příkazu vytvořte skupinu prostředků.
 
 > [!NOTE]
->  Hodnoty jsou přiřazeny pro všechny proměnné v příkladech kódu. Pokud chcete, ale můžete přiřadit nové hodnoty.
+> Hodnoty jsou přiřazeny pro všechny proměnné v příkladech kódu. Pokud chcete, ale můžete přiřadit nové hodnoty.
 
-Následující příklad vytvoří skupinu prostředků myResourceGroup v místním umístění.
+Následující příklad vytvoří skupinu prostředků myResourceGroup v místním umístění: 
 
 ```cli
 az group create --name myResourceGroup --location local
 ```
 
-## <a name="create-a-virtual-machine"></a>Vytvoření virtuálního počítače
+## <a name="create-a-virtual-machine"></a>Vytvořit virtuální počítač
 
-Vytvoření virtuálního počítače pomocí [az vm vytvořit](/cli/azure/vm#az-vm-create) příkazu. Následující příklad vytvoří virtuální počítač s názvem můjvp přesměrovat. Tento příklad používá Demouser pro uživatelské jméno správce a Demouser@123 jako heslo uživatele. Tyto hodnoty změňte na něco, co je pro vaše prostředí vhodný.
+Vytvoření virtuálního počítače pomocí [az vm vytvořit](/cli/azure/vm#az-vm-create) příkazu. Následující příklad vytvoří virtuální počítač s názvem můjvp přesměrovat. Tento příklad používá Demouser pro uživatelské jméno admin a Demouser@123 jako heslo správce. Tyto hodnoty změňte na něco, co je pro vaše prostředí vhodný.
 
 ```cli
 az vm create \
@@ -69,11 +69,11 @@ az vm create \
   --location local
 ```
 
-Veřejnou IP adresu se vrátí v **PublicIpAddress** parametru. Tato adresa zapište, protože mu umožní přístup k virtuálnímu počítači potřebujete.
+Veřejnou IP adresu se vrátí v **PublicIpAddress** parametru. Tuto adresu zapište, protože ho potřebovat k použití virtuálního počítače.
 
 ## <a name="open-port-80-for-web-traffic"></a>Otevření portu 80 pro webový provoz
 
-Protože tento virtuální počítač bude spouštět na webovém serveru IIS, budete muset otevřít port 80 pro přenosy z Internetu. Požadovaný port otevřete pomocí příkazu [az vm open-port](/cli/azure/vm).
+Protože tento virtuální počítač bude spouštět na webovém serveru IIS, budete muset otevřít port 80 pro přenosy z Internetu. Použití [az vm open-port](/cli/azure/vm) příkaz pro otevření požadovaného portu: 
 
 ```cli
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
@@ -103,7 +103,7 @@ apt-get -y install nginx
 
 ## <a name="view-the-nginx-welcome-page"></a>Zobrazení úvodní stránky serveru NGINX
 
-NGINX nainstalovaný a port 80 otevřený ve vašem virtuálním počítači můžete přístup k webovému serveru pomocí veřejné IP adresy virtuálního počítače. Otevřete webový prohlížeč a přejděte do ```http://<public IP address>```.
+NGINX nainstalovaný a port 80 otevřený ve vašem virtuálním počítači můžete přístup k webovému serveru pomocí veřejné IP adresy virtuálního počítače. Otevřete prohlížeč a přejděte na ```http://<public IP address>```.
 
 ![Úvodní stránku serveru NGINX webového serveru](./media/azure-stack-quick-create-vm-linux-cli/nginx.png)
 
