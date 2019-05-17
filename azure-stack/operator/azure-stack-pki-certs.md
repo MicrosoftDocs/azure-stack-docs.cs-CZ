@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 05/16/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/30/2019
-ms.openlocfilehash: e51dd3a467bcba9eaf36fc729e37780cf7b626dd
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 3ca7624627ff02cc3ef230a510038f2db5ff5247
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985094"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782313"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Požadavky na certifikáty infrastruktury veřejných klíčů Azure Stack
 
@@ -74,7 +74,7 @@ Pro vaše nasazení [Oblast] a [externalfqdn] hodnoty musí odpovídat oblasti a
 | Portál pro správu | adminportal.&lt;region>.&lt;fqdn> | Portály | &lt;region>.&lt;fqdn> |
 | Veřejné Azure Resource Manageru | Správa. &lt;oblast >. &lt;plně kvalifikovaný název domény > | Azure Resource Manager | &lt;region>.&lt;fqdn> |
 | Správce Azure Resource Manageru | adminmanagement.&lt;region>.&lt;fqdn> | Azure Resource Manager | &lt;region>.&lt;fqdn> |
-| ACSBlob | *.blob.&lt;region>.&lt;fqdn><br>(Certifikát SSL typu Wildcard) | Blob Storage | blob.&lt;region>.&lt;fqdn> |
+| ACSBlob | *.blob.&lt;region>.&lt;fqdn><br>(Certifikát SSL typu Wildcard) | Úložiště objektů blob | blob.&lt;region>.&lt;fqdn> |
 | ACSTable | * .table. &lt;oblast >. &lt;plně kvalifikovaný název domény ><br>(Certifikát SSL typu Wildcard) | Table Storage | Tabulka. &lt;oblast >. &lt;plně kvalifikovaný název domény > |
 | ACSQueue | *.queue.&lt;region>.&lt;fqdn><br>(Certifikát SSL typu Wildcard) | Queue Storage | queue.&lt;region>.&lt;fqdn> |
 | KeyVault | * .vault. &lt;oblast >. &lt;plně kvalifikovaný název domény ><br>(Certifikát SSL typu Wildcard) | Key Vault | trezor. &lt;oblast >. &lt;plně kvalifikovaný název domény > |
@@ -87,7 +87,7 @@ Pokud provádíte nasazení Azure Stack pomocí režimu nasazení služby Azure 
 |Složka pro nasazení|Požadovaný certifikát subjektu a alternativní názvy subjektu (SAN)|Obor (podle oblasti)|SubDomain namespace|
 |-----|-----|-----|-----|
 |ADFS|adfs.*&lt;region>.&lt;fqdn>*<br>(Certifikát SSL)|ADFS|*&lt;region>.&lt;fqdn>*|
-|Graph|graph.*&lt;region>.&lt;fqdn>*<br>(Certifikát SSL)|Graph|*&lt;region>.&lt;fqdn>*|
+|Graf|graph.*&lt;region>.&lt;fqdn>*<br>(Certifikát SSL)|Graf|*&lt;region>.&lt;fqdn>*|
 |
 
 > [!IMPORTANT]
@@ -118,4 +118,3 @@ Zjistěte, jak [vygenerovat certifikáty PKI pro nasazení Azure stacku](azure-s
 
 ## <a name="next-steps"></a>Další postup
 [Integrace identit](azure-stack-integrate-identity.md)
-
