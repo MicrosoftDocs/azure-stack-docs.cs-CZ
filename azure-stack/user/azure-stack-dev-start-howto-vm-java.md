@@ -9,22 +9,18 @@ ms.date: 04/24/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 04/24/2019
-ms.openlocfilehash: e788be6315078fccee020fefe6ad79a20485c382
-ms.sourcegitcommit: 41927cb812e6a705d8e414c5f605654da1fc6952
+ms.openlocfilehash: dbf6083ff81d045d92d488eda5cfab757093bb7e
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64482102"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782887"
 ---
 # <a name="how-to-deploy-a-java-web-app-to-a-vm-in-azure-stack"></a>Jak nasadit webové aplikace v Javě do virtuálního počítače ve službě Azure Stack
 
 Můžete vytvořit virtuální počítač pro hostování vaší aplikace webového Pythonu ve službě Azure Stack. Tento článek ukazuje postup popsaný v části Nastavení serveru, konfigurace serveru pro hostování vaší webové aplikace v Pythonu a potom nasazení vaší aplikace.
 
-Java je pro obecné účely počítače programovací jazyk, který je souběžných, založené na třídě, objektově orientované a navržená tak, aby závislostmi co nejméně implementace nejvíce. Jeho účelem je umožnit vývojářům aplikací "napsat jednou, spouštění kdekoli", což znamená, že kompilaci kódu můžete spustit na všech platformách, které podporují Javu bez nutnosti rekompilace Java. Další programovací jazyk Java a najít další zdroje informací pro Javu najdete v tématu [Java.com](https://www.java.com).
-
-Tento článek provede procesem instalace a konfigurace serveru Apache Tomcat na virtuálním počítači Linux ve službě Azure Stack a potom načtením souboru prostředků (WAR) Web v jazyce Java aplikace do serveru. Soubor WAR se používá k distribuci kolekce soubory JAR, JavaServer Pages, Servletů Java, Java třídy, XML soubory, značka knihovny, statické webové stránky (HTML a související soubory) a další prostředky, které společně tvoří webovou aplikaci.
-
-Apache Tomcat, označovaný také jako Tomcat Server je open source Java Servletový kontejner vypracovanou organizací cccppf Apache Software Foundation. Tomcat implementuje několik platformě Java EE určený specifikací včetně Java Servlet, JavaServer Pages, Java EL a protokolu WebSocket a poskytuje prostředí "čistě Java" HTTP webového serveru musí být v Javě, které můžete spustit kód.
+Tento článek provede procesem instalace a konfigurace serveru Apache Tomcat na virtuálním počítači Linux ve službě Azure Stack a potom načtením souboru prostředků (WAR) Web v jazyce Java aplikace do serveru. Soubor WAR se používá k distribuci kolekce soubory JAR komprimovaný soubor, který obsahuje prostředky v Javě jako jsou třídy, text, obrázky, XML a HTML a další prostředky, které používají k doručování webových aplikací.
 
 ## <a name="create-a-vm"></a>Vytvoření virtuálního počítače
 
@@ -32,11 +28,11 @@ Apache Tomcat, označovaný také jako Tomcat Server je open source Java Servlet
 
 2. V okně sítě virtuálních počítačů Ujistěte se, že jsou k dispozici následující porty:
 
-    | Port | Protocol (Protokol) | Popis |
+    | Port | Protocol | Popis |
     | --- | --- | --- |
-    | 80 | HTTP | Protokol HTTP (Hypertext Transfer) je protokol aplikací pro distribuované, spolupráci, hypermédia informačních systémů. Klienti se připojí k vaší webové aplikaci buď veřejné IP adresy nebo DNS název vašeho virtuálního počítače. |
-    | 443 | HTTPS | Přenos protokolu HTTPS (Hypertext Secure) je rozšířením sady protokol HTTP (Hypertext Transfer). Používá se pro zabezpečenou komunikaci v počítačové síti. Klienti se připojí k vaší webové aplikaci buď veřejné IP adresy nebo DNS název vašeho virtuálního počítače. |
-    | 22 | SSH | Secure Shell (SSH) je kryptografický síťový protokol pro bezpečné provozování síťové služby přes nezabezpečenou síť. Toto připojení použijete s klientem SSH ke konfiguraci virtuálního počítače a nasazení aplikace. |
+    | 80 | HTTP | Protokol HTTP (Hypertext Transfer) je protokol použitý k doručování webových stránek ze serverů. Klienti se připojují přes protokol HTTP s názvem DNS nebo IP adresu. |
+    | 443 | HTTPS | Protokol zabezpečení HTTPS (Hypertext Transfer) je zabezpečený verzi protokolu HTTP, který vyžaduje certifikát zabezpečení a umožňuje šifrovaného přenosu informací.  |
+    | 22 | SSH | Secure Shell (SSH) je protokol šifrovaných sítí pro zabezpečenou komunikaci. Toto připojení použijete s klientem SSH ke konfiguraci virtuálního počítače a nasazení aplikace. |
     | 3389 | Protokol RDP | Volitelné. Remote Desktop Protocol umožňuje připojení ke vzdálené ploše použít grafické uživatelské rozhraní vašeho počítače.   |
     | 8080 | Vlastní | Výchozí port pro službu Apache Tomcat je 8080. Pro produkční server budete chtít směrovat provoz přes 80 a 443. |
 
@@ -65,7 +61,7 @@ Apache Tomcat, označovaný také jako Tomcat Server je open source Java Servlet
             sudo groupadd tomcat
         ```
      
-    - Za druhé, vytvořte nového uživatele Tomcat a nastavte tohoto uživatele jako člena skupiny tomcat s domovskému adresáři `/opt/tomcat`, což je tam, kde budete instalovat Tomcat a prostředí z `/bin/false` (takže nikdo může přihlásit k účtu):
+    - Za druhé vytvořte uživatele Tomcat. Přidání tohoto uživatele do skupiny tomcat s domovskému adresáři `/opt/tomcat`. Tomcat nasadí do tohoto adresáře:
         ```bash  
             sudo useradd -s /bin/false -g tomcat -d /opt/tomcat tomcat
         ```
@@ -79,7 +75,7 @@ Apache Tomcat, označovaný také jako Tomcat Server je open source Java Servlet
             curl -O <URL for the tar for the latest version of Tomcat 8>
         ```
 
-    - Tomcat na třetí, nainstalujte `/opt/tomcat` adresáře. Vytvořit adresář a extrahujte archiv pomocí následujících příkazů:
+    - Tomcat na třetí, nainstalujte `/opt/tomcat` adresáře. Vytvořte složku.  Archiv otevřete:
 
         ```bash  
             sudo mkdir /opt/tomcat
@@ -97,7 +93,7 @@ Apache Tomcat, označovaný také jako Tomcat Server je open source Java Servlet
 
 5. Vytvoření `systemd` souboru služby. tak, aby Tomcat může běžet jako služba.
 
-    - Tomcat je potřeba vědět, kde je nainstalován Java. Tato cesta je obvykle označuje jako **JAVA_HOME**. Vyhledejte umístění spuštěním:
+    - Tomcat je potřeba vědět, kam jste nainstalovali Java. Tato cesta je obvykle označuje jako **JAVA_HOME**. Vyhledejte umístění spuštěním:
 
         ```bash  
             sudo update-java-alternatives -l
@@ -255,7 +251,7 @@ Apache Tomcat, označovaný také jako Tomcat Server je open source Java Servlet
 
 ![Apache Tomcat v Azure stacku virtuálního počítače](media/azure-stack-dev-start-howto-vm-java/apache-tomcat-management-app.png)
 
-## <a name="create-an-app"></a>Vytvoření aplikace
+## <a name="create-an-app"></a>Vytvoření nové aplikace
 
 Je potřeba vytvořit soubor WAR nasadit Tomcat. Pokud chcete jenom zkontrolovat vaše prostředí, najdete příklad War na serveru Apache TomCat: [ukázkovou aplikaci](https://tomcat.apache.org/tomcat-6.0-doc/appdev/sample/).
 
@@ -289,3 +285,4 @@ Pokyny týkající se vývoje aplikací v Javě v Azure najdete v tématu [sesta
 
 - Learn more about how to [Develop for Azure Stack](azure-stack-dev-start.md)
 - Learn about [common deployments for Azure Stack as IaaS](azure-stack-dev-start-deploy-app.md).
+- To learn the Java programming language and find additional resources for Java, see [Java.com](https://www.java.com).

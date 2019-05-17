@@ -9,18 +9,16 @@ ms.date: 04/24/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 04/24/2019
-ms.openlocfilehash: c0cef076522e77a6d0fdafbd8848d5e9bb8a90a8
-ms.sourcegitcommit: 41927cb812e6a705d8e414c5f605654da1fc6952
+ms.openlocfilehash: f24970c334073928b2a74a1b0b349cafb8f093b1
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64481915"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782980"
 ---
 # <a name="how-to-deploy-a-go-web-app-to-a-vm-in-azure-stack"></a>Jak nasadit webovou aplikaci přejděte do virtuálního počítače ve službě Azure Stack
 
 Můžete vytvořit virtuální počítač pro hostování přejít webové aplikace ve službě Azure Stack. Tento článek ukazuje postup popsaný v části Nastavení serveru, konfigurace serveru pro hostování webové aplikace GO a poté Nasaďte aplikaci.
-
-Go je výrazová, ucelená, čisté a efektivní. Jeho souběžnosti mechanismy usnadňují psaní programů, které naplno využít Vícejádrová a síťově počítače, jeho typ systému umožňuje flexibilní a modulární program konstrukce. Další programovací jazyk Go a najít další zdroje informací pro GO, přečtěte si téma [Golang.org](https://golang.org).
 
 ## <a name="create-a-vm"></a>Vytvoření virtuálního počítače
 
@@ -28,11 +26,11 @@ Go je výrazová, ucelená, čisté a efektivní. Jeho souběžnosti mechanismy 
 
 2. V okně sítě virtuálních počítačů Ujistěte se, že jsou k dispozici následující porty:
 
-    | Port | Protocol (Protokol) | Popis |
+    | Port | Protocol | Popis |
     | --- | --- | --- |
-    | 80 | HTTP | Protokol HTTP (Hypertext Transfer) je protokol aplikací pro distribuované, spolupráci, hypermédia informačních systémů. Klienti se připojí k vaší webové aplikaci buď veřejné IP adresy nebo DNS název vašeho virtuálního počítače. |
-    | 443 | HTTPS | Přenos protokolu HTTPS (Hypertext Secure) je rozšířením sady protokol HTTP (Hypertext Transfer). Používá se pro zabezpečenou komunikaci v počítačové síti. Klienti se připojí k vaší webové aplikaci buď veřejné IP adresy nebo DNS název vašeho virtuálního počítače. |
-    | 22 | SSH | Secure Shell (SSH) je kryptografický síťový protokol pro bezpečné provozování síťové služby přes nezabezpečenou síť. Toto připojení použijete s klientem SSH ke konfiguraci virtuálního počítače a nasazení aplikace. |
+    | 80 | HTTP | Protokol HTTP (Hypertext Transfer) je protokol použitý k doručování webových stránek ze serverů. Klienti se připojují přes protokol HTTP s názvem DNS nebo IP adresu. |
+    | 443 | HTTPS | Protokol zabezpečení HTTPS (Hypertext Transfer) je zabezpečený verzi protokolu HTTP, který vyžaduje certifikát zabezpečení a umožňuje šifrovaného přenosu informací.  |
+    | 22 | SSH | Secure Shell (SSH) je protokol šifrovaných sítí pro zabezpečenou komunikaci. Toto připojení použijete s klientem SSH ke konfiguraci virtuálního počítače a nasazení aplikace. |
     | 3389 | Protokol RDP | Volitelné. Remote Desktop Protocol umožňuje připojení ke vzdálené ploše použít grafické uživatelské rozhraní vašeho počítače.   |
     | 3000 | Vlastní | Port 3000 používají webové rozhraní GO ve vývoji. Pro produkční server budete chtít směrovat provoz přes 80 a 443. |
 
@@ -96,3 +94,4 @@ Go je výrazová, ucelená, čisté a efektivní. Jeho souběžnosti mechanismy 
 
 - Další informace o tom, jak [vývoj pro Azure Stack](azure-stack-dev-start.md)
 - Další informace o [běžné nasazení pro službu Azure Stack jako IaaS](azure-stack-dev-start-deploy-app.md).
+- Další programovací jazyk Go a najít další zdroje informací pro GO, přečtěte si téma [Golang.org](https://golang.org).

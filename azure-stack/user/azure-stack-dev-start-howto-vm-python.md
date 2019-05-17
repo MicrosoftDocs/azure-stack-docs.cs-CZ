@@ -9,18 +9,16 @@ ms.date: 04/24/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 04/24/2019
-ms.openlocfilehash: b1a588dd084962c095a534f6569333b34e694bc6
-ms.sourcegitcommit: 41927cb812e6a705d8e414c5f605654da1fc6952
+ms.openlocfilehash: b4042596924030711a23ea8814aa8f58fd62063f
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64481838"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782711"
 ---
 # <a name="how-to-deploy-a-python-web-app-to-a-vm-in-azure-stack"></a>Jak nasadit webovou aplikaci Python k virtuálnímu počítači v Azure stacku
 
 Můžete vytvořit virtuální počítač pro hostování vaší aplikace webového Pythonu ve službě Azure Stack. Tento článek ukazuje postup popsaný v části Nastavení serveru, konfigurace serveru pro hostování vaší webové aplikace v Pythonu a potom nasazení vaší aplikace.
-
-Python je programovací jazyk interpretované, vysoké úrovně, pro obecné účely. Vytvořené Michal van Rossum a poprvé zavedené ve 1991, má Python filosofie návrhu tříd, s důrazem na čitelnost kódu, zejména díky významný prázdný prostor. Poskytuje konstruktory, které umožňují jasné programování na malé i velké škály. Přečtěte si programovacího jazyka Python a najít další zdroje informací pro Python najdete v tématu [Python.org](https://www.python.org).
 
 Tento článek bude používat Python Flask běží ve virtuálním prostředí na serveru pro Ngnix 3.x.
 
@@ -30,11 +28,11 @@ Tento článek bude používat Python Flask běží ve virtuálním prostředí 
 
 2. V okně sítě virtuálních počítačů Ujistěte se, že jsou k dispozici následující porty:
 
-    | Port | Protocol (Protokol) | Popis |
+    | Port | Protocol | Popis |
     | --- | --- | --- |
-    | 80 | HTTP | Protokol HTTP (Hypertext Transfer) je protokol aplikací pro distribuované, spolupráci, hypermédia informačních systémů. Klienti se připojí k vaší webové aplikaci buď veřejné IP adresy nebo DNS název vašeho virtuálního počítače. |
-    | 443 | HTTPS | Přenos protokolu HTTPS (Hypertext Secure) je rozšířením sady protokol HTTP (Hypertext Transfer). Používá se pro zabezpečenou komunikaci v počítačové síti. Klienti se připojí k vaší webové aplikaci buď veřejné IP adresy nebo DNS název vašeho virtuálního počítače. |
-    | 22 | SSH | Secure Shell (SSH) je kryptografický síťový protokol pro bezpečné provozování síťové služby přes nezabezpečenou síť. Toto připojení použijete s klientem SSH ke konfiguraci virtuálního počítače a nasazení aplikace. |
+    | 80 | HTTP | Protokol HTTP (Hypertext Transfer) je protokol použitý k doručování webových stránek ze serverů. Klienti se připojují přes protokol HTTP s názvem DNS nebo IP adresu. |
+    | 443 | HTTPS | Protokol zabezpečení HTTPS (Hypertext Transfer) je zabezpečený verzi protokolu HTTP, který vyžaduje certifikát zabezpečení a umožňuje šifrovaného přenosu informací.  |
+    | 22 | SSH | Secure Shell (SSH) je protokol šifrovaných sítí pro zabezpečenou komunikaci. Toto připojení použijete s klientem SSH ke konfiguraci virtuálního počítače a nasazení aplikace. |
     | 3389 | Protokol RDP | Volitelné. Remote Desktop Protocol umožňuje připojení ke vzdálené ploše použít grafické uživatelské rozhraní vašeho počítače.   |
     | 5000, 8000 | Vlastní | Porty 5000 8000 využívají webové rozhraní Flask ve vývoji. Pro produkční server budete chtít směrovat provoz přes 80 a 443. |
 
@@ -54,7 +52,7 @@ Tento článek bude používat Python Flask běží ve virtuálním prostředí 
     ```
 
 
-3. Nainstalujete server Nginx. [Server Nginx](https://www.nginx.com/resources/wiki/) je webový server, který může také sloužit jako reverzní proxy server, načítání nástroje pro vyrovnávání, poštovní server proxy a mezipaměť HTTP. Stále připojeni k virtuálnímu počítači v relaci SSH, zadejte následující příkazy:
+3. Nainstalujete server Nginx. [Server Nginx](https://www.nginx.com/resources/wiki/) je jednoduchý webový server. Stále připojeni k virtuálnímu počítači v relaci SSH, zadejte následující příkazy:
 
     ```bash  
        sudo apt-get -y install nginx git
@@ -117,3 +115,4 @@ Tento článek bude používat Python Flask běží ve virtuálním prostředí 
 
 - Další informace o tom, jak [vývoj pro Azure Stack](azure-stack-dev-start.md)
 - Další informace o [běžné nasazení pro službu Azure Stack jako IaaS](azure-stack-dev-start-deploy-app.md).
+- Přečtěte si programovacího jazyka Python a najít další zdroje informací pro Python najdete v tématu [Python.org](https://www.python.org).

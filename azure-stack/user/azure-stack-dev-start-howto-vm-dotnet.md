@@ -9,18 +9,16 @@ ms.date: 04/24/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 04/24/2019
-ms.openlocfilehash: b41c64d64a2c2abe6d1f145f11c2d4d84686b207
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 14baf5d5ca411e7c32cbfcf4a6138193a2215b0a
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617699"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65783087"
 ---
 # <a name="deploy-a-c-aspnet-web-app-to-a-vm-in-azure-stack"></a>Nasazení C# webové aplikace ASP.NET do virtuálního počítače ve službě Azure Stack
 
 Můžete vytvořit virtuální počítač (VM) na hostiteli vaše C# webové aplikace ASP.NET ve službě Azure Stack. Tento článek popisuje pokyny k nastavování vašeho serveru, nakonfigurujte jej pro hostování vašeho C# webová aplikace ASP.NET a pak nasadíte aplikaci přímo z Visual Studia.
-
-C#je pro obecné účely, více paradigmaty programovací jazyk včetně silných typů, lexikálně s vymezeným oborem, imperativní, deklarativní, funkční, Obecné, objektově orientované a součást objektově orientovaného programování oborů. Další informace C# programovací jazyk a najít další zdroje informací o C#, najdete v článku [ C# průvodce](https://docs.microsoft.com/dotnet/csharp/).
 
 Tento článek používá C# 6.0 aplikaci, která používá 2.2 technologie ASP.NET Core běží na serveru Windows 2016.
 
@@ -57,12 +55,13 @@ Tento článek používá C# 6.0 aplikaci, která používá 2.2 technologie ASP
 
     e. Přidáte příchozí pravidlo zabezpečení pro následující porty:
 
-    | Port | Protocol (Protokol) | Popis |
+    | Port | Protocol | Popis |
     | --- | --- | --- |
-    | 80 | HTTP | Protokol HTTP (Hypertext Transfer) je protokol aplikací pro distribuované, spolupráci, hypermédia informačních systémů. Klienti se připojí k vaší webové aplikaci buď veřejné IP adresy nebo DNS název vašeho virtuálního počítače. |
-    | 443 | HTTPS | Přenos protokolu HTTPS (Hypertext Secure) je rozšířením sady protokol HTTP (Hypertext Transfer). Používá se pro zabezpečenou komunikaci v počítačové síti. Klienti se připojí k vaší webové aplikaci buď veřejné IP adresy nebo DNS název vašeho virtuálního počítače. |
-    | 22 | SSH | Secure Shell (SSH) je kryptografický síťový protokol pro bezpečné provozování síťové služby přes nezabezpečenou síť. Pomocí tohoto připojení klienta SSH pro konfiguraci virtuálního počítače a nasaďte aplikaci. |
-    | 3389 | Protokol RDP | Volitelné. Protokol RDP (Remote Desktop) umožňuje připojení ke vzdálené ploše na váš počítač použít grafické uživatelské rozhraní.   |
+    | 80 | HTTP | Protokol HTTP (Hypertext Transfer) je protokol použitý k doručování webových stránek ze serverů. Klienti se připojují přes protokol HTTP s názvem DNS nebo IP adresu. |
+    | 443 | HTTPS | Protokol zabezpečení HTTPS (Hypertext Transfer) je zabezpečený verzi protokolu HTTP, který vyžaduje certifikát zabezpečení a umožňuje šifrovaného přenosu informací.  |
+    | 22 | SSH | Secure Shell (SSH) je protokol šifrovaných sítí pro zabezpečenou komunikaci. Toto připojení použijete s klientem SSH ke konfiguraci virtuálního počítače a nasazení aplikace. |
+    | 3389 | Protokol RDP | Volitelné. Remote Desktop Protocol umožňuje připojení ke vzdálené ploše použít grafické uživatelské rozhraní vašeho počítače.   |
+    | 8080 | Vlastní | Výchozí port pro službu Apache Tomcat je 8080. Pro produkční server budete chtít směrovat provoz přes 80 a 443. |
 
     Pro každý z portů:
 
@@ -131,7 +130,7 @@ Vytvořte cíl publikování do virtuálního počítače ve službě Azure Stac
 1. Vyberte **Publikovat**.
 1. Přejdete na nový server. Měli byste vidět spuštěné webové aplikace.
 
-    ```HTTP  
+    ```http  
         mywebapp.local.cloudapp.azurestack.external
     ```
 
@@ -139,3 +138,4 @@ Vytvořte cíl publikování do virtuálního počítače ve službě Azure Stac
 
 - Zjistěte, jak [nastavení vývojového prostředí ve službě Azure Stack](azure-stack-dev-start.md).
 - Další informace o [běžné nasazení pro službu Azure Stack jako IaaS](azure-stack-dev-start-deploy-app.md).
+- Další informace C# programovací jazyk a najít další zdroje informací o C#, najdete v článku [ C# Průvodce](https://docs.microsoft.com/dotnet/csharp/)

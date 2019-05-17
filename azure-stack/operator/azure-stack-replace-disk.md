@@ -12,15 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/22/2019
+ms.date: 05/16/2019
 ms.author: mabrigg
+ms.reviewer: thoroet
 ms.lastreviewed: 01/22/2019
-ms.openlocfilehash: 893f3ef3f6b7d98d781d05982d243d44ada1411e
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 797e49f82938888776b2685ab44add281b730943
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64984738"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782409"
 ---
 # <a name="replace-a-physical-disk-in-azure-stack"></a>Nahraďte fyzický disk ve službě Azure Stack
 
@@ -35,7 +36,7 @@ Výměna skutečné disku, které kroky se budou lišit podle dodavatele hardwar
 ## <a name="review-disk-alert-information"></a>Projděte si informace o výstrahách disku
 Pokud některý disk selže, obdržíte výstrahu, která říká, že připojení bylo ztraceno fyzický disk.
 
- ![Fyzický disk ke ztrátě připojení k zobrazení výstrah](media/azure-stack-replace-disk/DiskAlert.png)
+![Fyzický disk ke ztrátě připojení k zobrazení výstrah](media/azure-stack-replace-disk/DiskAlert.png)
 
 Pokud otevřete výstrahy, popis výstrahy obsahuje uzel jednotek škálování a slotu přesné fyzické umístění disku, který je třeba nahradit. Další Azure Stack pomáhá identifikovat pomocí možnosti indikátor LED selhání disku.
 

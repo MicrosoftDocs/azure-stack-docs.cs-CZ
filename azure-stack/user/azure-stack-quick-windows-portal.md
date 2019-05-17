@@ -6,17 +6,17 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: quickstart
-ms.date: 01/14/2019
+ms.date: 05/16/2019
 ms.author: mabrigg
-ms.reviewer: unknown
 ms.custom: mvc
+ms.reviewer: kivenkat
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 47a2e2090a4bc6f4d72f5288f31a6e1cb53bdac7
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: a25af39c5fd055989b09e4cf065d0e78bf88fc25
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985970"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782813"
 ---
 # <a name="quickstart-create-a-windows-server-virtual-machine-with-the-azure-stack-portal"></a>Rychlý start: vytvoření virtuálního počítače s Windows serverem pomocí portálu Azure Stack
 
@@ -35,14 +35,14 @@ Přihlaste se k portálu Azure Stack. Adresa na portálu Azure Stack závisí, k
 * Pro Azure Stack Development Kit (ASDK) přejděte na: https://portal.local.azurestack.external.
 * Pro systém Azure Stack integrované přejděte na adresu URL, kterou poskytuje vaší operátory Azure stacku.
 
-## <a name="create-a-virtual-machine"></a>Vytvoření virtuálního počítače
+## <a name="create-a-virtual-machine"></a>Vytvořit virtuální počítač
 
 1. Klikněte na tlačítko **+ vytvořit prostředek** > **Compute** > **systému Windows Server 2016 Datacenter - platba jako využití**  >   **Vytvoření**. Pokud nevidíte **systému Windows Server 2016 Datacenter - platba jako využití** záznamu, obraťte se na vaše operátory Azure stacku. Položit si ho podle pokynů v přidají na webu Marketplace [lze přidat image virtuálního počítače s Windows serverem 2016 do Tržiště Azure Stack](../operator/azure-stack-create-and-publish-marketplace-item.md) článku.
 
     ![Postup vytvoření virtuálního počítače s Windows na portálu](media/azure-stack-quick-windows-portal/image01.png)
 2. V části **Základy**, zadejte **název**, **uživatelské jméno**, a **heslo**. Zvolte **předplatné**. Vytvoření **skupiny prostředků**, nebo vyberte existující z nich, vyberte **umístění**a potom klikněte na tlačítko **OK**.
 
-    ![Konfigurace základního nastavení](media/azure-stack-quick-windows-portal/image02.png)
+    ![Konfigurace základních nastavení](media/azure-stack-quick-windows-portal/image02.png)
 3. V části **velikost** vyberte **D1 Standard**a potom klikněte na **vyberte**.  
     ![Zvolte velikost virtuálního počítače](media/azure-stack-quick-windows-portal/image03.png)
 

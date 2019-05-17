@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 05/16/2019
 ms.author: mabrigg
 ms.reviewer: alfredop
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 745b22310dcd2231c5bb823bd58daffa6c323d59
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 2378bef2457b29271f048ec213ccf4b79454dd95
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64984941"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782210"
 ---
 # <a name="tenant-resource-usage-api"></a>Rozhraní API využití prostředků tenanta
 
@@ -29,10 +29,10 @@ Tenanta slouží k zobrazení dat o využití prostředků tenanta vlastní rozh
 Můžete použít rutinu prostředí Windows PowerShell **Get-UsageAggregates** zobrazíte data o využití, jako jsou v Azure.
 
 ## <a name="api-call"></a>Volání rozhraní API
-### <a name="request"></a>Žádost
+### <a name="request"></a>Požadavek
 Požadavek získá podrobnosti o využití pro požadované předplatné a pro požadovaný časový rámec. Není k dispozici není datová část požadavku.
 
-| **Metoda** | **Identifikátor URI žádosti** |
+| **– Metoda** | **Identifikátor URI žádosti** |
 | --- | --- |
 | GET |https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce/usageAggregates?reportedStartTime={reportedStartTime}&reportedEndTime={reportedEndTime}&aggregationGranularity={granularity}&api-version= 2015-06-01-preview & continuationToken = {hodnota tokenu} |
 

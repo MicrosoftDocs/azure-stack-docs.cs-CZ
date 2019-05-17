@@ -7,17 +7,17 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: quickstart
-ms.date: 03/11/2019
+ms.date: 05/16/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.custom: mvc
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 37ff24258b12c9b042c7b0dc5a113a62d1d1ec60
-ms.sourcegitcommit: 41927cb812e6a705d8e414c5f605654da1fc6952
+ms.openlocfilehash: 2c0997599b8da1f77f61e0953eb56f834f718efb
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64477348"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782834"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-with-the-azure-stack-portal"></a>Rychlý start: vytvoření serveru virtuálního počítače s Linuxem pomocí portálu Azure Stack
 
@@ -49,7 +49,7 @@ Virtuální počítače s Ubuntu Server 16.04 LTS můžete vytvořit pomocí por
 
 Potřebujete pár klíčů SSH na dokončení všech kroků v tomto článku. Pokud máte existující pár klíčů SSH, můžete tento krok přeskočit.
 
-1. Přejděte do složky instalace PuTTY (výchozí umístění je ```C:\Program Files\PuTTY```) a spusťte ```puttygen.exe```.
+1. Přejděte do složky instalace PuTTY (výchozí umístění je `C:\Program Files\PuTTY`) a spusťte `puttygen.exe`.
 2. V okně generátor klíče PuTTY, zkontrolujte **typ klíče pro generování** je nastavena na **RSA**a **počet bitů v vygenerovaný klíč** je nastavena na **2048**. Jakmile budete připraveni, klikněte na tlačítko **generovat**.
 
    ![Konfigurace puTTY Key Generator](media/azure-stack-quick-linux-portal/Putty01.PNG)
@@ -106,7 +106,7 @@ Přihlaste se k portálu Azure Stack. Adresa na portálu Azure Stack závisí, k
    ![Připojení virtuálního počítače](media/azure-stack-quick-linux-portal/putty03.PNG)
 
 4. Posunout nahoru v **kategorie** okna a pak klikněte na tlačítko **relace**.
-5. V **název hostitele (nebo IP adresa)** okně vložte připojovací řetězec znázorňuje na portálu Azure Stack. V tomto příkladu je řetězec ```asadmin@192.168.102.34```.
+5. V **název hostitele (nebo IP adresa)** okně vložte připojovací řetězec znázorňuje na portálu Azure Stack. V tomto příkladu je řetězec `asadmin@192.168.102.34`.
 
    ![Konfigurace puTTY připojovací řetězec](media/azure-stack-quick-linux-portal/Putty04.PNG)
 
@@ -145,7 +145,7 @@ Skupina zabezpečení sítě (NSG) zabezpečuje příchozí a odchozí provoz. K
 
 NGINX nainstalovaný a port 80 otevřený ve vašem virtuálním počítači můžete přístup k webovému serveru pomocí veřejné IP adresy virtuálního počítače. (Veřejná IP adresa se zobrazí na stránce Přehled virtuálního počítače).
 
-Otevřete webový prohlížeč a přejděte do ```http://<public IP address>```.
+Otevřete webový prohlížeč a přejděte do `http://<public IP address>`.
 
 ![Úvodní stránku serveru NGINX webového serveru](media/azure-stack-quick-linux-portal/linux-05.PNG)
 

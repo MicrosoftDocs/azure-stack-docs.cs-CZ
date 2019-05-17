@@ -10,17 +10,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2019
+ms.date: 05/16/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 01/05/2019
+ms.lastreviewed: 05/16/2019
 <!-- dev: viananth -->
-ms.openlocfilehash: ab3b93d313a185a55f86232bf7bc3a7d4b46ef3d
-ms.sourcegitcommit: 24d5c16132d4c40a760ad6f631739af86188a09f
+ms.openlocfilehash: ee5906e825af59e3b67792e8370cc5d26901ff2b
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64910105"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782586"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack"></a>Použití profilů verzí API s využitím Pythonu ve službě Azure Stack
 
@@ -124,8 +124,8 @@ Zde jsou některé z ukázek kódu, který je k dispozici pro službu Azure Stac
 Následující vzorový kód můžete použít k provádění běžných úloh správy pro virtuální počítače v Azure stacku. Vzorový kód ukazuje na:
 
 - Vytvoření virtuálních počítačů:
-  - Vytvoření virtuálního počítače s Linuxem
-  - Vytvoření virtuálního počítače s Windows
+  - Vytvořit virtuální počítač s Linuxem
+  - Vytvořit virtuální počítač s Windows
 - Aktualizujte virtuální počítač:
   - Rozšířit jednotku
   - Označit virtuální počítač

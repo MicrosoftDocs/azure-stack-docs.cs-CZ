@@ -3,24 +3,23 @@ title: Povolení rozhraní příkazového řádku Azure pro uživatele Azure sta
 description: Další informace o použití multiplatformního rozhraní příkazového řádku (CLI) ke správě a nasazování prostředků ve službě Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: mattbriggs
+manager: femila
 editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: CLI
 ms.topic: article
-origin.date: 01/15/2019
-ms.date: 04/29/2019
-ms.author: v-jay
-ms.lastreviewed: 01/15/2019
-ms.openlocfilehash: efec1cc58b263c9580ab4a8ab3d7973a8f230d93
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.date: 05/16/2019
+ms.author: mabrigg
+ms.lastreviewed: 05/16/2019
+ms.openlocfilehash: ace99053d9aac4c525e9481e5430ac1f5648f194
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64290349"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782315"
 ---
 # <a name="enable-azure-cli-for-azure-stack-users"></a>Povolení rozhraní příkazového řádku Azure pro uživatele Azure stacku
 
@@ -61,7 +60,7 @@ certutil -encode root.cer root.pem
 
 Operátoři Azure stacku byste nastavit veřejně přístupném koncovém bodu, který je hostitelem soubor alias virtuálního počítače. Soubor alias virtuálního počítače je soubor JSON, který poskytuje běžný název pro image. Název budete používat při nasazování virtuálního počítače jako parametr příkazového řádku Azure.  
 
-Předtím, než přidáte položku do souboru alias, ujistěte se, že jste [stažení Image z Azure Marketplace](azure-stack-download-azure-marketplace-item.md) nebo mít [publikovat vlastní image](azure-stack-add-vm-image.md). Pokud publikujete vlastní image, poznamenejte si informace vydavatele, nabídky, SKU a verze, které jste zadali během publikování. Pokud se jedná image z marketplace, můžete zobrazit informace s použitím ```Get-AzureVMImage``` rutiny.  
+Předtím, než přidáte položku do souboru alias, ujistěte se, že jste [stažení Image z Azure Marketplace](azure-stack-download-azure-marketplace-item.md) nebo mít [publikovat vlastní image](azure-stack-add-vm-image.md). Pokud publikujete vlastní image, poznamenejte si informace vydavatele, nabídky, SKU a verze, které jste zadali během publikování. Pokud se jedná image z marketplace, můžete zobrazit informace s použitím `Get-AzureVMImage` rutiny.  
 
 A [ukázkový soubor alias](https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json) běžné imagi aliasů je k dispozici. Který můžete použít jako výchozí bod. Hostování tento soubor do místa, kde vaši klienti rozhraní příkazového řádku k němu přistoupit. Jedním ze způsobů je hostitelem souboru v účtu blob storage a sdílejte její adresu URL s uživateli:
 

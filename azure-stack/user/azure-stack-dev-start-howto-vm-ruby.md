@@ -9,18 +9,18 @@ ms.date: 04/24/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 04/24/2019
-ms.openlocfilehash: 7744d1adcdcb1dde53c6ef887498a9a3978f4513
-ms.sourcegitcommit: 41927cb812e6a705d8e414c5f605654da1fc6952
+ms.openlocfilehash: 24774e122be0c4088c4d5841f71318d266bad78f
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64481937"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782679"
 ---
 # <a name="how-to-deploy-a-ruby-web-app-to-a-vm-in-azure-stack"></a>Nasazení webové aplikace Ruby na virtuálním počítači v Azure stacku
 
 Můžete vytvořit virtuální počítač pro hostování Ruby webové aplikace ve službě Azure Stack. Tento článek ukazuje postup popsaný v části Nastavení serveru, konfigurace serveru pro hostování vaší webové aplikace Ruby a potom nasazení vaší aplikace.
 
-Ruby je jazyk zůstatku opatrní. Autorovi Yukihiro Matsumoto "Matz", v kombinaci části své oblíbené jazyky (Perl, Smalltalk, Eiffel, Ada a Lisp) a vytvoří nový jazyk, který balanced funkční programování s imperativní programování. Přečtěte si poznámky Ruby programovací jazyk a najít další zdroje informací pro Python najdete v tématu [Ruby lang.org](https://www.ruby-lang.org).
+
 
 Tento článek používá na Rails webová architektura Ruby a Ruby.
 
@@ -30,11 +30,11 @@ Tento článek používá na Rails webová architektura Ruby a Ruby.
 
 2. V okně sítě virtuálních počítačů Ujistěte se, že jsou k dispozici následující porty:
 
-    | Port | Protocol (Protokol) | Popis |
+    | Port | Protocol | Popis |
     | --- | --- | --- |
-    | 80 | HTTP | Protokol HTTP (Hypertext Transfer) je protokol aplikací pro distribuované, spolupráci, hypermédia informačních systémů. Klienti se připojí k vaší webové aplikaci buď veřejné IP adresy nebo DNS název vašeho virtuálního počítače. |
-    | 443 | HTTPS | Přenos protokolu HTTPS (Hypertext Secure) je rozšířením sady protokol HTTP (Hypertext Transfer). Používá se pro zabezpečenou komunikaci v počítačové síti. Klienti se připojí k vaší webové aplikaci buď veřejné IP adresy nebo DNS název vašeho virtuálního počítače. |
-    | 22 | SSH | Secure Shell (SSH) je kryptografický síťový protokol pro bezpečné provozování síťové služby přes nezabezpečenou síť. Toto připojení použijete s klientem SSH ke konfiguraci virtuálního počítače a nasazení aplikace. |
+    | 80 | HTTP | Protokol HTTP (Hypertext Transfer) je protokol použitý k doručování webových stránek ze serverů. Klienti se připojují přes protokol HTTP s názvem DNS nebo IP adresu. |
+    | 443 | HTTPS | Protokol zabezpečení HTTPS (Hypertext Transfer) je zabezpečený verzi protokolu HTTP, který vyžaduje certifikát zabezpečení a umožňuje šifrovaného přenosu informací.  |
+    | 22 | SSH | Secure Shell (SSH) je protokol šifrovaných sítí pro zabezpečenou komunikaci. Toto připojení použijete s klientem SSH ke konfiguraci virtuálního počítače a nasazení aplikace. |
     | 3389 | Protokol RDP | Volitelné. Remote Desktop Protocol umožňuje připojení ke vzdálené ploše použít grafické uživatelské rozhraní vašeho počítače.   |
     | 3000 | Vlastní | Port 3000 používá rozhraní web Ruby na rails ve vývoji. Pro produkční server budete chtít směrovat provoz přes 80 a 443. |
 
@@ -103,3 +103,4 @@ Tento článek používá na Rails webová architektura Ruby a Ruby.
 
 - Další informace o tom, jak [vývoj pro Azure Stack](azure-stack-dev-start.md)
 - Další informace o [běžné nasazení pro službu Azure Stack jako IaaS](azure-stack-dev-start-deploy-app.md).
+- Přečtěte si poznámky Ruby programovací jazyk a najít další zdroje informací pro Python najdete v tématu [Ruby lang.org](https://www.ruby-lang.org).

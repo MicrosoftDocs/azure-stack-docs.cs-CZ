@@ -17,12 +17,12 @@ ms.author: mabrigg
 ms.reviewer: unknown
 ms.custom: ''
 ms.lastreviewed: 03/29/2019
-ms.openlocfilehash: 768d4bd9ad2d70878e9794b1ba315559e76884df
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 20199e927498d0590ae32f68eb02b0a47c8c2b3e
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618753"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782280"
 ---
 # <a name="differences-between-global-azure-azure-stack-and-azure-stack-hci"></a>Rozdíly mezi globální Azure, Azure Stack a Azure Stack HCL
 
@@ -59,7 +59,6 @@ Kromě poskytovatelů prostředků je popsáno výše, jsou k dispozici další 
 
 - Service Fabric
 - Služby kontejnerů Kubernetes
-- IoT Hub a Event Hubs
 - Ethereum Blockchain
 - Cloud Foundry
 

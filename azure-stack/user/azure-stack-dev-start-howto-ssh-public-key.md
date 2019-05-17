@@ -9,12 +9,12 @@ ms.date: 04/25/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 04/24/2019
-ms.openlocfilehash: 0f4133052022963e1ed0457dd479a00bcc5bb749
-ms.sourcegitcommit: 0d8ccf2a32b08ab9bcbe13d54c7c3dce2379757f
+ms.openlocfilehash: ca8d81e9d0baf08adde257340b2a8ac3bffd6c36
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64490061"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65783190"
 ---
 # <a name="how-to-use-an-ssh-public-key"></a>Jak použít veřejný klíč SSH
 
@@ -22,7 +22,7 @@ Budete muset vytvořit veřejných a privátních pár klíčů SSH používat o
 
 ## <a name="create-an-ssh-public-key-on-windows"></a>Vytvoření veřejného klíče SSH ve Windows
 
-V této části použijete generátor klíče PuTTY Chcete-li vytvořit veřejný klíč SSH a soukromého klíče pro použití při vytváření zabezpečené připojení do počítače s Linuxem v Azure stacku. PuTTY je bezplatné provádění SSH a Telnet pro Windows a platformy Unix společně s `xterm` emulaci terminálu.
+V této části použijete generátor klíče PuTTY Chcete-li vytvořit veřejný klíč SSH a soukromého klíče pro použití při vytváření zabezpečené připojení do počítače s Linuxem v Azure stacku. PuTTY je bezplatný emulátor terminálu, který umožňuje připojení k serveru přes SSH a Telnet.
 
 1. [Stáhněte a nainstalujte PuTTY pro váš počítač.](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)
 
@@ -59,12 +59,6 @@ BvpmONCSR3YnyUtgWV27N6zC7U1OBdmv7TN6M7g01uOYQKI/GQ==
 
 Při použití veřejného klíče, zkopírujete a vložíte celý kontexty do textového pole jako hodnotu, když aplikace požádá o klíč.
 
-<!-- 
-## Create an SSH public key on Linux
-
-ToDo: I need to write this section.
-
--->
 ## <a name="connect-with-ssh-using-putty"></a>Připojení přes SSH pomocí PuTTY
 
 Pokud jste nainstalovali PuTTY, máte generátor klíče a klienta SSH. Otevřete klienta SSH PuTTY, nakonfigurujte hodnoty připojení a klíč SSH a pokud jste ve stejné síti jako Azure Stack, připojte se ke svému virtuálnímu počítači.

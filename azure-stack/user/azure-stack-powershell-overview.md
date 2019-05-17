@@ -15,12 +15,12 @@ ms.date: 04/25/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 04/24/2019
-ms.openlocfilehash: b28a90ceca59e5cd072018b217d81d101c1b0853
-ms.sourcegitcommit: 0d8ccf2a32b08ab9bcbe13d54c7c3dce2379757f
+ms.openlocfilehash: 0cef39147fdbc62fe0652b1e387aa23f5ecb8487
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64490045"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782906"
 ---
 # <a name="get-started-with-powershell-on-azure-stack"></a>Začínáme s prostředím PowerShell ve službě Azure Stack
 
@@ -31,7 +31,7 @@ Tento článek vám pomůže využít orient sami těchto různých modulů pros
 | Rozhraní API | PowerShell – reference | Reference k rozhraní REST |
 | --- | --- | --- |
 | 1. Globální Azure Resource Manageru | [Moduly Azure Powershellu](https://github.com/Azure/azure-powershell/blob/master/documentation/azure-powershell-modules.md) | [Prohlížeč rozhraní REST API](https://docs.microsoft.com/rest/api/) |
-| 2. Azure Stack Resource Manageru | [Správa profilů verzí rozhraní API ve službě Azure Stack](azure-stack-version-profiles.md) | [Správa profilů verzí rozhraní API ve službě Azure Stack](azure-stack-version-profiles.md) |
+| 2. Azure Stack Resource Manageru | [Správa profilů verzí API ve službě Azure Stack](azure-stack-version-profiles.md) | [Správa profilů verzí API ve službě Azure Stack](azure-stack-version-profiles.md) |
 | 3. Koncové body Azure Stack správce | [Modul Správce služby Azure Stack](https://docs.microsoft.com/powershell/azure/azure-stack/overview) | [Rozhraní REST API Browseru – Azure Stack](https://docs.microsoft.com/rest/api/?term=Azure%20Azure%20Stack%20Admin) |
 | 4.  Azure Stack privilegovaného koncového bodu | [Používání privilegovaného koncového bodu ve službě Azure Stack](../operator/azure-stack-privileged-endpoint.md) | |
 
@@ -47,11 +47,11 @@ Následující blok diagram znázorňuje vztah mezi každou sadu moduly Powershe
 
 ### <a name="global-azure"></a>Globální Azure
 
-Prostředí Azure PowerShell poskytuje sadu rutin, které pomocí aktuální verze modelu Azure Resource Manageru pro správu vašich prostředků Azure. Azure PowerShell využívá .NET Standard a díky tomu je k dispozici pro Windows, MacOS a Linux. Azure PowerShell je k dispozici také ve službě Azure Cloud Shell. Další informace najdete v tématu [Začínáme s Azure PowerShellem](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+Prostředí Azure PowerShell obsahuje sadu rutin, které použijte aktuální verzi Azure Resource Manageru pro práci s prostředky Azure. Azure PowerShell používá .NET Standard. To znamená, že verze prostředí PowerShell můžete použít s Windows, macOS a Linux. Azure PowerShell je k dispozici také ve službě Azure Cloud Shell. Další informace najdete v tématu [Začínáme s Azure PowerShellem](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
 ### <a name="azure-stack-resource-manager"></a>Azure Stack Resource Manageru
 
-Azure Stack Powershellu poskytuje sadu rutin, které používají předchozí verze Azure Resource Manageru kompatibilní s poskytovateli prostředků ve službě Azure Stack. Každý poskytovatel prostředků ve službě Azure Stack používá starší verzi poskytovatele nalezen v globálním Azure. Můžete koordinuje verzi každý poskytovatel podporuje Azure Stack, můžete použít profily rozhraní API. Azure Stack Powershellu pomocí prostředí PowerShell 5.1 a je dostupná jenom ve Windows. Další informace najdete v tématu [profilů verzí API spravovat ve službě Azure Stack](azure-stack-version-profiles.md).
+Azure Stack Powershellu poskytuje sadu rutin, které používají předchozí verze Azure Resource Manageru. Tyto rutiny jsou kompatibilní s poskytovateli prostředků ve službě Azure Stack. Každý poskytovatel prostředků ve službě Azure Stack používá starší verzi poskytovatele nalezen v globálním Azure. Můžete koordinuje verzi každý poskytovatel podporuje Azure Stack, můžete použít profily rozhraní API. Azure Stack Powershellu pomocí prostředí PowerShell 5.1 a je dostupná jenom ve Windows. Další informace najdete v tématu [profilů verzí API spravovat ve službě Azure Stack](azure-stack-version-profiles.md).
 
 ### <a name="azure-stack-administrator"></a>Správce služby Azure Stack
 

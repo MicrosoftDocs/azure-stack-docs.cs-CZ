@@ -3,25 +3,24 @@ title: Uzel akcí jednotky škálování ve službě Azure Stack | Dokumentace M
 description: Zjistěte, jak zobrazení stavu uzlu a využití výkonu na napájení vypnuto, zakázat a obnovit uzel akce na systémech pro Azure Stack integrované.
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: mattbriggs
+manager: femila
 editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-origin.date: 01/22/2019
-ms.date: 03/04/2019
-ms.author: v-jay
+ms.date: 05/16/2019
+ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/22/2019
-ms.openlocfilehash: cd7e66961a0b9a80150a3d3e132efd29485cdb66
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: fa0292419a228fcf9bbfef2bbfc2503f4ba5a702
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64293253"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782336"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Uzel akcí jednotky škálování ve službě Azure Stack
 
@@ -59,11 +58,11 @@ Zobrazení stavu jednotky škálování:
 
 | Status | Popis |
 |----------------------|-------------------------------------------------------------------|
-| Spuštěno | Uzel je aktivně účasti v jednotce škálování. |
+| Běží | Uzel je aktivně účasti v jednotce škálování. |
 | Zastaveno | Uzel není k dispozici. |
 | Přidávání | Uzel je aktivně přidává na jednotce škálování. |
 | Probíhají opravy | Uzel je aktivně opraví. |
-| Údržba | Uzel pozastaví a žádné aktivní uživatel úloha běží. |
+| údržba | Uzel pozastaví a žádné aktivní uživatel úloha běží. |
 | Vyžaduje nápravy | Byla zjištěna chyba, která vyžaduje uzel, který má být opraven. |
 
 ## <a name="scale-unit-node-actions"></a>Škálovací jednotku uzlu akce
@@ -72,13 +71,13 @@ Při zobrazení informací o uzlu škálovací jednotky můžete také provádě
  - Spuštění a zastavení (v závislosti na aktuální stav napájení)
  - Zakázat a obnovit (v závislosti na provozní stav)
  - Opravit
- - Shutdown
+ - Vypnout
 
 Operační stav tohoto uzlu Určuje, jaké možnosti jsou k dispozici.
 
 Je potřeba nainstalovat moduly Azure Stack Powershellu. Tyto rutiny jsou v **Azs.Fabric.Admin** modulu. Pokud chcete nainstalovat nebo ověřit instalaci prostředí PowerShell pro Azure Stack, najdete v článku [instalace Powershellu pro Azure Stack](azure-stack-powershell-install.md).
 
-## <a name="stop"></a>Zastavit
+## <a name="stop"></a>Ukončit
 
 **Zastavit** akce vypne uzlu. Je stejný jako v případě, že stisknete tlačítko napájení. Odešle signál k vypnutí operačního systému. Pro plánované zastavení operace vždy akci vypnutí nejprve. 
 
@@ -86,7 +85,7 @@ Tato akce se obvykle používá, pokud uzel je ve stavu ukončování "zamrzlýc
 
 Akce zastavení spuštění, otevřete řádku Powershellu se zvýšenými oprávněními a spusťte následující rutinu:
 
-```PowerShell  
+```powershell  
   Stop-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```
 
@@ -94,13 +93,13 @@ V nepravděpodobném případě, že akce zastavení nefunguje, zkuste operaci z
 
 Další informace najdete v tématu [Stop-AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/stop-azsscaleunitnode).
 
-## <a name="start"></a>Start
+## <a name="start"></a>Spustit
 
 **Start** akce zapne uzlu. Je stejný jako v případě, že stisknete tlačítko napájení. 
  
 Ke spuštění spouštěcí akci, otevřete řádku Powershellu se zvýšenými oprávněními a spusťte následující rutinu:
 
-```PowerShell  
+```powershell  
   Start-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```
 
@@ -119,19 +118,19 @@ Tato akce se obvykle používá při nahrazení pole částí, jako je napříkl
 
 Spustit akci vyprazdňování, otevřete řádku Powershellu se zvýšenými oprávněními a spusťte následující rutinu:
 
-```PowerShell  
+```powershell  
   Disable-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```
 
 Další informace najdete v tématu [zakázat AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/disable-azsscaleunitnode).
 
-## <a name="resume"></a>Obnovit
+## <a name="resume"></a>Pokračovat
 
 **Obnovit** akce zakázané uzlu obnoví a označí je aktivní umísťování úloh. Předchozí úlohy, které byly spuštěny na uzlu není navrácení služeb po obnovení. (Pokud používáte operace vyprazdňování uzlu je nutné vypnout. Když jste zpátky na uzlu, není označena jako aktivní umísťování úloh. Až budete připraveni, musíte použít pokračování akci označit uzel jako aktivní.)
 
 Spustit akce obnovení, otevřete řádku Powershellu se zvýšenými oprávněními a spusťte následující rutinu:
 
-```PowerShell  
+```powershell  
   Enable-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```
 
@@ -150,11 +149,11 @@ Když spustíte akci oprava, musíte zadat BMC IP adresu.
 
 Spuštěním akce opravy, otevřete řádku Powershellu se zvýšenými oprávněními a spusťte následující rutinu:
 
-  ```PowerShell
+  ```powershell
   Repair-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -BMCIPv4Address <BMCIPv4Address>
   ```
 
-## <a name="shutdown"></a>Shutdown
+## <a name="shutdown"></a>Vypnout
 
 **Vypnutí** fist akce přesune všechny aktivní úlohy na zbývající uzly ve stejné jednotce škálování. Akce pak řádně ukončí uzel jednotek škálování.
 
@@ -164,7 +163,7 @@ Pokud operace vypnutí selže, pokusí [vyprázdnit](#drain) operaci za nímž n
 
 Spustit akci vypnutí, otevřete řádku Powershellu se zvýšenými oprávněními a spusťte následující rutinu:
 
-  ```PowerShell
+  ```powershell
   Stop-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -Shutdown
   ```
 

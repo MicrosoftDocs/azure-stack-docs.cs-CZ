@@ -17,12 +17,12 @@ ms.date: 02/12/2019
 ms.author: mabrigg
 ms.reviewer: misainat
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: 0658943a36673df4658b6f1951ed7992996aba41
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: cc5c756075b2dbeb789727a6c6647cf3e97cac28
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617468"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782124"
 ---
 # <a name="redeploy-the-asdk"></a>Opětovné nasazení ASDK
 V tomto článku se dozvíte, jak znovu nasadit Azure Stack Development Kit (ASDK) v neprodukčním prostředí. Protože upgrade ASDK není podporován, budete muset zcela jej přesunout na novější verzi znovu nasadit. Můžete také znovu nasadit ASDK kdykoli, který chcete začít znovu od začátku.
@@ -39,7 +39,7 @@ K odebrání prostředků registrace, použijte **odebrat AzsRegistration** ruti
 
 2. Spusťte následující příkazy prostředí PowerShell a zrušit registraci instalace ASDK odstranit **azurestack** skupinu prostředků z vašeho předplatného Azure:
 
-   ```Powershell    
+   ```powershell    
    #Import the registration module that was downloaded with the GitHub tools
    Import-Module C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1
 
