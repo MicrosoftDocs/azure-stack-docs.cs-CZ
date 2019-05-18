@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 05/17/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 6e4402be7108f242e1d285ebe91dfece744f0805
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 05/17/2019
+ms.openlocfilehash: 62626240c59c9f78c0b0d21553e8c6ffeb0367a0
+ms.sourcegitcommit: 8cb2b567e9914d4d07e754d95c0864aa55868579
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64301965"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65855391"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-using-azure-active-directory"></a>Nasazení Kubernetes pro Azure Stack pomocí Azure Active Directory
 
@@ -61,25 +61,21 @@ Nastavení instančního objektu v Azure. Služby, které poskytuje vaše aplika
 
 1. Vytvořte aplikaci Azure AD.
 
-    a. Vyberte **Azure Active Directory** > **+ registrace aplikací** > **registrace nové aplikace**.
-
-    b. Zadejte **název** aplikace.
-
-    c. Vyberte **webovou aplikaci nebo API**.
-
-    d. Zadejte `http://localhost` pro **přihlašovací adresa URL**.
-
-    c. Klikněte na možnost **Vytvořit**.
+    a. Přihlaste se ke svému účtu Azure prostřednictvím [webu Azure portal](https://portal.azure.com).  
+    b. Vyberte **Azure Active Directory** > **registrace aplikací** > **registrace nové**.  
+    c. Zadejte název a URL aplikace.  
+    d. Vyberte **podporovaných typů účtu**.  
+    e.  Přidat `http://localhost` pro identifikátor URI pro aplikaci. Vyberte **webové** pro typ aplikace, kterou chcete vytvořit. Po nastavení hodnot, vyberte **zaregistrovat**.
 
 1. Poznamenejte si **ID aplikace**. ID budete potřebovat při vytváření clusteru. ID je odkazováno jako **ID klienta instančního objektu**.
 
-1. Vyberte **nastavení** > **klíče**.
+1. V okně pro instančnímu objektu. Vyberte **nový tajný kód klienta**. **Nastavení** > **klíče**. Je nutné generovat ověřovací klíč pro instančnímu objektu.
 
     a. Zadejte **popis**.
 
     b. Vyberte **nikdy nevyprší platnost** pro **Expires**.
 
-    c. Vyberte **Uložit**. Ujistěte se, poznamenejte si řetězec klíče. Řetězec klíče budete potřebovat při vytváření clusteru. Klíč se odkazuje jako **tajný kód klienta instančního objektu**.
+    c. Vyberte **Přidat**. Ujistěte se, poznamenejte si řetězec klíče. Řetězec klíče budete potřebovat při vytváření clusteru. Klíč se odkazuje jako **tajný kód klienta instančního objektu**.
 
 ## <a name="give-the-service-principal-access"></a>Poskytnout přístup instančního objektu služby
 

@@ -16,12 +16,12 @@ ms.date: 05/15/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 05/15/2019
-ms.openlocfilehash: 86817d0d22854bf2bb0d2372f2a25e15a3de7c48
-ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
+ms.openlocfilehash: 48136220e2d784a61b3275ca9f79b82e0e8bfb69
+ms.sourcegitcommit: 8cb2b567e9914d4d07e754d95c0864aa55868579
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65712311"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65855352"
 ---
 # <a name="azure-stack-1904-known-issues"></a>Azure Stack 1904 známé problémy
 
@@ -77,10 +77,16 @@ V tomto článku najdete seznam známých problémů v 1904 verzi služby Azure 
 ### <a name="marketplace-management"></a>Správa webu Marketplace
 
 - Použít: Tento problém se týká 1904.
-- Příčina: Při filtrování výsledků v okně "Přidat z Azure" na kartě Správa webu Marketplace v portálu správce, může se zobrazit nesprávné filtrované výsledky. 
-- Náprava: Řazení výsledků podle názvu sloupce a výsledky budou opraveny. 
+- Příčina: Při filtrování výsledků v **přidat z Azure** okno v kartě správu webu Marketplace na portálu správce se může zobrazit nesprávné filtrované výsledky. 
+- Náprava: Výsledky řazení podle sloupce název a výsledky budou opraveny. 
 - Výskyt: Občasně
 
+### <a name="marketplace-management"></a>Správa webu Marketplace
+
+- Použít: Tento problém se týká 1904.
+- Příčina: Při filtrování výsledků v Marketplace správu na portálu pro správce, zobrazí se duplicitní vydavatele názvy vydavatele rozevíracího seznamu. 
+- Náprava: Vyberte všechny duplicitní položky mít správný seznam všech produktů Marketplace, které jsou k dispozici v rámci daného vydavatele. 
+- Výskyt: Občasně
 
 ### <a name="upload-blob"></a>Nahrát objekt blob
 

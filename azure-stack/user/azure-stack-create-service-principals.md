@@ -14,12 +14,12 @@ ms.date: 04/15/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 12/12/2018
-ms.openlocfilehash: 3fc50d068eb07d7da2d55d855b2ea8ea758ca6b1
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 3860f8dcc99f3505fe2f838e75f5e8f09b78aefe
+ms.sourcegitcommit: 8cb2b567e9914d4d07e754d95c0864aa55868579
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64300612"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65855379"
 ---
 # <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>Přístup aplikací k prostředkům Azure Stack tak, že vytvoříte instanční objekty
 
@@ -59,7 +59,7 @@ Pokud služby Azure Stack používá jako úložiště identit Azure AD, které 
 > [!NOTE]
 > Zkontrolujte, že máte [požadovaná oprávnění Azure AD](/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions) předtím, než začnete vytvářet instanční objekt služby.
 
-### <a name="create-service-principal"></a>Vytvoření instančního objektu
+### <a name="create-service-principal"></a>Vytvořit instanční objekt
 
 Vytvoření instančního objektu pro aplikaci:
 
@@ -68,6 +68,8 @@ Vytvoření instančního objektu pro aplikaci:
 3. Zadejte název.
 4. Vyberte **podporovaných typů účtu**.
 5.  Přidejte identifikátor URI pro aplikaci. Vyberte **webové** pro typ aplikace, kterou chcete vytvořit. Po nastavení hodnot, vyberte **zaregistrovat**.
+
+Vytvoříte instanční objekt služby pro vaši aplikaci.
 
 ### <a name="get-credentials"></a>Získat přihlašovací údaje
 
