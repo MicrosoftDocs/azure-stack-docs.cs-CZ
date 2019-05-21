@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/18/2018
+ms.date: 05/17/2019
 ms.author: sethm
-ms.lastreviewed: 12/18/2018
-ms.openlocfilehash: 8d6548ada50a25350f622d7bc7460005f4abc401
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 05/17/2019
+ms.openlocfilehash: 1bb07c1725d5c8ed81ec4b8ccc546a4d41dc64e0
+ms.sourcegitcommit: 8cb2b567e9914d4d07e754d95c0864aa55868579
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64295123"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65855321"
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Poskytnutí přístupu aplikací do Azure Stack
 
@@ -47,13 +47,15 @@ Jakmile vytvoříte instanční objekt služby, se používají sady kroků bě�
 
 Pokud jste nasadili Azure Stack se službou Azure Active Directory (Azure AD) jako služba pro správu identit, můžete vytvořit instanční objekty stejně jako pro Azure. Tato část ukazuje, jak k provedení kroků na portálu. Zkontrolujte, jestli máte [vyžaduje Azure AD permissions]((/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions) před zahájením.
 
-### <a name="create-service-principal"></a>Vytvoření instančního objektu
+### <a name="create-service-principal"></a>Vytvořit instanční objekt
 
 V této části vytvoříte aplikaci (instanční objekt) ve službě Azure AD, která reprezentuje vaši aplikaci.
 
 1. Přihlaste se ke svému účtu Azure prostřednictvím [webu Azure portal](https://portal.azure.com).
-2. Vyberte **Azure Active Directory** > **registrace aplikací** > **registrace nové aplikace**
-3. Zadejte název a URL aplikace. Vyberte buď **webovou aplikaci nebo API** nebo **nativní** pro typ aplikace, kterou chcete vytvořit. Po nastavení hodnot, vyberte **vytvořit**.
+2. Vyberte **Azure Active Directory** > **registrace aplikací** > **registrace nové**.
+3. Zadejte název a URL aplikace. 
+4. Vyberte **podporovaných typů účtu**.
+5.  Přidejte identifikátor URI pro aplikaci. Vyberte **webové** pro typ aplikace, kterou chcete vytvořit. Po nastavení hodnot, vyberte **zaregistrovat**.
 
 Vytvoříte instanční objekt služby pro vaši aplikaci.
 
@@ -61,18 +63,17 @@ Vytvoříte instanční objekt služby pro vaši aplikaci.
 
 Při programovém přihlášení pomocí ID je pro vaši aplikaci a webové aplikace a rozhraní API, ověřovací klíč. K získání těchto hodnot použijte následující postup:
 
-1. Z **registrace aplikací** ve službě Active Directory, vyberte svou aplikaci.
+1. Vyberte **Azure Active Directory** > **registrace aplikací**. Vyberte svou aplikaci.
 
 2. Zkopírujte **ID aplikace** a uložte ho v kódu aplikace. Aplikace v sekci ukázkové aplikace se tato hodnota označuje jako ID klienta.
 
-     ![ID klienta](./media/azure-stack-create-service-principal/image12.png)
-3. Chcete-li generovat ověřovací klíč pro webovou aplikaci / rozhraní API, vyberte **nastavení** > **klíče**. 
+3. Chcete-li generovat ověřovací klíč pro webovou aplikaci / rozhraní API, vyberte **certifikáty a tajné kódy**. Vyberte **Nový tajný klíč klienta**.
 
-4. Zadejte popis klíče a jeho dobu platnosti. Až budete hotovi, vyberte **Uložit**.
+4. Zadejte popis klíče a jeho dobu platnosti. Až budete hotovi, vyberte **přidat**.
 
 Jakmile klíč uložíte, zobrazí se jeho hodnota. Zkopírujte tuto hodnotu do poznámkového bloku nebo jiného dočasného umístění, protože klíč nelze načíst později. Hodnotu klíče uveďte s ID aplikace, aby přihlásit jako aplikace. Hodnota klíče Store na místě, kde aplikace může načíst ji.
 
-![uložený klíč](./media/azure-stack-create-service-principal/image15.png)
+![uložený klíč](./media/azure-stack-create-service-principal/create-service-principal-in-azure-stack-secret.png)
 
 Jakmile budete hotovi, můžete aplikace přiřadit roli.
 

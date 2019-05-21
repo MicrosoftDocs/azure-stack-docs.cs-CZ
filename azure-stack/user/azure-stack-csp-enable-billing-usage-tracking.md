@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/19/2019
+ms.date: 05/20/2019
 ms.author: sethm
 ms.reviewer: alfredop
-ms.lastreviewed: 01/19/2019
-ms.openlocfilehash: 8ed4822d7ee74572e9562191ab89d1035a56b188
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 05/20/2019
+ms.openlocfilehash: 209a0da31d4bd5b519771f68f4bddcbb833284fa
+ms.sourcegitcommit: d2012e765c3fa5bccb4756d190349e890f9f48bd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64298698"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65941211"
 ---
 # <a name="enable-a-cloud-service-provider-to-manage-your-azure-stack-subscription"></a>Povolit poskytovatele cloudové služby ke správě vašich předplatných Azure Stack
 
@@ -28,7 +28,7 @@ ms.locfileid: "64298698"
 
 Pokud používáte Azure Stack se Cloud Service Provider (CSP), můžete ke správě svého vlastního předplatného pro přístup k prostředkům v Azure a ve službě Azure Stack. Můžete taky umožnit zprostředkovateli spravovat své předplatné pro vás. Tento článek vám ukáže, jak do:
 
-* Udělte přístup k vaší službě poskytovatele předplatného.
+* Udělit přístup k vaší službě poskytovatele do vašeho předplatného.
 * Zkontrolujte, že poskytovatel služeb můžete spravovat vaši službu.
 
 > [!NOTE]
@@ -38,7 +38,7 @@ Pokud používáte Azure Stack se Cloud Service Provider (CSP), můžete ke spr�
 
 Přidat zprostředkovatele kryptografických služeb jako **uživatele** do vašeho předplatného.
 
-1. Poskytovatel cloudových služeb jako uživatel typu Host s rolí uživatele přidejte do svého tenanta adresáře. Postup přidání uživatele najdete v tématu [přidání nových uživatelů do služby Azure Active Directory](/azure/active-directory/add-users-azure-active-directory)
+1. Přidat jako uživatele typu Host pomocí poskytovatel cloudových služeb **uživatele** role do svého tenanta adresáře. Postup přidání uživatele najdete v tématu [přidání nových uživatelů do služby Azure Active Directory](/azure/active-directory/add-users-azure-active-directory)
 2. Poskytovatel CSP vytvoří místní předplatnému služby Azure Stack pro vás. Jste připravení začít používat Azure Stack.
 3. Poskytovatel cloudových služeb by měl vytvořit prostředek v rámci vašeho předplatného, chcete-li ověřit, že vaše prostředky spravovat. Například může [vytvoření virtuálního počítače s Windows pomocí portálu Azure Stack](azure-stack-quick-windows-portal.md).
 
@@ -46,7 +46,7 @@ Přidat zprostředkovatele kryptografických služeb jako **uživatele** do vaš
 
 Přidat zprostředkovatele kryptografických služeb jako **vlastníka** do vašeho předplatného.
 
-1. Přidání poskytovatel cloudových služeb jako uživatel typu Host do tenanta adresáře. Postup přidání uživatele najdete v tématu [přidání nových uživatelů do služby Azure Active Directory](/azure/active-directory/add-users-azure-active-directory)
+1. Přidání poskytovatel cloudových služeb jako uživatel typu Host do tenanta adresáře. Postup přidání uživatele najdete v tématu [přidání nových uživatelů do služby Azure Active Directory](/azure/active-directory/add-users-azure-active-directory).
 2. Přidat **vlastníka** role pro uživatele typu Host CSP. Postup přidání CSP uživatele k předplatnému najdete v tématu [Use Role-Based řízení přístupu ke správě přístupu k prostředkům předplatného Azure](/azure/role-based-access-control/role-assignments-portal). Poskytovatel CSP vytvoří místní předplatnému služby Azure Stack pro vás. Jste připravení začít používat Azure Stack.
 3. Poskytovatel cloudových služeb by měl vytvořit prostředek v rámci vašeho předplatného, chcete-li ověřit, že můžou spravovat vaše prostředky.
 

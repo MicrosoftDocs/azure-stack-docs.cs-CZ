@@ -16,12 +16,12 @@ ms.date: 05/06/2019
 ms.author: sethm
 ms.reviewer: ''
 ms.lastreviewed: 05/06/2019
-ms.openlocfilehash: 78a42d458f77385114c476bd810cea89380423fa
-ms.sourcegitcommit: 1655b2ef4d01d69ceeb52bc16f922bdc19cb968d
+ms.openlocfilehash: 99906760e51c87a7403eabfb94a64b74b999aab5
+ms.sourcegitcommit: d2012e765c3fa5bccb4756d190349e890f9f48bd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65706305"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65941185"
 ---
 # <a name="azure-stack-1904-update"></a>Aktualizace služby Azure Stack 1904
 
@@ -113,6 +113,8 @@ Tento článek popisuje obsah balíčku 1904 aktualizace. Obsahuje novinky vylep
   - "Pevné" Kritická výstraha se zobrazí na portálu, který čte "poslední aktualizace se nezdařila. Společnost Microsoft doporučuje, otevřete žádost o službu co nejdříve. Jako součást procesu aktualizace AzureStack testu je prováděno a založené na výstupu se vygeneruje výstraha nejvhodnější. V tomto případě Test AzureStack také se nezdařilo."
 
 - Aktualizace agenta Azure Linux verze 2.2.38.0. Tato podpora umožňuje zákazníkům udržovat konzistentní Linuxové Image mezi Azure a Azure Stack.
+
+- Změny aktualizace protokoly portálu operátor. Žádosti o získání protokolů úspěšná aktualizace už nejsou k dispozici. Protokoly aktualizace se nezdařila, protože jsou užitečné pro diagnostiku, jsou stále k dispozici ke stažení.
 
 ### <a name="fixes"></a>Opravy
 

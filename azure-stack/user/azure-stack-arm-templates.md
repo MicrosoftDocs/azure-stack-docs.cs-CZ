@@ -16,12 +16,12 @@ ms.date: 02/21/2019
 ms.author: sethm
 ms.reviewer: justini
 ms.lastreviewed: 11/14/2018
-ms.openlocfilehash: 37e5ef80462f7e31d18972de007303b12b5a3108
-ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
+ms.openlocfilehash: fb39928b50e6cce35d5c35c33a95fc2c6b82c160
+ms.sourcegitcommit: d2012e765c3fa5bccb4756d190349e890f9f48bd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65712247"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65941129"
 ---
 # <a name="use-azure-resource-manager-templates-in-azure-stack"></a>Použití šablon Azure Resource Manageru ve službě Azure Stack
 
@@ -32,6 +32,7 @@ ms.locfileid: "65712247"
 Tyto šablony se dá nasadit pomocí portálu Microsoft Azure Stack, Powershellu, příkazového řádku a sady Visual Studio.
 
 Jsou k dispozici v následujících šablon rychlý Start [Githubu](https://aka.ms/azurestackgithub):
+
 
 ## <a name="deploy-sharepoint-server-non-high-availability-deployment"></a>Nasazení serveru SharePoint (nasazení vysoké dostupnosti)
 
@@ -82,4 +83,6 @@ Chcete-li zrušit spuštěné nasazení šablony, použijte [Stop-AzureRmResourc
 ## <a name="next-steps"></a>Další postup
 
 * [Nasazení šablon pomocí portálu](azure-stack-deploy-template-portal.md)
+* [Nasazení šablon pomocí PowerShellu](azure-stack-deploy-template-powershell.md)
+* [Nasazení šablon pomocí sady Visual Studio](azure-stack-deploy-template-visual-studio.md)
 * [Přehled Azure Resource Manageru](/azure/azure-resource-manager/resource-group-overview)

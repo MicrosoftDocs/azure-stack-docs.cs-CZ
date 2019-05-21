@@ -6,16 +6,16 @@ author: sethmanheim
 manager: femila
 ms.service: azure-stack
 ms.topic: conceptual
-ms.date: 01/05/2019
+ms.date: 05/20/2019
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: 88aabfc6ba054bc78612e6fa6f59b50fd1b4df76
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 33a7522994c23e20dddf587c2374c24e664e3171
+ms.sourcegitcommit: d2012e765c3fa5bccb4756d190349e890f9f48bd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64297862"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65941147"
 ---
 # <a name="introduction-to-azure-stack-virtual-machines"></a>Úvod do virtuálních počítačů Azure Stack
 
@@ -27,18 +27,15 @@ Virtuální počítač Azure Stack nabídne flexibilitu virtualizace bez nutnost
 
 Virtuální počítače Azure Stack můžete použít několika způsoby. Příklad:
 
-- **Vývoj a testování**  
-    Virtuální počítače Azure Stack vám umožňují vytvořit počítač s konkrétní konfigurací pro kódování a testování aplikací.
+- **Vývoj a testování**: Virtuální počítače Azure Stack vám umožňují vytvořit počítač s konkrétní konfigurací pro kódování a testování aplikací.
 
-- **Aplikace v cloudu**  
-    Protože poptávka po aplikaci může kolísat, může mít ekonomický smysl spouštět ji na virtuálním počítači v Azure stacku. Platíte za další virtuální počítače, když je potřebujete a tak je vypnete když ne.
+- **Aplikace v cloudu**: Protože poptávka po aplikaci může kolísat, může mít ekonomický smysl spouštět ji na virtuálním počítači v Azure stacku. Platíte za další virtuální počítače, když je potřebujete a tak je vypnete když ne.
 
-- **Rozšířené datové centrum**  
-    Virtuální počítače ve virtuální síti Azure Stack můžete být připojeny k síti vaší organizace nebo do Azure.
+- **Rozšířené datové centrum**: Virtuální počítače ve virtuální síti Azure Stack můžete být připojeny k síti vaší organizace nebo do Azure.
 
 Virtuální počítače, které vaše aplikace využívá můžete vertikálně navýšit kapacitu nebo horizontální navýšení kapacity, na cokoli, co je potřeba ke splnění vašich potřeb.
 
-## <a name="what-do-i-need-to-think-about-before-creating-a-vm"></a>Co je potřeba zvážit před vytvořením virtuálního počítače
+## <a name="before-creating-a-vm"></a>Před vytvořením virtuálního počítače
 
 Stále existují aspekty návrhu při sestavování infrastruktury aplikace ve službě Azure Stack. Tyto aspekty virtuálního počítače je důležité zvážit předtím, než začnete vytvářet infrastrukturu:
 
@@ -49,7 +46,7 @@ Stále existují aspekty návrhu při sestavování infrastruktury aplikace ve s
 - Konfigurace virtuálního počítače po jeho spuštění.
 - Související prostředky, které vyžaduje virtuální počítač.
 
-### <a name="naming"></a>Pojmenování
+### <a name="naming"></a>pojmenování
 
 Virtuální počítač má název přiřazený k jeho a má název počítače, který je nakonfigurovaný jako součást operačního systému. Název virtuálního může být až 15 znaků dlouhý.
 
@@ -65,7 +62,7 @@ Vaše předplatné má výchozí kvóty na místě, které můžou ovlivnit nasa
 
 ### <a name="operating-system-disks-and-images"></a>Disky a image operačních systémů
 
-Virtuální počítače používají virtuální pevné disky (VHD), na které ukládají svůj operační systém (OS) a data. Virtuální pevné disky se používají i pro image, ze kterých si můžete nainstalovat operační systém. Azure Stack nabízí tržiště pro použití s různými verzemi a typy operačních systémů. Image z Marketplace identifikované vydavatelem image, nabídky, SKU a verze (obvykle verze je zadán jako **nejnovější**.)
+Virtuální počítače používají virtuální pevné disky (VHD), na které ukládají svůj operační systém (OS) a data. Virtuální pevné disky se používají i pro image, ze kterých si můžete nainstalovat operační systém. Azure Stack nabízí tržiště pro použití s různými verzemi a typy operačních systémů. Image z Marketplace identifikované vydavatelem image, nabídky, SKU a verze (obvykle verze je zadán jako **nejnovější**).
 
 Následující tabulka ukazuje, jak najít informace o určité imagi:
 
@@ -82,23 +79,20 @@ Můžete nahrát a použít vlastní image. Pokud tak učiníte, název vydavate
 Rozšíření virtuálního počítače přidělit virtuálnímu počítači další schopnosti prostřednictvím konfigurace po nasazení a automatizovaných úloh.
 Pomocí rozšíření můžete provádět tyto běžné úlohy:
 
-- **Spuštění vlastních skriptů**  
-    Rozšíření vlastních skriptů pomáhá konfigurovat úlohy na virtuálním počítači spuštěním vašeho skriptu při zřízení virtuálního počítače.
+- **Spuštění vlastních skriptů**: Rozšíření vlastních skriptů pomáhá konfigurovat úlohy na virtuálním počítači spuštěním vašeho skriptu při zřízení virtuálního počítače.
 
-- **Nasazení a správa konfigurací**  
-    Rozšíření Powershellu Desired State Configuration (DSC) vám pomůže nastavit DSC na virtuálním počítači pro správu konfigurací a prostředí.
+- **Nasazení a správa konfigurací**: Rozšíření Powershellu Desired State Configuration (DSC) vám pomůže nastavit DSC na virtuálním počítači pro správu konfigurací a prostředí.
 
-- **Shromažďování diagnostických dat**  
-    Rozšíření Azure Diagnostics vám pomůže nakonfigurovat virtuální počítač pro shromažďování diagnostických dat, která slouží k monitorování stavu vaší aplikace.
+- **Shromažďování diagnostických dat**: Rozšíření Azure Diagnostics vám pomůže nakonfigurovat virtuální počítač pro shromažďování diagnostických dat, která slouží k monitorování stavu vaší aplikace.
 
 ### <a name="related-resources"></a>Související prostředky
 
 Prostředky v následující tabulce se používají ve virtuálním počítači a muset existovaly nebo byly vytvořeny při vytvoření virtuálního počítače:
 
-|Prostředek|Požaduje se|Popis|
+|Resource|Požaduje se|Popis|
 |---------|---------|---------|
 |Skupina prostředků|Ano|Virtuální počítač musí být součástí skupiny prostředků.|
-|Účet úložiště|Ne|Virtuální počítač nemusí účet úložiště k ukládání svých virtuálních pevných disků, pokud využití služby Managed Disks. <br>Virtuální počítač potřebuje účet úložiště k ukládání svých virtuálních pevných disků, pokud používáte nespravované disky.|
+|Účet úložiště|Ne|Virtuální počítač nemusí účet úložiště k ukládání svých virtuálních pevných disků, pokud používáte spravované disky. <br>Virtuální počítač potřebuje účet úložiště k ukládání svých virtuálních pevných disků, pokud používáte nespravované disky.|
 |Virtuální síť|Ano|Virtuální počítač musí být členem virtuální sítě.|
 |Veřejná IP adresa|Ne|Virtuální počítač může mít přiřazenou veřejnou IP adresu pro umožnění vzdáleného přístupu.|
 |Síťové rozhraní|Ano|Virtuální počítač potřebuje síťové rozhraní ke komunikaci v síti.|
@@ -113,7 +107,7 @@ Máte několik možností pro vytvoření virtuálního počítače. Podle vaše
 |Portál Azure Stack|Vytvoření virtuálního počítače s Windows pomocí portálu Azure Stack<br>[Vytvoření virtuálního počítače s Linuxem pomocí portálu Azure Stack](azure-stack-quick-linux-portal.md)|
 |Šablony|Šablony Azure Quickstart zásobníku jsou umístěné na:<br> [https://github.com/Azure/AzureStack-QuickStart-Templates](https://github.com/Azure/AzureStack-QuickStart-Templates)|
 |PowerShell|[Vytvoření virtuálního počítače s Windows pomocí prostředí PowerShell ve službě Azure Stack](azure-stack-quick-create-vm-windows-powershell.md)<br>[Vytvoření virtuálního počítače s Linuxem pomocí prostředí PowerShell ve službě Azure Stack](azure-stack-quick-create-vm-linux-powershell.md)|
-|Rozhraní příkazového řádku|[Vytvoření virtuálního počítače s Windows pomocí příkazového řádku ve službě Azure Stack](azure-stack-quick-create-vm-windows-cli.md)<br>[Vytvoření virtuálního počítače s Linuxem pomocí rozhraní příkazového řádku ve službě Azure Stack](azure-stack-quick-create-vm-linux-cli.md)|
+|CLI|[Vytvoření virtuálního počítače s Windows pomocí příkazového řádku ve službě Azure Stack](azure-stack-quick-create-vm-windows-cli.md)<br>[Vytvoření virtuálního počítače s Linuxem pomocí rozhraní příkazového řádku ve službě Azure Stack](azure-stack-quick-create-vm-linux-cli.md)|
 
 ## <a name="manage-your-vm"></a>Správa virtuálního počítače
 
@@ -130,7 +124,7 @@ V následující tabulce se dozvíte některé způsoby, které získáte inform
 
 |Metoda|Popis|
 |---------|---------|
-|Portál Azure Stack|V nabídce centra klikněte na virtuální počítače a potom vyberte virtuální počítač ze seznamu. Na stránce pro virtuální počítač máte přístup k souhrnným informacím, hodnotám nastavení a metrikám monitorování.|
+|Portál Azure Stack|V nabídce centra klikněte na **Virtual Machines** a ze seznamu vyberte virtuální počítač. Na stránce pro virtuální počítač máte přístup k souhrnným informacím, hodnotám nastavení a metrikám monitorování.|
 |Azure PowerShell|Správa virtuálních počítačů je podobné jako v Azure a Azure Stack. Další informace o použití prostředí PowerShell najdete v následujícím tématu Azure:<br>[Vytvoření a správa virtuálních počítačů Windows pomocí modulu Azure PowerShell](/azure/virtual-machines/windows/tutorial-manage-vm#understand-vm-sizes)|
 |Klientské sady SDK|Pomocí jazyka C# ke správě virtuálních počítačů je podobné jako u Azure a Azure Stack. Další informace naleznete v následujícím tématu Azure:<br>[Vytvoření a správa virtuálních počítačů s Windows v Azure pomocí jazyka C#](/azure/virtual-machines/windows/csharp)|
 
