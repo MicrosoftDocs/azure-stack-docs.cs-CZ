@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2019
+ms.date: 05/21/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/16/2018
-ms.openlocfilehash: 2f7f0c55f02fd99a419619d878be8300d7326303
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 40a60c5207494ae70ccdfd051c8a223493b704c5
+ms.sourcegitcommit: 6fcd5df8b77e782ef72f0e1419f1f75ec8c16c04
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64296784"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991111"
 ---
 # <a name="add-linux-images-to-azure-stack"></a>Přidat Linuxové Image do služby Azure Stack
 
@@ -30,16 +30,17 @@ Virtuální počítače s Linuxem můžete do služby Azure Stack nasadit přid�
 
 ## <a name="marketplace-management"></a>Správa webu Marketplace
 
-Stažení imagí Linuxu na Azure Marketplace, pomocí postupů na portále [stažení položek z marketplace z Azure do služby Azure Stack](azure-stack-download-azure-marketplace-item.md) článku. Vyberte Image Linuxu, které mají uživatelé ve vaší službě Azure Stack. 
+Stažení imagí Linuxu na Azure Marketplace, pomocí postupů na portále [stažení položek z marketplace z Azure do služby Azure Stack](azure-stack-download-azure-marketplace-item.md) článku. Vyberte Image Linuxu, které mají uživatelé ve vaší službě Azure Stack.
 
-Všimněte si, že jsou časté aktualizace do těchto bitových kopií, tak správu Marketplace často se má aktualizovat.
+Jsou k dispozici časté aktualizace do těchto bitových kopií, tak správu Marketplace často se má aktualizovat.
 
 ## <a name="prepare-your-own-image"></a>Příprava svoji vlastní image
 
-Kdykoli je to možné, stáhněte si image dostupné prostřednictvím Správy Marketplace, které jsou připravené a otestované pro Azure Stack.
+Kdykoli je to možné, stáhněte si Image dostupných prostřednictvím webu Marketplace správu. Tyto Image byly připravit a otestovat pro službu Azure Stack.
 
 ### <a name="azure-linux-agent"></a>Azure Linux Agent
-Azure Linux Agent (obvykle nazývá `WALinuxAgent` nebo `walinuxagent`) je nutné použít, a ne všechny verze agenta bude fungovat ve službě Azure Stack. Verze mezi 2.2.20 a 2.2.35 nejsou podporovány ve službě Azure Stack. Používat nejnovější verze agenta nad 2.2.35, použijte rychlou záplatu opravu hotfix/1902 1901 nebo aktualizace služby Azure Stack na verzi 1903 (nebo vyšší). Všimněte si, že [cloud-init](https://cloud-init.io/) není v tuto chvíli nepodporuje v Azure stacku.
+
+Azure Linux Agent (obvykle nazývá `WALinuxAgent` nebo `walinuxagent`) je povinné a ne všechny verze agenta práce ve službě Azure Stack. Verze mezi 2.2.20 a 2.2.35 nejsou podporovány ve službě Azure Stack. Používat nejnovější verze agenta nad 2.2.35, použijte rychlou záplatu opravu hotfix/1902 1901 nebo aktualizace služby Azure Stack na verzi 1903 (nebo vyšší). Všimněte si, že [cloud-init](https://cloud-init.io/) není v tuto chvíli nepodporuje v Azure stacku.
 
 | Azure Stack sestavení | Azure Linux Agent sestavení |
 | ------------- | ------------- |
@@ -66,7 +67,5 @@ Po přidání obrázku na webu Marketplace, je vytvořena položka Marketplace a
 
 ## <a name="next-steps"></a>Další postup
 
-Zobrazit další informace v následujících článcích:
-
-- [Stažení položek z marketplace z Azure do služby Azure Stack](azure-stack-download-azure-marketplace-item.md)
-- [Přehled služby Azure Stack Marketplace](azure-stack-marketplace.md)
+* [Stažení položek z marketplace z Azure do služby Azure Stack](azure-stack-download-azure-marketplace-item.md)
+* [Přehled služby Azure Stack Marketplace](azure-stack-marketplace.md)

@@ -3,25 +3,24 @@ title: Informace o službě VPN gateway pro Azure Stack | Dokumentace Microsoftu
 description: Další informace o a konfiguraci brány VPN, které používáte pro Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: sethmanheim
+manager: femila
 editor: ''
 ms.assetid: 0e30522f-20d6-4da7-87d3-28ca3567a890
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-origin.date: 02/15/2019
-ms.date: 03/04/2019
-ms.author: v-jay
-ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 83d5215049976b67d22e29c2e4b75ec63a505b36
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.topic: conceptual
+ms.date: 05/21/2019
+ms.author: sethm
+ms.lastreviewed: 05/21/2019
+ms.openlocfilehash: 03aea7833e59d3262fc54e71d3d5409b5b95c488
+ms.sourcegitcommit: 6fcd5df8b77e782ef72f0e1419f1f75ec8c16c04
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64301415"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991296"
 ---
 # <a name="about-vpn-gateway-for-azure-stack"></a>Informace o službě VPN gateway pro Azure Stack
 
@@ -41,8 +40,9 @@ Než vytvoříte a nakonfigurujete brány VPN Gateway pro Azure Stack, projděte
 >V Azure musí být rozdělen propustnost šířky pásma pro bránu VPN zvolíte SKU napříč všechna připojení, které jsou připojeny k bráně. Ve službě Azure Stack však hodnotu šířky pásma pro skladové položky brány sítě VPN je použita na každý prostředek připojení, která je připojená k bráně.
 >
 > Příklad:
+>
 > * Základní SKU brány sítě VPN v Azure, zvládne přibližně 100 MB/s z celkové propustnosti. Pokud vytvoříte dvě spojení s touto bránou VPN a jedno připojení používá 50 MB/s šířky pásma, pak 50 MB/s je k dispozici pro jiné připojení.
-> * Ve službě Azure Stack *každý* připojení k základní SKU brány VPN získá přidělené 100 MB/s propustnosti.
+> * Ve službě Azure Stack **každé připojení** skladová položka základní brána sítě VPN získá přiděleno 100 MB/s propustnosti.
 
 ## <a name="configuring-a-vpn-gateway"></a>Konfigurace služby VPN gateway
 
@@ -73,7 +73,7 @@ Diagramy a popisy v následujících částech můžete výběrem topologie při
 
 ## <a name="site-to-site-and-multi-site-ipsecike-vpn-tunnel"></a>Site-to-site a multi-Site (tunel VPN IPsec/IKE)
 
-### <a name="site-to-site"></a>Site-to-Site
+### <a name="site-to-site"></a>Site-to-site
 
 A *site-to-site* (S2S) připojení brány VPN je připojení přes tunel VPN IPsec/IKE (IKEv2). Tento typ připojení vyžaduje zařízení VPN, které se nacházejí na místních a je přiřazena veřejná IP adresa. Toto zařízení nesmí být umístěné za službou NAT. Připojení S2S můžete použít pro konfigurace mezi různými místy a pro hybridní konfigurace.
 
@@ -108,11 +108,11 @@ Při výběru SKU zvažte následující:
 
 Následující tabulka ukazuje typy brány a odhadovanou agregovanou propustnost podle SKU brány:
 
-|   | Propustnost brány sítě VPN *(1)* | Tunelových propojení IPsec brány sítě VPN maximální *(2)* |
+|| Propustnost brány sítě VPN *(1)* | Tunelových propojení IPsec brány sítě VPN maximální *(2)* |
 |-------|-------|-------|
-|**Základní SKU** ***(3)***    | 100 Mb/s  | 20    |
-|**Standardní SKU**       | 100 Mb/s  | 20    |
-|**SKU pro vysoký výkon** | 200 Mb/s    | 10    |
+|**Základní SKU** ***(3)*** | 100 Mb/s | 20 |
+|**Standardní SKU** | 100 Mb/s | 20 |
+|**SKU pro vysoký výkon** | 200 Mb/s | 10 |
 
 **Poznámky k tabulce:**
 
@@ -125,4 +125,4 @@ Následující tabulka ukazuje typy brány a odhadovanou agregovanou propustnost
 
 ## <a name="next-steps"></a>Další postup
 
-[Konfigurace nastavení služby VPN gateway pro Azure Stack](azure-stack-vpn-gateway-settings.md)
+* [Konfigurace nastavení služby VPN gateway pro Azure Stack](azure-stack-vpn-gateway-settings.md)

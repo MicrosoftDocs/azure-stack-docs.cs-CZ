@@ -16,12 +16,12 @@ ms.date: 05/15/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 05/15/2019
-ms.openlocfilehash: 48136220e2d784a61b3275ca9f79b82e0e8bfb69
-ms.sourcegitcommit: 8cb2b567e9914d4d07e754d95c0864aa55868579
+ms.openlocfilehash: 52279a7498e253771e16e66e0c5025b9afd4494d
+ms.sourcegitcommit: 442bd62d1dfbc1597592d7285aba1453298261ce
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65855352"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65969840"
 ---
 # <a name="azure-stack-1904-known-issues"></a>Azure Stack 1904 známé problémy
 
@@ -38,13 +38,6 @@ V tomto článku najdete seznam známých problémů v 1904 verzi služby Azure 
 - Výskyt: Obecné
 
 ## <a name="portal"></a>Portál
-
-### <a name="add-on-plans"></a>Doplňkové plány
-
-- Použít: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: Plány, které jsou přidány na předplatné uživatele jako doplňkový plán nelze odstranit, i když odebrat plán ze předplatné uživatele. Plán zůstane, dokud se také odstraní předplatné, které odkazují na doplňkový plán.
-- Náprava: Žádné zmírňující opatření.
-- Výskyt: Obecné
 
 ### <a name="administrative-subscriptions"></a>Pro správu předplatných
 

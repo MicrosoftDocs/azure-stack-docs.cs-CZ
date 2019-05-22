@@ -13,16 +13,16 @@ ms.workload: azure-vs
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2019
+ms.date: 05/21/2019
 ms.author: sethm
 ms.reviewer: unknown
-ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: f4fda8bbbb1bf88934f641644f89c319317ec58f
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 05/21/2019
+ms.openlocfilehash: 87035fd3860318f63fa30e528ad7fa12c7dc3a39
+ms.sourcegitcommit: 6fcd5df8b77e782ef72f0e1419f1f75ec8c16c04
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64298643"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65990975"
 ---
 # <a name="deploy-templates-in-azure-stack-using-visual-studio"></a>Nasazení šablon ve službě Azure Stack pomocí sady Visual Studio
 
@@ -33,7 +33,7 @@ Visual Studio můžete použít k nasazení šablony Azure Resource Manageru ke 
 ## <a name="to-deploy-a-template"></a>K nasazení šablony
 
 1. [Nainstalujte a připojte](azure-stack-install-visual-studio.md) do služby Azure Stack pomocí sady Visual Studio.
-2. Otevřete sadu Visual Studio.
+2. Otevřít Visual Studio.
 3. Vyberte **souboru**a pak vyberte **nový**. V **nový projekt**vyberte **skupiny prostředků Azure**.
 4. Zadejte **název** pro nový projekt a pak vyberte **OK**.
 5. V **vybrat šablonu Azure**, vyberte **Quickstart pro Azure Stack** z rozevíracího seznamu.

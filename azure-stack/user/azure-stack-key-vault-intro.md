@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/05/2019
+ms.date: 05/21/2019
 ms.author: sethm
-ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: 87c93f77011082d3e43b1c7d238999441f1b90c1
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 05/21/2019
+ms.openlocfilehash: 0167fd89e7bc9b17ff5b950a4ed5f12c368f1f8f
+ms.sourcegitcommit: 6fcd5df8b77e782ef72f0e1419f1f75ec8c16c04
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64298533"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991269"
 ---
 # <a name="introduction-to-key-vault-in-azure-stack"></a>Úvod do služby Key Vault ve službě Azure Stack
 
@@ -50,7 +50,7 @@ Každý, kdo má předplatnému Azure Stack můžete vytvořit a použít trezor
 
 Operátor, který jim pak můžou vývojáři pomocí jednotné Resource Identifier (identifikátory URI) pro volání ze svých aplikací. Operátory můžete také poskytnout informace o protokolování využití key správci zabezpečení.
 
-Vývojáři také mohou spravovat klíče přímo, pomocí rozhraní API. Další informace najdete v příručce vývojáře pro Key Vault.
+Vývojáři také mohou spravovat klíče přímo, pomocí rozhraní API. Další informace najdete v tématu [Příručka vývojáře pro Key Vault](/azure/key-vault/key-vault-developers-guide).
 
 ## <a name="scenarios"></a>Scénáře
 
@@ -78,4 +78,3 @@ Následující scénáře popisují, jak může Key Vault pomoci splnit potřeby
 
 * [Správa služby Key Vault ve službě Azure Stack pomocí portálu](azure-stack-key-vault-manage-portal.md)  
 * [Správa služby Key Vault ve službě Azure Stack pomocí prostředí PowerShell](azure-stack-key-vault-manage-powershell.md)
-

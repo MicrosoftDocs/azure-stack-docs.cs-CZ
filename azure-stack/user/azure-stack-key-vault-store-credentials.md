@@ -3,24 +3,23 @@ title: Azure Stack úložiště pověření instančního objektu ve službě Ke
 description: Zjistěte, jak Key Vault ukládá přihlašovací údaje instančního objektu služby ve službě Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: sethmanheim
+manager: femila
 editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/16/2019
-ms.date: 02/18/2019
-ms.author: v-jay
+ms.date: 05/21/2019
+ms.author: sethm
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: d4bc560a1c607d4a12cfb3d08ffeacf9b5d2196a
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 1a9fc71f6e57621dba4488821ea2ca8b1e119e48
+ms.sourcegitcommit: 6fcd5df8b77e782ef72f0e1419f1f75ec8c16c04
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64299853"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991314"
 ---
 # <a name="store-service-principal-credentials-in-key-vault"></a>Store pověření instančního objektu ve službě Key Vault
 
@@ -43,7 +42,7 @@ Chcete-li vytvořit trezor klíčů, postupujte takto:
 
 2. Z řídicího panelu, vyberte **+ vytvořit prostředek**, pak **zabezpečení + Identita**a pak vyberte **služby Key Vault.**
 
-   ![Vytvoření trezoru klíčů](media/azure-stack-key-vault-store-credentials/create-key-vault.png)
+   ![Vytvořit trezor klíčů](media/azure-stack-key-vault-store-credentials/create-key-vault.png)
 
 3. V **vytvořit trezor klíčů** podokno, přiřadit **název** pro svůj trezor. Trezor názvy můžou obsahovat jenom alfanumerické znaky a znak spojovníku (-). Nesmí začínat číslicí.
 

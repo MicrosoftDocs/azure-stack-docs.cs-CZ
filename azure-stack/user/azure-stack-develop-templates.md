@@ -12,22 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2019
+ms.date: 05/21/2019
 ms.author: sethm
 ms.reviewer: unknown
-ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: e2bac108b47aeb1c4a1b6d777072fe4d6ff64f2d
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 05/21/2019
+ms.openlocfilehash: 9967da0434be577e3db8586f28e3078658623e9b
+ms.sourcegitcommit: 6fcd5df8b77e782ef72f0e1419f1f75ec8c16c04
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64298632"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991340"
 ---
 # <a name="azure-resource-manager-template-considerations"></a>Aspekty šablon Azure Resource Manageru
 
 *Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
 
-Při vývoji vaší aplikace, je důležité pro zajištění přenositelnosti šablony mezi Azure a Azure Stack. Tento článek obsahuje aspekty pro vývoj Azure Resource Manageru [šablony](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf), což vám umožní prototypu nasazení vaší aplikace a testování v Azure bez přístupu k prostředí Azure Stack.
+Při vývoji vaší aplikace, je důležité pro zajištění přenositelnosti šablony mezi Azure a Azure Stack. Tento článek obsahuje důležité informace týkající se vývoje [šablon Azure Resource Manageru](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf), což vám umožní prototypu nasazení vaší aplikace a testování v Azure bez přístupu k prostředí Azure Stack.
 
 ## <a name="resource-provider-availability"></a>Dostupnost poskytovatele prostředků
 
@@ -35,7 +35,7 @@ Při vývoji vaší aplikace, je důležité pro zajištění přenositelnosti �
 
 ## <a name="public-namespaces"></a>Veřejné obory názvů
 
-Protože Azure Stack je hostované ve vašem datovém centru, má obory názvů koncový bod jinou službu než veřejného cloudu Azure. V důsledku toho pevně zakódované veřejné koncové body v šablonách Azure Resource Manageru selhání při pokusu o jejich nasazení do služby Azure Stack. Můžete vytvářet dynamicky pomocí koncových bodů služby `reference` a `concatenate` funkce k načtení hodnoty od zprostředkovatele prostředků během nasazování. Například místo pevného kódování *blob.core.windows.net* v šabloně, načíst [primaryEndpoints.blob](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-vm-windows-create/azuredeploy.json#L175) nastavovat dynamicky *osDisk.URI* koncový bod:
+Protože Azure Stack je hostované ve vašem datovém centru, má obory názvů koncový bod jinou službu než veřejného cloudu Azure. V důsledku toho pevně zakódované veřejné koncové body v šablonách Azure Resource Manageru selhání při pokusu o jejich nasazení do služby Azure Stack. Můžete vytvářet dynamicky pomocí koncových bodů služby `reference` a `concatenate` funkce k načtení hodnoty od zprostředkovatele prostředků během nasazování. Například místo pevného kódování `blob.core.windows.net` v šabloně, načíst [primaryEndpoints.blob](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-vm-windows-create/azuredeploy.json#L175) nastavovat dynamicky *osDisk.URI* koncový bod:
 
 ```json
 "osDisk": {"name": "osdisk","vhd": {"uri":
@@ -49,11 +49,11 @@ Verze služby Azure může lišit mezi Azure a Azure Stack. Jednotlivé prostře
 
 | Poskytovatel prostředků | apiVersion |
 | --- | --- |
-| Compute |`'2015-06-15'` |
-| Síť |`'2015-06-15'`, `'2015-05-01-preview'` |
-| Úložiště |`'2016-01-01'`, `'2015-06-15'`, `'2015-05-01-preview'` |
-| KeyVault | `'2015-06-01'` |
-| App Service |`'2015-08-01'` |
+| Compute |**2015-06-15** |
+| Síť |**2015-06-15**, **2015-05-01-preview** |
+| Úložiště |**2016-01-01**, **2015-06-15**, **2015-05-01-preview** |
+| KeyVault | **2015-06-01** |
+| App Service |**2015-08-01** |
 
 ## <a name="template-functions"></a>Funkce šablon
 
