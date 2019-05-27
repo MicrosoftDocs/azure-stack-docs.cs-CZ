@@ -1,6 +1,6 @@
 ---
 title: Vytvoření instančního objektu pro Azure Stack | Dokumentace Microsoftu
-description: Popisuje, jak vytvořit instanční objekt, který lze použít s řízením přístupu na základě role v Azure Resource Manageru pro správu přístupu k prostředkům.
+description: Zjistěte, jak vytvořit instanční objekt pomocí řízení přístupu na základě rolí v Azure Resource Manageru pro správu přístupu k prostředkům.
 services: azure-resource-manager
 documentationcenter: na
 author: mattbriggs
@@ -14,14 +14,14 @@ ms.date: 04/15/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 12/12/2018
-ms.openlocfilehash: 3860f8dcc99f3505fe2f838e75f5e8f09b78aefe
-ms.sourcegitcommit: 8cb2b567e9914d4d07e754d95c0864aa55868579
+ms.openlocfilehash: 1f2502a7b0b89bc8c1786e1fdf0392b245308ed0
+ms.sourcegitcommit: be5382f715a9c1c18c660b630d8fcd823f13aae3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65855379"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66197301"
 ---
-# <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>Přístup aplikací k prostředkům Azure Stack tak, že vytvoříte instanční objekty
+# <a name="create-service-principals-to-give-applications-access-to-azure-stack-resources"></a>Vytvoření instančních objektů poskytnout aplikace přístup k prostředkům Azure Stack
 
 *Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
 
@@ -30,7 +30,7 @@ Aplikaci přístup k prostředkům Azure Stack nabídnou ve vytváření instan�
 Jako osvědčený postup byste měli použít instanční objekty pro vaše aplikace. Instanční objekty jsou upřednostňovány vůči spuštění aplikace pomocí vlastních přihlašovacích údajů z následujících důvodů:
 
 * Můžete přiřadit oprávnění pro instanční objekt, který se liší od účtu oprávnění. Oprávnění objektu služby jsou obvykle omezené na přesně co aplikace potřebuje umět.
-* Není potřeba změnit přihlašovací údaje aplikace, pokud role a zodpovědnosti změnit.
+* Nemusíte změnit přihlašovací údaje aplikace, pokud role a zodpovědnosti změnit.
 * Certifikát můžete použít k automatizaci ověřování při spuštění bezobslužného skriptu.
 
 ## <a name="example-scenario"></a>Příklad scénáře
@@ -50,7 +50,7 @@ Způsob, jakým jste nakonfigurovali Active Directory pro Azure Stack Určuje, j
 * Vytvořit instanční objekt pro [Azure Active Directory (Azure AD)](azure-stack-create-service-principals.md#create-service-principal-for-azure-ad).
 * Vytvořit instanční objekt pro [Active Directory Federation Services (AD FS)](azure-stack-create-service-principals.md#create-service-principal-for-ad-fs).
 
-Postup pro přiřazení instančního objektu k roli stejný pro Azure AD a AD FS. Po vytvoření instančního objektu můžete [delegovat oprávnění](azure-stack-create-service-principals.md) po přiřazení k roli.
+Postup pro přiřazení k roli hlavního názvu služby je stejný pro Azure AD a AD FS. Po vytvoření instančního objektu služby můžete po přiřazení k roli delegovat oprávnění.
 
 ## <a name="create-service-principal-for-azure-ad"></a>Vytvoření instančního objektu pro službu Azure AD
 

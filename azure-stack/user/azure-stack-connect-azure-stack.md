@@ -1,6 +1,6 @@
 ---
 title: Připojení k Azure Stack | Dokumentace Microsoftu
-description: Zjistěte, jak připojit služby Azure Stack
+description: Informace o připojení služby Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,12 +15,12 @@ ms.date: 05/16/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: ee1314c26e0c30e64c3cb43af44d56a66911c1ff
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.openlocfilehash: 8b7a9e58fd4d4d8c3a05fea60c79ff47a519bf8c
+ms.sourcegitcommit: be5382f715a9c1c18c660b630d8fcd823f13aae3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65783072"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66197370"
 ---
 # <a name="connect-to-azure-stack"></a>Připojení ke službě Azure Stack
 
@@ -36,15 +36,15 @@ Připojení ke vzdálené ploše jeden souběžný uživatel umožňuje pracovat
 
 2. Z vývojového počítače kit, otevřete Správce serveru, klikněte na tlačítko **místní Server**, vypněte rozšířené zabezpečení aplikace Internet Explorer a pak zavřete Správce serveru.
 
-3. Chcete-li otevřít portál, přejděte na (https://portal.local.azurestack.external/) a přihlaste se pomocí uživatelských přihlašovacích údajů.
+3. Pokud chcete otevřít portál, přejděte na (https://portal.local.azurestack.external/) a přihlaste se pomocí uživatelských přihlašovacích údajů.
 
 
 ## <a name="connect-to-azure-stack-with-vpn"></a>Připojení k Azure Stack pomocí sítě VPN
 
-Rozdělit tunelové připojení virtuální privátní sítě (VPN) připojení k Azure Stack Development Kit, můžete vytvořit. Prostřednictvím připojení VPN můžete přístup k portálu správce portálu user portal a místně nainstalovat nástroje, jako je Visual Studio a Powershellu ke správě prostředků Azure Stack. Připojení k síti VPN je podporován v obou prodloužil platnost aktivní Azure a nasazení na základě Active Directory Federation Services(AD FS). Připojení k síti VPN povolit více klientům připojit se ke službě Azure Stack ve stejnou dobu. 
+Můžete vytvořit dělené tunelové propojení připojení VPN k Azure Stack Development Kit. Prostřednictvím připojení VPN můžete přístup k portálu pro správu, portál user portal a lokálně nainstalovaných nástrojů, jako je Visual Studio a Powershellu ke správě prostředků Azure Stack. Připojení k síti VPN se podporuje v Azure Active Directory (AAD) a Active Directory Federation Services (AD FS) – na základě nasazení. Připojení k síti VPN více se klienti moci připojovat ke službě Azure Stack ve stejnou dobu. 
 
 > [!NOTE] 
-> Toto připojení VPN neposkytuje připojení k Azure Stack infrastruktuře virtuálních počítačů. 
+> Toto připojení VPN neposkytuje připojení k Azure Stack infrastruktury virtuálních počítačů. 
 
 ### <a name="prerequisites"></a>Požadavky
 
@@ -84,7 +84,7 @@ Add-AzsVpnConnection `
 
 ```
 
-Pokud je instalace úspěšná, měli byste vidět **azurestack** v seznamu připojení VPN.
+Pokud je instalace úspěšná, zobrazí se vám `azurestack` v seznamu připojení VPN.
 
 ![Připojení k síti](media/azure-stack-connect-azure-stack/image3.png)  
 
@@ -99,13 +99,13 @@ Připojte se k instanci služby Azure Stack pomocí některé z těchto dvou met
     -Password $Password
   ```
 
-  Po zobrazení výzvy důvěryhodnosti hostitele služby Azure Stack a nainstalovat certifikát z **AzureStackCertificateAuthority** do úložiště certifikátů místního počítače. (řádku tento příkaz může nacházet za okno relace prostředí PowerShell). 
+  Po zobrazení výzvy důvěryhodnosti hostitele služby Azure Stack a nainstalovat certifikát z **AzureStackCertificateAuthority** do úložiště certifikátů místního počítače. Zobrazení výzvy se může zobrazit za okno relace Powershellu. 
 
-* Otevřete váš místní počítač **nastavení sítě** > **VPN** > klikněte na tlačítko **azurestack** > **připojit**. Na řádku přihlásit zadejte uživatelské jméno (AzureStack\AzureStackAdmin) a heslo.
+* V místním počítači, přejděte na **nastavení sítě** > **VPN** > vyberte `azurestack`  >  **připojit**. Na řádku přihlásit zadejte uživatelské jméno (AzureStack\AzureStackAdmin) a heslo.
 
 ### <a name="test-the-vpn-connectivity"></a>Test připojení k síti VPN
 
-Pokud chcete otestovat připojení k portálu, otevřete internetový prohlížeč a přejděte na portál user portal (https://portal.local.azurestack.external/), přihlaste se a vytvářet prostředky.  
+Pokud chcete otestovat připojení k portálu, otevřete prohlížeč a přejděte na portál user portal (https://portal.local.azurestack.external/), přihlaste se a vytvořte prostředky.  
 
 ## <a name="next-steps"></a>Další postup
 

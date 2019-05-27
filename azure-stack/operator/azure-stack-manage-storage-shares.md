@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: conceptual
-ms.date: 03/29/2019
+ms.date: 05/23/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: 8b367811622eafdc62b47aa85eda47bc6a81be14
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 3663ce4338818a385bb544ad496323e1ce734608
+ms.sourcegitcommit: 9f5157ce6b938d190ef9df5a2df4342266ca5545
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985147"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66174371"
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Správa kapacity úložiště pro službu Azure Stack 
 
@@ -157,8 +157,7 @@ Migrace konsoliduje všechny kontejnery blob na novou sdílenou složku.
 3. Určení nejlepší cílové složky pro uložení kontejneru, který migrujete:
 
    ```powershell
-   $destinationshares = Get-AzsStorageShare -SourceShareName
-   $shares[0].ShareName -Intent ContainerMigration
+   $destinationshare = ($shares | Sort-Object FreeCapacity -Descending)[0]
    ```
 
    Pak zkontrolujte $destinationshares:

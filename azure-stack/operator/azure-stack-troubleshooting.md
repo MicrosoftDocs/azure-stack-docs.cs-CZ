@@ -12,32 +12,27 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 05/20/2019
 ms.author: mabrigg
 ms.reviewer: prchint
 ms.lastreviewed: 01/23/2019
-ms.openlocfilehash: c7486cb56dee87b8a894d165fce4c3a0dfaae6d9
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 653113e11a91fda0d3447e5627f6755e116ffbb1
+ms.sourcegitcommit: 715a2688a11fae2555dac8371631430f7ecb1c0f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618126"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66186522"
 ---
 # <a name="microsoft-azure-stack-troubleshooting"></a>Řešení potíží s Microsoft Azure Stack
 
-Tento dokument obsahuje běžné informace o odstraňování potíží pro službu Azure Stack. 
-
-> [!NOTE]
-> Vzhledem k tomu, Azure Stack Technical Development Kit (ASDK) se nabízí jako prostředí pro testování, neexistuje žádné oficiální podpora zákazníků služby podpory společnosti Microsoft. Pokud dochází k problému, nezapomeňte zaškrtnout [fórum MSDN pro Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) informace a požádejte o pomoc.  
-
-Doporučení pro řešení potíží, které jsou popsány v této části jsou odvozeny z několika zdrojů a může nebo nemusí vyřešit konkrétní problém. Příklady kódu jsou k dispozici je a nemůže být zaručena očekávané výsledky. V této části se může časté změny a aktualizace, jak jsou implementované vylepšení produktu.
+Tento dokument obsahuje běžné informace o odstraňování potíží pro službu Azure Stack. Doporučení a příklady kódu jsou k dispozici jako-je a nemusí vždy vyřešit váš problém. 
 
 ## <a name="deployment"></a>Nasazení
 ### <a name="general-deployment-failure"></a>Obecné nasazení se nezdařilo.
 Pokud během instalace dojít k selhání, můžete restartovat nasazení z kroku pomocí opětovného spuštění možnosti / skriptu nasazení.  
 
 ### <a name="at-the-end-of-asdk-deployment-the-powershell-session-is-still-open-and-doesnt-show-any-output"></a>Na konci nasazení ASDK relaci Powershellu je stále otevřen a nezobrazí žádný výstup.
-Toto chování je pravděpodobně právě výsledek výchozí chování příkazové okno Powershellu, pokud byla vybrána. Nasazení vývojové sady proběhlo úspěšně, ale skript se pozastavila při výběru okna. Můžete ověřit, že instalační program dokončil tím, že hledají slovo "Vyberte" v záhlaví příkazové okno.  Stisknutím klávesy ESC zrušte jeho výběr a za ním být zobrazena zpráva o dokončení.
+Toto chování je pravděpodobně právě výsledek výchozí chování příkazové okno Powershellu, pokud byla vybrána. Nasazení vývojové sady proběhlo úspěšně, ale skript se pozastavila při výběru okna. Můžete ověřit, že instalační program dokončil tím, že hledají slovo "Vyberte" v záhlaví příkazové okno. Stisknutím klávesy ESC zrušte jeho výběr a za ním být zobrazena zpráva o dokončení.
 
 ### <a name="deployment-fails-due-to-lack-of-external-access"></a>Nasazení se nezdaří z důvodu nedostatku externí přístup
 Pokud se nasazení nezdaří ve fázích, ve kterém jsou vyžadována externí přístup, bude vrácen výjimku jako v následujícím příkladu:
@@ -49,7 +44,7 @@ An error occurred while trying to test identity provider endpoints: System.Net.W
 ```
 Pokud k této chybě dochází, přesvědčte se, zda byly splněny všechny požadavky na minimální síť kontrolou [dokumentaci k nasazení sítě provozu](deployment-networking.md). Nástroj prerequisite checker sítě je k dispozici pro partnery také jako součást sady nástrojů partnera.
 
-Selhání nasazení s výjimkou výše jsou obvykle kvůli problémům s připojením k prostředkům v síti Internet
+Selhání nasazení s výjimkou výše jsou obvykle kvůli problémům s připojením k prostředkům v síti Internet.
 
 Pokud chcete ověřit, že jde o problém, můžete provést následující kroky:
 

@@ -6,7 +6,7 @@
       href: azure-stack-overview.md
     - name: Porovnání ekosystému Azure
       href: compare-azure-azure-stack.md
-    - name: "Poznámky k\_verzi"
+    - name: Poznámky k verzi
       items:
         - name: Nejnovější aktualizace
           href: azure-stack-servicing-policy.md
@@ -16,7 +16,7 @@
           href: azure-stack-release-notes-security-updates-1904.md
         - name: aktualizace 1904
           items:
-            - name: "Poznámky k\_verzi"
+            - name: Poznámky k verzi
               href: azure-stack-release-notes-1904.md
             - name: Známé problémy
               href: azure-stack-release-notes-known-issues-1904.md
@@ -384,14 +384,18 @@
           href: azure-stack-backup-best-practices.md
         - name: Odkaz na zálohování
           href: azure-stack-backup-reference.md
-    - name: Řešení potíží
+    - name: Získání nápovědy
       items:
-        - name: Známé problémy
-          href: azure-stack-troubleshooting.md
-        - name: Diagnostika v Azure Stacku
-          href: azure-stack-diagnostics.md
-        - name: Ověření pro Azure Stack
-          href: azure-stack-diagnostic-test.md
+        - name: Nápověda a podpora
+          href: azure-stack-help-and-support.md
+        - name: Řešení potíží
+          items:
+            - name: Známé problémy
+              href: azure-stack-troubleshooting.md
+            - name: Diagnostika v Azure Stacku
+              href: azure-stack-diagnostics.md
+            - name: Ověření pro Azure Stack
+              href: azure-stack-diagnostic-test.md
 - name: Referenční informace
   items:
     - name: Azure Stack PowerShell
@@ -402,7 +406,7 @@
       href: /azure-stack/user/
     - name: Dokumentace ke službě ASDK
       href: /azure-stack/asdk/
-- name: Zdroje a prostředky
+- name: Prostředky
   items:
     - name: Plán služby Azure Stack
       href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'

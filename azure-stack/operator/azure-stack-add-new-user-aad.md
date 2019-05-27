@@ -3,7 +3,7 @@ title: Přidat nový účet tenanta služby Azure Stack v Azure Active Directory
 description: Po nasazení Microsoft Azure Stack Development Kit, musíte vytvořit uživatelský účet alespoň jednoho tenanta, abyste mohli zkoumat portál pro klienty.
 services: azure-stack
 documentationcenter: ''
-author: patricka
+author: PatAltimore
 manager: femila
 editor: ''
 ms.assetid: a75d5c88-5b9e-4e9a-a6e3-48bbfa7069a7
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 05/20/2019
 ms.author: patricka
-ms.reviewer: unknown
+ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: 52fb4074a476cb907f02628933b83d82b6ee4984
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 83a927cd0198798b4b1beaf8b84ed0b7ad2a11a0
+ms.sourcegitcommit: 914daff43ae0f0fc6673a06dfe2d42d9b4fbab48
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985737"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66043114"
 ---
 # <a name="add-a-new-azure-stack-tenant-account-in-azure-active-directory"></a>Přidat nový účet tenanta služby Azure Stack v Azure Active Directory
 
@@ -61,10 +61,17 @@ Musíte mít předplatné Azure, pomocí webu Azure portal.
 Pokud nemáte předplatné Azure, nemůžete použít na webu Azure portal k přidání uživatelského účtu tenanta. V takovém případě místo toho můžete Azure Active Directory modulu pro Windows PowerShell.
 
 > [!NOTE]
-> Pokud používáte k nasazení Azure Stack Development Kit Account Microsoft (Live ID), nelze použít AAD PowerShell k vytvoření účtu tenanta. 
+> Pokud používáte Microsoft Account nasazení Azure Stack Development Kit, nelze použít Azure AD Powershellu k vytvoření účtu tenanta. 
 
-1. Nainstalujte [Microsoft Online Services Pomocníka pro IT profesionály RTW](https://www.microsoft.com/en-us/download/details.aspx?id=41950).
-2. Nainstalujte [modulu Azure Active Directory pro Windows PowerShell (64bitová verze)](https://go.microsoft.com/fwlink/p/?linkid=236297) a otevřete ho.
+1. Nainstalujte **64-bit** verzi [Microsoft Online Services Pomocníka pro IT profesionály RTW](https://go.microsoft.com/fwlink/p/?LinkId=286152).
+
+2. Instalace Microsoft Azure Active Directory modulu pro Windows PowerShell pomocí těchto kroků:
+
+    - Otevřete prostředí Windows PowerShell příkazového řádku se zvýšenými oprávněními (spustit prostředí Windows PowerShell jako správce).
+    - Spustit **nainstalovat modul MSOnline** příkazu.
+    - Pokud se zobrazí výzva k instalaci zprostředkovatele NuGet, vyberte **Y** a **Enter**.
+    - Pokud se zobrazí výzva k instalaci modulu z PSGallery, vyberte **Y** a **Enter**.
+
 3. Spuštěním následující rutiny:
 
     ```powershell

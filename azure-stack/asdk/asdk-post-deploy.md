@@ -16,16 +16,16 @@ ms.date: 05/08/2019
 ms.author: mabrigg
 ms.reviewer: misainat
 ms.lastreviewed: 10/10/2018
-ms.openlocfilehash: 308edbc351b52d94842a1a96602371f6edb8ff5d
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: dd16d08e2e262b9aa31a1d59cb8ed59868608fbb
+ms.sourcegitcommit: 9f5157ce6b938d190ef9df5a2df4342266ca5545
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617523"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66174340"
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>Po dokončení instalace ASDK úlohy konfigurace
 
-Po [instalaci Azure Stack Development Kit (ASDK)](asdk-install.md), musí provést několik změn doporučené konfigurace po instalaci Zůstaňte přihlášeni jako AzureStack\AzureStackAdmin na hostitelském počítači ASDK. 
+Po [instalaci Azure Stack Development Kit (ASDK)](asdk-install.md), musí provést několik změn doporučené konfigurace po instalaci Zůstaňte přihlášeni jako AzureStack\AzureStackAdmin na hostitelském počítači ASDK.
 
 ## <a name="install-azure-stack-powershell"></a>Instalace Azure Stack PowerShellu
 
@@ -37,7 +37,7 @@ Příkazy prostředí PowerShell pro Azure Stack jsou nainstalovány v galerii p
 Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 ```
 
-Profilů verzí API můžete použít k určení kompatibilní moduly AzureRM Azure Stack.  Profilů verzí API poskytují způsob, jak spravovat verze rozdíly mezi Azure a Azure Stack. Profilu verze rozhraní API je sada moduly AzureRM Powershellu s konkrétní verzí rozhraní API. **AzureRM.Bootstrapper** modul, který je dostupný v galerii prostředí PowerShell obsahuje rutiny Powershellu, které jsou nutné k práci pomocí profilů verzí API.
+Profilů verzí API můžete použít k určení kompatibilní moduly AzureRM Azure Stack.  Profilů verzí API poskytují způsob, jak spravovat verze rozdíly mezi Azure a Azure Stack. Profilu verze rozhraní API je sada moduly AzureRM Powershellu s konkrétní verzí rozhraní API. **AzureRM.BootStrapper** modul, který je dostupný v galerii prostředí PowerShell obsahuje rutiny Powershellu, které jsou nutné k práci pomocí profilů verzí API.
 
 Nejnovější modul Azure Stack Powershellu můžete nainstalovat s nebo bez připojení k Internetu na hostitelském počítači ASDK:
 
@@ -46,23 +46,22 @@ Nejnovější modul Azure Stack Powershellu můžete nainstalovat s nebo bez př
 
 - **Připojení k Internetu** od ASDK hostitelského počítače. Spusťte následující skript prostředí PowerShell k instalaci těchto modulů na instalaci development kit:
 
-- Pro 1904 byl sestavení nebo novější:
+  - Pro 1904 byl sestavení nebo novější:
 
     ```powershell  
       # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
       Install-Module -Name AzureRM.BootStrapper
-      
+
       # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
-      Get-AzureRMProfile -Update
       Use-AzureRmProfile -Profile 2019-03-01-hybrid -Force
       Install-Module -Name AzureStack -RequiredVersion 1.7.2
     ```
 
-- Azure Stack verze 1903 nebo starší, pouze nainstalovat následující moduly níže:
+  - Azure Stack verze 1903 nebo starší, pouze nainstalovat následující moduly níže:
 
     ```powershell
     # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
-    Install-Module AzureRM -RequiredVersion 2.4.0
+    Install-Module -Name AzureRM -RequiredVersion 2.4.0
     Install-Module -Name AzureStack -RequiredVersion 1.7.1
     ```
 
@@ -72,8 +71,8 @@ Nejnovější modul Azure Stack Powershellu můžete nainstalovat s nebo bez př
   - Azure Stack 1811:
 
     ``` PowerShell
-    # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet. 
-    Install-Module -Name AzureRm.BootStrapper
+    # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet.
+    Install-Module -Name AzureRM.BootStrapper
 
     # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
     Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
@@ -119,12 +118,12 @@ Nejnovější modul Azure Stack Powershellu můžete nainstalovat s nebo bez př
 
   # Enforce usage of TLSv1.2 to download the Azure Stack tools archive from GitHub
   [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-  invoke-webrequest `
-    https://github.com/Azure/AzureStack-Tools/archive/master.zip `
+  Invoke-WebRequest `
+    -Uri https://github.com/Azure/AzureStack-Tools/archive/master.zip `
     -OutFile master.zip
 
   # Expand the downloaded files.
-  expand-archive master.zip -DestinationPath . -Force
+  Expand-Archive -Path master.zip -DestinationPath . -Force
 
   # Change to the tools directory.
   cd AzureStack-Tools-master
@@ -145,7 +144,7 @@ Testy trvat několik minut. Pokud byla instalace úspěšná, zobrazí výstup v
 
 Pokud došlo k chybě, použijte postup řešení potíží zobrazíte nápovědu.
 
-## <a name="reset-the-password-expiration-policy"></a>Resetovat zásady vypršení platnosti hesla 
+## <a name="reset-the-password-expiration-policy"></a>Resetovat zásady vypršení platnosti hesla
 
 Pokud chcete mít jistotu, že heslo pro hostitele development kit platnost pasu nevyprší před vám zkušební období skončí, postupujte podle těchto kroků po nasazení ASDK.
 

@@ -15,12 +15,12 @@ ms.date: 02/11/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 02/11/2019
-ms.openlocfilehash: ca0dd74a08ce1abe454cb497a2569aae0b958d7c
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 367053882e9e44ba983d5df552929c65222fcafc
+ms.sourcegitcommit: be5382f715a9c1c18c660b630d8fcd823f13aae3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64301646"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66197352"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-using-active-directory-federated-services"></a>Nasazení do služby Azure Stack pomocí Active Directory Federated Services Kubernetes
 
@@ -83,7 +83,7 @@ Potřebujete pracovat se správcem vaší služby Azure Stack a nastavení insta
        | Název trezoru klíčů | Název trezoru.<br> Vzor regulárního výrazu: `^[a-zA-Z0-9-]{3,24}$` |
        | Umístění skupiny prostředků | Umístění skupiny prostředků. Toto je oblast, kterou jste vybrali pro instalaci sady Azure Stack. |
 
-   - Otevřete prostředí PowerShell s řádku se zvýšenými oprávněními a [připojit ke službě Azure Stack](azure-stack-powershell-configure-user.md#connect-with-ad-fs). Spusťte následující skript s parametry, aktualizovat, aby vaše hodnoty:
+   - Otevřete prostředí PowerShell s řádku se zvýšenými oprávněními a [připojit ke službě Azure Stack](azure-stack-powershell-configure-user.md#connect-to-azure-stack-with-ad-fs). Spusťte následující skript s parametry, aktualizovat, aby vaše hodnoty:
 
    ```powershell  
        $armEndpoint="<Azure Resource Manager Endpoint>"
@@ -124,7 +124,7 @@ Potřebujete pracovat se správcem vaší služby Azure Stack a nastavení insta
        | Koncový bod Azure Resource Manageru | Koncový bod v Azure Stack Development Kit (ASDK) je: `https://management.local.azurestack.external/`<br>Koncový bod v integrovaných systémech je: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/` |
        | ID vašeho předplatného | [ID předplatného](../operator/azure-stack-plan-offer-quota-overview.md#subscriptions) je, jak získat přístup k nabídky ve službě Azure Stack. |
 
-   - Otevřete prostředí PowerShell s řádku se zvýšenými oprávněními a [připojit ke službě Azure Stack](azure-stack-powershell-configure-user.md#connect-with-ad-fs). Spusťte následující skript s parametry, aktualizovat, aby vaše hodnoty:
+   - Otevřete prostředí PowerShell s řádku se zvýšenými oprávněními a [připojit ke službě Azure Stack](azure-stack-powershell-configure-user.md#connect-to-azure-stack-with-ad-fs). Spusťte následující skript s parametry, aktualizovat, aby vaše hodnoty:
 
     ```powershell
         

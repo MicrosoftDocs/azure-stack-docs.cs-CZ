@@ -1,6 +1,6 @@
 ---
-title: Vysvětlení hlavní rozdíly mezi Azure a Azure Stack při použití služby a vytváření aplikací | Dokumentace Microsoftu
-description: Co potřebujete vědět o použití služeb nebo vytvářejte aplikace pro Azure Stack.
+title: Rozdíly mezi Azure Stack a Azure při používání služby a vytváření aplikací | Dokumentace Microsoftu
+description: Znát rozdíly mezi Azure a Azure Stack při použití služby a vytváření aplikací.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,16 +15,16 @@ ms.topic: overview
 ms.date: 04/08/2019
 ms.author: sethm
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 3c3e00358efd582b5a6f1ddb0f1ae3634fe577c7
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 9fcf27c8ebbde86e775b54eda593b25fcd03979c
+ms.sourcegitcommit: be5382f715a9c1c18c660b630d8fcd823f13aae3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64299655"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66197291"
 ---
-# <a name="key-considerations-using-services-or-building-apps-for-azure-stack"></a>Klíčové aspekty: Pomocí služby nebo vytvářet aplikace pro Azure Stack
+# <a name="differences-between-azure-stack-and-azure-when-using-services-and-building-apps"></a>Rozdíly mezi Azure Stack a Azure při používání služby a vytváření aplikací
 
-Před použitím služby nebo vytvářejte aplikace pro Azure Stack, je důležité znát rozdíly mezi Azure Stack a Azure. Tento článek identifikuje klíčové aspekty při používání služby Azure Stack jako vývojové prostředí hybridního cloudu.
+Před použitím služby nebo vytvářejte aplikace pro Azure Stack, je důležité znát rozdíly mezi Azure Stack a Azure. Tento článek identifikuje různé funkce a klíčové aspekty při používání služby Azure Stack jako vývojové prostředí hybridního cloudu.
 
 ## <a name="overview"></a>Přehled
 
@@ -32,7 +32,7 @@ Azure Stack je hybridní Cloudová platforma, která umožňuje využívat služ
 
 Operátor Azure Stack vám dá vědět, které služby jsou k dispozici pro použití a jak získat podporu. Nabízejí tyto služby prostřednictvím jejich vlastní plány a nabídky.
 
-Azure technického obsahu se předpokládá, že jsou aplikací vyvíjených pro službu Azure namísto Azure stacku. Při sestavení a nasazení aplikací do služby Azure Stack, musíte znát několik klíčových rozdílů, například:
+Azure technického obsahu se předpokládá, že se aplikace vyvíjejí pro služby Azure a ne Azure Stack. Při sestavení a nasazení aplikací do služby Azure Stack, musíte znát několik klíčových rozdílů, například:
 
 * Azure Stack nabízí podmnožinu funkcí, které jsou dostupné v Azure a služby.
 * Vaše společnost nebo poskytovali služeb, můžete zvolit služby, které chtějí nabídnout. Dostupné možnosti patří vlastní služby nebo aplikace. Nabízejí může vlastní přizpůsobené dokumentace.
@@ -79,7 +79,7 @@ Chcete-li mít jistotu, že používáte správnou verzi Azure Powershellu, pou�
 > [!NOTE]
 > Pokud používáte Azure Stack Development Kit a máte přístup správce, podívejte se [zjistit aktuální verzi](../operator/azure-stack-updates.md#determine-the-current-version) části k určení sestavení služby Azure Stack.
 
-Pro jiná rozhraní API spusťte následující příkaz Powershellu na výstup obory názvů, typy prostředků a verze rozhraní API, které jsou podporovány v rámci vašeho předplatného Azure Stack. Poznámka: může být stále rozdíly na úrovni vlastnost. Pro tento příkaz fungovat, musíte už mít [nainstalované](../operator/azure-stack-powershell-install.md) a [nakonfigurované](azure-stack-powershell-configure-user.md) prostředí PowerShell pro prostředí Azure Stack. Také musíte mít předplatné služby Azure Stack nabídky.
+Pro jiná rozhraní API spusťte následující příkaz Powershellu na výstup obory názvů, typy prostředků a verze rozhraní API, které jsou podporovány v rámci vašeho předplatného Azure Stack (nemusí být rozdíly na úrovni vlastnost). Pro tento příkaz fungovat, musíte už mít [nainstalované](../operator/azure-stack-powershell-install.md) a [nakonfigurované](azure-stack-powershell-configure-user.md) prostředí PowerShell pro prostředí Azure Stack. Také musíte mít předplatné služby Azure Stack nabídky.
 
 ```powershell
 Get-AzureRmResourceProvider | Select ProviderNamespace -Expand ResourceTypes | Select * -Expand ApiVersions | `

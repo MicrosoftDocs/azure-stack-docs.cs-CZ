@@ -16,12 +16,12 @@ ms.date: 05/15/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 05/15/2019
-ms.openlocfilehash: 52279a7498e253771e16e66e0c5025b9afd4494d
-ms.sourcegitcommit: 442bd62d1dfbc1597592d7285aba1453298261ce
-ms.translationtype: MT
+ms.openlocfilehash: 207b784db9e916ff2cc04ebd884c05fa9a7b4aeb
+ms.sourcegitcommit: 914daff43ae0f0fc6673a06dfe2d42d9b4fbab48
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65969840"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66043149"
 ---
 # <a name="azure-stack-1904-known-issues"></a>Azure Stack 1904 známé problémy
 
@@ -156,7 +156,17 @@ Pokud jste povolení diagnostiky spouštění na virtuálním počítači, ale o
 ### <a name="compute-host-agent-alert"></a>COMPUTE upozornění agenta hostitele
 
 - Použít: Jedná se o nový problém s verzí 1904.
-- Příčina: A **agent hostitele výpočetního** upozornění se zobrazí po restartování uzlu v jednotce škálování. Restartování se změní výchozí nastavení spuštění pro výpočetní služby hostitele agenta.
+- Příčina: A **agent hostitele výpočetního** upozornění se zobrazí po restartování uzlu v jednotce škálování. Restartování se změní výchozí nastavení spuštění pro výpočetní služby hostitele agenta. Tato výstraha bude vypadat jako následující: NÁZEV  
+Výpočetní že Agent hostitele nereaguje na volání.
+ZÁVAŽNOST  
+Stav varování  
+Aktivní VYTVOŘENO čas  
+5/16/2019, 10:08:23: 00 AKTUALIZUJE, KDYŽ  
+5/22/2019, 12:27:27 PM KOMPONENTY  
+M ###-NODE02 POPIS  
+Nejde komunikovat s agentem Compute hostitele, který se spuštěný v uzlu: M ###-NODE02 NÁPRAVY  
+Zakázat příznak funkce Compute agenta hostitele a shromáždí protokoly pro další diagnostiku.
+
 - Náprava:
   - Toto upozornění můžete ignorovat. Agent neodpovídá nemá žádný vliv na operátor a operace uživatelů nebo uživatelské aplikace. Výstraha se znovu za 24 hodin propojení se zavře, ručně.
   - Podpora Microsoftu může napravit problém tak, že změníte nastavení spuštění pro službu. Tento postup vyžaduje otevření lístku podpory. Pokud uzel se restartuje znovu, zobrazí se nová výstraha.
