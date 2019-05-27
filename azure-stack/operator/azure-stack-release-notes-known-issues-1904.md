@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 05/22/2019
 ms.author: sethm
 ms.reviewer: hectorl
-ms.lastreviewed: 05/15/2019
-ms.openlocfilehash: 207b784db9e916ff2cc04ebd884c05fa9a7b4aeb
-ms.sourcegitcommit: 914daff43ae0f0fc6673a06dfe2d42d9b4fbab48
-ms.translationtype: HT
+ms.lastreviewed: 05/22/2019
+ms.openlocfilehash: bd7262e5c298715f846e1d8372d76b6f44f22972
+ms.sourcegitcommit: 715a2688a11fae2555dac8371631430f7ecb1c0f
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66043149"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66186528"
 ---
 # <a name="azure-stack-1904-known-issues"></a>Azure Stack 1904 známé problémy
 
@@ -70,15 +70,15 @@ V tomto článku najdete seznam známých problémů v 1904 verzi služby Azure 
 ### <a name="marketplace-management"></a>Správa webu Marketplace
 
 - Použít: Tento problém se týká 1904.
-- Příčina: Při filtrování výsledků v **přidat z Azure** okno v kartě správu webu Marketplace na portálu správce se může zobrazit nesprávné filtrované výsledky. 
-- Náprava: Výsledky řazení podle sloupce název a výsledky budou opraveny. 
+- Příčina: Při filtrování výsledků v **přidat z Azure** okno v kartě správu webu Marketplace na portálu správce se může zobrazit nesprávné filtrované výsledky.
+- Náprava: Výsledky řazení podle sloupce název a výsledky budou opraveny.
 - Výskyt: Občasně
 
 ### <a name="marketplace-management"></a>Správa webu Marketplace
 
 - Použít: Tento problém se týká 1904.
 - Příčina: Při filtrování výsledků v Marketplace správu na portálu pro správce, zobrazí se duplicitní vydavatele názvy vydavatele rozevíracího seznamu. 
-- Náprava: Vyberte všechny duplicitní položky mít správný seznam všech produktů Marketplace, které jsou k dispozici v rámci daného vydavatele. 
+- Náprava: Vyberte všechny duplicitní položky mít správný seznam všech produktů Marketplace, které jsou k dispozici v rámci daného vydavatele.
 - Výskyt: Občasně
 
 ### <a name="upload-blob"></a>Nahrát objekt blob
@@ -156,21 +156,37 @@ Pokud jste povolení diagnostiky spouštění na virtuálním počítači, ale o
 ### <a name="compute-host-agent-alert"></a>COMPUTE upozornění agenta hostitele
 
 - Použít: Jedná se o nový problém s verzí 1904.
-- Příčina: A **agent hostitele výpočetního** upozornění se zobrazí po restartování uzlu v jednotce škálování. Restartování se změní výchozí nastavení spuštění pro výpočetní služby hostitele agenta. Tato výstraha bude vypadat jako následující: NÁZEV  
-Výpočetní že Agent hostitele nereaguje na volání.
-ZÁVAŽNOST  
-Stav varování  
-Aktivní VYTVOŘENO čas  
-5/16/2019, 10:08:23: 00 AKTUALIZUJE, KDYŽ  
-5/22/2019, 12:27:27 PM KOMPONENTY  
-M ###-NODE02 POPIS  
-Nejde komunikovat s agentem Compute hostitele, který se spuštěný v uzlu: M ###-NODE02 NÁPRAVY  
-Zakázat příznak funkce Compute agenta hostitele a shromáždí protokoly pro další diagnostiku.
+- Příčina: A **agent hostitele výpočetního** upozornění se zobrazí po restartování uzlu v jednotce škálování. Restartování se změní výchozí nastavení spuštění pro výpočetní služby hostitele agenta. Tato výstraha vypadá podobně jako v následujícím příkladu:
+
+   ```shell
+   NAME  
+   Compute Host Agent is not responding to calls.
+   SEVERITY  
+   Warning
+   STATE  
+   Active
+   CREATED TIME  
+   5/16/2019, 10:08:23 AM
+   UPDATED TIME  
+   5/22/2019, 12:27:27 PM
+   COMPONENT  
+   M#####-NODE02
+   DESCRIPTION  
+   Could not communicate with the Compute Host Agent running on node: M#####-NODE02
+   REMEDIATION  
+   Please disable Compute Host Agent feature flag and collect logs for further diagnosis.
+   ```
 
 - Náprava:
   - Toto upozornění můžete ignorovat. Agent neodpovídá nemá žádný vliv na operátor a operace uživatelů nebo uživatelské aplikace. Výstraha se znovu za 24 hodin propojení se zavře, ručně.
   - Podpora Microsoftu může napravit problém tak, že změníte nastavení spuštění pro službu. Tento postup vyžaduje otevření lístku podpory. Pokud uzel se restartuje znovu, zobrazí se nová výstraha.
 - Výskyt: Obecné
+
+## <a name="storage"></a>Úložiště
+
+- Použít: Tento problém se vztahuje na všechny podporované verze.
+- Příčina: [ConvertTo-AzureRmVMManagedDisk](/powershell/module/azurerm.compute/convertto-azurermvmmanageddisk) není podporováno ve službě Azure Stack a má za následek vytvoření disku s **$null** ID. Předchází se tak provedení operace na virtuálním počítači, jako je například spouštění a zastavování. Disk se nezobrazí v uživatelském rozhraní ani ho zřejmě prostřednictvím rozhraní API. Virtuální počítač v tomto okamžiku nelze opravit a musí být odstraněny.
+- Náprava: Chcete-li převést vaše disky správně, postupujte [převést na spravované disky průvodce](../user/azure-stack-managed-disk-considerations.md#convert-to-managed-disks).
 
 ## <a name="app-service"></a>App Service
 

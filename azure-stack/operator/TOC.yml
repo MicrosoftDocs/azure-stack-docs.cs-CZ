@@ -293,6 +293,8 @@
       items:
         - name: Plánování kapacity služby App Service
           href: azure-stack-app-service-capacity-planning.md
+        - name: Nejčastější dotazy k fakturaci služby App Service
+          href: app-service-billing-faq.md
         - name: Než začnete
           href: azure-stack-app-service-before-you-get-started.md
         - name: Nasadit službu App Service

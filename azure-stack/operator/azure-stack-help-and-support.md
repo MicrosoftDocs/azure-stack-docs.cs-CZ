@@ -16,20 +16,20 @@ ms.date: 05/21/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 05/23/2019
-ms.openlocfilehash: 5121170e50e75674777cee9560c5f28443fd262f
-ms.sourcegitcommit: 715a2688a11fae2555dac8371631430f7ecb1c0f
-ms.translationtype: HT
+ms.openlocfilehash: 816a7a54d90c9cdcc41052be5c56bce58a7cf68f
+ms.sourcegitcommit: a07baf606cec51b437ecfccdf871d5f00f173f63
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66193499"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66220963"
 ---
 # <a name="microsoft-azure-stack-help-and-support"></a>Microsoft Azure Stack Nápověda a podpora
 
-Od verze 1905 Azure Stack **Nápověda a podpora** vylepšení usnadnění operátory zkoumání problémů, získejte odbornou pomoc nebo Další informace o službě Azure Stack. 
+Od verze 1905, Azure Stack **Nápověda a podpora** vylepšení usnadnění operátory zkoumání problémů, získejte odbornou pomoc nebo Další informace o službě Azure Stack. 
 
 ## <a name="research-an-issue"></a>Prozkoumat chybu
 
-V horní části **Nápověda a podpora** samoobslužné odkazy na další informace o problém, získejte informace o fakturaci nebo zjistit, jaké možnosti podpory jsou k dispozici. 
+V horní části **Nápověda a podpora** jsou odkazy na další informace o problém, získejte informace o fakturaci nebo zjistit, jaké možnosti podpory jsou k dispozici. 
 
 ![Samoobslužná podpora](media/azure-stack-help-and-support/get-support-tiles.png)
 
@@ -41,15 +41,18 @@ V horní části **Nápověda a podpora** samoobslužné odkazy na další infor
 
 ## <a name="get-expert-help"></a>Získejte odbornou pomoc 
 
-Můžete také získat pomoc od odborníků v Zákaznická podpora Microsoftu a fóra MSDN nebo provést online školení a zlepšujte svoje vlastní dovednosti. 
+Pokud spouštíte jako integrovaný systém Azure Stack, můžete otevřít případ pomocí zákaznické podpory Microsoftu specializované pomoc s jakýkoli problém související s Azure Stack.  
+
+![Získejte odbornou pomoc pro integrované systémy](media/azure-stack-help-and-support/get-support-integrated.png)
+
+Pokud spustíte Azure Stack Development Kit (ASDK), můžete získat pomoc od komunity odborníků na [fórum MSDN pro Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack).
+
+![Získejte odbornou pomoc pro ASDK](media/azure-stack-help-and-support/get-support-asdk.png)
+
+A můžete se obrátili na fórech MSDN s na každou otázku nebo provést online školení a zlepšujte svoje vlastní dovednosti. 
 
 ![Získejte odbornou pomoc](media/azure-stack-help-and-support/get-support-cards.png)
 
-- **Podpora**. Otevřete případ s zákaznické podpory Microsoftu specializované pomoc s jakýkoli problém související s Azure Stack.
-
-- **Společenství**. [Fórum MSDN pro Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) se komunity odborníků Azure Stack, kteří pomohou zodpovědět dotazy a řešení problémů.
-
-- **Učení**. Online kurzy, které vám pomůžou rozvíjet dovednosti potřebné pro konfiguraci a provoz služby Azure Stack. 
 
 ## <a name="get-up-to-speed-with-azure-stack"></a>Získejte si přehled pomocí služby Azure Stack
 
