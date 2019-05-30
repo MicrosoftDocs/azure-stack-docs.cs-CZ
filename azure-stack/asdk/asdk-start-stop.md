@@ -3,7 +3,7 @@ title: Spuštění a zastavení Azure Stack Development Kit (ASDK) | Dokumentace
 description: Zjistěte, jak ke spuštění a vypnutí dolů Azure Stack Development Kit (ASDK).
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2019
-ms.author: mabrigg
+ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 8335782ee8f310fa5d975c746e94651a92a54642
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: d3289ae5db5e54ee6ad5d1948653ef82946d16ff
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617550"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66267446"
 ---
 # <a name="start-and-stop-the-azure-stack-development-kit-asdk"></a>Spuštění a zastavení Azure Stack Development Kit (ASDK)
 Není doporučeno jednoduše Restartujte hostitelský počítač ASDK. Místo toho by měla podle postupů v tomto článku správně vypne a restartuje ASDK služby. 

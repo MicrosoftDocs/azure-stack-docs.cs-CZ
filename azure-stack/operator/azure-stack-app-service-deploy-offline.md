@@ -3,7 +3,7 @@ title: Nasadit službu App Service offline prostředí ve službě Azure Stack |
 description: Podrobné informace o tom, jak nasadit službu App Service v odpojeném prostředí Azure Stack zabezpečené službou AD FS.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: BryanLa
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -12,31 +12,31 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2019
+ms.date: 05/28/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 1dfe1cba366d9b30c53a43724741c9a9e0f65819
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: c97598145b0d03f3b25876296cb070b0301a3742
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618531"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269234"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Přidání poskytovatele prostředků App Service pro odpojené prostředí Azure Stack zabezpečené službou AD FS
 
 *Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
 
 > [!IMPORTANT]
-> Aktualizace 1901 do služby Azure Stack integrované systému nebo nasadit nejnovější sady Azure Stack development kit před nasazením Azure App Service 1.5.
+> Aktualizace 1904 do služby Azure Stack integrované systému nebo nasadit nejnovější sady Azure Stack development kit před nasazením Azure App Service 1.6.
 
 Podle pokynů v tomto článku, můžete nainstalovat [poskytovatele prostředků App Service](azure-stack-app-service-overview.md) do prostředí Azure Stack, která je:
 
 - nejsou připojené k Internetu
 - zabezpečené službou Active Directory Federation Services (AD FS).
 
-> [!IMPORTANT]  
-> Než spustíte instalační program zprostředkovatele prostředků, ujistěte se, že jste postupovali podle pokynů v [před zahájením práce](azure-stack-app-service-before-you-get-started.md) a čtení [poznámky k verzi](azure-stack-app-service-release-notes-update-five.md) dodávané 1.5 verzi, přečtěte si o nové Funkce, opravy a známých problémech, které můžou ovlivnit nasazení.
+> [!IMPORTANT]
+> Než spustíte instalační program zprostředkovatele prostředků, ujistěte se, že jste postupovali podle pokynů v [před zahájením práce](azure-stack-app-service-before-you-get-started.md) a čtení [poznámky k verzi](azure-stack-app-service-release-notes-update-six.md) dodávané 6 verzi, přečtěte si o nové Funkce, opravy a známých problémech, které můžou ovlivnit nasazení.
 
 Chcete-li přidat poskytovatele prostředků App Service do offline nasazení Azure Stack, musíte dokončit tyto úkoly nejvyšší úrovně:
 
@@ -85,11 +85,11 @@ Chcete-li nasadit službu App Service v odpojeném prostředí, musíte nejdří
    1. Klikněte na tlačítko **připojit** vedle **předplatná Azure Stack** pole.
       - Zadejte účet správce. Například, cloudadmin@azurestack.local. Zadejte své heslo a klikněte na tlačítko **Sign In**.
    2. V **předplatná Azure Stack** vyberte **výchozí předplatné poskytovatele**.
-    
+
       > [!NOTE]
       > App Service můžete nasadit jenom do **výchozí předplatné poskytovatele**.
       >
-    
+
    3. V **lokality Azure Stack** , vyberte umístění, které odpovídá nasazujete do oblasti. Vyberte například **místní** Pokud vaše nasazení Azure Stack Development Kit.
    4. Klikněte na **Další**.
 
@@ -144,14 +144,14 @@ Chcete-li nasadit službu App Service v odpojeném prostředí, musíte nejdří
     > ```sql
     >    Enable contained database authentication for SQL server by running below command on SQL server (Ctrl+C to copy)
     >    ***********************************************************
-    >    sp_configure 'contained database authentication', 1;  
-    >    GO  
-    >    RECONFIGURE;  
+    >    sp_configure 'contained database authentication', 1;
+    >    GO
+    >    RECONFIGURE;
     >    GO
     >    ***********************************************************
     > ```
     > Odkazovat [poznámky k verzi pro služby Azure App Service v Azure stacku 1.3](azure-stack-app-service-release-notes-update-three.md) další podrobnosti.
-   
+
     ![App Service Installer][12]
 
 13. Seznamte se s role instance a skladovou Položku možnosti. Minimální počet instancí a minimální SKU pro každou roli v nasazení ASDK se vyplní výchozí hodnoty. Abyste mohli naplánovat nasazení poskytuje přehled požadavků na virtuální procesor a paměť. Po provedení výběru klikněte na tlačítko **Další**.
@@ -174,7 +174,7 @@ Chcete-li nasadit službu App Service v odpojeném prostředí, musíte nejdří
     > [!NOTE]
     > **Jádru Windows serveru 2016 není image platformy podporované pro použití se službou Azure App Service ve službě Azure Stack.  Nepoužívejte vyhodnocení Image pro nasazení v produkčním prostředí.  Azure App Service ve službě Azure Stack vyžaduje, aby Microsoft.NET 3.5.1 SP1 se aktivuje na imagi použité pro nasazení.   Syndikovaný Tržiště imagí nemají povolení této funkce Windows serveru 2016, proto musíte vytvořit a použít image Windows serveru 2016 této předem.**
 
-14. V **vyberte Image platformy** zvolte image virtuálního počítače nasazení Windows serveru 2016 z dostupných v poskytovateli výpočetních prostředků pro cloudové služby App Service. Klikněte na **Další**.
+14. V **vyberte Image platformy** zvolte image virtuálního počítače nasazení Windows serveru 2016 z imagí dostupných v poskytovateli výpočetních prostředků pro cloudové služby App Service. Vyberte **Další**.
 
 15. Na další stránce:
      1. Zadejte uživatelské jméno správce virtuálního počítače Role pracovního procesu a heslo.
@@ -198,8 +198,20 @@ Chcete-li nasadit službu App Service v odpojeném prostředí, musíte nejdří
 
 ## <a name="post-deployment-steps"></a>Kroky po nasazení
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > Pokud jste zadali RP App Service se vždy na instanci SQL je nutné [přidat do skupiny dostupnosti databáze appservice_hosting a appservice_metering](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) a synchronizaci databází, aby nedocházelo ke služby události převzetí služeb při selhání databáze.
+
+Pokud jste se rozhodli nasadit do existující virtuální sítě a interní IP adresu pro připojení k souborovému serveru, je nutné přidat odchozí pravidlo zabezpečení, povolení provozu SMB mezi podsítě pracovního procesu a souborový server.  Přejděte na WorkersNsg, skupiny zabezpečení sítě, v portálu pro správu a přidat odchozí pravidlo zabezpečení s následujícími vlastnostmi:
+
+- Zdroj: Vše
+- Zdrojový rozsah portů: *
+- Cíl: Adresy IP
+- Rozsah cílových IP adres: Rozsah IP adres pro souborový server
+- Rozsah cílových portů: 445
+- Protokol: TCP
+- Akce: Povolit
+- Priorita: 700
+- Název: Outbound_Allow_SMB445
 
 ## <a name="validate-the-app-service-on-azure-stack-installation"></a>Ověření služby App Service na instalaci služby Azure Stack
 
@@ -208,19 +220,6 @@ Chcete-li nasadit službu App Service v odpojeném prostředí, musíte nejdří
 2. V přehledu, v oblasti stav, zkontrolujte, **stav** zobrazí **připravené jsou všechny role**.
 
     ![Správa služby App Service](media/azure-stack-app-service-deploy/image12.png)
-
-> [!NOTE]
-> Pokud jste se rozhodli nasadit do existující virtuální sítě a interní IP adresu pro připojení k souborovému serveru, je nutné přidat odchozí pravidlo zabezpečení, povolení provozu SMB mezi podsítě pracovního procesu a souborový server.  Chcete-li to provést, přejděte na WorkersNsg v portálu pro správu a přidat odchozí pravidlo zabezpečení s následujícími vlastnostmi:
-> * Zdroj: Vše
-> * Zdrojový rozsah portů: *
-> * Cíl: Adresy IP
-> * Rozsah cílových IP adres: Rozsah IP adres pro souborový server
-> * Rozsah cílových portů: 445
-> * Protokol: TCP
-> * Akce: Povolit
-> * Priorita: 700
-> * Název: Outbound_Allow_SMB445
->
 
 ## <a name="test-drive-app-service-on-azure-stack"></a>Vyzkoušejte si App Service ve službě Azure Stack
 
@@ -251,7 +250,7 @@ Po nasazení a zaregistrujte poskytovatele prostředků App Service, otestujte a
 
 ## <a name="deploy-a-wordpress-dnn-or-django-website-optional"></a>Nasazení webu WordPress, DNN nebo Django (volitelné)
 
-1. Na portálu Azure Stack tenanta, klikněte na tlačítko **+**, přejděte na Azure Marketplace, nasazení webu Django a počkat na úspěšné dokončení. Webové platformě Django používá databázi založené na systému souborů. Nevyžaduje žádné další prostředků poskytovatele, jako je SQL nebo MySQL.
+1. Na portálu Azure Stack tenanta, klikněte na tlačítko **+** , přejděte na Azure Marketplace, nasazení webu Django a počkat na úspěšné dokončení. Webové platformě Django používá databázi založené na systému souborů. Nevyžaduje žádné další prostředků poskytovatele, jako je SQL nebo MySQL.
 
 2. Pokud jste nasadili také poskytovatele prostředků MySQL, můžete nasadit web ve Wordpressu z Tržiště. Po zobrazení výzvy pro parametry databáze, zadejte uživatelské jméno jako *User1\@Server1*, uživatelské jméno a název serveru podle vašeho výběru.
 

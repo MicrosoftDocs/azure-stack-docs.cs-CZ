@@ -3,7 +3,7 @@ title: Nasazení aplikace do Azure a Azure Stack | Dokumentace Microsoftu
 description: Informace o nasazování aplikací do Azure a Azure Stackem hybridní kanálu CI/CD.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: bryanla
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/11/2019
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/07/2018
-ms.openlocfilehash: 3b98714a6cbc3601f98d5f9dfcb26edb5182cfa4
-ms.sourcegitcommit: 2b6a0b3b4dc63c26df3d0535d630d640ff232fb0
+ms.openlocfilehash: dfec5ff97b4c7aa3c3de6b4817689412cb41ea6a
+ms.sourcegitcommit: 261df5403ec01c3af5637a76d44bf030f9342410
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65521239"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66252098"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Kurz: Nasazení aplikací na platformy Azure a Azure Stack
 
@@ -179,7 +179,7 @@ Nastavit obor na úrovni předplatného, skupinu prostředků nebo prostředek. 
 
     ![Visual Studio Enterprise](media/azure-stack-solution-hybrid-pipeline/000_11.png)
 
-3. V sadě Visual Studio Enterprise, vyberte **řízení přístupu (IAM)**.
+3. V sadě Visual Studio Enterprise, vyberte **řízení přístupu (IAM)** .
 
 4. Vyberte **přidat přiřazení role**.
 

@@ -3,7 +3,7 @@ title: Rozhraní API využití prostředků poskytovatele | Dokumentace Microsof
 description: Referenční dokumentace pro rozhraní API, využití prostředků, který načte informace o použití služby Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/11/2019
-ms.author: mabrigg
+ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 01/25/2018
-ms.openlocfilehash: b6e026732e75b3271053a00946c2b72accc85b0d
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 8b9a8f403fbc4ca80bb7ce179547d5b7f8954525
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985134"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66268277"
 ---
 # <a name="provider-resource-usage-api"></a>Rozhraní API využití prostředků poskytovatele
 
@@ -29,12 +29,12 @@ Termín *poskytovatele* platí pro správce služeb a žádné delegované posky
 ![Konceptuální model hierarchie zprostředkovatele](media/azure-stack-provider-resource-api/image1.png)
 
 ## <a name="api-call-reference"></a>Reference k volání rozhraní API
-### <a name="request"></a>Žádost
+### <a name="request"></a>Požadavek
 Požadavek získá podrobnosti o využití pro požadované předplatné a pro požadovaný časový rámec. Není k dispozici není datová část požadavku.
 
 Použití těchto rozhraní API je poskytovatel rozhraní API, aby volající musí být přiřazenou roli vlastník, Přispěvatel nebo Čtenář v předplatném poskytovatele.
 
-| **Metoda** | **Identifikátor URI žádosti** |
+| **– Metoda** | **Identifikátor URI žádosti** |
 | --- | --- |
 | GET |https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={reportedStartTime}&reportedEndTime={reportedEndTime}&aggregationGranularity={granularity} & subscriberId = {sub1.1} & verzi api-version = 2015-06-01-preview & continuationToken = {hodnota tokenu} |
 
@@ -114,13 +114,13 @@ Volání služby Microsoft.Commerce.Admin můžete shromažďovat informace o vy
 
 **Veškeré využití tenanta pro vrácení odstraněných pro aktivní uživatelé:**
 
-| **Metoda** | **Identifikátor URI žádosti** |
+| **– Metoda** | **Identifikátor URI žádosti** |
 | --- | --- |
 | GET | https://{armendpoint}/subscriptions/{subId}/providersMicrosoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={start-time}&reportedEndTime={end-endtime}&aggregationGranularity=Hourly&api-version= 2015-06-01-preview |
 
 **Vrátit využití pro odstraněné nebo aktivní tenanta:**
 
-| **Metoda** | **Identifikátor URI žádosti** |
+| **– Metoda** | **Identifikátor URI žádosti** |
 | --- | --- |
 | GET |https://{armendpoint}/subscriptions/{subId}/providersMicrosoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={start-time}&reportedEndTime={end-endtime}&aggregationGranularity=Hourly&subscriberId={ id předplatitele} & verzi api-version = 2015-06-01-preview |
 

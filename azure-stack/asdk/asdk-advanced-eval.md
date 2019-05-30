@@ -3,7 +3,7 @@ title: Pokročilé úlohy hodnocení služby Azure Stack | Dokumentace Microsoft
 description: Tento článek popisuje pokročilé úlohy hodnocení služby Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2019
-ms.author: mabrigg
+ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: a0b42a600036cca90741cd64517a86e8ae3a7344
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: fe78fa4b99ef7acad924165b98e20ca6156777bb
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65615819"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66267118"
 ---
 # <a name="advanced-azure-stack-development-kit-evaluation-tasks"></a>Pokročilé úlohy hodnocení služby Azure Stack Development Kit
 Po získané znalosti s možnostmi a základními funkcemi služby Azure Stack Development Kit (ASDK) můžete lépe pochopíte, další služby Azure Stack při testování pokročilejší scénáře. Tyto pokročilé úlohy hodnocení jsou plně popsány v dokumentaci k Azure Stack – operátor.

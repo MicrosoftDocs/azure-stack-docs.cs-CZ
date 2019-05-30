@@ -16,14 +16,14 @@ ms.author: mabrigg
 ms.custom: mvc
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: d6293aec1d9a4a7ce58442b21302c09162cc3a61
-ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
+ms.openlocfilehash: 1b0f367540012b86da322329f0536b3c484c39b4
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65712445"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269565"
 ---
-# <a name="quickstart-create-a-windows-server-virtual-machine-by-using-powershell-in-azure-stack"></a>Rychlý start: Vytvoření virtuálního počítače s Windows serverem pomocí prostředí PowerShell ve službě Azure Stack
+# <a name="quickstart-create-a-windows-server-vm-by-using-powershell-in-azure-stack"></a>Rychlý start: Vytvoření virtuálního počítače s Windows serverem pomocí prostředí PowerShell ve službě Azure Stack
 
 *Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
 
@@ -147,9 +147,9 @@ $nsg = New-AzureRmNetworkSecurityGroup `
   -SecurityRules $nsgRuleRDP,$nsgRuleWeb
 ```
 
-### <a name="create-a-network-card-for-the-virtual-machine"></a>Vytvoření síťové karty pro virtuální počítač
+### <a name="create-a-network-card-for-the-vm"></a>Vytvoření síťové karty virtuálního počítače
 
-Síťová karta připojuje virtuální počítač k podsíti, skupině zabezpečení sítě a veřejné IP adrese.
+Síťová karta připojuje virtuální počítač k podsíti, skupině zabezpečení sítě a veřejnou IP adresu.
 
 ```powershell
 # Create a virtual network card and associate it with public IP address and NSG
@@ -162,17 +162,17 @@ $nic = New-AzureRmNetworkInterface `
   -NetworkSecurityGroupId $nsg.Id
 ```
 
-## <a name="create-a-virtual-machine"></a>Vytvořit virtuální počítač
+## <a name="create-a-vm"></a>Vytvoření virtuálního počítače
 
 Vytvořte konfiguraci virtuálního počítače. Tato konfigurace zahrnuje nastavení používané při nasazení virtuálního počítače. Příklad: přihlašovací údaje, velikost a image virtuálního počítače.
 
 ```powershell
-# Define a credential object to store the username and password for the virtual machine
+# Define a credential object to store the username and password for the VM
 $UserName='demouser'
 $Password='Password@123'| ConvertTo-SecureString -Force -AsPlainText
 $Credential=New-Object PSCredential($UserName,$Password)
 
-# Create the virtual machine configuration object
+# Create the VM configuration object
 $VmName = "VirtualMachinelatest"
 $VmSize = "Standard_A1"
 $VirtualMachine = New-AzureRmVMConfig `
@@ -192,7 +192,7 @@ $VirtualMachine = Set-AzureRmVMSourceImage `
   -Skus "2016-Datacenter" `
   -Version "latest"
 
-# Sets the operating system disk properties on a virtual machine.
+# Sets the operating system disk properties on a VM.
 $VirtualMachine = Set-AzureRmVMOSDisk `
   -VM $VirtualMachine `
   -CreateOption FromImage | `
@@ -201,23 +201,23 @@ $VirtualMachine = Set-AzureRmVMOSDisk `
   Add-AzureRmVMNetworkInterface -Id $nic.Id
 
 
-# Create the virtual machine.
+# Create the VM.
 New-AzureRmVM `
   -ResourceGroupName $ResourceGroupName `
   -Location $location `
   -VM $VirtualMachine
 ```
 
-## <a name="connect-to-the-virtual-machine"></a>Připojení k virtuálnímu počítači
+## <a name="connect-to-the-vm"></a>Připojení k virtuálnímu počítači
 
-Na vzdáleném připojení k virtuální počítač, který jste vytvořili v předchozím kroku musíte svou veřejnou IP adresu. Spuštěním následujícího příkazu získejte veřejnou IP adresu virtuálního počítače:
+Pro vzdálené připojení k virtuálnímu počítači, který jste vytvořili v předchozím kroku musíte svou veřejnou IP adresu. Spuštěním následujícího příkazu získejte veřejnou IP adresu virtuálního počítače:
 
 ```powershell
 Get-AzureRmPublicIpAddress `
   -ResourceGroupName $ResourceGroupName | Select IpAddress
 ```
 
-Pomocí následujícího příkazu vytvořte s virtuálním počítačem relaci vzdálené plochy. IP adresu nahraďte veřejnou IP adresou (*publicIPAddress*) vašeho virtuálního počítače. Po zobrazení výzvy zadejte uživatelské jméno a heslo použité při vytváření virtuálního počítače.
+Pomocí následujícího příkazu vytvořte s virtuálním Počítačem relaci vzdálené plochy. Nahraďte IP adresu veřejnou IP adresou (*publicIPAddress*) vašeho virtuálního počítače. Po zobrazení výzvy zadejte uživatelské jméno a heslo použité při vytváření virtuálního počítače.
 
 ```powershell
 mstsc /v <publicIpAddress>
@@ -237,7 +237,7 @@ S nainstalovanou službou IIS a s portem 80 otevřete na svém virtuálním poč
 
 ![Výchozí web služby IIS](./media/azure-stack-quick-create-vm-windows-powershell/default-iis-website.png)
 
-## <a name="delete-the-virtual-machine"></a>Odstraňte virtuální počítač
+## <a name="delete-the-vm"></a>Odstranění virtuálního počítače
 
 Pokud už nepotřebujete, použijte následující příkaz k odebrání skupiny prostředků, která obsahuje virtuální počítač a související prostředky:
 
@@ -248,4 +248,4 @@ Remove-AzureRmResourceGroup `
 
 ## <a name="next-steps"></a>Další postup
 
-V tomto rychlém startu jste nasadili jednoduchý virtuální počítač Windows. Další informace o virtuálních počítačích Azure Stack, [důležité informace týkající se virtuálních počítačů ve službě Azure Stack](azure-stack-vm-considerations.md).
+V tomto rychlém startu jste nasadili jednoduchý virtuální počítač Windows. Další informace o virtuálních počítačích Azure Stack, [funkce virtuálních počítačů Azure Stack](azure-stack-vm-considerations.md).

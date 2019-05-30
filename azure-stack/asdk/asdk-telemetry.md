@@ -3,7 +3,7 @@ title: Telemetrická data Azure Stack | Dokumentace Microsoftu
 description: Popisuje postup konfigurace nastavení telemetrie Azure Stack powershellu.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2019
-ms.author: mabrigg
+ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 78ca05eb15570022e6eb25a7023d91c5ff8b817f
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 24948fb53ed4c5bdbbe0490f581daff7c66c33bc
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617348"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66267442"
 ---
 # <a name="azure-stack-telemetry"></a>Telemetrická data Azure Stack
 
@@ -81,9 +81,9 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies
 
 Úrovně telemetrická data jsou kumulativní a zařazená do kategorie do čtyři úrovně (0 – 3):
 
-**0 (zabezpečení)**. Pouze data zabezpečení. Informace, které je potřeba zajistit, aby byl operační systém zabezpečení, včetně dat o nastavení součásti připojené uživatelské prostředí a Telemetrie a programem Windows Defender. Žádná konkrétní telemetrie Azure Stack je vygenerován na této úrovni.
+**0 (zabezpečení)** . Pouze data zabezpečení. Informace, které je potřeba zajistit, aby byl operační systém zabezpečení, včetně dat o nastavení součásti připojené uživatelské prostředí a Telemetrie a programem Windows Defender. Žádná konkrétní telemetrie Azure Stack je vygenerován na této úrovni.
 
-**1 (basic)**. Zabezpečení a základní stav a kvalitu data. Informace o základní zařízení, včetně: data související s kvality, kompatibilita aplikací, data o využití aplikace a data z úroveň zabezpečení. Nastavením telemetrická data úrovně Basic umožňuje službě Azure Stack telemetrie. Data shromážděná na této úrovni zahrnují:
+**1 (basic)** . Zabezpečení a základní stav a kvalitu data. Informace o základní zařízení, včetně: data související s kvality, kompatibilita aplikací, data o využití aplikace a data z úroveň zabezpečení. Nastavením telemetrická data úrovně Basic umožňuje službě Azure Stack telemetrie. Data shromážděná na této úrovni zahrnují:
 
 - **Informace o základní zařízení** , pomáhá dosahovat představu o typech a konfigurace nativní a virtualizovanou instancí Windows serveru 2016 v ekosystému, včetně:
   - Počítač atributy, jako je například výrobce OEM, model,
@@ -94,9 +94,9 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies
 - **Informace týkající se kvality** , který pomáhá rozvíjet základní znalosti o jaký je výkon služby Azure Stack společnosti Microsoft. Příkladem je počet kritických výstrah na konkrétní konfiguraci.
 - **Data o kompatibilitě**, která pomáhá poskytnout představu o tom, které jsou nainstalované v systému a virtuálního počítače poskytovatele prostředků a identifikuje potenciální problémy s kompatibilitou.
 
-**2 (rozšířená)**. Další přehledy, včetně: použití operačního systému a další služby Azure Stack, jak jsou výkonné, pokročilé spolehlivost dat a data z úrovní Basic a zabezpečení.
+**2 (rozšířená)** . Další přehledy, včetně: použití operačního systému a další služby Azure Stack, jak jsou výkonné, pokročilé spolehlivost dat a data z úrovní Basic a zabezpečení.
 
-**3 (úplné)**. Všechna data potřebná k identifikaci a k řešení problémů a data ze **zabezpečení**, **základní**, a **rozšířená** úrovně.
+**3 (úplné)** . Všechna data potřebná k identifikaci a k řešení problémů a data ze **zabezpečení**, **základní**, a **rozšířená** úrovně.
 
 > [!NOTE]
 > Výchozí hodnota úrovně telemetrie je 2 (rozšířené).

@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2019
+ms.date: 05/28/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 6db643e1123a27fe1716aeeb5ec97d6497764632
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: e89e8a9d2f773c289bc279a1b4aa9f47e65e8741
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618954"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269342"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Přidání poskytovatele prostředků App Service do služby Azure Stack
 
@@ -29,16 +29,16 @@ ms.locfileid: "65618954"
 
 K nasazení služby App Service ve službě Azure Stack, použijte pokyny v tomto článku.
 
-> [!IMPORTANT]  
-> Aktualizace 1901 do služby Azure Stack integrované systému nebo nasadit nejnovější Azure Stack Development Kit (ASDK) před nasazením Azure App Service 1.5.
+> [!IMPORTANT]
+> Aktualizace 1904 do služby Azure Stack integrované systému nebo nasadit nejnovější Azure Stack Development Kit (ASDK) před nasazením Azure App Service 1.6.
 
 Může dát uživatelům možnost vytvářet webové aplikace a aplikace API. Umožníte uživatelům vytvářet tyto aplikace, budete muset:
 
- - Přidat [poskytovatele prostředků App Service](azure-stack-app-service-overview.md) k nasazení Azure Stack pomocí kroků popsaných v tomto článku.
- - Po instalaci poskytovatele prostředků App Service, můžete jej zahrnout do nabídky a plány. Uživatelé můžou potom přihlásit k odběru službu a začněte vytvářet aplikace.
+- Přidat [poskytovatele prostředků App Service](azure-stack-app-service-overview.md) k nasazení Azure Stack pomocí kroků popsaných v tomto článku.
+- Po instalaci poskytovatele prostředků App Service, můžete jej zahrnout do nabídky a plány. Uživatelé můžou potom přihlásit k odběru službu a začněte vytvářet aplikace.
 
-> [!IMPORTANT]  
-> Předtím, než spustíte instalační program zprostředkovatele prostředků, ujistěte se, že jste postupovali podle pokynů v [před zahájením práce](azure-stack-app-service-before-you-get-started.md) a čtení [poznámky k verzi](azure-stack-app-service-release-notes-update-five.md), které nejsou poskytnuty verze 1.5, další informace o nové Funkce, opravy a známých problémech, které by mohly ovlivnit vaše nasazení.
+> [!IMPORTANT]
+> Předtím, než spustíte instalační program zprostředkovatele prostředků, ujistěte se, že jste postupovali podle pokynů v [před zahájením práce](azure-stack-app-service-before-you-get-started.md) a čtení [poznámky k verzi](azure-stack-app-service-release-notes-update-six.md), které nejsou poskytnuty verze 1.6, další informace o nové Funkce, opravy a známých problémech, které by mohly ovlivnit vaše nasazení.
 
 ## <a name="run-the-app-service-resource-provider-installer"></a>Spusťte instalační program zprostředkovatele prostředků App Service
 
@@ -79,7 +79,7 @@ Nasazení poskytovatele prostředků App Service, postupujte podle těchto krok�
 
    b. V **předplatná Azure Stack**, vyberte **výchozí předplatné poskytovatele**.
 
-     > [!IMPORTANT]  
+     > [!IMPORTANT]
      > App Service **musí** nasadit **výchozí předplatné poskytovatele**.
 
    c. V **lokality Azure Stack**, vyberte umístění, které odpovídá nasazujete do oblasti. Vyberte například **místní** Pokud vaše nasazení Azure Stack Development Kit.
@@ -99,7 +99,7 @@ Nasazení poskytovatele prostředků App Service, postupujte podle těchto krok�
 
    ![App Service Installer][4]
 
-8. Zadejte informace pro svou sdílenou složku a potom vyberte **Další**. Plně kvalifikovaný název domény (FQDN) nebo IP adresa souborového serveru se musí používat adresu sdílené složky. Například \\\appservicefileserver.local.cloudapp.azurestack.external\websites, nebo \\\10.0.0.1\websites.  Pokud používáte souborový server, který je k doméně, je nutné zadat úplné uživatelské jméno včetně domény, například myfileserverdomain\FileShareOwner.
+8. Zadejte informace pro svou sdílenou složku a potom vyberte **Další**. Plně kvalifikovaný název domény (FQDN) nebo IP adresa souborového serveru se musí používat adresu sdílené složky. Například \\\appservicefileserver.local.cloudapp.azurestack.external\websites, nebo \\\10.0.0.1\websites.  Pokud používáte souborový server, které je připojené k doméně, je nutné zadat úplné uživatelské jméno včetně domény, například myfileserverdomain\FileShareOwner.
 
    >[!NOTE]
    >Instalační program se pokusí o test připojení ke sdílené složce než budete pokračovat. Ale pokud nasazení provádíte do existující virtuální síť, tento test připojení se nemusí podařit. Jsou uvedeny upozornění a výzvy, chcete-li pokračovat. Pokud je správný soubor sdílet informace, pokračujte v nasazení.
@@ -186,8 +186,20 @@ Nasazení poskytovatele prostředků App Service, postupujte podle těchto krok�
 
 ## <a name="post-deployment-steps"></a>Kroky po nasazení
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > Pokud jste zadali RP App Service se vždy na instanci SQL je nutné [přidat do skupiny dostupnosti databáze appservice_hosting a appservice_metering](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) a synchronizaci databází, aby nedocházelo ke služby události převzetí služeb při selhání databáze.
+
+Pokud nasazení provádíte do existující virtuální sítě a pomocí interní IP adresu pro připojení k souborovému serveru, je nutné přidat odchozí pravidlo zabezpečení. Toto pravidlo aktivuje přenosy SMB mezi podsítě pracovního procesu a souborový server.  Přejděte na WorkersNsg, skupiny zabezpečení sítě, v portálu pro správu a přidat odchozí pravidlo zabezpečení s následujícími vlastnostmi:
+
+- Zdroj: Vše
+- Zdrojový rozsah portů: *
+- Cíl: Adresy IP
+- Rozsah cílových IP adres: Rozsah IP adres pro souborový server
+- Rozsah cílových portů: 445
+- Protokol: TCP
+- Akce: Povolit
+- Priorita: 700
+- Název: Outbound_Allow_SMB445
 
 ## <a name="validate-the-app-service-on-azure-stack-installation"></a>Ověření služby App Service na instalaci služby Azure Stack
 
@@ -196,18 +208,6 @@ Nasazení poskytovatele prostředků App Service, postupujte podle těchto krok�
 2. V přehledu, v oblasti stav, zkontrolujte, **stav** zobrazí **připravené jsou všechny role**.
 
     ![Správa služby App Service](media/azure-stack-app-service-deploy/image12.png)
-
-    Pokud nasazení provádíte do existující virtuální sítě a pomocí interní IP adresu pro připojení k souborovému serveru, je nutné přidat odchozí pravidlo zabezpečení. Toto pravidlo aktivuje přenosy SMB mezi podsítě pracovního procesu a souborový server.  Chcete-li to provést, přejděte na WorkersNsg v portálu pro správu a přidat odchozí pravidlo zabezpečení s následujícími vlastnostmi:
-
-    - Zdroj: Vše
-    - Zdrojový rozsah portů: *
-    - Cíl: Adresy IP
-    - Rozsah cílových IP adres: Rozsah IP adres pro souborový server
-    - Rozsah cílových portů: 445
-    - Protokol: TCP
-    - Akce: Povolit
-    - Priorita: 700
-    - Název: Outbound_Allow_SMB445
 
 ## <a name="test-drive-app-service-on-azure-stack"></a>Vyzkoušejte si App Service ve službě Azure Stack
 
@@ -241,7 +241,7 @@ Pokud chcete vytvořit test webové aplikace, postupujte takto:
 
 ## <a name="deploy-a-wordpress-dnn-or-django-website-optional"></a>Nasazení webu WordPress, DNN nebo Django (volitelné)
 
-1. Na portálu Azure Stack tenanta, vyberte **+**, přejděte na Azure Marketplace, nasazení webu Django a potom počkejte na dokončení nasazení. Webové platformě Django používá databázi založené na systému souborů. Nevyžaduje žádné další prostředků poskytovatele, jako je SQL nebo MySQL.
+1. Na portálu Azure Stack tenanta, vyberte **+** , přejděte na Azure Marketplace, nasazení webu Django a potom počkejte na dokončení nasazení. Webové platformě Django používá databázi založené na systému souborů. Nevyžaduje žádné další prostředků poskytovatele, jako je SQL nebo MySQL.
 
 2. Pokud jste nasadili také poskytovatele prostředků MySQL, můžete nasadit web ve Wordpressu z Tržiště. Po zobrazení výzvy pro parametry databáze, zadejte uživatelské jméno jako *User1\@Server1*, uživatelské jméno a název serveru podle vašeho výběru.
 
@@ -251,8 +251,8 @@ Pokud chcete vytvořit test webové aplikace, postupujte takto:
 
 Můžete také vyzkoušet ostatní [platforma jako služba (PaaS) služby](azure-stack-offer-services-overview.md).
 
- - [Poskytovatele prostředků SQL serveru](azure-stack-sql-resource-provider-deploy.md)
- - [Poskytovatele prostředků MySQL](azure-stack-mysql-resource-provider-deploy.md)
+- [Poskytovatele prostředků SQL serveru](azure-stack-sql-resource-provider-deploy.md)
+- [Poskytovatele prostředků MySQL](azure-stack-mysql-resource-provider-deploy.md)
 
 <!--Links-->
 [Azure_Stack_App_Service_preview_installer]: https://go.microsoft.com/fwlink/?LinkID=717531

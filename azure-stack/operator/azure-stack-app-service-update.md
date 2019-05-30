@@ -3,7 +3,7 @@ title: Aktualizace služby Azure App Service v Azure stacku | Dokumentace Micros
 description: Podrobné pokyny pro aktualizaci služby Azure App Service ve službě Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: BryanLa
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,28 +11,28 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 05/28/2019
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 03/18/2019
-ms.openlocfilehash: bc379bfa93983c2e1579ebf657ce86558abc7d20
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.lastreviewed: 05/28/2019
+ms.openlocfilehash: 95611e776d2517bffaa7a3693362f5d227943bd0
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618207"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269086"
 ---
 # <a name="update-azure-app-service-on-azure-stack"></a>Aktualizace služby Azure App Service v Azure stacku
 
 *Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
 
-> [!IMPORTANT]  
-> Aktualizace 1901 do služby Azure Stack integrované systému nebo nasadit nejnovější sady Azure Stack development kit před nasazením Azure App Service 1.5.
+> [!IMPORTANT]
+> Aktualizace 1904 do služby Azure Stack integrované systému nebo nasadit nejnovější sady Azure Stack development kit před nasazením Azure App Service 1.6.
 
 Podle pokynů v tomto článku, můžete upgradovat [poskytovatele prostředků App Service](azure-stack-app-service-overview.md) nasazené v prostředí Azure Stack, který je připojený k Internetu.
 
-> [!IMPORTANT]  
-> Před spuštěním upgradu, ujistěte se, že jste již dokončili [nasazení služby Azure App Service na poskytovatele prostředků služby Azure Stack](azure-stack-app-service-deploy.md) a že jste si přečetli [poznámky k verzi](azure-stack-app-service-release-notes-update-five.md) dodávané verze 1.5, přečtěte si o nové funkce, opravy a známých problémech, které můžou ovlivnit nasazení.
+> [!IMPORTANT]
+> Před spuštěním upgradu, ujistěte se, že jste již dokončili [nasazení služby Azure App Service na poskytovatele prostředků služby Azure Stack](azure-stack-app-service-deploy.md) a že jste si přečetli [poznámky k verzi](azure-stack-app-service-release-notes-update-six.md) dodávané na verzi 1.6, přečtěte si o nové funkce, opravy a známých problémech, které můžou ovlivnit nasazení.
 
 ## <a name="run-the-app-service-resource-provider-installer"></a>Spusťte instalační program zprostředkovatele prostředků App Service
 
@@ -52,7 +52,7 @@ Během tohoto procesu inovace bude:
 
 Při upgradu nasazení služby App Service ve službě Azure Stack, postupujte podle těchto kroků:
 
-1. Stáhněte si [instalační program služby App Service](https://aka.ms/appsvcupdate5installer)
+1. Stáhněte si [instalační program služby App Service](https://aka.ms/appsvcupdate6installer)
 
 2. Spustit appservice.exe jako správce
 

@@ -3,7 +3,7 @@ title: Použití profilů verzí API s využitím GO ve službě Azure Stack | D
 description: Další informace o použití profilů verzí API s využitím GO ve službě Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 ms.service: azure-stack
 ms.workload: na
@@ -11,15 +11,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2019
-ms.author: mabrigg
+ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/26/2019
-ms.openlocfilehash: 33fc05de4bf0107c8090badb77872082790aa087
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.openlocfilehash: 4a7e36fda318c1987a39427c5ef1f5e5e307d1b6
+ms.sourcegitcommit: d04a93e913ff069e17f6d56811681804a6422b58
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782552"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66373013"
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack"></a>Použití profilů verzí API s využitím Go ve službě Azure Stack
 
@@ -32,10 +32,10 @@ Profil je kombinace různých typů prostředků s různými verzemi z různých
 - Stabilitu pro vaši aplikaci tím, že zamknete ke konkrétním verzím rozhraní API.
 - Kompatibilita pro vaše aplikace se službami Azure Stack a regionálních Datacenter Azure.
 
-V sadě Go SDK profily jsou k dispozici v rámci cesty profily, jejich verze **rrrr-MM-DD** formátu. V tuto chvíli je nejnovější verze rozhraní API služby Azure Stack profilu **2017-03-09**. Chcete-li importovat dané služby z profilu, importujte jeho odpovídající modul z profilu. Například, chcete-li importovat **Compute** služba **2017-03-09** Profilovat, použijte následující kód:
+V sadě Go SDK profily jsou k dispozici v rámci cesty profily, jejich verze **rrrr-MM-DD** formátu. V tuto chvíli je nejnovější verze rozhraní API služby Azure Stack profilu **2019-03-01**. Chcete-li importovat dané služby z profilu, importujte jeho odpovídající modul z profilu. Například, chcete-li importovat **Compute** služba **2019-03-01** Profilovat, použijte následující kód:
 
 ```go
-import "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/compute/mgmt/compute"
+import "github.com/Azure/azure-sdk-for-go/profiles/2019-03-01/compute/mgmt/compute"
 ```
 
 ## <a name="install-azure-sdk-for-go"></a>Nainstalujte sadu Azure SDK for Go
@@ -88,11 +88,11 @@ Spuštění ukázky kódu Go ve službě Azure Stack, postupujte podle těchto k
 
 4. Vytvořit instanční objekt s **předplatné** oboru a **vlastníka** role. Uložení ID instančního objektu a tajného klíče. Informace o vytvoření instančního objektu pro Azure Stack najdete v tématu [vytvořit instanční objekt](azure-stack-create-service-principals.md). Vaše prostředí Azure Stack je teď nastavené.
 
-5. Importujte modul služby z profilu Go SDK ve vašem kódu. Aktuální verze profilu služby Azure Stack je **2017-03-09**. Například naimportovat modul sítě z **2017-03-09** typ profilu, použijte následující kód:
+5. Importujte modul služby z profilu Go SDK ve vašem kódu. Aktuální verze profilu služby Azure Stack je **2019-03-01**. Například naimportovat modul sítě z **2019-03-01** typ profilu, použijte následující kód:
 
    ```go
    package main
-    import "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/network/mgmt/network"
+    import "github.com/Azure/azure-sdk-for-go/profiles/2019-03-01/network/mgmt/network"
    ```
 
 6. Ve své funkci, vytvoření a ověření klienta s **nový** volání funkce klienta. K vytvoření virtuální sítě klienta, můžete použít následující kód:  
@@ -100,7 +100,7 @@ Spuštění ukázky kódu Go ve službě Azure Stack, postupujte podle těchto k
    ```go
    package main
 
-   import "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/network/mgmt/network"
+   import "github.com/Azure/azure-sdk-for-go/profiles/2019-03-01/network/mgmt/network"
 
    func main() {
       vnetClient := network.NewVirtualNetworksClientWithBaseURI("<baseURI>", "(subscriptionID>")
@@ -116,7 +116,7 @@ Spuštění ukázky kódu Go ve službě Azure Stack, postupujte podle těchto k
    ```go
    package main
 
-   import "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/network/mgmt/network"
+   import "github.com/Azure/azure-sdk-for-go/profiles/2019-03-01/network/mgmt/network"
    func main() {
    vnetClient := network.NewVirtualNetworksClientWithBaseURI("<baseURI>", "(subscriptionID>")
    vnetClient .Authorizer = autorest.NewBearerAuthorizer(token)
@@ -193,7 +193,7 @@ Tento příklad ukazuje, ukázky kódu Go, který vytvoří virtuální síť v 
    import (
        "context"
        "fmt"
-       "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/network/mgmt/network"
+       "github.com/Azure/azure-sdk-for-go/profiles/2019-03-01/network/mgmt/network"
        "github.com/Azure/go-autorest/autorest"
        "github.com/Azure/go-autorest/autorest/adal"
        "github.com/Azure/go-autorest/autorest/to"
@@ -239,7 +239,7 @@ Tento příklad ukazuje, ukázky kódu Go, který vytvoří virtuální síť v 
    import (
       "context"
       "fmt"
-      "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/network/mgmt/network"
+      "github.com/Azure/azure-sdk-for-go/profiles/2019-03-01/network/mgmt/network"
       "github.com/Azure/go-autorest/autorest"
       "github.com/Azure/go-autorest/autorest/adal"
       "github.com/Azure/go-autorest/autorest/to"
@@ -292,14 +292,17 @@ Tento příklad ukazuje, ukázky kódu Go, který vytvoří virtuální síť v 
                   },
               },
           })
-      err := future.WaitForCompletion(context.Background(), vnetClient.Client)
+      err := future.WaitForCompletionRef(context.Background(), vnetClient.Client)
       if err != nil {
           fmt.Printf(err.Error())
           return
       }
    }
    ```
-
+Zde jsou některé z ukázek kódu, který je k dispozici pro službu Azure Stack pomocí Go SDK:
+- [Vytvoření virtuálního počítače](https://github.com/Azure-Samples/Hybrid-Compute-Go-Create-VM).
+- [Roviny dat úložiště](https://github.com/Azure-Samples/Hybrid-Storage-Go-Dataplane).
+- [Používat službu Managed Disks](https://github.com/Azure-Samples/Hybrid-Compute-Go-ManagedDisks), (Ukázková, že používá 2019-03-01 profil, který cílí na nejnovější verze rozhraní API podporuje Azure Stack)
 ## <a name="next-steps"></a>Další postup
 
 - [Instalace PowerShellu pro Azure Stack](../operator/azure-stack-powershell-install.md)

@@ -3,7 +3,7 @@ title: Nasazení hybridního cloudu s Azure a Azure Stack | Dokumentace Microsof
 description: Zjistěte, jak nasadit hybridní cloud s Azure a Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: bryanla
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/25/2019
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 4a77221ac9fcb365966435ed828ab743dd8e1034
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 7a599d3fdc68c6c41565111498108a202d8b3472
+ms.sourcegitcommit: 261df5403ec01c3af5637a76d44bf030f9342410
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985815"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66252059"
 ---
 # <a name="tutorial-deploy-a-hybrid-cloud-solution-with-azure-and-azure-stack"></a>Kurz: Nasazení řešení s hybridní cloud s Azure a Azure Stack
 
@@ -106,10 +106,10 @@ Než začnete tento kurz, ujistěte se, že splňujete následující požadavky
    - **Účet úložiště diagnostiky**. Pokud budete potřebovat vytvořte nový účet.
    - Vyberte **OK** uložte konfiguraci.
 
-     ![Konfigurace volitelných funkcí](media/azure-stack-solution-hybrid-cloud/image4.png)
+     ![Nakonfigurujte volitelné funkce](media/azure-stack-solution-hybrid-cloud/image4.png)
 
 1. V části **nastavení systému SQL Server**, nakonfigurujte následující nastavení:
-   - Pro **připojení SQL**kliknutím **veřejné (Internet)**.
+   - Pro **připojení SQL**kliknutím **veřejné (Internet)** .
    - Pro **Port**, ponechte výchozí nastavení, **1433**.
    - Pro **ověřování SQL**vyberte **povolit**.
 
@@ -301,9 +301,9 @@ Při vytváření webové aplikace ve službě App Service environment začne s 
 
 ### <a name="enable-automatic-scale-out"></a>Povolit automatické horizontální navýšení kapacity
 
-1. V Azure, najít plán služby App Service pro weby, kterou chcete škálovat na více systémů a pak vyberte **horizontální navýšení kapacity (plán služby App Service)**.
+1. V Azure, najít plán služby App Service pro weby, kterou chcete škálovat na více systémů a pak vyberte **horizontální navýšení kapacity (plán služby App Service)** .
 
-    ![Horizontální navýšení kapacity](media/azure-stack-solution-hybrid-cloud/image16.png)
+    ![Horizontálně navýšit kapacitu](media/azure-stack-solution-hybrid-cloud/image16.png)
 
 2. Vyberte **povolit automatické škálování**.
 
@@ -447,8 +447,8 @@ Toto zobrazení budete používat k vytvoření s horizontálním navýšením k
 
 ### <a name="create-the-scale-out-alert"></a>Vytvořit horizontální navýšení kapacity upozornění
 
-1. V části **KONFIGUROVAT**vyberte **upozornění (klasická)**.
-2. Vyberte **přidat upozornění metriky (klasické)**.
+1. V části **KONFIGUROVAT**vyberte **upozornění (klasická)** .
+2. Vyberte **přidat upozornění metriky (klasické)** .
 3. V **přidat pravidlo**, proveďte následující konfiguraci:
 
    - Pro **název**, zadejte **shlukového přenosu do cloudu Azure**.
@@ -468,8 +468,8 @@ Toto zobrazení budete používat k vytvoření s horizontálním navýšením k
 
 ### <a name="create-the-scale-in-alert"></a>Vytvoření škálovací ve výstraze
 
-1. V části **KONFIGUROVAT**vyberte **upozornění (klasická)**.
-2. Vyberte **přidat upozornění metriky (klasické)**.
+1. V části **KONFIGUROVAT**vyberte **upozornění (klasická)** .
+2. Vyberte **přidat upozornění metriky (klasické)** .
 3. V **přidat pravidlo**, proveďte následující konfiguraci:
 
    - Pro **název**, zadejte **škálování zpět do služby Azure Stack**.
@@ -489,7 +489,7 @@ Toto zobrazení budete používat k vytvoření s horizontálním navýšením k
 
 Následující snímek obrazovky ukazuje výstrahy pro horizontální navýšení kapacity a horizontální snížení kapacity.
 
-   ![Upozornění (Classic)](media/azure-stack-solution-hybrid-cloud/image22.png)
+   ![Upozornění (klasická)](media/azure-stack-solution-hybrid-cloud/image22.png)
 
 ## <a name="redirect-traffic-between-azure-and-azure-stack"></a>Přesměrovat provoz mezi Azure a Azure Stack
 
@@ -501,7 +501,7 @@ Pokud vaše webová stránka dosáhne prahové hodnoty, které nakonfigurujete, 
 
 1. Na webu Azure Portal vyberte svůj profil Traffic Manageru.
 
-    ![Koncové body Traffic Manageru](media/azure-stack-solution-hybrid-cloud/image20.png)
+    ![Koncové body služby Traffic Manager](media/azure-stack-solution-hybrid-cloud/image20.png)
 
 2. Vyberte **koncové body**.
 3. Vyberte **koncový bod Azure**.

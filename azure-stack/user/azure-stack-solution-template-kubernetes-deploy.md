@@ -15,12 +15,12 @@ ms.date: 02/27/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 55db30efd648c76938d71bc2067c7c68e6693f88
-ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
+ms.openlocfilehash: 672528f05a4fb3214e9a97e78922eeb12739c44f
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65712338"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269546"
 ---
 # <a name="deploy-kubernetes-to-use-containers-with-azure-stack"></a>Nasazení Kubernetes pomocí služby Azure Stack pomocí kontejnerů
 
@@ -33,7 +33,7 @@ Můžete postupovat podle kroků v tomto článku pro nasazení a nastavit prost
 
 ## <a name="kubernetes-and-containers"></a>Kubernetes a kontejnerů
 
-Můžete nainstalovat Kubernetes pomocí šablon Azure Resource Manageru vygenerované modulem AKS ve službě Azure Stack. [Kubernetes](https://kubernetes.io) je open source systém pro automatizaci nasazení, škálování a správu aplikací v kontejnerech. A [kontejneru](https://www.docker.com/what-container) je do image. Image kontejneru se podobá k virtuálnímu počítači, ale na rozdíl od virtuálního počítače, kontejneru obsahuje pouze prostředky, které potřebuje ke spuštění aplikace, jako je například kód runtime umožňující spouštění kódu, konkrétní knihovny a nastavení.
+Můžete nainstalovat Kubernetes pomocí šablon Azure Resource Manageru vygenerované modulem AKS ve službě Azure Stack. [Kubernetes](https://kubernetes.io) je open source systém pro automatizaci nasazení, škálování a správu aplikací v kontejnerech. A [kontejneru](https://www.docker.com/what-container) je do image. Image kontejneru se podobá virtuální počítač (VM), ale na rozdíl od virtuálního počítače, kontejneru obsahuje pouze prostředky, které potřebuje ke spuštění aplikace, jako je například kód runtime umožňující spouštění kódu, konkrétní knihovny a nastavení.
 
 Můžete použít Kubernetes:
 

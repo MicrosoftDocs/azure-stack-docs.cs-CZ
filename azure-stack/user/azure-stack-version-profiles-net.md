@@ -3,7 +3,7 @@ title: Použití profilů verzí API s využitím .NET SDK ve službě Azure Sta
 description: Další informace o použití profilů verzí API s využitím .NET v Azure stacku.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,21 +13,21 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2019
-ms.author: mabrigg
+ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 1b81836c6262a73611ebfb2cc771ab74fd9f03fc
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.openlocfilehash: da93d2683805c6e9769a3d27a9e9ab3a4b998db5
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782731"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269373"
 ---
 # <a name="use-api-version-profiles-with-net-in-azure-stack"></a>Použití profilů verzí API s využitím .NET v Azure stacku
 
 *Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
 
-Sady .NET SDK pro Azure Resource Manageru zásobníku poskytuje nástroje, které vám pomůžou vytvářet a spravovat infrastrukturu. Poskytovatelé prostředků v sadě SDK patří výpočty, sítě, úložiště, aplikační služby, a [KeyVault](/azure/key-vault/key-vault-whatis). Sady .NET SDK zahrnuje 14 balíčky NuGet. Tyto balíčky je nutné stáhnout do svého řešení projekt pokaždé, když zahrnuje informace o profilu. Však můžete konkrétně stáhnout kterého zprostředkovatele prostředků budete používat pro 2018-03-01hybridní nebo 2017-03-09-profile k optimalizaci paměť pro vaši aplikaci. Každý balíček se skládá z poskytovatele prostředků, příslušné verze rozhraní API a rozhraní API profil, ke kterému patří. Profily rozhraní API v sadě .NET SDK umožňují vývoj pro hybridní cloudové prostředí tím, že můžete přepínat mezi globální prostředky Azure a prostředky ve službě Azure Stack pomáhá.
+Sady .NET SDK pro Azure Resource Manageru zásobníku poskytuje nástroje, které vám pomůžou vytvářet a spravovat infrastrukturu. Poskytovatelé prostředků v sadě SDK patří výpočty, sítě, úložiště, aplikační služby, a [KeyVault](/azure/key-vault/key-vault-whatis). Sady .NET SDK zahrnuje 14 balíčky NuGet. Tyto balíčky je nutné stáhnout do svého řešení projekt pokaždé, když zahrnuje informace o profilu. Však můžete konkrétně stáhnout kterého zprostředkovatele prostředků budete používat pro 2019-03-01hybridní nebo 2018-03-01hybridní k optimalizaci paměť pro vaši aplikaci. Každý balíček se skládá z poskytovatele prostředků, příslušné verze rozhraní API a rozhraní API profil, ke kterému patří. Profily rozhraní API v sadě .NET SDK umožňují vývoj pro hybridní cloudové prostředí tím, že můžete přepínat mezi globální prostředky Azure a prostředky ve službě Azure Stack pomáhá.
 
 ## <a name="net-and-api-version-profiles"></a>Profilů verzí rozhraní .NET a rozhraní API
 
@@ -35,11 +35,11 @@ Profil rozhraní API je kombinací poskytovatelů prostředků a verze rozhraní
 
 -   Chcete-li použít nejnovější verzí všech služeb, použijte **nejnovější** profilu balíčků. Tento profil je součástí **Microsoft.Azure.Management** balíček NuGet.
 
--   Chcete-li použít služby kompatibilní s Azure Stack, použijte **Microsoft.Azure.Management.Profiles.hybrid\_2018\_03\_01. *ResourceProvider*. 0.9.0-preview.nupkg** nebo **Microsoft.Azure.Management.Profiles.hybrid\_2017\_03\_09. *ResourceProvider*. 0.9.0-preview.nupkg** balíčky.
-
-    -   Dostupné jsou dva balíčky pro každý poskytovatel prostředků pro každý profil.
-
-    -   Ujistěte se, že **ResourceProvider** část výše uvedených balíčků NuGet se změní na poskytovateli správné.
+-   Použití služby kompatibilní s Azure Stack, použijte jednu z následujících balíčků:
+    - **Microsoft.Azure.Management.Profiles.hybrid\_2019\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg** 
+    - **Microsoft.Azure.Management.Profiles.hybrid\_2018\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg**
+    
+    Ujistěte se, že **ResourceProvider** část výše uvedených balíčků NuGet se změní na poskytovateli správné.
 
 -   Chcete-li používat nejnovější verzi rozhraní API služby, použijte **nejnovější** profil konkrétního balíčku NuGet. Například, pokud chcete použít **nejnovější verzi rozhraní API** verze výpočetní služby samostatně, použijte **nejnovější** profil **compute** balíčku. **Nejnovější** profilu je součástí **Microsoft.Azure.Management** balíček NuGet.
 
@@ -55,9 +55,9 @@ Můžete sloučit všechny možností ve stejné aplikaci.
 
 3.  Balíčky, které je potřeba nainstalovat závisí na verzi profilu, který chcete použít. Názvy balíčků pro profil verze jsou:
 
-    1.  **Microsoft.Azure.Management.Profiles.hybrid\_2018\_03\_01. *ResourceProvider*. 0.9.0-preview.nupkg**
+    1.  **Microsoft.Azure.Management.Profiles.hybrid\_2019\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg**
 
-    2.  **Microsoft.Azure.Management.Profiles.hybrid\_2017\_03\_09. *ResourceProvider*. 0.9.0-preview.nupkg**
+    2.  **Microsoft.Azure.Management.Profiles.hybrid\_2018\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg**
 
 4.  K instalaci správné balíčky NuGet pro Visual Studio Code, viz následující odkaz ke stažení [Pokyny pro správce balíčků NuGet][].
 
@@ -127,9 +127,9 @@ Ukázkový soubor JSON:
 
 ## <a name="existing-api-profiles"></a>Stávající profily rozhraní API
 
-1.  **Microsoft.Azure.Management.Profiles.hybrid\_2018\_03\_01.*ResourceProvider*.0.9.0-preview.nupkg**: Nejnovější profil vytvořené pro Azure Stack. Použijte tento profil služby bude nejvíc kompatibilní se systémem Azure Stack, dokud jsou na razítku. 1808 a další.
+1.  **Microsoft.Azure.Management.Profiles.hybrid\_2019\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg**: Nejnovější profil vytvořené pro Azure Stack. Použijte tento profil služby bude nejvíc kompatibilní se systémem Azure Stack, dokud jsou na razítku. 1808 a další.
 
-2.  **Microsoft.Azure.Management.Profiles.hybrid\_2017\_03\_09.*ResourceProvider*.0.9.0-preview.nupkg**: Pokud používáte nižší než sestavení. 1808 razítka, použijte tento profil.
+2.  **Microsoft.Azure.Management.Profiles.hybrid\_2018\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg**
 
 3.  **Nejnovější**: Profil, který se skládá z nejnovější verze všech služeb. Použijte nejnovější verze všech služeb. Tento profil je součástí **Microsoft.Azure.Management** balíček NuGet.
 
@@ -186,6 +186,7 @@ public static ActiveDirectoryServiceSettings getActiveDirectoryServiceSettings(s
     return settings;
 }
 ```
+
 To vám umožní používat balíčky NuGet rozhraní API profil nasadit vaše aplikace úspěšně do služby Azure Stack.
 
 ## <a name="samples-using-api-profiles"></a>Ukázky použití profilů rozhraní API
@@ -193,7 +194,7 @@ To vám umožní používat balíčky NuGet rozhraní API profil nasadit vaše a
 Následující ukázky můžete použít jako odkaz pro vytvoření řešení s využitím .NET a rozhraní API služby Azure Stack profily.
 - [Správa skupin prostředků](https://github.com/Azure-Samples/hybrid-resources-dotnet-manage-resource-group)
 - [Správa účtů úložiště](https://github.com/Azure-Samples/hybird-storage-dotnet-manage-storage-accounts)
-- [Správa virtuálního počítače](https://github.com/Azure-Samples/hybrid-compute-dotnet-manage-vm)
+- [Správa virtuálního počítače](https://github.com/Azure-Samples/hybrid-compute-dotnet-manage-vm) (Tento příklad používá profil 2019-03-01hybridní podporovaný službou Azure Stack)
 
 ## <a name="next-steps"></a>Další postup
 

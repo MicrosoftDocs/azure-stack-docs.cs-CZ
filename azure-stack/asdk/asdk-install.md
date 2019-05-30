@@ -3,7 +3,7 @@ title: Instalace sady Azure Stack Development Kit (ASDK) | Dokumentace Microsoft
 description: Popisuje postup instalace Azure Stack Development Kit (ASDK).
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/06/2019
-ms.author: mabrigg
+ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: c14b55379bfad08cbb604b8f27b45a125741a241
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 277b2e8c86cda65167a734d0e5775ec1748ef219
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617403"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66267645"
 ---
 # <a name="install-the-azure-stack-development-kit-asdk"></a>Instalace sady Azure Stack Development Kit (ASDK)
 Po [Příprava hostitelském počítači ASDK](asdk-prepare-host.md), je možné nasadit ASDK CloudBuilder.vhdx Image, pomocí následujících kroků v tomto článku.
@@ -73,7 +73,7 @@ Kroky v tomto článku ukazují, jak nasadit ASDK pomocí grafického uživatels
 
 8. Pokud provádíte nasazení služby Azure AD, budete vyzváni k zadání přihlašovacích údajů Azure AD globálního správce účtu pár minut po spuštění instalace.
 
-9. Proces nasazení potrvá několik hodin, během kterých hostitelský počítač automaticky restartuje jednou. Pokud chcete monitorovat průběh nasazení, přihlaste se jako azurestack\AzureStackAdmin po restartování hostitele development kit. Po úspěšném nasazení se zobrazí konzola Powershellu: **DOKONČENÍ: Akce "Nasazení"**. 
+9. Proces nasazení potrvá několik hodin, během kterých hostitelský počítač automaticky restartuje jednou. Pokud chcete monitorovat průběh nasazení, přihlaste se jako azurestack\AzureStackAdmin po restartování hostitele development kit. Po úspěšném nasazení se zobrazí konzola Powershellu: **DOKONČENÍ: Akce "Nasazení"** . 
     > [!IMPORTANT]
     > Pokud se přihlásíte jako místní správce poté, co je počítač připojen k doméně azurestack, zobrazí se průběh nasazení. Nelze znovu spustit nasazení, místo toho se přihlaste jako azurestack\AzureStackAdmin chcete ověřit, jestli je spuštěná.
 

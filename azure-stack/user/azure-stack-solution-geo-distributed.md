@@ -3,7 +3,7 @@ title: Vytvoření řešení geograficky distribuované aplikace s využitím Az
 description: Zjistěte, jak vytvořit řešení geograficky distribuované aplikace s využitím Azure a Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: bryanla
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/14/2019
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 81dfc9c7571bc191582425962d1e7b37c2ed05cd
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: eee89c90113187b51418801a46720f49e07fa533
+ms.sourcegitcommit: 261df5403ec01c3af5637a76d44bf030f9342410
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64304924"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66252119"
 ---
 # <a name="tutorial-create-a-geo-distributed-app-solution-with-azure-and-azure-stack"></a>Kurz: Vytvoření řešení geograficky distribuované aplikace s využitím Azure a Azure Stack
 
@@ -333,7 +333,7 @@ Po přidání záznamu CNAME bude stránka záznamů DNS vypadat jako v následu
 
 4. Dokončení této úlohy v kartě registrátora domény a odhlášením až **přidat název hostitele** se aktivuje tlačítko.
 
-5. Ujistěte se, že ** typ záznamu názvu hostitele je nastavena **CNAME (www.example.com nebo jakákoli subdoména)**.
+5. Ujistěte se, že ** typ záznamu názvu hostitele je nastavena **CNAME (www.example.com nebo jakákoli subdoména)** .
 
 6. Vyberte **Přidat název hostitele**.
 
@@ -343,7 +343,7 @@ Po přidání záznamu CNAME bude stránka záznamů DNS vypadat jako v následu
 
 9. **Přidat** aktivován.
 
-10. Ujistěte se, že ** typ záznamu názvu hostitele je nastavena **záznam A (www.example.com)**.
+10. Ujistěte se, že ** typ záznamu názvu hostitele je nastavena **záznam A (www.example.com)** .
 
 11. **Přidat název hostitele**.
 
@@ -409,7 +409,7 @@ Vytvořit vazbu vlastního certifikátu SSL do webové aplikace [plán služby A
 
 #### <a name="check-the-pricing-tier"></a>Kontrola cenové úrovně
 
-1.  V levém navigačním panelu na stránce webové aplikace, přejděte **nastavení** a vyberte **vertikálně navýšit kapacitu (plán služby App Service)**.
+1.  V levém navigačním panelu na stránce webové aplikace, přejděte **nastavení** a vyberte **vertikálně navýšit kapacitu (plán služby App Service)** .
 
     ![Nabídka Vertikálně navýšit kapacitu](media/azure-stack-solution-geo-distributed/image34.png)
 
@@ -492,7 +492,7 @@ Když služba IIS nebo **Certreq.exe** se používají ke generování požadavk
 
 5. Vyberte **Nahrát**.
 
-![Nahrání certifikátu](media/azure-stack-solution-geo-distributed/image38.png)
+![Nahrát certifikát](media/azure-stack-solution-geo-distributed/image38.png)
 
 Jakmile App Service dokončí nahrávání certifikátu, zobrazí se v **nastavení SSL** stránky.
 
@@ -507,7 +507,7 @@ Jakmile App Service dokončí nahrávání certifikátu, zobrazí se v **nastave
 
 1.  V **přidat vazbu SSL** stránky, použijte rozevírací nabídky vyberte název domény pro zabezpečení a certifikát, který chcete použít.
 
-2.  V **typ SSL**, vyberte, jestli se má použít [ **indikace názvu serveru (SNI)**](https://en.wikipedia.org/wiki/Server_Name_Indication)nebo založené na protokolu IP SSL.
+2.  V **typ SSL**, vyberte, jestli se má použít [ **indikace názvu serveru (SNI)** ](https://en.wikipedia.org/wiki/Server_Name_Indication)nebo založené na protokolu IP SSL.
 
 -   **Na základě SNI SSL**-lze přidat více SSL typu sni vazby. Tato možnost umožňuje zabezpečení několika domén na stejné IP adrese pomocí několika certifikátů SSL. Většina moderních prohlížečů (včetně prohlížečů Internet Explorer, Chrome, Firefox a Opera) podporuje SNI (ucelenější informace o podpoře prohlížečů najdete v článku o [Indikaci názvu serveru](https://wikipedia.org/wiki/Server_Name_Indication)).
 
@@ -540,13 +540,13 @@ V různých prohlížečích přejděte do https://<your.custom.domain>to Ujist�
 > [!Note]  
 > Pokud dojde k chybám ověření certifikátu, příčinou může být certifikát podepsaný svým držitelem nebo zprostředkující certifikáty byly ponechat při exportu do souboru PFX.
 
-#### <a name="enforce-https"></a>Vynucení HTTPS
+#### <a name="enforce-https"></a>Vynucení protokolu HTTPS
 
 Ve výchozím nastavení kdokoli může přístup k webové aplikaci pomocí HTTP. může přesměrovat všechny požadavky HTTP na HTTPS port.
 
 Na stránce webové aplikace, vyberte **SL nastavení**. Pak v části **Pouze HTTPS** vyberte **Zapnuto**.
 
-![Vynucení HTTPS](media/azure-stack-solution-geo-distributed/image43.png)
+![Vynucení protokolu HTTPS](media/azure-stack-solution-geo-distributed/image43.png)
 
 Po dokončení operace přejděte na jakoukoli adresu URL HTTP odkazující na aplikaci. Příklad:
 

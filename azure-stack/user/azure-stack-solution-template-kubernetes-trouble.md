@@ -14,12 +14,12 @@ ms.author: mabrigg
 ms.date: 04/02/2019
 ms.reviewer: waltero
 ms.lastreviewed: 03/20/2019
-ms.openlocfilehash: 0e02489bc9750183754b27887fa701d1dd1a8567
-ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
+ms.openlocfilehash: 33eed0b574ad28c5fc0d1fb44f1c9b5a1ad37bb7
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65712429"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269393"
 ---
 # <a name="troubleshoot-kubernetes-deployment-to-azure-stack"></a>Řešení potíží s nasazení Kubernetes pro Azure Stack
 
@@ -45,7 +45,7 @@ Následující diagram znázorňuje obecný postup nasazení clusteru.
 1. Shromažďování vstupních parametrů z položky marketplace.
 
     Zadejte hodnoty, budete muset nastavit Kubernetes cluster, včetně:
-    -  **Uživatelské jméno**: Uživatelské jméno pro virtuální počítače Linux, které jsou součástí clusteru Kubernetes a DVM.
+    -  **Uživatelské jméno**: Uživatelské jméno pro virtuální počítače Linux (VM), které jsou součástí clusteru Kubernetes a DVM.
     -  **Veřejný klíč SSH**: Klíč, který se používá pro autorizaci všechny počítače s Linuxem, které byly vytvořeny jako součást clusteru Kubernetes a DVM.
     -  **Instanční objekt služby**: Identifikátor, který se používá od poskytovatele cloudu Kubernetes Azure. ID klienta, který je identifikován jako ID aplikace při vytváření instančního objektu služby. 
     -  **Tajný kód klienta**: Klíč vytvořený při vytváření instančního objektu služby.
@@ -121,7 +121,7 @@ Při nasazování clusteru Kubernetes, můžete zkontrolovat stav nasazení zkon
 
 ## <a name="review-deployment-logs"></a>Zkontrolujte protokoly nasazení
 
-Pokud na portálu Azure Stack neposkytuje dostatek informací k řešení potíží nebo překonat selhání nasazení, dalším krokem je podívat do protokolů clusteru. Pokud chcete ručně načíst protokoly nasazení, je obvykle potřeba připojit k hlavní virtuálních počítačů clusteru. Jednodušší alternativním přístupem je stáhněte a spusťte následující příkaz [skriptu Bash](https://aka.ms/AzsK8sLogCollectorScript) poskytované týmem služby Azure Stack. Tento skript připojí ke clusteru virtuálních počítačů a DVM, shromažďuje relevantní systému a protokolů clusteru a stáhne je zpátky do pracovní stanice.
+Pokud na portálu Azure Stack neposkytuje dostatek informací k řešení potíží nebo překonat selhání nasazení, dalším krokem je podívat do protokolů clusteru. Pokud chcete ručně načíst protokoly nasazení, je obvykle potřeba připojit k jednomu z hlavních virtuálních počítačů clusteru. Jednodušší alternativním přístupem je stáhněte a spusťte následující příkaz [skriptu Bash](https://aka.ms/AzsK8sLogCollectorScript) poskytované týmem služby Azure Stack. Tento skript připojí ke clusteru virtuálních počítačů a DVM, shromažďuje relevantní systému a protokolů clusteru a stáhne je zpátky do pracovní stanice.
 
 ### <a name="prerequisites"></a>Požadavky
 

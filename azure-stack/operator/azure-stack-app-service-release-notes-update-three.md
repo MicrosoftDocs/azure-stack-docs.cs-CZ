@@ -3,8 +3,8 @@ title: Aktualizace 3 zpráva k vydání verze služby App Service ve službě Az
 description: Další informace o tom, co je v aktualizaci 3 pro službu App Service ve službě Azure Stack, známé problémy a kde se stáhnout aktualizaci.
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: bryanla
+manager: stefsch
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
@@ -12,17 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/25/2019
-ms.date: 04/29/2019
-ms.author: v-jay
-ms.reviewer: sethm
+ms.date: 03/25/2019
+ms.author: anwestg
+ms.reviewer: anwestg
 ms.lastreviewed: 08/20/2018
-ms.openlocfilehash: 5ea711d3d4ffff72279e745290c1c8d9d854298e
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 4397fbbc570972fb7a041f583d81115e28fe70ce
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64291064"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269106"
 ---
 # <a name="app-service-on-azure-stack-update-3-release-notes"></a>App Service v Azure stacku zpráva k vydání verze update 3
 
@@ -170,7 +169,7 @@ Pro zákazníky, kteří chtějí migrovat do databáze s omezením pro stávaj�
         GO
     ```
 
-Ověření
+Ověřit
 
 1. Zkontrolujte, jestli SQL Server má povolené členství ve skupině
 
@@ -188,9 +187,9 @@ Ověření
 - Pracovní procesy se nám kontaktovat souborového serveru při nasazení služby App Service v existující virtuální sítě a souborový server je k dispozici v privátní síti.  To se také nazývá ve službě Azure App Service v dokumentaci k nasazení Azure Stack.
 
 Pokud jste se rozhodli nasadit do existující virtuální sítě a interní IP adresu pro připojení k souborovému serveru, je nutné přidat odchozí pravidlo zabezpečení, povolení provozu SMB mezi podsítě pracovního procesu a souborový server. Chcete-li to provést, přejděte na WorkersNsg v portálu pro správu a přidat odchozí pravidlo zabezpečení s následujícími vlastnostmi:
- * Zdroj: Všechny
+ * Zdroj: Vše
  * Zdrojový rozsah portů: *
- * Cíl: IP adresy
+ * Cíl: Adresy IP
  * Rozsah cílových IP adres: Rozsah IP adres pro souborový server
  * Rozsah cílových portů: 445
  * Protokol: TCP

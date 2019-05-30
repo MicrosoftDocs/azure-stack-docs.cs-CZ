@@ -15,22 +15,22 @@ ms.date: 04/04/2019
 ms.author: mabrigg
 ms.lastreviewed: 04/04/2019
 ms.reviewer: justini
-ms.openlocfilehash: c0727ef3f55cba86bbb8c9953007256906852ccb
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 64ccb5ec0b24202aa847d5114ba35ae20af44cc8
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64984611"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66268031"
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Správa aktualizací v přehledu služby Azure Stack
 
 *Platí pro: Integrované systémy Azure Stack*
 
-Balíčky aktualizací Microsoftu pro Azure Stack integrované systémy obvykle release kolem čtvrtý úterý v měsíci. Výrobce vašeho (výrobcem OEM) požádejte o proces jejich konkrétní upozornění k zajištění oznámení o aktualizacích kontaktovat vaše organizace. Můžete zkontrolovat v této knihovně dokumentace v části **přehled** > **poznámky k verzi** informace o vydaných verzích, které jsou v aktivní technické podpory. 
+Balíčky aktualizací Microsoftu pro Azure Stack integrované systémy pro uvolnění obvykle každý měsíc. Výrobce vašeho (výrobcem OEM) požádejte o proces jejich konkrétní upozornění k zajištění oznámení o aktualizacích kontaktovat vaše organizace. Můžete zkontrolovat v této knihovně dokumentace v části **přehled** > **poznámky k verzi** informace o vydaných verzích, které jsou v aktivní technické podpory. 
 
-Každá verze aktualizace softwaru Microsoftu se dodává v sadě jako jednu aktualizaci balíčku. Jako operátory Azure stacku můžete importovat, instalace a sledování průběhu instalace těchto balíčků z portálu správce aktualizací. 
+Každá verze aktualizace softwaru Microsoftu se dodává v sadě jako jednu aktualizaci balíčku. Jako operátory Azure stacku můžete importovat, nainstalovat a sledovat průběh instalace balíčků aktualizací z portálu pro správu služby Azure Stack.
 
-Od dodavatele OEM také vydá aktualizace, jako je například aktualizace ovladače a firmware. Zatímco tyto aktualizace jsou dodávány jako samostatné balíčky podle dodavatele, že jsou importovat, nainstalované a spravovat stejným způsobem jako balíčky aktualizací od Microsoftu.
+Od dodavatele OEM také vydá aktualizace, jako je například aktualizace ovladače a firmware. Zatímco tyto aktualizace jsou dodávány jako samostatné balíčky podle dodavatele, některé jsou importovat, nainstalovat a spravovat stejným způsobem jako balíčky aktualizací od Microsoftu.
 
 Aby váš systém v rámci podpory, je nutné zachovat aktualizovat na úroveň konkrétní verzi služby Azure Stack. Ujistěte se, abyste se seznámili [Azure Stack zásady obsluhy](azure-stack-servicing-policy.md).
 
@@ -46,6 +46,8 @@ Jak nainstalovat aktualizace, můžete zobrazit informace na nejvyšší úrovni
 ## <a name="plan-for-updates"></a>Plán pro aktualizace
 
 Důrazně doporučujeme, upozornění uživatelů na jakékoli operace údržby a, abyste naplánovali normální správu a údržbu během mimo pracovní dobu Pokud je to možné. Operace údržby může ovlivnit úlohy klientů a operací na portálu.
+
+Při plánování pro okno údržby, je důležité zkontrolovat konkrétní typ balíčku aktualizací vydávat od Microsoftu, jak je uvedeno v příslušné poznámky. Kromě občasné oprav Hotfix, bude mít každý balíček aktualizace odpovídající typ **úplné** nebo **Express**. Úplnou aktualizaci balíčků bude aktualizovat operační systémy fyzického hostitele v jednotce škálování a bude vyžadovat větší časové období údržby. Rychlé aktualizace balíčků na druhé straně jsou omezená a neaktualizují základní operační systémy fyzického hostitele.
 
 - Před instalací této aktualizace, spusťte [testovací AzureStack](azure-stack-diagnostic-test.md) s následujícími parametry do ověřte stav služby Azure Stack a vyřešte všechny provozní problémy zjištěné, včetně všech upozornění a chyby. Také aktivní výstrahy můžete zkontrolovat a vyřešit všechny, které vyžadují nějakou akci.  
 

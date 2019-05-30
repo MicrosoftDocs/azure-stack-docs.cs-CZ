@@ -3,7 +3,7 @@ title: Nabízí vysoce dostupné databáze SQL ve službě Azure Stack | Dokumen
 description: Zjistěte, jak vytvořit hostitelský počítač a vysoce dostupné databáze SQL AlwaysOn poskytovatele prostředků SQL serveru pomocí služby Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
-ms.author: mabrigg
+ms.author: justinha
 ms.reviewer: quying
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: cf957fd69cf581d1ca63d1331f8ea407b24394ad
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: e21819fc6475161e63fcdb99a723847c5d7fbbad
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617759"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66268401"
 ---
 # <a name="tutorial-offer-highly-available-sql-databases"></a>Kurz: Nabízí vysoce dostupné databáze SQL
 
@@ -88,7 +88,7 @@ Postupujte podle kroků v této části nasadíte skupiny dostupnosti AlwaysOn s
     [![](media/azure-stack-tutorial-sqlrp/4-sm.PNG "Vytvoření vlastního nasazení")](media/azure-stack-tutorial-sqlrp/4-lg.PNG#lightbox)
 
 
-6. V portálu pro správu, vyberte **skupiny prostředků** a klikněte na název skupiny prostředků vytvořené pro vlastní nasazení (**; resource-group** v tomto příkladu). Zobrazte stav nasazení tak, aby Ujistěte se, že všechna nasazení byly úspěšně dokončeny.<br><br>Dále zkontrolujte položky skupiny prostředků a vyberte **SQLPIPsql\<název skupiny prostředků\>**  položky veřejné IP adresy. Zaznamenejte veřejné IP adresy a úplný plně kvalifikovaný název domény veřejné IP nástroje pro vyrovnávání zatížení. Je potřeba zadat operátor Azure stacku, aby mohli vytvářet hostitelského serveru SQL využití této skupiny dostupnosti SQL AlwaysOn.
+6. V portálu pro správu, vyberte **skupiny prostředků** a klikněte na název skupiny prostředků vytvořené pro vlastní nasazení ( **; resource-group** v tomto příkladu). Zobrazte stav nasazení tak, aby Ujistěte se, že všechna nasazení byly úspěšně dokončeny.<br><br>Dále zkontrolujte položky skupiny prostředků a vyberte **SQLPIPsql\<název skupiny prostředků\>**  položky veřejné IP adresy. Zaznamenejte veřejné IP adresy a úplný plně kvalifikovaný název domény veřejné IP nástroje pro vyrovnávání zatížení. Je potřeba zadat operátor Azure stacku, aby mohli vytvářet hostitelského serveru SQL využití této skupiny dostupnosti SQL AlwaysOn.
 
    > [!NOTE]
    > Nasazení šablony bude trvat několik hodin.

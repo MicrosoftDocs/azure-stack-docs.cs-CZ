@@ -3,7 +3,7 @@ title: Nejčastější dotazy souvisí s využitím rozhraní API | Dokumentace 
 description: Seznam měřiče služby Azure Stack, porovnání, které se využití Azure API, čas využití a hlásí čas kódy chyb.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2019
-ms.author: mabrigg
+ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 02/26/2019
-ms.openlocfilehash: 847aa1723413b098219ea68ed541ed33b0c3103d
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 52613c394d7a1caeef42a85f1dd4d5b645f5e8e4
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64984075"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66267945"
 ---
 # <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Nejčastější dotazy v rozhraní API pro využití služby Azure Stack
 
@@ -368,12 +368,12 @@ Využití hlášené pro následující poskytovatele prostředků:
 **ID měřiče**: 264ACB47-AD38-47F8-ADD3-47F01DC4F473  
 **Název měřiče**: SNI SSL  
 **Jednotka**: Per SNI SSL Binding  
-**Poznámky k**: App Service podporuje dva typy připojení SSL: Připojení SSL pomocí indikace (SNI) název Server a připojení SSL na IP adresy. Připojení SSL typu SNI funguje v moderních prohlížečích, připojení SSL na základě IP adresy lze pak použít ve všech.  
+**Poznámky k**: App Service podporuje dva typy připojení SSL: připojení SSL pomocí indikace názvu serveru (SNI) a připojení SSL pomocí IP adresy. Připojení SSL typu SNI funguje v moderních prohlížečích, připojení SSL na základě IP adresy lze pak použít ve všech.  
   
 **ID měřiče**: 60B42D72-DC1C-472C-9895-6C516277EDB4  
 **Název měřiče**: IP SSL  
 **Jednotka**: Na IP adresu, na základě vazby SSL  
-**Poznámky k**: App Service podporuje dva typy připojení SSL: Připojení SSL pomocí indikace (SNI) název Server a připojení SSL na IP adresy. Připojení SSL typu SNI funguje v moderních prohlížečích, připojení SSL na základě IP adresy lze pak použít ve všech.  
+**Poznámky k**: App Service podporuje dva typy připojení SSL: připojení SSL pomocí indikace názvu serveru (SNI) a připojení SSL pomocí IP adresy. Připojení SSL typu SNI funguje v moderních prohlížečích, připojení SSL na základě IP adresy lze pak použít ve všech.  
   
 **ID měřiče**: 73215A6C-FA54-4284-B9C1-7E8EC871CC5B  
 **Název měřiče**:  Webový proces  

@@ -3,8 +3,8 @@ title: App Service v Azure stacku update 1 poznámky k verzi | Dokumentace Micro
 description: Další informace o tom, co je v aktualizaci, jeden pro službu App Service ve službě Azure Stack, známé problémy a kde se stáhnout aktualizaci.
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digmobile
+author: bryanla
+manager: stefsch
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
@@ -12,17 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/25/2018
-ms.date: 04/29/2019
-ms.author: v-jay
-ms.reviewer: sethm
+ms.date: 03/25/2019
+ms.author: anwestg
+ms.reviewer: anwestg
 ms.lastreviewed: 03/20/2018
-ms.openlocfilehash: 86eb23e57516bc108557bbdc4f2d131153f5e855
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: b9b884377e35b43670943f4cf94a24b5216bf233
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64290525"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269110"
 ---
 # <a name="app-service-on-azure-stack-update-1-release-notes"></a>App Service v Azure stacku update 1 poznámky
 
@@ -206,9 +205,9 @@ Prohození slotů webu je v této verzi fungovat. Pokud chcete obnovit funkce, p
 
 Pokud jste se rozhodli nasadit do existující virtuální sítě a interní IP adresu pro připojení k souborovému serveru, je nutné přidat odchozí pravidlo zabezpečení, povolení provozu SMB mezi podsítě pracovního procesu a souborový server. Chcete-li to provést, přejděte na WorkersNsg v portálu pro správu a přidat odchozí pravidlo zabezpečení s následujícími vlastnostmi:
 
-- Zdroj: Všechny
+- Zdroj: Vše
 - Zdrojový rozsah portů: *
-- Cíl: IP adresy
+- Cíl: Adresy IP
 - Rozsah cílových IP adres: Rozsah IP adres pro souborový server
 - Rozsah cílových portů: 445
 - Protokol: TCP
@@ -224,5 +223,3 @@ Přečtěte si dokumentaci v [zpráva k vydání verze Azure Stack 1802](azure-s
 
 - Přehled služby Azure App Service najdete v tématu [Azure App Service na Přehled služby Azure Stack](azure-stack-app-service-overview.md).
 - Další informace o tom, jak připravit nasazení služby App Service ve službě Azure Stack najdete v tématu [před zahájením práce s App Service ve službě Azure Stack](azure-stack-app-service-before-you-get-started.md).
-
-<!-- Update_Description: wording update -->

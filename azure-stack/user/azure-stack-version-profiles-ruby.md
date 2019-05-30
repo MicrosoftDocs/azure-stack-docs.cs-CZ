@@ -3,7 +3,7 @@ title: Pomocí profilů verzí rozhraní API v Ruby ve službě Azure Stack | Do
 description: Další informace o použití profilů verzí API pomocí Ruby ve službě Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: B82E4979-FB78-4522-B9A1-84222D4F854B
@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2019
-ms.author: mabrigg
+ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 1bf4842746aa6a7bcdeedb41f58c267919cf1542
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.openlocfilehash: 625ddb8341b58c98e47b37701547de5d6acea45b
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782550"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269330"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack"></a>Použití profilů verzí API pomocí Ruby ve službě Azure Stack
 
@@ -34,7 +34,7 @@ Ruby SDK pro Azure Resource Manageru zásobníku poskytuje nástroje, které vá
 Profil rozhraní API je kombinací poskytovatelů prostředků a verze aktualizace service. Profil rozhraní API můžete kombinovat různé typy zdrojů.
 
 - Chcete-li používat nejnovější verze všech služeb, použijte **nejnovější** profilu gem kumulativní sadu Azure SDK.
-- Chcete-li použít služby kompatibilní s Azure Stack, použijte **V2018_03_01** profilu gem kumulativní sadu Azure SDK.
+- Chcete-li použít služby kompatibilní s Azure Stack, použijte **V2019_03_01_Hybrid** nebo **V2018_03_01** profilu gem kumulativní sadu Azure SDK.
 - Aby používal nejnovější **verze api-version** služby, použijte **nejnovější** profilu konkrétní gem. Například, pokud byste chtěli použít nejnovější **verze api-version** výpočetní služby samostatně, použijte **nejnovější** profil **Compute** gem.
 - Jak používat konkrétní **verze api-version** pro službu, pomocí konkrétní verze rozhraní API definované uvnitř gem.
 
@@ -73,7 +73,7 @@ Azure Resource Manageru Ruby SDK je ve verzi preview a budou mít nejnovější 
 
 ## <a name="use-the-azuresdk-gem"></a>Použijte nástroj gem azure_sdk
 
-Nástroj gem, **azure_sdk**, je souhrn všech podporovaných gems v Ruby SDK. Tento nástroj gem se skládá z **nejnovější** profil, který podporuje nejnovější verzi všech služeb. Zavádí dvě verze profilu **V2017_03_09** a **V2018_03_01** profilů, které jsou vytvořené pro Azure Stack.
+Nástroj gem, **azure_sdk**, je souhrn všech podporovaných gems v Ruby SDK. Tento nástroj gem se skládá z **nejnovější** profil, který podporuje nejnovější verzi všech služeb. Obsahuje systémovou správou verzí profilů **V2017_03_09** a **V2019_03_01_Hybrid**, které jsou vytvořené pro Azure Stack.
 
 Souhrn gem azure_sdk můžete nainstalovat pomocí následujícího příkazu:  
 
@@ -130,7 +130,7 @@ Chcete-li nastavit proměnné prostředí, v příkazovém řádku Windows, pou�
 
 Souhrn gem Azure_sdk má následující tři profily:
 
-1. **V2018_03_01** profilu vytvořené pro Azure Stack. Používáte tento profil pro využívat všechny nejnovější verze služby, které jsou k dispozici ve službě Azure Stack.
+1. **V2019_03_01_Hybrid** profilu vytvořené pro Azure Stack. Používáte tento profil pro využívat všechny nejnovější verze služby, které jsou k dispozici ve službě Azure Stack.
 2. **V2017_03_09**  
   Profil vytvořené pro Azure Stack. Použijte tento profil služby nejvíce kompatibilní s Azure Stack.
 3. **nejnovější**  
@@ -160,7 +160,7 @@ options = {
 }
 
 # Target profile built for Azure Stack
-client = Azure::Resources::Profiles::V2018_03_01::Mgmt::Client.new(options)
+client = Azure::Resources::Profiles::V2019_03_01_Hybrid::Mgmt::Client.new(options)
 ```
 
 Profil klienta můžete použít pro přístup k poskytovateli jednotlivých prostředků, jako jsou výpočty, úložiště a síť:
@@ -174,7 +174,7 @@ purchase_plan_obj = profile_client.compute.model_classes.purchase_plan.new
 
 # Option 2: To access the models associated with Compute
 # Notice Namespace: Azure::Profiles::<Profile Name>::<Service Name>::Mgmt::Models::<Model Name>
-purchase_plan_obj = Azure::Profiles::V2018_03_01::Compute::Mgmt::Models::PurchasePlan.new
+purchase_plan_obj = Azure::Profiles::V2019_03_01_Hybrid::Compute::Mgmt::Models::PurchasePlan.new
 ```
 
 ## <a name="define-azure-stack-environment-setting-functions"></a>Definování funkcí, nastavení prostředí Azure Stack
@@ -204,7 +204,7 @@ end
 Můžete použít následující ukázek, které najdete na Githubu jako reference pro vytváření řešení pomocí Ruby a rozhraní API služby Azure Stack profilů:
 
 - [Správa prostředků a skupin prostředků Azure v Ruby](https://github.com/Azure-Samples/Hybrid-Resource-Manager-Ruby-Resources-And-Groups)
-- [Správa virtuálních počítačů pomocí Ruby](https://github.com/Azure-Samples/Hybrid-Compute-Ruby-Manage-VM)
+- [Správa virtuálních počítačů pomocí Ruby](https://github.com/Azure-Samples/Hybrid-Compute-Ruby-Manage-VM) (ukázka, která používá profil 2019-03-01hybridní cílit na nejnovější verze rozhraní API podporované systémem Azure Stack).
 - [Nasazení SSH povolené virtuální počítač pomocí šablony v Ruby](https://github.com/Azure-Samples/Hybrid-Resource-Manager-Ruby-Template-Deployment)
 
 ### <a name="sample-resource-manager-and-groups"></a>Ukázka Resource Manageru a skupiny
@@ -271,10 +271,10 @@ Ke spuštění ukázky, ujistěte se, že máte nainstalované Ruby. Pokud použ
 7. Vytvoření profilu klienta, který cílí na profil Azure Stack:
 
    ```ruby  
-   client = Azure::Resources::Profiles::V2018_03_01::Mgmt::Client.new(options)
+   client = Azure::Resources::Profiles::V2019_03_01_Hybrid::Mgmt::Client.new(options)
    ```
 
-8. K ověření objektu služby Azure Stack, musí být definován koncové body pomocí **get_active_directory_settings()**. Tato metoda používá **ARM_Endpoint** proměnné prostředí, které jste nastavili při vytváření vaší proměnné prostředí:
+8. K ověření objektu služby Azure Stack, musí být definován koncové body pomocí **get_active_directory_settings()** . Tato metoda používá **ARM_Endpoint** proměnné prostředí, které jste nastavili při vytváření vaší proměnné prostředí:
 
    ```ruby  
    def get_active_directory_settings(armEndpoint)

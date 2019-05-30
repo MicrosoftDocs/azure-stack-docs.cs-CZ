@@ -1,6 +1,6 @@
 ---
 title: Velikosti virtuálních počítačů, které jsou podporované ve službě Azure Stack | Dokumentace Microsoftu
-description: Referenční informace pro velikosti podporovaných virtuálních počítačů ve službě Azure Stack.
+description: Referenční informace pro podporované velikosti virtuálních počítačů ve službě Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,29 +14,29 @@ ms.date: 04/02/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: ab8c6c32a21afffd590a6f98359e051c7208b6ec
-ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
+ms.openlocfilehash: a7ec54d88a259b883f72c2396ab572118ba96a23
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65712267"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269447"
 ---
-# <a name="virtual-machine-sizes-supported-in-azure-stack"></a>Velikosti virtuálních počítačů, které jsou podporované ve službě Azure Stack
+# <a name="vm-sizes-supported-in-azure-stack"></a>Velikosti virtuálních počítačů, které jsou podporované ve službě Azure Stack
 
 *Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
 
-Tento článek obsahuje seznam velikostí virtuálních počítačů, které jsou k dispozici ve službě Azure Stack.
+Tento článek obsahuje seznam velikostí virtuálních počítačů (VM), které jsou k dispozici ve službě Azure Stack.
 
-Disk IOPS (vstupně-výstupní operace za sekundu) ve službě Azure Stack je funkce velikost virtuálního počítače (VM) místo typu disku. To znamená, že Standard_Fs řady virtuálních počítačů, bez ohledu na to, zda zvolíte SSD nebo pevný disk pro typ disku je limit vstupně-výstupních operací pro jeden další datový disk 2300 vstupně-výstupních operací. Omezení vstupně-výstupních operací je limit (maximální možná) Chcete-li zabránit "hlučným sousedům". Se nedá jistotou, vstupně-výstupních operací, který se zobrazí na konkrétní velikosti virtuálního počítače.
+Disk IOPS (vstupně-výstupní operace za sekundu) ve službě Azure Stack je funkce velikost virtuálního počítače místo typu disku. To znamená, že Standard_Fs řady virtuálních počítačů, bez ohledu na to, zda zvolíte SSD nebo pevný disk pro typ disku je limit vstupně-výstupních operací pro jeden další datový disk 2300 vstupně-výstupních operací. Omezení vstupně-výstupních operací je limit (maximální možná) Chcete-li zabránit "hlučným sousedům". Není záruku vstupně-výstupních operací, které získáte na konkrétní velikosti virtuálního počítače.
 
-## <a name="virtual-machine-general-purpose"></a>Virtuální počítač pro obecné účely
+## <a name="vm-general-purpose"></a>Virtuální počítač pro obecné účely
 
-Pro obecné účely velikosti virtuálních počítačů nabízejí vyvážený poměr procesorů k paměti. Používají se pro testování a vývoj, malé až střední databáze a s nízkým a středním provozem webových serverů. Každý datový disk je 2300 vstupně-výstupních operací pro velikosti virtuálních počítačů úrovně premium, s výjimkou základní A series. Velikost datového disku pro základní A je 500 IOPS.
+Pro obecné účely velikosti virtuálních počítačů nabízejí vyvážený poměr procesorů k paměti. Slouží pro testování a vývoj, malé až střední databáze a s nízkým a středním provozem webových serverů. Každý datový disk je 2300 vstupně-výstupních operací pro velikosti virtuálních počítačů úrovně premium, s výjimkou základní A series. Velikost datového disku pro základní A je 500 IOPS.
 
 ### <a name="basic-a"></a>Basic A
 
 > [!NOTE]
-> *Základní A* velikostí virtuálních počítačů byly ukončeny pro [vytvoření škálovací sady virtuálních počítačů](../operator/azure-stack-compute-add-scalesets.md) (VMSS) prostřednictvím portálu. Pokud chcete vytvořit VMSS se tato velikost, pomocí Powershellu nebo šablony.
+> *Základní A* velikosti virtuálních počítačů byly ukončeny pro [vytvoření škálovací sady virtuálních počítačů](../operator/azure-stack-compute-add-scalesets.md) (VMSS) prostřednictvím portálu. Pokud chcete vytvořit VMSS se tato velikost, pomocí Powershellu nebo šablony.
 
 |Velikost – velikost\název |Virtuální procesory     |Memory (Paměť) | Max. velikost dočasného disku | Operační systém maximální propustnost disku: (IOPS) | Maximální propustnost dočasného úložiště (IOPS) | Maximální propustnost datového disku (IOPS) | Maximální počet síťových karet |    
 |-----------------|-----|---------|---------|-----|------|-----------|----|
@@ -185,4 +185,4 @@ Paměť optimalizované velikosti virtuálních počítačů poskytuje vysokou p
 
 ## <a name="next-steps"></a>Další postup
 
-[Důležité informace týkající se virtuálních počítačů v Azure stacku](azure-stack-vm-considerations.md)
+[Funkce Azure Stack virtuálního počítače](azure-stack-vm-considerations.md)

@@ -3,7 +3,7 @@ title: Před nasazením služby App Service ve službě Azure Stack | Dokumentac
 description: Kroky k dokončení před nasazením služby App Service ve službě Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: BryanLa
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 05/28/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: 9b9e624abb23ef5c1bd0ae80e2338fdc0b1469ab
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: bb9d49c7feebc03f0f2f5bbaca084e9141f601e9
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618271"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269198"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Před zahájením práce s App Service ve službě Azure Stack
 
@@ -30,7 +30,7 @@ ms.locfileid: "65618271"
 Před nasazením služby Azure App Service ve službě Azure Stack, musíte dokončit požadované kroky uvedené v tomto článku.
 
 > [!IMPORTANT]
-> Aktualizace 1901 do služby Azure Stack integrované systému nebo nasadit nejnovější Azure Stack Development Kit (ASDK) před nasazením Azure App Service 1.5.
+> Aktualizace 1904 do služby Azure Stack integrované systému nebo nasadit nejnovější Azure Stack Development Kit (ASDK) před nasazením Azure App Service 1.6.
 
 ## <a name="download-the-installer-and-helper-scripts"></a>Stáhněte si instalační program a pomocné skripty
 
@@ -196,6 +196,9 @@ A [šablonu pro rychlý start referenční architektury](https://github.com/Azur
 >[!IMPORTANT]
 > Pokud budete chtít nasadit službu App Service v existující virtuální síť, souborový Server musí být nasazené do samostatné podsítě ze služby App Service.
 
+>[!NOTE]
+> Pokud jste se rozhodli nasadit souborový server s některou z výše uvedené šablony pro rychlý start, můžete tuto část přeskočit jako soubor, který servery jsou nakonfigurované jako součást nasazení šablony.
+
 #### <a name="provision-groups-and-accounts-in-active-directory"></a>Zřízení skupin a účtů ve službě Active Directory
 
 1. Vytvořte následující skupiny globálního zabezpečení služby Active Directory:
@@ -296,6 +299,9 @@ icacls %WEBSITES_FOLDER% /grant *S-1-1-0:(OI)(CI)(IO)(RA,REA,RD)
 
 ## <a name="prepare-the-sql-server-instance"></a>Připravit instanci systému SQL Server
 
+>[!NOTE]
+> Pokud jste se rozhodli nasadit šablonu pro rychlý start pro vysoce dostupný souborový Server a SQL Server můžete tuto část přeskočit, jako šablona nasadí a nakonfiguruje se SQL Server v konfiguraci s vysokou DOSTUPNOSTÍ.
+
 Pro Azure App Service v Azure stacku hostování a monitorování míry využití databáze musíte připravit instanci SQL serveru pro uchování databáze služby App Service.
 
 Pro nasazení Azure Stack Development Kit, můžete použít SQL serveru Express 2014 SP2 nebo novější.
@@ -306,7 +312,7 @@ Instanci systému SQL Server pro službu Azure App Service ve službě Azure Sta
 
 > [!NOTE]
 > Počet imagí virtuálních počítačů SQL IaaS jsou dostupné prostřednictvím funkce pro správu webu Marketplace. Ujistěte se, že můžete kdykoli stáhnout nejnovější verzi rozšíření SQL IaaS, před nasazením virtuálního počítače pomocí položky Marketplace. Image s SQL serverem jsou stejné jako virtuální počítače SQL, které jsou dostupné v Azure. Pro virtuální počítače vytvořené z těchto imagí rozšíření IaaS a odpovídající portálu vylepšení SQL poskytují funkce, jako jsou automatické opravy a zálohování.
-> 
+>
 > Pro všechny role systému SQL Server můžete použít výchozí instance nebo pojmenované instance. Pokud používáte pojmenovanou instanci, je potřeba ručně spusťte službu SQL Server Browser a otevřete port 1434.
 
 Instalační program služby App Service zkontroluje, ujistěte se, že systém SQL Server má povolené členství ve skupině databází. Pokud chcete povolit omezení databáze na SQL serveru, který bude hostitelem databáze služby App Service, spusťte tyto příkazy SQL:

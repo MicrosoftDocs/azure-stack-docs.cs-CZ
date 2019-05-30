@@ -3,7 +3,7 @@ title: Zpřístupnění databáze SQL pro vaše uživatele Azure stacku | Dokume
 description: Kurz k instalaci poskytovatele prostředků SQL serveru a vytvořte nabízí, která umožní uživatelům Azure stacku vytvářet databáze SQL.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/12/2019
-ms.author: mabrigg
+ms.author: justinha
 ms.reviewer: quying
 ms.lastreviewed: 11/05/2018
 ms.custom: mvc
-ms.openlocfilehash: e65bebf5b6126455ef1294fabeb1450f91689d5d
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: cc3af256adbcea8e6055b237945dc2286762437e
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618385"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66267995"
 ---
 # <a name="tutorial-make-sql-databases-available-to-your-azure-stack-users"></a>Kurz: zpřístupnění databáze SQL pro vaše uživatele Azure stacku
 

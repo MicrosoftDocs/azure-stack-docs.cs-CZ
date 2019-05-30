@@ -3,7 +3,7 @@ title: Nasazení Azure Stack – PowerShell | Dokumentace Microsoftu
 description: V tomto článku nainstalujete ASDK z příkazového řádku pomocí prostředí PowerShell.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.custom: ''
 ms.date: 05/06/2019
-ms.author: mabrigg
+ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 05a3d0a88f4852395942d58ac798d2eb06a1d766
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 4a32631441760db715443b8979e2769b55258fcf
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617556"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66267158"
 ---
 # <a name="deploy-the-asdk-from-the-command-line"></a>Nasazení ASDK z příkazového řádku
 ASDK je vývoj a testování prostředí, které můžete nasadit k vyhodnocení a k předvedení funkcí služby Azure Stack a služeb. K jeho získání pracovat, musíte připravit prostředí hardwaru a spustit některé skripty (bude to trvat i několik hodin). Potom můžete přihlásit na portály správce a uživatele chcete začít používat Azure Stack.
@@ -106,7 +106,7 @@ K nasazení vývojové sady **pomocí služby AD FS jako zprostředkovatele iden
 
 V nasazení služby AD FS výchozí razítko adresářové služby se používá jako zprostředkovatele identity. Je výchozí účet pro přihlášení pomocí azurestackadmin@azurestack.local, a heslo se nastaví na zadaný jako součást instalace příkazy prostředí PowerShell.
 
-Proces nasazení může trvat několik hodin, během kterých systém automaticky restartuje jednou. Po úspěšném nasazení se zobrazí konzola Powershellu: **DOKONČENÍ: Akce "Nasazení"**. Pokud se nasazení nezdaří, můžete zkusit spuštění skriptu znovu pomocí parametru-opětovného spuštění. Nebo můžete [znovu nasadit ASDK](asdk-redeploy.md) úplně od začátku.
+Proces nasazení může trvat několik hodin, během kterých systém automaticky restartuje jednou. Po úspěšném nasazení se zobrazí konzola Powershellu: **DOKONČENÍ: Akce "Nasazení"** . Pokud se nasazení nezdaří, můžete zkusit spuštění skriptu znovu pomocí parametru-opětovného spuštění. Nebo můžete [znovu nasadit ASDK](asdk-redeploy.md) úplně od začátku.
 
 > [!IMPORTANT]
 > Pokud chcete monitorovat průběh nasazení po restartování hostitele ASDK, musíte se přihlásit jako AzureStack\AzureStackAdmin. Pokud se přihlásíte jako místní správce poté, co hostitelského počítače restartovat (a připojený k doméně azurestack.local), zobrazí se průběh nasazení. Nelze znovu spustit nasazení, místo toho jako AzureStack\AzureStackAdmin se přihlášení pomocí stejné heslo jako místní správce ověřit, jestli je spuštěná instalace.

@@ -3,7 +3,7 @@ title: Úvod k Azure Stack Development Kit (ASDK) | Dokumentace Microsoftu
 description: Popisuje, co je ASDK a běžné případy použití za vaše rozhodnutí vyzkoušet Microsoft Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
 ms.date: 02/08/2019
-ms.author: mabrigg
+ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 08f5d51eb4ded47d1e52ec53d4c75903d13c8815
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 0c6019fd07b21bf82d32bc516a05c5d491041783
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617673"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66267233"
 ---
 # <a name="what-is-the-azure-stack-development-kit"></a>Co je Azure Stack Development Kit?
 [Microsoft Azure Stack integrované systémy](../operator/azure-stack-overview.md) rozsah od 4 až 16 uzlů a společně podporuje hardwarových partnerů a Microsoft. Použijte integrované systémy Azure Stack umožňuje nové scénáře pro vaše produkční úlohy. Pokud je pro vás, operátorovi služby Azure Stack, který spravuje integrovaných systémů infrastruktury a nabízí služby, přečtěte si naše [dokumentace operátora k](/azure-stack/operator).

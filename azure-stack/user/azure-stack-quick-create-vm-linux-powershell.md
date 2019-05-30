@@ -15,18 +15,18 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.custom: mvc
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 55f1395d66262b268b9107f196528270c1546bba
-ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
+ms.openlocfilehash: 4e60b2f2df2aae9cf27bdec41c6492ad3ff04fb3
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65712287"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269591"
 ---
-# <a name="quickstart-create-a-linux-server-virtual-machine-using-powershell-in-azure-stack"></a>Rychlý start: Vytvoření serveru virtuálního počítače s Linuxem pomocí Powershellu ve službě Azure Stack
+# <a name="quickstart-create-a-linux-server-vm-using-powershell-in-azure-stack"></a>Rychlý start: Vytvoření virtuálního počítače s Linuxem serverem pomocí Powershellu ve službě Azure Stack
 
 *Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
 
-Můžete vytvořit virtuální počítače s Ubuntu Server 16.04 LTS pomocí Azure Stack Powershellu. Postupujte podle kroků v tomto článku, jak vytvořit a používat virtuální počítač.  Tento článek také obsahuje postup:
+Virtuálního počítače s Ubuntu Server 16.04 LTS (VM) můžete vytvořit pomocí Azure Stack Powershellu. Postupujte podle kroků v tomto článku vytváření a používání virtuálního počítače.  Tento článek také obsahuje postup:
 
 * Připojení k virtuálnímu počítači pomocí vzdáleného klienta.
 * Nainstalovat webový server NGINX a zobrazit výchozí domovskou stránku.
@@ -137,9 +137,9 @@ $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $ResourceGroupName -Lo
 -Name $nsgName -SecurityRules $nsgRuleSSH,$nsgRuleWeb
 ```
 
-### <a name="create-a-network-card-for-the-virtual-machine"></a>Vytvoření síťové karty pro virtuální počítač
+### <a name="create-a-network-card-for-the-vm"></a>Vytvoření síťové karty virtuálního počítače
 
-Síťová karta připojuje virtuální počítač k podsíti, skupině zabezpečení sítě a veřejné IP adrese.
+Síťová karta připojuje virtuální počítač k podsíti, skupině zabezpečení sítě a veřejnou IP adresu.
 
 ```powershell
 # Create a virtual network card and associate it with public IP address and NSG
@@ -152,7 +152,7 @@ $nic = New-AzureRmNetworkInterface `
   -NetworkSecurityGroupId $nsg.Id
 ```
 
-## <a name="create-a-virtual-machine"></a>Vytvořit virtuální počítač
+## <a name="create-a-vm"></a>Vytvoření virtuálního počítače
 
 Vytvořte konfiguraci virtuálního počítače. Tato konfigurace zahrnuje nastavení používané při nasazení virtuálního počítače. Příklad: přihlašovací údaje uživatele, velikost a image virtuálního počítače.
 
@@ -162,7 +162,7 @@ $UserName='demouser'
 $securePassword = ConvertTo-SecureString ' ' -AsPlainText -Force
 $cred = New-Object System.Management.Automation.PSCredential ($UserName, $securePassword)
 
-# Create the virtual machine configuration object
+# Create the VM configuration object
 $VmName = "VirtualMachinelatest"
 $VmSize = "Standard_D1"
 $VirtualMachine = New-AzureRmVMConfig `
@@ -182,7 +182,7 @@ $VirtualMachine = Set-AzureRmVMSourceImage `
   -Skus "16.04-LTS" `
   -Version "latest"
 
-# Sets the operating system disk properties on a virtual machine.
+# Sets the operating system disk properties on a VM.
 $VirtualMachine = Set-AzureRmVMOSDisk `
   -VM $VirtualMachine `
   -CreateOption FromImage | `
@@ -194,19 +194,19 @@ $VirtualMachine = Set-AzureRmVMOSDisk `
 # Configure SSH Keys
 $sshPublicKey = Get-Content "$env:USERPROFILE\.ssh\id_rsa.pub"
 
-# Adds the SSH Key to the virtual machine
+# Adds the SSH Key to the VM
 Add-AzureRmVMSshPublicKey -VM $VirtualMachine `
  -KeyData $sshPublicKey `
  -Path "/home/azureuser/.ssh/authorized_keys"
 
-# Create the virtual machine.
+# Create the VM.
 New-AzureRmVM `
   -ResourceGroupName $ResourceGroupName `
  -Location $location `
   -VM $VirtualMachine
 ```
 
-## <a name="quick-create-virtual-machine---full-script"></a>Rychlé vytvoření virtuálního počítače – úplná skript
+## <a name="quick-create-vm---full-script"></a>Příkaz pro rychlé vytvoření virtuálního počítače – úplná skript
 
 > [!NOTE]
 > Toto je v podstatě výše uvedený kód sloučení dohromady, ale s heslem namísto klíče SSH pro ověřování.
@@ -233,7 +233,7 @@ $nsgName = "myNetworkSecurityGroup"
 $nsgRuleSSHName = "myNetworkSecurityGroupRuleSSH"
 $nsgRuleWebName = "myNetworkSecurityGroupRuleWeb"
 
-# Create variable for virtual machine password
+# Create variable for VM password
 $VMPassword = 'Password123!'
 
 # End of Variables - no need to edit anything past that point to deploy a single VM
@@ -258,7 +258,7 @@ Set-AzureRmCurrentStorageAccount `
   -StorageAccountName $storageAccountName `
   -ResourceGroupName $resourceGroupName
 
-# Create a storage container to store the virtual machine image
+# Create a storage container to store the VM image
 $containerName = 'osdisks'
 $container = New-AzureStorageContainer `
   -Name $containerName `
@@ -267,7 +267,7 @@ $container = New-AzureStorageContainer `
 
 ## Create networking resources
 
-# Create a virtual network, subnet, and a public IP address. These resources are used to provide network connectivity to the virtual machine.
+# Create a virtual network, subnet, and a public IP address. These resources are used to provide network connectivity to the VM.
 
 # Create a subnet configuration
 $subnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
@@ -294,7 +294,7 @@ $pip = New-AzureRmPublicIpAddress `
 ### Create a network security group and a network security group rule
 
 <#
-The network security group secures the virtual machine by using inbound and outbound rules. Create an inbound rule for port 3389 to allow incoming Remote Desktop connections and an inbound rule for port 80 to allow incoming web traffic.
+The network security group secures the VM by using inbound and outbound rules. Create an inbound rule for port 3389 to allow incoming Remote Desktop connections and an inbound rule for port 80 to allow incoming web traffic.
 #>
 
 # Create an inbound network security group rule for port 22
@@ -311,9 +311,9 @@ $nsgRuleWeb = New-AzureRmNetworkSecurityRuleConfig -Name $nsgRuleWebName -Protoc
 $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $ResourceGroupName -Location $location `
 -Name $nsgName -SecurityRules $nsgRuleSSH,$nsgRuleWeb
 
-### Create a network card for the virtual machine
+### Create a network card for the VM
 
-# The network card connects the virtual machine to a subnet, network security group, and public IP address.
+# The network card connects the VM to a subnet, network security group, and public IP address.
 
 # Create a virtual network card and associate it with public IP address and NSG
 $nic = New-AzureRmNetworkInterface `
@@ -324,9 +324,9 @@ $nic = New-AzureRmNetworkInterface `
   -PublicIpAddressId $pip.Id `
   -NetworkSecurityGroupId $nsg.Id
 
-## Create a virtual machine
+## Create a VM
 <#
-Create a virtual machine configuration. This configuration includes the settings used when deploying the virtual machine. For example: user credentials, size, and the virtual machine image.
+Create a VM configuration. This configuration includes the settings used when deploying the VM. For example: user credentials, size, and the VM image.
 #>
 
 # Define a credential object.
@@ -334,7 +334,7 @@ $UserName='demouser'
 $securePassword = ConvertTo-SecureString $VMPassword -AsPlainText -Force
 $cred = New-Object System.Management.Automation.PSCredential ($UserName, $securePassword)
 
-# Create the virtual machine configuration object
+# Create the VM configuration object
 $VmName = "VirtualMachinelatest"
 $VmSize = "Standard_D1"
 $VirtualMachine = New-AzureRmVMConfig `
@@ -360,7 +360,7 @@ $osDiskUri = '{0}vhds/{1}-{2}.vhd' -f `
   $vmName.ToLower(), `
   $osDiskName
 
-# Sets the operating system disk properties on a virtual machine.
+# Sets the operating system disk properties on a VM.
 $VirtualMachine = Set-AzureRmVMOSDisk `
   -VM $VirtualMachine `
   -Name $osDiskName `
@@ -368,14 +368,14 @@ $VirtualMachine = Set-AzureRmVMOSDisk `
   -CreateOption FromImage | `
   Add-AzureRmVMNetworkInterface -Id $nic.Id
 
-# Create the virtual machine.
+# Create the VM.
 New-AzureRmVM `
   -ResourceGroupName $ResourceGroupName `
  -Location $location `
   -VM $VirtualMachine
 ```
 
-## <a name="connect-to-the-virtual-machine"></a>Připojení k virtuálnímu počítači
+## <a name="connect-to-the-vm"></a>Připojení k virtuálnímu počítači
 
 Po nasazení virtuálního počítače, nakonfigurujte připojení SSH pro virtuální počítač. Použití [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) příkazu získejte veřejnou IP adresu virtuálního počítače.
 
@@ -407,7 +407,7 @@ apt-get -y install nginx
 
 ## <a name="view-the-nginx-welcome-page"></a>Zobrazení úvodní stránky serveru NGINX
 
-NGINX nainstalovaný a port 80 otevřený ve vašem virtuálním počítači můžete přístup k webovému serveru pomocí veřejné IP adresy virtuálního počítače. Otevřete webový prohlížeč a přejděte na ```http://<public IP address>```.
+NGINX nainstalovaný a port 80, otevřete na svém virtuálním počítači můžete přístup k webovému serveru pomocí veřejné IP adresy Virtuálního počítače. Otevřete webový prohlížeč a přejděte na ```http://<public IP address>```.
 
 ![Úvodní stránku serveru NGINX webového serveru](./media/azure-stack-quick-create-vm-linux-cli/nginx.png)
 
@@ -421,4 +421,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 ## <a name="next-steps"></a>Další postup
 
-V tomto rychlém startu jste nasadili základní virtuální počítač serveru Linux. Další informace o virtuálních počítačích Azure Stack, přejděte na [důležité informace týkající se virtuálních počítačů ve službě Azure Stack](azure-stack-vm-considerations.md).
+V tomto rychlém startu jste nasadili server základní Linux virtuálního počítače. Další informace o virtuálních počítačích Azure Stack, přejděte na [funkce virtuálních počítačů Azure Stack](azure-stack-vm-considerations.md).

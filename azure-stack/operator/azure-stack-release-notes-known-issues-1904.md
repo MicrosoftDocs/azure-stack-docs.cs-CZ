@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/22/2019
+ms.date: 05/28/2019
 ms.author: sethm
 ms.reviewer: hectorl
-ms.lastreviewed: 05/22/2019
-ms.openlocfilehash: bd7262e5c298715f846e1d8372d76b6f44f22972
-ms.sourcegitcommit: 715a2688a11fae2555dac8371631430f7ecb1c0f
-ms.translationtype: MT
+ms.lastreviewed: 05/28/2019
+ms.openlocfilehash: 9ebbdb19335db4f0c31d68c726f7b8c211d0f2e2
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66186528"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66268336"
 ---
 # <a name="azure-stack-1904-known-issues"></a>Azure Stack 1904 známé problémy
 
@@ -60,6 +60,13 @@ V tomto článku najdete seznam známých problémů v 1904 verzi služby Azure 
 - Náprava: Použití [Powershellu mohl ověřit oprávnění](/powershell/module/azurerm.resources/get-azurermroleassignment).
 - Výskyt: Obecné
 
+
+### <a name="docker-extension"></a>Rozšíření docker
+- Použít: Tento problém se vztahuje na všechny podporované verze.
+- Příčina: Na portálech pro správce i uživatele Pokud dáte vyhledat "Docker", položka je nesprávně vrátila. Není k dispozici ve službě Azure Stack. Pokud se pokusíte k jeho vytvoření, zobrazí se okno s uvedením chyby.
+- Náprava: Žádné zmírňující opatření.
+- Výskyt: Obecné
+
 ### <a name="marketplace-management"></a>Správa webu Marketplace
 
 - Použít: Jedná se o nový problém s verzí 1904.
@@ -80,6 +87,13 @@ V tomto článku najdete seznam známých problémů v 1904 verzi služby Azure 
 - Příčina: Při filtrování výsledků v Marketplace správu na portálu pro správce, zobrazí se duplicitní vydavatele názvy vydavatele rozevíracího seznamu. 
 - Náprava: Vyberte všechny duplicitní položky mít správný seznam všech produktů Marketplace, které jsou k dispozici v rámci daného vydavatele.
 - Výskyt: Občasně
+
+### <a name="docker-extension"></a>Rozšíření docker
+
+- Použít: Tento problém se vztahuje na všechny podporované verze.
+- Příčina: Na portálech správce i uživatele, pokud budete hledat **Docker**, položky se nesprávně vrátí. Není k dispozici ve službě Azure Stack. Pokud se pokusíte k jeho vytvoření, zobrazí se chyba.
+- Náprava: Žádné zmírňující opatření.
+- Výskyt: Obecné
 
 ### <a name="upload-blob"></a>Nahrát objekt blob
 
@@ -125,7 +139,7 @@ V tomto článku najdete seznam známých problémů v 1904 verzi služby Azure 
 ### <a name="vm-boot-diagnostics"></a>Diagnostika spouštění virtuálních počítačů
 
 - Použít: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: Při vytváření virtuálního počítače pro nové Windows (VM), může se zobrazit následující chyba: **Nepovedlo se spustit virtuální počítač 'název_virtuálního_počítače'. Chyba: Nepovedlo se aktualizovat nastavení sériového portu výstup pro virtuální počítač 'název_virtuálního_počítače'**.
+- Příčina: Při vytváření virtuálního počítače pro nové Windows (VM), může se zobrazit následující chyba: **Nepovedlo se spustit virtuální počítač 'název_virtuálního_počítače'. Chyba: Nepovedlo se aktualizovat nastavení sériového portu výstup pro virtuální počítač 'název_virtuálního_počítače'** .
 Pokud jste povolení diagnostiky spouštění na virtuálním počítači, ale odstraníte účet úložiště diagnostiky spouštění dojde k chybě.
 - Náprava: Znovu vytvořte účet úložiště se stejným názvem, který jste použili dříve.
 - Výskyt: Obecné
@@ -179,7 +193,7 @@ Pokud jste povolení diagnostiky spouštění na virtuálním počítači, ale o
 
 - Náprava:
   - Toto upozornění můžete ignorovat. Agent neodpovídá nemá žádný vliv na operátor a operace uživatelů nebo uživatelské aplikace. Výstraha se znovu za 24 hodin propojení se zavře, ručně.
-  - Podpora Microsoftu může napravit problém tak, že změníte nastavení spuštění pro službu. Tento postup vyžaduje otevření lístku podpory. Pokud uzel se restartuje znovu, zobrazí se nová výstraha.
+  - Problém je vyřešen v nejnovější aktualizaci [Azure Stack oprava hotfix pro 1904](https://support.microsoft.com/help/4505688).
 - Výskyt: Obecné
 
 ## <a name="storage"></a>Úložiště
@@ -191,7 +205,7 @@ Pokud jste povolení diagnostiky spouštění na virtuálním počítači, ale o
 ## <a name="app-service"></a>App Service
 
 - Tenanti musí zaregistrovat zprostředkovatele prostředku úložiště před vytvořením své první funkce Azure v rámci předplatného.
-- Některé tenanta portálu uživatelské prostředí jsou v 1903; přerušeno z důvodu nekompatibility s rozhraní portálu hlavně uživatelského rozhraní pro sloty nasazení, testování v produkčním prostředí a lokality rozšíření. Chcete-li tento problém obejít, použijte [modulu Powershellu pro Azure App Service](/azure/app-service/deploy-staging-slots#automate-with-powershell) nebo [rozhraní příkazového řádku Azure](/cli/azure/webapp/deployment/slot?view=azure-cli-latest). Prostředí portálu se obnoví v nadcházející verzi služby Azure App Service v Azure stacku 1.6 (aktualizací 6).
+- Některé tenanta portálu uživatelské prostředí jsou v 1903; přerušeno z důvodu nekompatibility s rozhraní portálu hlavně uživatelského rozhraní pro sloty nasazení, testování v produkčním prostředí a lokality rozšíření. Chcete-li tento problém obejít, použijte [modulu Powershellu pro Azure App Service](/azure/app-service/deploy-staging-slots#automate-with-powershell) nebo [rozhraní příkazového řádku Azure](/cli/azure/webapp/deployment/slot?view=azure-cli-latest). Prostředí portálu se obnoví v nadcházející verzi služby Azure App Service ve službě Azure Stack 1.6 (aktualizace 6).
 
 <!-- ## Storage -->
 <!-- ## SQL and MySQL-->

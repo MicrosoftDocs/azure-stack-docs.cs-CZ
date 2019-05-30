@@ -3,7 +3,7 @@ title: Připojení k Azure Stack pomocí rozhraní příkazového řádku | Doku
 description: Další informace o použití multiplatformního rozhraní příkazového řádku (CLI) ke správě a nasazování prostředků ve službě Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 ms.service: azure-stack
 ms.workload: na
@@ -11,15 +11,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2019
-ms.author: mabrigg
+ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/08/2019
-ms.openlocfilehash: 69eb6e676fb8c134e0184d4df7df95ba0c75e854
-ms.sourcegitcommit: 879165a66ff80f1463b6bb46e2245684224a9b92
+ms.openlocfilehash: 996dacc1c95a172ffa09247c56a12a5afd00e086
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65473878"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269520"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Použití profilů verzí API pomocí Azure CLI ve službě Azure Stack
 
@@ -43,12 +43,21 @@ Pokud použijete integrovaný systém, není nutné exportovat certifikát koře
 
 Export kořenového certifikátu ASDK ve formátu PEM:
 
-1. [Vytvoření virtuálního počítače Windows v Azure stacku](azure-stack-quick-windows-portal.md).
+1. Získejte název vašeho kořenového certifikátu Azure stacku:
+    - Přihlaste se na portálu Azure Stack Tenant nebo správce.
+    - Klikněte na "Zabezpečení" téměř do adresního řádku.
+    - V místním okně klikněte na "Platné".
+    - V okně Certifikát klikněte na kartu "Cestě k certifikátu". 
+    - Poznamenejte si název vašeho kořenového certifikátu Azure stacku.
 
-2. Přihlaste se k počítači, otevřete řádku Powershellu se zvýšenými oprávněními a spusťte následující skript:
+    ![Kořenového certifikátu Azure stacku](media/azure-stack-version-profiles-azurecli2/root-cert-name.png)
+
+2. [Vytvoření virtuálního počítače Windows v Azure stacku](azure-stack-quick-windows-portal.md).
+
+3. Přihlaste se k počítači, otevřete řádku Powershellu se zvýšenými oprávněními a spusťte následující skript:
 
     ```powershell  
-      $label = "AzureStackSelfSignedRootCert"
+      $label = "<the name of your azure stack root cert from Step 1>"
       Write-Host "Getting certificate from the current user trusted store with subject CN=$label"
       $root = Get-ChildItem Cert:\CurrentUser\Root | Where-Object Subject -eq "CN=$label" | select -First 1
       if (-not $root)
@@ -64,7 +73,7 @@ Export kořenového certifikátu ASDK ve formátu PEM:
     certutil -encode root.cer root.pem
     ```
 
-3. Zkopírujte certifikát do svého místního počítače.
+4. Zkopírujte certifikát do svého místního počítače.
 
 
 ### <a name="set-up-the-virtual-machine-aliases-endpoint"></a>Nastavení koncového bodu virtuálního počítače aliasy
@@ -104,9 +113,9 @@ Tato část vás provede procesem nastavení rozhraní příkazového řádku Po
 
 Pokud používáte ASDK, musíte důvěřovat certifikátu kořenové certifikační Autority na vzdáleném počítači. Nebude potřeba to udělat pomocí integrovaných systémů.
 
-Důvěřovat certifikátu kořenové certifikační Autority Azure stacku, přidejte je do existujícího certifikátu Python pro pomocí Azure CLI nainstalovanou verzi Pythonu. Může používat vlastní instance jazyka Python. Azure CLI zahrnuje svou vlastní verzi Pythonu.
+Důvěřovat certifikátu kořenové certifikační Autority Azure stacku, přidejte je do existujícího úložiště certifikátů Python pro pomocí Azure CLI nainstalovanou verzi Pythonu. Může používat vlastní instance jazyka Python. Azure CLI zahrnuje svou vlastní verzi Pythonu.
 
-1. Najdete umístění certifikátu na svém počítači.  Umístění získáte spuštěním příkazu `az --version`.
+1. Najdete umístění úložiště certifikátů na vašem počítači.  Umístění získáte spuštěním příkazu `az --version`.
 
 2. Přejděte do složky, který obsahuje, které jste aplikaci v Pythonu rozhraní příkazového řádku. Chcete spustit tuto verzi pythonu. Pokud nastavíte Pythonu ve vašem systému CESTU, spustit jazyk Python spustí vlastní verzi jazyka Python. Místo toho můžete spustit verze používané v rozhraní příkazového řádku a přidání certifikátu do této verze. Například může být vaše rozhraní příkazového řádku Python v: `C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\`.
 
@@ -163,7 +172,7 @@ Důvěřovat certifikátu kořenové certifikační Autority Azure stacku, přid
 
 2. Zaregistrujte vašeho prostředí. Při běhu používat následující parametry `az cloud register`.
 
-    | Value | Příklad: | Popis |
+    | Hodnota | Příklad: | Popis |
     | --- | --- | --- |
     | Název prostředí | AzureStackUser | Použití `AzureStackUser` pro uživatelské prostředí. Pokud operátor, zadat `AzureStackAdmin`. |
     | Koncový bod Resource Manageru | https://management.local.azurestack.external | **ResourceManagerUrl** je v Azure Stack Development Kit (ASDK): `https://management.local.azurestack.external/` **ResourceManagerUrl** v integrovaných systémech je: `https://management.<region>.<fqdn>/` Načíst metadata vyžaduje: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` Pokud máte dotaz týkající se koncový bod integrovaný systém, obraťte se na váš operátor cloudu. |
@@ -188,7 +197,7 @@ Důvěřovat certifikátu kořenové certifikační Autority Azure stacku, přid
    ```
 
     >[!NOTE]  
-    >Pokud používáte verzi služby Azure Stack před sestavením. 1808, je nutné použít profilu verze rozhraní API **2017-03-09-profile** místo profilu verze rozhraní API **2018-03-01hybridní**. Je potřeba použít nejnovější verzi Azure CLI.
+    >Pokud používáte verzi služby Azure Stack před sestavením. 1808, je nutné použít profilu verze rozhraní API **2017-03-09-profile** místo profilu verze rozhraní API **2019-03-01hybridní**. Je potřeba použít nejnovější verzi Azure CLI.
  
 1. Přihlaste se k prostředí Azure Stack pomocí `az login` příkazu. Můžete se přihlásit k prostředí Azure Stack jako uživatel, nebo jako [instanční objekt služby](/azure/active-directory/develop/app-objects-and-service-principals). 
 
@@ -283,7 +292,7 @@ Pokud používáte ASDK, musíte důvěřovat certifikátu kořenové certifika�
 
 2. Zaregistrujte vašeho prostředí. Při běhu používat následující parametry `az cloud register`.
 
-    | Value | Příklad: | Popis |
+    | Hodnota | Příklad: | Popis |
     | --- | --- | --- |
     | Název prostředí | AzureStackUser | Použití `AzureStackUser` pro uživatelské prostředí. Pokud operátor, zadat `AzureStackAdmin`. |
     | Koncový bod Resource Manageru | https://management.local.azurestack.external | **ResourceManagerUrl** je v Azure Stack Development Kit (ASDK): `https://management.local.azurestack.external/` **ResourceManagerUrl** v integrovaných systémech je: `https://management.<region>.<fqdn>/` Načíst metadata vyžaduje: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` Pokud máte dotaz týkající se koncový bod integrovaný systém, obraťte se na váš operátor cloudu. |
@@ -304,11 +313,11 @@ Pokud používáte ASDK, musíte důvěřovat certifikátu kořenové certifika�
 1. Aktualizujte konfiguraci vašeho prostředí použít profil pro konkrétní verze rozhraní API Azure Stack. Pokud chcete aktualizovat konfiguraci, spusťte následující příkaz:
 
     ```azurecli
-    az cloud update --profile 2018-03-01-hybrid
+    az cloud update --profile 2019-03-01-hybrid
    ```
 
     >[!NOTE]  
-    >Pokud používáte verzi služby Azure Stack před sestavením. 1808, je nutné použít profilu verze rozhraní API **2017-03-09-profile** místo profilu verze rozhraní API **2018-03-01hybridní**. Je potřeba použít nejnovější verzi Azure CLI.
+    >Pokud používáte verzi služby Azure Stack před sestavením. 1808, je nutné použít profilu verze rozhraní API **2017-03-09-profile** místo profilu verze rozhraní API **2019-03-01hybridní**. Je potřeba použít nejnovější verzi Azure CLI.
 
 1. Přihlaste se k prostředí Azure Stack pomocí `az login` příkazu. Můžete se přihlásit k prostředí Azure Stack jako uživatel, nebo jako [instanční objekt služby](/azure/active-directory/develop/app-objects-and-service-principals). 
 
@@ -317,7 +326,7 @@ Pokud používáte ASDK, musíte důvěřovat certifikátu kořenové certifika�
      Můžete zadat uživatelské jméno a heslo přímo v rámci `az login` příkaz nebo ověřování pomocí prohlížeče. Je nutné provést ten, pokud má váš účet zapnuté vícefaktorové ověřování:
 
      ```azurecli
-     az cloud register  -n <environmentname>   --endpoint-resource-manager "https://management.local.azurestack.external"  --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-active-directory-resource-id "https://management.adfs.azurestack.local/<tenantID>" --endpoint-active-directory-graph-resource-id "https://graph.local.azurestack.external/" --endpoint-active-directory "https://adfs.local.azurestack.external/adfs/" --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>   --profile "2018-03-01-hybrid"
+     az cloud register  -n <environmentname>   --endpoint-resource-manager "https://management.local.azurestack.external"  --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>   --profile "2019-03-01-hybrid"
      ```
 
      > [!NOTE]
@@ -399,7 +408,7 @@ Následující kroky použijte pro připojení ke službě Azure Stack:
 
 2. Zaregistrujte vašeho prostředí. Při běhu používat následující parametry `az cloud register`.
 
-    | Value | Příklad: | Popis |
+    | Hodnota | Příklad: | Popis |
     | --- | --- | --- |
     | Název prostředí | AzureStackUser | Použití `AzureStackUser` pro uživatelské prostředí. Pokud operátor, zadat `AzureStackAdmin`. |
     | Koncový bod Resource Manageru | https://management.local.azurestack.external | **ResourceManagerUrl** je v Azure Stack Development Kit (ASDK): `https://management.local.azurestack.external/` **ResourceManagerUrl** v integrovaných systémech je: `https://management.<region>.<fqdn>/` Načíst metadata vyžaduje: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` Pokud máte dotaz týkající se koncový bod integrovaný systém, obraťte se na váš operátor cloudu. |
@@ -420,11 +429,11 @@ Následující kroky použijte pro připojení ke službě Azure Stack:
 4. Aktualizujte konfiguraci vašeho prostředí použít profil pro konkrétní verze rozhraní API Azure Stack. Pokud chcete aktualizovat konfiguraci, spusťte následující příkaz:
 
     ```azurecli
-      az cloud update --profile 2018-03-01-hybrid
+      az cloud update --profile 2019-03-01-hybrid
    ```
 
     >[!NOTE]  
-    >Pokud používáte verzi služby Azure Stack před sestavením. 1808, je nutné použít profilu verze rozhraní API **2017-03-09-profile** místo profilu verze rozhraní API **2018-03-01hybridní**. Je potřeba použít nejnovější verzi Azure CLI.
+    >Pokud používáte verzi služby Azure Stack před sestavením. 1808, je nutné použít profilu verze rozhraní API **2017-03-09-profile** místo profilu verze rozhraní API **2019-03-01hybridní**. Je potřeba použít nejnovější verzi Azure CLI.
 
 5. Přihlaste se k prostředí Azure Stack pomocí `az login` příkazu. Můžete se přihlásit k prostředí Azure Stack jako uživatel, nebo jako [instanční objekt služby](/azure/active-directory/develop/app-objects-and-service-principals). 
 
@@ -510,7 +519,7 @@ Následující kroky použijte pro připojení ke službě Azure Stack:
 
 2. Zaregistrujte vašeho prostředí. Při běhu používat následující parametry `az cloud register`.
 
-    | Value | Příklad: | Popis |
+    | Hodnota | Příklad: | Popis |
     | --- | --- | --- |
     | Název prostředí | AzureStackUser | Použití `AzureStackUser` pro uživatelské prostředí. Pokud operátor, zadat `AzureStackAdmin`. |
     | Koncový bod Resource Manageru | https://management.local.azurestack.external | **ResourceManagerUrl** je v Azure Stack Development Kit (ASDK): `https://management.local.azurestack.external/` **ResourceManagerUrl** v integrovaných systémech je: `https://management.<region>.<fqdn>/` Načíst metadata vyžaduje: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` Pokud máte dotaz týkající se koncový bod integrovaný systém, obraťte se na váš operátor cloudu. |
@@ -531,11 +540,11 @@ Následující kroky použijte pro připojení ke službě Azure Stack:
 4. Aktualizujte konfiguraci vašeho prostředí použít profil pro konkrétní verze rozhraní API Azure Stack. Pokud chcete aktualizovat konfiguraci, spusťte následující příkaz:
 
     ```azurecli
-      az cloud update --profile 2018-03-01-hybrid
+      az cloud update --profile 2019-03-01-hybrid
    ```
 
     >[!NOTE]  
-    >Pokud používáte verzi služby Azure Stack před sestavením. 1808, je nutné použít profilu verze rozhraní API **2017-03-09-profile** místo profilu verze rozhraní API **2018-03-01hybridní**. Je potřeba použít nejnovější verzi Azure CLI.
+    >Pokud používáte verzi služby Azure Stack před sestavením. 1808, je nutné použít profilu verze rozhraní API **2017-03-09-profile** místo profilu verze rozhraní API **2019-03-01hybridní**. Je potřeba použít nejnovější verzi Azure CLI.
 
 5. Přihlaste se k prostředí Azure Stack pomocí `az login` příkazu. Můžete se přihlásit k prostředí Azure Stack jako uživatel, nebo jako [instanční objekt služby](/azure/active-directory/develop/app-objects-and-service-principals). 
 

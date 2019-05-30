@@ -3,7 +3,7 @@ title: Nasazení Azure Stack App Service v konfiguraci s vysokou dostupností | 
 description: Zjistěte, jak nasadit službu App Service ve službě Azure Stack pomocí konfiguraci s vysokou dostupností.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: BryanLa
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2019
-ms.author: mabrigg
+ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 78476afd09d6c85fbe5790568dd46366beaf1991
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: dc4cb3e7931b456de6e807d9f7b691f9bfb71a33
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618356"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269514"
 ---
 # <a name="deploy-app-service-in-a-highly-available-configuration"></a>Nasadit službu App Service v konfiguraci s vysokou dostupností
 

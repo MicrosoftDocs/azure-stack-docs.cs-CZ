@@ -2,21 +2,21 @@
 title: Ověření zálohování Azure stacku pomocí ASDK | Dokumentace Microsoftu
 description: Jak ověřit zálohu integrované systémy Azure Stack pomocí ASDK.
 services: azure-stack
-author: mattbriggs
+author: justinha
 manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
 ms.date: 02/15/2019
-ms.author: mabrigg
+ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 02/15/2019
-ms.openlocfilehash: 6d300c54044f2eb22eac8efe6f9434660d0b6fb8
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 38c4de35b4d2b5eac16b8586aa6933b18c62b14a
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617320"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66267336"
 ---
 # <a name="use-the-asdk-to-validate-an-azure-stack-backup"></a>Použít ASDK k ověření zálohování Azure stacku
 Po nasazení služby Azure Stack a zřizování uživatelů prostředky, jako jsou nabídky, plány, kvót a předplatných, měli byste [povolit zálohování infrastruktury Azure stacku](../operator/azure-stack-backup-enable-backup-console.md). Plánování a spouštění pravidelných infrastruktura zálohování se zajistí, že infrastruktura správy nedojde ke ztrátě dat při katastrofických hardwaru nebo Chyba služby.

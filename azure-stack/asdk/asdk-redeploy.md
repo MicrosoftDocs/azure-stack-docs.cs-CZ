@@ -3,7 +3,7 @@ title: Opětovné nasazení Azure Stack Development Kit (ASDK) | Dokumentace Mic
 description: V tomto článku se dozvíte, jak ASDK přeinstalovat.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.custom: ''
 ms.date: 02/12/2019
-ms.author: mabrigg
+ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: cc5c756075b2dbeb789727a6c6647cf3e97cac28
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.openlocfilehash: f61fff0d29b1e0bf847ffc1761ff53c90b703991
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782124"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66267782"
 ---
 # <a name="redeploy-the-asdk"></a>Opětovné nasazení ASDK
 V tomto článku se dozvíte, jak znovu nasadit Azure Stack Development Kit (ASDK) v neprodukčním prostředí. Protože upgrade ASDK není podporován, budete muset zcela jej přesunout na novější verzi znovu nasadit. Můžete také znovu nasadit ASDK kdykoli, který chcete začít znovu od začátku.

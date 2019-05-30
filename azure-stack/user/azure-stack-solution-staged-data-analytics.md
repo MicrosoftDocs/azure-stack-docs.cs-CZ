@@ -3,7 +3,7 @@ title: Vytvořit řešení analýzy pracovních dat s využitím Azure a Azure S
 description: Zjistěte, jak vytvořit řešení analýzy pracovních dat s využitím Azure a Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: bryanla
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/15/2019
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: 2c2b06db3bb6144620b5fce1a7e3e76fdd06589a
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 9359c1393229709fc77ee08216a80a26de9135dc
+ms.sourcegitcommit: 261df5403ec01c3af5637a76d44bf030f9342410
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64303274"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66252019"
 ---
 # <a name="tutorial-create-a-staged-data-analytics-solution-with-azure-and-azure-stack"></a>Kurz: Vytvořit řešení analýzy pracovních dat s využitím Azure a Azure Stack 
 
@@ -134,7 +134,7 @@ Vytvoření nové funkce služby Azure Stack můžete do Azure přesunout vyči�
 
     | Nastavení | Navrhovaná hodnota | Popis |
     | ---- | ---- | ---- |
-    | App name (Název aplikace) | Globálně jedinečný název | Název identifikující novou aplikaci Function App. Platné znaky jsou `a` - `z`, `0``-9`, a `-`. |
+    | Název aplikace | Globálně jedinečný název | Název identifikující novou aplikaci Function App. Platné znaky jsou `a` - `z`, `0``-9`, a `-`. |
     | Předplatné | Vaše předplatné | Předplatné, pod kterým je tato nová aplikace Function App vytvořena. |
     | **Skupina prostředků** |  |  |
     | myResourceGroup | Název nové skupiny prostředků, ve které chcete vytvořit aplikaci Function App. |  |

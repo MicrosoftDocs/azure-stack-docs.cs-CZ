@@ -3,7 +3,7 @@ title: Aktualizace služby Azure App Service Offline | Dokumentace Microsoftu
 description: Podrobné pokyny pro offline aktualizaci služby Azure App Service ve službě Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: bryanla
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -12,22 +12,22 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2019
+ms.date: 05/28/2019
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.openlocfilehash: b266614ee4fb426740d9e083efe10e1de0dddee9
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 2bbab1870c06e32889187f676022dab410aaf08c
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618718"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269060"
 ---
 # <a name="offline-update-of-azure-app-service-on-azure-stack"></a>Offline aktualizace služby Azure App Service ve službě Azure Stack
 
 *Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
 
 > [!IMPORTANT]
-> Aktualizace 1901 nebo později pro služby Azure Stack integrované systému nebo nasadit nejnovější sady Azure Stack development kit před nasazením Azure App Service 1.5. 
+> Aktualizace 1904 nebo novější do služby Azure Stack integrovaného systému nebo nasadit nejnovější sady Azure Stack development kit před nasazením Azure App Service 1.6.
 
 Podle pokynů v tomto článku, můžete upgradovat [poskytovatele prostředků App Service](azure-stack-app-service-overview.md) nasazené v prostředí Azure Stack, která je:
 
@@ -35,13 +35,13 @@ Podle pokynů v tomto článku, můžete upgradovat [poskytovatele prostředků 
 * zabezpečené službou Active Directory Federation Services (AD FS).
 
 > [!IMPORTANT]
-> Před spuštěním upgradu, ujistěte se, že jste již dokončili [nasazení služby Azure App Service na poskytovatele prostředků služby Azure Stack](azure-stack-app-service-deploy-offline.md) a že jste si přečetli [poznámky k verzi](azure-stack-app-service-release-notes-update-five.md), které nejsou poskytnuty verze 1.5, další informace o nové funkce, opravy a známých problémech, které můžou ovlivnit nasazení.
+> Před spuštěním upgradu, ujistěte se, že jste již dokončili [nasazení služby Azure App Service na poskytovatele prostředků služby Azure Stack](azure-stack-app-service-deploy-offline.md) a že jste si přečetli [poznámky k verzi](azure-stack-app-service-release-notes-update-six.md), které nejsou poskytnuty 1.6 vydání, další informace o nové funkce, opravy a známých problémech, které můžou ovlivnit nasazení.
 
 ## <a name="run-the-app-service-resource-provider-installer"></a>Spusťte instalační program zprostředkovatele prostředků App Service
 
 Pokud chcete upgradovat poskytovatele prostředků App Service v prostředí Azure Stack, musíte dokončit tyto úlohy:
 
-1. Stáhněte si [instalační program služby App Service](https://aka.ms/appsvcupdate4installer)
+1. Stáhněte si [instalační program služby App Service](https://aka.ms/appsvcupdate6installer)
 2. Vytvořte offline balíček s upgradem.
 3. Spusťte instalační program služby App Service (appservice.exe) a dokončit upgrade.
 
@@ -98,7 +98,7 @@ Chcete-li upgradovat službu App Service v odpojeném prostředí, musíte nejd�
 
    1. Klikněte na tlačítko **připojit** vedle **předplatná Azure Stack** pole.
       * Pokud používáte Azure Active Directory (Azure AD), zadejte účet správce Azure AD a heslo, které jste zadali při nasazení Azure Stack. Klikněte na tlačítko **přihlášení**.
-      * Pokud používáte služby Active Directory Federation Services (AD FS), zadejte účet správce. Příklad: _cloudadmin@azurestack.local_. Zadejte své heslo a klikněte na tlačítko **Sign In**.
+      * Pokud používáte služby Active Directory Federation Services (AD FS), zadejte účet správce. Příklad: _cloudadmin@azurestack.local_ . Zadejte své heslo a klikněte na tlačítko **Sign In**.
    2. V **předplatná Azure Stack** vyberte **výchozí předplatné poskytovatele**.
    3. V **lokality Azure Stack** , vyberte umístění, které odpovídá nasazujete do oblasti. Vyberte například **místní** Pokud vaše nasazení Azure Stack Development Kit.
    4. Pokud se detekuje existující nasazení služby App Service, klikněte prostředek skupiny a účet úložiště bude vyplní a šedě.

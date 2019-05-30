@@ -16,12 +16,12 @@ ms.date: 04/12/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/29/2019
-ms.openlocfilehash: fa1cdc4937e75a8d87a6faa16048a800b62e79be
-ms.sourcegitcommit: 2b6a0b3b4dc63c26df3d0535d630d640ff232fb0
+ms.openlocfilehash: 43554f5659f3068657feda2997f90736a7be8495
+ms.sourcegitcommit: 261df5403ec01c3af5637a76d44bf030f9342410
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65521308"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66252135"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Položky Azure Marketplace k dispozici pro službu Azure Stack
 
@@ -57,8 +57,7 @@ Microsoft Azure Stack podporuje následující virtuální počítače Azure Mar
 | ![Windows Server](media/azure-stack-marketplace-azure-items/windowsserver.png) | [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer) | Řešení podnikové úrovně, které jsou jednoduché nasazení, nákladově efektivní, zaměřená na aplikace a zaměřené na uživatele. Tyto Image jsou pravidelně aktualizovány s nejnovějšími opravami. **Důležité informace: Image stáhli dříve, než 18. ledna 2018 musí být odstraněny a nahrazeny nejnovější verze.** | Microsoft |
 | ![Zkušební verze služby SharePoint Server 2013](media/azure-stack-marketplace-azure-items/sharepoint.png) | [Zkušební verze služby SharePoint Server 2013](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2013Trial) | Microsoft SharePoint Server 2013 – zkušební verze na Windows Server 2012 Datacenter a Visual Studio 2019 community edition. | Microsoft |
 | ![Zkušební verze služby SharePoint serveru 2016](media/azure-stack-marketplace-azure-items/sharepoint.png) | [Zkušební verze služby SharePoint serveru 2016](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2016Trial) | Microsoft SharePoint Server 2016 – zkušební verze na Windows Server 2016 Datacenter. | Microsoft |
-| ![SQL Server 2014 SP2 on Windows Server 2012 R2](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2014 SP2 v systému Windows Server 2012 R2](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2014sp2-ws2012r2)
-) | SQL Server 2014 Service Pack 2. **Vyžaduje ke stažení:** SQL IaaS Extension. | Microsoft |
+| ![SQL Server 2014 SP2 on Windows Server 2012 R2](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2014 SP2 v systému Windows Server 2012 R2](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2014sp2-ws2012r2) | SQL Server 2014 Service Pack 2. **Vyžaduje ke stažení:** SQL IaaS Extension. | Microsoft |
 | ![SQL Server 2016 SP2 Standard na Windows serveru 2016](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2016 SP2 Standard na Windows serveru 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2016sp2-ws2016) | Databáze platforma pro inteligentní, klíčové aplikace. **Vyžaduje ke stažení:** SQL IaaS Extension. | Microsoft |
 | ![Bezplatná licence: SQL Server 2016 SP2 Developer v systému Windows Server 2016](media/azure-stack-marketplace-azure-items/sql.png) | [Bezplatná licence: SQL Server 2016 SP2 Developer v systému Windows Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2017-ws2016) | Verze bezplatných vývojářských SQL Server 2016 SP2 pro transakční, datové sklady, business intelligence a analytické úlohy. **Vyžaduje ke stažení:** SQL IaaS Extension. | Microsoft |
 | ![Bezplatná licence: SQL Server 2016 SP2 Express na Windows serveru 2016](media/azure-stack-marketplace-azure-items/sql.png) | [Bezplatná licence: SQL Server 2016 SP2 Express na Windows serveru 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2017-ws2016) | Bezplatná verze express systému SQL Server 2016 SP2. **Vyžaduje ke stažení:** SQL IaaS Extension. | Microsoft |
