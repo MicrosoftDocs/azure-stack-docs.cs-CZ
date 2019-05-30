@@ -16,12 +16,12 @@ ms.date: 05/28/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 05/28/2019
-ms.openlocfilehash: 9ebbdb19335db4f0c31d68c726f7b8c211d0f2e2
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
-ms.translationtype: HT
+ms.openlocfilehash: 615add67cb27f24831eb3fdfec0510f4ac2dc34e
+ms.sourcegitcommit: d04a93e913ff069e17f6d56811681804a6422b58
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66268336"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66373033"
 ---
 # <a name="azure-stack-1904-known-issues"></a>Azure Stack 1904 známé problémy
 
@@ -43,7 +43,7 @@ V tomto článku najdete seznam známých problémů v 1904 verzi služby Azure 
 
 - Použít: Tento problém se vztahuje na všechny podporované verze.
 - Příčina: Obě předplatná pro správu, které byly představeny s nástrojem verzi 1804 se nesmí používat. Typy předplatného jsou **měření** předplatného, a **spotřeby** předplatného.
-- Náprava: Tato předplatná se pozastaví, počínaje 1905 a nakonec odstraněné. Pokud máte prostředky spuštěné na tyto dva odběry služeb, je znovu vytvořte v předplatných uživatele před 1905.
+- Náprava: Tato předplatná se pozastaví, počínaje. 1906 a nakonec odstraněné. Pokud máte prostředky spuštěné na tyto dva odběry služeb, je znovu vytvořte v předplatných uživatele před. 1906.
 - Výskyt: Obecné
 
 ### <a name="subscription-resources"></a>Prostředky předplatného
@@ -60,10 +60,10 @@ V tomto článku najdete seznam známých problémů v 1904 verzi služby Azure 
 - Náprava: Použití [Powershellu mohl ověřit oprávnění](/powershell/module/azurerm.resources/get-azurermroleassignment).
 - Výskyt: Obecné
 
-
 ### <a name="docker-extension"></a>Rozšíření docker
+
 - Použít: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: Na portálech pro správce i uživatele Pokud dáte vyhledat "Docker", položka je nesprávně vrátila. Není k dispozici ve službě Azure Stack. Pokud se pokusíte k jeho vytvoření, zobrazí se okno s uvedením chyby.
+- Příčina: Na portálech správce i uživatele, pokud budete hledat **Docker**, položky se nesprávně vrátí. Není k dispozici ve službě Azure Stack. Pokud se pokusíte k jeho vytvoření, zobrazí se chyba.
 - Náprava: Žádné zmírňující opatření.
 - Výskyt: Obecné
 
@@ -205,7 +205,7 @@ Pokud jste povolení diagnostiky spouštění na virtuálním počítači, ale o
 ## <a name="app-service"></a>App Service
 
 - Tenanti musí zaregistrovat zprostředkovatele prostředku úložiště před vytvořením své první funkce Azure v rámci předplatného.
-- Některé tenanta portálu uživatelské prostředí jsou v 1903; přerušeno z důvodu nekompatibility s rozhraní portálu hlavně uživatelského rozhraní pro sloty nasazení, testování v produkčním prostředí a lokality rozšíření. Chcete-li tento problém obejít, použijte [modulu Powershellu pro Azure App Service](/azure/app-service/deploy-staging-slots#automate-with-powershell) nebo [rozhraní příkazového řádku Azure](/cli/azure/webapp/deployment/slot?view=azure-cli-latest). Prostředí portálu se obnoví v nadcházející verzi služby Azure App Service ve službě Azure Stack 1.6 (aktualizace 6).
+- Některé tenanta portálu uživatelské prostředí jsou v 1903; přerušeno z důvodu nekompatibility s rozhraní portálu hlavně uživatelského rozhraní pro sloty nasazení, testování v produkčním prostředí a lokality rozšíření. Chcete-li tento problém obejít, použijte [modulu Powershellu pro Azure App Service](/azure/app-service/deploy-staging-slots#automate-with-powershell) nebo [rozhraní příkazového řádku Azure](/cli/azure/webapp/deployment/slot?view=azure-cli-latest). Obnoví prostředí portálu upgradujte nasazení [služby Azure App Service ve službě Azure Stack na 1.6 (aktualizací 6)](azure-stack-app-service-release-notes-update-six.md).
 
 <!-- ## Storage -->
 <!-- ## SQL and MySQL-->
