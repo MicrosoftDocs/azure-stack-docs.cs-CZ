@@ -1,5 +1,5 @@
 ---
-title: Spusťte prostředí PowerShell pro Azure Stack pomocí Dockeru | Dokumentace Microsoftu
+title: Používat Docker ke spouštění prostředí PowerShell ve službě Azure Stack | Dokumentace Microsoftu
 description: Spusťte prostředí PowerShell ve službě Azure Stack pomocí Dockeru
 services: azure-stack
 documentationcenter: ''
@@ -15,53 +15,54 @@ ms.date: 04/25/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 04/24/2019
-ms.openlocfilehash: 0eacd2c5a058bca68e86f2d34df8d3cc91987c1c
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 42ed9766b43ce3c0c1c455d8ea286a5b453df325
+ms.sourcegitcommit: 2ee75ded704e8cfb900d9ac302d269c54a5dd9a3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985546"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66394381"
 ---
-# <a name="use-docker-to-run-powershell"></a>Spusťte prostředí PowerShell pomocí Dockeru
+# <a name="use-docker-to-run-powershell-in-azure-stack"></a>Spusťte prostředí PowerShell ve službě Azure Stack pomocí Dockeru
 
-Docker můžete použít k vytvoření založené na Windows kontejnery, ve kterých chcete spustit konkrétní verzi Powershellu potřebné pro práci různá rozhraní. Kontejnery Windows podle musíte použít v Dockeru.
+V tomto článku použijete k vytvoření kontejnery založené na Windows, ve kterém se spustí na verzi prostředí PowerShell, který je potřeba pro práci s různá rozhraní Docker. V Dockeru musíte použít kontejnery založené na Windows.
 
 ## <a name="docker-prerequisites"></a>Požadavky na dockeru
 
 1. Nainstalujte [Docker](https://docs.docker.com/install/).
-2. Otevřete příkazový řádek, jako je Powershell nebo prostředí Bash a zadejte:
+
+1. Do příkazového řádku programu, jako je Powershell nebo prostředí Bash zadejte:
 
     ```bash
         Docker -version
     ```
 
-3. Budete muset spustit Docker pomocí kontejnerů Windows, které vyžadují Windows 10. Při spuštění Docker, přepněte na kontejnery Windows.
+1. Budete muset spustit Docker s využitím kontejnerů Windows, které vyžadují Windows 10. Pokud spustíte Docker, přepněte na kontejnery Windows.
 
-4. Docker je nutné spustit z počítače připojené ke stejné doméně jako Azure Stack. Pokud používáte ASDK, je potřeba nainstalovat [VPN na vzdáleném počítači](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn).
+1. Spusťte Docker z počítače, který je připojený ke stejné doméně jako Azure Stack. Pokud používáte Azure Stack Development Kit (ASDK), je potřeba nainstalovat [VPN na vzdáleném počítači](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn).
 
-## <a name="service-principals-for-using-powershell"></a>Instanční objekty pro pomocí Powershellu
+## <a name="set-up-a-service-principal-for-using-powershell"></a>Nastavení hlavního názvu služby pro použití prostředí PowerShell
 
-Potřebujete instanční objekt služby ve vašem tenantovi Azure AD použít PowerShell k přístupu k prostředku ve službě Azure Stack. Můžete delegovat oprávnění prostřednictvím řízení přístupu na základě rolí uživatele.
+Jak pomocí prostředí PowerShell pro přístup k prostředkům ve službě Azure Stack, potřebujete instanční objekt služby ve vašem tenantovi Azure Active Directory (Azure AD). Můžete delegovat oprávnění uživatele řízením přístupu na základě role (RBAC).
 
-1. Nastavení vaší hlavní podle pokynů v článku [poskytnout aplikace přístup k prostředkům Azure Stack tak, že vytvoříte instanční objekty](azure-stack-create-service-principals.md).
-2. Poznamenejte si ID aplikace, tajný klíč a ID vašeho tenanta.
+1. Nastavení instančního objektu služby, postupujte podle pokynů v [poskytnout aplikace přístup k prostředkům Azure Stack tak, že vytvoříte instanční objekty](azure-stack-create-service-principals.md).
 
-## <a name="docker---azure-stack-api-profiles-module"></a>Docker – modul profily rozhraní API služby Azure Stack
+2. Poznamenejte si ID aplikace, tajný klíč a ID tenanta pro pozdější použití.
 
-Soubor Dockerfile se otevře microsoft image Microsoft/windowsservercore, který má Windows PowerShell 5.1 nainstalované. Soubor pak načte NuGet, moduly Azure Stack Powershellu a soubory ke stažení nástrojů z nástroje Azure Stack.
+## <a name="docker---azure-stack-api-profiles-module"></a>Docker – rozhraní API služby Azure Stack profiles modulu
 
-1. Toto úložiště jako ZIP stáhněte nebo naklonujte úložiště:  
-[https://github.com/mattbriggs/azure-stack-powershell](https://github.com/mattbriggs/azure-stack-powershell)
+Soubor Dockerfile otevře Microsoft image *microsoft/windowsservercore*, který má Windows PowerShell 5.1 nainstalované. Soubor pak načte moduly Azure Stack Powershellu a NuGet a soubory ke stažení nástrojů z nástroje Azure Stack.
+
+1. [Stáhněte si úložiště azure. stack powershellu](https://github.com/mattbriggs/azure-stack-powershell) jako soubor ZIP nebo klonování úložiště.
 
 2. Otevření složky úložiště z terminálu.
 
-3. Otevřete rozhraní příkazového řádku do vašeho úložiště a zadejte:
+3. Otevřete rozhraní příkazového řádku ve vašem úložišti a potom zadejte následující příkaz:
 
     ```bash  
     docker build --tag azure-stack-powershell .
     ```
 
-4. Když na obrázku je sestavený Build, může začít interaktivní kontejneru. Zadejte:
+4. Když je vytvořena na obrázku, spuštění interaktivní kontejneru tak, že zadáte:
 
     ```bash  
         docker run -it azure-stack-powershell powershell
@@ -76,9 +77,9 @@ Soubor Dockerfile se otevře microsoft image Microsoft/windowsservercore, který
     PS C:\>
     ```
 
-6. Připojení do služby Azure Stack pomocí instančního objektu. Teď používáte příkazový řádek Powershellu v Dockeru. 
+6. Připojení k vaší instanci služby Azure Stack pomocí hlavního názvu služby. Teď používáte příkazový řádek Powershellu v Dockeru. 
 
-    ```Powershell
+    ```powershell
     $passwd = ConvertTo-SecureString <Secret> -AsPlainText -Force
     $pscredential = New-Object System.Management.Automation.PSCredential('<ApplicationID>', $passwd)
     Connect-AzureRmAccount -ServicePrincipal -Credential $pscredential -TenantId <TenantID>
@@ -86,7 +87,7 @@ Soubor Dockerfile se otevře microsoft image Microsoft/windowsservercore, který
 
    PowerShell vrátí objekt vašeho účtu:
 
-    ```PowerShell  
+    ```powershell  
     Account    SubscriptionName    TenantId    Environment
     -------    ----------------    --------    -----------
     <AccountID>    <SubName>       <TenantID>  AzureCloud
@@ -94,13 +95,13 @@ Soubor Dockerfile se otevře microsoft image Microsoft/windowsservercore, který
 
 7. Test připojení tak, že vytvoříte skupinu prostředků ve službě Azure Stack.
 
-    ```PowerShell  
+    ```powershell  
     New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
     ```
 
 ## <a name="next-steps"></a>Další postup
 
 -  Přečtěte si základní informace o [Azure Stack Powershellu ve službě Azure Stack](azure-stack-powershell-overview.md).
-- Přečtěte si informace o [profily rozhraní API prostředí PowerShell pro](azure-stack-version-profiles.md) v Azure stacku.
-- [Instalace Azure Stack Powershellu](../operator/azure-stack-powershell-install.md).
+- Přečtěte si informace o [profily rozhraní API prostředí PowerShell pro](azure-stack-version-profiles.md) ve službě Azure Stack.
+- Nainstalujte [Azure Stack Powershellu](../operator/azure-stack-powershell-install.md).
 - Přečtěte si informace o vytváření [šablon Azure Resource Manageru](azure-stack-develop-templates.md) konzistence cloudu.

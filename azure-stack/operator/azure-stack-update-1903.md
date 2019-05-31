@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 05/30/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 04/20/2019
-ms.openlocfilehash: 5e0b19e753380c519704f9b2064ff56245004896
-ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
+ms.openlocfilehash: 13fb23a2f40d6a616d83921a4bd760ed0be0d240
+ms.sourcegitcommit: 4e0b450c91c6515794b663a39f9a4b8b49999918
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65712330"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66411609"
 ---
 # <a name="azure-stack-1903-update"></a>Aktualizace služby Azure Stack 1903
 
@@ -31,6 +31,10 @@ Tento článek popisuje obsah balíčku aktualizace 1903. Obsahuje vylepšení, 
 
 > [!IMPORTANT]
 > Tento balíček aktualizace je pouze pro integrované systémy Azure Stack. Tento balíček aktualizace nevztahují na Azure Stack Development Kit.
+
+## <a name="archived-release-notes"></a>Archivované poznámky k verzi
+
+Můžete zobrazit [starší verze služby Azure Stack poznámky v Galerii TechNet](http://aka.ms/azsarchivedrelnotes). Tyto archivované verze poznámky jsou k dispozici pouze pro referenční účely a není určeno, podporu pro tyto verze. Potřebujete další pomoc obraťte se na službu zákaznické podpory Microsoftu.
 
 ## <a name="build-reference"></a>Referenční informace o buildu
 
@@ -217,7 +221,7 @@ Toto jsou známé problémy této verze sestavení po instalaci.
 
 <!-- 2352906 - IS ASDK -->
 - Tenanti musí zaregistrovat zprostředkovatele prostředku úložiště před vytvořením své první funkce Azure v rámci předplatného.
-- Některé tenanta portálu uživatelské prostředí jsou v 1903; přerušeno z důvodu nekompatibility s rozhraní portálu hlavně uživatelského rozhraní pro sloty nasazení, testování v produkčním prostředí a lokality rozšíření. Chcete-li tento problém obejít, použijte [modulu Powershellu pro Azure App Service](/azure/app-service/deploy-staging-slots#automate-with-powershell) nebo [rozhraní příkazového řádku Azure](/cli/azure/webapp/deployment/slot?view=azure-cli-latest). Prostředí portálu se obnoví v nadcházející verzi služby Azure App Service v Azure stacku 1.6 (aktualizací 6).
+- Některé tenanta portálu uživatelské prostředí jsou v 1903; přerušeno z důvodu nekompatibility s rozhraní portálu hlavně uživatelského rozhraní pro sloty nasazení, testování v produkčním prostředí a lokality rozšíření. Chcete-li tento problém obejít, použijte [modulu Powershellu pro Azure App Service](/azure/app-service/deploy-staging-slots#automate-with-powershell) nebo [rozhraní příkazového řádku Azure](/cli/azure/webapp/deployment/slot?view=azure-cli-latest). Prostředí portálu se obnoví v nadcházející verzi služby Azure App Service ve službě Azure Stack 1.6 (aktualizace 6).
 
 <!-- ### Usage -->
 

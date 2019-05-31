@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2019
+ms.date: 05/30/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 03/27/2019
-ms.openlocfilehash: 1fcdcdc4f592056ce3da5074b2371fde91b47c85
-ms.sourcegitcommit: 426380a3a27954cd609ba52d1066d9d69f5267fe
+ms.openlocfilehash: 1fa0eda3e7967ac32621f3d152e16a4c3d27a540
+ms.sourcegitcommit: 4e0b450c91c6515794b663a39f9a4b8b49999918
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65532386"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66411648"
 ---
 # <a name="azure-stack-1901-update"></a>Aktualizace služby Azure Stack 1901
 
@@ -31,6 +31,10 @@ Tento článek popisuje obsah balíčku 1901 aktualizace. Obsahuje vylepšení, 
 
 > [!IMPORTANT]  
 > Tento balíček aktualizace je pouze pro integrované systémy Azure Stack. Tento balíček aktualizace nevztahují na Azure Stack Development Kit.
+
+## <a name="archived-release-notes"></a>Archivované poznámky k verzi
+
+Můžete zobrazit [starší verze služby Azure Stack poznámky v Galerii TechNet](http://aka.ms/azsarchivedrelnotes). Tyto archivované verze poznámky jsou k dispozici pouze pro referenční účely a není určeno, podporu pro tyto verze. Potřebujete další pomoc obraťte se na službu zákaznické podpory Microsoftu.
 
 ## <a name="build-reference"></a>Referenční informace o buildu
 

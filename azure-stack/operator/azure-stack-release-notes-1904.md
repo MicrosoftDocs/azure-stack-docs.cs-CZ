@@ -1,6 +1,6 @@
 ---
 title: Zpráva k vydání verze Azure Stack 1904 | Dokumentace Microsoftu
-description: Další informace o aktualizaci 1904 pro integrované systémy Azure Stack, včetně novinek, známé problémy a kde se stáhnout aktualizaci.
+description: Další informace o aktualizaci 1904 pro integrované systémy Azure Stack, včetně novinek, známé problémy a kde lze stáhnout aktualizace a archivované zpráva k vydání verze Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/22/2019
+ms.date: 05/30/2019
 ms.author: sethm
 ms.reviewer: ''
-ms.lastreviewed: 05/22/2019
-ms.openlocfilehash: 3bb69c9817eaa12f2a6fab0f20bc79f510a3c251
-ms.sourcegitcommit: 9f5157ce6b938d190ef9df5a2df4342266ca5545
+ms.lastreviewed: 05/30/2019
+ms.openlocfilehash: 770d3bc462750816e55f1c224496d9dde01f5a36
+ms.sourcegitcommit: 4e0b450c91c6515794b663a39f9a4b8b49999918
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66174364"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66411632"
 ---
 # <a name="azure-stack-1904-update"></a>Aktualizace služby Azure Stack 1904
 
@@ -34,6 +34,10 @@ Tento článek popisuje obsah balíčku 1904 aktualizace. Obsahuje novinky vylep
 
 > [!IMPORTANT]  
 > Tento balíček aktualizace je pouze pro integrované systémy Azure Stack. Tento balíček aktualizace nevztahují na Azure Stack Development Kit.
+
+## <a name="archived-release-notes"></a>Archivované poznámky k verzi
+
+Můžete zobrazit [starší verze služby Azure Stack poznámky v Galerii TechNet](http://aka.ms/azsarchivedrelnotes). Tyto archivované verze poznámky jsou k dispozici pouze pro referenční účely a není určeno, podporu pro tyto verze. Potřebujete další pomoc obraťte se na službu zákaznické podpory Microsoftu.
 
 ## <a name="build-reference"></a>Referenční informace o buildu
 

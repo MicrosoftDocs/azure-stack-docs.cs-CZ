@@ -6,7 +6,7 @@
       href: azure-stack-overview.md
     - name: Porovnání ekosystému Azure
       href: compare-azure-azure-stack.md
-    - name: Poznámky k verzi
+    - name: "Poznámky k\_verzi"
       items:
         - name: Nejnovější aktualizace
           href: azure-stack-servicing-policy.md
@@ -16,7 +16,7 @@
           href: azure-stack-release-notes-security-updates-1904.md
         - name: aktualizace 1904
           items:
-            - name: Poznámky k verzi
+            - name: "Poznámky k\_verzi"
               href: azure-stack-release-notes-1904.md
             - name: Známé problémy
               href: azure-stack-release-notes-known-issues-1904.md
@@ -47,13 +47,6 @@
   items:
     - name: Plánování kapacit
       href: capacity-planning.md
-      items:
-        - name: COMPUTE plánování kapacity
-          href: capacity-planning-compute.md
-        - name: Plánování kapacity úložiště
-          href: capacity-planning-storage.md
-        - name: Capacity Planner služby Azure Stack
-          href: capacity-planning-spreadsheet.md
     - name: Integrace datových center
       href: azure-stack-customer-journey.md
       items:
@@ -388,7 +381,7 @@
           href: azure-stack-backup-best-practices.md
         - name: Odkaz na zálohování
           href: azure-stack-backup-reference.md
-    - name: Získání nápovědy
+    - name: Podpora
       items:
         - name: Nápověda a podpora
           href: azure-stack-help-and-support.md
@@ -410,7 +403,7 @@
       href: /azure-stack/user/
     - name: Dokumentace ke službě ASDK
       href: /azure-stack/asdk/
-- name: Prostředky
+- name: Zdroje a prostředky
   items:
     - name: Plán služby Azure Stack
       href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'

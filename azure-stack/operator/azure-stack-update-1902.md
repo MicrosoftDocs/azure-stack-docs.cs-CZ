@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2019
+ms.date: 05/30/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 3a59470075e7903f354646be5c6ddb9fb0e5b301
-ms.sourcegitcommit: 426380a3a27954cd609ba52d1066d9d69f5267fe
+ms.openlocfilehash: dc323e345c1b7add243e5d800cf5749cd302c4d9
+ms.sourcegitcommit: 4e0b450c91c6515794b663a39f9a4b8b49999918
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65532340"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66411659"
 ---
 # <a name="azure-stack-1902-update"></a>Aktualizace služby Azure Stack 1902
 
@@ -31,6 +31,10 @@ Tento článek popisuje obsah balíčku 1902 aktualizace. Obsahuje vylepšení, 
 
 > [!IMPORTANT]  
 > Tento balíček aktualizace je pouze pro integrované systémy Azure Stack. Tento balíček aktualizace nevztahují na Azure Stack Development Kit.
+
+## <a name="archived-release-notes"></a>Archivované poznámky k verzi
+
+Můžete zobrazit [starší verze služby Azure Stack poznámky v Galerii TechNet](http://aka.ms/azsarchivedrelnotes). Tyto archivované verze poznámky jsou k dispozici pouze pro referenční účely a není určeno, podporu pro tyto verze. Potřebujete další pomoc obraťte se na službu zákaznické podpory Microsoftu.
 
 ## <a name="build-reference"></a>Referenční informace o buildu
 
@@ -256,6 +260,12 @@ Toto jsou známé problémy této verze sestavení po instalaci.
 
 <!-- 3203799 - IS, ASDK -->
 - Azure Stack nepodporuje připojení více než 4 síťových rozhraní (NIC) k instanci virtuálního počítače ještě dnes, bez ohledu na velikost instance.
+
+- Na portálu user portal, pokud se pokusíte přidat **back-endový fond** k **nástroje pro vyrovnávání zatížení**, operace se nezdaří s chybovou zprávou **nepovedlo se aktualizovat nástroj pro vyrovnávání zatížení...**  Chcete-li tento problém obejít, pomocí prostředí PowerShell, CLI nebo šablony Azure Resource Manageru můžete přidružit back-endový fond s prostředek nástroje pro vyrovnávání zatížení.
+
+- Na portálu user portal, pokud se pokusíte vytvořit **příchozí pravidlo NAT** pro **nástroje pro vyrovnávání zatížení**, operace se nezdaří s chybovou zprávou **nepovedlo se aktualizovat nástroj pro vyrovnávání zatížení...**  Chcete-li tento problém obejít, pomocí prostředí PowerShell, CLI nebo šablony Azure Resource Manageru můžete přidružit back-endový fond s prostředek nástroje pro vyrovnávání zatížení.
+
+- V portálu user portal **vytvořit Load Balancer** okno zobrazuje možnost pro vytvoření **standardní** SKU nástroje pro vyrovnávání zatížení. Tato možnost není podporována ve službě Azure Stack.
 
 <!-- ### SQL and MySQL-->
 
