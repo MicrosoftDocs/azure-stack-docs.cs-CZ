@@ -11,23 +11,25 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 05/30/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 10fd52a85dd46002e40061c197641a716afa3230
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 6a636a1ed7b2426649afbe163b15780bfc4e9f0e
+ms.sourcegitcommit: 2cd17b8e7352891d8b3eb827d732adf834b7693e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66267697"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428699"
 ---
 # <a name="azure-stack-registration"></a>Registrace Azure Stack
+
 Instalaci sady Azure Stack Development Kit (ASDK) můžete zaregistrovat pomocí Azure pro stažení položek z marketplace z Azure a jak nastavit obchodní data hlášení zpět společnosti Microsoft. Chcete-li podporovat všechny funkce služby Azure Stack, včetně syndikace marketplace je nutná registrace. Umožňuje otestovat důležité funkce služby Azure Stack, jako jsou syndikace marketplace a generování sestav o využívání, je nutná registrace. Po dokončení registrace Azure Stack, využití se oznamuje službě Azure commerce. Zobrazí se v rámci předplatného, které jste použili k registraci. Však uživatelé ASDK neúčtují se za jakékoliv využití, které vykazují.
 
 Pokud vaše ASDK nezaregistrujete, může se zobrazit **vyžadována aktivace** výstražné upozornění, s výzvou k registraci Azure Stack Development Kit. Toto chování je očekávané.
 
 ## <a name="prerequisites"></a>Požadavky
+
 Před použitím těchto pokynů k registraci ASDK ve službě Azure, ujistěte se, že máte nainstalované Azure Stack Powershellu a stáhnout nástroje Azure Stack, jak je popsáno v [konfigurace po nasazení](asdk-post-deploy.md) článku.
 
 Kromě toho režim jazyka PowerShell nastavené na **FullLanguageMode** v počítači používá k registraci ASDK v Azure. Pokud chcete ověřit, že aktuální režim jazyka nastaven na úplné, otevřete okno Powershellu se zvýšenými oprávněními a spusťte následující příkazy Powershellu:
@@ -41,6 +43,7 @@ Zkontrolujte výstup vrací **FullLanguageMode**. Pokud se vrátí další reži
 Účet Azure AD pro registraci potřeby umožňuje mít přístup k předplatnému Azure a máte oprávnění k vytváření aplikací identity a instanční objekty v adresáři spojený s tímto předplatným. Doporučujeme registraci Azure Stack v Azure pomocí správy nejnižších možných oprávnění [vytvořit účet služby pro registraci](../operator/azure-stack-registration-role.md) místo použití přihlašovací údaje globálního správce.
 
 ## <a name="register-azure-stack-with-azure"></a>Registrace Azure Stack s Azure
+
 Postupujte podle těchto kroků k registraci ASDK ve službě Azure.
 
 > [!NOTE]
@@ -48,7 +51,15 @@ Postupujte podle těchto kroků k registraci ASDK ve službě Azure.
 
 1. Otevřete konzolu Powershellu jako správce.  
 
-2. Spusťte následující příkazy Powershellu registraci ASDK instalace v Azure. Musíte se přihlásit do Azure fakturační ID předplatného a místní instalace ASDK. Pokud nemáte Azure fakturační ID předplatného, ale můžete [vytvořit bezplatný účet Azure zde](https://azure.microsoft.com/free/?b=17.06). Registrace Azure Stack se neúčtují žádné poplatky na vaše předplatné Azure.<br><br>Nastavit jedinečný název pro registraci při spuštění **Set-AzsRegistration** rutiny. **RegistrationName** parametr má výchozí hodnotu **AzureStackRegistration**. Nicméně pokud použijete stejný název ve více než jednu instanci služby Azure Stack, skript se nezdaří.
+2. Na hostitelském počítači ASDK, otevřete soubor **C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1** v editoru se zvýšenými oprávněními.
+
+3. Na řádku 1249, přidejte `-TimeoutInSeconds 1800` parametr na konci. To je potřeba, aby se zabránilo časového limitu služby instančního objektu při spuštění skriptu registrace. Řádek 1249 by měl nyní vypadat následovně:
+
+   ```powershell
+   $servicePrincipal = Invoke-Command -Session $PSSession -ScriptBlock { New-AzureBridgeServicePrincipal -RefreshToken $using:RefreshToken -AzureEnvironment $using:AzureEnvironmentName -TenantId $using:TenantId -TimeoutInSeconds 1800 }
+   ```
+
+4. Spusťte následující příkazy Powershellu registraci ASDK instalace v Azure. Musíte se přihlásit do Azure fakturační ID předplatného a místní instalace ASDK. Pokud nemáte k dispozici dosud fakturační ID předplatného Azure, můžete si [vytvořit bezplatný účet Azure zde](https://azure.microsoft.com/free/?b=17.06). Registrace Azure Stack se neúčtují žádné poplatky na vaše předplatné Azure.<br><br>Nastavit jedinečný název pro registraci při spuštění **Set-AzsRegistration** rutiny. **RegistrationName** parametr má výchozí hodnotu **AzureStackRegistration**. Nicméně pokud použijete stejný název ve více než jednu instanci služby Azure Stack, skript se nezdaří.
 
     ```powershell  
     # Add the Azure cloud subscription environment name. 
@@ -75,18 +86,20 @@ Postupujte podle těchto kroků k registraci ASDK ve službě Azure.
     -RegistrationName $RegistrationName `
     -UsageReportingEnabled:$true
     ```
-3. Po dokončení skriptu, byste měli vidět tuto zprávu: **Prostředí je teď zaregistrované a aktivovat pomocí zadaných parametrů.**
+
+5. Po dokončení skriptu, byste měli vidět tuto zprávu: **Prostředí je teď zaregistrované a aktivovat pomocí zadaných parametrů.**
 
     ![Prostředí je teď zaregistrovaný.](media/asdk-register/1.PNG)
 
-
 ## <a name="register-in-disconnected-environments"></a>Zaregistrovat v odpojených prostředích
+
 Pokud při registraci služby Azure Stack v odpojeném prostředí (bez připojení k Internetu), musíte k získání tokenu registrace z prostředí Azure Stack a pak pomocí tohoto tokenu v počítači, který lze připojit k Azure a zaregistrujte a vytvořte aktivace prostředek pro vaše prostředí ASDK.
- 
+
  > [!IMPORTANT]
  > Před použitím těchto pokynů k registraci Azure Stack, ujistěte se, že máte nainstalované prostředí PowerShell pro Azure Stack a stáhnout nástroje Azure Stack, jak je popsáno v [konfigurace po nasazení](asdk-post-deploy.md) článek věnovaný tomu ASDK hostitele počítače a počítače s přístupem k Internetu pro připojení k Azure a zaregistrujte.
 
 ### <a name="get-a-registration-token-from-the-azure-stack-environment"></a>Získání tokenu registrace z prostředí Azure Stack
+
 V hostitelském počítači ASDK spusťte PowerShell jako správce a přejděte **registrace** složky v **AzureStack-Tools-master** adresář vytvořený při stažení nástroje Azure Stack. Pomocí následujících příkazů prostředí PowerShell k importu **RegisterWithAzure.psm1** modul a poté **Get-AzsRegistrationToken** rutiny pro získání tokenu registrace:  
 
    ```powershell  
@@ -108,6 +121,7 @@ V hostitelském počítači ASDK spusťte PowerShell jako správce a přejděte 
 Uložte tento registrační token pro použití na počítače připojené k Internetu. Ze souboru vytvořený parametr $FilePathForRegistrationToken můžete zkopírovat soubor nebo text.
 
 ### <a name="connect-to-azure-and-register"></a>Připojení k Azure a registrace
+
 Na Internetu připojený počítač, použijte následující příkazy prostředí PowerShell k importu **RegisterWithAzure.psm1** modul a poté **Register-AzsEnvironment** rutiny k registraci ve službě Azure s využitím a jedinečným registračním název registračního tokenu, který jste právě vytvořili:  
 
   ```powershell  
@@ -158,7 +172,7 @@ Alternativně můžete použít **Get-Content** rutiny pro odkazování na soubo
 Po dokončení registrace se zobrazí zpráva podobná **prostředí si Azure Stack je teď registrované v Azure.**
 
 > [!IMPORTANT]
-> Nezavírejte okno prostředí PowerShell. 
+> Nezavírejte okno prostředí PowerShell.
 
 Uložte registrační token a registrace – název prostředku pro budoucí použití.
 
@@ -175,6 +189,7 @@ Chcete-li získat aktivační klíč, spusťte následující příkazy prostře
   $ActivationKey = Get-AzsActivationKey -RegistrationName $RegistrationResourceName `
   -KeyOutputFilePath $KeyOutputFilePath
   ```
+
 ### <a name="create-an-activation-resource-in-azure-stack"></a>Vytvoření prostředku Aktivace ve službě Azure Stack
 
 Vraťte se do prostředí Azure Stack se souborem nebo text z aktivace klíče vytvořené z **Get-AzsActivationKey**. Spusťte následující příkazy prostředí PowerShell a vytvoří prostředek aktivace ve službě Azure Stack pomocí tohoto klíče aktivace:   

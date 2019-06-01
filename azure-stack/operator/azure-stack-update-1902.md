@@ -16,12 +16,12 @@ ms.date: 05/30/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: dc323e345c1b7add243e5d800cf5749cd302c4d9
-ms.sourcegitcommit: 4e0b450c91c6515794b663a39f9a4b8b49999918
+ms.openlocfilehash: 29f8a3a6a620f197ba79d75bc41738e03f8f2342
+ms.sourcegitcommit: 07cc716d97bf484c7260eb165ae205ae25e09589
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66411659"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66453392"
 ---
 # <a name="azure-stack-1902-update"></a>Aktualizace služby Azure Stack 1902
 
@@ -237,6 +237,8 @@ Toto jsou známé problémy této verze sestavení po instalaci.
 - Virtuální počítač s Ubuntu 18.04 vytvořené pomocí SSH autorizace povolená neumožňuje použití klíčů SSH pro přihlášení. Jako alternativní řešení použít přístup k virtuálním počítačům pro Linuxové rozšíření k implementaci klíče SSH po zřízení, nebo ověřování pomocí hesla.
 
 - Nelze odebrat škálovací sady z **Virtual Machine Scale Sets** okno. Jako alternativní řešení, vyberte škálovací sady, že chcete odebrat, klikněte **odstranit** tlačítko **přehled** podokně.
+
+- Vytváření virtuálních počítačů ve skupině dostupnosti 3 domén selhání a vytvořit instanci VMSS nezdaří a zobrazí se **FabricVmPlacementErrorUnsupportedFaultDomainSize** chyba během procesu aktualizace v prostředí Azure Stack 4 uzly. Můžete vytvořit jednotlivých virtuálních počítačů ve skupině dostupnosti s 2 domén selhání byl úspěšně nastaven. Vytvoření instance VMSS je však stále nejsou k dispozici během procesu aktualizace ve službě Azure Stack 4 uzly.
 
 ### <a name="networking"></a>Sítě  
 

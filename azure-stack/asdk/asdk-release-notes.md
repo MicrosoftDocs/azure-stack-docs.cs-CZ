@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2019
+ms.date: 05/30/2019
 ms.author: sethm
 ms.reviewer: misainat
-ms.lastreviewed: 05/01/2019
-ms.openlocfilehash: 935f144ebbb40da66ac43fc8e9d5dfc7c3e3d0b6
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.lastreviewed: 05/30/2019
+ms.openlocfilehash: 8de4447cd30204d0d4e1611afd057a75dc7688da
+ms.sourcegitcommit: 2cd17b8e7352891d8b3eb827d732adf834b7693e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64983588"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428685"
 ---
 # <a name="asdk-release-notes"></a>Zpráva k vydání verze ASDK
 
@@ -37,6 +37,15 @@ Udržujte si s tím, co se přihlásíte k odběru je novinkou ASDK [ ![RSS](./m
 - Seznam nových funkcí v této verzi najdete v tématu [v této části](../operator/azure-stack-release-notes-1904.md#whats-in-this-update) poznámky k verzi služby Azure Stack.
 
 ### <a name="fixed-and-known-issues"></a>Oprava a známé problémy
+
+- Z důvodu služba hlavní časový limit při spuštění skriptu registraci za účelem [zaregistrovat ASDK](asdk-register.md) úspěšně musí upravit **RegisterWithAzure.psm1** skript prostředí PowerShell. Udělejte toto:
+
+  1. Na hostitelském počítači ASDK, otevřete soubor **C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1** v editoru se zvýšenými oprávněními.
+  2. Na řádku 1249, přidejte `-TimeoutInSeconds 1800` parametr na konci. To se vyžaduje kvůli časového limitu služby instančního objektu při spuštění skriptu registrace. Řádek 1249 by měl nyní vypadat následovně:
+
+     ```powershell
+      $servicePrincipal = Invoke-Command -Session $PSSession -ScriptBlock { New-AzureBridgeServicePrincipal -RefreshToken $using:RefreshToken -AzureEnvironment $using:AzureEnvironmentName -TenantId $using:TenantId -TimeoutInSeconds 1800 }
+      ```
 
 - Opravili jsme chybu připojení VPN identifikovat [zde ve verzi 1902](#known-issues).
 

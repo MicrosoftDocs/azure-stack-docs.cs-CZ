@@ -4,6 +4,8 @@
   items:
     - name: Co je Azure Stack?
       href: azure-stack-overview.md
+    - name: Co je Azure Stack HCL?
+      href: azure-stack-hci-overview.md
     - name: Porovnání ekosystému Azure
       href: compare-azure-azure-stack.md
     - name: "Poznámky k\_verzi"
@@ -381,18 +383,14 @@
           href: azure-stack-backup-best-practices.md
         - name: Odkaz na zálohování
           href: azure-stack-backup-reference.md
-    - name: Podpora
+    - name: Řešení potíží
       items:
-        - name: Nápověda a podpora
-          href: azure-stack-help-and-support.md
-        - name: Řešení potíží
-          items:
-            - name: Známé problémy
-              href: azure-stack-troubleshooting.md
-            - name: Diagnostika v Azure Stacku
-              href: azure-stack-diagnostics.md
-            - name: Ověření pro Azure Stack
-              href: azure-stack-diagnostic-test.md
+        - name: Známé problémy
+          href: azure-stack-troubleshooting.md
+        - name: Diagnostika v Azure Stacku
+          href: azure-stack-diagnostics.md
+        - name: Ověření pro Azure Stack
+          href: azure-stack-diagnostic-test.md
 - name: Referenční informace
   items:
     - name: Azure Stack PowerShell

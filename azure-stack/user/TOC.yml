@@ -96,7 +96,7 @@
               href: azure-stack-network-overview.md
             - name: Aspekty sítí
               href: azure-stack-network-differences.md
-            - name: Brány VPN Gateway
+            - name: VPN Gateway
               items:
                 - name: Připojení pomocí VPN
                   href: azure-stack-connect-vpn.md
@@ -171,7 +171,9 @@
               maintainContext: true
             - name: Spusťte prostředí PowerShell pomocí Dockeru
               href: azure-stack-powershell-user-docker.md
-            - name: Nainstalovat Visual Studio
+            - name: Připojte se pomocí rozšíření Azure Account
+              href: azure-stack-dev-start-vscode-azure.md
+            - name: Instalace sady Visual Studio
               href: azure-stack-install-visual-studio.md
             - name: Použít veřejný klíč SSH
               href: azure-stack-dev-start-howto-ssh-public-key.md

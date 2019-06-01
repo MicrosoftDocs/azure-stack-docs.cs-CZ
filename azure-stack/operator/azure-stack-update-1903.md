@@ -16,12 +16,12 @@ ms.date: 05/30/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 04/20/2019
-ms.openlocfilehash: 13fb23a2f40d6a616d83921a4bd760ed0be0d240
-ms.sourcegitcommit: 4e0b450c91c6515794b663a39f9a4b8b49999918
+ms.openlocfilehash: ea733bab465a8ca40be69ba26b8c6786b223993a
+ms.sourcegitcommit: 07cc716d97bf484c7260eb165ae205ae25e09589
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66411609"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66453458"
 ---
 # <a name="azure-stack-1903-update"></a>Aktualizace služby Azure Stack 1903
 
@@ -191,6 +191,8 @@ Toto jsou známé problémy této verze sestavení po instalaci.
    ```
 
 - Nelze odebrat škálovací sady z **Virtual Machine Scale Sets** okno. Jako alternativní řešení, vyberte škálovací sady, že chcete odebrat, klikněte **odstranit** tlačítko **přehled** podokně.
+
+- Vytváření virtuálních počítačů ve skupině dostupnosti 3 domén selhání a vytvořit instanci VMSS nezdaří a zobrazí se **FabricVmPlacementErrorUnsupportedFaultDomainSize** chyba během procesu aktualizace v prostředí Azure Stack 4 uzly. Můžete vytvořit jednotlivých virtuálních počítačů ve skupině dostupnosti s 2 domén selhání byl úspěšně nastaven. Vytvoření instance VMSS je však stále nejsou k dispozici během procesu aktualizace ve službě Azure Stack 4 uzly.
 
 ### <a name="networking"></a>Sítě
 

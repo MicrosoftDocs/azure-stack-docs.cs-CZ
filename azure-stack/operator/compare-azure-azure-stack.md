@@ -17,12 +17,12 @@ ms.author: justinha
 ms.reviewer: unknown
 ms.custom: ''
 ms.lastreviewed: 03/29/2019
-ms.openlocfilehash: eefe72aaf3e82c80d26a2963e0d8b4b921d9acf6
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 8badb1fbcabc6f1a3ffbef0b8489dea0f06e649c
+ms.sourcegitcommit: 07cc716d97bf484c7260eb165ae205ae25e09589
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66267529"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66453432"
 ---
 # <a name="differences-between-global-azure-azure-stack-and-azure-stack-hci"></a>Rozdíly mezi globální Azure, Azure Stack a Azure Stack HCL
 
@@ -32,7 +32,7 @@ Tento článek popisuje globální funkce Azure, Azure Stack a Azure Stack HCL a
 
 ![Přehled ekosystému Azure](./media/compare-azure-azure-stack/azure-family.png)
 
-## <a name="global-azure"></a>Globální Azure
+## <a name="global-azure"></a>Global Azure
 
 Microsoft Azure je neustále se rozšiřující sada cloudových služeb, které pomáhají vaší organizaci překonávat překážky v podnikání. Je k sestavování, Správa a nasazování aplikací v síti masivní, globální pomocí oblíbených nástrojů a architektur těmto účelům.
 
@@ -76,9 +76,9 @@ Kromě poskytovatelů prostředků je popsáno výše, jsou k dispozici další 
 
 Další informace o službě Azure Stack na [co je Azure Stack](azure-stack-overview.md).
 
-## <a name="azure-stack-hci"></a>HCI služby Azure Stack 
+## <a name="azure-stack-hci"></a>HCI služby Azure Stack
 
-Řešení Azure Stack HCL umožňují spouštět virtuální počítače v místním a snadno připojit k Azure pomocí hyperkonvergovaného řešení infrastruktury (HCL). Sestavujte a spouštějte cloudové aplikace s využitím konzistentních služeb Azure v místním prostředí a zajistěte splnění legislativních a technických požadavků. Kromě spuštěné virtualizované aplikace místně umožňuje Azure Stack HCL nahradit a konsolidovat stárnoucích serverové infrastruktury a připojení k Azure pro cloudové služby pomocí Windows Admin Center.
+[Azure Stack HCL](azure-stack-hci-overview.md) řešení umožňují spouštět virtuální počítače v místním a snadno připojit k Azure pomocí hyperkonvergovaného řešení infrastruktury (HCL). Sestavujte a spouštějte cloudové aplikace s využitím konzistentních služeb Azure v místním prostředí a zajistěte splnění legislativních a technických požadavků. Kromě spuštěné virtualizované aplikace místně umožňuje Azure Stack HCL nahradit a konsolidovat stárnoucích serverové infrastruktury a připojení k Azure pro cloudové služby pomocí Windows Admin Center.
 
 Azure Stack HCL poskytuje ověřené řešení HCL používá technologii Hyper-V a prostory úložiště – přímé s Windows serverem. 2019 softwarově definované datového centra (SDDC). Windows Admin Center se používá ke správě a integrovaný přístup ke službám Azure, jako:
 

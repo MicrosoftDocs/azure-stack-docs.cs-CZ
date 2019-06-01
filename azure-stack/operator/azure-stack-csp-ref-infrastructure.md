@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/09/2019
+ms.date: 05/31/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: ca474c9addeec3b3b6fcaad8db55bc40a148bb8f
-ms.sourcegitcommit: c755c7eac0f871960f9290591421cf5990b9e734
+ms.openlocfilehash: d6f77483730c9609ad9750da9b11f62de2874ff2
+ms.sourcegitcommit: 07cc716d97bf484c7260eb165ae205ae25e09589
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506103"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66453454"
 ---
 # <a name="usage-reporting-infrastructure-for-cloud-service-providers"></a>Využití sestav infrastruktury pro poskytovatele cloudových služeb
 
@@ -34,7 +34,7 @@ Existuje několik rozdílů mezi jaké jsou ceny za služby ve službě Azure St
 
 Můžete získat informace o měřiče služby Azure Stack, který je používán obchodování a jejich cenu v partnerském centru stejným způsobem jako u služby Azure:
 
-1. V partnerském centru, přejděte **nabídce řídicího panelu** > **cenami a nabídkami**.
+1. V partnerském centru, přejděte na **nabídce řídicího panelu**a pak vyberte **prodávat**a pak vyberte **cenami a nabídkami**.
 2. V části **založená na využití služby**vyberte **aktuální**.
 3. Otevřít **Azure v ceníku CSP globální** tabulky.
 4. Filtrovat podle **oblasti = Azure Stack**.
@@ -52,7 +52,7 @@ Následujících chybových zpráv může nastat při přidání klienty na regi
 | **UnauthorizedCspRegistration**     | Poskytnuté _registrace – název_ není schválený pro použití více tenantů. Odeslání e-mailu azstCSP@microsoft.com a zahrnují vaší registrace – název, skupinu prostředků a předplatném identifikátor použitý v registraci.                                                                                    | Registrace musí být schválen pro více tenantů společností Microsoft před zahájením přidání tenantů do něj.                                                                                                                                                                                                                                                                                                                                                                                             |
 | **CustomerSubscriptionsNotAllowed** | Odpojené zákazníkům se nepodporují operace předplatného zákazníka. Aby bylo možné tuto funkci použít, znovu zaregistrovat platit jako můžete použít licencí.                                                                                                                                                                    | Registrace, ke kterému se pokoušíte přidat klienty je kapacita registrace; To znamená, když byla vytvořena registrace, parametr `BillingModel Capacity` byl použit. Přidání tenantů jsou povoleny pouze platit jako využití registrace. Je nutné znovu zaregistrovat pomocí parametru `BillingModel PayAsYouUse`.                                                                                                                                                                                                                                                                                          |
 | **InvalidCSPSubscription**          | Poskytnuté _identifikátor předplatného zákazníka_ není platné předplatné poskytovatele CSP. Ujistěte se, že je k dispozici platné předplatné Azure.                                                                                                                                                        | Příčinou je pravděpodobně z důvodu zákaznického předplatného se chybně zadaná.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| **MetadataResolverBadGatewayError** | Některý nadřazený server vrátil neočekávanou chybu. Zkuste to znovu později. Pokud se problém nevyřeší, obraťte se na podporu.                                                                                                                                                                                                |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| **MetadataResolverBadGatewayError** | Některý nadřazený server vrátil neočekávanou chybu. Opakujte akci později. Pokud se problém nevyřeší, obraťte se na podporu.                                                                                                                                                                                                |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 
 ## <a name="terms-used-for-billing-and-usage"></a>Termíny používané pro fakturaci a využití
 
