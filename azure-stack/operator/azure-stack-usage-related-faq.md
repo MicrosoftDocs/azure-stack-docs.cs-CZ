@@ -11,22 +11,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2019
+ms.date: 05/31/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 02/26/2019
-ms.openlocfilehash: 52613c394d7a1caeef42a85f1dd4d5b645f5e8e4
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 6a5ef529d2eabf8039be1da6c53da907c0b7aaaf
+ms.sourcegitcommit: 80775f5c5235147ae730dfc7e896675a9a79cdbe
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66267945"
+ms.lasthandoff: 06/03/2019
+ms.locfileid: "66459040"
 ---
 # <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Nejčastější dotazy v rozhraní API pro využití služby Azure Stack
 
-Tento článek obsahuje odpovědi na některé nejčastější dotazy o rozhraní API využití služby Azure Stack.
+Tento článek obsahuje odpovědi na některé nejčastější dotazy o použití rozhraní API služby Azure Stack.
 
 ## <a name="what-meter-ids-can-i-see"></a>Jaké měření ID mohou zobrazit?
+
 Využití hlášené pro následující poskytovatele prostředků:
 
 ### <a name="network"></a>Síť
@@ -76,7 +77,7 @@ Využití hlášené pro následující poskytovatele prostředků:
 **ID měřiče**: 1B8C1DEC-EE42-414B-AA36-6229CF199370  
 **Název měřiče**: TableDataTransOut  
 **Jednotka**: Výstup v GB  
-**Poznámky k**: Tabulka služby sazbách za odchozí data v GB  
+**Poznámky k**: Tabulka služby sazbách za odchozí data v GB.
   
 **ID měřiče**: 43DAF82B-4618-444A-B994-40C23F7CD438  
 **Název měřiče**: BlobTransactions  
@@ -108,7 +109,7 @@ Využití hlášené pro následující poskytovatele prostředků:
 **Jednotka**: Výstup v GB  
 **Poznámky k**: Fronty služby sazbách za odchozí data v GB  
 
-### <a name="compute"></a>Compute 
+### <a name="compute"></a>Compute
   
 **ID měřiče**: FAB6EB84-500B-4A09-A8CA-7358F8BBAEA5  
 **Název měřiče**: Hodiny pro velikosti základní virtuální počítač  
@@ -123,7 +124,7 @@ Využití hlášené pro následující poskytovatele prostředků:
 **ID měřiče**: 6DAB500F-A4FD-49C4-956D-229BB9C8C793  
 **Název měřiče**: Hodiny pro velikosti virtuální počítač  
 **Jednotka**: Hodiny pro virtuální počítač  
-**Poznámky k**: Zaznamená virtuálního počítače základní a Windows. Neupravuje jádra.  
+**Poznámky k**: Zachycení i základní a virtuální počítač Windows. Neupravuje jádra.  
   
 ### <a name="managed-disks"></a>Spravované disky
 
@@ -385,23 +386,25 @@ Využití hlášené pro následující poskytovatele prostředků:
 **Jednotka**: GB  
 **Poznámky k**: Celkový počet příchozích bajty odpovědi na žádost a celkový počet odchozího požadavku bajtů + celkový počet příchozích FTP vyžádání bajty odpovědi a celkový počet příchozích webové nasazení bajty odpovědi na žádost.  
   
-
 ## <a name="how-do-the-azure-stack-usage-apis-compare-to-the-azure-usage-apihttpsdocsmicrosoftcomazurebillingbilling-usage-rate-card-overviewazure-resource-usage-api-preview-currently-in-public-preview"></a>Jak Azure Stack využití rozhraní API pro porovnání [využití rozhraní API Azure](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview#azure-resource-usage-api-preview) (aktuálně ve verzi public preview)?
-* Rozhraní API využití Tenanta je konzistentní s Azure API s jednou výjimkou: *showDetails* příznak není aktuálně podporován ve službě Azure Stack.
+
+* Rozhraní API využití tenanta je konzistentní s Azure API s jednou výjimkou: *showDetails* příznak není aktuálně podporován ve službě Azure Stack.
 * Rozhraní API využití zprostředkovatele platí jenom pro Azure Stack.
-* V současné době [RateCard API](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview#azure-resource-ratecard-api-preview) , který je k dispozici v Azure, která není k dispozici ve službě Azure Stack.
+* V současné době [RateCard API](/azure/billing/billing-usage-rate-card-overview#azure-resource-ratecard-api-preview) , který je k dispozici v Azure, která není k dispozici ve službě Azure Stack.
 
 ## <a name="what-is-the-difference-between-usage-time-and-reported-time"></a>Jaký je rozdíl mezi časem využití a ohlášených?
+
 Sestavy využití dat mají dva hlavní časové hodnoty:
 
 * **Hlášená čas**. Čas, kdy události využití zadáno využití systému
 * **Čas použití**. Pokud byl prostředek služby Azure Stack uplynulý čas
 
-Může se zobrazit rozdíl v hodnotách pro využití a čas hlášené pro konkrétní použití událostí. Zpoždění může být až několik hodin v jakémkoli prostředí.
+Může se zobrazit rozdíl v hodnotách dobu využití a hlášený čas pro konkrétní použití událostí. Zpoždění může být až několik hodin v jakémkoli prostředí.
 
 V současné době můžete dát dotaz na pouze *hlášené čas*.
 
 ## <a name="what-do-these-usage-api-error-codes-mean"></a>Co znamenají tyto kódy chyb rozhraní API využití?
+
 | **Stavový kód HTTP** | **Kód chyby:** | **Popis** |
 | --- | --- | --- |
 | 400/Chybný požadavek |*NoApiVersion* |*Verze api-version* chybí parametr dotazu. |
@@ -416,9 +419,8 @@ V současné době můžete dát dotaz na pouze *hlášené čas*.
 
 Spuštěných a zastavených virtuálních počítačů Generovat data o využití. Konzistentní s Azure, zrušení přidělení, je potřeba zastavit emisí data o využití. V případě, ve kterém není k dispozici na portálu, ale poskytovateli prostředků compute je stále spuštěna bude využití generované.
 
-## <a name="next-steps"></a>Další kroky
-[Fakturace zákazníkům a vrácení peněz ve službě Azure Stack](azure-stack-billing-and-chargeback.md)
+## <a name="next-steps"></a>Další postup
 
-[Rozhraní API využití prostředků poskytovatele](azure-stack-provider-resource-api.md)
-
-[Rozhraní API využití prostředků tenanta](azure-stack-tenant-resource-usage-api.md)
+* [Fakturace zákazníkům a vrácení peněz ve službě Azure Stack](azure-stack-billing-and-chargeback.md)
+* [Rozhraní API využití prostředků poskytovatele](azure-stack-provider-resource-api.md)
+* [Rozhraní API využití prostředků tenanta](azure-stack-tenant-resource-usage-api.md)

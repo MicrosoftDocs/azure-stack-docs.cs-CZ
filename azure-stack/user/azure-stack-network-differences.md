@@ -5,18 +5,18 @@ services: azure-stack
 keywords: ''
 author: mattbriggs
 manager: femila
-ms.date: 05/16/2019
+ms.date: 06/04/2019
 ms.topic: article
 ms.service: azure-stack
 ms.author: mabrigg
 ms.reviewer: scottnap
-ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 841e30367ded29e10c28573056f4a70361e28a9e
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.lastreviewed: 06/04/2019
+ms.openlocfilehash: de39645d1414fc852b98036e7071befcf5262cb1
+ms.sourcegitcommit: cf9440cd2c76cc6a45b89aeead7b02a681c4628a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782579"
+ms.lasthandoff: 06/03/2019
+ms.locfileid: "66469191"
 ---
 # <a name="considerations-for-azure-stack-networking"></a>Důležité informace týkající se sítích Azure stacku
 
@@ -36,7 +36,7 @@ Tento článek poskytuje přehled o jedinečných důležité informace o sítí
 |  | DNS record sets per zone | 5000 (výchozí)<br>Je možné zvýšit na vyžádání. | 5000 |
 |  | Name servers for zone delegation | Azure poskytuje čtyři názvové servery pro každou zónu uživatele (tenant), který je vytvořen. | Azure Stack nabízí dvě názvové servery pro každou zónu uživatele (tenant), který je vytvořen. |
 | Virtual Network | Partnerské vztahy virtuálních sítí | Propojení dvou virtuálních sítí ve stejné oblasti prostřednictvím páteřní sítě Azure. | Není dosud podporován. |
-|  | Adresy protokolu IPv6 | Můžete přiřadit adresu protokolu IPv6 v rámci [konfiguraci síťového rozhraní](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface-addresses#ip-address-versions). | Podporovaný je jenom protokol IPv4. |
+|  | IPv6 adresy | Můžete přiřadit adresu protokolu IPv6 v rámci [konfiguraci síťového rozhraní](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface-addresses#ip-address-versions). | Podporovaný je jenom protokol IPv4. |
 |  | Plán DDoS Protection | Podporováno | Ještě není podporované. |
 |  | Konfigurace IP adresy škálovací sady | Podporováno | Ještě není podporované. |
 |  | Privátní přístup ke službám (podsítě) | Podporováno | Ještě není podporované. |
@@ -48,7 +48,7 @@ Tento článek poskytuje přehled o jedinečných důležité informace o sítí
 |  | Skupiny zabezpečení aplikací | Podporováno | Ještě není podporované. |
 | Brány virtuálních sítí | Point-to-Site VPN Gateway | Podporováno | Ještě není podporované. |
 |  | Brána připojení typu Vnet-to-Vnet | Podporováno | Ještě není podporované. |
-|  | Typ brány virtuální sítě | Azure podporuje sítě VPN<br> Express Route <br> Hyper Net | Azure Stack je momentálně podporuje pouze typ sítě VPN. |
+|  | Typ brány virtuální sítě | Azure podporuje sítě VPN<br> ExpressRoute <br> Hyper Net | Azure Stack je momentálně podporuje pouze typ sítě VPN. |
 |  | SKU služby VPN Gateway | Podporu pro Basic, GW1, GW2, GW3, standardní vysoký výkon, mimořádně vysoký výkon. | Podpora pro Basic, Standard a skladové položky High Performance. |
 |  | Typ sítě VPN | Azure podporuje jak na základě zásad a na základě trasy. | Azure Stack podporuje směrování na základě pouze. |
 |  | Nastavení protokolu BGP | Azure podporuje konfiguraci adresy partnerského vztahu protokolu BGP a váha partnerského uzlu. | Adresa partnerského vztahu protokolu BGP a váha partnerského uzlu jsou automaticky nakonfigurované ve službě Azure Stack. Neexistuje žádný způsob pro uživatele k nakonfigurování těchto nastavení vlastní hodnoty. |
@@ -56,7 +56,7 @@ Tento článek poskytuje přehled o jedinečných důležité informace o sítí
 |  | Změna velikosti brány | Azure podporuje změnu velikosti brány po nasazení. | Znovu velikosti není podporované. |
 |  | Aktivní/aktivní konfigurace | Podporováno | Ještě není podporované. |
 |  | UsePolicyBasedTrafficSelectors | Azure podporuje používání selektorů přenosu na základě zásad s připojeními trasové brány. | Ještě není podporované. |
-| Nástroj pro vyrovnávání zatížení | Skladová jednotka | Základní a podporovaných nástrojů pro vyrovnávání zatížení | Je podporován pouze Load balanceru úrovně Basic.  Vlastnost SKU se nepodporuje. |
+| Nástroj pro vyrovnávání zatížení | Skladová jednotka (SKU) | Základní a podporovaných nástrojů pro vyrovnávání zatížení | Je podporován pouze Load balanceru úrovně Basic.  Vlastnost SKU se nepodporuje. |
 |  | Zóny | Zóny dostupnosti jsou podporovány. | Není dosud podporován. |
 |  | Pravidla příchozího překladu adres podporu koncových bodů služby | Azure podporuje zadání koncových bodů služby pro pravidla příchozího překladu adres. | Azure Stack zatím nepodporuje koncové body služby, takže tyto nelze zadat. |
 |  | Protocol | Azure podporuje zadávání GRE nebo ESP. | Třída protokolu není podporované ve službě Azure Stack. |
@@ -68,11 +68,12 @@ Tento článek poskytuje přehled o jedinečných důležité informace o sítí
 |  | Skupiny zabezpečení aplikací | Podporováno | Ještě není podporované. |
 |  | Popisek názvu interního serveru DNS | Podporováno | Ještě není podporované. |
 |  | Verze privátní IP adresa | Jsou podporovány IPv6 a IPv4. | Podporovaný je jenom protokol IPv4. |
+|  | Adresa MAC statická | Nepodporuje se | Nepodporuje se. Každý systém Azure Stack používá stejný fond adres MAC. |
 | Network Watcher | Možnosti monitorování sítě tenanta sledovací proces sítě | Podporováno | Ještě není podporované. |
 | CDN | Profily síť pro doručování obsahu | Podporováno | Ještě není podporované. |
-| Aplikační brána | Vyrovnávání zatížení vrstvy 7 | Podporováno | Ještě není podporované. |
+| Application Gateway | Vyrovnávání zatížení vrstvy 7 | Podporováno | Ještě není podporované. |
 | Traffic Manager | Směrování příchozího provozu pro zajištění optimálního výkonu aplikací a spolehlivost. | Podporováno | Ještě není podporované. |
-| Express Route | Nastavení rychlého privátního připojení ke cloudovým službám Microsoftu z vaší místní infrastruktury nebo společně umístěného zařízení. | Podporováno | Podpora pro připojení služby Azure Stack k okruhu Express Route. |
+| ExpressRoute | Nastavení rychlého privátního připojení ke cloudovým službám Microsoftu z vaší místní infrastruktury nebo společně umístěného zařízení. | Podporováno | Podpora pro připojení služby Azure Stack k okruhu Express Route. |
 
 ## <a name="next-steps"></a>Další postup
 

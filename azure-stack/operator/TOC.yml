@@ -48,7 +48,15 @@
 - name: Koncepty
   items:
     - name: Plánování kapacit
-      href: capacity-planning.md
+      items:
+        - name: Přehled
+          href: azure-stack-capacity-planning-overview.md
+        - name: Compute
+          href: azure-stack-capacity-planning-compute.md
+        - name: Úložiště
+          href: azure-stack-capacity-planning-storage.md
+        - name: Capacity Planner služby Azure Stack
+          href: azure-stack-capacity-planner.md
     - name: Integrace datových center
       href: azure-stack-customer-journey.md
       items:
@@ -374,9 +382,9 @@
         - name: Zálohování Azure stacku
           href: azure-stack-backup-back-up-azure-stack.md
         - name: Zálohování souborů a aplikací ve službě Azure Stack
-          href: /azure/backup/backup-mabs-files-applications-azure-stack.md?toc=/azure/azure-stack/toc.json&bc=/azure/azure-stack/breadcrumb/toc.json
+          href: /azure/backup/backup-mabs-files-applications-azure-stack?toc=/azure/azure-stack/toc.json&bc=/azure/azure-stack/breadcrumb/toc.json
         - name: Replikace virtuálních počítačů Azure stacku pro Azure
-          href: /azure/site-recovery/azure-stack-site-recovery.md?toc=/azure/azure-stack/toc.json&bc=/azure/azure-stack/breadcrumb/toc.json
+          href: /azure/site-recovery/azure-stack-site-recovery?toc=/azure/azure-stack/toc.json&bc=/azure/azure-stack/breadcrumb/toc.json
         - name: Obnovit ze ztráty dat
           href: azure-stack-backup-recover-data.md
         - name: Osvědčené postupy zálohování

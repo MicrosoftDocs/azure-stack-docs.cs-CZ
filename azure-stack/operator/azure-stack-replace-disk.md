@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2019
+ms.date: 06/04/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 01/22/2019
-ms.openlocfilehash: 797e49f82938888776b2685ab44add281b730943
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.lastreviewed: 06/04/2019
+ms.openlocfilehash: bfe18e0aa59f81f614ae00057b2c1f287b1257da
+ms.sourcegitcommit: cf9440cd2c76cc6a45b89aeead7b02a681c4628a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782409"
+ms.lasthandoff: 06/03/2019
+ms.locfileid: "66469258"
 ---
 # <a name="replace-a-physical-disk-in-azure-stack"></a>Nahraďte fyzický disk ve službě Azure Stack
 
@@ -50,10 +50,37 @@ Postupujte podle pokynů výrobce OEM dodavatele hardwaru FRU určena k nahrazen
 Zabránit používání nepodporované disku v integrovaný systém, bude systém blokovat disky, které nejsou podporovány od dodavatele. Pokud se pokusíte použít nepodporovaný disk, nová výstraha se říká, že disk má byl umístěn do karantény z důvodu nepodporované modelu, nebo firmware.
 
 Po vyměňujete disk, Azure Stack automaticky zjistí nový disk a spustí proces opravy virtuálního disku.
+
+## <a name="check-the-status-of-virtual-disk-repair-using-azure-stack-powershell"></a>Kontrola stavu oprava virtuálního disku pomocí Azure Stack Powershellu
+
+Po vyměňujete disk, můžete monitorovat virtuální disk zdravotní stav a opravit průběh úlohy s využitím Azure Stack Powershellu.
+
+1. Zkontrolujte, že máte nainstalovaný Azure Stack Powershellu. Další informace najdete v tématu [instalace Powershellu pro Azure Stack](azure-stack-powershell-install.md).
+2. Připojení ke službě Azure Stack pomocí prostředí PowerShell jako operátor. Další informace najdete v tématu [připojit ke službě Azure Stack pomocí prostředí PowerShell jako operátor](azure-stack-powershell-configure-admin.md).
+3. Spuštěním následující rutiny ověřte stav virtuálního disku a stav opravy:
+    ```powershell  
+    $scaleunit=Get-AzsScaleUnit
+    $StorageSubSystem=Get-AzsStorageSubSystem -ScaleUnit $scaleunit.Name
+    Get-AzsVolume -StorageSubSystem $StorageSubSystem.Name -ScaleUnit $scaleunit.name | Select-Object VolumeLabel, OperationalStatus, RepairStatus
+    ```
+
+    ![Stav svazků Azure Stack](media/azure-stack-replace-disk/get-azure-stack-volumes-health.png)
+
+4. Ověření stavu systému Azure Stack. Pokyny najdete v tématu [stavu systému ověřit Azure Stack](azure-stack-diagnostic-test.md).
+5. Volitelně můžete spustíte následující příkaz pro ověření stavu nahrazené fyzického disku.
+
+```powershell  
+$scaleunit=Get-AzsScaleUnit
+$StorageSubSystem=Get-AzsStorageSubSystem -ScaleUnit $scaleunit.Name
+
+Get-AzsDrive -StorageSubSystem $StorageSubSystem.Name -ScaleUnit $scaleunit.name | Format-Table Storagenode, Healthstatus, PhysicalLocation, Model, MediaType,  CapacityGB, CanPool, CannotPoolReason
+```
+
+![Nahradí fyzické disky ve službě Azure Stack](media/azure-stack-replace-disk/get-azure-stack-volumes-health.png)
+
+## <a name="check-the-status-of-virtual-disk-repair-using-the-privileged-endpoint"></a>Zkontrolujte stav virtuálního disku opravit pomocí privilegovaných koncového bodu
  
-## <a name="check-the-status-of-virtual-disk-repair"></a>Kontrola stavu oprava virtuálního disku
- 
- Po vyměňujete disk, můžete sledovat stav virtuálního disku a opravit průběh úlohy pomocí privilegovaných koncový bod. Z libovolného počítače, který má síťové připojení ke koncovému bodu privileged postupujte podle těchto kroků.
+Po vyměňujete disk, můžete sledovat stav virtuálního disku a opravit průběh úlohy pomocí privilegovaných koncový bod. Z libovolného počítače, který má síťové připojení ke koncovému bodu privileged postupujte podle těchto kroků.
 
 1. Otevřete relaci Windows Powershellu a připojte se k privilegovaným koncový bod.
     ```powershell
@@ -74,7 +101,10 @@ Po vyměňujete disk, Azure Stack automaticky zjistí nový disk a spustí proce
     ```
       ![Výstup prostředí PowerShell Get-StorageJob příkazu](media/azure-stack-replace-disk/GetStorageJobOutput.png)
 
-## <a name="troubleshoot-virtual-disk-repair"></a>Řešení potíží s oprava virtuálního disku
+4. Ověření stavu systému Azure Stack. Pokyny najdete v tématu [stavu systému ověřit Azure Stack](azure-stack-diagnostic-test.md).
+
+
+## <a name="troubleshoot-virtual-disk-repair-using-the-privileged-endpoint"></a>Řešení potíží s oprava virtuálního disku pomocí privilegovaných koncového bodu
 
 Pokud oprava virtuálního disku úlohy se zobrazí zablokované, spuštěním následujícího příkazu restartujete úlohu:
   ```powershell

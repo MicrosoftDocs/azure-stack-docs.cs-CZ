@@ -17,12 +17,12 @@ ms.author: justinha
 ms.reviewer: unknown
 ms.lastreviewed: 09/11/2018
 ms.custom: mvc
-ms.openlocfilehash: b39eaf4365f74e59c6dd60db67fdadf1162cb91d
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 3719019ebdbc6edad17c523a937d77d4f11bb02a
+ms.sourcegitcommit: cf9440cd2c76cc6a45b89aeead7b02a681c4628a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66268138"
+ms.lasthandoff: 06/03/2019
+ms.locfileid: "66469219"
 ---
 # <a name="tutorial-make-virtual-machines-available-to-your-azure-stack-users"></a>Kurz: zpřístupníte virtuálních počítačů pro vaše uživatele Azure stacku
 
@@ -41,7 +41,7 @@ Ve službě Azure Stack se doručí uživatele, kteří používají předplatn�
 
 ![Odběry, nabídky a plány](media/azure-stack-key-features/image4.png)
 
-Další informace najdete v tématu [klíčových funkcích a konceptech v Azure stacku](azure-stack-overview.md).
+Další informace najdete v tématu [plán, nabídky, kvót a předplatného přehled](azure-stack-plan-offer-quota-overview.md).
 
 ## <a name="create-an-offer"></a>Vytvoření nabídky
 

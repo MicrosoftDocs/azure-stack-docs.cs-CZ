@@ -16,12 +16,12 @@ ms.date: 05/31/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 05/31/2019
-ms.openlocfilehash: 0bc2b209303cceda30d5997d080c4c6061f20da3
-ms.sourcegitcommit: 07cc716d97bf484c7260eb165ae205ae25e09589
+ms.openlocfilehash: 9b92e6e2e059f4b57742248672751111b504136c
+ms.sourcegitcommit: cf9440cd2c76cc6a45b89aeead7b02a681c4628a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66453472"
+ms.lasthandoff: 06/03/2019
+ms.locfileid: "66469130"
 ---
 # <a name="azure-stack-1904-known-issues"></a>Azure Stack 1904 známé problémy
 
@@ -149,7 +149,7 @@ Pokud jste povolení diagnostiky spouštění na virtuálním počítači, ale o
 #### <a name="centos"></a>CentOS
 
 - Použít: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: Prostředí pro vytváření nastavit škálování virtuálního počítače (VMSS) poskytuje založené na CentOS 7.2 jako možnost pro nasazení. CentOS 7.2 není k dispozici ve službě Azure Stack.
+- Příčina: Prostředí pro vytváření virtuálního počítače škálovací sady založené na CentOS 7.2 poskytuje jako možnost pro nasazení. CentOS 7.2 není k dispozici ve službě Azure Stack.
 - Náprava: Vyberte jiný operační systém pro vaše nasazení, nebo pomocí šablony Azure Resource Manageru zadáním jiné image CentOS, který byl stažen před jejich nasazením na Marketplace operátorem.
 - Výskyt: Společné
 
@@ -160,11 +160,11 @@ Pokud jste povolení diagnostiky spouštění na virtuálním počítači, ale o
 - Náprava: Vyberte škálovací sady, že chcete odebrat, klikněte **odstranit** tlačítko **přehled** podokně.
 - Výskyt: Společné
 
-#### <a name="vmvmss-create-failures-during-patch-and-update-on-4-node-azure-stack-environments"></a>Virtuální počítače/škálovací sady vytvořit selhání během opravy a aktualizace v prostředích Azure Stack 4 uzly
+#### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-environments"></a>Vytvoření chyby během opravy a aktualizace v prostředích Azure Stack 4 uzly
 
 - Použít: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: Vytváření virtuálních počítačů ve skupině dostupnosti 3 domén selhání a vytvořit instanci VMSS nezdaří a zobrazí se **FabricVmPlacementErrorUnsupportedFaultDomainSize** chyba během procesu aktualizace v prostředí Azure Stack 4 uzly.
-- Náprava: Můžete vytvořit jednotlivých virtuálních počítačů ve skupině dostupnosti s 2 domén selhání byl úspěšně nastaven. Vytvoření instance VMSS je však stále nejsou k dispozici během procesu aktualizace ve službě Azure Stack 4 uzly.
+- Příčina: Vytváření virtuálních počítačů ve skupině dostupnosti 3 domén selhání a vytvořit škálovací sadu virtuálních počítačů nastavte instance selže a zobrazí se **FabricVmPlacementErrorUnsupportedFaultDomainSize** chyba během procesu aktualizace ve službě Azure Stack 4 uzly prostředí.
+- Náprava: Můžete vytvořit jednotlivých virtuálních počítačů ve skupině dostupnosti s 2 domén selhání byl úspěšně nastaven. Vytváření instance škálovací sady je však stále nejsou k dispozici během procesu aktualizace ve službě Azure Stack 4 uzly.
 
 ### <a name="ubuntu-ssh-access"></a>Přístup SSH se systémem Ubuntu
 
@@ -202,11 +202,11 @@ Pokud jste povolení diagnostiky spouštění na virtuálním počítači, ale o
   - Problém je vyřešen v nejnovější aktualizaci [Azure Stack oprava hotfix pro 1904](https://support.microsoft.com/help/4505688).
 - Výskyt: Společné
 
-### <a name="vmss-instance-view"></a>Zobrazení instance VMSS
+### <a name="virtual-machine-scale-set-instance-view"></a>Zobrazení instance virtuálního počítače škálovací sady
 
 - Použít: Tento problém se vztahuje na verze 1904 byl a 1905.
-- Příčina: Okně zobrazení instance škálovací sady, které se nachází na portálu Azure Stack v **řídicí panel** > **škálovací sady virtuálních počítačů**  >   **Instance AnyScaleSet -**  > **AnyScaleSetInstance** nepodaří načíst.
-- Náprava: Aktuálně nejsou k dispozici žádná možnost nápravy a pracujeme na opravě. Dokud to neuděláte, použijte prosím rutinu rozhraní příkazového řádku `az vmss get-instance-view` získat zobrazení instance VMSS.
+- Příčina: V okně zobrazení instance škálovací sady se nachází na portálu Azure Stack v **řídicí panel** > **škálovací sady virtuálních počítačů**  >   **Instance AnyScaleSet -**  > **AnyScaleSetInstance** nepodaří načíst.
+- Náprava: Aktuálně nejsou k dispozici žádná možnost nápravy a pracujeme na opravě. Dokud to neuděláte, použijte prosím rutinu rozhraní příkazového řádku `az vmss get-instance-view` získat zobrazení instance škálovací sady virtuálních počítačů.
 
 ## <a name="storage"></a>Úložiště
 

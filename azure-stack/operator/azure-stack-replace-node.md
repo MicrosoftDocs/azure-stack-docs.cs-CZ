@@ -15,12 +15,12 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 12/06/2018
-ms.openlocfilehash: 72449e25bf1787f686da786bc587b57a2a28254c
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.openlocfilehash: 78fe71768b83082e152685f7fe4c7cc606ae5b3c
+ms.sourcegitcommit: cf9440cd2c76cc6a45b89aeead7b02a681c4628a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782389"
+ms.lasthandoff: 06/03/2019
+ms.locfileid: "66469197"
 ---
 # <a name="replace-a-scale-unit-node-on-an-azure-stack-integrated-system"></a>Nahraďte uzlu jednotek škálování v systémech pro Azure Stack integrované
 
@@ -69,7 +69,7 @@ Následující kroky jsou k dispozici jako základní přehled o proces nahrazen
 
 4. Nahraďte fyzického počítače. Obvykle je to váš dodavatel hardwaru výrobce OEM.
 5. Použití [opravit](azure-stack-node-actions.md#repair) akce pro přidání nového fyzického počítače na jednotce škálování.
-6. Použít privilegovaný koncový bod pro [zkontrolovat stav oprava virtuálního disku](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair). Úloha opravy celé úložiště pomocí nové datové jednotky, může trvat několik hodin v závislosti na zatížení systému a využité místo.
+6. Použít privilegovaný koncový bod pro [zkontrolovat stav oprava virtuálního disku](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair-using-the-privileged-endpoint). Úloha opravy celé úložiště pomocí nové datové jednotky, může trvat několik hodin v závislosti na zatížení systému a využité místo.
 7. Po dokončení akce opravy, ověřte, že byly automaticky zavřeny všechny aktivní výstrahy.
 
 ## <a name="next-steps"></a>Další postup

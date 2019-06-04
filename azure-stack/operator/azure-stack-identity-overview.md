@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/14/2019
+ms.date: 06/03/2019
 ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: bd58611e08bf0b0de6808c9719311f904ea682ba
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: f57ded9df4fe799a5795ee541f7a03e650202aab
+ms.sourcegitcommit: 80775f5c5235147ae730dfc7e896675a9a79cdbe
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985259"
+ms.lasthandoff: 06/03/2019
+ms.locfileid: "66459057"
 ---
 # <a name="overview-of-identity-for-azure-stack"></a>Přehled identity pro službu Azure Stack
 
@@ -67,7 +67,7 @@ Ve službě Azure Stack, uživatelských účtů:
 
 Při přihlášení k portálu tenanta vaší organizace, je použít *https:\//portal.local.azurestack.external* adresy URL. Při přihlašování k portálu Azure Stack z jiných domén, než jaký se používá k registraci Azure Stack, použili k registraci ve službě Azure Stack název domény musí být připojeno k portálu pro adresu url. Pokud Azure Stack je zaregistrován s fabrikam.onmicrosoft.com a uživatelský účet přihlášení je například admin@contoso.com, by měla adresa url pro použití k protokolování do portálu user portal: https:\//portal.local.azurestack.external/ Fabrikam.onmicrosoft.com.
 
-### <a name="guest-users"></a>Uživatelé typu host
+### <a name="guest-users"></a>Uživatelé typu Host
 
 Uživatelé typu Host jsou uživatelské účty z jiných tenantů adresáře, kterým byl udělen přístup k prostředkům ve vašem adresáři. Pro podporu uživatelů typu Host, použijte Azure AD a povolit podporu pro více tenantů. Pokud je povolena podpora, můžete pozvat uživatele typu Host pro přístup k prostředkům ve vašem tenantovi adresář, který umožňuje vzájemnou spolupráci s vnějším organizacemi.
 
@@ -147,7 +147,7 @@ Pro aplikace a uživatele je popsán čtyři vrstvy architektury Azure Stack. In
 |---------|---------|
 |Nástroje a klienty, jako je například portál pro správu     | Do prostředků ve službě Azure Stack, upravit nebo přistoupit k nástrojům a klienti používat [webového tokenu JSON](/azure/active-directory/develop/active-directory-token-and-claims) volání do Azure Resource Manageru. <br>Azure Resource Manageru JSON Web Token ověří a prohlédne *deklarace identity* v vydaný token odhadnout úroveň autorizace uživatele nebo instanční objekt služby má ve službě Azure Stack. |
 |Azure Resource Manageru a jeho základní služby     |Azure Resource Manageru komunikuje s poskytovatele prostředků pro přenos komunikace od uživatelů. <br> Přenese použití *přímé dnešní* volání nebo *deklarativní* volá prostřednictvím [šablon Azure Resource Manageru](/azure-stack/user/azure-stack-arm-templates).|
-|Poskytovatelé prostředků     |Volání, které jsou předány do poskytovatele prostředků jsou zabezpečené pomocí ověřování prostřednictvím certifikátu. <br>Azure Resource Manageru a poskytovatele prostředků a zůstat v komunikaci přes rozhraní API. Pro každé volání, které se získaly z Azure Resource Manageru poskytovatel prostředků ověří volání pomocí tohoto certifikátu.|
+|Poskytovatelé prostředků     |Volání předána poskytovatelů prostředků jsou zabezpečené pomocí ověřování prostřednictvím certifikátu. <br>Azure Resource Manageru a poskytovatele prostředků a zůstat v komunikaci přes rozhraní API. Pro každé volání, které se získaly z Azure Resource Manageru poskytovatel prostředků ověří volání pomocí tohoto certifikátu.|
 |Infrastrukturu a obchodní logiky     |Poskytovatelé prostředků komunikovat s obchodní logiky a infrastruktury s využitím režimu ověřování podle vlastní volby. Výchozí poskytovatele prostředků, které se dodávají pomocí služby Azure Stack pomocí ověřování Windows pro zabezpečení této komunikace.|
 
 ![Informace potřebné pro ověřování](media/azure-stack-identity-overview/authentication.png)
@@ -156,7 +156,7 @@ Pro aplikace a uživatele je popsán čtyři vrstvy architektury Azure Stack. In
 
 Ověřování pomocí zprostředkovatele identity a přijímat webového tokenu JSON, musíte mít následující informace:
 
-1. **Adresa URL pro systém identit (autorita)**: Adresa URL, na které se dá kontaktovat zprostředkovatele identity. Například *https:\//login.windows.net*.
+1. **Adresa URL pro systém identit (autorita)** : Adresa URL, na které se dá kontaktovat zprostředkovatele identity. Například *https:\//login.windows.net*.
 2. **Identifikátor URI ID aplikace pro Azure Resource Manageru**: Jedinečný identifikátor pro Azure Resource Manageru, který je zaregistrovaný u vašeho zprostředkovatele identity. Je také jedinečná pro každou instalaci Azure Stack.
 3. **přihlašovací údaje**: Přihlašovací údaje, které použijete k ověřování pomocí zprostředkovatele identity.
 4. **Adresa URL pro Azure Resource Manageru**: Adresa URL je umístění služby Azure Resource Manageru. Například *https:\//management.azure.com* nebo *https:\//management.local.azurestack.external*.

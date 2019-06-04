@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 06/04/2019
 ms.author: mabrigg
 ms.reviewer: wamota
-ms.lastreviewed: 08/30/2018
-ms.openlocfilehash: a839faa7ec5a93a506ad967f3449ee1788f1a21a
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.lastreviewed: 06/04/2019
+ms.openlocfilehash: e9c373ebaa6452c57acad866c66c8b3d5ab0c5ed
+ms.sourcegitcommit: cf9440cd2c76cc6a45b89aeead7b02a681c4628a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618494"
+ms.lasthandoff: 06/03/2019
+ms.locfileid: "66469169"
 ---
 # <a name="network-connectivity"></a>Připojení k síti
 Tento článek obsahuje informace o síťové infrastruktury Azure Stack vám pomohou rozhodnout, jak nejlépe integrovat do vaší stávající síťové prostředí Azure Stack. 
@@ -40,12 +40,12 @@ Logické sítě představují abstrakci podkladové fyzické síťové infrastru
 
 V následující tabulce jsou uvedeny logické sítě a přidružené podsítě rozsahy IPv4, které je nutné naplánovat:
 
-| Logická síť | Popis | Velikost | 
+| Logické sítě | Popis | Velikost | 
 | -------- | ------------- | ------------ | 
 | Veřejné virtuální IP adresy | Azure Stack používá celkem 31 adres z této sítě. Osm veřejné IP adresy se používají pro malou skupinu služby Azure Stack a zbývající jsou používány tenantské virtuální počítače. Pokud máte v plánu služby App Service a poskytovatele prostředků SQL, 7 další adresy se používají. Zbývající 15 IP adresy jsou vyhrazené pro budoucí služby Azure. | / 26 (62 hostitelů) - /22 (1022 hostitelů)<br><br>Doporučené = /24 (254 hostiteli) | 
 | Přepínač infrastruktury | Point-to-Point IP adresy pro účely směrování, vyhrazené přepnou rozhraní pro správu a zpětné smyčky adresy přiřazené k přepínači. | /26 | 
 | Infrastruktura | Ke komunikaci se používá pro interní komponenty služby Azure Stack. | /24 |
-| Privátní | Používá pro síť úložiště a privátní virtuální IP adresy. | /24 | 
+| Soukromé | Používá pro síť úložiště a privátní virtuální IP adresy. | /24 | 
 | BMC | Slouží ke komunikaci s pro správu základní desky na fyzických hostitelích. | /26 | 
 | | | |
 
@@ -78,12 +78,28 @@ To/26 síť je podsíť, která obsahuje podsítě směrovatelné point-to-point
 Tato minimální velikostí/29 (6 hostitele IP adresy) síť je vyhrazená pro připojování porty přepínače pro správu. To umožňuje přístup out-of-band pro nasazení, správu a řešení potíží. Počítá se od sítě infrastruktury přepínač uvedených výše.
 
 ## <a name="publish-azure-stack-services"></a>Publikování služby Azure Stack
-Bude potřeba zpřístupnit služby Azure Stack uživatelů z mimo Azure Stack. Azure Stack nastaví různé koncové body pro jeho infrastrukturu role. Tyto koncové body se přiřadí virtuální IP adresy z fondu veřejných IP adres. Položka DNS se vytvoří pro každý koncový bod v externí zónu DNS, který byl zadán v době nasazení. Portál user portal je přiřadit například záznam hostitele DNS portálu.  *&lt;oblast >.&lt; plně kvalifikovaný název domény >*.
+Bude potřeba zpřístupnit služby Azure Stack uživatelů z mimo Azure Stack. Azure Stack nastaví různé koncové body pro jeho infrastrukturu role. Tyto koncové body se přiřadí virtuální IP adresy z fondu veřejných IP adres. Položka DNS se vytvoří pro každý koncový bod v externí zónu DNS, který byl zadán v době nasazení. Portál user portal je přiřadit například záznam hostitele DNS portálu.  *&lt;oblast >.&lt; plně kvalifikovaný název domény >* .
 
 ### <a name="ports-and-urls"></a>Porty a adresy URL
 Do služby Azure Stack (například na portálech Azure Resource Manageru, DNS, atd.) dostupná pro externí sítě, musíte povolit příchozí přenosy s těmito koncovými body pro konkrétní adresy URL, porty a protokoly.
  
 V nasazení tam, kde transparentní proxy server odchozí připojení k tradiční proxy server, musíte povolit určité porty a adresy URL pro obě [příchozí](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound) a [odchozí](azure-stack-integrate-endpoints.md#ports-and-urls-outbound) komunikace. Patří mezi ně portů a adres URL pro identity, na marketplace, opravy a aktualizace, registraci a data o využití.
+
+### <a name="mac-address-pool"></a>Fond adres MAC
+
+Azure Stack používá fond statických adres MAC automaticky generovat a přiřazovat adresy MAC k virtuálním počítačům.
+Tento fond adres MAC není automaticky vygenerován při nasazení a používá následující oblasti:
+
+- StartMacAddress: 00-1D-D8-B7-00-00
+- EndMacAddress : 00-1D-D8-F4-FF-FF
+
+> [!Note]  
+> Tento fond adres MAC jsou stejné každý systém Azure Stack a nelze ji konfigurovat.
+
+V závislosti na tom, jak připojit virtuální sítě s existující podnikové sítě můžete očekávat duplicitní adresy MAC virtuálního počítače.
+
+Další informace najdete informace o využití fondu adres MAC pomocí rutiny [Get-AzsMacAddressPool](https://docs.microsoft.com/powershell/module/azs.fabric.admin/get-azsmacaddresspool) v modulu Azure Stack správce prostředí PowerShell.
+
 
 ## <a name="next-steps"></a>Další postup
 [Připojení k ohraničení](azure-stack-border-connectivity.md)

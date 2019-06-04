@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.author: mabrigg
 ms.lastreviewed: 12/06/2018
-ms.openlocfilehash: ea316ebdba51ea80fcd02382023ccb46447a8cc0
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 0e1f379b651d022b2c698777a7d8708ff33bf76f
+ms.sourcegitcommit: cf9440cd2c76cc6a45b89aeead7b02a681c4628a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64984823"
+ms.lasthandoff: 06/03/2019
+ms.locfileid: "66469152"
 ---
 # <a name="replace-a-hardware-component-on-an-azure-stack-scale-unit-node"></a>Vyměňovat hardwarové součásti uzlu jednotek škálování v Azure stacku
 
@@ -70,7 +70,7 @@ Následující kroky obsahují podrobný přehled proces nahrazení komponenty. 
 4. Nahraďte poškozený hardwarová komponenta. Zda OEM dodavatele hardwaru provede nahrazení komponenty může lišit v závislosti na vaší smlouvu o podpoře.  
 5. Aktualizace firmwaru. Postupujte podle váš proces aktualizace firmwaru specifického pro dodavatele pomocí životního cyklu hostitelů hardware zajistěte, aby že nahradil hardwarová komponenta byla schválené firmware úroveň použít. Zda OEM dodavatele hardwaru provádí tento krok může lišit v závislosti na vaší smlouvu o podpoře.  
 6. Použití [opravit](azure-stack-node-actions.md#scale-unit-node-actions) akce vrací do stavu uzlu jednotky škálování jednotek škálování.
-7. Použít privilegovaný koncový bod pro [zkontrolovat stav oprava virtuálního disku](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair). Úloha opravy celé úložiště pomocí nové datové jednotky, může trvat několik hodin v závislosti na zatížení systému a využité místo.
+7. Použít privilegovaný koncový bod pro [zkontrolovat stav oprava virtuálního disku](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair-using-the-privileged-endpoint). Úloha opravy celé úložiště pomocí nové datové jednotky, může trvat několik hodin v závislosti na zatížení systému a využité místo.
 8. Po dokončení akce opravy, ověřte, že byly automaticky zavřeny všechny aktivní výstrahy.
 
 ## <a name="next-steps"></a>Další postup
