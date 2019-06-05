@@ -16,12 +16,12 @@ ms.date: 05/30/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 04/20/2019
-ms.openlocfilehash: e2560fd1e6418c9669f94f23ea1f6867e9c907a3
-ms.sourcegitcommit: cf9440cd2c76cc6a45b89aeead7b02a681c4628a
+ms.openlocfilehash: 972b47e5c8787d41d918544f220e082b9ac2d69d
+ms.sourcegitcommit: a427e72e4f3b6cd6000b1459af9bbf221e049e08
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/03/2019
-ms.locfileid: "66469076"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66506289"
 ---
 # <a name="azure-stack-1903-update"></a>Aktualizace služby Azure Stack 1903
 
@@ -39,6 +39,10 @@ Můžete zobrazit [starší verze služby Azure Stack poznámky v Galerii TechNe
 ## <a name="build-reference"></a>Referenční informace o buildu
 
 Číslo sestavení aktualizace Azure Stack 1903 je **1.1903.0.35**.
+
+### <a name="update-type"></a>Typ aktualizace
+
+Typ sestavení update Azure Stack 1903 je **Express**. Další informace o aktualizaci typy sestavení, najdete v článku [správy aktualizací ve službě Azure Stack](azure-stack-updates.md) článku. Očekávaná doba potřebná pro aktualizace 1903 dokončete je asi 16 hodin, ale přesné časy se může lišit. Této aproximace modulu runtime je specifická pro aktualizaci 1903 a by neměl ve srovnání s jinými aktualizacemi Azure Stack.
 
 > [!IMPORTANT]
 > Datová část 1903 nezahrnuje o ASDK verzi.
@@ -60,8 +64,6 @@ Azure Stack opravy hotfix platí pouze pro integrované systémy Azure Stack; Ne
 - **1903**: [Znalostní BÁZE 4500638 - hotfix 1.1903.2.39 Azure Stack](https://support.microsoft.com/help/4500638)
 
 ## <a name="improvements"></a>Vylepšení
-
-- Datová část aktualizace 1903 obsahuje aktualizace komponenty služby Azure Stack, které neobsahují příslušný operační systém hostitele služby Azure Stack. To umožňuje určitá aktualizace zařadit do oboru. V důsledku toho očekávaná doba, jak trvá dokončení aktualizace 1903 menší (asi 16 hodin, ale přesné časy se může lišit). Tento pokles v modulu runtime je určený k aktualizaci 1903 a následné aktualizace mohou obsahovat aktualizace operačního systému, zdání různé běhové moduly. Aktualizace budoucí pokyny, podobně jako očekávaný čas, který aktualizace v závislosti na payload zahrnuta.
 
 - Oprava chyby v síťové služby, které brání změny **časový limit nečinnosti (minuty)** hodnotu **veřejnou IP adresu** z neprojeví. Dříve byly ignorovány změny této hodnotě, tak, aby bez ohledu na všechny provedené změny, bude použita výchozí hodnota 4 minuty. Toto nastavení určuje, kolik minut pro uchování připojení TCP otevřít bez nutnosti spoléhat se na klientských počítačích k odesílání zpráv keep-alive. Všimněte si, že se tato chyba vliv pouze na instance na úrovni veřejné IP adresy, není veřejné IP adresy přiřazené ke službě Vyrovnávání zatížení.
 

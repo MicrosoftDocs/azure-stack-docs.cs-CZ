@@ -16,12 +16,12 @@ ms.date: 05/30/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 67e0981d5fbd1d6872c9115b8becd2d5ec8b5d8e
-ms.sourcegitcommit: cf9440cd2c76cc6a45b89aeead7b02a681c4628a
+ms.openlocfilehash: 4a69ece2b97fca13a87819dce6e02e8971121944
+ms.sourcegitcommit: a427e72e4f3b6cd6000b1459af9bbf221e049e08
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/03/2019
-ms.locfileid: "66469121"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66506292"
 ---
 # <a name="azure-stack-1902-update"></a>Aktualizace služby Azure Stack 1902
 
@@ -39,6 +39,10 @@ Můžete zobrazit [starší verze služby Azure Stack poznámky v Galerii TechNe
 ## <a name="build-reference"></a>Referenční informace o buildu
 
 Číslo sestavení aktualizace Azure Stack 1902 je **1.1902.0.69**.
+
+### <a name="update-type"></a>Typ aktualizace
+
+Typ sestavení update Azure Stack 1902 je **úplné**. Další informace o aktualizaci typy sestavení, najdete v článku [správy aktualizací ve službě Azure Stack](azure-stack-updates.md) článku.
 
 ## <a name="hotfixes"></a>Opravy hotfix
 

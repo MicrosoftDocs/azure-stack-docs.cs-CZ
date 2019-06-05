@@ -16,12 +16,12 @@ ms.date: 05/30/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 03/27/2019
-ms.openlocfilehash: 71984d89bf98b93af28c51aef6599f5df176f8da
-ms.sourcegitcommit: cf9440cd2c76cc6a45b89aeead7b02a681c4628a
+ms.openlocfilehash: afa011ca40ea0ca7cbd899f8d3f15fb0512a6811
+ms.sourcegitcommit: a427e72e4f3b6cd6000b1459af9bbf221e049e08
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/03/2019
-ms.locfileid: "66469096"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66506335"
 ---
 # <a name="azure-stack-1901-update"></a>Aktualizace služby Azure Stack 1901
 
@@ -46,6 +46,10 @@ Můžete zobrazit [starší verze služby Azure Stack poznámky v Galerii TechNe
 > Připojené zákazníky, kteří jsou na 1811 se automaticky zobrazí nový balíček 1901 (1.1901.0.99), která je dostupná na portálu správce a nainstalujte ho až to budete mít. Odpojené zákazníků můžete stáhnout a naimportovat nový balíček 1901 stejným procesem [je zde popsáno,](azure-stack-apply-updates.md).
 >
 > Zákazníci s jakoukoli verzí 1901 neovlivní při instalaci balíčku další úplné nebo opravy hotfix.
+
+### <a name="update-type"></a>Typ aktualizace
+
+Typ sestavení update Azure Stack 1901 je **úplné**. Další informace o aktualizaci typy sestavení, najdete v článku [správy aktualizací ve službě Azure Stack](azure-stack-updates.md) článku.
 
 ## <a name="hotfixes"></a>Opravy hotfix
 
