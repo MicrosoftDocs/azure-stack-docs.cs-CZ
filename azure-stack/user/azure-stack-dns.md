@@ -11,28 +11,28 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2019
+ms.date: 06/05/2019
 ms.author: sethm
 ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: bbcc68f97fe55a6b4a67f5890b69c03803335438
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 278b010cd1883043549217d657e1315ea697a303
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64299292"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691957"
 ---
 # <a name="using-dns-in-azure-stack"></a>Pomocí služby DNS v Azure stacku
 
 *Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
 
-Azure Stack podporuje následující funkce systému DNS (Domain Name):
+Azure Stack podporuje následující funkce Azure DNS:
 
 * Překlad názvů hostitelů DNS
 * Vytvoření a správa DNS zón a záznamů pomocí rozhraní API
 
 ## <a name="support-for-dns-hostname-resolution"></a>Podpora pro překlad názvů hostitelů DNS
 
-Můžete zadat popisek názvu domény DNS pro prostředky veřejné IP adresy. Azure Stack používá **domainnamelabel.location.cloudapp.azurestack.external** pro název popisku a mapování na veřejnou IP adresu ve službě Azure Stack spravované servery DNS.
+Můžete zadat popisek názvu domény DNS pro prostředky veřejné IP adresy. Azure Stack používá **domainnamelabel.location.cloudapp.azurestack.external** pro název popisku a mapy ho na veřejnou IP adresou v servery DNS spravovanými Azure Stack.
 
 Například, pokud vytvoříte prostředek s veřejnou IP **contoso** jako popisek názvu domény v místním umístění služby Azure Stack [plně kvalifikovaný název domény (FQDN)](https://en.wikipedia.org/wiki/Fully_qualified_domain_name)  **contoso.Local.cloudapp.azurestack.external** přeloží na veřejnou IP adresu prostředku. Tento plně kvalifikovaný název domény můžete použít k vytvoření vlastní domény záznam CNAME, který odkazuje na veřejnou IP adresu ve službě Azure Stack.
 
@@ -63,13 +63,13 @@ Je podobný DNS v Azure DNS ve službě Azure Stack, ale existuje několik důle
 
 * **Nepodporuje záznamů AAAA**: Azure Stack záznamů AAAA nepodporuje, protože Azure Stack nepodporuje adresy IPv6. Toto je klíčovým rozdílem mezi DNS v Azure a Azure Stack.
 
-* **Není víceklientské**: Služba DNS v Azure stacku není více tenantů. Každý tenant nelze vytvořit stejnou zónu DNS. Pouze první předplatné, pokusí se vytvořit zónu úspěšné a neúspěšné odeslání dalších žádostí. Toto je klíčovým rozdílem mezi Azure a Azure Stack DNS.
+* **Není víceklientské**: Služba DNS v Azure stacku není více tenantů. Každý tenant nelze vytvořit stejnou zónu DNS. Pouze první předplatné, pokusí se vytvořit zónu úspěšné a neúspěšné odeslání dalších žádostí. Toto je jiný klíčovým rozdílem mezi Azure a Azure Stack DNS.
 
 * **Značky, metadata a značek etag**: Existují malé rozdíly ve zpracování značky, metadat, značek etag a omezení v Azure Stack.
 
 Další informace o Azure DNS najdete v tématu [záznamů a zón DNS](/azure/dns/dns-zones-records).
 
-### <a name="tags"></a>Značky
+### <a name="tags"></a>Tags
 
 Azure Stack DNS podporuje používání značky Azure Resource Manageru na prostředky zóny DNS. Nepodporuje značky na sady záznamů DNS, i když jako alternativu **metadat** se podporuje na sady záznamů DNS, jak je vysvětleno v další části.
 
@@ -87,7 +87,7 @@ Ve výchozím nastavení rutin Powershellu DNS pro Azure Stack pomocí značek e
 
 Na úrovni DNS REST API služby Azure Stack značek etag určeny pomocí hlavičky protokolu HTTP. Jejich chování je popsáno v následující tabulce:
 
-| Hlavička | Chování|
+| Záhlaví | Chování|
 |--------|---------|
 | Žádný   | PUT vždy úspěšné (žádné kontroly Etag)|
 | If-match| PUT úspěšná, pouze pokud prostředek existuje a Značka Etag odpovídá|
@@ -98,7 +98,7 @@ Na úrovni DNS REST API služby Azure Stack značek etag určeny pomocí hlavič
 
 Následující výchozí omezení platí při použití Azure Stack DNS:
 
-| Prostředek| Výchozí omezení|
+| Resource| Výchozí omezení|
 |---------|--------------|
 | Zón v předplatném| 100|
 | Sady záznamů za zónu| 5000|
@@ -106,4 +106,4 @@ Následující výchozí omezení platí při použití Azure Stack DNS:
 
 ## <a name="next-steps"></a>Další postup
 
-- [Představujeme iDNS pro Azure Stack](azure-stack-understanding-dns.md)
+* [Představujeme iDNS pro Azure Stack](azure-stack-understanding-dns.md)

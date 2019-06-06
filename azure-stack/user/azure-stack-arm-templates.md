@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2019
+ms.date: 06/04/2019
 ms.author: sethm
 ms.reviewer: justini
 ms.lastreviewed: 11/14/2018
-ms.openlocfilehash: fb39928b50e6cce35d5c35c33a95fc2c6b82c160
-ms.sourcegitcommit: d2012e765c3fa5bccb4756d190349e890f9f48bd
+ms.openlocfilehash: fde2936f3b57fdf9fc6ddeda1786b9ffd5aa9fe0
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65941129"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691518"
 ---
 # <a name="use-azure-resource-manager-templates-in-azure-stack"></a>Použití šablon Azure Resource Manageru ve službě Azure Stack
 
@@ -31,12 +31,11 @@ ms.locfileid: "65941129"
 
 Tyto šablony se dá nasadit pomocí portálu Microsoft Azure Stack, Powershellu, příkazového řádku a sady Visual Studio.
 
-Jsou k dispozici v následujících šablon rychlý Start [Githubu](https://aka.ms/azurestackgithub):
-
+Následující šablony rychlý Start jsou [k dispozici na Githubu](https://aka.ms/azurestackgithub):
 
 ## <a name="deploy-sharepoint-server-non-high-availability-deployment"></a>Nasazení serveru SharePoint (nasazení vysoké dostupnosti)
 
-Pomocí prostředí PowerShell [Desired State Configuration](https://docs.microsoft.com/powershell/dsc/overview/overview) rozšíření (DSC) [Vytvoření farmy serverů SharePoint Server 2013](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/sharepoint-2013-non-ha) , který obsahuje následující zdroje:
+Pomocí prostředí PowerShell [Desired State Configuration](/powershell/dsc/overview/overview) rozšíření (DSC) [Vytvoření farmy serverů SharePoint Server 2013](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/sharepoint-2013-non-ha) , který obsahuje následující zdroje:
 
 * Virtuální síť
 * 3 účty úložiště
@@ -78,7 +77,7 @@ Pomocí rozšíření PowerShell DSC ke konfiguraci existujícího virtuálního
 
 ## <a name="cancel-a-running-template-deployment"></a>Zrušit běžící šablona nasazení
 
-Chcete-li zrušit spuštěné nasazení šablony, použijte [Stop-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/stop-azurermresourcegroupdeployment) PowerShell [rutiny](https://docs.microsoft.com/powershell/developer/cmdlet/cmdlet-overview).
+Chcete-li zrušit spuštěné nasazení šablony, použijte [Stop-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/stop-azurermresourcegroupdeployment) PowerShell [rutiny](/powershell/developer/cmdlet/cmdlet-overview).
 
 ## <a name="next-steps"></a>Další postup
 

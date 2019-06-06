@@ -7,16 +7,16 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 04/30/2019
+ms.date: 05/29/2019
 ms.author: justinha
 ms.reviewer: adshar
 ms.lastreviewed: 11/20/2018
-ms.openlocfilehash: bc5710e0994480d7aa8b0496509ad2755bc9c9ac
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 98ad556bf1b0b5f0297cb7964cd9911a50145496
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66268633"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691755"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Azure Stack diagnostické nástroje
 
@@ -85,21 +85,21 @@ Pomocí těchto kroků můžete spustit `Get-AzureStackLog` na hostitelském po�
 
 * Shromážděte všechny protokoly pro všechny role:
 
-```powershell
-Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred
-```
+  ```powershell
+  Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred
+  ```
 
 * Shromažďování protokolů z virtuálních počítačů a BareMetal rolí:
 
-```powershell
-Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -FilterByRole VirtualMachines,BareMetal
-```
+  ```powershell
+  Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -FilterByRole VirtualMachines,BareMetal
+  ```
 
 * Shromažďování protokolů z role virtuálních počítačů a BareMetal s datem filtrování pro soubory protokolů za posledních 8 hodin:
 
-```powershell
-Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8)
-```
+  ```powershell
+  Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8)
+  ```
 
 * Shromažďování protokolů z role virtuálních počítačů a BareMetal filtrování pro soubory protokolu pro toto časové období před 8 hodin až 2 hodiny před datem:
 
@@ -110,14 +110,17 @@ Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -Filter
 * Shromažďování protokolů a uložit je do zadaného kontejneru objektů blob v Azure Storage. Obecná syntaxe pro tuto operaci je následující:
 
   ```powershell
-  Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -OutputSasUri "<Blob service SAS Uri>"
+  Get-AzureStackLog -OutputSasUri "<Blob service SAS Uri>"
   ```
 
   Příklad:
 
   ```powershell
-  Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -OutputSasUri "https://<storageAccountName>.blob.core.windows.net/<ContainerName><SAS Token>"
+  Get-AzureStackLog -OutputSasUri "https://<storageAccountName>.blob.core.windows.net/<ContainerName><SAS token>"
   ```
+
+  > [!NOTE]
+  > Tento postup je užitečný, když se zobrazí výzva k odeslání protokolů a otevřete případ s Microsoft Support. I když nemáte přístupné z ERCS virtuálního počítače do sdílené složky protokolu SMB a ERCS virtuální počítač nemá přístup k Internetu, můžete vytvořit účet úložiště objektů blob ve vaší službě Azure Stack k přenosu protokolů a potom pomocí klienta tyto protokoly načíst a k jejich nahrávání do Microsoftu.  
 
   K vygenerování tokenu SAS pro účet úložiště, se vyžadují následující oprávnění:
 
@@ -136,9 +139,6 @@ Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -Filter
   8. Požadovaná oprávnění, vyberte **čtení**, **zápisu**, a **seznamu**.
   9. Vyberte **Vytvořit**.
   10. Zobrazí se sdílený přístupový podpis. Zkopírujte část adresy URL a poskytnout tak, `-OutputSasUri` parametru.
-```powershell
-Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
-```
 
 ### <a name="parameter-considerations-for-both-asdk-and-integrated-systems"></a>Důležité informace o parametru pro ASDK a integrované systémy
 
@@ -164,7 +164,7 @@ Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -Filter
 
   |   |   |   |    |
   | - | - | - | -  |
-  |ACS                   |CacheService                   |IBC                            |Výrobce OEM|
+  |ACS                   |CacheService                   |IBC                            |OEM|
   |ACSDownloadService    |Compute                        |InfraServiceController         |OnboardRP|
   |ACSFabric             |CPI                            |KeyVaultAdminResourceProvider  |POMOCÍ TECHNOLOGIE PXE|
   |ACSFrontEnd           |CRP                            |KeyVaultControlPlane           |QueryServiceCoordinator|
@@ -207,7 +207,7 @@ Můžete použít **Invoke-AzureStackOnDemandLog** rutiny pro generování na vy
 
 V současné době můžete použít `-FilterByRole` parametr filtru shromažďování protokolů pomocí následujících rolí:
 
-* Výrobce OEM
+* OEM
 * NC
 * SLB
 * brána

@@ -16,12 +16,12 @@ ms.date: 05/30/2019
 ms.author: sethm
 ms.reviewer: ''
 ms.lastreviewed: 05/30/2019
-ms.openlocfilehash: 8d9603184e824bff5efc2536b3c4a89fdd87d685
-ms.sourcegitcommit: a427e72e4f3b6cd6000b1459af9bbf221e049e08
+ms.openlocfilehash: 31f2df0b5c7598c678daff8abe34a40b4e08d590
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66506355"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691614"
 ---
 # <a name="azure-stack-1904-update"></a>Aktualizace služby Azure Stack 1904
 
@@ -43,6 +43,10 @@ Můžete zobrazit [starší verze služby Azure Stack poznámky v Galerii TechNe
 
 Číslo sestavení aktualizace Azure Stack 1904 je **1.1904.0.36**.
 
+### <a name="update-type"></a>Typ aktualizace
+
+Typ sestavení update Azure Stack 1904 je **Express**. Další informace o aktualizaci typy sestavení, najdete v článku [správy aktualizací ve službě Azure Stack](azure-stack-updates.md) článku. Očekávaná doba potřebná pro aktualizace 1904 dokončete je asi 16 hodin, ale přesné časy se může lišit. Tento modul runtime aproximace je specifická pro 1904 aktualizace a by neměl ve srovnání s jinými aktualizacemi Azure Stack.
+
 ## <a name="whats-in-this-update"></a>Co je v této aktualizaci
 
 <!-- The current theme (if any) of this release. -->
@@ -52,8 +56,6 @@ Můžete zobrazit [starší verze služby Azure Stack poznámky v Galerii TechNe
 ### <a name="improvements"></a>Vylepšení
 
 <!-- Changes and product improvements with tangible customer-facing value. -->
-
-- Datová část aktualizace 1904 obsahuje aktualizace komponenty služby Azure Stack, které neobsahují příslušný operační systém hostitele služby Azure Stack. To umožňuje určitá aktualizace zařadit do oboru. V důsledku toho očekávaná doba, jak trvá dokončení aktualizace 1904 menší (přibližně 16 hodin, ale přesné časy se může lišit). Tento pokles v modulu runtime je podobný aktualizace 1903. Následné aktualizace však mohou obsahovat aktualizace operačního systému, zdání různé běhové moduly. Aktualizace budoucí pokyny, podobně jako očekávaný čas, který aktualizace v závislosti na payload zahrnuta.
 
 - Zásobník softwarově definované sítě (SDN) byla v 1904 významná vylepšení. Tato vylepšení zvýšit celkový údržby a spolehlivost komponent SDN ve službě Azure Stack.
 

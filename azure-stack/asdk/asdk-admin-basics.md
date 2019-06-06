@@ -16,12 +16,12 @@ ms.date: 02/19/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: cff86ea851b2be030faf0c42a91fed60ac17634d
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: a375cc83410214f56eb38f676bf45cf529641972
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66267029"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691096"
 ---
 # <a name="asdk-administration-basics"></a>Základy správy ASDK 
 Existuje několik věcí, které je potřeba vědět, pokud je pro vás nová pro správu služby Azure Stack Development Kit (ASDK). Tento návod obsahuje základní informace o vaší role jako jejich operátory Azure stacku v prostředí pro testování a jak zajistit testovací uživatele může být tak produktivní rychle.
@@ -60,7 +60,9 @@ Kromě poskytování služeb, je nutné provést všechny pravidelné úkoly ope
 - Nahradit hardware počítače hostitele neúspěšné development kit 
 
 ## <a name="where-to-get-support"></a>Kde lze získat podporu
-Pro development kit, je vaší jedinou možností podpory klást otázky týkající se podpory v [fóra Microsoft Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). Pokud klikněte na ikonu nápovědy a podpory (otazník) v pravém horním rohu portálu správce a potom klikněte na tlačítko **nová žádost o podporu**, přímo otevře web fór. Tato fóra jsou pravidelně monitorované. 
+Pro Azure Stack Development Kit (ASDK), můžete klást otázky týkající se podpory v [fórum MSDN pro Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). 
+
+Můžete kliknout na **pomáhají** (otazník) v pravém horním rohu portálu správce a pak klikněte na **Nápověda a podpora** otevřete Nápověda a podpora **přehled**, který má odkaz na fórum. DISKUZNÍ fóra MSDN jsou pravidelně monitorované.  
 
 > [!IMPORTANT]
 > Vzhledem k tomu, ASDK zkušební prostředí, neexistuje žádné oficiální podporu, kterou nabízí prostřednictvím Microsoft podporu služby zákazníkům (CSS).

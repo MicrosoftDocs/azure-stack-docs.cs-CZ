@@ -16,12 +16,12 @@ ms.date: 05/30/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 4a69ece2b97fca13a87819dce6e02e8971121944
-ms.sourcegitcommit: a427e72e4f3b6cd6000b1459af9bbf221e049e08
+ms.openlocfilehash: 53b33c7eb0dc71a65113ef8807de1c5b3c3c4c80
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66506292"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691390"
 ---
 # <a name="azure-stack-1902-update"></a>Aktualizace služby Azure Stack 1902
 
@@ -63,7 +63,7 @@ Azure Stack opravy hotfix platí pouze pro integrované systémy Azure Stack; Ne
 ## <a name="prerequisites"></a>Požadavky
 
 > [!IMPORTANT]
-> 1902 můžete nainstalovat buď přímo z [1.1901.0.95 nebo 1.1901.0.99](azure-stack-update-1901.md#build-reference) vydání bez první instalace všech oprav hotfix 1901. Ale pokud jste nainstalovali starší **1901.2.103** oprav hotfix, musíte nainstalovat novější [1901.3.105 opravu hotfix](https://support.microsoft.com/help/4495662) 1902 předtím, než budete pokračovat.
+> 1902 můžete nainstalovat buď přímo z **1.1901.0.95** nebo **1.1901.0.99** vydání bez první instalace všech oprav hotfix 1901. Ale pokud jste nainstalovali starší **1901.2.103** oprav hotfix, musíte nainstalovat novější [1901.3.105 opravu hotfix](https://support.microsoft.com/help/4495662) 1902 předtím, než budete pokračovat.
 
 - Před instalací této aktualizace, spusťte [testovací AzureStack](azure-stack-diagnostic-test.md) s následujícími parametry do ověřte stav služby Azure Stack a vyřešte všechny provozní problémy zjištěné, včetně všech upozornění a chyby. Také aktivní výstrahy můžete zkontrolovat a vyřešit všechny, které vyžadují nějakou akci:
 

@@ -7,16 +7,16 @@ manager: femila
 editor: ''
 ms.service: azure-stack
 ms.topic: article
-ms.date: 05/31/2019
+ms.date: 06/04/2019
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: 2cca789487803124e1a7b24efa199d7f68760fb6
-ms.sourcegitcommit: 07cc716d97bf484c7260eb165ae205ae25e09589
+ms.openlocfilehash: 98aae8378e4bd516181cae95b153e6ee445ce4bf
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66453407"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66692005"
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>Zpřístupnit škálovací sady virtuálních počítačů ve službě Azure Stack
 
@@ -29,14 +29,14 @@ Tento článek vás provede procesem vytváření škálovací sady dostupné v 
 Škálovací sady virtuálních počítačů ve službě Azure Stack se podobají škálovací sady virtuálních počítačů v Azure. Další informace najdete v tématu následujícího videa:
 
 * [Mark Russinovich hovoří o škálovacích sadách Azure](https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/)
-* [Guy Bowerman provádí škálovacími sadami virtuálních počítačů](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
+* [Guy bowerman sadách škálování virtuálních počítačů](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
 
 Ve službě Azure Stack nepodporují škálovací sady virtuálních počítačů automatického škálování. Přidání instancí na škálovací sadu pomocí šablony Resource Manageru, rozhraní příkazového řádku nebo Powershellu.
 
 ## <a name="prerequisites"></a>Požadavky
 
 * **Na webu Marketplace:** Registrace Azure Stack s globální Azure a umožňuje dostupnost položky na webu Marketplace. Postupujte podle pokynů v [registrace Azure Stack s využitím Azure](azure-stack-registration.md).
-* **Image operačního systému:** Před vytvořením škálovací sady virtuálních počítačů, je nutné stáhnout Image virtuálních počítačů pro použití v VMSS z [marketplace služby Azure Stack](azure-stack-download-azure-marketplace-item.md). Bitové kopie musí být již existovat předtím, než uživatel může vytvořit nové VMSS.
+* **Image operačního systému:** Před vytvořením škálovací sady virtuálních počítačů, je nutné stáhnout Image virtuálních počítačů pro použití v škálovací sady z [marketplace služby Azure Stack](azure-stack-download-azure-marketplace-item.md). Bitové kopie musí být již existovat předtím, než uživatel může vytvořit novou škálovací sadu.
 
 ## <a name="use-the-azure-stack-portal"></a>Použití portálu Azure Stack
 

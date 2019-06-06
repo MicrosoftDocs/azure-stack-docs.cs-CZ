@@ -1,10 +1,10 @@
 ---
-title: Nasazení šablon pomocí prostředí PowerShell ve službě Azure Stack | Dokumentace Microsoftu
-description: Nasazení šablony do služby Azure Stack powershellu.
+title: Nasazení šablony pomocí prostředí PowerShell ve službě Azure Stack | Dokumentace Microsoftu
+description: Nasazení šablony pomocí prostředí PowerShell ve službě Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: sethmanheim
+manager: femila
 editor: ''
 ms.assetid: 12fe32d7-0a1a-4c02-835d-7b97f151ed0f
 ms.service: azure-stack
@@ -12,19 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/08/2019
-ms.date: 04/29/2019
-ms.author: v-jay
+ms.date: 04/08/2019
+ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 9c1df99557293030dc0b1c0693b0bbc517a3f0ff
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: be325c41023c859ee70b8ee932673db75f41ec4b
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64298599"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691442"
 ---
-# <a name="deploy-a-template-to-azure-stack-using-powershell"></a>Nasazení šablony do služby Azure Stack pomocí Powershellu
+# <a name="deploy-a-template-using-powershell-in-azure-stack"></a>Nasazení šablony pomocí prostředí Powershell ve službě Azure Stack
 
 *Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
 
@@ -70,4 +69,4 @@ Tento příklad používá **AzureRM** rutiny Powershellu a šablony uložené n
 
 ## <a name="next-steps"></a>Další postup
 
-- [Nasazení šablon pomocí sady Visual Studio](azure-stack-deploy-template-visual-studio.md)
+- [Nasazení šablony pomocí sady Visual Studio](azure-stack-deploy-template-visual-studio.md)

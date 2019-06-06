@@ -16,12 +16,12 @@ ms.date: 04/24/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: 5b35e69a5308589223d9b5987dd3de2e8bb49cc7
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 5b90bc5014d0f8ebfaed8532f62b7c4f3aee8667
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985457"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691858"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Stažení položek z marketplace z Azure do služby Azure Stack
 
@@ -92,7 +92,7 @@ Existují dvě části pro tento scénář:
 
 - Nástroj syndikace marketplace se stáhne při prvním postupu. 
 
-- Můžete nainstalovat [AzCopy]((/azure/storage/common/storage-use-azcopy) pro stažení optimální výkon, ale to není potřeba.
+- Můžete nainstalovat [AzCopy](/azure/storage/common/storage-use-azcopy) ke stažení pro optimální výkon, ale to se nevyžaduje.
 
 ### <a name="use-the-marketplace-syndication-tool-to-download-marketplace-items"></a>Pomocí nástroje syndikace marketplace pro stažení položek z marketplace
 
@@ -198,7 +198,7 @@ Existují dvě části pro tento scénář:
    
    4. V podokně nahrání objektu blob přejděte k souborům balíčku a disk k načtení do úložiště a pak vyberte **nahrát**: [![Nahrát](media/azure-stack-download-azure-marketplace-item/uploadsm.png "nahrát")](media/azure-stack-download-azure-marketplace-item/upload.png#lightbox)  
 
-   5. V podokně kontejner se zobrazí soubory, které nahrajete. Vyberte soubor a zkopírujte adresu URL **vlastnosti objektu Blob** podokně. Tuto adresu URL použijete v dalším kroku při importu položky marketplace do služby Azure Stack.  Na následujícím obrázku je kontejner *úložiště objektů blob testu* a soubor je *Microsoft.WindowsServer2016DatacenterServerCore ARM.1.0.801.azpkg*.  Soubor je adresa URL *https://testblobstorage1.blob.local.azurestack.external/blob-test-storage/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg*.  
+   5. V podokně kontejner se zobrazí soubory, které nahrajete. Vyberte soubor a zkopírujte adresu URL **vlastnosti objektu Blob** podokně. Tuto adresu URL použijete v dalším kroku při importu položky marketplace do služby Azure Stack.  Na následujícím obrázku je kontejner *úložiště objektů blob testu* a soubor je *Microsoft.WindowsServer2016DatacenterServerCore ARM.1.0.801.azpkg*.  Soubor je adresa URL *https://testblobstorage1.blob.local.azurestack.external/blob-test-storage/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg* .  
       [![Vlastnosti objektu BLOB](media/azure-stack-download-azure-marketplace-item/blob-storagesm.png "vlastnosti objektu Blob")](media/azure-stack-download-azure-marketplace-item/blob-storage.png#lightbox)  
 
 3. Importovat obraz virtuálního pevného disku do služby Azure Stack pomocí **přidat AzsPlatformimage** rutiny. Když tuto rutinu použili, nahraďte *vydavatele*, *nabízejí*a jiné hodnoty parametru s hodnotami bitovou kopii, kterou importujete. 

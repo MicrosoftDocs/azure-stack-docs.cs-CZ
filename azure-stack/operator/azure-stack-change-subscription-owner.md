@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: conceptual
-ms.date: 02/21/2019
+ms.date: 06/04/2019
 ms.author: sethm
 ms.reviewer: shnatara
 ms.lastreviewed: 10/19/2018
-ms.openlocfilehash: f37eb580dd9a1276587e6ad731952661ad4ddf0b
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 99f995941c4e7b09af70dff9391aeceb9a59844d
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64986208"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691932"
 ---
 # <a name="change-the-owner-for-an-azure-stack-user-subscription"></a>Změnit vlastníka předplatného uživatele Azure stacku
 
@@ -33,7 +33,7 @@ Existují dva typy *vlastníky* , které jsou přiřazeny k předplatnému:
 
   Můžete použít rutinu Powershellu [Set-AzsUserSubscription](/powershell/module/azs.subscriptions.admin/set-azsusersubscription) Změna fakturační vlastníka.  
 
-- **Vlastníci přidaného přes role RBAC** -dalším uživatelům můžete udělit **vlastníka** role pomocí [řízení přístupu na základě rolí](azure-stack-manage-permissions.md) systému (RBAC). Jako vlastníky návrzích fakturační vlastníka lze přidat libovolný počet dalších uživatelských účtů. Další vlastníky jsou také správci předplatného a mají všechna oprávnění pro předplatné, s výjimkou oprávnění k odstranění fakturační vlastníka.
+- **Vlastníci přidaného přes role RBAC** -dalším uživatelům můžete udělit **vlastníka** role pomocí [řízení přístupu na základě rolí](azure-stack-manage-permissions.md) (RBAC). Jako vlastníky návrzích fakturační vlastníka lze přidat libovolný počet dalších uživatelských účtů. Další vlastníky jsou také správci předplatného a mají všechna oprávnění pro předplatné, s výjimkou oprávnění k odstranění fakturační vlastníka.
 
   Prostředí PowerShell můžete použít ke správě další vlastníky. Další informace najdete v [tomto článku](/azure/role-based-access-control/role-assignments-powershell).
 
@@ -42,7 +42,7 @@ Existují dva typy *vlastníky* , které jsou přiřazeny k předplatnému:
 Spusťte následující skript, který změnit vlastníka fakturace na předplatné uživatele. Počítač, který používáte ke spuštění skriptu musíte připojit ke službě Azure Stack a spustit modul Azure Stack Powershellu 1.3.0 nebo novější. Další informace najdete v tématu [instalace Azure Stack Powershellu](azure-stack-powershell-install.md).
 
 >[!NOTE]
->Ve více tenantů Azure Stack nový vlastník musí být ve stejném adresáři jako stávající vlastník. Než budete moct poskytovat vlastnictví předplatného na uživatele, který je v jiném adresáři, je nutné nejprve [pozvat tohoto uživatele jako hosta do vaší directory]((/azure/active-directory/b2b/add-users-administrator).
+>Ve více tenantů Azure Stack nový vlastník musí být ve stejném adresáři jako stávající vlastník. Než budete moct poskytovat vlastnictví předplatného na uživatele, který je v jiném adresáři, musíte nejdřív [pozvat uživatele jako Host do adresáře](/azure/active-directory/b2b/add-users-administrator).
 
 Nahraďte následující hodnoty ve skriptu, před jejím spuštěním:
 

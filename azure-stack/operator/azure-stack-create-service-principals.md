@@ -13,12 +13,12 @@ ms.workload: na
 ms.date: 05/17/2019
 ms.author: patricka
 ms.lastreviewed: 05/17/2019
-ms.openlocfilehash: 57c5547c37fee58b37f8386983d43556ed0fd515
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: b08d2b59653b099b0cd0a314347ea2667fa42ca8
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66268801"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691301"
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Poskytnutí přístupu aplikací do Azure Stack
 
@@ -45,9 +45,9 @@ Jakmile vytvoříte instanční objekt služby, se používají sady kroků bě�
 
 ## <a name="manage-service-principal-for-azure-ad"></a>Správa instanční objekt služby pro službu Azure AD
 
-Pokud jste nasadili Azure Stack se službou Azure Active Directory (Azure AD) jako služba pro správu identit, můžete vytvořit instanční objekty stejně jako pro Azure. Tato část ukazuje, jak k provedení kroků na portálu. Zkontrolujte, jestli máte [vyžaduje Azure AD permissions]((/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions) před zahájením.
+Pokud jste nasadili Azure Stack se službou Azure Active Directory (Azure AD) jako služba pro správu identit, můžete vytvořit instanční objekty stejně jako pro Azure. Tato část ukazuje, jak k provedení kroků na portálu. Zkontrolujte, jestli máte [požadovaná oprávnění Azure AD](/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions) před zahájením.
 
-### <a name="create-service-principal"></a>Vytvořit instanční objekt
+### <a name="create-service-principal"></a>Vytvoření instančního objektu
 
 V této části vytvoříte aplikaci (instanční objekt) ve službě Azure AD, která reprezentuje vaši aplikaci.
 
@@ -59,7 +59,7 @@ V této části vytvoříte aplikaci (instanční objekt) ve službě Azure AD, 
 
 Vytvoříte instanční objekt služby pro vaši aplikaci.
 
-### <a name="get-credentials"></a>Získat přihlašovací údaje
+### <a name="get-credentials"></a>Získání přihlašovacích údajů
 
 Při programovém přihlášení pomocí ID je pro vaši aplikaci a webové aplikace a rozhraní API, ověřovací klíč. K získání těchto hodnot použijte následující postup:
 
@@ -117,7 +117,7 @@ Tyto informace se vyžaduje jako vstup pro automatizaci parametry:
 
 |Parametr|Popis|Příklad:|
 |---------|---------|---------|
-|Název|Název pro účet hlavní název služby|MyAPP|
+|Name|Název pro účet hlavní název služby|MyAPP|
 |ClientCertificates|Pole objektů certifikátu|X509 certifikátu|
 |ClientRedirectUris<br>(Volitelné)|Identifikátor URI přesměrování aplikace|-|
 
@@ -204,7 +204,7 @@ Tyto informace se vyžaduje jako vstup pro automatizaci parametry:
 
 |Parametr|Popis|Příklad:|
 |---------|---------|---------|
-|Název|Název pro účet hlavní název služby|MyAPP|
+|Name|Název pro účet hlavní název služby|MyAPP|
 |ApplicationIdentifier|Jedinečný identifikátor|S-1-5-21-1634563105-1224503876-2692824315-2119|
 |ClientCertificate|Pole objektů certifikátu|X509 certifikátu|
 
@@ -248,7 +248,7 @@ Tyto informace se vyžaduje jako vstup pro automatizaci parametry:
 
 | Parametr | Popis | Příklad: |
 |----------------------|--------------------------|---------|
-| Název | Název pro účet hlavní název služby | MyAPP |
+| Name | Název pro účet hlavní název služby | MyAPP |
 | GenerateClientSecret | Vytvoření tajného kódu |  |
 
 #### <a name="use-the-ercs-privilegedendpoint-to-create-the-service-principal"></a>Použít ERCS PrivilegedEndpoint k vytvoření instančního objektu služby
@@ -362,7 +362,7 @@ Tyto informace se vyžaduje jako vstup pro automatizaci parametry:
 
 ## <a name="assign-a-role"></a>Přiřazení role
 
-Pro přístup k prostředkům ve vašem předplatném, musíte přiřadit aplikace k roli. Rozhodněte, jakou roli představuje správná oprávnění pro aplikaci. Další informace o dostupných rolí, najdete v článku [RBAC: Předdefinované Roles]((/azure/role-based-access-control/built-in-roles).
+Pro přístup k prostředkům ve vašem předplatném, musíte přiřadit aplikace k roli. Rozhodněte, jakou roli představuje správná oprávnění pro aplikaci. Další informace o dostupných rolí, najdete v článku [RBAC: Vestavěné role](/azure/role-based-access-control/built-in-roles).
 
 Nastavit obor na úrovni předplatného, skupinu prostředků nebo prostředek. Oprávnění se dědí do oboru na nižších úrovních. Například přidáním aplikace k roli Čtenář pro skupinu prostředků znamená, že můžete přečíst, skupinu prostředků a všechny prostředky, které obsahuje.
 

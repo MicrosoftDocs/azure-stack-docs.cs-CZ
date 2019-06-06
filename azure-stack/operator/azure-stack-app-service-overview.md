@@ -15,12 +15,12 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: anwestg
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: fcf2e977bbfebeab579d330c6228cc73f05d2307
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 4ae72e7f75147fc3891731da48ee210fc546bd97
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269151"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66692045"
 ---
 # <a name="app-service-on-azure-stack-overview"></a>Přehled App Service v Azure Stacku
 
@@ -42,8 +42,8 @@ Toto jsou některé klíčové funkce a možnosti služby App Service:
 
 App Service nabízí několik typů aplikací, z nichž každá je určena k hostování konkrétního typu úlohy:
 
-- [Webové aplikace] ((/ azure/přehled/app-service) pro hostování webů a webových aplikací.
-- [Aplikace pro rozhraní API] ((/ azure/přehled/app-service) pro hostování rozhraní REST API.
+- [Webové aplikace](/azure/app-service/overview) pro hostování webů a webových aplikací.
+- [API Apps](/azure/app-service/overview) pro hostování rozhraní REST API.
 - Azure Functions pro hostování řízené událostmi, provádění úloh bez serveru.
 
 Slovo *aplikace* odkazuje na prostředky hostování vyhrazené pro spuštěnou úlohu. Pořízení *webovou aplikaci* jako příklad, pravděpodobně jste zvyklí na dala webovou aplikaci jako výpočetní prostředky i aplikace, které tuto funkci společně doručovat do prohlížeče kód. Webové aplikace ve službě App Service je výpočetní prostředek, který poskytuje Azure Stack pro hostování kódu aplikace.

@@ -11,22 +11,45 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/30/2019
+ms.date: 06/04/2019
 ms.author: sethm
 ms.reviewer: misainat
-ms.lastreviewed: 05/30/2019
-ms.openlocfilehash: 8de4447cd30204d0d4e1611afd057a75dc7688da
-ms.sourcegitcommit: 2cd17b8e7352891d8b3eb827d732adf834b7693e
+ms.lastreviewed: 06/04/2019
+ms.openlocfilehash: 2ca85da5d9fde42fb06eef149e7304ab08bc32ee
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66428685"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691194"
 ---
 # <a name="asdk-release-notes"></a>Zpráva k vydání verze ASDK
 
 Tento článek obsahuje informace o změnách, opravy a známé problémy v Azure Stack Development Kit (ASDK). Pokud si nejste jistí, kterou verzi používáte, můžete si [použití portálu ke kontrole](../operator/azure-stack-updates.md#determine-the-current-version).
 
 Udržujte si s tím, co se přihlásíte k odběru je novinkou ASDK [ ![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) [informačního kanálu RSS](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#).
+
+## <a name="build-11905040"></a>Sestavení 1.1905.0.40
+
+<!-- ### Changes -->
+
+### <a name="new-features"></a>Nové funkce
+
+- Seznam nových funkcí v této verzi najdete v tématu [v této části](../operator/azure-stack-release-notes-1905.md#whats-in-this-update) poznámky k verzi služby Azure Stack.
+
+### <a name="fixed-and-known-issues"></a>Oprava a známé problémy
+
+- Z důvodu služba hlavní časový limit při spuštění skriptu registraci za účelem [zaregistrovat ASDK](asdk-register.md) úspěšně musí upravit **RegisterWithAzure.psm1** skript prostředí PowerShell. Udělejte toto:
+
+  1. Na hostitelském počítači ASDK, otevřete soubor **C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1** v editoru se zvýšenými oprávněními.
+  2. Na řádku 1249, přidejte `-TimeoutInSeconds 1800` parametr na konci. To se vyžaduje kvůli časového limitu služby instančního objektu při spuštění skriptu registrace. Řádek 1249 by měl nyní vypadat následovně:
+
+     ```powershell
+      $servicePrincipal = Invoke-Command -Session $PSSession -ScriptBlock { New-AzureBridgeServicePrincipal -RefreshToken $using:RefreshToken -AzureEnvironment $using:AzureEnvironmentName -TenantId $using:TenantId -TimeoutInSeconds 1800 }
+      ```
+
+- Seznam dalších problémů služby Azure Stack, opravené v této verzi najdete v tématu [v této části](../operator/azure-stack-release-notes-1905.md#fixes) poznámky k verzi služby Azure Stack.
+- Seznam známých problémů najdete v tématu [v tomto článku](../operator/azure-stack-release-notes-known-issues-1905.md).
+- Všimněte si, že [dostupných oprav hotfix Azure Stack](../operator/azure-stack-release-notes-1905.md#hotfixes) se nevztahují na Azure Stack ASDK.
 
 ## <a name="build-11904036"></a>Sestavení 1.1904.0.36
 
@@ -118,23 +141,3 @@ Datová část 1903 nezahrnuje o ASDK verzi.
   netsh interface ipv4 set sub "hostnic" mtu=1660
   netsh interface ipv4 set sub "management" mtu=1660
   ```
-
-## <a name="build-11901095"></a>Sestavení 1.1901.0.95
-
-Zobrazit [informace důležité sestavení v poznámkách k verzi Azure Stack](../operator/azure-stack-update-1901.md#build-reference).
-
-### <a name="changes"></a>Změny
-
-Toto sestavení obsahuje následující vylepšení pro službu Azure Stack:
-
-- Součásti protokolu BGP a překladu adres jsou nyní nasadit na fyzickém hostiteli. To eliminuje nutnost mít dvě veřejné nebo firemní IP adresy pro nasazení ASDK a také zjednodušuje nasazení.
-- Azure Stack integrované systémy zálohování nyní mohou [ověřit](asdk-validate-backup.md) pomocí **asdk installer.ps1** skript prostředí PowerShell.
-
-### <a name="new-features"></a>Nové funkce
-
-- Seznam nových funkcí v této verzi najdete v tématu [v této části](../operator/azure-stack-update-1901.md#new-features) poznámky k verzi služby Azure Stack.
-
-### <a name="fixed-and-known-issues"></a>Oprava a známé problémy
-
-- Seznam opravených chybách v této verzi najdete v tématu [v této části](../operator/azure-stack-update-1901.md#fixed-issues) poznámky k verzi služby Azure Stack. Seznam známých problémů najdete v tématu [v této části](../operator/azure-stack-update-1901.md#known-issues-post-installation).
-- Všimněte si, že [dostupných oprav hotfix Azure Stack](../operator/azure-stack-update-1901.md#azure-stack-hotfixes) se nevztahují na Azure Stack ASDK.

@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 02/06/2019
-ms.author: mabrigg
+ms.date: 06/05/2019
+ms.author: jeffgilb
 ms.reviewer: thoroet
-ms.lastreviewed: 02/06/2019
-ms.openlocfilehash: 2871b5183833830368307c5d2b5152e3909fd3ea
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.lastreviewed: 06/05/2019
+ms.openlocfilehash: e0c3c4740a1bc8073e827ff9809cf1aafa029792
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618829"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691690"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Integrace externí řešení pro monitorování pomocí služby Azure Stack
 
@@ -69,28 +69,138 @@ Následující diagram znázorňuje integrace služby Azure Stack s existující
 
 ## <a name="integrate-with-nagios"></a>Integrace s Nagios
 
+Můžete nastavit a nakonfigurovat modul plug-in Nagios pro Microsoft Azure Stack.
+
 Nagios monitorování modulů plug-in byla vyvinuta spolu s Cloudbase partnerských řešení, která je k dispozici v rámci licence MIT bezplatného softwaru - MIT (Massachusetts Institute of Technology).
 
 Modul plug-in je napsaný v Pythonu a využívá rozhraní REST API poskytovatele prostředků stavu. Poskytuje základní funkce pro načtení a zavírání výstrah ve službě Azure Stack. Jako je System Center management pack umožňuje vám přidat více nasazení Azure Stack a odesílání oznámení.
 
-Modul plug-in funguje s Nagios Enterprise a Nagios Core. Můžete ji stáhnout [tady](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details). Server pro stahování obsahuje také podrobnosti o instalaci a konfiguraci.
+Verze 1.2 Azure Stack – modul plug-in Nagios využívá knihovna Microsoft ADAL a podporuje ověřování pomocí instančního objektu s tajný klíč nebo certifikát. Navíc konfigurace zjednodušili jsme pomocí nové parametry jednom konfiguračním souboru. Teď podporuje nasazení Azure Stack pomocí AAD & služby AD FS jako systém identit.
 
-### <a name="plugin-parameters"></a>Parametry modulu plug-in
+Modul plug-in funguje s Nagios 4 x a XI. Můžete ji stáhnout [tady](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details). Server pro stahování obsahuje také podrobnosti o instalaci a konfiguraci.
 
-Soubor modulu plug-in "Azurestack_plugin.py" konfigurace s následujícími parametry:
+### <a name="requirements-for-nagios"></a>Požadavky pro Nagios
 
-| Parametr | Popis | Příklad: |
-|---------|---------|---------|
-| *arm_endpoint* | Koncový bod Azure Resource Manager (správce) | https://adminmanagement.local.azurestack.external |
-| *api_endpoint* | Koncový bod Azure Resource Manager (správce)  | https://adminmanagement.local.azurestack.external |
-| *Tenant_id* | ID správce předplatného | Načíst prostřednictvím portálu správce nebo prostředí PowerShell |
-| *User_name* | Uživatelské jméno předplatné – operátor | operator@myazuredirectory.onmicrosoft.com |
-| *User_password* | Hesla předplatného – operátor | méheslo |
-| *Client_id* | Klient | 0a7bdc5c-7b57-40be-9939-d4c5fc7cd417* |
-| *region* |  Název oblasti Azure Stack | místní |
-|  |  |
+1.  Minimální verze Nagios je 4.x
 
-* Powershellu identifikátor GUID, který je k dispozici je univerzální. Můžete ho použít pro každé nasazení.
+2.  Knihovna Microsoft Azure Active Directory Python. Lze ji nainstalovat pomocí Python PIP.
+
+```bash  
+sudo pip install adal pyyaml six
+```
+
+### <a name="install-plugin"></a>Instalace modulu plug-in
+
+Tato část popisuje, jak nainstalovat modul plug-in Azure Stack, za předpokladu, že výchozí instalace Nagios.
+
+Balíček modulu plug-in obsahuje následující soubory:
+
+```
+  azurestack_plugin.py
+  azurestack_handler.sh
+  samples/etc/azurestack.cfg
+  samples/etc/azurestack_commands.cfg
+  samples/etc/azurestack_contacts.cfg
+  samples/etc/azurestack_hosts.cfg
+  samples/etc/azurestack_services.cfg
+```
+
+1.  Zkopírujte modul plug-in `azurestack_plugin.py` do následujícího adresáře `/usr/local/nagios/libexec`.
+
+2.  Zkopírujte obslužnou rutinu `azurestack_handler.sh` do následujícího adresáře `/usr/local/nagios/libexec/eventhandlers`.
+
+3.  Ujistěte se, modul plug-in soubor jako spustitelný soubor
+
+    ```bash
+      sudo cp azurestack_plugin.py <PLUGINS_DIR>
+      sudo chmod +x <PLUGINS_DIR>/azurestack_plugin.py
+    ```
+
+### <a name="configure-plugin"></a>Konfigurace modulu plug-in
+
+Následující parametry jsou k dispozici v souboru azurestack.cfg. Parametry tučným písmem je potřeba nakonfigurovat nezávisle na model ověřování, kterou zvolíte.
+
+Podrobné informace o tom, jak vytvořit hlavní název služby je popsána [tady](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-service-principals).
+
+| Parametr | Popis | Authentication |
+| --- | --- | --- |
+| **External_domain_fqdn ** | Plně kvalifikovaný název domény tak, že je externí |    |
+| **region: ** | Název oblasti |    |
+| **tenant_id: ** | ID tenanta\* |    |
+| client_id: | ID klienta | Hlavní název služby s tajným klíčem |
+| client_secret: | Heslo klienta | Hlavní název služby s tajným klíčem |
+| client_cert\*\*: | Cesta k certifikátu | Hlavní název služby pomocí certifikátu |
+| client_cert_thumbprint\*\*: | Kryptografický otisk certifikátu | Hlavní název služby pomocí certifikátu |
+
+\*ID tenanta není vyžadován pro nasazení Azure Stack s AD FS.
+
+\*\* Tajný klíč klienta a klientský certifikát se vzájemně vylučují.
+
+Další konfigurační soubory obsahují nastavení volitelné konfigurace, jak se dají konfigurovat v Nagios a.
+
+> [!Note]  
+> Zkontrolujte cílové umístění v azurestack_hosts.cfg a azurestack_services.cfg.
+
+| Konfigurace | Popis |
+| --- | --- |
+| azurestack_commands.cfg | Konfiguraci obslužné rutiny nevyžaduje změny |
+| azurestack_contacts.cfg | Nastavení oznámení |
+| azurestack_hosts.cfg | Azure Stack – nasazování pojmenování |
+| azurestack_services.cfg | Konfigurace služby |
+
+### <a name="setup-steps"></a>Postup instalace
+
+1.  Upravte konfigurační soubor.
+
+2.  Zkopírujte upravený konfigurační soubory do následující složky `/usr/local/nagios/etc/objects`.
+
+### <a name="update-nagios-configuration"></a>Aktualizovat konfiguraci Nagios
+
+Konfiguraci Nagios je potřeba aktualizovat, aby službě Azure Stack – modul plug-in Nagios je načteno.
+
+1.  Otevřete tento soubor
+
+```bash  
+/usr/local/nagios/etc/nagios.cfg
+```
+
+1.  Přidejte následující položku
+
+```bash  
+  #load the Azure Stack Plugin Configuration
+  cfg_file=/usr/local/Nagios/etc/objects/azurestack_contacts.cfg
+  cfg_file=/usr/local/Nagios/etc/objects/azurestack_commands.cfg
+  cfg_file=/usr/local/Nagios/etc/objects/azurestack_hosts.cfg
+  cfg_file=/usr/local/Nagios/etc/objects/azurestack_services.cfg
+```
+
+1.  Znovu načíst Nagios
+
+```bash  
+sudo service nagios reload
+```
+
+### <a name="manually-close-active-alerts"></a>Ruční zavření aktivní výstrahy
+
+Aktivní výstrahy může být ukončeny během Nagios pomocí funkce vlastní oznámení. Vlastní oznámení musí být:
+
+```
+  /close-alert <ALERT_GUID>
+```
+
+Výstrahu můžete zavřít také pomocí terminálu následující příkaz:
+
+```bash
+  /usr/local/nagios/libexec/azurestack_plugin.py --config-file /usr/local/nagios/etc/objects/azurestack.cfg --action Close --alert-id <ALERT_GUID>
+```
+
+### <a name="troubleshooting"></a>Řešení potíží
+
+Řešení potíží s modul plug-in může být provedeno volání modul plug-in ručně v terminálu. Použijte následující metodu:
+
+```bash
+  /usr/local/nagios/libexec/azurestack_plugin.py --config-file /usr/local/nagios/etc/objects/azurestack.cfg --action Monitor
+```
 
 ## <a name="use-powershell-to-monitor-health-and-alerts"></a>Použití Powershellu k monitorování stavu a výstrahy
 
@@ -130,7 +240,7 @@ Pokud nepoužíváte nástroj Operations Manager, Nagios nebo řešení Nagios, 
     Get-AzsRegistrationHealth -ServiceRegistrationId $FRPID.RegistrationId
     ```
 
-## <a name="learn-more"></a>Další informace
+## <a name="learn-more"></a>Víc se uč
 
 Informace o předdefinovaných stavu monitorování najdete v tématu [monitorovat stav a výstrahy ve službě Azure Stack](azure-stack-monitor-health.md).
 

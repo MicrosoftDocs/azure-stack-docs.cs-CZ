@@ -16,12 +16,12 @@ ms.date: 05/31/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 05/31/2019
-ms.openlocfilehash: e549413798ffc3c06c95bfbcf50ab4929ffeaf63
-ms.sourcegitcommit: 80775f5c5235147ae730dfc7e896675a9a79cdbe
+ms.openlocfilehash: 6005196fe98f83c11b9d87ff713e290bad9ef384
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/03/2019
-ms.locfileid: "66461022"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66692030"
 ---
 # <a name="azure-stack-compute"></a>Výpočetní prostředky Azure Stack
 
@@ -50,12 +50,14 @@ Můžete zkontrolovat výsečový graf v portálu pro správu, který zobrazuje 
 
 ![Kapacita fyzické paměti](media/azure-stack-capacity-planning/physical-memory-capacity.png)
 
-Využitá paměť se skládá z několika komponent. Následující komponenty využití paměti v části Použití výsečového grafu.  
+Využitá paměť se skládá z několika komponent. Následující komponenty využití paměti v části Použití výsečového grafu:  
 
-- Používání hostitelský operační systém nebo rezervy – to je paměti používané podle operačního systému (OS) na hostitele, tabulky stránky virtuální paměti, procesy, které jsou spuštěny na hostitelském operačním systému a prostorů s přímým přístupem mezipaměti. 
-- Služby infrastruktury – jedná se o infrastrukturu virtuálních počítačů, které tvoří Azure Stack. Od verze 1902 verzi služby Azure Stack, to znamená 31 virtuálních počítačů, které zabírají 242 GB + (4 GB × počet uzlů). Tato struktura interní služba umožní pro budoucí zavlečení nových služeb infrastruktury, jako jsou vyvíjeny.
-- Odolnost proti chybám rezervy – Azure Stack si vyhrazuje část paměti umožňující tenanta dostupnosti při selhání jednoho hostitele, a také opravy a aktualizace umožňující úspěšné migrace za provozu virtuálních počítačů. 
-- Virtuální počítače tenanta – jedná se o klientské virtuální počítače vytvořené uživateli Azure stacku. Kromě spouštění virtuálních počítačů, paměť je využívána všechny virtuální počítače, které jste dostali v prostředcích infrastruktury. To znamená, že virtuální počítače v **vytváření** nebo **neúspěšné** stavu nebo virtuální počítače vypnout v hostovaném počítači, bude využití paměti. Virtuální počítače, které bylo uvolněno pomocí zastavení navrácena možnost však nebude využívat paměti ze služby Azure Stack. 
+ -  Používání hostitelský operační systém nebo rezervy – to je paměti používané podle operačního systému (OS) na hostitele, tabulky stránky virtuální paměti, procesy, které jsou spuštěny na hostitelském operačním systému a prostorů s přímým přístupem mezipaměti. Protože tato hodnota je závislá na paměť používanou různé procesy Hyper-V na hostiteli spuštěna, může kolísat.
+ - Služby infrastruktury – jedná se o infrastrukturu virtuálních počítačů, které tvoří Azure Stack. Od verze 1904 verzi služby Azure Stack, to znamená ~ 31 virtuálních počítačů, které zabírají 242 GB + (4 GB × počet uzlů) paměti. Využití paměti v aplikaci součásti služby infrastruktury můžou změnit, protože pracujeme na tom, aby naše služby infrastruktury více škálovatelné a odolné.
+ - Odolnost proti chybám rezervy – Azure Stack si vyhrazuje část paměti umožňující tenanta dostupnosti při selhání jednoho hostitele, a také opravy a aktualizace umožňující úspěšné migrace za provozu virtuálních počítačů.
+ - Virtuální počítače tenanta – jedná se o klientské virtuální počítače vytvořené uživateli Azure stacku. Kromě spouštění virtuálních počítačů, paměť je využívána všechny virtuální počítače, které jste dostali v prostředcích infrastruktury. To znamená, že virtuální počítače ve stavu "Vytvoření" nebo "Failed" nebo virtuální počítače vypnout v hostovaném počítači, bude využívat paměti. Virtuální počítače, které bylo zrušeno přidělení pomocí zastavení navrácena možnost portál/powershell/cli však nebude využívat paměti ze služby Azure Stack.
+ - Doplněk RPs – virtuální počítače nasazené pro RPs doplněk, jako je SQL, MySQL, App Service atd
+
 
 Nejlepší způsob, jak porozumět využití paměti na portálu je použít [Azure Stack Capacity Planner](https://aka.ms/azstackcapacityplanner) zobrazení dopadů různé úlohy. Následující výpočtu je stejný jako ten používá plánovač.
 
@@ -78,6 +80,23 @@ Tento výpočet je výsledkem celkovou a dostupnou paměť, která lze použít 
 
 
 Hodnota V největší virtuální počítač v jednotce škálování dynamicky podle největší tenanta velikost paměti virtuálního počítače. Největší hodnota virtuálního počítače může být například, 7 GB nebo 112 GB nebo jakékoli jiné podporovanou velikost virtuálního počítače paměti v řešení služby Azure Stack. Změna největší virtuálního počítače v prostředcích infrastruktury Azure stacku způsobí zvýšení odolnosti proti chybám rezervy kromě nárůst objemu paměti Virtuálního počítače. 
+
+## <a name="frequently-asked-questions"></a>Nejčastější dotazy
+
+Otázka: Můj tenant nasazení nového virtuálního počítače, jak dlouho bude trvat grafu schopností na portálu pro správu zobrazit zbývající kapacity?
+Odpověď: Okno kapacity aktualizuje každých 15 minut, proto prosím, která vzít v úvahu.
+
+Otázka: Počet nasazených virtuálních počítačů ve své službě Azure Stack nedošlo ke změně, ale kolísá Moje kapacita. Proč?
+Odpověď: Paměť k dispozici pro umístění virtuálního počítače má více závislostí, z nichž jeden je rezervy hostitele operačního systému. Tato hodnota je závislá na paměť používanou různé procesy Hyper-V běží na hostiteli, který není konstantní hodnotu.
+
+Otázka: Bude k využívání paměti v jednotlivých stavech mají virtuální počítače Tenanta?
+Odpověď: Kromě spouštění virtuálních počítačů, paměť je využívána všechny virtuální počítače, které jste dostali v prostředcích infrastruktury. To znamená, že virtuální počítače, které jsou v "Vytváření", "Failed" nebo virtuální počítače vypnout v hostovaném počítači rozdíl od zastavit uvolněno z portál/powershell/cli spotřebuje paměti.
+
+
+Otázka: Mám 4 hostitele služby Azure Stack. Můj tenant má 3 virtuální počítače, které využívají 56 GB paměti RAM (D5_v2) každý. Jeden z virtuálních počítačů je velikost 112 GB paměti RAM (D14_v2) a vytváření sestav na řídicím panelu dostupné paměti výsledkem prudký nárůst využití 168 GB na okno kapacity. Následné změny velikosti dalších dvou D5_v2 virtuálních počítačů do D14_v2, výsledkem pouze 56GB paměti RAM zvýšení. Proč je to tak?
+
+Odpověď: Dostupná paměť je funkce odolnosti proti chybám rezervy spravuje pomocí služby Azure Stack. Rezerva odolnost proti chybám je funkce největší možnou velikost virtuálního počítače na razítku služby Azure Stack. Zpočátku se největší virtuální počítač na razítko 56 GB paměti. Pokud byl virtuální počítač se změněnou velikostí, největší virtuální počítač na razítko začal být 112 GB paměti, který nejen zvýšení paměti používané podle tohoto tenanta virtuálního počítače, ale také zvýšit odolnost proti chybám rezervy. Výsledkem zvýšení 56 GB (56 GB do tenanta 112 GB zvýšení paměti virtuálního počítače) a 112 GB odolnost proti chybám rezerva paměti zvýšení. Při změně velikosti následující virtuální počítače byly největší možnou velikost virtuálního počítače zůstala jako 112 GB virtuálního počítače a proto neexistuje žádný nárůst rezervy výsledná odolnost proti chybám. Zvýšení využití paměti bylo pouze tenanta zvýšení paměti virtuálního počítače (56 GB). 
+
 
 > [!NOTE]
 > Plánování požadavků na kapacitu pro sítě jsou minimální, jak je možné konfigurovat pouze velikost veřejných virtuálních IP adres. Informace o tom, jak přidat další veřejné IP adresy do služby Azure Stack najdete v tématu [přidání veřejné IP adresy](azure-stack-add-ips.md).

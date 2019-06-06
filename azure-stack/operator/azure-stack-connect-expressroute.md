@@ -14,12 +14,12 @@ ms.date: 03/22/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: a039830e01b85ec5e8d9c66a0c815a38d9c694f8
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 8f8d7ee82890788f60266f671bcc4041795c075e
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985727"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691640"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>Připojení k Azure pomocí Azure ExpressRoute Azure Stack
 
@@ -33,7 +33,7 @@ Můžete použít v tomto článku o kurz a příklady použít k nastavení ste
 
 Azure ExpressRoute umožňuje rozšířit vaše místní sítě do cloudu Microsoftu přes soukromé připojení, získáte ho od poskytovatele připojení. ExpressRoute není připojení k síti VPN přes veřejný internet.
 
-Další informace o Azure ExpressRoute najdete v tématu [ExpressRoute overview]((/azure/expressroute/expressroute-introduction).
+Další informace o Azure ExpressRoute najdete v tématu [přehled ExpressRoute](/azure/expressroute/expressroute-introduction).
 
 ### <a name="assumptions"></a>Předpoklady
 
@@ -47,7 +47,7 @@ Tento článek předpokládá, že:
 
 Pro připojení služby Azure Stack a Azure pomocí ExpressRoute, musí splňovat následující požadavky:
 
-* Zřízenou [ExpressRoute circuit]((/azure/expressroute/expressroute-circuit-peerings) prostřednictvím [provider]((/azure/expressroute/expressroute-locations) připojení.
+* Zřízenou [okruh ExpressRoute](/azure/expressroute/expressroute-circuit-peerings) prostřednictvím [poskytovatele připojení](/azure/expressroute/expressroute-locations).
 * Předplatné Azure k vytvoření okruhu ExpressRoute a virtuálními sítěmi v Azure.
 * Směrovač, který musí:
   * Podpora připojení Site-to-Site VPN mezi jeho rozhraní LAN a víceklientská brána Azure Stack.
@@ -324,22 +324,22 @@ Další informace o vytváření virtuálních sítí v Azure najdete v tématu 
 
 ### <a name="configure-an-expressroute-circuit"></a>Nakonfigurujte okruh ExpressRoute
 
-1. Zkontrolujte požadavky ExpressRoute v [požadavky ExpressRoute a checklist]((/azure/expressroute/expressroute-prerequisites).
+1. Zkontrolujte požadavky ExpressRoute v [ExpressRoute požadavky a kontrolní seznam](/azure/expressroute/expressroute-prerequisites).
 
-1. Postupujte podle kroků v [vytvoření a úprava circuit]((/azure/expressroute/expressroute-howto-circuit-portal-resource-manager) ExpressRoute k vytvoření okruhu ExpressRoute pomocí svého předplatného Azure.
+1. Postupujte podle kroků v [vytvoření a úprava okruhu ExpressRoute](/azure/expressroute/expressroute-howto-circuit-portal-resource-manager) vytvoření okruhu ExpressRoute pomocí svého předplatného Azure.
 
    >[!NOTE]
    >Zadejte klíč služby pro váš okruh ke službě, můžete nastavit váš okruh ExpressRoute na jeho konci.
 
-1. Postupujte podle kroků v [vytvořit a upravit partnerský vztah pro circuit]((/azure/expressroute/expressroute-howto-routing-portal-resource-manager) s ExpressRoute můžete nakonfigurovat privátní partnerský vztah v okruhu ExpressRoute.
+1. Postupujte podle kroků v [vytvořit a upravit partnerský vztah pro okruh ExpressRoute](/azure/expressroute/expressroute-howto-routing-portal-resource-manager) nakonfigurovat soukromý partnerský vztah v okruhu ExpressRoute.
 
 ### <a name="create-the-virtual-network-gateway"></a>Vytvoření brány virtuální sítě
 
-Postupujte podle kroků v [Konfigurace brány virtuální sítě pro ExpressRoute přes PowerShell]((/azure/expressroute/expressroute-howto-add-gateway-resource-manager) vytvořit bránu virtuální sítě pro ExpressRoute ve virtuální síti centra.
+Postupujte podle kroků v [konfigurace brány virtuální sítě pro ExpressRoute přes PowerShell](/azure/expressroute/expressroute-howto-add-gateway-resource-manager) vytvořit bránu virtuální sítě pro ExpressRoute ve virtuální síti centra.
 
 ### <a name="create-the-connection"></a>Vytvoření připojení
 
-K propojení okruhu ExpressRoute k virtuální síti centra, postupujte podle kroků v [připojit virtuální síť k circuit]((/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager) ExpressRoute.
+K propojení okruhu ExpressRoute k virtuální síti centra, postupujte podle kroků v [připojení virtuální sítě k okruhu ExpressRoute](/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager).
 
 ### <a name="peer-the-vnets"></a>Vytvoření partnerského vztahu virtuálních sítí
 

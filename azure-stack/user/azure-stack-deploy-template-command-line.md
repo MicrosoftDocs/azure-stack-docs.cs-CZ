@@ -1,5 +1,5 @@
 ---
-title: Nasazení šablon pomocí příkazového řádku ve službě Azure Stack | Dokumentace Microsoftu
+title: Nasazení šablony pomocí příkazového řádku ve službě Azure Stack | Dokumentace Microsoftu
 description: Další informace o použití multiplatformního rozhraní příkazového řádku (CLI) k nasazení šablony do služby Azure Stack.
 services: azure-stack
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.date: 05/09/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: d225e113a19dc62ce66df49d89273d00e2e35683
-ms.sourcegitcommit: 2b6a0b3b4dc63c26df3d0535d630d640ff232fb0
+ms.openlocfilehash: 92c9189f8144804f36e551ab89d8b4fc4c1f8598
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65521123"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691361"
 ---
-# <a name="deploy-templates-in-azure-stack-using-the-command-line"></a>Nasazení šablon ve službě Azure Stack pomocí příkazového řádku
+# <a name="deploy-a-template-with-the-command-line-in-azure-stack"></a>Nasazení šablony pomocí příkazového řádku ve službě Azure Stack
 
 *Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
 
@@ -35,7 +35,7 @@ Nasazení šablon Azure Resource Manageru ve službě Azure Stack pomocí rozhra
 
 ## <a name="deploy-template"></a>Nasazení šablony
 
-Přejděte do složky, do které tyto soubory byly staženy a spusťte následující příkaz k nasazení šablony:
+Přejděte do složky, do kterého byly tyto soubory stáhnout a spusťte následující příkaz k nasazení šablony:
 
 ```azurecli
 az group create "cliRG" "local" -f azuredeploy.json -d "testDeploy" -e azuredeploy.parameters.json
