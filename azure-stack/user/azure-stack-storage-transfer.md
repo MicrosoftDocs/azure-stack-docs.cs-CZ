@@ -14,12 +14,12 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 087b7b8a5b307c5be56774024c99369286ae321d
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: bdbf30a0913aeb4839d31e68c84a4b1b7965bf85
+ms.sourcegitcommit: 75b13158347963063b7ee62b0ec57894b542c1be
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64986182"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66748978"
 ---
 # <a name="use-data-transfer-tools-for-azure-stack-storage"></a>Použití nástrojů pro přenos dat pro úložiště Azure Stack
 
@@ -67,7 +67,7 @@ Existují dvě verze nástroje azcopy: AzCopy ve Windows a AzCopy v Linuxu.
  - **AzCopy v Linuxu**
 
     - Můžete nainstalovat a používat AzCopy ve službě Azure Stack stejným způsobem jako Azure. Další informace najdete v tématu [AzCopy v Linuxu](/azure/storage/common/storage-use-azcopy-linux).
-    - Předchozí verze (aktualizace 1802 k 1809), najdete v článku [kroky instalace AzCopy 7.1 a starších verzích](/azure/storage/common/storage-use-azcopy-linux#installation-steps-for-azcopy-71-and-earlier-versions).
+    - Předchozí verze (aktualizace 1802 k 1809), najdete v článku [kroky instalace AzCopy 7.1 a starších verzích](/azure/storage/common/storage-use-azcopy-v10#use-the-previous-version-of-azcopy).
 
 ### <a name="azcopy-command-examples-for-data-transfer"></a>Příklady příkazů AzCopy pro přenos dat
 

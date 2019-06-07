@@ -16,12 +16,12 @@ ms.date: 05/30/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 04/20/2019
-ms.openlocfilehash: 972b47e5c8787d41d918544f220e082b9ac2d69d
-ms.sourcegitcommit: a427e72e4f3b6cd6000b1459af9bbf221e049e08
+ms.openlocfilehash: 7f335a6ad59d6f27c8e402863849d21c87f1cee2
+ms.sourcegitcommit: 75b13158347963063b7ee62b0ec57894b542c1be
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66506289"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66748903"
 ---
 # <a name="azure-stack-1903-update"></a>Aktualizace služby Azure Stack 1903
 
@@ -167,7 +167,7 @@ Toto jsou známé problémy této verze sestavení po instalaci.
    Pokud povolíte diagnostiku spouštění na virtuálním počítači, ale odstraníte účet úložiště diagnostiky spouštění dojde k chybě. Chcete-li tento problém obejít, znovu vytvořte účet úložiště se stejným názvem, jako jste použili dříve.
 
 <!-- 2967447 - IS, ASDK, to be fixed in 1902 -->
-- Prostředí pro vytváření Škálovací sady virtuálních počítačů poskytuje založené na CentOS 7.2 jako možnost pro nasazení. Vzhledem k tomu, že obrázek není k dispozici ve službě Azure Stack, vyberte jiný operační systém pro vaše nasazení, nebo pomocí zadání jiné image CentOS, který byl stažen před jejich nasazením na Marketplace pomocí šablony Azure Resource Manageru operátor.
+- Prostředí pro vytváření Škálovací sady virtuálních počítačů poskytuje založené na CentOS 7.2 jako možnost pro nasazení. Protože této bitové kopie není k dispozici na webu Marketplace Azure Stack, vyberte jiný operační systém pro vaše nasazení, nebo pomocí šablony Azure Resource Manageru zadáním jiné image CentOS, který byl stažen před jejich nasazením na Marketplace operátorem.
 
 <!-- TBD - IS ASDK -->
 - Po použití 1903 aktualizace, může dojít k následujícím problémům při nasazování virtuálních počítačů se spravovanými disky:

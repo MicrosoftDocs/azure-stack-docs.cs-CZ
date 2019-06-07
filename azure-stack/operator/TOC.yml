@@ -419,6 +419,8 @@
       href: /azure-stack/asdk/
 - name: Zdroje a prostředky
   items:
+    - name: Školení a certifikace
+      href: azure-stack-train-and-cert.md
     - name: Plán služby Azure Stack
       href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'
     - name: Fóru pro Azure Stack MSDN
@@ -429,5 +431,3 @@
       href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-stack'
-    - name: Školení a certifikace
-      href: azure-stack-train-and-cert.md

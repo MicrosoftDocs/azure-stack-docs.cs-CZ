@@ -15,12 +15,12 @@ ms.date: 01/25/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 7a599d3fdc68c6c41565111498108a202d8b3472
-ms.sourcegitcommit: 261df5403ec01c3af5637a76d44bf030f9342410
+ms.openlocfilehash: f1dd98c8c75c28ee176ca318fb9d274110e9b5fe
+ms.sourcegitcommit: 75b13158347963063b7ee62b0ec57894b542c1be
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66252059"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66749035"
 ---
 # <a name="tutorial-deploy-a-hybrid-cloud-solution-with-azure-and-azure-stack"></a>Kurz: Nasazení řešení s hybridní cloud s Azure a Azure Stack
 
@@ -106,7 +106,7 @@ Než začnete tento kurz, ujistěte se, že splňujete následující požadavky
    - **Účet úložiště diagnostiky**. Pokud budete potřebovat vytvořte nový účet.
    - Vyberte **OK** uložte konfiguraci.
 
-     ![Nakonfigurujte volitelné funkce](media/azure-stack-solution-hybrid-cloud/image4.png)
+     ![Konfigurace volitelných funkcí](media/azure-stack-solution-hybrid-cloud/image4.png)
 
 1. V části **nastavení systému SQL Server**, nakonfigurujte následující nastavení:
    - Pro **připojení SQL**kliknutím **veřejné (Internet)** .
@@ -251,11 +251,11 @@ Chcete-li přidat SSL ke službě Azure Stack:
 
 Budete konfigurovat kód aplikace, který sestavu telemetrických dat do správné instanci Application Insights a konfigurace webové aplikace pomocí správný připojovací řetězce. Další informace o Application Insights najdete v tématu [co je Application Insights?](https://docs.microsoft.com/azure/application-insights/app-insights-overview)
 
-### <a name="add-application-insights"></a>Přidat Application Insights
+### <a name="add-application-insights"></a>Přidat službu Application Insights
 
 1. Otevřete webové aplikace v sadě Microsoft Visual Studio.
 
-2. [Přidat službu Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net-core#add-application-insights-telemetry) do projektu k odesílání telemetrie Application Insights používá k vytváření výstrah při webového provozu zvyšuje nebo snižuje.
+2. [Přidat službu Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core#enable-client-side-telemetry-for-web-applications) do projektu k odesílání telemetrie Application Insights používá k vytváření výstrah při webového provozu zvyšuje nebo snižuje.
 
 ### <a name="configure-dynamic-connection-strings"></a>Konfigurace dynamické připojovacích řetězců
 
@@ -303,7 +303,7 @@ Při vytváření webové aplikace ve službě App Service environment začne s 
 
 1. V Azure, najít plán služby App Service pro weby, kterou chcete škálovat na více systémů a pak vyberte **horizontální navýšení kapacity (plán služby App Service)** .
 
-    ![Horizontálně navýšit kapacitu](media/azure-stack-solution-hybrid-cloud/image16.png)
+    ![Horizontální navýšení kapacity](media/azure-stack-solution-hybrid-cloud/image16.png)
 
 2. Vyberte **povolit automatické škálování**.
 
@@ -489,7 +489,7 @@ Toto zobrazení budete používat k vytvoření s horizontálním navýšením k
 
 Následující snímek obrazovky ukazuje výstrahy pro horizontální navýšení kapacity a horizontální snížení kapacity.
 
-   ![Upozornění (klasická)](media/azure-stack-solution-hybrid-cloud/image22.png)
+   ![Upozornění (Classic)](media/azure-stack-solution-hybrid-cloud/image22.png)
 
 ## <a name="redirect-traffic-between-azure-and-azure-stack"></a>Přesměrovat provoz mezi Azure a Azure Stack
 
@@ -501,7 +501,7 @@ Pokud vaše webová stránka dosáhne prahové hodnoty, které nakonfigurujete, 
 
 1. Na webu Azure Portal vyberte svůj profil Traffic Manageru.
 
-    ![Koncové body služby Traffic Manager](media/azure-stack-solution-hybrid-cloud/image20.png)
+    ![Koncové body Traffic Manageru](media/azure-stack-solution-hybrid-cloud/image20.png)
 
 2. Vyberte **koncové body**.
 3. Vyberte **koncový bod Azure**.

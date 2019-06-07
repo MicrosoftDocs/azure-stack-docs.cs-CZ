@@ -15,12 +15,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0ed3dfda57bc544bd61efcc52ef7588a553ac634
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 9ad15342a8c0116f928b416f26e64b08563a5c14
+ms.sourcegitcommit: 75b13158347963063b7ee62b0ec57894b542c1be
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64297620"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66748952"
 ---
 # <a name="tutorial-set-up-resources-for-validation-as-a-service"></a>Kurz: Nastavit prostředky pro ověření jako služba
 
@@ -32,7 +32,7 @@ V tomto kurzu se naučíte:
 
 > [!div class="checklist"]
 > * Příprava na použití VaaS tak, že nastavíte si vaše Azure Active Directory (AD).
-> * Vytvoření účtu úložiště
+> * Vytvoření účtu úložiště.
 
 ## <a name="configure-an-azure-ad-tenant"></a>Nakonfigurovat tenanta služby Azure AD
 
@@ -74,7 +74,7 @@ Tento proces povolí vašeho tenanta se **služby Azure Stack ověření** aplik
     |--------------------------------|---------------------------------------------------------------------------------------------|
     | Název organizace | Organizaci oficiální název. |
     | Název adresáře Tenanta Azure AD | Registrovaný název Tenanta služby Azure AD Directory. |
-    | ID adresáře Tenanta Azure AD | Adresář Tenanta služby Azure AD, identifikátor GUID přidružený k adresáři. Informace o tom, jak najít ID adresáře vašeho Tenanta služby Azure AD najdete v tématu [získání ID tenanta](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#get-tenant-id). |
+    | ID adresáře Tenanta Azure AD | Adresář Tenanta služby Azure AD, identifikátor GUID přidružený k adresáři. Informace o tom, jak najít ID adresáře vašeho Tenanta služby Azure AD najdete v tématu [získání ID tenanta](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#get-values-for-signing-in). |
 
 2. Počkejte na potvrzení od týmu Azure Stack ověření a zkontrolujte, že váš tenant, můžete na portálu VaaS.
 

@@ -16,12 +16,12 @@ ms.date: 02/17/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 69a0a9f84e0c4a5d0cb51eb8d48b3c9ca88b9cfc
-ms.sourcegitcommit: 41927cb812e6a705d8e414c5f605654da1fc6952
+ms.openlocfilehash: aca2517a49936296f73c34392ab4c5439909872f
+ms.sourcegitcommit: 75b13158347963063b7ee62b0ec57894b542c1be
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64477329"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66748967"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack"></a>Hostované operační systémy podporované ve službě Azure Stack
 
@@ -34,6 +34,7 @@ Azure Stack podporuje Windows hostovaných operačních systémů uvedených v n
 | Operační systém | Popis | K dispozici na webu Marketplace |
 | --- | --- | --- |
 | Windows Server verze 1709 | 64 bitů | Jádra s kontejnery |
+| Windows Server 2019 | 64 bitů |  Datové centrum, Datacenter Core Datacenter s kontejnery |
 | Windows Server 2016 | 64 bitů |  Datové centrum, Datacenter Core Datacenter s kontejnery |
 | Windows Server 2012 R2 | 64 bitů |  Datové centrum |
 | Windows Server 2012 | 64 bitů |  Datové centrum |
@@ -60,12 +61,13 @@ Linuxové distribuce, které jsou uvedené jako dostupné na webu Marketplace za
 | Distribuce | Popis | Vydavatel | Marketplace |
 | --- | --- | --- | --- |
 | Založené na centOS 6.9 | 64 bitů | Neautorizovaný Wave | Ano |
-| Založené na centOS 7.4 | 64 bitů | Neautorizovaný Wave | Ano |
+| Založené na centOS 7.5 | 64 bitů | Neautorizovaný Wave | Ano |
+| Distribuce založené na CentOS 7.3 | 64 bitů | Neautorizovaný Wave | Ano |
 | ClearLinux | 64 bitů | ClearLinux.org | Ano |
 | Kontejner Linuxu |  64 bitů | CoreOS | Stable |
 | Debian 8 "Jessie" | 64 bitů | credativ |  Ano |
 | Debian 9 "Stretch" | 64 bitů | credativ | Ano |
-| Red Hat Enterprise Linux 7.1 (a novější) | 64 bitů | Red Hat |Používání vlastní image |
+| Red Hat Enterprise Linux 7.1 (a novější) | 64 bitů | Red Hat | Používání vlastní image |
 | SLES 11SP4 | 64 bitů | SUSE | Ano |
 | SLES 12SP3 | 64 bitů | SUSE | Ano |
 | Ubuntu 14.04-LTS | 64 bitů | Canonical | Ano |

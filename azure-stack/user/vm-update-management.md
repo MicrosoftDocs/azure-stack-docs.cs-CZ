@@ -16,23 +16,23 @@ ms.date: 03/20/2019
 ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 03/20/2019
-ms.openlocfilehash: 6726e8ff261565691e2e9e3c01827e8e056db139
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: fc5466880c7340f5e9a79b7ece79663d12c9a598
+ms.sourcegitcommit: 75b13158347963063b7ee62b0ec57894b542c1be
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618816"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66749015"
 ---
 # <a name="azure-stack-vm-update-and-management"></a>Azure Stack VM update a správu
 Následující funkce řešení Azure Automation můžete použít ke správě Windows a virtuální počítače s Linuxem, které jsou nasazeny pomocí služby Azure Stack:
 
-- **[Správa aktualizací](https://docs.microsoft.com/azure/automation/automation-update-management)**. Řešení Update Management můžete rychle vyhodnotit stav dostupných aktualizací na všech počítačích agenta a spravovat proces instalace požadovaných aktualizací pro tyto virtuální počítače Linux a Windows.
+- **[Správa aktualizací](https://docs.microsoft.com/azure/automation/automation-update-management)** . Řešení Update Management můžete rychle vyhodnotit stav dostupných aktualizací na všech počítačích agenta a spravovat proces instalace požadovaných aktualizací pro tyto virtuální počítače Linux a Windows.
 
-- **[Sledování změn](https://docs.microsoft.com/azure/automation/automation-change-tracking)**. Změny nainstalovaného softwaru, služby Windows, Windows registru a souborů a procesy démon Linuxu na monitorovaných serverech se odesílají do služby Azure Monitor v cloudu pro zpracování. Logika platí pro přijatá data a cloudové službě zaznamenává data. Podle informací uvedených na řídicím panelu řešení Change Tracking, můžete snadno zobrazit změny, které byly provedeny v serverové infrastruktuře.
+- **[Sledování změn](https://docs.microsoft.com/azure/automation/automation-change-tracking)** . Změny nainstalovaného softwaru, služby Windows, Windows registru a souborů a procesy démon Linuxu na monitorovaných serverech se odesílají do služby Azure Monitor v cloudu pro zpracování. Logika platí pro přijatá data a cloudové službě zaznamenává data. Podle informací uvedených na řídicím panelu řešení Change Tracking, můžete snadno zobrazit změny, které byly provedeny v serverové infrastruktuře.
 
-- **[Inventář](https://docs.microsoft.com/azure/automation/automation-vm-inventory)**. Sledování pro virtuální počítač Azure Stack inventáře poskytuje založené na prohlížeči uživatelské rozhraní pro nastavení a konfiguraci shromažďování dat pro inventarizaci.
+- **[Inventář](https://docs.microsoft.com/azure/automation/automation-vm-inventory)** . Sledování pro virtuální počítač Azure Stack inventáře poskytuje založené na prohlížeči uživatelské rozhraní pro nastavení a konfiguraci shromažďování dat pro inventarizaci.
 
-- **[Azure Monitor pro virtuální počítače](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-overview)**. Azure Monitor pro virtuální počítače monitoruje virtuálních počítačů Azure a Azure Stack (VM) a škálovacích sad virtuálních počítačů ve velkém měřítku. Analyzuje výkon a stav virtuálních počítačů s Windows a Linuxem a monitoruje jejich procesy a závislosti na jiných prostředcích a externích procesech. 
+- **[Azure Monitor pro virtuální počítače](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-overview)** . Azure Monitor pro virtuální počítače monitoruje virtuálních počítačů Azure a Azure Stack (VM) a škálovacích sad virtuálních počítačů ve velkém měřítku. Analyzuje výkon a stav virtuálních počítačů s Windows a Linuxem a monitoruje jejich procesy a závislosti na jiných prostředcích a externích procesech. 
 
 > [!IMPORTANT]
 > Tato řešení jsou stejné jako ty, které slouží ke správě virtuálních počítačů Azure. Azure a virtuální počítače Azure Stack se spravují stejným způsobem, rozhraní, pomocí stejných nástrojů. Virtuální počítače Azure Stack také se počítají, stejně jako virtuální počítače Azure pomocí řešení Update Management, Change Tracking, inventáře a monitorování virtuálních počítačů Azure pomocí služby Azure Stack.
@@ -74,7 +74,7 @@ Azure Monitor pro virtuální počítače jako řešení, zahrnuje podporu pro m
 
 3. Mapa závislostí: Zobrazí vzájemně propojených součástí virtuálního počítače z různých skupin prostředků a předplatných.
 
-Po vytvoření pracovního prostoru Log Analytics, je potřeba povolit čítače výkonu v pracovním prostoru pro kolekci v Linuxu a virtuálních počítačů s Windows a nainstalovat a povolit ServiceMap a InfrastructureInsights řešení ve vašem pracovním prostoru. Proces je popsán v [nasazení Azure Monitor pro virtuální počítače](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-onboard#deploy-azure-monitor-for-vms) průvodce.
+Po vytvoření pracovního prostoru Log Analytics, je potřeba povolit čítače výkonu v pracovním prostoru pro kolekci v Linuxu a virtuálních počítačů s Windows a nainstalovat a povolit ServiceMap a InfrastructureInsights řešení ve vašem pracovním prostoru. Proces je popsán v [nasazení Azure Monitor pro virtuální počítače](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-onboard#how-to-enable-azure-monitor-for-vms-preview) průvodce.
 
 ### <a name="in-the-azure-stack-administration-portal"></a>V portálu pro správu služby Azure Stack
 Po povolení řešení Azure Automation na webu Azure Portal, dále musíte přihlásit na portál pro správu služby Azure Stack jako správce cloudu a stáhnout **Azure Monitor, aktualizace a správa konfigurace** a **Azure Monitor, aktualizace a správa konfigurace pro Linux** položky marketplace rozšíření Azure Stack. 

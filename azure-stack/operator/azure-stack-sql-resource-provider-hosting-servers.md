@@ -15,12 +15,12 @@ ms.date: 03/26/2019
 ms.author: mabrigg
 ms.reviewer: quying
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: a56e1e8c3c5109c638432652adf9260f59f6a467
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 04ae974148d47bde1e3131aeca45e8bddc9e6109
+ms.sourcegitcommit: 75b13158347963063b7ee62b0ec57894b542c1be
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618450"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66748994"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Přidání hostitelské servery pro poskytovatele prostředků SQL
 
@@ -73,7 +73,7 @@ Následující informace poskytují další bezpečnostní pokyny:
 
 * Veškeré součásti úložiště služby Azure Stack se šifrují pomocí nástroje BitLocker, takže jakoukoli instanci SQL ve službě Azure Stack používat zašifrovaný objekt blob úložiště.
 * Poskytovatele prostředků SQL plně podporuje TLS 1.2. Ujistěte se, že SQL Server, který se spravuje prostřednictvím poskytovatele prostředků SQL je nakonfigurované pro protokol TLS 1.2 _pouze_ a RP se ve výchozím nastavení, která. Všechny podporované verze systému SQL Server podporu protokolu TLS 1.2, najdete v článku [podpora protokolu TLS 1.2 pro Microsoft SQL Server](https://support.microsoft.com/en-us/help/3135244/tls-1-2-support-for-microsoft-sql-server).
-* Správce konfigurace SQL serveru použijte k nastavení **ForceEncryption** možnosti zajistíte veškerá komunikace se serverem SQL se vždy šifrují. Zobrazit [konfigurace serveru pro vynutit šifrovaná připojení](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine?view=sql-server-2017#ConfigureServerConnections).
+* Správce konfigurace SQL serveru použijte k nastavení **ForceEncryption** možnosti zajistíte veškerá komunikace se serverem SQL se vždy šifrují. Zobrazit [konfigurace serveru pro vynutit šifrovaná připojení](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine?view=sql-server-2017#to-configure-the-server-to-force-encrypted-connections).
 * Ujistěte se, že všechny klientské aplikace je také komunikaci přes šifrované připojení.
 * RP je nakonfigurována tak certifikátů používaných instancí SQL serveru.
 
