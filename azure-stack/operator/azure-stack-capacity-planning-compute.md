@@ -16,23 +16,25 @@ ms.date: 05/31/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 05/31/2019
-ms.openlocfilehash: 6005196fe98f83c11b9d87ff713e290bad9ef384
-ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
+ms.openlocfilehash: 6afaca6e9bad806f432cf56b79dca5881bb76455
+ms.sourcegitcommit: fbd6a7fed4f064113647540329a768347a6cf261
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66692030"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66810220"
 ---
 # <a name="azure-stack-compute"></a>Výpočetní prostředky Azure Stack
 
-[Velikosti virtuálních počítačů](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes) podporované ve službě Azure Stack, jsou podmnožinou, které jsou podporovány v Azure. Azure má omezení prostředků podél mnoho vektorů, aby overconsumption prostředků (server místní a úrovni služeb). Bez uložení některá omezení na prostředky spotřebované klienty, sníží tenanta prostředí při jiných tenantů overconsume prostředky. Pro sítě odchozího přenosu dat z virtuálního počítače existují omezení šířky pásma na místě ve službě Azure Stack, odpovídající omezení Azure. Pro prostředky úložiště limity vstupně-výstupních operací úložiště je implementovaná v Azure stacku, aby se zabránilo základní overconsumption prostředků tenantů pro přístup k úložišti.
+[Velikosti virtuálních počítačů](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes) podporované ve službě Azure Stack, jsou podmnožinou, které jsou podporovány v Azure. Azure má omezení prostředků podél mnoho vektorů, aby overconsumption prostředků (server místní a úrovni služeb). Bez uložení některá omezení na prostředky spotřebované klienty, sníží tenanta prostředí při jiných tenantů overconsume prostředky. Pro sítě odchozího přenosu dat z virtuálního počítače existují omezení šířky pásma na místě ve službě Azure Stack, odpovídající omezení Azure. Pro prostředky úložiště ve službě Azure Stack limity vstupně-výstupních operací úložiště vyhnout základní za spotřebu prostředků tenanty pro přístup k úložišti.
 
 >[!IMPORTANT]
 >[Azure Stack Capacity Planner](https://aka.ms/azstackcapacityplanner) vezměte v úvahu nebo zaručí výkon vstupně-výstupních operací.
 
 ## <a name="vm-placement"></a>Umístění virtuálního počítače
 
-Ve službě Azure Stack umístění virtuálního počítače klienta se provádí automaticky modulem umístění napříč dostupných hostitelů. Pouze dvě okolnosti při umísťování virtuálních počítačů se, zda je dostatek paměti na hostiteli pro tento typ virtuálního počítače a virtuální počítače jsou součástí [dostupnosti](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability) nebo jsou [škálovací sady virtuálních počítačů](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview).  
+Modul služby Azure Stack umístění umístí virtuální počítače klientů napříč dostupných hostitelů.
+
+Azure Stack používá dva aspekty při umísťování virtuálních počítačů. Jednou, je dost paměti na hostiteli pro tento typ virtuálního počítače. Dva, jsou virtuální počítače součástí [dostupnosti](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability) nebo jsou [škálovací sady virtuálních počítačů](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview).
 
 Abyste dosáhli vysoké dostupnosti systému produkčního prostředí více virtuálních počítačů ve službě Azure Stack, jsou virtuální počítače umístěné ve skupině dostupnosti, který se šíří mezi více domén selhání. Doména selhání ve skupině dostupnosti je definován jako jeden uzel v jednotce škálování. Azure Stack podporuje s dostupnosti s délkou maximálně tři domény selhání pro zajištění konzistence s Azure. Virtuální počítače umístěné ve skupině dostupnosti budou fyzicky izolované od sebe navzájem tím, že rozprostírá co nejrovnoměrněji rozložené přes víc domén selhání, to znamená hostitelů Azure Stack. Pokud dojde k selhání hardwaru, virtuálních počítačů z neúspěšných doména bude být restartování v jiných doménách selhání, ale pokud je to možné udržovat v samostatných doménách selhání z jiných virtuálních počítačů ve stejné sadě dostupnosti. Když hostitel přejde do režimu online, virtuálních počítačů bude možné znovu vyrovnána udržet vysokou dostupnost.  
 
@@ -56,7 +58,7 @@ Využitá paměť se skládá z několika komponent. Následující komponenty v
  - Služby infrastruktury – jedná se o infrastrukturu virtuálních počítačů, které tvoří Azure Stack. Od verze 1904 verzi služby Azure Stack, to znamená ~ 31 virtuálních počítačů, které zabírají 242 GB + (4 GB × počet uzlů) paměti. Využití paměti v aplikaci součásti služby infrastruktury můžou změnit, protože pracujeme na tom, aby naše služby infrastruktury více škálovatelné a odolné.
  - Odolnost proti chybám rezervy – Azure Stack si vyhrazuje část paměti umožňující tenanta dostupnosti při selhání jednoho hostitele, a také opravy a aktualizace umožňující úspěšné migrace za provozu virtuálních počítačů.
  - Virtuální počítače tenanta – jedná se o klientské virtuální počítače vytvořené uživateli Azure stacku. Kromě spouštění virtuálních počítačů, paměť je využívána všechny virtuální počítače, které jste dostali v prostředcích infrastruktury. To znamená, že virtuální počítače ve stavu "Vytvoření" nebo "Failed" nebo virtuální počítače vypnout v hostovaném počítači, bude využívat paměti. Virtuální počítače, které bylo zrušeno přidělení pomocí zastavení navrácena možnost portál/powershell/cli však nebude využívat paměti ze služby Azure Stack.
- - Doplněk RPs – virtuální počítače nasazené pro RPs doplněk, jako je SQL, MySQL, App Service atd
+ - Doplněk RPs – virtuální počítače nasazené pro RPs doplněk, jako je SQL, MySQL, App Service atd.
 
 
 Nejlepší způsob, jak porozumět využití paměti na portálu je použít [Azure Stack Capacity Planner](https://aka.ms/azstackcapacityplanner) zobrazení dopadů různé úlohy. Následující výpočtu je stejný jako ten používá plánovač.

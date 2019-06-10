@@ -16,12 +16,12 @@ ms.date: 06/05/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: b79c40b26735184d7a0b0501a5ef6f4a1354a375
-ms.sourcegitcommit: 75b13158347963063b7ee62b0ec57894b542c1be
+ms.openlocfilehash: c8f132d67b701cf0aa2961158205bad470220c7b
+ms.sourcegitcommit: fbd6a7fed4f064113647540329a768347a6cf261
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66748932"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66810236"
 ---
 # <a name="azure-stack-1905-known-issues"></a>Azure Stack 1905 známé problémy
 
@@ -32,6 +32,14 @@ V tomto článku najdete seznam známých problémů v 1905 verzi služby Azure 
 
 ## <a name="update-process"></a>Proces aktualizace
 
+### <a name="host-node-update-prerequisite-failure"></a>Nesplnění předpokladů aktualizace v uzlu hostitele
+-   Použít: Tento problém týká 1905 aktualizace.
+-   Příčina: Při pokusu o instalaci 1905 Azure Stack aktualizace, stav aktualizace může selhat z důvodu aktualizace požadované hostitele uzlu. To je obvykle způsobeno uzlu hostitele má dostatek volného místa na disku. 
+-   Náprava: Obraťte se na podporu Azure Stack vyžádejte si pomoc při vymazání místa na disku v uzlu hostitele.
+-   Výskyt: Neobvyklé
+
+
+### <a name="preparation-failed"></a>Příprava nebyla úspěšná.
 - Použít: Tento problém se vztahuje na všechny podporované verze.
 - Příčina: Při pokusu o instalaci aktualizace služby Azure Stack 1905, stav aktualizace může selhat a změnu stavu na **PreparationFailed**. To je způsobeno aktualizace poskytovateli prostředků (URP) není schopen správně přenosu souborů z kontejneru úložiště do sdílené složky interní infrastruktury pro zpracování. Balíček aktualizace 1905 je větší než předchozí balíčky aktualizací, které můžou způsobit, že tento problém pravděpodobně probíhat.
 - Náprava: Počínaje verzí 1901 (1.1901.0.95), můžete alternativně vyřešit tento problém kliknutím **aktualizovat** znovu (ne **Resume**). URP potom vyčistí soubory z předchozího pokusu o a zahájí stahování. Pokud se problém nevyřeší, doporučujeme, abyste ručně pomocí následujících nahrání balíčku aktualizace [importu a nainstalovat aktualizace části](azure-stack-apply-updates.md#import-and-install-updates).
