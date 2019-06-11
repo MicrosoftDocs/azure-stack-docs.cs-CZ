@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/28/2019
+ms.date: 06/10/2019
 ms.author: patricka
 ms.reviewer: jerskine
-ms.lastreviewed: 01/28/2019
-ms.openlocfilehash: 09aa51c329f7f4fd7004312092ff09c9ceb091d7
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.lastreviewed: 06/10/2019
+ms.openlocfilehash: dcc473d270d0a72b2ebf5f31c67fffa6827c9ecc
+ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64984088"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66828413"
 ---
 # <a name="validate-ad-fs-integration-for-azure-stack"></a>Ověření integrace služby AD FS pro Azure Stack
 
@@ -117,7 +117,7 @@ Následující příklady poskytují pokyny o běžných chyb při ověřování
 
 **Příčina:** Načtení modulu Kontrola připravenosti správně Autoload prostředí PowerShell se nezdařilo.
 
-**Řešení:** Importujte modulu Kontrola připravenosti explicitně. Zkopírujte a vložte následující kód do prostředí PowerShell a aktualizace \<verze\> číslo pro aktuálně nainstalovanou verzi.
+**Rozlišení**: Importujte modulu Kontrola připravenosti explicitně. Zkopírujte a vložte následující kód do prostředí PowerShell a aktualizace \<verze\> číslo pro aktuálně nainstalovanou verzi.
 
 `Import-Module "c:\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.ReadinessChecker\<version>\Microsoft.AzureStack.ReadinessChecker.psd1" -Force`
 

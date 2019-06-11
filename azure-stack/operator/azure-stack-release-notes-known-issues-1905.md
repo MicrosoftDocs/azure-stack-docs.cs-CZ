@@ -16,12 +16,12 @@ ms.date: 06/05/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: c8f132d67b701cf0aa2961158205bad470220c7b
-ms.sourcegitcommit: fbd6a7fed4f064113647540329a768347a6cf261
+ms.openlocfilehash: f5ea9823f41624038416d91cef9efcb9e16dad63
+ms.sourcegitcommit: 7ceddf8b67f920d5a5eef4a84e157079a53b3374
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66810236"
+ms.lasthandoff: 06/10/2019
+ms.locfileid: "66821771"
 ---
 # <a name="azure-stack-1905-known-issues"></a>Azure Stack 1905 známé problémy
 
@@ -67,6 +67,13 @@ V tomto článku najdete seznam známých problémů v 1905 verzi služby Azure 
 - Příčina: Nelze zobrazit oprávnění k předplatnému pomocí na portálech Azure Stack.
 - Náprava: Použití [Powershellu mohl ověřit oprávnění](/powershell/module/azurerm.resources/get-azurermroleassignment).
 - Výskyt: Společné
+
+### <a name="marketplace-management"></a>Správa webu Marketplace
+
+- Použít: Tento problém týká 1904 a 1905
+- Příčina: Na obrazovce správy marketplace není viditelný, při přihlášení k portálu správce.
+- Náprava: Aktualizujte prohlížeč, nebo můžete přejít na **nastavení** a vyberte možnost **resetovat do výchozího nastavení**.
+- Výskyt: Občasně
 
 ### <a name="docker-extension"></a>Rozšíření docker
 

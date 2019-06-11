@@ -15,12 +15,12 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.lastreviewed: 03/11/2019
 ms.reviewer: jiahan
-ms.openlocfilehash: e93c33659a2c2dac93ab23d3cba60994fb171131
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: c7ae7f0c8fa510b0f2b55e458266065544e1bd5e
+ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64984766"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66828209"
 ---
 # <a name="manage-storage-infrastructure-for-azure-stack"></a>Spravovat infrastrukturu úložiště pro službu Azure Stack
 
@@ -108,7 +108,7 @@ Následující části uvádějí stav a provozní stavy.
 
 ### <a name="volume-health-state-healthy"></a>Stav svazku: V pořádku
 
-| Provozní stav | Popis |
+| provozní stav | Popis |
 |-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | OK | Svazek je v pořádku. |
 | Neoptimální | Data se zapisují rovnoměrně na jednotkách.<br> <br>**Akce:** Kontaktujte prosím podporu k optimalizaci využití disku ve fondu úložiště. Než začnete, proces shromažďování souborů protokolů pomocí pokynů z https://aka.ms/azurestacklogfiles. Bude pravděpodobně nutné obnovení ze zálohy po obnovení připojení se nezdařilo. |
@@ -118,10 +118,10 @@ Následující části uvádějí stav a provozní stavy.
 
 Když svazek je ve stavu upozornění, znamená to, že nejsou k dispozici jeden nebo více kopií vašich dat, ale Azure Stack i nadále můžete načítat alespoň jedna kopie vašich dat.
 
-| Provozní stav | Popis |
+| provozní stav | Popis |
 |-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Ve službě | Azure Stack je oprava svazku, například po přidání nebo odebrání jednotky. Po dokončení opravy svazku by měl vrátit do stavu OK.<br> <br>**Akce:** Počkejte pro službu Azure Stack k dokončení opravy svazek a potom zkontrolujte stav. |
-| Neúplný | Odolnosti svazku se sníží, protože jeden nebo víc jednotek chybí nebo se nezdařilo. Chybějící disky ale obsahovat aktuální kopie vašich dat.<br> <br>**Akce:** Znovu připojit všechny chybějící jednotky, nahraďte všechny neúspěšné jednotky a převedení do online režimu všechny servery, které jsou v režimu offline. |
+| Neúplné | Odolnosti svazku se sníží, protože jeden nebo víc jednotek chybí nebo se nezdařilo. Chybějící disky ale obsahovat aktuální kopie vašich dat.<br> <br>**Akce:** Znovu připojit všechny chybějící jednotky, nahraďte všechny neúspěšné jednotky a převedení do online režimu všechny servery, které jsou v režimu offline. |
 | Sníženo | Odolnosti svazku se sníží, protože jeden nebo víc jednotek se nezdařilo nebo chybí, a jsou zastaralé kopií vašich dat na těchto jednotkách.<br> <br>**Akce:** Znovu připojit všechny chybějící jednotky, nahraďte všechny neúspěšné jednotky a převedení do online režimu všechny servery, které jsou v režimu offline. |
 
  
@@ -130,7 +130,7 @@ Když svazek je ve stavu upozornění, znamená to, že nejsou k dispozici jeden
 
 Když svazek je ve stavu není v pořádku, stavu, některá nebo všechna data na svazek je momentálně nedostupný.
 
-| Provozní stav | Popis |
+| provozní stav | Popis |
 |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Žádné redundance | Svazku došlo ke ztrátě dat, protože příliš mnoho jednotek selhala.<br> <br>**Akce:** Obraťte se prosím na podporu. Než začnete, proces shromažďování souborů protokolů pomocí pokynů z https://aka.ms/azurestacklogfiles. |
 
@@ -139,7 +139,7 @@ Když svazek je ve stavu není v pořádku, stavu, některá nebo všechna data 
 
 Svazku můžete také být v neznámý stav v pořádku, pokud se odpojit virtuální disk.
 
-| Provozní stav | Popis |
+| provozní stav | Popis |
 |-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Odpojit | Došlo k selhání zařízení úložiště, což může způsobit svazku, který má být nedostupné. Některá data mohou být ztraceny.<br> <br>**Akce:** <br>1. Zkontrolujte fyzický a síťové připojení všech zařízení úložiště.<br>2. Pokud jsou všechna zařízení správně připojeny, kontaktujte prosím podporu. Než začnete, proces shromažďování souborů protokolů pomocí pokynů z https://aka.ms/azurestacklogfiles. Bude pravděpodobně nutné obnovení ze zálohy po obnovení připojení se nezdařilo. |
 
@@ -152,8 +152,6 @@ $scaleunit_name = (Get-AzsScaleUnit)[0].name
 
 $subsystem_name = (Get-AzsStorageSubSystem -ScaleUnit $scaleunit_name)[0].name
 
-, SerialNumber
-
 Get-AzsDrive -ScaleUnit $scaleunit_name -StorageSubSystem $subsystem_name | Select-Object StorageNode, PhysicalLocation, HealthStatus, OperationalStatus, Description, Action, Usage, CanPool, CannotPoolReason, SerialNumber, Model, MediaType, CapacityGB
 ```
 
@@ -161,7 +159,7 @@ Stav jednotky může být v následujících částech.
 
 ### <a name="drive-health-state-healthy"></a>Stav disku: V pořádku
 
-| Provozní stav | Popis |
+| provozní stav | Popis |
 |-------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
 | OK | Svazek je v pořádku. |
 | Ve službě | Na jednotce je provádění některých operací vnitřní údržbu. Po dokončení akce by měla vrátit na jednotce se OK stavu. |
@@ -170,7 +168,7 @@ Stav jednotky může být v následujících částech.
 
 Jednotka v může stav upozornění číst a zapisovat data úspěšně, ale má problém.
 
-| Provozní stav | Popis |
+| provozní stav | Popis |
 |---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Ztráta komunikace | Připojení bylo ztraceno na jednotku.<br> <br>**Akce:** Přeneste zpět do online režimu všechny servery. Pokud, který se neodstraní, znovu připojte jednotku. Pokud to udržuje děje, nahraďte jednotky zajistit plnou odolnost. |
 | Prediktivní selhání | Selhání disku, očekává se, že brzy dojde k.<br> <br>**Akce:** Výměna disku co nejdřív zajistit plnou odolnost. |
@@ -190,9 +188,9 @@ Jednotka v může stav upozornění číst a zapisovat data úspěšně, ale má
 
 Jednotky ve stavu není v pořádku nelze nyní zapsána do nebo získat přístup.
 
-| Provozní stav | Popis |
+| provozní stav | Popis |
 |-------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Rozdělit | Jednotka má oddělit od fondu.<br> <br>**Akce:** Výměna disku se nový disk. Pokud je nutné použít tento disk, odebrat disk ze systému, ujistěte se, že neexistuje žádná užitečná data na disku, vymazat disk a pak znovu upevněte disku. |
+| rozdělení | Jednotka má oddělit od fondu.<br> <br>**Akce:** Výměna disku se nový disk. Pokud je nutné použít tento disk, odebrat disk ze systému, ujistěte se, že neexistuje žádná užitečná data na disku, vymazat disk a pak znovu upevněte disku. |
 | Nejde použít | Fyzický disk je umístěn do karantény, protože ho nepodporuje dodavatele vašeho řešení. Jsou podporovány pouze disky, které jsou schváleny pro řešení a mají správný disk firmwaru.<br> <br>**Akce:** Výměna disku s diskem, který má schválené výrobce a model číslo pro řešení. |
 | Zastaralá metadata | Náhradní disk byl dříve používán a může obsahovat data z neznámého úložný systém. Disk se umístí do karantény.        <br> <br>**Akce:** Výměna disku se nový disk. Pokud je nutné použít tento disk, odebrat disk ze systému, ujistěte se, že neexistuje žádná užitečná data na disku, vymazat disk a pak znovu upevněte disku. |
 | Nerozpoznaná metadata | Nerozpoznaná metadata na jednotce, která obvykle znamená, že má jednotka metadat z jiný fond na něm nenašel.<br> <br>**Akce:** Výměna disku se nový disk. Pokud je nutné použít tento disk, odebrat disk ze systému, ujistěte se, že neexistuje žádná užitečná data na disku, vymazat disk a pak znovu upevněte disku. |
@@ -206,16 +204,16 @@ Jednotky ve stavu není v pořádku nelze nyní zapsána do nebo získat příst
 
 Některé jednotky jednoduše nejsou připravené k odeslání do fondu úložiště služby Azure Stack. Můžete zjistit, proč není zobrazením vlastností CannotPoolReason jednotky pro jednotku. Následující tabulka uvádí trochu podrobněji na každém z důvodů.
 
-| Důvod | Popis |
+| Reason | Popis |
 |--------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Hardware nedodržující předpisy | Na jednotce není v seznamu schválených modelů zadat pomocí služby Health Service.<br> <br>**Akce:** Výměna disku se nový disk. |
 | Firmware neodpovídá | Firmware na fyzický disk není v seznamu schválených firmware revize pomocí služby Health Service.<br> <br>**Akce:** Výměna disku se nový disk. |
 | Používá v clusteru | Na jednotce se aktuálně používá clusterem pro převzetí služeb při selhání.<br> <br>**Akce:** Výměna disku se nový disk. |
 | Vyměnitelné médium | Na jednotce je klasifikován jako vyměnitelnou jednotku. <br> <br>**Akce:** Výměna disku se nový disk. |
-| Nejsou v dobrém stavu | Na jednotce není v pořádku a může být potřeba nahradit.<br> <br>**Akce:** Výměna disku se nový disk. |
+| Není v pořádku | Na jednotce není v pořádku a může být potřeba nahradit.<br> <br>**Akce:** Výměna disku se nový disk. |
 | Nedostatečné kapacity | Existují oddíly zabíraly volného místa na disku.<br> <br>**Akce:** Výměna disku se nový disk. Pokud je nutné použít tento disk, odebrat disk ze systému, ujistěte se, že neexistuje žádná užitečná data na disku, vymazat disk a pak znovu upevněte disku. |
 | Probíhá ověření. | Služba Health Service je kontroluje se, pokud je na jednotku nebo firmware jednotky schválená k používání.<br> <br>**Akce:** Počkejte pro službu Azure Stack pro dokončení procesu a zkontrolovat stav později. |
-| Chyba ověřování | Služba Health Service nelze zkontrolovat Pokud disku nebo firmware jednotky je schválená k používání.<br> <br>**Akce:** Obraťte se prosím na podporu. Než začnete, proces shromažďování souborů protokolů pomocí pokynů z https://aka.ms/azurestacklogfiles. |
+| Ověření se nezdařilo. | Služba Health Service nelze zkontrolovat Pokud disku nebo firmware jednotky je schválená k používání.<br> <br>**Akce:** Obraťte se prosím na podporu. Než začnete, proces shromažďování souborů protokolů pomocí pokynů z https://aka.ms/azurestacklogfiles. |
 | Offline | Jednotka je v režimu offline. <br> <br>**Akce:** Obraťte se prosím na podporu. Než začnete, proces shromažďování souborů protokolů pomocí pokynů z https://aka.ms/azurestacklogfiles. |
 
 ## <a name="next-step"></a>Další krok

@@ -12,21 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2019
-ms.author: PatAltimore
+ms.date: 06/10/2019
+ms.author: patricka
 ms.reviewer: chengwei
-ms.lastreviewed: 02/14/2019
-ms.openlocfilehash: e0b62c9f9519e1b77211327c4f9b48d4b53cf99a
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.lastreviewed: 06/10/2019
+ms.openlocfilehash: 9da7ced492a86cb97a1b90a2224383d834073423
+ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985879"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66828347"
 ---
 # <a name="azure-stack-log-and-customer-data-handling"></a>Azure Stack protokolu a zákazník zpracování dat 
 *Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*  
 
-Microsoft je v rozsahu procesoru nebo subprocessor osobních údajů v souvislosti s Azure Stack, společnost Microsoft neposkytuje na všechny zákazníky, efektivní 25 květen 2018, závazků v (a) v "zpracování osobních údajů; Zřízení GDPR"v oddílu"Podmínky ochrany dat" [podmínky Online služeb](https://nam06.safelinks.protection.outlook.com/?url=http%3A%2F%2Fwww.microsoftvolumelicensing.com%2FDocumentSearch.aspx%3FMode%3D3%26DocumentTypeId%3D31&data=02%7C01%7Ccomartin%40microsoft.com%7Ce2ce478261764c79c3f308d68df01136%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636852459551078818&sdata=cpWsfZTBHpqEFr50DWQOryq342U8shgeFgMXVPQz5ug%3D&reserved=0) a (b) v Evropské unie obecné Data Protection nařízení podmínky v 4 přílohy [podmínky Online služeb](https://nam06.safelinks.protection.outlook.com/?url=http%3A%2F%2Fwww.microsoftvolumelicensing.com%2FDocumentSearch.aspx%3FMode%3D3%26DocumentTypeId%3D31&data=02%7C01%7Ccomartin%40microsoft.com%7Ce2ce478261764c79c3f308d68df01136%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636852459551088813&sdata=bv1CBiaCnYmjiv6S0dFCbWEd4fNCkPBjBwgylNa%2FNt0%3D&reserved=0). 
+Microsoft je v rozsahu procesoru nebo subprocessor osobních údajů v souvislosti s Azure Stack, společnost Microsoft neposkytuje na všechny zákazníky, efektivní 25 květen 2018, závazků v (a) v "zpracování osobních údajů; Zřízení GDPR"v oddílu"Podmínky ochrany dat" [podmínky Online služeb](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) a (b) v Evropské unie obecné Data Protection nařízení podmínky v 4 přílohy [podmínky Online služeb](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31). 
 
 Jak Azure Stack se nachází ve svých datacentrech, společnost Microsoft se kontroler Data pouze data, která se sdílí s Microsoftem prostřednictvím [diagnostiky](azure-stack-diagnostics.md), [Telemetrie](azure-stack-telemetry.md), a [fakturace](azure-stack-usage-reporting.md).  
 
@@ -43,7 +43,7 @@ Zaměstnanci Microsoftu, kteří jsou přiřazeni k prozkoumání případ podpo
 Jak už bylo zmíněno dříve, společnost Microsoft podporuje odstranění dat na vyžádání za žádost zákazníka. Zákazníci můžou požádat o, že naše pracovník podpory odstranili všechny jejich protokoly pro daný proces kdykoli výběru zákazníka, než data trvale smazána.  
 
 ### <a name="does-microsoft-notify-customers-when-the-data-is-deleted"></a>Microsoft upozorní zákazníky data se odstraní?
-Pro akci odstranění automatizovaných datových (90 dnů po zavření případ) jsme není aktivně oslovení zákazníků a oznámení o odstranění. 
+Pro akci odstranění automatizovaných datových (90 dnů po zavření případ) jsme není aktivně kontaktování zákazníků a oznámení o odstranění. 
 
 Pracovníka podpory společnosti Microsoft pro akci odstranění dat na vyžádání, má přístup k nástroji, kde se můžete iniciovat odstranění dat na vyžádání a můžete poskytují potvrzení na telefonu se zákazníkem po dokončení.
 

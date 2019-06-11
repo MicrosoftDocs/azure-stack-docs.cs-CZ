@@ -16,12 +16,12 @@ ms.date: 04/12/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/29/2019
-ms.openlocfilehash: 714ffd213ce88ca58cf4b04c649857239f6deacf
-ms.sourcegitcommit: 75b13158347963063b7ee62b0ec57894b542c1be
+ms.openlocfilehash: 2ea78ea572959dfa19eb10057ec2c67e815d300a
+ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66749052"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66828450"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Položky Azure Marketplace k dispozici pro službu Azure Stack
 
@@ -238,7 +238,7 @@ Microsoft Azure Stack podporuje následující virtuální počítače Azure Mar
 | ![Sandbox Hortonworks Data Platform (HDP)](media/azure-stack-marketplace-azure-items/hortonworks.png) | [Hortonworks Data Platform (HDP) Sandbox](https://azuremarketplace.microsoft.com/marketplace/apps/hortonworks.hortonworks-sandbox) | Používá technologii HDP 2,5 100 % open source platforma pro Hadoop, Spark, Storm, HBase, Kafka, Hive, Ambari. | Hortonworks |
 | ![Kaspersky](media/azure-stack-marketplace-azure-items/kaspersky.png) | [Kaspersky Hybrid Cloud Security](https://azuremarketplace.microsoft.com/marketplace/apps/kaspersky_lab.kaspersky_hybrid_cloud_security?tab=Overview) | Kaspersky hybridní Cloud Security umožňuje bez problémů orchestrovaný a adaptivní příkazu o kyberbezpečnosti ekosystém. | Kaspersky testovacího prostředí |
 | ![KEMP LoadMaster zatížení vyrovnávání ADC obsah přepínače](media/azure-stack-marketplace-azure-items/kemp.png) | [KEMP LoadMaster zatížení vyrovnávání ADC obsah přepínače](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure) | Vrstvy 4 – 7 Application Delivery Controller (ADC) nástroj pro vyrovnávání zatížení, obsahu přepínače a Traffic Manageru. | KEMP Technologies Inc. |
-| ![Kubernetes](media/azure-stack-marketplace-azure-items/kubernetes.png) | [Kubernetes](azure-stack-solution-template-kubernetes-cluster-add.md) | Toto řešení nasadí cluster Kubernetes spuštěný jako samostatný cluster s šablonami vygenerované pomocí služby ACS-Engine.<br>**Tato šablona řešení také vyžaduje Ubuntu Server 16.04 LTS a vlastních skriptů pro Linux 2.0.**| Microsoft |
+| ![Kubernetes](media/azure-stack-marketplace-azure-items/kubernetes.png) | [Kubernetes](azure-stack-solution-template-kubernetes-cluster-add.md) | Toto řešení nasadí cluster Kubernetes spuštěný jako samostatného clusteru pomocí šablony, které jsou generovány pomocí modulu AKS.<br>**Tato šablona řešení také vyžaduje Ubuntu Server 16.04 LTS a vlastních skriptů pro Linux 2.0.**| Microsoft |
 | ![Cluster Service Fabric](media/azure-stack-marketplace-azure-items/servicefrabric.png) | [Service Fabric Cluster](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ServiceFabricCluster?tab=Overview) | Toto řešení nasadí spuštěna jako samostatného clusteru ve Škálovací sadě virtuálních počítačů Service Fabric. <br>**Tato šablona řešení vyžaduje, abyste si také stáhnout Windows Server 2016 Datacenter**| Microsoft |
 | ![Webu NRI mPLAT Suite - Multicloudové Conductor](media/azure-stack-marketplace-azure-items/nri.png) | [mPLAT Suite - Multicloudové Conductor](https://azuremarketplace.microsoft.com/marketplace/apps/nri.mplatmc2018-vm) | Jediné podokno skla chcete monitorovat, konfigurovat, zřízení, automatizovat a řídí jakékoli úlohy nebo cloudu. | WEBU NRI |
 | ![Kompatibilní NooBaa hybridní AWS S3 – Community Edition](media/azure-stack-marketplace-azure-items/noobaa.png) | [Kompatibilní NooBaa hybridní AWS S3 – Community Edition](https://azuremarketplace.microsoft.com/marketplace/apps/noobaa.noobaa-hybrid-s3-archive-05) | Služba úložiště kompatibilního se S3, která překlenuje veřejné a místní prostředky kapacity. | NooBaa |

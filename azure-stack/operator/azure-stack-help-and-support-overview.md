@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/31/2019
+ms.date: 06/10/2019
 ms.author: justinha
 ms.reviewer: prchint
-ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: 2d6943cc88712c0706054103383c436419cecd85
-ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
+ms.lastreviewed: 06/10/2019
+ms.openlocfilehash: 4649866a020a9ddc3d359dcb69e8d4165a00a88d
+ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66693896"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66828386"
 ---
 # <a name="microsoft-azure-stack-help-and-support"></a>Microsoft Azure Stack Nápověda a podpora
 
@@ -43,7 +43,7 @@ V horní části **Nápověda a podpora** jsou odkazy na akce, můžete se pokus
 
 Pro integrovaný systém je koordinovanou eskalaci a řešení procesu mezi Microsoftem a našimi hardwarovými partnery výrobce OEM (OEM).
 
-Pokud nastane problém s cloud services, podpora je dostupná prostřednictvím Microsoft podporu služby zákazníkům (CSS). Můžete kliknout na **pomáhají** (otazník) v pravém horním rohu portálu správce a pak klikněte na **Nápověda a podpora** otevřete **Nápověda a podpora přehled** a odeslat novou žádost o podporu. Žádost o podporu je předem vyplněna informacemi o vašich razítko pro řešení potíží pomoci v oblastech Microsoft podporu služby zákazníkům (CSS). Důrazně doporučujeme, že zákazníci používat toto prostředí k odeslání lístky spíše než pomocí veřejného webu Azure portal. 
+Pokud nastane problém s cloud services, podpora je dostupná prostřednictvím Microsoft podporu služby zákazníkům (CSS). Můžete kliknout na **pomáhají** (otazník) v pravém horním rohu portálu správce a pak klikněte na **Nápověda a podpora** otevřete **Nápověda a podpora přehled** a odeslat novou žádost o podporu. Vytváří se žádost o podporu se předem vybere služby Azure Stack. Důrazně doporučujeme, že zákazníci používat toto prostředí k odeslání lístky spíše než pomocí veřejného webu Azure portal. 
 
 Pokud se vyskytl problém s nasazením, opravy a aktualizace hardwaru (včetně pole replaceable jednotek) a veškerý software pod značkou jiných hardwaru, jako je například software spuštěný na hostiteli životního cyklu hardwaru, obraťte se na vašeho OEM dodavatele hardwaru nejprve. Na něco jiného obraťte se na Microsoft CSS.
 

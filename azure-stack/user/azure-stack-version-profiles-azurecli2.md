@@ -14,12 +14,12 @@ ms.date: 05/08/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/08/2019
-ms.openlocfilehash: 996dacc1c95a172ffa09247c56a12a5afd00e086
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 7dba3d791a2ce19429506699ae538c747ed37dbd
+ms.sourcegitcommit: 7ceddf8b67f920d5a5eef4a84e157079a53b3374
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269520"
+ms.lasthandoff: 06/10/2019
+ms.locfileid: "66821783"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Použití profilů verzí API pomocí Azure CLI ve službě Azure Stack
 
@@ -402,8 +402,8 @@ Následující kroky použijte pro připojení ke službě Azure Stack:
 1. Zaregistrovat vaším prostředím Azure Stack spuštěním `az cloud register` příkazu. V některých případech se směruje přímé odchozí připojení k Internetu prostřednictvím serveru proxy nebo brány firewall, která vynucuje SSL zachycení. V těchto případech `az cloud register` příkaz může selhat s chybou jako je například "Nepodařilo se získat koncových bodů z cloudu." Chcete-li tuto chybu vyřešit, můžete nastavit následující proměnné prostředí:
 
    ```shell
-   set AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1 
-   set ADAL_PYTHON_SSL_NO_VERIFY=1
+   export AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1
+   export ADAL_PYTHON_SSL_NO_VERIFY=1
    ```
 
 2. Zaregistrujte vašeho prostředí. Při běhu používat následující parametry `az cloud register`.
@@ -513,8 +513,8 @@ Následující kroky použijte pro připojení ke službě Azure Stack:
 1. Zaregistrovat vaším prostředím Azure Stack spuštěním `az cloud register` příkazu. V některých případech se směruje přímé odchozí připojení k Internetu prostřednictvím serveru proxy nebo brány firewall, která vynucuje SSL zachycení. V těchto případech `az cloud register` příkaz může selhat s chybou jako je například "Nepodařilo se získat koncových bodů z cloudu." Chcete-li tuto chybu vyřešit, můžete nastavit následující proměnné prostředí:
 
    ```shell
-   set AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1 
-   set ADAL_PYTHON_SSL_NO_VERIFY=1
+   export AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1
+   export ADAL_PYTHON_SSL_NO_VERIFY=1
    ```
 
 2. Zaregistrujte vašeho prostředí. Při běhu používat následující parametry `az cloud register`.

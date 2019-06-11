@@ -2,22 +2,21 @@
 title: Auditování Azure Stack fyzického zařízení
 description: Zjistěte, jak integrovat auditování přístupu k fyzického zařízení ve službě Azure Stack
 services: azure-stack
-author: WenJason
-manager: digimobile
+author: PatAltimore
+manager: femila
 ms.service: azure-stack
 ms.topic: article
-origin.date: 02/11/2019
-ms.date: 03/04/2019
-ms.author: v-jay
+ms.date: 06/10/2019
+ms.author: patricka
 ms.reviewer: thoroet
-ms.lastreviewed: 02/11/2019
+ms.lastreviewed: 06/10/2019
 keywords: ''
-ms.openlocfilehash: 7e39370879884dc8900671d174fc6e0708907d83
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 5ded88064fa91222ca061073f72c9f3b539c374c
+ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64291746"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66828283"
 ---
 # <a name="azure-stack-datacenter-integration---physical-device-auditing"></a>Integrace datových center Azure Stack – auditování fyzického zařízení
 

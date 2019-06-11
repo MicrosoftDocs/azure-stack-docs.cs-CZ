@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 06/07/2019
 ms.author: sethm
 ms.reviewer: alfredop
-ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 5f03b80b871d3df467bc52b735432ce5568a3ad8
-ms.sourcegitcommit: a78c0d143eadcab65a601746b9ea24be28091ad2
+ms.lastreviewed: 06/07/2019
+ms.openlocfilehash: edc6fc17e426e5e391eb61d510097101ddcfce58
+ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65212293"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66828339"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Přidání tenanta pro využití a fakturaci ke službě Azure Stack
 
@@ -51,7 +51,7 @@ Po vytvoření záznam zákazníka v partnerském centru, můžete je prodávat 
 
 ### <a name="create-a-guest-user-in-the-end-customer-directory"></a>Vytvořit uživatele typu Host v adresáři koncový zákazník
 
-Pokud koncového zákazníka spravuje svůj vlastní účet, vytvořte uživatele typu Host do svého adresáře a jim poslat informace. Koncový uživatel potom přidá hosta a má oprávnění hosta k **vlastníka** účtu Azure Stack CSP.
+Ve výchozím nastavení, jako zprostředkovatel kryptografických služeb, nebudete mít přístup k předplatnému Azure Stack koncového zákazníka. Ale pokud zákazník chce, abyste své prostředky spravovat, se pak přidat svůj účet jako vlastníka nebo přispěvatele pro svoje předplatné služby Azure Stack. K tomu, se musí přidat svůj účet jako uživatel typu Host do svého tenanta služby AAD. Doporučujeme použít jiný účet z vašeho účtu Azure CSP ke správě předplatných Azure Stack vašich zákazníků na zajistěte, aby že neztratili přístup k předplatnému Azure zákazníka.
 
 ### <a name="update-the-registration-with-the-end-customer-subscription"></a>Aktualizace registrace pomocí předplatného zákazníka end
 
@@ -77,9 +77,9 @@ Následující část popisuje parametry **New-AzureRmResource** rutiny:
 | --- | --- |
 |registrationSubscriptionID | Předplatné Azure, která byla použita pro počáteční registrace Azure Stack.|
 | customerSubscriptionID | Předplatné Azure (ne Azure Stack) patřící do zákazníků k registraci. Musí být vytvořen v nabídce zprostředkovatele kryptografických služeb; v praxi to znamená prostřednictvím partnerského centra. Pokud zákazník má více než jednoho tenanta Azure Active Directory, musí se vytvořit toto předplatné v tenantovi, který se použije k přihlášení do služby Azure Stack. ID předplatného zákazníka musí používat malá písmena. |
-| resourceGroup | Skupina prostředků v Azure, ve kterém je uložené registrace. |
+| Skupina prostředků | Skupina prostředků v Azure, ve kterém je uložené registrace. |
 | registrationName | Název registrace služby Azure Stack. Jde o objekt uložená v Azure. |
-| Vlastnost | Určuje vlastnosti pro prostředek. Tento parametr použijte k určení hodnoty vlastností, které jsou specifické pro daný typ prostředku.
+| Vlastnosti | Určuje vlastnosti pro prostředek. Tento parametr použijte k určení hodnoty vlastností, které jsou specifické pro daný typ prostředku.
 
 > [!NOTE]  
 > Tenanti musí zaregistrovat každý Azure Stack využívají. Pokud budete mít dvě nasazení služby Azure Stack a tenanta používá obou z nich, je nutné aktualizovat počáteční registrace každého nasazení předplatného tenanta.

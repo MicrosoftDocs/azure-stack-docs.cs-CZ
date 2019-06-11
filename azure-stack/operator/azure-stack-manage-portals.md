@@ -12,16 +12,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 02/25/2019
+ms.date: 06/07/2019
 ms.author: justinha
 ms.reviewer: efemmano
-ms.lastreviewed: 02/25/2019
-ms.openlocfilehash: b6863a86a5307375ea13f67c349da9f87b797fe5
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.lastreviewed: 06/07/2019
+ms.openlocfilehash: cb57d43306b69c3698441b9bb7b01c0c292bd704
+ms.sourcegitcommit: 7ceddf8b67f920d5a5eef4a84e157079a53b3374
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66268451"
+ms.lasthandoff: 06/10/2019
+ms.locfileid: "66821746"
 ---
 # <a name="quickstart-use-the-azure-stack-administration-portal"></a>Rychlý start: použití portálu pro správu služby Azure Stack
 
@@ -86,7 +86,7 @@ Pro přístup k dokumentaci k Azure Stack operátor, v nápovědě a podpoře ik
 
 ### <a name="quick-access-to-help-and-support"></a>Rychlý přístup k nápovědě a podpoře
 
-Pokud vyberte ikonu nápovědy a podpory (otazník) v pravém horním rohu portálu správce a pak vyberte **nová žádost o podporu**, jeden z následujících výsledků se stane:
+Pokud kliknete na ikonu nápovědy (otazník) v pravém horním rohu portálu správce, klikněte na tlačítko **Nápověda a podpora**a potom klikněte na tlačítko **nová žádost o podporu** pod **podporují**, jeden z následujících výsledků se stane:
 
 - Pokud používáte integrovaný systém, tato akce otevře web, kde můžete přímo otevřít lístek podpory s Microsoft podporu služby zákazníkům (CSS). Odkazovat na [získání podpory](azure-stack-manage-basics.md#where-to-get-support) pochopit, kdy byste se měli zúčastnit prostřednictvím podpory Microsoftu nebo prostřednictvím podpory výrobce OEM (OEM) dodavatele hardwaru.
 - Pokud používáte ASDK, tato akce otevře [webu fór Azure Stack](https://social.msdn.microsoft.com/Forums/home?forum=AzureStack) přímo. Tato fóra jsou pravidelně monitorované. Vzhledem k tomu, ASDK zkušební prostředí, neexistuje žádné oficiální podpora dostupná prostřednictvím Microsoft CSS.

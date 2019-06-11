@@ -3,25 +3,24 @@ title: Principy ovládacích prvků zabezpečení služby Azure Stack
 description: Jako správce služeb Další informace o zabezpečení ovládacích prvků použitá ke službě Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: PatAltimore
+manager: femila
 editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/14/2019
-ms.date: 03/04/2019
-ms.author: v-jay
+ms.date: 06/10/2019
+ms.author: patricka
 ms.reviewer: fiseraci
-ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: efa97c18a63954239475338c85f2145b8c6c6ac6
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 06/10/2019
+ms.openlocfilehash: db73f0b787b9b163f39d5af89e260ca6a30855bd
+ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64293528"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66828132"
 ---
 # <a name="azure-stack-infrastructure-security-posture"></a>Stav zabezpečení infrastruktury služby Azure Stack
 
@@ -78,7 +77,7 @@ Správy ve službě Azure Stack je řízen pomocí tří vstupních bodů, každ
 2. Azure Resource Manageru zpřístupňuje všechny operace správy portálu správce prostřednictvím rozhraní REST API, Powershellu a rozhraní příkazového řádku Azure. 
 3. Pro konkrétní operace nízké úrovně, například data center integrace nebo podporují scénáře, Azure Stack zpřístupňuje koncový bod Powershellu volá [privilegovaných koncový bod](azure-stack-privileged-endpoint.md). Tento koncový bod vystavuje pouze přidat na seznam povolených sadu rutin a výrazně se Audituje.
 
-## <a name="network-controls"></a>Ovládací prvky sítě
+## <a name="network-controls"></a>Ovládací prvky pro síť
 Infrastruktura Azure stacku se dodává s víc vrstvami sítě seznamu řízení přístupu (ACL). Seznamy ACL zabránit neoprávněnému přístupu k součástem infrastruktury a omezit infrastruktury komunikaci jenom cesty, které jsou vyžadovány pro její fungování. 
 
 Seznamy ACL sítě se vynucují ve třech vrstvách:

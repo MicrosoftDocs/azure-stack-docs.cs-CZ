@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/28/2019
+ms.date: 06/10/2019
 ms.author: anwestg
 ms.reviewer: ''
-ms.openlocfilehash: d280ffacf9cb74c519857ebafc907debc915ec21
-ms.sourcegitcommit: 85367001c332ed53fba0d2294eae3c06e8578070
+ms.openlocfilehash: d3464681463cfb66a368210beed79d5ef4c28739
+ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66307838"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66828316"
 ---
 # <a name="app-service-on-azure-stack-update-6-release-notes"></a>App Service v Azure stacku zpráva k vydání verze update 6
 
@@ -47,7 +47,7 @@ Před zahájením upgradu služby Azure App Service ve službě Azure Stack na 1
 - Zálohování služby App Service a hlavní databáze:
   - AppService_Hosting;
   - AppService_Metering;
-  - Předloha
+  - Master
 
 - Zálohování sdílené složky souboru obsahu klientskou aplikaci
 
@@ -89,9 +89,9 @@ Azure App Service v Azure stacku aktualizaci 6 zahrnuje následující vylepšen
 - Pracovní procesy se nám kontaktovat souborového serveru při nasazení služby App Service v existující virtuální sítě a souborový server je dostupná pouze na privátní sítě, jak je uvedeno ve službě Azure App Service v dokumentaci k nasazení Azure Stack.
 
 Pokud jste se rozhodli nasadit do existující virtuální sítě a interní IP adresu pro připojení k souborovému serveru, je nutné přidat odchozí pravidlo zabezpečení, povolení provozu SMB mezi podsítě pracovního procesu a souborový server. Přejděte na WorkersNsg v portálu pro správu a přidat odchozí pravidlo zabezpečení s následujícími vlastnostmi:
- * Zdroj: Vše
+ * Zdroj: Jakýkoli
  * Zdrojový rozsah portů: *
- * Cíl: Adresy IP
+ * Cíl: IP adresy
  * Rozsah cílových IP adres: Rozsah IP adres pro souborový server
  * Rozsah cílových portů: 445
  * Protokol: TCP
@@ -102,6 +102,16 @@ Pokud jste se rozhodli nasadit do existující virtuální sítě a interní IP 
 ### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Známé problémy pro správce cloudu provoz služby Azure App Service ve službě Azure Stack
 
 Přečtěte si dokumentaci v [zpráva k vydání verze Azure Stack 1904](azure-stack-release-notes-1904.md)
+
+### <a name="known-issues-for-tenants-deploying-applications-on-azure-app-service-on-azure-stack"></a>Známé problémy pro klienty nasazení aplikací ve službě Azure App Service ve službě Azure Stack
+
+- Nasazení System Center je šedá
+
+Klienty nelze ještě využijte nasazení softwaru, což je funkce, která byla vydána ve veřejném cloudu v pozdní 2018.  Tenanty můžete dál používat metody standardní nasazení (FTP, nasazení webu, Git, atd.) prostřednictvím portálu, rozhraní příkazového řádku a Powershellu.
+
+- Možnosti (Classic) uživatelské prostředí a nasazení přihlašovacích údajů portálu možnosti nasazení není k dispozici
+
+Abyste dosáhli možnosti nasazení a nasazení přihlašovací údaje uživatelů v nasazení Azure Stack, tenanti by měl přístup k portálu pomocí formátu adresy URL - https://portal.&lt; *oblast*&gt;.&lt; *Plně kvalifikovaný název domény*&gt;/? websitesExtension_oldvsts = true –, který by byl pro ASDK [ https://portal.local.azurestack.external/?websitesExtension_oldvsts=true ](https://portal.local.azurestack.external/?websitesExtension_oldvsts=true) a potom přejděte ke svým aplikacím normálně.
 
 ## <a name="next-steps"></a>Další postup
 
