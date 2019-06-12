@@ -16,12 +16,12 @@ ms.date: 06/05/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: f5ea9823f41624038416d91cef9efcb9e16dad63
-ms.sourcegitcommit: 7ceddf8b67f920d5a5eef4a84e157079a53b3374
+ms.openlocfilehash: 38c7ec337ba8cdb73925b1c07f77331c05b25d8a
+ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/10/2019
-ms.locfileid: "66821771"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66836659"
 ---
 # <a name="azure-stack-1905-known-issues"></a>Azure Stack 1905 známé problémy
 
@@ -33,13 +33,14 @@ V tomto článku najdete seznam známých problémů v 1905 verzi služby Azure 
 ## <a name="update-process"></a>Proces aktualizace
 
 ### <a name="host-node-update-prerequisite-failure"></a>Nesplnění předpokladů aktualizace v uzlu hostitele
--   Použít: Tento problém týká 1905 aktualizace.
--   Příčina: Při pokusu o instalaci 1905 Azure Stack aktualizace, stav aktualizace může selhat z důvodu aktualizace požadované hostitele uzlu. To je obvykle způsobeno uzlu hostitele má dostatek volného místa na disku. 
--   Náprava: Obraťte se na podporu Azure Stack vyžádejte si pomoc při vymazání místa na disku v uzlu hostitele.
--   Výskyt: Neobvyklé
 
+- Použít: Tento problém týká 1905 aktualizace.
+- Příčina: Při pokusu o instalaci aktualizace služby Azure Stack 1905, stav aktualizace může selhat z důvodu **aktualizovat předpoklad hostitele uzlu**. To je obvykle způsobeno uzlu hostitele má dostatek volného místa na disku.
+- Náprava: Obraťte se na podporu Azure Stack vyžádejte si pomoc při vymazání místa na disku v uzlu hostitele.
+- Výskyt: Neobvyklé
 
 ### <a name="preparation-failed"></a>Příprava nebyla úspěšná.
+
 - Použít: Tento problém se vztahuje na všechny podporované verze.
 - Příčina: Při pokusu o instalaci aktualizace služby Azure Stack 1905, stav aktualizace může selhat a změnu stavu na **PreparationFailed**. To je způsobeno aktualizace poskytovateli prostředků (URP) není schopen správně přenosu souborů z kontejneru úložiště do sdílené složky interní infrastruktury pro zpracování. Balíček aktualizace 1905 je větší než předchozí balíčky aktualizací, které můžou způsobit, že tento problém pravděpodobně probíhat.
 - Náprava: Počínaje verzí 1901 (1.1901.0.95), můžete alternativně vyřešit tento problém kliknutím **aktualizovat** znovu (ne **Resume**). URP potom vyčistí soubory z předchozího pokusu o a zahájí stahování. Pokud se problém nevyřeší, doporučujeme, abyste ručně pomocí následujících nahrání balíčku aktualizace [importu a nainstalovat aktualizace části](azure-stack-apply-updates.md#import-and-install-updates).

@@ -15,12 +15,12 @@ ms.date: 03/29/2019
 ms.lastreviewed: 03/18/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
-ms.openlocfilehash: 7cc05316222f7652e8c5eecbad6a02eee901e697
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 1e4b8bddaa5bfa164e413ee7a20071fe6a0cc831
+ms.sourcegitcommit: 23816ec68f67f3ac51f78de925b7631590743a29
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617958"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66835067"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack"></a>Nasazení poskytovatele prostředků SQL serveru ve službě Azure Stack
 
@@ -41,8 +41,8 @@ Existuje několik předpokladů, které musí být splněné před nasazením po
   |Minimální verze služby Azure Stack|Verze poskytovatele prostředků SQL|
   |-----|-----|
   |Verze. 1808 (1.1808.0.97)|[SQL RP verze 1.1.33.0](https://aka.ms/azurestacksqlrp11330)|  
-  |Verze. 1808 (1.1808.0.97)|[SQL RP verze 1.1.30.0](https://aka.ms/azurestacksqlrp11300)|
-  |Verzi 1804 (1.0.180513.1)|[SQL RP verze 1.1.24.0](https://aka.ms/azurestacksqlrp11240)
+  |Verze. 1808 (1.1808.0.97)|[SQL RP verze 1.1.30.0](https://aka.ms/azurestacksqlrp11300)|  
+  |Verzi 1804 (1.0.180513.1)|[SQL RP verze 1.1.24.0](https://aka.ms/azurestacksqlrp11240)  
   |     |     |
 
 - Ujistěte se, že jsou splněné požadavky na integraci datacenter:
@@ -50,8 +50,8 @@ Existuje několik předpokladů, které musí být splněné před nasazením po
     |Požadavek|Referenční informace|
     |-----|-----|
     |Podmíněné předávání DNS je nastavena správně.|[Integrace datových center Azure Stack – DNS](azure-stack-integrate-dns.md)|
-    |Jsou otevřené příchozí porty pro poskytovatele prostředků.|[Azure Stack – integrace datových center – publikování koncových bodů](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|
-    |Subjekt certifikátu PKI a po síti SAN jsou správně nastavené.|[Požadavky nasazení Azure Stack povinné infrastruktury veřejných KLÍČŮ](azure-stack-pki-certs.md#mandatory-certificates)[požadavky certifikátu PaaS nasazení Azure Stack](azure-stack-pki-certs.md#optional-paas-certificates)|
+    |Jsou otevřené příchozí porty pro poskytovatele prostředků.|[Integrace datových center Azure Stack – příchozí porty a protokoly](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|
+    |Subjekt certifikátu PKI a po síti SAN jsou správně nastavené.|[Požadavky nasazení Azure Stack povinné infrastruktury veřejných KLÍČŮ](azure-stack-pki-certs.md#mandatory-certificates)<br>[Požadavky nasazení certifikátu PaaS Azure Stack](azure-stack-pki-certs.md#optional-paas-certificates)|
     |     |     |
 
 ### <a name="certificates"></a>Certifikáty

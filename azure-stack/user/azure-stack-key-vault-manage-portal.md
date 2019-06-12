@@ -3,8 +3,8 @@ title: Správa služby Key Vault ve službě Azure Stack pomocí portálu | Doku
 description: Další informace o správě služby Key Vault ve službě Azure Stack pomocí portálu
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: sethmanheim
+manager: femila
 editor: ''
 ms.assetid: D4300668-461F-45F6-BF3B-33B502C39D17
 ms.service: azure-stack
@@ -12,18 +12,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/04/2019
-ms.date: 02/18/2019
-ms.author: v-jay
+ms.date: 06/11/2019
+ms.author: sethm
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: bc73e80acddaac8676b4cb47c0b9ced2467cdc44
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 57a23dc63c72657c19a92fa8f69e029be7f12f60
+ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64301008"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66836853"
 ---
-# <a name="manage-key-vault-in-azure-stack-by-using-the-portal"></a>Správa služby Key Vault ve službě Azure Stack pomocí portálu
+# <a name="manage-key-vault-in-azure-stack-using-the-portal"></a>Správa služby Key Vault ve službě Azure Stack pomocí portálu
 
 Key Vault ve službě Azure Stack můžete spravovat pomocí portálu Azure Stack. Tento článek popisuje, jak vytvářet a spravovat služby key vault ve službě Azure Stack.
 
@@ -55,7 +54,7 @@ Můžete musí přihlásit k odběru nabídky, která zahrnuje službu Azure Key
 
 ## <a name="manage-keys-and-secrets"></a>Správa klíčů a tajných kódů
 
-Po vytvoření trezoru, použijte následující postup k vytváření a správě klíčů a tajných kódů v trezoru.
+Po vytvoření služby key vault, použijte následující postup k vytváření a správě klíčů a tajných kódů v trezoru.
 
 ### <a name="create-a-key"></a>Vytvoření klíče
 
@@ -85,7 +84,7 @@ Po úspěšném vytvoření klíče můžete vybrat za **klíče** a zobrazit ne
 
 3. V části **tajných kódů**vyberte **přidat**.
 
-4. V části **vytvoření tajného klíče**, ze seznamu **možnosti nahrání**, zvolte možnost, se kterým se má vytvořit tajný kód. Můžete vytvořit tajný kód **ručně** Pokud zadáte hodnotu pro tajný klíč nebo nahrávání **certifikát** z místního počítače.
+4. V části **vytvoření tajného klíče**, ze seznamu **možnosti nahrání**, zvolte možnost, se kterým se má vytvořit tajný kód. Můžete vytvořit tajný kód **ručně** Pokud zadejte hodnotu pro tajný klíč, nebo nahrát **certifikát** z místního počítače.
 
 5. Zadejte **název** pro tajný kód. Název tajného kódu může obsahovat jenom alfanumerické znaky a znak spojovníku (-).
 

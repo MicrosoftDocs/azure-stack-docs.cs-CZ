@@ -16,12 +16,12 @@ ms.date: 04/12/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/29/2019
-ms.openlocfilehash: 2ea78ea572959dfa19eb10057ec2c67e815d300a
-ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
+ms.openlocfilehash: 3c962f0ef9fccdf814ccfaf0a432b1c303a63368
+ms.sourcegitcommit: 23816ec68f67f3ac51f78de925b7631590743a29
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 06/11/2019
-ms.locfileid: "66828450"
+ms.locfileid: "66835109"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Položky Azure Marketplace k dispozici pro službu Azure Stack
 
@@ -91,9 +91,9 @@ Microsoft Azure Stack podporuje následující virtuální počítače Azure Mar
 | ![Distribuce založené na CentOS 7.3](media/azure-stack-marketplace-azure-items/roguewave.png) | [Založené na centOS 7.3](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased73HPC) | Této distribuce Linuxu založené na CentOS a pochází od neautorizovaných serverů Wave softwaru. | Škodlivý Software Wave (dříve OpenLogic) |
 | ![Založené na centOS 7.5](media/azure-stack-marketplace-azure-items/roguewave.png) | [Založené na centOS 7.5](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased75) | Této distribuce Linuxu založené na CentOS a pochází od neautorizovaných serverů Wave softwaru. | Škodlivý Software Wave (dříve OpenLogic) |
 | ![7.5 LVM založené na centOS](media/azure-stack-marketplace-azure-items/roguewave.png) | [7.5 LVM založené na centOS](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased75) | Této distribuce Linuxu založené na CentOS a pochází od neautorizovaných serverů Wave softwaru. | Škodlivý Software Wave (dříve OpenLogic) |
-| ![SLES 11 SP4 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 11 SP4 (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SLES) | SUSE Linux Enterprise Server 11 SP4. | SUSE |
-| ![SLES 12 SP3 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 12 SP3 (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SLES) | SUSE Linux Enterprise Server 12 SP3. | SUSE |
-| ![SLES 15 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 15 SP3 (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SLES) | SUSE Linux Enterprise Server 15. | SUSE |
+| ![SLES 11 SP4 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 11 SP4 (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/suse.sles-byos) | SUSE Linux Enterprise Server 11 SP4. | SUSE |
+| ![SLES 12 SP3 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 12 SP4 (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/suse.sles-byos) | SUSE Linux Enterprise Server 12 SP4. | SUSE |
+| ![SLES 15 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 15 (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/suse.sles-byos) | SUSE Linux Enterprise Server 15. | SUSE |
 
 ## <a name="third-party-byol-free-trial-images-and-solution-templates"></a>BYOL třetích stran, bezplatné a zkušební verze imagí a šablony řešení
 

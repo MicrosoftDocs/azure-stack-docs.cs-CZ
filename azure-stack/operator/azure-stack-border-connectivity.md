@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 06/11/2019
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 08/30/2018
-ms.openlocfilehash: 291329d4e681aaeba416e0873e9f6ddf599526de
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: bd83c8fc29697107a17eeedabfd0280ff684457f
+ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618708"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66836735"
 ---
 # <a name="border-connectivity"></a>Připojení k ohraničení 
 Plánování integrace sítě je důležitá povinná součást pro úspěšné nasazení Azure Stack integrované systémy, provoz a správu. Plánování připojení ohraničení začíná výběru, jestli se mají použít s dynamickým směrováním pomocí protokolu border gateway protocol (BGP). To vyžaduje přiřazení 16bitové číslo autonomního systému protokolu BGP (veřejné nebo soukromé) nebo pomocí statické směrování, kde výchozí statické trasy je přiřazená zařízení ohraničení.
@@ -45,7 +45,7 @@ Statické směrování vyžaduje další konfiguraci pro zařízení ohraničen�
 
 K integraci Azure Stack do vašeho síťového prostředí pomocí statické směrování, musí být připojené všechny čtyři fyzické propojení mezi ohraničením a zařízení sítě TOR a vysoké dostupnosti nelze zaručit kvůli funguje jak statické směrování.
 
-Hraniční zařízení musí mít nakonfigurovanou odkazující na zařízení TOR P2P pro provoz směrovaný do statické trasy *externí* síti nebo veřejné virtuální IP adresy a *infrastruktury* sítě. Bude vyžadovat statické trasy do *BMC* a *externí* sítě pro nasazení. Operátory můžete nechat statické trasy v ohraničení pro přístup k prostředkům správy, které se nacházejí na *BMC* sítě. Přidání statické trasy do *přepínač infrastruktury* a *přepnout správu* sítí je volitelné.
+Hraniční zařízení musí mít nakonfigurovanou odkazující na zařízení TOR P2Ps pro provoz směrovaný do statické trasy *externí* síti nebo veřejné virtuální IP adresy a *infrastruktury* sítě. Bude vyžadovat statické trasy do *BMC* a *externí* sítě pro nasazení. Operátory můžete nechat statické trasy v ohraničení pro přístup k prostředkům správy, které se nacházejí na *BMC* sítě. Přidání statické trasy do *přepínač infrastruktury* a *přepnout správu* sítí je volitelné.
 
 Zařízení TOR součástí nakonfigurované statické výchozí trasa odesílá veškerý provoz do zařízení ohraničení. Jedinou výjimkou provoz do výchozí pravidlo je privátní prostoru, který se zablokoval použít seznam řízení přístupu na TOR u připojení ohraničení.
 

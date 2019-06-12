@@ -3,8 +3,8 @@ title: Vytvoření plánu ve službě Azure Stack | Dokumentace Microsoftu
 description: Jako správce cloudu vytvořte plán, který umožňuje odběratelům zřizování virtuálních počítačů.
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: sethmanheim
+manager: femila
 editor: ''
 ms.assetid: 3dc92e5c-c004-49db-9a94-783f1f798b98
 ms.service: azure-stack
@@ -12,23 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 03/07/2019
-ms.date: 04/29/2019
-ms.author: v-jay
+ms.date: 06/11/2019
+ms.author: sethm
 ms.reviewer: efemmano
-ms.lastreviewed: 03/07/2019
-ms.openlocfilehash: 85c6fd58108653ba4876d8aa7802d5674ae1336c
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 06/11/2019
+ms.openlocfilehash: b120346d489f676919cb05863f81db9bfb102634
+ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64300865"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66836997"
 ---
 # <a name="create-a-plan-in-azure-stack"></a>Vytvoření plánu ve službě Azure Stack
 
 *Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
 
-[Plány](azure-stack-overview.md) představují seskupení jedné nebo více služeb a jejich kvóty. Jako poskytovatel můžete vytvořit plány, které nabídnete uživatelům. Uživatelé pak předplatit nabídek, aby mohli používat plány, služby a kvóty, které patří mezi ně. Tento příklad ukazuje, jak vytvořit plán, který obsahuje výpočty, síť a poskytovatele prostředků úložiště. Tento plán poskytuje předplatitele možnost zřizování virtuálních počítačů.
+[Plány Azure Stack](azure-stack-overview.md) představují seskupení jedné nebo více služeb a jejich kvóty. Jako poskytovatel můžete vytvořit plány, které nabídnete uživatelům. Uživatelé pak předplatit nabídek, aby mohli používat plány, služby a kvóty, které patří mezi ně. Tento příklad ukazuje, jak vytvořit plán, který obsahuje výpočty, síť a poskytovatele prostředků úložiště. Tento plán poskytuje předplatitele možnost zřizování virtuálních počítačů.
 
 ## <a name="create-a-plan-1902-and-later"></a>Vytvoření plánu (1902 a novější)
 
@@ -48,11 +47,11 @@ ms.locfileid: "64300865"
 
    ![Zadejte skupinu prostředků](media/azure-stack-create-plan/resource-group.png)
 
-5. Vyberte **služby** kartu a pak zaškrtněte políčko pro **Microsoft.Compute**, **Microsoft.Network**, a **Microsoft.Storage** .
+5. Vyberte **služby** kartu, nebo klikněte na tlačítko **Další: Služby >** tlačítko a pak zaškrtněte políčko pro **Microsoft.Compute**, **Microsoft.Network**, a **Microsoft.Storage**.
   
    ![Vybrat služby](media/azure-stack-create-plan/services.png)
 
-6. Vyberte **kvóty** kartu. Vedle položky **Microsoft.Storage**, zvolte výchozí kvóta v rozevíracím seznamu, nebo vyberte **vytvořit nový** k vytvoření vlastní kvóty.
+6. Vyberte **kvóty** kartu, nebo klikněte na tlačítko **Další: Kvóty >** tlačítko. Vedle položky **Microsoft.Storage**, zvolte výchozí kvóta v rozevíracím seznamu, nebo vyberte **vytvořit nový** k vytvoření vlastní kvóty.
   
    ![Kvóty](media/azure-stack-create-plan/quotas.png)
 
@@ -70,13 +69,13 @@ ms.locfileid: "64300865"
 
 10. Až budete připravení, vyberte **vytvořit** vytvořte plán.
 
-11. Pokud chcete zobrazit nový plán, vyberte **plány**, vyhledejte v plánu a vyberte jeho název. Pokud je dlouhý seznam prostředků, použijte **hledání** najít váš plán podle názvu.
+11. Chcete-li zobrazit nový plán, na levé straně klikněte na tlačítko **všechny služby**vyberte **plány**a potom vyhledejte plánu a vyberte jeho název. Pokud je dlouhý seznam prostředků, použijte **hledání** najít váš plán podle názvu.
 
 ## <a name="create-a-plan-1901-and-earlier"></a>Vytvoření plánu (1901 a starší)
 
 1. Přihlaste se k [portálu Správce služby Azure Stack](https://adminportal.local.azurestack.external).
 
-2. Chcete-li vytvořit plán a nabídku, uživatelé mohou přihlásit k odběru, vyberte **+ vytvořit prostředek**, pak **nabízí + plány**, pak **plán**.
+2. Chcete-li vytvořit plán a nabídku, uživatelé mohou přihlásit k odběru, vyberte **+ nová**, pak **nabízí + plány**, pak **plán**.
   
    ![Vybrat plán](media/azure-stack-create-plan/select-plan1901.png)
 
@@ -104,7 +103,7 @@ ms.locfileid: "64300865"
   
    ![Přiřaďte kvóty](media/azure-stack-create-plan/assign-quota1901.png)
 
-8. Zopakujte kroky 6 a 7 můžete vytvořit a přiřadit kvóty pro **Microsoft.Network (místní)** a **Microsoft.Compute (místní)**. Všechny tři služby mají přiřazeny kvóty, budete vypadají podobně jako následující příklad.
+8. Zopakujte kroky 6 a 7 můžete vytvořit a přiřadit kvóty pro **Microsoft.Network (místní)** a **Microsoft.Compute (místní)** . Všechny tři služby mají přiřazeny kvóty, budete vypadají podobně jako následující příklad.
 
    ![Kompletní kvóty přiřazení](media/azure-stack-create-plan/all-quotas-assigned1901.png)
 
@@ -119,5 +118,3 @@ ms.locfileid: "64300865"
 ## <a name="next-steps"></a>Další postup
 
 * [Vytvoření nabídky](azure-stack-create-offer.md)
-
-<!-- Update_Description: wording update -->

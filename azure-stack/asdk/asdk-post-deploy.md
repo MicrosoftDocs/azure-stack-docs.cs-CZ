@@ -16,12 +16,12 @@ ms.date: 05/08/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/10/2018
-ms.openlocfilehash: 6d930c99890f8cf0be7b2a47199772c58a10b34d
-ms.sourcegitcommit: 4e0b450c91c6515794b663a39f9a4b8b49999918
+ms.openlocfilehash: aac9bb8edce4b15d3d058cdb3b6cc6e23aa58493
+ms.sourcegitcommit: 23816ec68f67f3ac51f78de925b7631590743a29
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66411481"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66834995"
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>Po dokončení instalace ASDK úlohy konfigurace
 
@@ -146,28 +146,6 @@ Testy trvat několik minut. Pokud byla instalace úspěšná, zobrazí výstup v
 ![test-azurestack](media/asdk-post-deploy/test-azurestack.png)
 
 Pokud došlo k chybě, použijte postup řešení potíží zobrazíte nápovědu.
-
-## <a name="reset-the-password-expiration-policy"></a>Resetovat zásady vypršení platnosti hesla
-
-Pokud chcete mít jistotu, že heslo pro hostitele development kit platnost pasu nevyprší před vám zkušební období skončí, postupujte podle těchto kroků po nasazení ASDK.
-
-### <a name="to-change-the-password-expiration-policy-from-powershell"></a>Změna zásad vypršení platnosti hesla z prostředí Powershell
-
-Z konzole Powershellu se zvýšenými oprávněními spusťte příkaz:
-
-```powershell
-Set-ADDefaultDomainPasswordPolicy -MaxPasswordAge 180.00:00:00 -Identity azurestack.local
-```
-
-### <a name="to-change-the-password-expiration-policy-manually"></a>Chcete-li ručně změnit zásady vypršení platnosti hesla
-
-1. Na hostiteli development kit, otevřete **Správa zásad skupiny** (pro správu zásad skupiny. Konzoly MMC) a přejděte do **Správa zásad skupiny** - **doménová struktura: azurestack.local** - **domén**  -  **azurestack.local**.
-2. Klikněte pravým tlačítkem na **výchozí zásady domény** a klikněte na tlačítko **upravit**.
-3. Přejděte v skupiny zásad správy editoru **konfigurace počítače** - **zásady** - **nastavení Windows**  -  **Nastavení zabezpečení** - **zásady účtů** - **zásady pro hesla**.
-4. V pravém podokně klikněte dvakrát na **maximální stáří hesla**.
-5. V **maximální stáří hesla vlastnosti** dialogovém okně Změnit **heslo vyprší za** hodnota, která se **180**a potom klikněte na tlačítko **OK**.
-
-![Konzola pro správu zásad skupiny](media/asdk-post-deploy/gpmc.png)
 
 ## <a name="enable-multi-tenancy"></a>Povolení víceklientské architektury
 

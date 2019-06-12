@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: sethm
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: 03aea7833e59d3262fc54e71d3d5409b5b95c488
-ms.sourcegitcommit: 6fcd5df8b77e782ef72f0e1419f1f75ec8c16c04
+ms.openlocfilehash: a8fe96d645d9277003e17144089a91e0722d0088
+ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65991296"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66836826"
 ---
 # <a name="about-vpn-gateway-for-azure-stack"></a>Informace o službě VPN gateway pro Azure Stack
 
@@ -73,13 +73,13 @@ Diagramy a popisy v následujících částech můžete výběrem topologie při
 
 ## <a name="site-to-site-and-multi-site-ipsecike-vpn-tunnel"></a>Site-to-site a multi-Site (tunel VPN IPsec/IKE)
 
-### <a name="site-to-site"></a>Site-to-site
+### <a name="site-to-site"></a>Site-to-Site
 
 A *site-to-site* (S2S) připojení brány VPN je připojení přes tunel VPN IPsec/IKE (IKEv2). Tento typ připojení vyžaduje zařízení VPN, které se nacházejí na místních a je přiřazena veřejná IP adresa. Toto zařízení nesmí být umístěné za službou NAT. Připojení S2S můžete použít pro konfigurace mezi různými místy a pro hybridní konfigurace.
 
 ![Příklad konfigurace připojení Site-to-site VPN](media/azure-stack-vpn-gateway-about-vpn-gateways/vpngateway-site-to-site-connection-diagram.png)
 
-### <a name="multi-site"></a>Pro více lokalit
+### <a name="multi-site"></a>Multi-Site
 
 A *Multi-Site* připojení je variací připojení site-to-site. Z brány virtuální sítě vytvoříte několik připojení VPN, obvykle pro připojení k několika místním lokalitám. Při práci s více připojeními, musíte použít (označované jako dynamická brána při práci s klasickými virtuálními sítěmi) typ sítě VPN založené na směrování. Vzhledem k tomu, že virtuální síť může mít jenom jednu bránu virtuální sítě, všechna připojení prostřednictvím brány sdílejí dostupnou šířku pásma.
 
@@ -102,7 +102,6 @@ Při výběru SKU zvažte následující:
 * Azure Stack brány založené na zásadách nepodporuje.
 * Protokol BGP (Border Gateway) není podporován v základní SKU.
 * Konfigurace současně existujících brány ExpressRoute VPN nejsou podporovány ve službě Azure Stack.
-* Připojení brány VPN typu S2S aktivní aktivní je možné nakonfigurovat na SKU pro vysokou dostupnost pouze.
 
 ## <a name="estimated-aggregate-throughput-by-sku"></a>Odhadovaná agregovaná propustnost podle typů SKU
 

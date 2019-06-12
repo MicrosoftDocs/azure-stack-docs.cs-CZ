@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: mabrigg
-ms.reviewer: brbartle
+ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: b70cd30653b8b324ae4d11a4a3e8aafe47d9a179
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 94eb107450271722af773bc96bec7dfeb12ff52e
+ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618014"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66836719"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registrace Azure Stack s Azure
 
@@ -38,7 +38,7 @@ Předtím, než zaregistrujete, potřebujete následující na místě:
 
  - Ověřit vaše přihlašovací údaje
  - Nastavte jazykový režim prostředí PowerShell
- - Instalace Powershellu pro Azure Stack
+ - Instalace PowerShellu pro Azure Stack
  - Stáhněte si nástroje Azure Stack
  - Určit váš scénář registrace
 
@@ -76,7 +76,7 @@ $ExecutionContext.SessionState.LanguageMode
 
 Zkontrolujte výstup vrací **FullLanguageMode**. Pokud je vrácena jiných režim jazyka, registrace musí být spuštěn na jiném počítači nebo režim jazyka musí být nastavena na **FullLanguageMode** než budete pokračovat.
 
-### <a name="install-powershell-for-azure-stack"></a>Instalace Powershellu pro Azure Stack
+### <a name="install-powershell-for-azure-stack"></a>Instalace PowerShellu pro Azure Stack
 
 Použijte nejnovější PowerShell pro službu Azure Stack registraci v Azure.
 
@@ -255,7 +255,17 @@ Pokud při registraci služby Azure Stack v odpojeném prostředí (bez připoje
 
 ### <a name="connect-to-azure-and-register"></a>Připojení k Azure a registrace
 
-Na počítači, který je připojený k Internetu proveďte stejné kroky pro import modulu RegisterWithAzure.psm1 a přihlaste se k správný kontext Azure Powershellu. Potom zavolejte AzsEnvironment registru. Zadejte token registrace k registraci ve službě Azure. Pokud registrujete více než jednu instanci služby Azure Stack pomocí stejného ID předplatného Azure, zadejte název jedinečné registrace. Spusťte následující rutinu:
+Na počítači, který je připojený k Internetu proveďte stejné kroky pro import modulu RegisterWithAzure.psm1 a přihlaste se k správný kontext Azure Powershellu. Potom zavolejte AzsEnvironment registru. Zadejte token registrace k registraci ve službě Azure. Pokud registrujete více než jednu instanci služby Azure Stack pomocí stejného ID předplatného Azure, zadejte název jedinečné registrace.
+
+Budete potřebovat registrační token a jedinečný název tokenu.
+
+1. Spusťte ISE Powershellu jako správce a přejděte do **registrace** složky **AzureStack-Tools-master** adresář vytvořený při stažení nástroje Azure Stack. Import **RegisterWithAzure.psm1** modul:  
+
+   ```powershell  
+   Import-Module .\RegisterWithAzure.psm1
+   ```
+
+2. Potom spuštěním následující rutiny prostředí PowerShell:  
 
   ```powershell  
   $RegistrationToken = "<Your Registration Token>"
@@ -263,7 +273,17 @@ Na počítači, který je připojený k Internetu proveďte stejné kroky pro im
   Register-AzsEnvironment -RegistrationToken $RegistrationToken -RegistrationName $RegistrationName
   ```
 
-Volitelně můžete použít rutinu Get-obsah tak, aby odkazoval na soubor, který obsahuje registrační token:
+Volitelně můžete použít rutinu Get-obsah tak, aby odkazoval na soubor, který obsahuje registrační token.
+
+Budete potřebovat registrační token a jedinečný název tokenu.
+
+1. Spusťte ISE Powershellu jako správce a přejděte do **registrace** složky **AzureStack-Tools-master** adresář vytvořený při stažení nástroje Azure Stack. Import **RegisterWithAzure.psm1** modul:  
+
+  ```powershell  
+  Import-Module .\RegisterWithAzure.psm1
+  ```
+
+2. Potom spuštěním následující rutiny prostředí PowerShell:  
 
   ```powershell  
   $RegistrationToken = Get-Content -Path '<Path>\<Registration Token File>'
@@ -450,7 +470,7 @@ Set-AzsRegistration [-PrivilegedEndpointCredential] <PSCredential> [-PrivilegedE
     <String>] [<CommonParameters>]
 ```
 
-| Parametr | Type | Popis |
+| Parametr | Typ | Popis |
 |-------------------------------|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | PrivilegedEndpointCredential | PSCredential | Pověření používaná k [přístup k privilegovaným koncový bod](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). Uživatelské jméno je ve formátu **AzureStackDomain\CloudAdmin**. |
 | PrivilegedEndpoint | String | Předem nakonfigurované vzdálenou konzolu Powershellu, který vám poskytne funkce, jako je shromažďování protokolů a další příspěvek úlohy nasazení. Další informace najdete [pomocí privilegovaných koncového bodu](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) článku. |
@@ -472,7 +492,7 @@ Get-AzsRegistrationToken [-PrivilegedEndpointCredential] <PSCredential> [-Privil
     [-BillingModel] <String> [[-TokenOutputFilePath] <String>] [-UsageReportingEnabled] [[-AgreementNumber] <String>]
     [<CommonParameters>]
 ```
-| Parametr | Type | Popis |
+| Parametr | Typ | Popis |
 |-------------------------------|--------------|-------------|
 | PrivilegedEndpointCredential | PSCredential | Pověření používaná k [přístup k privilegovaným koncový bod](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). Uživatelské jméno je ve formátu **AzureStackDomain\CloudAdmin**. |
 | PrivilegedEndpoint | String |  Předem nakonfigurované vzdálenou konzolu Powershellu, který vám poskytne funkce, jako je shromažďování protokolů a další příspěvek úlohy nasazení. Další informace najdete [pomocí privilegovaných koncového bodu](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) článku. |
@@ -487,9 +507,9 @@ Get-AzsRegistrationToken [-PrivilegedEndpointCredential] <PSCredential> [-Privil
 ## <a name="registration-failures"></a>Selhání registrace
 
 Může se zobrazit jeden z u chyb dole při pokusu o registraci ze služby Azure Stack:
-1. Nelze načíst informace o hardwaru povinné pro $hostName. Zkontrolujte fyzického hostitele a připojení potom znovu spusťte registraci.
+1. Nelze načíst informace o hardwaru povinné pro $hostName. Zaškrtněte fyzického hostitele a možnosti připojení a poté zkuste znovu spustit registrace.
 
-2. Nelze se připojit k $hostName k získání informací o hardwaru – zkontrolujte fyzického hostitele a připojení potom znovu spusťte registraci.
+2. Nelze se připojit k $hostName k získání informací o hardwaru – prosím zkontrolujte fyzického hostitele a připojení a zkuste znovu spusťte registraci.
 
 > Příčina: to je obvykle vzhledem k tomu, pokuste se získat podrobnosti o hardwaru, jako je například UUID a procesoru a systému Bios od hostitelů, aby se zkusil jsme nebyli schopni se připojit k fyzickým hostitelem lokalizovat.
 

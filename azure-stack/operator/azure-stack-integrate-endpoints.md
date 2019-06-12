@@ -10,12 +10,12 @@ ms.date: 05/02/2019
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 02/06/2019
-ms.openlocfilehash: 885568035070bc4f74b94cddff200302fccfbb72
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 7ee47a5dc7344628561521f067a8310a0c8d3347
+ms.sourcegitcommit: 23816ec68f67f3ac51f78de925b7631590743a29
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618101"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66835093"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure Stack – integrace datových center – publikování koncových bodů
 
@@ -35,32 +35,35 @@ Interní infrastrukturu virtuálních IP adres nejsou uvedené, protože nejsou 
 > [!Note]  
 > Uživatel virtuální IP adresy je dynamická a určené samotných uživatelů s žádnou kontrolu operátorem služby Azure Stack.
 
-> [!Note]
+> [!Note]  
+> IKEv2 VPN. IKEv2 VPN řešení IPsec VPN založené na standardech, které využívá porty UDP 500 a 4500 a protokol IP č. 50. Brány firewall tyto porty neotvírají vždycky, takže je možné, že IKEv2 VPN nebude moct procházet servery proxy a branami firewall.
+
+> [!Note]  
 > Od aktualizace 1811 porty v rozsahu 12495 30015 jsou už musí být z důvodu přidání [hostitel rozšíření](azure-stack-extension-host-prepare.md).
 
-|Koncový bod (VIP)|DNS host A record|Protocol (Protokol)|Porty|
+|Koncový bod (VIP)|DNS host A record|Protocol|Porty|
 |---------|---------|---------|---------|
-|AD FS|Adfs.*&lt;region>.&lt;fqdn>*|HTTPS|443|
-|Portál (správce)|Adminportal.*&lt;region>.&lt;fqdn>*|HTTPS|443|
+|AD FS|Adfs. *&lt;region>.&lt;fqdn>*|HTTPS|443|
+|Portál (správce)|Adminportal. *&lt;region>.&lt;fqdn>*|HTTPS|443|
 |Adminhosting | *.adminhosting.\<region>.\<fqdn> | HTTPS | 443 |
-|Azure Resource Manager (správce)|Adminmanagement.*&lt;region>.&lt;fqdn>*|HTTPS|443|
+|Azure Resource Manager (správce)|Adminmanagement. *&lt;region>.&lt;fqdn>*|HTTPS|443|
 |Portál (uživatel)|Portál.  *&lt;oblast >.&lt; plně kvalifikovaný název domény >*|HTTPS|443|
 |Azure Resource Manageru (uživatel)|Správa.  *&lt;oblast >.&lt; plně kvalifikovaný název domény >*|HTTPS|443|
-|Graf|Graph.*&lt;region>.&lt;fqdn>*|HTTPS|443|
-|Seznam odvolaných certifikátů|Crl.*&lt;region>.&lt;fqdn>*|HTTP|80|
-|DNS|&#42;.*&lt;region>.&lt;fqdn>*|TCP A UDP|53|
-|Hosting | *.hosting.\<region>.\<fqdn> | HTTPS | 443 |
+|Graph|Graph. *&lt;region>.&lt;fqdn>*|HTTPS|443|
+|Seznam odvolaných certifikátů|Crl. *&lt;region>.&lt;fqdn>*|HTTP|80|
+|DNS|&#42;. *&lt;region>.&lt;fqdn>*|TCP A UDP|53|
+|Hostování | *.hosting.\<region>.\<fqdn> | HTTPS | 443 |
 |Key Vault (uživatel)|&#42;.Vault.  *&lt;oblast >.&lt; plně kvalifikovaný název domény >*|HTTPS|443|
 |Key Vault (správce)|&#42;.adminvault.  *&lt;oblast >.&lt; plně kvalifikovaný název domény >*|HTTPS|443|
-|Fronta úložiště|&#42;.queue.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
-|Storage Table|&#42;.table.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
-|Storage Blob|&#42;.blob.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
-|Poskytovatel prostředků SQL|sqladapter.dbadapter.*&lt;region>.&lt;fqdn>*|HTTPS|44300-44304|
-|Poskytovatel prostředků MySQL|mysqladapter.dbadapter.*&lt;region>.&lt;fqdn>*|HTTPS|44300-44304|
-|App Service|&#42;.appservice.*&lt;region>.&lt;fqdn>*|TCP|80 (HTTP)<br>443 (HTTPS)<br>8172 (MSDeploy)|
-|  |&#42;.scm.appservice.*&lt;region>.&lt;fqdn>*|TCP|443 (HTTPS)|
-|  |api.appservice.*&lt;region>.&lt;fqdn>*|TCP|443 (HTTPS)<br>44300 (azure Resource Manager)|
-|  |ftp.appservice.*&lt;region>.&lt;fqdn>*|TCP, UDP|21, 1021, 10001-10100 (FTP)<br>990 (FTPS)|
+|Fronta úložiště|&#42;.queue. *&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
+|Storage Table|&#42;.table. *&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
+|Storage Blob|&#42;.blob. *&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
+|Poskytovatel prostředků SQL|sqladapter.dbadapter. *&lt;region>.&lt;fqdn>*|HTTPS|44300-44304|
+|Poskytovatel prostředků MySQL|mysqladapter.dbadapter. *&lt;region>.&lt;fqdn>*|HTTPS|44300-44304|
+|App Service|&#42;.appservice. *&lt;region>.&lt;fqdn>*|TCP|80 (HTTP)<br>443 (HTTPS)<br>8172 (MSDeploy)|
+|  |&#42;.scm.appservice. *&lt;region>.&lt;fqdn>*|TCP|443 (HTTPS)|
+|  |api.appservice. *&lt;region>.&lt;fqdn>*|TCP|443 (HTTPS)<br>44300 (azure Resource Manager)|
+|  |ftp.appservice. *&lt;region>.&lt;fqdn>*|TCP, UDP|21, 1021, 10001-10100 (FTP)<br>990 (FTPS)|
 |Brány VPN Gateway|     |     |[V tématu Nejčastější dotazy k branám VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-vpn-faq#can-i-traverse-proxies-and-firewalls-using-point-to-site-capability).|
 |     |     |     |     |
 
@@ -71,7 +74,7 @@ Azure Stack podporuje pouze transparentní proxy servery. V nasazení tam, kde t
 > [!Note]  
 > Azure Stack nepodporuje použití ExpressRoute pro dosažení služby Azure, které jsou uvedeny v následující tabulce.
 
-|Účel|Cílová adresa URL|Protocol (Protokol)|Porty|Zdrojová síť|
+|Účel|Cílová adresa URL|Protocol|Porty|Zdrojová síť|
 |---------|---------|---------|---------|---------|
 |Identita|login.windows.net<br>login.microsoftonline.com<br>graph.windows.net<br>https:\//secure.aadcdn.microsoftonline-p.com<br>office.com|HTTP<br>HTTPS|80<br>443|Veřejné virtuální IP adresy – velikost/27<br>Infrastruktura veřejných sítě|
 |Syndikace Marketplace|https:\//management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://*.azureedge.net<br>https://&#42;.microsoftazurestack.com|HTTPS|443|Veřejné virtuální IP adresy – velikost/27|
@@ -89,8 +92,9 @@ Azure Stack podporuje pouze transparentní proxy servery. V nasazení tam, kde t
 |AD FS|AD FS metadat koncového bodu k dispozici pro integraci služby AD FS|TCP|443|Veřejné virtuální IP adresy – velikost/27|
 |     |     |     |     |     |
 
-> [!Note]  
-> Odchozí adresy URL jsou vyrovnávání zatížení pomocí Azure traffic Manageru k zajištění nejlepší možné připojení zeměpisné umístění. Pomocí adresy URL s vyrovnáváním zatížení, Microsoft můžete aktualizovat a změnit koncových bodů back-end bez dopadu na zákazníky. Společnost Microsoft neposkytuje seznam IP adres pro adresy URL na skupinu s vyrovnáváním zatížení. Měli byste použít zařízení, která podporuje filtrování podle adresy URL, nikoli podle IP.
+Odchozí adresy URL jsou vyrovnávání zatížení pomocí Azure traffic Manageru k zajištění nejlepší možné připojení zeměpisné umístění. Pomocí adresy URL s vyrovnáváním zatížení, Microsoft můžete aktualizovat a změnit koncových bodů back-end bez dopadu na zákazníky. Společnost Microsoft neposkytuje seznam IP adres pro adresy URL na skupinu s vyrovnáváním zatížení. Měli byste použít zařízení, která podporuje filtrování podle adresy URL, nikoli podle IP.
+
+Odchozí DNS se vyžaduje na celou dobu, co se liší je zdrojem dotazování externí DNS a jaký druh integrace identit byla vybrána. Pokud je připojené scénář, během nasazení DVM, který je umístěn v síti BMC potřebuje, které odchozí přístup, ale po nasazení služby DNS přesune do vnitřní komponenta, která bude odesílat dotazy prostřednictvím veřejných virtuálních IP adres. V tu chvíli odchozí přístup DNS prostřednictvím BMC sítě je možné odebrat, ale musí zůstat veřejných virtuálních IP adres přístup k tomuto serveru DNS, jinak se ověřování nezdaří.
 
 ## <a name="next-steps"></a>Další postup
 

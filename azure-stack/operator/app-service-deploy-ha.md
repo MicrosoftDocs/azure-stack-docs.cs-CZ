@@ -16,12 +16,12 @@ ms.date: 03/23/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: dc4cb3e7931b456de6e807d9f7b691f9bfb71a33
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 2d2aab654f2283cf019e609e9de14790ed44a76a
+ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269514"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66837041"
 ---
 # <a name="deploy-app-service-in-a-highly-available-configuration"></a>Nasadit službu App Service v konfiguraci s vysokou dostupností
 
@@ -171,9 +171,9 @@ Nasazení poskytovatele prostředků App Service, postupujte podle těchto krok�
     ![Očekávané chybové dialogové okno](media/app-service-deploy-ha/08.png)
 
     Pokud jste se rozhodli nasadit do existující virtuální sítě a interní IP adresu pro připojení k souborovému serveru, je nutné přidat odchozí pravidlo zabezpečení, povolení provozu SMB mezi podsítě pracovního procesu a souborový server. Přejděte na WorkersNsg portálu pro správu a přidat odchozí pravidlo zabezpečení s následujícími vlastnostmi:
-    - Zdroj: Vše
+    - Zdroj: Jakýkoli
     - Zdrojový rozsah portů: *
-    - Cíl: Adresy IP
+    - Cíl: IP adresy
     - Rozsah cílových IP adres: Rozsah IP adres pro souborový server
     - Rozsah cílových portů: 445
     - Protokol: TCP
@@ -207,7 +207,7 @@ Nasazení poskytovatele prostředků App Service, postupujte podle těchto krok�
     |Role|Výchozí|Doporučení s vysokou dostupností|
     |-----|-----|-----|
     |Role kontroleru|2|2|
-    |Role správy|1|3|
+    |Role pro správu|1|3|
     |Role vydavatele|1|3|
     |Role front-endu|1|3|
     |Role sdíleného pracovního procesu|1|10|
@@ -234,8 +234,9 @@ Nasazení poskytovatele prostředků App Service, postupujte podle těchto krok�
 
     ![Nastavení je dokončené.](media/app-service-deploy-ha/16.png)
 
-
 ## <a name="next-steps"></a>Další postup
+
+[Přidat do skupiny dostupnosti databáze appservice_hosting a appservice_metering](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) Pokud budete mít k dispozici poskytovatele prostředků App Service vždy na instanci SQL. Synchronizace databází, aby se zabránilo ztrátě služeb v případě selhání databáze.
 
 [Horizontální navýšení kapacity služby App Service](azure-stack-app-service-add-worker-roles.md). Můžete potřebovat přidat další služby App Service infrastrukturu role pracovní procesy pro splnění požadavků očekávané aplikace ve vašem prostředí. Ve výchozím nastavení podporuje služby App Service ve službě Azure Stack vrstvy bezplatných a sdílených pracovních procesů. Přidání další vrstvy pracovních procesů, budete muset přidat další role pracovního procesu.
 

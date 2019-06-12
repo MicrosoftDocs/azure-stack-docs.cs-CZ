@@ -3,27 +3,26 @@ title: V tomto článku se dozvíte, jak aktualizovat Azure Stack nabídky a pl�
 description: Tento článek popisuje, jak zobrazit a upravit existující služby Azure Stack nabídky a plány.
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: sethmanheim
+manager: femila
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.custom: mvc
-origin.date: 03/07/2019
-ms.date: 03/18/2019
-ms.author: v-jay
+ms.date: 06/11/2019
+ms.author: sethm
 ms.reviewer: efemmano
-ms.lastreviewed: 03/07/2019
-ms.openlocfilehash: 00bb17eadfee32e9b0d006ac76bb8e1cd614f13e
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 06/11/2019
+ms.openlocfilehash: 54c6c44d6ab5d03819ba07ca1d34269e7a87ee77
+ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64301734"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66836822"
 ---
 # <a name="azure-stack-add-on-plans"></a>Azure Stack doplňkové plány
 
@@ -48,7 +47,7 @@ Doplňkové plány jsou vytvořeny tak, že upravíte existující nabídky.
 
    ![Vytvoření doplňkový plán](media/create-add-on-plan/add-on1.png)
 
-4. Přejděte do dolní části nabídky vlastnosti a vyberte **doplňkové plány**. Klikněte na tlačítko **Add** (Přidat).
+4. V dolní části nabídky vlastnosti, vyberte **doplňkové plány**. Klikněte na tlačítko **Add** (Přidat).
 
     ![Vytvoření doplňkový plán](media/create-add-on-plan/add-on2.png)
 

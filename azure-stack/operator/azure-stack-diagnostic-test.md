@@ -14,12 +14,12 @@ ms.date: 04/20/2019
 ms.author: justinha
 ms.reviewer: adshar
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 3ec925406ad3553c0beb073d39d84ae20f5bc472
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: f95dcf44c2d9d30bc6ba40facbecff97ff26bf49
+ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66268644"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66836694"
 ---
 # <a name="validate-azure-stack-system-state"></a>Ověření stavu systému Azure Stack
 
@@ -48,13 +48,9 @@ Jak bylo uvedeno dříve, je spuštěn nástroj pro ověřování prostřednictv
 
    Odkazovat [důležité informace o parametru](azure-stack-diagnostic-test.md#parameter-considerations) a [případu příklady použít](azure-stack-diagnostic-test.md#use-case-examples) oddíly pro další informace.
 
-3. Pokud některé testy sestavy **selhání**, spusťte:
+3. Pokud některé testy sestavy **selhání**spuštěním `Get-AzureStackLog`. Integrovaný systém, v tématu [ke spuštění Get-AzureStackLog ve službě Azure Stack integrované systémy](/azure-stack-diagnostics#to-run-get-azurestacklog-on-azure-stack-integrated-systems), nebo na ASDK, naleznete v tématu [spuštění Get-AzureStackLog v systému Azure Stack Development Kit (ASDK)](/azure-stack-diagnostics#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system).
 
-   ```powershell
-   Get-AzureStackLog -FilterByRole SeedRing -OutputSharePath "<path>" -OutputShareCredential $cred
-   ```
-
-   Rutina shromažďuje protokoly generované AzureStack testu. Další informace o diagnostických protokolech najdete v tématu [diagnostické nástroje služby Azure Stack](azure-stack-diagnostics.md). Neměli shromažďování protokolů nebo kontaktujte CSS, pokud testy sestavy **UPOZORNIT**.
+   Rutina shromažďuje protokoly generované AzureStack testu. Neměli shromažďování protokolů nebo kontaktujte CSS, pokud testy sestavy **UPOZORNIT**.
 
 4. Pokud jste dostali pokyn ke spuštění nástroje ověření pomocí šablon stylů CSS, šablon stylů CSS zástupce bude požadovat protokoly, které jste shromáždili pokračujte vašeho problému.
 

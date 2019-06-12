@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/07/2019
+ms.date: 06/11/2019
 ms.author: sethm
 ms.reviewer: efemmano
-ms.lastreviewed: 03/07/2019
-ms.openlocfilehash: 087c3b95f96600f6ff0cf14ab0fb8618046b86d7
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 06/11/2019
+ms.openlocfilehash: a2bb84cef5c24cd84653092a34dea7f0e20b624e
+ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64302526"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66836941"
 ---
 # <a name="create-an-offer-in-azure-stack"></a>Vytvoření nabídky ve službě Azure Stack
 
@@ -34,11 +34,11 @@ ms.locfileid: "64302526"
 
 2. Zobrazí se záložkami uživatelské rozhraní, která umožňuje definovat název nabídky a přidat existující nebo vytvořte novou základní plány a doplňkové plány. Co je nejdůležitější můžete zkontrolovat podrobnosti o nabídku, kterou vytvoříte, než se rozhodnete k jeho vytvoření.
 
-   V **Základy** ve skupině **nová nabídka**, zadejte **zobrazovaný název** a **název prostředku**a potom v části **prostředků Skupiny**vyberte **vytvořit nový** nebo **použít existující**. Zobrazovaný název představuje popisný název pro tuto nabídku. Tento popisný název, je pouze informace o nabídce, která se uživatelům zobrazí při přihlášení k odběru nabídky na portálu user portal. Pomocí intuitivního název, který pomáhá uživatelům pomoct pochopit, co se dodává s nabídkou. Pouze správce uvidí název prostředku. Je to název, který správci používají pro práci s nabídkou jako s prostředkem Azure Resource Manageru. Na této kartě je také možné zveřejnit v rámci této nabídky nebo je Uchovávejte privátní, což je výchozí hodnota. Je možné [ke změně stavu veřejné nebo soukromé nabídky](#change-the-state-of-an-offer) později, stejně.
+   V **Základy** kartu, zadejte **zobrazovaný název** a **název prostředku**a potom v části **skupiny prostředků**vyberte **vytvořit nové** nebo **použít existující**. Zobrazovaný název představuje popisný název pro tuto nabídku. Tento popisný název, je pouze informace o nabídce, která se uživatelům zobrazí při přihlášení k odběru nabídky na portálu user portal. Pomocí intuitivního název, který pomáhá uživatelům pomoct pochopit, co se dodává s nabídkou. Pouze správce uvidí název prostředku. Je to název, který správci používají pro práci s nabídkou jako s prostředkem Azure Resource Manageru. Na této kartě je také možné zveřejnit v rámci této nabídky nebo je Uchovávejte privátní, což je výchozí hodnota. Je možné [ke změně stavu veřejné nebo soukromé nabídky](#change-the-state-of-an-offer) později, stejně.
 
    ![Nová nabídka](media/azure-stack-create-offer/new-offer.png)
   
-3. Vyberte **základní plány** kartu. Vyberte plány, které chcete zahrnout do nabídky.
+3. Vyberte **základní plány** kartu nebo klikněte na tlačítko **Další: Základní plány >** tlačítko. Vyberte plány, které chcete zahrnout do nabídky.
 
    ![Vybrat plán](media/azure-stack-create-offer/select-plan.png)
 
@@ -67,7 +67,7 @@ Existují dva způsoby, jak změnit stav nabídky:
 
    ![Vyberte stav](media/azure-stack-create-offer/change-state.png)
 
-2. V **všechny prostředky**, vyberte název nabídky. Potom vyberte **nabízejí nastavení**. Zvolte stav, který chcete použít (například **veřejné**) a pak vyberte **Uložit**.
+2. Vyberte **nabízejí nastavení**. Zvolte stav, který chcete použít (například **veřejné**) a pak vyberte **Uložit**.
 
    ![Vyberte stav usnadnění](media/azure-stack-create-offer/offer-settings.png)
 
