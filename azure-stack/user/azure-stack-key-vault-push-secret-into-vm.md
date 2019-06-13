@@ -3,8 +3,8 @@ title: Nasazení virtuálního počítače s certifikátem bezpečně uloženým
 description: Zjistěte, jak nasadit virtuální počítač a push certificate problém napravit pomocí služby key vault ve službě Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: sethmanheim
+manager: femila
 editor: ''
 ms.assetid: 46590eb1-1746-4ecf-a9e5-41609fde8e89
 ms.service: azure-stack
@@ -12,22 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 12/27/2018
-ms.date: 04/29/2019
-ms.author: v-jay
+ms.date: 06/11/2019
+ms.author: sethm
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 965b9c0cde96e1e29828f37cdddaa9d30c0503a4
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: f9d4716751a03da1b67881e315abc2f6603428d3
+ms.sourcegitcommit: 07c51a03f07a6a3ee2721aa942d31a7a4c6a339b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64299985"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "67028228"
 ---
 # <a name="create-a-virtual-machine-and-install-a-certificate-retrieved-from-an-azure-stack-key-vault"></a>Vytvoření virtuálního počítače a nainstalovat certifikát načíst z trezoru klíčů Azure Stack
 
 *Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
 
-Zjistěte, jak vytvořit virtuální počítač (VM) Azure Stack pomocí služby key vault certifikátu nainstalovaného.
+Tento článek popisuje, jak vytvořit virtuální počítač (VM) Azure Stack pomocí služby key vault certifikátu nainstalovaného.
 
 ## <a name="overview"></a>Přehled
 
@@ -37,16 +36,16 @@ Certifikáty se používají v mnoha scénářích, jako je například ověřov
 * Zjednodušené proces správy certifikátů.
 * Máte pod kontrolou klíče, které přistupují k certifikáty.
 
-### <a name="process-description"></a>Popis procesu
+## <a name="process-description"></a>Popis procesu
 
 Následující kroky popisují proces nutný k nahrání certifikátu do virtuálního počítače:
 
 1. Vytvoření tajného kódu Key Vault.
-2. Aktualizace souboru azuredeploy.parameters.json.
+2. Aktualizace **azuredeploy.parameters.json** souboru.
 3. Nasazení šablony.
 
 > [!NOTE]
-> Tyto kroky ze sady Azure Stack Development Kit, nebo z externího klienta můžete použít, pokud jsou připojené prostřednictvím sítě VPN.
+> Tyto kroky z Azure Stack Development Kit (ASDK) nebo z externího klienta můžete použít, pokud jsou připojené prostřednictvím sítě VPN.
 
 ## <a name="prerequisites"></a>Požadavky
 
@@ -73,8 +72,8 @@ $pwd = ConvertTo-SecureString `
   -AsPlainText
 
 Export-PfxCertificate `
-  -cert "cert:\localMachine\my\<Certificate Thumbprint that was created in the previous step>" `
-  -FilePath "<Fully qualified path where the exported certificate can be stored>" `
+  -cert "cert:\localMachine\my\<certificate thumbprint that was created in the previous step>" `
+  -FilePath "<Fully qualified path to where the exported certificate can be stored>" `
   -Password $pwd
 
 # Create a key vault and upload the certificate into the key vault as a secret
@@ -82,7 +81,7 @@ $vaultName = "contosovault"
 $resourceGroup = "contosovaultrg"
 $location = "local"
 $secretName = "servicecert"
-$fileName = "<Fully qualified path where the exported certificate can be stored>"
+$fileName = "<Fully qualified path to where the exported certificate can be stored>"
 $certPassword = "<Password used to export the certificate>"
 
 $fileContentBytes = get-content $fileName `
@@ -120,13 +119,13 @@ Set-AzureKeyVaultSecret `
    -SecretValue $secret
 ```
 
-Při spuštění předchozí skript výstup obsahuje identifikátor URI tajného kódu. Poznamenejte si tento identifikátor URI. Je nutné na něj v odkazovat [certifikátu Push pro šablony Resource Manageru Windows](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate). Stáhněte si [vm nabízeného certifikátu windows](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate) složky šablony na vývojovém počítači. Tato složka obsahuje `azuredeploy.json` a `azuredeploy.parameters.json` soubory, které budete potřebovat v dalších krocích.
+Při spuštění tohoto skriptu výstup zahrnuje tajný identifikátor URI. Poznamenejte si tento identifikátor URI. Je nutné je odkazovat v [certifikátu Push pro šablony Resource Manageru Windows](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate). Stáhněte si [vm nabízeného certifikátu windows](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate) složky šablony na vývojovém počítači. Tato složka obsahuje **azuredeploy.json** a **azuredeploy.parameters.json** soubory, které je nutné v následujících krocích.
 
-Upravit `azuredeploy.parameters.json` souboru souladu s hodnotami prostředí. Parametry zájmovou jsou název trezoru, skupina prostředků trezoru a tajný klíč identifikátoru URI (generovaná předchozí skript). Následující části je příkladem souboru parametrů.
+Upravit **azuredeploy.parameters.json** souboru souladu s hodnotami prostředí. Parametry zajímají hlavně o jsou název trezoru, skupina prostředků trezoru a tajný klíč identifikátoru URI (generovaná předchozí skript). Následující části je příkladem souboru parametrů.
 
 ## <a name="update-the-azuredeployparametersjson-file"></a>Aktualizace souboru azuredeploy.parameters.json
 
-Aktualizace `azuredeploy.parameters.json` souboru `vaultName`, tajný identifikátor URI `VmName`a jiné hodnoty podle vašeho prostředí. Následující soubor JSON ukazuje příklad soubor parametrů šablony:
+Aktualizace **azuredeploy.parameters.json** souboru `vaultName`, tajný identifikátor URI `VmName`a další parametry podle vašeho prostředí. Následující soubor JSON ukazuje příklad soubor parametrů šablony:
 
 ```json
 {
@@ -178,16 +177,16 @@ Po úspěšném nasazení šablony, výsledkem následující výstup:
 
 ![Výsledky šablony nasazení](media/azure-stack-key-vault-push-secret-into-vm/deployment-output.png)
 
-Azure Stack odešle certifikát do virtuálního počítače během nasazení. Umístění certifikátu závisí na operačním systému Virtuálního počítače:
+Azure Stack odešle certifikát do virtuálního počítače během nasazení. Umístění certifikátu, závisí na operačním systému virtuálního počítače:
 
 * Ve Windows, je certifikát přidán do **LocalMachine** umístění s úložišti certifikátů, které uživatel zadal certifikátu.
-* V systému Linux, certifikát je umístěn v rámci `/var/lib/waagent directory`, s názvem souboru &lt;UppercaseThumbprint&gt;CRT pro X509 soubor certifikátu a &lt;UppercaseThumbprint&gt;.prv privátního klíče.
+* V systému Linux, certifikát je umístěn v rámci **/var/lib/waagent** adresář s názvem souboru **UppercaseThumbprint.crt** pro X509 soubor certifikátu a **UppercaseThumbprint.prv**  privátního klíče.
 
 ## <a name="retire-certificates"></a>Vyřadit certifikáty
 
 Po vyřazení certifikátů je součástí proces správy certifikátů. Nelze odstranit starší verzi certifikát, ale můžete ji vypnout pomocí `Set-AzureKeyVaultSecretAttribute` rutiny.
 
-Následující příklad ukazuje, jak zakázat certifikát. Použijte vlastní hodnoty **VaultName**, **název**, a **verze** parametry.
+Následující příklad ukazuje, jak zakázat certifikát. Použijte vlastní hodnoty `VaultName`, `Name`, a `Version` parametry.
 
 ```powershell
 Set-AzureKeyVaultSecretAttribute -VaultName contosovault -Name servicecert -Version e3391a126b65414f93f6f9806743a1f7 -Enable 0

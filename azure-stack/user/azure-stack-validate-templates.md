@@ -3,8 +3,8 @@ title: Kontrola šablon pro Azure Stack pomocí nástroje pro ověření šablon
 description: Kontrola šablon pro nasazení do služby Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: sethmanheim
+manager: femila
 editor: ''
 ms.assetid: d9e6aee1-4cba-4df5-b5a3-6f38da9627a3
 ms.service: azure-stack
@@ -12,23 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/08/2018
-ms.date: 04/29/2019
-ms.author: v-jay
+ms.date: 06/11/2019
+ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: def5b2f49998cfc9a9bf3a857b56b5537b14b9f1
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 3cba34e2748d00ebb886e7122ce1dd7151325c85
+ms.sourcegitcommit: 07c51a03f07a6a3ee2721aa942d31a7a4c6a339b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64301063"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "67028283"
 ---
 # <a name="check-your-templates-for-azure-stack-with-the-template-validation-tool"></a>Kontrola vašich šablon pro Azure Stack pomocí nástroje pro ověření šablony
 
 *Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
 
-Nástroj ověření šablony můžete použít ke kontrole, jestli váš správce prostředků Azure [šablony](azure-stack-arm-templates.md) jsou připraveny k nasazení do služby Azure Stack. Nástroj ověření šablony je k dispozici jako součást nástrojů pro Azure Stack. Stáhněte si nástroje Azure Stack pomocí kroků popsaných v [nástroje stáhnout z webu GitHub](../operator/azure-stack-powershell-download.md) článku.
+Nástroj ověření šablony můžete použít ke kontrole, jestli váš správce prostředků Azure [šablony](azure-stack-arm-templates.md) jsou připraveny k nasazení do služby Azure Stack. Nástroj ověření šablony je k dispozici jako součást nástrojů pro Azure Stack. Stáhněte si nástroje Azure Stack pomocí kroků popsaných v [nástroje stáhnout z webu GitHub](../operator/azure-stack-powershell-download.md).
 
 ## <a name="overview"></a>Přehled
 
@@ -51,7 +50,7 @@ Než použijete validátor šablony, spusťte **AzureRM.CloudCapabilities** modu
     Import-Module .\CloudCapabilities\AzureRM.CloudCapabilities.psm1
     ```
 
-3. Použití `Get-CloudCapabilities` rutina pro načtení verzí služby a vytvořte soubor JSON možnosti cloudu. Pokud nezadáte **- OutputPath**, soubor AzureCloudCapabilities.Json se vytvoří v aktuálním adresáři. Pomocí vašeho aktuálního umístění Azure:
+3. Použití `Get-CloudCapabilities` rutina pro načtení verzí služby a vytvořte soubor JSON možnosti cloudu. Pokud nezadáte `-OutputPath`, soubor AzureCloudCapabilities.Json se vytvoří v aktuálním adresáři. Pomocí vašeho aktuálního umístění Azure:
 
     ```powershell
     Get-AzureRMCloudCapability -Location <your location> -Verbose
@@ -82,17 +81,17 @@ Pomocí těchto kroků můžete ověřit pomocí šablony **AzureRM.TemplateVali
 
 ### <a name="parameters"></a>Parametry
 
-Ověření šablony podporuje následující parametry.
+Rutina šablony validátor podporuje následující parametry.
 
 | Parametr | Popis | Požaduje se |
 | ----- | -----| ----- |
-| TemplatePath | Určuje cestu k rekurzivnímu hledání šablon Azure Resource Manageru. | Ano |
-| TemplatePattern | Určuje název souboru šablony tak, aby odpovídaly. | Ne |
-| CapabilitiesPath | Určuje cestu k souboru JSON možnosti cloudu. | Ano |
-| IncludeComputeCapabilities | Zahrnuje zkušební prostředků IaaS, jako je například velikosti virtuálních počítačů a rozšíření virtuálních počítačů. | Ne |
-| IncludeStorageCapabilities | Zahrnuje zkušební prostředky úložiště, jako jsou typy SKU. | Ne |
-| Sestava | Určuje název generovaného sestavu ve formátu HTML. | Ne |
-| Podrobnosti | Protokoluje chyby a upozornění do konzoly. | Ne|
+| `TemplatePath` | Určuje cestu k rekurzivnímu hledání šablon Azure Resource Manageru. | Ano |
+| `TemplatePattern` | Určuje název souboru šablony tak, aby odpovídaly. | Ne |
+| `CapabilitiesPath` | Určuje cestu k souboru JSON možnosti cloudu. | Ano |
+| `IncludeComputeCapabilities` | Zahrnuje zkušební prostředků IaaS, jako je například velikosti virtuálních počítačů a rozšíření virtuálních počítačů. | Ne |
+| `IncludeStorageCapabilities` | Zahrnuje zkušební prostředky úložiště, jako jsou typy SKU. | Ne |
+| `Report` | Určuje název generovaného sestavu ve formátu HTML. | Ne |
+| `Verbose` | Protokoluje chyby a upozornění do konzoly. | Ne|
 
 ### <a name="examples"></a>Příklady
 
@@ -110,5 +109,3 @@ test-AzureRMTemplate -TemplatePath C:\AzureStack-Quickstart-Templates `
 
 - [Nasazení šablony do služby Azure Stack](azure-stack-arm-templates.md)
 - [Vývoj šablon pro Azure Stack](azure-stack-develop-templates.md)
-
-<!-- Update_Description: wording update -->
