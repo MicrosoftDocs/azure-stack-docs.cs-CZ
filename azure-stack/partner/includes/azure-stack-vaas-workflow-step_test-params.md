@@ -2,15 +2,15 @@
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: include
-ms.date: 03/04/2019
+ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
-ms.openlocfilehash: 3371fe2d7eb5bac18114d79d534eb6a40262806b
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: e3da204e101d0c0ce97ebb5fa08355cd57bb802c
+ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64301437"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133529"
 ---
 Zadejte parametry testu. Další podrobnosti a pokyny najdete v tématu [parametry testu](../azure-stack-vaas-parameters.md#test-parameters).

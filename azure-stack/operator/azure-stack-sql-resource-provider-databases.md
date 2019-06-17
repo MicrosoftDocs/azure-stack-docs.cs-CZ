@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: quying
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 2b177f14fc787c05c0a7c1f654e8bcfaf8638b93
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 1036f5b418af330e0acfd940137f7ae2effecc25
+ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618191"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67131227"
 ---
 # <a name="create-sql-databases"></a>Vytvoření databáze SQL
 
@@ -39,7 +39,7 @@ Můžete vytvořit a spravovat databáze samoobslužného portálu user portal. 
 
 4. V části **Create Database**vyberte **SKU**. V části **vyberte skladovou Položku**, vyberte SKU pro vaši databázi.
 
-   ![Vytvořit databázi](./media/azure-stack-sql-rp-deploy/newsqldb.png)
+   ![Vytvoření databáze](./media/azure-stack-sql-rp-deploy/newsqldb.png)
 
    >[!NOTE]
    >Jako hostitelské servery jsou přidány do služby Azure Stack, je přiřazený SKU. Databáze se vytvářejí ve fondu hostitelské servery v SKU.
@@ -69,7 +69,7 @@ Následující snímek obrazovky ukazuje, jak můžete použít SQL Server Manag
 
 ![Stav databáze AlwaysOn](./media/azure-stack-sql-rp-deploy/verifyalwayson.png)
 
-Always On databáze by měla zobrazit jako Synchronized a k dispozici na všech instancích SQL a zobrazeny podle skupin dostupnosti. Na předchozím snímku obrazovky je příklad databáze newdb1 a její stav je **newdb1 (synchronizované)**.
+Always On databáze by měla zobrazit jako Synchronized a k dispozici na všech instancích SQL a zobrazeny podle skupin dostupnosti. Na předchozím snímku obrazovky je příklad databáze newdb1 a její stav je **newdb1 (synchronizované)** .
 
 ### <a name="delete-an-alwayson-database"></a>Odstranit databázi AlwaysOn
 

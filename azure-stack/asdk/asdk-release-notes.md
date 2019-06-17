@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/04/2019
+ms.date: 06/14/2019
 ms.author: sethm
 ms.reviewer: misainat
-ms.lastreviewed: 06/04/2019
-ms.openlocfilehash: 2ca85da5d9fde42fb06eef149e7304ab08bc32ee
-ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
+ms.lastreviewed: 06/14/2019
+ms.openlocfilehash: 0de27634ac6167637dcdc487474f16d3ef2b2c95
+ms.sourcegitcommit: 427b534634d902b164e7d54dfd97b63c31563084
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66691194"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67145178"
 ---
 # <a name="asdk-release-notes"></a>Zpráva k vydání verze ASDK
 
@@ -38,15 +38,7 @@ Udržujte si s tím, co se přihlásíte k odběru je novinkou ASDK [ ![RSS](./m
 
 ### <a name="fixed-and-known-issues"></a>Oprava a známé problémy
 
-- Z důvodu služba hlavní časový limit při spuštění skriptu registraci za účelem [zaregistrovat ASDK](asdk-register.md) úspěšně musí upravit **RegisterWithAzure.psm1** skript prostředí PowerShell. Udělejte toto:
-
-  1. Na hostitelském počítači ASDK, otevřete soubor **C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1** v editoru se zvýšenými oprávněními.
-  2. Na řádku 1249, přidejte `-TimeoutInSeconds 1800` parametr na konci. To se vyžaduje kvůli časového limitu služby instančního objektu při spuštění skriptu registrace. Řádek 1249 by měl nyní vypadat následovně:
-
-     ```powershell
-      $servicePrincipal = Invoke-Command -Session $PSSession -ScriptBlock { New-AzureBridgeServicePrincipal -RefreshToken $using:RefreshToken -AzureEnvironment $using:AzureEnvironmentName -TenantId $using:TenantId -TimeoutInSeconds 1800 }
-      ```
-
+- Opravili jsme problém, ve kterém jste měli upravit **RegisterWithAzure.psm1** skript prostředí PowerShell, aby se dalo [zaregistrovat ASDK](asdk-register.md) úspěšně.
 - Seznam dalších problémů služby Azure Stack, opravené v této verzi najdete v tématu [v této části](../operator/azure-stack-release-notes-1905.md#fixes) poznámky k verzi služby Azure Stack.
 - Seznam známých problémů najdete v tématu [v tomto článku](../operator/azure-stack-release-notes-known-issues-1905.md).
 - Všimněte si, že [dostupných oprav hotfix Azure Stack](../operator/azure-stack-release-notes-1905.md#hotfixes) se nevztahují na Azure Stack ASDK.

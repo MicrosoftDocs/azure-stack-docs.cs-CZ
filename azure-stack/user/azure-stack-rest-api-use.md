@@ -1,5 +1,5 @@
 ---
-title: Použití rozhraní API Azure Stack | Dokumentace Microsoftu
+title: Zkontrolujte požadavky rozhraní API do služby Azure Stack | Dokumentace Microsoftu
 description: Zjistěte, jak načíst ověření z Azure, aby žádosti rozhraní API pro Azure Stack.
 services: azure-stack
 documentationcenter: ''
@@ -14,32 +14,32 @@ ms.date: 05/16/2019
 ms.author: sethm
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 22aeab6c6f33462ebea50bafa795630a648e2dd5
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 83578f7644f7a4bfc47f854fe9974809c22bba02
+ms.sourcegitcommit: ad2f2cb4dc8d5cf0c2c37517d5125921cff44cdd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269405"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67138915"
 ---
 <!--  cblackuk and charliejllewellyn. This is a community contribution by cblackuk-->
 
-# <a name="use-the-azure-stack-api"></a>Použití rozhraní API v Azure stacku
+# <a name="make-api-requests-to-azure-stack"></a>Zkontrolujte požadavky rozhraní API do služby Azure Stack
 
 *Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
 
-Rozhraní API (Application Programming) můžete použít k automatizaci operací, jako je přidání virtuálního počítače do cloudu služby Azure Stack.
+Rozhraní API (Application Programming) můžete použít k automatizaci operací, jako je například přidávání virtuálních počítačů (VM) do cloudu služby Azure Stack.
 
 Rozhraní API vyžaduje váš klient k ověření do Microsoft Azure přihlášení koncového bodu. Koncový bod vrátí token určený v hlavičce každého požadavku odeslaného do rozhraní API Azure Stack. Microsoft Azure používá Oauth 2.0.
 
-Tento článek obsahuje příklady, které používají **cURL** nástroj k vytváření žádostí o služby Azure Stack. Použití cURL, je nástroj příkazového řádku pomocí knihovny pro přenos dat. Tyto příklady provedou proces načítání tokenu pro přístup k rozhraní API služby Azure Stack. Většina programovacích jazyků poskytují knihovny Oauth 2.0, které mají robustní token úkolů správy a zpracování těchto obnovení tokenu.
+Tento článek obsahuje příklady, které používají **cURL** nástroj k vytváření žádostí o služby Azure Stack. cURL je nástroj příkazového řádku pomocí knihovny pro přenos dat. Tyto příklady provedou proces načítání tokenu pro přístup k rozhraní API služby Azure Stack. Většina programovacích jazyků poskytují knihovny, Oauth 2.0, které mají robustní token úkolů správy a popisovač třeba obnovení tokenu.
 
-Projděte si celý proces pomocí REST API služby Azure Stack pomocí obecného klienta REST, například **cURL**, které vám pomohou pochopit základní požadavky a ukazuje, co můžete očekávat přijímat v datové části odpovědi.
+Projděte si celý proces pomocí REST API služby Azure Stack pomocí obecného klienta REST, například **cURL**, které vám pomohou pochopit základní požadavky a co můžete očekávat v datové části odpovědi.
 
 Tento článek není prozkoumejte všechny možnosti, které jsou k dispozici pro získávání tokenů, jako je například interaktivní přihlášení nebo vytváření vyhrazené ID aplikace. Chcete-li získat informace o těchto tématech najdete v článku [Reference k rozhraní Azure REST API](https://docs.microsoft.com/rest/api/).
 
 ## <a name="get-a-token-from-azure"></a>Získání tokenu z Azure
 
-Vytvořte hlavní část žádosti formátována pomocí typ obsahu x-www-form-urlencoded sloužící k získání přístupového tokenu. POŠLE požadavek na koncový bod REST ověřování Azure a přihlaste se.
+Vytvořte hlavní část žádosti formátována pomocí typ obsahu x-www-form-urlencoded sloužící k získání přístupového tokenu. POŠLE požadavek na koncový bod pro ověření a přihlášení Azure REST.
 
 ### <a name="uri"></a>Identifikátor URI
 
@@ -66,19 +66,19 @@ grant_type=password
 
 Pro každou hodnotu:
 
-- **grant_type**  
-   Typ schématu ověřování budete používat. V tomto příkladu je hodnota `password`
+- **grant_type**:  
+   Typ schématu ověřování, které budete používat. V tomto příkladu je hodnota `password`.
 
-- **resource**  
-   Prostředek přistupuje k tokenu. Najít prostředek pomocí dotazu na koncový bod metadat pro správu služby Azure Stack. Podívejte se na **cílovým skupinám na místě** oddílu
+- **Prostředek**:  
+   Prostředek přistupuje k tokenu. Najít prostředek pomocí dotazu na koncový bod metadat pro správu služby Azure Stack. Podívejte se na **cílovým skupinám na místě** oddílu.
 
-- **Koncový bod pro správu Azure Stack**  
+- **Koncový bod pro správu Azure Stack**:  
    ```
    https://management.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-01
    ```
 
   > [!NOTE]  
-  > Pokud jste správcem pokusu o přístup k rozhraní API klienta pak můžete musí nezapomeňte použít koncový bod tenanta, například: `https://adminmanagement.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-011`  
+  > Pokud jste správcem pokusu o přístup k rozhraní API pro klienty, nezapomeňte použít koncový bod tenant. Příklad: `https://adminmanagement.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-011`  
 
   Například v Azure Stack Development Kit jako koncový bod:
 
@@ -168,7 +168,7 @@ Odpověď:
 
 ## <a name="api-queries"></a>Dotazů na rozhraní API
 
-Jakmile se zobrazí váš přístupový token, musíte přidat jako hlavičku do všech žádostí o rozhraní API. Pokud chcete udělat, je potřeba vytvořit hlavičku **autorizace** s hodnotou: `Bearer <access token>`. Příklad:
+Jakmile se zobrazí váš přístupový token, přidejte jej jako hlavičku do všech žádostí o rozhraní API. Přidat jako záhlaví, vytvořit hlavičku **autorizace** s hodnotou: `Bearer <access token>`. Příklad:
 
 Požadavek:
 
@@ -190,7 +190,7 @@ subscriptionPolicies : @{locationPlacementId=AzureStack}
 
 ### <a name="url-structure-and-query-syntax"></a>Adresa URL struktury a syntaxe dotazů
 
-Žádost o obecný identifikátor URI, se skládá z: {Schéma identifikátoru URI} :// {identifikátor URI-host} / {resource-path}? {řetězec dotazu}
+Žádost o obecný identifikátor URI, se skládá ze: `{URI-scheme} :// {URI-host} / {resource-path} ? {query-string}`
 
 - **Schéma identifikátoru URI**:  
 Identifikátor URI označuje protokol použitý k odeslání žádosti. Například `http` nebo `https`.

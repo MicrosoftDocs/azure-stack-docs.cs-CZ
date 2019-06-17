@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2019
+ms.date: 06/14/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/29/2019
-ms.openlocfilehash: 3c962f0ef9fccdf814ccfaf0a432b1c303a63368
-ms.sourcegitcommit: 23816ec68f67f3ac51f78de925b7631590743a29
+ms.openlocfilehash: 448af01e935165ea974c22c23bd73c7a02ac3935
+ms.sourcegitcommit: 427b534634d902b164e7d54dfd97b63c31563084
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66835109"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67145281"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Položky Azure Marketplace k dispozici pro službu Azure Stack
 
@@ -87,10 +87,10 @@ Microsoft Azure Stack podporuje následující virtuální počítače Azure Mar
 | ![Ubuntu Server](media/azure-stack-marketplace-azure-items/ubuntu.png) | [Ubuntu Server](https://azuremarketplace.microsoft.com/marketplace/apps/Canonical.UbuntuServer) | Ubuntu Server je nejoblíbenější Linux na světě pro cloudové prostředí. | Canonical |
 | ![Debian 8 "Jessie"](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.Debian) | Debian GNU/Linux je jedním z nejoblíbenějších Linuxových distribucí. | credativ |
 | ![Založené na centOS 6.8](media/azure-stack-marketplace-azure-items/roguewave.png) | [Založené na centOS 6.8](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased68HPC) | Této distribuce Linuxu založené na CentOS a pochází od neautorizovaných serverů Wave softwaru. | Škodlivý Software Wave (dříve OpenLogic)  |
-| ![6.10 založené na centOS](media/azure-stack-marketplace-azure-items/roguewave.png) | [6.10 založené na centOS](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased610) | Této distribuce Linuxu založené na CentOS a pochází od neautorizovaných serverů Wave softwaru. | Škodlivý Software Wave (dříve OpenLogic)  |
+| ![6\.10 založené na centOS](media/azure-stack-marketplace-azure-items/roguewave.png) | [6.10 založené na centOS](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased610) | Této distribuce Linuxu založené na CentOS a pochází od neautorizovaných serverů Wave softwaru. | Škodlivý Software Wave (dříve OpenLogic)  |
 | ![Distribuce založené na CentOS 7.3](media/azure-stack-marketplace-azure-items/roguewave.png) | [Založené na centOS 7.3](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased73HPC) | Této distribuce Linuxu založené na CentOS a pochází od neautorizovaných serverů Wave softwaru. | Škodlivý Software Wave (dříve OpenLogic) |
 | ![Založené na centOS 7.5](media/azure-stack-marketplace-azure-items/roguewave.png) | [Založené na centOS 7.5](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased75) | Této distribuce Linuxu založené na CentOS a pochází od neautorizovaných serverů Wave softwaru. | Škodlivý Software Wave (dříve OpenLogic) |
-| ![7.5 LVM založené na centOS](media/azure-stack-marketplace-azure-items/roguewave.png) | [7.5 LVM založené na centOS](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased75) | Této distribuce Linuxu založené na CentOS a pochází od neautorizovaných serverů Wave softwaru. | Škodlivý Software Wave (dříve OpenLogic) |
+| ![7\.5 LVM založené na centOS](media/azure-stack-marketplace-azure-items/roguewave.png) | [7.5 LVM založené na centOS](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased75) | Této distribuce Linuxu založené na CentOS a pochází od neautorizovaných serverů Wave softwaru. | Škodlivý Software Wave (dříve OpenLogic) |
 | ![SLES 11 SP4 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 11 SP4 (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/suse.sles-byos) | SUSE Linux Enterprise Server 11 SP4. | SUSE |
 | ![SLES 12 SP3 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 12 SP4 (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/suse.sles-byos) | SUSE Linux Enterprise Server 12 SP4. | SUSE |
 | ![SLES 15 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 15 (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/suse.sles-byos) | SUSE Linux Enterprise Server 15. | SUSE |
@@ -249,4 +249,5 @@ Microsoft Azure Stack podporuje následující virtuální počítače Azure Mar
 | ![Quest rychlého obnovení](media/azure-stack-marketplace-azure-items/quest.png) | [Quest rychlého obnovení Core](https://azuremarketplace.microsoft.com/marketplace/apps/quest.rapid-recovery-core-vm) | Rychlé obnovení rozšířené ochrany dat sjednocuje zálohování, replikace a obnovení v jediném řešení softwaru snadným ovládáním. | Quest softwaru |
 | ![SUSE správce 3.1 Proxy (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE správce 3.1 Proxy (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/suse.suse-manager-proxy-byos?tab=Overview) | Správa infrastruktury ve své třídě nejlepší open source. | SUSE |
 | ![CipherTrust Cloud Key Manager](media/azure-stack-marketplace-azure-items/cckm.png) | [Správce klíčů CipherTrust cloudu](https://azuremarketplace.microsoft.com/marketplace/apps/thales-vormetric.ciphertrust-ckm) | Využití Microsoft Azure a jiný poskytovatel cloudu rozhraní API přineste si vlastní klíč (BYOK), Správce klíčů CipherTrust cloudu snižuje složitost správy klíčů a provozní náklady tím, že ovládací prvek multicloud životního cyklu šifrovacích klíčů s centralizované zajištění viditelnosti a správy. | ESecurity společnosti Thales |
+| ![Sada Veeam zálohování a replikace](media/azure-stack-marketplace-azure-items/veeam.png) | [Sada Veeam zálohování a replikace](https://azuremarketplace.microsoft.com/marketplace/apps/veeam.veeam-backup-replication?tab=Overview) | Veeam® zálohování & Replication™ pomáhá firmám dosáhnout komplexní ochranu dat pro všechny úlohy, virtuální, fyzické a založené na cloudu. Pomocí jediné konzoly můžete dosáhnout rychlý, flexibilní a spolehlivé zálohování, obnovení a replikace všech aplikací a data. | Sada Veeam softwaru |
 | ![ZeroDown Software BCaaS](media/azure-stack-marketplace-azure-items/zerodown.png) | [Kontinuita podnikových procesů ZeroDown Software jako služba](https://azuremarketplace.microsoft.com/marketplace/apps/zerodown_software.bcaasforazure) | Firmách nepřetržitý přístup ke své firemní data prostřednictvím jejich obchodní kontinuity podnikových procesů poskytuje technologie ZeroDown® Software jako služba (BCaaS)™ architektury, ochranu aplikací a transakce, pokud dojde k přerušení sítě, který se normálně cripple podniku. | ZeroDown Software |

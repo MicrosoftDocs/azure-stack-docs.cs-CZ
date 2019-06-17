@@ -15,12 +15,12 @@ ms.date: 04/19/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 04/19/2019
-ms.openlocfilehash: 689929a6efc2d318fb8c24545636053946457785
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 003149d15a8509e37f01e379e0929c2ef758bcef
+ms.sourcegitcommit: ad2f2cb4dc8d5cf0c2c37517d5125921cff44cdd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64299798"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67138833"
 ---
 # <a name="access-the-kubernetes-dashboard-in-azure-stack"></a>Přístup k řídicímu panelu Kubernetes v Azure stacku 
 
@@ -28,21 +28,21 @@ ms.locfileid: "64299798"
 > [!Note]   
 > Kubernetes ve službě Azure Stack je ve verzi preview. Azure Stack odpojené scénář není aktuálně podporován ve verzi preview. 
 
-Kubernetes zahrnuje webové řídicí panel, který můžete použít pro operací základní správy. Tento řídicí panel umožňuje zobrazit základní stav a metriky pro vaše aplikace, vytvoření a nasazení služeb a upravit stávající aplikace. V tomto článku se dozvíte, jak nastavit řídicí panel Kubernetes ve službě Azure Stack.
+Kubernetes zahrnuje řídicí panel web použít pro operací základní správy. Tento řídicí panel umožňuje zobrazit základní stav a metriky pro vaše aplikace, vytvoření a nasazení služeb a upravit stávající aplikace. V tomto článku se dozvíte, jak nastavit řídicí panel Kubernetes ve službě Azure Stack.
 
 ## <a name="prerequisites-for-kubernetes-dashboard"></a>Požadavky na řídicí panel Kubernetes
 
 * Cluster Azure Kubernetes zásobníku
 
-    Je potřeba jste nasadili Kubernetes cluster pro Azure Stack. Další informace najdete v tématu [nasazení Kubernetes](azure-stack-solution-template-kubernetes-deploy.md).
+    Bude potřeba jste nasadili Kubernetes cluster pro Azure Stack. Další informace najdete v tématu [nasazení Kubernetes](azure-stack-solution-template-kubernetes-deploy.md).
 
 * Klient SSH
 
-    Budete potřebovat klienta SSH k zabezpečení připojení k vaší hlavní uzel v clusteru. Pokud používáte Windows, můžete použít [Putty](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-connect-vm). Budete potřebovat privátní klíč, který jste použili při nasazení clusteru Kubernetes.
+    Budete potřebovat klienta SSH pro zabezpečené připojení k vaší hlavní uzel v clusteru. Pokud používáte Windows, můžete použít [Putty](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-connect-vm). Budete potřebovat privátní klíč, který jste použili při nasazení clusteru Kubernetes.
 
 * FTP (PSCP)
 
-    Možná bude nutné také klienta FTP, který podporuje SSH a SSH File Transfer Protocol přenos certifikáty z hlavního uzlu do Azure stacku správu počítače. Můžete použít [Filezilly](https://filezilla-project.org/download.php?type=client). Budete potřebovat privátní klíč, který jste použili při nasazení clusteru Kubernetes.
+    Možná bude nutné také klienta FTP (například [Filezilly](https://filezilla-project.org/download.php?type=client)), který podporuje SSH a SSH FTP k přenosu certifikáty z hlavního uzlu do Azure stacku správu počítače. Budete potřebovat privátní klíč, který jste použili při nasazení clusteru Kubernetes.
 
 ## <a name="overview-of-steps-to-enable-dashboard"></a>Přehled kroky, aby řídicí panel
 
@@ -56,10 +56,10 @@ Adresu URL řídicího panelu můžete načíst z hlavního uzlu v clusteru.
 
 1. Získejte veřejnou IP adresu a uživatelské jméno pro hlavní clusteru z řídicího panelu služby Azure Stack. Pokud chcete získat tyto informace:
 
-    - Přihlaste se k [portálu Azure Stack](https://portal.local.azurestack.external/)
+    - Přihlaste se k [portálu Azure Stack](https://portal.local.azurestack.external/).
     - Vyberte **všechny služby** > **všechny prostředky**. Najdete hlavnímu serveru ve vaší skupině prostředků clusteru. Název hlavní `k8s-master-<sequence-of-numbers>`. 
 
-2. Hlavní uzel otevřete na portálu. Kopírovat **veřejnou IP adresu** adresu. Klikněte na tlačítko **připojit** získat uživatelské jméno **přihlásit se pomocí místního účtu virtuálního počítače** pole. Toto je stejné uživatelské jméno, které jste nastavili při vytváření clusteru. Použijte veřejnou IP adresu než privátní IP adresy uvedené v okně připojení.
+2. Hlavní uzel otevřete na portálu. Kopírovat **veřejnou IP adresu** adresu. Klikněte na tlačítko **připojit** získat uživatelské jméno **přihlásit se pomocí místního účtu virtuálního počítače** pole. Tento název je stejné uživatelské jméno, které jste nastavili při vytváření clusteru. Použijte veřejnou IP adresu než privátní IP adresy uvedené v okně připojení.
 
 3.  Otevřete klienta SSH pro připojení k hlavnímu serveru. Pokud pracujete ve Windows, můžete použít [Putty](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-connect-vm) k vytvoření připojení. Budete používat veřejnou IP adresu pro hlavní uzel uživatelské jméno a přidejte privátní klíč, který jste použili při vytváření clusteru.
 
@@ -95,7 +95,7 @@ Adresu URL řídicího panelu můžete načíst z hlavního uzlu v clusteru.
 
 ## <a name="import-the-certificate"></a>Importovat certifikát
 
-1. Otevřete Filezilly a připojte se k hlavnímu uzlu. Budete potřebovat:
+1. Otevřete Filezilly a připojte se k hlavnímu uzlu. Je nutné:
 
     - veřejnou IP adresu hlavního uzlu
     - uživatelské jméno
@@ -116,7 +116,7 @@ Adresu URL řídicího panelu můžete načíst z hlavního uzlu v clusteru.
 
 1. Zakáže blokování automaticky otevíraných oken ve webovém prohlížeči.
 
-2. Bod prohlížeče na adresu URL jste si poznamenali, když jste spustili příkaz `kubectl cluster-info`. Například: https:\//azurestackdomainnamefork8sdashboard/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard: / proxy serveru 
+2. Přejděte na adresu URL jste si poznamenali, když jste spustili příkaz `kubectl cluster-info`. Příklad: `https:\//azurestackdomainnamefork8sdashboard/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy` 
 3. Vyberte klientský certifikát.
 4. Zadejte token. 
 5. Znovu připojit k příkazovému řádku bash na hlavní uzel a udělit oprávnění k `kubernetes-dashboard`. Spusťte následující příkaz:
@@ -127,7 +127,7 @@ Adresu URL řídicího panelu můžete načíst z hlavního uzlu v clusteru.
 
     Skript vypíše `kubernetes-dashboard` cloudu oprávnění správce. Další informace najdete v tématu [clustery s podporou pro RBAC](https://docs.microsoft.com/azure/aks/kubernetes-dashboard).
 
-Mohou pomocí řídicího panelu. Další informace na řídicí panel Kubernetes najdete v tématu [řídicí panel Kubernetes webového uživatelského rozhraní](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/) 
+Řídicí panel je připravená. Další informace na řídicí panel Kubernetes najdete v tématu [řídicí panel Kubernetes webového uživatelského rozhraní](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/) 
 
 ![Řídicí panel Kubernetes pro Azure Stack](media/azure-stack-solution-template-kubernetes-dashboard/azure-stack-kub-dashboard.png)
 

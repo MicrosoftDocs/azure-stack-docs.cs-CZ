@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: quying
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 480af6cc4cdfb8e2da7b7d324d3f1c657f292424
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 092d35b70373f95c74c510d8452fd43c0e7cd5c2
+ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617998"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67131168"
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Použití databází MySQL ve službě Microsoft Azure Stack
 
@@ -35,7 +35,7 @@ Po nasazení poskytovatele prostředků, můžete:
 
 Poskytovatel prostředků má následující komponenty:
 
-* **MySQL prostředků poskytovatele adaptér virtuálního počítače (VM)**, což je virtuální počítač Windows Server, na kterém běží služby poskytovatele.
+* **MySQL prostředků poskytovatele adaptér virtuálního počítače (VM)** , což je virtuální počítač Windows Server, na kterém běží služby poskytovatele.
 * **Poskytovatel prostředků**, která zpracovává požadavky a prostředky databáze přístupy.
 * **Servery, které hostují MySQL Server**, které poskytují kapacity pro databáze, které se nazývají hostitelské servery. Můžete vytvořit instance MySQL sami, nebo poskytnout přístup k externí instance MySQL. [Galerii pro rychlý start Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/mysql-standalone-server-windows) je Ukázková šablona, která vám umožní:
 

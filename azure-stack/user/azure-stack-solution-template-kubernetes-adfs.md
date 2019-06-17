@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/11/2019
+ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 02/11/2019
-ms.openlocfilehash: 367053882e9e44ba983d5df552929c65222fcafc
-ms.sourcegitcommit: be5382f715a9c1c18c660b630d8fcd823f13aae3
+ms.openlocfilehash: c5d1643dbeb3c4c2805ebc1411cdce451889a288
+ms.sourcegitcommit: ad2f2cb4dc8d5cf0c2c37517d5125921cff44cdd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66197352"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67138861"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-using-active-directory-federated-services"></a>Nasazení do služby Azure Stack pomocí Active Directory Federated Services Kubernetes
 
@@ -29,13 +29,13 @@ ms.locfileid: "66197352"
 > [!Note]  
 > Kubernetes ve službě Azure Stack je ve verzi preview. Azure Stack odpojené scénář není aktuálně podporován ve verzi preview.
 
-Můžete postupovat podle kroků v tomto článku pro nasazení a nastavit prostředky pro Kubernetes. Pomocí těchto kroků při Active Directory Federated Services (AD FS) je služba pro správu identit.
+Postupujte podle kroků v tomto článku pro nasazení a nastavit prostředky pro Kubernetes, když Active Directory Federated Services (AD FS) je služba pro správu identit.
 
 ## <a name="prerequisites"></a>Požadavky 
 
 Abyste mohli začít, ujistěte se, že máte správná oprávnění a že služby Azure Stack je připravena.
 
-1. Generování veřejného a privátního klíče pár SSH pro přihlášení do virtuálního počítače s Linuxem v Azure stacku. Veřejný klíč musíte při vytváření clusteru.
+1. Generovat SSH páru veřejného a privátní klíče se přihlásit na virtuální počítač s Linuxem (VM) ve službě Azure Stack. Veřejný klíč musíte při vytváření clusteru.
 
     Generuje se klíč, v tématu [vygenerování klíče SSH](https://github.com/msazurestackworkloads/acs-engine/blob/master/docs/ssh.md#ssh-key-generation).
 
@@ -43,15 +43,15 @@ Abyste mohli začít, ujistěte se, že máte správná oprávnění a že služ
 
     Cluster se nedá nasadit do služby Azure Stack **správce** předplatného. Je nutné použít **uživatele** předplatného. 
 
-1. Je třeba službu Key Vault ve vašem předplatném Azure Stack.
+1. Bude nutné službu Key Vault ve vašem předplatném Azure Stack.
 
-1. Budete potřebovat Kubernetes Cluster v marketplace. 
+1. V marketplace, budete potřebovat Kubernetes Cluster. 
 
-Pokud vám chybí službu Key Vault a položky marketplace clusteru Kubernetes, obraťte se na správce služby Azure Stack.
+Pokud jste chybí službu Key Vault a položky marketplace clusteru Kubernetes, obraťte se na svého správce služby Azure Stack.
 
 ## <a name="create-a-service-principal"></a>Vytvoření instančního objektu
 
-Potřebujete pracovat se správcem vaší služby Azure Stack a nastavení instančního objektu služby, při použití služby AD FS jako řešení identit. Služby, které poskytuje vaše aplikace přístup k prostředkům Azure Stack.
+Práce s vaším správcem služby Azure Stack při použití služby AD FS jako řešení identity nastavení instančního objektu služby. Instanční objekt poskytuje aplikaci přístup k prostředkům Azure Stack.
 
 1. Správce služby Azure Stack vám poskytne certifikátu a informace pro instanční objekt.
 
@@ -66,11 +66,11 @@ Potřebujete pracovat se správcem vaší služby Azure Stack a nastavení insta
        RunspaceId            : a78c76bb-8cae-4db4-a45a-c1420613e01b
      ```
 
-   - Váš certifikát bude soubor s příponou `.pfx`. V trezoru klíčů se uloží váš certifikát jako tajný kód.
+   - Váš certifikát bude soubor s příponou `.pfx`. V trezoru klíčů budete uloží váš certifikát jako tajný kód.
 
 2. Přiřadíte nový instanční objekt služby roli Přispěvatel do vašeho předplatného. Pokyny najdete v tématu [přiřazení role](../operator/azure-stack-create-service-principals.md).
 
-3. Vytvoření trezoru klíčů se uloží váš certifikát pro nasazení. Pomocí těchto skriptů Powershellu, a ne pomocí portálu.
+3. Vytvoření trezoru klíčů se uloží váš certifikát pro nasazení. Pomocí těchto skriptů Powershellu, a ne pomocí portálu:
 
    - Budete potřebovat následující údaje:
 
@@ -81,7 +81,7 @@ Potřebujete pracovat se správcem vaší služby Azure Stack a nastavení insta
        | Uživatelské jméno | Použít jenom svoje uživatelské jméno spíše než váš název domény a uživatelské jméno, například `username` místo `azurestack\username`. |
        | Název skupiny prostředků  | Název nové skupiny prostředků nebo vyberte existující skupinu prostředků. Název prostředku musí být alfanumerické znaky a malá písmena. |
        | Název trezoru klíčů | Název trezoru.<br> Vzor regulárního výrazu: `^[a-zA-Z0-9-]{3,24}$` |
-       | Umístění skupiny prostředků | Umístění skupiny prostředků. Toto je oblast, kterou jste vybrali pro instalaci sady Azure Stack. |
+       | Umístění skupiny prostředků | Umístění skupiny prostředků a oblast, kterou jste vybrali pro instalaci sady Azure Stack. |
 
    - Otevřete prostředí PowerShell s řádku se zvýšenými oprávněními a [připojit ke službě Azure Stack](azure-stack-powershell-configure-user.md#connect-to-azure-stack-with-ad-fs). Spusťte následující skript s parametry, aktualizovat, aby vaše hodnoty:
 
@@ -161,31 +161,31 @@ Potřebujete pracovat se správcem vaší služby Azure Stack a nastavení insta
 
 1. Vyberte **+ vytvořit prostředek** > **Compute** > **clusteru Kubernetes**. Klikněte na možnost **Vytvořit**.
 
-    ![Nasadit šablonu řešení](media/azure-stack-solution-template-kubernetes-deploy/01_kub_market_item.png)
+    ![Vytvoření clusteru Kubernetes](media/azure-stack-solution-template-kubernetes-deploy/01_kub_market_item.png)
 
 ### <a name="1-basics"></a>1. Základy
 
 1. Vyberte **Základy** ve vytvoření clusteru Kubernetes.
 
-    ![Nasadit šablonu řešení](media/azure-stack-solution-template-kubernetes-deploy/02_kub_config_basic.png)
+    ![Základní informace vytvoření clusteru Kubernetes](media/azure-stack-solution-template-kubernetes-deploy/02_kub_config_basic.png)
 
 1. Vyberte vaše **předplatné** ID.
 
 1. Zadejte název nové skupiny prostředků nebo vyberte existující skupinu prostředků. Název prostředku musí být alfanumerické znaky a malá písmena.
 
-1. Vyberte **umístění** skupiny prostředků. Toto je oblast, kterou jste vybrali pro instalaci sady Azure Stack.
+1. Vyberte **umístění** skupiny prostředků. Toto umístění je oblast, kterou jste vybrali pro instalaci sady Azure Stack.
 
 ### <a name="2-kubernetes-cluster-settings"></a>2. Nastavení clusteru Kubernetes
 
 1. Vyberte **nastavení clusteru Kubernetes** ve vytvoření clusteru Kubernetes.
 
-    ![Nasadit šablonu řešení](media/azure-stack-solution-template-kubernetes-deploy/03_kub_config_settings-adfs.png)
+    ![Nastavení clusteru Kubernetes](media/azure-stack-solution-template-kubernetes-deploy/03_kub_config_settings-adfs.png)
 
-1. Zadejte **uživatelské jméno správce virtuálního počítače Linux**. Uživatelské jméno pro virtuální počítače Linux, které jsou součástí clusteru Kubernetes a DVM.
+1. Zadejte **uživatelské jméno správce virtuálního počítače Linux** pro Linux Virtual Machines, které jsou součástí clusteru Kubernetes a DVM.
 
 1. Zadejte **veřejný klíč SSH** se používají pro autorizaci pro všechny počítače s Linuxem vytvořili jako součást clusteru Kubernetes a DVM.
 
-1. Zadejte **předpony DNS profilu hlavní** , které je jedinečné pro danou oblast. Musí se jednat oblasti jedinečný název, jako například `k8s-12345`. Zkuste jste zvolili, je stejná jako skupina prostředků pojmenujte jako nejlepší praxe.
+1. Zadejte **předpony DNS hlavního uzlu profilu**. Tento název musí být oblasti jedinečný, jako například `k8s-12345`. Pokusí se provede porovnání názvu skupiny prostředků jako osvědčený postup.
 
     > [!Note]  
     > Pro každý cluster použijte předponu DNS nových a jedinečných hlavní profilu.
@@ -196,32 +196,32 @@ Potřebujete pracovat se správcem vaší služby Azure Stack a nastavení insta
 
 1. Vyberte **počet profil fond uzlů Kubernetes**. Počet obsahuje počet agentů v clusteru. 
 
-1. Vyberte **profil úložiště**. Můžete zvolit **objektu Blob disku** nebo **spravovaného disku**. Toto nastavení určuje virtuální počítače uzlů virtuálních počítačů velikosti Kubernetes. 
+1. Vyberte **profil úložiště**. Můžete zvolit **objektu Blob disku** nebo **spravovaného disku**. Tento výběr určuje virtuální počítače uzlů virtuálních počítačů velikosti Kubernetes. 
 
 1. Vyberte **služby AD FS** pro **systém identit Azure Stack** pro vaši instalaci služby Azure Stack.
 
-1. Zadejte **ID klienta instančního objektu** slouží od poskytovatele cloudu Kubernetes Azure. ID klienta označeny jako ID aplikace, když správce služby Azure Stack vytvořit instanční objekt služby.
+1. Zadejte **ID klienta instančního objektu**. Tento identifikátor se používá od poskytovatele cloudu Kubernetes Azure. ID klienta se označuje jako ID aplikace, když správce služby Azure Stack vytvoří službu objektu zabezpečení.
 
 1. Zadejte **skupina prostředků trezoru klíčů** , který zdrojů služby key vault, která obsahuje váš certifikát.
 
-1. Zadejte **název služby Key Vault** název, který obsahuje váš certifikát jako tajný kód trezoru klíčů. 
+1. Zadejte **název služby Key Vault**. Jde o název, který obsahuje váš certifikát jako tajný kód trezoru klíčů. 
 
-1. Zadejte **tajného kódu trezoru klíčů**. Název tajného kódu odkazuje váš certifikát.
+1. Zadejte **tajného kódu trezoru klíčů**. Tento název tajného kódu odkazuje váš certifikát.
 
-1. Zadejte **verze zprostředkovatele služby Kubernetes Azure cloudu**. Toto je verze zprostředkovatele služby Kubernetes Azure. Azure Stack uvolní vlastního sestavení Kubernetes pro každou verzi služby Azure Stack.
+1. Zadejte **verze zprostředkovatele služby Kubernetes Azure cloudu**. Toto je číslo verze zprostředkovatele služby Kubernetes Azure. Azure Stack uvolní vlastního sestavení Kubernetes pro každou verzi služby Azure Stack.
 
 ### <a name="3-summary"></a>3. Souhrn
 
 1. Vyberte souhrn. V okně zobrazí zprávu ověření pro nastavení konfigurace clusteru Kubernetes.
 
-    ![Nasadit šablonu řešení](media/azure-stack-solution-template-kubernetes-deploy/04_preview.png)
+    ![Souhrn konfigurace clusteru Kubernetes](media/azure-stack-solution-template-kubernetes-deploy/04_preview.png)
 
 2. Zkontrolujte nastavení.
 
 3. Vyberte **OK** k nasazení clusteru.
 
 > [!TIP]  
->  Pokud máte dotazy k vašemu nasazení, můžete se zveřejněte svůj dotaz nebo se pokud někdo už odpověděl na dotaz v [fórum pro Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). 
+>  Pokud máte nějaké otázky k vašemu nasazení, zveřejněte svůj dotaz nebo se pokud někdo už odpověděl na dotaz v [fórum pro Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). 
 
 ## <a name="next-steps"></a>Další postup
 

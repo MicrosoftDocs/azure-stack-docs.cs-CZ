@@ -1,5 +1,5 @@
 ---
-title: Azure Stack úložiště pověření instančního objektu ve službě Key Vault | Dokumentace Microsoftu
+title: Store pověření instančního objektu ve službě Azure Stack Key Vault | Dokumentace Microsoftu
 description: Zjistěte, jak Key Vault ukládá přihlašovací údaje instančního objektu služby ve službě Azure Stack
 services: azure-stack
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 05/21/2019
 ms.author: sethm
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 1a9fc71f6e57621dba4488821ea2ca8b1e119e48
-ms.sourcegitcommit: 6fcd5df8b77e782ef72f0e1419f1f75ec8c16c04
+ms.openlocfilehash: efa8dda8061ce81d751e9cce47c5e81a3917f2bf
+ms.sourcegitcommit: ad2f2cb4dc8d5cf0c2c37517d5125921cff44cdd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65991314"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67138845"
 ---
-# <a name="store-service-principal-credentials-in-key-vault"></a>Store pověření instančního objektu ve službě Key Vault
+# <a name="store-service-principal-credentials-in-azure-stack-key-vault"></a>Store pověření instančního objektu ve službě Azure Stack Key Vault
 
-Vývoj aplikací v Azure stacku obvykle vyžaduje vytváření instančního objektu a pomocí těchto přihlašovacích údajů k ověření před nasazením. Však často uložené přihlašovací údaje pro instanční objekt se k jejich chybnému umístění. Tento článek popisuje, jak vytvořit instanční objekt a uložit pro pozdější načtení hodnoty ve službě Azure Key Vault.
+Vývoj aplikací v Azure stacku obvykle vyžaduje vytváření instančního objektu a pomocí těchto přihlašovacích údajů k ověření před nasazením. V některých případech však ztratíte uložené přihlašovací údaje pro instanční objekt. Tento článek popisuje, jak vytvořit instanční objekt a uložit pro pozdější načtení hodnoty ve službě Azure Key Vault.
 
 Další informace o službě Key Vault najdete v tématu [v tomto článku](azure-stack-key-vault-intro.md).
 
@@ -42,7 +42,7 @@ Chcete-li vytvořit trezor klíčů, postupujte takto:
 
 2. Z řídicího panelu, vyberte **+ vytvořit prostředek**, pak **zabezpečení + Identita**a pak vyberte **služby Key Vault.**
 
-   ![Vytvořit trezor klíčů](media/azure-stack-key-vault-store-credentials/create-key-vault.png)
+   ![Vytvoření trezoru klíčů](media/azure-stack-key-vault-store-credentials/create-key-vault.png)
 
 3. V **vytvořit trezor klíčů** podokno, přiřadit **název** pro svůj trezor. Trezor názvy můžou obsahovat jenom alfanumerické znaky a znak spojovníku (-). Nesmí začínat číslicí.
 
@@ -64,15 +64,15 @@ Chcete-li vytvořit trezor klíčů, postupujte takto:
 
 2. Vyberte **Azure Active Directory**, pak **registrace aplikací**, pak **přidat**.
 
-3. Zadejte název a URL aplikace. Vyberte buď **webovou aplikaci nebo API** nebo **nativní** pro typ aplikace, kterou chcete vytvořit. Po nastavení hodnot, vyberte **vytvořit**.
+3. Zadejte název a adresu URL pro aplikaci. Vyberte buď **webovou aplikaci nebo API** nebo **nativní** pro typ aplikace, kterou chcete vytvořit. Po nastavení hodnot, vyberte **vytvořit**.
 
 4. Vyberte **služby Active Directory**, pak **registrace aplikací**a vyberte svou aplikaci.
 
-5. Zkopírujte **ID aplikace** a uložte ho v kódu aplikace. Aplikace v ukázkových aplikací používají **ID klienta** k odkazování na **ID aplikace**.
+5. Kopírovat **ID aplikace** a uloží je v kódu vaší aplikace. Použití ukázkové aplikace **ID klienta** k odkazování na **ID aplikace**.
 
 6. Pokud chcete generovat ověřovací klíč, vyberte **Klíče**.
 
-7. Zadejte popis pro klíč a hodnotu duration.
+7. Zadejte popis a dobu trvání pro klíč.
 
 8. Vyberte **Uložit**.
 
@@ -84,7 +84,7 @@ Chcete-li vytvořit trezor klíčů, postupujte takto:
 
 2. V **tajný kód** vyberte **vygenerovat/importovat**.
 
-3. V **vytvoření tajného klíče** podokno, ze seznamu možností vyberte **ruční**. Pokud jste vytvořili službu objektu zabezpečení pomocí certifikátů, certifikáty vyberte z rozevíracího seznamu a pak nahrajte soubor.
+3. V **vytvoření tajného klíče** vyberte **ruční** ze seznamu možností. Pokud jste vytvořili službu objektu zabezpečení pomocí certifikátů, certifikáty vyberte z rozevíracího seznamu a pak nahrajte soubor.
 
 4. Zadejte **ID aplikace** zkopírován z instančního objektu jako název pro váš klíč. Název klíče, který může obsahovat jenom alfanumerické znaky a znak spojovníku (-).
 
@@ -96,7 +96,7 @@ Chcete-li vytvořit trezor klíčů, postupujte takto:
 
 8. Vyberte **vytvořit** ke spuštění nasazení.
 
-Po úspěšném vytvoření tajného klíče se uloží existuje informací o instančním objektu služby. Můžete zvolit kdykoli pod **tajných kódů**a zobrazit nebo upravit její vlastnosti. Oddíl properties obsahuje identifikátor tajného kódu, který je identifikátor URI (Uniform Resource), které externí aplikace použít pro přístup k tento tajný kód.
+Po úspěšném vytvoření tajného kódu je uložených informací o instančním objektu služby. Můžete zvolit kdykoli pod **tajných kódů** a zobrazit nebo upravit její vlastnosti. Oddíl properties obsahuje identifikátor tajného kódu, který je identifikátor URI (Uniform Resource), externí aplikace použít pro přístup k tento tajný kód.
 
 ## <a name="next-steps"></a>Další postup
 

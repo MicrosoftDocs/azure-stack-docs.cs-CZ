@@ -3,24 +3,23 @@ title: Pomocí portálu Azure Stack | Dokumentace Microsoftu
 description: Zjistěte, jak přistupovat a používat portál user portal v Azure stacku.
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: mattbriggs
+manager: femila
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/25/2019
-ms.date: 03/18/2019
-ms.author: v-jay
+ms.date: 06/13/2019
+ms.author: mabrigg
 ms.reviewer: efemmano
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 28b8971b61ff09346b2a2f89cd5ea8ae04e44079
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: dd68364585fd1d204713c5a014b141f4450a1d45
+ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64301943"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67131554"
 ---
 # <a name="use-the-azure-stack-portal"></a>Použití portálu Azure Stack
 
@@ -80,5 +79,3 @@ Pokud používáte Azure Stack Development Kit, můžete [fórum pro Azure Stack
 ## <a name="next-steps"></a>Další postup
 
 [Klíčové aspekty: Pomocí služby nebo vytvářet aplikace pro Azure Stack](azure-stack-considerations.md)
-
-<!-- Update_Description: wording update -->

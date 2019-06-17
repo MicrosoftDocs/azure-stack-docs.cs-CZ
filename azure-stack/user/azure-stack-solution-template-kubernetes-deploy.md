@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2019
+ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 672528f05a4fb3214e9a97e78922eeb12739c44f
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 5ab223800e70bf5f942c42c51e2870fe0dac0a4d
+ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269546"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67131606"
 ---
 # <a name="deploy-kubernetes-to-use-containers-with-azure-stack"></a>Nasazení Kubernetes pomocí služby Azure Stack pomocí kontejnerů
 
@@ -53,7 +53,7 @@ Pokyny k instalaci clusteru při použití služby Azure AD najdete v tématu [n
 - **Služby Active Directory Federated Services (AD FS)**  
 Pokyny k instalaci clusteru při použití služby AD FS najdete v tématu [nasazení Kubernetes pomocí Active Directory Federated Services (AD FS) služby Azure Stack](azure-stack-solution-template-kubernetes-adfs.md).
 
-## <a name="connect-to-your-cluster"></a>Připojit ke clusteru
+## <a name="connect-to-your-cluster"></a>Připojení k vašemu clusteru
 
 Nyní jste připraveni připojit ke clusteru. Hlavní najdete ve vaší skupině prostředků clusteru a názvem `k8s-master-<sequence-of-numbers>`. Pro připojení k hlavnímu serveru pomocí klienta SSH. Na hlavním serveru, můžete použít **kubectl**, klienta příkazového řádku Kubernetes pro správu clusteru. Pokyny najdete v tématu [Kubernetes.io](https://kubernetes.io/docs/reference/kubectl/overview).
 

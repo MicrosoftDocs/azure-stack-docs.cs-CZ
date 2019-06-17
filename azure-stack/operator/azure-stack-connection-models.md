@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: wfayed
 ms.lastreviewed: 02/21/2019
-ms.openlocfilehash: da48a9a04c9daaf2d7a29bc2d4b300563bebd6e5
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 2fc9416515b09941deefbeb97d4a3801b47e146f
+ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618977"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67131317"
 ---
 # <a name="azure-stack-integrated-systems-connection-models"></a>Azure Stack integrované systémy modely připojení
 Pokud máte zájem o zakoupení systémech pro Azure Stack integrované, musíte pochopit [důležité informace o integraci několika datacenter](azure-stack-datacenter-integration.md) pro nasazení Azure Stack určit, jak systém, se vejde do vašeho datového centra. Kromě toho bude nutné se rozhodnout, jak budou integrovat Azure Stack v hybridním cloudovém prostředí. Tento článek obsahuje přehled Tato hlavní rozhodnutí, včetně připojení k Azure, úložiště identit a fakturační model rozhodnutí.
@@ -45,7 +45,7 @@ Můžete nasadit Azure Stack buď připojené k Internetu (a do Azure) nebo odpo
 |Účtování podle kapacity|![Podporováno](media/azure-stack-connection-models/check.png)|![Podporováno](media/azure-stack-connection-models/check.png)|
 |Licencování| Smlouvy Enterprise nebo poskytovatele Cloud Solution Provider | Smlouva Enterprise |
 |Opravy a aktualizace|Balíček aktualizací můžete stáhnout přímo z Internetu do služby Azure Stack |  Požaduje se<br><br>Také vyžaduje vyměnitelné médium<br> a samostatné připojené zařízení |
-| Registrace | Automaticky | Požaduje se<br><br>Také vyžaduje vyměnitelné médium<br> a samostatné připojené zařízení |
+| Registrace | Automatizované | Požaduje se<br><br>Také vyžaduje vyměnitelné médium<br> a samostatné připojené zařízení |
 
 Poté, co jste se rozhodli na model Azure připojení budou používat při nasazení Azure Stack, závislé na připojení a další rozhodnutí třeba identity úložiště a fakturace metodu. 
 

@@ -16,12 +16,12 @@ ms.date: 05/30/2019
 ms.author: sethm
 ms.reviewer: ''
 ms.lastreviewed: 05/30/2019
-ms.openlocfilehash: 31f2df0b5c7598c678daff8abe34a40b4e08d590
-ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
+ms.openlocfilehash: 61ad09591bce8c01f6f4a5c2dfa43a74d8a44bc2
+ms.sourcegitcommit: 427b534634d902b164e7d54dfd97b63c31563084
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66691614"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67145228"
 ---
 # <a name="azure-stack-1904-update"></a>Aktualizace služby Azure Stack 1904
 
@@ -75,8 +75,6 @@ Typ sestavení update Azure Stack 1904 je **Express**. Další informace o aktua
 
 <!-- this applies to bug 3725384 and bug #4225643 -->
 - Vylepšili jsme svazku zprávy syslog odfiltrováním zbytečných události a poskytnutím konfiguračního parametru a vyberte úroveň závažnosti požadované pro přesměrované zprávy. Další informace o tom, jak nakonfigurovat úroveň závažnosti, naleznete v tématu [integrace datových center Azure Stack – předávání syslog](azure-stack-integrate-security.md).
-
-- Infrastruktura Azure stacku spotřebuje dalších 12 GB + (4 GB * hostitele číslo Azure Stack) z roku 1904 update a vyšší. To znamená, že v razítku 4 uzlu bude další kapacitu pro využití 28 GB (12 GB + 4 GB * 4) odráží kapacitu obrazovce portálu Správce služby Azure Stack. Aktualizace na verzi 1904 by být úspěšné i v případě, že využití další paměti umístí do služby Azure Stack razítka překročena kapacita. Pokud razítko vaší služby Azure Stack je za využití paměti po dokončení aktualizace, zobrazí se výstraha odráží tento stav s kroky k nápravě pro zrušení přidělení částí několik virtuálních počítačů.
 
 <!--this applied to Bug 1473487 -->
 - Přidali novou funkci pro **Get-AzureStackLog** rutiny začleněním další parametr, `-OutputSASUri`. Teď můžete shromažďovat protokoly služby Azure Stack z vašeho prostředí a jejich uložení v zadaném kontejneru objektů blob v Azure Storage. Další informace najdete v tématu [diagnostiky Azure Stack](azure-stack-diagnostics.md#examples).

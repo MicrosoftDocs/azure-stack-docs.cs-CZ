@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2019
+ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 08/30/2018
-ms.openlocfilehash: bd83c8fc29697107a17eeedabfd0280ff684457f
-ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
+ms.openlocfilehash: 85da256828d69db600bd8e5847a110ee3519568b
+ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66836735"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67131409"
 ---
 # <a name="border-connectivity"></a>Připojení k ohraničení 
 Plánování integrace sítě je důležitá povinná součást pro úspěšné nasazení Azure Stack integrované systémy, provoz a správu. Plánování připojení ohraničení začíná výběru, jestli se mají použít s dynamickým směrováním pomocí protokolu border gateway protocol (BGP). To vyžaduje přiřazení 16bitové číslo autonomního systému protokolu BGP (veřejné nebo soukromé) nebo pomocí statické směrování, kde výchozí statické trasy je přiřazená zařízení ohraničení.

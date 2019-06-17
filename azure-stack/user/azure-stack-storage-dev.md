@@ -4,18 +4,18 @@ description: Pokyny, které vám umožní začít pomocí nástroje pro vývoj �
 services: azure-stack
 author: mattbriggs
 ms.author: mabrigg
-ms.date: 02/27/2019
+ms.date: 06/13/2019
 ms.topic: conceptual
 ms.service: azure-stack
 manager: femila
 ms.reviewer: xiaofmao
 ms.lastreviewed: 02/27/2019
-ms.openlocfilehash: beb43a013f66d6de5cc781fbbbdfae9e9e67c2da
-ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
+ms.openlocfilehash: 10bf2bcc13ceab3b28e44759bbacae57d63b9b97
+ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65712409"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67131667"
 ---
 # <a name="get-started-with-azure-stack-storage-development-tools"></a>Začínáme s Azure Stack nástroje pro vývoj úložišť
 
@@ -34,7 +34,7 @@ Pro klientské knihovny pro úložiště mějte na paměti, která je kompatibil
 
 ### <a name="1811-update-or-newer-versions"></a>1811 update nebo novější verze
 
-| Klientská knihovna | Podporovaná verze služby Azure Stack | Vytvořit propojení | Koncový bod specifikace |
+| Klientská knihovna | Podporovaná verze služby Azure Stack | Odkaz | Koncový bod specifikace |
 |----------------|-------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
 | .NET | 9.2.0 | Balíček Nuget:<br><https://www.nuget.org/packages/WindowsAzure.Storage/9.2.0><br> <br>Verze Githubu:<br><https://github.com/Azure/azure-storage-net/releases/tag/v9.2.0> | souboru app.config |
 | Java | 7.0.0 | Maven balíček:<br><https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/7.0.0><br> <br>Verze Githubu:<br><https://github.com/Azure/azure-storage-java/releases/tag/v7.0.0> | Nastavení připojovací řetězce |
@@ -63,7 +63,7 @@ Chcete-li nainstalovat prostřednictvím autora: (trvat objektů blob jako pří
 
 ### <a name="previous-versions-1802-to-1809-update"></a>Předchozí verze (aktualizace 1802 k 1809)
 
-| Klientská knihovna | Podporovaná verze služby Azure Stack | Vytvořit propojení | Koncový bod specifikace |
+| Klientská knihovna | Podporovaná verze služby Azure Stack | Odkaz | Koncový bod specifikace |
 |----------------|-------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
 | .NET | 8.7.0 | Balíček Nuget:<br><https://www.nuget.org/packages/WindowsAzure.Storage/8.7.0><br> <br>Verze Githubu:<br><https://github.com/Azure/azure-storage-net/releases/tag/v8.7.0> | souboru app.config |
 | Java | 6.1.0 | Maven balíček:<br><https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/6.1.0><br> <br>Verze Githubu:<br><https://github.com/Azure/azure-storage-java/releases/tag/v6.1.0> | Nastavení připojovací řetězce |
@@ -173,7 +173,7 @@ AccountKey=mykey;
 EndpointSuffix=local.azurestack.external
 ```
 
-## <a name="blob-storage"></a>Úložiště objektů blob
+## <a name="blob-storage"></a>Blob Storage
 
 V následujících kurzech úložiště objektů Blob v Azure se vztahují na služby Azure Stack. Poznámka: požadavek přípona určitého koncového bodu pro službu Azure Stack je popsáno v předchozí [příklady](#examples) oddílu.
 
@@ -197,7 +197,7 @@ Následující kurzy Azure Queue storage se vztahují na služby Azure Stack. Po
 * [Používání úložiště Queue z Pythonu](/azure/storage/queues/storage-python-how-to-use-queue-storage)
 * [Používání úložiště Queue z Ruby](/azure/storage/queues/storage-ruby-how-to-use-queue-storage)
 
-## <a name="table-storage"></a>Úložiště tabulek
+## <a name="table-storage"></a>Úložiště Table
 
 Následující kurzy Azure Table storage se vztahují na služby Azure Stack. Poznámka: požadavek přípona určitého koncového bodu pro službu Azure Stack je popsáno v předchozí [příklady](#examples) oddílu.
 

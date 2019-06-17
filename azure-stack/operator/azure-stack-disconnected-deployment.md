@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: wfayed
 ms.lastreviewed: 12/11/2018
-ms.openlocfilehash: df0989886d34581950eca04ebe63104d477d003f
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: a3986bcdff911fb70957dcb7529a07f77b586c0a
+ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618029"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67131511"
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Integrované systémy pro nasazení Azure odpojené plánování rozhodnutí pro službu Azure Stack
 Poté, co jste se rozhodli [jak budou integrovat Azure Stack v hybridním cloudovém prostředí](azure-stack-connection-models.md), můžete dokončit váš rozhodnutí o nasazení služby Azure Stack.
@@ -57,7 +57,7 @@ Telemetrická data|Není k dispozici - Telemetrická data pro Azure Stack jako i
 |Certifikáty|Není k dispozici – připojení k Internetu je vyžadován pro seznam odvolaných certifikátů (CRL) a protokolu protokolu (Online Certificate Status OSCP) služby v rámci protokolu HTTPS.|
 |Key Vault|Zrakově postižené - běžným případem použití pro službu Key Vault je, aby aplikace čtení tajných klíčů v době běhu. Pro tuto aplikaci musí instančního objektu v adresáři. Ve službě Azure Active Directory běžní uživatelé (bez oprávnění správce) jsou ve výchozím nastavení povoleno přidat instančních objektů. Ve službě AD (pomocí služby AD FS) nejsou. To umístí mezní začátku do konce prostředí vzhledem k tomu, že jeden musí directory správce přidat libovolnou aplikaci vždy projít.| 
 
-## <a name="learn-more"></a>Další informace
+## <a name="learn-more"></a>Víc se uč
 - Informace o případy použití, nákup, partnery a dodavateli hardwaru OEM, najdete v článku [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) stránce produktu.
 - Informace o plánu a geografické dostupnosti pro službu Azure Stack integrované systémy, najdete v dokumentu white paper: [Azure Stack: Rozšíření Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
 - Další informace o Microsoft Azure Stack balení a ceny [stáhnout PDF](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf). 

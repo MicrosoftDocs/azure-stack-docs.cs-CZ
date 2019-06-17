@@ -16,52 +16,54 @@ ms.date: 05/31/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 05/31/2019
-ms.openlocfilehash: 30ce69f96747ab8dbdafd9e20e8cea07026074d5
-ms.sourcegitcommit: 80775f5c5235147ae730dfc7e896675a9a79cdbe
+ms.openlocfilehash: 2845a90f97c1b859269f73333448bf42ff699da9
+ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/03/2019
-ms.locfileid: "66461011"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67131087"
 ---
 # <a name="azure-stack-storage"></a>Úložiště Azure Stack
 
-Azure Stack úložiště plánování kapacity informace jako pomoc při plánování řešení se úložiště udržet pod naleznete v následujících částech.
+Azure Stack úložiště plánování kapacity informace jako pomoc při plánování tohoto řešení se úložiště udržet pod naleznete v následujících částech.
 
 ## <a name="uses-and-organization-of-storage-capacity"></a>Použití a organizace kapacita úložiště
-Hyperkonvergovaná konfigurace služby Azure Stack umožňuje sdílení fyzických úložných zařízení. Tři hlavní divizí úložiště k dispozici jsou v rozmezí od infrastruktury, dočasné úložiště tenantské virtuální počítače a úložiště, zálohování, objekty BLOB, tabulky a fronty služby konzistentní úložiště Azure (ACS).
+Konfigurace hyperkonvergovaného služby Azure Stack umožňuje sdílení fyzickými úložnými zařízeními. Existují tři hlavní rozdělení na dostupné úložiště, které je možné sdílet: infrastrukturu, dočasné úložiště tenantské virtuální počítače a úložiště, zálohování, objekty BLOB, tabulky a fronty služby konzistentní úložiště Azure (ACS).
 
-## <a name="spaces-direct-cache-and-capacity-tiers"></a>Prostorů s přímým přístupem, mezipaměť a kapacitní vrstvy
-Je kapacita úložiště používá pro operační systém, místní protokolování, výpisů paměti a jiné dočasné infrastruktury úložiště potřebám. Tato kapacita místní úložiště je nezávislá na infrastruktuře (zařízení a kapacita) úložných zařízení, převedené pod správu konfigurace prostorů úložiště s přímým. Zbývající část úložných zařízení nachází v jeden fond kapacity úložiště bez ohledu na počet serverů v jednotce škálování. Tato zařízení jsou dvou typů: Mezipaměť a kapacity.  Zařízení mezipaměti jsou jenom - mezipaměť. Prostory s přímým přístupem budou používat tato zařízení se zpětným zápisem a ukládání do mezipaměti pro čtení. Kapacity těchto zařízení, i když je použít, nejsou potvrzeny formátovaný, "visible" kapacita formátovaný virtuálních disků. Úložných zařízení se používají pro tento účel a zadejte "domovské umístění" data spravovaná přes prostory úložiště.
+## <a name="storage-spaces-direct-cache-and-capacity-tiers"></a>Prostorů s přímým přístupem mezipaměti a kapacitu vrstvy úložiště
+Je kapacita úložiště používá pro operační systém, místní protokolování, výpisů paměti a jiné dočasné infrastruktury úložiště potřebám. Tato kapacita místní úložiště je nezávislá na infrastruktuře (zařízení a kapacita) úložných zařízení, převedené pod správu konfigurace prostorů úložiště s přímým. Zbývající část úložných zařízení nachází v jeden fond úložiště kapacitu, bez ohledu na počet serverů v jednotce škálování.
 
-Všechny kapacity úložiště je přidělena a spravuje infrastruktury Azure stacku. Operátor, který se potřebuje rozhodovat o konfiguraci, přidělení, nebo řešení s možností při rozhodování o rozšiřování kapacity. Tato rozhodnutí o návrhu se provedly bylo v souladu s požadavky na řešení a jsou automatizované během buď počáteční instalaci a nasazování nebo při rozšiřování kapacity. Podrobnosti o odolnosti proti chybám, rezervované kapacity pro znovu sestaví a další podrobnosti byly zohledněny jako součást návrhu. 
+Tato zařízení jsou dvou typů: mezipaměti a kapacity. Prostory úložiště – přímé využívá pro ukládání do mezipaměti se zpětným zápisem a další zařízení. Kapacity těchto zařízení, i když je použít, nejsou potvrzeny formátovaný, "visible" kapacita formátovaný virtuálních disků. Naopak prostorů úložiště s přímým úložných zařízení pro tento účel použít, "domovské umístění" spravované data.
 
-Operátory můžete si vybrat mezi všechny flash nebo hybridní úložiště konfigurace:
+Infrastruktura Azure stacku přímo přiděluje a spravuje všechny kapacity úložiště. Operátor, který se nemusí rozhodovat o konfiguraci, přidělení, rozšiřování kapacity. Azure Stack automatizuje těchto rozhodnutí o návrhu, aby bylo v souladu s požadavky na řešení během počáteční instalace a nasazení nebo rozšiřování kapacity. Azure Stack bere v úvahu odolnost proti chybám, rezervované kapacity pro znovu sestaví a další podrobnosti, jako součást návrhu. 
 
-![Plánování kapacity služby Azure storage](media/azure-stack-capacity-planning/storage.png)
+Operátory můžete zvolit buď *všechny flash* nebo *hybridní* konfiguraci úložiště:
 
-V konfiguraci všech flash může být konfigurace buď dvouvrstvé nebo Jednoúrovňová konfigurací.  Pokud je konfigurace Jednoúrovňová, budou všechna kapacitou zařízení stejného typu (např. NVMe nebo SATA SSD nebo SAS SSD) a mezipaměti zařízení nepoužívají. Ve všech dvouvrstvé je NVMe flash konfigurace, Typická konfigurace jako mezipaměť zařízení a potom buď SATA nebo SAS SSD jako úložných zařízení.
+![Diagram plánování kapacity služby Azure storage](media/azure-stack-capacity-planning/storage.png)
 
-V hybridním nasazení dvouvrstvé konfigurace mezipaměti je volby NVMe, SATA nebo SAS SSD a kapacita HDD. 
+V konfiguraci všech flash může být konfigurace dvě úrovně nebo Jednoúrovňová konfigurace. Pokud konfigurace je Jednoúrovňová, jsou všechny kapacitou zařízení stejného typu (například NVMe nebo SATA SSD nebo SAS SSD) a zařízení nepoužívají. Ve všech dvouvrstvé je NVMe flash konfigurace, Typická konfigurace jako mezipaměť zařízení a potom buď SATA nebo SAS SSD jako úložných zařízení.
+
+V hybridním nasazení dvouvrstvé konfigurace mezipaměti je volba mezi NVMe nebo SATA, SAS SSD a kapacita je pevný disk. 
 
 Stručný přehled prostorů úložiště s přímým a konfiguraci úložiště služby Azure Stack je následujícím způsobem:
-- Jeden fondu prostorů úložiště na jednotce škálování (všechna zařízení úložiště jsou nakonfigurované v rámci jeden fond)
-- Virtuální disky se vytvoří jako tři kopie zrcadlení pro nejvyšší výkon a odolnost proti chybám
-- Každý virtuální disk je formátován jako systém souborů ReFS
-- Virtuální diskové kapacity se počítá a přidělených způsobem, ponechat jeden kapacity zařízení množství datové kapacity volné ve fondu. Jedná se o ekvivalent jednu jednotku kapacity na server.
-- Každý systém souborů ReFS budou mít povoleno neaktivních dat šifrování nástrojem BitLocker. 
+- Jeden fond prostory úložiště – přímé za škálovací jednotku (všechna zařízení úložiště jsou nakonfigurované v rámci jeden fond).
+- Virtuální disky se vytvoří jako tři kopie zrcadlení pro nejvyšší výkon a odolnost proti chybám.
+- Každý virtuální disk je formátován jako systém souborů ReFS.
+- Kapacita virtuálního disku je počítá a přidělených způsobem, ponechat jeden kapacity zařízení množství datové kapacity volné ve fondu. Jedná se o ekvivalent jednu jednotku kapacity na server.
+- Každý systém souborů ReFS má nástroj BitLocker povoleno šifrování dat v klidovém stavu. 
 
-Virtuální – disky automaticky vytvořen a jejich kapacity jsou následující:
+Virtuální disky automaticky vytvořen a jejich kapacity jsou následující:
 
-|Název|Výpočet kapacity|Popis|
+|Name|Výpočet kapacity|Popis|
 |-----|-----|-----|
-|Místní/spouštěcí zařízení|Minimální 340 GB<sup>1</sup>|Úložiště jednotlivých serverů pro bitové kopie operačního systému a "local" virtuální počítače infrastruktury|
-|Infrastruktura|3,5 TB|Veškeré využití infrastruktury Azure stacku|
-|VmTemp|Viz níže<sup>2</sup>|Dočasný disk připojený mají tenantské virtuální počítače a tato data uložená v těchto virtuálních disků|
-|ACS|Viz níže <sup>3</sup>|Azure konzistentní kapacitou pro obsluhu objekty BLOB, tabulky a fronty|
+|Místní/spouštěcí zařízení|Minimální 340 GB<sup>1</sup>|Úložiště jednotlivých serverů pro bitové kopie operačního systému a "local" infrastrukturu virtuálních počítačů.|
+|Infrastruktura|3,5 TB|Veškeré využití infrastruktury Azure stacku.|
+|VmTemp|Viz níže<sup>2</sup>|Tenantské virtuální počítače mají dočasný disk připojený, a tato data uložená v těchto virtuálních disků.|
+|ACS|Viz níže <sup>3</sup>|Azure konzistentní kapacitou pro obsluhu objekty BLOB, tabulky a fronty.|
 
 <sup>1</sup> minimální kapacitu úložiště vyžaduje partnera řešení Azure Stack.
 
-<sup>2</sup> velikost virtuálního disku použité pro dočasné disky virtuálního počítače se počítá jako poměr fyzické paměti serveru. Jak je uvedeno v následující tabulce pro velikosti virtuálních počítačů Azure IaaS, dočasný disk je poměr fyzické paměti přidělené virtuálnímu počítači. Přidělení Hotovo "dočasného úložiště na"disku ve službě Azure Stack se provede tak, aby sběr většinu případů použití, ale nemusí být schopen dál uspokojit se úložiště udržet pod všechny dočasného disku. Poměr zvolili je kompromis mezi při spotřebě nejsou většinou kapacity úložiště řešení pro dočasné diskové kapacity pouze zpřístupnění dočasné úložiště. Jeden server v jednotce škálování se vytvoří jeden disk dočasného úložiště. Kapacita dočasného úložiště nebude nárůst 10 % celkové dostupné kapacity úložiště ve fondu úložiště jednotce škálování. Výpočet je něco jako v následujícím příkladu:
+<sup>2</sup> velikost virtuálního disku použité pro dočasné disky virtuálního počítače tenanta se počítá jako poměr fyzické paměti serveru. Dočasný disk je poměr fyzické paměti přidělené virtuálnímu počítači. Přidělení Hotovo "temp disku" úložiště ve službě Azure Stack zaznamená většinu případů použití, ale nemusí splňovat všechny požadavky na úložiště dočasného disku. Poměr je kompromis mezi zpřístupnění dočasné úložiště a ne spotřebovává většinu úložnou kapacitu řešení pro dočasné diskové kapacity pouze. Jeden server v jednotce škálování se vytvoří jeden disk dočasného úložiště. Kapacita dočasného úložiště není nárůst 10 procent celkové dostupné kapacity úložiště ve fondu úložiště jednotce škálování. Výpočet je něco jako v následujícím příkladu:
 
 ```
   DesiredTempStoragePerServer = PhysicalMemory * 0.65 * 8
@@ -73,8 +75,8 @@ Virtuální – disky automaticky vytvořen a jejich kapacity jsou následujíc�
       TempVirtualDiskSize = (TotalAvailableCapacity * 0.1) / NumberOfServers
 ```
 
-<sup>3</sup> virtuální – disky vytvořené pro použití službou ACS jsou jednoduché dělení zbývající kapacity. Jak je uvedeno, všechny virtuální – disky jsou třícestný zrcadlový svazek a za jednu jednotku kapacity kapacity pro každý server je volné. Různé virtuální – disky uvedené výše se nejprve přiděluje a zbývající kapacity se pak použije pro ACS virtuální – disky.
+<sup>3</sup> virtuální disky vytvořené pro použití službou ACS jsou jednoduché dělení zbývající kapacity. Jak je uvedeno, všechny virtuální disky jsou třícestný zrcadlový svazek a za jednu kapacitu jednotky kapacity pro každý server je volné. Různé dříve uvedené virtuální disky se přiděluje první a zbývající kapacity se pak použije virtuálních disků služby ACS.
 
 
 ## <a name="next-steps"></a>Další postup
-Další informace o [Capacity Planner služby Azure Stack](azure-stack-capacity-planner.md)
+Další informace o [Capacity Planner služby Azure Stack](azure-stack-capacity-planner.md).

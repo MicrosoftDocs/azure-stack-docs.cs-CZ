@@ -1,6 +1,6 @@
 ---
-title: Povolit aplikacím k načítání tajných kódů služby Key Vault Azure Stack | Dokumentace Microsoftu
-description: Použití ukázkové aplikace pro práci s Azure Stack Key Vault
+title: Povolit aplikacím přístup k tajným klíčům v trezoru klíčů Azure Stack | Dokumentace Microsoftu
+description: Zjistěte, jak spustit ukázkovou aplikaci, která načte klíče a tajné kódy z trezoru klíčů ve službě Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,14 +15,14 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: sethm
 ms.lastreviewed: 04/08/2019
-ms.openlocfilehash: aca8e57a7476ac55729f30c1eadfd4a414409021
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 6cc9475ee04bcdcb7b4c35f4ca5a39efc7c36aa8
+ms.sourcegitcommit: ad2f2cb4dc8d5cf0c2c37517d5125921cff44cdd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985664"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67138898"
 ---
-# <a name="a-sample-application-that-uses-keys-and-secrets-stored-in-a-key-vault"></a>Ukázkovou aplikaci, která používá klíči a tajnými kódy uloženými v trezoru klíčů
+# <a name="allow-apps-to-access-azure-stack-key-vault-secrets"></a>Povolit aplikacím přístup k tajným klíčům v trezoru klíčů Azure Stack
 
 *Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
 
@@ -30,19 +30,19 @@ Postupujte podle kroků v tomto článku a spuštění ukázkové aplikace **Hel
 
 ## <a name="prerequisites"></a>Požadavky
 
-Můžete nainstalovat z následující požadavky [Azure Stack Development Kit](../asdk/asdk-connect.md#connect-to-azure-stack-using-rdp), nebo z Windows na základě externí klienta máte [připojené prostřednictvím sítě VPN](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn):
+Můžete nainstalovat z následující požadavky [Azure Stack Development Kit](../asdk/asdk-connect.md#connect-to-azure-stack-using-rdp), nebo z Windows na základě externí klienta Pokud jste [připojené prostřednictvím sítě VPN](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn):
 
 * Nainstalujte [moduly Azure Powershellu kompatibilní s Azure Stack](../operator/azure-stack-powershell-install.md).
 * Ve službě [Azure Stack development Kit by měl být blobEndpoint](../operator/azure-stack-powershell-download.md) .
 
-## <a name="create-and-get-the-key-vault-and-application-settings"></a>Vytvořte a získejte služby key vault a nastavení aplikace
+## <a name="create-a-key-vault-and-register-an-app"></a>Vytvoření trezoru klíčů a registrace aplikace
 
 Příprava pro ukázkovou aplikaci:
 
 * Vytvoření trezoru klíčů ve službě Azure Stack.
-* Zaregistrujte aplikaci v Azure Active Directory (Azure AD).
+* Registrace aplikace v Azure Active Directory (Azure AD).
 
-Příprava pro ukázkovou aplikaci, můžete použít na webu Azure portal nebo Powershellu. Tento článek ukazuje, jak vytvořit trezor klíčů a registrace aplikace pomocí Powershellu.
+Příprava ukázkové aplikace pomocí webu Azure portal nebo Powershellu.
 
 > [!NOTE]
 > Ve výchozím nastavení skript Powershellu vytvoří novou aplikaci ve službě Active Directory. Však můžete zaregistrovat jedno z existující aplikace.
@@ -141,11 +141,11 @@ Poznamenejte si, **VaultUrl**, **AuthClientId**, a **AuthClientSecret** hodnoty 
 
 ## <a name="download-and-configure-the-sample-application"></a>Stáhnout a nakonfigurovat ukázkovou aplikaci
 
-Stáhněte si ukázky trezoru klíčů Azure [ukázky klienta služby Key Vault](https://www.microsoft.com/download/details.aspx?id=45343) stránky. Extrahujte obsah souboru .zip na pracovní stanici vývoje. Existují dvě aplikace ve složce samples. Tento článek používá **HelloKeyVault**.
+Stáhněte si ukázky trezoru klíčů Azure [ukázky klienta služby Key Vault](https://www.microsoft.com/download/details.aspx?id=45343) stránky. Extrahujte obsah souboru .zip na pracovní stanici vývoje. Ve složce samples existují dvě aplikace. Tento článek používá **HelloKeyVault**.
 
 Načíst **HelloKeyVault** vzorku:
 
-1. Přejděte **Microsoft.Azure.KeyVault.Samples**, **ukázky**, **HelloKeyVault** složky.
+1. Přejděte **Microsoft.Azure.KeyVault.Samples** > **ukázky** > **HelloKeyVault** složky.
 2. Otevřít **HelloKeyVault** aplikace v sadě Visual Studio.
 
 ### <a name="configure-the-sample-application"></a>Nakonfigurovat ukázkovou aplikaci
@@ -153,15 +153,15 @@ Načíst **HelloKeyVault** vzorku:
 V sadě Visual Studio:
 
 1. Otevřete soubor HelloKeyVault\App.config a najít `<appSettings>` elementu.
-2. Aktualizace **VaultUrl**, **AuthClientId**, a **AuthClientSecret** klíče pomocí hodnot vrácených se používají k vytvoření služby key vault. Ve výchozím souboru App.config je zástupný symbol pro `AuthCertThumbprint`. Nahraďte tento zástupný text `AuthClientSecret`.
+2. Aktualizace **VaultUrl**, **AuthClientId**, a **AuthClientSecret** klíče s hodnotami vrácená při vytváření trezoru klíčů. Ve výchozím souboru App.config je zástupný symbol pro `AuthCertThumbprint`. Nahraďte tento zástupný text `AuthClientSecret`.
 
-   ![Nastavení aplikací](media/azure-stack-key-vault-sample-app/appconfig.png)
+   ![Nastavení aplikace](media/azure-stack-key-vault-sample-app/appconfig.png)
 
 3. Znovu sestavte řešení.
 
-## <a name="run-the-application"></a>Spuštění aplikace
+## <a name="run-the-app"></a>Spuštění aplikace
 
-Při spuštění **HelloKeyVault**, aplikace přihlásí ke službě Azure AD a potom použije `AuthClientSecret` token pro ověření do trezoru klíčů ve službě Azure Stack.
+Při spuštění **HelloKeyVault**, aplikace přihlásí ke službě Azure AD a použije je `AuthClientSecret` token pro ověření do trezoru klíčů ve službě Azure Stack.
 
 Můžete použít **HelloKeyVault** ukázku na:
 

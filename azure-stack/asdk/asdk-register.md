@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/30/2019
+ms.date: 06/14/2019
 ms.author: justinha
 ms.reviewer: misainat
-ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 6a636a1ed7b2426649afbe163b15780bfc4e9f0e
-ms.sourcegitcommit: 2cd17b8e7352891d8b3eb827d732adf834b7693e
+ms.lastreviewed: 06/14/2019
+ms.openlocfilehash: c512e7a9ac4cb5a7d864a315dc55d01a39a029ea
+ms.sourcegitcommit: 427b534634d902b164e7d54dfd97b63c31563084
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66428699"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67145207"
 ---
 # <a name="azure-stack-registration"></a>Registrace Azure Stack
 
@@ -51,15 +51,7 @@ Postupujte podle těchto kroků k registraci ASDK ve službě Azure.
 
 1. Otevřete konzolu Powershellu jako správce.  
 
-2. Na hostitelském počítači ASDK, otevřete soubor **C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1** v editoru se zvýšenými oprávněními.
-
-3. Na řádku 1249, přidejte `-TimeoutInSeconds 1800` parametr na konci. To je potřeba, aby se zabránilo časového limitu služby instančního objektu při spuštění skriptu registrace. Řádek 1249 by měl nyní vypadat následovně:
-
-   ```powershell
-   $servicePrincipal = Invoke-Command -Session $PSSession -ScriptBlock { New-AzureBridgeServicePrincipal -RefreshToken $using:RefreshToken -AzureEnvironment $using:AzureEnvironmentName -TenantId $using:TenantId -TimeoutInSeconds 1800 }
-   ```
-
-4. Spusťte následující příkazy Powershellu registraci ASDK instalace v Azure. Musíte se přihlásit do Azure fakturační ID předplatného a místní instalace ASDK. Pokud nemáte k dispozici dosud fakturační ID předplatného Azure, můžete si [vytvořit bezplatný účet Azure zde](https://azure.microsoft.com/free/?b=17.06). Registrace Azure Stack se neúčtují žádné poplatky na vaše předplatné Azure.<br><br>Nastavit jedinečný název pro registraci při spuštění **Set-AzsRegistration** rutiny. **RegistrationName** parametr má výchozí hodnotu **AzureStackRegistration**. Nicméně pokud použijete stejný název ve více než jednu instanci služby Azure Stack, skript se nezdaří.
+2. Spusťte následující příkazy Powershellu registraci ASDK instalace v Azure. Musíte se přihlásit do Azure fakturační ID předplatného a místní instalace ASDK. Pokud nemáte k dispozici dosud fakturační ID předplatného Azure, můžete si [vytvořit bezplatný účet Azure zde](https://azure.microsoft.com/free/?b=17.06). Registrace Azure Stack se neúčtují žádné poplatky na vaše předplatné Azure.<br><br>Nastavit jedinečný název pro registraci při spuštění **Set-AzsRegistration** rutiny. **RegistrationName** parametr má výchozí hodnotu **AzureStackRegistration**. Nicméně pokud použijete stejný název ve více než jednu instanci služby Azure Stack, skript se nezdaří.
 
     ```powershell  
     # Add the Azure cloud subscription environment name. 
@@ -87,7 +79,7 @@ Postupujte podle těchto kroků k registraci ASDK ve službě Azure.
     -UsageReportingEnabled:$true
     ```
 
-5. Po dokončení skriptu, byste měli vidět tuto zprávu: **Prostředí je teď zaregistrované a aktivovat pomocí zadaných parametrů.**
+3. Po dokončení skriptu, byste měli vidět tuto zprávu: **Prostředí je teď zaregistrované a aktivovat pomocí zadaných parametrů.**
 
     ![Prostředí je teď zaregistrovaný.](media/asdk-register/1.PNG)
 

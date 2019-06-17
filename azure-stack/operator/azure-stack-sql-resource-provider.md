@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: quying
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 12815bff535e45f42481d17029467227650e8aea
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 2ac09cede3efe356a6534ae4d5986a87d5619ff2
+ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618422"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67131135"
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>Použití databází SQL v Microsoft Azure Stack
 
@@ -36,7 +36,7 @@ Poskytovatel prostředků neobsahuje všechny databáze schopnosti správy [Azur
 
 Poskytovatel prostředků se skládá z následujících součástí:
 
-- **SQL prostředků poskytovatele adaptér virtuálního počítače (VM)**, což je virtuální počítač Windows Server, na kterém běží služby poskytovatele.
+- **SQL prostředků poskytovatele adaptér virtuálního počítače (VM)** , což je virtuální počítač Windows Server, na kterém běží služby poskytovatele.
 - **Poskytovatel prostředků**, která zpracovává požadavky a prostředky databáze přístupy.
 - **Servery, které hostují SQL Server**, které poskytují kapacity pro databáze názvem hostitelskými servery.
 

@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/10/2019
+ms.date: 06/14/2019
 ms.author: sethm
 ms.reviewer: ''
-ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: f46fde5b0c978b315d73d86a5cee3fa1f977295e
-ms.sourcegitcommit: e90db57ffe509162aff5c879f061a1f8371179e8
+ms.lastreviewed: 06/14/2019
+ms.openlocfilehash: 7669ee310e4262a72d90c478500d7e06919b43bc
+ms.sourcegitcommit: 427b534634d902b164e7d54dfd97b63c31563084
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/12/2019
-ms.locfileid: "67034242"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67145187"
 ---
 # <a name="azure-stack-1905-update"></a>Aktualizace služby Azure Stack 1905
 
@@ -41,7 +41,7 @@ Tento článek popisuje obsah balíčku aktualizace 1905. Obsahuje novinky vylep
 
 ### <a name="update-type"></a>Typ aktualizace
 
-Typ sestavení update Azure Stack 1905 je **úplné**. Další informace o aktualizaci typy sestavení, najdete v článku [správy aktualizací ve službě Azure Stack](azure-stack-updates.md) článku.
+Typ sestavení update Azure Stack 1905 je **úplné**. Aktualizace 1905 v důsledku toho se modul runtime déle než rychlé aktualizace jako 1903 a 1904. Přesné modulů runtime pro úplné aktualizace obvykle závisí na počtu uzlů, že vaše instance služby Azure Stack obsahuje, kapacita použitá ve vašem systému úlohy klientů, váš systém připojení k síti (Pokud je připojený k Internetu) a svůj hardware systému konfigurace. Aktualizace 1905 zaznamenala následující očekávané moduly runtime při interním testování: 4 uzly – 35 hodin, 8 uzlů – hodin 45, 12 uzly - 55 hodin, 16 uzlů - 70 hodin. 1905 moduly runtime trvá déle, než tyto očekávané hodnoty nejsou výjimkou a nevyžadují akci operátoři Azure stacku, pokud se aktualizace nezdaří. Další informace o aktualizaci typy sestavení, naleznete v tématu [správy aktualizací ve službě Azure Stack](azure-stack-updates.md).
 
 ## <a name="whats-in-this-update"></a>Co je v této aktualizaci
 
@@ -71,7 +71,7 @@ S touto aktualizací systému Windows Server 2019 lze nyní úspěšně aktivova
 
 - Když Azure více Active Directory, jichž připojí se (prostřednictvím [tento proces](azure-stack-enable-multitenancy.md)), je možné setkávat opětným spuštěním skriptu při výskytu určitých aktualizací, nebo když práva, aby bylo způsobit změny k autorizaci instančního objektu služby AAD chybí. To může způsobit různé problémy, z k zablokování přístupu pro určité funkce, další diskrétní chybám, které se obtížně trasování zpět na původní problém. Chcete-li tomu zabránit, 1905 zavádí novou funkci, která kontroluje tato oprávnění a vytvoří výstrahu, pokud jsou nalezeny některé problémy s konfigurací. Toto ověření spouští každou hodinu a zobrazí nápravné akce potřebné k vyřešení problému. Výstraha se zavře po všech tenantů v dobrém stavu.
 
-- Vylepšení spolehlivosti operací zálohování infrastruktury během převzetí služeb při selhání. 
+- Vylepšení spolehlivosti operací zálohování infrastruktury během převzetí služeb při selhání.
 
 - Nová verze [modul plug-in Azure Stack Nagios](azure-stack-integrate-monitor.md#integrate-with-nagios) je k dispozici, která používá [knihovny Azure Active Directory authentication library](/azure/active-directory/develop/active-directory-authentication-libraries) (ADAL) pro ověřování. Modul plug-in teď také podporuje nasazení v Azure Active Directory (AAD) a Active Directory Federation Services (ADFS) služby Azure Stack. Další informace najdete v tématu [Nagios modulu plug-in exchange](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details) lokality.
 
@@ -79,6 +79,22 @@ S touto aktualizací systému Windows Server 2019 lze nyní úspěšně aktivova
 
 - [Sady Node.js SDK](https://www.npmjs.com/search?q=2019-03-01-hybrid) teď podporuje profily rozhraní API. Balíčky, které podporují **2019-03-01hybridní** profilu publikování.
 
+- Aktualizace služby Azure Stack 1905 přidá dvě nové role infrastruktury ke zlepšení spolehlivosti platformy a možnosti podpory:
+
+  - **Vyzvánění infrastrukturou**: Vyzvánění infrastrukturou v budoucnu se bude hostovat kontejnerizovaných verzích existující role infrastruktury – například xrp -, které aktuálně vyžadují vlastní určené infrastrukturu virtuálních počítačů. Tím vylepšíme platformy spolehlivost a snížit počet infrastruktury virtuálních počítačů, které vyžaduje Azure Stack. Následně to snižuje celkové spotřeby zdrojů rolích Azure stacku infrastruktury v budoucnu.
+  - **Aktualizační kanál podpory**: V budoucnu kanál podpory se použije ke zpracování scénářů rozšířenou podporu pro zákazníky.  
+
+  Kromě toho jsme přidali další instance virtuálního počítače řadiče domény pro lepší dostupnost této role.
+
+  Tyto změny se zvýší využití prostředků infrastruktury Azure stacku následujícími způsoby:
+  
+    | Azure Stack SKU | Zvýšení využití výpočetních | Zvýšení využití paměti |
+    | -- | -- | -- |
+    |4 uzly|22 vCPU|28 GB|
+    |8 uzlů|38 vCPU|44 GB|
+    |12 uzly|54 vCPU|60 GB|
+    |16 uzlů|70 vCPU|76 GB|
+  
 - Teď je k rozšíření Azure Stack, která funguje na Visual Studio Code. Použití **účet Azure** rozšíření, vývojáři mohou cílit Azure Stack přihlášení a zobrazit předplatná, jakož i celou řadou dalších služeb. Rozšíření Azure Account funguje na AAD prostředí i prostředí služby AD FS a vyžaduje pouze malou změnu v nastavení sady Visual Studio Code k zadání hodnoty metadat služby Azure Stack. Další informace najdete [naleznete v dokumentaci k](../user/azure-stack-dev-start-vscode-azure.md).
 
 ### <a name="changes"></a>Změny
