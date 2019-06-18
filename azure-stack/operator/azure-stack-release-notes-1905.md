@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2019
 ms.author: sethm
-ms.reviewer: ''
+ms.reviewer: hectorl
 ms.lastreviewed: 06/14/2019
-ms.openlocfilehash: 7669ee310e4262a72d90c478500d7e06919b43bc
-ms.sourcegitcommit: 427b534634d902b164e7d54dfd97b63c31563084
+ms.openlocfilehash: 4c7e48804b4336c658376b1c3f611dbe75cf8c1f
+ms.sourcegitcommit: 593d40bccf1b2957a763017a8a2d7043f8d8315c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67145187"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67152475"
 ---
 # <a name="azure-stack-1905-update"></a>Aktualizace služby Azure Stack 1905
 
@@ -67,7 +67,7 @@ S touto aktualizací systému Windows Server 2019 lze nyní úspěšně aktivova
 
   Stáhněte si prosím tyto verze rozšíření okamžitě, tak, že nová nasazení rozšíření nezdaří, když se v budoucí verzi vynucuje TLS 1.2. Vždy nastavena **autoupdateminorversion = true** tak, aby prováděla automaticky vedlejší verze aktualizace rozšíření (například 1.8 k 1.9).
 
-- Nový **Nápověda a podpora přehled** ve službě Azure Stack portál usnadňuje operátory zkontrolujte jejich možnosti podpory, získejte odbornou pomoc a další informace o službě Azure Stack. V integrovaných systémech vytváří se žádost o podporu se předem vybere služby Azure Stack. Důrazně doporučujeme, že zákazníci používat toto prostředí k odeslání lístky spíše než pomocí veřejného webu Azure portal. Další informace najdete v tématu [zásobníku Nápověda a podpora Azure](azure-stack-help-and-support-overview.md).
+- Nový **Nápověda a podpora přehled** ve službě Azure Stack portál usnadňuje operátory zkontrolujte jejich možnosti podpory, získejte odbornou pomoc a další informace o službě Azure Stack. V integrovaných systémech vytváří se žádost o podporu se předem vybere služby Azure Stack. Důrazně doporučujeme, že zákazníci používat toto prostředí k odeslání lístky spíše než pomocí globální webu Azure portal. Další informace najdete v tématu [zásobníku Nápověda a podpora Azure](azure-stack-help-and-support-overview.md).
 
 - Když Azure více Active Directory, jichž připojí se (prostřednictvím [tento proces](azure-stack-enable-multitenancy.md)), je možné setkávat opětným spuštěním skriptu při výskytu určitých aktualizací, nebo když práva, aby bylo způsobit změny k autorizaci instančního objektu služby AAD chybí. To může způsobit různé problémy, z k zablokování přístupu pro určité funkce, další diskrétní chybám, které se obtížně trasování zpět na původní problém. Chcete-li tomu zabránit, 1905 zavádí novou funkci, která kontroluje tato oprávnění a vytvoří výstrahu, pokud jsou nalezeny některé problémy s konfigurací. Toto ověření spouští každou hodinu a zobrazí nápravné akce potřebné k vyřešení problému. Výstraha se zavře po všech tenantů v dobrém stavu.
 
@@ -135,7 +135,7 @@ Před instalací této aktualizace, ujistěte se, že ke kontrole následující
 
 ## <a name="download-the-update"></a>Stáhnout aktualizaci.
 
-Můžete stáhnout aktualizace balíčku Azure Stack 1905 z [stránce pro stažení služby Azure Stack](https://aka.ms/azurestackupdatedownload).
+Můžete stáhnout aktualizace balíčku Azure Stack 1905 z [stránce pro stažení služby Azure Stack](https://aka.ms/azurestackupdatedownload). Při použití nástroje pro stahování, je potřeba použít nejnovější verzi a uložená v mezipaměti kopírování z adresáře ke stažení.
 
 ## <a name="hotfixes"></a>Opravy hotfix
 

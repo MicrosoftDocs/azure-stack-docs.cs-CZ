@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: sethm
-ms.reviewer: unknown
+ms.reviewer: ihcherie
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: 5b90bc5014d0f8ebfaed8532f62b7c4f3aee8667
-ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
+ms.openlocfilehash: ef9406c8332eb983e20decb64ead723234aa8faa
+ms.sourcegitcommit: 593d40bccf1b2957a763017a8a2d7043f8d8315c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66691858"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67152573"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Stažení položek z marketplace z Azure do služby Azure Stack
 
@@ -48,7 +48,7 @@ Nasazení Azure Stack musí mít připojení k Internetu a být [registrované v
   
 1. Přihlaste se k portálu Správce služby Azure Stack.
 
-2.  Zkontrolujte místo na úložiště k dispozici před stažením položek z marketplace. Později při výběru položky ke stažení, můžete porovnat velikost ke stažení na kapacitu úložiště k dispozici. Pokud kapacita je omezená, zvažte možnosti [Správa dostupného](azure-stack-manage-storage-shares.md#manage-available-space). 
+2. Zkontrolujte místo na úložiště k dispozici před stažením položek z marketplace. Později při výběru položky ke stažení, můžete porovnat velikost ke stažení na kapacitu úložiště k dispozici. Pokud kapacita je omezená, zvažte možnosti [Správa dostupného](azure-stack-manage-storage-shares.md#manage-available-space). 
 
     Kontrola dostupného místa v **Správa oblastí** vyberte oblast, kterou chcete prozkoumat a potom přejděte ke **poskytovatelů prostředků** > **úložiště**:
 

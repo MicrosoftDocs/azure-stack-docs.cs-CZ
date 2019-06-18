@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2019
 ms.author: sethm
-ms.reviewer: unknown
-ms.lastreviewed: 01/29/2019
-ms.openlocfilehash: 448af01e935165ea974c22c23bd73c7a02ac3935
-ms.sourcegitcommit: 427b534634d902b164e7d54dfd97b63c31563084
+ms.reviewer: ihcherie
+ms.lastreviewed: 06/14/2019
+ms.openlocfilehash: dd6421e915f170ee576d6486362e8b93ac01465f
+ms.sourcegitcommit: 593d40bccf1b2957a763017a8a2d7043f8d8315c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67145281"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67152582"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Položky Azure Marketplace k dispozici pro službu Azure Stack
 
@@ -54,7 +54,7 @@ Microsoft Azure Stack podporuje následující virtuální počítače Azure Mar
 
 |  | Název položky | Popis | Vydavatel |
 | --- | --- | --- | --- |
-| ![Windows Server](media/azure-stack-marketplace-azure-items/windowsserver.png) | [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer) | Řešení podnikové úrovně, které jsou jednoduché nasazení, nákladově efektivní, zaměřená na aplikace a zaměřené na uživatele. Tyto Image jsou pravidelně aktualizovány s nejnovějšími opravami. **Důležité informace: Image stáhli dříve, než 18. ledna 2018 musí být odstraněny a nahrazeny nejnovější verze.** | Microsoft |
+| ![Windows Server](media/azure-stack-marketplace-azure-items/windowsserver.png) | [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/MicrosoftWindowsServer.WindowsServer) | Řešení podnikové úrovně, které jsou jednoduché nasazení, nákladově efektivní, zaměřená na aplikace a zaměřené na uživatele. Tyto Image jsou pravidelně aktualizovány s nejnovějšími opravami. **Důležité informace: Image stáhli dříve, než 18. ledna 2018 musí být odstraněny a nahrazeny nejnovější verze.** | Microsoft |
 | ![Zkušební verze služby SharePoint Server 2013](media/azure-stack-marketplace-azure-items/sharepoint.png) | [Zkušební verze služby SharePoint Server 2013](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2013Trial) | Microsoft SharePoint Server 2013 – zkušební verze na Windows Server 2012 Datacenter a Visual Studio 2019 community edition. | Microsoft |
 | ![Zkušební verze služby SharePoint serveru 2016](media/azure-stack-marketplace-azure-items/sharepoint.png) | [Zkušební verze služby SharePoint serveru 2016](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2016Trial) | Microsoft SharePoint Server 2016 – zkušební verze na Windows Server 2016 Datacenter. | Microsoft |
 | ![SQL Server 2014 SP2 on Windows Server 2012 R2](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2014 SP2 v systému Windows Server 2012 R2](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2014sp2-ws2012r2) | SQL Server 2014 Service Pack 2. **Vyžaduje ke stažení:** SQL IaaS Extension. | Microsoft |

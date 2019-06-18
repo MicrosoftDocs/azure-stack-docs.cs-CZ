@@ -5,18 +5,18 @@ services: azure-stack
 keywords: ''
 author: mattbriggs
 manager: femila
-ms.date: 06/04/2019
+ms.date: 06/17/2019
 ms.topic: article
 ms.service: azure-stack
 ms.author: mabrigg
 ms.reviewer: scottnap
 ms.lastreviewed: 06/04/2019
-ms.openlocfilehash: de39645d1414fc852b98036e7071befcf5262cb1
-ms.sourcegitcommit: cf9440cd2c76cc6a45b89aeead7b02a681c4628a
+ms.openlocfilehash: 742869344c89609ca9eb07c4a84186ee8302a02a
+ms.sourcegitcommit: 7fa9b64aeae2b22be7acfb5c4987d233303107c5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/03/2019
-ms.locfileid: "66469191"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67166475"
 ---
 # <a name="considerations-for-azure-stack-networking"></a>Důležité informace týkající se sítích Azure stacku
 
@@ -35,6 +35,7 @@ Tento článek poskytuje přehled o jedinečných důležité informace o sítí
 |  | Zóny DNS na předplatné | 100 (výchozí)<br>Je možné zvýšit na vyžádání. | 100 |
 |  | DNS record sets per zone | 5000 (výchozí)<br>Je možné zvýšit na vyžádání. | 5000 |
 |  | Name servers for zone delegation | Azure poskytuje čtyři názvové servery pro každou zónu uživatele (tenant), který je vytvořen. | Azure Stack nabízí dvě názvové servery pro každou zónu uživatele (tenant), který je vytvořen. |
+| Brána Azure Firewall | Služba zabezpečení sítě | Azure Firewall je spravovaná cloudová služba síťového zabezpečení, která chrání vaše prostředky ve virtuálních sítích Azure. | Ještě není podporované. |
 | Virtual Network | Partnerské vztahy virtuálních sítí | Propojení dvou virtuálních sítí ve stejné oblasti prostřednictvím páteřní sítě Azure. | Není dosud podporován. |
 |  | IPv6 adresy | Můžete přiřadit adresu protokolu IPv6 v rámci [konfiguraci síťového rozhraní](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface-addresses#ip-address-versions). | Podporovaný je jenom protokol IPv4. |
 |  | Plán DDoS Protection | Podporováno | Ještě není podporované. |

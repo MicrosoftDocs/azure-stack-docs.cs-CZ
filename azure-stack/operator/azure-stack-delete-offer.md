@@ -5,7 +5,6 @@ services: azure-stack
 documentationcenter: ''
 author: sethmanheim
 manager: femila
-editor: ''
 ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
@@ -14,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2019
 ms.author: sethm
-ms.reviewer: ''
+ms.reviewer: efemmano
 ms.lastreviewed: 04/25/2019
-ms.openlocfilehash: 5a15d55a053fbacd3a947bd61d7186d93be77dbf
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 2e0e4ef7abd1885d843832ed7cc9e845003d0ed7
+ms.sourcegitcommit: 593d40bccf1b2957a763017a8a2d7043f8d8315c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64987714"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67152538"
 ---
 # <a name="delete-quotas-plans-offers-and-subscriptions"></a>Odstranit kvóty, plány, nabídky a předplatné
 
@@ -33,7 +32,7 @@ Předplatná se výjimky této obecné zásady: můžete odstraňovat odběry, k
 
 Proto pokud chcete odstranit kvótu, musíte pracovat zpět prostřednictvím všechny plány a nabídky, které používají tuto kvótu: spouští se s nabídkami, zkontrolujte, jestli nemáte žádná předplatná, odstraňte každá nabídka potom odstranit plány, které používají kvóty a tak dále.
 
-## <a name="delete-a-subscription"></a>Odstraní předplatné
+## <a name="delete-a-subscription"></a>Odstranění předplatného
 
 Chcete-li odstranit odběr, vyberte **všechny služby**, pak **předplatná uživatelů**, chcete-li zobrazit seznam všech předplatných v systému. Pokud pracujete na nabídku, můžete také vybrat **předplatná** z něj.
 
@@ -71,7 +70,7 @@ Můžete zobrazit a upravit existující kvóty pomocí portálu pro správce: v
 Alternativně můžete odstranit některé kvóty pomocí těchto rozhraní REST API:
 
 - [Compute](/rest/api/azurestack/quotas%20(compute)/delete)
-- [Síť](/rest/api/azurestack/quotas%20(network)/delete)
+- [Sítě](/rest/api/azurestack/quotas%20(network)/delete)
 - [Storage](/rest/api/azurestack/storagequotas/delete)
 
 > [!NOTE]

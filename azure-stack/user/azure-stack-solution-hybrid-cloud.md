@@ -15,12 +15,12 @@ ms.date: 01/25/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: f1dd98c8c75c28ee176ca318fb9d274110e9b5fe
-ms.sourcegitcommit: 75b13158347963063b7ee62b0ec57894b542c1be
+ms.openlocfilehash: db2ceabfdd49ed113a467923a3772423ab1ca65a
+ms.sourcegitcommit: 593d40bccf1b2957a763017a8a2d7043f8d8315c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66749035"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67152555"
 ---
 # <a name="tutorial-deploy-a-hybrid-cloud-solution-with-azure-and-azure-stack"></a>Kurz: Nasazení řešení s hybridní cloud s Azure a Azure Stack
 
@@ -175,7 +175,7 @@ Brána virtuální sítě Azure straně hybridní síť musí umožňovat připo
 
 ### <a name="integrate-the-azure-app-service-application-with-the-hybrid-network"></a>Integrace aplikace služby Azure App Service s hybridní síť
 
-1. Připojení aplikace k virtuální síti Azure, postupujte podle pokynů v [povolení integrace virtuální sítě](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet#enabling-vnet-integration).
+1. Připojení aplikace k virtuální síti Azure, postupujte podle pokynů v [brány vyžaduje integrace virtuální sítě](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet#gateway-required-vnet-integration).
 
 2. Přejděte do **nastavení** pro plán služby App Service, který je hostitelem webové aplikace. V **nastavení**vyberte **sítě**.
 
