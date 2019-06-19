@@ -15,12 +15,12 @@ ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
 <!-- dev: viananth -->
-ms.openlocfilehash: 98014cfa015f839e1801ffae95d08f3cbd00c986
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 18884a4570f5c90d00b8e17e42fe8bc1b3c073c2
+ms.sourcegitcommit: c4507a100eadd9073aed0d537d054e394b34f530
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269497"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67198604"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack"></a>Použití profilů verzí API s využitím Pythonu ve službě Azure Stack
 
@@ -33,7 +33,7 @@ Python SDK podporuje profilů verzí API cílit na různé cloudové platformy, 
 - **nejnovější**  
     Tento profil zaměřuje na nejnovější verze rozhraní API pro všechny poskytovatele služby na platformě Azure.
 - **2019-03-01-hybrid**  
-    Tento profil zaměřuje na nejnovější verze rozhraní API pro všechny poskytovatele prostředků na platformě Azure Stack.
+    Tento profil zaměřuje na nejnovější verze rozhraní API pro všechny poskytovatele prostředků na platformě Azure Stack pro razítko verze 1904 byl nebo novější.
 - **2018-03-01-hybrid**  
     Tento profil, zaměřuje nejkompatibilnější verze rozhraní API pro všechny poskytovatele prostředků na platformě Azure Stack.
 - **2017-03-09-profile**  
@@ -126,8 +126,8 @@ Zde jsou některé z ukázek kódu, který je k dispozici pro službu Azure Stac
 Následující vzorový kód můžete použít k provádění běžných úloh správy pro virtuální počítače v Azure stacku. Vzorový kód ukazuje na:
 
 - Vytvoření virtuálních počítačů:
-  - Vytvořit virtuální počítač s Linuxem
-  - Vytvořit virtuální počítač s Windows
+  - Vytvoření virtuálního počítače s Linuxem
+  - Vytvoření virtuálního počítače s Windows
 - Aktualizujte virtuální počítač:
   - Rozšířit jednotku
   - Označit virtuální počítač

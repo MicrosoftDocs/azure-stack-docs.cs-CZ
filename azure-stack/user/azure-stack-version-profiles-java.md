@@ -16,18 +16,18 @@ ms.date: 05/16/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 44ebb631ca916ed1c5b933517d40a756c987fee0
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: fdab3fd9296388f19687e2d7ce1d4af3584640ef
+ms.sourcegitcommit: c4507a100eadd9073aed0d537d054e394b34f530
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269468"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67198548"
 ---
 # <a name="use-api-version-profiles-with-java-in-azure-stack"></a>Použití profilů verzí API s Javou v Azure stacku
 
 *Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
 
-Sada Java SDK pro Azure Resource Manageru zásobníku poskytuje nástroje, které vám pomůžou vytvářet a spravovat infrastrukturu. Poskytovatelé prostředků v sadě SDK patří výpočty, sítě, úložiště, aplikační služby, a [KeyVault](/azure/key-vault/key-vault-whatis). Sada Java SDK zahrnuje profily rozhraní API včetně závislostí v, který načte správné moduly v souboru .Java, který soubor Pom.xml. Ale můžete přidat více profilů jako závislosti, jako **2018-03-01hybridní**, nebo **nejnovější**, jako profil Azure. Pomocí těchto závislostí načte správný modul tak, aby při vytváření vašeho typu prostředku, budete moct vybrat, kterou verzi rozhraní API z těchto profilů, které chcete použít. To umožňuje používat nejnovější verze v Azure, při vývoji na základě aktuální verze rozhraní API pro službu Azure Stack. Pomocí sady Java SDK poskytuje prostředí pro vývojáře skutečně hybridní cloud. Profily rozhraní API v jazyce Java SDK povolit hybridní cloudový vývoj díky ní si můžete přepínat mezi globální prostředky Azure a prostředky ve službě Azure Stack.
+Sada Java SDK pro Azure Resource Manageru zásobníku poskytuje nástroje, které vám pomůžou vytvářet a spravovat infrastrukturu. Poskytovatelé prostředků v sadě SDK patří výpočty, sítě, úložiště, aplikační služby, a [KeyVault](/azure/key-vault/key-vault-whatis). Sada Java SDK zahrnuje profily rozhraní API včetně závislostí v, který načte správné moduly v souboru .Java, který soubor Pom.xml. Ale můžete přidat více profilů jako závislosti, jako **2019-03-01hybridní**, nebo **nejnovější**, jako profil Azure. Pomocí těchto závislostí načte správný modul tak, aby při vytváření vašeho typu prostředku, budete moct vybrat, kterou verzi rozhraní API z těchto profilů, které chcete použít. To umožňuje používat nejnovější verze v Azure, při vývoji na základě aktuální verze rozhraní API pro službu Azure Stack. Pomocí sady Java SDK poskytuje prostředí pro vývojáře skutečně hybridní cloud. Profily rozhraní API v jazyce Java SDK povolit hybridní cloudový vývoj díky ní si můžete přepínat mezi globální prostředky Azure a prostředky ve službě Azure Stack.
 
 ## <a name="java-and-api-version-profiles"></a>Profily verze Javy a rozhraní API
 
@@ -37,17 +37,15 @@ Profil rozhraní API je kombinací poskytovatelů prostředků a verze rozhraní
 
   - Pokud chcete používat nejnovější profil, závislost je **com.microsoft.azure**.
 
-  - Chcete-li použít služby kompatibilní s Azure Stack, použijte **com.microsoft.azure.profile\_2018\_03\_01\_hybridní** profilu.
+  - Pokud chcete použít nejnovější dostupné ve službě Azure Stack podporované služby, použijte **com.microsoft.azure.profile\_2019\_03\_01\_hybridní** profilu.
 
     - Toto je třeba zadat do souboru Pom.xml jako závislost, která automaticky načte moduly Pokud zvolíte správné třídy z rozevíracího seznamu stejně jako s .NET.
-
-    - Horní části každého modulu, který se zobrazí takto:      `Import com.microsoft.azure.management.resources.v2018_03_01.ResourceGroup`
 
   - Závislosti vypadat následovně:
 
      ```xml
      <dependency>
-     <groupId>com.microsoft.azure.profile_2018_03_01_hybrid</groupId>
+     <groupId>com.microsoft.azure.profile_2019_03_01_hybrid</groupId>
      <artifactId>azure</artifactId>
      <version>1.0.0-beta</version>
      </dependency>
@@ -69,7 +67,7 @@ Instalace sady Java SDK, postupujte následovně:
 
    ```xml  
    <dependency>
-   <groupId>com.microsoft.azure.profile_2018_03_01_hybrid</groupId>
+   <groupId>com.microsoft.azure.profile_2019_03_01_hybrid</groupId>
    <artifactId>azure</artifactId>
    <version>1.0.0-beta</version>
    </dependency>
@@ -77,7 +75,7 @@ Instalace sady Java SDK, postupujte následovně:
 
 4. Sadu balíčků, které je potřeba nainstalovat závisí na verzi profilu, který chcete použít. Názvy balíčků pro profil verze jsou:
 
-   - **com.microsoft.azure.profile\_2018\_03\_01\_hybrid**
+   - **com.microsoft.azure.profile\_2019\_03\_01\_hybrid**
    - **com.microsoft.azure**
      - **nejnovější**
 
@@ -165,7 +163,9 @@ Ukázkový soubor JSON:
 
 ## <a name="existing-api-profiles"></a>Stávající profily rozhraní API
 
-- **com.microsoft.azure.profile\_2018\_03\_01\_hybrid**: Nejnovější profil vytvořené pro Azure Stack. Použijte tento profil služby bude nejvíc kompatibilní se systémem Azure Stack, dokud jsou na razítku. 1808 a další.
+- **com.microsoft.azure.profile\_2019\_03\_01\_hybrid**: Nejnovější profil vytvořené pro Azure Stack. Použijte tento profil služby bude nejvíc kompatibilní se systémem Azure Stack, dokud jsou na razítku 1904 a další.
+
+- **com.microsoft.azure.profile\_2018\_03\_01\_hybrid**: Profil vytvořené pro Azure Stack. Použijte tento profil služby kompatibilní s Azure Stack s verzemi razítko. 1808 nebo novější.
 
 - **com.microsoft.azure**: Profil, který se skládá z nejnovější verze všech služeb. Použijte nejnovější verze všech služeb.
 
@@ -190,6 +190,9 @@ To umožňuje použít profil závislosti rozhraní API pro nasazení aplikace �
 Zaregistrovat správné koncové body cloudu služby Azure Stack, použijte následující kód:
 
 ```java
+// Get Azure Stack cloud endpoints
+final HashMap<String, String> settings = getActiveDirectorySettings(armEndpoint);
+
 AzureEnvironment AZURE_STACK = new AzureEnvironment(new HashMap<String, String>() {
                 {
                     put("managementEndpointUrl", settings.get("audience"));
@@ -204,29 +207,50 @@ AzureEnvironment AZURE_STACK = new AzureEnvironment(new HashMap<String, String>(
             });
 ```
 
-`getActiveDirectorySettings` Volání v následujícím kódu načte z koncových bodů metadat koncových bodů. Uvádí proměnné prostředí z volání, které tvoří:
+`getActiveDirectorySettings` Volání ve výše uvedeném kódu načte z koncových bodů metadat koncových bodů. Uvádí proměnné prostředí z volání, které tvoří:
 
 ```java
-public static HashMap<String, String>
-getActiveDirectorySettings(String armEndpoint) {
+public static HashMap<String, String> getActiveDirectorySettings(String armEndpoint) {
 
-HashMap<String, String> adSettings = new HashMap<String, String>();
+    HashMap<String, String> adSettings = new HashMap<String, String>();
+    try {
 
-try {
+        // create HTTP Client
+        HttpClient httpClient = HttpClientBuilder.create().build();
 
-// create HTTP Client
-HttpClient httpClient = HttpClientBuilder.create().build();
+        // Create new getRequest with below mentioned URL
+        HttpGet getRequest = new HttpGet(String.format("%s/metadata/endpoints?api-version=1.0",
+                             armEndpoint));
 
-// Create new getRequest with below mentioned URL
-HttpGet getRequest = new
-HttpGet(String.format("%s/metadata/endpoints?api-version=1.0",
-armEndpoint));
+        // Add additional header to getRequest which accepts application/xml data
+        getRequest.addHeader("accept", "application/xml");
 
-// Add additional header to getRequest which accepts application/xml data
-getRequest.addHeader("accept", "application/xml");
+        // Execute request and catch response
+        HttpResponse response = httpClient.execute(getRequest);
+        
+        // Check for HTTP response code: 200 = success
+        if (response.getStatusLine().getStatusCode() != 200) {
+            throw new RuntimeException("Failed : HTTP error code : " + response.getStatusLine().getStatusCode());
+        }
+        
+        String responseStr = EntityUtils.toString(response.getEntity());
+        JSONObject responseJson = new JSONObject(responseStr);
+        adSettings.put("galleryEndpoint", responseJson.getString("galleryEndpoint"));
+        JSONObject authentication = (JSONObject) responseJson.get("authentication");
+        String audience = authentication.get("audiences").toString().split("\"")[1];
+        adSettings.put("login_endpoint", authentication.getString("loginEndpoint"));
+        adSettings.put("audience", audience);
+        adSettings.put("graphEndpoint", responseJson.getString("graphEndpoint"));
 
-// Execute request and catch response
-HttpResponse response = httpClient.execute(getRequest);
+    } catch (ClientProtocolException cpe) {
+        cpe.printStackTrace();
+        throw new RuntimeException(cpe);
+    } catch (IOException ioe) {
+        ioe.printStackTrace();
+        throw new RuntimeException(ioe);
+    }
+    return adSettings;
+}
 ```
 
 ## <a name="samples-using-api-profiles"></a>Ukázky použití profilů rozhraní API
@@ -237,7 +261,7 @@ Následující ukázky na Githubu jako reference můžete použít k vytvářen�
 
 - [Správa účtů úložiště](https://github.com/Azure-Samples/hybrid-storage-java-manage-storage-accounts)
 
-- [Správa virtuálního počítače](https://github.com/Azure-Samples/hybrid-compute-java-manage-vm)
+- [Správa virtuálního počítače](https://github.com/Azure-Samples/hybrid-compute-java-manage-vm) (aktualizováno s profilem 2019-03-01hybridní).
 
 ### <a name="sample-unit-test-project"></a>Ukázkový projekt testování částí
 
@@ -267,33 +291,18 @@ Následující ukázky na Githubu jako reference můžete použít k vytvářen�
 
    Ve Windows, použijte **nastavit** místo **exportovat**.
 
-5. Použít `getactivedirectorysettings` kód pro načtení metadat koncového bodu arm a použití klienta HTTP se nastavit informace o koncovém bodu.
+5. Použití `getActiveDirectorySettings` funkce k načtení metadat koncových bodů Azure Resource Manageru.
 
-   ```java
-   public static HashMap<String, String> getActiveDirectorySettings(String armEndpoint) {
-   HashMap<String, String> adSettings = new HashMap<String,> String>();
+    ```java
+    // Get Azure Stack cloud endpoints
+    final HashMap<String, String> settings = getActiveDirectorySettings(armEndpoint);
+    ```
 
-   try {
-
-   // create HTTP Client
-   HttpClient httpClient = HttpClientBuilder.create().build();
-
-   // Create new getRequest with below mentioned URL
-   HttpGet getRequest = new
-   HttpGet(String.format("%s/metadata/endpoints?api-version=1.0", armEndpoint));
-
-   // Add additional header to getRequest which accepts application/xml data
-   getRequest.addHeader("accept", "application/xml");
-
-   // Execute request and catch response
-   HttpResponse response = httpClient.execute(getRequest);
-   ```
-
-6. Do souboru Pom.xml přidejte následující závislost používat **2018-03-01hybridní** profil pro službu Azure Stack. Tato závislost instaluje moduly spojený s tímto profilem pro poskytovatele prostředků Compute, sítě, úložiště, trezor klíčů a App Services:
+6. Do souboru Pom.xml přidejte následující závislost používat **2019-03-01hybridní** profil pro službu Azure Stack. Tato závislost instaluje moduly spojený s tímto profilem pro poskytovatele prostředků Compute, sítě, úložiště, trezor klíčů a App Services:
 
    ```xml
    <dependency>
-   <groupId>com.microsoft.azure.profile_2018_03_01_hybrid</groupId>
+   <groupId>com.microsoft.azure.profile_2019_03_01_hybrid</groupId>
    <artifactId>azure</artifactId>
    <vers1s.0.0-beta</version>
    </dependency>

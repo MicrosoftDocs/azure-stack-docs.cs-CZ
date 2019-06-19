@@ -15,12 +15,12 @@ ms.date: 06/14/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 06/14/2019
-ms.openlocfilehash: c512e7a9ac4cb5a7d864a315dc55d01a39a029ea
-ms.sourcegitcommit: 427b534634d902b164e7d54dfd97b63c31563084
+ms.openlocfilehash: cf25678ad84ac79dd29ddd1684b1ca2f958180ff
+ms.sourcegitcommit: 5a720b17bd6a5aab44929c0247db8d512e0669ef
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67145207"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67197199"
 ---
 # <a name="azure-stack-registration"></a>Registrace Azure Stack
 
@@ -32,13 +32,13 @@ Pokud vaše ASDK nezaregistrujete, může se zobrazit **vyžadována aktivace** 
 
 Před použitím těchto pokynů k registraci ASDK ve službě Azure, ujistěte se, že máte nainstalované Azure Stack Powershellu a stáhnout nástroje Azure Stack, jak je popsáno v [konfigurace po nasazení](asdk-post-deploy.md) článku.
 
-Kromě toho režim jazyka PowerShell nastavené na **FullLanguageMode** v počítači používá k registraci ASDK v Azure. Pokud chcete ověřit, že aktuální režim jazyka nastaven na úplné, otevřete okno Powershellu se zvýšenými oprávněními a spusťte následující příkazy Powershellu:
+Kromě toho režim jazyka PowerShell nastavené na **FullLanguage** v počítači používá k registraci ASDK v Azure. Pokud chcete ověřit, že aktuální režim jazyka nastaven na úplné, otevřete okno Powershellu se zvýšenými oprávněními a spusťte následující příkazy Powershellu:
 
 ```powershell  
 $ExecutionContext.SessionState.LanguageMode
 ```
 
-Zkontrolujte výstup vrací **FullLanguageMode**. Pokud se vrátí další režim jazyka, registrace bude muset být spuštěn na jiném počítači nebo režim jazyka muset nastavit na **FullLanguageMode** než budete pokračovat.
+Zkontrolujte výstup vrací **FullLanguage**. Pokud se vrátí další režim jazyka, registrace bude muset být spuštěn na jiném počítači nebo režim jazyka muset nastavit na **FullLanguage** než budete pokračovat.
 
 Účet Azure AD pro registraci potřeby umožňuje mít přístup k předplatnému Azure a máte oprávnění k vytváření aplikací identity a instanční objekty v adresáři spojený s tímto předplatným. Doporučujeme registraci Azure Stack v Azure pomocí správy nejnižších možných oprávnění [vytvořit účet služby pro registraci](../operator/azure-stack-registration-role.md) místo použití přihlašovací údaje globálního správce.
 

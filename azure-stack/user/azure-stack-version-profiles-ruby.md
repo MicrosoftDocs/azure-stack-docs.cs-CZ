@@ -16,12 +16,12 @@ ms.date: 05/16/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 625ddb8341b58c98e47b37701547de5d6acea45b
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 3c897300dc2130b2c75449829304d4bd58b21898
+ms.sourcegitcommit: c4507a100eadd9073aed0d537d054e394b34f530
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269330"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67198671"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack"></a>Použití profilů verzí API pomocí Ruby ve službě Azure Stack
 
@@ -91,9 +91,9 @@ Chcete-li používat Azure SDK pro Ruby pomocí služby Azure Stack, musíte zad
 | ID klienta | AZURE_CLIENT_ID | Služba ID instančního objektu aplikace neuloží, když se vytvoří nový instanční objekt služby v předchozí části tohoto dokumentu.  |
 | ID předplatného | AZURE_SUBSCRIPTION_ID | [ID předplatného](../operator/azure-stack-plan-offer-quota-overview.md#subscriptions) je, jak získat přístup k nabídky ve službě Azure Stack. |
 | Tajný kód klienta | AZURE_CLIENT_SECRET | Aplikace instančního objektu služby tajný klíč neuloží, když se vytvoří nový instanční objekt služby. |
-| Koncový bod Resource Manageru | ARM_ENDPOINT | Zobrazit [koncový bod služby Azure Stack resource manager](#the-azure-stack-resource-manager-endpoint).  |
+| Koncový bod Resource Manageru | ARM_ENDPOINT | Zobrazit [koncový bod Azure Stack Resource Manager](#the-azure-stack-resource-manager-endpoint).  |
 
-### <a name="the-azure-stack-resource-manager-endpoint"></a>Koncový bod služby Azure Stack resource manager
+### <a name="the-azure-stack-resource-manager-endpoint"></a>Koncový bod Azure Stack Resource Manageru
 
 Microsoft Azure Resource Manageru je systém správy, který vám umožňuje správcům nasadit, spravovat a monitorovat prostředky Azure. Azure Resource Manageru dokáže zpracovat tyto úkoly, jako se skupinou, nikoli samostatně, v rámci jedné operace.
 
@@ -130,10 +130,10 @@ Chcete-li nastavit proměnné prostředí, v příkazovém řádku Windows, pou�
 
 Souhrn gem Azure_sdk má následující tři profily:
 
-1. **V2019_03_01_Hybrid** profilu vytvořené pro Azure Stack. Používáte tento profil pro využívat všechny nejnovější verze služby, které jsou k dispozici ve službě Azure Stack.
-2. **V2017_03_09**  
-  Profil vytvořené pro Azure Stack. Použijte tento profil služby nejvíce kompatibilní s Azure Stack.
-3. **nejnovější**  
+1. **V2019_03_01_Hybrid** profilu vytvořené pro Azure Stack. Používáte tento profil pro využívat všechny nejnovější verze služby dostupné v Azure stacku razítko verzi 1904 nebo novější.
+1. **V2017_03_09**  
+  Profil vytvořené pro Azure Stack. Použijte tento profil služby k nejvíce kompatibilní s verzí Azure Stack razítko. 1808 nebo starší.
+1. **nejnovější**  
   Profil se skládá z nejnovější verze všech služeb. Použijte nejnovější verze všech služeb.
 
 Další informace o profilech rozhraní API a služby Azure Stack, najdete v článku [souhrn rozhraní API profily](azure-stack-version-profiles.md#summary-of-api-profiles).
@@ -240,11 +240,11 @@ Ke spuštění ukázky, ujistěte se, že máte nainstalované Ruby. Pokud použ
 
    Nastavte následující proměnné prostředí pomocí informace, které jste získali z instanční objekt jste vytvořili.
 
-   - Export AZURE_TENANT_ID = {id vašeho tenanta}
-   - Export AZURE_CLIENT_ID = {id klienta}
+   - Export AZURE_TENANT_ID = {ID vašeho tenanta}
+   - Export AZURE_CLIENT_ID = {ID klienta}
    - Export AZURE_CLIENT_SECRET = {váš tajný klíč klienta}
-   - Export AZURE_SUBSCRIPTION_ID = {id předplatného}
-   - Export ARM_ENDPOINT = {váš prostředek AzureStack adresa url správce}
+   - Export AZURE_SUBSCRIPTION_ID = {ID předplatného}
+   - Export ARM_ENDPOINT = {zásobníku Resource Manageru adresy URL Azure}
 
    > [!NOTE]  
    > Ve Windows použijte sadu místo export.

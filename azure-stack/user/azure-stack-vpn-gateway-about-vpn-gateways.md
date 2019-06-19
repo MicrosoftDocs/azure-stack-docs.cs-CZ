@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: sethm
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: a8fe96d645d9277003e17144089a91e0722d0088
-ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
+ms.openlocfilehash: 0df791c6eb9a898c5263b2c628899b512d49601c
+ms.sourcegitcommit: c4507a100eadd9073aed0d537d054e394b34f530
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66836826"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67198649"
 ---
 # <a name="about-vpn-gateway-for-azure-stack"></a>Informace o službě VPN gateway pro Azure Stack
 
@@ -102,6 +102,14 @@ Při výběru SKU zvažte následující:
 * Azure Stack brány založené na zásadách nepodporuje.
 * Protokol BGP (Border Gateway) není podporován v základní SKU.
 * Konfigurace současně existujících brány ExpressRoute VPN nejsou podporovány ve službě Azure Stack.
+
+## <a name="gateway-availability"></a>Dostupnost brány
+
+Scénáře vysoké dostupnosti se dá nakonfigurovat jenom na **vysoce výkonná brána** připojení SKU. Na rozdíl od Azure, která poskytuje prostřednictvím konfigurace aktivní/aktivní a aktivní/pasivní vysokou dostupnost, podporuje Azure Stack jenom konfigurace aktivní/pasivní vysokou dostupnost. 
+
+### <a name="failover"></a>Převzetí služeb při selhání
+
+Existují 3 víceklientská brána infrastruktury virtuálních počítačů ve službě Azure Stack. Dva z těchto virtuálních počítačů jsou v aktivním režimu a třetí je v režimu redundantní. Aktivní virtuální počítače povolit vytváření připojení VPN na jejich a redundantní virtuální počítač přijímá pouze v případě selhání připojení k síti VPN. Pokud aktivní brány virtuální počítač stane nedostupným, připojení k síti VPN převezme služby při selhání na redundantní virtuální počítač po krátké době (několik sekund) ztráty připojení.
 
 ## <a name="estimated-aggregate-throughput-by-sku"></a>Odhadovaná agregovaná propustnost podle typů SKU
 

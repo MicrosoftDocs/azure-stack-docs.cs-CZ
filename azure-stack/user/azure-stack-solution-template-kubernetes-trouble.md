@@ -11,15 +11,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.author: mabrigg
-ms.date: 04/02/2019
+ms.date: 06/18/2019
 ms.reviewer: waltero
-ms.lastreviewed: 03/20/2019
-ms.openlocfilehash: 33eed0b574ad28c5fc0d1fb44f1c9b5a1ad37bb7
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.lastreviewed: 06/18/2019
+ms.openlocfilehash: dbc3f495a8f3a2912e2b8a4a0de1058a2eaa4df0
+ms.sourcegitcommit: c4507a100eadd9073aed0d537d054e394b34f530
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269393"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67198796"
 ---
 # <a name="troubleshoot-kubernetes-deployment-to-azure-stack"></a>Řešení potíží s nasazení Kubernetes pro Azure Stack
 
@@ -115,7 +115,7 @@ Při nasazování clusteru Kubernetes, můžete zkontrolovat stav nasazení zkon
     | Type | Poskytovatel prostředků a typ prostředku. |
     | Status | Stav položky. |
     | Časové razítko | Časové razítko UTC času. |
-    | Detaily operace | Podrobnosti operace, jako je poskytovatel prostředků, která byla zahrnuta v operaci, koncový bod prostředku a název prostředku. |
+    | Podrobnosti o operaci | Podrobnosti operace, jako je poskytovatel prostředků, která byla zahrnuta v operaci, koncový bod prostředku a název prostředku. |
 
     Každá položka má zelená nebo červená ikona stavu.
 
@@ -146,10 +146,10 @@ Postupujte podle těchto kroků ke shromažďování a stažení protokolů clus
 
     | Parametr           | Popis                                                                                                      | Příklad:                                                                       |
     |---------------------|------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
-    | -d, --vmd-host      | Veřejná IP adresa nebo plně kvalifikovaný název (FQDN) DVM. Název virtuálního počítače začíná `vmd-`. | IP adresa: 192.168.102.38<br>DNS: vmd-myk8s.local.cloudapp.azurestack.external |
+    | -d, --vmd-host      | Veřejná IP adresa nebo název plně kvalifikované domény (FQDN) DVM. Název virtuálního počítače začíná `vmd-`. | IP: 192.168.102.38<br>DNS: vmd-myk8s.local.cloudapp.azurestack.external |
     | -h, – Nápověda  | Tisk použití příkazu. | |
-    | -i,-identity soubor | Soubor privátního klíče RSA předán položky marketplace při vytváření clusteru Kubernetes. Třeba do vzdáleného úložiště v uzlech Kubernetes. | C:\data\id_rsa.pem (Putty)<br>~/.ssh/id_rsa (SSH)
-    | -m, --master-host   | Veřejnou IP adresu nebo název plně kvalifikované domény (FQDN) hlavního uzlu Kubernetes. Název virtuálního počítače začíná `k8s-master-`. | IP adresa: 192.168.102.37<br>FQDN: k8s-12345.local.cloudapp.azurestack.external      |
+    | -i,-identity soubor | Cesta k souboru privátního klíče RSA předán položky marketplace při vytváření clusteru Kubernetes. Třeba do vzdáleného úložiště v uzlech Kubernetes. | C:\data\id_rsa.pem (Putty)<br>~/.ssh/id_rsa (SSH)
+    | -m, --master-host   | Veřejnou IP adresu nebo název plně kvalifikované domény (FQDN) hlavního uzlu Kubernetes. Název virtuálního počítače začíná `k8s-master-`. | IP: 192.168.102.37<br>FQDN: k8s-12345.local.cloudapp.azurestack.external      |
     | -u, --user          | Uživatelské jméno předané do položky marketplace při vytváření clusteru Kubernetes. Třeba do vzdáleného úložiště v uzlech Kubernetes. | azureuser (výchozí hodnota) |
 
 

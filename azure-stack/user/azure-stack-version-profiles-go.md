@@ -14,12 +14,12 @@ ms.date: 05/26/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/26/2019
-ms.openlocfilehash: 4a7e36fda318c1987a39427c5ef1f5e5e307d1b6
-ms.sourcegitcommit: d04a93e913ff069e17f6d56811681804a6422b58
+ms.openlocfilehash: 9b5273da44db26f9a98eab4147350c35214b128c
+ms.sourcegitcommit: c4507a100eadd9073aed0d537d054e394b34f530
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66373013"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67198686"
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack"></a>Použití profilů verzí API s využitím Go ve službě Azure Stack
 
@@ -32,7 +32,7 @@ Profil je kombinace různých typů prostředků s různými verzemi z různých
 - Stabilitu pro vaši aplikaci tím, že zamknete ke konkrétním verzím rozhraní API.
 - Kompatibilita pro vaše aplikace se službami Azure Stack a regionálních Datacenter Azure.
 
-V sadě Go SDK profily jsou k dispozici v rámci cesty profily, jejich verze **rrrr-MM-DD** formátu. V tuto chvíli je nejnovější verze rozhraní API služby Azure Stack profilu **2019-03-01**. Chcete-li importovat dané služby z profilu, importujte jeho odpovídající modul z profilu. Například, chcete-li importovat **Compute** služba **2019-03-01** Profilovat, použijte následující kód:
+V sadě Go SDK profily jsou k dispozici v rámci cesty profily, jejich verze **rrrr-MM-DD** formátu. V tuto chvíli je nejnovější verze rozhraní API služby Azure Stack profilu **2019-03-01** pro razítko verze 1904 byl nebo novější. Chcete-li importovat dané služby z profilu, importujte jeho odpovídající modul z profilu. Například, chcete-li importovat **Compute** služba **2019-03-01** Profilovat, použijte následující kód:
 
 ```go
 import "github.com/Azure/azure-sdk-for-go/profiles/2019-03-01/compute/mgmt/compute"

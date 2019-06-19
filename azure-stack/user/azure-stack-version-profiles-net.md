@@ -16,12 +16,12 @@ ms.date: 05/16/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: da93d2683805c6e9769a3d27a9e9ab3a4b998db5
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 0d0c4af4d3016989440dc6b9760bda0a3fc8d947
+ms.sourcegitcommit: c4507a100eadd9073aed0d537d054e394b34f530
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269373"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67198620"
 ---
 # <a name="use-api-version-profiles-with-net-in-azure-stack"></a>Použití profilů verzí API s využitím .NET v Azure stacku
 
@@ -127,9 +127,9 @@ Ukázkový soubor JSON:
 
 ## <a name="existing-api-profiles"></a>Stávající profily rozhraní API
 
-1.  **Microsoft.Azure.Management.Profiles.hybrid\_2019\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg**: Nejnovější profil vytvořené pro Azure Stack. Použijte tento profil služby bude nejvíc kompatibilní se systémem Azure Stack, dokud jsou na razítku. 1808 a další.
+1.  **Microsoft.Azure.Management.Profiles.hybrid\_2019\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg**: Nejnovější profil vytvořené pro Azure Stack. Použijte tento profil služby k nejvíce kompatibilní s Azure Stack, dokud jsou na razítku 1904 nebo novějším.
 
-2.  **Microsoft.Azure.Management.Profiles.hybrid\_2018\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg**
+2.  **Microsoft.Azure.Management.Profiles.hybrid\_2018\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg**: Použijte tento profil služby kompatibilní s Azure Stack pro razítko verze. 1808 nebo novější.
 
 3.  **Nejnovější**: Profil, který se skládá z nejnovější verze všech služeb. Použijte nejnovější verze všech služeb. Tento profil je součástí **Microsoft.Azure.Management** balíček NuGet.
 

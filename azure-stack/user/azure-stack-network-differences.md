@@ -11,12 +11,12 @@ ms.service: azure-stack
 ms.author: mabrigg
 ms.reviewer: scottnap
 ms.lastreviewed: 06/04/2019
-ms.openlocfilehash: 742869344c89609ca9eb07c4a84186ee8302a02a
-ms.sourcegitcommit: 7fa9b64aeae2b22be7acfb5c4987d233303107c5
+ms.openlocfilehash: a59b716df7e8bf7c9a76abbfcdbe6b300c985c9f
+ms.sourcegitcommit: c4507a100eadd9073aed0d537d054e394b34f530
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67166475"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67198819"
 ---
 # <a name="considerations-for-azure-stack-networking"></a>Důležité informace týkající se sítích Azure stacku
 
@@ -55,7 +55,7 @@ Tento článek poskytuje přehled o jedinečných důležité informace o sítí
 |  | Nastavení protokolu BGP | Azure podporuje konfiguraci adresy partnerského vztahu protokolu BGP a váha partnerského uzlu. | Adresa partnerského vztahu protokolu BGP a váha partnerského uzlu jsou automaticky nakonfigurované ve službě Azure Stack. Neexistuje žádný způsob pro uživatele k nakonfigurování těchto nastavení vlastní hodnoty. |
 |  | Výchozí server brány | Azure podporuje konfiguraci výchozí web pro vynucené tunelování. | Ještě není podporované. |
 |  | Změna velikosti brány | Azure podporuje změnu velikosti brány po nasazení. | Znovu velikosti není podporované. |
-|  | Aktivní/aktivní konfigurace | Podporováno | Ještě není podporované. |
+|  | Konfigurace dostupnosti | Aktivní/aktivní | Aktivní/pasivní vysoká dostupnost |
 |  | UsePolicyBasedTrafficSelectors | Azure podporuje používání selektorů přenosu na základě zásad s připojeními trasové brány. | Ještě není podporované. |
 | Nástroj pro vyrovnávání zatížení | Skladová jednotka (SKU) | Základní a podporovaných nástrojů pro vyrovnávání zatížení | Je podporován pouze Load balanceru úrovně Basic.  Vlastnost SKU se nepodporuje. |
 |  | Zóny | Zóny dostupnosti jsou podporovány. | Není dosud podporován. |
