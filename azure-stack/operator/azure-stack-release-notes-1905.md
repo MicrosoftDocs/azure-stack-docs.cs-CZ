@@ -16,12 +16,12 @@ ms.date: 06/14/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 06/14/2019
-ms.openlocfilehash: 4c7e48804b4336c658376b1c3f611dbe75cf8c1f
-ms.sourcegitcommit: 593d40bccf1b2957a763017a8a2d7043f8d8315c
+ms.openlocfilehash: e44dd6880de77ff063cbe6593a448020a154d1e8
+ms.sourcegitcommit: 507d2fdb0c1322a0bd07741f92c05a6322a80a44
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67152475"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67237410"
 ---
 # <a name="azure-stack-1905-update"></a>Aktualizace služby Azure Stack 1905
 
@@ -65,7 +65,7 @@ S touto aktualizací systému Windows Server 2019 lze nyní úspěšně aktivova
   - microsoft.dsc-arm-2.77.0.0
   - microsoft.vmaccessforlinux-1.5.2
 
-  Stáhněte si prosím tyto verze rozšíření okamžitě, tak, že nová nasazení rozšíření nezdaří, když se v budoucí verzi vynucuje TLS 1.2. Vždy nastavena **autoupdateminorversion = true** tak, aby prováděla automaticky vedlejší verze aktualizace rozšíření (například 1.8 k 1.9).
+  Stáhněte si prosím tyto verze rozšíření okamžitě, tak, že nová nasazení rozšíření nezdaří, když se v budoucí verzi vynucuje TLS 1.2. Vždy nastavena **autoUpgradeMinorVersion = true** tak, aby prováděla automaticky vedlejší verze aktualizace rozšíření (například 1.8 k 1.9).
 
 - Nový **Nápověda a podpora přehled** ve službě Azure Stack portál usnadňuje operátory zkontrolujte jejich možnosti podpory, získejte odbornou pomoc a další informace o službě Azure Stack. V integrovaných systémech vytváří se žádost o podporu se předem vybere služby Azure Stack. Důrazně doporučujeme, že zákazníci používat toto prostředí k odeslání lístky spíše než pomocí globální webu Azure portal. Další informace najdete v tématu [zásobníku Nápověda a podpora Azure](azure-stack-help-and-support-overview.md).
 
