@@ -15,19 +15,19 @@ ms.date: 06/18/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 746d939d433dd5333e2d8ec84f7f52149577ec5b
-ms.sourcegitcommit: c4507a100eadd9073aed0d537d054e394b34f530
+ms.openlocfilehash: 65ffa6cc2a9c2d08e5be6733db06a4235829838a
+ms.sourcegitcommit: 759a01b566597a71b18fca25902cacc983a5a63b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67198521"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67298041"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Přidat Kubernetes na webu Marketplace služby Azure Stack
 
 *Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
 
 > [!note]  
-> Kubernetes ve službě Azure Stack je ve verzi preview. Azure Stack odpojené scénář není aktuálně podporován ve verzi preview.
+> Kubernetes ve službě Azure Stack je ve verzi preview. Odpojené scénář Azure Stack není aktuálně podporován ve verzi preview. Pouze pomocí položky marketplace pro vývoj a testování scénářů. [AKS modul](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md) lze použít pro produkční prostředí.
 
 Uživatelům můžete nabídnout Kubernetes jako položky Marketplace. Uživatelé můžou potom nasaďte Kubernetes v rámci jediné koordinované operace.
 

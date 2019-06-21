@@ -16,12 +16,12 @@ ms.date: 06/05/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: 38c7ec337ba8cdb73925b1c07f77331c05b25d8a
-ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
+ms.openlocfilehash: 48a97beac6b43e95b52d8b23f20369318e53ebee
+ms.sourcegitcommit: 759a01b566597a71b18fca25902cacc983a5a63b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66836659"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67297978"
 ---
 # <a name="azure-stack-1905-known-issues"></a>Azure Stack 1905 známé problémy
 
@@ -154,11 +154,11 @@ Pokud jste povolení diagnostiky spouštění na virtuálním počítači, ale o
 - Příčina: Vytváření virtuálních počítačů ve skupině dostupnosti 3 domén selhání a vytvořit škálovací sadu virtuálních počítačů nastavte instance selže a zobrazí se **FabricVmPlacementErrorUnsupportedFaultDomainSize** chyba během procesu aktualizace ve službě Azure Stack 4 uzly prostředí.
 - Náprava: Můžete vytvořit jednotlivých virtuálních počítačů ve skupině dostupnosti s 2 domén selhání byl úspěšně nastaven. Vytváření instance škálovací sady je však stále nejsou k dispozici během procesu aktualizace ve službě Azure Stack 4 uzly.
 
-#### <a name="vmss-instance-view-blade-doesnt-load"></a>VMSS Instance zobrazení okna se nenačte.
- 
+#### <a name="vmss-instance-view-blade-doesnt-load"></a>Okno zobrazení instance VMSS nenačte
+
 - Použít: Tento problém se týká verzí 1904 byl a 1905.
-- Příčina: Okně zobrazení instance škálovací sady na portálu Azure Stack -> řídicí panel -> Virtual machine scale sets -> AnyScaleSet - instance -> AnyScaleSetInstance nezdaří se načtení s Plačící cloudu.
-- Náprava: Aktuálně nejsou k dispozici žádná možnost nápravy a pracujeme na opravě. Dokud to neuděláte použijte prosím rozhraní příkazového řádku rutiny az vmss get-instance-view získat zobrazení instance VMSS
+- Příčina: Okně zobrazení instance škálovací sady na portálu Azure Stack -> řídicí panel -> Virtual machine scale sets -> AnyScaleSet - instance -> AnyScaleSetInstance nezdaří se načtení a zobrazí crying image cloudu.
+- Náprava: Aktuálně nejsou k dispozici žádná možnost nápravy a pracujeme na opravě. Dokud to neuděláte, použijte příkaz rozhraní příkazového řádku `az vmss get-instance-view` získat zobrazení instance škálovací sady.
 
 ### <a name="ubuntu-ssh-access"></a>Přístup SSH se systémem Ubuntu
 

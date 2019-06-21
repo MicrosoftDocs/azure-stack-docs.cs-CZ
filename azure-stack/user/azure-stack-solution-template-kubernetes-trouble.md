@@ -14,19 +14,19 @@ ms.author: mabrigg
 ms.date: 06/18/2019
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: dbc3f495a8f3a2912e2b8a4a0de1058a2eaa4df0
-ms.sourcegitcommit: c4507a100eadd9073aed0d537d054e394b34f530
+ms.openlocfilehash: 4c875f46762d6dac5608869b0bb36606f01f9747
+ms.sourcegitcommit: 759a01b566597a71b18fca25902cacc983a5a63b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67198796"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67298052"
 ---
 # <a name="troubleshoot-kubernetes-deployment-to-azure-stack"></a>Řešení potíží s nasazení Kubernetes pro Azure Stack
 
 *Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
 
 > [!Note]  
-> Kubernetes ve službě Azure Stack je ve verzi preview. Azure Stack odpojené scénář není aktuálně podporován ve verzi preview.
+> Kubernetes ve službě Azure Stack je ve verzi preview. Odpojené scénář Azure Stack není aktuálně podporován ve verzi preview. Pouze pomocí položky marketplace pro vývoj a testování scénářů. [AKS modul](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md) lze použít pro produkční prostředí.
 
 Tento článek obsahuje přehled řešení potíží se Kubernetes cluster. Pokud chcete začít řešit potíže, přečtěte si téma prvků vyžadovaných pro nasazení. Může být potřeba shromažďovat protokoly nasazení ze služby Azure Stack nebo virtuálních počítačů s Linuxem, které hostují Kubernetes. Pokud chcete načíst protokoly z koncový bod pro správu, obraťte se na svého správce služby Azure Stack.
 
