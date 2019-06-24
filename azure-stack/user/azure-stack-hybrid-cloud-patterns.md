@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/06/2019
+ms.date: 06/20/2019
 ms.author: mabrigg
 ms.reviewer: anajod
-ms.lastreviewed: 05/06/2019
-ms.openlocfilehash: a1e13b471c9eaed9dcac79c4002ceca6b3b8e7d2
-ms.sourcegitcommit: a78c0d143eadcab65a601746b9ea24be28091ad2
+ms.lastreviewed: 06/20/2019
+ms.openlocfilehash: 442e12d435102c06a334a8a93271d3d4a27aa578
+ms.sourcegitcommit: 104ccafcb72a16ae7e91b154116f3f312321cff7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65212682"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67308774"
 ---
 # <a name="create-hybrid-cloud-apps-with-azure-and-azure-stack"></a>Vytvoření hybridních cloudových aplikací s Azure a Azure Stack
 
@@ -30,22 +30,19 @@ Microsoft Azure je konsistentní hybridní cloud. Azure umožňuje opakovaně po
 
 Hybridní scénáře značně lišit s prostředky, které jsou k dispozici pro vývoj a zahrnují aspekty, jako je například Geografie, zabezpečení, přístup k Internetu a další důležité informace. I když tyto scénáře nelze vyřešit vašim konkrétním požadavkům, můžete poskytují některé klíče pokyny a příklady zkoumat implementující hybridní řešení.
 
-Hybridní cloud můžete použít ke zpracování:
-- Ukázka Vrstvená data.
-- SQL Server v Azure a Azure Stack.
-- Mongo databáze začátku do konce nasazení v Azure a Azure Stack.
-- Microsoft Edge umělé inteligence odvození vyhnout detekci.
-
 ## <a name="step-by-step-tutorials"></a>Podrobné kurzy
 
 - [Nasazení aplikací napříč Azure a Azure Stack](azure-stack-solution-pipeline.md)
 - [Nasazení aplikací do Azure Stacku a Azure](azure-stack-solution-hybrid-identity.md)
 - [Konfigurace hybridní Cloudová identita s aplikacemi Azure a Azure Stack](azure-stack-solution-hybrid-connectivity.md)
 - [Konfigurace připojení k hybridní cloud s Azure a Azure Stack](azure-stack-solution-staged-data-analytics.md)
-- [Vytvořit řešení analýzy pracovních dat s využitím Azure a Azure Stack](azure-stack-solution-cloud-burst.md)
+- [Vytvořit řešení analýzy pracovních dat s využitím Azure a Azure Stack](azure-stack-solution-staged-data.md)
 - [Vytvoření řešení škálování cloudu s Azure](azure-stack-solution-cloud-burst.md)
 - [Vytvoření řešení geograficky distribuované aplikace s využitím Azure a Azure Stack](azure-stack-solution-geo-distributed.md)
 - [Nasazení řešení s hybridní cloud s Azure a Azure Stack](azure-stack-solution-hybrid-cloud.md)
+- [Nasazení MongoDB v Azure a Azure Stack](azure-stack-solution-mongodb-ha.md)
+- [Nasazení systému SQL Server 2016 v Azure a Azure Stack](azure-stack-solution-sql-ha.md)
+
 
 ## <a name="next-steps"></a>Další postup
 

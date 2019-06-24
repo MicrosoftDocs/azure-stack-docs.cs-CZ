@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/21/2019
+ms.date: 06/21/2019
 ms.author: sethm
 ms.reviewer: scottnap
 ms.lastreviewed: 10/24/2018
-ms.openlocfilehash: f49c6f87ba3f33ae8d9c22068fa9ac4893ab7f0a
-ms.sourcegitcommit: be5382f715a9c1c18c660b630d8fcd823f13aae3
+ms.openlocfilehash: a0e1312beac5f0591658295ac3e48f122aceec4b
+ms.sourcegitcommit: 3f52cf06fb5b3208057cfdc07616cd76f11cdb38
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66197412"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67316288"
 ---
 # <a name="connect-azure-stack-to-azure-using-vpn"></a>Připojení k Azure pomocí VPN Azure Stack
 
@@ -242,7 +242,7 @@ Pokud chcete zkontrolovat připojení k síti VPN, vytvořte dva virtuální po�
 
 9. Na **Souhrn** části, zkontrolujte nastavení a pak vyberte **OK**.
 
-## <a name="test-the-connection"></a>Otestovat připojení
+## <a name="test-the-connection"></a>Otestování připojení
 
 Po vytvoření připojení site-to-site, měli byste ověřit, že můžete získat data v obou směrech. Tímto způsobem testu pomocí příkazu ping je nejjednodušší způsob, jak otestovat připojení:
 
@@ -307,7 +307,7 @@ Pokud chcete vědět, kolik dat prochází připojení site-to-site, tyto inform
 2. Přejděte na **všechny prostředky**a pak vyberte **Azs-Azure** připojení. **Připojení** se zobrazí.
 3. Na **připojení** oddílu, statistiky pro **Data v** a **výstupní Data** zobrazí. Na následujícím snímku obrazovky jsou velké počty přiřadit přenos dalších souborů. Měli byste vidět některé nenulové hodnoty.
 
-    ![Vstupní a výstupní data](media/azure-stack-connect-vpn/Connection.png)
+    ![Datový vstup a výstup](media/azure-stack-connect-vpn/Connection.png)
 
 ## <a name="next-steps"></a>Další postup
 

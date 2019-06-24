@@ -14,12 +14,12 @@ ms.date: 04/15/2019
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 12/12/2018
-ms.openlocfilehash: 8b3d0ad1f0854f7028e9dfff2d9114df141394a6
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 543e4befb23fe714cfe472f180647a976f6f3af4
+ms.sourcegitcommit: 3f52cf06fb5b3208057cfdc07616cd76f11cdb38
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269611"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67316232"
 ---
 # <a name="create-service-principals-to-give-applications-access-to-azure-stack-resources"></a>Vytvoření instančních objektů poskytnout aplikace přístup k prostředkům Azure Stack
 
@@ -59,7 +59,7 @@ Pokud služby Azure Stack používá jako úložiště identit Azure AD, které 
 > [!NOTE]
 > Zkontrolujte, že máte [požadovaná oprávnění Azure AD](/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions) předtím, než začnete vytvářet instanční objekt služby.
 
-### <a name="create-service-principal"></a>Vytvořit instanční objekt
+### <a name="create-service-principal"></a>Vytvoření instančního objektu
 
 Vytvoření instančního objektu pro aplikaci:
 
@@ -71,7 +71,7 @@ Vytvoření instančního objektu pro aplikaci:
 
 Vytvoříte instanční objekt služby pro vaši aplikaci.
 
-### <a name="get-credentials"></a>Získat přihlašovací údaje
+### <a name="get-credentials"></a>Získání přihlašovacích údajů
 
 Při přihlašování prostřednictvím kódu programu, použijte ID pro vaše aplikace a ověřovacího klíče. K získání těchto hodnot:
 
@@ -88,7 +88,7 @@ Při přihlašování prostřednictvím kódu programu, použijte ID pro vaše a
 
 6. Až budete hotovi, zobrazí se hodnota tajného kódu. Poznamenejte si tuto hodnotu vzhledem k tomu, že klíč nelze načíst později. Hodnotu klíče uložte na místo, odkud ji aplikace může načíst.
 
-![Klíč-hodnota upozornění pro klíč uložený.](./media/azure-stack-create-service-principals/image15.png)
+     ![Klíč-hodnota upozornění pro klíč uložený.](./media/azure-stack-create-service-principals/image15.png)
 
 Posledním krokem je [přiřazení role aplikace](azure-stack-create-service-principals.md).
 
@@ -100,7 +100,7 @@ Pokud jste nasadili Azure Stack pomocí služby AD FS jako úložiště identit,
 * Přiřadíte roli instančnímu objektu služby.
 * Přihlaste se pomocí instančního objektu identity.
 
-Podrobnosti o tom, jak vytvořit instanční objekt služby najdete v tématu [vytvořit instanční objekt služby AD FS](../operator/azure-stack-create-service-principals.md#manage-service-principal-for-ad-fs).
+Podrobnosti o tom, jak vytvořit instanční objekt služby najdete v tématu [Správa instančního objektu služby AD FS](../operator/azure-stack-create-service-principals.md#manage-an-ad-fs-service-principal).
 
 ## <a name="assign-the-service-principal-to-a-role"></a>Přiřazení instančního objektu k roli
 

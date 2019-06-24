@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/23/2019
+ms.date: 06/23/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: a777fc1d9052eb58bbebd319fe6cc7f42a09cb9a
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: ca2ea89ab73c7a8e056e4b4700e92a872e628f34
+ms.sourcegitcommit: 3f52cf06fb5b3208057cfdc07616cd76f11cdb38
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64292186"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67316174"
 ---
 # <a name="validate-azure-registration"></a>Ověření registrace služby Azure
 
@@ -40,7 +40,7 @@ Stáhněte si nejnovější verzi **AzsReadinessChecker** z [Galerie prostředí
 
 Vyžadují se následující požadavky:
 
-**Počítač, na kterém je nástroj spuštěn:**
+### <a name="the-computer-on-which-the-tool-runs"></a>Počítač, na kterém je nástroj spuštěn
 
 - Windows 10 nebo Windows Server 2016 s připojením k Internetu.
 - Prostředí PowerShell 5.1 nebo novější. K ověření verze, spusťte následující rutinu prostředí PowerShell a pak si projděte **hlavní** a **menší** verze:  
@@ -52,7 +52,7 @@ Vyžadují se následující požadavky:
 - [Prostředí PowerShell nakonfigurovaná pro Azure Stack](azure-stack-powershell-install.md).
 - Nejnovější verzi [Microsoft Azure Stack připravenosti kontrola](https://aka.ms/AzsReadinessChecker).  
 
-**Prostředí Azure Active Directory:**
+### <a name="azure-active-directory-environment"></a>Prostředí Azure Active Directory
 
 - Určete uživatelské jméno a heslo pro účet, který je vlastníkem předplatného Azure, které budete používat s Azure Stack.  
 - Určete ID předplatného pro předplatné Azure, které budete používat.
@@ -73,7 +73,7 @@ Vyžadují se následující požadavky:
    ```
 
    > [!NOTE]
-   > Jako zprostředkovatel kryptografických služeb, při použití sdílené služby nebo IUR předplatného je třeba zadat pověření uživatele z tohoto příslušných AAD. Obvykle to bude vypadat podobně jako `subscriptionowner@iurcontoso.onmicrosoft.com`. Tento uživatel musí mít příslušné přihlašovací údaje, jak je popsáno v předchozím kroku.
+   > Jako zprostředkovatel kryptografických služeb, při použití sdílené služby nebo IUR předplatné, je třeba zadat pověření uživatele z tohoto příslušných AAD. Obvykle to bude vypadat podobně jako `subscriptionowner@iurcontoso.onmicrosoft.com`. Tento uživatel musí mít příslušné přihlašovací údaje, jak je popsáno v předchozím kroku.
 
 3. Z příkazového řádku PowerShell, spusťte následující příkaz pro nastavení `$subscriptionID` jako předplatné Azure se má použít. Nahraďte `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` s vlastním ID předplatného:
 
@@ -106,7 +106,7 @@ Každé ověření při spuštění, zaznamená výsledky do **AzsReadinessCheck
 
 Tyto soubory můžete sdílet stav ověření před nasazením služby Azure Stack nebo prozkoumat zaznamenané problémy s ověřením. Oba soubory zachovat výsledky každé následné ověření. Tato sestava poskytuje vaše nasazení team potvrzení konfigurace identity. Soubor protokolu mohou pomoci týmu nasazení nebo odborné pomoci prozkoumat problémy s ověřením.
 
-Ve výchozím nastavení, oba soubory jsou zapsány do **C:\Users\<uživatelské jméno > \AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json**.  
+Ve výchozím nastavení, oba soubory jsou zapsány do **C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json**.  
 
 - Použití **- OutputPath** ***&lt;cesta&gt;*** parametr na konci spuštění příkazového řádku a zadejte umístění různých sestav.
 - Použití **- CleanReport** parametr na konci příkazu run se vymazat informace o předchozích spuštění nástroje z **AzsReadinessCheckerReport.json**.

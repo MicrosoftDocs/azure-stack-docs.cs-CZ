@@ -16,12 +16,12 @@ ms.date: 04/24/2019
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: ef9406c8332eb983e20decb64ead723234aa8faa
-ms.sourcegitcommit: 593d40bccf1b2957a763017a8a2d7043f8d8315c
+ms.openlocfilehash: 7cc55659df1da1c51d92f0fc2926cee7255c422e
+ms.sourcegitcommit: 3f52cf06fb5b3208057cfdc07616cd76f11cdb38
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67152573"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67315967"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Stažení položek z marketplace z Azure do služby Azure Stack
 
@@ -177,7 +177,7 @@ Existují dvě části pro tento scénář:
    `-AzsCredential` Parametr je nepovinný. Používá se k obnovení tokenu přístupu, pokud vypršela platnost. Pokud `-AzsCredential` parametr není zadán a vyprší platnost tokenu, zobrazí se výzva k zadání přihlašovacích údajů operátor.
 
     > [!Note]  
-    > Služba AD FS podporuje pouze interaktivní ověřování pomocí identity uživatelů. Pokud je vyžadován objekt přihlašovacích údajů je nutné použít hlavní název služby (SPN). Další informace o nastavení instančního objektu pomocí služby Azure Stack a AD FS, jako je vaše služba identity management, najdete v části [spravovat instanční objekt služby pro službu AD FS](azure-stack-create-service-principals.md#manage-service-principal-for-ad-fs).
+    > Služba AD FS podporuje pouze interaktivní ověřování pomocí identity uživatelů. Pokud je vyžadován objekt přihlašovacích údajů je nutné použít hlavní název služby (SPN). Další informace o nastavení instančního objektu pomocí služby Azure Stack a AD FS, jako je vaše služba identity management, najdete v části [Správa instančního objektu služby AD FS](azure-stack-create-service-principals.md#manage-an-ad-fs-service-principal).
 
 4. Po úspěšném dokončení skriptu položka by měla být k dispozici v Tržišti Azure Stack.
 

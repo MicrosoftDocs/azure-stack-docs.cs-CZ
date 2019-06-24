@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2019
 ms.author: mabrigg
-ms.reviewer: quying
+ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: fa8bd58d856f7a502e28beddb3d1c32f13dc18b7
-ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
+ms.openlocfilehash: 4f2e7a77af14c71c2b3231436d723c6e721ceca9
+ms.sourcegitcommit: 104ccafcb72a16ae7e91b154116f3f312321cff7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67131482"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67308625"
 ---
 # <a name="create-mysql-databases"></a>Vytvoření databáze MySQL
 Uživatele služby Azure Stack, se vytvořilo nabídky, která zahrnuje databázová služba MySQL můžete vytvářet a spravovat databáze MySQL samoobslužného portálu user portal.

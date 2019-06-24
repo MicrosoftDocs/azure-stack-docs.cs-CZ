@@ -213,7 +213,7 @@
               href: azure-stack-add-new-user-aad.md
             - name: Přidání uživatelů pro AD FS
               href: azure-stack-add-users-adfs.md
-            - name: Vytvoření instančních objektů
+            - name: Pomocí identity aplikace pro přístup k prostředkům
               href: Azure-stack-create-service-principals.md
             - name: Povolení víceklientské architektury
               href: azure-stack-enable-multitenancy.md

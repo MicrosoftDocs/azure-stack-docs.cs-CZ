@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 06/22/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: 8f8d7ee82890788f60266f671bcc4041795c075e
-ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
+ms.openlocfilehash: 04c793ceebf167220b74dfc40a7e4fc775723e93
+ms.sourcegitcommit: 3f52cf06fb5b3208057cfdc07616cd76f11cdb38
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66691640"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67316263"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>Připojení k Azure pomocí Azure ExpressRoute Azure Stack
 
@@ -50,33 +50,29 @@ Pro připojení služby Azure Stack a Azure pomocí ExpressRoute, musí splňova
 * Zřízenou [okruh ExpressRoute](/azure/expressroute/expressroute-circuit-peerings) prostřednictvím [poskytovatele připojení](/azure/expressroute/expressroute-locations).
 * Předplatné Azure k vytvoření okruhu ExpressRoute a virtuálními sítěmi v Azure.
 * Směrovač, který musí:
-  * Podpora připojení Site-to-Site VPN mezi jeho rozhraní LAN a víceklientská brána Azure Stack.
+  * Podpora připojení site-to-site VPN mezi jeho rozhraní LAN a víceklientská brána Azure Stack.
   * Podpora vytváření více VRFs (virtuální směrování a předávání), pokud existuje více než jednoho tenanta ve vašem nasazení služby Azure Stack.
 * Směrovač, který obsahuje:
   * Port sítě WAN připojení k okruhu ExpressRoute.
-  * Portu LAN připojení k Azure Stack víceklientskou bránu.
+  * Portu LAN připojené k víceklientské bráně Azure Stack.
 
 ### <a name="expressroute-network-architecture"></a>Architektura sítě ExpressRoute
 
-Následující diagram znázorňuje Azure Stack a Azure prostředí po dokončení nastavení ExpressRoute pomocí příkladů v tomto článku:
-
-*Obrázek 1. Síť ExpressRoute*
+Následující obrázek znázorňuje Azure Stack a Azure prostředí po dokončení nastavení ExpressRoute pomocí příkladů v tomto článku:
 
 ![Síť ExpressRoute](media/azure-stack-connect-expressroute/Conceptual.png)
 
-Následující diagram znázorňuje, jak více tenantů připojení z infrastruktury služby Azure Stack prostřednictvím ExpressRoute směrovače do Azure na hraničních zařízeních společnosti Microsoft:
-
-*Obrázek 2. Připojení více tenantů*
+Následující obrázek ukazuje, jak více tenantů připojení z infrastruktury služby Azure Stack prostřednictvím ExpressRoute směrovače do Azure na hraničních zařízeních společnosti Microsoft:
 
 ![Víceklientská připojení s ExpressRoute](media/azure-stack-connect-expressroute/Architecture.png)
 
-V příkladu v tomto článku používá pro připojení služby Azure Stack k Azure pomocí soukromého partnerského vztahu ExpressRoute stejné víceklientské architektury, které je znázorněno na obrázku 2. Připojení se provádí pomocí připojení site-to-site VPN z brány virtuální sítě ve službě Azure Stack směrovač ExpressRoute.
+V příkladu v tomto článku používá stejné víceklientské architektury ukazuje tento diagram pro připojení služby Azure Stack do Azure pomocí soukromého partnerského vztahu ExpressRoute. Připojení se provádí pomocí připojení site-to-site VPN z brány virtuální sítě ve službě Azure Stack směrovač ExpressRoute.
 
 Kroky v tomto článku ukazují, jak vytvořit připojení k začátku do konce mezi dvěma virtuálními sítěmi ze dvou různých tenantech ve službě Azure Stack k odpovídajícím virtuálním sítím v Azure. Nastavení příkladu jsou dva tenanti je volitelná. Tyto kroky můžete také použít pro jednoho tenanta.
 
 ## <a name="configure-azure-stack"></a>Konfigurace služby Azure Stack
 
-K nastavení prostředí Azure Stack pro první tenanta, postupujte podle kroků v následujícím diagramu a jako vodítko. Pokud nastavujete více než jednoho tenanta, opakujte tyto kroky:
+K nastavení prostředí Azure Stack pro prvního klienta, použijte jako vodítko následující kroky. Pokud nastavujete více než jednoho tenanta, opakujte tyto kroky:
 
 >[!NOTE]
 >Tyto kroky ukazují, jak vytvořit prostředky na portálu Azure Stack, ale můžete použít také prostředí PowerShell.
@@ -96,7 +92,7 @@ Použijte následující postupy k vytvoření požadovaných síťových prost�
 
 #### <a name="create-the-virtual-network-and-vm-subnet"></a>Vytvoření virtuální sítě a podsítě virtuálních počítačů
 
-1. Přihlaste se k portálu user portal s účtem uživatele (tenant).
+1. Přihlaste se k portálu user portal pro Azure Stack.
 
 2. Na portálu vyberte **+ vytvořit prostředek**.
 
@@ -144,20 +140,20 @@ Použijte následující postupy k vytvoření požadovaných síťových prost�
 
 #### <a name="create-the-local-network-gateway"></a>Vytvoření brány místní sítě
 
-Prostředku brány místní sítě určuje vzdálenou bránu na druhém konci připojení k síti VPN. V tomto příkladu je vzdáleným koncem připojení LAN dílčí rozhraní směrovače pro ExpressRoute. Pro Tenanta 1, je znázorněno na obrázku 2 je Vzdálená adresa 10.60.3.255.
+Prostředku brány místní sítě určuje vzdálenou bránu na druhém konci připojení k síti VPN. V tomto příkladu je vzdáleným koncem připojení LAN dílčí rozhraní směrovače pro ExpressRoute. Pro Tenanta 1 na předchozím obrázku je Vzdálená adresa 10.60.3.255.
 
 1. Přihlaste se k portálu user portal Azure Stack s vaším uživatelským účtem a vyberte **+ vytvořit prostředek**.
 1. V části **Azure Marketplace**vyberte **sítě**.
 1. V seznamu prostředků vyberte **bránu místní sítě**.
 1. V **název** zadejte **ER-směrovač-GW**.
-1. Pro **IP adresu** pole, viz obrázek 2. IP adresa ExpressRoute směrovače LAN dílčí rozhraní pro Tenanta 1 je 10.60.3.255. Pro konkrétní prostředí zadejte IP adresu směrovače odpovídající rozhraní.
-1. V **adresní prostor** zadejte adresní prostor virtuální sítě, kterou chcete připojit v Azure. Podsítě pro Tenanta 1 v *obrázek 2* jsou následující:
+1. Pro **IP adresu** pole, viz předchozí obrázek. IP adresa ExpressRoute směrovače LAN dílčí rozhraní pro Tenanta 1 je 10.60.3.255. Pro konkrétní prostředí zadejte IP adresu směrovače odpovídající rozhraní.
+1. V **adresní prostor** zadejte adresní prostor virtuální sítě, kterou chcete připojit v Azure. Podsítě pro Tenanta 1 jsou následující:
 
    * 192.168.2.0/24 je centrum, virtuální síť v Azure.
    * 10.100.0.0/16 je paprsku virtuální síť v Azure.
 
    > [!IMPORTANT]
-   > Tento příklad předpokládá, že používáte statické trasy pro připojení VPN Site-to-Site mezi bránou Azure Stack a ExpressRoute směrovače.
+   > Tento příklad předpokládá, že používáte statické trasy pro připojení VPN site-to-site mezi bránou Azure Stack a ExpressRoute směrovače.
 
 1. Ověřte, že vaše **předplatné**, **skupiny prostředků**, a **umístění** jsou správné. Potom vyberte **Vytvořit**.
 
@@ -295,8 +291,6 @@ Tímto směrovačem je virtuální počítač (AzS-BGPNAT01) Windows serveru spu
 
 Po dokončení konfigurace služby Azure Stack, můžete nasadit prostředky Azure. Následující obrázek znázorňuje příklad virtuální síti tenanta v Azure. Pro vaši virtuální síť v Azure můžete použít libovolný název a schéma adresování. Rozsah adres virtuální sítě v Azure a Azure Stackem však musí být jedinečný a nesmí se překrývat:
 
-*Obrázek 3. Virtuální sítě Azure*
-
 ![Azure VNets](media/azure-stack-connect-expressroute/AzureArchitecture.png)
 
 Prostředky, které nasazují v Azure jsou podobné prostředky, které jste nasadili ve službě Azure Stack. Můžete nasadit následující komponenty:
@@ -356,9 +350,7 @@ Tento postup opakujte pro všechny další tenanta virtuální sítě, které ch
 
 ## <a name="configure-the-router"></a>Konfigurace směrovače
 
-Následující diagram konfigurace směrovače ExpressRoute můžete použít jako vodítko pro konfiguraci ExpressRoute směrovače. Tento diagram znázorňuje dvě klientů (Tenant 1 a 2 Tenanta) s jejich odpovídajících okruhy ExpressRoute. Každý tenant je propojen s vlastní VRF (virtuální směrování a předávání) v části ExpressRoute směrovače LAN a WAN. Tato konfigurace zajišťuje začátku do konce izolaci mezi dvěma klienty. Poznamenejte si IP adresy používané v rozhraní směrovačů, jak budete postupovat podle příklad konfigurace.
-
-*Obrázek 4. Konfigurace směrovače pro ExpressRoute*
+Následující diagram konfigurace směrovače ExpressRoute můžete použít jako vodítko pro konfiguraci ExpressRoute směrovače. Tento obrázek ukazuje dvě klientů (Tenant 1 a 2 Tenanta) s jejich odpovídajících okruhy ExpressRoute. Každý tenant je propojen s vlastní VRF (virtuální směrování a předávání) v části ExpressRoute směrovače LAN a WAN. Tato konfigurace zajišťuje začátku do konce izolaci mezi dvěma klienty. Poznamenejte si IP adresy používané v rozhraní směrovačů, jak budete postupovat podle příklad konfigurace.
 
 ![Konfigurace směrovače pro ExpressRoute](media/azure-stack-connect-expressroute/EndToEnd.png)
 
@@ -593,7 +585,7 @@ Proveďte následující testy:
 * Přihlaste se k jednomu z virtuálních počítačů, které jste vytvořili v Azure stacku a ping virtuální počítač, který jste vytvořili ve virtuální síti Azure.
 
 >[!NOTE]
->Pokud chcete mít jistotu, že odesíláte přenosy přes připojení ExpressRoute a Site-to-Site, musí příkaz ping použijte vyhrazenou IP (DIP) adresu virtuálního počítače na obou koncích a nikoli virtuální IP adresy virtuálního počítače.
+>Pokud chcete mít jistotu, že odesíláte přenosy přes připojení ExpressRoute a site-to-site, musí příkaz ping použijte vyhrazenou IP (DIP) adresu virtuálního počítače na obou koncích a nikoli virtuální IP adresy virtuálního počítače.
 
 ### <a name="allow-icmp-in-through-the-firewall"></a>Povolit protokol ICMP v přes bránu firewall
 
@@ -624,7 +616,7 @@ New-NetFirewallRule `
 
 Pokud chcete vědět, kolik přenos prochází přes připojení, najdete tyto informace na portálu pro uživatele Azure stacku. Toto je také vhodný způsob, jak zjistit, jestli se nepovedlo ping zkušebních dat prostřednictvím připojení VPN a ExpressRoute:
 
-1. Přihlaste se k portálu user portal Azure Stack pomocí účtu tenanta a vyberte **všechny prostředky**.
+1. Přihlaste se k Azure Stack uživatelského portálu a vyberte **všechny prostředky**.
 1. Přejděte do skupiny prostředků pro bránu VPN a vyberte **připojení** typ objektu.
 1. Vyberte **ConnectToAzure** připojení ze seznamu.
 1. V části **připojení** > **přehled**, se zobrazují statistiky pro **Data v** a **výstupní Data**. Měli byste vidět některé nenulové hodnoty.

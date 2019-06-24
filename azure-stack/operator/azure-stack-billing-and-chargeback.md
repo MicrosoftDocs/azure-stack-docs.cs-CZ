@@ -11,22 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 06/21/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 03/21/2019
-ms.openlocfilehash: 8e47022d826d5983369fe7849cbde8c00f18838e
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 05a1e106a171df2a8948601376dbc152cb5ca70a
+ms.sourcegitcommit: 3f52cf06fb5b3208057cfdc07616cd76f11cdb38
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64290976"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67316198"
 ---
 # <a name="usage-and-billing-in-azure-stack"></a>Využití a fakturace ve službě Azure Stack
 
 Tento článek popisuje, jak uživatelům Azure stacku se vám účtovat využití prostředků a jak je fakturační údaje k němu přistupovat k analýzám a poplatek za zpět.
 
-Azure Stack shromažďuje a skupiny prostředků, které se používají data o využití. Azure Stack pak předá tato data do Azure Commerce. Azure Commerce vám účtuje za využití služby Azure Stack stejným způsobem, jakým se vám účtuje za využití Azure.
+Azure Stack shromažďuje a data o využití skupin prostředků, které se používají, pak předá tato data do Azure Commerce. Azure Commerce vám účtuje za využití služby Azure Stack stejným způsobem, jakým se vám účtuje za využití Azure.
 
 Můžete také získat data o využití a export na vlastní fakturace nebo proplacení zálohování systému pomocí fakturační adaptér, nebo je exportovat do nástroje business intelligence, jako je Microsoft Power BI.
 
@@ -34,7 +34,7 @@ Můžete také získat data o využití a export na vlastní fakturace nebo prop
 
 Každý poskytovatel prostředků ve službě Azure Stack odesílá data o využití za využití prostředků. Služba usage pravidelně (po hodinách a každý den) agreguje data o využití a uloží je do databáze využití. Azure Stack operátory a uživatelé můžou k datům uložené využití prostřednictvím rozhraní API využití prostředků služby Azure Stack.
 
-Pokud máte [vaší instance služby Azure Stack a registrované v Azure](azure-stack-registration.md ), Azure Stack je nakonfigurovaná k odesílání dat o využití do Azure Commerce. Po nahrání dat do Azure můžete přistupovat prostřednictvím fakturačním portálu nebo pomocí Azure resource využití rozhraní API. Další informace o jaká data o využití se oznamuje službě Azure najdete v tématu [generování sestav dat využití](azure-stack-usage-reporting.md).  
+Pokud máte [vaší instance služby Azure Stack a registrované v Azure](azure-stack-registration.md), Azure Stack je nakonfigurovaná k odesílání dat o využití do Azure Commerce. Po nahrání dat do Azure můžete přistupovat prostřednictvím fakturačním portálu nebo pomocí Azure resource využití rozhraní API. Další informace o jaká data o využití se oznamuje službě Azure najdete v tématu [generování sestav dat využití](azure-stack-usage-reporting.md).  
 
 Následující obrázek ukazuje klíčové součásti v kanálu využití:
 
@@ -51,7 +51,7 @@ Po shromáždil data o využití je [hlášených Azure](azure-stack-usage-repor
 
 Fakturačním portálu Azure zobrazuje data o využití za fakturovatelnou prostředky. Kromě fakturovatelné prostředky služby Azure Stack zaznamená data o využití pro pestřejší škálu prostředků, které se zobrazí ve vašem prostředí Azure Stack prostřednictvím rozhraní REST API nebo rutiny prostředí PowerShell. Operátoři Azure stacku můžete získat data využití pro všechna předplatná uživatele. Jednotlivým uživatelům můžete získat pouze o jejich vlastní použití.
 
-## <a name="usage-reporting-for-multitenant-cloud-service-providers"></a>Používání vytváření sestav pro víceklientskou poskytovatelů cloudových služeb
+## <a name="usage-reporting-for-multi-tenant-cloud-service-providers"></a>Používání vytváření sestav pro více tenantů poskytovatelů cloudových služeb
 
 Více tenantů Cloud Service Provider (CSP), který má mnoho zákazníků pomocí služby Azure Stack může být vhodné pro zasílání zpráv o využití jednotlivých zákazníků samostatně, tak, aby zprostředkovatel může účtovat využití do různých předplatných Azure.
 

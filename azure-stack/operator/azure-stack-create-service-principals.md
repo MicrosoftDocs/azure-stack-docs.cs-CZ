@@ -1,388 +1,358 @@
 ---
-title: Správa instančního objektu pro Azure Stack | Dokumentace Microsoftu
-description: Popisuje, jak spravovat nový instanční objekt, který lze použít s řízením přístupu na základě role v Azure Resource Manageru pro správu přístupu k prostředkům.
+title: Pomocí identity aplikace pro přístup k prostředkům
+description: Popisuje, jak spravovat hlavní název služby, který lze použít s řízením přístupu na základě rolí, přihlášení a přístup k prostředkům.
 services: azure-resource-manager
 documentationcenter: na
-author: PatAltimore
+author: BryanLa
 manager: femila
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/17/2019
-ms.author: patricka
-ms.lastreviewed: 05/17/2019
-ms.openlocfilehash: b08d2b59653b099b0cd0a314347ea2667fa42ca8
-ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
+ms.date: 06/20/2019
+ms.author: bryanla
+ms.lastreviewed: 06/20/2019
+ms.openlocfilehash: 0fb7f605ff392e0d3fbbe57024eb27f5e5eaab04
+ms.sourcegitcommit: 3f52cf06fb5b3208057cfdc07616cd76f11cdb38
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66691301"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67315920"
 ---
-# <a name="provide-applications-access-to-azure-stack"></a>Poskytnutí přístupu aplikací do Azure Stack
+# <a name="use-an-app-identity-to-access-resources"></a>Pomocí identity aplikace pro přístup k prostředkům
 
-*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit (ASDK)*
 
-Když aplikace potřebuje přístup k nasazení nebo konfiguraci prostředků prostřednictvím Azure Resource Manageru ve službě Azure Stack, vytvoření instančního objektu, což je přihlašovacích údajů pro vaši aplikaci. Potom můžete delegovat pouze potřebná oprávnění pro tento instanční objekt.  
+Aplikace, kterou je potřeba nasadit nebo konfiguraci prostředků prostřednictvím Azure Resource Manageru, musí být reprezentována instančního objektu. Stejně jako uživatel je reprezentována hlavní název uživatele, hlavního názvu služby je typ objektu zabezpečení, který reprezentuje aplikaci. Služby, které poskytuje identitu pro vaši aplikaci, umožňuje delegovat pouze potřebná oprávnění pro tento instanční objekt.  
 
-Například můžete mít nástroj pro správu konfigurace, která používá Azure Resource Manageru k inventarizaci prostředků Azure. V tomto scénáři můžete vytvořit instanční objekt služby, přidělit tuto roli Čtenář takového objektu služby a omezit nástroje pro správu konfigurace pro přístup jen pro čtení. 
+Jako příklad můžete mít aplikace pro správu konfigurace, která používá Azure Resource Manageru k inventarizaci prostředků Azure. V tomto scénáři můžete vytvořit instanční objekt služby, přidělit tuto roli Čtenář takového objektu služby a omezit použití konfigurace správy na oprávnění jen pro čtení. 
 
-Instanční objekty jsou upřednostňovány vůči spuštění aplikace pod svými přihlašovacími údaji, protože:
+## <a name="overview"></a>Přehled
 
- - Můžete přiřadit oprávnění pro instanční objekt, který se liší od účtu oprávnění. Tato oprávnění jsou obvykle omezená přesně na to, co aplikace potřebuje dělat.
- - Není potřeba změnit přihlašovací údaje aplikace, pokud se změní vaše odpovědnosti.
- - Certifikát můžete použít k automatizaci ověřování při provádění bezobslužného skriptu.  
+Podobně jako u objektu zabezpečení uživatele se instančního objektu musí poskytnout pověření při ověřování, které se skládají ze dvou prvků:
 
-## <a name="getting-started"></a>Začínáme
+- **ID aplikace**, která se někdy označují jako ID klienta. Toto je identifikátor GUID, který jednoznačně identifikuje registrace aplikace ve vašem tenantovi Active Directory.
+- A **tajný kód** přidružené k ID aplikace. Můžete buď vygenerovat tajný řetězec klienta (podobně jako heslo) nebo zadejte x X509 certifikát, (ta používá svůj veřejný klíč). 
 
-V závislosti na tom, jak nasadíte Azure Stack začnete tím, že vytváření instančního objektu. Tento dokument popisuje vytváření instančního objektu pro:
+Spuštění aplikace s identitou služby instančního objektu je vhodnější než pod službou uživatel instančního objektu protože:
 
-- Azure Active Directory (Azure AD). Azure AD je více tenantů, cloudový adresář a služba pro správu identit. Azure AD můžete pomocí připojené služby Azure Stack.
+ - Instanční objekt služby x X509 pomocí certifikátu pro **silnější pověření**.  
+ - Můžete přiřadit **víc omezující oprávnění** instančnímu objektu služby. Tato oprávnění jsou obvykle omezené jenom jaké aplikace potřebuje pro výkon, označované jako *principu nejnižších možných oprávnění*.
+ - Instanční objekt služby **účtech a oprávněních neměnit tak často,** jako přihlašovací údaje uživatele. Při změně oprávnění pro uživatele, požadavky na heslo diktování změnu nebo uživatel odejde ze společnosti.
+
+Začněte tím, že vytvoříte novou registraci aplikace ve vašem adresáři, který vytvoří přidružené [instanční objekt](/azure/active-directory/develop/developer-glossary#service-principal-object) reprezentuje identitu aplikace v adresáři. Tento dokument popisuje proces vytváření a správa instanční objekt, v závislosti na adresář, který jste zvolili pro vaši instanci služby Azure Stack:
+
+- Azure Active Directory (Azure AD). Azure AD je více tenantů, cloudový adresář a služba pro správu identit. Můžete použít Azure AD s připojenou instanci služby Azure Stack.
 - Active Directory Federation Services (AD FS). Služba AD FS poskytuje zjednodušenou zabezpečenou federaci identit a webových – možnosti jednotného přihlašování (SSO). Služba AD FS můžete použít s instancemi Azure Stack připojené a odpojené.
 
-Jakmile vytvoříte instanční objekt služby, se používají sady kroků běžné služby AD FS a Azure Active Directory delegovat oprávnění na roli.
+Nejprve se dozvíte, jak spravovat hlavní název služby, pak přiřazení instančního objektu k roli, omezení jejich přístupu k prostředkům.
 
-## <a name="manage-service-principal-for-azure-ad"></a>Správa instanční objekt služby pro službu Azure AD
+## <a name="manage-an-azure-ad-service-principal"></a>Správa instančního objektu služby Azure AD 
 
-Pokud jste nasadili Azure Stack se službou Azure Active Directory (Azure AD) jako služba pro správu identit, můžete vytvořit instanční objekty stejně jako pro Azure. Tato část ukazuje, jak k provedení kroků na portálu. Zkontrolujte, jestli máte [požadovaná oprávnění Azure AD](/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions) před zahájením.
+Pokud jste nasadili Azure Stack se službou Azure Active Directory (Azure AD) jako služba pro správu identit, můžete vytvořit instanční objekty stejně jako pro Azure. Tato část ukazuje, jak k provádění kroků na webu Azure portal. Zkontrolujte, jestli máte [požadovaná oprávnění Azure AD](/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions) před zahájením.
 
-### <a name="create-service-principal"></a>Vytvoření instančního objektu
+### <a name="create-a-service-principal-that-uses-a-client-secret-credential"></a>Vytvoření instančního objektu, který používá tajného kódu přihlašovacích údajů klienta
 
-V této části vytvoříte aplikaci (instanční objekt) ve službě Azure AD, která reprezentuje vaši aplikaci.
+V této části zaregistrujete svoji aplikaci pomocí webu Azure portal, která vytváří instanční objekt ve vašem tenantovi Azure AD. V tomto příkladu se vytvoří instanční objekt s tajného kódu přihlašovacích údajů klienta, ale portál také podporuje X509 přihlašovacích údajů na základě certifikátů.
 
-1. Přihlaste se ke svému účtu Azure prostřednictvím [webu Azure portal](https://portal.azure.com).
+1. Přihlaste se k [webu Azure portal](https://portal.azure.com) pomocí svého účtu Azure.
 2. Vyberte **Azure Active Directory** > **registrace aplikací** > **registrace nové**.
-3. Zadejte název a URL aplikace. 
-4. Vyberte **podporovaných typů účtu**.
-5.  Přidejte identifikátor URI pro aplikaci. Vyberte **webové** pro typ aplikace, kterou chcete vytvořit. Po nastavení hodnot, vyberte **zaregistrovat**.
+3. Zadejte **název** pro aplikaci. 
+4. Vyberte příslušné **podporovaných typů účtu**.
+5. V části **identifikátor URI pro přesměrování**vyberte **webové** jako typ aplikace a (volitelně) zadejte identifikátor URI přesměrování, pokud ho vaše aplikace vyžaduje. 
+6. Po nastavení hodnot, vyberte **zaregistrovat**. Registrace aplikace se vytvoří a **přehled** stránky se zobrazí.
+7. Kopírovat **ID aplikace** pro použití v kódu aplikace. Tato hodnota se také označuje jako ID klienta.
+8. Chcete-li vygenerovat tajný kód klienta, vyberte **certifikáty a tajné kódy** stránky. Vyberte **Nový tajný klíč klienta**.
+9. Zadejte **popis** pro tajný klíč a **vyprší platnost** doby trvání. 
+10. Až budete hotovi, vyberte **přidat**.
+11. Hodnota tajného kódu se zobrazí. Zkopírujte a uložte tuto hodnotu v jiném umístění, protože není možné ho později. Tajný kód je možné zadat pomocí ID aplikace v klientské aplikaci během službu objektu zabezpečení přihlášení. 
 
-Vytvoříte instanční objekt služby pro vaši aplikaci.
+    ![uložený klíč](./media/azure-stack-create-service-principal/create-service-principal-in-azure-stack-secret.png)
 
-### <a name="get-credentials"></a>Získání přihlašovacích údajů
+## <a name="manage-an-ad-fs-service-principal"></a>Správa instančního objektu služby AD FS
 
-Při programovém přihlášení pomocí ID je pro vaši aplikaci a webové aplikace a rozhraní API, ověřovací klíč. K získání těchto hodnot použijte následující postup:
+Pokud jste nasadili Azure Stack s Active Directory Federation Services (AD FS) jako vaše služba identity management, musíte použít PowerShell ke správě instanční objekt služby. Příklady jsou uvedeny níže pro správu pověření instančního objektu, ukázka obou X509 certifikát a tajný kód klienta.
 
-1. Vyberte **Azure Active Directory** > **registrace aplikací**. Vyberte svou aplikaci.
+Musí být spuštěny skripty se zvýšenými oprávněními ("Spustit jako správce") prostředí PowerShell konzoly, která otevře jiná relace k virtuálnímu počítači, který je hostitelem privileged koncového bodu pro vaši instanci služby Azure Stack. Po vytvoření privilegovaných koncový bod relace spustí další rutiny a správa instančního objektu. Další informace o privileged koncový bod, najdete v části [pomocí privilegovaných koncového bodu ve službě Azure Stack](azure-stack-privileged-endpoint.md).
 
-2. Zkopírujte **ID aplikace** a uložte ho v kódu aplikace. Aplikace v sekci ukázkové aplikace se tato hodnota označuje jako ID klienta.
+### <a name="create-a-service-principal-that-uses-a-certificate-credential"></a>Vytvoření instančního objektu, který používá certifikát přihlašovacích údajů
 
-3. Chcete-li generovat ověřovací klíč pro webovou aplikaci / rozhraní API, vyberte **certifikáty a tajné kódy**. Vyberte **Nový tajný klíč klienta**.
-
-4. Zadejte popis klíče a jeho dobu platnosti. Až budete hotovi, vyberte **přidat**.
-
-Jakmile klíč uložíte, zobrazí se jeho hodnota. Zkopírujte tuto hodnotu do poznámkového bloku nebo jiného dočasného umístění, protože klíč nelze načíst později. Hodnotu klíče uveďte s ID aplikace, aby přihlásit jako aplikace. Hodnota klíče Store na místě, kde aplikace může načíst ji.
-
-![uložený klíč](./media/azure-stack-create-service-principal/create-service-principal-in-azure-stack-secret.png)
-
-Jakmile budete hotovi, můžete aplikace přiřadit roli.
-
-## <a name="manage-service-principal-for-ad-fs"></a>Správa instančního objektu služby AD FS
-
-Pokud jste nasadili Azure Stack s Active Directory Federation Services (AD FS) jako služba pro správu identit, pomocí prostředí PowerShell k vytvoření instančního objektu, přiřazení role pro přístup a přihlaste se pomocí tuto identitu.
-
-Vytvoření instančního objektu služby se službou AD FS můžete použít jednu ze dvou metod. Můžete:
- - [Vytvoření instančního objektu pomocí certifikátu](azure-stack-create-service-principals.md#create-a-service-principal-using-a-certificate)
- - [Vytvoření instančního objektu pomocí tajného klíče klienta](azure-stack-create-service-principals.md#create-a-service-principal-using-a-client-secret)
-
-Úlohy pro správu služby AD FS instanční.
-
-| Type | Akce |
-| --- | --- |
-| Certifikát služby AD FS | [Vytvoření](azure-stack-create-service-principals.md#create-a-service-principal-using-a-certificate) |
-| Certifikát služby AD FS | [Aktualizace](azure-stack-create-service-principals.md#update-certificate-for-service-principal-for-ad-fs) |
-| Certifikát služby AD FS | [odebrat](azure-stack-create-service-principals.md#remove-a-service-principal-for-ad-fs) |
-| Tajný klíč klienta služby FS AD | [Vytvoření](azure-stack-create-service-principals.md#create-a-service-principal-using-a-client-secret) |
-| Tajný klíč klienta služby FS AD | [Aktualizace](azure-stack-create-service-principals.md#create-a-service-principal-using-a-client-secret) |
-| Tajný klíč klienta služby FS AD | [odebrat](azure-stack-create-service-principals.md#remove-a-service-principal-for-ad-fs) |
-
-### <a name="create-a-service-principal-using-a-certificate"></a>Vytvoření instančního objektu pomocí certifikátu
-
-Při vytváření instančního objektu při použití služby AD FS pro identitu, můžete použít certifikát.
-
-#### <a name="certificate"></a>Certifikát
-
-Certifikát je povinný.
-
-**Požadavky na certifikát**
+Při vytváření certifikátu pro přihlašovací údaje instančního objektu služby, musí být splněny následující požadavky:
 
  - Zprostředkovatele kryptografických služeb (CSP) musí být zprostředkovatel starší verze klíče.
  - Formát certifikátu musí být v souboru PFX jako veřejné a soukromé klíče jsou požadovány. Windows servery používají soubory PFX, které obsahují soubor veřejného klíče (soubor certifikátu SSL) a přidružený soubor privátního klíče.
  - Pro produkční prostředí musí certifikát vydat z interní certifikační autority nebo veřejné certifikační autority. Pokud používáte z veřejné certifikační autority, můžete oprávnění součástí základní image operačního systému v rámci aplikace Microsoft důvěryhodné kořenové autoritě. Můžete najít na seznam v [Microsoft Trusted Root Certificate Program: Účastníci](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
  - Infrastruktury Azure stacku musí mít přístup k síti do publikované v certifikátu umístění seznamu odvolaných certifikátů (CRL) certifikační autority. Tento seznam odvolaných certifikátů musí být koncový bod HTTP.
 
-#### <a name="parameters"></a>Parametry
+Jakmile budete mít certifikát, pomocí níže uvedeného skriptu Powershellu registrace vaší aplikace a vytvoření instančního objektu. Použijete také objekt služby pro přihlášení k Azure. Následující zástupné symboly nahraďte vlastními hodnotami:
 
-Tyto informace se vyžaduje jako vstup pro automatizaci parametry:
+| Zástupný symbol | Popis | Příklad: |
+| ----------- | ----------- | ------- |
+| \<PepVM\> | Název privilegovaného koncového bodu virtuálního počítače ve vaší instanci služby Azure Stack. | "AzS-ERCS01" |
+| \<YourCertificateLocation\> | Umístění vaší X509 certifikát v místním úložišti certifikátů. | "Cert:\CurrentUser\My\AB5A8A3533CC7AA2025BF05120117E06DE407B34" |
+| \<YourAppName\> | Popisný název registrace nové aplikace | "Tento nástroj pro správu" |
 
-|Parametr|Popis|Příklad:|
-|---------|---------|---------|
-|Name|Název pro účet hlavní název služby|MyAPP|
-|ClientCertificates|Pole objektů certifikátu|X509 certifikátu|
-|ClientRedirectUris<br>(Volitelné)|Identifikátor URI přesměrování aplikace|-|
-
-#### <a name="use-powershell-to-create-a-service-principal"></a>Použití Powershellu k vytvoření instančního objektu
-
-1. Otevřete relaci Windows Powershellu se zvýšenými oprávněními a spusťte následující rutiny:
+1. Otevřete relaci Windows Powershellu se zvýšenými oprávněními a spusťte následující skript:
 
    ```powershell  
-    # Credential for accessing the ERCS PrivilegedEndpoint, typically domain\cloudadmin
+    # Sign in to PowerShell interactively, using credentials that have access to the VM running the Privileged Endpoint (typically <domain>\cloudadmin)
     $Creds = Get-Credential
 
-    # Creating a PSSession to the ERCS PrivilegedEndpoint
-    $Session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $Creds
+    # Create a PSSession to the Privileged Endpoint VM
+    $Session = New-PSSession -ComputerName "<PepVm>" -ConfigurationName PrivilegedEndpoint -Credential $Creds
 
-    # If you have a managed certificate use the Get-Item command to retrieve your certificate from your certificate location.
+    # Use the Get-Item cmdlet to retrieve your certificate.
     # If you don't want to use a managed certificate, you can produce a self signed cert for testing purposes: 
     # $Cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<YourAppName>" -KeySpec KeyExchange
     $Cert = Get-Item "<YourCertificateLocation>"
     
-    $ServicePrincipal = Invoke-Command -Session $Session -ScriptBlock {New-GraphApplication -Name '<YourAppName>' -ClientCertificates $using:cert}
+    # Use the privileged endpoint to create the new app registration (and service principal object)
+    $SpObject = Invoke-Command -Session $Session -ScriptBlock {New-GraphApplication -Name "<YourAppName>" -ClientCertificates $using:cert}
     $AzureStackInfo = Invoke-Command -Session $Session -ScriptBlock {Get-AzureStackStampInformation}
     $Session | Remove-PSSession
 
-    # For Azure Stack development kit, this value is set to https://management.local.azurestack.external. This is read from the AzureStackStampInformation output of the ERCS VM.
+    # Using the stamp info for your Azure Stack instance, populate the following variables:
+    # - AzureRM endpoint used for Azure Resource Manager operations 
+    # - Audience for acquiring an OAuth token used to access Graph API 
+    # - GUID of the directory tenant
     $ArmEndpoint = $AzureStackInfo.TenantExternalEndpoints.TenantResourceManager
-
-    # For Azure Stack development kit, this value is set to https://graph.local.azurestack.external/. This is read from the AzureStackStampInformation output of the ERCS VM.
     $GraphAudience = "https://graph." + $AzureStackInfo.ExternalDomainFQDN + "/"
-
-    # TenantID for the stamp. This is read from the AzureStackStampInformation output of the ERCS VM.
     $TenantID = $AzureStackInfo.AADTenantID
 
-    # Register an AzureRM environment that targets your Azure Stack instance
-    Add-AzureRMEnvironment `
-    -Name "AzureStackUser" `
-    -ArmEndpoint $ArmEndpoint
+    # Register and set an AzureRM environment that targets your Azure Stack instance
+    Add-AzureRMEnvironment -Name "AzureStackUser" -ArmEndpoint $ArmEndpoint
+    Set-AzureRmEnvironment -Name "AzureStackUser" -GraphAudience $GraphAudience -EnableAdfsAuthentication:$true
 
-    # Set the GraphEndpointResourceId value
-    Set-AzureRmEnvironment `
-    -Name "AzureStackUser" `
-    -GraphAudience $GraphAudience `
-    -EnableAdfsAuthentication:$true
-
-    Add-AzureRmAccount -EnvironmentName "AzureStackUser" `
+    # Sign in using the new service principal identity
+    $SpSignin = Connect-AzureRmAccount -Environment "AzureStackUser" `
     -ServicePrincipal `
-    -CertificateThumbprint $ServicePrincipal.Thumbprint `
-    -ApplicationId $ServicePrincipal.ClientId `
+    -CertificateThumbprint $SpObject.Thumbprint `
+    -ApplicationId $SpObject.ClientId `
     -TenantId $TenantID
 
-    # Output the SPN details
-    $ServicePrincipal
+    # Output the service principal details
+    $SpObject
 
    ```
-   > [!Note]  
-   > Pro účely ověření certifikátu podepsaného svým držitelem můžete vytvořit pomocí následujícím příkladu:
-
-   ```powershell  
-   $Cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<yourappname>" -KeySpec KeyExchange
-   ```
-
-
-2. Po dokončení automatizace, zobrazí požadované podrobnosti, které chcete použít hlavní název služby. Doporučujeme uložit pro pozdější použití.
-
-   Příklad:
+   
+2. Po dokončení skriptu se zobrazí informace o registraci aplikace, včetně přihlašovacích údajů instančního objektu. Jak je uvedeno, `ClientID` a `Thumbprint` se používají k přihlášení podle identity objektu zabezpečení služby. Po úspěšném přihlášení se použije identita instančního objektu služby pro následné ověřování a přístup k prostředkům spravovaným pomocí Azure Resource Manageru. 
 
    ```shell
    ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356
    ClientId              : 3c87e710-9f91-420b-b009-31fa9e430145
    Thumbprint            : 30202C11BE6864437B64CE36C8D988442082A0F1
    ApplicationName       : Azurestack-MyApp-c30febe7-1311-4fd8-9077-3d869db28342
+   ClientSecret          :
    PSComputerName        : azs-ercs01
    RunspaceId            : a78c76bb-8cae-4db4-a45a-c1420613e01b
    ```
 
-### <a name="update-certificate-for-service-principal-for-ad-fs"></a>Aktualizovat certifikát pro instanční objekt služby AD FS
+Ponechat otevřené, relace konzoly prostředí PowerShell, jak použít je s `ApplicationIdentifier` hodnotu v další části.
 
-Pokud jste nasadili Azure Stack se službou AD FS, můžete použít PowerShell aktualizovat tajný klíč pro objekt služby.
+### <a name="update-a-service-principals-certificate-credential"></a>Aktualizace přihlašovacích údajů certifikátu objektu služby
 
-Je skript spuštěn na virtuálním počítači ERCS z privileged koncového bodu.
+Teď vytvoříte instanční objekt služby, v této části se dozvíte, jak do:
 
-#### <a name="parameters"></a>Parametry
+1. Vytvořit nový podepsaný svým držitelem X509 certifikát pro účely testování.
+2. Aktualizace přihlašovacích údajů instančního objektu, stačí aktualizovat jeho **kryptografický otisk** vlastnost tak, aby odpovídaly novým certifikátem.
 
-Tyto informace se vyžaduje jako vstup pro automatizaci parametry:
+Aktualizujte certifikát přihlašovacích údajů pomocí Powershellu, použijte vlastní hodnoty pro následující zástupné symboly:
 
-|Parametr|Popis|Příklad:|
-|---------|---------|---------|
-|Name|Název pro účet hlavní název služby|MyAPP|
-|ApplicationIdentifier|Jedinečný identifikátor|S-1-5-21-1634563105-1224503876-2692824315-2119|
-|ClientCertificate|Pole objektů certifikátu|X509 certifikátu|
+| Zástupný symbol | Popis | Příklad: |
+| ----------- | ----------- | ------- |
+| \<PepVM\> | Název privilegovaného koncového bodu virtuálního počítače ve vaší instanci služby Azure Stack. | "AzS-ERCS01" |
+| \<YourAppName\> | Popisný název registrace nové aplikace | "Tento nástroj pro správu" |
+| \<YourCertificateLocation\> | Umístění vaší X509 certifikát v místním úložišti certifikátů. | "Cert:\CurrentUser\My\AB5A8A3533CC7AA2025BF05120117E06DE407B34" |
+| \<AppIdentifier\> | Identifikátor přiřazený k registraci aplikace | "S-1-5-21-1512385356-3796245103-1243299919-1356" |
 
-#### <a name="example-of-updating-service-principal-for-ad-fs"></a>Příklad aktualizuje instanční objekt služby pro službu AD FS
-
-Tento příklad vytvoří certifikát podepsaný svým držitelem. Při spuštění rutiny v produkčním nasazení použijte [Get-Item](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Management/Get-Item) načíst objekt certifikátu pro certifikát, který chcete použít.
-
-1. Otevřete relaci Windows Powershellu se zvýšenými oprávněními a spusťte následující rutiny:
+1. Pomocí relaci Windows Powershellu se zvýšenými oprávněními spusťte následující rutiny:
 
      ```powershell
-          # Creating a PSSession to the ERCS PrivilegedEndpoint
-          $Session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $Creds
+     # Create a PSSession to the PrivilegedEndpoint VM
+     $Session = New-PSSession -ComputerName "<PepVM>" -ConfigurationName PrivilegedEndpoint -Credential $Creds
 
-          # This produces a self signed cert for testing purposes. It is preferred to use a managed certificate for this.
-          $NewCert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<YourAppName>" -KeySpec KeyExchange
+     # Create a self-signed certificate for testing purposes. 
+     $NewCert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<YourAppName>" -KeySpec KeyExchange
+     # In production, use Get-Item and a managed certificate instead.
+     # $Cert = Get-Item "<YourCertificateLocation>"
 
-          $RemoveServicePrincipal = Invoke-Command -Session $Session -ScriptBlock {Set-GraphApplication -ApplicationIdentifier  S-1-5-21-1634563105-1224503876-2692824315-2120 -ClientCertificates $NewCert}
+     # Use the privileged endpoint to update the certificate thumbprint, used by the service principal associated with <AppIdentifier>
+     $SpObject = Invoke-Command -Session $Session -ScriptBlock {Set-GraphApplication -ApplicationIdentifier "<AppIdentifier>" -ClientCertificates $using:NewCert}
+     $Session | Remove-PSSession
 
-          $Session | Remove-PSSession
+     # Output the updated service principal details
+     $SpObject
      ```
 
-2. Po dokončení automatizace, zobrazí aktualizovaný kryptografický otisk hodnota povolená pro ověření hlavního názvu služby.
+2. Po dokončení skriptu se zobrazí informace o registraci aktualizovanou aplikaci, včetně hodnot kryptografický otisk nového certifikátu podepsaného svým držitelem.
 
      ```Shell  
-          ClientId              : 
-          Thumbprint            : AF22EE716909041055A01FE6C6F5C5CDE78948E9
-          ApplicationName       : Azurestack-ThomasAPP-3e5dc4d2-d286-481c-89ba-57aa290a4818
-          ClientSecret          : 
-          RunspaceId            : a580f894-8f9b-40ee-aa10-77d4d142b4e5
+     ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356
+     ClientId              : 
+     Thumbprint            : AF22EE716909041055A01FE6C6F5C5CDE78948E9
+     ApplicationName       : Azurestack-MyApp-c30febe7-1311-4fd8-9077-3d869db28342
+     ClientSecret          : 
+     PSComputerName        : azs-ercs01
+     RunspaceId            : a580f894-8f9b-40ee-aa10-77d4d142b4e5
      ```
 
-### <a name="create-a-service-principal-using-a-client-secret"></a>Vytvoření instančního objektu pomocí tajného klíče klienta
+### <a name="create-a-service-principal-that-uses-client-secret-credentials"></a>Vytvoření instančního objektu, který používá tajného kódu přihlašovacích údajů klienta
 
-Při vytváření instančního objektu při použití služby AD FS pro identitu, můžete použít certifikát. Privilegované koncový bod bude používat ke spouštění rutin.
+> [!IMPORTANT]
+> Pomocí tajného klíče klienta je méně bezpečné než použití x X509 certifikát přihlašovacích údajů. Nejen je ověřovací mechanismus méně bezpečná, ale také běžně vyžaduje vložení tajného klíče do zdrojový kód klientské aplikace. V důsledku toho aplikacích v produkčním prostředí, se důrazně doporučujeme používat certifikát přihlašovacích údajů.
 
-Tyto skripty se spouštějí z privileged koncového bodu na virtuálním počítači ERCS. Další informace o privileged koncový bod, najdete v části [pomocí privilegovaných koncového bodu ve službě Azure Stack](azure-stack-privileged-endpoint.md).
+Teď vytvořte další registraci aplikace, ale tentokrát zadejte pověření tajného kódu klienta. Na rozdíl od certifikát přihlašovacích údajů adresář má schopnost generovat tajného kódu přihlašovacích údajů klienta. Takže místo určení tajný kód klienta, můžete použít `-GenerateClientSecret` přepínač tak, aby žádosti, že nebudou generována. Následující zástupné symboly nahraďte vlastními hodnotami:
 
-#### <a name="parameters"></a>Parametry
-
-Tyto informace se vyžaduje jako vstup pro automatizaci parametry:
-
-| Parametr | Popis | Příklad: |
-|----------------------|--------------------------|---------|
-| Name | Název pro účet hlavní název služby | MyAPP |
-| GenerateClientSecret | Vytvoření tajného kódu |  |
-
-#### <a name="use-the-ercs-privilegedendpoint-to-create-the-service-principal"></a>Použít ERCS PrivilegedEndpoint k vytvoření instančního objektu služby
+| Zástupný symbol | Popis | Příklad: |
+| ----------- | ----------- | ------- |
+| \<PepVM\> | Název privilegovaného koncového bodu virtuálního počítače ve vaší instanci služby Azure Stack. | "AzS-ERCS01" |
+| \<YourAppName\> | Popisný název registrace nové aplikace | "Tento nástroj pro správu" |
 
 1. Otevřete relaci Windows Powershellu se zvýšenými oprávněními a spusťte následující rutiny:
 
      ```powershell  
-      # Credential for accessing the ERCS PrivilegedEndpoint, typically domain\cloudadmin
+     # Sign in to PowerShell interactively, using credentials that have access to the VM running the Privileged Endpoint (typically <domain>\cloudadmin)
      $Creds = Get-Credential
 
-     # Creating a PSSession to the ERCS PrivilegedEndpoint
-     $Session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $Creds
+     # Create a PSSession to the Privileged Endpoint VM
+     $Session = New-PSSession -ComputerName "<PepVM>" -ConfigurationName PrivilegedEndpoint -Credential $Creds
 
-     # Creating a SPN with a secre
-     $ServicePrincipal = Invoke-Command -Session $Session -ScriptBlock {New-GraphApplication -Name '<YourAppName>' -GenerateClientSecret}
+     # Use the privileged endpoint to create the new app registration (and service principal object)
+     $SpObject = Invoke-Command -Session $Session -ScriptBlock {New-GraphApplication -Name "<YourAppName>" -GenerateClientSecret}
      $AzureStackInfo = Invoke-Command -Session $Session -ScriptBlock {Get-AzureStackStampInformation}
      $Session | Remove-PSSession
 
-     # Output the SPN details
-     $ServicePrincipal
+     # Using the stamp info for your Azure Stack instance, populate the following variables:
+     # - AzureRM endpoint used for Azure Resource Manager operations 
+     # - Audience for acquiring an OAuth token used to access Graph API 
+     # - GUID of the directory tenant
+     $ArmEndpoint = $AzureStackInfo.TenantExternalEndpoints.TenantResourceManager
+     $GraphAudience = "https://graph." + $AzureStackInfo.ExternalDomainFQDN + "/"
+     $TenantID = $AzureStackInfo.AADTenantID
+
+     # Register and set an AzureRM environment that targets your Azure Stack instance
+     Add-AzureRMEnvironment -Name "AzureStackUser" -ArmEndpoint $ArmEndpoint
+     Set-AzureRmEnvironment -Name "AzureStackUser" -GraphAudience $GraphAudience -EnableAdfsAuthentication:$true
+
+     # Sign in using the new service principal identity
+     $securePassword = $SpObject.ClientSecret | ConvertTo-SecureString -AsPlainText -Force
+     $credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $SpObject.ClientId, $securePassword
+     $SpSignin = Connect-AzureRmAccount -Environment "AzureStackUser" -ServicePrincipal -Credential $credential -TenantId $TenantID
+
+     # Output the service principal details
+     $SpObject
      ```
 
-2. Po spuštění rutiny prostředí zobrazí požadované podrobnosti, které chcete použít hlavní název služby. Ujistěte se, že uložíte tajný klíč klienta.
+2. Po dokončení skriptu se zobrazí informace o registraci aplikace, včetně přihlašovacích údajů instančního objektu. Jak je ukázáno, `ClientID` kalkulačce `ClientSecret` se používají k přihlášení podle identity objektu zabezpečení služby. Po úspěšném přihlášení se použije identita instančního objektu služby pro následné ověřování a přístup k prostředkům spravovaným pomocí Azure Resource Manageru.
 
-     ```powershell  
+     ```shell  
      ApplicationIdentifier : S-1-5-21-1634563105-1224503876-2692824315-2623
      ClientId              : 8e0ffd12-26c8-4178-a74b-f26bd28db601
      Thumbprint            : 
      ApplicationName       : Azurestack-YourApp-6967581b-497e-4f5a-87b5-0c8d01a9f146
-     ClientSecret          : 6RUZLRoBw3EebMDgaWGiowCkoko5_j_ujIPjA8dS
-     PSComputerName        : 192.168.200.224
+     ClientSecret          : 6RUWLRoBw3EebBLgaWGiowCkoko5_j_ujIPjA8dS
+     PSComputerName        : azs-ercs01
      RunspaceId            : 286daaa1-c9a6-4176-a1a8-03f543f90998
      ```
 
-#### <a name="update-client-secret-for-a-service-principal-for-ad-fs"></a>Aktualizovat tajný kód klienta instančního objektu služby pro službu AD FS
+Ponechat otevřené, relace konzoly prostředí PowerShell, jak použít je s `ApplicationIdentifier` hodnotu v další části.
 
-Nový tajný kód klienta je automaticky generovány pomocí rutiny prostředí PowerShell.
+### <a name="update-a-service-principals-client-secret"></a>Aktualizovat tajný kód klienta objektu služby
 
-Je skript spuštěn na virtuálním počítači ERCS z privileged koncového bodu.
+Aktualizace tajného kódu pověření klienta pomocí Powershellu, pomocí **ResetClientSecret** parametr, který okamžitě změní tajný kód klienta. Následující zástupné symboly nahraďte vlastními hodnotami:
 
-##### <a name="parameters"></a>Parametry
+| Zástupný symbol | Popis | Příklad: |
+| ----------- | ----------- | ------- |
+| \<PepVM\> | Název privilegovaného koncového bodu virtuálního počítače ve vaší instanci služby Azure Stack. | "AzS-ERCS01" |
+| \<AppIdentifier\> | Identifikátor přiřazený k registraci aplikace | "S-1-5-21-1634563105-1224503876-2692824315-2623" |
 
-Tyto informace se vyžaduje jako vstup pro automatizaci parametry:
+1. Pomocí relaci Windows Powershellu se zvýšenými oprávněními spusťte následující rutiny:
 
-| Parametr | Popis | Příklad: |
-|-----------------------|-----------------------------------------------------------------------------------------------------------|------------------------------------------------|
-| ApplicationIdentifier | Jedinečný identifikátor. | S-1-5-21-1634563105-1224503876-2692824315-2119 |
-| ChangeClientSecret | Změní tajný kód klienta s dobou výměny 2880 minut, kde původní tajný kód je stále platný. |  |
-| ResetClientSecret | Změňte tajný kód klienta okamžitě |  |
+     ```powershell
+     # Create a PSSession to the PrivilegedEndpoint VM
+     $Session = New-PSSession -ComputerName "<PepVM>" -ConfigurationName PrivilegedEndpoint -Credential $Creds
 
-##### <a name="example-of-updating-a-client-secret-for-ad-fs"></a>Příklad aktualizuje tajný klíč klienta služby AD FS
+     # Use the privileged endpoint to update the client secret, used by the service principal associated with <AppIdentifier>
+     $SpObject = Invoke-Command -Session $Session -ScriptBlock {Set-GraphApplication -ApplicationIdentifier "<AppIdentifier>" -ResetClientSecret}
+     $Session | Remove-PSSession
 
-V příkladu se používá **ResetClientSecret** parametr, který okamžitě změní tajný kód klienta.
-
-1. Otevřete relaci Windows Powershellu se zvýšenými oprávněními a spusťte následující rutiny:
-
-     ```powershell  
-          # Creating a PSSession to the ERCS PrivilegedEndpoint
-          $Session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $Creds
-
-          # This produces a self signed cert for testing purposes. It is preferred to use a managed certificate for this.
-          $NewCert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<YourAppName>" -KeySpec KeyExchange
-
-          $UpdateServicePrincipal = Invoke-Command -Session $Session -ScriptBlock {Set-GraphApplication -ApplicationIdentifier  S-1-5-21-1634563105-1224503876-2692824315-2120 -ResetClientSecret}
-
-          $Session | Remove-PSSession
+     # Output the updated service principal details
+     $SpObject
      ```
 
-2. Po dokončení automatizace, zobrazí nově vygenerovaný tajného klíče pro ověření hlavního názvu služby. Ujistěte se, že ukládáte nový tajný kód klienta.
+2. Po dokončení skriptu se zobrazí informace o registraci aktualizovanou aplikaci, včetně nově generovaného klienta tajný klíč.
 
-     ```powershell  
-          ApplicationIdentifier : S-1-5-21-1634563105-1224503876-2692824315-2120
-          ClientId              :  
-          Thumbprint            : 
-          ApplicationName       : Azurestack-Yourapp-6967581b-497e-4f5a-87b5-0c8d01a9f146
-          ClientSecret          : MKUNzeL6PwmlhWdHB59c25WDDZlJ1A6IWzwgv_Kn
-          RunspaceId            : 6ed9f903-f1be-44e3-9fef-e7e0e3f48564
+     ```shell  
+     ApplicationIdentifier : S-1-5-21-1634563105-1224503876-2692824315-2623
+     ClientId              : 8e0ffd12-26c8-4178-a74b-f26bd28db601
+     Thumbprint            : 
+     ApplicationName       : Azurestack-YourApp-6967581b-497e-4f5a-87b5-0c8d01a9f146
+     ClientSecret          : MKUNzeL6PwmlhWdHB59c25WDDZlJ1A6IWzwgv_Kn
+     PSComputerName        : azs-ercs01
+     RunspaceId            : 6ed9f903-f1be-44e3-9fef-e7e0e3f48564
      ```
 
-### <a name="remove-a-service-principal-for-ad-fs"></a>Odebrání instančního objektu pro službu AD FS
+### <a name="remove-a-service-principal"></a>Odebrání instančního objektu
 
-Pokud jste nasadili Azure Stack se službou AD FS, můžete použít PowerShell odstranit instančního objektu.
+Nyní uvidíte postup registrace aplikace v adresáři a jeho přidružené instanční objekt, odebrat nebo odstranit pomocí Powershellu. 
 
-Je skript spuštěn na virtuálním počítači ERCS z privileged koncového bodu.
+Následující zástupné symboly nahraďte vlastními hodnotami:
 
-#### <a name="parameters"></a>Parametry
-
-Tyto informace se vyžaduje jako vstup pro automatizaci parametry:
-
-|Parametr|Popis|Příklad:|
-|---------|---------|---------|
-| Parametr | Popis | Příklad: |
-| ApplicationIdentifier | Jedinečný identifikátor | S-1-5-21-1634563105-1224503876-2692824315-2119 |
-
-> [!Note]  
-> Chcete-li zobrazit seznam všech existujících objektů služby a jejich identifikátoru aplikace, můžete pomocí příkazu get-graphapplication.
-
-#### <a name="example-of-removing-the-service-principal-for-ad-fs"></a>Příklad odebrání instanční objekt služby pro službu AD FS
+| Zástupný symbol | Popis | Příklad: |
+| ----------- | ----------- | ------- |
+| \<PepVM\> | Název privilegovaného koncového bodu virtuálního počítače ve vaší instanci služby Azure Stack. | "AzS-ERCS01" |
+| \<AppIdentifier\> | Identifikátor přiřazený k registraci aplikace | "S-1-5-21-1634563105-1224503876-2692824315-2623" |
 
 ```powershell  
-     Credential for accessing the ERCS PrivilegedEndpoint, typically domain\cloudadmin
-     $Creds = Get-Credential
+# Sign in to PowerShell interactively, using credentials that have access to the VM running the Privileged Endpoint (typically <domain>\cloudadmin)
+$Creds = Get-Credential
 
-     # Creating a PSSession to the ERCS PrivilegedEndpoint
-     $Session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $Creds
+# Create a PSSession to the PrivilegedEndpoint VM
+$Session = New-PSSession -ComputerName "<PepVM>" -ConfigurationName PrivilegedEndpoint -Credential $Creds
 
-     $UpdateServicePrincipal = Invoke-Command -Session $Session -ScriptBlock {Remove-GraphApplication -ApplicationIdentifier S-1-5-21-1634563105-1224503876-2692824315-2119}
+# OPTIONAL: Use the privileged endpoint to get a list of applications registered in AD FS
+$AppList = Invoke-Command -Session $Session -ScriptBlock {Get-GraphApplication}
 
-     $Session | Remove-PSSession
+# Use the privileged endpoint to remove the application and associated service principal object for <AppIdentifier>
+Invoke-Command -Session $Session -ScriptBlock {Remove-GraphApplication -ApplicationIdentifier "<AppIdentifier>"}
+```
+
+Nebude žádný výstup vrácená z volání rutiny Remove-GraphApplication u privilegovaných koncového bodu, ale verbatim potvrzení výstup do konzoly se zobrazí při spuštění rutiny:
+
+```shell
+VERBOSE: Deleting graph application with identifier S-1-5-21-1634563105-1224503876-2692824315-2623.
+VERBOSE: Remove-GraphApplication : BEGIN on AZS-ADFS01 on ADFSGraphEndpoint
+VERBOSE: Application with identifier S-1-5-21-1634563105-1224503876-2692824315-2623 was deleted.
+VERBOSE: Remove-GraphApplication : END on AZS-ADFS01 under ADFSGraphEndpoint configuration
 ```
 
 ## <a name="assign-a-role"></a>Přiřazení role
 
-Pro přístup k prostředkům ve vašem předplatném, musíte přiřadit aplikace k roli. Rozhodněte, jakou roli představuje správná oprávnění pro aplikaci. Další informace o dostupných rolí, najdete v článku [RBAC: Vestavěné role](/azure/role-based-access-control/built-in-roles).
+Přístup k prostředkům Azure tak, že uživatelé a aplikace se oprávnění prostřednictvím řízení přístupu na základě Role (RBAC). Umožnit aplikaci přístup k prostředkům ve vašem předplatném pomocí jeho objektu služby, je nutné *přiřadit* instanční objekt k *role* pro konkrétní *prostředků*. Nejdřív se rozhodněte, jakou roli představuje oprávnění *oprávnění* pro aplikaci. Další informace o dostupných rolí, najdete v článku [předdefinované role pro prostředky Azure](/azure/role-based-access-control/built-in-roles).
 
-Nastavit obor na úrovni předplatného, skupinu prostředků nebo prostředek. Oprávnění se dědí do oboru na nižších úrovních. Například přidáním aplikace k roli Čtenář pro skupinu prostředků znamená, že můžete přečíst, skupinu prostředků a všechny prostředky, které obsahuje.
+Typ prostředku, zvolíte také vytvoří *obor přístupu* pro instanční objekt. Nastavení oboru přístupu na předplatné, skupinu prostředků nebo úrovni prostředků. Oprávnění se dědí do oboru na nižších úrovních. Například přidáním aplikace k roli "Čtenář" pro skupinu prostředků, znamená, že můžete přečíst, skupinu prostředků a všechny prostředky, které obsahuje.
 
-1. Na portálu Azure Stack přejděte na úroveň oboru, který chcete přiřadit aplikaci. Například vyberte přiřazení role v oboru předplatného, **předplatná**. Místo toho můžete třeba vybrat skupinu prostředků nebo prostředek.
+1. Přihlaste se k portálu odpovídající založené na adresáři, který jste zadali během Azure Stack instalace (na webu Azure portal pro Azure AD, nebo portál user portal pro službu AD FS, například Azure Stack). V tomto příkladu jsme ukazují uživatele přihlášení k portálu user portal pro Azure Stack.
 
-2. Vyberte konkrétní předplatné (skupinu prostředků nebo prostředek), přiřazení aplikace.
+   > [!NOTE]
+   > Přidání přiřazení role pro daný prostředek, váš uživatelský účet musí patřit do role, která deklaruje `Microsoft.Authorization/roleAssignments/write` oprávnění. Například buď [vlastníka](/azure/role-based-access-control/built-in-roles.md#owner) nebo [správce uživatelských přístupů](/azure/role-based-access-control/built-in-roles.md#user-access-administrator) předdefinované role.  
+2. Přejděte k prostředku, který chcete povolit službu instančního objektu pro přístup. V tomto příkladu přiřadit instanční objekt služby k roli v oboru předplatného, tak, že vyberete **předplatná**, pak konkrétní předplatné. Místo toho můžete třeba vybrat skupinu prostředků nebo určitým prostředkem, například virtuální počítač. 
 
-     ![Vyberte předplatné pro přiřazení](./media/azure-stack-create-service-principal/image16.png)
+     ![Vyberte předplatné pro přiřazení](./media/azure-stack-create-service-principal/select-subscription.png)
 
-3. Vyberte **řízení přístupu (IAM)** .
+3. Vyberte **řízení přístupu (IAM)** stránku, což je univerzální přes všechny prostředky, které podporují RBAC.
+4. Vyberte **+ přidat**
+5. V části **Role**, vyberte roli, kterou chcete přiřadit k aplikaci.
+6. V části **vyberte**, vyhledejte svoji aplikaci pomocí celé nebo jeho část název aplikace. Během registrace, název aplikace je generován jako *Azurestack -\<YourAppName\>-\<ClientId\>* . Například, pokud jste použili aplikaci název *počítači App2*a ClientId *2bbe67d8-3fdb-4b62-87cf-cc41dd4344ff* byl přiřazen při vytváření, úplný název by měl být  *Azurestack-App2-2bbe67d8-3fdb-4b62-87cf-cc41dd4344ff*. Můžete vyhledat přesný řetězec nebo částečně, jako například *Azurestack* nebo *Azurestack počítači App2*.
+7. Až aplikaci najdete, vyberte ho a zobrazí se v rámci **Vybraní členové**.
+8. Vyberte **Uložit** k dokončení přiřazení role. 
 
-     ![Vyberte přístup](./media/azure-stack-create-service-principal/image17.png)
+     [ ![Přiřazení role](media/azure-stack-create-service-principal/assign-role.png)](media/azure-stack-create-service-principal/assign-role.png#lightbox)
 
-4. Vyberte **přidat přiřazení role**.
+9. Až budete hotovi, aplikace se zobrazí v seznamu objektů zabezpečení přiřazené pro aktuální obor, pro danou roli.
 
-5. Vyberte roli, kterou chcete přiřadit k aplikaci.
-
-6. Vyhledávání pro vaši aplikaci a vyberte ji.
-
-7. Vyberte **OK** k dokončení přiřazení role. Zobrazí se vaše aplikace v seznamu Uživatelé přiřazení k roli pro tento obor.
+     [ ![Přiřazené role](media/azure-stack-create-service-principal/assigned-role.png)](media/azure-stack-create-service-principal/assigned-role.png#lightbox)
 
 Teď, když máte vytvořený instanční objekt služby a přiřazenou roli, můžete začít používat to v rámci vaší aplikace pro přístup k prostředkům Azure Stack.  
 

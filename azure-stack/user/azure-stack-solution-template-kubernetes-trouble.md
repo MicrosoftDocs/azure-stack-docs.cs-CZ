@@ -14,19 +14,19 @@ ms.author: mabrigg
 ms.date: 06/18/2019
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 4c875f46762d6dac5608869b0bb36606f01f9747
-ms.sourcegitcommit: 759a01b566597a71b18fca25902cacc983a5a63b
+ms.openlocfilehash: 89138601d1049f192946473d0a1fdb2c21df3e4c
+ms.sourcegitcommit: 104ccafcb72a16ae7e91b154116f3f312321cff7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67298052"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67308722"
 ---
 # <a name="troubleshoot-kubernetes-deployment-to-azure-stack"></a>Řešení potíží s nasazení Kubernetes pro Azure Stack
 
 *Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
 
 > [!Note]  
-> Kubernetes ve službě Azure Stack je ve verzi preview. Odpojené scénář Azure Stack není aktuálně podporován ve verzi preview. Pouze pomocí položky marketplace pro vývoj a testování scénářů. [AKS modul](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md) lze použít pro produkční prostředí.
+> Kubernetes ve službě Azure Stack je ve verzi preview. Odpojené scénář Azure Stack není aktuálně podporován ve verzi preview. Pouze pomocí položky marketplace pro vývoj a testování scénářů.
 
 Tento článek obsahuje přehled řešení potíží se Kubernetes cluster. Pokud chcete začít řešit potíže, přečtěte si téma prvků vyžadovaných pro nasazení. Může být potřeba shromažďovat protokoly nasazení ze služby Azure Stack nebo virtuálních počítačů s Linuxem, které hostují Kubernetes. Pokud chcete načíst protokoly z koncový bod pro správu, obraťte se na svého správce služby Azure Stack.
 
@@ -112,7 +112,7 @@ Při nasazování clusteru Kubernetes, můžete zkontrolovat stav nasazení zkon
     | Vlastnost | Popis |
     | ----     | ----        |
     | Resource | Název prostředku. |
-    | Type | Poskytovatel prostředků a typ prostředku. |
+    | Typ | Poskytovatel prostředků a typ prostředku. |
     | Status | Stav položky. |
     | Časové razítko | Časové razítko UTC času. |
     | Podrobnosti o operaci | Podrobnosti operace, jako je poskytovatel prostředků, která byla zahrnuta v operaci, koncový bod prostředku a název prostředku. |

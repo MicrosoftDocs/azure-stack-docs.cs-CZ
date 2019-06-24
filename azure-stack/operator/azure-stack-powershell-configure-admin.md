@@ -3,25 +3,24 @@ title: Připojení ke službě Azure Stack pomocí prostředí PowerShell jako o
 description: Zjistěte, jak se připojit ke službě Azure Stack pomocí prostředí PowerShell jako operátor
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: mattbriggs
+manager: femila
 editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-origin.date: 03/15/2019
-ms.date: 04/29/2019
-ms.author: v-jay
+ms.date: 03/15/2019
+ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: 9d49727538f89e9429c1ae979057e89c40dc0ce9
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: fa4013c00cd9d496b6c8bb479d9fe6cbfe113575
+ms.sourcegitcommit: 3f52cf06fb5b3208057cfdc07616cd76f11cdb38
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64293924"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67316205"
 ---
 # <a name="connect-to-azure-stack-with-powershell-as-an-operator"></a>Připojení ke službě Azure Stack pomocí prostředí PowerShell jako operátor
 
@@ -48,7 +47,7 @@ Konfigurace prostředí Azure Stack operátor pomocí Powershellu. Spusťte jede
 
     # Set your tenant name
     $AuthEndpoint = (Get-AzureRmEnvironment -Name "AzureStackAdmin").ActiveDirectoryAuthority.TrimEnd('/')
-    $AADTenantName = "<myDirectoryTenantName>.partner.onmschina.cn"
+    $AADTenantName = "<myDirectoryTenantName>.onmicrosoft.com"
     $TenantId = (invoke-restmethod "$($AuthEndpoint)/$($AADTenantName)/.well-known/openid-configuration").issuer.TrimEnd('/').Split('/')[-1]
 
     # After signing in to your environment, Azure Stack cmdlets
@@ -72,7 +71,7 @@ Připojte se k prostředí Azure Stack operátorem pomocí Powershellu s Azure A
   ```
 
 > [!Note]  
-> Služba AD FS podporuje pouze interaktivní ověřování pomocí identity uživatelů. Pokud je vyžadován objekt přihlašovacích údajů je nutné použít hlavní název služby (SPN). Další informace o nastavení instančního objektu pomocí služby Azure Stack a AD FS, jako je vaše služba identity management, najdete v části [spravovat instanční objekt služby pro službu AD FS](azure-stack-create-service-principals.md#manage-service-principal-for-ad-fs).
+> Služba AD FS podporuje pouze interaktivní ověřování pomocí identity uživatelů. Pokud je vyžadován objekt přihlašovacích údajů je nutné použít hlavní název služby (SPN). Další informace o nastavení instančního objektu pomocí služby Azure Stack a AD FS, jako je vaše služba identity management, najdete v části [Správa instančního objektu služby AD FS](azure-stack-create-service-principals.md#manage-an-ad-fs-service-principal).
 
 ## <a name="test-the-connectivity"></a>Otestovat připojení
 
