@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/31/2019
+ms.date: 06/22/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 11/12/2018
-ms.openlocfilehash: ffb58392075521b81d9b0cd71928ac0db680991f
-ms.sourcegitcommit: 80775f5c5235147ae730dfc7e896675a9a79cdbe
+ms.openlocfilehash: 0896ea921408d651a4b8e072c3d66ab4e333ebd6
+ms.sourcegitcommit: fdeb2760845c9760ea7df1414b8e140b0624a823
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/03/2019
-ms.locfileid: "66459070"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67334430"
 ---
 # <a name="windows-server-in-azure-stack-marketplace-faq"></a>Windows Server v Azure stacku nejčastější dotazy k marketplace
 
@@ -36,7 +36,7 @@ Dále pokud všechny škálovací sady virtuálních počítačů odkazovat na k
 
 ### <a name="what-are-the-licensing-options-for-windows-server-marketplace-images-on-azure-stack"></a>Jaké jsou licenční možnosti pro Image z Marketplace systému Windows Server ve službě Azure Stack?
 
-Společnost Microsoft nabízí dvě verze Image Windows serveru z Tržiště Azure Stack:
+Společnost Microsoft nabízí dvě verze Image Windows serveru z Tržiště Azure Stack. Jenom jedna verze tohoto obrázku je použít v prostředí Azure Stack.  
 
 - **Platit používáte**: Tyto Image spustit plné ceny měřiče Windows.
    Kdo by měl používat: Zákazníci s Enterprise Agreement (EA), kteří používají *model fakturace spotřeby*; Poskytovatelé CSP, kteří nechtějí použít licencování SPLA.
@@ -47,7 +47,9 @@ Výhoda použití Azure Hybrid (AHUB) se nepodporuje v Azure stacku. Zákazníci
 
 ### <a name="what-if-i-downloaded-the-wrong-version-to-offer-my-tenantsusers"></a>Co když stáhli špatné verze do nabídky tenantů nebo uživatelů?
 
-Nejprve odstraňte nesprávnou verzi prostřednictvím webu Marketplace správu. Počkejte na její dokončení plně (podívejte se na oznámení o dokončení, ne **Marketplace správu** okno). Pak si stáhněte správnou verzi.
+Nejprve odstraňte nesprávnou verzi prostřednictvím webu marketplace správu. Počkejte na její dokončení (podívejte se na oznámení o dokončení, ne **Marketplace správu** okno). Pak si stáhněte správnou verzi.
+
+Pokud si stáhnete obě verze bitové kopie, jenom nejnovější verze je viditelná koncovým zákazníkům v galerii marketplace.
 
 ### <a name="what-if-my-user-incorrectly-checked-the-i-have-a-license-box-in-previous-windows-builds-and-they-dont-have-a-license"></a>Co když Moje uživatelské nesprávně zaškrtnuté políčko "Mám licenci k" v předchozím Windows sestavení a nemají licenci?
 
