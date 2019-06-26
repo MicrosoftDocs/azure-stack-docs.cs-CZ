@@ -5,16 +5,16 @@ services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: Howto
-ms.date: 05/31/2019
+ms.date: 06/25/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 05/31/2019
-ms.openlocfilehash: 8e64a570ab45e57e3cf58639bc2ec23d9b9bd81b
-ms.sourcegitcommit: 07cc716d97bf484c7260eb165ae205ae25e09589
+ms.lastreviewed: 06/25/2019
+ms.openlocfilehash: 4e7dd18267060f632e2d059b0a7b0d9158b2e260
+ms.sourcegitcommit: d1fdecdfa843dfc0629bfc226f1baf14f3ea621d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66453491"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67387757"
 ---
 # <a name="connect-to-azure-stack-using-azure-account-extension-in-visual-studio-code"></a>Připojení ke službě Azure Stack pomocí rozšíření Azure Account ve Visual Studio Code
 
@@ -34,9 +34,15 @@ VS Code je editor nižšími nároky pro sestavování a ladění webových a cl
 
 ## <a name="steps-to-connect-to-azure-stack"></a>Kroky pro připojení ke službě Azure Stack
 
-1. Otevřít VS Code.
+1. Spustit **Identity** skript z nástroje Azure Stack v Githubu.
 
-2. Vyberte **rozšíření** na levé straně rohu.
+    - Před spuštěním skriptu musíte mít nainstalované a nakonfigurované pro vaše prostředí PowerShell. Pokyny najdete v tématu [instalace Powershellu pro Azure Stack](../operator/azure-stack-powershell-install.md).
+
+    - Pro **Identity** skript pokyny a skript, naleznete v tématu [AzureStack-Tools/Identity](https://github.com/Azure/AzureStack-Tools/tree/master/Identity).
+
+2. Otevřít VS Code.
+
+3. Vyberte **rozšíření** na levé straně rohu.
 
 3. Do vyhledávacího pole zadejte `Azure Account`.
 
@@ -55,7 +61,7 @@ VS Code je editor nižšími nároky pro sestavování a ladění webových a cl
 
     Adresa URL pro načtení metadat pro váš koncový bod Azure Resource Manageru může například vypadat přibližně jako: `https://management.local.azurestack.external/metadata/endpoints?api-version=1.0`
 
-    Poznamenejte si vrácený kód JSON. Budete potřebovat hodnoty `loginEndpoint` a `loginEndgraphEndpointpoint` vlastnost.
+    Poznamenejte si vrácený kód JSON. Budete potřebovat hodnoty `loginEndpoint` a `audiences` vlastnost.
 
 7. Stisknutím klávesy **Ctrl + Shift + P** a vyberte **předvolby: Otevřete nastavení uživatele (JSON)** .
 
@@ -67,7 +73,7 @@ VS Code je editor nižšími nároky pro sestavování a ladění webových a cl
         | --- | --- |
         | `tenant-ID` | Výhody služby Azure Stack [ID tenanta](../operator/azure-stack-identity-overview.md). |
         | `activeDirectoryEndpointUrl` | Toto je adresa URL z loginEndpoint vlastnosti. |
-        | `activeDirectoryResourceId` | Toto je adresa URL z loginEndgraphEndpointpoint vlastnosti.
+        | `activeDirectoryResourceId` | Toto je adresa URL z vlastnosti cílové skupiny.
         | `resourceManagerEndpointUrl` | Toto je kořenová adresa URL pro Azure Resource Manageru pro službu Azure Stack. | 
 
     - Fragment kódu JSON:
@@ -76,15 +82,15 @@ VS Code je editor nižšími nároky pro sestavování a ladění webových a cl
       "azure.tenant": "tenant-ID",
       "azure.ppe": {
           "activeDirectoryEndpointUrl": "Login endpoint",
-          "activeDirectoryResourceId": "graph audience",
-          "resourceManagerEndpointUrl": "Management Endpoint",
+          "activeDirectoryResourceId": "This is the URL from the audiences property.",
+          "resourceManagerEndpointUrl": "Aure Resource Management Endpoint",
       },
       "azure.cloud": "AzurePPE"
       ```
 
-8. Ukládat nastavení uživatele a použití **Ctrl + Shift + P** ještě jednou. Vyberte **Azure: Přihlaste se k Azure Cloud**. Nová možnost **AzurePPE**, se zobrazí v seznamu cílů.
+9. Ukládat nastavení uživatele a použití **Ctrl + Shift + P** ještě jednou. Vyberte **Azure: Přihlaste se k Azure Cloud**. Nová možnost **AzurePPE**, se zobrazí v seznamu cílů.
 
-9. Vyberte **AzurePPE**. Ověřovací stránka načte v prohlížeči. Přihlaste se do vašeho koncového bodu.
+10. Vyberte **AzurePPE**. Ověřovací stránka načte v prohlížeči. Přihlaste se do vašeho koncového bodu.
 
 11. Chcete-li otestovat, že jste úspěšně přihlášení ke svému předplatnému Azure Stack, použijte **Ctrl + Shift + P** a vyberte **Azure: Vyberte předplatné** a zjistit, jestli máte předplatné k dispozici.
 

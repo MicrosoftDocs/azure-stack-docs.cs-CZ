@@ -16,12 +16,12 @@ ms.date: 05/31/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 05/31/2019
-ms.openlocfilehash: 9b92e6e2e059f4b57742248672751111b504136c
-ms.sourcegitcommit: cf9440cd2c76cc6a45b89aeead7b02a681c4628a
+ms.openlocfilehash: 70d6cfae2eb6e9508e2141aa59c6986ec8817d11
+ms.sourcegitcommit: d1fdecdfa843dfc0629bfc226f1baf14f3ea621d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/03/2019
-ms.locfileid: "66469130"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67387718"
 ---
 # <a name="azure-stack-1904-known-issues"></a>Azure Stack 1904 známé problémy
 
@@ -38,13 +38,6 @@ V tomto článku najdete seznam známých problémů v 1904 verzi služby Azure 
 - Výskyt: Společné
 
 ## <a name="portal"></a>Portál
-
-### <a name="administrative-subscriptions"></a>Pro správu předplatných
-
-- Použít: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: Obě předplatná pro správu, které byly představeny s nástrojem verzi 1804 se nesmí používat. Typy předplatného jsou **měření** předplatného, a **spotřeby** předplatného.
-- Náprava: Tato předplatná se pozastaví, počínaje. 1906 a nakonec odstraněné. Pokud máte prostředky spuštěné na tyto dva odběry služeb, je znovu vytvořte v předplatných uživatele před. 1906.
-- Výskyt: Společné
 
 ### <a name="subscription-resources"></a>Prostředky předplatného
 

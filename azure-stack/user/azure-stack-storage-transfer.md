@@ -14,12 +14,12 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: bdbf30a0913aeb4839d31e68c84a4b1b7965bf85
-ms.sourcegitcommit: 75b13158347963063b7ee62b0ec57894b542c1be
+ms.openlocfilehash: 27e70df453678bf2f6d3a9427a5a692b3cc62d8d
+ms.sourcegitcommit: d1fdecdfa843dfc0629bfc226f1baf14f3ea621d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66748978"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67387792"
 ---
 # <a name="use-data-transfer-tools-for-azure-stack-storage"></a>Použití nástrojů pro přenos dat pro úložiště Azure Stack
 
@@ -57,85 +57,57 @@ AzCopy je nástroj příkazového řádku určený ke kopírování dat do a z M
 
 ### <a name="download-and-install-azcopy"></a>Stáhněte a nainstalujte nástroje AzCopy
 
-Existují dvě verze nástroje azcopy: AzCopy ve Windows a AzCopy v Linuxu.
+* Pro 1811 update nebo novější verze [stáhnout AzCopy](/azure/storage/common/storage-use-azcopy-v10#download-azcopy).
+* Pro předchozí verze (aktualizace 1802 k 1809) [stáhnout AzCopy 7.1.0](https://aka.ms/azcopyforazurestack20170417).
 
- - **AzCopy ve Windows**
-    - Stáhněte si podporovanou verzi nástroje AzCopy pro Azure Stack. Můžete nainstalovat a používat AzCopy ve službě Azure Stack stejným způsobem jako Azure. Další informace najdete v tématu [AzCopy ve Windows](/azure/storage/common/storage-use-azcopy).
-        - Pro 1811 update nebo novější verze [stáhnout AzCopy 7.3.0](https://aka.ms/azcopyforazurestack20171109).
-        - Pro předchozí verze (aktualizace 1802 k 1809) [stáhnout AzCopy 7.1.0](https://aka.ms/azcopyforazurestack20170417).
+### <a name="accopy-101-configuration-and-limits"></a>Konfigurace AcCopy 10.1 a omezení
 
- - **AzCopy v Linuxu**
+AzCopy 10.1 je teď možné nakonfigurovat, aby používal starší verze rozhraní API. To umožňuje (omezený) podporu pro Azure Stack.
+Chcete-li konfigurovat verze rozhraní API pro AzCopy pro podporu služby Azure Stack, nastavte `AZCOPY_DEFAULT_SERVICE_API_VERSION` proměnnou prostředí, aby `2017-11-09`.
 
-    - Můžete nainstalovat a používat AzCopy ve službě Azure Stack stejným způsobem jako Azure. Další informace najdete v tématu [AzCopy v Linuxu](/azure/storage/common/storage-use-azcopy-linux).
-    - Předchozí verze (aktualizace 1802 k 1809), najdete v článku [kroky instalace AzCopy 7.1 a starších verzích](/azure/storage/common/storage-use-azcopy-v10#use-the-previous-version-of-azcopy).
+| Operační systém | Příkaz  |
+|--------|-----------|
+| **Windows** | V příkazovém řádku použijte: `set AZCOPY_DEFAULT_SERVICE_API_VERSION=2017-11-09`<br> V Powershellu použijte: `$env:AZCOPY_DEFAULT_SERVICE_API_VERSION="2017-11-09"`|
+| **Linux** | `export AZCOPY_DEFAULT_SERVICE_API_VERSION=2017-11-09` |
+| **MacOS** | `export AZCOPY_DEFAULT_SERVICE_API_VERSION=2017-11-09` |
+
+V AzCopy 10.1 jsou podporovány následující funkce pro Azure Stack:
+
+| Funkce | Podporované akce |
+| --- | --- |
+|Správa kontejnerů|Vytvoření kontejneru<br>Výpis kontejnerů
+|Správa úloh|Zobrazit úlohy<br>Obnovení úlohy
+|Odstranění objektů blob|Odebrat jeden objekt blob<br>Odeberte celý nebo jeho část virtuální adresář
+|Nahrání souboru|Nahrání souboru<br>Nahrát do adresáře<br>Nahrajte obsah do adresáře
+|Stažení souboru|Stažení souboru<br>Stáhněte si do adresáře<br>Stáhněte si obsah adresáře
+|Synchronizace souboru|Synchronizovat místního systému souborů kontejneru<br>Synchronizovat místního systému souborů do kontejneru
+
+   > [!NOTE]
+   > * Azure Stack nepodporuje poskytuje přihlašovací údaje pro autorizaci azcopy s použitím Azure Active Directory (AD). Musí přístup k objektům úložiště ve službě Azure Stack pomocí tokenu sdíleného přístupového podpisu (SAS).
+   > * Azure Stack nepodporuje asynchronní datové přenosy mezi dvěma umístěními objektů blob v Azure stacku a účtů Azure storage a Azure Stack. "Azcopy cp" nelze použít pro přesun dat z Azure Stack do služby Azure storage (nebo opaku způsobem) přímo s AzCopy 10.1.
 
 ### <a name="azcopy-command-examples-for-data-transfer"></a>Příklady příkazů AzCopy pro přenos dat
 
-Následující příklady jsou některé typické scénáře pro kopírování dat do a z objektů BLOB služby Azure Stack. Další informace najdete v tématu [AzCopy ve Windows](/azure/storage/common/storage-use-azcopy) a [AzCopy v Linuxu](/azure/storage/common/storage-use-azcopy-linux).
+Následující příklady jsou některé typické scénáře pro kopírování dat do a z objektů BLOB služby Azure Stack. Další informace najdete v tématu [Začínáme s AzCopy](/azure/storage/common/storage-use-azcopy-v10).
 
 ### <a name="download-all-blobs-to-a-local-disk"></a>Všechny objekty BLOB můžete stáhnout na místní disk
 
-**Windows**
-
-```shell
-AzCopy.exe /source:https://myaccount.blob.local.azurestack.external/mycontainer /dest:C:\myfolder /sourcekey:<key> /S
 ```
-
-**Linux**
-
-```bash
-azcopy \
-    --source https://myaccount.blob.local.azurestack.external/mycontainer \
-    --destination /mnt/myfiles \
-    --source-key <key> \
-    --recursive
+azcopy cp "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" "/path/to/dir" --recursive=true
 ```
 
 ### <a name="upload-single-file-to-virtual-directory"></a>Nahrání jednoho souboru do virtuálního adresáře
 
-**Windows**
-
-```shell
-AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.local.azurestack.external/mycontainer/vd /DestKey:key /Pattern:abc.txt
 ```
-
-**Linux**
-
-```bash
-azcopy \
-    --source /mnt/myfiles/abc.txt \
-    --destination https://myaccount.blob.local.azurestack.external/mycontainer/vd/abc.txt \
-    --dest-key <key>
-```
-
-### <a name="move-data-between-azure-and-azure-stack-storage"></a>Přesun dat mezi Azure a Azure Stackem úložiště
-
-Asynchronní datový přenos mezi Azure storage a Azure Stack se nepodporuje. Je třeba zadat o přenos pomocí **/SyncCopy** nebo **--synchronní kopie** možnost.
-
-**Windows**
-
-```shell
-Azcopy /Source:https://myaccount.blob.local.azurestack.external/mycontainer /Dest:https://myaccount2.blob.core.windows.net/mycontainer2 /SourceKey:AzSKey /DestKey:Azurekey /S /SyncCopy
-```
-
-**Linux**
-
-```bash
-azcopy \
-    --source https://myaccount1.blob.local.azurestack.external/myContainer/ \
-    --destination https://myaccount2.blob.core.windows.net/myContainer/ \
-    --source-key <key1> \
-    --dest-key <key2> \
-    --include "abc.txt" \
-    --sync-copy
+azcopy cp "/path/to/file.txt" "https://[account].blob.core.windows.net/[container]/[path/to/blob]?[SAS]"
 ```
 
 ### <a name="azcopy-known-issues"></a>Azcopy známé problémy
 
  - Všechny operace AzCopy na soubor úložiště není k dispozici, protože soubor úložiště ještě není k dispozici ve službě Azure Stack.
- - Asynchronní datový přenos mezi Azure storage a Azure Stack se nepodporuje. Můžete určit přenos pomocí **/SyncCopy** možnost Kopírovat data.
+ - Pokud chcete k přenosu dat mezi dvěma umístěními objektů blob v Azure Stack nebo mezi Azure Stack a Azure storage pomocí AzCopy 10.1, je potřeba nejdřív stáhnout data do místního umístění a pak znovu nahrajte soubory do cílového adresáře v Azure Stack nebo do úložiště Azure. Nebo můžete pomocí nástroje AzCopy 7.1 a určit přenos pomocí **/SyncCopy** možnost Kopírovat data.  
  - Verzi Azcopy Linuxu podporuje pouze 1802 update nebo novější verze. A nepodporuje službu Table service.
-
+ 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
 Prostředí Azure PowerShell je modul, který nabízí rutiny pro správu služeb v Azure a Azure Stack. Je to prostředí založené na úlohách, příkazového řádku a skriptovací jazyk určený speciálně pro správu systému.

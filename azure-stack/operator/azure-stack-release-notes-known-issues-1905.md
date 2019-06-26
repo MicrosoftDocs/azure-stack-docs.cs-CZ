@@ -16,12 +16,12 @@ ms.date: 06/05/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: 48a97beac6b43e95b52d8b23f20369318e53ebee
-ms.sourcegitcommit: 759a01b566597a71b18fca25902cacc983a5a63b
+ms.openlocfilehash: e90c829edc8c1c5c82068c2eb380123e537994a9
+ms.sourcegitcommit: d1fdecdfa843dfc0629bfc226f1baf14f3ea621d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67297978"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67387762"
 ---
 # <a name="azure-stack-1905-known-issues"></a>Azure Stack 1905 známé problémy
 
@@ -154,10 +154,10 @@ Pokud jste povolení diagnostiky spouštění na virtuálním počítači, ale o
 - Příčina: Vytváření virtuálních počítačů ve skupině dostupnosti 3 domén selhání a vytvořit škálovací sadu virtuálních počítačů nastavte instance selže a zobrazí se **FabricVmPlacementErrorUnsupportedFaultDomainSize** chyba během procesu aktualizace ve službě Azure Stack 4 uzly prostředí.
 - Náprava: Můžete vytvořit jednotlivých virtuálních počítačů ve skupině dostupnosti s 2 domén selhání byl úspěšně nastaven. Vytváření instance škálovací sady je však stále nejsou k dispozici během procesu aktualizace ve službě Azure Stack 4 uzly.
 
-#### <a name="vmss-instance-view-blade-doesnt-load"></a>Okno zobrazení instance VMSS nenačte
+#### <a name="scale-set-instance-view-blade-doesnt-load"></a>Škálovací sada instanci zobrazení okna se nenačte.
 
 - Použít: Tento problém se týká verzí 1904 byl a 1905.
-- Příčina: Okně zobrazení instance škálovací sady na portálu Azure Stack -> řídicí panel -> Virtual machine scale sets -> AnyScaleSet - instance -> AnyScaleSetInstance nezdaří se načtení a zobrazí crying image cloudu.
+- Příčina: V okně zobrazení instance virtuálního počítače škálovací sady na portálu Azure Stack nachází -> řídicí panel -> virtuální počítač škálovací sad -> AnyScaleSet - instance -> AnyScaleSetInstance nezdaří se načtení a zobrazí crying image cloudu.
 - Náprava: Aktuálně nejsou k dispozici žádná možnost nápravy a pracujeme na opravě. Dokud to neuděláte, použijte příkaz rozhraní příkazového řádku `az vmss get-instance-view` získat zobrazení instance škálovací sady.
 
 ### <a name="ubuntu-ssh-access"></a>Přístup SSH se systémem Ubuntu

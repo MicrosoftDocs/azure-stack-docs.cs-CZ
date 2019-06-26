@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/10/2019
+ms.date: 06/24/2019
 ms.author: anwestg
 ms.reviewer: ''
-ms.openlocfilehash: d3464681463cfb66a368210beed79d5ef4c28739
-ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
+ms.openlocfilehash: db403f68879efa9103e35bb3581801240c0d64d3
+ms.sourcegitcommit: 1545e18a31cd715a12c7ddc3bcb173b41eb41730
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66828316"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67348723"
 ---
 # <a name="app-service-on-azure-stack-update-6-release-notes"></a>App Service v Azure stacku zpráva k vydání verze update 6
 
@@ -111,7 +111,11 @@ Klienty nelze ještě využijte nasazení softwaru, což je funkce, která byla 
 
 - Možnosti (Classic) uživatelské prostředí a nasazení přihlašovacích údajů portálu možnosti nasazení není k dispozici
 
-Abyste dosáhli možnosti nasazení a nasazení přihlašovací údaje uživatelů v nasazení Azure Stack, tenanti by měl přístup k portálu pomocí formátu adresy URL - https://portal.&lt; *oblast*&gt;.&lt; *Plně kvalifikovaný název domény*&gt;/? websitesExtension_oldvsts = true –, který by byl pro ASDK [ https://portal.local.azurestack.external/?websitesExtension_oldvsts=true ](https://portal.local.azurestack.external/?websitesExtension_oldvsts=true) a potom přejděte ke svým aplikacím normálně.
+Abyste dosáhli možnosti nasazení a nasazení přihlašovací údaje uživatelů v nasazení Azure Stack, tenanti by měl přístup k portálu pomocí formátu adresy URL - https://portal.&lt ; *oblast*&gt;.&lt; *Plně kvalifikovaný název domény*&gt; /? websitesExtension_oldvsts = true –, který by byl pro ASDK [ https://portal.local.azurestack.external/?websitesExtension_oldvsts=true ](https://portal.local.azurestack.external/?websitesExtension_oldvsts=true) a potom přejděte ke svým aplikacím normálně.
+
+- "Načítání" monitorování funkce Azure průběžně zobrazuje na portálu
+
+Při pokusu o sledování jednotlivých funkcí v portál pro klienty, zobrazí se žádný protokol volání, počet úspěchů nebo počet chyb.  Pokud chcete tuto funkci znovu povolit, přejděte na vaše **aplikace Function App**, přejděte na stránku **funkce platformy**a přejděte na **nastavení aplikace**.  Přidat nové nastavení aplikace – název **AzureWebJobsDashboard** a nastavte hodnotu na stejnou hodnotu jako sadu v AzureWebJobsStorage.  Pak přejděte do zobrazení monitorování k vaší funkci a zobrazí se informace monitorování.
 
 ## <a name="next-steps"></a>Další postup
 
