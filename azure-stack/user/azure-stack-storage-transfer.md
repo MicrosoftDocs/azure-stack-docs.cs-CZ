@@ -14,12 +14,12 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 27e70df453678bf2f6d3a9427a5a692b3cc62d8d
-ms.sourcegitcommit: d1fdecdfa843dfc0629bfc226f1baf14f3ea621d
+ms.openlocfilehash: a76676c5f4fd1e23a20df04622dafb450e162448
+ms.sourcegitcommit: 6876ccb85c20794969264a1b27e479f4e938f990
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67387792"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67406899"
 ---
 # <a name="use-data-transfer-tools-for-azure-stack-storage"></a>Použití nástrojů pro přenos dat pro úložiště Azure Stack
 
@@ -57,7 +57,7 @@ AzCopy je nástroj příkazového řádku určený ke kopírování dat do a z M
 
 ### <a name="download-and-install-azcopy"></a>Stáhněte a nainstalujte nástroje AzCopy
 
-* Pro 1811 update nebo novější verze [stáhnout AzCopy](/azure/storage/common/storage-use-azcopy-v10#download-azcopy).
+* Pro 1811 update nebo novější verze [stáhnout AzCopy V10 +](/azure/storage/common/storage-use-azcopy-v10#download-azcopy).
 * Pro předchozí verze (aktualizace 1802 k 1809) [stáhnout AzCopy 7.1.0](https://aka.ms/azcopyforazurestack20170417).
 
 ### <a name="accopy-101-configuration-and-limits"></a>Konfigurace AcCopy 10.1 a omezení
@@ -75,7 +75,7 @@ V AzCopy 10.1 jsou podporovány následující funkce pro Azure Stack:
 
 | Funkce | Podporované akce |
 | --- | --- |
-|Správa kontejnerů|Vytvoření kontejneru<br>Výpis kontejnerů
+|Správa kontejnerů|Vytvoření kontejneru<br>Obsah seznamu kontejnerů
 |Správa úloh|Zobrazit úlohy<br>Obnovení úlohy
 |Odstranění objektů blob|Odebrat jeden objekt blob<br>Odeberte celý nebo jeho část virtuální adresář
 |Nahrání souboru|Nahrání souboru<br>Nahrát do adresáře<br>Nahrajte obsah do adresáře
@@ -84,7 +84,7 @@ V AzCopy 10.1 jsou podporovány následující funkce pro Azure Stack:
 
    > [!NOTE]
    > * Azure Stack nepodporuje poskytuje přihlašovací údaje pro autorizaci azcopy s použitím Azure Active Directory (AD). Musí přístup k objektům úložiště ve službě Azure Stack pomocí tokenu sdíleného přístupového podpisu (SAS).
-   > * Azure Stack nepodporuje asynchronní datové přenosy mezi dvěma umístěními objektů blob v Azure stacku a účtů Azure storage a Azure Stack. "Azcopy cp" nelze použít pro přesun dat z Azure Stack do služby Azure storage (nebo opaku způsobem) přímo s AzCopy 10.1.
+   > * Azure Stack nepodporuje synchronní datové přenosy mezi dvěma umístěními objektů blob v Azure stacku a účtů Azure storage a Azure Stack. "Azcopy cp" nelze použít pro přesun dat z Azure Stack do služby Azure storage (nebo opaku způsobem) přímo s AzCopy 10.1.
 
 ### <a name="azcopy-command-examples-for-data-transfer"></a>Příklady příkazů AzCopy pro přenos dat
 

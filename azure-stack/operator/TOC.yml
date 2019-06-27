@@ -386,9 +386,9 @@
         - name: Zálohování Azure stacku
           href: azure-stack-backup-back-up-azure-stack.md
         - name: Zálohování souborů a aplikací ve službě Azure Stack
-          href: /azure/backup/backup-mabs-files-applications-azure-stack?toc=/azure/azure-stack/toc.json&bc=/azure/azure-stack/breadcrumb/toc.json
+          href: /azure/backup/backup-mabs-files-applications-azure-stack?toc=/azure-stack/operator/toc.json&bc=/azure-stack/breadcrumb/toc.json
         - name: Replikace virtuálních počítačů Azure stacku pro Azure
-          href: /azure/site-recovery/azure-stack-site-recovery?toc=/azure/azure-stack/toc.json&bc=/azure/azure-stack/breadcrumb/toc.json
+          href: /azure/site-recovery/azure-stack-site-recovery?toc=/azure-stack/operator/toc.json&bc=/azure-stack/breadcrumb/toc.json
         - name: Obnovit ze ztráty dat
           href: azure-stack-backup-recover-data.md
         - name: Osvědčené postupy zálohování

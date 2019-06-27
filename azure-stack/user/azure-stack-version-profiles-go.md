@@ -14,12 +14,12 @@ ms.date: 05/26/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/26/2019
-ms.openlocfilehash: 9b5273da44db26f9a98eab4147350c35214b128c
-ms.sourcegitcommit: c4507a100eadd9073aed0d537d054e394b34f530
+ms.openlocfilehash: 6759264afaf3f44dd612662d9778d7de65a15924
+ms.sourcegitcommit: 6876ccb85c20794969264a1b27e479f4e938f990
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67198686"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67406945"
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack"></a>Použití profilů verzí API s využitím Go ve službě Azure Stack
 
@@ -86,7 +86,7 @@ Spuštění ukázky kódu Go ve službě Azure Stack, postupujte podle těchto k
 
 3. Pokud není k dispozici, vytvořte předplatné a uložte ID předplatného pro pozdější použití. Informace o vytváření předplatného najdete v tématu [vytvářet předplatná na nabídky ve službě Azure Stack](../operator/azure-stack-subscribe-plan-provision-vm.md).
 
-4. Vytvořit instanční objekt s **předplatné** oboru a **vlastníka** role. Uložení ID instančního objektu a tajného klíče. Informace o vytvoření instančního objektu pro Azure Stack najdete v tématu [vytvořit instanční objekt](azure-stack-create-service-principals.md). Vaše prostředí Azure Stack je teď nastavené.
+4. Vytvoření instančního objektu, který používá klienta, tajného kódu s **předplatné** oboru a **vlastníka** role. Uložení ID instančního objektu a tajného klíče. Informace o vytvoření instančního objektu pro Azure Stack najdete v tématu [pomocí identity aplikace pro přístup k prostředkům](../operator/azure-stack-create-service-principals.md). Vaše prostředí Azure Stack je teď nastavené.
 
 5. Importujte modul služby z profilu Go SDK ve vašem kódu. Aktuální verze profilu služby Azure Stack je **2019-03-01**. Například naimportovat modul sítě z **2019-03-01** typ profilu, použijte následující kód:
 
@@ -132,7 +132,7 @@ Chcete-li získat **Authorizer** vlastnost z Azure Active Directory pomocí Go S
 
 Jako authorizer pro klienta prostředků musí být nastavena prvek Authorizer. Existují různé způsoby, jak získat tokeny authorizer ve službě Azure Stack s použitím přihlašovacích údajů klienta:
 
-1. Pokud objekt služby s rolí vlastník předplatného je k dispozici, tento krok přeskočte. V opačném případě vytvořte [instanční objekt služby](azure-stack-create-service-principals.md) a přiřaďte ho roli "vlastník" [obor ke svému předplatnému](azure-stack-create-service-principals.md#assign-the-service-principal-to-a-role). Uložení ID aplikace instančního objektu služby a tajný klíč.
+1. Pokud objekt služby s rolí vlastník předplatného je k dispozici, tento krok přeskočte. V opačném případě najdete v článku [pomocí identity aplikace pro přístup k prostředkům](../operator/azure-stack-create-service-principals.md) pokyny k vytvoření instanční objekt, který využívá tajný klíč klienta a její přiřazení roli "vlastník" obor do vašeho předplatného. Je potřeba zaznamenat ID aplikace instančního objektu služby a tajný klíč.
 
 2. Import **adal** balíček z Go AutoRest ve vašem kódu.
 

@@ -16,12 +16,12 @@ ms.date: 05/31/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 05/31/2019
-ms.openlocfilehash: 70d6cfae2eb6e9508e2141aa59c6986ec8817d11
-ms.sourcegitcommit: d1fdecdfa843dfc0629bfc226f1baf14f3ea621d
+ms.openlocfilehash: 68a0d80f02e84affa551b296548a09768eba7e1a
+ms.sourcegitcommit: 6876ccb85c20794969264a1b27e479f4e938f990
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67387718"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67406802"
 ---
 # <a name="azure-stack-1904-known-issues"></a>Azure Stack 1904 známé problémy
 
@@ -142,7 +142,7 @@ Pokud jste povolení diagnostiky spouštění na virtuálním počítači, ale o
 #### <a name="centos"></a>CentOS
 
 - Použít: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: Prostředí pro vytváření virtuálního počítače škálovací sady založené na CentOS 7.2 poskytuje jako možnost pro nasazení. CentOS 7.2 není k dispozici ve službě Azure Stack.
+- Příčina: Prostředí pro vytváření virtuálního počítače škálovací sady založené na CentOS 7.2 poskytuje jako možnost pro nasazení. CentOS 7.2 není k dispozici na Azure Marketplace zásobníku, což způsobí selhání nasazení volání, že obrázek nebyl nalezen.
 - Náprava: Vyberte jiný operační systém pro vaše nasazení, nebo pomocí šablony Azure Resource Manageru zadáním jiné image CentOS, který byl stažen před jejich nasazením na Marketplace operátorem.
 - Výskyt: Společné
 

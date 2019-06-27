@@ -54,12 +54,12 @@
       href: azure-stack-use-portal.md
     - name: Připojení přes PowerShell
       href: azure-stack-powershell-configure-user.md
-    - name: "Zabezpečení a\_dodržování předpisů"
+    - name: "Zabezpečení,\_dodržování předpisů a identita"
       items:
         - name: Použití řízení přístupu na základě rolí
           href: azure-stack-manage-permissions.md
-        - name: Použít instanční objekty
-          href: Azure-stack-create-service-principals.md
+        - name: Pomocí identity aplikace pro přístup k prostředkům
+          href: /azure-stack/operator/azure-stack-create-service-principals?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
     - name: Použití služeb
       items:
         - name: Compute

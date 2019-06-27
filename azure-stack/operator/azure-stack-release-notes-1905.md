@@ -16,12 +16,12 @@ ms.date: 06/14/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 06/14/2019
-ms.openlocfilehash: e44dd6880de77ff063cbe6593a448020a154d1e8
-ms.sourcegitcommit: 507d2fdb0c1322a0bd07741f92c05a6322a80a44
+ms.openlocfilehash: 6f178d0208f5111a7ae60d23e1d914fcf8e3aba5
+ms.sourcegitcommit: c9d11be7d27c73797bdf279d4fcabb7a22451541
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67237410"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67397269"
 ---
 # <a name="azure-stack-1905-update"></a>Aktualizace služby Azure Stack 1905
 
@@ -155,7 +155,7 @@ Azure Stack opravy hotfix platí pouze pro integrované systémy Azure Stack; Ne
 Po instalaci této aktualizace nainstalujte všechny příslušné opravy hotfix. Další informace najdete v tématu naše [zásady obsluhy](azure-stack-servicing-policy.md).
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- Žádné opravy hotfix pro 1905 k dispozici.
+- [Azure Stack opravu hotfix 1.1905.3.48](https://support.microsoft.com/help/4510078)
 
 ## <a name="automatic-update-notifications"></a>Upozornění na automatické aktualizace
 

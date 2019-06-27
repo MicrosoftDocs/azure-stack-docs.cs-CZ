@@ -10,16 +10,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 04/20/2019
+ms.date: 06/26/2019
 ms.author: justinha
 ms.reviewer: adshar
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: f95dcf44c2d9d30bc6ba40facbecff97ff26bf49
-ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
+ms.openlocfilehash: 25280d1f5465776aedf2e3e0dfd84118e866a944
+ms.sourcegitcommit: c9d11be7d27c73797bdf279d4fcabb7a22451541
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66836694"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67397276"
 ---
 # <a name="validate-azure-stack-system-state"></a>Ověření stavu systému Azure Stack
 
@@ -48,7 +48,7 @@ Jak bylo uvedeno dříve, je spuštěn nástroj pro ověřování prostřednictv
 
    Odkazovat [důležité informace o parametru](azure-stack-diagnostic-test.md#parameter-considerations) a [případu příklady použít](azure-stack-diagnostic-test.md#use-case-examples) oddíly pro další informace.
 
-3. Pokud některé testy sestavy **selhání**spuštěním `Get-AzureStackLog`. Integrovaný systém, v tématu [ke spuštění Get-AzureStackLog ve službě Azure Stack integrované systémy](/azure-stack-diagnostics#to-run-get-azurestacklog-on-azure-stack-integrated-systems), nebo na ASDK, naleznete v tématu [spuštění Get-AzureStackLog v systému Azure Stack Development Kit (ASDK)](/azure-stack-diagnostics#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system).
+3. Pokud některé testy sestavy **selhání**spuštěním `Get-AzureStackLog`. Integrovaný systém, v tématu [ke spuštění Get-AzureStackLog ve službě Azure Stack integrované systémy](azure-stack-diagnostics.md#to-run-get-azurestacklog-on-azure-stack-integrated-systems), nebo na ASDK, naleznete v tématu [spuštění Get-AzureStackLog v systému Azure Stack Development Kit (ASDK)](azure-stack-diagnostics.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system).
 
    Rutina shromažďuje protokoly generované AzureStack testu. Neměli shromažďování protokolů nebo kontaktujte CSS, pokud testy sestavy **UPOZORNIT**.
 

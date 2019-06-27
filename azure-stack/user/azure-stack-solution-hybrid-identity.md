@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/14/2019
+ms.date: 06/26/2019
 ms.author: bryanla
 ms.reviewer: anajod
-ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: ed85055c04e068ad614a406caf113555601bd620
-ms.sourcegitcommit: 261df5403ec01c3af5637a76d44bf030f9342410
+ms.lastreviewed: 06/26/2019
+ms.openlocfilehash: 712aa506cf9209b123d3fafcfd6324d58575ae54
+ms.sourcegitcommit: 6876ccb85c20794969264a1b27e479f4e938f990
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66252047"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67406969"
 ---
 # <a name="tutorial-configure-hybrid-cloud-identity-for-azure-and-azure-stack-applications"></a>Kurz: Konfigurace hybridní cloudové identity pro aplikace Azure a Azure Stack
 
@@ -52,11 +52,11 @@ Musíte mít oprávnění operátor Azure stacku pro kroky v tomto kurzu.
 
 ## <a name="create-a-service-principal-for-azure-ad-in-the-portal"></a>Vytvoření instančního objektu služby pro službu Azure AD na portálu
 
-Pokud jste nasadili Azure Stack jako úložiště identit pomocí Azure AD, můžete vytvořit instanční objekty stejně jako pro Azure. [Vytvoření instančních objektů](azure-stack-create-service-principals.md#create-service-principal-for-azure-ad) článku se dozvíte, jak k provádění kroků na portálu. Zkontrolujte, že máte [požadovaná oprávnění Azure AD](/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) před zahájením.
+Pokud jste nasadili Azure Stack jako úložiště identit pomocí Azure AD, můžete vytvořit instanční objekty stejně jako pro Azure. [Pomocí identity aplikace pro přístup k prostředkům](../operator/azure-stack-create-service-principals.md#manage-an-azure-ad-service-principal) se dozvíte, jak k provádění kroků na portálu. Ujistěte se, že máte [požadovaná oprávnění Azure AD](/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) před zahájením.
 
 ## <a name="create-a-service-principal-for-ad-fs-using-powershell"></a>Vytvoření instančního objektu služby AD FS pomocí Powershellu
 
-Pokud jste nasadili Azure Stack se službou AD FS, slouží k vytvoření instančního objektu, přiřazení role pro přístup a přihlásit z Powershellu pomocí tohoto identity prostředí PowerShell. [Vytvoření instančního objektu služby AD FS](azure-stack-create-service-principals.md#create-service-principal-for-ad-fs) ukazuje, jak provést požadované kroky pomocí Powershellu.
+Pokud jste nasadili Azure Stack se službou AD FS, slouží k vytvoření instančního objektu, přiřazení role pro přístup a přihlásit z Powershellu pomocí tohoto identity prostředí PowerShell. [Pomocí identity aplikace pro přístup k prostředkům](../operator/azure-stack-create-service-principals.md#manage-an-ad-fs-service-principal) ukazuje, jak provést požadované kroky pomocí Powershellu.
 
 ## <a name="using-the-azure-stack-api"></a>Pomocí služby Azure Stack rozhraní API
 
