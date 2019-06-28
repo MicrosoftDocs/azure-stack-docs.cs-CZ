@@ -10,12 +10,12 @@ ms.date: 05/10/2019
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: 6fb879dc49197b52133750d65aadf96b601bda69
-ms.sourcegitcommit: 914daff43ae0f0fc6673a06dfe2d42d9b4fbab48
+ms.openlocfilehash: de2c0c2181025b7dbbc01691b72b0756fa201274
+ms.sourcegitcommit: bcaad8b7db2ea596018d973cb29283d8c6daebfb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66043235"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67419512"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integrace datových center Azure Stack – Identity
 
@@ -46,7 +46,7 @@ Požadavky:
 
 |Komponenta|Požadavek|
 |---------|---------|
-|Graf|Microsoft Active Directory 2012/2012 R2/2016|
+|Graph|Microsoft Active Directory 2012/2012 R2/2016|
 |AD FS|Windows Server 2012/2012 R2/2016|
 
 ## <a name="setting-up-graph-integration"></a>Nastavení integrace grafu
@@ -131,6 +131,7 @@ Tyto informace se vyžaduje jako vstup pro automatizaci parametry:
 |---------|---------|---------|---------|
 |CustomAdfsName|Název poskytovatele služby AD FS|Název zprostředkovatele deklarací identity.<br>Zobrazí se tak na cílové stránce služby AD FS.|Contoso|
 |CustomAD<br>FSFederationMetadataEndpointUri|ADFS Metadata URI|Federační metadata odkaz| https:\//ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml |
+|SigningCertificateRevocationCheck|Není k dispozici|Volitelný parametr, chcete-li přeskočit kontrolu seznamu CRL|Žádný|
 
 
 ### <a name="trigger-automation-to-configure-claims-provider-trust-in-azure-stack"></a>Aktivování automatizace ke konfiguraci vztahu důvěryhodnosti zprostředkovatele deklarací identity ve službě Azure Stack

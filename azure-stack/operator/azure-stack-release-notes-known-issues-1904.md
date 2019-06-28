@@ -16,12 +16,12 @@ ms.date: 05/31/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 05/31/2019
-ms.openlocfilehash: 68a0d80f02e84affa551b296548a09768eba7e1a
-ms.sourcegitcommit: 6876ccb85c20794969264a1b27e479f4e938f990
+ms.openlocfilehash: f25bc769e7461c21e40017d6413cfbe35186441b
+ms.sourcegitcommit: bcaad8b7db2ea596018d973cb29283d8c6daebfb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/26/2019
-ms.locfileid: "67406802"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67419603"
 ---
 # <a name="azure-stack-1904-known-issues"></a>Azure Stack 1904 známé problémy
 
@@ -38,6 +38,13 @@ V tomto článku najdete seznam známých problémů v 1904 verzi služby Azure 
 - Výskyt: Společné
 
 ## <a name="portal"></a>Portál
+
+### <a name="administrative-subscriptions"></a>Pro správu předplatných
+
+- Použít: Tento problém se vztahuje na všechny podporované verze.
+- Příčina: Obě předplatná pro správu, které byly představeny s nástrojem verzi 1804 se nesmí používat. Typy předplatného jsou **měření** předplatného, a **spotřeby** předplatného.
+- Náprava: Pokud máte prostředky spuštěné na tyto dva odběry služeb, je znovu vytvořte v předplatných uživatele.
+- Výskyt: Společné
 
 ### <a name="subscription-resources"></a>Prostředky předplatného
 
@@ -93,6 +100,13 @@ V tomto článku najdete seznam známých problémů v 1904 verzi služby Azure 
 - Použít: Tento problém se vztahuje na všechny podporované verze.
 - Příčina: Na portálu user portal při pokusu o nahrání objektu blob pomocí možnosti OAuth(preview), úloha se nezdaří s chybovou zprávu.
 - Náprava: Nahrajte objekt blob pomocí možnosti SAS.
+- Výskyt: Společné
+
+### <a name="template"></a>Šablona
+
+- Použít: Tento problém se vztahuje na všechny podporované verze.
+- Příčina: Nasazení šablony uživatelského rozhraní portálu user portal nevyplní parametry pro názvy šablon počínaje "_" (podtržítko).
+- Náprava: Z názvu šablony, odeberte "_" (podtržítko).
 - Výskyt: Společné
 
 ## <a name="networking"></a>Sítě

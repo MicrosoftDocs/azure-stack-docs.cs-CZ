@@ -15,12 +15,12 @@ ms.date: 06/07/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 06/07/2019
-ms.openlocfilehash: edc6fc17e426e5e391eb61d510097101ddcfce58
-ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
+ms.openlocfilehash: e69000eb862411dd0c8b415ab1f0ad7c8573f046
+ms.sourcegitcommit: bcaad8b7db2ea596018d973cb29283d8c6daebfb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66828339"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67419545"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Přidání tenanta pro využití a fakturaci ke službě Azure Stack
 
@@ -77,7 +77,7 @@ Následující část popisuje parametry **New-AzureRmResource** rutiny:
 | --- | --- |
 |registrationSubscriptionID | Předplatné Azure, která byla použita pro počáteční registrace Azure Stack.|
 | customerSubscriptionID | Předplatné Azure (ne Azure Stack) patřící do zákazníků k registraci. Musí být vytvořen v nabídce zprostředkovatele kryptografických služeb; v praxi to znamená prostřednictvím partnerského centra. Pokud zákazník má více než jednoho tenanta Azure Active Directory, musí se vytvořit toto předplatné v tenantovi, který se použije k přihlášení do služby Azure Stack. ID předplatného zákazníka musí používat malá písmena. |
-| Skupina prostředků | Skupina prostředků v Azure, ve kterém je uložené registrace. |
+| resourceGroup | Skupina prostředků v Azure, ve kterém je uložené registrace. |
 | registrationName | Název registrace služby Azure Stack. Jde o objekt uložená v Azure. |
 | Vlastnosti | Určuje vlastnosti pro prostředek. Tento parametr použijte k určení hodnoty vlastností, které jsou specifické pro daný typ prostředku.
 
@@ -94,6 +94,6 @@ Jakmile přidáte nového zákazníka ke službě Azure Stack nebo tenantovi zá
 
 ## <a name="next-steps"></a>Další postup
 
-- Pokud se spouštějí v procesu registrace, projděte chybové zprávy, najdete v článku [chybových zpráv registrace klienta](azure-stack-csp-ref-infrastructure.md#usage-and-billing-error-codes).
+- Zkontrolujte chybové zprávy, pokud se spouštějí v procesu registrace, najdete v článku [chybových zpráv registrace klienta](azure-stack-registration-errors.md).
 - Další informace o tom, jak načíst informace o využití prostředků ze služby Azure Stack, najdete v článku [využití a fakturace ve službě Azure Stack](azure-stack-billing-and-chargeback.md).
 - Přečtěte si, jak koncového zákazníka může přidat, jako zprostředkovatel kryptografických služeb, jako správce pro tenanta služby Azure Stack, najdete v článku [povolit poskytovatele cloudové služby ke správě vašich předplatných Azure Stack](../user/azure-stack-csp-enable-billing-usage-tracking.md).

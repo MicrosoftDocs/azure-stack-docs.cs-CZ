@@ -11,22 +11,34 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/14/2019
+ms.date: 06/27/2019
 ms.author: sethm
 ms.reviewer: misainat
 ms.lastreviewed: 06/14/2019
-ms.openlocfilehash: 0de27634ac6167637dcdc487474f16d3ef2b2c95
-ms.sourcegitcommit: 427b534634d902b164e7d54dfd97b63c31563084
+ms.openlocfilehash: 1fc07dfd86767f39627e97e42a8dc6de3b7f59b4
+ms.sourcegitcommit: bcaad8b7db2ea596018d973cb29283d8c6daebfb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67145178"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67419428"
 ---
 # <a name="asdk-release-notes"></a>Zpráva k vydání verze ASDK
 
 Tento článek obsahuje informace o změnách, opravy a známé problémy v Azure Stack Development Kit (ASDK). Pokud si nejste jistí, kterou verzi používáte, můžete si [použití portálu ke kontrole](../operator/azure-stack-updates.md#determine-the-current-version).
 
 Udržujte si s tím, co se přihlásíte k odběru je novinkou ASDK [ ![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) [informačního kanálu RSS](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#).
+
+## <a name="build-11906030"></a>Sestavení 1.1906.0.30
+
+### <a name="new-features"></a>Nové funkce
+
+- Seznam nových funkcí v této verzi najdete v tématu [v této části](../operator/azure-stack-release-notes-1906.md#whats-in-this-update) poznámky k verzi služby Azure Stack.
+
+### <a name="fixed-and-known-issues"></a>Oprava a známé problémy
+
+- Seznam Azure Stack chyby opravené v této verzi najdete v tématu [v této části](../operator/azure-stack-release-notes-1906.md#fixes) poznámky k verzi služby Azure Stack.
+- Seznam známých problémů najdete v tématu [v tomto článku](../operator/azure-stack-release-notes-known-issues-1906.md).
+- Všimněte si, že [dostupných oprav hotfix Azure Stack](../operator/azure-stack-release-notes-1906.md#hotfixes) se nevztahují na Azure Stack ASDK.
 
 ## <a name="build-11905040"></a>Sestavení 1.1905.0.40
 
@@ -71,23 +83,6 @@ Udržujte si s tím, co se přihlásíte k odběru je novinkou ASDK [ ![RSS](./m
 ## <a name="build-1903"></a>Build 1903
 
 Datová část 1903 nezahrnuje o ASDK verzi.
-
-## <a name="build-11902069"></a>Sestavení 1.1902.0.69
-
-### <a name="new-features"></a>Nové funkce
-
-- Sestavení 1902 zavádí nové uživatelské rozhraní na portálu Správce služby Azure Stack pro vytváření plánů, nabídek, kvót a doplňkové plány. Další informace, včetně snímků obrazovky najdete v části [vytváření plánů, nabídek a kvót](../operator/azure-stack-create-plan.md).
-
-- Seznam dalších změny a vylepšení v této verzi najdete v tématu [v této části](../operator/azure-stack-update-1902.md#improvements) ve službě Azure Stack zpráva k vydání verze.
-
-<!-- ### New features
-
-- For a list of new features in this release, see [this section](../operator/azure-stack-update-1902.md#new-features) of the Azure Stack release notes.
-
-### Fixed and known issues
-
-- For a list of issues fixed in this release, see [this section](../operator/azure-stack-update-1902.md#fixed-issues) of the Azure Stack release notes. For a list of known issues, see [this section](../operator/azure-stack-update-1902.md#known-issues-post-installation).
-- Note that [available Azure Stack hotfixes](../operator/azure-stack-update-1902.md#azure-stack-hotfixes) are not applicable to the Azure Stack ASDK. -->
 
 ### <a name="known-issues"></a>Známé problémy
 

@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/02/2019
+ms.date: 06/26/2019
 ms.author: sethm
 ms.reviewer: harik
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: bcf499b0b3e7cd58d4b938b4be64c19eecf649e2
-ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
+ms.openlocfilehash: 8965ad94d1c8576e437e85a9714997f842f7dd50
+ms.sourcegitcommit: bcaad8b7db2ea596018d973cb29283d8c6daebfb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66691496"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67419460"
 ---
 # <a name="azure-stack-servicing-policy"></a>Údržba zásad služby Azure Stack
 
@@ -33,7 +33,7 @@ Microsoft vydá úplné měsíční aktualizace balíčků i balíčky oprav hot
 
 Balíčky s měsíčním aktualizace jsou hostované v zabezpečené koncový bod Azure. Můžete je ručně pomocí Stáhnout [nástroj pro stahování aktualizací Azure Stack](https://aka.ms/azurestackupdatedownload). Pokud je připojené jednotky škálování, aktualizace se automaticky zobrazí na portálu správce jako **k dispozici je aktualizace**. Úplné a měsíční aktualizace balíčků jsou dobře zdokumentovaná při každém vydání. Další informace o každé vydané verze, můžete kliknout na libovolném vydání z [aktualizace balíčku vydávání verzí](#update-package-release-cadence) části tohoto článku.
 
-Balíčky aktualizací opravy hotfix jsou hostované ve stejné zabezpečené koncový bod Azure. Můžete je ručně pomocí vložených odkazů v každém z článků znalostní báze KB příslušné opravy hotfix; stáhnout například [Azure Stack Hotfix 1.1809.12.114](https://support.microsoft.com/help/4481548/azure-stack-hotfix-1-1809-12-114). Podobně jako úplné, jsou měsíční aktualizace balíčků, operátoři Azure stacku můžete stáhnout soubory .xml, soubor .bin a .exe a naimportovat pomocí postupu v [použití aktualizací ve službě Azure Stack](azure-stack-apply-updates.md). Operátoři Azure stacku s připojených jednotkách uvidí opravy hotfix, automaticky se na portálu správce se zprávou **k dispozici je aktualizace**.
+Balíčky aktualizací opravy hotfix jsou hostované ve stejné zabezpečené koncový bod Azure. Můžete je pomocí vložených odkazů v každém z článků znalostní báze KB příslušné opravy hotfix; stáhnout například [Azure Stack Hotfix 1.1809.12.114](https://support.microsoft.com/help/4481548/azure-stack-hotfix-1-1809-12-114). Podobně jako úplné, jsou měsíční aktualizace balíčků, operátoři Azure stacku můžete stáhnout soubory .xml, soubor .bin a .exe a naimportovat pomocí postupu v [použití aktualizací ve službě Azure Stack](azure-stack-apply-updates.md). Operátoři Azure stacku s připojených jednotkách uvidí opravy hotfix, automaticky se na portálu správce se zprávou **k dispozici je aktualizace**.
 
 Pokud není připojené jednotky škálování a chcete, abyste dostávali oznámení o každém vydání opravy hotfix, přihlášení k odběru [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss) nebo [ATOM](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom) informačního kanálu, které jste si poznamenali v jednotlivých verzích.  
 
@@ -53,16 +53,18 @@ Vyhledejte si dokumentaci na tom, jak naplánovat a spravovat aktualizace a jak 
 
 Informace o konkrétní aktualizaci včetně si ho stáhnout, naleznete v tématu poznámky k verzi pro, které aktualizace:
 
+- [Aktualizace služby Azure Stack. 1906](azure-stack-release-notes-1906.md)
 - [Aktualizace služby Azure Stack 1905](azure-stack-release-notes-1905.md)
 - [Aktualizace služby Azure Stack 1904](azure-stack-release-notes-1904.md)
 - [Aktualizace služby Azure Stack 1903](azure-stack-update-1903.md)
-- [Aktualizace služby Azure Stack 1902](azure-stack-update-1902.md)
 
 ## <a name="hotfixes"></a>Opravy hotfix
 
 V některých případech společnost Microsoft poskytuje opravy hotfix pro Azure Stack, které řeší konkrétní problém, který je často preventivní nebo časovým počitadlem.  Každý opravy hotfix jsou vydány s odpovídající článek znalostní báze Microsoft s podrobnostmi o problému, příčině a řešení.
 
-Opravy hotfix se stahují a instalují stejně jako regulární úplnou aktualizaci balíčků pro službu Azure Stack. Ale na rozdíl od úplné aktualizace, opravy hotfix můžete nainstalovat během několika minut. Doporučujeme, abyste že operátorům Azure stacku nastavení časového období údržby při instalaci oprav hotfix. Opravy hotfix aktualizujte verzi cloudu služby Azure Stack, můžete snadno zjistit, pokud byl použit opravu hotfix. Samostatné opravy hotfix se poskytuje pro každou verzi služby Azure Stack, která se stále podpory. Jednotlivé opravy pro konkrétní iteraci je kumulativní a obsahuje předchozí aktualizace pro stejnou verzi. Další informace o použitelnosti konkrétního oprava hotfix v opravy odpovídající znalostní báze Knowledge Base article.  
+Další informace a odkazy na konkrétní opravy hotfix najdete v článku odkazy poznámky k verzi v předchozí části.
+
+Opravy hotfix se stahují a instalují stejně jako regulární úplnou aktualizaci balíčků pro službu Azure Stack. Ale na rozdíl od úplné aktualizace, opravy hotfix můžete nainstalovat během několika minut. Doporučujeme, abyste operátorům Azure stacku nastavení časového období údržby při instalaci oprav hotfix. Opravy hotfix aktualizujte verzi cloudu služby Azure Stack, můžete snadno zjistit, pokud byl použit opravu hotfix. Samostatné opravy hotfix se poskytuje pro každou verzi služby Azure Stack, která se stále podpory. Jednotlivé opravy pro konkrétní iteraci je kumulativní a obsahuje předchozí aktualizace pro stejnou verzi. Další informace o použitelnosti konkrétní opravy hotfix ve znalostní báze odpovídající článku. Zobrazit odkazy poznámky k verzi v předchozí části.  
 
 ## <a name="keep-your-system-under-support"></a>Zachovat systému v rámci podpory
 

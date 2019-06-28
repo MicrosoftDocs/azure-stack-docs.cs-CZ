@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2019
+ms.date: 06/14/2019
 ms.author: sethm
 ms.reviewer: hectorl
-ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: e90c829edc8c1c5c82068c2eb380123e537994a9
-ms.sourcegitcommit: d1fdecdfa843dfc0629bfc226f1baf14f3ea621d
+ms.lastreviewed: 06/14/2019
+ms.openlocfilehash: 40b2eb51b3e05a25706037f404a53d86fa7cae5a
+ms.sourcegitcommit: bcaad8b7db2ea596018d973cb29283d8c6daebfb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67387762"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67419555"
 ---
 # <a name="azure-stack-1905-known-issues"></a>Azure Stack 1905 známé problémy
 
@@ -47,13 +47,6 @@ V tomto článku najdete seznam známých problémů v 1905 verzi služby Azure 
 - Výskyt: Společné
 
 ## <a name="portal"></a>Portál
-
-### <a name="administrative-subscriptions"></a>Pro správu předplatných
-
-- Použít: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: Obě předplatná pro správu, které byly představeny s nástrojem verzi 1804 se nesmí používat. Typy předplatného jsou **měření** předplatného, a **spotřeby** předplatného.
-- Náprava: Tato předplatná se pozastaví, počínaje. 1906 a nakonec odstraněné. Pokud máte prostředky spuštěné na tyto dva odběry služeb, je znovu vytvořte v předplatných uživatele před. 1906.
-- Výskyt: Společné
 
 ### <a name="subscription-resources"></a>Prostředky předplatného
 
@@ -88,6 +81,13 @@ V tomto článku najdete seznam známých problémů v 1905 verzi služby Azure 
 - Použít: Tento problém se vztahuje na všechny podporované verze.
 - Příčina: Na portálu user portal, při pokusu nahrát objekt blob pomocí **OAuth(preview)** možnost, úloha se nezdaří s chybovou zprávou.
 - Náprava: Nahrajte objekt blob pomocí možnosti SAS.
+- Výskyt: Společné
+
+### <a name="template"></a>Šablona
+
+- Použít: Tento problém se vztahuje na všechny podporované verze.
+- Příčina: Nasazení šablony uživatelského rozhraní portálu user portal nevyplní parametry pro názvy šablon počínaje "_" (podtržítko).
+- Náprava: Z názvu šablony, odeberte "_" (podtržítko).
 - Výskyt: Společné
 
 ## <a name="networking"></a>Sítě
@@ -130,6 +130,13 @@ V tomto článku najdete seznam známých problémů v 1905 verzi služby Azure 
 - Příčina: Při vytváření nového virtuálního počítače (VM) Windows, může se zobrazit následující chyba: **Nepovedlo se spustit virtuální počítač 'název_virtuálního_počítače'. Chyba: Nepovedlo se aktualizovat nastavení sériového portu výstup pro virtuální počítač 'název_virtuálního_počítače'** .
 Pokud jste povolení diagnostiky spouštění na virtuálním počítači, ale odstraníte účet úložiště diagnostiky spouštění dojde k chybě.
 - Náprava: Znovu vytvořte účet úložiště se stejným názvem, který jste použili dříve.
+- Výskyt: Společné
+
+### <a name="vm-resize"></a>Změna velikosti virtuálního počítače
+
+- Použít: Tento problém se týká verze 1905.
+- Příčina: Nelze úspěšně Změna velikosti spravovaného disku virtuálního počítače. Pokus o změně velikosti virtuálního počítače dojde k chybě "kód": "InternalOperationError", "zpráva": "V operaci došlo k vnitřní chybě."
+- Náprava: Pracujeme na tom to pokud chcete napravit v další vydané verzi. V současné době je nutné znovu vytvořit virtuální počítač s novou velikost virtuálních počítačů.
 - Výskyt: Společné
 
 ### <a name="virtual-machine-scale-set"></a>Škálovací sada virtuálních počítačů

@@ -15,7 +15,13 @@
         - name: Kontrolní seznam pro instalaci aktualizací
           href: azure-stack-release-notes-checklist.md
         - name: Aktualizace zabezpečení
-          href: azure-stack-release-notes-security-updates-1905.md
+          href: azure-stack-release-notes-security-updates-1906.md
+        - name: aktualizace. 1906
+          items:
+            - name: "Poznámky k\_verzi"
+              href: azure-stack-release-notes-1906.md
+            - name: Známé problémy
+              href: azure-stack-release-notes-known-issues-1906.md
         - name: aktualizace 1905
           items:
             - name: "Poznámky k\_verzi"
@@ -30,8 +36,6 @@
               href: azure-stack-release-notes-known-issues-1904.md
         - name: aktualizace 1903
           href: azure-stack-update-1903.md
-        - name: aktualizace 1902
-          href: azure-stack-update-1902.md
 - name: Šablony Rychlý start
   expanded: true
   items:
@@ -201,6 +205,8 @@
       items:
         - name: Přehled zabezpečení
           href: azure-stack-security-foundations.md
+        - name: Konfigurace zabezpečení
+          href: azure-stack-security-configuration.md
         - name: Identita
           items:
             - name: Přehled identity
@@ -368,7 +374,7 @@
           items:
             - name: Generování sestav dat využití
               href: azure-stack-usage-reporting.md
-            - name: Využití sestav infrastruktury pro poskytovatele cloudových služeb
+            - name: Infrastrukturu pro generování sestav využití
               href: azure-stack-csp-ref-infrastructure.md
             - name: Rozhraní API využití zprostředkovatele
               href: azure-stack-provider-resource-api.md
@@ -376,6 +382,12 @@
               href: azure-stack-tenant-resource-usage-api.md
             - name: Nejčastější dotazy k využití
               href: azure-stack-usage-related-faq.md
+            - name: Řešení potíží s problémy spotřeba energie
+              items:
+                - name: Chyby připojení k použití
+                  href: azure-stack-usage-issues.md
+                - name: Kódy chyb registrace využití
+                  href: azure-stack-registration-errors.md
     - name: Zálohování Azure stacku
       href: azure-stack-backup-infrastructure-backup.md
       items:

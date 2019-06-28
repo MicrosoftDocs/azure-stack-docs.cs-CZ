@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2019
+ms.date: 06/27/2019
 ms.author: sethm
 ms.reviewer: hectorl
-ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: e079121fda268e9892648fca99da34de04f08101
-ms.sourcegitcommit: 593d40bccf1b2957a763017a8a2d7043f8d8315c
+ms.lastreviewed: 06/27/2019
+ms.openlocfilehash: c5108dc8b24fec7569d54964217f146a5cefa5e6
+ms.sourcegitcommit: bcaad8b7db2ea596018d973cb29283d8c6daebfb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67152483"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67419575"
 ---
 # <a name="azure-stack-update-activity-checklist"></a>Azure Stack kontrolní seznam aktualizace aktivity
 
@@ -31,13 +31,13 @@ Tento článek obsahuje kontrolní aktivity související aktualizace pro operá
 
 | Aktivita              | Podrobnosti                                                                          |
 |-----------------------|----------------------------------------------------------------------------------|
-| Kontrola známých problémů   | [Seznam známých problémů](azure-stack-release-notes-known-issues-1905.md).                |
-| Kontrola aktualizací zabezpečení | [Seznam aktualizací zabezpečení](azure-stack-release-notes-security-updates-1905.md).      |
+| Kontrola známých problémů   | [Seznam známých problémů](azure-stack-release-notes-known-issues-1906.md).                |
+| Kontrola aktualizací zabezpečení | [Seznam aktualizací zabezpečení](azure-stack-release-notes-security-updates-1906.md).      |
 | Run Test-AzureStack   | Spustit `Test-AzureStack -Group UpdateReadiness` identifikovat provozní problémy.      |
 | Řešení potíží        | Vyřešte všechny provozní problémy identifikovaný **testovací AzureStack**.                |
 | Použít nejnovější opravy hotfix | Použijte nejnovější opravy hotfix, která se vztahují na aktuálně nainstalovanou verzi.         |
 | Spusťte nástroj Plánovač kapacity | Ujistěte se, že používáte nejnovější verzi [Azure Stack Capacity Planner](https://aka.ms/azstackcapacityplanner) nástroj k provedení úlohy plánování a velikosti. Nejnovější verze obsahuje opravy chyb a nabízí nové funkce, které se vydávají s každou aktualizaci Azure Stack. |
-| Je dostupná aktualizace       | Nasazení Azure Stack v propojených scénářích pouze, pravidelně kontrolovat zabezpečeného koncového bodu a automaticky upozorní, pokud je aktualizace k dispozici pro váš cloud. Odpojené zákazníků můžete stáhnout a naimportovat nové 1905 pomocí balíčku [procesu je zde popsáno,](azure-stack-apply-updates.md).               |
+| Je dostupná aktualizace       | Nasazení Azure Stack v propojených scénářích pouze, pravidelně kontrolovat zabezpečeného koncového bodu a automaticky upozorní, pokud je aktualizace k dispozici pro váš cloud. Odpojené zákazníků můžete stáhnout a naimportovat nové 1906 pomocí balíčku [procesu je zde popsáno,](azure-stack-apply-updates.md).               |
 
 ## <a name="during-azure-stack-update"></a>Během aktualizace služby Azure Stack
 
@@ -59,5 +59,5 @@ Tento článek obsahuje kontrolní aktivity související aktualizace pro operá
 
 ## <a name="next-steps"></a>Další postup
 
-- [Zkontrolujte seznam známých problémů](azure-stack-release-notes-known-issues-1905.md)
-- [Zkontrolujte seznam aktualizací zabezpečení](azure-stack-release-notes-security-updates-1905.md)
+- [Zkontrolujte seznam známých problémů](azure-stack-release-notes-known-issues-1906.md)
+- [Zkontrolujte seznam aktualizací zabezpečení](azure-stack-release-notes-security-updates-1906.md)

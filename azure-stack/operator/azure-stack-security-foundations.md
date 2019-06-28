@@ -15,12 +15,12 @@ ms.date: 06/10/2019
 ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: db73f0b787b9b163f39d5af89e260ca6a30855bd
-ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
+ms.openlocfilehash: 437fb7c62436c0565945b851f0a70550a228d54c
+ms.sourcegitcommit: bcaad8b7db2ea596018d973cb29283d8c6daebfb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66828132"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67419535"
 ---
 # <a name="azure-stack-infrastructure-security-posture"></a>Stav zabezpečení infrastruktury služby Azure Stack
 
@@ -99,6 +99,7 @@ Dokumentace k dodržování předpisů najdete v [Microsoft Service Trust Portal
 
 ## <a name="next-steps"></a>Další postup
 
+- [Konfiguraci ovládacích prvků zabezpečení služby Azure Stack](azure-stack-security-configuration.md)
 - [Zjistěte, jak otočit vaše tajné kódy ve službě Azure Stack](azure-stack-rotate-secrets.md)
 - [PCI DSS a CSA-CCM dokumentů pro službu Azure Stack](https://servicetrust.microsoft.com/ViewPage/TrustDocuments)
 - [Ministerstva obrany USA a NIST dokumentů pro službu Azure Stack](https://servicetrust.microsoft.com/ViewPage/Blueprint)
