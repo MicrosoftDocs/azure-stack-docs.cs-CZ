@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2019
+ms.date: 06/28/2019
 ms.author: sethm
 ms.reviewer: misainat
-ms.lastreviewed: 06/14/2019
-ms.openlocfilehash: 1fc07dfd86767f39627e97e42a8dc6de3b7f59b4
-ms.sourcegitcommit: bcaad8b7db2ea596018d973cb29283d8c6daebfb
+ms.lastreviewed: 06/28/2019
+ms.openlocfilehash: 4b9162eb662336b3a1acae69660ff86f5f3a0995
+ms.sourcegitcommit: 87da3ab028f39a3fdc90f58f0258c266198a94bc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/27/2019
-ms.locfileid: "67419428"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67470957"
 ---
 # <a name="asdk-release-notes"></a>Zpráva k vydání verze ASDK
 
@@ -33,6 +33,10 @@ Udržujte si s tím, co se přihlásíte k odběru je novinkou ASDK [ ![RSS](./m
 ### <a name="new-features"></a>Nové funkce
 
 - Seznam nových funkcí v této verzi najdete v tématu [v této části](../operator/azure-stack-release-notes-1906.md#whats-in-this-update) poznámky k verzi služby Azure Stack.
+
+### <a name="changes"></a>Změny
+
+- Přidá **AzS-SRNG01** podporují aktualizačního kanálu virtuálního počítače hostující službu shromažďování protokolů pro službu Azure Stack. Další informace najdete v tématu [role virtuálních počítačů](asdk-architecture.md).
 
 ### <a name="fixed-and-known-issues"></a>Oprava a známé problémy
 
