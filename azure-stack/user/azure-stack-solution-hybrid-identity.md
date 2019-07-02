@@ -15,12 +15,12 @@ ms.date: 06/26/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 06/26/2019
-ms.openlocfilehash: 712aa506cf9209b123d3fafcfd6324d58575ae54
-ms.sourcegitcommit: 6876ccb85c20794969264a1b27e479f4e938f990
+ms.openlocfilehash: 074d971c1f951797b5dc2d53a62eef56d0b7249f
+ms.sourcegitcommit: eccbd0098ef652919f357ef6dba62b68abde1090
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/26/2019
-ms.locfileid: "67406969"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67492328"
 ---
 # <a name="tutorial-configure-hybrid-cloud-identity-for-azure-and-azure-stack-applications"></a>Kurz: Konfigurace hybridní cloudové identity pro aplikace Azure a Azure Stack
 
@@ -28,12 +28,12 @@ ms.locfileid: "67406969"
 
 Zjistěte, jak nakonfigurovat hybridní cloudové identity pro vaše aplikace Azure a Azure Stack.
 
-Máte dvě možnosti pro poskytování přístupu k vaší aplikace v globálním Azure a Azure Stack.
+Máte dvě možnosti pro poskytování přístupu k aplikacím v globální Azure a Azure Stack.
 
  * Pokud má Azure Stack nepřetržité připojení k Internetu, můžete použít Azure Active Directory (Azure AD).
  * Když Azure Stack je připojený k Internetu, můžete použít Azure Directory Federated Services (AD FS).
 
-Udělení přístupu k aplikacím Azure Stack pro účely nasazení nebo konfigurací pomocí Azure Resource Manageru ve službě Azure Stack pomocí instančních objektů.
+Udělení přístupu k aplikacím Azure Stack pro nasazení nebo konfigurací pomocí Azure Resource Manageru ve službě Azure Stack pomocí instančních objektů.
 
 V tomto kurzu vytvoříte ukázkové prostředí:
 
@@ -45,9 +45,9 @@ Musíte mít oprávnění operátor Azure stacku pro kroky v tomto kurzu.
 
 > [!Tip]  
 > ![hybridní pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
-> Microsoft Azure Stack je rozšířením Azure. Azure Stack přináší flexibilitu a inovace cloud computingu do místního prostředí a povolení ten jediný hybridní cloud, který umožňuje vytvářet a nasazovat hybridní aplikace kdekoli.  
+> Microsoft Azure Stack je rozšířením Azure. Azure Stack přináší flexibilitu a inovace cloud computingu do místního prostředí, povolení ten jediný hybridní cloud, který umožňuje vytvářet a nasazovat hybridní aplikace kdekoli.  
 > 
-> Dokument White Paper [aspekty návrhu pro hybridní aplikace](https://aka.ms/hybrid-cloud-applications-pillars) kontroly pro navrhování, nasazování a provozování hybridní pilířů kvality softwaru (umístění, škálovatelnost, dostupnost, odolnost, možnosti správy a zabezpečení) aplikace. Aspekty návrhu při optimalizaci návrhu hybridní aplikace, minimalizovat problémy v produkčním prostředí.
+> Dokument White Paper [aspekty návrhu pro hybridní aplikace](https://aka.ms/hybrid-cloud-applications-pillars) kontroly pilířů kvality softwaru (umístění, škálovatelnost, dostupnost, odolnost, možnosti správy a zabezpečení) pro navrhování, nasazování a provozování hybridní aplikace. Aspekty návrhu při optimalizaci návrhu hybridní aplikace, minimalizovat problémy v produkčním prostředí.
 
 
 ## <a name="create-a-service-principal-for-azure-ad-in-the-portal"></a>Vytvoření instančního objektu služby pro službu Azure AD na portálu
@@ -68,7 +68,7 @@ Rychlý Start [pro uvedení do provozu pomocí prostředí PowerShell ve služb�
 
 ### <a name="prerequisites"></a>Požadavky
 
-Instalace služby Azure Stack připojené ke službě Azure Active Directory s předplatným, které můžete přistupovat. Pokud nemáte k dispozici při instalaci Azure Stack, můžete použít tyto pokyny k nastavení [Azure Stack Development Kit](../asdk/asdk-install.md).
+Budete potřebovat připojení k Azure Active Directory s předplatným, máte přístup k instalaci Azure Stack. Pokud nemáte k dispozici při instalaci Azure Stack, můžete použít tyto pokyny k nastavení [Azure Stack Development Kit](../asdk/asdk-install.md).
 
 #### <a name="connect-to-azure-stack-using-code"></a>Připojení ke službě Azure Stack pomocí kódu
 

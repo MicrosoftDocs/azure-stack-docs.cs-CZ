@@ -15,18 +15,18 @@ ms.topic: conceptual
 ms.date: 06/11/2019
 ms.author: sethm
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: f9d4716751a03da1b67881e315abc2f6603428d3
-ms.sourcegitcommit: 07c51a03f07a6a3ee2721aa942d31a7a4c6a339b
+ms.openlocfilehash: 9403931d91756e744dcdb6c34adb26e8281f6d28
+ms.sourcegitcommit: eccbd0098ef652919f357ef6dba62b68abde1090
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/12/2019
-ms.locfileid: "67028228"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67492373"
 ---
-# <a name="create-a-virtual-machine-and-install-a-certificate-retrieved-from-an-azure-stack-key-vault"></a>Vytvoření virtuálního počítače a nainstalovat certifikát načíst z trezoru klíčů Azure Stack
+# <a name="deploy-a-vm-with-a-securely-stored-certificate-on-azure-stack"></a>Nasazení virtuálního počítače s certifikátem bezpečně uloženým ve službě Azure Stack 
 
 *Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
 
-Tento článek popisuje, jak vytvořit virtuální počítač (VM) Azure Stack pomocí služby key vault certifikátu nainstalovaného.
+Tento článek popisuje postup nasazení virtuálního počítače (VM) Azure Stack pomocí služby key vault certifikátu nainstalovaného.
 
 ## <a name="overview"></a>Přehled
 
@@ -40,12 +40,12 @@ Certifikáty se používají v mnoha scénářích, jako je například ověřov
 
 Následující kroky popisují proces nutný k nahrání certifikátu do virtuálního počítače:
 
-1. Vytvoření tajného kódu Key Vault.
+1. Vytvoření tajného kódu trezoru klíčů.
 2. Aktualizace **azuredeploy.parameters.json** souboru.
 3. Nasazení šablony.
 
 > [!NOTE]
-> Tyto kroky z Azure Stack Development Kit (ASDK) nebo z externího klienta můžete použít, pokud jsou připojené prostřednictvím sítě VPN.
+> Tyto kroky z Azure Stack Development Kit (ASDK) nebo z externího klienta můžete použít, pokud jste připojeni přes síť VPN.
 
 ## <a name="prerequisites"></a>Požadavky
 
@@ -53,7 +53,7 @@ Následující kroky popisují proces nutný k nahrání certifikátu do virtuá
 * [Instalace Powershellu pro Azure Stack](../operator/azure-stack-powershell-install.md).
 * [Konfigurace uživatele služby Azure Stack Powershellu prostředí](azure-stack-powershell-configure-user.md).
 
-## <a name="create-a-key-vault-secret"></a>Vytvoření tajného kódu Key Vault
+## <a name="create-a-key-vault-secret"></a>Vytvoření tajného kódu trezoru klíčů
 
 Tento skript vytvoří certifikát ve formátu .pfx, vytvoří trezor klíčů a ukládá certifikát jako tajný kód trezoru klíčů.
 
@@ -119,9 +119,9 @@ Set-AzureKeyVaultSecret `
    -SecretValue $secret
 ```
 
-Při spuštění tohoto skriptu výstup zahrnuje tajný identifikátor URI. Poznamenejte si tento identifikátor URI. Je nutné je odkazovat v [certifikátu Push pro šablony Resource Manageru Windows](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate). Stáhněte si [vm nabízeného certifikátu windows](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate) složky šablony na vývojovém počítači. Tato složka obsahuje **azuredeploy.json** a **azuredeploy.parameters.json** soubory, které je nutné v následujících krocích.
+Při spuštění tohoto skriptu výstup zahrnuje tajný identifikátor URI. Poznamenejte si tohoto identifikátoru URI jako je nutné je odkazovat v [certifikátu Push pro šablony Resource Manageru Windows](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate). Stáhněte si [vm nabízeného certifikátu windows](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate) složky šablony na vývojovém počítači. Tato složka obsahuje **azuredeploy.json** a **azuredeploy.parameters.json** soubory, které je nutné v následujících krocích.
 
-Upravit **azuredeploy.parameters.json** souboru souladu s hodnotami prostředí. Parametry zajímají hlavně o jsou název trezoru, skupina prostředků trezoru a tajný klíč identifikátoru URI (generovaná předchozí skript). Následující části je příkladem souboru parametrů.
+Upravit **azuredeploy.parameters.json** souboru souladu s hodnotami prostředí. Důležité parametry jsou název trezoru, skupina prostředků trezoru a tajný klíč identifikátoru URI (generovaná předchozí skript). Následující části je příkladem souboru parametrů.
 
 ## <a name="update-the-azuredeployparametersjson-file"></a>Aktualizace souboru azuredeploy.parameters.json
 

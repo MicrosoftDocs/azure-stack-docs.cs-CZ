@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 00f7c3b990e9930571ace8adec9a33d0c9105be6
-ms.sourcegitcommit: 261df5403ec01c3af5637a76d44bf030f9342410
+ms.openlocfilehash: 94554162cc91ddc4e9be7f24f9c7fafc32051e3c
+ms.sourcegitcommit: eccbd0098ef652919f357ef6dba62b68abde1090
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66252023"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67492402"
 ---
 # <a name="tutorial-configure-hybrid-cloud-connectivity-with-azure-and-azure-stack"></a>Kurz: Konfigurace připojení k hybridní cloud s Azure a Azure Stack
 
@@ -31,27 +31,27 @@ Přístup k prostředkům se zabezpečením v globální Azure a použití vzoru
 V tomto kurzu vytvoříte ukázkové prostředí:
 
 > [!div class="checklist"]
-> - Zachovejte data místně splňovat zákonné požadavky nebo ochrany osobních údajů, ale mají přístup ke globální prostředky Azure.
+> - Zachovejte data místně splňovat zákonné požadavky nebo ochrany osobních údajů, ale zachovat přístup pro globální prostředky Azure.
 > - Zachovat starší verze systému při používání nasazení škálovaných cloudových aplikací a prostředků v globální Azure.
 
 > [!Tip]  
 > ![hybridní pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
-> Microsoft Azure Stack je rozšířením Azure. Azure Stack přináší flexibilitu a inovace cloud computingu do místního prostředí a povolení ten jediný hybridní cloud, který umožňuje vytvářet a nasazovat hybridní aplikace kdekoli.  
+> Microsoft Azure Stack je rozšířením Azure. Azure Stack přináší flexibilitu a inovace cloud computingu do místního prostředí, povolení ten jediný hybridní cloud, který umožňuje vytvářet a nasazovat hybridní aplikace kdekoli.  
 > 
-> Dokument White Paper [aspekty návrhu pro hybridní aplikace](https://aka.ms/hybrid-cloud-applications-pillars) kontroly pro navrhování, nasazování a provozování hybridní pilířů kvality softwaru (umístění, škálovatelnost, dostupnost, odolnost, možnosti správy a zabezpečení) aplikace. Aspekty návrhu při optimalizaci návrhu hybridní aplikace, minimalizovat problémy v produkčním prostředí.
+> Dokument White Paper [aspekty návrhu pro hybridní aplikace](https://aka.ms/hybrid-cloud-applications-pillars) kontroly pilířů kvality softwaru (umístění, škálovatelnost, dostupnost, odolnost, možnosti správy a zabezpečení) pro navrhování, nasazování a provozování hybridní aplikace. Aspekty návrhu při optimalizaci návrhu hybridních aplikací, minimalizovat problémy v produkčním prostředí.
 
 
 ## <a name="prerequisites"></a>Požadavky
 
-Několik součásti jsou potřeba k vytvoření hybridního připojení k nasazení. Čas chcete připravit, některé z těchto součástí bude trvat, budete muset podle toho naplánujte.
+Několik součásti jsou potřeba k vytvoření hybridního připojení k nasazení. Některé z těchto součástí trvat dobu připravit, takže Plánujte odpovídajícím způsobem.
 
 **Azure Stack**
 
-Výrobce OEM nebo Hardware partnerem Azure můžete nasadit produkčního prostředí Azure Stack, a všichni uživatelé můžou nasazovat Azure Stack Development Kit (ASDK).
+Partnerem Azure OEM/hardwaru můžete nasadit produkčního prostředí Azure Stack, a všichni uživatelé můžou nasazovat Azure Stack Development Kit (ASDK).
 
 **Komponenty služby Azure Stack**
 
-Operátor Azure stacku musí nasadit službu App Service, vytvořte plány a nabídky, vytvořte předplatné tenanta a přidejte image Windows serveru 2016. Pokud už máte některé z těchto komponent, ujistěte se, že splňují požadavky před zahájením tohoto kurzu.
+Operátory Azure stacku musí nasadit službu App Service, vytvořte plány a nabídky, vytvořte předplatné tenanta a přidejte image Windows serveru 2016. Pokud už máte tyto komponenty, ujistěte se, že splňují požadavky před zahájením tohoto kurzu.
 
 V tomto kurzu se předpokládá, že máte některé základní znalosti o Azure a Azure Stack. Další informace před zahájením tohoto kurzu, přečtěte si následující články:
 
@@ -61,7 +61,7 @@ V tomto kurzu se předpokládá, že máte některé základní znalosti o Azure
 ### <a name="azure"></a>Azure
 
  - Pokud ještě nemáte předplatné Azure, vytvořte si  [bezplatný účet](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)  před tím, než začnete.
- - Vytvoření [webová aplikace](https://docs.microsoft.com/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp?view=vsts&tabs=vsts) v Azure. Poznamenejte si adresu URL webové aplikace, protože ho budete potřebovat v kurzu.
+ - Vytvoření [webovou aplikaci](https://docs.microsoft.com/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp?view=vsts&tabs=vsts) v Azure. Poznamenejte si adresu URL webové aplikace, protože ho budete potřebovat v kurzu.
 
 ### <a name="azure-stack"></a>Azure Stack
 
@@ -77,27 +77,27 @@ V tomto kurzu se předpokládá, že máte některé základní znalosti o Azure
 
 Ověřte, že splňujete následující kritéria ještě před zahájením konfigurace hybridní připojení ke cloudu:
 
- - Budete potřebovat veřejnou adresu IPv4 přístupnou zvenčí pro vaše zařízení VPN. Tato IP adresa nesmí být umístěné za službou NAT.
+ - Budete potřebovat veřejnou adresu IPv4 přístupnou zvenčí pro vaše zařízení VPN. Tato IP adresa nemůže být umístěné za službou NAT (Network Address Translation).
  - Všechny prostředky jsou nasazené ve stejné oblasti nebo umístění.
 
 #### <a name="tutorial-example-values"></a>Kurz ukázkové hodnoty
 
-Příklady v tomto kurzu použijte následující hodnoty. Tyto hodnoty můžete použít k vytvoření testovacího prostředí nebo můžou sloužit k lepšímu pochopení příkladů. Další informace o službě VPN Gateway nastavení Obecné naleznete v tématu [o nastavení služby VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings).
+Příklady v tomto kurzu použijte následující hodnoty. Tyto hodnoty můžete použít k vytvoření testovacího prostředí nebo můžou sloužit k lepšímu pochopení příkladů. Další informace o VPN gateway nastavení Obecné naleznete v tématu [o nastavení služby VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings).
 
 Specifikace připojení:
 
- - **Typ sítě VPN**: Založeno na směrování
- - **Typ připojení**: Site-to-site (IPsec)
+ - **Typ sítě VPN**: založené na trasách
+ - **Typ připojení**: site-to-site (IPsec)
  - **Typ brány**: Síť VPN
  - **Název připojení Azure**: Azure-Gateway-AzureStack-S2SGateway (na portálu vyplní tato hodnota)
  - **Název připojení služby Azure Stack**: AzureStack-Gateway-Azure-S2SGateway (na portálu vyplní tato hodnota)
- - **Sdílený klíč**: Žádné kompatibilní s hardwarem sítě VPN se shodnými hodnotami na obou stranách připojení
- - **Předplatné**: Žádné preferované předplatné
+ - **Sdílený klíč**: žádná kompatibilní s hardwarem sítě VPN se shodnými hodnotami na obou stranách připojení
+ - **Předplatné**: žádné preferované předplatného
  - **Skupina prostředků**: Test-Infra
 
 Síť a podsíť IP adres:
 
-| Připojení Azure/Azure Stack | Název | Podsíť | IP adresa |
+| Připojení Azure/Azure Stack | Název | Subnet | IP adresa |
 |-------------------------------------|---------------------------------------------|---------------------------------------|-----------------------------|
 | Azure vNet | ApplicationvNet<br>10.100.102.9/23 | ApplicationSubnet<br>10.100.102.0/24 |  |
 |  |  | GatewaySubnet<br>10.100.103.0/24 |  |
@@ -112,7 +112,7 @@ Síť a podsíť IP adres:
 
 ## <a name="create-a-virtual-network-in-global-azure-and-azure-stack"></a>Vytvoření virtuální sítě v globálním Azure a Azure Stack
 
-Následujícím postupem vytvoření virtuální sítě pomocí portálu. Můžete je použít [ukázkové hodnoty](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#values) jako kurz při použití v tomto článku. Ale pokud používáte v tomto článku Konfigurace produkčním prostředí, nahraďte příklady nastavení s vlastními hodnotami.
+Následujícím postupem vytvoření virtuální sítě pomocí portálu. Můžete je použít [ukázkové hodnoty](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#values) při použití v tomto článku pouze v rámci kurzu. Pokud používáte v tomto článku Konfigurace produkčním prostředí, příklad nastavení nahraďte vlastními hodnotami.
 
 > [!IMPORTANT]
 > Ujistěte se, že není k překrytí IP adres v Azure nebo ve službě Azure Stack adresní prostory virtuální sítě.
@@ -120,7 +120,7 @@ Následujícím postupem vytvoření virtuální sítě pomocí portálu. Může
 Vytvoření virtuální sítě v Azure:
 
 1. Pomocí svého prohlížeče pro připojení k [webu Azure portal](https://portal.azure.com/) a přihlaste se pomocí svého účtu Azure.
-2. Vyberte **vytvořit prostředek**. V **Hledat na marketplace** zadejte `virtual network`". Najít **virtuální síť** v seznamu výsledků a pak vyberte **virtuální sítě**.
+2. Vyberte **vytvořit prostředek**. V **Hledat na marketplace** zadejte "virtuální síť". Vyberte **virtuální síť** ve výsledcích.
 3. Z **vybrat model nasazení** vyberte **Resource Manageru**a pak vyberte **vytvořit**.
 4. Na **vytvořit virtuální síť**, nakonfigurujte nastavení virtuální sítě. Povinná pole názvy mají předponu červenou hvězdičkou.  Při zadání platnou hodnotu hvězdičky se změní na zelená značka zaškrtnutí.
 
@@ -154,7 +154,7 @@ Pomocí následujících kroků a vytvořte bránu virtuální sítě v Azure.
 
    - **Skladová položka**: základní
    - **Virtual Network**: Výběr virtuální sítě, které jste vytvořili dříve. Podsíť brány, kterou jste vytvořili se vybere automaticky.
-   - **První konfigurace IP adresy**:  Toto je veřejná IP adresa brány.
+   - **První konfigurace IP adresy**:  Veřejné IP adresy brány.
      - Vyberte **vytvořit konfiguraci IP adresy brány**, což vás přesměruje na **zvolte veřejnou IP adresu** stránky.
      - Vyberte **+ vytvořit novou** otevřít **vytvoření veřejné IP adresy** stránky.
      - Zadejte **název** pro veřejnou IP adresu. Jako SKU ponechte **základní**a pak vyberte **OK** uložte provedené změny.
@@ -187,9 +187,9 @@ Brána místní sítě obvykle odkazuje na vaše místní umístění. Umístěn
 3. Vyberte **bránu místní sítě**a pak vyberte **vytvořit** otevřít **vytvořit bránu místní sítě** stránky.
 4. Na **vytvořit bránu místní sítě**, zadejte hodnoty brány místní sítě, pomocí našich **hodnoty v tomto příkladu**. Zahrnout následující další hodnoty.
 
-    - **IP adresa**: Toto je veřejnou IP adresu zařízení VPN, který chcete připojit k Azure nebo Azure Stack. Zadejte platnou veřejnou IP adresu, která není za službou NAT, takže Azure přístup k adrese. Pokud momentálně nemáte IP adresu, můžete použít hodnotu jako v příkladu jako zástupný znak, ale budete se muset vrátit zpět a nahradit zástupnou hodnotu s veřejnou IP adresu zařízení VPN. Azure se nemůže připojit k zařízení, dokud je zadat platnou adresu.
-    - **Adresní prostor**: Toto je rozsah adres pro síť, která tato místní síť představuje. Můžete přidat více různých rozsahů adres. Ujistěte se, že rozsahy nepřekrývají s rozsahy jiných sítí, které chcete připojit k. Azure bude směrovat zadaný rozsah adres na místní IP adresu zařízení VPN. Použijte vlastní hodnoty, pokud se chcete připojit k místní lokalitě, nikoli příkladem hodnoty.
-    - **Konfigurovat nastavení protokolu BGP**: Používejte jenom při konfiguraci BGP. V jiných případech tuto možnost nevybírejte.
+    - **IP adresa**: Veřejná IP adresa zařízení VPN, který chcete připojit k Azure nebo Azure Stack. Zadejte platnou veřejnou IP adresu, která není za službou NAT, takže Azure přístup k adrese. Pokud momentálně nemáte IP adresu, můžete použít hodnotu jako v příkladu jako zástupný znak, ale budete se muset vrátit zpět a nahradit zástupnou hodnotu s veřejnou IP adresu zařízení VPN. Azure se nemůže připojit k zařízení, dokud je zadat platnou adresu.
+    - **Adresní prostor**: Rozsah adres pro síť, která tato místní síť představuje. Můžete přidat více různých rozsahů adres. Ujistěte se, že rozsahy nepřekrývají s rozsahy jiných sítí, které chcete připojit k. Azure bude směrovat zadaný rozsah adres na místní IP adresu zařízení VPN. Použijte vlastní hodnoty, pokud se chcete připojit k místní lokalitě, nikoli příkladem hodnoty.
+    - **Konfigurovat nastavení protokolu BGP**: Používejte jenom při konfiguraci BGP. V opačném případě tuto možnost nevybírejte.
     - **Předplatné**: Ověřte, že se zobrazuje správné předplatné.
     - **Skupina prostředků**: Vyberte skupinu prostředků, kterou chcete použít. Můžete buď vytvořit novou skupinu prostředků nebo vyberte ten, který jste vytvořili.
     - **Umístění**: Vyberte umístění, které tento objekt se vytvoří v. Můžete chtít vybrat stejné umístění, která se nachází vaše virtuální síť v, ale není potřeba udělat.
@@ -198,12 +198,12 @@ Brána místní sítě obvykle odkazuje na vaše místní umístění. Umístěn
 
 ## <a name="configure-your-connection"></a>Konfigurace připojení
 
-Připojení Site-to-Site k místní síti vyžadují zařízení VPN. Zařízení VPN, které jste nakonfigurovali, se označuje jako připojení. Konfigurace připojení, budete potřebovat:
+Připojení Site-to-site k místní síti vyžadují zařízení VPN. Zařízení VPN, které jste nakonfigurovali, se označuje jako připojení. Konfigurace připojení, budete potřebovat:
 
-- Sdílený klíč. Jedná se o stejný sdílený klíč, který zadáváte při vytváření připojení VPN Site-to-Site. V našich ukázkách používáme základní sdílený klíč. Doporučujeme, abyste pro použití vygenerovali složitější klíč.
-- Veřejnou IP adresu vaší brány virtuální sítě. Veřejnou IP adresu můžete zobrazit pomocí webu Azure Portal, PowerShellu nebo rozhraní příkazového řádku. Chcete-li najít veřejnou IP adresu brány VPN pomocí webu Azure portal, přejděte do brány virtuální sítě a pak vyberte název brány.
+- Sdílený klíč. Tento klíč je stejný sdílený klíč, který zadáváte při vytváření připojení VPN site-to-site. V našich ukázkách používáme základní sdílený klíč. Doporučujeme, abyste pro použití vygenerovali složitější klíč.
+- Veřejnou IP adresu brány virtuální sítě. Veřejnou IP adresu můžete zobrazit pomocí webu Azure Portal, PowerShellu nebo rozhraní příkazového řádku. Chcete-li najít veřejnou IP adresu brány VPN pomocí webu Azure portal, přejděte do brány virtuální sítě a pak vyberte název brány.
 
-Použijte následující postup k vytvoření připojení VPN typu Site-to-Site mezi bránou virtuální sítě a vaše místní zařízení VPN.
+Použijte následující postup k vytvoření připojení VPN typu site-to-site mezi bránou virtuální sítě a vaše místní zařízení VPN.
 
 1. Na webu Azure Portal, vyberte **+ vytvořit prostředek**.
 2. Vyhledejte **připojení**.
@@ -211,12 +211,12 @@ Použijte následující postup k vytvoření připojení VPN typu Site-to-Site 
 4. Na **připojení**vyberte **vytvořit**.
 5. Na **vytvořit připojení**, nakonfigurujte následující nastavení:
 
-    - **Typ připojení**: Vyberte Site-to-site (IPSec).
+    - **Typ připojení**: Vyberte site-to-site (IPSec).
     - **Skupina prostředků**: Vyberte testovací skupinu prostředků.
     - **Virtual Network Gateway**: Vyberte bránu virtuální sítě, kterou jste vytvořili.
-    - **Brána místní sítě**: Vyberte bránu místní sítě jste vytvořili.
-    - **Název připojení**: To se automaticky vyplní pomocí hodnot z dvě brány.
-    - **Sdílený klíč**: Tato hodnota musí odpovídat hodnotě, kterou používáte pro vaše místní zařízení VPN. Tomto příkladu používá "abc123", ale které můžete (a měli byste) používat něco složitějšího. Důležité je, že tato hodnota musí být stejnou hodnotu, kterou zadáte při konfiguraci zařízení VPN.
+    - **Brána místní sítě**: Vyberte bránu místní sítě, kterou jste vytvořili.
+    - **Název připojení**: Tento název se vyplní automaticky z hodnot dvě brány.
+    - **Sdílený klíč**: Tato hodnota musí odpovídat hodnotě, kterou používáte pro vaše místní zařízení VPN. Tomto příkladu používá "abc123", ale byste měli používat něco složitějšího. Důležité je, že tato hodnota musí být stejnou hodnotu, kterou zadáte při konfiguraci zařízení VPN.
     - Hodnoty pro **předplatné**, **skupiny prostředků**, a **umístění** jsou opraveny.
 
 6. Vyberte **OK** a vytvořte připojení.

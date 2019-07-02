@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2019
+ms.date: 07/01/2019
 ms.author: sethm
 ms.reviewer: hectorl
-ms.lastreviewed: 06/27/2019
-ms.openlocfilehash: 233ae3329ad382942c48b0a658ce019ccd214233
-ms.sourcegitcommit: f5d7b3ff34cfc1c7092087a4fa6efd4cf2b4b981
+ms.lastreviewed: 07/01/2019
+ms.openlocfilehash: 0ed50a370fd3a47c6721777b07faa9146cea16b1
+ms.sourcegitcommit: eccbd0098ef652919f357ef6dba62b68abde1090
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67465274"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67492368"
 ---
 # <a name="azure-stack-1906-update"></a>Aktualizace služby Azure Stack. 1906
 
@@ -38,7 +38,7 @@ Je číslo sestavení aktualizace. Azure Stack 1906 **1.1906.0.30**.
 
 ### <a name="update-type"></a>Typ aktualizace
 
-Typ sestavení. Azure Stack 1906 aktualizace je **Express**. Další informace o aktualizaci typy sestavení, najdete v článku [správy aktualizací ve službě Azure Stack](azure-stack-updates.md) článku.
+Typ sestavení. Azure Stack 1906 aktualizace je **Express**. Další informace o aktualizaci typy sestavení, najdete v článku [správy aktualizací ve službě Azure Stack](azure-stack-updates.md) článku. Očekávaná doba potřebná pro aktualizace. 1906 dokončete je přibližně 10 hodin. Přesné aktualizovat moduly runtime bude obvykle závisí na kapacitě používané úlohy klientů, systému připojení k síti (Pokud je připojený k Internetu), ve vašem systému a konfigurace hardwaru systému. Moduly runtime trvá déle, než očekávaná hodnota nejsou výjimkou a nevyžadují akci operátoři Azure stacku, pokud se aktualizace nezdaří. Této aproximace modulu runtime je specifická pro aktualizace. 1906 a by neměl ve srovnání s jinými aktualizacemi Azure Stack.
 
 ## <a name="whats-in-this-update"></a>Co je v této aktualizaci
 
@@ -72,6 +72,8 @@ Typ sestavení. Azure Stack 1906 aktualizace je **Express**. Další informace o
 
 - Nový parametr je k dispozici pro **Register-CustomAdfs** rutiny privileged koncový bod, který umožňuje přeskočení kontroly při konfiguraci důvěryhodnosti federace služby AD FS seznamu odvolaných certifikátů.
 
+- Verze. 1906 zavádí lepší viditelnost do průběh aktualizace, můžete si být jistí, že se pozastavení aktualizací. Výsledkem je zvýšení celkový počet aktualizací postupy pro operátory v **aktualizovat** okno. Možná si také další aktualizace kroky děje paralelně než v předchozích aktualizací.
+
 #### <a name="networking-updates"></a>Aktualizace sítě
 
 - Doba zapůjčení aktualizované nastavit v DHCP respondér pro zajištění konzistence s Azure.
@@ -102,7 +104,7 @@ Typ sestavení. Azure Stack 1906 aktualizace je **Express**. Další informace o
 
 - Opravili jsme problém, ve kterém aktualizace trvání na kartě Historie aktualizace by trim první číslice Pokud aktualizace běžel déle než 99 hodin.
 
-- Opravili jsme problém v **aktualizace** okno: nyní zahrnuje **Resume** možnost neúspěšné aktualizace.
+- **Aktualizace** okno obsahuje **Resume** možnost neúspěšné aktualizace.
 
 - Uživatele a správce portály, byl opraven problém, na webu marketplace, ve kterém rozšíření Docker nesprávně vrátila hledání, ale žádná další akce lze provést, protože není k dispozici ve službě Azure Stack.
 
@@ -142,7 +144,7 @@ Azure Stack opravy hotfix platí pouze pro integrované systémy Azure Stack; Ne
 Po instalaci této aktualizace nainstalujte všechny příslušné opravy hotfix. Další informace najdete v tématu naše [zásady obsluhy](azure-stack-servicing-policy.md).
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- Žádné opravy hotfix pro. 1906 k dispozici.
+- [Azure Stack opravu hotfix 1.1906.1.35](https://support.microsoft.com/help/4511259)
 
 ## <a name="automatic-update-notifications"></a>Upozornění na automatické aktualizace
 

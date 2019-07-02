@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/21/2019
+ms.date: 06/28/2019
 ms.author: justinha
 ms.reviewer: misainat
-ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: efb77c054bbd3e0c1f46a6bb10aef34ae043216c
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.lastreviewed: 06/28/2019
+ms.openlocfilehash: 4cd20ed4c76b062ea2fcfdf3d314ef2bcdecaff0
+ms.sourcegitcommit: eccbd0098ef652919f357ef6dba62b68abde1090
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66267061"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67492352"
 ---
 # <a name="microsoft-azure-stack-development-kit-architecture"></a>Architektura Microsoft Azure Stack Development Kit
 Azure Stack Development Kit (ASDK) je jedním uzlem nasazení služby Azure Stack na jednom hostiteli počítači. Součástí směrování Edge jsou nainstalovány na hostitelském počítači a poskytují schopnosti NAT a síť VPN pro službu Azure Stack. Role služby infrastruktury Azure Stack spustit ve vrstvě Hyper-V fyzickém hostitelském počítači.
@@ -44,7 +44,7 @@ ASDK nabízí služby pomocí následující virtuální počítače hostované 
 | **AzS-WAS01** | Služby Azure Resource Manageru a portálu pro správu Azure Stack.|
 | **AzS-WASP01**| Služby Azure Resource Manageru a portálu Azure Stack uživatele (tenant).|
 | **AzS-XRP01** | Řadič pro správu infrastruktury pro Microsoft Azure Stack, včetně poskytovatelé prostředků Compute, Network a Storage.|
-
+| **AzS-SRNG01** | Podpora aktualizačního kanálu virtuálního počítače hostující službu shromažďování protokolů pro službu Azure Stack. |
 
 ## <a name="next-steps"></a>Další postup
 [Další informace o základní úlohy správy ASDK](asdk-admin-basics.md)
