@@ -15,12 +15,12 @@ ms.date: 06/28/2019
 ms.author: sethm
 ms.reviewer: misainat
 ms.lastreviewed: 06/28/2019
-ms.openlocfilehash: 4b9162eb662336b3a1acae69660ff86f5f3a0995
-ms.sourcegitcommit: 87da3ab028f39a3fdc90f58f0258c266198a94bc
+ms.openlocfilehash: ba3ad4bf5e5d7f76d5d29e7967944be72e989c27
+ms.sourcegitcommit: 068350a79805366e7e6536fb7df85a412bd0be99
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67470957"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67511288"
 ---
 # <a name="asdk-release-notes"></a>Zpráva k vydání verze ASDK
 
@@ -40,6 +40,7 @@ Udržujte si s tím, co se přihlásíte k odběru je novinkou ASDK [ ![RSS](./m
 
 ### <a name="fixed-and-known-issues"></a>Oprava a známé problémy
 
+- Při vytváření prostředků virtuálního počítače pomocí Image na webu Marketplace, nemusí být možné dokončit nasazení. Jako alternativní řešení, můžete kliknout na **stáhnout šablonu a parametry** odkaz v **Souhrn** stránky a klikněte na **nasadit** tlačítko **šablony**  okno. 
 - Seznam Azure Stack chyby opravené v této verzi najdete v tématu [v této části](../operator/azure-stack-release-notes-1906.md#fixes) poznámky k verzi služby Azure Stack.
 - Seznam známých problémů najdete v tématu [v tomto článku](../operator/azure-stack-release-notes-known-issues-1906.md).
 - Všimněte si, že [dostupných oprav hotfix Azure Stack](../operator/azure-stack-release-notes-1906.md#hotfixes) se nevztahují na Azure Stack ASDK.

@@ -16,12 +16,12 @@ ms.date: 07/01/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 07/01/2019
-ms.openlocfilehash: 0ed50a370fd3a47c6721777b07faa9146cea16b1
-ms.sourcegitcommit: eccbd0098ef652919f357ef6dba62b68abde1090
+ms.openlocfilehash: cc348bba064ddb003bbe6a2a06d2694714ad7894
+ms.sourcegitcommit: 068350a79805366e7e6536fb7df85a412bd0be99
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67492368"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67511282"
 ---
 # <a name="azure-stack-1906-update"></a>Aktualizace služby Azure Stack. 1906
 
@@ -38,7 +38,7 @@ Je číslo sestavení aktualizace. Azure Stack 1906 **1.1906.0.30**.
 
 ### <a name="update-type"></a>Typ aktualizace
 
-Typ sestavení. Azure Stack 1906 aktualizace je **Express**. Další informace o aktualizaci typy sestavení, najdete v článku [správy aktualizací ve službě Azure Stack](azure-stack-updates.md) článku. Očekávaná doba potřebná pro aktualizace. 1906 dokončete je přibližně 10 hodin. Přesné aktualizovat moduly runtime bude obvykle závisí na kapacitě používané úlohy klientů, systému připojení k síti (Pokud je připojený k Internetu), ve vašem systému a konfigurace hardwaru systému. Moduly runtime trvá déle, než očekávaná hodnota nejsou výjimkou a nevyžadují akci operátoři Azure stacku, pokud se aktualizace nezdaří. Této aproximace modulu runtime je specifická pro aktualizace. 1906 a by neměl ve srovnání s jinými aktualizacemi Azure Stack.
+Typ sestavení. Azure Stack 1906 aktualizace je **Express**. Další informace o aktualizaci typy sestavení, najdete v článku [správy aktualizací ve službě Azure Stack](azure-stack-updates.md) článku. Očekávaná doba potřebná pro aktualizace. 1906 dokončete je přibližně 10 hodin, bez ohledu na počet fyzických uzlů ve vašem prostředí Azure Stack. Přesné aktualizovat moduly runtime bude obvykle závisí na kapacitě používané úlohy klientů, systému připojení k síti (Pokud je připojený k Internetu), ve vašem systému a vaše specifikace hardwaru systému. Moduly runtime trvá déle, než očekávaná hodnota nejsou výjimkou a nevyžadují akci operátoři Azure stacku, pokud se aktualizace nezdaří. Této aproximace modulu runtime je specifická pro aktualizace. 1906 a by neměl ve srovnání s jinými aktualizacemi Azure Stack.
 
 ## <a name="whats-in-this-update"></a>Co je v této aktualizaci
 
@@ -144,7 +144,7 @@ Azure Stack opravy hotfix platí pouze pro integrované systémy Azure Stack; Ne
 Po instalaci této aktualizace nainstalujte všechny příslušné opravy hotfix. Další informace najdete v tématu naše [zásady obsluhy](azure-stack-servicing-policy.md).
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack opravu hotfix 1.1906.1.35](https://support.microsoft.com/help/4511259)
+- [Azure Stack opravu hotfix 1.1906.2.37](https://support.microsoft.com/help/4511282)
 
 ## <a name="automatic-update-notifications"></a>Upozornění na automatické aktualizace
 
