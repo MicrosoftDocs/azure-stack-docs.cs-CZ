@@ -15,12 +15,12 @@ ms.date: 05/16/2019
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 850d99232b408aa9264caf0d928231ed229e5c23
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.openlocfilehash: b66354baa30bb6bf9ec4b8cb39cab0b9def763f6
+ms.sourcegitcommit: 7348876a97e8bed504b5f5d90690ec8d1d9472b0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782416"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67557899"
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Pomocí privilegovaných koncového bodu ve službě Azure Stack
 
@@ -84,7 +84,7 @@ Před zahájením tohoto postupu pro integrovaný systém, ujistěte se, že obd
      > [!NOTE]
      > Pokud se nemůžete připojit ke koncovému bodu ERCS, opakujte kroky 1 a 2 opakujte s IP adresou ERCS virtuálního počítače do které jste už nevyzkoušeli pro připojení.
 
-3. Až se připojíte, příkazovém řádku se změní na **[*IP adresa nebo virtuální počítač ERCS pojmenujte*]: PS >** nebo **[azs-ercs01]: PS >**, v závislosti na prostředí. Z tohoto místa spuštění `Get-Command` zobrazíte seznam dostupných rutin.
+3. Až se připojíte, příkazovém řádku se změní na **[*IP adresa nebo virtuální počítač ERCS pojmenujte*]: PS >** nebo **[azs-ercs01]: PS >** , v závislosti na prostředí. Z tohoto místa spuštění `Get-Command` zobrazíte seznam dostupných rutin.
 
    Mnohé z těchto rutin jsou určena pouze pro prostředí integrovaného systému (například rutiny související s integrací datového centra). V ASDK ověřily následující rutiny:
 
@@ -167,10 +167,16 @@ Chcete-li importovat období relaci na místním počítači, proveďte následu
 Ukončit relaci koncový bod:
 
 1. Vytvoření externí sdílené složky, který je přístupný období. Ve vývojovém prostředí kit můžete pouze vytvoření sdílené složky na hostiteli development kit.
-2. Spustit `Close-PrivilegedEndpoint` rutiny. 
-3. Zobrazí se výzva pro cestu, na které se má uložit soubor protokolu přepisu. Určete sdílenou složku souboru, který jste vytvořili dříve, ve formátu &#92; &#92; *servername*&#92;*sharename*. Pokud nezadáte cestu, rutina selže a relace zůstane otevřená. 
+2. Spusťte rutinu 
+    ```powershell
+    Close-PrivilegedEndpoint -TranscriptsPathDestination "\\fileshareIP\SharedFolder" -Credential Get-Credential
+    ```
+kde
+| Parametr | Popis | Type | Požaduje se |
+|---------|---------|---------|---------|
+| *TranscriptsPathDestination* | Cesta k externí sdílené složce definované jako "fileshareIP\sharefoldername" | String | ano|
+| *Přihlašovací údaje* | přihlašovací údaje pro přístup ke sdílené složce | SecureString |  ano |
 
-    ![Zavřít PrivilegedEndpoint rutiny výstup, který ukazuje, kde zadáte cestu k cílovému přepisu](media/azure-stack-privileged-endpoint/closeendpoint.png)
 
 Po přepisu protokolové soubory jsou úspěšně převedena do sdílené složky, se automaticky odstraní z období. 
 

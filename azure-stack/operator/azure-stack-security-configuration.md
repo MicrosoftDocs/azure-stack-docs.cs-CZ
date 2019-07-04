@@ -9,12 +9,12 @@ ms.date: 06/17/2019
 ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 06/17/2019
-ms.openlocfilehash: c82ba5ca0de27ece5d3bf0ef260efa8d182ad9bf
-ms.sourcegitcommit: bcaad8b7db2ea596018d973cb29283d8c6daebfb
+ms.openlocfilehash: b36a6d826dc7249f10b4785b27511096e45923a9
+ms.sourcegitcommit: 7348876a97e8bed504b5f5d90690ec8d1d9472b0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/27/2019
-ms.locfileid: "67419766"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67557862"
 ---
 # <a name="configure-azure-stack-security-controls"></a>Konfiguraci ovládacích prvků zabezpečení služby Azure Stack
 
@@ -31,7 +31,7 @@ Protokol zabezpečení TLS (Transport Layer) je běžně používaných kryptogr
 Protože protokol TLS 1.0 a 1.1 se postupně přestanou nebo zakázané standardy organizace a dodržování předpisů, od. 1906 aktualizace teď můžete nakonfigurovat zásady TLS ve službě Azure Stack. Můžou vynutit zásadu jenom TLS 1.2. Pokud není jakékoli pokusy o navázání relace protokolu TLS verze nižší než 1.2 odmítl a povolené.
 
 > [!IMPORTANT]
-> Použití protokolu TLS 1.2 pouze zásady je určená pro produkční prostředí.
+> Microsoft doporučuje používat pouze zásady protokolu TLS 1.2 pro produkční prostředí Azure Stack.
 
 ## <a name="get-tls-policy"></a>Získání zásad pro protokol TLS
 
