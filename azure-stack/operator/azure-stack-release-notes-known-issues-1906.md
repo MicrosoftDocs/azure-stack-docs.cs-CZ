@@ -16,12 +16,12 @@ ms.date: 06/28/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 06/28/2019
-ms.openlocfilehash: d1d3b3c33652811964b16a35686df3e3a24eb59a
-ms.sourcegitcommit: 7348876a97e8bed504b5f5d90690ec8d1d9472b0
+ms.openlocfilehash: 96a29ab11ffc15b35c7035576fa68544caef594b
+ms.sourcegitcommit: 1c4eda123857d714109e38bb853eb1ce49af5f5c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67557876"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67648044"
 ---
 # <a name="azure-stack-1906-known-issues"></a>Azure Stack. 1906 známé problémy
 
@@ -71,6 +71,13 @@ Tento článek obsahuje seznam známých problémů. 1906 verze služby Azure St
 - Použít: Tento problém se vztahuje na všechny podporované verze.
 - Příčina: Na portálu user portal, při pokusu nahrát objekt blob pomocí **OAuth(preview)** možnost, úloha se nezdaří s chybovou zprávou.
 - Náprava: Nahrajte objekt blob pomocí možnosti SAS.
+- Výskyt: Společné
+
+### <a name="template"></a>Šablona
+
+- Použít: Tento problém se vztahuje na všechny podporované verze.
+- Příčina: Uživatelské rozhraní šablony nasazení portálu user portal nevyplní parametry pro názvy šablon počínaje "_" (podtržítko).
+- Náprava: Z názvu šablony, odeberte "_" (podtržítko).
 - Výskyt: Společné
 
 ## <a name="networking"></a>Sítě
