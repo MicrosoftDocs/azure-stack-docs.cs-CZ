@@ -10,7 +10,7 @@
       href: compare-azure-azure-stack.md
     - name: "Poznámky k\_verzi"
       items:
-        - name: Nejnovější aktualizace
+        - name: Aktualizace a údržbu zásad
           href: azure-stack-servicing-policy.md
         - name: Kontrolní seznam pro instalaci aktualizací
           href: azure-stack-release-notes-checklist.md

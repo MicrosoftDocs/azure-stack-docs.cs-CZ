@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/14/2019
+ms.date: 07/09/2019
 ms.author: sethm
 ms.reviewer: ihcherie
-ms.lastreviewed: 06/14/2019
-ms.openlocfilehash: dd6421e915f170ee576d6486362e8b93ac01465f
-ms.sourcegitcommit: 593d40bccf1b2957a763017a8a2d7043f8d8315c
+ms.lastreviewed: 07/09/2019
+ms.openlocfilehash: d18775deb6d73117091a3822c5a60a32d94d4d38
+ms.sourcegitcommit: cb77ffe0d5da14696ad0fe7c09ee6b340c7f66e7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67152582"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67678987"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Položky Azure Marketplace k dispozici pro službu Azure Stack
 
@@ -38,7 +38,7 @@ Pokaždé, když jsou dostupné aktualizace rozšíření virtuálních počíta
 |![Rozšíření PowerShell DSC](media/azure-stack-marketplace-azure-items/dsc.png) | [Rozšíření PowerShell DSC](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-dsc-overview)| **Stáhněte si tuto aktualizaci na verzi integrované rozšíření PowerShell DSC. Aktualizována o podporu verze protokolu TLS 1.2.** | Microsoft | Windows |
 | ![Rozšíření Microsoft Antimalware](media/azure-stack-marketplace-azure-items/cse.png) | [Rozšíření Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware)| Microsoft Antimalware pro Azure je řešení jednoho agenta pro aplikace a prostředí tenanta, navržený ke spouštění na pozadí bez zásahu člověka. **Stáhněte si tuto aktualizaci na verzi integrované Antimalwarové rozšíření.** | Microsoft | Windows |
 | ![Diagnostické rozšíření Microsoft Azure](media/azure-stack-marketplace-azure-items/cse.png) | [Diagnostické rozšíření Microsoft Azure](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-windows)| Microsoft Azure Diagnostics je funkce v Azure, která umožňuje shromažďování diagnostických dat v nasazené aplikaci. **Stáhněte si tuto aktualizaci na verzi dodávané diagnostické rozšíření pro Windows.** | Microsoft | Windows |
-| ![Rozšíření Microsoft Monitoring](media/azure-stack-marketplace-azure-items/cse.png) | [Rozšíření Microsoft Monitoring Agent](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-windows)| Rozšíření Microsoft Monitoring Agent se používá s OMS k poskytování monitorovací schopností virtuálního počítače. **Stáhněte si tuto aktualizaci na verzi integrované nástroje sledování agenta rozšíření pro Windows.** | Microsoft | Windows |
+| ![Azure Monitor, aktualizace a rozšíření pro správu konfigurace](media/azure-stack-marketplace-azure-items/cse.png) | [Azure Monitor, aktualizace a rozšíření pro správu konfigurace](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-windows)| Azure Monitor, aktualizace a rozšíření pro správu konfigurace se používá s Log Analytics, Azure Security Center a Azure Sentinelu poskytuje monitorovací schopností virtuálního počítače. **Stáhněte si tuto aktualizaci na verzi integrované nástroje sledování agenta rozšíření pro Windows.** | Microsoft | Windows |
 |![Rozšíření vlastních skriptů](media/azure-stack-marketplace-azure-items/cse.png) | - [Rozšíření vlastních skriptů (verze 1, ve zastaralé)](https://docs.microsoft.com/azure/virtual-machines/extensions/custom-script-linuxostc) </b>  -  [rozšíření vlastních skriptů (verze 2)](https://docs.microsoft.com/azure/virtual-machines/extensions/custom-script-linux) |**Stáhněte si tuto aktualizaci v poli verzi rozšíření vlastních skriptů pro Linux. Existuje více verzí tohoto rozšíření a je třeba stáhnout 1.5.2.1 a 2.0.x.** | Microsoft | Linux |
 | ![Přístup k virtuálním počítačům pro Linux](media/azure-stack-marketplace-azure-items/cse.png) | [Přístup k virtuálním počítačům pro Linux](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/)| **Tuto aktualizaci můžete stáhněte verzi dodávané VMAccess pro Linux rozšíření. Tato aktualizace je důležité, pokud máte v plánu používat Debian virtuální počítače s Linuxem.** | Microsoft | Linux |
 | ![Rozšíření zálohování Acronis pro Linux](media/azure-stack-marketplace-azure-items/acronis.png) | [Rozšíření zálohování Acronis pro Linux](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-lin-arm) | Rozšíření zálohování Acronis pro Microsoft Azure je součástí Acronis zálohování produktovou řadu data protection. | Acronis International GmbH. | Linux |
