@@ -11,22 +11,24 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 05/09/2019
+ms.date: 07/09/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: c0f680aec95c23db2567100b47a341a5d3fb9dad
-ms.sourcegitcommit: 5a720b17bd6a5aab44929c0247db8d512e0669ef
+ms.lastreviewed: 07/09/2019
+ms.openlocfilehash: d22b1df33f4fc57cf9f823f620054a6baa6bb5d3
+ms.sourcegitcommit: d2df594e8346a875967e3cfb04c23562a1bd2e3c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67197170"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67725767"
 ---
 # <a name="install-powershell-for-azure-stack"></a>Instalace PowerShellu pro Azure Stack
 
 *Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
 
-Pro práci s vaším cloudovým, je nutné nainstalovat kompatibilní moduly Powershellu služby Azure Stack. Kompatibilita je povolená díky funkci s názvem *profilů API*.
+Prostředí Azure PowerShell poskytuje sadu rutin, které používají model Azure Resource Manageru pro správu prostředků služby Azure Stack.
+
+Pro práci s vaším cloudovým, je nutné nainstalovat kompatibilní moduly Powershellu služby Azure Stack. Pomocí služby Azure Stack **AzureRM** modulu spíše než novější **AzureAZ** modul používaný v globální Azure. Kromě toho budete muset použít *profilů API* k určení kompatibilní koncové body pro poskytovatele prostředků služby Azure Stack.
 
 Profily rozhraní API poskytují způsob, jak spravovat verze rozdíly mezi Azure a Azure Stack. Profilu verze rozhraní API je sada modulů Azure Powershellu pro Resource Manager s konkrétní verzí rozhraní API. Každá Cloudová platforma obsahuje sadu podporovaných profilů verzí API. Například Azure Stack jako podporuje verzi konkrétní profil **2019-03-01hybridní**. Při instalaci profilu jsou nainstalovány moduly Powershellu pro Azure Resource Manager, které odpovídají zadaný profil.
 
@@ -138,6 +140,7 @@ Instalace je třeba provést čtyři kroky:
 1. Azure Stack Powershellu nainstalujte na počítač připojený
 2. Povolení dalších funkcí úložiště
 3. Přenos balíčků prostředí PowerShell na odpojené pracovní stanice
+4. Ruční spuštění poskytovatele NuGet na odpojené pracovní stanice.
 4. Potvrzení instalace PowerShellu
 
 ### <a name="install-azure-stack-powershell"></a>Instalace Azure Stack PowerShellu
@@ -179,7 +182,9 @@ Instalace je třeba provést čtyři kroky:
 
 2. Přihlaste se k odpojené pracovní stanice a zkopírujte balíčky ze zařízení USB do umístění na pracovní stanici.
 
-3. Nyní zaregistrovat toto umístění jako výchozí úložiště a nainstalujte moduly AzureRM a AzureStack z tohoto úložiště:
+3. Ruční spuštění poskytovatele NuGet na odpojené pracovní stanice. Pokyny najdete v tématu [ruční spuštění poskytovatele NuGet na počítač, který není připojený k Internetu](https://docs.microsoft.com/powershell/gallery/how-to/getting-support/bootstrapping-nuget#manually-bootstrapping-the-nuget-provider-on-a-machine-that-is-not-connected-to-the-internet).
+
+4. Nyní zaregistrovat toto umístění jako výchozí úložiště a nainstalujte moduly AzureRM a AzureStack z tohoto úložiště:
 
    ```powershell
    # requires -Version 5
@@ -221,7 +226,7 @@ Ve scénářích, které vyžadují přístup k Internetu proxy server je nutné
    [System.Net.WebRequest]::DefaultWebProxy.Credentials = Get-Credential
    ```
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 - [Stáhněte si nástroje pro Azure Stack z Githubu](azure-stack-powershell-download.md)
 - [Konfigurace prostředí PowerShell uživatele Azure stacku](../user/azure-stack-powershell-configure-user.md)

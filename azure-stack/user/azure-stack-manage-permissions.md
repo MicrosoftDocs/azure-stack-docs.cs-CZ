@@ -1,6 +1,6 @@
 ---
 title: Správa oprávnění k prostředkům na uživatele ve službě Azure Stack | Dokumentace Microsoftu
-description: Jako správce služeb nebo tenanta zjistěte, jak spravovat oprávnění RBAC.
+description: Jako správce služeb nebo tenanta zjistěte, jak spravovat oprávnění řízení přístupu na základě rolí.
 services: azure-stack
 documentationcenter: ''
 author: PatAltimore
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 07/10/2019
 ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: 0f6cae1604c6635f7eb401ed4db16a9a967e1ab9
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 20bf709cb3c2026910a1283fb0b39ba80c719390
+ms.sourcegitcommit: 7f441f246242fa42147ab5aa69ddc8766ba293e3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985684"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67791354"
 ---
 # <a name="manage-access-to-resources-with-azure-stack-role-based-access-control"></a>Správa přístupu k prostředkům pomocí Azure Stack Role-Based řízení přístupu
 
@@ -70,7 +70,7 @@ Následující kroky popisují, jak nakonfigurovat oprávnění pro uživatele.
 1. Přihlaste se pomocí účtu, který má oprávnění vlastníka prostředku, který chcete spravovat.
 2. V levém navigačním podokně zvolte **Skupiny prostředků**.
 3. Zvolte název, který chcete nastavit oprávnění pro skupinu prostředků.
-4. V navigačním podokně skupiny prostředků zvolte **řízení přístupu (IAM)**. **Přiřazení rolí** zobrazení obsahuje seznam položek, které mají přístup do skupiny prostředků. Můžete filtrovat a seskupení výsledků.
+4. V navigačním podokně skupiny prostředků zvolte **řízení přístupu (IAM)** . **Přiřazení rolí** zobrazení obsahuje seznam položek, které mají přístup do skupiny prostředků. Můžete filtrovat a seskupení výsledků.
 5. Na **řízení přístupu** nabídky vyberte možnosti **přidat**.
 6. Na **přidat oprávnění** podokna:
 
@@ -82,4 +82,4 @@ Následující kroky popisují, jak nakonfigurovat oprávnění pro uživatele.
 
 ## <a name="next-steps"></a>Další postup
 
-[Vytvoření instančních objektů](azure-stack-create-service-principals.md)
+[Vytvoření instančních objektů](../operator/azure-stack-create-service-principals.md)
