@@ -10,29 +10,29 @@ ms.date: 05/16/2019
 ms.author: mabrigg
 ms.reviewer: scottnap
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 7eb57c38de01c3ad7de34b96b4c6baf7a4c14ad8
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.openlocfilehash: e5e76c3edcaa93e412d2715d7dc732731ac3d2ce
+ms.sourcegitcommit: b36d078e699c7924624b79641dbe9021af9606ba
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782618"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67816132"
 ---
 # <a name="introduction-to-azure-stack-networking"></a>Úvod do práce se sítěmi na platformě Azure Stack
 
 *Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
 
-Azure Stack nabízí širokou škálu možností sítě, které lze použít společně nebo samostatně:
+Azure Stack nabízí různé druhy síťovými funkcemi, které lze použít společně nebo samostatně:
 
 - **Propojení mezi prostředky Azure Stack**  
-    Připojení prostředků Azure společně v zabezpečené a privátní virtuální sítě v cloudu.
+    Propojení prostředků Azure v cloudu zabezpečené a privátní virtuální síť.
 - **Připojení k Internetu**  
-    Komunikaci do a z prostředků Azure Stack přes Internet.
+    Komunikaci do a z prostředků Azure Stack přes internet.
 - **Místní připojení**  
-    Připojení místní sítě k Azure Stack prostředkům přes virtuální privátní síť (VPN) přes Internet nebo prostřednictvím vyhrazené připojení ke službě Azure Stack.
+    Připojení místní sítě k Azure Stack prostředkům přes virtuální privátní síť (VPN) přes internet nebo prostřednictvím vyhrazené připojení ke službě Azure Stack.
 - **Směr provozu a vyrovnávání zatížení**  
     Vyrovnávání zatížení provozu na servery ve stejném umístění a směrovat přenos dat na servery v různých umístěních.
 - **Zabezpečení**  
-    Filtrování síťového provozu mezi podsítěmi síť nebo jednotlivé virtuální počítače (VM).
+    Filtrování síťového provozu mezi podsítěmi síť nebo jednotlivé virtuální počítače.
 - **Směrování**  
     Použít výchozí směrování nebo plně řídit směrování mezi vaší služby Azure Stack a místních prostředků.
 - **Možnosti správy**  

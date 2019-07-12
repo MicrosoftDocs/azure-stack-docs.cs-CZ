@@ -1,5 +1,5 @@
 ---
-title: Rozdíly a aspekty pro spravované disky a spravovat obrázky ve službě Azure Stack | Dokumentace Microsoftu
+title: Azure Stack spravované disky&#58; rozdíly a aspekty | Dokumentace Microsoftu
 description: Další informace o rozdíly a aspekty při práci se spravovanými disky a spravované Image ve službě Azure Stack.
 services: azure-stack
 documentationcenter: ''
@@ -16,21 +16,21 @@ ms.date: 06/25/2019
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 9ea7c3de75be447870d0506cebbbbe8af0f2ffe9
-ms.sourcegitcommit: 1c4eda123857d714109e38bb853eb1ce49af5f5c
+ms.openlocfilehash: 8ccaa5bf3ae4b53b2c4fe70995a751f87756c039
+ms.sourcegitcommit: b36d078e699c7924624b79641dbe9021af9606ba
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67648092"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67816241"
 ---
 # <a name="azure-stack-managed-disks-differences-and-considerations"></a>Azure Stack spravované disky: rozdíly a aspekty
 
-Tento článek shrnuje známé rozdíly mezi [spravované disky Azure Stack](azure-stack-manage-vm-disks.md) a [managed disks pro Azure](/azure/virtual-machines/windows/managed-disks-overview). Další informace o základní rozdíly mezi Azure Stack a Azure, najdete v článku [klíče aspekty](azure-stack-considerations.md) článku.
+Tento článek shrnuje rozdíly mezi [managed disks v Azure stacku](azure-stack-manage-vm-disks.md) a [managed disks v Azure](/azure/virtual-machines/windows/managed-disks-overview). Další informace o základní rozdíly mezi Azure Stack a Azure, najdete v článku [klíče aspekty](azure-stack-considerations.md) článku.
 
-Spravované disky zjednodušují správu disků pro virtuální počítače IaaS pomocí správy [účty úložiště](../operator/azure-stack-manage-storage-accounts.md) přidružené k diskům virtuálních počítačů.
+Spravované disky zjednodušují správu disků pro virtuální počítače IaaS (virtuální počítače) pomocí správy [účty úložiště](../operator/azure-stack-manage-storage-accounts.md) přidružené k diskům virtuálních počítačů.
 
 > [!NOTE]  
-> Spravované disky ve službě Azure Stack je k dispozici od verze aktualizace. 1808. Počínaje aktualizací 1811, je povolen ve výchozím nastavení při vytváření virtuálních počítačů pomocí portálu Azure Stack.
+> Spravované disky ve službě Azure Stack jsou k dispozici od verze aktualizace. 1808. Počínaje aktualizací 1811, je povolen ve výchozím nastavení při vytváření virtuálních počítačů pomocí portálu Azure Stack.
   
 ## <a name="cheat-sheet-managed-disk-differences"></a>Tahák: spravovaného disku rozdíly
 
@@ -45,9 +45,9 @@ Spravované disky zjednodušují správu disků pro virtuální počítače IaaS
 |Prémiové disky vstupně-výstupních operací  |Závisí na velikosti disku  |2300 IOPs na disk |
 |Propustnost disků úrovně Premium |Závisí na velikosti disku |145 MB za sekundu na disk |
 |Velikost disku  |Disk Azure typu Premium: P4 (32 GB) na P80 (32 TB)<br>Disk Azure SSD na úrovni Standard: E10 (128 GB) na E80 (32 TB)<br>Pevný disk Azure standardní Disk: S4 (32 GB) na S80 (32 TB) |M4: 32 GiB<br>M6: 64 GiB<br>M10: 128 GiB<br>M15: 256 GiB<br>M20: 512 GiB<br>M30: 1024 GiB |
-|Kopie snímků disků|Pořízení snímku Azure připojené do spuštěného virtuálního počítače nepodporuje spravované disky|Pořízení snímku Azure spravované disky připojené k spuštěný virtuální počítač se zatím nepodporuje. |
+|Kopie snímků disků|Azure spravované disky připojené k spuštěný virtuální počítač nepodporuje vytvoření snímku|Není dosud podporován. |
 |Výkon disků analýzy |Agregace metrik a metriky pro disk podporované |Není dosud podporován. |
-|Migrace      |Poskytuje nástroj pro migraci z existující nespravovaná správce prostředků virtuálních počítačů Azure bez nutnosti znovu vytvořte virtuální počítač  |Není dosud podporován. |
+|Migrace      |Poskytuje nástroj pro migraci z existující nespravované správce prostředků virtuálních počítačů Azure bez nutnosti znovu vytvořte virtuální počítač  |Není dosud podporován. |
 
 > [!NOTE]  
 > Spravované disky vstupně-výstupních operací a propustnosti ve službě Azure Stack je číslo zakončení místo zřízené číslo, které může být ovlivněno hardwaru a pracovní postupy spouštěné ve službě Azure Stack.
@@ -56,12 +56,12 @@ Spravované disky zjednodušují správu disků pro virtuální počítače IaaS
 
 Existují také rozdíly pomocí metrik storage:
 
-- Transakce data v metrikách storage pomocí služby Azure Stack nerozlišuje šířky pásma sítě interní nebo externí.
+- Pomocí služby Azure Stack nerozlišují data transakcí v metrikách storage šířky pásma sítě interní nebo externí.
 - Azure Stack data transakcí v metrikách storage neobsahuje virtuální počítač přístup k připojené disky.
 
 ## <a name="api-versions"></a>Verze rozhraní API
 
-Azure Stack spravované disky podporuje následující rozhraní API verze:
+Azure Stack spravované disky podporují následující rozhraní API verze:
 
 - 2017-03-30
 - 2017-12-01
@@ -69,7 +69,7 @@ Azure Stack spravované disky podporuje následující rozhraní API verze:
 ## <a name="convert-to-managed-disks"></a>Převod na managed disks
 
 > [!NOTE]  
-> Rutiny Azure Powershellu **ConvertTo-AzureRmVMManagedDisk** nelze použít pro převod na spravovaný disk ve službě Azure Stack nespravovaný disk. Azure Stack zatím nepodporuje tuto rutinu.
+> Rutiny Azure Powershellu **ConvertTo-AzureRmVMManagedDisk** nelze použít pro převod na spravovaný disk ve službě Azure Stack nespravovaný disk. Azure Stack v současné době nepodporuje tuto rutinu.
 
 Následující skript můžete použít k převodu aktuálně zřízené virtuální počítač z nespravované na spravované disky. Zástupné názvy nahraďte vlastními hodnotami:
 
@@ -159,13 +159,13 @@ Na portálu, Powershellu nebo rozhraní příkazového řádku můžete použít
 
 Ujistěte se, že jste správně zobecnit virtuální počítač před provedením tohoto kroku. Po generalizace kterou již nebudete používat tento virtuální počítač. Vytvoření virtuálního počítače z image, který se nezobecnil správně povede k **VMProvisioningTimeout** chyby.
 
-Postupujte podle pokynů v [vytvořit image ze souboru VHD v účtu úložiště](/azure/virtual-machines/windows/capture-image-resource#create-an-image-from-a-vhd-in-a-storage-account) pro vytvoření spravované image z generalizovaného VHD v účtu úložiště. Můžete použít tuto bitovou kopii do budoucna pro vytvoření spravované virtuální počítače.
+Postupujte podle pokynů v [vytvořit image ze souboru VHD v účtu úložiště](/azure/virtual-machines/windows/capture-image-resource#create-an-image-from-a-vhd-in-a-storage-account) pro vytvoření spravované image z generalizovaného VHD v účtu úložiště. Můžete použít tuto bitovou kopii v budoucnu k vytvoření spravovaných virtuálních počítačů.
 
 #### <a name="case-2-create-managed-vm-from-managed-image-using-powershell"></a>Případ 2: Vytvoření spravovaného virtuálního počítače ze spravované image pomocí Powershellu
 
-Po vytvoření image z existujícího spravovaného disku virtuálního počítače pomocí skriptu v [vytvořit image ze spravovaného disku s použitím prostředí PowerShell](/azure/virtual-machines/windows/capture-image-resource#create-an-image-from-a-managed-disk-using-powershell), následující ukázkový skript vytvoří podobně jako virtuální počítač s Linuxem z existujícího objektu image.
+Po vytvoření image z existujícího spravovaného disku virtuálního počítače pomocí skriptu v [vytvořit image ze spravovaného disku s použitím prostředí PowerShell](/azure/virtual-machines/windows/capture-image-resource#create-an-image-from-a-managed-disk-using-powershell), použijte následující ukázkový skript k vytvoření podobných linuxového virtuálního počítače z existujícího objektu image.
 
-Modul Azure Stack Powershellu 1.7.0 nebo novější: postupujte podle pokynů v [vytvoření virtuálního počítače ze spravované image](/azure/virtual-machines/windows/create-vm-generalized-managed).
+Modul Azure Stack Powershellu 1.7.0 nebo novější: Postupujte podle pokynů v [vytvoření virtuálního počítače ze spravované image](/azure/virtual-machines/windows/create-vm-generalized-managed).
 
 Modul Azure Stack Powershellu 1.6.0 nebo dříve:
 
@@ -219,16 +219,16 @@ Add-AzureRmVMNetworkInterface -Id $Nic.Id
 New-AzureRmVM -ResourceGroupName $ResourceGroupName -Location $Location -VM $VmConfig
 ```
 
-Na portálu můžete také použít k vytvoření virtuálního počítače ze spravované image. Další informace najdete v tématu Azure spravované image články [vytvoření spravované image zobecněného virtuálního počítače v Azure](/azure/virtual-machines/windows/capture-image-resource) a [vytvoření virtuálního počítače ze spravované image](/azure/virtual-machines/windows/create-vm-generalized-managed).
+Na portálu můžete také použít k vytvoření virtuálního počítače ze spravované image. Další informace najdete v článcích spravované v Azure image [vytvoření spravované image zobecněného virtuálního počítače v Azure](/azure/virtual-machines/windows/capture-image-resource) a [vytvoření virtuálního počítače ze spravované image](/azure/virtual-machines/windows/create-vm-generalized-managed).
 
-## <a name="configuration"></a>Konfigurace
+## <a name="configuration"></a>Konfiguraci
 
-Po použití. 1808 update nebo novější, je třeba provést následující konfiguraci před použitím spravovaných disků:
+Po použití. 1808 update nebo novější, je nutné provést následující změny před použitím spravovaných disků konfigurace:
 
 - Pokud odběr byl vytvořen ještě před aktualizací. 1808, postupujte podle následujících kroků provedete aktualizaci odběru. V opačném případě nasazování virtuálních počítačů v tomto předplatném může selhat s chybovou zprávou "Vnitřní chyba ve Správci disků."
    1. Prostřednictvím uživatelského portálu služby Azure Stack, přejděte na **předplatná** a vyhledejte předplatné. Klikněte na tlačítko **poskytovatelů prostředků**, klikněte na **Microsoft.Compute**a potom klikněte na tlačítko **přeregistrovat**.
    2. V rámci stejného předplatného, přejděte na **řízení přístupu (IAM)** a ověřte, že **Azure Stack – spravovaný Disk** je uvedena.
-- Pokud používáte prostředí s více tenanty, požádejte vašeho cloudu – operátor (který může být ve vaší vlastní organizaci, nebo od poskytovatele služeb) k překonfigurovat všech vašich adresářů hosta, proveďte kroky v [v tomto článku](../operator/azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory). V opačném případě nasazování virtuálních počítačů v rámci služby předplacené přidružené k tomuto adresáři hosta může selhat s chybovou zprávou, **vnitřní chybě ve Správci disků**.
+- Pokud používáte prostředí s více tenanty, požádejte vašeho cloudu – operátor (který může být ve vaší vlastní organizaci, nebo od poskytovatele služeb) k překonfigurovat všech vašich adresářů hosta, proveďte kroky v [v tomto článku](../operator/azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory). V opačném případě nasazování virtuálních počítačů v rámci služby předplacené přidružené k tomuto adresáři hosta může selhat s chybovou zprávou "Vnitřní chyba ve Správci disků."
 
 ## <a name="next-steps"></a>Další postup
 

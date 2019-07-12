@@ -2,76 +2,55 @@
 documentType: LandingData
 title: Uživatelská dokumentace k Azure Stacku
 metadata:
-  document_id: cbf798da-6f1a-7d4d-7707-5d5e02589e22
   title: 'Dokumentace k Azure Stacku – kurzy, reference k rozhraní API'
-  description: 'Zjistěte, jak pomocí služby Azure Stack a jak vytvářet aplikace pro Azure Stack.'
+  meta.description: azure-stack
   services: azure-stack
   author: mattbriggs
   manager: femila
+  layout: LandingPage
+  ms.assetid: cbf798da-6f1a-7d4d-7707-5d5e02589e22
   ms.service: azure-stack
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.tgt_pltfrm: from-team
+  ms.devlang: from-team
   ms.topic: landing-page
-  ms.date: 10/16/2018
+  ms.date: 07/11/2019
   ms.author: mabrigg
 abstract:
-  description: 'Azure Stack je hybridní cloudová platforma, která umožňuje využívat služby Azure z datového centra vaší společnosti nebo vašeho poskytovatele služeb. Jako vývojář můžete v Azure Stacku vytvářet aplikace. Můžete je potom nasadit do Azure Stacku, do Azure, nebo můžete vytvořit skutečně hybridní aplikace, které využívají možnosti připojení mezi cloudem Azure Stack a Azure. Prostřednictvím našich šablon Rychlý start a kurzů se naučíte, jak vytvářet prostředky a nasazovat aplikace.<br/><br/>Pokud je pro vás, operátorovi služby Azure Stack, který spravuje infrastrukturu a nabízí služby, přečtěte si naše <a href="/azure-stack/operator">dokumentace operátora k</a>.<br/><br/>Pokud jsou operátory Azure stacku chtěli v Azure Stack Development Kit (ASDK), nasazení v jednom uzlu služby Azure Stack, kterou můžete stáhnout a používat zdarma, přečtěte si naše <a href="/azure-stack/asdk">ASDK dokumentaci</a>.'
+  description: 'Azure Stack je hybridní cloudová platforma, která umožňuje využívat služby Azure z datového centra vaší společnosti nebo vašeho poskytovatele služeb. Jako vývojář můžete v Azure Stacku vytvářet aplikace. Můžete je potom nasadit do Azure Stacku, do Azure, nebo můžete vytvořit skutečně hybridní aplikace, které využívají možnosti připojení mezi cloudem Azure Stack a Azure. Prostřednictvím našich šablon Rychlý start a kurzů se naučíte, jak vytvářet prostředky a nasazovat aplikace.<br/><br/>Pokud je pro vás, operátorovi služby Azure Stack, který spravuje infrastrukturu a nabízí služby, přečtěte si naše <a href="../operator/">dokumentace operátora k</a>.<br/><br/>Pokud jste chtěli v Azure Stack Development Kit (ASDK), nasazení v jednom uzlu služby Azure Stack, kterou můžete stáhnout a používat zdarma, uživatele služby Azure Stack najdete v našich <a href="../asdk">ASDK dokumentaci</a>.'
 sections:
-  - title: Zprovoznění během 5 minut
-    items:
-      - type: paragraph
-        text: 'Naučte se, jak v Azure Stacku nasadit virtuální počítač s Windows:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
-            text: Portál
-            href: azure-stack-quick-windows-portal.md
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_powershell.svg'
-            text: PowerShell
-            href: azure-stack-quick-create-vm-windows-powershell.md
-          - image:
-              src: 'https://docs.microsoft.com/azure/virtual-machines/linux/media/index/cli.svg'
-            text: CLI
-            href: azure-stack-quick-create-vm-windows-cli.md
-      - type: paragraph
-        text: 'Naučte se, jak v Azure Stacku nasadit virtuální počítač s Linuxem:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
-            text: Portál
-            href: azure-stack-quick-linux-portal.md
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_powershell.svg'
-            text: PowerShell
-            href: azure-stack-quick-create-vm-linux-powershell.md
-          - image:
-              src: 'https://docs.microsoft.com/azure/virtual-machines/linux/media/index/cli.svg'
-            text: CLI
-            href: azure-stack-quick-create-vm-linux-cli.md
-  - title: Podrobné kurzy
-    items:
-      - type: paragraph
-        text: Nasazení aplikací napříč Azure a Azure Stack.
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure-stack/user/azure-stack-solution-pipeline">Nasazení aplikací do Azure Stacku a Azure</a>
-          - html: <a href="/azure-stack/user/azure-stack-solution-hybrid-identity">Konfigurace hybridní Cloudová identita s aplikacemi Azure a Azure Stack</a>
-          - html: <a href="/azure-stack/user/azure-stack-solution-hybrid-connectivity">Konfigurace připojení k hybridní cloud s Azure a Azure Stack</a>
-          - html: <a href="/azure-stack/user/azure-stack-solution-staged-data-analytics">Vytvořit řešení analýzy pracovních dat s využitím Azure a Azure Stack </a>
-          - html: <a href="/azure-stack/user/azure-stack-solution-cloud-burst">Vytvoření řešení škálování cloudu s Azure</a>
-          - html: <a href="/azure-stack/user/azure-stack-solution-geo-distributed">Vytvoření řešení geograficky distribuované aplikace s využitím Azure a Azure Stack</a>
-          - html: <a href="azure-stack-solution-hybrid-cloud.md">Nasazení řešení s hybridní cloud s Azure a Azure Stack</a>
-  - title: Referenční informace
+  - title: Začínáme se službou Azure Stack
     items:
       - type: list
         style: cards
-        className: cardsD
+        className: cardsA
         items:
-          - title: Příkazový řádek
-            html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.10">Azure Stack PowerShell</a></p><p><a href="/cli/azure/reference-index?view=azure-cli-2017-03-09-profile">Rozhraní příkazového řádku služby Azure Stack</a></p>
+          - html: '<a href="/azure-stack/user/azure-stack-dev-start"> <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_code-edit.svg" alt=""> <br><b>Vývoj řešení pomocí služby Azure Stack</b></a> <p>Vývoj aplikací pro Azure Stack pomocí Windows 10, Linuxu nebo macOS pracovní stanice.</p>'
+          - html: '<a href="/azure-stack/operator/azure-stack-powershell-install"> <img height="48" width="48" src="https://docs.microsoft.com/media/logos/logo_powershell.svg" alt=""> <br><b>Azure Stack Powershellu</b></a> <p>Snadná správa vašich prostředků Azure Stack z prostředí PowerShell.</p>'
+          - html: '<a href="/azure-stack/user/azure-stack-version-profiles-azurecli2"> <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_cligeneric.svg" alt=""> <br><b>Rozhraní příkazového řádku Azure (CLI)</b></a> <p>Prostředí příkazového řádku pro správu prostředků služby Azure Stack.</p>'
+  - title: Hybridní cloudové aplikace
+    items:
+      - type: list
+        style: cards
+        className: cardsA
+        items:
+          - html: '<a href="/azure-stack/user/azure-stack-solution-pipeline"> <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_workflow.svg" alt="hybrid cloud app ci/cd"> <br><b>Hybridní aplikace průběžnou integraci a doručování</b></a> <p>Hybridní aplikace pro nasazení do Azure a využitím kanálu průběžné integrace a doručování (CI/CD) hybridní službě Azure Stack.</p>'
+          - html: '<a href="/azure-stack/user/azure-stack-solution-hybrid-identity"> <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_identity-protection.svg" alt="hybrid cloud app identity"> <br><b>Konfigurace hybridní Cloudová identita</b></a> <p>Konfigurace hybridní cloudové identity pro vaše aplikace Azure a Azure Stack.</p>'
+          - html: '<a href="/azure-stack/user/azure-stack-solution-cloud-burst"> <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_multi-connect.svg" alt="hybrid cloud app scaling"> <br><b>Škálování řešení cloudu</b></a> <p>Vytvoření řešení cloudu, které poskytují ručně aktivované proces pro přechod z Azure Stack hostované webové aplikace do Azure hostované webové aplikace.</p>'
+  - title: Infrastruktury jako služba (IaaS) v Azure stacku
+    items:
+      - type: list
+        style: cards
+        className: cardsA
+        items:
+          - html: '<a href="/azure-stack/user/azure-stack-create-vm-template"> <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_package.svg" alt=""> <br><b>Nasazení pomocí šablony virtuálního počítače v IaaS.</b></a> <p>Vytvoření virtuálního počítače pomocí šablon Azure Stack Resource Manageru</p>'
+          - html: '<a href="/azure-stack/user/azure-stack-quick-linux-portal"> <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_vmm-cloud.svg" alt=""> <br><b>Rychlý start – vytvoření virtuálního počítače</b></a> <p>Vytvoření virtuálního počítače k hostování vaší aplikace.</p>'
+          - html: '<a href="/azure-stack/user/azure-stack-dev-start-deploy-app"> <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_web-color.svg" alt=""> <br><b>Hostitel aplikace napsané v kódu.</b></a> <p>Nastavení virtuálního počítače v Azure stacku a nasazení vaší aplikace pomocí C#, Java, Python, Go, Ruby nebo Node.js.</p>'
+  - title: Platform-as-a-Service (PaaS) v Azure stacku
+    items:
+      - type: list
+        style: cards
+        className: cardsA
+        items:
+          - html: <a href="/azure-stack/user/azure-stack-solution-template-service-fabric-cluster"> <img height="48" width="48" src="/azure-stack/user/media/index/service-fabric-cluster.png" alt=""> <br><b>Nasazení clusteru Service Fabric</b></a> <p>Nasazení zabezpečeného clusteru Service Fabric v Azure stacku.</p>
+          - html: <a href="/azure-stack/user/azure-stack-solution-template-kubernetes-deploy"> <img height="48" width="48" src="/azure-stack/user/media/index/kubernetes.png" alt=""> <br><b>Nasazení clusteru Kubernetes</b></a> <p>Nasazení a nastavit prostředky pro Kubernetes v rámci jediné koordinované operace.</p>
+          - html: '<a href="/azure-stack/user/azure-stack-solution-template-cognitive-services"> <img height="48" width="48" src="/azure-stack/user/media/index/icon-cognitive-services.svg" alt=""> <br><b>Nasazení služby Azure Cognitive Services</b></a> <p>Podpora kontejnerů ve službě Azure Cognitive Services umožňuje používat stejná rozhraní API, které jsou dostupné v Azure.</p>'
