@@ -16,12 +16,12 @@ ms.date: 06/13/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 06/13/2019
-ms.openlocfilehash: 9c263b97deb12a199f2941be7ea4ae05a048837b
-ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
+ms.openlocfilehash: 7c46d2b576f8927ff0da438091a6c1094ae15ddf
+ms.sourcegitcommit: 51ec68b5e6dbf437aaca19a9f35ba07d2c402892
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67131620"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67851784"
 ---
 # <a name="azure-stack-compute"></a>Výpočetní prostředky Azure Stack
 
@@ -41,6 +41,13 @@ Abyste dosáhli vysoké dostupnosti systému produkčního prostředí více vir
 Škálovací sady virtuálních počítačů pomocí sad dostupnosti na zadní ukončit a ujistěte se, že instance každého virtuálního počítače škálovací sady je umístěn v různých chybových domény. To znamená, že používají samostatné infrastruktury uzly služby Azure Stack. Například ve 4 uzly systémech pro Azure Stack mohou existovat situace, ve kterém se nezdaří počet 3 instancí škálovací sady virtuálních počítačů při vytváření z důvodu nedostatku kapacity 4 uzly umístit 3 instancí škálovací sady virtuálních počítačů na 3 samostatných uzlech služby Azure Stack. Kromě toho můžete uzlů Azure Stack vyplněné nahoru na různých úrovních před pokusu o umístění. 
 
 Azure Stack není over-pass-the potvrdit paměť. Útoky over-pass-the potvrzení počet fyzických jader je však povoleno. Protože umístění algoritmy nevypadají v existujících virtuálních a fyzických jader over-pass-the zřizování poměr jako faktor, každý hostitel může mít různý poměr. Jako Microsoft neposkytujeme pokyny na fyzický virtuální jádrům kvůli kolísání úloh a požadavky na úroveň služby. 
+
+## <a name="consideration-for-total-number-of-vms"></a>Zvážení, celkový počet virtuálních počítačů 
+
+Není k dispozici nové posouzení pro přesné plánování kapacity služby Azure Stack. Aktualizace 1901 (a každá aktualizace do budoucna) teď platí omezení celkového počtu virtuálních počítačů, které je možné vytvořit. Toto omezení je určen jako dočasné, aby se zabránilo nestabilitě řešení. Zdroj problému stability, na větší počet virtuálních počítačů, je určeno, ale konkrétní časové osy pro nápravu nebyl dosud určit. Nyní je serveru maximální 60 virtuálních počítačů s limitem celkové řešení 700 jeden. Například virtuálnímu počítači Azure Stack limit 8 serveru by 480 (8 * 60). U serveru 12 až 16 řešení Azure Stack limit by 700. Toto omezení se vytvořil, dodržujte při tom všechny výpočty důležité informace o kapacitě, jako je například rezervy odolnost proti chybám a výkonu procesoru virtuálních a fyzických poměr, který operátor chtěli zachovat na razítko. Další informace najdete v tématu novou verzi sady capacity planner. 
+
+V případě, že se dosáhlo limitu škálování virtuálních počítačů, by výsledkem vrátila následující kódy chyb: VMsPerScaleUnitLimitExceeded, VMsPerScaleUnitNodeLimitExceeded.
+
 
 ## <a name="azure-stack-memory"></a>Azure Stack paměti 
 
@@ -105,5 +112,5 @@ v: Kromě spouštění virtuálních počítačů, paměť je využívána všec
 > [!NOTE]
 > Plánování požadavků na kapacitu pro sítě jsou minimální, jak je možné konfigurovat pouze velikost veřejných virtuálních IP adres. Informace o tom, jak přidat další veřejné IP adresy do služby Azure Stack najdete v tématu [přidání veřejné IP adresy](azure-stack-add-ips.md).
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 Další informace o [úložiště služby Azure Stack](azure-stack-capacity-planning-storage.md)

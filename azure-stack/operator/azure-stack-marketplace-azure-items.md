@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/09/2019
+ms.date: 07/12/2019
 ms.author: sethm
 ms.reviewer: ihcherie
-ms.lastreviewed: 07/09/2019
-ms.openlocfilehash: d18775deb6d73117091a3822c5a60a32d94d4d38
-ms.sourcegitcommit: cb77ffe0d5da14696ad0fe7c09ee6b340c7f66e7
+ms.lastreviewed: 07/12/2019
+ms.openlocfilehash: 38427f55f07c4982b909c153a500340b6e61efde
+ms.sourcegitcommit: 51ec68b5e6dbf437aaca19a9f35ba07d2c402892
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67678987"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67851844"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Položky Azure Marketplace k dispozici pro službu Azure Stack
 
@@ -116,7 +116,6 @@ Microsoft Azure Stack podporuje následující virtuální počítače Azure Mar
 | ![Cassandra Cluster](media/azure-stack-marketplace-azure-items/cassandra.png) | [Cassandra Cluster](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.cassandra-cluster) | Apache Cassandra je systém správy databáze opensourcová distribuovaná určený ke zpracování velkého objemu dat napříč mnoha servery komoditních poskytuje vysokou dostupnost s možnostmi žádný jediný bod selhání. **Tato šablona řešení také vyžaduje Debian 8 a vlastní skript pro Linuxové rozšíření 2.0.** | Bitnami |
 | ![CiviCRM](media/azure-stack-marketplace-azure-items/civicrm.png) | [CiviCRM](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.civicrm) | Jednoduchý vztah webový systém pro správu. | Bitnami |
 | ![Zjednodušená hybridita CMS](media/azure-stack-marketplace-azure-items/cmsmadesimple.png) | [Zjednodušená hybridita CMS](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.cmsmadesimple) | Rychlý a snadný způsob, jak vytvářet a spravovat na webu. | Bitnami |
-| ![Codiad](media/azure-stack-marketplace-azure-items/codiad.png) | [Codiad](https://azuremarketplace.microsoft.com/marketplace/apps?search=codiad) | Open source cloudu integrované vývojové prostředí s minimálními nároky na místo. | Bitnami |
 | ![Concrete5 –](media/azure-stack-marketplace-azure-items/concrete5.png) | [Concrete5](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.concrete5) | Snadno nasaďte webové aplikace, websites, úložiště a fóra. | Bitnami |
 | ![Coppermine](media/azure-stack-marketplace-azure-items/coppermine.png) | [Coppermine](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.coppermine) | Galerie webových víceúčelové, plně funkční. | Bitnami |
 | ![CouchDB](media/azure-stack-marketplace-azure-items/couchdb.png) | [CouchDB](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.couchdb) | Snadno použitelné databáze open-source systému. | Bitnami |
@@ -170,7 +169,6 @@ Microsoft Azure Stack podporuje následující virtuální počítače Azure Mar
 | ![Nginx](media/azure-stack-marketplace-azure-items/nginx.png) | [Server Nginx](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.nginxstack) | Kompletní PHP, MySQL a Nginxu vývojové prostředí. | Bitnami |
 | ![Noalyss](media/azure-stack-marketplace-azure-items/noalyss.png) | [Noalyss](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.noalyss) | Výkonné-dvojím účetní systém. | Bitnami |
 | ![Node.js](media/azure-stack-marketplace-azure-items/nodejs.png) | [node.js](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.nodejs) | Open source prostředí napsaného v JavaScriptu pro snadné sestavení. | Bitnami |
-| ![Node.js High-Availability Cluster](media/azure-stack-marketplace-azure-items/nodejs.png) | [Node.js High-Availability Cluster](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.nodejs-ha) | Platforma Node.js je založená na modulu V8 JavaScript běhového prostředí. Svůj model založený na událostech, neblokující vstupně-výstupních operací umožňuje vývoj rychlá, škálovatelná a oborovými výzkumníky serverových aplikací. Toto řešení používá k vytvoření clusteru Node.js s sdílený systém souborů a možnosti vyrovnávání zatížení několika virtuálních počítačů.  **Tato šablona řešení vyžaduje taky Debian 8, vlastní skript pro Linuxové rozšíření 2.0 a databázi.**| Bitnami |
 | ![Odoo](media/azure-stack-marketplace-azure-items/odoo.png) | [Odoo](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.odoo) | ERP a CRM systém, který efektivně připojí obchodních procesů. | Bitnami |
 | ![Open Atrium](media/azure-stack-marketplace-azure-items/openatrium.png) | [Open Atrium](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.openatrium) | Flexibilní a více fasetová intranetu platformě. | Bitnami |
 | ![OpenCart](media/azure-stack-marketplace-azure-items/opencart.png) | [OpenCart](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.opencart) | Platforma pro elektronické obchodování zdarma pro online si obchodníci můžou. | Bitnami |
@@ -212,7 +210,6 @@ Microsoft Azure Stack podporuje následující virtuální počítače Azure Mar
 | ![Fórum pro jednoduché počítače](media/azure-stack-marketplace-azure-items/simplemachinesforum.png) | [Fórum pro jednoduché počítače](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.simplemachinesforum) | Jednoduché fórum softwaru vytvářet vlastní online komunita. | Bitnami |
 | ![Spree](media/azure-stack-marketplace-azure-items/spree.png) | [Spree](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.spree) | Platforma pro elektronické obchodování snadným ovládáním. | Bitnami |
 | ![Subversion](media/azure-stack-marketplace-azure-items/subversion.png) | [Podverze](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.subversion) | Open sourcový systém správy verzí. | Bitnami |
-| ![SugarCRM](media/azure-stack-marketplace-azure-items/sugarcrm.png) | [SugarCRM](https://azuremarketplace.microsoft.com/marketplace/apps/aad.sugarcrm) | Řešení pro správu vztahů flexibilní zákazníka. | Bitnami |
 | ![SuiteCRM](media/azure-stack-marketplace-azure-items/suitecrm.png) | [SuiteCRM](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.suitecrm) | Oblíbené aplikace CRM na podnikové úrovni. | Bitnami |
 | ![TestLink](media/azure-stack-marketplace-azure-items/testlink.png) | [TestLink](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.testlink) | Vyzkoušejte software pro správu usnadnění kontroly kvality. | Bitnami |
 | ![Tiki Wiki CMS Groupware](media/azure-stack-marketplace-azure-items/tikiwikicmsgroupware.png) | [Tiki Wiki CMS Groupware](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.tikiwikicmsgroupware) | Platforma, plně funkcemi vybavené wiki. | Bitnami |
@@ -224,7 +221,6 @@ Microsoft Azure Stack podporuje následující virtuální počítače Azure Mar
 | ![Webové pošty Pro PHP](media/azure-stack-marketplace-azure-items/webmailprophp.png) | [Webové pošty Pro PHP](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.webmailpro) | Doručeného systémovou s podnikovými funkcemi. | Bitnami |
 | ![WildFly](media/azure-stack-marketplace-azure-items/wildfly.png) | [WildFly](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.wildfly) | Aplikační Server, který zahrnuje Apache, WildFly, MySQL a Java. | Bitnami |
 | ![WordPress](media/azure-stack-marketplace-azure-items/wordpress.png) | [WordPress](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.wordpress) | Nejvíce Oblíbené a připravené ke kterým CMS. | Bitnami |
-| ![X2Engine prodeje CRM](media/azure-stack-marketplace-azure-items/x2enginesalescrm.png) | [X2Engine prodeje CRM](https://azuremarketplace.microsoft.com/marketplace/apps?search=x2engine%20sales%20crm) | Kompaktní marketing, prodej a zákazník aplikace služby. | Bitnami |
 | ![Xoops](media/azure-stack-marketplace-azure-items/xoops.png) | [Xoops](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.xoops) | CMS a Web portál programu, který vytvoří dynamické weby. | Bitnami |
 | ![Zurmo](media/azure-stack-marketplace-azure-items/zurmo.png) | [Zurmo](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.zurmo) | Open source systém CRM: Mobilní, sociální a Gamified. | Bitnami |
 | ![Check Point vSEC Správa zabezpečení](media/azure-stack-marketplace-azure-items/checkpoint.png) | [Check Point vSEC Správa zabezpečení](https://azuremarketplace.microsoft.com/marketplace/apps/checkpoint.vsec) | VSEC Check Point poskytuje pokročilé, propracovat vícevrstvý ohrožení ochrany před únikem informací k ochraně před malwarem a důmyslné hrozby zákazníka prostředky v Azure. **Stažení položek z marketplace bodu vSEC obě kontroly.** | Check Point |

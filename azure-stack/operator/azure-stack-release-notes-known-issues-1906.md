@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/28/2019
+ms.date: 07/12/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 06/28/2019
-ms.openlocfilehash: 96a29ab11ffc15b35c7035576fa68544caef594b
-ms.sourcegitcommit: 1c4eda123857d714109e38bb853eb1ce49af5f5c
+ms.openlocfilehash: ff64a04731f32934c676ece8e29860bbb9acda3f
+ms.sourcegitcommit: 0bb2fdeccda3183d0bf4572819a28af8ca5f244a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67648044"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67863153"
 ---
 # <a name="azure-stack-1906-known-issues"></a>Azure Stack. 1906 známé problémy
 
@@ -73,12 +73,12 @@ Tento článek obsahuje seznam známých problémů. 1906 verze služby Azure St
 - Náprava: Nahrajte objekt blob pomocí možnosti SAS.
 - Výskyt: Společné
 
-### <a name="template"></a>Šablona
+### <a name="update"></a>Aktualizace
 
-- Použít: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: Uživatelské rozhraní šablony nasazení portálu user portal nevyplní parametry pro názvy šablon počínaje "_" (podtržítko).
-- Náprava: Z názvu šablony, odeberte "_" (podtržítko).
-- Výskyt: Společné
+- Použít: Tento problém se týká verze. 1906.
+- Příčina: Stav aktualizace pro opravu hotfix na portálu pro operátor zobrazuje nesprávný stav pro aktualizaci. Počáteční stav znamená, že aktualizace se nepodařilo nainstalovat, i když je stále probíhá.
+- Náprava: Po aktualizaci portálu a bude se aktualizovat stav do stavu "probíhá."
+- Výskyt: Občasně
 
 ## <a name="networking"></a>Sítě
 
@@ -97,7 +97,7 @@ Tento článek obsahuje seznam známých problémů. 1906 verze služby Azure St
 
 ### <a name="virtual-network-gateway"></a>Brána virtuální sítě
 
-#### <a name="alerts"></a>Výstrahy
+#### <a name="alerts"></a>Upozornění
 
 - Použít: Tento problém se vztahuje na všechny podporované verze.
 - Příčina: V portálu user portal **brány virtuální sítě** okno možnost k použití **výstrahy**. Tato funkce není aktuálně podporován ve službě Azure Stack.
@@ -190,21 +190,21 @@ Tento článek obsahuje seznam známých problémů. 1906 verze služby Azure St
 
 - Použít: Tento problém se týká verze. 1906.
 - Příčina: Nové okno resetování hesla se zobrazí ve škálovací sadě uživatelského rozhraní, ale Azure Stack resetuje se heslo ve škálovací sadě ještě nepodporuje.
-- Náprava: Žádné
+- Náprava: Žádné.
 - Výskyt: Společné
 
 ### <a name="rainy-cloud-on-scale-set-diagnostics"></a>Destivo cloudu na škálování nastavení diagnostiky
 
 - Použít: Tento problém se týká verze. 1906.
 - Příčina: Prázdný graf se zobrazí stránka s přehledem škálovací sady virtuálních počítačů. Kliknutím na prázdný graf otevřete okno "prší cloudu". Toto je diagram pro škálovací sadu diagnostické informace, jako je například procento využití procesoru a není funkce podporované v aktuálním sestavení služby Azure Stack.
-- Náprava: Žádné
+- Náprava: Žádné.
 - Výskyt: Společné
 
 ### <a name="virtual-machine-diagnostic-settings-blade"></a>Okno diagnostické nastavení virtuálního počítače
 
 - Použít: Tento problém se týká verze. 1906.
 - Příčina: Obsahuje nastavení diagnostiky okno virtuálního počítače **jímky** kartu, která požádá o **Application Insight účet**. To je výsledkem nové okno a není zatím podporována ve službě Azure Stack.
-- Náprava: Žádné
+- Náprava: Žádné.
 - Výskyt: Společné
 
 <!-- ## Storage -->
