@@ -5,18 +5,18 @@ services: azure-stack
 keywords: ''
 author: mattbriggs
 manager: femila
-ms.date: 06/17/2019
+ms.date: 07/10/2019
 ms.topic: article
 ms.service: azure-stack
 ms.author: mabrigg
-ms.reviewer: scottnap
-ms.lastreviewed: 06/04/2019
-ms.openlocfilehash: 06b61bf80b2c123413425fc3abdcda12961d096c
-ms.sourcegitcommit: b36d078e699c7924624b79641dbe9021af9606ba
+ms.reviewer: wamota
+ms.lastreviewed: 07/10/2019
+ms.openlocfilehash: 7e0f533c10e8dae0566284ffb09cfa7281213002
+ms.sourcegitcommit: ca7e6b7b9b27d0d93ee4d5d1eeaf3113bbcea4da
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67816221"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68229440"
 ---
 # <a name="differences-and-considerations-for-azure-stack-networking"></a>Rozdíly a aspekty sítí služby Azure Stack
 
@@ -30,11 +30,11 @@ Tento článek poskytuje přehled o jedinečných důležité informace o sítí
 
 | Služba | Funkce | Azure (globální) | Azure Stack |
 |--------------------------|----------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| DNS | Multi-tenant DNS | Podporováno | Není dosud podporován. |
+| DNS | DNS s více tenanty | Podporováno | Není dosud podporován. |
 |  | DNS AAAA records | Podporováno | Nepodporuje se |
 |  | Zóny DNS na předplatné | 100 (výchozí)<br>Je možné zvýšit na vyžádání. | 100 |
-|  | DNS record sets per zone | 5000 (výchozí)<br>Je možné zvýšit na vyžádání. | 5000 |
-|  | Name servers for zone delegation | Azure poskytuje čtyři názvové servery pro každou zónu uživatele (tenant), který je vytvořen. | Azure Stack nabízí dvě názvové servery pro každou zónu uživatele (tenant), který je vytvořen. |
+|  | Za zónu sad záznamů DNS | 5000 (výchozí)<br>Je možné zvýšit na vyžádání. | 5000 |
+|  | Názvové servery pro delegování zóny | Azure poskytuje čtyři názvové servery pro každou zónu uživatele (tenant), který je vytvořen. | Azure Stack nabízí dvě názvové servery pro každou zónu uživatele (tenant), který je vytvořen. |
 | Brána Azure Firewall | Služba zabezpečení sítě | Azure Firewall je spravovaná cloudová služba síťového zabezpečení, která chrání vaše prostředky ve virtuálních sítích Azure. | Ještě není podporované. |
 | Virtuální sítě | Partnerské vztahy virtuálních sítí | Propojení dvou virtuálních sítí ve stejné oblasti prostřednictvím páteřní sítě Azure. | Není dosud podporován. |
 |  | IPv6 adresy | Můžete přiřadit adresu protokolu IPv6 v rámci [konfiguraci síťového rozhraní](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface-addresses#ip-address-versions). | Podporovaný je jenom protokol IPv4. |
@@ -57,7 +57,7 @@ Tento článek poskytuje přehled o jedinečných důležité informace o sítí
 |  | Změna velikosti brány | Azure podporuje změnu velikosti brány po nasazení. | Změna velikosti není podporované. |
 |  | Konfigurace dostupnosti | Aktivní/aktivní | Aktivní/pasivní vysoká dostupnost |
 |  | UsePolicyBasedTrafficSelectors | Azure podporuje používání selektorů přenosu na základě zásad s připojeními trasové brány. | Ještě není podporované. |
-| Nástroj pro vyrovnávání zatížení | SKU | Základní a podporovaných nástrojů pro vyrovnávání zatížení. | Je podporován pouze Load balanceru úrovně Basic.  Vlastnost SKU se nepodporuje. |
+| Nástroj pro vyrovnávání zatížení | SKU | Základní a podporovaných nástrojů pro vyrovnávání zatížení | Je podporován pouze Load balanceru úrovně Basic.<br>Vlastnost SKU se nepodporuje.<br>/Path/ nástroje pro vyrovnávání zatížení základní SKU nemůže mít více než 5 front-endové konfigurace protokolu IP.  |
 |  | Zóny | Zóny dostupnosti jsou podporovány. | Není dosud podporován. |
 |  | Pravidla příchozího překladu adres podporu koncových bodů služby | Azure podporuje zadání koncových bodů služby pro pravidla příchozího překladu adres. | Azure Stack zatím nepodporuje koncové body služby, takže tyto nelze zadat. |
 |  | Protocol | Azure podporuje zadávání GRE nebo ESP. | Třída protokolu není podporované ve službě Azure Stack. |

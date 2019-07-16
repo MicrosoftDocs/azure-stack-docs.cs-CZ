@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/15/2019
+ms.date: 07/15/2019
 ms.reviewer: ppacent
 ms.author: mabrigg
-ms.lastreviewed: 05/14/2019
-ms.openlocfilehash: 4b758cce6741440f5b6a4c00de045e9a4fc8f530
-ms.sourcegitcommit: 1655b2ef4d01d69ceeb52bc16f922bdc19cb968d
+ms.lastreviewed: 07/15/2019
+ms.openlocfilehash: 681daffabda3525effc1815e6aa6657c9c7c526c
+ms.sourcegitcommit: ca7e6b7b9b27d0d93ee4d5d1eeaf3113bbcea4da
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65706326"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68229453"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Otočit tajné kódy ve službě Azure Stack
 
@@ -42,7 +42,7 @@ Certifikáty služby infrastruktury externích služeb, které jsou k dispozici 
 - Globální Azure Resource Manageru
 - Správce služby KeyVault
 - KeyVault
-- Admin Extension Host
+- Hostitel Správce rozšíření
 - Služby ACS (včetně objektů blob, table a queue storage)
 - ADFS *
 - Graf *
@@ -81,7 +81,7 @@ Po do 30 dnů od vypršení platnosti tajných kódů tyto výstrahy jsou genero
 
 - Vypršení platnosti hesla účtu čekající služby
 - Vypršení platnosti vnitřní certifikát čekající na vyřízení
-- Vypršení platnosti externí certifikát čekající na vyřízení
+- Blížící se vypršení platnosti externího certifikátu
 
 Spuštění tajných kódů otočení pomocí následujícího postupu se opravit tyto výstrahy.
 
@@ -138,7 +138,7 @@ Spuštění tajných kódů otočení pomocí následujícího postupu se opravi
 > Příklad:
 > - Sdílení souborů =  **\\ \\ \<IPAddress >\\\<název_sdílené_položky >\\**
 > - CertFolder = **Certificates\AAD**
-> - FullPath = **\\\\\<IPAddress>\\\<ShareName>\Certificates\AAD**
+> - FullPath =  **\\ \\ \<IPAddress >\\\<název_sdílené_položky > \Certificates\AAD**
 
 ## <a name="rotating-external-secrets"></a>Otáčení externích tajných klíčů
 
@@ -192,7 +192,7 @@ Obměna externích tajných klíčů:
     > [!IMPORTANT]  
     > Nezadávejte relace, relace uložit jako proměnnou.
 
-3. Spustit  **[Invoke-Command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/Invoke-Command?view=powershell-5.1)**. Předání jako proměnnou relace Powershellu privilegovaných koncový bod **relace** parametru.
+3. Spustit  **[Invoke-Command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/Invoke-Command?view=powershell-5.1)** . Předání jako proměnnou relace Powershellu privilegovaných koncový bod **relace** parametru.
 
 4. Spustit **Start SecretRotation** s následujícími parametry:
     - **PfxFilesPath**  
@@ -298,13 +298,13 @@ Start-SecretRotation [-ReRun] [-Internal]
 
 ### <a name="parameters"></a>Parametry
 
-| Parametr | Type | Požaduje se | Umístění | Výchozí | Popis |
+| Parametr | type | Požadováno | Pozice | Výchozí | Popis |
 | -- | -- | -- | -- | -- | -- |
-| `PfxFilesPath` | String  | False (Nepravda)  | s názvem  | Žádný  | Cesta sdílení souborů na **\Certificates** síťové adresáře, který obsahuje všechny externí certifikáty koncový bod. Povinné pouze v případě otáčení externích tajných klíčů. Adresář end musí být **\Certificates**. |
-| `CertificatePassword` | SecureString | False (Nepravda)  | s názvem  | Žádný  | Heslo pro všechny certifikáty v PfXFilesPath – k dispozici. Požadovaná hodnota, pokud PfxFilesPath víceklientského externích tajných klíčů se otočí. |
-| `Internal` | String | False (Nepravda) | s názvem | Žádný | Interní příznak musí použít, kdykoli operátory Azure stacku chce otočit interní infrastruktury tajných kódů. |
-| `PathAccessCredential` | PSCredential | False (Nepravda)  | s názvem  | Žádný  | Přihlašovací údaje prostředí PowerShell pro sdílení souborů systému **\Certificates** síťové adresáře, který obsahuje všechny externí certifikáty koncový bod. Povinné pouze v případě otáčení externích tajných klíčů.  |
-| `ReRun` | SwitchParameter | False (Nepravda)  | s názvem  | Žádný  | Opětovné spuštění se musí použít kdykoli otočení tajného kódu je opakování po neúspěšném pokusu. |
+| `PfxFilesPath` | Řetězec  | False  | s názvem  | Žádný  | Cesta sdílení souborů na **\Certificates** síťové adresáře, který obsahuje všechny externí certifikáty koncový bod. Povinné pouze v případě otáčení externích tajných klíčů. Adresář end musí být **\Certificates**. |
+| `CertificatePassword` | SecureString | False  | s názvem  | Žádný  | Heslo pro všechny certifikáty v PfXFilesPath – k dispozici. Požadovaná hodnota, pokud PfxFilesPath víceklientského externích tajných klíčů se otočí. |
+| `Internal` | Řetězec | False | s názvem | Žádné | Interní příznak musí použít, kdykoli operátory Azure stacku chce otočit interní infrastruktury tajných kódů. |
+| `PathAccessCredential` | PSCredential | False  | s názvem  | Žádné  | Přihlašovací údaje prostředí PowerShell pro sdílení souborů systému **\Certificates** síťové adresáře, který obsahuje všechny externí certifikáty koncový bod. Povinné pouze v případě otáčení externích tajných klíčů.  |
+| `ReRun` | SwitchParameter | False  | s názvem  | Žádný  | Opětovné spuštění se musí použít kdykoli otočení tajného kódu je opakování po neúspěšném pokusu. |
 
 ### <a name="examples"></a>Příklady
 
@@ -369,9 +369,13 @@ Tento příkaz otočí všechny tajné klíče infrastruktury vystavený k inter
 
 Řadič pro správu základní desky (BMC) monitoruje fyzickému stavu vašich serverů. Požadavky a pokyny, aktualizuje se uživatelské jméno a heslo pro správu základní desky se liší v závislosti na dodavatele hardwaru, výrobce OEM (OEM). Měli byste aktualizovat hesla pro Azure Stack součásti v pravidelných intervalech.
 
-1. Aktualizujte správu základní desky na fyzických serverech služby Azure Stack podle pokynů vaší výrobce OEM. Uživatelské jméno a heslo pro každou BMC ve vašem prostředí musí být stejné. Všimněte si, že uživatelská jména BMC nesmí překročit 16 znaků.
+1. Aktualizujte správu základní desky na fyzických serverech služby Azure Stack podle pokynů vaší výrobce OEM. Uživatelské jméno a heslo pro každou BMC ve vašem prostředí musí být stejné. Uživatelská jména BMC nesmí překročit 16 znaků.
+
+    > [!Note]  
+    > Nejprve aktualizujte přihlašovací údaje BMC u řadiče pro správu základní desky fyzického serveru. příkaz Azure Stack v opačném případě se nezdaří při ověřování.
+
 2. Otevřete koncový bod privilegovaných ve službě Azure Stack relacích. Pokyny najdete v tématu [pomocí privilegovaných koncového bodu ve službě Azure Stack](azure-stack-privileged-endpoint.md).
-3. Po Powershellu řádek byl změněn na **[adresa IP nebo virtuální počítač ERCS name]: PS >** nebo **[azs-ercs01]: PS >**, v závislosti na prostředí, spusťte `Set-BmcCredential` spuštěním `Invoke-Command`. Vaše proměnná privilegovaných koncový bod relace předáte jako parametr. Příklad:
+3. Po Powershellu řádek byl změněn na **[adresa IP nebo virtuální počítač ERCS name]: PS >** nebo **[azs-ercs01]: PS >** , v závislosti na prostředí, spusťte `Set-BmcCredential` spuštěním `Invoke-Command`. Vaše proměnná privilegovaných koncový bod relace předáte jako parametr. Příklad:
 
     ```powershell
     # Interactive Version
