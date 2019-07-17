@@ -14,18 +14,18 @@ ms.date: 06/20/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 06/20/2019
-ms.openlocfilehash: 7148e93977f50a7c64d79c422c43c6825b22b4a3
-ms.sourcegitcommit: 104ccafcb72a16ae7e91b154116f3f312321cff7
+ms.openlocfilehash: ca4c2480fff511ab3bad43ea82fc81522d9afba0
+ms.sourcegitcommit: 2a4cb9a21a6e0583aa8ade330dd849304df6ccb5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67308861"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68286750"
 ---
-# <a name="tutorial-deploy-a-staged-data-analytics-solution-to-azure-stack"></a>Kurz: Nasazení řešení pro analýzu pracovních dat do služby Azure Stack
+# <a name="deploy-a-staged-data-analytics-solution-to-azure-stack"></a>Nasazení řešení pro analýzu pracovních dat do služby Azure Stack
 
 Tento článek vám ukáže postup nasazení řešení pro shromažďování dat, která vyžaduje analýzu místě kolekce tak, aby provádět rychlé rozhodování. Toto shromažďování dat často dochází k dispozici žádné internetové připojení. Když se naváže spojení, budete muset provádět náročné analýzu dat umožňuje získat další informace.
 
-V tomto kurzu vytvoříte ukázkové prostředí:
+V tomto řešení vytvoříte ukázkové prostředí:
 
 > [!div class="checklist"]
 > - Vytvoření objektu blob úložiště nezpracovaná data.
@@ -37,9 +37,9 @@ V tomto kurzu vytvoříte ukázkové prostředí:
 
 > [!Tip]  
 > ![hybridní pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
-> Microsoft Azure Stack je rozšířením Azure. Azure Stack přináší flexibilitu a inovace cloud computingu do místního prostředí a umožňuje ten jediný hybridní cloud, který umožňuje vytvářet a nasazovat hybridní aplikace kdekoli.  
+> Microsoft Azure Stack je rozšířením Azure. Azure Stack přináší flexibilitu a inovace cloud computingu do místního prostředí, povolení ten jediný hybridní cloud, který umožňuje vytvářet a nasazovat hybridní aplikace kdekoli.  
 > 
-> Dokument White Paper [aspekty návrhu pro hybridní aplikace](https://aka.ms/hybrid-cloud-applications-pillars) kontroly pilířů kvality softwaru (umístění, škálovatelnost, dostupnost, odolnost, možnosti správy a zabezpečení) pro navrhování, nasazování a provozování hybridní aplikace. Aspekty návrhu při optimalizaci návrhu hybridní aplikace, minimalizovat problémy v produkčním prostředí.
+> Tento článek [aspekty návrhu pro hybridní aplikace](azure-stack-edge-pattern-overview.md) kontroly pro navrhování, nasazování a provozování hybridní pilířů kvality softwaru (umístění, škálovatelnost, dostupnost, odolnost, možnosti správy a zabezpečení) aplikace. Aspekty návrhu při optimalizaci návrhu hybridních aplikací, minimalizovat problémy v produkčním prostředí.
 
 ## <a name="architecture-for-staged-data-analytics"></a>Architektura pro analýzu dat dvoufázové instalace
 

@@ -10,23 +10,23 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: scenario
 ms.date: 01/25/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 97869ef7659cb5619ff962fc4b3bc8facbc599ed
-ms.sourcegitcommit: eccbd0098ef652919f357ef6dba62b68abde1090
+ms.openlocfilehash: 73fc9559e639973b07c576f8590c756032db0c3e
+ms.sourcegitcommit: 2a4cb9a21a6e0583aa8ade330dd849304df6ccb5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67492452"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68286922"
 ---
-# <a name="tutorial-deploy-a-hybrid-cloud-solution-with-azure-and-azure-stack"></a>Kurz: Nasazení řešení s hybridní cloud s Azure a Azure Stack
+# <a name="deploy-a-hybrid-cloud-solution-with-azure-and-azure-stack"></a>Nasazení řešení s hybridní cloud s Azure a Azure Stack
 
 *Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
 
-V tomto kurzu se dozvíte, jak nasadit hybridní cloudové řešení, která používá veřejného cloudu Azure a soukromého cloudu služby Azure Stack.
+Tento scénář popisuje, jak nasadit hybridní cloudové řešení, která používá veřejného cloudu Azure a soukromého cloudu služby Azure Stack.
 
 Pomocí jediného hybridního cloudového řešení, můžete kombinovat dodržování předpisů výhod privátního cloudu s škálovatelnosti veřejného cloudu. Vývojáři navíc můžete využít ekosystém společnosti Microsoft pro vývojáře a použít své dovednosti v cloudu i v místním prostředí.
 
@@ -46,6 +46,12 @@ Tento kurz se zabývá následujícími úkony:
 > - Nastavení Application Insights, monitorování a upozorňování pro zvýšení provozu.
 > - Konfigurace automatického přepínání mezi globální Azure a Azure Stackem provoz.
 
+> [!Tip]  
+> ![hybridní pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
+> Microsoft Azure Stack je rozšířením Azure. Azure Stack přináší flexibilitu a inovace cloud computingu do místního prostředí, povolení ten jediný hybridní cloud, který umožňuje vytvářet a nasazovat hybridní aplikace kdekoli.  
+> 
+> Tento článek [aspekty návrhu pro hybridní aplikace](azure-stack-edge-pattern-overview.md) kontroly pro navrhování, nasazování a provozování hybridní pilířů kvality softwaru (umístění, škálovatelnost, dostupnost, odolnost, možnosti správy a zabezpečení) aplikace. Aspekty návrhu při optimalizaci návrhu hybridních aplikací, minimalizovat problémy v produkčním prostředí.
+
 ### <a name="assumptions"></a>Předpoklady
 
 V tomto kurzu se předpokládá, že máte základní znalosti o globální Azure a Azure Stack. Pokud chcete další informace před zahájením tohoto kurzu, přečtěte si tyto články:
@@ -57,7 +63,7 @@ Tento kurz předpokládá také, že máte předplatné Azure. Pokud předplatn�
 
 ## <a name="prerequisites"></a>Požadavky
 
-Než začnete tento kurz, ujistěte se, že splňujete následující požadavky:
+Předtím, než se pustíte do tohoto řešení, ujistěte se, že splňujete následující požadavky:
 
 - Azure Stack Development Kit (ASDK) nebo předplatné na integrovaný systém Azure Stack. Chcete-li nasadit Azure Stack Development Kit, postupujte podle pokynů v [nasazení ASDK pomocí instalačního programu](../asdk/asdk-install.md).
 - Instalace služby Azure Stack by měl mít nainstalované tyto položky:
@@ -211,7 +217,7 @@ Tím, že správně nakonfigurujete DNS pro různé cloudové aplikace, uživate
 
 Tento kurz používá Azure DNS pro správu DNS, protože domény služby App Service nebude fungovat.
 
-### <a name="create-subdomains"></a>Create subdomains
+### <a name="create-subdomains"></a>Vytvoření subdomény
 
 Vzhledem k tomu, že Traffic Manager závisí na záznamy DNS CNAME, je potřeba subdomény správné směrování provozu do koncových bodů. Další informace o mapování domén a záznamů DNS najdete v tématu [mapování domén s Traffic Managerem](https://docs.microsoft.com/azure/app-service/web-sites-traffic-manager-custom-domain-name).
 

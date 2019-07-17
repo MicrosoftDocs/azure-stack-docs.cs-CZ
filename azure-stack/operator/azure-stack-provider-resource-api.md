@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/18/2019
+ms.date: 07/16/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 01/25/2018
-ms.openlocfilehash: c1333d088cf00b5e909ba5c4ced409bec7538189
-ms.sourcegitcommit: c4507a100eadd9073aed0d537d054e394b34f530
+ms.openlocfilehash: 631d6764ca7947ddafd70ec57b607df1ea5a4ab5
+ms.sourcegitcommit: 2a4cb9a21a6e0583aa8ade330dd849304df6ccb5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67198488"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68286692"
 ---
 # <a name="provider-resource-usage-api"></a>Rozhraní API využití prostředků poskytovatele
 
@@ -108,10 +108,10 @@ Ke generování dat o využití, byste měli mít prostředky, které jsou spuš
 
 1. [Instalace Powershellu pro Azure Stack](azure-stack-powershell-install.md).
 2. [Konfigurace uživatele služby Azure Stack](../user/azure-stack-powershell-configure-user.md) nebo [operátory Azure stacku](azure-stack-powershell-configure-admin.md) prostředí PowerShell.
-3. Pro načtení dat o využití, použijte [Get-UsageAggregates](/powershell/module/azurerm.usageaggregates/get-usageaggregates) rutinu Powershellu:
+3. Chcete-li načíst data o využití, zavolejte [Get-AzsSubscriberUsage](/powershell/module/azs.commerce.admin/get-azssubscriberusage) rutiny Powershellu:
 
    ```powershell
-   Get-UsageAggregates -ReportedStartTime "<Start time for usage reporting>" -ReportedEndTime "<end time for usage reporting>" -AggregationGranularity <Hourly or Daily>
+   Get-AzsSubscriberUsage -ReportedStartTime "2017-09-06T00:00:00Z" -ReportedEndTime "2017-09-07T00:00:00Z"
    ```
 
 ### <a name="rest-api"></a>REST API

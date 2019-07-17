@@ -10,25 +10,25 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: scenario
 ms.date: 01/14/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: a348e4e7eada9537defa292f667cfd3eb1e27438
-ms.sourcegitcommit: eccbd0098ef652919f357ef6dba62b68abde1090
+ms.openlocfilehash: 47a0fd72da842cc4d2f73372870c561f2d88e48d
+ms.sourcegitcommit: 2a4cb9a21a6e0583aa8ade330dd849304df6ccb5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67492461"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68286942"
 ---
-# <a name="tutorial-create-a-geo-distributed-app-solution-to-direct-traffic-with-azure-and-azure-stack"></a>Kurz: Vytvoření řešení geograficky distribuované aplikace ke směrování provozu s využitím Azure a Azure Stack
+# <a name="create-a-geo-distributed-app-solution-to-direct-traffic-with-azure-and-azure-stack"></a>Vytvoření řešení geograficky distribuované aplikace ke směrování provozu s využitím Azure a Azure Stack
 
 *Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
 
 Zjistěte, jak směrovat provoz na konkrétní koncové body na základě různých metrik pomocí vzoru geograficky distribuované aplikace. Vytváření Traffic Manageru profil s geografické konfigurace založená na směrování a koncového bodu zajišťuje informace se směruje do koncových bodů na základě místní požadavky, podnikové a mezinárodní nařízení a dat, které potřebujete.
 
-V tomto kurzu vytvoříte ukázkové prostředí:
+V tomto řešení vytvoříte ukázkové prostředí:
 
 > [!div class="checklist"]
 > - Vytvoření geograficky distribuované aplikace.
@@ -42,7 +42,7 @@ Se vzorkem geograficky distribuované aplikace zahrnuje oblasti. Použít výcho
 
 #### <a name="scalability-considerations"></a>Aspekty zabezpečení
 
-Řešení, které vytvoříte v tomto kurzu není tak, aby vyhovovaly škálovatelnost. Nicméně pokud použijete v kombinaci s jinými řešeními pro Azure a místní, zvládne požadavky na škálovatelnost. Informace týkající se vytvoření hybridní řešení s automatickým Škálováním pomocí traffic Manageru najdete v tématu [vytvářet řešení škálování cloudu s Azure](azure-stack-solution-cloud-burst.md).
+Řešení, které vytvoříte v tomto článku není tak, aby vyhovovaly škálovatelnost. Nicméně pokud použijete v kombinaci s jinými řešeními pro Azure a místní, zvládne požadavky na škálovatelnost. Informace týkající se vytvoření hybridní řešení s automatickým Škálováním pomocí traffic Manageru najdete v tématu [vytvářet řešení škálování cloudu s Azure](azure-stack-solution-cloud-burst.md).
 
 #### <a name="availability-considerations"></a>Aspekty dostupnosti
 
@@ -74,7 +74,7 @@ Před sestavením si nároky distribuované aplikace, je důležité znát násl
 > ![hybridní pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
 > Microsoft Azure Stack je rozšířením Azure. Azure Stack přináší flexibilitu a inovace cloud computingu do místního prostředí, povolení ten jediný hybridní cloud, který umožňuje vytvářet a nasazovat hybridní aplikace kdekoli.  
 > 
-> Dokument White Paper [aspekty návrhu pro hybridní aplikace](https://aka.ms/hybrid-cloud-applications-pillars) kontroly pilířů kvality softwaru (umístění, škálovatelnost, dostupnost, odolnost, možnosti správy a zabezpečení) pro navrhování, nasazování a provozování hybridní aplikace. Aspekty návrhu při optimalizaci návrhu hybridní aplikace, minimalizovat problémy v produkčním prostředí.
+> Tento článek [aspekty návrhu pro hybridní aplikace](azure-stack-edge-pattern-overview.md) kontroly pro navrhování, nasazování a provozování hybridní pilířů kvality softwaru (umístění, škálovatelnost, dostupnost, odolnost, možnosti správy a zabezpečení) aplikace. Aspekty návrhu při optimalizaci návrhu hybridních aplikací, minimalizovat problémy v produkčním prostředí.
 
 ## <a name="part-1-create-a-geo-distributed-app"></a>Část 1: Vytvoření geografické distribuce aplikace
 
@@ -260,9 +260,9 @@ Pokud chcete do služby App Service migrovat živý web a jeho název domény DN
 
 ### <a name="prerequisites"></a>Požadavky
 
-Pro absolvování tohoto kurzu potřebujete:
+K dokončení tohoto řešení:
 
--   [Vytvoření aplikace služby App Service](https://docs.microsoft.com/azure/app-service/), nebo použít aplikaci vytvořili pro účely jiného kurzu.
+-   [Vytvoření aplikace služby App Service](https://docs.microsoft.com/azure/app-service/), nebo používat aplikace vytvořené pro jiné řešení.
 
 -   Zakoupit název domény a zajistit přístup k registru DNS poskytovatele domény.
 
@@ -371,7 +371,7 @@ V této části provedeme následující:
 
 ### <a name="prerequisites"></a>Požadavky
 
-Pro absolvování tohoto kurzu potřebujete:
+K dokončení tohoto řešení:
 
 -   [Vytvoření aplikace služby App Service.](https://docs.microsoft.com/azure/app-service/)
 -   [Mapování vlastního názvu DNS do vaší webové aplikace.](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain)
@@ -396,7 +396,7 @@ Pokud chcete ve službě App Service použít certifikát, musí splňovat všec
 
 Vytvořit vazbu vlastního certifikátu SSL do webové aplikace [plán služby App Service](https://azure.microsoft.com/pricing/details/app-service/) musí být v **základní**, **standardní**, nebo **Premium** vrstvy.
 
-#### <a name="sign-in-to-azure"></a>Přihlásit se k Azure
+#### <a name="sign-in-to-azure"></a>Přihlášení k Azure
 
 1.  Otevřít [webu Azure portal](https://portal.azure.com/) a přejděte do webové aplikace.
 
@@ -547,7 +547,7 @@ Na stránce webové aplikace, vyberte **SL nastavení**. Pak v části **Pouze H
 
 Po dokončení operace přejděte na jakoukoli adresu URL HTTP odkazující na aplikaci. Příklad:
 
--   https://<app_name>.azurewebsites.net
+-   https://<APP_NAME>.azurewebsites.NET
 -   https://northwindcloud.com
 -   <https://www.northwindcloud.com>
 

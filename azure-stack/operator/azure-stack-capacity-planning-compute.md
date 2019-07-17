@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2019
+ms.date: 07/16/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 06/13/2019
-ms.openlocfilehash: 7c46d2b576f8927ff0da438091a6c1094ae15ddf
-ms.sourcegitcommit: 51ec68b5e6dbf437aaca19a9f35ba07d2c402892
+ms.openlocfilehash: 224f5832af5d7fdc57f6b5fcb91d6308d479448b
+ms.sourcegitcommit: 2a4cb9a21a6e0583aa8ade330dd849304df6ccb5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67851784"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68286705"
 ---
 # <a name="azure-stack-compute"></a>Výpočetní prostředky Azure Stack
 
@@ -38,9 +38,11 @@ Azure Stack používá dva aspekty při umísťování virtuálních počítač�
 
 Abyste dosáhli vysoké dostupnosti systému produkčního prostředí více virtuálních počítačů ve službě Azure Stack, jsou virtuální počítače umístěné ve skupině dostupnosti, který se šíří mezi více domén selhání. Doména selhání ve skupině dostupnosti je definován jako jeden uzel v jednotce škálování. Azure Stack podporuje s dostupnosti s délkou maximálně tři domény selhání pro zajištění konzistence s Azure. Virtuální počítače umístěné ve skupině dostupnosti budou fyzicky izolované od sebe navzájem tím, že rozprostírá co nejrovnoměrněji rozložené přes víc domén selhání, to znamená hostitelů Azure Stack. Pokud dojde k selhání hardwaru, virtuálních počítačů z neúspěšných doména bude být restartování v jiných doménách selhání, ale pokud je to možné udržovat v samostatných doménách selhání z jiných virtuálních počítačů ve stejné sadě dostupnosti. Když hostitel přejde do režimu online, virtuálních počítačů bude možné znovu vyrovnána udržet vysokou dostupnost.  
 
-Škálovací sady virtuálních počítačů pomocí sad dostupnosti na zadní ukončit a ujistěte se, že instance každého virtuálního počítače škálovací sady je umístěn v různých chybových domény. To znamená, že používají samostatné infrastruktury uzly služby Azure Stack. Například ve 4 uzly systémech pro Azure Stack mohou existovat situace, ve kterém se nezdaří počet 3 instancí škálovací sady virtuálních počítačů při vytváření z důvodu nedostatku kapacity 4 uzly umístit 3 instancí škálovací sady virtuálních počítačů na 3 samostatných uzlech služby Azure Stack. Kromě toho můžete uzlů Azure Stack vyplněné nahoru na různých úrovních před pokusu o umístění. 
+Škálovací sady virtuálních počítačů pomocí sad dostupnosti na zadní ukončit a ujistěte se, že instance každého virtuálního počítače škálovací sady je umístěn v různých chybových domény. To znamená, že používají samostatné infrastruktury uzly služby Azure Stack. Například v se čtyřmi uzly systémech pro Azure Stack, mohou existovat situace, ve kterém se nezdaří tři instance škálovací sada virtuálních počítačů při vytváření z důvodu nedostatku kapacity 4 uzly umístit tři instancí škálovací sady virtuálního počítače na třech různých uzlech služby Azure Stack . Kromě toho můžete uzlů Azure Stack vyplněné nahoru na různých úrovních před pokusu o umístění. 
 
-Azure Stack není over-pass-the potvrdit paměť. Útoky over-pass-the potvrzení počet fyzických jader je však povoleno. Protože umístění algoritmy nevypadají v existujících virtuálních a fyzických jader over-pass-the zřizování poměr jako faktor, každý hostitel může mít různý poměr. Jako Microsoft neposkytujeme pokyny na fyzický virtuální jádrům kvůli kolísání úloh a požadavky na úroveň služby. 
+Azure Stack není over-pass-the potvrdit paměť. Útoky over-pass-the potvrzení počet fyzických jader je však povoleno. 
+
+Protože umístění algoritmy nevypadají v existujících virtuálních a fyzických jader over-pass-the zřizování poměr jako faktor, každý hostitel může mít různý poměr. Jako Microsoft neposkytujeme pokyny na fyzický virtuální jádrům kvůli kolísání úloh a požadavky na úroveň služby. 
 
 ## <a name="consideration-for-total-number-of-vms"></a>Zvážení, celkový počet virtuálních počítačů 
 
@@ -48,6 +50,13 @@ Není k dispozici nové posouzení pro přesné plánování kapacity služby Az
 
 V případě, že se dosáhlo limitu škálování virtuálních počítačů, by výsledkem vrátila následující kódy chyb: VMsPerScaleUnitLimitExceeded, VMsPerScaleUnitNodeLimitExceeded.
 
+## <a name="considerations-for-deallocation"></a>Důležité informace týkající se zrušení přidělení
+
+Pokud je virtuální počítač v _navrácena_ stavu, nepoužívají se paměťových prostředků. Díky tomu ostatní virtuální počítače budou umístěny v systému. 
+
+Pokud pak uvolnění virtuálního počítače znovu spustí, využití paměti nebo přidělování je zpracováván jako nový virtuální počítač umístí do systému a spotřebovává paměť k dispozici. 
+
+Pokud neexistuje žádná dostupná paměť, virtuální počítač nespustí.
 
 ## <a name="azure-stack-memory"></a>Azure Stack paměti 
 
@@ -104,7 +113,7 @@ Hodnota V největší virtuální počítač v jednotce škálování dynamicky 
 
 v: Kromě spouštění virtuálních počítačů, paměť je využívána všechny virtuální počítače, které jste dostali v prostředcích infrastruktury. To znamená, že virtuální počítače, které jsou v "Vytváření", "Failed" nebo virtuální počítače vypnout z v rámci g
 
-**Q**: Mám 4 hostitele služby Azure Stack. Můj tenant má 3 virtuální počítače, které využívají 56 GB paměti RAM (D5_v2) každý. Jeden z virtuálních počítačů je velikost 112 GB paměti RAM (D14_v2) a vytváření sestav na řídicím panelu dostupné paměti výsledkem prudký nárůst využití 168 GB na okno kapacity. Následné změny velikosti dalších dvou D5_v2 virtuálních počítačů do D14_v2, výsledkem pouze 56GB paměti RAM zvýšení. Proč je to tak?
+**Q**: Mám k dispozici čtyři hostitele služby Azure Stack. Můj tenant má 3 virtuální počítače, které využívají 56 GB paměti RAM (D5_v2) každý. Jeden z virtuálních počítačů je velikost 112 GB paměti RAM (D14_v2) a vytváření sestav na řídicím panelu dostupné paměti výsledkem prudký nárůst využití 168 GB na okno kapacity. Následné změny velikosti dalších dvou D5_v2 virtuálních počítačů do D14_v2, výsledkem pouze 56GB paměti RAM zvýšení. Proč je to tak?
 
 **A**: Dostupná paměť je funkce odolnosti proti chybám rezervy spravuje pomocí služby Azure Stack. Rezerva odolnost proti chybám je funkce největší možnou velikost virtuálního počítače na razítku služby Azure Stack. Zpočátku se největší virtuální počítač na razítko 56 GB paměti. Pokud byl virtuální počítač se změněnou velikostí, největší virtuální počítač na razítko začal být 112 GB paměti, který nejen zvýšení paměti používané podle tohoto tenanta virtuálního počítače, ale také zvýšit odolnost proti chybám rezervy. Výsledkem zvýšení 56 GB (56 GB do tenanta 112 GB zvýšení paměti virtuálního počítače) a 112 GB odolnost proti chybám rezerva paměti zvýšení. Při změně velikosti následující virtuální počítače byly největší možnou velikost virtuálního počítače zůstala jako 112 GB virtuálního počítače a proto neexistuje žádný nárůst rezervy výsledná odolnost proti chybám. Zvýšení využití paměti bylo pouze tenanta zvýšení paměti virtuálního počítače (56 GB). 
 

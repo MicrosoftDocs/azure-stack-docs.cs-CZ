@@ -16,12 +16,12 @@ ms.date: 05/30/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 04/20/2019
-ms.openlocfilehash: 7f335a6ad59d6f27c8e402863849d21c87f1cee2
-ms.sourcegitcommit: 75b13158347963063b7ee62b0ec57894b542c1be
+ms.openlocfilehash: fa8c8b43b354b3f63dfed87cc45baf39fa18652b
+ms.sourcegitcommit: 90ed5aa051d0756b2432c8aca0e2232c8ec493a4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66748903"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68239478"
 ---
 # <a name="azure-stack-1903-update"></a>Aktualizace služby Azure Stack 1903
 
@@ -195,6 +195,8 @@ Toto jsou známé problémy této verze sestavení po instalaci.
 - Nelze odebrat škálovací sady z **Virtual Machine Scale Sets** okno. Jako alternativní řešení, vyberte škálovací sady, že chcete odebrat, klikněte **odstranit** tlačítko **přehled** podokně.
 
 - Vytváření virtuálních počítačů ve skupině dostupnosti 3 domén selhání a vytvořit škálovací sadu virtuálních počítačů nastavte instance selže a zobrazí se **FabricVmPlacementErrorUnsupportedFaultDomainSize** chyba během procesu aktualizace ve službě Azure Stack 4 uzly prostředí. Můžete vytvořit jednotlivých virtuálních počítačů ve skupině dostupnosti s 2 domén selhání byl úspěšně nastaven. Vytváření instance škálovací sady je však stále nejsou k dispozici během procesu aktualizace ve službě Azure Stack 4 uzly.
+
+- Vytvoření bitové kopie se nezdařilo uživatele zařadí služba bitových kopií uživatele do špatném stavu. Selhání se spustí operace vytvoření nebo odstranění uživatelů bitové kopie. Odstranění image uživatele může selhat s chybou: "Chyba: Interní disk management došlo k chybě."
 
 ### <a name="networking"></a>Sítě
 

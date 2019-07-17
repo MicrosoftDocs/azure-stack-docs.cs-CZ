@@ -16,12 +16,12 @@ ms.date: 05/31/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 05/31/2019
-ms.openlocfilehash: f25bc769e7461c21e40017d6413cfbe35186441b
-ms.sourcegitcommit: bcaad8b7db2ea596018d973cb29283d8c6daebfb
+ms.openlocfilehash: 3a92a142181b9e2268948d430b0a62d6ffa189d8
+ms.sourcegitcommit: 90ed5aa051d0756b2432c8aca0e2232c8ec493a4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/27/2019
-ms.locfileid: "67419603"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68239460"
 ---
 # <a name="azure-stack-1904-known-issues"></a>Azure Stack 1904 známé problémy
 
@@ -215,7 +215,12 @@ Pokud jste povolení diagnostiky spouštění na virtuálním počítači, ale o
 - Příčina: V okně zobrazení instance škálovací sady se nachází na portálu Azure Stack v **řídicí panel** > **škálovací sady virtuálních počítačů**  >   **Instance AnyScaleSet -**  > **AnyScaleSetInstance** nepodaří načíst.
 - Náprava: Aktuálně nejsou k dispozici žádná možnost nápravy a pracujeme na opravě. Dokud to neuděláte, použijte prosím rutinu rozhraní příkazového řádku `az vmss get-instance-view` získat zobrazení instance škálovací sady virtuálních počítačů.
 
-## <a name="storage"></a>Úložiště
+### <a name="user-image-service"></a>Služba bitových kopií uživatele
+- Použít: Tento problém se vztahuje na všechny podporované verze.
+- Příčina: Vytvoření bitové kopie se nezdařilo uživatele zařadí služba bitových kopií uživatele do špatném stavu. Selhání se spustí operace vytvoření nebo odstranění uživatelů bitové kopie. Odstranění image uživatele může selhat s chybou: "Chyba: Interní disk management došlo k chybě."
+- Náprava: Žádné zmírňující opatření. Vytvořit lístek podpory s Microsoftem.
+
+## <a name="storage"></a>Storage
 
 - Použít: Tento problém se vztahuje na všechny podporované verze.
 - Příčina: [ConvertTo-AzureRmVMManagedDisk](/powershell/module/azurerm.compute/convertto-azurermvmmanageddisk) není podporováno ve službě Azure Stack a má za následek vytvoření disku s **$null** ID. Předchází se tak provedení operace na virtuálním počítači, jako je například spouštění a zastavování. Disk se nezobrazí v uživatelském rozhraní ani ho zřejmě prostřednictvím rozhraní API. Virtuální počítač v tomto okamžiku nelze opravit a musí být odstraněny.
@@ -232,7 +237,7 @@ Pokud jste povolení diagnostiky spouštění na virtuálním počítači, ale o
 <!-- ### Identity -->
 <!-- ### Marketplace -->
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 - [Kontrolní seznam pro revizi aktualizace aktivity](azure-stack-release-notes-checklist.md)
 - [Zkontrolujte seznam aktualizací zabezpečení](azure-stack-release-notes-security-updates-1904.md)

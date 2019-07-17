@@ -10,23 +10,23 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: solution
 ms.date: 06/20/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 06/20/2019
-ms.openlocfilehash: 77d0b7c856e594e7e97ad30085419bfac13bd4f7
-ms.sourcegitcommit: 104ccafcb72a16ae7e91b154116f3f312321cff7
+ms.openlocfilehash: aa48e3b40afc841a26f15ce06870d002261c5932
+ms.sourcegitcommit: 2a4cb9a21a6e0583aa8ade330dd849304df6ccb5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67308927"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68286842"
 ---
-# <a name="tutorial-deploy-a-highly-available-mongodb-solution-to-azure-and-azure-stack"></a>Kurz: Nasazení vysoce dostupné řešení MongoDB do Azure a Azure Stack
+# <a name="deploy-a-highly-available-mongodb-solution-to-azure-and-azure-stack"></a>Nasazení vysoce dostupné řešení MongoDB do Azure a Azure Stack
 
 Tento článek vás postupně prostřednictvím automatizovaných nasazení základní clusteru s vysokou dostupností (HA) MongoDB s lokalitou pro zotavení po havárii napříč dvěma prostředími Azure Stack. Další informace o MongoDB a vysoké dostupnosti najdete v tématu [členy sady replik](https://docs.mongodb.com/manual/core/replica-set-members/).
 
-V tomto kurzu vytvoříte ukázkové prostředí:
+V tomto řešení vytvoříte ukázkové prostředí:
 
 > [!div class="checklist"]
 > - Orchestrace nasazení napříč dvěma zásobníky Azure
@@ -36,9 +36,9 @@ V tomto kurzu vytvoříte ukázkové prostředí:
 
 > [!Tip]  
 > ![hybridní pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
-> Microsoft Azure Stack je rozšířením Azure. Azure Stack přináší flexibilitu a inovace cloud computingu do místního prostředí a umožňuje ten jediný hybridní cloud, který umožňuje vytvářet a nasazovat hybridní aplikace kdekoli.  
+> Microsoft Azure Stack je rozšířením Azure. Azure Stack přináší flexibilitu a inovace cloud computingu do místního prostředí, povolení ten jediný hybridní cloud, který umožňuje vytvářet a nasazovat hybridní aplikace kdekoli.  
 > 
-> Dokument White Paper [aspekty návrhu pro hybridní aplikace](https://aka.ms/hybrid-cloud-applications-pillars) kontroly pilířů kvality softwaru (umístění, škálovatelnost, dostupnost, odolnost, možnosti správy a zabezpečení) pro navrhování, nasazování a provozování hybridní aplikace. Aspekty návrhu při optimalizaci návrhu hybridní aplikace, minimalizovat problémy v produkčním prostředí.
+> Tento článek [aspekty návrhu pro hybridní aplikace](azure-stack-edge-pattern-overview.md) kontroly pro navrhování, nasazování a provozování hybridní pilířů kvality softwaru (umístění, škálovatelnost, dostupnost, odolnost, možnosti správy a zabezpečení) aplikace. Aspekty návrhu při optimalizaci návrhu hybridních aplikací, minimalizovat problémy v produkčním prostředí.
 
 
 

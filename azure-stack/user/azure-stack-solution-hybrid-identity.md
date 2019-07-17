@@ -10,19 +10,19 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: solution
 ms.date: 06/26/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 06/26/2019
-ms.openlocfilehash: 074d971c1f951797b5dc2d53a62eef56d0b7249f
-ms.sourcegitcommit: eccbd0098ef652919f357ef6dba62b68abde1090
+ms.openlocfilehash: 3ed0c109e0253fe6d710801dbc30de04c0b5a6e5
+ms.sourcegitcommit: 2a4cb9a21a6e0583aa8ade330dd849304df6ccb5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67492328"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68286827"
 ---
-# <a name="tutorial-configure-hybrid-cloud-identity-for-azure-and-azure-stack-applications"></a>Kurz: Konfigurace hybridní cloudové identity pro aplikace Azure a Azure Stack
+# <a name="configure-hybrid-cloud-identity-for-azure-and-azure-stack-applications"></a>Konfigurace hybridní cloudové identity pro aplikace Azure a Azure Stack
 
 *Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
 
@@ -35,19 +35,19 @@ Máte dvě možnosti pro poskytování přístupu k aplikacím v globální Azur
 
 Udělení přístupu k aplikacím Azure Stack pro nasazení nebo konfigurací pomocí Azure Resource Manageru ve službě Azure Stack pomocí instančních objektů.
 
-V tomto kurzu vytvoříte ukázkové prostředí:
+V tomto řešení vytvoříte ukázkové prostředí:
 
 > [!div class="checklist"]
 > - Vytvoření hybridní identity v globální službě Azure Stack a Azure
 > - Získat token pro přístup k rozhraní API služby Azure Stack.
 
-Musíte mít oprávnění operátor Azure stacku pro kroky v tomto kurzu.
+Musíte mít oprávnění operátor Azure stacku kroky v tomto řešení.
 
 > [!Tip]  
 > ![hybridní pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
 > Microsoft Azure Stack je rozšířením Azure. Azure Stack přináší flexibilitu a inovace cloud computingu do místního prostředí, povolení ten jediný hybridní cloud, který umožňuje vytvářet a nasazovat hybridní aplikace kdekoli.  
 > 
-> Dokument White Paper [aspekty návrhu pro hybridní aplikace](https://aka.ms/hybrid-cloud-applications-pillars) kontroly pilířů kvality softwaru (umístění, škálovatelnost, dostupnost, odolnost, možnosti správy a zabezpečení) pro navrhování, nasazování a provozování hybridní aplikace. Aspekty návrhu při optimalizaci návrhu hybridní aplikace, minimalizovat problémy v produkčním prostředí.
+> Tento článek [aspekty návrhu pro hybridní aplikace](azure-stack-edge-pattern-overview.md) kontroly pro navrhování, nasazování a provozování hybridní pilířů kvality softwaru (umístění, škálovatelnost, dostupnost, odolnost, možnosti správy a zabezpečení) aplikace. Aspekty návrhu při optimalizaci návrhu hybridních aplikací, minimalizovat problémy v produkčním prostředí.
 
 
 ## <a name="create-a-service-principal-for-azure-ad-in-the-portal"></a>Vytvoření instančního objektu služby pro službu Azure AD na portálu
@@ -60,7 +60,7 @@ Pokud jste nasadili Azure Stack se službou AD FS, slouží k vytvoření instan
 
 ## <a name="using-the-azure-stack-api"></a>Pomocí služby Azure Stack rozhraní API
 
-[Rozhraní API služby Azure Stack](azure-stack-rest-api-use.md) kurz vás provede procesem načítání tokenu pro přístup k rozhraní API služby Azure Stack.
+[Rozhraní API služby Azure Stack](azure-stack-rest-api-use.md) řešení vás provede procesem načítání tokenu pro přístup k rozhraní API služby Azure Stack.
 
 ## <a name="connect-to-azure-stack-using-powershell"></a>Připojení ke službě Azure Stack pomocí Powershellu
 
@@ -77,7 +77,7 @@ Pro připojení ke službě Azure Stack pomocí kódu, použijte k získání ov
 >[!Note]
 >Pokud sada Azure SDK pro svůj jazyk podporuje profily rozhraní API Azure, SDK nemusí fungovat s Azure Stack. Další informace o profilech rozhraní API Azure, najdete v článku [Správa profilů verzí API](azure-stack-version-profiles.md) článku.
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
  - Další informace o zpracování identity ve službě Azure Stack, najdete v článku [architektury identit pro službu Azure Stack](../operator/azure-stack-identity-architecture.md).
  - Další informace o vzorech cloudu Azure, najdete v článku [vzory návrhu v cloudu](https://docs.microsoft.com/azure/architecture/patterns).

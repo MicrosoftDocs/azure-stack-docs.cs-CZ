@@ -1,5 +1,5 @@
 ---
-title: Kurz&#58; nasazení aplikací do Azure a Azure Stack | Dokumentace Microsoftu
+title: Nasazení aplikací do Azure a Azure Stack | Dokumentace Microsoftu
 description: Informace o nasazování aplikací do Azure a Azure Stackem hybridní kanálu CI/CD.
 services: azure-stack
 documentationcenter: ''
@@ -10,25 +10,25 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: solution
 ms.date: 03/11/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/07/2018
-ms.openlocfilehash: 9f0f25e5810fc4c9a27d3607defbaca9dcfc0388
-ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
+ms.openlocfilehash: 9fbadb923452fc2420d1f8626a69d377c4d72e12
+ms.sourcegitcommit: 2a4cb9a21a6e0583aa8ade330dd849304df6ccb5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66692081"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68286968"
 ---
-# <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Kurz: Nasazení aplikací na platformy Azure a Azure Stack
+# <a name="deploy-apps-to-azure-and-azure-stack"></a>Nasazení aplikací na platformy Azure a Azure Stack
 
 *Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
 
 Zjistěte, jak nasadit aplikace do Azure a využitím kanálu průběžné integrace a doručování (CI/CD) hybridní službě Azure Stack.
 
-V tomto kurzu vytvoříte ukázkové prostředí:
+V tomto řešení vytvoříte ukázkové prostředí:
 
 > [!div class="checklist"]
 > * Zahájení nového sestavení založené na potvrzení změn kódu do úložiště služby Azure DevOps.
@@ -51,9 +51,9 @@ Další informace o CI a CD:
 
 > [!Tip]  
 > ![hybridní pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
-> Microsoft Azure Stack je rozšířením Azure. Azure Stack přináší flexibilitu a inovace cloud computingu do místního prostředí. To je ten jediný hybridní cloud, který umožňuje vytvářet a nasazovat hybridní aplikace kdekoli.  
+> Microsoft Azure Stack je rozšířením Azure. Azure Stack přináší flexibilitu a inovace cloud computingu do místního prostředí, povolení ten jediný hybridní cloud, který umožňuje vytvářet a nasazovat hybridní aplikace kdekoli.  
 > 
-> Dokument white paper [aspekty návrhu pro hybridní aplikace](https://aka.ms/hybrid-cloud-applications-pillars) kontroly pilířů kvality softwaru (umístění, škálovatelnost, dostupnost, odolnost, možnosti správy a zabezpečení) pro navrhování, nasazování a provozování hybridní aplikace. Aspekty návrhu pomáhají při optimalizace návrhu hybridní aplikace, které minimalizovat problémy v produkčním prostředí.
+> Tento článek [aspekty návrhu pro hybridní aplikace](azure-stack-edge-pattern-overview.md) kontroly pro navrhování, nasazování a provozování hybridní pilířů kvality softwaru (umístění, škálovatelnost, dostupnost, odolnost, možnosti správy a zabezpečení) aplikace. Aspekty návrhu při optimalizaci návrhu hybridních aplikací, minimalizovat problémy v produkčním prostředí.
 
 ## <a name="prerequisites"></a>Požadavky
 
@@ -63,9 +63,9 @@ Musíte mít komponenty v místo pro vytvoření kanálu CI/CD hybridní. Násle
 * Operátor Azure stacku musí dokončit následující položky: nasazení služby App Service, vytvořte plány a nabídky, vytvořit tenanta předplatného a přidejte image Windows serveru 2016.
 
 >[!NOTE]
->Pokud už máte některé z těchto součástí nasazení, ujistěte se, že že všechny požadavky splňují před zahájením tohoto kurzu.
+>Pokud už máte některé z těchto součástí nasazení, ujistěte se, že že všechny požadavky splňují před zahájením tohoto řešení.
 
-V tomto kurzu se předpokládá, že máte některé základní znalosti o Azure a Azure Stack. Další informace před zahájením tohoto kurzu, přečtěte si následující články:
+Toto řešení se předpokládá, že máte některé základní znalosti o Azure a Azure Stack. Další informace před zahájením řešení najdete v následujících článcích:
 
 * [Úvod do Azure](https://azure.microsoft.com/overview/what-is-azure/)
 * [Klíčové koncepty služby Azure Stack](../operator/azure-stack-overview.md)
@@ -73,12 +73,12 @@ V tomto kurzu se předpokládá, že máte některé základní znalosti o Azure
 ### <a name="azure-requirements"></a>Požadavky na Azure
 
 * Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) před tím, než začnete.
-* Vytvoření [webová aplikace](https://docs.microsoft.com/azure/app-service/overview) v Azure. Zkontrolujte si adresu URL webové aplikace, budete muset použít v tomto kurzu.
+* Vytvoření [webová aplikace](https://docs.microsoft.com/azure/app-service/overview) v Azure. Zkontrolujte si adresu URL webové aplikace, budete muset použít v řešení.
 
 ### <a name="azure-stack-requirements"></a>Požadavky služby Azure Stack
 
 * Použít systémech pro Azure Stack integrované nebo nasadit Azure Stack Development Kit (ASDK). Nasazení ASDK:
-  * [Kurzu: Nasazení ASDK pomocí instalačního programu](../asdk/asdk-install.md) článek obsahuje podrobné pokyny.
+  * [ Řešení: Nasazení ASDK pomocí instalačního programu](../asdk/asdk-install.md) článek obsahuje podrobné pokyny.
   * Použití [ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1 ) skript Powershellu pro automatizaci ASDK kroky po nasazení.
 
     > [!Note]
@@ -265,7 +265,7 @@ Tím, že vytvoříte koncové body, Visual Studio Online (VSTO) build aplikace 
 6. Vyberte **uložit změny**.
 7. V **skupin služby Azure DevOps** seznamu vyberte **koncový bod správci**.
 
-    ![NorthwindCloud Endpoint Administrators](media/azure-stack-solution-hybrid-pipeline/015_save_endpoint.png)
+    ![Koncový bod NorthwindCloud správci](media/azure-stack-solution-hybrid-pipeline/015_save_endpoint.png)
 
 8. Na **členy** kartu, vyberte možnost **přidat**.
 9. Na **přidávat uživatele a skupiny** stránky, zadejte uživatelské jméno a vyberte uživatele ze seznamu uživatelů.
@@ -279,12 +279,12 @@ Teď, když existuje informace o koncovém bodu služby Azure DevOps pro připoj
 
 Můžete podle pokynů v [vytvořte připojení služby Azure Resource Manageru existující službu objektu zabezpečení ](https://docs.microsoft.com/vsts/pipelines/library/connect-to-azure?view=vsts#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal) článku o vytvoření připojení služby pomocí existující službu objektu zabezpečení a použijte následující mapování:
 
-| Name | Příklad: | Popis |
+| Name | Příklad | Popis |
 | --- | --- | --- |
 | Název připojení | Azure Stack, Azure AD | Název připojení. |
 | Prostředí | AzureStack | Název nového prostředí. |
 | Adresa URL prostředí | `https://management.local.azurestack.external` | Váš koncový bod správy. |
-| Úroveň oboru | Předplatné | Rozsah připojení. |
+| Úroveň oboru | Subscription | Rozsah připojení. |
 | ID předplatného | 65710926-XXXX-4F2A-8FB2-64C63CD2FAE9 | ID předplatného uživatele ze služby Azure Stack |
 | Název předplatného | name@contoso.com | Název předplatného uživatele ze služby Azure Stack. |
 | ID klienta instančního objektu | FF74AACF-XXXX-4776-93FC-C63E6E021D59 | ID objektu zabezpečení z [to](azure-stack-solution-pipeline.md#create-a-service-principal) části v tomto článku. |
@@ -304,12 +304,12 @@ Nejnovější aktualizace pro Azure DevOps umožňuje vytvořit připojení slu�
 
 Můžete vytvořit připojení služby pomocí následující mapování:
 
-| Name | Příklad: | Popis |
+| Name | Příklad | Popis |
 | --- | --- | --- |
 | Název připojení | Azure Stack služby AD FS | Název připojení. |
 | Prostředí | AzureStack | Název nového prostředí. |
 | Adresa URL prostředí | `https://management.local.azurestack.external` | Váš koncový bod správy. |
-| Úroveň oboru | Předplatné | Rozsah připojení. |
+| Úroveň oboru | Subscription | Rozsah připojení. |
 | ID předplatného | 65710926-XXXX-4F2A-8FB2-64C63CD2FAE9 | ID předplatného uživatele ze služby Azure Stack |
 | Název předplatného | name@contoso.com | Název předplatného uživatele ze služby Azure Stack. |
 | ID klienta instančního objektu | FF74AACF-XXXX-4776-93FC-C63E6E021D59 | ID klienta objektu služby, který jste vytvořili pro službu AD FS. |
@@ -324,7 +324,7 @@ Teď, když je vytvořen koncový bod, je připravený k použití Azure DevOps 
 
 ## <a name="develop-your-application-build"></a>Vývoj aplikace sestavení
 
-V této části kurzu, je nutné:
+V této části řešení, je nutné:
 
 * Přidání kódu do projektu služby Azure DevOps.
 * Vytvoření nasazení samostatné webové aplikace.

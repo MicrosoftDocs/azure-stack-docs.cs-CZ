@@ -10,19 +10,19 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: scenario
 ms.date: 01/14/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: eb5815a55e5e2c60ce61f9c4af96ee58a1aa684b
-ms.sourcegitcommit: ad2f2cb4dc8d5cf0c2c37517d5125921cff44cdd
+ms.openlocfilehash: 1bbe22bdc78f28aa172c90770cd5d2857878d2c3
+ms.sourcegitcommit: 2a4cb9a21a6e0583aa8ade330dd849304df6ccb5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67138954"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68286920"
 ---
-# <a name="tutorial-create-cross-cloud-scaling-app-solutions-with-azure-and-azure-stack"></a>Kurz: Vytvoření řešení aplikací pro škálování cloudu s Azure a Azure Stack
+# <a name="create-cross-cloud-scaling-app-solutions-with-azure-and-azure-stack"></a>Vytvoření řešení aplikací pro škálování cloudu s Azure a Azure Stack
 
 *Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
 
@@ -30,7 +30,7 @@ Zjistěte, jak různé cloudové řešení, které najdete postup, ručně aktiv
 
 V tomto modelu možná není připravený ke spuštění vaší aplikace ve veřejném cloudu vašeho tenanta. Ale nemusí být ekonomicky vhodná pro firmy a udržovat kapacita požadovaná pro zpracování accurately špiček v poptávce aplikace v jejich v místním prostředí. Svého tenanta mohli využít elasticitu služby veřejného cloudu s vlastním řešením v místním.
 
-V tomto kurzu vytvoříte ukázkové prostředí:
+V tomto řešení vytvoříte ukázkové prostředí:
 
 > [!div class="checklist"]
 > - Vytvoření několika uzly webové aplikace.
@@ -43,7 +43,7 @@ V tomto kurzu vytvoříte ukázkové prostředí:
 > ![hybridní pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
 > Microsoft Azure Stack je rozšířením Azure. Azure Stack přináší flexibilitu a inovace cloud computingu do místního prostředí, povolení ten jediný hybridní cloud, který umožňuje vytvářet a nasazovat hybridní aplikace kdekoli.  
 > 
-> Dokument White Paper [aspekty návrhu pro hybridní aplikace](https://aka.ms/hybrid-cloud-applications-pillars) kontroly pilířů kvality softwaru (umístění, škálovatelnost, dostupnost, odolnost, možnosti správy a zabezpečení) pro navrhování, nasazování a provozování hybridní aplikace. Aspekty návrhu při optimalizaci návrhu hybridních aplikací, minimalizovat problémy v produkčním prostředí.
+> Tento článek [aspekty návrhu pro hybridní aplikace](azure-stack-edge-pattern-overview.md) kontroly pro navrhování, nasazování a provozování hybridní pilířů kvality softwaru (umístění, škálovatelnost, dostupnost, odolnost, možnosti správy a zabezpečení) aplikace. Aspekty návrhu při optimalizaci návrhu hybridních aplikací, minimalizovat problémy v produkčním prostředí.
 
 ## <a name="prerequisites"></a>Požadavky
 

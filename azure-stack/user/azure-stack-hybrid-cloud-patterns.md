@@ -1,5 +1,5 @@
 ---
-title: Vytvoření hybridních cloudových aplikací s Azure a Azure Stack | Dokumentace Microsoftu
+title: Vytváření řešení hybridní vzory návrhu v cloudu pro Azure Stack | Dokumentace Microsoftu
 description: Naučte se vytvářet hybridní cloudové aplikace s využitím Azure a Azure Stack
 services: azure-stack
 documentationcenter: ''
@@ -11,24 +11,30 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/20/2019
+ms.date: 07/16/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 06/20/2019
-ms.openlocfilehash: 442e12d435102c06a334a8a93271d3d4a27aa578
-ms.sourcegitcommit: 104ccafcb72a16ae7e91b154116f3f312321cff7
+ms.openlocfilehash: 538a626b2e89d15aa4b816674dbb8c374ec4a262
+ms.sourcegitcommit: 2a4cb9a21a6e0583aa8ade330dd849304df6ccb5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67308774"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68286814"
 ---
-# <a name="create-hybrid-cloud-apps-with-azure-and-azure-stack"></a>Vytvoření hybridních cloudových aplikací s Azure a Azure Stack
+#  <a name="build-solutions-hybrid-cloud-design-patterns-for-azure-stack"></a>Vytváření řešení hybridní vzory návrhu v cloudu pro Azure Stack
 
 Microsoft Azure Stack je rozšířením Azure. Azure Stack přináší flexibilitu cloud computingu do místního prostředí a na hraničních zařízeních tím, že hybridní cloud. Můžete vytvářet hybridní cloudové aplikace v Azure a jejich nasazení do vašeho datacentra připojeno nebo odpojeno rozmístěných po celém.
 
 Microsoft Azure je konsistentní hybridní cloud. Azure umožňuje opakovaně používat kód vyvinutý v Azure a nasazení aplikace v suverénních cloudech Azure a Azure Stack. Aplikace, které jsou rozmístěny cloudy jsou také označovány jako *hybridní aplikace*.
 
 Hybridní scénáře značně lišit s prostředky, které jsou k dispozici pro vývoj a zahrnují aspekty, jako je například Geografie, zabezpečení, přístup k Internetu a další důležité informace. I když tyto scénáře nelze vyřešit vašim konkrétním požadavkům, můžete poskytují některé klíče pokyny a příklady zkoumat implementující hybridní řešení.
+
+## <a name="hybrid-cloud-patterns"></a>Hybridní cloudové vzory
+
+- [Vzor škálování cloudu](azure-stack-edge-pattern-cross-cloud-scaling.md)
+- [Geograficky distribuované vzor](azure-stack-edge-pattern-geo-distribution.md)
+- [Vzor DevOps](azure-stack-edge-pattern-hybrid-ci-cd.md)
 
 ## <a name="step-by-step-tutorials"></a>Podrobné kurzy
 
@@ -46,5 +52,5 @@ Hybridní scénáře značně lišit s prostředky, které jsou k dispozici pro 
 
 ## <a name="next-steps"></a>Další postup
 
-- Přečtěte si dokument White Paper [aspekty návrhu pro hybridní aplikace](https://aka.ms/hybrid-cloud-applications-pillars) ke kontrole pilířů kvality softwaru pro navrhování, nasazování a provozování hybridní aplikace.
+- Čtení o [aspekty návrhu pro hybridní aplikace](azure-stack-edge-pattern-overview.md) ke kontrole pilířů kvality softwaru pro navrhování, nasazování a provozování hybridní aplikace.
 - [Nastavení vývojového prostředí ve službě Azure Stack](azure-stack-dev-start.md) a [nasadit svou první aplikaci](azure-stack-dev-start-deploy-app.md) ve službě Azure Stack.

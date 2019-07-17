@@ -1,5 +1,5 @@
 ---
-title: Vzory hybridního cloudu pomocí služby Azure Stack | Dokumentace Microsoftu
+title: Vzory návrhu v hybridního cloudu pro Azure Stack | Dokumentace Microsoftu
 description: Přehled vzorů pro hybridní cloud a inteligentních hraničních zařízení pomocí služby Azure Stack
 services: azure-stack
 documentationcenter: ''
@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/11/2019
+ms.date: 07/17/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 06/11/2019
-ms.openlocfilehash: e390e43b02d93690c1e233279d52d03665414bf7
-ms.sourcegitcommit: 51ec68b5e6dbf437aaca19a9f35ba07d2c402892
+ms.openlocfilehash: 339f0dda56f8f0974e9bf9cd2e0cb8cac1668f0a
+ms.sourcegitcommit: 2a4cb9a21a6e0583aa8ade330dd849304df6ccb5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67856406"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68286883"
 ---
 # <a name="hybrid-cloud-design-patterns-for-azure-stack"></a>Vzory návrhu v hybridního cloudu pro Azure Stack
 
@@ -240,7 +240,7 @@ Tento článek obsahuje seznam položek, které jsou důležité vzít v úvahu 
 
 Může to vypadat podobně jako časově náročný úkol předem, ale snadno získat návratnosti investice do návrhu vaší aplikace založená na tyto pilíře.
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 Další informace naleznete v následujících materiálech:
 
