@@ -1,6 +1,6 @@
 ---
-title: Nasazení šablony pomocí prostředí PowerShell ve službě Azure Stack | Dokumentace Microsoftu
-description: Nasazení šablony pomocí prostředí PowerShell ve službě Azure Stack.
+title: Nasazení šablony pomocí PowerShellu v Azure Stack | Microsoft Docs
+description: Nasazení šablony pomocí PowerShellu v Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -12,33 +12,33 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/08/2019
+ms.date: 07/17/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: be325c41023c859ee70b8ee932673db75f41ec4b
-ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
+ms.openlocfilehash: 6824e6bfd0b6c824783c82041fb1a51ba8f5213f
+ms.sourcegitcommit: 2063332b4d7f98ee944dd1f443847eea70eb5614
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66691442"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68303118"
 ---
-# <a name="deploy-a-template-using-powershell-in-azure-stack"></a>Nasazení šablony pomocí prostředí Powershell ve službě Azure Stack
+# <a name="deploy-a-template-using-powershell-in-azure-stack"></a>Nasazení šablony pomocí PowerShellu v Azure Stack
 
-*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
 
-Prostředí PowerShell můžete použít k nasazení šablony Azure Resource Manageru ke službě Azure Stack. Tento článek popisuje použití Powershellu k nasazení šablony.
+K nasazení Azure Resource Manager šablon Azure Stack můžete použít PowerShell. Tento článek popisuje, jak pomocí PowerShellu nasadit šablonu.
 
-## <a name="run-azurerm-powershell-cmdlets"></a>Spusťte rutiny AzureRM Powershellu
+## <a name="run-azurerm-powershell-cmdlets"></a>Spuštění rutin prostředí PowerShell pro AzureRM
 
-Tento příklad používá **AzureRM** rutiny Powershellu a šablony uložené na Githubu. Šablona vytvoří virtuální počítač Windows Server 2012 R2 Datacenter.
+Tento příklad používá rutiny prostředí PowerShell **AzureRM** a šablonu uloženou na GitHubu. Šablona vytvoří virtuální počítač s Windows Serverem 2012 R2 Datacenter.
 
 >[!NOTE]
-> Než se pokusíte v tomto příkladu, ujistěte se, že jste [nakonfigurovali PowerShell](azure-stack-powershell-configure-user.md) pro uživatele Azure stacku.
+> Než si vyzkoušíte tento příklad, ujistěte se, že jste pro uživatele Azure Stack [nakonfigurovali PowerShell](azure-stack-powershell-configure-user.md) .
 
-1. Přejděte [AzureStackGitHub úložiště](https://aka.ms/AzureStackGitHub) a najít **101-simple-windows-vm** šablony. Uložte šablonu do tohoto umístění: `C:\templates\azuredeploy-101-simple-windows-vm.json`.
-2. Otevřete příkazový řádek se zvýšenými oprávněními prostředí PowerShell.
-3. Nahraďte `username` a `password` v následujícím skriptu se uživatelské jméno a heslo a pak spusťte skript:
+1. Procházejte [úložiště AzureStackGitHub](https://aka.ms/AzureStackGitHub) a vyhledejte šablonu **101-Simple-Windows-VM** . Uložte šablonu do tohoto umístění: `C:\templates\azuredeploy-101-simple-windows-vm.json`.
+2. Otevřete příkazový řádek PowerShellu se zvýšenými oprávněními.
+3. Pomocí `username` uživatelského `password` jména a hesla nahraďte a v následujícím skriptu spusťte skript:
 
     ```powershell
     # Set deployment variables
@@ -63,9 +63,9 @@ Tento příklad používá **AzureRM** rutiny Powershellu a šablony uložené n
     ```
 
     >[!IMPORTANT]
-    > Pokaždé když spustíte tento skript, zvýšit hodnotu `$myNum` parametr, abyste zabránili přepsání vašeho nasazení.
+    > Pokaždé, když tento skript spustíte, zvyšte hodnotu `$myNum` parametru, aby nedošlo k přepsání nasazení.
 
-4. Otevřete portál, vyberte Azure Stack **Procházet**a pak vyberte **virtuálních počítačů** najít nového virtuálního počítače (**myDeployment001**).
+4. Otevřete portál Azure Stack, vyberte **Procházet**a pak vyberte **virtuální počítače** , abyste našli nový virtuální počítač (**myDeployment001**).
 
 ## <a name="next-steps"></a>Další postup
 
