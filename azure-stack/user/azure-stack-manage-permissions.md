@@ -1,6 +1,6 @@
 ---
-title: Správa oprávnění k prostředkům na uživatele ve službě Azure Stack | Dokumentace Microsoftu
-description: Jako správce služeb nebo tenanta zjistěte, jak spravovat oprávnění řízení přístupu na základě rolí.
+title: Správa přístupu k prostředkům v Azure Stack pomocí řízení přístupu na základě role | Microsoft Docs
+description: Naučte se spravovat oprávnění řízení přístupu na základě role (RBAC) jako správce nebo tenanta v Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: PatAltimore
@@ -16,30 +16,30 @@ ms.date: 07/10/2019
 ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: 20bf709cb3c2026910a1283fb0b39ba80c719390
-ms.sourcegitcommit: 7f441f246242fa42147ab5aa69ddc8766ba293e3
+ms.openlocfilehash: a5034e92e52c6da760389d7addc77c6220d59674
+ms.sourcegitcommit: 72d45bb935db0db172d4d7c37d8e48e79e25af64
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67791354"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68376824"
 ---
-# <a name="manage-access-to-resources-with-azure-stack-role-based-access-control"></a>Správa přístupu k prostředkům pomocí Azure Stack Role-Based řízení přístupu
+# <a name="manage-access-to-resources-in-azure-stack-with-role-based-access-control"></a>Správa přístupu k prostředkům v Azure Stack pomocí řízení přístupu na základě role
 
-*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
 
-Azure Stack podporuje řízení přístupu na základě role (RBAC), stejné [model zabezpečení pro správu přístupu](https://docs.microsoft.com/azure/role-based-access-control/overview) používající Microsoft Azure. RBAC můžete použít ke správě uživatele, skupinu nebo aplikaci přístup k předplatných, prostředků a služeb.
+Azure Stack podporuje řízení přístupu na základě role (RBAC), stejné [model zabezpečení pro správu přístupu](https://docs.microsoft.com/azure/role-based-access-control/overview) používající Microsoft Azure. RBAC můžete použít ke správě uživatelů, skupin nebo přístupu aplikací k předplatným, prostředkům a službám.
 
 ## <a name="basics-of-access-management"></a>Základní informace o řízení přístupu
 
-Řízení přístupu na základě rolí poskytuje jemně odstupňované řízení přístupu, který vám pomůže zabezpečit vaše prostředí. Uživatelům můžete udělit konkrétní oprávnění, které potřebují přiřazením role RBAC v určitém rozsahu. Obor přiřazení role může být předplatné, skupinu prostředků nebo jediný prostředek. Čtení [řízení přístupu na základě rolí na portálu Azure portal](https://docs.microsoft.com/azure/role-based-access-control/overview) článkem. poskytne podrobnější informace o řízení přístupu.
+Řízení přístupu na základě rolí poskytuje jemně odstupňované řízení přístupu, který vám pomůže zabezpečit vaše prostředí. Uživatelům dáte přesná oprávnění, která potřebují, přiřazením role RBAC v určitém oboru. Obor přiřazení role může být předplatné, skupinu prostředků nebo jediný prostředek. Čtení [řízení přístupu na základě rolí na portálu Azure portal](https://docs.microsoft.com/azure/role-based-access-control/overview) článkem. poskytne podrobnější informace o řízení přístupu.
 
 ### <a name="built-in-roles"></a>Vestavěné role
 
 Azure Stack má tři základní role, které můžete použít na všechny typy prostředků:
 
-* **Vlastník** můžou spravovat všechno včetně přístupu k prostředkům.
-* **Přispěvatel** můžou spravovat všechno kromě přístupu k prostředkům.
-* **Čtečka** může vše zobrazit, ale nemůže provádět žádné změny.
+* **Vlastník**: může spravovat všechno, včetně přístupu k prostředkům.
+* **Přispěvatel**: může spravovat všechno, s výjimkou přístupu k prostředkům.
+* **Čtecí modul**: může zobrazit vše, ale nemůže provádět žádné změny.
 
 ### <a name="resource-hierarchy-and-inheritance"></a>Hierarchie prostředků a dědičnost
 
@@ -52,14 +52,14 @@ Azure Stack má následující hierarchie prostředků:
 V podřízené obory dědí přístup, který udělíte v nadřazeném oboru. Příklad:
 
 * Můžete přiřadit **čtečky** role ke skupině Azure AD v oboru předplatného. Členové této skupiny můžou zobrazit každou skupinu prostředků a prostředků v předplatném.
-* Můžete přiřadit **Přispěvatel** role do aplikace v oboru skupiny prostředků. Aplikace můžete spravovat prostředky v příslušné skupině prostředků, ale ne jiné skupiny prostředků v předplatném všech typů.
+* Roli **Přispěvatel** přiřadíte aplikaci v oboru skupiny prostředků. Aplikace může spravovat prostředky všech typů v této skupině prostředků, ale ne jiné skupiny prostředků v rámci předplatného.
 
 ### <a name="assigning-roles"></a>Přiřazení rolí
 
 Můžete přiřadit více než jednu roli pro uživatele a každou roli je možné přidružit jiný obor. Příklad:
 
-* Přiřadit role Čtenář the TestUser-A k předplatnému 1.
-* Přiřazení role vlastníka the TestUser-A TestVM-1.
+* Přiřadíte TestUser-A roli **Čtenář** k předplatnému-1.
+* Přiřadíte hodnotu TestUser-A **vlastníkem** role TestVM-1.
 
 Azure [přiřazení rolí](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) článek obsahuje podrobné informace o zobrazení, přiřazování a odstranění rolí.
 
@@ -70,13 +70,13 @@ Následující kroky popisují, jak nakonfigurovat oprávnění pro uživatele.
 1. Přihlaste se pomocí účtu, který má oprávnění vlastníka prostředku, který chcete spravovat.
 2. V levém navigačním podokně zvolte **Skupiny prostředků**.
 3. Zvolte název, který chcete nastavit oprávnění pro skupinu prostředků.
-4. V navigačním podokně skupiny prostředků zvolte **řízení přístupu (IAM)** . **Přiřazení rolí** zobrazení obsahuje seznam položek, které mají přístup do skupiny prostředků. Můžete filtrovat a seskupení výsledků.
-5. Na **řízení přístupu** nabídky vyberte možnosti **přidat**.
-6. Na **přidat oprávnění** podokna:
+4. V navigačním podokně skupiny prostředků zvolte **řízení přístupu (IAM)** .<BR> **Přiřazení rolí** zobrazení obsahuje seznam položek, které mají přístup do skupiny prostředků. Můžete filtrovat a seskupení výsledků.
+5. Na řádku nabídek **řízení přístupu** vyberte **Přidat**.
+6. V podokně **Přidat oprávnění** :
 
    * Zvolte roli, kterou chcete přiřadit z **Role** rozevíracího seznamu.
    * Vyberte prostředek, kterou chcete přiřadit z **přiřadit přístup k** rozevíracího seznamu.
-   * Ve svém adresáři vyberte uživatele, skupinu nebo aplikaci, kterým chcete přiřadit přístup. V adresáři můžete vyhledávat pomocí zobrazovaných názvů, e-mailových adres a identifikátorů objektů.
+   * V adresáři vyberte uživatele, skupinu nebo aplikaci, ke kterým chcete udělit přístup. V adresáři můžete vyhledávat pomocí zobrazovaných názvů, e-mailových adres a identifikátorů objektů.
 
 7. Vyberte **Uložit**.
 

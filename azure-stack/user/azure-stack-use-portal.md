@@ -1,6 +1,6 @@
 ---
-title: Pomocí portálu Azure Stack | Dokumentace Microsoftu
-description: Zjistěte, jak přistupovat a používat portál user portal v Azure stacku.
+title: Použití portálu Azure Stack | Microsoft Docs
+description: Naučte se, jak přistupovat k portálu User Portal a používat ho v Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,68 +14,68 @@ ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: efemmano
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: dd68364585fd1d204713c5a014b141f4450a1d45
-ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
+ms.openlocfilehash: 629056556b04a7b5d19c2463b619f3da3a70f7e0
+ms.sourcegitcommit: 72d45bb935db0db172d4d7c37d8e48e79e25af64
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67131554"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68376892"
 ---
 # <a name="use-the-azure-stack-portal"></a>Použití portálu Azure Stack
 
-*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
 
-Můžete si můžete předplatit na veřejné nabídky pomocí portálu Azure Stack a používat služby, které poskytují tyto nabídky. Pokud jste použili na webu Azure portal globální, jste již obeznámeni s fungování lokality.
+Pomocí portálu Azure Stack můžete odebírat veřejné nabídky a využívat služby, které tyto nabídky poskytují. Pokud jste použili globální Azure Portal, již jste obeznámeni s tím, jak lokalita funguje.
 
 ## <a name="access-the-portal"></a>Přístup k portálu
 
-Vaše služby Azure Stack – operátor (poskytovatel služeb nebo správce ve vaší organizaci), vám dá vědět správnou adresu URL pro přístup k portálu.
+Váš operátor Azure Stack (buď poskytovatele služeb nebo správce ve vaší organizaci), vám umožní znát správnou adresu URL pro přístup k portálu.
 
-- Integrovaný systém, adresa URL se liší v závislosti na oblasti vaší operátor a název domény externího a bude mít tento formát https://portal.&lt; *oblast*&gt;.&lt; *Plně kvalifikovaný název domény*&gt;.
-- Pokud používáte Azure Stack Development Kit, adresy portálu je https://portal.local.azurestack.external.
-- Výchozí časové pásmo pro všechna nasazení Azure Stack nastavený na koordinovaný univerzální čas (UTC). Časové pásmo můžete vybrat při instalaci Azure Stack, ale automaticky přejde na čas UTC jako výchozí během instalace.
+- V případě integrovaného systému se adresa URL liší v závislosti na oblasti vašeho operátoru a na externím názvu domény a bude ve formátu https://portal.&lt. *oblast.* &gt;&lt; *Plně kvalifikovaný název domény* &gt;.
+- Pokud používáte Azure Stack Development Kit (ASDK), adresa portálu je https://portal.local.azurestack.external.
+- Výchozí časové pásmo pro všechna Azure Stack nasazení je nastaveno na koordinovaný světový čas (UTC). Při instalaci Azure Stack můžete vybrat časové pásmo, ale při instalaci se automaticky obnoví standard UTC.
 
 ## <a name="customize-the-dashboard"></a>Přizpůsobení řídicího panelu
 
-Řídicí panel obsahuje sadu výchozích dlaždic. Můžete vybrat **upravit řídicí panel** změnit výchozí řídicí panel, nebo vyberte **nový řídicí panel** k vytvoření vlastního řídicího panelu. Řídicí panel můžete snadno přizpůsobit přidáním nebo odebráním dlaždice. Například pokud chcete přidat dlaždici výpočetní prostředky, vyberte **+ vytvořit prostředek**. Klikněte pravým tlačítkem na **Compute**a pak vyberte **připnout na řídicí panel**.
+Řídicí panel obsahuje výchozí sadu dlaždic. Vyberte **Upravit řídicí panel** pro úpravu výchozího řídicího panelu nebo vyberte **nový řídicí panel** a vytvořte vlastní řídicí panel. Řídicí panel můžete snadno přizpůsobit přidáním nebo odebráním dlaždic. Pokud například chcete přidat dlaždici COMPUTE, vyberte **+ vytvořit prostředek**. Klikněte pravým tlačítkem na **COMPUTE**a potom vyberte **Připnout na řídicí panel**.
 
-![Snímek obrazovky portálu user Portal Azure Stack](media/azure-stack-use-portal/userportal.png)
+![Snímek obrazovky Azure Stack User Portal](media/azure-stack-use-portal/userportal.png)
 
-Chcete-li obnovit původní nastavení řídicího panelu:
-1.  Vyberte **upravit řídicí panel**. 
-2.  Klikněte pravým tlačítkem a vyberte **resetovat do výchozího stavu**.
+Obnovení původního nastavení řídicího panelu:
+1.  Vyberte **Upravit řídicí panel**. 
+2.  Klikněte pravým tlačítkem a vyberte **obnovit do výchozího stavu**.
 
-## <a name="create-subscription-and-browse-available-resources"></a>Vytvoření odběru a procházet dostupné prostředky.
+## <a name="create-subscription-and-browse-available-resources"></a>Vytvoření předplatného a procházení dostupných prostředků
 
-Pokud ještě nemáte předplatné, jsou první, co musíte udělat, odběr na nabídku. Potom můžete procházet dostupné prostředky. Procházení a vytváření prostředků, použijte některou z následujících postupů:
+Pokud předplatné ještě nemáte, musíte se přihlásit k odběru nabídky. Potom můžete procházet dostupné prostředky. K procházení a vytváření prostředků použijte některý z následujících přístupů:
 
-- Vyberte **Marketplace** dlaždici na řídicím panelu.
-- Na **všechny prostředky** dlaždice, vyberte **vytvářet prostředky**.
+- Na řídicím panelu vyberte dlaždici **Marketplace** .
+- Na dlaždici **všechny prostředky** vyberte **vytvořit prostředky**.
 - V levém navigačním podokně vyberte **+ vytvořit prostředek**.
 
-## <a name="learn-how-to-use-available-services"></a>Další informace o použití dostupných služeb
+## <a name="learn-how-to-use-available-services"></a>Naučte se používat dostupné služby.
 
-Pokud potřebujete pokyny, jak používat dostupné služby, můžou existovat různé možnosti k dispozici.
+Pokud potřebujete Rady, jak používat dostupné služby, můžou vám být k dispozici různé možnosti.
 
-- Vaše organizace nebo poskytovatel služeb mohou poskytovat vlastní dokumentace, která je obvykle případ, nabízí vlastní služby nebo aplikace.
-- Aplikace třetí strany mají své vlastní dokumentace.
-- U služeb konzistentních s Azure důrazně doporučujeme, abyste si nejdřív dokumentace ke službě Azure Stack. Pro přístup k dokumentaci pro uživatele služby Azure Stack, vyberte ikonu nápovědy a pak vyberte **Nápověda a podpora**.
+- Vaše organizace nebo poskytovatel služeb může poskytovat vlastní dokumentaci, což je obvykle případ, že nabízí přizpůsobené služby nebo aplikace.
+- Aplikace třetích stran mají svou vlastní dokumentaci.
+- Pro služby konzistentní s Azure důrazně doporučujeme, abyste si nejdřív přečtěte dokumentaci Azure Stack. Chcete-li získat přístup k Azure Stack dokumentaci pro uživatele, vyberte ikonu pomoci ( **?** ) a pak vyberte možnost **help + podpora**.
 
-    ![Nápověda a podpora možnost v uživatelském rozhraní](media/azure-stack-use-portal/HelpAndSupport.png)
+    ![Možnost pomoci a podpory v uživatelském rozhraní](media/azure-stack-use-portal/HelpAndSupport.png)
 
-    Zejména doporučujeme, abyste si následující články, abyste mohli začít:
+    Konkrétně doporučujeme, abyste provedli následující články, které vám pomohou začít:
 
-    - [Klíčové aspekty: Pomocí služby nebo vytvářet aplikace pro Azure Stack](azure-stack-considerations.md)
-    - V **používat služby** části dokumentace ke službě, je článek důležité informace pro každou službu. Důležité informace o stránce popisuje rozdíly mezi service nabízí v Azure a ve stejné službě Azure Stack nabízí. Příklad najdete v tématu [aspekty virtuálních počítačů](azure-stack-vm-considerations.md). Může obsahovat další informace **používat služby** oddíl, který je jedinečný pro Azure Stack.
+    - [Klíčové důležité pokyny: Použití služeb nebo sestavování aplikací](azure-stack-considerations.md)pro Azure Stack.
+    - V části věnované **používání služeb** v dokumentaci jsou k dispozici články týkající se každé služby. Stránka s informacemi popisuje rozdíly mezi službou nabízenou v Azure a stejnou službou nabízenou v Azure Stack. Příklad najdete v tématu [požadavky na virtuální počítače](azure-stack-vm-considerations.md). V oddílu **Use Services** můžou být jiné informace, které jsou jedinečné pro Azure Stack.
 
-      Dokumentace k Azure můžete použít jako obecné referenční informace pro služby, ale je nutné znát tyto rozdíly. Vysvětlení, že dokumentace odkazuje na **kurzy rychlý Start** dlaždici, přejděte na dokumentaci k Azure.
+      Dokumentaci k Azure můžete použít jako obecné referenční informace ke službě, ale musíte si být vědomi těchto rozdílů. Projistěte, aby se v dokumentaci na dlaždici úvodních **kurzů** v dokumentaci k Azure seznámila.
 
 ## <a name="get-support"></a>Získat podporu
 
-Pokud potřebujete podporu, požádejte o pomoc vaší organizace nebo poskytovali služeb.
+Pokud potřebujete podporu, požádejte o pomoc svoji organizaci nebo poskytovatele služeb.
 
-Pokud používáte Azure Stack Development Kit, můžete [fórum pro Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) je jediný zdroj podpory.
+Pokud používáte Azure Stack Development Kit (ASDK), je [Azure Stack Fórum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) jediným zdrojem podpory.
 
 ## <a name="next-steps"></a>Další postup
 
-[Klíčové aspekty: Pomocí služby nebo vytvářet aplikace pro Azure Stack](azure-stack-considerations.md)
+[Klíčové důležité pokyny: Použití služeb nebo sestavování aplikací pro Azure Stack](azure-stack-considerations.md)

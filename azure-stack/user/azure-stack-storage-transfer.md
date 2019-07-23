@@ -1,6 +1,6 @@
 ---
-title: Nástroje pro úložiště Azure Stack | Dokumentace Microsoftu
-description: Další informace o službě Azure Stack úložiště dat nástrojů pro přenos
+title: Použití nástrojů pro přenos dat v Azure Stack Storage | Microsoft Docs
+description: Přečtěte si o Azure Stack nástrojů pro přenos dat úložiště.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,119 +14,119 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: a76676c5f4fd1e23a20df04622dafb450e162448
-ms.sourcegitcommit: 6876ccb85c20794969264a1b27e479f4e938f990
+ms.openlocfilehash: c4d6b4ade21363a28dd37802d2c9bebc3c676c9b
+ms.sourcegitcommit: 72d45bb935db0db172d4d7c37d8e48e79e25af64
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/26/2019
-ms.locfileid: "67406899"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68376851"
 ---
-# <a name="use-data-transfer-tools-for-azure-stack-storage"></a>Použití nástrojů pro přenos dat pro úložiště Azure Stack
+# <a name="use-data-transfer-tools-in-azure-stack-storage"></a>Použití nástrojů pro přenos dat v Azure Stack Storage
 
-*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
 
-Microsoft Azure Stack nabízí sadu služeb úložišť pro disky, objekty BLOB, tabulky, fronty a funkce pro správu účtu. Pokud chcete spravovat nebo přesun dat do nebo z úložiště služby Azure Stack, můžete použít sadu nástrojů pro Azure storage. Tento článek obsahuje přehled dostupných nástrojů.
+Azure Stack poskytuje sadu služeb úložiště pro disky, objekty blob, tabulky, fronty a funkce správy účtů. Některé nástroje Azure Storage jsou k dispozici, pokud chcete spravovat nebo přesouvat data do nebo z úložiště Azure Stack. Tento článek poskytuje přehled dostupných nástrojů.
 
-Vaše požadavky určují, které tyto nástroje vám nejvíce vyhovuje:
+Vaše požadavky určují, které z následujících nástrojů vám nejlépe vyhovuje:
 
 * [AzCopy](#azcopy)
 
-    Specifické pro úložiště, příkazového řádku nástroj, který si můžete stáhnout pro kopírování dat z jednoho objektu na jiný objekt v rámci účtu úložiště nebo mezi účty úložiště.
+    Nástroj příkazového řádku specifický pro úložiště, který můžete stáhnout pro kopírování dat z jednoho objektu do jiného objektu v rámci nebo mezi účty úložiště.
 
 * [Azure PowerShell](#azure-powershell)
 
-    Prostředí založené na úlohách, příkazového řádku a skriptovací jazyk určený speciálně pro správu systému.
+    Prostředí příkazového řádku založené na úlohách a skriptovací jazyk navržený hlavně pro správu systému.
 
 * [Azure CLI](#azure-cli)
 
-    Open source, multiplatformní nástroj, který obsahuje sadu příkazů pro práci s Azure a Azure Stackem platformy.
+    Open source nástroj pro více platforem, který poskytuje sadu příkazů pro práci s platformami Azure a Azure Stack.
 
-* [Průzkumník úložišť Microsoft](#microsoft-azure-storage-explorer)
+* [Průzkumník služby Microsoft Storage](#microsoft-azure-storage-explorer)
 
-    Snadné použití samostatné aplikace s uživatelským rozhraním.
+    Snadno použitelné samostatné aplikace s uživatelským rozhraním.
 
 * [Blobfuse](#blobfuse)
 
-    Ovladač virtuálním souborovém systému pro Azure Blob Storage, což vám umožní přistupovat k existující data objektů blob bloku v účtu úložiště v systému Linux. 
+    Ovladač virtuálního systému souborů pro Azure Blob Storage, který umožňuje přístup k existujícím datům objektů blob bloku v účtu úložiště prostřednictvím systému souborů Linux.
 
-Vzhledem k rozdílům služby storage mezi Azure a Azure Stack může být některé specifické požadavky pro jednotlivé nástroje popsané v následujících částech. Porovnání mezi službou úložiště služby Azure Stack a Azure storage najdete v tématu [úložiště služby Azure Stack: Rozdíly a aspekty](azure-stack-acs-differences.md).
+Vzhledem k tomu, že mezi Azure a Azure Stack jsou rozdíly v rámci služby Storage, můžou existovat určité konkrétní požadavky na jednotlivé nástroje popsané v následujících částech. Srovnání mezi Azure Stack Storage a Azure Storage najdete v části [Azure Stack Storage: Rozdíly a požadavky](azure-stack-acs-differences.md).
 
 ## <a name="azcopy"></a>AzCopy
 
-AzCopy je nástroj příkazového řádku určený ke kopírování dat do a z Microsoft Azure blob a table storage pomocí jednoduchých příkazů s optimálním výkonem. Data z jednoho objektu můžete zkopírovat do jiného v rámci účtu úložiště nebo mezi účty úložiště.
+AzCopy je nástroj příkazového řádku určený ke kopírování dat z Microsoft Azure objektů BLOB a Table do úložiště pomocí jednoduchých příkazů s optimálním výkonem. Data můžete kopírovat z jednoho objektu do druhého v rámci nebo mezi účty úložiště.
 
-### <a name="download-and-install-azcopy"></a>Stáhněte a nainstalujte nástroje AzCopy
+### <a name="download-and-install-azcopy"></a>Stažení a instalace AzCopy
 
-* Pro 1811 update nebo novější verze [stáhnout AzCopy V10 +](/azure/storage/common/storage-use-azcopy-v10#download-azcopy).
-* Pro předchozí verze (aktualizace 1802 k 1809) [stáhnout AzCopy 7.1.0](https://aka.ms/azcopyforazurestack20170417).
+* V případě aktualizace 1811 nebo novější verze [Stáhněte AzCopy v10 za účelem +](/azure/storage/common/storage-use-azcopy-v10#download-azcopy).
+* Pro předchozí verze (1802 až 1809 aktualizace) [Stáhněte AzCopy 7.1.0](https://aka.ms/azcopyforazurestack20170417).
 
-### <a name="accopy-101-configuration-and-limits"></a>Konfigurace AcCopy 10.1 a omezení
+### <a name="azcopy-101-configuration-and-limits"></a>Konfigurace a omezení AzCopy 10,1
 
-AzCopy 10.1 je teď možné nakonfigurovat, aby používal starší verze rozhraní API. To umožňuje (omezený) podporu pro Azure Stack.
-Chcete-li konfigurovat verze rozhraní API pro AzCopy pro podporu služby Azure Stack, nastavte `AZCOPY_DEFAULT_SERVICE_API_VERSION` proměnnou prostředí, aby `2017-11-09`.
+AzCopy 10,1 je teď možné nakonfigurovat tak, aby používala starší verze rozhraní API. Tato možnost povoluje (omezená) podporu pro Azure Stack.
+Chcete-li nakonfigurovat rozhraní API verze AzCopy na podporu Azure Stack, nastavte `AZCOPY_DEFAULT_SERVICE_API_VERSION` proměnnou prostředí na `2017-11-09`.
 
 | Operační systém | Příkaz  |
 |--------|-----------|
-| **Windows** | V příkazovém řádku použijte: `set AZCOPY_DEFAULT_SERVICE_API_VERSION=2017-11-09`<br> V Powershellu použijte: `$env:AZCOPY_DEFAULT_SERVICE_API_VERSION="2017-11-09"`|
+| **Windows** | V příkazovém řádku použijte:`set AZCOPY_DEFAULT_SERVICE_API_VERSION=2017-11-09`<br> V prostředí PowerShell použijte:`$env:AZCOPY_DEFAULT_SERVICE_API_VERSION="2017-11-09"`|
 | **Linux** | `export AZCOPY_DEFAULT_SERVICE_API_VERSION=2017-11-09` |
 | **MacOS** | `export AZCOPY_DEFAULT_SERVICE_API_VERSION=2017-11-09` |
 
-V AzCopy 10.1 jsou podporovány následující funkce pro Azure Stack:
+V AzCopy 10,1 jsou podporovány následující funkce Azure Stack:
 
 | Funkce | Podporované akce |
 | --- | --- |
-|Správa kontejnerů|Vytvoření kontejneru<br>Obsah seznamu kontejnerů
-|Správa úloh|Zobrazit úlohy<br>Obnovení úlohy
-|Odstranění objektů blob|Odebrat jeden objekt blob<br>Odeberte celý nebo jeho část virtuální adresář
-|Nahrání souboru|Nahrání souboru<br>Nahrát do adresáře<br>Nahrajte obsah do adresáře
-|Stažení souboru|Stažení souboru<br>Stáhněte si do adresáře<br>Stáhněte si obsah adresáře
-|Synchronizace souboru|Synchronizovat místního systému souborů kontejneru<br>Synchronizovat místního systému souborů do kontejneru
+|Spravovat kontejner|Vytvoření kontejneru<br>Vypsat obsah kontejnerů
+|Spravovat úlohu|Zobrazit úlohy<br>Pokračování úlohy
+|Odebrat objekt BLOB|Odebrání jednoho objektu BLOB<br>Odebrat celý nebo částečný virtuální adresář
+|Nahrát soubor|Nahrát soubor<br>Odeslat adresář<br>Nahrajte obsah adresáře.
+|Stáhnout soubor|Stáhnout soubor<br>Stáhnout adresář<br>Stažení obsahu adresáře
+|Synchronizovat soubor|Synchronizace kontejneru do místního systému souborů<br>Synchronizace místního systému souborů do kontejneru
 
    > [!NOTE]
-   > * Azure Stack nepodporuje poskytuje přihlašovací údaje pro autorizaci azcopy s použitím Azure Active Directory (AD). Musí přístup k objektům úložiště ve službě Azure Stack pomocí tokenu sdíleného přístupového podpisu (SAS).
-   > * Azure Stack nepodporuje synchronní datové přenosy mezi dvěma umístěními objektů blob v Azure stacku a účtů Azure storage a Azure Stack. "Azcopy cp" nelze použít pro přesun dat z Azure Stack do služby Azure storage (nebo opaku způsobem) přímo s AzCopy 10.1.
+   > * Azure Stack nepodporuje poskytování autorizačních přihlašovacích údajů AzCopy pomocí Azure Active Directory (AD). K objektům úložiště v Azure Stack musíte přistupovat pomocí tokenu sdíleného přístupového podpisu (SAS).
+   > * Azure Stack nepodporuje synchronní přenos dat mezi dvěma umístěními objektů blob Azure Stack a mezi Azure Storage a Azure Stack. Nemůžete použít "AzCopy CP" k přesunu dat z Azure Stack do Azure Storage (nebo jiným způsobem) přímo pomocí AzCopy 10,1.
 
 ### <a name="azcopy-command-examples-for-data-transfer"></a>Příklady příkazů AzCopy pro přenos dat
 
-Následující příklady jsou některé typické scénáře pro kopírování dat do a z objektů BLOB služby Azure Stack. Další informace najdete v tématu [Začínáme s AzCopy](/azure/storage/common/storage-use-azcopy-v10).
+Následující příklady následují při kopírování dat do a z Azure Stack objektů BLOB v rámci typických scénářů. Další informace najdete v tématu Začínáme [s AzCopy](/azure/storage/common/storage-use-azcopy-v10).
 
-### <a name="download-all-blobs-to-a-local-disk"></a>Všechny objekty BLOB můžete stáhnout na místní disk
+### <a name="download-all-blobs-to-a-local-disk"></a>Stažení všech objektů blob na místní disk
 
 ```
 azcopy cp "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" "/path/to/dir" --recursive=true
 ```
 
-### <a name="upload-single-file-to-virtual-directory"></a>Nahrání jednoho souboru do virtuálního adresáře
+### <a name="upload-single-file-to-virtual-directory"></a>Odeslat jeden soubor do virtuálního adresáře
 
 ```
 azcopy cp "/path/to/file.txt" "https://[account].blob.core.windows.net/[container]/[path/to/blob]?[SAS]"
 ```
 
-### <a name="azcopy-known-issues"></a>Azcopy známé problémy
+### <a name="azcopy-known-issues"></a>AzCopy známé problémy
 
- - Všechny operace AzCopy na soubor úložiště není k dispozici, protože soubor úložiště ještě není k dispozici ve službě Azure Stack.
- - Pokud chcete k přenosu dat mezi dvěma umístěními objektů blob v Azure Stack nebo mezi Azure Stack a Azure storage pomocí AzCopy 10.1, je potřeba nejdřív stáhnout data do místního umístění a pak znovu nahrajte soubory do cílového adresáře v Azure Stack nebo do úložiště Azure. Nebo můžete pomocí nástroje AzCopy 7.1 a určit přenos pomocí **/SyncCopy** možnost Kopírovat data.  
- - Verzi Azcopy Linuxu podporuje pouze 1802 update nebo novější verze. A nepodporuje službu Table service.
+ - Žádná operace AzCopy v úložišti souborů není k dispozici, protože úložiště souborů ještě není v Azure Stack k dispozici.
+ - Pokud chcete přenášet data mezi dvěma umístěními Azure Stack objektů BLOB (nebo mezi Azure Stack a Azure Storage pomocí AzCopy 10.1), musíte nejdřív stáhnout data do místního umístění a pak je znovu nahrát do cílového adresáře na Azure Stack nebo Azure Storage. Případně můžete použít AzCopy 7,1 a zadat přenos s možností **/SyncCopy** pro kopírování dat.  
+ - Verze systému Linux AzCopy podporuje pouze aktualizaci 1802 nebo novější, a nepodporuje Table service.
  
 ## <a name="azure-powershell"></a>Azure PowerShell
 
-Prostředí Azure PowerShell je modul, který nabízí rutiny pro správu služeb v Azure a Azure Stack. Je to prostředí založené na úlohách, příkazového řádku a skriptovací jazyk určený speciálně pro správu systému.
+Azure PowerShell je modul, který poskytuje rutiny pro správu služeb v Azure i v Azure Stack. Je to prostředí příkazového řádku založené na úlohách a skriptovací jazyk, který je určený hlavně pro správu systému.
 
-### <a name="install-and-configure-powershell-for-azure-stack"></a>Instalace a konfigurace Powershellu pro Azure Stack
+### <a name="install-and-configure-powershell-for-azure-stack"></a>Instalace a konfigurace PowerShellu pro Azure Stack
 
-Moduly prostředí Azure PowerShell kompatibilní služby Azure Stack jsou vyžadována pro práci s Azure Stack. Další informace najdete v tématu [instalace Powershellu pro Azure Stack](../operator/azure-stack-powershell-install.md) a [konfigurace uživatele služby Azure Stack Powershellu prostředí](azure-stack-powershell-configure-user.md) Další informace.
+Pro práci s Azure Stack jsou vyžadovány Azure PowerShell moduly kompatibilní s Azure Stack. Další informace najdete v tématu [instalace PowerShellu pro Azure Stack](../operator/azure-stack-powershell-install.md) a [Konfigurace prostředí powershellu pro Azure Stack uživatele](azure-stack-powershell-configure-user.md).
 
-### <a name="powershell-sample-script-for-azure-stack"></a>Powershellu ukázkový skript pro službu Azure Stack 
+### <a name="powershell-sample-script-for-azure-stack"></a>Ukázkový skript PowerShellu pro Azure Stack 
 
-Tento příklad předpokládá, že jste úspěšně [nainstalované prostředí PowerShell pro Azure Stack](../operator/azure-stack-powershell-install.md). Tento skript vám pomůže dokončit konfiguraci a požádejte svého tenanta služby Azure Stack přihlašovací údaje pro přidání účtu do místního prostředí PowerShell. Skript se pak, nastavit výchozí předplatné Azure, vytvořit nový účet úložiště v Azure, vytvořit nový kontejner v rámci tohoto nového účtu úložiště a nahrajte existující soubor bitové kopie (blob) do tohoto kontejneru. Po skript vypíše všechny objekty BLOB v tomto kontejneru, bude vytvoření nového cílového adresáře v místním počítači a stáhněte si soubor bitové kopie.
+Tato ukázka předpokládá, že jste úspěšně [nainstalovali PowerShell pro Azure Stack](../operator/azure-stack-powershell-install.md). Tento skript vám pomůže dokončit konfiguraci a požádat Azure Stack přihlašovací údaje tenanta, aby se Váš účet přidal do místního prostředí PowerShell. Skript pak nastaví výchozí předplatné Azure, vytvoří v Azure nový účet úložiště, vytvoří nový kontejner v tomto novém účtu úložiště a nahraje do tohoto kontejneru existující soubor obrázku (BLOB). Jakmile skript vypíše všechny objekty BLOB v tomto kontejneru, vytvoří nový cílový adresář v místním počítači a stáhne soubor bitové kopie.
 
 1. Nainstalujte [moduly Azure Powershellu kompatibilní s Azure Stack](../operator/azure-stack-powershell-install.md).
 2. Ve službě [Azure Stack development Kit by měl být blobEndpoint](../operator/azure-stack-powershell-download.md) .
-3. Otevřít **Windows PowerShell ISE** a **spustit jako správce**, klikněte na tlačítko **souboru** > **nový** k vytvoření nového souboru skriptu.
-4. Zkopírujte níže uvedený skript a vložte do nového souboru skriptu.
-5. Aktualizujte proměnné skript na základě svého nastavení konfigurace.
+3. Otevřete **Integrované skriptovací prostředí (ISE) v prostředí Windows PowerShell** a **Spusťte jako správce**a pak kliknutím na **soubor** > **Nový** vytvořte nový soubor skriptu.
+4. Zkopírujte skript níže a vložte ho do nového souboru skriptu.
+5. Aktualizujte proměnné skriptu na základě nastavení konfigurace.
    > [!NOTE]
-   > Tento skript má ke spuštění v kořenovém adresáři pro **AzureStack_Tools**.
+   > Tento skript musí být spuštěn v kořenovém adresáři pro **AzureStack_Tools**.
 
 ```powershell  
 # begin
@@ -193,11 +193,11 @@ $blobs | Get-AzureStorageBlobContent -Destination $DestinationFolder
 # end
 ```
 
-### <a name="powershell-known-issues"></a>PowerShell – známé problémy
+### <a name="powershell-known-issues"></a>Známé problémy v PowerShellu
 
-Aktuální kompatibilní modul verzi Azure Powershellu pro Azure Stack je 1.2.11 pro operace uživatelů. To se liší od nejnovější verzi Azure Powershellu. Operace služby úložiště má vliv na tento rozdíl:
+Aktuální kompatibilní verze modulu Azure PowerShell pro Azure Stack je 1.2.11 pro operace uživatele. Liší se od nejnovější verze Azure PowerShell. Tento rozdíl ovlivňuje operaci služby Storage následujícím způsobem:
 
-Návratová hodnota formátu `Get-AzureRmStorageAccountKey` ve verzi 1.2.11 má dvě vlastnosti: `Key1` a `Key2`, ale aktuální verze Azure vrátí pole obsahující všechny klíče účtu.
+Formát `Get-AzureRmStorageAccountKey` návratové hodnoty ve verzi 1.2.11 má dvě vlastnosti: `Key1` a `Key2`, zatímco aktuální verze Azure vrací pole obsahující všechny klíče účtu.
 
 ```powershell
 # This command gets a specific key for a storage account, 
@@ -215,28 +215,28 @@ Další informace najdete v tématu [Get-AzureRmStorageAccountKey](/powershell/m
 
 ## <a name="azure-cli"></a>Azure CLI
 
-Azure CLI je prostředí příkazového řádku Azure pro správu prostředků Azure. Můžete nainstalovat v systému macOS, Linux a Windows a spouštět z příkazového řádku.
+Azure CLI je prostředí příkazového řádku Azure pro správu prostředků Azure. Můžete ho nainstalovat na macOS, Linux a Windows a spustit ho z příkazového řádku.
 
-Rozhraní příkazového řádku Azure je optimalizovaná pro správu prostředků Azure z příkazového řádku a pro vytváření skriptů pro automatizaci, které fungují s Azure Resource Managerem. Poskytuje řadu stejných funkcí najít na portálu Azure Stack, včetně velké množství dat přístup.
+Azure CLI je optimalizované pro správu a správu prostředků Azure z příkazového řádku a pro vytváření skriptů pro automatizaci, které pracují s Azure Resource Manager. Poskytuje řadu stejných funkcí, které najdete na portálu Azure Stack, včetně přístupu k datům.
 
-Azure Stack vyžaduje použití Azure CLI verze 2.0 nebo novější. Další informace ohledně instalace a konfigurace Azure CLI s Azure Stackem najdete v tématu [instalace a konfigurace rozhraní příkazového řádku Azure Stack](azure-stack-version-profiles-azurecli2.md). Další informace o tom, jak provést několik úloh, práci s prostředky ve vašem účtu úložiště Azure Stack pomocí Azure CLI najdete v tématu [pomocí Azure CLI s Azure storage](/azure/storage/storage-azure-cli)
+Azure Stack vyžaduje Azure CLI verze 2,0 nebo novější. Další informace o instalaci a konfiguraci Azure CLI pomocí Azure Stack najdete v tématu [instalace a konfigurace Azure Stack CLI](azure-stack-version-profiles-azurecli2.md). Další informace o použití rozhraní příkazového řádku Azure k provedení několika úloh, které pracují s prostředky ve vašem účtu úložiště Azure Stack, najdete v tématu [použití Azure CLI s Azure Storage](/azure/storage/storage-azure-cli).
 
-### <a name="azure-cli-sample-script-for-azure-stack"></a>Ukázkový skript Azure CLI pro službu Azure Stack
+### <a name="azure-cli-sample-script-for-azure-stack"></a>Ukázkový skript Azure CLI pro Azure Stack
 
-Po dokončení instalace rozhraní příkazového řádku a konfigurace, zkuste následující kroky při práci s malé prostředí ukázkový skript pro interakci s prostředky úložiště služby Azure Stack. Skript provede následující akce:
+Po dokončení instalace a konfigurace rozhraní příkazového řádku můžete vyzkoušet následující postup, který vám umožní pracovat s Azure Stack prostředky úložiště s malým prostředím. Skript dokončí následující akce:
 
 * Vytvoří nový kontejner v účtu úložiště.
-* Nahrání existující soubor (jako objekt blob) do kontejneru.
-* Vypíše všechny objekty BLOB v kontejneru.
-* Stáhne soubor do cílového umístění na místním počítači, který zadáte.
+* Nahraje existující soubor (jako objekt BLOB) do kontejneru.
+* Zobrazí seznam všech objektů BLOB v kontejneru.
+* Stáhne soubor do cílového umístění v místním počítači, který zadáte.
 
-Před spuštěním tohoto skriptu, ujistěte se, že můžete úspěšně připojit k a přihlaste se k cílové službě Azure Stack.
+Před spuštěním tohoto skriptu se ujistěte, že se můžete úspěšně připojit k cílovému Azure Stack a přihlásit se k němu.
 
-1. Otevřete oblíbený textový editor, pak zkopírujte a vložte předchozí skript do editoru.
-2. Aktualizujte tento skript proměnné tak, aby odrážely nastavení konfigurace.
-3. Po aktualizaci nezbytné proměnné, uložte skript a ukončete editor. Další kroky předpokládají, že pojmenujete skriptu **my_storage_sample.sh**.
-4. Označí skript jako spustitelný soubor, v případě potřeby: `chmod +x my_storage_sample.sh`
-5. Spusťte skript. Například v prostředí Bash: `./my_storage_sample.sh`
+1. Otevřete oblíbený textový editor a potom zkopírujte a vložte předchozí skript do editoru.
+2. Aktualizujte proměnné skriptu tak, aby odrážely nastavení konfigurace.
+3. Po aktualizaci nezbytných proměnných uložte skript a ukončete Editor. V dalších krocích se předpokládá, že jste najmenovali skript **my_storage_sample. sh**.
+4. Označte skript jako spustitelný soubor, pokud je to nutné:`chmod +x my_storage_sample.sh`
+5. Spusťte skript. Například v bash:`./my_storage_sample.sh`
 
 ```azurecli
 #!/bin/bash
@@ -271,24 +271,24 @@ az storage blob download --container-name $AZURESTACK_STORAGE_CONTAINER_NAME --a
 echo "Done"
 ```
 
-## <a name="microsoft-azure-storage-explorer"></a>Průzkumník služby Microsoft Azure storage
+## <a name="microsoft-azure-storage-explorer"></a>Microsoft Azure Storage Explorer
 
-Microsoft Azure storage explorer je samostatná aplikace od Microsoftu. Umožňuje jednoduchá práci s Azure storage a Azure Stack úložiště dat na Windows, macOS a počítačů s Linuxem. Pokud chcete snadný způsob, jak spravovat vaše data služby úložiště Azure Stack, zvažte použití Průzkumníka služby Microsoft Azure storage.
+Průzkumník služby Azure Storage je samostatná aplikace od Microsoftu. Umožňuje snadno pracovat s daty úložiště Azure Storage i Azure Stack na počítačích s Windows, macOS a Linux. Pokud potřebujete snadný způsob, jak spravovat data úložiště Azure Stack, zvažte použití Průzkumník služby Microsoft Azure Storage.
 
-* Další informace o konfiguraci služby Azure storage explorer pro práci s Azure Stackem najdete v tématu [připojení storage Exploreru k předplatnému Azure Stack](azure-stack-storage-connect-se.md).
-* Další informace o Průzkumníku služby Microsoft Azure storage najdete v tématu [Začínáme se storage Explorerem](/azure/vs-azure-tools-storage-manage-with-storage-explorer)
+* Další informace o konfiguraci Průzkumník služby Azure Storage pro práci s Azure Stack najdete v tématu [připojení Průzkumník služby Storage k předplatnému Azure Stack](azure-stack-storage-connect-se.md).
+* Další informace o Průzkumník služby Microsoft Azure Storage najdete v tématu Začínáme [s Průzkumníkem služby Storage](/azure/vs-azure-tools-storage-manage-with-storage-explorer) .
 
 ## <a name="blobfuse"></a>Blobfuse 
 
-[Blobfuse](https://github.com/Azure/azure-storage-fuse) je ovladač virtuálním souborovém systému pro Azure Blob Storage, což vám umožní přistupovat k existující data objektů blob bloku v účtu úložiště v systému Linux. Je služba pro úložiště objektů Azure Blob Storage a proto nemá hierarchického oboru názvů. Tento obor názvů používá schéma virtuální adresář s použitím lomítky poskytuje Blobfuse `/` jako oddělovač. Blobfuse funguje na platformě Azure a Azure Stack. 
+[Blobfuse](https://github.com/Azure/azure-storage-fuse) je ovladač virtuálního systému souborů pro Azure Blob Storage, který umožňuje přístup k existujícím datům objektů blob bloku v účtu úložiště prostřednictvím systému souborů Linux. Azure Blob Storage je služba úložiště objektů, a proto nemá hierarchický obor názvů. Blobfuse poskytuje tento obor názvů pomocí schématu virtuálního adresáře s použitím lomítka-lomítka `/` jako oddělovače. Blobfuse funguje jak pro Azure, tak pro Azure Stack. 
 
-Další informace o připojení úložiště objektů Blob jako systém souborů s Blobfuse v Linuxu najdete v tématu [postup připojení služby Blob storage jako systém souborů s Blobfuse](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-mount-container-linux). 
+Další informace o připojení úložiště objektů BLOB jako systému souborů s Blobfuse v systému Linux najdete v tématu [Postup připojení úložiště objektů BLOB jako systému souborů s Blobfuse](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-mount-container-linux). 
 
-Pro službu Azure Stack **blobEndpoint** musí být zadaná kromě accountName, accountKey/sasToken, containerName, při konfiguraci přihlašovacích údajů účtu úložiště v kroku přípravy na připojení. 
+Pro Azure Stack je potřeba zadat *blobEndpoint* při konfiguraci přihlašovacích údajů k účtu úložiště společně s parametrem Account, AccountKey/sasToken a ContainerName.
 
-Ve službě Azure Stack development Kit by měl být blobEndpoint `myaccount.blob.local.azurestack.external`. V systémech pro Azure Stack integrované kontaktujte správce cloudu, pokud si nejste jisti o váš koncový bod. 
+V Azure Stack Development Kit (ASDK) by měl `myaccount.blob.local.azurestack.external`být *blobEndpoint* . V Azure Stack integrovaném systému kontaktujte správce cloudu, pokud si nejste jisti vaším koncovým bodem.
 
-Uvědomte si, že accountKey a sasToken lze pouze nakonfigurovaný jeden po druhém. Když je klíč účtu úložiště, konfigurační soubor přihlašovacích údajů je v následujícím formátu: 
+*accountKey* a *sasToken* lze nakonfigurovat pouze jednou. Když je zadaný klíč účtu úložiště, konfigurační soubor přihlašovacích údajů má tento formát:
 
 ```
 accountName myaccount 
@@ -297,7 +297,7 @@ containerName mycontainer
 blobEndpoint myaccount.blob.local.azurestack.external
 ```
 
-Když je zadaný token sdíleného přístupového, konfigurační soubor přihlašovacích údajů je v následujícím formátu:
+Pokud je zadaný sdílený přístupový token, konfigurační soubor přihlašovacích údajů má následující formát:
 
 ```  
 accountName myaccount 
@@ -308,7 +308,7 @@ blobEndpoint myaccount.blob.local.azurestack.external
 
 ## <a name="next-steps"></a>Další postup
 
-* [Připojení Průzkumníka služby storage k předplatnému Azure Stack](azure-stack-storage-connect-se.md)
-* [Začínáme se storage Explorerem](/azure/vs-azure-tools-storage-manage-with-storage-explorer)
-* [Konzistentní s Azure storage: rozdíly a aspekty](azure-stack-acs-differences.md)
-* [Úvod do Microsoft Azure storage](/azure/storage/common/storage-introduction)
+* [Připojení Průzkumníka služby Storage k předplatnému Azure Stack](azure-stack-storage-connect-se.md)
+* [Začínáme s Průzkumníkem služby Storage](/azure/vs-azure-tools-storage-manage-with-storage-explorer)
+* [Úložiště konzistentní s Azure: rozdíly a požadavky](azure-stack-acs-differences.md)
+* [Seznámení s Microsoft Azure Storage](/azure/storage/common/storage-introduction)

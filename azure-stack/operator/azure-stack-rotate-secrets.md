@@ -1,6 +1,6 @@
 ---
-title: Otočit tajné kódy ve službě Azure Stack | Dokumentace Microsoftu
-description: Zjistěte, jak otočit vaše tajné kódy ve službě Azure Stack.
+title: Otočení tajných kódů v Azure Stack | Microsoft Docs
+description: Naučte se, jak tyto tajné kódy otočit v Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,113 +15,113 @@ ms.date: 07/15/2019
 ms.reviewer: ppacent
 ms.author: mabrigg
 ms.lastreviewed: 07/15/2019
-ms.openlocfilehash: 681daffabda3525effc1815e6aa6657c9c7c526c
-ms.sourcegitcommit: ca7e6b7b9b27d0d93ee4d5d1eeaf3113bbcea4da
+ms.openlocfilehash: fb49649227cf17356c7d383e6505dd3e1c2c5648
+ms.sourcegitcommit: 159da88a52701679571bbedde1c36b72bbfe32dd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68229453"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68380425"
 ---
-# <a name="rotate-secrets-in-azure-stack"></a>Otočit tajné kódy ve službě Azure Stack
+# <a name="rotate-secrets-in-azure-stack"></a>Otočení tajných kódů v Azure Stack
 
-*Tyto pokyny platí jenom pro Azure Stack integrované systémy verze 1803 a novější. Nepokoušejte tajných kódů otočení na verze pre-1802 Azure Stack*
+*Tyto pokyny se vztahují jenom na Azure Stack integrované systémy verze 1803 a novější. Nepokusit se o rotaci tajného kódu v před1802ch Azure Stack verzích*
 
-Azure Stack používá různé tajných kódů k údržbě zabezpečenou komunikaci mezi prostředky infrastruktury Azure stacku a služeb.
+Azure Stack pomocí různých tajných klíčů udržovat zabezpečenou komunikaci mezi prostředky a službami infrastruktury Azure Stack.
 
-- **Interní tajných kódů**
+- **Interní tajné kódy**
 
-Všechny certifikáty, hesla, zabezpečené řetězce a klíčů používaných infrastruktury služby Azure Stack bez zásahu operátor Azure stacku.
+Všechny certifikáty, hesla, zabezpečené řetězce a klíče používané Azure Stack infrastruktury bez zásahu operátoru Azure Stack.
 
-- **Externích tajných klíčů**
+- **Externí tajná klíčová**
 
-Certifikáty služby infrastruktury externích služeb, které jsou k dispozici v operátor Azure stacku. Externích tajných klíčů rozsah zahrnuje certifikáty pro následující služby:
+Certifikáty služby infrastruktury pro externí služby, které poskytuje operátor Azure Stack. Externí tajné klíče obsahují certifikáty pro následující služby:
 
-- Portál správce
+- Portál pro správu
 - Veřejný portál
-- Správce Azure Resource Manageru
-- Globální Azure Resource Manageru
-- Správce služby KeyVault
+- Azure Resource Manager správce
+- Globální Azure Resource Manager
+- Trezor klíčů správce
 - KeyVault
-- Hostitel Správce rozšíření
-- Služby ACS (včetně objektů blob, table a queue storage)
+- Hostitel rozšíření Správce
+- ACS (včetně objektů blob, Table a Queue Storage)
 - ADFS *
-- Graf *
+- Zapisovací
 
-\* Platí pouze pokud je zprostředkovatel identity prostředí Active Directory Federated Services (AD FS).
+\*Platí jenom v případě, že poskytovatel identity prostředí je ve službě Active Directory federované služby (AD FS).
 
 > [!Note]
-> Všechny ostatní zabezpečení klíčů a řetězce, včetně BMC a přepněte hesla, správce ručně aktualizovat hesla k účtům uživatelů a správců.
+> Všechny ostatní zabezpečené klíče a řetězce, včetně BMC a hesla přepínače, hesla uživatele a účtu správce jsou pořád aktualizované správcem.
 
 > [!Important]
-> Od verze Azure Stack 1811 tajných kódů otočení byl oddělen pro interní i externí certifikáty.
+> Počínaje vydáním Azure Stack 1811 byla pro interní a externí certifikáty oddělená tajná rotace.
 
-Aby bylo možné udržovat tak integritu infrastruktury Azure stacku, operátory nemusí pravidelně obměňovat svoji infrastrukturu tajných kódů v frekvence, které jsou v souladu s požadavky na zabezpečení organizace.
+Aby bylo možné zachovat integritu infrastruktury Azure Stack, operátoři potřebují schopnost pravidelně střídat tajné klíče infrastruktury v frekvencích, které jsou v souladu s požadavky na zabezpečení jejich organizace.
 
-### <a name="rotating-secrets-with-external-certificates-from-a-new-certificate-authority"></a>Otáčení tajných kódů pomocí externí certifikáty od certifikační autority nový
+### <a name="rotating-secrets-with-external-certificates-from-a-new-certificate-authority"></a>Střídání tajných kódů pomocí externích certifikátů od nové certifikační autority
 
-Azure Stack podporuje v následujících kontextů tajných kódů otočení s externí certifikáty od nového certifikátu autority (CA):
+Azure Stack podporuje v následujících kontextech při střídání tajného klíče pomocí externích certifikátů z nové certifikační autority (CA):
 
-|Nainstalovaný certifikát certifikační Autority|Otočit na certifikační Autority.|Podporováno|Podporované verze Azure Stack|
+|Nainstalovala se certifikační autorita.|CA pro otočení|Podporováno|Podporované verze Azure Stack|
 |-----|-----|-----|-----|
-|Z podepsaného svým držitelem|Do firemní sítě|Podporováno|1903 & později|
-|Z podepsaného svým držitelem|Pro podepsaný svým držitelem|Nepodporuje se||
-|Z podepsaného svým držitelem|Na veřejnou<sup>*</sup>|Podporováno|1803 & později|
-|Z organizace|Do firemní sítě|Podporuje se. Z 1803 1903: podporované tak dlouho, dokud zákazníci využívat stejné podnikové certifikační Autority, jak použít při nasazení|1803 & později|
-|Z organizace|Pro podepsaný svým držitelem|Nepodporuje se||
-|Z organizace|Na veřejnou<sup>*</sup>|Podporováno|1803 & později|
-|Z veřejné<sup>*</sup>|Do firemní sítě|Podporováno|1903 & později|
-|Z veřejné<sup>*</sup>|Pro podepsaný svým držitelem|Nepodporuje se||
-|Z veřejné<sup>*</sup>|Na veřejnou<sup>*</sup>|Podporováno|1803 & později|
+|Od sebe podepsané svým držitelem|Do Enterprise|Podporováno|1903 & později|
+|Od sebe podepsané svým držitelem|Na podepsaný svým držitelem|Není podporováno||
+|Od sebe podepsané svým držitelem|Na veřejné<sup>*</sup>|Podporováno|1803 & později|
+|Z Enterprise|Do Enterprise|Podporuje se. Od 1803-1903: podporované, pokud zákazníci používají stejnou certifikační autoritu organizace jako při nasazení.|1803 & později|
+|Z Enterprise|Na podepsaný svým držitelem|Není podporováno||
+|Z Enterprise|Na veřejné<sup>*</sup>|Podporováno|1803 & později|
+|Z veřejného<sup>*</sup>|Do Enterprise|Podporováno|1903 & později|
+|Z veřejného<sup>*</sup>|Na podepsaný svým držitelem|Není podporováno||
+|Z veřejného<sup>*</sup>|Na veřejné<sup>*</sup>|Podporováno|1803 & později|
 
-<sup>*</sup>Označuje, že veřejné certifikační autority jsou ty, které jsou součástí programu Windows důvěryhodné kořenové. Úplný seznam najdete v článku [Microsoft Trusted Root Certificate Program: Účastníci (od 27. června 2017)](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
+<sup>*</sup>Označuje, že veřejné certifikační autority jsou ty, které jsou součástí důvěryhodného kořenového programu systému Windows. Úplný seznam najdete v článku [program důvěryhodných kořenových certifikátů společnosti Microsoft: Účastníci (od 27. června 2017)](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
 
-## <a name="alert-remediation"></a>Oprava výstrahy
+## <a name="alert-remediation"></a>Náprava výstrahy
 
-Po do 30 dnů od vypršení platnosti tajných kódů tyto výstrahy jsou generovány v portálu správce:
+Když jsou tajná data do 30 dnů od vypršení platnosti, vygenerují se na portálu pro správu následující výstrahy:
 
-- Vypršení platnosti hesla účtu čekající služby
-- Vypršení platnosti vnitřní certifikát čekající na vyřízení
+- Čekání na vypršení platnosti hesla účtu služby
+- Čeká se na vypršení platnosti interního certifikátu.
 - Blížící se vypršení platnosti externího certifikátu
 
-Spuštění tajných kódů otočení pomocí následujícího postupu se opravit tyto výstrahy.
+Spuštění rotace tajných klíčů pomocí níže uvedených pokynů opraví tyto výstrahy.
 
 > [!Note]
-> Prostředí Azure Stack na 1811 předběžné verze se může zobrazit výstrahy pro čekající vnitřní certifikát nebo vypršení platnosti tajných kódů.
-> Tyto výstrahy jsou nesprávné a je třeba ignorovat bez spuštění interní otočení tajného kódu.
-> Upozornění nepřesné vypršení platnosti interní tajných kódů jsou známý problém, který je přeložen v 1811 – interní, tajných kódů nevyprší, dokud prostředí byl aktivní na dva roky.
+> Azure Stack prostředí v předběžných 1811 verzích se můžou zobrazovat upozornění na nevyřízené interní certifikáty nebo vypršení platnosti tajného kódu.
+> Tyto výstrahy jsou nepřesné a měly by být ignorovány bez spuštění interního tajného klíče.
+> Nepřesné upozornění na vypršení platnosti interního tajného klíče je známý problém, který se vyřeší v 1811 – interní tajné klíče nevyprší, pokud prostředí není aktivní po dobu dvou let.
 
-## <a name="pre-steps-for-secret-rotation"></a>Kroky prováděné před zpracováním pro rotaci tajného kódu
+## <a name="pre-steps-for-secret-rotation"></a>Předběžné kroky pro rotaci tajných klíčů
 
    > [!IMPORTANT]
-   > Pokud má už jsou hotové tajných kódů otočení ve vašem prostředí Azure Stack musíte aktualizovat systém na verzi 1811 nebo novější, ještě před spuštěním tajných kódů otočení znovu.
-   > Tajný otočení musí provést prostřednictvím [privilegovaných koncový bod](azure-stack-privileged-endpoint.md) a vyžadují přihlašovací údaje Azure Stack operátor.
-   > Pokud vaše prostředí Azure Stack operátory nejste jisti, zda byl spuštěn tajných kódů otočení ve vašem prostředí, aktualizujte na 1811 před provedením tajných kódů otočení znovu.
+   > Pokud se ve vašem Azure Stack prostředí už provedla rotace tajných klíčů, musíte systém aktualizovat na verzi 1811 nebo novější a teprve potom znovu spustit přesměrování tajného klíče.
+   > Pomocí [privilegovaného koncového bodu](azure-stack-privileged-endpoint.md) se musí provádět rotace tajných klíčů a vyžaduje Azure Stack přihlašovacích údajů operátora.
+   > Pokud vaše prostředí Azure Stack operátory neznají, jestli se ve vašem prostředí spustilo střídání tajných klíčů, aktualizujte na 1811, aby se znovu spustilo střídání tajného klíče.
 
-1. Důrazně doporučujeme aktualizovat na verzi 1811 vaší instance služby Azure Stack.
+1. Důrazně doporučujeme, abyste instanci Azure Stack aktualizovali na verzi 1811.
 
     > [!Note] 
-    > Pro verze pre-1811 není potřeba otočit tajných kódů přidat certifikáty rozšíření hostitele. Postupujte podle pokynů v článku [Příprava hostitele rozšíření pro službu Azure Stack](azure-stack-extension-host-prepare.md) přidání rozšíření hostitele certifikátů.
+    > Pro verze starší než 1811 nemusíte při přidávání certifikátů hostitele rozšíření otáčet tajné klíče. Při přidávání certifikátů hostitelů rozšíření byste měli postupovat podle pokynů v článku [Příprava hostitele rozšíření pro Azure Stack](azure-stack-extension-host-prepare.md) .
 
-2. Během obměny tajných klíčů služby Azure Stack si operátoři můžou všimnout otevírání a automatického zavírání upozornění.  Toto chování je očekávané a upozornění můžete ignorovat.  Operátory lze ověřit platnost těchto upozornění spuštěním **testovací AzureStack**.  Pro operátory pomocí System Center Operations Manager monitorovat systémy Azure Stack, uvedení v režimu údržby systému zabrání dosažení jejich systémům ITSM tyto výstrahy, ale bude nadále upozornění, pokud se nestane nedostupnou systémech pro Azure Stack.
+2. Během obměny tajných klíčů služby Azure Stack si operátoři můžou všimnout otevírání a automatického zavírání upozornění.  Toto chování je očekávané a výstrahy je možné ignorovat.  Operátoři můžou ověřit platnost těchto výstrah spuštěním **test-AzureStack**.  Pro operátory, které používají System Center Operations Manager k monitorování Azure Stack systémů, je potřeba při umístění systému do režimu údržby zabránit tomu, aby se tyto výstrahy dostaly do svých ITSM systémů, ale budou se i nadále zobrazovat výstrahy, pokud se Azure Stack systém stane nedostupným.
 
-3. Upozorněte uživatele na jakékoli operace údržby. Naplánujte běžné časová období údržby, co je to možné, během pracovní doby. Operace údržby může ovlivnit uživatelské úlohy a operací na portálu.
+3. Informujte uživatele o všech operacích údržby. Naplánujte normální časová období údržby, co nejvíce, během nepracovních hodin. Operace údržby mohou ovlivnit úlohy uživatelů i operace portálu.
 
     > [!Note]
-    > Další kroky se projeví pouze v případě otáčení externích tajných klíčů Azure Stack.
+    > Další kroky platí pouze při střídání Azure Stack externích tajných klíčů.
 
-4. Spustit **[testovací AzureStack](azure-stack-diagnostic-test.md)** a potvrďte všechny výstupy testů jsou v dobrém stavu před otáčení tajných kódů.
-5. Přidejte novou sadu nahrazení externí certifikáty. Nová sada odpovídá certifikát požadavky uvedené v [požadavky na certifikát Azure Stack PKI](azure-stack-pki-certs.md). Můžete generovat žádost o podepsání certifikátu (CSR) pro zakoupení nebo vytváří nové certifikáty pomocí postupu uvedeného v [vygenerovat certifikáty PKI](azure-stack-get-pki-certs.md) a je připravili k použití ve vašem prostředí Azure Stack pomocí kroků v [ Přidejte certifikáty infrastruktury veřejných KLÍČŮ služby Azure Stack](azure-stack-prepare-pki-certs.md). Ověřte certifikáty připravíte podle kroků uvedených v [ověřit certifikáty PKI](azure-stack-validate-pki-certs.md).
-6. Store zálohováním do certifikátů používaných pro rotaci do zabezpečeného umístění. Pokud vaše otočení spustí a pak se nezdaří, nahraďte certifikáty ve sdílené složce záložní kopie předtím, než znovu spustíte otočení. Mějte na paměti, uchovávání záložních kopií v zabezpečené umístění zálohy.
-7. Vytvoření sdílené složky, ke kterým přistupujete z ERCS virtuálních počítačů. Sdílené složky musí být čtení a zápisu pro **CloudAdmin** identity.
-8. Otevřete konzoly ISE Powershellu na počítači, kde máte přístup ke sdílení souborů. Přejděte na vaši sdílenou složku.
-9. Spustit **[CertDirectoryMaker.ps1](https://www.aka.ms/azssecretrotationhelper)** k vytvoření požadované adresáře pro externí certifikáty.
+4. Spusťte **[test-AzureStack](azure-stack-diagnostic-test.md)** a potvrďte, že všechny výstupy testů jsou v pořádku před otáčením tajných kódů.
+5. Připravte novou sadu náhradních externích certifikátů. Nová sada odpovídá specifikacím certifikátu popsaným v [Azure Stack požadavky na certifikát PKI](azure-stack-pki-certs.md). Můžete vygenerovat žádost o podepsání certifikátu (CSR) k nákupu nebo vytváření nových certifikátů pomocí kroků uvedených v části [vygenerování certifikátů PKI](azure-stack-get-pki-certs.md) a jejich příprava pro použití ve vašem Azure Stack prostředí pomocí postupu v části [Příprava Azure Stack infrastruktury veřejných klíčů. Certifikáty](azure-stack-prepare-pki-certs.md). Nezapomeňte ověřit certifikáty, které jste připravili s postupem popsaným v části [ověření certifikátů PKI](azure-stack-validate-pki-certs.md).
+6. Uložte zálohu do certifikátů používaných pro rotaci v zabezpečeném umístění zálohy. Pokud se vaše otočení spustí a pak se nepovede, nahraďte certifikáty ve sdílené složce záložními kopiemi a teprve potom znovu spusťte otočení. Mějte na paměti, že záložní kopie v umístění zabezpečené zálohy.
+7. Vytvořte sdílenou složku, ke které máte přístup z virtuálních počítačů s ERCS. Sdílená složka musí být čitelná a zapisovatelné pro **CloudAdmin** identitu.
+8. Otevřete konzolu PowerShellu ISE z počítače, ke kterému máte přístup ke sdílené složce. Přejděte do sdílené složky.
+9. Spuštěním **[CertDirectoryMaker. ps1](https://www.aka.ms/azssecretrotationhelper)** vytvořte požadované adresáře pro externí certifikáty.
 
 > [!IMPORTANT]
-> Skript CertDirectoryMaker vytvoří strukturu složek, která budou dodržovat:
+> Skript CertDirectoryMaker vytvoří strukturu složek, která bude vyhovovat:
 >
-> **.\Certificates\AAD** nebo ***.\Certificates\ADFS*** v závislosti na váš zprostředkovatel Identity sloužící pro službu Azure Stack
+> **.\Certificates\AAD** nebo ***.\Certificates\ADFS*** v závislosti na vašem zprostředkovateli identity, který se používá pro Azure Stack
 >
-> Je naprosto, který končí vaše struktura složky **AAD** nebo **služby AD FS** složky a všech podadresářích jsou v rámci této struktury; v opačném případě **Start-SecretRotation**se vytvoří s:
+> Má nejvyšší důležitost, že struktura složek končí složkami **AAD** nebo **ADFS** a všechny podadresáře jsou v této struktuře. v opačném případě se **spustí – SecretRotation** :
 > ```powershell
 > Cannot bind argument to parameter 'Path' because it is null.
 > + CategoryInfo          : InvalidData: (:) [Test-Certificate], ParameterBindingValidationException
@@ -129,24 +129,24 @@ Spuštění tajných kódů otočení pomocí následujícího postupu se opravi
 > + PSComputerName        : xxx.xxx.xxx.xxx
 > ```
 >
-> Jak je vidět masáž chyba by označoval, že dojde k nějakému problému, přístup k vaší sdílení souborů, ale ve skutečnosti je struktura složek, které je vynucuje tady.
-> Další informace najdete v Kontrola připravenosti AzureStack Microsoft - [PublicCertHelper modulu](https://www.powershellgallery.com/packages/Microsoft.AzureStack.ReadinessChecker/1.1811.1101.1/Content/CertificateValidation%5CPublicCertHelper.psm1)
+> Jak vidíte chybu Massage by znamenala, že došlo k potížím při přístupu ke sdílené složce souborů, ale ve skutečnosti se tady vynutila struktura složek.
+> Další informace najdete v modulu Microsoft AzureStack Readiness Checker – [modul PublicCertHelper](https://www.powershellgallery.com/packages/Microsoft.AzureStack.ReadinessChecker/1.1811.1101.1/Content/CertificateValidation%5CPublicCertHelper.psm1) .
 >
-> Je také důležité, že vaše struktura složky sdílenými složkami začíná **certifikáty** složky jinak také dojde k selhání ověřování.
-> Připojení sdílené složky by měl vypadat jako **\\ \\ \<IPAddress >\\\<název_sdílené_položky >\\** a musí obsahovat složku  **Certificates\AAD** nebo **Certificates\ADFS** uvnitř.
+> Je také důležité, aby struktura složek sdílené složky začínala složkou **certifikáty** v opačném případě se při ověřování také nezdaří.
+> Připojení sdílené složky by mělo vypadat **\\ \\jako \<IPAddress\\>\<název_sdílené_položky>\\** a měla by obsahovat složku **Certificates\AAD** nebo **certifikáty \ Služba ADFS** uvnitř.
 >
 > Příklad:
-> - Sdílení souborů =  **\\ \\ \<IPAddress >\\\<název_sdílené_položky >\\**
+> - Shared =  **\\ \\IPAddress>\\název_sdílené_položky > \<\<\\**
 > - CertFolder = **Certificates\AAD**
-> - FullPath =  **\\ \\ \<IPAddress >\\\<název_sdílené_položky > \Certificates\AAD**
+> - FullPath =  **\\IPAddress> \\název_sdílené_položky>\\\Certificates\AAD \<\<**
 
 ## <a name="rotating-external-secrets"></a>Otáčení externích tajných klíčů
 
-Obměna externích tajných klíčů:
+Postup při otočení externích tajných klíčů:
 
-1. V rámci nově vytvořené **\Certificates\\\<IdentityProvider >** adresář vytvořený v kroky prováděné před zpracováním, umístěte do struktury adresářů podle novou sadu nahrazení externí certifikáty Formát uvedené v oddílu povinné certifikáty [požadavky na certifikát Azure Stack PKI](azure-stack-pki-certs.md#mandatory-certificates).
+1. V nově vytvořeném **adresáři\\\Certificates\<IdentityProvider >** vytvořeném v krocích předem umístěte novou sadu náhradních externích certifikátů do adresářové struktury podle formátu popsaného v části Část povinných certifikátů v [Azure Stack požadavky na certifikát PKI](azure-stack-pki-certs.md#mandatory-certificates)
 
-    Příklad strukturu složek pro zprostředkovatele Identity AAD:
+    Příklad struktury složek pro poskytovatele identity AAD:
     ```powershell
         <ShareName>
         │   │
@@ -187,38 +187,38 @@ Obměna externích tajných klíčů:
 
     ```
 
-2. Vytvořte relaci Powershellu s [privilegovaných koncový bod](azure-stack-privileged-endpoint.md) pomocí **CloudAdmin** účtu a uložit tyto relace jako proměnnou. Tato proměnná bude používat jako parametr v dalším kroku.
+2. Pomocí účtu **CloudAdmin** vytvořte relaci PowerShellu s [privilegovaným koncovým bodem](azure-stack-privileged-endpoint.md) a uložte tyto relace jako proměnnou. Tuto proměnnou použijete jako parametr v dalším kroku.
 
     > [!IMPORTANT]  
-    > Nezadávejte relace, relace uložit jako proměnnou.
+    > Nezadávejte relaci, uložte relaci jako proměnnou.
 
-3. Spustit  **[Invoke-Command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/Invoke-Command?view=powershell-5.1)** . Předání jako proměnnou relace Powershellu privilegovaných koncový bod **relace** parametru.
+3. Spusťte **[příkaz Invoke-Command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/Invoke-Command?view=powershell-5.1)** . Zadáte proměnnou relace PowerShellu privilegovaného koncového bodu jako parametr **relace** .
 
-4. Spustit **Start SecretRotation** s následujícími parametry:
+4. Spusťte rutinu **Start-SecretRotation** s následujícími parametry:
     - **PfxFilesPath**  
-    Zadejte síťovou cestu k adresáři certifikáty vytvořili dříve.  
+    Zadejte síťovou cestu k adresáři certifikátů, který jste vytvořili dříve.  
     - **PathAccessCredential**  
     Objekt PSCredential pro přihlašovací údaje ke sdílené složce.
     - **CertificatePassword**  
-    Zabezpečený řetězec heslo použité pro všechny vytvořené soubory certifikátů pfx.
+    Zabezpečený řetězec hesla použitého pro všechny vytvořené soubory certifikátů PFX.
 
-5. Počkejte, dokud otočit tajných klíčů. Externí tajných kódů otočení obvykle trvá přibližně jednu hodinu.
+5. Počkejte na otočení tajných kódů. Rotace externích tajných klíčů obvykle trvá přibližně jednu hodinu.
 
-    Po úspěšném dokončení otočení tajného kódu se zobrazí konzola **celkový stav akce: Úspěch**.
+    Po úspěšném dokončení rotace tajného klíče se **v konzole zobrazí celkový stav akce: Úspěch**.
 
     > [!Note]
-    > Pokud selže tajných kódů otočení, postupujte podle pokynů v chybové zprávě a znovu spusťte **Start SecretRotation** s **– opětovné spuštění** parametr.
+    > Pokud se rotace tajných klíčů nezdařila, postupujte podle pokynů v chybové zprávě a znovu spusťte rutinu **Start-SecretRotation** s parametrem **-** restart.
 
     ```powershell
     Start-SecretRotation -ReRun
     ```
-    Obraťte se na podporu Pokud dochází k opakované otočení tajných kódů chyb.
+    Pokud se setkáte s opakovanými chybami při střídání tajných kódů, kontaktujte
 
-6. Po úspěšném dokončení tajných kódů otáčení odebrat certifikáty ze sdílené složky vytvořené v kroku předběžné a uložit je do jejich zabezpečené umístění zálohy.
+6. Po úspěšném dokončení rotace tajného klíče odeberte svoje certifikáty ze sdílené složky vytvořené v předběžné fázi a uložte je do svého zabezpečeného záložního umístění.
 
-## <a name="walkthrough-of-secret-rotation"></a>Návod k otočení tajného kódu
+## <a name="walkthrough-of-secret-rotation"></a>Návod pro rotaci tajných klíčů
 
-Následující příklad PowerShell ukazuje, rutiny a parametry k otočení tajných klíčů.
+Následující příklad prostředí PowerShell ukazuje rutiny a parametry, které je třeba spustit, aby bylo možné tyto tajné kódy otočit.
 
 ```powershell
 # Create a PEP Session
@@ -236,57 +236,57 @@ Invoke-Command -Session $PEPSession -ScriptBlock {
 Remove-PSSession -Session $PEPSession
 ```
 
-## <a name="rotating-only-internal-secrets"></a>Otáčení pouze interní tajných kódů
+## <a name="rotating-only-internal-secrets"></a>Otočení jenom interních tajných kódů
 
 > [!Note]
-> Interní otočení tajný kód lze provádět pouze pokud máte podezření, že interní tajného kódu došlo k napadení škodlivým entity, nebo Pokud dostanete výstrahu (při sestavování 1811 nebo novější) označující, že interní certifikáty se blíží vypršení platnosti.
-> Prostředí Azure Stack na 1811 předběžné verze se může zobrazit výstrahy pro čekající vnitřní certifikát nebo vypršení platnosti tajných kódů.
-> Tyto výstrahy jsou nesprávné a je třeba ignorovat bez spuštění interní otočení tajného kódu.
-> Upozornění nepřesné vypršení platnosti interní tajných kódů jsou známý problém, který je přeložen v 1811 – interní, tajných kódů nevyprší, dokud prostředí byl aktivní na dva roky.
+> Vnitřní střídání tajných kódů by se mělo provést jenom v případě, že se domníváte, že došlo k ohrožení interního tajného klíče, nebo pokud jste dostali upozornění (na Build 1811 nebo novější), což značí, že se dokončí vypršení platnosti vnitřních certifikátů.
+> Azure Stack prostředí v předběžných 1811 verzích se můžou zobrazovat upozornění na nevyřízené interní certifikáty nebo vypršení platnosti tajného kódu.
+> Tyto výstrahy jsou nepřesné a měly by být ignorovány bez spuštění interního tajného klíče.
+> Nepřesné upozornění na vypršení platnosti interního tajného klíče je známý problém, který se vyřeší v 1811 – interní tajné klíče nevyprší, pokud prostředí není aktivní po dobu dvou let.
 
-1. Vytvořte relaci Powershellu s [privilegovaných koncový bod](azure-stack-privileged-endpoint.md).
-2. V relaci privilegovaných koncový bod spustit **Start SecretRotation-interní**.
+1. Vytvořte relaci PowerShellu s [privilegovaným koncovým bodem](azure-stack-privileged-endpoint.md).
+2. V relaci privilegovaného koncového bodu spusťte rutinu **Start-SecretRotation-Internal**.
 
     > [!Note]
-    > Prostředí Azure Stack na verze pre-1811 nevyžadují **– interní** příznak. **Start-SecretRotation** otočí pouze interní tajných kódů.
+    > Azure Stack prostředí na verzích starších než 1811 nebudou vyžadovat příznak **-internal** . **Příkaz Start-SecretRotation** provede otočení pouze interních tajných kódů.
 
-3. Počkejte, dokud otočit tajných klíčů.
+3. Počkejte na otočení tajných kódů.
 
-Po úspěšném dokončení otočení tajného kódu se zobrazí konzola **celkový stav akce: Úspěch**.
+Po úspěšném dokončení rotace tajného klíče se **v konzole zobrazí celkový stav akce: Úspěch**.
     > [!Note]
-    > If secret rotation fails, follow the instructions in the error message and rerun **Start-SecretRotation** with the  **-Internal** and **-ReRun** parameters.  
+    > If secret rotation fails, follow the instructions in the error message and rerun **Start-SecretRotation** with the  **-Internal** and **-ReRun** parameters.  
 
 ```powershell
 Start-SecretRotation -Internal -ReRun
 ```
 
-Obraťte se na podporu Pokud dochází k opakované otočení tajných kódů chyb.
+Pokud se setkáte s opakovanými chybami při střídání tajných kódů, kontaktujte
 
-## <a name="start-secretrotation-reference"></a>Odkaz na začátku SecretRotation
+## <a name="start-secretrotation-reference"></a>Odkaz na začátek – SecretRotation
 
-Otočí tajných kódů systému Azure Stack. Provést pouze proti koncovému bodu privilegovaných pro Azure Stack.
+Otočí tajné klíče Azure Stackho systému. Provede se jenom u Azure Stack privilegovaného koncového bodu.
 
 ### <a name="syntax"></a>Syntaxe
 
-#### <a name="for-external-secret-rotation"></a>Pro externí otočení tajného kódu
+#### <a name="for-external-secret-rotation"></a>Pro rotaci externích tajných klíčů
 
 ```powershell
-Start-SecretRotation [-PfxFilesPath <string>] [-PathAccessCredential <PSCredential>] [-CertificatePassword <SecureString>]  
+Start-SecretRotation [-PfxFilesPath <string>] [-PathAccessCredential <PSCredential>] [-CertificatePassword <SecureString>]  
 ```
 
-#### <a name="for-internal-secret-rotation"></a>Pro interní otočení tajného kódu
+#### <a name="for-internal-secret-rotation"></a>Pro otočení interního tajného klíče
 
 ```powershell
-Start-SecretRotation [-Internal]  
+Start-SecretRotation [-Internal]  
 ```
 
-#### <a name="for-external-secret-rotation-rerun"></a>Pro externí tajných kódů otočení znovu spustit
+#### <a name="for-external-secret-rotation-rerun"></a>Opětovné spuštění pro vyhledání externích tajných klíčů
 
 ```powershell
 Start-SecretRotation [-ReRun]
 ```
 
-#### <a name="for-internal-secret-rotation-rerun"></a>Pro interní tajných kódů otočení znovu spustit
+#### <a name="for-internal-secret-rotation-rerun"></a>Pro opětovné spuštění rotace interního tajného klíče
 
 ```powershell
 Start-SecretRotation [-ReRun] [-Internal]
@@ -294,31 +294,31 @@ Start-SecretRotation [-ReRun] [-Internal]
 
 ### <a name="description"></a>Popis
 
-**Start SecretRotation** rutiny otočí infrastruktury tajemství systémech pro Azure Stack. Ve výchozím nastavení se otočí jenom certifikáty všechny koncové body externí síťové infrastruktury. Použít s interní příznak - interní infrastruktury tajných kódů otočí. Při obměně koncových bodů externí síťové infrastruktury, **Start SecretRotation** by měl být spuštěn s **Invoke-Command** blok skriptu s prostředím Azure Stack na privilegovaný koncový bod relace předané jako **relace** parametru.
+Rutina **Start-SecretRotation** otočí tajné klíče infrastruktury Azure Stackho systému. Ve výchozím nastavení otočí jenom certifikáty všech koncových bodů infrastruktury externích sítí. V případě, že se používá s příznakem interní infrastruktury interních klíčů, budou otočeny. Při otáčení koncových bodů infrastruktury externí sítě by se měl spustit **-SecretRotation** spustit pomocí bloku skriptu **Invoke-Command** s privilegovaným rozhraním cloudového koncového bodu Azure Stack, který se předává jako parametr **relace** .
 
 ### <a name="parameters"></a>Parametry
 
 | Parametr | type | Požadováno | Pozice | Výchozí | Popis |
 | -- | -- | -- | -- | -- | -- |
-| `PfxFilesPath` | Řetězec  | False  | s názvem  | Žádný  | Cesta sdílení souborů na **\Certificates** síťové adresáře, který obsahuje všechny externí certifikáty koncový bod. Povinné pouze v případě otáčení externích tajných klíčů. Adresář end musí být **\Certificates**. |
-| `CertificatePassword` | SecureString | False  | s názvem  | Žádný  | Heslo pro všechny certifikáty v PfXFilesPath – k dispozici. Požadovaná hodnota, pokud PfxFilesPath víceklientského externích tajných klíčů se otočí. |
-| `Internal` | Řetězec | False | s názvem | Žádné | Interní příznak musí použít, kdykoli operátory Azure stacku chce otočit interní infrastruktury tajných kódů. |
-| `PathAccessCredential` | PSCredential | False  | s názvem  | Žádné  | Přihlašovací údaje prostředí PowerShell pro sdílení souborů systému **\Certificates** síťové adresáře, který obsahuje všechny externí certifikáty koncový bod. Povinné pouze v případě otáčení externích tajných klíčů.  |
-| `ReRun` | SwitchParameter | False  | s názvem  | Žádný  | Opětovné spuštění se musí použít kdykoli otočení tajného kódu je opakování po neúspěšném pokusu. |
+| `PfxFilesPath` | Řetězec  | False  | Jmenovanou  | Žádný  | Cesta ke sdílené složce adresáře **\Certificates** obsahující všechny certifikáty koncového bodu externí sítě. Vyžaduje se pouze při otáčení externích tajných klíčů. Koncový adresář musí být **\Certificates**. |
+| `CertificatePassword` | SecureString | False  | Jmenovanou  | Žádné  | Heslo pro všechny certifikáty, které jsou k dispozici v-PfXFilesPath. Požadovaná hodnota, pokud je k dispozici PfxFilesPath při otočení externích tajných klíčů. |
+| `Internal` | Řetězec | False | Jmenovanou | Žádné | Vnitřní příznak se musí použít, kdykoli Azure Stack operátor chce střídat interní tajné klíče infrastruktury. |
+| `PathAccessCredential` | PSCredential | False  | Jmenovanou  | Žádné  | Přihlašovací údaje PowerShellu pro sdílenou složku adresáře **\Certificates** obsahující všechny certifikáty koncového bodu externí sítě. Vyžaduje se pouze při otáčení externích tajných klíčů.  |
+| `ReRun` | Přepínací parametr | False  | Jmenovanou  | Žádné  | Po neúspěšném pokusu je třeba znovu spustit opětovné otočení tajného klíče. |
 
 ### <a name="examples"></a>Příklady
 
-#### <a name="rotate-only-internal-infrastructure-secrets"></a>Otočit pouze interní infrastruktury tajných kódů
+#### <a name="rotate-only-internal-infrastructure-secrets"></a>Otočit jenom tajná klíčová tajemství interní infrastruktury
 
-To je potřeba použít prostřednictvím služby Azure Stack [prostředí na privilegovaný koncový bod](azure-stack-privileged-endpoint.md).
+Tento postup musí běžet prostřednictvím privilegovaného [koncového bodu](azure-stack-privileged-endpoint.md)Azure Stackho prostředí.
 
 ```powershell
-PS C:\> Start-SecretRotation -Internal
+PS C:\> Start-SecretRotation -Internal
 ```
 
-Tento příkaz otočí všechny tajné klíče infrastruktury vystavený k interní síti Azure Stack.
+Tento příkaz otočí všechny tajné klíče infrastruktury vystavené Azure Stack interní síti.
 
-#### <a name="rotate-only-external-infrastructure-secrets"></a>Otočit pouze tajných kódů externí infrastruktury  
+#### <a name="rotate-only-external-infrastructure-secrets"></a>Otočení jenom externích tajných kódů infrastruktury  
 
 ```powershell
 # Create a PEP Session
@@ -337,14 +337,14 @@ Invoke-Command -Session $PEPSession -ScriptBlock {
 Remove-PSSession -Session $PEPSession
 ```
 
-Tento příkaz otočí certifikáty protokolu TLS pro koncové body služby Azure Stack externí síťové infrastruktury.
+Tento příkaz otočí certifikáty TLS používané k externím koncovým bodům infrastruktury sítě Azure Stack.
 
-#### <a name="rotate-internal-and-external-infrastructure-secrets-pre-1811-only"></a>Otočit infrastruktury interních a externích tajných kódů (**pre-1811** jenom)
+#### <a name="rotate-internal-and-external-infrastructure-secrets-pre-1811-only"></a>Otočení interních a externích tajných kódů infrastruktury (jenom**před 1811** )
 
 > [!IMPORTANT]
-> Tento příkaz se týká pouze ke službě Azure Stack **pre-1811** jako rozdělil otočení pro interní i externí certifikáty.
+> Tento příkaz se vztahuje jenom na Azure Stack **pre-1811** , protože rotace je rozdělená na interní a externí certifikáty.
 >
-> **Z *1811 +* nelze otočit i interní a externí certifikáty nic dalšího.**
+> **Od *1811 +* nemůžete otočit interní i externí certifikát o další!!!**
 
 ```powershell
 # Create a PEP Session
@@ -363,19 +363,19 @@ Invoke-Command -Session $PEPSession -ScriptBlock {
 Remove-PSSession -Session $PEPSession
 ```
 
-Tento příkaz otočí všechny tajné klíče infrastruktury vystavený k interní síti Azure Stack, stejně jako certifikáty protokolu TLS pro koncové body služby Azure Stack externí síťové infrastruktury. Start-SecretRotation otočí všech tajných kódů generovaných zásobníku a vzhledem k tomu, že jsou k dispozici certifikáty, bude také otočen certifikáty externí koncový bod.  
+Tento příkaz otočí všechny tajné klíče infrastruktury vystavené Azure Stack interní síti a také certifikátům TLS používaným pro koncové body infrastruktury externích sítí Azure Stack. Start-SecretRotation otočí všechny tajné klíče generované zásobníkem a protože jsou k dispozici nějaké certifikáty, budou se také otáčet certifikáty externích koncových bodů.  
 
-## <a name="update-the-baseboard-management-controller-bmc-credential"></a>Aktualizovat pověření pro řadič pro správu základní desky
+## <a name="update-the-baseboard-management-controller-bmc-credential"></a>Aktualizace přihlašovacích údajů řadiče pro správu základní desky (BMC)
 
-Řadič pro správu základní desky (BMC) monitoruje fyzickému stavu vašich serverů. Požadavky a pokyny, aktualizuje se uživatelské jméno a heslo pro správu základní desky se liší v závislosti na dodavatele hardwaru, výrobce OEM (OEM). Měli byste aktualizovat hesla pro Azure Stack součásti v pravidelných intervalech.
+Řadič pro správu základní desky (BMC) monitoruje fyzický stav vašich serverů. Specifikace a pokyny k aktualizaci názvu a hesla uživatelského účtu řadiče pro správu základní desky se liší v závislosti na dodavateli hardwaru OEM (Original Equipment Manufacturer). V pravidelných intervalech byste měli aktualizovat hesla pro Azure Stack komponenty.
 
-1. Aktualizujte správu základní desky na fyzických serverech služby Azure Stack podle pokynů vaší výrobce OEM. Uživatelské jméno a heslo pro každou BMC ve vašem prostředí musí být stejné. Uživatelská jména BMC nesmí překročit 16 znaků.
+1. Aktualizujte BMC na Azure Stack fyzických serverech podle pokynů výrobce OEM. Uživatelské jméno a heslo pro každý řadič pro správu základní desky ve vašem prostředí musí být stejné. Uživatelská jména řadiče pro správu základní desky nesmí být delší než 16 znaků.
 
     > [!Note]  
-    > Nejprve aktualizujte přihlašovací údaje BMC u řadiče pro správu základní desky fyzického serveru. příkaz Azure Stack v opačném případě se nezdaří při ověřování.
+    > Nejdřív aktualizujte přihlašovací údaje řadiče pro správu základní desky na řadiči pro správu základní desky fyzického serveru. v opačném případě se příkaz Azure Stack během ověřování nezdařil.
 
-2. Otevřete koncový bod privilegovaných ve službě Azure Stack relacích. Pokyny najdete v tématu [pomocí privilegovaných koncového bodu ve službě Azure Stack](azure-stack-privileged-endpoint.md).
-3. Po Powershellu řádek byl změněn na **[adresa IP nebo virtuální počítač ERCS name]: PS >** nebo **[azs-ercs01]: PS >** , v závislosti na prostředí, spusťte `Set-BmcCredential` spuštěním `Invoke-Command`. Vaše proměnná privilegovaných koncový bod relace předáte jako parametr. Příklad:
+2. V Azure Stack relacích otevřete privilegovaný koncový bod. Pokyny najdete v tématu [použití privilegovaného koncového bodu v Azure Stack](azure-stack-privileged-endpoint.md).
+3. Po změně výzvy PowerShellu na **[IP adresa nebo ERCS název virtuálního počítače]: PS >** nebo na **[AZS-ercs01]: PS >** v závislosti na prostředí spouštějte `Set-BmcCredential` `Invoke-Command`spuštěním. Předat proměnnou vaší privilegované relace koncového bodu jako parametr. Příklad:
 
     ```powershell
     # Interactive Version
@@ -393,7 +393,7 @@ Tento příkaz otočí všechny tajné klíče infrastruktury vystavený k inter
     Remove-PSSession -Session $PEPSession
     ```
 
-    Statické verze prostředí PowerShell můžete použít také s hesla jako řádky kódu:
+    Můžete také použít statickou verzi prostředí PowerShell s hesly jako řádky kódu:
 
     ```powershell
     # Static Version

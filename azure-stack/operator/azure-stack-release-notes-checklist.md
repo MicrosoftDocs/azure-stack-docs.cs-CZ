@@ -16,12 +16,12 @@ ms.date: 06/27/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 06/27/2019
-ms.openlocfilehash: fd76e862ec98de1a22caca96295173e494d8faff
-ms.sourcegitcommit: c1e10ea5a9fdf1ffc62f84c30aad4d7518050bac
+ms.openlocfilehash: 49b4276da5c7e42728cf96261104f59c70355c20
+ms.sourcegitcommit: 159da88a52701679571bbedde1c36b72bbfe32dd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68352906"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68380402"
 ---
 # <a name="azure-stack-update-activity-checklist"></a>Kontrolní seznam aktivity Azure Stack aktualizace
 
@@ -29,16 +29,17 @@ Tento článek obsahuje kontrolní seznam aktivit souvisejících s aktualizací
 
 ## <a name="prepare-for-azure-stack-update"></a>Příprava na aktualizaci Azure Stack
 
-| Aktivita              | Podrobnosti                                                                          |
-|-----------------------|----------------------------------------------------------------------------------|
-| Zkontrolovat známé problémy   | [Seznam známých problémů](azure-stack-release-notes-known-issues-1906.md).                |
+| Aktivita                     | Podrobnosti                                                   |
+|------------------------------|-----------------------------------------------------------|
+| Zkontrolovat známé problémy     | [Seznam známých problémů](azure-stack-release-notes-known-issues-1906.md).                |
 | Kontrola aktualizací zabezpečení | [Seznam aktualizací zabezpečení](azure-stack-release-notes-security-updates-1906.md)      |
-| Použít nejnovější verzi balíčku OEM | Obraťte se na výrobce OEM a ujistěte se, že váš systém splňuje požadavky na minimální verzi balíčku OEM pro verzi Azure Stack, na kterou se systém aktualizuje. |
-| Run Test-AzureStack   | Spusťte `Test-AzureStack -Group UpdateReadiness` k identifikaci provozních problémů.      |
-| Vyřešit problémy        | Vyřešte všechny provozní problémy, které identifikoval **test-AzureStack**.                |
-| Použít nejnovější opravy hotfix | Použijte nejnovější opravy hotfix, které se vztahují k aktuálně nainstalované verzi.         |
-| Spustit nástroj pro Plánovač kapacity | Pro plánování úloh a změnu velikosti se ujistěte, že používáte nejnovější verzi nástroje [Azure Stack Capacity Planner](https://aka.ms/azstackcapacityplanner) Tool. Nejnovější verze obsahuje opravy chyb a poskytuje nové funkce, které jsou vydány s každou aktualizací Azure Stack. |
-| Dostupná aktualizace       | Pouze v případě propojených scénářů Azure Stack nasazení pravidelně kontroluje zabezpečený koncový bod a automaticky vás upozorní, pokud je k dispozici aktualizace pro Cloud. Odpojení zákazníci mohou stáhnout a importovat nový balíček 1906 pomocí popsaného [postupu](azure-stack-apply-updates.md).               |
+| Použít nejnovější verzi balíčku OEM | Obraťte se na výrobce OEM, abyste zajistili, že systém splňuje požadavky na minimální verzi balíčku OEM pro verzi Azure Stack, na kterou se systém aktualizuje. |
+| Run Test-AzureStack     | Spusťte `Test-AzureStack -Group UpdateReadiness` k identifikaci provozních problémů.      |
+| Vyřešit problémy          | Vyřešte všechny provozní problémy, které identifikoval **test-AzureStack**.                |
+| Použít nejnovější opravy hotfix   | Použijte nejnovější opravy hotfix, které se vztahují k aktuálně nainstalované verzi.         |
+| Spustit nástroj pro Plánovač kapacity   | Pro plánování úloh a změnu velikosti se ujistěte, že používáte nejnovější verzi nástroje [Azure Stack Capacity Planner](https://aka.ms/azstackcapacityplanner) Tool. Nejnovější verze obsahuje opravy chyb a poskytuje nové funkce, které jsou vydány s každou aktualizací Azure Stack. |
+| Je dostupná aktualizace.        | Pouze v případě propojených scénářů Azure Stack nasazení pravidelně kontroluje zabezpečený koncový bod a automaticky vás upozorní, pokud je k dispozici aktualizace pro Cloud. Odpojení zákazníci mohou stáhnout a importovat nový balíček 1906 pomocí popsaného [postupu](azure-stack-apply-updates.md). |
+
 
 ## <a name="during-azure-stack-update"></a>Během Azure Stack aktualizace
 
@@ -58,7 +59,7 @@ Tento článek obsahuje kontrolní seznam aktivit souvisejících s aktualizací
 | Použít nejnovější opravy hotfix | Použijte nejnovější opravy hotfix, které se vztahují k aktualizované verzi.                          |
 | Načtení šifrovacích klíčů | Načtěte data z neaktivních šifrovacích klíčů a bezpečně je uložte mimo vaše nasazení Azure Stack. Postupujte podle [pokynů pro načtení klíčů](azure-stack-security-bitlocker.md). |
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - [Kontrola seznamu známých problémů](azure-stack-release-notes-known-issues-1906.md)
 - [Kontrola seznamu aktualizací zabezpečení](azure-stack-release-notes-security-updates-1906.md)
