@@ -1,6 +1,6 @@
 ---
-title: Vytvoření připojení site-to-site VPN mezi dvěma virtuálními sítěmi v různých prostředích Azure Stack Development Kit | Dokumentace Microsoftu
-description: Podrobný postup, který správce cloudu se použije k vytvoření připojení site-to-site VPN mezi dvěma prostředími Azure Stack Development Kit jedním uzlem.
+title: Vytvoření připojení VPN typu Site-to-site mezi dvěma virtuálními sítěmi v různých Azure Stack Development Kitch prostředích | Microsoft Docs
+description: Podrobný postup, který správce cloudu používá k vytvoření připojení VPN typu Site-to-site mezi dvěma prostředími Azure Stack Development Kit s jedním uzlem.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -12,53 +12,53 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/02/2019
+ms.date: 07/16/2019
 ms.author: sethm
 ms.reviewer: scottnap
 ms.lastreviewed: 09/12/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: cee1ca68caa6742eb5d965b53b685746d9057691
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: f34ed3459ad8346860872a4b63a25e214501a2dd
+ms.sourcegitcommit: 4139b507d6da98a086929da48e3b4661b70bc4f3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985394"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68299471"
 ---
-# <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-azure-stack-development-kit-environments"></a>Vytvoření připojení site-to-site VPN mezi dvěma virtuálními sítěmi v různých prostředích Azure Stack Development Kit
+# <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-azure-stack-development-kit-environments"></a>Vytvoření připojení VPN typu Site-to-site mezi dvěma virtuálními sítěmi v různých Azure Stack Development Kitch prostředích
 
 ## <a name="overview"></a>Přehled
 
-Tento článek popisuje postup vytvoření připojení site-to-site VPN mezi dvěma virtuálními sítěmi ve dvou samostatných prostředích Azure Stack Development Kit (ASDK). Když konfigurujete připojení, se dozvíte, jak fungují brány VPN Gateway ve službě Azure Stack.
+Tento článek popisuje, jak vytvořit připojení VPN typu Site-to-site mezi dvěma virtuálními sítěmi ve dvou samostatných Azure Stack Development Kit (ASDK) prostředí. Při konfiguraci připojení se dozvíte, jak služby VPN Gateway v Azure Stack fungují.
 
 ### <a name="connection"></a>Připojení
 
-Následující obrázek znázorňuje, by měl vypadat konfiguraci připojení až budete hotovi.
+Následující obrázek ukazuje, jak by konfigurace připojení měla vypadat, jako když jste hotovi.
 
-![Konfigurace připojení Site-to-site VPN](media/azure-stack-create-vpn-connection-one-node-tp2/OneNodeS2SVPN.png)
+![Konfigurace připojení VPN typu Site-to-site](media/azure-stack-create-vpn-connection-one-node-tp2/OneNodeS2SVPN.png)
 
-### <a name="before-you-begin"></a>Než začnete
+### <a name="before-you-begin"></a>Před zahájením
 
-K dokončení konfigurace připojení, zkontrolujte, že máte následující položky než začnete:
+Pokud chcete dokončit konfiguraci připojení, ujistěte se, že máte následující položky, než začnete:
 
-* Dva servery a další nezbytné součásti, které splňují požadavky na hardware ASDK, jak je popsáno v [rychlý start: Vyzkoušejte Azure Stack Development Kit](../asdk/asdk-download.md).
-* [Azure Stack Development Kit](https://azure.microsoft.com/overview/azure-stack/try/) balíček pro nasazení.
+* Dva servery a další požadavky, které splňují požadavky na hardware ASDK, jak je [popsáno v tématu rychlý Start: Vyhodnoťte Azure Stack Development Kit](../asdk/asdk-download.md).
+* Balíček pro nasazení [Azure Stack Development Kit](https://azure.microsoft.com/overview/azure-stack/try/) .
 
-## <a name="deploy-the-azure-stack-development-kit-environments"></a>Nasazení prostředí Azure Stack Development Kit
+## <a name="deploy-the-azure-stack-development-kit-environments"></a>Nasazení Azure Stack Development Kit prostředí
 
-K dokončení konfigurace připojení, je nutné nasadit dvě ASDK prostředí.
+Pokud chcete dokončit konfiguraci připojení, musíte nasadit dvě prostředí ASDK.
 
 > [!NOTE]
-> Pro každý ASDK, který nasazujete, postupujte [pokyny k nasazení](../asdk/asdk-install.md). V tomto článku se nazývají prostředí ASDK **POC1** a **POC2**.
+> Pro každý ASDK, který nasadíte, postupujte podle [pokynů pro nasazení](../asdk/asdk-install.md). V tomto článku se ASDK prostředí nazývají **POC1** a **POC2**.
 
-## <a name="prepare-an-offer-on-poc1-and-poc2"></a>Příprava nabídky v POC1 a POC2
+## <a name="prepare-an-offer-on-poc1-and-poc2"></a>Příprava nabídky na POC1 a POC2
 
-V POC1 a POC2 připravte tak, aby uživatel může předplacení nabídky a nasazení virtuálních počítačů v rámci nabídky. Informace o tom, jak vytvořit nabídku najdete v tématu [zpřístupnit virtuálních počítačů pro vaše uživatele Azure stacku](azure-stack-tutorial-tenant-vm.md).
+V POC1 i POC2 Připravte nabídku tak, aby se uživatel mohl přihlásit k odběru nabídky a nasadit virtuální počítače. Informace o tom, jak vytvořit nabídku, najdete v článku [zpřístupnění virtuálních počítačů vašim Azure Stack uživatelům](azure-stack-tutorial-tenant-vm.md).
 
-## <a name="review-and-complete-the-network-configuration-table"></a>Zkontrolujte a dokončete tabulce Konfigurace sítě
+## <a name="review-and-complete-the-network-configuration-table"></a>Kontrola a dokončení tabulky konfigurace sítě
 
-Následující tabulka shrnuje konfiguraci sítě pro obě ASDK prostředí. Pomocí postupu, který se zobrazí pod tabulkou přidat externí BGPNAT adresu, která jsou specifická pro vaši síť.
+Následující tabulka shrnuje konfiguraci sítě pro prostředí ASDK. Použijte postup, který se zobrazí za tabulkou, a přidejte externí adresu BGPNAT, která je specifická pro vaši síť.
 
-### <a name="network-configuration-table"></a>Síťové konfigurace tabulky
+### <a name="network-configuration-table"></a>Tabulka konfigurace sítě
 
 |   |POC1|POC2|
 |---------|---------|---------|
@@ -67,15 +67,15 @@ Následující tabulka shrnuje konfiguraci sítě pro obě ASDK prostředí. Pom
 |Název podsítě     |Subnet-01|Subnet-02|
 |Rozsah adres podsítě|10.0.10.0/24 |10.0.20.0/24 |
 |Podsíť brány     |10.0.11.0/24|10.0.21.0/24|
-|Externí adresu BGPNAT     |         |         |
+|Externí BGPNAT adresa     |         |         |
 
 > [!NOTE]
-> Externí BGPNAT IP adres v ukázkovém prostředí je 10.16.167.195 pro POC1 a 10.16.169.131 pro POC2. Pomocí následujícího postupu určete externí BGPNAT IP adresy pro ASDK hostitelů a pak je přidejte do předchozí tabulky konfigurace sítě.
+> Externí IP adresy BGPNAT v tomto ukázkovém prostředí jsou 10.16.167.195 pro POC1 a 10.16.169.131 pro POC2. Pomocí následujícího postupu určete externí IP adresy BGPNAT pro hostitele ASDK a pak je přidejte do předchozí tabulky konfigurace sítě.
 
 ### <a name="get-the-ip-address-of-the-external-adapter-of-the-nat-vm"></a>Získání IP adresy externího adaptéru virtuálního počítače pro překlad adres
 
-1. Přihlaste se k fyzickému počítači Azure Stack pro POC1.
-2. Upravte následující kód Powershellu k nahrazení hesla správce a spusťte kód na hostiteli POC:
+1. Přihlaste se k Azure Stack fyzického počítače pro POC1.
+2. Upravte následující kód prostředí PowerShell a přidejte heslo správce a potom spusťte kód na hostiteli pro ověření koncepce:
 
    ```powershell
    cd \AzureStack-Tools-master\connect
@@ -88,206 +88,204 @@ Následující tabulka shrnuje konfiguraci sítě pro obě ASDK prostředí. Pom
     -Password $Password
    ```
 
-3. Přidáte IP adresu do tabulky konfigurace sítě, která se zobrazí v předchozí části.
+3. Přidejte IP adresu do tabulky konfigurace sítě, která se zobrazí v předchozí části.
 
-4. Opakujte tento postup v POC2.
+4. Tento postup opakujte na POC2.
 
 ## <a name="create-the-network-resources-in-poc1"></a>Vytvoření síťových prostředků v POC1
 
-Nyní můžete vytvořit POC1 síťové prostředky, které budete potřebovat pro vytvoření vaší brány. Následující pokyny popisují, jak vytvořit prostředky pomocí portálu pro uživatele Azure stacku. Kód Powershellu můžete použít také k vytvoření prostředků.
+Nyní můžete vytvořit POC1 síťové prostředky, které potřebujete k nastavení bran. Následující pokyny popisují, jak vytvořit prostředky pomocí portálu Azure Stack User Portal. K vytvoření prostředků můžete také použít kód prostředí PowerShell.
 
-![Pracovní postup, který se používá k vytváření prostředků](media/azure-stack-create-vpn-connection-one-node-tp2/image2.png)
+![Pracovní postup vytvoření prostředků](media/azure-stack-create-vpn-connection-one-node-tp2/image2.png)
 
-### <a name="sign-in-as-a-tenant"></a>Přihlaste se jako tenant
+### <a name="sign-in-as-a-tenant"></a>Přihlaste se jako tenant.
 
-Správce služeb můžete přihlásit jako tenant k testovací plány, nabídky a předplatné, které můžou jeho tenanti používat. Pokud ho ještě nemáte, [vytvořte si účet tenanta](azure-stack-add-new-user-aad.md) před přihlášením.
+Správce služeb se může přihlásit jako tenant, aby otestoval plány, nabídky a odběry, které můžou klienti používat. Pokud ho ještě nemáte, vytvořte si [účet tenanta](azure-stack-add-new-user-aad.md) a teprve potom se přihlaste.
 
 ### <a name="create-the-virtual-network-and-vm-subnet"></a>Vytvoření virtuální sítě a podsítě virtuálních počítačů
 
-1. Pro přihlášení k portálu user portal pomocí účtu tenanta.
-2. Na portálu user portal, vyberte **+ vytvořit prostředek**.
-3. Přejděte na **Marketplace**a pak vyberte **sítě**.
+1. Pomocí účtu tenanta se přihlaste k portálu User Portal.
+2. Na portálu User Portal vyberte **+ vytvořit prostředek**.
+3. Otevřete **web Marketplace**a pak vyberte **sítě**.
 4. Vyberte **Virtuální síť**.
-5. Pro **název**, **adresní prostor**, **název podsítě**, a **rozsah adres podsítě**, použijte hodnoty, které se zobrazí dříve v síti Konfigurace tabulky.
-6. V **předplatné**, zobrazí se předplatné, které jste vytvořili dříve.
-7. Pro **skupiny prostředků**, můžete vytvořit skupinu prostředků nebo pokud ještě nemáte, vyberte **použít existující**.
+5. V poli **název**, **adresní prostor**, **název podsítě**a **Rozsah adres podsítě**použijte hodnoty, které se objeví dříve v tabulce konfigurace sítě.
+6. V předplatném se zobrazí předplatné, které jste vytvořili dříve.
+7. V případě **skupiny prostředků**můžete buď vytvořit skupinu prostředků, nebo pokud ji už máte, vyberte **použít existující**.
 8. Ověřte výchozí umístění.
 9. Zaškrtněte **Připnout na řídicí panel**.
 10. Vyberte **Vytvořit**.
 
 ### <a name="create-the-gateway-subnet"></a>Vytvoření podsítě brány
 
-1. Na řídicím panelu otevřete prostředek virtuální sítě VNET-01, kterou jste vytvořili dříve.
+1. Na řídicím panelu otevřete prostředek virtuální síťové sítě VNET-01, který jste vytvořili dříve.
 2. V okně **Nastavení** vyberte **Podsítě**.
-3. Chcete-li přidat podsíť brány k virtuální síti, **podsíť brány**.
+3. Chcete-li přidat podsíť brány do virtuální sítě, vyberte možnost **podsíť brány**.
 
-    ![Přidání podsítě brány](media/azure-stack-create-vpn-connection-one-node-tp2/image4.png)
+    ![Přidat podsíť brány](media/azure-stack-create-vpn-connection-one-node-tp2/image4.png)
 
-4. Ve výchozím nastavení, název podsítě nastavený na **GatewaySubnet**. Podsítě brány jsou speciální. Aby fungovala správně, musíte použít **GatewaySubnet** název.
-5. V **rozsah adres**, ověřte, že je adresa **10.0.11.0/24**.
-6. Vyberte **OK** vytvořit podsíť brány.
+4. Ve výchozím nastavení je název podsítě nastavený na **GatewaySubnet**. Podsítě brány jsou speciální. Aby fungovala správně, musí používat název **GatewaySubnet** .
+5. V poli **Rozsah adres**ověřte, že je adresa **10.0.11.0/24**.
+6. Vyberte **OK** a vytvořte podsíť brány.
 
 ### <a name="create-the-virtual-network-gateway"></a>Vytvoření brány virtuální sítě
 
-1. Na webu Azure Portal, vyberte **+ vytvořit prostředek**.
-2. Přejděte na **Marketplace**a pak vyberte **sítě**.
-3. V seznamu síťových prostředků, vyberte **Brána virtuální sítě**.
-4. V **název**, zadejte **GW1**.
-5. Vyberte **virtuální síť** položku, kterou chcete zvolit virtuální síť. Vyberte **připojení typu VNET-01** ze seznamu.
-6. Vyberte **veřejnou IP adresu** položky nabídky. Když **zvolte veřejnou IP adresu** okno otevře, vyberte **vytvořit nový**.
-7. V **název**, zadejte **GW1-PiP**a pak vyberte **OK**.
-8. Ve výchozím nastavení pro **typ sítě VPN**, **založené na trasách** zaškrtnuto. Zachovat **založené na trasách** typ sítě VPN.
-9. Ověřte, že nastavení **Předplatné** a **Umístění** jsou správná. Prostředek na řídicí panel můžete připnout. Vyberte **Vytvořit**.
+1. V Azure Portal vyberte **+ vytvořit prostředek**.
+2. Otevřete **web Marketplace**a pak vyberte **sítě**.
+3. V seznamu síťových prostředků vyberte možnost **Brána virtuální sítě**.
+4. Do **název**zadejte **gw1**.
+5. Vyberte položku **virtuální síť** a zvolte virtuální síť. Ze seznamu vyberte **VNet-01** .
+6. Vyberte položku nabídky **veřejné IP adresy** . Po otevření okna **zvolit veřejnou IP adresu** vyberte **vytvořit novou**.
+7. Do **název**zadejte **gw1-PIP**a pak vyberte **OK**.
+8. Ve výchozím nastavení je vybrána možnost **typ sítě VPN**, který je **založený na trasách** . Zachovejte typ sítě VPN **založený** na trasách.
+9. Ověřte, že nastavení **Předplatné** a **Umístění** jsou správná. Prostředek můžete připnout na řídicí panel. Vyberte **Vytvořit**.
 
 ### <a name="create-the-local-network-gateway"></a>Vytvoření brány místní sítě
 
 Implementace *brány místní sítě* v tomto nasazení Azure Stack pro účely vyhodnocení je trochu jiná než ve skutečném nasazení Azure.
 
-V nasazení služby Azure představuje bránu místní sítě místní (u tenanta) fyzického zařízení, který používáte pro připojení k bráně virtuální sítě v Azure. V tomto nasazení Azure Stack hodnocení jsou obou koncích připojení brány virtuální sítě.
+V nasazení Azure představuje brána místní sítě místní (u tenanta) fyzické zařízení, které používáte pro připojení k bráně virtuální sítě v Azure. V tomto Azure Stack zkušební nasazení jsou oba konce připojení brány virtuální sítě.
 
-Způsob obecněji dívat se, že prostředek brány místní sítě vždycky uvádí vzdálenou bránu na druhém konci připojení. Kvůli způsobu, jakým Azure Stack Development Kit byla navržena musíte zadat IP adresu externího síťového adaptéru na překlad síťových adres (NAT) virtuálního počítače z jiných ASDK jako veřejnou IP adresu brány místní sítě. Pak vytvoříte mapování překladu adres na tomto virtuálním počítači abyste měli jistotu, že jsou oba konce správně připojené.
+K této obecnější úvahě se můžete představit tak, že prostředek brány místní sítě vždycky na druhém konci připojení indikuje vzdálenou bránu. Vzhledem k tomu, jak byl Azure Stack Development Kit navržený, musíte zadat IP adresu externího síťového adaptéru na virtuálním počítači překladu síťových adres (NAT) druhého ASDK jako veřejnou IP adresu brány místní sítě. Pak na virtuálním počítači NAT vytvoříte mapování NAT, abyste se ujistili, že oba konce budou správně připojené.
 
-### <a name="create-the-local-network-gateway-resource"></a>Vytváření prostředku brány místní sítě
+### <a name="create-the-local-network-gateway-resource"></a>Vytvoření prostředku brány místní sítě
 
-1. Přihlaste se k fyzickému počítači Azure Stack pro POC1.
-2. Na portálu user portal, vyberte **+ vytvořit prostředek**.
-3. Přejděte na **Marketplace**a pak vyberte **sítě**.
-4. V seznamu prostředků vyberte **bránu místní sítě**.
-5. V **název**, zadejte **POC2-GW**.
-6. V **IP adresu**, zadejte adresu externího BGPNAT POC2. Tato adresa se zobrazí výše v tabulce Konfigurace sítě.
-7. V **adresní prostor**, adresní prostor sítě vnet POC2, který později vytvoříte, zadejte **10.0.20.0/23**.
-8. Ověřte, že vaše **předplatné**, **skupiny prostředků**, a **umístění** hodnoty jsou správné a pak vyberte **vytvořit**.
+1. Přihlaste se k Azure Stack fyzického počítače pro POC1.
+2. Na portálu User Portal vyberte **+ vytvořit prostředek**.
+3. Otevřete **web Marketplace**a pak vyberte **sítě**.
+4. V seznamu prostředků vyberte **Brána místní sítě**.
+5. Do **název**zadejte **POC2-GS**.
+6. Do pole **IP adresa**zadejte externí BGPNAT adresu pro POC2. Tato adresa se zobrazí výše v tabulce konfigurace sítě.
+7. V **adresním prostoru**zadejte do adresního prostoru virtuální sítě POC2, kterou vytvoříte později, **10.0.20.0/23**.
+8. Ověřte, že vaše **předplatné**, **Skupina prostředků**a hodnoty **umístění** jsou správné, a pak vyberte **vytvořit**.
 
 ### <a name="create-the-connection"></a>Vytvoření připojení
 
-1. Na portálu user portal, vyberte **+ vytvořit prostředek**.
-2. Přejděte na **Marketplace**a pak vyberte **sítě**.
-3. V seznamu prostředků vyberte **připojení**.
-4. Na **Základy** okno nastavení pro **typ připojení**vyberte **Site-to-site (IPSec)**.
-5. Vyberte **předplatné**, **skupiny prostředků**, a **umístění**a pak vyberte **OK**.
-6. Na **nastavení** okně vyberte **Brána virtuální sítě**a pak vyberte **GW1**.
-7. Vyberte **bránu místní sítě**a pak vyberte **POC2-GW**.
-8. V **název připojení**, zadejte **POC1-POC2**.
-9. V **sdílený klíč (PSK)**, zadejte **12345**a pak vyberte **OK**.
-10. Na **Souhrn** okně vyberte **OK**.
+1. Na portálu User Portal vyberte **+ vytvořit prostředek**.
+2. Otevřete **web Marketplace**a pak vyberte **sítě**.
+3. V seznamu prostředků vyberte možnost **připojení**.
+4. V okně **základní** nastavení pro **Typ připojení**vyberte **site-to-Site (IPSec)** .
+5. Vyberte **předplatné**, **skupinu prostředků**a **umístění**a pak vyberte **OK**.
+6. V okně **Nastavení** vyberte **Brána virtuální sítě**a pak vyberte **gw1**.
+7. Vyberte **Brána místní sítě**a pak vyberte **POC2-GS**.
+8. Do **název připojení**zadejte **POC1-POC2**.
+9. Do **sdíleného klíče (PSK)** zadejte **12345**a pak vyberte **OK**.
+10. V okně **Souhrn** vyberte **OK**.
 
 ### <a name="create-a-vm"></a>Vytvoření virtuálního počítače
 
-Ověřit data přenášená přes připojení VPN, budete potřebovat virtuální počítače pro odesílání a příjem dat v jednotlivých Azure Stack Development Kit. Teď vytvořte virtuální počítač v POC1 a potom ve vaší virtuální síti, vložit ho podsítě virtuálních počítačů.
+Chcete-li ověřit data přenášená přes připojení k síti VPN, potřebujete, aby virtuální počítače odesílaly a přijímaly data v jednotlivých Azure Stack Development Kit. Vytvořte virtuální počítač v POC1 nyní a potom ve své virtuální síti ho umístěte do podsítě virtuálních počítačů:
 
-1. Na webu Azure Portal, vyberte **+ vytvořit prostředek**.
-2. Přejděte na **Marketplace**a pak vyberte **Compute**.
-3. Vyberte v seznamu imagí virtuálních počítačů **systému Windows Server 2016 Datacenter Eval** bitové kopie.
-4. Na **Základy** okno v **název**, zadejte **VM01**.
-5. Zadejte platné uživatelské jméno a heslo. Tento účet použijete pro přihlášení k virtuálnímu počítači po jeho vytvoření.
-6. Zadejte **předplatné**, **skupiny prostředků**, a **umístění**a pak vyberte **OK**.
-7. Na **velikost** okno pro tuto instanci, vyberte velikost virtuálního počítače a pak vyberte **vyberte**.
-8. Na **nastavení** okno, přijměte výchozí hodnoty. Ujistěte se, **připojení typu VNET-01** je vybraná virtuální síť. Ověřte, že podsíť je nastavená na **10.0.10.0/24**. Pak vyberte **OK**.
-9. Na **Souhrn** okno, zkontrolujte nastavení a pak vyberte **OK**.
+1. V Azure Portal vyberte **+ vytvořit prostředek**.
+2. Přejít na **web Marketplace**a pak vybrat **COMPUTE**.
+3. V seznamu imagí virtuálních počítačů vyberte **Windows Server 2016 Datacenter – zkušební** obrázek.
+4. V okně **základy** do pole **název**zadejte **VM01**.
+5. Zadejte platné uživatelské jméno a heslo. Tento účet se používá pro přihlášení k virtuálnímu počítači po jeho vytvoření.
+6. Zadejte **předplatné**, **skupinu prostředků**a **umístění**a pak vyberte **OK**.
+7. V okně **Velikost** pro tuto instanci vyberte velikost virtuálního počítače a pak vyberte **Vybrat**.
+8. V okně **Nastavení** přijměte výchozí hodnoty. Ujistěte se, že je vybraná virtuální síť **VNet-01** . Ověřte, že je podsíť nastavená na **10.0.10.0/24**. Pak vyberte **OK**.
+9. V okně **Souhrn** zkontrolujte nastavení a pak vyberte **OK**.
 
 ## <a name="create-the-network-resources-in-poc2"></a>Vytvoření síťových prostředků v POC2
 
-Dalším krokem je vytvoření síťových prostředků pro POC2. Následující pokyny ukazují, jak vytvořit prostředky pomocí portálu user portal.
+Dalším krokem je vytvoření síťových prostředků pro POC2. Následující pokyny ukazují, jak vytvořit prostředky pomocí portálu User Portal.
 
-### <a name="sign-in-as-a-tenant-again"></a>Znovu se přihlaste jako tenant
+### <a name="sign-in-as-a-tenant-again"></a>Přihlaste se jako tenant znovu.
 
-Správce služeb můžete přihlásit jako tenant k testovací plány, nabídky a předplatné, které můžou jeho tenanti používat. Pokud ho ještě nemáte, [vytvořte si účet tenanta](azure-stack-add-new-user-aad.md) před přihlášením.
+Správce služeb se může přihlásit jako tenant, aby otestoval plány, nabídky a odběry, které můžou klienti používat. Pokud ho ještě nemáte, vytvořte si [účet tenanta](azure-stack-add-new-user-aad.md) a teprve potom se přihlaste.
 
 ### <a name="create-virtual-network-and-vm-subnet"></a>Vytvoření virtuální sítě a podsítě virtuálních počítačů
 
 1. Přihlaste se pomocí účtu tenanta.
-2. Na portálu user portal, vyberte **+ vytvořit prostředek**.
-3. Přejděte na **Marketplace**a pak vyberte **sítě**.
+2. Na portálu User Portal vyberte **+ vytvořit prostředek**.
+3. Otevřete **web Marketplace**a pak vyberte **sítě**.
 4. Vyberte **Virtuální síť**.
-5. Použijte informace uvedené výše v tabulce Konfigurace sítě a určete hodnoty pro POC2 **název**, **adresní prostor**, **název podsítě**a **Rozsah adres podsítě**.
-6. V **předplatné**, zobrazí se předplatné, které jste vytvořili dříve.
-7. Pro **skupiny prostředků**, vytvořte novou skupinu prostředků, nebo pokud ještě nemáte, vyberte **použít existující**.
-8. Ověření výchozího **umístění**.
+5. Použijte informace uvedené dříve v tabulce konfigurace sítě k identifikaci hodnot pro **název**POC2, **adresní prostor**, **název podsítě**a **Rozsah adres podsítě**.
+6. V předplatném se zobrazí předplatné, které jste vytvořili dříve.
+7. V případě **skupiny prostředků**vytvořte novou skupinu prostředků, nebo pokud ji už máte, vyberte **použít existující**.
+8. Ověřte výchozí **umístění**.
 9. Zaškrtněte **Připnout na řídicí panel**.
 10. Vyberte **Vytvořit**.
 
 ### <a name="create-gateway-subnet"></a>Vytvořit podsíť brány
 
-1. Otevřete prostředek virtuální sítě, jste vytvořili (**připojení typu VNET-02**) z řídicího panelu.
+1. Z řídicího panelu otevřete prostředek virtuální sítě, který jste vytvořili (**VNet-02**).
 2. V okně **Nastavení** vyberte **Podsítě**.
-3. Vyberte **podsíť brány** přidat podsíť brány k virtuální síti.
+3. Výběrem **podsítě brány** přidejte podsíť brány do virtuální sítě.
 4. Ve výchozím nastavení je název této podsítě nastavený na **GatewaySubnet**. Podsítě brány jsou speciální a musí mít tento konkrétní název, aby fungovaly správně.
-5. V **rozsah adres** pole, zkontrolujte, adresa **10.0.21.0/24**.
-6. Vyberte **OK** vytvořit podsíť brány.
+5. V poli **Rozsah adres** ověřte, že je adresa **10.0.21.0/24**.
+6. Vyberte **OK** a vytvořte podsíť brány.
 
 ### <a name="create-virtual-network-gateway"></a>Vytvořit bránu virtuální sítě
 
-1. Na webu Azure Portal, vyberte **+ vytvořit prostředek**.  
-2. Přejděte na **Marketplace**a pak vyberte **sítě**.
-3. V seznamu síťových prostředků, vyberte **Brána virtuální sítě**.
-4. V **název**, zadejte **GW2**.
-5. Chcete-li zvolit virtuální síť, vyberte **virtuální síť**. Potom vyberte **připojení typu VNET-02** ze seznamu.
-6. Vyberte **Veřejná IP adresa**. Když **zvolte veřejnou IP adresu** otevře se okno, vyberte **vytvořit nový**.
-7. V **název**, zadejte **GW2-PiP**a pak vyberte **OK**.
-8. Ve výchozím nastavení pro **typ sítě VPN**, **založené na trasách** zaškrtnuto. Zachovat **založené na trasách** typ sítě VPN.
-9. Ověřte, že nastavení **Předplatné** a **Umístění** jsou správná. Prostředek na řídicí panel můžete připnout. Vyberte **Vytvořit**.
+1. V Azure Portal vyberte **+ vytvořit prostředek**.  
+2. Otevřete **web Marketplace**a pak vyberte **sítě**.
+3. V seznamu síťových prostředků vyberte možnost **Brána virtuální sítě**.
+4. Do **název**zadejte **GW2**.
+5. Chcete-li zvolit virtuální síť, vyberte možnost **virtuální síť**. Pak ze seznamu vyberte **VNet-02** .
+6. Vyberte **Veřejná IP adresa**. Když se otevře okno **zvolit veřejnou IP adresu** , vyberte **vytvořit nové**.
+7. Do **název**zadejte **GW2-PIP**a pak vyberte **OK**.
+8. Ve výchozím nastavení je vybrána možnost **typ sítě VPN**, který je **založený na trasách** . Zachovejte typ sítě VPN **založený** na trasách.
+9. Ověřte, že nastavení **Předplatné** a **Umístění** jsou správná. Prostředek můžete připnout na řídicí panel. Vyberte **Vytvořit**.
 
-### <a name="create-local-network-gateway-resource"></a>Vytváření prostředku brány místní sítě
+### <a name="create-local-network-gateway-resource"></a>Vytvoření prostředku brány místní sítě
 
-1. V portálu user portal POC2 vyberte **+ vytvořit prostředek**.
-2. Přejděte na **Marketplace**a pak vyberte **sítě**.
-3. V seznamu prostředků vyberte **bránu místní sítě**.
-4. V **název**, zadejte **POC1-GW**.
-5. V **IP adresu**, zadejte adresu externího BGPNAT POC1 uvedenou dříve v tabulce Konfigurace sítě.
-6. V **adresní prostor**, z POC1, zadejte **10.0.10.0/23** adresní prostor **připojení typu VNET-01**.
-7. Ověřte, že vaše **předplatné**, **skupiny prostředků**, a **umístění** jsou správné a pak vyberte **vytvořit**.
+1. V uživatelském portálu POC2 vyberte **+ vytvořit prostředek**.
+2. Otevřete **web Marketplace**a pak vyberte **sítě**.
+3. V seznamu prostředků vyberte **Brána místní sítě**.
+4. Do **název**zadejte **POC1-GS**.
+5. Do pole **IP adresa**zadejte externí BGPNAT adresu pro POC1, která je uvedena v tabulce konfigurace sítě.
+6. Do pole **adresní prostor**z POC1 zadejte adresní prostor **10.0.10.0/23** **virtuální sítě VNet-01**.
+7. Ověřte, jestli je vaše **předplatné**, **Skupina prostředků**a **umístění** správné, a pak vyberte **vytvořit**.
 
 ## <a name="create-connection"></a>Vytvoření připojení
 
-1. Na portálu user portal, vyberte **+ vytvořit prostředek**.
-2. Přejděte na **Marketplace**a pak vyberte **sítě**.
-3. V seznamu prostředků vyberte **připojení**.
-4. Na **základní** okno nastavení pro **typ připojení**, zvolte **Site-to-site (IPSec)**.
-5. Vyberte **předplatné**, **skupiny prostředků**, a **umístění**a pak vyberte **OK**.
-6. Na **nastavení** okně vyberte **Brána virtuální sítě**a pak vyberte **GW2**.
-7. Vyberte **bránu místní sítě**a pak vyberte **POC1-GW**.
-8. V **název připojení**, zadejte **POC2-POC1**.
-9. V **sdílený klíč (PSK)**, zadejte **12345**. Pokud zvolíte jinou hodnotu, mějte na paměti, že musí odpovídat hodnotě pro sdílený klíč, který jste vytvořili v POC1. Vyberte **OK**.
-10. Zkontrolujte **Souhrn** okna a pak vyberte **OK**.
+1. Na portálu User Portal vyberte **+ vytvořit prostředek**.
+2. Otevřete **web Marketplace**a pak vyberte **sítě**.
+3. V seznamu prostředků vyberte možnost **připojení**.
+4. V okně **základní** nastavení pro **Typ připojení**vyberte možnost **site-to-Site (IPSec)** .
+5. Vyberte **předplatné**, **skupinu prostředků**a **umístění**a pak vyberte **OK**.
+6. V okně **Nastavení** vyberte **Brána virtuální sítě**a pak vyberte **GW2**.
+7. Vyberte **Brána místní sítě**a pak vyberte **POC1-GS**.
+8. Do **název připojení**zadejte **POC2-POC1**.
+9. Do **sdíleného klíče (PSK)** zadejte **12345**. Pokud zvolíte jinou hodnotu, zapamatujte si, že se musí shodovat s hodnotou pro sdílený klíč, který jste vytvořili v POC1. Vyberte **OK**.
+10. Zkontrolujte okno **Souhrn** a pak vyberte **OK**.
 
 ## <a name="create-a-virtual-machine"></a>Vytvoření virtuálního počítače
 
-Teď vytvořte virtuální počítač v POC2 a umístí jej podsítě virtuálních počítačů ve vaší virtuální síti:
+Nyní vytvořte virtuální počítač v POC2 a umístěte ho do podsítě virtuálních počítačů ve vaší virtuální síti:
 
-1. Na webu Azure Portal, vyberte **+ vytvořit prostředek**.
-2. Přejděte na **Marketplace**a pak vyberte **Compute**.
-3. Vyberte v seznamu imagí virtuálních počítačů **systému Windows Server 2016 Datacenter Eval** bitové kopie.
-4. Na **Základy** okně pro **název**, zadejte **VM02**.
+1. V Azure Portal vyberte **+ vytvořit prostředek**.
+2. Přejít na **web Marketplace**a pak vybrat **COMPUTE**.
+3. V seznamu imagí virtuálních počítačů vyberte **Windows Server 2016 Datacenter – zkušební** obrázek.
+4. V okně **základy** do pole **název**zadejte **VM02**.
 5. Zadejte platné uživatelské jméno a heslo. Tento účet použijete pro přihlášení k virtuálnímu počítači po jeho vytvoření.
-6. Zadejte **předplatné**, **skupiny prostředků**, a **umístění**a pak vyberte **OK**.
-7. Na **velikost** okno, vyberte velikost pro tuto instanci virtuálního počítače a pak vyberte **vyberte**.
-8. Na **nastavení** okně můžete přijmout výchozí hodnoty. Ujistěte se, **připojení typu VNET-02** virtuální síť je vybraná a ověřte, že podsíť je nastavená na **10.0.20.0/24**. Vyberte **OK**.
-9. Zkontrolujte nastavení na **Souhrn** okna a pak vyberte **OK**.
+6. Zadejte **předplatné**, **skupinu prostředků**a **umístění**a pak vyberte **OK**.
+7. V okně **Velikost** vyberte velikost virtuálního počítače pro tuto instanci a pak vyberte **Vybrat**.
+8. V okně **Nastavení** můžete přijmout výchozí hodnoty. Ujistěte se, že je vybraná virtuální síť **VNet-02** , a ověřte, že je podsíť nastavená na **10.0.20.0/24**. Vyberte **OK**.
+9. Zkontrolujte nastavení v okně **Souhrn** a pak vyberte **OK**.
 
-## <a name="configure-the-nat-virtual-machine-on-each-azure-stack-development-kit-for-gateway-traversal"></a>Konfigurace virtuálního počítače překladu adres na každé Azure Stack Development Kit pro přecházení přes bránu
+## <a name="configure-the-nat-virtual-machine-on-each-azure-stack-development-kit-for-gateway-traversal"></a>Konfigurace virtuálního počítače NAT na všech Azure Stack Development Kit pro procházení branami
 
-Vzhledem k tomu, ASDK je samostatné a izolované od sítě, na kterém je nasazený fyzický hostitel, *externí* není ve skutečnosti externí síť virtuálních IP adres, které jsou brány připojené k. Síť virtuálních IP adres je skrytá za směrovačem, který provádí překlad síťových adres.
+Vzhledem k tomu, že ASDK je samostatný a izolovaný od sítě, ve které je nasazený fyzický hostitel  , není ve skutečnosti externí síť VIP, ke které jsou brány připojené. Místo toho je síť VIP skrytá za směrovačem, který provádí překlad síťových adres.
 
-Tímto směrovačem je virtuální počítač s Windows serverem volá **AzS-bgpnat01**, role Služba Směrování a vzdálený přístup (RRAS), který běží v ASDK infrastruktury. Na virtuálním počítači povolit připojení VPN site-to-site pro připojení na obou koncích AzS-bgpnat01 musíte nakonfigurovat překladu adres.
+Směrovač je virtuální počítač s Windows serverem nazvaný **AzS-bgpnat01**, který spouští roli služby Směrování a vzdálený přístup (RRAS) v infrastruktuře ASDK. Na virtuálním počítači AzS-bgpnat01 musíte nakonfigurovat překlad adres (NAT), aby připojení VPN typu Site-to-site bylo možné připojit na obou koncích.
 
-Pokud chcete nakonfigurovat připojení VPN, musíte vytvořit statickou trasu mapování NAT, která se mapuje externí rozhraní virtuálního počítače BGPNAT virtuální IP adresu fondu hraniční brány. Statickou trasu NAT mapy se vyžaduje pro každý z portů v připojení k síti VPN.
+Pokud chcete nakonfigurovat připojení k síti VPN, musíte vytvořit trasu mapy statického překladu adres (NAT), která mapuje externí rozhraní na virtuálním počítači s BGPNAT na virtuální IP adresu fondu hraniční brány. Pro každý port v připojení VPN se vyžaduje trasa mapy statického překladu adres (NAT).
 
 > [!NOTE]
-> Tato konfigurace je nutná pouze v prostředích Azure Stack Development Kit.
->
->
+> Tato konfigurace je nutná jenom pro Azure Stack Development Kit prostředí.
 
-### <a name="configure-the-nat"></a>Konfigurace zařízení NAT.
+### <a name="configure-the-nat"></a>Konfigurace překladu adres (NAT)
 
 > [!IMPORTANT]
-> Musíte dokončit tento postup pro obě ASDK prostředí.
+> Tento postup je nutné provést pro prostředí ASDK.
 
-1. Určit, **interní IP adresa** pro použití v následující skript prostředí PowerShell. Otevřete bránu virtuální sítě (GW1 a GW2) a pak na **přehled** okno Uložit hodnotu **veřejnou IP adresu** pro pozdější použití.
+1. Určete **interní IP adresu** , která se má použít v následujícím skriptu PowerShellu. Otevřete bránu virtuální sítě (GW1 a GW2) a pak v okně **Přehled** uložte hodnotu pro **veřejnou IP adresu** pro pozdější použití.
 
    ![Interní IP adresa](media/azure-stack-create-vpn-connection-one-node-tp2/InternalIP.PNG)
 
-2. Přihlaste se k fyzickému počítači Azure Stack pro POC1.
-3. Zkopírujte a upravte následující skript prostředí PowerShell. Ke konfiguraci překladu síťových adres na každé sady Azure Stack Development Kit, spusťte skript se zvýšenými oprávněními prostředí PowerShell ISE Windows. Ve skriptu, přidejte hodnoty pro `External BGPNAT address` a `Internal IP address` zástupné symboly:
+2. Přihlaste se k Azure Stack fyzického počítače pro POC1.
+3. Zkopírujte a upravte následující skript prostředí PowerShell. Pokud chcete nakonfigurovat překlad adres (NAT) na každém Azure Stack Development Kit, spusťte skript v Integrované skriptovací prostředí (ISE) v prostředí Windows PowerShell se zvýšenými oprávněními. Do skriptu přidejte hodnoty do `External BGPNAT address` zástupných symbolů a: `Internal IP address`
 
    ```powershell
    # Designate the external NAT address for the ports that use the IKE authentication.
@@ -329,28 +327,28 @@ Pokud chcete nakonfigurovat připojení VPN, musíte vytvořit statickou trasu m
       -InternalPort 4500}
    ```
 
-4. Opakujte tento postup v POC2.
+4. Tento postup opakujte na POC2.
 
 ## <a name="test-the-connection"></a>Otestování připojení
 
-Teď, když se připojení site-to-site, měli byste ověřit, že dokážete zajistit provoz přes něj. K ověření, přihlaste se k jednomu z virtuálních počítačů, které jste vytvořili v obou ASDK prostředí. Pak odešlete zprávu ping virtuální počítač, který jste vytvořili v druhém prostředí.
+Teď, když je navázáno připojení Site-to-site, byste měli ověřit, že můžete přes něj získat provoz. Pokud se chcete ověřit, přihlaste se k jednomu z virtuálních počítačů, které jste vytvořili v ASDK prostředí. Pak na virtuálním počítači, který jste vytvořili v jiném prostředí, otestujete test.
 
-Pokud chcete mít jistotu, že je přenos odesílat přes připojení site-to-site, zkontrolujte pomocí příkazu ping adresa Direct IP (DIP) virtuálního počítače ve vzdálené podsíti, nikoli virtuální IP adresy. Uděláte to tak, najdete IP adresu na druhém konci připojení. Uložte adresu pro pozdější použití.
+Aby bylo zajištěno, že budete odesílat data prostřednictvím připojení typu Site-to-site, ujistěte se, že otestujete adresu IP (DIP) virtuálního počítače ve vzdálené podsíti, nikoli VIP. Provedete to tak, že na druhém konci připojení vyhledáte adresu DIP. Uložte adresu pro pozdější použití.
 
-### <a name="sign-in-to-the-tenant-vm-in-poc1"></a>Přihlaste se k virtuálnímu počítači v POC1 tenanta
+### <a name="sign-in-to-the-tenant-vm-in-poc1"></a>Přihlaste se k virtuálnímu počítači tenanta v POC1
 
-1. Přihlaste se k fyzickému počítači Azure Stack pro POC1 a potom přihlásit k portálu user portal pomocí účtu tenanta.
-2. V levém navigačním panelu vyberte **Compute**.
-3. V seznamu virtuálních počítačů, najděte **VM01** , který jste vytvořili dříve a pak ho vyberte.
-4. V okně pro virtuální počítač, klikněte na **připojit**a pak otevřete soubor VM01.rdp.
+1. Přihlaste se k Azure Stack fyzického počítače pro POC1 a pak pomocí účtu tenanta se přihlaste k portálu User Portal.
+2. V levém navigačním panelu vyberte **COMPUTE**.
+3. V seznamu virtuálních počítačů Najděte **VM01** , který jste vytvořili dříve, a pak ho vyberte.
+4. V okně pro virtuální počítač klikněte na **připojit**a pak otevřete soubor VM01. RDP.
 
-     ![Tlačítko pro připojení](media/azure-stack-create-vpn-connection-one-node-tp2/image17.png)
+     ![Tlačítko připojit](media/azure-stack-create-vpn-connection-one-node-tp2/image17.png)
 
 5. Přihlaste se pomocí účtu, který jste nakonfigurovali při vytváření virtuálního počítače.
-6. Otevřete zvýšenými **prostředí Windows PowerShell** okna.
+6. Otevřete okno **Windows PowerShellu** se zvýšenými oprávněními.
 7. Zadejte **ipconfig/all**.
-8. Ve výstupu vyhledejte **IPv4 adresu**a potom uložte adresu pro pozdější použití. Jde o adresu, kterou použijete pro příkaz ping z POC2. V našem ukázkovém prostředí je touto adresou **10.0.10.4**, ale ve vašem prostředí tato hodnota může být jiná. By měla spadat do **10.0.10.0/24** podsítě, kterou jste vytvořili dříve.
-9. Pokud chcete vytvořit pravidlo brány firewall, které umožňuje virtuálnímu počítači reagovat na příkazy ping pro zjištění, spusťte následující příkaz Powershellu:
+8. Ve výstupu Najděte **adresu IPv4**a pak adresu uložte pro pozdější použití. Jedná se o adresu, kterou budete testovat pomocí nástroje POC2. V našem ukázkovém prostředí je touto adresou **10.0.10.4**, ale ve vašem prostředí tato hodnota může být jiná. Měl by spadat do podsítě **10.0.10.0/24** , kterou jste předtím vytvořili.
+9. Pokud chcete vytvořit pravidlo brány firewall, které umožňuje, aby virtuální počítač reagoval na příkazy, spusťte následující příkaz PowerShellu:
 
    ```powershell
    New-NetFirewallRule `
@@ -358,17 +356,17 @@ Pokud chcete mít jistotu, že je přenos odesílat přes připojení site-to-si
     -Protocol ICMPv4
    ```
 
-### <a name="sign-in-to-the-tenant-vm-in-poc2"></a>Přihlaste se k virtuálnímu počítači v POC2 tenanta
+### <a name="sign-in-to-the-tenant-vm-in-poc2"></a>Přihlaste se k virtuálnímu počítači tenanta v POC2
 
-1. Přihlaste se k fyzickému počítači Azure Stack pro POC2 a potom přihlásit k portálu user portal pomocí účtu tenanta.
-2. V levém navigačním panelu klikněte na tlačítko **Compute**.
-3. Ze seznamu virtuálních počítačů, Najít **VM02** , který jste vytvořili dříve a pak ho vyberte.
+1. Přihlaste se k Azure Stack fyzického počítače pro POC2 a pak pomocí účtu tenanta se přihlaste k portálu User Portal.
+2. V levém navigačním panelu klikněte na **COMPUTE**.
+3. V seznamu virtuálních počítačů Najděte **VM02** , který jste vytvořili dříve, a pak ho vyberte.
 4. V okně pro virtuální počítač klikněte na **Připojit**.
 5. Přihlaste se pomocí účtu, který jste nakonfigurovali při vytváření virtuálního počítače.
-6. Otevřete zvýšenými **prostředí Windows PowerShell** okna.
+6. Otevřete okno **Windows PowerShellu** se zvýšenými oprávněními.
 7. Zadejte **ipconfig/all**.
-8. Adresa IPv4 se zobrazí, který spadá do **10.0.20.0/24**. V ukázkovém prostředí je adresa **10.0.20.4**, ale vaše adresa může být jiný.
-9. Pokud chcete vytvořit pravidlo brány firewall, které umožňuje virtuálnímu počítači reagovat na příkazy ping pro zjištění, spusťte následující příkaz Powershellu:
+8. Zobrazí se adresa IPv4, která spadá do **10.0.20.0/24**. V ukázkovém prostředí je adresa **10.0.20.4**, ale vaše adresa může být odlišná.
+9. Pokud chcete vytvořit pravidlo brány firewall, které umožňuje, aby virtuální počítač reagoval na příkazy, spusťte následující příkaz PowerShellu:
 
    ```powershell
    New-NetFirewallRule `
@@ -376,17 +374,17 @@ Pokud chcete mít jistotu, že je přenos odesílat přes připojení site-to-si
     -Protocol ICMPv4
    ```
 
-10. Z virtuálního počítače v POC2 odešlete zprávu ping virtuálnímu počítači v POC1, prostřednictvím tunelu. K tomu příkaz ping použijte DIP, který jste si poznamenali z VM01. V ukázkovém prostředí je to **10.0.10.4**, ale je potřeba příkaz ping na adresu, kterou jste si poznamenali ve vaší laboratoři. Zobrazí se výsledek, který bude vypadat jako v následujícím příkladu:
+10. Z virtuálního počítače na POC2 otestujte pomocí tunelového propojení virtuální počítač na POC1. Uděláte to tak, že otestujete adresu DIP, kterou jste si poznamenali z VM01. V tomto ukázkovém prostředí se jedná o **touto adresou 10.0.10.4**, ale ujistěte se, že jste ověřili adresu, kterou jste si poznamenali v testovacím prostředí. Měl by se zobrazit výsledek, který vypadá jako v následujícím příkladu:
 
-    ![Úspěšný příkaz ping](media/azure-stack-create-vpn-connection-one-node-tp2/image19b.png)
-11. Odpověď od vzdáleného virtuálního počítače označuje test proběhl úspěšně. V okně virtuálního počítače můžete zavřít. Pokud chcete otestovat připojení, můžete zkusit jinými druhy přenosů dat, jako je kopírování souborů.
+    ![Úspěšný test příkazů](media/azure-stack-create-vpn-connection-one-node-tp2/image19b.png)
+11. Odpověď ze vzdáleného virtuálního počítače indikuje úspěšný test. Můžete zavřít okno virtuálního počítače. Chcete-li otestovat připojení, můžete vyzkoušet jiné druhy přenosů dat, jako je například kopírování souborů.
 
 ### <a name="viewing-data-transfer-statistics-through-the-gateway-connection"></a>Zobrazení statistiky přenosu dat prostřednictvím připojení brány
 
-Pokud chcete vědět, kolik dat prochází připojení site-to-site, tyto informace jsou k dispozici na **připojení** okno. Tento test je také dalším způsobem, jak ověřit, že příkaz ping, který jste právě odeslali, skutečně prošel přes připojení VPN.
+Pokud chcete zjistit, kolik dat prochází přes připojení mezi lokalitami, jsou tyto informace k dispozici v okně **připojení** . Tento test je také dalším způsobem, jak ověřit, zda právě odeslaný test testů prostřednictvím připojení k síti VPN skutečně provedl.
 
-1. Když jste přihlášení k virtuálnímu počítači tenanta v POC2, přihlaste se k portálu user portal pomocí účtu tenanta.
-2. Přejděte na **všechny prostředky**a pak vyberte **POC2-POC1** připojení. **Připojení** se zobrazí.
-3. V **připojení** okna, Statistika **Data v** a **výstupní Data** zobrazí. Na následujícím snímku obrazovky jsou velké počty přiřadit přenos dalších souborů. Měli byste vidět některé nenulové hodnoty.
+1. Když jste se přihlásili k virtuálnímu počítači tenanta v POC2, použijte účet tenanta pro přihlášení k portálu User Portal.
+2. Přejít na **všechny prostředky**a pak vyberte připojení **POC2-POC1** . Zobrazí se **připojení** .
+3. V okně **připojení** se zobrazí statistiky pro **data v** nástroji a **data** ze seznamu. Na následujícím snímku obrazovky se ve velkých číslech přinášejí další přenos souborů. V tuto chvíli byste měli vidět nenulové hodnoty.
 
-    ![Vstupní a výstupní data](media/azure-stack-create-vpn-connection-one-node-tp2/image20.png)
+    ![U dat a ven](media/azure-stack-create-vpn-connection-one-node-tp2/image20.png)
