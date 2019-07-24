@@ -1,6 +1,6 @@
 ---
-title: Aktualizace poskytovatele prostředků Azure Stack MySQL | Dokumentace Microsoftu
-description: Zjistěte, jak můžete aktualizovat poskytovatele prostředků Azure Stack MySQL.
+title: Aktualizuje se poskytovatel prostředků Azure Stack MySQL | Microsoft Docs
+description: Přečtěte si, jak můžete aktualizovat poskytovatele prostředků Azure Stack MySQL.
 services: azure-stack
 documentationCenter: ''
 author: mattbriggs
@@ -11,63 +11,63 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2019
+ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: a81b1f0dae233adc29437bc88a82e4560fc36f10
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 6513138226bf60d37f7f2f541d8d00dcf8d87073
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617896"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68417432"
 ---
 # <a name="update-the-mysql-resource-provider"></a>Aktualizace poskytovatele prostředků MySQL 
 
-*Platí pro: Integrované systémy Azure Stack.*
+*Platí pro: Azure Stack integrovaných systémů.*
 
-Nové MySQL adaptéru poskytovatele prostředků mohou být vydána při sestavení služby Azure Stack se aktualizují. I když existující adaptéru i nadále fungovat, doporučujeme, aktualizuje na nejnovější verzi co nejdřív. 
+Při aktualizaci Azure Stack sestavení může být uvolněn nový adaptér poskytovatele prostředků MySQL. I když existující adaptér funguje i nadále, doporučujeme aktualizovat na nejnovější sestavení co nejdříve. 
 
-Od verze verze 1.1.33.0 poskytovatele prostředků MySQL, aktualizace jsou kumulativní a nemusí být nainstalován v pořadí, ve kterém byly vydány; tak dlouho, dokud jste od verze 1.1.24.0 nebo novější. Například pokud používáte verzi 1.1.24.0 poskytovatele prostředků MySQL, potom můžete upgradovat na verzi 1.1.33.0 nebo později bez nutnosti nejprve nainstalujte verzi 1.1.30.0. Pokud chcete zkontrolovat verze zprostředkovatele dostupných prostředků a verze se podporují ve službě Azure Stack, najdete v seznamu verzí v [nasazení požadavky na poskytovatele prostředků](./azure-stack-mysql-resource-provider-deploy.md#prerequisites).
+Od verze 1.1.33.0 verze poskytovatele prostředků MySQL jsou aktualizace kumulativní a není nutné je instalovat v pořadí, v jakém byly vydány. Pokud začínáte z verze 1.1.24.0 nebo novější. Pokud například používáte verzi 1.1.24.0 poskytovatele prostředků MySQL, můžete upgradovat na verzi 1.1.33.0 nebo novější, aniž byste museli nejdřív nainstalovat verzi 1.1.30.0. Pokud chcete zkontrolovat dostupné verze poskytovatele prostředků a verzi Azure Stack podporovaná, přečtěte si téma seznam verzí v tématu [nasazení požadavků poskytovatele prostředků](./azure-stack-mysql-resource-provider-deploy.md#prerequisites).
 
-Aktualizovat poskytovatele prostředků, použijete **UpdateMySQLProvider.ps1** skriptu. Proces je podobný procesu pro instalaci poskytovatele prostředků, jak je popsáno v části nasazení část poskytovatele prostředků tohoto článku. Skript je součástí stažení zprostředkovatele prostředků. 
+Chcete-li aktualizovat poskytovatele prostředků, použijte skript **UpdateMySQLProvider. ps1** . Proces se podobá procesu použitému k instalaci poskytovatele prostředků, jak je popsáno v části nasazení poskytovatele prostředků v tomto článku. Skript je součástí stahování poskytovatele prostředků. 
 
  > [!IMPORTANT]
- > Před upgradem poskytovatele prostředků, přečtěte si poznámky k verzi pro další informace o nové funkce, opravy a známých problémech, které můžou ovlivnit nasazení.
+ > Před upgradem poskytovatele prostředků si přečtěte poznámky k verzi, kde najdete informace o nových funkcích, opravách a známých problémech, které by mohly mít vliv na nasazení.
 
-## <a name="update-script-processes"></a>Aktualizace skriptu procesy
+## <a name="update-script-processes"></a>Aktualizovat procesy skriptu
 
-**UpdateMySQLProvider.ps1** skript vytvoří nový virtuální počítač s nejnovějším kódem poskytovatele prostředků a migraci nastavení ze starého virtuálního počítače do nového virtuálního počítače. Nastavení, která migraci zahrnují databáze a hostování informace o serveru a záznamu DNS nezbytné. 
+Skript **UpdateMySQLProvider. ps1** vytvoří nový virtuální počítač s nejnovějším kódem poskytovatele prostředků a migruje nastavení z původního virtuálního počítače do nového virtuálního počítače. Mezi nastavení, která se migrují, patří databáze a informace o hostitelském serveru a potřebný záznam DNS. 
 
 >[!NOTE]
->Doporučujeme stáhnout nejnovější jádru Windows serveru 2016 image z Marketplace správu. Pokud je potřeba nainstalovat aktualizace, můžete umístit **jeden** MSU balíček v cestě místní závislosti. Skript selže, pokud existuje více než jeden soubor MSU v tomto umístění.
+>Doporučujeme stáhnout si nejnovější image Windows serveru 2016 Core ze správy Marketplace. Pokud potřebujete nainstalovat aktualizaci, můžete do cesty místní závislosti umístit **jeden** balíček MSU. Pokud je v tomto umístění více než jeden soubor MSU, skript se nezdaří.
 
-Tento skript vyžaduje použití stejné argumenty, které jsou popsány DeployMySqlProvider.ps1 skriptu. Zadejte certifikát zde také.  
+Skript vyžaduje použití stejných argumentů, které jsou popsány pro skript DeployMySqlProvider. ps1. Uveďte taky certifikát.  
 
 
 ## <a name="update-script-parameters"></a>Aktualizovat parametry skriptu 
-Můžete zadat následující parametry z příkazového řádku při spuštění **UpdateMySQLProvider.ps1** skript prostředí PowerShell. Pokud ne, nebo pokud libovolný parametr ověření nezdaří, budete vyzváni k poskytnutí požadovaných parametrů. 
+Když spustíte skript prostředí PowerShell **UpdateMySQLProvider. ps1** , můžete zadat následující parametry z příkazového řádku. Pokud ne, nebo pokud se nějaké ověření parametru nepodaří, budete vyzváni k zadání požadovaných parametrů. 
 
-| Název parametru | Popis | Komentář nebo výchozí hodnotu | 
+| Název parametru | Popis | Komentář nebo výchozí hodnota | 
 | --- | --- | --- | 
-| **CloudAdminCredential** | Přihlašovací údaje pro správce cloudu potřebné pro přístup k privilegovaným koncový bod. | _Požadováno_ | 
-| **AzCredential** | Přihlašovací údaje pro účet správce služby Azure Stack. Použijte stejné přihlašovací údaje, jako jste použili k nasazení Azure Stack. | _Požadováno_ | 
-| **VMLocalCredential** |Přihlašovací údaje pro účet místního správce poskytovatele prostředků SQL virtuálního počítače. | _Požadováno_ | 
-| **PrivilegedEndpoint** | IP adresa nebo název DNS privileged koncového bodu. |  _Požadováno_ | 
-| **AzureEnvironment** | Prostředí Azure účet správce služby, které jste použili k nasazení Azure Stack. Vyžaduje se jenom pro nasazení služby Azure AD. Názvy prostředí podporované jsou **AzureCloud**, **AzureUSGovernment**, nebo pokud používáte Čína Azure AD, **AzureChinaCloud**. | AzureCloud |
-| **DependencyFilesLocalPath** | Váš soubor certifikátu .pfx musíte umístit do tohoto adresáře také. | _Volitelné_ (_povinné_ pro více uzly) | 
-| **DefaultSSLCertificatePassword** | Heslo pro certifikát PFX. | _Požadováno_ | 
-| **MaxRetryCount** | Počet pokusů, které chcete opakovat každé operace, pokud dojde k selhání.| 2 | 
-| **RetryDuration** | Časový interval mezi opakovanými pokusy, během několika sekund. | 120 | 
-| **Odinstalace** | Odeberte poskytovatele prostředků a všechny související prostředky (viz následující poznámky). | Ne | 
-| **Režim DebugMode** | Zabraňuje automatickému čištění při selhání. | Ne | 
-| **AcceptLicense** | Přeskočí výzva k přijetí licence GPL.  (https://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | | 
+| **CloudAdminCredential** | Přihlašovací údaje pro správce cloudu, které jsou nezbytné pro přístup k privilegovanému koncovému bodu. | _Požadováno_ | 
+| **AzCredential** | Přihlašovací údaje pro účet správce služby Azure Stack Použijte stejné přihlašovací údaje, jako jste použili k nasazení Azure Stack. | _Požadováno_ | 
+| **VMLocalCredential** |Pověření pro účet místního správce virtuálního počítače poskytovatele prostředků SQL. | _Požadováno_ | 
+| **PrivilegedEndpoint** | IP adresa nebo název DNS privilegovaného koncového bodu. |  _Požadováno_ | 
+| **AzureEnvironment** | Prostředí Azure účtu správce služby, které jste použili pro nasazení Azure Stack. Vyžaduje se jenom pro nasazení Azure AD. Podporované názvy prostředí jsou **AzureCloud**, **AzureUSGovernment**nebo, pokud používáte Čína Azure AD **AzureChinaCloud**. | AzureCloud |
+| **DependencyFilesLocalPath** | Soubor certifikátu. pfx musí být umístěný i v tomto adresáři. | _Volitelné_ (_povinné_ pro více uzlů) | 
+| **DefaultSSLCertificatePassword** | Heslo pro certifikát. pfx. | _Požadováno_ | 
+| **MaxRetryCount** | Počet pokusů o opakování všech operací, pokud dojde k selhání.| 2 | 
+| **RetryDuration** | Interval časového limitu mezi opakovanými pokusy (v sekundách). | 120 | 
+| **Odinstalace** | Odebrání poskytovatele prostředků a všech přidružených prostředků (viz následující poznámky). | Ne | 
+| **DebugMode** | Zabraňuje automatickému vyčištění při selhání. | Ne | 
+| **AcceptLicense** | Přeskočí výzvu k přijetí licence GPL.  (https://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | | 
 
-## <a name="update-script-example"></a>Ukázkový skript aktualizace
-Následuje příklad použití *UpdateMySQLProvider.ps1* skript, který můžete spustit z konzole Powershellu se zvýšenými oprávněními. Nezapomeňte změnit informace o proměnných a hesla podle potřeby:  
+## <a name="update-script-example"></a>Příklad aktualizace skriptu
+Následuje příklad použití skriptu *UpdateMySQLProvider. ps1* , který můžete spustit z konzoly PowerShell se zvýšenými oprávněními. Nezapomeňte změnit informace o proměnné a hesla podle potřeby:  
 
 > [!NOTE] 
-> Proces aktualizace platí pouze pro integrované systémy. 
+> Proces aktualizace platí jenom pro integrované systémy. 
 
 ```powershell 
 # Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module
@@ -116,5 +116,5 @@ $tempDir\UpdateMySQLProvider.ps1 -AzCredential $AdminCreds `
 -AcceptLicense 
 ```  
 
-## <a name="next-steps"></a>Další postup
-[Spravovat poskytovatele prostředků MySQL](azure-stack-mysql-resource-provider-maintain.md)
+## <a name="next-steps"></a>Další kroky
+[Udržovat poskytovatele prostředků MySQL](azure-stack-mysql-resource-provider-maintain.md)

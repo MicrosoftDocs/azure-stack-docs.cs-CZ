@@ -1,6 +1,6 @@
 ---
-title: Interaktivní funkce ověřovací testování v Azure stacku ověření jako služba | Dokumentace Microsoftu
-description: Zjistěte, jak vytvořit interaktivní funkce ověřovacích testů pro službu Azure Stack s ověřováním jako služba.
+title: Testování ověřování interaktivních funkcí v Azure Stack ověřování jako služba | Microsoft Docs
+description: Naučte se vytvářet interaktivní testy pro ověřování funkcí pro Azure Stack s ověřováním jako službou.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -10,67 +10,67 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/11/2019
+ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: d3db8ea8639f73f3522ddaa358195e7c9ef2f9a9
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: af36943ebaa78ad1838506d6614a7fd6671afe4f
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64303252"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68418470"
 ---
-# <a name="interactive-feature-verification-testing"></a>Ověřovací testování interaktivní funkce  
+# <a name="interactive-feature-verification-testing"></a>Testování ověřování interaktivních funkcí  
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Testovací rozhraní interaktivní funkce ověřování můžete vyžádat testy pro váš systém. Pokud budete požadovat testu, společnost Microsoft používá rozhraní připravit testy, které vyžadují ruční zásah interaktivní. Microsoft můžete použít rozhraní pro zřetězení několik samostatných automatizované testy.
+K vyžádání testů pro váš systém můžete použít architekturu testování interaktivních funkcí. Když vyžádáte test, společnost Microsoft použije rozhraní k přípravě testů, které vyžadují ruční interaktivní kroky. Společnost Microsoft může použít rozhraní k zřetězení několika samostatných automatizovaných testů.
 
-Tento článek popisuje jednoduchý scénář ruční. Test ověří, Výměna disku ve službě Azure Stack. Rozhraní framework shromažďuje diagnostické protokoly v každém kroku. Problémy můžete ladit, protože je najít. Rozhraní také umožňuje sdílet protokoly vytvořené pomocí jiných nástrojů nebo procesy a umožňuje poskytnout zpětnou vazbu na scénáři.
+Tento článek popisuje jednoduchý ruční scénář. Test kontroluje nahrazení disku v Azure Stack. Rozhraní shromažďuje protokoly diagnostiky v každém kroku. Problémy můžete ladit při jejich hledání. Rozhraní také umožňuje sdílení protokolů vytvořených jinými nástroji nebo procesy a umožňuje vám poskytnout zpětnou vazbu k tomuto scénáři.
 
 > [!Important]  
-> Tento článek odkazuje na postup provedení identifikace disku. To je jednoduše ukázku, protože žádné výsledky shromážděné z pracovního postupu průchodu testů nelze použít pro ověření nového řešení.
+> Tento článek odkazuje na kroky k provedení identifikace disku. Toto je pouze ukázka, protože jakékoli výsledky shromážděné z pracovního postupu test Pass nelze použít pro nové ověřování řešení.
 
-## <a name="overview-of-interactive-testing"></a>Přehled interaktivní testování
+## <a name="overview-of-interactive-testing"></a>Přehled interaktivního testování
 
-Test pro náhradní disk je běžný scénář. V tomto příkladu test má pět kroků:
+Test nahrazení disku je běžným scénářem. V tomto příkladu má test pět kroků:
 
-1. Vytvořte nový **průchodu testů** pracovního postupu.
-2. Vyberte **disku identifikace Test**.
-3. Provedení ručního kroku po zobrazení výzvy.
-4. Podívat se na výsledek tohoto scénáře.
-5. Výsledek testu poslat Microsoftu.
+1. Vytvoří nový pracovní postup pro **testovací průchod** .
+2. Vyberte **test identifikace disku**.
+3. Po zobrazení výzvy dokončete krok ručně.
+4. Zkontroluje výsledek scénáře.
+5. Odeslat výsledek testu společnosti Microsoft.
 
-## <a name="create-a-new-test-pass"></a>Vytvořit nový průchodu testu
+## <a name="create-a-new-test-pass"></a>Vytvořit nový test Pass
 
-Pokud nemáte existujícího testu předat k dispozici, postupujte podle pokynů pro [plánování testu](azure-stack-vaas-schedule-test-pass.md).
+Pokud nemáte k dispozici existující testovací průchod, postupujte prosím podle pokynů pro [Plánování testu](azure-stack-vaas-schedule-test-pass.md).
 
-## <a name="schedule-the-test"></a>Testovací plán
+## <a name="schedule-the-test"></a>Naplánování testu
 
-1. Vyberte **disku identifikace Test**.
+1. Vyberte **test identifikace disku**.
 
     > [!Note]  
-    > Zajištění testu vylepšili se zvýšit číslo verze testu. Nejvyšší verze se musí použít značka Pokud Microsoft označuje jinak.
+    > Verze testu se zvýší, protože jsou provedeny vylepšení testovacích materiálů. Nejvyšší verze by měla být vždy použita, pokud společnost Microsoft neurčí jinak.
 
     ![Alternativní text](media/azure-stack-vaas-interactive-feature-verification/image4.png)
 
-1. Zadejte uživatelské jméno správce domény a heslo tak, že vyberete **upravit**.
+1. Zadejte uživatelské jméno a heslo správce domény, a to tak, že vyberete **Upravit**.
 
-1. Vyberte odpovídajícím testovacím spuštění agenta/DVM ke spuštění testu.
+1. Vyberte příslušného agenta spuštění testu/DVM a spusťte test na.
 
     ![Alternativní text](media/azure-stack-vaas-interactive-feature-verification/image5.png)
 
-1. Vyberte **odeslat** spuštění testu.
+1. Vyberte **Odeslat** a spusťte test.
 
     ![Alternativní text](media/azure-stack-vaas-interactive-feature-verification/image6.png)
 
-1. Přístup k UI pro interaktivní test z agenta vybrána v předchozím kroku.
+1. Přihlaste se k uživatelskému rozhraní pro interaktivní test z agenta vybraného v předchozím kroku.
 
     ![Alternativní text](media/azure-stack-vaas-interactive-feature-verification/image8.png)
 
-1. Postupujte podle **dokumentaci** a **ověření** odkazy na pokyny od Microsoftu k provedení tohoto scénáře.
+1. Postupujte podle pokynů v **dokumentaci** a **ověření** a Projděte si pokyny od Microsoftu o tom, jak tento scénář provést.
 
     ![Alternativní text](media/azure-stack-vaas-interactive-feature-verification/image9.png)
 
@@ -78,40 +78,40 @@ Pokud nemáte existujícího testu předat k dispozici, postupujte podle pokynů
 
     ![Alternativní text](media/azure-stack-vaas-interactive-feature-verification/image10.png)
 
-1. Postupujte podle pokynů pro spuštění precheck skriptu.
+1. Postupujte podle pokynů a spusťte skript předkontroly.
 
     ![Alternativní text](media/azure-stack-vaas-interactive-feature-verification/image11.png)
 
-1. Po úspěšném dokončení skriptu precheck spustit ruční scénář (Výměna disku), v souladu **dokumentaci** a **ověření** odkazy ze **informace**kartu.
+1. Po úspěšném dokončení skriptu pro kontrolu a spuštění ručního scénáře (nahrazení disku) podle **dokumentace** a odkazů na **ověření** na kartě **informace** .
 
     ![Alternativní text](media/azure-stack-vaas-interactive-feature-verification/image12.png)
 
     > [!Important]  
-    > Dialogové okno nezavírejte, při provádění ruční scénář.
+    > Nezavírejte dialogové okno, když provádíte ruční scénář.
 
-1. Po dokončení provádění ruční scénář, postupujte podle pokynů pro spuštění pozálohovacího skriptu vrácení.
+1. Po dokončení ručního scénáře postupujte podle pokynů ke spuštění skriptu pro kontrolu po provedení.
 
     ![Alternativní text](media/azure-stack-vaas-interactive-feature-verification/image13.png)
 
-1. Při úspěšném dokončení ruční scénáře (Výměna disku), vyberte **Další**.
+1. Po úspěšném dokončení ručního scénáře (nahrazení disku) vyberte **Další**.
 
     ![Alternativní text](media/azure-stack-vaas-interactive-feature-verification/image14.png)
 
     > [!Important]  
-    > Pokud okno zavřete, test se zastaví dříve, než se to dělá.
+    > Pokud okno zavřete, test se zastaví před tím, než se dokončí.
 
-1. Poskytnout zpětnou vazbu pro testovací prostředí. Tyto otázky vám pomůže Microsoft posouzení jakosti úspěch rychlost a vydání scénáře.
+1. Poskytněte zpětnou vazbu k testovacímu prostředí. Tyto otázky vám pomůžou vyhodnotit úspěšnost a kvalitu vydaných verzí ve scénáři.
 
     ![Alternativní text](media/azure-stack-vaas-interactive-feature-verification/image15.png)
 
-1. Připojte všechny soubory protokolů, které chcete odesílat společnosti Microsoft.
+1. Připojte všechny soubory protokolů, které chcete odeslat společnosti Microsoft.
 
     ![Alternativní text](media/azure-stack-vaas-interactive-feature-verification/image16.png)
 
-1. Přijměte smlouvu EULA odesláním zpětné vazby.
+1. Přijměte smlouvu EULA pro odeslání zpětné vazby.
 
-1. Vyberte **odeslat** na výsledky odeslat do Microsoftu.
+1. Vyberte **Odeslat** a odešlete výsledky společnosti Microsoft.
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
-- [Monitorování a správa testů na portálu VaaS](azure-stack-vaas-monitor-test.md)
+- [Monitorování a Správa testů na portálu VaaS](azure-stack-vaas-monitor-test.md)

@@ -1,6 +1,6 @@
 ---
-title: Ověření nové řešení Azure Stack | Dokumentace Microsoftu
-description: Zjistěte, jak ověřit nové řešení Azure Stack s ověřováním jako služba.
+title: Ověřit nové řešení Azure Stack | Microsoft Docs
+description: Naučte se, jak ověřit nové řešení Azure Stack pomocí ověřování jako služby.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -10,43 +10,43 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/11/2019
+ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: fb7b98a5307606f7335e76ada42d583b975730f5
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: fe744fc95c79cb7482e1baa213471335ebb6e1fd
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64299589"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68418309"
 ---
-# <a name="validate-a-new-azure-stack-solution"></a>Ověření nové řešení Azure Stack
+# <a name="validate-a-new-azure-stack-solution"></a>Ověřit nové řešení Azure Stack
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Další informace o použití **ověření řešení** pracovní postup, chcete-li certifikovat nová řešení Azure Stack.
+Naučte se používat pracovní postup **ověření řešení** k certifikaci nových Azure Stack řešení.
 
-Řešení s Azure Stack je hardwaru kusovník (BoM), který se společně dohodli mezi společnostmi Microsoft a partnera po splnění požadavky na certifikaci loga Windows serveru. Řešení musí recertified, pokud došlo ke změně hardwaru BoM. Další otázky o tom, kdy provést opětovnou certifikaci i řešení, kontaktujte tým na adrese [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com).
+Azure Stack řešení je hardwarový soupis materiálu (BoM), který se společně dohodl mezi společností Microsoft a partnerem po splnění požadavků certifikace loga Windows serveru. Řešení musí být znovu certifikováno, pokud došlo ke změně hardwarového kusovníku. Pokud chcete získat další otázky týkající se recertifikace řešení, obraťte se na tým [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com)na adrese.
 
-Chcete-li certifikovat vašeho řešení, spusťte pracovní postup řešení ověření dvakrát. Spustit jednou pro *minimálně* podporované konfigurace. Druhý dobu spuštění *lze uchovávat* podporované konfigurace. Microsoft certifikuje řešení, pokud obě konfigurace projít všemi testy.
+Chcete-li certifikovat vaše řešení, spusťte pracovní postup ověření řešení dvakrát. Spusťte ji jednou pro *minimální* podporovanou konfiguraci. Spusťte ji podruhé pro *maximální* podporovanou konfiguraci. Společnost Microsoft toto řešení osvědčí, pokud obě konfigurace projde všemi testy.
 
 [!INCLUDE [azure-stack-vaas-workflow-validation-completion](includes/azure-stack-vaas-workflow-validation-completion.md)]
 
-## <a name="create-a-solution-validation-workflow"></a>Vytvořit pracovní postup řešení ověření
+## <a name="create-a-solution-validation-workflow"></a>Vytvoření pracovního postupu ověřování řešení
 
 1. [!INCLUDE [azure-stack-vaas-workflow-step_select-solution](includes/azure-stack-vaas-workflow-step_select-solution.md)]
 
-3. Vyberte **Start** na **ověření řešení** dlaždici.
+3. Na dlaždici **ověření řešení** vyberte **Spustit** .
 
-    ![Dlaždice řešení ověření pracovního postupu](media/tile_validation-solution.png)
+    ![Dlaždice pracovního postupu ověření řešení](media/tile_validation-solution.png)
 
 4. [!INCLUDE [azure-stack-vaas-workflow-step_naming](includes/azure-stack-vaas-workflow-step_naming.md)]
 
-5. Vyberte **konfigurace řešení**.
-    - **Minimální**: řešení má nakonfigurovanou Minimální podporovaný počet uzlů.
-    - **Maximální**: řešení má nakonfigurovanou maximální podporovaný počet uzlů.
+5. Vyberte **konfiguraci řešení**.
+    - **Minimum**: řešení je nakonfigurované s minimálním podporovaným počtem uzlů.
+    - **Maximum**: řešení je nakonfigurované s maximálním podporovaným počtem uzlů.
 6. [!INCLUDE [azure-stack-vaas-workflow-step_upload-stampinfo](includes/azure-stack-vaas-workflow-step_upload-stampinfo.md)]
 
     ![Informace o ověření řešení](media/workflow_validation-solution_info.png)
@@ -54,39 +54,39 @@ Chcete-li certifikovat vašeho řešení, spusťte pracovní postup řešení ov
 7. [!INCLUDE [azure-stack-vaas-workflow-step_test-params](includes/azure-stack-vaas-workflow-step_test-params.md)]
 
     > [!NOTE]
-    > Po vytvoření pracovního postupu není možné měnit parametry prostředí.
+    > Po vytvoření pracovního postupu nelze změnit parametry prostředí.
 
 8. [!INCLUDE [azure-stack-vaas-workflow-step_tags](includes/azure-stack-vaas-workflow-step_tags.md)]
 9. [!INCLUDE [azure-stack-vaas-workflow-step_submit](includes/azure-stack-vaas-workflow-step_submit.md)]
-    Budete přesměrováni na stránku Souhrn testů.
+    Budete přesměrováni na stránku souhrn testů.
 
-## <a name="run-solution-validation-tests"></a>Spustit testy pro ověření řešení
+## <a name="run-solution-validation-tests"></a>Spustit testy ověřování řešení
 
-V **řešení ověřovací testy Souhrn** stránky, zobrazí se seznam testů, které jsou potřebné k dokončení ověření.
+Na stránce **Souhrn testů ověřování řešení** se zobrazí seznam testů požadovaných k dokončení ověření.
 
-V pracovních postupech ověřování **plánování** testu používá společné parametry úrovni pracovního postupu, které jste zadali při vytváření pracovního postupu (viz [společných parametrů pracovních postupů pro Azure Stack ověření jako služba](azure-stack-vaas-parameters.md)). Pokud některý z hodnoty parametrů testu stane neplatným, je nutné resupply podle pokynů v tématu [upravit parametry pracovního postupu](azure-stack-vaas-monitor-test.md#change-workflow-parameters).
+**Plánování** testu v pracovních postupech ověřování používá společné parametry na úrovni pracovního postupu, které jste zadali během vytváření pracovního postupu (viz [společné parametry pracovních postupů pro Azure Stack ověřování jako služby](azure-stack-vaas-parameters.md)). Pokud se některá z hodnot parametrů testu stane neplatných, musíte je znovu zadat podle pokynů v části [Úprava parametrů pracovního postupu](azure-stack-vaas-monitor-test.md#change-workflow-parameters).
 
 > [!NOTE]
-> Při plánování ověřovací test existující instance vytvoří novou instanci namísto původní instanci na portálu. Protokoly pro původní instanci se zachovají, ale nejsou přístupné z portálu.  
-Po úspěšném dokončení testu **plán** akce bude zakázáno.
+> Plánování ověřovacího testu přes existující instanci vytvoří na portálu novou instanci místo staré instance. Protokoly pro starou instanci budou zachovány, ale nebudou přístupné z portálu.  
+Po úspěšném dokončení testu se akce **plánu** zakáže.
 
 1. [!INCLUDE [azure-stack-vaas-workflow-step_select-agent](includes/azure-stack-vaas-workflow-step_select-agent.md)]
 
 2. Vyberte následující testy:
-    - Simulace modulu cloudu
-    - COMPUTE provozní sady SDK
+    - Modul pro simulaci cloudu
+    - Sada COMPUTE SDK Operational Suite
     - Test identifikace disku
-    - Provozní sady SDK rozšíření služby KeyVault
-    - Provozní sady SDK služby KeyVault
-    - Provozní sadě SDK sítě
-    - Provozní sady SDK účtu úložiště
+    - Operační sada sady SDK rozšíření trezoru klíčů
+    - Sada SDK pro Trezor klíčů – operační sada
+    - Operační sada sady SDK sítě
+    - Sada SDK pro účet úložiště – operační sada
 
-3. Vyberte **plán** z místní nabídky otevřete příkazový řádek pro plánování testovací instance.
+3. V místní nabídce vyberte **plán** a otevřete tak výzvu pro plánování testovací instance.
 
-4. Zkontrolujte parametry testu a pak vyberte **odeslat** naplánování test po dobu provádění.
+4. Zkontrolujte parametry testu a pak vyberte **Odeslat** a naplánujte test pro spuštění.
 
-![Plán řešení ověřovací test](media/workflow_validation-solution_schedule-test.png)
+![Naplánovat test ověřování řešení](media/workflow_validation-solution_schedule-test.png)
 
 ## <a name="next-steps"></a>Další postup
 
-- [Monitorování a správa testů na portálu VaaS](azure-stack-vaas-monitor-test.md)
+- [Monitorování a Správa testů na portálu VaaS](azure-stack-vaas-monitor-test.md)

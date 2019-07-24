@@ -1,6 +1,6 @@
 ---
-title: SQL, který je hostitelem serverů v Azure stacku | Dokumentace Microsoftu
-description: Postup přidání instancí SQL pro zřizování prostřednictvím poskytovatele prostředků SQL adaptéru.
+title: Hostitelské servery SQL na Azure Stack | Microsoft Docs
+description: Postup přidání instancí SQL pro zřizování prostřednictvím poskytovatele prostředků SQL Adapter.
 services: azure-stack
 documentationCenter: ''
 author: mattbriggs
@@ -11,119 +11,119 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/26/2019
+ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 2e431a3351ea60ad3bf542242e34b2156da1cf2a
-ms.sourcegitcommit: 104ccafcb72a16ae7e91b154116f3f312321cff7
+ms.openlocfilehash: ce89ffdee0e0de2db8109102418f4513ce1cb99a
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67308560"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68418153"
 ---
-# <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Přidání hostitelské servery pro poskytovatele prostředků SQL
+# <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Přidání hostitelských serverů pro poskytovatele prostředků SQL
 
-Budete moct vytvořit databázi systému SQL Server hostující servery na virtuálním počítači (VM) v [Azure Stack](azure-stack-overview.md), nebo mimo prostředí Azure Stack, dokud poskytovatele prostředků SQL se může připojit k instanci virtuálního počítače.
+Můžete vytvořit SQL Server hostitelské servery databáze na virtuálním počítači (VM) v [Azure Stack](azure-stack-overview.md)nebo na virtuálním počítači mimo prostředí Azure Stack, pokud se poskytovatel prostředků SQL může připojit k instanci.
 
 > [!NOTE]
-> Poskytovatele prostředků SQL musí být vytvořené v výchozí předplatné poskytovatele při hostitelské servery SQL by měl být vytvořen v fakturovatelná, předplatné uživatele. Server zprostředkovatele prostředků není vhodné používat pro hostování databází uživatelů.
+> Poskytovatel prostředků SQL by se měl vytvořit v předplatném výchozího poskytovatele, zatímco hostitelské servery SQL by se měly vytvářet v Fakturovatelné předplatné uživatele. Server poskytovatele prostředků by neměl být používán k hostování uživatelských databází.
 
 ## <a name="overview"></a>Přehled
 
-Předtím, než přidáte SQL, který je hostitelem serveru, zkontrolujte následující povinné a obecné požadavky.
+Před přidáním hostitelského serveru SQL zkontrolujte následující povinné a obecné požadavky.
 
 ### <a name="mandatory-requirements"></a>Povinné požadavky
 
-* Povolte ověřování SQL Server v instanci systému SQL Server. Protože poskytovatele prostředků SQL virtuálního počítače k doméně připojený není, můžete připojit jenom k hostování serveru pomocí ověřování SQL.
-* Nakonfigurujte IP adresy pro instance SQL jako veřejné při instalaci ve službě Azure Stack. Poskytovatel prostředků a uživatelů, jako jsou například webové aplikace, komunikují přes síť uživatelem, proto není vyžadována možnost připojení k instanci serveru SQL v této síti.
+* Povolte ověřování SQL pro instanci SQL Server. Vzhledem k tomu, že virtuální počítač poskytovatele prostředků SQL není připojený k doméně, může se připojit k hostitelskému serveru jenom pomocí ověřování SQL.
+* Nakonfigurujte IP adresy pro instance SQL jako veřejné, pokud jsou nainstalované v Azure Stack. Poskytovatel prostředků a uživatelé, například Web Apps, komunikují přes síť uživatelů, takže je potřeba připojení k instanci SQL v této síti.
 
 ### <a name="general-requirements"></a>Obecné požadavky
 
-* Instance serveru SQL pro použití vyhradíte pomocí zprostředkovatele a uživatelského zatížení prostředků. Nelze použít instanci SQL, který se používá v jiných uživatelů. Toto omezení platí také pro App Services.
-* Konfigurace účtu s úrovní odpovídající oprávnění pro poskytovatele prostředků (popsaných níže).
-* Jste odpovědní za správu instancí SQL a jejich hostitelů.  Například nebude poskytovatele prostředků aktualizace, zpracování zálohy nebo zpracování přihlašovacích údajů otočení.
+* Vyhradit instanci SQL pro použití poskytovatelem prostředků a uživatelských úloh. Nemůžete použít instanci SQL, kterou používá žádný jiný uživatel. Toto omezení platí také pro App Services.
+* Nakonfigurujte účet s příslušnými úrovněmi oprávnění pro poskytovatele prostředků (popsaný níže).
+* Zodpovídáte za správu instancí SQL a jejich hostitelů.  Poskytovatel prostředků například nepoužívá aktualizace, zpracovává zálohování nebo zpracovává rotaci přihlašovacích údajů.
 
-### <a name="sql-server-virtual-machine-images"></a>Image virtuálního počítače SQL serveru
+### <a name="sql-server-virtual-machine-images"></a>SQL Server imagí virtuálních počítačů
 
-Image virtuálních počítačů SQL IaaS jsou dostupné prostřednictvím funkce pro správu webu Marketplace. Tyto Image jsou stejné jako virtuální počítače SQL, které jsou dostupné v Azure.
+Image virtuálních počítačů s IaaS SQL jsou k dispozici prostřednictvím funkce správy Marketplace. Tyto image jsou stejné jako virtuální počítače SQL, které jsou k dispozici v Azure.
 
-Ujistěte se, že můžete kdykoli stáhnout nejnovější verzi **rozšíření SQL IaaS** před nasazením virtuálního počítače SQL pomocí položky Marketplace. Rozšíření IaaS a odpovídající portál vylepšení poskytují další funkce, jako jsou automatické opravy a zálohování. Další informace o tomto rozšíření najdete v tématu [automatizace úloh správy v Azure Virtual Machines pomocí rozšíření agenta SQL serveru](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension).
-
-> [!NOTE]
-> Rozšíření SQL IaaS je _požadované_ pro všechny SQL na imagích Windows na webu Marketplace; se nepodaří nasadit, když jste se nepodařilo stáhnout rozšíření virtuálního počítače. Není použit s imagí virtuálních počítačů založených na Linuxu SQL.
-
-Existují další možnosti pro virtuální počítače s SQL, včetně šablon v nasazení [galerii pro rychlý start Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates).
+Před nasazením virtuálního počítače SQL pomocí položky Marketplace si nezapomeňte vždycky stáhnout nejnovější verzi **rozšíření SQL IaaS** . Rozšíření IaaS a odpovídající vylepšení portálu poskytují další funkce, jako jsou automatické opravy a zálohování. Další informace o tomto rozšíření najdete v tématu [Automatizace úloh správy v Azure Virtual Machines s rozšířením agenta SQL Server](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension).
 
 > [!NOTE]
-> Všechny hostitelské servery, které jsou nainstalované ve službě Azure Stack několika uzly musí být vytvořené z předplatné uživatele a nikoli výchozí předplatné poskytovatele. Musí se vytvořit na portálu user portal nebo v relaci Powershellu s odpovídající přihlášení. Všechny hostitelské servery jsou fakturovatelná virtuální počítače a musí mít příslušné licence SQL. Správce služeb _můžete_ být vlastníkem daného předplatného.
+> Pro všechny image SQL na webu Marketplace se _vyžaduje_ rozšíření SQL IaaS. Pokud jste rozšíření nestáhli, virtuální počítač se nepodaří nasadit. Nepoužívá se pro image virtuálních počítačů SQL se systémem Linux.
+
+K dispozici jsou další možnosti pro nasazení virtuálních počítačů SQL, včetně šablon v [galerii rychlý start Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates).
+
+> [!NOTE]
+> Všechny hostitelské servery nainstalované v Azure Stack s více uzly se musí vytvořit z předplatného uživatele a nikoli z výchozího předplatného poskytovatele. Je nutné je vytvořit z portálu User Portal nebo z relace prostředí PowerShell s odpovídajícím přihlašovacím jménem. Všechny hostitelské servery jsou Fakturovatelné virtuální počítače a musí mít odpovídající licence SQL. Správce služby _může_ být vlastníkem tohoto předplatného.
 
 ### <a name="required-privileges"></a>Požadovaná oprávnění
 
-Administrativní uživatel můžete vytvořit s oprávněními nižší než správce sysadmin systému SQL. Uživatel se musí oprávnění pro tyto operace:
+Můžete vytvořit administrativního uživatele s nižšími oprávněními, než má správce systému SQL. Uživatel potřebuje oprávnění pouze pro následující operace:
 
-* Databáze: Vytvoření, změna, se členství ve skupině (pro Always On pouze), Drop, zálohování
-* Skupiny dostupnosti: Příkaz ALTER, připojení, přidání nebo odebrání databáze
-* Přihlášení: Vytvořit, vyberte, Alter, Drop, odvolání
-* Vyberte operace: \[hlavní\].\[ sys\].\[ availability_group_listeners\] (AlwaysOn), sloupec sys.availability_replicas (AlwaysOn), zobrazení sys.databases, \[hlavní\].\[ sys\].\[ dm_os_sys_memory\], SERVERPROPERTY, \[hlavní\].\[ sys\].\[ availability_groups\] (AlwaysOn), sys.master_files
+* Databáze: Vytvořit, změnit s omezením (jenom pro Always On), vyřadit, zálohovat
+* Skupina dostupnosti: Změnit, připojit, přidat nebo odebrat databázi
+* Přihlášení: Vytvoření, výběr, změna, zrušení, odvolání
+* Vyberte operace: \[hlavní\]server\[ . sys\].\[ availability_group_listeners\] (AlwaysOn), sys. availability_replicas (AlwaysOn), sys. databases\],\[ \[Master. sys\].\[ dm_os_sys_memory\], ServerProperty, \[Master\].\[ sys\].\[ availability_groups\] (AlwaysOn), sys. master_files
 
 ### <a name="additional-security-information"></a>Další informace o zabezpečení
 
-Následující informace poskytují další bezpečnostní pokyny:
+Následující informace poskytují další pokyny k zabezpečení:
 
-* Veškeré součásti úložiště služby Azure Stack se šifrují pomocí nástroje BitLocker, takže jakoukoli instanci SQL ve službě Azure Stack používat zašifrovaný objekt blob úložiště.
-* Poskytovatele prostředků SQL plně podporuje TLS 1.2. Ujistěte se, že SQL Server, který se spravuje prostřednictvím poskytovatele prostředků SQL je nakonfigurované pro protokol TLS 1.2 _pouze_ a RP se ve výchozím nastavení, která. Všechny podporované verze systému SQL Server podporu protokolu TLS 1.2, najdete v článku [podpora protokolu TLS 1.2 pro Microsoft SQL Server](https://support.microsoft.com/en-us/help/3135244/tls-1-2-support-for-microsoft-sql-server).
-* Správce konfigurace SQL serveru použijte k nastavení **ForceEncryption** možnosti zajistíte veškerá komunikace se serverem SQL se vždy šifrují. Zobrazit [konfigurace serveru pro vynutit šifrovaná připojení](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine?view=sql-server-2017#to-configure-the-server-to-force-encrypted-connections).
-* Ujistěte se, že všechny klientské aplikace je také komunikaci přes šifrované připojení.
-* RP je nakonfigurována tak certifikátů používaných instancí SQL serveru.
+* Všechna Azure Stack úložiště jsou šifrována pomocí nástroje BitLocker, takže jakákoli instance SQL v Azure Stack bude používat šifrované úložiště objektů BLOB.
+* Poskytovatel prostředků SQL plně podporuje TLS 1,2. Zajistěte, aby všechny SQL Server spravované prostřednictvím SQL RP byly nakonfigurované _jenom_ pro TLS 1,2 a RP na to bude mít výchozí hodnotu. Všechny podporované verze SQL Server podporují protokol TLS 1,2, viz [Podpora tls 1,2 pro Microsoft SQL Server](https://support.microsoft.com/en-us/help/3135244/tls-1-2-support-for-microsoft-sql-server).
+* Pomocí SQL Server Configuration Manager nastavte možnost **ForceEncryption** , aby se zajistilo, že veškerá komunikace s SQL serverem je vždycky šifrovaná. Informace najdete v tématu [Konfigurace serveru pro vynucení šifrovaných připojení](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine?view=sql-server-2017#to-configure-the-server-to-force-encrypted-connections).
+* Zajistěte, aby všechny klientské aplikace komunikovaly i přes šifrované připojení.
+* RP je nakonfigurován tak, aby důvěřoval certifikátů, které používá instance SQL Server.
 
-## <a name="provide-capacity-by-connecting-to-a-standalone-hosting-sql-server"></a>Zadejte kapacitu propojíte samostatný hostitelem systému SQL server
+## <a name="provide-capacity-by-connecting-to-a-standalone-hosting-sql-server"></a>Poskytnutí kapacity připojením k samostatnému hostujícímu SQL serveru
 
-Můžete použít samostatné (bez-HA) SQL serverů využívající kterákoli edice systému SQL Server 2014 nebo SQL Server 2016. Ujistěte se, že máte přihlašovací údaje pro účet s oprávněními správce systému.
+Samostatné servery SQL (bez HA) můžete použít v jakékoli edici SQL Server 2014 nebo SQL Server 2016. Ujistěte se, že máte přihlašovací údaje k účtu s oprávněními správce systému.
 
-Chcete-li přidat samostatný server hostingu, který je už nastavený, postupujte takto:
+Chcete-li přidat samostatný hostitelský server, který je již nastaven, postupujte takto:
 
-1. Přihlaste se k portálu Azure Stack – operátor jako správce služeb.
+1. Přihlaste se k portálu Azure Stack operator jako správce služby.
 
-2. Vyberte **všechny služby** &gt; **prostředky pro správu** &gt; **servery hostující SQL**.
+2. Vyberte **všechny služby** &gt; **Správa prostředky** &gt; **servery SQL hosting**.
 
    ![SQL Hosting Servers](./media/azure-stack-sql-rp-deploy/sqlhostingservers.png)
 
-   V části **servery hostující SQL**, poskytovatele prostředků SQL se můžete připojit k instance systému SQL Server, který bude sloužit jako back-endu poskytovatele prostředků.
+   V části **hostitelské servery SQL**můžete poskytovatele prostředků SQL připojit k instancím SQL Server, které budou sloužit jako back-end poskytovatele prostředků.
 
-   ![Řídicí panel adaptéru pro SQL](./media/azure-stack-sql-rp-deploy/sqlrp-hostingserver.png)
+   ![Řídicí panel adaptéru SQL](./media/azure-stack-sql-rp-deploy/sqlrp-hostingserver.png)
 
-3. Klikněte na tlačítko **přidat** a pak zadejte podrobnosti o připojení pro vaši instanci SQL serveru na **přidat SQL Server pro hostování** okno.
+3. Klikněte na **Přidat** a zadejte podrobnosti o připojení pro vaši instanci SQL Server v okně **Přidat hostitelský server SQL** .
 
-   ![Add a SQL Hosting Server](./media/azure-stack-sql-rp-deploy/sqlrp-newhostingserver.png)
+   ![Přidání hostitelského serveru SQL](./media/azure-stack-sql-rp-deploy/sqlrp-newhostingserver.png)
 
-    Volitelně můžete zadat název instance a zadejte číslo portu, pokud instance není přiřazen výchozí port 1433.
+    Volitelně můžete zadat název instance a zadat číslo portu, pokud není instance přiřazena k výchozímu portu 1433.
 
    > [!NOTE]
-   > Tak dlouho, dokud SQL instance je přístupný podle uživatele a správce Azure Resource Manageru, může být umístěn pod kontrolou zprostředkovatele prostředků. SQL instance __musí__ přidělit jenom pro poskytovatele prostředků.
+   > Pokud je k instanci SQL přístup Azure Resource Manager uživatel a správce, může být umístěn pod kontrolou poskytovatele prostředků. Instance SQL __musí__ být přidělena výhradně poskytovateli prostředků.
 
-4. Jak budete přidávat servery, musíte je přiřadit k existující skladové položky nebo vytvořit novou skladovou Položku. V části **přidat Server pro hostování**vyberte **SKU**.
+4. Když přidáváte servery, musíte je přiřadit k existující SKU nebo vytvořit novou SKU. V části **Přidat hostitelský server**vyberte **SKU**.
 
-   * Pokud chcete použít existující skladové položky, zvolte dostupné skladové položky a pak vyberte **vytvořit**.
-   * Chcete-li vytvořit skladovou jednotku, vyberte **+ vytvořit novou skladovou Položku**. V **vytvořit SKU**, zadejte požadované informace a pak vyberte **OK**.
+   * Pokud chcete použít existující SKU, zvolte dostupnou SKU a pak vyberte **vytvořit**.
+   * Pokud chcete vytvořit SKU, vyberte **+ vytvořit novou skladovou**položku. V části **vytvořit SKU**zadejte požadované informace a pak vyberte **OK**.
 
-     ![Vytvoří skladová jednotka](./media/azure-stack-sql-rp-deploy/sqlrp-newsku.png)
+     ![Vytvoření SKU](./media/azure-stack-sql-rp-deploy/sqlrp-newsku.png)
 
-## <a name="provide-high-availability-using-sql-always-on-availability-groups"></a>Zajištění vysoké dostupnosti pomocí SQL skupin dostupnosti Always On
+## <a name="provide-high-availability-using-sql-always-on-availability-groups"></a>Zajištění vysoké dostupnosti pomocí skupin dostupnosti Always On SQL serveru
 
-Konfigurace instance SQL Always On vyžaduje další kroky a vyžaduje tři virtuální počítače (nebo fyzických počítačích.) Tento článek předpokládá, že už máte důkladného porozumění skupin dostupnosti Always On. Další informace najdete v následujících článcích:
+Konfigurace instancí SQL Always On vyžaduje další kroky a vyžaduje tři virtuální počítače (nebo fyzické počítače). V tomto článku se předpokládá, že už máte plnou znalost skupin dostupnosti Always On. Další informace najdete v následujících článcích:
 
-* [Představení skupin dostupnosti AlwaysOn SQL serveru na virtuálních počítačích Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview)
-* [Skupiny nepřetržité dostupnosti (SQL Server)](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-2017)
+* [Představujeme SQL Server skupiny dostupnosti Always On na virtuálních počítačích Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview)
+* [Skupiny dostupnosti Always On (SQL Server)](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-2017)
 
 > [!NOTE]
-> Poskytovatele prostředků SQL adaptér _pouze_ podporuje SQL 2016 SP1 Enterprise nebo později instance pro skupiny dostupnosti Always On. Tato konfigurace adaptéru vyžaduje nové funkce SQL, jako je například automatická synchronizace replik indexů.
+> Poskytovatel prostředků SQL adaptéru podporuje _jenom_ instance SQL 2016 SP1 Enterprise nebo novější pro skupiny dostupnosti Always On. Tato konfigurace adaptéru vyžaduje nové funkce SQL, jako je automatické osazení.
 
-### <a name="automatic-seeding"></a>Automatická synchronizace replik indexů
+### <a name="automatic-seeding"></a>Automatické osazení
 
-Je nutné povolit [Automatická synchronizace replik indexů](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) pro každou skupinu dostupnosti pro každou instanci systému SQL Server.
+Pro každou instanci SQL Server musíte povolit [Automatické osazení](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) pro každou skupinu dostupnosti.
 
-Pokud chcete povolit, automatická synchronizace replik indexů na všechny instance, upravit a pak spusťte následující příkaz SQL na primární replice pro každou sekundární instanci:
+Pokud chcete povolit automatické osazení u všech instancí, upravte a pak spusťte následující příkaz SQL na primární replice pro každou sekundární instanci:
 
   ```sql
   ALTER AVAILABILITY GROUP [<availability_group_name>]
@@ -132,20 +132,20 @@ Pokud chcete povolit, automatická synchronizace replik indexů na všechny inst
   GO
   ```
 
-Skupina dostupnosti musí být uzavřeny do hranatých závorek.
+Skupina dostupnosti musí být uzavřena do hranatých závorek.
 
-Na sekundární uzly spusťte následující příkaz SQL:
+Na sekundárních uzlech spusťte následující příkaz SQL:
 
   ```sql
   ALTER AVAILABILITY GROUP [<availability_group_name>] GRANT CREATE ANY DATABASE
   GO
   ```
 
-### <a name="configure-contained-database-authentication"></a>Konfigurace ověřování databáze s omezením
+### <a name="configure-contained-database-authentication"></a>Konfigurovat ověřování databáze s omezením
 
-Před přidáním do skupiny dostupnosti databáze s omezením, ujistěte se, že možnost serveru ověřování databáze s omezením je nastavená na 1 na každou instanci serveru, který je hostitelem replika dostupnosti pro skupinu dostupnosti. Další informace najdete v tématu [obsažené ověřování databáze možnosti konfigurace serveru](https://docs.microsoft.com/sql/database-engine/configure-windows/contained-database-authentication-server-configuration-option?view=sql-server-2017).
+Před přidáním databáze s omezením do skupiny dostupnosti zajistěte, aby byla v každé instanci serveru, která hostuje repliku dostupnosti pro skupinu dostupnosti, nastavená možnost Server pro ověřování databáze s omezením na hodnotu 1. Další informace najdete v tématu věnovaném [Možnosti konfigurace serveru pro ověřování databáze](https://docs.microsoft.com/sql/database-engine/configure-windows/contained-database-authentication-server-configuration-option?view=sql-server-2017).
 
-Nastavení možnosti serveru ověřování databáze s omezením pro každou instanci použijte tyto příkazy:
+Pomocí těchto příkazů nastavte u každé instance možnost Server pro ověřování databáze s omezením:
 
   ```sql
   EXEC sp_configure 'contained database authentication', 1
@@ -154,52 +154,52 @@ Nastavení možnosti serveru ověřování databáze s omezením pro každou ins
   GO
   ```
 
-### <a name="to-add-sql-always-on-hosting-servers"></a>Chcete-li přidat SQL Always On hostitelské servery
+### <a name="to-add-sql-always-on-hosting-servers"></a>Přidání serveru SQL Always na hostitelské servery
 
 1. Přihlaste se k portálu pro správu Azure Stack jako správce služby.
 
-2. Vyberte **Procházet** &gt; **prostředky pro správu** &gt; **hostitelské servery SQL** &gt; **+ přidat**.
+2. Vyberte **Procházet** &gt; **prostředky**  &gt; pro správu hostitelské servery SQL a přidat. &gt;
 
-   V části **servery hostující SQL**, poskytovatele prostředků SQL serveru se můžete připojit k skutečné instance systému SQL Server, které bude sloužit jako back-endu poskytovatele prostředků.
+   V části **hostitelské servery SQL**můžete poskytovatele prostředků SQL Server připojit k skutečným instancím SQL Server, které slouží jako back-end poskytovatele prostředků.
 
-3. Vyplňte formulář s podrobnostmi o připojení pro vaši instanci SQL serveru. Ujistěte se, že používáte adresu plně kvalifikovaného názvu domény vždy na naslouchací proces (a volitelně také portu číslo a instance name). Zadejte informace pro účet, který jste nakonfigurovali s oprávněními správce systému.
+3. Vyplňte formulář s podrobnostmi o připojení pro vaši instanci SQL Server. Ujistěte se, že používáte adresu plně kvalifikovaného názvu domény pro naslouchací proces Always On (a volitelné číslo portu a název instance). Zadejte informace o účtu, který jste nakonfigurovali s oprávněními správce systému.
 
-4. Zaškrtněte políčko skupiny dostupnosti Always On k povolení podpory pro instance SQL skupiny dostupnosti Always On.
+4. Pokud chcete povolit podporu instancí skupin dostupnosti Always On SQL, zaškrtněte políčko Skupina dostupnosti Always On.
 
-   ![Vždy povolit na](./media/azure-stack-sql-rp-deploy/AlwaysOn.PNG)
+   ![Povolit Always On](./media/azure-stack-sql-rp-deploy/AlwaysOn.PNG)
 
-5. Přidání instance SQL Always On do skladové položky.
+5. Přidejte instanci SQL Always On do SKU.
 
    > [!IMPORTANT]
-   > Samostatné servery nejde kombinovat s instancemi Always On v rámci stejné SKU. Probíhá pokus o různé typy po přidání první výsledky hostování serveru k chybě.
+   > Nemůžete kombinovat samostatné servery s instancemi Always On ve stejné SKU. Při pokusu o kombinaci typů po přidání prvního hostitelského serveru dojde k chybě.
 
-## <a name="sku-notes"></a>Skladová položka poznámky
-Použijte název SKU, která popisuje možnosti servery ve skladové Položce, jako je například kapacitu a výkon. Název slouží jako vodítko k poskytování pomoci uživatelům nasadit své databáze do příslušné SKU. Například můžete použít názvy SKU k rozlišení nabídky služeb následujícími vlastnostmi:
+## <a name="sku-notes"></a>Poznámky SKU
+Použijte název SKU, který popisuje možnosti serverů v SKU, jako je například kapacita a výkon. Název slouží jako pomůcka k tomu, aby uživatelé mohli nasadit své databáze do příslušné SKU. Například můžete použít názvy SKU k odlišení nabídek služeb následujícími charakteristikami:
   
-* vysoké kapacity
-* vysoce výkonné
-* Vysoká dostupnost
+* vysoká kapacita
+* vysoký výkon
+* vysoká dostupnost
 
-Jako osvědčený postup musí všechny hostitelské servery v SKU mají stejné vlastnosti prostředků a výkonu.
+Osvědčeným postupem je, že všechny hostitelské servery v SKU by měly mít stejné charakteristiky prostředků a výkonu.
 
-Skladové položky nelze přiřadit konkrétní uživatelé nebo skupiny.
+SKU nelze přiřadit konkrétním uživatelům nebo skupinám.
 
-SKU může trvat až hodinu, uvidí na portálu. Uživatelé nemůžou vytvářet databáze, dokud SKU je zcela vytvořen.
+SKU může trvat až hodinu, než se na portálu zobrazí. Uživatelé nemůžou vytvořit databázi, dokud se SKU nevytvoří úplně.
 
-Chcete-li upravit skladovou jednotku, přejděte na **všechny služby** > **adaptéru pro SQL** > **SKU**. Vyberte SKU, které chcete změnit, proveďte potřebné změny a klikněte na tlačítko **Uložit** uložte změny. 
+Chcete-li upravit SKU, klikněte na položku **všechny služby** > **SKU** **adaptéru** > SQL. Vyberte SKLADOVOU položku, kterou chcete upravit, proveďte potřebné změny a uložte změny kliknutím na **Uložit** . 
 
-Pokud chcete odstranit skladovou Položku, který už je nepotřebujete, přejděte na **všechny služby** > **adaptéru pro SQL** > **SKU**. Klikněte pravým tlačítkem na název skladové položky a vyberte **odstranit** ho odstranit.
-
-> [!IMPORTANT]
-> To může trvat až hodinu nové SKU bude k dispozici na portálu user portal.
-
-## <a name="make-sql-databases-available-to-users"></a>Databáze SQL zpřístupnit uživatelům
-
-Vytvořte plány a nabídky, aby databáze SQL k dispozici pro uživatele. Přidat **Microsoft.SqlAdapter** služby v plánu a vytvořit novou kvótu.
+Pokud chcete odstranit SKU, které už nepotřebujete, přečtěte si **všechny** > **skladové**položky**adaptéru** > SQL. Klikněte pravým tlačítkem na název SKU a vyberte **Odstranit** a odstraňte ho.
 
 > [!IMPORTANT]
-> Může trvat až dvě hodiny pro nové kvóty bude k dispozici na portálu user portal nebo předtím, než se vynucuje změněné kvóty.
+> Může trvat až hodinu, než se nové SKU zpřístupní na portálu User Portal.
 
-## <a name="next-steps"></a>Další postup
+## <a name="make-sql-databases-available-to-users"></a>Zpřístupnění databází SQL pro uživatele
+
+Vytvořte plány a nabídky, které uživatelům zpřístupní databáze SQL. Přidejte do plánu službu **Microsoft. SqlAdapter** a vytvořte novou kvótu.
+
+> [!IMPORTANT]
+> Může trvat až dvě hodiny, než budou nové kvóty dostupné na portálu User Portal nebo před tím, než se vynutila změněná kvóta.
+
+## <a name="next-steps"></a>Další kroky
 
 [Přidat databáze](azure-stack-sql-resource-provider-databases.md)

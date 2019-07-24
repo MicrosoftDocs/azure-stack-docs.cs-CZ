@@ -1,6 +1,6 @@
 ---
-title: Přehled ověřování jako služba pro službu Azure Stack | Dokumentace Microsoftu
-description: Přehled Azure Stack ověření jako služba.
+title: Přehled ověřování jako služby pro Azure Stack | Microsoft Docs
+description: Přehled ověřování Azure Stack jako služby.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -10,64 +10,64 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: ca22f29597cb452d6d33338b8ba0367c9377f6fb
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: d1cfc5c9c378ccfc48811c5896337ef91fdca2e8
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64297917"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68418552"
 ---
-# <a name="what-is-validation-as-a-service-for-azure-stack"></a>Co je ověření jako služba pro službu Azure Stack?
+# <a name="what-is-validation-as-a-service-for-azure-stack"></a>Co je ověřování jako služba pro Azure Stack?
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Ověření jako služba (VaaS) je navržená pro řešení partnerů, kteří jsou společně technické nabídek Azure Stack s Microsoftem nativní služby Azure. Partneři řešení můžete použít službu Pokud chcete zkontrolovat, že svá řešení požadavkům Microsoftu na a fungovat podle očekávání pomocí služby Azure Stack.
+Ověřování jako služba (VaaS) je nativní služba Azure určená pro partnery řešení, kteří jsou spolustrojírenství Azure Stack nabídky s Microsoftem. Partneři řešení můžou službu využít ke kontrole, že jejich řešení splňují požadavky Microsoftu a fungují podle očekávání Azure Stack.
 
 Primární použití pro VaaS jsou:
 
-- Ověřuje se nová řešení Azure Stack
-- Ověřování změn v softwaru Azure Stack
-- Digitální podepisování balíčků partnerských řešení používá při nasazení
-- Zajištění testu VaaS náhledu
+- Ověřování nových řešení Azure Stack
+- Ověřování změn Azure Stack softwaru
+- Digitální podepisování balíčků pro partnerských řešení používaných při nasazení
+- Náhled VaaS testu
 
-## <a name="validate-a-new-azure-stack-solution"></a>Ověření nové řešení Azure Stack
+## <a name="validate-a-new-azure-stack-solution"></a>Ověřit nové řešení Azure Stack
 
-Partneři použití **ověření řešení** pracovní postup pro ověření nového řešení služby Azure Stack. Řešení musí projít testy požadovaných součástí Hardware Lab Kit sady HLK () Azure Stack. Chcete-li certifikovat celou řadu konfigurací hardwaru, je potřeba použít pracovní postup dvakrát pro každé nové řešení: jednou každý konfigurace minimální a maximální.
+Partneři používají pracovní postup **ověření řešení** k ověření nových řešení Azure Stack. Řešení musí předat požadovanou HLK sadu hardwarových testovacích sad () Azure Stack testy komponent. Pro certifikaci rozsahu hardwarových konfigurací je potřeba pracovní postup spustit dvakrát pro každé nové řešení: jednou pro minimální a maximální konfiguraci.
 
-Další informace najdete v tématu [ověřit nové řešení Azure Stack](azure-stack-vaas-validate-solution-new.md).
+Další informace najdete v tématu [ověření nového řešení Azure Stack](azure-stack-vaas-validate-solution-new.md).
 
-## <a name="validate-changes-to-the-azure-stack-software"></a>Ověření změn softwaru Azure Stack
+## <a name="validate-changes-to-the-azure-stack-software"></a>Ověřit změny softwaru Azure Stack
 
-Partneři použití **ověřování balíčku** pracovního postupu ke kontrole, jestli jejich řešení funguje s nejnovější aktualizací softwaru Azure Stack. Pracovní postup ověření balíčku je třeba spustit na Microsoft doporučuje hardwarové prostředí použití opravy a aktualizace (P & U) k použití aktualizace. Doporučujeme také spustit pracovní postup při sestavování směrného plánu.
+Partneři používají pracovní postup **ověření balíčku** ke kontrole, zda jejich řešení funguje s nejnovějšími aktualizacemi Azure Stack softwaru. Pracovní postup ověření balíčku se musí spustit v hardwarovém prostředí, které se doporučuje od Microsoftu, kde se aktualizace použila pro opravu a aktualizaci (P & U). Doporučuje se také spustit pracovní postup na směrném buildu.
 
-Další informace najdete v tématu [ověření aktualizace softwaru od Microsoftu](azure-stack-vaas-validate-microsoft-updates.md).
+Další informace najdete v tématu [ověření aktualizací softwaru od Microsoftu](azure-stack-vaas-validate-microsoft-updates.md).
 
-## <a name="get-digitally-signed-solution-partner-packages"></a>Získání řešení digitálně podepsané balíčky partnera
+## <a name="get-digitally-signed-solution-partner-packages"></a>Získat digitálně podepsané balíčky partnerů řešení
 
-Kromě ověřování aktualizace služby Azure Stack, partnery použijte **ověřování balíčku** pracovní postup pro ověření aktualizace balíčků přizpůsobení výrobce OEM, mezi které patří Azure Stack partnera konkrétní ovladače, firmware a další software používá se při nasazení softwaru Azure Stack. Nasazení balíčku, který se ověřuje na aktuální verze softwaru Azure Stack pomocí alespoň na minimální velikost řešení, které budou podporovat. Balíček se odešle do VaaS před spuštěním testů. Pokud testy úspěšné, upozorní [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com) , že balíček dokončil testování a by měl být digitálně podepsané pomocí služby Azure Stack digitální podpis. Microsoft podepíše balíček a upozorní partnera Azure Stack, že balíček je k dispozici ke stažení na portálu VaaS.
+Kromě ověřování aktualizací Azure Stack partneři pomocí pracovního postupu **ověření balíčku** ověří aktualizace balíčků pro přizpůsobení OEM, které zahrnují Azure Stack ovladače, firmware a další software, který se používá během nasazení Azure Stack software. Nasaďte balíček, který ověřujete v aktuální verzi Azure Stack softwaru, a to s využitím aspoň minimálního řešení, které se bude podporovat. Balíček se před provedením testů odešle do VaaS. Pokud jsou testy úspěšné, upozorněte [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com) na to, že balíček dokončil testování a měl by být digitálně podepsaný digitálním podpisem Azure Stack. Microsoft podepíše balíček a oznámí Azure Stack partnerovi, že balíček je k dispozici ke stažení na portálu VaaS.
 
-Další informace najdete v tématu [ověřit OEM balíčky](azure-stack-vaas-validate-oem-package.md).
+Další informace najdete v tématu [ověření balíčků OEM](azure-stack-vaas-validate-oem-package.md).
 
-## <a name="preview-vaas-test-collateral"></a>Zajištění testu VaaS ve verzi Preview
+## <a name="preview-vaas-test-collateral"></a>Náhled VaaS testovacích materiálů
 
-Microsoft pravidelně zpřístupňuje nové funkce ve službě Azure Stack. Jako součást procesu vývoje pro doručování tyto funkce na trh, je k dispozici v nové testovací zajištění **průchodu testů** pracovního postupu. Pracovní postup průchodu testu obsahuje testovací zajištění z jiných pracovních postupů umožňující provádění neoficiální testů. Nepoužívejte pracovního postupu průchodu testů odeslat výsledky ke schválení. Pomocí pracovních postupů řešení ověřování a ověřování balíčku můžete získat oficiální schválení pro vaše řešení.
+Microsoft pravidelně poskytuje nové funkce, které jsou k dispozici v Azure Stack. V rámci procesu vývoje pro poskytování těchto funkcí na trh je k dispozici nová zkušební dokumentace v pracovním postupu **test Pass** . Pracovní postup testovacího průchodu zahrnuje testovací materiály z jiných pracovních postupů, aby bylo možné provést neoficiální provádění testů. Nepoužívejte pracovní postup test Pass k odeslání výsledků ke schválení. Použijte ověřovací pracovní postupy řešení a ověření balíčku, abyste získali oficiální schválení pro vaše řešení.
 
-Další informace najdete v tématu [rychlý start: Použít ověření jako portál Service k naplánování vaší první test](azure-stack-vaas-schedule-test-pass.md).
+Další informace najdete v tématu [rychlý Start: Použijte ověřování jako portál služby k naplánování prvního testu](azure-stack-vaas-schedule-test-pass.md).
 
-## <a name="validation-workflow-tests-summary"></a>Souhrn testů ověření pracovního postupu
+## <a name="validation-workflow-tests-summary"></a>Souhrn testů pracovního postupu ověřování
 
 | Pracovní postup ověření | Požadované testy |
 |----|------------|
-| [Nové řešení ověřování](azure-stack-vaas-validate-solution-new.md) | Simulace modulu cloudu<br>COMPUTE provozní sady SDK<br>Test identifikace disku<br>Provozní sady SDK rozšíření služby KeyVault<br>Provozní sady SDK služby KeyVault<br>Provozní sadě SDK sítě<br>Provozní sady SDK účtu úložiště<br> |
-| [Ověření balíčku výrobce OEM](azure-stack-vaas-validate-oem-package.md) | Ověřování balíčků rozšíření výrobce OEM<br>Simulace modulu cloudu |
-| [Ověření měsíční aktualizace](azure-stack-vaas-validate-microsoft-updates.md) | Měsíční aktualizace ověřovací služby Azure Stack<br>Simulace modulu cloudu<br> |
+| [Nové ověřování řešení](azure-stack-vaas-validate-solution-new.md) | Modul pro simulaci cloudu<br>Sada COMPUTE SDK Operational Suite<br>Test identifikace disku<br>Operační sada sady SDK rozšíření trezoru klíčů<br>Sada SDK pro Trezor klíčů – operační sada<br>Operační sada sady SDK sítě<br>Sada SDK pro účet úložiště – operační sada<br> |
+| [Ověření balíčku OEM](azure-stack-vaas-validate-oem-package.md) | Ověření balíčku rozšíření OEM<br>Modul pro simulaci cloudu |
+| [Ověřování měsíčních aktualizací](azure-stack-vaas-validate-microsoft-updates.md) | Ověřování aktualizací Azure Stack měsíčně<br>Modul pro simulaci cloudu<br> |
 
 ## <a name="next-steps"></a>Další postup
 
-- [Nastavení ověření jako prostředky služby](azure-stack-vaas-set-up-resources.md)
-- Další informace o [ověření jako klíčové koncepty služby](azure-stack-vaas-key-concepts.md)
+- [Nastavení ověřování jako prostředků služby](azure-stack-vaas-set-up-resources.md)
+- Přečtěte si o [principech ověření jako Key služby](azure-stack-vaas-key-concepts.md)

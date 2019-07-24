@@ -1,6 +1,6 @@
 ---
-title: Použití Azure monitoru v Azure stacku | Dokumentace Microsoftu
-description: Zjistěte, jak používat Azure Monitor ve službě Azure Stack.
+title: Použít Azure Monitor na Azure Stack | Microsoft Docs
+description: Naučte se používat Azure Monitor v Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,124 +11,124 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 07/23/2019
 ms.author: mabrigg
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: d243a574e43d3a68d3d5caf0f60235019a57462a
-ms.sourcegitcommit: b36d078e699c7924624b79641dbe9021af9606ba
+ms.openlocfilehash: aafdc25293ea3cc584d24688d071dadb2151ce22
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67816256"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68418533"
 ---
-# <a name="use-azure-monitor-on-azure-stack"></a>Použití Azure monitoru v Azure stacku
+# <a name="use-azure-monitor-on-azure-stack"></a>Použít Azure Monitor na Azure Stack
 
-*Platí pro: Integrované systémy Azure Stack*
+*Platí pro: Azure Stack integrovaných systémů*
 
-Tento článek obsahuje přehled služby Azure Monitor ve službě Azure Stack. Popisuje operace služby Azure Monitor a další informace o tom, jak používat Azure Monitor ve službě Azure Stack. 
+Tento článek poskytuje přehled služby Azure Monitor v Azure Stack. Popisuje provoz Azure Monitor a další informace o tom, jak používat Azure Monitor na Azure Stack. 
 
-Přehled služby Azure Monitor, najdete v článku globální Azure [Začínáme se službou Azure Monitor ve službě Azure Stack](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-get-started).
+Přehled Azure Monitor najdete v tématu věnovaném celosvětovému článku Azure [Začínáme s Azure monitor na Azure Stack](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-get-started).
 
-![Okno Azure Monitor zásobníku](./media/azure-stack-metrics-azure-data/azs-monitor.png)
+![Okno monitorování Azure Stack](./media/azure-stack-metrics-azure-data/azs-monitor.png)
 
-Azure Monitor je služba platformy, která poskytuje jeden zdroj pro monitorování prostředků Azure. Azure Monitor vám umožňuje vizualizovat, dotazování, směrování, archivace nebo provádět jiné akce na metriky a protokoly pocházející z prostředků v Azure. S těmito daty můžete pracovat s použitím služby Azure Stack portálu pro správu, monitorování rutin prostředí PowerShell, Cross-Platform CLI nebo REST API služby Azure Monitor. Pro konkrétní připojení podporován ve službě Azure Stack, najdete v článku [jak využívat data monitorování z Azure Stack](azure-stack-metrics-monitor.md).
+Azure Monitor je služba platformy, která poskytuje jeden zdroj pro monitorování prostředků Azure. Azure Monitor vám umožňuje vizualizovat, dotazovat, směrovat, archivovat a provádět další akce s metrikami a protokoly, které pocházejí z prostředků v Azure. S těmito daty můžete pracovat pomocí Azure Stack portálu pro správu, monitorovat rutiny PowerShellu, rozhraní příkazového řádku pro více platforem nebo rozhraní API pro Azure Monitor REST. Konkrétní připojení, které podporuje Azure Stack, najdete v tématu [jak spotřebovávat data monitorování z Azure Stack](azure-stack-metrics-monitor.md).
 
 > [!Note]
-> Diagnostické protokoly a metriky nejsou k dispozici pro Azure Stack Development Kit.
+> Metriky a diagnostické protokoly nejsou pro Azure Stack Development Kit k dispozici.
 
-## <a name="prerequisites-for-azure-monitor-on-azure-stack"></a>Požadavky pro Azure Monitor v Azure stacku
+## <a name="prerequisites-for-azure-monitor-on-azure-stack"></a>Předpoklady pro Azure Monitor v Azure Stack
 
-Zaregistrujte **Microsoft.insights** poskytovatele prostředků na nastavení poskytovatele prostředků nabídka vašeho předplatného. Můžete ověřit, zda je k dispozici ve vaší nabídce přidružených k vašemu předplatnému poskytovatele prostředků:
+Zaregistrujte poskytovatele prostředků **Microsoft. Insights** v nastavení poskytovatelů prostředků nabídky vašeho předplatného. Můžete ověřit, jestli je poskytovatel prostředků dostupný v nabídce přidružené k vašemu předplatnému:
 
-1. Otevřete portál pro správu služby Azure Stack.
-2. Vyberte **nabízí**.
-3. Vyberte nabídku služby přidružené k předplatnému.
-4. Vyberte **poskytovatelů prostředků** pod **nastavení.** 
-5. Najít **Microsoft.Insights** v seznamu a ověřte, zda je stav **registrované**.
+1. Otevřete portál pro správu Azure Stack.
+2. Vyberte **nabídky**.
+3. Vyberte nabídku přidruženou k předplatnému.
+4. V části nastavení vyberte **poskytovatelé prostředků** **.** 
+5. V seznamu vyhledejte **Microsoft. Insights** a ověřte, jestli je stav zaregistrovaný.
 
-## <a name="overview-of-azure-monitor-on-azure-stack"></a>Přehled služby Azure Monitor v Azure stacku
+## <a name="overview-of-azure-monitor-on-azure-stack"></a>Přehled Azure Monitor v Azure Stack
 
 Jako je Azure Monitor v Azure Azure Monitor ve službě Azure Stack poskytuje základní infrastruktura metriky a protokoly pro většina služeb.
 
-## <a name="azure-monitor-sources-compute-subset"></a>Azure Monitor zdroje: výpočetní část
+## <a name="azure-monitor-sources-compute-subset"></a>Azure Monitor sources: COMPUTE – dílčí sada
 
-![Azure Monitor ve službě Azure Stack zdroje – výpočetní část](media//azure-stack-metrics-azure-data/azs-monitor-computersubset.png)
+![Azure Monitor na Azure Stack sources – COMPUTE – dílčí sada](media//azure-stack-metrics-azure-data/azs-monitor-computersubset.png)
 
-**Microsoft.Compute** poskytovatele prostředků ve službě Azure Stack zahrnuje:
+Poskytovatel prostředků **Microsoft. COMPUTE** v Azure Stack zahrnuje:
  - Virtuální počítače 
  - Škálovací sady virtuálních počítačů
 
-### <a name="application---diagnostics-logs-app-logs-and-metrics"></a>Aplikace – protokoly diagnostiky, protokoly aplikací a metriky
+### <a name="application---diagnostics-logs-app-logs-and-metrics"></a>Application – protokoly diagnostiky, protokoly aplikací a metriky
 
-Aplikace můžou běžet v operačním systému virtuálního počítače s **Microsoft.Compute** poskytovatele prostředků. Tyto aplikace a virtuální počítače vygenerovat vlastní sadu protokolů a metrik. Azure Monitor spoléhá na rozšíření diagnostiky Azure (Windows nebo Linuxem) ke shromažďování většina protokoly a metriky na úrovni aplikace.
+Aplikace můžou běžet v operačním systému virtuálního počítače, který běží s poskytovatelem prostředků **Microsoft. COMPUTE** . Tyto aplikace a virtuální počítače emitují svoji vlastní sadu protokolů a metrik. Azure Monitor pro shromažďování většiny metrik a protokolů na úrovni aplikace spoléhá na rozšíření Azure Diagnostics (Windows nebo Linux).
 
-Mezi typy opatření patří:
+Mezi typy měr patří:
  - Čítače výkonu
  - Protokoly aplikací
  - Protokoly událostí Windows
  - Zdroj události .NET
  - Protokoly IIS
  - Trasování událostí pro Windows na základě manifestu
- - Výpisy stavu systému
- - Protokoly chyb zákazníka
+ - Chybové výpisy
+ - Protokoly chyb zákazníků
 
 > [!Note]  
-> Rozšíření diagnostiky Linuxu ve službě Azure Stack se nepodporuje.
+> Rozšíření diagnostiky Linux na Azure Stack se nepodporuje.
 
 ### <a name="host-and-guest-vm-metrics"></a>Metriky virtuálního počítače hostitele a hosta
 
-Dříve uvedených výpočetní prostředky, které mají vyhrazený virtuální počítač hostitele a hostovaného operačního systému. Virtuální počítač hostitele a hostovaného operačního systému jsou ekvivalentem kořenový virtuální počítač a hostovaného virtuálního počítače v hypervisoru Hyper-V. Můžete shromažďovat metriky pro virtuální počítač hostitele a hostovaného operačního systému. Můžete také shromažďovat diagnostické protokoly pro hostovaný operační systém. Seznam kolekční metrik pro metriky hostitele a hosta virtuálního počítače ve službě Azure Stack je k dispozici na [podporované metriky ve službě Azure Monitor ve službě Azure Stack](azure-stack-metrics-supported.md). 
+Výše uvedené výpočetní prostředky mají vyhrazený hostitelský virtuální počítač a hostovaný operační systém. Hostitelský virtuální počítač a hostovaný operační systém jsou ekvivalentem kořenových virtuálních počítačů a virtuálních počítačů hosta v hypervisoru technologie Hyper-V. Metriky můžete shromažďovat pro virtuální počítač hostitele i pro hostovaný operační systém. Můžete také shromažďovat diagnostické protokoly pro hostovaný operační systém. Seznam metrik kolekční pro metriky virtuálního počítače hosta a hosta v Azure Stack je k dispozici v [podporovaných metrikách s Azure monitor na Azure Stack](azure-stack-metrics-supported.md). 
 
 ### <a name="activity-log"></a>Protokol aktivit
 
-Můžete hledat protokolů aktivit pro informace o výpočetní prostředky, jak je vidět infrastrukturou Azure Stack. Tento protokol obsahuje informace, jako jsou třeba časy, kdy se prostředky vytvořily nebo zničily. Protokoly aktivit ve službě Azure Stack jsou konzistentní s Azure. Další informace najdete v popisu [přehled protokolu aktivit v Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs). 
+V protokolech aktivit můžete vyhledat informace o vašich výpočetních prostředcích, jak je vidět Azure Stack infrastruktury. Tento protokol obsahuje informace, jako jsou třeba časy, kdy se prostředky vytvořily nebo zničily. Protokoly aktivit v Azure Stack jsou konzistentní s Azure. Další informace najdete v tématu [Přehled protokolu aktivit v Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs). 
 
 
-## <a name="azure-monitor-sources-everything-else"></a>Azure monitor zdroje: všechno ostatní
+## <a name="azure-monitor-sources-everything-else"></a>Zdroje Azure monitor: všechno ostatní
 
-![Azure Monitor zdrojů službě Azure Stack – všechno ostatní](media//azure-stack-metrics-azure-data/azs-monitor-othersubset.png)
+![Azure Monitor v Azure Stackch zdrojích – všechno ostatní](media//azure-stack-metrics-azure-data/azs-monitor-othersubset.png)
 
-### <a name="resources---metrics-and-diagnostics-logs"></a>Prostředky - metriky a diagnostické protokoly
+### <a name="resources---metrics-and-diagnostics-logs"></a>Prostředky – metriky a diagnostické protokoly
 
-Kolekční metriky a diagnostické protokoly se liší v závislosti na typu prostředku. Seznam kolekční metrik pro jednotlivé prostředky ve službě Azure Stack je k dispozici na podporované metriky. Další informace najdete v tématu [podporované metriky ve službě Azure Monitor ve službě Azure Stack](azure-stack-metrics-supported.md).
+Metriky kolekční a protokoly diagnostiky se liší v závislosti na typu prostředku. Seznam metrik kolekční pro každý prostředek na Azure Stack je k dispozici na podporovaných metrikách. Další informace najdete v tématu [podporované metriky s Azure monitor v Azure Stack](azure-stack-metrics-supported.md).
 
 ### <a name="activity-log"></a>Protokol aktivit
 
-Protokol aktivit je že stejný pro výpočetní prostředky. 
+Protokol aktivit je stejný pro výpočetní prostředky. 
 
-### <a name="uses-for-monitoring-data"></a>Používá pro monitorování dat.
+### <a name="uses-for-monitoring-data"></a>Používá se pro monitorování dat.
 
-**Store a archivace**  
+**Ukládání a archivace**  
 
 Některá data monitorování se už v Azure Monitoru uchovávají a jsou po určitou dobu dostupná. 
  - Metriky se uchovávají po dobu 90 dnů. 
  - Položky protokolu aktivit se uchovávají po dobu 90 dnů. 
  - Diagnostické protokoly nejsou uložené.
- - Archivace dat do účtu úložiště pro delší dobu uchování.
+ - Archivujte data do účtu úložiště pro delší dobu uchování.
 
 **Dotaz**  
 
-REST API služby Azure Monitor, příkazů rozhraní příkazového řádku (CLI) napříč platformami, rutin prostředí PowerShell nebo sady .NET SDK můžete použít pro přístup k datům v systému nebo úložiště Azure. 
+Pro přístup k datům v systému nebo Azure Storage můžete použít příkazy rozhraní příkazového řádku (CLI) Azure Monitor REST API, rutiny prostředí PowerShell nebo rozhraní .NET SDK pro více platforem. 
 
-**Vizualizace**
+**Vizualizac**
 
 Vizualizace dat monitorování pomocí grafů a diagramů vám umožňuje rozpoznat trendy rychleji, než když prohlížíte samotná data. 
 
 Mezi možné způsoby vizualizace patří:
- - Použití portálu Azure Stack uživatelů a správců.
- - Směrování dat do Microsoft Power BI.
- - Směrovat data do nástrojů třetích stran vizualizace pomocí obou živého streamování nebo tím, že nástroj číst z archivu ve službě Azure storage.
+ - Použijte Azure Stackho uživatele a portálu pro správu.
+ - Směrovat data do Microsoft Power BI.
+ - Přesměrujte data na nástroj pro vizualizaci třetí strany pomocí živého streamování nebo si nástroj Přečtěte z archivu ve službě Azure Storage.
 
-## <a name="methods-of-accessing-azure-monitor-on-azure-stack"></a>Monitorování metod přístupu k Azure ve službě Azure Stack
+## <a name="methods-of-accessing-azure-monitor-on-azure-stack"></a>Metody přístupu ke službě Azure monitor na Azure Stack
 
 Obecně platí, že k manipulaci se sledováním, směrováním a načítáním dat se dá použít některý z následujících způsobů. Některé způsoby ale nemusí být dostupné pro všechny akce nebo typy dat.
 
  - [Portál Azure Stack](azure-stack-use-portal.md)
  - [PowerShell](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-powershell-samples)
- - [Interface(CLI) příkazového řádku pro různé platformy](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-cli-samples)
+ - [Rozhraní příkazového řádku pro různé platformy (CLI)](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-cli-samples)
  - [REST API](https://docs.microsoft.com/rest/api/monitor)
  - [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor)
 
 ## <a name="next-steps"></a>Další postup
 
-Další informace o monitorování využití dat ve službě Azure Stack v článku [spotřebovat data monitorování z Azure Stack](azure-stack-metrics-monitor.md).
+Další informace o sledování spotřeby dat na Azure Stack v článku [využívání dat monitorování z Azure Stack](azure-stack-metrics-monitor.md).

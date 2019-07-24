@@ -1,6 +1,6 @@
 ---
-title: Nasazení Java WAR do virtuálního počítače ve službě Azure Stack | Dokumentace Microsoftu
-description: Nasazení Java WAR do virtuálního počítače ve službě Azure Stack.
+title: Nasazení aplikace Java WAR na virtuální počítač v Azure Stack | Microsoft Docs
+description: Nasaďte Java WAR na virtuální počítač v Azure Stack.
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,42 +9,42 @@ ms.date: 04/24/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 04/24/2019
-ms.openlocfilehash: 1738d106a0688518f7a739d3fb02ec1b16c2b8b9
-ms.sourcegitcommit: 05a16552569fae342896b6300514c656c1df3c4e
+ms.openlocfilehash: 28d60e8fc5b575cd2fbefee1298220418e4f59a1
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65838370"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68418229"
 ---
-# <a name="deploy-a-java-web-app-to-a-vm-in-azure-stack"></a>Nasazení webové aplikace v Javě do virtuálního počítače ve službě Azure Stack
+# <a name="deploy-a-java-web-app-to-a-vm-in-azure-stack"></a>Nasazení webové aplikace v jazyce Java do virtuálního počítače v Azure Stack
 
-Můžete vytvořit virtuální počítač (VM) k hostování vaší webové aplikace v Pythonu ve službě Azure Stack. V tomto článku instalace a konfigurace serveru Apache Tomcat na virtuálním počítači Linux ve službě Azure Stack. Pak načíst soubor Java webové aplikace prostředků (WAR) do serveru. Soubor WAR se používá k distribuci kolekce souborů archivu (JAR), Java, komprimované soubory, které obsahují prostředky v Javě jako jsou třídy, text, obrázky, XML a HTML a další prostředky, které se používají k doručování webových aplikací.
+Můžete vytvořit virtuální počítač, který bude hostovat vaši webovou aplikaci v Pythonu v Azure Stack. V tomto článku nainstalujete a nakonfigurujete server Apache Tomcat na virtuálním počítači se systémem Linux v Azure Stack. Poté načtete soubor prostředků webové aplikace Java (WAR) do serveru aplikace. Soubor WAR se používá k distribuci kolekce souborů archivu Java (JAR), komprimovaných souborů obsahujících prostředky Java, jako jsou třídy, text, obrázky, XML a další prostředky, které se používají k doručování webové aplikace.
 
 ## <a name="create-a-vm"></a>Vytvoření virtuálního počítače
 
-1. Nastavení virtuálního počítače ve službě Azure Stack podle pokynů v [nasazení virtuálního počítače s Linuxem k hostování webové aplikace ve službě Azure Stack](azure-stack-dev-start-howto-deploy-linux.md).
+1. Nastavte virtuální počítač v Azure Stack podle pokynů v tématu [nasazení virtuálního počítače se systémem Linux pro hostování webové aplikace v Azure Stack](azure-stack-dev-start-howto-deploy-linux.md).
 
-2. V podokně sítě virtuálních počítačů Ujistěte se, že jsou dostupné následující porty:
+2. V podokně síť virtuálních počítačů se ujistěte, že jsou dostupné tyto porty:
 
     | Port | Protocol | Popis |
     | --- | --- | --- |
-    | 80 | HTTP | Protokol HTTP (Hypertext Transfer) je protokol, který slouží k doručování webových stránkách od serverů. Klienti se připojují přes protokol HTTP s názvem DNS nebo IP adresu. |
-    | 443 | HTTPS | Protokol zabezpečení HTTPS (Hypertext Transfer) je zabezpečený verzi protokolu HTTP, který vyžaduje certifikát zabezpečení a umožňuje šifrovaného přenosu informací. |
-    | 22 | SSH | Secure Shell (SSH) je protokol šifrovaných sítí pro zabezpečenou komunikaci. Pomocí tohoto připojení klienta SSH pro konfiguraci virtuálního počítače a nasaďte aplikaci. |
-    | 3389 | Protokol RDP | Volitelné. Protokol RDP (Remote Desktop) umožňuje připojení ke vzdálené ploše na pomocí grafického uživatelského rozhraní na svém počítači.   |
-    | 8080 | Vlastní | Výchozí port pro službu Apache Tomcat. Pro produkční server směrovat provoz přes 80 a 443. |
+    | 80 | HTTP | HTTP (Hypertext Transfer Protocol) je protokol, který se používá k doručování webových stránek ze serverů. Klienti se připojují přes protokol HTTP s názvem DNS nebo IP adresou. |
+    | 443 | HTTPS | Protokol HTTPS (Hypertext Transfer Protocol Secure) je zabezpečená verze protokolu HTTP, která vyžaduje certifikát zabezpečení a umožňuje šifrovaný přenos informací. |
+    | 22 | SSH | Secure Shell (SSH) je zašifrovaný síťový protokol pro zabezpečenou komunikaci. Pomocí tohoto připojení s klientem SSH nakonfigurujete virtuální počítač a nasadíte aplikaci. |
+    | 3389 | PROTOKOL RDP | Volitelné. Protokol RDP (Remote Desktop Protocol) (RDP) umožňuje připojení ke vzdálené ploše pro použití grafického uživatelského rozhraní na vašem počítači.   |
+    | 8080 | Vlastní | Výchozí port pro službu Apache Tomcat V případě provozního serveru směrujete provoz mezi 80 a 443. |
 
 ## <a name="install-java"></a>Nainstalovat Java
 
-1. Připojení k vašemu virtuálnímu počítači pomocí klienta SSH. Pokyny najdete v tématu [připojit přes SSH pomocí PuTTY](azure-stack-dev-start-howto-ssh-public-key.md#connect-with-ssh-by-using-putty).
+1. Připojte se k VIRTUÁLNÍmu počítači pomocí klienta SSH. Pokyny najdete v tématu [připojení přes SSH pomocí výstupu](azure-stack-dev-start-howto-ssh-public-key.md#connect-with-ssh-by-using-putty).
 
-2. Na příkazovém řádku bash ve virtuálním počítači spusťte následující příkaz:
+2. Na příkazovém řádku bash na svém VIRTUÁLNÍm počítači spusťte následující příkaz:
 
     ```bash  
         sudo apt-get install default-jdk
     ```
 
-3. Ověření instalace. Stále připojeni k virtuálnímu počítači v relaci SSH, spusťte následující příkaz:
+3. Ověřte instalaci. K VIRTUÁLNÍmu počítači se v relaci SSH pořád připojíte spuštěním následujícího příkazu:
 
     ```bash  
         java -version
@@ -52,9 +52,9 @@ Můžete vytvořit virtuální počítač (VM) k hostování vaší webové apli
 
 ## <a name="install-and-configure-tomcat"></a>Instalace a konfigurace Tomcat
 
-1. Připojení k vašemu virtuálnímu počítači pomocí klienta SSH. Pokyny najdete v tématu [připojit přes SSH pomocí PuTTY](azure-stack-dev-start-howto-ssh-public-key.md#connect-with-ssh-by-using-putty).
+1. Připojte se k VIRTUÁLNÍmu počítači pomocí klienta SSH. Pokyny najdete v tématu [připojení přes SSH pomocí výstupu](azure-stack-dev-start-howto-ssh-public-key.md#connect-with-ssh-by-using-putty).
 
-1. Vytvoření uživatele Tomcat následujícím způsobem:
+1. Pomocí následujícího postupu vytvořte uživatele Tomcat:
 
     a. Vytvořte novou skupinu Tomcat spuštěním následujícího příkazu:
 
@@ -62,24 +62,24 @@ Můžete vytvořit virtuální počítač (VM) k hostování vaší webové apli
         sudo groupadd tomcat
     ```
      
-    b. Vytvoření nového uživatele Tomcat. Přidání tohoto uživatele do skupiny Tomcat s domovskému adresáři */opt/tomcat*. Tomcat je nasadit do tohoto adresáře:
+    b. Vytvořte nového uživatele Tomcat. Přidejte tohoto uživatele do skupiny Tomcat pomocí domovského adresáře */opt/Tomcat*. Tomcat nasadíte do tohoto adresáře:
 
     ```bash  
         sudo useradd -s /bin/false -g tomcat -d /opt/tomcat tomcat
     ```
 
-1. Tomcat nainstalujte následujícím způsobem:
+1. Tomcat nainstalujte pomocí následujícího postupu:
 
-    a. Získat adresu URL pro cíl pro nejnovější verzi Tomcat 8 z [stránku pro stažení Tomcat 8](http://tomcat.apache.org/download-80.cgi).
+    a. Získejte adresu URL pro tar pro nejnovější verzi Tomcat 8 ze [stránky pro stažení Tomcat 8](http://tomcat.apache.org/download-80.cgi).
 
-    b. Používáme nástroj cURL k stažení nejnovější verze pomocí odkazu. Spusťte následující příkazy:
+    b. Pomocí kudrlinkou si můžete stáhnout nejnovější verzi pomocí odkazu. Spusťte následující příkazy:
 
     ```bash  
         cd /tmp 
         curl -O <URL for the tar for the latest version of Tomcat 8>
     ```
 
-    c. Tomcat na instalaci */opt/tomcat* adresáře. Vytvořte složku a pak otevřete archivu:
+    c. Nainstalujte Tomcat do adresáře */opt/Tomcat* . Vytvořte složku a pak otevřete Archiv:
 
     ```bash  
         sudo mkdir /opt/tomcat
@@ -95,30 +95,30 @@ Můžete vytvořit virtuální počítač (VM) k hostování vaší webové apli
         sudo chmod g+x conf
     ```
 
-1. Vytvoření *systemd* služby souboru, tak, aby Tomcat může běžet jako služba.
+1. Vytvořte soubor  se systémovou službou, abyste mohli spustit Tomcat jako službu.
 
-   a. Tomcat je potřeba vědět, kam jste nainstalovali Java. Tato cesta je obvykle označuje jako *JAVA_HOME*. Vyhledejte umístění spuštěním:
+   a. Tomcat potřebuje, abyste věděli, kde jste nainstalovali Java. Tato cesta se obvykle označuje jako *JAVA_HOME*. Najděte umístění spuštěním:
 
     ```bash  
         sudo update-java-alternatives -l
     ```
 
-    To vytváří přibližně takto:
+    To vytváří něco podobného jako následující:
 
     ```Text  
         Output
         java-1.8.0-openjdk-amd64       1081       /usr/lib/jvm/java-1.8.0-openjdk-amd64
     ```
 
-    Můžete vytvořit *JAVA_HOME* hodnotu proměnné s ohledem cestě z výstupu a přidáním */jre*. Jako příklad použijeme předchozí příklad, */usr/lib/jvm/java-1.8.0-openjdk-amd64/jre*.
+    Hodnotu proměnné *JAVA_HOME* můžete vytvořit tak, že převezmete cestu z výstupu a přidáte */JRE*. Například v předchozím příkladu, */usr/lib/JVM/Java-1.8.0-OpenJDK-amd64/JRE*.
 
-    b. Použijte hodnotu z vašeho serveru k vytvoření souboru definice služby systemd:
+    b. K vytvoření souboru systémové služby použijte hodnotu ze serveru:
 
     ```bash  
         sudo nano /etc/systemd/system/tomcat.service
     ```
 
-    c. Vložte následující obsah do souboru služby. Změnit hodnotu *JAVA_HOME*, pokud je to nezbytné, aby odpovídala hodnotě nalezen ve vašem systému. Můžete také upravit nastavení přidělení paměti, které jsou určené v CATALINA_OPTS:
+    c. Do souboru služby vložte následující obsah. V případě potřeby upravte hodnotu *JAVA_HOME*tak, aby odpovídala hodnotě, kterou jste v systému našli. Můžete také změnit nastavení přidělení paměti, která jsou určena v CATALINA_OPTS:
 
     ```Text  
         [Unit]
@@ -150,7 +150,7 @@ Můžete vytvořit virtuální počítač (VM) k hostování vaší webové apli
 
     d. Uložte soubor a zavřete ho.
 
-    e. Znovu načte démona systemd tak, aby věděl o souboru služby:
+    e. Znovu načíst systémový démon, který zná informace o souboru služby:
 
     ```bash  
         sudo systemctl daemon-reload
@@ -162,48 +162,48 @@ Můžete vytvořit virtuální počítač (VM) k hostování vaší webové apli
         sudo systemctl start tomcat
     ```
 
-    g. Ověřte, zda je spuštěna bez chyb tak, že zadáte:
+    g. Zadáním těchto akcí ověřte, zda bylo spuštěno bez chyb.
 
     ```bash  
         sudo systemctl status tomcat
     ```
 
-1. Ověřte Tomcat server. Tomcat používá port 8080 tak, aby přijímal konvenční požadavky. Povolení provozu na daný port spuštěním následujícího příkazu:
+1. Ověřte server Tomcat. Tomcat používá port 8080 k přijetí konvenčních požadavků. Spuštěním následujícího příkazu povolte provoz na tento port:
 
     ```bash  
         sudo ufw allow 8080
     ```
 
-    Pokud jste nepřidali *příchozí pravidla portů* pro váš virtuální počítač Azure Stack je nyní přidat. Další informace najdete v tématu [vytvoření virtuálního počítače](#create-a-vm).
+    Pokud jste nepřidali *pravidla portů pro příchozí* Azure Stack pro virtuální počítač, přidejte je nyní. Další informace najdete v tématu [Vytvoření virtuálního počítače](#create-a-vm).
 
-1. Otevřete prohlížeč ve stejné síti jako služba Azure Stack a pak otevřete váš server *yourmachine.local.cloudapp.azurestack.external:8080*.
+1. Otevřete prohlížeč ve stejné síti jako váš Azure Stack a pak otevřete Server, *yourmachine. Local. cloudapp. azurestack. external: 8080*.
 
-    ![Apache Tomcat v Azure stacku virtuálního počítače](media/azure-stack-dev-start-howto-vm-java/apache-tomcat.png)
+    ![Apache Tomcat na virtuálním počítači s Azure Stack](media/azure-stack-dev-start-howto-vm-java/apache-tomcat.png)
 
-    Načtení stránky Apache Tomcat na vašem serveru. Dále je nutné nakonfigurovat server k tomu, abyste pro přístup k stav serveru, aplikace správce a správce hostitele.
+    Načte se stránka Apache Tomcat na vašem serveru. Dále nakonfigurujete server, který vám umožní přístup k stavu serveru, aplikaci správce a správci hostitele.
 
-1. Povolení souboru definice služby, který Tomcat automaticky spustí po restartování serveru:
+1. Povolte soubor služby tak, aby se Tomcat automaticky spouštěla po restartování serveru:
 
     ```bash  
         sudo systemctl enable tomcat
     ```
 
-1. Sami povolit přístup k rozhraní webové správy, konfigurace serveru Tomcat. 
+1. Pokud chcete umožnění přístupu k rozhraní webové správy, nakonfigurujte server Tomcat. 
 
-   a. Upravit *tomcat users.xml* souborů a definování role a uživatele tak, aby se můžete přihlásit. Definování uživatelského přístupu k `manager-gui` a `admin-gui`.
+   a. Upravte soubor *Tomcat-Users. XML* a definujte roli a uživatele, abyste se mohli přihlásit. Zadejte uživatele pro přístup `manager-gui` k a. `admin-gui`
 
     ```bash  
         sudo nano /opt/tomcat/conf/tomcat-users.xml
     ```
 
-   b. Přidejte následující prvky, které mají `<tomcat-users>` části:
+   b. Do `<tomcat-users>` oddílu přidejte následující prvky:
 
     ```XML  
         <role rolename="tomcat"/>
         <user username="<username>" password="<password>" roles="tomcat,manager-gui,admin-gui"/>
     ```
 
-    Konečný soubor může například vypadat přibližně jako:
+    Konečný soubor může například vypadat přibližně takto:
 
     ```XML  
         <tomcat-users xmlns="http://tomcat.apache.org/xml"
@@ -217,15 +217,15 @@ Můžete vytvořit virtuální počítač (VM) k hostování vaší webové apli
 
     c. Uložte soubor a zavřete ho.
 
-1. Tomcat omezuje přístup *správce* a *správce hostitele* aplikace k připojení ze serveru. Vzhledem k tomu, že instalujete Tomcat na virtuálním počítači ve službě Azure Stack, budete chtít odebrat toto omezení. Omezení podle IP adresy na tyto aplikace změnit úpravou odpovídající *context.xml* soubory.
+1. Tomcat omezuje přístup k aplikacím *správce* a *hosta* do připojení přicházejících ze serveru. Vzhledem k tomu, že instalujete Tomcat na virtuální počítač v Azure Stack, budete toto omezení chtít odebrat. Upravte omezení IP adres v těchto aplikacích úpravou příslušných souborů *Context. XML* .
 
-    a. Aktualizace *context.xml* v aplikaci správce:
+    a. Aktualizace *Context. XML* v aplikaci Správce:
 
     ```bash  
         sudo nano /opt/tomcat/webapps/manager/META-INF/context.xml
     ```
 
-    b. Okomentujte omezení IP adresy umožňují připojení z libovolného místa, nebo přidat IP adresu počítače, který používáte pro připojení k Tomcat.
+    b. Odkomentujte omezení IP adresy a umožněte připojení odkudkoli nebo přidejte IP adresu počítače, který používáte pro připojení k Tomcat.
 
     ```XML  
     <Context antiResourceLocking="false" privileged="true" >
@@ -236,7 +236,7 @@ Můžete vytvořit virtuální počítač (VM) k hostování vaší webové apli
 
     c. Uložte soubor a zavřete ho.
 
-    d. Aktualizovat *context.xml* aplikace Správce hostitele s podobné aktualizace:
+    d. Aktualizace *Context. XML* aplikace Správce hostitele s podobnou aktualizací:
 
     ```bash  
         sudo nano /opt/tomcat/webapps/host-manager/META-INF/context.xml
@@ -244,55 +244,56 @@ Můžete vytvořit virtuální počítač (VM) k hostování vaší webové apli
 
     e. Uložte soubor a zavřete ho.
 
-1. Aktualizace serveru se změnami, restartujte službu Tomcat:
+1. Chcete-li aktualizovat server se změnami, restartujte službu Tomcat:
 
     ```bash  
         sudo systemctl restart tomcat
     ```
 
-1. Otevřete v prohlížeči ve stejné síti jako služba Azure Stack a pak otevřete serveru: *yourmachine.local.cloudapp.azurestack.external:8080*.
+1. Otevřete prohlížeč ve stejné síti jako váš Azure Stack a pak otevřete Server: *yourmachine. Local. cloudapp. azurestack. external: 8080*.
 
-    a. Chcete-li zkontrolovat stav serveru Tomcat a ověřte, že máte přístup, vyberte **stav serveru**.
+    a. Chcete-li zkontrolovat stav serveru Tomcat a ověřit, zda máte přístup, vyberte možnost **stav serveru**.
 
-    b. Přihlaste se pomocí svých přihlašovacích údajů Tomcat.
+    b. Přihlaste se pomocí přihlašovacích údajů Tomcat.
 
-    ![Apache Tomcat v Azure stacku virtuálního počítače](media/azure-stack-dev-start-howto-vm-java/apache-tomcat-management-app.png)
+    ![Apache Tomcat na virtuálním počítači s Azure Stack](media/azure-stack-dev-start-howto-vm-java/apache-tomcat-management-app.png)
 
 ## <a name="create-an-app"></a>Vytvoření nové aplikace
 
-Bude potřeba vytvořit soubor WAR nasadit Tomcat. Pokud chcete jenom zkontrolovat vaše prostředí, najdete příklad WAR na [serveru Apache Tomcat](https://tomcat.apache.org/tomcat-6.0-doc/appdev/sample/).
+Pro nasazení do Tomcat budete muset vytvořit WAR. Pokud chcete pouze ověřit prostředí, najdete příklad WAR na [webu Apache Tomcat](https://tomcat.apache.org/tomcat-6.0-doc/appdev/sample/).
 
-Pokyny týkající se vývoje aplikací v Javě v Azure najdete v tématu [sestavování a nasazování aplikací v Javě v Azure](https://azure.microsoft.com/develop/java/).
+Pokyny k vývoji aplikací v jazyce Java v Azure najdete v tématu sestavování [a nasazování aplikací v jazyce Java v Azure](https://azure.microsoft.com/develop/java/).
 
 ## <a name="deploy-and-run-the-app"></a>Nasazení a spuštění aplikace
 
-1. Připojení k vašemu virtuálnímu počítači pomocí klienta SSH. Pokyny najdete v tématu [připojit přes SSH pomocí PuTTY](azure-stack-dev-start-howto-ssh-public-key.md#connect-with-ssh-by-using-putty).
+1. Připojte se k VIRTUÁLNÍmu počítači pomocí klienta SSH. Pokyny najdete v tématu [připojení přes SSH pomocí výstupu](azure-stack-dev-start-howto-ssh-public-key.md#connect-with-ssh-by-using-putty).
 
-1. Pokud chcete aktualizovat server s balíčkem aplikace, zastavte službu Tomcat:
+1. Chcete-li aktualizovat server s balíčkem aplikace, zastavte službu Tomcat:
 
     ```bash  
         sudo systemctl stop tomcat
     ```
 
-1. Aby bylo možné zapisovat do složky webapps, přidejte do skupiny Tomcat vašich uživatelů serveru FTP. Uživatel FTP je uživatel, kterého můžete definovat při vytváření virtuálního počítače ve službě Azure Stack.
+1. Aby bylo možné zapisovat do složky webapps, přidejte uživatele FTP do skupiny Tomcat. Uživatel FTP je uživatelem, kterého definujete při vytváření virtuálního počítače v Azure Stack.
 
     ```bash  
         sudo usermod -a -G tomcat <VM-user>
     ```
 
-1. Vymazat složce webové aplikace a pak načíst nové nebo aktualizované WAR, připojte se ke svému virtuálnímu počítači pomocí Filezilly. Pokyny najdete v tématu [připojit pomocí protokolu SFTP pomocí Filezilly](azure-stack-dev-start-howto-ssh-public-key.md#connect-with-sftp-with-filezilla).
+1. Pokud chcete vymazat složku webapps a pak načíst nový nebo aktualizovaný WAR, připojte se k VIRTUÁLNÍmu počítači pomocí FileZilly. Pokyny najdete v tématu [připojení pomocí protokolu SFTP s FileZilly](azure-stack-dev-start-howto-ssh-public-key.md#connect-with-sftp-with-filezilla).
 
-    a. Vymazat *TOMCAT_HOME/webapps*.
+    a. Zrušte zaškrtnutí *TOMCAT_HOME/webapps*.
 
-    b. Přidat vaše WAR do *TOMCAT_HOME/webapps* (například */opt/tomcat/webapps/*).
+    b. Přidejte svůj WAR do *TOMCAT_HOME/webapps* (například */opt/Tomcat/webapps/* ).
 
-1.  Tomcat automaticky rozbalí a nasadí aplikaci. Můžete ho zobrazit pomocí názvu DNS, který jste vytvořili dříve. Příklad:
+1.  Tomcat automaticky rozbalí a nasadí aplikaci. Můžete ji zobrazit pomocí názvu DNS, který jste vytvořili dříve. Příklad:
 
     ```HTTP  
        http://yourmachine.local.cloudapp.azurestack.external:8080/sample
+    ```
+    
+## <a name="next-steps"></a>Další postup
 
-## Next steps
-
-- Learn more about how to [develop for Azure Stack](azure-stack-dev-start.md).
-- Learn about [common deployments for Azure Stack as IaaS](azure-stack-dev-start-deploy-app.md).
-- To learn the Java programming language and find additional resources for Java, see [Java.com](https://www.java.com).
+- Přečtěte si další informace o [vývoji pro Azure Stack](azure-stack-dev-start.md).
+- Přečtěte si o [běžných nasazeních Azure Stack jako IaaS](azure-stack-dev-start-deploy-app.md).
+- Informace o programovacím jazyce Java a vyhledání dalších prostředků pro jazyk Java najdete v tématu [Java.com](https://www.java.com).

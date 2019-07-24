@@ -1,48 +1,47 @@
 ---
 title: Azure Stack školení a certifikace
-description: Další informace o možnostech certifikačních školení Azure Stack
+description: Další informace o možnostech certifikace Azure Stack školení
 services: azure-stack
-author: WenJason
-manager: digimobile
+author: mattbriggs
+manager: femila
 ms.service: azure-stack
 ms.topic: article
-origin.date: 04/15/2019
-ms.date: 04/29/2019
-ms.author: v-jay
+ms.date: 07/23/2019
+ms.author: mabrigg
 ms.lastreviewed: 03/20/2019
 ms.reviewer: efemmano
-ms.openlocfilehash: fc00a1e40e4bd78da7d9ee9ee0b9288aa311483a
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: dc4942df6a5a461b6b40ef402ea5a282cf1d01ee
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64296850"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68417853"
 ---
 # <a name="azure-stack-training-and-certification"></a>Azure Stack školení a certifikace
 
-*Platí pro: Integrované systémy Azure Stack*
+*Platí pro: Azure Stack integrovaných systémů*
 
-Následující možnosti školení a certifikace jsou k dispozici vám pomůžou získat informace o službě Azure Stack a ukazují vaše znalosti Azure Stack.
+K dispozici jsou následující možnosti školení a certifikace, které vám pomůžou se Azure Stack a demonstrovat Azure Stack.
 
 ## <a name="training"></a>Školení
 
-- Microsoft oficiálních kurzů na vyžádání
-   - [ODX20537: Konfigurace a provozování hybridní Cloud s Microsoft Azure Stack (180 dnů)](https://www.microsoft.com/en-us/learning/course.aspx?cid=ODX20537)
-   - [OD20537: Konfigurace a provozování hybridní Cloud s Microsoft Azure Stack (90 dnů)](https://www.microsoft.com/en-us/learning/course.aspx?cid=OD20537)
+- Oficiální kurzy Microsoftu na vyžádání
+   - [ODX20537: Konfigurace a provoz hybridního cloudu s Microsoft Azure Stack (180 den)](https://www.microsoft.com/en-us/learning/course.aspx?cid=ODX20537)
+   - [OD20537: Konfigurace a provoz hybridního cloudu s Microsoft Azure Stack (90 den)](https://www.microsoft.com/en-us/learning/course.aspx?cid=OD20537)
 
-- Školení IT společnosti Microsoft
-   - [Kurz 20537A: Konfigurace a provozování hybridní Cloud s Microsoft Azure Stack](https://aka.ms/azsmoc)
+- Školicí kurz pro IT oddělení Microsoftu
+   - [20537A kurzu: Konfigurace a provozování hybridního cloudu pomocí Microsoft Azure Stack](https://aka.ms/azsmoc)
 
-- Otevřít edx
-   - [edX: Konfigurace a provozování Microsoft Azure Stack online kurz](https://aka.ms/AzureStackMOOC)
+- Otevřít EDX
+   - [edX: Konfigurace a provozní Microsoft Azure Stack online kurzu](https://aka.ms/AzureStackMOOC)
    
-- Postupy výuky Microsoft
-   - [Úloha role a postupy výuky](https://azure.microsoft.com/training/learning-paths/)
+- Microsoft Learning – cesty
+   - [Role úloh a studijních cest](https://azure.microsoft.com/training/learning-paths/)
 
 ## <a name="certification"></a>Certifikace
 
-*Konfigurace a provozování hybridního cloudu s využitím certifikace Microsoft Azure Stack*, [zkoušku 70-537](https://www.microsoft.com/learning/exam-70-537.aspx)
+*Konfigurace a provozování hybridního cloudu s Microsoft Azure Stack certifikacem*, [zkouška 70-537](https://www.microsoft.com/learning/exam-70-537.aspx)
 
 ## <a name="next-steps"></a>Další postup
 
-[Dokumentace ke službě Azure Stack](/azure-stack/operator)
+[Dokumentace k Azure Stack](/azure-stack/operator)

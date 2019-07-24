@@ -1,6 +1,6 @@
 ---
-title: Ověření aktualizace softwaru od Microsoftu v Azure stacku ověření jako služba | Dokumentace Microsoftu
-description: Zjistěte, jak ověřit aktualizace softwaru od Microsoftu s ověřováním jako služba.
+title: Ověřit aktualizace softwaru od Microsoftu v Azure Stack ověřování jako služba | Microsoft Docs
+description: Zjistěte, jak ověřit aktualizace softwaru od Microsoftu pomocí ověřování jako služby.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -10,54 +10,54 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/11/2019
+ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 67d17ffc7c2b8fcdb766ccf8a8248da8665a42d8
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 0a507b7488a34715e528b6bbf291fec9832ef027
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64297565"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68418282"
 ---
-# <a name="validate-software-updates-from-microsoft"></a>Ověření aktualizace softwaru od Microsoftu
+# <a name="validate-software-updates-from-microsoft"></a>Ověřit aktualizace softwaru od Microsoftu
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Microsoft pravidelně vydá aktualizace softwaru Azure Stack. Tyto aktualizace jsou k dispozici ke službě Azure Stack coengineering partnerů. Aktualizace jsou součástí zálohy veřejně k dispozici. Můžete zkontrolovat aktualizace pro vaše řešení a zasílat připomínky do Microsoftu.
+Společnost Microsoft bude pravidelně vydávat aktualizace Azure Stack softwaru. Tyto aktualizace jsou k dispozici Azure Stack spolutechnickým partnerům. Aktualizace jsou poskytovány předem veřejně dostupným. Můžete kontrolovat aktualizace řešení a poskytnout Microsoftu zpětnou vazbu.
 
-Aktualizace softwaru společnosti Microsoft do služby Azure Stack jsou určeny pomocí zásady vytváření názvů, například 1803 označující aktualizace je pro. března 2018. Informace o aktualizaci zásad služby Azure Stack, tempo a verze poznámky jsou k dispozici, najdete v článku [Azure Stack zásady obsluhy](../operator/azure-stack-servicing-policy.md).
+Aktualizace softwaru společnosti Microsoft pro Azure Stack jsou určeny pomocí konvence pojmenování, například 1803, což znamená, že je aktualizace určena pro 2018. března. Informace Azure Stack o tempo a poznámkách k verzi najdete v tématu Zásady služby Azure Stack Servicing.
 
 ## <a name="prerequisites"></a>Požadavky
 
-Než proces měsíční aktualizace v VaaS, měli byste znát následující položky:
+Před uplatněním měsíčního procesu aktualizace v VaaS byste měli být obeznámeni s následujícími položkami:
 
-- [Ověření jako klíčové koncepty služby](azure-stack-vaas-key-concepts.md)
-- [Ověřovací testování interaktivní funkce](azure-stack-vaas-interactive-feature-verification.md)
+- [Koncepce ověřování jako klíč služby](azure-stack-vaas-key-concepts.md)
+- [Testování ověřování interaktivních funkcí](azure-stack-vaas-interactive-feature-verification.md)
 
 ## <a name="required-tests"></a>Požadované testy
 
-Následující testy by měl provádět v uvedeném pořadí pro měsíční ověření softwaru:
+Následující testy by se měly provádět v rámci měsíčního ověření softwaru v následujícím pořadí:
 
-1. Měsíční aktualizace ověřovací služby Azure Stack
-2. Simulace modulu cloudu
+1. Ověřování aktualizací Azure Stack měsíčně
+2. Modul pro simulaci cloudu
 
-## <a name="validating-software-updates"></a>Ověření aktualizace softwaru
+## <a name="validating-software-updates"></a>Ověřování aktualizací softwaru
 
-1. Vytvořte nový **ověřování balíčku** pracovního postupu.
-1. Pro požadované testy výše, postupujte podle pokynů v [testy spustit ověření balíčku](azure-stack-vaas-validate-oem-package.md#run-package-validation-tests). Naleznete v části níže další pokyny **měsíční ověření aktualizace Azure Stack** testování.
+1. Vytvoří nový pracovní postup **ověření balíčku** .
+1. V případě požadovaných testů postupujte podle pokynů v tématu [spuštění testů pro ověření balíčku](azure-stack-vaas-validate-oem-package.md#run-package-validation-tests). Další informace o měsíčním testu **ověřování aktualizace Azure Stack** najdete v části níže.
 
-### <a name="apply-the-monthly-update"></a>Měsíční aktualizace
+### <a name="apply-the-monthly-update"></a>Použít měsíční aktualizaci
 
-1. Vyberte agenta ke spuštění testů proti.
-1. Plán **měsíční aktualizace ověřovací služby Azure Stack**.
-1. Zadejte umístění pro balíček rozšíření pro výrobce OEM aktuálně nasazené na toto razítko a umístění pro rozšíření balíčku výrobce OEM, která se použije při aktualizaci. Ke konfiguraci adres URL pro tyto balíčky, naleznete v tématu [Správa balíčků pro ověření](azure-stack-vaas-validate-oem-package.md#managing-packages-for-validation).
-1. Postupujte podle kroků v uživatelském rozhraní z vybraných agenta.
+1. Vyberte agenta, u kterého mají být provedeny testy.
+1. Naplánovat **měsíční Azure Stack ověřování aktualizace**.
+1. Zadejte umístění balíčku rozšíření OEM aktuálně nasazeného na razítku a umístění balíčku rozšíření OEM, který bude použit během aktualizace. Pokud chcete nakonfigurovat adresy URL pro tyto balíčky, přečtěte si téma [Správa balíčků pro ověřování](azure-stack-vaas-validate-oem-package.md#managing-packages-for-validation).
+1. Postupujte podle kroků v uživatelském rozhraní vybraného agenta.
 
-Pokud máte dotazy nebo připomínky, obraťte se na [VaaS nápovědy](mailto:vaashelp@microsoft.com).
+Pokud máte otázky nebo obavy, obraťte se na [VaaS Help](mailto:vaashelp@microsoft.com).
 
 ## <a name="next-steps"></a>Další postup
 
-- [Monitorování a správa testů na portálu VaaS](azure-stack-vaas-monitor-test.md)
+- [Monitorování a Správa testů na portálu VaaS](azure-stack-vaas-monitor-test.md)

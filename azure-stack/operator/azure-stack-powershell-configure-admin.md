@@ -11,33 +11,33 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 03/15/2019
+ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: fa4013c00cd9d496b6c8bb479d9fe6cbfe113575
-ms.sourcegitcommit: 3f52cf06fb5b3208057cfdc07616cd76f11cdb38
+ms.openlocfilehash: f0195ecf033454763b757f6b8edb03ee4e8e9e49
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67316205"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68418196"
 ---
 # <a name="connect-to-azure-stack-with-powershell-as-an-operator"></a>Připojení ke službě Azure Stack pomocí prostředí PowerShell jako operátor
 
-*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
 
 Můžete nakonfigurovat služby Azure Stack pomocí Powershellu ke správě prostředků, jako je například vytváření nabídek, plánů, kvóty a výstrahy. Toto téma vám pomůže nakonfigurovat prostředí operátora.
 
 ## <a name="prerequisites"></a>Požadavky
 
-Spuštění následujících požadovaných součástí, buď z [vývojová sada](../asdk/asdk-connect.md#connect-with-rdp) nebo z Windows na základě externí klienta Pokud jste [připojené k ASDK prostřednictvím sítě VPN](../asdk/asdk-connect.md#connect-with-vpn). 
+Pokud jste [připojení k ASDK prostřednictvím sítě VPN](../asdk/asdk-connect.md#connect-with-vpn), spusťte následující požadavky buď z [vývojové sady](../asdk/asdk-connect.md#connect-with-rdp) , nebo z externího klienta se systémem Windows. 
 
  - Nainstalujte [moduly Azure Powershellu kompatibilní s Azure Stack](azure-stack-powershell-install.md).  
  - Ve službě [Azure Stack development Kit by měl být blobEndpoint](azure-stack-powershell-download.md) .  
 
 ## <a name="connect-with-azure-ad"></a>Spojte se s Azure AD
 
-Konfigurace prostředí Azure Stack operátor pomocí Powershellu. Spusťte jeden z následujících skriptů: Nahraďte tenantName Azure Active Directory (Azure AD) a hodnoty koncového bodu Azure Resource Manageru s konfigurací prostředí. 
+Konfigurace prostředí Azure Stack operátor pomocí Powershellu. Spusťte jeden z následujících skriptů: Nahraďte Azure Active Directory (Azure AD) tenant a Azure Resource Manager hodnoty koncového bodu vlastní konfigurací prostředí. 
 
 ```powershell  
     # Register an Azure Resource Manager environment that targets your Azure Stack instance. Get your Azure Resource Manager endpoint value from your service provider.
@@ -71,7 +71,7 @@ Připojte se k prostředí Azure Stack operátorem pomocí Powershellu s Azure A
   ```
 
 > [!Note]  
-> Služba AD FS podporuje pouze interaktivní ověřování pomocí identity uživatelů. Pokud je vyžadován objekt přihlašovacích údajů je nutné použít hlavní název služby (SPN). Další informace o nastavení instančního objektu pomocí služby Azure Stack a AD FS, jako je vaše služba identity management, najdete v části [Správa instančního objektu služby AD FS](azure-stack-create-service-principals.md#manage-an-ad-fs-service-principal).
+> AD FS podporuje pouze interaktivní ověřování s identitami uživatele. Pokud je vyžadován objekt přihlašovacích údajů, je nutné použít instanční objekt (SPN). Další informace o nastavení instančního objektu pomocí Azure Stack a AD FS jako služby správy identit najdete v tématu [Správa služby AD FS instančního objektu](azure-stack-create-service-principals.md#manage-an-ad-fs-service-principal).
 
 ## <a name="test-the-connectivity"></a>Otestovat připojení
 
@@ -85,4 +85,4 @@ New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
 
 - [Vývoj šablon pro Azure Stack](../user/azure-stack-develop-templates.md)
 - [Nasazení šablon pomocí PowerShellu](../user/azure-stack-deploy-template-powershell.md)
-  - [Odkaz na modul služby Azure Stack](https://docs.microsoft.com/powershell/azure/azure-stack/overview)  
+  - [Odkaz na modul Azure Stack](https://docs.microsoft.com/powershell/azure/azure-stack/overview)  

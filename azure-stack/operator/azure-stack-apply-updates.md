@@ -15,12 +15,12 @@ ms.date: 04/25/2019
 ms.author: mabrigg
 ms.reviewer: justini
 ms.lastreviewed: 02/11/2019
-ms.openlocfilehash: e5dd8078a17b6a10ac75eeee8d8a6eef77108606
-ms.sourcegitcommit: 159da88a52701679571bbedde1c36b72bbfe32dd
+ms.openlocfilehash: 04494c3f394fb5a3b836c8fcf67cd02fb2900910
+ms.sourcegitcommit: 4f3e161e7632c8a6e3d41946b09f22b5bdb08d36
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68380496"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68413179"
 ---
 # <a name="apply-updates-in-azure-stack"></a>Použít aktualizace v Azure Stack
 
@@ -113,12 +113,12 @@ Následující postup ukazuje, jak importovat a instalovat balíčky aktualizac�
 9. Až budete hotovi, můžete si prohlédnout oznámení (ikona zvonku v pravém horním rohu portálu). Oznámení by měla značit, že nahrání bylo dokončeno.
 10. Přejděte zpátky na dlaždici aktualizace na řídicím panelu. Dlaždice by měla označovat, že je k dispozici aktualizace. Kliknutím na dlaždici si můžete prohlédnout nově přidaný balíček aktualizace.
 11. Pokud chcete nainstalovat aktualizaci, vyberte balíček označený jako **připravený** a buď klikněte pravým tlačítkem na balíček a vyberte **aktualizovat hned**, nebo klikněte na akci **aktualizovat hned** v horní části.
-12. Po kliknutí na instalaci balíčku aktualizace můžete zobrazit stav v oblasti **aktualizace podrobností o spuštění** . Odtud můžete také kliknout na možnost **Stáhnout úplné protokoly** a stáhnout soubory protokolu. Protokoly z aktualizačních běhů jsou k dispozici po dobu 6 měsíců od ukončení pokusu. 
+12. Po kliknutí na instalaci balíčku aktualizace můžete zobrazit stav v oblasti **aktualizace podrobností o spuštění** . Tady můžete také kliknout na **Stáhnout souhrn** a stáhnout soubory protokolu. Protokoly z aktualizačních běhů jsou k dispozici po dobu 6 měsíců od ukončení pokusu. 
 13. Po dokončení aktualizace se na dlaždici aktualizace zobrazí aktualizovaná verze Azure Stack.
 
 Aktualizace můžete ručně odstranit z účtu úložiště poté, co byly nainstalovány v Azure Stack. Azure Stack pravidelně kontroluje starší balíčky aktualizací a odebírá je ze služby Storage. Odebrání starých balíčků může trvat Azure Stack dvou týdnů.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - [Správa aktualizací v přehledu služby Azure Stack](azure-stack-updates.md)
 - [Zásady údržby služby Azure Stack](azure-stack-servicing-policy.md)

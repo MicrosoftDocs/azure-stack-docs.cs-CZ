@@ -1,6 +1,6 @@
 ---
-title: Osvědčené postupy pro Azure Stack ověření | Dokumentace Microsoftu
-description: Tento článek popisuje osvědčené postupy při používání ověřování jako služba.
+title: Osvědčené postupy pro ověřování Azure Stack | Microsoft Docs
+description: Tento článek popisuje osvědčené postupy pro používání ověřování jako služby.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -10,48 +10,48 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 568817c6e25952f15a396e5748d314187345945b
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: a7e866187c81b488cc90f7ddaa443db4868ba4d9
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64298665"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68417735"
 ---
-# <a name="create-an-oem-package"></a>Vytvoření balíčku výrobce OEM
+# <a name="create-an-oem-package"></a>Vytvoření balíčku OEM
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Balíček rozšíření Azure Stack OEM je mechanismus, podle které OEM konkrétní obsah se přidá do infrastruktury Azure stacku pro použití v nasazení, jakož i provozní procesy, jako je aktualizace, rozšíření a nahrazení pole.
+Balíček rozšíření Azure Stack OEM je mechanismus, podle kterého se do infrastruktury Azure Stack přidá konkrétní obsah OEM, který se použije v nasazení, a také provozní procesy, jako je aktualizace, rozšíření a náhrada polí.
 
-## <a name="creating-the-package"></a>Vytvoření balíčku
+## <a name="creating-the-package"></a>Vytváření balíčku
 
-Po vytvoření a ověření, OEM balíček rozšíření je možné v VaaS.  Než budete pokračovat, ujistěte se, že jste dokončili postup [vytvoření balíčku pro výrobce OEM](https://microsoft.sharepoint.com/:w:/r/teams/cloudsolutions/Sacramento/_layouts/15/Doc.aspx?sourcedoc=%7BD7406069-7661-419C-B3B1-B6A727AB3972%7D&file=Azure%20Stack%20OEM%20Extension%20Package.docx&action=default&mobileredirect=true). Balíček se pak odešle společnosti Microsoft spolu s výsledky testu VaaS pro podepisování se v procesu ověřování balíčku. Následující kroky podrobně popisují, jak začlenit do souboru zip jeden, které využívají VaaS generované soubory.
+Po vytvoření a ověření se balíček rozšíření OEM dá použít v VaaS.  Než budete pokračovat, ujistěte se, že jste dokončili kroky pro [Vytvoření balíčku OEM](https://microsoft.sharepoint.com/:w:/r/teams/cloudsolutions/Sacramento/_layouts/15/Doc.aspx?sourcedoc=%7BD7406069-7661-419C-B3B1-B6A727AB3972%7D&file=Azure%20Stack%20OEM%20Extension%20Package.docx&action=default&mobileredirect=true). Balíček se pak odešle do Microsoftu společně s výsledky VaaS testů pro přihlášení k pracovnímu postupu ověření balíčku. Následující kroky podrobně popisují, jak seskupit generované soubory do jednoho souboru zip, který může VaaS spotřebovat.
 
-1. Identifikujte následující obsah pro balíček:
-    - Soubor zip, který obsahuje obsah balíčku
-    - Soubor manifestu s názvem `oemMetadata.xml`, který by měl být stejný obsah jako soubor metadata.xml v kořenovém adresáři balíčku obsahu.
+1. Identifikujte následující obsah balíčku:
+    - Soubor ZIP obsahující obsah balíčku
+    - Soubor manifestu s názvem `oemMetadata.xml`, který by měl být identický v obsahu se souborem metadata. XML v kořenu obsahu balíčku.
 
-2. Vyberte soubory obsahu a vytvořit soubor zip z obsahu:
+2. Vyberte soubory obsahu a vytvořte soubor zip z tohoto obsahu:
 
-    ![Obsah souboru ZIP](media/vaas-create-oem-package-1.png) ![Komprimovat obsah položky](media/vaas-create-oem-package-2.png)
+    ![](media/vaas-create-oem-package-1.png) Obsah![souboru ZIP – komprimace obsahu položky](media/vaas-create-oem-package-2.png)
 
-3. Výsledný soubor přejmenujte, tak, aby byl dostatečně výstižný, můžete pro jeho rozpoznání.
+3. Přejmenujte výsledný soubor tak, aby byl dostatečně popisný, abyste ho mohli identifikovat.
 
 ## <a name="verifying-the-contents"></a>Ověření obsahu
 
-K ověření struktury souboru zip, zkontrolujte ho a zkontrolujte, že neexistují žádné podsložky. Nejvyšší úrovně má ZIP obsah. Struktura platný balíček je uveden níže.
+Chcete-li ověřit strukturu souboru zip, zkontrolujte jej a zkontrolujte, zda nejsou k dispozici žádné podsložky. TLD má obsah pro zip. Níže je uvedena platná struktura balíčku.
 > [!IMPORTANT]
-> Zipování nadřazené složky namísto obsah způsobí selhání podepisování sady.
+> Zipování nadřazené složky namísto obsahu způsobí selhání podepisování balíčku.
 
-![Správně komprimovaný balíček obsahu](media/vaas-create-oem-package-3.png)
+![Správný obsah balíčku zip](media/vaas-create-oem-package-3.png)
 
-Soubor zip teď můžete být odeslán do VaaS a podepsán společností Microsoft v pracovním postupu ověřování balíčku.
+Soubor zip se teď dá nahrát na VaaS a podepsaný Microsoftem v pracovním postupu ověření balíčku.
 
 ## <a name="next-steps"></a>Další postup
 
-- [Ověření balíčku výrobce OEM](azure-stack-vaas-validate-oem-package.md)
+- [Ověření balíčku OEM](azure-stack-vaas-validate-oem-package.md)

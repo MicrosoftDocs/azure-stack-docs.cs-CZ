@@ -1,6 +1,6 @@
 ---
-title: Ověření Azure Stack jako klíčové koncepty služby | Dokumentace Microsoftu
-description: Popisuje klíčové pojmy v Azure stacku ověření jako služba.
+title: Koncepce ověřování Azure Stack jako klíč služby | Microsoft Docs
+description: Popisuje klíčové koncepty Azure Stack ověřování jako služby.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -10,78 +10,78 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3830dc15cebe24a8fb910b641b7b986437aeec52
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 1ffb66bb1abe9f2ffb64162f834c682df2aaa609
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64298500"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68418401"
 ---
-# <a name="validation-as-a-service-key-concepts"></a>Ověření jako klíčové koncepty služby
+# <a name="validation-as-a-service-key-concepts"></a>Koncepce ověřování jako klíč služby
 
-Tento článek popisuje klíčové pojmy v ověřování jako služba (VaaS).
+Tento článek popisuje klíčové koncepty v rámci ověřování jako služby (VaaS).
 
 ## <a name="solutions"></a>Řešení
 
-Řešení VaaS představuje řešení Azure Stack konkrétní hardware kusovník (BoM). Řešení VaaS funguje jako kontejner pro pracovní postupy, které spustily řešení Azure Stack.
+Řešení VaaS představuje řešení Azure Stack s konkrétním hardwarovým materiálem (BoM). Řešení VaaS slouží jako kontejner pro pracovní postupy, které běží na řešení Azure Stack.
 
 ### <a name="create-a-solution-in-the-vaas-portal"></a>Vytvoření řešení na portálu VaaS
 
-1. Přihlaste se k [VaaS portál](https://azurestackvalidation.com).
+1. Přihlaste se k [portálu VaaS](https://azurestackvalidation.com).
 2. Na řídicím panelu řešení vyberte **nové řešení**.
-3. Zadejte název řešení. Návrhy pojmenování, naleznete v tématu [zásady vytváření názvů pro řešení VaaS](azure-stack-vaas-best-practice.md#naming-convention-for-vaas-solutions).
-4. Vyberte **Uložit** k vytvoření řešení.
+3. Zadejte název řešení. Návrhy pojmenování najdete v tématu konvence pojmenování [pro řešení VaaS](azure-stack-vaas-best-practice.md#naming-convention-for-vaas-solutions).
+4. Vyberte **Save (Uložit** ) a vytvořte řešení.
 
-## <a name="workflows"></a>Pracovní postupy
+## <a name="workflows"></a>Workflows
 
-Pracovní postup VaaS pracuje v rámci kontextu VaaS řešení. Představuje sadu testovacích sad, které vykonávají funkce pro nasazení služby Azure Stack. Pracovní postup musí být vytvořené pro všechny aktualizace softwaru nebo nasazení řešení Azure Stack.
+Pracovní postup VaaS funguje v kontextu řešení VaaS. Představuje sadu testovacích sad, které vykonávají funkce nasazení Azure Stack. Pracovní postup by měl být vytvořen pro každé nasazení nebo aktualizaci softwaru Azure Stack řešení.
 
-Pracovní postupy jsou rozděleny podle typu scénář testování. Při testování neoficiální **průchodu testů** pracovního postupu vám umožní vybrat testy ze všech dostupných VaaS dokumentaci. Při testování oficiální **ověření** pracovních postupů cílit na konkrétní scénáře testování vybraných microsoftem.
+Pracovní postupy jsou rozdělené do kategorií podle typu testovacího scénáře. V neoficiálním testování vám pracovní postup **test Pass** umožňuje vybrat testy ze všech dostupných VaaSch materiálů. V oficiálních testech pracovní postupy **ověření** cílí na konkrétní testovací scénáře, které jsou vybrány společností Microsoft.
 
-![Dlaždice VaaS pracovního postupu](media/tile_all-workflows.png)
+![Dlaždice pracovního postupu VaaS](media/tile_all-workflows.png)
 
 > [!NOTE]
-> **Ověřování balíčku** pracovního postupu v současné době podporuje dva scénáře: [Ověření OEM balíčky](azure-stack-vaas-validate-oem-package.md) a [ověření aktualizace softwaru od Microsoftu](azure-stack-vaas-validate-microsoft-updates.md).
+> Pracovní postup **ověření balíčku** v současné době podporuje dva scénáře: [Ověří balíčky OEM](azure-stack-vaas-validate-oem-package.md) a [ověří aktualizace softwaru od Microsoftu](azure-stack-vaas-validate-microsoft-updates.md).
 
-Další informace o typech pracovních postupů, najdete v části [co je ověření jako služba pro službu Azure Stack?](azure-stack-vaas-overview.md).
+Další informace o typech pracovních postupů najdete v tématu [co je ověřování jako služba pro Azure Stack?](azure-stack-vaas-overview.md).
 
 ### <a name="getting-started-with-vaas-workflows"></a>Začínáme s pracovními postupy VaaS
 
-1. Na řídicím panelu řešení vytvořte nové řešení nebo vyberte existující. Tím se aktualizuje a aktivuje pracovní postup dlaždice.
-2. K vytvoření nového pracovního postupu, vyberte na **Start** na kteroukoli dlaždici. Informace specifické pro každý pracovní postup najdete v následujících článcích:
-    - Průchod testu: [Rychlé zprovoznění: Použít ověření jako portál služby k naplánování prvního testu](azure-stack-vaas-schedule-test-pass.md)
-    - Ověření řešení: [Ověření nového řešení Azure Stack](azure-stack-vaas-validate-solution-new.md)
-    - Ověření balíčku (měsíčních aktualizacích): [Ověření aktualizace softwaru od Microsoftu](azure-stack-vaas-validate-microsoft-updates.md)
-    - Ověření balíčku (podepsání balíčku): [Ověření balíčky výrobce OEM](azure-stack-vaas-validate-oem-package.md)
+1. Na řídicím panelu řešení vytvořte nové řešení nebo vyberte některý z existujících. Tím se aktualizuje a aktivuje dlaždice pracovního postupu.
+2. Chcete-li vytvořit nový pracovní postup, vyberte možnost **začít** na libovolné dlaždici. Informace specifické pro jednotlivé pracovní postupy najdete v následujících článcích:
+    - Průchod testu: [Rychlé zprovoznění: Použití ověřování jako portálu služby k naplánování prvního testu](azure-stack-vaas-schedule-test-pass.md)
+    - Ověřování řešení: [Ověření nového řešení Azure Stack](azure-stack-vaas-validate-solution-new.md)
+    - Ověření balíčku (měsíční aktualizace): [Ověřit aktualizace softwaru od Microsoftu](azure-stack-vaas-validate-microsoft-updates.md)
+    - Ověření balíčku (podpis balíčku): [Ověřit balíčky OEM](azure-stack-vaas-validate-oem-package.md)
 
-3. Ke správě nebo monitorování stávajícím pracovním postupu, vyberte na **spravovat** na dlaždici pracovního postupu. Vyberte název pracovního postupu a jeho používání **upravit** tlačítko Zobrazit vlastnosti nebo změňte společné parametry testu.
+3. Pokud chcete spravovat nebo sledovat existující pracovní postup, vyberte na dlaždici pracovní postup možnost **Spravovat** . Vyberte název pracovního postupu a použijte tlačítko **Upravit** k zobrazení vlastností nebo změně společných parametrů testu.
 
-Další informace o parametry a vlastnosti pracovního postupu najdete v tématu [společných parametrů pracovních postupů pro Azure Stack ověření jako služba](azure-stack-vaas-parameters.md).
+Další informace o vlastnostech a parametrech pracovního postupu najdete v tématu [společné parametry pracovních postupů pro Azure Stack ověřování jako služby](azure-stack-vaas-parameters.md).
 
 ## <a name="tests"></a>Testy
 
-Test v VaaS se skládá z sadu operací, které spustily řešení s Azure Stack. Testy mají různé účely zamýšlený identifikovat podle kategorie, jako je funkční a spolehlivosti a cílit na jeden nebo více služeb Azure stacku. Každý test definuje vlastní sadu parametrů, z nichž některé jsou určena pomocí společných parametrů pracovního postupu obsahující.
+Test v VaaS se skládá ze sady operací, které běží na řešení Azure Stack. Testy mají různé zamýšlené účely identifikované kategorií, jako je například funkce nebo spolehlivost, a cílí na jednu nebo více služeb Azure Stack. Každý test definuje svou vlastní sadu parametrů, z nichž některé jsou určeny společnými parametry obsahujícího pracovního postupu.
 
-Další informace o správě a monitorování testů, naleznete v tématu [monitorování a správa testů na portálu VaaS](azure-stack-vaas-monitor-test.md).
+Další informace o správě a monitorování testů najdete v tématu [monitorování a Správa testů na portálu VaaS](azure-stack-vaas-monitor-test.md).
 
-Další informace o parametry testu, naleznete v tématu [společných parametrů pracovních postupů pro Azure Stack ověření jako služba](azure-stack-vaas-parameters.md).
+Další informace o parametrech testu najdete v tématu [společné parametry pracovních postupů pro Azure Stack ověřování jako služby](azure-stack-vaas-parameters.md).
 
 ## <a name="agents"></a>Agenti
 
-VaaS agent jednotky provádění testů. Dva druhy agentů VaaS testy:
+Spuštění testu VaaS agentem. Testy VaaS spouštějí dva typy agentů:
 
-- **Cloudového agenta**. To je k dispozici v VaaS výchozí agent. Není vyžadováno žádné nastavení, ale to vyžaduje ve vázané na připojení pro vaše prostředí a koncové body služby Azure Stack musí jít přeložit z Internetu. Některé testy nejsou kompatibilní s agentem cloudu.
-- A **místní agent**. To umožňuje spustit ověření ve scénářích, kde není v vázané na připojení pro vaše prostředí vhodná. Některé testy vyžadují spuštění prostřednictvím místního agenta.
+- **Cloudový agent**. Toto je výchozí agent dostupný v VaaS. Není potřeba žádné nastavení, ale vyžaduje se připojení k vašemu prostředí a Azure Stack koncové body musí být přeložitelný z Internetu. Některé testy nejsou kompatibilní s cloudovým agentem.
+- **Místní agent**. To vám umožní spustit ověřování ve scénářích, kdy připojení k vašemu prostředí není proveditelné. Některé testy vyžadují provádění prostřednictvím místního agenta.
 
-Místní agenti nejsou vázané na konkrétního řešení Azure Stack nebo VaaS. Jako osvědčený postup by měl spustit mimo prostředí Azure Stack.
+Místní agenti nejsou vázáni na žádná konkrétní Azure Stack ani VaaS řešení. V souladu s osvědčenými postupy by měly být spuštěny mimo Azure Stack prostředí.
 
-Pokyny k přidání místního agenta najdete v tématu [nasazení místní agent](azure-stack-vaas-local-agent.md).
+Pokyny k přidání místního agenta najdete v tématu [nasazení místního agenta](azure-stack-vaas-local-agent.md).
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
-- [Osvědčené postupy pro ověření jako služba](azure-stack-vaas-best-practice.md)
+- [Osvědčené postupy pro ověřování jako službu](azure-stack-vaas-best-practice.md)

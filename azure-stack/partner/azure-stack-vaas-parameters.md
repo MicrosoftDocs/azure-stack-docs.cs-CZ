@@ -1,6 +1,6 @@
 ---
-title: Společné parametry pracovních postupů v Azure stacku ověření jako služba | Dokumentace Microsoftu
-description: Společné parametry pracovních postupů pro Azure Stack ověření jako služba
+title: Společné parametry pracovního postupu v Azure Stack ověřování jako služba | Microsoft Docs
+description: Společné parametry pracovního postupu pro ověřování Azure Stack jako služby
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -10,38 +10,38 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0979588e358d1e163a29ab46bdbe99c27fc37649
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 7e5467945db4987bdd86b7265117c486fb6f7e1b
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64299831"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68418344"
 ---
-# <a name="workflow-common-parameters-for-azure-stack-validation-as-a-service"></a>Společné parametry pracovních postupů pro Azure Stack ověření jako služba
+# <a name="workflow-common-parameters-for-azure-stack-validation-as-a-service"></a>Společné parametry pracovního postupu pro ověřování Azure Stack jako služby
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Společné parametry zahrnují hodnoty jako proměnné prostředí a uživatelské přihlašovací údaje vyžadované všechny testy v rámci ověření jako služba (VaaS). Tyto hodnoty jsou definovány na úrovni pracovního postupu při vytvoření nebo změna pracovního postupu. Při plánování testů, tyto hodnoty jsou předány jako parametry pro každý test v rámci pracovního postupu.
+Mezi běžné parametry patří hodnoty, jako jsou proměnné prostředí a přihlašovací údaje uživatele vyžadované všemi testy v rámci ověřování jako služby (VaaS). Tyto hodnoty jsou definovány na úrovni pracovního postupu při vytváření nebo změně pracovního postupu. Při plánování testů jsou tyto hodnoty předány jako parametry do každého testu v rámci pracovního postupu.
 
 > [!NOTE]
-> Každý test definuje vlastní sadu parametrů. V naplánovaný čas test může vyžadovat zadejte hodnotu bez ohledu na jejich společné parametry, nebo vám umožňuje přepsat hodnotu společného parametru.
+> Každý test definuje svou vlastní sadu parametrů. V době plánování může test vyžadovat, abyste zadali hodnotu nezávisle na běžných parametrech, nebo vám může být umožněno přepsat společnou hodnotu parametru.
 
-## <a name="environment-parameters"></a>Parametry pro prostředí.
+## <a name="environment-parameters"></a>Parametry prostředí
 
-Parametry prostředí popisují prostředí Azure Stack v rámci testu. Tyto hodnoty musí poskytnout generování a nahrávání Azure Stack razítko souboru pro určitou instanci, kterou testujete.
+Parametry prostředí popisují Azure Stack prostředí pod testem. Tyto hodnoty musí být k dispozici generováním a nahráním souboru s informacemi o Azure Stack razítka pro konkrétní instanci, kterou testujete.
 
 > [!NOTE]
-> V pracovních postupech oficiální ověření není možné měnit parametry prostředí po vytvoření pracovního postupu.
+> V oficiálních ověřovacích pracovních postupech nelze parametry prostředí upravovat po vytvoření pracovního postupu.
 
-### <a name="generate-the-stamp-information-file"></a>Generovat soubor s informacemi o razítko
+### <a name="generate-the-stamp-information-file"></a>Vygenerovat soubor s informacemi o razítku
 
-1. Přihlaste se DVM nebo jakýkoli počítač, který má přístup k prostředí Azure Stack.
-2. V okně PowerShell se zvýšenými oprávněními spusťte následující příkazy:
+1. Přihlaste se k DVM nebo jakémukoli počítači, který má přístup k prostředí Azure Stack.
+2. V okně PowerShellu se zvýšenými oprávněními spusťte následující příkazy:
 
     ```powershell  
     $CloudAdminUser = "<cloud admin username>"
@@ -51,44 +51,44 @@ Parametry prostředí popisují prostředí Azure Stack v rámci testu. Tyto hod
     ConvertTo-Json $params > stampinfoproperties.json
     ```
 
-### <a name="locate-values-in-the-ece-configuration-file"></a>Najít hodnoty v konfiguračním souboru předpisu
+### <a name="locate-values-in-the-ece-configuration-file"></a>Vyhledat hodnoty v konfiguračním souboru EHK
 
-Hodnoty parametrů prostředí lze také ručně umístit do **OSN konfigurační soubor** umístění `C:\EceStore\403314e1-d945-9558-fad2-42ba21985248\80e0921f-56b5-17d3-29f5-cd41bf862787` na DVM.
+Hodnoty parametrů prostředí se taky dají ručně umístit do **konfiguračního souboru EHK** , který najdete `C:\EceStore\403314e1-d945-9558-fad2-42ba21985248\80e0921f-56b5-17d3-29f5-cd41bf862787` na DVM.
 
 ## <a name="test-parameters"></a>Parametry testu
 
-Společné parametry testu obsahovat citlivé informace, které nelze ukládat v konfiguračních souborech. Toto musí být prováděno manuálně.
+Mezi běžné parametry testu patří citlivé informace, které nelze uložit v konfiguračních souborech. Ty je nutné zadat ručně.
 
 Parametr    | Popis
 -------------|-----------------
-Uživatel s oprávněním správce tenanta                            | Azure Active Directory správce klienta, které bylo zřízené služby správce v adresáři AAD. Tento uživatel provede akce úrovni klienta, jako je nasazení šablony nastavit prostředky (virtuální počítače, účty úložiště atd.) a provádění úloh. Podrobnosti o zřizování účtu tenanta, naleznete v tématu [přidat nového tenanta služby Azure Stack](../operator/azure-stack-add-new-user-aad.md).
-Uživatel s oprávněním správce služby             | Správce Azure Active Directory Directory tenanta AAD zadat během nasazování služby Azure Stack. Vyhledejte `AADTenant` v konfiguraci OSN soubor a vyberte hodnotu v `UniqueName` elementu.
-Uživatel s oprávněním správce cloudu               | Účet správce domény Azure Stack (například `contoso\cloudadmin`). Vyhledejte `User Role="CloudAdmin"` v konfiguraci OSN soubor a vyberte hodnotu v `UserName` elementu.
-Diagnostika připojovací řetězec          | Adresa URL SAS pro účet úložiště Azure, na které diagnostické protokoly se zkopírují během byly spuštění testu. Generuje se adresa URL SAS, v tématu [generovat připojovací řetězec diagnostiky](#generate-the-diagnostics-connection-string). |
+Správce klienta uživatel                            | Azure Active Directory Správce klienta zřízené správcem služby v adresáři AAD. Tento uživatel provádí akce na úrovni tenanta, jako je nasazení šablon, k nastavení prostředků (virtuálních počítačů, účtů úložiště atd.) a provádění úloh. Podrobnosti o zřízení účtu tenanta najdete v tématu [Přidání nového tenanta Azure Stack](../operator/azure-stack-add-new-user-aad.md).
+Uživatel správce služeb             | Azure Active Directory správce tenanta adresáře AAD zadaného během nasazování Azure Stack. V konfiguračním souboru EHK vyhledejte a vyberte hodnotu `UniqueName` v elementu. `AADTenant`
+Uživatel s oprávněním správce cloudu               | Azure Stack účet správce domény (například `contoso\cloudadmin`). V konfiguračním souboru EHK vyhledejte a vyberte hodnotu `UserName` v elementu. `User Role="CloudAdmin"`
+Připojovací řetězec diagnostiky          | Adresa URL SAS na účet Azure Storage, do kterého budou při spuštění testu kopírovány diagnostické protokoly. Pokyny k vygenerování adresy URL SAS najdete v tématu [generování připojovacího řetězce pro diagnostiku](#generate-the-diagnostics-connection-string). |
 
 > [!IMPORTANT]
-> **Diagnostiky připojovací řetězec** musí být platná, než budete pokračovat.
+> Před pokračováním musí být **připojovací řetězec diagnostiky** platný.
 
-### <a name="generate-the-diagnostics-connection-string"></a>Generování diagnostiky připojovací řetězec
+### <a name="generate-the-diagnostics-connection-string"></a>Generovat připojovací řetězec diagnostiky
 
-Diagnostika připojovací řetězec je vyžadováno pro ukládání diagnostických protokolů během provádění testů. Použijte účet úložiště Azure, který se vytvoří během instalace (viz [nastavení ověření jako prostředky služby](azure-stack-vaas-set-up-resources.md)) a vytvoří adresu URL sdíleného přístupového podpisu (SAS) VaaS přístup jak odesílat protokoly do vašeho účtu úložiště.
+Připojovací řetězec diagnostiky je vyžadován pro ukládání diagnostických protokolů během provádění testu. Použijte účet Azure Storage vytvořený během instalace (viz [nastavení ověřování jako prostředků služby](azure-stack-vaas-set-up-resources.md)), abyste vytvořili adresu URL sdíleného přístupového podpisu (SAS), která VaaS přístup k odesílání protokolů do svého účtu úložiště.
 
 1. [!INCLUDE [azure-stack-vaas-sas-step_navigate](includes/azure-stack-vaas-sas-step_navigate.md)]
 
-1. Vyberte **Blob** z **možnosti povolené služby**. Zrušit všechny zbývající možnosti.
+1. Z **možností povolených služeb**vyberte **objekt BLOB** . Zrušte výběr všech zbývajících možností.
 
-1. Vyberte **služby**, **kontejneru**, a **objekt** z **povolené typy prostředků**.
+1. Vyberte **službu**, **kontejner**a **objekt** z **povolených typů prostředků**.
 
-1. Vyberte **čtení**, **zápisu**, **seznamu**, **přidat**, **vytvořit** z **povoleno oprávnění**. Zrušit všechny zbývající možnosti.
+1. Vyberte **číst**, **zapsat**, **vypsat**, **Přidat**a **vytvořit** z **povolených oprávnění**. Zrušte výběr všech zbývajících možností.
 
-1. Nastavte **počáteční čas** na aktuální čas a **čas ukončení** do tří měsíců od aktuálního času.
+1. Nastaví **počáteční čas** na aktuální čas a **koncový čas** na tři měsíce od aktuálního času.
 
 1. [!INCLUDE [azure-stack-vaas-sas-step_generate](includes/azure-stack-vaas-sas-step_generate.md)]
 
 > [!NOTE]  
-> Adresa URL SAS vyprší v čase ukončení zadat při generování adresy URL.  
-Při plánování testů, ujistěte se, že adresa URL je platná po dobu nejméně 30 dnů a doby potřebné pro spuštění testu (doporučuje tří měsíců).
+> Adresa URL SAS vyprší v době ukončení zadanou při vygenerování adresy URL.  
+Při plánování testů zajistěte, aby byla adresa URL platná nejméně 30 dní, a čas potřebný k provedení testu (navrhované tři měsíce).
 
 ## <a name="next-steps"></a>Další postup
 
-- Další informace o [ověření jako klíčové koncepty služby](azure-stack-vaas-key-concepts.md)
+- Přečtěte si o [principech ověření jako Key služby](azure-stack-vaas-key-concepts.md)

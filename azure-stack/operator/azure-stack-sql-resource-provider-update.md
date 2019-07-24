@@ -1,6 +1,6 @@
 ---
-title: Aktualizuje se poskytovatel prostředků Azure Stack SQL | Dokumentace Microsoftu
-description: Zjistěte, jak můžete aktualizovat poskytovatele prostředků Azure Stack SQL.
+title: Aktualizace poskytovatele prostředků Azure Stack SQL | Microsoft Docs
+description: Přečtěte si, jak můžete aktualizovat poskytovatele prostředků Azure Stack SQL.
 services: azure-stack
 documentationCenter: ''
 author: mattbriggs
@@ -11,66 +11,66 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2019
+ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: 558853309faecbf2955a08d7a8f629d83a38dbd1
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 6554a18ee881f053eebc2fc3df8d846cd8d9d12e
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617826"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68417972"
 ---
-# <a name="update-the-sql-resource-provider"></a>Aktualizace poskytovatele prostředků SQL
+# <a name="update-the-sql-resource-provider"></a>Aktualizovat poskytovatele prostředků SQL
 
-*Platí pro: Integrované systémy Azure Stack.*
+*Platí pro: Azure Stack integrovaných systémů.*
 
-Nového poskytovatele prostředků SQL může být uvolněna při aktualizaci služby Azure Stack pro nové sestavení. I když stávajícího poskytovatele prostředků i nadále fungovat, doporučujeme aktualizuje na nejnovější verzi co nejdřív. 
+Když se Azure Stack aktualizuje na nové sestavení, může být vydaný nový poskytovatel prostředků SQL. I když stávající poskytovatel prostředků i nadále funguje, doporučujeme aktualizovat na nejnovější sestavení co nejdříve. 
 
-Od verze verze 1.1.33.0 poskytovatele prostředků SQL, aktualizace jsou kumulativní a nemusí být nainstalován v pořadí, ve kterém byly vydány; tak dlouho, dokud jste od verze 1.1.24.0 nebo novější. Například pokud používáte verzi 1.1.24.0 poskytovatele prostředků SQL, pak můžete upgradovat na verzi 1.1.33.0 nebo později bez nutnosti nejprve nainstalujte verzi 1.1.30.0. Pokud chcete zkontrolovat verze zprostředkovatele dostupných prostředků a verze se podporují ve službě Azure Stack, najdete v seznamu verzí v [nasazení požadavky na poskytovatele prostředků](./azure-stack-sql-resource-provider-deploy.md#prerequisites).
+Od verze 1.1.33.0 verze poskytovatele prostředků SQL jsou aktualizace kumulativní a není nutné je instalovat v pořadí, v jakém byly vydány. Pokud začínáte z verze 1.1.24.0 nebo novější. Pokud například používáte verzi 1.1.24.0 poskytovatele prostředků SQL, můžete upgradovat na verzi 1.1.33.0 nebo novější, aniž byste museli nejdřív nainstalovat verzi 1.1.30.0. Pokud chcete zkontrolovat dostupné verze poskytovatele prostředků a verzi Azure Stack podporovaná, přečtěte si téma seznam verzí v tématu [nasazení požadavků poskytovatele prostředků](./azure-stack-sql-resource-provider-deploy.md#prerequisites).
 
-Chcete-li aktualizovat poskytovatele prostředků, použijte *UpdateSQLProvider.ps1* skriptu. Tento skript je součástí ke stažení nového poskytovatele prostředků SQL. Aktualizace proces je podobný procesu pro [nasazení poskytovatele prostředků](./azure-stack-sql-resource-provider-deploy.md). Skript aktualizace používá stejné argumenty jako skript DeploySqlProvider.ps1 a budete muset zadat informace o certifikátu.
+Chcete-li aktualizovat poskytovatele prostředků, použijte skript *UpdateSQLProvider. ps1* . Tento skript je součástí stažení nového poskytovatele prostředků SQL. Proces aktualizace je podobný procesu použitému k [nasazení poskytovatele prostředků](./azure-stack-sql-resource-provider-deploy.md). Skript aktualizace používá stejné argumenty jako skript DeploySqlProvider. ps1 a budete muset zadat informace o certifikátu.
 
  > [!IMPORTANT]
- > Před upgradem poskytovatele prostředků, přečtěte si poznámky k verzi pro další informace o nové funkce, opravy a známých problémech, které můžou ovlivnit nasazení.
+ > Před upgradem poskytovatele prostředků si přečtěte poznámky k verzi, kde najdete informace o nových funkcích, opravách a známých problémech, které by mohly mít vliv na nasazení.
 
-## <a name="update-script-processes"></a>Aktualizace skriptu procesy
+## <a name="update-script-processes"></a>Aktualizovat procesy skriptu
 
-*UpdateSQLProvider.ps1* skript vytvoří nový virtuální počítač (VM) s nejnovějším kódem poskytovatele prostředků.
+Skript *UpdateSQLProvider. ps1* vytvoří nový virtuální počítač (VM) s nejnovějším kódem poskytovatele prostředků.
 
 > [!NOTE]
-> Doporučujeme stáhnout nejnovější jádru Windows serveru 2016 image z Marketplace správu. Pokud je potřeba nainstalovat aktualizace, můžete umístit **jeden** MSU balíček v cestě místní závislosti. Skript selže, pokud existuje více než jeden soubor MSU v tomto umístění.
+> Doporučujeme stáhnout si nejnovější image Windows serveru 2016 Core ze správy Marketplace. Pokud potřebujete nainstalovat aktualizaci, můžete do cesty místní závislosti umístit **jeden** balíček MSU. Pokud je v tomto umístění více než jeden soubor MSU, skript se nezdaří.
 
-Po *UpdateSQLProvider.ps1* skript vytvoří nový virtuální počítač, skript migruje od předchozího poskytovatele virtuálních počítačů následující nastavení:
+Po vytvoření nového virtuálního počítače pomocí skriptu *UpdateSQLProvider. ps1* migruje skript následující nastavení z původního virtuálního počítače poskytovatele:
 
 * informace o databázi
-* hostování informace o serveru
-* vyžaduje záznam DNS
+* informace o hostitelském serveru
+* požadovaný záznam DNS
 
 ## <a name="update-script-parameters"></a>Aktualizovat parametry skriptu
 
-Můžete zadat následující parametry z příkazového řádku při spuštění **UpdateSQLProvider.ps1** skript prostředí PowerShell. Pokud ne, nebo pokud libovolný parametr ověření nezdaří, budete vyzváni k poskytnutí požadovaných parametrů.
+Když spustíte skript prostředí PowerShell **UpdateSQLProvider. ps1** , můžete zadat následující parametry z příkazového řádku. Pokud ne, nebo pokud se nějaké ověření parametru nepodaří, budete vyzváni k zadání požadovaných parametrů.
 
-| Název parametru | Popis | Komentář nebo výchozí hodnotu |
+| Název parametru | Popis | Komentář nebo výchozí hodnota |
 | --- | --- | --- |
-| **CloudAdminCredential** | Přihlašovací údaje pro správce cloudu potřebné pro přístup k privilegovaným koncový bod. | _Požadováno_ |
-| **AzCredential** | Přihlašovací údaje pro účet správce služby Azure Stack. Použijte stejné přihlašovací údaje, které jste použili k nasazení Azure Stack. | _Požadováno_ |
-| **VMLocalCredential** | Přihlašovací údaje pro účet místního správce poskytovatele prostředků SQL virtuálního počítače. | _Požadováno_ |
-| **PrivilegedEndpoint** | IP adresa nebo název DNS privileged koncového bodu. |  _Požadováno_ |
-| **AzureEnvironment** | Prostředí Azure účet správce služby, které jste použili k nasazení Azure Stack. Vyžaduje se jenom pro nasazení služby Azure AD. Názvy prostředí podporované jsou **AzureCloud**, **AzureUSGovernment**, nebo pokud používáte Čína Azure AD, **AzureChinaCloud**. | AzureCloud |
-| **DependencyFilesLocalPath** | Také je nutné umístit váš soubor PFX certifikátu v tomto adresáři. | _Volitelné pro jeden uzel, ale povinné pro více uzly_ |
-| **DefaultSSLCertificatePassword** | Heslo pro certifikát PFX. | _Požadováno_ |
-| **MaxRetryCount** | Počet pokusů, které chcete opakovat každé operace, pokud dojde k selhání.| 2 |
-| **RetryDuration** |Časový interval mezi opakovanými pokusy, během několika sekund. | 120 |
-| **Odinstalace** | Odebere poskytovatele prostředků a všechny související prostředky. | Ne |
-| **Režim DebugMode** | Zabraňuje automatickému čištění při selhání. | Ne |
+| **CloudAdminCredential** | Přihlašovací údaje pro správce cloudu, které jsou nezbytné pro přístup k privilegovanému koncovému bodu. | _Požadováno_ |
+| **AzCredential** | Přihlašovací údaje pro účet správce služby Azure Stack Použijte stejné přihlašovací údaje, které jste použili pro nasazení Azure Stack. | _Požadováno_ |
+| **VMLocalCredential** | Pověření pro účet místního správce virtuálního počítače poskytovatele prostředků SQL. | _Požadováno_ |
+| **PrivilegedEndpoint** | IP adresa nebo název DNS privilegovaného koncového bodu. |  _Požadováno_ |
+| **AzureEnvironment** | Prostředí Azure účtu správce služby, které jste použili pro nasazení Azure Stack. Vyžaduje se jenom pro nasazení Azure AD. Podporované názvy prostředí jsou **AzureCloud**, **AzureUSGovernment**nebo, pokud používáte Čína Azure AD **AzureChinaCloud**. | AzureCloud |
+| **DependencyFilesLocalPath** | Do tohoto adresáře musíte taky vložit soubor Certificate. pfx. | _Volitelné pro jeden uzel, ale je povinný pro více uzlů_ |
+| **DefaultSSLCertificatePassword** | Heslo pro certifikát. pfx. | _Požadováno_ |
+| **MaxRetryCount** | Počet pokusů o opakování všech operací, pokud dojde k selhání.| 2 |
+| **RetryDuration** |Interval časového limitu mezi opakovanými pokusy (v sekundách). | 120 |
+| **Odinstalace** | Odebere poskytovatele prostředků a všechny přidružené prostředky. | Ne |
+| **DebugMode** | Zabraňuje automatickému vyčištění při selhání. | Ne |
 
-## <a name="update-script-powershell-example"></a>Aktualizovat ukázkový skript prostředí PowerShell
-Následuje příklad použití *UpdateSQLProvider.ps1* skript, který můžete spustit z konzole Powershellu se zvýšenými oprávněními. Nezapomeňte změnit informace o proměnných a hesla podle potřeby:  
+## <a name="update-script-powershell-example"></a>Příklad aktualizace skriptu PowerShellu
+Následuje příklad použití skriptu *UpdateSQLProvider. ps1* , který můžete spustit z konzoly PowerShell se zvýšenými oprávněními. Nezapomeňte změnit informace o proměnné a hesla podle potřeby:  
 
 > [!NOTE]
-> Tento proces aktualizace platí jenom pro integrované systémy Azure Stack.
+> Tento proces aktualizace se týká pouze Azure Stack integrovaných systémů.
 
 ```powershell
 # Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module
@@ -121,4 +121,4 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
 ## <a name="next-steps"></a>Další postup
 
-[Spravovat poskytovatele prostředků SQL](azure-stack-sql-resource-provider-maintain.md)
+[Údržba poskytovatele prostředků SQL](azure-stack-sql-resource-provider-maintain.md)

@@ -1,6 +1,6 @@
 ---
-title: Správa aktualizací v přehledu služby Azure Stack | Dokumentace Microsoftu
-description: Další informace o správě aktualizací pro integrované systémy Azure Stack.
+title: Správa aktualizací v Azure Stack přehled | Microsoft Docs
+description: Přečtěte si o správě aktualizací pro Azure Stack integrovaných systémech.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,43 +11,43 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2019
+ms.date: 07/23/2019
 ms.author: mabrigg
 ms.lastreviewed: 04/04/2019
 ms.reviewer: justini
-ms.openlocfilehash: 5fa84271c02ebc749871116badb3c767812a48ec
-ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
+ms.openlocfilehash: a5fb41e63a8cd9e5f57e4476b1b7c23738f116bb
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66691549"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68418016"
 ---
-# <a name="manage-updates-in-azure-stack-overview"></a>Správa aktualizací v přehledu služby Azure Stack
+# <a name="manage-updates-in-azure-stack-overview"></a>Přehled správy aktualizací v Azure Stack
 
-*Platí pro: Integrované systémy Azure Stack*
+*Platí pro: Azure Stack integrovaných systémů*
 
-Balíčky aktualizací Microsoftu pro Azure Stack integrované systémy pro uvolnění obvykle každý měsíc. Výrobce vašeho (výrobcem OEM) požádejte o proces jejich konkrétní upozornění k zajištění oznámení o aktualizacích kontaktovat vaše organizace. Můžete zkontrolovat v této knihovně dokumentace v části **přehled** > **poznámky k verzi** informace o vydaných verzích, které jsou v aktivní technické podpory.
+Balíčky služby Microsoft Update pro Azure Stack integrované systémy jsou obvykle vydány každý měsíc. Zeptejte se výrobce OEM na svůj konkrétní proces oznámení, aby bylo zajištěno, že oznámení o aktualizacích dosáhnou vaší organizace. Informace o vydaných vydáních s aktivní podporou najdete v části **Přehled** > **poznámek k verzi** .
 
-Každá verze aktualizace softwaru Microsoftu se dodává v sadě jako jednu aktualizaci balíčku. Jako operátory Azure stacku můžete importovat, nainstalovat a sledovat průběh instalace balíčků aktualizací z portálu pro správu služby Azure Stack.
+Každá verze aktualizací softwaru společnosti Microsoft je tvořena jedním balíčkem aktualizace. Jako operátor Azure Stack můžete naimportovat, instalovat a monitorovat průběh instalace balíčků aktualizací z portálu pro správu Azure Stack.
 
-Od dodavatele OEM také vydá aktualizace, jako je například aktualizace ovladače a firmware. Zatímco tyto aktualizace jsou dodávány jako samostatné balíčky podle dodavatele, některé jsou importovat, nainstalovat a spravovat stejným způsobem jako balíčky aktualizací od Microsoftu.
+Dodavatel OEM bude také vydávat aktualizace, například ovladače a aktualizace firmwaru. I když jsou tyto aktualizace dodávány jako samostatné balíčky podle dodavatele, některé jsou importovány, instalovány a spravovány stejným způsobem jako balíčky aktualizací od společnosti Microsoft.
 
-Aby váš systém v rámci podpory, je nutné zachovat aktualizovat na úroveň konkrétní verzi služby Azure Stack. Ujistěte se, abyste se seznámili [Azure Stack zásady obsluhy](azure-stack-servicing-policy.md).
+Chcete-li zachovat systém v rámci podpory, je třeba zachovat Azure Stack aktualizace na konkrétní úroveň verze. Ujistěte se, že jste provedli kontrolu [zásad Azure Stack Servicing](azure-stack-servicing-policy.md).
 
 > [!NOTE]
-> Balíčky aktualizací pro Azure Stack nejde použít pro Azure Stack Development Kit (ASDK). Balíčky aktualizací jsou navržené pro integrované systémy. Informace najdete v tématu [opětovné nasazení ASDK](../asdk/asdk-redeploy.md).
+> Balíčky aktualizací Azure Stack nelze použít na Azure Stack Development Kit (ASDK). Balíčky aktualizací jsou navržené pro integrované systémy. Další informace najdete v tématu o [opětovném nasazení ASDK](../asdk/asdk-redeploy.md).
 
-## <a name="the-update-resource-provider"></a>Aktualizace poskytovatele prostředků
+## <a name="the-update-resource-provider"></a>Poskytovatel prostředku aktualizace
 
-Azure Stack zahrnuje poskytovatele prostředků aktualizace, která zpracovává použití aktualizací softwaru společnosti Microsoft. Tento zprostředkovatel ověří, že se aktualizace napříč všechny fyzické hostitele, aplikace Service Fabric a moduly runtime a všechny virtuální počítače infrastruktury a jejich přidružené služby.
+Azure Stack obsahuje poskytovatele prostředků aktualizace, který zpracovává aplikaci aktualizací softwaru společnosti Microsoft. Tento poskytovatel kontroluje, zda jsou aktualizace aplikovány na všechny fyzické hostitele, Service Fabric aplikací a modulech runtime a na všech virtuálních počítačích infrastruktury a jejich přidružených službách.
 
-Jak nainstalovat aktualizace, můžete zobrazit informace na nejvyšší úrovni jako cíle procesu aktualizace různé subsystémy ve službě Azure Stack (například fyzické hostitele a infrastrukturu virtuálních počítačů).
+Při instalaci aktualizací můžete zobrazit stav vysoké úrovně, protože proces aktualizace cílí na různé subsystémy v Azure Stack (například fyzické hostitele a virtuální počítače infrastruktury).
 
-## <a name="plan-for-updates"></a>Plán pro aktualizace
+## <a name="plan-for-updates"></a>Plánování aktualizací
 
-Důrazně doporučujeme, upozornění uživatelů na jakékoli operace údržby a, abyste naplánovali normální správu a údržbu během mimo pracovní dobu Pokud je to možné. Operace údržby může ovlivnit úlohy klientů a operací na portálu.
+Důrazně doporučujeme, abyste uživatelům informovali o všech operacích údržby a v případě potřeby naplánovali normální časová období údržby během nepracovních hodin. Operace údržby mohou ovlivnit úlohy tenanta i operace portálu.
 
-Při plánování pro okno údržby, je důležité zkontrolovat konkrétní typ balíčku aktualizací vydávat od Microsoftu, jak je uvedeno v příslušné poznámky. Kromě občasné oprav Hotfix, bude mít každý balíček aktualizace odpovídající typ **úplné** nebo **Express**. Úplnou aktualizaci balíčků aktualizovat operační systémy fyzického hostitele v jednotce škálování a vyžadují větší časové období údržby. Express s aktualizací update balíčky jsou omezená a neaktualizují základní operační systémy fyzického hostitele.
+Při plánování časového období údržby je důležité zkontrolovat konkrétní typ balíčku aktualizace vydaný od společnosti Microsoft, který je vyvolán v příslušné poznámce k verzi. Kromě příležitostné opravy hotfix bude mít každý balíček aktualizace odpovídající typ, **úplný** nebo **expresní**. Balíčky s úplnými aktualizacemi aktualizují fyzické hostitelské operační systémy v jednotce škálování a vyžadují větší časový interval pro správu a údržbu. Balíčky Express Update mají rozsah a neaktualizují základní fyzické hostitelské operační systémy.
 
 Před instalací této aktualizace, spusťte [testovací AzureStack](azure-stack-diagnostic-test.md) s následujícími parametry do ověřte stav služby Azure Stack a vyřešte všechny provozní problémy zjištěné, včetně všech upozornění a chyby. Také aktivní výstrahy můžete zkontrolovat a vyřešit všechny, které vyžadují nějakou akci.  
 
@@ -55,47 +55,47 @@ Před instalací této aktualizace, spusťte [testovací AzureStack](azure-stack
 Test-AzureStack -Group UpdateReadiness
 ```
 
-## <a name="using-the-update-tile-to-manage-updates"></a>Správa aktualizací pomocí aktualizovat dlaždici
+## <a name="using-the-update-tile-to-manage-updates"></a>Použití dlaždice aktualizace ke správě aktualizací
 
-Správa aktualizací z portálu správce. Jako operátory Azure stacku můžete použít **aktualizace** dlaždici v řídicím panelu:
+Aktualizace můžete spravovat z portálu pro správu. Jako operátor Azure Stack můžete na řídicím panelu použít dlaždici **aktualizace** na:
 
-- Zobrazit důležité informace, jako je aktuální verze.
-- instalace aktualizací a sledovat průběh.
-- Kontrola historie aktualizace pro dříve nainstalované aktualizace.
-- Zobrazte aktuální verze balíčku výrobce OEM v cloudu.
+- Zobrazení důležitých informací, jako je například aktuální verze.
+- Nainstalujte aktualizace a sledujte průběh.
+- Zkontrolujte historii aktualizací pro dříve nainstalované aktualizace.
+- Zobrazit aktuální verzi balíčku OEM v cloudu
 
-## <a name="determine-the-current-version"></a>Zjistit aktuální verzi
+## <a name="determine-the-current-version"></a>Určení aktuální verze
 
-Můžete zobrazit aktuální verzi služby Azure Stack v **aktualizace** dlaždici. Otevřete dlaždici:
+Aktuální verzi Azure Stack můžete zobrazit na dlaždici **aktualizace** . Chcete-li otevřít dlaždici:
 
-1. Otevření portálu Správce služby Azure Stack.
-2. Vyberte **řídicí panel**. V **aktualizace** dlaždice, aktuální verze je uvedená.
+1. Otevřete portál Azure Stack správce.
+2. Vyberte **řídicí panel**. Na dlaždici **aktualizace** se zobrazí aktuální verze.
 
-    ![Aktualizace dlaždice na výchozí řídicí panel](./media/azure-stack-updates/image1.png)
+    ![Dlaždice aktualizace na výchozím řídicím panelu](./media/azure-stack-updates/image1.png)
 
-    Verze je na tomto obrázku 1.1903.0.35.
+    Například v tomto obrázku je verze 1.1903.0.35.
 
-## <a name="install-updates-and-monitor-progress"></a>Instalovat aktualizace a sledování průběhu
+## <a name="install-updates-and-monitor-progress"></a>Instalace aktualizací a sledování průběhu
 
-1. Otevření portálu Správce služby Azure Stack.
-2. Vyberte **řídicí panel**. Vyberte **aktualizace** dlaždici.
-3. Vyberte **aktualizovat**.
+1. Otevřete portál Azure Stack správce.
+2. Vyberte **řídicí panel**. Vyberte dlaždici **aktualizace** .
+3. Vyberte **aktualizovat hned**.
 
     ![Podrobnosti o spuštění aktualizace Azure Stack](media/azure-stack-updates/azure-stack-update-button.png)
 
-4. Si můžete zobrazit podrobný stav procesu aktualizace prochází různé subsystémy ve službě Azure Stack. Příklad subsystémy zahrnují fyzické hostitele, Service Fabric, infrastruktury virtuálních počítačů a služeb, které poskytují portálech pro správce i uživatele. Aktualizace poskytovatele prostředků v celém procesu aktualizace sestavy další podrobnosti o aktualizaci, jako je například počet kroků, které byly úspěšné, stejně jako číslo v průběhu.
+4. Stav vysoké úrovně můžete zobrazit, protože proces aktualizace prochází různými subsystémy v Azure Stack. Příklady subsystémů zahrnují fyzické hostitele, Service Fabric, virtuální počítače infrastruktury a služby, které poskytují správce i uživatelské portály. V průběhu procesu aktualizace hlásí poskytovatel prostředků aktualizace další podrobnosti o aktualizaci, například počet kroků, které byly úspěšné, a také počet probíhajících.
 
-5. Vyberte **stáhnout úplných protokolů** z aktualizace spusťte okno s podrobnostmi o stažení úplných protokolů.
+5. Pokud si chcete stáhnout úplné protokoly, vyberte **Stáhnout úplné protokoly** z okna podrobností o spuštění aktualizace.
 
     ![Podrobnosti o spuštění aktualizace Azure Stack](media/azure-stack-updates/update-run-details.png)
 
-6. Po dokončení aktualizace poskytovatel prostředků nabízí **Succeeded** potvrzení k označení, že dokončení procesu aktualizace a jak dlouho to trvalo. Odtud můžete zobrazit informace o aktualizace, aktualizace nebo nainstalovaných aktualizací pomocí filtru, který.
+6. Po dokončení dokončí poskytovatel prostředků aktualizace **úspěšné** potvrzení, které indikuje, že se proces aktualizace dokončil a jak dlouho trvala. Odtud můžete zobrazit informace o všech aktualizacích, dostupných aktualizacích nebo nainstalovaných aktualizacích pomocí filtru.
 
-    ![Aktualizace Azure zásobníku spouštění podrobnosti o úspěchu](media/azure-stack-updates/update-success.png)
+    ![Podrobnosti o úspěšném spuštění aktualizace Azure Stack](media/azure-stack-updates/update-success.png)
 
-   Pokud se aktualizace nezdaří, **aktualizovat** dlaždici sestavy **vyžaduje pozornost**. Použití **stáhnout úplných protokolů** umožňuje získat podrobný stav kde aktualizace se nezdařila. Shromažďování protokolů služby Azure Stack pomáhá usnadnit diagnostiku a řešení potíží.
+   Pokud se aktualizace nezdařila, sestavy dlaždice **aktualizace** **vyžadují pozornost**. Použijte možnost **Stáhnout úplné protokoly** a získejte stav vysoké úrovně, kde se aktualizace nezdařila. Shromažďování protokolů Azure Stack pomáhá zjednodušit diagnostiku a řešení potíží.
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 - [Zásady údržby služby Azure Stack](azure-stack-servicing-policy.md) 
-- [Správa oblastí ve službě Azure Stack](azure-stack-region-management.md)
+- [Správa oblastí v Azure Stack](azure-stack-region-management.md)
