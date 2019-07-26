@@ -15,12 +15,12 @@ ms.date: 07/15/2019
 ms.reviewer: ppacent
 ms.author: mabrigg
 ms.lastreviewed: 07/15/2019
-ms.openlocfilehash: fb49649227cf17356c7d383e6505dd3e1c2c5648
-ms.sourcegitcommit: 159da88a52701679571bbedde1c36b72bbfe32dd
+ms.openlocfilehash: 7d8990616bcf5cdca628f4aad91e2aee6b95d42a
+ms.sourcegitcommit: 82d09bbae3e5398d2fce7e2f998dfebff018716c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68380425"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68497839"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Otočení tajných kódů v Azure Stack
 
@@ -252,9 +252,9 @@ Remove-PSSession -Session $PEPSession
 
 3. Počkejte na otočení tajných kódů.
 
-Po úspěšném dokončení rotace tajného klíče se **v konzole zobrazí celkový stav akce: Úspěch**.
+   Po úspěšném dokončení rotace tajného klíče se **v konzole zobrazí celkový stav akce: Úspěch**.
     > [!Note]
-    > If secret rotation fails, follow the instructions in the error message and rerun **Start-SecretRotation** with the  **-Internal** and **-ReRun** parameters.  
+    > Pokud se rotace tajných klíčů nezdařila, postupujte podle pokynů v chybové zprávě a znovu spusťte **příkaz Start-SecretRotation** s parametry **-internal** a-restart **-** .  
 
 ```powershell
 Start-SecretRotation -Internal -ReRun
@@ -300,11 +300,11 @@ Rutina **Start-SecretRotation** otočí tajné klíče infrastruktury Azure Stac
 
 | Parametr | type | Požadováno | Pozice | Výchozí | Popis |
 | -- | -- | -- | -- | -- | -- |
-| `PfxFilesPath` | Řetězec  | False  | Jmenovanou  | Žádný  | Cesta ke sdílené složce adresáře **\Certificates** obsahující všechny certifikáty koncového bodu externí sítě. Vyžaduje se pouze při otáčení externích tajných klíčů. Koncový adresář musí být **\Certificates**. |
+| `PfxFilesPath` | Řetězec  | False  | Jmenovanou  | Žádné  | Cesta ke sdílené složce adresáře **\Certificates** obsahující všechny certifikáty koncového bodu externí sítě. Vyžaduje se pouze při otáčení externích tajných klíčů. Koncový adresář musí být **\Certificates**. |
 | `CertificatePassword` | SecureString | False  | Jmenovanou  | Žádné  | Heslo pro všechny certifikáty, které jsou k dispozici v-PfXFilesPath. Požadovaná hodnota, pokud je k dispozici PfxFilesPath při otočení externích tajných klíčů. |
 | `Internal` | Řetězec | False | Jmenovanou | Žádné | Vnitřní příznak se musí použít, kdykoli Azure Stack operátor chce střídat interní tajné klíče infrastruktury. |
 | `PathAccessCredential` | PSCredential | False  | Jmenovanou  | Žádné  | Přihlašovací údaje PowerShellu pro sdílenou složku adresáře **\Certificates** obsahující všechny certifikáty koncového bodu externí sítě. Vyžaduje se pouze při otáčení externích tajných klíčů.  |
-| `ReRun` | Přepínací parametr | False  | Jmenovanou  | Žádné  | Po neúspěšném pokusu je třeba znovu spustit opětovné otočení tajného klíče. |
+| `ReRun` | Přepínací parametr | False  | Jmenovanou  | Žádný  | Po neúspěšném pokusu je třeba znovu spustit opětovné otočení tajného klíče. |
 
 ### <a name="examples"></a>Příklady
 
@@ -413,6 +413,6 @@ Tento příkaz otočí všechny tajné klíče infrastruktury vystavené Azure S
     Remove-PSSession -Session $PEPSession
     ```
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 [Další informace o zabezpečení služby Azure Stack](azure-stack-security-foundations.md)

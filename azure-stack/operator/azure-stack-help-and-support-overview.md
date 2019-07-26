@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure Stack Nápověda a podpora | Dokumentace Microsoftu
-description: Získáte podporu pro Microsoft Azure Stack.
+title: Přehled pomoci a podpory pro Microsoft Azure Stack | Microsoft Docs
+description: Získejte podporu pro Microsoft Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -12,75 +12,92 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/10/2019
+ms.date: 07/24/2019
 ms.author: justinha
 ms.reviewer: prchint
-ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: 4649866a020a9ddc3d359dcb69e8d4165a00a88d
-ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
+ms.lastreviewed: 07/24/2019
+ms.openlocfilehash: ff7911f64cf7c1413e623cd84cebe3d26585a3e5
+ms.sourcegitcommit: f6ea6daddb92cbf458f9824cd2f8e7e1bda9688e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66828386"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68493843"
 ---
-# <a name="microsoft-azure-stack-help-and-support"></a>Microsoft Azure Stack Nápověda a podpora
+# <a name="microsoft-azure-stack-help-and-support"></a>Microsoft Azure Stack pomoc a podpora
 
-Počínaje verzí 1905 **Nápověda a podpora** vylepšení na portálu Azure Stack usnadnit operátory zkontrolujte jejich možnosti podpory, získejte odbornou pomoc a další informace o službě Azure Stack. 
+**Nápověda a podpora** na portálu Azure Stack obsahuje zdroje, které pomůžou pomoci operátorům získat další informace o Azure Stack, podívat se na možnosti podpory a získat odbornou pomoc. Od verze 1907 mohou operátoři shromažďovat diagnostické protokoly pro řešení potíží také pomocí programu Help + support.  
 
-## <a name="documentation-billing-and-support"></a>Dokumentace ke službě a fakturaci a podporu
+## <a name="help-resources"></a>Prostředky pro usnadnění 
 
-V horní části **Nápověda a podpora** jsou odkazy na akce, můžete se pokusit nejprve, jako je čtení nahoru o nový koncept vysvětlení fakturace nebo zjistit, jaké možnosti podpory jsou k dispozici. 
+Pomocí operátorů Support **+ support** můžete také získat další informace o Azure Stack, Projděte si možnosti podpory a získáte odbornou pomoc. 
+
+### <a name="things-to-try-first"></a>Co nejdřív zkuste vyzkoušet
+
+V horní části **okna Help + podpora** jsou odkazy na věci, které byste mohli vyzkoušet jako první, třeba si můžete přečíst o novém konceptu, pochopit, jak fakturace funguje, nebo zjistit, jaké možnosti podpory jsou k dispozici. 
 
 ![Samoobslužná podpora](media/azure-stack-help-and-support/get-support-tiles.png)
 
-- **Dokumentace ke službě**. [Dokumentace operátora k Azure stacku](index.yml) zahrnuje koncepty, postupy a kurzy, které ukazují, jak nabízet služby Azure Stack jako virtuální počítače, SQL databáze, webové aplikace a další. 
+- **Dokumentaci**. [Dokumentace k operátorům Azure Stack](index.yml) obsahuje koncepty, návody a kurzy, které ukazují, jak nabízet Azure Stack služby, jako jsou virtuální počítače, databáze SQL, webové aplikace a další. 
 
-- **Informace o fakturaci**. Získejte tipy [využití a fakturace](azure-stack-billing-and-chargeback.md).
+- **Přečtěte si o fakturaci**. Získejte tipy na [používání a fakturaci](azure-stack-billing-and-chargeback.md).
 
-- **Možnosti podpory**. Operátoři Azure stacku můžete zvolit ze škály [možnosti podpory Azure](https://aka.ms/azstacksupport) , která vyhovuje potřebám vaší všechny organizace. 
+- **Možnosti podpory**. Azure Stack operátory si můžete vybrat z škály [možností podpory Azure](https://aka.ms/azstacksupport) , které se můžou přizpůsobit potřebám všech podniků. 
 
-## <a name="get-expert-help"></a>Získejte odbornou pomoc 
+### <a name="get-expert-help"></a>Získat odbornou pomoc 
 
-Pro integrovaný systém je koordinovanou eskalaci a řešení procesu mezi Microsoftem a našimi hardwarovými partnery výrobce OEM (OEM).
+Pro integrovaný systém existuje koordinovaný proces eskalace a rozlišení mezi společností Microsoft a našimi hardwarovými partnery OEM (Original Equipment Manufacturer).
 
-Pokud nastane problém s cloud services, podpora je dostupná prostřednictvím Microsoft podporu služby zákazníkům (CSS). Můžete kliknout na **pomáhají** (otazník) v pravém horním rohu portálu správce a pak klikněte na **Nápověda a podpora** otevřete **Nápověda a podpora přehled** a odeslat novou žádost o podporu. Vytváří se žádost o podporu se předem vybere služby Azure Stack. Důrazně doporučujeme, že zákazníci používat toto prostředí k odeslání lístky spíše než pomocí veřejného webu Azure portal. 
+Pokud dojde k problému s cloudovou službou, podpora je poskytována prostřednictvím služby Microsoft Customer Support Services (CSS). Kliknutím na **Nápověda** (otazník) v pravém horním rohu portálu pro správu a potom kliknutím na **Nápověda + podpora** otevřete **Přehled nápovědy** a podpory a odešlete novou žádost o podporu. Při vytváření žádosti o podporu se vybere Azure Stack služba. Důrazně doporučujeme, aby zákazníci používali toto prostředí k odeslání lístků místo použití veřejné Azure Portal. 
 
-Pokud se vyskytl problém s nasazením, opravy a aktualizace hardwaru (včetně pole replaceable jednotek) a veškerý software pod značkou jiných hardwaru, jako je například software spuštěný na hostiteli životního cyklu hardwaru, obraťte se na vašeho OEM dodavatele hardwaru nejprve. Na něco jiného obraťte se na Microsoft CSS.
+Pokud dojde k potížím s nasazením, opravou a aktualizací, hardwarem (včetně nahraditelných jednotek v poli) a jakýmkoli softwarem v hardwarovém zařízení, jako je třeba software spuštěný na hostiteli životního cyklu hardwaru, obraťte se na dodavatele hardwaru výrobce OEM. U cokoli jiného kontaktujte Microsoft CSS.
 
-![Získejte odbornou pomoc pro integrované systémy](media/azure-stack-help-and-support/get-support-integrated.png)
+![Získat profesionální nápovědu pro integrované systémy](media/azure-stack-help-and-support/get-support-integrated.png)
 
-Pro Azure Stack Development Kit (ASDK), můžete klást otázky týkající se podpory v [fórum MSDN pro Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). 
+Pro ASDK se můžete zeptat na dotazy související s podporou na [Azure Stack Fórum MSDN](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). 
 
-Můžete kliknout na **pomáhají** (otazník) v pravém horním rohu portálu správce a pak klikněte na **Nápověda a podpora** otevřete **Nápověda a podpora přehled**, který má odkaz na fórum. DISKUZNÍ fóra MSDN jsou pravidelně monitorované.  
-Vývojová sada je prostředí pro testování, neexistuje žádné oficiální podpora dostupná prostřednictvím Microsoft CSS.
+V pravém horním rohu portálu pro správu můžete kliknout na **Nápověda** (otazník) a potom kliknutím na **Nápověda a podpora** otevřít **Přehled nápovědy**a podpory, který obsahuje odkaz na fórum. Fóra MSDN se pravidelně monitorují.  
+Vzhledem k tomu, že vývojová sada je zkušební prostředí, není k dispozici žádná oficiální podpora prostřednictvím šablon stylů CSS společnosti Microsoft.
 
-![Získejte odbornou pomoc pro ASDK](media/azure-stack-help-and-support/get-support-asdk.png)
+![Získat odbornou pomoc pro ASDK](media/azure-stack-help-and-support/get-support-asdk.png)
 
-Můžete také kontaktovat na stránkách fór MSDN probrat chybu, nebo provést online školení a zlepšujte svoje vlastní dovednosti. 
+Můžete se také obrátit na fóra MSDN a diskutovat o problémech nebo pořídit online školení a vylepšit své vlastní dovednosti. 
 
-![Získejte odbornou pomoc](media/azure-stack-help-and-support/get-support-cards.png)
+![Získat odbornou pomoc](media/azure-stack-help-and-support/get-support-cards.png)
+
+### <a name="get-up-to-speed-with-azure-stack"></a>Získejte rychlý přehled pomocí Azure Stack
+
+Tato sada kurzů je přizpůsobená v závislosti na tom, jestli používáte ASDK nebo integrované systémy, abyste se svým prostředím mohli rychle dostat do rychlosti. 
+
+![Získat kurzy k podpoře](media/azure-stack-help-and-support/get-support-tutorials.png)
+
+## <a name="diagnostic-log-collection"></a>Shromažďování protokolů diagnostiky
+
+Od verze 1907 existují dva nové způsoby, jak shromažďovat protokoly v **nápovědě a podpoře**:
+
+- **Automatická kolekce**: Pokud je povoleno, shromažďování protokolů je aktivováno konkrétními výstrahami týkajícími se stavu 
+- **Shromažďovat protokoly hned teď**: Můžete zvolit posuvné okno v 1-4 hodinách za posledních sedm dní.
+
+![Snímek obrazovky s možnostmi shromažďování diagnostických protokolů](media/azure-stack-automatic-log-collection/azure-stack-log-collection-overview.png)
+
+Integrované systémy můžou sdílet diagnostické protokoly se službou zákaznické podpory Microsoftu (CSS). Vzhledem k tomu, že Azure Stack Development Kit (ASDK) je zkušební prostředí, není šablonou stylů CSS podporováno. Další informace najdete v tématu [Přehled shromažďování protokolů diagnostiky Azure Stack](azure-stack-diagnostic-log-collection-overview.md).
 
 
-## <a name="get-up-to-speed-with-azure-stack"></a>Získejte si přehled pomocí služby Azure Stack
 
-Této sérii kurzů je přizpůsobené podle toho, zda používáte ASDK nebo integrované systémy abyste se mohli rychle se Naučte s vaším prostředím. 
+## <a name="help-and-support-for-earlier-releases-azure-stack-pre-1905"></a>Pomoc a podpora pro starší verze Azure Stack (před 1905)
 
-![Získejte podporu kurzy](media/azure-stack-help-and-support/get-support-tutorials.png)
+Předchozí verze Azure Stack také obsahují odkaz na **pomoc a podporu** , který přesměruje do dokumentace k [operátoru Azure Stack](https://aka.ms/adminportaldocs).
 
-## <a name="help-and-support-for-earlier-releases-azure-stack-pre-1905"></a>Nápověda a podpora pro starší verze služby Azure Stack (pre-1905)
+![Získat kurzy k podpoře](media/azure-stack-help-and-support/get-support-previous.png)
 
-Předchozí verze služby Azure Stack také mít odkaz na **Nápověda a podpora** , který provede přesměrování [dokumentace operátora k Azure Stack](https://aka.ms/adminportaldocs).
+Pokud dojde k problému s cloudovou službou, podpora je poskytována prostřednictvím služby Microsoft Customer Support Services (CSS). Kliknutím na **Nápověda** (otazník) v pravém horním rohu portálu pro správu klikněte na **Nápověda a podpora**a potom kliknutím na **Nová žádost o podporu** můžete přímo Odeslat novou žádost o podporu pomocí šablon stylů CSS.
 
-![Získejte podporu kurzy](media/azure-stack-help-and-support/get-support-previous.png)
+Pro integrovaný systém existuje koordinovaný proces eskalace a rozlišení mezi společností Microsoft a našimi partnery OEM. Pokud dojde k potížím se službou Cloud Services, nabídne se podpora prostřednictvím šablon stylů CSS společnosti Microsoft. 
 
-Pokud nastane problém s cloud services, podpora je dostupná prostřednictvím Microsoft podporu služby zákazníkům (CSS). Můžete kliknout na **pomáhají** (otazník) v pravém horním rohu portálu správce, klikněte na tlačítko **Nápověda a podpora**a potom klikněte na tlačítko **nová žádost o podporu** přímo odešlete novou žádost o podporu pomocí šablon stylů CSS.
+Pokud dojde k potížím s nasazením, opravou a aktualizací, hardwarem (včetně nahraditelných jednotek v poli) a jakýmkoli softwarem v hardwarovém zařízení, jako je třeba software spuštěný na hostiteli životního cyklu hardwaru, obraťte se na dodavatele hardwaru výrobce OEM. U cokoli jiného kontaktujte Microsoft CSS.
 
-Pro integrovaný systém je koordinovanou eskalaci a řešení procesu mezi společnostmi Microsoft a Naši partneři OEM. Pokud nastane problém s cloud services, podpora je dostupná prostřednictvím Microsoft CSS. 
-
-Pokud se vyskytl problém s nasazením, opravy a aktualizace hardwaru (včetně pole replaceable jednotek) a veškerý software pod značkou jiných hardwaru, jako je například software spuštěný na hostiteli životního cyklu hardwaru, obraťte se na vašeho OEM dodavatele hardwaru nejprve. Na něco jiného obraťte se na Microsoft CSS.
-
-Pro development kit, můžete klást otázky týkající se podpory v [fórum MSDN pro Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). Můžete kliknout na **pomáhají** (otazník) v pravém horním rohu portálu správce a pak klikněte na **nová žádost o podporu** jak získat pomoc od odborníků v komunitě Azure Stack.
-Vývojová sada je prostředí pro testování, neexistuje žádné oficiální podpora dostupná prostřednictvím Microsoft CSS.
+Pro vývojovou sadu můžete klást otázky související s podporou na [Azure Stack Fórum MSDN](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). V pravém horním rohu portálu pro správu můžete kliknout na **Nápověda** (otazník) a potom kliknout na **Nová žádost o podporu** a získat pomoc od expertů ve Azure Stack komunitě.
+Vzhledem k tomu, že vývojová sada je zkušební prostředí, není k dispozici žádná oficiální podpora prostřednictvím šablon stylů CSS společnosti Microsoft.
 
 ## <a name="next-steps"></a>Další postup
-- Další informace o [řešení potíží s Azure Stack](azure-stack-troubleshooting.md)
+
+- Další informace o [řešení potíží Azure Stack](azure-stack-troubleshooting.md)

@@ -1,6 +1,6 @@
 ---
-title: Zpráva k vydání verze Azure Stack 1904 | Dokumentace Microsoftu
-description: Další informace o aktualizaci 1904 pro integrované systémy Azure Stack, včetně novinek, známé problémy a kde lze stáhnout aktualizace a archivované zpráva k vydání verze Azure Stack.
+title: Zpráva k vydání verze Azure Stack 1904 | Microsoft Docs
+description: Seznamte se s aktualizací 1904 pro Azure Stack integrovaných systémů, včetně nových, známých problémů a místa stažení aktualizace a archivované poznámky k verzi Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -16,36 +16,36 @@ ms.date: 05/30/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 05/30/2019
-ms.openlocfilehash: d3a50288464b81104ddd1dd032f93128fde43eae
-ms.sourcegitcommit: 593d40bccf1b2957a763017a8a2d7043f8d8315c
+ms.openlocfilehash: 71ad5812472534ae4a7e3dc34feabf7a1a02faa0
+ms.sourcegitcommit: f6ea6daddb92cbf458f9824cd2f8e7e1bda9688e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67152510"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68494050"
 ---
-# <a name="azure-stack-1904-update"></a>Aktualizace služby Azure Stack 1904
+# <a name="azure-stack-1904-update"></a>Aktualizace Azure Stack 1904
 
-*Platí pro: Integrované systémy Azure Stack*
+*Platí pro: Azure Stack integrovaných systémů*
 
-Tento článek popisuje obsah balíčku 1904 aktualizace. Obsahuje novinky vylepšení a oprav pro tuto verzi služby Azure Stack. Tento článek obsahuje následující informace:
+Tento článek popisuje obsah balíčku aktualizace 1904. Tato aktualizace obsahuje novinky a opravy pro tuto verzi Azure Stack. Tento článek obsahuje následující informace:
 
-- [Popis co je nového, zabezpečení, vylepšení a oprav aktualizací](azure-stack-release-notes-1904.md#whats-in-this-update)
-- [Plánování aktualizace](azure-stack-release-notes-1904.md#update-planning)
+- [Popis novinek, vylepšení, oprav a aktualizací zabezpečení](azure-stack-release-notes-1904.md#whats-in-this-update)
+- [Plánování aktualizací](azure-stack-release-notes-1904.md#update-planning)
 
 > [!IMPORTANT]  
 > Tento balíček aktualizace je pouze pro integrované systémy Azure Stack. Tento balíček aktualizace nevztahují na Azure Stack Development Kit.
 
 ## <a name="archived-release-notes"></a>Archivované poznámky k verzi
 
-Můžete zobrazit [starší verze služby Azure Stack poznámky v Galerii TechNet](http://aka.ms/azsarchivedrelnotes). Tyto archivované verze poznámky jsou k dispozici pouze pro referenční účely a není určeno, podporu pro tyto verze. Potřebujete další pomoc obraťte se na službu zákaznické podpory Microsoftu.
+[Starší verze Azure Stack poznámky k verzi najdete v Galerii TechNet](http://aka.ms/azsarchivedrelnotes). Tato Archivovaná zpráva k vydání verze je poskytována pouze pro referenční účely a neznamená podporu těchto verzí. Pokud potřebujete další pomoc, obraťte se na službu zákaznické podpory společnosti Microsoft.
 
 ## <a name="build-reference"></a>Referenční informace o buildu
 
-Číslo sestavení aktualizace Azure Stack 1904 je **1.1904.0.36**.
+Číslo buildu aktualizace Azure Stack 1904 je **1.1904.0.36**.
 
 ### <a name="update-type"></a>Typ aktualizace
 
-Typ sestavení update Azure Stack 1904 je **Express**. Další informace o aktualizaci typy sestavení, najdete v článku [správy aktualizací ve službě Azure Stack](azure-stack-updates.md) článku. Očekávaná doba potřebná pro aktualizace 1904 dokončete je asi 16 hodin, ale přesné časy se může lišit. Tento modul runtime aproximace je specifická pro 1904 aktualizace a by neměl ve srovnání s jinými aktualizacemi Azure Stack.
+Typ sestavení aktualizace Azure Stack 1904 je **Express**. Další informace o typech sestavení aktualizace naleznete v článku [Správa aktualizací v Azure Stack](azure-stack-updates.md) . Očekávaný čas potřebný k dokončení aktualizace 1904 je přibližně 16 hodin, ale přesné časy se mohou lišit. Tato přibližná doba běhu je specifická pro aktualizaci 1904 a neměla by se porovnávat s jinými aktualizacemi Azure Stack.
 
 ## <a name="whats-in-this-update"></a>Co je v této aktualizaci
 
@@ -53,158 +53,158 @@ Typ sestavení update Azure Stack 1904 je **Express**. Další informace o aktua
 
 <!-- What's new, also net new experiences and features. -->
 
-### <a name="improvements"></a>Vylepšení
+### <a name="improvements"></a>Vylepšen
 
 <!-- Changes and product improvements with tangible customer-facing value. -->
 
-- Zásobník softwarově definované sítě (SDN) byla v 1904 významná vylepšení. Tato vylepšení zvýšit celkový údržby a spolehlivost komponent SDN ve službě Azure Stack.
+- V 1904 byly provedeny významné vylepšení zásobníku softwarově definované sítě (SDN). Tato vylepšení zvyšují celkovou údržbu a spolehlivost zásobníku SDN v Azure Stack.
 
-- Přidat oznámení na portálu pro správce, pokud je aktuálně přihlášený uživatel nemá potřebná oprávnění, umožňující řídicí panel načíst správně. Také obsahuje odkaz na dokumentaci, která popisuje účty, které má požadovaná oprávnění, v závislosti na poskytovateli identity používá při nasazení.
+- Přidání oznámení na portál pro správu, pokud aktuálně přihlášený uživatel nemá potřebná oprávnění, což umožňuje správné načtení řídicího panelu. Obsahuje taky odkaz na dokumentaci, která vysvětluje, které účty mají příslušná oprávnění, v závislosti na zprostředkovateli identity použitého během nasazování.
 
-- Přidání vylepšení do virtuálního počítače odolnost a dostupnost, která řeší tento scénář, ve kterém jsou všechny virtuální počítače přejdou do režimu offline, pokud svazek úložiště, který obsahuje konfigurační soubory virtuálního počítače přejde do režimu offline.
-
-<!-- 1901,2,3 related hotfix -->
-- Přidání optimalizace počtu instancí virtuálních počítačů současně evakuovat a umístí limitu na adresu od virtuálního počítače nebo blackouts, pokud síť není v případě velkého zatížení využité šířky pásma. Tato změna zvyšuje době provozu virtuálního počítače při aktualizaci systému.
+- Bylo přidáno vylepšení odolnosti a provozu virtuálních počítačů, které řeší scénář, ve kterém všechny virtuální počítače přecházejí do stavu offline, pokud svazek úložiště obsahující konfigurační soubory virtuálních počítačů přejde do režimu offline.
 
 <!-- 1901,2,3 related hotfix -->
-- Vylepšené prostředků omezování, když systém běží ve velkém měřítku pro ochranu před vyčerpáním prostředků platformy, výsledkem je neúspěšné operace portálu interních procesů.
+- Přidala se optimalizace počtu virtuálních počítačů, které se současně vyhusty, a umístili jste limit na využitou šířku pásma, aby se virtuální počítač výpadky nebo blackouts v případě vysokého zatížení sítě. Tato změna zvyšuje dobu provozu virtuálního počítače při aktualizaci systému.
 
-- Vylepšené možnosti filtrování povolit operátory použít několik filtrů ve stejnou dobu. Můžete řadit pouze na **název** sloupce v nové uživatelské rozhraní.
+<!-- 1901,2,3 related hotfix -->
+- Vylepšené omezování prostředků v případě, že systém pracuje se škálováním na ochranu proti interním procesům vyčerpání prostředků platformy, což vede k neúspěšným operacím na portálu.
 
-- Vylepšení procesu odstranění nabídky, plány, kvót a předplatných. Nyní můžete úspěšně odstranit nabídek, kvót, plány a předplatné z portálu správce Pokud objekt, který chcete odstranit nemá žádné závislosti. Další informace najdete v [tomto článku](azure-stack-delete-offer.md).  
+- Vylepšené možnosti filtrování umožňují operátorům použít více filtrů současně. Ve sloupci **název** můžete řadit pouze v novém uživatelském rozhraní.
+
+- Vylepšení procesu odstraňování nabídek, plánů, kvót a předplatných. Z portálu pro správu teď můžete úspěšně odstranit nabídky, kvóty, plány a odběry, pokud objekt, který chcete odstranit, nemá žádné závislosti. Další informace najdete v [tomto článku](azure-stack-delete-offer.md).  
 
 <!-- this applies to bug 3725384 and bug #4225643 -->
-- Vylepšili jsme svazku zprávy syslog odfiltrováním zbytečných události a poskytnutím konfiguračního parametru a vyberte úroveň závažnosti požadované pro přesměrované zprávy. Další informace o tom, jak nakonfigurovat úroveň závažnosti, naleznete v tématu [integrace datových center Azure Stack – předávání syslog](azure-stack-integrate-security.md).
+- Vylepšený objem zpráv syslog filtrováním zbytečných událostí a zadáním konfiguračního parametru pro výběr požadované úrovně závažnosti pro předávané zprávy. Další informace o tom, jak nakonfigurovat úroveň závažnosti, najdete v tématu [Azure Stack Integration Datacenter – předávání SYSLOG](azure-stack-integrate-security.md).
 
 <!--this applied to Bug 1473487 -->
-- Přidali novou funkci pro **Get-AzureStackLog** rutiny začleněním další parametr, `-OutputSASUri`. Teď můžete shromažďovat protokoly služby Azure Stack z vašeho prostředí a jejich uložení v zadaném kontejneru objektů blob v Azure Storage. Další informace najdete v tématu [diagnostiky Azure Stack](azure-stack-diagnostics.md#examples).
+- Do rutiny **Get-AzureStackLog** se přidala nová funkce, která zahrnuje další parametr, `-OutputSASUri`. Nyní můžete shromažďovat protokoly Azure Stack z vašeho prostředí a ukládat je do zadaného Azure Storage kontejneru objektů BLOB. Další informace najdete v tématu [diagnostika Azure Stack](azure-stack-configure-on-demand-diagnostic-log-collection.md#examples).
 
-- Přidá novou kontrolu paměti v **testovací AzureStack** `UpdateReadiness` skupinu, která zkontroluje, zda máte k dispozici dostatek paměti na zásobníku pro aktualizace se nepodaří.
+- Do skupiny **test-AzureStack** `UpdateReadiness` bylo přidáno nové vrácení paměti, které kontroluje, jestli je v zásobníku k dispozici dostatek paměti, aby se aktualizace úspěšně dokončila.
 
 <!-- Bug/Task 4311058 -->
-- Vylepšení **testovací AzureStack** za vaše rozhodnutí vyzkoušet stavu Service Fabric.
+- Vylepšení **testu – AzureStack** pro vyhodnocení stavu Service Fabric.
 
 <!-- feature: 2976966 -->
-- Vylepšení aktualizace hardwaru, což snižuje čas potřebný k dokončení firmwaru jednotky aktualizovat na 2 – 4 hodiny. Modul aktualizace dynamicky zjistí, které části aktualizace budete muset provést, na základě obsahu v balíčku.
+- Vylepšení aktualizací hardwaru, což zkracuje dobu potřebnou k dokončení aktualizace firmwaru pro jednotku 2-4 hodin. Modul Update dynamicky určuje, které části aktualizace je třeba provést, na základě obsahu v balíčku.
 
 <!-- Feature 3906611 -->
-- Přidání robustního operace prechecks zabránit rušivé infrastrukturu role instance operací, které ovlivňují dostupnost.
+- Přidání předkontrol robustních operací, aby se předešlo operacím instance role rušivé infrastruktury, které mají vliv na dostupnost.
 
 <!-- Feature 3780326 -->
-- Vylepšení idempotence infrastruktura zálohování akčního plánu.
+- Vylepšení plánu akcí zálohování infrastruktury idempotence.
 
 <!--Bug/Task 3139609 -->
-- Vylepšení pro shromažďování protokolů služby Azure Stack. Tato vylepšení zkracují čas potřebný k načtení sady protokolů. Navíc [Get-AzureStackLog](azure-stack-diagnostics.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system) rutina už generuje výchozí protokoly pro výrobce OEM roli. Je třeba spustit [Invoke-AzureStackOnDemandLog](azure-stack-diagnostics.md#invoke-azurestackondemandlog) rutiny, určení roli pro načtení protokolů výrobce OEM. Další informace najdete v tématu [diagnostiky Azure Stack](azure-stack-diagnostics.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system).
+- Vylepšení shromažďování protokolů Azure Stack. Tato vylepšení omezují dobu potřebnou k načtení sady protokolů. Rutina [Get-AzureStackLog](azure-stack-configure-on-demand-diagnostic-log-collection.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system) už navíc negeneruje výchozí protokoly pro roli OEM. Je nutné spustit rutinu [Invoke-AzureStackOnDemandLog](azure-stack-configure-on-demand-diagnostic-log-collection.md#invoke-azurestackondemandlog) a zadat roli pro načtení protokolů OEM. Další informace najdete v tématu [diagnostika Azure Stack](azure-stack-configure-on-demand-diagnostic-log-collection.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system).
 
-- Azure Stack nyní sleduje adresa URL federačních data k dispozici pro integraci datacentra v rámci služby AD FS. To zvyšuje spolehlivost během tajných kódů otočení instance služby AD FS zákazníka nebo farmy.
+- Azure Stack teď sleduje adresu URL federačních dat poskytnutých pro integraci Datacenter se službou AD FS. To zlepšuje spolehlivost při střídání tajnosti instance nebo farmy služby AD FS.
 
 ### <a name="changes"></a>Změny
 
 <!-- Feature 3906611 -->
-- Odebrali možnost operátorům Azure stacku pro vypnutí infrastruktury instance rolí na portálu pro správce. Funkce restartování zajistí pokus čistého vypnutí před restartování instance role infrastruktury. Pro pokročilé scénáře funkce prostředí PowerShell a rozhraní API zůstane k dispozici.
+- Odebrali jsme možnost pro operátory Azure Stack pro vypnutí instancí rolí infrastruktury na portálu pro správu. Funkce restartování zajišťuje před restartováním instance role infrastruktury čistý pokus o vypnutí. Pro pokročilé scénáře zůstanou dostupné funkce rozhraní API a prostředí PowerShell.
 
 <!-- Feature ## 4199257 -->
-- Nové tržiště prostředí pro správu, pomocí samostatné obrazovky pro Image z Marketplace a zprostředkovatele prostředků není k dispozici. Prozatím **poskytovatele prostředků** okna je prázdný, ale zobrazí se v budoucích verzích nové PaaS nabídek služeb a spravovat **poskytovatelů prostředků** okno.
+- K dispozici je nové prostředí pro správu Marketplace, které obsahuje samostatné obrazovky pro image a poskytovatele prostředků na webu Marketplace. V současné době je okno **poskytovatelé prostředků** teď prázdné, ale v budoucích verzích se nové nabídky služby PaaS zobrazí a budou se spravovat v okně **poskytovatelé prostředků** .
 
 <!-- Feature ## 4199257 -->
-- Změny aktualizace prostředí na portálu pro operátor. Existuje Nová mřížka aktualizací zprostředkovatele prostředků. Možnost aktualizovat poskytovatele prostředků ještě není k dispozici.
+- Změny v možnosti aktualizace na portálu operátora. Pro aktualizace poskytovatele prostředků je k dispozici nová mřížka. Možnost aktualizovat poskytovatele prostředků zatím není k dispozici.
 
 <!-- Task ## 3748423  -->
-- Změny prostředí instalace aktualizace na portálu pro operátor. Ke službě Azure Stack operátory správně reagovat na chybu aktualizace portálu teď poskytuje konkrétnější doporučení v závislosti na stavu jednotka škálování odvozené automaticky spuštěním **testovací AzureStack** a analýza kódu výsledky. Na základě výsledku, bude informovat operátora provést jednu z následujících akcí:
+- Změny v prostředí instalace aktualizace na portálu operátora. Aby Azure Stack operátory reagovaly vhodně na problém s aktualizací, portál teď poskytuje konkrétnější doporučení na základě stavu jednotky škálování, jak je odvozeno automaticky spuštěním **test-AzureStack** a analýzou výsledků. Na základě výsledku bude pracovníkovi informovat, aby provedl jednu ze dvou akcí:
 
-  - "Text soft" výstražné upozornění se zobrazí na portálu, který čte "poslední aktualizace potřebám pozornost. Společnost Microsoft doporučuje, otevřete žádost o službu běžné pracovní době. Jako součást procesu aktualizace AzureStack testu je prováděno a založené na výstupu se vygeneruje výstraha nejvhodnější. V tomto případě Test AzureStack předána."
+  - Na portálu se zobrazí upozornění "tiché", které čte "Poslední aktualizace vyžaduje pozornost. Microsoft doporučuje otevřít žádost o služby během normální pracovní doby. V rámci procesu aktualizace se provede test-AzureStack a na základě výstupu vygenerujeme nejvhodnější výstrahu. V tomto případě test-AzureStack proběhl úspěšně. "
 
-  - "Pevné" Kritická výstraha se zobrazí na portálu, který čte "poslední aktualizace se nezdařila. Společnost Microsoft doporučuje, otevřete žádost o službu co nejdříve. Jako součást procesu aktualizace AzureStack testu je prováděno a založené na výstupu se vygeneruje výstraha nejvhodnější. V tomto případě Test AzureStack také se nezdařilo."
+  - Na portálu se zobrazí "pevná" kritická výstraha, která čte "Poslední aktualizace se nezdařila. Společnost Microsoft doporučuje otevřít žádost o služby co nejdříve. V rámci procesu aktualizace se provede test-AzureStack a na základě výstupu vygenerujeme nejvhodnější výstrahu. V tomto případě se nepovedlo také test-AzureStack. "
 
-- Aktualizace agenta Azure Linux verze 2.2.38.0. Tato podpora umožňuje zákazníkům udržovat konzistentní Linuxové Image mezi Azure a Azure Stack.
+- Aktualizace agenta Azure Linux verze 2.2.38.0. Tato podpora umožňuje zákazníkům udržovat konzistentní image Linux mezi Azure a Azure Stack.
 
-- Změny aktualizace protokoly portálu operátor. Žádosti o získání protokolů úspěšná aktualizace už nejsou k dispozici. Protokoly aktualizace se nezdařila, protože jsou užitečné pro diagnostiku, jsou stále k dispozici ke stažení.
+- Změny v protokolech aktualizace na portálu operátora. Požadavky na načtení úspěšných protokolů aktualizací již nejsou k dispozici. Protokoly aktualizací, které se nezdařily, protože jsou pro diagnostiku k dispozici, jsou stále k dispozici ke stažení.
 
 ### <a name="fixes"></a>Opravy
 
 <!-- Product fixes that came up from customer deployments worth highlighting, especially if there is an SR/ICM associated to it. -->
 
-- Opravili jsme problém, ve kterém nebyla zachována konfiguraci syslogu prostřednictvím cyklu aktualizace způsobí klienta syslog přijít o své konfiguraci a zprávy syslog zastavit předávaná. Konfigurace Syslog je nyní zachovány.
+- Opravili jsme problém, kdy se konfigurace syslogu nezachovala prostřednictvím cyklu aktualizace, což způsobí ztrátu konfigurace klienta syslog a zastavení zpráv syslogu. Konfigurace syslogu je teď zachovaná.
 
-- Opravili jsme problém v CRP. která zablokuje zrušení přidělení virtuálních počítačů. Dříve Pokud virtuální počítač obsahuje více velké spravované disky, rušení přidělení virtuálního počítače mohlo selhat s chybou vypršení časového limitu.
+- Opravili jsme problém v CRP, který blokoval zrušení přidělení virtuálních počítačů. Dřív, pokud virtuální počítač obsahoval více velkých spravovaných disků, může se stát, že zrušení přidělení virtuálního počítače selhalo s chybou vypršení časového limitu.
 
-- Oprava potíží s modulem Windows Defender vliv na přístup k jednotce škálování úložiště.
+- Opravili jsme problém s modulem Windows Defender, který má vliv na přístup k úložišti jednotek škálování.
 
-- Oprava uživatelů portálu potíží, ve kterém se v okně zásady přístupu pro účty úložiště blob nepodařilo načíst.
+- Opravili jsme problém s uživatelským portálem, ve kterém se nepovedlo načíst okno zásad přístupu pro účty BLOB Storage.
 
-- Opravili jsme problém v portálech pro správce i uživatele, ve kterých byly zobrazeny chybné oznámení o globální webu Azure portal.
+- Opravili jsme problém na portále správce i uživatele, ve kterém se zobrazila chybná oznámení o globálních Azure Portal.
 
-- Opravili chybu portálu při výběru, který **zpětnou vazbu** dlaždice způsobila kartě prázdný prohlížeče otevřete.
+- Opravili jsme problém s uživatelským portálem, ve kterém se vybere dlaždice pro **zpětnou vazbu** , která způsobila otevření prázdné karty prohlížeče.
 
-- Opravili jsme problém v které změna statickou IP adresu pro konfiguraci IP, která byla vázána k síti způsobila adaptér připojený k instanci virtuálního počítače, který se zobrazí chybová zpráva na portálu.
+- Opravili jsme problém portálu, ve kterém se mění statická IP adresa pro konfiguraci protokolu IP, která je vázaná na síťový adaptér připojený k instanci virtuálního počítače, což způsobilo, že se zobrazí chybová zpráva.
 
-- Oprava potíží portálu uživatele v které pokusem o **připojit síťové rozhraní** k existujícímu virtuálnímu počítači prostřednictvím **sítě** okno způsobila operace se nezdaří s chybovou zprávu.
+- Opravili jsme problém s uživatelským portálem, ve kterém se snaží **připojit síťové rozhraní** k EXISTUJÍCÍmu virtuálnímu počítači prostřednictvím okna **sítě** , což způsobilo selhání operace s chybovou zprávou.
 
-- Opravili jsme problém, ve kterém Azure Stack nepodporuje připojení více než 4 síťových rozhraní (NIC) k instanci virtuálního počítače.
+- Opravili jsme problém, kdy Azure Stack nepodporovala připojení více než 4 síťových rozhraní k instanci virtuálního počítače.
 
-- Oprava portálu potíží přidat příchozí pravidlo zabezpečení a výběr **značka služby** jako zdroje a zobrazí několik možností, které nejsou k dispozici pro Azure Stack.
+- Opravili jsme problém portálu, ve kterém přidáte příchozí pravidlo zabezpečení a vyberete jako zdroj **značku služby** , zobrazí se několik možností, které nejsou k dispozici pro Azure Stack.
 
-- Byl opraven problém, do které skupiny zabezpečení sítě (Nsg) nebyla úspěšná ve službě Azure Stack stejným způsobem jako globální Azure.
+- Opravili jsme problém, kdy skupiny zabezpečení sítě (skupin zabezpečení sítě) nefungovaly v Azure Stack stejným způsobem jako globální Azure.
 
-- Opravili jsme problém v Marketplace správu, který skryje všechny stažené produktů, pokud vyprší platnost registrace nebo je odebrat.
+- Opravili jsme problém se správou Marketplace, který skryje všechny stažené produkty, pokud vyprší platnost registrace nebo se odebere.
 
-- Opravili jsme problém, v které vydání **Set-AzureRmVirtualNetworkGatewayConnection** příkazu v Powershellu na existující připojení brány virtuální sítě selhalo s chybovou zprávou **neplatný sdílený klíč nakonfigurovaný ...** .
+- Opravili jsme problém, kdy se v prostředí PowerShell vystavil příkaz **set-AzureRmVirtualNetworkGatewayConnection** pro existující připojení brány virtuální sítě, protože se nakonfigurovali chybová zpráva **neplatný sdílený klíč..** .
 
-- Opravili jsme problém, který způsobil poskytovatele prostředků sítě (NRP) bude synchronizován s funkcí síťový adaptér, což vede k duplicitní prostředky, které jsou požadovány. V některých případech to výsledkem opuštění nadřazený prostředek v chybovém stavu.
+- Opravili jsme problém, který způsobil, že zprostředkovatel síťových prostředků (NRP) není synchronizovaný se síťovým adaptérem, což vede k vyžádání duplicitních prostředků. V některých případech to vedlo k tomu, že nadřazená prostředky zůstala v chybovém stavu.
 
-- Opravili jsme problém, ve kterém Pokud uživatel, který byl přiřadit roli přispěvatele k předplatnému, ale nebyl přidělen explicitní oprávnění ke čtení, byla generována chyba, kterou si přečíst **... Klient "somelogonaccount@domain.com" s objektem ID {GUID} nemá oprávnění k provedení akce...**  při pokusu o uložení změny k prostředku.
+- Opravili jsme problém, kdy uživatel, kterému byla přiřazena role přispěvatele k předplatnému, ale explicitně neudělil oprávnění ke čtení, vygenerovala se chyba, která se přečte **... Klientsomelogonaccount@domain.coms ID objektu {GUID} nemá autorizaci k provedení akce...** při pokusu o uložení změny prostředku.
 
-- Opravili jsme problém, ve kterém byla prázdná obrazovka správu webu marketplace, pokud nástroj v režimu offline syndikace byl použit k nahrávání obrázků a některý z nich chybí ikona URI(s).
+- Opravili jsme problém, ve kterém byla obrazovka správy Marketplace prázdná, pokud byl k nahrání imagí použit nástroj pro syndikaci offline, přičemž některé z nich postrádá identifikátor URI ikony.
 
-- Opravili jsme chybu, která zabránila produktů, které se nepovedlo stáhnout odstranit v marketplace správu.
+- Opravili jsme problém, který brání tomu, aby se ze správy Marketplace odstranily produkty, které se nepovedlo stáhnout.
 
 ### <a name="security-updates"></a>Aktualizace zabezpečení
 
-Tato aktualizace služby Azure Stack nezahrnuje aktualizace zabezpečení pro příslušný operační systém, který je hostitelem služby Azure Stack. Informace najdete v tématu [aktualizace zabezpečení služby Azure Stack.](azure-stack-release-notes-security-updates-1904.md)
+Tato aktualizace Azure Stack nezahrnuje aktualizace zabezpečení pro základní operační systém, který hostuje Azure Stack. Informace najdete v tématu [Azure Stack aktualizace zabezpečení.](azure-stack-release-notes-security-updates-1904.md)
 
-## <a name="update-planning"></a>Plánování aktualizace
+## <a name="update-planning"></a>Plánování aktualizací
 
-Před instalací této aktualizace, ujistěte se, že ke kontrole následující informace:
+Před použitím této aktualizace se ujistěte, že si provedete následující informace:
 
 - [Známé problémy](azure-stack-release-notes-known-issues-1904.md)
 - [Aktualizace zabezpečení](azure-stack-release-notes-security-updates-1904.md)
-- [Kontrolní seznam před a po instalaci aktualizace aktivity](azure-stack-release-notes-checklist.md)
+- [Kontrolní seznam aktivit před a po instalaci aktualizace](azure-stack-release-notes-checklist.md)
 
 > [!NOTE]
-> Ujistěte se, že používáte nejnovější verzi [Azure Stack Capacity Planner](https://aka.ms/azstackcapacityplanner) nástroj k provedení úlohy plánování a velikosti. Nejnovější verze obsahuje opravy chyb a nabízí nové funkce, které se vydávají s každou aktualizaci Azure Stack.
+> Pro plánování úloh a změnu velikosti se ujistěte, že používáte nejnovější verzi nástroje [Azure Stack Capacity Planner](https://aka.ms/azstackcapacityplanner) Tool. Nejnovější verze obsahuje opravy chyb a poskytuje nové funkce, které jsou vydány s každou aktualizací Azure Stack.
 
 ## <a name="download-the-update"></a>Stáhnout aktualizaci.
 
-Můžete stáhnout aktualizace balíčku Azure Stack 1904 z [stránce pro stažení služby Azure Stack](https://aka.ms/azurestackupdatedownload).
+Balíček aktualizace Azure Stack 1904 můžete stáhnout ze [stránky pro stažení Azure Stack](https://aka.ms/azurestackupdatedownload).
 
 ## <a name="hotfixes"></a>Opravy hotfix
 
-Azure Stack vydává opravy hotfix v pravidelných intervalech. Nezapomeňte nainstalovat nejnovější opravy hotfix Azure Stack pro 1903 před aktualizací služby Azure Stack na 1904.
+Azure Stack pravidelně vydává opravy hotfix. Před aktualizací Azure Stack na 1904 nezapomeňte nainstalovat nejnovější Azure Stack opravu hotfix pro 1903.
 
-Azure Stack opravy hotfix platí pouze pro integrované systémy Azure Stack; Nepokoušejte se nainstalovat ASDK opravy hotfix.
+Azure Stack oprav hotfix se týkají pouze Azure Stack integrovaných systémů. Nepokoušejte se instalovat opravy hotfix na ASDK.
 
-### <a name="before-applying-the-1904-update"></a>Před použitím 1904 aktualizace
+### <a name="before-applying-the-1904-update"></a>Před použitím aktualizace 1904
 
-1904 vydání sady Azure Stack se musí použít na verzi 1903 s následující opravy hotfix:
+Vydání verze 1904 Azure Stack se musí použít ve verzi 1903 s následujícími opravami hotfix:
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack opravu hotfix 1.1903.2.39](https://support.microsoft.com/help/4500638)
+- [Azure Stack opravy hotfix 1.1903.2.39](https://support.microsoft.com/help/4500638)
 
-### <a name="after-successfully-applying-the-1904-update"></a>Po úspěšném použití 1904 aktualizace
+### <a name="after-successfully-applying-the-1904-update"></a>Po úspěšné instalaci aktualizace 1904
 
-Po instalaci této aktualizace nainstalujte všechny příslušné opravy hotfix. Další informace najdete v tématu naše [zásady obsluhy](azure-stack-servicing-policy.md).
+Po instalaci této aktualizace nainstalujte všechny příslušné opravy hotfix. Další informace najdete v našich [zásadách obsluhy](azure-stack-servicing-policy.md).
 
-- [Azure Stack opravu hotfix 1.1904.4.45](https://support.microsoft.com/help/4505688)
+- [Azure Stack opravy hotfix 1.1904.4.45](https://support.microsoft.com/help/4505688)
 
-## <a name="automatic-update-notifications"></a>Upozornění na automatické aktualizace
+## <a name="automatic-update-notifications"></a>Oznámení automatických aktualizací
 
-Zákazníkům se systémy, které můžete přístup k Internetu z infrastruktury sítě se zobrazí **k dispozici je aktualizace** zpráva na portálu pro operátor. Systémy bez připojení k Internetu, můžete stáhnout a naimportovat soubor .zip s odpovídající soubor XML.
+Zákazníci se systémy, které mají přístup k Internetu z sítě infrastruktury, uvidí na portálu operátora zprávu **aktualizace k dispozici** . Systémy bez přístupu k Internetu můžou stáhnout a naimportovat soubor. zip s odpovídající příponou. XML.
 
 > [!TIP]  
-> Předplatit následující *RSS* nebo *Atom* kanály, držet krok s Azure Stack opravy hotfix:
+> Přihlaste se k odběru následujících informačních kanálů *RSS* nebo *Atom* , abyste zachovali Azure Stack opravy hotfix:
 >
 > - [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss)
-> - [Atom](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom)
+> - [Počtu](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom)
 
 ## <a name="next-steps"></a>Další postup
 

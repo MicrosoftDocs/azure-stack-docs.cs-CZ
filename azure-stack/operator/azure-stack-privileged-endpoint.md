@@ -1,6 +1,6 @@
 ---
-title: Pomocí privilegovaných koncového bodu ve službě Azure Stack | Dokumentace Microsoftu
-description: Ukazuje, jak použít privilegovaný koncový bod (období) ve službě Azure Stack (pro operátory Azure stacku).
+title: Použití privilegovaného koncového bodu v Azure Stack | Microsoft Docs
+description: Ukazuje, jak použít privilegovaný koncový bod (PEP) v Azure Stack (pro operátor Azure Stack).
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,60 +15,60 @@ ms.date: 05/16/2019
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: c9e796a4ece453c3cd74bbf9a2fb6996757a0b4e
-ms.sourcegitcommit: 44f1bf6e0bfa85ee14819cad27c9b1de65d375df
+ms.openlocfilehash: 9d088cb128243b0b178e7a317ba05176a59e83c1
+ms.sourcegitcommit: f6ea6daddb92cbf458f9824cd2f8e7e1bda9688e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67596084"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68494061"
 ---
-# <a name="using-the-privileged-endpoint-in-azure-stack"></a>Pomocí privilegovaných koncového bodu ve službě Azure Stack
+# <a name="using-the-privileged-endpoint-in-azure-stack"></a>Použití privilegovaného koncového bodu v Azure Stack
 
-*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
 
-Jako operátor služby Azure Stack byste pro většinu každodenních úloh správy měli používat portál pro správu, PowerShell nebo rozhraní API Azure Resource Manageru. Však pro některé méně běžných operací, budete muset použít *privilegovaných koncový bod* (období). OBDOBÍ je předem nakonfigurované vzdálené konzoly Powershellu, poskytující s právě dostatečnou funkcemi, které vám pomohou provést požadované úlohy. Koncový bod používá [Powershellu JEA (Just Enough Administration)](https://docs.microsoft.com/powershell/jea/overview) vystavit pouze omezenou sadu rutin. K přístupu období a vyvolání omezenou sadu rutin, se používá účet s nízkým oprávněním. Jsou vyžadovány žádné účty správce. Za účelem zvýšení zabezpečení není povoleno skriptování.
+Jako operátor služby Azure Stack byste pro většinu každodenních úloh správy měli používat portál pro správu, PowerShell nebo rozhraní API Azure Resource Manageru. U některých méně běžných operací ale potřebujete použít *privilegovaný koncový bod* (PEP). PEP je předem nakonfigurovaná konzola vzdáleného prostředí PowerShell, která poskytuje dostatek možností, které vám pomůžou provést požadovanou úlohu. Koncový bod používá [prostředí POWERSHELL JEA (jen dostatečná Správa)](https://docs.microsoft.com/powershell/jea/overview) k zobrazení pouze omezené sady rutin. Pokud chcete získat přístup k PEP a vyvolat omezenou sadu rutin, použije se účet s nízkými oprávněními. Nejsou vyžadovány žádné účty správců. Pro zvýšení zabezpečení není skriptování povoleno.
 
-OBDOBÍ můžete použít k provádění následujících úloh:
+Pomocí PEP můžete provádět následující úlohy:
 
-- Při zpracování úloh nízké úrovně, jako například [shromažďování diagnostických protokolů](azure-stack-diagnostics.md#log-collection-tool).
-- Provádět mnoho úkolů integrace datových Center po nasazení pro integrované systémy, jako je například přidávání serverů pro předávání systému DNS (Domain Name) po nasazení, nastavení integrace Microsoft Graphu, integrace služby Active Directory Federation Services (AD FS) obměna certifikátů, atd.
-- Pro práci s podporou získat dočasné, vysoké úrovně přístupu pro komplexní řešení potíží integrovaný systém.
+- K provádění úloh nízké úrovně, jako je například [shromažďování diagnostických protokolů](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep).
+- Chcete-li provést mnoho úloh integrace Datacenter po nasazení pro integrované systémy, jako je například přidání serverů pro přeposílání DNS (Domain Name System) po nasazení, nastavení integrace Microsoft Graph integrace Active Directory Federation Services (AD FS) (AD FS), rotace certifikátu atd.
+- Pro práci s podporou pro získání dočasného přístupu s vysokou úrovní pro důkladné řešení potíží s integrovaným systémem.
 
-OBDOBÍ zaznamenává všechny akce (a její odpovídající výstup), které můžete provádět v relaci Powershellu. To poskytuje plnou průhlednost a kompletní auditování operací. Můžete zachovat tyto soubory protokolu pro budoucí audity.
-
-> [!NOTE]
-> V Azure Stack Development Kit (ASDK), můžete spustit několik příkazů dostupných v období přímo z relace prostředí PowerShell na hostiteli development kit. Můžete však test některé operace pomocí období, jako je například shromažďování protokolů, protože to je jedinou metodou dostupnou k provádění určitých operací v integrovaných systémech prostředí.
-
-## <a name="access-the-privileged-endpoint"></a>Přístup k privilegovaným koncového bodu
-
-OBDOBÍ přistupujete prostřednictvím vzdálené relace prostředí PowerShell na virtuálním počítači, který je hostitelem období. V ASDK, je tento virtuální počítač s názvem **AzS-ERCS01**. Pokud používáte integrovaný systém, existují tři instance období, každé spuštění uvnitř virtuálního počítače (*předpony*-ERCS01, *předpony*-ERCS02, nebo *předpony*- ERCS03) na různých hostitelích pro odolnost proti chybám. 
-
-Před zahájením tohoto postupu pro integrovaný systém, ujistěte se, že období můžete přístup podle IP adresy nebo prostřednictvím DNS. Po počátečním nasazení služby Azure Stack mít přístup období pouze podle IP adresy, protože integrace DNS ještě není nastavený. Výrobce OEM dodavatele hardwaru vám poskytne soubor JSON s názvem **AzureStackStampDeploymentInfo** , který obsahuje období IP adresy.
-
+PEP zaznamená všechny akce (a odpovídající výstupy), které v relaci PowerShellu provedete. To zajišťuje úplnou transparentnost a kompletní auditování operací. Tyto soubory protokolu můžete uchovat pro budoucí audity.
 
 > [!NOTE]
-> Z důvodů zabezpečení vyžadujeme, že připojíte k období pouze z posílené virtuální počítač se systémem na hostitelský hardware životního cyklu, nebo na počítači zabezpečené, vyhrazené, jako [Privileged Access pracovní stanice](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations). Původní konfiguraci hostitelského hardwaru životního cyklu nesmí změnit z jeho původní konfigurace, včetně instalace nového softwaru, ani by měla sloužit k připojení období.
+> V Azure Stack Development Kit (ASDK) můžete spouštět některé příkazy, které jsou k dispozici v PEP, přímo z relace PowerShellu na hostiteli vývojové sady. Můžete ale chtít otestovat některé operace pomocí PEP, jako je například shromažďování protokolů, protože se jedná o jedinou metodu, kterou lze použít k provádění určitých operací v prostředí integrovaných systémů.
+
+## <a name="access-the-privileged-endpoint"></a>Přístup k privilegovanému koncovému bodu
+
+K PEP přistupujete prostřednictvím vzdálené relace PowerShellu na virtuálním počítači, který je hostitelem PEP. V ASDK se tento virtuální počítač jmenuje **AzS-ERCS01**. Pokud používáte integrovaný systém, existují tři instance PEP, z nichž každý běží ve virtuálním počítači (předpona-ERCS01, *prefix*-ERCS02 nebo *prefix*-ERCS03) na různých hostitelích pro zajištění odolnosti. 
+
+Než zahájíte tento postup pro integrovaný systém, ujistěte se, že máte přístup k PEP buď pomocí IP adresy, nebo prostřednictvím DNS. Po počátečním nasazení Azure Stack můžete k PEP přistupovat jenom pomocí IP adresy, protože integrace DNS ještě není nastavená. Dodavatel hardwaru OEM vám poskytne soubor JSON s názvem **AzureStackStampDeploymentInfo** , který obsahuje IP adresy PEP.
+
+
+> [!NOTE]
+> Z bezpečnostních důvodů vyžadujeme, abyste se připojili k PEP jenom z zpřísněného virtuálního počítače, který běží na hostiteli životního cyklu hardwaru, nebo z vyhrazeného zabezpečeného počítače, jako je například [pracovní stanice privilegovaného přístupu](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations). Původní konfigurace hostitele životního cyklu hardwaru nesmí být upravena z původní konfigurace, včetně instalace nového softwaru, ani by měla být použita pro připojení k PEP.
 
 1. Vytvořte vztah důvěryhodnosti.
 
-    - Na integrovaný systém spusťte následující příkaz z relace prostředí Windows PowerShell se zvýšenými oprávněními pro přidání období jako důvěryhodného hostitele, na posílené virtuálního počítače spuštěného na hostiteli životního cyklu hardwaru nebo Privileged Access pracovní stanice.
+    - V integrovaném systému spusťte následující příkaz z relace se zvýšenými oprávněními Windows PowerShellu a přidejte PEP jako důvěryhodného hostitele do posíleného virtuálního počítače spuštěného na hostiteli životního cyklu hardwaru nebo v pracovní stanici privilegovaného přístupu.
 
       ```powershell
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
       ```
-    - Pokud spouštíte ASDK, přihlaste se k hostiteli development kit.
+    - Pokud používáte ASDK, přihlaste se k hostiteli vývojové sady.
 
-2. Na posílené virtuálního počítače spuštěného na hostiteli životního cyklu hardwaru nebo Privileged Access pracovní stanice otevřete relaci Windows Powershellu. Spusťte následující příkazy k vytvoření vzdálené relace na virtuálním počítači, který je hostitelem období:
+2. V posíleném virtuálním počítači, který běží na hostiteli životního cyklu hardwaru nebo na pracovní stanici privilegovaného přístupu, otevřete relaci prostředí Windows PowerShell. Spusťte následující příkazy, abyste navázali vzdálenou relaci na virtuálním počítači, který je hostitelem PEP:
  
-   - Na integrovaný systém:
+   - V integrovaném systému:
      ```powershell
        $cred = Get-Credential
 
        Enter-PSSession -ComputerName <IP_address_of_ERCS> `
          -ConfigurationName PrivilegedEndpoint -Credential $cred
      ```
-     `ComputerName` Parametr může být IP adresa nebo název DNS některého z virtuálních počítačů, jejichž hostitelem období. 
-   - Pokud spouštíte ASDK:
+     `ComputerName` Parametr může být buď IP adresa, nebo název DNS jednoho z virtuálních počítačů, které hostují PEP. 
+   - Pokud používáte ASDK:
      
      ```powershell
        $cred = Get-Credential
@@ -76,30 +76,30 @@ Před zahájením tohoto postupu pro integrovaný systém, ujistěte se, že obd
        Enter-PSSession -ComputerName azs-ercs01 `
          -ConfigurationName PrivilegedEndpoint -Credential $cred
      ``` 
-     Po zobrazení výzvy použijte následující pověření:
+     Po zobrazení výzvy použijte následující přihlašovací údaje:
 
-     - **Uživatelské jméno**: Zadejte účet CloudAdmin ve formátu  **&lt; *doméně služby Azure Stack*&gt;\cloudadmin**. (ASDK, uživatelské jméno je **azurestack\cloudadmin**.)
-     - **Heslo**: Zadejte stejné heslo, které jste zadali během instalace pro účet správce domény AzureStackAdmin.
+     - **Uživatelské jméno**: Zadejte účet CloudAdmin ve formátu  **&lt; *Azure Stack doméně*&gt;\cloudadmin**. (Pro ASDK se uživatelské jméno **azurestack\cloudadmin**.)
+     - **Heslo**: Zadejte stejné heslo, které bylo zadáno během instalace pro účet správce domény AzureStackAdmin.
 
      > [!NOTE]
-     > Pokud se nemůžete připojit ke koncovému bodu ERCS, opakujte kroky 1 a 2 opakujte s IP adresou ERCS virtuálního počítače do které jste už nevyzkoušeli pro připojení.
+     > Pokud se nemůžete připojit ke koncovému bodu ERCS, zkuste jednou a dvakrát znovu s IP adresou virtuálního počítače ERCS, ke kterému jste se ještě nepokoušeli připojit.
 
-3. Až se připojíte, příkazovém řádku se změní na **[*IP adresa nebo virtuální počítač ERCS pojmenujte*]: PS >** nebo **[azs-ercs01]: PS >** , v závislosti na prostředí. Z tohoto místa spuštění `Get-Command` zobrazíte seznam dostupných rutin.
+3. Po připojení se výzva změní na **[*IP adresa nebo název virtuálního počítače ERCS*]: PS >** nebo na **[AZS-ercs01]: PS >** v závislosti na prostředí. Z tohoto místa spusťte `Get-Command` příkaz pro zobrazení seznamu dostupných rutin.
 
-   Mnohé z těchto rutin jsou určena pouze pro prostředí integrovaného systému (například rutiny související s integrací datového centra). V ASDK ověřily následující rutiny:
+   Mnohé z těchto rutin jsou určené jenom pro integrovaná systémová prostředí (například rutiny související s integrací Datacenter). V ASDK byly ověřeny následující rutiny:
 
-   - Clear hostitel
-   - Zavřít PrivilegedEndpoint
-   - Ukončení relace PSSession
+   - Vymazat – hostitel
+   - Zavřít – PrivilegedEndpoint
+   - Konec – PSSession
    - Get-AzureStackLog
    - Get-AzureStackStampInformation
    - Get-Command
    - Get-FormatData
-   - Get-Help
+   - Získat nápovědu
    - Get-ThirdPartyNotices
-   - Objekt míry
+   - Measure – objekt
    - New-CloudAdminUser
-   - Výchozí out-Buffer:
+   - Výstupní – výchozí
    - Remove-CloudAdminUser
    - Select-Object
    - Set-CloudAdminUserPassword
@@ -107,40 +107,40 @@ Před zahájením tohoto postupu pro integrovaný systém, ujistěte se, že obd
    - Stop-AzureStack
    - Get-ClusterLog
 
-## <a name="tips-for-using-the-privileged-endpoint"></a>Tipy pro používání privilegovaných koncového bodu 
+## <a name="tips-for-using-the-privileged-endpoint"></a>Tipy pro použití privilegovaného koncového bodu 
 
-Jak je uvedeno výše, je období [PowerShell JEA](https://docs.microsoft.com/powershell/jea/overview) koncového bodu. Poskytuje silné zabezpečení vrstvy, snižuje koncového bodu JEA některé základní funkce prostředí PowerShell, jako jsou dokončení skriptování, nebo kartu. Pokud se pokusíte jakýkoli typ operace skriptu, se nezdaří s chybou **ScriptsNotAllowed**. Toto je očekávané chování.
+Jak je uvedeno výše, PEP je koncový bod [POWERSHELL JEA](https://docs.microsoft.com/powershell/jea/overview) . Při poskytování silné bezpečnostní vrstvy JEA koncový bod omezuje některé základní funkce PowerShellu, jako je například skriptování nebo dokončování karet. Pokud se pokusíte použít nějaký typ operace skriptu, operace se nezdařila s chybou **ScriptsNotAllowed**. Toto je očekávané chování.
 
-Ano například zobrazíte seznam parametrů pro danou rutinu spustíte následující příkaz:
+Takže pokud chcete například získat seznam parametrů pro danou rutinu, spusťte následující příkaz:
 
 ```powershell
     Get-Command <cmdlet_name> -Syntax
 ```
 
-Alternativně můžete použít [Import-PSSession](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Import-PSSession?view=powershell-5.1) rutinu, která importuje všechny rutiny období do aktuální relace v místním počítači. Díky tomu všechny rutiny a funkce období jsou nyní k dispozici na místním počítači, společně s tab k dokončování příkazů a další obecně skriptování. 
+Alternativně můžete pomocí rutiny [Import-PSSession](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Import-PSSession?view=powershell-5.1) importovat všechny rutiny Pep do aktuální relace na místním počítači. Díky tomu jsou teď všechny rutiny a funkce PEP dostupné na místním počítači, a to spolu s doplňováním tabulátoru a dalšími obecnými skriptováními. 
 
-Chcete-li importovat období relaci na místním počítači, proveďte následující kroky:
+Pokud chcete importovat relaci PEP na místním počítači, proveďte následující kroky:
 
 1. Vytvořte vztah důvěryhodnosti.
 
-    -Na integrovaný systém spusťte následující příkaz z relace prostředí Windows PowerShell se zvýšenými oprávněními pro přidání období jako důvěryhodného hostitele, na posílené virtuálního počítače spuštěného na hostiteli životního cyklu hardwaru nebo Privileged Access pracovní stanice.
+    – V integrovaném systému spusťte následující příkaz z relace se zvýšenými oprávněními Windows PowerShellu a přidejte PEP jako důvěryhodného hostitele do posíleného virtuálního počítače spuštěného na hostiteli životního cyklu hardwaru nebo v pracovní stanici privilegovaného přístupu.
 
       ```powershell
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
       ```
-    - Pokud spouštíte ASDK, přihlaste se k hostiteli development kit.
+    - Pokud používáte ASDK, přihlaste se k hostiteli vývojové sady.
 
-2. Na posílené virtuálního počítače spuštěného na hostiteli životního cyklu hardwaru nebo Privileged Access pracovní stanice otevřete relaci Windows Powershellu. Spusťte následující příkazy k vytvoření vzdálené relace na virtuálním počítači, který je hostitelem období:
+2. V posíleném virtuálním počítači, který běží na hostiteli životního cyklu hardwaru nebo na pracovní stanici privilegovaného přístupu, otevřete relaci prostředí Windows PowerShell. Spusťte následující příkazy, abyste navázali vzdálenou relaci na virtuálním počítači, který je hostitelem PEP:
  
-   - Na integrovaný systém:
+   - V integrovaném systému:
      ```powershell
        $cred = Get-Credential
 
        $session = New-PSSession -ComputerName <IP_address_of_ERCS> `
          -ConfigurationName PrivilegedEndpoint -Credential $cred
      ```
-     `ComputerName` Parametr může být IP adresa nebo název DNS některého z virtuálních počítačů, jejichž hostitelem období. 
-   - Pokud spouštíte ASDK:
+     `ComputerName` Parametr může být buď IP adresa, nebo název DNS jednoho z virtuálních počítačů, které hostují PEP. 
+   - Pokud používáte ASDK:
      
      ```powershell
       $cred = Get-Credential
@@ -148,43 +148,43 @@ Chcete-li importovat období relaci na místním počítači, proveďte následu
       $session = New-PSSession -ComputerName azs-ercs01 `
          -ConfigurationName PrivilegedEndpoint -Credential $cred
      ``` 
-     Po zobrazení výzvy použijte následující pověření:
+     Po zobrazení výzvy použijte následující přihlašovací údaje:
 
-     - **Uživatelské jméno**: Zadejte účet CloudAdmin ve formátu  **&lt; *doméně služby Azure Stack*&gt;\cloudadmin**. (ASDK, uživatelské jméno je **azurestack\cloudadmin**.)
-     - **Heslo**: Zadejte stejné heslo, které jste zadali během instalace pro účet správce domény AzureStackAdmin.
+     - **Uživatelské jméno**: Zadejte účet CloudAdmin ve formátu  **&lt; *Azure Stack doméně*&gt;\cloudadmin**. (Pro ASDK se uživatelské jméno **azurestack\cloudadmin**.)
+     - **Heslo**: Zadejte stejné heslo, které bylo zadáno během instalace pro účet správce domény AzureStackAdmin.
 
-3. Importovat relace období do místního počítače
-    ```powershell 
+3. Import relace PEP do místního počítače
+     ```powershell 
         Import-PSSession $session
-    ```
-4. Nyní jste – používají dokončování pomocí tabulátoru a provádět obvyklým skriptování v místní relaci Powershellu s funkcemi a rutiny období, bez snižuje stav zabezpečení služby Azure Stack. Užijte si ji!
+   ```
+4. Nyní můžete použít dokončování karet a provádět skriptování jako obvykle na místní relaci PowerShellu se všemi funkcemi a rutinami PEP, aniž by došlo ke snížení stav zabezpečení Azure Stack. Užijte si ji!
 
 
-## <a name="close-the-privileged-endpoint-session"></a>Ukončete relaci privileged koncového bodu
+## <a name="close-the-privileged-endpoint-session"></a>Zavřít privilegovanou relaci koncového bodu
 
- Jak už bylo zmíněno dříve, období protokoluje všechny akce (a její odpovídající výstup), které můžete provádět v relaci Powershellu. Relace musí zavřete stisknutím kombinace kláves `Close-PrivilegedEndpoint` rutiny. Tato rutina správně koncový bod se zavře a přenese soubory protokolů do externí sdílené složky pro uchování.
+ Jak už bylo zmíněno dříve, PEP protokoluje každou akci (a odpovídající výstup), kterou v relaci PowerShellu provedete. Relaci musíte uzavřít pomocí `Close-PrivilegedEndpoint` rutiny. Tato rutina správně ukončí koncový bod a přenáší soubory protokolu do externí sdílené složky pro uchování.
 
-Ukončit relaci koncový bod:
+Ukončení relace koncového bodu:
 
-1. Vytvoření externí sdílené složky, který je přístupný období. Ve vývojovém prostředí kit můžete pouze vytvoření sdílené složky na hostiteli development kit.
-2. Spusťte rutinu 
-    ```powershell
-    Close-PrivilegedEndpoint -TranscriptsPathDestination "\\fileshareIP\SharedFolder" -Credential Get-Credential
-    ```
-kde
+1. Vytvořte externí sdílení souborů, které je přístupné pro PEP. V prostředí vývojové sady můžete pouze vytvořit sdílenou složku na hostiteli vývojové sady.
+2. Spusťte následující rutinu: 
+     ```powershell
+     Close-PrivilegedEndpoint -TranscriptsPathDestination "\\fileshareIP\SharedFolder" -Credential Get-Credential
+     ```
+   který používá parametry v následující tabulce.
 
-| Parametr | Popis | Type | Požaduje se |
-|---------|---------|---------|---------|
-| *TranscriptsPathDestination* | Cesta k externí sdílené složce definované jako "fileshareIP\sharefoldername" | String | ano|
-| *Přihlašovací údaje* | přihlašovací údaje pro přístup ke sdílené složce | SecureString |  ano |
+   | Parametr | Popis | type | Požadováno |
+   |---------|---------|---------|---------|
+   | *TranscriptsPathDestination* | Cesta k externímu sdílení souborů definovaná jako "fileshareIP\sharefoldername" | Řetězec | ano|
+   | *Přihlašovací údaje* | přihlašovací údaje pro přístup ke sdílené složce souborů | SecureString |   ano |
 
 
-Po přepisu protokolové soubory jsou úspěšně převedena do sdílené složky, se automaticky odstraní z období. 
+Po úspěšném přenosu souborů protokolu přepisu do sdílené složky se automaticky odstraní z PEP. 
 
 > [!NOTE]
-> Pokud zavřete relaci období pomocí rutin `Exit-PSSession` nebo `Exit`, nebo pouze zavřete konzolu Powershellu, protokoly přepisu se nepřevádějí do sdílené složky. Zůstanou v období. Při příštím spuštění `Close-PrivilegedEndpoint` a zahrnují sdílené složky, přepisu protokoly z předchozí relace také přenášet. Nepoužívejte `Exit-PSSession` nebo `Exit` ukončit relaci období; použijte `Close-PrivilegedEndpoint` místo.
+> Pokud zavřete relaci PEP pomocí rutin `Exit-PSSession` nebo `Exit`nebo pouze zavřete konzolu PowerShellu, protokoly přepisu se nepřenášejí do sdílené složky. Zůstávají v PEP. Při příštím spuštění `Close-PrivilegedEndpoint` a zahrnutí sdílené složky se také přenesou protokoly přepisu z předchozích relací. Nepoužívejte `Exit-PSSession` nebo `Exit` k uzavření relace PEP použijte `Close-PrivilegedEndpoint` místo toho.
 
 
 ## <a name="next-steps"></a>Další postup
 
-[Azure Stack diagnostické nástroje](azure-stack-diagnostics.md)
+[Diagnostické nástroje Azure Stack](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep)

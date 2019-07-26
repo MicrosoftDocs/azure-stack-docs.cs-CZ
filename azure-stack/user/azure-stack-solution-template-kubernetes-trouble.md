@@ -1,6 +1,6 @@
 ---
-title: Řešení potíží s nasazení Kubernetes pro Azure Stack | Dokumentace Microsoftu
-description: Informace o řešení potíží s nasazení Kubernetes pro Azure Stack.
+title: Řešení potíží s nasazením Kubernetes pro Azure Stack | Microsoft Docs
+description: Naučte se řešit potíže s nasazením Kubernetes pro Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,126 +14,126 @@ ms.author: mabrigg
 ms.date: 06/18/2019
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 89138601d1049f192946473d0a1fdb2c21df3e4c
-ms.sourcegitcommit: 104ccafcb72a16ae7e91b154116f3f312321cff7
+ms.openlocfilehash: 135bffd37c98ce53de4b7ec58ddca1d65f4c9495
+ms.sourcegitcommit: f6ea6daddb92cbf458f9824cd2f8e7e1bda9688e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67308722"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68493834"
 ---
-# <a name="troubleshoot-kubernetes-deployment-to-azure-stack"></a>Řešení potíží s nasazení Kubernetes pro Azure Stack
+# <a name="troubleshoot-kubernetes-deployment-to-azure-stack"></a>Řešení potíží s nasazením Kubernetes pro Azure Stack
 
-*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
 
 > [!Note]  
-> Kubernetes ve službě Azure Stack je ve verzi preview. Odpojené scénář Azure Stack není aktuálně podporován ve verzi preview. Pouze pomocí položky marketplace pro vývoj a testování scénářů.
+> Kubernetes on Azure Stack je ve verzi Preview. V tuto chvíli není ve verzi Preview podporován Azure Stack odpojený scénář. Pro scénáře vývoje a testování používejte jenom položku Marketplace.
 
-Tento článek obsahuje přehled řešení potíží se Kubernetes cluster. Pokud chcete začít řešit potíže, přečtěte si téma prvků vyžadovaných pro nasazení. Může být potřeba shromažďovat protokoly nasazení ze služby Azure Stack nebo virtuálních počítačů s Linuxem, které hostují Kubernetes. Pokud chcete načíst protokoly z koncový bod pro správu, obraťte se na svého správce služby Azure Stack.
+Tento článek popisuje, jak řešit potíže s clusterem Kubernetes. Chcete-li zahájit odstraňování potíží, zkontrolujte prvky požadované pro nasazení. Možná budete muset shromáždit protokoly nasazení z Azure Stack nebo virtuálních počítačů se systémem Linux, které hostují Kubernetes. Chcete-li načíst protokoly z koncového bodu správy, obraťte se na správce Azure Stack.
 
 ## <a name="overview-of-kubernetes-deployment"></a>Přehled nasazení Kubernetes
 
-Předtím, než je řešit vašeho clusteru, zkontrolujte proces nasazení clusteru Kubernetes se službou Azure Stack. Nasazení používá šablonu Azure Resource Manageru řešení k vytvoření virtuálních počítačů a nainstaluje modul AKS pro váš cluster.
+Než začnete řešit potíže s clusterem, Projděte si proces nasazení clusteru Azure Stack Kubernetes. Nasazení používá šablonu řešení Azure Resource Manager k vytvoření virtuálních počítačů a instalaci modulu AKS pro váš cluster.
 
 ### <a name="kubernetes-deployment-workflow"></a>Pracovní postup nasazení Kubernetes
 
-Následující diagram znázorňuje obecný postup nasazení clusteru.
+Následující diagram ukazuje obecný proces nasazení clusteru.
 
-![Nasazení Kubernetes procesu](media/azure-stack-solution-template-kubernetes-trouble/002-Kubernetes-Deploy-Flow.png)
+![Nasadit proces Kubernetes](media/azure-stack-solution-template-kubernetes-trouble/002-Kubernetes-Deploy-Flow.png)
 
 ### <a name="deployment-steps"></a>Kroky nasazení
 
-1. Shromažďování vstupních parametrů z položky marketplace.
+1. Shromáždí vstupní parametry z položky Marketplace.
 
-    Zadejte hodnoty, budete muset nastavit Kubernetes cluster, včetně:
-    -  **Uživatelské jméno**: Uživatelské jméno pro virtuální počítače Linux (VM), které jsou součástí clusteru Kubernetes a DVM.
-    -  **Veřejný klíč SSH**: Klíč, který se používá pro autorizaci všechny počítače s Linuxem, které byly vytvořeny jako součást clusteru Kubernetes a DVM.
-    -  **Instanční objekt služby**: Identifikátor, který se používá od poskytovatele cloudu Kubernetes Azure. ID klienta, který je identifikován jako ID aplikace při vytváření instančního objektu služby. 
-    -  **Tajný kód klienta**: Klíč vytvořený při vytváření instančního objektu služby.
+    Zadejte hodnoty, které potřebujete k nastavení clusteru Kubernetes, včetně:
+    -  **Uživatelské jméno**: Uživatelské jméno pro virtuální počítače (VM) pro Linux, které jsou součástí clusteru Kubernetes a DVM.
+    -  **Veřejný klíč SSH**: Klíč, který se používá pro autorizaci všech počítačů se systémem Linux, které byly vytvořeny jako součást clusteru Kubernetes a DVM.
+    -  **Instanční objekt**: ID, které používá poskytovatel cloudu Azure Kubernetes. ID klienta identifikované jako ID aplikace při vytváření instančního objektu. 
+    -  **Tajný kód klienta**: Klíč, který jste vytvořili při vytváření instančního objektu.
 
-2. Vytvoření nasazení virtuálního počítače a rozšíření vlastních skriptů.
-    -  Vytvoření nasazení virtuálního počítače s Linuxem pomocí image Linuxu marketplace **Ubuntu Server 16.04-LTS**.
-    -  Stažení a spuštění rozšíření vlastních skriptů z webu marketplace. Skript je **vlastních skriptů pro Linux 2.0**.
-    -  Spustí vlastní skript DVM. Skript provede následující úlohy:
-        1. Získá koncový bod Galerie z koncového bodu metadat Azure Resource Manageru.
-        2. Získá ID prostředku služby active directory z koncového bodu metadat Azure Resource Manageru.
-        3. Načte modelu rozhraní API pro modul AKS.
-        4. Modul AKS nasadí do clusteru Kubernetes a uloží profil cloudové služby Azure Stack na `/etc/kubernetes/azurestackcloud.json`.
-3. Vytvoření hlavních virtuálních počítačů.
+2. Vytvořte virtuální počítač nasazení a rozšíření vlastních skriptů.
+    -  Vytvořte virtuální počítač pro nasazení Linux pomocí webu Marketplace Linux image **Ubuntu Server 16,04-LTS**.
+    -  Stáhněte a spusťte rozšíření vlastních skriptů z webu Marketplace. Tento skript je **vlastní skript pro Linux 2,0**.
+    -  Spusťte vlastní skript DVM. Skript provádí následující úlohy:
+        1. Načte koncový bod galerie z Azure Resource Manager koncového bodu metadat.
+        2. Získá ID prostředku služby Active Directory z Azure Resource Manager koncového bodu metadat.
+        3. Načte model rozhraní API pro modul AKS.
+        4. Nasadí modul AKS do clusteru Kubernetes a uloží profil Azure Stack Cloud do `/etc/kubernetes/azurestackcloud.json`.
+3. Vytvořte hlavní virtuální počítače.
 
-4. Stažení a spuštění rozšíření vlastních skriptů.
+4. Stáhněte a spusťte rozšíření vlastních skriptů.
 
-5. Hlavní skript spusťte.
+5. Spusťte hlavní skript.
 
-    Skript provede následující úlohy:
-    - Nainstaluje etcd, Docker a Kubernetes prostředky, jako jsou kubelet. etcd je distribuovaná hodnota klíče úložiště, který poskytuje způsob, jak ukládat data napříč clusterem počítačů. Docker podporuje virtualizations holou úroveň operačního systému, známé jako kontejnery. Kubelet je agenta uzlu, na kterém běží na všech uzlech Kubernetes.
-    - Nastaví **etcd** služby.
-    - Nastaví **kubelet** služby.
+    Skript provádí následující úlohy:
+    - Nainstaluje etcd, Docker a Kubernetes prostředky, jako je například kubelet. etcd je úložiště hodnot distribuovaných klíčů, které poskytuje způsob, jak ukládat data napříč clusterem počítačů. Docker podporuje holé virtualizace na úrovni operačního systému označované jako kontejnery. Kubelet je agent uzlu, který běží na jednotlivých uzlech Kubernetes.
+    - Nastaví službu **etcd** .
+    - Nastaví službu **kubelet** .
     - Spustí kubelet. Tato úloha zahrnuje následující kroky:
-        1. Spustí službu rozhraní API.
-        2. Spustí službu řadiče.
-        3. Spustí službu scheduler.
-6. Vytvoření agenta pro virtuální počítače.
+        1. Spustí službu API.
+        2. Spustí službu kontroleru.
+        3. Spustí službu Scheduler Service.
+6. Vytvořte virtuální počítače agenta.
 
-7. Stažení a spuštění rozšíření vlastních skriptů.
+7. Stáhněte a spusťte rozšíření vlastních skriptů.
 
-7. Spusťte skript agenta. Agent vlastní skript provede následující úlohy:
+7. Spusťte skript agenta. Vlastní skript agenta provádí následující úlohy:
     - Nainstaluje **etcd**.
-    - Nastaví **kubelet** služby.
-    - Připojí ke clusteru Kubernetes.
+    - Nastaví službu **kubelet** .
+    - Připojí se ke clusteru Kubernetes.
 
 ## <a name="steps-to-troubleshoot-kubernetes"></a>Postup řešení potíží s Kubernetes
 
-Můžete shromažďovat a zkontrolujte protokoly nasazení na virtuální počítače, které podporují vašemu clusteru Kubernetes. Obraťte se na správce služby Azure Stack k ověření verze služby Azure Stack, které potřebujete k používání a získat protokoly z Azure Stack, která se vztahují na vaše nasazení.
+Na virtuálních počítačích, které podporují cluster Kubernetes, můžete shromažďovat a kontrolovat protokoly nasazení. Obraťte se na správce Azure Stack a ověřte verzi Azure Stack, kterou potřebujete použít, a získejte protokoly od Azure Stack, které souvisejí s vaším nasazením.
 
-1. Zkontrolujte [stav nasazení](#review-deployment-status) a tyto protokoly načíst z hlavního uzlu v clusteru Kubernetes.
-2. Ujistěte se, že používáte nejnovější verzi služby Azure Stack. Pokud si nejste jistí, kterou verzi používáte, obraťte se na svého správce služby Azure Stack.
-3.  Projděte si soubory vytvoření virtuálního počítače. Může mít vyskytly následující problémy:  
-    - Veřejný klíč může být neplatný. Projděte si klíč, který jste vytvořili.  
-    - Vytvoření virtuálního počítače může mít aktivuje vnitřní chybu nebo Chyba při vytváření aktivované. Několika faktory mohou způsobit chyby, včetně omezení kapacity pro vaše předplatné služby Azure Stack.
-    - Ujistěte se, že plně kvalifikovaný název domény (FQDN) pro virtuální počítač začíná duplicitní předpona.
-4.  Pokud je virtuální počítač **OK**, pak vyhodnotit DVM. Pokud DVM chybová zpráva:
+1. Zkontrolujte [stav nasazení](#review-deployment-status) a načtěte protokoly z hlavního uzlu v clusteru Kubernetes.
+2. Ujistěte se, že používáte nejnovější verzi Azure Stack. Pokud si nejste jistí, kterou verzi používáte, obraťte se na správce Azure Stack.
+3.  Zkontrolujte soubory pro vytváření virtuálních počítačů. Mohli byste mít následující problémy:  
+    - Veřejný klíč může být neplatný. Zkontrolujte klíč, který jste vytvořili.  
+    - Při vytváření virtuálního počítače se možná aktivovala vnitřní chyba nebo se aktivovala Chyba při vytváření. Řada faktorů může způsobit chyby, včetně omezení kapacity pro předplatné Azure Stack.
+    - Ujistěte se, že plně kvalifikovaný název domény (FQDN) pro virtuální počítač začíná duplicitní předponou.
+4.  Pokud je virtuální počítač v **pořádku**, vyhodnoťte DVM. Pokud má DVM chybovou zprávu:
 
-    - Veřejný klíč může být neplatný. Projděte si klíč, který jste vytvořili.  
-    - Obraťte se na správce služby Azure Stack pro tyto protokoly načíst s použitím privilegovaných koncových bodů pro službu Azure Stack. Další informace najdete v tématu [diagnostické nástroje služby Azure Stack](../operator/azure-stack-diagnostics.md).
-5. Pokud máte dotaz k vašemu nasazení, můžete ji publikovat nebo se pokud někdo už odpověděl na dotaz v [fórum pro Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). 
+    - Veřejný klíč může být neplatný. Zkontrolujte klíč, který jste vytvořili.  
+    - Obraťte se na správce Azure Stack a načtěte protokoly pro Azure Stack pomocí privilegovaných koncových bodů. Další informace najdete v tématu [Nástroje pro diagnostiku Azure Stack](../operator/azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep).
+5. Pokud máte dotaz týkající se nasazení, můžete ho publikovat, nebo zjistit, jestli už někdo na dotaz na [Azure Stack Fórum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)odpověděl. 
 
-## <a name="review-deployment-status"></a>Zkontrolujte stav nasazení
+## <a name="review-deployment-status"></a>Zkontrolovat stav nasazení
 
-Při nasazování clusteru Kubernetes, můžete zkontrolovat stav nasazení zkontrolujte případné problémy.
+Když nasadíte cluster Kubernetes, můžete zkontrolovat stav nasazení a zkontrolovat případné problémy.
 
 1. Otevřít [portálu Azure Stack](https://portal.local.azurestack.external).
-2. Vyberte **skupiny prostředků**a potom vyberte název skupiny prostředků, kterou jste použili při nasazování clusteru Kubernetes.
-3. Vyberte **nasazení**a pak vyberte **název nasazení**.
+2. Vyberte **skupiny prostředků**a pak vyberte název skupiny prostředků, kterou jste použili při nasazování clusteru Kubernetes.
+3. Vyberte **nasazení**a potom vyberte **název nasazení**.
 
-    ![Řešení potíží s Kubernetes: výběr možnosti nasazení](media/azure-stack-solution-template-kubernetes-trouble/azure-stack-kub-trouble-report.png)
+    ![Řešení potíží s Kubernetes: vyberte nasazení.](media/azure-stack-solution-template-kubernetes-trouble/azure-stack-kub-trouble-report.png)
 
-4.  Najdete v okně řešení potíží. Každý nasazený prostředek obsahuje následující informace:
+4.  Projděte si okno řešení potíží. Každý nasazený prostředek poskytuje tyto informace:
     
     | Vlastnost | Popis |
     | ----     | ----        |
     | Resource | Název prostředku. |
-    | Typ | Poskytovatel prostředků a typ prostředku. |
-    | Status | Stav položky. |
-    | Časové razítko | Časové razítko UTC času. |
-    | Podrobnosti o operaci | Podrobnosti operace, jako je poskytovatel prostředků, která byla zahrnuta v operaci, koncový bod prostředku a název prostředku. |
+    | type | Poskytovatel prostředků a typ prostředku. |
+    | Stav | Stav položky |
+    | Časové razítko | Časové razítko UTC v čase. |
+    | Detaily operace | Podrobnosti o operaci, jako je například poskytovatel prostředků, který byl součástí operace, koncový bod prostředku a název prostředku. |
 
-    Každá položka má zelená nebo červená ikona stavu.
+    Každá položka má ikonu stavu zelenou nebo červenou.
 
-## <a name="review-deployment-logs"></a>Zkontrolujte protokoly nasazení
+## <a name="review-deployment-logs"></a>Kontrola protokolů nasazení
 
-Pokud na portálu Azure Stack neposkytuje dostatek informací k řešení potíží nebo překonat selhání nasazení, dalším krokem je podívat do protokolů clusteru. Pokud chcete ručně načíst protokoly nasazení, je obvykle potřeba připojit k jednomu z hlavních virtuálních počítačů clusteru. Jednodušší alternativním přístupem je stáhněte a spusťte následující příkaz [skriptu Bash](https://aka.ms/AzsK8sLogCollectorScript) poskytované týmem služby Azure Stack. Tento skript připojí ke clusteru virtuálních počítačů a DVM, shromažďuje relevantní systému a protokolů clusteru a stáhne je zpátky do pracovní stanice.
+Pokud Azure Stack portál neposkytuje dostatek informací, abyste mohli vyřešit nebo překonat selhání nasazení, je dalším krokem dig do protokolů clusteru. Pokud chcete protokoly nasazení načíst ručně, musíte se obvykle připojit k jednomu z hlavních virtuálních počítačů v clusteru. Jednodušší alternativní přístup by byl stáhnout a spustit následující [skript bash](https://aka.ms/AzsK8sLogCollectorScript) poskytnutý týmem Azure Stack. Tento skript se připojuje k virtuálním počítačům DVM a clusteru, shromažďuje relevantní protokoly systému a clusteru a stáhne je zpátky do pracovní stanice.
 
 ### <a name="prerequisites"></a>Požadavky
 
-Je třeba příkazový řádek Bash na počítači, který používáte ke správě služby Azure Stack. Na počítači s Windows můžete získat Bash výzvy nainstalováním [Git pro Windows](https://git-scm.com/downloads). Po instalaci, vyhledejte _Git Bash_ v nabídce start.
+K počítači, který použijete ke správě Azure Stack, budete potřebovat výzvu k bash. Na počítači s Windows můžete získat výzvu bash instalací [Gitu pro Windows](https://git-scm.com/downloads). Po instalaci vyhledejte _Git bash_ v nabídce Start.
 
-### <a name="retrieving-the-logs"></a>Načítají se protokoly
+### <a name="retrieving-the-logs"></a>Načítání protokolů
 
-Postupujte podle těchto kroků ke shromažďování a stažení protokolů clusteru:
+Pomocí těchto kroků můžete shromáždit a stáhnout protokoly clusteru:
 
-1. Otevřete příkazový řádek Bash. Z počítače s Windows otevřete _Git Bash_ nebo spustit: `C:\Program Files\Git\git-bash.exe`.
+1. Otevřete příkazový řádek bash. Z počítače s Windows otevřete _Git bash_ nebo spusťte: `C:\Program Files\Git\git-bash.exe`.
 
-2. Spuštěním následujících příkazů v vaše příkazovém řádku Bash Stáhněte skript kolektoru protokolů:
+2. Spuštěním následujících příkazů v příkazovém řádku bash Stáhněte skript kolektoru protokolů:
 
     ```Bash  
     mkdir -p $HOME/kuberneteslogs
@@ -142,34 +142,34 @@ Postupujte podle těchto kroků ke shromažďování a stažení protokolů clus
     chmod 744 getkuberneteslogs.sh
     ```
 
-3. Vyhledání informací o vyžaduje skript a spusťte ho:
+3. Vyhledejte informace požadované skriptem a spusťte ho:
 
-    | Parametr           | Popis                                                                                                      | Příklad:                                                                       |
+    | Parametr           | Popis                                                                                                      | Příklad                                                                       |
     |---------------------|------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
-    | -d, --vmd-host      | Veřejná IP adresa nebo název plně kvalifikované domény (FQDN) DVM. Název virtuálního počítače začíná `vmd-`. | IP: 192.168.102.38<br>DNS: vmd-myk8s.local.cloudapp.azurestack.external |
-    | -h, – Nápověda  | Tisk použití příkazu. | |
-    | -i,-identity soubor | Cesta k souboru privátního klíče RSA předán položky marketplace při vytváření clusteru Kubernetes. Třeba do vzdáleného úložiště v uzlech Kubernetes. | C:\data\id_rsa.pem (Putty)<br>~/.ssh/id_rsa (SSH)
-    | -m, --master-host   | Veřejnou IP adresu nebo název plně kvalifikované domény (FQDN) hlavního uzlu Kubernetes. Název virtuálního počítače začíná `k8s-master-`. | IP: 192.168.102.37<br>FQDN: k8s-12345.local.cloudapp.azurestack.external      |
-    | -u, --user          | Uživatelské jméno předané do položky marketplace při vytváření clusteru Kubernetes. Třeba do vzdáleného úložiště v uzlech Kubernetes. | azureuser (výchozí hodnota) |
+    | -d, --vmd-host      | Veřejná IP adresa nebo plně kvalifikovaný název domény (FQDN) pro DVM. Název virtuálního počítače začíná `vmd-`na. | IP: 192.168.102.38<br>DNS: VMD-myk8s. Local. cloudapp. azurestack. external |
+    | -h,--help  | Použití příkazu tisku. | |
+    | -i,--identity-File | Cesta k souboru privátního klíče RSA předanému položce Marketplace při vytváření clusteru Kubernetes. Vyžaduje se pro vzdálené přihlášení k uzlům Kubernetes. | C:\data\id_rsa.pem (Putty)<br>~/.ssh/id_rsa (SSH)
+    | -m,--Master-Host   | Veřejná IP adresa nebo plně kvalifikovaný název domény (FQDN) hlavního uzlu Kubernetes Název virtuálního počítače začíná `k8s-master-`na. | IP: 192.168.102.37<br>Plně kvalifikovaný název domény: k8s-12345. Local. cloudapp. azurestack. external      |
+    | -u,--User          | Uživatelské jméno předané položce Marketplace při vytváření clusteru Kubernetes. Vyžaduje se pro vzdálené přihlášení k uzlům Kubernetes. | azureuser (výchozí hodnota) |
 
 
-   Když přidáte všechny hodnoty parametrů, váš příkaz může vypadat podobně jako v tomto příkladu:
+   Když přidáte hodnoty parametrů, váš příkaz může vypadat podobně jako v tomto příkladu:
 
     ```Bash  
     ./getkuberneteslogs.sh --identity-file "C:\id_rsa.pem" --user azureuser --vmd-host 192.168.102.37
      ```
 
-4. Za pár minut, bude výstup skriptu shromažďovat protokoly a adresář s názvem `KubernetesLogs_{{time-stamp}}`. Zde najdete adresář pro každý virtuální počítač, který patří do clusteru.
+4. Po několika minutách skript vytvoří výstup shromážděných protokolů do adresáře s názvem `KubernetesLogs_{{time-stamp}}`. Pro každý virtuální počítač, který patří do clusteru, najdete adresář.
 
-    Skript kolektoru protokolů také vyhledávání chyb v souborech protokolu a zahrnují postup řešení potíží, pokud najde známý problém. Ujistěte se, že používáte nejnovější verzi skript, který chcete zvýšit šanci na hledání známých problémů.
+    Skript kolektoru protokolů bude také vyhledávat chyby v souborech protokolu a zahrnovat kroky pro řešení potíží, pokud najde známý problém. Ujistěte se, že používáte nejnovější verzi skriptu, abyste zvýšili pravděpodobnost hledání známých problémů.
 
 > [!Note]  
-> Podívejte se na tomto Githubu [úložiště](https://github.com/msazurestackworkloads/azurestack-gallery/tree/master/diagnosis) další podrobnosti o skriptu kolektoru protokolů.
+> Další informace o skriptu kolektoru protokolů najdete v tomto [úložišti](https://github.com/msazurestackworkloads/azurestack-gallery/tree/master/diagnosis) GitHub.
 
 ## <a name="next-steps"></a>Další postup
 
-[Nasazení Kubernetes pro Azure Stack](azure-stack-solution-template-kubernetes-deploy.md)
+[Nasazení Kubernetes do Azure Stack](azure-stack-solution-template-kubernetes-deploy.md)
 
-[Přidání clusteru Kubernetes na webu Marketplace (pro operátory Azure stacku)](../operator/azure-stack-solution-template-kubernetes-cluster-add.md)
+[Přidání clusteru Kubernetes do Marketplace (pro operátor Azure Stack)](../operator/azure-stack-solution-template-kubernetes-cluster-add.md)
 
 [Kubernetes v Azure](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)

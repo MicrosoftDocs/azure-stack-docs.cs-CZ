@@ -1,6 +1,6 @@
 ---
-title: Problémy s připojením k využití a chyb ve službě Azure Stack | Dokumentace Microsoftu
-description: Řešení potíží s Azure Stack využití problémy a chyby.
+title: Problémy s připojením a chyby v Azure Stack | Microsoft Docs
+description: Řešení potíží s Azure Stack problémy a chybami při použití.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,50 +15,50 @@ ms.date: 06/27/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 06/27/2019
-ms.openlocfilehash: 57c546ec3583c9e04594e4da542a3c2ce3f72c62
-ms.sourcegitcommit: bcaad8b7db2ea596018d973cb29283d8c6daebfb
+ms.openlocfilehash: 68bf47ab2a0842b0aeeae07030272e7106a63220
+ms.sourcegitcommit: f6ea6daddb92cbf458f9824cd2f8e7e1bda9688e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/27/2019
-ms.locfileid: "67419755"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68494118"
 ---
-# <a name="usage-connectivity-errors"></a>Chyby připojení k použití
+# <a name="usage-connectivity-errors"></a>Chyby připojení využití
 
-Data o využití služby Azure Stack je odeslána do Azure s [ *Azure most* komponenty](azure-stack-usage-reporting.md) ve službě Azure Stack. Pokud přemostění v rámci služby Azure Stack se nemůže připojit ke službě využití Azure, zobrazí se následující chyba:
+Data o využití Azure Stack se do Azure odesílají pomocí [komponenty *Azure Bridge* ](azure-stack-usage-reporting.md) v Azure Stack. Pokud se most ve Azure Stack nemůže připojit ke službě Azure Usage, zobrazí se následující chyba:
 
-![Chyba most použití](media/azure-stack-usage-issues/usageerror2.png)
+![Chyba mostu použití](media/azure-stack-usage-issues/usageerror2.png)
 
-V okně může poskytovat další informace o chybě a řešení:
+Okno může poskytovat další informace o chybě a řešení:
 
 ![řešení chyb](media/azure-stack-usage-issues/usageerror3.png)
 
-## <a name="resolve-connectivity-issues"></a>Vyřešte problémy s připojením
+## <a name="resolve-connectivity-issues"></a>Řešení potíží s připojením
 
-Chcete-li tyto problémy zmírnit, zkuste následující kroky:
+Pokud chcete tento problém zmírnit, vyzkoušejte následující kroky:
 
-- Ověřte, že tato konfigurace sítě umožňuje most Azure pro připojení k vzdálené služby.
+- Ověřte, že konfigurace sítě umožňuje Azure Bridge připojit se ke vzdálené službě.
 
-- Přejděte [ **Správa oblastí** > **vlastnosti** ](azure-stack-registration.md#verify-azure-stack-registration) okno Najít ID předplatného Azure používá k registraci, skupinu prostředků a název registrace zdrojů. Ověřte, zda existuje registrace prostředků podle ID správné předplatného Azure na webu Azure portal. Uděláte to tak, přejděte na **všechny prostředky** vytvořené v rámci ID předplatného Azure a kontrolu **zobrazit skryté typy** pole. Pokud nemůžete najít prostředek registrace, postupujte podle kroků v [obnovit nebo změna registrace](azure-stack-registration.md#renew-or-change-registration) přeregistrovat služby Azure Stack.
+- V okně [**vlastnosti** **správy** > oblastí](azure-stack-registration.md#verify-azure-stack-registration) Najděte ID předplatného Azure, které se používá pro registraci, skupinu prostředků a název prostředku registrace. Ověřte, že prostředek registrace existuje pod správným ID předplatného Azure v Azure Portal. Provedete to tak, že přejdete na **všechny prostředky** vytvořené v rámci ID předplatného Azure a zaškrtnete políčko **Zobrazit skryté typy** . Pokud nemůžete najít registrační prostředek, postupujte podle kroků v části [obnovení nebo změna registrace](azure-stack-registration.md#renew-or-change-registration) a znovu zaregistrujte své Azure Stack.
 
   ![Portál](media/azure-stack-usage-issues/stackres.png)
 
 ## <a name="error-codes"></a>Kódy chyb
 
-Tato část popisuje využití kódy chyb.
+Tato část popisuje kódy chyb využití.
 
 | Kód chyby                 | Problém                                                                                                                                             | Náprava                                                                                                                                                                                                                                                                                        |
 |----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| NetworkError               | Azure Stack přemostění není schopen odeslat požadavek na koncový bod služby usage v Azure.                                                            | Zkontrolujte, jestli je proxy server blokuje nebo zachycování přístup ke koncovému bodu služby usage.                                                                                                                                                                                                             |
-| RequestTimedOut            | Požadavek byl odeslán z most Azure, ale služba usage v Azure nepodařilo odpovědět v časovém limitu.                             | Zkontrolujte, jestli je proxy server blokuje nebo zachycování přístup ke koncovému bodu služby usage.                                                                                                                                                                                                                        |
-| LoginError                 | Nejde ověřit s Microsoft Azure Active Directory.                                                                                                             | Ujistěte se, že koncový bod přihlašovacího účtu služby Azure AD je přístupná ze všech virtuálních počítačů XRP ve službě Azure Stack.                                                                                                                                                                                                                     |
-| CertificateValidationError | Azure přemostění není schopen odeslat požadavek, protože to není možné ověřit pomocí služby Azure.                                    | Zkontrolujte, jestli je proxy server zachycuje přenosy mezi počítači Azure Stack XRP a koncovému bodu usage pro bránu HTTP.                                                                                                                                                                                      |
-| Neautorizováno               | Azure most nedokáže k zápisu dat do služby využití ve službě Azure, protože služba Azure není možné ověřit most Azure Stack. | Zkontrolujte, jestli registrace prostředek byl změněn a pokud ano, znovu registrace Azure Stack. <br><br> V některých případech čas problémům synchronizace mezi službami Azure Stack a Azure AD může způsobit selhání. V takovém případě Ujistěte se, že časy na virtuálních počítačích XRP ve službě Azure Stack jsou synchronizované s Azure AD. |
+| NetworkError               | Azure Stack most nemůže odeslat požadavek na použití koncového bodu služby v Azure.                                                            | Zkontroluje, jestli proxy server blokuje nebo zachytává přístup k koncovému bodu služby Usage.                                                                                                                                                                                                             |
+| RequestTimedOut            | Požadavek byl odeslán z Azure Bridge, ale služba využití v Azure nedokázala odpovědět v časovém limitu.                             | Zkontroluje, jestli proxy server blokuje nebo zachytává přístup k koncovému bodu služby Usage.                                                                                                                                                                                                                        |
+| LoginError                 | Nelze provést ověření pomocí Microsoft Azure Active Directory.                                                                                                             | Zajistěte, aby byl koncový bod přihlášení ke službě Azure AD přístupný ze všech virtuálních počítačů s XRP v Azure Stack.                                                                                                                                                                                                                     |
+| CertificateValidationError | Azure Bridge nemůže požadavek odeslat, protože není možné ho ověřit ve službě Azure.                                    | Ověřte, jestli existuje proxy, který zachycuje přenos HTTPS mezi Azure Stackm počítačem XRP a koncovým bodem brány služby Usage.                                                                                                                                                                                      |
+| Neautorizováno               | Azure Bridge nemůže odeslat data do služby využití v Azure, protože služba Azure nemůže ověřit most Azure Stack. | Ověřte, zda byl registrační prostředek změněn a v případě potřeby jej znovu zaregistrujte Azure Stack. <br><br> V některých případech může tato chyba způsobit problémy s synchronizací mezi Azure Stack a službou Azure AD. V takovém případě je nutné zajistit, aby se časy v Azure Stackch virtuálních počítačích XRP synchronizovaná se službou Azure AD. |
 |                            |                                                                                                                                                   |                                                                                                                                                                                                                                                                                                    |
 
-Kromě toho můžete může vyžadovat, aby poskytli soubory protokolu pro komponenty Azure most WAS a WASPublic pomocí následujících [tyto kroky](azure-stack-diagnostics.md#log-collection-tool).
+Kromě toho může být nutné zadat soubory protokolu pro součásti Azure Bridge, WAS a WASPublic pomocí následujících [kroků](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep).
 
 ## <a name="next-steps"></a>Další postup
 
-- Další informace o [generování sestav dat využití služby Azure Stack na Azure](azure-stack-usage-reporting.md).
-- Zkontrolujte chybové zprávy, pokud se spouštějí v procesu registrace, najdete v článku [chybových zpráv registrace klienta](azure-stack-registration-errors.md).
-- Další informace o [infrastrukturu pro generování sestav využití pro poskytovatele cloudových služeb](azure-stack-csp-ref-infrastructure.md).
+- Přečtěte si další informace o [vytváření sestav Azure Stack dat o využití do Azure](azure-stack-usage-reporting.md).
+- Pokud chcete zkontrolovat chybové zprávy, pokud se spouštějí v procesu registrace, přečtěte si téma [chybové zprávy registrace klienta](azure-stack-registration-errors.md).
+- Přečtěte si další informace o [infrastruktuře vytváření sestav využití pro poskytovatele cloudových služeb](azure-stack-csp-ref-infrastructure.md).

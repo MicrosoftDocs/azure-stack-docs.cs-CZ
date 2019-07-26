@@ -1,6 +1,6 @@
 ---
-title: Spuštění a zastavení služby Azure Stack | Dokumentace Microsoftu
-description: Zjistěte, jak ke spuštění a vypnutí služby Azure Stack.
+title: Spustit a zastavit Azure Stack | Microsoft Docs
+description: Zjistěte, jak spustit a vypnout Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,62 +16,62 @@ ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: ee2c0e5551d6ee942d0459017412368f7e115dc7
-ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
+ms.openlocfilehash: 993c0c668a8894c82eddbf79e93b1722d3a3d8f4
+ms.sourcegitcommit: f6ea6daddb92cbf458f9824cd2f8e7e1bda9688e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67131366"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68494019"
 ---
 # <a name="start-and-stop-azure-stack"></a>Spuštění a zastavení služby Azure Stack
-Postupujte podle postupů v tomto článku řádně vypnout a restartovat služby Azure Stack. Vypnutí se fyzicky vypnutí celého prostředí Azure Stack. Spuštění využívá pro všechny infrastruktury role a prostředky pro napájení stavu, ve kterém se nacházely před vypnutí tenantovi vrátí.
+Postupujte podle pokynů v tomto článku, abyste správně vypnuli a restartovali Azure Stack služby. Vypínání bude fyzicky vypnout celé Azure Stack prostředí. Spusťte své pravomoci na všech rolích infrastruktury a vrátí prostředky tenanta do stavu napájení, který existoval před vypnutím.
 
-## <a name="stop-azure-stack"></a>Zastavení služby Azure Stack 
+## <a name="stop-azure-stack"></a>Zastavit Azure Stack 
 
-Vypnutí služby Azure Stack pomocí následujících kroků:
+Vypněte Azure Stack pomocí následujících kroků:
 
-1. Příprava všechny úlohy běžící v prostředí Azure Stack tenanta prostředky pro nadcházející vypnutí. 
+1. Připravte všechny úlohy spuštěné v prostředcích tenanta Azure Stack prostředí pro nadcházející vypínání. 
 
-2. Otevřete relaci pro privilegované koncový bod (období) z počítače s přístupem k síti na virtuální počítače Azure Stack ERCS. Pokyny najdete v tématu [pomocí privilegovaných koncového bodu ve službě Azure Stack](azure-stack-privileged-endpoint.md).
+2. Otevřete privilegovanou relaci koncového bodu (PEP) z počítače se síťovým přístupem k virtuálním počítačům s Azure Stack ERCS. Pokyny najdete v tématu [použití privilegovaného koncového bodu v Azure Stack](azure-stack-privileged-endpoint.md).
 
-3. Z období spusťte:
+3. Z PEP spusťte:
 
     ```powershell
       Stop-AzureStack
     ```
 
-4. Počkejte všech fyzických uzlů Azure Stack k výkonu vypnout.
+4. Počkejte, než se vypíná všechny fyzické Azure Stack uzly.
 
 > [!Note]  
-> Stav napájení fyzického uzlu lze ověřit podle pokynů od výrobce OEM (OEM), zadali svůj hardware Azure Stack. 
+> Stav napájení fyzického uzlu můžete ověřit podle pokynů výrobce OEM (Original Equipment Manufacturer), který dodal váš Azure Stack hardware. 
 
-## <a name="start-azure-stack"></a>Spuštění služby Azure Stack 
+## <a name="start-azure-stack"></a>Spustit Azure Stack 
 
-Spuštění služby Azure Stack pomocí následujících kroků. Postupujte podle těchto kroků bez ohledu na to, jak Azure Stack zastavena.
+Spusťte Azure Stack pomocí následujících kroků. Postupujte podle těchto kroků bez ohledu na to, jak se Azure Stack zastavilo.
 
-1. Napájení na všech fyzických uzlů ve vašem prostředí Azure Stack. Ověřte zapnutí pokyny, jak fyzických uzlů podle pokynů od výrobce OEM (OEM) který poskytnutý hardware Azure Stack.
+1. Zapněte na každém fyzickém uzlu v prostředí Azure Stack. Podle pokynů výrobce OEM (Original Equipment Manufacturer), který dodal hardware pro váš Azure Stack, ověřte pokyny pro fyzické uzly.
 
-2. Počkejte, dokud se spustí služby infrastruktury Azure stacku. Služby infrastruktury Azure Stack může vyžadovat dvou hodin k dokončení procesu spuštění. Počáteční stav služby Azure Stack s můžete ověřit [ **Get-ActionStatus** rutiny](#get-the-startup-status-for-azure-stack).
+2. Počkejte, dokud se nespustí služby infrastruktury Azure Stack. Služby infrastruktury Azure Stack můžou k dokončení procesu spuštění vyžadovat dvě hodiny. Stav spuštění Azure Stack můžete ověřit pomocí rutiny [ **Get-ActionStatus** ](#get-the-startup-status-for-azure-stack).
 
-3. Ujistěte se, že všech vašich prostředků tenanta vracet, stavu, ve kterém se nacházely před vypnutí. Úlohy běžící na prostředky tenanta může být potřeba překonfigurovat po spuštění Správce úloh.
+3. Zajistěte, aby se všechny prostředky tenanta vrátily do stavu před vypnutím. Úlohy spuštěné v prostředcích tenanta možná budete muset po spuštění znovu nakonfigurovat správcem úloh.
 
-## <a name="get-the-startup-status-for-azure-stack"></a>Získání stavu po spuštění pro službu Azure Stack
+## <a name="get-the-startup-status-for-azure-stack"></a>Získat stav spuštění pro Azure Stack
 
-Získáte spuštění pro spouštěcí rutiny služby Azure Stack pomocí následujících kroků:
+Pomocí následujících kroků Získejte spuštění Azure Stack spouštěcí rutiny:
 
-1. Otevřete relaci Privileged koncového bodu z počítače s přístupem k síti na virtuální počítače Azure Stack ERCS.
+1. Otevřete privilegovanou relaci koncového bodu z počítače se síťovým přístupem k virtuálním počítačům s Azure Stack ERCS.
 
-2. Z období spusťte:
+2. Z PEP spusťte:
 
     ```powershell
       Get-ActionStatus Start-AzureStack
     ```
 
-## <a name="troubleshoot-startup-and-shutdown-of-azure-stack"></a>Řešení potíží při spuštění a ukončení služby Azure Stack
+## <a name="troubleshoot-startup-and-shutdown-of-azure-stack"></a>Řešení potíží se spouštěním a vypnutím Azure Stack
 
-Pokud služby infrastruktury a klientů není úspěšně spustit dvě hodiny po napájení můžete ve vašem prostředí Azure Stack, proveďte následující kroky. 
+Proveďte následující kroky, pokud se infrastruktura a služby tenanta po zapnutí Azure Stack prostředí neúspěšně spustí 2 hodiny. 
 
-1. Otevřete relaci Privileged koncového bodu z počítače s přístupem k síti na virtuální počítače Azure Stack ERCS.
+1. Otevřete privilegovanou relaci koncového bodu z počítače se síťovým přístupem k virtuálním počítačům s Azure Stack ERCS.
 
 2. Spuštěním příkazu 
 
@@ -79,7 +79,7 @@ Pokud služby infrastruktury a klientů není úspěšně spustit dvě hodiny po
       Test-AzureStack
       ```
 
-3. Zkontrolujte výstup a vyřešte všechny chyby stavu. Další informace najdete v tématu [spustit test pro ověření služby Azure Stack](azure-stack-diagnostic-test.md).
+3. Zkontrolujte výstup a vyřešte všechny chyby stavu. Další informace najdete v tématu [spuštění ověřovacího testu Azure Stack](azure-stack-diagnostic-test.md).
 
 4. Spuštěním příkazu
 
@@ -87,8 +87,8 @@ Pokud služby infrastruktury a klientů není úspěšně spustit dvě hodiny po
       Start-AzureStack
     ```
 
-5. Pokud systém **Start AzureStack** neúspěšně, obraťte se na zákaznickou podporu služeb Microsoftu. 
+5. Pokud při spuštění **Start-AzureStack** dojde k chybě, obraťte se na podporu služeb Microsoft Customer. 
 
 ## <a name="next-steps"></a>Další postup 
 
-Další informace o [diagnostické nástroje služby Azure Stack](azure-stack-diagnostics.md)
+Další informace o [diagnostických nástrojích Azure Stack](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep)

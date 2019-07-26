@@ -1,6 +1,6 @@
 ---
-title: Obnovit ze ztráty dat v pomocí infrastruktury služby zálohování Azure stacku | Dokumentace Microsoftu
-description: Při katastrofických selhání způsobuje Azure Stack selhání, můžete obnovit data vaší infrastruktury při obnovení vašeho nasazení Azure stacku.
+title: Zotavení z závažné ztráty dat v Azure Stack pomocí služby Infrastructure Backup | Microsoft Docs
+description: Když závažná chyba způsobí, že Azure Stack selže, může vaše data infrastruktury při opětovném vytváření nasazení Azure Stack obnovit.
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,62 +16,62 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: d7b38d2eb0e840a35729879211934e470bec6dfe
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: b6b6796f5d47189499e01c94b9c988dbf03091bb
+ms.sourcegitcommit: f6ea6daddb92cbf458f9824cd2f8e7e1bda9688e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66268965"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68494000"
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>Obnovit ze ztráty dat
 
-*Platí pro: Integrované systémy Azure Stack.*
+*Platí pro: Azure Stack integrovaných systémů.*
 
-Azure Stack spouští služby Azure ve vašem datovém centru a mohou běžet v prostředí malá jako čtyři uzly, které jsou nainstalované v jednom racku. Naproti tomu Azure běží ve více než 40 oblastech v několika datových centrech a více zón v jednotlivých oblastech. Prostředky uživatelů se týkají více servery, stojany, datových center a oblastí. Pomocí služby Azure Stack aktuálně pouze máte možnost nasadit celý cloud jeden stojan. Tato třída zveřejňuje cloudu k riziku katastrofickými událostmi v datovém centru nebo chyby způsobené chyb produktů. V případě náhlé havárie, instance služby Azure Stack přejde do režimu offline. Všechna data, je potenciálně Neopravitelná.
+Azure Stack spouští služby Azure ve vašem datovém centru a může běžet v prostředích tak, jak je to malé jako čtyři uzly nainstalované v jednom stojanu. Naproti tomu Azure běží ve více než 40 oblastech v několika datových centrech a v každé oblasti je víc zón. Prostředky uživatelů mohou zahrnovat několik serverů, stojanů, datových center a oblastí. V případě Azure Stack máte momentálně možnost nasadit celý Cloud pouze do jednoho stojanu. Tím se váš Cloud zveřejňuje rizikem závažných událostí v datovém centru nebo selhání z důvodu důležitých chyb produktu. Když dojde k havárii, Azure Stack instance přejde do režimu offline. Všechna data mohou být neobnovitelné.
 
-V závislosti na hlavní příčinu ztráty dat budete muset službu jediné infrastruktury opravit nebo obnovit celou instanci služby Azure Stack. Dokonce i budete muset obnovit na jiný hardware ve stejném umístění nebo v jiném umístění.
+V závislosti na hlavní příčině ztráty dat možná budete muset opravit jednu službu infrastruktury nebo obnovit celou instanci Azure Stack. Dokonce je možné, že budete muset obnovit na jiný hardware ve stejném umístění nebo v jiném umístění.
 
-Tento scénář adresy obnovení v případě selhání celé instalace zařízení a opětovné nasazení privátního cloudu.
+Tento scénář se věnuje zotavení celé instalace v případě selhání zařízení a opětovnému nasazení privátního cloudu.
 
 | Scénář                                                           | Ztráta dat                            | Požadavky                                                             |
 |--------------------------------------------------------------------|--------------------------------------|----------------------------------------------------------------------------|
-| Obnovit ze ztráty dat z důvodu chyby po havárii nebo produktu | Všechna data infrastruktury a uživatele i aplikace | Uživatelská aplikace a data jsou chráněné odděleně od dat infrastruktury |
+| Zotavení z závažné ztráty dat kvůli havárii nebo chybě produktu | Všechna data infrastruktury a uživatelů a aplikací | Uživatelská aplikace a data jsou chráněny odděleně od dat infrastruktury. |
 
-## <a name="workflows"></a>Pracovní postupy
+## <a name="workflows"></a>Workflows
 
-Cesty ochrany Start pro Azure začíná zálohování dat infrastruktury a aplikací nebo tenantovi samostatně. Tento dokument popisuje, jak ochránit infrastrukturu. 
+Cesta k ochraně Azure Start začíná zálohováním infrastruktury a dat aplikace/tenanta samostatně. Tento dokument popisuje, jak chránit infrastrukturu. 
 
-![Počáteční nasazení služby Azure Stack](media/azure-stack-backup/azure-stack-backup-workflow1.png)
+![Počáteční nasazení Azure Stack](media/azure-stack-backup/azure-stack-backup-workflow1.png)
 
-V nejhorším scénáře kde dojde ke ztrátě všech dat obnovení služby Azure Stack je proces obnovení infrastruktury dat jedinečné, že nasazení Azure Stack a všechna uživatelská data. 
+V nejhorších případech, kdy dojde ke ztrátě všech dat, obnovení Azure Stack je proces obnovování dat infrastruktury jedinečných pro toto nasazení Azure Stack a veškerá uživatelská data. 
 
-![Opětovné nasazení Azure Stack](media/azure-stack-backup/azure-stack-backup-workflow2.png)
+![Znovu nasadit Azure Stack](media/azure-stack-backup/azure-stack-backup-workflow2.png)
 
-## <a name="restore"></a>Obnovení
+## <a name="restore"></a>Obnovit
 
-Pokud je ztrátě dat, ale hardware je stále možné použít, vyžaduje se opětovné nasazení Azure stacku. Během opětovného nasazení můžete určit umístění úložiště a přihlašovacích údajů potřebných pro přístup k zálohování. V tomto režimu je potřeba uvést služby, které je potřeba obnovit. Záložní řadič infrastruktury vkládá stavu roviny řízení jako součást pracovního postupu nasazení.
+Pokud dojde k závažné ztrátě dat, ale hardware je stále použitelný, vyžaduje se opětovné nasazení Azure Stack. Během opětovného nasazení můžete zadat umístění úložiště a přihlašovací údaje požadované pro přístup k zálohám. V tomto režimu není nutné zadávat služby, které je nutné obnovit. Infrastructure Backup Controller vloží stav roviny ovládacího prvku jako součást pracovního postupu nasazení.
 
-Pokud nedojde k havárii, který vykreslí hardware nepůjdou použít, je pouze opětovné nasazení na nový hardware. Opětovné nasazení může trvat několik týdnů, zatímco je seřazen náhradní hardware a dorazí v datovém centru. Obnovení dat rovina řízení je možné kdykoli. Nicméně obnovení se nepodporuje, pokud zadaná verze instance opakovaně nasazeném více než jedna verze větší než je verze použitá v poslední záloze. 
+Pokud dojde k havárii, která vykreslí nepoužitý hardware, je možné opětovné nasazení provést pouze na novém hardwaru. Opětovné nasazení může trvat několik týdnů, než se v datacentru seřadí a dorazí na náhradní hardware. Obnovení dat řídicí roviny je možné kdykoli. Obnovení ale není podporované, pokud verze znovu nasazené instance je víc než jedna verze, která se používá při poslední záloze. 
 
-| Režim nasazení | Počáteční bod | Koncový bod                                                                                                                                                                                                     |
+| Režim nasazení | Výchozí bod | Koncový bod                                                                                                                                                                                                     |
 |-----------------|----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Čistá instalace   | Základní sestavení | Výrobce OEM nasadí Azure Stack a aktualizuje na nejnovější verzi.                                                                                                                                          |
-| Režim obnovení   | Základní sestavení | Výrobce OEM nasadí Azure Stack v režimu obnovení a zpracovává verzi, která odpovídá požadavky založené na poslední zálohu k dispozici. Výrobce OEM dokončí nasazení aktualizací na nejnovější verzi. |
+| Vyčistit instalaci   | Směrný Build | Výrobce OEM nasadí Azure Stack a aktualizace nejnovější podporované verze.                                                                                                                                          |
+| Režim obnovení   | Směrný Build | Výrobce OEM nasadí Azure Stack do režimu obnovení a zpracovává požadavky na porovnání verzí na základě nejnovější dostupné zálohy. Výrobce OEM dokončí nasazení aktualizací na nejnovější podporovanou verzi. |
 
-## <a name="data-in-backups"></a>Data zálohy
+## <a name="data-in-backups"></a>Data v zálohách
 
-Azure Stack podporuje typy nasazení volá režimu obnovení cloudu. Tento režim se používá jenom v případě, že vyberete obnovení po havárii Azure Stack nebo chyb produktu vykreslen řešení neobnovitelná. Tento režim nasazení nedojde k odstranění všech uživatelských dat uložených v řešení. Rozsah tento režim nasazení je omezená na obnovení následujících dat:
+Azure Stack podporuje typ nasazení nazvaný režim Cloud Recovery. Tento režim se používá jenom v případě, že se rozhodnete obnovit Azure Stack po havárii nebo chybě produktu, kterou řešení vykreslilo, je neobnovitelné. Tento režim nasazení neobnovuje žádná uživatelská data uložená v řešení. Rozsah tohoto režimu nasazení je omezený na obnovení následujících dat:
 
- - Vstupy nasazení.
- - Systémy interní identit
- - Federované určit konfiguraci (odpojené nasazení)
- - Kořenové certifikáty použít interní certifikační autoritou
- - Azure Resource Manageru konfigurace a dat uživatele, jako je například odběry, plány, nabídky a kvóty pro úložiště, sítě, výpočetních prostředků
- - Tajné kódy KeyVault a úložišť
+ - Vstupy nasazení
+ - Data služby interní identity (nasazení ADFS)
+ - Konfigurace federovaného určení (nasazení ADFS)
+ - Kořenové certifikáty používané interní certifikační autoritou
+ - Azure Resource Manager konfigurační data uživatelů, jako jsou předplatná, plány, nabídky a kvóty pro úložiště, síťové a výpočetní prostředky
+ - Tajné kódy trezoru klíčů a trezory
  - Přiřazení zásad RBAC a přiřazení rolí 
 
-Žádný z uživatelů infrastruktura jako služba (IaaS) nebo platforma jako služba (PaaS) prostředky se dají obnovit během nasazení. To znamená virtuální počítače IaaS, účty úložiště, objekty BLOB, tabulek, konfigurace sítě a tak dále, se ztratí. Cloudové zotavení slouží k zajištění operátory a uživatelé můžou zpět do portálu po dokončení nasazení. Opětovné přihlášení uživatelé neuvidí všechny svoje prostředky. Uživatelé mají svá předplatná obnovit, a společně s, která původní plány a nabízí zásady definované správcem. Uživatelé přihlašující zpět do systému funguje v rámci stejné omezení vyplývající z původního řešení před po havárii. Po dokončení obnovení cloudu, můžete ručně obnovit operátor přidanou hodnotu a RPs třetích stran a související data.
+Žádná z prostředků infrastruktury uživatele jako služba (IaaS) ani platforma jako služba (PaaS) se během nasazování neobnovuje. To znamená, že dojde ke ztrátě IaaS virtuálních počítačů, účtů úložiště, objektů blob, tabulek, konfigurace sítě atd. Účelem cloudového obnovení je zajistit, aby se operátoři a uživatelé mohli po dokončení nasazení přihlásit zpátky na portál. Uživatelům, kteří se přihlašují znovu, se nezobrazí žádné prostředky. Uživatelé mají obnovené předplatné a společně s tím původní plány a nabízí zásady definované správcem. Uživatelé, kteří se přihlašují zpátky do systému, budou pracovat se stejnými omezeními, která jsou zavedená v původním řešení před havárií. Po dokončení cloudového obnovení může operátor ručně obnovit hodnoty – přidat a RPs třetí strany a přidružená data.
 
 ## <a name="next-steps"></a>Další postup
 
-Další informace o osvědčených postupech pro [pomocí infrastruktury služby Backup](azure-stack-backup-best-practices.md).
+Seznamte se s osvědčenými postupy pro [používání služby Infrastructure Backup](azure-stack-backup-best-practices.md).
