@@ -16,12 +16,12 @@ ms.date: 07/25/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 07/25/2019
-ms.openlocfilehash: 566119a6c81e19962d648172ac5274ca6ab51b66
-ms.sourcegitcommit: f6ea6daddb92cbf458f9824cd2f8e7e1bda9688e
+ms.openlocfilehash: 03fb0550bfaa41a3336ff17dd1c44e03bcea1402
+ms.sourcegitcommit: b752f4e6733d9ebe56dbd171a14528dcb9a693fd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68497142"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68522046"
 ---
 # <a name="best-practices-for-automatic-azure-stack-log-collection"></a>Osvědčené postupy pro automatické shromažďování protokolů Azure Stack 
 
@@ -72,6 +72,9 @@ Následující tabulka může pomáhat prostředím s omezenými nebo měřeným
 
 [Poplatky za službu Azure Blob Storage](https://azure.microsoft.com/pricing/details/storage/blobs/) závisí na množství dat uložených každý měsíc a dalších faktorech, jako je třeba redundance dat. Pokud nemáte existující účet úložiště, můžete se přihlásit k Azure Portal, kliknout na **účty úložiště**a podle postupu [vytvořit adresu URL SAS kontejneru objektů BLOB v Azure](azure-stack-configure-automatic-diagnostic-log-collection.md).
 
-Osvědčeným postupem je vytvořit [zásadu správy životního cyklu](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts) Azure Blob Storage, která minimalizuje průběžné náklady na úložiště. Další informace o tom, jak nastavit účet úložiště, najdete v tématu [Konfigurace automatického shromažďování protokolů Azure Stack diagnostiky](azure-stack-configure-automatic-diagnostic-log-collection.md).
+Osvědčeným postupem je vytvořit [zásadu správy životního cyklu](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts) Azure Blob Storage, která minimalizuje průběžné náklady na úložiště. Další informace o tom, jak nastavit účet úložiště, najdete v tématu [Konfigurace automatického shromažďování protokolů Azure Stack diagnostiky](azure-stack-configure-automatic-diagnostic-log-collection.md) .
 
+## <a name="see-also"></a>Viz také:
+
+[Konfigurace automatického shromažďování protokolů Azure Stack](azure-stack-best-practices-automatic-diagnostic-log-collection.md)
 

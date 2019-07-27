@@ -16,12 +16,12 @@ ms.date: 07/25/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 07/25/2019
-ms.openlocfilehash: 428ae61f2de684d84fd39d7e21b0bd1b47394edf
-ms.sourcegitcommit: 82d09bbae3e5398d2fce7e2f998dfebff018716c
+ms.openlocfilehash: efab23f12086fee2e4f5c14a70f95717ac9669b9
+ms.sourcegitcommit: b752f4e6733d9ebe56dbd171a14528dcb9a693fd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68497912"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68522063"
 ---
 # <a name="configure-automatic-azure-stack-diagnostic-log-collection"></a>Konfigurace automatického shromažďování protokolů Azure Stack diagnostiky
 
@@ -118,6 +118,13 @@ Operátoři můžou také kontrolovat účet úložiště pro automaticky shrom�
 ![Snímek obrazovky se zobrazením kolekcí protokolů](media/azure-stack-automatic-log-collection/check-storage-account.png)
 
 
+## <a name="see-also"></a>Viz také:
+
+[Azure Stack zpracování dat protokolů a zákazníků](https://docs.microsoft.com/azure-stack/operator/azure-stack-data-collection)
+
+[Použití sdílených přístupových podpisů (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)
+
+[Osvědčené postupy pro automatické shromažďování protokolů Azure Stack](azure-stack-best-practices-automatic-diagnostic-log-collection.md)
 
 
 

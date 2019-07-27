@@ -1,6 +1,6 @@
 ---
-title: Stažení položek z marketplace z Azure | Dokumentace Microsoftu
-description: Operátor cloudu můžete stažení položek z marketplace z Azure do své nasazení Azure Stack.
+title: Stažení položek z Marketplace z Azure | Microsoft Docs
+description: Operátor cloudu může stáhnout položky Marketplace z Azure do nasazení Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -16,98 +16,98 @@ ms.date: 04/24/2019
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: 7cc55659df1da1c51d92f0fc2926cee7255c422e
-ms.sourcegitcommit: 3f52cf06fb5b3208057cfdc07616cd76f11cdb38
+ms.openlocfilehash: c5a53fcd2aa2ec516e5677e85a1516ac10208c3f
+ms.sourcegitcommit: c2690b2dd36918ff3e47e359cac926128bb83101
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67315967"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68544120"
 ---
-# <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Stažení položek z marketplace z Azure do služby Azure Stack
+# <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Stažení položek z webu Marketplace z Azure do Azure Stack
 
-*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
 
-Jako operátor cloudu můžete stažení položek z Azure Marketplace a zpřístupnit je ve službě Azure Stack. Položky, které můžete použít způsobují uspořádaný seznam položek z Azure Marketplace, které jsou předem otestovali a získali podporované pro práci s Azure Stack. Do tohoto seznamu jsou často přidané další položky, takže můžete pokračovat ke kontrole zpět nový obsah. 
+Jako operátor cloudu můžete stahovat položky z Azure Marketplace a zpřístupnit je v Azure Stack. Položky, které můžete vybrat, jsou z uspořádaného seznamu Azure Marketplacech položek, které jsou předem testovány a podporovány pro práci s Azure Stack. Do tohoto seznamu se často přidají další položky, takže se budete moct vrátit k novému obsahu. 
 
-Existují dva scénáře pro připojení k Azure Marketplace: 
+Pro připojení k Azure Marketplace existují dva scénáře: 
 
-- **Připojené scénář** -vyžaduje prostředí Azure Stack pro připojení k Internetu. Na portálu Azure Stack umožňuje vyhledat a stáhnout položek. 
-- **Scénář odpojených nebo připojených částečně** – vyžaduje, abyste pro přístup k Internetu pomocí Marketplace syndikace nástroj pro stažení položek z Marketplace. Pak přeneste své stažené soubory do vaší instalace služby Azure Stack. Tento scénář používá PowerShell.
+- **Připojený scénář** – vyžaduje, aby vaše Azure Stack prostředí bylo připojené k Internetu. K vyhledání a stažení položek použijete portál Azure Stack. 
+- **Odpojený nebo částečně připojený scénář** – vyžaduje přístup k Internetu pomocí syndikačního nástroje na webu Marketplace ke stažení položek Marketplace. Pak přenesete soubory ke stažení na odpojenou Azure Stack instalaci. Tento scénář používá PowerShell.
 
-Zobrazit [položky Azure Marketplace pro Azure Stack](azure-stack-marketplace-azure-items.md) seznam položky marketplace si můžete stáhnout.
+Seznam položek na webu Marketplace, které si můžete stáhnout, najdete v tématu [Azure Marketplace položky Azure Stack](azure-stack-marketplace-azure-items.md) .
 
-## <a name="connected-scenario"></a>Připojené scénář
+## <a name="connected-scenario"></a>Připojený scénář
 
-Pokud Azure Stack se připojuje k Internetu, můžete použít portál pro správu pro stažení položek z marketplace.
+Pokud se Azure Stack připojí k Internetu, můžete k stažení položek z webu Marketplace použít portál pro správu.
 
 ### <a name="prerequisites"></a>Požadavky
 
-Nasazení Azure Stack musí mít připojení k Internetu a být [registrované v Azure](azure-stack-registration.md ).
+Vaše nasazení Azure Stack musí mít připojení k Internetu a musí být zaregistrované [v Azure](azure-stack-registration.md ).
 
-### <a name="use-the-portal-to-download-marketplace-items"></a>Použití portálu k stažení položek z marketplace
+### <a name="use-the-portal-to-download-marketplace-items"></a>Stažení položek z Marketplace pomocí portálu
   
-1. Přihlaste se k portálu Správce služby Azure Stack.
+1. Přihlaste se k portálu správce Azure Stack.
 
-2. Zkontrolujte místo na úložiště k dispozici před stažením položek z marketplace. Později při výběru položky ke stažení, můžete porovnat velikost ke stažení na kapacitu úložiště k dispozici. Pokud kapacita je omezená, zvažte možnosti [Správa dostupného](azure-stack-manage-storage-shares.md#manage-available-space). 
+2. Před stažením položek z webu Marketplace zkontrolujte dostupný prostor úložiště. Později můžete po výběru položek ke stažení porovnat velikost stahovaných zařízení s dostupnou kapacitou úložiště. Pokud je kapacita omezená, zvažte možnosti [správy dostupného místa](azure-stack-manage-storage-shares.md#manage-available-space). 
 
-    Kontrola dostupného místa v **Správa oblastí** vyberte oblast, kterou chcete prozkoumat a potom přejděte ke **poskytovatelů prostředků** > **úložiště**:
+    Chcete-li zkontrolovat dostupné místo, v části **Správa oblastí** vyberte oblast, kterou chcete prozkoumat, a pak  > v části poskytovatelé prostředků**úložiště**:
 
-    ![Zkontrolujte místo úložiště](media/azure-stack-download-azure-marketplace-item/storage.png)
+    ![Kontrola prostoru úložiště](media/azure-stack-download-azure-marketplace-item/storage.png)
 
-3. Otevřete Azure Marketplace zásobníku a připojte se k Azure. Chcete-li to provést, vyberte **položky Marketplace**a pak vyberte **přidat z Azure**:
+3. Otevřete web Azure Stack Marketplace a připojte se k Azure. Provedete to tak, že vyberete službu **pro správu Marketplace** , vyberete **položky Marketplace**a pak vyberete **Přidat z Azure**:
 
-    ![Z Azure](media/azure-stack-download-azure-marketplace-item/marketplace.png)
+    ![Přidat z Azure](media/azure-stack-download-azure-marketplace-item/marketplace.png)
 
-    Portál zobrazuje seznam položek, které jsou k dispozici ke stažení z webu Azure Marketplace. Můžete filtrovat produkty podle názvu, vydavatele a/nebo produkt. Můžete také kliknutím na jednotlivé položky k zobrazení jeho popis a další informace, včetně jeho velikost ke stažení:
+    Portál zobrazí seznam položek, které jsou k dispozici ke stažení z Azure Marketplace. Produkty můžete filtrovat podle názvu, vydavatele nebo typu produktu. Můžete také kliknout na každou položku a zobrazit její popis a další informace, včetně její velikosti ke stažení:
 
     ![Seznam Marketplace](media/azure-stack-download-azure-marketplace-item/image03.PNG)
 
-4. Vyberte položku a pak vyberte **Stáhnout**. Stahování se liší.
+4. Vyberte položku, kterou chcete, a pak vyberte **Stáhnout**. Doba stahování se liší.
 
     ![Stáhnout zprávu](media/azure-stack-download-azure-marketplace-item/image04.png)
 
-    Po dokončení stahování, můžete nasadit nové položky marketplace jako operátory Azure stacku nebo uživatele.
+    Po dokončení stahování můžete novou položku Marketplace nasadit buď jako operátor Azure Stack, nebo jako uživatele.
 
-5. Pokud chcete nasadit stažené položky, vyberte **+ vytvořit prostředek**a potom je prohledejte mezi kategorie pro novou položku marketplace. Dále vyberte položku k zahájení procesu nasazení. Proces se liší pro marketplace různé položky. 
+5. Pokud chcete staženou položku nasadit, vyberte **+ vytvořit prostředek**a potom vyhledejte kategorie nové položky Marketplace. Dále vyberte položku, která zahájí proces nasazení. Tento proces se liší pro různé položky Marketplace. 
 
-## <a name="disconnected-or-a-partially-connected-scenario"></a>Odpojení nebo částečně připojeného scénáře
+## <a name="disconnected-or-a-partially-connected-scenario"></a>Odpojený nebo částečně připojený scénář
 
-Pokud Azure Stack v odpojeném režimu a bez připojení k Internetu, pomocí prostředí PowerShell a *marketplace syndikace nástroj* pro stažení položek z marketplace k počítači s připojením k Internetu. Položky se pak přenášíte do svého prostředí Azure Stack. V odpojeném prostředí nelze stažení položek z marketplace pomocí portálu Azure Stack. 
+Pokud je Azure Stack v odpojeném režimu a bez připojení k Internetu, můžete ke stažení položek Marketplace na počítač s připojením k Internetu použít PowerShell a nástroj pro syndikaci na *Marketplace* . Pak přenesete položky do prostředí Azure Stack. V odpojeném prostředí nemůžete stáhnout položky Marketplace pomocí portálu Azure Stack. 
 
-V případě propojené se lze také nástroj marketplace syndikace. 
+Nástroj syndikace na webu Marketplace se dá použít taky v připojeném scénáři. 
 
-Existují dvě části pro tento scénář:
-- **Část 1:** Stáhněte z webu Azure Marketplace. Na počítači s přístupem k Internetu konfigurace prostředí PowerShell, stáhněte si nástroj syndikace a pak si stáhnout formuláře položky na webu Azure Marketplace.  
-- **Část 2:** Nahrání a publikování na Tržišti Azure Stack. Přesunout soubory, které jste stáhli do prostředí Azure Stack je importovat do služby Azure Stack a publikujte je na Azure Marketplace zásobníku.  
+Tento scénář obsahuje dvě části:
+- **Část 1:** Stažení z Azure Marketplace. Na počítači s přístupem k Internetu konfigurujete PowerShell, stáhnete nástroj pro syndikaci a potom stáhnete položky z Azure Marketplace.  
+- **Část 2:** Nahrajte a publikujte na webu Azure Stack Marketplace. Soubory, které jste stáhli do prostředí Azure Stack, přesouváte, naimportujete do Azure Stack a pak je publikujete na Azure Stack Marketplace.  
 
 
 ### <a name="prerequisites"></a>Požadavky
-- Musí být vašeho nasazení Azure stacku [registrované v Azure](azure-stack-registration.md ).  
+- Vaše nasazení Azure Stack musí být [zaregistrované v Azure](azure-stack-registration.md ).  
 
-- Počítač, který má připojení k Internetu, musí mít **modulu Azure Stack Powershellu verze 1.2.11** nebo vyšší. Pokud tam ještě nejsou, [nainstalujte Azure Stack konkrétní moduly Powershellu](azure-stack-powershell-install.md).  
+- Počítač, který má připojení k Internetu, musí mít **Azure Stack modul PowerShell verze 1.2.11** nebo novější. Pokud ještě není k dispozici, [nainstalujte Azure Stack specifické moduly prostředí PowerShell](azure-stack-powershell-install.md).  
 
-- Umožňuje importovat položku staženého webu marketplace [prostředí PowerShell pro operátory Azure stacku](azure-stack-powershell-configure-admin.md) musí být nakonfigurované.  
+- Pokud chcete povolit import stažené položky Marketplace, musí se nakonfigurovat [prostředí PowerShell pro operátor Azure Stack](azure-stack-powershell-configure-admin.md) .  
 
-- Musíte mít [účtu úložiště](azure-stack-manage-storage-accounts.md) ve službě Azure Stack, který je veřejně dostupný kontejner (což je objekt blob úložiště). Používáte kontejner jako dočasné úložiště pro soubory marketplace položky galerie. Pokud nejste obeznámeni s účty úložiště a kontejnery, přečtěte si téma [práce s objekty BLOB – Azure portal](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) v dokumentaci k Azure.
+- V Azure Stack musíte mít [účet úložiště](azure-stack-manage-storage-accounts.md) , který má veřejně přístupný kontejner (což je objekt BLOB úložiště). Kontejner se používá jako dočasné úložiště pro soubory galerie položek Marketplace. Pokud nejste obeznámeni s účty úložiště a kontejnery, přečtěte si téma [práce s objekty blob – Azure Portal](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) v dokumentaci k Azure.
 
-- Nástroj syndikace marketplace se stáhne při prvním postupu. 
+- Nástroj pro syndikaci na webu Marketplace se stáhne během prvního postupu. 
 
-- Můžete nainstalovat [AzCopy](/azure/storage/common/storage-use-azcopy) ke stažení pro optimální výkon, ale to se nevyžaduje.
+- [AzCopy](/azure/storage/common/storage-use-azcopy) můžete nainstalovat pro optimální výkon stahování, ale to není nutné.
 
-### <a name="use-the-marketplace-syndication-tool-to-download-marketplace-items"></a>Pomocí nástroje syndikace marketplace pro stažení položek z marketplace
+### <a name="use-the-marketplace-syndication-tool-to-download-marketplace-items"></a>Stažení položek z Marketplace pomocí nástroje pro syndikaci na webu Marketplace
 
-1. Na počítači s připojením k Internetu otevřete konzolu Powershellu jako správce.
+1. V počítači s připojením k Internetu otevřete konzolu PowerShellu jako správce.
 
-2. Přidáte účet Azure, který jste použili k registraci Azure Stack. Přidání účtu, v Powershellu spusťte `Add-AzureRmAccount` bez parametrů. Zobrazí se výzva k zadání přihlašovacích údajů k účtu Azure a budete nejspíš muset použít 2 ověřování na základě konfigurace vašeho účtu.
+2. Přidejte účet Azure, který jste použili k registraci Azure Stack. Pokud chcete účet přidat, v PowerShellu `Add-AzureRmAccount` spusťte bez parametrů. Zobrazí se výzva k zadání přihlašovacích údajů k účtu Azure a možná budete muset použít dvojúrovňové ověřování na základě konfigurace vašeho účtu.
 
-3. Pokud máte více předplatných, spuštěním následujícího příkazu vyberte předplatné, kterou jste použili k registraci:  
+3. Pokud máte více předplatných, spusťte následující příkaz a vyberte ten, který jste použili pro registraci:  
 
    ```powershell  
    Get-AzureRmSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzureRmSubscription
    $AzureContext = Get-AzureRmContext
    ```
 
-4. Stažení nejnovější verze nástroje syndikace marketplace pomocí následujícího skriptu:  
+4. Stáhněte si nejnovější verzi nástroje syndikace webu Marketplace pomocí následujícího skriptu:  
 
    ```powershell
    # Download the tools archive.
@@ -125,7 +125,7 @@ Existují dvě části pro tento scénář:
 
    ```
 
-5. Importujte modul syndikace a pak spusťte nástroj spuštěním následujících příkazů. Nahraďte `Destination folder path` s umístěním pro uložení souborů můžete stáhnout z webu Azure Marketplace.   
+5. Importujte modul syndikace a potom spusťte nástroj spuštěním následujících příkazů. Nahraďte `Destination folder path` umístěním pro uložení souborů, které stáhnete z Azure Marketplace.   
 
    ```powershell  
    Import-Module .\Syndication\AzureStack.MarketplaceSyndication.psm1
@@ -133,81 +133,81 @@ Existují dvě části pro tento scénář:
    Export-AzSOfflineMarketplaceItem -Destination "Destination folder path in quotes" 
    ```
 
-   Všimněte si, že `Export-AzSOfflineMarketplaceItem` má další `-cloud` příznak, který určuje cloudovém prostředí. Ve výchozím nastavení je to **azurecloud**.
+   Všimněte si `Export-AzSOfflineMarketplaceItem` , že má `-cloud` další příznak, který určuje cloudové prostředí. Ve výchozím nastavení se jedná o **azurecloud**.
 
-6. Když je nástroj spuštěn, by se zobrazit obrazovka podobně jako na následujícím obrázku se seznamem položek z marketplace k dispozici:
+6. Po spuštění nástroje by se měla zobrazit obrazovka podobná následujícímu obrázku se seznamem dostupných položek Marketplace:
 
-   [![Automaticky otevírané okno položky Azure Marketplace](media/azure-stack-download-azure-marketplace-item/image05.png "položky Azure Marketplace")](media/azure-stack-download-azure-marketplace-item/image05.png#lightbox)
+   [![Místní nabídka položek Azure Marketplace](media/azure-stack-download-azure-marketplace-item/image05.png "Azure Marketplace položky")](media/azure-stack-download-azure-marketplace-item/image05.png#lightbox)
 
-7. Vyberte položku, kterou chcete stáhnout a poznamenejte si, *verze*. Může obsahovat *Ctrl* výběr více bitových kopií. Odkazujete *verze* při importu položky v dalším postupu. 
+7. Vyberte položku, kterou chcete stáhnout, a poznamenejte si *verzi*. Můžete podržet klávesu *CTRL* a vybrat více obrázků. Při importu položky v dalším postupu odkazujete na *verzi* . 
    
-   Můžete také filtrovat seznam imagí pomocí **přidat kritéria** možnost.
+   Seznam imagí můžete filtrovat také pomocí možnosti **Přidat kritéria** .
 
 8. Vyberte **OK**a pak si přečtěte a přijměte právní podmínky. 
 
-9. Čas, který stahování bude trvat, závisí na velikosti položky. Po dokončení stahování, položka je k dispozici ve složce, která jste zadali ve skriptu. Soubor ke stažení obsahuje soubor virtuálního pevného disku (pro virtuální počítače) nebo soubor .zip (pro rozšíření virtuálních počítačů). Může taky obsahovat balíček Galerie v *.azpkg* formátu, který je jednoduše soubor .zip.
+9. Doba, kterou stahování trvá, závisí na velikosti položky. Po dokončení stahování bude položka k dispozici ve složce, kterou jste zadali ve skriptu. Ke stažení patří soubor VHD (pro virtuální počítače) nebo soubor. zip (pro rozšíření virtuálních počítačů). Může taky zahrnovat balíček Galerie ve formátu *. azpkg* , který je jednoduše souborem. zip.
 
-10. Pokud stahování selže, můžete znovu zkusit znovu spuštěním následující rutiny Powershellu:
+10. Pokud se stahování nepovede, můžete to zkusit znovu spuštěním následující rutiny PowerShellu:
 
     ```powershell
     Export-AzSOfflineMarketplaceItem -Destination "Destination folder path in quotes"
     ```
 
-    Než to zkusíte znovu, odeberte složku produktu, ve kterém se nepodařilo položky stáhnout. Například, pokud skript stažení selže při stahování do `D:\downloadFolder\microsoft.customscriptextension-arm-1.9.1`, odeberte `D:\downloadFolder\microsoft.customscriptextension-arm-1.9.1` složku a potom znovu spusťte rutinu.
+    Před opakováním pokusu odeberte složku produktu, ve které se stahování nepovedlo. Například pokud se skript pro stažení nezdařil při stahování do `D:\downloadFolder\microsoft.customscriptextension-arm-1.9.1`, `D:\downloadFolder\microsoft.customscriptextension-arm-1.9.1` odeberte složku a pak znovu spusťte rutinu.
  
-### <a name="import-the-download-and-publish-to-azure-stack-marketplace-1811-and-higher"></a>Importovat soubor ke stažení a publikování na Azure Marketplace zásobníku (1811 a vyšší)
+### <a name="import-the-download-and-publish-to-azure-stack-marketplace-1811-and-higher"></a>Import stažení a publikování na Azure Stack Marketplace (1811 a novější)
 
-1. Je nutné přesunout soubory, které máte [dříve stažené](#use-the-marketplace-syndication-tool-to-download-marketplace-items) místně, aby byly dostupné pro vaše prostředí Azure Stack. Nástroj marketplace syndikace musí být také dostupná vaším prostředím Azure Stack, protože budete muset použít nástroj k provedení operace importu.
+1. Soubory, které jste [předtím stáhli](#use-the-marketplace-syndication-tool-to-download-marketplace-items) , je nutné přesunout do místního počítače, aby byly k dispozici pro vaše Azure Stack prostředí. Nástroj pro syndikaci na webu Marketplace musí být také dostupný pro vaše Azure Stack prostředí, protože k provedení operace importu je nutné použít nástroj.
 
-   Následující obrázek ukazuje příklad struktury složky. `D:\downloadfolder` obsahuje všechny položky staženého webu marketplace. Položky marketplace je každý dílčí složky (například `microsoft.custom-script-linux-arm-2.0.3`) s názvem podle ID produktu. V každé dílčí složce je stažený obsah položky marketplace.
+   Následující obrázek ukazuje příklad struktury složek. `D:\downloadfolder`obsahuje všechny stažené položky Marketplace. Každá podsložka je položka Marketplace (například `microsoft.custom-script-linux-arm-2.0.3`), která je pojmenována podle ID produktu. Uvnitř každé podsložky je stažený obsah položky webu Marketplace.
 
-   [![Marketplace stahování adresářovou strukturu](media/azure-stack-download-azure-marketplace-item/mp1sm.png "Marketplace stahování adresářovou strukturu")](media/azure-stack-download-azure-marketplace-item/mp1.png#lightbox)
+   [![Adresářová struktura pro stažení Marketplace](media/azure-stack-download-azure-marketplace-item/mp1sm.png "Adresářová struktura pro stažení Marketplace")](media/azure-stack-download-azure-marketplace-item/mp1.png#lightbox)
 
-2. Postupujte podle pokynů v [v tomto článku](azure-stack-powershell-configure-admin.md) konfigurace relace Powershellu – operátor Azure stacku. 
+2. Podle pokynů v [tomto článku](azure-stack-powershell-configure-admin.md) nakonfigurujte relaci powershellu Azure Stack operator. 
 
-3. Importujte modul syndikace a pak spusťte nástroj syndikace marketplace spuštěním následujícího skriptu:
+3. Importujte modul syndikace a potom spusťte nástroj syndikace webu Marketplace spuštěním následujícího skriptu:
 
    ```powershell
    $credential = Get-Credential -Message "Enter the azure stack operator credential:"
    Import-AzSOfflineMarketplaceItem -origin "marketplace content folder" -AzsCredential $credential
    ```
 
-   `-origin` Parametr určuje složku nejvyšší úrovně, která obsahuje všechny stažené produkty; například `"D:\downloadfolder"`.
+   Parametr určuje složku nejvyšší úrovně, která obsahuje všechny stažené produkty, `"D:\downloadfolder"`například. `-origin`
 
-   `-AzsCredential` Parametr je nepovinný. Používá se k obnovení tokenu přístupu, pokud vypršela platnost. Pokud `-AzsCredential` parametr není zadán a vyprší platnost tokenu, zobrazí se výzva k zadání přihlašovacích údajů operátor.
+   `-AzsCredential` Parametr je nepovinný. Používá se k obnovení přístupového tokenu, pokud vypršela jeho platnost. `-AzsCredential` Pokud parametr není zadaný a vyprší platnost tokenu, zobrazí se výzva k zadání přihlašovacích údajů operátora.
 
     > [!Note]  
-    > Služba AD FS podporuje pouze interaktivní ověřování pomocí identity uživatelů. Pokud je vyžadován objekt přihlašovacích údajů je nutné použít hlavní název služby (SPN). Další informace o nastavení instančního objektu pomocí služby Azure Stack a AD FS, jako je vaše služba identity management, najdete v části [Správa instančního objektu služby AD FS](azure-stack-create-service-principals.md#manage-an-ad-fs-service-principal).
+    > AD FS podporuje pouze interaktivní ověřování s identitami uživatele. Pokud je vyžadován objekt přihlašovacích údajů, je nutné použít instanční objekt (SPN). Další informace o nastavení instančního objektu pomocí Azure Stack a AD FS jako služby správy identit najdete v tématu [Správa služby AD FS instančního objektu](azure-stack-create-service-principals.md#manage-an-ad-fs-service-principal).
 
-4. Po úspěšném dokončení skriptu položka by měla být k dispozici v Tržišti Azure Stack.
+4. Po úspěšném dokončení skriptu by měla být položka k dispozici na webu Azure Stack Marketplace.
 
-### <a name="import-the-download-and-publish-to-azure-stack-marketplace-1809-and-lower"></a>Importovat soubor ke stažení a publikování na Azure Marketplace zásobníku (1809 a nižší)
+### <a name="import-the-download-and-publish-to-azure-stack-marketplace-1809-and-lower"></a>Import stažení a publikování na Azure Stack Marketplace (1809 a nižší)
 
-1. Soubory pro Image virtuálních počítačů nebo šablon řešení, které máte [dříve stažené](#use-the-marketplace-syndication-tool-to-download-marketplace-items) musí být dostupné místně do vašeho prostředí Azure Stack.  
+1. Soubory imagí virtuálních počítačů nebo šablon řešení, které jste [předtím stáhli](#use-the-marketplace-syndication-tool-to-download-marketplace-items) , je třeba zpřístupnit místně pro vaše Azure Stack prostředí.  
 
-2. Použití portálu pro správu k odeslání balíčku pro položku marketplace (.azpkg soubor) a image virtuálního pevného disku (soubor .vhd) do úložiště objektů Blob v Azure stacku. Nahrání balíčku a souborů na disku je zpřístupní pro Azure Stack, později publikování položky Azure Stack Marketplace.
+2. Pomocí portálu pro správu nahrajte balíček položky Marketplace (soubor. azpkg) a image virtuálního pevného disku (soubor. VHD) do Azure Stack BLOB Storage. Nahrání balíčku a souborů na disku zpřístupňuje Azure Stack, takže později můžete položku Publikovat na webu Azure Stack Marketplace.
 
-   Nahrávání je potřeba mít účet storage s kontejnerem veřejně přístupná (viz požadavky pro tento scénář).  
-   1. V portálu pro správu služby Azure Stack, přejděte na **všechny služby** a potom v části **DATA + úložiště** vyberte **účty úložiště**.  
+   Nahrávání vyžaduje, abyste měli účet úložiště s veřejně přístupným kontejnerem (viz předpoklady pro tento scénář).  
+   1. Na portálu pro správu Azure Stack klikněte na **všechny služby** a potom v kategorii **data + úložiště** vyberte **účty úložiště**.  
    
-   2. Vyberte účet úložiště z vašeho předplatného a pak v části **služby BLOB SERVICE**vyberte **kontejnery**.  
-      [![Službu BLOB service](media/azure-stack-download-azure-marketplace-item/blob-service.png "službu Blob service")](media/azure-stack-download-azure-marketplace-item/blob-service.png#lightbox)  
+   2. Vyberte účet úložiště z vašeho předplatného a potom v části **BLOB Service**vyberte **kontejnery**.  
+      [![BLOB Service](media/azure-stack-download-azure-marketplace-item/blob-service.png "BLOB Service")](media/azure-stack-download-azure-marketplace-item/blob-service.png#lightbox)  
    
-   3. Vyberte kontejner, kterou chcete použít a pak vyberte **nahrát** otevřít **nahrát objekt blob** podokně.  
-      [![Kontejner](media/azure-stack-download-azure-marketplace-item/container.png "kontejneru")](media/azure-stack-download-azure-marketplace-item/container.png#lightbox)  
+   3. Vyberte kontejner, který chcete použít, a potom výběrem **Odeslat** otevřete podokno **nahrát objekt BLOB** .  
+      [![Kontejner](media/azure-stack-download-azure-marketplace-item/container.png "Kontejner")](media/azure-stack-download-azure-marketplace-item/container.png#lightbox)  
    
-   4. V podokně nahrání objektu blob přejděte k souborům balíčku a disk k načtení do úložiště a pak vyberte **nahrát**: [![Nahrát](media/azure-stack-download-azure-marketplace-item/uploadsm.png "nahrát")](media/azure-stack-download-azure-marketplace-item/upload.png#lightbox)  
+   4. V podokně nahrát objekt BLOB vyhledejte soubory balíčku a disku, které chcete načíst do úložiště, a pak vyberte **nahrát**: [![Nahrát](media/azure-stack-download-azure-marketplace-item/uploadsm.png "Nahrát")](media/azure-stack-download-azure-marketplace-item/upload.png#lightbox)  
 
-   5. V podokně kontejner se zobrazí soubory, které nahrajete. Vyberte soubor a zkopírujte adresu URL **vlastnosti objektu Blob** podokně. Tuto adresu URL použijete v dalším kroku při importu položky marketplace do služby Azure Stack.  Na následujícím obrázku je kontejner *úložiště objektů blob testu* a soubor je *Microsoft.WindowsServer2016DatacenterServerCore ARM.1.0.801.azpkg*.  Soubor je adresa URL *https://testblobstorage1.blob.local.azurestack.external/blob-test-storage/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg* .  
-      [![Vlastnosti objektu BLOB](media/azure-stack-download-azure-marketplace-item/blob-storagesm.png "vlastnosti objektu Blob")](media/azure-stack-download-azure-marketplace-item/blob-storage.png#lightbox)  
+   5. Soubory, které nahrajete, se zobrazí v podokně kontejneru. Vyberte soubor a pak zkopírujte adresu URL z podokna **vlastnosti objektu BLOB** . Tuto adresu URL použijete v dalším kroku, když naimportujete položku Marketplace do Azure Stack.  Na následujícím obrázku je kontejnerem *objekt BLOB-test-Storage* a soubor je *Microsoft. WindowsServer2016DatacenterServerCore-ARM. 1.0.801. azpkg*.  Adresa URL souboru je *https://testblobstorage1.blob.local.azurestack.external/blob-test-storage/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg* .  
+      [![Vlastnosti objektu BLOB](media/azure-stack-download-azure-marketplace-item/blob-storagesm.png "Vlastnosti objektu BLOB")](media/azure-stack-download-azure-marketplace-item/blob-storage.png#lightbox)  
 
-3. Importovat obraz virtuálního pevného disku do služby Azure Stack pomocí **přidat AzsPlatformimage** rutiny. Když tuto rutinu použili, nahraďte *vydavatele*, *nabízejí*a jiné hodnoty parametru s hodnotami bitovou kopii, kterou importujete. 
+3. Importujte bitovou kopii VHD do Azure Stack pomocí rutiny **Add-AzsPlatformimage** . Když použijete tuto rutinu, nahraďte *vydavatele*, *nabídku*a další hodnoty parametrů hodnotami obrázku, který importujete. 
 
-   Můžete získat *vydavatele*, *nabízejí*, a *sku* hodnoty bitové kopie z textového souboru, který stahuje se soubor AZPKG. Textový soubor je uložen v cílovém umístění. *Verze* hodnotu verze, které jste si poznamenali při stahování položky z Azure v předchozím postupu. 
+   Z textového souboru, který se stahuje souborem AZPKG, můžete získat hodnoty z *obrázku,* *nabídky*a *SKU* . Textový soubor je uložený v cílovém umístění. Hodnota *verze* je zjištěná verze při stahování položky z Azure v předchozím postupu. 
  
-   V následujícím příkladu skriptu se používají hodnoty pro Windows Server 2016 Datacenter - virtuálního počítače jádra serveru. Hodnota pro *- Osuri* je příklad cesty k umístění úložiště objektů blob pro položku.
+   V následujícím ukázkovém skriptu se používají hodnoty pro virtuální počítač jádro Windows serveru 2016 Datacenter-Server. Hodnota vlastnosti *-Osuri* je příkladem cesty k umístění úložiště objektů BLOB pro položku.
 
-   Jako alternativu k tento skript můžete použít [postup popsaný v tomto článku](azure-stack-add-vm-image.md#add-a-vm-image-through-the-portal) import. Image virtuálního pevného disku pomocí webu Azure portal.
+   Jako alternativu k tomuto skriptu můžete použít postup, který je [popsaný v tomto článku](azure-stack-add-vm-image.md#add-a-vm-image-through-the-portal) , a importovat. Bitová kopie VHD pomocí Azure Portal.
 
    ```powershell  
    Add-AzsPlatformimage `
@@ -219,28 +219,28 @@ Existují dvě části pro tento scénář:
     -OsUri "https://mystorageaccount.blob.local.azurestack.external/cont1/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.vhd"  
    ```
 
-   **Šablony řešení:** Některé šablony může obsahovat malé 3 MB. Soubor virtuálního pevného disku s názvem **fixed3.vhd**. Není nutné importovat do služby Azure Stack. Fixed3.VHD.  Tento soubor je součástí některých šablony řešení požadavků pro publikování na webu Azure Marketplace.
+   **O šablonách řešení:** Některé šablony můžou zahrnovat malé 3 MB. Soubor VHD s názvem **fixed3. VHD** Tento soubor nemusíte naimportovat do Azure Stack. Fixed3. VHD.  Tento soubor je součástí některých šablon řešení, aby splňoval požadavky na publikování Azure Marketplace.
 
-   Zkontrolujte popis šablony a stáhly a naimportovaly další požadavky, jako jsou virtuální pevné disky, které jsou vyžadována pro práci s šablonu řešení.  
+   Přečtěte si popis šablon a stáhněte a importujte další požadavky, jako jsou virtuální pevné disky, které jsou potřeba pro práci se šablonou řešení.  
    
-   **Informace o rozšíření:** Při práci s příponami image virtuálního počítače použijte následující parametry:
+   **O rozšířeních:** Při práci s rozšířeními imagí virtuálních počítačů použijte následující parametry:
    - *Publisher*
    - *Typ*
    - *Verze*  
 
-   Je velmi riskantní používat *nabízejí* pro rozšíření.   
+   Pro rozšíření nepoužíváte *nabídku* .   
 
 
-4.  Použití Powershellu k publikování položky marketplace do služby Azure Stack pomocí **přidat AzsGalleryItem** rutiny. Příklad:  
+4.  Pomocí PowerShellu můžete publikovat položku Marketplace do Azure Stack pomocí rutiny **Add-AzsGalleryItem** . Příklad:  
     ```powershell  
     Add-AzsGalleryItem `
      -GalleryItemUri "https://mystorageaccount.blob.local.azurestack.external/cont1/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg" `
      -Verbose
     ```
-5. Po publikování položky galerie je teď k dispozici pro použití. Pokud chcete potvrdit, publikování položky galerie, přejděte na **všechny služby**a potom v části **Obecné** vyberte **Marketplace**.  Při stahování šablony řešení, ujistěte se, že přidáte všechny závislé image virtuálního pevného disku pro danou šablonu řešení.  
-  [![Zobrazení marketplace](media/azure-stack-download-azure-marketplace-item/view-marketplacesm.png "zobrazení marketplace")](media/azure-stack-download-azure-marketplace-item/view-marketplace.png#lightbox)  
+5. Po publikování položky Galerie je teď možné ji použít. Pokud chcete potvrdit publikování položky galerie, klikněte na **všechny služby**a potom v kategorii **Obecné** vyberte **Marketplace**.  Pokud je vaše stažení šablonou řešení, nezapomeňte pro šablonu řešení přidat jakoukoli závislou image VHD.  
+  [![Zobrazit Marketplace](media/azure-stack-download-azure-marketplace-item/view-marketplacesm.png "Zobrazit Marketplace")](media/azure-stack-download-azure-marketplace-item/view-marketplace.png#lightbox)  
 
-Verze Azure Stack Powershellu 1.3.0 nyní můžete přidat rozšíření virtuálního počítače. Příklad:
+S vydáním Azure Stack PowerShellu 1.3.0 teď můžete přidat rozšíření virtuálních počítačů. Příklad:
 
 ```powershell
 Add-AzsVMExtension -Publisher "Microsoft" -Type "MicroExtension" -Version "0.1.0" -ComputeRole "IaaS" -SourceBlob "https://github.com/Microsoft/PowerShell-DSC-for-Linux/archive/v1.1.1-294.zip" -SupportMultipleExtensions -VmOsType "Linux"

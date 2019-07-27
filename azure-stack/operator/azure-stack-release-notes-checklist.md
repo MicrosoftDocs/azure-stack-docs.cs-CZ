@@ -16,12 +16,12 @@ ms.date: 07/25/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 07/25/2019
-ms.openlocfilehash: 01bbd8b9de5c3d5446b34483125e2dcdcb4a5c20
-ms.sourcegitcommit: f6ea6daddb92cbf458f9824cd2f8e7e1bda9688e
+ms.openlocfilehash: 0c7840c723aedd38b51002e4a1f18f5a87d66ec4
+ms.sourcegitcommit: c2690b2dd36918ff3e47e359cac926128bb83101
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68494029"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68544078"
 ---
 # <a name="azure-stack-update-activity-checklist"></a>Kontrolní seznam aktivity Azure Stack aktualizace
 
@@ -58,6 +58,7 @@ Tento článek obsahuje kontrolní seznam aktivit souvisejících s aktualizací
 |-----------------------|----------------------------------------------------------------------------------|
 | Použít nejnovější opravy hotfix | Použijte nejnovější opravy hotfix, které se vztahují k aktualizované verzi.                          |
 | Načtení šifrovacích klíčů | Načtěte data z neaktivních šifrovacích klíčů a bezpečně je uložte mimo vaše nasazení Azure Stack. Postupujte podle [pokynů pro načtení klíčů](azure-stack-security-bitlocker.md). |
+| Opětovné povolení víceklientské architektury | V případě Azure Stack s více klienty nezapomeňte po úspěšné aktualizaci [nakonfigurovat všechny klienty adresáře hostů](https://docs.microsoft.com/azure-stack/operator/azure-stack-enable-multitenancy#configure-guest-directory) . |
 
 ## <a name="next-steps"></a>Další postup
 
