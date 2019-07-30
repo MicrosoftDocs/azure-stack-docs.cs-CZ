@@ -2,60 +2,82 @@
 documentType: LandingData
 title: Dokumentace operátora k Azure Stacku
 metadata:
-  document_id: cbf798da-6f1a-7d4d-7707-5d5e02589e22
-  title: 'Dokumentace operátora k Azure Stacku – kurzy, reference k rozhraní API'
-  description: 'Zjistěte, jak použít službu Azure Stack k doručování služeb Azure z vašeho datového centra. Další informace a předvedení funkcí z Development Kit nebo prostředí pro integrované systémy.'
+  title: 'Dokumentace k Azure Stacku – kurzy, reference k rozhraní API'
+  meta.description: azure-stack
   services: azure-stack
-  author: mattbriggs
+  author: justinha
   manager: femila
+  layout: LandingPage
+  ms.assetid: cbf798da-6f1a-7d4d-7707-5d5e02589e22
   ms.service: azure-stack
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.tgt_pltfrm: from-team
+  ms.devlang: from-team
   ms.topic: landing-page
-  ms.date: 06/17/2019
-  ms.author: mabrigg
+  ms.date: 07/09/2019
+  ms.author: justinha
 abstract:
-  description: 'Microsoft Azure Stack je hybridní cloudová platforma, která umožňuje zřizovat služby Azure z vašeho datového centra. Zjistěte, jak spravovat infrastrukturu integrované systémy Azure Stack a nabízet služby prostřednictvím našich šablon rychlý start a kurzů.<br/><br/>Pokud patříte mezi uživatele služby Azure Stack, který používá služby nebo vytváření aplikací pro Azure Stack, přečtěte si naše <a href="/azure-stack/user">dokumentaci pro uživatele</a>.<br/><br/>Pokud jsou operátory Azure stacku chtěli v Azure Stack Development Kit (ASDK), nasazení v jednom uzlu služby Azure Stack, kterou můžete stáhnout a používat zdarma, přečtěte si naše <a href="/azure-stack/asdk">ASDK dokumentaci</a>.'
+  description: 'Microsoft Azure Stack je hybridní cloudová platforma, která umožňuje zřizovat služby Azure z vašeho datového centra. Naučte se spravovat infrastrukturu Azure Stack integrovaných systémů a nabízet služby prostřednictvím našich šablon rychlý Start a kurzů.<br/><br/>Pokud jste Azure Stack uživatel, který používá služby nebo sestavování aplikace pro Azure Stack, přečtěte si naši <a href="/azure-stack/user">dokumentaci pro uživatele</a>.<br/><br/>Pokud jste Azure Stacký operátor, který se zajímá o Azure Stack Development Kit (ASDK), nasazení v jednom uzlu Azure Stack, které si můžete stáhnout a použít zdarma, najdete v naší <a href="/azure-stack/asdk">dokumentaci k ASDK</a>.'
 sections:
-  - title: Rychlý start
-    items:
-      - type: paragraph
-        text: Další informace o použití portálu pro správu pro každodenní správu.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_deploy.svg'
-            text: Použití portálu pro správu služby Azure Stack
-            href: azure-stack-manage-portals.md
-  - title: Podrobné kurzy
-    items:
-      - type: paragraph
-        text: 'Zjistěte, jak přidat služby do vašeho nasazení Azure stacku.'
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure-stack/operator/azure-stack-tutorial-tenant-vm">Nabídka virtuálních počítačů v Azure stacku</a>
-          - html: <a href="/azure-stack/operator/azure-stack-tutorial-sql-server">Nabídka databází SQL v Azure stacku</a>
-          - html: <a href="/azure-stack/operator/azure-stack-tutorial-sql">Vytvoření vysoce dostupné databáze SQL</a>
-          - html: <a href="/azure-stack/operator/azure-stack-tutorial-mysql">Vytvoření vysoce dostupné databáze MySQL</a>
-          - html: <a href="/azure-stack/operator/azure-stack-tutorial-app-service">Nabídka webových aplikací v Azure stacku</a>
-  - title: Bezplatné školicí video od Pluralsightu
+  - title: Začínáme se službou Azure Stack
     items:
       - type: list
         style: cards
-        className: cardsFTitle
+        className: cardsA
         items:
-          - title: Naučte se základy Azure Stacku
-            href: 'https://www.pluralsight.com/courses/microsoft-azure-stack-big-picture?twoid=26658a98-62ff-48e5-aa5f-2741523aea54'
-            image:
-              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
-              href: 'https://www.pluralsight.com/courses/microsoft-azure-stack-big-picture?twoid=26658a98-62ff-48e5-aa5f-2741523aea54'
-  - title: Referenční informace
+          - html: |-
+              <a href="/azure-stack/operator/azure-stack-manage-portals">
+              <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_portal.svg" alt="">
+              <br><b>Použití portálu pro správu</b></a>
+              <p>Portál pro správu použijte pro každodenní správu a provoz Azure Stack.</p>
+          - html: |-
+              <a href="/azure-stack/operator/azure-stack-powershell-install">
+              <img height="48" width="48" src="https://docs.microsoft.com/media/logos/logo_powershell.svg" alt="">
+              <br><b>Azure Stack PowerShell</b></a>
+              <p>Z PowerShellu můžete snadno spravovat prostředky Azure Stack.</p>
+          - html: |-
+              <a href="/azure-stack/operator/azure-stack-capacity-planning-overview">
+              <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_load-testing.svg" alt="">
+              <br><b>Plánování kapacity</b></a>
+              <p>Podívejte se, jak se různé výpočetní prostředky vejdou do výběru nabídky hardwaru.</p>
+  - title: Nabídka Azure Stack služeb
     items:
       - type: list
         style: cards
-        className: cardsD
+        className: cardsA
         items:
-          - title: Příkazový řádek
-            html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.10">Azure Stack PowerShell</a></p>
+          - html: |-
+              <a href="/azure-stack/operator/azure-stack-sql-resource-provider">
+              <img height="48" width="48" src="https://docs.microsoft.com/media/logos/logo_SQL.svg" alt="hybrid cloud app ci/cd">
+              <br><b>Nabídka SQL jako PaaS</b></a>
+              <p>Použijte poskytovatele prostředků SQL Server k nabídnutí databází SQL jako služby Azure Stack.</p>
+          - html: |-
+              <a href="/azure-stack/operator/azure-stack-mysql-resource-provider">
+              <img height="48" width="48" src="https://docs.microsoft.com/media/logos/logo_mysql.svg" alt="hybrid cloud app identity">
+              <br><b>Nabídka MySQL jako PaaS</b></a>
+              <p>Pomocí poskytovatele prostředků MySQL poskytněte databáze MySQL jako službu Azure Stack.</p>
+          - html: |-
+              <a href="/azure-stack/operator/azure-stack-app-service-overview">
+              <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_web-apps.svg" alt="hybrid cloud app scaling">
+              <br><b>Nabídka Azure App Service jako PaaS</b></a>
+              <p>Pomáhat uživatelům vytvářet webové aplikace a rozhraní API pro jakoukoli platformu nebo zařízení.</p>
+  - title: Správa Azure Stack
+    items:
+      - type: list
+        style: cards
+        className: cardsA
+        items:
+          - html: |-
+              <a href="/azure-stack/operator/azure-stack-updates">
+              <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_upgrade.svg" alt="">
+              <br><b>Aktualizovat Azure Stack</b></a>
+              <p>Microsoft vytvoří každý měsíc jeden balíček, aby Azure Stack integrované systémy zůstaly aktuální. </p>
+          - html: |-
+              <a href="/azure-stack/operator/azure-stack-backup-infrastructure-backup">
+              <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_usb.svg" alt="">
+              <br><b>Zálohování Azure Stack</b></a>
+              <p>Zálohujte a obnovte data konfigurace a služby pomocí služby Infrastructure Backup.</p>
+          - html: |-
+              <a href="/azure-stack/operator/azure-stack-security-configuration">
+              <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_cloud-security.svg" alt="">
+              <br><b>Konfigurace zabezpečení Azure Stack</b></a>
+              <p>Azure Stack je určený k obraně před moderními hrozbami a splnění standardů dodržování předpisů.</p>

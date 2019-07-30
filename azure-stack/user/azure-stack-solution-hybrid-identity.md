@@ -1,6 +1,6 @@
 ---
-title: Konfigurace hybridní Cloudová identita s aplikacemi Azure a Azure Stack | Dokumentace Microsoftu
-description: Zjistěte, jak nakonfigurovat hybridní Cloudová identita s aplikacemi Azure a Azure Stack.
+title: Konfigurace hybridní cloudové identity pomocí Azure a aplikací Azure Stack | Microsoft Docs
+description: Naučte se konfigurovat hybridní cloudovou identitu pomocí aplikací Azure a Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: bryanla
@@ -10,74 +10,74 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: solution
+ms.topic: conceptual
 ms.date: 06/26/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 06/26/2019
-ms.openlocfilehash: 3ed0c109e0253fe6d710801dbc30de04c0b5a6e5
-ms.sourcegitcommit: 2a4cb9a21a6e0583aa8ade330dd849304df6ccb5
+ms.openlocfilehash: bc614cb514b9d35523749944486aa375bb8fce9c
+ms.sourcegitcommit: 35b13ea6dc0221a15cd0840be796f4af5370ddaf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68286827"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68603001"
 ---
 # <a name="configure-hybrid-cloud-identity-for-azure-and-azure-stack-applications"></a>Konfigurace hybridní cloudové identity pro aplikace Azure a Azure Stack
 
-*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
 
-Zjistěte, jak nakonfigurovat hybridní cloudové identity pro vaše aplikace Azure a Azure Stack.
+Naučte se konfigurovat hybridní cloudovou identitu pro aplikace Azure a Azure Stack.
 
-Máte dvě možnosti pro poskytování přístupu k aplikacím v globální Azure a Azure Stack.
+Máte dvě možnosti, jak udělit přístup k vašim aplikacím v globálním prostředí Azure i Azure Stack.
 
- * Pokud má Azure Stack nepřetržité připojení k Internetu, můžete použít Azure Active Directory (Azure AD).
- * Když Azure Stack je připojený k Internetu, můžete použít Azure Directory Federated Services (AD FS).
+ * Pokud Azure Stack má nepřetržité připojení k Internetu, můžete použít Azure Active Directory (Azure AD).
+ * Pokud je Azure Stack odpojená od Internetu, můžete použít Azure Directory federovaného služby (AD FS).
 
-Udělení přístupu k aplikacím Azure Stack pro nasazení nebo konfigurací pomocí Azure Resource Manageru ve službě Azure Stack pomocí instančních objektů.
+Pomocí instančních objektů udělíte přístup k aplikacím Azure Stack pro nasazení nebo konfiguraci pomocí Azure Resource Manager v Azure Stack.
 
-V tomto řešení vytvoříte ukázkové prostředí:
+V tomto řešení sestavíte ukázkové prostředí pro:
 
 > [!div class="checklist"]
-> - Vytvoření hybridní identity v globální službě Azure Stack a Azure
-> - Získat token pro přístup k rozhraní API služby Azure Stack.
+> - Vytvoření hybridní identity v globálním Azure a Azure Stack
+> - Načtěte token pro přístup k rozhraní Azure Stack API.
 
-Musíte mít oprávnění operátor Azure stacku kroky v tomto řešení.
+Pro kroky v tomto řešení musíte mít oprávnění Azure Stack operator.
 
 > [!Tip]  
 > ![hybridní pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
-> Microsoft Azure Stack je rozšířením Azure. Azure Stack přináší flexibilitu a inovace cloud computingu do místního prostředí, povolení ten jediný hybridní cloud, který umožňuje vytvářet a nasazovat hybridní aplikace kdekoli.  
+> Microsoft Azure Stack je rozšířením Azure. Azure Stack přináší flexibilitu a inovace cloud computingu do místního prostředí a umožňuje jenom hybridní cloud, který umožňuje vytvářet a nasazovat hybridní aplikace odkudkoli.  
 > 
-> Tento článek [aspekty návrhu pro hybridní aplikace](azure-stack-edge-pattern-overview.md) kontroly pro navrhování, nasazování a provozování hybridní pilířů kvality softwaru (umístění, škálovatelnost, dostupnost, odolnost, možnosti správy a zabezpečení) aplikace. Aspekty návrhu při optimalizaci návrhu hybridních aplikací, minimalizovat problémy v produkčním prostředí.
+> Požadavky na [Návrh pro hybridní aplikace](azure-stack-edge-pattern-overview.md) kontrolují pilíře kvality softwaru (umístění, škálovatelnost, dostupnost, odolnost, možnosti správy a zabezpečení) pro navrhování, nasazování a provozování hybridních aplikací. Pokyny k návrhu pomáhají při optimalizaci návrhu hybridní aplikace a minimalizaci výzev v produkčních prostředích.
 
 
-## <a name="create-a-service-principal-for-azure-ad-in-the-portal"></a>Vytvoření instančního objektu služby pro službu Azure AD na portálu
+## <a name="create-a-service-principal-for-azure-ad-in-the-portal"></a>Vytvoření instančního objektu pro službu Azure AD na portálu
 
-Pokud jste nasadili Azure Stack jako úložiště identit pomocí Azure AD, můžete vytvořit instanční objekty stejně jako pro Azure. [Pomocí identity aplikace pro přístup k prostředkům](../operator/azure-stack-create-service-principals.md#manage-an-azure-ad-service-principal) se dozvíte, jak k provádění kroků na portálu. Ujistěte se, že máte [požadovaná oprávnění Azure AD](/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) před zahájením.
+Pokud jste nasadili Azure Stack s využitím Azure AD jako úložiště identit, můžete objekty služby vytvářet stejně jako v případě Azure. [Použití identity aplikace pro přístup k prostředkům](../operator/azure-stack-create-service-principals.md#manage-an-azure-ad-service-principal) ukazuje, jak provést kroky prostřednictvím portálu. Před zahájením se ujistěte, že máte [požadovaná oprávnění služby Azure AD](/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) .
 
-## <a name="create-a-service-principal-for-ad-fs-using-powershell"></a>Vytvoření instančního objektu služby AD FS pomocí Powershellu
+## <a name="create-a-service-principal-for-ad-fs-using-powershell"></a>Vytvoření instančního objektu pro AD FS s využitím PowerShellu
 
-Pokud jste nasadili Azure Stack se službou AD FS, slouží k vytvoření instančního objektu, přiřazení role pro přístup a přihlásit z Powershellu pomocí tohoto identity prostředí PowerShell. [Pomocí identity aplikace pro přístup k prostředkům](../operator/azure-stack-create-service-principals.md#manage-an-ad-fs-service-principal) ukazuje, jak provést požadované kroky pomocí Powershellu.
+Pokud jste nasadili Azure Stack s AD FS, můžete k vytvoření instančního objektu použít PowerShell, přiřadit roli pro přístup a přihlásit se pomocí této identity z PowerShellu. [Použití identity aplikace pro přístup k prostředkům](../operator/azure-stack-create-service-principals.md#manage-an-ad-fs-service-principal) ukazuje, jak provést požadované kroky pomocí prostředí PowerShell.
 
-## <a name="using-the-azure-stack-api"></a>Pomocí služby Azure Stack rozhraní API
+## <a name="using-the-azure-stack-api"></a>Používání rozhraní Azure Stack API
 
-[Rozhraní API služby Azure Stack](azure-stack-rest-api-use.md) řešení vás provede procesem načítání tokenu pro přístup k rozhraní API služby Azure Stack.
+Řešení [Azure Stack API](azure-stack-rest-api-use.md) vás provede procesem Načtení tokenu pro přístup k rozhraní Azure Stack API.
 
-## <a name="connect-to-azure-stack-using-powershell"></a>Připojení ke službě Azure Stack pomocí Powershellu
+## <a name="connect-to-azure-stack-using-powershell"></a>Připojení k Azure Stack pomocí PowerShellu
 
-Rychlý Start [pro uvedení do provozu pomocí prostředí PowerShell ve službě Azure Stack](../operator/azure-stack-powershell-install.md) vás provede kroky potřebné k instalaci prostředí Azure PowerShell a připojte se k instalaci sady Azure Stack.
+Rychlý Start [k zprovoznění prostředí PowerShell v Azure Stack](../operator/azure-stack-powershell-install.md) vás provede kroky potřebnými k instalaci Azure PowerShell a připojení k instalaci Azure Stack.
 
 ### <a name="prerequisites"></a>Požadavky
 
-Budete potřebovat připojení k Azure Active Directory s předplatným, máte přístup k instalaci Azure Stack. Pokud nemáte k dispozici při instalaci Azure Stack, můžete použít tyto pokyny k nastavení [Azure Stack Development Kit](../asdk/asdk-install.md).
+Potřebujete instalaci Azure Stack připojenou k Azure Active Directory s předplatným, ke kterému máte přístup. Pokud nemáte instalaci Azure Stack, můžete k nastavení [Azure Stack Development Kit](../asdk/asdk-install.md)použít tyto pokyny.
 
-#### <a name="connect-to-azure-stack-using-code"></a>Připojení ke službě Azure Stack pomocí kódu
+#### <a name="connect-to-azure-stack-using-code"></a>Připojení k Azure Stack pomocí kódu
 
-Pro připojení ke službě Azure Stack pomocí kódu, použijte k získání ověřování a koncových bodů grafu pro instalaci sady Azure Stack a pak provést ověření pomocí požadavky REST koncových bodů rozhraní API Azure Resource Manageru. Ukázková klientská aplikace můžete najít na [Githubu](https://github.com/shriramnat/HybridARMApplication).
+Pokud se chcete připojit k Azure Stack pomocí kódu, použijte rozhraní API pro Azure Resource Manager koncových bodů k získání koncových bodů pro ověřování a grafy pro instalaci Azure Stack a pak ověřte pomocí požadavků REST. Ukázkovou klientskou aplikaci najdete na [GitHubu](https://github.com/shriramnat/HybridARMApplication).
 
 >[!Note]
->Pokud sada Azure SDK pro svůj jazyk podporuje profily rozhraní API Azure, SDK nemusí fungovat s Azure Stack. Další informace o profilech rozhraní API Azure, najdete v článku [Správa profilů verzí API](azure-stack-version-profiles.md) článku.
+>Pokud sada Azure SDK pro váš jazyk, kterou si vyberete, nepodporuje profily rozhraní API Azure, sada SDK nemusí v Azure Stack fungovat. Další informace o profilech rozhraní API Azure najdete v článku [Správa profilů verzí rozhraní API](azure-stack-version-profiles.md) .
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
- - Další informace o zpracování identity ve službě Azure Stack, najdete v článku [architektury identit pro službu Azure Stack](../operator/azure-stack-identity-architecture.md).
+ - Další informace o tom, jak se identita zpracovává v Azure Stack, najdete v tématu [Architektura identity pro Azure Stack](../operator/azure-stack-identity-architecture.md).
  - Další informace o vzorech cloudu Azure, najdete v článku [vzory návrhu v cloudu](https://docs.microsoft.com/azure/architecture/patterns).

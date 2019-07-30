@@ -10,16 +10,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2019
+ms.date: 07/24/2019
 ms.author: sethm
 ms.reviewer: sijuman
-ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 9d0597d4e2687c6563c365470be57c1603bbe616
-ms.sourcegitcommit: 72d45bb935db0db172d4d7c37d8e48e79e25af64
+ms.lastreviewed: 07/24/2019
+ms.openlocfilehash: 2d57c0ff71cd0aa4280e6a21df4727ee4bbe7fb6
+ms.sourcegitcommit: 7961fda0bfcdd3db8cf94a8c405b5c23a23643af
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68376743"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68616501"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack"></a>Správa profilů verzí rozhraní API v Azure Stack
 
@@ -69,7 +69,7 @@ Místo výzkumu každého poskytovatele prostředků a konkrétní verze, kterou
 
 Profily rozhraní API fungují s nástroji, které používají Azure Resource Manager, jako je PowerShell, Azure CLI, kód poskytovaný v sadě SDK a Microsoft Visual Studio. Nástroje a sady SDK můžou používat profily ke čtení, které verze modulů a knihoven se mají zahrnout při sestavování aplikace.
 
-Pokud například použijete PowerShell k vytvoření účtu úložiště pomocí poskytovatele prostředků **Microsoft. Storage** , který podporuje **rozhraní api-Version** 2016-03-30 a virtuální počítač s použitím poskytovatele prostředků **Microsoft. COMPUTE** s **rozhraním API-Version 2015-12-01, je nutné vyhledat, který modul PowerShellu podporuje 2016-03-30 pro úložiště a který modul 2015-02-01 podporuje COMPUTE, a pak je nainstalovat.** Místo toho můžete použít profil. Použijte rutinu `Install-Profile <profilename>`a PowerShell načte správnou verzi modulů.
+Pokud například použijete PowerShell k vytvoření účtu úložiště pomocí poskytovatele prostředků **Microsoft. Storage** , který podporuje **rozhraní api-Version** 2016-03-30 a virtuální počítač s použitím poskytovatele prostředků **Microsoft. COMPUTE** s **rozhraním API-Version** 2015-12-01, je nutné vyhledat, který modul PowerShellu podporuje 2016-03-30 pro úložiště a který modul 2015-02-01 podporuje COMPUTE, a pak je nainstalovat. Místo toho můžete použít profil. Použijte rutinu `Install-Profile <profilename>`a PowerShell načte správnou verzi modulů.
 
 Podobně při použití sady Python SDK k vytvoření aplikace založené na Pythonu můžete určit profil. Sada SDK načte správné moduly pro poskytovatele prostředků, které jste zadali ve vašem skriptu.
 
@@ -91,6 +91,8 @@ V sadě SDK sady SDK je profil kombinací různých typů prostředků s různý
 Sada Ruby SDK pro Azure Stack Správce prostředků poskytuje nástroje, které vám pomůžou při sestavování a správě vaší infrastruktury. Poskytovatelé prostředků v sadě SDK zahrnují výpočetní prostředky, virtuální sítě a úložiště s využitím jazyka Ruby. Informace najdete v tématu [použití profilů verzí rozhraní API s Ruby](azure-stack-version-profiles-ruby.md).
 - **Python**  
 Python SDK podporuje profily verzí rozhraní API pro cílení na různé cloudové platformy, jako je Azure Stack a globální Azure. Pomocí profilů rozhraní API můžete vytvářet řešení pro hybridní cloud. Informace najdete v tématu [použití profilů verzí rozhraní API v Pythonu](azure-stack-version-profiles-python.md).
+- **Node.js**  
+Sada Node. js SDK pro Azure Stack Správce prostředků poskytuje nástroje, které vám pomůžou při sestavování a správě vaší infrastruktury. Další informace najdete v tématu [použití profilů verzí rozhraní API pomocí Node. js](azure-stack-version-profile-nodejs.md).
 
 ## <a name="next-steps"></a>Další postup
 

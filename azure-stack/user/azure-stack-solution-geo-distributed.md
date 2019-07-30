@@ -10,17 +10,17 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: scenario
+ms.topic: conceptual
 ms.date: 01/14/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: ba6eb236086fe9ba0d3ee37d35e1ac69c8ee7224
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: 7f50c1f5cf565040425e0c655585c3d65b837eb3
+ms.sourcegitcommit: 35b13ea6dc0221a15cd0840be796f4af5370ddaf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68418163"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68603142"
 ---
 # <a name="create-a-geo-distributed-app-solution-to-direct-traffic-with-azure-and-azure-stack"></a>Vytvořte geograficky distribuované řešení aplikací pro směrování provozu s Azure a Azure Stack
 
@@ -539,7 +539,7 @@ V různých prohlížečích přejděte na https://< Your. Custom. Domain >, aby
 
 #### <a name="enforce-https"></a>Vynucení HTTPS
 
-Ve výchozím nastavení má kdokoli přístup k webové aplikaci přes HTTP. je možné přesměrovat všechny požadavky HTTP na port HTTPS.
+Ve výchozím nastavení má kdokoli přístup k webové aplikaci přes HTTP. Je možné přesměrovat všechny požadavky HTTP na port HTTPS.
 
 Na stránce webová aplikace vyberte **Nastavení SL**. Pak v části **Pouze HTTPS** vyberte **Zapnuto**.
 
