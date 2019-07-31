@@ -1,6 +1,6 @@
 ---
-title: Informace o službě VPN gateway pro Azure Stack | Dokumentace Microsoftu
-description: Další informace o a konfiguraci brány VPN, které používáte pro Azure Stack.
+title: Vytvořit brány sítě VPN pro Azure Stack | Microsoft Docs
+description: Vytvořte a nakonfigurujte brány VPN pro Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,55 +15,55 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: sethm
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: 0df791c6eb9a898c5263b2c628899b512d49601c
-ms.sourcegitcommit: c4507a100eadd9073aed0d537d054e394b34f530
+ms.openlocfilehash: 980d601dd5830d653787fe4cc31f57be3b3f8d00
+ms.sourcegitcommit: b3dac698f2e1834491c2f9af56a80e95654f11f3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67198649"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68658660"
 ---
-# <a name="about-vpn-gateway-for-azure-stack"></a>Informace o službě VPN gateway pro Azure Stack
+# <a name="create-vpn-gateways-for-azure-stack"></a>Vytváření bran sítě VPN pro Azure Stack
 
-*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
 
 Předtím, než mohou posílat síťový provoz mezi virtuální sítí Azure a vaší místní lokalitě, musíte vytvořit bránu virtuální sítě pro vaši virtuální síť.
 
 Brána VPN je typem brány virtuální sítě, která odesílá šifrovaný síťový provoz přes veřejné spojení. Brány VPN můžete použít k posílání síťového provozu bezpečně mezi virtuální sítí ve službě Azure Stack a virtuální sítě v Azure. Mohou také odesílat provoz bezpečně mezi virtuální sítí a jiné síti, která je připojena k zařízení VPN.
 
-Při vytváření brány virtuální sítě musíte určit typ brány, který chcete vytvořit. Azure Stack podporuje jeden typ brány virtuální sítě: **Vpn** typu.
+Při vytváření brány virtuální sítě musíte určit typ brány, který chcete vytvořit. Azure Stack podporuje jeden typ brány virtuální sítě: typ **sítě VPN** .
 
-Každá virtuální síť může mít dvě brány virtuální sítě, ale každého typu jenom jednu. V závislosti na nastavení, které zvolíte, můžete k jedné bráně VPN vytvořit několik připojení. Příkladem je konfigurace připojení typu Multi-Site.
+Každá virtuální síť může mít dvě brány virtuální sítě, ale každého typu jenom jednu. V závislosti na nastavení, které zvolíte, můžete k jedné bráně VPN vytvořit několik připojení. Příkladem tohoto typu instalace je konfigurace připojení s více lokalitami.
 
-Než vytvoříte a nakonfigurujete brány VPN Gateway pro Azure Stack, projděte si [důležité informace týkající se služby Azure Stack sítě](azure-stack-network-differences.md) se dozvíte, jak konfigurace pro službu Azure Stack se liší od Azure.
+Než vytvoříte a nakonfigurujete brány VPN pro Azure Stack, přečtěte si téma [požadavky pro Azure Stack sítě](azure-stack-network-differences.md) , kde se dozvíte, jak se konfigurace Azure Stack liší od Azure.
 
 >[!NOTE]
->V Azure musí být rozdělen propustnost šířky pásma pro bránu VPN zvolíte SKU napříč všechna připojení, které jsou připojeny k bráně. Ve službě Azure Stack však hodnotu šířky pásma pro skladové položky brány sítě VPN je použita na každý prostředek připojení, která je připojená k bráně.
+>V Azure se propustnost šířky pásma pro SKLADOVOU položku brány VPN, kterou zvolíte, musí rozdělit mezi všechna připojení, která jsou připojená k bráně. V Azure Stack ale hodnota šířky pásma pro SKU brány VPN se použije u každého prostředku připojení, který je připojený k bráně.
 >
 > Příklad:
 >
-> * Základní SKU brány sítě VPN v Azure, zvládne přibližně 100 MB/s z celkové propustnosti. Pokud vytvoříte dvě spojení s touto bránou VPN a jedno připojení používá 50 MB/s šířky pásma, pak 50 MB/s je k dispozici pro jiné připojení.
-> * Ve službě Azure Stack **každé připojení** skladová položka základní brána sítě VPN získá přiděleno 100 MB/s propustnosti.
+> * V Azure může základní propustnost služby VPN Gateway vyhovět přibližně 100 MB/s agregované propustnosti. Pokud vytvoříte dvě připojení k této bráně VPN a jedno připojení používá 50 MB/s šířky pásma, pak je k dispozici 50 MB/s pro druhé připojení.
+> * V Azure Stack se **každé připojení** k položce základní brány VPN Gateway přidělí 100 MB/s propustností.
 
-## <a name="configuring-a-vpn-gateway"></a>Konfigurace služby VPN gateway
+## <a name="configuring-a-vpn-gateway"></a>Konfigurace služby VPN Gateway
 
 Připojení brány VPN se spoléhá na několik prostředků nakonfigurovaných se specifickými nastaveními. Většina těchto prostředků je možné nakonfigurovat jednotlivě, ale v některých případech musí být nakonfigurovány v určitém pořadí.
 
 ### <a name="settings"></a>Nastavení
 
-Nastavení, které zvolíte pro každý prostředek jsou důležité pro vytvoření úspěšného připojení.
+Nastavení, které zvolíte pro každý prostředek, je důležité pro vytvoření úspěšného připojení.
 
-Informace o jednotlivých prostředcích a nastaveních pro VPN gateway najdete v tématu [nastavení informace o službě VPN gateway pro Azure Stack](azure-stack-vpn-gateway-settings.md). Tento článek vám pomůže pochopit:
+Informace o jednotlivých prostředcích a nastaveních pro VPN gateway najdete v tématu [nastavení informace o službě VPN gateway pro Azure Stack](azure-stack-vpn-gateway-settings.md). Tento článek vám pomůže pochopit tyto informace:
 
 * Typy bran, typy sítí VPN a typy připojení.
 * Podsítě brány, místní síťové brány a další nastavení prostředků, které můžete chtít zvážit.
 
 ### <a name="deployment-tools"></a>Nástroje pro nasazení
 
-Můžete vytvořit a nakonfigurovat prostředky pomocí konfiguračního nástroje, jako je například na webu Azure portal. Později můžete přepnout na jiný nástroj, jako je PowerShell pro konfiguraci dalších prostředků nebo úpravám stávajících prostředků. V současné době nelze konfigurovat všechny prostředky a nastavení prostředku na webu Azure Portal. Pokyny v článcích pro každou topologii připojení určují, kdy je zapotřebí specifický konfigurační nástroj.
+Můžete vytvořit a nakonfigurovat prostředky pomocí konfiguračního nástroje, jako je například na webu Azure portal. Později můžete přepnout na jiný nástroj, například PowerShell, a nakonfigurovat další prostředky nebo upravit stávající prostředky, pokud je to možné. V současné době nelze konfigurovat všechny prostředky a nastavení prostředků pomocí webu Azure Portal. Pokyny v článcích pro každou topologii připojení určují, kdy je zapotřebí specifický konfigurační nástroj.
 
 ## <a name="connection-topology-diagrams"></a>Diagramy topologie připojení
 
-K dispozici různé konfigurace pro připojení brány VPN. Určete, která konfigurace bude nejlépe vyhovovat vašim potřebám. V následujících částech si můžete zobrazit diagramy topologie a informace o následujících připojení brány VPN:
+K dispozici jsou různé konfigurace pro připojení brány VPN. Určete, která konfigurace bude nejlépe vyhovovat vašim potřebám. V následujících částech si můžete zobrazit diagramy topologie a informace o následujících připojení brány VPN:
 
 * dostupný model nasazení,
 * dostupné konfigurační nástroje,
@@ -71,17 +71,17 @@ K dispozici různé konfigurace pro připojení brány VPN. Určete, která konf
 
 Diagramy a popisy v následujících částech můžete výběrem topologie připojení tak, aby odpovídaly vašim požadavkům. Diagramy popisují základní topologie, ale je možné vytvořit komplexnější konfigurace s použitím diagramů jako vodítko.
 
-## <a name="site-to-site-and-multi-site-ipsecike-vpn-tunnel"></a>Site-to-site a multi-Site (tunel VPN IPsec/IKE)
+## <a name="site-to-site-and-multi-site-ipsecike-vpn-tunnel"></a>Síť typu Site-to-site a Multi-Site (tunel VPN IPsec/IKE)
 
-### <a name="site-to-site"></a>Site-to-Site
+### <a name="site-to-site"></a>Site-to-site
 
-A *site-to-site* (S2S) připojení brány VPN je připojení přes tunel VPN IPsec/IKE (IKEv2). Tento typ připojení vyžaduje zařízení VPN, které se nacházejí na místních a je přiřazena veřejná IP adresa. Toto zařízení nesmí být umístěné za službou NAT. Připojení S2S můžete použít pro konfigurace mezi různými místy a pro hybridní konfigurace.
+Připojení brány VPN typu *site-to-site* (S2S) je připojení přes tunelové připojení VPN pomocí protokolu IPSec/IKE (IKEv2). Tento typ připojení vyžaduje zařízení VPN, které je umístěné místně a má přiřazenou veřejnou IP adresu. Toto zařízení nesmí být umístěné za službou NAT. Připojení S2S můžete použít pro konfigurace mezi různými místy a pro hybridní konfigurace.
 
 ![Příklad konfigurace připojení Site-to-site VPN](media/azure-stack-vpn-gateway-about-vpn-gateways/vpngateway-site-to-site-connection-diagram.png)
 
-### <a name="multi-site"></a>Multi-Site
+### <a name="multi-site"></a>Pro více lokalit
 
-A *Multi-Site* připojení je variací připojení site-to-site. Z brány virtuální sítě vytvoříte několik připojení VPN, obvykle pro připojení k několika místním lokalitám. Při práci s více připojeními, musíte použít (označované jako dynamická brána při práci s klasickými virtuálními sítěmi) typ sítě VPN založené na směrování. Vzhledem k tomu, že virtuální síť může mít jenom jednu bránu virtuální sítě, všechna připojení prostřednictvím brány sdílejí dostupnou šířku pásma.
+Připojení k *více lokalitám* je varianta připojení typu Site-to-site. Z brány virtuální sítě vytvoříte několik připojení VPN, obvykle pro připojení k několika místním lokalitám. Při práci s více připojeními je nutné použít typ sítě VPN založený na trasách (označovaný jako dynamická brána při práci s klasickým virtuální sítě). Vzhledem k tomu, že virtuální síť může mít jenom jednu bránu virtuální sítě, všechna připojení prostřednictvím brány sdílejí dostupnou šířku pásma.
 
 ![Příklad propojení Multi-Site pomocí Azure VPN Gateway](media/azure-stack-vpn-gateway-about-vpn-gateways/vpngateway-multisite-connection-diagram.png)
 
@@ -93,43 +93,43 @@ Při vytváření brány virtuální sítě pro službu Azure Stack určit SKU b
 * Standard
 * High Performance
 
-Když vyberete vyšší SKU, jako je například standardní přes Basic nebo vysoce výkonné brány přes Standard nebo Basic, jsou přiděleny víc procesorů a šířky pásma sítě k bráně. V důsledku toho může brána podporovat vyšší propustnost sítě k virtuální síti.
+Když vyberete vyšší SKU brány, jako je například Standard over Basic nebo vysoký výkon oproti standardu nebo základní, bude bráně přiděleno více procesorů a šířky pásma sítě. V důsledku toho může brána podporovat vyšší propustnost sítě k virtuální síti.
 
-Azure Stack nepodporuje Ultra výkon brány SKU, která se používá výhradně službou Express Route.
+Azure Stack nepodporuje SKLADOVOU položku brány pro ultra Performance, která se používá výhradně se službou Express Route.
 
-Při výběru SKU zvažte následující:
+Při výběru SKU Vezměte v úvahu následující:
 
-* Azure Stack brány založené na zásadách nepodporuje.
-* Protokol BGP (Border Gateway) není podporován v základní SKU.
-* Konfigurace současně existujících brány ExpressRoute VPN nejsou podporovány ve službě Azure Stack.
+* Azure Stack nepodporuje brány založené na zásadách.
+* Border Gateway Protocol (BGP) není v základní skladové jednotce (SKU) podporován.
+* ExpressRoute – existující konfigurace brány VPN Gateway nejsou podporované v Azure Stack.
 
 ## <a name="gateway-availability"></a>Dostupnost brány
 
-Scénáře vysoké dostupnosti se dá nakonfigurovat jenom na **vysoce výkonná brána** připojení SKU. Na rozdíl od Azure, která poskytuje prostřednictvím konfigurace aktivní/aktivní a aktivní/pasivní vysokou dostupnost, podporuje Azure Stack jenom konfigurace aktivní/pasivní vysokou dostupnost. 
+Scénáře s vysokou dostupností je možné nakonfigurovat jenom na SKU pro připojení **brány s vysokým výkonem** . Na rozdíl od Azure, který poskytuje dostupnost prostřednictvím aktivní/aktivní i aktivní/pasivní konfigurace, Azure Stack podporuje jenom konfiguraci typu aktivní/pasivní. 
 
 ### <a name="failover"></a>Převzetí služeb při selhání
 
-Existují 3 víceklientská brána infrastruktury virtuálních počítačů ve službě Azure Stack. Dva z těchto virtuálních počítačů jsou v aktivním režimu a třetí je v režimu redundantní. Aktivní virtuální počítače povolit vytváření připojení VPN na jejich a redundantní virtuální počítač přijímá pouze v případě selhání připojení k síti VPN. Pokud aktivní brány virtuální počítač stane nedostupným, připojení k síti VPN převezme služby při selhání na redundantní virtuální počítač po krátké době (několik sekund) ztráty připojení.
+Existují tři virtuální počítače infrastruktury víceklientské brány v Azure Stack. Dva z těchto virtuálních počítačů jsou v aktivním režimu a třetí je v redundantním režimu. Aktivní virtuální počítače umožňují vytváření připojení k síti VPN a redundantní virtuální počítač akceptuje připojení VPN jenom v případě, že dojde k převzetí služeb při selhání. Pokud virtuální počítač aktivní brány přestane být dostupný, připojení VPN se po krátké době (několik sekund) převezme k redundantnímu virtuálnímu počítači po krátkou dobu (několik sekund) ztráty připojení.
 
 ## <a name="estimated-aggregate-throughput-by-sku"></a>Odhadovaná agregovaná propustnost podle typů SKU
 
-Následující tabulka ukazuje typy brány a odhadovanou agregovanou propustnost podle SKU brány:
+Následující tabulka ukazuje typy brány a odhadovanou agregovanou propustnost pomocí SKU brány:
 
 || Propustnost brány sítě VPN *(1)* | Tunelových propojení IPsec brány sítě VPN maximální *(2)* |
 |-------|-------|-------|
 |**Základní SKU** ***(3)*** | 100 Mb/s | 20 |
 |**Standardní SKU** | 100 Mb/s | 20 |
-|**SKU pro vysoký výkon** | 200 Mb/s | 10 |
+|**SKU s vysokým výkonem** | 200 Mb/s | 10 |
 
 **Poznámky k tabulce:**
 
-*Poznámka: (1)* -propustnosti sítě VPN není zaručena propustnost pro připojení mezi místními systémy přes Internet. Jedná se o maximální možné měření propustnosti.  
-*Poznámka: [2]* – maximální počet tunelových propojení je celkem jedno nasazení služby Azure Stack pro všechna předplatná.  
+*Poznámka (1)* – propustnost sítě VPN není zaručená propustnost pro připojení mezi různými místy přes Internet. Je maximální možné měření propustnosti.  
+*Poznámka (2)* – maximální počet tunelů je celkový počet nasazení na Azure Stack pro všechna předplatná.  
 *Poznámka: [3]* – směrování protokolu BGP není podporován pro základní SKU.
 
 >[!NOTE]
->Lze vytvořit pouze jedno připojení site-to-site VPN mezi dvěma nasazeními Azure Stack. Toto je kvůli omezením na platformě, která povoluje jenom jedno připojení sítě VPN pro stejnou IP adresu. Protože Azure Stack využívá víceklientská brána, který používá jednu veřejnou IP adresu pro všechny brány sítě VPN v systému Azure Stack, může existovat pouze jedno připojení VPN mezi dvěma systémy Azure Stack. Toto omezení platí také pro připojení více než jednoho připojení sítě VPN site-to-site VPN gateway, která používá jedna IP adresa. Azure Stack není povolena více než jeden prostředek brány místní sítě má být vytvořen pomocí stejné IP adresy.
+>Mezi dvěma nasazeními Azure Stack se dá vytvořit jenom jedno připojení typu Site-to-Site VPN. Důvodem je omezení platformy, která umožňuje jenom jedno připojení VPN ke stejné IP adrese. Vzhledem k tomu, že Azure Stack využívá víceklientské brány, která pro všechny brány VPN v systému Azure Stack používá jednu veřejnou IP adresu, může být mezi dvěma Azure Stack systémy jenom jedno připojení VPN. Toto omezení platí i pro připojení více než jednoho připojení VPN typu Site-to-site k libovolné bráně VPN, která používá jednu IP adresu. Azure Stack neumožňuje vytvoření více než jednoho prostředku brány místní sítě, který používá stejnou IP adresu.
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 * [Konfigurace nastavení služby VPN gateway pro Azure Stack](azure-stack-vpn-gateway-settings.md)

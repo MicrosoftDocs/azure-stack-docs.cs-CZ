@@ -1,6 +1,6 @@
 ---
-title: Konfigurace připojení VPN typu site-to-site Azure Stack | Dokumentace Microsoftu
-description: Další informace o zásady IPsec/IKE pro připojení site-to-site VPN nebo VNet-to-VNet ve službě Azure Stack
+title: Konfigurace připojení VPN typu Site-to-site mezi lokalitami pomocí protokolu IPsec/IKE | Microsoft Docs
+description: Přečtěte si o konfiguraci zásad IPsec/IKE pro připojení typu Site-to-Site VPN nebo VNet-to-VNet v Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -14,59 +14,59 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: sethm
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: d6944fefeb55c1b2a109964271c84daafb8b8ff8
-ms.sourcegitcommit: c9d11be7d27c73797bdf279d4fcabb7a22451541
+ms.openlocfilehash: 0c9c1af77ecf2bdf1c8da23cc7ab9e8d281067ea
+ms.sourcegitcommit: b3dac698f2e1834491c2f9af56a80e95654f11f3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/26/2019
-ms.locfileid: "67397299"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68658699"
 ---
-# <a name="configure-ipsecike-policy-for-site-to-site-vpn-connections"></a>Konfigurace zásad IPsec/IKE pro připojení VPN typu site-to-site
+# <a name="configure-ipsecike-policy-for-site-to-site-vpn-connections"></a>Konfigurace zásad IPsec/IKE pro připojení VPN typu Site-to-site
 
-Tento článek vás provede kroky ke konfiguraci zásad IPsec/IKE pro site-to-site (S2S) VPN připojení ve službě Azure Stack.
+Tento článek vás provede jednotlivými kroky konfigurace zásad IPsec/IKE pro připojení VPN typu Site-to-Site (S2S) v Azure Stack.
 
 >[!NOTE]
-> Musíte používat Azure Stack sestavení **1809** nebo později, aby bylo možné tuto funkci používat.  Pokud aktuálně používáte sestavení před 1809, aktualizujte prosím váš systém Azure Stack na nejnovější verzi před pokusem o tuto funkci používat, nebo postupujte podle kroků v tomto článku.
+> Abyste mohli tuto funkci používat, musíte mít spuštěný Azure Stack Build **1809** nebo novější.  Pokud aktuálně spouštíte sestavení před 1809, aktualizujte systém Azure Stack na nejnovější sestavení, než budete pokračovat postupem v tomto článku.
 
-## <a name="ipsec-and-ike-policy-parameters-for-vpn-gateways"></a>Parametry zásad protokolu IPsec a IKE pro brány VPN Gateway
+## <a name="ipsec-and-ike-policy-parameters-for-vpn-gateways"></a>Parametry zásad IPsec a IKE pro brány VPN Gateway
 
-Standardní protokol IPsec a IKE podporuje širokou škálu kryptografických algoritmů v různých kombinacích. Jaké parametry jsou podporovány ve službě Azure Stack najdete v tématu [parametry protokolu IPsec/IKE](azure-stack-vpn-gateway-settings.md#ipsecike-parameters), které vám můžou pomoct splnit vaše požadavky na dodržování předpisů a zabezpečení.
+Protokol IPsec a IKE standard podporuje široké spektrum kryptografických algoritmů v různých kombinacích. Pokud chcete zjistit, které parametry jsou v Azure Stack podporované, abyste mohli splnit požadavky na dodržování předpisů nebo zabezpečení, přečtěte si téma [parametry protokolu IPSec/IKE](azure-stack-vpn-gateway-settings.md#ipsecike-parameters).
 
-Tento článek obsahuje pokyny o tom, jak vytvořit a nakonfigurovat zásady IPsec/IKE a použít pro nové nebo existující připojení.
+Tento článek poskytuje pokyny, jak vytvořit a nakonfigurovat zásadu IPsec/IKE a použít ji pro nové nebo existující připojení.
 
 ## <a name="considerations"></a>Požadavky
 
-Při použití těchto zásad, mějte na paměti následující důležité skutečnosti:
+Při používání těchto zásad Vezměte v vědomí následující důležité informace:
 
-- Zásady IPsec/IKE funguje pouze na *standardní* a *HighPerformance* (trasové) SKU brány.
+- Zásady IPsec/IKE fungují jenom na SKU brány *Standard* a *HighPerformance* (na základě tras).
 
 - Pro jedno připojení můžete zadat pouze **jednu** kombinaci zásad.
 
-- Musíte zadat všechny algoritmy a parametry protokolu IKE (hlavní režim) a IPsec (rychlý režim). Zadání částečných zásad není povoleno.
+- Je nutné zadat všechny algoritmy a parametry pro protokol IKE (hlavní režim) i pro protokol IPsec (rychlý režim). Částečná specifikace zásad není povolená.
 
-- Poraďte se s vaší sítě VPN zařízení dodavatele specifikace zajistit, že zásady platí pro vaše místní zařízení VPN. Nelze navázat připojení Site-to-site, pokud jsou nekompatibilní zásady.
+- Pokud chcete zajistit, aby se zásady na místních zařízeních VPN podporovaly, kontaktujte specifikace dodavatele zařízení VPN. Připojení Site-to-site nelze vytvořit, pokud jsou zásady nekompatibilní.
 
-## <a name="part-1---workflow-to-create-and-set-ipsecike-policy"></a>Část 1 – pracovní postup pro vytvoření a nastavení zásad IPsec/IKE
+## <a name="part-1---workflow-to-create-and-set-ipsecike-policy"></a>Část 1 – pracovní postup vytvoření a nastavení zásad IPsec/IKE
 
-Tato část popisuje pracovní postup k vytvoření a aktualizace zásad IPsec/IKE na připojení VPN typu site-to-site vyžaduje:
+Tato část popisuje pracovní postup nutný k vytvoření a aktualizaci zásad IPsec/IKE na připojení VPN typu Site-to-site:
 
-1. Vytvoření virtuální sítě a brány VPN.
+1. Vytvořte virtuální síť a bránu VPN.
 
 2. Vytvořte bránu místní sítě pro připojení mezi různými místy.
 
-3. Vytvoření zásady IPsec/IKE s vybranou algoritmů a parametrů.
+3. Vytvořte zásadu IPsec/IKE s vybranými algoritmy a parametry.
 
-4. Vytvořte připojení IPSec zásady IPsec/IKE.
+4. Vytvořte připojení IPSec pomocí zásad IPsec/IKE.
 
-5. Přidání/aktualizaci/odebrání zásad protokolu IPsec/IKE pro připojení k existující.
+5. Přidat nebo aktualizovat nebo odebrat zásady IPsec/IKE pro existující připojení.
 
-Podle pokynů v tomto článku nápovědy nastavení a konfigurace zásad IPsec/IKE, jak je znázorněno na následujícím obrázku:
+Pokyny v tomto článku vám pomůžou nastavit a nakonfigurovat zásady IPsec/IKE, jak je znázorněno na následujícím obrázku:
 
 ![Nastavení a konfigurace zásad IPsec/IKE](media/azure-stack-vpn-s2s/site-to-site.png)
 
-## <a name="part-2---supported-cryptographic-algorithms-and-key-strengths"></a>Část 2 – podporované kryptografické algoritmy a síly klíče
+## <a name="part-2---supported-cryptographic-algorithms-and-key-strengths"></a>Část 2 – podporované kryptografické algoritmy a síly klíčů
 
-Následující tabulka uvádí podporované kryptografické algoritmy a síly klíče konfigurovat zákazníci služby Azure Stack:
+Následující tabulka uvádí podporované kryptografické algoritmy a síly klíčů, které jsou konfigurovatelné Azure Stack zákazníky:
 
 | IPsec/IKEv2                                          | Možnosti                                                                  |
 |------------------------------------------------------|--------------------------------------------------------------------------|
@@ -76,31 +76,31 @@ Následující tabulka uvádí podporované kryptografické algoritmy a síly kl
 | Šifrování protokolem IPsec                                     | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, Žádné |
 | Integrita protokolu IPsec                                      | GCMASE256, GCMAES192, GCMAES128, SHA256, SHA1, MD5                       |
 | Skupina PFS                                            | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, Žádná                         |
-| Doba života přidružení zabezpečení v rychlém režimu                                       | (Volitelné: výchozí hodnoty jsou použity, pokud není zadána)<br />                         Sekundy (integer; min. 300/výchozí hodnota 27 000 sekund)<br />                         Kilobajty (integer; min. 1024/výchozí 102400000 kB) |
-| Selektor provozu                                     | Selektory provozu na základě zásad nejsou podporované ve službě Azure Stack.         |
+| Doba života přidružení zabezpečení v rychlém režimu                                       | (Volitelné: použijí se výchozí hodnoty, pokud není zadaný)<br />                         Sekundy (Integer; min. 300/výchozí 27000 sekund)<br />                         Kilobajty (Integer; min. 1024/výchozí 102400000 KB) |
+| Selektor provozu                                     | V Azure Stack se nepodporují selektory provozu na základě zásad.         |
 
 - Konfigurace vašeho místního zařízení VPN musí odpovídat zásadám brány Azure VPN Gateway nebo musí obsahovat následující algoritmy a parametry, které zadáte v zásadách IPsec/IKE Azure:
 
-  - Algoritmus šifrování protokolem IKE (hlavní režim / fáze 1)
-  - Algoritmus integrity protokolu IKE (hlavní režim / fáze 1)
-  - Skupina Diffie-Hellman (hlavní režim / fáze 1)
-  - Algoritmus šifrování protokolem IPsec (rychlý režim / fáze 2)
-  - Algoritmus integrity protokolu IPsec (rychlý režim / fáze 2)
-  - Skupina PFS (rychlý režim / fáze 2)
-  - Doby životnosti přidružení zabezpečení jsou pouze místní specifikace, nemusí se shodovat.
+  - Šifrovací algoritmus IKE (hlavní režim/fáze 1).
+  - Algoritmus integrity protokolu IKE (hlavní režim/fáze 1).
+  - Skupina DH (hlavní režim/fáze 1)
+  - Šifrovací algoritmus IPsec (rychlý režim/fáze 2).
+  - Algoritmus integrity protokolu IPsec (rychlý režim/fáze 2).
+  - Skupina PFS (rychlý režim/fáze 2).
+  - Životnosti přidružení zabezpečení jsou pouze místní specifikace, nemusí se shodovat.
 
-- Pokud GCMAES se používá také u algoritmus šifrování protokolem IPsec, musíte vybrat stejný algoritmus GCMAES a délku klíče pro integrity protokolu IPsec; například použití GCMAES128 pro obojí.
+- Pokud se pro šifrovací algoritmus IPsec používá GCMAES, musíte vybrat stejný algoritmus GCMAES a délku klíče pro integritu protokolu IPsec. Například: použití GCMAES128 pro obojí.
 
 - V předchozí tabulce:
 
-  - Odpovídá IKEv2 v hlavním režimu nebo fáze 1
-  - Protokol IPsec odpovídá rychlého režimu nebo fázi 2.
-  - Skupina Diffie-Hellman Určuje skupiny Diffie-Hellmen v hlavním režimu nebo fáze 1
-  - Skupina PFS zadaná skupina Diffie-Hellmen použitá v rychlém režimu nebo fázi 2.
+  - IKEv2 odpovídá hlavnímu režimu nebo fázi 1.
+  - Protokol IPsec odpovídá rychlému režimu nebo fázi 2.
+  - Skupina DH určuje skupinu Diffie-Hellmen používanou v hlavním režimu nebo ve fázi 1.
+  - Skupina PFS určuje skupinu Diffie-Hellmen použitou v rychlém režimu nebo ve fázi 2.
 
-- Doba života přidružení zabezpečení hlavního režimu IKEv2 je pevně nastavena na 28 800 sekund u bran Azure Stack VPN.
+- Doba životnosti SA hlavního režimu IKEv2 je opravena na 28 800 sekund v bráně VPN Azure Stack.
 
-V následující tabulce jsou uvedeny odpovídající skupiny Diffie-Hellman nepodporuje vlastní zásady:
+V následující tabulce jsou uvedeny odpovídající skupiny Diffie-Hellman podporované vlastními zásadami:
 
 | Skupina Diffie-Hellman | DHGroup   | PFSGroup      | Délka klíče    |
 |----------------------|-----------|---------------|---------------|
@@ -113,27 +113,27 @@ V následující tabulce jsou uvedeny odpovídající skupiny Diffie-Hellman nep
 
 Další informace najdete na stránkách [RFC3526](https://tools.ietf.org/html/rfc3526) a [RFC5114](https://tools.ietf.org/html/rfc5114).
 
-## <a name="part-3---create-a-new-site-to-site-vpn-connection-with-ipsecike-policy"></a>Část 3 – vytvoření nové připojení VPN typu site-to-site pomocí zásady IPsec/IKE
+## <a name="part-3---create-a-new-site-to-site-vpn-connection-with-ipsecike-policy"></a>Část 3 – vytvoření nového připojení VPN typu Site-to-site pomocí zásad IPsec/IKE
 
-Tato část vás provede kroky k vytvoření připojení site-to-site VPN pomocí zásad IPsec/IKE. Následujícím postupem se vytvoří připojení, jak je znázorněno na následujícím obrázku:
+V této části se seznámíte s postupem vytvoření připojení VPN typu Site-to-site pomocí zásad IPsec/IKE. V následujících krocích se vytvoří připojení, jak je znázorněno na následujícím obrázku:
 
-![lokality do lokality zásad](media/azure-stack-vpn-s2s/site-to-site.png)
+![Site-to-site – zásady](media/azure-stack-vpn-s2s/site-to-site.png)
 
-Podrobnější podrobné pokyny pro vytvoření připojení VPN typu site-to-site najdete v článku [vytvořit připojení VPN typu site-to-site](/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell).
+Podrobnější pokyny pro vytvoření připojení VPN typu Site-to-site najdete v tématu [vytvoření připojení VPN typu Site-to-site](/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell).
 
 ### <a name="prerequisites"></a>Požadavky
 
-Než začnete, ujistěte se, že splňujete následující požadavky:
+Než začnete, ujistěte se, že máte následující požadavky:
 
-- Předplatné Azure. Pokud ještě nemáte předplatné Azure, můžete si aktivovat váš [výhody pro předplatitele MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), nebo se zaregistrovat [bezplatný účet](https://azure.microsoft.com/pricing/free-trial/).
+- Předplatné Azure. Pokud ještě nemáte předplatné Azure, můžete si aktivovat výhody pro předplatitele [MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)nebo si zaregistrovat [bezplatný účet](https://azure.microsoft.com/pricing/free-trial/).
 
-- Rutiny Powershellu pro Azure Resource Manager. Zobrazit [instalace Powershellu pro Azure Stack](../operator/azure-stack-powershell-install.md) pro další informace o instalaci rutin prostředí PowerShell.
+- Rutiny Azure Resource Manager PowerShellu. Další informace o instalaci rutin PowerShellu najdete v tématu [instalace PowerShellu pro Azure Stack](../operator/azure-stack-powershell-install.md).
 
-### <a name="step-1---create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a>Krok 1 – vytvoření virtuální sítě, brána sítě VPN a bránu místní sítě
+### <a name="step-1---create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a>Krok 1 – vytvoření virtuální sítě, brány sítě VPN a brány místní sítě
 
-#### <a name="1-declare-variables"></a>1. Deklarujte proměnné
+#### <a name="1-declare-variables"></a>1. Deklarace proměnných
 
-Pro toto cvičení začněte deklarováním následující proměnné. Ujistěte se, že zástupné názvy nahraďte vlastními hodnotami při konfiguraci pro produkční prostředí:
+Pro toto cvičení začněte deklarací následujících proměnných. Nezapomeňte nahradit zástupné symboly vlastními hodnotami při konfiguraci produkčního prostředí:
 
 ```powershell
 $Sub1 = "<YourSubscriptionName>"
@@ -159,9 +159,9 @@ $LNGPrefix62 = "10.62.0.0/16"
 $LNGIP6 = "131.107.72.22"
 ```
 
-#### <a name="2-connect-to-your-subscription-and-create-a-new-resource-group"></a>2. Připojení k vašemu předplatnému a vytvořte novou skupinu prostředků
+#### <a name="2-connect-to-your-subscription-and-create-a-new-resource-group"></a>2. Připojte se k předplatnému a vytvořte novou skupinu prostředků.
 
-Ujistěte se, že jste přešli do režimu prostředí PowerShell, aby bylo možné používat rutiny Resource Manageru. Další informace najdete v tématu [připojit ke službě Azure Stack pomocí prostředí PowerShell jako uživatel](azure-stack-powershell-configure-user.md).
+Ujistěte se, že jste přešli do režimu prostředí PowerShell, aby bylo možné používat rutiny Resource Manageru. Další informace najdete v tématu [připojení k Azure Stack pomocí prostředí PowerShell jako uživatel](azure-stack-powershell-configure-user.md).
 
 Otevřete konzolu prostředí PowerShell a připojte se ke svému účtu. Připojení vám usnadní následující ukázka:
 
@@ -171,9 +171,9 @@ Select-AzureRmSubscription -SubscriptionName $Sub1
 New-AzureRmResourceGroup -Name $RG1 -Location $Location1
 ```
 
-#### <a name="3-create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a>3. Vytvoření virtuální sítě, brána sítě VPN a bránu místní sítě
+#### <a name="3-create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a>3. Vytvořte virtuální síť, bránu VPN a bránu místní sítě.
 
-Následující příklad vytvoří virtuální síť, **virtuální sítě TestVNet1**, s třemi podsítě a bránu VPN. Při nahrazování hodnot je důležité vždy pojmenovat podsítě brány konkrétně **GatewaySubnet**. Pokud použijete jiný název, vytvoření brány se nezdaří.
+Následující příklad vytvoří virtuální síť, **virtuální sítě testvnet1**spolu se třemi podsítěmi a bránou VPN. Při nahrazování hodnot je důležité vždycky pojmenovat podsíť brány specificky **GatewaySubnet**. Pokud použijete jiný název, vytvoření brány se nezdaří.
 
 ```powershell
 $fesub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubName1 -AddressPrefix $FESubPrefix1
@@ -201,24 +201,24 @@ New-AzureRmLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1 `
 $LNGPrefix61,$LNGPrefix62
 ```
 
-### <a name="step-2---create-a-site-to-site-vpn-connection-with-an-ipsecike-policy"></a>Krok 2: vytvoření připojení site-to-site VPN pomocí zásad IPsec/IKE
+### <a name="step-2---create-a-site-to-site-vpn-connection-with-an-ipsecike-policy"></a>Krok 2 – Vytvoření připojení VPN typu Site-to-site pomocí zásad IPsec/IKE
 
 #### <a name="1-create-an-ipsecike-policy"></a>1. Vytvoření zásady IPsec/IKE
 
-Tento ukázkový skript vytvoří zásady IPsec/IKE s následující algoritmy a parametry:
+Tento ukázkový skript vytvoří zásadu IPsec/IKE s následujícími algoritmy a parametry:
 
 - IKEv2: AES128, SHA1, DHGroup14
-- Protokol IPsec: AES256, SHA256, none, sekund 14400 doba života přidružení zabezpečení a 102 400 000 KB
+- Podporují AES256, SHA256, None, životnost SA 14400 sekund a 102400000KB
 
 ```powershell
 $ipsecpolicy6 = New-AzureRmIpsecPolicy -IkeEncryption AES128 -IkeIntegrity SHA1 -DhGroup DHGroup14 -IpsecEncryption AES256 -IpsecIntegrity SHA256 -PfsGroup none -SALifeTimeSeconds 14400 -SADataSizeKilobytes 102400000
 ```
 
-Pokud používáte GCMAES pro protokol IPsec, musíte použít stejný algoritmus GCMAES a délku klíče pro šifrování protokolem IPsec i integritu.
+Pokud pro protokol IPsec používáte GCMAES, musíte použít stejný algoritmus GCMAES a délku klíče pro šifrování a integritu protokolu IPsec.
 
-#### <a name="2-create-the-site-to-site-vpn-connection-with-the-ipsecike-policy"></a>2. Vytvořit připojení VPN typu site-to-site pomocí zásad IPsec/IKE
+#### <a name="2-create-the-site-to-site-vpn-connection-with-the-ipsecike-policy"></a>2. Vytvoření připojení VPN typu Site-to-site pomocí zásad IPsec/IKE
 
-Vytvoření připojení VPN typu site-to-site a použití zásady IPsec/IKE, kterou jste vytvořili dříve.
+Vytvořte připojení VPN typu Site-to-site a použijte zásady IPsec/IKE, které jste vytvořili dříve.
 
 ```powershell
 $vnet1gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
@@ -228,22 +228,22 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupNam
 ```
 
 > [!IMPORTANT]
-> Jakmile zásady IPsec/IKE je zadáno na připojení, brány Azure VPN pouze odeslat nebo přijmout návrh protokolu IPsec/IKE s zadané kryptografické algoritmy a silami klíče v tomto konkrétním připojení. Ujistěte se, že vaše místní zařízení VPN pro připojení používá nebo přijímá přesné zásad kombinace, jinak nebude vytvořen tunel VPN typu site-to-site.
+> Po zadání zásad IPsec/IKE v připojení bude brána Azure VPN Gateway odesílat nebo přijímat jenom návrh IPsec/IKE se zadanými kryptografickými algoritmy a silnými klíči u tohoto konkrétního připojení. Ujistěte se, že vaše místní zařízení VPN pro připojení používá nebo přijímá přesnou kombinaci zásad, jinak se nevytvoří tunelové propojení VPN typu Site-to-site.
 
-## <a name="part-4---update-ipsecike-policy-for-a-connection"></a>Část 4 – zásady aktualizací IPsec/IKE pro připojení
+## <a name="part-4---update-ipsecike-policy-for-a-connection"></a>Část 4 – aktualizace zásad IPsec/IKE pro připojení
 
-V předchozí části jsme si ukázali, jak spravovat zásady IPsec/IKE pro připojení site-to-site k existující. Následující části vás provede následující operace v připojení:
+Předchozí část ukázala, jak spravovat zásady protokolu IPsec/IKE pro existující připojení Site-to-site. Následující část vás provede následujícími operacemi s připojením:
 
-1. Zobrazit zásady IPsec/IKE připojení
-2. Přidáte nebo aktualizujete zásady IPsec/IKE pro připojení
-3. Odebrání zásad IPsec/IKE připojení
+1. Zobrazí zásady IPsec/IKE připojení.
+2. Přidejte nebo aktualizujte zásady IPsec/IKE pro připojení.
+3. Odeberte zásadu IPsec/IKE z připojení.
 
 > [!NOTE]
-> Zásady IPsec/IKE je podporována v *standardní* a *HighPerformance* trasovými bránami VPN jenom. Nelze použít u *základní* skladové položky brány.
+> Zásady IPsec/IKE se podporují jenom pro brány VPN založené na standardech a *HighPerformance* trasách. Nefunguje na *základní* skladové jednotce brány.
 
 ### <a name="1-show-the-ipsecike-policy-of-a-connection"></a>1. Zobrazit zásady IPsec/IKE připojení
 
-Následující příklad ukazuje, jak získat zásady IPsec/IKE na připojení nakonfigurované. Skripty také pokračovat v předchozím cvičení:
+Následující příklad ukazuje, jak získat zásadu IPsec/IKE nakonfigurovanou pro připojení. Skripty také pokračují v předchozích cvičeních:
 
 ```powershell
 $RG1 = "TestPolicyRG1"
@@ -252,7 +252,7 @@ $connection6 = Get-AzureRmVirtualNetworkGatewayConnection -Name $Connection16 -R
 $connection6.IpsecPolicies
 ```
 
-Poslední příkaz vypíše aktuální zásady IPsec/IKE nakonfigurovaná na připojení, pokud existuje. V následujícím příkladu je ukázkový výstup pro připojení:
+Poslední příkaz vypíše aktuální zásadu IPsec/IKE nakonfigurovanou v připojení, pokud existuje. V následujícím příkladu je ukázkový výstup pro připojení:
 
 ```shell
 SALifeTimeSeconds : 14400
@@ -265,11 +265,11 @@ DhGroup : DHGroup14
 PfsGroup : None
 ```
 
-Pokud neexistuje žádné zásady protokolu IPsec/IKE nakonfigurovaná, příkaz `$connection6.policy` získá návratový prázdná. Neznamená to, že není nakonfigurované protokolu IPsec/IKE na připojení. znamená to, že není žádná vlastní zásady IPsec/IKE. Aktuální připojení využívá výchozí zásady mezi vaše místní zařízení VPN a bránu Azure VPN.
+Pokud nejsou nakonfigurované žádné zásady IPSec/IKE, příkaz `$connection6.policy` vrátí prázdnou hodnotu Return. Neznamená to, že protokol IPsec/IKE není pro připojení nakonfigurovaný. znamená to, že nejsou k dispozici žádné vlastní zásady IPsec/IKE. Skutečné připojení používá výchozí zásady sjednané mezi místním zařízením VPN a službou Azure VPN Gateway.
 
-### <a name="2-add-or-update-an-ipsecike-policy-for-a-connection"></a>2. Přidat nebo aktualizovat zásady IPsec/IKE pro připojení
+### <a name="2-add-or-update-an-ipsecike-policy-for-a-connection"></a>2. Přidání nebo aktualizace zásad IPsec/IKE pro připojení
 
-Postup přidání nové zásady nebo aktualizovat existující zásady na připojení je stejný: Vytvořte novou zásadu a pak použijí nové zásady připojení.
+Postup přidání nové zásady nebo aktualizace existující zásady u připojení je stejný: Vytvořte novou zásadu a pak pro připojení použijte novou zásadu.
 
 ```powershell
 $RG1 = "TestPolicyRG1"
@@ -283,14 +283,14 @@ $connection6.SharedKey = "AzS123"
 Set-AzureRmVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection6 -IpsecPolicies $newpolicy6
 ```
 
-Můžete získat připojení znovu ke kontrole, pokud se zásada se aktualizuje:
+Připojení můžete znovu získat a ověřit, jestli se zásada aktualizovala:
 
 ```powershell
 $connection6 = Get-AzureRmVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupName $RG1
 $connection6.IpsecPolicies
 ```
 
-Jak je znázorněno v následujícím příkladu by měl zobrazit výstup z poslední řádek:
+Měl by se zobrazit výstup z posledního řádku, jak je znázorněno v následujícím příkladu:
 
 ```shell
 SALifeTimeSeconds : 14400
@@ -303,9 +303,9 @@ DhGroup : DHGroup14
 PfsGroup : None
 ```
 
-### <a name="3-remove-an-ipsecike-policy-from-a-connection"></a>3. Odebrání zásad protokolu IPsec/IKE připojení
+### <a name="3-remove-an-ipsecike-policy-from-a-connection"></a>3. Odebrání zásad IPsec/IKE z připojení
 
-Jakmile z připojení odeberete vlastní zásady, brána Azure VPN se vrátí do [výchozí protokolu IPsec/IKE návrh](azure-stack-vpn-gateway-settings.md#ipsecike-parameters)a vyjednávání s vaším místním zařízením VPN.
+Když z připojení odeberete vlastní zásady, brána Azure VPN Gateway se vrátí k [výchozímu návrhu protokolu IPSec/IKE](azure-stack-vpn-gateway-settings.md#ipsecike-parameters)a znovu se vyhodnotí s vaším místním zařízením VPN.
 
 ```powershell
 $RG1 = "TestPolicyRG1"
@@ -318,7 +318,7 @@ $connection6.IpsecPolicies.Remove($currentpolicy)
 Set-AzureRmVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection6
 ```
 
-Stejný skript můžete použít ke kontrole, pokud zásady byl odebrán z připojení.
+Stejný skript můžete použít ke kontrole, zda byla zásada odebrána z připojení.
 
 ## <a name="next-steps"></a>Další postup
 

@@ -16,12 +16,12 @@ ms.date: 07/25/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 07/25/2019
-ms.openlocfilehash: 961233bea7c2581e20cb5cae875b9dab9f617758
-ms.sourcegitcommit: f6ea6daddb92cbf458f9824cd2f8e7e1bda9688e
+ms.openlocfilehash: b5ed44dfaaf8f34279126d3007f4879e2af1b192
+ms.sourcegitcommit: 9a4966fa66a0ed3bfd3a10376df2a6ffd3dd60a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68497241"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68665096"
 ---
 # <a name="azure-stack-1907-update"></a>Aktualizace Azure Stack 1907
 
@@ -38,10 +38,11 @@ Tento článek popisuje obsah balíčku aktualizace 1907. Tato aktualizace obsah
 
 ### <a name="update-type"></a>Typ aktualizace
 
-Typ sestavení aktualizace Azure Stack 1907 je **Express**. Další informace o typech sestavení aktualizace naleznete v článku [Správa aktualizací v Azure Stack](azure-stack-updates.md) . Na základě interního testování je očekávaný čas potřebný k dokončení aktualizace 1907 přibližně 13 hodin. 
- - Přesné běhové moduly pro aktualizace budou obvykle záviset na kapacitě používané v systému podle zatížení klientů, připojení k systémové síti (Pokud je připojeno k Internetu) a vaší hardwarovou konfigurací systému. 
- - Běhové moduly trvající déle než očekávaná hodnota nejsou běžné a nevyžadují akci Azure Stack operátory, pokud se aktualizace nezdařila. 
- - Tato přibližná doba běhu je specifická pro aktualizaci 1907 a neměla by se porovnávat s jinými aktualizacemi Azure Stack.
+Typ sestavení aktualizace Azure Stack 1907 je **Express**. Další informace o typech sestavení aktualizace naleznete v článku [Správa aktualizací v Azure Stack](azure-stack-updates.md) . Na základě interního testování je očekávaný čas potřebný k dokončení aktualizace 1907 přibližně 13 hodin.
+
+- Přesné běhové moduly pro aktualizaci jsou obvykle závislé na kapacitě používané systémem v rámci úloh klientů, připojení k systémové síti (Pokud je připojeno k Internetu) a hardwarové konfiguraci systému.
+- Běhové moduly, které trvají déle než obvykle, nejsou běžné a nevyžadují akci Azure Stack operátory, pokud se aktualizace nezdařila.
+- Tato přibližná doba běhu je specifická pro aktualizaci 1907 a neměla by se porovnávat s jinými aktualizacemi Azure Stack.
 
 ## <a name="whats-in-this-update"></a>Co je v této aktualizaci
 
@@ -59,9 +60,9 @@ Typ sestavení aktualizace Azure Stack 1907 je **Express**. Další informace o 
 
 <!-- Changes and product improvements with tangible customer-facing value. -->
 
-- Okno Azure Stack aktualizace nyní zobrazuje čas "poslední krok dokončen" v případě aktivních aktualizací. To lze zobrazit tak, že přejdete do okna aktualizace a kliknete na běžící aktualizaci. Poslední krok dokončený je pak k dispozici v části Podrobnosti o aktualizaci běhu.
+- Okno Azure Stack aktualizace nyní zobrazuje čas **dokončení posledního kroku** pro aktivní aktualizace. To lze zobrazit tak, že přejdete do okna aktualizace a kliknete na běžící aktualizaci. **Poslední krok** je pak k dispozici v části **Podrobnosti o spuštění aktualizace** .
 
-- Vylepšení akcí operátoru **Start-AzureStack** a **stop-AzureStack** . Čas spuštění Azure Stack byl v průměru snížen o 50%. Čas pro vypnutí Azure Stack se snížil o 30% v průměru. Průměrná doba spouštění a vypínání zůstane stejná jako počet uzlů, které se zvyšují v jednotce škálování. 
+- Vylepšení akcí operátoru **Start-AzureStack** a **stop-AzureStack** . Čas spuštění Azure Stack se snížil průměrem 50%. Čas pro vypnutí Azure Stack byl snížen o průměr 30%. Průměrná doba spouštění a vypínání zůstane stejná jako počet uzlů, které se zvyšují v jednotce škálování.
 
 - Vylepšené zpracování chyb pro nástroj na odpojeném webu Marketplace. Pokud se stahování při použití **Export-AzSOfflineMarketplaceItem**nezdaří nebo částečně proběhne úspěšně, zobrazí se podrobná chybová zpráva s dalšími podrobnostmi o chybách a krocích při zmírňování.
 
@@ -70,17 +71,17 @@ Typ sestavení aktualizace Azure Stack 1907 je **Express**. Další informace o 
 <!-- https://icm.ad.msft.net/imp/v3/incidents/details/127669774/home -->
 - Vylepšená kontroly stavu virtuálních disků před vypnutím uzlu, aby nedocházelo k neočekávanému odpojení virtuálního disku.
 
-- Vylepšené úložiště vnitřních protokolů pro operace správy. Výsledkem bude lepší výkon a spolehlivost během operací správy tím, že minimalizují spotřebu paměti a úložiště interních procesů protokolů. Zákazníci si také můžou všimnout lepších časů načítání stránky v okně aktualizace na portálu pro správu. V rámci tohoto vylepšení už nebudou v systému k dispozici protokoly aktualizací starší než 6 měsíců. Pokud pro tyto aktualizace vyžadujete protokoly, nezapomeňte [si stáhnout Shrnutí](https://docs.microsoft.com/en-us/azure-stack/operator/azure-stack-apply-updates) pro všechny aktualizace, které jsou starší než 6 měsíců před provedením aktualizace 1907.
+- Vylepšené úložiště vnitřních protokolů pro operace správy. Výsledkem je vyšší výkon a spolehlivost během operací správy tím, že minimalizují spotřebu paměti a úložiště interních procesů protokolů. Můžete si také všimnout lepších časů načítání stránky v okně aktualizace na portálu pro správu. V rámci tohoto vylepšení už nebudou v systému k dispozici protokoly aktualizací starší než 6 měsíců. Pokud pro tyto aktualizace požadujete protokoly, nezapomeňte [si stáhnout Shrnutí](azure-stack-apply-updates.md) pro všechny aktualizace, které jsou starší než 6 měsíců před provedením aktualizace 1907.
 
 ### <a name="changes"></a>Změny
 
 - Bylo přidáno nové odchozí pravidlo (HTTPS) pro povolení komunikace pro Azure Stack službu shromažďování protokolů diagnostiky. Další informace najdete v tématu [Azure Stack integrace Datacenter – publikování koncových bodů](azure-stack-integrate-endpoints.md#ports-and-urls-outbound).
 
-- Služba zálohování infrastruktury odstraní částečně nahrané zálohy, pokud umístění externího úložiště vyčerpá kapacitu.
+- Služba zálohování infrastruktury nyní odstraní částečně nahrané zálohy, pokud umístění externího úložiště vyčerpá kapacitu.
 
-- Zálohy infrastruktury již nezahrnují zálohování dat služby Domain Services. To platí jenom pro systémy, které používají Azure Active Directory jako jejich zprostředkovatele identity.
+- Zálohy infrastruktury již nezahrnují zálohování dat služby Domain Services. To platí jenom pro systémy, které používají Azure Active Directory jako zprostředkovatele identity.
 
-- Nyní ověříme, že se obrázek ingestuje do okna COMPUTE-> image virtuálních počítačů je typu objekt blob stránky.
+- Nyní Ověřujeme, že se obrázek ingestuje do okna **COMPUTE-> bitové kopie virtuálního počítače** , který je typu objekt blob stránky.
 
 ### <a name="fixes"></a>Opravy
 
@@ -90,23 +91,24 @@ Typ sestavení aktualizace Azure Stack 1907 je **Express**. Další informace o 
 <!-- https://icm.ad.msft.net/imp/v3/incidents/details/129536438/home -->
 - Opravili jsme problém se selháním zálohování s chybovou zprávou **PartialSucceeded** z důvodu vypršení časových limitů při zálohování metadat služby úložiště.  
 
-- Opravili jsme problém, ve kterém při odstraňování předplatných uživatelů vznikly osamocené prostředky.
+- Opravili jsme problém, kdy výsledkem odstranění předplatných uživatelů byly osamocené prostředky.
+
+- Opravili jsme problém, kdy pole Popis nebyl při vytváření nabídky uložené.
 
 <!-- https://icm.ad.msft.net/imp/v3/incidents/details/127772311/home -->
 - Opravili jsme problém, kdy se aktualizace nezdařila z důvodu souboru DLL uzamčeného hostitelem zprostředkovatele rozhraní WMI.
 
--   Opravili jsme problém ve službě aktualizace, který znemožňuje zobrazení dostupných aktualizací na dlaždici aktualizace nebo poskytovateli prostředků. Tento problém byl nalezen v 1906 a opraven v [KB4511282](https://support.microsoft.com/help/4511282/)oprav hotfix.
+- Opravili jsme problém ve službě aktualizace, který znemožňuje zobrazení dostupných aktualizací na dlaždici aktualizace nebo poskytovateli prostředků. Tento problém byl nalezen v 1906 a opraven v [KB4511282](https://support.microsoft.com/help/4511282/)oprav hotfix.
 
 - Opravili jsme problém, který by mohl způsobit selhání aktualizací z důvodu nesprávné konfigurace roviny správy, která je v pořádku. Tento problém byl nalezen v 1906 a opraven v [KB4512794](https://support.microsoft.com/help/4512794/)oprav hotfix.
 
-- Opravili jsme problém, který uživatelům zabránil v dokončení nasazení imagí od jiných výrobců z webu Marketplace. Tento problém byl nalezen v 1906 a opraven s opravou hotfix [KB4511259](https://support.microsoft.com/help/4511259/).
+- Opravili jsme problém, který uživatelům zabránil v dokončení nasazení imagí od jiných výrobců z webu Marketplace. Tento problém byl nalezen v 1906 a opraven v [KB4511259](https://support.microsoft.com/help/4511259/)oprav hotfix.
 
-- Opravili jsme problém, který by mohl způsobit selhání vytváření virtuálních počítačů ze spravovaných imagí z důvodu chyby služby správce uživatelských imagí. Tento problém byl nalezen v 1906 a opraven pomocí [KB4512794](https://support.microsoft.com/help/4512794/) .
+- Opravili jsme problém, který by mohl způsobit selhání vytváření virtuálních počítačů ze spravovaných imagí z důvodu chyby služby správce uživatelských imagí. Tento problém byl nalezen v 1906 a opraven v opravě hotfix [KB4512794](https://support.microsoft.com/help/4512794/)
 
-- Opravili jsme problém, kdy se operace CRUD virtuálních počítačů nepovedly kvůli neúspěšné aktualizaci appgateway cache. Tento problém byl nalezen v 1906 a opraven pomocí [KB4513119](https://support.microsoft.com/en-us/help/4513119/) .
+- Opravili jsme problém, kdy se operace CRUD virtuálních počítačů nepovedly kvůli neobnovování mezipaměti služby App Gateway. Tento problém byl nalezen v 1906 a opraven v opravě hotfix [KB4513119](https://support.microsoft.com/en-us/help/4513119/)
 
--   Opravili jsme problém poskytovatele prostředků stavu, který ovlivnil dostupnost oblasti a oken výstrah na portálu pro správu. Tento problém byl nalezen v 1906 a opraven pomocí [KB4512794](https://support.microsoft.com/help/4512794).
-
+- Opravili jsme problém poskytovatele prostředků stavu, který ovlivnil dostupnost oblasti a oken výstrah na portálu pro správu. Tento problém byl nalezen v 1906 a opraven v [KB4512794](https://support.microsoft.com/help/4512794)oprav hotfix.
 
 ## <a name="security-updates"></a>Aktualizace zabezpečení
 
@@ -146,7 +148,7 @@ Po instalaci této aktualizace nainstalujte všechny příslušné opravy hotfix
 
 ## <a name="automatic-update-notifications"></a>Oznámení automatických aktualizací
 
-Zákazníci se systémy, které mají přístup k Internetu z sítě infrastruktury, uvidí na portálu operátora zprávu **aktualizace k dispozici** . Systémy bez přístupu k Internetu můžou stáhnout a naimportovat soubor. zip s odpovídající příponou. XML.
+Systémy, které mají přístup k Internetu ze sítě infrastruktury, uvidí na portálu operátora zprávu **k aktualizaci k dispozici** . Systémy bez přístupu k Internetu můžou stáhnout a naimportovat soubor. zip s odpovídající příponou. XML.
 
 > [!TIP]  
 > Přihlaste se k odběru následujících informačních kanálů *RSS* nebo *Atom* , abyste zachovali Azure Stack opravy hotfix:

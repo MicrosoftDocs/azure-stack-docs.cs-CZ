@@ -1,6 +1,6 @@
 ---
-title: DNS v Azure stacku | Dokumentace Microsoftu
-description: Pomocí služby DNS v Azure stacku
+title: DNS v Azure Stack | Microsoft Docs
+description: Přečtěte si o DNS v Azure Stack a o tom, jak vytvářet a spravovat zóny DNS.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -14,95 +14,95 @@ ms.topic: article
 ms.date: 06/05/2019
 ms.author: sethm
 ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: 278b010cd1883043549217d657e1315ea697a303
-ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
+ms.openlocfilehash: 8bfe15ad19e4aaec45492aa98cfb2ef02294742a
+ms.sourcegitcommit: b3dac698f2e1834491c2f9af56a80e95654f11f3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66691957"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68658472"
 ---
-# <a name="using-dns-in-azure-stack"></a>Pomocí služby DNS v Azure stacku
+# <a name="use-dns-in-azure-stack"></a>Použít DNS v Azure Stack
 
-*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
 
 Azure Stack podporuje následující funkce Azure DNS:
 
-* Překlad názvů hostitelů DNS
-* Vytvoření a správa DNS zón a záznamů pomocí rozhraní API
+* Překlad názvů hostitelů DNS.
+* Vytvářejte a spravujte záznamy a zóny DNS pomocí rozhraní API.
 
-## <a name="support-for-dns-hostname-resolution"></a>Podpora pro překlad názvů hostitelů DNS
+## <a name="support-for-dns-hostname-resolution"></a>Podpora překladu názvů hostitelů DNS
 
-Můžete zadat popisek názvu domény DNS pro prostředky veřejné IP adresy. Azure Stack používá **domainnamelabel.location.cloudapp.azurestack.external** pro název popisku a mapy ho na veřejnou IP adresou v servery DNS spravovanými Azure Stack.
+Pro prostředky veřejné IP adresy můžete zadat popisek názvu domény DNS. Azure Stack používá **domainnamelabel. Location. cloudapp. azurestack. external** pro název popisku a mapuje ho na veřejnou IP adresu v serverech DNS spravovaných Azure Stack.
 
-Například, pokud vytvoříte prostředek s veřejnou IP **contoso** jako popisek názvu domény v místním umístění služby Azure Stack [plně kvalifikovaný název domény (FQDN)](https://en.wikipedia.org/wiki/Fully_qualified_domain_name)  **contoso.Local.cloudapp.azurestack.external** přeloží na veřejnou IP adresu prostředku. Tento plně kvalifikovaný název domény můžete použít k vytvoření vlastní domény záznam CNAME, který odkazuje na veřejnou IP adresu ve službě Azure Stack.
+Pokud například vytvoříte prostředek veřejné IP adresy se společností **Contoso** jako popisek názvu domény v umístění místní Azure Stack, [plně kvalifikovaný název domény (FQDN)](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) **contoso. Local. cloudapp. azurestack. external** se přeloží na veřejnou IP adresu. Adresa prostředku. Tento plně kvalifikovaný název domény můžete použít k vytvoření vlastního záznamu CNAME domény, který odkazuje na veřejnou IP adresu v Azure Stack.
 
-Další informace o překladu, najdete v článku [překlad názvů DNS](/azure/dns/dns-for-azure-services?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) článku.
+Další informace o překladu názvů najdete v článku věnovaném [překladu DNS](/azure/dns/dns-for-azure-services?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) .
 
 > [!IMPORTANT]
-> Každý popisek názvu domény, které vytvoříte, musí být jedinečný v rámci jeho umístění služby Azure Stack.
+> Jednotlivé štítky s názvem domény, které vytvoříte, musí být jedinečné v rámci svého Azure Stackho umístění.
 
-Následující snímek obrazovky ukazuje **vytvoření veřejné IP adresy** dialogové okno pro vytvoření veřejné IP adresy pomocí portálu:
+Následující snímek obrazovky ukazuje dialog **vytvořit veřejnou IP adresu** pro vytvoření veřejné IP adresy pomocí portálu:
 
 ![Vytvoření veřejné IP adresy](media/azure-stack-dns/image01.png)
 
 ### <a name="example-scenario"></a>Příklad scénáře
 
-Je nutné nástroj pro vyrovnávání zatížení zpracování požadavků z webové aplikace. Nástroje pro vyrovnávání za zatížení je webový server běží na jeden nebo více virtuálních počítačů. Můžete přistupovat pomocí názvu DNS, místo IP adresy webové stránky s vyrovnáváním zatížení.
+Máte k dispozici nástroj pro vyrovnávání zatížení, který zpracovává požadavky z webové aplikace. Za nástrojem pro vyrovnávání zatížení je web, který běží na jednom nebo několika virtuálních počítačích. K webu s vyrovnáváním zatížení můžete přistupovat pomocí názvu DNS místo IP adresy.
 
-## <a name="create-and-manage-dns-zones-and-records-using-the-api"></a>Vytvoření a správa DNS zón a záznamů pomocí rozhraní API
+## <a name="create-and-manage-dns-zones-and-records-using-the-api"></a>Vytváření a Správa záznamů a zón DNS pomocí rozhraní API
 
-Můžete vytvořit a spravovat zóny DNS a záznamy ve službě Azure Stack.
+V Azure Stack můžete vytvářet a spravovat zóny a záznamy DNS.
 
-Azure Stack poskytuje podobné do Azure, služby DNS s využitím rozhraní API, která jsou konzistentní s rozhraními API Azure DNS.  Hostovat v Azure stacku DNS, můžete spravovat svoje záznamy DNS pomocí stejné přihlašovací údaje, rozhraní API a nástroje. Můžete také použít stejné fakturace a podpory jako u ostatních služeb Azure.
+Azure Stack poskytuje službu DNS podobnou Azure a používá rozhraní API, která jsou konzistentní s rozhraními API Azure DNS.  Díky hostování domén ve službě Azure Stack DNS můžete spravovat záznamy DNS pomocí stejných přihlašovacích údajů, rozhraní API a nástrojů. Můžete také použít stejnou fakturaci a podporu jako vaše další služby Azure.
 
-Infrastruktura Azure stacku DNS je kompaktnějším než Azure. Velikost a umístění nasazení Azure Stack má vliv na DNS oboru, škálování a výkonu. Zároveň to znamená, výkonu, dostupnosti, globální distribuci a vysokou dostupnost se může lišit od nasazení k nasazení.
+Azure Stack infrastruktura DNS je kompaktnější než Azure. Velikost a umístění nasazení Azure Stack ovlivňují rozsah DNS, škálování a výkon. To také znamená, že výkon, dostupnost, globální distribuce a vysoká dostupnost se mohou lišit od nasazení po nasazení.
 
 ## <a name="comparison-with-azure-dns"></a>Porovnání s Azure DNS
 
-Je podobný DNS v Azure DNS ve službě Azure Stack, ale existuje několik důležitých výjimek:
+Služba DNS v Azure Stack je podobná DNS v Azure, ale existuje několik důležitých výjimek:
 
-* **Nepodporuje záznamů AAAA**: Azure Stack záznamů AAAA nepodporuje, protože Azure Stack nepodporuje adresy IPv6. Toto je klíčovým rozdílem mezi DNS v Azure a Azure Stack.
+* **Nepodporuje záznamy AAAA**: Azure Stack nepodporuje záznamy AAAA, protože Azure Stack nepodporuje adresy IPv6. Jedná se o klíčový rozdíl mezi DNS v Azure a Azure Stack.
 
-* **Není víceklientské**: Služba DNS v Azure stacku není více tenantů. Každý tenant nelze vytvořit stejnou zónu DNS. Pouze první předplatné, pokusí se vytvořit zónu úspěšné a neúspěšné odeslání dalších žádostí. Toto je jiný klíčovým rozdílem mezi Azure a Azure Stack DNS.
+* **Není více tenantů**: Služba DNS v Azure Stack není víceklientské. Klienti nemůžou vytvořit stejnou zónu DNS. Pouze první předplatné, které se pokouší vytvořit zónu úspěšně, a pozdější požadavky selžou. Jedná se o další klíčový rozdíl mezi Azure a Azure Stack DNS.
 
-* **Značky, metadata a značek etag**: Existují malé rozdíly ve zpracování značky, metadat, značek etag a omezení v Azure Stack.
+* **Značky, metadata a značky ETag**: Existují drobné rozdíly ve způsobu, jakým Azure Stack zpracovává značky, metadata, značky ETag a omezení.
 
-Další informace o Azure DNS najdete v tématu [záznamů a zón DNS](/azure/dns/dns-zones-records).
+Další informace o Azure DNS najdete v tématu [zóny a záznamy DNS](/azure/dns/dns-zones-records).
 
 ### <a name="tags"></a>Tags
 
-Azure Stack DNS podporuje používání značky Azure Resource Manageru na prostředky zóny DNS. Nepodporuje značky na sady záznamů DNS, i když jako alternativu **metadat** se podporuje na sady záznamů DNS, jak je vysvětleno v další části.
+Azure Stack DNS podporuje použití značek Azure Resource Manager v prostředcích zóny DNS. Nepodporuje značky pro sady záznamů DNS. Jako alternativu jsou **metadata** pro sady záznamů DNS podporována, jak je vysvětleno v další části.
 
 ### <a name="metadata"></a>Metadata
 
-Jako alternativu k značky pro sady záznamů Azure Stack DNS podporuje zadávání poznámek do sad záznamů pomocí *metadat*. Podobně jako u značky se metadata vám umožní přidružit každá sada záznamů dvojice název hodnota. Například to může být užitečné k zaznamenání účel každá sada záznamů. Na rozdíl od značky nemůžete použít metadata k poskytování filtrované zobrazení vaší faktuře za Azure a metadata nelze zadat v zásadách Azure Resource Manageru.
+Jako alternativu k značkám sady záznamů Azure Stack DNS podporuje přidávání poznámek do sad záznamů pomocí *metadat*. Podobně jako u značek vám metadata umožňují přidružit páry název-hodnota ke každé sadě záznamů. Metadata jsou například užitečná pro záznam účelu každé sady záznamů. Na rozdíl od značek nemůžete použít metadata k poskytnutí filtrovaného zobrazení vaší faktury Azure a metadata nejde zadat v zásadách Azure Resource Manager.
 
-### <a name="etags"></a>Značek etag
+### <a name="etags"></a>Značek entit
 
-Předpokládejme, že dva lidé, případně dva procesy zkuste upravit záznam DNS ve stejnou dobu. Která z nich wins? A vítězem ví, že jste se přepsat změny, které vytvořil někdo jiný?
+Předpokládejme, že se dva lidé nebo dva procesy pokusí změnit záznam DNS současně. Kterou jednu službu WINS? A ví, že přepsané změny vytvořil někdo jiný?
 
-Azure Stack DNS používá *značek etag* bezpečně zpracování souběžných změn do stejného prostředku. Značek etag se liší od Azure Resource Manageru *značky*. Každý prostředek DNS (zóny nebo sadu záznamů) má značku Etag s ním spojená. Pokud prostředek je načteny, se také načte Etag. Při aktualizaci prostředku, můžete předat zpět Etag, Azure Stack DNS můžete ověřit, že značky Etag na server odpovídá. Protože každá aktualizace prostředku výsledkem Etag, znovu se generuje, neshoda značek Etag označuje, že došlo ke změně souběžných. Značek etag můžete také použít při vytváření nového prostředku k zajištění, že prostředek ještě neexistuje.
+Azure Stack DNS používá *značky ETag* k bezpečnému zpracování souběžných změn stejného prostředku. Značky ETag se liší od Azure Resource Manager *značek*. K každému prostředku DNS (zóně nebo sadě záznamů) je přidružená značka ETag. Při načtení prostředku je načtena také značka ETag. Když aktualizujete prostředek, můžete se rozhodnout, že se má převrátit značka ETag, aby Azure Stack DNS mohlo ověřit, jestli se shoduje se značkou ETag na serveru. Vzhledem k tomu, že každá aktualizace prostředku má za následek opětovné vygenerování značky ETag, neshoda značek ETag indikuje, že došlo k souběžné změně. Značky ETag se dají použít taky při vytváření nového prostředku, abyste se ujistili, že prostředek ještě neexistuje.
 
-Ve výchozím nastavení rutin Powershellu DNS pro Azure Stack pomocí značek etag blokovat souběžné změny zón a sad záznamů. Můžete použít nepovinnou `-Overwrite` přepnout na potlačit kontroly Etag, což způsobí, že všechny souběžných změny, ke kterým došlo k přepsání.
+Ve výchozím nastavení Azure Stack rutiny prostředí PowerShell služby DNS pomocí značek ETag zablokují souběžné změny zón a sad záznamů. Můžete použít volitelný `-Overwrite` přepínač pro potlačení kontrol značek ETag. Bez kontrol ETag nejsou všechny souběžné změny, ke kterým došlo, přepsány.
 
-Na úrovni DNS REST API služby Azure Stack značek etag určeny pomocí hlavičky protokolu HTTP. Jejich chování je popsáno v následující tabulce:
+Na úrovni Azure Stack DNS REST API jsou značky ETag zadány pomocí hlaviček protokolu HTTP. Jejich chování je popsané v následující tabulce:
 
 | Záhlaví | Chování|
 |--------|---------|
-| Žádný   | PUT vždy úspěšné (žádné kontroly Etag)|
-| If-match| PUT úspěšná, pouze pokud prostředek existuje a Značka Etag odpovídá|
-| If-match *| PUT úspěšná, pouze pokud existuje prostředek|
-| If-none-match *| PUT úspěšná, pouze pokud prostředek neexistuje.|
+| Žádný   | VLOŽENÍ vždy proběhne úspěšně (žádné kontroly ETag).|
+| If-Match| VLOŽENÍ se zdaří pouze v případě, že prostředek existuje a odpovídá ETag.|
+| If-Match *| Pokud prostředek existuje, operace PUT se podaří.|
+| If-None-Match *| Pokud prostředek neexistuje, operace PUT se podaří.|
 
-### <a name="limits"></a>Limits
+### <a name="limits"></a>Omezení
 
-Následující výchozí omezení platí při použití Azure Stack DNS:
+Při použití Azure Stack DNS platí následující výchozí omezení:
 
 | Resource| Výchozí omezení|
 |---------|--------------|
-| Zón v předplatném| 100|
-| Sady záznamů za zónu| 5000|
-| Záznamy na sadu záznamů| 20|
+| Zóny na předplatné| 100|
+| Sady záznamů na zónu| 5000|
+| Počet záznamů na sadu záznamů| 20|
 
 ## <a name="next-steps"></a>Další postup
 

@@ -1,6 +1,6 @@
 ---
-title: Vývoj aplikací pro Azure Stack | Dokumentace Microsoftu
-description: Aspekty vývoje pro vytváření prototypů aplikací ve službě Azure Stack
+title: Vývoj aplikací pro Azure Stack | Microsoft Docs
+description: Požadavky na vývoj pro vytváření prototypů aplikací v Azure Stack pomocí služeb Azure.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -16,30 +16,30 @@ ms.date: 05/21/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: 4273326001dc79abb7ea522c3bd4c01e46bceb2b
-ms.sourcegitcommit: 6fcd5df8b77e782ef72f0e1419f1f75ec8c16c04
+ms.openlocfilehash: 059e7961cae5c6d6faa8d79d05dbc08a05a13893
+ms.sourcegitcommit: b3dac698f2e1834491c2f9af56a80e95654f11f3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65991276"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68658571"
 ---
 # <a name="develop-for-azure-stack"></a>Vývoj pro Azure Stack
 
-*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
 
-Můžete začít vyvíjet aplikace už dnes, i když nemáte přístup k prostředí Azure Stack. Protože Azure Stack přináší služby Microsoft Azure, které běží ve vašem datovém centru, můžete použít podobné procesy a nástroje pro vývoj v Azure stacku, stejně jako s Azure.
+Můžete začít vyvíjet aplikace ještě dnes i v případě, že nemáte přístup k Azure Stack prostředí. Azure Stack zajišťuje Microsoft Azure služby, které běží ve vašem datovém centru, což znamená, že můžete používat stejné nástroje a procesy Azure pro vývoj na Azure Stack.
 
 ## <a name="development-considerations"></a>Aspekty vývoje
 
-Některé přípravy a pomocí pokynů v následujících tématech můžete použít Azure k emulaci prostředí Azure Stack.
+S určitou přípravou a používáním pokynů v následujících tématech můžete k emulaci Azure Stackho prostředí použít Azure.
 
-* V Azure můžete vytvořit šablony Azure Resource Manageru, které je možné nasadit do služby Azure Stack. Zobrazit [aspekty šablon](azure-stack-develop-templates.md) pokyny k vývoji šablon pro zajištění přenositelnosti.
-* Existují rozdíly v dostupnosti služeb a správa verzí služby mezi Azure a Azure Stack. Můžete použít [modul zásad služby Azure Stack](azure-stack-policy-module.md) omezit typy dostupnosti a prostředků služby Azure na to, co je k dispozici ve službě Azure Stack. Omezení služeb zajišťuje, že vaše aplikace využívají služby Azure Stack k dispozici.
-* [Šablon rychlý start Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates) jsou běžné příklady scénáře, které ukazují, jak vyvíjet šablony, které je možné nasadit do Azure a Azure Stack.
+* V Azure můžete vytvářet Azure Resource Manager šablony, které lze nasadit Azure Stack. Pokyny k vývoji šablon pro zajištění přenositelnosti najdete v tématu věnovaném [hlediskům šablon](azure-stack-develop-templates.md) .
+* Existují rozdíly v dostupnosti služeb a verzích služeb mezi Azure a Azure Stack. [Modul zásad Azure Stack](azure-stack-policy-module.md) slouží k omezení dostupnosti služeb Azure a typů prostředků na to, co je k dispozici v Azure Stack. Omezení služeb zajišťuje, aby vaše aplikace spoléhaly na služby dostupné pro Azure Stack.
+* [Šablony pro rychlý start Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates) jsou běžné příklady scénářů, které ukazují, jak vyvíjet Šablony nasazené pro Azure i Azure Stack.
 
 ## <a name="next-steps"></a>Další postup
 
-Další informace o vývoji pro Azure Stack najdete v následujících článcích:
+Další informace o vývoji Azure Stack najdete v následujících článcích:
 
-* [Azure Resource Manageru šablony osvědčené postupy](azure-stack-develop-templates.md)
-* [Šablony pro rychlý start Azure Stack na Githubu](https://github.com/Azure/AzureStack-QuickStart-Templates)
+* [Osvědčené postupy pro šablony Azure Resource Manageru](azure-stack-develop-templates.md)
+* [Azure Stack šablon pro rychlý Start na GitHubu](https://github.com/Azure/AzureStack-QuickStart-Templates)

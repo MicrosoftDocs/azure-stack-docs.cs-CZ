@@ -1,6 +1,6 @@
 ---
-title: Nasazení šablon pomocí sady Visual Studio ve službě Azure Stack | Dokumentace Microsoftu
-description: Informace o nasazení šablon pomocí sady Visual Studio ve službě Azure Stack.
+title: Nasazení šablon pomocí sady Visual Studio v Azure Stack | Microsoft Docs
+description: Naučte se, jak nasadit šablony pomocí sady Visual Studio v Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -17,33 +17,33 @@ ms.date: 05/21/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: 87035fd3860318f63fa30e528ad7fa12c7dc3a39
-ms.sourcegitcommit: 6fcd5df8b77e782ef72f0e1419f1f75ec8c16c04
+ms.openlocfilehash: c84965295abd1218458f46e998dcec8b1b2fdc88
+ms.sourcegitcommit: b3dac698f2e1834491c2f9af56a80e95654f11f3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65990975"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68658601"
 ---
-# <a name="deploy-templates-in-azure-stack-using-visual-studio"></a>Nasazení šablon ve službě Azure Stack pomocí sady Visual Studio
+# <a name="deploy-templates-in-azure-stack-using-visual-studio"></a>Nasazení šablon v Azure Stack pomocí sady Visual Studio
 
-*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
 
-Visual Studio můžete použít k nasazení šablony Azure Resource Manageru ke službě Azure Stack.
+Aplikaci Visual Studio lze použít k nasazení Azure Resource Manager šablon pro Azure Stack.
 
-## <a name="to-deploy-a-template"></a>K nasazení šablony
+## <a name="to-deploy-a-template"></a>Nasazení šablony
 
-1. [Nainstalujte a připojte](azure-stack-install-visual-studio.md) do služby Azure Stack pomocí sady Visual Studio.
+1. [Instalace a připojení](azure-stack-install-visual-studio.md) k Azure Stack pomocí sady Visual Studio.
 2. Otevřít Visual Studio.
-3. Vyberte **souboru**a pak vyberte **nový**. V **nový projekt**vyberte **skupiny prostředků Azure**.
-4. Zadejte **název** pro nový projekt a pak vyberte **OK**.
-5. V **vybrat šablonu Azure**, vyberte **Quickstart pro Azure Stack** z rozevíracího seznamu.
-6. Vyberte **101-create-storage-account**a pak vyberte **OK**.
-7. V novém projektu, rozbalte **šablony** uzel v **Průzkumníka řešení** zobrazíte dostupné šablony.
-8. V **Průzkumníka řešení**, vyberte název projektu a pak vyberte **nasadit**. Vyberte **nové nasazení**.
-9. V **nasadit do skupiny prostředků**, použijte **předplatné** rozevíracího seznamu vyberte předplatné Microsoft Azure Stack.
-10. Z **skupiny prostředků** seznamu vyberte existující skupinu prostředků nebo vytvořte novou.
-11. Z **umístění skupiny prostředků** seznamu, vyberte umístění a pak vyberte **nasadit**.
-12. V **upravit parametry**, zadejte hodnoty pro parametry (které se liší podle šablony) a pak vyberte **Uložit**.
+3. Vyberte **soubor**a potom vyberte **Nový**. V **novém projektu**vyberte **skupinu prostředků Azure**.
+4. Zadejte **název** nového projektu a pak vyberte **OK**.
+5. V části **Vybrat šablonu Azure**vyberte v rozevíracím seznamu **Azure Stack rychlý Start** .
+6. Vyberte **101-vytvořit-účet úložiště**a pak vyberte **OK**.
+7. V novém projektu rozbalte uzel **šablony** v **Průzkumník řešení** , aby se zobrazily dostupné šablony.
+8. V **Průzkumník řešení**vyberte název vašeho projektu a pak vyberte **nasadit**. Vyberte **nové nasazení**.
+9. V části **nasadit do skupiny prostředků**použijte rozevírací seznam **předplatné** k výběru předplatného Microsoft Azure Stack.
+10. V seznamu **Skupina prostředků** vyberte existující skupinu prostředků nebo vytvořte novou.
+11. V seznamu **umístění skupiny prostředků** zvolte umístění a pak vyberte **nasadit**.
+12. V části **Upravit parametry**zadejte hodnoty parametrů (které se liší šablonou) a pak vyberte **Uložit**.
 
 ## <a name="next-steps"></a>Další postup
 

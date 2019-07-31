@@ -16,12 +16,12 @@ ms.date: 07/25/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 07/25/2019
-ms.openlocfilehash: 93ac5da096642870e41a36f13611056ee51539f4
-ms.sourcegitcommit: f6ea6daddb92cbf458f9824cd2f8e7e1bda9688e
+ms.openlocfilehash: fb5c02eae73dcc2191e8b65bacea32efc0068b2e
+ms.sourcegitcommit: 9a4966fa66a0ed3bfd3a10376df2a6ffd3dd60a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68497186"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68665117"
 ---
 # <a name="azure-stack-1907-known-issues"></a>Známé problémy s Azure Stack 1907
 
@@ -47,11 +47,11 @@ V tomto článku jsou uvedené známé problémy ve verzi 1907 Azure Stack. Sezn
 - Výskyt Společné
 
 ### <a name="subscriptions-properties-blade"></a>Okno vlastností předplatných
-- To Tento problém se vztahuje na všechny podporované verze.
-- Příčina: Na portálu pro správu se okno Vlastnosti pro odběry nenačte správně.
-- Nápravy Tyto vlastnosti předplatných můžete zobrazit v podokně základy v okně s přehledem předplatných.
-- Výskyt Společné
 
+- To Tento problém se vztahuje na všechny podporované verze.
+- Příčina: Na portálu pro správu se okno **vlastnosti** pro odběry nenačte správně.
+- Nápravy Tyto vlastnosti předplatného si můžete zobrazit v podokně **základy** v okně **Přehled** předplatných.
+- Výskyt Společné
 
 ### <a name="subscription-permissions"></a>Oprávnění předplatného
 
@@ -93,8 +93,8 @@ V tomto článku jsou uvedené známé problémy ve verzi 1907 Azure Stack. Sezn
 #### <a name="local-network-gateway-deletion"></a>Odstranění brány místní sítě
 
 - To Tento problém se týká verze 1906.
-- Příčina: Při odstranění brány místní sítě na portálu User Portal se zobrazí následující chybová zpráva: "Bránu místní sítě nelze odstranit s aktivním připojením", přestože neexistuje žádné aktivní připojení. 
-- Zmírnění Oprava tohoto problému se uvolní v 1907. Alternativním řešením tohoto problému je vytvořit novou bránu místní sítě se stejnou IP adresou, adresním prostorem a podrobnostmi konfigurace s jiným názvem. Po aktualizaci prostředí na 1907 se dá původní LNG odstranit. 
+- Příčina: Při odstranění **brány místní sítě** na portálu User Portal se zobrazí následující chybová zpráva: **Bránu místní sítě nelze odstranit s aktivním připojením**, i když neexistuje žádné aktivní připojení.
+- Zmírnění Oprava tohoto problému se uvolní v 1907. Alternativním řešením tohoto problému je vytvořit novou bránu místní sítě se stejnou IP adresou, adresním prostorem a podrobnostmi konfigurace s jiným názvem. Po aktualizaci prostředí na 1907 se dá původní LNG odstranit.
 - Výskyt Společné
 
 #### <a name="alerts"></a>Upozornění
@@ -152,21 +152,21 @@ V tomto článku jsou uvedené známé problémy ve verzi 1907 Azure Stack. Sezn
 
 ### <a name="virtual-machine-scale-set-reset-password-does-not-work"></a>Resetování hesla sady škálování virtuálního počítače nefunguje
 
-- To Tento problém se týká verze 1906, 1907.
+- To Tento problém se týká verzí 1906 a 1907.
 - Příčina: V uživatelském rozhraní sady škálování se zobrazí nové okno pro resetování hesla, ale Azure Stack nepodporuje resetování hesla u sady škálování.
 - Nápravy Žádné.
 - Výskyt Společné
 
 ### <a name="rainy-cloud-on-scale-set-diagnostics"></a>Diagnostika deště v diagnostice sady škálování
 
-- To Tento problém se týká verze 1906, 1907.
+- To Tento problém se týká verzí 1906 a 1907.
 - Příčina: Na stránce Přehled sady škálování virtuálního počítače se zobrazuje prázdný graf. Když kliknete na prázdný graf, otevře se okno "deště Cloud". Toto je graf pro diagnostické informace sady škálování, jako je procento využití procesoru, a není funkce podporovaná v aktuálním Azure Stack buildu.
 - Nápravy Žádné.
 - Výskyt Společné
 
 ### <a name="virtual-machine-diagnostic-settings-blade"></a>Okno nastavení diagnostiky virtuálního počítače
 
-- To Tento problém se týká verze 1906, 1907.
+- To Tento problém se týká verzí 1906 a 1907.
 - Příčina: Okno nastavení diagnostiky virtuálního počítače má kartu **jímka** , která žádá o **účet Application**Insights. Toto je výsledek nového okna a v Azure Stack ještě není podporovaný.
 - Nápravy Žádné.
 - Výskyt Společné
@@ -178,7 +178,7 @@ V tomto článku jsou uvedené známé problémy ve verzi 1907 Azure Stack. Sezn
 <!-- ### Identity -->
 <!-- ### Marketplace -->
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 - [Kontrola kontrolního seznamu aktivit aktualizací](azure-stack-release-notes-checklist.md)
 - [Kontrola seznamu aktualizací zabezpečení](azure-stack-release-notes-security-updates-1907.md)
