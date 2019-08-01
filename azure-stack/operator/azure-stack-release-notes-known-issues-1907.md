@@ -16,12 +16,12 @@ ms.date: 07/25/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 07/25/2019
-ms.openlocfilehash: fb5c02eae73dcc2191e8b65bacea32efc0068b2e
-ms.sourcegitcommit: 9a4966fa66a0ed3bfd3a10376df2a6ffd3dd60a8
+ms.openlocfilehash: cf09162fb29630ed01834aa6b2b508785206a088
+ms.sourcegitcommit: d96adbb821175167f6a4c8f3aba305981d7e7c3e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68665117"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68685572"
 ---
 # <a name="azure-stack-1907-known-issues"></a>Známé problémy s Azure Stack 1907
 
@@ -33,7 +33,7 @@ V tomto článku jsou uvedené známé problémy ve verzi 1907 Azure Stack. Sezn
 ## <a name="update-process"></a>Aktualizovat proces
 
 - To Tento problém se vztahuje na všechny podporované verze.
-- Příčina: Při pokusu o instalaci aktualizace 1906 Azure Stack aktualizace může stav aktualizace selhat a změnit stav na **PreparationFailed**. To je způsobeno tím, že poskytovatel prostředků aktualizace (URP) nemůže správně přenést soubory z kontejneru úložiště do interní sdílené složky infrastruktury pro zpracování. Balíček aktualizace 1906 je větší než předchozí balíčky aktualizací, což může způsobit, že dojde k tomuto problému.
+- Příčina: Při pokusu o instalaci aktualizace 1907 Azure Stack aktualizace může stav aktualizace selhat a změnit stav na **PreparationFailed**. To je způsobeno tím, že poskytovatel prostředků aktualizace (URP) nemůže správně přenést soubory z kontejneru úložiště do interní sdílené složky infrastruktury pro zpracování.
 - Nápravy Počínaje verzí 1901 (1.1901.0.95) můžete tento problém obejít tak, že znovu kliknete na **aktualizovat** (nepokračovat). URP pak vyčistí soubory z předchozího pokusu a restartuje soubor ke stažení. Pokud potíže potrvají, doporučujeme ručně odeslat balíček aktualizace pomocí [oddílu import a instalace aktualizací](azure-stack-apply-updates.md#import-and-install-updates).
 - Výskyt Společné
 
@@ -166,7 +166,7 @@ V tomto článku jsou uvedené známé problémy ve verzi 1907 Azure Stack. Sezn
 
 ### <a name="virtual-machine-diagnostic-settings-blade"></a>Okno nastavení diagnostiky virtuálního počítače
 
-- To Tento problém se týká verzí 1906 a 1907.
+- To Tento problém se týká verzí 1906 a 1907.    
 - Příčina: Okno nastavení diagnostiky virtuálního počítače má kartu **jímka** , která žádá o **účet Application**Insights. Toto je výsledek nového okna a v Azure Stack ještě není podporovaný.
 - Nápravy Žádné.
 - Výskyt Společné

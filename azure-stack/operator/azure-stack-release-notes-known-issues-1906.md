@@ -16,12 +16,12 @@ ms.date: 07/12/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 06/28/2019
-ms.openlocfilehash: bcdcb43cb58535a4ab4a8a543c1fbf31824dacbc
-ms.sourcegitcommit: f6ea6daddb92cbf458f9824cd2f8e7e1bda9688e
+ms.openlocfilehash: cb98d587f766a3039887e0ba800ab255686121bc
+ms.sourcegitcommit: d96adbb821175167f6a4c8f3aba305981d7e7c3e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68494131"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68685545"
 ---
 # <a name="azure-stack-1906-known-issues"></a>Známé problémy s Azure Stack 1906
 
@@ -159,31 +159,12 @@ V tomto článku jsou uvedené známé problémy ve verzi 1906 Azure Stack. Sezn
 
 ### <a name="virtual-machine-scale-set"></a>Škálovací sada virtuálních počítačů
 
-#### <a name="centos"></a>CentOS
-
-- To Tento problém se vztahuje na všechny podporované verze.
-- Příčina: Prostředí pro vytvoření sady škálování virtuálních počítačů poskytuje CentOS 7,2 jako možnost nasazení. CentOS 7,2 není na Azure Stack k dispozici.
-- Nápravy Vyberte jiný operační systém pro nasazení nebo použijte šablonu Azure Resource Manager určující jinou image CentOS, která byla stažena před nasazením z webu Marketplace pomocí operátoru.
-- Výskyt Společné
-
-#### <a name="remove-scale-set"></a>Odebrat sadu škálování
-
-- To Tento problém se vztahuje na všechny podporované verze.
-- Příčina: Nemůžete odebrat sadu škálování z okna **Virtual Machine Scale Sets** .
-- Nápravy Vyberte sadu škálování, kterou chcete odebrat, a pak klikněte na tlačítko **Odstranit** v podokně **Přehled** .
-- Výskyt Společné
 
 #### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-environments"></a>Vytváření selhání během opravy a aktualizace v prostředích Azure Stack se čtyřmi uzly
 
 - To Tento problém se vztahuje na všechny podporované verze.
 - Příčina: Vytváření virtuálních počítačů ve skupině dostupnosti 3 domén selhání a vytvoření instance sady škálování virtuálního počítače selže s chybou **FabricVmPlacementErrorUnsupportedFaultDomainSize** během procesu aktualizace v prostředí Azure Stack se čtyřmi uzly.
 - Nápravy Můžete vytvořit jeden virtuální počítač ve skupině dostupnosti se dvěma doménami selhání úspěšně. Vytvoření instance sady škálování však není během procesu aktualizace na 4 uzlech Azure Stack stále k dispozici.
-
-#### <a name="scale-set-instance-view-blade-does-not-load"></a>Okno zobrazení instance sady škálování se nenačte.
-
-- To Tento problém se týká verzí 1904, 1905 a 1906.
-- Příčina: Okno zobrazení instance sady škálování virtuálního počítače, které je umístěné na portálu Azure Stack, v **řídicím panelu > Virtual Machine Scale sets > AnyScaleSet > instances > AnyScaleSetInstance** se nepovede načíst a zobrazí se obrázek "deště Cloud".
-- Nápravy V současné době nedochází k nápravě a pracujeme na opravě. Až pak použijte příkaz `az vmss get-instance-view` CLI, abyste získali zobrazení instance pro sadu škálování.
 
 ### <a name="ubuntu-ssh-access"></a>Přístup SSH Ubuntu
 
@@ -220,7 +201,7 @@ V tomto článku jsou uvedené známé problémy ve verzi 1906 Azure Stack. Sezn
 <!-- ### Identity -->
 <!-- ### Marketplace -->
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - [Kontrola kontrolního seznamu aktivit aktualizací](azure-stack-release-notes-checklist.md)
 - [Kontrola seznamu aktualizací zabezpečení](azure-stack-release-notes-security-updates-1906.md)

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/23/2019
 ms.author: mabrigg
 ms.lastreviewed: 12/06/2018
-ms.openlocfilehash: c099d67c6446fbd77db62f4c496868437d861f85
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: a66b6fce646a591efac17a5b6e4ed804dba211e7
+ms.sourcegitcommit: bf4d265a3522cbfdd9dd295a0f4ad0daf2ed5eca
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68418492"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68692147"
 ---
 # <a name="supported-metrics-for-azure-monitor-on-azure-stack"></a>Podporované metriky pro Azure Monitor v Azure Stack
 
@@ -50,8 +50,7 @@ V následujících tabulkách jsou uvedeny metriky dostupné s kanálem metriky 
 ## <a name="microsoftstoragestorageaccountsblobservices"></a>Microsoft.Storage/storageAccounts/blobServices
 
 | Metrika | Metriky zobrazovaný název | Jednotka | Typ agregace | Popis | Dimenze |
-|----------------------|------------------------|--------------|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------|
+|--------|---------------------|------|------------------|-------------|------------|
 | BlobCapacity | Kapacita služby Blob | B | Celkem | Velikost úložiště využitá Blob service účtu úložiště v bajtech | BlobType |
 | BlobCount | Počet objektů blob | Počet | Celkem | Počet objektů BLOB v Blob service účtu úložiště. | BlobType |
 | ContainerCount | Počet kontejnerů služby Blob | Počet | Average | Počet kontejnerů v Blob service účtu úložiště. | Žádné dimenze |

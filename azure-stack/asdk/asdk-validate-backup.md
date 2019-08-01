@@ -1,87 +1,87 @@
 ---
-title: Ověření zálohování Azure stacku pomocí ASDK | Dokumentace Microsoftu
-description: Jak ověřit zálohu integrované systémy Azure Stack pomocí ASDK.
+title: Ověření zálohy Azure Stack pomocí ASDK | Microsoft Docs
+description: Jak ověřit zálohu Azure Stack integrovaných systémů pomocí nástroje ASDK.
 services: azure-stack
 author: justinha
 manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 02/15/2019
+ms.date: 07/31/2019
 ms.author: justinha
 ms.reviewer: hectorl
-ms.lastreviewed: 02/15/2019
-ms.openlocfilehash: 38c4de35b4d2b5eac16b8586aa6933b18c62b14a
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.lastreviewed: 07/31/2019
+ms.openlocfilehash: 3ab7dfbaef82868f45b181fb81d9b98050147191
+ms.sourcegitcommit: bf4d265a3522cbfdd9dd295a0f4ad0daf2ed5eca
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66267336"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68692118"
 ---
-# <a name="use-the-asdk-to-validate-an-azure-stack-backup"></a>Použít ASDK k ověření zálohování Azure stacku
-Po nasazení služby Azure Stack a zřizování uživatelů prostředky, jako jsou nabídky, plány, kvót a předplatných, měli byste [povolit zálohování infrastruktury Azure stacku](../operator/azure-stack-backup-enable-backup-console.md). Plánování a spouštění pravidelných infrastruktura zálohování se zajistí, že infrastruktura správy nedojde ke ztrátě dat při katastrofických hardwaru nebo Chyba služby.
+# <a name="use-the-asdk-to-validate-an-azure-stack-backup"></a>Použití ASDK k ověření zálohy Azure Stack
+Po nasazení Azure Stack a zřízení uživatelských prostředků, jako jsou nabídky, plány, kvóty a odběry, byste měli [povolit Azure Stack zálohování infrastruktury](../operator/azure-stack-backup-enable-backup-console.md). Plánování a spouštění pravidelných záloh infrastruktury zajistí, že data správy infrastruktury nebudou ztracena v případě závažného selhání hardwaru nebo služby.
 
 > [!TIP]
-> Doporučujeme, který jste [spustit zálohování na vyžádání](../operator/azure-stack-backup-back-up-azure-stack.md) před zahájením tohoto postupu k zajištění, že máte kopii nejnovější data infrastruktury k dispozici. Ujistěte se, že k zaznamenání ID zálohy, až se zálohování úspěšně dokončí. Toto ID se bude vyžadovat během obnovení cloudu. 
+> Před zahájením tohoto postupu doporučujeme [Spustit zálohování na vyžádání](../operator/azure-stack-backup-back-up-azure-stack.md) , abyste měli jistotu, že máte k dispozici kopii nejnovějších dat infrastruktury. Po úspěšném dokončení zálohování nezapomeňte zachytit ID zálohy. Toto ID se bude vyžadovat během obnovování cloudu. 
 
-Zálohování infrastruktury Azure stacku obsahují důležitá data o vašem cloudu, které je možné obnovit během opětovné nasazení Azure stacku. ASDK můžete použít k ověření tyto zálohy bez dopadu na produkční cloudu. 
+Zálohy infrastruktury Azure Stack obsahují důležitá data o cloudu, která se dají obnovit během opětovného nasazení Azure Stack. Pomocí ASDK můžete tyto zálohy ověřit bez dopadu na produkční Cloud. 
 
-Ověřování v ASDK zálohování je podporováno v následujících scénářích:
-
-|Scénář|Účel|
-|-----|-----|
-|Ověření integrované řešení zálohování infrastruktury.|Krátký povahy ověření, že data v záloze nejsou platné.|
-|Přečtěte si začátku do konce obnovení pracovního postupu.|Pomocí ASDK ověření celou zálohu a obnovení prostředí.|
-|     |     |
-
-Následující scénář **není** podporované při ověřování v ASDK zálohování:
+Ověřování záloh v ASDK se podporuje v následujících scénářích:
 
 |Scénář|Účel|
 |-----|-----|
-|ASDK od sestavení k sestavení zálohování a obnovení.|Obnovení zálohovaných dat z předchozí verze ASDK na novější verzi.|
+|Ověří zálohy infrastruktury z integrovaného řešení.|Krátkodobé ověření, že jsou data v záloze platná.|
+|Přečtěte si kompletní pracovní postup obnovení.|Pomocí ASDK ověříte celé prostředí pro zálohování a obnovení.|
+|     |     |
+
+Následující scénář **není** podporován při ověřování záloh na ASDK:
+
+|Scénář|Účel|
+|-----|-----|
+|ASDK sestavení pro sestavení zálohování a obnovení.|Obnoví zálohovaná data z předchozí verze ASDK na novější verzi.|
 |     |     |
 
 
-## <a name="cloud-recovery-deployment"></a>Nasazení v cloudu pro obnovení
-Zálohování infrastruktury z integrované systémy pro nasazení může být ověřen pomocí provádí cloudového obnovení nasazení ASDK. V tomto typu nasazení konkrétní službu obnovení dat ze zálohy po instalaci ASDK v hostitelském počítači.
+## <a name="cloud-recovery-deployment"></a>Nasazení Cloud Recovery
+Zálohy infrastruktury z nasazení integrovaných systémů se dají ověřit pomocí nasazení cloudového obnovení ASDK. V tomto typu nasazení se po instalaci ASDK na hostitelský počítač obnoví konkrétní data služby ze zálohy.
 
-### <a name="prereqs"></a>Požadavky na obnovení cloudu
-Před zahájením nasazení cloudu pro obnovení ASDK, ujistěte se, že máte následující informace:
+### <a name="prereqs"></a>Požadavky na Cloud Recovery
+Než začnete s nasazením ASDK Cloud Recovery, ujistěte se, že máte následující informace:
 
-**Požadavky instalačního programu uživatelského rozhraní**
+**Požadavky na instalační program uživatelského rozhraní**
 
-*Aktuální instalační program uživatelského rozhraní podporuje pouze šifrovacího klíče*
-
-|Požadavek|Popis|
-|-----|-----|
-|Cesta ke sdílené složce záloh|Cesty souboru UNC sdílené složky z poslední zálohy Azure Stack, který se použije k obnovení informací infrastruktury Azure stacku. Tato místní sdílená složka se vytvoří během procesu nasazení cloudu pro obnovení.|
-|ID zálohy k obnovení|ID zálohy ve formuláři alfanumerické "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", který identifikuje zálohy obnovit během obnovení cloudu.|
-|IP adresa serveru čas|Platný čas adresu IP serveru, jako je například 132.163.97.2, je vyžadován pro nasazení Azure Stack.|
-|Externí certifikát heslo|Heslo pro externí certifikát používaný službou Azure Stack. Zálohování certifikační Autority obsahuje externí certifikáty, které je nutné obnovit s toto heslo.|
-|Zálohování šifrovacího klíče|Vyžaduje-li upgradováni na verzi služby Azure Stack 1901 nebo novější a zálohování nastavení je stále probíhá konfigurace pomocí šifrovacího klíče. Šifrovací klíč je zastaralý, počínaje 1901. Instalační program bude podporovat šifrovací klíč ve zpětné režim kompatibility pro alespoň 3 verze. Po aktualizaci nastavení zálohování k používání certifikátu naleznete v další tabulce pro požadované informace.|
-
-|     |     | 
-
-**Požadavky instalačního programu Powershellu**
-
-*Aktuální instalačního programu Powershellu podporuje šifrovací klíč nebo dešifrovací certifikát*
+*Aktuální instalační program uživatelského rozhraní podporuje jenom šifrovací klíč.*
 
 |Požadavek|Popis|
 |-----|-----|
-|Cesta ke sdílené složce záloh|Cesty souboru UNC sdílené složky z poslední zálohy Azure Stack, který se použije k obnovení informací infrastruktury Azure stacku. Tato místní sdílená složka se vytvoří během procesu nasazení cloudu pro obnovení.|
-|ID zálohy k obnovení|ID zálohy ve formuláři alfanumerické "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", který identifikuje zálohy obnovit během obnovení cloudu.|
-|IP adresa serveru čas|Platný čas adresu IP serveru, jako je například 132.163.97.2, je vyžadován pro nasazení Azure Stack.|
-|Externí certifikát heslo|Heslo pro externí certifikát používaný službou Azure Stack. Zálohování certifikační Autority obsahuje externí certifikáty, které je nutné obnovit s toto heslo.|
-|Dešifrovací heslo certifikace|Volitelné. Vyžaduje se, jenom Pokud zálohování šifrována pomocí certifikátu. Heslo je pro držitele certifikátu (.pfx), který obsahuje privátní klíč, který je nutný k dešifrování dat záloh.|
-|Zálohování šifrovacího klíče|Volitelné. Vyžaduje-li upgradováni na verzi služby Azure Stack 1901 nebo novější a zálohování nastavení je stále probíhá konfigurace pomocí šifrovacího klíče. Instalační program bude podporovat šifrovací klíč ve zpětné režim kompatibility pro alespoň 3 verze. Po aktualizaci nastavení zálohování pro použití certifikátu se musí zadat heslo k certifikátu dešifrování.|
+|Cesta ke sdílené složce zálohy|Cesta ke sdílené složce souborů UNC nejnovější zálohy Azure Stack, která se použije k obnovení informací o Azure Stack infrastruktuře. Tato místní sdílená složka se vytvoří během procesu nasazení Cloud Recovery.|
+|ID zálohy, která se má obnovit|ID zálohy v alfanumerickém tvaru "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", který identifikuje zálohu, která má být obnovena během obnovování cloudu.|
+|IP adresa časového serveru|Pro nasazení Azure Stack se vyžaduje platná časová IP adresa serveru, například 132.163.97.2.|
+|Heslo k externímu certifikátu|Heslo pro externí certifikát, který používá Azure Stack. Záloha certifikační autority obsahuje externí certifikáty, které je potřeba obnovit pomocí tohoto hesla.|
+|Záložní šifrovací klíč|Vyžaduje se, pokud jsou nastavení zálohování nakonfigurovaná pomocí šifrovacího klíče, který se už nepoužívá. Instalační program bude podporovat šifrovací klíč v režimu zpětné kompatibility pro nejméně 3 verze. Po aktualizaci nastavení zálohování pro použití certifikátu si přečtěte požadované informace v další tabulce.|
+
 |     |     | 
 
-## <a name="prepare-the-host-computer"></a>Příprava hostitelském počítači 
-Stejně jako v normálním ASDK nasazení musí být připravené prostředí ASDK hostitele systému pro instalaci. Když development kit hostitelský počítač připravený, se spustí z pevného disku virtuálního počítače CloudBuilder.vhdx zahájíte ASDK nasazení.
+**Požadavky na instalační program prostředí PowerShell**
 
-Na hostitelském počítači ASDK, stáhněte si nový cloudbuilder.vhdx odpovídající na stejnou verzi služby Azure Stack, která byla zálohována a postupujte podle pokynů pro [Příprava hostitelském počítači ASDK](asdk-prepare-host.md).
+*Aktuální instalační program PowerShellu podporuje šifrovací klíč nebo dešifrovací certifikát.*
 
-Po restartování serveru hostitele z cloudbuilder.vhdx, musíte vytvořit sdílenou složku a kopírovat data záloh do. Sdílené složky musí být přístupný pro účet, který spouští instalační program; Správce tyto příklady příkazů prostředí PowerShell: 
+|Požadavek|Popis|
+|-----|-----|
+|Cesta ke sdílené složce zálohy|Cesta ke sdílené složce souborů UNC nejnovější zálohy Azure Stack, která se použije k obnovení informací o Azure Stack infrastruktuře. Tato místní sdílená složka se vytvoří během procesu nasazení Cloud Recovery.|
+|ID zálohy, která se má obnovit|ID zálohy v alfanumerickém tvaru "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", který identifikuje zálohu, která má být obnovena během obnovování cloudu.|
+|IP adresa časového serveru|Pro nasazení Azure Stack se vyžaduje platná časová IP adresa serveru, například 132.163.97.2.|
+|Heslo k externímu certifikátu|Heslo pro externí certifikát, který používá Azure Stack. Záloha certifikační autority obsahuje externí certifikáty, které je potřeba obnovit pomocí tohoto hesla.|
+|Heslo certifikátu dešifrování|Volitelné. Požadováno jenom v případě, že je záloha zašifrovaná pomocí certifikátu. Heslo je pro certifikát podepsaný svým držitelem (. pfx), který obsahuje privátní klíč nezbytný k dešifrování zálohovaných dat.|
+|Záložní šifrovací klíč|Volitelné. Vyžaduje se, pokud jsou nastavení zálohování pořád nakonfigurovaná pomocí šifrovacího klíče. Instalační program bude podporovat šifrovací klíč v režimu zpětné kompatibility pro nejméně 3 verze. Po aktualizaci nastavení zálohování pro použití certifikátu je nutné zadat heslo pro dešifrovací certifikát.|
+|     |     | 
+
+## <a name="prepare-the-host-computer"></a>Příprava hostitelského počítače 
+Stejně jako v případě normálního nasazení ASDK musí být prostředí hostitelského systému ASDK připravené k instalaci. Po přípravě hostitelského počítače vývojové sady se spustí z pevného disku virtuálního počítače s CloudBuilder. vhdx, aby se zahájilo nasazení ASDK.
+
+V hostitelském počítači ASDK Stáhněte novou cloudbuilder. vhdx odpovídající stejné verzi Azure Stack, která byla zálohována, a postupujte podle pokynů pro [přípravu hostitelského počítače ASDK](asdk-prepare-host.md).
+
+Po restartování hostitelského serveru ze souboru cloudbuilder. vhdx musíte vytvořit sdílenou složku a zkopírovat data ze zálohy do nástroje. Sdílená složka by měla být přístupná pro účet, který spouští instalaci; Správce v těchto ukázkových příkazech PowerShell: 
 
 ```powershell
 $shares = New-Item -Path "c:\" -Name "Shares" -ItemType "directory"
@@ -89,61 +89,61 @@ $azsbackupshare = New-Item -Path $shares.FullName -Name "AzSBackups" -ItemType "
 New-SmbShare -Path $azsbackupshare.FullName -FullAccess ($env:computername + "\Administrator")  -Name "AzSBackups"
 ```
 
-V dalším kroku zkopírujte nejnovější záložní soubory Azure Stack do nově vytvořené sdílené složky. Struktura složky ve sdílené složce by měla být: `\\<ComputerName>\AzSBackups\MASBackup\<BackupID>\`.
+Potom zkopírujte nejnovější Azure Stack záložní soubory do nově vytvořené sdílené složky. Struktura složek v rámci sdílené složky by měla být `\\<ComputerName>\AzSBackups\MASBackup\<BackupID>\`:.
 
-Nakonec zkopírujte do adresáře certifikát dešifrování certifikátu (.pfx): `C:\CloudDeployment\Setup\Certificates\` a přejmenujte soubor na `BackupDecryptionCert.pfx`.
+Nakonec zkopírujte dešifrovací certifikát (. pfx) do adresáře certifikátu: `C:\CloudDeployment\Setup\Certificates\` a přejmenujte ho na. `BackupDecryptionCert.pfx`
 
-## <a name="deploy-the-asdk-in-cloud-recovery-mode"></a>Nasazení ASDK v režimu obnovení cloudu
+## <a name="deploy-the-asdk-in-cloud-recovery-mode"></a>Nasazení ASDK v režimu Cloud Recovery
 
 > [!IMPORTANT]
-> 1. Aktuální instalační program uživatelského rozhraní podporuje pouze šifrovacího klíče. Můžete pouze ověření zálohy ze systémů, které dál používat šifrovací klíč. Pokud záloha byla zašifrována na integrovaný systém nebo ASDK pomocí certifikátu, je nutné použít instalační program prostředí PowerShell (**InstallAzureStackPOC.ps1**). 
-> 2. Instalační služba prostředí PowerShell (**InstallAzureStackPOC.ps1**) podporuje šifrovací klíč nebo certifikát.
-> 3. Instalace ASDK podporuje přesně jednu síťovou kartu (NIC) sítě. Pokud máte více síťových adaptérů, ujistěte se, že je povolená jenom jedna (a všechny ostatní jsou zakázané) před spuštěním skriptu nasazení.
+> 1. Aktuální uživatelské rozhraní instalačního programu podporuje jenom šifrovací klíč. Můžete ověřovat jenom zálohy ze systémů, které nadále používají šifrovací klíč. Pokud byla záloha zašifrovaná v integrovaném systému nebo ASDK pomocí certifikátu, musíte použít instalační program PowerShellu (**InstallAzureStackPOC. ps1**). 
+> 2. Instalační program PowerShellu (**InstallAzureStackPOC. ps1**) podporuje šifrovací klíč nebo certifikát.
+> 3. Instalace ASDK podporuje pro sítě právě jednu síťovou kartu (NIC). Pokud máte více síťových adaptérů, ujistěte se, že je před spuštěním skriptu nasazení povolená jenom jedna (a všechny ostatní jsou zakázané).
 
-### <a name="use-the-installer-ui-to-deploy-the-asdk-in-recovery-mode"></a>Použijte instalační program uživatelského rozhraní pro nasazení ASDK v režimu obnovení
-Kroky v této části ukazují, jak nasadit ASDK pomocí grafického uživatelského rozhraní (GUI) poskytované stáhnete a nainstalujete **asdk installer.ps1** skript prostředí PowerShell.
+### <a name="use-the-installer-ui-to-deploy-the-asdk-in-recovery-mode"></a>Nasazení ASDK do režimu obnovení pomocí uživatelského rozhraní instalačního programu
+Kroky v této části ukazují, jak nasadit ASDK pomocí grafického uživatelského rozhraní (GUI) poskytovaného stažením a spuštěním skriptu PowerShellu **asdk-Installer. ps1** .
 
 > [!NOTE]
-> Uživatelské rozhraní instalačního programu pro Azure Stack Development Kit je skriptu open source na základě WCF a prostředí PowerShell.
+> Uživatelské rozhraní instalačního programu pro Azure Stack Development Kit je open source skript založený na WCF a PowerShellu.
 
 > [!IMPORTANT]
-> Aktuální instalační program uživatelského rozhraní podporuje pouze šifrovacího klíče.
+> Aktuální uživatelské rozhraní instalačního programu podporuje jenom šifrovací klíč.
 
-1. Po hostitelský počítač úspěšně spustí do bitové kopie CloudBuilder.vhdx, přihlášení pomocí přihlašovacích údajů správce zadán při vám [připravili development kit hostitelský počítač](asdk-prepare-host.md) ASDK instalace. To by měla být stejná jako přihlašovací údaje development kit hostitele místního správce.
-2. Otevřete konzolu Powershellu se zvýšenými oprávněními a spusťte  **&lt;písmeno jednotky > \AzureStack_Installer\asdk-installer.ps1** skript prostředí PowerShell. Skript může být nyní na jinou jednotku než C:\ CloudBuilder.vhdx obrázku. Klikněte na tlačítko **obnovit**.
+1. Po úspěšném spuštění hostitelského počítače do image CloudBuilder. vhdx se přihlaste pomocí přihlašovacích údajů správce zadaných při [přípravě hostitelského počítače vývojové sady](asdk-prepare-host.md) pro instalaci ASDK. To by mělo být stejné jako pověření místního správce hostitele vývojové sady.
+2. Otevřete konzolu nástroje PowerShell se zvýšenými oprávněními a spusťte  **&lt;písmeno jednotky >** skriptu prostředí PowerShell pro \AzureStack_Installer\asdk-Installer.ps1. Skript se teď může nacházet na jiné jednotce než C:\. v imagi CloudBuilder. vhdx. Klikněte na tlačítko **obnovit**.
 
     ![Skript instalačního programu ASDK](media/asdk-validate-backup/1.PNG) 
 
-3. Zadejte údaje adresáře Azure AD (volitelné) a heslo místního správce pro ASDK hostitelského počítače na stránce zprostředkovatele a přihlašovací údaje identity. Klikněte na **Další**.
+3. Zadejte informace o adresáři služby Azure AD (volitelné) a heslo místního správce pro hostitelský počítač ASDK na stránce zprostředkovatel identity a přihlašovací údaje. Klikněte na **Další**.
 
-    ![Stránka identity a přihlašovací údaje](media/asdk-validate-backup/2.PNG) 
+    ![Stránka identita a přihlašovací údaje](media/asdk-validate-backup/2.PNG) 
 
-4. Vyberte síťový adaptér použije ASDK hostitelský počítač a klikněte na tlačítko **Další**. Během instalace ASDK vypne všechna další síťová rozhraní. 
+4. Vyberte síťový adaptér, který má hostitelský počítač ASDK použít, a klikněte na **Další**. Všechna ostatní síťová rozhraní budou během instalace ASDK zakázaná. 
 
-    ![Síťového adaptéru rozhraní](media/asdk-validate-backup/3.PNG) 
+    ![Rozhraní síťového adaptéru](media/asdk-validate-backup/3.PNG) 
 
-5. Na stránce konfigurace sítě zadejte platný čas serveru a předávání IP adres DNS. Klikněte na **Další**.
+5. Na stránce konfigurace sítě zadejte platné IP adresy časového serveru a serveru DNS pro přeposílání. Klikněte na **Další**.
 
-    ![Stránka Konfigurace sítě](media/asdk-validate-backup/4.PNG) 
+    ![Stránka konfigurace sítě](media/asdk-validate-backup/4.PNG) 
 
-6. Pokud byly ověřeny vlastnosti karty síťového rozhraní, klikněte na tlačítko **Další**. 
+6. Až budou vlastnosti síťového rozhraní ověřené, klikněte na **Další**. 
 
     ![Ověření nastavení síťové karty](media/asdk-validate-backup/5.PNG) 
 
-7. Zadejte požadované informace popsané výše v [části s předpoklady](#prereqs) na stránce nastavení zálohování a uživatelské jméno a heslo pro přístup ke sdílené složce. Klikněte na tlačítko **Další**: 
+7. Zadejte požadované informace popsané výše v [části požadavky](#prereqs) na stránce nastavení zálohování a uživatelské jméno a heslo, které se má použít pro přístup ke sdílené složce. Klikněte na **Další**: 
 
    ![Stránka nastavení zálohování](media/asdk-validate-backup/6.PNG) 
 
-8. Skript nasazení použije pro nasazení ASDK na stránce Souhrn zkontrolujte. Klikněte na tlačítko **nasadit** zahájíte nasazení. 
+8. Zkontrolujte skript nasazení, který se použije k nasazení ASDK na stránce Souhrn. Kliknutím na **nasadit** zahajte nasazení. 
 
     ![Stránka souhrnu](media/asdk-validate-backup/7.PNG) 
 
 
-### <a name="use-powershell-to-deploy-the-asdk-in-recovery-mode"></a>Použití Powershellu k nasazení ASDK v režimu obnovení
+### <a name="use-powershell-to-deploy-the-asdk-in-recovery-mode"></a>Použití PowerShellu k nasazení ASDK v režimu obnovení
 
-Upravte následující příkazy Powershellu pro vaše prostředí a spustit nasazení ASDK v režimu obnovení cloudu:
+Upravte následující příkazy PowerShellu pro vaše prostředí a spusťte je, abyste nasadili ASDK v režimu Cloud Recovery:
 
-**Pomocí skriptu InstallAzureStackPOC.ps1 zahájíte cloudu pro obnovení pomocí šifrovacího klíče.**
+**Pomocí skriptu InstallAzureStackPOC. ps1 zahajte obnovení cloudu pomocí šifrovacího klíče.**
 
 ```powershell
 cd C:\CloudDeployment\Setup     
@@ -160,7 +160,7 @@ $key = Read-Host -AsSecureString -Prompt "Your backup encryption key"
  -TimeServer "<Valid time server IP>" -ExternalCertPassword $certPass
 ```
 
-**Pomocí skriptu InstallAzureStackPOC.ps1 zahájíte cloudu pro obnovení pomocí certifikátu dešifrování.**
+**Pomocí skriptu InstallAzureStackPOC. ps1 zahajte obnovení cloudu s dešifrovacím certifikátem.**
 
 ```powershell
 cd C:\CloudDeployment\Setup     
@@ -177,15 +177,15 @@ $decryptioncertpassword  = Read-Host -AsSecureString -Prompt "Password for the d
  -TimeServer "<Valid time server IP>" -ExternalCertPassword $certPass
 ```
 
-## <a name="complete-cloud-recovery"></a>Kompletní cloud pro obnovení 
-Po úspěšné cloudového nasazení pro obnovení, které potřebujete k dokončení obnovení pomocí **obnovení AzureStack** rutiny. 
+## <a name="complete-cloud-recovery"></a>Dokončení obnovení cloudu 
+Po úspěšném nasazení Cloud Recovery je potřeba dokončit obnovení pomocí rutiny **Restore-AzureStack** . 
 
-Po přihlášení jako operátory Azure stacku [instalaci Azure Stack Powershellu](asdk-post-deploy.md#install-azure-stack-powershell) a spusťte následující příkazy a zadat certifikát a heslo, které se použije při obnovování ze zálohy:
+Po přihlášení jako operátor Azure Stack [nainstalujte Azure Stack PowerShellu](asdk-post-deploy.md#install-azure-stack-powershell) a spusťte následující příkazy, abyste zadali certifikát a heslo, které se má použít při obnovení ze zálohy:
 
-**Režim obnovení pomocí souboru certifikátu**
+**Režim obnovení se souborem certifikátu**
 
 > [!NOTE] 
-> Nasazení Azure Stack není zachována dešifrovací certifikát z bezpečnostních důvodů. Je potřeba zadat certifikát dešifrování a přiřazené heslo znovu.
+> Nasazení Azure Stack neuchovává certifikát dešifrování z bezpečnostních důvodů. Bude nutné znovu zadat certifikát dešifrování a přidružené heslo.
 
 ```powershell
 $decryptioncertpassword = Read-Host -AsSecureString -Prompt "Password for the decryption certificate"
@@ -194,14 +194,14 @@ Restore-AzsBackup -ResourceId "<BackupID>" `
  -DecryptionCertPassword $decryptioncertpassword
 ```
 
-**Režim obnovení pomocí šifrovacího klíče**
+**Režim obnovení se šifrovacím klíčem**
 ```powershell
 $decryptioncertpassword = Read-Host -AsSecureString -Prompt "Password for the decryption certificate"
 Restore-AzsBackup -ResourceId "<BackupID>"
 ```
 
-Počkejte 60 minut po volání tuto rutinu spustit ověřovací data záloh do cloudu ASDK obnovení.
+Po volání této rutiny počkat 60 minut, aby se zahájilo ověřování zálohovaných dat v cloudu obnovených ASDK.
 
-## <a name="next-steps"></a>Další postup
-[Registrace Azure Stack](asdk-register.md)
+## <a name="next-steps"></a>Další kroky
+[Registrovat Azure Stack](asdk-register.md)
 

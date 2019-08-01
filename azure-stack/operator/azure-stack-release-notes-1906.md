@@ -1,6 +1,6 @@
 ---
-title: Zpráva k vydání verze Azure Stack. 1906 | Dokumentace Microsoftu
-description: Další informace o aktualizaci. 1906 pro integrované systémy Azure Stack, včetně novinek, známé problémy a kde se stáhnout aktualizaci.
+title: Zpráva k vydání verze Azure Stack 1906 | Microsoft Docs
+description: Seznamte se s aktualizací 1906 pro Azure Stack integrovaných systémů, včetně nových, známých problémů a místa, kde si tuto aktualizaci stáhnout.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -16,29 +16,29 @@ ms.date: 07/15/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 07/15/2019
-ms.openlocfilehash: 5330136bd1d4950ace26fa3f232be039c90ab144
-ms.sourcegitcommit: 12aef286fc14ab27ed737a17e2761c38f054b9b3
+ms.openlocfilehash: ffd6436b9e7bf27ef069ecdc44ff2d6efadfc795
+ms.sourcegitcommit: d96adbb821175167f6a4c8f3aba305981d7e7c3e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67885352"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68685560"
 ---
-# <a name="azure-stack-1906-update"></a>Aktualizace služby Azure Stack. 1906
+# <a name="azure-stack-1906-update"></a>Aktualizace Azure Stack 1906
 
-*Platí pro: Integrované systémy Azure Stack*
+*Platí pro: Azure Stack integrovaných systémů*
 
-Tento článek popisuje obsah balíčku. 1906 aktualizace. Obsahuje novinky vylepšení a oprav pro tuto verzi služby Azure Stack.
+Tento článek popisuje obsah balíčku aktualizace 1906. Tato aktualizace obsahuje novinky a opravy pro tuto verzi Azure Stack.
 
 > [!IMPORTANT]  
 > Tento balíček aktualizace je pouze pro integrované systémy Azure Stack. Tento balíček aktualizace nevztahují na Azure Stack Development Kit.
 
 ## <a name="build-reference"></a>Referenční informace o buildu
 
-Je číslo sestavení aktualizace. Azure Stack 1906 **1.1906.0.30**.
+Číslo buildu aktualizace Azure Stack 1906 je **1.1906.0.30**.
 
 ### <a name="update-type"></a>Typ aktualizace
 
-Typ sestavení. Azure Stack 1906 aktualizace je **Express**. Další informace o aktualizaci typy sestavení, najdete v článku [správy aktualizací ve službě Azure Stack](azure-stack-updates.md) článku. Očekávaná doba potřebná pro aktualizace. 1906 dokončete je přibližně 10 hodin, bez ohledu na počet fyzických uzlů ve vašem prostředí Azure Stack. Přesné aktualizovat moduly runtime bude obvykle závisí na kapacitě používané úlohy klientů, systému připojení k síti (Pokud je připojený k Internetu), ve vašem systému a vaše specifikace hardwaru systému. Moduly runtime trvá déle, než očekávaná hodnota nejsou výjimkou a nevyžadují akci operátoři Azure stacku, pokud se aktualizace nezdaří. Této aproximace modulu runtime je specifická pro aktualizace. 1906 a by neměl ve srovnání s jinými aktualizacemi Azure Stack.
+Typ sestavení aktualizace Azure Stack 1906 je **Express**. Další informace o typech sestavení aktualizace naleznete v článku [Správa aktualizací v Azure Stack](azure-stack-updates.md) . Očekávaný čas potřebný k dokončení aktualizace 1906 je přibližně 10 hodin, bez ohledu na počet fyzických uzlů v prostředí Azure Stack. Přesné běhové moduly pro aktualizace budou obvykle záviset na kapacitě používané v systému podle zatížení klientů, připojení k systémové síti (Pokud je připojeno k Internetu) a specifikacemi hardwaru systému. Běhové moduly trvající déle než očekávaná hodnota nejsou běžné a nevyžadují akci Azure Stack operátory, pokud se aktualizace nezdařila. Tato přibližná doba běhu je specifická pro aktualizaci 1906 a neměla by se porovnávat s jinými aktualizacemi Azure Stack.
 
 ## <a name="whats-in-this-update"></a>Co je v této aktualizaci
 
@@ -46,119 +46,123 @@ Typ sestavení. Azure Stack 1906 aktualizace je **Express**. Další informace o
 
 <!-- What's new, also net new experiences and features. -->
 
-- Přidání **Set-TLSPolicy** rutiny privileged koncový bod (období) k vynucení protokolu TLS 1.2 pro všechny koncové body. Další informace najdete v tématu [kontrolních mechanismů pro zabezpečení služby Azure Stack](azure-stack-security-configuration.md).
+- Do privilegovaného koncového bodu (PEP) se přidala rutina **set-TLSPolicy** , která vynutí TLS 1,2 u všech koncových bodů. Další informace najdete v tématu [Azure Stack kontroly zabezpečení](azure-stack-security-configuration.md).
 
-- Přidá **Get-TLSPolicy** rutiny privileged koncový bod (období) pro načtení použité zásady TLS. Další informace najdete v tématu [kontrolních mechanismů pro zabezpečení služby Azure Stack](azure-stack-security-configuration.md).
+- Do privilegovaného koncového bodu (PEP) se přidala rutina **Get-TLSPolicy** , která načte použité zásady TLS. Další informace najdete v tématu [Azure Stack kontroly zabezpečení](azure-stack-security-configuration.md).
 
-- Přidat proceduru interní tajných kódů otočení obměna interní certifikáty TLS podle potřeby během aktualizace systému.
+- Přidání interního postupu pro rotaci tajných kódů pro otočení vnitřních certifikátů TLS podle požadavků při aktualizaci systému.
 
-- Přidat chránit, aby se zabránilo vypršení platnosti tajných kódů interní vynucením otočení interní tajných kódů v případě, že kritickou výstrahu na konce platnosti tajných kódů se ignoruje. To by neměl spoléhat jako regulární pracovní postup. Plánování otočení tajné klíče byste měli využít během časového období údržby. Další informace najdete v tématu [otočení tajných kódů služby Azure Stack](azure-stack-rotate-secrets.md).
+- Přidání ochrany, která zabraňuje vypršení platnosti interních tajných kódů tím, že vynucuje interní rotaci tajných kódů pro případ, že kritická výstraha na vypršení platnosti Tato činnost by se neměla spoléhat jako na běžný operační postup. Rotace tajných kódů by měla být naplánována během časového období údržby. Další informace najdete v tématu [Azure Stack rotaci tajných klíčů](azure-stack-rotate-secrets.md).
 
-- Visual Studio Code se teď podporuje nasazení Azure Stack pomocí služby AD FS.
+- Visual Studio Code se teď podporuje s nasazením Azure Stack pomocí AD FS.
 
-### <a name="improvements"></a>Vylepšení
+### <a name="improvements"></a>Vylepšen
 
 <!-- Changes and product improvements with tangible customer-facing value. -->
 
-- **Get-GraphApplication** rutiny privileged koncový bod se teď zobrazují s kryptografickým otiskem certifikátu aktuálně používané. Tím se zlepšuje Správa certifikátů pro instanční objekty při nasazení Azure Stack se službou AD FS.
+- Rutina **Get-GraphApplication** v privilegovaném koncovém bodu teď zobrazuje kryptografický otisk aktuálně používaného certifikátu. To zlepšuje správu certifikátů pro instanční objekty, když Azure Stack nasadíte pomocí AD FS.
 
-- Ověřit dostupnost AD Graphu a AD FS, včetně možnosti budou generovány výstrahy se přidaly nové pravidla monitorování stavu.
+- Byla přidána nová pravidla monitorování stavu, která ověřují dostupnost služby AD Graph a AD FS, včetně možnosti vyvolat výstrahy.
 
-- Vylepšení spolehlivosti poskytovatele zálohování prostředků při zálohování služeb infrastruktury přesune do jiné instance.
+- Vylepšení spolehlivosti poskytovatele prostředků zálohování, když se služba infrastruktura zálohování přesune na jinou instanci.
 
-- Optimalizace výkonu externích tajných kódů otočení procedury poskytnout jednotný čas spuštění pro usnadnění plánování časového období údržby.
+- Optimalizace výkonu pro postup při rotaci externích tajných klíčů, který poskytuje jednotnou dobu provádění, která usnadňuje plánování časového období údržby.
 
-- **Testovací AzureStack** rutiny teď informuje o interní tajné kódy, které se chystáte vyprší (kritické výstrahy).
+- Rutina **test-AzureStack** nyní hlásí interní tajné klíče, jejichž platnost brzy vyprší (kritické výstrahy).
 
-- Nový parametr je k dispozici pro **Register-CustomAdfs** rutiny privileged koncový bod, který umožňuje přeskočení kontroly při konfiguraci důvěryhodnosti federace služby AD FS seznamu odvolaných certifikátů.
+- V rámci privilegovaného koncového bodu je k dispozici nový parametr pro rutinu **Register-CustomAdfs** , která umožňuje přeskočí kontrolu seznamu odvolaných certifikátů při konfiguraci důvěryhodnosti federace pro AD FS.
 
-- Verze. 1906 zavádí lepší viditelnost do průběh aktualizace, můžete si být jistí, že se pozastavení aktualizací. Výsledkem je zvýšení celkový počet aktualizací postupy pro operátory v **aktualizovat** okno. Možná si také další aktualizace kroky děje paralelně než v předchozích aktualizací.
+- Vydání 1906 přináší lepší přehled o průběhu aktualizace, takže můžete mít jistotu, že se aktualizace nepozastavuje. Výsledkem je zvýšení celkového počtu kroků aktualizace zobrazených u operátorů v okně **aktualizace** . Můžete si také všimnout dalších kroků aktualizace, které probíhají paralelně než v předchozích aktualizacích.
 
 #### <a name="networking-updates"></a>Aktualizace sítě
 
-- Doba zapůjčení aktualizované nastavit v DHCP respondér pro zajištění konzistence s Azure.
+- Byla aktualizována doba zapůjčení nastavená v respondéru DHCP, aby byla konzistentní s Azure.
 
-- Vylepšené opakování sazby u poskytovatele prostředků v případě selhání nasazení prostředků.
+- Vylepšené sazby opakování pro poskytovatele prostředků ve scénáři selhání nasazení prostředků.
 
-- Odebrat **standardní** SKU možnost z nástroje pro vyrovnávání zatížení a veřejnou IP adresu, jako, který se aktuálně nepodporuje.
+- Odebrali jsme možnost **Standard** SKU z nástroje pro vyrovnávání zatížení i z veřejné IP adresy, protože se v tuto chvíli nepodporuje.
 
 ### <a name="changes"></a>Změny
 
-- Vytváření prostředí pro účet úložiště je nyní konzistentní s Azure.
+- Vytvoření prostředí účtu úložiště je teď konzistentní s Azure.
 
-- Výstraha aktivační události pro vypršení platnosti tajných kódů interní změnit:
-  - Upozorňující výstrahy jsou generovány nyní 90 dnů před vypršením platnosti tajných kódů.
-  - Kritické výstrahy jsou generovány nyní 30 dnů před vypršením platnosti tajných kódů.
+- Aktivační události změněné výstrahy pro vypršení platnosti interních tajných kódů:
+  - Upozornění na upozornění se teď zvyšují 90 dní před vypršením platnosti tajných kódů.
+  - Kritické výstrahy jsou nyní vyvolány 30 dní před vypršením platnosti tajných kódů.
 
-- Aktualizované řetězců ve zprostředkovateli zálohování prostředků infrastruktury konzistentní Seznamte se s terminologií.
+- Aktualizované řetězce v poskytovateli prostředků zálohování infrastruktury pro konzistentní terminologii.
 
 ### <a name="fixes"></a>Opravy
 
 <!-- Product fixes that came up from customer deployments worth highlighting, especially if there is an SR/ICM associated to it. -->
 
-- Opravili jsme problém, kde změna velikosti spravovaného disku virtuálního počítače se nezdařilo **vnitřní chyba operace**.
+- Opravili jsme problém, kdy změna velikosti virtuálního počítače spravovaného disku selhala s **chybou vnitřní operace**.
 
-- Opravili jsme problém, kdy vloží vytváření image uživatele se nezdařilo, služby, který spravuje Image je ve špatném stavu; Toto nastavení zabraňuje odstranění se nezdařilo bitové kopie a vytvoření nových imagí. Tento problém je také vyřešený v opravě hotfix 1905.
+- Opravili jsme problém, kdy vytvoření image uživatele, která selhala, umístí službu, která spravuje image, je ve špatném stavu. Tím se odstraní neúspěšné image a vytváření nových imagí. Tato oprava je také opravena v 1905.
 
-- Aktivní výstrahy týkající se u nichž vyprší platnost vnitřní tajné kódy jsou nyní automaticky zavře po úspěšném spuštění interní tajných kódů otáčení.
+- Aktivní výstrahy týkající se vypršení platnosti interních tajných kódů se teď po úspěšném provedení interního přestupnosti automaticky zavřou.
 
-- Opravili jsme problém, ve kterém aktualizace trvání na kartě Historie aktualizace by trim první číslice Pokud aktualizace běžel déle než 99 hodin.
+- Opravili jsme problém, ve kterém doba aktualizace na kartě Historie aktualizace ořízne první číslici, pokud byla aktualizace spuštěná déle než 99 hodin.
 
-- **Aktualizace** okno obsahuje **Resume** možnost neúspěšné aktualizace.
+- Okno **aktualizace** obsahuje možnost **obnovení** pro neúspěšné aktualizace.
 
-- Uživatele a správce portály, byl opraven problém, na webu marketplace, ve kterém rozšíření Docker nesprávně vrátila hledání, ale žádná další akce lze provést, protože není k dispozici ve službě Azure Stack.
+- V portálu pro správu a uživatele byly vyřešeny problémy v Marketplace, ve kterých bylo rozšíření Docker nesprávně vráceno ze služby Search, ale nebylo možné provést žádnou další akci, protože není k dispozici v Azure Stack.
 
-- Oprava potíží v nasazení šablony uživatelské rozhraní, které nevyplní parametry, pokud název šablon začíná podtržítkem '_'.
+- Opravili jsme problém v uživatelském rozhraní nasazení šablony, které neplní parametry, pokud název šablony začíná podtržítkem _.
+
+- Opravili jsme problém, kdy prostředí pro vytváření sady škálování virtuálních počítačů poskytuje CentOS 7,2 jako možnost nasazení. CentOS 7,2 není na Azure Stack k dispozici. Jako naši možnost pro nasazení teď poskytujeme CentOS 7,5.
+
+- V okně **Virtual Machine Scale Sets** teď můžete odebrat sadu škálování.
 
 ## <a name="security-updates"></a>Aktualizace zabezpečení
 
-Informace o aktualizacích zabezpečení v této aktualizaci služby Azure Stack najdete v tématu [aktualizace zabezpečení služby Azure Stack](azure-stack-release-notes-security-updates-1906.md).
+Informace o aktualizacích zabezpečení v této aktualizaci Azure Stack najdete v tématu [Azure Stack aktualizace zabezpečení](azure-stack-release-notes-security-updates-1906.md).
 
-## <a name="update-planning"></a>Plánování aktualizace
+## <a name="update-planning"></a>Plánování aktualizací
 
-Před instalací této aktualizace, ujistěte se, že ke kontrole následující informace:
+Před použitím této aktualizace se ujistěte, že si provedete následující informace:
 
 - [Známé problémy](azure-stack-release-notes-known-issues-1906.md)
 - [Aktualizace zabezpečení](azure-stack-release-notes-security-updates-1906.md)
-- [Kontrolní seznam před a po instalaci aktualizace aktivity](azure-stack-release-notes-checklist.md)
+- [Kontrolní seznam aktivit před a po instalaci aktualizace](azure-stack-release-notes-checklist.md)
 
 ## <a name="download-the-update"></a>Stáhnout aktualizaci.
 
-Můžete stáhnout aktualizace balíčku. Azure Stack 1906 z [stránce pro stažení služby Azure Stack](https://aka.ms/azurestackupdatedownload).
+Balíček aktualizace Azure Stack 1906 můžete stáhnout ze [stránky pro stažení Azure Stack](https://aka.ms/azurestackupdatedownload).
 
 ## <a name="hotfixes"></a>Opravy hotfix
 
-Azure Stack vydává opravy hotfix v pravidelných intervalech. Nezapomeňte nainstalovat nejnovější opravy hotfix Azure Stack pro 1905 před aktualizací služby Azure Stack. 1906. Po aktualizaci se některé nainstalují [dostupných oprav hotfix pro. 1906](#after-successfully-applying-the-1906-update).
+Azure Stack pravidelně vydává opravy hotfix. Před aktualizací Azure Stack na 1906 nezapomeňte nainstalovat nejnovější Azure Stack opravu hotfix pro 1905. Po aktualizaci nainstalujte všechny [dostupné opravy hotfix pro 1906](#after-successfully-applying-the-1906-update).
 
-Azure Stack opravy hotfix platí pouze pro integrované systémy Azure Stack; Nepokoušejte se nainstalovat ASDK opravy hotfix.
+Azure Stack oprav hotfix se týkají pouze Azure Stack integrovaných systémů. Nepokoušejte se instalovat opravy hotfix na ASDK.
 
-### <a name="before-applying-the-1906-update"></a>Před použitím. 1906 aktualizace
+### <a name="before-applying-the-1906-update"></a>Před použitím aktualizace 1906
 
-. 1906 vydání sady Azure Stack se musí použít na verzi 1905 s následující opravy hotfix:
-
-<!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack opravu hotfix 1.1905.3.48](https://support.microsoft.com/help/4510078)
-
-### <a name="after-successfully-applying-the-1906-update"></a>Po použití úspěšně. 1906 aktualizace
-
-Po instalaci této aktualizace nainstalujte všechny příslušné opravy hotfix. Další informace najdete v tématu naše [zásady obsluhy](azure-stack-servicing-policy.md).
+Vydání verze 1906 Azure Stack se musí použít ve verzi 1905 s následujícími opravami hotfix:
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack opravu hotfix 1.1906.11.52](https://support.microsoft.com/help/4513119)
+- [Azure Stack opravy hotfix 1.1905.3.48](https://support.microsoft.com/help/4510078)
 
-## <a name="automatic-update-notifications"></a>Upozornění na automatické aktualizace
+### <a name="after-successfully-applying-the-1906-update"></a>Po úspěšné instalaci aktualizace 1906
 
-Zákazníkům se systémy, které můžete přístup k Internetu z infrastruktury sítě se zobrazí **k dispozici je aktualizace** zpráva na portálu pro operátor. Systémy bez připojení k Internetu, můžete stáhnout a naimportovat soubor .zip s odpovídající soubor XML.
+Po instalaci této aktualizace nainstalujte všechny příslušné opravy hotfix. Další informace najdete v našich [zásadách obsluhy](azure-stack-servicing-policy.md).
+
+<!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
+- [Azure Stack opravy hotfix 1.1906.11.52](https://support.microsoft.com/help/4513119)
+
+## <a name="automatic-update-notifications"></a>Oznámení automatických aktualizací
+
+Zákazníci se systémy, které mají přístup k Internetu z sítě infrastruktury, uvidí na portálu operátora zprávu **aktualizace k dispozici** . Systémy bez přístupu k Internetu můžou stáhnout a naimportovat soubor. zip s odpovídající příponou. XML.
 
 > [!TIP]  
-> Předplatit následující *RSS* nebo *Atom* kanály, držet krok s Azure Stack opravy hotfix:
+> Přihlaste se k odběru následujících informačních kanálů *RSS* nebo *Atom* , abyste zachovali Azure Stack opravy hotfix:
 >
 > - [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss)
-> - [Atom](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom)
+> - [Počtu](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom)
 
 ## <a name="archived-release-notes"></a>Archivované poznámky k verzi
 
-Můžete zobrazit [starší verze služby Azure Stack poznámky v Galerii TechNet](https://aka.ms/azsarchivedrelnotes). Tyto archivované verze poznámky jsou k dispozici pouze pro referenční účely a není určeno, podporu pro tyto verze. Informace o podpoře Azure Stack najdete v tématu [Azure Stack zásady obsluhy](azure-stack-servicing-policy.md). Potřebujete další pomoc obraťte se na službu zákaznické podpory Microsoftu.
+[Starší verze Azure Stack poznámky k verzi najdete v Galerii TechNet](https://aka.ms/azsarchivedrelnotes). Tato Archivovaná zpráva k vydání verze je poskytována pouze pro referenční účely a neznamená podporu těchto verzí. Informace o podpoře Azure Stack najdete v tématu [zásady pro obsluhu Azure Stack](azure-stack-servicing-policy.md). Pokud potřebujete další pomoc, obraťte se na službu zákaznické podpory společnosti Microsoft.
 
 ## <a name="next-steps"></a>Další postup
 

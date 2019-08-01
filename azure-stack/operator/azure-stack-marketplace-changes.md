@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2019
+ms.date: 07/31/2019
 ms.author: sethm
 ms.reviewer: ihcherie
-ms.lastreviewed: 07/17/2019
-ms.openlocfilehash: a8958761f17bddcaae685e18556e4680100b8b9c
-ms.sourcegitcommit: 35b13ea6dc0221a15cd0840be796f4af5370ddaf
+ms.lastreviewed: 07/31/2019
+ms.openlocfilehash: c70334bea80a84166a4bb614f15852e44f2b99f4
+ms.sourcegitcommit: bf4d265a3522cbfdd9dd295a0f4ad0daf2ed5eca
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68603092"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68692138"
 ---
 # <a name="azure-stack-marketplace-changes"></a>Změny Azure Stack Marketplace
 
@@ -43,7 +43,10 @@ Tento článek popisuje změny v Marketplace, ke kterým došlo za posledních 3
 
 ## <a name="updated-marketplace-items"></a>Aktualizované položky Marketplace
 
-- Seznam aktualizací, možná s datem aktualizace.
+- 07/30/2019: SQL Server 2016 SP1 (edice Express, Developer, Standard a Enterprise) 13.2.20190410
+- 07/30/2019: SQL Server 2016 SP2 (edice Express, Developer, Standard a Enterprise) 13.2.20190410
+- 07/30/2019: SQL Server 2017 (edice Express, Developer, Standard a Enterprise) 14.0.20190410
+- 07/30/2019: SQLIaaSExtension 1.3.20180
 
 ## <a name="next-steps"></a>Další postup
 
