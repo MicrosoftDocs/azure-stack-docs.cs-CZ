@@ -16,12 +16,12 @@ ms.date: 07/25/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 07/25/2019
-ms.openlocfilehash: 0c7840c723aedd38b51002e4a1f18f5a87d66ec4
-ms.sourcegitcommit: c2690b2dd36918ff3e47e359cac926128bb83101
+ms.openlocfilehash: b789b7ba1f4c55f0ee44c214d4e214b73678b1fc
+ms.sourcegitcommit: 49cfe13427f5255915d5ccbed87b36eec2caf8ca
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68544078"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68719972"
 ---
 # <a name="azure-stack-update-activity-checklist"></a>Kontrolní seznam aktivity Azure Stack aktualizace
 
@@ -31,8 +31,8 @@ Tento článek obsahuje kontrolní seznam aktivit souvisejících s aktualizací
 
 | Aktivita                     | Podrobnosti                                                   |
 |------------------------------|-----------------------------------------------------------|
-| Zkontrolovat známé problémy     | [Seznam známých problémů](azure-stack-release-notes-known-issues-1906.md).                |
-| Kontrola aktualizací zabezpečení | [Seznam aktualizací zabezpečení](azure-stack-release-notes-security-updates-1906.md)      |
+| Zkontrolovat známé problémy     | [Seznam známých problémů](azure-stack-release-notes-known-issues-1907.md).                |
+| Kontrola aktualizací zabezpečení | [Seznam aktualizací zabezpečení](azure-stack-release-notes-security-updates-1907.md)      |
 | Použít nejnovější verzi balíčku OEM | Obraťte se na výrobce OEM, abyste zajistili, že systém splňuje požadavky na minimální verzi balíčku OEM pro verzi Azure Stack, na kterou se systém aktualizuje. |
 | Run Test-AzureStack     | Spusťte `Test-AzureStack -Group UpdateReadiness` k identifikaci provozních problémů.      |
 | Vyřešit problémy          | Vyřešte všechny provozní problémy, které identifikoval **test-AzureStack**.                |

@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2019
+ms.date: 08/01/2019
 ms.author: mabrigg
 ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: 3fd84e5c294c2cdcfa942aeaf9c2daf9f9245891
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: d36761cd7480d782ea01bc1b0d3606b5fa244ed3
+ms.sourcegitcommit: 49cfe13427f5255915d5ccbed87b36eec2caf8ca
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68418211"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68720034"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registrace Azure Stack s využitím Azure
 
@@ -34,19 +34,19 @@ Informace v tomto článku popisují registraci Azure Stack integrovaných syst�
 
 ## <a name="prerequisites"></a>Požadavky
 
-Před registrací budete potřebovat toto:
+Před registrací musíte splnit následující předpoklady:
 
- - Ověření přihlašovacích údajů
- - Nastavení režimu jazyka PowerShell
- - Instalace PowerShellu pro Azure Stack
- - Stažení nástrojů pro Azure Stack
- - Určení scénáře registrace
+- Ověření přihlašovacích údajů
+- Nastavení režimu jazyka PowerShell
+- Instalace PowerShellu pro Azure Stack
+- Stažení nástrojů pro Azure Stack
+- Určení scénáře registrace
 
 ### <a name="verify-your-credentials"></a>Ověření přihlašovacích údajů
 
 Před registrací Azure Stack s Azure musíte mít:
 
-- ID předplatného pro předplatné Azure. Pro registraci jsou podporovány pouze odběry služeb EA, CSP nebo CSP sdílené služby. CSP musí rozhodnout, jestli se má [použít předplatné CSP nebo APSS](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-apss-subscription).<br><br>ID získáte tak, že se přihlásíte k Azure a kliknete na **všechny služby**. Pak v kategorii **Obecné** vyberte předplatná, klikněte na předplatné, které chcete použít, a v části **Essentials** můžete najít ID předplatného.
+- ID předplatného pro předplatné Azure. Pro registraci jsou podporovány pouze odběry služeb EA, CSP nebo CSP sdílené služby. CSP musí rozhodnout, jestli se má [použít předplatné CSP nebo APSS](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-apss-subscription).<br><br>ID získáte tak, že se přihlásíte k Azure a kliknete na **všechny služby**. Pak v kategorii **Obecné** vyberte předplatná,klikněte na předplatné, které chcete použít, a v části **Essentials** můžete najít ID předplatného.
 
   > [!Note]  
   > V současné době se nepodporují předplatná pro Německo Cloud.
@@ -92,16 +92,17 @@ Abyste měli jistotu, že používáte nejnovější verzi, měli byste před re
 
 Vaše nasazení Azure Stack může být *připojeno* nebo *Odpojeno*.
 
- - **Připojen**  
+- **Připojen**  
  Připojeno znamená, že jste nasadili Azure Stack, aby se mohl připojit k Internetu a k Azure. Pro úložiště identity buď máte Azure Active Directory (Azure AD) nebo Active Directory Federation Services (AD FS) (AD FS). V případě připojeného nasazení si můžete vybrat ze dvou modelů fakturace: průběžné platby nebo na základě kapacity.
-    - [Registrace propojeného Azure Stack s Azure s využitím modelu fakturace s průběžnými **platbami podle aktuálního využití**](#register-connected-with-pay-as-you-go-billing)
-    - [Registrace připojeného Azure Stack s Azure pomocí modelu fakturace **kapacity**](#register-connected-with-capacity-billing)
+  - [Registrace propojeného Azure Stack s Azure s využitím modelu fakturace s průběžnými **platbami podle aktuálního využití**](#register-connected-with-pay-as-you-go-billing)
+  - [Registrace připojeného Azure Stack s Azure pomocí modelu fakturace **kapacity**](#register-connected-with-capacity-billing)
 
- - **Propojení**  
+- **Propojení**  
  Díky možnosti nasazení odpojeno od Azure můžete nasadit a používat Azure Stack bez připojení k Internetu. V případě odpojeného nasazení ale budete omezeni na AD FS úložiště identit a model fakturace na základě kapacity.
-    - [Registrace odpojených Azure Stack pomocí modelu fakturace **kapacity**](#register-disconnected-with-capacity-billing)
+  - [Registrace odpojených Azure Stack pomocí modelu fakturace **kapacity**](#register-disconnected-with-capacity-billing)
 
 ### <a name="determine-a-unique-registration-name-to-use"></a>Určení jedinečného názvu registrace, který se má použít 
+
 Když zaregistrujete Azure Stack s Azure, musíte zadat jedinečný název registrace. Snadný způsob, jak přidružit předplatné Azure Stack k registraci Azure, je použití vašeho Azure Stackho **cloudového ID**. 
 
 > [!NOTE]
@@ -341,17 +342,13 @@ Pomocí dlaždice **Správa oblastí** můžete ověřit, že byla registrace Az
     - **ID odběru registrace**: ID předplatného Azure, které je zaregistrované a přidružené k Azure Stack
     - **Skupina prostředků registrace**: Skupina prostředků Azure v souvisejícím předplatném, které obsahuje prostředky Azure Stack.
 
-4. K zobrazení registrací aplikací Azure Stack použijte Azure Portal. Přihlaste se k Azure Portal pomocí účtu přidruženého k předplatnému, které jste použili k registraci Azure Stack. Přepněte na tenanta přidruženého k Azure Stack.
-5. Přejděte na **Azure Active Directory > Registrace aplikací > zobrazení všech aplikací**.
-
-    ![Registrace aplikací](media/azure-stack-registration/app-registrations.png)
-
-    Registrace aplikací Azure Stack jsou s předponou **Azure Stack**.
+4. Azure Portal můžete použít k zobrazení prostředků registrace Azure Stack a pak ověřte, že se registrace úspěšně dokončila. Přihlaste se k [Azure Portal](https://portal.azure.com) pomocí účtu přidruženého k předplatnému, které jste použili k registraci Azure Stack. Vyberte **všechny prostředky**, povolte zaškrtávací políčko **Zobrazit skryté typy** a vyberte název registrace.
+5. Pokud se registrace nezdařila, je nutné znovu provést registraci pomocí následujících [kroků](#change-the-subscription-you-use) pro vyřešení problému.  
 
 Případně můžete pomocí funkce správy Marketplace ověřit, jestli byla registrace úspěšná. Pokud se v okně Správa Marketplace zobrazí seznam položek Marketplace, vaše Registrace proběhla úspěšně. V odpojených prostředích ale nebudete moct zobrazit položky Marketplace ve správě Marketplace.
 
 > [!NOTE]
-> Po dokončení registrace se už nebude zobrazovat aktivní upozornění pro neregistraci. V případě odpojených scénářů se ve správě Marketplace zobrazí zpráva s výzvou k registraci a aktivaci Azure Stack, a to i v případě, že jste úspěšně zaregistrovali.
+> Po dokončení registrace se už nebude zobrazovat aktivní upozornění pro neregistraci. V Azure Stack verzích starších než 1904 se v odpojených scénářích zobrazí zpráva s výzvou k registraci a aktivaci Azure Stack, a to i v případě, že jste se zaregistrovali úspěšně. Tato zpráva se nezobrazuje ve verzi 1904 a novější.
 
 ## <a name="renew-or-change-registration"></a>Obnovit nebo změnit registraci
 
@@ -451,15 +448,20 @@ U Azure Stack prostředí, která používají model fakturace kapacity, vypnět
 2. Uložte tento registrační token, který se použije na počítači připojeném k Azure. Můžete zkopírovat soubor nebo text z $FilePathForRegistrationToken.
 
 ## <a name="move-a-registration-resource"></a>Přesunutí prostředku registrace
-Přesunutí prostředku registrace mezi skupinami prostředků v rámci stejného předplatného **je** podporováno pro všechna prostředí. Přesun registračního prostředku mezi předplatnými se ale podporuje jenom pro zprostředkovatele CSP, pokud oba odběry řeší stejné ID partnera. Další informace o přesouvání prostředků do nové skupiny prostředků najdete v tématu [Přesunutí prostředků do nové skupiny prostředků nebo](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)předplatného.
+
+Přesunutí prostředku registrace mezi skupinami prostředků v rámci stejného předplatného **je** podporováno pro všechna prostředí. Přesun registračního prostředku mezi předplatnými se ale podporuje jenom pro zprostředkovatele CSP, pokud oba odběry řeší stejné ID partnera. Další informace o přesouvání prostředků do nové skupiny prostředků najdete v tématu [Přesunutí prostředků do nové skupiny prostředků nebo](/azure/azure-resource-manager/resource-group-move-resources)předplatného.
+
+> [!IMPORTANT]
+> Aby se zabránilo nechtěnému odstranění prostředků registrace na portálu, registrační skript automaticky přidá ke zdroji zámek. Před přesunutím nebo odstraněním tohoto zámku je nutné tento zámek odebrat. Doporučuje se přidat zámek k registračnímu prostředku, abyste zabránili nechtěnému odstranění.
 
 ## <a name="registration-reference"></a>Registrační odkaz
 
 ### <a name="set-azsregistration"></a>Set-AzsRegistration
 
-Pomocí Set-AzsRegistration můžete zaregistrovat Azure Stack s Azure a povolit nebo zakázat nabídku položek na webu Marketplace a vytváření sestav o využití.
+Pomocí **set-AzsRegistration** můžete zaregistrovat Azure Stack s Azure a povolit nebo zakázat nabídku položek na webu Marketplace a vytváření sestav o využití.
 
 K provedení rutiny potřebujete:
+
 - Globální předplatné Azure libovolného typu.
 - Musíte být také přihlášení k Azure PowerShell s účtem, který je vlastníkem nebo přispěvatelem daného předplatného.
 
@@ -481,7 +483,7 @@ Set-AzsRegistration [-PrivilegedEndpointCredential] <PSCredential> [-PrivilegedE
 | MarketplaceSyndicationEnabled | True nebo False | Určuje, jestli je na portálu dostupná funkce správy Marketplace. Nastavte na hodnotu true, pokud se registruje s připojením k Internetu. Nastavte na hodnotu false, pokud se registruje v odpojených prostředích. U odpojených registrací se dá [Nástroj pro offline syndikaci](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario) použít ke stažení položek Marketplace. |
 | UsageReportingEnabled | True nebo False | Ve výchozím nastavení Azure Stack sestavy metriky využití. Používání funkce vytváření sestav vyžaduje, aby operátoři s využitím kapacity nebo podpora odpojeného prostředí vypnuli. Povolené hodnoty pro tento parametr jsou: True, false. |
 | AgreementNumber | Řetězec |  |
-| registrace | Řetězec | Pokud používáte registrační skript ve více než jedné instanci Azure Stack s použitím stejného ID předplatného Azure, nastavte pro registraci jedinečný název. Parametr má výchozí hodnotu **AzureStackRegistration**. Pokud však použijete stejný název na více než jedné instanci Azure Stack, skript se nezdařil. |
+| Registrace | Řetězec | Pokud používáte registrační skript ve více než jedné instanci Azure Stack s použitím stejného ID předplatného Azure, nastavte pro registraci jedinečný název. Parametr má výchozí hodnotu **AzureStackRegistration**. Pokud však použijete stejný název na více než jedné instanci Azure Stack, skript se nezdařil. |
 
 ### <a name="get-azsregistrationtoken"></a>Get-AzsRegistrationToken
 

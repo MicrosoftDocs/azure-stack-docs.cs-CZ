@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2019
+ms.date: 07/31/2019
 ms.author: justinha
 ms.reviewer: prchint
-ms.lastreviewed: 07/25/2019
-ms.openlocfilehash: 25b72df875dd78e7ddea42c4505345f4225cc948
-ms.sourcegitcommit: f6ea6daddb92cbf458f9824cd2f8e7e1bda9688e
+ms.lastreviewed: 07/31/2019
+ms.openlocfilehash: 988c24f004222d80b866024c2c392473cdf73bab
+ms.sourcegitcommit: ddb625bb01de11bfb75d9f7a1cc61d5814b3bc31
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68497109"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68712939"
 ---
 # <a name="collect-azure-stack-diagnostic-logs-now-on-demand"></a>Shromažďovat protokoly diagnostiky Azure Stack hned (na vyžádání)
 
@@ -168,7 +168,7 @@ Pomocí těchto kroků můžete spustit `Get-AzureStackLog` na hostitelském po�
 
 * Parametry **OutputSharePath** a **OutputShareCredential** se používají k ukládání protokolů v umístění zadaném uživatelem.
 
-* Parametry **FromDate** a  na více dní lze použít ke shromažďování protokolů pro konkrétní časové období. Nejsou-li tyto parametry zadány, budou ve výchozím nastavení shromažďovány protokoly za poslední čtyři hodiny.
+* Parametry **FromDate** a na více dní lze použít ke shromažďování protokolů pro konkrétní časové období. Nejsou-li tyto parametry zadány, budou ve výchozím nastavení shromažďovány protokoly za poslední čtyři hodiny.
 
 * Pomocí parametru **FilterByNode** můžete filtrovat protokoly podle názvu počítače. Příklad:
 
@@ -186,28 +186,28 @@ Pomocí těchto kroků můžete spustit `Get-AzureStackLog` na hostitelském po�
 * Shromažďování protokolu souborů výpisu paměti je ve výchozím nastavení zakázáno. Pokud ho chcete povolit, použijte parametr přepínače **IncludeDumpFile** .
 * V současné době můžete pomocí parametru **FilterByRole** filtrovat shromažďování protokolů podle následujících rolí:
 
-  |   |   |   |    |
-  | - | - | - | -  |
-  |ACS                   |CA                             |HRP                            |OboService|
-  |ACSBlob               |CacheService                   |IBC                            |OEM|
-  |ACSDownloadService    |Compute                        |InfraServiceController         |OnboardRP|
-  |ACSFabric             |CPI                            |KeyVaultAdminResourceProvider  |PROTOKOLU|
-  |ACSFrontEnd           |CRP                            |KeyVaultControlPlane           |QueryServiceCoordinator|
-  |ACSMetrics            |DeploymentMachine              |KeyVaultDataPlane              |QueryServiceWorker|
-  |ACSMigrationService   |DiskRP                         |KeyVaultInternalControlPlane   |SeedRing|
-  |ACSMonitoringService  |Doména                         |KeyVaultInternalDataPlane      |SeedRingServices|
-  |ACSSettingsService    |OSN                            |KeyVaultNamingService          |SLB|
-  |ACSTableMaster        |EventAdminRP                   |MDM                            |SQL|
-  |ACSTableServer        |EventRP                        |MetricsAdminRP                 |OBSAŽEN   |
-  |ACSWac                |ExternalDNS                    |MetricsRP                      |Storage|
-  |ADFS                  |FabricRing                     |MetricsServer                  |StorageController   |
-  |ApplicationController |FabricRingServices             |MetricsStoreService            |URP   |
-  |ASAppGateway          |FirstTierAggregationService    |MonAdminRP                     |UsageBridge|
-  |AzureBridge           |FRP                            |MonRP                          |VirtualMachines   |
-  |AzureMonitor          |brána                        |NC                             |VYTVOŘEN|
-  |BareMetal             |HealthMonitoring               |NonPrivilegedAppGateway        |WASPUBLIC|
-  |BRP                   |HintingServiceV2               |NRP                            |   |
-  |   |   |   |    |
+  |   |   |   |    |     |
+  | - | - | - | -  |  -  |
+  |ACS                   |CA                             |HRP                            |OboService                |VirtualMachines|
+  |ACSBlob               |CacheService                   |IBC                            |OEM                       |VYTVOŘEN            |
+  |ACSDownloadService    |Compute                        |InfraServiceController         |OnboardRP                 |WASPUBLIC|
+  |ACSFabric             |CPI                            |KeyVaultAdminResourceProvider  |PROTOKOLU                       |         |
+  |ACSFrontEnd           |CRP                            |KeyVaultControlPlane           |QueryServiceCoordinator   |         | 
+  |ACSMetrics            |DeploymentMachine              |KeyVaultDataPlane              |QueryServiceWorker        |         |
+  |ACSMigrationService   |DiskRP                         |KeyVaultInternalControlPlane   |SeedRing                  |         |
+  |ACSMonitoringService  |Doména                         |KeyVaultInternalDataPlane      |SeedRingServices          |         |
+  |ACSSettingsService    |OSN                            |KeyVaultNamingService          |SLB                       |         |
+  |ACSTableMaster        |EventAdminRP                   |MDM                            |SQL                       |         |
+  |ACSTableServer        |EventRP                        |MetricsAdminRP                 |OBSAŽEN                       |         |
+  |ACSWac                |ExternalDNS                    |MetricsRP                      |Storage                   |         |
+  |ADFS                  |FabricRing                     |MetricsServer                  |StorageController         |         |
+  |ApplicationController |FabricRingServices             |MetricsStoreService            |URP                       |         |
+  |ASAppGateway          |FirstTierAggregationService    |MonAdminRP                     |SupportBridgeController   |         |
+  |AzureBridge           |FRP                            |MonRP                          |SupportRing               |         |
+  |AzureMonitor          |brána                        |NC                             |SupportRingServices       |         |
+  |BareMetal             |HealthMonitoring               |NonPrivilegedAppGateway        |SupportBridgeRP           |         |
+  |BRP                   |HintingServiceV2               |NRP                            |UsageBridge               |         |
+  |   |   |   |    |     | 
 
 ### <a name="additional-considerations"></a>Další aspekty
 
