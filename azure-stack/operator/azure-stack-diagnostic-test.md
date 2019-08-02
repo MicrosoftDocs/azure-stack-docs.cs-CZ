@@ -1,6 +1,6 @@
 ---
-title: Použití nástroje ověřování služby Azure Stack | Dokumentace Microsoftu
-description: Jak chcete shromažďovat soubory protokolů pro diagnostiku ve službě Azure Stack.
+title: Použití nástroje pro ověření Azure Stack | Microsoft Docs
+description: Postup shromáždění souborů protokolu pro diagnostiku v Azure Stack.
 services: azure-stack
 author: justinha
 manager: femila
@@ -14,104 +14,105 @@ ms.date: 06/26/2019
 ms.author: justinha
 ms.reviewer: adshar
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: a582e1d9abbd690a62f27f6bcaee8c2dd2e6be4b
-ms.sourcegitcommit: 90ed5aa051d0756b2432c8aca0e2232c8ec493a4
+ms.openlocfilehash: da89c973637042b18410db9dc3dc618bfbde12d5
+ms.sourcegitcommit: d96adbb821175167f6a4c8f3aba305981d7e7c3e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68239439"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68685523"
 ---
-# <a name="validate-azure-stack-system-state"></a>Ověření stavu systému Azure Stack
+# <a name="validate-azure-stack-system-state"></a>Ověřit Azure Stack stav systému
 
-*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
 
-Je nezbytné, abyste jako operátor služby Azure Stack měli možnost na vyžádání zjistit stav vašeho systému. Nástroj pro ověřování služby Azure Stack (**testovací AzureStack**) je rutiny Powershellu, která umožňuje spustit sérii testů ve vašem systému k identifikaci selhání, pokud jsou k dispozici. Pokud se obrátíte s problémem na podporu služeb zákazníkům Microsoftu, obvykle budete požádáni o spuštění tohoto nástroje přes [privilegovaný koncový bod](azure-stack-privileged-endpoint.md). S informacemi o stavu celého systému bude podpora služeb zákazníkům moct shromáždit a analyzovat podrobné protokoly, zaměřit se na oblast výskytu chyby a společně s vámi problém vyřešit.
+Je nezbytné, abyste jako operátor služby Azure Stack měli možnost na vyžádání zjistit stav vašeho systému. Nástroj pro ověření Azure Stack (**test-AzureStack**) je rutina prostředí PowerShell, která umožňuje spuštění řady testů v systému, aby bylo možné identifikovat chyby, pokud jsou k dispozici. Pokud se obrátíte s problémem na podporu služeb zákazníkům Microsoftu, obvykle budete požádáni o spuštění tohoto nástroje přes [privilegovaný koncový bod](azure-stack-privileged-endpoint.md). S informacemi o stavu celého systému bude podpora služeb zákazníkům moct shromáždit a analyzovat podrobné protokoly, zaměřit se na oblast výskytu chyby a společně s vámi problém vyřešit.
 
-## <a name="running-the-validation-tool-and-accessing-results"></a>Spuštění nástroje ověřování a přístup k výsledky
+## <a name="running-the-validation-tool-and-accessing-results"></a>Spuštění nástroje pro ověření a přístup k výsledkům
 
-Jak bylo uvedeno dříve, je spuštěn nástroj pro ověřování prostřednictvím období. Každý test vrátí **ÚSPĚŠNÉHO/NEÚSPĚŠNÉHO** stav v okně prostředí PowerShell. Tady je přehled začátku do konce ověřovací testování procesu: 
+Jak bylo uvedeno dříve, nástroj pro ověření se spouští přes PEP. Každý test vrátí stav **předání nebo selhání** v okně PowerShellu. Tady je přehled kompletního procesu testování ověřování: 
 
-1. Přístup k privilegovaným koncový bod (období). Spusťte následující příkazy k vytvoření relace období:
+1. Přístup k privilegovanému koncovému bodu (PEP). Spuštěním následujících příkazů vytvořte relaci PEP:
 
    ```powershell
    Enter-PSSession -ComputerName "<ERCS VM-name/IP address>" -ConfigurationName PrivilegedEndpoint -Credential $localcred 
    ```
 
    > [!TIP]
-   > Pro přístup k období na hostitelském počítači ASDK, účely AzS ERCS01 - ComputerName.
+   > Pro přístup k PEP na hostitelském počítači ASDK použijte AzS-ERCS01 pro-ComputerName.
 
-2. Až budete v období, spusťte: 
+2. Až budete v PEP, spusťte: 
 
    ```powershell
    Test-AzureStack
    ```
 
-   Odkazovat [důležité informace o parametru](azure-stack-diagnostic-test.md#parameter-considerations) a [případu příklady použít](azure-stack-diagnostic-test.md#use-case-examples) oddíly pro další informace.
+   Další informace najdete [](azure-stack-diagnostic-test.md#parameter-considerations) v částech věnovaném parametrům a [ukázkám případu použití](azure-stack-diagnostic-test.md#use-case-examples) .
 
-3. Pokud některé testy sestavy **selhání**spuštěním `Get-AzureStackLog`. Integrovaný systém, v tématu [ke spuštění Get-AzureStackLog ve službě Azure Stack integrované systémy](azure-stack-diagnostics.md#to-run-get-azurestacklog-on-azure-stack-integrated-systems), nebo na ASDK, naleznete v tématu [spuštění Get-AzureStackLog v systému Azure Stack Development Kit (ASDK)](azure-stack-diagnostics.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system).
+3. Pokud dojde k **selhání**jakékoli testy, `Get-AzureStackLog`spusťte příkaz. Pokyny k integrovanému systému najdete v tématu [spuštění rutiny Get-AzureStackLog v Azure Stack integrovaných systémech](azure-stack-configure-on-demand-diagnostic-log-collection.md#to-run-get-azurestacklog-on-azure-stack-integrated-systems)nebo na ASDK v tématu [spuštění rutiny Get-AzureStackLog v systému Azure Stack Development Kit (ASDK)](azure-stack-configure-on-demand-diagnostic-log-collection.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system).
 
-   Rutina shromažďuje protokoly generované AzureStack testu. Neměli shromažďování protokolů nebo kontaktujte CSS, pokud testy sestavy **UPOZORNIT**.
+   Rutina shromáždí protokoly generované rutinou test-AzureStack. Neměli byste shromažďovat protokoly nebo kontaktovat CSS, pokud testy **upozorňují**na zprávu.
 
-4. Pokud jste dostali pokyn ke spuštění nástroje ověření pomocí šablon stylů CSS, šablon stylů CSS zástupce bude požadovat protokoly, které jste shromáždili pokračujte vašeho problému.
+4. Pokud jste požádali o spuštění nástroje pro ověření šablonou stylů CSS, vyžádá si zástupce šablon stylů CSS protokoly, které jste shromáždili, abyste mohli dál řešit potíže.
 
-## <a name="tests-available"></a>Testy, které jsou k dispozici
+## <a name="tests-available"></a>Dostupné testy
 
-Ověření nástroj umožňuje spustit sérii testů úrovni systému a základní cloudové scénáře, které vám poskytnou přehled na aktuální stav a zjistit problémy v systému.
+Nástroj pro ověření umožňuje spustit řadu testů na úrovni systému a základních cloudových scénářů, které vám poskytnou přehled o aktuálním stavu a zjišťuje problémy ve vašem systému.
 
 ### <a name="cloud-infrastructure-tests"></a>Testy infrastruktury cloudu
 
-Tyto testy malý vliv pracovat na úrovni infrastruktury a poskytneme vám informace o různých komponent systému a funkcí. V současné době jsou testy seskupené do následujících kategorií:
+Tyto testy s nízkým dopadem fungují na úrovni infrastruktury a poskytují informace o různých systémových součástech a funkcích. V současné době se testy seskupují do následujících kategorií:
 
-| Kategorie testu                                        | Argument – zahrnout a - ignorovat |
+| Kategorie testu                                        | Argument pro-include a-Ignore |
 | :--------------------------------------------------- | :-------------------------------- |
-| Souhrn ACS Azure Stack                              | AzsAcsSummary                     |
-| Přehled služby Active Directory Azure Stack                 | AzsAdSummary                      |
-| Souhrn upozornění služby Azure Stack                            | AzsAlertSummary                   |
-| Souhrn chyb aplikací služby Azure Stack                | AzsApplicationCrashSummary        |
-| Souhrn přístupnost sdílené složky záloh Azure Stack       | AzsBackupShareAccessibility       |
-| Přehled služby Azure Stack BMC                              | AzsStampBMCSummary                |
-| Azure Stack na Cloudový Hosting infrastruktury souhrn     | AzsHostingInfraSummary            |
-| Azure Stack na Cloudový Hosting infrastruktury využití | AzsHostingInfraUtilization        |
-| Souhrn roviny řízení služby Azure Stack                    | AzsControlPlane                   |
-| Souhrn Defender Azure Stack                         | AzsDefenderSummary                |
-| Souhrn Firmware infrastruktury hostování Azure Stack  | AzsHostingInfraFWSummary          |
-| Kapacity infrastruktury Azure stacku                  | AzsInfraCapacity                  |
-| Výkon infrastruktury Azure stacku               | AzsInfraPerformance               |
-| Souhrn rolí infrastruktury Azure stacku              | AzsInfraRoleSummary               |
-| Souhrn rozhraní API a portálu Azure Stack                   | AzsPortalAPISummary               |
-| Azure Stack Škálovací jednotku virtuálního počítače události                     | AzsScaleUnitEvents                |
-| Prostředky virtuálních počítačů jednotek škálování služby Azure Stack                  | AzsScaleUnitResources             |
-| Scénáře služby Azure Stack                                | AzsScenarios                      |
-| Souhrn ověření SDN Azure Stack                   | AzsSDNValidation                  |
-| Souhrn rolí prostředků infrastruktury služby Azure Stack              | AzsSFRoleSummary                  |
-| Rovina dat úložiště Azure Stack                       | AzsStorageDataPlane               |
-| Souhrn služby úložiště Azure Stack                 | AzsStorageSvcsSummary             |
-| Přehled Azure Stack SQL Store                        | AzsStoreSummary                   |
-| Shrnutí aktualizací Azure Stack                           | AzsInfraUpdateSummary             |
-| Placement Summary virtuálním počítači Azure Stack                     | AzsVmPlacement                    |
+| Shrnutí služby Azure Stack ACS                              | AzsAcsSummary                     |
+| Shrnutí služby Azure Stack Active Directory                 | AzsAdSummary                      |
+| Shrnutí výstrahy Azure Stack                            | AzsAlertSummary                   |
+| Azure Stack souhrn chyby aplikace                | AzsApplicationCrashSummary        |
+| Souhrn přístupnosti sdílené složky zálohování Azure Stack       | AzsBackupShareAccessibility       |
+| Souhrn Azure Stack BMC                              | AzsStampBMCSummary                |
+| Azure Stack souhrn infrastruktury hostování cloudu     | AzsHostingInfraSummary            |
+| Azure Stack využití infrastruktury hostování cloudu | AzsHostingInfraUtilization        |
+| Shrnutí roviny ovládacího prvku Azure Stack                    | AzsControlPlane                   |
+| Souhrn Azure Stack Defenderu                         | AzsDefenderSummary                |
+| Souhrn firmwaru infrastruktury Azure Stack hostování  | AzsHostingInfraFWSummary          |
+| Azure Stack kapacity infrastruktury                  | AzsInfraCapacity                  |
+| Azure Stack výkon infrastruktury               | AzsInfraPerformance               |
+| Souhrn role Azure Stack infrastruktury              | AzsInfraRoleSummary               |
+| Azure Stack síťové infračervené sítě                            | AzsNetworkInfra                   |
+| Přehled Azure Stackho portálu a rozhraní API                   | AzsPortalAPISummary               |
+| Události virtuálního počítače jednotky Azure Stack škálování                     | AzsScaleUnitEvents                |
+| Prostředky virtuálních počítačů jednotek škálování Azure Stack                  | AzsScaleUnitResources             |
+| Azure Stack scénáře                                | AzsScenarios                      |
+| Azure Stack souhrn ověření SDN                   | AzsSDNValidation                  |
+| Souhrn role Azure Stack Service Fabric              | AzsSFRoleSummary                  |
+| Azure Stack rovina dat úložiště                       | AzsStorageDataPlane               |
+| Souhrn služby Azure Stack Storage                 | AzsStorageSvcsSummary             |
+| Souhrn Azure Stack SQL Storu                        | AzsStoreSummary                   |
+| Souhrn aktualizace Azure Stack                           | AzsInfraUpdateSummary             |
+| Shrnutí umístění virtuálního počítače Azure Stack                     | AzsVmPlacement                    |
 
-### <a name="cloud-scenario-tests"></a>Testy cloudové scénáře
+### <a name="cloud-scenario-tests"></a>Cloudové testy scénářů
 
-Kromě výše uvedených infrastrukturu testů máte také možnost spouštět testy scénář cloudu ke kontrole funkce pro součásti infrastruktury. Ke spuštění těchto testů, protože zahrnují nasazení prostředků se vyžadují přihlašovací údaje správce cloudu.
+Kromě výše uvedených testů infrastruktury máte také možnost spouštět testy cloudových scénářů pro kontrolu funkcí napříč součástmi infrastruktury. Přihlašovací údaje správce cloudu se vyžadují ke spuštění těchto testů, protože zahrnují nasazení prostředků.
 
 > [!NOTE]
-> Momentálně nelze spustit testy scénář cloudu pomocí přihlašovacích údajů Active Directory Federated Services (AD FS). 
+> V současné době nemůžete spouštět testy cloudových scénářů pomocí přihlašovacích údajů služby Active Directory federovaného Services (AD FS). 
 
-Následující scénáře cloudu jsou testovány pomocí nástroje ověření:
+Následující cloudové scénáře jsou testovány nástrojem pro ověření:
 - Vytvoření skupiny prostředků   
 - Vytvoření plánu              
 - Vytvoření nabídky            
 - Vytvoření účtu úložiště   
 - Vytvoření virtuálního počítače 
-- Operace úložiště objektů BLOB   
-- Operace fronty úložiště  
-- Operace úložiště tabulky  
+- Operace BLOB Storage   
+- Operace úložiště fronty  
+- Operace úložiště tabulek  
 
-## <a name="parameter-considerations"></a>Důležité informace o parametru
+## <a name="parameter-considerations"></a>Požadavky na parametry
 
-- Parametr **seznamu** slouží k zobrazení všech dostupných kategoriích.
+- **Seznam** parametrů lze použít k zobrazení všech dostupných kategorií testů.
 
-- Parametry **zahrnout** a **Ignorovat** umožňuje zahrnout nebo vyloučit kategorií testů. Následující části Další informace o údajích pro použití s těmito argumenty.
+- Parametry **include** a **Ignore** lze použít k zahrnutí nebo vyloučení kategorií testů. Další informace o informacích, které se mají použít s těmito argumenty, najdete v následující části.
 
   ```powershell
   Test-AzureStack -Include AzsSFRoleSummary, AzsInfraCapacity
@@ -121,52 +122,52 @@ Následující scénáře cloudu jsou testovány pomocí nástroje ověření:
   Test-AzureStack -Ignore AzsInfraPerformance
   ```
 
-- Tenanta, které je virtuální počítač nasazen jako součást jednoho testuje scénář cloudu. Můžete použít **DoNotDeployTenantVm** to zakázat.
+- Virtuální počítač tenanta je nasazený jako součást jednoho cloudového testu scénářů. Tuto možnost můžete zakázat pomocí **DoNotDeployTenantVm** .
 
-- Budete muset zadat **ServiceAdminCredential** parametr pro spouštění testů scénář cloudu, jak je popsáno v [případu příklady použít](azure-stack-diagnostic-test.md#use-case-examples) oddílu.
+- Pro spuštění testů cloudových scénářů, jak je popsáno v části [příklady případů použití](azure-stack-diagnostic-test.md#use-case-examples) , je nutné zadat parametr **ServiceAdminCredential** .
 
-- **BackupSharePath** a **BackupShareCredential** se používají při testování nastavení zálohování infrastruktury, jak je znázorněno [případu příklady použít](azure-stack-diagnostic-test.md#use-case-examples) oddílu.
+- **BackupSharePath** a **BackupShareCredential** se používají při testování nastavení zálohování infrastruktury, jak je znázorněno v části [Příklady případu použití](azure-stack-diagnostic-test.md#use-case-examples) .
 
-- **DetailedResults** je možné získat informace o pass/neprošel/upozornění pro každý test, jakož i celkové spustit. Pokud není zadán, **testovací AzureStack** vrátí **$true** Pokud neexistují žádné chyby a **$false** Pokud nedochází k chybám.
-- **TimeoutSeconds** slouží k nastavení konkrétního času pro každou skupinu pro dokončení.
+- **DetailedResults** lze použít k získání informací o předání a selhání a upozornění pro každý test a také na celkovém běhu. Pokud není zadaný, **test-AzureStack** vrátí **$true** , pokud nedochází k žádným chybám, a **$false** , pokud dojde k chybám.
+- **TimeoutSeconds** se dá použít k nastavení konkrétní doby pro každou skupinu k dokončení.
 
-- Nástroj ověřování také podporuje společné parametry prostředí PowerShell: Podrobné nastavení, ladění, ErrorAction, ErrorVariable, WarningAction, WarningVariable, OutBuffer, PipelineVariable a OutVariable. Další informace najdete v tématu [o společných parametrech](https://go.microsoft.com/fwlink/?LinkID=113216).  
+- Nástroj pro ověřování také podporuje běžné parametry prostředí PowerShell: Verbose, Debug, ErrorAction, ErrorVariable, WarningAction, WarningVariable, inbuffer, PipelineVariable a subvariable. Další informace najdete v tématu [o běžných parametrech](https://go.microsoft.com/fwlink/?LinkID=113216).  
 
 ## <a name="use-case-examples"></a>Příklady případů použití
 
-### <a name="run-validation-without-cloud-scenarios"></a>Spustit ověření bez cloudové scénáře
+### <a name="run-validation-without-cloud-scenarios"></a>Spustit ověřování bez cloudových scénářů
 
-Spustit nástroj ověření bez **ServiceAdminCredential** parametru pro přeskočení spouštění testů cloudové scénáře: 
+Spusťte nástroj pro ověření bez parametru **ServiceAdminCredential** , aby se přeskočily spuštěné testy scénářů cloudu: 
 
 ```powershell
 New-PSSession -ComputerName "<ERCS VM-name/IP address>" -ConfigurationName PrivilegedEndpoint -Credential $localcred
 Test-AzureStack
 ```
 
-### <a name="run-validation-with-cloud-scenarios"></a>Spustit ověření pomocí cloudové scénáře
+### <a name="run-validation-with-cloud-scenarios"></a>Spuštění ověřování s využitím cloudových scénářů
 
-Poskytuje nástroj ověření s **ServiceAdminCredentials** parametr ve výchozím nastavení spustí testy cloudové scénáře: 
+Zadání ověřovacího nástroje s parametrem **ServiceAdminCredentials** spustí ve výchozím nastavení testy scénáře cloudu: 
 
 ```powershell
 Enter-PSSession -ComputerName "<ERCS VM-name/IP address>" -ConfigurationName PrivilegedEndpoint -Credential $localcred 
 Test-AzureStack -ServiceAdminCredential "<Cloud administrator user name>" 
 ```
 
-Pokud chcete spustit pouze cloudové scénáře bez spuštění zbývající testy, můžete použít **zahrnout** parametr k tomu: 
+Pokud chcete spustit pouze cloudové scénáře bez spuštění zbývajících testů, můžete k tomu použít parametr **include** : 
 
 ```powershell
 Enter-PSSession -ComputerName "<ERCS VM-name/IP address>" -ConfigurationName PrivilegedEndpoint -Credential $localcred 
 Test-AzureStack -ServiceAdminCredential "<Cloud administrator user name>" -Include AzsScenarios   
 ```
 
-Uživatelské jméno správce cloudu musí být zadány ve formátu hlavního názvu uživatele: serviceadmin@contoso.onmicrosoft.com (Azure AD). Po zobrazení výzvy zadejte heslo pro účet správce cloudu.
+Uživatelské jméno správce cloudu musí být zadané ve formátu hlavního názvu uživatele (UPN): serviceadmin@contoso.onmicrosoft.com(Azure AD). Po zobrazení výzvy zadejte heslo k účtu správce cloudu.
 
 ### <a name="groups"></a>Skupiny
 
-Vylepšit celkovou funkčnost operátoru **skupiny** parametr je povolen pro spuštění více kategorií testů ve stejnou dobu. V současné době jsou 3 definované skupiny aplikací: **Výchozí**, **UpdateReadiness** a **SecretRotationReadiness**.
+Pro zlepšení prostředí operátora je povolený parametr **skupiny** , aby bylo možné spustit více kategorií testů současně. V současné době jsou definovány tři skupiny: **Výchozí**, **UpdateReadiness** a **SecretRotationReadiness**.
 
-- **Výchozí**: Považuje za standardní spuštění **testovací AzureStack**. Tato skupina je ve výchozím nastavení spouští, pokud nejsou vybrány žádné skupiny.
-- **UpdateReadiness**: Kontrola ověří, pokud je možné aktualizovat razítko. Když **UpdateReadiness** skupina spustit, upozornění se zobrazují jako chyby ve výstupu konzoly a by měly být považovány za blockers pro aktualizaci. Součástí jsou následující kategorie **UpdateReadiness** skupiny:
+- **Výchozí**: Považuje se za standardní spuštění rutiny **test-AzureStack**. Tato skupina se spouští ve výchozím nastavení, pokud nejsou vybrané žádné jiné skupiny.
+- **UpdateReadiness**: Zkontroluje, jestli se razítko dá aktualizovat. Když je spuštěná skupina **UpdateReadiness** , zobrazí se upozornění jako chyby ve výstupu konzoly a měla by se považovat za blokování pro aktualizaci. Následující kategorie jsou součástí skupiny **UpdateReadiness** :
 
   - **AzsAcsSummary**
   - **AzsDefenderSummary**
@@ -177,7 +178,7 @@ Vylepšit celkovou funkčnost operátoru **skupiny** parametr je povolen pro spu
   - **AzsSFRoleSummary**
   - **AzsStoreSummary**
 
-- **SecretRotationReadiness**: Kontrola ověří, jestli razítka spadá v které otočení tajného kódu je možné spustit. Když **SecretRotationReadiness** skupina spustit, upozornění se zobrazí jako chyby ve výstupu konzoly a by měly být považovány za blockers pro rotaci tajného kódu. Následující kategorie jsou součástí skupiny SecretRotationReadiness:
+- **SecretRotationReadiness**: Kontroluje, zda je razítko v, ve kterém lze spustit rotaci tajných klíčů. Když je spuštěná skupina **SecretRotationReadiness** , zobrazí se upozornění jako chyby ve výstupu konzoly a měla by se považovat za blokování pro rotaci tajných klíčů. Následující kategorie jsou součástí skupiny SecretRotationReadiness:
 
   - **AzsAcsSummary**
   - **AzsDefenderSummary**
@@ -189,48 +190,58 @@ Vylepšit celkovou funkčnost operátoru **skupiny** parametr je povolen pro spu
   - **AzsStorageSvcsSummary**
   - **AzsStoreSummary**
 
-#### <a name="group-parameter-example"></a>Příklad parametr skupiny
+#### <a name="group-parameter-example"></a>Příklad parametru skupiny
 
-Následující příklad spustí **testovací AzureStack** testování připravenosti systému před instalací aktualizace nebo opravy hotfix pomocí **skupiny**. Před zahájením instalace aktualizace nebo opravy hotfix, měli byste spustit **testovací AzureStack** zkontrolovat stav služby Azure Stack:
+Následující příklad spustí **test-AzureStack** pro otestování připravenosti systému před instalací aktualizace nebo opravy hotfix pomocí **skupiny**. Před zahájením instalace aktualizace nebo opravy hotfix byste měli spustit rutinu **test-AzureStack** a zkontrolovat stav Azure Stack:
 
 ```powershell
 Test-AzureStack -Group UpdateReadiness
 ```
 
-Ale pokud služby Azure Stack je spuštěn na verzi nižší než 1811, použijte následující příkazy Powershellu pro spuštění **testovací AzureStack**:
+Pokud ale ve vašem Azure Stack běží verze nižší než 1811, spusťte rutinu **test-AzureStack**pomocí následujících příkazů PowerShellu:
 
 ```powershell
 New-PSSession -ComputerName "<ERCS VM-name/IP address>" -ConfigurationName PrivilegedEndpoint -Credential $localcred 
 Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary
 ```
 
-### <a name="run-validation-tool-to-test-infrastructure-backup-settings"></a>Spuštění nástroje pro ověření chcete otestovat nastavení infrastruktury zálohování
+### <a name="run-validation-tool-to-test-infrastructure-backup-settings"></a>Spuštění nástroje pro ověření pro test nastavení zálohování infrastruktury
 
-*Před* konfigurace infrastruktury zálohování, můžete otestovat cestu sdílené složky záloh a přihlašovacích údajů pomocí **AzsBackupShareAccessibility** testu: 
+*Před* konfigurací zálohování infrastruktury můžete otestovat cestu k záložní sdílené složce a přihlašovací údaje pomocí testu **AzsBackupShareAccessibility** : 
 
   ```powershell
   Enter-PSSession -ComputerName "<ERCS VM-name/IP address>" -ConfigurationName PrivilegedEndpoint -Credential $localcred 
   Test-AzureStack -Include AzsBackupShareAccessibility -BackupSharePath "\\<fileserver>\<fileshare>" -BackupShareCredential $using:backupcred
   ```
 
-*Po* konfigurace zálohování, můžete spustit **AzsBackupShareAccessibility** ověření sdílená složka přístupná z ERCS:
+*Po* konfiguraci zálohování můžete spustit **AzsBackupShareAccessibility** a ověřit, jestli je sdílená složka přístupná z ERCS:
 
   ```powershell
   Enter-PSSession -ComputerName "<ERCS VM-name/IP address>" -ConfigurationName PrivilegedEndpoint -Credential $localcred 
   Test-AzureStack -Include AzsBackupShareAccessibility
   ```
 
-Pokud chcete otestovat nové přihlašovací údaje s nakonfigurovanou sdílené složky záloh, spusťte: 
+Chcete-li otestovat nové přihlašovací údaje s nakonfigurovanou sdílenou složkou zálohování, spusťte příkaz: 
 
   ```powershell
   Enter-PSSession -ComputerName "<ERCS VM-name/IP address>" -ConfigurationName PrivilegedEndpoint -Credential $localcred 
   Test-AzureStack -Include AzsBackupShareAccessibility -BackupShareCredential "<PSCredential for backup share>"
   ```
 
+### <a name="run-validation-tool-to-test-network-infrastructure"></a>Spuštění nástroje pro ověření pro otestování síťové infrastruktury 
+
+Tento test kontroluje konektivitu síťové infrastruktury, která obchází Azure Stack softwarově definované sítě (SDN). Ukazuje připojení z veřejné virtuální IP adresy k nakonfigurovaným serverům DNS pro přeposílání, serverům NTP a koncovým bodům ověřování. To zahrnuje připojení k Azure při použití služby Azure AD jako zprostředkovatele identity nebo federovaného serveru při použití služby ADFS jako poskytovatele identity. 
+
+K získání podrobného výstupu příkazu přidejte parametr Debug:
+
+```powershell 
+Test-AzureStack -Include AzsNetworkInfra -Debug
+```
+
 
 
 ## <a name="next-steps"></a>Další postup
 
-Další informace o problému protokolování a diagnostické nástroje služby Azure Stack, najdete v článku [diagnostické nástroje služby Azure Stack](azure-stack-diagnostics.md).
+Další informace o Azure Stack diagnostických nástrojů a protokolování problémů najdete v tématu [nástroje Azure Stack Diagnostics](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep).
 
 Další informace o řešení potíží najdete v tématu [řešení potíží s Microsoft Azure Stack](azure-stack-troubleshooting.md).

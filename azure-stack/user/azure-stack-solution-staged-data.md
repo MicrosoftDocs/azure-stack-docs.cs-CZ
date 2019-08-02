@@ -1,11 +1,12 @@
 ---
-title: Nasazení řešení pro analýzu pracovních dat do služby Azure Stack | Dokumentace Microsoftu
-description: Zjistěte, jak nasadit řešení pro analýzu pracovních dat do služby Azure Stack
+title: Nasazení řešení dvoufázové analýzy dat do Azure Stack | Microsoft Docs
+description: Přečtěte si, jak nasadit řešení dvoufázové analýzy dat do Azure Stack
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
+ms.topic: conceptual
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,50 +15,50 @@ ms.date: 06/20/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 06/20/2019
-ms.openlocfilehash: ca4c2480fff511ab3bad43ea82fc81522d9afba0
-ms.sourcegitcommit: 2a4cb9a21a6e0583aa8ade330dd849304df6ccb5
+ms.openlocfilehash: 859d80c9782926602769664006375cb131de8637
+ms.sourcegitcommit: 35b13ea6dc0221a15cd0840be796f4af5370ddaf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68286750"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68602929"
 ---
-# <a name="deploy-a-staged-data-analytics-solution-to-azure-stack"></a>Nasazení řešení pro analýzu pracovních dat do služby Azure Stack
+# <a name="deploy-a-staged-data-analytics-solution-to-azure-stack"></a>Nasazení řešení dvoufázové analýzy dat do Azure Stack
 
-Tento článek vám ukáže postup nasazení řešení pro shromažďování dat, která vyžaduje analýzu místě kolekce tak, aby provádět rychlé rozhodování. Toto shromažďování dat často dochází k dispozici žádné internetové připojení. Když se naváže spojení, budete muset provádět náročné analýzu dat umožňuje získat další informace.
+V tomto článku se dozvíte, jak nasadit řešení pro shromažďování dat, která v bodě shromažďování vyžadují analýzu, aby bylo možné provádět rychlé rozhodnutí. Tato kolekce dat často probíhá bez přístupu k Internetu. Po navázání připojení může být nutné provést analýzu dat náročných na prostředky, abyste získali další přehled.
 
-V tomto řešení vytvoříte ukázkové prostředí:
+V tomto řešení vytvoříte ukázkové prostředí pro:
 
 > [!div class="checklist"]
-> - Vytvoření objektu blob úložiště nezpracovaná data.
-> - Vytvořte novou funkci Azure Stack můžete do Azure přesunout vyčištění dat ze služby Azure Stack.
-> - Vytvoření funkce aktivované úložiště Blob.
-> - Vytvoření účtu úložiště Azure Stack, který obsahuje objekt blob a fronty.
-> - Vytvoření funkce aktivované frontou.
-> - Funkce aktivovaná testu do fronty.
+> - Vytvořte objekt BLOB úložiště nezpracovaných dat.
+> - Vytvořte novou funkci Azure Stack pro přesun čistých dat z Azure Stack do Azure.
+> - Vytvoření funkce aktivované úložištěm objektů BLOB.
+> - Vytvořte Azure Stack účet úložiště, který obsahuje objekt BLOB a frontu.
+> - Vytvoření funkce aktivované frontou
+> - Otestujte funkci aktivovanou ve frontě.
 
 > [!Tip]  
 > ![hybridní pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
-> Microsoft Azure Stack je rozšířením Azure. Azure Stack přináší flexibilitu a inovace cloud computingu do místního prostředí, povolení ten jediný hybridní cloud, který umožňuje vytvářet a nasazovat hybridní aplikace kdekoli.  
+> Microsoft Azure Stack je rozšířením Azure. Azure Stack přináší flexibilitu a inovace cloud computingu do místního prostředí a umožňuje jenom hybridní cloud, který umožňuje vytvářet a nasazovat hybridní aplikace odkudkoli.  
 > 
-> Tento článek [aspekty návrhu pro hybridní aplikace](azure-stack-edge-pattern-overview.md) kontroly pro navrhování, nasazování a provozování hybridní pilířů kvality softwaru (umístění, škálovatelnost, dostupnost, odolnost, možnosti správy a zabezpečení) aplikace. Aspekty návrhu při optimalizaci návrhu hybridních aplikací, minimalizovat problémy v produkčním prostředí.
+> Požadavky na [Návrh pro hybridní aplikace](azure-stack-edge-pattern-overview.md) kontrolují pilíře kvality softwaru (umístění, škálovatelnost, dostupnost, odolnost, možnosti správy a zabezpečení) pro navrhování, nasazování a provozování hybridních aplikací. Pokyny k návrhu pomáhají při optimalizaci návrhu hybridní aplikace a minimalizaci výzev v produkčních prostředích.
 
-## <a name="architecture-for-staged-data-analytics"></a>Architektura pro analýzu dat dvoufázové instalace
+## <a name="architecture-for-staged-data-analytics"></a>Architektura pro analýzu připravených dat
 
-![Analýza dat dvoufázové instalace](media/azure-stack-solution-staged-data/image1.png)
+![Analýza připravených dat](media/azure-stack-solution-staged-data/image1.png)
 
-## <a name="prerequisites-for-staged-data-analytics"></a>Požadavky pro analýzu dat dvoufázové instalace
+## <a name="prerequisites-for-staged-data-analytics"></a>Předpoklady pro analýzu připravených dat
 
   - Předplatné Azure.
-  - Instanční objekt Azure Active Directory (AAD), který má oprávnění pro tenanta předplatného Azure a Azure Stack. Budete muset vytvořit dvě instanční objekty Azure Stack je použití jiného tenanta AAD, než vaše předplatné Azure. Informace o vytvoření instančního objektu pro Azure Stack, [vytvoření instančních objektů poskytnout aplikace přístup k prostředkům Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-create-service-principals).
-      - **Poznamenejte si ID aplikace každý instanční objekt služby, tajný klíč klienta, ID Tenanta služby Azure AD a název tenanta (xxxxx.onmicrosoft.com).**
-  - Musíte kvůli shromažďování dat pro analýzu dat. Nejsou k dispozici ukázková data.
-  - [Docker pro Windows](https://docs.docker.com/docker-for-windows/) nainstalované na místním počítači.
+  - Instanční objekt služby Azure Active Directory (AAD), který má oprávnění k předplatnému tenanta v Azure a Azure Stack. Pokud Azure Stack používá jiného tenanta služby AAD než vaše předplatné Azure, možná budete muset vytvořit dva instanční objekty. Pokud se chcete dozvědět, jak vytvořit instanční objekt pro Azure Stack, přejděte v tématu [Vytvoření instančních objektů a poskytněte aplikacím přístup k prostředkům služby Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-create-service-principals).
+      - **Poznamenejte si ID aplikace, tajný klíč klienta, ID tenanta služby Azure AD a název tenanta (xxxxx.onmicrosoft.com).**
+  - Budete muset zadat kolekci dat pro analýzu dat. Jsou k dispozici ukázková data.
+  - [Docker for Windows](https://docs.docker.com/docker-for-windows/) nainstalované na místním počítači.
 
-## <a name="get-the-docker-image"></a>Získat image Dockeru
+## <a name="get-the-docker-image"></a>Získat image Docker
 
-Image dockeru pro každé nasazení eliminovat problémy s závislostí mezi různými verzemi nástroje Azure Powershellu.
-1.  Ujistěte se, že je Docker pro Windows pomocí kontejnerů Windows.
-2.  Spusťte následující v příkazovém řádku se zvýšenými oprávněními pro získání kontejneru Dockeru se skripty nasazení.
+Image Docker pro každé nasazení eliminují problémy závislosti mezi různými verzemi Azure PowerShell.
+1.  Ujistěte se, že Docker for Windows používá kontejnery Windows.
+2.  Spuštěním následujícího příkazu na příkazovém řádku se zvýšenými oprávněními Získejte kontejner Docker se skripty nasazení.
 
 ```
  docker pull intelligentedge/stageddatasolution:1.0.0
@@ -65,19 +66,19 @@ Image dockeru pro každé nasazení eliminovat problémy s závislostí mezi rů
 
 ## <a name="deploy-the-solution"></a>Nasazení řešení
 
-1.  Po image kontejneru byla úspěšně stažena, spusťte na obrázku.
+1.  Po úspěšném dokončení image kontejneru spusťte image.
 
       ```powershell  
       docker run -it intelligentedge/stageddatasolution:1.0.0 powershell
       ```
 
-2.  Po zahájení kontejneru, budete mít se zvýšenými oprávněními terminálu prostředí PowerShell v kontejneru. Změňte adresáře na získat skript nasazení.
+2.  Po spuštění kontejneru se v kontejneru udělí terminál PowerShellu se zvýšenými oprávněními. Změňte adresáře tak, aby se získaly do skriptu nasazení.
 
       ```powershell  
       cd .\SDDemo\
       ```
 
-3.  Spusťte nasazení. Zadejte přihlašovací údaje a prostředků příslušných místech názvy. HA odkazuje na službě Azure Stack, kam se nasadí cluster vysokou dostupnost a zotavení po Havárii do Azure stacku, kam se nasadí cluster zotavení po Havárii.
+3.  Spusťte nasazení. Zadejte přihlašovací údaje a názvy prostředků tam, kde je to potřeba. HA odkazuje na Azure Stack, kde bude nasazen cluster HA, a DR do Azure Stack, kde bude nasazen cluster DR.
 
       ```powershell
       .\DeploySolution-Azure-AzureStack.ps1 `
@@ -92,28 +93,28 @@ Image dockeru pro každé nasazení eliminovat problémy s závislostí mezi rů
       -ResourcePrefix "aPrefixForResources"
       ```
 
-1.  Pokud se zobrazí výzva; Zadejte oblast pro nasazení v Azure a Application Insights.
+1.  Pokud se zobrazí výzva; Zadejte oblast pro nasazení Azure a Application Insights.
 
-2.  Zadejte "Y" umožňující poskytovateli NuGet k instalaci, která se spustí řízený moduly "2018-03-01hybridní" profil rozhraní API, které chcete možné povolit pro nasazení do Azure a Azure Stack.
+2.  Zadáním "Y" umožníte instalaci poskytovatele NuGet, čímž se zahájí instalace modulů rozhraní API "2018-03-01-hybrid", aby bylo možné nasadit nasazení do Azure a Azure Stack.
 
-3.  Po nasazení prostředků otestujte, že data se vygeneruje pro Azure Stack a Azure.
+3.  Po nasazení prostředků otestujte, že se budou generovat data pro Azure Stack i pro Azure.
 
     ```powershell  
       .\TDAGenerator.exe
     ```
 
-4.  Zobrazit data zpracovává tak, že přejdete do webové aplikace nasazené do Azure nebo ve službě Azure Stack.
+4.  Přečtěte si data, která jsou zpracovávána, pomocí přechodu na webové aplikace nasazené do Azure nebo Azure Stack.
 
 ### <a name="azure-web-app"></a>Webové aplikace Azure
  
-![řešení pro analýzu dat dvoufázové instalace](media/azure-stack-solution-staged-data/image2.png)
+![řešení dvoufázové analýzy dat](media/azure-stack-solution-staged-data/image2.png)
  
-### <a name="azure-stack-web-app"></a>Webové aplikace Azure Stack
+### <a name="azure-stack-web-app"></a>Azure Stack webové aplikace
  
-![řešení pro analýzu dat připravené pro službu Azure Stack](media/azure-stack-solution-staged-data/image3.png)
+![řešení dvoufázové analýzy dat pro Azure Stack](media/azure-stack-solution-staged-data/image3.png)
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
-  - Další informace o hybridních cloudových aplikací, přečtěte si téma [hybridní Cloudová řešení.](https://aka.ms/azsdevtutorials)
+  - Další informace o hybridních cloudových aplikacích najdete v tématu [hybridní cloudová řešení.](https://aka.ms/azsdevtutorials)
 
-  - Použít vlastní data nebo upravit kód pro tuto ukázku na [Githubu](https://github.com/Azure-Samples/azure-intelligent-edge-patterns).
+  - Použijte vlastní data nebo upravte kód v této ukázce na GitHubu [](https://github.com/Azure-Samples/azure-intelligent-edge-patterns).
