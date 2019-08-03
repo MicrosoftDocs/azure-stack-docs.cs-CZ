@@ -16,12 +16,12 @@ ms.date: 07/25/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 07/25/2019
-ms.openlocfilehash: cf09162fb29630ed01834aa6b2b508785206a088
-ms.sourcegitcommit: d96adbb821175167f6a4c8f3aba305981d7e7c3e
+ms.openlocfilehash: 41d07532960776cd5ed9312007877489e9ebbf20
+ms.sourcegitcommit: 83d9dbecd7334f37862e47ca028a50f8d7dafe2d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68685572"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68738324"
 ---
 # <a name="azure-stack-1907-known-issues"></a>Známé problémy s Azure Stack 1907
 
@@ -89,13 +89,6 @@ V tomto článku jsou uvedené známé problémy ve verzi 1907 Azure Stack. Sezn
 - Výskyt Společné
 
 ### <a name="virtual-network-gateway"></a>Brána virtuální sítě
-
-#### <a name="local-network-gateway-deletion"></a>Odstranění brány místní sítě
-
-- To Tento problém se týká verze 1906.
-- Příčina: Při odstranění **brány místní sítě** na portálu User Portal se zobrazí následující chybová zpráva: **Bránu místní sítě nelze odstranit s aktivním připojením**, i když neexistuje žádné aktivní připojení.
-- Zmírnění Oprava tohoto problému se uvolní v 1907. Alternativním řešením tohoto problému je vytvořit novou bránu místní sítě se stejnou IP adresou, adresním prostorem a podrobnostmi konfigurace s jiným názvem. Po aktualizaci prostředí na 1907 se dá původní LNG odstranit.
-- Výskyt Společné
 
 #### <a name="alerts"></a>Upozornění
 
@@ -178,7 +171,7 @@ V tomto článku jsou uvedené známé problémy ve verzi 1907 Azure Stack. Sezn
 <!-- ### Identity -->
 <!-- ### Marketplace -->
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - [Kontrola kontrolního seznamu aktivit aktualizací](azure-stack-release-notes-checklist.md)
 - [Kontrola seznamu aktualizací zabezpečení](azure-stack-release-notes-security-updates-1907.md)
