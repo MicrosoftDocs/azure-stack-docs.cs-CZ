@@ -11,28 +11,50 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2019
+ms.date: 08/05/2019
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 07/31/2019
-ms.openlocfilehash: c70334bea80a84166a4bb614f15852e44f2b99f4
-ms.sourcegitcommit: bf4d265a3522cbfdd9dd295a0f4ad0daf2ed5eca
+ms.openlocfilehash: 3d0aad849395a93b1086daf5cf2c17e198d69ed5
+ms.sourcegitcommit: 0e0d010c4e010f2fd6799471db8bf71652d8d4e1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68692138"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68806914"
 ---
 # <a name="azure-stack-marketplace-changes"></a>Změny Azure Stack Marketplace
 
-Tento článek popisuje nedávné doplňky, aktualizace, změny a odebrání [položek Azure Stack Marketplace](azure-stack-marketplace-azure-items.md). Informace v této části se často aktualizují, proto se můžete podívat na časté změny.
+Tento článek popisuje poslední dodatky, aktualizace, změny a [Azure Stack odebrání položek na webu Marketplace](azure-stack-marketplace-azure-items.md) za přibližně poslední 3 měsíce. Informace v této části se často aktualizují, proto se můžete podívat na časté změny.
 
-Tento článek popisuje změny v Marketplace, ke kterým došlo za posledních 3 měsíce, a to přibližně. [Azure Stack položky na webu Marketplace](azure-stack-marketplace-azure-items.md) vždycky obsahuje nejaktuálnější seznam dostupných položek Azure Stack Marketplace.
+[Azure Stack položky na webu Marketplace](azure-stack-marketplace-azure-items.md) vždycky obsahuje nejaktuálnější seznam dostupných položek Azure Stack Marketplace.
 
 ## <a name="new-marketplace-items"></a>Nové položky Marketplace
 
-- ™ Replikace & Veeam® zálohování: Pomáhá firmám dosáhnout komplexní ochrany dat pro všechny úlohy – virtuálních, fyzických i cloudových úloh. S jedinou konzolou dosáhnete rychlých, flexibilních a spolehlivých záloh, obnovení a replikace všech aplikací a dat. Přidáno 6/14/2019.
+- 1/25/2019: A10 vThunder: L4 – kontroler doručování aplikací pro L7, globální vyrovnávání zatížení serveru (GSLB), přehled SSL
 
-- A10 vThunder: L4 – kontroler doručování aplikací pro L7, globální vyrovnávání zatížení serveru (GSLB), přehled SSL Přidáno 1/25/2019.
+- 6/14/2019: Veeam® Backup & replikace™
+
+- 08/05/2019: Drupal
+
+- 08/05/2019: etcd
+
+- 08/05/2019: Grafana
+
+- 08/05/2019: Neo4j
+
+- 08/05/2019: Parsovat server
+
+- 08/05/2019: Víc lokalit WordPress
+
+- 08/05/2019: ZooKeeper
+
+- 08/05/2019: Obsluha TensorFlow
+
+- 08/05/2019: PŘEKLADU ADRES
+
+- 08/05/2019: Review Board
+
+- 08/05/2019: Sestavitel
 
 ## <a name="deprecated-marketplace-items"></a>Zastaralé položky Marketplace
 

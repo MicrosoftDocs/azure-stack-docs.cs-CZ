@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2019
+ms.date: 08/02/2019
 ms.author: mabrigg
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: aafdc25293ea3cc584d24688d071dadb2151ce22
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: 329ef95f7902f3fe6dfcdd71b599675fdf7c6286
+ms.sourcegitcommit: 0e0d010c4e010f2fd6799471db8bf71652d8d4e1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68418533"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68806935"
 ---
 # <a name="use-azure-monitor-on-azure-stack"></a>Použít Azure Monitor na Azure Stack
 
@@ -121,7 +121,7 @@ Mezi možné způsoby vizualizace patří:
 
 ## <a name="methods-of-accessing-azure-monitor-on-azure-stack"></a>Metody přístupu ke službě Azure monitor na Azure Stack
 
-Obecně platí, že k manipulaci se sledováním, směrováním a načítáním dat se dá použít některý z následujících způsobů. Některé způsoby ale nemusí být dostupné pro všechny akce nebo typy dat.
+Pomocí jedné z následujících metod můžete pracovat se sledováním, směrováním a načítáním dat. Některé způsoby ale nemusí být dostupné pro všechny akce nebo typy dat. 
 
  - [Portál Azure Stack](azure-stack-use-portal.md)
  - [PowerShell](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-powershell-samples)
@@ -129,6 +129,9 @@ Obecně platí, že k manipulaci se sledováním, směrováním a načítáním 
  - [REST API](https://docs.microsoft.com/rest/api/monitor)
  - [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor)
 
-## <a name="next-steps"></a>Další postup
+> [!Important]  
+> Pokud narazíte na chybu **prostředku** při zobrazení grafu výkonu virtuálního počítače, ujistěte se, že jste zaregistrovali Microsoft. Insights v rámci předplatného, které je přidružené k virtuálnímu počítači.
+
+## <a name="next-steps"></a>Další kroky
 
 Další informace o sledování spotřeby dat na Azure Stack v článku [využívání dat monitorování z Azure Stack](azure-stack-metrics-monitor.md).
