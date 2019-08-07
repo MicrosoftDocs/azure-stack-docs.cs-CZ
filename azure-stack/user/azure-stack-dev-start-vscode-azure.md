@@ -5,22 +5,22 @@ services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: conceptual
-ms.date: 06/25/2019
+ms.date: 08/05/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 06/25/2019
-ms.openlocfilehash: 9f45e94f26e577f1a47f60b7df24758d7bc88767
-ms.sourcegitcommit: 35b13ea6dc0221a15cd0840be796f4af5370ddaf
+ms.lastreviewed: 08/05/2019
+ms.openlocfilehash: 44d35d59b2b50682dd6911f6d2b08fea8e005938
+ms.sourcegitcommit: a0dcb61890ad0f7b8e1f738f7186198681adcc2e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68603063"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68820818"
 ---
 # <a name="connect-to-azure-stack-using-azure-account-extension-in-visual-studio-code"></a>Připojení k Azure Stack pomocí rozšíření účtu Azure v Visual Studio Code
 
 V tomto článku Vás provedeme, jak se připojit k Azure Stack pomocí rozšíření účtu Azure. Budete muset aktualizovat nastavení Visual Studio Code (VS Code).
 
-VS Code je zjednodušený editor pro sestavování a ladění webových a cloudových aplikací. Používá je ASP.NET Core, Python, NodeJS, přejít a další vývojáři. Pomocí rozšíření účtu Azure můžete použít jedno přihlášení Azure s filtrováním předplatného pro další rozšíření Azure. Rozšíření zpřístupňuje Azure Cloud Shell v terminálu integrovaném s VS Code. Pomocí tohoto rozšíření se můžete ke svému předplatnému Azure Stack připojit pomocí Azure AD (Azure AD) i služby Active Directory federovaných služeb (AD FS) pro správce identit. To vám umožní přihlásit se k Azure Stack, vybrat si předplatné a otevřít nový příkazový řádek ve službě cloud Shell. 
+VS Code je zjednodušený editor pro sestavování a ladění webových a cloudových aplikací. ASP.NET Core, Python, NodeJS, přejít a další vývojáři používají VS Code. Pomocí rozšíření účtu Azure můžete použít jedno přihlášení Azure s filtrováním předplatného pro další rozšíření Azure. Rozšíření zpřístupňuje Azure Cloud Shell v terminálu integrovaném s VS Code. Pomocí tohoto rozšíření se můžete ke svému předplatnému Azure Stack připojit pomocí Azure AD (Azure AD) i služby Active Directory federovaných služeb (AD FS) pro správce identit. Můžete se přihlásit k Azure Stack, vybrat předplatné a otevřít nový příkazový řádek ve službě cloud Shell. 
 
 > [!Note]  
 > Kroky v tomto článku můžete použít pro prostředí služby Active Directory federované služby (AD FS). Použijte své AD FS přihlašovací údaje a koncové body.
@@ -40,19 +40,28 @@ VS Code je zjednodušený editor pro sestavování a ladění webových a cloudo
 
     - Pokyny a skripty pro **identitu** najdete v tématu [AzureStack-Tools/identity](https://github.com/Azure/AzureStack-Tools/tree/master/Identity).
 
+    - Ve stejné relaci spusťte:
+
+    ```powershell  
+    Update-AzsHomeDirectoryTenant -AdminResourceManagerEndpoint $adminResourceManagerEndpoint `
+    -DirectoryTenantName $homeDirectoryTenantName -Verbose
+    Register-AzsWithMyDirectoryTenant -TenantResourceManagerEndpoint $tenantARMEndpoint `
+    -DirectoryTenantName $guestDirectoryTenantName
+    ```
+
 2. Otevřete VS Code.
 
 3. V levém horním rohu vyberte **rozšíření** .
 
-3. Do vyhledávacího pole zadejte `Azure Account`.
+4. Do vyhledávacího pole zadejte `Azure Account`.
 
-4. Vyberte **účet Azure** a vyberte **nainstalovat**.
+5. Vyberte **účet Azure** a vyberte **nainstalovat**.
 
       ![Azure Stack Visual Studio Code](media/azure-stack-dev-start-vscode-azure/image1.png)
 
-5. Pro načtení rozšíření restartujte VS Code.
+6. Pro načtení rozšíření restartujte VS Code.
 
-6. Načtěte metadata pro připojení k Azure Resource Manager v Azure Stack. 
+7. Načtěte metadata pro připojení k Azure Resource Manager v Azure Stack. 
     
     Microsoft Azure Správce prostředků je rozhraní pro správu, které umožňuje nasazovat, spravovat a monitorovat prostředky Azure.
     - Správce prostředků adresa URL pro Azure Stack Development Kit (ASDK) je:`https://management.local.azurestack.external/` 
@@ -63,9 +72,9 @@ VS Code je zjednodušený editor pro sestavování a ladění webových a cloudo
 
     Poznamenejte si návratový kód JSON. Budete potřebovat hodnoty pro `loginEndpoint` vlastnost a. `audiences`
 
-7. Stiskněte **kombinaci kláves CTRL + SHIFT + P** a **vyberte předvolby: Otevřete nastavení uživatele (JSON)** .
+8. Stiskněte **kombinaci kláves CTRL + SHIFT + P** a **vyberte předvolby: Otevřete nastavení uživatele (JSON)** .
 
-8. V editoru kódu aktualizujte následující fragment kódu JSON hodnotami pro vaše prostředí a vložte fragment kódu do bloku nastavení.
+9. V editoru kódu aktualizujte následující fragment kódu JSON hodnotami pro vaše prostředí a vložte fragment kódu do bloku nastavení.
 
     - Hodnota
 
@@ -88,17 +97,17 @@ VS Code je zjednodušený editor pro sestavování a ladění webových a cloudo
       "azure.cloud": "AzurePPE"
       ```
 
-9. Uložte nastavení uživatele a znovu použijte **kombinaci kláves CTRL + SHIFT + P** . Vyberte **Azure: Přihlaste se ke**cloudu Azure. V seznamu cílů se zobrazí nová možnost **AzurePPE**.
+10. Uložte nastavení uživatele a znovu použijte **kombinaci kláves CTRL + SHIFT + P** . Vyberte **Azure: Přihlaste se ke**cloudu Azure. V seznamu cílů se zobrazí nová možnost **AzurePPE**.
 
-10. Vyberte **AzurePPE**. Ověřovací stránka se načte v prohlížeči. Přihlaste se ke svému koncovému bodu.
+11. Vyberte **AzurePPE**. Ověřovací stránka se načte v prohlížeči. Přihlaste se ke svému koncovému bodu.
 
-11. K otestování úspěšného přihlášení k předplatnému Azure Stack použijte **kombinaci kláves CTRL + SHIFT + P** a **vyberte Azure: Vyberte předplatné** a zkontrolujte, jestli je předplatné dostupné.
+12. K otestování úspěšného přihlášení k předplatnému Azure Stack použijte **kombinaci kláves CTRL + SHIFT + P** a **vyberte Azure: Vyberte předplatné** a zkontrolujte, jestli je předplatné dostupné.
 
 ## <a name="commands"></a>Příkazy
 
 | Azure: Přihlásit se | Přihlásit k předplatnému Azure |
 | --- | --- |
-| Azure: Přihlášení pomocí kódu zařízení | Přihlaste se ke svému předplatnému Azure pomocí kódu zařízení. Toto použijte v instalačních sestavách, kde příkaz Sign in nefunguje. |
+| Azure: Přihlášení pomocí kódu zařízení | Přihlaste se ke svému předplatnému Azure pomocí kódu zařízení. V instalačních sestavách použijte kód zařízení, kde příkaz Sign in nefunguje. |
 | Azure: Přihlaste se ke cloudu Azure | Přihlaste se k předplatnému Azure v jednom z cloudů z svrchovaného prostředí. |
 | Azure: Odhlásit | Odhlaste se od předplatného Azure. |
 | Azure: Vybrat odběry | Vyberte sadu odběrů, se kterými chcete pracovat. Rozšíření zobrazuje pouze prostředky v rámci filtrovaných odběrů. |
@@ -107,6 +116,6 @@ VS Code je zjednodušený editor pro sestavování a ladění webových a cloudo
 | Azure: Otevřít PowerShell v Cloud Shell | Otevřete v Cloud Shell nový terminál, na kterém běží PowerShell. |
 | Azure: Odeslat do Cloud Shell | Nahrajte soubor do svého účtu úložiště Cloud Shell. |
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 [Nastavení vývojového prostředí v Azure Stack](azure-stack-dev-start.md)

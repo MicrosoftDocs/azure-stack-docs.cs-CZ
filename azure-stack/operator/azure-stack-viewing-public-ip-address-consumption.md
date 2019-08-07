@@ -1,6 +1,6 @@
 ---
-title: Zobrazení spotřeby veřejných IP adres ve službě Azure Stack | Dokumentace Microsoftu
-description: Správci mohou prohlížet spotřeby veřejných IP adres v oblasti
+title: Správa prostředků sítě v Azure Stack | Microsoft Docs
+description: Správci mohou spravovat síťové prostředky, včetně fondu adres MAC a spotřeby veřejných IP adres v oblasti.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,61 +15,78 @@ ms.date: 05/16/2019
 ms.author: mabrigg
 ms.reviewer: scottnap
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 35dc40fc3539038ab3c44318374e8c1fb327e6e4
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.openlocfilehash: d056cbf73e2417bd826fba7a7de263cc8e015b7d
+ms.sourcegitcommit: 637018771ac016b7d428174e88d4dcb131b54959
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782436"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68842915"
 ---
-# <a name="view-public-ip-address-consumption-in-azure-stack"></a>Zobrazení spotřeby veřejných IP adres ve službě Azure Stack
+# <a name="manage-network-resources"></a>Správa síťových prostředků
 
-*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
+## <a name="mac-address-pool"></a>Fond adres MAC
+
+Azure Stack používá ke automatickému vygenerování a přiřazování adres MAC k virtuálním počítačům statický fond adres MAC.
+Tento fond adres MAC je automaticky vygenerován během nasazování a používá následující rozsah:
+
+- StartMacAddress: 00-1D-D8-B7-00-00
+- EndMacAddress : 00-1D-D8-F4-FF-FF
+
+> [!Note]  
+> Tento fond adres MAC je v každém Azure Stackovém systému stejný a nedá se konfigurovat.
+
+V závislosti na tom, jak se virtuální sítě připojí k existujícím firemním sítím, můžete očekávat duplicitní adresy MAC virtuálních počítačů.
+
+Další informace najdete v části využití fondu adres MAC pomocí rutiny [Get-AzsMacAddressPool](https://docs.microsoft.com/powershell/module/azs.fabric.admin/get-azsmacaddresspool) v modulu PowerShell pro správce Azure Stack.
+
+## <a name="view-public-ip-address-consumption-in-azure-stack"></a>Zobrazit využití veřejné IP adresy v Azure Stack
+
+*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
 
 Jako správce cloudu můžete zobrazit:
  - Počet veřejných IP adres, které byly přiděleny klientům.
  - Počet veřejných IP adres, které jsou stále k dispozici pro přidělení.
- - Procento veřejné IP adresy, které byly přiděleny v dané oblasti.
+ - Procento veřejných IP adres, které byly přiděleny v tomto umístění.
 
-**Veřejnou IP adresu fondu využití** dlaždice ukazuje počet veřejných IP adres spotřebované ve veřejných IP adres. Pro každou IP adresu zobrazí na dlaždici využití pro tenanta virtuálních počítačů IaaS instancí, služby infrastruktury prostředků infrastruktury a veřejné IP adresy prostředků, které se byly explicitně tenanty.
+Na dlaždici **využití fondů veřejné IP** adresy se zobrazuje počet veřejných IP adres spotřebovaných napříč fondy veřejných IP adres. Pro každou IP adresu dlaždice zobrazuje využití pro instance virtuálních počítačů IaaS tenanta, služby infrastruktury prostředků infrastruktury a prostředky veřejné IP adresy, které byly explicitně vytvořeny klienty.
 
-Účelem dlaždice je poskytovat operátorům Azure stacku představu o počtu veřejné IP adresy používané v tomto umístění. Číslo pomáhá správcům určit, jestli jsou spuštěné s nízkou pro tento prostředek.
+Účelem dlaždice je poskytnout operátorům Azure Stack smyslem počtu veřejných IP adres, které se používají v tomto umístění. Toto číslo pomáhá správcům určit, jestli mají na tomto prostředku nedostatek provozu.
 
-**Veřejné IP adresy** položky nabídky v části **prostředků klienta** uvádí pouze veřejné IP adresy, které byly *explicitně vytvořený tenanty*. Položka nabídky můžete najít na **poskytovatelů prostředků**, **sítě** podokně. Počet **používá** veřejné IP adresy na **veřejnou IP adresu fondu využití** dlaždici se liší od (větší než) vždy na číslo **veřejné IP adresy** dlaždici v části  **Tenant prostředky**.
+Položka nabídky **veřejné IP adresy** v části **prostředky tenanta** uvádí jenom veřejné IP adresy, které byly *explicitně vytvořené klienty*. Položku nabídky můžete najít v podokně poskytovatelé **prostředků**, **síť** . Počet **použitých** veřejných IP adres na dlaždici **využití fondů veřejné IP** adresy se vždycky liší od (větší než) čísla na dlaždici **veřejné IP adresy** v části **prostředky tenanta**.
 
-## <a name="view-the-public-ip-address-usage-information"></a>Zobrazení využití informace o veřejné IP adresy
+### <a name="view-the-public-ip-address-usage-information"></a>Zobrazit informace o využití veřejné IP adresy
 
-Chcete-li zobrazit celkový počet veřejných IP adres, které spotřebovaly v oblasti:
+Zobrazení celkového počtu veřejných IP adres, které byly spotřebovány v oblasti:
 
-1. Na portálu správce Azure Stack, vyberte **všechny služby**. Potom v části **správu** vyberte kategorii **sítě**.
-1. **Sítě** podokně se zobrazí **veřejnou IP adresu fondu využití** v dlaždici **přehled** části.
+1. Na portálu pro správu Azure Stack vyberte **všechny služby**. Pak v kategorii **Správa** vyberte **síť**.
+1. V podokně **síť** se zobrazí dlaždice **využití fondů veřejných IP adres** v části **Přehled** .
 
-![Podokno sítě poskytovatele prostředků](media/azure-stack-viewing-public-ip-address-consumption/image01.png)
+![Podokno poskytovatele síťových prostředků](media/azure-stack-viewing-public-ip-address-consumption/image01.png)
 
-**Používá** číslo představuje číslo přiřazené veřejné IP adresy z veřejných IP adres. **Free** číslo představuje počet veřejných IP adres z veřejných IP adres fondy, které nebyly přiřazeny a stále k dispozici. **% Used** číslo představuje číslo použít nebo přiřazené adresy jako procento z celkového počtu veřejných IP adres v veřejných IP adres v dané oblasti.
+**Použité** číslo představuje počet přiřazených veřejných IP adres z fondů veřejných IP adres. **Bezplatné** číslo představuje počet veřejných IP adres z fondů veřejných IP adres, které nebyly přiřazeny a jsou stále k dispozici. **Použité číslo%** představuje počet využitých nebo přiřazených adres jako procento celkového počtu veřejných IP adres ve fondech veřejných IP adres v tomto umístění.
 
-## <a name="view-the-public-ip-addresses-that-were-created-by-tenant-subscriptions"></a>Zobrazení veřejné IP adresy, které byly vytvořeny odběry tenanta
+### <a name="view-the-public-ip-addresses-that-were-created-by-tenant-subscriptions"></a>Zobrazit veřejné IP adresy, které byly vytvořeny předplatnými klientů
 
-Vyberte **veřejné IP adresy** pod **prostředků klienta**. Projděte si seznam veřejných IP adres, které explicitně vytvořeny odběry tenanta v určité oblasti.
+V části **prostředky tenanta**vyberte **veřejné IP adresy** . Projděte si seznam veřejných IP adres, které jsou explicitně vytvořeny pomocí odběrů klientů v konkrétní oblasti.
 
-![Veřejné IP adresy klienta](media/azure-stack-viewing-public-ip-address-consumption/image02.png)
+![Veřejné IP adresy klientů](media/azure-stack-viewing-public-ip-address-consumption/image02.png)
 
-Můžete si všimnout, že některé veřejné IP adresy, které dynamicky přiřazovány zobrazí v seznamu. Ale adresu nebyl přidružen s nimi ještě. Poskytovatel síťových prostředků, ale ještě není v síťovém adaptéru se vytvořil prostředek adresy.
+Můžete si všimnout, že některé veřejné IP adresy, které byly dynamicky přiděleny, se zobrazí v seznamu. Adresa ale ještě není přidružená. Prostředek adresy byl vytvořen v poskytovateli síťových prostředků, ale ještě není v síťovém adaptéru.
 
-Síťový adaptér nepřiřazuje adresu prostředku, dokud se váže k rozhraní, karty síťového rozhraní (NIC), nástroj pro vyrovnávání zatížení nebo bránu virtuální sítě. Když veřejnou IP adresu vytvoří vazbu na rozhraní, se síťovým adaptérem přidělí IP adresu. Adresa se zobrazí v **adresu** pole.
+Síťový adaptér nepřiřazuje prostředku adresu, dokud se neváže k rozhraní, síťové kartě (NIC), nástroji pro vyrovnávání zatížení nebo bráně virtuální sítě. Když se veřejná IP adresa váže k rozhraní, síťový adaptér přidělí IP adresu. Adresa se zobrazí v poli **adresa** .
 
-## <a name="view-the-public-ip-address-information-summary-table"></a>Zobrazení veřejné IP adresy informace tabulku souhrnu
+### <a name="view-the-public-ip-address-information-summary-table"></a>Zobrazit tabulku souhrnu informací o veřejné IP adrese
 
-V různých případech jsou přiřazené veřejné IP adresy, které určují, zda se adresa bude zobrazovat v jednom seznamu nebo jiného.
+V různých případech jsou k disadrese veřejné IP adresy, které určují, jestli se adresa zobrazuje v jednom seznamu nebo jiné.
 
-| **Veřejné IP adresy přiřazení případu** | **Zobrazí se v souhrnu využití** | **Zobrazí se v seznamu v tenantovi veřejné IP adresy** |
+| **Případ přiřazení veřejné IP adresy** | **Zobrazuje se v souhrnu využití.** | **Zobrazí se v seznamu veřejných IP adres tenanta.** |
 | --- | --- | --- |
-| Dynamická veřejná IP adresa ještě nebyly přiřazeny síťové KARTĚ nebo službu Vyrovnávání zatížení (dočasný) |Ne |Ano |
-| Dynamická veřejná IP adresa přiřazená síťové KARTĚ nebo službu Vyrovnávání zatížení. |Ano |Ano |
-| Statickou veřejnou IP adresu přiřazenou tenanta síťovou kartu nebo službu Vyrovnávání zatížení. |Ano |Ano |
-| Statickou veřejnou IP adresu přiřadit ke koncovému bodu služby infrastruktury prostředků infrastruktury. |Ano |Ne |
-| Veřejná IP adresa implicitně vytvoří pro instance virtuálních počítačů IaaS a používá pro odchozí NAT ve virtuální síti. Tyto jsou vytvořeny na pozadí, pokaždé, když si tenant vytvoří instanci virtuálního počítače tak, aby virtuální počítače můžete odeslat informace k Internetu. |Ano |Ne |
+| Dynamická veřejná IP adresa není ještě přiřazená síťovému rozhraní nebo nástroji pro vyrovnávání zatížení (dočasné). |Ne |Ano |
+| Dynamická veřejná IP adresa přiřazená síťovému rozhraní nebo nástroji pro vyrovnávání zatížení. |Ano |Ano |
+| Statická veřejná IP adresa přiřazená síťové kartě klienta nebo nástroji pro vyrovnávání zatížení. |Ano |Ano |
+| Statická veřejná IP adresa přiřazená ke koncovému bodu služby infrastruktury prostředků infrastruktury. |Ano |Ne |
+| Veřejná IP adresa se implicitně vytvořila pro instance virtuálních počítačů s IaaS a používá se pro odchozí překlad adres (NAT) ve virtuální síti. Ty se vytvářejí na pozadí vždy, když tenant vytvoří instanci virtuálního počítače, aby virtuální počítače mohli odesílat informace na Internet. |Ano |Ne |
 
 ## <a name="next-steps"></a>Další postup
 
-[Správa účtů úložiště v Azure stacku](azure-stack-manage-storage-accounts.md)
+[Správa účtů úložiště v Azure Stack](azure-stack-manage-storage-accounts.md)

@@ -1,6 +1,6 @@
 ---
-title: Správa služby Key Vault ve službě Azure Stack pomocí portálu | Dokumentace Microsoftu
-description: Další informace o správě služby Key Vault ve službě Azure Stack pomocí portálu
+title: Správa Key Vault v Azure Stack pomocí portálu | Microsoft Docs
+description: Naučte se spravovat Key Vault v Azure Stack pomocí portálu Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,88 +15,88 @@ ms.topic: article
 ms.date: 06/11/2019
 ms.author: sethm
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 57a23dc63c72657c19a92fa8f69e029be7f12f60
-ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
+ms.openlocfilehash: 4b6d6e784a640894fb1ef304d4469586e9fc2297
+ms.sourcegitcommit: 637018771ac016b7d428174e88d4dcb131b54959
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66836853"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68842745"
 ---
-# <a name="manage-key-vault-in-azure-stack-using-the-portal"></a>Správa služby Key Vault ve službě Azure Stack pomocí portálu
+# <a name="manage-key-vault-in-azure-stack-using-the-portal"></a>Správa Key Vault v Azure Stack pomocí portálu
 
-Key Vault ve službě Azure Stack můžete spravovat pomocí portálu Azure Stack. Tento článek popisuje, jak vytvářet a spravovat služby key vault ve službě Azure Stack.
+Tento článek popisuje, jak vytvořit a spravovat Trezor klíčů v Azure Stack pomocí portálu Azure Stack.
 
 ## <a name="prerequisites"></a>Požadavky
 
-Můžete musí přihlásit k odběru nabídky, která zahrnuje službu Azure Key Vault.
+Musíte se přihlásit k odběru nabídky, která zahrnuje službu Azure Key Vault.
 
 ## <a name="create-a-key-vault"></a>Vytvořte trezor klíčů
 
-1. Přihlaste se k [portálu user portal](https://portal.local.azurestack.external).
+1. Přihlaste se k [portálu User Portal](https://portal.local.azurestack.external).
 
-2. Z řídicího panelu, vyberte **+ vytvořit prostředek**, pak **zabezpečení + Identita**, pak **služby Key Vault**.
+2. Z řídicího panelu vyberte **+ vytvořit prostředek**a pak **Zabezpečení a identita**a pak **Key Vault**.
 
-    ![Obrazovky služby Key Vault](media/azure-stack-key-vault-manage-portal/image1.png)
+    ![Key Vault obrazovce](media/azure-stack-key-vault-manage-portal/image1.png)
 
-3. V **vytvořit trezor klíčů** podokno, přiřadit **název** pro svůj trezor. Trezor názvy můžou obsahovat jenom alfanumerické znaky a znak spojovníku (-). Nesmí začínat číslicí.
+3. V podokně **vytvořit Key Vault** přiřaďte k trezoru **název** . Názvy trezorů mohou obsahovat pouze alfanumerické znaky a znak spojovníku (-). Nesmí začínat číslicí.
 
-4. Zvolte **předplatné** ze seznamu dostupných předplatných. V rozevíracím seznamu se zobrazí všechna předplatná, která nabízí služby Key Vault.
+4. Vyberte **předplatné** ze seznamu dostupných předplatných. V rozevíracím seznamu se zobrazí všechna předplatná, která nabízejí službu Key Vault.
 
-5. Vyberte existující **skupiny prostředků**, nebo vytvořte novou.
+5. Vyberte existující **skupinu prostředků**nebo vytvořte novou.
 
-6. Vyberte **cenová úroveň**. Trezory klíčů v Azure Stack Development Kit (ASDK), podporu **standardní** pouze skladové položky.
+6. Vyberte **cenovou úroveň**. V Azure Stack Development Kit (ASDK) trezory klíčů podporují pouze **standardní** SKU.
 
-7. Vyberte jednu z existující **zásady přístupu** nebo vytvořte novou. Zásady přístupu můžete udělit oprávnění pro uživatele, aplikace nebo skupinu zabezpečení k provedení operací k tomuto trezoru.
+7. Vyberte jednu z existujících **zásad přístupu** nebo vytvořte novou. Zásady přístupu vám umožňují udělit oprávnění pro uživatele, aplikaci nebo skupinu zabezpečení k provádění operací s tímto trezorem.
 
-8. Volitelně vyberte možnost **zásad přístupu Advanced** umožňuje přístup k funkcím. Příklad: virtuální počítače (VM) pro nasazení Resource Manageru pro nasazení šablony a přístup k Azure Disk Encryption pro šifrování svazku.
+8. Volitelně můžete pro povolení přístupu k funkcím zvolit **zásadu pokročilého přístupu** . Například: virtuální počítače pro nasazení, Správce prostředků pro nasazení šablony a přístup k Azure Disk Encryption pro šifrování svazku.
 
-9. Jakmile konfigurujete nastavení, vyberte **OK**a pak vyberte **vytvořit**. Spustí se nasazení služby key vault.
+9. Po nakonfigurování nastavení vyberte **OK**a pak vyberte **vytvořit**. Tento krok spustí nasazení trezoru klíčů.
 
 ## <a name="manage-keys-and-secrets"></a>Správa klíčů a tajných kódů
 
-Po vytvoření služby key vault, použijte následující postup k vytváření a správě klíčů a tajných kódů v trezoru.
+Po vytvoření trezoru klíčů použijte následující postup k vytvoření a správě klíčů a tajných klíčů v trezoru:
 
 ### <a name="create-a-key"></a>Vytvoření klíče
 
-1. Přihlaste se k [portálu user portal](https://portal.local.azurestack.external).
+1. Přihlaste se k [portálu User Portal](https://portal.local.azurestack.external).
 
-2. Z řídicího panelu, vyberte **všechny prostředky**, vyberte trezor klíčů, který jste vytvořili dříve a pak vyberte **klíče** dlaždici.
+2. Z řídicího panelu vyberte **všechny prostředky**, vyberte Trezor klíčů, který jste vytvořili dříve, a pak vyberte dlaždici **klíče** .
 
-3. V **klíče** vyberte **přidat**.
+3. V podokně **klíče** vyberte **Přidat**.
 
-4. V **vytvořte klíč** podokno, ze seznamu **možnosti**, zvolte metodu, kterou chcete použít k vytvoření klíče. Je možné **generovat** nový klíč, **nahrát** z existujícího klíče, nebo použijte **obnovit zálohování** vyberte zálohování klíče.
+4. V podokně **vytvořit klíč** klikněte v seznamu **možností**na metodu, kterou chcete použít k vytvoření klíče. Můžete **vygenerovat** nový klíč, **nahrát** existující klíč nebo použít **obnovení zálohy** k výběru zálohy klíče.
 
-5. Zadejte **název** pro váš klíč. Název klíče, který může obsahovat jenom alfanumerické znaky a znak spojovníku (-).
+5. Zadejte **název** pro svůj klíč. Název klíče může obsahovat jenom alfanumerické znaky a znak spojovníku (-).
 
-6. Volitelně můžete nakonfigurovat **nastavit datum aktivace** a **nastavit datum vypršení platnosti** hodnoty klíče.
+6. Volitelně nakonfigurujte pro svůj klíč hodnotu **nastavit datum aktivace** a **nastavte datum vypršení platnosti** .
 
-7. Vyberte **vytvořit** ke spuštění nasazení.
+7. Vyberte **vytvořit** a spusťte nasazení.
 
-Po úspěšném vytvoření klíče můžete vybrat za **klíče** a zobrazit nebo upravit její vlastnosti. Obsahuje oddíl properties **identifikátor klíče**, což je identifikátor URI (Uniform Resource), které externí aplikace použít pro přístup k tohoto klíče. K omezení týkající se tohoto klíče, nakonfigurujte nastavení v části **povolené operace**.
+Po úspěšném vytvoření klíče ho můžete vybrat v části **klíče** a zobrazit nebo upravit jeho vlastnosti. Oddíl Properties (vlastnosti) obsahuje **identifikátor klíče**, což je identifikátor URI (Uniform Resource Identifier), který používají externí aplikace pro přístup k tomuto klíči. Pro omezení operací s tímto klíčem nakonfigurujte nastavení v části **povolené operace**.
 
-![Identifikátor URI klíče](media/azure-stack-key-vault-manage-portal/image4.png)
+![Klíč identifikátoru URI](media/azure-stack-key-vault-manage-portal/image4.png)
 
-### <a name="create-a-secret"></a>Vytvoření tajného klíče
+### <a name="create-a-secret"></a>Vytvoření tajného kódu
 
-1. Přihlaste se k [portálu user portal](https://portal.local.azurestack.external).
+1. Přihlaste se k [portálu User Portal](https://portal.local.azurestack.external).
 
-2. Z řídicího panelu, vyberte **všechny prostředky**, vyberte trezor klíčů, který jste vytvořili dříve a pak vyberte **tajných kódů** dlaždici.
+2. Z řídicího panelu vyberte **všechny prostředky**, vyberte Trezor klíčů, který jste vytvořili dříve, a pak vyberte dlaždici **tajných** kódů.
 
-3. V části **tajných kódů**vyberte **přidat**.
+3. V části **tajné klíče**vyberte **Přidat**.
 
-4. V části **vytvoření tajného klíče**, ze seznamu **možnosti nahrání**, zvolte možnost, se kterým se má vytvořit tajný kód. Můžete vytvořit tajný kód **ručně** Pokud zadejte hodnotu pro tajný klíč, nebo nahrát **certifikát** z místního počítače.
+4. V části **vytvořit tajný kód**vyberte v seznamu **možností nahrávání**možnost, se kterou chcete vytvořit tajný kód. Tajný klíč můžete vytvořit **ručně** , pokud zadáte hodnotu pro tajný klíč nebo nahrajete **certifikát** z místního počítače.
 
-5. Zadejte **název** pro tajný kód. Název tajného kódu může obsahovat jenom alfanumerické znaky a znak spojovníku (-).
+5. Zadejte **název** tajného kódu. Název tajného kódu může obsahovat jenom alfanumerické znaky a znak spojovníku (-).
 
-6. Volitelně můžete určit **typ obsahu**a nakonfigurujte hodnoty pro **nastavit datum aktivace** a **nastavit datum vypršení platnosti** pro tajný kód.
+6. Volitelně můžete zadat **typ obsahu**a nakonfigurovat hodnoty pro **nastavení datum aktivace** a **nastavit datum vypršení platnosti** tajného klíče.
 
-7. Vyberte **vytvořit** ke spuštění nasazení.
+7. Vyberte **vytvořit** a spusťte nasazení.
 
-Po úspěšném vytvoření tajného klíče můžete vybrat za **tajných kódů** a zobrazit nebo upravit její vlastnosti. **Identifikátor tajného kódu** je identifikátor URI, který externí aplikace můžete použít pro přístup k tento tajný kód.
+Po úspěšném vytvoření tajného klíče ho můžete vybrat pod **tajnými klíči** a zobrazit nebo upravit jeho vlastnosti. **Identifikátor tajného** kódu je identifikátor URI, který můžou externí aplikace použít pro přístup k tomuto tajnému kódu.
 
-![Identifikátor URI tajného klíče](media/azure-stack-key-vault-manage-portal/image5.png)
+![Tajný kód identifikátoru URI](media/azure-stack-key-vault-manage-portal/image5.png)
 
 ## <a name="next-steps"></a>Další postup
 
-* [Nasazení virtuálního počítače při získání hesel uložených v Key Vault](azure-stack-key-vault-deploy-vm-with-secret.md)
-* [Nasazení virtuálního počítače pomocí certifikátu uloženého ve službě Key Vault](azure-stack-key-vault-push-secret-into-vm.md)
+* [Nasazení virtuálního počítače načtením hesla uloženého v Key Vault](azure-stack-key-vault-deploy-vm-with-secret.md)
+* [Nasazení virtuálního počítače s certifikátem uloženým v Key Vault](azure-stack-key-vault-push-secret-into-vm.md)

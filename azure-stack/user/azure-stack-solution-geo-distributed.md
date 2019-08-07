@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 7f50c1f5cf565040425e0c655585c3d65b837eb3
-ms.sourcegitcommit: 35b13ea6dc0221a15cd0840be796f4af5370ddaf
+ms.openlocfilehash: bac13382c1fe579a04b96274d8f310d5a1737be2
+ms.sourcegitcommit: a0dcb61890ad0f7b8e1f738f7186198681adcc2e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68603142"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68820772"
 ---
 # <a name="create-a-geo-distributed-app-solution-to-direct-traffic-with-azure-and-azure-stack"></a>Vytvořte geograficky distribuované řešení aplikací pro směrování provozu s Azure a Azure Stack
 
@@ -228,7 +228,7 @@ Azure DevOps a Azure DevOps Server poskytují vysoce konfigurovatelný a spravov
     
     ![Přidat proměnnou do nasazení aplikace Azure](media/azure-stack-solution-geo-distributed/image24.png)
 
-19. V obou  artefaktech vyberte ikonu triggeru průběžného nasazování a povolte aktivační událost **pokračování** nasazení.
+19. V obou artefaktech vyberte ikonu triggeru průběžného nasazování a povolte aktivační událost **pokračování** nasazení.
     
     ![Vybrat aktivační událost průběžného nasazování](media/azure-stack-solution-geo-distributed/image25.png)
 
@@ -302,7 +302,7 @@ Následující snímek obrazovky obsahuje příklad stránky záznamů DNS:
 
 2. Přidejte záznam CNAME pro mapování subdomény na výchozí název hostitele aplikace.
 
-   V případě příkladu domény www.northwindcloud.com přidejte záznam CNAME, který mapuje název na < název aplikace\_>. azurewebsites. NET.
+   V příkladu doména\.northwindcloud.com www přidejte záznam CNAME, který mapuje název na název aplikace\_< >. azurewebsites. NET.
 
 Po přidání CNAME bude stránka záznamů DNS vypadat jako v následujícím příkladu:
 
@@ -636,6 +636,6 @@ Aplikace ve výchozím nastavení povolí protokol [TLS](https://wikipedia.org/w
 
 Přímý přenos dat prostřednictvím Azure Traffic Manager a koncových bodů specifických pro zeměpisnou práci umožňuje globálním podnikům dodržovat regionální předpisy a zajistit, aby data byla kompatibilní a zabezpečená, což je zásadní pro úspěch místních i vzdálených obchodních umístění.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - Další informace o vzorech cloudu Azure, najdete v článku [vzory návrhu v cloudu](https://docs.microsoft.com/azure/architecture/patterns).

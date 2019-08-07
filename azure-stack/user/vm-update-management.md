@@ -16,12 +16,12 @@ ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 03/20/2019
-ms.openlocfilehash: cae4c6c5b96dd7bdbd6fcec7859309e0dd995a44
-ms.sourcegitcommit: b3dac698f2e1834491c2f9af56a80e95654f11f3
+ms.openlocfilehash: 891727c8e80af479e800feef9c292f7355fb208c
+ms.sourcegitcommit: 637018771ac016b7d428174e88d4dcb131b54959
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68658681"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68842691"
 ---
 # <a name="vm-update-and-management-automation-in-azure-stack"></a>Automatizace aktualizací a správy virtuálních počítačů v Azure Stack
 Ke správě virtuálních počítačů s Windows a Linux nasazených pomocí Azure Stack použijte následující Azure Automation řešení:
@@ -131,9 +131,10 @@ Zobrazení zjištěných součástí aplikace na virtuálních počítačích s 
 
    ![Karta mapa Azure Monitor virtuálních počítačů](https://docs.microsoft.com/azure/azure-monitor/insights/media/vminsights-maps/map-multivm-azure-monitor-01.png)
 
+V případě, že vám [Azure monitor pro virtuální počítače](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-overview) nezobrazuje žádná data o výkonu, musíte povolit shromažďování údajů o výkonu pro Windows a Linux v rozšířeném nastavení [LogAnalytics pracovního prostoru](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-performance-counters) .
 
 ## <a name="enable-update-management-using-a-resource-manager-template"></a>Povolení Update Management pomocí šablony Správce prostředků
 Pokud máte velký počet Azure Stack virtuálních počítačů, můžete [tuto šablonu Azure Resource Manager](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win) použít k jednoduššímu nasazení řešení na virtuální počítače. Šablona nasadí rozšíření Microsoft Monitoring Agent pro existující virtuální počítač Azure Stack a přidá ho do existujícího pracovního prostoru Azure LogAnalytics.
  
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 [Optimalizace výkonu SQL Server virtuálních počítačů](azure-stack-sql-server-vm-considerations.md)
