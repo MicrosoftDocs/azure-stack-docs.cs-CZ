@@ -16,12 +16,12 @@ ms.date: 07/31/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 07/31/2019
-ms.openlocfilehash: 988c24f004222d80b866024c2c392473cdf73bab
-ms.sourcegitcommit: ddb625bb01de11bfb75d9f7a1cc61d5814b3bc31
+ms.openlocfilehash: 007703facf882eccd594dfb6f78941570c9cfb02
+ms.sourcegitcommit: 8de4c18b25bd1047fc270812a795f24e8f1e9244
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68712939"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68865904"
 ---
 # <a name="collect-azure-stack-diagnostic-logs-now-on-demand"></a>Shromažďovat protokoly diagnostiky Azure Stack hned (na vyžádání)
 
@@ -41,7 +41,7 @@ V případě řešení problému může CSS požádat o operátora Azure Stack k
    ![Snímek obrazovky shromažďování protokolů na vyžádání](media/azure-stack-automatic-log-collection/collect-logs-now.png)
 
 >[!NOTE]
->Pokud je povolená funkce automatického shromažďování protokolů diagnostiky, zobrazí se v **nápovědě a podpoře** , když probíhá shromažďování protokolů. Pokud kliknete na **shromažďovat protokoly** a shromažďovat protokoly z určitou skupinu doby, kdy probíhá automatické shromažďování protokolů, začne shromažďování na vyžádání po dokončení automatického shromažďování protokolů. 
+>Pokud je povolená funkce automatického shromažďování protokolů diagnostiky, zobrazí se v **nápovědě a podpoře** , když probíhá shromažďování protokolů. Pokud kliknete na **shromažďovat protokoly** a shromažďovat protokoly z konkrétního okamžiku, když probíhá automatické shromažďování protokolů, začne shromažďování na vyžádání po dokončení automatického shromažďování protokolů. 
 
 ## <a name="using-pep"></a>Použití PEP
 

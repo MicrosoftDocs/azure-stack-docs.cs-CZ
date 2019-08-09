@@ -16,12 +16,12 @@ ms.date: 04/24/2019
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: c5a53fcd2aa2ec516e5677e85a1516ac10208c3f
-ms.sourcegitcommit: c2690b2dd36918ff3e47e359cac926128bb83101
+ms.openlocfilehash: a64f4682f3fa46bc6213dd12128c61944b7d6dab
+ms.sourcegitcommit: 8de4c18b25bd1047fc270812a795f24e8f1e9244
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68544120"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68865918"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Stažení položek z webu Marketplace z Azure do Azure Stack
 
@@ -50,7 +50,7 @@ Vaše nasazení Azure Stack musí mít připojení k Internetu a musí být zare
 
 2. Před stažením položek z webu Marketplace zkontrolujte dostupný prostor úložiště. Později můžete po výběru položek ke stažení porovnat velikost stahovaných zařízení s dostupnou kapacitou úložiště. Pokud je kapacita omezená, zvažte možnosti [správy dostupného místa](azure-stack-manage-storage-shares.md#manage-available-space). 
 
-    Chcete-li zkontrolovat dostupné místo, v části **Správa oblastí** vyberte oblast, kterou chcete prozkoumat, a pak  > v části poskytovatelé prostředků**úložiště**:
+    Chcete-li zkontrolovat dostupné místo, v části **Správa oblastí** vyberte oblast, kterou chcete prozkoumat, a pak > v části poskytovatelé prostředků**úložiště**:
 
     ![Kontrola prostoru úložiště](media/azure-stack-download-azure-marketplace-item/storage.png)
 
@@ -77,7 +77,7 @@ Pokud je Azure Stack v odpojeném režimu a bez připojení k Internetu, můžet
 Nástroj syndikace na webu Marketplace se dá použít taky v připojeném scénáři. 
 
 Tento scénář obsahuje dvě části:
-- **Část 1:** Stažení z Azure Marketplace. Na počítači s přístupem k Internetu konfigurujete PowerShell, stáhnete nástroj pro syndikaci a potom stáhnete položky z Azure Marketplace.  
+- **Část 1:** Stažení z Azure Marketplace. Na počítači s přístupem k Internetu konfigurujete PowerShell, stáhnete nástroj syndikace a pak stáhnete položky z Azure Marketplace.  
 - **Část 2:** Nahrajte a publikujte na webu Azure Stack Marketplace. Soubory, které jste stáhli do prostředí Azure Stack, přesouváte, naimportujete do Azure Stack a pak je publikujete na Azure Stack Marketplace.  
 
 
@@ -203,7 +203,7 @@ Tento scénář obsahuje dvě části:
 
 3. Importujte bitovou kopii VHD do Azure Stack pomocí rutiny **Add-AzsPlatformimage** . Když použijete tuto rutinu, nahraďte *vydavatele*, *nabídku*a další hodnoty parametrů hodnotami obrázku, který importujete. 
 
-   Z textového souboru, který se stahuje souborem AZPKG, můžete získat hodnoty z *obrázku,* *nabídky*a *SKU* . Textový soubor je uložený v cílovém umístění. Hodnota *verze* je zjištěná verze při stahování položky z Azure v předchozím postupu. 
+   Z textového souboru,který se STAHUJE souborem AZPKG, můžete získat hodnoty z obrázku, *nabídky*a *SKU* . Textový soubor je uložený v cílovém umístění. Hodnota *verze* je zjištěná verze při stahování položky z Azure v předchozím postupu. 
  
    V následujícím ukázkovém skriptu se používají hodnoty pro virtuální počítač jádro Windows serveru 2016 Datacenter-Server. Hodnota vlastnosti *-Osuri* je příkladem cesty k umístění úložiště objektů BLOB pro položku.
 

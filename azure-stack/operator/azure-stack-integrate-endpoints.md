@@ -9,22 +9,26 @@ ms.topic: article
 ms.date: 07/30/2019
 ms.author: mabrigg
 ms.reviewer: wamota
-ms.lastreviewed: 07/30/2019
-ms.openlocfilehash: b97d542c5a885078fa80108cdb0c16e6ccb79b98
-ms.sourcegitcommit: 0e0d010c4e010f2fd6799471db8bf71652d8d4e1
+ms.lastreviewed: 08/05/2019
+ms.openlocfilehash: 6ffd13982a4acf90896b152adcee360e34c02b79
+ms.sourcegitcommit: 8de4c18b25bd1047fc270812a795f24e8f1e9244
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68806953"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68865888"
 ---
-# <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Integrace Azure Stack Datacenter – publikování koncových bodů
+# <a name="azure-stack-datacenter-integration---publish-azure-stack-services"></a>Integrace Azure Stack Datacenter – publikování Azure Stackch služeb
 
-Azure Stack nastaví virtuální IP adresy (VIP) pro své role infrastruktury. Tyto VIP adresy se přiřazují z fondu veřejných IP adres. Každá virtuální IP adresa je zabezpečená pomocí seznamu řízení přístupu (ACL) ve vrstvě softwarově definované sítě. Seznamy řízení přístupu (ACL) se používají také napříč fyzickými přepínači (tory a BMC) k dalšímu posílení zabezpečení řešení. Položka DNS se vytvoří pro každý koncový bod v externí zóně DNS, která se zadala v době nasazení.
-
+Azure Stack nastaví virtuální IP adresy (VIP) pro své role infrastruktury. Tyto VIP adresy se přiřazují z fondu veřejných IP adres. Každá virtuální IP adresa je zabezpečená pomocí seznamu řízení přístupu (ACL) ve vrstvě softwarově definované sítě. Seznamy řízení přístupu (ACL) se používají také napříč fyzickými přepínači (tory a BMC) k dalšímu posílení zabezpečení řešení. Položka DNS se vytvoří pro každý koncový bod v externí zóně DNS, která se zadala v době nasazení. Například uživatelský portál má přiřazenou položku hostitel DNS na portálu.  *>oblasti&lt;&lt; plně kvalifikovaný název domény >* .
 
 Následující diagram architektury znázorňuje různé vrstvy sítě a seznamy ACL:
 
 ![Strukturální obrázek](media/azure-stack-integrate-endpoints/Integrate-Endpoints-01.png)
+
+### <a name="ports-and-urls"></a>Porty a adresy URL
+Chcete-li zpřístupnit Azure Stack služby (například portály, Azure Resource Manager, DNS atd.) k dispozici pro externí sítě, musíte povolit příchozí provoz do těchto koncových bodů pro konkrétní adresy URL, porty a protokoly.
+ 
+V nasazení, kde transparentní proxy odchozí připojení k tradičnímu proxy server nebo brána firewall chrání řešení, musíte povolit konkrétní porty a adresy URL pro [příchozí](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound) i [odchozí](azure-stack-integrate-endpoints.md#ports-and-urls-outbound) komunikaci. Patří mezi ně porty a adresy URL pro identitu, tržiště, opravu a aktualizace, registrace a data o využití.
 
 ## <a name="ports-and-protocols-inbound"></a>Porty a protokoly (příchozí)
 
