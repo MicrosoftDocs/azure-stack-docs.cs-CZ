@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/05/2019
+ms.date: 08/09/2019
 ms.author: sethm
 ms.reviewer: ihcherie
-ms.lastreviewed: 08/05/2019
-ms.openlocfilehash: 76ce6d491969913ad48486fd9004f7686af8e6f3
-ms.sourcegitcommit: 0e0d010c4e010f2fd6799471db8bf71652d8d4e1
+ms.lastreviewed: 08/09/2019
+ms.openlocfilehash: b1085c22533530402d322702ca26c078c9cc7e4a
+ms.sourcegitcommit: 6239b35370d21852529978777c0e39cfba5a4552
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68807092"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68917602"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Marketplace položky k dispozici pro Azure Stack
 
@@ -88,6 +88,7 @@ Microsoft Azure Stack podporuje následující Azure Marketplace virtuální po�
 | ![Kontejner Linux od CoreOS](media/azure-stack-marketplace-azure-items/coreos.png) | [Kontejner Linux od CoreOS](https://azuremarketplace.microsoft.com/marketplace/apps/CoreOS.CoreOS) | Kontejner Linux je moderní a minimální distribuce systému Linux, která poskytuje snadný způsob, jak spouštět kontejnery, spravovat clustery a plynule aktualizovat servery – všechny komponenty, které umožňují výpočetní služby na úrovni skladu. | CoreOS |
 | ![Ubuntu Server](media/azure-stack-marketplace-azure-items/ubuntu.png) | [Ubuntu Server](https://azuremarketplace.microsoft.com/marketplace/apps/Canonical.UbuntuServer) | Ubuntu Server je nejoblíbenější Linux pro cloudová prostředí na světě. | Canonical |
 | ![Debian 8 "Jessie"](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.Debian) | Debian GNU/Linux je jednou z nejoblíbenějších distribucí systému Linux. | credativ |
+| ![Oracle Linux](media/azure-stack-marketplace-azure-items/oracle.png) | [Oracle Linux](https://azuremarketplace.microsoft.com/marketplace/apps/oracle.oracle-linux) | Oracle Linux operační systém je navržený pro otevřenou infrastrukturu cloudu. Nabízí špičkový výkon, škálovatelnost a spolehlivost pro úlohy podnikových SaaS a PaaS a také tradiční podnikové aplikace. | Oracle |
 | ![CentOS-based 6,8](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS-based 6,8](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased68HPC) | Tato distribuce systému Linux je založena na CentOS a je poskytována neautorizovaným softwarem Wave. | Podvodný software Wave (dříve OpenLogic)  |
 | ![CentOS-based 6,10](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS-based 6,10](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased610) | Tato distribuce systému Linux je založena na CentOS a je poskytována neautorizovaným softwarem Wave. | Podvodný software Wave (dříve OpenLogic)  |
 | ![Distribuce založené na CentOS 7.3](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS-based 7,3](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased73HPC) | Tato distribuce systému Linux je založena na CentOS a je poskytována neautorizovaným softwarem Wave. | Podvodný software Wave (dříve OpenLogic) |

@@ -1,32 +1,32 @@
 ---
-title: Nasazení C# webovou aplikaci ASP.NET do virtuálního počítače ve službě Azure Stack | Dokumentace Microsoftu
-description: Nasazení C# webové aplikace ASP.NET do virtuálního počítače ve službě Azure Stack.
+title: Nasazení webové C# aplikace v ASP.NET do virtuálního počítače v Azure Stack | Microsoft Docs
+description: Nasazení webové C# aplikace v ASP.NET do virtuálního počítače v Azure Stack.
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: overview
-ms.date: 04/24/2019
+ms.date: 08/09/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 04/24/2019
-ms.openlocfilehash: 14baf5d5ca411e7c32cbfcf4a6138193a2215b0a
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.lastreviewed: 08/09/2019
+ms.openlocfilehash: beddafb351af39f0a21a1cd0d7a7baa4ccfee28e
+ms.sourcegitcommit: 94669fe8a55fadd3103e80be307e9e8c823bf746
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65783087"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68940280"
 ---
-# <a name="deploy-a-c-aspnet-web-app-to-a-vm-in-azure-stack"></a>Nasazení C# webové aplikace ASP.NET do virtuálního počítače ve službě Azure Stack
+# <a name="deploy-a-c-aspnet-web-app-to-a-vm-in-azure-stack"></a>Nasazení webové C# aplikace v ASP.NET do virtuálního počítače v Azure Stack
 
-Můžete vytvořit virtuální počítač (VM) na hostiteli vaše C# webové aplikace ASP.NET ve službě Azure Stack. Tento článek popisuje pokyny k nastavování vašeho serveru, nakonfigurujte jej pro hostování vašeho C# webová aplikace ASP.NET a pak nasadíte aplikaci přímo z Visual Studia.
+Můžete vytvořit virtuální počítač pro hostování webové aplikace v C# ASP.NET v Azure Stack. Tento článek popisuje pokyny, které je třeba provést při nastavování serveru, jeho konfiguraci pro hostování C# webové aplikace v ASP.NET a následné nasazení aplikace přímo ze sady Visual Studio.
 
-Tento článek používá C# 6.0 aplikaci, která používá 2.2 technologie ASP.NET Core běží na serveru Windows 2016.
+V tomto článku se C# používá aplikace 6,0, která používá ASP.NET Core 2,2 spuštěnou na serveru Windows 2016.
 
 ## <a name="create-a-vm"></a>Vytvoření virtuálního počítače
 
-1. Vytvoření [virtuálního počítače s Windows serverem](azure-stack-quick-windows-portal.md).
+1. Vytvořte [virtuální počítač s Windows serverem](azure-stack-quick-windows-portal.md).
 
-1. Chcete-li nainstalovat službu IIS (s konzolou pro správu) a ASP.NET 4.6 součásti na svém virtuálním počítači, spusťte následující skript:
+1. Pokud chcete na svém VIRTUÁLNÍm počítači nainstalovat komponenty IIS (s konzolou pro správu) a součásti ASP.NET 4,6, spusťte následující skript:
 
     ```PowerShell  
     # Install IIS (with Management Console)
@@ -39,96 +39,96 @@ Tento článek používá C# 6.0 aplikaci, která používá 2.2 technologie ASP
     Install-WindowsFeature -Name Web-Mgmt-Service
     ```
 
-1. Stáhněte si [Webdeploy v3.6](https://www.microsoft.com/download/details.aspx?id=43717). Instalace ze souboru MSI a pak povolte všechny funkce.
+1. Stáhněte [nasazení webu v 3.6](https://www.microsoft.com/download/details.aspx?id=43717). Nainstalujte ji ze souboru MSI a pak povolte všechny funkce.
 
-1. Instalaci sady hostování aplikace .NET Core 2.2 na vašem serveru. Pokyny najdete v tématu [instalačního programu .NET Core](https://dotnet.microsoft.com/download/dotnet-core/2.2). Ujistěte se, že používáte stejnou verzi nástroje .NET Core na počítači pro vývoj a cílový server.
+1. Nainstalujte na server hostující sadu .NET Core 2,2. Pokyny najdete v tématu [instalační program .NET Core](https://dotnet.microsoft.com/download/dotnet-core/2.2). Ujistěte se, že používáte stejnou verzi .NET Core jak na vývojovém počítači, tak i na cílovém serveru.
 
-1. Na portálu Azure Stack otevřete porty, které jsou uvedeny v nastavení sítě pro virtuální počítač.
+1. Na portálu Azure Stack otevřete porty, které jsou uvedené v nastavení sítě pro váš virtuální počítač.
 
-    a. Otevřete na portálu Azure Stack pro vašeho tenanta.
+    a. Otevřete portál Azure Stack pro vašeho tenanta.
 
-    b. Vyhledávání pro virtuální počítač. Virtuální počítač může mít připnout na řídicí panel nebo vám ho můžete vyhledat v **vyhledat prostředky** pole.
+    b. Vyhledejte svůj virtuální počítač. Je možné, že jste virtuální počítač připnuli k řídicímu panelu, nebo ho můžete vyhledat v poli **Hledat prostředky** .
 
     c. Vyberte **sítě**.
 
-    d. Vyberte **přidat pravidlo portu pro příchozí spojení** v rámci virtuálního počítače.
+    d. V části virtuální počítač vyberte **Přidat pravidlo portu pro příchozí spojení** .
 
-    e. Přidáte příchozí pravidlo zabezpečení pro následující porty:
+    e. Přidejte příchozí pravidlo zabezpečení pro následující porty:
 
     | Port | Protocol | Popis |
     | --- | --- | --- |
-    | 80 | HTTP | Protokol HTTP (Hypertext Transfer) je protokol použitý k doručování webových stránek ze serverů. Klienti se připojují přes protokol HTTP s názvem DNS nebo IP adresu. |
-    | 443 | HTTPS | Protokol zabezpečení HTTPS (Hypertext Transfer) je zabezpečený verzi protokolu HTTP, který vyžaduje certifikát zabezpečení a umožňuje šifrovaného přenosu informací.  |
-    | 22 | SSH | Secure Shell (SSH) je protokol šifrovaných sítí pro zabezpečenou komunikaci. Toto připojení použijete s klientem SSH ke konfiguraci virtuálního počítače a nasazení aplikace. |
-    | 3389 | Protokol RDP | Volitelné. Remote Desktop Protocol umožňuje připojení ke vzdálené ploše použít grafické uživatelské rozhraní vašeho počítače.   |
-    | 8080 | Vlastní | Výchozí port pro službu Apache Tomcat je 8080. Pro produkční server budete chtít směrovat provoz přes 80 a 443. |
+    | 80 | HTTP | HTTP (Hypertext Transfer Protocol) je protokol používaný k doručování webových stránek ze serverů. Klienti se připojují přes protokol HTTP s názvem DNS nebo IP adresou. |
+    | 443 | HTTPS | Protokol HTTPS (Hypertext Transfer Protocol Secure) je zabezpečená verze protokolu HTTP, která vyžaduje certifikát zabezpečení a umožňuje šifrovaný přenos informací.  |
+    | 22 | SSH | Secure Shell (SSH) je zašifrovaný síťový protokol pro zabezpečenou komunikaci. K nakonfigurování virtuálního počítače a nasazení aplikace použijete toto připojení k klientovi SSH. |
+    | 3389 | PROTOKOL RDP | Volitelné. Protokol RDP (Remote Desktop Protocol) umožňuje připojení ke vzdálené ploše pro použití grafického uživatelského rozhraní vašeho počítače.   |
+    | 8172 | Vlastní | Port používaný nástrojem WebDeploy. |
 
-    Pro každý z portů:
+    Pro každý port:
 
-    a. Pro **zdroj**vyberte **jakékoli**.
+    a. Jako **zdroj**vyberte **libovolný**.
 
-    b. Pro **zdrojový rozsah portů**, zadejte hvězdičku (**\***).
+    b. Jako **rozsah zdrojového portu**zadejte hvězdičku ( **\*** ).
 
-    c. Pro **cílové**vyberte **jakékoli**.
+    c. Jako **cíl**vyberte **libovolný**.
 
-    d. Pro **rozsah cílových portů**, přidejte port, který chcete spustit.
+    d. Pro **Rozsah cílových portů**přidejte port, který chcete otevřít.
 
-    e. Pro **protokol**vyberte **jakékoli**.
+    e. V případě **protokolu**vyberte možnost **libovolný**.
 
     f. V části **Akce** vyberte **Povolit**.
 
-    g. Pro **Priority**, ponechte výchozí výběr.
+    g. V poli **Priorita**ponechte výchozí výběr.
 
-    h. Zadejte **název** a **popis** který usnadní zapamatování, proč je otevřený port.
+    h. Zadejte **název** a **Popis** , který vám pomůžete mít na paměti, proč je port otevřený.
 
     i. Vyberte **Přidat**.
 
-1.  V **sítě** nastavení pro váš virtuální počítač ve službě Azure Stack, vytvoření názvu DNS pro váš server. Uživatelé můžou připojit k webu pomocí adresy URL.
+1.  V nastavení **sítě** pro virtuální počítač v Azure Stack vytvořte název DNS pro váš server. Uživatelé se můžou k webu připojit pomocí adresy URL.
 
-    a. Otevřete na portálu Azure Stack pro vašeho tenanta.
+    a. Otevřete portál Azure Stack pro vašeho tenanta.
 
-    b. Vyhledávání pro virtuální počítač. Virtuální počítač může mít připnout na řídicí panel nebo vám ho můžete vyhledat v **vyhledat prostředky** pole.
+    b. Vyhledejte svůj virtuální počítač. Je možné, že jste virtuální počítač připnuli k řídicímu panelu, nebo ho můžete vyhledat v poli **Hledat prostředky** .
 
     c. Vyberte **Přehled**.
 
-    d. V části **VM**vyberte **konfigurovat**.
+    d. V části **virtuální počítač**vyberte **Konfigurovat**.
 
-    e. Pro **přiřazení**vyberte **dynamické**.
+    e. Jako **přiřazení**vyberte **Dynamická**.
 
-    f. Zadejte popisek názvu DNS, jako například **mywebapp**, aby se stal úplnou adresu URL *mywebapp.local.cloudapp.azurestack.external*.
+    f. Zadejte popisek názvu DNS, například **MyWebApp**, aby se vaše úplná adresa URL stala *MyWebApp. Local. cloudapp. azurestack. external*.
 
 ## <a name="create-an-app"></a>Vytvoření nové aplikace 
 
-Můžete použít vlastní webové aplikace nebo v příkladu v [publikování aplikace ASP.NET Core do Azure pomocí sady Visual Studio](https://docs.microsoft.com/aspnet/core/tutorials/razor-pages/razor-pages-start?view=aspnetcore-2.2&tabs=visual-studio
-). Tento článek popisuje, jak vytvářet a publikovat webovou aplikaci ASP.NET na virtuálním počítači Azure s použitím publikování funkce Azure Virtual Machines v sadě Visual Studio 2017. Po instalaci a zkontrolujte, že vaše aplikace běží místně, budete aktualizovat váš cíl publikování do virtuálního počítače Windows ve vaší instanci služby Azure Stack.
+V [aplikaci Visual Studio](https://docs.microsoft.com/aspnet/core/tutorials/razor-pages/razor-pages-start?view=aspnetcore-2.2&tabs=visual-studio
+)můžete použít vlastní webovou aplikaci nebo příklad publikování aplikace ASP.NET Core do Azure. Tento článek popisuje, jak vytvořit a publikovat webovou aplikaci v ASP.NET na virtuálním počítači Azure pomocí funkce publikování v Azure Virtual Machines v aplikaci Visual Studio 2017. Po instalaci a zajistěte, aby vaše aplikace běžela místně, aktualizujte svůj cíl publikování na virtuální počítač s Windows ve vaší instanci Azure Stack.
 
 ## <a name="deploy-and-run-the-app"></a>Nasazení a spuštění aplikace
 
-Vytvořte cíl publikování do virtuálního počítače ve službě Azure Stack.
+Vytvořte cíl publikování na svém VIRTUÁLNÍm počítači v Azure Stack.
 
-1. V **Průzkumníka řešení**, klikněte pravým tlačítkem na projekt a pak vyberte **publikovat**.
+1. V **Průzkumník řešení**klikněte pravým tlačítkem myši na projekt a pak vyberte **publikovat**.
 
-    ![Nasazení webové aplikace ASP.NET do služby Azure Stack publikování](media/azure-stack-dev-start-howto-vm-dotnet/deploy-app-to-azure-stack.png)
+    ![Nasazení webové aplikace v ASP.NET pro publikování Azure Stack](media/azure-stack-dev-start-howto-vm-dotnet/deploy-app-to-azure-stack.png)
 
-1. V **publikovat** okně **nový profil**.
-1. Vyberte **IIS**, **FTP**, a tak dále.
+1. V okně **publikovat** vyberte **Nový profil**.
+1. Vyberte **IIS**, **FTP**a tak dále.
 1. Vyberte **Publikovat**.
-1. Pro **metodu publikování**vyberte **Webdeploy**.
-1. Pro **Server** zadejte název DNS, který jste definovali dříve, jako například *w21902.local.cloudapp.azurestack.external*.
-1. Pro **název lokality**, zadejte **výchozí webový server**.
-1. Pro **uživatelské jméno**, zadejte uživatelské jméno pro počítač.
-1. Pro **heslo**, zadejte heslo pro tento počítač.
-1. Pro **cílovou adresu URL**, zadejte adresu URL pro web, jako například *mywebapp.local.cloudapp.azurestack.external*.
+1. V případě **metody publikování**vyberte **nasazení webu**.
+1. Jako **Server** zadejte název DNS, který jste definovali dříve, například *w21902. Local. cloudapp. azurestack. external*.
+1. Jako **název webového serveru**zadejte **výchozí web**.
+1. Do pole **uživatelské jméno**zadejte uživatelské jméno počítače.
+1. Jako **heslo**zadejte heslo pro tento počítač.
+1. V poli **cílová adresa URL**zadejte adresu URL pro web, například *MyWebApp. Local. cloudapp. azurestack. external*.
 
-    ![Nasazení webové aplikace ASP.NET – nakonfigurujete nástroj nasazení webu](media/azure-stack-dev-start-howto-vm-dotnet/configure-web-deploy.png)
+    ![Nasazení webové aplikace v ASP.NET – konfigurace Nasazení webu](media/azure-stack-dev-start-howto-vm-dotnet/configure-web-deploy.png)
 
-1. K ověření vaší konfigurace nasazení webu, vyberte **ověřit připojení**a pak vyberte **Další**.
-1. Nastavte **konfigurace** jako **vydání**.
-1. Nastavte **cílové rozhraní Framework** jako **netcoreapp2.2**.
-1. Nastavte **cílit na modul Runtime** jako **přenosné**.
+1. Pokud chcete ověřit konfiguraci webového nasazení, vyberte **ověřit připojení**a pak vyberte **Další**.
+1. Nastavte **konfiguraci** jako **verzi**.
+1. Nastavte **cílové rozhraní .NET Framework** jako **netcoreapp 2.2**.
+1. Nastavte **cílový modul runtime** jako **přenosný**.
 1. Vyberte **Uložit**.
 1. Vyberte **Publikovat**.
-1. Přejdete na nový server. Měli byste vidět spuštěné webové aplikace.
+1. Přejít na nový server. Měla by se zobrazit vaše spuštěná webová aplikace.
 
     ```http  
         mywebapp.local.cloudapp.azurestack.external
@@ -136,6 +136,6 @@ Vytvořte cíl publikování do virtuálního počítače ve službě Azure Stac
 
 ## <a name="next-steps"></a>Další postup
 
-- Zjistěte, jak [nastavení vývojového prostředí ve službě Azure Stack](azure-stack-dev-start.md).
-- Další informace o [běžné nasazení pro službu Azure Stack jako IaaS](azure-stack-dev-start-deploy-app.md).
-- Další informace C# programovací jazyk a najít další zdroje informací o C#, najdete v článku [ C# Průvodce](https://docs.microsoft.com/dotnet/csharp/)
+- Přečtěte si, jak [nastavit vývojové prostředí v Azure Stack](azure-stack-dev-start.md).
+- Přečtěte si o [běžných nasazeních Azure Stack jako IaaS](azure-stack-dev-start-deploy-app.md).
+- Informace o C# programovacím jazyce a hledání dalších prostředků pro C#najdete v [ C# průvodci](https://docs.microsoft.com/dotnet/csharp/) .
