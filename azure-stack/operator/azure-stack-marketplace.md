@@ -1,6 +1,6 @@
 ---
-title: Zveřejnění položky marketplace vlastní ve službě Azure Stack (operátor cloudu) | Dokumentace Microsoftu
-description: Jako operátory Azure stacku zjistěte, jak publikovat vlastní marketplace položku ve službě Azure Stack.
+title: Publikování vlastní položky Marketplace v Azure Stack (operátor cloudu) | Microsoft Docs
+description: Jako operátor Azure Stack se dozvíte, jak publikovat vlastní položku Marketplace v Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -12,47 +12,47 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 08/12/2019
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: d00f7f90f05eddaeb52555a1759187b8282aaf1a
-ms.sourcegitcommit: 593d40bccf1b2957a763017a8a2d7043f8d8315c
+ms.openlocfilehash: be62ddc3c3e5ea7180164cac95edd125030cbc6a
+ms.sourcegitcommit: 58c28c0c4086b4d769e9d8c5a8249a76c0f09e57
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67152497"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68959502"
 ---
-# <a name="azure-stack-marketplace-overview"></a>Přehled služby Azure Stack Marketplace
+# <a name="azure-stack-marketplace-overview"></a>Přehled Azure Stack Marketplace
 
-*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
 
-Tržiště Azure Stack je kolekce služeb, aplikací a prostředků, které jsou přizpůsobené pro službu Azure Stack. Prostředky patří sítě, virtuální počítače, úložiště a další. Tržiště můžete využít k vytvoření nových prostředků a nasazení nové aplikace; nebo procházet a vyberte položky, které chcete použít. Pokud chcete použít položky Marketplace, musí uživatelé přihlásit k nabídky, která jim uděluje přístup k položce.
+Azure Stack Marketplace je kolekce služeb, aplikací a prostředků přizpůsobených pro Azure Stack. Prostředky zahrnují sítě, virtuální počítače, úložiště a další. Pomocí Marketplace můžete vytvářet nové prostředky a nasazovat nové aplikace. nebo vyhledejte a vyberte položky, které chcete použít. Chcete-li použít položku Marketplace, uživatelé se musí přihlásit k odběru nabídky, která jim udělí přístup k této položce.
 
-Jako operátory Azure stacku, rozhodnete položky, které chcete přidat (publikování) na webu Marketplace. Můžete publikovat položky, jako jsou databáze, aplikační služby a tak dále. Publikování jsou viditelné všem uživatelům. Můžete publikovat vlastní položky, které vytvoříte, nebo můžete publikovat položky z stále se rozšiřující [seznam položek z Azure Marketplace](azure-stack-marketplace-azure-items.md). Při publikování položky Marketplace, uživatelé je můžou zobrazit během pěti minut.
+Jako operátor Azure Stack rozhodujete, které položky Přidat (publikovat) na webu Marketplace. Můžete publikovat položky, jako jsou databáze, App Services a další. Publikování zpřístupňuje položky všem uživatelům. Můžete publikovat vlastní položky, které vytvoříte, nebo můžete publikovat položky z rostoucího [seznamu Azure Marketplace položek](azure-stack-marketplace-azure-items.md). Když publikujete položku na webu Marketplace, uživatelé ji uvidí během pěti minut.
 
 > [!CAUTION]  
-> Všechny artefakty položky galerie, včetně obrázků a soubory JSON, jsou přístupné bez ověřování po provedení dostupných v Tržišti Azure Stack. Další aspekty při publikování položky marketplace vlastní, naleznete v tématu [vytvoření a publikování položky Marketplace](azure-stack-create-and-publish-marketplace-item.md).
+> Všechny artefakty položek galerie, včetně obrázků a souborů JSON, jsou přístupné bez ověřování po jejich zpřístupnění na Azure Stack Marketplace. Další informace o publikování vlastních položek Marketplace najdete v tématu [Vytvoření a publikování položky Marketplace](azure-stack-create-and-publish-marketplace-item.md).
 
-Chcete-li otevřít na webu Marketplace, v portálu vyberte správce **+ vytvořit prostředek**.
+Pokud chcete otevřít Marketplace, na portálu pro správu vyberte **+ vytvořit prostředek**.
 
 ![Marketplace](media/azure-stack-marketplace/marketplace1.png)
 
 ## <a name="marketplace-items"></a>Položky Marketplace
 
-Položka Azure Stack Marketplace je služby, aplikace nebo prostředku, které uživatelé můžou stáhnout a použít. Všechny položky Azure Marketplace zásobníku jsou viditelné pro všechny uživatele, včetně položky pro správu, jako je například plány a nabídky. Tyto položky se nevyžaduje předplatné zobrazení, ale jsou uživatelům nefunkční.
+Položka Azure Stack Marketplace je služba, aplikace nebo prostředek, kterou si uživatelé můžou stáhnout a používat. Všechny položky Azure Stack Marketplace jsou viditelné všem uživatelům, včetně položek pro správu, jako jsou plány a nabídky. Tyto položky správy nevyžadují zobrazení předplatného, ale uživatelům nejsou funkční.
 
-Má každá položka Marketplace:
+Každá položka tržiště má:
 
-* Šablony Azure Resource Manageru pro zřizování prostředků.
-* Metadata, například řetězce, ikony a další marketingové materiály.
-* Informace o formátování k zobrazení položek v portálu.
+* Šablona Azure Resource Manager pro zřizování prostředků
+* Metadata, jako jsou řetězce, ikony a další marketingové materiály.
+* Formátování informací pro zobrazení položky na portálu.
 
-Všechny položky na webu Marketplace publikovat ve formátu balíčku Galerie Azure (.azpkg). Přidat nasazení nebo modul runtime prostředky (kód, soubory ZIP s softwaru nebo Image virtuálních počítačů) do služby Azure Stack samostatně, nikoli jako součást položky Marketplace.
+Každá položka publikovaná na webu Marketplace používá formát balíčku Galerie Azure (. azpkg). Přidejte prostředky pro nasazení nebo modul runtime (soubory s příponou. zip s software nebo image virtuálních počítačů), které se Azure Stack samostatně, nikoli jako součást položky Marketplace.
 
-Verze 1803 nebo novější Azure Stack imagí při převádí na zhuštěné soubory stáhnou z Azure nebo při nahrání vlastních imagí. Tento postup přidá čas při přidávání obrázku, ale šetří místo a urychluje nasazení těchto imagí. Převod platí jenom pro nové Image. Existující Image se nezmění.
+S verzí 1803 a novějším Azure Stack při stahování z Azure nebo při nahrávání vlastních imagí převádět obrázky na řídké soubory. Tento proces přidá čas při přidávání obrázku, ale šetří místo a zrychluje nasazení těchto imagí. Převod se vztahuje pouze na nové image. Existující image se nemění.
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 * [Stažení položek z Marketplace](azure-stack-download-azure-marketplace-item.md)  
 * [Vytvoření a publikování položky Marketplace](azure-stack-create-and-publish-marketplace-item.md)
