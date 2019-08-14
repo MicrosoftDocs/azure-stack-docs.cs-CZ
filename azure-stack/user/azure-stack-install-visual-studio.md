@@ -12,16 +12,16 @@ ms.workload: azure-vs
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/08/2019
+ms.date: 08/13/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 12f0b8d13ebaa7a31153dd89f65f27fd97294700
-ms.sourcegitcommit: 637018771ac016b7d428174e88d4dcb131b54959
+ms.openlocfilehash: 19d532cd85244f69d1a969e92ca302822abf0133
+ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68842941"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68991679"
 ---
 # <a name="install-visual-studio-and-connect-to-azure-stack"></a>Instalace sady Visual Studio a připojení k Azure Stack
 
@@ -87,7 +87,7 @@ Po přihlášení můžete [nasadit šablony](azure-stack-deploy-template-visual
 
 8. Procházejte stávající prostředky, skupiny prostředků nebo nasaďte šablony.
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 - Další informace o Visual Studiu najdete [vedle](/visualstudio/install/install-visual-studio-versions-side-by-side) ostatních verzí sady Visual Studio.
 - [Vývoj šablon pro Azure Stack](azure-stack-develop-templates.md).

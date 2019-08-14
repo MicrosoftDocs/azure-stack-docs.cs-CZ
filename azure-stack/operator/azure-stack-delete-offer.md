@@ -1,6 +1,6 @@
 ---
-title: Odstranit kvóty, plány, nabídky a předplatné | Dokumentace Microsoftu
-description: Zjistěte, jak odstranit kvót služby Azure Stack, plány, nabídky a předplatné.
+title: Odstranění kvót, plánů, nabídek a předplatných | Microsoft Docs
+description: Naučte se odstraňovat Azure Stack kvóty, plány, nabídky a odběry.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -11,72 +11,72 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/25/2019
+ms.date: 08/13/2019
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 04/25/2019
-ms.openlocfilehash: 2e0e4ef7abd1885d843832ed7cc9e845003d0ed7
-ms.sourcegitcommit: 593d40bccf1b2957a763017a8a2d7043f8d8315c
+ms.openlocfilehash: fca26723c062dd9f5155030fb11c8e1d695bf5f1
+ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67152538"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68991812"
 ---
-# <a name="delete-quotas-plans-offers-and-subscriptions"></a>Odstranit kvóty, plány, nabídky a předplatné
+# <a name="delete-quotas-plans-offers-and-subscriptions"></a>Odstranění kvót, plánů, nabídek a předplatných
 
-*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
 
-Tento článek popisuje, jak odstranit kvóty, plány, nabídky a předplatné, které už nepotřebujete. Jako zásadně můžete odstranit pouze co se nepoužívá. Například odstranění nabídky je možné, pouze pokud nejsou žádná předplatná, které patří do této nabídky.
+Tento článek popisuje, jak odstranit kvóty, plány, nabídky a odběry, které už nepotřebujete. Obecně platí, že můžete odstranit pouze to, co se nepoužívá. Například odstranění nabídky je možné pouze v případě, že nejsou k dispozici žádná předplatná, která patří do této nabídky.
 
-Předplatná se výjimky této obecné zásady: můžete odstraňovat odběry, které obsahují prostředky; a prostředky se odstraní spolu s předplatné.
+Odběry jsou výjimkou tohoto obecného principu: můžete odstranit odběry, které obsahují prostředky. a prostředky se odstraní spolu s předplatným.
 
-Proto pokud chcete odstranit kvótu, musíte pracovat zpět prostřednictvím všechny plány a nabídky, které používají tuto kvótu: spouští se s nabídkami, zkontrolujte, jestli nemáte žádná předplatná, odstraňte každá nabídka potom odstranit plány, které používají kvóty a tak dále.
+Proto pokud chcete kvótu odstranit, musíte se vrátit zpátky pomocí všech plánů a nabídek, které tuto kvótu používají: počínaje nabídkami, zajistěte, aby nemají žádná předplatná, odstraňte jednotlivé nabídky a pak odstraňte plány, které kvótu používají, a tak dále.
 
-## <a name="delete-a-subscription"></a>Odstranění předplatného
+## <a name="delete-a-subscription"></a>Odstraní předplatné
 
-Chcete-li odstranit odběr, vyberte **všechny služby**, pak **předplatná uživatelů**, chcete-li zobrazit seznam všech předplatných v systému. Pokud pracujete na nabídku, můžete také vybrat **předplatná** z něj.
+Pokud chcete odběr odstranit, vyberte **všechny služby**a potom **předplatné uživatele**, abyste zobrazili seznam všech předplatných v systému. Pokud pracujete na nabídce, můžete také vybrat předplatná.
 
-Odběry můžete odstranit z tohoto seznamu, nebo prostředí PowerShell můžete napsat skript, který odstraní všechna předplatná pro vás pomocí příkazů dokumentovány v článku [předplatná – odstranit odkaz](/rest/api/azurestack/subscriptions/delete).
+Odběry můžete z tohoto seznamu odstranit, nebo můžete pomocí prostředí PowerShell napsat skript, který odstraní všechna předplatná, a to pomocí příkazů popsaných v části [předplatná-odstranit odkaz](/rest/api/azurestack/subscriptions/delete).
 
 > [!CAUTION]
-> Odstraňuje se předplatné se odstraní také všechny data a prostředky, které obsahuje.
+> Odstraněním odběru dojde také k odstranění všech dat a prostředků, které obsahuje.
 
-## <a name="delete-an-offer"></a>Odstranit nabídku
+## <a name="delete-an-offer"></a>Odstranění nabídky
 
-Odstranit nabídku, na portálu správce, přejděte na **všechny služby**, pak **nabízí**. Vyberte nabídky, kterou chcete odstranit a pak vyberte **odstranit**.
+Pokud chcete nabídku odstranit, klikněte na portálu pro správu na **všechny služby**a pak na **nabídky**. Vyberte nabídku, kterou chcete odstranit, a pak vyberte **Odstranit**.
 
 ![delsub1](media/azure-stack-delete-offer/delsub1.png)
 
-V rámci nabídky můžete odstranit pouze pokud nejsou žádná předplatná, jeho použití. Pokud existují odběry založené na nabídce, **odstranit** zašedlé možnost. V takovém případě najdete v článku [odstranění předplatného](#delete-a-subscription) oddílu.
+Nabídku můžete odstranit jenom v případě, že ji nepoužívá žádná předplatná. Pokud odběry existují na základě nabídky, možnost **Odstranit** není k dispozici. V tomto případě se podívejte na oddíl [Odstranit předplatné](#delete-a-subscription) .
 
-## <a name="delete-a-plan"></a>Odstranit plán
+## <a name="delete-a-plan"></a>Odstranění plánu
 
-Odstranit plán na portálu přejděte správce do **všechny služby**, pak **plány**. Vyberte plán, kterou chcete odstranit a pak vyberte **odstranit**.
+Plán odstraníte tak, že na portálu pro správu přejdete na **všechny služby**a pak na **plány**. Vyberte plán, který chcete odstranit, a pak vyberte **Odstranit**.
 
 ![delsub2](media/azure-stack-delete-offer/delsub2.png)
 
-Plán můžete odstranit pouze když neexistují žádné nabídky nebo předplatná jeho použití. Pokud jsou nabídky, které používají plán, odstranit plán, mohla nezdaří a zobrazí se chybová zpráva. Můžete vybrat **nadřazené nabídky** zobrazíte seznam nabídek, které používají tento plán. Další informace o odstranění nabídky najdete v tématu [odstranit v rámci nabídky](#delete-an-offer).
+Plán můžete odstranit jenom v případě, že ho nepoužívají žádné nabídky nebo předplatné. Pokud jsou k dispozici nabídky, které plán používají, odstraňte plán, umožněte jeho selhání a zobrazí se chybová zpráva. Můžete vybrat **nadřazené nabídky** a zobrazit tak seznam nabídek, které používají tento plán. Další informace o odstraňování nabídek najdete v tématu [odstranění nabídky](#delete-an-offer).
 
-Plány byla pravděpodobně přidána přímo do předplatného jako doplňkové plány, i v případě, že nejsou součástí nabídky. V takovém případě je nutné odebrat z předplatných, které je používají, aby se Dal odstranit tento plán.
+Plány mohou být přidány přímo do předplatného jako plány doplňku, a to i v případě, že nejsou součástí nabídky. V takovém případě je nutné je odebrat z předplatných, která je používají, aby bylo možné plán odstranit.
 
-Navíc plán nelze odebrat z předplatného, pokud se jedná o jediný zdroj daného prostředku pro dané předplatné. Například pokud plánu A byla přidána k předplatnému 1 a je pouze plán poskytuje kvótu sítě k předplatnému, nelze odebrat z předplatného. Proto jej nelze odstranit.
+Plán se taky nedá z předplatného odebrat, pokud se jedná o jediný zdroj daného prostředku pro toto předplatné. Pokud je například plán A přidán k předplatnému 1 a jedná se o jediný plán, který pro předplatné poskytuje kvótu sítě, nelze jej z předplatného odebrat. Proto jej nelze odstranit.
 
-## <a name="edit-and-delete-a-quota"></a>Úpravy a odstraňování kvótu
+## <a name="edit-and-delete-a-quota"></a>Úprava a odstranění kvóty
 
-Můžete zobrazit a upravit existující kvóty pomocí portálu pro správce: vyberte **Správa oblastí**, pak vyberte poskytovatele příslušných prostředků a klikněte na **kvóty**. Můžete také odstranit kvóty u určitých poskytovatelů prostředků.
+Stávající kvóty můžete zobrazit a upravit pomocí portálu pro správu: vyberte **Správa oblastí**, pak vyberte příslušného poskytovatele prostředků a klikněte na **kvóty**. Můžete také odstranit kvóty pro určité poskytovatele prostředků.
 
 ![delsub3](media/azure-stack-delete-offer/delsub3.png)
 
-Alternativně můžete odstranit některé kvóty pomocí těchto rozhraní REST API:
+Případně můžete některé kvóty odstranit pomocí těchto rozhraní REST API:
 
 - [Compute](/rest/api/azurestack/quotas%20(compute)/delete)
 - [Sítě](/rest/api/azurestack/quotas%20(network)/delete)
 - [Storage](/rest/api/azurestack/storagequotas/delete)
 
 > [!NOTE]
-> Kvóty nejde odstranit, pokud jsou všechny aktuální plány, které ji používají. Nejprve je nutné odstranit plán, který odkazuje na kvótu.
+> Kvótu nemůžete odstranit, pokud existují nějaké aktuální plány, které ji používají. Nejdříve je nutné odstranit plán, který odkazuje na kvótu.
 
 ## <a name="next-steps"></a>Další postup
 
-- [Vytvořit odběry](azure-stack-subscribe-plan-provision-vm.md)
+- [Vytvoření předplatných](azure-stack-subscribe-plan-provision-vm.md)
 - [Zřízení virtuálního počítače](../user/azure-stack-create-vm-template.md)

@@ -1,10 +1,10 @@
 ---
-title: Správa oblastí ve službě Azure Stack | Dokumentace Microsoftu
-description: Přehled oblastí správy ve službě Azure Stack.
+title: Správa oblastí v Azure Stack | Microsoft Docs
+description: Přehled správy oblastí v Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: sethmanheim
+manager: femila
 editor: ''
 ms.assetid: e94775d5-d473-4c03-9f4e-ae2eada67c6c
 ms.service: azure-stack
@@ -12,51 +12,48 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/16/2019
-ms.date: 04/29/2019
-ms.author: v-jay
+ms.date: 08/13/2019
+ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 11/27/2018
-ms.openlocfilehash: d0c61d5a0056b416bcbfaa26003f55955a89d0ad
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: da80b144987e1dd90e45e83bb7be4ed581db143e
+ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64295299"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68991764"
 ---
-# <a name="region-management-in-azure-stack"></a>Správa oblastí ve službě Azure Stack
+# <a name="region-management-in-azure-stack"></a>Správa oblastí v Azure Stack
 
-*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
 
-Azure Stack používá koncept *oblastech*, které jsou logické entity sestává z hardwarové prostředky, které tvoří infrastruktura Azure stacku. V oblasti správy můžete najít všechny prostředky, které jsou nutné pro úspěšný provoz infrastruktury Azure stacku.
+Azure Stack používá koncept *oblastí*, které jsou logickými entitami sestávající z hardwarových prostředků tvořících Azure Stack infrastrukturu. V části Správa oblastí můžete najít všechny prostředky, které jsou potřeba k úspěšnému provozování infrastruktury Azure Stack.
 
-Jedna integrovaná nasazení systému (označované jako *cloudu služby Azure Stack*) tvoří jedné oblasti. Každá Azure Stack Development Kit (ASDK) má jednu oblast s názvem **místní**. Pokud nasazujete druhý systém Azure Stack integrované nebo nastavit jiná instance sada na samostatné hardwaru, je tento cloud Azure Stack v jiné oblasti.
+Jediné nasazení integrovaného systému (označované jako *cloud Azure Stack*) tvoří jednu oblast. Každý Azure Stack Development Kit (ASDK) má jednu oblast s názvem **Local**. Pokud nasadíte druhý Azure Stack integrovaný systém nebo nastavíte jinou instanci ASDK na samostatném hardwaru, bude tento Azure Stack Cloud jinou oblastí.
 
-## <a name="information-available-through-the-region-management-tile"></a>Informace, které jsou k dispozici prostřednictvím dlaždice oblasti správy
+## <a name="information-available-through-the-region-management-tile"></a>Informace dostupné prostřednictvím dlaždice Správa oblastí
 
-Obsahuje sadu možností správy oblasti k dispozici v Azure Stack **Správa oblastí** dlaždici. Tato dlaždice není k dispozici pro operátory Azure stacku na výchozí řídicí panel portálu správce. Prostřednictvím této dlaždice můžete monitorovat a aktualizovat vaši oblast Azure Stack a jeho komponenty, které jsou specifické pro oblast.
+Azure Stack má na dlaždici **Správa oblastí** k dispozici sadu možností správy oblastí. Tato dlaždice je k dispozici pro operátor Azure Stack na výchozím řídicím panelu na portálu pro správu. Prostřednictvím této dlaždice můžete monitorovat a aktualizovat svou Azure Stackovou oblast a její součásti, které jsou specifické pro oblast.
 
-![Dlaždice oblasti správy](media/azure-stack-region-management/image1.png)
+![Dlaždice správy oblastí](media/azure-stack-region-management/image1.png)
 
-Pokud kliknete na oblasti v **Správa oblastí** dlaždici můžete získat následující informace:
+Pokud kliknete na oblast v dlaždici **Správa oblastí** , můžete získat přístup k následujícím informacím:
 
-[![Popis podoken v okně správy oblasti](media/azure-stack-region-management/regionssm.png "okno správy oblasti")](media/azure-stack-region-management/regions.png#lightbox)
+[![Popis podoken v okně Správa oblastí](media/azure-stack-region-management/regionssm.png "Okno správy oblastí")](media/azure-stack-region-management/regions.png#lightbox)
 
-1. **V nabídce prostředků**. Přístup k oblasti konkrétní infrastrukturu správy a zobrazovat a spravovat prostředky uživatele, jako jsou virtuální síť a účet úložiště.
+1. **Nabídka prostředků**: Přístup ke konkrétním oblastem správy infrastruktury a zobrazení a Správa uživatelských prostředků, jako jsou účty úložiště a virtuální sítě.
 
-2. **Výstrahy**. Seznam výstrah celý systém a poskytují podrobné informace o každé z těchto výstrah.
+2. **Výstrahy**: Vypíše výstrahy na úrovni systému a poskytuje podrobnosti o jednotlivých výstrahách.
 
-3. **Aktualizace**. Zobrazte aktuální verzi vaší infrastruktury Azure stacku, dostupné aktualizace a aktualizace historie. Můžete aktualizovat také integrovaného systému.
+3. **Aktualizace**: Zobrazit aktuální verzi infrastruktury Azure Stack, dostupné aktualizace a historii aktualizací. Můžete také aktualizovat integrovaný systém.
 
-4. **Poskytovatelé prostředků**. Spravujte uživatele funkce nabízené komponenty potřebné ke spuštění služby Azure Stack. Každý poskytovatel prostředků obsahuje prostředí pro správu. Tyto možnosti mohou zahrnovat upozornění pro konkrétního zprostředkovatele, metrik a jiné funkce Správa specifické pro poskytovatele prostředků.
+4. **Poskytovatelé prostředků**: Spravujte uživatelské funkce nabízené součástmi, které jsou nutné ke spuštění Azure Stack. Každý poskytovatel prostředků se dodává s prostředím pro správu. Toto prostředí může obsahovat výstrahy pro konkrétního poskytovatele, metriky a další možnosti správy, které jsou specifické pro poskytovatele prostředků.
 
-5. **Infrastrukturu role**. Komponenty potřebné ke spuštění služby Azure Stack. Jsou uvedeny pouze infrastrukturu role, které podléhají výstrahy. Pokud vyberete roli, můžete zobrazit výstrahy spojené s rolí a instancí rolí, ve kterém je spuštěna tato role.
+5. **Role infrastruktury**: Komponenty nezbytné ke spuštění Azure Stack. V seznamu se zobrazí jenom role infrastruktury, na které se hlásí výstrahy. Výběrem role můžete zobrazit výstrahy spojené s rolí a instancemi rolí, na kterých je tato role spuštěná.
 
-6. **Vlastnosti**. Stav registrace a podrobnosti vašeho prostředí v okně správy oblasti. Stav může být **registrované**, **Neregistrovaný**, nebo **neplatné**. Pokud je zaregistrován, také ukazuje, ID předplatného Azure, který jste použili k registraci služby Azure Stack, spolu s registrace skupiny prostředků a názvem.
+6. **Vlastnosti**: Stav registrace a podrobnosti vašeho prostředí v okně Správa oblastí. Stav lze **zaregistrovat**, **není**zaregistrováno nebo **vypršela jeho platnost**. Pokud je zaregistrované, zobrazí se také ID předplatného Azure, které jste použili k registraci Azure Stack, spolu se skupinou prostředků registrace a názvem.
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 - [Monitorování stavu a upozornění ve službě Azure Stack](azure-stack-monitor-health.md)
 - [Správa aktualizací ve službě Azure Stack](azure-stack-updates.md)
-
-<!-- Update_Description: wording update -->

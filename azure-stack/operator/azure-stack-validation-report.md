@@ -1,6 +1,6 @@
 ---
-title: Sestava ověření pro Azure Stack | Dokumentace Microsoftu
-description: Zkontrolujte výsledky ověření pomocí sestavy Kontrola připravenosti Azure Stack.
+title: Sestava ověření pro Azure Stack | Microsoft Docs
+description: Pomocí sestavy nástroje pro kontrolu připravenosti na Azure Stack můžete zkontrolovat výsledky ověření.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -12,41 +12,41 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 08/13/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: d02173731f8cf7834160a0228c589b036aac7fe6
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: c00ce005ac72fcde34b58a1afe7e134c27274247
+ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64984024"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68991729"
 ---
-# <a name="azure-stack-validation-report"></a>Sestava ověření služby Azure Stack
+# <a name="azure-stack-validation-report"></a>Sestava ověření Azure Stack
 
-Použití *Kontrola připravenosti Azure Stack* nástroj spustit ověření, které podporují nasazení a údržby prostředí Azure Stack. Nástroj zapisuje výsledky do sestavy soubor .json. Sestava zobrazí podrobné a souhrnné údaje o stavu všech požadovaných součástí pro nasazení služby Azure Stack. Sestava také informace o otočení tajné kódy pro existující nasazení služby Azure Stack.  
+Pomocí nástroje pro *kontrolu připravenosti na Azure Stack* můžete spouštět ověřování, která podporují nasazení a obsluhu Azure Stackho prostředí. Nástroj zapisuje výsledky do souboru sestavy. JSON. V sestavě se zobrazí podrobná a souhrnná data o stavu požadavků pro nasazení Azure Stack. Sestava obsahuje také informace o rotaci tajných klíčů pro existující nasazení Azure Stack.  
 
-## <a name="where-to-find-the-report"></a>Kde najít sestavy
+## <a name="where-to-find-the-report"></a>Kde najít sestavu
 
-Když je nástroj spuštěn, zaznamená výsledky do **AzsReadinessCheckerReport.json**. Nástroj také vytvoří protokol s názvem **AzsReadinessChecker.log**. Umístění těchto souborů se zobrazí spolu s výsledky ověření v prostředí PowerShell:
+Když se nástroj spustí, protokoluje výsledky do **AzsReadinessCheckerReport. JSON**. Nástroj také vytvoří protokol s názvem **AzsReadinessChecker. log**. Umístění těchto souborů se zobrazí spolu s výsledky ověřování v PowerShellu:
 
-![spustit ověření](./media/azure-stack-validation-report/validation.png)
+![spustit – ověření](./media/azure-stack-validation-report/validation.png)
 
-Oba soubory zachovat výsledky kontrol další ověření při spuštění ve stejném počítači. Například nástroj můžete spustit ověřování certifikátů, spusťte znovu ověření identit Azure a pak potřetí k ověření registrace. Výsledky všech tří ověřování jsou k dispozici do výsledné sestavy .json.  
+Oba soubory uchovávají Výsledky následných ověřovacích kontrol při spuštění ve stejném počítači. Například můžete spustit nástroj pro ověření certifikátů, znovu spustit pro ověření identity Azure a pak třetí čas ověřit registraci. Výsledky všech tří ověření jsou k dispozici ve výsledné sestavě. JSON.  
 
-Ve výchozím nastavení, oba soubory jsou zapsány do **C:\Users\<uživatelské jméno > \AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json**.  
+Ve výchozím nastavení jsou oba soubory zapisovány do **C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.JSON**.  
 
-- Použití `-OutputPath <path>` parametr na konec příkazového řádku a zadejte umístění různých sestav.
-- Použití `-CleanReport` parametr na konec příkazového řádku vymazat informace o předchozích spuštění nástroje z **AzsReadinessCheckerReport.json**.
+- `-OutputPath <path>` Použijte parametr na konci příkazového řádku a zadejte jiné umístění sestavy.
+- Použijte parametr na konci příkazového řádku, chcete-li vymazat informace o předchozích spuštěních nástroje z **AzsReadinessCheckerReport. JSON.** `-CleanReport`
 
-## <a name="view-the-report"></a>Zobrazit zprávu
+## <a name="view-the-report"></a>Zobrazení sestavy
 
-Chcete-li zobrazit sestavy v prostředí PowerShell, zadejte cestu k sestavě jako hodnotu `-ReportPath`. Tento příkaz zobrazí obsah sestavy a identifikuje ověření, která ještě nemají výsledky.
+Chcete-li zobrazit sestavu v prostředí PowerShell, zadejte cestu k sestavě jako hodnotu pro `-ReportPath`. Tento příkaz zobrazí obsah sestavy a identifikuje ověření, která ještě nemají výsledky.
 
-Například chcete-li zobrazit sestavu z příkazového řádku Powershellu, která je otevřená do umístění, kde se sestava nachází, spusťte následující příkaz:
+Chcete-li například zobrazit sestavu z příkazového řádku prostředí PowerShell, který je otevřen v umístění, kde je sestava umístěna, spusťte následující příkaz:
 
-```shell
+```powershell
 Read-AzsReadinessReport -ReportPath .\AzsReadinessReport.json
 ```
 
@@ -94,7 +94,7 @@ Duration          : 3
 PSBoundParameters :
 ```
 
-## <a name="view-the-report-summary"></a>Zobrazit souhrnnou sestavu
+## <a name="view-the-report-summary"></a>Zobrazit souhrn sestavy
 
 Chcete-li zobrazit souhrn sestavy, můžete přidat `-summary` parametr na konec příkazu prostředí PowerShell. Příklad:
 
@@ -102,7 +102,7 @@ Chcete-li zobrazit souhrn sestavy, můžete přidat `-summary` parametr na konec
 Read-AzsReadinessReport -ReportPath .\Contoso-AzsReadinessReport.json -summary
 ```
 
-Souhrn zobrazuje ověření, která nemají výsledky a indikuje úspěch nebo selhání pro ověření, která se dokončí. Výstup se podobá následujícímu příkladu:
+Souhrn zobrazuje ověření, která nemají výsledky, a označuje úspěch nebo neúspěch pro ověření, která jsou dokončena. Výstup se podobá následujícímu příkladu:
 
 ```shell
 Reading All Validation(s) from Report C:\Contoso-AzsReadinessCheckerReport.json
@@ -128,9 +128,9 @@ Azure Stack Graph Validation results not available.
 Azure Stack ADFS Validation results not available.
 ```
 
-## <a name="view-a-filtered-report"></a>Zobrazení filtrované sestavy
+## <a name="view-a-filtered-report"></a>Zobrazit filtrovanou sestavu
 
-Chcete-li zobrazit sestavu s filtrem na jeden typ ověřování, použijte **- ReportSections** parametr s jedním z následujících hodnot:
+Pokud chcete zobrazit sestavu, která je filtrovaná podle jednoho typu ověřování, použijte parametr **-ReportSections** s jednou z následujících hodnot:
 
 - Certifikát
 - AzureRegistration
@@ -140,7 +140,7 @@ Chcete-li zobrazit sestavu s filtrem na jeden typ ověřování, použijte **- R
 - Úlohy
 - Vše  
 
-Například chcete-li zobrazit sestavu shrnutí pro certifikáty, použít pouze následující příkazový řádek Powershellu:
+Chcete-li například zobrazit souhrn sestavy pouze pro certifikáty, použijte následující příkazový řádek prostředí PowerShell:
 
 ```powershell
 Read-AzsReadinessReport -ReportPath .\Contoso-AzsReadinessReport.json -ReportSections Certificate - Summary
