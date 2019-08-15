@@ -16,12 +16,12 @@ ms.date: 08/02/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 08/02/2019
-ms.openlocfilehash: e868cd1e7d6ec24ddb350305c82cc1d87a334d91
-ms.sourcegitcommit: 56778bf71d5f6bbe2768fbc38c2ed2208114b867
+ms.openlocfilehash: d13f3a25d0a46f0f29405858efb06e0a4d634da0
+ms.sourcegitcommit: 86e2b776383a9f761072199ec6b6b8a7d2e6b798
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68756644"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69021705"
 ---
 # <a name="azure-stack-1907-update"></a>Aktualizace Azure Stack 1907
 
@@ -76,6 +76,8 @@ Typ sestavení aktualizace Azure Stack 1907 je **Express**. Další informace o 
 - Vylepšené úložiště vnitřních protokolů pro operace správy. Výsledkem je vyšší výkon a spolehlivost během operací správy tím, že minimalizují spotřebu paměti a úložiště interních procesů protokolů. Můžete si také všimnout lepších časů načítání stránky v okně aktualizace na portálu pro správu. V rámci tohoto vylepšení už nebudou v systému k dispozici protokoly aktualizací starší než 6 měsíců. Pokud pro tyto aktualizace požadujete protokoly, nezapomeňte [si stáhnout Shrnutí](azure-stack-apply-updates.md) pro všechny aktualizace, které jsou starší než 6 měsíců před provedením aktualizace 1907.
 
 ### <a name="changes"></a>Změny
+
+- Azure Stack verze 1907 obsahuje varovnou výstrahu, která dává operátorům pokyn, aby **před** aktualizací na verzi 1908 aktualizovala balíček OEM svého systému na verzi 2,1 nebo novější. Poskytovatelé hardwaru dostanou balíček OEM 2,1 ve stejnou dobu jako verze Azure Stack 1908. Balíček OEM 2,1 nebo novější bude předpokladem pro verzi Azure Stack 1908. Další informace o tom, jak stáhnout balíček OEM 2,1 nebo novější, vám poskytne poskytovatel hardwaru vašeho systému.
 
 - Bylo přidáno nové odchozí pravidlo (HTTPS) pro povolení komunikace pro Azure Stack službu shromažďování protokolů diagnostiky. Další informace najdete v tématu [Azure Stack integrace Datacenter – publikování koncových bodů](azure-stack-integrate-endpoints.md#ports-and-urls-outbound).
 
