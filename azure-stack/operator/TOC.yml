@@ -171,6 +171,8 @@
               href: azure-stack-updates.md
             - name: Instalace aktualizací
               href: azure-stack-apply-updates.md
+            - name: Použít aktualizace OEM
+              href: azure-stack-update-oem.md
             - name: Monitorování stavu aktualizace
               href: azure-stack-monitor-update.md
         - name: Monitorování stavu a výstrah
