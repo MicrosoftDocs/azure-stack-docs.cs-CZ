@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2019
+ms.date: 08/15/2019
 ms.author: mabrigg
-ms.lastreviewed: 08/14/2019
+ms.lastreviewed: 08/15/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 92b33603ee75560d66b6604188c2ae103a1d10a3
-ms.sourcegitcommit: 6284fd52a61680ee4ba3a73ce8d13c9c5496d838
+ms.openlocfilehash: 1342eb503abb81308740c0103b1d54887a46cf85
+ms.sourcegitcommit: f62d58ae724020a24fa5905b6663abb5f1d62178
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69519768"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69520920"
 ---
 # <a name="apply-azure-stack-original-equipment-manufacturer-oem-updates"></a>Použít Azure Stack aktualizace OEM (Original Equipment Manufacturer)
 
@@ -32,7 +32,7 @@ Můžete použít aktualizace OEM (Original Equipment Manufacturer) na vaše Azu
 
 Kromě Microsoft Azure Stack aktualizací mnoho výrobců OEM také vydává pravidelné aktualizace pro Azure Stack hardware, jako jsou aktualizace ovladačů a firmwaru. Ty se označují jako **aktualizace balíčků OEM**. Informace o tom, jestli výrobci OEM uvolňují aktualizace balíčků OEM, najdete v [dokumentaci k Azure Stack výrobce OEM](#oem-contact-information).
 
-Počínaje aktualizací Azure Stack aktualizace 1905 tyto aktualizace balíčků OEM se nahrají do účtu úložiště **updateadminaccount** a používají se prostřednictvím portálu Azure Stack správce. Další informace najdete v tématu [použití aktualizací OEM](#apply-oem-updates).
+Tyto aktualizace balíčků OEM se nahrají do účtu úložiště **updateadminaccount** a používají se prostřednictvím portálu pro správu Azure Stack. Další informace najdete v tématu [použití aktualizací OEM](#apply-oem-updates).
 
 Zeptejte se výrobce OEM na svůj konkrétní proces oznámení, aby bylo zajištěno, že oznámení o aktualizacích balíčků OEM dosáhnou vaší organizace.
 
@@ -57,13 +57,15 @@ Tato část obsahuje kontaktní informace OEM a odkazy na referenční materiál
 
 Použijte balíčky OEM pomocí následujících kroků:
 
-1. O nejlepší způsob stažení balíčku OEM se obraťte na výrobce OEM.
+1. Budete se muset obrátit na výrobce OEM, aby:
+      - Zjistěte aktuální verzi balíčku OEM.  
+      - Najděte nejlepší metodu pro stažení balíčku OEM.  
 2. Připravte si balíček OEM s postupem popsaným v části [stažení balíčků aktualizací pro integrované systémy](azure-stack-servicing-policy.md#download-update-packages-for-integrated-systems).
 3. Aktualizace použijte s postupem popsaným v části [použití aktualizací v Azure Stack](azure-stack-apply-updates.md).
 
 ## <a name="configure-hardware-vendor-vm"></a>Konfigurace virtuálního počítače dodavatele hardwaru
 
-Někteří dodavatelé hardwaru můžou vyžadovat, aby virtuální počítač mohl pomáhat s procesem aktualizace OEM. Váš dodavatel hardwaru bude zodpovědný za vytváření těchto virtuálních počítačů. Po vytvoření virtuálních počítačů je můžete nakonfigurovat pomocí rutiny **set-OEMExternalVM** z privilegovaného koncového bodu.
+Někteří dodavatelé hardwaru můžou vyžadovat, aby virtuální počítač mohl pomáhat s procesem aktualizace OEM. Váš dodavatel hardwaru bude zodpovědný za vytváření těchto virtuálních počítačů a dokumentaci, pokud při spuštění rutiny `ProxyVM` **set-OEMExternalVM** potřebujete nebo `HardwareManager` **VMType** . Po vytvoření virtuálních počítačů je nakonfigurujte pomocí **set-OEMExternalVM** z privilegovaného koncového bodu.
 
 Další informace o privilegovaném koncovém bodu v Azure Stack najdete v tématu [použití privilegovaného koncového bodu v Azure Stack](azure-stack-privileged-endpoint.md).
 
@@ -78,14 +80,14 @@ Další informace o privilegovaném koncovém bodu v Azure Stack najdete v téma
 2. Nakonfigurujte virtuální počítač dodavatele hardwaru pomocí rutiny **set-OEMExternalVM** . Rutina ověří IP adresu a přihlašovací údaje pro **– VMType** `ProxyVM`. Rutina **-VMType** `HardwareManager` neprovede ověření vstupu.
 
     ```powershell  
-    $VMCred = Get-Credential
     
     Invoke-Command -Session $session
         { 
     Set-OEMExternalVM -VMType <Either "ProxyVM" or "HardwareManager">
-        -IPAddress <IP Address of hardware vendor VM> -credential $using:VMCred
+        -IPAddress <IP Address of hardware vendor VM>
+        }
     ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 [Aktualizace Azure Stack](azure-stack-updates.md)
