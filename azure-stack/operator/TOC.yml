@@ -86,6 +86,8 @@
               href: azure-stack-network.md
             - name: Připojení k ohraničení
               href: azure-stack-border-connectivity.md
+            - name: Přepnout konfiguraci
+              href: azure-stack-customer-defined.md
             - name: Integrace DNS
               href: azure-stack-integrate-dns.md
             - name: Integrace brány firewall

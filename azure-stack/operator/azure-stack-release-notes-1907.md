@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2019
+ms.date: 08/16/2019
 ms.author: sethm
 ms.reviewer: hectorl
-ms.lastreviewed: 08/02/2019
-ms.openlocfilehash: d13f3a25d0a46f0f29405858efb06e0a4d634da0
-ms.sourcegitcommit: 86e2b776383a9f761072199ec6b6b8a7d2e6b798
+ms.lastreviewed: 08/16/2019
+ms.openlocfilehash: 2f840fdd06caf92dcadb8e49d26d7570d9d6aa71
+ms.sourcegitcommit: 54448d4518c7d9145b8755f51b18d554b3190810
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69021705"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69548288"
 ---
 # <a name="azure-stack-1907-update"></a>Aktualizace Azure Stack 1907
 
@@ -150,7 +150,7 @@ Vydání verze 1907 Azure Stack se musí použít ve verzi 1906 s následující
 Po instalaci této aktualizace nainstalujte všechny příslušné opravy hotfix. Další informace najdete v našich [zásadách obsluhy](azure-stack-servicing-policy.md).
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack opravy hotfix 1.1907.8.37](https://support.microsoft.com/help/4515650)
+- [Azure Stack opravy hotfix 1.1907.12.44](https://support.microsoft.com/help/4517473)
 
 ## <a name="automatic-update-notifications"></a>Oznámení automatických aktualizací
 
@@ -166,7 +166,7 @@ Systémy, které mají přístup k Internetu ze sítě infrastruktury, uvidí na
 
 [Starší verze Azure Stack poznámky k verzi najdete v Galerii TechNet](https://aka.ms/azsarchivedrelnotes). Tato Archivovaná zpráva k vydání verze je poskytována pouze pro referenční účely a neznamená podporu těchto verzí. Informace o podpoře Azure Stack najdete v tématu [zásady pro obsluhu Azure Stack](azure-stack-servicing-policy.md). Pokud potřebujete další pomoc, obraťte se na službu zákaznické podpory společnosti Microsoft.
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 - Přehled správy aktualizací ve službě Azure Stack najdete v tématu [správy aktualizací ve službě Azure Stack přehled](azure-stack-updates.md).  
 - Další informace o tom, jak použít aktualizace pomocí služby Azure Stack najdete v tématu [použití aktualizací ve službě Azure Stack](azure-stack-apply-updates.md).
