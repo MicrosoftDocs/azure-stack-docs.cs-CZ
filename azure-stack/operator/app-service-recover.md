@@ -1,6 +1,6 @@
 ---
-title: Obnovení služby App Service v Azure stacku | Dokumentace Microsoftu
-description: Podrobné pokyny pro zotavení po havárii Azure Stack App Service
+title: App Service obnovení Azure Stack | Microsoft Docs
+description: Přečtěte si o zotavení po havárii pro App Service v Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: bryanla
@@ -16,44 +16,44 @@ ms.date: 03/21/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/21/2019
-ms.openlocfilehash: c302ad1188d52c86d2d42734fa9061820268d420
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 82498781e83aedf13a3ba33da24f484bc7e80d4b
+ms.sourcegitcommit: 4eb1766c7a9d1ccb1f1362ae1211ec748a7d708c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269225"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69579024"
 ---
-# <a name="recovery-of-app-service-on-azure-stack"></a>Obnovení služby App Service v Azure stacku
+# <a name="app-service-recovery-on-azure-stack"></a>App Service obnovení Azure Stack
 
-*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*  
+*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*  
 
-Tento dokument obsahuje pokyny týkající se akcí pro zotavení po havárii služby App Service.
+V tomto tématu najdete pokyny k tomu, jaké akce se App Service zotavení po havárii.
 
-Obnovení ze zálohy služby App Service ve službě Azure Stack, musí být přijata následující akce:
-1.  Obnovení databází služby App Service
-2.  Obsah sdílené složky serveru soubor obnovit
-3.  Obnovení role služby App Service a služby
+Aby bylo možné obnovit App Service Azure Stack ze zálohy, je nutné provést následující akce:
+1. Obnovte App Service databáze.
+2. Obnovte obsah sdílené složky souborového serveru.
+3. Obnovte App Service role a služby.
 
-Pokud úložiště služby Azure Stack se použil pro úložiště aplikací Function App, je nutné také provést kroky k obnovení aplikace Function App.
+Pokud se pro úložiště Function Apps použilo úložiště Azure Stack, musíte také provést kroky k obnovení aplikací Function App.
 
-## <a name="restore-the-app-service-databases"></a>Obnovení databází služby App Service
-V produkčním prostředí připravené instance systému SQL Server by měl obnovit databáze aplikace služby SQL Server. 
+## <a name="restore-the-app-service-databases"></a>Obnovení databází App Service
+Databáze App Service SQL Server by měly být obnoveny na instanci SQL Server připravené pro produkční prostředí. 
 
-Po [Příprava instanci systému SQL Server](azure-stack-app-service-before-you-get-started.md#prepare-the-sql-server-instance) k hostování databází služby App Service, obnovení databáze ze zálohy pomocí následujících kroků:
+Po [přípravě instance SQL Server](azure-stack-app-service-before-you-get-started.md#prepare-the-sql-server-instance) pro hostování databází App Service použijte následující postup obnovení databáze ze zálohy:
 
-1. Přihlaste se k serveru SQL Server, který bude hostitelem obnovené databáze služby App Service s oprávněními správce.
-2. Následující příkazy použijte k obnovení databáze služby App Service z příkazového řádku s oprávněními správce:
+1. Přihlaste se k SQL Server, která bude hostovat obnovené databáze App Service s oprávněními správce.
+2. Pomocí následujících příkazů obnovte App Service databáze z příkazového řádku spuštěného s oprávněními správce:
     ```dos
     sqlcmd -U <SQL admin login> -P <SQL admin password> -Q "RESTORE DATABASE appservice_hosting FROM DISK='<full path to backup>' WITH REPLACE"
     sqlcmd -U <SQL admin login> -P <SQL admin password> -Q "RESTORE DATABASE appservice_metering FROM DISK='<full path to backup>' WITH REPLACE"
     ```
-3. Ověřte, že obě databáze služby App Service byly úspěšně obnoveny a ukončete SQL Server Management Studio.
+3. Ověřte, zda byla úspěšně obnovena a ukončena SQL Server Management Studio databáze App Service.
 
 > [!NOTE]
-> K zotavení z chyby instance clusteru převzetí služeb při selhání, [tyto pokyny](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/recover-from-failover-cluster-instance-failure?view=sql-server-2017). 
+> Chcete-li provést obnovení z instance clusteru s podporou převzetí služeb při selhání, přečtěte si téma [obnovení z neúspěšné instance](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/recover-from-failover-cluster-instance-failure?view=sql-server-2017) 
 
-## <a name="restore-the-app-service-file-share-content"></a>Obnovit obsah sdílené složky souboru služby App Service
-Po [Příprava souborový server](azure-stack-app-service-before-you-get-started.md#prepare-the-file-server) k hostování sdílené služby App Service, budete muset obnovit obsah sdílené složky souboru tenanta ze zálohy. Můžete použít jakoukoli metodu máte k dispozici ke zkopírování souborů do nově vytvořeného umístění sdílené složky souboru služby App Service. Spuštěním tohoto příkladu na souborovém serveru se pomocí Powershellu a nástroje robocopy pro připojení k vzdálené sdílené složce a zkopírujte soubory do sdílené složky:
+## <a name="restore-the-app-service-file-share-content"></a>Obnovení obsahu App Service sdílené složky
+Po [přípravě souborového serveru](azure-stack-app-service-before-you-get-started.md#prepare-the-file-server) pro hostování App Service sdílené složky musíte obnovit obsah sdílené složky klienta ze zálohy. Můžete použít libovolnou metodu, kterou máte k dispozici ke zkopírování souborů do nově vytvořené App Service umístění sdílené složky. Po spuštění tohoto příkladu na souborovém serveru se k připojení ke vzdálené sdílené složce a zkopírování souborů do sdílené složky použijí PowerShell a Robocopy:
 
 ```powershell
 $source = "<remote backup storage share location>"
@@ -63,16 +63,16 @@ robocopy /E $source $destination
 net use $source /delete
 ```
 
-Kromě zkopírování obsahu sdílené složky, musíte resetovat také oprávnění pro sdílenou složku souboru, samotné. Chcete-li to provést, otevřete příkazový řádek pro správu na souborovém serveru a spusťte **ReACL.cmd** souboru. **ReACL.cmd** soubor se nachází v instalační soubory služby App Service v **BCDR** adresáře.
+Kromě kopírování obsahu sdílené složky musíte také resetovat oprávnění ke sdílené složce souborů. Chcete-li obnovit oprávnění, otevřete příkazový řádek správce na počítači souborového serveru a spusťte soubor **ReACL. cmd** . Soubor **ReACL. cmd** se nachází v instalačních souborech App Service v adresáři **BCDR** .
 
-## <a name="restore-app-service-roles-and-services"></a>Obnovení role služby App Service a služby
-Po obnovení databáze služby App Service a obsah sdílené složky souboru, musíte dále použití Powershellu k obnovení role služby App Service a služby. Tyto kroky obnoví tajné kódy služby App Service a konfigurace služeb.  
+## <a name="restore-app-service-roles-and-services"></a>Obnovení rolí a služeb App Service
+Po obnovení databází App Service a obsahu sdílené složky souborů je dál potřeba použít PowerShell k obnovení rolí a služeb App Service. Tyto kroky obnoví App Service tajných klíčů a konfigurací služeb.  
 
-1. Přihlaste se k řadiči služby App Service **CN0-VM** virtuálního počítače jako **roleadmin** pomocí hesla, které jste zadali při instalaci služby App Service. 
+1. Přihlaste se k řadiči App Service **CN0-VM** VM jako **roleadmin** pomocí hesla, které jste zadali během instalace App Service. 
     > [!TIP]
-    > Bude potřeba změnit skupinu zabezpečení sítě Virtuálního počítače umožňuje připojení RDP. 
-2. Kopírovat **SystemSecrets.JSON** soubor místně do virtuálního počítače řadiče. Budete muset zadat cestu k tomuto souboru `$pathToExportedSecretFile` parametr v dalším kroku. 
-3. Obnovení role služby App Service a služby pomocí následujících příkazů v okně konzoly Powershellu se zvýšenými oprávněními:
+    > Aby bylo možné připojení RDP, je nutné upravit skupinu zabezpečení sítě virtuálního počítače. 
+2. Zkopírujte soubor **SystemSecrets. JSON** místně do virtuálního počítače kontroleru. V dalším kroku musíte zadat cestu k tomuto souboru jako `$pathToExportedSecretFile` parametr.
+3. Pomocí následujících příkazů v okně konzoly PowerShellu se zvýšenými oprávněními obnovte App Service role a služby:
 
     ```powershell
     # Stop App Service services on the primary controller VM
@@ -102,18 +102,18 @@ Po obnovení databáze služby App Service a obsah sdílené složky souboru, mu
     ```
 
 > [!TIP]
-> Důrazně doporučujeme tuto relaci Powershellu po dokončení příkazu zavřete.
+> Po dokončení příkazu se důrazně doporučuje tuto relaci PowerShellu zavřít.
 
-## <a name="restore-function-apps"></a>Obnovení aplikace Function App 
-App Service pro službu Azure Stack nepodporuje obnovení tenanta uživatele aplikace a data než obsah sdílené složky souboru. Proto tyto musí být zálohována a obnovena mimo službu App Service operací zálohování a obnovení. Úložiště služby Azure Stack se použil pro úložiště aplikací Function App, následující postup použitou k obnovení ztracených dat:
+## <a name="restore-function-apps"></a>Obnovení aplikací Function App 
+App Service pro Azure Stack nepodporují obnovování uživatelských aplikací tenanta ani jiných dat než obsahu sdílení souborů. Všechna ostatní data musí být zálohována a obnovena mimo App Service operací zálohování a obnovení. Pokud se pro úložiště Function Apps použilo úložiště Azure Stack, je potřeba provést následující kroky, aby se obnovila ztracená data:
 
-1. Vytvořte nový účet úložiště používané aplikace Function App. Toto úložiště může být úložiště, Azure storage nebo žádné kompatibilní úložiště Azure Stack.
-2. Načtení připojovacího řetězce pro úložiště.
-3. Otevřete portál funkci, přejděte do aplikace function app.
-4. Přejděte **funkce platformy** kartě a klikněte na tlačítko **nastavení aplikace**.
-5. Změna **AzureWebJobsDashboard** a **AzureWebJobsStorage** nový připojovací řetězec a klikněte na tlačítko **Uložit**.
-6. Přepnout na **přehled**.
-7. Restartujte aplikaci. Může trvat několik pokusí vymazat všechny chyby.
+1. Vytvořte nový účet úložiště, který bude Function App používat. Toto úložiště může být Azure Stack úložištěm, úložištěm Azure nebo jakýmkoli kompatibilním úložištěm.
+2. Načtěte připojovací řetězec pro úložiště.
+3. Otevřete portál funkcí a přejděte do aplikace Function App.
+4. Přejděte na kartu **funkce platformy** a klikněte na **nastavení aplikace**.
+5. Změňte **AzureWebJobsDashboard** a **AzureWebJobsStorage** na nový připojovací řetězec a klikněte na **Uložit**.
+6. Přepněte na **Přehled**.
+7. Restartujte aplikaci. Vymazání všech chyb může trvat několik pokusů.
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 [Přehled App Service v Azure Stacku](azure-stack-app-service-overview.md)

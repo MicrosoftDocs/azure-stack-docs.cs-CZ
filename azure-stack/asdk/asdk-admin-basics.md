@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Development Kit základy | Dokumentace Microsoftu
-description: Popisuje, jak provádět základní správu pro Azure Stack Development Kit (ASDK).
+title: Základy pro správce ASDK | Microsoft Docs
+description: Přečtěte si, jak provádět základní úlohy správy pro Azure Stack Development Kit (ASDK).
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,57 +16,57 @@ ms.date: 02/19/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: a375cc83410214f56eb38f676bf45cf529641972
-ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
+ms.openlocfilehash: 2982012901b410b9e6e3830aa24fe4c62be8aa4c
+ms.sourcegitcommit: 4eb1766c7a9d1ccb1f1362ae1211ec748a7d708c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66691096"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69579056"
 ---
-# <a name="asdk-administration-basics"></a>Základy správy ASDK 
-Existuje několik věcí, které je potřeba vědět, pokud je pro vás nová pro správu služby Azure Stack Development Kit (ASDK). Tento návod obsahuje základní informace o vaší role jako jejich operátory Azure stacku v prostředí pro testování a jak zajistit testovací uživatele může být tak produktivní rychle.
+# <a name="asdk-admin-basics"></a>Základy správy ASDK
+Pokud s Azure Stack Development Kit (ASDK) nebudete mít jistotu, budete potřebovat několik věcí. Tento návod poskytuje přehled vaší role jako operátor Azure Stack ve zkušebním prostředí. Familiarizing se s těmito informacemi, zajistíte, aby vaši testovací uživatelé byli co nejrychleji produktivní.
 
-Nejprve si můžete projít [co je Azure Stack Development Kit?](asdk-what-is.md) článek a ujistěte se, že rozumíte účel ASDK a jaká jsou její omezení. Vývojová sada používejte jako "sandboxu", ve kterém můžete vyhodnotit Azure Stack pro vývoj a testování vaší aplikace v neprodukčním prostředí. 
+Nejdřív byste si měli projít článek [co je Azure Stack Development Kit?](asdk-what-is.md) , abyste se ujistili, že rozumíte účelu ASDK a jeho omezením. Tuto vývojovou sadu byste měli používat jako izolovaný prostor (sandbox), kde můžete vyhodnotit Azure Stack pro vývoj a testování aplikací v neprodukčním prostředí. 
 
-Jako je Azure Azure Stack innovates rychle tak pravidelně vydáváme nové buildy ASDK. Nelze však aktualizovat ASDK jako nasazení Azure Stack integrované systémy. Ano, pokud chcete přesunout na nejnovější verzi, je nutné zcela [opětovné nasazení ASDK](asdk-redeploy.md). Balíčky aktualizací nelze použít. Tento proces trvá určitou dobu, ale výhodou je, že budete moct vyzkoušet nejnovější funkce ihned, jakmile budou k dispozici. 
+Podobně jako u Azure se Azure Stack inovace rychle, takže pravidelně vydáváme nová sestavení ASDK. ASDK však nemůžete upgradovat, protože můžete Azure Stack nasazení integrovaných systémů. Takže pokud chcete přejít na nejnovější sestavení, je nutné zcela [znovu nasadit ASDK](asdk-redeploy.md). Nemůžete použít balíčky aktualizací. Tento proces trvá čas, ale výhodou je, že můžete vyzkoušet nejnovější funkce, jakmile budou k dispozici. 
 
 ## <a name="what-account-should-i-use"></a>Jaký účet mám použít?
-Existuje několik důležitých informací účtu, které byste měli vědět při správě služby Azure Stack. Zejména v nasazeních pomocí systému Windows Server Active Directory Federation Services (AD FS) jako poskytovatel identit Azure Active Directory (Azure AD). Integrované systémy Azure Stack a ASDK nasazení, platí následující aspekty účtu:
+K dispozici je několik důležitých informací o účtech, které byste měli znát při správě Azure Stack. To platí hlavně v nasazeních, která používají Windows Server Active Directory Federation Services (AD FS) (AD FS) jako zprostředkovatele identity místo Azure Active Directory (Azure AD). Následující požadavky na účet platí pro Azure Stack integrovaných systémů i nasazení ASDK:
 
 |Účet|Azure AD|AD FS|
 |-----|-----|-----|
-|Místní správce (. \Administrator)|Správce ASDK hostitele|Správce ASDK hostitele|
-|AzureStack\AzureStackAdmin|Správce ASDK hostitele<br><br>Je možné se přihlásit na portál pro správu služby Azure Stack<br><br>Přístup k zobrazení a správě okruhů Service Fabric|Správce ASDK hostitele<br><br>Žádný přístup k portálu pro správu služby Azure Stack<br><br>Přístup k zobrazení a správě okruhů Service Fabric<br><br>Už vlastníka z výchozí zprostředkovatel předplatného (službou Device Provisioning)|
-|AzureStack\CloudAdmin|Můžete používat a povolených příkazů v rámci privilegovaných koncového bodu|Můžete používat a povolených příkazů v rámci privilegovaných koncového bodu<br><br>Nemůžete se přihlásit k hostiteli ASDK<br><br>Výchozí zprostředkovatel předplatného (DPS)|
-|Globální správce Azure AD|Použít během instalace<br><br>Výchozí zprostředkovatel předplatného (DPS)|Neuvedeno|
+|Místní správce (.\Administrator)|Správce hostitele ASDK|Správce hostitele ASDK|
+|AzureStack\AzureStackAdmin|Správce hostitele ASDK<br><br>Dá se použít k přihlášení na portál pro správu Azure Stack.<br><br>Přístup k zobrazení a správě Service Fabricch okruhů|Správce hostitele ASDK<br><br>Přístup k portálu pro správu Azure Stack není k dispozici.<br><br>Přístup k zobrazení a správě Service Fabricch okruhů<br><br>Už není vlastníkem předplatného výchozího poskytovatele (DPS).|
+|AzureStack\CloudAdmin|Umožňuje přístup k povoleným příkazům v rámci privilegovaného koncového bodu a jejich spouštění.|Umožňuje přístup k povoleným příkazům v rámci privilegovaného koncového bodu a jejich spouštění.<br><br>Nejde se přihlásit k hostiteli ASDK<br><br>Vlastník předplatného výchozího poskytovatele (DPS)|
+|Globální správce Azure AD|Používá se během instalace.<br><br>Vlastník předplatného výchozího poskytovatele (DPS)|Nelze použít|
 |
 
-## <a name="what-tools-do-i-use-to-manage"></a>Jaké nástroje použít ke správě?
-Můžete použít [portálu Azure Stack správce](https://adminportal.local.azurestack.external) nebo prostředí PowerShell pro správu služby Azure Stack. Nejjednodušší způsob, jak informace o základních konceptech je prostřednictvím portálu. Pokud chcete pomocí prostředí PowerShell, je potřeba nainstalovat [prostředí PowerShell pro Azure Stack](asdk-post-deploy.md#install-azure-stack-powershell) a [stáhnout nástroje Azure Stack z webu GitHub](asdk-post-deploy.md#download-the-azure-stack-tools).
+## <a name="what-tools-do-i-use-to-manage"></a>Jaké nástroje se používají ke správě?
+Ke správě Azure Stack můžete použít [portál pro správu Azure Stack](https://adminportal.local.azurestack.external) nebo PowerShell. Nejjednodušší způsob, jak se naučit základní koncepty, je prostřednictvím portálu. Pokud chcete používat PowerShell, musíte nainstalovat [PowerShell pro Azure Stack](asdk-post-deploy.md#install-azure-stack-powershell) a [stáhnout nástroje Azure Stack z GitHubu](asdk-post-deploy.md#download-the-azure-stack-tools).
 
-Azure Stack jako základní mechanismus nasazování, správu a organizace používá Azure Resource Manageru. Pokud budete ke správě služby Azure Stack a bylo možné podporovat uživatele, měli byste získat informace o Azure Resource Manageru. Další informace najdete [Začínáme s Azure Resource Manageru – dokument White Paper](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf).
+Azure Stack používá Azure Resource Manager jako základní mechanismus nasazení, správy a organizace. Pokud se chystáte spravovat Azure Stack a pomáhat uživatelům podpory, měli byste se dozvědět víc o Azure Resource Manager. Další informace najdete v [Začínáme Azure Resource Manager dokumentu White Paper](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf).
 
-## <a name="your-typical-responsibilities"></a>Typické odpovědnosti
-Vaši uživatelé chtějí používat služby. Z perspektivy hlavní role je, aby tyto služby jsou pro ně dostupné. Pomocí ASDK, další služby, které nabízí, a jak se tyto služby dostupné podle [vytváření plánů, nabídek a kvót](../operator/azure-stack-tutorial-tenant-vm.md). Také budete muset přidat položky na webu Marketplace, jako jsou Image virtuálních počítačů. Nejjednodušší způsob je [stažení položek z marketplace](../operator/azure-stack-create-and-publish-marketplace-item.md) z Azure do služby Azure Stack.
+## <a name="your-typical-responsibilities"></a>Vaše typické povinnosti
+Vaši uživatelé chtějí používat služby. Z perspektivy je hlavním úkolem, aby jim byly dostupné tyto služby. Pomocí ASDK můžete zjistit, které služby se mají nabízet, a jak tyto služby zpřístupnit [vytvořením plánů, nabídek a kvót](../operator/azure-stack-tutorial-tenant-vm.md). Budete také muset přidat položky na web Marketplace, například image virtuálních počítačů. Nejjednodušším způsobem je [stáhnout z Azure položky Marketplace](../operator/azure-stack-create-and-publish-marketplace-item.md) do Azure Stack.
 
 > [!NOTE]
-> Pokud chcete testovat plány, nabídky a služby, měli byste použít [portálu user portal](https://portal.local.azurestack.external); není [portálu správce](https://adminportal.local.azurestack.external).
+> Pokud chcete testovat vaše plány, nabídky a služby, měli byste použít [portál User Portal](https://portal.local.azurestack.external). Nejedná se o [portál pro správu](https://adminportal.local.azurestack.external).
 
-Kromě poskytování služeb, je nutné provést všechny pravidelné úkoly operátor Azure stacku zachovat ASDK zprovozněný. Tyto povinnosti patří třeba následující:
-- Přidáte uživatelské účty pro služby Azure Active Directory (Azure AD) nebo nasazení služby Active Directory Federation Services (AD FS).
-- Přiřazení přístupu na základě rolí role (RBAC) ovládacího prvku (to se neomezuje jen správci)
+Kromě poskytování služeb se musíte postarat o všechny běžné povinnosti Azure Stackho operátora, abyste zachovali ASDK a provoz. Mezi tyto funkce patří následující věci:
+- Přidejte uživatelské účty pro nasazení Azure AD nebo AD FS.
+- Přiřazení rolí řízení přístupu na základě role (RBAC) (není omezeno pouze na správce).
 - Monitorování stavu infrastruktury
-- Správa sítě a prostředků úložiště
-- Nahradit hardware počítače hostitele neúspěšné development kit 
+- Správa prostředků sítě a úložiště
+- Nahraďte hardware hostitelského počítače s neúspěšnou sadou pro vývoj.
 
-## <a name="where-to-get-support"></a>Kde lze získat podporu
-Pro Azure Stack Development Kit (ASDK), můžete klást otázky týkající se podpory v [fórum MSDN pro Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). 
+## <a name="where-to-get-support"></a>Kde získat podporu
+Pro ASDK se můžete zeptat na dotazy související s podporou na [Azure Stack Fórum MSDN](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack).
 
-Můžete kliknout na **pomáhají** (otazník) v pravém horním rohu portálu správce a pak klikněte na **Nápověda a podpora** otevřete Nápověda a podpora **přehled**, který má odkaz na fórum. DISKUZNÍ fóra MSDN jsou pravidelně monitorované.  
+Přístup k fórům můžete zobrazit také tak, že v pravém horním rohu portálu pro správu kliknete na **Nápověda** (otazník). Pak kliknutím na tlačítko **help + podpora** otevřete **Přehled**pomocníka + support, který obsahuje odkaz na fórum. Fóra MSDN se pravidelně monitorují.  
 
 > [!IMPORTANT]
-> Vzhledem k tomu, ASDK zkušební prostředí, neexistuje žádné oficiální podporu, kterou nabízí prostřednictvím Microsoft podporu služby zákazníkům (CSS).
+> Vzhledem k tomu, že ASDK je zkušební prostředí, není oficiální podpora nabídnuta prostřednictvím služeb Microsoft Customer Support Services (CSS).
 
 ## <a name="next-steps"></a>Další postup
-[Nasazení ASDK](asdk-install.md)
+[Nasazení rozhraní ASDK](asdk-install.md)
 

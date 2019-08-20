@@ -1,6 +1,6 @@
 ---
-title: Požadavky Azure Stack Development Kit (ASDK) nasazení | Dokumentace Microsoftu
-description: Projděte si prostředí a hardwarové požadavky pro Azure Stack Development Kit (ASDK).
+title: Požadavky a doporučení pro ASDK | Microsoft Docs
+description: Seznamte se s požadavky na hardware, software a prostředí pro Azure Stack Development Kit (ASDK).
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,114 +16,114 @@ ms.date: 05/13/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 05/13/2019
-ms.openlocfilehash: e7006d599a597f66b8b1c76dac55f26cebacdacd
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 691eac0c76763dcaae60aa6946c5dcbc479486a6
+ms.sourcegitcommit: 4eb1766c7a9d1ccb1f1362ae1211ec748a7d708c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66267184"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69579002"
 ---
-# <a name="azure-stack-deployment-planning-considerations"></a>Co zvážit při plánování nasazení Azure Stack
+# <a name="asdk-requirements-and-considerations"></a>Požadavky a předpoklady pro ASDK
 
-Než nasadíte Azure Stack Development Kit (ASDK), zkontrolujte, zda že splňuje požadavky popsané v tomto článku hostitelského počítače development kit.
+Před nasazením Azure Stack Development Kit (ASDK) se ujistěte, že váš hostitelský počítač ASDK splňuje požadavky popsané v tomto článku.
 
 ## <a name="hardware"></a>Hardware
 
 | Komponenta | Minimální | Doporučené |
 | --- | --- | --- |
-| Diskové jednotky: Operační systém |1 disk s operačním systémem s alespoň 200 GB místa pro systémový oddíl (SSD nebo HDD) |Jeden disk s operačním systémem a alespoň 200 GB místa pro systémový oddíl (SSD nebo pevný disk) |
-| Diskové jednotky: Obecný vývoj sady dat<sup>*</sup>  |Čtyři disky. Každý disk nabízí minimálně 240 GB místa (SSD nebo HDD). Všechny dostupné disky se používají. |Čtyři disky. Každý disk nabízí minimálně 400 GB místa (SSD nebo HDD). Všechny dostupné disky se používají. |
-| COMPUTE: Procesor |Duální soket: 16 fyzických jader (celkem) |Duální soket: 20 fyzických jader (celkem) |
-| COMPUTE: Memory (Paměť) |192 GB PAMĚTI RAM |256 GB PAMĚTI RAM |
-| COMPUTE: SYSTÉMU BIOS |Povolená technologie Hyper-V (s podporou SLAT) |Povolená technologie Hyper-V (s podporou SLAT) |
-| Síť: NIC |Certifikace pro Windows Server 2012 R2. Specializované funkce se nepožadují |Certifikace pro Windows Server 2012 R2. Specializované funkce se nepožadují |
-| Hardwarová certifikace loga |[Certifikované pro systém Windows Server 2012 R2](https://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |[Certifikované pro systém Windows Server 2016](https://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |
+| Diskové jednotky: Operační systém |1 disk s operačním systémem s minimálně 200 GB, který je k dispozici pro systémový oddíl (SSD nebo HDD). |1 disk s operačním systémem, který má minimálně 200 GB, je k dispozici pro systémový oddíl (SSD nebo HDD). |
+| Diskové jednotky: Data pro obecné vývojové sady<sup>*</sup>  |Čtyři disky. Každý disk poskytuje minimálně 240 GB kapacity (SSD nebo HDD). Používají se všechny dostupné disky. |Čtyři disky. Každý disk poskytuje minimálně 400 GB kapacity (SSD nebo HDD). Používají se všechny dostupné disky. |
+| Výpočetní Procesor |Duální soket: 16 fyzických jader (celkem). |Duální soket: 20 fyzických jader (celkem). |
+| Výpočetní Memory (Paměť) |192 – GB RAM. |256 – GB RAM. |
+| Výpočetní SYSTÉMU BIOS |Je zapnutá technologie Hyper-V (s podporou SLAT). |Je zapnutá technologie Hyper-V (s podporou SLAT). |
+| Sítě NIC |Certifikace systému Windows Server 2012 R2. Nejsou vyžadovány žádné specializované funkce. | Certifikace systému Windows Server 2012 R2. Nejsou vyžadovány žádné specializované funkce. |
+| Hardwarová certifikace loga |[Certifikováno pro Windows Server 2012 R2](https://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0). |[Certifikováno pro Windows Server 2016](https://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0). |
 
-<sup>*</sup> Potřebujete víc než to doporučuje kapacitu, když plánujete přidat řadu [položky marketplace](../operator/azure-stack-create-and-publish-marketplace-item.md) z Azure.
+<sup>*</sup>Pokud plánujete přidat spoustu [položek z webu Marketplace](../operator/azure-stack-create-and-publish-marketplace-item.md) z Azure, budete potřebovat víc než tuto doporučenou kapacitu.
 
 ### <a name="hardware-notes"></a>Poznámky k hardwaru
 
-**Konfigurace datových disků:** Všechny datové jednotky musí být stejného typu (všechny SAS, všechny SATA nebo všechna NVMe) a kapacitu. Pokud použijete disky SAS, musí být diskové jednotky připojené pomocí jedné cesty (žádné funkce MPIO, podpora více cest je zajištěna).
+**Konfigurace datové jednotky na disku:** Všechny datové jednotky musí být stejného typu (All SAS, All SATA nebo All NVMe) a kapacitu. Pokud použijete disky SAS, musí být diskové jednotky připojené pomocí jedné cesty (žádné funkce MPIO, podpora více cest je zajištěna).
 
 **Možnosti konfigurace adaptéru HBA**
 
-* (Upřednostňované) Jednoduchý adaptér HBA
-* RAID HBA – adaptér musí být nakonfigurovány v režimu "předávání"
-* RAID HBA – disky musí být konfigurované jako jeden Disk, RAID-0
+* Doporučeno Jednoduchý adaptér HBA.
+* V režimu "průchozího" musí být nakonfigurován adaptér HBA RAID.
+* Jednotky HBA RAID – disky by měly být nakonfigurované jako jednotky RAID-0 na jednom disku.
 
-**Podporované sběrnice a typů médií kombinace**
+**Podporované kombinace typu sběrnice a média**
 
 * Pevný disk SATA
 * Pevný disk SAS
 * Pevný disk RAID
-* RAID SSD (Pokud je typ média Neurčeno/neznámé<sup>*</sup>)
+* RAID SSD (Pokud je typ média Neurčen/neznámý<sup>*</sup>)
 * SATA SSD + pevný disk SATA
 * SAS SSD + pevný disk SAS
 * NVMe
 
-<sup>*</sup> Řadiče RAID bez možnosti průchodu nerozpoznají typ média. Tyto řadiče označit pevný disk i SSD jako Neurčeno. V takovém případě se používá SSD jako trvalé úložiště místo mezipaměťových zařízení. Proto můžete nasadit sada na tyto disky SSD.
+<sup>*</sup>Řadiče RAID bez průchozí funkce nerozpoznají typ média. Tato řadiče označují pevný disk i SSD jako neurčený. V takovém případě se jednotka SSD používá jako trvalé úložiště namísto ukládání zařízení do mezipaměti. Proto můžete ASDK nasadit na tyto SSD.
 
-**Příklad HBA**: Adaptér LSI 9207-8i, LSI-9300-8i nebo LSI-9265-8i v režimu průchodu
+**Příklad adaptérů HBA**: Adaptér LSI 9207-8i, LSI-9300-8i nebo LSI-9265-8i v předávacím režimu.
 
 Dostupné jsou ukázkové OEM konfigurace.
 
-### <a name="storage-resiliency-for-the-asdk"></a>Odolnost proti chybám úložiště pro ASDK
+### <a name="storage-resiliency-for-the-asdk"></a>Odolnost úložiště pro ASDK
 
-Jako jeden uzel systému ASDK není určená pro produkční redundance systémech pro Azure Stack integrované ověřování. Však můžete zvýšit úroveň základní redundance úložiště ASDK prostřednictvím ideální kombinaci disků HDD a SDD jednotky. Můžete nasadit konfigurace Dvoucestný zrcadlový svazek, podobně jako RAID1, nikoli jednoduchý odolnost proti chybám konfigurace, která se podobá 0. Pomocí základní konfigurace prostorů úložiště s přímým dostatek kapacity, typ a počet jednotek.
+ASDK jako jeden uzel není navržený pro ověřování provozní redundance Azure Stack integrovaného systému. Úroveň základní redundance úložiště ASDK ale můžete zvýšit optimální kombinací jednotek HDD a SSD. Můžete nasadit konfiguraci se dvěma způsoby zrcadlení, podobně jako RAID1, a ne jednoduchou konfiguraci odolnou proti chybám, která je podobná RAID0. Pro základní konfiguraci Prostory úložiště s přímým přístupem použijte dostatek kapacity, typ a počet jednotek.
 
-Pro účely konfigurace Dvoucestný zrcadlový svazek úložiště odolnost proti chybám:
+Postup použití konfigurace se dvěma způsoby zrcadlení pro odolnost úložiště:
 
-- Kapacita HDD v systému větší než dvě terabajtů.
-- Pokud nemáte k dispozici vlastnosti jednotek SSD ve vašich ASDK, musíte alespoň osm pevné disky pro dvoucestné zrcadlové svazky konfiguraci.
-- Pokud máte disky SSD v ASDK, spolu s pevné disky, budete potřebovat aspoň pět HDD. Šest HHDs se však doporučuje. Šest pevné disky by také se doporučuje mít odpovídající aspoň tři jednotky SSD v systému, abyste měli jeden mezipaměti (SSD Solid-State Drive) slouží dvě kapacitu disků (HDD).
+- Potřebujete kapacitu HDD v systému o více než 2 terabajty.
+- Pokud ve svém ASDK nemáte SSD, budete pro konfiguraci obousměrného zrcadlení potřebovat aspoň osm HDD.
+- Pokud jste SSD ve své ASDK spolu s HDD, budete potřebovat aspoň pět HDD. Nicméně se doporučuje šest HHDs. Pro šest HDD se také doporučuje mít alespoň tři odpovídající SSD v systému, abyste měli k dispozici jeden disk mezipaměti (SSD), který bude obsluhovat dvě jednotky kapacity (HDD).
 
-Příklad konfigurace Dvoucestný zrcadlový svazek:
+Příklad konfigurace se dvěma způsoby zrcadlení:
 
 - Osm HDD
-- Tři SSD / šest pevný disk
-- Čtyři SSD / osm pevný disk
+- 3 jednotky SSD/šest HDD
+- Čtyři pevný disk SSD/osm
 
 ## <a name="operating-system"></a>Operační systém
 |  | **Požadavky** |
 | --- | --- |
-| **Verze operačního systému** |Windows Server 2016 nebo novější. Verze operačního systému není tak důležitý před zahájením nasazení, jak bude spouštěcí hostitelského počítače na virtuální pevný disk, který je součástí instalace služby Azure Stack. Operační systém a všechny požadované opravy jsou již integrovaná image. Nepoužívejte žádné klíče k aktivaci všechny instance Windows serveru použít development Kit. |
+| **Verze operačního systému** |Windows Server 2016 nebo novější. Verze operačního systému není před zahájením nasazení kritická, protože se hostitelský počítač spouští do virtuálního pevného disku, který je součástí instalace Azure Stack. Operační systém a všechny požadované opravy jsou již do bitové kopie integrovány. Nepoužívejte žádné klíče k aktivaci žádné instance Windows serveru používané v ASDK. |
 
 > [!TIP]
-> Po instalaci operačního systému, můžete použít [kontrola nasazení Azure Stack](https://gallery.technet.microsoft.com/Deployment-Checker-for-50e0f51b) potvrďte, že váš hardware splňuje všechny požadavky.
+> Po instalaci operačního systému můžete pomocí [Nástroje pro kontrolu nasazení Azure Stack](https://gallery.technet.microsoft.com/Deployment-Checker-for-50e0f51b) ověřit, že hardware splňuje všechny požadavky.
 
 ## <a name="account-requirements"></a>Požadavky na účet
-Vývojová sada zpravidla nasazujete s připojením k Internetu, kde se můžete připojit k Microsoft Azure. V takovém případě musíte nakonfigurovat účet služby Azure Active Directory (Azure AD) k nasazení vývojové sady.
+Obvykle nasadíte ASDK s připojením k Internetu, kde se můžete připojit k Microsoft Azure. V takovém případě musíte nakonfigurovat účet Azure Active Directory (Azure AD) pro nasazení ASDK.
 
-Pokud vaše prostředí není připojený k Internetu, nebo nechcete používat Azure AD, můžete nasadit Azure Stack pomocí služby Active Directory Federation Services (AD FS). Vývojová sada obsahuje vlastní instance služby AD FS a Active Directory Domain Services. Pokud provádíte nasazení s použitím tuto možnost, není nutné nastavení účtů předem.
+Pokud vaše prostředí není připojené k Internetu, nebo nechcete používat Azure AD, můžete Azure Stack nasadit pomocí Active Directory Federation Services (AD FS) (AD FS). ASDK zahrnuje vlastní instance AD FS a Active Directory Domain Services. Pokud nasadíte pomocí této možnosti, nemusíte nastavovat účty před časem.
 
 > [!NOTE]
-> Pokud nasadíte pomocí služby AD FS, je nutné znovu nasadit Azure Stack pro přepnutí do služby Azure AD.
+> Pokud nasadíte pomocí možnosti AD FS, je nutné znovu nasadit Azure Stack a přepnout do Azure AD.
 
-### <a name="azure-active-directory-accounts"></a>Účty služby Azure Active Directory
-Nasazení Azure Stack pomocí účtu Azure AD, musíte připravit účet Azure AD, před spuštěním Powershellový skript nasazení. Tento účet stane globálním správcem tenanta Azure AD. Používá se ke zřízení a delegování aplikace a instanční objekty pro všechny služby Azure Stack, které pracují s Azure Active Directory a rozhraní Graph API. Používá se také jako vlastník výchozí předplatné poskytovatele (který můžete později změnit). Na portálu správce systému služby Azure Stack se můžete přihlásit pomocí tohoto účtu.
+### <a name="azure-active-directory-accounts"></a>Účty Azure Active Directory
+Pokud chcete nasadit Azure Stack pomocí účtu Azure AD, musíte před spuštěním skriptu PowerShellu pro nasazení připravit účet Azure AD. Tento účet se stal globálním správcem pro tenanta Azure AD. Slouží ke zřízení a delegování aplikací a instančních objektů pro všechny Azure Stack služby, které komunikují se službou Azure AD a Graph API. Používá se také jako vlastník předplatného výchozího poskytovatele (který můžete později změnit). Pomocí tohoto účtu se můžete přihlásit k portálu pro správu systému Azure Stack.
 
-1. Vytvoření účtu služby Azure AD, který je správcem adresáře nejméně jedné služby Azure AD. Pokud už účet máte, můžete ho použít. Jinak můžete jej vytvořit zdarma na [ https://azure.microsoft.com/free/ ](https://azure.microsoft.com/free/) (v Číně, navštivte <https://go.microsoft.com/fwlink/?LinkID=717821> místo). Pokud budete chtít později [registraci Azure Stack v Azure](asdk-register.md), také musíte mít předplatné v tomto nově vytvořeném účtu.
+1. Vytvořte účet Azure AD, který je správcem adresáře pro aspoň jednu službu Azure AD. Pokud už účet máte, můžete ho použít. V opačném případě můžete vytvořit zdarma na [https://azure.microsoft.com/free/](https://azure.microsoft.com/free/) <https://go.microsoft.com/fwlink/?LinkID=717821> místo (v Číně). Pokud plánujete pozdější [registraci Azure Stack v Azure](asdk-register.md), musíte mít také předplatné v tomto nově vytvořeném účtu.
    
-    Uložte tyto přihlašovací údaje pro použití jako správce služeb. Tento účet můžete konfigurovat a spravovat cloudy prostředků, uživatelské účty, plány tenantů, kvóty a ceny. Na portálu může vytvářet webové cloudy, soukromé cloudy pro virtuální počítače a plány a spravovat předplatné uživatelů.
-1. Vytvořte aspoň jeden testovací uživatelský účet ve službě Azure AD tak, aby se můžete přihlásit jako tenant development Kit.
+    Uložte tyto přihlašovací údaje pro použití jako správce služby. Tento účet může konfigurovat a spravovat cloudy prostředků, uživatelské účty, plány tenantů, kvóty a ceny. Na portálu můžou vytvářet cloudy webů, privátní cloudy virtuálních počítačů, vytvářet plány a spravovat předplatná uživatelů.
+1. Ve službě Azure AD vytvořte aspoň jeden testovací uživatelský účet, abyste se mohli k ASDK přihlašovat jako tenant.
    
-   | **Účet Azure Active Directory** | **Podporuje?** |
+   | **Účet Azure Active Directory** | **Doložen?** |
    | --- | --- |
-   | Pracovní nebo školní účet s platným globální předplatným Azure |Ano |
-   | Account Microsoft s platným globální předplatným Azure |Ano |
-   | Pracovní nebo školní účet s platným čínským předplatným Azure |Ano |
-   | Pracovní nebo školní účet s platným US Government předplatným Azure |Ano |
+   | Pracovní nebo školní účet s platným globálním předplatným Azure |Ano |
+   | Účet Microsoft s platným globálním předplatným Azure |Ano |
+   | Pracovní nebo školní účet s platným Čínou – předplatné Azure |Ano |
+   | Pracovní nebo školní účet s platnými předplatné Azure pro státní správu USA |Ano |
 
-Po nasazení není potřeba oprávnění globálního správce Azure Active Directory. Některé operace však může vyžadovat přihlašovací údaje globálního správce. Například skript instalační program zprostředkovatele prostředků nebo nová funkce vyžaduje oprávnění bylo uděleno. Můžete dočasně obnovit oprávnění globálního správce účtu, nebo použít samostatné globální správce účtu, který je vlastníkem *výchozí předplatné poskytovatele*.
+Po nasazení se oprávnění globálního správce služby Azure AD nevyžadují. Některé operace ale můžou vyžadovat přihlašovací údaje globálního správce. Příklady takových operací zahrnují skript instalačního programu poskytovatele prostředků nebo novou funkci, která vyžaduje udělení oprávnění. Můžete buď dočasně obnovit oprávnění globálního správce účtu, nebo použít samostatný účet globálního správce, který je vlastníkem *výchozího předplatného poskytovatele*.
 
 ## <a name="network"></a>Síť
 ### <a name="switch"></a>Přepínač
-Jeden dostupný port na přepínači počítače development kit.  
+Jeden dostupný port na přepínači pro ASDK počítač.  
 
-Development kit machine podporuje připojení k portu přepínače přístup nebo kmenovému portu. Přepínač nevyžaduje žádné specializované funkce. Pokud používáte kmenový port nebo pokud potřebujete nakonfigurovat ID sítě VLAN, musíte ID sítě VLAN zadat jako parametr nasazení.
+Počítač ASDK podporuje připojení k portu pro přístup k přepínači nebo k portu kmene. Přepínač nevyžaduje žádné specializované funkce. Pokud používáte port kmene nebo pokud potřebujete nakonfigurovat ID sítě VLAN, musíte zadat ID sítě VLAN jako parametr nasazení.
 
-### <a name="subnet"></a>Podsíť
-Nepřipojujte počítač development kit pro tyto podsítě:
+### <a name="subnet"></a>Subnet
+Nepřipojujte počítač ASDK k těmto podsítím:
 
 * 192.168.200.0/24
 * 192.168.100.0/27
@@ -132,20 +132,20 @@ Nepřipojujte počítač development kit pro tyto podsítě:
 * 192.168.103.0/25
 * 192.168.104.0/25
 
-Tyto podsítě jsou vyhrazené pro interní sítě v rámci vývojového prostředí sady.
+Tyto podsítě jsou vyhrazené pro interní sítě v rámci prostředí ASDK.
 
 ### <a name="ipv4ipv6"></a>IPv4/IPv6
-Podporovaný je jenom protokol IPv4. Nemůžete vytvořit sítě IPv6.
+Podporovaný je jenom protokol IPv4. Nemůžete vytvářet sítě IPv6.
 
 ### <a name="dhcp"></a>DHCP
-Ověřte si dostupnost serveru DHCP v síti, do které se síťová karta připojuje. Pokud server DHCP není dostupný, připravte další statickou síť IPv4 (kromě té, kterou používá hostitel). Tuto IP adresu a bránu zadejte jako parametr nasazení.
+Ujistěte se, že je v síti k dispozici server DHCP, ke kterému se síťová karta připojuje. Pokud není služba DHCP k dispozici, musíte připravit další statickou síť IPv4 kromě těch, kterou používá hostitel. Tuto IP adresu a bránu zadejte jako parametr nasazení.
 
 ### <a name="internet-access"></a>Přístup k internetu
-Azure Stack vyžaduje přístup k Internetu, buď přímo nebo prostřednictvím transparentní proxy server. Azure Stack nepodporuje konfigurace webového proxy serveru na povolení přístupu k Internetu. IP adresa hostitele i nová IP adresa přiřazená AzS-BGPNAT01 (pomocí DHCP nebo statická IP adresa), musí mít přístup k Internetu. V rámci domén graph.windows.net a login.microsoftonline.com se používají porty 80 a 443.
+Azure Stack vyžaduje přístup k Internetu, a to buď přímo, nebo prostřednictvím transparentního proxy serveru. Azure Stack nepodporuje konfiguraci webového proxy serveru, aby bylo možné povolit přístup k Internetu. IP adresa hostitele i nová IP adresa přiřazená k AzS-BGPNAT01 (pomocí protokolu DHCP nebo statické IP adresy) musí mít přístup k Internetu. Porty 80 a 443 se používají v doménách graph.windows.net a login.microsoftonline.com.
 
 
 ## <a name="next-steps"></a>Další postup
 
-- [Stáhněte si balíček pro nasazení ASDK](asdk-download.md)
-- Další informace o prostory úložiště – přímé, naleznete v tématu [přehled prostorů úložiště s přímým](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview).
+- [Stáhněte si balíček pro nasazení ASDK](asdk-download.md).
+- Další informace o Prostory úložiště s přímým přístupem najdete v tématu [prostory úložiště s přímým přístupem Overview](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview).
 

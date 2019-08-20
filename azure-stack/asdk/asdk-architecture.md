@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Development Kit architektura | Dokumentace Microsoftu
-description: Popisuje architekturu Azure Stack Development Kit (ASDK).
+title: Architektura ASDK | Microsoft Docs
+description: Přečtěte si o architektuře Azure Stack Development Kit (ASDK).
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,35 +16,35 @@ ms.date: 06/28/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 06/28/2019
-ms.openlocfilehash: 4cd20ed4c76b062ea2fcfdf3d314ef2bcdecaff0
-ms.sourcegitcommit: eccbd0098ef652919f357ef6dba62b68abde1090
+ms.openlocfilehash: 5a34061b1fa6cd30f3bbf9f9780b13c01f0a4866
+ms.sourcegitcommit: 4eb1766c7a9d1ccb1f1362ae1211ec748a7d708c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67492352"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69579098"
 ---
-# <a name="microsoft-azure-stack-development-kit-architecture"></a>Architektura Microsoft Azure Stack Development Kit
-Azure Stack Development Kit (ASDK) je jedním uzlem nasazení služby Azure Stack na jednom hostiteli počítači. Součástí směrování Edge jsou nainstalovány na hostitelském počítači a poskytují schopnosti NAT a síť VPN pro službu Azure Stack. Role služby infrastruktury Azure Stack spustit ve vrstvě Hyper-V fyzickém hostitelském počítači.
+# <a name="asdk-architecture"></a>Architektura ASDK
+Azure Stack Development Kit (ASDK) je nasazení Azure Stack v jednom uzlu, které běží na jednom hostitelském počítači. Komponenty směrování Edge jsou nainstalované na hostitelském počítači pro poskytování funkcí NAT a sítě VPN pro Azure Stack. Role Azure Stack infrastruktury se spouštějí ve vrstvě Hyper-V fyzického hostitelského počítače.
 
 
 ## <a name="virtual-machine-roles"></a>Role virtuálních počítačů
-ASDK nabízí služby pomocí následující virtuální počítače hostované na hostitelském počítači development kit:
+ASDK nabízí služby, které používají následující virtuální počítače hostované v hostitelském počítači vývojové sady:
 
-| Název | Popis |
+| Name | Popis |
 | ----- | ----- |
-| **AzS-ACS01** | Úložiště služby Azure Stack.|
-| **AzS-ADFS01** | Active Directory Federation Services (ADFS).  |
-| **AzS-CA01** | Certifikační autority služby role služby Azure Stack.|
-| **AzS-DC01** | Active Directory, DNS a DHCP services pro Microsoft Azure Stack.|
-| **AzS-ERCS01** | Konzola pro nouzový zotavení virtuálního počítače. |
-| **AzS-GWY01** | Hraniční brána službami, jako je připojení site-to-site VPN sítí klientů.|
-| **AzS-NC01** | Síťový adaptér, který spravuje síťové služby Azure Stack.  |
-| **AzS-SLB01** | Vyrovnávání zatížení multiplexor služby ve službě Azure Stack pro klienty a služby infrastruktury Azure stacku.  |
-| **AzS-SQL01** | Vnitřní datové úložiště pro infrastrukturu rolích Azure stacku.  |
-| **AzS-WAS01** | Služby Azure Resource Manageru a portálu pro správu Azure Stack.|
-| **AzS-WASP01**| Služby Azure Resource Manageru a portálu Azure Stack uživatele (tenant).|
-| **AzS-XRP01** | Řadič pro správu infrastruktury pro Microsoft Azure Stack, včetně poskytovatelé prostředků Compute, Network a Storage.|
-| **AzS-SRNG01** | Podpora aktualizačního kanálu virtuálního počítače hostující službu shromažďování protokolů pro službu Azure Stack. |
+| **AzS-ACS01** | Služba Azure Stack Storage.|
+| **AzS-ADFS01** | Active Directory Federation Services (AD FS) (ADFS).  |
+| **AzS-CA01** | Služby certifikační autority pro Azure Stack služby rolí.|
+| **AzS-DC01** | Služby Active Directory, DNS a DHCP pro Microsoft Azure Stack.|
+| **AzS-ERCS01** | Virtuální počítač konzoly pro zotavení po nouzovém. |
+| **AzS-GWY01** | Hraniční služby brány, jako jsou připojení VPN typu Site-to-site pro sítě klientů.|
+| **AzS-NC01** | Síťový adaptér, který spravuje Azure Stack síťové služby.  |
+| **AzS-SLB01** | Služby multiplexového vyrovnávání zatížení v Azure Stack pro klienty a služby Azure Stack infrastruktury.  |
+| **AzS-SQL01** | Interní úložiště dat pro Azure Stack rolí infrastruktury  |
+| **AzS-WAS01** | Portál pro správu Azure Stack a služby Azure Resource Manager.|
+| **AzS-WASP01**| Azure Stack portál uživatele (tenant) a služby Azure Resource Manager.|
+| **AzS-XRP01** | Řadič pro správu infrastruktury pro Microsoft Azure Stack, včetně zprostředkovatelů prostředků služby COMPUTE, síť a úložiště.|
+| **AzS-SRNG01** | Podpora okruhu hosta hostujícího službu sběru protokolů pro Azure Stack. |
 
 ## <a name="next-steps"></a>Další postup
-[Další informace o základní úlohy správy ASDK](asdk-admin-basics.md)
+[Přečtěte si o základních úlohách správce ASDK](asdk-admin-basics.md)

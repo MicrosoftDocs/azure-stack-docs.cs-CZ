@@ -1,6 +1,6 @@
 ---
-title: Pokročilé úlohy hodnocení služby Azure Stack | Dokumentace Microsoftu
-description: Tento článek popisuje pokročilé úlohy hodnocení služby Azure Stack.
+title: Pokročilé úlohy hodnocení ASDK | Microsoft Docs
+description: Přečtěte si o pokročilých úkolech vyhodnocování Azure Stack Development KIt (ASDK).
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,34 +16,34 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: fe78fa4b99ef7acad924165b98e20ca6156777bb
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 36c4dae72f7fcf91438880f07231c94c8d286253
+ms.sourcegitcommit: 4eb1766c7a9d1ccb1f1362ae1211ec748a7d708c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66267118"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69579071"
 ---
-# <a name="advanced-azure-stack-development-kit-evaluation-tasks"></a>Pokročilé úlohy hodnocení služby Azure Stack Development Kit
-Po získané znalosti s možnostmi a základními funkcemi služby Azure Stack Development Kit (ASDK) můžete lépe pochopíte, další služby Azure Stack při testování pokročilejší scénáře. Tyto pokročilé úlohy hodnocení jsou plně popsány v dokumentaci k Azure Stack – operátor.
+# <a name="advanced-asdk-evaluation-tasks"></a>Pokročilé úlohy hodnocení ASDK
+Po zjištění zkušeností s funkcemi a možnostmi služby Basic Azure Stack Development Kit (ASDK) můžete své porozumění Azure Stack dále prohloubit otestováním pokročilejších scénářů. Tyto pokročilejší úkoly hodnocení jsou plně dokumentovány v dokumentaci k operátoru Azure Stack.
 
 > [!NOTE]
-> I když celou řadu úloh operátor jsou podporované pro ASDK i produkční nasazení Azure Stack na víc uzlů, ne všechny scénáře použití jsou podporovány pro nasazení ASDK. Zobrazit [ASDK a více uzly služby Azure Stack rozdíly](asdk-what-is.md#asdk-and-multi-node-azure-stack-differences) Další informace.
+> I když se pro nasazení ASDK i produkčních i Azure Stack pro více uzlů podporuje mnoho úloh operátorů, není pro nasazení ASDK podporována podpora všech scénářů použití. Další informace najdete v tématu [ASDK a multi-node – rozdíly v Azure Stack](asdk-what-is.md#asdk-and-multi-node-azure-stack-differences).
 
 ## <a name="delegate-offers-in-azure-stack"></a>Delegování nabídek v Azure Stacku
-Jako operátor Azure stacku často chcete umístit jiní lidé starosti vytvoření nabídky a přihlašování uživatelů. Například pokud jste poskytovatel služeb, může být vhodné prodejci v systému k podepisování zákazníci se těmito věcmi a spravovat za vás. Nebo pokud jste součástí centrální skupina IT v organizaci, může být vhodné dceřiné společnosti k registraci uživatele bez vašeho zásahu.
+Jako operátor Azure Stack často chcete dát ostatním lidem na starosti vytváření nabídek a registraci uživatelů. Pokud jste například poskytovatelem služeb, můžete chtít, aby prodejci mohli registrovat zákazníky a spravovat je vaším jménem. Nebo pokud jste součástí centrální skupiny IT v podniku, můžete chtít, aby se pobočky mohli registrovat bez zásahu uživatele.
 
-[Delegování nabídek v Azure stacku](../operator/azure-stack-delegated-provider.md) vám pomůže s těmito úkoly tak, že je to možné k dosažení a správě více uživatelů, než je možné přímo.
+[Delegování nabídek v Azure Stack](../operator/azure-stack-delegated-provider.md) pomáhá s těmito úkoly, protože umožňuje oslovit a spravovat více uživatelů, než můžete přímo.
 
-## <a name="make-sql-databases-available-to-your-azure-stack-users"></a>Zpřístupnění databáze SQL pro vaše uživatele Azure stacku
-Jako operátor Azure stacku, můžete vytvořit nabídek, které uživatelům (tenantů) vytvářet databáze SQL, které můžete použít s jejich nativně cloudové aplikace, weby a úlohy. Tím, že poskytuje tyto databáze vlastní, na vyžádání, založené na cloudu pro vaše uživatele, můžete je šetřit čas i prostředky.
+## <a name="make-sql-databases-available-to-your-azure-stack-users"></a>Zpřístupnit databáze SQL vašim uživatelům Azure Stack
+Jako operátor Azure Stack můžete vytvořit nabídky, které umožní vašim uživatelům (klientům) vytvářet databáze SQL, které mohou používat se svými nativními aplikacemi, weby a úlohami v cloudu. Když uživatelům poskytnete tyto vlastní cloudové databáze na vyžádání, ušetříte tím čas a prostředky.
 
-Použití adaptéru poskytovatele prostředků SQL serveru do [zpřístupnit databáze SQL pro vaše uživatele Azure stacku](../operator/azure-stack-tutorial-sql-server.md) jako službu Azure Stack. Po instalaci poskytovatele prostředků připojení k jedné nebo více instancí systému SQL Server.
+Pomocí adaptéru poskytovatele prostředků SQL Server můžete [zpřístupnit databáze SQL pro vaše Azure Stack uživatele](../operator/azure-stack-tutorial-sql-server.md) jako službu Azure Stack. Po instalaci poskytovatele prostředků ho připojíte k jedné nebo více instancím SQL Server.
 
-## <a name="make-web-and-api-apps-available-to-your-azure-stack-users"></a>Zpřístupnění webové aplikace a aplikace API pro vaše uživatele Azure stacku
-Jako operátor Azure stacku, můžete vytvořit nabídek, které uživatelé mohli vytvořit Azure Functions a rozhraní API a webové aplikace (klienty). Tím, že poskytuje přístup k těmto aplikacím na vyžádání, založené na cloudu pro vaše uživatele, můžete je šetřit čas i prostředky.
+## <a name="make-web-and-api-apps-available-to-your-azure-stack-users"></a>Zpřístupnění webových a API Apps vašim uživatelům Azure Stack
+Jako operátor Azure Stack můžete vytvořit nabídky, které umožní vašim uživatelům (klientům) vytvářet Azure Functions a webové aplikace a aplikace API. Poskytnutím přístupu k těmto uživatelům na vyžádání a cloudovým aplikacím můžete ušetřit čas a prostředky.
 
-Nasazení poskytovatele prostředků App Service k [zpřístupnit webových aplikací a API aplikací uživatelům Azure stacku](../operator/azure-stack-tutorial-app-service.md)
+Nasaďte poskytovatele prostředků App Service, aby [weby a aplikace API byly dostupné pro vaše Azure Stack uživatele](../operator/azure-stack-tutorial-app-service.md).
 
 ## <a name="next-steps"></a>Další postup
 
-[Další informace o nabízení služeb pomocí integrované systémy Azure Stack](../operator/azure-stack-offer-services-overview.md)
+[Další informace o poskytování služeb s Azure Stack integrovanými systémy](../operator/azure-stack-offer-services-overview.md)
