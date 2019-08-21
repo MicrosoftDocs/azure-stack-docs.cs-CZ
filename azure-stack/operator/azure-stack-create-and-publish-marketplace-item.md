@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/12/2019
+ms.date: 08/20/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 24fc0f7993001ce95a21e175c84f37d755a5ce6c
-ms.sourcegitcommit: ec38ec569ad2193369c438f55e5c190aa5f0efd5
+ms.openlocfilehash: b9e1e9a1cdd0afe18a5395c99fb2eef932791667
+ms.sourcegitcommit: 1a8ebd8103608b5ee9e804d7015eefe05ef55185
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68956606"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69643854"
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>Vytvoření a publikování položky Marketplace
 
@@ -55,7 +55,7 @@ ms.locfileid: "68956606"
    >
    >
 
-8. V souboru **manifest. JSON** změňte **název** na název vaší položky Marketplace. Změňte také **vydavatele** na jméno nebo společnost.
+8. V souboru **manifest. JSON** změňte **název** na název vaší položky Marketplace. Změňte také **vydavatele** na jméno nebo společnost. Před publikováním image aktualizujte soubor manifest. JSON a aktualizujte tento řádek: "název": "XXX". Nezapomeňte pro každou verzi image použít jiný název.
 9. Včásti artefakty změňte **název** a **cestu** na správné informace pro šablonu Azure Resource Manager, kterou jste zahrnuli:
 
    ```json
@@ -200,7 +200,7 @@ V následujícím příkladu jsou ikony a text pro položky Marketplace, jak je 
 
 ![Okno podrobností položky Marketplace](media/azure-stack-create-and-publish-marketplace-item/image3.png)
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 * [Přehled Azure Stack Marketplace](azure-stack-marketplace.md)
 * [Stažení položek z Marketplace](azure-stack-download-azure-marketplace-item.md)
