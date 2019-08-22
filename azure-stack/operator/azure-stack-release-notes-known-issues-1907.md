@@ -16,12 +16,12 @@ ms.date: 07/25/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 07/25/2019
-ms.openlocfilehash: 41d07532960776cd5ed9312007877489e9ebbf20
-ms.sourcegitcommit: 83d9dbecd7334f37862e47ca028a50f8d7dafe2d
+ms.openlocfilehash: 0b305f07344540555b444017a04c1002bb8a08a8
+ms.sourcegitcommit: 250689d6d09acc677bf59de76510d5d5f1c6190e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68738324"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69896344"
 ---
 # <a name="azure-stack-1907-known-issues"></a>Známé problémy s Azure Stack 1907
 
@@ -108,6 +108,12 @@ V tomto článku jsou uvedené známé problémy ve verzi 1907 Azure Stack. Sezn
 - Příčina: Na portálu User Portal zobrazuje okno **připojení** funkci **s názvem Poradce při potížích s VPN**. Tato funkce se v Azure Stack v tuto chvíli nepodporuje.
 - Výskyt Společné
 
+### <a name="network-connection-type"></a>Typ síťového připojení
+
+- To Tento problém se týká jakéhokoli prostředí 1906 nebo 1907. 
+- Příčina: Na portálu User Portal zobrazuje okno **AddConnection** možnost použít **VNet-to-VNet**. Tato funkce se v Azure Stack v tuto chvíli nepodporuje. 
+- Výskyt Společné 
+
 #### <a name="documentation"></a>Dokumentace
 
 - To Tento problém se vztahuje na všechny podporované verze.
@@ -171,7 +177,7 @@ V tomto článku jsou uvedené známé problémy ve verzi 1907 Azure Stack. Sezn
 <!-- ### Identity -->
 <!-- ### Marketplace -->
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 - [Kontrola kontrolního seznamu aktivit aktualizací](azure-stack-release-notes-checklist.md)
 - [Kontrola seznamu aktualizací zabezpečení](azure-stack-release-notes-security-updates-1907.md)

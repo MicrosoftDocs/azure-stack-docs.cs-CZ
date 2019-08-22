@@ -1,6 +1,6 @@
 ---
-title: Příprava hostitelském počítači Azure Stack Development Kit (ASDK) | Dokumentace Microsoftu
-description: Popisuje postup instalace ASDK Příprava hostitelském počítači Azure Stack Development Kit (ASDK).
+title: Příprava hostitelského počítače Azure Stack Development Kit (ASDK) | Microsoft Docs
+description: Popisuje, jak připravit hostitelský počítač Azure Stack Development Kit (ASDK) pro instalaci ASDK.
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -12,28 +12,28 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/21/2019
+ms.date: 08/20/2019
 ms.author: justinha
 ms.reviewer: misainat
-ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: 3352df80a64bb259320a49729e42c02cb19fca58
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.lastreviewed: 08/20/2019
+ms.openlocfilehash: 291042e0a7af78ed2431c901901e7e44b1f05de1
+ms.sourcegitcommit: fc7da38321736e952b2cc6d5d07f276d095dc8d1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66267611"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69887157"
 ---
-# <a name="prepare-the-asdk-host-computer"></a>Příprava hostitelském počítači ASDK
-Než nainstalujete ASDK v hostitelském počítači ASDK hostitele musí být připravené k instalaci. Když development kit hostitelský počítač připravený, se spustí z pevného disku virtuálního počítače CloudBuilder.vhdx zahájíte ASDK nasazení.
+# <a name="prepare-the-asdk-host-computer"></a>Příprava hostitelského počítače s ASDK
+Než budete moct nainstalovat ASDK na hostitelský počítač, musí být hostitel ASDK připravený k instalaci. Po přípravě hostitelského počítače vývojové sady se spustí z pevného disku virtuálního počítače s CloudBuilder. vhdx, aby se zahájilo nasazení ASDK.
 
-## <a name="prepare-the-development-kit-host-computer"></a>Příprava hostitelském počítači development kit
-Před instalací ASDK v hostitelském počítači, musí být připravené prostředí ASDK hostitelského počítače.
-1. Přihlaste se jako místní správce na vývojovém počítači hostitele kit.
-2. Ujistěte se, že CloudBuilder.vhdx soubor byl přesunut na kořenové jednotce C:\ (C:\CloudBuilder.vhdx).
-3. Spusťte následující skript, který stáhnout instalační soubor development kit (asdk installer.ps1) z [úložiště nástroje pro Azure Stack GitHub](https://github.com/Azure/AzureStack-Tools) k **C:\AzureStack_Installer** složky na vaše Development kit hostitelském počítači:
+## <a name="prepare-the-development-kit-host-computer"></a>Příprava hostitelského počítače pro vývojovou sadu
+Než budete moct nainstalovat ASDK na hostitelský počítač, musí být připravený prostředí hostitelského počítače ASDK.
+1. Přihlaste se jako místní správce k hostitelskému počítači vývojové sady.
+2. Zajistěte, aby byl soubor CloudBuilder. vhdx přesunut do kořenového adresáře C:\. jednotka (C:\CloudBuilder.vhdx).
+3. Spuštěním následujícího skriptu Stáhněte soubor instalačního programu vývojové sady (asdk-Installer. ps1) [Azure Stack z úložiště nástrojů GitHubu](https://github.com/Azure/AzureStack-Tools) do složky **C:\AzureStack_Installer** v hostitelském počítači pro vývojovou sadu:
 
    > [!IMPORTANT]
-   > Nezapomeňte si stáhnout soubor asdk installer.ps1 pokaždé, když instalujete ASDK. Časté změny probíhají tohoto skriptu a její nejnovější verze by měla sloužit pro každé nasazení ASDK. Starší verze souboru, který nemusí fungovat s nejnovější verzí.
+   > Nezapomeňte si stáhnout soubor asdk-Installer. ps1 pokaždé, když nainstalujete ASDK. V tomto skriptu jsou k disASDK časté změny a nejaktuálnější verze by se měly používat pro každé nasazení. Starší verze skriptu nemusí fungovat s nejaktuálnější verzí.
 
    ```powershell
    # Variables
@@ -47,32 +47,41 @@ Před instalací ASDK v hostitelském počítači, musí být připravené prost
    Invoke-WebRequest $uri -OutFile ($LocalPath + '\' + 'asdk-installer.ps1')
    ```
 
-4. V konzole Powershellu se zvýšenými oprávněními spusťte **C:\AzureStack_Installer\asdk-installer.ps1** skript a potom klikněte na tlačítko **Příprava prostředí**.
+4. Z konzoly PowerShellu se zvýšenými oprávněními spusťte skript **C:\AzureStack_Installer\asdk-Installer.ps1** a potom klikněte na **připravit prostředí**.
 
-    ![](media/asdk-prepare-host/1.PNG) 
+    ![Snímek obrazovky Příprava prostředí](media/asdk-prepare-host/1.PNG) 
 
-5. Na **vyberte Cloudbuilder vhdx** stránce instalačního programu, vyhledejte a vyberte **cloudbuilder.vhdx** soubor, který jste stažené a rozbalené v [v předchozích krocích](asdk-download.md). Na této stránce můžete také volitelně povolit **přidat ovladače** zaškrtávací políčko, pokud je potřeba přidat další ovladače k hostitelskému počítači development kit. Klikněte na **Další**.  
+5. Na stránce **Vyberte Cloudbuilder VHDX** instalačního programu vyhledejte a vyberte soubor **Cloudbuilder. vhdx** , který jste stáhli a extrahovali v [předchozích krocích](asdk-download.md). Na této stránce můžete také povolit zaškrtávací políčko **Přidat ovladače** , pokud potřebujete přidat další ovladače do hostitelského počítače vývojové sady. Klikněte na **Další**.  
 
-    ![](media/asdk-prepare-host/2.PNG)
+    ![Snímek obrazovky s výběrem Cloudbuilder. vhdx](media/asdk-prepare-host/2.PNG)
 
-6. Na **volitelná nastavení** místního správce zadejte informace o účtu pro hostitelský počítač development kit a potom klikněte na tlačítko **Další**.<br><br>Pokud nezadáte přihlašovací údaje místního správce v tomto kroku, bude nutné přímo nebo KVM přístup k hostiteli po restartování počítače jako součást nastavování development kit.
+6. Na stránce **volitelná nastavení** zadejte informace o účtu místního správce pro hostitelský počítač sady Development Kit a pak klikněte na tlačítko **Další**.<br><br>Pokud v tomto kroku nezadáte přihlašovací údaje místního správce, budete po restartování počítače potřebovat přímý nebo KVM přístup k hostiteli, a to jako součást nastavení vývojové sady.
 
-   ![](media/asdk-prepare-host/3.PNG)
+   ![Snímek obrazovky s volitelným nastavením](media/asdk-prepare-host/3.PNG)
 
-    Můžete také zadat hodnoty pro následující volitelné nastavení:
-    - **ComputerName**: Tato možnost nastaví název hostitele development kit. Název musí splňovat požadavky na plně kvalifikovaný název domény a musí být maximálně 15 znaků nebo méně. Výchozí hodnota je náhodný název generované Windows.
-    - **Konfigurace statické IP**: Nastaví nasazení tak, aby používal statickou IP adresu. Jinak Pokud instalační program restartuje do cloudbuilder.vhdx, síťová rozhraní jsou konfigurovaný server DHCP. Pokud se rozhodnete použít konfiguraci statické IP adresy, další možnosti se zobrazí, kde zároveň musíte:
-      - Vyberte síťový adaptér. Ujistěte se, že můžete připojit k adaptéru před kliknutím na **Další**.
-      - Zkontrolujte, zda je zobrazeno **IP adresu**, **brány**, a **DNS** hodnoty jsou správné a potom klikněte na **Další**.
-13. Klikněte na tlačítko **Další** zahájíte proces přípravy.
-14. Při přípravě označuje **dokončeno**, klikněte na tlačítko **Další**.
+    Můžete také zadat hodnoty pro následující volitelná nastavení:
+    - **Název počítače**: Tato možnost nastaví název hostitele vývojové sady. Název musí splňovat požadavky na plně kvalifikovaný název domény a musí být delší než 15 znaků. Výchozím nastavením je náhodný název počítače generovaný systémem Windows.
+    - **Konfigurace statické IP adresy**: Nastaví nasazení tak, aby používalo statickou IP adresu. V opačném případě, když se instalační program restartuje do cloudbuilder. vhdx, jsou síťová rozhraní nakonfigurovaná pomocí protokolu DHCP. Pokud se rozhodnete použít konfiguraci statické IP adresy, zobrazí se další možnosti, kde musíte taky:
+      - Vyberte síťový adaptér. Před kliknutím na tlačítko **Další**se ujistěte, že se můžete připojit k adaptéru.
 
-    ![](media/asdk-prepare-host/4.PNG)
+        ![Snímek obrazovky s nastavením síťového adaptéru](media/asdk-prepare-host/step-four-network-adapter.png)
 
-15. Klikněte na tlačítko **restartovat** přihlásit cloudbuilder.vhdx hostitelský počítač development kit a [pokračovat v procesu nasazení](asdk-install.md).
+      - Zkontrolujte, zda jsou zobrazené hodnoty **IP adresy**, **brány**a **DNS** správné, zadejte platnou adresu **IP serveru** a klikněte na tlačítko **Další**.
 
-    ![](media/asdk-prepare-host/5.PNG)
+        >[!TIP]
+        >Pokud chcete najít IP adresu časového serveru, navštivte [ntppool.org](https://www.ntppool.org/) nebo otestujte Time.Windows.com. 
+
+        ![Snímek obrazovky s nastavením konfigurace protokolu IP](media/asdk-prepare-host/step-five-host-ip-config.png)
+
+7. Kliknutím na tlačítko **Další** zahájíte proces přípravy.
+8. Až se příprava zobrazíjako dokončená, klikněte na **Další**.
+
+    ![Snímek obrazovky dokončené obrazovky](media/asdk-prepare-host/4.PNG)
+
+9. Kliknutím na **restartovat nyní** spusťte hostitelský počítač pro vývojovou sadu do souboru cloudbuilder. vhdx a [pokračujte v procesu nasazení](asdk-install.md).
+
+    ![Snímek obrazovky hned po restartování](media/asdk-prepare-host/5.PNG)
 
 
 ## <a name="next-steps"></a>Další postup
-[Nainstalujte ASDK](asdk-install.md)
+[Instalace ASDK](asdk-install.md)

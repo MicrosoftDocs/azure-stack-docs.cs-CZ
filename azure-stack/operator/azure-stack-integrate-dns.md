@@ -6,21 +6,21 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 05/09/2019
+ms.date: 08/21/2019
 ms.author: mabrigg
 ms.reviewer: wfayed
-ms.lastreviewed: 05/09/2019
+ms.lastreviewed: 08/21/2019
 keywords: ''
-ms.openlocfilehash: 748da2aa4391d7f28e6d4273830d8d024021bb79
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: 9e60a8f9ebda573141e2f97a9182087e90741652
+ms.sourcegitcommit: 250689d6d09acc677bf59de76510d5d5f1c6190e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68417482"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69896358"
 ---
 # <a name="azure-stack-datacenter-integration---dns"></a>Integrace Azure Stack Datacenter – DNS
 
-Aby bylo možné přistupovat k koncovým bodům Azure Stack (**portál**, **adminportal**, **Správa**, **adminmanagement**atd.)  mimo Azure Stack je potřeba integrovat služby Azure Stack DNS se servery DNS, které hostují zóny DNS, které chcete používat v Azure Stack.
+Aby bylo možné přistupovat k Azure Stack koncovým bodům, jako je **portál**, **adminportal**, **Správa**a **adminmanagement** z vnějšího Azure Stack, je nutné integrovat Azure Stack služby DNS se servery DNS, které hostují zóny DNS. Chcete použít v Azure Stack.
 
 ## <a name="azure-stack-dns-namespace"></a>Azure Stack obor názvů DNS
 
@@ -32,7 +32,7 @@ Při nasazení Azure Stack musíte poskytnout nějaké důležité informace tý
 |Oblast|Geografické umístění vašeho nasazení Azure Stack.|`east`|
 |Název externí domény|Název zóny, kterou chcete použít pro nasazení Azure Stack.|`cloud.fabrikam.com`|
 |Internal Domain Name|Název interní zóny, která se používá pro služby infrastruktury v Azure Stack.  Je to integrovaná a privátní adresářová služba (není dostupná z vnějšku Azure Stack nasazení).|`azurestack.local`|
-|Služba DNS pro přeposílání|Servery DNS, které se používají k přeposílání dotazů DNS, zón DNS a záznamů hostovaných mimo Azure Stack, a to buď na podnikovém intranetu nebo na veřejném Internetu.|`10.57.175.34`<br>`8.8.8.8`|
+|Servery DNS pro přeposílání|Servery DNS, které se používají k přeposílání dotazů DNS, zón DNS a záznamů hostovaných mimo Azure Stack, a to buď na podnikovém intranetu nebo na veřejném Internetu. Pokud nahradíte službu DNS pro přeposílání, musí se aktualizovat IP adresa. |`10.57.175.34`<br>`8.8.8.8`|
 |Předpona názvů (volitelné)|Předpona názvů, kterou chcete, aby názvy počítačů v rolích infrastruktury Azure Stack měly.  Pokud není zadaný, použije se výchozí `azs`hodnota.|`azs`|
 
 Plně kvalifikovaný název domény (FQDN) nasazení Azure Stack a koncových bodů je kombinací parametru region a parametru názvu externí domény. Při použití hodnot z příkladů v předchozí tabulce bude plně kvalifikovaný název domény pro toto nasazení Azure Stack následující název:
@@ -80,7 +80,7 @@ Azure Stack zahrnuje autoritativní i rekurzivní servery DNS. Rekurzivní serve
 
 ## <a name="resolving-external-dns-names-from-azure-stack"></a>Překlad externích názvů DNS z Azure Stack
 
-Chcete-li přeložit názvy DNS pro koncové body mimo Azure Stack (například\.: www Bing.com), je nutné poskytnout servery DNS, které Azure Stack mohou použít k přeposílání požadavků DNS, pro které Azure Stack není autoritativní. Pro nasazení se servery DNS, na které Azure Stack předává požadavky, vyžadují v listu nasazení (v poli pro přeposílání DNS). Pro odolnost proti chybám zadejte v tomto poli aspoň dva servery. Bez těchto hodnot není nasazení Azure Stack úspěšné.
+Chcete-li přeložit názvy DNS pro koncové body mimo Azure Stack (například\.: www Bing.com), je nutné poskytnout servery DNS, které Azure Stack mohou použít k přeposílání požadavků DNS, pro které Azure Stack není autoritativní. Pro nasazení se servery DNS, na které Azure Stack předává požadavky, vyžadují v listu nasazení (v poli pro přeposílání DNS). Pro odolnost proti chybám zadejte v tomto poli aspoň dva servery. Bez těchto hodnot není nasazení Azure Stack úspěšné. Pokud se nahrazují servery DNS, aktualizujte IP adresy. 
 
 ### <a name="configure-conditional-dns-forwarding"></a>Konfigurace podmíněného předávání DNS
 

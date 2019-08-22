@@ -1,6 +1,6 @@
 ---
-title: Povolení zálohování pro Azure Stack z portálu pro správu | Dokumentace Microsoftu
-description: Povolte službu Backup infrastruktury prostřednictvím portálu pro správu služby Azure Stack je možné obnovit, pokud dojde k selhání.
+title: Povolení zálohování pro Azure Stack na portálu pro správu | Microsoft Docs
+description: Povolte službu Infrastructure Backup prostřednictvím portálu pro správu, aby bylo možné Azure Stack obnovit v případě selhání.
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -12,48 +12,48 @@ ms.workload: naS
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 08/21/2019
 ms.author: justinha
 ms.reviewer: hectorl
-ms.lastreviewed: 03/14/2019
-ms.openlocfilehash: eefd393fa12814260711590f028c9a787811d8af
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.lastreviewed: 08/21/2019
+ms.openlocfilehash: d3ac538109f48e38f6483cd1ecae4896f1d3e635
+ms.sourcegitcommit: 250689d6d09acc677bf59de76510d5d5f1c6190e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269032"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69896369"
 ---
-# <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>Povolení zálohování pro Azure Stack z portálu pro správu
-Povolte službu Backup infrastruktury prostřednictvím portálu pro správu služby Azure Stack může generovat infrastruktura zálohování. Partner hardwaru tyto zálohy lze použít k obnovení svého prostředí pomocí cloudu obnovení v případě [závažnému selhání](./azure-stack-backup-recover-data.md). Účelem zotavení cloudu je zajistit, že uživatelé a operátoři může přihlásit zpátky na portálu po dokončení obnovení. Uživatelé budou mít svá předplatná obnovit včetně oprávnění k přístupu na základě rolí a rolí, původní plány, nabídky a dříve definované výpočetní prostředky, úložiště, síťové kvóty a tajných kódů služby Key Vault.
+# <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>Povolení zálohování pro Azure Stack na portálu pro správu
+Povolte službu Infrastructure Backup prostřednictvím portálu pro správu, aby Azure Stack mohla generovat zálohy infrastruktury. Hardwarový partner může tyto zálohy použít k obnovení prostředí pomocí cloudového obnovení v případě [závažného selhání](./azure-stack-backup-recover-data.md). Účelem cloudového obnovení je zajistit, aby se operátoři a uživatelé mohli po dokončení obnovení přihlásit zpátky na portál. Uživatelé budou mít obnovená předplatná, včetně oprávnění a rolí přístupu na základě role, původních plánů, nabídek a dříve definovaných výpočetních, úložných a síťových kvót a Key Vault tajných klíčů.
 
-Ale služba Backup infrastruktury nemá zálohování virtuálních počítačů IaaS, konfigurace sítě a prostředky úložiště, jako jsou účty úložiště, objekty BLOB, tabulky a tak dále, takže uživatelům přihlášení po dokončení obnovení cloudu se nezobrazí žádné z dříve stávající prostředky. Platforma jako služba (PaaS) prostředkům a datům také nezálohují se službou. 
+Služba Infrastructure Backup ale nezálohuje virtuální počítače s IaaS, konfigurace sítě a prostředky úložiště, jako jsou účty úložiště, objekty blob, tabulky atd., takže se uživatelé přihlásí po dokončení cloudového obnovení nebudou zobrazovat žádné z předchozích stávajících prostředky. Prostředky platformy jako služby (PaaS) a data také nejsou službou zálohována. 
 
-Pro zálohování a obnovení prostředky IaaS a PaaS odděleně od procesů zálohování infrastruktury zodpovídají správci a uživatelé. Informace o zálohování prostředky IaaS a PaaS najdete v následujících tématech:
+Správci a uživatelé zodpovídají za zálohování a obnovování prostředků IaaS a PaaS odděleně od procesů zálohování infrastruktury. Informace o zálohování prostředků IaaS a PaaS najdete na následujících odkazech:
 
 - [Virtual Machines](../user/azure-stack-manage-vm-protect.md)
 - [App Service](https://docs.microsoft.com/azure/app-service/manage-backup)
 - [SQL Server](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview)
 
 
-## <a name="enable-or-reconfigure-backup"></a>Povolit nebo změnit konfiguraci zálohování
+## <a name="enable-or-reconfigure-backup"></a>Povolení nebo překonfigurování zálohování
 
-1. Otevřít [portál pro správu služby Azure Stack](azure-stack-manage-portals.md).
-2. Vyberte **všechny služby**a potom v části **správu** vyberte kategorii **infrastruktura zálohování**. Zvolte **konfigurace** v **infrastruktura zálohování** okno.
-3. Zadejte cestu k **umístění úložiště zálohy**. Použijte řetězec konvenci UNC (Universal Naming) pro cestu ke sdílené složce hostované na samostatném zařízení. Řetězec ve formátu UNC Určuje umístění prostředků, jako jsou sdílené soubory nebo zařízení. Pro službu můžete použít IP adresu. K zajištění dostupnosti zálohovaných dat po havárii, zařízení by měla být v samostatném umístění.
-
-    > [!Note]  
-    > Pokud vaše prostředí podporuje překlad adres v síti infrastruktura Azure stacku podnikovém prostředí, můžete použít plně kvalifikovaný název domény, nikoli IP adresu.
-
-4. Typ **uživatelské jméno** použití domény a uživatelské jméno s dostatečný přístup pro čtení a zápis souborů. Například, `Contoso\backupshareuser`.
-5. Typ **heslo** pro daného uživatele.
-6. Zadejte heslo znovu **potvrzení hesla**.
-7. **Četnost v hodinách** Určuje, jak často se vytvoří zálohy. Výchozí hodnota je 12. Scheduler podporuje maximálně 12 a minimálně 4. 
-8. **Doba uchování ve dnech** Určuje, kolik dní záloh, které jsou uvedeny v externím místě. Výchozí hodnota je 7. Scheduler podporuje maximálně 14 a minimálně 2. Starší než doba uchování zálohy se automaticky odstraní z externího umístění.
+1. Otevřete [portál pro správu Azure Stack](azure-stack-manage-portals.md).
+2. Vyberte **všechny služby**a potom v kategorii **Správa** vyberte **zálohování infrastruktury**. V okně **zálohování infrastruktury** vyberte **Konfigurace** .
+3. Zadejte cestu k **umístění úložiště zálohy**. Použijte řetězec UNC (Universal Naming Convention) pro cestu ke sdílené složce hostované na samostatném zařízení. Řetězec UNC určuje umístění prostředků, jako jsou třeba sdílené soubory nebo zařízení. Pro službu můžete použít IP adresu. Aby se zajistila dostupnost zálohovaných dat po havárii, mělo by být zařízení v samostatném umístění.
 
     > [!Note]  
-    > Pokud chcete archivovat starší než doba uchování zálohy, ujistěte se, že chcete-li zálohovat soubory předtím, než Plánovač odstraní zálohy. Pokud je zkrátit období uchovávání záloh (např. ze 7 dní na 5 dní), Plánovač odstraní všechny zálohy, které jsou starší než novým obdobím uchovávání. Ujistěte se, že máte ok se zálohami získávání odstraněn před aktualizací této hodnoty. 
+    > Pokud vaše prostředí podporuje překlad IP adres z Azure Stack sítě infrastruktury do vašeho podnikového prostředí, můžete místo IP adresy použít plně kvalifikovaný název domény.
 
-9. V nastavení šifrování zadejte certifikát v souboru certifikátu .cer. Záložní soubory jsou šifrované pomocí veřejného klíče v certifikátu. Byste měli poskytnout certifikát, který obsahuje pouze část s veřejným klíčem, při konfiguraci nastavení zálohování. Po nastavení tohoto certifikátu poprvé nebo otočit certifikát v budoucnu, zobrazí se pouze kryptografický otisk certifikátu. Nelze stáhnout nebo zobrazení souboru nahraný certifikát. Soubor certifikátu vytvoříte spuštěním následujícího příkazu Powershellu k vytvoření certifikátu podepsaného svým držitelem pomocí veřejných a privátních klíčů a vyexportujte certifikát s pouze část s veřejným klíčem.
+4. Zadejte **uživatelské jméno** s použitím domény a uživatelského jména s dostatečným přístupem ke čtení a zápisu souborů. Například, `Contoso\backupshareuser`.
+5. Zadejte **heslo** pro uživatele.
+6. Zadejte heslo znovu a **potvrďte heslo**.
+7. **Frekvence v hodinách** určuje, jak často se vytvářejí zálohy. Výchozí hodnota je 12. Scheduler podporuje maximálně 12 a minimálně 4. 
+8. **Doba uchování ve dnech** určuje, kolik dní zálohování se uchová na externím umístění. Výchozí hodnota je 7. Scheduler podporuje maximálně 14 a minimálně 2. Zálohy starší než doba uchování jsou automaticky odstraněny z externího umístění.
+
+    > [!Note]  
+    > Pokud chcete archivovat zálohy starší než doba uchování, nezapomeňte soubory zálohovat předtím, než Plánovač odstraní zálohy. Pokud omezíte dobu uchovávání záloh (například ze 7 dnů na 5 dní), Plánovač odstraní všechny zálohy starší než nová doba uchování. Než tuto hodnotu aktualizujete, ujistěte se, že máte v pořádku zálohování záloh. 
+
+9. V nastavení šifrování zadejte certifikát do pole soubor certifikátu. cer. Záložní soubory se šifrují pomocí tohoto veřejného klíče v certifikátu. Při konfiguraci nastavení zálohování byste měli zadat certifikát, který obsahuje jenom část veřejného klíče. Jakmile tento certifikát nastavíte poprvé nebo ho v budoucnu natočíte, můžete zobrazit jenom kryptografický otisk certifikátu. Nahraný soubor certifikátu se nedá stáhnout ani zobrazit. Chcete-li vytvořit soubor certifikátu, spusťte následující příkaz prostředí PowerShell pro vytvoření certifikátu podepsaného svým držitelem s veřejnými a soukromými klíči a exportujte certifikát pouze s částí veřejného klíče. Certifikát můžete umístit kdekoli, kde se dá dostat z portálu pro správu.
 
     ```powershell
 
@@ -68,67 +68,67 @@ Pro zálohování a obnovení prostředky IaaS a PaaS odděleně od procesů zá
     ```
 
    > [!Note]
-   > **1901 a vyšší**: Azure Stack přijímá certifikát pro šifrování zálohovaných dat infrastruktury. Ujistěte se, že se má certifikát uložit s veřejným i privátním klíčem v zabezpečeném umístění. Z bezpečnostních důvodů nedoporučujeme používání certifikátu s veřejné a privátní klíče ke konfiguraci nastavení zálohování. Další informace o tom, jak spravovat životní cyklus tohoto certifikátu naleznete v tématu [osvědčené postupy služby Backup infrastruktury](azure-stack-backup-best-practices.md).
+   > **1901 a vyšší**: Azure Stack přijímá certifikát k šifrování zálohovaných dat infrastruktury. Nezapomeňte uložit certifikát s veřejným a soukromým klíčem na bezpečném místě. Z bezpečnostních důvodů nedoporučujeme používat certifikát s veřejnými a soukromými klíči ke konfiguraci nastavení zálohování. Další informace o tom, jak spravovat životní cyklus tohoto certifikátu, najdete v tématu věnovaném osvědčeným postupům pro [Infrastructure Backup služby](azure-stack-backup-best-practices.md).
    > 
-   > **1811 nebo starší**: Azure Stack přijímá symetrický klíč k šifrování zálohovaných dat infrastruktury. Použití [AzsEncryptionKey64 nová rutina pro vytvoření klíče](https://docs.microsoft.com/powershell/module/azs.backup.admin/new-azsencryptionkeybase64). Po upgradu z 1811 na 1901 si zachovají nastavení zálohování šifrovacího klíče. Doporučuje se aktualizovat nastavení zálohování pro použití certifikátu. Podpora šifrování klíče je nyní zastaralá. Budete mít aspoň 3 verze se aktualizovat nastavení pro použití certifikátu. 
+   > **1811 nebo starší**: Azure Stack přijímá symetrický klíč k šifrování zálohovaných dat infrastruktury. Pomocí [rutiny New-AzsEncryptionKey64 vytvořte klíč](https://docs.microsoft.com/powershell/module/azs.backup.admin/new-azsencryptionkeybase64). Po upgradu z 1811 na 1901 se v nastavení zálohování zachová šifrovací klíč. Doporučením je aktualizovat nastavení zálohování tak, aby používalo certifikát. Podpora šifrovacího klíče je nyní zastaralá. K aktualizaci nastavení pro použití certifikátu budete mít aspoň 3 verze. 
 
-10. Vyberte **OK** uložte nastavení zálohování kontroleru.
+10. Výběrem **OK** uložte nastavení zálohovacího řadiče.
 
 ![Azure Stack – nastavení kontroleru zálohování](media/azure-stack-backup/backup-controller-settings-certificate.png)
 
 
 ## <a name="start-backup"></a>Spustit zálohování
-Pokud chcete spustit zálohování, klikněte na **zálohovat nyní** spustit zálohu na vyžádání. Zálohu na vyžádání nezmění čas příští plánované zálohování. Po dokončení úlohy můžete potvrdit nastavení v **Essentials**:
+Pokud chcete spustit zálohování, klikněte na **Zálohovat nyní** a spusťte zálohování na vyžádání. Zálohování na vyžádání nemění čas příštího plánovaného zálohování. Po dokončení úlohy můžete potvrdit nastavení v **Essentials**:
 
-![Azure Stack – zálohování na vyžádání](media/azure-stack-backup/scheduled-backup.png)
+![Zálohování na vyžádání Azure Stack](media/azure-stack-backup/scheduled-backup.png)
 
-Můžete taky spustit rutinu prostředí PowerShell **Start AzsBackup** ve vašem počítači pro správu služby Azure Stack. Další informace najdete v tématu [zálohování Azure stacku](azure-stack-backup-back-up-azure-stack.md).
+Můžete také spustit rutinu PowerShellu **Start-AzsBackup** na počítači pro správu Azure Stack. Další informace najdete v tématu [zálohování Azure Stack](azure-stack-backup-back-up-azure-stack.md).
 
-## <a name="enable-or-disable-automatic-backups"></a>Povolí nebo zakáže automatické zálohování
-Zálohy jsou automaticky naplánované povolit zálohování. Další čas plánu zálohování můžete zkontrolovat **Essentials**. 
+## <a name="enable-or-disable-automatic-backups"></a>Povolit nebo zakázat automatické zálohování
+Zálohování se automaticky naplánuje při povolení zálohování. V části **základy**si můžete prohlédnout další čas zálohování plánu. 
 
-![Azure Stack – zálohování na vyžádání](media/azure-stack-backup/on-demand-backup.png)
+![Zálohování na vyžádání Azure Stack](media/azure-stack-backup/on-demand-backup.png)
 
-Pokud je nutné zakázat budoucí naplánovaných záloh, klikněte na **zakázat automatické zálohování**. Zakázat automatické zálohy budete mít nakonfigurované nastavení zálohování a zachová plán zálohování. Tato akce jednoduše dává pokyn, aby vynechat budoucí zálohy. 
+Pokud potřebujete zakázat budoucí naplánovaná zálohování, klikněte na **Zakázat automatické zálohování**. Vypnutím automatického zálohování se nakonfigurují nastavení zálohování a plán zálohování se zachová. Tato akce jednoduše instruuje Plánovač, že má přeskočit budoucí zálohy. 
 
-![Azure Stack – zakázat naplánované zálohy](media/azure-stack-backup/disable-auto-backup.png)
+![Azure Stack – zakázat plánované zálohy](media/azure-stack-backup/disable-auto-backup.png)
 
-Potvrďte, že budoucí naplánované zálohy byla zakázána v **Essentials**:
+Potvrďte, že v **Essentials**jsou budoucí naplánovaná zálohování zakázaná:
 
-![Azure Stack – potvrďte zálohy jsou zakázané.](media/azure-stack-backup/confirm-disable.png)
+![Azure Stack – potvrzení zálohování bylo zakázáno.](media/azure-stack-backup/confirm-disable.png)
 
-Klikněte na **povolit automatické zálohování** informovat plánovač spustit budoucích zálohování v naplánovaném čase. 
+Kliknutím na **Povolit automatické zálohování** informujte Plánovač o zahájení budoucích záloh v naplánovaném čase. 
 
-![Azure Stack – povolení naplánované zálohy](media/azure-stack-backup/enable-auto-backup.png)
+![Azure Stack – povolení naplánovaných záloh](media/azure-stack-backup/enable-auto-backup.png)
 
 
 > [!Note]  
-> Pokud jste nakonfigurovali zálohování infrastruktury před aktualizací na 1807, automatické zálohování se deaktivuje. Tímto způsobem zálohy tím, že Azure Stack nejsou v konfliktu s tím, že úlohu externí modul pro plánování zálohování. Když zakážete všechny externí Plánovač, klikněte na **povolit automatické zálohování**.
+> Pokud jste nakonfigurovali zálohování infrastruktury před aktualizací na 1807, automatické zálohování se zakáže. Tímto způsobem zálohy spouštěné nástrojem Azure Stack nejsou v konfliktu se zálohováním spuštěným externím modulem plánování úloh. Po zakázání všech externích plánovačů úloh klikněte na **Povolit automatické zálohování**.
 
 ## <a name="update-backup-settings"></a>Aktualizovat nastavení zálohování
-Od verze 1901 podpora pro šifrovací klíč je zastaralý. Pokud konfigurujete zálohování v 1901 poprvé, musíte použít certifikát. Azure Stack podporuje šifrovacího klíče jenom v případě, že je před aktualizací na 1901 nakonfigurovaný klíč. Zpětná kompatibilita režimu bude pokračovat pro tři verze. Potom se už nepodporuje šifrovací klíče. 
+Od 1901 je podpora šifrovacího klíče zastaralá. Pokud konfigurujete zálohování poprvé v 1901, je nutné použít certifikát. Azure Stack podporuje šifrovací klíč pouze v případě, že je klíč nakonfigurován před aktualizací na 1901. Režim zpětné kompatibility bude pokračovat pro tři verze. Potom už šifrovací klíče nebudou podporované. 
 
 ### <a name="default-mode"></a>Výchozí režim
-V nastavení šifrování Pokud konfigurujete zálohování infrastruktury poprvé po instalaci nebo aktualizaci 1901, musíte nakonfigurovat zálohování s certifikátem. Pomocí šifrovacího klíče se už nepodporuje. 
+Pokud konfigurujete zálohování při první instalaci nebo aktualizaci na 1901, musíte v nastavení šifrování nakonfigurovat zálohu pomocí certifikátu. Používání šifrovacího klíče již není podporováno. 
 
-Pokud chcete aktualizovat certifikát použitý k šifrování zálohovaných dat, můžete nahrát nový. CER soubor s část s veřejným klíčem a kliknutím na tlačítko OK uložte nastavení. 
+Pokud chcete aktualizovat certifikát použitý k šifrování zálohovaných dat, můžete nahrát nový. Soubor CER s částí veřejného klíče a kliknutím na tlačítko OK uložte nastavení. 
 
-Nové zálohování začít používat veřejný klíč v nový certifikát. Neexistuje žádný vliv na všechny stávající zálohy vytvořené pomocí předchozího certifikátu. Ujistěte se, že chcete zachovat starší certifikát kolem v zabezpečeném umístění, v případě, že ho budete potřebovat pro obnovení cloudu.
+Nové zálohy začnou používat veřejný klíč v novém certifikátu. Neexistuje žádný vliv na všechny existující zálohy vytvořené pomocí předchozího certifikátu. Nezapomeňte zachovat starší certifikát v bezpečném umístění pro případ, že ho budete potřebovat k obnovení cloudu.
 
-![Azure Stack – kryptografický otisk certifikátu zobrazení](media/azure-stack-backup/encryption-settings-thumbprint.png)
+![Azure Stack – zobrazení kryptografického otisku certifikátu](media/azure-stack-backup/encryption-settings-thumbprint.png)
 
-### <a name="backwards-compatibility-mode"></a>Zpětně režim kompatibility
-Pokud jste před aktualizací na 1901 nakonfigurovali zálohování, nastavení se přenesou beze změny v chování. V takovém případě šifrovací klíč je podporováno pro zpětnou kompatibilitu. Máte možnost aktualizovat šifrovací klíč nebo přepnutí pro použití certifikátu. Budete mít alespoň tři verze, a pokračovat v aktualizaci šifrovací klíč. Pomocí této doby přechodu k certifikátu. Chcete-li vytvořit nový klíč pomocí šifrování [rutiny New-AzsEncryptionKeyBase64](https://docs.microsoft.com/powershell/module/azs.backup.admin/new-azsencryptionkeybase64).
+### <a name="backwards-compatibility-mode"></a>Režim zpětné kompatibility
+Pokud jste před aktualizací na 1901 nakonfigurovali zálohování, nastavení se přenesou beze změny v chování. V takovém případě je šifrovací klíč podporován z důvodu zpětné kompatibility. Můžete aktualizovat šifrovací klíč nebo přepnout na použití certifikátu. Pokud chcete pokračovat v aktualizaci šifrovacího klíče, budete mít aspoň tři verze. Tuto dobu použijte k přechodu na certifikát. Pokud chcete vytvořit nový šifrovací klíč, použijte [New-AzsEncryptionKeyBase64](https://docs.microsoft.com/powershell/module/azs.backup.admin/new-azsencryptionkeybase64).
 
-![Azure Stack – pomocí šifrovacího klíče v režimu zpětné kompatibility](media/azure-stack-backup/encryption-settings-backcompat-encryption-key.png)
+![Azure Stack – používání šifrovacího klíče v režimu zpětné kompatibility](media/azure-stack-backup/encryption-settings-backcompat-encryption-key.png)
 
 > [!Note]  
-> Aktualizace z šifrovací klíč k certifikátu je jednosměrná operace. Po provedení této změny, nebudete moci přepnout zpět na šifrovací klíč. Všechny existující zálohy zůstanou šifrovaná pomocí předchozí šifrovacího klíče. 
+> Aktualizace z šifrovacího klíče na certifikát je jednosměrná operace. Po provedení této změny nelze přepnout zpět na šifrovací klíč. Všechna stávající zálohování zůstanou zašifrovaná pomocí předchozího šifrovacího klíče. 
 
-![Azure Stack – použití šifrovací certifikát v režimu zpětné kompatibility](media/azure-stack-backup/encryption-settings-backcompat-certificate.png)
+![Azure Stack – použít šifrovací certifikát v režimu zpětné kompatibility](media/azure-stack-backup/encryption-settings-backcompat-certificate.png)
 
 ## <a name="next-steps"></a>Další postup
 
-Zjistěte, jak spustit zálohování. Zobrazit [zálohování Azure stacku](azure-stack-backup-back-up-azure-stack.md)
+Naučte se spustit zálohování. Viz [zálohování Azure Stack](azure-stack-backup-back-up-azure-stack.md)
 
-Zjistěte, jak ověřit, jestli vaše záloha spustila. Zobrazit [potvrdit zálohování bylo dokončeno v portálu pro správu](azure-stack-backup-back-up-azure-stack.md)
+Zjistěte, jak ověřit, jestli se zálohování spustilo. Viz [potvrzení zálohování dokončeno na portálu pro správu](azure-stack-backup-back-up-azure-stack.md) .
