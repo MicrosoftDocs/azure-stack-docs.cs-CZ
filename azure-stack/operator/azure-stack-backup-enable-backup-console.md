@@ -16,12 +16,12 @@ ms.date: 08/21/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 08/21/2019
-ms.openlocfilehash: d3ac538109f48e38f6483cd1ecae4896f1d3e635
-ms.sourcegitcommit: 250689d6d09acc677bf59de76510d5d5f1c6190e
+ms.openlocfilehash: 84dd8fdc91a796a94df71926788e62d98b5ef1ae
+ms.sourcegitcommit: 22814dd79664206a260ba0160ed3ae2612e33495
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 08/22/2019
-ms.locfileid: "69896369"
+ms.locfileid: "69976174"
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>Povolení zálohování pro Azure Stack na portálu pro správu
 Povolte službu Infrastructure Backup prostřednictvím portálu pro správu, aby Azure Stack mohla generovat zálohy infrastruktury. Hardwarový partner může tyto zálohy použít k obnovení prostředí pomocí cloudového obnovení v případě [závažného selhání](./azure-stack-backup-recover-data.md). Účelem cloudového obnovení je zajistit, aby se operátoři a uživatelé mohli po dokončení obnovení přihlásit zpátky na portál. Uživatelé budou mít obnovená předplatná, včetně oprávnění a rolí přístupu na základě role, původních plánů, nabídek a dříve definovaných výpočetních, úložných a síťových kvót a Key Vault tajných klíčů.
@@ -53,7 +53,7 @@ Správci a uživatelé zodpovídají za zálohování a obnovování prostředk�
     > [!Note]  
     > Pokud chcete archivovat zálohy starší než doba uchování, nezapomeňte soubory zálohovat předtím, než Plánovač odstraní zálohy. Pokud omezíte dobu uchovávání záloh (například ze 7 dnů na 5 dní), Plánovač odstraní všechny zálohy starší než nová doba uchování. Než tuto hodnotu aktualizujete, ujistěte se, že máte v pořádku zálohování záloh. 
 
-9. V nastavení šifrování zadejte certifikát do pole soubor certifikátu. cer. Záložní soubory se šifrují pomocí tohoto veřejného klíče v certifikátu. Při konfiguraci nastavení zálohování byste měli zadat certifikát, který obsahuje jenom část veřejného klíče. Jakmile tento certifikát nastavíte poprvé nebo ho v budoucnu natočíte, můžete zobrazit jenom kryptografický otisk certifikátu. Nahraný soubor certifikátu se nedá stáhnout ani zobrazit. Chcete-li vytvořit soubor certifikátu, spusťte následující příkaz prostředí PowerShell pro vytvoření certifikátu podepsaného svým držitelem s veřejnými a soukromými klíči a exportujte certifikát pouze s částí veřejného klíče. Certifikát můžete umístit kdekoli, kde se dá dostat z portálu pro správu.
+9. V nastavení šifrování zadejte certifikát do pole soubor certifikátu. cer. Záložní soubory se šifrují pomocí tohoto veřejného klíče v certifikátu. Při konfiguraci nastavení zálohování byste měli zadat certifikát, který obsahuje jenom část veřejného klíče. Jakmile tento certifikát nastavíte poprvé nebo ho v budoucnu natočíte, můžete zobrazit jenom kryptografický otisk certifikátu. Nahraný soubor certifikátu se nedá stáhnout ani zobrazit. Chcete-li vytvořit soubor certifikátu, spusťte následující příkaz prostředí PowerShell pro vytvoření certifikátu podepsaného svým držitelem s veřejnými a soukromými klíči a exportujte certifikát pouze s částí veřejného klíče. Certifikát můžete uložit kdekoli, kde se dá dostat z portálu pro správu.
 
     ```powershell
 
