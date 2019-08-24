@@ -16,12 +16,12 @@ ms.date: 07/12/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 06/28/2019
-ms.openlocfilehash: cb98d587f766a3039887e0ba800ab255686121bc
-ms.sourcegitcommit: d96adbb821175167f6a4c8f3aba305981d7e7c3e
+ms.openlocfilehash: 9eca3112085d68c6a35378f8309dfd8ac5a1bafc
+ms.sourcegitcommit: b8260ef3e43f3703dd0df16fb752610ec8a86942
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68685545"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70008629"
 ---
 # <a name="azure-stack-1906-known-issues"></a>Známé problémy s Azure Stack 1906
 
@@ -34,7 +34,7 @@ V tomto článku jsou uvedené známé problémy ve verzi 1906 Azure Stack. Sezn
 
 - To Tento problém se vztahuje na všechny podporované verze.
 - Příčina: Při pokusu o instalaci aktualizace 1906 Azure Stack aktualizace může stav aktualizace selhat a změnit stav na **PreparationFailed**. To je způsobeno tím, že poskytovatel prostředků aktualizace (URP) nemůže správně přenést soubory z kontejneru úložiště do interní sdílené složky infrastruktury pro zpracování. 
-- Nápravy Počínaje verzí 1901 (1.1901.0.95) můžete tento problém obejít tak, že znovu kliknete na **aktualizovat** (nepokračovat). URP pak vyčistí soubory z předchozího pokusu a restartuje soubor ke stažení. Pokud potíže potrvají, doporučujeme ručně odeslat balíček aktualizace pomocí [oddílu import a instalace aktualizací](azure-stack-apply-updates.md#import-and-install-updates).
+- Nápravy Počínaje verzí 1901 (1.1901.0.95) můžete tento problém obejít tak, že znovu kliknete na **aktualizovat** (nepokračovat). URP pak vyčistí soubory z předchozího pokusu a restartuje soubor ke stažení. Pokud potíže potrvají, doporučujeme ručně odeslat balíček aktualizace pomocí [oddílu import a instalace aktualizací](azure-stack-apply-updates.md).
 - Výskyt Společné
 
 ## <a name="portal"></a>Portál

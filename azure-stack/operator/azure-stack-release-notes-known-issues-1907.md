@@ -16,12 +16,12 @@ ms.date: 07/25/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 07/25/2019
-ms.openlocfilehash: 0b305f07344540555b444017a04c1002bb8a08a8
-ms.sourcegitcommit: 250689d6d09acc677bf59de76510d5d5f1c6190e
+ms.openlocfilehash: 2d87ff424c224f10bede28099435915ab6cd6bce
+ms.sourcegitcommit: b8260ef3e43f3703dd0df16fb752610ec8a86942
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69896344"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70008609"
 ---
 # <a name="azure-stack-1907-known-issues"></a>Známé problémy s Azure Stack 1907
 
@@ -34,7 +34,7 @@ V tomto článku jsou uvedené známé problémy ve verzi 1907 Azure Stack. Sezn
 
 - To Tento problém se vztahuje na všechny podporované verze.
 - Příčina: Při pokusu o instalaci aktualizace 1907 Azure Stack aktualizace může stav aktualizace selhat a změnit stav na **PreparationFailed**. To je způsobeno tím, že poskytovatel prostředků aktualizace (URP) nemůže správně přenést soubory z kontejneru úložiště do interní sdílené složky infrastruktury pro zpracování.
-- Nápravy Počínaje verzí 1901 (1.1901.0.95) můžete tento problém obejít tak, že znovu kliknete na **aktualizovat** (nepokračovat). URP pak vyčistí soubory z předchozího pokusu a restartuje soubor ke stažení. Pokud potíže potrvají, doporučujeme ručně odeslat balíček aktualizace pomocí [oddílu import a instalace aktualizací](azure-stack-apply-updates.md#import-and-install-updates).
+- Nápravy Počínaje verzí 1901 (1.1901.0.95) můžete tento problém obejít tak, že znovu kliknete na **aktualizovat** (nepokračovat). URP pak vyčistí soubory z předchozího pokusu a restartuje soubor ke stažení. Pokud potíže potrvají, doporučujeme ručně odeslat balíček aktualizace pomocí [oddílu import a instalace aktualizací](azure-stack-apply-updates.md).
 - Výskyt Společné
 
 ## <a name="portal"></a>Portál
@@ -177,7 +177,7 @@ V tomto článku jsou uvedené známé problémy ve verzi 1907 Azure Stack. Sezn
 <!-- ### Identity -->
 <!-- ### Marketplace -->
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - [Kontrola kontrolního seznamu aktivit aktualizací](azure-stack-release-notes-checklist.md)
 - [Kontrola seznamu aktualizací zabezpečení](azure-stack-release-notes-security-updates-1907.md)

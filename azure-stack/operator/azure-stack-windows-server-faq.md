@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2019
+ms.date: 08/23/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 11/12/2018
-ms.openlocfilehash: 177d18261d8a85807826226b0dcabdfd03e87135
-ms.sourcegitcommit: 0e0d010c4e010f2fd6799471db8bf71652d8d4e1
+ms.openlocfilehash: 21364595b30c62f47c293e38bdcb9c5663c56e90
+ms.sourcegitcommit: b8260ef3e43f3703dd0df16fb752610ec8a86942
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68806905"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70008323"
 ---
 # <a name="windows-server-in-azure-stack-marketplace-faq"></a>Nejčastější dotazy k Windows serveru v Azure Stack Marketplace
 
@@ -53,11 +53,29 @@ Pokud stáhnete obě verze image, budou koncovým zákazníkům v galerii Market
 
 ### <a name="what-if-my-user-incorrectly-checked-the-i-have-a-license-box-in-previous-windows-builds-and-they-dont-have-a-license"></a>Co když můj uživatel nesprávně zaškrtne políčko mám licenci v předchozích sestaveních Windows a nemá licenci?
 
-Přečtěte si téma [převod virtuálních počítačů s Windows serverem BYOL na průběžné platby](/azure/virtual-machines/windows/hybrid-use-benefit-licensing#powershell-1).
+Pomocí následujícího skriptu můžete změnit atribut licenčního modelu tak, aby se přepnul z možnosti Přineste si vlastní licenci (BYOL) na model s průběžnými platbami (PAYG):
+
+```powershell
+vm= Get-Azurermvm -ResourceGroup "<your RG>" -Name "<your VM>"
+$vm.LicenseType = "Windows_Server"
+Update-AzureRmVM -ResourceGroupName "<your RG>" -VM $vm
+```
+
+Typ licence vašeho virtuálního počítače můžete ověřit spuštěním následujících příkazů. Pokud licenční model uvádí **Windows_Server**, bude se vám za model PAYG účtovat licence pro Windows:
+
+```powershell
+$vm | ft Name, VmId,LicenseType,ProvisioningState
+```
 
 ### <a name="what-if-i-have-an-older-image-and-my-user-forgot-to-check-the-i-have-a-license-box-or-we-use-our-own-images-and-we-do-have-enterprise-agreement-entitlement"></a>Co když mám starší image a uživatel zapomněl, aby zkontroloval, že mám licenci, nebo používáme vlastní image a máme smlouva Enterprise nárok?
 
-Přečtěte si téma [převod existujícího virtuálního počítače s Windows serverem na BYOL](/azure/virtual-machines/windows/hybrid-use-benefit-licensing#convert-an-existing-vm-using-azure-hybrid-benefit-for-windows-server). Všimněte si, že Zvýhodněné hybridní využití Azure neplatí pro Azure Stack, ale účinek tohoto nastavení platí.
+Atribut licenčního modelu můžete změnit na model Přineste si vlastní licenci tak, že spustíte následující příkazy:
+
+```powershell
+$vm= Get-Azurermvm -ResourceGroup "<your RG>" -Name "<your VM>"
+$vm.LicenseType = "None"
+Update-AzureRmVM -ResourceGroupName "<your RG>" -VM $vm
+```
 
 ### <a name="what-about-other-vms-that-use-windows-server-such-as-sql-or-machine-learning-server"></a>Jaké jsou další virtuální počítače, které používají Windows Server, jako je SQL nebo Machine Learning Server?
 

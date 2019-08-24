@@ -1,6 +1,6 @@
 ---
-title: Použít aktualizace v Azure Stack | Microsoft Docs
-description: Naučte se importovat a instalovat balíčky Microsoft Update pro Azure Stack integrovaný systém.
+title: Použití aktualizace výrobce OEM (Original Equipment Manufacturer) na Azure Stack | Microsoft Docs
+description: Naučte se, jak použít aktualizaci OEM (Original Equipment Manufacturer) na Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,114 +11,79 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/25/2019
+ms.date: 08/23/2019
 ms.author: mabrigg
-ms.reviewer: justini
-ms.lastreviewed: 02/11/2019
-ms.openlocfilehash: 04494c3f394fb5a3b836c8fcf67cd02fb2900910
-ms.sourcegitcommit: 4f3e161e7632c8a6e3d41946b09f22b5bdb08d36
+ms.lastreviewed: 08/23/2019
+ms.reviewer: ppacent
+ms.openlocfilehash: 22e6945c5064a93a8dbaf6daa5c39df36cccb597
+ms.sourcegitcommit: b8260ef3e43f3703dd0df16fb752610ec8a86942
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68413179"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70008798"
 ---
 # <a name="apply-updates-in-azure-stack"></a>Použít aktualizace v Azure Stack
 
 *Platí pro: Azure Stack integrovaných systémů*
 
-Pomocí dlaždice **aktualizace** na portálu pro správu můžete použít balíčky aktualizací Microsoft nebo OEM pro Azure Stack.
+Aktualizaci můžete použít v okně **aktualizace** v Azure Stack. Tento článek vás provede jednotlivými kroky aktualizace, monitorování a řešení potíží s procesem aktualizace. Pomocí okna aktualizace můžete zobrazit informace o aktualizaci, nainstalovat aktualizace, sledovat průběh aktualizace, zkontrolovat historii aktualizací a zobrazit aktuální verzi balíčku OEM.
 
-Pokud používáte integrované systémy verze 1807 nebo starší, je nutné stáhnout balíček aktualizace, importovat soubory balíčku do Azure Stack a následně nainstalovat balíček aktualizace. Pokyny najdete v tématu [aktualizace Azure Stack stažením balíčku](#update-azure-stack-by-downloading-the-package) .
+Aktualizace můžete spravovat z portálu pro správu. **Aktualizace** na řídicím panelu můžete použít k těmto akcím:
 
-Tyto pokyny k upgradu fungují s Azure Stack integrovanými systémy. Pokud používáte vývojový systém Azure Stack, je nutné stáhnout instalační balíček pro aktuální verzi. Pokyny najdete v tématu [instalace Azure Stack Development Kit](../asdk/asdk-install.md) .
+-   Zobrazení důležitých informací, jako je například aktuální verze.
+-   Nainstalujte aktualizace a sledujte průběh.
+-   Zkontrolujte historii aktualizací pro dříve nainstalované aktualizace.
+-   Zobrazit aktuální verzi balíčku OEM v cloudu
 
-## <a name="update-azure-stack"></a>Aktualizovat Azure Stack
+## <a name="determine-the-current-version"></a>Určení aktuální verze
 
-### <a name="select-and-apply-an-update-package"></a>Výběr a použití balíčku aktualizace
+Aktuální verzi Azure Stack můžete zobrazit v okně **aktualizace** . Pro otevření:
 
-1. Otevřete portál pro správu.
+1.  Otevřete portál Azure Stack správce.
 
-2. Vyberte **řídicí panel**. Vyberte dlaždici **aktualizace** .
+2.  Vyberte **řídicí panel**. V okně **aktualizace** je uvedena aktuální verze.
 
-    ![Je dostupná aktualizace Azure Stack.](media/azure-stack-apply-updates/azure-stack-updates-1901-dashboard.png)
+    ![Dlaždice aktualizace na výchozím řídicím panelu](./media/azure-stack-update-apply/image1.png)
 
-3. Poznamenejte si aktuální verzi Azure Stack. Můžete aktualizovat na další plnou verzi. Pokud například používáte Azure Stack 1811, bude další vydaná verze 1901.
+    Například v tomto obrázku je verze 1.1903.0.35.
 
-    ![Azure Stack použít aktualizaci](media/azure-stack-apply-updates/azure-stack-updates-1901-updateavailable.png)
+## <a name="install-updates-and-monitor-progress"></a>Instalace aktualizací a sledování průběhu
 
-4. V seznamu aktualizací vyberte další dostupnou verzi. Pokud chcete zkontrolovat změny verze, můžete vybrat **zobrazení** ve sloupci poznámky k verzi pro otevření tématu poznámky k verzi pro tuto verzi.
+1.  Otevřete portál Azure Stack správce.
 
-5. Vyberte aktualizovat hned. Aktualizace se spustí.
+2.  Vyberte **řídicí panel**. Vyberte **aktualizovat**.
 
-### <a name="review-update-history"></a>Zkontrolovat historii aktualizací
+3.  Vyberte dostupnou aktualizaci, kterou chcete použít. Pokud nemáte aktualizaci označenou jako **k dispozici**, budete muset [připravit balíček aktualizace](azure-stack-update-prepare-package.md) .
 
-1. Otevřete portál pro správu.
+4.  Vyberte **aktualizovat hned**. .
 
-2. Vyberte **řídicí panel**. Vyberte dlaždici **aktualizace** .
+    ![Podrobnosti o spuštění aktualizace Azure Stack](./media/azure-stack-update-apply/image2.png)
 
-3. Vyberte **historii aktualizací**.
+5.  Stav vysoké úrovně můžete zobrazit, protože proces aktualizace prochází různými subsystémy v Azure Stack. Příklady subsystémů zahrnují fyzické hostitele, Service Fabric, virtuální počítače infrastruktury a služby, které poskytují správce i uživatelské portály. V průběhu procesu aktualizace hlásí poskytovatel prostředků aktualizace další podrobnosti o aktualizaci, například počet kroků, které byly úspěšné, a počet probíhajících.
 
-![Historie aktualizace Azure Stack](media/azure-stack-apply-updates/azure-stack-update-history.PNG)
+6.  Pokud si chcete stáhnout úplné protokoly, vyberte **Stáhnout úplné protokoly** z okna podrobností o spuštění aktualizace.
 
-## <a name="update-azure-stack-by-downloading-the-package"></a>Aktualizace Azure Stack stažením balíčku
+    Pokud narazíte na problém při monitorování aktualizace, můžete pomocí [privilegovaného koncového bodu](https://docs.microsoft.com/azure-stack/operator/azure-stack-privileged-endpoint) monitorovat průběh spuštění aktualizace Azure Stack a pokračovat v neúspěšném spuštění aktualizace z posledního úspěšného kroku, aby byl portál Azure Stack nedostupný. Pokyny najdete v tématu[monitorování aktualizací v Azure Stack pomocí prostředí PowerShell](azure-stack-update-monitor.md).
 
-Pokud používáte integrované systémy verze 1807 nebo starší, je nutné stáhnout balíček aktualizace, importovat soubory balíčku do Azure Stack a následně nainstalovat balíček aktualizace.
+    ![Podrobnosti o spuštění aktualizace Azure Stack](./media/azure-stack-update-apply/image3.png)
 
-## <a name="download-the-update-package"></a>Stáhnout balíček aktualizací
+7.  Po dokončení dokončí poskytovatel prostředků aktualizace po **úspěšném** potvrzení, že se proces aktualizace dokončil a jak dlouho trvalá. Odtud můžete zobrazit informace o všech aktualizacích, dostupných aktualizacích nebo nainstalovaných aktualizacích pomocí filtru.
 
-Pokud je k dispozici balíček aktualizace Microsoft nebo OEM pro Azure Stack, Stáhněte balíček do umístění, které je dosažitelné z Azure Stack a zkontrolujte obsah balíčku. Balíček aktualizace se obvykle skládá z následujících souborů:
+    ![Azure-Stack-Update-Apply](./media/azure-stack-update-apply/image4.png)
 
-- Samorozbalovací `<PackageName>.zip` soubor. Tento soubor obsahuje datovou část pro aktualizaci, například nejnovější kumulativní aktualizaci pro Windows Server.
+    Pokud se aktualizace nezdařila, sestavy okna **aktualizace** **vyžadují pozornost**. Použijte možnost **Stáhnout úplné protokoly** a získejte stav vysoké úrovně, kde se aktualizace nezdařila. Shromažďování protokolů Azure Stack pomáhá s diagnostikou a řešením potíží.
 
-- Odpovídající `<PackageName>.bin` soubory. Tyto soubory poskytují kompresi pro datovou část, která je přidružená k souboru *Package*. zip.
+## <a name="review-update-history"></a>Zkontrolovat historii aktualizací
 
-- `Metadata.xml` Soubor. Tento soubor obsahuje základní informace o aktualizaci, jako je například Vydavatel, název, požadavek, velikost a adresa URL pro cestu k podpoře.
+1.  Otevřete portál pro správu.
 
-> [!IMPORTANT]  
-> Po použití balíčku aktualizace Azure Stack 1901 se formát balíčku pro balíčky aktualizací Azure Stack přesune z formátu. zip,. bin a formátu. XML do formátu. zip a. XML. Neovlivní Azure Stack operátory s připojenými razítky. Nepřipojené operátory Azure Stack naimportují jednoduše soubory. XML a. zip pomocí stejného procesu popsaného níže.
+2.  Vyberte **řídicí panel**. Vyberte **aktualizovat**.
 
-## <a name="import-and-install-updates"></a>Import a instalace aktualizací
+3.  Vyberte **historii aktualizací**.
 
-Následující postup ukazuje, jak importovat a instalovat balíčky aktualizací na portálu pro správu.
+![Historie aktualizace Azure Stack](./media/azure-stack-update-apply/image7.png)
 
-> [!IMPORTANT]  
-> Důrazně doporučujeme, abyste uživatelům informovali o všech operacích údržby a naplánovali normální časová období údržby v době nepracovních hodin co nejvíce. Operace údržby mohou ovlivnit úlohy uživatelů i operace portálu.
+# <a name="next-steps"></a>Další postup
 
-1. Na portálu pro správu vyberte **všechny služby**. Pak v části kategorie **úložiště dat + úložiště** vyberte **účty úložiště**. (Nebo do pole Filtr začněte psát **účty úložiště**a vyberte ho.)
-
-    ![Ukazuje, kde najít účty úložiště na portálu.](media/azure-stack-apply-updates/ApplyUpdates1.png)
-
-2. Do pole Filtr zadejte Update ( **aktualizovat**) a vyberte účet úložiště **updateadminaccount** .
-
-3. V podrobnostech účtu úložiště v části **služby**vyberte **objekty blob**.
- 
-    ![Ukazuje, jak získat objekty blob pro účet úložiště.](media/azure-stack-apply-updates/ApplyUpdates3.png) 
-
-4. V části **BLOB Service**vyberte **+ kontejner** a vytvořte kontejner. Zadejte název (například *Update-1811*) a pak vyberte **OK**.
- 
-     ![Ukazuje, jak přidat kontejner do účtu úložiště.](media/azure-stack-apply-updates/ApplyUpdates4.png)
-
-5. Po vytvoření kontejneru klikněte na název kontejneru a potom klikněte na tlačítko **nahrát** a nahrajte soubory balíčku do kontejneru.
- 
-    ![Ukazuje, jak nahrát soubory balíčku.](media/azure-stack-apply-updates/ApplyUpdates5.png)
-
-6. V části **nahrát objekt BLOB**klikněte na ikonu složky, vyhledejte soubor. zip balíčku aktualizace a potom v okně Průzkumníka souborů klikněte na **otevřít** .
-  
-7. V části **nahrát objekt BLOB**klikněte na **nahrát**.
-  
-    ![Zobrazuje, kam se mají nahrát jednotlivé soubory balíčku.](media/azure-stack-apply-updates/ApplyUpdates6.png)
-
-8. Opakujte kroky 6 a 7 pro soubory *Package*. bin a metadata. XML. Neimportujte soubor doplňkového oznámení. txt, pokud je zahrnutý. Všimněte si, že soubory budou. zip od 1901 do. bin a. zip – i nadále importujte soubor. XML obvyklým způsobem.
-
-9. Až budete hotovi, můžete si prohlédnout oznámení (ikona zvonku v pravém horním rohu portálu). Oznámení by měla značit, že nahrání bylo dokončeno.
-10. Přejděte zpátky na dlaždici aktualizace na řídicím panelu. Dlaždice by měla označovat, že je k dispozici aktualizace. Kliknutím na dlaždici si můžete prohlédnout nově přidaný balíček aktualizace.
-11. Pokud chcete nainstalovat aktualizaci, vyberte balíček označený jako **připravený** a buď klikněte pravým tlačítkem na balíček a vyberte **aktualizovat hned**, nebo klikněte na akci **aktualizovat hned** v horní části.
-12. Po kliknutí na instalaci balíčku aktualizace můžete zobrazit stav v oblasti **aktualizace podrobností o spuštění** . Tady můžete také kliknout na **Stáhnout souhrn** a stáhnout soubory protokolu. Protokoly z aktualizačních běhů jsou k dispozici po dobu 6 měsíců od ukončení pokusu. 
-13. Po dokončení aktualizace se na dlaždici aktualizace zobrazí aktualizovaná verze Azure Stack.
-
-Aktualizace můžete ručně odstranit z účtu úložiště poté, co byly nainstalovány v Azure Stack. Azure Stack pravidelně kontroluje starší balíčky aktualizací a odebírá je ze služby Storage. Odebrání starých balíčků může trvat Azure Stack dvou týdnů.
-
-## <a name="next-steps"></a>Další postup
-
-- [Správa aktualizací v přehledu služby Azure Stack](azure-stack-updates.md)
-- [Zásady údržby služby Azure Stack](azure-stack-servicing-policy.md)
+-   [Správa aktualizací v přehledu služby Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates)  
+-   [Zásady údržby služby Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-servicing-policy)  

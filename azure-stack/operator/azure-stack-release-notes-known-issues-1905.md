@@ -1,6 +1,6 @@
 ---
-title: Známé problémy s Azure Stack 1905 | Dokumentace Microsoftu
-description: Přečtěte si o známých problémech v Azure stacku 1905.
+title: Známé problémy s Azure Stack 1905 | Microsoft Docs
+description: Přečtěte si o známých problémech v Azure Stack 1905.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -16,79 +16,79 @@ ms.date: 06/14/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 06/14/2019
-ms.openlocfilehash: 40b2eb51b3e05a25706037f404a53d86fa7cae5a
-ms.sourcegitcommit: bcaad8b7db2ea596018d973cb29283d8c6daebfb
+ms.openlocfilehash: 619bd20b3ed9affb93bceed7b253c15bdb1e3609
+ms.sourcegitcommit: b8260ef3e43f3703dd0df16fb752610ec8a86942
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/27/2019
-ms.locfileid: "67419555"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70008745"
 ---
-# <a name="azure-stack-1905-known-issues"></a>Azure Stack 1905 známé problémy
+# <a name="azure-stack-1905-known-issues"></a>Známé problémy s Azure Stack 1905
 
-V tomto článku najdete seznam známých problémů v 1905 verzi služby Azure Stack. V seznamu je aktualizovat, protože nové problémy jsou označeny.
+V tomto článku jsou uvedené známé problémy ve verzi 1905 Azure Stack. Seznam se aktualizuje, protože se identifikují nové problémy.
 
 > [!IMPORTANT]  
-> V této části najdete před instalací této aktualizace.
+> Před použitím této aktualizace si přečtěte tento oddíl.
 
-## <a name="update-process"></a>Proces aktualizace
+## <a name="update-process"></a>Aktualizovat proces
 
-### <a name="host-node-update-prerequisite-failure"></a>Nesplnění předpokladů aktualizace v uzlu hostitele
+### <a name="host-node-update-prerequisite-failure"></a>Selhání požadovaných součástí aktualizace uzlu hostitele
 
-- Použít: Tento problém týká 1905 aktualizace.
-- Příčina: Při pokusu o instalaci aktualizace služby Azure Stack 1905, stav aktualizace může selhat z důvodu **aktualizovat předpoklad hostitele uzlu**. To je obvykle způsobeno uzlu hostitele má dostatek volného místa na disku.
-- Náprava: Obraťte se na podporu Azure Stack vyžádejte si pomoc při vymazání místa na disku v uzlu hostitele.
-- Výskyt: Neobvyklé
+- To Tento problém se týká aktualizace 1905.
+- Příčina: Při pokusu o instalaci aktualizace 1905 Azure Stack aktualizace může dojít k selhání stavu aktualizace z důvodu splnění **požadavků na aktualizaci uzlu hostitele**. To je obvykle způsobeno hostitelským uzlem, který má nedostatek volného místa na disku.
+- Nápravy Pokud chcete získat pomoc s vymazáváním místa na disku v uzlu hostitele, obraťte se na podporu Azure Stack.
+- Výskyt Mimořádné
 
-### <a name="preparation-failed"></a>Příprava nebyla úspěšná.
+### <a name="preparation-failed"></a>Příprava se nezdařila
 
-- Použít: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: Při pokusu o instalaci aktualizace služby Azure Stack 1905, stav aktualizace může selhat a změnu stavu na **PreparationFailed**. To je způsobeno aktualizace poskytovateli prostředků (URP) není schopen správně přenosu souborů z kontejneru úložiště do sdílené složky interní infrastruktury pro zpracování. Balíček aktualizace 1905 je větší než předchozí balíčky aktualizací, které můžou způsobit, že tento problém pravděpodobně probíhat.
-- Náprava: Počínaje verzí 1901 (1.1901.0.95), můžete alternativně vyřešit tento problém kliknutím **aktualizovat** znovu (ne **Resume**). URP potom vyčistí soubory z předchozího pokusu o a zahájí stahování. Pokud se problém nevyřeší, doporučujeme, abyste ručně pomocí následujících nahrání balíčku aktualizace [importu a nainstalovat aktualizace části](azure-stack-apply-updates.md#import-and-install-updates).
-- Výskyt: Společné
+- To Tento problém se vztahuje na všechny podporované verze.
+- Příčina: Při pokusu o instalaci aktualizace 1905 Azure Stack aktualizace může stav aktualizace selhat a změnit stav na **PreparationFailed**. To je způsobeno tím, že poskytovatel prostředků aktualizace (URP) nemůže správně přenést soubory z kontejneru úložiště do interní sdílené složky infrastruktury pro zpracování. Balíček aktualizace 1905 je větší než předchozí balíčky aktualizací, což může způsobit, že dojde k většímu problému.
+- Nápravy Počínaje verzí 1901 (1.1901.0.95) můžete tento problém obejít tak, že znovu kliknete na **aktualizovat** (nepokračovat). URP pak vyčistí soubory z předchozího pokusu a restartuje soubor ke stažení. Pokud potíže potrvají, doporučujeme ručně odeslat balíček aktualizace pomocí [oddílu import a instalace aktualizací](azure-stack-apply-updates.md).
+- Výskyt Společné
 
 ## <a name="portal"></a>Portál
 
 ### <a name="subscription-resources"></a>Prostředky předplatného
 
-- Použít: Tento problém se vztahuje na všechny podporované verze.
+- To Tento problém se vztahuje na všechny podporované verze.
 - Příčina: Odstraňuje se předplatné uživatele za následek osamocené prostředky.
-- Náprava: Nejprve odstranit prostředky uživatele nebo celou skupinu prostředků a pak odstraňte předplatná uživatelů.
-- Výskyt: Společné
+- Nápravy Nejprve odstraňte prostředky uživatele nebo celou skupinu prostředků a pak odstraňte odběry uživatelů.
+- Výskyt Společné
 
-### <a name="subscription-permissions"></a>Oprávnění pro předplatné
+### <a name="subscription-permissions"></a>Oprávnění předplatného
 
-- Použít: Tento problém se vztahuje na všechny podporované verze.
+- To Tento problém se vztahuje na všechny podporované verze.
 - Příčina: Nelze zobrazit oprávnění k předplatnému pomocí na portálech Azure Stack.
-- Náprava: Použití [Powershellu mohl ověřit oprávnění](/powershell/module/azurerm.resources/get-azurermroleassignment).
-- Výskyt: Společné
+- Nápravy [K ověření oprávnění použijte PowerShell](/powershell/module/azurerm.resources/get-azurermroleassignment).
+- Výskyt Společné
 
-### <a name="marketplace-management"></a>Správa webu Marketplace
+### <a name="marketplace-management"></a>Správa Marketplace
 
-- Použít: Tento problém týká 1904 a 1905
-- Příčina: Na obrazovce správy marketplace není viditelný, při přihlášení k portálu správce.
-- Náprava: Aktualizujte prohlížeč, nebo můžete přejít na **nastavení** a vyberte možnost **resetovat do výchozího nastavení**.
-- Výskyt: Občasně
+- To Tento problém se týká 1904 a 1905.
+- Příčina: Obrazovka správy Marketplace se při přihlášení k portálu pro správu nezobrazí.
+- Nápravy Aktualizujte prohlížeč nebo přejít na **Nastavení** a vyberte možnost **Obnovit výchozí nastavení**.
+- Výskyt Občasně
 
-### <a name="docker-extension"></a>Rozšíření docker
+### <a name="docker-extension"></a>Rozšíření Docker
 
-- Použít: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: Na portálech správce i uživatele, pokud budete hledat **Docker**, položky se nesprávně vrátí. Není k dispozici ve službě Azure Stack. Pokud se pokusíte k jeho vytvoření, zobrazí se chyba.
-- Náprava: Žádné zmírňující opatření.
-- Výskyt: Společné
+- To Tento problém se vztahuje na všechny podporované verze.
+- Příčina: Pokud vyhledáte Docker, na portále správce iv uživatelském prostředí se položka nesprávně vrátí. Není k dispozici ve službě Azure Stack. Pokud se pokusíte ho vytvořit, zobrazí se chyba.
+- Nápravy Žádné zmírnění.
+- Výskyt Společné
 
-### <a name="upload-blob"></a>Nahrát objekt blob
+### <a name="upload-blob"></a>Nahrát objekt BLOB
 
-- Použít: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: Na portálu user portal, při pokusu nahrát objekt blob pomocí **OAuth(preview)** možnost, úloha se nezdaří s chybovou zprávou.
-- Náprava: Nahrajte objekt blob pomocí možnosti SAS.
-- Výskyt: Společné
+- To Tento problém se vztahuje na všechny podporované verze.
+- Příčina: Při pokusu o nahrání objektu BLOB pomocí možnosti **OAuth (Preview)** na portálu User Portal se úloha nezdařila s chybovou zprávou.
+- Nápravy Nahrajte objekt BLOB pomocí možnosti SAS.
+- Výskyt Společné
 
 ### <a name="template"></a>Šablona
 
-- Použít: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: Nasazení šablony uživatelského rozhraní portálu user portal nevyplní parametry pro názvy šablon počínaje "_" (podtržítko).
-- Náprava: Z názvu šablony, odeberte "_" (podtržítko).
-- Výskyt: Společné
+- To Tento problém se vztahuje na všechny podporované verze.
+- Příčina: Uživatelské rozhraní nasazení šablon na portálu User Portal neplní parametry pro názvy šablon začínající znakem "_" (podtržítko).
+- Nápravy Odebere znak "_" (znak podtržítka) z názvu šablony.
+- Výskyt Společné
 
 ## <a name="networking"></a>Sítě
 
@@ -96,83 +96,83 @@ V tomto článku najdete seznam známých problémů v 1905 verzi služby Azure 
 
 #### <a name="add-backend-pool"></a>Přidat back-endový fond
 
-- Použít: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: Na portálu user portal, pokud se pokusíte přidat **back-endový fond** k **nástroje pro vyrovnávání zatížení**, operace se nezdaří s chybovou zprávou **nepovedlo se aktualizovat nástroj pro vyrovnávání zatížení...** .
-- Náprava: Pomocí prostředí PowerShell, CLI nebo šablony Resource Manageru pro přidružení k prostředku nástroje pro vyrovnávání zatížení back-endový fond.
-- Výskyt: Společné
+- To Tento problém se vztahuje na všechny podporované verze.
+- Příčina: Pokud se v uživatelském portálu pokusíte přidat **back-end fond** do **Load Balancer**, operace se nezdaří s chybovou zprávou **se nepodařilo aktualizovat Load Balancer...** .
+- Nápravy Pomocí PowerShellu, rozhraní příkazového řádku nebo šablony Správce prostředků přidružte fond back-end k prostředku nástroje pro vyrovnávání zatížení.
+- Výskyt Společné
 
-#### <a name="create-inbound-nat"></a>Vytvoření příchozích pravidel NAT
+#### <a name="create-inbound-nat"></a>Vytvoření příchozího překladu adres (NAT)
 
-- Použít: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: Na portálu user portal, pokud se pokusíte vytvořit **příchozí pravidlo NAT** pro **nástroje pro vyrovnávání zatížení**, operace se nezdaří s chybovou zprávou **nepovedlo se aktualizovat nástroj pro vyrovnávání zatížení...** .
-- Náprava: Pomocí prostředí PowerShell, CLI nebo šablony Resource Manageru pro přidružení k prostředku nástroje pro vyrovnávání zatížení back-endový fond.
-- Výskyt: Společné
+- To Tento problém se vztahuje na všechny podporované verze.
+- Příčina: Pokud se v uživatelském portálu pokusíte vytvořit **pravidlo příchozího překladu adres (NAT)** pro **Load Balancer**, operace se nezdaří s chybovou zprávou **se nepodařilo aktualizovat Load Balancer...** .
+- Nápravy Pomocí PowerShellu, rozhraní příkazového řádku nebo šablony Správce prostředků přidružte fond back-end k prostředku nástroje pro vyrovnávání zatížení.
+- Výskyt Společné
 
-#### <a name="create-load-balancer"></a>Vytvoření nástroje pro vyrovnávání zatížení
+#### <a name="create-load-balancer"></a>Vytvořit nástroj pro vyrovnávání zatížení
 
-- Použít: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: V portálu user portal **vytvořit Load Balancer** okno zobrazuje možnost pro vytvoření **standardní** SKU nástroje pro vyrovnávání zatížení. Tato možnost není podporována ve službě Azure Stack.
-- Náprava: Použití **základní** místo toho možnostech nástroje pro vyrovnávání zatížení.
-- Výskyt: Společné
+- To Tento problém se vztahuje na všechny podporované verze.
+- Příčina: Na portálu User Portal se v okně **vytvořit Load Balancer** zobrazí možnost vytvořit **standardní** SKU nástroje pro vyrovnávání zatížení. Tato možnost není v Azure Stack podporována.
+- Nápravy Místo toho použijte **základní** možnosti nástroje pro vyrovnávání zatížení.
+- Výskyt Společné
 
 ### <a name="public-ip-address"></a>Veřejná IP adresa
 
-- Použít: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: V portálu user portal **vytvořit veřejnou IP adresu** okno zobrazuje možnost pro vytvoření **standardní** SKU. **Standardní** SKU se nepodporuje v Azure stacku.
-- Náprava: Použití **základní** SKU pro veřejnou IP adresu.
-- Výskyt: Společné
+- To Tento problém se vztahuje na všechny podporované verze.
+- Příčina: V uživatelském portálu se v okně **vytvořit veřejnou IP adresu** zobrazí možnost vytvořit **standardní** SKU. **Standard** SKU není v Azure Stack podporován.
+- Nápravy Použijte **základní** SKU pro veřejnou IP adresu.
+- Výskyt Společné
 
 ## <a name="compute"></a>Compute
 
 ### <a name="vm-boot-diagnostics"></a>Diagnostika spouštění virtuálních počítačů
 
-- Použít: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: Při vytváření nového virtuálního počítače (VM) Windows, může se zobrazit následující chyba: **Nepovedlo se spustit virtuální počítač 'název_virtuálního_počítače'. Chyba: Nepovedlo se aktualizovat nastavení sériového portu výstup pro virtuální počítač 'název_virtuálního_počítače'** .
-Pokud jste povolení diagnostiky spouštění na virtuálním počítači, ale odstraníte účet úložiště diagnostiky spouštění dojde k chybě.
-- Náprava: Znovu vytvořte účet úložiště se stejným názvem, který jste použili dříve.
-- Výskyt: Společné
+- To Tento problém se vztahuje na všechny podporované verze.
+- Příčina: Při vytváření nového virtuálního počítače s Windows se může zobrazit následující chyba: **Nepovedlo se spustit virtuální počítač s názvem VM-Name. Chyba: Nepovedlo se aktualizovat nastavení sériového výstupu pro virtuální počítač s**názvem VM-Name.
+K této chybě dojde, pokud povolíte diagnostiku spouštění na virtuálním počítači, ale odstraníte účet úložiště diagnostiky spouštění.
+- Nápravy Vytvořte znovu účet úložiště se stejným názvem, který jste použili dříve.
+- Výskyt Společné
 
 ### <a name="vm-resize"></a>Změna velikosti virtuálního počítače
 
-- Použít: Tento problém se týká verze 1905.
-- Příčina: Nelze úspěšně Změna velikosti spravovaného disku virtuálního počítače. Pokus o změně velikosti virtuálního počítače dojde k chybě "kód": "InternalOperationError", "zpráva": "V operaci došlo k vnitřní chybě."
-- Náprava: Pracujeme na tom to pokud chcete napravit v další vydané verzi. V současné době je nutné znovu vytvořit virtuální počítač s novou velikost virtuálních počítačů.
-- Výskyt: Společné
+- To Tento problém se týká verze 1905.
+- Příčina: Nepovedlo se úspěšně změnit velikost virtuálního počítače spravovaného disku. Při pokusu o změnu velikosti virtuálního počítače dojde k chybě s kódem: "InternalOperationError", "zpráva": "Při operaci došlo k vnitřní chybě."
+- Nápravy Pracujeme na tom, abychom tento problém napravili v příští verzi. V současné době musíte virtuální počítač vytvořit znovu s novou velikostí virtuálního počítače.
+- Výskyt Společné
 
 ### <a name="virtual-machine-scale-set"></a>Škálovací sada virtuálních počítačů
 
 #### <a name="centos"></a>CentOS
 
-- Použít: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: Prostředí pro vytváření virtuálního počítače škálovací sady založené na CentOS 7.2 poskytuje jako možnost pro nasazení. CentOS 7.2 není k dispozici na Azure Marketplace zásobníku, což způsobí selhání nasazení volání, že obrázek nebyl nalezen.
-- Náprava: Vyberte jiný operační systém pro vaše nasazení, nebo pomocí šablony Azure Resource Manageru zadáním jiné image CentOS, který byl stažen před jejich nasazením na Marketplace operátorem.
-- Výskyt: Společné
+- To Tento problém se vztahuje na všechny podporované verze.
+- Příčina: Prostředí pro vytvoření sady škálování virtuálních počítačů poskytuje CentOS 7,2 jako možnost nasazení. CentOS 7,2 není na Azure Stack Marketplace k dispozici, což způsobí selhání nasazení při volání, že se image nenajde.
+- Nápravy Vyberte jiný operační systém pro nasazení nebo použijte šablonu Azure Resource Manager určující jinou image CentOS, která byla stažena před nasazením z webu Marketplace pomocí operátoru.
+- Výskyt Společné
 
-#### <a name="remove-scale-set"></a>Odstranit škálovací sady
+#### <a name="remove-scale-set"></a>Odebrat sadu škálování
 
-- Použít: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: Nelze odebrat škálovací sady z **škálovací sady virtuálních počítačů** okno.
-- Náprava: Vyberte škálovací sady, že chcete odebrat, klikněte **odstranit** tlačítko **přehled** podokně.
-- Výskyt: Společné
+- To Tento problém se vztahuje na všechny podporované verze.
+- Příčina: Nemůžete odebrat sadu škálování z okna **Virtual Machine Scale Sets** .
+- Nápravy Vyberte sadu škálování, kterou chcete odebrat, a pak klikněte na tlačítko **Odstranit** v podokně **Přehled** .
+- Výskyt Společné
 
-#### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-environments"></a>Vytvoření chyby během opravy a aktualizace v prostředích Azure Stack 4 uzly
+#### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-environments"></a>Vytváření selhání během opravy a aktualizace v prostředích Azure Stack se čtyřmi uzly
 
-- Použít: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: Vytváření virtuálních počítačů ve skupině dostupnosti 3 domén selhání a vytvořit škálovací sadu virtuálních počítačů nastavte instance selže a zobrazí se **FabricVmPlacementErrorUnsupportedFaultDomainSize** chyba během procesu aktualizace ve službě Azure Stack 4 uzly prostředí.
-- Náprava: Můžete vytvořit jednotlivých virtuálních počítačů ve skupině dostupnosti s 2 domén selhání byl úspěšně nastaven. Vytváření instance škálovací sady je však stále nejsou k dispozici během procesu aktualizace ve službě Azure Stack 4 uzly.
+- To Tento problém se vztahuje na všechny podporované verze.
+- Příčina: Vytváření virtuálních počítačů ve skupině dostupnosti 3 domén selhání a vytvoření instance sady škálování virtuálního počítače selže s chybou **FabricVmPlacementErrorUnsupportedFaultDomainSize** během procesu aktualizace v prostředí Azure Stack se čtyřmi uzly.
+- Nápravy Můžete vytvořit jeden virtuální počítač ve skupině dostupnosti se dvěma doménami selhání úspěšně. Vytvoření instance sady škálování však není během procesu aktualizace na 4 uzlech Azure Stack stále k dispozici.
 
-#### <a name="scale-set-instance-view-blade-doesnt-load"></a>Škálovací sada instanci zobrazení okna se nenačte.
+#### <a name="scale-set-instance-view-blade-doesnt-load"></a>Okno zobrazení instance sady škálování se nenačte.
 
-- Použít: Tento problém se týká verzí 1904 byl a 1905.
-- Příčina: V okně zobrazení instance virtuálního počítače škálovací sady na portálu Azure Stack nachází -> řídicí panel -> virtuální počítač škálovací sad -> AnyScaleSet - instance -> AnyScaleSetInstance nezdaří se načtení a zobrazí crying image cloudu.
-- Náprava: Aktuálně nejsou k dispozici žádná možnost nápravy a pracujeme na opravě. Dokud to neuděláte, použijte příkaz rozhraní příkazového řádku `az vmss get-instance-view` získat zobrazení instance škálovací sady.
+- To Tento problém se týká verze 1904 a 1905.
+- Příčina: Okno zobrazení instance sady škálování virtuálního počítače, které se nachází na Azure Stack Portalu > řídicím panelu > Virtual Machine Scale Sets – > AnyScaleSet-Instances-> AnyScaleSetInstance se nepovede načíst a zobrazí cloudovou image Crying.
+- Nápravy V současné době nedochází k nápravě a pracujeme na opravě. Až pak použijte příkaz `az vmss get-instance-view` CLI, abyste získali zobrazení instance pro sadu škálování.
 
-### <a name="ubuntu-ssh-access"></a>Přístup SSH se systémem Ubuntu
+### <a name="ubuntu-ssh-access"></a>Přístup SSH Ubuntu
 
-- Použít: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: Virtuální počítač s Ubuntu 18.04 vytvořené pomocí SSH autorizace povolená neumožňuje použití klíčů SSH pro přihlášení.
-- Náprava: Přístup k virtuálním počítačům pro rozšíření Linuxu použít k implementaci klíče SSH po zřízení, nebo použít ověřování pomocí hesla.
-- Výskyt: Společné
+- To Tento problém se vztahuje na všechny podporované verze.
+- Příčina: Virtuální počítač Ubuntu 18,04 vytvořený s povoleným autorizací SSH vám neumožňuje používat klíče SSH k přihlášení.
+- Nápravy Použijte přístup k virtuálnímu počítači pro rozšíření pro Linux k implementaci klíčů SSH po zřízení nebo použijte ověřování pomocí hesla.
+- Výskyt Společné
 
 <!-- ## Storage -->
 <!-- ## SQL and MySQL-->
@@ -181,7 +181,7 @@ Pokud jste povolení diagnostiky spouštění na virtuálním počítači, ale o
 <!-- ### Identity -->
 <!-- ### Marketplace -->
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
-- [Kontrolní seznam pro revizi aktualizace aktivity](azure-stack-release-notes-checklist.md)
-- [Zkontrolujte seznam aktualizací zabezpečení](azure-stack-release-notes-security-updates-1905.md)
+- [Kontrola kontrolního seznamu aktivit aktualizací](azure-stack-release-notes-checklist.md)
+- [Kontrola seznamu aktualizací zabezpečení](azure-stack-release-notes-security-updates-1905.md)

@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 07/17/2019
 ms.author: sethm
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: a7a61e8eef33ee6a6efb87001504fe5234e3cf16
-ms.sourcegitcommit: 2063332b4d7f98ee944dd1f443847eea70eb5614
+ms.openlocfilehash: fc04032f7741c61a9b2b86e23a9173ca268a1e11
+ms.sourcegitcommit: b8260ef3e43f3703dd0df16fb752610ec8a86942
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68303141"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70008346"
 ---
 # <a name="differences-between-azure-stack-and-azure-when-using-services-and-building-apps"></a>Rozdíly mezi Azure Stack a Azure při používání služeb a sestavování aplikací
 
@@ -77,7 +77,7 @@ Azure Stack podporuje konkrétní verze Azure PowerShell a rozhraní API služeb
 Abyste měli jistotu, že používáte správnou verzi Azure PowerShell, použijte [profily verze rozhraní API](azure-stack-version-profiles.md). Chcete-li určit nejnovější profil verze rozhraní API, který můžete použít, přečtěte si sestavení Azure Stack používáte. Tyto informace můžete získat od správce Azure Stack.
 
 > [!NOTE]
-> Pokud používáte Azure Stack Development Kit a máte přístup správce, přečtěte si část [určení aktuální verze](../operator/azure-stack-updates.md#determine-the-current-version) pro určení Azure Stack sestavení.
+> Pokud používáte Azure Stack Development Kit a máte přístup správce, přečtěte si část [určení aktuální verze](../operator/azure-stack-updates.md) pro určení Azure Stack sestavení.
 
 U jiných rozhraní API spusťte následující příkaz PowerShellu pro výstup oborů názvů, typů prostředků a verzí rozhraní API, které jsou podporované v rámci předplatného Azure Stack (na úrovni vlastností můžou existovat rozdíly). Aby tento příkaz fungoval, je potřeba, abyste už [nainstalovali](../operator/azure-stack-powershell-install.md) a [nakonfigurovali](azure-stack-powershell-configure-user.md) PowerShell pro prostředí Azure Stack. Musíte mít také předplatné pro Azure Stack nabídku.
 

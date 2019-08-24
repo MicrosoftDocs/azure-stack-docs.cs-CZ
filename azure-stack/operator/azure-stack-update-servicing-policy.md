@@ -1,27 +1,26 @@
 ---
-title: Zásady pro obsluhu Azure Stack | Microsoft Docs
-description: Přečtěte si o zásadách pro obsluhu Azure Stack a o tom, jak zachovat integrovaný systém v podporovaném stavu.
+title: Použití aktualizace výrobce OEM (Original Equipment Manufacturer) na Azure Stack | Microsoft Docs
+description: Naučte se, jak použít aktualizaci OEM (Original Equipment Manufacturer) na Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: sethmanheim
+author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: caac3d2f-11cc-4ff2-82d6-52b58fee4c39
 ms.service: azure-stack
 ms.workload: na
-pms.tgt_pltfrm: na
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/08/2019
-ms.author: sethm
-ms.reviewer: harik
-ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: c02cc78205b2622b4ef5bdd8b88070912af72b97
+ms.date: 08/15/2019
+ms.author: mabrigg
+ms.lastreviewed: 08/15/2019
+ms.reviewer: ppacent
+ms.openlocfilehash: b8031afd05ba03086cfa748614b58d9b0c5248e9
 ms.sourcegitcommit: b8260ef3e43f3703dd0df16fb752610ec8a86942
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 08/23/2019
-ms.locfileid: "70008598"
+ms.locfileid: "70010162"
 ---
 # <a name="azure-stack-servicing-policy"></a>Zásady obsluhy Azure Stack
 
@@ -30,6 +29,8 @@ ms.locfileid: "70008598"
 Tento článek popisuje zásady pro obsluhu Azure Stack integrovaných systémů, co je potřeba udělat, abyste zachovali systém v podporovaném stavu, a jak získat podporu.
 
 ## <a name="keep-your-system-under-support"></a>Zachování systému v rámci podpory
+
+Chcete-li nadále získávat podporu, je nutné aktualizace udržovat Azure Stack aktuální.
 
 Aby instance Azure Stack zůstala v podporovaném stavu, musí instance běžet z poslední vydané verze aktualizace nebo spustit jednu z těchto dvou předchozích verzí aktualizace.
 
@@ -43,6 +44,6 @@ Balíčky aktualizací softwaru společnosti Microsoft jsou nekumulativní a vy�
 
 Azure Stack se řídí stejným procesem podpory jako Azure. Podnikoví zákazníci mohou postupovat podle postupu popsaného v tématu [Postup vytvoření žádosti o podporu Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Pokud jste zákazníkem poskytovatele cloudové služby (CSP), požádejte o podporu svého CSP. Další informace najdete v nejčastějších dotazech k [podpoře Azure](https://azure.microsoft.com/support/faq/).
 
-## <a name="next-steps"></a>Další postup
+# <a name="next-steps"></a>Další postup
 
-- [Správa aktualizací ve službě Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates)
+[Správa aktualizací ve službě Azure Stack](azure-stack-updates.md)

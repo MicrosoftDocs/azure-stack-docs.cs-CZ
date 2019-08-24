@@ -15,16 +15,16 @@ ms.date: 07/25/2019
 ms.author: sethm
 ms.reviewer: misainat
 ms.lastreviewed: 07/25/2019
-ms.openlocfilehash: a2b000f60c5867e557ef5b0621f994ea7ec23913
-ms.sourcegitcommit: f6ea6daddb92cbf458f9824cd2f8e7e1bda9688e
+ms.openlocfilehash: 058eff278dbfb7834e3b929967851f998b15f91b
+ms.sourcegitcommit: b8260ef3e43f3703dd0df16fb752610ec8a86942
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68493780"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70008246"
 ---
 # <a name="asdk-release-notes"></a>Poznámky k verzi ASDK
 
-Tento článek obsahuje informace o změnách, opravách a známých problémech v Azure Stack Development Kit (ASDK). Pokud si nejste jistí, kterou verzi používáte, můžete ji [zkontrolovat pomocí portálu](../operator/azure-stack-updates.md#determine-the-current-version).
+Tento článek obsahuje informace o změnách, opravách a známých problémech v Azure Stack Development Kit (ASDK). Pokud si nejste jistí, kterou verzi používáte, můžete ji [zkontrolovat pomocí portálu](../operator/azure-stack-updates.md).
 
 Přihlaste se k odběru [ ![](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) informačního [kanálu RSS](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#)RSS a sledujte, co je nového v ASDK.
 

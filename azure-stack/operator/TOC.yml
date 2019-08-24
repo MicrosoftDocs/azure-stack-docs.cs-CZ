@@ -10,10 +10,6 @@
       href: compare-azure-azure-stack.md
     - name: "Poznámky k\_verzi"
       items:
-        - name: Zásady aktualizace a údržby
-          href: azure-stack-servicing-policy.md
-        - name: Kontrolní seznam pro použití aktualizací
-          href: azure-stack-release-notes-checklist.md
         - name: Aktualizace zabezpečení
           href: azure-stack-release-notes-security-updates-1907.md
         - name: aktualizace 1907
@@ -171,12 +167,22 @@
           items:
             - name: Správa přehledu aktualizací
               href: azure-stack-updates.md
+            - name: Zásady aktualizace a údržby
+              href: azure-stack-servicing-policy.md
+            - name: Kontrolní seznam pro použití aktualizací
+              href: azure-stack-release-notes-checklist.md
+            - name: Plán pro aktualizaci
+              href: azure-stack-update-plan.md
+            - name: Příprava balíčku aktualizace
+              href: azure-stack-update-prepare-package.md
             - name: Instalace aktualizací
-              href: azure-stack-apply-updates.md
-            - name: Použít aktualizace OEM
-              href: azure-stack-update-oem.md
+              items:
+                - name: Instalace aktualizací
+                  href: azure-stack-apply-updates.md
+                - name: Použít aktualizace OEM
+                  href: azure-stack-update-oem.md
             - name: Monitorování stavu aktualizace
-              href: azure-stack-monitor-update.md
+              href: azure-stack-update-monitor.md
         - name: Monitorování stavu a výstrah
           href: azure-stack-monitor-health.md
         - name: Správa síťových prostředků
@@ -447,7 +453,7 @@
   items:
     - name: Dokumentace k Azure Stack uživateli
       href: /azure-stack/user/
-    - name: Dokumentace k ASDK
+    - name: Dokumentace k sadě ASDK
       href: /azure-stack/asdk/
 - name: Zdroje a prostředky
   items:
