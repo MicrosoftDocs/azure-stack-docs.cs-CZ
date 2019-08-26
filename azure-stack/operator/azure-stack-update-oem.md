@@ -15,12 +15,12 @@ ms.date: 08/15/2019
 ms.author: mabrigg
 ms.lastreviewed: 08/15/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 1342eb503abb81308740c0103b1d54887a46cf85
-ms.sourcegitcommit: f62d58ae724020a24fa5905b6663abb5f1d62178
+ms.openlocfilehash: 9e7ac8a795849ac633a6569b3a7e027f89e4ce9d
+ms.sourcegitcommit: b8260ef3e43f3703dd0df16fb752610ec8a86942
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69520920"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70008522"
 ---
 # <a name="apply-azure-stack-original-equipment-manufacturer-oem-updates"></a>Použít Azure Stack aktualizace OEM (Original Equipment Manufacturer)
 
@@ -60,12 +60,12 @@ Použijte balíčky OEM pomocí následujících kroků:
 1. Budete se muset obrátit na výrobce OEM, aby:
       - Zjistěte aktuální verzi balíčku OEM.  
       - Najděte nejlepší metodu pro stažení balíčku OEM.  
-2. Připravte si balíček OEM s postupem popsaným v části [stažení balíčků aktualizací pro integrované systémy](azure-stack-servicing-policy.md#download-update-packages-for-integrated-systems).
+2. Připravte si balíček OEM s postupem popsaným v části [stažení balíčků aktualizací pro integrované systémy](azure-stack-servicing-policy.md).
 3. Aktualizace použijte s postupem popsaným v části [použití aktualizací v Azure Stack](azure-stack-apply-updates.md).
 
 ## <a name="configure-hardware-vendor-vm"></a>Konfigurace virtuálního počítače dodavatele hardwaru
 
-Někteří dodavatelé hardwaru můžou vyžadovat, aby virtuální počítač mohl pomáhat s procesem aktualizace OEM. Váš dodavatel hardwaru bude zodpovědný za vytváření těchto virtuálních počítačů a dokumentaci, pokud při spuštění rutiny `ProxyVM` **set-OEMExternalVM** potřebujete nebo `HardwareManager` **VMType** . Po vytvoření virtuálních počítačů je nakonfigurujte pomocí **set-OEMExternalVM** z privilegovaného koncového bodu.
+Někteří dodavatelé hardwaru můžou vyžadovat, aby virtuální počítač mohl pomáhat s procesem aktualizace OEM. Dodavatel hardwaru bude zodpovědný za vytváření těchto virtuálních počítačů a dokumentaci, `ProxyVM` Pokud při spuštění rutiny `HardwareManager` **set-OEMExternalVM** vyžadujete nebo **VMType** , a také to, které přihlašovací údaje se mají použít **– Přihlašovací údaje**. Po vytvoření virtuálních počítačů je nakonfigurujte pomocí **set-OEMExternalVM** z privilegovaného koncového bodu.
 
 Další informace o privilegovaném koncovém bodu v Azure Stack najdete v tématu [použití privilegovaného koncového bodu v Azure Stack](azure-stack-privileged-endpoint.md).
 
@@ -77,14 +77,14 @@ Další informace o privilegovaném koncovém bodu v Azure Stack najdete v téma
     -ConfigurationName PrivilegedEndpoint -Credential $cred
     ```
 
-2. Nakonfigurujte virtuální počítač dodavatele hardwaru pomocí rutiny **set-OEMExternalVM** . Rutina ověří IP adresu a přihlašovací údaje pro **– VMType** `ProxyVM`. Rutina **-VMType** `HardwareManager` neprovede ověření vstupu.
+2. Nakonfigurujte virtuální počítač dodavatele hardwaru pomocí rutiny **set-OEMExternalVM** . Rutina ověří IP adresu a přihlašovací údaje pro **– VMType** `ProxyVM`. Rutina **-VMType** `HardwareManager` neprovede ověření vstupu. Parametr **-Credential** zadaný pro **set-OEMExternalVM** je ten, který bude jasně zdokumentován v dokumentaci výrobce hardwaru.  Nejedná se o CloudAdmin přihlašovací údaje, které se používají s privilegovaným koncovým bodem, nebo jakékoli jiné existující Azure Stack přihlašovací údaje.
 
     ```powershell  
-    
+    $VmCred = Get-Credential
     Invoke-Command -Session $session
         { 
     Set-OEMExternalVM -VMType <Either "ProxyVM" or "HardwareManager">
-        -IPAddress <IP Address of hardware vendor VM>
+        -IPAddress <IP Address of hardware vendor VM> -Credential $using:VmCred
         }
     ```
 
