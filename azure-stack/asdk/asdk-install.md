@@ -1,6 +1,6 @@
 ---
-title: Instalace sady Azure Stack Development Kit (ASDK) | Dokumentace Microsoftu
-description: Popisuje postup instalace Azure Stack Development Kit (ASDK).
+title: Instalace ASDK | Microsoft Docs
+description: Přečtěte si, jak nainstalovat Azure Stack Development Kit (ASDK).
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,72 +16,76 @@ ms.date: 05/06/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 277b2e8c86cda65167a734d0e5775ec1748ef219
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: c616736cf9ea8cc350c2c53bb7d6994346dac990
+ms.sourcegitcommit: 7968f9f0946138867323793be9966ee2ef99dcf4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66267645"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70025966"
 ---
-# <a name="install-the-azure-stack-development-kit-asdk"></a>Instalace sady Azure Stack Development Kit (ASDK)
-Po [Příprava hostitelském počítači ASDK](asdk-prepare-host.md), je možné nasadit ASDK CloudBuilder.vhdx Image, pomocí následujících kroků v tomto článku.
+# <a name="install-the-asdk"></a>Instalace ASDK
+Po [přípravě hostitelského počítače s ASDK](asdk-prepare-host.md)se dá Azure Stack Development Kit (ASDK) nasadit do image CloudBuilder. vhdx pomocí následujících kroků v tomto článku.
 
-## <a name="install-the-asdk"></a>Nainstalujte ASDK
-Kroky v tomto článku ukazují, jak nasadit ASDK pomocí grafického uživatelského rozhraní (GUI) poskytované stáhnete a nainstalujete **asdk installer.ps1** skript prostředí PowerShell.
+## <a name="install-the-asdk"></a>Instalace ASDK
+Kroky v tomto článku vám ukážou, jak nasadit ASDK pomocí grafického uživatelského rozhraní (GUI) poskytovaného stažením a spuštěním skriptu PowerShellu **asdk-Installer. ps1** .
 
 > [!NOTE]
-> Uživatelské rozhraní instalačního programu pro Azure Stack Development Kit je skriptu open source na základě WCF a prostředí PowerShell.
+> Uživatelské rozhraní instalačního programu pro ASDK je open source skript založený na WCF a PowerShellu.
 
 
-1. Po hostitelský počítač úspěšně spustí do bitové kopie CloudBuilder.vhdx, přihlášení pomocí přihlašovacích údajů správce zadán při vám [připravili development kit hostitelský počítač](asdk-prepare-host.md) ASDK instalace. To by měla být stejná jako přihlašovací údaje development kit hostitele místního správce.
-2. Otevřete konzolu Powershellu se zvýšenými oprávněními a spusťte  **&lt;písmeno jednotky > \AzureStack_Installer\asdk-installer.ps1** skript prostředí PowerShell. Všimněte si, že skript může být nyní na jinou jednotku než C:\ CloudBuilder.vhdx obrázku. Klikněte na **Nainstalovat**.
+1. Po úspěšném spuštění hostitelského počítače do image CloudBuilder. vhdx se přihlaste pomocí přihlašovacích údajů správce zadaných při [přípravě hostitelského počítače ASDK](asdk-prepare-host.md) pro instalaci ASDK. To by mělo být stejné jako přihlašovací údaje místního správce hostitele ASDK.
+2. Otevřete konzolu nástroje PowerShell se zvýšenými oprávněními a spusťte  **&lt;písmeno jednotky >** skriptu prostředí PowerShell pro \AzureStack_Installer\asdk-Installer.ps1. Uvědomte si, že skript může být na jiné jednotce než C:\. v imagi CloudBuilder. vhdx. Klikněte na tlačítko **nainstalovat**.
 
-    ![](media/asdk-install/1.PNG) 
+    ![Nainstalovat ASDK](media/asdk-install/1.PNG) 
 
-3. V poskytovateli Identity **typ** rozevíracího seznamu vyberte **Azure China Cloud**, **nám cloudu Azure Government**, **služby AD FS**, nebo **Cloudu azure**. V části **heslo místního správce** zadejte heslo místního správce (který musí odpovídat aktuální heslo místního správce nakonfigurovanou) **heslo** pole a potom klikněte na tlačítko  **Další**.
+3. V rozevíracím seznamu **typ** zprostředkovatele identity vyberte **Azure Čína Cloud**, **Azure usa pro státní**správu, **AD FS**nebo **cloud Azure**. V části **heslo místního správce** zadejte heslo místního správce (které se musí shodovat s aktuálním nakonfigurovaným heslem místního správce) v poli **heslo** a potom klikněte na tlačítko **Další**.
 
-    ![](media/asdk-install/2.PNG) 
+    ![Rozevírací seznam typu zprostředkovatele identity v ASDK](media/asdk-install/2.PNG) 
   
-   Pokud se rozhodnete poskytovatele identity k předplatnému Azure, budete potřebovat připojení k Internetu, úplný název služby Azure AD tenanta adresáře ve formě *domainname*. onmicrosoft.com, nebo Azure AD ověřit vlastní doménu, název a globální přihlašovací údaje správce pro zadaný adresář.<br><br>Po nasazení není potřeba oprávnění globálního správce Azure Active Directory. Některé operace však může vyžadovat přihlašovací údaje globálního správce. Například skript instalační program zprostředkovatele prostředků nebo nová funkce vyžaduje oprávnění bylo uděleno. Můžete dočasně obnovit oprávnění globálního správce účtu, nebo použít samostatné globální správce účtu, který je vlastníkem *výchozí předplatné poskytovatele*.<br><br>Při použití služby AD FS jako zprostředkovatele identity, se používá výchozí razítko adresářové služby. Je výchozí účet pro přihlášení pomocí azurestackadmin@azurestack.local, a heslo pro použití se zadal jako součást instalace.
+    Pokud zvolíte poskytovatele identity předplatného Azure, budete potřebovat připojení k Internetu, úplné jméno tenanta Azure AD ve formátu *DomainName*. onmicrosoft.com nebo ověřený název vlastní domény Azure AD. Pro zadaný adresář budete také potřebovat přihlašovací údaje globálního správce.
+
+    Po nasazení se oprávnění globálního správce Azure Active Directory (AAD) nevyžadují. Některé operace ale můžou vyžadovat přihlašovací údaje globálního správce. Například skript instalačního programu poskytovatele prostředků nebo nová funkce vyžadující udělené oprávnění. Můžete buď dočasně obnovit oprávnění globálního správce účtu, nebo použít samostatný účet globálního správce, který je vlastníkem *výchozího předplatného poskytovatele*.
+
+    Při použití AD FS jako poskytovatele identity se použije výchozí adresářová služba razítka. Výchozí účet pro přihlášení je azurestackadmin@azurestack.locala heslo, které se má použít, je ten, který jste zadali jako součást instalace.
 
    > [!NOTE]
-   > Nejlepších výsledků dosáhnete i v případě, že chcete použít odpojené prostředí Azure Stack pomocí služby AD FS jako zprostředkovatele identity, je nejvhodnější pro instalaci ASDK připojené k Internetu. Tímto způsobem, v době nasazení lze aktivovat zkušební verzi Windows serveru 2016 je součástí instalace development kit.
+   > Pro dosažení co nejlepších výsledků, a to i v případě, že chcete jako poskytovatele identity použít odpojené Azure Stack prostředí AD FS, je nejlepší nainstalovat ASDK při připojení k Internetu. Tímto způsobem můžete v době nasazení aktivovat zkušební verzi Windows serveru 2016, která je součástí instalace ASDK.
 
-4. Vyberte síťový adaptér používat pro development kit a potom klikněte na **Další**.
+4. Vyberte síťový adaptér, který se má použít pro ASDK, a pak klikněte na **Další**.
 
-    ![](media/asdk-install/3.PNG)
+    ![Vyberte síťový adaptér pro ASDK.](media/asdk-install/3.PNG)
 
-5. Na **konfigurace sítě** zadejte platný **času IP adresa serveru** adresu. To vyžaduje, že pole nastaví čas serveru použije development kit. Tento parametr musí být ve formě IP adresy serveru platný čas. Názvy serverů nejsou podporovány.
+5. Na stránce **Konfigurace sítě** zadejte platnou **časovou IP adresu serveru** . Toto povinné pole nastaví časový server, který má ASDK používat. Tento parametr se musí zadat jako platná časová IP adresa serveru. Názvy serverů nejsou podporované.
 
       > [!TIP]
-      > Čas serveru IP adresu najdete v tématu [ntppool.org](https://www.ntppool.org/) nebo odešlete zprávu ping time.windows.com. 
+      > Pokud chcete najít IP adresu časového serveru, navštivte [ntppool.org](https://www.ntppool.org/) nebo otestujte Time.Windows.com. 
 
-    **Volitelně**, můžete zadat **server DNS pro předávání** IP adresu. DNS server se vytvoří jako součást nasazení Azure Stack. Povolit počítačům uvnitř řešení k překladu názvů mimo razítka, zadejte existující infrastrukturu DNS server. Server DNS v razítku předá požadavky na řešení Neznámý název k tomuto serveru.
+    **Volitelně**můžete zadat IP adresu **serveru DNS pro** přeposílání. Server DNS se vytvoří jako součást nasazení Azure Stack. Pokud chcete počítačům v řešení umožnit překlad názvů mimo razítko, zadejte svůj stávající server DNS infrastruktury. Server DNS v rámci razítka přepošle neznámé požadavky na překlad názvů na tento server.
 
-    ![](media/asdk-install/4.PNG)
+    ![Služba DNS pro přeposílání a konfiguraci sítě v ASDK](media/asdk-install/4.PNG)
 
-6. Na **ověřování vlastnosti karty síťového rozhraní** stránce se zobrazí indikátor průběhu. Po ověření se dokončí, klikněte na tlačítko **Další**.
+6. Na stránce **ověřování vlastností síťové karty** se zobrazí indikátor průběhu. Po dokončení ověřování klikněte na **Další**.
 
-    ![](media/asdk-install/5.PNG)
+    ![Ověřování vlastností síťového rozhraní v ASDK](media/asdk-install/5.PNG)
 
-7. Na **Souhrn** klikněte na **nasadit** postup spuštění instalace ASDK na hostitelském počítači development kit.
+7. Na stránce **Souhrn** kliknutím na **nasadit** spusťte instalaci ASDK na hostitelském počítači ASDK.
 
-    ![](media/asdk-install/6.PNG)
+    ![Shrnutí skriptu před nasazením v ASDK](media/asdk-install/6.PNG)
 
     > [!TIP]
-    > Tady můžete také kopírovat instalační příkazy Powershellu, které se použijí k instalaci sady development kit. To je užitečné, pokud byste zas někdy potřebovali [znovu nasadit ASDK v hostitelském počítači pomocí Powershellu](asdk-deploy-powershell.md).
+    > Tady můžete také zkopírovat příkazy pro instalaci PowerShellu, které se použijí k instalaci ASDK. To je užitečné, pokud někdy potřebujete [znovu nasadit ASDK v hostitelském počítači pomocí prostředí PowerShell](asdk-deploy-powershell.md).
 
-8. Pokud provádíte nasazení služby Azure AD, budete vyzváni k zadání přihlašovacích údajů Azure AD globálního správce účtu pár minut po spuštění instalace.
+8. Pokud provádíte nasazení služby Azure AD, zobrazí se výzva k zadání přihlašovacích údajů globálního správce služby Azure AD pár minut po spuštění instalačního programu.
 
-9. Proces nasazení potrvá několik hodin, během kterých hostitelský počítač automaticky restartuje jednou. Pokud chcete monitorovat průběh nasazení, přihlaste se jako azurestack\AzureStackAdmin po restartování hostitele development kit. Po úspěšném nasazení se zobrazí konzola Powershellu: **DOKONČENÍ: Akce "Nasazení"** . 
+9. Proces nasazení bude trvat několik hodin, během kterých se hostitelský počítač automaticky restartuje. Pokud chcete monitorovat průběh nasazení, přihlaste se po restartování hostitele ASDK jako azurestack\AzureStackAdmin. Po úspěšném nasazení se v konzole PowerShellu zobrazí: **PLŇTE Akce ' nasazení '** . 
     > [!IMPORTANT]
-    > Pokud se přihlásíte jako místní správce poté, co je počítač připojen k doméně azurestack, zobrazí se průběh nasazení. Nelze znovu spustit nasazení, místo toho se přihlaste jako azurestack\AzureStackAdmin chcete ověřit, jestli je spuštěná.
+    > Pokud se přihlásíte jako místní správce poté, co je počítač připojený k doméně azurestack, neuvidíte průběh nasazení. Neprovádějte znovu nasazení, místo toho se přihlaste jako azurestack\AzureStackAdmin, abyste ověřili, že je spuštěný.
 
-    ![](media/asdk-install/7.PNG)
+    ![ASDK nasazení bylo úspěšné.](media/asdk-install/7.PNG)
 
-Blahopřejeme, úspěšně jste nainstalovali ASDK.
+Gratulujeme, úspěšně jste nainstalovali ASDK.
 
-Pokud z nějakého důvodu nepovede nasazení, můžete si [znovu nasadit](asdk-redeploy.md) od začátku nebo použijte následující příkazy Powershellu, v okně stejné PowerShell se zvýšenými oprávněními k restartování z posledního kroku úspěšné nasazení:
+Pokud se nasazení z nějakého důvodu nepovede, můžete ho znovu [nasadit](asdk-redeploy.md) od začátku nebo pomocí následujících příkazů PowerShellu restartovat nasazení z posledního úspěšného kroku. Příkazy lze použít ze stejného okna prostředí PowerShell se zvýšenými oprávněními:
 
   ```powershell
   cd C:\CloudDeployment\Setup

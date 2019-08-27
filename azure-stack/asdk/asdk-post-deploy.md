@@ -1,6 +1,6 @@
 ---
-title: Konfigurace po nasazení pro Azure Stack Development Kit (ASDK) | Microsoft Docs
-description: Popisuje doporučené změny konfigurace, které se mají provést po instalaci Azure Stack Development Kit (ASDK).
+title: Konfigurace po nasazení pro ASDK | Microsoft Docs
+description: Přečtěte si o doporučených změnách konfigurace, které se mají provést po instalaci Azure Stack Development Kit (ASDK).
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,16 +16,16 @@ ms.date: 07/31/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 07/31/2019
-ms.openlocfilehash: cbf9872fa75013fdb3e933c102b813924d396a83
-ms.sourcegitcommit: bf4d265a3522cbfdd9dd295a0f4ad0daf2ed5eca
+ms.openlocfilehash: 111e8e6cb72baac64229e4808003818efece54cd
+ms.sourcegitcommit: 7968f9f0946138867323793be9966ee2ef99dcf4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68692100"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70025883"
 ---
-# <a name="post-asdk-installation-configuration-tasks"></a>Úlohy konfigurace instalace po ASDK
+# <a name="post-deployment-configurations-for-asdk"></a>Konfigurace po nasazení pro ASDK
 
-Po [instalaci Azure Stack Development Kit (ASDK)](asdk-install.md)byste měli udělat několik doporučených změn konfigurace po instalaci, když se přihlásíte jako AzureStack\AzureStackAdmin na hostitelském počítači ASDK.
+Po [instalaci Azure Stack Development Kit (ASDK)](asdk-install.md)byste měli udělat několik doporučených změn konfigurace po nasazení, které se přihlásily jako AzureStack\AzureStackAdmin na hostitelském počítači ASDK.
 
 ## <a name="install-azure-stack-powershell"></a>Instalace Azure Stack PowerShellu
 
@@ -37,14 +37,14 @@ Příkazy prostředí PowerShell pro Azure Stack jsou nainstalovány prostředni
 Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 ```
 
-Profily verzí rozhraní API můžete použít k určení Azure Stack kompatibilních AzureRM modulů.  Profily verzí rozhraní API poskytují způsob, jak spravovat rozdíly ve verzích mezi Azure a Azure Stack. Profil verze rozhraní API je sada AzureRM modulů PowerShellu s konkrétními verzemi rozhraní API. Modul **AzureRM. zaváděcího nástroje** , který je k dispozici prostřednictvím Galerie prostředí PowerShell, poskytuje rutiny prostředí PowerShell, které jsou nutné pro práci s profily verze rozhraní API.
+Pomocí profilů verzí rozhraní API můžete určit Azure Stack kompatibilní moduly AzureRM.  Profily verzí rozhraní API poskytují způsob, jak spravovat rozdíly ve verzích mezi Azure a Azure Stack. Profil verze rozhraní API je sada AzureRM modulů PowerShellu s konkrétními verzemi rozhraní API. Modul **AzureRM. zaváděcího nástroje** , který je k dispozici prostřednictvím Galerie prostředí PowerShell, poskytuje rutiny prostředí PowerShell, které jsou nutné pro práci s profily verze rozhraní API.
 
 Nejnovější modul Azure Stack PowerShell můžete nainstalovat s nebo bez připojení k Internetu do hostitelského počítače ASDK:
 
 > [!IMPORTANT]
 > Před instalací požadované verze se ujistěte, že jste odinstalovali [všechny existující Azure PowerShell moduly](../operator/azure-stack-powershell-install.md#3-uninstall-existing-versions-of-the-azure-stack-powershell-modules).
 
-- **S připojením k Internetu** z hostitelského počítače ASDK. Spuštěním následujícího skriptu PowerShellu nainstalujte tyto moduly do instalace sady Development Kit:
+- **S připojením k Internetu** z hostitelského počítače ASDK: Spuštěním následujícího skriptu PowerShellu nainstalujte tyto moduly do instalace ASDK:
 
 
   ```powershell  
@@ -61,7 +61,7 @@ Nejnovější modul Azure Stack PowerShell můžete nainstalovat s nebo bez při
 
   Pokud je instalace úspěšná, zobrazí se ve výstupu moduly AzureRM a AzureStack.
 
-- **Bez připojení k Internetu** z hostitelského počítače ASDK. V odpojeném scénáři musíte nejdřív stáhnout moduly PowerShellu na počítač, který má připojení k Internetu, a to pomocí následujících příkazů PowerShellu:
+- **Bez připojení k Internetu** z hostitelského počítače ASDK: V odpojeném scénáři musíte nejdřív stáhnout moduly PowerShellu na počítač, který má připojení k Internetu, a to pomocí následujících příkazů PowerShellu:
 
   ```powershell
   $Path = "<Path that is used to save the packages>"
@@ -109,7 +109,7 @@ Nejnovější modul Azure Stack PowerShell můžete nainstalovat s nebo bez při
 
 ## <a name="validate-the-asdk-installation"></a>Ověření instalace ASDK
 
-Pokud chcete mít jistotu, že vaše nasazení ASDK bylo úspěšné, můžete použít rutinu test-AzureStack pomocí následujících kroků:
+Pokud chcete mít jistotu, že vaše nasazení ASDK bylo úspěšné, použijte rutinu test-AzureStack pomocí následujících kroků:
 
 1. Přihlaste se jako AzureStack\AzureStackAdmin na hostitelském počítači ASDK.
 2. Otevřete PowerShell jako správce (ne PowerShell ISE).
@@ -118,7 +118,7 @@ Pokud chcete mít jistotu, že vaše nasazení ASDK bylo úspěšné, můžete p
 
 Dokončení testů trvá několik minut. Pokud byla instalace úspěšná, výstup vypadá nějak takto:
 
-![test-azurestack](media/asdk-post-deploy/test-azurestack.png)
+![Testovací Azure Stack – instalace byla úspěšná.](media/asdk-post-deploy/test-azurestack.png)
 
 Pokud dojde k selhání, získáte nápovědu pomocí kroků pro řešení potíží.
 
@@ -127,8 +127,8 @@ Pokud dojde k selhání, získáte nápovědu pomocí kroků pro řešení potí
 Pro nasazení, která používají Azure AD, musíte pro instalaci ASDK [Povolit víceklientské](../operator/azure-stack-enable-multitenancy.md#enable-multi-tenancy) prostředí.
 
 > [!NOTE]
-> Pokud se k přihlášení na portál Azure Stack používá účet správce nebo uživatelské účty z jiných domén, než je ta, která se používá k registraci Azure Stack, musí být název domény, který se používá k registraci Azure Stack, připojený k adrese URL portálu. Například pokud je Azure Stack zaregistrován v Fabrikam.onmicrosoft.com a uživatelský účet přihlášení je admin@contoso.com, adresa URL, která se má použít pro přihlášení k portálu User Portal, bude:. https://portal.local.azurestack.external/fabrikam.onmicrosoft.com
+> Pokud se k přihlášení na portál Azure Stack používá účet správce nebo uživatelské účty z jiných domén, než je ta, která se používá k registraci Azure Stack, musí být název domény, který se používá k registraci Azure Stack, připojený k adrese URL portálu. Pokud je například Azure Stack zaregistrován v Fabrikam.onmicrosoft.com a uživatelský účet přihlášení je admin@contoso.com, adresa URL použitá pro přihlášení k portálu User Portal by byla:. https://portal.local.azurestack.external/fabrikam.onmicrosoft.com
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 [Registrace ASDKu s využitím Azure](asdk-register.md)

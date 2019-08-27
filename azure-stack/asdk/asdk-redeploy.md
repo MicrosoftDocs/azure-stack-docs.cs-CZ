@@ -1,6 +1,6 @@
 ---
-title: Opětovné nasazení Azure Stack Development Kit (ASDK) | Dokumentace Microsoftu
-description: V tomto článku se dozvíte, jak ASDK přeinstalovat.
+title: Znovu nasaďte ASDK | Microsoft Docs
+description: Přečtěte si, jak Azure Stack Development Kit (ASDK) znovu nasadit.
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -17,27 +17,27 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: f61fff0d29b1e0bf847ffc1761ff53c90b703991
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 5ff77bbe915a506803a1c06f68579c199439ea73
+ms.sourcegitcommit: 7968f9f0946138867323793be9966ee2ef99dcf4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66267782"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70025899"
 ---
-# <a name="redeploy-the-asdk"></a>Opětovné nasazení ASDK
-V tomto článku se dozvíte, jak znovu nasadit Azure Stack Development Kit (ASDK) v neprodukčním prostředí. Protože upgrade ASDK není podporován, budete muset zcela jej přesunout na novější verzi znovu nasadit. Můžete také znovu nasadit ASDK kdykoli, který chcete začít znovu od začátku.
+# <a name="redeploy-the-asdk"></a>Znovu nasadit ASDK
+V tomto článku se dozvíte, jak znovu nasadit Azure Stack Development Kit (ASDK) v neprodukčním prostředí. Vzhledem k tomu, že upgrade ASDK se nepodporuje, je potřeba ho kompletně znovu nasadit a přejít na novější verzi. ASDK můžete také znovu nasadit, kdykoli budete chtít začít od začátku.
 
 > [!IMPORTANT]
-> Upgrade ASDK na novou verzi se nepodporuje. Je nutné znovu nasadit ASDK na hostitelském počítači development kit pokaždé, když chcete vyhodnotit novější verze služby Azure Stack.
+> Upgrade ASDK na novou verzi se nepodporuje. Pokaždé, když chcete vyhodnotit novější verzi Azure Stack, je třeba znovu nasadit ASDK na hostitelský počítač ASDK.
 
 ## <a name="remove-azure-registration"></a>Odebrat registraci Azure 
-Pokud jste dříve zaregistrovali ASDK instalace s Azure, měli byste odebrat registrace prostředků před znovu se nasazuje ASDK. Opětovná registrace ASDK při opětovném nasazování ASDK povolit dostupnost položky na webu Marketplace. Pokud jste se ještě nezaregistrovali dříve ASDK ve vašem předplatném Azure, můžete tuto část přeskočit.
+Pokud jste instalaci ASDK zaregistrovali v Azure, měli byste před opětovným nasazením ASDK odebrat registrační prostředek. Znovu zaregistrujte ASDK a povolte dostupnost položek na webu Marketplace při opětovném nasazení ASDK. Pokud jste dosud nezaregistrovali ASDK s vaším předplatným Azure, můžete tuto část přeskočit.
 
-K odebrání prostředků registrace, použijte **odebrat AzsRegistration** rutiny ke zrušení registrace Azure Stack. Potom použijte **Remove-AzureRMResourceGroup** rutiny z vašeho předplatného Azure odstranit skupinu prostředků Azure Stack:
+K odebrání registračního prostředku použijte rutinu **Remove-AzsRegistration** pro zrušení registrace Azure Stack. Pak pomocí rutiny **Remove-AzureRMResourceGroup** odstraňte skupinu prostředků Azure Stack z předplatného Azure:
 
-1. Otevřete konzolu Powershellu s oprávněními správce na počítači, který má přístup k privilegovaným koncový bod. Pro ASDK, který je hostitelský počítač development kit.
+1. Otevřete konzolu PowerShellu jako správce v počítači, který má přístup k privilegovanému koncovému bodu. Pro ASDK se jedná o hostitelský počítač ASDK.
 
-2. Spusťte následující příkazy prostředí PowerShell a zrušit registraci instalace ASDK odstranit **azurestack** skupinu prostředků z vašeho předplatného Azure:
+2. Spusťte následující příkazy PowerShellu, abyste zrušili registraci instalace ASDK a odstranili skupinu prostředků **azurestack** z předplatného Azure:
 
    ```powershell    
    #Import the registration module that was downloaded with the GitHub tools
@@ -58,48 +58,48 @@ K odebrání prostředků registrace, použijte **odebrat AzsRegistration** ruti
    Remove-AzureRmResourceGroup -Name azurestack -Force
    ```
 
-3. Zobrazí se výzva k přihlášení k vašemu předplatnému Azure a místní instalace ASDK po spuštění skriptu.
-4. Po dokončení skriptu, měli byste vidět zprávy, jako v následujících příkladech:
+3. Po spuštění skriptu se zobrazí výzva, abyste se přihlásili ke svému předplatnému Azure i k místní instalaci ASDK.
+4. Po dokončení skriptu byste měli vidět zprávy podobné následujícím příkladům:
 
-    `De-Activating Azure Stack (this may take up to 10 minutes to complete).` `Your environment is now unable to syndicate items and is no longer reporting usage data.`
+    `De-Activating Azure Stack (this may take up to 10 minutes to complete).``Your environment is now unable to syndicate items and is no longer reporting usage data.`
     `Remove registration resource from Azure...`
     `"Deleting the resource..." on target "/subscriptions/<subscription information>"`
     `********** End Log: Remove-AzsRegistration *********`
 
 
 
-Azure Stack by měl nyní úspěšně se zrušit registraci z vašeho předplatného Azure. Navíc by měl také odstranit skupinu prostředků azurestack, který je vytvořen po registraci ASDK s Azure.
+Z vašeho předplatného Azure by se teď mělo úspěšně odregistrovat Azure Stack. Je taky potřeba odstranit skupinu prostředků azurestack. Tato skupina prostředků je ta vytvořená při první registraci ASDK s Azure.
 
-## <a name="deploy-the-asdk"></a>Nasazení ASDK
-Opětovné nasazení Azure Stack, je nutné spustit přes úplně od začátku jak je popsáno níže. Postup se liší v závislosti na tom, jestli jste k instalaci ASDK použili skript instalačního programu (asdk installer.ps1) Azure Stack.
+## <a name="deploy-the-asdk"></a>Nasazení rozhraní ASDK
+Pokud chcete Azure Stack znovu nasadit, musíte začít od začátku, jak je popsáno níže. Postup se liší v závislosti na tom, zda jste k instalaci ASDK použili skript instalačního programu Azure Stack (asdk-Installer. ps1).
 
-### <a name="redeploy-the-asdk-using-the-installer-script"></a>Znovu nasadit ASDK pomocí skriptů Instalační program
-1. Na počítači ASDK, otevřete konzolu Powershellu se zvýšenými oprávněními a přejděte do skriptu asdk installer.ps1 **AzureStack_Installer** directory umístěný na nesystémové jednotce. Spusťte skript a klikněte na tlačítko **restartování**.
+### <a name="redeploy-the-asdk-using-the-installer-script"></a>Znovu nasaďte ASDK pomocí skriptu instalačního programu
+1. Otevřete na počítači s ASDK konzolu PowerShellu se zvýšenými oprávněními a přejděte do složky asdk-Installer. ps1 v adresáři **AzureStack_Installer** , který se nachází na nesystémové jednotce. Spusťte skript a klikněte na **restartovat**.
 
-   ![Spusťte skript asdk installer.ps1](media/asdk-redeploy/1.png)
+   ![Spuštění skriptu asdk-Installer. ps1](media/asdk-redeploy/1.png)
 
-2. Vyberte základní operační systém (ne **Azure Stack**) a klikněte na tlačítko **Další**.
+2. Vyberte základní operační systém (ne **Azure Stack**) a klikněte na **Další**.
 
-   ![Restartování do hostitelského operačního systému](media/asdk-redeploy/2.png)
+   ![Restartovat operační systém hostitele](media/asdk-redeploy/2.png)
 
-3. Po restartování hostitele development kit do základní operační systém se přihlaste jako místní správce. Vyhledejte a odstraňte **C:\CloudBuilder.vhdx** soubor, který byl použit jako součást předchozí nasazení. 
+3. Po restartování hostitele ASDK do základního operačního systému se přihlaste jako místní správce. Vyhledejte a odstraňte soubor **C:\CloudBuilder.vhdx** , který byl použit jako součást předchozího nasazení.
 
-4. Opakujte stejný postup, které jste provedli na první [nasadit ASDK](asdk-install.md).
+4. Opakujte stejné kroky jako při prvním [nasazení ASDK](asdk-install.md).
 
 ### <a name="redeploy-the-asdk-without-using-the-installer"></a>Opětovné nasazení ASDK bez použití instalačního programu
-Pokud jste nepoužili skript asdk installer.ps1 k instalaci ASDK, nutné ručně překonfigurovat development kit hostitelský počítač před ASDK opětovného nasazení.
+Pokud jste nepoužili skript asdk-Installer. ps1 k instalaci ASDK, musíte před opětovným nasazením ASDK ručně nakonfigurovat hostitelský počítač ASDK.
 
-1. Spusťte nástroj Konfigurace systému spuštěním **msconfig.exe** ASDK počítače. Na **spouštěcí** kartu, vyberte operační systém počítače hostitelů (ne Azure Stack), klikněte na tlačítko **nastavit jako výchozí**a potom klikněte na tlačítko **OK**. Klikněte na tlačítko **restartovat** po zobrazení výzvy.
+1. Spusťte nástroj pro konfiguraci systému spuštěním programu **msconfig. exe** na počítači s ASDK. Na kartě **spuštění** vyberte operační systém hostitelského počítače (ne Azure Stack), klikněte na **nastavit jako výchozí**a pak klikněte na **OK**. Po zobrazení výzvy klikněte na **restartovat** .
 
-      ![Nastavit spouštěcí konfigurace](media/asdk-redeploy/4.png)
+      ![Nastavení konfigurace spouštění](media/asdk-redeploy/4.png)
 
-2. Po restartování hostitele development kit do základní operační systém se přihlaste jako místní správce pro hostitelský počítač development kit. Vyhledejte a odstraňte **C:\CloudBuilder.vhdx** soubor, který byl použit jako součást předchozí nasazení. 
+2. Po restartování hostitele ASDK do základního operačního systému se přihlaste jako místní správce pro hostitelský počítač ASDK. Vyhledejte a odstraňte soubor **C:\CloudBuilder.vhdx** , který byl použit jako součást předchozího nasazení.
 
-3. Opakujte stejný postup, které jste provedli na první [ASDK pomocí Powershellu nasadit](asdk-deploy-powershell.md).
+3. Opakujte stejné kroky jako při prvním [nasazení ASDK pomocí PowerShellu](asdk-deploy-powershell.md).
 
 
-## <a name="next-steps"></a>Další postup
-[Úlohy nasazení ASDK po](asdk-post-deploy.md)
+## <a name="next-steps"></a>Další kroky
+[Úkoly nasazení po ASDK](asdk-post-deploy.md)
 
 
 

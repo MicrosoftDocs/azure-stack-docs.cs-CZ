@@ -15,12 +15,12 @@ ms.date: 08/23/2019
 ms.author: mabrigg
 ms.lastreviewed: 08/23/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 22e6945c5064a93a8dbaf6daa5c39df36cccb597
-ms.sourcegitcommit: b8260ef3e43f3703dd0df16fb752610ec8a86942
+ms.openlocfilehash: 792790c2ae5c14e31914b64fc6e5d7eba11aacc0
+ms.sourcegitcommit: 7968f9f0946138867323793be9966ee2ef99dcf4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70008798"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70025913"
 ---
 # <a name="apply-updates-in-azure-stack"></a>Použít aktualizace v Azure Stack
 
@@ -55,15 +55,15 @@ Aktuální verzi Azure Stack můžete zobrazit v okně **aktualizace** . Pro ote
 
 3.  Vyberte dostupnou aktualizaci, kterou chcete použít. Pokud nemáte aktualizaci označenou jako **k dispozici**, budete muset [připravit balíček aktualizace](azure-stack-update-prepare-package.md) .
 
-4.  Vyberte **aktualizovat hned**. .
+4.  Vyberte **aktualizovat hned**.
 
     ![Podrobnosti o spuštění aktualizace Azure Stack](./media/azure-stack-update-apply/image2.png)
 
 5.  Stav vysoké úrovně můžete zobrazit, protože proces aktualizace prochází různými subsystémy v Azure Stack. Příklady subsystémů zahrnují fyzické hostitele, Service Fabric, virtuální počítače infrastruktury a služby, které poskytují správce i uživatelské portály. V průběhu procesu aktualizace hlásí poskytovatel prostředků aktualizace další podrobnosti o aktualizaci, například počet kroků, které byly úspěšné, a počet probíhajících.
 
-6.  Pokud si chcete stáhnout úplné protokoly, vyberte **Stáhnout úplné protokoly** z okna podrobností o spuštění aktualizace.
+6.  Pro stažení úplných protokolů vyberte **Souhrn stažení** v okně Podrobnosti o spuštění aktualizace.
 
-    Pokud narazíte na problém při monitorování aktualizace, můžete pomocí [privilegovaného koncového bodu](https://docs.microsoft.com/azure-stack/operator/azure-stack-privileged-endpoint) monitorovat průběh spuštění aktualizace Azure Stack a pokračovat v neúspěšném spuštění aktualizace z posledního úspěšného kroku, aby byl portál Azure Stack nedostupný. Pokyny najdete v tématu[monitorování aktualizací v Azure Stack pomocí prostředí PowerShell](azure-stack-update-monitor.md).
+    Pokud narazíte na problém při monitorování aktualizace, můžete pomocí [privilegovaného koncového bodu](https://docs.microsoft.com/azure-stack/operator/azure-stack-privileged-endpoint) monitorovat průběh spuštění aktualizace Azure Stack a pokračovat v neúspěšném spuštění aktualizace z posledního úspěšného kroku, aby byl portál Azure Stack nedostupný. Pokyny najdete v tématu [monitorování aktualizací v Azure Stack pomocí prostředí PowerShell](azure-stack-update-monitor.md).
 
     ![Podrobnosti o spuštění aktualizace Azure Stack](./media/azure-stack-update-apply/image3.png)
 
@@ -81,9 +81,9 @@ Aktuální verzi Azure Stack můžete zobrazit v okně **aktualizace** . Pro ote
 
 3.  Vyberte **historii aktualizací**.
 
-![Historie aktualizace Azure Stack](./media/azure-stack-update-apply/image7.png)
+    ![Historie aktualizace Azure Stack](./media/azure-stack-update-apply/image7.png)
 
-# <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další postup
 
 -   [Správa aktualizací v přehledu služby Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates)  
 -   [Zásady údržby služby Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-servicing-policy)  
