@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2019
+ms.date: 08/27/2019
 ms.author: mabrigg
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: 329ef95f7902f3fe6dfcdd71b599675fdf7c6286
-ms.sourcegitcommit: 0e0d010c4e010f2fd6799471db8bf71652d8d4e1
+ms.openlocfilehash: 88b07c5c3325263e068de49b78df25d17861a37e
+ms.sourcegitcommit: f1a21af6517978ddb62f4cbfa1d1df8c867814d1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68806935"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70064179"
 ---
 # <a name="use-azure-monitor-on-azure-stack"></a>Použít Azure Monitor na Azure Stack
 
@@ -40,7 +40,7 @@ Azure Monitor je služba platformy, která poskytuje jeden zdroj pro monitorová
 
 Zaregistrujte poskytovatele prostředků **Microsoft. Insights** v nastavení poskytovatelů prostředků nabídky vašeho předplatného. Můžete ověřit, jestli je poskytovatel prostředků dostupný v nabídce přidružené k vašemu předplatnému:
 
-1. Otevřete portál pro správu Azure Stack.
+1. Otevřete portál Azure Stack User Portal.
 2. Vyberte **nabídky**.
 3. Vyberte nabídku přidruženou k předplatnému.
 4. V části nastavení vyberte **poskytovatelé prostředků** **.** 
@@ -123,7 +123,7 @@ Mezi možné způsoby vizualizace patří:
 
 Pomocí jedné z následujících metod můžete pracovat se sledováním, směrováním a načítáním dat. Některé způsoby ale nemusí být dostupné pro všechny akce nebo typy dat. 
 
- - [Portál Azure Stack](azure-stack-use-portal.md)
+ - [Azure Stack User Portal](azure-stack-use-portal.md)
  - [PowerShell](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-powershell-samples)
  - [Rozhraní příkazového řádku pro různé platformy (CLI)](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-cli-samples)
  - [REST API](https://docs.microsoft.com/rest/api/monitor)
@@ -132,6 +132,6 @@ Pomocí jedné z následujících metod můžete pracovat se sledováním, směr
 > [!Important]  
 > Pokud narazíte na chybu **prostředku** při zobrazení grafu výkonu virtuálního počítače, ujistěte se, že jste zaregistrovali Microsoft. Insights v rámci předplatného, které je přidružené k virtuálnímu počítači.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Další informace o sledování spotřeby dat na Azure Stack v článku [využívání dat monitorování z Azure Stack](azure-stack-metrics-monitor.md).
