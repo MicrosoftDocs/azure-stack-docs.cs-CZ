@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: ''
 ms.topic: article
-ms.date: 07/23/2019
+ms.date: 08/27/2019
 ms.author: mabrigg
 ms.lastreviewed: 03/11/2019
 ms.reviewer: jiahan
-ms.openlocfilehash: 4c57cad7a5b002e6c73c0555c450a8103eaf8aa4
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: c2a61e165ee64c4b0ee91fbe387973aaa5039f46
+ms.sourcegitcommit: 9cb82df1eccb0486bcabec0bd674162d4820c00c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68417993"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70060216"
 ---
 # <a name="manage-storage-infrastructure-for-azure-stack"></a>Správa infrastruktury úložiště pro Azure Stack
 
@@ -83,7 +83,7 @@ Svazky v Prostory úložiště s přímým přístupem poskytují odolnost proti
 
 ![Azure Stack infrastruktura úložiště](media/azure-stack-storage-infrastructure-overview/image5.png)
 
-Zrcadlení zajišťuje odolnost proti chybám tím, že udržuje více kopií všech dat. Způsob, jakým jsou data rozložená a umístěná, jsou netriviální (Další informace najdete v tomto blogovém příspěvku), ale v plném rozsahu platí, že všechna data uložená pomocí zrcadlení se zapisují v celých případech několikrát. Každá kopie je zapsána na jiný fyzický hardware (různé jednotky na různých serverech), u kterých se předpokládá nezávisle na selhání. Třícestný zrcadlení může bezpečně tolerovat alespoň dva problémy s hardwarem (na disku nebo na serveru). Pokud například restartujete jeden server, když dojde k výpadku jiné jednotky nebo serveru, všechna data zůstanou bezpečná a nepřetržitě dostupná.
+Zrcadlení zajišťuje odolnost proti chybám tím, že udržuje více kopií všech dat. Způsob, jakým jsou data rozložená a umístěná, jsou netriviální, ale mají naprosto pravdu za to, že všechna data uložená pomocí zrcadlení se zapisují v celém rozsahu několikrát. Každá kopie je zapsána na jiný fyzický hardware (různé jednotky na různých serverech), u kterých se předpokládá nezávisle na selhání. Třícestný zrcadlení může bezpečně tolerovat alespoň dva problémy s hardwarem (na disku nebo na serveru). Pokud například restartujete jeden server, když dojde k výpadku jiné jednotky nebo serveru, všechna data zůstanou bezpečná a nepřetržitě dostupná.
 
 ## <a name="volume-states"></a>Stavy svazku
 
