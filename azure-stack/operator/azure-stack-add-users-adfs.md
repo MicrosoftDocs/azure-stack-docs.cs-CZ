@@ -1,6 +1,6 @@
 ---
-title: Přidání uživatelů pro AD FS Azure Stack | Dokumentace Microsoftu
-description: Zjistěte, jak přidat uživatele pro nasazení služby AD FS služby Azure Stack
+title: Přidat uživatele Azure Stack v AD FS | Microsoft Docs
+description: Naučte se přidávat Azure Stack uživatelů pro nasazení Active Directory Federation Services (AD FS) (AD FS).
 services: azure-stack
 documentationcenter: ''
 author: PatAltimore
@@ -15,28 +15,28 @@ ms.date: 06/03/2019
 ms.author: patricka
 ms.reviewer: unknown
 ms.lastreviewed: 06/03/2019
-ms.openlocfilehash: d50eb52de39c789498928a7b5e2227998872b937
-ms.sourcegitcommit: 80775f5c5235147ae730dfc7e896675a9a79cdbe
+ms.openlocfilehash: 4411290b075e105a827de8fb2c8295dfd84e3b50
+ms.sourcegitcommit: e8f7fe07b32be33ef621915089344caf1fdca3fd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/03/2019
-ms.locfileid: "66458966"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70118633"
 ---
-# <a name="add-azure-stack-users-in-ad-fs"></a>Přidat uživatele Azure stacku ve službě AD FS
-Můžete použít **Active Directory Users and Computers** modul snap-in pro přidání dalších uživatelů do prostředí Azure Stack pomocí služby AD FS jako zprostředkovatele identity.
+# <a name="add-azure-stack-users-in-ad-fs"></a>Přidat uživatele Azure Stack v AD FS
+Modul snap-in **Uživatelé a počítače služby Active Directory** můžete použít k přidání dalších uživatelů do Azure Stackho prostředí pomocí Active Directory Federation Services (AD FS) (AD FS) jako zprostředkovatele identity.
 
-## <a name="add-windows-server-active-directory-users"></a>Přidání uživatelů systému Windows Server Active Directory
+## <a name="add-windows-server-active-directory-users"></a>Přidat uživatele služby Active Directory systému Windows Server
 > [!TIP]
-> Tento příklad používá výchozí azurestack.local ASDK služby active directory. 
+> V tomto příkladu se používá výchozí azurestack. Local ASDK Active Directory. 
 
-1. Přihlaste se pomocí účtu poskytuje přístup k nástrojům pro správu Windows počítači a otevře nové Microsoft Management Console (MMC).
-2. Vyberte **soubor > Přidat nebo odebrat modul snap-in**.
-3. Vyberte **uživatelů služby Active Directory a počítače** > **AzureStack.local** > **uživatelé**.
-4. Vyberte **akce** > **nové** > **uživatele**.
-5. V nový objekt – uživatel, poskytují podrobné informace o uživateli. Vyberte **Další**.
+1. Přihlaste se k počítači pomocí účtu, který poskytuje přístup k nástrojům pro správu systému Windows a otevřete novou konzolu MMC (Microsoft Management Console).
+2. Vyberte **soubor > přidat nebo odebrat modul snap-in**.
+3.  > Vyberte **Uživatelé a počítače služby Active Directory** **AzureStack. místní** > **Uživatelé**.
+4. Vyberte **Akce** > novýUživatel > .
+5. V novém objektu – uživatel zadejte podrobnosti o uživateli. Vyberte **Další**.
 6. Zadejte a potvrďte heslo.
-7. Vyberte **Další** pro dokončení hodnoty. Vyberte **Dokončit** pro vytvoření uživatele.
+7. Kliknutím na tlačítko **Další** dokončete hodnoty. Kliknutím na tlačítko **Dokončit** vytvořte uživatele.
 
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 [Vytvoření instančních objektů](azure-stack-create-service-principals.md)

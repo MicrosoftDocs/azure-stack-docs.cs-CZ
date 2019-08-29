@@ -1,6 +1,6 @@
 ---
-title: Přidat nový účet tenanta služby Azure Stack v Azure Active Directory | Dokumentace Microsoftu
-description: Po nasazení Microsoft Azure Stack Development Kit, musíte vytvořit uživatelský účet alespoň jednoho tenanta, abyste mohli zkoumat portál pro klienty.
+title: Přidat nový Azure Stack účet tenanta do Azure Active Directory | Microsoft Docs
+description: Naučte se, jak vytvořit účet tenanta v ASDK, abyste mohli prozkoumat portál tenanta.
 services: azure-stack
 documentationcenter: ''
 author: PatAltimore
@@ -16,66 +16,66 @@ ms.date: 05/20/2019
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: 70151d7793ef1f58b544517cecb7aa53bf5b3041
-ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
+ms.openlocfilehash: 5d5292753b6fedfb7468a0bc68dd821a2da4cd54
+ms.sourcegitcommit: e8f7fe07b32be33ef621915089344caf1fdca3fd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66691398"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70118712"
 ---
-# <a name="add-a-new-azure-stack-tenant-account-in-azure-active-directory"></a>Přidat nový účet tenanta služby Azure Stack v Azure Active Directory
+# <a name="add-a-new-azure-stack-tenant-account-in-azure-active-directory"></a>Přidat nový Azure Stack účet tenanta do Azure Active Directory
 
-Po [nasazení Azure Stack Development Kit](../asdk/asdk-install.md), uživatelský účet tenanta budete potřebovat, můžete zkoumat portál pro klienty a testování vaší nabídky a plány. Můžete vytvořit účet tenanta podle [pomocí webu Azure portal](#create-an-azure-stack-tenant-account-using-the-azure-portal) nebo pomocí prostředí PowerShell.
+Po [nasazení Azure Stack Development Kit (ASDK)](../asdk/asdk-install.md)potřebujete uživatelský účet tenanta, abyste mohli prozkoumat portál tenanta a testovat vaše nabídky a plány. Účet tenanta v Azure Active Directory (Azure AD) můžete vytvořit [pomocí Azure Portal](#create-an-azure-stack-tenant-account-using-the-azure-portal) nebo pomocí PowerShellu.
 
-## <a name="create-an-azure-stack-tenant-account-using-the-azure-portal"></a>Vytvořit účet tenanta služby Azure Stack pomocí webu Azure portal
+## <a name="create-an-azure-stack-tenant-account-by-using-the-azure-portal"></a>Vytvoření účtu klienta Azure Stack pomocí Azure Portal
 
-Musíte mít předplatné Azure, pomocí webu Azure portal.
+Abyste mohli Azure Portal používat, musíte mít předplatné Azure.
 
 1. Přihlaste se k [Azure](https://portal.azure.com).
-2. V levém navigačním panelu vyberte **služby Active Directory** a přejděte do adresáře, který chcete použít pro službu Azure Stack, nebo vytvořte novou.
-3. Vyberte **Azure Active Directory** > **uživatelé** > **nového uživatele**.
+2. V levém navigačním panelu vyberte možnost **Active Directory** a přejděte do adresáře, který chcete použít pro Azure Stack (nebo vytvořte nový).
+3. Vyberte **Azure Active Directory** > uživatelénový > **uživatel**.
 
     ![Uživatelé – všichni uživatelé stránce zvýrazněnou nového uživatele](media/azure-stack-add-new-user-aad/new-user-all-users.png)
 
-4. Na **uživatele** stránce, vyplňte požadované informace.
+4. Na stránce **uživatel** vyplňte požadované informace.
 
     ![Přidání nového uživatele, uživatel stránka s informace o uživateli](media/azure-stack-add-new-user-aad/new-user-user.png)
 
-   - **Název (povinné).** První a poslední název nového uživatele. Například Mary Parker.
-   - **Uživatelské jméno (povinné).** Uživatelské jméno nového uživatele. Například, mary@contoso.com.
-       Součást domény uživatelské jméno musí používat buď počáteční výchozí název domény, <_názevvašídomény_>. onmicrosoft.com, nebo vlastní název domény, třeba contoso.com. Další informace o tom, jak vytvořit vlastního názvu domény najdete v tématu [přidání vlastního názvu domény do Azure Active Directory](/azure/active-directory/fundamentals/add-custom-domain).
-   - **Profil.** Volitelně můžete přidat další informace o uživateli. Později můžete také přidat informace o uživateli. Další informace o přidání informace o uživateli, naleznete v tématu [postup přidání nebo změně informací profilu uživatele](/azure/active-directory/fundamentals/active-directory-users-profile-azure-portal).
-   - **Role adresáře.**  Zvolte **uživatele**.
+   - **Název (povinné)** : První a poslední název nového uživatele. Například Mary Parker.
+   - **Uživatelské jméno (povinné)** : Uživatelské jméno nového uživatele. Například, mary@contoso.com.
+       Součást domény uživatelské jméno musí používat buď počáteční výchozí název domény, <_názevvašídomény_>. onmicrosoft.com, nebo vlastní název domény, třeba contoso.com. Další informace o tom, jak vytvořit vlastní název domény, najdete v tématu [Postup přidání vlastního názvu domény do Azure AD](/azure/active-directory/fundamentals/add-custom-domain).
+   - **Profil**: Volitelně můžete přidat další informace o uživateli. Později můžete také přidat informace o uživateli. Další informace o přidání informací o uživateli najdete v tématu [jak přidat nebo změnit informace o profilu uživatele](/azure/active-directory/fundamentals/active-directory-users-profile-azure-portal).
+   - **Role adresáře**: vyberte možnost **uživatel**.
 
-5. Zkontrolujte **zobrazit heslo** a zkopírujte automaticky vytvořené heslo součástí **heslo** pole. Toto heslo budete potřebovat pro počáteční proces přihlašování.
+5. Zaškrtněte políčko **Zobrazit heslo** a zkopírujte automaticky vygenerované heslo, které jste zadali v poli **heslo** . Toto heslo budete potřebovat pro počáteční proces přihlášení.
 
 6. Vyberte **Vytvořit**.
 
     Uživatel je vytvořen a přidán do vašeho tenanta Azure AD.
 
-7. Přihlaste se k portálu Microsoft Azure nový účet. Změna hesla po zobrazení výzvy.
-8. Přihlaste se k `https://portal.local.azurestack.external` nový účet, chcete-li zobrazit portál pro klienty.
+7. Přihlaste se k Azure Portal pomocí nového účtu. Po zobrazení výzvy změňte heslo.
+8. Přihlaste `https://portal.local.azurestack.external` se k novému účtu, abyste viděli portál tenanta.
 
-## <a name="create-an-azure-stack-user-account-using-powershell"></a>Vytvoření účtu uživatele Azure stacku pomocí Powershellu
+## <a name="create-an-azure-stack-user-account-using-powershell"></a>Vytvoření uživatelského účtu Azure Stack pomocí prostředí PowerShell
 
-Pokud nemáte předplatné Azure, nemůžete použít na webu Azure portal k přidání uživatelského účtu tenanta. V takovém případě místo toho můžete Azure Active Directory modulu pro Windows PowerShell.
+Pokud nemáte předplatné Azure, nemůžete použít Azure Portal k přidání uživatelského účtu klienta. V takovém případě můžete místo toho použít modul Azure AD pro prostředí Windows PowerShell.
 
 > [!NOTE]
-> Pokud používáte Microsoft Account nasazení Azure Stack Development Kit, nelze použít Azure AD Powershellu k vytvoření účtu tenanta. 
+> Pokud k nasazení ASDK používáte účet Microsoft, nemůžete k vytvoření účtu tenanta použít Azure AD PowerShell.
 
-1. Nainstalujte **64-bit** verzi [Microsoft Online Services Pomocníka pro IT profesionály RTW](https://go.microsoft.com/fwlink/p/?LinkId=286152).
+1. Nainstalujte **64** [Pomocníka pro přihlášení ke službám Microsoft Online Services pro odborníky na IT RTW](https://go.microsoft.com/fwlink/p/?LinkId=286152).
 
-2. Instalace Microsoft Azure Active Directory modulu pro Windows PowerShell pomocí těchto kroků:
+2. Nainstalujte Modul Microsoft Azure AD pro Windows PowerShell pomocí těchto kroků:
 
-    - Otevřete prostředí Windows PowerShell příkazového řádku se zvýšenými oprávněními (spustit prostředí Windows PowerShell jako správce).
-    - Spustit **nainstalovat modul MSOnline** příkazu.
-    - Pokud se zobrazí výzva k instalaci zprostředkovatele NuGet, vyberte **Y** a **Enter**.
-    - Pokud se zobrazí výzva k instalaci modulu z PSGallery, vyberte **Y** a **Enter**.
+    - Otevřete příkazový řádek Windows PowerShellu se zvýšenými oprávněními (spusťte Windows PowerShell jako správce).
+    - Spusťte příkaz **install-Module MSOnline** .
+    - Pokud budete vyzváni k instalaci poskytovatele NuGet, vyberte **Y** a **Zadejte**.
+    - Pokud budete vyzváni k instalaci modulu z PSGallery, vyberte **Y** a **Zadejte**.
 
-3. Spuštěním následující rutiny:
+3. Spusťte následující rutiny:
 
     ```powershell
-    # Provide the AAD credential you use to deploy Azure Stack Development Kit
+    # Provide the Azure AD credential you use to deploy the ASDK.
 
             $msolcred = get-credential
 
@@ -87,8 +87,8 @@ Pokud nemáte předplatné Azure, nemůžete použít na webu Azure portal k př
 
     ```
 
-1. Přihlaste se k Microsoft Azure pomocí nového účtu. Změna hesla po zobrazení výzvy.
-2. Přihlaste se k `https://portal.local.azurestack.external` nový účet, chcete-li zobrazit portál pro klienty.
+1. Přihlaste se k Azure pomocí nového účtu. Po zobrazení výzvy změňte heslo.
+2. Přihlaste `https://portal.local.azurestack.external` se k novému účtu, abyste viděli portál tenanta.
 
 ## <a name="next-steps"></a>Další postup
 

@@ -1,6 +1,6 @@
 ---
-title: Přidat škálování uzlů Azure Stack | Dokumentace Microsoftu
-description: Přidáte uzly do jednotek škálování ve službě Azure Stack.
+title: Přidání uzlů jednotek škálování v Azure Stack | Microsoft Docs
+description: Naučte se přidávat uzly jednotek škálování do jednotky škálování v Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,68 +16,69 @@ ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: 56dbc301c87e819b241d9dd6e801544df4afa152
-ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
+ms.openlocfilehash: ab06f5d3674000733227894a5a69778d90c29d48
+ms.sourcegitcommit: e8f7fe07b32be33ef621915089344caf1fdca3fd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67131204"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70118743"
 ---
-# <a name="add-additional-scale-unit-nodes-in-azure-stack"></a>Přidat další škálovací jednotku uzly ve službě Azure Stack
+# <a name="add-additional-scale-unit-nodes-in-azure-stack"></a>Přidání dalších uzlů jednotky škálování v Azure Stack
 
-Operátoři Azure stacku zvýšit celkové kapacity existující škálovací jednotku tak, že přidáte další fyzického počítače. Fyzický počítač se také označuje jako uzel jednotek škálování. Každý nový uzel škálovací jednotky, které přidáte, musí být homogenní typ procesoru, paměti a číslo disku a velikost na uzly, které jsou již přítomny v jednotce škálování.
+Operátory Azure Stack můžou zvýšit celkovou kapacitu existující jednotky škálování přidáním dalšího fyzického počítače. Fyzický počítač se také označuje jako uzel jednotky škálování. Každý nový uzel jednotky škálování, který přidáte, musí být homogenní v typu procesoru, paměti a čísla a velikosti disku pro uzly, které jsou již přítomny v jednotce škálování.
 
-Přidat uzel jednotek škálování, fungují ve službě Azure Stack a spuštění nástroje od výrobce hardwaru zařízení (OEM). Nástroje pro výrobce OEM běží na hostiteli životního cyklu hardwaru (HLH) zajistit, aby že nové fyzického počítače odpovídá stejnou úroveň firmware jako stávající uzly.
+Chcete-li přidat uzel jednotky škálování, budete pracovat Azure Stack a spouštět nástroje od výrobce hardwaru (OEM). Nástroje pro výrobce OEM běží na hostiteli životního cyklu hardwaru (HLH), aby se zajistilo, že nový fyzický počítač odpovídá stejné úrovni firmwaru jako stávající uzly.
 
-Následující vývojový diagram zobrazuje obecný postup k přidání uzlu jednotek škálování.
+Následující vývojový diagram znázorňuje obecný proces přidání uzlu jednotky škálování:
 
-![Přidat škálovací jednotku tok](media/azure-stack-add-scale-node/add-node-flow.png) &#42; *Určuje, zda OEM dodavatele hardwaru představuje umístění fyzického serveru do racku a aktualizuje firmware se liší v závislosti na vaší smlouvu o podpoře.*
+![Přidat tok jednotek škálování](media/azure-stack-add-scale-node/add-node-flow.png)
+<br> *Bez ohledu na to, jestli dodavatel hardwaru OEM dokládá umístění racku fyzického serveru a aktualizuje firmware, se liší podle vaší smlouvy o podpoře.*
 
-Chcete-li přidat nový uzel může trvat několik hodin nebo dní.
+Dokončení operace přidání nového uzlu může trvat několik hodin nebo dní.
 
 > [!Note]  
-> Nepokoušejte kteroukoli z následujících operací, zatímco již probíhá operace přidání jednotky škálování uzlu:
+> Neprovádějte žádnou z následujících operací, pokud již probíhá operace přidání uzlu jednotky škálování:
 >
->  - Aktualizace služby Azure Stack
->  - Rotování certifikátů
->  - Zastavení služby Azure Stack
->  - Oprava škálovací jednotku uzlu
+>  - Aktualizovat Azure Stack
+>  - Otočení certifikátů
+>  - Zastavit Azure Stack
+>  - Opravit uzel jednotky škálování
 
 
 ## <a name="add-scale-unit-nodes"></a>Přidání uzlů jednotky škálování
 
-Následující kroky jsou základní přehled o tom, jak přidat uzel. Není podle těchto kroků bez první odkazující na dokumentaci k rozšíření kapacity poskytnutou výrobcem OEM.
+Následující kroky jsou nejdůležitějším přehledem o tom, jak přidat uzel. Tyto kroky neprovádějte, aniž byste nejdřív odkazovali na dokumentaci k rozšíření kapacity poskytované výrobcem OEM.
 
-1. Umístěte nového fyzického serveru do racku a zapojení odpovídajícím způsobem. 
-2. Povolte porty fyzických přepínačů a upravit seznamy řízení přístupu (ACL), pokud je k dispozici.
-3. Nakonfigurujte správnou IP adresou v řadiče pro správu základní desky (BMC) a použít všechna nastavení systému BIOS na dokumentaci k poskytnutou výrobcem OEM.
-4. Pomocí nástrojů, které jsou k dispozici od výrobce hardwaru, které běží na HLH použijte aktuální firmware základní pro všechny součásti.
-5. Spusťte operaci přidat uzel na portálu správy Azure Stack.
-6. Ověřte, že úspěšné operaci přidat uzel. Uděláte to tak, zkontrolujte, [ **stav** jednotky škálování](#monitor-add-node-operations). 
+1. Umístěte nový fyzický server do stojanu a zapojte ho správně. 
+2. Povolte porty fyzických přepínačů a v případě potřeby upravte seznamy řízení přístupu (ACL).
+3. Nakonfigurujte správnou IP adresu v řadiči pro správu základní desky (BMC) a použijte všechna nastavení systému BIOS podle vaší dokumentace poskytované výrobcem OEM.
+4. Použijte aktuální standardní hodnotu firmwaru pro všechny komponenty pomocí nástrojů, které jsou k dispozici výrobcem hardwaru, který běží na HLH.
+5. Spusťte operaci přidat uzel na portálu pro správu Azure Stack.
+6. Ověřte, zda je operace přidat uzel úspěšná. Provedete to tak, že zkontrolujete [ **stav** jednotky škálování](#monitor-add-node-operations). 
 
-## <a name="add-the-node"></a>Přidání uzlu
+## <a name="add-the-node"></a>Přidat uzel
 
-Portál pro správu nebo prostředí PowerShell slouží k přidání nových uzlů. Operace přidání uzlu nejprve přidá nový uzel jednotek škálování jako dostupné výpočetní kapacitu a automaticky rozšíří kapacitu úložiště. Kapacita rozbalí automaticky, protože Azure Stack je hyperkonvergovaného systému kde *compute* a *úložiště* škálovat společně.
+K přidání nových uzlů můžete použít portál pro správu nebo PowerShell. Operace přidat uzel nejprve přidá nový uzel jednotky škálování jako dostupnou výpočetní kapacitu a pak automaticky rozšíří kapacitu úložiště. Kapacita se automaticky rozšíří, protože Azure Stack se jedná o právě sblížený systém, ve kterém se navzájem provádí *Výpočet* a škálování *úložiště* .
 
 ### <a name="use-the-admin-portal"></a>Použití portálu pro správu
 
-1. Přihlaste se k portálu pro správu služby Azure Stack jako operátory Azure stacku.
-2. Přejděte do **+ vytvořit prostředek** > **kapacity** > **uzel jednotek škálování**.
-   ![Uzel jednotek škálování](media/azure-stack-add-scale-node/select-node1.png)
-3. Na **přidat uzel** podokně, vyberte *oblasti*a pak vyberte *jednotka škálování* , že chcete přidat uzel, který má. Zadat také *IP adresa řadiče BMC* pro přidáváte uzel jednotek škálování. Najednou můžete přidat pouze jeden uzel.
-   ![Přidat podrobnosti o uzlu](media/azure-stack-add-scale-node/select-node2.png)
+1. Přihlaste se k portálu pro správu Azure Stack jako operátor Azure Stack.
+2. Přejděte na **+ vytvořit** > **uzel jednotka škálování** **kapacity** > prostředku.
+   ![Uzel jednotky škálování](media/azure-stack-add-scale-node/select-node1.png)
+3. V podokně **přidat uzel** vyberte *oblast*a potom vyberte *jednotku škálování* , do které chcete uzel přidat. Zadejte také *IP adresu řadiče pro správu základní desky* pro uzel jednotky škálování, který přidáváte. Najednou můžete přidat jenom jeden uzel.
+   ![Přidat podrobnosti uzlu](media/azure-stack-add-scale-node/select-node2.png)
  
 
 ### <a name="use-powershell"></a>Použití prostředí PowerShell
 
-Použití **New-AzsScaleUnitNodeObject** rutiny pro přidání uzlu.  
+K přidání uzlu použijte rutinu **New-AzsScaleUnitNodeObject** .  
 
-Než použijete některý z následujících ukázkových skriptech Powershellu, nahraďte hodnoty *názvy wwnn* a *IP adresy* s hodnotami z vašeho prostředí Azure Stack.
+Před použitím některého z následujících ukázkových skriptů PowerShellu nahraďte *názvy uzlů* a *IP adresy* hodnotami z vašeho prostředí Azure Stack.
 
   > [!Note]  
-  > Když pojmenováváte uzlu je nutné zachovat název víc než 15 znaků. Také nelze použít název, který obsahuje mezery nebo obsahuje některý z následujících znaků: `\`, `/`, `:`, `*`, `?`, `"`, `<`, `>`, `|`, `\`, `~`, `!`, `@`, `#`, `$`, `%`, `^`, `&`, `(`, `)`, `{`, `}`, `_`.
+  > Při pojmenovávání uzlu musíte zachovat název kratší než 15 znaků. Nemůžete také použít název, který obsahuje mezeru nebo obsahuje některý z následujících znaků: `\`, `/`, `:`, `*`, `?`, `"`, `<`, `>`, `|`, `\`, `~`, `!`, `@`, `#`, `$`, `%`, `^`, `&`, `(`, `)`, `{`, `}`, `_`.
 
-**Přidání uzlu:**
+**Přidat uzel:**
   ```powershell
   ## Add a single Node 
   $NewNode=New-AzsScaleUnitNodeObject -computername "<name_of_new_node>" -BMCIPv4Address "<BMCIP_address_of_new_node>" 
@@ -85,14 +86,14 @@ Než použijete některý z následujících ukázkových skriptech Powershellu,
   Add-AzsScaleUnitNode -NodeList $NewNode -ScaleUnit "<name_of_scale_unit_cluster>" 
   ```  
 
-## <a name="monitor-add-node-operations"></a>Monitorování přidat uzel operace 
-Portál pro správu nebo prostředí PowerShell můžete použít k získání stavu operace přidání uzlu. Přidání uzlu operace může trvat několik hodin až dní na provedení.
+## <a name="monitor-add-node-operations"></a>Monitorování operací přidání uzlu 
+K získání stavu operace přidání uzlu použijte portál pro správu nebo PowerShell. Dokončení operací přidání uzlu může trvat několik hodin.
 
 ### <a name="use-the-admin-portal"></a>Použití portálu pro správu 
-K monitorování přidání nového uzlu, v portálu pro správu zkontrolujte jednotka škálování nebo objekty uzel jednotek škálování. Uděláte to tak, přejděte na **Správa oblastí** > **jednotek škálování**. Potom vyberte jednotku škálování nebo škálovací jednotku uzel, který chcete zkontrolovat. 
+Chcete-li monitorovat přidání nového uzlu, Projděte si část jednotka škálování nebo objekty uzlu jednotky škálování na portálu pro správu. Provedete to tak, že přejdete na**jednotky škálování** **správy** > oblastí. V dalším kroku vyberte jednotku škálování nebo uzel jednotky škálování, který chcete zkontrolovat. 
 
 ### <a name="use-powershell"></a>Použití prostředí PowerShell
-Stav jednotky škálování a škálovací jednotku uzly se dá načíst pomocí Powershellu takto:
+Stav jednotky škálování a uzly jednotek škálování se dají načíst pomocí PowerShellu následujícím způsobem:
   ```powershell
   #Retrieve Status for the Scale Unit
   Get-AzsScaleUnit|select name,state
@@ -101,45 +102,45 @@ Stav jednotky škálování a škálovací jednotku uzly se dá načíst pomocí
   Get-AzsScaleUnitNode |Select Name, ScaleUnitNodeStatus
 ```
 
-### <a name="status-for-the-add-node-operation"></a>Stav uzlu operace přidání 
+### <a name="status-for-the-add-node-operation"></a>Stav operace přidat uzel 
 **Pro jednotku škálování:**
 
-|Status               |Popis  |
+|Stav               |Popis  |
 |---------------------|---------|
-|Spuštěno              |Všechny uzly jsou aktivně účasti v jednotce škálování.|
-|Zastaveno              |Uzel jednotka škálování je mimo provoz nebo nedostupný.|
-|Rozbalení            |Jeden nebo více uzlů jednotky škálování se aktuálně přidávají jako výpočetní kapacitu.|
-|Konfigurace úložiště  |Došlo k rozbalení výpočetní kapacity a konfigurace úložiště je spuštěná.|
-|Vyžaduje nápravy |Byla zjištěna chyba, která vyžaduje jeden nebo více uzlů jednotky škálování opravit.|
+|Spuštěno              |Všechny uzly se aktivně podílejí na jednotce škálování.|
+|Zastaveno              |Uzel jednotka škálování je buď nedostupný, nebo nedosažitelný.|
+|Zvyšování            |Jeden nebo více uzlů jednotek škálování se momentálně přidávají jako výpočetní kapacita.|
+|Konfigurace úložiště  |Výpočetní kapacita se rozšířila a konfigurace úložiště je spuštěná.|
+|Vyžaduje nápravu |Zjistila se chyba, která vyžaduje opravu jednoho nebo více uzlů jednotek škálování.|
 
 
 **Pro uzel jednotky škálování:**
 
-|Status                |Popis  |
+|Stav                |Popis  |
 |----------------------|---------|
-|Spuštěno               |Uzel je aktivně účasti v jednotce škálování.|
+|Spuštěno               |Uzel je aktivně zapojen do jednotky škálování.|
 |Zastaveno               |Uzel není k dispozici.|
-|Přidání                |Uzel je aktivně přidává na jednotce škálování.|
-|Oprava             |Uzel je aktivně opraví.|
-|Údržba           |Uzel pozastaví a žádné aktivní uživatel úloha běží. |
-|Vyžaduje nápravy  |Byla zjištěna chyba, která vyžaduje uzel, který má být opraven.|
+|Přidávání                |Uzel se aktivně přidávají do jednotky škálování.|
+|Probíhají opravy             |Uzel je aktivně opravován.|
+|Údržba           |Uzel je pozastaven a není spuštěna žádná úloha aktivního uživatele. |
+|Vyžaduje nápravu  |Zjistila se chyba, která vyžaduje, aby byl uzel opravený.|
 
 
 ## <a name="troubleshooting"></a>Řešení potíží
-Tady jsou běžné problémy, kterým dochází při přidávání uzlu. 
+Níže jsou uvedeny běžné problémy, které se zobrazují při přidávání uzlu. 
 
-**Scénář 1:**  Přidat škálovací jednotku uzel nezdaří, ale jeden nebo více uzlů, které jsou uvedeny ve stavu Zastaveno.  
-- Náprava: Pomocí operace opravy opravit jeden nebo více uzlů. Najednou lze spustit pouze jeden opravnou operaci.
+**Scénář 1:**  Operace přidání uzlu jednotky škálování se nezdařila, ale jeden nebo více uzlů je uveden stavem zastaveno.  
+- Nápravy Opravte jeden nebo více uzlů pomocí operace opravy. V jednom okamžiku může běžet jenom jedna operace opravy.
 
-**Scénář 2:** Byly přidány jeden nebo více uzlů jednotek škálování, ale rozšíření úložiště se nezdařilo. V tomto scénáři objekt škálovací jednotky uzel hlásí stav spuštění, ale není spuštěna úloha konfigurace úložiště.  
-- Náprava: Použijte privilegovaný koncový bod Pokud chcete zkontrolovat stav úložiště spuštěním následující rutiny Powershellu:
+**Scénář 2:** Byl přidán jeden nebo více uzlů jednotek škálování, ale rozšíření úložiště se nezdařilo. V tomto scénáři objekt uzlu škálování jednotky oznamuje stav spuštěno, ale úloha konfigurace úložiště není spuštěná.  
+- Nápravy Pomocí privilegovaného koncového bodu zkontrolujte stav úložiště spuštěním následující rutiny PowerShellu:
   ```powershell
      Get-VirtualDisk -CimSession s-cluster | Get-StorageJob
   ```
  
-**Scénář 3:** Obdrželi jste výstrahu, která označuje neúspěšná úloha horizontální navýšení kapacity úložiště.  
-- Náprava: Úloha konfigurace úložiště v tomto případě se nezdařila. Tento problém, musíte se obrátit na podporu.
+**Scénář 3:** Obdrželi jste výstrahu, která indikuje, že úloha škálování úložiště se nezdařila.  
+- Nápravy V takovém případě se úloha konfigurace úložiště nezdařila. Tento problém vyžaduje, abyste kontaktovali podporu.
 
 
 ## <a name="next-steps"></a>Další postup 
-[Přidání veřejné IP adresy](azure-stack-add-ips.md) 
+[Přidat veřejné IP adresy](azure-stack-add-ips.md) 

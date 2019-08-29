@@ -1,6 +1,6 @@
 ---
-title: Řešení potíží s Microsoft Azure Stack | Dokumentace Microsoftu
-description: Azure Stack Development Kit (ASDK) informace o odstraňování potíží.
+title: Řešení potíží s ASDK | Microsoft Docs
+description: Naučte se řešit potíže s Azure Stack Development Kit (ASDK).
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,60 +16,60 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: a84e85eacb033fc872241feea905b742eee0591b
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 7946b8339c9ff1127c0a9d9572c49527208b38f2
+ms.sourcegitcommit: e8f7fe07b32be33ef621915089344caf1fdca3fd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66267248"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70118662"
 ---
-# <a name="microsoft-azure-stack-development-kit-asdk-troubleshooting"></a>Řešení potíží s Microsoft Azure Stack Development Kit (ASDK)
-Tento článek obsahuje běžné informace o odstraňování potíží pro ASDK. Pokud dochází k problému, který nebyl zdokumentován, nezapomeňte zaškrtnout [fórum MSDN pro Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) informace a požádejte o pomoc.  
+# <a name="troubleshoot-the-asdk"></a>Řešení potíží s ASDK
+Tento článek poskytuje běžné informace pro řešení potíží s Azure Stack Development Kit (ASDK). Pokud jste narazili na problém, který není dokumentován, zkontrolujte, zda je na [webu MSDN fórum Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) , kde najdete pomoc.  
 
 > [!IMPORTANT]
-> Vzhledem k tomu, ASDK zkušební prostředí, neexistuje žádné oficiální podporu, kterou nabízí prostřednictvím Microsoft podporu služby zákazníkům (CSS).
+> Vzhledem k tomu, že ASDK je zkušební prostředí, není oficiální podpora nabídnuta prostřednictvím služeb Microsoft Customer Support Services (CSS).
 
-Doporučení pro řešení potíží, které jsou popsány v této části jsou odvozeny z několika zdrojů a může nebo nemusí vyřešit konkrétní problém. Příklady kódu jsou poskytovány "tak jak jsou" a nemůže být zaručena očekávané výsledky. V této části se může časté změny a aktualizace, jak jsou implementované vylepšení produktu.
+Doporučení pro řešení problémů popsaných v této části jsou odvozena z několika zdrojů a mohou nebo nemusí vyřešit váš konkrétní problém. Příklady kódu jsou poskytovány "tak, jak jsou" a očekávané výsledky nelze zaručit. Tato část podléhá častým úpravám a aktualizacím, protože jsou implementována vylepšení produktu.
 
 ## <a name="deployment"></a>Nasazení
-### <a name="deployment-failure"></a>Nasazení se nezdařilo.
-Pokud během instalace dojít k selhání, můžete restartovat nasazení z kroku pomocí opětovného spuštění možnosti / skriptu nasazení, jako v následujícím příkladu:
+### <a name="deployment-failure"></a>Selhání nasazení
+Pokud při instalaci dojde k chybě, můžete restartovat nasazení z neúspěšného kroku pomocí možnosti-znovu spustit ve skriptu nasazení. Příklad:
 
   ```powershell
   cd C:\CloudDeployment\Setup
   .\InstallAzureStackPOC.ps1 -Rerun
   ```
 
-### <a name="at-the-end-of-the-deployment-the-powershell-session-is-still-open-and-doesnt-show-any-output"></a>Na konci nasazení relaci Powershellu je stále otevřen a nezobrazí žádný výstup
-Toto chování je pravděpodobně právě výsledek výchozí chování příkazové okno Powershellu, pokud byla vybrána. Nasazení vývojové sady proběhlo úspěšně, ale skript se pozastavila při výběru okna. Můžete ověřit, že instalační program dokončil tím, že hledají slovo "Vyberte" v záhlaví příkazové okno. Stisknutím klávesy ESC zrušte jeho výběr a za ním být zobrazena zpráva o dokončení.
+### <a name="at-the-end-of-the-deployment-the-powershell-session-is-still-open-and-doesnt-show-any-output"></a>Na konci nasazení je relace PowerShellu stále otevřená a nezobrazuje žádný výstup.
+Toto chování je pravděpodobně pouze výsledkem výchozího chování příkazového okna prostředí PowerShell, když je vybráno. Nasazení ASDK bylo úspěšné, ale při vybírání okna byl skript pozastaven. Dokončení instalace můžete ověřit tak, že si vyhledáte slovo "vybrat" v záhlaví okna příkazového řádku. Stisknutím klávesy ESC zrušte výběr a po ní by se měla zobrazit zpráva o dokončení.
 
 ## <a name="virtual-machines"></a>Virtuální počítače
-### <a name="default-image-and-gallery-item"></a>Výchozí image a Galerie položku
-Před nasazením virtuálních počítačů ve službě Azure Stack je nutné přidat položku image a Galerie Windows serveru.
+### <a name="default-image-and-gallery-item"></a>Výchozí položka obrázku a galerie
+Před nasazením virtuálních počítačů v Azure Stack je třeba přidat položku galerie a image Windows serveru.
 
-### <a name="after-restarting-my-azure-stack-host-some-vms-may-not-automatically-start"></a>Po restartování hostitele Moje Azure Stack, nemusí některé virtuální počítače spustit automaticky.
-Po restartování hostitele, můžete si všimnout, že služby Azure Stack nejsou ihned k dispozici. Důvodem je, že Azure Stack [infrastruktury virtuálních počítačů](asdk-architecture.md#virtual-machine-roles) a využijte RPs některé čas ke kontrole konzistence, ale nakonec bude automaticky spuštěno.
+### <a name="after-restarting-my-azure-stack-host-some-vms-dont-automatically-start"></a>Po restartování Azure Stack hostitele se některé virtuální počítače automaticky nespustí.
+Po restartování hostitele si můžete všimnout, že Azure Stack Services nejsou hned k dispozici. Důvodem je to, že [virtuální počítače Azure Stack infrastruktury](asdk-architecture.md#virtual-machine-roles) a RPS nějakou dobu nekontrolují konzistenci, ale nakonec se spustí automaticky.
 
-Můžete si také všimnout tohoto tenanta, které virtuální počítače automaticky nespouštět po restartu hostitele služby Azure Stack development kit. To se o známý problém a vyžaduje jen několik Ruční postup jejich převést do režimu online:
+Můžete si také všimnout, že se virtuální počítače tenanta po restartování hostitele ASDK automaticky nespustí. Jedná se o známý problém a jenom pár ručních kroků, které je potřeba převést do režimu online:
 
-1.  V hostitelském počítači Azure Stack development kit start **Správce clusteru převzetí služeb při selhání** z nabídky Start.
-2.  Vyberte cluster **S Cluster.azurestack.local**.
+1.  Na hostiteli ASDK spusťte **Správce clusteru s podporou převzetí služeb při selhání** v nabídce Start.
+2.  Vyberte cluster **S-cluster. azurestack. Local**.
 3.  Vyberte **role**.
-4.  Virtuální počítače tenanta zobrazí *Uložit* stavu. Jakmile jsou spuštěné všechny virtuální počítače infrastruktury, klikněte pravým tlačítkem na virtuální počítače klientů a vyberte **Start** obnovit virtuální počítač.
+4.  Virtuální počítače tenanta se zobrazí v uloženém stavu. Jakmile budou všechny virtuální počítače infrastruktury spuštěné, klikněte pravým tlačítkem na virtuální počítače tenanta a výběrem **Spustit spusťte** obnovení virtuálního počítače.
 
-### <a name="i-have-deleted-some-virtual-machines-but-still-see-the-vhd-files-on-disk-is-this-behavior-expected"></a>Můžu odstranily některé virtuální počítače, ale pořád ještě považuje soubory virtuálního pevného disku na disk. Toto chování se očekává se?
-Ano, to je očekávané chování. Protože byla navržena tímto způsobem:
+### <a name="ive-deleted-some-vms-but-still-see-the-vhd-files-on-disk-is-this-behavior-expected"></a>Odstranili jsme některé virtuální počítače, ale pořád se na disku zobrazují soubory VHD. Je toto chování očekávané?
+Ano, toto chování je očekávané. To je navrženo tímto způsobem:
 
-* Když odstraníte virtuální počítač, virtuální pevné disky se neodstraní. Disky jsou samostatné prostředky ve skupině prostředků.
-* Pokud účet úložiště, se odstraní, odstranění je viditelné okamžitě prostřednictvím Azure Resource Manageru, ale disky, které může obsahovat stále zůstanou v úložišti dokud uvolňování paměti běží.
+* Při odstranění virtuálního počítače se virtuální pevné disky neodstraňují. Disky jsou samostatné prostředky ve skupině prostředků.
+* Když se účet úložiště odstraní, odstraní se hned po Azure Resource Manager, ale disky, které můžou obsahovat, se pořád uchovávají v úložišti, až do doby, než se spustí shromažďování paměti.
 
-Pokud se zobrazí "oddělena" virtuální pevné disky, je důležité vědět, pokud jsou součástí složky pro účet úložiště, který byl odstraněn. Pokud účet úložiště nebyl odstraněn, je běžné, že jsou stále existuje.
+Pokud se zobrazí "osamocené" disky VHD, je důležité znát, jestli jsou součástí složky pro účet úložiště, který se odstranil. Pokud se účet úložiště neodstranil, je normální, že virtuální pevné disky zůstanou.
 
-Další informace o konfiguraci uchování prahové hodnoty a podle potřeby recyklace v [Správa účtů úložiště](../operator/azure-stack-manage-storage-accounts.md).
+Další informace o konfiguraci prahové hodnoty pro uchování a opětovného získávání na vyžádání najdete v tématu [Správa účtů úložiště](../operator/azure-stack-manage-storage-accounts.md).
 
-## <a name="storage"></a>Úložiště
+## <a name="storage"></a>Storage
 ### <a name="storage-reclamation"></a>Recyklace úložiště
-To může trvat až 14 hodin uvolňovaného kapacity se zobrazí na portálu. Recyklace místa závisí na různých faktorech včetně procento využití souborů interní kontejneru v úložišti objektů blob bloku. Proto se v závislosti na tom, kolik dat je odstraněn, neexistuje žádná záruka na množství místa, které může být získány zpět při spuštění systému uvolňování paměti.
+Může trvat až 14 hodin, než se kapacita uvolní, aby se na portálu zobrazovala. Recyklace místa závisí na různých faktorech, včetně procentuálního využití vnitřních souborů kontejneru v úložišti objektů blob bloku. V závislosti na tom, kolik dat je odstraněno, však není nijak zaručeno množství místa, které by mohlo být uvolněno při spuštění systému uvolňování paměti.
 
 ## <a name="next-steps"></a>Další postup
-[Navštivte fórum podpory služby Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)
+[Navštívit fórum podpory Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)
