@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/20/2019
+ms.date: 08/28/2019
 ms.author: justinha
 ms.reviewer: misainat
-ms.lastreviewed: 08/20/2019
-ms.openlocfilehash: 23cacc7a9005e1695f7394d1e441298f3f90bca8
-ms.sourcegitcommit: 7968f9f0946138867323793be9966ee2ef99dcf4
+ms.lastreviewed: 08/28/2019
+ms.openlocfilehash: cf15aebac3ad4d099892270bb2e334d32f82f580
+ms.sourcegitcommit: 5efa09034a56eb2f3dc0c9da238fe60cff0c67ac
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70025940"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70144019"
 ---
 # <a name="prepare-the-asdk-host-computer"></a>Příprava hostitelského počítače s ASDK
 Než budete moct na hostitelský počítač nainstalovat Azure Stack Development Kit (ASDK), musí být hostitel ASDK připravený k instalaci. Po přípravě hostitele se spustí z pevného disku virtuálního počítače CloudBuilder. vhdx, který zahájí ASDK nasazení.
@@ -64,12 +64,17 @@ Než budete moct nainstalovat ASDK na hostitelský počítač, musí být připr
 
     Můžete také zadat hodnoty pro následující volitelná nastavení:
     - **Název počítače**: Tato možnost nastaví název hostitele ASDK. Název musí splňovat požadavky na plně kvalifikovaný název domény a musí být delší než 15 znaků. Výchozím nastavením je náhodný název počítače generovaný systémem Windows.
-    - **Konfigurace statické IP adresy**: Nastaví nasazení tak, aby používalo statickou IP adresu. V opačném případě, když se instalační program restartuje do cloudbuilder. vhdx, jsou síťová rozhraní nakonfigurovaná pomocí protokolu DHCP. Pokud se rozhodnete použít konfiguraci statické IP adresy, zobrazí se další možnosti, kde musíte taky:
-      - Vyberte síťový adaptér. Před kliknutím na tlačítko **Další**se ujistěte, že se můžete připojit k adaptéru.
-      - Ujistěte se, že zobrazené hodnoty **IP adresa**, **Brána**a **DNS** jsou správné, a potom klikněte na **Další**.
 
-   > [!TIP]
-   > Pokud chcete najít IP adresu časového serveru, navštivte [ntppool.org](https://www.ntppool.org/) nebo otestujte Time.Windows.com.
+        - Vyberte síťový adaptér. Před kliknutím na tlačítko **Další**se ujistěte, že se můžete připojit k adaptéru.
+
+            ![Snímek obrazovky s nastavením síťového adaptéru](media/asdk-prepare-host/step-four-network-adapter.png)
+
+        - Zkontrolujte, zda jsou zobrazené hodnoty **IP adresy**, **brány**a **DNS** správné, zadejte platnou adresu **IP serveru** a klikněte na tlačítko **Další**.
+
+            >[!TIP]
+            >Pokud chcete najít IP adresu časového serveru, navštivte [ntppool.org](https://www.ntppool.org/) nebo otestujte Time.Windows.com. 
+
+            ![Snímek obrazovky s nastavením konfigurace protokolu IP](media/asdk-prepare-host/step-five-host-ip-config.png)
 
 7. Kliknutím na tlačítko **Další** zahájíte proces přípravy.
 8. Až se příprava zobrazíjako dokončená, klikněte na **Další**.

@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2019
+ms.date: 08/29/2019
 ms.author: sethm
 ms.reviewer: avishwan
-ms.lastreviewed: 11/12/2018
-ms.openlocfilehash: 21364595b30c62f47c293e38bdcb9c5663c56e90
-ms.sourcegitcommit: b8260ef3e43f3703dd0df16fb752610ec8a86942
+ms.lastreviewed: 08/29/2019
+ms.openlocfilehash: b71065d4a5af880fe5fb9a48d78a0e2821822b56
+ms.sourcegitcommit: 5efa09034a56eb2f3dc0c9da238fe60cff0c67ac
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70008323"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70143983"
 ---
 # <a name="windows-server-in-azure-stack-marketplace-faq"></a>Nejčastější dotazy k Windows serveru v Azure Stack Marketplace
 
@@ -57,11 +57,11 @@ Pomocí následujícího skriptu můžete změnit atribut licenčního modelu ta
 
 ```powershell
 vm= Get-Azurermvm -ResourceGroup "<your RG>" -Name "<your VM>"
-$vm.LicenseType = "Windows_Server"
+$vm.LicenseType = "None"
 Update-AzureRmVM -ResourceGroupName "<your RG>" -VM $vm
 ```
 
-Typ licence vašeho virtuálního počítače můžete ověřit spuštěním následujících příkazů. Pokud licenční model uvádí **Windows_Server**, bude se vám za model PAYG účtovat licence pro Windows:
+Typ licence vašeho virtuálního počítače můžete ověřit spuštěním následujících příkazů. Pokud licenční model uvádí **Windows_Server**, bude se vám účtovat cena za BYOL, jinak se vám bude účtovat měřič Windows podle modelu PAYG:
 
 ```powershell
 $vm | ft Name, VmId,LicenseType,ProvisioningState
@@ -73,7 +73,7 @@ Atribut licenčního modelu můžete změnit na model Přineste si vlastní lice
 
 ```powershell
 $vm= Get-Azurermvm -ResourceGroup "<your RG>" -Name "<your VM>"
-$vm.LicenseType = "None"
+$vm.LicenseType = "Windows_Server"
 Update-AzureRmVM -ResourceGroupName "<your RG>" -VM $vm
 ```
 
@@ -128,7 +128,7 @@ Obraťte se na dodavatele hardwaru a ověřte, zda byly nainstalovány správné
 
 [Automatická aktivace virtuálního počítače](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11)) není v dřívějších verzích Windows serveru podporovaná. Virtuální počítače musíte aktivovat ručně.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Další informace najdete v následujících článcích:
 

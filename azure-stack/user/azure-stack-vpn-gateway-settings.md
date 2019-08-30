@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/11/2019
 ms.author: sethm
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 53a423ebc8e9f503934bfd3df2f4962a7b584059
-ms.sourcegitcommit: b3dac698f2e1834491c2f9af56a80e95654f11f3
+ms.openlocfilehash: 9fa12d91e9f2ec738c68f4a04438a93415bd36fb
+ms.sourcegitcommit: 5efa09034a56eb2f3dc0c9da238fe60cff0c67ac
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68658585"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70144032"
 ---
 # <a name="configure-vpn-gateway-settings-for-azure-stack"></a>Konfigurace nastavení služby VPN Gateway pro Azure Stack
 
@@ -39,8 +39,8 @@ Každá Azure Stack virtuální síť podporuje jednu bránu virtuální sítě,
 Když vytvoříte bránu virtuální sítě, musíte se ujistit, že je typ brány správný pro vaši konfiguraci. Brána sítě VPN vyžaduje `-GatewayType Vpn` příznak, například:
 
 ```powershell
-New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
--Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn
+New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
+-Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn `
 -VpnType RouteBased
 ```
 
@@ -70,27 +70,25 @@ Pokud k vytvoření Správce prostředků brány virtuální sítě použijete p
 
 #### <a name="powershell"></a>PowerShell
 
-Následující příklad prostředí PowerShell Určuje `-GatewaySku` jako **VpnGw1**:
+Následující příklad prostředí PowerShell Určuje `-GatewaySku` **standardní**:
 
 ```powershell
-New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
--Location 'West US' -IpConfigurations $gwipconfig -GatewaySku VpnGw1
+New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
+-Location 'West US' -IpConfigurations $gwipconfig -GatewaySku Standard `
 -GatewayType Vpn -VpnType RouteBased
 ```
 
 ### <a name="connection-types"></a>Typy připojení
 
-V modelu nasazení Správce prostředků Každá konfigurace vyžaduje konkrétní typ připojení brány virtuální sítě. Dostupné hodnoty prostředí PowerShell v Resource Manageru pro `-ConnectionType` jsou:
+V modelu nasazení Správce prostředků Každá konfigurace vyžaduje konkrétní typ připojení brány virtuální sítě. Dostupné správce prostředků hodnoty PowerShellu pro `-ConnectionType` jsou **IPSec**.
 
-* **Podporují**
+V následujícím příkladu PowerShellu se vytvoří připojení S2S, které vyžaduje typ připojení IPsec:
 
-   V následujícím příkladu PowerShellu se vytvoří připojení S2S, které vyžaduje typ připojení IPsec:
-
-   ```powershell
-   New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg
-   -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local
-   -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
-   ```
+```powershell
+New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg `
+-Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local `
+-ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
+```
 
 ### <a name="vpn-types"></a>Typy sítě VPN
 
@@ -111,8 +109,8 @@ Když vytvoříte bránu virtuální sítě pro konfiguraci brány sítě VPN, m
 Následující příklad prostředí PowerShell Určuje `-VpnType` jako **RouteBased**. Když vytvoříte bránu, musíte se ujistit, že `-VpnType` je správná pro vaši konfiguraci.
 
 ```powershell
-New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
--Location 'West US' -IpConfigurations $gwipconfig
+New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
+-Location 'West US' -IpConfigurations $gwipconfig `
 -GatewayType Vpn -VpnType RouteBased
 ```
 
@@ -156,7 +154,7 @@ Bráně místní sítě dáte název, veřejnou IP adresu zařízení VPN a urč
 Následující příklad prostředí PowerShell vytvoří novou bránu místní sítě:
 
 ```powershell
-New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
+New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
 -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix '10.5.51.0/24'
 ```
 
@@ -180,7 +178,7 @@ Na rozdíl od Azure, který podporuje více nabídek jako iniciátor i respondé
 
 ### <a name="ike-phase-2-quick-mode-parameters"></a>Parametry protokolu IKE fáze 2 (rychlý režim)
 
-| Vlastnost| Hodnota|
+| Vlastnost| Value|
 |-|-|
 |Verze IKE |IKEv2 |
 |Šifrování & algoritmy hash (šifrování)     | GCMAES256|
