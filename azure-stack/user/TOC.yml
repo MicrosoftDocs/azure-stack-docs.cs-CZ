@@ -184,7 +184,7 @@
                   href: azure-stack-metrics-supported.md
                 - name: Využití dat monitorování Azure
                   href: azure-stack-metrics-monitor.md
-        - name: Použití šablon řešení
+        - name: Nasazení doplňkových služeb
           items:
             - name: Ethereum během nasazení
               href: azure-stack-ethereum.md

@@ -1,6 +1,6 @@
 ---
-title: Azure Stack nasazení síťový provoz | Dokumentace Microsoftu
-description: Tento článek popisuje, co můžete očekávat o sítě procesech nasazování služby Azure Stack.
+title: Síťový provoz nasazení Azure Stack | Microsoft Docs
+description: Tento článek popisuje, co můžete očekávat od Azure Stackch síťových procesů nasazení.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,32 +12,34 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2019
+ms.date: 08/29/2019
 ms.author: mabrigg
 ms.reviewer: wamota
-ms.lastreviewed: 08/30/2018
-ms.openlocfilehash: 59858d5538552fb04ddf41de0ad59cf77dcd7783
-ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
+ms.lastreviewed: 08/29/2019
+ms.openlocfilehash: ba0ff94a9e5db1ad898a8702cb13d605878bfc94
+ms.sourcegitcommit: 701685f0b59e5a3d1a8d39fe477b8df701a51cd2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67131070"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70159515"
 ---
-# <a name="about-deployment-network-traffic"></a>Informace o nasazení síťového provozu
-Vysvětlení, jak se provoz probíhá během Azure Stack nasazení je důležité k zajištění úspěšné nasazení. Tento článek vás provede očekávané síťového provozu během procesu nasazení poskytnout představu, co mají očekávat.
+# <a name="about-deployment-network-traffic"></a>O provozu sítě nasazení
+Porozumění způsobu, jakým jsou toky provozu sítě během nasazení Azure Stack důležité k zajištění úspěšného nasazení. Tento článek vás provede očekávaným síťovým přenosem během procesu nasazení, aby bylo možné porozumět tomu, co očekávat.
 
-Tento obrázek znázorňuje všechny komponenty a připojení zahrnutých v procesu nasazení:
+Na tomto obrázku jsou zobrazeny všechny komponenty a připojení, která se podílejí na procesu nasazení:
 
-![Topologie sítě nasazení služby Azure Stack](media/deployment-networking/figure1.png)
+![Topologie sítě nasazení Azure Stack](media/deployment-networking/figure1.png)
 
 > [!NOTE]
-> Tento článek popisuje požadavky pro připojené nasazení, informace o dalších metodách nasazení naleznete v tématu [modelů připojení nasazení Azure Stack](azure-stack-connection-models.md).
+> Tento článek popisuje požadavky na připojené nasazení. Další informace o dalších metodách nasazení najdete v tématu [modely připojení nasazení Azure Stack](azure-stack-connection-models.md).
 
-### <a name="the-deployment-vm"></a>Nasazení virtuálního počítače
-Řešení Azure Stack obsahuje skupinu serverů, které se používají k hostování součásti služby Azure Stack a navíc serveru s názvem hostitele životního cyklu hardwaru (HLH). Tento server se používá k nasazení a správa životního cyklu vašeho řešení a hostitelem nasazení virtuálního počítače (DVM) během nasazení.
+### <a name="the-deployment-vm"></a>Virtuální počítač nasazení
+Řešení Azure Stack zahrnuje skupinu serverů, které se používají k hostování Azure Stack komponent a dalšího serveru s názvem hostitel životního cyklu hardwaru (HLH). Tento server slouží k nasazení a správě životního cyklu vašeho řešení a hostuje virtuální počítač nasazení (DVM) během nasazování.
+
+Poskytovatelé řešení Azure Stack můžou zřídit další virtuální počítače pro správu. Před provedením jakýchkoli změn virtuálních počítačů pro správu od poskytovatele řešení potvrďte u poskytovatele řešení.
 
 ## <a name="deployment-requirements"></a>Požadavky na nasazení
-Před zahájením nasazení, existují některé minimální požadavky, které můžete ověřit pomocí vašeho OEM dodavatele zajistit, že se nasazení dokončí úspěšně. Pochopení že těchto požadavků vám pomůže připravit prostředí a ujistěte se, že ověření proběhne úspěšně, jsou:
+Před zahájením nasazení existují některé minimální požadavky, které může váš výrobce OEM ověřit, aby bylo zajištěno úspěšné dokončení nasazení:
 
 -   [Certifikáty](azure-stack-pki-certs.md)
 -   [Předplatné Azure](https://azure.microsoft.com/free/?b=17.06)
@@ -46,20 +48,20 @@ Před zahájením nasazení, existují některé minimální požadavky, které 
 -   NTP
 
 > [!NOTE]
-> Tento článek se zaměřuje na poslední tři požadavky. Další informace o první dva najdete v článku odkazy uvedené výše.
+> Tento článek se zaměřuje na poslední tři požadavky. Další informace o prvních dvou najdete na odkazech uvedených výše.
 
-## <a name="deployment-network-traffic"></a>Nasazení síťových přenosů
-DVM má nakonfigurovanou IP adresy z BMC sítě a vyžaduje přístup k síti k Internetu. I když nejsou všechny součásti BMC sítě vyžadují externí směrování nebo přístup k Internetu, některé součásti specifické pro výrobce OEM využívání IP adres z této sítě může také vyžadovat ho.
+## <a name="deployment-network-traffic"></a>Provoz sítě nasazení
+DVM je nakonfigurovaný s IP adresou ze sítě řadiče pro správu základní desky a vyžaduje síťový přístup k Internetu. I když ne všechny síťové komponenty řadiče pro správu základní desky vyžadují externí směrování nebo přístup k Internetu, může to vyžadovat i některé součásti specifické pro výrobce OEM, které využívají IP adresy z této sítě.
 
-Během nasazení DVM ověřuje vůči Azure Active Directory (Azure AD) pomocí účtu Azure ze svého předplatného. Aby bylo možné Uděláte to tak, DVM vyžaduje přístup k Internetu na seznam konkrétních portů a adres URL. Najdete kompletní seznam v [publikování koncových bodů](azure-stack-integrate-endpoints.md) dokumentaci. DVM budou využívat serveru DNS pro předávání DNS požadavky vnitřní součásti na externí adresy URL. Interní server DNS předává tyto požadavky na adresu předávání DNS, které poskytujete výrobci OEM před jejich nasazením. Totéž platí pro NTP server, spolehlivé čas serveru se vyžaduje kvůli zachování konzistence a čas synchronizace pro všechny součásti služby Azure Stack.
+Během nasazování se DVM ověřuje v Azure Active Directory (Azure AD) pomocí účtu Azure z vašeho předplatného. Aby to bylo možné, DVM vyžaduje přístup k Internetu na seznam [konkrétních portů a adres URL](azure-stack-integrate-endpoints.md). DVM bude používat server DNS pro přeposílání požadavků DNS, které provádějí interní komponenty, na externí adresy URL. Interní DNS před nasazením předává tyto požadavky na adresu DNS pro přeposílání, kterou poskytnete výrobci OEM. Totéž platí pro server NTP, ale spolehlivý časový server je nutný k udržení synchronizace konzistence a času pro všechny součásti Azure Stack.
 
-Přístup k Internetu vyžaduje DVM během nasazení je pouze odchozí, žádná příchozí volání jsou prováděny během nasazení. Mějte na paměti, že jako zdroj používá jeho IP a že služby Azure Stack nepodporuje konfigurace proxy serveru. Proto v případě potřeby budete muset zadat transparentní proxy server nebo NAT pro přístup k Internetu. Během nasazení některé vnitřní součásti začne, přístup k Internetu prostřednictvím externí síť používání veřejných virtuálních IP adres. Po dokončení nasazení veškerou komunikaci mezi Azure a Azure Stack se provádí prostřednictvím externí sítě pomocí veřejných virtuálních IP adres.
+Přístup k Internetu vyžadovaný DVM během nasazení je jenom odchozí, během nasazování se neprovádějí žádná příchozí volání. Pamatujte, že používá svoji IP adresu jako zdroj a že Azure Stack nepodporuje konfigurace proxy serveru. Proto je třeba pro přístup k Internetu zadat transparentní proxy server nebo překlad adres (NAT). Během nasazení budou některé interní součásti začít přistupovat k Internetu prostřednictvím externí sítě pomocí veřejných virtuálních IP adres. Po dokončení nasazení se veškerá komunikace mezi Azure a Azure Stack provede prostřednictvím externí sítě pomocí veřejných virtuálních IP adres.
 
-Konfigurace sítě v Azure stacku přepínače obsahovat seznamů řízení přístupu (ACL), který omezení přenosu dat mezi určité síti zdroje a cíle. DVM se pouze komponenty s neomezeným přístupem; dokonce i HLH je velmi omezený. Zeptejte se na vašeho OEM dodavatele možnosti vlastního nastavení pro usnadnění správy a přístup z vaší sítě. Z důvodu tyto seznamy ACL je důležité vyhnout změně adresy serverů DNS a NTP v době nasazení. Pokud tak učiníte, musíte znovu nakonfigurovat všechny přepínače pro řešení.
+Síťové konfigurace v přepínačích Azure Stack obsahují seznamy řízení přístupu (ACL), které omezují provoz mezi určitými síťovými zdroji a cíli. DVM je jediná součást s neomezeným přístupem. i HLH je velmi omezený. Můžete požádat výrobce OEM o možnosti přizpůsobení a usnadnit tak správu a přístup z vašich sítí. Z důvodu těchto seznamů ACL je důležité se vyhnout změnám adres serverů DNS a NTP v době nasazení. Pokud to uděláte, budete muset znovu nakonfigurovat všechny přepínače pro řešení.
 
-Po dokončení nasazení bude nadále využívat systémové součásti přímo zadané adresy serveru DNS a NTP. Například pokud zaškrtnete žádosti DNS po dokončení nasazení, zdroj změní z DVM IP adresa z rozsahu externí síť.
+Po dokončení nasazení budou zadané adresy serveru DNS a NTP nadále používány komponentami systému přímo. Pokud třeba po dokončení nasazení zkontrolujete žádosti DNS, zdroj se změní z IP adresy DVM na adresu z rozsahu externí sítě.
 
-Po dokončení nasazení zadané adresy serveru DNS a NTP bude nadále používat součásti prostřednictvím SDN pomocí externí síti. Například pokud zaškrtnete žádosti DNS po dokončení nasazení, zdroj se změní z IP adresy DVM na veřejných virtuálních IP adres.
+Po dokončení nasazení budou zadané adresy serveru DNS a NTP nadále používány součástmi systému prostřednictvím SDN pomocí externí sítě. Pokud třeba po dokončení nasazení zkontrolujete žádosti DNS, zdroj se změní z IP adresy DVM na veřejnou VIP.
 
 ## <a name="next-steps"></a>Další postup
 [Ověření registrace v Azure](azure-stack-validate-registration.md)

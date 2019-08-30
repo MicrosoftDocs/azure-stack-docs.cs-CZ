@@ -6,16 +6,16 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 07/30/2019
-ms.author: mabrigg
+ms.date: 08/21/2019
+ms.author: justinha
 ms.reviewer: wamota
-ms.lastreviewed: 08/05/2019
-ms.openlocfilehash: 6ffd13982a4acf90896b152adcee360e34c02b79
-ms.sourcegitcommit: 8de4c18b25bd1047fc270812a795f24e8f1e9244
+ms.lastreviewed: 08/21/2019
+ms.openlocfilehash: 129033057c6bc7b98b81fde6fbb517a502282467
+ms.sourcegitcommit: 701685f0b59e5a3d1a8d39fe477b8df701a51cd2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68865888"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70159575"
 ---
 # <a name="azure-stack-datacenter-integration---publish-azure-stack-services"></a>Integrace Azure Stack Datacenter – publikování Azure Stackch služeb
 
@@ -34,16 +34,12 @@ V nasazení, kde transparentní proxy odchozí připojení k tradičnímu proxy 
 
 K publikování koncových bodů Azure Stack externích sítích se vyžaduje sada virtuálních IP adres infrastruktury. Tabulka *koncový bod (VIP)* zobrazuje jednotlivé koncové body, požadovaný port a protokol. V dokumentaci k nasazení konkrétního poskytovatele prostředků najdete koncové body, které vyžadují další poskytovatele prostředků, jako je třeba poskytovatel prostředků SQL.
 
-Interní virtuální IP adresy infrastruktury nejsou uvedené, protože nejsou nutné k publikování Azure Stack.
+Interní virtuální IP adresy infrastruktury nejsou uvedené, protože nejsou nutné k publikování Azure Stack. Uživatelské virtuální IP adresy jsou dynamické, definovány vlastními uživateli bez řízení operátorem Azure Stack.
 
 > [!Note]  
-> Uživatelské virtuální IP adresy jsou dynamické, definovány vlastními uživateli bez řízení operátorem Azure Stack.
+> IKEv2 VPN je řešení IPsec VPN založené na standardech, které používá port UDP 500 a 4500 a port TCP 50. Brány firewall tyto porty nikdy neotevřou, takže VPN typu IKEv2 nemusí být schopná procházet proxy a brány firewall.
 
-> [!Note]  
-> IKEv2 VPN. IKEv2 VPN řešení IPsec VPN založené na standardech, které využívá porty UDP 500 a 4500 a protokol IP č. 50. Brány firewall tyto porty neotvírají vždycky, takže je možné, že IKEv2 VPN nebude moct procházet servery proxy a branami firewall.
-
-> [!Note]  
-> Od aktualizace 1811 již není nutné, aby byly porty v rozsahu 12495-30015 otevřené z důvodu přidání [hostitele rozšíření](azure-stack-extension-host-prepare.md).
+Při přidání [hostitele rozšíření](azure-stack-extension-host-prepare.md)nejsou porty v rozsahu 12495-30015 požadovány.
 
 |Koncový bod (VIP)|DNS host A record|Protocol|Porty|
 |---------|---------|---------|---------|
@@ -80,11 +76,11 @@ Azure Stack podporuje pouze transparentní proxy servery. V nasazení pomocí tr
 
 |Účel|Cílová adresa URL|Protocol|Porty|Zdrojová síť|
 |---------|---------|---------|---------|---------|
-|Identita|**Azure**<br>login.windows.net<br>login.microsoftonline.com<br>graph.windows.net<br>https:\//secure.aadcdn.microsoftonline-p.com<br>www.office.com<br>**Azure Government**<br>https:\//Login.microsoftonline.us/<br>https:\//Graph.Windows.NET/<br>**Azure China 21Vianet**<br>https:\//Login.chinacloudapi.cn/<br>https:\//Graph.chinacloudapi.cn/<br>|HTTP<br>HTTPS|80<br>443|Veřejná VIP-/27<br>Síť veřejné infrastruktury|
-|Syndikace Marketplace|**Azure**<br>https:\//management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://&#42;.azureedge.net<br>**Azure Government**<br>https:\//Management.usgovcloudapi.NET/<br>https://&#42;. blob.Core.usgovcloudapi.NET/<br>**Azure China 21Vianet**<br>https:\//Management.chinacloudapi.cn/<br>http://&#42;. blob.Core.chinacloudapi.cn/|HTTPS|443|Veřejná VIP-/27|
+|Identita|**Azure**<br>login.windows.net<br>login.microsoftonline.com<br>graph.windows.net<br>https:\//secure.aadcdn.microsoftonline-p.com<br>www.office.com<br>**Azure Government**<br>https:\//Login.microsoftonline.us/<br>https:\//Graph.Windows.NET/<br>**Azure China 21Vianet**<br>https:\//Login.chinacloudapi.cn/<br>https:\//Graph.chinacloudapi.cn/<br>**Azure Německo**<br>https:\//Login.microsoftonline.de/<br>https:\//Graph.cloudapi.de/|HTTP<br>HTTPS|80<br>443|Veřejná VIP-/27<br>Síť veřejné infrastruktury|
+|Syndikace Marketplace|**Azure**<br>https:\//management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://&#42;.azureedge.net<br>**Azure Government**<br>https:\//Management.usgovcloudapi.NET/<br>https://&#42;. blob.Core.usgovcloudapi.NET/<br>**Azure China 21Vianet**<br>https:\//Management.chinacloudapi.cn/<br>http://&#42;. blob.Core.chinacloudapi.cn<br>**Azure Německo**<br>https:\//Management.MicrosoftAzure.de/<br>http://&#42;. blob.Core.cloudapi.de/|HTTPS|443|Veřejná VIP-/27|
 |Oprava & aktualizace|https://&#42;.azureedge.net<br>https:\//aka.MS/azurestackautomaticupdate|HTTPS|443|Veřejná VIP-/27|
-|Registrace|**Azure**<br>https:\//management.azure.com<br>**Azure Government**<br>https:\//Management.usgovcloudapi.NET/<br>**Azure China 21Vianet**<br>https:\//Management.chinacloudapi.cn/|HTTPS|443|Veřejná VIP-/27|
-|Použití|**Azure**<br>https://&#42;. trafficmanager.NET<br>**Azure Government**<br>https://&#42;. usgovtrafficmanager.NET<br>**Azure China 21Vianet**<br>https://&#42;. trafficmanager.cn|HTTPS|443|Veřejná VIP-/27|
+|Registrace|**Azure**<br>https:\//management.azure.com<br>**Azure Government**<br>https:\//Management.usgovcloudapi.NET/<br>**Azure China 21Vianet**<br>https:\//Management.chinacloudapi.cn<br>**Azure Německo**<br>https:\//Management.Core.cloudapi.de/|HTTPS|443|Veřejná VIP-/27|
+|Použití|**Azure**<br>https://&#42;. trafficmanager.NET<br>**Azure Government**<br>https://&#42;. usgovtrafficmanager.NET<br>**Azure China 21Vianet**<br>https://&#42;. trafficmanager.cn<br>**Azure Německo**<br>https://&#42;. azuretrafficmanager.de|HTTPS|443|Veřejná VIP-/27|
 |Windows Defender|&#42;. wdcp.microsoft.com<br>&#42;. wdcpalt.microsoft.com<br>&#42;. wd.microsoft.com<br>&#42;. update.microsoft.com<br>&#42;. download.microsoft.com<br>https:\//www.microsoft.com/pkiops/crl<br>https:\//www.microsoft.com/pkiops/certs<br>https:\//crl.microsoft.com/pki/crl/products<br>https:\//www.microsoft.com/pki/certs<br>https:\//secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|Veřejná VIP-/27<br>Síť veřejné infrastruktury|
 |NTP|(IP adresa serveru NTP, který je k dispozici pro nasazení)|UDP|123|Veřejná VIP-/27|
 |DNS|(IP adresa serveru DNS poskytnutá pro nasazení)|TCP<br>UDP|53|Veřejná VIP-/27|

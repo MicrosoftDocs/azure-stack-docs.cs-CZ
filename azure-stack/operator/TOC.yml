@@ -358,6 +358,8 @@
               href: azure-stack-app-service-release-notes-update-five.md
             - name: App Service ve zprávách k vydání verze Azure Stack Update 6
               href: azure-stack-app-service-release-notes-update-six.md
+            - name: App Service v poznámce k verzi Update 7 pro Azure Stack
+              href: azure-stack-app-service-release-notes-update-seven.md
     - name: 'Vytvoření plánů, nabídek a kvót'
       items:
         - name: 'Přehled plánů, nabídek, kvót a předplatných'

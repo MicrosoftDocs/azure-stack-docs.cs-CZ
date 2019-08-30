@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/13/2019
+ms.date: 08/29/2019
 ms.author: sethm
 ms.reviewer: efemmano
-ms.lastreviewed: 10/12/2018
-ms.openlocfilehash: 6f417b8afdf5315f581db52dc4b850f72e02b1f0
-ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
+ms.lastreviewed: 08/29/2019
+ms.openlocfilehash: 72787bda5dd5fad372af33141e276b4852f86c39
+ms.sourcegitcommit: 701685f0b59e5a3d1a8d39fe477b8df701a51cd2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68991740"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70159524"
 ---
 # <a name="plan-offer-quota-and-subscription-overview"></a>Přehled plánů, nabídek, kvót a předplatných
 
@@ -85,8 +85,8 @@ Každá kombinace uživatele s nabídkou je jedinečné předplatné. Uživatel 
 
 ### <a name="default-provider-subscription"></a>Předplatné výchozího poskytovatele
 
-Výchozí předplatné poskytovatele se automaticky vytvoří při nasazení Azure Stack Development Kit. Pomocí tohoto předplatného můžete spravovat Azure Stack, nasazovat další poskytovatele prostředků a vytvářet plány a nabídky pro uživatele. Z důvodů zabezpečení a licencování by se nemělo používat ke spouštění úloh a aplikací zákazníka.
+Výchozí předplatné poskytovatele se automaticky vytvoří při nasazení Azure Stack Development Kit. Pomocí tohoto předplatného můžete spravovat Azure Stack, nasazovat další poskytovatele prostředků a vytvářet plány a nabídky pro uživatele. Z důvodů zabezpečení a licencování by se nemělo používat ke spouštění úloh a aplikací zákazníka. Kvótu výchozího předplatného poskytovatele nelze změnit.
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 Další informace o plánech a nabídkách najdete v tématu [Vytvoření plánu](azure-stack-create-plan.md).
