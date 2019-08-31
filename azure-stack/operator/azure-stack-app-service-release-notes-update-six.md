@@ -1,6 +1,6 @@
 ---
-title: App Service ve službě Azure Stack aktualizaci 6 poznámky k verzi | Dokumentace Microsoftu
-description: Další informace o tom, co je v aktualizaci 6 pro službu App Service ve službě Azure Stack, známé problémy a kde se stáhnout aktualizaci.
+title: App Service na Azure Stack Update 6 – zpráva k vydání verze | Microsoft Docs
+description: Přečtěte si o tom, co je aktualizace šest pro App Service v Azure Stack, známých problémech a kde stáhnout aktualizaci.
 services: azure-stack
 documentationcenter: ''
 author: apwestgarth
@@ -15,55 +15,55 @@ ms.topic: article
 ms.date: 06/24/2019
 ms.author: anwestg
 ms.reviewer: ''
-ms.openlocfilehash: db403f68879efa9103e35bb3581801240c0d64d3
-ms.sourcegitcommit: 1545e18a31cd715a12c7ddc3bcb173b41eb41730
+ms.openlocfilehash: c142ecda309f00ee94429be3d7b8f3c6e8072668
+ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67348723"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70188214"
 ---
-# <a name="app-service-on-azure-stack-update-6-release-notes"></a>App Service v Azure stacku zpráva k vydání verze update 6
+# <a name="app-service-on-azure-stack-update-6-release-notes"></a>App Service ve zprávách k vydání verze Azure Stack Update 6
 
-*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
 
-Tyto poznámky k verzi popisují vylepšení a oprav ve službě Azure App Service v Azure stacku aktualizaci 6 a známých problémech. Známé problémy jsou rozděleny do týkající se přímo k nasazení, aktualizace a problémy se sestavením (po instalaci).
+Tyto poznámky k verzi popisují vylepšení a opravy v Azure App Service na Azure Stack Update 6 a všech známých problémech. Známé problémy jsou rozděleny do potíží přímo souvisejících s nasazením, procesem aktualizace a problémy se sestavením (po instalaci).
 
 > [!IMPORTANT]
-> Aktualizace 1904 do služby Azure Stack integrované systému nebo nasadit nejnovější sady Azure Stack development kit před nasazením Azure App Service 1.6.
+> Před nasazením Azure App Service 1,6 použijte aktualizaci 1904 pro váš Azure Stack integrovaný systém nebo nasaďte nejnovější Azure Stack vývojovou sadu.
 
 
 ## <a name="build-reference"></a>Referenční informace o buildu
 
-App Service v Azure stacku aktualizaci 6 číslo sestavení je **82.0.1.50**
+App Service číslo buildu Azure Stack Update 6 je **82.0.1.50**
 
 ### <a name="prerequisites"></a>Požadavky
 
-Odkazovat [před zahájením práce dokumentaci](azure-stack-app-service-before-you-get-started.md) před zahájením nasazení.
+Než začnete s nasazením, přečtěte si [dokumentaci před](azure-stack-app-service-before-you-get-started.md) začátkem.
 
-Před zahájením upgradu služby Azure App Service ve službě Azure Stack na 1.6:
+Než začnete s upgradem Azure App Service v Azure Stack na 1,6:
 
-- Zkontrolujte všechny role jsou připravené ve správě Azure App Service v portálu pro správu Azure Stack
+- Ujistěte se, že všechny role jsou připravené ve správě Azure App Service na portálu pro správu Azure Stack.
 
-- Zálohování služby App Service a hlavní databáze:
+- Zálohování App Service a hlavních databází:
   - AppService_Hosting;
   - AppService_Metering;
-  - Master
+  - Předloha
 
-- Zálohování sdílené složky souboru obsahu klientskou aplikaci
+- Zálohování sdílené složky obsahu aplikace tenanta
 
-- Publikování **rozšíření vlastních skriptů** verze **1.9.1** z Marketplace
+- Zasyndikátte si **rozšíření vlastních skriptů** **1.9.1** z Marketplace.
 
 ### <a name="new-features-and-fixes"></a>Nové funkce a opravy
 
-Azure App Service v Azure stacku aktualizaci 6 zahrnuje následující vylepšení a opravy:
+Azure App Service na Azure Stack Update 6 obsahuje následující vylepšení a opravy:
 
-- Aktualizace **aplikace služeb pro klienty, Admin, portály funkce a nástroje Kudu**. Konzistentní s verzí sady SDK portálu Azure Stack.
+- Aktualizace pro **App Service klientů, správců, funkcí portálů a nástrojů Kudu** Konzistentní s Azure Stack verze sady SDK portálu.
 
-- Aktualizace **modul runtime služby Azure Functions** k **v1.0.12299**.
+- Aktualizuje **Azure Functions runtime** na **v 1.0.12299**.
 
-- Aktualizace základní službu, ke zlepšení spolehlivosti a chybových zpráv umožňuje snazší Diagnostika běžných problémů.
+- Aktualizace služby Core pro zlepšení spolehlivosti a chybového zasílání zpráv umožňují snazší diagnostiku běžných problémů.
 
-- **Aktualizace následujících aplikační architektury a nástroje**:
+- **Aktualizace následujících aplikačních architektur a nástrojů**:
   - ASP.NET Core 2.2.4
   - NodeJS 10.15.2
   - Zulu OpenJDK 8.36.0.1
@@ -74,50 +74,50 @@ Azure App Service v Azure stacku aktualizaci 6 zahrnuje následující vylepšen
   - PHP 7.0.33
   - PHP 7.1.25
   - PHP 7.2.13
-  - Aktualizované Kudu pro 81.10329.3844
+  - Aktualizace Kudu na 81.10329.3844
 
 - **Aktualizace základního operačního systému všech rolí**:
-  - [2019-04 kumulativní aktualizace pro Windows Server 2016 pro systémy x64 (KB4493473)](https://support.microsoft.com/help/4493473/windows-10-update-kb4493473)
+  - [2019-04 kumulativní aktualizace pro Windows Server 2016 pro systémy založené na platformě x64 (KB4493473)](https://support.microsoft.com/help/4493473/windows-10-update-kb4493473)
 
 ### <a name="post-deployment-steps"></a>Kroky po nasazení
 
 > [!IMPORTANT]
-> Pokud budete mít k dispozici poskytovatele prostředků App Service vždy na instanci SQL musíte [přidat do skupiny dostupnosti databáze appservice_hosting a appservice_metering](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) a synchronizaci databází, aby nedocházelo ke Služba v případě selhání databáze.
+> Pokud jste poskytli App Service poskytovatele prostředků s instancí SQL Always On, musíte do [skupiny dostupnosti přidat databáze appservice_hosting a appservice_metering](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) a synchronizovat databáze, aby nedošlo ke ztrátě služeb v případě převzetí služeb při selhání databáze.
 
 ### <a name="known-issues-post-installation"></a>Známé problémy (po instalaci)
 
-- Pracovní procesy se nám kontaktovat souborového serveru při nasazení služby App Service v existující virtuální sítě a souborový server je dostupná pouze na privátní sítě, jak je uvedeno ve službě Azure App Service v dokumentaci k nasazení Azure Stack.
+- Pokud je App Service nasazená ve stávající virtuální síti a souborový server je k dispozici pouze v privátní síti, je k dispozici pracovní proces, který se nemůže připojit k souborovému serveru, jak je uvedeno v dokumentaci k nasazení Azure Stack Azure App Service.
 
-Pokud jste se rozhodli nasadit do existující virtuální sítě a interní IP adresu pro připojení k souborovému serveru, je nutné přidat odchozí pravidlo zabezpečení, povolení provozu SMB mezi podsítě pracovního procesu a souborový server. Přejděte na WorkersNsg v portálu pro správu a přidat odchozí pravidlo zabezpečení s následujícími vlastnostmi:
- * Zdroj: Jakýkoli
- * Zdrojový rozsah portů: *
- * Cíl: IP adresy
+Pokud se rozhodnete nasadit do existující virtuální sítě a interní IP adresu pro připojení k souborovému serveru, musíte přidat odchozí pravidlo zabezpečení, které povoluje provoz SMB mezi podsítí pracovních procesů a souborovým serverem. Na portálu pro správu přejdete na WorkersNsg a přidáte odchozí pravidlo zabezpečení s následujícími vlastnostmi:
+ * Zdroj: Any
+ * Rozsah zdrojových portů: *
+ * Cíl: Adresy IP
  * Rozsah cílových IP adres: Rozsah IP adres pro souborový server
  * Rozsah cílových portů: 445
  * Protokol: TCP
- * Akce: Povolit
+ * Akce: Allow
  * Priorita: 700
  * Název: Outbound_Allow_SMB445
 
-### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Známé problémy pro správce cloudu provoz služby Azure App Service ve službě Azure Stack
+### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Známé problémy pro cloudové správce pracující Azure App Service v Azure Stack
 
-Přečtěte si dokumentaci v [zpráva k vydání verze Azure Stack 1904](azure-stack-release-notes-1904.md)
+Informace najdete v dokumentaci k [verzi Azure Stack 1908](azure-stack-release-notes-1908.md) .
 
-### <a name="known-issues-for-tenants-deploying-applications-on-azure-app-service-on-azure-stack"></a>Známé problémy pro klienty nasazení aplikací ve službě Azure App Service ve službě Azure Stack
+### <a name="known-issues-for-tenants-deploying-applications-on-azure-app-service-on-azure-stack"></a>Známé problémy pro klienty nasazující aplikace na Azure App Service v Azure Stack
 
-- Nasazení System Center je šedá
+- Centrum nasazení je šedé
 
-Klienty nelze ještě využijte nasazení softwaru, což je funkce, která byla vydána ve veřejném cloudu v pozdní 2018.  Tenanty můžete dál používat metody standardní nasazení (FTP, nasazení webu, Git, atd.) prostřednictvím portálu, rozhraní příkazového řádku a Powershellu.
+Klienti zatím nevyužívají centrum nasazení, což je funkce, která byla vydaná ve veřejném cloudu v pozdní 2018.  Klienti můžou pořád používat standardní metody nasazení (FTP, Nasazení webu, Git atd.) prostřednictvím portálu, rozhraní příkazového řádku a PowerShellu.
 
-- Možnosti (Classic) uživatelské prostředí a nasazení přihlašovacích údajů portálu možnosti nasazení není k dispozici
+- Možnosti nasazení (Classic) uživatelské prostředí a možnosti portálu přihlašovací údaje nasazení nejsou k dispozici.
 
-Abyste dosáhli možnosti nasazení a nasazení přihlašovací údaje uživatelů v nasazení Azure Stack, tenanti by měl přístup k portálu pomocí formátu adresy URL - https://portal.&lt ; *oblast*&gt;.&lt; *Plně kvalifikovaný název domény*&gt; /? websitesExtension_oldvsts = true –, který by byl pro ASDK [ https://portal.local.azurestack.external/?websitesExtension_oldvsts=true ](https://portal.local.azurestack.external/?websitesExtension_oldvsts=true) a potom přejděte ke svým aplikacím normálně.
+Aby bylo možné dosáhnout možností nasazení a přihlašovacích údajů pro nasazení uživatele v nasazení Azure Stack, musí mít klienti přístup k portálu pomocí tohoto formátu adresy URL https://portal.&lt: *oblast.* &gt;&lt; *Plně kvalifikovaný název domény* /? websitesExtension_oldvsts = true – to znamená, že ASDK by byla [https://portal.local.azurestack.external/?websitesExtension_oldvsts=true](https://portal.local.azurestack.external/?websitesExtension_oldvsts=true) a pak se normálně přesměrují na své aplikace. &gt;
 
-- "Načítání" monitorování funkce Azure průběžně zobrazuje na portálu
+- Azure Function monitor průběžně zobrazuje "načítání" na portálu.
 
-Při pokusu o sledování jednotlivých funkcí v portál pro klienty, zobrazí se žádný protokol volání, počet úspěchů nebo počet chyb.  Pokud chcete tuto funkci znovu povolit, přejděte na vaše **aplikace Function App**, přejděte na stránku **funkce platformy**a přejděte na **nastavení aplikace**.  Přidat nové nastavení aplikace – název **AzureWebJobsDashboard** a nastavte hodnotu na stejnou hodnotu jako sadu v AzureWebJobsStorage.  Pak přejděte do zobrazení monitorování k vaší funkci a zobrazí se informace monitorování.
+Když se pokusíte monitorovat jednotlivé funkce, nebudete moct na portálu tenanta zobrazit protokol vyvolání, počet úspěchů nebo počet chyb.  Pokud chcete tuto funkci znovu povolit, přečtěte si **Function App**, navštivte **možnosti platformy**a pak přejít na **nastavení aplikace**.  Přidejte nové nastavení aplikace – název **AzureWebJobsDashboard** a nastavte hodnotu na stejnou hodnotu jako je nastavená v AzureWebJobsStorage.  Pak přejděte do zobrazení monitorování na vaší funkci a zobrazí se informace o monitorování.
 
 ## <a name="next-steps"></a>Další postup
 
-- Přehled služby Azure App Service najdete v tématu [Azure App Service na Přehled služby Azure Stack](azure-stack-app-service-overview.md).
-- Další informace o tom, jak připravit nasazení služby App Service ve službě Azure Stack najdete v tématu [před zahájením práce s App Service ve službě Azure Stack](azure-stack-app-service-before-you-get-started.md).
+- Přehled Azure App Service najdete v tématu [přehled Azure App Service na Azure Stack](azure-stack-app-service-overview.md).
+- Další informace o tom, jak připravit nasazení App Service v Azure Stack, najdete v tématu [před zahájením práce s App Service na Azure Stack](azure-stack-app-service-before-you-get-started.md).

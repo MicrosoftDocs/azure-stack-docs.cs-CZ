@@ -1,6 +1,6 @@
 ---
-title: Známé problémy s Azure Stack 1906 | Microsoft Docs
-description: Přečtěte si o známých problémech v Azure Stack 1906.
+title: Známé problémy s Azure Stack 1908 | Microsoft Docs
+description: Přečtěte si o známých problémech v Azure Stack 1907.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -12,21 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2019
+ms.date: 08/30/2019
 ms.author: sethm
 ms.reviewer: hectorl
-ms.lastreviewed: 06/28/2019
-monikerRange: azs-1906
-ms.openlocfilehash: 1dccf043f0cae641eeca286bdbb0c5d8717894eb
+ms.lastreviewed: 08/30/2019
+monikerRange: azs-1908
+ms.openlocfilehash: da995bf2f24c4a9021be3dec675af0b2ae03e0cb
 ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 08/30/2019
-ms.locfileid: "70188259"
+ms.locfileid: "70188928"
 ---
-# <a name="azure-stack-1906-known-issues"></a>Známé problémy s Azure Stack 1906
+# <a name="azure-stack-1908-known-issues"></a>Známé problémy s Azure Stack 1908
 
-V tomto článku jsou uvedené známé problémy ve verzi 1906 Azure Stack. Seznam se aktualizuje, protože se identifikují nové problémy.
+V tomto článku jsou uvedené známé problémy ve verzi 1908 Azure Stack. Seznam se aktualizuje, protože se identifikují nové problémy.
 
 > [!IMPORTANT]  
 > Před použitím této aktualizace si přečtěte tento oddíl.
@@ -34,8 +34,8 @@ V tomto článku jsou uvedené známé problémy ve verzi 1906 Azure Stack. Sezn
 ## <a name="update-process"></a>Aktualizovat proces
 
 - To Tento problém se vztahuje na všechny podporované verze.
-- Příčina: Při pokusu o instalaci aktualizace 1906 Azure Stack aktualizace může stav aktualizace selhat a změnit stav na **PreparationFailed**. To je způsobeno tím, že poskytovatel prostředků aktualizace (URP) nemůže správně přenést soubory z kontejneru úložiště do interní sdílené složky infrastruktury pro zpracování. 
-- Nápravy Počínaje verzí 1901 (1.1901.0.95) můžete tento problém obejít tak, že znovu kliknete na **aktualizovat** (nepokračovat). URP pak vyčistí soubory z předchozího pokusu a restartuje soubor ke stažení. Pokud potíže potrvají, doporučujeme ručně odeslat balíček aktualizace pomocí [oddílu import a instalace aktualizací](azure-stack-apply-updates.md).
+- Příčina: Při pokusu o instalaci aktualizace 1907 Azure Stack aktualizace může stav aktualizace selhat a změnit stav na **PreparationFailed**. To je způsobeno tím, že poskytovatel prostředků aktualizace (URP) nemůže správně přenést soubory z kontejneru úložiště do interní sdílené složky infrastruktury pro zpracování.
+- Nápravy Počínaje verzí 1901 (1.1901.0.95) můžete tento problém obejít tak, že znovu kliknete na **aktualizovat** (nepokračovat). URP pak vyčistí soubory z předchozího pokusu a restartuje soubor ke stažení. Pokud potíže potrvají, doporučujeme ručně odeslat balíček aktualizace pomocí [oddílu instalovat aktualizace](azure-stack-apply-updates.md#install-updates-and-monitor-progress).
 - Výskyt Společné
 
 ## <a name="portal"></a>Portál
@@ -47,11 +47,17 @@ V tomto článku jsou uvedené známé problémy ve verzi 1906 Azure Stack. Sezn
 - Nápravy Pokud máte prostředky běžící na těchto dvou předplatných, vytvořte je znovu v předplatných uživatele.
 - Výskyt Společné
 
-### <a name="subscription-resources"></a>Prostředky předplatného
+### <a name="subscriptions-properties-blade"></a>Okno vlastností předplatných
 
 - To Tento problém se vztahuje na všechny podporované verze.
-- Příčina: Odstraňuje se předplatné uživatele za následek osamocené prostředky.
-- Nápravy Nejprve odstraňte prostředky uživatele nebo celou skupinu prostředků a pak odstraňte odběry uživatelů.
+- Příčina: Na portálu pro správu se okno **vlastnosti** pro odběry nenačte správně.
+- Nápravy Tyto vlastnosti předplatného si můžete zobrazit v podokně **základy** v okně **Přehled** předplatných.
+- Výskyt Společné
+
+### <a name="subscriptions-lock-blade"></a>Okno zámku předplatných
+
+- To Tento problém se vztahuje na všechny podporované verze.
+- Příčina: Na portálu pro správu má okno **zámku** pro odběry uživatele dvě butonsy, které říkají **předplatné**.
 - Výskyt Společné
 
 ### <a name="subscription-permissions"></a>Oprávnění předplatného
@@ -59,12 +65,6 @@ V tomto článku jsou uvedené známé problémy ve verzi 1906 Azure Stack. Sezn
 - To Tento problém se vztahuje na všechny podporované verze.
 - Příčina: Nelze zobrazit oprávnění k předplatnému pomocí na portálech Azure Stack.
 - Nápravy [K ověření oprávnění použijte PowerShell](/powershell/module/azurerm.resources/get-azurermroleassignment).
-- Výskyt Společné
-
-### <a name="subscriptions-properties-blade"></a>Okno vlastností předplatných
-- To Tento problém se vztahuje na všechny podporované verze.
-- Příčina: Na portálu pro správu se okno **vlastnosti** pro odběry nenačte správně.
-- Nápravy Tyto vlastnosti předplatných můžete zobrazit v podokně základy v okně s přehledem předplatných.
 - Výskyt Společné
 
 ### <a name="storage-account-settings"></a>Nastavení účtu úložiště
@@ -79,13 +79,6 @@ V tomto článku jsou uvedené známé problémy ve verzi 1906 Azure Stack. Sezn
 - Příčina: Při pokusu o nahrání objektu BLOB pomocí možnosti **OAuth (Preview)** na portálu User Portal se úloha nezdařila s chybovou zprávou.
 - Nápravy Nahrajte objekt BLOB pomocí možnosti SAS.
 - Výskyt Společné
-
-### <a name="update"></a>Aktualizace
-
-- To Tento problém se týká verze 1906.
-- Příčina: V portálu operátora aktualizace stav opravy hotfix zobrazuje nesprávný stav aktualizace. Počáteční stav znamená, že se instalace aktualizace nezdařila, i když stále probíhá.
-- Nápravy Aktualizujte portál a stav se aktualizuje na probíhá.
-- Výskyt Občasně
 
 ## <a name="networking"></a>Sítě
 
@@ -103,6 +96,13 @@ V tomto článku jsou uvedené známé problémy ve verzi 1906 Azure Stack. Sezn
 - Výskyt Společné
 
 ### <a name="virtual-network-gateway"></a>Brána virtuální sítě
+
+#### <a name="local-network-gateway-deletion"></a>Odstranění brány místní sítě
+
+- To Tento problém se týká verze 1906.
+- Příčina: Při odstranění **brány místní sítě** na portálu User Portal se zobrazí následující chybová zpráva: **Bránu místní sítě nelze odstranit s aktivním připojením**, i když neexistuje žádné aktivní připojení.
+- Zmírnění Oprava tohoto problému se uvolní v 1907. Alternativním řešením tohoto problému je vytvořit novou bránu místní sítě se stejnou IP adresou, adresním prostorem a podrobnostmi konfigurace s jiným názvem. Po aktualizaci prostředí na 1907 se dá původní LNG odstranit.
+- Výskyt Společné
 
 #### <a name="alerts"></a>Upozornění
 
@@ -125,29 +125,13 @@ V tomto článku jsou uvedené známé problémy ve verzi 1906 Azure Stack. Sezn
 #### <a name="documentation"></a>Dokumentace
 
 - To Tento problém se vztahuje na všechny podporované verze.
-- Příčina: Dokumentace k dokumentaci na stránce Přehled na Virtual Network bráně odkazuje na Azure místo Azure Stack. Pro Azure Stack dokumentaci použijte následující odkazy:
+- Příčina: Dokumentace k dokumentaci na stránce Přehled na Virtual Network bráně odkazuje na Azure místo Azure Stack. Pro dokumentaci Azure Stack použijte následující odkazy:
 
   - [SKU brány](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-skus)
   - [Připojení s vysokou dostupností](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-availability)
   - [Konfigurace protokolu BGP v Azure Stack](../user/azure-stack-vpn-gateway-settings.md#gateway-requirements)
   - [Okruhy ExpressRoute](azure-stack-connect-expressroute.md)
   - [Zadat vlastní zásady IPsec/IKE](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
-
-### <a name="load-balancer"></a>Nástroj pro vyrovnávání zatížení
-
-#### <a name="add-backend-pool"></a>Přidat back-endový fond
-
-- To Tento problém se vztahuje na všechny podporované verze.
-- Příčina: Pokud se v uživatelském portálu pokusíte přidat **back-end fond** do **Load Balancer**, operace se nezdaří s chybovou zprávou **se nepodařilo aktualizovat Load Balancer...** .
-- Nápravy Pomocí PowerShellu, rozhraní příkazového řádku nebo šablony Správce prostředků přidružte fond back-end k prostředku nástroje pro vyrovnávání zatížení.
-- Výskyt Společné
-
-#### <a name="create-inbound-nat"></a>Vytvoření příchozího překladu adres (NAT)
-
-- To Tento problém se vztahuje na všechny podporované verze.
-- Příčina: Pokud se v uživatelském portálu pokusíte vytvořit **pravidlo příchozího překladu adres (NAT)** pro **Load Balancer**, operace se nezdaří s chybovou zprávou **se nepodařilo aktualizovat Load Balancer...** .
-- Nápravy Pomocí PowerShellu, rozhraní příkazového řádku nebo šablony Správce prostředků přidružte fond back-end k prostředku nástroje pro vyrovnávání zatížení.
-- Výskyt Společné
 
 ## <a name="compute"></a>Compute
 
@@ -159,7 +143,6 @@ V tomto článku jsou uvedené známé problémy ve verzi 1906 Azure Stack. Sezn
 - Výskyt Společné
 
 ### <a name="virtual-machine-scale-set"></a>Škálovací sada virtuálních počítačů
-
 
 #### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-environments"></a>Vytváření selhání během opravy a aktualizace v prostředích Azure Stack se čtyřmi uzly
 
@@ -176,21 +159,21 @@ V tomto článku jsou uvedené známé problémy ve verzi 1906 Azure Stack. Sezn
 
 ### <a name="virtual-machine-scale-set-reset-password-does-not-work"></a>Resetování hesla sady škálování virtuálního počítače nefunguje
 
-- To Tento problém se týká verze 1906.
+- To Tento problém se týká verzí 1906 a 1907.
 - Příčina: V uživatelském rozhraní sady škálování se zobrazí nové okno pro resetování hesla, ale Azure Stack nepodporuje resetování hesla u sady škálování.
 - Nápravy Žádné.
 - Výskyt Společné
 
 ### <a name="rainy-cloud-on-scale-set-diagnostics"></a>Diagnostika deště v diagnostice sady škálování
 
-- To Tento problém se týká verze 1906.
+- To Tento problém se týká verzí 1906 a 1907.
 - Příčina: Na stránce Přehled sady škálování virtuálního počítače se zobrazuje prázdný graf. Když kliknete na prázdný graf, otevře se okno "deště Cloud". Toto je graf pro diagnostické informace sady škálování, jako je procento využití procesoru, a není funkce podporovaná v aktuálním Azure Stack buildu.
 - Nápravy Žádné.
 - Výskyt Společné
 
 ### <a name="virtual-machine-diagnostic-settings-blade"></a>Okno nastavení diagnostiky virtuálního počítače
 
-- To Tento problém se týká verze 1906.
+- To Tento problém se týká verzí 1906 a 1907.    
 - Příčina: Okno nastavení diagnostiky virtuálního počítače má kartu **jímka** , která žádá o **účet Application**Insights. Toto je výsledek nového okna a v Azure Stack ještě není podporovaný.
 - Nápravy Žádné.
 - Výskyt Společné
@@ -202,7 +185,7 @@ V tomto článku jsou uvedené známé problémy ve verzi 1906 Azure Stack. Sezn
 <!-- ### Identity -->
 <!-- ### Marketplace -->
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 - [Kontrola kontrolního seznamu aktivit aktualizací](azure-stack-release-notes-checklist.md)
 - [Kontrola seznamu aktualizací zabezpečení](azure-stack-release-notes-security-updates.md)

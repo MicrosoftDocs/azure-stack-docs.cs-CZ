@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2019
+ms.date: 08/30/2019
 ms.author: sethm
 ms.reviewer: misainat
-ms.lastreviewed: 07/25/2019
-ms.openlocfilehash: 3f11a7b5066d0b50d85a40be1df47dfe1a5ade38
-ms.sourcegitcommit: 7968f9f0946138867323793be9966ee2ef99dcf4
+ms.lastreviewed: 08/30/2019
+ms.openlocfilehash: 9d0820634a469f775c1e3b6637c604ae98681be2
+ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70025848"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70188189"
 ---
 # <a name="asdk-release-notes"></a>Poznámky k verzi ASDK
 
@@ -28,6 +28,23 @@ Tento článek obsahuje informace o změnách, opravách a známých problémech
 
 Přihlaste se k odběru [ ![](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) informačního [kanálu RSS](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#)RSS a sledujte, co je nového v ASDK.
 
+::: moniker range="azs-1908"
+## <a name="build-11908020"></a>1\.1908.0.20 sestavení
+
+### <a name="new-features"></a>Nové funkce
+
+- Seznam nových funkcí v této verzi najdete v [této části](../operator/azure-stack-release-notes-1908.md#whats-new) poznámky k verzi Azure Stack.
+
+<!-- ### Changes -->
+
+### <a name="fixed-and-known-issues"></a>Opravené a známé problémy
+
+<!-- - For a list of Azure Stack issues fixed in this release, see [this section](../operator/azure-stack-release-notes-1908.md#fixes) of the Azure Stack release notes. -->
+- Seznam známých problémů najdete v [tomto článku](../operator/azure-stack-release-notes-known-issues-1908.md).
+- Všimněte si, že dostupné opravy hotfix Azure Stack neplatí pro ASDK.
+::: moniker-end
+
+::: moniker range="azs-1907"
 ## <a name="build-11907020"></a>1\.1907.0.20 sestavení
 
 ### <a name="new-features"></a>Nové funkce
@@ -41,8 +58,10 @@ Přihlaste se k odběru [ ![](./media/asdk-release-notes/feed-icon-14x14.png)](h
 - Při vytváření prostředků virtuálních počítačů pomocí některých imagí Marketplace možná nebudete moci dokončit nasazení. Jako alternativní řešení můžete kliknout na odkaz **Stáhnout šablonu a parametry** na stránce **Souhrn** a kliknout na tlačítko **nasadit** v okně **Šablona** .
 - Seznam problémů s Azure Stack opravených v této verzi najdete v [této části](../operator/azure-stack-release-notes-1907.md#fixes) poznámky k verzi Azure Stack.
 - Seznam známých problémů najdete v [tomto článku](../operator/azure-stack-release-notes-known-issues-1907.md).
-- Upozorňujeme, že [dostupné Azure Stack opravy hotfix](../operator/azure-stack-release-notes-1907.md#hotfixes) nejsou použitelné pro Azure Stack ASDK.
+- Upozorňujeme, že [k dispozici Azure Stack opravy hotfix](../operator/azure-stack-release-notes-1907.md#hotfixes) se nevztahují na Azure Stack ASDK.
+::: moniker-end
 
+::: moniker range="azs-1906"
 ## <a name="build-11906030"></a>1\.1906.0.30 sestavení
 
 ### <a name="new-features"></a>Nové funkce
@@ -58,8 +77,10 @@ Přihlaste se k odběru [ ![](./media/asdk-release-notes/feed-icon-14x14.png)](h
 - Při vytváření prostředků virtuálních počítačů pomocí některých imagí Marketplace možná nebudete moci dokončit nasazení. Jako alternativní řešení můžete kliknout na odkaz **Stáhnout šablonu a parametry** na stránce **Souhrn** a kliknout na tlačítko **nasadit** v okně **Šablona** .
 - Seznam problémů s Azure Stack opravených v této verzi najdete v [této části](../operator/azure-stack-release-notes-1906.md#fixes) poznámky k verzi Azure Stack.
 - Seznam známých problémů najdete v [tomto článku](../operator/azure-stack-release-notes-known-issues-1906.md).
-- Upozorňujeme, že [dostupné Azure Stack opravy hotfix](../operator/azure-stack-release-notes-1906.md#hotfixes) nejsou použitelné pro Azure Stack ASDK.
+- Upozorňujeme, že [k dispozici Azure Stack opravy hotfix](../operator/azure-stack-release-notes-1906.md#hotfixes) se nevztahují na Azure Stack ASDK.
+::: moniker-end
 
+::: moniker range="azs-1905"
 ## <a name="build-11905040"></a>1\.1905.0.40 sestavení
 
 <!-- ### Changes -->
@@ -73,30 +94,5 @@ Přihlaste se k odběru [ ![](./media/asdk-release-notes/feed-icon-14x14.png)](h
 - Opravili jsme problém, kdy jste museli upravit skript prostředí PowerShell **RegisterWithAzure. psm1** , aby bylo možné úspěšně [zaregistrovat ASDK](asdk-register.md) .
 - Seznam dalších problémů Azure Stack opravených v této verzi najdete v [této části](../operator/azure-stack-release-notes-1905.md#fixes) poznámky k verzi Azure Stack.
 - Seznam známých problémů najdete v [tomto článku](../operator/azure-stack-release-notes-known-issues-1905.md).
-- Upozorňujeme, že [dostupné Azure Stack opravy hotfix](../operator/azure-stack-release-notes-1905.md#hotfixes) nejsou použitelné pro Azure Stack ASDK.
-
-## <a name="build-11904036"></a>1\.1904.0.36 sestavení
-
-<!-- ### Changes -->
-
-### <a name="new-features"></a>Nové funkce
-
-- Seznam nových funkcí v této verzi najdete v [této části](../operator/azure-stack-release-notes-1904.md#whats-in-this-update) poznámky k verzi Azure Stack.
-
-### <a name="fixed-and-known-issues"></a>Opravené a známé problémy
-
-- Kvůli časovému limitu instančního objektu při spuštění registračního skriptu se úspěšně [zaregistrovali ASDK](asdk-register.md) , ale musíte upravit skript PowerShellu **RegisterWithAzure. psm1** . Udělejte toto:
-
-  1. V hostitelském počítači ASDK otevřete soubor **C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1** v editoru se zvýšenými oprávněními.
-  2. Na řádku 1249 přidejte `-TimeoutInSeconds 1800` parametr na konec. Toto přidání se vyžaduje kvůli vypršení časového limitu instančního objektu při spuštění registračního skriptu. Řádek 1249 by teď měl vypadat takto:
-
-     ```powershell
-      $servicePrincipal = Invoke-Command -Session $PSSession -ScriptBlock { New-AzureBridgeServicePrincipal -RefreshToken $using:RefreshToken -AzureEnvironment $using:AzureEnvironmentName -TenantId $using:TenantId -TimeoutInSeconds 1800 }
-      ```
-
-- Opravili jsme problém s připojením k síti VPN identifikovaný ve verzi 1902.
-
-- Seznam dalších problémů Azure Stack opravených v této verzi najdete v [této části](../operator/azure-stack-release-notes-1904.md#fixes) poznámky k verzi Azure Stack.
-- Seznam známých problémů najdete v [tomto článku](../operator/azure-stack-release-notes-known-issues-1904.md).
-- Upozorňujeme, že [dostupné Azure Stack opravy hotfix](../operator/azure-stack-release-notes-1904.md#hotfixes) nejsou použitelné pro Azure Stack ASDK.
-
+- Upozorňujeme, že [k dispozici Azure Stack opravy hotfix](../operator/azure-stack-release-notes-1905.md#hotfixes) se nevztahují na Azure Stack ASDK.
+::: moniker-end

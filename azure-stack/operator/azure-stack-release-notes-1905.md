@@ -16,12 +16,13 @@ ms.date: 06/14/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 06/14/2019
-ms.openlocfilehash: 68b83ac38da20f341242618a1cfa62a9838a0ada
-ms.sourcegitcommit: c2690b2dd36918ff3e47e359cac926128bb83101
+monikerRange: azs-1905
+ms.openlocfilehash: 27a41069c3406cdb843e263ee49a63e5c5919477
+ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68544088"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70188318"
 ---
 # <a name="azure-stack-1905-update"></a>Aktualizace Azure Stack 1905
 
@@ -123,14 +124,14 @@ V této aktualizaci se teď dá úspěšně aktivovat Windows Server 2019 na hos
 
 ### <a name="security-updates"></a>Aktualizace zabezpečení
 
-Informace o aktualizacích zabezpečení v této aktualizaci Azure Stack najdete v tématu [Azure Stack aktualizace zabezpečení](azure-stack-release-notes-security-updates-1905.md).
+Informace o aktualizacích zabezpečení v této aktualizaci Azure Stack najdete v tématu [Azure Stack aktualizace zabezpečení](azure-stack-release-notes-security-updates.md).
 
 ## <a name="update-planning"></a>Plánování aktualizací
 
 Před použitím této aktualizace se ujistěte, že si provedete následující informace:
 
 - [Známé problémy](azure-stack-release-notes-known-issues-1905.md)
-- [Aktualizace zabezpečení](azure-stack-release-notes-security-updates-1905.md)
+- [Aktualizace zabezpečení](azure-stack-release-notes-security-updates.md)
 - [Kontrolní seznam aktivit před a po instalaci aktualizace](azure-stack-release-notes-checklist.md)
 
 ## <a name="download-the-update"></a>Stáhnout aktualizaci.
@@ -171,7 +172,7 @@ Zákazníci se systémy, které mají přístup k Internetu z sítě infrastrukt
 
 [Starší verze Azure Stack poznámky k verzi najdete v Galerii TechNet](http://aka.ms/azsarchivedrelnotes). Tato Archivovaná zpráva k vydání verze je poskytována pouze pro referenční účely a neznamená podporu těchto verzí. Informace o podpoře Azure Stack najdete v tématu [zásady pro obsluhu Azure Stack](azure-stack-servicing-policy.md). Pokud potřebujete další pomoc, obraťte se na službu zákaznické podpory společnosti Microsoft.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - Přehled správy aktualizací ve službě Azure Stack najdete v tématu [správy aktualizací ve službě Azure Stack přehled](azure-stack-updates.md).  
 - Další informace o tom, jak použít aktualizace pomocí služby Azure Stack najdete v tématu [použití aktualizací ve službě Azure Stack](azure-stack-apply-updates.md).

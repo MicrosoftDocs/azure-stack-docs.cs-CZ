@@ -16,12 +16,13 @@ ms.date: 07/15/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 07/15/2019
-ms.openlocfilehash: c646ca836728cc1963354afb66ee04ee0accf1b6
-ms.sourcegitcommit: fc7da38321736e952b2cc6d5d07f276d095dc8d1
+monikerRange: azs-1906
+ms.openlocfilehash: bf8e32d6395b3ddfc54fe586568b51b76b71dc63
+ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69887115"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70188308"
 ---
 # <a name="azure-stack-1906-update"></a>Aktualizace Azure Stack 1906
 
@@ -116,14 +117,14 @@ Typ sestavení aktualizace Azure Stack 1906 je **Express**. Další informace o 
 
 ## <a name="security-updates"></a>Aktualizace zabezpečení
 
-Informace o aktualizacích zabezpečení v této aktualizaci Azure Stack najdete v tématu [Azure Stack aktualizace zabezpečení](azure-stack-release-notes-security-updates-1906.md).
+Informace o aktualizacích zabezpečení v této aktualizaci Azure Stack najdete v tématu [Azure Stack aktualizace zabezpečení](azure-stack-release-notes-security-updates.md).
 
 ## <a name="update-planning"></a>Plánování aktualizací
 
 Před použitím této aktualizace se ujistěte, že si provedete následující informace:
 
 - [Známé problémy](azure-stack-release-notes-known-issues-1906.md)
-- [Aktualizace zabezpečení](azure-stack-release-notes-security-updates-1906.md)
+- [Aktualizace zabezpečení](azure-stack-release-notes-security-updates.md)
 - [Kontrolní seznam aktivit před a po instalaci aktualizace](azure-stack-release-notes-checklist.md)
 
 ## <a name="download-the-update"></a>Stáhnout aktualizaci.

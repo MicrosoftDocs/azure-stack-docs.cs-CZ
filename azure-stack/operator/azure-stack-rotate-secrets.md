@@ -15,12 +15,13 @@ ms.date: 07/15/2019
 ms.reviewer: ppacent
 ms.author: mabrigg
 ms.lastreviewed: 07/15/2019
-ms.openlocfilehash: 7d8990616bcf5cdca628f4aad91e2aee6b95d42a
-ms.sourcegitcommit: 82d09bbae3e5398d2fce7e2f998dfebff018716c
+monikerRange: '>=azs-1803'
+ms.openlocfilehash: 5b8beccab17eaa9aedadb63327150a70a327df1f
+ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68497839"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70188167"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Otočení tajných kódů v Azure Stack
 
@@ -304,7 +305,7 @@ Rutina **Start-SecretRotation** otočí tajné klíče infrastruktury Azure Stac
 | `CertificatePassword` | SecureString | False  | Jmenovanou  | Žádné  | Heslo pro všechny certifikáty, které jsou k dispozici v-PfXFilesPath. Požadovaná hodnota, pokud je k dispozici PfxFilesPath při otočení externích tajných klíčů. |
 | `Internal` | Řetězec | False | Jmenovanou | Žádné | Vnitřní příznak se musí použít, kdykoli Azure Stack operátor chce střídat interní tajné klíče infrastruktury. |
 | `PathAccessCredential` | PSCredential | False  | Jmenovanou  | Žádné  | Přihlašovací údaje PowerShellu pro sdílenou složku adresáře **\Certificates** obsahující všechny certifikáty koncového bodu externí sítě. Vyžaduje se pouze při otáčení externích tajných klíčů.  |
-| `ReRun` | Přepínací parametr | False  | Jmenovanou  | Žádný  | Po neúspěšném pokusu je třeba znovu spustit opětovné otočení tajného klíče. |
+| `ReRun` | Přepínací parametr | False  | Jmenovanou  | Žádné  | Po neúspěšném pokusu je třeba znovu spustit opětovné otočení tajného klíče. |
 
 ### <a name="examples"></a>Příklady
 

@@ -14,12 +14,12 @@ ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 6b6ab8ac8292f8d548b49331cf5d2e2ae100e68f
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: 92e0c1a3bfd055373ffba5091d79922f1203b20b
+ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68418464"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70188024"
 ---
 # <a name="use-data-transfer-tools-in-azure-stack-storage"></a>Použití nástrojů pro přenos dat v Azure Stack Storage
 
@@ -57,8 +57,13 @@ AzCopy je nástroj příkazového řádku určený ke kopírování dat z Micros
 
 ### <a name="download-and-install-azcopy"></a>Stažení a instalace AzCopy
 
+::: moniker range=">=azs-1811"
 * V případě aktualizace 1811 nebo novější verze [Stáhněte AzCopy v10 za účelem +](/azure/storage/common/storage-use-azcopy-v10#download-azcopy).
+::: moniker-end
+
+::: moniker range="<azs-1811"
 * Pro předchozí verze (1802 až 1809 aktualizace) [Stáhněte AzCopy 7.1.0](https://aka.ms/azcopyforazurestack20170417).
+::: moniker-end
 
 ### <a name="azcopy-101-configuration-and-limits"></a>Konfigurace a omezení AzCopy 10,1
 

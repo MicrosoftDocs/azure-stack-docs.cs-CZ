@@ -16,15 +16,15 @@ ms.date: 08/29/2019
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 08/29/2019
-ms.openlocfilehash: ba0ff94a9e5db1ad898a8702cb13d605878bfc94
-ms.sourcegitcommit: 701685f0b59e5a3d1a8d39fe477b8df701a51cd2
+ms.openlocfilehash: a0829f2bc8cb45bdfd6f68ac15418a05adcc7afb
+ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70159515"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70188339"
 ---
 # <a name="about-deployment-network-traffic"></a>O provozu sítě nasazení
-Porozumění způsobu, jakým jsou toky provozu sítě během nasazení Azure Stack důležité k zajištění úspěšného nasazení. Tento článek vás provede očekávaným síťovým přenosem během procesu nasazení, aby bylo možné porozumět tomu, co očekávat.
+Porozumění síťovému provozu během nasazení Azure Stack pomůže nasazení provést úspěšně. Tento článek vás provede průběhem provozu sítě během procesu nasazení, abyste věděli, co očekávat.
 
 Na tomto obrázku jsou zobrazeny všechny komponenty a připojení, která se podílejí na procesu nasazení:
 
@@ -58,8 +58,6 @@ Během nasazování se DVM ověřuje v Azure Active Directory (Azure AD) pomocí
 Přístup k Internetu vyžadovaný DVM během nasazení je jenom odchozí, během nasazování se neprovádějí žádná příchozí volání. Pamatujte, že používá svoji IP adresu jako zdroj a že Azure Stack nepodporuje konfigurace proxy serveru. Proto je třeba pro přístup k Internetu zadat transparentní proxy server nebo překlad adres (NAT). Během nasazení budou některé interní součásti začít přistupovat k Internetu prostřednictvím externí sítě pomocí veřejných virtuálních IP adres. Po dokončení nasazení se veškerá komunikace mezi Azure a Azure Stack provede prostřednictvím externí sítě pomocí veřejných virtuálních IP adres.
 
 Síťové konfigurace v přepínačích Azure Stack obsahují seznamy řízení přístupu (ACL), které omezují provoz mezi určitými síťovými zdroji a cíli. DVM je jediná součást s neomezeným přístupem. i HLH je velmi omezený. Můžete požádat výrobce OEM o možnosti přizpůsobení a usnadnit tak správu a přístup z vašich sítí. Z důvodu těchto seznamů ACL je důležité se vyhnout změnám adres serverů DNS a NTP v době nasazení. Pokud to uděláte, budete muset znovu nakonfigurovat všechny přepínače pro řešení.
-
-Po dokončení nasazení budou zadané adresy serveru DNS a NTP nadále používány komponentami systému přímo. Pokud třeba po dokončení nasazení zkontrolujete žádosti DNS, zdroj se změní z IP adresy DVM na adresu z rozsahu externí sítě.
 
 Po dokončení nasazení budou zadané adresy serveru DNS a NTP nadále používány součástmi systému prostřednictvím SDN pomocí externí sítě. Pokud třeba po dokončení nasazení zkontrolujete žádosti DNS, zdroj se změní z IP adresy DVM na veřejnou VIP.
 

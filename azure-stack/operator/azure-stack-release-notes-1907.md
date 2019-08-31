@@ -12,16 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/16/2019
+ms.date: 08/30/2019
 ms.author: sethm
 ms.reviewer: hectorl
-ms.lastreviewed: 08/16/2019
-ms.openlocfilehash: 526343889bbd5cc784ebb87c39603e2152a98f3b
-ms.sourcegitcommit: b8260ef3e43f3703dd0df16fb752610ec8a86942
+ms.lastreviewed: 08/30/2019
+monikerRange: azs-1907
+ms.openlocfilehash: 4dc9c69479066aad3f2b4ebd08646e09da89ba3a
+ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70008769"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70188110"
 ---
 # <a name="azure-stack-1907-update"></a>Aktualizace Azure Stack 1907
 
@@ -77,7 +78,7 @@ Typ sestavení aktualizace Azure Stack 1907 je **Express**. Další informace o 
 
 ### <a name="changes"></a>Změny
 
-- Azure Stack verze 1907 obsahuje varovnou výstrahu, která dává operátorům pokyn, aby **před** aktualizací na verzi 1908 aktualizovala balíček OEM svého systému na verzi 2,1 nebo novější. Poskytovatelé hardwaru dostanou balíček OEM 2,1 ve stejnou dobu jako verze Azure Stack 1908. Balíček OEM 2,1 nebo novější bude předpokladem pro verzi Azure Stack 1908. Další informace o tom, jak stáhnout balíček OEM 2,1 nebo novější, vám poskytne poskytovatel hardwaru vašeho systému.
+- Azure Stack verze 1907 obsahuje varovnou výstrahu, která dává operátorům pokyn, aby před aktualizací na verzi 1908 aktualizovala balíček OEM svého systému na verzi 2,1 nebo novější. Další informace o tom, jak použít Azure Stack aktualizace OEM, najdete v části [použití Azure Stack původní aktualizace výrobce zařízení](azure-stack-update-oem.md).
 
 - Bylo přidáno nové odchozí pravidlo (HTTPS) pro povolení komunikace pro Azure Stack službu shromažďování protokolů diagnostiky. Další informace najdete v tématu [Azure Stack integrace Datacenter – publikování koncových bodů](azure-stack-integrate-endpoints.md#ports-and-urls-outbound).
 
@@ -118,14 +119,14 @@ Typ sestavení aktualizace Azure Stack 1907 je **Express**. Další informace o 
 
 ## <a name="security-updates"></a>Aktualizace zabezpečení
 
-Informace o aktualizacích zabezpečení v této aktualizaci Azure Stack najdete v tématu [Azure Stack aktualizace zabezpečení](azure-stack-release-notes-security-updates-1907.md).
+Informace o aktualizacích zabezpečení v této aktualizaci Azure Stack najdete v tématu [Azure Stack aktualizace zabezpečení](azure-stack-release-notes-security-updates.md).
 
 ## <a name="update-planning"></a>Plánování aktualizací
 
 Před použitím této aktualizace se ujistěte, že si provedete následující informace:
 
 - [Známé problémy](azure-stack-release-notes-known-issues-1907.md)
-- [Aktualizace zabezpečení](azure-stack-release-notes-security-updates-1907.md)
+- [Aktualizace zabezpečení](azure-stack-release-notes-security-updates.md)
 - [Kontrolní seznam aktivit před a po instalaci aktualizace](azure-stack-release-notes-checklist.md)
 
 ## <a name="download-the-update"></a>Stáhnout aktualizaci.
