@@ -1,6 +1,6 @@
 ---
 title: Známé problémy s Azure Stack 1908 | Microsoft Docs
-description: Přečtěte si o známých problémech v Azure Stack 1907.
+description: Přečtěte si o známých problémech v Azure Stack 1908.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2019
 ms.author: sethm
-ms.reviewer: hectorl
+ms.reviewer: prchint
 ms.lastreviewed: 08/30/2019
 monikerRange: azs-1908
-ms.openlocfilehash: da995bf2f24c4a9021be3dec675af0b2ae03e0cb
-ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
+ms.openlocfilehash: 317f53eb5b50fc415fc7a65e044eca7948a54e58
+ms.sourcegitcommit: 314fd74caf356b157583d38d2b8b1dee30408b7d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70188928"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70234945"
 ---
 # <a name="azure-stack-1908-known-issues"></a>Známé problémy s Azure Stack 1908
 
@@ -35,7 +35,7 @@ V tomto článku jsou uvedené známé problémy ve verzi 1908 Azure Stack. Sezn
 
 - To Tento problém se vztahuje na všechny podporované verze.
 - Příčina: Při pokusu o instalaci aktualizace 1907 Azure Stack aktualizace může stav aktualizace selhat a změnit stav na **PreparationFailed**. To je způsobeno tím, že poskytovatel prostředků aktualizace (URP) nemůže správně přenést soubory z kontejneru úložiště do interní sdílené složky infrastruktury pro zpracování.
-- Nápravy Počínaje verzí 1901 (1.1901.0.95) můžete tento problém obejít tak, že znovu kliknete na **aktualizovat** (nepokračovat). URP pak vyčistí soubory z předchozího pokusu a restartuje soubor ke stažení. Pokud potíže potrvají, doporučujeme ručně odeslat balíček aktualizace pomocí [oddílu instalovat aktualizace](azure-stack-apply-updates.md#install-updates-and-monitor-progress).
+- Nápravy Počínaje verzí 1901 (1.1901.0.95) můžete tento problém obejít tak, že znovu kliknete na **aktualizovat** ( **nepokračovat**). URP pak vyčistí soubory z předchozího pokusu a restartuje soubor ke stažení. Pokud potíže potrvají, doporučujeme ručně odeslat balíček aktualizace pomocí [oddílu instalovat aktualizace](azure-stack-apply-updates.md#install-updates-and-monitor-progress).
 - Výskyt Společné
 
 ## <a name="portal"></a>Portál
@@ -51,7 +51,7 @@ V tomto článku jsou uvedené známé problémy ve verzi 1908 Azure Stack. Sezn
 
 - To Tento problém se vztahuje na všechny podporované verze.
 - Příčina: Na portálu pro správu se okno **vlastnosti** pro odběry nenačte správně.
-- Nápravy Tyto vlastnosti předplatného si můžete zobrazit v podokně **základy** v okně **Přehled** předplatných.
+- Nápravy Tyto vlastnosti předplatného si můžete zobrazit v podokně **základy** v okně **Přehled předplatných** .
 - Výskyt Společné
 
 ### <a name="subscriptions-lock-blade"></a>Okno zámku předplatných
@@ -85,7 +85,7 @@ V tomto článku jsou uvedené známé problémy ve verzi 1908 Azure Stack. Sezn
 ### <a name="service-endpoints"></a>Koncové body služby
 
 - To Tento problém se vztahuje na všechny podporované verze.
-- Příčina: Na portálu User Portal se v okně **Virtual Network** zobrazuje možnost použití koncových **bodů služby**. Tato funkce se v Azure Stack v tuto chvíli nepodporuje.
+- Příčina: Na portálu User Portal se v okně **Virtual Network** zobrazuje možnost použití **koncových bodů služby**. Tato funkce se v Azure Stack v tuto chvíli nepodporuje.
 - Výskyt Společné
 
 ### <a name="network-interface"></a>Síťové rozhraní
@@ -185,7 +185,7 @@ V tomto článku jsou uvedené známé problémy ve verzi 1908 Azure Stack. Sezn
 <!-- ### Identity -->
 <!-- ### Marketplace -->
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - [Kontrola kontrolního seznamu aktivit aktualizací](azure-stack-release-notes-checklist.md)
 - [Kontrola seznamu aktualizací zabezpečení](azure-stack-release-notes-security-updates.md)

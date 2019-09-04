@@ -3,7 +3,7 @@ title: Příprava balíčku aktualizace Azure Stack | Microsoft Docs
 description: Naučte se připravit balíček aktualizace Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2019
-ms.author: mabrigg
-ms.lastreviewed: 08/15/2019
+ms.date: 09/03/2019
+ms.author: justinha
+ms.lastreviewed: 09/03/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: ab7b764e608ed1fb8008071296d0004f6ef65e7a
-ms.sourcegitcommit: 1c45814696e70ba987dd39ce61d93ea4ef5222ea
+ms.openlocfilehash: 9b58b4911a575ef66c95594b6cb4cd1cc9e27a43
+ms.sourcegitcommit: 314fd74caf356b157583d38d2b8b1dee30408b7d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70029478"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70234995"
 ---
 # <a name="prepare-an-azure-stack-update-package"></a>Příprava balíčku aktualizace Azure Stack
 
@@ -28,14 +28,14 @@ ms.locfileid: "70029478"
 
 Tento článek poskytuje přehled o přípravě balíčků aktualizací Azure Stack, aby je bylo možné použít k aktualizaci Azure Stack prostředí. Tento proces se skládá z těchto součástí:
 
-- [Stahuje se balíček aktualizace.](https://docs.microsoft.com/azure-stack/operator/azure-stack-update-prepare-package#download-the-update-package)
-- [Import balíčku aktualizací do prostředí Azure Stack pomocí portálu Azure Stack správce](https://docs.microsoft.com/azure-stack/operator/azure-stack-update-prepare-package#import-and-install-updates)
+- [Stahuje se balíček aktualizace.](#download-the-update-package)
+- [Import balíčku aktualizací do prostředí Azure Stack pomocí portálu Azure Stack správce](#import-and-install-updates)
 
-Tento proces se provádí automaticky pro Azure Stack aktualizace softwaru a opravy hotfix v systémech s internetem connectivty do [koncových bodů Azure Stack automatické aktualizace](https://docs.microsoft.com/azure-stack/operator/azure-stack-update-prepare-package#automatic-download-and-preparation-for-update-packages).
+V systémech, které se můžou připojit k koncovým bodům automatických aktualizací, se Azure Stack aktualizace softwaru a opravy hotfix automaticky stahují a připravují. V systémech bez připojení a pro jakékoli aktualizace od výrobce OEM musí být balíček aktualizace připravený, jak je vysvětleno v tomto tématu.  
 
-Následující tabulka zobrazuje, kdy balíčky aktualizací vyžadují ruční přípravu, a když se automaticky připravují:
+Následující tabulka ukazuje, kdy balíčky aktualizací vyžadují ruční přípravu a kdy se připravují automaticky.
 
-| Typ aktualizace | Připojení prostředí Azure Stack k [Azure Stack koncovým bodům automatických aktualizací](https://docs.microsoft.com/azure-stack/operator/azure-stack-update-prepare-package#automatic-download-and-preparation-for-update-packages) | Vyžaduje se akce |
+| Typ aktualizace | Připojení | Vyžaduje se akce |
 | --- | --- | --- |
 | Azure Stack aktualizace softwaru | Připojeno | Aktualizace je automaticky stažena a připravena při použití aktualizace. |
 | Azure Stack opravy hotfix | Připojeno | Aktualizace je automaticky stažena a připravena při použití aktualizace. |
@@ -46,6 +46,9 @@ Následující tabulka zobrazuje, kdy balíčky aktualizací vyžadují ruční 
 
 ## <a name="download-the-update-package"></a>Stáhnout balíček aktualizací
 Balíček aktualizace pro Azure Stack aktualizace a opravy hotfix jsou k dispozici v okně aktualizace pro připojené systémy. Pokud aktualizujete balíček OEM nebo Pokud podporujete odpojený systém, budete muset balíček stáhnout a přesunout do umístění, které je dostupné pro vaši instanci Azure Stack. Pokud používáte systém se přerušovaným připojením, možná budete muset stáhnout balíček a pak ho nahrát do přístupného umístění.
+
+>[!NOTE]
+>Samotný balíček aktualizace a jeho obsah (například binární soubory, skripty prostředí PowerShell atd.) se podepisují pomocí certifikátů vlastněných společností Microsoft. Manipulace s balíčkem způsobí, že signatura není platná.
 
 Zkontrolujte obsah balíčku. Balíček aktualizace se obvykle skládá z následujících souborů:
 

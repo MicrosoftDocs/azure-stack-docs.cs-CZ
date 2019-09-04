@@ -3,7 +3,7 @@ title: Správa aktualizací v Azure Stack | Microsoft Docs
 description: Naučte se spravovat aktualizace v Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,22 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2019
-ms.author: mabrigg
-ms.lastreviewed: 08/23/2019
+ms.date: 09/03/2019
+ms.author: justinha
+ms.lastreviewed: 09/03/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 0cd83c7a16ef56e3432de7dcba39cc11ca20a379
-ms.sourcegitcommit: b8260ef3e43f3703dd0df16fb752610ec8a86942
+ms.openlocfilehash: f34f31ac54881c5911488f5049cc75ffee85bd38
+ms.sourcegitcommit: 314fd74caf356b157583d38d2b8b1dee30408b7d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70008482"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70234937"
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Přehled správy aktualizací v Azure Stack
 
 *Platí pro: Azure Stack integrovaných systémů*
 
-Je potřeba zajistit, aby se Azure Stack aktuální, a to pomocí Azure Stack úplných a expresních aktualizací, oprav hotfix a balíčků OEM (Original Equipment Manufacturer). Nechte Azure Stack aktuální s nejnovějšími aktualizacemi, které budou používat nejnovější opravy zabezpečení, aktualizace produktů a ovladače a aktualizace firmwaru pro váš systém. Tento článek poskytuje přehled různých balíčků aktualizací, tempo pro tyto balíčky pro vydání, kde se dozvíte o aktuálních verzích a celkovém procesu aktualizace.
+Úplné a expresní aktualizace, opravy hotfix, stejně jako aktualizace ovladačů a firmwaru od výrobce OEM (Original Equipment Manufacturer), všechny pomůžou Azure Stack aktuálnost. Tento článek popisuje různé typy aktualizací, kdy očekávat jejich vydání a kde najdete další informace o aktuální verzi.
 
 > [!Note]  
 > Balíčky aktualizací Azure Stack nelze použít na Azure Stack Development Kit (ASDK). Balíčky aktualizací jsou navržené pro integrované systémy. Další informace najdete v tématu o [opětovném nasazení ASDK](https://docs.microsoft.com/azure-stack/asdk/asdk-redeploy).
@@ -39,7 +39,7 @@ Existují tři typy balíčků aktualizací pro integrované systémy:
 
     Každý balíček aktualizace má odpovídající typ, **úplný** nebo **expresní**. 
  
-    Balíčky s úplnými aktualizacemi aktualizují fyzické hostitelské operační systémy v jednotce škálování a vyžadují větší časový interval pro správu a údržbu. 
+    Balíčky s **úplnými** aktualizacemi aktualizují fyzické hostitelské operační systémy v jednotce škálování a vyžadují větší časový interval pro správu a údržbu. 
 
     Balíčky **Express** Update mají rozsah a neaktualizují základní fyzické hostitelské operační systémy.
 
@@ -75,7 +75,7 @@ Oznámení aktualizací se liší v několika faktorech, například připojení
 
 ## <a name="update-processes"></a>Aktualizovat procesy
 
-Po zjištění, že máte aktualizaci, použijte aktualizaci pomocí následujících kroků.
+Jakmile víte, že máte aktualizaci, použijte ji pomocí následujících kroků.
 
 ![Proces aktualizace Azure Stack](./media/azure-stack-updates/azure-stack-update-process.png)
 
@@ -89,11 +89,11 @@ Po zjištění, že máte aktualizaci, použijte aktualizaci pomocí následují
 
     V případě Azure Stack prostředí odpojených z Internetu a prostředí se slabým nebo přerušovaným připojením k Internetu se balíčky aktualizací importují do úložiště Azure Stack prostřednictvím portálu pro správu Azure Stack. Další kroky při nahrávání a přípravě balíčku aktualizace najdete v tématu [nahrání a příprava balíčku aktualizace Azure Stack](azure-stack-update-prepare-package.md).
 
-    Všechny balíčky aktualizací OEM se do vašeho prostředí importují ručně bez ohledu na připojení k Internetu v systému Azure Stack. Další kroky pro import a přípravu balíčku aktualizace najdete v tématu [nahrání a příprava balíčku aktualizace Azure Stack](azure-stack-update-prepare-package.md)).
+    Všechny balíčky aktualizací OEM se do vašeho prostředí importují ručně bez ohledu na připojení k Internetu v systému Azure Stack. Další kroky pro import a přípravu balíčku aktualizace najdete v tématu [nahrání a příprava balíčku aktualizace Azure Stack](azure-stack-update-prepare-package.md).
 
 3. **Použijte aktualizaci**.
 
-    Použijte aktualizaci pomocí okna **aktualizace** v Azure Stack. Během aktualizace Sledujte průběh aktualizace a v případě potřeby řešení potíží s procesem aktualizace. Další kroky k naplánování aktualizace najdete v tématu [použití aktualizace Azure Stack](azure-stack-apply-updates.md).
+    Použijte aktualizaci pomocí okna **aktualizovat** v Azure Stack. Během aktualizace Sledujte průběh aktualizace a vyřešte potíže. Další informace najdete v tématu [použití aktualizace Azure Stack](azure-stack-apply-updates.md).
 
 ## <a name="the-update-resource-provider"></a>Poskytovatel prostředku aktualizace
 
@@ -101,8 +101,8 @@ Azure Stack obsahuje poskytovatele prostředků aktualizace, který zpracovává
 
 Při instalaci aktualizací můžete zobrazit stav vysoké úrovně, protože proces aktualizace cílí na různé subsystémy v Azure Stack (například fyzické hostitele a virtuální počítače infrastruktury).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
-- Chcete-li zahájit proces aktualizace, postupujte podle kroků v tématu Naplánování [aktualizace Azure Stack](azure-stack-update-plan.md).
+- Chcete-li zahájit proces aktualizace, postupujte podle kroků v tématu [Naplánování aktualizace Azure Stack](azure-stack-update-plan.md).
 - Informace o tom, jaké verze Azure Stack jsou podporovány, najdete v tématu [zásady služby Azure Stack Servicing](azure-stack-servicing-policy.md).  
-- Další informace o aktuálních a nejnovějších aktualizacích najdete v poznámkách k [verzi Azure Stack](azure-stack-release-notes-security-updates-1907.md).
+- Další informace o aktuálních a nejnovějších aktualizacích najdete v [poznámkách k verzi Azure Stack](azure-stack-release-notes-security-updates-1907.md).

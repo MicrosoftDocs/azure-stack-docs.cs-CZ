@@ -3,7 +3,7 @@ title: Použití aktualizace výrobce OEM (Original Equipment Manufacturer) na A
 description: Naučte se, jak použít aktualizaci OEM (Original Equipment Manufacturer) na Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2019
-ms.author: mabrigg
-ms.lastreviewed: 08/23/2019
+ms.date: 09/03/2019
+ms.author: justinha
+ms.lastreviewed: 09/03/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 792790c2ae5c14e31914b64fc6e5d7eba11aacc0
-ms.sourcegitcommit: 7968f9f0946138867323793be9966ee2ef99dcf4
+ms.openlocfilehash: 95b7d202d686edd123b552eaa95aa2b8c74c497a
+ms.sourcegitcommit: 314fd74caf356b157583d38d2b8b1dee30408b7d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70025913"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70234977"
 ---
 # <a name="apply-updates-in-azure-stack"></a>Použít aktualizace v Azure Stack
 
@@ -51,9 +51,9 @@ Aktuální verzi Azure Stack můžete zobrazit v okně **aktualizace** . Pro ote
 
 1.  Otevřete portál Azure Stack správce.
 
-2.  Vyberte **řídicí panel**. Vyberte **aktualizovat**.
+2.  Vyberte**aktualizace** **řídicího panelu** > .
 
-3.  Vyberte dostupnou aktualizaci, kterou chcete použít. Pokud nemáte aktualizaci označenou jako **k dispozici**, budete muset [připravit balíček aktualizace](azure-stack-update-prepare-package.md) .
+3.  Vyberte dostupnou aktualizaci, kterou chcete použít. Pokud nemáte aktualizaci označenou jako **k dispozici**, budete muset [připravit balíček aktualizace](azure-stack-update-prepare-package.md).
 
 4.  Vyberte **aktualizovat hned**.
 
