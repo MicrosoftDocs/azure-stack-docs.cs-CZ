@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2019
+ms.date: 09/04/2019
 ms.author: justinha
 ms.reviewer: prchint
-ms.lastreviewed: 07/25/2019
-ms.openlocfilehash: 17f68039382453312114dff8737072d1515a583d
-ms.sourcegitcommit: b752f4e6733d9ebe56dbd171a14528dcb9a693fd
+ms.lastreviewed: 09/04/2019
+ms.openlocfilehash: 338df8d335376ebbaf14230e62d8dee9f813994f
+ms.sourcegitcommit: e2f6205e6469b39c2395ee09424bb7632cb94c40
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68522019"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70271748"
 ---
 # <a name="overview-of-azure-stack-diagnostic-log-collection"></a>Přehled shromažďování diagnostických protokolů Azure Stack 
 
@@ -31,7 +31,7 @@ Azure Stack je rozsáhlá kolekce součástí pracujících společně a vzájem
 
 Před 1907 se v diagnostickém prostředí, které je součástí [služby test-AzureStack](azure-stack-diagnostic-test.md) , ověřil stav systému a pomocí [privilegovaného koncového bodu (PEP)](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep) shromažďuje protokoly pro řešení potíží. 
 
-Od verze 1907 se stránka pro **pomoc a podporu** přidá jednodušší prostředí pomocí **shromažďování protokolů diagnostiky**. 
+Od verze 1907 se na stránce **pomoc a podpora** přidá jednodušší prostředí pomocí **shromažďování protokolů diagnostiky**. 
 **Shromažďování protokolů diagnostiky** je součástí trvalé investice za účelem zlepšení zkušeností operátorů Azure Stack pomocí procesu řešení potíží. Pomocí těchto vylepšení můžou operátoři rychle shromažďovat a sdílet diagnostické protokoly se službou zákaznické podpory Microsoftu (CSS). Protokoly se můžou ukládat do kontejneru objektů BLOB v Azure, kde můžete podle potřeby přizpůsobit přístup.    
    
 **Shromažďování protokolů diagnostiky** může shromažďovat diagnostické protokoly dvěma různými způsoby:
@@ -48,7 +48,7 @@ Pokud vaše zásada umožňuje sdílení diagnostických protokolů pomocí šab
 
 Automatické shromažďování protokolů diagnostiky proaktivně odesílá diagnostické protokoly z Azure Stack do objektu BLOB úložiště v Azure, když jsou vyvolány určité kritické výstrahy, což výrazně zkracuje dobu potřebnou ke sdílení diagnostických protokolů se šablonami stylů CSS.
 
-Další informace o automatickém shromažďování protokolů najdete v tématu [Konfigurace automatického shromažďování protokolů Azure Stack](azure-stack-configure-automatic-diagnostic-log-collection.md)pro diagnostiku.
+Další informace o automatickém shromažďování protokolů najdete v tématu [Konfigurace automatického shromažďování protokolů Azure Stack pro diagnostiku](azure-stack-configure-automatic-diagnostic-log-collection.md).
 
 ## <a name="on-demand-diagnostic-log-collection"></a>Shromažďování protokolů diagnostiky na vyžádání
 

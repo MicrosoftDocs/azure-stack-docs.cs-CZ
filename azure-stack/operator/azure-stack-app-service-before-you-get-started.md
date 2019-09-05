@@ -1,6 +1,6 @@
 ---
-title: Před nasazením App Service v Azure Stack | Microsoft Docs
-description: Kroky, které je potřeba provést před nasazením App Service v Azure Stack
+title: Předpoklady pro nasazení App Service v Azure Stack | Microsoft Docs
+description: Před nasazením App Service v Azure Stack se naučíte splnění požadovaných kroků.
 services: azure-stack
 documentationcenter: ''
 author: BryanLa
@@ -16,14 +16,14 @@ ms.date: 08/29/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: f4b26701af32026ac2c83bf675fa29e3b6254cb2
-ms.sourcegitcommit: 701685f0b59e5a3d1a8d39fe477b8df701a51cd2
+ms.openlocfilehash: a12aceff00cf5be2d6ab70c4957ef04ea1c135d5
+ms.sourcegitcommit: e2f6205e6469b39c2395ee09424bb7632cb94c40
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70159562"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70271714"
 ---
-# <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Než začnete s App Service v Azure Stack
+# <a name="prerequisites-for-deploying-app-service-on-azure-stack"></a>Předpoklady pro nasazení App Service v Azure Stack
 
 *Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
 
@@ -49,17 +49,17 @@ Před nasazením Azure App Service v Azure Stack musíte dokončit požadované 
 
 ## <a name="syndicate-the-custom-script-extension-from-the-marketplace"></a>Zasyndikátit rozšíření vlastních skriptů z Marketplace
 
-Azure App Service v Azure Stack vyžaduje rozšíření vlastních skriptů v 1.9.1.  Než začnete s nasazením nebo upgradem Azure App Service v Azure Stack, musí se rozšíření [z webu Marketplace](azure-stack-download-azure-marketplace-item.md) odsazovat.
+Azure App Service v Azure Stack vyžaduje rozšíření vlastních skriptů v 1.9.1.  Než začnete s nasazením nebo upgradem Azure App Service v Azure Stack, je nutné toto rozšíření [z webu Marketplace zasyndikátit](azure-stack-download-azure-marketplace-item.md) .
 
 ## <a name="get-certificates"></a>Získat certifikáty
 
 ### <a name="azure-resource-manager-root-certificate-for-azure-stack"></a>Azure Resource Manager kořenový certifikát pro Azure Stack
 
-Otevřete relaci PowerShellu se zvýšenými oprávněními na počítači, který může dosáhnout privilegovaného koncového bodu na Azure Stack integrovaném systému nebo hostiteli Azure Stack Development Kit.
+Otevřete relaci PowerShellu se zvýšenými oprávněními na počítači, který může dosáhnout privilegovaného koncového bodu na Azure Stack integrovaném systému nebo hostiteli ASDK.
 
 Spusťte skript *Get-AzureStackRootCert. ps1* ze složky, do které jste extrahovali pomocné skripty. Skript vytvoří kořenový certifikát ve stejné složce, jako je skript, který App Service potřebuje k vytváření certifikátů.
 
-Když spustíte následující příkaz PowerShellu, budete muset zadat privilegovaný koncový bod a přihlašovací údaje pro AzureStack\CloudAdmin.
+Když spustíte následující příkaz PowerShellu, musíte zadat privilegovaný koncový bod a přihlašovací údaje pro AzureStack\CloudAdmin.
 
 ```powershell
     Get-AzureStackRootCert.ps1
@@ -85,10 +85,10 @@ Skript *Create-AppServiceCerts. ps1* spolupracuje s certifikační autoritou Azu
 
 K vytvoření certifikátů použijte následující postup:
 
-1. Přihlaste se k hostiteli Azure Stack Development Kit pomocí účtu AzureStack\AzureStackAdmin.
+1. Přihlaste se k hostiteli ASDK pomocí účtu AzureStack\AzureStackAdmin.
 2. Otevřete relaci PowerShellu se zvýšenými oprávněními.
 3. Spusťte skript *Create-AppServiceCerts. ps1* ze složky, do které jste extrahovali pomocné skripty. Tento skript vytvoří čtyři certifikáty ve stejné složce, jako je skript, který App Service potřebuje k vytváření certifikátů.
-4. Zadejte heslo pro zabezpečení souborů. pfx a poznamenejte si ho. Budete je muset zadat do App Service v instalačním programu Azure Stack.
+4. Zadejte heslo pro zabezpečení souborů. pfx a poznamenejte si ho. Je nutné zadat ho do App Service v instalačním programu Azure Stack.
 
 #### <a name="create-appservicecertsps1-script-parameters"></a>Parametry skriptu Create-AppServiceCerts. ps1
 
@@ -108,7 +108,7 @@ Pokud chcete spustit poskytovatele prostředků v produkčním prostředí, mus�
 
 #### <a name="default-domain-certificate"></a>Výchozí certifikát domény
 
-Výchozí certifikát domény je umístěn v roli front-end. Uživatelské aplikace pro zadání zástupného znaku nebo výchozí domény, které Azure App Service použít tento certifikát. Certifikát se používá také pro operace správy zdrojových kódů (Kudu).
+Výchozí certifikát domény je umístěn na front-end roli. Uživatelské aplikace pro zástupný znak nebo výchozí doména, které Azure App Service použít tento certifikát. Certifikát se používá také pro operace správy zdrojových kódů (Kudu).
 
 Certifikát musí být ve formátu. pfx a měl by se jednat o certifikát zástupných znaků se třemi tématy. Tento požadavek umožňuje jednomu certifikátu pokrýt jak výchozí doménu, tak koncový bod SCM pro operace správy zdrojových kódů.
 
@@ -128,7 +128,7 @@ Certifikát rozhraní API se umístí do role správy. Poskytovatel prostředků
 
 #### <a name="publishing-certificate"></a>Publikování certifikátu
 
-Certifikát pro roli vydavatele zabezpečuje přenos FTPS pro vlastníky aplikace při nahrávání obsahu. Certifikát pro publikování musí obsahovat předmět, který odpovídá položce DNS FTPS.
+Certifikát pro roli vydavatele zabezpečuje přenos FTPS pro vlastníky aplikací při nahrávání obsahu. Certifikát pro publikování musí obsahovat předmět, který odpovídá položce DNS FTPS.
 
 | Formát | Příklad |
 | --- | --- |
@@ -149,18 +149,18 @@ Certifikát pro identitu musí obsahovat předmět, který odpovídá následuj�
 
 ### <a name="validate-certificates"></a>Ověřit certifikáty
 
-Než nasadíte poskytovatele prostředků služby App Service, měli byste [ověřit certifikáty, které se mají použít](azure-stack-validate-pki-certs.md#perform-platform-as-a-service-certificate-validation) , pomocí nástroje pro kontrolu připravenosti Azure Stack dostupného v [Galerie prostředí PowerShell](https://aka.ms/AzsReadinessChecker). Nástroj pro kontrolu připravenosti Azure Stack ověří, že vygenerované certifikáty PKI jsou vhodné pro nasazení aplikačních služeb.
+Než nasadíte poskytovatele prostředků App Service, měli byste [ověřit certifikáty, které se mají použít](azure-stack-validate-pki-certs.md#perform-platform-as-a-service-certificate-validation) , pomocí nástroje pro kontrolu připravenosti Azure Stack, který je dostupný z [Galerie prostředí PowerShell](https://aka.ms/AzsReadinessChecker). Nástroj pro kontrolu připravenosti Azure Stack ověří, že vygenerované certifikáty PKI jsou vhodné pro App Service nasazení.
 
-Osvědčeným postupem je při práci s některým z nezbytných [Azure Stack certifikátů PKI](azure-stack-pki-certs.md)naplánovat, abyste ponechali dostatek času na testování a vystavování certifikátů v případě potřeby.
+Osvědčeným postupem je při práci s některou z nezbytných [Azure Stack certifikátů PKI](azure-stack-pki-certs.md)naplánovat dostatek času na testování a vystavování certifikátů v případě potřeby.
 
 ## <a name="virtual-network"></a>Virtuální síť
 
 > [!NOTE]
-> Předem vytvořená vlastní virtuální síť je volitelná, protože Azure App Service v Azure Stack může vytvořit požadovanou virtuální síť, ale bude muset komunikovat s SQL a souborovým serverem prostřednictvím Veřejné IP adresy.
+> Předvytvoření vlastní virtuální sítě je volitelné, protože Azure App Service v Azure Stack může vytvořit požadovanou virtuální síť, ale bude muset komunikovat s SQL a souborovým serverem přes veřejné IP adresy.
 
-Azure App Service v Azure Stack umožňuje nasadit poskytovatele prostředků do existující virtuální sítě nebo umožňuje vytvořit virtuální síť jako součást nasazení. Použití existující virtuální sítě umožňuje používat interní IP adresy k připojení k souborovému serveru a SQL serveru, který vyžaduje Azure App Service v Azure Stack. Před instalací Azure App Service v Azure Stack musí být virtuální síť nakonfigurovaná s následujícím rozsahem adres a podsítěmi:
+Azure App Service v Azure Stack umožňuje nasadit poskytovatele prostředků do existující virtuální sítě nebo umožňuje vytvořit virtuální síť jako součást nasazení. Použití existující virtuální sítě umožňuje používat interní IP adresy pro připojení k souborovému serveru a SQL Server vyžaduje Azure App Service na Azure Stack. Před instalací Azure App Service v Azure Stack musí být virtuální síť nakonfigurovaná s následujícím rozsahem adres a podsítěmi:
 
-Virtual Network-/16
+Virtuální síť-/16
 
 Podsítě
 
@@ -172,12 +172,12 @@ Podsítě
 
 ## <a name="licensing-concerns-for-required-file-server-and-sql-server"></a>Aspekty licencování pro požadovaný souborový server a SQL Server
 
-Azure App Service v Azure Stack vyžaduje, aby mohl souborový server a SQL Server fungovat.  Můžete používat již existující prostředky, které se nacházejí mimo vaše Azure Stack nasazení, nebo nasadit prostředky v rámci svého předplatného Azure Stack výchozího poskytovatele.
+Azure App Service v Azure Stack vyžaduje, aby mohl souborový server a SQL Server fungovat.  Nebudete používat už existující prostředky, které se nacházejí mimo vaše Azure Stack nasazení, nebo nasazovat prostředky v rámci svého předplatného Azure Stack výchozího poskytovatele.
 
 Pokud se rozhodnete nasadit prostředky v rámci předplatného výchozího poskytovatele Azure Stack, jsou licence pro tyto prostředky (licence na Windows Server a licence SQL Server) zahrnuté do nákladů na Azure App Service Azure Stack následující: jednotlivým
 
 - infrastruktura se nasadí do **výchozího předplatného poskytovatele**;
-- infrastruktura se používá výhradně Azure App Service u poskytovatele prostředků Azure Stack.  K používání této infrastruktury mají oprávnění žádné jiné úlohy, administrativní (jiní poskytovatelé prostředků, například SQL-RP) nebo tenant (například klientské aplikace, které vyžadují databázi).
+- infrastruktura se používá výhradně Azure App Service u poskytovatele prostředků Azure Stack.  Žádné jiné úlohy, administrativní (jiní poskytovatelé prostředků, například: SQL-RP) nebo tenant (například: klientské aplikace, které vyžadují databázi), mají povoleno používat tuto infrastrukturu.
 
 ## <a name="prepare-the-file-server"></a>Příprava souborového serveru
 
@@ -185,16 +185,16 @@ Azure App Service vyžaduje použití souborového serveru. U produkčních nasa
 
 ### <a name="quickstart-template-for-file-server-for-deployments-of-azure-app-service-on-asdk"></a>Šablona pro rychlý Start pro souborový server pro nasazení Azure App Service v ASDK.
 
-U Azure Stack Development Kit nasazení můžete použít [příklad Azure Resource Manager šablonu nasazení](https://aka.ms/appsvconmasdkfstemplate) k nasazení nakonfigurovaného souborového serveru s jedním uzlem. Souborový server s jedním uzlem bude v pracovní skupině.
+Jenom pro nasazení ASDK můžete použít [ukázkový Azure Resource Manager šablonu nasazení](https://aka.ms/appsvconmasdkfstemplate) k nasazení nakonfigurovaného souborového serveru s jedním uzlem. Souborový server s jedním uzlem bude v pracovní skupině.
 
 ### <a name="quickstart-template-for-highly-available-file-server-and-sql-server"></a>Šablona pro rychlý Start pro souborový server s vysokou dostupností a SQL Server
 
-K dispozici je teď [Šablona pro rychlý Start referenční architektury](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/appservice-fileserver-sqlserver-ha) , která nasadí souborový Server, SQL Server, podporu infrastruktury služby Active Directory v Virtual Network nakonfigurovaná tak, aby podporovala vysoce dostupné nasazení Azure App Service v Azure. Vrstvě.
+Nyní je k dispozici [Šablona pro rychlý Start referenční architektury](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/appservice-fileserver-sqlserver-ha) , která nasadí souborový server a SQL Server. Tato šablona podporuje infrastrukturu služby Active Directory ve virtuální síti, která je nakonfigurovaná tak, aby podporovala vysoce dostupné nasazení Azure App Service v Azure Stack.
 
 ### <a name="steps-to-deploy-a-custom-file-server"></a>Postup nasazení vlastního souborového serveru
 
 >[!IMPORTANT]
-> Pokud se rozhodnete nasadit App Service v existujícím Virtual Network, souborový server by měl být nasazený do jiné podsítě než App Service.
+> Pokud se rozhodnete nasadit App Service do existující virtuální sítě, musí být souborový server nasazený do samostatné podsítě od App Service.
 
 >[!NOTE]
 > Pokud jste se rozhodli nasadit souborový server pomocí některé ze šablon rychlý Start uvedených výše, můžete tento oddíl přeskočit, protože souborové servery jsou nakonfigurovány jako součást nasazení šablony.
@@ -300,11 +300,11 @@ icacls %WEBSITES_FOLDER% /grant *S-1-1-0:(OI)(CI)(IO)(RA,REA,RD)
 ## <a name="prepare-the-sql-server-instance"></a>Příprava instance SQL Server
 
 >[!NOTE]
-> Pokud jste se rozhodli nasadit šablonu pro rychlé zprovoznění pro souborový server s vysokou dostupností a SQL Server můžete tuto část přeskočit, protože šablona se nasazuje a nakonfiguruje SQL Server v konfiguraci HA.
+> Pokud jste se rozhodli nasadit šablonu pro rychlé zprovoznění pro souborový server s vysokou dostupností a SQL Server, můžete tuto část přeskočit, protože šablona se nasazuje a nakonfiguruje SQL Server v konfiguraci HA.
 
 Pro Azure App Service v Azure Stack hostování a v databázích měření musíte připravit instanci SQL Server, aby obsahovala databáze App Service.
 
-U Azure Stack Development Kit nasazení můžete použít SQL Server Express 2014 SP2 nebo novější.  SQL Server musí být nakonfigurovaná tak, aby podporovala ověřování ve **smíšeném režimu** , App Service na Azure Stack nepodporuje ověřování systému Windows.
+Pro nasazení ASDK můžete použít SQL Server Express 2014 SP2 nebo novější. SQL Server musí být nakonfigurovaná tak, aby podporovala ověřování ve **smíšeném režimu** , protože App Service **na Azure Stack nepodporuje** ověřování systému Windows.
 
 Pro účely produkčního prostředí a vysoké dostupnosti byste měli použít plnou verzi SQL Server 2014 SP2 nebo novější, povolit ověřování ve smíšeném režimu a nasadit v [konfiguraci s vysokou dostupností](https://docs.microsoft.com/sql/sql-server/failover-clusters/high-availability-solutions-sql-server).
 
@@ -325,10 +325,10 @@ GO
 ```
 
 >[!IMPORTANT]
-> Pokud se rozhodnete nasadit App Service v existující Virtual Network SQL Server by se měla nasadit do samostatné podsítě od App Service a souborového serveru.
+> Pokud se rozhodnete nasadit App Service do existující virtuální sítě, SQL Server by se měl nasadit do samostatné podsítě ze App Service a souborového serveru.
 >
 
-## <a name="create-an-azure-active-directory-application"></a>Vytvoření aplikace Azure Active Directory
+## <a name="create-an-azure-active-directory-app"></a>Vytvoření aplikace Azure Active Directory
 
 Nakonfigurujte instanční objekt služby Azure AD tak, aby podporoval následující operace:
 
@@ -373,7 +373,7 @@ Postupujte následovně:
 | CertificatePassword | Požadováno | Null | Heslo, které pomáhá chránit privátní klíč certifikátu. |
 | Prostředí | volitelná, | AzureCloud | Název podporovaného cloudového prostředí, ve kterém je dostupná cílová služba Azure Active Directory Graph.  Povolené hodnoty: "AzureCloud", "AzureChinaCloud", "AzureUSGovernment", "AzureGermanCloud".|
 
-## <a name="create-an-active-directory-federation-services-application"></a>Vytvoření aplikace Active Directory Federation Services (AD FS)
+## <a name="create-an-active-directory-federation-services-app"></a>Vytvoření aplikace Active Directory Federation Services (AD FS)
 
 U Azure Stackch prostředí zabezpečených pomocí AD FS je nutné nakonfigurovat AD FS instančního objektu pro podporu následujících operací:
 

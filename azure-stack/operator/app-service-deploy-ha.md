@@ -16,12 +16,12 @@ ms.date: 03/23/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 01e359b2fc92abfe2c4903b75fd52687c2246d56
-ms.sourcegitcommit: 58c28c0c4086b4d769e9d8c5a8249a76c0f09e57
+ms.openlocfilehash: e09cc9e5c77379441d7757fa1395941712ecc5ff
+ms.sourcegitcommit: e2f6205e6469b39c2395ee09424bb7632cb94c40
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68959564"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70271835"
 ---
 # <a name="deploy-app-service-in-a-highly-available-configuration"></a>Nasazení App Service v konfiguraci s vysokou dostupností
 
@@ -101,7 +101,7 @@ Pomocí těchto kroků zjistíte výstupní hodnoty šablony:
 
     ![Microsoft. Template deployment](media/app-service-deploy-ha/6.png)
 
-4. Po výběru nasazení **Microsoft. template** vyberte výstupy a zaznamenejte výstup parametrů šablony. Tyto informace jsou požadovány při nasazení App Service.
+4. Po výběru nasazení **Microsoft. template** vyberte **výstupy** a zaznamenejte výstup parametrů šablony. Tyto informace jsou požadovány při nasazení App Service.
 
     ![Výstup parametru](media/app-service-deploy-ha/7.png)
 
@@ -123,7 +123,7 @@ Před spuštěním instalačního programu App Service je potřeba provést něk
 - [Stáhněte si instalační program a skripty pro pomoc s App Service](azure-stack-app-service-before-you-get-started.md#download-the-installer-and-helper-scripts).
 - [Stáhněte si nejnovější rozšíření vlastních skriptů na web Azure Stack Marketplace](azure-stack-app-service-before-you-get-started.md#syndicate-the-custom-script-extension-from-the-marketplace).
 - [Vygenerujte požadované certifikáty](azure-stack-app-service-before-you-get-started.md#get-certificates).
-- Vytvořte aplikaci ID na základě poskytovatele identifikace, kterého jste zvolili pro Azure Stack. Pro [Azure AD](azure-stack-app-service-before-you-get-started.md#create-an-azure-active-directory-application) nebo [Active Directory Federation Services (AD FS)](azure-stack-app-service-before-you-get-started.md#create-an-active-directory-federation-services-application) lze vytvořit aplikaci s ID a zaznamenat ID aplikace.
+- Vytvořte aplikaci ID na základě poskytovatele identifikace, kterého jste zvolili pro Azure Stack. Pro [Azure AD](azure-stack-app-service-before-you-get-started.md#create-an-azure-active-directory-app) nebo [Active Directory Federation Services (AD FS)](azure-stack-app-service-before-you-get-started.md#create-an-active-directory-federation-services-app) lze vytvořit aplikaci s ID a zaznamenat ID aplikace.
 - Ujistěte se, že jste přidali image Windows serveru 2016 Datacenter do webu Azure Stack Marketplace. Tato image se vyžaduje pro App Service instalaci.
 
 ### <a name="steps-for-app-service-deployment"></a>Postup nasazení App Service
@@ -173,12 +173,12 @@ Pokud chcete nasadit poskytovatele prostředků App Service, použijte následuj
     Pokud se rozhodnete nasadit do existující virtuální sítě a interní IP adresu pro připojení k souborovému serveru, musíte přidat odchozí pravidlo zabezpečení. Toto pravidlo povoluje provoz protokolu SMB mezi podsítí pracovních procesů a souborovým serverem. Na portálu pro správu přejdete na WorkersNsg a přidáte odchozí pravidlo zabezpečení s následujícími vlastnostmi:
     - Zdroj: Any
     - Rozsah zdrojových portů: *
-    - Tabulka Adresy IP
+    - Cíl: Adresy IP
     - Rozsah cílových IP adres: Rozsah IP adres pro souborový server
     - Rozsah cílových portů: 445
     - Protokol: TCP
     - Akce: Allow
-    - Upřednostněn 700
+    - Priorita: 700
     - Název: Outbound_Allow_SMB445
 
 10. Zadejte ID aplikace identity a cestu a hesla k certifikátům identity a klikněte na **Další**:
@@ -234,7 +234,7 @@ Pokud chcete nasadit poskytovatele prostředků App Service, použijte následuj
 
     ![Instalace byla dokončena pro App Service](media/app-service-deploy-ha/16.png)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Pokud jste poskytli App Service poskytovatele prostředků s instancí SQL Always On, [přidejte databáze appservice_hosting a appservice_metering do skupiny dostupnosti](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) . Synchronizujte databáze, aby nedošlo ke ztrátě služeb v případě převzetí služeb při selhání databáze.
 

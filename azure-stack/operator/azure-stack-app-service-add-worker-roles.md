@@ -1,6 +1,6 @@
 ---
-title: Horizontální navýšení kapacity rolí pracovního procesu v App Services – Azure Stack | Dokumentace Microsoftu
-description: Podrobné pokyny pro škálování služby Azure Stack App Services
+title: Přidání pracovníků a infrastruktury v App Service Azure Stack | Microsoft Docs
+description: Podrobné pokyny pro škálování Azure Stack App Services
 services: azure-stack
 documentationcenter: ''
 author: bryanla
@@ -16,33 +16,33 @@ ms.date: 05/06/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 06/08/2018
-ms.openlocfilehash: c7dcb31c74ac08f3045425d246e17376808a5b98
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 43ee38c18e2831d1cb96958501cee6f77292edd0
+ms.sourcegitcommit: e2f6205e6469b39c2395ee09424bb7632cb94c40
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269310"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70271668"
 ---
-# <a name="app-service-on-azure-stack-add-more-infrastructure-or-worker-roles"></a>App Service v Azure stacku: Přidat další infrastrukturu nebo pracovní role
+# <a name="add-workers-and-infrastructure-in-app-service-on-azure-stack"></a>Přidání pracovníků a infrastruktury v App Service Azure Stack
 
-*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*  
+*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*  
 
-Tento dokument obsahuje pokyny ohledně toho, jak škálovat služby App Service na infrastrukturu a pracovních rolích Azure stacku. Obsahuje kroky pro vytvoření pracovní role pro podporu aplikací libovolné velikosti.
+Tento dokument poskytuje pokyny, jak škálovat infrastrukturu a role pracovních procesů v App Service v Azure Stack. Pokryjeme všechny kroky potřebné k vytvoření dalších rolí pracovního procesu pro podporu aplikací libovolné velikosti.
 
 > [!NOTE]
-> Pokud prostředí Azure Stack nemá více než 96 GB RAM, může mít potíže přidání dodatečnou kapacitu.
+> Pokud vaše Azure Stack prostředí neobsahuje více než 96 GB paměti RAM, může docházet k potížím při přidávání další kapacity.
 
-App Service ve službě Azure Stack, ve výchozím nastavení, podporuje vrstvy bezplatných a sdílených pracovních procesů. Přidání další vrstvy pracovních procesů, budete muset přidat další role pracovního procesu.
+App Service v Azure Stack ve výchozím nastavení podporuje úrovně Free a Shared Worker. Chcete-li přidat další vrstvy pracovního procesu, je nutné přidat další role pracovního procesu.
 
-Pokud si nejste jisti, co byla nasazena s výchozí služby App Service na instalaci služby Azure Stack, najdete další informace v [služby App Service v Azure stacku přehled](azure-stack-app-service-overview.md).
+Pokud si nejste jistí, co bylo nasazeno s výchozím App Service v Azure Stack instalaci, můžete si přečíst další informace v článku [App Service na Azure Stack Overview](azure-stack-app-service-overview.md).
 
-Azure App Service ve službě Azure Stack nasazuje všech rolí pomocí Škálovací sady virtuálních počítačů a jako takový využívá možnosti škálování této úlohy. Proto všechny škálování vrstvy pracovních procesů se provádí prostřednictvím Správce App Service.
+Azure App Service v Azure Stack nasadí všechny role pomocí Virtual Machine Scale Sets a díky tomu využívají možnosti škálování této úlohy. Proto se veškeré škálování vrstev pracovních procesů provádí prostřednictvím Správce App Service.
 
-## <a name="add-additional-workers-with-powershell"></a>Přidat další pracovní procesy s využitím Powershellu
+## <a name="add-additional-workers-with-powershell"></a>Přidání dalších pracovníků do PowerShellu
 
-1. [Nastavení prostředí Azure stacku správu v prostředí PowerShell](azure-stack-powershell-configure-admin.md)
+1. [Nastavení prostředí pro správu Azure Stack v PowerShellu](azure-stack-powershell-configure-admin.md)
 
-2. Použijte tento příklad pro horizontální navýšení kapacity škálovací sady:
+2. V tomto příkladu můžete škálovat sadu škálování:
    ```powershell
    
     ##### Scale out the AppService Role instances ######
@@ -69,46 +69,42 @@ Azure App Service ve službě Azure Stack nasazuje všech rolí pomocí Škálov
    ```    
 
    > [!NOTE]
-   > Tento krok může trvat několik hodin v závislosti na typu role a počet instancí.
+   > Dokončení tohoto kroku může trvat několik hodin v závislosti na typu role a počtu instancí.
    >
    >
 
-3. Monitorování stavu nové instance rolí v aplikaci Správa služby, chcete-li zkontrolovat stav instance jednotlivých rolí klikněte na typ role v seznamu.
+3. Sledujte stav nových instancí rolí ve správě App Service. Chcete-li zjistit stav jednotlivých instancí role, klikněte v seznamu na typ role.
 
-## <a name="add-additional-workers-using-the-administration-portal"></a>Přidat další pracovní procesy pomocí portálu pro správu
+## <a name="add-additional-workers-using-the-admin-portal"></a>Přidání dalších pracovníků pomocí portálu pro správu
 
-1. Přihlaste se k portálu pro správu služby Azure Stack jako správce služeb.
+1. Přihlaste se k portálu pro správu Azure Stack jako správce služby.
 
-2. Přejděte do **App Services**.
+2. Přejděte na **App Services**.
 
-    ![](media/azure-stack-app-service-add-worker-roles/image01.png)
+    ![App Service na portálu pro správu Azure Stack](media/azure-stack-app-service-add-worker-roles/image01.png)
 
-3. Klikněte na tlačítko **role**. Tady vidíte rozpis všech rolí služby App Service nasazené.
+3. Klikněte na **role**. Tady vidíte rozpis všech nasazených rolí App Service.
 
-4. Klikněte pravým tlačítkem na řádek škálování a potom klikněte na požadovaný typ **škálovací sady**.
+4. Klikněte pravým tlačítkem na řádek typu, který chcete škálovat, a pak klikněte na **škálovací sady**.
 
-    ![](media/azure-stack-app-service-add-worker-roles/image02.png)
+    ![Role škálovací sady App Service v portálu pro správu Azure Stack](media/azure-stack-app-service-add-worker-roles/image02.png)
 
-5. Klikněte na tlačítko **škálování**, vyberte počet instancí, kterou chcete škálovat a potom klikněte na **Uložit**.
+5. Klikněte na **škálování**, vyberte počet instancí, na které chcete škálovat, a pak klikněte na **Uložit**.
 
-    ![](media/azure-stack-app-service-add-worker-roles/image03.png)
+    ![Nastavení instancí pro horizontální navýšení kapacity v App Service rolích na portálu pro správu Azure Stack](media/azure-stack-app-service-add-worker-roles/image03.png)
 
-6. App Service ve službě Azure Stack se nyní přidávání dalších virtuálních počítačů, je nakonfigurovat, nainstalovat požadovaný software a označit je jako připraven po dokončení tohoto procesu. Tento proces může trvat přibližně 80.
+6. App Service v Azure Stack nyní přidá další virtuální počítače, nakonfiguruje je, nainstaluje veškerý požadovaný software a označí je po dokončení tohoto procesu jako připravené. Tento proces může trvat přibližně 80 minut.
 
-7. Průběh připravenosti nové role můžete monitorovat zobrazením pracovních procesů v **role** okno.
+7. Průběh připravenosti nových rolí můžete sledovat v okně role v okně **role** .
 
 ## <a name="result"></a>Výsledek
 
-Jakmile jsou plně nasazený a připravený, zaměstnanců k dispozici pro uživatele k nasazení své úlohy do nich. Následující příklad několika cenových úrovních ve výchozím nastavení. Pokud neexistují žádné dostupné pracovní procesy pro konkrétní pracovní vrstvu, není k dispozici možnost si vybrat odpovídající cenové úrovně.
+Po dokončení nasazení a připravení budou pracovní procesy uživatelům k dispozici pro nasazení svých úloh. Následující snímek obrazovky ukazuje příklad několika cenových úrovní, které jsou ve výchozím nastavení dostupné. Pokud pro konkrétní vrstvu pracovního procesu nejsou k dispozici žádní pracovní procesy, možnost výběru odpovídající cenové úrovně není k dispozici.
 
-![](media/azure-stack-app-service-add-worker-roles/image04.png)
+![Cenové úrovně pro nový plán App Service na portálu pro správu Azure Stack](media/azure-stack-app-service-add-worker-roles/image04.png)
 
 >[!NOTE]
-> Pro horizontální navýšení kapacity správy, role front-endu nebo vydavatele přidat že musí horizontální navýšení kapacity odpovídající typ role. 
->
->
-
-Pro horizontální navýšení kapacity správy, front-endu nebo role vydavatele, postupujte stejným způsobem výběru typu příslušné role. Řadiče nejsou nasazeni jako Škálovací sady a tedy dvě by měly být nasazeny v průběhu instalace pro všechna nasazení v produkčním prostředí.
+> Pro horizontální navýšení kapacity správy, front-endu nebo rolí vydavatele použijte stejný postup, který vybere vhodný typ role. Řadiče nejsou nasazené jako sady škálování a proto by se měly v době instalace pro všechna produkční nasazení nasadit dvě.
 
 ### <a name="next-steps"></a>Další postup
 

@@ -1,6 +1,6 @@
 ---
-title: Plánování kapacity pro role serveru služby Azure App Service ve službě Azure Stack | Dokumentace Microsoftu
-description: Plánování kapacity pro role serveru služby Azure App Service ve službě Azure Stack
+title: Plánování kapacity pro role App Service serveru v Azure Stack | Microsoft Docs
+description: Přečtěte si o plánování kapacity App Service rolích serveru v Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: BryanLa
@@ -16,110 +16,110 @@ ms.date: 03/13/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/13/2019
-ms.openlocfilehash: 8c41bd0241339cc4c29637bc70ef0fb71704feee
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 45fddcb71781f11cdab600200631737d284935d9
+ms.sourcegitcommit: e2f6205e6469b39c2395ee09424bb7632cb94c40
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269178"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70271690"
 ---
-# <a name="capacity-planning-for-azure-app-service-server-roles-in-azure-stack"></a>Plánování kapacity pro role serveru služby Azure App Service ve službě Azure Stack
+# <a name="capacity-planning-for-app-service-server-roles-in-azure-stack"></a>Plánování kapacity pro role serveru App Service v Azure Stack
 
-*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
 
-Nastavení připravené produkční nasazení služby Azure App Service ve službě Azure Stack, je nutné naplánovat kapacitu očekáváte, že systém pro podporu.  
+Pokud chcete nastavit nasazení Azure App Service připravené pro produkční prostředí v Azure Stack, musíte naplánovat kapacitu, kterou systém podporuje.  
 
-Tento článek obsahuje pokyny pro minimální počet výpočetních instancí a výpočetní výkon skladové položky byste měli použít pro každého produkčního nasazení.
+Tento článek poskytuje pokyny pro minimální počet výpočetních instancí a SKU výpočtů, které byste měli použít pro jakékoli provozní nasazení.
 
-Můžete naplánovat strategie kapacitu služby App Service pomocí následujících pokynů.
+Pomocí těchto pokynů můžete naplánovat strategii App Service kapacity.
 
-| Role serveru služby App Service | Minimální doporučená počet instancí | Doporučené výpočetní SKU|
+| Role serveru App Service | Minimální doporučený počet instancí | Doporučená jednotka COMPUTE|
 | --- | --- | --- |
 | Kontrolér | 2 | A1 |
 | Front-end | 2 | A1 |
-| Vedení | 2 | A3 |
+| Správa | 2 | A3 |
 | Vydavatel | 2 | A1 |
-| Webových pracovních procesů – sdílené | 2 | A1 |
-| Webových pracovních procesů – vyhrazené | 2 a úroveň | A1 |
+| Webové pracovníky – sdílené | 2 | A1 |
+| Webové pracovníky – vyhrazené | 2 na vrstvu | A1 |
 
 ## <a name="controller-role"></a>Role kontroleru
 
-**Doporučená minimální**: Dvě instance A1 Standard
+**Doporučené minimum**: Dvě instance standardu a1
 
-Řadič služby Azure App Service obvykle dojde nízké využití procesoru, paměti a síťové prostředky. Pro zajištění vysoké dostupnosti, ale musí mít dva řadiče. Dva řadiče jsou také maximální počet řadičů povolené. Můžete vytvořit druhý řadič webů s přímým přístupem v instalačním programu během nasazení.
+Kontroler Azure App Service obvykle využívá nízkou spotřebu procesoru, paměti a síťových prostředků. Pro zajištění vysoké dostupnosti ale musíte mít dva řadiče. Maximální počet povolených řadičů je také dva řadiče. Během nasazování můžete vytvořit druhý kontroler webových serverů přímo z instalačního programu.
 
 ## <a name="front-end-role"></a>Role front-endu
 
-**Doporučená minimální**: Dvě instance A1 Standard
+**Doporučené minimum**: Dvě instance standardu a1
 
-Front-endových tras požadavky na webových pracovních procesů v závislosti na dostupnosti webových pracovních procesů. Pro zajištění vysoké dostupnosti měli byste mít více než jeden front-endu a může mít více než dvě. Pro účely plánování kapacity vezměte v úvahu, každé jádro může zpracovat přibližně 100 požadavků za sekundu.
+Front-end směruje požadavky na webové pracovníky v závislosti na dostupnosti webového pracovního procesu. Pro zajištění vysoké dostupnosti byste měli mít více než jeden front-end a můžete mít více než dvě. Pro účely plánování kapacity zvažte, že každý jádro může zpracovávat přibližně 100 požadavků za sekundu.
 
-## <a name="management-role"></a>Role pro správu
+## <a name="management-role"></a>Role správy
 
-**Doporučená minimální**: Dvě instance A3 Standard
+**Doporučené minimum**: Dvě instance standardu a3
 
-Role pro správu služby Azure App Service je odpovědná za aplikace služby Azure Resource Manageru a koncových bodů rozhraní API, rozšíření portálu (admin, tenanta, portálu Functions) a datové služby. Role serveru pro správu se obvykle vyžaduje jenom o 4 GB paměti RAM v produkčním prostředí. Však dojít vysokou úroveň využití procesoru, pokud se provádí řadu úloh správy (jako je například vytváření webu). Pro zajištění vysoké dostupnosti byste měli mít více než jeden server, které jsou přiřazené k této roli a minimálně dva jader na server.
+Role modelu nasazení Classic pro Azure App zodpovídá za App Service Azure Resource Manager a koncové body rozhraní API, rozšíření portálu (správce, tenant, funkce portálu) a datovou službu. Role management server obvykle vyžaduje v produkčním prostředí pouze přibližně 4 GB paměti RAM. Pokud ale provádíte mnoho úloh správy (například vytváření webů), může docházet k vysokým úrovním CPU. Pro zajištění vysoké dostupnosti byste měli mít k této roli přiřazený víc než jeden server a aspoň dvě jádra na server.
 
 ## <a name="publisher-role"></a>Role vydavatele
 
-**Doporučená minimální**: Dvě instance A1 Standard
+**Doporučené minimum**: Dvě instance standardu a1
 
-Pokud mnoho uživatelů současně publikujete, roli vydavatele může docházet k velkým využití procesoru. Pro zajištění vysoké dostupnosti Ujistěte se, že je k dispozici více než jedné role vydavatele. Vydavatel zpracovává jenom provoz FTP/FTPS.
+Pokud je mnoho uživatelů současně publikováním, může mít role vydavatele těžké využití CPU. V případě vysoké dostupnosti se ujistěte, že je k dispozici více než jedna role vydavatele. Vydavatel zpracovává jenom přenosy FTP/FTPS.
 
-## <a name="web-worker-role"></a>Webová role pracovního procesu
+## <a name="web-worker-role"></a>Role webového pracovního procesu
 
-**Doporučená minimální**: Dvě instance A1 Standard
+**Doporučené minimum**: Dvě instance standardu a1
 
-Pro zajištění vysoké dostupnosti měli byste mít alespoň čtyři webových rolí pracovního procesu, dvě pro režim sdílený web a dvě pro jednotlivé vrstvy vyhrazených pracovních serverů, které máte v plánu nabídnout. Sdílené a vyhrazené výpočetní režimy poskytovat různé úrovně služby klientům. Pokud mnoho vašich zákazníků, může být nutné další webových pracovních procesů:
+Pro zajištění vysoké dostupnosti byste měli mít aspoň čtyři role webového pracovního procesu: dva pro sdílený režim webu a dvě pro každou vyhrazenou vrstvu pracovního procesu, kterou hodláte nabízet. Sdílené a vyhrazené výpočetní režimy poskytují klientům různé úrovně služeb. Pokud máte spoustu vašich zákazníků, možná budete potřebovat víc webových procesů:
 
-- Pomocí vyhrazené výpočetní vrstvy pracovních procesů režimu, (které jsou náročné).
-- Používané sdílený výpočetní režim.
+- Používání vyhrazených vrstev pracovního procesu výpočetního režimu (které jsou náročné na prostředky).
+- Spuštěno ve sdíleném výpočetním režimu.
 
-Po vytvoření plánu služby App Service pro vyhrazený výpočetní režim skladové položky uživatele číslo zadané v tomto plánu služby App Service pracovníky webové již není k dispozici pro uživatele.
+Jakmile uživatel vytvoří plán App Service pro vyhrazenou SKLADOVOU položku výpočetního režimu, počet webových pracovních procesů, které jsou uvedené v tomto plánu App Service, už nejsou k dispozici pro uživatele.
 
-K poskytování Azure Functions pro uživatele v modelu plánu consumption, je nutné nasadit sdílených webových pracovních procesů.
+Pokud chcete poskytnout Azure Functions uživatelům v modelu plánování spotřeby, je nutné nasadit sdílené webové pracovní procesy.
 
-Při rozhodování o počet sdílených webových rolí pracovního procesu k použití, přečtěte si tyto aspekty:
+Při rozhodování o počtu sdílených rolí sdíleného webového pracovního procesu, které se mají použít, si přečtěte tyto požadavky:
 
-- **Paměť**: Paměť je nejdůležitějším prostředkem pro roli webového pracovního procesu. Nedostatek paměti ovlivňuje výkonu webu, když se virtuální paměti Prohodí z disku. Každý server vyžaduje asi 1,2 GB paměti RAM pro operační systém. Paměť RAM nad touto prahovou hodnotou lze použít ke spuštění webové stránky.
-- **Procento weby aktivní**: Obvykle jsou aktivní o 5 procent aplikací v Azure App Service v nasazení Azure stacku. Procento aplikací, které jsou v kterémkoli daném okamžiku aktivní však může být vyšší nebo nižší. S objemem aktivní aplikace 5 procent maximální počet aplikací, umístíte do služby Azure App Service v nasazení Azure stacku by být menší než 20 opakováních počtu aktivní weby (5 × 20 = 100).
-- **Průměrná paměť**: Průměrná paměť pro aplikace v produkčním prostředí je asi 70 MB. Pomocí této nároky na místo, je paměť přidělená přes všechny webové pracovní role počítače nebo virtuální počítače můžete vypočítat následujícím způsobem:
+- **Paměť**: Paměť je nejdůležitějším prostředkem pro roli webového pracovního procesu. Nedostatek paměti má vliv na výkon webového serveru při výměně virtuální paměti z disku. Každý server vyžaduje přibližně 1,2 GB paměti RAM pro operační systém. Paměť RAM nad touto prahovou hodnotou se dá použít ke spouštění webů.
+- **Procento aktivních**webů: V Azure App Service je obvykle aktivní přibližně 5% aplikací v Azure Stack nasazení. Procento aplikací, které jsou v daném okamžiku aktivní, ale může být vyšší nebo nižší. V případě aktivní míry aplikace o 5 procent maximální počet aplikací, které se mají umístit v Azure App Service v nasazení Azure Stack by měl být kratší než 20 časů počtu aktivních webů (5 × 20 = 100).
+- **Průměrné nároky na paměť**: Průměrné nároky na paměť pro aplikace zjištěné v produkčním prostředí jsou přibližně 70 MB. Pomocí těchto nároků se vypočte paměť přidělená napříč všemi počítači rolí webového pracovního procesu nebo virtuálními počítači následujícím způsobem:
 
    `Number of provisioned applications * 70 MB * 5% - (number of web worker roles * 1044 MB)`
 
-   Například pokud je 5 000 aplikací v prostředí, na kterém běží 10 webových rolí pracovního procesu, každá webová role pracovního procesu virtuálního počítače by měl mít 7060 MB paměti RAM:
+   Pokud máte například v prostředí s 10 rolemi webového pracovního procesu 5 000 aplikací, musí mít každý virtuální počítač role webového pracovního procesu 7060-MB paměti RAM:
 
    `5,000 * 70 * 0.05 - (10 * 1044) = 7060 (= about 7 GB)`
 
-   Informace o přidání více instancí pracovního procesu najdete v tématu [přidávání dalších rolí pracovního procesu](azure-stack-app-service-add-worker-roles.md).
+   Informace o přidání dalších instancí pracovních procesů najdete v tématu [Přidání dalších rolí pracovního procesu](azure-stack-app-service-add-worker-roles.md).
 
-### <a name="additional-considerations-for-dedicated-workers-during-upgrade-and-maintenance"></a>Další informace pro vyhrazené pracovní procesy během upgradu a údržby
+### <a name="additional-considerations-for-dedicated-workers-during-upgrade-and-maintenance"></a>Další požadavky na vyhrazené pracovní procesy během upgradu a údržby
 
-Během upgradu a údržby pracovních procesů, které služby Azure App Service ve službě Azure Stack se údržbě 20 % jednotlivé vrstvy pracovního procesu v daný okamžik.  Správci cloudu proto musíte mít vždy 20 % fond nepřiděleného pracovních procesů na vrstvu pracovního procesu k zajištění, že se že svým klientům nedochází ke ztrátě služeb během upgradu a údržby.  Například pokud máte 10 pracovních procesů v vrstvu pracovního procesu byste měli zajistit, že 2 jsou volné umožňující upgradu a údržby, pokud úplné 10 pracovní procesy budou přidělené můžete by se měly škálovat vrstvu pracovního procesu udržovat fond nepřiděleného pracovních procesů. Během upgradu a údržby služby Azure App Service se přesune, že úlohy nepřidělené zaměstnancům zajistit, že úlohy budou i nadále fungovat, ale pokud neexistují žádné volné pracovní procesy k dispozici během upgradu pak existuje bude potenciál pro úlohu tenanta výpadek.  S ohledem na sdílených pracovních procesů zákazníci není nutné zřídit další pracovní procesy, protože služba se přidělí tenanta aplikací v rámci dostupné pracovní procesy automaticky, pro zajištění vysoké dostupnosti, ale je minimální požadavek pro dva pracovní procesy v tomto úroveň.
+Během upgradu a údržby pracovních procesů Azure App Service v Azure Stack provede v jednom okamžiku údržbu na 20% každé vrstvy pracovního procesu.  Cloudové skupiny proto musí vždy udržovat 20% fondu nepřidělených pracovních procesů na vrstvu pracovního procesu, aby se jejich klienti nevědomi jakékoli ztráty služby během upgradu a údržby.  Pokud například máte 10 pracovních procesů v úrovni pracovního procesu, měli byste zajistit, aby 2 nepřidělené aktualizace umožňovaly upgrade a údržbu. Pokud se celé 10 pracovníků stane přiděleno, měli byste škálovat vrstvu pracovního procesu až do udržování fondu nepřidělených pracovních procesů. 
 
-Správci cloudu můžete monitorovat jejich přidělení vrstvy pracovního procesu v oblasti správy služeb aplikace v portálu pro správu služby Azure Stack.  Přejděte do služby App Service a potom v levém podokně vyberte vrstvy pracovních procesů.  Vrstvy pracovních procesů uvádí název vrstvy pracovního procesu, velikost, bitová kopie používaná, počet dostupných pracovních procesů (volné), celkový počet pracovních procesů v jednotlivých vrstvách a celkový stav vrstvy pracovního procesu.
+Při upgradu a údržbě Azure App Service přesunou úlohy na nepřidělené pracovní procesy, aby se zajistilo, že úlohy budou fungovat i nadále. Pokud ale během upgradu nejsou k dispozici žádní nepřidělené pracovní procesy, může dojít k výpadku zatížení tenanta. Pokud jde o sdílené pracovní procesy, zákazníci nepotřebují zřídit další pracovní procesy, protože služba bude přidělovat klientské aplikace v rámci dostupných pracovních procesů automaticky. Pro zajištění vysoké dostupnosti je na této úrovni minimální požadavek na dva pracovní procesy.
 
-![Správa služby App Service – vrstvy pracovních procesů][1]
+Správci cloudu mohou monitorovat své přidělení vrstev pracovních procesů v oblasti správce App Service na portálu pro správu Azure Stack. Přejděte na App Service a v levém podokně vyberte vrstvy pracovního procesu. Tabulka vrstev pracovního procesu zobrazuje název, velikost, použitý obrázek, počet dostupných pracovních procesů (nepřidělené), celkový počet pracovních procesů v každé úrovni a celkový stav vrstvy pracovního procesu.
+
+![Správa App Service – vrstvy pracovního procesu][1]
 
 ## <a name="file-server-role"></a>Role souborového serveru
 
-Pro roli souborového serveru můžete použít samostatný souborový server pro vývoj a testování. například při nasazování služby Azure App Service v Azure Stack Development Kit (ASDK) může být využit [šablony](https://aka.ms/appsvconmasdkfstemplate).  Pro produkční účely byste použít předem nakonfigurovaný souborový server Windows nebo předem nakonfigurovaný soubor bez Windows serveru.
+Pro roli souborového serveru můžete použít samostatný souborový server pro vývoj a testování. Například při nasazení Azure App Service na Azure Stack Development Kit (ASDK) můžete použít tuto [šablonu](https://aka.ms/appsvconmasdkfstemplate).  Pro produkční účely byste měli použít předem nakonfigurovaný souborový server systému Windows nebo předem nakonfigurovaný souborový server, který není Windows.
 
-V produkčním prostředí roli souborového serveru narazí vstupně-výstupní operace náročné na disku. Protože to jsou uloženy všechny soubory obsahu a aplikace pro uživatelské web sites, musíte předem nakonfigurovat jednu z následujících prostředků pro tuto roli:
+V produkčních prostředích používá role souborového serveru náročné vstupně-výstupní operace disku. Vzhledem k tomu, že jsou všechny soubory obsahu a aplikace pro uživatelské weby, měli byste pro tuto roli předem nakonfigurovat jeden z následujících prostředků:
 
-- Souborový server Windows
-- Cluster souborových serverů Windows
-- Soubor bez Windows serveru
-- Cluster Windows bez souborových serverů
-- Zařízení NAS (Network Attached Storage)
+- Souborový server systému Windows
+- Cluster souborových serverů systému Windows
+- Souborový server jiný než Windows
+- Cluster souborových serverů s jiným systémem než Windows
+- Zařízení NAS (úložiště připojené k síti)
 
-Zobrazit další informace najdete v následujícím článku [zřízení souborového serveru](azure-stack-app-service-before-you-get-started.md#prepare-the-file-server).
+Další informace najdete v tématu [zřízení souborového serveru](azure-stack-app-service-before-you-get-started.md#prepare-the-file-server).
 
 ## <a name="next-steps"></a>Další postup
 
-Naleznete v následujícím článku pro další informace:
-
-[Před zahájením práce s App Service ve službě Azure Stack](azure-stack-app-service-before-you-get-started.md)
+[Předpoklady pro nasazení App Service v Azure Stack](azure-stack-app-service-before-you-get-started.md)
 
 <!--Image references-->
 [1]: ./media/azure-stack-app-service-capacity-planning/worker-tier-allocation.png

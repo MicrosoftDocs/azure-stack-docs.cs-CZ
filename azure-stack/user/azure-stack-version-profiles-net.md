@@ -16,12 +16,12 @@ ms.date: 05/16/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 14f19fa432d782eace721d47b6b578dc73846631
-ms.sourcegitcommit: 58c28c0c4086b4d769e9d8c5a8249a76c0f09e57
+ms.openlocfilehash: af1f1351a5659447fb0f9e7ac9782fb74208e038
+ms.sourcegitcommit: ebb5afb7968d3e6531ecfcde7f4bb5e4420caf02
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68959378"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70302379"
 ---
 # <a name="use-api-version-profiles-with-net-in-azure-stack"></a>Použití profilů verzí API s využitím .NET v Azure stacku
 
@@ -63,7 +63,7 @@ Můžete zkombinovat všechny možnosti ve stejné aplikaci.
 
 5.  Pokud není k dispozici, vytvořte předplatné a uložte ID předplatného pro pozdější použití. Pokyny pro vytvoření odběru naleznete v tématu [vytvářet předplatná na nabídky ve službě Azure Stack][].
 
-6.  Vytvoření instančního objektu a uložení ID klienta a tajný kód klienta. Pokyny k vytvoření instančního objektu pro Azure Stack najdete v tématu [poskytnutí přístupu k aplikacím Azure Stack] []. ID klienta se také označuje jako ID aplikace při vytváření instančního objektu.
+6.  Vytvoření instančního objektu a uložení ID klienta a tajný kód klienta. Pokyny k vytvoření instančního objektu pro Azure Stack najdete v tématu [Poskytují aplikace přístup ke službě Azure Stack][]. ID klienta se také označuje jako ID aplikace při vytváření instančního objektu.
 
 7.  Ujistěte se, že má instančního objektu služby roli Přispěvatel nebo vlastník v rámci předplatného. Pokyny o tom, jak přiřadit roli instančnímu objektu služby najdete v tématu [Poskytují aplikace přístup ke službě Azure Stack][].
 
@@ -196,7 +196,7 @@ Následující ukázky použijte jako referenci pro vytváření řešení s vyu
 - [Správa účtů úložiště](https://github.com/Azure-Samples/hybird-storage-dotnet-manage-storage-accounts)
 - [Správa virtuálního počítače](https://github.com/Azure-Samples/hybrid-compute-dotnet-manage-vm) (Tato ukázka používá 2019-03-01 – hybridní profil podporovaný Azure Stack)
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 Další informace o profilech rozhraní API najdete v těchto tématech:
 
