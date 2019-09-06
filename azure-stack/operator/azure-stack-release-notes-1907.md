@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2019
+ms.date: 09/05/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 08/30/2019
 monikerRange: azs-1907
-ms.openlocfilehash: 4dc9c69479066aad3f2b4ebd08646e09da89ba3a
-ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
+ms.openlocfilehash: e6e873e42d6913fb6662a756a146e9af10906817
+ms.sourcegitcommit: e2aec63cacfdc830a20a02ee40e715e3c5dfdf22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70188110"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70386188"
 ---
 # <a name="azure-stack-1907-update"></a>Aktualizace Azure Stack 1907
 
@@ -144,14 +144,14 @@ Azure Stack oprav hotfix se týkají pouze Azure Stack integrovaných systémů.
 Vydání verze 1907 Azure Stack se musí použít ve verzi 1906 s následujícími opravami hotfix:
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack opravy hotfix 1.1906.12.54](https://support.microsoft.com/help/4518365)
+- [Azure Stack opravy hotfix 1.1906.13.56](https://support.microsoft.com/help/4520375)
 
 ### <a name="after-successfully-applying-the-1907-update"></a>Po úspěšné instalaci aktualizace 1907
 
 Po instalaci této aktualizace nainstalujte všechny příslušné opravy hotfix. Další informace najdete v našich [zásadách obsluhy](azure-stack-servicing-policy.md).
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack opravy hotfix 1.1907.12.44](https://support.microsoft.com/help/4517473)
+- [Azure Stack opravy hotfix 1.1907.15.50](https://support.microsoft.com/help/4520315)
 
 ## <a name="automatic-update-notifications"></a>Oznámení automatických aktualizací
 

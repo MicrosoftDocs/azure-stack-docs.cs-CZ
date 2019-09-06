@@ -1,6 +1,6 @@
 ---
-title: Správa poskytovatele prostředků SQL ve službě Azure Stack | Dokumentace Microsoftu
-description: Zjistěte, jak můžete spravovat služby poskytovatele prostředků SQL ve službě Azure Stack.
+title: Údržba poskytovatele prostředků SQL na Azure Stack | Microsoft Docs
+description: Přečtěte si, jak můžete spravovat službu poskytovatele prostředků SQL na Azure Stack.
 services: azure-stack
 documentationCenter: ''
 author: mattbriggs
@@ -15,46 +15,46 @@ ms.date: 05/06/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 77b341baca92e53448065325118088ff01a59052
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 1fa83cbbdba011646016e1e0b0fd5bef3b8d0baf
+ms.sourcegitcommit: a8379358f11db1e1097709817d21ded0231503eb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617812"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70377281"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>Operace údržby poskytovatele prostředků SQL
 
-Poskytovatele prostředků SQL běží na virtuálním počítači s uzamčená. Povolit operace údržby, budete muset aktualizovat zabezpečení virtuálních počítačů. Provedete to pomocí objektu nejnižší možná oprávnění, můžete použít [Powershellu Just Enough Administration (JEA)](https://docs.microsoft.com/powershell/jea/overview) koncový bod *DBAdapterMaintenance*. Instalační balíček pro poskytovatele prostředků zahrnuje skript pro tuto operaci.
+Poskytovatel prostředků SQL běží na uzamčeném virtuálním počítači. Chcete-li povolit operace údržby, je nutné aktualizovat zabezpečení virtuálního počítače. Pokud to chcete provést pomocí objektu zabezpečení s nejnižšími oprávněními, můžete použít PowerShell, který je [dostatečný pro správu (JEA)](https://docs.microsoft.com/powershell/scripting/learn/remoting/jea/overview) koncového bodu *DBAdapterMaintenance*. Instalační balíček poskytovatele prostředků obsahuje skript pro tuto operaci.
 
-## <a name="patching-and-updating"></a>Opravy a aktualizace
+## <a name="patching-and-updating"></a>Oprava a aktualizace
 
-Poskytovatele prostředků SQL není Údržba v rámci služby Azure Stack, protože se jedná součást doplňku. Společnost Microsoft poskytuje aktualizace u poskytovatele prostředků SQL podle potřeby. Při vydání aktualizovaných adaptér SQL je poskytován skript pro instalaci aktualizace. Tento skript vytvoří nový virtuální počítač, migrace stavu předchozího poskytovatele virtuálních počítačů do nového virtuálního počítače poskytovatele prostředků. Další informace najdete v tématu [aktualizovat poskytovatele prostředků SQL](azure-stack-sql-resource-provider-update.md).
+Poskytovatel prostředků SQL není obsluhovaná jako součást Azure Stack, protože se jedná o doplňkovou komponentu. Společnost Microsoft v případě potřeby poskytuje aktualizace poskytovateli prostředků SQL. Po vydání aktualizovaného adaptéru SQL je k dispozici skript pro instalaci aktualizace. Tento skript vytvoří nový virtuální počítač poskytovatele prostředků a migruje do nového virtuálního počítače stav starého virtuálního počítače poskytovatele. Další informace najdete v tématu [aktualizace poskytovatele prostředků SQL](azure-stack-sql-resource-provider-update.md).
 
 ### <a name="provider-virtual-machine"></a>Virtuální počítač poskytovatele
 
-Protože poběží poskytovatele prostředků *uživatele* virtuální počítač, budete muset použít vyžadovaných oprav a aktualizací po jejich uvedení na trh. Můžete balíčky aktualizací Windows, které jsou k dispozici jako součást cyklu aktualizace a opravy aktualizací pro virtuální počítač.
+Vzhledem k tomu, že poskytovatel prostředků běží na virtuálním počítači *uživatele* , musíte při jejich vydávání použít požadované opravy a aktualizace. Balíčky Windows Update, které jsou k dispozici jako součást cyklu patch-and-Update, můžete použít k instalaci aktualizací do virtuálního počítače.
 
-## <a name="updating-sql-credentials"></a>Aktualizují se přihlašovací údaje SQL
+## <a name="updating-sql-credentials"></a>Aktualizují se přihlašovací údaje SQL.
 
-Jste zodpovědní za vytváření a Správa účtů správce systému na SQL serverech. Poskytovatel prostředků vyžaduje účet s těmito oprávněními pro správu databází pro uživatele, ale nemusí mít přístup k datům uživatelů. Pokud je potřeba aktualizovat hesla správce systému na serverech SQL, můžete použít rozhraní poskytovatele prostředků správce změnit heslo. Tato hesla se ukládají ve službě Key Vault ve vaší instanci služby Azure Stack.
+Zodpovídáte za vytváření a udržování účtů sysadmin na vašich SQL serverech. Poskytovatel prostředků potřebuje účet s těmito oprávněními ke správě databází pro uživatele, ale nepotřebuje přístup k datům uživatelů. Pokud potřebujete aktualizovat hesla sysadmin na serverech SQL, můžete použít rozhraní Správce poskytovatele prostředků ke změně uloženého hesla. Tato hesla se ukládají do Key Vault vaší instance Azure Stack.
 
-Chcete-li upravit nastavení, vyberte **Procházet** &gt; **prostředky pro správu** &gt; **servery hostující SQL** &gt; **Přihlášeních SQL** a vyberte uživatelské jméno. Změnu musí v instanci SQL nejprve provést (a všechny repliky, pokud je to nutné.) V části **nastavení**vyberte **heslo**.
+Chcete-li upravit nastavení, vyberte **Procházet** &gt; **prostředky** &gt; pro správu **přihlašovacích** **serverů SQL hostující servery** &gt; a vyberte uživatelské jméno. Tato změna se musí provést nejdříve v instanci SQL (a v případě potřeby všechny repliky). V části **Nastavení**vyberte **heslo**.
 
-![Aktualizovat heslo správce](./media/azure-stack-sql-rp-deploy/sqlrp-update-password.PNG)
+![Aktualizace hesla správce](./media/azure-stack-sql-rp-deploy/sqlrp-update-password.PNG)
 
-## <a name="secrets-rotation"></a>Otočení tajných kódů
+## <a name="secrets-rotation"></a>Rotace tajných kódů
 
-*Tyto pokyny platí pouze pro integrované systémy Azure Stack.*
+*Tyto pokyny platí jenom pro Azure Stack integrované systémy.*
 
-Při použití poskytovatele prostředků SQL nebo MySQL pomocí služby Azure Stack integrované systémy, je zodpovědný za otáčení následující tajemství infrastruktury poskytovatele prostředků k zajištění, že nevyprší platnost operátory Azure stacku:
+Pokud používáte poskytovatele prostředků SQL a MySQL s Azure Stack integrovanými systémy, zodpovídá Azure Stack operátor za rotaci následujících tajných kódů infrastruktury poskytovatele prostředků, aby se zajistilo, že jejich platnost nevyprší:
 
-- Externí certifikát SSL [zadali při nasazení](azure-stack-pki-certs.md).
-- Prostředků poskytovatele virtuálních počítačů heslo místního správce účet zadaný během nasazení.
-- Heslo diagnostických uživatele (dbadapterdiag) poskytovatele prostředků.
+- [Při nasazení se zadal](azure-stack-pki-certs.md)externí certifikát SSL.
+- Heslo účtu místního správce virtuálního počítače poskytovatele prostředků zadané během nasazování.
+- Heslo pro uživatele diagnostiky poskytovatele prostředků (dbadapterdiag).
 
-### <a name="powershell-examples-for-rotating-secrets"></a>Příklady prostředí PowerShell pro výměnu tajných kódů
+### <a name="powershell-examples-for-rotating-secrets"></a>Příklady prostředí PowerShell pro rotující tajné klíče
 
-**Změňte všechny tajné kódy ve stejnou dobu.**
+**Změňte všechna tajná klíčová okna současně.**
 
 ```powershell
 .\SecretRotationSQLProvider.ps1 `
@@ -67,7 +67,7 @@ Při použití poskytovatele prostředků SQL nebo MySQL pomocí služby Azure S
     -VMLocalCredential $localCreds
 ```
 
-**Diagnostické uživatel heslo změňte.**
+**Změňte heslo pro uživatele diagnostiky.**
 
 ```powershell
 .\SecretRotationSQLProvider.ps1 `
@@ -77,7 +77,7 @@ Při použití poskytovatele prostředků SQL nebo MySQL pomocí služby Azure S
     -DiagnosticsUserPassword  $passwd
 ```
 
-**Změna hesla účtu místního Správce virtuálních počítačů.**
+**Změňte heslo účtu místního správce virtuálního počítače.**
 
 ```powershell
 .\SecretRotationSQLProvider.ps1 `
@@ -98,55 +98,55 @@ Při použití poskytovatele prostředků SQL nebo MySQL pomocí služby Azure S
     -DefaultSSLCertificatePassword $certPasswd
 ```
 
-### <a name="secretrotationsqlproviderps1-parameters"></a>SecretRotationSQLProvider.ps1 parameters
+### <a name="secretrotationsqlproviderps1-parameters"></a>SecretRotationSQLProvider. ps1 – parametry
 
 |Parametr|Popis|
 |-----|-----|
-|AzCredential|Azure přihlašovací údaje účtu správce služby zásobníku.|
-|CloudAdminCredential|Azure Stack cloudu domény účtu přihlašovací údaje správce.|
-|PrivilegedEndpoint|Privilegované koncový bod pro přístup k Get AzureStackStampInformation.|
-|DiagnosticsUserPassword|Diagnostika heslo k uživatelskému účtu.|
-|VMLocalCredential|Účet místního správce na virtuálním počítači MySQLAdapter.|
-|DefaultSSLCertificatePassword|Výchozí certifikát SSL (* pfx) heslo.|
-|DependencyFilesLocalPath|Závislost soubory místní cestu.|
+|AzCredential|Azure Stack přihlašovací údaje účtu správce služby.|
+|CloudAdminCredential|Azure Stack přihlašovací údaje účtu domény správce cloudu.|
+|PrivilegedEndpoint|Privilegovaný koncový bod pro přístup k Get-AzureStackStampInformation.|
+|DiagnosticsUserPassword|Heslo uživatelského účtu diagnostiky|
+|VMLocalCredential|Účet místního správce na virtuálním počítači s MySQLAdapter.|
+|DefaultSSLCertificatePassword|Výchozí heslo certifikátu SSL (* PFX)|
+|DependencyFilesLocalPath|Místní cesta souborů závislosti|
 |     |     |
 
 ### <a name="known-issues"></a>Známé problémy
 
-**Problém**: Tajné kódy rotace protokolů.<br>
-Protokoly pro rotaci tajné klíče se neshromažďují automaticky selhání vlastních skriptů tajných kódů otočení při jejím spuštění.
+**Problém**: Protokoly rotace tajných kódů.<br>
+Protokoly pro rotaci tajných kódů nejsou automaticky shromažďovány, pokud při spuštění dojde k chybě vlastního skriptu při střídání tajných klíčů.
 
 **Alternativní řešení**:<br>
-Použijte rutinu Get-AzsDBAdapterLogs shromažďovat všechny protokoly poskytovatele prostředků, včetně AzureStack.DatabaseAdapter.SecretRotation.ps1_*.log uložené v C:\Logs.
+Pomocí rutiny Get-AzsDBAdapterLogs Shromážděte všechny protokoly poskytovatele prostředků, včetně AzureStack. DatabaseAdapter. SecretRotation. ps1 _*. log uloženého v C:\Logs.
 
 ## <a name="update-the-virtual-machine-operating-system"></a>Aktualizace operačního systému virtuálního počítače
 
-Použijte jednu z následujících metod k aktualizaci operačního systému virtuálního počítače.
+K aktualizaci operačního systému virtuálního počítače použijte jednu z následujících metod.
 
-- Nainstalujte nejnovější balíček poskytovatele prostředků pomocí aktuálně opravené image jádru Windows serveru 2016.
-- Instalace balíčku aktualizace Windows při instalaci nebo aktualizaci u poskytovatele prostředků.
+- Nainstalujte nejnovější balíček poskytovatele prostředků pomocí aktuálně opravené image Windows Server 2016 Core.
+- Instalace balíčku web Windows Update během instalace nástroje nebo aktualizace na poskytovatele prostředků.
 
-## <a name="update-the-virtual-machine-windows-defender-definitions"></a>Aktualizace definic Windows Defenderu virtuálního počítače
+## <a name="update-the-virtual-machine-windows-defender-definitions"></a>Aktualizace definicí programu Windows Defender pro virtuální počítače
 
-Aktualizace definic Windows Defenderu:
+Aktualizace definic programu Windows Defender:
 
-1. Stáhnout aktualizace definic Windows Defenderu z [definic Windows Defenderu](https://www.microsoft.com/en-us/wdsi/definitions).
+1. Stáhněte aktualizaci definic programu Windows Defender z [definice programu Windows Defender](https://www.microsoft.com/en-us/wdsi/definitions).
 
-   V definicích aktualizovat stránku, přejděte dolů k položce "Ručně stáhnout a nainstalovat definice". Stáhněte si soubor 64-bit "Antivirus Windows Defenderu pro Windows 10 a Windows 8.1".
+   Na stránce aktualizace definic se posuňte dolů na možnost ručně stahovat a instalovat definice. Stáhněte si "Windows Defender AntiVirus for Windows 10 a Windows 8.1" 64-bit File.
 
-   Můžete taky použít [tento přímý odkaz](https://go.microsoft.com/fwlink/?LinkID=121721&arch=x64) na stažení nebo spuštění souboru fpam fe.exe.
+   Případně můžete použít [tento přímý odkaz](https://go.microsoft.com/fwlink/?LinkID=121721&arch=x64) ke stažení nebo spuštění souboru fpam-FE. exe.
 
-2. Vytvořte relaci Powershellu se koncový bod údržby SQL resource provider adaptéru virtuálního počítače.
+2. Vytvořte relaci PowerShellu pro koncový bod údržby virtuálního počítače adaptéru poskytovatele prostředků SQL.
 
-3. Zkopírujte soubor aktualizace definic k virtuálnímu počítači pomocí koncový bod relace údržby.
+3. Zkopírujte soubor aktualizace definic do virtuálního počítače pomocí relace koncového bodu údržby.
 
-4. V relaci Powershellu údržby, spusťte *aktualizace DBAdapterWindowsDefenderDefinitions* příkazu.
+4. V relaci PowerShellu údržby spusťte příkaz *Update-DBAdapterWindowsDefenderDefinitions* .
 
-5. Po instalaci definice, doporučujeme vám odstranit soubor aktualizace definic pomocí *odebrat ItemOnUserDrive* příkazu.
+5. Po instalaci definic doporučujeme odstranit soubor aktualizace definic pomocí příkazu *Remove-ItemOnUserDrive* .
 
-**Ukázkový skript Powershellu pro aktualizace definic.**
+**Příklad skriptu PowerShellu pro aktualizaci definic.**
 
-Můžete upravit a spustit následující skript pro aktualizaci definice Defender. Hodnoty ve skriptu nahraďte hodnotami z vašeho prostředí.
+Chcete-li aktualizovat definice Defenderu, můžete upravit a spustit následující skript. Nahraďte hodnoty ve skriptu hodnotami z vašeho prostředí.
 
 ```powershell
 # Set credentials for local admin on the resource provider VM.
@@ -178,30 +178,30 @@ Invoke-Command -Session $session -ScriptBlock `
 $session | Remove-PSSession
 ```
 
-## <a name="collect-diagnostic-logs"></a>Shromažďování diagnostických protokolů
+## <a name="collect-diagnostic-logs"></a>Shromažďovat diagnostické protokoly
 
-Shromažďování protokolů z uzamčená virtuálního počítače, můžete použít PowerShell Just Enough Administration (JEA) koncového bodu *DBAdapterDiagnostics*. Tento koncový bod poskytuje následující příkazy:
+Pokud chcete shromažďovat protokoly z uzamčeného virtuálního počítače, můžete použít PowerShell, který je stačí pro JEA ( *DBAdapterDiagnostics*) koncového bodu. Tento koncový bod nabízí následující příkazy:
 
-- **Get-AzsDBAdapterLog**. Tento příkaz vytvoří balíček zip diagnostické protokoly pro poskytovatele prostředků a uloží soubor na disku uživatelské relace. Můžete spustit tento příkaz bez parametrů a poslední 4 hodiny protokoly se shromažďují.
-- **Remove-AzsDBAdapterLog**. Tento příkaz odebere existující balíčky protokolu v poskytovateli prostředků virtuálního počítače.
+- **Get-AzsDBAdapterLog**. Tento příkaz vytvoří balíček zip pro diagnostické protokoly poskytovatele prostředků a uloží soubor na jednotku uživatele relace. Tento příkaz můžete spustit bez parametrů a budou se shromažďovat poslední čtyři hodiny protokolů.
+- **Remove-AzsDBAdapterLog**. Tento příkaz odebere existující balíčky protokolů na virtuálním počítači poskytovatele prostředků.
 
-### <a name="endpoint-requirements-and-process"></a>Koncový bod požadavky a proces
+### <a name="endpoint-requirements-and-process"></a>Požadavky a procesy koncového bodu
 
-Při instalaci nebo aktualizaci, poskytovatel prostředků **dbadapterdiag** vytvořený uživatelský účet. Tento účet budete používat ke shromažďování diagnostických protokolů.
+Když se nainstaluje nebo aktualizuje poskytovatel prostředků, vytvoří se uživatelský účet **dbadapterdiag** . Tento účet použijete ke shromáždění diagnostických protokolů.
 
 >[!NOTE]
->Heslo účtu dbadapterdiag je stejný jako heslo pro místního správce na virtuálním počítači, který se vytvoří během poskytovatele nasazení nebo aktualizace.
+>Heslo účtu dbadapterdiag je stejné jako heslo použité pro místního správce na virtuálním počítači, který je vytvořený během nasazení nebo aktualizace zprostředkovatele.
 
-Použít *DBAdapterDiagnostics* příkazy, vytvořit vzdálené relace prostředí PowerShell k virtuálnímu počítači poskytovatele prostředků a spustit **Get-AzsDBAdapterLog** příkazu.
+Pokud chcete použít příkazy *DBAdapterDiagnostics* , vytvořte vzdálenou relaci PowerShellu k virtuálnímu počítači poskytovatele prostředků a spusťte příkaz **Get-AzsDBAdapterLog** .
 
-Nastavte časové rozpětí pro shromažďování protokolů pomocí **datum FromDate** a **ToDate** parametry. Pokud nechcete zadat jeden nebo oba tyto parametry, se používají následující výchozí hodnoty:
+Časové rozpětí pro shromažďování protokolů můžete nastavit **pomocí parametrů** **FromDate** a na více dní. Pokud nezadáte jeden nebo oba parametry, použijí se následující výchozí hodnoty:
 
-- Datum FromDate je čtyři hodiny před aktuálním časem.
-- Do data je aktuální čas.
+- FromDate je čtyři hodiny před aktuálním časem.
+- Aktuální čas je v aktuálním čase.
 
-**Ukázkový skript Powershellu pro shromažďování protokolů.**
+**Příklad skriptu PowerShellu pro shromažďování protokolů.**
 
-Tento skript ukazuje, jak shromažďovat diagnostické protokoly z poskytovatele prostředků virtuálního počítače.
+Následující skript ukazuje, jak shromažďovat diagnostické protokoly z virtuálního počítače poskytovatele prostředků.
 
 ```powershell
 # Create a new diagnostics endpoint session.
@@ -231,6 +231,6 @@ $cleanup = Invoke-Command -Session $session -ScriptBlock {Remove- AzsDBAdapterLo
 $session | Remove-PSSession
 ```
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
-[Přidat SQL Server, který hostuje servery](azure-stack-sql-resource-provider-hosting-servers.md)
+[Přidání SQL Server hostitelských serverů](azure-stack-sql-resource-provider-hosting-servers.md)

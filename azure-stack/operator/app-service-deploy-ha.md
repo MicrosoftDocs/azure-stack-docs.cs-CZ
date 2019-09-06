@@ -16,12 +16,12 @@ ms.date: 03/23/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: e09cc9e5c77379441d7757fa1395941712ecc5ff
-ms.sourcegitcommit: e2f6205e6469b39c2395ee09424bb7632cb94c40
+ms.openlocfilehash: 994291eb0a990521dc932adc63f0ad52d4430e0d
+ms.sourcegitcommit: e2aec63cacfdc830a20a02ee40e715e3c5dfdf22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70271835"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70386244"
 ---
 # <a name="deploy-app-service-in-a-highly-available-configuration"></a>Nasazení App Service v konfiguraci s vysokou dostupností
 
@@ -121,7 +121,7 @@ Před spuštěním instalačního programu App Service je potřeba provést něk
 > Ne všechny kroky popsané v části [než začnete s App Service článkem](azure-stack-app-service-before-you-get-started.md) jsou vyžadovány, protože nasazení šablony nakonfiguruje virtuální počítače infrastruktury za vás.
 
 - [Stáhněte si instalační program a skripty pro pomoc s App Service](azure-stack-app-service-before-you-get-started.md#download-the-installer-and-helper-scripts).
-- [Stáhněte si nejnovější rozšíření vlastních skriptů na web Azure Stack Marketplace](azure-stack-app-service-before-you-get-started.md#syndicate-the-custom-script-extension-from-the-marketplace).
+- [Stáhněte si položky z webu Azure Stack Marketplace](azure-stack-app-service-before-you-get-started.md#download-items-from-the-azure-marketplace).
 - [Vygenerujte požadované certifikáty](azure-stack-app-service-before-you-get-started.md#get-certificates).
 - Vytvořte aplikaci ID na základě poskytovatele identifikace, kterého jste zvolili pro Azure Stack. Pro [Azure AD](azure-stack-app-service-before-you-get-started.md#create-an-azure-active-directory-app) nebo [Active Directory Federation Services (AD FS)](azure-stack-app-service-before-you-get-started.md#create-an-active-directory-federation-services-app) lze vytvořit aplikaci s ID a zaznamenat ID aplikace.
 - Ujistěte se, že jste přidali image Windows serveru 2016 Datacenter do webu Azure Stack Marketplace. Tato image se vyžaduje pro App Service instalaci.

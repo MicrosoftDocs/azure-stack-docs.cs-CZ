@@ -16,12 +16,12 @@ ms.date: 08/29/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: a12aceff00cf5be2d6ab70c4957ef04ea1c135d5
-ms.sourcegitcommit: e2f6205e6469b39c2395ee09424bb7632cb94c40
+ms.openlocfilehash: 0fbb57771976b896f8f6b37b62780e34d6635d78
+ms.sourcegitcommit: e2aec63cacfdc830a20a02ee40e715e3c5dfdf22
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70271714"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70386237"
 ---
 # <a name="prerequisites-for-deploying-app-service-on-azure-stack"></a>Předpoklady pro nasazení App Service v Azure Stack
 
@@ -47,9 +47,12 @@ Před nasazením Azure App Service v Azure Stack musíte dokončit požadované 
    - Složka modulů
      - GraphAPI.psm1
 
-## <a name="syndicate-the-custom-script-extension-from-the-marketplace"></a>Zasyndikátit rozšíření vlastních skriptů z Marketplace
+## <a name="download-items-from-the-azure-marketplace"></a>Stáhnout položky z Azure Marketplace
 
-Azure App Service v Azure Stack vyžaduje rozšíření vlastních skriptů v 1.9.1.  Než začnete s nasazením nebo upgradem Azure App Service v Azure Stack, je nutné toto rozšíření [z webu Marketplace zasyndikátit](azure-stack-download-azure-marketplace-item.md) .
+Azure App Service v Azure Stack vyžadují [stažení položek z Azure Marketplace](azure-stack-download-azure-marketplace-item.md)a jejich zpřístupnění na Azure Stack Marketplace. Tyto položky je nutné stáhnout před zahájením nasazení nebo upgradu Azure App Service v Azure Stack:
+
+1. Nejnovější verze image virtuálního počítače s Windows serverem 2016 Datacenter
+2. Rozšíření vlastních skriptů v 1.9.1 nebo novějším. Toto je rozšíření virtuálního počítače.
 
 ## <a name="get-certificates"></a>Získat certifikáty
 
@@ -407,6 +410,6 @@ Postupujte následovně:
 | CertificateFilePath | Požadováno | Null | **Úplná cesta** k souboru PFX pro certifikát aplikace identity |
 | CertificatePassword | Požadováno | Null | Heslo, které pomáhá chránit privátní klíč certifikátu. |
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 [Instalace poskytovatele prostředků App Service](azure-stack-app-service-deploy.md)

@@ -445,7 +445,7 @@
                   href: azure-stack-configure-on-demand-diagnostic-log-collection.md
         - name: Ověření pro Azure Stack
           href: azure-stack-diagnostic-test.md
-        - name: Známé problémy
+        - name: Řešení potíží
           href: azure-stack-troubleshooting.md
 - name: Reference
   items:
