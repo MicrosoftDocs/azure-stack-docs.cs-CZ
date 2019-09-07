@@ -15,12 +15,12 @@ ms.date: 08/28/2019
 ms.author: mabrigg
 ms.lastreviewed: 08/15/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: bea83d743e7f43ff25d446a09b0e12d0c0af4232
-ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
+ms.openlocfilehash: b218a1b40953d9266ec5a8bcdd49f5d89a421146
+ms.sourcegitcommit: 5703255b4647ff0ebec23658a3f5c25d67f076a2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70188365"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70749932"
 ---
 # <a name="apply-azure-stack-original-equipment-manufacturer-oem-updates"></a>Použít Azure Stack aktualizace OEM (Original Equipment Manufacturer)
 
@@ -59,8 +59,9 @@ Použijte balíčky OEM pomocí následujících kroků:
 1. Budete se muset obrátit na výrobce OEM, aby:
       - Zjistěte aktuální verzi balíčku OEM.  
       - Najděte nejlepší metodu pro stažení balíčku OEM.  
-2. Připravte si balíček OEM s postupem popsaným v části [stažení balíčků aktualizací pro integrované systémy](azure-stack-servicing-policy.md).
-3. Aktualizace použijte s postupem popsaným v části [použití aktualizací v Azure Stack](azure-stack-apply-updates.md).
+2. Před použitím aktualizace balíčku OEM byste měli vždy použít nejnovější Azure Stack opravu hotfix, která je k dispozici v aktuální verzi Azure Stack systému. Další informace o opravách hotfix najdete v tématu [Azure Stack oprav hotfix](https://docs.microsoft.com/azure-stack/operator/azure-stack-servicing-policy).
+3. Připravte si balíček OEM s postupem popsaným v části [stažení balíčků aktualizací pro integrované systémy](azure-stack-servicing-policy.md).
+4. Aktualizace použijte s postupem popsaným v části [použití aktualizací v Azure Stack](azure-stack-apply-updates.md).
 
 ## <a name="configure-hardware-vendor-vm"></a>Konfigurace virtuálního počítače dodavatele hardwaru
 
