@@ -1,6 +1,6 @@
 ---
-title: App Service v Azure stacku update 1 poznámky k verzi | Dokumentace Microsoftu
-description: Další informace o tom, co je v aktualizaci, jeden pro službu App Service ve službě Azure Stack, známé problémy a kde se stáhnout aktualizaci.
+title: App Service v poznámce k verzi Azure Stack Update 1 | Microsoft Docs
+description: Přečtěte si o vylepšeních, opravách a známých problémech v aktualizaci 1 pro App Service v Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: bryanla
@@ -16,52 +16,48 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/20/2018
-ms.openlocfilehash: b9b884377e35b43670943f4cf94a24b5216bf233
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: d9155edcf23154f70f2a7f8098df55e7acb2b552
+ms.sourcegitcommit: 7d7a4c8c46613b6104caf23763bfd2275f6a826b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269110"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70808270"
 ---
-# <a name="app-service-on-azure-stack-update-1-release-notes"></a>App Service v Azure stacku update 1 poznámky
+# <a name="app-service-on-azure-stack-update-1-release-notes"></a>Zpráva k vydání verze App Service v Azure Stack Update 1
 
-*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
 
-Tyto poznámky k verzi popisují vylepšení a oprav ve službě Azure App Service v Azure Stack Update 1 a známých problémech. Známé problémy jsou rozděleny do týkající se přímo k nasazení, aktualizace a problémy se sestavením (po instalaci).
+Tyto poznámky k verzi popisují vylepšení, opravy a známé problémy v Azure App Service na Azure Stack Update 1. Známé problémy jsou rozdělené na tři části: problémy přímo související s nasazením, problémy s procesem aktualizace a problémy se sestavením (po instalaci).
 
 > [!IMPORTANT]
-> Instalaci aktualizace 1802 do služby Azure Stack integrované systému nebo nasadit nejnovější sady Azure Stack development kit před nasazením služby Azure App Service.
->
->
+> Před nasazením Azure App Service použijte aktualizaci 1802 na integrovaný systém Azure Stack nebo nasaďte nejnovější Azure Stack Development Kit (ASDK).
 
 ## <a name="build-reference"></a>Referenční informace o buildu
 
-App Service na číslo sestavení aktualizace 1 pro Azure Stack je **69.0.13698.9**
+App Service číslo buildu Azure Stack Update 1 je **69.0.13698.9**.
 
 ### <a name="prerequisites"></a>Požadavky
 
 > [!IMPORTANT]
-> Nyní vyžadují nové nasazení služby Azure App Service ve službě Azure Stack [certifikát se zástupným znakem tři subjektu](azure-stack-app-service-before-you-get-started.md#get-certificates) z důvodu vylepšení způsobem, ve kterém je jednotné přihlašování pro Kudu teď provádí ve službě Azure App Service. Je nový předmět  **\*. sso.appservice.\< oblast\>.\< domainname\>.\< rozšíření\>**
->
->
+> Nová nasazení Azure App Service v Azure Stack nyní vyžadují [certifikát se zástupným znakem tři subjektu](azure-stack-app-service-before-you-get-started.md#get-certificates) z důvodu vylepšení způsobu, jakým se v Azure App Service zpracovává jednotné přihlašování pro Kudu. Nový předmět je  **\*. SSO.\< AppService. oblast\>.\< \>název_domény.\< klapk\>**
 
-Odkazovat [před zahájením práce dokumentaci](azure-stack-app-service-before-you-get-started.md) před zahájením nasazení.
+Než začnete s nasazením, přečtěte si [požadavky pro nasazení App Service v Azure Stack](azure-stack-app-service-before-you-get-started.md) .
 
 ### <a name="new-features-and-fixes"></a>Nové funkce a opravy
 
-Azure App Service v Azure Stack Update 1 zahrnuje následující vylepšení a opravy:
+Azure App Service na Azure Stack Update 1 obsahuje následující vylepšení a opravy:
 
-- **Vysoká dostupnost pro Azure App Service** – The Azure Stack 1802 aktualizace povolena úloh k nasazení napříč domén selhání. Infrastruktura služby App Service je proto může být odolné proti chybám, protože se nasadí napříč doménami selhání. Všechna nová nasazení služby Azure App Service ve výchozím nastavení má tato funkce, ale nasazení dokončeno před Azure Stack 1802 se zavádějí aktualizace najdete [dokumentaci doména selhání App Service](azure-stack-app-service-before-you-get-started.md )
+- **Vysoká dostupnost Azure App Service** – úlohy s povolenými aktualizacemi Azure Stack 1802 budou nasazené napříč doménami selhání, což umožňuje, aby byla App Serviceá infrastruktura odolná proti chybám při nasazení napříč doménami selhání. Tato funkce má ve výchozím nastavení všechna nová nasazení Azure App Service. Pro nasazení dokončené před aktualizací Azure Stack 1802 se ale přečtěte v [dokumentaci k doméně selhání App Service](azure-stack-app-service-before-you-get-started.md).
 
-- **Nasazení v existující virtuální síť** -mohou nyní zákazníci nasadit služby App Service ve službě Azure Stack v rámci existující virtuální sítě. Nasazení v existující virtuální síť umožňuje zákazníkům připojit se k serveru SQL Server a souborový Server, přes privátní porty vyžadované pro služby Azure App Service. Během nasazování, Zákazníci si můžou vybrat k nasazení v existující virtuální síť, ale [podsítě pro použití službou App Service, musíte vytvořit](azure-stack-app-service-before-you-get-started.md#virtual-network) před jejich nasazením.
+- **Nasazení ve stávající virtuální síti** – zákazníci teď můžou nasazovat App Service na Azure Stack v rámci existující virtuální sítě. Nasazení ve stávající virtuální síti umožňuje zákazníkům připojit se k SQL Server a souborového serveru, který je vyžadován pro Azure App Service, prostřednictvím privátních portů. Během nasazování můžou zákazníci vybrat možnost nasazení v existující virtuální síti, ale [musí vytvořit podsítě pro použití App Service](azure-stack-app-service-before-you-get-started.md#virtual-network) před nasazením.
 
-- Aktualizace **aplikace služeb pro klienty, Admin, portály funkce a nástroje Kudu**. Konzistentní s verzí sady SDK portálu Azure Stack.
+- Aktualizace pro **App Service klientů, správců, funkcí portálů a nástrojů Kudu** Konzistentní s Azure Stack verze sady SDK portálu.
 
-- Aktualizace **modul runtime služby Azure Functions** k **v1.0.11388**.
+- Aktualizuje **Azure Functions runtime** na **v 1.0.11388**.
 
-- **Aktualizace následujících aplikační architektury a nástroje**:
-    - Přidání **.NET Core 2.0** podpory
-    - Přidání **Node.JS** verze:
+- **Aktualizace následujících aplikačních architektur a nástrojů**:
+    - Přidala se podpora **.NET Core 2,0** .
+    - Přidané verze **Node. js** :
         - 6.11.2
         - 6.11.5
         - 7.10.1
@@ -72,7 +68,7 @@ Azure App Service v Azure Stack Update 1 zahrnuje následující vylepšení a o
         - 8.7.0
         - 8.8.1
         - 8.9.0
-    - Přidání **NPM** verze:
+    - Přidané verze **npm** :
         - 3.10.10
         - 4.2.0
         - 5.0.0
@@ -80,52 +76,52 @@ Azure App Service v Azure Stack Update 1 zahrnuje následující vylepšení a o
         - 5.3.0
         - 5.4.2
         - 5.5.1
-    - Přidání **PHP** aktualizace:
+    - Přidané aktualizace **php** :
         - 5.6.32
         - 7.0.26 (x86 a x64)
         - 7.1.12 (x86 a x64)
-    - Aktualizovat **Git pro Windows** až v 2.14.1
-    - Aktualizovat **Mercurial** k v4.5.0
+    - Aktualizace **Gitu pro Windows** na v 2.14.1
+    - Aktualizace **Mercurial** na verzi v 4.5.0
 
-  - Přidání podpory pro **pouze HTTPS** funkce v rámci funkce vlastní domény v Tenantovi portálu služby App Service. 
+  - Přidání podpory funkce **pouze protokolu HTTPS** v rámci funkce vlastní doména na portálu tenanta App Service.
 
-  - Přidání ověření připojení úložiště při výběru vlastního úložiště pro službu Azure Functions 
+  - Přidání ověření připojení úložiště v nástroji pro výběr vlastního úložiště pro Azure Functions.
 
 #### <a name="fixes"></a>Opravy
 
-- Po vytvoření balíčku pro nasazení v režimu offline, zákazníci už nebudete dostávat zpráva Přístup byl odepřen Chyba při otevírání složky z instalačního programu služby App Service
+- Při vytváření offline balíčku pro nasazení se uživatelům už při otevření složky z instalačního programu App Service neobdrží chybová zpráva o odepření přístupu.
 
-- Vyřešení problémů při práci ve funkci vlastních domén v Tenantovi portálu služby App Service.
+- Vyřešené problémy při práci na funkci Custom doméns na portálu tenanta App Service.
 
-- Zabránit zákazníci, kteří používají názvy vyhrazené správce během instalace
+- Zabránit zákazníkům v používání rezervovaných názvů správců během instalace.
 
-- Povoleno nasazení služby App Service s **připojených k doméně** souborového serveru
+- Povoleno nasazení App Service se souborovým serverem **připojeným k doméně** .
 
-- Vylepšené načítání služby Azure Stack kořenových certifikátů ve skriptu a nyní ověřit kořenový certifikát v instalačním programu sady služby App Service.
+- Vylepšené načítání Azure Stack kořenových certifikátů ve skriptu a přidání možnosti ověřit kořenový certifikát v instalačním programu App Service.
 
-- Oprava nesprávný stav se vrací do Azure Resource Manageru, když se předplatné odstranit tento obsažených prostředků v oboru názvů Microsoft.Web.
+- Opravil se nesprávný stav Azure Resource Manager, když se odstraní odběr, který obsahuje prostředky v oboru názvů Microsoft. Web.
 
 ### <a name="known-issues-with-the-deployment-process"></a>Známé problémy s procesem nasazení
 
-- Chyby ověření certifikátu
+- Chyby ověření certifikátu.
 
-Zákazníci, kteří se setkali problémy při poskytování certifikátů do služby App Service instalačního programu při nasazování na integrovaný systém, kvůli příliš omezující ověřování v instalačním programu. Instalační program služby App Service byla vydána znovu, by měl zákazníkům [stáhnout aktualizované instalační program](https://aka.ms/appsvconmasinstaller). Pokud budete nadále dochází k problémům s ověřování certifikátů pomocí aktualizovaný instalační program, obraťte se na podporu.
+    Někteří zákazníci narazili na problémy při poskytování certifikátů instalačnímu programu App Service při nasazení v integrovaném systému z důvodu překročení omezení ověření v instalačním programu. Instalační program App Service byl znovu uvolněn a zákazníci by si měli [stáhnout aktualizovaný instalační program](https://aka.ms/appsvconmasinstaller). Pokud budete mít i nadále problémy s ověřováním certifikátů pomocí aktualizovaného instalačního programu, obraťte se na podporu.
 
-- Potíže při načítání kořenového certifikátu služby Azure Stack z integrovaného systému.
+- Při načítání Azure Stack kořenového certifikátu z integrovaného systému došlo k potížím.
 
-Chyba v Get-AzureStackRootCert.ps1 způsobila zákazníkům selhání načtení kořenového certifikátu služby Azure Stack při spuštění skriptu v počítači, který nemá nainstalován kořenový certifikát. Skript také nyní byla vydána znovu, řeší tento problém a zákazníci požadavek [stáhnout aktualizovaný pomocné skripty](https://aka.ms/appsvconmashelpers). Pokud budete nadále dochází k problémům s načítání kořenový certifikát s aktualizovaný skript, obraťte se na podporu.
+    Chyba v Get-AzureStackRootCert. ps1 způsobila, že zákazníci při spouštění skriptu na počítači, ve kterém není nainstalován kořenový certifikát, nepodaří načíst Azure Stack kořenový certifikát. Nyní byl skript znovu vydán, což vyřeší tento problém. [Aktualizované pomocné skripty si můžete stáhnout tady](https://aka.ms/appsvconmashelpers). Pokud budete pokračovat v práci s načtením kořenového certifikátu s aktualizovaným skriptem, obraťte se na podporu.
 
 ### <a name="known-issues-with-the-update-process"></a>Známé problémy s proces aktualizace
 
-- Nejsou žádné známé problémy pro aktualizace služby Azure App Service v Azure stacku Update 1.
+- Neexistují žádné známé problémy pro aktualizaci Azure App Service na Azure Stack Update 1.
 
 ### <a name="known-issues-post-installation"></a>Známé problémy (po instalaci)
 
-- Prohození slotů nefunguje.
+- Swap slotu nefunguje.
 
-Prohození slotů webu je v této verzi fungovat. Pokud chcete obnovit funkce, proveďte tyto kroky:
+V této verzi je prohození slotu webu přerušeno. Chcete-li obnovit funkčnost, proveďte následující kroky:
 
-1. Upravit skupinu zabezpečení sítě ControllersNSG k **povolit** připojení ke vzdálené ploše instance kontroleru služby App Service. Nahraďte názvem skupiny prostředků, které jste nasadili služby App Service v AppService.local.
+1. Upravte skupinu zabezpečení sítě ControllersNSG tak, aby **povolovala** připojení vzdálené plochy k instancím kontroleru App Service. Nahraďte AppService. Local názvem skupiny prostředků, kterou jste nasadili App Service.
 
     ```powershell
       Add-AzureRmAccount -EnvironmentName AzureStackAdmin
@@ -150,8 +146,8 @@ Prohození slotů webu je v této verzi fungovat. Pokud chcete obnovit funkce, p
       Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
     ```
 
-2. Procházet **CN0 virtuálního počítače** v části virtuální počítače na portálu Správce služby Azure Stack a **kliknete na připojit** otevřít relaci vzdálené plochy se instance kontroleru. Použijte pověření zadaná při nasazení služby App Service.
-3. Spustit **prostředí PowerShell jako správce** a spusťte následující skript
+2. Přejděte na **CN0-VM** pod Virtual Machines na portálu pro správu Azure Stack a **kliknutím na připojit** otevřete relaci vzdálené plochy s instancí kontroleru. Použijte přihlašovací údaje zadané při nasazení App Service.
+3. Spusťte **PowerShell jako správce** a spusťte následující skript:
 
     ```powershell
         Import-Module appservice
@@ -174,8 +170,8 @@ Prohození slotů webu je v této verzi fungovat. Pokud chcete obnovit funkce, p
         
     ```
 
-4. Ukončete relaci vzdálené plochy.
-5. Obnovit skupinu zabezpečení sítě ControllersNSG k **Odepřít** připojení ke vzdálené ploše instance kontroleru služby App Service. Nahraďte názvem skupiny prostředků, které jste nasadili služby App Service v AppService.local.
+4. Zavřete relaci vzdálené plochy.
+5. Vraťte skupinu zabezpečení sítě ControllersNSG, aby **odmítala** připojení vzdálené plochy k instancím kontroleru App Service. Nahraďte AppService. Local názvem skupiny prostředků, kterou jste nasadili App Service.
 
     ```powershell
 
@@ -201,25 +197,25 @@ Prohození slotů webu je v této verzi fungovat. Pokud chcete obnovit funkce, p
         Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
     ```
 
-6. Pracovní procesy se nám kontaktovat souborového serveru při nasazení služby App Service v existující virtuální sítě a souborový server je k dispozici v privátní síti.
+6. Pokud je App Service nasazená ve stávající virtuální síti a souborový server je k dispozici jenom v privátní síti, zaměstnanci nemůžou kontaktovat souborový server.
 
-Pokud jste se rozhodli nasadit do existující virtuální sítě a interní IP adresu pro připojení k souborovému serveru, je nutné přidat odchozí pravidlo zabezpečení, povolení provozu SMB mezi podsítě pracovního procesu a souborový server. Chcete-li to provést, přejděte na WorkersNsg v portálu pro správu a přidat odchozí pravidlo zabezpečení s následujícími vlastnostmi:
+Pokud se rozhodnete nasadit do existující virtuální sítě a interní IP adresu pro připojení k souborovému serveru, musíte přidat odchozí pravidlo zabezpečení, které umožňuje provoz protokolu SMB mezi podsítí pracovních procesů a souborovým serverem. Na portálu pro správu přejdete na WorkersNsg a přidáte odchozí pravidlo zabezpečení s následujícími vlastnostmi:
 
-- Zdroj: Vše
-- Zdrojový rozsah portů: *
-- Cíl: Adresy IP
+- Zdroj: Any
+- Rozsah zdrojových portů: *
+- Cíl: IP adresy
 - Rozsah cílových IP adres: Rozsah IP adres pro souborový server
 - Rozsah cílových portů: 445
 - Protokol: TCP
-- Akce: Povolit
+- Akce: Allow
 - Priorita: 700
 - Název: Outbound_Allow_SMB445
 
-### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Známé problémy pro správce cloudu provoz služby Azure App Service ve službě Azure Stack
+### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Známé problémy pro cloudové správce pracující Azure App Service v Azure Stack
 
-Přečtěte si dokumentaci v [zpráva k vydání verze Azure Stack 1802](azure-stack-update-1903.md)
+Informace najdete v dokumentaci k [verzi Azure Stack 1802](azure-stack-update-1903.md) .
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
-- Přehled služby Azure App Service najdete v tématu [Azure App Service na Přehled služby Azure Stack](azure-stack-app-service-overview.md).
-- Další informace o tom, jak připravit nasazení služby App Service ve službě Azure Stack najdete v tématu [před zahájením práce s App Service ve službě Azure Stack](azure-stack-app-service-before-you-get-started.md).
+- Přehled Azure App Service najdete v tématu [přehled Azure App Service na Azure Stack](azure-stack-app-service-overview.md).
+- Další informace o přípravě na nasazení App Service v Azure Stack najdete v tématu [předpoklady pro nasazení App Service na Azure Stack](azure-stack-app-service-before-you-get-started.md).

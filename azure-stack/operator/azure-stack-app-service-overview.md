@@ -1,6 +1,6 @@
 ---
-title: App Service v Azure stacku – přehled | Dokumentace Microsoftu
-description: Přehled služby App Service v Azure stacku
+title: Přehled Azure Stack App Service | Microsoft Docs
+description: Přehled App Service v Azure Stack
 services: azure-stack
 documentationcenter: ''
 author: BryanLa
@@ -15,59 +15,59 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: anwestg
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 4ae72e7f75147fc3891731da48ee210fc546bd97
-ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
+ms.openlocfilehash: 698d38e971d37457d50637cb2e7e2ffe88890c20
+ms.sourcegitcommit: 7d7a4c8c46613b6104caf23763bfd2275f6a826b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66692045"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70808217"
 ---
 # <a name="app-service-on-azure-stack-overview"></a>Přehled App Service v Azure Stacku
 
-*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
 
-Azure App Service ve službě Azure Stack je nabídka platform-as-a-service (PaaS) Microsoft Azure k dispozici pro Azure Stack. Tato služba umožňuje vaší interní nebo externí zákazníkům vytvářet webové rozhraní API a Azure Functions aplikací pro jakoukoliv platformu nebo zařízení. Vaše aplikace můžou integrovat s místními aplikacemi a automatizovat své obchodní procesy. Operátoři cloudu Azure Stack můžou spouštět zákaznické aplikace na plně spravovaných virtuálních počítačích se sdílenými prostředky podle vlastního výběru nebo na vyhrazených virtuálních počítačích.
+Azure App Service v Azure Stack je nabídka typu platforma jako služba (PaaS) z Microsoft Azure dostupná na Azure Stack. Služba umožňuje vašim interním nebo externím zákazníkům vytvářet webové aplikace, rozhraní API a Azure Functions aplikací pro libovolnou platformu nebo zařízení. Můžou vaše aplikace integrovat s místními aplikacemi a automatizovat jejich obchodní procesy. Provozovatelé cloudu Azure Stack můžou spouštět aplikace zákazníka na plně spravovaných virtuálních počítačích s jejich výběrem ze sdílených prostředků virtuálních počítačů nebo vyhrazených virtuálních počítačů.
 
-Azure App Service umožňuje automatizaci obchodních procesů a hostování cloudových rozhraní API. Jako jediná integrovaná služba Azure App Service umožňuje kombinovat různé součásti, jako je například weby, rozhraní REST API a obchodních procesů v rámci jednoho řešení.
+Azure App Service umožňuje automatizovat obchodní procesy a hostovat cloudová rozhraní API. Jako jediná integrovaná služba Azure App Service umožňuje kombinovat různé komponenty, jako jsou weby, rozhraní REST API a obchodní procesy, do jediného řešení.
 
-## <a name="why-offer-azure-app-service-on-azure-stack"></a>Proč nabízí Azure App Service ve službě Azure Stack?
+## <a name="why-offer-azure-app-service-on-azure-stack"></a>Proč nabízet Azure App Service Azure Stack?
 
 Toto jsou některé klíčové funkce a možnosti služby App Service:
 
-- **Více jazyků a architektur**: App Service zahrnuje prvotřídní podporu jazyků ASP.NET, Node.js, Java, PHP nebo Python. Na virtuálních počítačích App Service můžete také spustit prostředí Windows PowerShell a další skripty nebo spustitelné soubory.
-- **Optimalizace DevOps**: Nastavte průběžnou integraci a nasazování pomocí Githubu, místního Gitu nebo BitBucket. Můžete aktualizace lze podporovat prostřednictvím testovacího a přípravného prostředí a spravovat vaše aplikace ve službě App Service pomocí Azure Powershellu nebo pomocí multiplatformního rozhraní příkazového řádku (CLI).
-- **Integrace se sadou Visual Studio**: Vyhrazené nástroje v sadě Visual Studio zjednodušují práci při vytváření a nasazování aplikací.
+- **Více jazyků a platforem**: App Service má první třídu podpora pro ASP.NET, Node. js, Java, PHP a Python. V App Service virtuálních počítačích můžete také spouštět prostředí Windows PowerShell a další skripty nebo spustitelné soubory.
+- **Optimalizace DevOps**: Nastavte průběžnou integraci a nasazování pomocí GitHubu, místního Gitu nebo BitBucket. Pomocí Azure PowerShell nebo rozhraní příkazového řádku (CLI) pro více platforem vám pomůžou propagovat aktualizace prostřednictvím testovacích a přípravných prostředí a spravovat aplikace v App Service.
+- **Integrace sady Visual Studio**: Vyhrazené nástroje v aplikaci Visual Studio zjednodušují práci při vytváření a nasazování aplikací.
 
 ## <a name="app-types-in-app-service"></a>Typy aplikací v App Service
 
-App Service nabízí několik typů aplikací, z nichž každá je určena k hostování konkrétního typu úlohy:
+App Service nabízí několik typů aplikací, z nichž každá je určena k hostování konkrétního zatížení:
 
-- [Webové aplikace](/azure/app-service/overview) pro hostování webů a webových aplikací.
+- [Web Apps](/azure/app-service/overview) hostování webů a webových aplikací.
 - [API Apps](/azure/app-service/overview) pro hostování rozhraní REST API.
-- Azure Functions pro hostování řízené událostmi, provádění úloh bez serveru.
+- Azure Functions pro hostování řízených událostí a úloh bez serveru.
 
-Slovo *aplikace* odkazuje na prostředky hostování vyhrazené pro spuštěnou úlohu. Pořízení *webovou aplikaci* jako příklad, pravděpodobně jste zvyklí na dala webovou aplikaci jako výpočetní prostředky i aplikace, které tuto funkci společně doručovat do prohlížeče kód. Webové aplikace ve službě App Service je výpočetní prostředek, který poskytuje Azure Stack pro hostování kódu aplikace.
+*Aplikace Word odkazuje* na prostředky hostování vyhrazené pro spuštění úlohy. *Webová aplikace* jako příklad, pravděpodobně jste zvyklí vzít webovou aplikaci za výpočetní prostředky i kód aplikace, který společně doručí funkce prohlížeči. V App Service je webová aplikace výpočetním prostředkem, který Azure Stack poskytuje pro hostování kódu vaší aplikace.
 
-Vaše aplikace může skládat z více aplikací App Service různého druhu. Například pokud vaše aplikace se skládá z webového front-endu a rozhraní REST API zpět ukončit, můžete:
+Vaše aplikace se může skládat z více App Service aplikací různých druhů. Pokud se například vaše aplikace skládá z webového front-endu a REST API back-endu, můžete:
 
-- Nasadit obojí (front-end i rozhraní API) do jedné webové aplikace.
+- Nasazení obou (front-end i rozhraní API) do jedné webové aplikace
 - Nasadit kód front-endu do webové aplikace a kód back-endu do aplikace API.
 
-   [![Přehled služby App Service se data monitorování](media/azure-stack-app-service-overview/image01.png "Přehled služby App Service s dat monitorování")](media/azure-stack-app-service-overview/image01.png#lightbox)
+   [![Přehled App Service s daty monitorování](media/azure-stack-app-service-overview/image01.png "Přehled App Service s daty monitorování")](media/azure-stack-app-service-overview/image01.png#lightbox)
 
-## <a name="what-is-an-app-service-plan"></a>Co je plán služby App Service?
+## <a name="what-is-an-app-service-plan"></a>Co je plán App Service?
 
-Poskytovatele prostředků App Service používá stejný kód, který používá služba Azure App Service a proto sdílí některé obvyklé koncepty. Ve službě App Service, se nazývá cenové kontejneru pro aplikace *plán služby App Service*. Představuje sadu vyhrazených virtuálních počítačů sloužící k uchování vašich aplikací. V rámci daného předplatného můžete mít více plánů služby App Service.
+Poskytovatel prostředků App Service používá stejný kód, jaký Azure App Service používá, a proto sdílí některé běžné koncepty. V App Service se v kontejneru pro aplikace označuje jako *App Service plán*. Představuje sadu vyhrazených virtuálních počítačů používaných k ukládání vašich aplikací. V rámci daného předplatného můžete mít několik plánů App Service.
 
-V Azure jsou sdílené a vyhrazené pracovní procesy. Sdílených pracovních serverů podporoval hostování s vysokou hustotou aplikace s více tenanty, a pouze jednu sadu sdílených pracovních procesů. Vyhrazené servery se používá jenom k jednomu tenantovi a vytvářet ve třech velikostech: malé, střední a velké. Potřebám zákazníků v místním nemůže vždy najdete pomocí těchto podmínek. Ve službě App Service ve službě Azure Stack můžete definovat správci poskytovatele prostředků vrstvy pracovních procesů, které chtějí zpřístupnit. Na základě vašich jedinečných hostování potřeb, můžete definovat více sad sdílených pracovních procesů nebo jinou sadu vyhrazené pracovní procesy. Pomocí těchto definic vrstvy pracovního procesu, můžete pak definovat svou vlastní ceny skladových položek.
+V Azure jsou sdílené a vyhrazené pracovní procesy. Sdílený pracovní proces podporuje hostování s vysokou hustotou a víceklientské aplikace a existuje jenom jedna sada sdílených pracovních procesů. Vyhrazené servery používá jenom jeden tenant a jsou ve třech velikostech: malá, střední a velká. Potřeby místních zákazníků není možné vždy popsat pomocí těchto podmínek. V App Service na Azure Stack můžou správci poskytovatele prostředků definovat vrstvy pracovních procesů, které mají být dostupné. Na základě jedinečných potřeb hostování můžete definovat několik sad sdílených pracovních procesů nebo různých sad vyhrazených pracovních procesů. Pomocí těchto definic pracovních vrstev můžou potom definovat své vlastní cenové SKU.
 
 ## <a name="portal-features"></a>Funkce portálu
 
-Služba App Service ve službě Azure Stack používá stejné uživatelské rozhraní, která používá službu Azure App Service. Platí to i s back-endu. Ale některé funkce jsou zakázány ve službě Azure Stack. Očekávání týkající se Azure nebo služby, které vyžadují tyto funkce nejsou aktuálně k dispozici ve službě Azure Stack.
+App Service v Azure Stack používá stejné uživatelské rozhraní, které Azure App Service používá. Totéž platí pro back-end. Některé funkce jsou ale v Azure Stack zakázané. Očekávání nebo služby specifické pro Azure, které tyto funkce vyžadují, nejsou aktuálně k dispozici v Azure Stack.
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
-- [Před zahájením práce s App Service ve službě Azure Stack](azure-stack-app-service-before-you-get-started.md)
+- [Předpoklady pro nasazení App Service v Azure Stack](azure-stack-app-service-before-you-get-started.md)
 - [Instalace poskytovatele prostředků App Service](azure-stack-app-service-deploy.md)
 
-Můžete také vyzkoušet ostatní [platforma jako služba (PaaS) služby](azure-stack-offer-services-overview.md), například [poskytovatele prostředků SQL serveru](azure-stack-sql-resource-provider-deploy.md) a [poskytovatele prostředků MySQL](azure-stack-mysql-resource-provider-deploy.md).
+Můžete také vyzkoušet jiné [služby platformy jako služby (PaaS)](azure-stack-offer-services-overview.md), například [poskytovatele prostředků SQL Server](azure-stack-sql-resource-provider-deploy.md) a [poskytovatele prostředků MySQL](azure-stack-mysql-resource-provider-deploy.md).

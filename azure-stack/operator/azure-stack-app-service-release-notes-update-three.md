@@ -1,6 +1,6 @@
 ---
-title: Aktualizace 3 zpráva k vydání verze služby App Service ve službě Azure Stack | Dokumentace Microsoftu
-description: Další informace o tom, co je v aktualizaci 3 pro službu App Service ve službě Azure Stack, známé problémy a kde se stáhnout aktualizaci.
+title: App Service v poznámce k verzi Azure Stack Update 3 | Microsoft Docs
+description: Přečtěte si o vylepšeních, opravách a známých problémech v aktualizaci 3 pro App Service v Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: bryanla
@@ -16,80 +16,78 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 08/20/2018
-ms.openlocfilehash: 4397fbbc570972fb7a041f583d81115e28fe70ce
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 88255a15a204f5dcb18dd83f9763e8297a1af51c
+ms.sourcegitcommit: 7d7a4c8c46613b6104caf23763bfd2275f6a826b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269106"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70808238"
 ---
-# <a name="app-service-on-azure-stack-update-3-release-notes"></a>App Service v Azure stacku zpráva k vydání verze update 3
+# <a name="app-service-on-azure-stack-update-3-release-notes"></a>Zpráva k vydání verze App Service ve Azure Stack Update 3
 
-*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
 
-Tyto poznámky k verzi popisují vylepšení a oprav ve službě Azure App Service v Azure stacku Update 3 a známých problémech. Známé problémy jsou rozděleny do týkající se přímo k nasazení, aktualizace a problémy se sestavením (po instalaci).
+Tyto poznámky k verzi popisují vylepšení, opravy a známé problémy v Azure App Service na Azure Stack Update 3. Známé problémy jsou rozdělené na tři části: problémy přímo související s nasazením, problémy s procesem aktualizace a problémy se sestavením (po instalaci).
 
 > [!IMPORTANT]
-> Aktualizace 1807 do služby Azure Stack integrované systému nebo nasadit nejnovější sady Azure Stack development kit před nasazením Azure App Service 1.3.
->
->
+> Před nasazením Azure App Service 1,3 použijte aktualizaci 1807 na integrovaný systém Azure Stack nebo nasaďte nejnovější Azure Stack Development Kit (ASDK).
 
 ## <a name="build-reference"></a>Referenční informace o buildu
 
-App Service na číslo sestavení aktualizace 3 pro Azure Stack je **74.0.13698.31**
+App Service číslo buildu Azure Stack Update 3 je **74.0.13698.31**.
 
 ### <a name="prerequisites"></a>Požadavky
 
-Odkazovat [před zahájením práce dokumentaci](azure-stack-app-service-before-you-get-started.md) před zahájením nasazení.
+Než začnete s nasazením, přečtěte si [požadavky pro nasazení App Service v Azure Stack](azure-stack-app-service-before-you-get-started.md) .
 
-Než zahájíte upgrade služby Azure App Service ve službě Azure Stack na 1.3, zkontrolujte připravené jsou všechny role ve správě Azure App Service v portálu pro správu Azure Stack
+Než začnete s upgradem Azure App Service v Azure Stack na 1,3, zajistěte, aby všechny role byly připravené ve správě Azure App Service na portálu pro správu Azure Stack.
 
-![Stav role služby App Service](media/azure-stack-app-service-release-notes-update-three/image01.png)
+![Stav role App Service](media/azure-stack-app-service-release-notes-update-three/image01.png)
 
 ### <a name="new-features-and-fixes"></a>Nové funkce a opravy
 
-Azure App Service v Azure stacku Update 3 zahrnuje následující vylepšení a opravy:
+Azure App Service na Azure Stack Update 3 obsahuje následující vylepšení a opravy:
 
-- Podpora použití SQL serveru Always On pro poskytovatele prostředků služby Azure App Service databází.
+- Podpora používání služby SQL Server Always On pro Azure App Service databáze poskytovatele prostředků.
 
-- Přidá nový parametr prostředí do skriptu pomocné rutiny vytvořit AADIdentityApp pomáhat cílení různých oblastech AAD.
+- Přidání nového parametru prostředí do podpůrného skriptu Create-AADIdentityApp, který vám pomůže zaměřit se na různé oblasti AAD
 
-- Aktualizace **aplikace služeb pro klienty, Admin, portály funkce a nástroje Kudu**. Konzistentní s verzí sady SDK portálu Azure Stack.
+- Aktualizace pro **App Service klientů, správců, funkcí portálů a nástrojů Kudu** Konzistentní s Azure Stack verze sady SDK portálu.
 
-- Aktualizace **modul runtime služby Azure Functions** k **v1.0.11820**.
+- Aktualizuje **Azure Functions runtime** na **v 1.0.11820**.
 
-- Aktualizace základní službu, ke zlepšení spolehlivosti a chybových zpráv umožňuje snazší Diagnostika běžných problémů.
+- Aktualizace služby Core pro zlepšení spolehlivosti a chybového zasílání zpráv umožňují snazší diagnostiku běžných problémů.
 
-- **Aktualizace následujících aplikační architektury a nástroje**:
-  - Přidání ASP.NET Core 2.1.2
+- **Aktualizace následujících aplikačních architektur a nástrojů**:
+  - Přidáno ASP.NET Core 2.1.2
   - Přidání NodeJS 10.0.0
   - Přidání Zulu OpenJDK 8.30.0.1
   - Přidání Tomcat 8.5.31 a 9.0.8
-  - Přidání PHP verze:
+  - Přidané verze PHP:
     - 5.6.36
     - 7.0.30
     - 7.1.17
     - 7.2.5
-  - Přidání Wincache 2.0.0.8
-  - Aktualizované Git pro Windows do v 2.17.1.2
-  - Aktualizované Kudu pro 74.10611.3437
+  - Přidání WinCache 2.0.0.8
+  - Aktualizace Gitu pro Windows na v 2.17.1.2
+  - Aktualizace Kudu na 74.10611.3437
   
 - **Aktualizace základního operačního systému všech rolí**:
-  - [Servisní aktualizace zásobníku pro Windows Server 2016 pro systémy x64 (KB4132216)](https://support.microsoft.com/help/4132216/servicing-stack-update-for-windows-10-1607-may-17-2018)
-  - [2018-07 kumulativní aktualizace pro Windows Server 2016 pro systémy x64 (KB4338822)](https://support.microsoft.com/help/4338822/windows-10-update-kb4338822)
+  - [Aktualizace servisního zásobníku pro Windows Server 2016 pro systémy na platformě x64 (KB4132216)](https://support.microsoft.com/help/4132216/servicing-stack-update-for-windows-10-1607-may-17-2018)
+  - [2018-07 kumulativní aktualizace pro Windows Server 2016 pro systémy založené na platformě x64 (KB4338822)](https://support.microsoft.com/help/4338822/windows-10-update-kb4338822)
 
-### <a name="post-update-steps-optional"></a>Aktualizace kroky po (volitelné)
+### <a name="post-update-steps-optional"></a>Kroky po aktualizaci (volitelné)
 
-Pro zákazníky, kteří chtějí migrovat do databáze s omezením pro stávající služby Azure App Service v nasazení Azure Stack proveďte tyto kroky po dokončení Azure App Service ve službě Azure Stack 1.3 update:
+Pro zákazníky, kteří chtějí migrovat na databázi s omezením na existující Azure App Service v nasazeních Azure Stack proveďte tyto kroky po dokončení Azure App Service aktualizace Azure Stack 1,3:
 
 > [!IMPORTANT]
-> Tento postup trvá přibližně 5 až 10 minut.  Tento postup zahrnuje ukončuje existující relace přihlášení databáze.  Plánování výpadku, migrace a ověření služby Azure App Service v Azure Stack po migraci
+> Tento postup trvá přibližně 5-10 minut. Tento postup zahrnuje ukončení stávajících přihlašovacích relací databáze. Plánování výpadků migrace a ověření Azure App Service Azure Stack po migraci
 >
 >
 
-1. Přidat [databáze služby App Service (appservice_hosting a appservice_metering) do skupiny dostupnosti](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database)
+1. Přidejte [databáze AppService (appservice_hosting a appservice_metering) do skupiny dostupnosti](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database).
 
-1. Povolit obsažené databázi
+1. Povoluje databázi s omezením.
     ```sql
 
         sp_configure 'contained database authentication', 1;
@@ -98,7 +96,7 @@ Pro zákazníky, kteří chtějí migrovat do databáze s omezením pro stávaj�
             GO
     ```
 
-1. Probíhá převod databáze částečně obsaženy.  Tento krok bude mít za následek výpadek jako musí být ukončeny všechny aktivní relace
+1. Převod databáze na částečně obsaženou. V tomto kroku dojde k výpadku, protože je potřeba ukončit všechny aktivní relace.
 
     ```sql
         /******** [appservice_metering] Migration Start********/
@@ -140,7 +138,7 @@ Pro zákazníky, kteří chtějí migrovat do databáze s omezením pro stávaj�
             /********[appservice_hosting] Migration End********/
     '''
 
-1. Migrate Logins to Contained Database Users
+1. Migrate logins to contained database users.
 
     ```sql
         IF EXISTS(SELECT * FROM sys.databases WHERE Name=DB_NAME() AND containment = 1)
@@ -169,39 +167,40 @@ Pro zákazníky, kteří chtějí migrovat do databáze s omezením pro stávaj�
         GO
     ```
 
-Ověřit
+**Oproti**
 
-1. Zkontrolujte, jestli SQL Server má povolené členství ve skupině
+1. Zkontroluje, jestli SQL Server má povolené omezení.
 
     ```sql
         sp_configure  @configname='contained database authentication'
     ```
 
-1. Zkontrolujte stávající omezením chování
+1. Zkontroluje existující obsažené chování.
     ```sql
         SELECT containment FROM sys.databases WHERE NAME LIKE (SELECT DB_NAME())
     ```
 
 ### <a name="known-issues-post-installation"></a>Známé problémy (po instalaci)
 
-- Pracovní procesy se nám kontaktovat souborového serveru při nasazení služby App Service v existující virtuální sítě a souborový server je k dispozici v privátní síti.  To se také nazývá ve službě Azure App Service v dokumentaci k nasazení Azure Stack.
+- Pokud je App Service nasazená ve stávající virtuální síti a souborový server je k dispozici jenom v privátní síti, zaměstnanci nemůžou kontaktovat souborový server. Tento problém se zavolá v dokumentaci pro nasazení Azure App Service Azure Stack.
 
-Pokud jste se rozhodli nasadit do existující virtuální sítě a interní IP adresu pro připojení k souborovému serveru, je nutné přidat odchozí pravidlo zabezpečení, povolení provozu SMB mezi podsítě pracovního procesu a souborový server. Chcete-li to provést, přejděte na WorkersNsg v portálu pro správu a přidat odchozí pravidlo zabezpečení s následujícími vlastnostmi:
- * Zdroj: Vše
- * Zdrojový rozsah portů: *
- * Cíl: Adresy IP
+Pokud se rozhodnete nasadit do existující virtuální sítě a interní IP adresu pro připojení k souborovému serveru, musíte přidat odchozí pravidlo zabezpečení, které umožňuje provoz protokolu SMB mezi podsítí pracovních procesů a souborovým serverem. Na portálu pro správu přejdete na WorkersNsg a přidáte odchozí pravidlo zabezpečení s následujícími vlastnostmi:
+
+ * Zdroj: Any
+ * Rozsah zdrojových portů: *
+ * Cíl: IP adresy
  * Rozsah cílových IP adres: Rozsah IP adres pro souborový server
  * Rozsah cílových portů: 445
  * Protokol: TCP
- * Akce: Povolit
+ * Akce: Allow
  * Priorita: 700
  * Název: Outbound_Allow_SMB445
 
-### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Známé problémy pro správce cloudu provoz služby Azure App Service ve službě Azure Stack
+### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Známé problémy pro cloudové správce pracující Azure App Service v Azure Stack
 
-V dokumentaci v poznámkách k verzi Azure Stack 1807.
+Informace najdete v dokumentaci k vydání verze Azure Stack 1807.
 
 ## <a name="next-steps"></a>Další postup
 
-- Přehled služby Azure App Service najdete v tématu [Azure App Service na Přehled služby Azure Stack](azure-stack-app-service-overview.md).
-- Další informace o tom, jak připravit nasazení služby App Service ve službě Azure Stack najdete v tématu [před zahájením práce s App Service ve službě Azure Stack](azure-stack-app-service-before-you-get-started.md).
+- Přehled Azure App Service najdete v tématu [přehled Azure App Service na Azure Stack](azure-stack-app-service-overview.md).
+- Další informace o přípravě na nasazení App Service v Azure Stack najdete v tématu [předpoklady pro nasazení App Service na Azure Stack](azure-stack-app-service-before-you-get-started.md).

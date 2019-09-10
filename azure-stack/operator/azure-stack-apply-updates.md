@@ -1,6 +1,6 @@
 ---
-title: Instalovat aktualizace OEM v Azure Stack | Microsoft Docs
-description: Naučte se instalovat aktualizace OEM v Azure Stack.
+title: Nainstalovat aktualizace Azure Stack | Microsoft Docs
+description: Naučte se instalovat aktualizace Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -15,18 +15,18 @@ ms.date: 09/03/2019
 ms.author: justinha
 ms.lastreviewed: 09/03/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: a563c3ec43950122e045b0ec3168bcb3ca11fe56
-ms.sourcegitcommit: e2f6205e6469b39c2395ee09424bb7632cb94c40
+ms.openlocfilehash: 44ad2b2e3fd5b95fd832ed50c20c388c6585d17e
+ms.sourcegitcommit: 7d7a4c8c46613b6104caf23763bfd2275f6a826b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70271798"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70808213"
 ---
-# <a name="install-oem-updates-in-azure-stack"></a>Instalace aktualizací OEM v Azure Stack
+# <a name="install-azure-stack-updates"></a>Nainstalovat aktualizace Azure Stack
 
 *Platí pro: Azure Stack integrovaných systémů*
 
-Aktualizace OEM (Original Equipment Manufacturer) můžete nainstalovat pomocí okna **aktualizace** v Azure Stack. Tento článek vás provede jednotlivými kroky aktualizace, monitorování a řešení potíží s procesem aktualizace. Pomocí okna aktualizace si můžete zobrazit informace o aktualizaci, nainstalovat aktualizace, sledovat průběh aktualizace, zkontrolovat historii aktualizací a zobrazit aktuální verzi balíčku OEM.
+Balíčky aktualizací můžete nainstalovat pomocí okna **aktualizace** v Azure Stack. Tento článek vás provede jednotlivými kroky aktualizace, monitorování a řešení potíží s procesem aktualizace. Pomocí okna aktualizace si můžete zobrazit informace o aktualizaci, nainstalovat aktualizace, sledovat průběh aktualizace, zkontrolovat historii aktualizací a zobrazit aktuální Azure Stack a verzi balíčku OEM.
 
 Aktualizace můžete spravovat z portálu pro správu a pomocí části **aktualizace** na řídicím panelu:
 

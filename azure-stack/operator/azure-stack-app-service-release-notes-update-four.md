@@ -1,6 +1,6 @@
 ---
-title: Aktualizace 4 zpráva k vydání verze služby App Service ve službě Azure Stack | Dokumentace Microsoftu
-description: Další informace o tom, co je v aktualizaci 4 pro službu App Service ve službě Azure Stack, známé problémy a kde se stáhnout aktualizaci.
+title: App Service v poznámce k verzi Azure Stack Update 4 | Microsoft Docs
+description: Přečtěte si o vylepšeních, opravách a známých problémech v aktualizaci Update 4 pro App Service v Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: bryanla
@@ -16,105 +16,101 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/25/2019
-ms.openlocfilehash: b65e7c3b1cf381db3e36567c9f9ccf71a2150cd7
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: b92fcd3f729bf068dd578893f24f1c7fa66bbcff
+ms.sourcegitcommit: 7d7a4c8c46613b6104caf23763bfd2275f6a826b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269143"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70808149"
 ---
-# <a name="app-service-on-azure-stack-update-4-release-notes"></a>App Service v Azure stacku zpráva k vydání verze update 4
+# <a name="app-service-on-azure-stack-update-4-release-notes"></a>Zpráva k vydání verze App Service ve Azure Stack Update 4
 
-*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
 
-Tyto poznámky k verzi popisují vylepšení a oprav ve službě Azure App Service v Azure stacku Update 4 a známých problémech. Známé problémy jsou rozděleny do týkající se přímo k nasazení, aktualizace a problémy se sestavením (po instalaci).
+Tyto poznámky k verzi popisují vylepšení, opravy a známé problémy v Azure App Service na Azure Stack Update 4. Známé problémy jsou rozdělené na tři části: problémy přímo související s nasazením, problémy s procesem aktualizace a problémy se sestavením (po instalaci).
 
 > [!IMPORTANT]
-> Aktualizace 1809 do služby Azure Stack integrované systému nebo nasadit nejnovější sady Azure Stack development kit před nasazením Azure App Service 1.4.
->
->
+> Před nasazením Azure App Service 1,4 použijte aktualizaci 1809 na integrovaný systém Azure Stack nebo nasaďte nejnovější Azure Stack Development Kit (ASDK).
 
 ## <a name="build-reference"></a>Referenční informace o buildu
 
-App Service v Azure stacku Update 4 číslo sestavení je **78.0.13698.5**
+App Service číslo sestavení Azure Stack Update 4 je **78.0.13698.5**
 
 ### <a name="prerequisites"></a>Požadavky
 
-Odkazovat [před zahájením práce dokumentaci](azure-stack-app-service-before-you-get-started.md) před zahájením nasazení.
+Než začnete s nasazením, přečtěte si [požadavky pro nasazení App Service v Azure Stack](azure-stack-app-service-before-you-get-started.md) .
 
-Před zahájením upgradu služby Azure App Service ve službě Azure Stack 1.4:
+Než začnete s upgradem Azure App Service v Azure Stack na 1,4:
 
-- Zkontrolujte všechny role jsou připravené ve správě Azure App Service v portálu pro správu Azure Stack
+- Ujistěte se, že jsou všechny role připravené na Azure App Service správě na portálu pro správu Azure Stack.
 
-- Zálohování služby App Service a hlavní databáze:
+- Zálohování App Service a hlavních databází:
   - AppService_Hosting;
   - AppService_Metering;
   - Předloha
 
-- Zálohování sdílené složky souboru obsahu klientskou aplikaci
+- Zálohujte sdílenou složku obsahu aplikace tenanta.
 
-- Zajistěte syndikaci rozšíření vlastních skriptů verze 1.9 z Marketplace
+- Zasyndikátte **rozšíření vlastních skriptů** verze **1,9** z Azure Marketplace.
 
 ### <a name="new-features-and-fixes"></a>Nové funkce a opravy
 
-Azure App Service v Azure stacku Update 4 zahrnuje následující vylepšení a opravy:
+Azure App Service na Azure Stack Update 4 zahrnuje následující vylepšení a opravy:
 
-- Řešení pro [CVE 2018 8600](https://aka.ms/CVE20188600) různé lokality skriptování ohrožení zabezpečení.
+- Řešení pro chybu zabezpečení skriptování XSS (více lokalit) v [CVE 2018-8600](https://aka.ms/CVE20188600) .
 
-- Přidání podpory pro verzi rozhraní API služby App Service 2018-02-01
+- Byla přidána podpora verze rozhraní API App Service 2018-02-01.
 
-- Aktualizace **aplikace služeb pro klienty, Admin, portály funkce a nástroje Kudu**. Konzistentní s verzí sady SDK portálu Azure Stack.
+- Aktualizace pro **App Service klientů, správců, funkcí portálů a nástrojů Kudu** Konzistentní s Azure Stack verze sady SDK portálu.
 
-- Aktualizace **modul runtime služby Azure Functions** k **v1.0.11959**.
+- Aktualizuje **Azure Functions runtime** na **v 1.0.11959**.
 
-- Aktualizace základní službu, ke zlepšení spolehlivosti a chybových zpráv umožňuje snazší Diagnostika běžných problémů.
+- Aktualizace služby Core pro zlepšení spolehlivosti a chybového zasílání zpráv umožňují snazší diagnostiku běžných problémů.
 
-- **Aktualizace následujících aplikační architektury a nástroje**:
+- **Aktualizuje následující aplikační architektury a nástroje**:
   - Přidání NodeJS 10.6.0
   - Přidání NPM 6.1.0
   - Přidání Zulu OpenJDK 8.31.0.2
   - Přidání Tomcat 8.5.34 a 9.0.12
-  - Přidání PHP verze:
+  - Přidané verze PHP:
     - 5.6.37
     - 7.0.31
     - 7.1.20
     - 7.2.8
-  - Aktualizovat na verze Pythonu:
+  - Aktualizace na verze Pythonu:
     - 2.7.15
     - 3.6.6
-  - Aktualizované Git pro Windows do v 2.17.1.2
-  - Aktualizované Kudu pro 78.11022.3613
+  - Aktualizace Gitu pro Windows na v 2.17.1.2
+  - Aktualizace Kudu na 78.11022.3613
   
 - **Aktualizace základního operačního systému všech rolí**:
-  - [2018 10 kumulativní aktualizace pro Windows Server 2016 pro systémy x64 (KB4462928)](https://support.microsoft.com/help/4462928/windows-10-update-kb4462928)
+  - [2018-10 kumulativní aktualizace pro Windows Server 2016 pro systémy založené na platformě x64 (KB4462928)](https://support.microsoft.com/help/4462928/windows-10-update-kb4462928)
 
-- Při nasazování Wordpress; vyřešen problém s ověřováním šablony DNN; a položky galerie Orchard CMS
+- Vyřešil se problém s ověřením šablony při nasazování položek galerie WordPress, DNN a sady CMS.
 
-- Vyřešit problém s konfigurací, když Azure Stack otočí klientský certifikát Azure Resource Manageru
+- Vyřešil se problém s konfigurací, když Azure Stack otáčí klientský certifikát Azure Resource Manager.
 
-- Obnovit funkci v nastavení mezi sdílení zdrojů Origin na portálu pro tenanta služby App Service
+- Obnovená funkce v nastavení sdílení prostředků mezi zdroji na portálu App Service tenant.
 
-- Zobrazí chybovou zprávu v prostředí pro správu aplikace App Service při rovina řízení poskytovatele prostředků se nemůže připojit k nakonfigurovanou instanci systému SQL Server
+- Chybová zpráva se teď zobrazuje na portálu pro správu App Service, když se rovina řízení poskytovatele prostředků nemůže připojit k nakonfigurované instanci SQL Server.
 
-- Ujistěte se, že koncový bod je zadán v připojovacím řetězci vlastního úložiště-li zadána v nové aplikaci – funkce
+- Ujistěte se, že je koncový bod zadaný v připojovacím řetězci vlastního úložiště, pokud je zadaný v nové aplikaci Function App.
 
 ### <a name="post-deployment-steps"></a>Kroky po nasazení
 
 > [!IMPORTANT]  
-> Pokud jste zadali RP App Service se vždy na instanci SQL je nutné [přidat do skupiny dostupnosti databáze appservice_hosting a appservice_metering](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) a synchronizaci databází, aby nedocházelo ke služby události převzetí služeb při selhání databáze.
+> Pokud jste poskytli App Service poskytovatele prostředků s instancí SQL Always On, musíte do [skupiny dostupnosti přidat databáze appservice_hosting a appservice_metering](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) a synchronizovat databáze, aby nedošlo ke ztrátě služeb v nástroji. událost převzetí služeb při selhání databáze.
 
-### <a name="post-update-steps-optional"></a>Postup po aktualizaci (volitelné)
+### <a name="post-update-steps-optional"></a>Kroky po aktualizaci (volitelné)
 
-Pro zákazníky, kteří chtějí migrovat do databáze s omezením pro stávající služby Azure App Service v nasazení Azure Stack proveďte tyto kroky po dokončení Azure App Service ve službě Azure Stack 1.4 update:
+Pro zákazníky, kteří chtějí migrovat na databázi s omezením na existující Azure App Service v nasazeních Azure Stack proveďte tyto kroky po dokončení Azure App Service aktualizace Azure Stack 1,4:
 
 > [!IMPORTANT]
-> Postup migrace trvá přibližně 5 až 10 minut.  Postup zahrnuje ukončuje existující relace přihlášení databáze.  Plánování výpadku, migrace a ověření služby Azure App Service v Azure Stack po migraci.  Pokud jste dokončili postup po aktualizaci na službě Azure App Service v Azure stacku 1.3, pak tyto kroky nejsou nutné.
->
->
+> Postup migrace trvá přibližně 5-10 minut. Tento postup zahrnuje ukončení stávajících přihlašovacích relací databáze. Naplánujte výpadky migrace a ověření Azure App Service Azure Stack příspěvku po migraci. Pokud jste tyto kroky dokončili po aktualizaci na Azure App Service Azure Stack 1,3, pak tyto kroky nejsou potřeba.
 
-1. Přidat [databáze služby App Service (appservice_hosting a appservice_metering) do skupiny dostupnosti](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database)
+1. Přidejte [databáze AppService (appservice_hosting a appservice_metering) do skupiny dostupnosti](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database).
 
-1. Povolit obsažené databázi
+1. Povoluje databázi s omezením.
     ```sql
 
         sp_configure 'contained database authentication', 1;
@@ -123,7 +119,7 @@ Pro zákazníky, kteří chtějí migrovat do databáze s omezením pro stávaj�
             GO
     ```
 
-1. Částečně obsaženy převodu databáze na databázi, převod bude mít za následek výpadek jako musí být ukončeny všechny aktivní relace
+1. Převod databáze na částečně obsažený převod bude mít za následek výpadky, protože všechny aktivní relace je potřeba ukončit.
 
     ```sql
         /******** [appservice_metering] Migration Start********/
@@ -165,7 +161,7 @@ Pro zákazníky, kteří chtějí migrovat do databáze s omezením pro stávaj�
             /********[appservice_hosting] Migration End********/
     '''
 
-1. Migrate Logins to Contained Database Users
+1. Migrate logins to contained database users.
 
     ```sql
         IF EXISTS(SELECT * FROM sys.databases WHERE Name=DB_NAME() AND containment = 1)
@@ -194,39 +190,40 @@ Pro zákazníky, kteří chtějí migrovat do databáze s omezením pro stávaj�
         GO
     ```
 
-Ověřit
+**Oproti**
 
-1. Zkontrolujte, jestli SQL Server má povolené členství ve skupině
+1. Zkontroluje, jestli SQL Server má povolené omezení.
 
     ```sql
         sp_configure  @configname='contained database authentication'
     ```
 
-1. Zkontrolujte stávající omezením chování
+1. Zkontroluje existující obsažené chování.
     ```sql
         SELECT containment FROM sys.databases WHERE NAME LIKE (SELECT DB_NAME())
     ```
 
 ### <a name="known-issues-post-installation"></a>Známé problémy (po instalaci)
 
-- Pracovní procesy se nám kontaktovat souborového serveru při nasazení služby App Service v existující virtuální sítě a souborový server je dostupná pouze na privátní sítě, jak je uvedeno ve službě Azure App Service v dokumentaci k nasazení Azure Stack.
+- Pokud je App Service nasazená ve stávající virtuální síti a souborový server je k dispozici jenom v privátní síti, zaměstnanci nemůžou kontaktovat souborový server. Tento problém se zavolá v dokumentaci pro nasazení Azure App Service Azure Stack.
 
-Pokud jste se rozhodli nasadit do existující virtuální sítě a interní IP adresu pro připojení k souborovému serveru, je nutné přidat odchozí pravidlo zabezpečení, povolení provozu SMB mezi podsítě pracovního procesu a souborový server. Přejděte na WorkersNsg v portálu pro správu a přidat odchozí pravidlo zabezpečení s následujícími vlastnostmi:
- * Zdroj: Vše
- * Zdrojový rozsah portů: *
- * Cíl: Adresy IP
+Pokud se rozhodnete nasadit do existující virtuální sítě a interní IP adresu pro připojení k souborovému serveru, musíte přidat odchozí pravidlo zabezpečení, které umožňuje provoz protokolu SMB mezi podsítí pracovních procesů a souborovým serverem. Na portálu pro správu přejdete na WorkersNsg a přidáte odchozí pravidlo zabezpečení s následujícími vlastnostmi:
+
+ * Zdroj: Any
+ * Rozsah zdrojových portů: *
+ * Cíl: IP adresy
  * Rozsah cílových IP adres: Rozsah IP adres pro souborový server
  * Rozsah cílových portů: 445
  * Protokol: TCP
- * Akce: Povolit
+ * Akce: Allow
  * Priorita: 700
  * Název: Outbound_Allow_SMB445
 
-### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Známé problémy pro správce cloudu provoz služby Azure App Service ve službě Azure Stack
+### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Známé problémy pro cloudové správce pracující Azure App Service v Azure Stack
 
-Přečtěte si dokumentaci v [zpráva k vydání verze Azure Stack 1809](azure-stack-update-1903.md)
+Informace najdete v dokumentaci k [verzi Azure Stack 1809](azure-stack-update-1903.md) .
 
 ## <a name="next-steps"></a>Další postup
 
-- Přehled služby Azure App Service najdete v tématu [Azure App Service na Přehled služby Azure Stack](azure-stack-app-service-overview.md).
-- Další informace o tom, jak připravit nasazení služby App Service ve službě Azure Stack najdete v tématu [před zahájením práce s App Service ve službě Azure Stack](azure-stack-app-service-before-you-get-started.md).
+- Přehled Azure App Service najdete v tématu [přehled Azure App Service na Azure Stack](azure-stack-app-service-overview.md).
+- Další informace o přípravě na nasazení App Service v Azure Stack najdete v tématu [předpoklady pro nasazení App Service na Azure Stack](azure-stack-app-service-before-you-get-started.md).
