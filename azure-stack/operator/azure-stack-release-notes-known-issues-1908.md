@@ -17,12 +17,12 @@ ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 08/30/2019
 monikerRange: azs-1908
-ms.openlocfilehash: 317f53eb5b50fc415fc7a65e044eca7948a54e58
-ms.sourcegitcommit: 314fd74caf356b157583d38d2b8b1dee30408b7d
+ms.openlocfilehash: 86d8cea0164a9181f444066181945358122c831b
+ms.sourcegitcommit: dc633e862d49412a963daee481226c1543287e5e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70234945"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70862988"
 ---
 # <a name="azure-stack-1908-known-issues"></a>Známé problémy s Azure Stack 1908
 
@@ -34,7 +34,7 @@ V tomto článku jsou uvedené známé problémy ve verzi 1908 Azure Stack. Sezn
 ## <a name="update-process"></a>Aktualizovat proces
 
 - To Tento problém se vztahuje na všechny podporované verze.
-- Příčina: Při pokusu o instalaci aktualizace 1907 Azure Stack aktualizace může stav aktualizace selhat a změnit stav na **PreparationFailed**. To je způsobeno tím, že poskytovatel prostředků aktualizace (URP) nemůže správně přenést soubory z kontejneru úložiště do interní sdílené složky infrastruktury pro zpracování.
+- Příčina: Při pokusu o instalaci aktualizace Azure Stack se může stát, že se stav aktualizace nezdaří a změní se stav na **PreparationFailed**. To je způsobeno tím, že poskytovatel prostředků aktualizace (URP) nemůže správně přenést soubory z kontejneru úložiště do interní sdílené složky infrastruktury pro zpracování.
 - Nápravy Počínaje verzí 1901 (1.1901.0.95) můžete tento problém obejít tak, že znovu kliknete na **aktualizovat** ( **nepokračovat**). URP pak vyčistí soubory z předchozího pokusu a restartuje soubor ke stažení. Pokud potíže potrvají, doporučujeme ručně odeslat balíček aktualizace pomocí [oddílu instalovat aktualizace](azure-stack-apply-updates.md#install-updates-and-monitor-progress).
 - Výskyt Společné
 
@@ -99,7 +99,7 @@ V tomto článku jsou uvedené známé problémy ve verzi 1908 Azure Stack. Sezn
 
 #### <a name="local-network-gateway-deletion"></a>Odstranění brány místní sítě
 
-- To Tento problém se týká verze 1906.
+- To Tento problém se vztahuje na všechny podporované verze.
 - Příčina: Při odstranění **brány místní sítě** na portálu User Portal se zobrazí následující chybová zpráva: **Bránu místní sítě nelze odstranit s aktivním připojením**, i když neexistuje žádné aktivní připojení.
 - Zmírnění Oprava tohoto problému se uvolní v 1907. Alternativním řešením tohoto problému je vytvořit novou bránu místní sítě se stejnou IP adresou, adresním prostorem a podrobnostmi konfigurace s jiným názvem. Po aktualizaci prostředí na 1907 se dá původní LNG odstranit.
 - Výskyt Společné
@@ -159,21 +159,21 @@ V tomto článku jsou uvedené známé problémy ve verzi 1908 Azure Stack. Sezn
 
 ### <a name="virtual-machine-scale-set-reset-password-does-not-work"></a>Resetování hesla sady škálování virtuálního počítače nefunguje
 
-- To Tento problém se týká verzí 1906 a 1907.
+- To Tento problém se vztahuje na všechny podporované verze.
 - Příčina: V uživatelském rozhraní sady škálování se zobrazí nové okno pro resetování hesla, ale Azure Stack nepodporuje resetování hesla u sady škálování.
 - Nápravy Žádné.
 - Výskyt Společné
 
 ### <a name="rainy-cloud-on-scale-set-diagnostics"></a>Diagnostika deště v diagnostice sady škálování
 
-- To Tento problém se týká verzí 1906 a 1907.
+- To Tento problém se vztahuje na všechny podporované verze.
 - Příčina: Na stránce Přehled sady škálování virtuálního počítače se zobrazuje prázdný graf. Když kliknete na prázdný graf, otevře se okno "deště Cloud". Toto je graf pro diagnostické informace sady škálování, jako je procento využití procesoru, a není funkce podporovaná v aktuálním Azure Stack buildu.
 - Nápravy Žádné.
 - Výskyt Společné
 
 ### <a name="virtual-machine-diagnostic-settings-blade"></a>Okno nastavení diagnostiky virtuálního počítače
 
-- To Tento problém se týká verzí 1906 a 1907.    
+- To Tento problém se vztahuje na všechny podporované verze.    
 - Příčina: Okno nastavení diagnostiky virtuálního počítače má kartu **jímka** , která žádá o **účet Application**Insights. Toto je výsledek nového okna a v Azure Stack ještě není podporovaný.
 - Nápravy Žádné.
 - Výskyt Společné

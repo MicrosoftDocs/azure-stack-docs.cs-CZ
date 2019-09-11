@@ -3,7 +3,7 @@ title: Správa aktualizací v Azure Stack | Microsoft Docs
 description: Naučte se spravovat aktualizace v Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: justinha
+author: mattbriggs
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/03/2019
-ms.author: justinha
-ms.lastreviewed: 09/03/2019
+ms.date: 09/10/2019
+ms.author: mabrigg
+ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 366a183f551a2b03016c4e34e5de41a4b5727b80
-ms.sourcegitcommit: a8379358f11db1e1097709817d21ded0231503eb
+ms.openlocfilehash: 2a6165d37aa813c332cd664ef905717ef7a8ffa8
+ms.sourcegitcommit: dc633e862d49412a963daee481226c1543287e5e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70377261"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70863023"
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Přehled správy aktualizací v Azure Stack
 
@@ -101,7 +101,7 @@ Azure Stack obsahuje poskytovatele prostředků aktualizace, který zpracovává
 
 Při instalaci aktualizací můžete zobrazit stav vysoké úrovně, protože proces aktualizace cílí na různé subsystémy v Azure Stack (například fyzické hostitele a virtuální počítače infrastruktury).
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 - Chcete-li zahájit proces aktualizace, postupujte podle kroků v tématu [Naplánování aktualizace Azure Stack](azure-stack-update-plan.md).
 - Informace o tom, jaké verze Azure Stack jsou podporovány, najdete v tématu [zásady služby Azure Stack Servicing](azure-stack-servicing-policy.md).  

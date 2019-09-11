@@ -143,6 +143,8 @@
       items:
         - name: Základy správy
           href: azure-stack-manage-basics.md
+        - name: Vymazat uživatelská data z portálu
+          href: azure-stack-portal-clear.md
         - name: Konfigurace shromažďování telemetrie
           href: azure-stack-telemetry.md
         - name: Registrace Azure Stack

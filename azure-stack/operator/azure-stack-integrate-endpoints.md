@@ -6,16 +6,16 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 08/30/2019
+ms.date: 09/09/2019
 ms.author: justinha
 ms.reviewer: wamota
-ms.lastreviewed: 08/30/2019
-ms.openlocfilehash: 7b8bae02fdb3f85b856f6ccdb9d90155e6bde768
-ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
+ms.lastreviewed: 09/09/2019
+ms.openlocfilehash: 9333cfde7985977607f7108fd90b62e376fa9462
+ms.sourcegitcommit: dc633e862d49412a963daee481226c1543287e5e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70188353"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70862996"
 ---
 # <a name="azure-stack-datacenter-integration---publish-azure-stack-services"></a>Integrace Azure Stack Datacenter – publikování Azure Stackch služeb
 
@@ -72,7 +72,7 @@ Při přidání [hostitele rozšíření](azure-stack-extension-host-prepare.md)
 Azure Stack podporuje pouze transparentní proxy servery. V nasazení pomocí transparentního odchozího připojení proxy k tradičnímu proxy server musíte pro odchozí komunikaci použít porty a adresy URL v následující tabulce.
 
 > [!Note]  
-> Azure Stack nepodporuje použití ExpressRoute pro přístup ke službám Azure uvedeným v následující tabulce.
+> Azure Stack nepodporuje použití ExpressRoute pro přístup ke službám Azure uvedeným v následující tabulce, protože ExpressRoute nemusí být schopná směrovat provoz do všech koncových bodů.
 
 |Účel|Cílová adresa URL|Protocol|Porty|Zdrojová síť|
 |---------|---------|---------|---------|---------|
@@ -95,7 +95,7 @@ Azure Stack podporuje pouze transparentní proxy servery. V nasazení pomocí tr
 
 Odchozí adresy URL využívají vyrovnávání zatížení pomocí Azure Traffic Manageru a poskytují nejlepší možnou konektivitu na základě geografického umístění. V případě adres URL s vyrovnáváním zatížení může společnost Microsoft aktualizovat a změnit koncové body back-endu bez dopadu na zákazníky. Společnost Microsoft nesdílí seznam IP adres pro adresy URL s vyrovnáváním zatížení. Měli byste použít zařízení, které podporuje filtrování podle adresy URL, nikoli podle IP adresy.
 
-Odchozí DNS se vyžaduje ve všech časech, to znamená, že se jedná o zdroj dotazování externí služby DNS a o tom, co se vybralo řazení identity. Pokud se jedná o připojený scénář, během nasazování DVM, který je umístěn v síti řadiče pro správu základní desky, potřebuje tento odchozí přístup, ale po nasazení služby DNS se přesunou do interní komponenty, která odešle dotazy prostřednictvím veřejné virtuální IP adresy. V tuto chvíli je možné odebrat odchozí přístup DNS prostřednictvím sítě BMC, ale přístup k veřejné VIP k tomuto serveru DNS musí zůstat nebo jinak nebude ověřování úspěšné.
+Odchozí DNS se vyžaduje ve všech případech. To znamená, že se jedná o zdroj dotazování externí služby DNS a o tom, jaký druh integrace identity byl vybrán. V průběhu nasazení v připojeném scénáři potřebuje DVM, který je umístěn v síti řadiče pro správu základní desky, odchozí přístup. Ale po nasazení se služba DNS přesune do interní součásti, která odešle dotazy prostřednictvím veřejné virtuální IP adresy. V tuto chvíli je možné odebrat odchozí přístup k DNS prostřednictvím sítě řadiče pro správu základní desky, ale přístup k tomuto serveru DNS pomocí veřejné VIP musí zůstat nebo jinak se ověřování nezdaří.
 
 ## <a name="next-steps"></a>Další postup
 

@@ -16,12 +16,12 @@ ms.date: 07/31/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 07/31/2019
-ms.openlocfilehash: 111e8e6cb72baac64229e4808003818efece54cd
-ms.sourcegitcommit: 7968f9f0946138867323793be9966ee2ef99dcf4
+ms.openlocfilehash: f4fe915d07b81a6f99d9bd5a4b222590d1bb9a30
+ms.sourcegitcommit: 305536bfd49319455ca3ca270fe3644b1796bad1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70025883"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70876588"
 ---
 # <a name="post-deployment-configurations-for-asdk"></a>Konfigurace po nasazení pro ASDK
 
@@ -127,8 +127,8 @@ Pokud dojde k selhání, získáte nápovědu pomocí kroků pro řešení potí
 Pro nasazení, která používají Azure AD, musíte pro instalaci ASDK [Povolit víceklientské](../operator/azure-stack-enable-multitenancy.md#enable-multi-tenancy) prostředí.
 
 > [!NOTE]
-> Pokud se k přihlášení na portál Azure Stack používá účet správce nebo uživatelské účty z jiných domén, než je ta, která se používá k registraci Azure Stack, musí být název domény, který se používá k registraci Azure Stack, připojený k adrese URL portálu. Pokud je například Azure Stack zaregistrován v Fabrikam.onmicrosoft.com a uživatelský účet přihlášení je admin@contoso.com, adresa URL použitá pro přihlášení k portálu User Portal by byla:. https://portal.local.azurestack.external/fabrikam.onmicrosoft.com
+> Pokud se k přihlášení na portál Azure Stack používá účet správce nebo uživatelské účty z jiných domén, než je ta, která se používá k registraci Azure Stack, musí být název domény, který se používá k registraci Azure Stack, připojený k adrese URL portálu. Pokud je například Azure Stack zaregistrován v Fabrikam.onmicrosoft.com a uživatelský účet přihlášení je admin@contoso.com, adresa URL použitá pro přihlášení k portálu User Portal by byla: https//Portal.Local.azurestack.external/\: fabrikam.onmicrosoft.com.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 [Registrace ASDKu s využitím Azure](asdk-register.md)
