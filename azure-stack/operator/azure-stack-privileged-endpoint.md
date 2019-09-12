@@ -3,7 +3,7 @@ title: Použití privilegovaného koncového bodu v Azure Stack | Microsoft Docs
 description: Ukazuje, jak použít privilegovaný koncový bod (PEP) v Azure Stack (pro operátor Azure Stack).
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2019
-ms.author: mabrigg
+ms.date: 09/03/2019
+ms.author: justinha
 ms.reviewer: fiseraci
-ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 349634e9f7bfdab3ec08630488d19947813361dd
-ms.sourcegitcommit: a8379358f11db1e1097709817d21ded0231503eb
+ms.lastreviewed: 09/03/2019
+ms.openlocfilehash: a278a918100619953b2b7eb9b288236625968187
+ms.sourcegitcommit: 38f21e0bcf7b593242ad615c9d8ef8a1ac19c734
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70377224"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70902620"
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Použití privilegovaného koncového bodu v Azure Stack
 
@@ -47,7 +47,7 @@ Než zahájíte tento postup pro integrovaný systém, ujistěte se, že máte p
 
 
 > [!NOTE]
-> Z bezpečnostních důvodů vyžadujeme, abyste se připojili k PEP jenom z zpřísněného virtuálního počítače, který běží na hostiteli životního cyklu hardwaru, nebo z vyhrazeného zabezpečeného počítače, jako je například [pracovní stanice privilegovaného přístupu](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations). Původní konfigurace hostitele životního cyklu hardwaru nesmí být upravena z původní konfigurace, včetně instalace nového softwaru, ani by měla být použita pro připojení k PEP.
+> Z bezpečnostních důvodů vyžadujeme, abyste se připojili k PEP jenom z zpřísněného virtuálního počítače, který běží na hostiteli životního cyklu hardwaru, nebo z vyhrazeného zabezpečeného počítače, jako je například [pracovní stanice privilegovaného přístupu](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations). Původní konfigurace hostitele životního cyklu hardwaru nesmí být upravena z původní konfigurace, včetně instalace nového softwaru, ani by se neměla používat pro připojení k PEP.
 
 1. Vytvořte vztah důvěryhodnosti.
 
@@ -68,6 +68,10 @@ Než zahájíte tento postup pro integrovaný systém, ujistěte se, že máte p
          -ConfigurationName PrivilegedEndpoint -Credential $cred
      ```
      `ComputerName` Parametr může být buď IP adresa, nebo název DNS jednoho z virtuálních počítačů, které hostují PEP. 
+
+     >[!NOTE]
+     >Azure Stack neprovádí vzdálené volání při ověřování přihlašovacích údajů PEP. K tomu se spoléhá na místně uložený veřejný klíč RSA.
+     
    - Pokud používáte ASDK:
      
      ```powershell
@@ -82,7 +86,7 @@ Než zahájíte tento postup pro integrovaný systém, ujistěte se, že máte p
      - **Heslo**: Zadejte stejné heslo, které bylo zadáno během instalace pro účet správce domény AzureStackAdmin.
 
      > [!NOTE]
-     > Pokud se nemůžete připojit ke koncovému bodu ERCS, zkuste jednou a dvakrát znovu s IP adresou virtuálního počítače ERCS, ke kterému jste se ještě nepokoušeli připojit.
+     > Pokud se nemůžete připojit ke koncovému bodu ERCS, opakujte kroky jedna a dvě s jinou IP adresou virtuálního počítače ERCS.
 
 3. Po připojení se výzva změní na **[*IP adresa nebo název virtuálního počítače ERCS*]: PS >** nebo na **[AZS-ercs01]: PS >** v závislosti na prostředí. Z tohoto místa spusťte `Get-Command` příkaz pro zobrazení seznamu dostupných rutin.
 
@@ -185,6 +189,6 @@ Po úspěšném přenosu souborů protokolu přepisu do sdílené složky se aut
 > Pokud zavřete relaci PEP pomocí rutin `Exit-PSSession` nebo `Exit`nebo pouze zavřete konzolu PowerShellu, protokoly přepisu se nepřenášejí do sdílené složky. Zůstávají v PEP. Při příštím spuštění `Close-PrivilegedEndpoint` a zahrnutí sdílené složky se také přenesou protokoly přepisu z předchozích relací. Nepoužívejte `Exit-PSSession` nebo `Exit` k uzavření relace PEP použijte `Close-PrivilegedEndpoint` místo toho.
 
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 [Diagnostické nástroje Azure Stack](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep)

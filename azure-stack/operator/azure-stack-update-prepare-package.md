@@ -15,12 +15,12 @@ ms.date: 09/10/2019
 ms.author: mabrigg
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 0a18c7e09f6be105ce1f80551cee6f341dda50d9
-ms.sourcegitcommit: dc633e862d49412a963daee481226c1543287e5e
+ms.openlocfilehash: 515195e30aed9944b8e0cc0e371d08b54ea75189
+ms.sourcegitcommit: 38f21e0bcf7b593242ad615c9d8ef8a1ac19c734
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70863048"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70902675"
 ---
 # <a name="prepare-an-azure-stack-update-package"></a>Příprava balíčku aktualizace Azure Stack
 
@@ -47,9 +47,6 @@ Následující tabulka ukazuje, kdy balíčky aktualizací vyžadují ruční p�
 ## <a name="download-the-update-package"></a>Stáhnout balíček aktualizací
 Balíček aktualizace pro Azure Stack aktualizace a opravy hotfix jsou k dispozici v okně aktualizace pro připojené systémy. Pokud aktualizujete balíček OEM nebo Pokud podporujete odpojený systém, budete muset balíček stáhnout a přesunout do umístění, které je dostupné pro vaši instanci Azure Stack. Pokud používáte systém se přerušovaným připojením, možná budete muset stáhnout balíček a pak ho nahrát do přístupného umístění.
 
->[!NOTE]
->Samotný balíček aktualizace a jeho obsah (například binární soubory, skripty prostředí PowerShell atd.) se podepisují pomocí certifikátů vlastněných společností Microsoft. Manipulace s balíčkem způsobí, že signatura není platná.
-
 Zkontrolujte obsah balíčku. Balíček aktualizace se obvykle skládá z následujících souborů:
 
 -   **Samorozbalovací\<soubor >. zip s balíčkem**. Tento soubor obsahuje datovou část pro aktualizaci.
@@ -62,9 +59,13 @@ Azure Stack aktualizace softwaru a opravy hotfix se automaticky připravují pro
 
 Azure Stack aktualizace pro [úplné a expresní aktualizace](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates#update-package-types) se hostují na zabezpečeném koncovém bodu Azure. Operátory Azure Stack s připojenými instancemi uvidí, že [Azure Stack aktualizace se automaticky zobrazí na portálu pro správu](https://docs.microsoft.com/azure-stack/operator/azure-stack-update-prepare-package#automatic-download-and-preparation-for-update-packages). V případě systémů odpojených přes Internet nebo systémů s slabým připojením k Internetu je možné balíčky aktualizací stáhnout pomocí nástroje pro stažení [aktualizací Azure Stack](https://aka.ms/azurestackupdatedownload). Azure Stack balíčky aktualizací softwaru mohou obsahovat aktualizace služeb Azure Stack a aktualizace operačního systému jednotek škálování vašeho Azure Stack.
 
+>[!NOTE]
+>Samotný balíček aktualizace a jeho obsah (například binární soubory, skripty prostředí PowerShell atd.) se podepisují pomocí certifikátů vlastněných společností Microsoft. Manipulace s balíčkem způsobí, že signatura není platná.
+
+
 ### <a name="where-to-download-azure-stack-hotfix-packages"></a>Kde stáhnout Azure Stack balíčky oprav hotfix
 
-Balíček pro [Azure Stack opravy hotfix](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates#update-package-types) jsou hostovány ve stejném zabezpečeném koncovém bodu Azure jako pro Azure Stack aktualizace. Operátory Azure Stack s připojenými instancemi uvidí, že [Azure Stack aktualizace se automaticky zobrazí na portálu pro správu](https://docs.microsoft.com/azure-stack/operator/azure-stack-update-prepare-package#automatic-download-and-preparation-for-update-packages). Můžete si je stáhnout pomocí vložených odkazů v každé z příslušných článků o opravě hotfix KB. například [Azure Stack hotfix 1.1906.11.52](https://support.microsoft.com/help/4515650). Opravy hotfix najdete v poznámkách k verzi odpovídající vaší Azure Stack verzi. Výrobce OEM – aktualizace poskytované dodavatelem
+Balíček pro [Azure Stack opravy hotfix](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates#update-package-types) jsou hostovány ve stejném zabezpečeném koncovém bodu Azure jako pro Azure Stack aktualizace. Operátory Azure Stack s připojenými instancemi uvidí, že [Azure Stack aktualizace se automaticky zobrazí na portálu pro správu](https://docs.microsoft.com/azure-stack/operator/azure-stack-update-prepare-package#automatic-download-and-preparation-for-update-packages). Můžete si je stáhnout pomocí integrovaných odkazů v každé z příslušných článků s opravou hotfix KB, například [Azure Stack 1.1906.11.52 hotfix](https://support.microsoft.com/help/4515650). Opravy hotfix najdete v poznámkách k verzi odpovídající vaší Azure Stack verzi.
 
 ### <a name="where-to-download-oem-update-packages"></a>Kam stáhnout balíčky aktualizací OEM
 Dodavatel OEM bude také vydávat aktualizace, například ovladače a aktualizace firmwaru. I když dodavatel hardwaru doručí tyto aktualizace jako samostatné [aktualizace balíčků OEM](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates#update-package-types) , jsou pořád naimportované, nainstalované a spravované stejným způsobem jako balíčky aktualizací od Microsoftu. Seznam kontaktních odkazů dodavatele najdete na adrese [Azure Stack aktualizace OEM (Original Equipment Manufacturer)](https://docs.microsoft.com/azure-stack/operator/azure-stack-update-oem#oem-contact-information).
@@ -114,6 +115,6 @@ Následující postup ukazuje, jak importovat a instalovat balíčky aktualizac�
 
 Aktualizace můžete ručně odstranit z účtu úložiště poté, co byly nainstalovány v Azure Stack. Azure Stack pravidelně kontroluje starší balíčky aktualizací a odebírá je ze služby Storage. Odebrání starých balíčků může trvat Azure Stack dvou týdnů.
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 [Použít aktualizaci](azure-stack-apply-updates.md)

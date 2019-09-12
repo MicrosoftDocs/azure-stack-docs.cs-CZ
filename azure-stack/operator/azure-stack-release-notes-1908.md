@@ -17,12 +17,12 @@ ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 08/30/2019
 monikerRange: azs-1908
-ms.openlocfilehash: 935a422aee68bb107e5bfe8b79a21d22ce1fffc8
-ms.sourcegitcommit: 305536bfd49319455ca3ca270fe3644b1796bad1
+ms.openlocfilehash: ad059e09bbd544e4709a237ee0c51cafc2a734b4
+ms.sourcegitcommit: 9438b559ea314cc8c19fd710e1b2a6ceb15e50c3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70876613"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70912650"
 ---
 # <a name="azure-stack-1908-update"></a>Aktualizace Azure Stack 1908
 
@@ -135,7 +135,7 @@ Systémy, které mají přístup k Internetu ze sítě infrastruktury, uvidí na
 
 [Starší verze Azure Stack poznámky k verzi najdete v Galerii TechNet](https://aka.ms/azsarchivedrelnotes). Tato Archivovaná zpráva k vydání verze je poskytována pouze pro referenční účely a neznamená podporu těchto verzí. Informace o podpoře Azure Stack najdete v tématu [zásady pro obsluhu Azure Stack](azure-stack-servicing-policy.md). Pokud potřebujete další pomoc, obraťte se na službu zákaznické podpory společnosti Microsoft.
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 - Přehled správy aktualizací ve službě Azure Stack najdete v tématu [správy aktualizací ve službě Azure Stack přehled](azure-stack-updates.md).  
 - Další informace o tom, jak použít aktualizace pomocí služby Azure Stack najdete v tématu [použití aktualizací ve službě Azure Stack](azure-stack-apply-updates.md).

@@ -3,7 +3,7 @@ title: Přidat veřejné IP adresy v Azure Stack | Microsoft Docs
 description: Přečtěte si, jak přidat veřejné IP adresy do Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -12,21 +12,24 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2019
-ms.author: mabrigg
+ms.date: 09/10/2019
+ms.author: justinha
 ms.reviewer: scottnap
-ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: 6d99e5b293f86f4bdb62d35fc111054f12d57172
-ms.sourcegitcommit: e8f7fe07b32be33ef621915089344caf1fdca3fd
+ms.lastreviewed: 09/10/2019
+ms.openlocfilehash: 3978ac3339a2bf6a9dd4df770736bca1a21cc5a3
+ms.sourcegitcommit: 38f21e0bcf7b593242ad615c9d8ef8a1ac19c734
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70118724"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70902649"
 ---
 # <a name="add-public-ip-addresses"></a>Přidání veřejné IP adresy
 *Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*  
 
 V tomto článku odkazujeme na externí adresy jako veřejné IP adresy. V souvislosti s Azure Stack je veřejná IP adresa IP adresou, která je přístupná mimo Azure Stack. Jestli je tato externí síť veřejná internetovou směrovatelný nebo je v intranetu a používá pro účely tohoto článku privátní adresní prostor, jsou tyto kroky stejné.
+
+> [!IMPORTANT]
+> Kroky v tomto článku se vztahují jenom na systémy, které se nasadily pomocí sady partner Toolkit verze 1809 nebo novější. Systémy nasazené před verzí 1809 vyžadují, aby se aktualizovaly seznamy řízení přístupu (ACL) přepínače pro nejvyšší úrovni, aby bylo možné nový rozsah veřejných VIP adres aktualizovat. Pokud používáte starší konfigurace přepínačů, spolupracujte se svým výrobcem OEM a buď přidejte příslušné seznamy ACL pro povolení pro nový fond IP adres, nebo překonfigurujte přepínač pomocí nejnovější sady partner Toolkit, abyste zabránili zablokování nových veřejných IP adres.
 
 ## <a name="add-a-public-ip-address-pool"></a>Přidat fond veřejných IP adres
 Veřejné IP adresy můžete do svého Azure Stack systému přidat kdykoli po počátečním nasazení Azure Stack systému. Podívejte se, jak [Zobrazit využití veřejné IP adresy](azure-stack-viewing-public-ip-address-consumption.md) , abyste zjistili, co je aktuální využití a dostupnost veřejné IP adresy v Azure Stack.
@@ -39,7 +42,7 @@ Proces přidání nového bloku veřejných IP adres na nejvyšší úrovni vám
 První věc, kterou je potřeba udělat, je získání bloku adres, který chcete přidat do Azure Stack. V závislosti na tom, odkud získáte blok adresy z, zvažte, co je doba realizace, a spravujte ji na základě sazby, na které používáte veřejné IP adresy v Azure Stack.
 
 > [!IMPORTANT]
-> Azure Stack bude souhlasit s případným blokem adres, který zadáte, protože se jedná o platný blok adres a nepřekrývá se s existujícím rozsahem adres v Azure Stack. Ujistěte se prosím, že jste obdrželi platný blok adres, který je směrovatelný a který se nepřekrývá s externí sítí, ke které je Azure Stack připojená. Jakmile přidáte rozsah do Azure Stack, nemůžete ho odebrat.
+> Azure Stack přijme libovolný blok adres, který zadáte, pokud se jedná o platný blok adres, který se nepřekrývá s existujícím rozsahem adres v Azure Stack. Ujistěte se prosím, že jste obdrželi platný blok adres, který je směrovatelný a který se nepřekrývá s externí sítí, ke které je Azure Stack připojená. Po přidání rozsahu do Azure Stack ho nemůžete odebrat.
 
 ## <a name="add-the-ip-address-range-to-azure-stack"></a>Přidat rozsah IP adres do Azure Stack
 
@@ -52,7 +55,7 @@ První věc, kterou je potřeba udělat, je získání bloku adres, který chcet
 7. Zadejte název fondu IP adres. Vámi zvolený název vám pomůže snadno identifikovat fond IP adres. Je dobrým zvykem, aby byl název stejný jako rozsah adres, ale to není vyžadováno.
 8. Zadejte blok adres, který chcete přidat do zápisu CIDR. Příklad: 192.168.203.0/24
 9. Když zadáte platný rozsah CIDR v poli Rozsah adres (blok CIDR), automaticky se naplní pole Počáteční IP adresa, koncová IP adresa a dostupná IP adresa. Jsou jen pro čtení a automaticky vygenerovány, takže tato pole nemůžete změnit, aniž by bylo nutné měnit hodnotu v poli Rozsah adres.
-10. Po zkontrolování informací v okně a potvrzení, zda je vše správné, kliknutím na tlačítko **OK** potvrďte změnu a přidejte rozsah adres do Azure Stack.
+10. Po kontrole informací v okně a potvrzení, že vše vypadá správně, vyberte **OK** a potvrďte změnu a přidejte rozsah adres do Azure Stack.
 
 
 ## <a name="next-steps"></a>Další postup 
