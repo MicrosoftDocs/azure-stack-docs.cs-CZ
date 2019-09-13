@@ -1,6 +1,6 @@
 ---
-title: V tomto článku se dozvíte, jak aktualizovat Azure Stack nabídky a plány | Dokumentace Microsoftu
-description: Tento článek popisuje, jak zobrazit a upravit existující služby Azure Stack nabídky a plány.
+title: V tomto článku se dozvíte, jak aktualizovat Azure Stack nabídky a plány | Microsoft Docs
+description: Tento článek popisuje, jak zobrazit a upravit existující Azure Stack nabídky a plány.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -17,67 +17,71 @@ ms.date: 06/11/2019
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 06/11/2019
-ms.openlocfilehash: 54c6c44d6ab5d03819ba07ca1d34269e7a87ee77
-ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
+ms.openlocfilehash: 01e5bc6e91311a0c27acffd4079931c3ee000d29
+ms.sourcegitcommit: 8ddd70ba5ce05c591d3fa62597981859af107c06
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66836822"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70936133"
 ---
-# <a name="azure-stack-add-on-plans"></a>Azure Stack doplňkové plány
+# <a name="azure-stack-add-on-plans"></a>Azure Stack plány pro Doplňky
 
-Jako operátory Azure stacku, vytvoříte doplňkové plány upravit [základní plán](azure-stack-create-plan.md) kdy budete chtít nabízet další služby nebo rozšířit *počítače*, *úložiště*, nebo *sítě* kvóty nad rámec nabídky počáteční základní plán. Doplňkové plány upravit základní plán a jsou volitelná rozšíření, které uživatelé mohou přihlásit k odběru.
+Jako operátor Azure Stack vytvoříte doplňkovou plány pro úpravu [základního plánu](azure-stack-create-plan.md) , pokud chcete nabízet další služby nebo zvýšit kapacitu *počítačů*, *úložiště*nebo *síťových* kvót mimo počáteční nabídku základní plán. Plány doplňku upravují základní plán a jsou volitelná rozšíření, která si uživatelé můžou zvolit k přihlášení k odběru.
 
-Existují situace, kdy kombinování všechno v jednom plánu je optimální. Jindy můžete chtít mít základnu plán a pak nabízet další služby pomocí doplňkové plány. Může například rozhodnout, že nabízí služby IaaS jako součást základní plán službami PaaS považován za doplňkové plány.
+Existují situace, kdy kombinace všeho v jednom plánu je optimální. Jindy možná budete chtít mít základní plán a potom nabízet další služby pomocí doplňkových plánů. Například se můžete rozhodnout nabízet služby IaaS jako součást základního plánu, přičemž všechny služby PaaS se zpracují jako doplňková plán.
 
-Dalším důvodem pro použití doplňkové plány je usnadnit monitorování využití prostředků. Uděláte to tak, můžete začít s základní plán, který obsahuje poměrně málo početnému kvóty (v závislosti na požadované služby). Poté jako uživatelé kontaktovat kapacitu, jejich by Generovat výstrahy, které spotřebovali přidělení prostředků na základě jejich přiřazené plánu. Odtud můžete vybrat uživatele doplňkový plán, který poskytuje další prostředky.
+Dalším důvodem pro použití doplňkových plánů je pomáhat sledovat využití prostředků. Uděláte to tak, že začnete se základním plánem, který obsahuje relativně malá kvóta (v závislosti na požadovaných službách). Až uživatelé dosáhnou kapacity, budou upozorněni, že využili přidělení prostředků na základě přiřazeného plánu. Odtud můžou uživatelé vybrat plán doplňku, který poskytuje další prostředky.
 
 > [!NOTE]
-> Pokud nechcete použít doplňkový plán pro rozšíření kvóty, můžete také do [upravit původní konfiguraci kvóty](azure-stack-quota-types.md#edit-a-quota).
+> Pokud nechcete, aby kvóta rozšířila plán doplňku, můžete také zvolit [úpravu původní konfigurace kvóty](azure-stack-quota-types.md#edit-a-quota).
 
-Když přidáte doplňkový plán k existujícímu předplatnému nabídky, další prostředky může trvat až hodinu, se zobrazí.
+Když do stávajícího předplatného nabídky přidáte plán doplňku, může trvat až hodinu, než se zobrazí další prostředky.
 
-Doplňkové plány jsou vytvořeny tak, že upravíte existující nabídky.
+Plány doplňku se vytvářejí úpravou stávající nabídky.
 
-## <a name="create-an-add-on-plan-1902-and-later"></a>Vytvoření plánu služby doplněk (1902 a novější)
+::: moniker range=">=azs-1902"
+## <a name="create-an-add-on-plan-1902-and-later"></a>Vytvoření doplňkového plánu (1902 a novější)
 
-1. Přihlaste se k portálu Správce služby Azure Stack jako správce cloudu.
-2. Postupujte stejným způsobem umožňuje [vytvořit nový plán základní](azure-stack-create-plan.md) k vytvoření nového plánu nabídky služeb, které nebyly nabízeny dříve.
-3. Na portálu správce, klikněte na tlačítko **nabízí** a pak vyberte nabídku se doplňkový plán aktualizace.
+1. Přihlaste se k portálu pro správu Azure Stack jako správce cloudu.
+2. Použijte stejný postup, který slouží k [Vytvoření nového základního plánu](azure-stack-create-plan.md) pro vytvoření nového plánu, který nabízí služby, které nebyly dříve nabídnuty.
+3. Na portálu pro správu klikněte na **nabídky** a potom vyberte nabídku, která se má aktualizovat pomocí doplňkového plánu.
 
-   ![Vytvoření doplňkový plán](media/create-add-on-plan/add-on1.png)
+   ![Vytvořit plán doplňku](media/create-add-on-plan/add-on1.png)
 
-4. V dolní části nabídky vlastnosti, vyberte **doplňkové plány**. Klikněte na tlačítko **Add** (Přidat).
+4. V dolní části vlastností nabídky vyberte možnost **plány doplňku**. Klikněte na **Přidat**.
 
-    ![Vytvoření doplňkový plán](media/create-add-on-plan/add-on2.png)
+    ![Vytvořit plán doplňku](media/create-add-on-plan/add-on2.png)
 
-5. Vyberte plán, který chcete přidat. V tomto příkladu se nazývá plánu **20 storageaccounts**. Po výběru plánu, klikněte na **vyberte** plánu přidat do nabídky. Měli byste obdržet oznámení, že tento plán byl úspěšně přidán do nabídky.
+5. Vyberte plán, který chcete přidat. V tomto příkladu se plán nazývá **20-storageaccounts**. Po výběru plánu klikněte na **Vybrat** a přidejte plán do nabídky. Měli byste obdržet oznámení, že plán byl úspěšně přidán do nabídky.
 
-    ![Vytvoření doplňkový plán](media/create-add-on-plan/add-on3.png)
+    ![Vytvořit plán doplňku](media/create-add-on-plan/add-on3.png)
 
-6. Projděte si seznam doplňkové plány zahrnutou částku, chcete-li ověřit, že je uvedený nový doplňkový plán.
+6. Zkontrolujte seznam doplňkových plánů, který je součástí nabídky, a ověřte, že je uvedený nový plán doplňku.
 
-    [![Doplňkový plán vytvořit](media/create-add-on-plan/add-on4.png "vytvořit doplňkový plán")](media/create-add-on-plan/add-on4lg.png#lightbox)
+    [![Vytvořit plán doplňku](media/create-add-on-plan/add-on4.png "Vytvořit plán doplňku")](media/create-add-on-plan/add-on4lg.png#lightbox)
+::: moniker-end
 
-## <a name="create-an-add-on-plan-1901-and-earlier"></a>Vytvoření plánu služby doplněk (1901 a starší)
+::: moniker range="<=azs-1901"
+## <a name="create-an-add-on-plan-1901-and-earlier"></a>Vytvoření doplňkového plánu (1901 a starší)
 
-1. Přihlaste se k portálu Správce služby Azure Stack jako správce cloudu.
-2. Postupujte stejným způsobem umožňuje [vytvořit nový plán základní](azure-stack-create-plan.md) k vytvoření nového plánu nabídky služeb, které nebyly nabízeny dříve. V tomto příkladu služby Key Vault (**Microsoft.KeyVault**) služby bude zahrnuté v novém plánu.
-3. Na portálu správce, klikněte na tlačítko **nabízí** a pak vyberte nabídku se doplňkový plán aktualizace.
+1. Přihlaste se k portálu pro správu Azure Stack jako správce cloudu.
+2. Použijte stejný postup, který slouží k [Vytvoření nového základního plánu](azure-stack-create-plan.md) pro vytvoření nového plánu, který nabízí služby, které nebyly dříve nabídnuty. V tomto příkladu budou do nového plánu zahrnuté služby Key Vault (**Microsoft. klíčů trezor**).
+3. Na portálu pro správu klikněte na **nabídky** a potom vyberte nabídku, která se má aktualizovat pomocí doplňkového plánu.
 
-   ![Vytvoření doplňkový plán](media/create-add-on-plan/1.PNG)
+   ![Vytvořit plán doplňku](media/create-add-on-plan/1.PNG)
 
-4. Přejděte do dolní části nabídky vlastnosti a vyberte **doplňkové plány**. Klikněte na tlačítko **Add** (Přidat).
+4. Posuňte se do dolní části vlastností nabídky a vyberte možnost **plány doplňku**. Klikněte na **Přidat**.
 
-    ![Vytvoření doplňkový plán](media/create-add-on-plan/2.PNG)
+    ![Vytvořit plán doplňku](media/create-add-on-plan/2.PNG)
 
-5. Vyberte plán, který chcete přidat. V tomto příkladu se nazývá plánu **Key vault plán**. Po výběru plánu, klikněte na **vyberte** plánu přidat do nabídky. Měli byste obdržet oznámení, že tento plán byl úspěšně přidán do nabídky.
+5. Vyberte plán, který chcete přidat. V tomto příkladu se plán nazývá **plán trezoru klíčů**. Po výběru plánu klikněte na **Vybrat** a přidejte plán do nabídky. Měli byste obdržet oznámení, že plán byl úspěšně přidán do nabídky.
 
-    ![Vytvoření doplňkový plán](media/create-add-on-plan/3.PNG)
+    ![Vytvořit plán doplňku](media/create-add-on-plan/3.PNG)
 
-6. Projděte si seznam doplňkové plány zahrnutou částku, chcete-li ověřit, že je uvedený nový doplňkový plán.
+6. Zkontrolujte seznam doplňkových plánů, který je součástí nabídky, a ověřte, že je uvedený nový plán doplňku.
 
-    ![Vytvoření doplňkový plán](media/create-add-on-plan/4.PNG)
+    ![Vytvořit plán doplňku](media/create-add-on-plan/4.PNG)
+::: moniker-end
 
 ## <a name="next-steps"></a>Další postup
 
