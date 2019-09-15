@@ -16,12 +16,12 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/25/2019
-ms.openlocfilehash: b92fcd3f729bf068dd578893f24f1c7fa66bbcff
-ms.sourcegitcommit: 7d7a4c8c46613b6104caf23763bfd2275f6a826b
+ms.openlocfilehash: 9098fb61c0d4edcb534bd7b9d07b4727c953df8d
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70808149"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70974894"
 ---
 # <a name="app-service-on-azure-stack-update-4-release-notes"></a>Zpráva k vydání verze App Service ve Azure Stack Update 4
 
@@ -42,7 +42,7 @@ Než začnete s nasazením, přečtěte si [požadavky pro nasazení App Service
 
 Než začnete s upgradem Azure App Service v Azure Stack na 1,4:
 
-- Ujistěte se, že jsou všechny role připravené na Azure App Service správě na portálu pro správu Azure Stack.
+- Ujistěte se, že všechny role jsou připravené ve správě Azure App Service na portálu Azure Stack správce.
 
 - Zálohování App Service a hlavních databází:
   - AppService_Hosting;
@@ -92,7 +92,7 @@ Azure App Service na Azure Stack Update 4 zahrnuje následující vylepšení a 
 
 - Obnovená funkce v nastavení sdílení prostředků mezi zdroji na portálu App Service tenant.
 
-- Chybová zpráva se teď zobrazuje na portálu pro správu App Service, když se rovina řízení poskytovatele prostředků nemůže připojit k nakonfigurované instanci SQL Server.
+- V App Service portálu pro správu se teď zobrazí chybová zpráva, když se rovina řízení poskytovatele prostředků nemůže připojit k nakonfigurované instanci SQL Server.
 
 - Ujistěte se, že je koncový bod zadaný v připojovacím řetězci vlastního úložiště, pokud je zadaný v nové aplikaci Function App.
 

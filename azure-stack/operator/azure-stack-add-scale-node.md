@@ -16,12 +16,12 @@ ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: ab06f5d3674000733227894a5a69778d90c29d48
-ms.sourcegitcommit: e8f7fe07b32be33ef621915089344caf1fdca3fd
+ms.openlocfilehash: 9b28d6b55530de6716fd7781b4c7894cbc859288
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70118743"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70974999"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack"></a>Přidání dalších uzlů jednotky škálování v Azure Stack
 
@@ -53,16 +53,16 @@ Následující kroky jsou nejdůležitějším přehledem o tom, jak přidat uze
 2. Povolte porty fyzických přepínačů a v případě potřeby upravte seznamy řízení přístupu (ACL).
 3. Nakonfigurujte správnou IP adresu v řadiči pro správu základní desky (BMC) a použijte všechna nastavení systému BIOS podle vaší dokumentace poskytované výrobcem OEM.
 4. Použijte aktuální standardní hodnotu firmwaru pro všechny komponenty pomocí nástrojů, které jsou k dispozici výrobcem hardwaru, který běží na HLH.
-5. Spusťte operaci přidat uzel na portálu pro správu Azure Stack.
+5. Spusťte operaci přidat uzel na portálu správce Azure Stack.
 6. Ověřte, zda je operace přidat uzel úspěšná. Provedete to tak, že zkontrolujete [ **stav** jednotky škálování](#monitor-add-node-operations). 
 
 ## <a name="add-the-node"></a>Přidat uzel
 
 K přidání nových uzlů můžete použít portál pro správu nebo PowerShell. Operace přidat uzel nejprve přidá nový uzel jednotky škálování jako dostupnou výpočetní kapacitu a pak automaticky rozšíří kapacitu úložiště. Kapacita se automaticky rozšíří, protože Azure Stack se jedná o právě sblížený systém, ve kterém se navzájem provádí *Výpočet* a škálování *úložiště* .
 
-### <a name="use-the-admin-portal"></a>Použití portálu pro správu
+### <a name="use-the-administrator-portal"></a>Použití portálu pro správu
 
-1. Přihlaste se k portálu pro správu Azure Stack jako operátor Azure Stack.
+1. Přihlaste se k portálu Azure Stack správce jako operátor Azure Stack.
 2. Přejděte na **+ vytvořit** > **uzel jednotka škálování** **kapacity** > prostředku.
    ![Uzel jednotky škálování](media/azure-stack-add-scale-node/select-node1.png)
 3. V podokně **přidat uzel** vyberte *oblast*a potom vyberte *jednotku škálování* , do které chcete uzel přidat. Zadejte také *IP adresu řadiče pro správu základní desky* pro uzel jednotky škálování, který přidáváte. Najednou můžete přidat jenom jeden uzel.
@@ -89,7 +89,7 @@ Před použitím některého z následujících ukázkových skriptů PowerShell
 ## <a name="monitor-add-node-operations"></a>Monitorování operací přidání uzlu 
 K získání stavu operace přidání uzlu použijte portál pro správu nebo PowerShell. Dokončení operací přidání uzlu může trvat několik hodin.
 
-### <a name="use-the-admin-portal"></a>Použití portálu pro správu 
+### <a name="use-the-administrator-portal"></a>Použití portálu pro správu 
 Chcete-li monitorovat přidání nového uzlu, Projděte si část jednotka škálování nebo objekty uzlu jednotky škálování na portálu pro správu. Provedete to tak, že přejdete na**jednotky škálování** **správy** > oblastí. V dalším kroku vyberte jednotku škálování nebo uzel jednotky škálování, který chcete zkontrolovat. 
 
 ### <a name="use-powershell"></a>Použití prostředí PowerShell

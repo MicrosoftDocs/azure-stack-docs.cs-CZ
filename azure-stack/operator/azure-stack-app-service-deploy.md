@@ -16,12 +16,12 @@ ms.date: 08/29/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 7088a001fab8e3e618da4be8107f5a5f5a22373f
-ms.sourcegitcommit: e2f6205e6469b39c2395ee09424bb7632cb94c40
+ms.openlocfilehash: 219d8bcf884945353b08186324edc23feb028964
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70271777"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70974963"
 ---
 # <a name="deploy-app-service-in-azure-stack"></a>Nasazení App Service v Azure Stack
 
@@ -69,7 +69,7 @@ Pokud chcete nasadit poskytovatele prostředků App Service, postupujte takto:
 
 6. Na další stránce Instalační služby App Service proveďte následující kroky:
 
-    a. U **Předplatných Azure Stack**vyberte **připojit** .
+    a. U předplatných **Azure Stack**vyberte **připojit** .
 
    - Pokud používáte Azure Active Directory (Azure AD), zadejte účet správce Azure AD a heslo, které jste zadali při nasazení Azure Stack. Vyberte **Přihlásit se**.
    - Pokud používáte Active Directory Federation Services (AD FS) (AD FS), zadejte účet správce. Například, cloudadmin@azurestack.local. Zadejte heslo a pak vyberte **Přihlásit**se.
@@ -165,7 +165,7 @@ Pokud chcete nasadit poskytovatele prostředků App Service, postupujte takto:
 
 15. Na stránce Souhrn instalační služby App Service proveďte následující kroky:
 
-    a. Ověřte provedené volby. Chcete-li provést změny, **přejděte na předchozí tlačítka,** kde můžete přejít na předchozí stránky.
+    a. Ověřte provedené volby. Chcete-li provést změny, přejděte na předchozí tlačítka, kde můžete přejít na předchozí stránky.
 
     b. Jsou-li konfigurace správné, zaškrtněte políčko.
 
@@ -230,7 +230,7 @@ Chcete-li vytvořit testovací webovou aplikaci, postupujte podle následující
 
 5. V části **plán App Service**zadejte název **App Serviceho plánu**.
 
-6. Vyberte **cenovou úroveň** > **Free-Shared** nebo **Shared-Shared** > a**Vyberte** > **OK** > **vytvořit**.
+6. Vyberte **cenovou úroveň** > **Free-Shared** nebo Shared **-Shared** > a**Vyberte** > **OK** > **vytvořit**.
 
 7. Na řídicím panelu se zobrazí dlaždice nové webové aplikace. Vyberte dlaždici.
 

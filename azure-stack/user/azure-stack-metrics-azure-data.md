@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 08/27/2019
 ms.author: mabrigg
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: 88b07c5c3325263e068de49b78df25d17861a37e
-ms.sourcegitcommit: f1a21af6517978ddb62f4cbfa1d1df8c867814d1
+ms.openlocfilehash: 71855d557f26fc1eb4d86ab0d5a48bf8cf987506
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70064179"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70974680"
 ---
 # <a name="use-azure-monitor-on-azure-stack"></a>Použít Azure Monitor na Azure Stack
 
@@ -31,7 +31,7 @@ Přehled Azure Monitor najdete v tématu věnovaném celosvětovému článku Az
 
 ![Okno monitorování Azure Stack](./media/azure-stack-metrics-azure-data/azs-monitor.png)
 
-Azure Monitor je služba platformy, která poskytuje jeden zdroj pro monitorování prostředků Azure. Azure Monitor vám umožňuje vizualizovat, dotazovat, směrovat, archivovat a provádět další akce s metrikami a protokoly, které pocházejí z prostředků v Azure. S těmito daty můžete pracovat pomocí Azure Stack portálu pro správu, monitorovat rutiny PowerShellu, rozhraní příkazového řádku pro více platforem nebo rozhraní API pro Azure Monitor REST. Konkrétní připojení, které podporuje Azure Stack, najdete v tématu [jak spotřebovávat data monitorování z Azure Stack](azure-stack-metrics-monitor.md).
+Azure Monitor je služba platformy, která poskytuje jeden zdroj pro monitorování prostředků Azure. Azure Monitor vám umožňuje vizualizovat, dotazovat, směrovat, archivovat a provádět další akce s metrikami a protokoly, které pocházejí z prostředků v Azure. S těmito daty můžete pracovat pomocí portálu Azure Stack správce, monitorovat rutiny PowerShellu, rozhraní příkazového řádku pro více platforem nebo rozhraní API pro Azure Monitor REST. Konkrétní připojení, které podporuje Azure Stack, najdete v tématu [jak spotřebovávat data monitorování z Azure Stack](azure-stack-metrics-monitor.md).
 
 > [!Note]
 > Metriky a diagnostické protokoly nejsou pro Azure Stack Development Kit k dispozici.
@@ -115,7 +115,7 @@ Pro přístup k datům v systému nebo Azure Storage můžete použít příkazy
 Vizualizace dat monitorování pomocí grafů a diagramů vám umožňuje rozpoznat trendy rychleji, než když prohlížíte samotná data. 
 
 Mezi možné způsoby vizualizace patří:
- - Použijte Azure Stackho uživatele a portálu pro správu.
+ - Použijte Azure Stack uživatele a portál správce.
  - Směrovat data do Microsoft Power BI.
  - Přesměrujte data na nástroj pro vizualizaci třetí strany pomocí živého streamování nebo si nástroj Přečtěte z archivu ve službě Azure Storage.
 
@@ -132,6 +132,6 @@ Pomocí jedné z následujících metod můžete pracovat se sledováním, směr
 > [!Important]  
 > Pokud narazíte na chybu **prostředku** při zobrazení grafu výkonu virtuálního počítače, ujistěte se, že jste zaregistrovali Microsoft. Insights v rámci předplatného, které je přidružené k virtuálnímu počítači.
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 Další informace o sledování spotřeby dat na Azure Stack v článku [využívání dat monitorování z Azure Stack](azure-stack-metrics-monitor.md).

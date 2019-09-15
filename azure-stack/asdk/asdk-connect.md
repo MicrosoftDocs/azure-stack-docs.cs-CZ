@@ -16,12 +16,12 @@ ms.date: 05/06/2019
 ms.author: justinha
 ms.reviewer: knithinc
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 3f1dd0d7efa2aa9549f65ef97ebb7a589949154b
-ms.sourcegitcommit: 4eb1766c7a9d1ccb1f1362ae1211ec748a7d708c
+ms.openlocfilehash: 8a9fae5324e20ecd808df1f73dc90555b4802da5
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69579138"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70974605"
 ---
 # <a name="connect-to-the-asdk"></a>Připojení k ASDK
 
@@ -42,7 +42,7 @@ Jeden souběžný uživatel může spravovat prostředky na portálu pro správu
 
 2. Na hostitelském počítači s ASDK otevřete Správce serveru (ServerManager. exe). Vyberte **místní server**, vypněte **konfiguraci rozšířeného zabezpečení aplikace Internet explorer**a zavřete Správce serveru.
 
-3. Přihlaste se na portál pro správu jako **AzureStack\CloudAdmin** nebo použijte jiné přihlašovací údaje operátora Azure Stack. Adresa portálu pro správu ASDK je [https://adminportal.local.azurestack.external](https://adminportal.local.azurestack.external).
+3. Přihlaste se k portálu pro správu jako **AzureStack\CloudAdmin** nebo použijte jiné přihlašovací údaje operátora Azure Stack. Adresa portálu správce ASDK je [https://adminportal.local.azurestack.external](https://adminportal.local.azurestack.external).
 
 4. Přihlaste se k portálu User Portal jako **AzureStack\CloudAdmin** nebo použijte jiné přihlašovací údaje uživatele Azure Stack. Adresa uživatelského portálu ASDK je [https://portal.local.azurestack.external](https://portal.local.azurestack.external).
 
@@ -127,7 +127,7 @@ Při prvním připojení budete vyzváni k instalaci Azure Stack kořenového ce
 
 ### <a name="test-vpn-connectivity"></a>Testovat připojení VPN
 
-Chcete-li otestovat připojení k portálu, otevřete prohlížeč a pak klikněte na portál User Portal (https://portal.local.azurestack.external/) nebo na portál pro správu (. https://adminportal.local.azurestack.external/) 
+Chcete-li otestovat připojení k portálu, otevřete prohlížeč a pak klikněte na portál User Portal (https://portal.local.azurestack.external/) nebo na https://adminportal.local.azurestack.external/) portál pro správu portálu.
 
 Přihlaste se pomocí příslušných přihlašovacích údajů předplatného pro vytváření a správu prostředků.  
 

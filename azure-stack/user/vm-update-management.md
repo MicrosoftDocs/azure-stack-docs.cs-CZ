@@ -16,12 +16,12 @@ ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 03/20/2019
-ms.openlocfilehash: 891727c8e80af479e800feef9c292f7355fb208c
-ms.sourcegitcommit: 637018771ac016b7d428174e88d4dcb131b54959
+ms.openlocfilehash: 3fa6d124722d45d727525820b6a99d408f0d2350
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68842691"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70975172"
 ---
 # <a name="vm-update-and-management-automation-in-azure-stack"></a>Automatizace aktualizací a správy virtuálních počítačů v Azure Stack
 Ke správě virtuálních počítačů s Windows a Linux nasazených pomocí Azure Stack použijte následující Azure Automation řešení:
@@ -44,7 +44,7 @@ Před použitím těchto funkcí k aktualizaci a správě Azure Stack virtuáln�
 Pokud chcete používat funkce Azure Monitor pro virtuální počítače, inventáře, Change Tracking a Update Management Azure Automation pro Azure Stack virtuální počítače, musíte tato řešení v Azure nejdřív povolit.
 
 > [!TIP]
-> Pokud jste už tyto funkce pro virtuální počítače Azure povolili, můžete použít již existující přihlašovací údaje k pracovnímu prostoru LogAnalytics. Pokud už máte LogAnalytics ID pracovního prostoru a primární klíč, který chcete použít, přeskočte dopředu k [Další části](./vm-update-management.md#in-the-azure-stack-admin-portal). V opačném případě pokračujte v této části a vytvořte nový pracovní prostor LogAnalytics a účet Automation.
+> Pokud jste už tyto funkce pro virtuální počítače Azure povolili, můžete použít již existující přihlašovací údaje k pracovnímu prostoru LogAnalytics. Pokud už máte LogAnalytics ID pracovního prostoru a primární klíč, který chcete použít, přeskočte dopředu k [Další části](./vm-update-management.md#in-the-azure-stack-administrator-portal). V opačném případě pokračujte v této části a vytvořte nový pracovní prostor LogAnalytics a účet Automation.
 
 Prvním krokem při povolování těchto řešení je [Vytvoření pracovního prostoru LogAnalytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace) ve vašem předplatném Azure. Log Analytics pracovní prostor je jedinečné Azure Monitor protokoluje prostředí s vlastním úložištěm dat, zdroji dat a řešeními. Po vytvoření pracovního prostoru si poznamenejte ID pracovního prostoru a klíč. Pokud si chcete zobrazit tyto informace, přejděte do okna pracovní prostor, klikněte na **Upřesnit nastavení**a zkontrolujte hodnoty **ID pracovního prostoru** a **primární klíč** . 
 
@@ -76,7 +76,7 @@ Jako řešení Azure Monitor pro virtuální počítače zahrnuje podporu monito
 
 Po vytvoření pracovního prostoru Log Analytics povolte čítače výkonu v pracovním prostoru pro shromažďování dat na virtuálních počítačích se systémy Linux a Windows. Pak v pracovním prostoru nainstalujte a povolte řešení ServiceMap a InfrastructureInsights. Tento postup je popsaný v průvodci [nasazením Azure monitor pro virtuální počítače](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-onboard#how-to-enable-azure-monitor-for-vms-preview) .
 
-### <a name="in-the-azure-stack-admin-portal"></a>Na portálu pro správu Azure Stack
+### <a name="in-the-azure-stack-administrator-portal"></a>Na portálu pro správu Azure Stack
 Po povolení Azure Automation řešení v Azure Portal se budete muset přihlásit k portálu Azure Stack pro správu jako správce cloudu a stáhnout **Azure monitor, správu aktualizací a konfigurací** a **Azure monitor, aktualizovat a Správa konfigurace pro Linux** Extension na webu Azure Stack Marketplace.
 
    ![Azure Monitor, aktualizace a rozšíření pro správu konfigurace – položka Marketplace](media/vm-update-management/2.PNG) 
@@ -136,5 +136,5 @@ V případě, že vám [Azure monitor pro virtuální počítače](https://docs.
 ## <a name="enable-update-management-using-a-resource-manager-template"></a>Povolení Update Management pomocí šablony Správce prostředků
 Pokud máte velký počet Azure Stack virtuálních počítačů, můžete [tuto šablonu Azure Resource Manager](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win) použít k jednoduššímu nasazení řešení na virtuální počítače. Šablona nasadí rozšíření Microsoft Monitoring Agent pro existující virtuální počítač Azure Stack a přidá ho do existujícího pracovního prostoru Azure LogAnalytics.
  
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 [Optimalizace výkonu SQL Server virtuálních počítačů](azure-stack-sql-server-vm-considerations.md)

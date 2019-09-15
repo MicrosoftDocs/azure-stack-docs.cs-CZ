@@ -1,6 +1,6 @@
 ---
-title: Povolit zálohování pro Azure Stack pomocí Powershellu | Dokumentace Microsoftu
-description: Povolte infrastruktury služby Backup pomocí Windows Powershellu pro Azure Stack je možné obnovit, pokud dojde k selhání.
+title: Povolení zálohování pro Azure Stack s využitím PowerShellu | Microsoft Docs
+description: Naučte se, jak povolit službu Infrastructure Backup pomocí prostředí PowerShell, aby bylo možné Azure Stack obnovit v případě selhání.
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -15,47 +15,47 @@ ms.date: 04/25/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 03/14/2019
-ms.openlocfilehash: 08950940510d874b407448bab37c6a43f6965c7f
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 2e419c32caf78d97ee38e570ce0fa823cc94651a
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66268951"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70975188"
 ---
 # <a name="enable-backup-for-azure-stack-with-powershell"></a>Povolit zálohování pro Azure Stack pomocí Powershellu
 
-*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
 
-Povolit službu Backup infrastruktury v prostředí Windows PowerShell proveďte tak pravidelné zálohy:
- - Interní identity služby a kořenový certifikát
- - Uživatelské plány, nabídky, předplatná
- - Pro výpočty, úložiště a síťové kvóty uživatele
- - Tajné klíče uživatelů Key vault
- - Uživatelské role RBAC a zásady
- - Uživatelské účty úložiště
+Povolení služby Infrastructure Backup v prostředí Windows PowerShell pro provedení pravidelných záloh:
+ - Interní služba identit a kořenový certifikát.
+ - Uživatelské plány, nabídky a odběry.
+ - Výpočetní prostředky, úložiště a síťové kvóty uživatelů.
+ - Key Vault tajné klíče uživatele.
+ - Role a zásady RBAC uživatele.
+ - Uživatelské účty úložiště.
 
-Rutiny Powershellu k povolení zálohování, spustit zálohování a získat informace o zálohování přes koncový bod správy operátor můžete přistupovat.
+K rutinám PowerShellu máte přístup, abyste mohli povolit zálohování, spustit zálohování a získávat informace o zálohování prostřednictvím koncového bodu správy operátorů.
 
 ## <a name="prepare-powershell-environment"></a>Příprava prostředí PowerShell
 
-Pokyny ke konfiguraci prostředí PowerShell najdete v tématu [instalace Powershellu pro Azure Stack](azure-stack-powershell-install.md). Přihlaste se ke službě Azure Stack, najdete v článku [nakonfigurovat prostředí operátor a přihlaste se ke službě Azure Stack](azure-stack-powershell-configure-admin.md).
+Pokyny týkající se konfigurace prostředí PowerShellu najdete v tématu [instalace PowerShellu pro Azure Stack](azure-stack-powershell-install.md). Pokud se chcete přihlásit k Azure Stack, přečtěte si téma [Konfigurace prostředí operátorů a přihlášení k Azure Stack](azure-stack-powershell-configure-admin.md).
 
-## <a name="provide-the-backup-share-credentials-and-encryption-key-to-enable-backup"></a>Zadejte zálohování sdílené složky, přihlašovací údaje a šifrovací klíč k povolení zálohování
+## <a name="provide-the-backup-share-credentials-and-encryption-key-to-enable-backup"></a>Zadání záložní sdílené složky, přihlašovacích údajů a šifrovacího klíče pro povolení zálohování
 
-Ve stejné relaci prostředí PowerShell upravte následující skript prostředí PowerShell tak, že přidáte proměnné pro vaše prostředí. Spusťte skript aktualizace zálohování sdílené složky, přihlašovací údaje a šifrovací klíč poskytovat infrastrukturu služby zálohování.
+Ve stejné relaci prostředí PowerShell upravte následující skript prostředí PowerShell přidáním proměnných pro vaše prostředí. Spusťte aktualizovaný skript a poskytněte službě Infrastructure Backup záložní sdílenou složku, přihlašovací údaje a šifrovací klíč.
 
 | Proměnná        | Popis   |
 |---              |---                                        |
-| $username       | Typ **uživatelské jméno** pomocí doména a uživatelské jméno pro umístění sdíleného disku s dostatečný přístup pro čtení a zápis souborů. Například, `Contoso\backupshareuser`. |
-| $password       | Typ **heslo** pro daného uživatele. |
-| $sharepath      | Zadejte cestu k **umístění úložiště zálohy**. Je nutné použít řetězec konvenci UNC (Universal Naming) pro cestu ke sdílené složce hostované na samostatném zařízení. Řetězec ve formátu UNC Určuje umístění prostředků, jako jsou sdílené soubory nebo zařízení. K zajištění dostupnosti dat zálohy by měla být zařízení v samostatném umístění. |
-| $frequencyInHours | Určuje četnost v hodinách, jak často se vytvoří zálohy. Výchozí hodnota je 12. Scheduler podporuje maximálně 12 a minimálně 4.|
-| $retentionPeriodInDays | Doba uchování ve dnech Určuje, kolik dní záloh, které jsou uvedeny v externím místě. Výchozí hodnota je 7. Scheduler podporuje maximálně 14 a minimálně 2. Starší než doba uchování zálohy se automaticky odstraní z externího umístění.|
-| $encryptioncertpath | Platí pro 1901 i nad rámec.  Parametr je k dispozici v modulu Azure Stack verze 1.7 a nad rámec. Cesta k certifikátu šifrování Určuje cesta k souboru. Soubor CER pomocí veřejného klíče pro šifrování dat |
-| $encryptionkey | Použité k vytvoření 1811 nebo starší. Parametr je k dispozici v modulu Azure Stack verze 1.6 nebo dřívější. Šifrovací klíč použitý k šifrování. Použití [New-AzsEncryptionKeyBase64](https://docs.microsoft.com/powershell/module/azs.backup.admin/new-azsencryptionkeybase64) rutiny vygenerujte nový klíč. |
+| `$username`       | Zadejte **uživatelské jméno** s použitím domény a uživatelského jména pro umístění sdílené jednotky s dostatečným přístupem ke čtení a zápisu souborů. Například, `Contoso\backupshareuser`. |
+| `$password`       | Zadejte **heslo** pro uživatele. |
+| `$sharepath`      | Zadejte cestu k **umístění úložiště zálohy**. Je nutné použít řetězec UNC (Universal Naming Convention) pro cestu ke sdílené složce hostované na samostatném zařízení. Řetězec UNC určuje umístění prostředků, jako jsou třeba sdílené soubory nebo zařízení. Aby se zajistila dostupnost zálohovaných dat, mělo by být zařízení v samostatném umístění. |
+| `$frequencyInHours` | Frekvence v hodinách určuje, jak často se vytvářejí zálohy. Výchozí hodnota je 12. Scheduler podporuje maximálně 12 a minimálně 4.|
+| `$retentionPeriodInDays` | Doba uchování ve dnech určuje, kolik dní zálohování se uchová na externím umístění. Výchozí hodnota je 7. Scheduler podporuje maximálně 14 a minimálně 2. Zálohy starší než doba uchování se automaticky odstraní z externího umístění.|
+| `$encryptioncertpath` | Platí pro 1901 a novější. Parametr je k dispozici v modulu Azure Stack verze 1,7 a novější. Cesta k šifrovacímu certifikátu určuje cestu k souboru. Soubor CER s veřejným klíčem, který se používá pro šifrování dat |
+| `$encryptionkey` | Platí pro Build 1811 nebo starší. Parametr je k dispozici v modulu Azure Stack verze 1,6 nebo starší. Šifrovací klíč se používá k šifrování dat. K vygenerování nového klíče použijte rutinu [New-AzsEncryptionKeyBase64](https://docs.microsoft.com/powershell/module/azs.backup.admin/new-azsencryptionkeybase64) . |
 |     |     |
 
-### <a name="enable-backup-on-1901-and-beyond-using-certificate"></a>Povolit zálohování na 1901 a novějšími pomocí certifikátu
+### <a name="enable-backup-on-1901-and-later-using-certificate"></a>Povolit zálohování v 1901 a novějším pomocí certifikátu
 ```powershell
     # Example username:
     $username = "domain\backupadmin"
@@ -82,7 +82,7 @@ Ve stejné relaci prostředí PowerShell upravte následující skript prostřed
     # Set the backup settings with the name, password, share, and CER certificate file.
     Set-AzsBackupConfiguration -BackupShare $sharepath -Username $username -Password $password -EncryptionCertPath "c:\temp\cert.cer"
 ```
-### <a name="enable-backup-on-1811-or-earlier-using-certificate"></a>Povolit zálohy na 1811 nebo dříve pomocí certifikátu
+### <a name="enable-backup-on-1811-or-earlier-using-certificate"></a>Povolení zálohování v 1811 nebo starším pomocí certifikátu
 ```powershell
     # Example username:
     $username = "domain\backupadmin"
@@ -110,7 +110,7 @@ Ve stejné relaci prostředí PowerShell spusťte následující příkazy:
     Get-AzsBackupConfiguration | Select-Object -Property Path, UserName
    ```
 
-Výsledek by měl vypadat jako následující příklad výstupu:
+Výsledek by měl vypadat jako v následujícím příkladu výstupu:
 
    ```powershell
     Path                        : \\serverIP\AzsBackupStore\contoso.com\seattle
@@ -130,7 +130,7 @@ Ve stejné relaci prostředí PowerShell můžete aktualizovat výchozí hodnoty
     Get-AzsBackupConfiguration | Select-Object -Property Path, UserName, AvailableCapacity, BackupFrequencyInHours, BackupRetentionPeriodInDays
    ```
 
-Výsledek by měl vypadat jako následující příklad výstupu:
+Výsledek by měl vypadat jako v následujícím příkladu výstupu:
 
    ```powershell
     Path                        : \\serverIP\AzsBackupStore\contoso.com\seattle
@@ -141,14 +141,14 @@ Výsledek by měl vypadat jako následující příklad výstupu:
    ```
 
 ### <a name="azure-stack-powershell"></a>Azure Stack PowerShell 
-Rutiny Powershellu pro konfiguraci zálohování infrastruktury je sada AzsBackupConfiguration. V předchozích verzích byla rutinu Set-AzsBackupShare. Tato rutina vyžaduje poskytnutí certifikátu. Pokud infrastruktura zálohování je nakonfigurovaný pomocí šifrovacího klíče, nejde aktualizovat šifrovací klíč nebo vlastnost zobrazit. Je potřeba použít verzi 1.6 Powershellu pro správu. 
+Rutina prostředí PowerShell pro konfiguraci zálohování infrastruktury je nastavená na AzsBackupConfiguration. V předchozích verzích byla rutina nastavená na AzsBackupShare. Tato rutina vyžaduje poskytnutí certifikátu. Pokud je zálohování infrastruktury nakonfigurované pomocí šifrovacího klíče, nemůžete aktualizovat šifrovací klíč ani zobrazit jeho vlastnost. Musíte použít verzi 1,6 prostředí PowerShell pro správu.
 
-Infrastruktura zálohování se nakonfigurovalo před aktualizací na 1901, můžete nastavit a zobrazit šifrovací klíč verze 1.6 Powershellu pro správu. Verze 1.6 nebude možné aktualizovat z šifrovací klíč do souboru certifikátu.
-Odkazovat na [instalace Azure Stack Powershellu](azure-stack-powershell-install.md) Další informace o instalaci správné verze modulu. 
+Pokud byla před aktualizací na 1901 nakonfigurovaná záloha infrastruktury, můžete k nastavení a zobrazení šifrovacího klíče použít verzi 1,6 prostředí PowerShell pro správu. Verze 1,6 vám neumožní aktualizovat ze šifrovacího klíče na soubor certifikátu.
+Další informace o instalaci správné verze modulu najdete v tématu věnovaném [instalaci Azure Stack PowerShellu](azure-stack-powershell-install.md) .
 
 
 ## <a name="next-steps"></a>Další postup
 
-Zjistěte, jak spustit zálohování, viz [zálohování Azure stacku](azure-stack-backup-back-up-azure-stack.md)
+Další informace o spuštění zálohování najdete v tématu [zálohování Azure Stack](azure-stack-backup-back-up-azure-stack.md).
 
-Zjistěte, jak ověřit, jestli spustila svoji zálohu, najdete v článku [potvrdit zálohování bylo dokončeno v portálu pro správu](azure-stack-backup-back-up-azure-stack.md)
+Informace o tom, jak ověřit, že se zálohování spustilo, najdete [v tématu potvrzení zálohování dokončeno na portálu pro správu](azure-stack-backup-back-up-azure-stack.md).

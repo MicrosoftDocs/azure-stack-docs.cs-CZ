@@ -1,6 +1,6 @@
 ---
-title: Zálohování a obnovení dat pro Azure Stack pomocí infrastruktury služby Backup | Dokumentace Microsoftu
-description: Zálohovat a obnovit konfiguraci a data service pomocí služby zálohování infrastruktury.
+title: Obnovení dat v Azure Stack pomocí služby Infrastructure Backup | Microsoft Docs
+description: Naučte se zálohovat a obnovovat data konfigurace a služby v Azure Stack pomocí služby Infrastructure Backup.
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -14,54 +14,54 @@ ms.date: 05/16/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 05bdf2fe5930777d44ec42eab8dede97b758cd15
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 832d2146e79f3724c5f1b3bf9da1776388636da8
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66268841"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70974708"
 ---
-# <a name="backup-and-data-recovery-for-azure-stack-with-the-infrastructure-backup-service"></a>Zálohování a obnovení dat pro Azure Stack pomocí infrastruktury služby Backup
+# <a name="recover-data-in-azure-stack-with-the-infrastructure-backup-service"></a>Obnovení dat v Azure Stack pomocí služby Infrastructure Backup
 
-*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
 
-Zálohovat a obnovit konfiguraci a data service pomocí služby zálohování infrastruktury. Každá instalace služby Azure Stack obsahuje instanci služby. Zálohy vytvořené ve službě pro opakované nasazení cloudové služby Azure Stack můžete použít k obnovení identit, zabezpečení a data Azure Resource Manageru. 
+Data konfigurace a služby můžete zálohovat a obnovovat pomocí služby Azure Stack Infrastructure Backup. Každá instalace Azure Stack obsahuje instanci služby. Zálohy vytvořené službou můžete použít pro opětovné nasazení cloudu Azure Stack pro obnovení dat identity, zabezpečení a Azure Resource Manager.
 
-Zálohování můžete povolit, pokud budete chtít umístit své cloudové do produkčního prostředí. Nepovolujte zálohování, pokud máte v plánu provést testování a ověřování pro dlouhou dobu.
+Pokud jste připraveni do provozu převést do produkčního prostředí, povolte zálohování. Pokud plánujete provádět testování a ověřování po dlouhou dobu, nepovolujte zálohování.
 
-Před povolením služby backup, ujistěte se, že máte [požadavky splněné](#verify-requirements-for-the-infrastructure-backup-service).
+Než povolíte službu zálohování, ujistěte se, že máte zavedené [požadavky](#verify-requirements-for-the-infrastructure-backup-service).
 
 > [!Note]  
-> Služba Backup infrastruktury nezahrnuje aplikací a dat uživatele. Další informace najdete v tématu [chránit virtuální počítače nasazené ve službě Azure Stack](../user/azure-stack-manage-vm-protect.md) Další informace o ochraně virtuálních počítačů IaaS na základě aplikací. Komplexnější přehled o tom, jak chránit aplikace ve službě Azure Stack, najdete [důležité informace o službě Azure Stack pro obchodní kontinuity podnikových procesů a po havárii obnovení dokument White Paper](https://aka.ms/azurestackbcdrconsiderationswp).
+> Služba Infrastructure Backup nezahrnuje uživatelská data a aplikace. Další informace o tom, jak chránit IaaS aplikace založené na virtuálních počítačích, najdete v tématu [ochrana virtuálních počítačů nasazených v Azure Stack](../user/azure-stack-manage-vm-protect.md). Ucelený přehled o tom, jak chránit aplikace v Azure Stack, najdete v tématu [Azure Stack důležitých informací o provozní kontinuitě a dokumentu White paper pro zotavení po havárii](https://aka.ms/azurestackbcdrconsiderationswp).
 
-## <a name="the-infrastructure-backup-service"></a>Zálohovací služby infrastruktury
+## <a name="the-infrastructure-backup-service"></a>Služba Infrastructure Backup
 
-Služby obsahují následující funkce.
+Služba obsahuje následující funkce:
 
 | Funkce                                            | Popis                                                                                                                                                |
 |----------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Služby infrastruktury zálohování                     | Zálohování koordinaci mezi podmnožinou služby infrastruktury ve službě Azure Stack. Pokud dojde k havárii, je možné obnovit data v rámci opětovné nasazení. |
-| Komprese a šifrování dat exportovaných zálohování | Zálohovaná data komprimovaná a šifrovaná systém předtím, než se exportují do umístění úložiště externí program od správce.                |
-| Monitorování úlohy zálohování                              | Systém oznámení při selhání a nápravné kroky úlohy zálohování.                                                                                                |
-| Prostředí správy zálohování                       | Zálohování RP podporuje povolení zálohování.                                                                                                                         |
-| Cloud Recovery                                     | Pokud dojde ke ztrátě dat, zálohování umožňuje obnovit základní informace o službě Azure Stack jako součást nasazení.                                 |
+| Služby infrastruktury zálohování                     | Koordinovat zálohování v rámci podmnožiny služby infrastruktury v Azure Stack. Pokud dojde k havárii, můžete data obnovit v rámci opětovného nasazení. |
+| Komprese a šifrování exportovaných zálohovaných dat | Před exportem do externího úložiště, které poskytuje správce, se zálohovaná data komprimují a šifrují systémem.                |
+| Monitorování úlohy zálohování                              | Systém upozorní vás, když úlohy zálohování selžou a jak problém vyřešit.                                                                                                |
+| Prostředí pro správu zálohování                       | Záložní RP podporuje povolení zálohování.                                                                                                                         |
+| Cloud Recovery                                     | Pokud dojde ke závažné ztrátě dat, můžete zálohy použít k obnovení základních Azure Stack informací jako součást nasazení.                                 |
 
-## <a name="verify-requirements-for-the-infrastructure-backup-service"></a>Ověřte požadavky pro službu Backup infrastruktury
+## <a name="verify-requirements-for-the-infrastructure-backup-service"></a>Ověření požadavků pro službu Infrastructure Backup
 
 - **Umístění úložiště**  
-  Budete potřebovat sdílené složky přístupné z Azure Stack, který může obsahovat sedm zálohy. Každá záloha je přibližně 10 GB. Vaše sdílené složky měli být schopni uložit 140 GB místa zálohy. Další informace o výběru umístění úložiště pro zálohy služby Azure Stack infrastruktury, najdete v části [záložní řadič požadavky](azure-stack-backup-reference.md#backup-controller-requirements).
+  Potřebujete ke sdílení souborů přístup z Azure Stack, která může obsahovat sedm záloh. Každá záloha je přibližně 10 GB. Vaše sdílená složka by měla být schopná uchovávat 140 GB záloh. Další informace o výběru umístění úložiště pro službu Infrastructure Backup najdete v tématu požadavky na [kontrolér zálohování](azure-stack-backup-reference.md#backup-controller-requirements).
 - **Přihlašovací údaje**  
-  Budete potřebovat účet uživatele domény a přihlašovací údaje, například můžete použít přihlašovací údaje Správce služby Azure Stack.
-- **Šifrovací certifikát**  
-  Záložní soubory jsou šifrované pomocí veřejného klíče v certifikátu. Ujistěte se, že se tento certifikát uložit na bezpečném místě. 
+  Potřebujete účet uživatele domény a přihlašovací údaje. Můžete například použít přihlašovací údaje správce Azure Stack.
+- **Certifikát šifrování**  
+  Záložní soubory se šifrují pomocí veřejného klíče v certifikátu. Nezapomeňte tento certifikát uložit na bezpečném místě. 
 
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
-Zjistěte, jak [povolit zálohování pro Azure Stack z portálu pro správu](azure-stack-backup-enable-backup-console.md).
+Naučte se, jak [Povolit zálohování pro Azure Stack z portálu pro správu](azure-stack-backup-enable-backup-console.md).
 
-Zjistěte, jak [povolit zálohování pro Azure Stack s prostředím PowerShell](azure-stack-backup-enable-backup-powershell.md).
+Naučte se, jak [Povolit zálohování pro Azure Stack pomocí PowerShellu](azure-stack-backup-enable-backup-powershell.md).
 
-Zjistěte, jak [zálohování Azure stacku](azure-stack-backup-back-up-azure-stack.md )
+Naučte se, jak [zálohovat Azure Stack](azure-stack-backup-back-up-azure-stack.md).
 
-Zjistěte, jak [obnovit ze ztráty dat](azure-stack-backup-recover-data.md)
+Naučte se [obnovit z závažné ztráty dat](azure-stack-backup-recover-data.md).

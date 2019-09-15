@@ -16,12 +16,12 @@ ms.date: 08/29/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 9190a8cb0b42b10710a4abc2671fe8ead3094d9a
-ms.sourcegitcommit: 7d7a4c8c46613b6104caf23763bfd2275f6a826b
+ms.openlocfilehash: 0147108a2e4fb45fce98460fcde141b5f2e28df5
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70808292"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70975041"
 ---
 # <a name="deploy-app-service-in-an-offline-environment-in-azure-stack"></a>Nasazení App Service v offline prostředí v Azure Stack
 
@@ -90,7 +90,7 @@ Pokud chcete nasadit App Service v offline prostředí, musíte nejdřív vytvo�
    3. V poli **Azure Stack odběry** vyberte **výchozí předplatné poskytovatele**.
 
       > [!NOTE]
-      > App Service lze nasadit pouze do **předplatného výchozího poskytovatele**.
+      > App Service lze nasadit pouze do předplatného **výchozího poskytovatele**.
 
    4. V poli **Azure Stack umístění** vyberte umístění, které odpovídá oblasti, do které nasazujete. Pokud například nasazujete na ASDK, vyberte **místní** .
 
@@ -151,7 +151,7 @@ Pokud chcete nasadit App Service v offline prostředí, musíte nejdřív vytvo�
     >    GO
     >    ***********************************************************
     > ```
-    > Další podrobnosti najdete v [poznámkách k verzi pro Azure App Service v Azure Stack 1,3](azure-stack-app-service-release-notes-update-three.md) .
+    > Další podrobnosti najdete v poznámkách k [verzi pro Azure App Service v Azure Stack 1,3](azure-stack-app-service-release-notes-update-three.md) .
 
     ![Zadat informace o SQL Server v instalačním programu App Service][12]
 
@@ -185,7 +185,7 @@ Pokud chcete nasadit App Service v offline prostředí, musíte nejdřív vytvo�
     ![Zadání role VM VM Admins v instalačním programu App Service][16]
 
 16. Na stránce Souhrn:
-    1. Ověřte provedené volby. Chcete-li provést změny, **přejděte na předchozí tlačítka,** kde můžete přejít na předchozí stránky.
+    1. Ověřte provedené volby. Chcete-li provést změny, přejděte na předchozí tlačítka, kde můžete přejít na předchozí stránky.
     2. Jsou-li konfigurace správné, zaškrtněte políčko.
     3. Chcete-li spustit nasazení, klikněte na tlačítko **Další**.
 
@@ -229,7 +229,7 @@ Až nasadíte a zaregistrujete poskytovatele prostředků App Service, otestujte
 > [!NOTE]
 > V rámci plánu je potřeba vytvořit nabídku, která má obor názvů Microsoft. Web. Pak musíte mít předplatné tenanta, které se přihlásí k odběru této nabídky. Další informace najdete v tématu [Vytvoření nabídky](azure-stack-create-offer.md) a [Vytvoření plánu](azure-stack-create-plan.md).
 >
-> Abyste mohli vytvářet aplikace, které používají App Service Azure Stack, *musíte* mít předplatné tenanta. Jediné možnosti, které může správce služby dokončit v rámci portálu pro správu, se vztahují k správě App Service poskytovatele prostředků. Mezi tyto možnosti patří přidání kapacity, konfigurace zdrojů nasazení a přidání úrovní a SKU pracovního procesu.
+> Abyste mohli vytvářet aplikace, které používají App Service Azure Stack, *musíte* mít předplatné tenanta. Jediné možnosti, které může správce služby dokončit v rámci portálu pro správu, se týkají správy App Service poskytovatele prostředků. Mezi tyto možnosti patří přidání kapacity, konfigurace zdrojů nasazení a přidání úrovní a SKU pracovního procesu.
 >
 > Od třetí verze Technical Preview, abyste mohli vytvářet webové, API a Azure Functions aplikace, musíte použít portál tenanta a mít předplatné tenanta.
 
@@ -243,7 +243,7 @@ Až nasadíte a zaregistrujete poskytovatele prostředků App Service, otestujte
 
 5. V okně **plán App Service** zadejte název do pole **App Service plán** .
 
-6. Klikněte **na cenová úroveň** > **Free-Shared** nebo **Shared-Shared** > a**Vyberte** > **OK** > **vytvořit**.
+6. Klikněte **na cenová úroveň** > **Free-Shared** nebo Shared **-Shared** > a**Vyberte** > **OK** > **vytvořit**.
 
 7. Za minutu se na řídicím panelu zobrazí dlaždice nové webové aplikace. Klikněte na dlaždici.
 
@@ -257,7 +257,7 @@ Až nasadíte a zaregistrujete poskytovatele prostředků App Service, otestujte
 
 3. Pokud jste nasadili také poskytovatele prostředků SQL Server, můžete web DNN nasadit z webu Marketplace. Po zobrazení výzvy k zadání parametrů databáze vyberte databázi v počítači se systémem SQL Server připojeném k poskytovateli prostředků.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Příprava na další operace správy pro App Service v Azure Stack:
 

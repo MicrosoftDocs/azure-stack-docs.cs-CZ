@@ -14,12 +14,12 @@ ms.date: 07/16/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/08/2019
-ms.openlocfilehash: 430df1c886a869239c040085dcea983d07b3b36d
-ms.sourcegitcommit: 637018771ac016b7d428174e88d4dcb131b54959
+ms.openlocfilehash: 18644d3d331a5c093d0a78da435d6f79e03cb531
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68842928"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70974648"
 ---
 # <a name="manage-and-deploy-resources-to-azure-stack-with-azure-cli"></a>Správa a nasazení prostředků pro Azure Stack pomocí Azure CLI
 
@@ -44,7 +44,7 @@ Pokud používáte integrovaný systém, nemusíte exportovat kořenový certifi
 Export kořenového certifikátu ASDK ve formátu PEM:
 
 1. Získání názvu kořenového certifikátu Azure Stack:
-    - Přihlaste se k Tenantovi Azure Stack nebo portálu pro správu.
+    - Přihlaste se k Azure Stack uživateli nebo portálu pro správu.
     - Klikněte na **zabezpečený** poblíž panelu Adresa.
     - V automaticky otevíraném okně klikněte na **platné**.
     - V okně certifikát klikněte na kartu **cesta k certifikaci** .
@@ -408,7 +408,7 @@ Pomocí následujících kroků se připojte k Azure Stack:
 
 2. Zaregistrujte své prostředí. Při spuštění `az cloud register`použijte následující parametry:
 
-    | Hodnota | Příklad | Popis |
+    | Value | Příklad | Popis |
     | --- | --- | --- |
     | Název prostředí | AzureStackUser | Použijte `AzureStackUser` pro uživatelské prostředí. Pokud jste operátor, zadejte `AzureStackAdmin`. |
     | Koncový bod Resource Manageru | https://management.local.azurestack.external | **ResourceManagerUrl** v ASDK je: `https://management.local.azurestack.external/`**ResourceManagerUrl** v integrovaných systémech je: `https://management.<region>.<fqdn>/`Načtení požadovaných metadat: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`Pokud máte dotaz týkající se integrovaného systémového koncového bodu, obraťte se na svého operátora cloudu. |
@@ -519,7 +519,7 @@ Pomocí následujících kroků se připojte k Azure Stack:
 
 2. Zaregistrujte své prostředí. Při spuštění `az cloud register`použijte následující parametry.
 
-    | Hodnota | Příklad | Popis |
+    | Value | Příklad | Popis |
     | --- | --- | --- |
     | Název prostředí | AzureStackUser | Použijte `AzureStackUser` pro uživatelské prostředí. Pokud jste operátor, zadejte `AzureStackAdmin`. |
     | Koncový bod Resource Manageru | https://management.local.azurestack.external | **ResourceManagerUrl** v ASDK je: `https://management.local.azurestack.external/`**ResourceManagerUrl** v integrovaných systémech je: `https://management.<region>.<fqdn>/`Načtení požadovaných metadat: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`Pokud máte dotaz týkající se integrovaného systémového koncového bodu, obraťte se na svého operátora cloudu. |
@@ -597,7 +597,7 @@ Při použití rozhraní příkazového řádku v Azure Stack se vyskytly znám�
  - Pokud chcete získat seznam imagí virtuálních počítačů, které jsou k dispozici `az vm image list --all` v Azure Stack, použijte `az vm image list` příkaz místo příkazu. Zadáním `--all` možnosti zajistíte, že odpověď vrátí pouze obrázky, které jsou k dispozici v prostředí Azure Stack.
  - Aliasy imagí virtuálních počítačů, které jsou k dispozici v Azure, se nemusí pro Azure Stack použít. Při použití imagí virtuálních počítačů musíte použít celý parametr URN (kanonický: UbuntuServer: 14.04.3-LTS: 1.0.0) místo aliasu image. Tento název URN se musí shodovat s specifikacemi obrázku odvozenými z `az vm images list` příkazu.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - [Nasazení šablon pomocí Azure CLI](azure-stack-deploy-template-command-line.md)
 - [Povolení Azure CLI pro uživatele Azure Stack (operátor)](../operator/azure-stack-cli-admin.md)

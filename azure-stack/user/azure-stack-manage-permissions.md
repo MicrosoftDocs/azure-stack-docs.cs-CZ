@@ -3,7 +3,7 @@ title: Správa přístupu k prostředkům v Azure Stack pomocí řízení přís
 description: Naučte se spravovat oprávnění řízení přístupu na základě role (RBAC) jako správce nebo tenanta v Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: PatAltimore
+author: bryanla
 manager: femila
 editor: ''
 ms.assetid: cccac19a-e1bf-4e36-8ac8-2228e8487646
@@ -12,26 +12,29 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2019
-ms.author: patricka
+ms.date: 09/13/2019
+ms.author: bryanla
 ms.reviewer: fiseraci
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: a5034e92e52c6da760389d7addc77c6220d59674
-ms.sourcegitcommit: 72d45bb935db0db172d4d7c37d8e48e79e25af64
+ms.openlocfilehash: a784da0d16f6ec92a105d9360430f4e8da2817ef
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68376824"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70974932"
 ---
 # <a name="manage-access-to-resources-in-azure-stack-with-role-based-access-control"></a>Správa přístupu k prostředkům v Azure Stack pomocí řízení přístupu na základě role
 
 *Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
 
-Azure Stack podporuje řízení přístupu na základě role (RBAC), stejné [model zabezpečení pro správu přístupu](https://docs.microsoft.com/azure/role-based-access-control/overview) používající Microsoft Azure. RBAC můžete použít ke správě uživatelů, skupin nebo přístupu aplikací k předplatným, prostředkům a službám.
+Azure Stack podporuje řízení přístupu na základě role (RBAC), stejné [model zabezpečení pro správu přístupu](/azure/role-based-access-control/overview) používající Microsoft Azure. RBAC můžete použít ke správě uživatelů, skupin nebo přístupu aplikací k předplatným, prostředkům a službám.
 
 ## <a name="basics-of-access-management"></a>Základní informace o řízení přístupu
 
-Řízení přístupu na základě rolí poskytuje jemně odstupňované řízení přístupu, který vám pomůže zabezpečit vaše prostředí. Uživatelům dáte přesná oprávnění, která potřebují, přiřazením role RBAC v určitém oboru. Obor přiřazení role může být předplatné, skupinu prostředků nebo jediný prostředek. Čtení [řízení přístupu na základě rolí na portálu Azure portal](https://docs.microsoft.com/azure/role-based-access-control/overview) článkem. poskytne podrobnější informace o řízení přístupu.
+Řízení přístupu na základě role (RBAC) poskytuje jemně odstupňované řízení přístupu, které můžete použít k zabezpečení svého prostředí. Uživatelům dáte přesná oprávnění, která potřebují, přiřazením role RBAC v určitém oboru. Obor přiřazení role může být předplatné, skupinu prostředků nebo jediný prostředek. Podrobnější informace o správě přístupu najdete v tématu [Access Control na základě rolí v článku Azure Portal](/azure/role-based-access-control/overview) .
+
+> [!NOTE]
+> Když Azure Stack nasadíte pomocí Active Directory Federation Services (AD FS) jako poskytovatele identity, pro scénáře RBAC se podporují jenom univerzální skupiny.
 
 ### <a name="built-in-roles"></a>Vestavěné role
 
@@ -61,7 +64,7 @@ Můžete přiřadit více než jednu roli pro uživatele a každou roli je možn
 * Přiřadíte TestUser-A roli **Čtenář** k předplatnému-1.
 * Přiřadíte hodnotu TestUser-A **vlastníkem** role TestVM-1.
 
-Azure [přiřazení rolí](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) článek obsahuje podrobné informace o zobrazení, přiřazování a odstranění rolí.
+Azure [přiřazení rolí](/azure/role-based-access-control/role-assignments-portal) článek obsahuje podrobné informace o zobrazení, přiřazování a odstranění rolí.
 
 ## <a name="set-access-permissions-for-a-user"></a>Nastavte přístupová oprávnění pro uživatele
 

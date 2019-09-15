@@ -16,12 +16,12 @@ ms.date: 03/23/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 994291eb0a990521dc932adc63f0ad52d4430e0d
-ms.sourcegitcommit: e2aec63cacfdc830a20a02ee40e715e3c5dfdf22
+ms.openlocfilehash: 77ec512f5e2996aaec53ef77c000d0334bda456a
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70386244"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70975209"
 ---
 # <a name="deploy-app-service-in-a-highly-available-configuration"></a>Nasazení App Service v konfiguraci s vysokou dostupností
 
@@ -101,7 +101,7 @@ Pomocí těchto kroků zjistíte výstupní hodnoty šablony:
 
     ![Microsoft. Template deployment](media/app-service-deploy-ha/6.png)
 
-4. Po výběru nasazení **Microsoft. template** vyberte **výstupy** a zaznamenejte výstup parametrů šablony. Tyto informace jsou požadovány při nasazení App Service.
+4. Po výběru nasazení **Microsoft. template** vyberte výstupy a zaznamenejte výstup parametrů šablony. Tyto informace jsou požadovány při nasazení App Service.
 
     ![Výstup parametru](media/app-service-deploy-ha/7.png)
 
@@ -234,7 +234,7 @@ Pokud chcete nasadit poskytovatele prostředků App Service, použijte následuj
 
     ![Instalace byla dokončena pro App Service](media/app-service-deploy-ha/16.png)
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 Pokud jste poskytli App Service poskytovatele prostředků s instancí SQL Always On, [přidejte databáze appservice_hosting a appservice_metering do skupiny dostupnosti](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) . Synchronizujte databáze, aby nedošlo ke ztrátě služeb v případě převzetí služeb při selhání databáze.
 

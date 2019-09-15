@@ -16,12 +16,12 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/20/2018
-ms.openlocfilehash: d9155edcf23154f70f2a7f8098df55e7acb2b552
-ms.sourcegitcommit: 7d7a4c8c46613b6104caf23763bfd2275f6a826b
+ms.openlocfilehash: 7be74701b3e25658258abc7102668346e584ab39
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70808270"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70974826"
 ---
 # <a name="app-service-on-azure-stack-update-1-release-notes"></a>Zpráva k vydání verze App Service v Azure Stack Update 1
 
@@ -121,7 +121,7 @@ Azure App Service na Azure Stack Update 1 obsahuje následující vylepšení a 
 
 V této verzi je prohození slotu webu přerušeno. Chcete-li obnovit funkčnost, proveďte následující kroky:
 
-1. Upravte skupinu zabezpečení sítě ControllersNSG tak, aby **povolovala** připojení vzdálené plochy k instancím kontroleru App Service. Nahraďte AppService. Local názvem skupiny prostředků, kterou jste nasadili App Service.
+1. Upravte skupinu zabezpečení sítě ControllersNSG tak, aby povolovala připojení vzdálené plochy k instancím kontroleru App Service. Nahraďte AppService. Local názvem skupiny prostředků, kterou jste nasadili App Service.
 
     ```powershell
       Add-AzureRmAccount -EnvironmentName AzureStackAdmin
@@ -146,7 +146,7 @@ V této verzi je prohození slotu webu přerušeno. Chcete-li obnovit funkčnost
       Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
     ```
 
-2. Přejděte na **CN0-VM** pod Virtual Machines na portálu pro správu Azure Stack a **kliknutím na připojit** otevřete relaci vzdálené plochy s instancí kontroleru. Použijte přihlašovací údaje zadané při nasazení App Service.
+2. Přejděte na **CN0-VM** pod Virtual Machines na portálu Azure Stack správce a **kliknutím na připojit** otevřete relaci vzdálené plochy s instancí kontroleru. Použijte přihlašovací údaje zadané při nasazení App Service.
 3. Spusťte **PowerShell jako správce** a spusťte následující skript:
 
     ```powershell

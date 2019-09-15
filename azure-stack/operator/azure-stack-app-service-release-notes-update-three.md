@@ -16,12 +16,12 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 08/20/2018
-ms.openlocfilehash: 88255a15a204f5dcb18dd83f9763e8297a1af51c
-ms.sourcegitcommit: 7d7a4c8c46613b6104caf23763bfd2275f6a826b
+ms.openlocfilehash: c80a6068aa46cd182f8ec928942e7072638b143f
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70808238"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70974845"
 ---
 # <a name="app-service-on-azure-stack-update-3-release-notes"></a>Zpráva k vydání verze App Service ve Azure Stack Update 3
 
@@ -40,7 +40,7 @@ App Service číslo buildu Azure Stack Update 3 je **74.0.13698.31**.
 
 Než začnete s nasazením, přečtěte si [požadavky pro nasazení App Service v Azure Stack](azure-stack-app-service-before-you-get-started.md) .
 
-Než začnete s upgradem Azure App Service v Azure Stack na 1,3, zajistěte, aby všechny role byly připravené ve správě Azure App Service na portálu pro správu Azure Stack.
+Než začnete s upgradem Azure App Service v Azure Stack na 1,3, zajistěte, aby všechny role byly připravené ve správě Azure App Service na portálu Azure Stack Administrator.
 
 ![Stav role App Service](media/azure-stack-app-service-release-notes-update-three/image01.png)
 

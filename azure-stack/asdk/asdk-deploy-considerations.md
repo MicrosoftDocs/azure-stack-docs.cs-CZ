@@ -16,12 +16,12 @@ ms.date: 05/13/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 05/13/2019
-ms.openlocfilehash: 691eac0c76763dcaae60aa6946c5dcbc479486a6
-ms.sourcegitcommit: 4eb1766c7a9d1ccb1f1362ae1211ec748a7d708c
+ms.openlocfilehash: 0e5a4e41e4650de8e3cebe7d33b9638890d5bd99
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69579002"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70974571"
 ---
 # <a name="asdk-requirements-and-considerations"></a>Požadavky a předpoklady pro ASDK
 
@@ -100,7 +100,7 @@ Pokud vaše prostředí není připojené k Internetu, nebo nechcete používat 
 > Pokud nasadíte pomocí možnosti AD FS, je nutné znovu nasadit Azure Stack a přepnout do Azure AD.
 
 ### <a name="azure-active-directory-accounts"></a>Účty Azure Active Directory
-Pokud chcete nasadit Azure Stack pomocí účtu Azure AD, musíte před spuštěním skriptu PowerShellu pro nasazení připravit účet Azure AD. Tento účet se stal globálním správcem pro tenanta Azure AD. Slouží ke zřízení a delegování aplikací a instančních objektů pro všechny Azure Stack služby, které komunikují se službou Azure AD a Graph API. Používá se také jako vlastník předplatného výchozího poskytovatele (který můžete později změnit). Pomocí tohoto účtu se můžete přihlásit k portálu pro správu systému Azure Stack.
+Pokud chcete nasadit Azure Stack pomocí účtu Azure AD, musíte před spuštěním skriptu PowerShellu pro nasazení připravit účet Azure AD. Tento účet se stal globálním správcem pro tenanta Azure AD. Slouží ke zřízení a delegování aplikací a instančních objektů pro všechny Azure Stack služby, které komunikují se službou Azure AD a Graph API. Používá se také jako vlastník předplatného výchozího poskytovatele (který můžete později změnit). Pomocí tohoto účtu se můžete přihlásit k portálu správce systému Azure Stack.
 
 1. Vytvořte účet Azure AD, který je správcem adresáře pro aspoň jednu službu Azure AD. Pokud už účet máte, můžete ho použít. V opačném případě můžete vytvořit zdarma na [https://azure.microsoft.com/free/](https://azure.microsoft.com/free/) <https://go.microsoft.com/fwlink/?LinkID=717821> místo (v Číně). Pokud plánujete pozdější [registraci Azure Stack v Azure](asdk-register.md), musíte mít také předplatné v tomto nově vytvořeném účtu.
    
@@ -144,7 +144,7 @@ Ujistěte se, že je v síti k dispozici server DHCP, ke kterému se síťová k
 Azure Stack vyžaduje přístup k Internetu, a to buď přímo, nebo prostřednictvím transparentního proxy serveru. Azure Stack nepodporuje konfiguraci webového proxy serveru, aby bylo možné povolit přístup k Internetu. IP adresa hostitele i nová IP adresa přiřazená k AzS-BGPNAT01 (pomocí protokolu DHCP nebo statické IP adresy) musí mít přístup k Internetu. Porty 80 a 443 se používají v doménách graph.windows.net a login.microsoftonline.com.
 
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 - [Stáhněte si balíček pro nasazení ASDK](asdk-download.md).
 - Další informace o Prostory úložiště s přímým přístupem najdete v tématu [prostory úložiště s přímým přístupem Overview](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview).

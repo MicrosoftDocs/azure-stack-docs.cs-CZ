@@ -15,18 +15,18 @@ ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/08/2018
-ms.openlocfilehash: 8fec1b3702aa7c8c55f1a90167b1ac13f0ac8847
-ms.sourcegitcommit: e2f6205e6469b39c2395ee09424bb7632cb94c40
+ms.openlocfilehash: a72879303b80a1265450019d6b264085a8539387
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70271760"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70974978"
 ---
 # <a name="add-a-vm-image-to-azure-stack"></a>Přidání image virtuálního počítače do Azure Stack
 
 *Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
 
-V Azure Stack můžete přidat image virtuálního počítače (VM) do webu Marketplace, aby k nim uživatelé měli přístup. Obrázky se přidávají pomocí Azure Resource Manager šablon pro Azure Stack. Pomocí portálu pro správu nebo prostředí Windows PowerShell můžete také přidat image virtuálních počítačů do uživatelského rozhraní Azure Marketplace jako položku Marketplace. Použijte buď obrázek z globální Azure Marketplace, nebo vlastní image virtuálního počítače.
+V Azure Stack můžete přidat image virtuálního počítače (VM) do webu Marketplace, aby k nim uživatelé měli přístup. Obrázky se přidávají pomocí Azure Resource Manager šablon pro Azure Stack. Image virtuálních počítačů můžete také přidat do uživatelského rozhraní Azure Marketplace jako položku Marketplace pomocí portálu pro správu nebo Windows PowerShellu. Použijte buď obrázek z globální Azure Marketplace, nebo vlastní image virtuálního počítače.
 
 ## <a name="add-a-vm-image-through-the-portal"></a>Přidání image virtuálního počítače přes portál
 
@@ -66,7 +66,7 @@ Na image musí být odkazováno pomocí identifikátoru URI úložiště objekt�
 
 ## <a name="remove-a-vm-image-through-the-portal"></a>Odebrání image virtuálního počítače přes portál
 
-1. Otevřete portál pro správu na [https://adminportal.local.azurestack.external](https://adminportal.local.azurestack.external)adrese.
+1. Otevřete portál správce na adrese [https://adminportal.local.azurestack.external](https://adminportal.local.azurestack.external).
 
 2. Vyberte **Správa Marketplace**a potom vyberte virtuální počítač, který chcete odstranit.
 
@@ -208,6 +208,6 @@ Pokud už bitovou kopii virtuálního počítače, kterou jste nahráli, nepotř
     
      Další informace o rutině Remove-AzsPlatformImage najdete v dokumentaci modulu Microsoft PowerShell [Azure Stack operator](https://docs.microsoft.com/powershell/module/).
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 [Zřízení virtuálního počítače](../user/azure-stack-create-vm-template.md)
