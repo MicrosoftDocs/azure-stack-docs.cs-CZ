@@ -191,16 +191,39 @@
             - name: Nasazení clusteru Service Fabric
               href: azure-stack-solution-template-service-fabric-cluster.md
             - name: Nasazení clusteru Kubernetes
-              href: azure-stack-solution-template-kubernetes-deploy.md
               items:
-                - name: Nasazení Kubernetes pomocí Azure AD
-                  href: azure-stack-solution-template-kubernetes-azuread.md
-                - name: Nasazení Kubernetes pomocí AD FS
-                  href: azure-stack-solution-template-kubernetes-adfs.md
-                - name: Povolit řídicí panel Kubernetes
-                  href: azure-stack-solution-template-kubernetes-dashboard.md
-                - name: Řešení potíží s clusterem Kubernetes
-                  href: azure-stack-solution-template-kubernetes-trouble.md
+                - name: Modul AKS
+                  items:
+                    - name: AKS modul na Azure Stack
+                      href: azure-stack-kubernetes-aks-engine-overview.md
+                    - name: Zásady podpory
+                      href: azure-stack-kubernetes-ask-engine-support.md
+                    - name: Nastavení stroje AKS
+                      href: azure-stack-kubernetes-aks-engine-set-up.md
+                    - name: Vytvořit klienta pro Linux
+                      href: azure-stack-kubernetes-aks-engine-deploy-linux.md
+                    - name: Vytvořit klienta Windows
+                      href: azure-stack-kubernetes-aks-engine-deploy-windows.md
+                    - name: Nasazení clusteru
+                      href: azure-stack-kubernetes-aks-engine-deploy-cluster.md
+                    - name: Škálování clusteru
+                      href: azure-stack-kubernetes-aks-engine-scale.md
+                    - name: Upgrade clusteru
+                      href: azure-stack-kubernetes-aks-engine-upgrade.md
+                    - name: Řešení potíží s modulem AKS
+                      href: azure-stack-kubernetes-aks-engine-troubleshoot.md
+                - name: Položka Marketplace
+                  items:
+                    - name: Nasazení clusteru Kubernetes
+                      href: azure-stack-solution-template-kubernetes-deploy.md
+                    - name: Nasazení Kubernetes pomocí Azure AD
+                      href: azure-stack-solution-template-kubernetes-azuread.md
+                    - name: Nasazení Kubernetes pomocí AD FS
+                      href: azure-stack-solution-template-kubernetes-adfs.md
+                    - name: Povolit řídicí panel Kubernetes
+                      href: azure-stack-solution-template-kubernetes-dashboard.md
+                    - name: Řešení potíží s clusterem Kubernetes
+                      href: azure-stack-solution-template-kubernetes-trouble.md
             - name: Nasazení Cognitive Services
               href: azure-stack-solution-template-cognitive-services.md
     - name: Nasazení aplikací

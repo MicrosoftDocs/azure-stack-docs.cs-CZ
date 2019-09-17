@@ -16,12 +16,12 @@ ms.date: 08/13/2019
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2018
-ms.openlocfilehash: df0bee87f512f00ea57fc11492f824730dbf9b42
-ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
+ms.openlocfilehash: 48ad7808e550fb875c8ee13caa5a429e1d77aa98
+ms.sourcegitcommit: 09d14eb77a43fd585e7e6be93c32fa427770adb6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68991778"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71010783"
 ---
 # <a name="quota-types-in-azure-stack"></a>Typy kvót v Azure Stack
 
@@ -60,12 +60,12 @@ ms.locfileid: "68991778"
 
 | **Položka** | **Výchozí hodnota** | **Popis** |
 | --- | --- | --- |
-| Maximální počet veřejných IP adres |50 |Maximální počet veřejných IP adres, které může vytvořit předplatné v tomto umístění. |
 | Maximální počet virtuálních sítí |50 |Maximální počet virtuálních sítí, které může vytvořit předplatné v tomto umístění. |
 | Maximální počet bran virtuální sítě |1 |Maximální počet bran virtuální sítě (bran sítě VPN), které může vytvořit předplatné v tomto umístění. |
 | Maximální počet síťových připojení |2 |Maximální počet síťových připojení (Point-to-Point nebo site-to-site), které může předplatné vytvořit v rámci všech bran virtuální sítě v tomto umístění. |
-| Maximální počet nástrojů pro vyrovnávání zatížení |50 |Maximální počet nástrojů pro vyrovnávání zatížení, které může vytvořit předplatné v tomto umístění. |
+| Maximální počet veřejných IP adres |50 |Maximální počet veřejných IP adres, které může vytvořit předplatné v tomto umístění. |
 | Maximální počet síťových karet |100 |Maximální počet síťových rozhraní, která může vytvořit předplatné v tomto umístění. |
+| Maximální počet nástrojů pro vyrovnávání zatížení |50 |Maximální počet nástrojů pro vyrovnávání zatížení, které může vytvořit předplatné v tomto umístění. |
 | Maximální počet skupin zabezpečení sítě |50 |Maximální počet skupin zabezpečení sítě, které může vytvořit předplatné v tomto umístění. |
 
 ## <a name="view-an-existing-quota"></a>Zobrazit existující kvótu

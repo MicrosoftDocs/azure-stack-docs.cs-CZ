@@ -14,12 +14,12 @@ ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 92e0c1a3bfd055373ffba5091d79922f1203b20b
-ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
+ms.openlocfilehash: 87e9021c6d2b085c95e186e410b009ae89753311
+ms.sourcegitcommit: 09d14eb77a43fd585e7e6be93c32fa427770adb6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70188024"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71010812"
 ---
 # <a name="use-data-transfer-tools-in-azure-stack-storage"></a>Použití nástrojů pro přenos dat v Azure Stack Storage
 
@@ -112,6 +112,7 @@ azcopy cp "/path/to/file.txt" "https://[account].blob.core.windows.net/[containe
  - Žádná operace AzCopy v úložišti souborů není k dispozici, protože úložiště souborů ještě není v Azure Stack k dispozici.
  - Pokud chcete přenášet data mezi dvěma umístěními Azure Stack objektů BLOB (nebo mezi Azure Stack a Azure Storage pomocí AzCopy 10.1), musíte nejdřív stáhnout data do místního umístění a pak je znovu nahrát do cílového adresáře na Azure Stack nebo Azure Storage. Případně můžete použít AzCopy 7,1 a zadat přenos s možností **/SyncCopy** pro kopírování dat.  
  - Verze systému Linux AzCopy podporuje pouze aktualizaci 1802 nebo novější, a nepodporuje Table service.
+ - Pokud chcete kopírovat data do služby Azure Table Storage a z ní, [nainstalujte AzCopy verze 7.3.0](https://aka.ms/azcopyforazurestack20171109) .
  
 ## <a name="azure-powershell"></a>Azure PowerShell
 

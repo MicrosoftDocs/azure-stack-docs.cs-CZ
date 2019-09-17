@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2019
+ms.date: 09/16/2019
 ms.author: justinha
 ms.reviewer: ppacent
-ms.lastreviewed: 09/10/2019
-ms.openlocfilehash: 6b7d7a3e70d78b8ab943224babc515395319914e
-ms.sourcegitcommit: 38f21e0bcf7b593242ad615c9d8ef8a1ac19c734
+ms.lastreviewed: 09/16/2019
+ms.openlocfilehash: 38175eee8be9b8f678405e0ad1ec6f01bdba8b77
+ms.sourcegitcommit: ca5025fb04250271fe0b2b2df8ad0b3b9ed3e604
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70902715"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71020847"
 ---
 # <a name="prepare-azure-stack-pki-certificates-for-use-in-deployment-or-rotation"></a>Příprava Azure Stack certifikátů PKI pro použití při nasazení nebo rotaci
 
@@ -54,7 +54,7 @@ Pomocí následujících kroků Připravte a ověříte Azure Stack certifikáty
 1. Dokončete import kliknutím na tlačítko Dokončit.
 
 > [!NOTE]
-> Po importu certifikátu pro Azure Stack je privátní klíč certifikátu uložen jako soubor PKCS 12 (. pfx) v clusterovém úložišti.
+> Po importu certifikátu pro Azure Stack se privátní klíč certifikátu uloží jako soubor PKCS 12 (PFX) do clusterovaného úložiště.
 
 ### <a name="export-the-certificate"></a>Exportujte certifikát.
 
