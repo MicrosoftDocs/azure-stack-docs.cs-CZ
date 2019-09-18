@@ -15,12 +15,12 @@ ms.date: 05/06/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 1fa83cbbdba011646016e1e0b0fd5bef3b8d0baf
-ms.sourcegitcommit: a8379358f11db1e1097709817d21ded0231503eb
+ms.openlocfilehash: 1bbfa7b07c0c671cbfaded1abef85b2a66ef93ff
+ms.sourcegitcommit: 9f4c6e96f60b4c229316e7a4ab6e0e5ef0a9a232
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70377281"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71061206"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>Operace údržby poskytovatele prostředků SQL
 
@@ -194,7 +194,7 @@ Když se nainstaluje nebo aktualizuje poskytovatel prostředků, vytvoří se u�
 
 Pokud chcete použít příkazy *DBAdapterDiagnostics* , vytvořte vzdálenou relaci PowerShellu k virtuálnímu počítači poskytovatele prostředků a spusťte příkaz **Get-AzsDBAdapterLog** .
 
-Časové rozpětí pro shromažďování protokolů můžete nastavit **pomocí parametrů** **FromDate** a na více dní. Pokud nezadáte jeden nebo oba parametry, použijí se následující výchozí hodnoty:
+Časové rozpětí pro shromažďování protokolů můžete nastavit pomocí parametrů **FromDate** a na více dní. Pokud nezadáte jeden nebo oba parametry, použijí se následující výchozí hodnoty:
 
 - FromDate je čtyři hodiny před aktuálním časem.
 - Aktuální čas je v aktuálním čase.
@@ -225,12 +225,12 @@ $sourcePath = "User:\{0}" -f $logs
 $destinationPackage = Join-Path -Path (Convert-Path '.') -ChildPath $logs
 Copy-Item -FromSession $session -Path $sourcePath -Destination $destinationPackage
 
-# Cleanup the logs.
-$cleanup = Invoke-Command -Session $session -ScriptBlock {Remove- AzsDBAdapterLog }
+# Clean up the logs.
+$cleanup = Invoke-Command -Session $session -ScriptBlock {Remove-AzsDBAdapterLog}
 # Close the session.
 $session | Remove-PSSession
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 [Přidání SQL Server hostitelských serverů](azure-stack-sql-resource-provider-hosting-servers.md)

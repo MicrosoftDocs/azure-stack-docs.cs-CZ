@@ -1,9 +1,9 @@
 ---
-title: Aktualizace vlastníka na předplatné uživatele Azure stacku | Dokumentace Microsoftu
-description: Změňte vlastníka fakturace pro předplatná Azure Stack uživatelů.
+title: Aktualizace vlastníka Azure Stack předplatného uživatele | Microsoft Docs
+description: Změňte vlastníka fakturace Azure Stack odběry uživatelů.
 services: azure-stack
 documentationcenter: ''
-author: sethmanheim
+author: justinha
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -12,44 +12,44 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: conceptual
-ms.date: 06/04/2019
-ms.author: sethm
+ms.date: 09/17/2019
+ms.author: justinha
 ms.reviewer: shnatara
 ms.lastreviewed: 10/19/2018
-ms.openlocfilehash: 99f995941c4e7b09af70dff9391aeceb9a59844d
-ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
+ms.openlocfilehash: 00e55dc301102622d4771a8fd8c6ff8591263dd7
+ms.sourcegitcommit: 95f30e32e5441599790d39542ff02ba90e70f9d6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66691932"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71070135"
 ---
-# <a name="change-the-owner-for-an-azure-stack-user-subscription"></a>Změnit vlastníka předplatného uživatele Azure stacku
+# <a name="change-the-owner-for-an-azure-stack-user-subscription"></a>Změna vlastníka Azure Stack předplatného uživatele
 
-Operátoři Azure stacku pomocí prostředí PowerShell můžete změnit fakturační vlastník předplatného uživatele. Jedním z důvodů, chcete-li změnit vlastníka, je třeba nahradit jako uživatel, který vaši organizaci opustí.
+Operátory Azure Stack můžou pomocí prostředí PowerShell změnit vlastníka fakturace předplatného uživatele. Jedním z důvodů, proč změnu vlastníka změnit, je třeba nahradit uživatele, který vaši organizaci opouští.
 
-Existují dva typy *vlastníky* , které jsou přiřazeny k předplatnému:
+Existují dva typy vlastníků , které jsou přiřazeny k předplatnému:
 
-- **Vlastník fakturace**: Ve výchozím nastavení vlastník fakturace je uživatelský účet, který získá předplatné z nabídky a pak vlastní fakturační vztah pro dané předplatné. Tento účet je také správcem předplatného. Pouze jeden uživatelský účet může mít toto označení na příslušný odběr. Fakturační vlastník je často týmu nebo organizace zájemce.
+- **Vlastník fakturace**: Ve výchozím nastavení je vlastníkem fakturace uživatelský účet, který získá předplatné z nabídky a následně vlastní fakturační vztah pro toto předplatné. Tento účet je také správcem předplatného. V rámci předplatného může být toto označení pouze jeden uživatelský účet. Vlastník fakturace je často organizací nebo vedoucím týmu.
 
-  Můžete použít rutinu Powershellu [Set-AzsUserSubscription](/powershell/module/azs.subscriptions.admin/set-azsusersubscription) Změna fakturační vlastníka.  
+  K změně vlastníka fakturace můžete použít rutinu PowerShellu [set-AzsUserSubscription](/powershell/module/azs.subscriptions.admin/set-azsusersubscription) .  
 
-- **Vlastníci přidaného přes role RBAC** -dalším uživatelům můžete udělit **vlastníka** role pomocí [řízení přístupu na základě rolí](azure-stack-manage-permissions.md) (RBAC). Jako vlastníky návrzích fakturační vlastníka lze přidat libovolný počet dalších uživatelských účtů. Další vlastníky jsou také správci předplatného a mají všechna oprávnění pro předplatné, s výjimkou oprávnění k odstranění fakturační vlastníka.
+- **Vlastníci přidaní prostřednictvím rolí RBAC** – roli **vlastníka** je možné udělit pomocí [řízení přístupu na základě role](azure-stack-manage-permissions.md) (RBAC). Libovolný počet dalších uživatelských účtů se dá přidat jako vlastníci, aby si vyčíslí vlastníka fakturace. Další vlastníci jsou také správci předplatného a mají všechna oprávnění k tomuto předplatnému, s výjimkou oprávnění k odstranění majitele fakturace.
 
-  Prostředí PowerShell můžete použít ke správě další vlastníky. Další informace najdete v [tomto článku](/azure/role-based-access-control/role-assignments-powershell).
+  Ke správě dalších vlastníků můžete použít PowerShell. Další informace najdete v [tomto článku](/azure/role-based-access-control/role-assignments-powershell).
 
-## <a name="change-the-billing-owner"></a>Změny fakturace vlastníka
+## <a name="change-the-billing-owner"></a>Změna vlastníka fakturace
 
-Spusťte následující skript, který změnit vlastníka fakturace na předplatné uživatele. Počítač, který používáte ke spuštění skriptu musíte připojit ke službě Azure Stack a spustit modul Azure Stack Powershellu 1.3.0 nebo novější. Další informace najdete v tématu [instalace Azure Stack Powershellu](azure-stack-powershell-install.md).
+Chcete-li změnit vlastníka fakturace předplatného uživatele, spusťte následující skript. Počítač, který používáte ke spuštění skriptu, se musí připojit k Azure Stack a spustit modul Azure Stack PowerShell 1.3.0 nebo novější. Další informace najdete v tématu [instalace Azure Stack PowerShellu](azure-stack-powershell-install.md).
 
 >[!NOTE]
->Ve více tenantů Azure Stack nový vlastník musí být ve stejném adresáři jako stávající vlastník. Než budete moct poskytovat vlastnictví předplatného na uživatele, který je v jiném adresáři, musíte nejdřív [pozvat uživatele jako Host do adresáře](/azure/active-directory/b2b/add-users-administrator).
+>Ve více tenantů Azure Stack musí být nový vlastník ve stejném adresáři jako stávající vlastník. Než budete moci poskytnout vlastnictví předplatného uživateli, který je v jiném adresáři, musíte nejprve [pozvat tohoto uživatele jako hosta do svého adresáře](/azure/active-directory/b2b/add-users-administrator).
 
-Nahraďte následující hodnoty ve skriptu, před jejím spuštěním:
+Před spuštěním ve skriptu nahraďte následující hodnoty:
 
-- **$ArmEndpoint**: Koncový bod Resource Manageru pro vaše prostředí.
-- **$TenantId**: ID vašeho Tenanta.
+- **$ArmEndpoint**: Koncový bod Správce prostředků pro vaše prostředí.
+- **$TenantId**: Vaše ID tenanta.
 - **$SubscriptionId**: ID vašeho předplatného.
-- **$OwnerUpn**: Účet, například **uživatele\@example.com**, chcete-li přidat jako nový vlastník fakturace.
+- **$OwnerUpn**: Účet, například **Uživatel\@example.com**, který se má přidat jako nový vlastník fakturace
 
 ```powershell
 # Set up Azure Stack admin environment
@@ -67,6 +67,8 @@ $Subscription.Owner = $OwnerUpn
 Set-AzsUserSubscription -InputObject $subscription
 ```
 
+[!include[Remove Account](../../includes/remove-account.md)]
+
 ## <a name="next-steps"></a>Další postup
 
-- [Správa řízení přístupu na základě rolí](azure-stack-manage-permissions.md)
+- [Správa Access Control na základě rolí](azure-stack-manage-permissions.md)

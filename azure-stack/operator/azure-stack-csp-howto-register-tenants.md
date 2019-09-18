@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2019
+ms.date: 09/17/2019
 ms.author: sethm
 ms.reviewer: alfredop
-ms.lastreviewed: 06/07/2019
-ms.openlocfilehash: 9f35a2bef6e5aa3b9ae1866927be007d58532b74
-ms.sourcegitcommit: 5703255b4647ff0ebec23658a3f5c25d67f076a2
+ms.lastreviewed: 09/17/2019
+ms.openlocfilehash: 97d57605ce093684fcbabe2375deecda5e35cce2
+ms.sourcegitcommit: 9f4c6e96f60b4c229316e7a4ab6e0e5ef0a9a232
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70749967"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71061132"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Přidat tenanta pro použití a fakturaci na Azure Stack
 
@@ -47,7 +47,7 @@ V partnerském centru vytvořte pro zákazníka nové předplatné Azure. Pokyny
 
 ### <a name="create-an-azure-subscription-for-the-end-customer"></a>Vytvoření předplatného Azure pro koncového zákazníka
 
-Jakmile vytvoříte záznam o zákazníkovi v partnerském centru, můžete si ho prodávat do produktů v katalogu. Pokyny najdete v tématu [Vytvoření, pozastavení nebo zrušení zákaznických předplatných](/partner-center/create-a-new-subscription).
+Jakmile vytvoříte záznam o zákazníkovi v partnerském centru, můžete si ho prodávat do produktů v katalogu. Pokyny najdete v tématu [Vytvoření, pozastavení nebo zrušení zákaznických](/partner-center/create-a-new-subscription)předplatných.
 
 ### <a name="create-a-guest-user-in-the-end-customer-directory"></a>Vytvoření uživatele typu Host v adresáři koncového zákazníka
 
@@ -55,13 +55,17 @@ Ve výchozím nastavení vám jako CSP nebude mít přístup k předplatnému Az
 
 ### <a name="update-the-registration-with-the-end-customer-subscription"></a>Aktualizace registrace pomocí předplatného koncového zákazníka
 
-Aktualizujte svou registraci pomocí nového zákaznického předplatného. Azure oznamuje využívání zákazníků pomocí zákaznické identity z partnerského centra. Tento krok zajistí, že se využití každého zákazníka hlásí v rámci příslušného předplatného zprostředkovatele CSP daného zákazníka. Díky tomu je sledování využití a fakturace uživatelů jednodušší.
-
-> [!NOTE]  
-> Chcete-li provést tento krok, je nutné nejprve [zaregistrovat Azure Stack](azure-stack-registration.md).
+Aktualizujte svou registraci pomocí nového zákaznického předplatného. Azure oznamuje využívání zákazníků pomocí zákaznické identity z partnerského centra. Tento krok zajistí, že se využití každého zákazníka hlásí v rámci příslušného předplatného zprostředkovatele CSP daného zákazníka. Díky tomu je sledování využití a fakturace jednodušší. Chcete-li provést tento krok, je nutné nejprve [zaregistrovat Azure Stack](azure-stack-registration.md).
 
 1. Otevřete prostředí Windows PowerShell s výzvou se zvýšenými oprávněními a spusťte příkaz:  
-    `Add-AzureRmAccount`
+
+   ```powershell
+   Add-AzureRmAccount
+   ```
+
+   >[!Note]
+   > Pokud vaše relace vyprší, vaše heslo se změnilo nebo chcete jednoduše přepnout účty, spusťte následující rutinu ještě před přihlášením pomocí rutiny Add-AzureRmAccount:`Remove-AzureRmAccount-Scope Process`
+
 2. Zadejte svoje přihlašovací údaje Azure.
 3. V relaci PowerShellu spusťte příkaz:
 

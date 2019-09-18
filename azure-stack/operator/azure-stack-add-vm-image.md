@@ -3,7 +3,7 @@ title: Přidání image virtuálního počítače do Azure Stack | Microsoft Doc
 description: Přečtěte si, jak přidat nebo odebrat image virtuálního počítače pro Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: Justinha
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,22 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: conceptual
-ms.date: 07/23/2019
-ms.author: mabrigg
+ms.date: 09/17/2019
+ms.author: Justinha
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/08/2018
-ms.openlocfilehash: a72879303b80a1265450019d6b264085a8539387
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.openlocfilehash: fef815ec23655638bbe4df1bcdccae42aeee13e2
+ms.sourcegitcommit: 9f4c6e96f60b4c229316e7a4ab6e0e5ef0a9a232
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70974978"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71061172"
 ---
 # <a name="add-a-vm-image-to-azure-stack"></a>Přidání image virtuálního počítače do Azure Stack
 
 *Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
 
-V Azure Stack můžete přidat image virtuálního počítače (VM) do webu Marketplace, aby k nim uživatelé měli přístup. Obrázky se přidávají pomocí Azure Resource Manager šablon pro Azure Stack. Image virtuálních počítačů můžete také přidat do uživatelského rozhraní Azure Marketplace jako položku Marketplace pomocí portálu pro správu nebo Windows PowerShellu. Použijte buď obrázek z globální Azure Marketplace, nebo vlastní image virtuálního počítače.
+V Azure Stack můžete přidat image virtuálního počítače (VM) do Marketplace a zpřístupnit ji uživatelům. Obrázky se přidávají pomocí Azure Resource Manager šablon pro Azure Stack. Image virtuálních počítačů můžete také přidat do uživatelského rozhraní Azure Marketplace jako položku Marketplace pomocí portálu pro správu nebo Windows PowerShellu. Použijte buď obrázek z globální Azure Marketplace, nebo vlastní image virtuálního počítače.
 
 ## <a name="add-a-vm-image-through-the-portal"></a>Přidání image virtuálního počítače přes portál
 
@@ -155,10 +155,13 @@ Na image musí být odkazováno pomocí identifikátoru URI úložiště objekt�
 5. Připravte bitovou kopii operačního systému Windows nebo Linux ve formátu VHD (ne VHDX), nahrajte image do svého účtu úložiště a získejte identifikátor URI, kde se dá image virtuálního počítače načíst pomocí PowerShellu.  
 
    ```powershell
-    Add-AzureRmAccount `
-      -EnvironmentName "AzureStackAdmin" `
-      -TenantId $TenantID
+   Add-AzureRmAccount 
+   -EnvironmentName "AzureStackAdmin" 
+   -TenantId $TenantID
    ```
+  
+   >[!Note]
+   > Pokud vaše relace vyprší, vaše heslo se změnilo nebo chcete jednoduše přepnout účty, spusťte následující rutinu ještě před přihlášením pomocí rutiny Add-AzureRmAccount:`Remove-AzureRmAccount-Scope Process`
 
 6. Volitelně Pole datových disků můžete nahrát jako součást image virtuálního počítače. Pomocí rutiny New-DataDiskObject vytvořte datové disky. Otevřete PowerShell z příkazového řádku se zvýšenými oprávněními a spusťte příkaz:
 
@@ -208,6 +211,6 @@ Pokud už bitovou kopii virtuálního počítače, kterou jste nahráli, nepotř
     
      Další informace o rutině Remove-AzsPlatformImage najdete v dokumentaci modulu Microsoft PowerShell [Azure Stack operator](https://docs.microsoft.com/powershell/module/).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 [Zřízení virtuálního počítače](../user/azure-stack-create-vm-template.md)

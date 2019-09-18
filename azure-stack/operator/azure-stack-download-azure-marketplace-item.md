@@ -3,7 +3,7 @@ title: Stažení položek z Marketplace z Azure | Microsoft Docs
 description: Operátor cloudu může stáhnout položky Marketplace z Azure do nasazení Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: sethmanheim
+author: justinha
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/13/2019
-ms.author: sethm
+ms.author: justinha
 ms.reviewer: ihcherie
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: 4c4bac9a083ca35f851acb2f2d8201742be0ed1e
-ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
+ms.openlocfilehash: 99d0c48a5e7f5fd4e58d6fdf13e0a12c4b9dfb1e
+ms.sourcegitcommit: 95f30e32e5441599790d39542ff02ba90e70f9d6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68991834"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71070277"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Stažení položek z webu Marketplace z Azure do Azure Stack
 
@@ -50,7 +50,7 @@ Vaše nasazení Azure Stack musí mít připojení k Internetu a musí být zare
 
 2. Před stažením položek z webu Marketplace zkontrolujte dostupný prostor úložiště. Později můžete po výběru položek ke stažení porovnat velikost stahovaných zařízení s dostupnou kapacitou úložiště. Pokud je kapacita omezená, zvažte možnosti [správy dostupného místa](azure-stack-manage-storage-shares.md#manage-available-space).
 
-    Chcete-li zkontrolovat dostupné místo, v části **Správa oblastí** vyberte oblast, kterou chcete prozkoumat, a pak > v části poskytovatelé prostředků**úložiště**:
+    Chcete-li zkontrolovat dostupné místo, v části **Správa oblastí** vyberte oblast, kterou chcete prozkoumat, a pak v části **poskytovatelé** > prostředků**úložiště**:
 
     ![Kontrola prostoru úložiště](media/azure-stack-download-azure-marketplace-item/storage.png)
 
@@ -100,6 +100,8 @@ Tento scénář obsahuje dvě části:
 1. V počítači s připojením k Internetu otevřete konzolu PowerShellu jako správce.
 
 2. Přidejte účet Azure, který jste použili k registraci Azure Stack. Pokud chcete účet přidat, v PowerShellu `Add-AzureRmAccount` spusťte bez parametrů. Zobrazí se výzva k zadání přihlašovacích údajů k účtu Azure a v závislosti na konfiguraci vašeho účtu možná budete muset použít 2-Factor Authentication.
+
+   [!include[Remove Account](../../includes/remove-account.md)]
 
 3. Pokud máte více předplatných, spusťte následující příkaz a vyberte ten, který jste použili pro registraci:  
 

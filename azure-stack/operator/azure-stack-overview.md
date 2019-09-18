@@ -1,6 +1,6 @@
 ---
 title: Co je Azure Stack? | Dokumenty Microsoft
-description: Zjistěte, jak vám Azure Stack umožňuje provozovat služby Azure ve vašem datovém centru.
+description: Přečtěte si, jak Azure Stack umožňuje spouštět služby Azure ve vašem datovém centru.
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -12,134 +12,134 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 03/29/2019
+ms.date: 09/16/2019
 ms.author: justinha
 ms.reviewer: unknown
 ms.custom: ''
 ms.lastreviewed: 05/14/2019
-ms.openlocfilehash: 1aa6f494320843cf1debe2c1887f353bf79a7303
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 7c84a9cb841f06887d09a650d277566fb9ff18ed
+ms.sourcegitcommit: 95f30e32e5441599790d39542ff02ba90e70f9d6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66268355"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71070165"
 ---
 # <a name="azure-stack-overview"></a>Přehled služby Azure Stack
 
-Azure Stack je rozšířením Azure, která poskytuje způsob, jak spouštět aplikace v místním prostředí a poskytovat služby Azure ve vašem datovém centru. S konzistentní cloudové platformy mohli bez obav organizace podle firemních potřeb rozhodnutí o technologiích, nikoli obchodní rozhodnutí založené na technologii omezení.
+Azure Stack je rozšíření Azure, které poskytuje způsob, jak spouštět aplikace v místním prostředí a poskytovat služby Azure ve vašem datovém centru. S konzistentní cloudovou platformou můžou organizace bez obav dělat rozhodování o technologiích na základě podnikových požadavků, a ne podle obchodních rozhodnutí založených na omezeních technologie.
 
-## <a name="why-use-azure-stack"></a>Proč používat Azure Stack?
+## <a name="why-use-azure-stack"></a>Proč použít Azure Stack?
 
-Azure nabízí bohatou platformu pro vývojáře pro vytváření moderních aplikací. Ale některé aplikace založené na cloudu čelí překážky třeba latence, přerušovaným připojením a nařízení. Azure a Azure Stackem odemknout nové případy použití pro řádek určených pro zákazníky a interní obchodní aplikace hybridního cloudu:
+Azure poskytuje vývojářům bohatou platformu pro vytváření moderních aplikací. Některé cloudové aplikace ale čelí překážkám, jako je latence, přerušované připojení a předpisy. Azure a Azure Stack odemknout nové případy použití hybridního cloudu pro zákazníka i interní obchodní aplikace:
 
-- **Hraniční a odpojená řešení**. Adresa zpracovávat data lokálně ve službě Azure Stack a potom agregovat v Azure pro další analýzy s využitím s společné aplikační logiky splňte latence a požadavky na připojení. Můžete dokonce nasadit Azure Stack odpojení od Internetu bez připojení k Azure. Přemýšlejte o výrobní prostory, dopravní, ať se dodává a Moje šachty jako příklady.
+- **Hraniční a odpojená řešení**. Požadavky na latenci a připojení, které zpracovávají data místně v Azure Stack a pak je agreguje v Azure pro další analýzy s využitím společné aplikační logiky napříč oběma. Můžete dokonce nasadit Azure Stack odpojený od Internetu bez připojení k Azure. V příkladech si můžete představit podlahovou podlahu, lodě přepravní a odminování.
 
-- **Cloudové aplikace, které splňují předpisy pohyblivá podle**. Vyvíjejte a nasazujte aplikace v Azure s úplnou flexibilitou k nasazení místně pomocí služby Azure Stack pro splnění zákonných požadavků a požadavků zásad nejsou potřeba žádné změny kódu. Aplikace příklady globální auditování, finanční sestavy, obchodování cizích měn, hraní online her a vykazování výdajů apod.
+- **Cloudové aplikace, které splňují různé předpisy**. Vývoj a nasazování aplikací v Azure s plnou flexibilitou pro nasazení místně pomocí Azure Stack pro splnění zákonných požadavků nebo požadavků na zásady, aniž by se musely dělat žádné změny kódu. Mezi příklady aplikací patří globální audit, finanční vykazování, obchodování s cizím systémem Exchange, hraní online her a generování sestav výdajů.
 
-- **Cloudové aplikace modelu místní**. Pomocí služby Azure, kontejnery, bez serveru a architektury mikroslužeb aktualizovat a rozšiřovat stávající aplikace nebo vytvářejte nové. Procesů DevOps konzistentní použití v Azure v cloudu a Azure Stack místní ke zrychlení aplikací modernizaci aplikací kritických pro chod core.
+- **Model cloudové aplikace v místním**prostředí. Pomocí služeb Azure, kontejnerů, bez serveru a architektury mikroslužeb můžete aktualizovat a roztáhnout existující aplikace nebo vytvořit nové. Používejte konzistentní DevOps procesy napříč Azure v cloudu a Azure Stack v místním prostředí, abyste urychlili modernizaci aplikací pro základní klíčové aplikace.
 
-Azure Stack umožňuje tyto scénáře použití tím, že poskytuje:
+Azure Stack tyto scénáře použití poskytují:
 
-- Doručování integrované prostředí pro zprovoznění a zprovoznění pomocí účelových Azure Stack integrované systémy od partnerů pro důvěryhodného hardwaru. Po jeho doručení Azure Stack snadno integruje do datového centra s monitorováním pomocí System Center Operations Manager Management Pack nebo Nagios rozšíření.
+- Integrované prostředí pro doručování, které umožňuje rychle začít pracovat s účelově postavenými Azure Stack integrovanými systémy od důvěryhodných hardwarových partnerů. Po doručení se Azure Stack snadno integruje do datového centra s monitorováním prostřednictvím sady System Center Operations Manager Management Pack nebo rozšíření Nagios.
 
-- Flexibilní identity management pro Azure a Azure Stackem hybridní prostředí pomocí Azure Active Directory (Azure AD) a využití služby Active Directory Federation Services (AD FS) při odpojení nasazení. 
+- Flexibilní správa identit pomocí Azure Active Directory (Azure AD) pro Azure a Azure Stack hybridní prostředí a využití Active Directory Federation Services (AD FS) (AD FS) pro odpojená nasazení. 
 
-- Azure konzistentní prostředí pro vývoj aplikací maximalizují produktivitu vývojářů a povolit běžné praktiky DevOps blíží napříč hybridními prostředími.
+- Prostředí pro vývoj aplikací konzistentní s Azure pro maximalizaci produktivity vývojářů a umožňují běžné DevOps přístupy napříč hybridními prostředími.
 
-- Doručování služeb Azure z místní hybridní Cloudová výpočetní výkon. Přijmout společných operačních postupů v Azure a Azure Stack, jak nasadit a provozovat služby Azure IaaS a PaaS pomocí stejné prostředí pro správu a nástrojů jako Azure. Microsoft nabízí nepřetržité inovace Azure do služby Azure Stack, včetně služby Azure, aktualizace stávajících službách a další aplikace Azure Marketplace a Image.
+- Doručování služeb Azure z místního prostředí s využitím hybridního cloudového výpočetního výkonu. Využijte běžné provozní postupy napříč Azure a Azure Stack k nasazení a provozování služeb Azure IaaS a PaaS pomocí stejných prostředí pro správu a nástrojů jako Azure. Microsoft zajišťuje nepřetržitou inovaci Azure na Azure Stack, včetně nových služeb Azure, aktualizací stávajících služeb a dalších Azure Marketplace aplikací a imagí.
 
-## <a name="azure-stack-architecture"></a>Architektura služby Azure Stack
-Azure Stack, které se skládají integrované systémy v stojany 4-16 serverů vytvořených důvěryhodné hardwarových partnerů a doručí přímo do vašeho datového centra. Po jeho doručení poskytovatele řešení bude pracovat nasazovat integrovaný systém a ujistěte se, že řešení Azure stacku splňuje vaše podnikové požadavky. Budete muset připravit tím zajištění všech požadovaných napájení a chlazení vašeho datového centra, ohraničení připojení a další požadavek integrace vyžaduje datacenter jsou na místě. 
+## <a name="azure-stack-architecture"></a>Architektura Azure Stack
+Azure Stack integrovaných systémů se skládají do racků 4-16 serverů vytvořených důvěryhodnými hardwarovými partnery a jsou přímo dodávané do vašeho datacentra. Po doručení bude poskytovatel řešení spolupracovat s vámi, abyste mohli nasadit integrovaný systém a zajistili, že Azure Stack řešení splňuje vaše obchodní požadavky. Vaše datacentrum budete muset připravit tím, že zajistíte, aby se zajistilo veškeré požadované napájení a chlazení, připojení k okraji a další požadavky na integraci Datacenter. 
 
-> Další informace o prostředí integrace datových center Azure Stack, najdete v části [integrace datových center Azure Stack](azure-stack-customer-journey.md).
+> Další informace o prostředí Azure Stack Integration Datacenter najdete v tématu věnovaném [integraci Azure Stack Datacenter](azure-stack-customer-journey.md).
 
-Azure Stack je založen na standardní hardwarovou odvětví a spravuje se pomocí stejných nástrojů, které už používáte pro správu předplatných Azure. V důsledku toho můžete provést konzistentních procesů DevOps, zda jste připojeni k Azure, nebo ne. 
+Azure Stack je postavená na standardním hardwaru a spravuje se pomocí stejných nástrojů, které už používáte pro správu předplatných Azure. V důsledku toho můžete použít konzistentní procesy DevOps bez ohledu na to, jestli jste připojení k Azure. 
 
-Architektura služby Azure Stack umožňuje poskytovat služby Azure na hraničních zařízeních pro vzdálených umístění nebo přerušované připojení, odpojení od Internetu. Můžete vytvořit hybridní řešení, které zpracovávat data lokálně ve službě Azure Stack a potom ho agregovat v Azure pro další zpracování a analýzu. A konečně protože Azure Stack je nainstalovaný místně, můžete podle specifických požadavků předpisů nebo zásad Díky flexibilitě cloudových aplikací v místním nasazení beze změny kódu. 
+Architektura Azure Stack umožňuje poskytovat služby Azure na hraničních zařízeních pro vzdálená umístění nebo přerušované připojení odpojené od Internetu. Můžete vytvářet hybridní řešení, která zpracovávají data místně v Azure Stack a pak je agregovat do Azure pro další zpracování a analýzu. A konečně vzhledem k tomu, že Azure Stack je nainstalovaná místně, můžete splnit konkrétní zákonné požadavky nebo požadavky zásad, a to díky flexibilitě nasazení cloudové aplikace do místního prostředí beze změny kódu. 
 
 ## <a name="deployment-options"></a>Možnosti nasazení
 
-### <a name="production-or-evaluation-environments"></a>Produkční nebo zkušební prostředí
-Azure Stack se nabízí ve dvou možnosti nasazení podle svých potřeb, integrované systémy Azure Stack pro použití v produkčním prostředí a Azure Stack Development Kit (ASDK) za vaše rozhodnutí vyzkoušet Azure Stack:
+### <a name="production-or-evaluation-environments"></a>Produkční nebo vyhodnocovací prostředí
+Azure Stack se nabízí ve dvou možnostech nasazení, které odpovídají vašim potřebám, Azure Stack integrovaných systémů pro použití v produkčním prostředí a Azure Stack Development Kit (ASDK) pro vyhodnocování Azure Stack:
 
-- **Integrované systémy Azure Stack**. Azure Stack, který nabízí integrované systémy Díky partnerství Microsoftu a hardwarových partnerů, vytvoření řešení, která nabízí cloud tempem inovace a výpočetnímu zjednodušení správy. Azure Stack se nabízí jako integrované hardwaru a softwaru system, takže máte flexibility a kontroly, které potřebujete, spolu se schopností na inovace v cloudu. Systémy ve službě Azure Stack integrované v rozsahu od 4 až 16 uzlů a společně podporuje hardwarových partnerů a Microsoft. Integrované systémy Azure Stack slouží k vytvoření nové scénáře a nasazovat nové řešení pro vaše produkční úlohy.
+- **Azure Stack integrovaných systémů**. Azure Stack integrované systémy jsou nabízeny prostřednictvím partnerství s Microsoftem a hardwarovými partnery a vytvářejí řešení, které nabízí cloudové inovace a jednoduchost správy computingu. Vzhledem k tomu, že Azure Stack je nabízená jako integrovaný hardwarový a softwarový systém, máte flexibilitu a kontrolu, které potřebujete, a také schopnost inovovat z cloudu. Azure Stack rozsahy integrovaných systémů je velikost z uzlů 4-16 a jsou společně podporovány hardwarovým partnerem a společností Microsoft. Pomocí Azure Stack integrovaných systémů můžete vytvářet nové scénáře a nasazovat nová řešení pro produkční úlohy.
 
-- **Azure Stack Development Kit**. [Azure Stack Development Kit (ASDK)](../asdk/asdk-what-is.md) je jedním uzlem, bezplatné nasazení služby Azure Stack, který můžete použít k vyhodnocení a další informace o službě Azure Stack. Můžete také použít ASDK jako prostředí pro vývojáře k vytváření aplikací pomocí rozhraní API a nástrojů, který je konzistentní s Azure. ASDK však není určena pro použití jako v provozním prostředí a má následující omezení než úplné integrované systémy pro produkční nasazení:
+- **Azure Stack Development Kit**. [Azure Stack Development Kit (ASDK)](../asdk/asdk-what-is.md) je bezplatné nasazení Azure Stack s jedním uzlem, které můžete použít k vyhodnocení a získání informací o Azure Stack. ASDK můžete použít také jako vývojářské prostředí k vytváření aplikací pomocí rozhraní API a nástrojů, které jsou konzistentní s Azure. ASDK ale nemá sloužit jako produkční prostředí a má v porovnání s úplnými provozními nasazeními integrovaných systémů následující omezení:
 
-    - Pouze ASDK lze přidružit jeden Azure Active Directory (Azure AD) nebo zprostředkovatele identity služby Active Directory Federation Services (AD FS).
-    - Protože komponenty služby Azure Stack jsou nasazené na jeden hostitelský počítač, se omezené fyzické prostředky dostupné pro prostředky tenanta. Tato konfigurace není určen pro škálování nebo pro účely vyhodnocení výkonu.
-    - Scénáře pro sítě jsou omezené z důvodu jednom hostiteli a síťovou kartu požadavky na nasazení.
+    - ASDK se dá přidružit jenom k jednomu zprostředkovateli identity Azure Active Directory (Azure AD) nebo Active Directory Federation Services (AD FS) (AD FS).
+    - Vzhledem k tomu, že Azure Stack komponenty jsou nasazeny na jednom hostitelském počítači, jsou k dispozici omezené fyzické prostředky pro prostředky tenanta. Tato konfigurace není určena pro škálování nebo pro vyhodnocení výkonu.
+    - Síťové scénáře jsou omezené z důvodu požadavků na nasazení s jedním hostitelem a síťovým ROZHRANÍm.
 
 ### <a name="connection-models"></a>Modely připojení
-Můžete také nasadit Azure Stack buď **připojené** k Internetu (a do Azure) nebo **odpojení** z něj. Tato volba určuje, jaké možnosti jsou k dispozici pro úložiště identit (Azure AD nebo AD FS) a model fakturace (platit při použití na základě fakturace nebo založená na kapacitě fakturace).
+Můžete zvolit nasazení Azure Stack buď připojeného k Internetu (a k Azure), nebo z něj **Odpojit** . Tato volba definuje, jaké možnosti jsou k dispozici pro vaše úložiště identit (Azure AD nebo AD FS) a model fakturace (platíte při použití fakturace nebo fakturace na základě kapacity).
 
-> Další informace najdete v tématu důležité informace týkající se [připojené](azure-stack-connected-deployment.md) a [odpojení](azure-stack-disconnected-deployment.md) modely nasazení. 
+> Další informace najdete v tématu požadavky na [připojené](azure-stack-connected-deployment.md) a [odpojené](azure-stack-disconnected-deployment.md) modely nasazení. 
 
 ### <a name="identity-provider"></a>Poskytovatel identit 
-Azure Stack využívá k poskytování identit Azure Active Directory (Azure AD) nebo Active Directory Federation Services (AD FS). Azure AD je zprostředkovatel identity založené na cloudu, více tenantů od Microsoftu. Většina hybridní scénáře s nasazeními připojeného k Internetu pomocí Azure AD jako úložiště identit. 
+Azure Stack používá k poskytnutí identit buď Azure Active Directory (Azure AD) nebo Active Directory Federation Services (AD FS) (AD FS). Azure AD je cloudový zprostředkovatel identity pro více tenantů od Microsoftu. Většina hybridních scénářů s nasazeními připojenými k Internetu používá jako úložiště identit službu Azure AD. 
 
-Pro odpojený nasazení služby Azure Stack budete muset použít služby Active Directory Federation Services (AD FS). Poskytovatelé prostředků Azure Stack a další aplikace fungují podobně službou AD FS nebo služby Azure AD. Azure Stack zahrnuje svoji vlastní instanci služby Active Directory a Active Directory Graph API.
+Pro odpojená nasazení Azure Stack musíte použít Active Directory Federation Services (AD FS) (AD FS). Poskytovatelé prostředků Azure Stack a další aplikace fungují podobně jako AD FS nebo Azure AD. Azure Stack obsahuje svou vlastní instanci služby Active Directory a Graph API služby Active Directory.
 
 > [!IMPORTANT]
-> Zprostředkovatel identity nelze změnit po nasazení. Pokud chcete použít jinou identitu poskytovatele, budete muset znovu nasadit Azure Stack.
+> Po nasazení nemůžete změnit poskytovatele identity. Pokud chcete použít jiného zprostředkovatele identity, musíte Azure Stack znovu nasadit.
 
-> Další informace o aspektech týkajících se identity Azure Stack na [přehled identity pro službu Azure Stack](azure-stack-identity-overview.md).
+> Další informace o Azure Stack požadavcích na identitu najdete v článku [Přehled identity pro Azure Stack](azure-stack-identity-overview.md).
 
-## <a name="how-is-azure-stack-managed"></a>Jak se spravuje Azure Stack?
-Azure Stack můžete spravovat pomocí portálu, uživatelského portálu pro správu, nebo [Powershellu](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.7.1). Na portálech Azure stacku každého využívají samostatných instancí služby Azure Resource Manageru. **Operátor Azure stacku** používá na portálu pro správu ke správě služby Azure Stack a k třeba vytvořit tenanta nabídek a udržování stavu a monitorování stavu integrovaný systém. Portál user portal (také označované jako portál pro klienty) poskytuje samoobslužné prostředí pro použití prostředků cloudu, jako jsou virtuální počítače, účty storage a web apps. 
+## <a name="how-is-azure-stack-managed"></a>Jak se Azure Stack spravuje?
+Azure Stack můžete spravovat pomocí portálu pro správu, portálu User Portal nebo [PowerShellu](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.7.1). Portály Azure Stack jsou každou zálohované samostatné instance Azure Resource Manager. **Operátor Azure Stack** používá portál pro správu ke správě Azure Stack a k provádění akcí, jako je vytváření nabídek tenantů, a udržování stavu a monitorování stavu integrovaného systému. Portál User Portal (také označovaný jako portál tenanta) poskytuje samoobslužné prostředí pro využití cloudových prostředků, jako jsou virtuální počítače, účty úložiště a webové aplikace. 
 
-> Další informace o správě služby Azure Stack pomocí portálu pro správu, najdete v článku použití [rychlý start portálu pro správu služby Azure Stack](azure-stack-manage-portals.md).
+> Další informace o správě Azure Stack pomocí portálu pro správu najdete v tématu [rychlý Start k portálu pro správu Azure Stack](azure-stack-manage-portals.md).
 
-Jako operátor Azure stacku, můžete doručovat širokou škálu služeb a aplikací, jako například [virtuálních počítačů](azure-stack-tutorial-tenant-vm.md), [webové aplikace](azure-stack-app-service-overview.md), s vysokou dostupností [systému SQL Server](azure-stack-tutorial-sql.md), a [MySQL Server](azure-stack-tutorial-mysql.md) databází. Můžete také použít [šablon Azure Resource Manageru pro rychlý start Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates) k nasazení služby SharePoint, Exchange a další. 
+Jako operátor Azure Stack můžete doručovat širokou škálu služeb a aplikací, jako jsou [virtuální počítače](azure-stack-tutorial-tenant-vm.md), [webové aplikace](azure-stack-app-service-overview.md), vysoce dostupné [SQL Server](azure-stack-tutorial-sql.md)a databáze [MySQL serveru](azure-stack-tutorial-mysql.md) . K nasazení SharePointu, Exchange a dalších šablon můžete použít taky [Azure Stack rychlý start Azure Resource Manager šablony](https://github.com/Azure/AzureStack-QuickStart-Templates) . 
 
-Pomocí portálu pro správu, můžete [konfigurace služby Azure Stack, aby mohl poskytovat služby](azure-stack-plan-offer-quota-overview.md) pro tenanty používající plány, kvóty, nabídky a předplatné. Tenanta uživatelé se mohou přihlásit k několika nabídky. Nabídek může mít jednoho nebo několika plánů a plány může mít jednu nebo víc služeb. Operátory také spravovat kapacity a reakce na výstrahy. 
+Pomocí portálu pro správu můžete [nakonfigurovat Azure Stack pro poskytování služeb](azure-stack-plan-offer-quota-overview.md) klientům pomocí plánů, kvót, nabídek a předplatných. Uživatelé tenanta se můžou přihlásit k odběru několika nabídek. Nabídky mohou mít jeden nebo více plánů a plány můžou mít jednu nebo více služeb. Operátoři také spravují kapacitu a reagují na výstrahy. 
 
-Pokud je nakonfigurovaná Azure Stack, **uživatele Azure stacku** (označované také jako tenant) využívá služby, které nabízí operátor. Uživatele můžete zřizovat, monitorovat a spravovat služby, které jsou odběru jste přihlášeni, jako jsou webové aplikace, úložiště a virtuální počítače.
+Když je nakonfigurované Azure Stack, **Azure Stack uživatel** (označovaný také jako tenant) spotřebovává služby, které nabízí operátor. Uživatelé můžou zřizovat, monitorovat a spravovat služby, ke kterým se přihlásili, jako jsou webové aplikace, úložiště a virtuální počítače.
 
-> Další informace o správě Azure Stack, včetně toho, co účtů použijte, pokud typické odpovědnosti operátora, co říct uživatelům a jak získat pomoc, najdete v tématu [základy Azure stacku správu](azure-stack-manage-basics.md).
+> Další informace o správě Azure Stack včetně toho, jaké účty se mají použít, kde jsou typické zodpovědnosti operátora, co říct vašim uživatelům a jak získat pomoc, najdete v [Azure Stack základy správy](azure-stack-manage-basics.md).
 
 ## <a name="resource-providers"></a>Poskytovatelé prostředků 
-Poskytovatelé prostředků jsou webové služby, které tvoří základ pro všechny Azure Stack IaaS a PaaS služby. Azure Resource Manageru závisí na různých prostředků poskytovatele za účelem poskytnutí přístupu ke službám. Každý poskytovatel prostředků vám pomůže nakonfigurovat a řídit jeho příslušné prostředky. Správce služeb můžete také přidat nové vlastní prostředek zprostředkovatele. 
+Poskytovatelé prostředků jsou webové služby, které tvoří základ pro všechny Azure Stack služby IaaS a PaaS. Azure Resource Manager spoléhá na různé poskytovatele prostředků, aby poskytoval přístup ke službám. Každý poskytovatel prostředků vám pomůže nakonfigurovat a řídit příslušné prostředky. Správci služeb můžou také přidávat nové vlastní poskytovatele prostředků. 
 
-### <a name="foundational-resource-providers"></a>Poskytovatelé základních prostředků 
-Existují tři základní poskytovatelů prostředků IaaS: 
+### <a name="foundational-resource-providers"></a>Zprostředkovatelé základních prostředků 
+Existují tři poskytovatelé prostředků pro základní IaaS: 
 
-- **COMPUTE**. Poskytovatele výpočetních prostředků umožňuje klientům služby Azure Stack můžete vytvořit své vlastní virtuální počítače. Poskytovateli prostředků Compute zahrnuje schopnost vytvářet virtuální počítače, stejně jako rozšíření virtuálního počítače. Do rozšíření služby Virtual Machines pomáhá poskytovat schopnosti IaaS pro virtuální počítače s Windows a Linux. Například můžete použít poskytovatele výpočetních prostředků ke zřízení virtuálního počítače s Linuxem a spouštění skriptů Bash během nasazování do konfigurace virtuálního počítače.
-- **Síť poskytovatele prostředků**. Poskytovatel síťových prostředků přináší řadu funkce softwarově definované sítě (SDN) a síťové funkce virtualizace (NFV) pro daný privátní cloud. Poskytovatel síťových prostředků můžete použít k vytvoření zdroje, jako jsou nástroje pro vyrovnávání zatížení softwaru, veřejné IP adresy, skupiny zabezpečení sítě a virtuální sítě.
-- **Poskytovatel prostředků úložiště**. Zprostředkovatele prostředku úložiště zajišťuje čtyř služeb konzistentních s Azure storage: [blob](https://docs.microsoft.com/azure/storage/common/storage-introduction#blob-storage), [fronty](https://docs.microsoft.com/azure/storage/common/storage-introduction#queue-storage), [tabulky](https://docs.microsoft.com/azure/storage/common/storage-introduction#table-storage), a [KeyVault](https://docs.microsoft.com/azure/key-vault/) Správa účtů, správy a auditování tajné kódy, jako jsou hesla a certifikáty. Poskytovatel prostředků úložiště také nabízí Cloudová služba správy úložiště pro usnadnění správy služeb poskytovatele služeb konzistentních s Azure Storage. Azure Storage nabízí flexibilitu při ukládání a načítání velkého objemu nestrukturovaných dat, jako jsou dokumenty a mediální soubory s objekty BLOB Azure, a strukturované NoSQL na základě dat pomocí tabulek Azure. 
+- **Výpočetní**prostředí. Zprostředkovatel prostředků COMPUTE umožňuje Azure Stack klientům vytvářet vlastní virtuální počítače. Poskytovatel výpočetních prostředků zahrnuje možnost vytvářet virtuální počítače i rozšíření virtuálních počítačů. Služba rozšíření virtuálních počítačů pomáhá poskytovat funkce IaaS pro virtuální počítače s Windows a Linux. Jako příklad můžete pomocí zprostředkovatele prostředků služby COMPUTE zřídit virtuální počítač se systémem Linux a spustit skripty bash během nasazování a nakonfigurovat virtuální počítač.
+- **Poskytovatel síťových prostředků**. Poskytovatel síťových prostředků nabízí řadu funkcí Software Defined Networking (SDN) a virtualizace síťových funkcí (NFV) pro privátní cloud. Poskytovatele síťových prostředků můžete použít k vytvoření prostředků, jako jsou nástroje pro vyrovnávání zatížení softwaru, veřejné IP adresy, skupiny zabezpečení sítě a virtuální sítě.
+- **Poskytovatel prostředků úložiště**. Poskytovatel prostředků úložiště nabízí čtyři služby úložiště konzistentní s Azure: objekty [BLOB](https://docs.microsoft.com/azure/storage/common/storage-introduction#blob-storage), [Queue](https://docs.microsoft.com/azure/storage/common/storage-introduction#queue-storage), [Table](https://docs.microsoft.com/azure/storage/common/storage-introduction#table-storage)a [trezoru](https://docs.microsoft.com/azure/key-vault/) klíčů poskytující správu a auditování tajných kódů, jako jsou hesla a certifikáty. Poskytovatel prostředků úložiště nabízí cloudovou službu pro správu úložiště, která usnadňuje správu služeb úložiště konzistentních od Azure. Azure Storage poskytuje flexibilitu pro ukládání a načítání velkých objemů nestrukturovaných dat, jako jsou dokumenty a mediální soubory s objekty blob Azure a strukturovaná data založená na NoSQL, s tabulkami Azure. 
 
-### <a name="optional-resource-providers"></a>Poskytovatelé prostředků volitelné
-Existují tři volitelné PaaS poskytovatelů prostředků, které můžete nasadit a používat s Azure Stack: 
+### <a name="optional-resource-providers"></a>Volitelní poskytovatelé prostředků
+Existují tři volitelné poskytovatele prostředků PaaS, které můžete nasadit a používat s Azure Stack: 
 
-- **App Service**. [Azure App Service ve službě Azure Stack](azure-stack-app-service-overview.md) platform-as-a-service (PaaS) nabídka Microsoft Azure je k dispozici pro Azure Stack. Tato služba umožňuje vaší interní nebo externí zákazníkům vytvářet webové rozhraní API a Azure Functions aplikací pro jakoukoliv platformu nebo zařízení. 
-- **SQL Server**. Použití [poskytovatele prostředků SQL serveru](azure-stack-sql-resource-provider.md) nabízí databáze SQL jako služba Azure Stack. Po instalaci poskytovatele prostředků a připojte ho k jedné nebo více instancí systému SQL Server, můžete vytvořit vy a vaši uživatelé databází pro aplikace nativní pro cloud, weby, které používají SQL a jiné úlohy, které používají SQL.
-- **MySQL Server**. Použití [poskytovatele prostředků MySQL Server](azure-stack-mysql-resource-provider-deploy.md) vystavit databází MySQL jako služby Azure Stack. Poskytovatele prostředků MySQL běží jako služba na virtuálním počítači (VM) systému Windows Server 2016 Server Core.
+- **App Service**. [Azure App Service v Azure Stack](azure-stack-app-service-overview.md) je nabídka typu platforma jako služba (PaaS) Microsoft Azure dostupná pro Azure Stack. Služba umožňuje vašim interním nebo externím zákazníkům vytvářet webové aplikace, rozhraní API a Azure Functions aplikací pro libovolnou platformu nebo zařízení. 
+- **SQL Server**. Použijte [poskytovatele prostředků SQL Server](azure-stack-sql-resource-provider.md) k nabídnutí databází SQL jako služby Azure Stack. Až nainstalujete poskytovatele prostředků a připojíte ho k jedné nebo více instancím SQL Server, můžete vy a vaši uživatelé vytvářet databáze pro cloudové nativní aplikace, weby, které používají SQL, a další úlohy, které používají SQL.
+- **MySQL Server**. K zveřejnění databází MySQL jako Azure Stack služby použijte [poskytovatele prostředků serveru MySQL](azure-stack-mysql-resource-provider-deploy.md) . Poskytovatel prostředků MySQL se spouští jako služba na virtuálním počítači se systémem Windows Server 2016 Server Core (VM).
 
 ## <a name="providing-high-availability"></a>Zajištění vysoké dostupnosti
-Abyste dosáhli vysoké dostupnosti systému produkčního prostředí více virtuálních počítačů v Azure, umístěte virtuální počítače [dostupnosti](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) se šíří mezi různými doménami selhání a aktualizačních doménách. V menších škálování služby Azure Stack doménu selhání ve skupině dostupnosti je definován jako jeden uzel v jednotce škálování.  
+Aby se dosáhlo vysoké dostupnosti produkčního systému více virtuálních počítačů v Azure, virtuální počítače se umístí do [skupiny dostupnosti](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) , která je rozšíří napříč více doménami selhání a aktualizačními doménami. V menším měřítku Azure Stack je doména selhání ve skupině dostupnosti definovaná jako jeden uzel v jednotce škálování.  
 
-Infrastruktury služby Azure Stack je již odolné vůči selhání, základní technologie (clustering převzetí služeb při selhání) stále způsobí některé výpadek pro virtuální počítače na ovlivněné fyzickém serveru, pokud dojde k selhání hardwaru. Azure Stack podporuje s dostupnosti s délkou maximálně tři domény selhání pro zajištění konzistence s Azure.
+I když je infrastruktura Azure Stack už odolná vůči selháním, pak základní technologie (Clustering s podporou převzetí služeb při selhání) stále způsobí nějaké výpadky virtuálních počítačů na ovlivněném fyzickém serveru, pokud dojde k selhání hardwaru. Azure Stack podporuje pro zajištění konzistence s Azure skupinu dostupnosti s maximálně třemi doménami selhání.
 
-- **Domény selhání**. Virtuální počítače umístěné ve skupině dostupnosti budou fyzicky izolované od sebe navzájem tím, že rozprostírá co nejrovnoměrněji rozložené přes víc domén selhání (uzly Azure Stack). Pokud dojde k selhání hardwaru, virtuální počítače z domény selhání selhání restartování v jiných doménách selhání ale udržovat v samostatných doménách selhání z jiných virtuálních počítačů ve stejné skupině dostupnosti Pokud je to možné. Když hardware vrátí do režimu online, virtuálních počítačů bude možné znovu vyrovnána udržet vysokou dostupnost. 
+- **Domény selhání**. Virtuální počítače, které jsou umístěné ve skupině dostupnosti, se fyzicky izolují od sebe navzájem, jak je rozšíříte do více domén selhání (Azure Stackch uzlů). Pokud dojde k selhání hardwaru, virtuální počítače z neúspěšné domény selhání budou restartovány v jiných doménách selhání, ale budou uloženy v samostatných doménách selhání z ostatních virtuálních počítačů ve stejné skupině dostupnosti, pokud je to možné. Když se hardware vrátí zpátky do online režimu, virtuální počítače se znovu vyrovnávají, aby se zachovala vysoká dostupnost. 
  
-- **Aktualizační domény**. Aktualizační domény jsou jiné Azure pojem, který poskytuje vysokou dostupnost ve skupinách dostupnosti. Aktualizační doména je logická skupina hardwarových komponent, které můžete provést údržbu ve stejnou dobu. Virtuální počítače umístěné ve stejné aktualizační domény je bude během plánované údržby restartují společně. Tenanti vytvářet virtuální počítače v rámci skupiny dostupnosti, Platforma Azure automaticky zajistí distribuci s virtuální počítače mezi nimi aktualizačními doménami. Ve službě Azure Stack jsou virtuální počítače za provozu migrovat na jiné online hostitelích v clusteru předtím, než se aktualizuje jejich základního hostitele. Protože neexistuje žádný výpadek tenanta při aktualizaci hostitele, funkci aktualizace domény ve službě Azure Stack existuje pouze pro šablony kompatibilitu s Azure. 
+- **Aktualizujte domény**. Aktualizace domén představují jiný koncept Azure, který poskytuje vysokou dostupnost ve skupinách dostupnosti. Aktualizační doména je logická skupina základního hardwaru, která může prostoupit v rámci údržby. Virtuální počítače umístěné ve stejné aktualizační doméně se při plánované údržbě restartují společně. Když klienti vytvářejí virtuální počítače v rámci skupiny dostupnosti, platforma Azure automaticky distribuuje virtuální počítače napříč těmito aktualizačními doménami. V Azure Stack jsou virtuální počítače za provozu přenášeny v jiných online hostitelích v clusteru před tím, než se aktualizuje jejich podkladový hostitel. Vzhledem k tomu, že během aktualizace hostitele nedochází k výpadku tenanta, funkce aktualizační doména v Azure Stack existuje pouze pro kompatibilitu šablon s Azure. Virtuální počítače ve skupině dostupnosti budou na **portálu zobrazeny jako** číslo aktualizační domény. 
 
-## <a name="role-based-access-control"></a>Řízení přístupu podle rolí
-Na základě řízení přístupu Role (RBAC) můžete použít k udělení přístupu systému oprávněným uživatelům, skupinám a službám přiřazením role na předplatné, skupinu prostředků nebo úrovni jednotlivých prostředků. Každá role určuje požadovanou úroveň přístupu uživatele, skupiny nebo služby má prostředky Microsoft Azure Stack.
+## <a name="role-based-access-control"></a>Řízení přístupu na základě role
+Řízení přístupu na základě role (RBAC) můžete použít k udělení přístupu k systému autorizovaným uživatelům, skupinám a službám tím, že jim přiřadíte role v předplatném, skupině prostředků nebo jednotlivé úrovni prostředků. Každá role definuje úroveň přístupu, kterou uživatel, skupina nebo služba překročí Microsoft Azure Stack prostředky.
 
-Azure Stack RBAC má tři základní role, které platí pro všechny typy prostředků: Vlastník, Přispěvatel a čtenář. Vlastník má úplný přístup ke všem prostředkům, včetně práva na delegovat přístup ostatním uživatelům. Přispěvatel můžete vytvořit a spravovat všechny typy prostředků Azure, ale nemůže udělovat přístup ostatním uživatelům. Čtečka lze zobrazit pouze existující prostředky. Ostatní role RBAC povolit správu konkrétních prostředků Azure. Pro instanci role Přispěvatel virtuálních počítačů umožňuje vytváření a správa virtuálních počítačů, ale neumožňuje správu virtuální síť nebo podsíť, která se připojí k virtuálnímu počítači.
+Azure Stack RBAC má tři základní role, které se vztahují na všechny typy prostředků: Vlastník, přispěvatel a čtenář. Vlastník má úplný přístup ke všem prostředkům, včetně práva k delegování přístupu jiným uživatelům. Přispěvatel může vytvářet a spravovat všechny typy prostředků Azure, ale nemůže udělovat přístup ostatním. Čtenář může zobrazit jenom existující prostředky. Zbývající role RBAC umožňují správu konkrétních prostředků Azure. Role Přispěvatel virtuálních počítačů například umožňuje vytváření a správu virtuálních počítačů, ale neumožňuje správu virtuální sítě ani podsítě, ke které se virtuální počítač připojuje.
 
-> Zobrazit [řízení přístupu Manage Role-Based](azure-stack-manage-permissions.md) Další informace. 
+> Další informace najdete v tématu [Správa řízení přístupu na základě rolí](azure-stack-manage-permissions.md) . 
 
-## <a name="reporting-usage-data"></a>Generování sestav dat využití
-Azure Stack shromažďuje a agreguje data o využití přes všechny poskytovatele prostředků a je odesílá do Azure pro zpracování službou Azure commerce. Využití dat shromážděných ve službě Azure Stack lze zobrazit pomocí rozhraní REST API. Je konzistentních s Azure rozhraní API pro klienty i poskytovatele a delegované poskytovatele rozhraní API k získání dat o používání napříč všemi předplatnými tenanta. Tato data je možné integrovat pomocí externího nástroje nebo služby pro účely fakturace nebo vrácení peněz. Jakmile se využití se zpracovalo Azure průmyslu, lze zobrazit ve fakturačním portálu Azure.
+## <a name="reporting-usage-data"></a>Vytváření sestav – data o využití
+Azure Stack shromažďuje a agreguje data o využití napříč všemi poskytovateli prostředků a odesílá je do Azure ke zpracování prostřednictvím Azure Commerce. Data o využití shromážděná na Azure Stack lze zobrazit prostřednictvím REST API. Existuje rozhraní API tenanta konzistentní s Azure a také poskytovatelé a delegovaná rozhraní API pro získání dat o využití napříč všemi předplatnými tenanta. Tato data můžete použít k integraci s externím nástrojem nebo službou pro účely fakturace nebo vrácení peněz. Když Azure Commerce zpracuje využití, dá se zobrazit na fakturačním portálu Azure.
 
-> Další informace o [generování sestav dat využití služby Azure Stack na Azure](azure-stack-usage-reporting.md).
+> Přečtěte si další informace o [vytváření sestav Azure Stack dat o využití do Azure](azure-stack-usage-reporting.md).
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
-[Porovnání služby Azure Stack a globální Azure](compare-azure-azure-stack.md)
+[Porovnání Azure Stack a globální Azure](compare-azure-azure-stack.md)
 
 [Základy správy](azure-stack-manage-basics.md)
 
-[Rychlý start: použití portálu pro správu služby Azure Stack](azure-stack-manage-portals.md)
+[Rychlý Start: použití portálu pro správu Azure Stack](azure-stack-manage-portals.md)

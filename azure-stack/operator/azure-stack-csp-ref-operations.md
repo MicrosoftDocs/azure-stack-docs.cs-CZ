@@ -1,6 +1,6 @@
 ---
-title: Zaregistrovat klienty pro využití sledování ve službě Azure Stack | Dokumentace Microsoftu
-description: Podrobnosti o operacích, které používají ke správě tenanta registrace a jak se sleduje využití tenanta ve službě Azure Stack.
+title: Registrovat klienty pro sledování využití v Azure Stack | Microsoft Docs
+description: Podrobnosti o operacích používaných pro správu registrací klientů a o tom, jak je využití klienta sledováno v Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -11,104 +11,103 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2019
+ms.date: 09/17/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: 688726b0e74612400f4f48d2a5b7cffa3a8d188a
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 619bfc89e5def3406d719abfb589193c76c3db6b
+ms.sourcegitcommit: 95f30e32e5441599790d39542ff02ba90e70f9d6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66268656"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71070090"
 ---
-# <a name="manage-tenant-registration-in-azure-stack"></a>Spravovat registraci klientů ve službě Azure Stack
+# <a name="manage-tenant-registration-in-azure-stack"></a>Správa registrace tenanta v Azure Stack
 
-*Platí pro: Integrované systémy Azure Stack*
+*Platí pro: Azure Stack integrovaných systémů*
 
-Tento článek obsahuje podrobnosti o registraci operace. Můžete použít tyto operace:
-- Spravovat registrace tenanta
-- Správa sledování využití tenanta
+Tento článek obsahuje podrobnosti o operacích registrace. Tyto operace můžete použít k těmto akcím:
 
-Můžete najít podrobnosti o tom, jak přidat, seznamu nebo odebrat mapování tenanta. Ke správě využití sledování můžete použít PowerShell nebo koncové body rozhraní API pro fakturaci. Můžete najít podrobnosti o tom, jak přidat, seznamu nebo odebrat mapování tenanta. Ke správě využití sledování můžete použít PowerShell nebo koncové body rozhraní API pro fakturaci.
+- Spravovat registrace tenantů
+- Spravovat sledování využití tenanta
 
-## <a name="add-tenant-to-registration"></a>Přidání tenanta k registraci
+## <a name="add-tenant-to-registration"></a>Přidat tenanta k registraci
 
-Pokud chcete přidat nového tenanta k registraci pomocí operace. Využití tenanta je nahlášeno za předplatné Azure spojené s jejich tenanta Azure Active Directory (Azure AD).
+Tuto operaci můžete použít, pokud chcete přidat nového tenanta k registraci. Využití tenanta se hlásí v rámci předplatného Azure připojeného k tenantovi Azure Active Directory (Azure AD).
 
-Pokud chcete změnit předplatné spojené s tenantem, pomocí operace. Voláním PUT/New-AzureRMResource přepsat předchozí mapování.
+Tuto operaci můžete také použít ke změně předplatného přidruženého k tenantovi. Volání metody PUT nebo **New-AzureRMResource** přepíše předchozí mapování.
 
-V rámci jednoho předplatného Azure můžete přidružit tenanta. Pokud se pokusíte o přidání druhého předplatného do existujícího tenanta, je přepsání první předplatné.
+K tenantovi můžete přidružit jedno předplatné Azure. Pokud se pokusíte přidat druhé předplatné do stávajícího klienta, první předplatné se přepíše.
 
-### <a name="use-api-profiles"></a>Pomocí profilů rozhraní API
+### <a name="use-api-profiles"></a>Použití profilů rozhraní API
 
-Registrace rutin vyžadují, aby profil aplikace rozhraní API při spuštění PowerShell. Rozhraní API profily představují sadu poskytovatele prostředků Azure a jejich verzí rozhraní API. Pomáhají vám při interakci s více cloudy Azure použít správnou verzi rozhraní API. Například pracujete s několika cloudy při práci s globální Azure a Azure Stack. Profily zadejte název, který odpovídá datum jejich vydání. Budete muset použít **2017-09-03** profilu.
+Následující rutiny registrace vyžadují, abyste při spuštění prostředí PowerShell zadali profil rozhraní API. Profily rozhraní API reprezentují sadu poskytovatelů prostředků Azure a jejich verzí rozhraní API. Při interakci s více cloudy Azure vám pomůžou používat správnou verzi rozhraní API. Pokud například pracujete s více cloudy při práci s globálním prostředím Azure a Azure Stack, profily rozhraní API určují název, který odpovídá datu vydání verze. Použijete profil **2017-09-03** .
 
-Další informace o službě Azure Stack a profily rozhraní API najdete v tématu [profilů verzí API spravovat ve službě Azure Stack](../user/azure-stack-version-profiles.md).
+Další informace o Azure Stack a profilech rozhraní API najdete v tématu [Správa profilů verzí rozhraní API v Azure Stack](../user/azure-stack-version-profiles.md).
 
 ### <a name="parameters"></a>Parametry
 
 | Parametr                  | Popis |
 |---                         | --- |
-| registrationSubscriptionID | Předplatné Azure použité pro počáteční registraci. |
-| customerSubscriptionID     | Předplatné Azure (ne Azure Stack) patřící do zákazníků k registraci. Musí být vytvořená v nabídce Cloud Service Provider (CSP) prostřednictvím partnerského centra. Pokud zákazník má více než jednoho tenanta, vytvoří předplatné pro příslušného tenanta pro přihlášení ke službě Azure Stack. |
-| resourceGroup              | Skupina prostředků v Azure, ve kterém je uložené registrace. |
-| registrationName           | Název registrace služby Azure Stack. Jde o objekt uložená v Azure. Název se obvykle formulář azurestack-CloudID, kde je CloudID ID cloudu nasazení Azure Stack. |
+| registrationSubscriptionID | Předplatné Azure, které se použilo pro prvotní registraci. |
+| customerSubscriptionID     | Předplatné Azure (není Azure Stack) patřící zákazníkovi k registraci. Musí se vytvořit v nabídce poskytovatel cloudových služeb (CSP) prostřednictvím partnerského centra. Pokud má zákazník více než jednoho tenanta, vytvořte pro tenanta přihlášení odběr Azure Stack. |
+| resourceGroup              | Skupina prostředků v Azure, ve které je uložená vaše registrace. |
+| registrationName           | Název registrace Azure Stack. Jedná se o objekt uložený v Azure. Název je obvykle ve tvaru **azurestack-CloudID**, kde **CloudID** je ID cloudu nasazení Azure Stack. |
 
-> [!Note]  
-> Klienti musejí zaregistrovat u každé služby Azure Stack využívají. Pokud klient používá více než jeden Azure Stack, musíte aktualizovat počáteční registrace každého nasazení předplatného tenanta.
+> [!NOTE]  
+> Klienti musí být zaregistrovaní u každého Azure Stack nasazení, které používají. Pokud tenant používá více než jeden Azure Stack, aktualizujte počáteční registraci každého nasazení u předplatného tenanta.
 
 ### <a name="powershell"></a>PowerShell
 
-Pomocí rutiny New-AzureRmResource přidání tenanta. [Připojení ke službě Azure Stack](azure-stack-powershell-configure-admin.md)a pak řádku se zvýšenými oprávněními použijte následující rutinu:
+K přidání tenanta použijte rutinu **New-AzureRmResource** . [Připojte se k Azure Stack](azure-stack-powershell-configure-admin.md)a potom na příkazovém řádku se zvýšenými oprávněními použijte následující rutinu:
 
 ```powershell
-  New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties
+New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties
 ```
 
 ### <a name="api-call"></a>Volání rozhraní API
 
 **Operace**: PUT  
-**RequestURI**: `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}  /providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/  
+**RequestURI**:`subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}  /providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/  
 {customerSubscriptionId}?api-version=2017-06-01 HTTP/1.1`  
-**Odpověď**: 201 – vytvořeno  
-**Text odpovědi**: Prázdné  
+**Odpověď**: 201 vytvořeno  
+**Tělo odpovědi**: Prázdné  
 
-## <a name="list-all-registered-tenants"></a>Vypsat všechny registrované tenanty
+## <a name="list-all-registered-tenants"></a>Zobrazit seznam všech registrovaných tenantů
 
-Získání seznamu všech tenantů, které byly přidány na registraci.
+Získá seznam všech tenantů, které byly přidány k registraci.
 
- > [!Note]  
- > Pokud se nezaregistrovaly žádné klienty, neobdržíte žádné odpovědi.
+ > [!NOTE]  
+ > Pokud nebyli registrováni žádní klienti, neobdržíte odpověď.
 
 ### <a name="parameters"></a>Parametry
 
 | Parametr                  | Popis          |
 |---                         | ---                  |
-| registrationSubscriptionId | Předplatné Azure použité pro počáteční registraci.   |
-| resourceGroup              | Skupina prostředků v Azure, ve kterém je uložené registrace.    |
-| registrationName           | Název registrace služby Azure Stack. Jde o objekt uložená v Azure. Název je obvykle ve formě **azurestack**-***CloudID***, kde ***CloudID*** je ID cloudu nasazení Azure Stack.   |
+| registrationSubscriptionId | Předplatné Azure, které se použilo pro prvotní registraci.   |
+| resourceGroup              | Skupina prostředků v Azure, ve které je uložená vaše registrace.    |
+| registrationName           | Název registrace Azure Stack nasazení. Jedná se o objekt uložený v Azure. Název je obvykle ve formátu **azurestack-CloudID**, kde **CloudID** je ID cloudu nasazení Azure Stack.   |
 
 ### <a name="powershell"></a>PowerShell
 
-Použijte rutinu Get-AzureRmResource vypsat všechny registrované tenanty. [Připojení ke službě Azure Stack](azure-stack-powershell-configure-admin.md)a pak řádku se zvýšenými oprávněními použijte následující rutinu:
+Pomocí rutiny **Get-AzureRmResource zobrazíte** seznam všech registrovaných tenantů. [Připojte se k Azure Stack](azure-stack-powershell-configure-admin.md)a pak na příkazovém řádku se zvýšenými oprávněními spusťte následující rutinu:
 
 ```powershell
-  Get-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions" -ApiVersion 2017-06-01
+Get-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions" -ApiVersion 2017-06-01
 ```
 
 ### <a name="api-call"></a>Volání rozhraní API
 
-Můžete získat seznam všech mapování tenanta pomocí operace GET.
+Můžete získat seznam mapování všech klientů pomocí operace GET.
 
 **Operace**: GET  
-**RequestURI**: `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}  
+**RequestURI**:`subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}  
 /providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions?  
 api-version=2017-06-01 HTTP/1.1`  
 **Odpověď**: 200  
-**Text odpovědi**: 
+**Tělo odpovědi**:
 
-```JSON  
+```json
 {
     "value": [{
             "id": " subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{ cspSubscriptionId 1}",
@@ -127,9 +126,9 @@ api-version=2017-06-01 HTTP/1.1`
 }
 ```
 
-## <a name="remove-a-tenant-mapping"></a>Odebrat mapování tenanta
+## <a name="remove-a-tenant-mapping"></a>Odebrání mapování tenanta
 
-Odstraněním tenanta, který byl přidán do registrace. Pokud tohoto tenanta pořád používá prostředky ve službě Azure Stack, jejich použití se účtuje na předplatné použité v počáteční registrace Azure Stack.
+Můžete odebrat klienta, který byl přidán k registraci. Pokud tento tenant stále používá prostředky na Azure Stack, účtuje se jejich využití na základě předplatného, které se používá při prvotní registraci Azure Stack.
 
 ### <a name="parameters"></a>Parametry
 
@@ -142,23 +141,23 @@ Odstraněním tenanta, který byl přidán do registrace. Pokud tohoto tenanta p
 
 ### <a name="powershell"></a>PowerShell
 
-Pomocí rutiny Remove-AzureRmResource k odebrání klienta. [Připojení ke službě Azure Stack](azure-stack-powershell-configure-admin.md)a pak řádku se zvýšenými oprávněními použijte následující rutinu:
+K odebrání tenanta použijte rutinu **Remove-AzureRmResource** . [Připojte se k Azure Stack](azure-stack-powershell-configure-admin.md)a pak na příkazovém řádku se zvýšenými oprávněními spusťte následující rutinu:
 
 ```powershell
-  Remove-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01
+Remove-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01
 ```
 
 ### <a name="api-call"></a>Volání rozhraní API
 
-Můžete odebrat mapování tenanta pomocí operace odstranění.
+Mapování klientů můžete odebrat pomocí operace DELETE.
 
 **Operace**: DELETE  
-**RequestURI**: `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}  
+**RequestURI**:`subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}  
 /providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/  
 {customerSubscriptionId}?api-version=2017-06-01 HTTP/1.1`  
-**Odpověď**: 204 žádný obsah.  
-**Text odpovědi**: Prázdné
+**Odpověď**: 204 bez obsahu  
+**Tělo odpovědi**: Prázdné
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
- - Další informace o tom, jak načíst informace o využití prostředků ze služby Azure Stack, najdete v článku [využití a fakturace ve službě Azure Stack](azure-stack-billing-and-chargeback.md).
+- [Jak načíst informace o využití prostředků z Azure Stack](azure-stack-billing-and-chargeback.md)

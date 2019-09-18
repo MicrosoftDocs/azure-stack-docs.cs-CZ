@@ -16,12 +16,12 @@ ms.date: 08/01/2019
 ms.author: mabrigg
 ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: d36761cd7480d782ea01bc1b0d3606b5fa244ed3
-ms.sourcegitcommit: 49cfe13427f5255915d5ccbed87b36eec2caf8ca
+ms.openlocfilehash: 27dda5b79525c4a5d1c12c998077bb19cbea0079
+ms.sourcegitcommit: 9f4c6e96f60b4c229316e7a4ab6e0e5ef0a9a232
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68720034"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71061181"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registrace Azure Stack s využitím Azure
 
@@ -135,6 +135,9 @@ Připojená prostředí mají přístup k Internetu a k Azure. V těchto prostř
    | Parametr | Popis |  
    |-----|-----|
    | EnvironmentName | Název prostředí Azure Cloud Subscription. Podporované názvy prostředí jsou **AzureCloud**, **AzureUSGovernment**, nebo pokud používáte čínské předplatné Azure **AzureChinaCloud**.  |
+
+   >[!Note]
+   > Pokud vaše relace vyprší, vaše heslo se změnilo nebo chcete jednoduše přepnout účty, spusťte následující rutinu ještě před přihlášením pomocí rutiny Add-AzureRmAccount:`Remove-AzureRmAccount-Scope Process`
 
 3. Máte-li více předplatných, spusťte následující příkaz a vyberte ten, který chcete použít:  
 
@@ -483,7 +486,7 @@ Set-AzsRegistration [-PrivilegedEndpointCredential] <PSCredential> [-PrivilegedE
 | MarketplaceSyndicationEnabled | True nebo False | Určuje, jestli je na portálu dostupná funkce správy Marketplace. Nastavte na hodnotu true, pokud se registruje s připojením k Internetu. Nastavte na hodnotu false, pokud se registruje v odpojených prostředích. U odpojených registrací se dá [Nástroj pro offline syndikaci](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario) použít ke stažení položek Marketplace. |
 | UsageReportingEnabled | True nebo False | Ve výchozím nastavení Azure Stack sestavy metriky využití. Používání funkce vytváření sestav vyžaduje, aby operátoři s využitím kapacity nebo podpora odpojeného prostředí vypnuli. Povolené hodnoty pro tento parametr jsou: True, false. |
 | AgreementNumber | Řetězec |  |
-| Registrace | Řetězec | Pokud používáte registrační skript ve více než jedné instanci Azure Stack s použitím stejného ID předplatného Azure, nastavte pro registraci jedinečný název. Parametr má výchozí hodnotu **AzureStackRegistration**. Pokud však použijete stejný název na více než jedné instanci Azure Stack, skript se nezdařil. |
+| registrace | Řetězec | Pokud používáte registrační skript ve více než jedné instanci Azure Stack s použitím stejného ID předplatného Azure, nastavte pro registraci jedinečný název. Parametr má výchozí hodnotu **AzureStackRegistration**. Pokud však použijete stejný název na více než jedné instanci Azure Stack, skript se nezdařil. |
 
 ### <a name="get-azsregistrationtoken"></a>Get-AzsRegistrationToken
 

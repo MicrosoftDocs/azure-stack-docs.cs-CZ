@@ -16,12 +16,12 @@ ms.date: 08/30/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 08/30/2019
-ms.openlocfilehash: dab57a59993ff5d874bff1cb69d46427d9b1862c
-ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
+ms.openlocfilehash: 3f0a4ef35b183d6d8f87e163b373a25a454bef9f
+ms.sourcegitcommit: 95f30e32e5441599790d39542ff02ba90e70f9d6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70188950"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71070123"
 ---
 # <a name="azure-stack-security-updates"></a>Aktualizace zabezpečení Azure Stack
 
@@ -186,7 +186,6 @@ V tomto článku jsou uvedené všechny aktualizace zabezpečení v posledních 
 
 Z důvodu kumulativního charakteru aktualizací Windows obsahuje tato aktualizace také datové části zabezpečení pro předchozí měsíce. Tento seznam CVEs odráží část zabezpečení z června, červenec a srpen 2019.
 Další informace o těchto chybách zabezpečení získáte kliknutím na výše uvedené odkazy nebo v článku znalostní báze Microsoft Knowledge Base [4511553](https://support.microsoft.com/help/4511553).
-
 ::: moniker-end
 
 ::: moniker range="azs-1907"

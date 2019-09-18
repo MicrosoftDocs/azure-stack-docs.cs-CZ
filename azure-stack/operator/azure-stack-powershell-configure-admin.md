@@ -3,7 +3,7 @@ title: Připojení ke službě Azure Stack pomocí prostředí PowerShell jako o
 description: Zjistěte, jak se připojit ke službě Azure Stack pomocí prostředí PowerShell jako operátor
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 07/23/2019
-ms.author: mabrigg
+ms.date: 09/17/2019
+ms.author: justinha
 ms.reviewer: thoroet
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: f0195ecf033454763b757f6b8edb03ee4e8e9e49
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: f18bf01938eb53a69f26f8bbcfa0320d359f0552
+ms.sourcegitcommit: 95f30e32e5441599790d39542ff02ba90e70f9d6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68418196"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71070245"
 ---
 # <a name="connect-to-azure-stack-with-powershell-as-an-operator"></a>Připojení ke službě Azure Stack pomocí prostředí PowerShell jako operátor
 
@@ -38,6 +38,8 @@ Pokud jste [připojení k ASDK prostřednictvím sítě VPN](../asdk/asdk-connec
 ## <a name="connect-with-azure-ad"></a>Spojte se s Azure AD
 
 Konfigurace prostředí Azure Stack operátor pomocí Powershellu. Spusťte jeden z následujících skriptů: Nahraďte Azure Active Directory (Azure AD) tenant a Azure Resource Manager hodnoty koncového bodu vlastní konfigurací prostředí. 
+
+[!include[Remove Account](../../includes/remove-account.md)]
 
 ```powershell  
     # Register an Azure Resource Manager environment that targets your Azure Stack instance. Get your Azure Resource Manager endpoint value from your service provider.

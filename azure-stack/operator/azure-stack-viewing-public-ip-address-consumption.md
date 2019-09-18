@@ -1,5 +1,5 @@
 ---
-title: Správa prostředků sítě v Azure Stack | Microsoft Docs
+title: Správa síťových prostředků v Azure Stack | Microsoft Docs
 description: Správci mohou spravovat síťové prostředky, včetně fondu adres MAC a spotřeby veřejných IP adres v oblasti.
 services: azure-stack
 documentationcenter: ''
@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/16/2019
+ms.date: 09/17/2019
 ms.author: mabrigg
 ms.reviewer: scottnap
-ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: d056cbf73e2417bd826fba7a7de263cc8e015b7d
-ms.sourcegitcommit: 637018771ac016b7d428174e88d4dcb131b54959
+ms.lastreviewed: 09/17/2019
+ms.openlocfilehash: 6abf8480528aad0bff121d553172bdc8d0446e11
+ms.sourcegitcommit: 95f30e32e5441599790d39542ff02ba90e70f9d6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68842915"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71070199"
 ---
 # <a name="manage-network-resources"></a>Správa síťových prostředků
 
@@ -61,7 +61,7 @@ Zobrazení celkového počtu veřejných IP adres, které byly spotřebovány v 
 1. Na portálu pro správu Azure Stack vyberte **všechny služby**. Pak v kategorii **Správa** vyberte **síť**.
 1. V podokně **síť** se zobrazí dlaždice **využití fondů veřejných IP adres** v části **Přehled** .
 
-![Podokno poskytovatele síťových prostředků](media/azure-stack-viewing-public-ip-address-consumption/image01.png)
+    ![Podokno poskytovatele síťových prostředků](media/azure-stack-viewing-public-ip-address-consumption/ip-address-consumption-01.png)
 
 **Použité** číslo představuje počet přiřazených veřejných IP adres z fondů veřejných IP adres. **Bezplatné** číslo představuje počet veřejných IP adres z fondů veřejných IP adres, které nebyly přiřazeny a jsou stále k dispozici. **Použité číslo%** představuje počet využitých nebo přiřazených adres jako procento celkového počtu veřejných IP adres ve fondech veřejných IP adres v tomto umístění.
 
@@ -69,7 +69,7 @@ Zobrazení celkového počtu veřejných IP adres, které byly spotřebovány v 
 
 V části **prostředky tenanta**vyberte **veřejné IP adresy** . Projděte si seznam veřejných IP adres, které jsou explicitně vytvořeny pomocí odběrů klientů v konkrétní oblasti.
 
-![Veřejné IP adresy klientů](media/azure-stack-viewing-public-ip-address-consumption/image02.png)
+![Veřejné IP adresy klientů](media/azure-stack-viewing-public-ip-address-consumption/ip-address-consumption-02.png)
 
 Můžete si všimnout, že některé veřejné IP adresy, které byly dynamicky přiděleny, se zobrazí v seznamu. Adresa ale ještě není přidružená. Prostředek adresy byl vytvořen v poskytovateli síťových prostředků, ale ještě není v síťovém adaptéru.
 
