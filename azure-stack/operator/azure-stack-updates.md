@@ -15,12 +15,12 @@ ms.date: 09/10/2019
 ms.author: mabrigg
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 2a6165d37aa813c332cd664ef905717ef7a8ffa8
-ms.sourcegitcommit: dc633e862d49412a963daee481226c1543287e5e
+ms.openlocfilehash: 64e1bd7934b1b3b8c0bc935a920a2e4e188c4bd9
+ms.sourcegitcommit: c46d913ebfa4cb6c775c5117ac5c9e87d032a271
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70863023"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71101204"
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Přehled správy aktualizací v Azure Stack
 
@@ -105,4 +105,4 @@ Při instalaci aktualizací můžete zobrazit stav vysoké úrovně, protože pr
 
 - Chcete-li zahájit proces aktualizace, postupujte podle kroků v tématu [Naplánování aktualizace Azure Stack](azure-stack-update-plan.md).
 - Informace o tom, jaké verze Azure Stack jsou podporovány, najdete v tématu [zásady služby Azure Stack Servicing](azure-stack-servicing-policy.md).  
-- Další informace o aktuálních a nejnovějších aktualizacích najdete v [poznámkách k verzi Azure Stack](azure-stack-release-notes-security-updates-1907.md).
+- Další informace o aktuálních a nejnovějších aktualizacích najdete v [poznámkách k verzi Azure Stack](release-notes.md).

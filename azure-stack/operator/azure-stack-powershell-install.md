@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 07/09/2019
+ms.date: 09/18/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 07/09/2019
-ms.openlocfilehash: d760eb4a9ca0f958ab8be09810b97820b09f5621
-ms.sourcegitcommit: 58c28c0c4086b4d769e9d8c5a8249a76c0f09e57
+ms.lastreviewed: 09/18/2019
+ms.openlocfilehash: 79d7a0adfc7d869f600e864264716b34d6452213
+ms.sourcegitcommit: c46d913ebfa4cb6c775c5117ac5c9e87d032a271
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68959471"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71101128"
 ---
 # <a name="install-powershell-for-azure-stack"></a>Instalace PowerShellu pro Azure Stack
 
@@ -115,7 +115,7 @@ Spusťte následující skript PowerShellu, který nainstaluje tyto moduly na sv
     ```
 
     > [!Note]  
-    > - Verze modulu Azure Stack 1.7.1 je zásadním vydáním změn. Chcete-li provést migraci z Azure Stack 1.6.0, přečtěte si příručku k [migraci](https://aka.ms/azspshmigration171).
+    > - Verze modulu Azure Stack 1.7.1 je zásadním vydáním změn. Chcete-li provést migraci z Azure Stack 1.6.0, přečtěte si [příručku k migraci](https://aka.ms/azspshmigration171).
     > - Verze modulu AzureRM 2.4.0 obsahuje zásadní změnu rutiny Remove-AzureRmStorageAccount. Tato rutina `-Force` očekává zadání parametru pro odebrání účtu úložiště bez potvrzení.
     > - Nemusíte instalovat **AzureRM. zaváděcí nástroj** pro instalaci modulů pro Azure Stack verze 1901 nebo novější.
     > - Kromě používání výše uvedených Azure Stack modulů AzureRM verze 1901 nebo novější neinstalujte profil 2018-03-01-Hybrid.
@@ -228,7 +228,7 @@ Ve scénářích, které vyžadují proxy server pro přístup k Internetu, mus�
    [System.Net.WebRequest]::DefaultWebProxy.Credentials = Get-Credential
    ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - [Stažení Azure Stack nástrojů z GitHubu](azure-stack-powershell-download.md)
 - [Konfigurace prostředí PowerShellu Azure Stackho uživatele](../user/azure-stack-powershell-configure-user.md)

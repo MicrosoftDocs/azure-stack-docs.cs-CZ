@@ -1,6 +1,6 @@
 ---
-title: Ohraničení, která se připojení k síti integrace důležité informace pro integrované systémy Azure Stack | Dokumentace Microsoftu
-description: Zjistěte, co vám pomůžou plánovat pro připojení k síti ohraničení datového centra pomocí služby Azure Stack víc uzlů.
+title: Připojení ohraničení a integrace sítě pro Azure Stack integrovaných systémů | Microsoft Docs
+description: Naučte se plánovat připojení k síti datacenter v datacentrech v Azure Stack integrovaných systémech.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,58 +16,58 @@ ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 08/30/2018
-ms.openlocfilehash: 85da256828d69db600bd8e5847a110ee3519568b
-ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
+ms.openlocfilehash: 142ea9b53d64e89157ce5c5556241b41275d430d
+ms.sourcegitcommit: c196463492732218d2474d3a964f88e995272c80
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67131409"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71094345"
 ---
 # <a name="border-connectivity"></a>Připojení k ohraničení 
-Plánování integrace sítě je důležitá povinná součást pro úspěšné nasazení Azure Stack integrované systémy, provoz a správu. Plánování připojení ohraničení začíná výběru, jestli se mají použít s dynamickým směrováním pomocí protokolu border gateway protocol (BGP). To vyžaduje přiřazení 16bitové číslo autonomního systému protokolu BGP (veřejné nebo soukromé) nebo pomocí statické směrování, kde výchozí statické trasy je přiřazená zařízení ohraničení.
+Plánování integrace sítě je důležitou podmínkou pro úspěšné Azure Stack nasazení integrovaných systémů, operace a správu. Plánování připojení k okraji začíná tím, že zvolíte, jestli chcete používat dynamické směrování s protokolem BGP (Border Gateway Protocol). K tomu je potřeba přiřadit 16bitové číslo autonomního systému protokolu BGP (veřejné nebo soukromé) nebo pomocí statického směrování, kde se hraniční zařízení přiřazují statická výchozí trasa.
 
 > [!IMPORTANT]
-> Horní části přepínače (TOR rack) vyžadují odchozí připojení vrstvy 3 s IP adresami Point-to-Point (/ 30 sítě) nakonfigurované na fyzických rozhraní. Není možné použít odchozí připojení vrstvy 2 pomocí přepínače TOR podporují operace služby Azure Stack. 
+> Přepínače rozhraní Top of rack vyžadují odchozí připojení vrstvy 3 s IP adresou typu Point-to-Point (/30 sítí) nakonfigurovanými ve fyzických rozhraních. Odchozí připojení vrstvy 2 s přepínači operačních systémem podporující operace Azure Stack se nepodporují.
 
 ## <a name="bgp-routing"></a>Směrování protokolu BGP
-Pomocí o dynamický směrovací protokol, jako je protokol BGP zaručuje, že váš systém je vždy vědom změn v síti a usnadňuje správu. Pro zvýšení zabezpečení heslo může být nastaven na protokol BGP partnerský vztah mezi TOR a ohraničení. 
+Pomocí protokolu dynamického směrování, jako je BGP, zaručuje, že váš systém vždycky ví o změnách v síti a usnadňuje správu. Pro zvýšení zabezpečení je možné nastavit heslo pro vytvoření partnerského vztahu protokolu BGP mezi MANDÁTem a ohraničením.
 
-Jak je znázorněno v následujícím diagramu, reklamní privátní IP adresy místo v přepínači TOR je blokováno pomocí seznam předpon. Seznam předpon zakazuje oznámení o inzerovaném programu privátní sítě a použije se jako mapu trasy pro připojení mezi TOR a ohraničení.
+Jak je znázorněno v následujícím diagramu, inzerování privátního prostoru IP adres v přepínači MANDÁTu je blokováno pomocí seznamu předpon. Seznam předpon odmítne inzerci privátní sítě a použije se jako mapa směrování na připojení mezi MANDÁTem a ohraničením.
 
-Nástroje pro vyrovnávání zatížení softwaru (SLB), spuštěné v Azure stacku řešení partnerský vztah TOR zařízení, takže ho můžete dynamicky inzerovat virtuální IP adresy.
+Software Load Balancer (SLB) běžící v rámci řešení Azure Stack partnerských uzlů pro zařízení se systémem zprovoznění, aby mohl dynamicky inzerovat virtuální IP adresy.
 
-Pokud chcete zajistit, aby uživatelský provoz okamžitě a transparentně provádí zotavení z chyby, VPC nebo MLAG nakonfigurované mezi zařízeními, TOR umožňuje použití více skříní odkaz síť agregaci na hostitelích a HSRP nebo VRRP, která poskytuje redundance pro sítě IP.
+Aby se zajistilo, že se přenos dat uživatelů okamžitě a transparentně obnoví z chyby, VPC nebo MLAG nakonfigurované mezi zařízeními s rozhraním systému oprávnění umožňuje použití agregace s více šasi pro hostitele a HSRP nebo nebo VRRP, která zajišťuje redundanci sítě pro sítě IP.
 
 ![Směrování protokolu BGP](media/azure-stack-border-connectivity/bgp-routing.png)
 
 ## <a name="static-routing"></a>Statické směrování
-Statické směrování vyžaduje další konfiguraci pro zařízení ohraničení. Vyžaduje další ruční zásah a řízení, jakož i důkladné analýzy před všechny změny a potíže způsobené službou chyby v konfiguraci může trvat delší dobu vrácení zpět v závislosti na změny. Není doporučenou metodu směrování, ale je podporované.
+Statické směrování vyžaduje další konfiguraci hraničních zařízení. Před jakoukoli změnou vyžaduje více ručních zásahů a správu a také důkladnou analýzu. Problémy způsobené chybou konfigurace můžou v závislosti na provedených změnách trvat delší dobu. Tato metoda směrování se nedoporučuje, ale je podporovaná.
 
-K integraci Azure Stack do vašeho síťového prostředí pomocí statické směrování, musí být připojené všechny čtyři fyzické propojení mezi ohraničením a zařízení sítě TOR a vysoké dostupnosti nelze zaručit kvůli funguje jak statické směrování.
+Aby bylo možné integrovat Azure Stack do svého síťového prostředí pomocí statického směrování, musí být připojeni všechny čtyři fyzické odkazy mezi ohraničením a zařízením. Vysokou dostupnost nelze zaručit kvůli tomu, jak statické směrování funguje.
 
-Hraniční zařízení musí mít nakonfigurovanou odkazující na zařízení TOR P2Ps pro provoz směrovaný do statické trasy *externí* síti nebo veřejné virtuální IP adresy a *infrastruktury* sítě. Bude vyžadovat statické trasy do *BMC* a *externí* sítě pro nasazení. Operátory můžete nechat statické trasy v ohraničení pro přístup k prostředkům správy, které se nacházejí na *BMC* sítě. Přidání statické trasy do *přepínač infrastruktury* a *přepnout správu* sítí je volitelné.
+Hraniční zařízení musí být nakonfigurované se statickými trasami, které odkazují na zařízení se systémem P2Ps pro provoz směřující do *externí* sítě nebo veřejné VIP a sítě *infrastruktury* . Bude vyžadovat statické trasy k řadiči pro *správu základní desky* a k *externím* sítím pro nasazení. Operátoři se můžou rozhodnout pro ponechání statických tras na hranici pro přístup k prostředkům správy, které se nacházejí v síti řadiče pro správu *základní desky* . Přidání statických tras pro *Přepnutí infrastruktury* a sítí *pro správu přepínačů* je volitelné.
 
-Zařízení TOR součástí nakonfigurované statické výchozí trasa odesílá veškerý provoz do zařízení ohraničení. Jedinou výjimkou provoz do výchozí pravidlo je privátní prostoru, který se zablokoval použít seznam řízení přístupu na TOR u připojení ohraničení.
+Zařízení s modulem pro sestavilo konfiguraci se statickou výchozí trasou, která odesílá veškerý provoz do hraničních zařízení. Jedinou výjimkou provozu na výchozí pravidlo je pro privátní prostor, který se zablokuje pomocí Access Controlho seznamu, který se používá pro připojení k hraniční síti.
 
-Statické směrování platí jenom pro odchozí připojení mezi přepínače TOR a ohraničení. Dynamické směrování protokolu BGP se používá v racku, protože je to důležitý nástroj SLB a další součásti a nemůže být zakázána nebo odebrat.
+Statické směrování platí jenom pro odchozí připojení mezi přepínači pro mandát a ohraničení. V racku se používá dynamické směrování protokolu BGP, protože jde o nezbytný nástroj pro SLB a další komponenty a nedá se zakázat ani odebrat.
 
 ![Statické směrování](media/azure-stack-border-connectivity/static-routing.png)
 
-<sup>\*</sup> Po nasazení je volitelný sítě řadiče pro správu desky.
+<sup>\*</sup>Síť řadiče pro správu základní desky je po nasazení volitelná.
 
-<sup>\*\*</sup> Síťové přepínače infrastruktury je nepovinný – celé sítě mohou být součástí sítě ke správě přepínače.
+<sup>\*\*</sup>Síť infrastruktury přepínače je volitelná, protože celá síť může být součástí sítě pro správu přepínače.
 
-<sup>\*\*\*</sup> Ke správě přepínače sítě je povinný a mohou být přidány odděleně od přepínače infrastruktury sítě.
+<sup>\*\*\*</sup>Síť pro správu přepínače je povinná a je možné ji přidat odděleně ze sítě infrastruktury přepínače.
 
 ## <a name="transparent-proxy"></a>Transparentní proxy server
-Pokud vaše datové centrum vyžaduje veškerý provoz směrem k použití proxy serveru, musíte nakonfigurovat *transparentní proxy server* zpracovat veškerý provoz z rack, aby to zvládnul souladu se zásadami, oddělení provozu mezi zónami ve vaší síti.
+Pokud vaše datacentrum vyžaduje, aby všechny přenosy používaly proxy server, musíte nakonfigurovat *transparentní proxy server* tak, aby zpracovával veškerý provoz z racku, aby ho mohl zpracovat podle zásad, což rozděluje přenos mezi zónami v síti.
 
 > [!IMPORTANT]
-> Řešení Azure Stack nepodporuje běžné webové proxy servery.  
+> Řešení Azure Stack nepodporuje normální webové proxy servery.  
 
-Transparentní proxy server (označované také jako zachycení, vložených nebo vynucené proxy) zachycuje normální komunikace na síťové vrstvě bez nutnosti jakékoli konfigurace speciální klienta. Klienti nemusí vědět o existenci proxy serveru.
+Transparentní proxy server (označovaný také jako zachycení, vložený nebo vynucený proxy server) zachycuje normální komunikaci v síťové vrstvě bez nutnosti jakékoli speciální konfigurace klienta. Klienti nemusí vědět o existenci proxy serveru.
 
 ![Transparentní proxy server](media/azure-stack-border-connectivity/transparent-proxy.png)
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 [Integrace DNS](azure-stack-integrate-dns.md)

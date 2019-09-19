@@ -11,31 +11,11 @@
     - name: "Poznámky k\_verzi"
       items:
         - name: Aktualizace zabezpečení
-          href: azure-stack-release-notes-security-updates.md
-        - name: aktualizace 1908
-          items:
-            - name: "Poznámky k\_verzi"
-              href: azure-stack-release-notes-1908.md
-            - name: Známé problémy
-              href: azure-stack-release-notes-known-issues-1908.md
-        - name: aktualizace 1907
-          items:
-            - name: "Poznámky k\_verzi"
-              href: azure-stack-release-notes-1907.md
-            - name: Známé problémy
-              href: azure-stack-release-notes-known-issues-1907.md
-        - name: aktualizace 1906
-          items:
-            - name: "Poznámky k\_verzi"
-              href: azure-stack-release-notes-1906.md
-            - name: Známé problémy
-              href: azure-stack-release-notes-known-issues-1906.md
-        - name: aktualizace 1905
-          items:
-            - name: "Poznámky k\_verzi"
-              href: azure-stack-release-notes-1905.md
-            - name: Známé problémy
-              href: azure-stack-release-notes-known-issues-1905.md
+          href: release-notes-security-updates.md
+        - name: "Poznámky k\_verzi"
+          href: release-notes.md
+        - name: Známé problémy
+          href: known-issues.md
 - name: Šablony Rychlý start
   expanded: true
   items:
@@ -172,7 +152,7 @@
             - name: Zásady aktualizace a údržby
               href: azure-stack-servicing-policy.md
             - name: Kontrolní seznam pro použití aktualizací
-              href: azure-stack-release-notes-checklist.md
+              href: release-notes-checklist.md
             - name: Plán pro aktualizaci
               href: azure-stack-update-plan.md
             - name: Příprava balíčku aktualizace

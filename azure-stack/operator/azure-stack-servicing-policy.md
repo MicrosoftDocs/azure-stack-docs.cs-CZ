@@ -16,12 +16,12 @@ ms.date: 09/06/2019
 ms.author: sethm
 ms.reviewer: harik
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: dbfce7138d76892c7f66e2cf6f33883668e55395
-ms.sourcegitcommit: 5703255b4647ff0ebec23658a3f5c25d67f076a2
+ms.openlocfilehash: 9ca13d62c69c84f29e3038899ff224d7d9cdc6d3
+ms.sourcegitcommit: c46d913ebfa4cb6c775c5117ac5c9e87d032a271
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70749944"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71101179"
 ---
 # <a name="azure-stack-servicing-policy"></a>Zásady obsluhy Azure Stack
 
@@ -53,10 +53,10 @@ Najděte si dokumentaci, jak naplánovat a spravovat aktualizace a jak zjistit a
 
 Informace o konkrétní aktualizaci, včetně toho, jak ji stáhnout, najdete v poznámkách k verzi této aktualizace:
 
-- [Aktualizace Azure Stack 1908](azure-stack-release-notes-1908.md)
-- [Aktualizace Azure Stack 1907](azure-stack-release-notes-1907.md)
-- [Aktualizace Azure Stack 1906](azure-stack-release-notes-1906.md)
-- [Aktualizace Azure Stack 1905](azure-stack-release-notes-1905.md)
+- [Aktualizace Azure Stack 1908](/azure-stack/operator/release-notes?view=azs-1908)
+- [Aktualizace Azure Stack 1907](/azure-stack/operator/release-notes?view=azs-1907)
+- [Aktualizace Azure Stack 1906](/azure-stack/operator/release-notes?view=azs-1906)
+- [Aktualizace Azure Stack 1905](/azure-stack/operator/release-notes?view=azs-1905)
 
 ## <a name="hotfixes"></a>Opravy hotfix
 
@@ -68,10 +68,10 @@ Opravy hotfix se stáhnou a nainstalují stejně jako běžné úplné aktualiza
 
 Informace o aktuálně dostupných opravách hotfix naleznete v poznámkách k verzi této aktualizace:
 
-- [Oprava hotfix Azure Stack 1908](azure-stack-release-notes-1908.md#hotfixes)
-- [Oprava hotfix Azure Stack 1907](azure-stack-release-notes-1907.md#hotfixes)
-- [Oprava hotfix Azure Stack 1906](azure-stack-release-notes-1906.md#hotfixes)
-- [Oprava hotfix Azure Stack 1905](azure-stack-release-notes-1905.md#hotfixes)
+- [Oprava hotfix Azure Stack 1908](/azure-stack/operator/release-notes?view=azs-1908#hotfixes-1908)
+- [Oprava hotfix Azure Stack 1907](/azure-stack/operator/release-notes?view=azs-1907#hotfixes-1907)
+- [Oprava hotfix Azure Stack 1906](/azure-stack/operator/release-notes?view=azs-1906#hotfixes-1906)
+- [Oprava hotfix Azure Stack 1905](/azure-stack/operator/release-notes?view=azs-1905#hotfixes-1905)
 
 ## <a name="keep-your-system-under-support"></a>Zachování systému v rámci podpory
 
@@ -87,6 +87,6 @@ Balíčky aktualizací softwaru společnosti Microsoft jsou nekumulativní a vy�
 
 Azure Stack se řídí stejným procesem podpory jako Azure. Podnikoví zákazníci mohou postupovat podle postupu popsaného v tématu [Postup vytvoření žádosti o podporu Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Pokud jste zákazníkem poskytovatele cloudové služby (CSP), požádejte o podporu svého CSP. Další informace najdete v nejčastějších dotazech k [podpoře Azure](https://azure.microsoft.com/support/faq/).
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 - [Správa aktualizací ve službě Azure Stack](azure-stack-updates.md)

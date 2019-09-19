@@ -3,7 +3,7 @@ title: Použití privilegovaného koncového bodu v Azure Stack | Microsoft Docs
 description: Ukazuje, jak použít privilegovaný koncový bod (PEP) v Azure Stack (pro operátor Azure Stack).
 services: azure-stack
 documentationcenter: ''
-author: justinha
+author: mattbriggs
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/03/2019
-ms.author: justinha
+ms.date: 09/18/2019
+ms.author: mabrigg
 ms.reviewer: fiseraci
-ms.lastreviewed: 09/03/2019
-ms.openlocfilehash: a278a918100619953b2b7eb9b288236625968187
-ms.sourcegitcommit: 38f21e0bcf7b593242ad615c9d8ef8a1ac19c734
+ms.lastreviewed: 09/18/2019
+ms.openlocfilehash: cb339e4d6d368481060c673482d80244f63f9cc4
+ms.sourcegitcommit: c46d913ebfa4cb6c775c5117ac5c9e87d032a271
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70902620"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71101105"
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Použití privilegovaného koncového bodu v Azure Stack
 
@@ -189,6 +189,6 @@ Po úspěšném přenosu souborů protokolu přepisu do sdílené složky se aut
 > Pokud zavřete relaci PEP pomocí rutin `Exit-PSSession` nebo `Exit`nebo pouze zavřete konzolu PowerShellu, protokoly přepisu se nepřenášejí do sdílené složky. Zůstávají v PEP. Při příštím spuštění `Close-PrivilegedEndpoint` a zahrnutí sdílené složky se také přenesou protokoly přepisu z předchozích relací. Nepoužívejte `Exit-PSSession` nebo `Exit` k uzavření relace PEP použijte `Close-PrivilegedEndpoint` místo toho.
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 [Diagnostické nástroje Azure Stack](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep)

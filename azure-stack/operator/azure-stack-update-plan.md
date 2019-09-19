@@ -15,12 +15,12 @@ ms.date: 09/10/2019
 ms.author: mabrigg
 ms.lastreviewed: 08/23/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 58bfdf49492caf7f8db7f4d2a04de97a17738eac
-ms.sourcegitcommit: dc633e862d49412a963daee481226c1543287e5e
+ms.openlocfilehash: 9582c47f37bdd6ae4c306593bea094b66652c49e
+ms.sourcegitcommit: c46d913ebfa4cb6c775c5117ac5c9e87d032a271
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70863008"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71101172"
 ---
 # <a name="plan-for-an-azure-stack-update"></a>Plánování aktualizace Azure Stack
 
@@ -36,9 +36,9 @@ Měli byste informovat uživatele o všech operacích údržby a v případě po
 
 Můžete připravit na aktualizaci tím, že zadáte všechny opravy hotfix, opravy zabezpečení a aktualizace OEM, ověřili jste stav vaší Azure Stack instance, zkontrolovali dostupnou kapacitu a zkontrolovali balíček aktualizace.
 
-1. Přečtěte si o známých problémech. Pokyny najdete v tématu [Azure Stack známých problémů](https://docs.microsoft.com/azure-stack/operator/azure-stack-release-notes-known-issues-1907).
+1. Přečtěte si o známých problémech. Pokyny najdete v tématu [Azure Stack známých problémů](https://docs.microsoft.com/azure-stack/operator/release-notes.md).
 
-2. Zkontrolujte aktualizace zabezpečení. Seznam aktualizací najdete v tématu [Azure Stack aktualizace zabezpečení](https://docs.microsoft.com/azure-stack/operator/azure-stack-release-notes-security-updates-1907).
+2. Zkontrolujte aktualizace zabezpečení. Seznam aktualizací najdete v tématu [Azure Stack aktualizace zabezpečení](https://docs.microsoft.com/azure-stack/operator/release-notes-security-updates.md).
 
 3. Před zahájením instalace této aktualizace spusťte rutinu [test-AzureStack](https://docs.microsoft.com/azure-stack/operator/azure-stack-diagnostic-test) a ověřte stav vašich Azure Stack a vyřešte všechny zjištěné provozní problémy, včetně všech upozornění a selhání. Taky si projděte aktivní výstrahy a vyřešte ty, které vyžadují zásah.
 

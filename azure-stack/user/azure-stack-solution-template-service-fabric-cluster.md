@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/13/2019
+ms.date: 09/17/2019
 ms.author: mabrigg
 ms.reviewer: shnatara
-ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 9b56a55ca6fd45177daaa00a7c32bcdf5c281155
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.lastreviewed: 09/17/2019
+ms.openlocfilehash: e672ee6227e00ea6276c92c22d02874f7c8b5529
+ms.sourcegitcommit: c46d913ebfa4cb6c775c5117ac5c9e87d032a271
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70975130"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71101248"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Nasazení clusteru Service Fabric v Azure Stack
 
@@ -35,7 +35,7 @@ Cluster Service Fabric v Azure Stack nepoužívá poskytovatele prostředků Mic
 K nasazení Service Fabric clusteru se vyžadují tyto požadavky:
 1. **Certifikát clusteru**  
    Jedná se o certifikát serveru X. 509, který přidáte do Key Vault při nasazování Service Fabric. 
-   - **Propojené sítě** v tomto certifikátu se musí shodovat s plně kvalifikovaným názvem domény (FQDN) Service Fabricho clusteru, který vytvoříte. 
+   - **Propojené sítě** v tomto certifikátu se musí shodovat s plně kvalifikovaným názvem domény (FQDN) Service Fabricho clusteru, který vytvoříte. Další informace o plně kvalifikovaném názvu domény najdete v tématu [certifikáty potřebné k Azure Stack provoznímu nasazení Azure App Service](../operator/azure-stack-app-service-before-you-get-started.md#certificates-required-for-azure-stack-production-deployment-of-azure-app-service).
    - Formát certifikátu musí být PFX, protože jsou vyžadovány veřejné i privátní klíče. 
      Viz [požadavky](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) pro vytvoření tohoto certifikátu na straně serveru.
 

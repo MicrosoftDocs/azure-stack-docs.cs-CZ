@@ -1,6 +1,6 @@
 ---
-title: Aktualizace vlastníka Azure Stack předplatného uživatele | Microsoft Docs
-description: Změňte vlastníka fakturace Azure Stack odběry uživatelů.
+title: Změna vlastníka fakturace Azure Stack předplatné uživatele | Microsoft Docs
+description: Zjistěte, jak změnit vlastníka fakturace pro Azure Stack předplatné uživatele.
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,16 +16,16 @@ ms.date: 09/17/2019
 ms.author: justinha
 ms.reviewer: shnatara
 ms.lastreviewed: 10/19/2018
-ms.openlocfilehash: 00e55dc301102622d4771a8fd8c6ff8591263dd7
-ms.sourcegitcommit: 95f30e32e5441599790d39542ff02ba90e70f9d6
+ms.openlocfilehash: 3c4453974092fd1873e5f77b1074c82851fc1be1
+ms.sourcegitcommit: c196463492732218d2474d3a964f88e995272c80
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71070135"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71094363"
 ---
-# <a name="change-the-owner-for-an-azure-stack-user-subscription"></a>Změna vlastníka Azure Stack předplatného uživatele
+# <a name="change-the-billing-owner-for-an-azure-stack-user-subscription"></a>Změna vlastníka fakturace pro předplatné Azure Stackho uživatele
 
-Operátory Azure Stack můžou pomocí prostředí PowerShell změnit vlastníka fakturace předplatného uživatele. Jedním z důvodů, proč změnu vlastníka změnit, je třeba nahradit uživatele, který vaši organizaci opouští.
+Operátory Azure Stack můžou pomocí PowerShellu změnit vlastníka fakturace pro předplatné uživatele. Jedním z důvodů, proč změnu vlastníka změnit, je třeba nahradit uživatele, který vaši organizaci opouští.
 
 Existují dva typy vlastníků , které jsou přiřazeny k předplatnému:
 

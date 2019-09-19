@@ -1,6 +1,6 @@
 ---
-title: Stáhněte si nástroje pro Azure Stack z Githubu | Dokumentace Microsoftu
-description: Zjistěte, jak chcete stáhnout nástroje, které jsou požadovány pro práci s Azure Stack.
+title: Stažení Azure Stack nástrojů z GitHubu | Microsoft Docs
+description: Naučte se stahovat nástroje, které jsou potřeba pro práci s Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,22 +11,22 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 05/16/2019
+ms.date: 09/18/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 722fea2777071fa78c89372a21fe52022a56f264
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.lastreviewed: 09/18/2019
+ms.openlocfilehash: c6939a28b150073d08a4f8c8dbc2d15dfd153957
+ms.sourcegitcommit: c46d913ebfa4cb6c775c5117ac5c9e87d032a271
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782255"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71100928"
 ---
-# <a name="download-azure-stack-tools-from-github"></a>Stáhněte si nástroje pro Azure Stack z Githubu
+# <a name="download-azure-stack-tools-from-github"></a>Stažení Azure Stack nástrojů z GitHubu
 
-*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
 
-**Nástroje AzureStack** je [úložiště GitHub](https://github.com/Azure/AzureStack-Tools) , který je hostitelem moduly Powershellu pro správu a nasazování prostředků do služby Azure Stack. Pokud máte v úmyslu vytvořit připojení k síti VPN, můžete stáhnout tyto moduly Powershellu pro Azure Stack Development Kit, nebo externí klienta se systémem Windows. Pokud chcete získat tyto nástroje, naklonujte úložiště GitHub nebo stáhnout **AzureStack nástroje** složku spuštěním následujícího skriptu:
+**AzureStack-Tools** je [úložiště GitHub](https://github.com/Azure/AzureStack-Tools) , které hostuje moduly PowerShellu pro správu a nasazování prostředků do Azure Stack. Pokud plánujete navázat připojení k síti VPN, můžete tyto moduly PowerShell stáhnout do Azure Stack Development Kit nebo do externího klienta založeného na systému Windows. Pokud chcete tyto nástroje získat, naklonujte úložiště GitHubu nebo Stáhněte složku **AzureStack-Tools** spuštěním následujícího skriptu:
 
 ```powershell
 # Change directory to the root directory. 
@@ -48,22 +48,22 @@ cd AzureStack-Tools-master
 
 ```
 
-## <a name="functionality-provided-by-the-modules"></a>Funkce poskytované službou moduly
+## <a name="functionality-provided-by-the-modules"></a>Funkce poskytované moduly
 
-**AzureStack nástroje** úložiště obsahuje moduly Powershellu, které podporují následující funkce pro Azure Stack:  
+Úložiště **AzureStack-Tools** obsahuje moduly PowerShellu, které podporují následující funkce Azure Stack:  
 
-| Funkce | Popis | Tento modul, který můžete použít? |
+| Funkce | Popis | Kdo může používat tento modul? |
 | --- | --- | --- |
-| [Cloudové funkce](../user/azure-stack-validate-templates.md) | Tento modul slouží k získání cloudové možnosti cloudu. Pomocí tohoto modulu, například můžete získat možnosti cloudu, jako je verze rozhraní API a prostředky Azure Resource Manageru. Rozšíření virtuálních počítačů pro Azure Stack a cloudy Azure můžete také získat pomocí tohoto modulu. | Operátoři cloudů a uživatelé |
-| [Zásady Resource Manageru pro službu Azure Stack](../user/azure-stack-policy-module.md) | Tento modul slouží ke konfiguraci předplatné Azure nebo skupinu prostředků Azure s dostupností stejné správy verzí a služby jako Azure Stack. | Operátoři cloudů a uživatelé |
-| [Zaregistrujte v Azure](azure-stack-registration.md ) | Tento modul slouží k registraci development kit instance v Azure. Po registraci můžete stažení položek z marketplace z Azure a jejich použití ve službě Azure Stack. | Operátoři cloudu |
-| [Nasazení Azure Stack](../asdk/asdk-install.md) | Tento modul slouží k Příprava hostitelském počítači Azure Stack pro nasazení a znovu nasadit s použitím image virtuálního pevného disku (VHD) Azure Stack. | Operátoři cloudu|
-| [Připojení k Azure Stack](azure-stack-powershell-install.md) | Tento modul slouží ke konfiguraci připojení VPN ke službě Azure Stack. | Operátoři cloudů a uživatelé |
-| [Program pro ověření šablony](../user/azure-stack-validate-templates.md) | Tento modul slouží k ověření, pokud stávající nebo novou šablonu je možné nasadit do služby Azure Stack. | Operátoři cloudů a uživatelé|
+| [Cloudové možnosti](../user/azure-stack-validate-templates.md) | Tento modul slouží k získání cloudových možností cloudu. Například pomocí tohoto modulu můžete získat cloudové možnosti, jako je verze rozhraní API a prostředky Azure Resource Manager. Rozšíření virtuálních počítačů pro Azure Stack a cloudy Azure můžete také získat pomocí tohoto modulu. | Operátoři cloudu a uživatelé |
+| [Zásady Správce prostředků pro Azure Stack](../user/azure-stack-policy-module.md) | Pomocí tohoto modulu můžete nakonfigurovat předplatné Azure nebo skupinu prostředků Azure se stejnou verzí a dostupností služeb jako Azure Stack. | Operátoři cloudu a uživatelé |
+| [Registrace v Azure](azure-stack-registration.md ) | Tento modul použijte k registraci instance vývojářské sady v Azure. Po registraci můžete z Azure stáhnout položky z webu Marketplace a použít je v Azure Stack. | Operátory cloudu |
+| [Nasazení Azure Stack](../asdk/asdk-install.md) | Tento modul slouží k přípravě Azure Stack hostitelského počítače k nasazení a opětovnému nasazení pomocí Azure Stack image virtuálního pevného disku (VHD). | Operátory cloudu|
+| [Připojování k Azure Stack](azure-stack-powershell-install.md) | Pomocí tohoto modulu můžete nakonfigurovat připojení VPN k Azure Stack. | Operátoři cloudu a uživatelé |
+| [Validátor šablon](../user/azure-stack-validate-templates.md) | Tento modul použijte k ověření, zda lze nasadit existující šablonu nebo novou šablonu do Azure Stack. | Operátoři cloudu a uživatelé|
 
 
 ## <a name="next-steps"></a>Další postup
 
-- [Začínáme s prostředím PowerShell ve službě Azure Stack](../user/azure-stack-powershell-overview.md)
-- [Konfigurace prostředí PowerShell uživatele Azure stacku](../user/azure-stack-powershell-configure-user.md)   
+- [Začínáme s PowerShellem v Azure Stack](../user/azure-stack-powershell-overview.md)
+- [Konfigurace prostředí PowerShellu Azure Stackho uživatele](../user/azure-stack-powershell-configure-user.md)   
 - [Připojení k Azure Stack Development Kit přes síť VPN](../asdk/asdk-connect.md)  

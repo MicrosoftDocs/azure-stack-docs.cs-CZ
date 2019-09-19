@@ -1,6 +1,6 @@
 ---
-title: Azure Stack integrované systémy připojení modely | Dokumentace Microsoftu
-description: Určení při rozhodování o několika uzly Azure Stack pro plánování nasazení.
+title: Azure Stack modely připojení integrovaných systémů | Microsoft Docs
+description: Určení modelů připojení a dalších rozhodnutí o plánování nasazení pro Azure Stack integrovaných systémů.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,38 +16,38 @@ ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: wfayed
 ms.lastreviewed: 02/21/2019
-ms.openlocfilehash: 2fc9416515b09941deefbeb97d4a3801b47e146f
-ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
+ms.openlocfilehash: de9051ceee89244182c1d6d9d5724fa80a594ae6
+ms.sourcegitcommit: c196463492732218d2474d3a964f88e995272c80
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67131317"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71094381"
 ---
-# <a name="azure-stack-integrated-systems-connection-models"></a>Azure Stack integrované systémy modely připojení
-Pokud máte zájem o zakoupení systémech pro Azure Stack integrované, musíte pochopit [důležité informace o integraci několika datacenter](azure-stack-datacenter-integration.md) pro nasazení Azure Stack určit, jak systém, se vejde do vašeho datového centra. Kromě toho bude nutné se rozhodnout, jak budou integrovat Azure Stack v hybridním cloudovém prostředí. Tento článek obsahuje přehled Tato hlavní rozhodnutí, včetně připojení k Azure, úložiště identit a fakturační model rozhodnutí.
+# <a name="azure-stack-integrated-systems-connection-models"></a>Azure Stack modely připojení integrovaných systémů
+Pokud vás zajímá nákup Azure Stack integrovaného systému, je potřeba pochopit [několik důležitých informací o integraci Datacenter](azure-stack-datacenter-integration.md) pro Azure Stack nasazení, abyste zjistili, jak se systém vejde do vašeho datacentra. Kromě toho se musíte rozhodnout, jak budete Azure Stack do svého hybridního cloudového prostředí integrovat. Tento článek obsahuje přehled těchto hlavních rozhodnutí, včetně modelů připojení Azure, možností úložiště identit a možností modelu fakturace.
 
-Pokud se rozhodnete pro nákup integrovaného systému, pomůže dodavatele hardwaru, výrobce OEM (OEM), vás provedou velkou část procesu plánování podrobněji. Také provede nasazování ve skutečnosti.
+Pokud se rozhodnete koupit integrovaný systém, výrobce hardwaru OEM (Original Equipment Manufacturer) vám pomůže s procesem plánování podrobněji. Dodavatel hardwaru výrobce OEM také provede skutečné nasazení.
 
-## <a name="choose-an-azure-stack-deployment-connection-model"></a>Zvolte připojení modelu nasazení Azure Stack
-Můžete nasadit Azure Stack buď připojené k Internetu (a do Azure) nebo odpojeno. Nejvíce výhod získat z Azure Stack, hybridní scénáře mezi Azure Stack a Azure, včetně byste k nasazení připojení k Azure. Tato volba určuje, jaké možnosti jsou k dispozici pro úložiště identit (Azure Active Directory nebo Active Directory Federation Services) a model fakturace (platit při použití na základě fakturace nebo založená na kapacitě fakturace) dle souhrnu v následující diagram a tabulka: 
+## <a name="choose-an-azure-stack-deployment-connection-model"></a>Vybrat model připojení Azure Stack nasazení
+Můžete zvolit nasazení Azure Stack buď připojeného k Internetu (a k Azure), nebo odpojeni. Nasaďte připojení k Azure, abyste získali nejvíc výhod z Azure Stack, včetně hybridních scénářů mezi Azure Stack a Azure. Tato volba definuje, jaké možnosti jsou dostupné pro vaše úložiště identit (Azure Active Directory nebo Active Directory Federation Services (AD FS)) a model fakturace (průběžné platby podle fakturace nebo fakturace na základě kapacity), které jsou shrnuté v následujícím diagramu a tabulce:
 
-![Azure Stack nasazení a fakturaci scénáře](media/azure-stack-connection-models/azure-stack-scenarios.png)  
+![Azure Stack scénáře nasazení a fakturace](media/azure-stack-connection-models/azure-stack-scenarios.png)
   
 > [!IMPORTANT]
-> Toto je klíčová rozhodnutí bod! Výběr Active Directory Federation Services (AD FS) nebo Azure Active Directory (Azure AD) je jednorázový rozhodnutí, které je nutné provést v době nasazení. Nedá se změnit později bez nutnosti nového nasazení celého systému.  
+> Toto je klíčový bod rozhodování! Výběr Active Directory Federation Services (AD FS) (AD FS) nebo Azure Active Directory (Azure AD) je jednorázové rozhodnutí, které je nutné provést v době nasazení. Tuto změnu nelze později změnit bez nutnosti opětovného nasazení celého systému.  
 
 
-|Možnosti|Připojení k Azure|Odpojení od Azure|
+|Možnosti|Připojeno k Azure|Odpojeno od Azure|
 |-----|:-----:|:-----:|
 |Azure AD|![Podporováno](media/azure-stack-connection-models/check.png)| |
 |AD FS|![Podporováno](media/azure-stack-connection-models/check.png)|![Podporováno](media/azure-stack-connection-models/check.png)|
-|Účtování podle využití|![Podporováno](media/azure-stack-connection-models/check.png)| |
-|Účtování podle kapacity|![Podporováno](media/azure-stack-connection-models/check.png)|![Podporováno](media/azure-stack-connection-models/check.png)|
-|Licencování| Smlouvy Enterprise nebo poskytovatele Cloud Solution Provider | Smlouva Enterprise |
-|Opravy a aktualizace|Balíček aktualizací můžete stáhnout přímo z Internetu do služby Azure Stack |  Požaduje se<br><br>Také vyžaduje vyměnitelné médium<br> a samostatné připojené zařízení |
-| Registrace | Automatizované | Požaduje se<br><br>Také vyžaduje vyměnitelné médium<br> a samostatné připojené zařízení |
+|Fakturace na základě spotřeby|![Podporováno](media/azure-stack-connection-models/check.png)| |
+|Fakturace na základě kapacity|![Podporováno](media/azure-stack-connection-models/check.png)|![Podporováno](media/azure-stack-connection-models/check.png)|
+|Licencování| Poskytovatel řešení smlouva Enterprise nebo cloudu | Smlouva Enterprise |
+|Oprava a aktualizace|Balíček aktualizace se dá stáhnout přímo z Internetu a Azure Stack |  Požadováno<br><br>Vyžaduje taky vyměnitelné médium.<br> a samostatné připojené zařízení |
+| Registrace | Automaticky | Požadováno<br><br>Vyžaduje taky vyměnitelné médium.<br> a samostatné připojené zařízení |
 
-Poté, co jste se rozhodli na model Azure připojení budou používat při nasazení Azure Stack, závislé na připojení a další rozhodnutí třeba identity úložiště a fakturace metodu. 
+Až se rozhodnete, že se model připojení Azure bude používat pro nasazení Azure Stack, je nutné provést další rozhodnutí závislá na připojení pro úložiště identit a metodu fakturace.
 
 ## <a name="next-steps"></a>Další postup
 
