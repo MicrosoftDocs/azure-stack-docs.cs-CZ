@@ -9,12 +9,12 @@ ms.date: 08/09/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 08/09/2019
-ms.openlocfilehash: beddafb351af39f0a21a1cd0d7a7baa4ccfee28e
-ms.sourcegitcommit: 94669fe8a55fadd3103e80be307e9e8c823bf746
+ms.openlocfilehash: cd7ca2e1a198cb66c5d7627029215b55af0de975
+ms.sourcegitcommit: ae79b8bea670ea854ed00e9998d45f6b47fc8347
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68940280"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71142577"
 ---
 # <a name="deploy-a-c-aspnet-web-app-to-a-vm-in-azure-stack"></a>Nasazení webové C# aplikace v ASP.NET do virtuálního počítače v Azure Stack
 
@@ -60,7 +60,7 @@ V tomto článku se C# používá aplikace 6,0, která používá ASP.NET Core 2
     | 80 | HTTP | HTTP (Hypertext Transfer Protocol) je protokol používaný k doručování webových stránek ze serverů. Klienti se připojují přes protokol HTTP s názvem DNS nebo IP adresou. |
     | 443 | HTTPS | Protokol HTTPS (Hypertext Transfer Protocol Secure) je zabezpečená verze protokolu HTTP, která vyžaduje certifikát zabezpečení a umožňuje šifrovaný přenos informací.  |
     | 22 | SSH | Secure Shell (SSH) je zašifrovaný síťový protokol pro zabezpečenou komunikaci. K nakonfigurování virtuálního počítače a nasazení aplikace použijete toto připojení k klientovi SSH. |
-    | 3389 | PROTOKOL RDP | Volitelné. Protokol RDP (Remote Desktop Protocol) umožňuje připojení ke vzdálené ploše pro použití grafického uživatelského rozhraní vašeho počítače.   |
+    | 3389 | PROTOKOL RDP | Volitelný parametr. Protokol RDP (Remote Desktop Protocol) umožňuje připojení ke vzdálené ploše pro použití grafického uživatelského rozhraní vašeho počítače.   |
     | 8172 | Vlastní | Port používaný nástrojem WebDeploy. |
 
     Pro každý port:
@@ -111,7 +111,7 @@ Vytvořte cíl publikování na svém VIRTUÁLNÍm počítači v Azure Stack.
     ![Nasazení webové aplikace v ASP.NET pro publikování Azure Stack](media/azure-stack-dev-start-howto-vm-dotnet/deploy-app-to-azure-stack.png)
 
 1. V okně **publikovat** vyberte **Nový profil**.
-1. Vyberte **IIS**, **FTP**a tak dále.
+1. Vyberte **IIS, FTP atd**.
 1. Vyberte **Publikovat**.
 1. V případě **metody publikování**vyberte **nasazení webu**.
 1. Jako **Server** zadejte název DNS, který jste definovali dříve, například *w21902. Local. cloudapp. azurestack. external*.
@@ -134,7 +134,7 @@ Vytvořte cíl publikování na svém VIRTUÁLNÍm počítači v Azure Stack.
         mywebapp.local.cloudapp.azurestack.external
     ```
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 - Přečtěte si, jak [nastavit vývojové prostředí v Azure Stack](azure-stack-dev-start.md).
 - Přečtěte si o [běžných nasazeních Azure Stack jako IaaS](azure-stack-dev-start-deploy-app.md).

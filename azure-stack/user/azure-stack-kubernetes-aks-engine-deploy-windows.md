@@ -15,12 +15,12 @@ ms.date: 09/14/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/14/2019
-ms.openlocfilehash: b7057acd34625ffdea1de9ed533bf608de3059d6
-ms.sourcegitcommit: 09d14eb77a43fd585e7e6be93c32fa427770adb6
+ms.openlocfilehash: 4ac3534278b2a7fe4ecb355207b5a13a7cb7bd10
+ms.sourcegitcommit: 820ec8d10ddab1fee136397d3aa609e676f8b39d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71019235"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71127486"
 ---
 # <a name="install-the-aks-engine-on-windows-in-azure-stack"></a>Nainstalujte modul AKS ve Windows do Azure Stack
 
@@ -64,7 +64,7 @@ Můžete nainstalovat klientský virtuální počítač pro správu clusteru Kub
 
 2.  Vytvořte v instanci Azure Stack účet úložiště pro nahrání souboru archivu (*. tar. gz) s binárním modulem AKS. Pokyny k používání Průzkumník služby Azure Storage najdete v tématu [Průzkumník služby Azure Storage s Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-connect-se).
 
-3. Vytvořte ve svém Azure Stack virtuální počítač s vdovami. Pokyny najdete v tématu [rychlý Start: Vytvoření virtuálního počítače s Windows serverem pomocí Azure Stackového portálu](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-windows-portal)
+3. Vytvořte ve svém Azure Stack virtuální počítač s Windows. Pokyny najdete v tématu [rychlý Start: Vytvoření virtuálního počítače s Windows serverem pomocí Azure Stackového portálu](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-windows-portal)
 
 4.  Z adresy URL objektu blob Azure Stack účtu úložiště, kam jste nahráli archivní soubor (*. tar. gz), Stáhněte soubor na virtuální počítač pro správu. Extrahujte archiv do adresáře, ke kterému máte přístup z příkazového řádku.
 
