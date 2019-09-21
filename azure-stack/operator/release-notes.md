@@ -16,18 +16,20 @@ ms.date: 09/17/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 08/30/2019
-ms.openlocfilehash: 0091571dca5c966cb58fc7ce1533a17850558205
-ms.sourcegitcommit: c46d913ebfa4cb6c775c5117ac5c9e87d032a271
+ms.openlocfilehash: 896169a39f450b0a0fb26699867638afb02f20a7
+ms.sourcegitcommit: 2c37ac8e88de19430080128bac1b70e33557d354
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71106470"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71164266"
 ---
-# <a name="azure-stack-updates"></a>Aktualizace Azure Stack
+# <a name="azure-stack-updates-release-notes"></a>Aktualizace Azure Stack: poznámky k verzi
 
 *Platí pro: Azure Stack integrovaných systémů*
 
-Tento článek popisuje obsah balíčků aktualizací Azure Stack. Tato aktualizace obsahuje novinky a opravy pro tuto verzi Azure Stack. **Pokud chcete získat přístup k poznámkám k verzi pro jinou verzi, použijte výběr verze v levém horním rohu.**
+Tento článek popisuje obsah balíčků aktualizací Azure Stack. Tato aktualizace obsahuje novinky a opravy pro tuto verzi Azure Stack.
+
+Pokud chcete získat přístup k poznámkám k verzi pro jinou verzi, použijte rozevírací nabídku selektor verzí nad obsahem vlevo.
 
 ::: moniker range=">=azs-1905"
 > [!IMPORTANT]  
@@ -506,7 +508,7 @@ Systémy, které mají přístup k Internetu ze sítě infrastruktury, uvidí na
 
 ## <a name="archive"></a>Archiv
 
-Chcete-li získat přístup k archivovaným dokumentům k verzi pro starší verzi, použijte výběr verze v levém horním rohu stránky a vyberte verzi zájmu. 
+Pokud chcete získat přístup k archivovaným dokumentům k verzi pro starší verzi, použijte rozevírací nabídku selektor verzí nad obsahem vlevo a vyberte verzi, kterou chcete zobrazit.
 
 ## <a name="next-steps"></a>Další kroky
 

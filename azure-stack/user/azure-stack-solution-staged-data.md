@@ -15,12 +15,12 @@ ms.date: 06/20/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 06/20/2019
-ms.openlocfilehash: 859d80c9782926602769664006375cb131de8637
-ms.sourcegitcommit: 35b13ea6dc0221a15cd0840be796f4af5370ddaf
+ms.openlocfilehash: 37ffb494ab6ae124c6a0eb460da4569f660cd283
+ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68602929"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71159356"
 ---
 # <a name="deploy-a-staged-data-analytics-solution-to-azure-stack"></a>Nasazení řešení dvoufázové analýzy dat do Azure Stack
 
@@ -49,7 +49,7 @@ V tomto řešení vytvoříte ukázkové prostředí pro:
 ## <a name="prerequisites-for-staged-data-analytics"></a>Předpoklady pro analýzu připravených dat
 
   - Předplatné Azure.
-  - Instanční objekt služby Azure Active Directory (AAD), který má oprávnění k předplatnému tenanta v Azure a Azure Stack. Pokud Azure Stack používá jiného tenanta služby AAD než vaše předplatné Azure, možná budete muset vytvořit dva instanční objekty. Pokud se chcete dozvědět, jak vytvořit instanční objekt pro Azure Stack, přejděte v tématu [Vytvoření instančních objektů a poskytněte aplikacím přístup k prostředkům služby Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-create-service-principals).
+  - Instanční objekt služby Azure Active Directory (Azure AD), který má oprávnění k předplatnému tenanta v Azure a Azure Stack. Pokud Azure Stack používá jiného tenanta služby AAD než vaše předplatné Azure, možná budete muset vytvořit dva instanční objekty. Pokud se chcete dozvědět, jak vytvořit instanční objekt pro Azure Stack, přejděte v tématu [Vytvoření instančních objektů a poskytněte aplikacím přístup k prostředkům služby Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-create-service-principals).
       - **Poznamenejte si ID aplikace, tajný klíč klienta, ID tenanta služby Azure AD a název tenanta (xxxxx.onmicrosoft.com).**
   - Budete muset zadat kolekci dat pro analýzu dat. Jsou k dispozici ukázková data.
   - [Docker for Windows](https://docs.docker.com/docker-for-windows/) nainstalované na místním počítači.
@@ -117,4 +117,4 @@ Image Docker pro každé nasazení eliminují problémy závislosti mezi různý
 
   - Další informace o hybridních cloudových aplikacích najdete v tématu [hybridní cloudová řešení.](https://aka.ms/azsdevtutorials)
 
-  - Použijte vlastní data nebo upravte kód v této ukázce na GitHubu [](https://github.com/Azure-Samples/azure-intelligent-edge-patterns).
+  - Použijte vlastní data nebo upravte kód v této ukázce na [GitHubu](https://github.com/Azure-Samples/azure-intelligent-edge-patterns).

@@ -1,6 +1,6 @@
 ---
-title: Správa využití a fakturace pro Azure Stack jako poskytovatel cloudových služeb | Microsoft Docs
-description: Naučte se, jak zaregistrovat Azure Stack jako poskytovatele cloudu (CSP) a přidat zákazníky k fakturaci.
+title: Správa využití a fakturace pro Azure Stack jako Cloud Solution Provider | Microsoft Docs
+description: Naučte se, jak zaregistrovat Azure Stack jako poskytovatele Cloud Solution Provider (CSP) a přidat zákazníky k fakturaci.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,14 +15,14 @@ ms.date: 05/20/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: a8ae60e9ee19f96196d1c3763a32be0842567c7a
-ms.sourcegitcommit: e8f7fe07b32be33ef621915089344caf1fdca3fd
+ms.openlocfilehash: 82aa27440a496a813e2f1fa99879005503ba8d07
+ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70118688"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71159500"
 ---
-# <a name="manage-usage-and-billing-for-azure-stack-as-a-cloud-service-provider"></a>Správa využití a fakturace pro Azure Stack jako poskytovatel cloudových služeb
+# <a name="manage-usage-and-billing-for-azure-stack-as-a-cloud-solution-provider"></a>Správa využití a fakturace pro Azure Stack jako Cloud Solution Provider
 
 *Platí pro: Azure Stack integrovaných systémů*
 
@@ -32,7 +32,7 @@ Jako CSP pracujete s nejrůznějšími zákazníky, kteří používají Azure S
 
 Následující obrázek ukazuje požadované kroky k výběru účtu sdílených služeb a k registraci účtu Azure pomocí účtu Azure Stack. Po registraci můžete koncovým zákazníkům připojit:
 
-[![Proces povolení využití a správy jako poskytovatele cloudových služeb](media/azure-stack-add-manage-billing-as-a-csp/process-add-useage-as-a-csp.png "Proces povolení využití a správy jako poskytovatele cloudových služeb")](media/azure-stack-add-manage-billing-as-a-csp/process-add-useage-as-a-csp.png#lightbox)
+[![Proces pro povolení používání a správy jako poskytovatele Cloud Solution Provider](media/azure-stack-add-manage-billing-as-a-csp/process-add-useage-as-a-csp.png "Proces pro povolení používání a správy jako poskytovatele Cloud Solution Provider")](media/azure-stack-add-manage-billing-as-a-csp/process-add-useage-as-a-csp.png#lightbox)
 
 ## <a name="create-a-csp-or-apss-subscription"></a>Vytvoření předplatného CSP nebo APSS
 
@@ -40,7 +40,7 @@ Následující obrázek ukazuje požadované kroky k výběru účtu sdílených
 
 Zvolte typ účtu sdílených služeb, který používáte pro službu Azure Stack. K registraci služby Azure Stack pro více tenantů je možné použít následující typy předplatných:
 
-- Poskytovatel cloudových služeb
+- Cloud Solution Provider
 - Předplatné Partner Shared Services
 
 #### <a name="azure-partner-shared-services"></a>Sdílené služby pro partnery Azure
@@ -80,7 +80,7 @@ Když Azure Stack přepošle informace o využití do globální služby Azure, 
 
 Vzhledem k tomu, že předplatná tenanta jsou předplatná CSP, odesílají se jejich vyúčtování partnerovi CSP a informace o použití nejsou pro koncové zákazníky viditelné.
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 - Další informace o programu CSP najdete v tématu [program Cloud Solution Provider](https://partner.microsoft.com/solutions/microsoft-cloud-solutions).
 - Další informace o tom, jak načíst informace o využití prostředků z Azure Stack, najdete [v tématu využití a fakturace v Azure Stack](azure-stack-billing-and-chargeback.md).

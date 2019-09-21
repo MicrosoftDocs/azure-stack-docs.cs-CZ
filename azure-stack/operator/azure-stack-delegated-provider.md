@@ -15,12 +15,12 @@ ms.date: 08/12/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: b33c96ad10d5e4269f96741a5d4aba10d782896c
-ms.sourcegitcommit: 58c28c0c4086b4d769e9d8c5a8249a76c0f09e57
+ms.openlocfilehash: 97b253e4df3762d4579923124b7768c14f40d3de
+ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68959519"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71159670"
 ---
 # <a name="delegate-offers-in-azure-stack"></a>Delegování nabídek v Azure Stacku
 
@@ -76,7 +76,7 @@ Chcete-li použít tento návod, potřebujete kromě účtu operátora Azure Sta
 | Uživatel |Uživatel |
 
  > [!NOTE]
- > V případě prodejců CSP musí vytvoření tohoto delegovaného zprostředkovatele vyžadovat tyto uživatele v adresáři tenanta (AAD uživatele). Operátor Azure Stack musí [nejdřív](azure-stack-enable-multitenancy.md) připojit AAD tenanta a potom nakonfigurovat využití a fakturace pomocí následujících [kroků](azure-stack-csp-howto-register-tenants.md).
+ > V případě prodejců CSP musí vytvoření tohoto delegovaného zprostředkovatele vyžadovat tyto uživatele v adresáři tenanta (uživatel Azure AD). Operátor Azure Stack musí [nejdřív](azure-stack-enable-multitenancy.md) připojit klienta Azure AD a pak pomocí [těchto kroků](azure-stack-csp-howto-register-tenants.md)nakonfigurovat využití a fakturace.
 
 ### <a name="identify-the-delegated-provider"></a>Identifikace delegovaného zprostředkovatele
 
@@ -117,7 +117,7 @@ Přihlaste se k portálu User Portal jako delegovaný zprostředkovatel a pak vy
 
 1. Vyberte **+ vytvořit prostředek**, pak **nabídky tenanta + plány**a pak vyberte **nabídky**.
 
-    ![Vytvoření nové nabídky](media/azure-stack-delegated-provider/image5.png)
+    ![Vytvořit novou nabídku](media/azure-stack-delegated-provider/image5.png)
 
 2. Přiřaďte k nabídce název. V tomto příkladu se používá **ResellerOffer**. Vyberte delegovanou nabídku, na které se má založit, a pak vyberte **vytvořit**.
 
@@ -160,6 +160,6 @@ To je užitečné v těchto případech:
 * Připojíte nového člena týmu, který bude přebírat role delegovaného zprostředkovatele, a chcete přiřadit k předplatným členů týmu, které byly dříve vytvořeny v rámci výchozího předplatného poskytovatele.
 * Máte několik delegovaných poskytovatelů předplatných ve stejném tenantovi adresáře (Azure Active Directory) a potřebujete mezi nimi přesunout odběry uživatelů. K tomuto scénáři může dojít, když se člen týmu přesouvá mezi týmy a jejich předplatné musí být přiděleno novému týmu.
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 * [Zřízení virtuálního počítače](../user/azure-stack-create-vm-template.md)

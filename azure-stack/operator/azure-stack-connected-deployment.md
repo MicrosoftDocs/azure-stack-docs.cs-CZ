@@ -16,17 +16,17 @@ ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: wfayed
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: d06dabc32141fcf2f487151e92c5f47aa79b6149
-ms.sourcegitcommit: c196463492732218d2474d3a964f88e995272c80
+ms.openlocfilehash: fa90091f93556cd313fa8e4e21bfe0fd24011e38
+ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71094324"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71159145"
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Rozhodnutí týkající se plánování nasazení spojené s Azure pro Azure Stack integrovaných systémů
 Až se rozhodnete, [jak budete Azure Stack do svého hybridního cloudového prostředí integrovat](azure-stack-connection-models.md), můžete Azure Stack rozhodnutí o nasazení dokončit.
 
-Nasazení Azure Stack připojeného k Azure znamená, že pro úložiště identity můžete mít buď Azure Active Directory (AAD), nebo Active Directory Federation Services (AD FS) (AD FS). Můžete si také vybrat z modelu fakturace: průběžné platby nebo využití na základě kapacity. Výchozím nastavením je připojené nasazení, protože umožňuje zákazníkům získat co nejvíc Azure Stack, zejména v případě hybridních cloudových scénářů, které zahrnují Azure i Azure Stack.
+Nasazení Azure Stack připojeného k Azure znamená, že pro své úložiště identity můžete mít buď Azure Active Directory (Azure AD), nebo Active Directory Federation Services (AD FS) (AD FS). Můžete si také vybrat z modelu fakturace: průběžné platby nebo využití na základě kapacity. Výchozím nastavením je připojené nasazení, protože umožňuje zákazníkům získat co nejvíc Azure Stack, zejména v případě hybridních cloudových scénářů, které zahrnují Azure i Azure Stack.
 
 ## <a name="choose-an-identity-store"></a>Výběr úložiště identity
 S připojeným nasazením si můžete vybrat mezi Azure AD nebo AD FS pro úložiště identit. Odpojené nasazení, bez připojení k Internetu, může používat jenom AD FS.
@@ -38,9 +38,9 @@ Pokud například nasadíte virtuální počítače klienta IaaS nad Azure Stack
 ### <a name="azure-ad-identity-store"></a>Úložiště identit Azure AD
 Použití Azure AD pro úložiště identit vyžaduje dva účty Azure AD: účet globálního správce a fakturační účet. Tyto účty můžou být stejné nebo různé účty. I když použití stejného uživatelského účtu může být jednodušší a užitečné, pokud máte omezený počet účtů Azure, vaše obchodní potřeby můžou navrhnout použití dvou účtů:
 
-1. **Účet globálního správce** (vyžaduje se jenom pro připojená nasazení). Toto je účet Azure, který se používá k vytváření aplikací a instančních objektů pro služby Azure Stack infrastruktury v AAD. Tento účet musí mít oprávnění správce adresáře pro adresář, do kterého bude váš Azure Stack systém nasazený. Stane se jako "operátor cloudu" globálním správcem pro uživatele Azure AD a používá se pro následující úlohy:
+1. **Účet globálního správce** (vyžaduje se jenom pro připojená nasazení). Toto je účet Azure, který se používá k vytváření aplikací a instančních objektů pro služby Azure Stack infrastruktury ve službě Azure AD. Tento účet musí mít oprávnění správce adresáře pro adresář, do kterého bude váš Azure Stack systém nasazený. Stane se jako "operátor cloudu" globálním správcem pro uživatele Azure AD a používá se pro následující úlohy:
 
-    - K zřizování a delegování aplikací a instančních objektů pro všechny Azure Stack služby, které potřebují komunikovat s AAD a Graph API.
+    - K zřizování a delegování aplikací a instančních objektů pro všechny Azure Stack služby, které potřebují pracovat s Azure AD a Graph API.
     - Jako účet správce služby. Tento účet je vlastníkem výchozího předplatného poskytovatele (které můžete později změnit). Pomocí tohoto účtu se můžete přihlásit k portálu pro správu Azure Stack a můžete ho použít k vytvoření nabídek a plánů, nastavení kvót a provádění dalších funkcí správy v Azure Stack.
 
 2. **Fakturační účet** (vyžadováno pro připojená i odpojená nasazení). Tento účet Azure slouží k navázání fakturačního vztahu mezi vaším Azure Stack integrovaným systémem a back-endu Azure Commerce. Jedná se o účet, který se účtuje za Azure Stack poplatky. Tento účet se taky použije pro nabídky položek na webu Marketplace a dalších hybridních scénářích.
@@ -61,7 +61,7 @@ Pokud se chystáte použít předplatné CSP, Projděte si následující tabulk
 
 |Scénář|Možnosti domény a předplatného|
 |-----|-----|
-|Jste přímý poskytovatel **CSP** nebo **nepřímo zprostředkovatel CSP**a budete pracovat s Azure Stack|Použijte předplatné CSL (Common Service Layer).<br>     or<br>Vytvořte tenanta Azure AD s popisným názvem v partnerském centru. &lt;Vaše organizace například > CSPAdmin s předplatným CSP Azure, které je k němu přidružené.|
+|Jste přímý poskytovatel **CSP** nebo **nepřímo zprostředkovatel CSP**a budete pracovat s Azure Stack|Použijte předplatné CSL (Common Service Layer).<br>     nebo<br>Vytvořte tenanta Azure AD s popisným názvem v partnerském centru. &lt;Vaše organizace například > CSPAdmin s předplatným CSP Azure, které je k němu přidružené.|
 |Jste **nepřímým prodejcem CSP**a budete pracovat s Azure Stack|Požádejte svého nepřímý poskytovatel CSP, aby vytvořil tenanta Azure AD pro vaši organizaci s předplatným CSP Azure, které je k němu přidruženo pomocí partnerského centra.|
 
 ### <a name="capacity-based-billing"></a>Fakturace na základě kapacity
@@ -74,5 +74,5 @@ Fakturace kapacity vyžaduje předplatné Azure smlouva Enterprise (EA) pro regi
 - Informace o plánu a geografické dostupnosti pro Azure Stack integrovaných systémech najdete v dokumentu White Paper: [Azure Stack: Rozšíření Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
 - Pokud se chcete dozvědět víc o Microsoft Azure Stack balení a cenách, [Stáhněte si soubor. PDF](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf). 
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 [Integrace sítě Datacenter](azure-stack-network.md)

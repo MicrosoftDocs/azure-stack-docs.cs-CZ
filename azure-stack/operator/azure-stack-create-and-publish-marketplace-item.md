@@ -1,6 +1,6 @@
 ---
 title: Vytvoření a publikování položky Marketplace v Azure Stack | Microsoft Docs
-description: Vytvořte a publikujte položku Marketplace v Azure Stack.
+description: Naučte se, jak vytvořit a publikovat položku Azure Stack Marketplace.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,14 +15,14 @@ ms.date: 08/20/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: b9e1e9a1cdd0afe18a5395c99fb2eef932791667
-ms.sourcegitcommit: 1a8ebd8103608b5ee9e804d7015eefe05ef55185
+ms.openlocfilehash: 668882b1f5e0702ce51798468c8f102efe92edcd
+ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69643854"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71159682"
 ---
-# <a name="create-and-publish-a-marketplace-item"></a>Vytvoření a publikování položky Marketplace
+# <a name="create-and-publish-a-marketplace-item-in-azure-stack"></a>Vytvoření a publikování položky Marketplace v Azure Stack
 
 *Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
 
@@ -91,9 +91,9 @@ ms.locfileid: "69643854"
 
 ## <a name="publish-a-marketplace-item"></a>Zveřejnění položky Marketplace
 
-1. Pomocí PowerShellu nebo Průzkumník služby Azure Storage nahrajte položku Marketplace (. azpkg) do úložiště objektů BLOB v Azure. Můžete nahrávat do místního úložiště Azure Stack nebo nahrávat do Azure Storage; což je dočasné umístění balíčku. Ujistěte se, že je objekt BLOB veřejně přístupný.
+1. Pomocí PowerShellu nebo Průzkumník služby Azure Storage nahrajte položku Marketplace (. azpkg) do úložiště objektů BLOB v Azure. Můžete nahrávat do místního úložiště Azure Stack nebo nahrávat do Azure Storage, což je dočasné umístění balíčku. Ujistěte se, že je objekt BLOB veřejně přístupný.
 2. Na virtuálním počítači klienta v prostředí Microsoft Azure Stack se ujistěte, že je vaše relace PowerShellu nastavená s přihlašovacími údaji správce služby. Pokyny k ověřování PowerShellu v Azure Stack najdete v tématu [nasazení šablony pomocí PowerShellu](../user/azure-stack-deploy-template-powershell.md).
-3. Pokud používáte [prostředí PowerShell 1.3.0](azure-stack-powershell-install.md) nebo novější, můžete k publikování položky Marketplace do Azure Stack použít rutinu prostředí PowerShell **Add-AzsGalleryItem** . Před použitím prostředí PowerShell 1.3.0 použijte rutinu **Add-AzureRMGalleryitem** namísto rutiny **Add-AzsGalleryItem**. Například při použití prostředí PowerShell 1.3.0 nebo novější:
+3. Pokud používáte [prostředí PowerShell 1.3.0](azure-stack-powershell-install.md) nebo novější, můžete k publikování položky Marketplace do Azure Stack použít rutinu prostředí PowerShell **Add-AzsGalleryItem** . V případě starších verzí použijte rutinu **Add-AzureRMGalleryitem** místo rutiny **Add-AzsGalleryItem**. Například při použití prostředí PowerShell 1.3.0 nebo novější:
 
    ```powershell
    Add-AzsGalleryItem -GalleryItemUri `
@@ -154,7 +154,7 @@ Tržiště používá následující ikony:
 
 | Name | Šířka | Výška | Poznámky |
 | --- | --- | --- | --- |
-| Rozlehlý |255 px |115 px |Vždy vyžadováno |
+| Široký |255 px |115 px |Vždy vyžadováno |
 | Velké |115 px |115 px |Vždy vyžadováno |
 | Střední |90 px |90 px |Vždy vyžadováno |
 | Malé |40 px |40 px |Vždy vyžadováno |
@@ -162,7 +162,7 @@ Tržiště používá následující ikony:
 
 ### <a name="categories"></a>Categories
 
-Každá položka Marketplace by měla být označena kategorií, která identifikuje, kde se položka zobrazí v uživatelském rozhraní portálu. Můžete zvolit jednu ze stávajících kategorií v Azure Stack (**COMPUTE**, **data + úložiště**atd.), nebo zvolit novou.
+Každá položka Marketplace by měla být označena kategorií, která identifikuje, kde se položka zobrazí v uživatelském rozhraní portálu. Můžete zvolit jednu z existujících kategorií v Azure Stack (**COMPUTE**, **data + úložiště**a tak dále) nebo zvolit nové.
 
 ### <a name="links"></a>Odkazy
 
@@ -194,11 +194,11 @@ V následujícím příkladu jsou ikony a text pro položky Marketplace, jak je 
 
 ### <a name="create-blade"></a>Okno Vytvořit
 
-![Okno Vytvořit](media/azure-stack-create-and-publish-marketplace-item/image1.png)
+![Vytvořit okno – Azure Stack položky Marketplace](media/azure-stack-create-and-publish-marketplace-item/image1.png)
 
 ### <a name="marketplace-item-details-blade"></a>Okno podrobností položky Marketplace
 
-![Okno podrobností položky Marketplace](media/azure-stack-create-and-publish-marketplace-item/image3.png)
+![Okno podrobností položky Azure Stack Marketplace](media/azure-stack-create-and-publish-marketplace-item/image3.png)
 
 ## <a name="next-steps"></a>Další kroky
 

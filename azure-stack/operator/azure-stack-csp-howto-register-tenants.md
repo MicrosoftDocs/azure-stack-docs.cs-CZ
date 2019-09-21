@@ -1,6 +1,6 @@
 ---
 title: Přidat klienty pro využití a fakturace Azure Stack | Microsoft Docs
-description: Tento postup vyžaduje přidání koncového uživatele, který Azure Stack spravuje poskytovatel cloudových služeb (CSP).
+description: Naučte se, jak přidat tenanta pro využití a fakturace do Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,22 +15,22 @@ ms.date: 09/17/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: 97d57605ce093684fcbabe2375deecda5e35cce2
-ms.sourcegitcommit: 9f4c6e96f60b4c229316e7a4ab6e0e5ef0a9a232
+ms.openlocfilehash: 4db6eb06216294712456b3445b27bd2ed89150e9
+ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71061132"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71159653"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Přidat tenanta pro použití a fakturaci na Azure Stack
 
 *Platí pro: Azure Stack integrovaných systémů*
 
-Tento článek popisuje kroky potřebné k přidání koncového uživatele do nasazení Azure Stack spravovaného poskytovatelem cloudových služeb (CSP). Když nový tenant používá prostředky, Azure Stack sestavy využití jejich předplatného CSP.
+V tomto článku se dozvíte, jak přidat tenanta do nasazení Azure Stack spravovaného poskytovatelem Cloud Solution Provider (CSP). Když nový tenant používá prostředky, Azure Stack sestavy využití jejich předplatného CSP.
 
-CSP často nabízí služby pro různé koncové zákazníky (klienty) na svém nasazení Azure Stack. Přidání tenantů do registrace Azure Stack zajistí, že bude využití každého tenanta hlášené a bude účtované na odpovídající předplatné CSP. Pokud nedokončíte kroky v tomto článku, bude využití tenanta účtováno na předplatné používané při počáteční registraci Azure Stack. Než budete moct přidat koncového zákazníka do Azure Stack pro sledování využití a spravovat svého tenanta, musíte nakonfigurovat Azure Stack jako CSP. Postup a prostředky najdete v tématu [Správa využití a fakturace pro Azure Stack jako poskytovatel cloudových služeb](azure-stack-add-manage-billing-as-a-csp.md).
+CSP často nabízí služby pro různé koncové zákazníky (klienty) na svém nasazení Azure Stack. Přidání tenantů do registrace Azure Stack zajistí, že bude využití každého tenanta hlášené a bude účtované na odpovídající předplatné CSP. Pokud neprovedete kroky v tomto článku, bude využití tenanta účtováno v rámci předplatného používaného při prvotní registraci Azure Stack. Než budete moct přidat koncového zákazníka do Azure Stack pro sledování využití a spravovat svého tenanta, musíte nakonfigurovat Azure Stack jako CSP. Postup a prostředky najdete v tématu [Správa využití a fakturace pro Azure Stack jako poskytovatele Cloud Solution Provider](azure-stack-add-manage-billing-as-a-csp.md).
 
-Následující obrázek znázorňuje kroky, které zprostředkovatel CSP potřebuje k tomu, aby mohl novému zákazníkovi použít Azure Stack, a nastavit sledování využívání pro zákazníka. Přidáním koncového zákazníka také můžete spravovat prostředky v Azure Stack. Pro správu svých prostředků máte dvě možnosti:
+Následující obrázek znázorňuje kroky, které zprostředkovatel CSP potřebuje k tomu, aby mohl novému koncovému zákazníkovi povolit použití Azure Stack a nastavení sledování využití pro zákazníka. Přidáním koncového zákazníka také můžete spravovat prostředky v Azure Stack. Pro správu svých prostředků máte dvě možnosti:
 
 - Můžete zachovat koncového zákazníka a zadat přihlašovací údaje pro místní předplatné Azure Stack koncovému zákazníkovi.  
 - Koncový zákazník může pracovat s předplatným místně a přidat CSP jako hosta s oprávněním vlastníka.  
@@ -51,7 +51,7 @@ Jakmile vytvoříte záznam o zákazníkovi v partnerském centru, můžete si h
 
 ### <a name="create-a-guest-user-in-the-end-customer-directory"></a>Vytvoření uživatele typu Host v adresáři koncového zákazníka
 
-Ve výchozím nastavení vám jako CSP nebude mít přístup k předplatnému Azure Stack koncového zákazníka. Pokud ale zákazník chce spravovat svoje prostředky, může přidat svůj účet jako vlastníka nebo přispěvatele ke svému předplatnému Azure Stack. Aby to bylo možné, bude nutné přidat svůj účet jako uživatel typu Host do tenanta AAD. Doporučujeme použít jiný účet z vašeho účtu Azure CSP ke správě předplatného Azure Stack zákazníka, abyste se ujistili, že nepřijdete o přístup k předplatnému Azure zákazníka.
+Ve výchozím nastavení vám jako CSP nebude mít přístup k předplatnému Azure Stack koncového zákazníka. Pokud ale zákazník chce spravovat svoje prostředky, může přidat svůj účet jako vlastníka nebo přispěvatele ke svému předplatnému Azure Stack. Aby to bylo možné, bude nutné přidat účet jako uživatel typu Host do svého tenanta služby Azure AD. Doporučujeme použít jiný účet z vašeho účtu Azure CSP ke správě předplatného Azure Stack zákazníka, abyste se ujistili, že nepřijdete o přístup k předplatnému Azure vašeho zákazníka.
 
 ### <a name="update-the-registration-with-the-end-customer-subscription"></a>Aktualizace registrace pomocí předplatného koncového zákazníka
 
@@ -80,10 +80,10 @@ V následující části jsou popsány parametry pro rutinu **New-AzureRmResourc
 | Parametr | Popis |
 | --- | --- |
 |registrationSubscriptionID | Předplatné Azure, které se použilo při prvotní registraci Azure Stack.|
-| customerSubscriptionID | Předplatné Azure (není Azure Stack) patřící zákazníkovi k registraci. Musí být vytvořen v nabídce CSP; v praxi to znamená prostřednictvím partnerského centra. Pokud má zákazník více než jednoho klienta Azure Active Directory, musí být toto předplatné vytvořeno v tenantovi, které se bude používat pro přihlášení k Azure Stack. ID předplatného zákazníka musí používat malá písmena. |
+| customerSubscriptionID | Předplatné Azure (není Azure Stack) patřící zákazníkovi k registraci. Musí být vytvořen v nabídce CSP. V praxi to znamená prostřednictvím partnerského centra. Pokud má zákazník více než jednoho klienta Azure Active Directory, musí být toto předplatné vytvořeno v tenantovi, které se bude používat pro přihlášení k Azure Stack. ID předplatného zákazníka musí používat malá písmena. |
 | resourceGroup | Skupina prostředků v Azure, ve které je uložená vaše registrace. |
-| registrationName | Název registrace Azure Stack. Jedná se o objekt uložený v Azure. |
-| Vlastnosti | Určuje vlastnosti prostředku. Pomocí tohoto parametru můžete zadat hodnoty vlastností, které jsou specifické pro daný typ prostředku.
+| registrationName | Název registrace Azure Stack. Je to objekt uložený v Azure. |
+| properties | Určuje vlastnosti prostředku. Pomocí tohoto parametru můžete zadat hodnoty vlastností, které jsou specifické pro daný typ prostředku.
 
 > [!NOTE]  
 > Klienty musí být zaregistrované u každé Azure Stack, kterou používají. Pokud máte dvě Azure Stack nasazení a tenant používá oba, musíte aktualizovat počáteční registraci každého nasazení s předplatným tenanta.
@@ -96,8 +96,8 @@ Nakonfigurujte Azure Stack pro podporu uživatelů z více tenantů Azure AD, ab
 
 Po přidání nového zákazníka do Azure Stack nebo koncový tenant zákazníka povolil váš účet Guest s oprávněními vlastníka, ověřte, že můžete vytvořit prostředek ve svém tenantovi. Například mohou [vytvořit virtuální počítač s Windows pomocí portálu Azure Stack](../user/azure-stack-quick-windows-portal.md).
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
-- Pokud chcete zkontrolovat chybové zprávy, pokud se spouštějí v procesu registrace, přečtěte si téma [chybové zprávy registrace klienta](azure-stack-registration-errors.md).
+- Pokud chcete zkontrolovat chybové zprávy, pokud se aktivují v procesu registrace, přečtěte si téma [chybové zprávy registrace tenanta](azure-stack-registration-errors.md).
 - Další informace o tom, jak načíst informace o využití prostředků z Azure Stack, najdete [v tématu využití a fakturace v Azure Stack](azure-stack-billing-and-chargeback.md).
-- Pokud chcete zjistit, jak může koncový zákazník přidat vámi, jako jako správce pro svého tenanta Azure Stack, přečtěte si téma [povolení poskytovatele cloudové služby ke správě předplatného Azure Stack](../user/azure-stack-csp-enable-billing-usage-tracking.md).
+- Pokud chcete zjistit, jak může koncový zákazník přidat vás, CSP, jako správce pro svého tenanta Azure Stack, přečtěte si téma [povolení poskytovatele cloudové služby ke správě předplatného Azure Stack](../user/azure-stack-csp-enable-billing-usage-tracking.md).

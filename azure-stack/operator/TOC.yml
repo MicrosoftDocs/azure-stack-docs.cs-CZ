@@ -251,7 +251,9 @@
           href: azure-stack-linux.md
         - name: Přidání virtuálního počítače Red Hat
           href: azure-stack-redhat-create-upload-vhd.md
-        - name: Nabízejí clusteru Kubernetes
+        - name: Nabídnout modul AKS
+          href: azure-stack-aks-engine.md
+        - name: Nabídka Kubernetes položky Marketplace
           href: azure-stack-solution-template-kubernetes-cluster-add.md
         - name: Vytvoření připojení VPN typu Site-to-site
           href: azure-stack-create-vpn-connection-one-node.md

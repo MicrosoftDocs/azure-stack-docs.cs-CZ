@@ -15,12 +15,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7e5467945db4987bdd86b7265117c486fb6f7e1b
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: 091dc657153309298a1eda161b633a42050a0f57
+ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68418344"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71159345"
 ---
 # <a name="workflow-common-parameters-for-azure-stack-validation-as-a-service"></a>Společné parametry pracovního postupu pro ověřování Azure Stack jako služby
 
@@ -62,7 +62,7 @@ Mezi běžné parametry testu patří citlivé informace, které nelze uložit v
 Parametr    | Popis
 -------------|-----------------
 Správce klienta uživatel                            | Azure Active Directory Správce klienta zřízené správcem služby v adresáři AAD. Tento uživatel provádí akce na úrovni tenanta, jako je nasazení šablon, k nastavení prostředků (virtuálních počítačů, účtů úložiště atd.) a provádění úloh. Podrobnosti o zřízení účtu tenanta najdete v tématu [Přidání nového tenanta Azure Stack](../operator/azure-stack-add-new-user-aad.md).
-Uživatel správce služeb             | Azure Active Directory správce tenanta adresáře AAD zadaného během nasazování Azure Stack. V konfiguračním souboru EHK vyhledejte a vyberte hodnotu `UniqueName` v elementu. `AADTenant`
+Uživatel správce služeb             | Azure Active Directory správce tenanta služby Azure AD, kterého jste zadali během nasazování Azure Stack. V konfiguračním souboru EHK vyhledejte a vyberte hodnotu `UniqueName` v elementu. `AADTenant`
 Uživatel s oprávněním správce cloudu               | Azure Stack účet správce domény (například `contoso\cloudadmin`). V konfiguračním souboru EHK vyhledejte a vyberte hodnotu `UserName` v elementu. `User Role="CloudAdmin"`
 Připojovací řetězec diagnostiky          | Adresa URL SAS na účet Azure Storage, do kterého budou při spuštění testu kopírovány diagnostické protokoly. Pokyny k vygenerování adresy URL SAS najdete v tématu [generování připojovacího řetězce pro diagnostiku](#generate-the-diagnostics-connection-string). |
 
@@ -89,6 +89,6 @@ Připojovací řetězec diagnostiky je vyžadován pro ukládání diagnostický
 > Adresa URL SAS vyprší v době ukončení zadanou při vygenerování adresy URL.  
 Při plánování testů zajistěte, aby byla adresa URL platná nejméně 30 dní, a čas potřebný k provedení testu (navrhované tři měsíce).
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 - Přečtěte si o [principech ověření jako Key služby](azure-stack-vaas-key-concepts.md)

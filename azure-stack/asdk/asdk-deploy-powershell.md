@@ -17,12 +17,12 @@ ms.date: 05/06/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 5b517eec23950380bf5f0fc8febe717683960b65
-ms.sourcegitcommit: 4eb1766c7a9d1ccb1f1362ae1211ec748a7d708c
+ms.openlocfilehash: 0ba8723b9d0f03006b52ecd016c3713280b63dea
+ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69579113"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71159302"
 ---
 # <a name="deploy-asdk-from-the-command-line-using-powershell"></a>Nasazení ASDK z příkazového řádku pomocí PowerShellu
 
@@ -144,7 +144,7 @@ Pokud vaše prostředí nemá protokol DHCP povolený, musíte do jedné z výš
 |Parametr|Požadováno/volitelné|Popis|
 |-----|-----|-----|
 |AdminPassword|Požadováno|Nastaví účet místního správce a všechny ostatní uživatelské účty na všech virtuálních počítačích vytvořených jako součást nasazení ASDK. Toto heslo se musí shodovat s aktuálním místním heslem správce na hostiteli.|
-|InfraAzureDirectoryTenantName|Požadováno|Nastaví adresář tenanta. Pomocí tohoto parametru můžete zadat konkrétní adresář, ve kterém má účet AAD oprávnění ke správě více adresářů. Úplný název tenanta AAD ve formátu. onmicrosoft.com nebo Azure AD ověřil název vlastní domény.|
+|InfraAzureDirectoryTenantName|Požadováno|Nastaví adresář tenanta. Pomocí tohoto parametru můžete zadat konkrétní adresář, ve kterém má účet Azure AD oprávnění ke správě více adresářů. Úplný název tenanta Azure AD ve formátu. onmicrosoft.com nebo název vlastní domény ověřený službou Azure AD.|
 |TimeServer|Požadováno|Pomocí tohoto parametru můžete zadat konkrétní časový server. Tento parametr se musí zadat jako platná časová IP adresa serveru. Názvy serverů nejsou podporované.|
 |InfraAzureDirectoryTenantAdminCredential|volitelná,|Nastaví Azure Active Directory uživatelské jméno a heslo. Tyto přihlašovací údaje Azure musí být ID organizace.|
 |InfraAzureEnvironment|volitelná,|Vyberte prostředí Azure, ve kterém chcete zaregistrovat toto Azure Stack nasazení. Mezi možnosti patří globální Azure, Azure-Čína, Azure-US státní správa.|

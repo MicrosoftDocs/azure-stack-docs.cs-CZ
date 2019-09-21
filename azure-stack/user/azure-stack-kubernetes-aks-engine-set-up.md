@@ -15,12 +15,12 @@ ms.date: 09/14/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/14/2019
-ms.openlocfilehash: a65449d39f114bd0ff5eb859bd49ec36d4bb4281
-ms.sourcegitcommit: 09d14eb77a43fd585e7e6be93c32fa427770adb6
+ms.openlocfilehash: cc278020bb4d2ba530e20b6f2f56bcb841207bbc
+ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71019224"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71159742"
 ---
 # <a name="set-up-the-prerequisites-for-the-aks-engine-on-azure-stack"></a>Nastavení požadavků pro modul AKS na Azure Stack
 
@@ -30,11 +30,13 @@ Modul AKS můžete nainstalovat na virtuální počítač ve vašem prostředí 
 
 Pokud máte vaše požadavky, můžete začít s [definováním clusteru](azure-stack-kubernetes-aks-engine-deploy-cluster.md).
 
+Pokud jste operátor cloudu pro Azure Stack a chcete nabízet modul AKS, postupujte podle pokynů v části [Přidání modulu AKS do tržiště služby Azure Stack](../operator/azure-stack-aks-engine.md).
+
 ## <a name="prerequisites-for-the-aks-engine"></a>Předpoklady pro modul AKS
 
 Pokud chcete používat modul AKS, musíte mít k dispozici následující prostředky. Mějte na paměti, že modul AKS má být používán klienty Azure Stack k nasazení clusterů Kubernetes do svého předplatného tenanta. Jediná část, kde může být požadováno zapojení operátoru Azure Stack, je stažení položek Marketplace a vytvoření identity instančního objektu. Podrobnosti najdete v následující tabulce.
 
-| Požadavek | Popis | Požadováno | Instrukce |
+| Požadavek | Popis | Požadováno | Pokyny |
 | --- | --- | --- | --- |
 | Rozšíření vlastních skriptů pro Linux | Rozšíření vlastních skriptů pro Linux 2,0<br>Dodání Vlastní skript pro Linux 2,0<br>Znění 2.0.6 (nebo nejnovější verze)<br>Microsoft Microsoft Corp | Požadováno | Pokud ve svém předplatném nemáte tuto položku, obraťte se na svého operátora cloudu. |
 | AKS Base Ubuntu image | Základní obrázek AKS<br>Nabídka: AKS<br>Znění 2019.07.30 (nebo novější verze)<br>Vydavatel: Microsoft-AKS<br>SKU: AKS-Ubuntu-1604-201907 | Požadováno | Pokud ve svém předplatném nemáte tuto položku, obraťte se na svého operátora cloudu. Podívejte se na Další informace o závislostech verze, viz [shodný modul se základní verzí image](#matching-engine-to-base-image-version). |

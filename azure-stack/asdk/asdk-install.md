@@ -16,12 +16,12 @@ ms.date: 05/06/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: c616736cf9ea8cc350c2c53bb7d6994346dac990
-ms.sourcegitcommit: 7968f9f0946138867323793be9966ee2ef99dcf4
+ms.openlocfilehash: deac15b2f1e3ebd86fdd2e171f664bd4b5917e37
+ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70025966"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71159427"
 ---
 # <a name="install-the-asdk"></a>Instalace ASDK
 Po [přípravě hostitelského počítače s ASDK](asdk-prepare-host.md)se dá Azure Stack Development Kit (ASDK) nasadit do image CloudBuilder. vhdx pomocí následujících kroků v tomto článku.
@@ -44,7 +44,7 @@ Kroky v tomto článku vám ukážou, jak nasadit ASDK pomocí grafického uživ
   
     Pokud zvolíte poskytovatele identity předplatného Azure, budete potřebovat připojení k Internetu, úplné jméno tenanta Azure AD ve formátu *DomainName*. onmicrosoft.com nebo ověřený název vlastní domény Azure AD. Pro zadaný adresář budete také potřebovat přihlašovací údaje globálního správce.
 
-    Po nasazení se oprávnění globálního správce Azure Active Directory (AAD) nevyžadují. Některé operace ale můžou vyžadovat přihlašovací údaje globálního správce. Například skript instalačního programu poskytovatele prostředků nebo nová funkce vyžadující udělené oprávnění. Můžete buď dočasně obnovit oprávnění globálního správce účtu, nebo použít samostatný účet globálního správce, který je vlastníkem *výchozího předplatného poskytovatele*.
+    Po nasazení se oprávnění globálního správce služby Azure Active Directory (Azure AD) nevyžadují. Některé operace ale můžou vyžadovat přihlašovací údaje globálního správce. Například skript instalačního programu poskytovatele prostředků nebo nová funkce vyžadující udělené oprávnění. Můžete buď dočasně obnovit oprávnění globálního správce účtu, nebo použít samostatný účet globálního správce, který je vlastníkem *výchozího předplatného poskytovatele*.
 
     Při použití AD FS jako poskytovatele identity se použije výchozí adresářová služba razítka. Výchozí účet pro přihlášení je azurestackadmin@azurestack.locala heslo, které se má použít, je ten, který jste zadali jako součást instalace.
 
@@ -92,5 +92,5 @@ Pokud se nasazení z nějakého důvodu nepovede, můžete ho znovu [nasadit](as
   .\InstallAzureStackPOC.ps1 -Rerun
   ```
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 [Konfigurace po nasazení](asdk-post-deploy.md)

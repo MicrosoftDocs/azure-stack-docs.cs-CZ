@@ -16,16 +16,18 @@ ms.date: 09/17/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 09/13/2019
-ms.openlocfilehash: 3179416a7f8dacc5c3282372038c6761009b5b76
-ms.sourcegitcommit: c46d913ebfa4cb6c775c5117ac5c9e87d032a271
+ms.openlocfilehash: ba5b8358dced378f499c30f9b8d409497319fc86
+ms.sourcegitcommit: 2c37ac8e88de19430080128bac1b70e33557d354
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71106426"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71164236"
 ---
 # <a name="azure-stack-known-issues"></a>Azure Stack známé problémy
 
-V tomto článku jsou uvedené známé problémy ve verzích Azure Stack. Seznam se aktualizuje, protože se identifikují nové problémy. **Chcete-li získat přístup ke známým problémům pro jinou verzi, použijte výběr verze v levém horním rohu.**
+V tomto článku jsou uvedené známé problémy ve verzích Azure Stack. Seznam se aktualizuje, protože se identifikují nové problémy.
+
+Chcete-li získat přístup ke známým problémům pro jinou verzi, použijte rozevírací nabídku selektor verzí nad obsahem vlevo.
 
 ::: moniker range=">=azs-1905"
 > [!IMPORTANT]  
@@ -83,7 +85,7 @@ V tomto článku jsou uvedené známé problémy ve verzích Azure Stack. Seznam
 - Příčina: Na portálu User Portal zobrazuje okno **Konfigurace** účtu úložiště možnost změny **typu přenosu zabezpečení**. Tato funkce v současnosti není v Azure Stack podporovaná.
 - Výskyt Společné
 
-### <a name="upload-blob"></a>Nahrát objekt BLOB
+### <a name="upload-blob"></a>Nahrát objekt blob
 
 - To Tento problém se vztahuje na všechny podporované verze.
 - Příčina: Při pokusu o nahrání objektu BLOB pomocí možnosti **OAuth (Preview)** na portálu User Portal se úloha nezdařila s chybovou zprávou.
@@ -233,7 +235,7 @@ V tomto článku jsou uvedené známé problémy ve verzích Azure Stack. Seznam
 - Příčina: Na portálu User Portal zobrazuje okno **Konfigurace** účtu úložiště možnost změny **typu přenosu zabezpečení**. Tato funkce v současnosti není v Azure Stack podporovaná.
 - Výskyt Společné
 
-### <a name="upload-blob"></a>Nahrát objekt BLOB
+### <a name="upload-blob"></a>Nahrát objekt blob
 
 - To Tento problém se vztahuje na všechny podporované verze.
 - Příčina: Při pokusu o nahrání objektu BLOB pomocí možnosti **OAuth (Preview)** na portálu User Portal se úloha nezdařila s chybovou zprávou.
@@ -388,7 +390,7 @@ V tomto článku jsou uvedené známé problémy ve verzích Azure Stack. Seznam
 - Příčina: Na portálu User Portal zobrazuje okno **Konfigurace** účtu úložiště možnost změny **typu přenosu zabezpečení**. Tato funkce v současnosti není v Azure Stack podporovaná.
 - Výskyt Společné
 
-### <a name="upload-blob"></a>Nahrát objekt BLOB
+### <a name="upload-blob"></a>Nahrát objekt blob
 
 - To Tento problém se vztahuje na všechny podporované verze.
 - Příčina: Při pokusu o nahrání objektu BLOB pomocí možnosti **OAuth (Preview)** na portálu User Portal se úloha nezdařila s chybovou zprávou.
@@ -565,7 +567,7 @@ V tomto článku jsou uvedené známé problémy ve verzích Azure Stack. Seznam
 - Nápravy Žádné zmírnění.
 - Výskyt Společné
 
-### <a name="upload-blob"></a>Nahrát objekt BLOB
+### <a name="upload-blob"></a>Nahrát objekt blob
 
 - To Tento problém se vztahuje na všechny podporované verze.
 - Příčina: Při pokusu o nahrání objektu BLOB pomocí možnosti **OAuth (Preview)** na portálu User Portal se úloha nezdařila s chybovou zprávou.
@@ -674,9 +676,9 @@ K této chybě dojde, pokud povolíte diagnostiku spouštění na virtuálním p
 ::: moniker range=">=azs-1905"
 ## <a name="archive"></a>Archiv
 
-Chcete-li získat přístup k archivovaným známým problémům pro starší verzi, použijte nástroj pro výběr verze v levém horním rohu stránky a vyberte verzi zájmu. 
+Chcete-li získat přístup k archivovaným známým problémům pro starší verzi, použijte rozevírací nabídku selektor verzí nad obsahem vlevo a vyberte verzi, kterou chcete zobrazit.
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 - [Kontrola kontrolního seznamu aktivit aktualizací](release-notes-checklist.md)
 - [Kontrola seznamu aktualizací zabezpečení](release-notes-security-updates.md)

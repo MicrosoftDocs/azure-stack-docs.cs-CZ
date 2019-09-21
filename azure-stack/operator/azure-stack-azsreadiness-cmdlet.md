@@ -16,12 +16,12 @@ ms.date: 08/13/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 9e92101b6d00da397359ed25e8682f18305f5a83
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.openlocfilehash: f60ee96673b5574f0cd0393dc6a53a2d7937c04f
+ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70974715"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71159163"
 ---
 # <a name="start-azsreadinesschecker-cmdlet-reference"></a>Reference k rutině Start-AzsReadinessChecker
 
@@ -166,7 +166,7 @@ Start-AzsReadinessChecker
 
 ## <a name="description"></a>Popis
 
-Rutina **Start-AzsReadinessChecker** ověřuje certifikáty, účty Azure, předplatné Azure a Azure Active Directory (AAD). Před nasazením Azure Stack nebo před Azure Stack akcí údržby, jako je například střídání tajných klíčů, spusťte ověřování. Rutina se dá použít taky ke generování žádostí o podepsání certifikátu pro certifikáty infrastruktury a volitelně i k PaaS certifikátům. Nakonec může rutina znovu zabalit certifikáty PFX k nápravě běžných problémů s balíčkem.
+Rutina **Start-AzsReadinessChecker** ověřuje certifikáty, účty Azure, předplatná Azure a Azure Active Directory (Azure AD). Před nasazením Azure Stack nebo před Azure Stack akcí údržby, jako je například střídání tajných klíčů, spusťte ověřování. Rutina se dá použít taky ke generování žádostí o podepsání certifikátu pro certifikáty infrastruktury a volitelně i k PaaS certifikátům. Nakonec může rutina znovu zabalit certifikáty PFX k nápravě běžných problémů s balíčkem.
 
 ## <a name="examples"></a>Příklady
 
@@ -188,7 +188,7 @@ $password = Read-Host -Prompt "Enter PFX Password" -AsSecureString
 Start-AzsReadinessChecker -CertificatePath .\Certificates\ -PfxPassword $password -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD
 ```
 
-V tomto příkladu je vyžadováno heslo PFX pro zabezpečení a `Start-AzsReadinessChecker` kontroluje **certifikáty** relativních složek pro certifikáty platné pro nasazení AAD s názvem oblasti **východ** a externím plně kvalifikovaným názvem domény **azurestack.contoso.com.** .
+V tomto příkladu je vyžadováno heslo PFX pro zabezpečení a `Start-AzsReadinessChecker` kontroluje **certifikáty** relativních složek pro certifikáty platné pro nasazení Azure AD s názvem oblasti **východ** a externím plně kvalifikovaným názvem domény.  **azurestack.contoso.com**.
 
 ### <a name="example-validate-certificates-with-deployment-data-deployment-and-support"></a>Příklad: ověření certifikátů s daty nasazení (nasazení a podpora)
 
@@ -237,7 +237,7 @@ $serviceAdminCredential = Get-Credential -Message "Enter Credentials for Service
 Start-AzsReadinessChecker -AADServiceAdministrator $serviceAdminCredential -AzureEnvironment "<environment name>" -AzureDirectoryTenantName azurestack.contoso.com
 ```
 
-V tomto příkladu jsou pro zabezpečení vyžadovány přihlašovací údaje účtu správce služby a `Start-AzsReadinessChecker` kontroluje, jestli je účet Azure a AAD platný pro nasazení AAD s názvem adresáře klienta **azurestack.contoso.com**.
+V tomto příkladu jsou pro zabezpečení vyžadovány přihlašovací údaje účtu správce služby a `Start-AzsReadinessChecker` kontroluje, že účet Azure a Azure AD platí pro nasazení Azure AD s názvem adresáře klienta **azurestack.contoso.com**.
 
 ### <a name="example-validate-azure-identity-with-deployment-data-deployment-support"></a>Příklad: ověření identity Azure pomocí dat nasazení (podpora nasazení)
 
@@ -246,7 +246,7 @@ $serviceAdminCredential = Get-Credential -Message "Enter Credentials for Service
 Start-AzsReadinessChecker -AADServiceAdministrator $serviceAdminCredential -DeploymentDataJSONPath .\contoso-deploymentdata.json
 ```
 
-V tomto příkladu jsou pro zabezpečení vyžadovány přihlašovací údaje účtu správce služby a `Start-AzsReadinessChecker` kontroluje, jestli je účet Azure a AAD platný pro nasazení AAD, kde **AzureCloud** a **tenant** jsou čteny z JSON data nasazení. soubor vygenerovaný pro nasazení
+V tomto příkladu jsou pro zabezpečení vyžadovány přihlašovací údaje účtu správce služby a `Start-AzsReadinessChecker` kontroluje, že účet Azure a Azure AD platí pro nasazení služby Azure AD, kde **AzureCloud** a **tenant** jsou načteny z nasazení. datový soubor JSON generovaný pro nasazení
 
 ### <a name="example-validate-azure-registration"></a>Příklad: Ověření registrace Azure
 
@@ -435,7 +435,7 @@ Určuje cílovou cestu pro soubory žádostí o certifikát. Adresář již mus�
 
 ### <a name="-aadserviceadministrator"></a>-AADServiceAdministrator
 
-Určuje správce služby AAD, který se má použít pro nasazení Azure Stack.
+Určuje správce služby Azure AD, který se má použít pro nasazení Azure Stack.
 
 |  |  |
 |----------------------------|---------|
@@ -447,7 +447,7 @@ Určuje správce služby AAD, který se má použít pro nasazení Azure Stack.
 
 ### <a name="-aaddirectorytenantname"></a>-AADDirectoryTenantName
 
-Určuje název AAD, který se má použít pro Azure Stack nasazení.
+Určuje název služby Azure AD, který se má použít pro nasazení Azure Stack.
 
 |  |  |
 |----------------------------|---------|
@@ -512,7 +512,7 @@ Určuje cestu k sestavě připravenosti, výchozí hodnota je aktuální adresá
 
 Určuje cestu, pod kterou jsou přítomny pouze složky certifikátů, které jsou vyžadovány.
 
-Požadované složky pro nasazení Azure Stack se systémem identity AAD jsou:
+Požadované složky pro nasazení Azure Stack se systémem Azure AD identity System jsou:
 
 - ACSBlob, ACSQueue, ACSTable, portál pro správu, správce ARM, Public, ARM, Trezor klíčů, KeyVaultInternal, veřejný portál
 

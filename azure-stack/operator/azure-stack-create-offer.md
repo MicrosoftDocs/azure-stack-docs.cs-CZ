@@ -1,6 +1,6 @@
 ---
 title: Vytvořit nabídku v Azure Stack | Microsoft Docs
-description: Jako správce cloudu se naučíte, jak vytvořit nabídku pro uživatele v Azure Stack.
+description: Naučte se, jak vytvořit nabídku pro uživatele v Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,12 +15,12 @@ ms.date: 06/11/2019
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 06/11/2019
-ms.openlocfilehash: 1492c779144eac235e5c32e767e966b3a6cfb9fd
-ms.sourcegitcommit: 8ddd70ba5ce05c591d3fa62597981859af107c06
+ms.openlocfilehash: 4f49d3205c53c7e795bd0c3dbb37564f86e802d1
+ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70936143"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71159758"
 ---
 # <a name="create-an-offer-in-azure-stack"></a>Vytvoření nabídky ve službě Azure Stack
 
@@ -31,25 +31,25 @@ ms.locfileid: "70936143"
 
 1. Přihlaste se na [portál pro správu Azure Stack](https://adminportal.local.azurestack.external) a vyberte **+ vytvořit prostředek**, pak **nabídky + plány**a potom **nabídku**.
 
-   ![Vytvoření nabídky](media/azure-stack-create-offer/offers.png)
+   ![Vytvoření nabídky ve službě Azure Stack](media/azure-stack-create-offer/offers.png)
 
-2. Zobrazí se uživatelské rozhraní s kartami, které umožňuje definovat název nabídky a přidat existující nebo vytvořit nové základní plány a plány doplňku. Nejdůležitější je, že před tím, než se rozhodnete vytvořit, si můžete prohlédnout podrobnosti nabídky, kterou vytvoříte.
+2. Zobrazí se uživatelské rozhraní s kartami, které umožňuje definovat název nabídky. Můžete také přidat existující a vytvořit nové základní plány a plány doplňku. Nejdůležitější je, že před tím, než se rozhodnete vytvořit, si můžete prohlédnout podrobnosti nabídky, kterou vytvoříte.
 
-   Na kartě **základy** zadejte **Zobrazovaný název** a **název prostředku**a potom v části **Skupina prostředků**vyberte **vytvořit novou** nebo **použít existující**. Zobrazovaný název je popisný název nabídky. Tento popisný název je jediná informace o nabídce, kterou uživatelé uvidí při přihlášení k odběru nabídky na portálu User Portal. Používejte intuitivní název, který uživatelům pomůže pochopit, co se dodává s nabídkou. Pouze správce může zobrazit název prostředku. Je to název, který správci používají pro práci s nabídkou jako s prostředkem Azure Resource Manageru. Na této kartě se můžete také rozhodnout, že tuto nabídku nastavíte jako veřejnou, nebo zachovat soukromou, což je výchozí nastavení. [Veřejný nebo soukromý stav této nabídky můžete změnit](#change-the-state-of-an-offer) také později.
+   Na kartě **základy** zadejte **Zobrazovaný název** a **název prostředku**a potom v části **Skupina prostředků**vyberte **vytvořit novou** nebo **použít existující**. Zobrazovaný název je popisný název nabídky. Tento popisný název je jediná informace o nabídce, kterou uživatelé uvidí při přihlášení k odběru nabídky na portálu User Portal. Používejte intuitivní název, který uživatelům pomůže pochopit, co se dodává s nabídkou. Pouze správce může zobrazit název prostředku. Je to název, který správci používají pro práci s nabídkou jako s prostředkem Azure Resource Manageru. Na této kartě se můžete také rozhodnout, že tuto nabídku nastavíte jako veřejnou, nebo ji uložíte soukromou. Výchozí nastavení je privátní. [Veřejný nebo soukromý stav nabídky](#change-the-state-of-an-offer) můžete kdykoli změnit.
 
-   ![Nová nabídka](media/azure-stack-create-offer/new-offer.png)
+   ![Nová nabídka v Azure Stack](media/azure-stack-create-offer/new-offer.png)
   
 3. Vyberte kartu **základní plány** nebo klikněte **na další: Tlačítko >** základní plány Vyberte plány, které chcete zahrnout do nabídky.
 
-   ![Vybrat plán](media/azure-stack-create-offer/select-plan.png)
+   ![Vyberte plán, který chcete zahrnout do nabídky Azure Stack](media/azure-stack-create-offer/select-plan.png)
 
-4. V tomto okamžiku můžete vytvořit plán doplňku pro úpravu základního plánu, ale to je volitelné. V dalším článku vytvoříme plán doplňku, [Azure Stackch plánů pro doplňky](create-add-on-plan.md).
+4. V tomto okamžiku můžete vytvořit plán doplňku pro úpravu základního plánu, ale to je volitelné. V dalším článku vytvoříme plán doplňku, [Azure Stack plánů pro doplňky](create-add-on-plan.md).
 
-5. Vyberte kartu **Revize + vytvořit** . Zkontrolujte souhrn nabídky a ujistěte se, že jsou všechny hodnoty správné. Rozhraní umožňuje rozšířit kvóty ve vybraných plánech, a to po jednom, aby se zobrazily podrobnosti o každé kvótě v plánu, a pak se vrátíme k provedení nezbytných úprav.
+5. Vyberte kartu **Revize + vytvořit** . Zkontrolujte souhrn nabídky a ujistěte se, že jsou všechny hodnoty správné. Rozhraní vám umožní rozšířit kvóty ve vybraných plánech po jednom, aby se zobrazily podrobnosti o každé kvótě v plánu. Můžete se také vrátit, abyste provedli nezbytné úpravy.
 
 6. Vyberte **vytvořit** a vytvořte nabídku.
 
-   ![Zkontrolujte a vytvořte](media/azure-stack-create-offer/review-offer.png)
+   ![Kontrola a vytvoření nabídky v Azure Stack](media/azure-stack-create-offer/review-offer.png)
 
 ### <a name="change-the-state-of-an-offer"></a>Změna stavu nabídky
 
@@ -60,17 +60,17 @@ Po vytvoření nabídky můžete změnit její stav. Aby mohli uživatelé získ
 - **Vyřazeno z provozu**: Uzavřeno pro nové předplatitele. Správce cloudu může vyřadit z provozu nabídky, aby nedocházelo k budoucím předplatným, ale neovlivnili stávající předplatitele.
 
   > [!TIP]  
-  > Změny nabídky se uživateli nezobrazují okamžitě. Aby se změny projevily, uživatelé se možná budou muset odhlásit a znovu přihlásit na portál User Portal, aby se nová nabídka zobrazila.
+  > Změny nabídky nejsou okamžitě viditelné pro uživatele. Aby se změny projevily, uživatelé se možná budou muset odhlásit a znovu přihlásit na portál User Portal, aby se nová nabídka zobrazila.
 
 Existují dva způsoby, jak změnit stav nabídky:
 
 1. V části **všechny prostředky**vyberte název nabídky. Na obrazovce **Přehled** pro nabídku vyberte **změnit stav**. Vyberte stav, který chcete použít (například **Public**).
 
-   ![Zvolit stav](media/azure-stack-create-offer/change-state.png)
+   ![Změnit stav nabídky Azure Stack](media/azure-stack-create-offer/change-state.png)
 
 2. Vyberte **nastavení nabídky**. Zvolte stav, který chcete použít (například **Public**), a pak vyberte **Uložit**.
 
-   ![Vybrat stav přístupnosti](media/azure-stack-create-offer/offer-settings.png)
+   ![Nastavení nabídky Azure Stack](media/azure-stack-create-offer/offer-settings.png)
 ::: moniker-end
 
 ::: moniker range="<=azs-1901"
@@ -78,15 +78,15 @@ Existují dva způsoby, jak změnit stav nabídky:
 
 1. Přihlaste se na [portál pro správu Azure Stack](https://adminportal.local.azurestack.external) a vyberte **+ vytvořit prostředek**, pak **nabídky tenanta + plány**a potom **nabídku**.
 
-   ![Vytvoření nabídky](media/azure-stack-create-offer/image01.png)
+   ![Vytvoření nabídky ve službě Azure Stack](media/azure-stack-create-offer/image01.png)
   
 2. V části **Nová nabídka**zadejte **Zobrazovaný název** a **název prostředku**a potom v části **Skupina prostředků**vyberte **vytvořit novou** nebo **použít existující**. Zobrazovaný název je popisný název nabídky. Tento popisný název je jediná informace o nabídce, kterou uživatelé uvidí při přihlášení k odběru nabídky. Používejte intuitivní název, který uživatelům pomůže pochopit, co se dodává s nabídkou. Pouze správce může zobrazit název prostředku. Je to název, který správci používají pro práci s nabídkou jako s prostředkem Azure Resource Manageru.
 
-   ![Nová nabídka](media/azure-stack-create-offer/image01a.png)
+   ![Nová nabídka v Azure Stack](media/azure-stack-create-offer/image01a.png)
   
-3. Vyberte **základní plány** a otevřete **plán**. Vyberte plány, které chcete zahrnout do nabídky, a pak zvolte **Vybrat**. Pokud chcete vytvořit nabídku, vyberte **vytvořit**.
+3. Vyberte **základní plány** a otevřete **plán**. Vyberte plány, které chcete zahrnout do nabídky, a pak zvolte **Vybrat**. Chcete-li vytvořit nabídku, vyberte možnost **vytvořit**.
 
-   ![Vybrat plán](media/azure-stack-create-offer/image02.png)
+   ![Vyberte plán, který chcete zahrnout do nabídky Azure Stack](media/azure-stack-create-offer/image02.png)
   
 4. Po vytvoření nabídky můžete změnit její stav. Aby mohli uživatelé získat úplné zobrazení, když se přihlásí k odběru, je nutné nabídky **zveřejnit** . Nabídky můžou být:
 
@@ -95,21 +95,21 @@ Existují dva způsoby, jak změnit stav nabídky:
    - **Vyřazeno z provozu**: Uzavřeno pro nové předplatitele. Správce cloudu může vyřadit z provozu nabídky, aby nedocházelo k budoucím předplatným, ale neovlivnili stávající předplatitele.
 
    > [!TIP]  
-   > Změny nabídky se uživateli nezobrazují okamžitě. Aby se změny projevily, uživatelé se možná budou muset odhlásit a znovu přihlásit na portál User Portal, aby se nová nabídka zobrazila.
+   > Změny nabídky nejsou okamžitě viditelné pro uživatele. Aby se změny projevily, uživatelé se možná budou muset odhlásit a znovu přihlásit na portál User Portal, aby se nová nabídka zobrazila.
 
    Na obrazovce Přehled pro nabídku vyberte možnost **stav**přístupnosti. Zvolte stav, který chcete použít (například **Public**), a pak vyberte **Uložit**.
 
-     ![Zvolit stav](media/azure-stack-create-offer/change-stage-1807.png)
+     ![Změnit stav nabídky Azure Stack](media/azure-stack-create-offer/change-stage-1807.png)
 
      Jako alternativu vyberte **změnit stav** a pak zvolte stav.
 
-    ![Vybrat stav přístupnosti](media/azure-stack-create-offer/change-stage-select-1807.png)
+    ![Vyberte stav přístupnosti pro nabídku Azure Stack](media/azure-stack-create-offer/change-stage-select-1807.png)
 
 > [!NOTE]
 > PowerShell můžete také použít k vytvoření výchozích nabídek, plánů a kvót. Další informace najdete v tématu [Azure Stack 1.4.0 modulu PowerShellu](/powershell/azure/azure-stack/overview?view=azurestackps-1.4.0).
 ::: moniker-end
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 - [Vytvoření předplatných](azure-stack-subscribe-plan-provision-vm.md)
 - [Zřízení virtuálního počítače](../user/azure-stack-create-vm-template.md)

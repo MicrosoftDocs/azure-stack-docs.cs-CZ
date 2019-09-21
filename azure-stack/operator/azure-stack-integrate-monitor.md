@@ -15,12 +15,12 @@ ms.date: 06/05/2019
 ms.author: jeffgilb
 ms.reviewer: thoroet
 ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: 7b5bfb39c3ec14c23b1df54c13f2733724fcfe05
-ms.sourcegitcommit: ddb625bb01de11bfb75d9f7a1cc61d5814b3bc31
+ms.openlocfilehash: 489859720df8a2d0c20bb476b285fe9cb65b797e
+ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68712907"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71159633"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Integrace řešení pro externí monitorování pomocí Azure Stack
 
@@ -75,7 +75,7 @@ Modul plug-in Nagios monitoring byl vyvinut společně s partnerskými řešení
 
 Modul plug-in je napsaný v Pythonu a využívá poskytovatele prostředků stavu REST API. Nabízí základní funkce pro načítání a zavírání výstrah v Azure Stack. Podobně jako v rámci nástroje System Center Management Pack umožňuje přidat více nasazení Azure Stack a odesílat oznámení.
 
-S verzí 1,2 Azure Stack modul plug-in Nagios využívá knihovnu Microsoft ADAL Library a podporuje ověřování pomocí instančního objektu s tajným kódem nebo certifikátem. Konfigurace byla také zjednodušená pomocí jednoho konfiguračního souboru s novými parametry. Nyní podporuje Azure Stack nasazení pomocí služby AAD & služby AD FS jako systému identit.
+S verzí 1,2 Azure Stack modul plug-in Nagios využívá knihovnu Microsoft ADAL Library a podporuje ověřování pomocí instančního objektu s tajným kódem nebo certifikátem. Konfigurace byla také zjednodušená pomocí jednoho konfiguračního souboru s novými parametry. Teď podporuje Azure Stack nasazení pomocí služby Azure AD & AD FS jako systému identit.
 
 Modul plug-in funguje s Nagios 4x a XI. Můžete si ho stáhnout [tady](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details). Lokalita ke stažení obsahuje také podrobnosti o instalaci a konfiguraci.
 
@@ -244,6 +244,6 @@ Pokud nepoužíváte Operations Manager, Nagios nebo řešení založené na Nag
 
 Informace o integrovaném monitorování stavu najdete v tématu [monitorování stavu a výstrah v Azure Stack](azure-stack-monitor-health.md).
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 [Integrace zabezpečení](azure-stack-integrate-security.md)

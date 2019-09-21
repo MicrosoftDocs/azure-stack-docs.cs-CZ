@@ -15,12 +15,12 @@ ms.date: 05/16/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 90759186b008c41bd9b3e35bf368d4f819534823
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.openlocfilehash: fe10926fdcb3b01cef84e021300d37168c68ae0b
+ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70975068"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71159335"
 ---
 # <a name="connect-to-azure-stack"></a>Připojení ke službě Azure Stack
 
@@ -41,7 +41,7 @@ S Připojení ke vzdálené ploše může jeden souběžný uživatel pracovat s
 
 ## <a name="connect-to-azure-stack-with-vpn"></a>Připojení k Azure Stack pomocí sítě VPN
 
-K Azure Stack Development Kit můžete vytvořit připojení VPN typu dělené tunelové propojení. Prostřednictvím připojení VPN získáte přístup k portálu pro správu, uživatelskému portálu a místně nainstalovaným nástrojům, jako je Visual Studio a PowerShell, ke správě Azure Stackch prostředků. Připojení VPN se podporuje v nasazeních založeném na Azure Active Directory (AAD) i v Active Directory Federation Services (AD FS) (AD FS). Připojení VPN umožňují, aby se k Azure Stack současně připojovali více klientů. 
+K Azure Stack Development Kit můžete vytvořit připojení VPN typu dělené tunelové propojení. Prostřednictvím připojení VPN získáte přístup k portálu pro správu, uživatelskému portálu a místně nainstalovaným nástrojům, jako je Visual Studio a PowerShell, ke správě Azure Stackch prostředků. Připojení VPN se podporuje v nasazeních založeném na Azure Active Directory (Azure AD) i v Active Directory Federation Services (AD FS) (AD FS). Připojení VPN umožňují, aby se k Azure Stack současně připojovali více klientů. 
 
 > [!NOTE] 
 > Toto připojení VPN neposkytuje připojení k virtuálním počítačům infrastruktury Azure Stack. 
@@ -107,7 +107,7 @@ Připojte se k instanci Azure Stack pomocí některé z následujících dvou me
 
 Pokud chcete otestovat připojení k portálu, otevřete prohlížeč a navštivte Portál User Portal (https://portal.local.azurestack.external/), přihlaste se a pak vytvořte prostředky.  
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 
 
