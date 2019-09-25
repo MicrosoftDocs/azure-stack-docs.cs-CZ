@@ -15,12 +15,12 @@ ms.date: 09/14/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/14/2019
-ms.openlocfilehash: 7e2ac217ead86502513b7914a102a029f2472a40
-ms.sourcegitcommit: 09d14eb77a43fd585e7e6be93c32fa427770adb6
+ms.openlocfilehash: 9c600451070373d10ee943d8e497693d89708801
+ms.sourcegitcommit: 4e48f1e5af74712a104eda97757dc5f50a591936
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71019356"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71224967"
 ---
 # <a name="install-the-aks-engine-on-linux-in-azure-stack"></a>Instalace modulu AKS v systému Linux v Azure Stack
 
@@ -43,13 +43,13 @@ Můžete nainstalovat klientský virtuální počítač pro správu clusteru Kub
 
 1. Ve svém Azure Stack vytvořte virtuální počítač se systémem Linux. Pokyny najdete v tématu [rychlý Start: Vytvořte virtuální počítač s Linux serverem pomocí portálu](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-linux-portal)Azure Stack.
 2. Připojte se k VIRTUÁLNÍmu počítači.
-3. Vyhledá verzi AKS Engine v tabulce [podporovaných verzí Kubernetes](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions) . Základní modul AKS musí být k dispozici na webu Marketplace pro Azure Stack. Při spuštění příkazu zadáte verzi, například `--version v0.39.0`. Pokud nezadáte verzi, příkaz nainstaluje nejnovější verzi, která možná nebude dostupná na vašem webu Marketplace.
+3. Vyhledá verzi AKS Engine v tabulce [podporovaných verzí Kubernetes](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions) . Základní modul AKS musí být k dispozici na webu Marketplace pro Azure Stack. Při spuštění příkazu je nutné zadat verzi `--version v0.41.0`. Pokud nezadáte verzi, příkaz nainstaluje nejnovější verzi, která může potřebovat image VHD, která není na vašem webu Marketplace k dispozici.
 4. Spusťte následující příkaz:
 
     ```bash  
         curl -o get-akse.sh https://raw.githubusercontent.com/Azure/aks-engine/master/scripts/get-akse.sh
         chmod 700 get-akse.sh
-        ./get-akse.sh --version v0.XX.X
+        ./get-akse.sh --version v0.41.0
     ```
 
     > [!Note]  

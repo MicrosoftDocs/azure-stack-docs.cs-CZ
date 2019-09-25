@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 08/27/2019
 ms.author: mabrigg
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: 71855d557f26fc1eb4d86ab0d5a48bf8cf987506
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.openlocfilehash: e36f7c7f80de3cf0b822c4d145af411584ea38e4
+ms.sourcegitcommit: 4e48f1e5af74712a104eda97757dc5f50a591936
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70974680"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71225007"
 ---
 # <a name="use-azure-monitor-on-azure-stack"></a>Použít Azure Monitor na Azure Stack
 
@@ -41,8 +41,8 @@ Azure Monitor je služba platformy, která poskytuje jeden zdroj pro monitorová
 Zaregistrujte poskytovatele prostředků **Microsoft. Insights** v nastavení poskytovatelů prostředků nabídky vašeho předplatného. Můžete ověřit, jestli je poskytovatel prostředků dostupný v nabídce přidružené k vašemu předplatnému:
 
 1. Otevřete portál Azure Stack User Portal.
-2. Vyberte **nabídky**.
-3. Vyberte nabídku přidruženou k předplatnému.
+2. Vyberte **Předplatná**.
+3. Vyberte předplatné, které chcete zaregistrovat.
 4. V části nastavení vyberte **poskytovatelé prostředků** **.** 
 5. V seznamu vyhledejte **Microsoft. Insights** a ověřte, jestli je stav zaregistrovaný.
 
@@ -56,7 +56,7 @@ Jako je Azure Monitor v Azure Azure Monitor ve službě Azure Stack poskytuje z�
 
 Poskytovatel prostředků **Microsoft. COMPUTE** v Azure Stack zahrnuje:
  - Virtuální počítače 
- - Škálovací sady virtuálních počítačů
+ - Virtual Machine Scale Sets
 
 ### <a name="application---diagnostics-logs-app-logs-and-metrics"></a>Application – protokoly diagnostiky, protokoly aplikací a metriky
 

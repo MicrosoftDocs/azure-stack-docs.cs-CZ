@@ -11,12 +11,12 @@ ms.date: 07/31/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 07/31/2019
-ms.openlocfilehash: 8905a376a165776acde2fb792df1e8f35279140e
-ms.sourcegitcommit: e8f7fe07b32be33ef621915089344caf1fdca3fd
+ms.openlocfilehash: 685f2d868314610ea7c19443fe47f29182561a51
+ms.sourcegitcommit: 4e48f1e5af74712a104eda97757dc5f50a591936
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70118755"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71225013"
 ---
 # <a name="use-the-asdk-to-validate-an-azure-stack-backup"></a>Použití ASDK k ověření zálohy Azure Stack
 Po nasazení Azure Stack a zřízení prostředků uživatelů (například nabídek, plánů, kvót a předplatných) byste měli [povolit Azure Stack zálohování infrastruktury](../operator/azure-stack-backup-enable-backup-console.md). Plánování a spouštění pravidelných záloh infrastruktury zajistí, že data správy infrastruktury nebudou ztracena v případě závažného selhání hardwaru nebo služby.
@@ -59,7 +59,6 @@ Než začnete s nasazením cloudového obnovení ASDK, ujistěte se, že máte n
 |IP adresa časového serveru|Pro nasazení Azure Stack se vyžaduje platná časová IP adresa serveru, například 132.163.97.2.|
 |Heslo k externímu certifikátu|Heslo pro externí certifikát, který používá Azure Stack. Záloha certifikační autority obsahuje externí certifikáty, které je potřeba obnovit pomocí tohoto hesla.|
 |Záložní šifrovací klíč|Vyžaduje se, pokud jsou nastavení zálohování nakonfigurovaná pomocí šifrovacího klíče, který se už nepoužívá. Instalační program bude podporovat šifrovací klíč v režimu zpětné kompatibility pro nejméně 3 verze. Po aktualizaci nastavení zálohování pro použití certifikátu si přečtěte požadované informace v další tabulce.|
-
 |     |     | 
 
 **Požadavky na instalační program prostředí PowerShell**
@@ -89,9 +88,9 @@ $azsbackupshare = New-Item -Path $shares.FullName -Name "AzSBackups" -ItemType "
 New-SmbShare -Path $azsbackupshare.FullName -FullAccess ($env:computername + "\Administrator")  -Name "AzSBackups"
 ```
 
-Potom zkopírujte nejnovější Azure Stack záložní soubory do nově vytvořené sdílené složky. Struktura složek v rámci sdílené složky by měla být `\\<ComputerName>\AzSBackups\MASBackup\<BackupID>\`:.
+Potom zkopírujte nejnovější Azure Stack záložní soubory do nově vytvořené sdílené složky. Nezapomeňte zkopírovat nadřazenou složku `<BackupID>` složky, což je časové razítko při pořízení zálohy. Struktura složek v rámci sdílené složky by měla být `\\<ComputerName>\AzSBackups\MASBackup\<TimeStamp>\<BackupID>\`:. 
 
-Nakonec zkopírujte dešifrovací certifikát (. pfx) do adresáře certifikátu: `C:\CloudDeployment\Setup\Certificates\` a přejmenujte ho na. `BackupDecryptionCert.pfx`
+Nakonec zkopírujte dešifrovací certifikát (. pfx) do adresáře certifikátu: `C:\CloudDeployment\Setup\BackupDecryptionCert\` a přejmenujte ho na. `BackupDecryptionCert.pfx`
 
 ## <a name="deploy-the-asdk-in-cloud-recovery-mode"></a>Nasazení ASDK v režimu Cloud Recovery
 

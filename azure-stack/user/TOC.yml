@@ -274,6 +274,8 @@
           href: azure-stack-edge-pattern-cross-cloud-scaling.md
         - name: DevOps (hybridní CI/CD)
           href: azure-stack-edge-pattern-hybrid-ci-cd.md
+        - name: Detekce Footfall
+          href: hybrid-solution-retail-footfall-detection.md
         - name: Geograficky distribuovaná aplikace
           href: azure-stack-edge-pattern-geo-distribution.md
 - name: Reference

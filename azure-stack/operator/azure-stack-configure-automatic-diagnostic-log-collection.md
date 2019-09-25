@@ -16,12 +16,12 @@ ms.date: 07/25/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 07/25/2019
-ms.openlocfilehash: efab23f12086fee2e4f5c14a70f95717ac9669b9
-ms.sourcegitcommit: b752f4e6733d9ebe56dbd171a14528dcb9a693fd
+ms.openlocfilehash: 4d6bc431b292fc7a124aa2b8051d0a927d736eee
+ms.sourcegitcommit: 4e48f1e5af74712a104eda97757dc5f50a591936
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68522063"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71224955"
 ---
 # <a name="configure-automatic-azure-stack-diagnostic-log-collection"></a>Konfigurace automatického shromažďování protokolů Azure Stack diagnostiky
 
@@ -44,12 +44,12 @@ Osvědčené postupy při volbě parametrů pro účet úložiště automatické
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
 1. Klikněte na **účty** > úložiště**Přidat**. 
 1. Vytvořte kontejner objektů BLOB s těmito nastaveními:
-   - **Předplatné**: Zvolte svoje předplatné Azure.
+   - **Předplatné:** Zvolte svoje předplatné Azure.
    - **Skupina prostředků**: Zadejte skupinu prostředků.
    - **Název účtu úložiště**: Zadejte jedinečný název účtu úložiště.
-   - **Umístění**: V souladu se zásadami vaší společnosti vyberte datové centrum.
-   - **Výkon:** Vyberte Standard.
-   - **Druh účtu** Vyberte StorageV2 (obecné účely v2). 
+   - **Umístění**: Volba datového centra v souladu se zásadami vaší společnosti
+   - **Výkon:** Zvolit standard
+   - **Druh účtu** Zvolit StorageV2 (pro obecné účely v2) 
    - **Replikace**: Výběr místně redundantního úložiště (LRS)
    - **Úroveň přístupu**: Zvolit studenou
 
@@ -73,7 +73,7 @@ Osvědčené postupy při volbě parametrů pro účet úložiště automatické
    - Čas spuštění: Volitelně můžete přesunout čas zahájení zpět. 
    - Čas vypršení platnosti: Dva roky
    - Časové pásmo: UTC
-   - Oprávnění: Čtení, zápis a výpis
+   - Nastaven Čtení, zápis a výpis
 
    ![Snímek obrazovky se zobrazením vlastností sdíleného přístupového podpisu](media/azure-stack-automatic-log-collection/sas-properties.png) 
 
@@ -100,7 +100,6 @@ Pomocí těchto kroků přidejte adresu URL SAS do uživatelského rozhraní shr
 >[!NOTE]
 >Automatické shromažďování protokolů lze kdykoli zakázat a znovu povolit. Konfigurace adresy URL SAS se nemění. Pokud je automatické shromažďování protokolů znovu povolené, dříve zadaná adresa URL SAS bude podléhat stejným kontrolám ověření a adresa URL SAS, jejíž platnost vypršela, bude odmítnuta. 
 
-
 ## <a name="view-log-collection"></a>Zobrazit kolekci protokolů
 
 Historie protokolů shromážděných z Azure Stack se zobrazí na stránce **shromažďování protokolů** v nápovědě a podpoře s následujícími daty a časy:
@@ -116,6 +115,36 @@ Pokud shromažďování protokolů diagnostiky neproběhne úspěšně, ověřte
 Operátoři můžou také kontrolovat účet úložiště pro automaticky shromážděné protokoly. Tento snímek obrazovky například ukazuje kolekce protokolů pomocí Průzkumník služby Storage Preview z Azure Portal:
 
 ![Snímek obrazovky se zobrazením kolekcí protokolů](media/azure-stack-automatic-log-collection/check-storage-account.png)
+
+## <a name="automatic-diagnostic-log-collection-alerts"></a>Automatické výstrahy shromažďování protokolů diagnostiky 
+
+Pokud je povoleno, bude automatické shromažďování protokolů diagnostiky provedeno pouze v případě potřeby. Pouze následující kolekce triggerů výstrah. 
+
+|Název výstrahy  | FaultIdType|    
+|-------------|------------|
+|Nejde se připojit ke vzdálené službě |  UsageBridge.NetworkError|
+|Aktualizace se nezdařila. |    Urp.UpdateFailure   |          
+|Infrastruktura nebo závislosti poskytovatele prostředků úložiště nejsou k dispozici. |  StorageResourceProviderDependencyUnavailable     |     
+|Uzel není připojený k řadiči.|  ServerHostNotConnectedToController   |     
+|Selhání publikování trasy |    SlbMuxRoutePublicationFailure | 
+|Interní úložiště dat poskytovatele prostředků úložiště není dostupné. |    StorageResourceProvider. DataStoreConnectionFail     |       
+|Selhání úložného zařízení | Microsoft. Health. typ FaultType. VirtualDisks. odpojilo se   |      
+|Kontroler stavu nemá přístup k účtu úložiště | Microsoft. Health. typ FaultType. StorageError |    
+|Připojení k fyzickému disku bylo ztraceno. |    Microsoft. Health. typ FaultType. fyzický disk. LostCommunication    |    
+|Služba BLOB Service není spuštěná na uzlu. | StorageService. blob. Service. is. not. Running. on. Node-Critical | 
+|Role infrastruktury není v pořádku. |    Microsoft. Health. typ FaultType. GenericExceptionFault |        
+|Chyby služby Table service | StorageService. Table. Service. Errors – kritický |              
+|Sdílená složka je větší než 80% využití. |    Microsoft. Health. typ FaultType. sdílené složky. Capacity. Warning. |       
+|Uzel jednotky škálování je offline | FRP. Prezenční signál. PhysicalNode |  
+|Instance role infrastruktury není dostupná. | FRP. Prezenční signál. InfraVM   |    
+|Instance role infrastruktury není dostupná.  |    FRP. Prezenční signál. NonHaVm     |        
+|Role infrastruktury, Správa adresářů, ohlásila chyby synchronizace času. |  DirectoryServiceTimeSynchronizationError |     
+|Blížící se vypršení platnosti externího certifikátu |  CertificateExpiration. ExternalCert. Warning |
+|Blížící se vypršení platnosti externího certifikátu |  CertificateExpiration. ExternalCert. Critical |
+|Pro konkrétní třídu a velikost nejde zřídit virtuální počítače kvůli nedostatečné kapacitě paměti |  AzureStack. ComputeController. VmCreationFailure. LowMemory |
+|Nedostupný uzel pro umístění virtuálního počítače |  AzureStack. ComputeController. HostUnresponsive | 
+|Zálohování neproběhlo úspěšně  | AzureStack. BackupController. BackupFailedGeneralFault |    
+|Naplánované zálohování bylo přeskočeno z důvodu konfliktu s neúspěšnými operacemi.  | AzureStack. BackupController. BackupSkippedWithFailedOperationFault |   
 
 
 ## <a name="see-also"></a>Viz také:
