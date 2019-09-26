@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na (Kubernetes)
 ms.devlang: nav
 ms.topic: article
-ms.date: 09/14/2019
+ms.date: 09/25/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/14/2019
-ms.openlocfilehash: 7847d79d0f2816aa56940fd7b81d25cbb1a3a7f2
-ms.sourcegitcommit: 09d14eb77a43fd585e7e6be93c32fa427770adb6
+ms.lastreviewed: 09/25/2019
+ms.openlocfilehash: 70adb6abaefc81faf487bbae5c560cc67f705341
+ms.sourcegitcommit: d967cf8cae320fa09f1e97eeb888e3db5b6e7972
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71019213"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71279216"
 ---
 # <a name="scale-a-kubernetes-cluster-on-azure-stack"></a>Škálování clusteru Kubernetes na Azure Stack
 
@@ -46,7 +46,8 @@ Následující parametry používá příkaz Scale k vyhledání souboru definic
 | client-secret |  | Tajný klíč instančního objektu použitý při vytváření clusteru | 
 | rozhraní API – model | Kube-RG/apimodel. JSON | Cesta k souboru definice clusteru (apimodel. JSON) Může to být: _Output/\<pole dnsprefix >/apimodel.JSON | 
 | -New-Node-Count | 9 | Požadovaný počet uzlů. | 
-| – hlavní – plně kvalifikovaný název domény |  | Hlavní plně kvalifikovaný název domény. Nutné při horizontálním navýšení kapacity. | 
+| – hlavní – plně kvalifikovaný název domény |  | Hlavní plně kvalifikovaný název domény. Nutné při horizontálním navýšení kapacity. |
+| Identita – systém | službou | Volitelný parametr. Pokud používáte federované služby Active Directory (AD FS), zadejte svoje řešení pro správu identit. |
 
 Při škálování clusteru v Azure Stack musíte zadat parametr **– Azure-ENV** . Další informace o parametrech a jejich hodnotách, které se používají v příkazu **Scale** pro modul AKS, najdete v tématu [Scale-Parameters](https://github.com/Azure/aks-engine/blob/master/docs/topics/scale.md#parameters).
 
@@ -65,9 +66,10 @@ aks-engine scale \
     --api-model <path to your apomodel.json file>
     --new-node-count <desired node count> \
     --master-FQDN <master FQDN> \
+    --identity-system adfs # required if using AD FS
 ```
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 - Přečtěte si o modulu [AKS na Azure Stack](azure-stack-kubernetes-aks-engine-overview.md)
 - [Upgrade clusteru Kubernetes na Azure Stack](azure-stack-kubernetes-aks-engine-upgrade.md)

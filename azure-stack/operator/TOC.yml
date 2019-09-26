@@ -165,6 +165,8 @@
                   href: azure-stack-update-oem.md
             - name: Monitorování stavu aktualizace
               href: azure-stack-update-monitor.md
+            - name: Řešení potíží s aktualizacemi
+              href: azure-stack-updates-troubleshoot.md
         - name: Monitorování stavu a výstrah
           href: azure-stack-monitor-health.md
         - name: Správa síťových prostředků

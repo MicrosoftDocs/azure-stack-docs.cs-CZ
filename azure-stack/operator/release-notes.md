@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2019
+ms.date: 09/25/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 08/30/2019
-ms.openlocfilehash: 896169a39f450b0a0fb26699867638afb02f20a7
-ms.sourcegitcommit: 2c37ac8e88de19430080128bac1b70e33557d354
+ms.openlocfilehash: ed613e78cb2d592d40eb762f155e9e925f68721b
+ms.sourcegitcommit: d967cf8cae320fa09f1e97eeb888e3db5b6e7972
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71164266"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71279197"
 ---
 # <a name="azure-stack-updates-release-notes"></a>Aktualizace Azure Stack: poznámky k verzi
 
@@ -39,6 +39,16 @@ Pokud chcete získat přístup k poznámkám k verzi pro jinou verzi, použijte 
 > [!IMPORTANT]  
 > Pokud je vaše instance Azure Stack za více než dvěma aktualizacemi, je považována za nedodržující předpisy. Aby bylo možné [získat podporu, musíte aktualizovat aspoň minimální podporovanou verzi](azure-stack-servicing-policy.md#keep-your-system-under-support). 
 ::: moniker-end
+
+## <a name="update-planning"></a>Plánování aktualizací
+
+Před použitím této aktualizace se ujistěte, že si provedete následující informace:
+
+- [Známé problémy](known-issues.md)
+- [Aktualizace zabezpečení](release-notes-security-updates.md)
+- [Kontrolní seznam aktivit před a po instalaci aktualizace](release-notes-checklist.md)
+
+Nápovědu k řešení potíží s aktualizacemi a procesu aktualizace najdete v tématu [řešení potíží se opravami a aktualizacemi pro Azure Stack](azure-stack-updates-troubleshoot.md).
 
 <!---------------------------------------------------------->
 <!------------------- SUPPORTED VERSIONS ------------------->
@@ -93,14 +103,6 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 ## <a name="security-updates-1908"></a>Aktualizace zabezpečení
 
 Informace o aktualizacích zabezpečení v této aktualizaci Azure Stack najdete v tématu [Azure Stack aktualizace zabezpečení](release-notes-security-updates.md).
-
-## <a name="update-planning-1908"></a>Plánování aktualizací
-
-Před použitím této aktualizace se ujistěte, že si provedete následující informace:
-
-- [Známé problémy](known-issues.md)
-- [Aktualizace zabezpečení](release-notes-security-updates.md)
-- [Kontrolní seznam aktivit před a po instalaci aktualizace](release-notes-checklist.md)
 
 ## <a name="download-the-update-1908"></a>Stáhnout aktualizaci
 

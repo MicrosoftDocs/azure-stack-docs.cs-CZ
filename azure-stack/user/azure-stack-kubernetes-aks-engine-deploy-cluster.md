@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na (Kubernetes)
 ms.devlang: nav
 ms.topic: article
-ms.date: 09/14/2019
+ms.date: 09/25/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/14/2019
-ms.openlocfilehash: 8891ac7a1fb4b5b5af110e800f49c0d8fa873f66
-ms.sourcegitcommit: 09d14eb77a43fd585e7e6be93c32fa427770adb6
+ms.lastreviewed: 09/25/2019
+ms.openlocfilehash: 957ea4bc52e6f629ffd7fbd06a14d8dc2fb85021
+ms.sourcegitcommit: d967cf8cae320fa09f1e97eeb888e3db5b6e7972
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71019323"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71279177"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack"></a>Nasazení clusteru Kubernetes s modulem AKS na Azure Stack
 
@@ -108,6 +108,7 @@ Pokračujte v nasazení clusteru:
     | Parametr | Příklad | Popis |
     | --- | --- | --- |
     | Azure – ENV | AzureStackCloud | K indikaci AKS Engine, že vaše cílová platforma je Azure Stack `AzureStackCloud`použít. |
+    | Identita – systém | službou | Volitelný parametr. Pokud používáte federované služby Active Directory (AD FS), zadejte svoje řešení pro správu identit. |
     | location | místní | Název oblasti pro váš Azure Stack. Pro ASDK oblasti je nastavena na `local`. |
     | resource-group | Kube – RG | Zadejte název nové skupiny prostředků nebo vyberte existující skupinu prostředků. Název prostředku musí být alfanumerické znaky a malá písmena. |
     | rozhraní API – model | ./kubernetes-azurestack.json | Cesta ke konfiguračnímu souboru clusteru nebo modelu rozhraní API. |
@@ -119,15 +120,16 @@ Pokračujte v nasazení clusteru:
     Zde naleznete příklad:
 
     ```bash  
-    aks-engine deploy \\
-    --azure-env AzureStackCloud
-    --location <for asdk is local>\\
-    --resource-group kube-rg \\
-    --api-model ./kubernetes-azurestack.json \\
-    --output-directory kube-rg \\
-    --client-id xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx \\
-    --client-secret xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx \\
-    --subscription-id xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+    aks-engine deploy \
+    --azure-env AzureStackCloud \
+    --location <for asdk is local> \
+    --resource-group kube-rg \
+    --api-model ./kubernetes-azurestack.json \
+    --output-directory kube-rg \
+    --client-id xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx \
+    --client-secret xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx \
+    --subscription-id xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx \
+    --identity-system adfs # required if using AD FS
     ```
 
 2.  Pokud z nějakého důvodu spuštění selhalo po vytvoření výstupního adresáře, můžete problém vyřešit a znovu spustit příkaz. Pokud znovu spustíte nasazení a předtím používali stejný výstupní adresář, modul AKS vrátí chybu oznamující, že adresář již existuje. Existující adresář můžete přepsat pomocí příznaku: `--force-overwrite`.

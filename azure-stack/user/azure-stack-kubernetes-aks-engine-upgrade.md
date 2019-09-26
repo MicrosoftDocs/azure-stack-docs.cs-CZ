@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na (Kubernetes)
 ms.devlang: nav
 ms.topic: article
-ms.date: 09/14/2019
+ms.date: 09/25/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/14/2019
-ms.openlocfilehash: 280c5bf6a09670479a8497ecedb0364e6e27f949
-ms.sourcegitcommit: 09d14eb77a43fd585e7e6be93c32fa427770adb6
+ms.lastreviewed: 09/25/2019
+ms.openlocfilehash: 377857019e6a4d55e6a9372296817e1776c081c9
+ms.sourcegitcommit: d967cf8cae320fa09f1e97eeb888e3db5b6e7972
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71019202"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71279149"
 ---
 # <a name="upgrade-a-kubernetes-cluster-on-azure-stack"></a>Upgrade clusteru Kubernetes na Azure Stack
 
@@ -87,7 +87,7 @@ Při upgradu produkčního clusteru Vezměte v úvahu:
     | rozhraní API – model | ./kubernetes-azurestack.json | Cesta ke konfiguračnímu souboru clusteru nebo modelu rozhraní API. |
     | ID klienta | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Zadejte identifikátor GUID instančního objektu služby. ID klienta identifikované jako ID aplikace, když správce Azure Stack vytvořil instanční objekt. |
     | client-secret | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Zadejte tajný klíč objektu služby. Toto je tajný kód klienta, který jste nastavili při vytváření služby. |
-
+    | Identita – systém | službou | Volitelný parametr. Pokud používáte federované služby Active Directory (AD FS), zadejte svoje řešení pro správu identit. |
 
 4. Po zadání vašich hodnot spusťte následující příkaz:
 
@@ -100,7 +100,8 @@ Při upgradu produkčního clusteru Vezměte v úvahu:
     --api-model kube-rg/apimodel.json \
     --upgrade-version 1.13.5 \
     --client-id xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx \
-    --client-secret xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+    --client-secret xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx \
+    --identity-system adfs # required if using AD FS
     ```
 
 5.  Pokud z nějakého důvodu dojde k selhání operace upgradu, po vyřešení problému můžete znovu spustit příkaz pro upgrade. Modul AKS bude pokračovat v operaci, kde se předchozí krok nezdařil.
@@ -124,7 +125,7 @@ Můžou nastat situace, kdy budete chtít vynutit upgrade clusteru. Například 
 
 Pokyny najdete v tématu [vynucení upgradu](https://github.com/Azure/aks-engine/blob/master/docs/topics/upgrade.md#force-upgrade).
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 - Přečtěte si o modulu [AKS na Azure Stack](azure-stack-kubernetes-aks-engine-overview.md)
 - [Škálování clusteru Kubernetes na Azure Stack](azure-stack-kubernetes-aks-engine-scale.md)

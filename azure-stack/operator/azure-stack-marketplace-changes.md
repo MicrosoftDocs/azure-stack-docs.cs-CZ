@@ -15,12 +15,12 @@ ms.date: 08/09/2019
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 07/31/2019
-ms.openlocfilehash: 123849750cbfb343fc63cb43376651a6554ab6b4
-ms.sourcegitcommit: 6239b35370d21852529978777c0e39cfba5a4552
+ms.openlocfilehash: 878e4712cf805fec188645e92784beaf6a19d591
+ms.sourcegitcommit: d967cf8cae320fa09f1e97eeb888e3db5b6e7972
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68917556"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71279122"
 ---
 # <a name="azure-stack-marketplace-changes"></a>Změny Azure Stack Marketplace
 
@@ -30,49 +30,58 @@ Tento článek popisuje poslední dodatky, aktualizace, změny a [Azure Stack od
 
 ## <a name="new-marketplace-items"></a>Nové položky Marketplace
 
-- 1/25/2019: A10 vThunder: L4 – kontroler doručování aplikací pro L7, globální vyrovnávání zatížení serveru (GSLB), přehled SSL
+- 08/05/2019: Bitnami Drupal
 
-- 6/14/2019: Veeam® Backup & replikace™
+- 08/05/2019: Bitnami etcd
 
-- 08/05/2019: Drupal
+- 08/05/2019: Bitnami Grafana
 
-- 08/05/2019: etcd
+- 08/05/2019: Bitnami Neo4j
 
-- 08/05/2019: Grafana
+- 08/05/2019: Server analýzy Bitnami
 
-- 08/05/2019: Neo4j
+- 08/05/2019: Bitnami WordPress ve více lokalitách
 
-- 08/05/2019: Parsovat server
+- 08/05/2019: Bitnami ZooKeeper
 
-- 08/05/2019: Víc lokalit WordPress
+- 08/05/2019: Bitnami TensorFlow obsluhující
 
-- 08/05/2019: ZooKeeper
+- 08/05/2019: Bitnami NAT
 
-- 08/05/2019: Obsluha TensorFlow
+- 08/05/2019: Bitnamiá šachovnice
 
-- 08/05/2019: PŘEKLADU ADRES
-
-- 08/05/2019: Review Board
-
-- 08/05/2019: Sestavitel
+- 08/05/2019: Bitnami sestavitel
 
 - 08/09/2019: Oracle Linux
 
+- 08/19/2019: Platforma pro datové vědy v Iguazio
+
+
 ## <a name="deprecated-marketplace-items"></a>Zastaralé položky Marketplace
 
-- Codiad
+- codiad
 - X2Engine Sales CRM
 - SugarCRM
 - Cluster s vysokou dostupností Node. js
+- A10 vThunder: L4 – kontroler doručování aplikací pro L7, globální vyrovnávání zatížení serveru (GSLB), přehled SSL
+- Rozšíření JsonADDomain
 
 ## <a name="updated-marketplace-items"></a>Aktualizované položky Marketplace
 
-- 07/30/2019: SQL Server 2016 SP1 (edice Express, Developer, Standard a Enterprise) 13.2.20190410
-- 07/30/2019: SQL Server 2016 SP2 (edice Express, Developer, Standard a Enterprise) 13.2.20190410
-- 07/30/2019: SQL Server 2017 (edice Express, Developer, Standard a Enterprise) 14.0.20190410
-- 07/30/2019: SQLIaaSExtension 1.3.20180
+- 07/30/2019: SQL Server 2016 SP1 (edice Express, Developer, Standard a Enterprise) – verze 13.2.20190410
+- 07/30/2019: SQL Server 2016 SP2 (edice Express, Developer, Standard a Enterprise) – verze 13.2.20190410
+- 07/30/2019: SQL Server 2017 (edice Express, Developer, Standard a Enterprise) – verze 14.0.20190410
+- 07/30/2019: SQLIaaSExtension – verze 1.3.20180
+- 08/08/2019: Rozšíření dodavatelů CloudLink SecureVM pro Linux – verze 6,8
+- 08/08/2019: Rozšíření dodavatelů CloudLink SecureVM pro Windows – verze 6,8
+- 08/30/2019: Azure Stack Kubernetes clusteru – verze 0.5.1
+- 09/02/2019: AKS Base image – verze 2019.08.09 a verze 2019.08.21
+- 09/12/2019: Service Fabric verze 1.0.3
+- 09/24/2019: F5 – sítě – Virtual Edition Big-IP – verze 14.1.200000
+- 09/25/2019: Debian 8 – verze 8.0.20190806
 
-## <a name="next-steps"></a>Další postup
+
+## <a name="next-steps"></a>Další kroky
 
 Další informace o Azure Stack Marketplace najdete v následujících článcích:
 
