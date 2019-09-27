@@ -3,7 +3,7 @@ title: Vytvořte předplatné s nabídkou v Azure Stack | Microsoft Docs
 description: Naučte se, jak vytvořit nové předplatné s nabídkou v Azure Stack a pak otestovat nabídku pomocí testovacího virtuálního počítače.
 services: azure-stack
 documentationcenter: ''
-author: sethmanheim
+author: bryanla
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/04/2019
-ms.author: sethm
+ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 11/13/2018
-ms.openlocfilehash: 5b72ccee255aadd5d8f42aefea9e397ba310812c
-ms.sourcegitcommit: 72d45bb935db0db172d4d7c37d8e48e79e25af64
+ms.openlocfilehash: f47278fed9cd9e93024d37a0a433388594bbd124
+ms.sourcegitcommit: 1bae55e754d7be75e03af7a4db3ec43fd7ff3e9c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68376804"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71319158"
 ---
 # <a name="tutorial-create-and-test-a-subscription-in-azure-stack"></a>Kurz: Vytvoření a otestování předplatného v Azure Stack
 
@@ -54,7 +54,7 @@ Pokud se chcete přihlásit k odběru nabídky jako uživatel, přihlaste se k p
    > [!TIP]
    > Aktualizujte portál User Portal, abyste mohli začít používat vaše předplatné.
 
-3. Pokud chcete zobrazit předplatné, které jste vytvořili, vyberte **všechny služby**. Pak v kategorii **Obecné** vyberte předplatná a potom vyberte nové předplatné. Po přihlášení k odběru nabídky aktualizujte portál a podívejte se, jestli byly nové služby zahrnuté jako součást nového předplatného. V tomto příkladu se přidaly **virtuální počítače** .
+3. Pokud chcete zobrazit předplatné, které jste vytvořili, vyberte **všechny služby**. Pak v kategorii **Obecné** vyberte předplatnáa potom vyberte nové předplatné. Po přihlášení k odběru nabídky aktualizujte portál a podívejte se, jestli byly nové služby zahrnuté jako součást nového předplatného. V tomto příkladu se přidaly **virtuální počítače** .
 
    ![Zobrazit předplatné](media/azure-stack-subscribe-services/view-subscription.png)
 

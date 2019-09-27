@@ -12,24 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 09/26/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 7946b8339c9ff1127c0a9d9572c49527208b38f2
-ms.sourcegitcommit: e8f7fe07b32be33ef621915089344caf1fdca3fd
+ms.openlocfilehash: ab43d94c2e65032e5e525ec000e38cacb01b2980
+ms.sourcegitcommit: 1bae55e754d7be75e03af7a4db3ec43fd7ff3e9c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70118662"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71319093"
 ---
 # <a name="troubleshoot-the-asdk"></a>Řešení potíží s ASDK
-Tento článek poskytuje běžné informace pro řešení potíží s Azure Stack Development Kit (ASDK). Pokud jste narazili na problém, který není dokumentován, zkontrolujte, zda je na [webu MSDN fórum Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) , kde najdete pomoc.  
+Tento článek poskytuje běžné informace pro řešení potíží s Azure Stack Development Kit (ASDK). Nápovědu k Azure Stack integrovaným systémům najdete v tématu [řešení potíží s Microsoft Azure Stack](../operator/azure-stack-troubleshooting.md). 
 
-> [!IMPORTANT]
-> Vzhledem k tomu, že ASDK je zkušební prostředí, není oficiální podpora nabídnuta prostřednictvím služeb Microsoft Customer Support Services (CSS).
+Vzhledem k tomu, že ASDK je zkušební prostředí, Microsoft Customer Support Services (CSS) neposkytuje podporu. Pokud jste narazili na problém, který není dokumentován, můžete získat pomoc od expertů na [Azure Stack Fórum MSDN](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). 
 
-Doporučení pro řešení problémů popsaných v této části jsou odvozena z několika zdrojů a mohou nebo nemusí vyřešit váš konkrétní problém. Příklady kódu jsou poskytovány "tak, jak jsou" a očekávané výsledky nelze zaručit. Tato část podléhá častým úpravám a aktualizacím, protože jsou implementována vylepšení produktu.
 
 ## <a name="deployment"></a>Nasazení
 ### <a name="deployment-failure"></a>Selhání nasazení
@@ -50,15 +48,15 @@ Před nasazením virtuálních počítačů v Azure Stack je třeba přidat polo
 ### <a name="after-restarting-my-azure-stack-host-some-vms-dont-automatically-start"></a>Po restartování Azure Stack hostitele se některé virtuální počítače automaticky nespustí.
 Po restartování hostitele si můžete všimnout, že Azure Stack Services nejsou hned k dispozici. Důvodem je to, že [virtuální počítače Azure Stack infrastruktury](asdk-architecture.md#virtual-machine-roles) a RPS nějakou dobu nekontrolují konzistenci, ale nakonec se spustí automaticky.
 
-Můžete si také všimnout, že se virtuální počítače tenanta po restartování hostitele ASDK automaticky nespustí. Jedná se o známý problém a jenom pár ručních kroků, které je potřeba převést do režimu online:
+Můžete si také všimnout, že se virtuální počítače tenanta po restartování hostitele ASDK automaticky nespustí. Můžete je převést do online režimu pomocí několika ručních kroků:
 
 1.  Na hostiteli ASDK spusťte **Správce clusteru s podporou převzetí služeb při selhání** v nabídce Start.
 2.  Vyberte cluster **S-cluster. azurestack. Local**.
 3.  Vyberte **role**.
 4.  Virtuální počítače tenanta se zobrazí v uloženém stavu. Jakmile budou všechny virtuální počítače infrastruktury spuštěné, klikněte pravým tlačítkem na virtuální počítače tenanta a výběrem **Spustit spusťte** obnovení virtuálního počítače.
 
-### <a name="ive-deleted-some-vms-but-still-see-the-vhd-files-on-disk-is-this-behavior-expected"></a>Odstranili jsme některé virtuální počítače, ale pořád se na disku zobrazují soubory VHD. Je toto chování očekávané?
-Ano, toto chování je očekávané. To je navrženo tímto způsobem:
+### <a name="ive-deleted-some-vms-but-still-see-the-vhd-files-on-disk"></a>Odstranili jsme některé virtuální počítače, ale pořád se na disku zobrazují soubory VHD 
+Toto chování je záměrné:
 
 * Při odstranění virtuálního počítače se virtuální pevné disky neodstraňují. Disky jsou samostatné prostředky ve skupině prostředků.
 * Když se účet úložiště odstraní, odstraní se hned po Azure Resource Manager, ale disky, které můžou obsahovat, se pořád uchovávají v úložišti, až do doby, než se spustí shromažďování paměti.
@@ -71,5 +69,5 @@ Další informace o konfiguraci prahové hodnoty pro uchování a opětovného z
 ### <a name="storage-reclamation"></a>Recyklace úložiště
 Může trvat až 14 hodin, než se kapacita uvolní, aby se na portálu zobrazovala. Recyklace místa závisí na různých faktorech, včetně procentuálního využití vnitřních souborů kontejneru v úložišti objektů blob bloku. V závislosti na tom, kolik dat je odstraněno, však není nijak zaručeno množství místa, které by mohlo být uvolněno při spuštění systému uvolňování paměti.
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 [Navštívit fórum podpory Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)

@@ -12,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2019
+ms.date: 09/26/2019
 ms.author: justinha
 ms.reviewer: prchint
-ms.lastreviewed: 09/04/2019
-ms.openlocfilehash: a9d62640b2baabfd3283099656719a880dd0a41b
-ms.sourcegitcommit: a8379358f11db1e1097709817d21ded0231503eb
+ms.lastreviewed: 09/26/2019
+ms.openlocfilehash: 865592d476eadaa847c4b46ff2a802f5fa0cc63e
+ms.sourcegitcommit: 1bae55e754d7be75e03af7a4db3ec43fd7ff3e9c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70377250"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71319077"
 ---
 # <a name="microsoft-azure-stack-troubleshooting"></a>Řešení potíží s Microsoft Azure Stack
 
-Tento dokument poskytuje informace pro řešení potíží s Azure Stack. 
+Tento dokument poskytuje informace pro řešení potíží s Azure Stack integrovanými prostředími. Nápovědu k Azure Stack Development Kit najdete v tématu [řešení potíží s ASDK](../asdk/asdk-troubleshooting.md) nebo Získejte pomoc od odborníků na [Azure Stack MSDN fóra](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). 
 
 
 ## <a name="frequently-asked-questions"></a>Nejčastější dotazy
@@ -36,10 +36,6 @@ Tyto části obsahují odkazy na dokumenty, které pokrývají běžné otázky 
 
 * [Možnosti nákupu](https://azure.microsoft.com/overview/azure-stack/how-to-buy/)
 * [Přehled Azure Stack](azure-stack-overview.md)
-
-### <a name="azure-stack-development-kit-asdk"></a>Azure Stack Development Kit (ASDK)
-
-Pro nápovědu k [Azure Stack Development Kit](../asdk/asdk-what-is.md)se můžete obrátit na odborníky na [webu Azure Stack MSDN](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). ASDK se nabízí jako zkušební prostředí bez podpory šablon stylů CSS. Případy podpory otevřené pro ASDK se označují jako Fórum MSDN.
 
 ### <a name="updates-and-diagnostics"></a>Aktualizace a diagnostika
 
@@ -64,7 +60,7 @@ Pokud chcete zvýšit celkovou dostupnou kapacitu paměti pro službu Azure Stac
 
 #### <a name="retention-period"></a>Období udržení
 
-Nastavení doby uchovávání umožňuje operátorovi cloudu nastavit časové období ve dnech (od 0 do 9 999 dnů), během kterého je potenciálně možné obnovit jakýkoli odstraněný účet. Výchozí doba uchovávání je nastavená na 0 dnů. Nastavení na hodnotu 0 znamená, že se všechny odstraněné účty okamžitě vyjmou z uchovávání a označí se pro pravidelné uvolňování paměti.
+Nastavení doby uchovávání umožňuje operátorovi cloudu nastavit časové období ve dnech (od 0 do 9 999 dnů), během kterého je potenciálně možné obnovit jakýkoli odstraněný účet. Výchozí doba uchování je nastavená na **0** dní. Nastavení hodnoty na **0** znamená, že libovolný odstraněný účet je ihned neuchováván a označený pro periodické uvolňování paměti.
 
 * [Nastavení doby uchovávání](azure-stack-manage-storage-accounts.md#set-the-retention-period)
 
@@ -95,9 +91,6 @@ Zvolte typ účtu sdílených služeb, který používáte pro službu Azure Sta
 ### <a name="general-deployment-failure"></a>Obecné selhání nasazení
 Pokud při instalaci dojde k chybě, můžete restartovat nasazení z neúspěšného kroku pomocí možnosti-znovu spustit ve skriptu nasazení.  
 
-### <a name="at-the-end-of-asdk-deployment-the-powershell-session-is-still-open-and-doesnt-show-any-output"></a>Na konci nasazení ASDK je relace PowerShellu stále otevřená a nezobrazuje žádný výstup.
-Toto chování je pravděpodobně pouze výsledkem výchozího chování okna příkazového řádku prostředí PowerShell, když bylo vybráno. Nasazení vývojářské sady bylo úspěšné, ale při výběru okna byl skript pozastaven. Dokončení instalace můžete ověřit tak, že si vyhledáte slovo "vybrat" v záhlaví okna příkazového řádku. Stisknutím klávesy ESC zrušte výběr a po ní by se měla zobrazit zpráva o dokončení.
-
 ### <a name="deployment-fails-due-to-lack-of-external-access"></a>Nasazení se nezdařilo z důvodu nedostatku externího přístupu.
 Pokud se nasazení nezdaří ve fázích, kde je vyžadován externí přístup, bude vrácena výjimka jako v následujícím příkladu:
 
@@ -108,9 +101,9 @@ An error occurred while trying to test identity provider endpoints: System.Net.W
 ```
 Pokud dojde k této chybě, zkontrolujte, zda jsou splněny všechny minimální požadavky na síť v dokumentaci k [provozu sítě nasazení](deployment-networking.md). Nástroj pro kontrolu sítě je k dispozici také pro partnery jako součást sady partner Toolkit.
 
-Selhání nasazení s výše uvedenou výjimkou jsou obvykle způsobeny problémy s připojením k prostředkům na internetu.
+K ostatním selháním nasazení obvykle dochází v důsledku potíží s připojením k prostředkům na internetu.
 
-Pokud chcete ověřit, že se jedná o váš problém, můžete provést následující kroky:
+Pokud chcete ověřit připojení k prostředkům na internetu, můžete provést následující kroky:
 
 1. Otevřít PowerShell
 2. Zadejte-PSSession k WAS01 nebo libovolnému virtuálnímu počítači ERCs
@@ -122,18 +115,9 @@ Pokud tento příkaz neproběhne úspěšně, ověřte, zda je přepínač pro o
 ### <a name="default-image-and-gallery-item"></a>Výchozí položka obrázku a galerie
 Před nasazením virtuálních počítačů v Azure Stack je třeba přidat položku galerie a image Windows serveru.
 
-### <a name="after-restarting-my-azure-stack-host-some-vms-may-not-automatically-start"></a>Po restartování Azure Stack hostitele se některé virtuální počítače nemusí automaticky spustit.
-Po restartování hostitele si můžete všimnout, že Azure Stack služby nejsou hned k dispozici.  Důvodem je to, že [virtuální počítače Azure Stack infrastruktury](../asdk/asdk-architecture.md#virtual-machine-roles ) a poskytovatelé prostředků nějakou dobu nějakým účelem kontrolují konzistenci, ale nakonec se spustí automaticky.
 
-Můžete si také všimnout, že se virtuální počítače tenanta po restartování hostitele vývojové sady Azure Stack automaticky nespustí. Jedná se o známý problém a jenom pár ručních kroků, které je potřeba převést do režimu online:
-
-1.  Na hostiteli Azure Stack Development Kit spusťte **Správce clusteru s podporou převzetí služeb při selhání** z nabídky Start.
-2.  Vyberte cluster **S-cluster. azurestack. Local**.
-3.  Vyberte **role**.
-4.  Virtuální počítače tenanta se zobrazí v *uloženém* stavu. Jakmile budou všechny virtuální počítače infrastruktury spuštěné, klikněte pravým tlačítkem na virtuální počítače tenanta a vyberte **Spustit** , aby se obnovily.
-
-### <a name="i-have-deleted-some-virtual-machines-but-still-see-the-vhd-files-on-disk-is-this-behavior-expected"></a>Odstranil (a) jsem některé virtuální počítače, ale pořád na disku uvidí soubory VHD. Je toto chování očekávané?
-Ano, toto chování je očekávané. Bylo navrženo tímto způsobem:
+### <a name="i-have-deleted-some-virtual-machines-but-still-see-the-vhd-files-on-disk"></a>Odstranil (a) jsem některé virtuální počítače, ale pořád zobrazuje soubory VHD na disku
+Toto chování je záměrné:
 
 * Při odstranění virtuálního počítače se virtuální pevné disky neodstraňují. Disky jsou samostatné prostředky ve skupině prostředků.
 * Když se účet úložiště odstraní, odstraní se hned po Azure Resource Manager, ale disky, které můžou obsahovat, se pořád uchovávají v úložišti, až do doby, než se spustí shromažďování paměti.

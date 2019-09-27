@@ -3,7 +3,7 @@ title: Vytvořit nabídku v Azure Stack | Microsoft Docs
 description: Naučte se, jak vytvořit nabídku pro uživatele v Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: sethmanheim
+author: bryanla
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/11/2019
-ms.author: sethm
+ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 06/11/2019
-ms.openlocfilehash: 4f49d3205c53c7e795bd0c3dbb37564f86e802d1
-ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
+ms.openlocfilehash: 14f2300be0309cbd47b1481a4a52b02331f120a4
+ms.sourcegitcommit: 1bae55e754d7be75e03af7a4db3ec43fd7ff3e9c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71159758"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71319205"
 ---
 # <a name="create-an-offer-in-azure-stack"></a>Vytvoření nabídky ve službě Azure Stack
 

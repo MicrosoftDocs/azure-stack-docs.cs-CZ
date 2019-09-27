@@ -3,7 +3,7 @@ title: Odstranění kvót, plánů, nabídek a předplatných | Microsoft Docs
 description: Naučte se odstraňovat Azure Stack kvóty, plány, nabídky a odběry.
 services: azure-stack
 documentationcenter: ''
-author: sethmanheim
+author: bryanla
 manager: femila
 ms.assetid: ''
 ms.service: azure-stack
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/13/2019
-ms.author: sethm
+ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 04/25/2019
-ms.openlocfilehash: fca26723c062dd9f5155030fb11c8e1d695bf5f1
-ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
+ms.openlocfilehash: e89fcb3c218ab8b7228b63211b9f94c7e03d9865
+ms.sourcegitcommit: 1bae55e754d7be75e03af7a4db3ec43fd7ff3e9c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68991812"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71319133"
 ---
 # <a name="delete-quotas-plans-offers-and-subscriptions"></a>Odstranění kvót, plánů, nabídek a předplatných
 
@@ -32,9 +32,9 @@ Odběry jsou výjimkou tohoto obecného principu: můžete odstranit odběry, kt
 
 Proto pokud chcete kvótu odstranit, musíte se vrátit zpátky pomocí všech plánů a nabídek, které tuto kvótu používají: počínaje nabídkami, zajistěte, aby nemají žádná předplatná, odstraňte jednotlivé nabídky a pak odstraňte plány, které kvótu používají, a tak dále.
 
-## <a name="delete-a-subscription"></a>Odstraní předplatné
+## <a name="delete-a-subscription"></a>Odstranění předplatného
 
-Pokud chcete odběr odstranit, vyberte **všechny služby**a potom **předplatné uživatele**, abyste zobrazili seznam všech předplatných v systému. Pokud pracujete na nabídce, můžete také vybrat předplatná.
+Pokud chcete odběr odstranit, vyberte **všechny služby**a potom **předplatné uživatele**, abyste zobrazili seznam všech předplatných v systému. Pokud pracujete na nabídce, můžete také vybrat **předplatná** .
 
 Odběry můžete z tohoto seznamu odstranit, nebo můžete pomocí prostředí PowerShell napsat skript, který odstraní všechna předplatná, a to pomocí příkazů popsaných v části [předplatná-odstranit odkaz](/rest/api/azurestack/subscriptions/delete).
 
@@ -76,7 +76,7 @@ Případně můžete některé kvóty odstranit pomocí těchto rozhraní REST A
 > [!NOTE]
 > Kvótu nemůžete odstranit, pokud existují nějaké aktuální plány, které ji používají. Nejdříve je nutné odstranit plán, který odkazuje na kvótu.
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 - [Vytvoření předplatných](azure-stack-subscribe-plan-provision-vm.md)
 - [Zřízení virtuálního počítače](../user/azure-stack-create-vm-template.md)

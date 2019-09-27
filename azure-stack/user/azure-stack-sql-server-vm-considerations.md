@@ -16,12 +16,12 @@ ms.date: 04/02/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: d054f4ad45f27994c7ef6fc5e52f07eb1fa7f761
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.openlocfilehash: eca886314388f404e7a26a22f7a3b03294ff0577
+ms.sourcegitcommit: 5e53eb5d43d28ab07b4f84891dd269bbfcf65622
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70974635"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71311297"
 ---
 # <a name="sql-server-best-practices-to-optimize-performance-in-azure-stack"></a>Osvědčené postupy k SQL serveru pro optimalizaci výkonu v Azure Stack
 
@@ -98,12 +98,12 @@ Databázi TempDB doporučujeme uložit na datový disk, protože každý datový
 
 ### <a name="data-disks"></a>Datové disky
 
-- **Použití datových disků pro data a soubory protokolů.** Pokud nepoužíváte diskový disk, použijte dva datové disky z virtuálního počítače, který podporuje Premium Storage, kde jeden disk obsahuje soubory protokolu a druhý obsahuje data a soubory TempDB. Každý datový disk poskytuje množství vstupně-výstupních operací a šířky pásma (MB/s) v závislosti na rodině virtuálních počítačů, jak je popsáno v tématu [velikosti virtuálních počítačů podporované v Azure Stack](azure-stack-vm-sizes.md). Pokud používáte technika disku, například prostory úložiště, umístěte všechna data a soubory protokolů na stejnou jednotku (včetně databáze TempDB). Tato konfigurace poskytuje maximální počet IOPS dostupných pro SQL Server, které se mají využít, bez ohledu na to, který soubor potřebuje v konkrétní dobu.
+- **Použití datových disků pro data a soubory protokolů.** Pokud nepoužíváte diskový disk, použijte dva datové disky z virtuálního počítače, který podporuje Premium Storage, kde jeden disk obsahuje soubory protokolu a druhý obsahuje data a soubory TempDB. Každý datový disk poskytuje řadu IOPS v závislosti na rodině virtuálních počítačů, jak je popsáno v tématu [velikosti virtuálních počítačů podporované v Azure Stack](azure-stack-vm-sizes.md). Pokud používáte technika disku, například prostory úložiště, umístěte všechna data a soubory protokolů na stejnou jednotku (včetně databáze TempDB). Tato konfigurace poskytuje maximální počet IOPS dostupných pro SQL Server, které se mají využít, bez ohledu na to, který soubor potřebuje v konkrétní dobu.
 
 > [!NOTE]  
 > Když zřizujete SQL Server virtuální počítač na portálu, máte možnost upravit si konfiguraci úložiště. V závislosti na konfiguraci Azure Stack nakonfiguruje jeden nebo více disků. Více disků je sloučeno do jednoho fondu úložiště. Data i soubory protokolů se v této konfiguraci nacházejí společně.
 
-- **Diskové svazky:** Pro zvýšení propustnosti můžete přidat další datové disky a používat diskové svazky. Pokud chcete zjistit počet datových disků, které potřebujete, analyzujte počet vstupně-výstupních operací a šířky pásma potřebné pro soubory protokolů a pro vaše data a soubory TempDB. Všimněte si, že omezení IOPS jsou na datový disk založená na rodině řad virtuálních počítačů, a ne na základě velikosti virtuálního počítače. Omezení šířky pásma sítě jsou však založena na velikosti virtuálního počítače. Další podrobnosti najdete v tabulkách o [velikostech virtuálních počítačů v Azure Stack](azure-stack-vm-sizes.md) . Použijte následující pokyny:
+- **Diskové svazky:** Pro zvýšení propustnosti můžete přidat další datové disky a používat diskové svazky. Pokud chcete zjistit počet potřebných datových disků, analyzujte počet IOPS potřebných pro soubory protokolů a pro vaše data a soubory TempDB. Všimněte si, že omezení IOPS jsou na datový disk založená na rodině řad virtuálních počítačů, a ne na základě velikosti virtuálního počítače. Omezení šířky pásma sítě jsou však založena na velikosti virtuálního počítače. Další podrobnosti najdete v tabulkách o [velikostech virtuálních počítačů v Azure Stack](azure-stack-vm-sizes.md) . Použijte následující pokyny:
 
   - Pro Windows Server 2012 nebo novější použijte [prostory úložiště](https://technet.microsoft.com/library/hh831739.aspx) s následujícími pokyny:
 
@@ -159,6 +159,6 @@ Některá nasazení mohou dosáhnout dalších výhod výkonu s využitím pokro
 
     Jakmile nastavíte a nakonfigurujete cíl zálohování v SQL Server, můžete zálohovat do úložiště objektů blob Azure Stack.
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 [Použití služeb nebo sestavování aplikací pro Azure Stack](azure-stack-considerations.md)
