@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: b2671446594377833609032e27ff02b7c53c763c
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.openlocfilehash: fd7c1ede611f9505ed48c8efc3caa5311c285cd3
+ms.sourcegitcommit: c2ea4ffb42563c26faaf2993ba7b484bcb6d5cb7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70974690"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71342865"
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>Obnovit ze ztráty dat
 
@@ -68,10 +68,10 @@ Azure Stack podporuje typ nasazení nazvaný režim Cloud Recovery. Tento režim
  - Kořenové certifikáty používané interní certifikační autoritou
  - Azure Resource Manager konfigurační data uživatelů, jako jsou předplatná, plány, nabídky, kvóty úložiště, síťové kvóty a výpočetní prostředky.
  - Key Vault tajných klíčů a trezorů.
- - Přiřazení zásad RBAC a přiřazení rolí =.
+ - Přiřazení zásad RBAC a přiřazení rolí
 
 Žádná z prostředků infrastruktury uživatele jako služba (IaaS) ani platforma jako služba (PaaS) se během nasazování neobnovuje. Mezi tyto ztráty patří virtuální počítače s IaaS, účty úložiště, objekty blob, tabulky, konfigurace sítě a tak dále. Účelem cloudového obnovení je zajistit, aby se operátoři a uživatelé mohli po dokončení nasazení znovu přihlásit k portálu. Uživatelům, kteří se přihlašují zpátky, se nezobrazují žádné prostředky. Uživatelé mají obnovené předplatné a společně s tím původní plány, nabídky a zásady definované správcem. Uživatelé, kteří se přihlašují zpátky do systému, pracují se stejnými omezeními, která jsou před haváriem způsobená původními řešeními. Po dokončení cloudového obnovení může operátor ručně obnovit hodnoty – přidat a RPs třetí strany a přidružená data.
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 Seznamte se s osvědčenými postupy pro [používání služby Infrastructure Backup](azure-stack-backup-best-practices.md).

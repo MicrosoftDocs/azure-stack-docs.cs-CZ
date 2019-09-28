@@ -1,6 +1,6 @@
 ---
 title: Registrovat klienty pro sledování využití v Azure Stack | Microsoft Docs
-description: Podrobnosti o operacích používaných pro správu registrací klientů a o tom, jak je využití klienta sledováno v Azure Stack.
+description: Naučte se, jak registrovat klienty a jak je využití tenanta sledováno v Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,14 +15,14 @@ ms.date: 09/17/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: 619bfc89e5def3406d719abfb589193c76c3db6b
-ms.sourcegitcommit: 95f30e32e5441599790d39542ff02ba90e70f9d6
+ms.openlocfilehash: a9e0dd05195d7ece62689aa8b5971cf72a6e3713
+ms.sourcegitcommit: c2ea4ffb42563c26faaf2993ba7b484bcb6d5cb7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71070090"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71342836"
 ---
-# <a name="manage-tenant-registration-in-azure-stack"></a>Správa registrace tenanta v Azure Stack
+# <a name="register-tenants-for-usage-tracking-in-azure-stack"></a>Registrace tenantů pro sledování využití v Azure Stack
 
 *Platí pro: Azure Stack integrovaných systémů*
 
@@ -50,9 +50,9 @@ Další informace o Azure Stack a profilech rozhraní API najdete v tématu [Spr
 | Parametr                  | Popis |
 |---                         | --- |
 | registrationSubscriptionID | Předplatné Azure, které se použilo pro prvotní registraci. |
-| customerSubscriptionID     | Předplatné Azure (není Azure Stack) patřící zákazníkovi k registraci. Musí se vytvořit v nabídce poskytovatel cloudových služeb (CSP) prostřednictvím partnerského centra. Pokud má zákazník více než jednoho tenanta, vytvořte pro tenanta přihlášení odběr Azure Stack. |
+| customerSubscriptionID     | Předplatné Azure (není Azure Stack) patřící zákazníkovi k registraci. Musí se vytvořit v nabídce zprostředkovatel Cloud Solution Provider (CSP) prostřednictvím partnerského centra. Pokud má zákazník více než jednoho tenanta, vytvořte si předplatné pro tenanta, abyste se přihlásili k Azure Stack. |
 | resourceGroup              | Skupina prostředků v Azure, ve které je uložená vaše registrace. |
-| registrationName           | Název registrace Azure Stack. Jedná se o objekt uložený v Azure. Název je obvykle ve tvaru **azurestack-CloudID**, kde **CloudID** je ID cloudu nasazení Azure Stack. |
+| registrationName           | Název registrace Azure Stack. Je to objekt uložený v Azure. Název je obvykle ve tvaru **azurestack-CloudID**, kde **CloudID** je ID cloudu nasazení Azure Stack. |
 
 > [!NOTE]  
 > Klienti musí být zaregistrovaní u každého Azure Stack nasazení, které používají. Pokud tenant používá více než jeden Azure Stack, aktualizujte počáteční registraci každého nasazení u předplatného tenanta.
@@ -86,7 +86,7 @@ Získá seznam všech tenantů, které byly přidány k registraci.
 |---                         | ---                  |
 | registrationSubscriptionId | Předplatné Azure, které se použilo pro prvotní registraci.   |
 | resourceGroup              | Skupina prostředků v Azure, ve které je uložená vaše registrace.    |
-| registrationName           | Název registrace Azure Stack nasazení. Jedná se o objekt uložený v Azure. Název je obvykle ve formátu **azurestack-CloudID**, kde **CloudID** je ID cloudu nasazení Azure Stack.   |
+| registrationName           | Název registrace Azure Stack nasazení. Je to objekt uložený v Azure. Název je obvykle ve formátu **azurestack-CloudID**, kde **CloudID** je ID cloudu nasazení Azure Stack.   |
 
 ### <a name="powershell"></a>PowerShell
 

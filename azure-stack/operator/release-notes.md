@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2019
+ms.date: 09/27/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 08/30/2019
-ms.openlocfilehash: ed613e78cb2d592d40eb762f155e9e925f68721b
-ms.sourcegitcommit: d967cf8cae320fa09f1e97eeb888e3db5b6e7972
+ms.openlocfilehash: 62440c61ee637a0092b1e956b08ba0a9c94d8bab
+ms.sourcegitcommit: c2ea4ffb42563c26faaf2993ba7b484bcb6d5cb7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71279197"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71342935"
 ---
 # <a name="azure-stack-updates-release-notes"></a>Aktualizace Azure Stack: poznámky k verzi
 
@@ -56,7 +56,7 @@ Nápovědu k řešení potíží s aktualizacemi a procesu aktualizace najdete v
 ::: moniker range="azs-1908"
 ## <a name="1908-build-reference"></a>1908 – odkaz na sestavení
 
-Číslo buildu aktualizace Azure Stack 1908 je **1.1908.0.20**.
+Číslo buildu aktualizace Azure Stack 1908 je **1.1908.4.33**.
 
 ### <a name="update-type-1908"></a>Typ aktualizace
 
@@ -119,7 +119,7 @@ Azure Stack oprav hotfix se týkají pouze Azure Stack integrovaných systémů.
 Vydání verze 1908 Azure Stack se musí použít ve verzi 1907 s následujícími opravami hotfix:
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack opravy hotfix 1.1907.12.44](https://support.microsoft.com/help/4517473)
+- [Azure Stack opravy hotfix 1.1907.17.54](https://support.microsoft.com/help/4523826)
 
 Aktualizace Azure Stack 1908 vyžaduje **Azure Stack OEM verze 2,1 nebo novější** od poskytovatele hardwaru vašeho systému. Aktualizace OEM zahrnují aktualizace ovladačů a firmwaru pro váš Azure Stack systémový hardware. Další informace o použití aktualizací OEM naleznete v tématu [apply Azure Stack Updates Original Equipment Updates](azure-stack-update-oem.md) .
 
@@ -250,7 +250,7 @@ Vydání verze 1907 Azure Stack se musí použít ve verzi 1906 s následující
 Po instalaci této aktualizace nainstalujte všechny příslušné opravy hotfix. Další informace najdete v našich [zásadách obsluhy](azure-stack-servicing-policy.md).
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack opravy hotfix 1.1907.15.50](https://support.microsoft.com/help/4520315)
+- [Azure Stack opravy hotfix 1.1907.17.54](https://support.microsoft.com/help/4523826)
 ::: moniker-end
 
 ::: moniker range="azs-1906"

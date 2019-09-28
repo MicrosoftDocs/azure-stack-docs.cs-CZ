@@ -15,12 +15,12 @@ ms.date: 01/25/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 201af19756ef3958e943549482610ee32e208f01
-ms.sourcegitcommit: 35b13ea6dc0221a15cd0840be796f4af5370ddaf
+ms.openlocfilehash: 4bf1334f2b4e83223bb2eb1dfbb187dc860ed360
+ms.sourcegitcommit: c2ea4ffb42563c26faaf2993ba7b484bcb6d5cb7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68603070"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71342961"
 ---
 # <a name="deploy-a-hybrid-cloud-solution-with-azure-and-azure-stack"></a>Nasazení hybridního cloudového řešení pomocí Azure a Azure Stack
 
@@ -52,7 +52,7 @@ Tento kurz se zabývá následujícími úkony:
 > 
 > Požadavky na [Návrh pro hybridní aplikace](azure-stack-edge-pattern-overview.md) kontrolují pilíře kvality softwaru (umístění, škálovatelnost, dostupnost, odolnost, možnosti správy a zabezpečení) pro navrhování, nasazování a provozování hybridních aplikací. Pokyny k návrhu pomáhají při optimalizaci návrhu hybridní aplikace a minimalizaci výzev v produkčních prostředích.
 
-### <a name="assumptions"></a>Použité
+### <a name="assumptions"></a>Předpoklady
 
 V tomto kurzu se předpokládá, že máte základní znalosti globálních Azure a Azure Stack. Pokud se chcete dozvědět víc, než začnete s kurzem, přečtěte si tyto články:
 
@@ -90,7 +90,7 @@ Než začnete s tímto řešením, ujistěte se, že splňujete následující p
 
     ![Vyberte image virtuálního počítače.](media/azure-stack-solution-hybrid-cloud/image2.png)
 
-4. Licence **na bezplatnou SQL Server: SQL Server 2017 Developer na Windows serveru**vyberte **vytvořit**.
+4. Licence **na bezplatnou SQL Server: SQL Server 2017 Developer na Windows serveru @ no__t-0 vyberte **vytvořit**.
 
 5. **Základy > nakonfigurovat základní nastavení**, zadat **název** virtuálního počítače (VM), **uživatelské jméno** pro SQL Server SA a **heslo** pro SA.  V rozevíracím seznamu **předplatné** vyberte předplatné, na které nasazujete. V poli **Skupina prostředků** **Vyberte vybrat existující** a vložte virtuální počítač do stejné skupiny prostředků, jako je Azure Stack webová aplikace.
 
@@ -148,7 +148,7 @@ Azure App Service zjednodušuje spouštění a správu webové aplikace. Vzhlede
 
 App Service v Azure Stack musí být směrovatelné z veřejného Internetu a umožnit tak uživatelům přístup k vaší aplikaci. Pokud je váš Azure Stack přístupný z Internetu, poznamenejte si veřejnou IP adresu nebo adresu URL pro webovou aplikaci Azure Stack.
 
-Pokud používáte ASDK, můžete [nakonfigurovat mapování statického překladu adres (NAT)](../operator/azure-stack-create-vpn-connection-one-node.md#configure-the-nat-virtual-machine-on-each-azure-stack-development-kit-for-gateway-traversal) , které vystavuje App Service mimo virtuální prostředí.
+Pokud používáte ASDK, můžete [nakonfigurovat mapování statického překladu adres (NAT)](../operator/azure-stack-create-vpn-connection-one-node.md#configure-the-nat-vm-on-each-asdk-for-gateway-traversal) , které vystavuje App Service mimo virtuální prostředí.
 
 ### <a name="connect-a-web-app-in-azure-to-a-hybrid-network"></a>Připojení webové aplikace v Azure k hybridní síti
 
@@ -296,7 +296,7 @@ Proměnné prostředí App Service můžete použít k předání jiného připo
 
 1. Vytvořte připojovací řetězce pro Azure a Azure Stack. Řetězce by měly být stejné, s výjimkou používaných IP adres.
 
-2. V Azure a Azure Stack přidejte příslušný připojovací řetězec [jako nastavení aplikace](https://docs.microsoft.com/azure/app-service/web-sites-configure) ve webové aplikaci, a to pomocí `SQLCONNSTR\_` předpony v názvu.
+2. V Azure a Azure Stack přidejte příslušný připojovací řetězec [jako nastavení aplikace](https://docs.microsoft.com/azure/app-service/web-sites-configure) ve webové aplikaci s použitím `SQLCONNSTR\_` jako předpony v názvu.
 
 3. **Uložte** nastavení webové aplikace a restartujte aplikaci.
 
@@ -390,7 +390,7 @@ Vytvořte v Azure profil Traffic Manager a pak nakonfigurujte koncové body, aby
 3. Vyberte **profil Traffic Manager** a nakonfigurujte následující nastavení:
 
    - Do **název**zadejte název profilu. Tento název **musí** být v zóně trafficmanager.NET jedinečný a používá se k vytvoření nového názvu DNS (například northwindstore.trafficmanager.NET).
-   - U **metody směrování**vyberte vážená .
+   - U **metody směrování**vyberte vážená.
    - V části **předplatné**vyberte předplatné, ve kterém chcete vytvořit tento profil.
    - V rámci **skupiny prostředků**vytvořte novou skupinu prostředků pro tento profil.
    - V poli **Umístění skupiny prostředků** vyberte umístění skupiny prostředků. Toto nastavení odkazuje na umístění skupiny prostředků a nemá žádný vliv na profil Traffic Manager, který je nasazen globálně.
@@ -461,7 +461,7 @@ Toto zobrazení použijete k vytvoření upozornění na horizontální navýše
 
    - Jako **název**zadejte **nárůst do cloudu Azure**.
    - **Popis** je volitelný.
-   - V části výstraha **zdrojového kódu** > vyberte **metriky**.
+   - V části **zdrojová** **Výstraha** >  u vyberte **metriky**.
    - V části **kritéria**vyberte své předplatné, skupinu prostředků pro profil Traffic Manager a název profilu Traffic Manager pro daný prostředek.
 
 4. Jako **metrika**vyberte **rychlost požadavků**.
@@ -482,7 +482,7 @@ Toto zobrazení použijete k vytvoření upozornění na horizontální navýše
 
    - Jako **název**zadejte horizontální navýšení **kapacity zpátky Azure Stack**.
    - **Popis** je volitelný.
-   - V části výstraha **zdrojového kódu** > vyberte **metriky**.
+   - V části **zdrojová** **Výstraha** >  u vyberte **metriky**.
    - V části **kritéria**vyberte své předplatné, skupinu prostředků pro profil Traffic Manager a název profilu Traffic Manager pro daný prostředek.
 
 4. Jako **metrika**vyberte **rychlost požadavků**.
@@ -497,7 +497,7 @@ Toto zobrazení použijete k vytvoření upozornění na horizontální navýše
 
 Následující snímek obrazovky znázorňuje výstrahy pro horizontální navýšení kapacity a horizontální navýšení kapacity.
 
-   ![Upozornění (klasická)](media/azure-stack-solution-hybrid-cloud/image22.png)
+   ![Upozornění (Classic)](media/azure-stack-solution-hybrid-cloud/image22.png)
 
 ## <a name="redirect-traffic-between-azure-and-azure-stack"></a>Přesměrování provozu mezi Azure a Azure Stack
 
@@ -509,7 +509,7 @@ Když váš web dosáhne prahových hodnot, které nakonfigurujete, zobrazí se 
 
 1. V Azure Portal vyberte svůj profil Traffic Manager.
 
-    ![Koncové body služby Traffic Manager](media/azure-stack-solution-hybrid-cloud/image20.png)
+    ![Koncové body Traffic Manageru](media/azure-stack-solution-hybrid-cloud/image20.png)
 
 2. Vyberte **koncové body**.
 3. Vyberte **koncový bod Azure**.
@@ -547,9 +547,9 @@ Pomocí následujících kroků můžete nakonfigurovat automatické přepínán
    - Ověřte si předplatné Azure.
    - Použijte parametr, který přepíná Traffic Manager koncové body pro směrování provozu do Azure nebo Azure Stack.
 
-5. Uložte svůj kód a přidejte adresu URL aplikace Function App s příslušnými parametry do oddílu Webhooku nastavení pravidla výstrahy Application Insights.
+5. Uložte svůj kód a přidejte adresu URL aplikace Function App s příslušnými parametry do oddílu **Webhooku** nastavení pravidla výstrahy Application Insights.
 6. Provoz se automaticky přesměruje, když se aktivuje výstraha Application Insights.
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 - Další informace o vzorech cloudu Azure, najdete v článku [vzory návrhu v cloudu](https://docs.microsoft.com/azure/architecture/patterns).

@@ -15,12 +15,12 @@ ms.date: 08/09/2019
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 07/31/2019
-ms.openlocfilehash: 878e4712cf805fec188645e92784beaf6a19d591
-ms.sourcegitcommit: d967cf8cae320fa09f1e97eeb888e3db5b6e7972
+ms.openlocfilehash: c93b4535189830ee8e84acb882f85a9a51d5f443
+ms.sourcegitcommit: c2ea4ffb42563c26faaf2993ba7b484bcb6d5cb7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71279122"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71342723"
 ---
 # <a name="azure-stack-marketplace-changes"></a>Změny Azure Stack Marketplace
 
@@ -29,6 +29,26 @@ Tento článek popisuje poslední dodatky, aktualizace, změny a [Azure Stack od
 [Azure Stack položky na webu Marketplace](azure-stack-marketplace-azure-items.md) vždycky obsahuje nejaktuálnější seznam dostupných položek Azure Stack Marketplace.
 
 ## <a name="new-marketplace-items"></a>Nové položky Marketplace
+
+- 06/27/2019:   S clusterem DataKeeper Edition
+
+- 06/27/2019:   Replikace Veeam Backup &
+
+- 06/27/2019: Windows Server 2019 Datacenter Server Core s využitím kontejnerů s průběžnými platbami
+
+- 06/27/2019: Windows Server 2019 Datacenter Server Core s kontejnery BYOL
+
+- 06/27/2019:   Průběžné platby Windows serveru 2019 Datacenter
+
+- 06/27/2019:   Windows Server 2019 Datacenter BYOL
+
+- 06/27/2019: Windows Server 2019 Datacenter Server Core s průběžnými platbami
+
+- 06/27/2019: Windows Server 2019 Datacenter Server Core BYOL
+
+- 06/27/2019:   Windows Server 2019 Datacenter s kontejnery s průběžnými platbami
+
+- 06/27/2019:   Windows Server 2019 Datacenter s kontejnery BYOL
 
 - 08/05/2019: Bitnami Drupal
 
@@ -59,15 +79,26 @@ Tento článek popisuje poslední dodatky, aktualizace, změny a [Azure Stack od
 
 ## <a name="deprecated-marketplace-items"></a>Zastaralé položky Marketplace
 
-- codiad
-- X2Engine Sales CRM
-- SugarCRM
-- Cluster s vysokou dostupností Node. js
+- Bitnami Codiad
+- Bitnami X2Engine Sales CRM
+- Bitnami SugarCRM
+- Cluster s vysokou dostupností Bitnami Node. js
 - A10 vThunder: L4 – kontroler doručování aplikací pro L7, globální vyrovnávání zatížení serveru (GSLB), přehled SSL
 - Rozšíření JsonADDomain
 
 ## <a name="updated-marketplace-items"></a>Aktualizované položky Marketplace
 
+- 07/11/2019:   Thales CipherTrust, správce Cloud Key – verze 1.0.7
+- 07/16/2019:   Windows Server 2016 Datacenter Server Core BYOL – verze 2016.127.20190522
+- 07/16/2019:   Windows Server 2016 Datacenter Server s průběžnými platbami podle aktuálního využití – verze 2016.127.20190522
+- 07/16/2019:   Windows Server 2016 Datacenter s kontejnery BYOL – verze 2016.127.20190522
+- 07/16/2019:   Windows Server 2016 Datacenter s kontejnery s průběžnými platbami podle aktuálního využití – verze 2016.127.20190522
+- 07/16/2019:   Windows Server 2016 Datacenter BYOL – verze 2016.127.20190522
+- 07/16/2019:   Windows Server 2016 Datacenter s průběžnými platbami podle aktuálního využití – verze 2016.127.20190522
+- 07/16/2019:   Windows Server 2008 R2 BYOL – verze 2.127.20190522
+- 07/16/2019:   Windows Server 2008 R2 s průběžnými platbami podle aktuálního využití – verze 2.127.20190522
+- 07/16/2019:   Windows Server 2012 R2 Datacenter BYOL – verze 4.127.20190522
+- 07/16/2019:   Windows Server 2012 R2 Datacenter s průběžnými platbami podle aktuálního využití – verze 4.127.20190522
 - 07/30/2019: SQL Server 2016 SP1 (edice Express, Developer, Standard a Enterprise) – verze 13.2.20190410
 - 07/30/2019: SQL Server 2016 SP2 (edice Express, Developer, Standard a Enterprise) – verze 13.2.20190410
 - 07/30/2019: SQL Server 2017 (edice Express, Developer, Standard a Enterprise) – verze 14.0.20190410
