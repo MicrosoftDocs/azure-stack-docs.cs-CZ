@@ -16,12 +16,12 @@ ms.date: 06/25/2019
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: a2809ed8a745f2ec4cdb31d924e964ecc28209b0
-ms.sourcegitcommit: e2f6205e6469b39c2395ee09424bb7632cb94c40
+ms.openlocfilehash: 69f427bd825bdc74501256d47e61bbae95f4d64b
+ms.sourcegitcommit: 79ead51be63c372b23b7fca6ffeaf95fd44de786
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70271721"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71687982"
 ---
 # <a name="azure-stack-managed-disks-differences-and-considerations"></a>Azure Stack spravované disky: rozdíly a požadavky
 
@@ -144,7 +144,7 @@ Azure Stack podporuje *spravované image*, které vám umožní vytvořit objekt
 
 ### <a name="step-1-generalize-the-vm"></a>Krok 1: Generalizace virtuálního počítače
 
-V případě systému Windows postupujte podle části [generalizace virtuálního počítače s Windows pomocí nástroje Sysprep](/azure/virtual-machines/windows/capture-image-resource#generalize-the-windows-vm-using-sysprep) . V případě systému Linux postupujte podle [pokynů v kroku 1.](/azure/virtual-machines/linux/capture-image#step-1-deprovision-the-vm)
+V případě systému Windows postupujte podle části [generalizace virtuálního počítače s Windows pomocí nástroje Sysprep](/azure/virtual-machines/windows/capture-image-resource#generalize-the-windows-vm-using-sysprep) . V případě systému Linux postupujte podle [](/azure/virtual-machines/linux/capture-image#step-1-deprovision-the-vm)pokynů v kroku 1.
 
 > [!NOTE]
 > Nezapomeňte zobecnit virtuální počítač. Vytvoření virtuálního počítače z image, která se správně zobecněna, povede k chybě **VMProvisioningTimeout** .
@@ -159,7 +159,7 @@ Pomocí portálu, PowerShellu nebo rozhraní příkazového řádku můžete vyt
 
 Než provedete tento krok, nezapomeňte virtuální počítač zobecnit správně. Po generalizaci už nemůžete tento virtuální počítač používat. Vytvoření virtuálního počítače z image, která se správně zobecněna, povede k chybě **VMProvisioningTimeout** .
 
-Podle pokynů v části [Vytvoření image z virtuálního pevného disku v účtu úložiště](/azure/virtual-machines/windows/capture-image-resource#create-an-image-from-a-vhd-in-a-storage-account) vytvořte spravovanou image z zobecněného virtuálního pevného disku v účtu úložiště. Tento obrázek můžete v budoucnu použít k vytvoření spravovaných virtuálních počítačů.
+Postupujte podle pokynů v tématu [Vytvoření image z virtuálního počítače, který používá účet úložiště](/azure/virtual-machines/windows/capture-image-resource#create-an-image-from-a-vm-that-uses-a-storage-account) k vytvoření spravované image z zobecněného virtuálního pevného disku v účtu úložiště. Tento obrázek můžete v budoucnu použít k vytvoření spravovaných virtuálních počítačů.
 
 #### <a name="case-2-create-managed-vm-from-managed-image-using-powershell"></a>2\. případ: Vytvoření spravovaného virtuálního počítače ze spravované Image pomocí PowerShellu
 
@@ -230,6 +230,6 @@ Po použití aktualizace 1808 nebo novější je nutné před použitím spravov
    2. V rámci stejného předplatného, přejít na **Access Control (IAM)** a ověřte, že je v seznamu uvedeno **Azure Stack spravovaný disk** .
 - Pokud používáte víceklientské prostředí, požádejte svého operátora cloudu (který může být ve vaší organizaci nebo od poskytovatele služeb) a překonfigurujte každý adresář hosta podle kroků v [tomto článku](../operator/azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory). V opačném případě může nasazení virtuálních počítačů v rámci předplatného přidruženého k tomuto adresáři hosta selhat s chybovou zprávou "vnitřní chyba ve Správci disků".
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 - [Další informace o Azure Stack virtuálních počítačích](azure-stack-compute-overview.md)

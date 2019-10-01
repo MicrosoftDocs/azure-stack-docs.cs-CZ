@@ -15,12 +15,12 @@ ms.date: 09/10/2019
 ms.author: mabrigg
 ms.lastreviewed: 08/23/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 9582c47f37bdd6ae4c306593bea094b66652c49e
-ms.sourcegitcommit: c46d913ebfa4cb6c775c5117ac5c9e87d032a271
+ms.openlocfilehash: 60515f257dc8ab04e351d1353919a749e9cf4224
+ms.sourcegitcommit: 79ead51be63c372b23b7fca6ffeaf95fd44de786
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71101172"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71687959"
 ---
 # <a name="plan-for-an-azure-stack-update"></a>Plánování aktualizace Azure Stack
 
@@ -36,9 +36,9 @@ Měli byste informovat uživatele o všech operacích údržby a v případě po
 
 Můžete připravit na aktualizaci tím, že zadáte všechny opravy hotfix, opravy zabezpečení a aktualizace OEM, ověřili jste stav vaší Azure Stack instance, zkontrolovali dostupnou kapacitu a zkontrolovali balíček aktualizace.
 
-1. Přečtěte si o známých problémech. Pokyny najdete v tématu [Azure Stack známých problémů](https://docs.microsoft.com/azure-stack/operator/release-notes.md).
+1. Přečtěte si o známých problémech. Pokyny najdete v tématu [Azure Stack známých problémů](https://docs.microsoft.com/azure-stack/operator/release-notes).
 
-2. Zkontrolujte aktualizace zabezpečení. Seznam aktualizací najdete v tématu [Azure Stack aktualizace zabezpečení](https://docs.microsoft.com/azure-stack/operator/release-notes-security-updates.md).
+2. Zkontrolujte aktualizace zabezpečení. Seznam aktualizací najdete v tématu [Azure Stack aktualizace zabezpečení](https://docs.microsoft.com/azure-stack/operator/release-notes-security-updates).
 
 3. Před zahájením instalace této aktualizace spusťte rutinu [test-AzureStack](https://docs.microsoft.com/azure-stack/operator/azure-stack-diagnostic-test) a ověřte stav vašich Azure Stack a vyřešte všechny zjištěné provozní problémy, včetně všech upozornění a selhání. Taky si projděte aktivní výstrahy a vyřešte ty, které vyžadují zásah.
 
@@ -58,6 +58,6 @@ Můžete připravit na aktualizaci tím, že zadáte všechny opravy hotfix, opr
 
 8. Projděte si balíček aktualizace. Při plánování časového intervalu pro správu a údržbu je důležité zkontrolovat konkrétní typ balíčku aktualizace vydaný od Microsoftu, který se vyvolal v poznámkách k verzi.
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 [Použijte aktualizaci Azure Stack](azure-stack-apply-updates.md).

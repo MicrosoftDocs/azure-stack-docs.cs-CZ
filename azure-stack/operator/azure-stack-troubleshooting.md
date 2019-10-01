@@ -12,21 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2019
+ms.date: 09/30/2019
 ms.author: justinha
 ms.reviewer: prchint
-ms.lastreviewed: 09/26/2019
-ms.openlocfilehash: 865592d476eadaa847c4b46ff2a802f5fa0cc63e
-ms.sourcegitcommit: 1bae55e754d7be75e03af7a4db3ec43fd7ff3e9c
+ms.lastreviewed: 09/30/2019
+ms.openlocfilehash: 0fb46cd1b92c1b811ba1c72a91188201a7d2af96
+ms.sourcegitcommit: 79ead51be63c372b23b7fca6ffeaf95fd44de786
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71319077"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71687975"
 ---
 # <a name="microsoft-azure-stack-troubleshooting"></a>Řešení potíží s Microsoft Azure Stack
 
 Tento dokument poskytuje informace pro řešení potíží s Azure Stack integrovanými prostředími. Nápovědu k Azure Stack Development Kit najdete v tématu [řešení potíží s ASDK](../asdk/asdk-troubleshooting.md) nebo Získejte pomoc od odborníků na [Azure Stack MSDN fóra](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). 
-
 
 ## <a name="frequently-asked-questions"></a>Nejčastější dotazy
 
@@ -91,6 +90,15 @@ Zvolte typ účtu sdílených služeb, který používáte pro službu Azure Sta
 ### <a name="general-deployment-failure"></a>Obecné selhání nasazení
 Pokud při instalaci dojde k chybě, můžete restartovat nasazení z neúspěšného kroku pomocí možnosti-znovu spustit ve skriptu nasazení.  
 
+### <a name="template-validation-error-parameter-osprofile-is-not-allowed"></a>Parametr chyby ověřování šablony osProfile není povolený.
+
+Pokud se během ověřování šablony zobrazí chybová zpráva, že parametr osProfile není povolen, ujistěte se, že používáte správné verze rozhraní API pro tyto komponenty:
+
+- [Compute](https://docs.microsoft.com/azure-stack/user/azure-stack-profiles-azure-resource-manager-versions#microsoftcompute)
+- [Sítě](https://docs.microsoft.com/azure-stack/user/azure-stack-profiles-azure-resource-manager-versions#microsoftnetwork)
+
+Pokud chcete zkopírovat VHD z Azure do Azure Stack, použijte [AzCopy 7.3.0](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-transfer#download-and-install-azcopy). Spolupracujte se svým dodavatelem, abyste mohli vyřešit problémy s samotným obrázkem. Další informace o požadavcích na WALinuxAgent pro Azure Stack najdete v tématu [Agent Azure Linux](azure-stack-linux.md#azure-linux-agent).
+
 ### <a name="deployment-fails-due-to-lack-of-external-access"></a>Nasazení se nezdařilo z důvodu nedostatku externího přístupu.
 Pokud se nasazení nezdaří ve fázích, kde je vyžadován externí přístup, bude vrácena výjimka jako v následujícím příkladu:
 
@@ -99,15 +107,18 @@ An error occurred while trying to test identity provider endpoints: System.Net.W
    at Microsoft.PowerShell.Commands.WebRequestPSCmdlet.GetResponse(WebRequest request)
    at Microsoft.PowerShell.Commands.WebRequestPSCmdlet.ProcessRecord()at, <No file>: line 48 - 8/12/2018 2:40:08 AM
 ```
-Pokud dojde k této chybě, zkontrolujte, zda jsou splněny všechny minimální požadavky na síť v dokumentaci k [provozu sítě nasazení](deployment-networking.md). Nástroj pro kontrolu sítě je k dispozici také pro partnery jako součást sady partner Toolkit.
+Pokud k této chybě dojde, zajistěte, aby byly splněny všechny minimální požadavky na síť, a to kontrolou [dokumentace k provozu sítě nasazení](deployment-networking.md). Nástroj pro kontrolu sítě je k dispozici také pro partnery jako součást sady partner Toolkit.
 
 K ostatním selháním nasazení obvykle dochází v důsledku potíží s připojením k prostředkům na internetu.
 
 Pokud chcete ověřit připojení k prostředkům na internetu, můžete provést následující kroky:
 
-1. Otevřít PowerShell
-2. Zadejte-PSSession k WAS01 nebo libovolnému virtuálnímu počítači ERCs
-3. Spusťte rutiny: Test-NetConnection login.windows.net-port 443
+1. Otevřete PowerShell.
+2. Zadejte-PSSession k WAS01 nebo libovolnému virtuálnímu počítači ERCs.
+3. Spusťte následující rutinu: 
+   ```powershell
+   Test-NetConnection login.windows.net -port 443
+   ```
 
 Pokud tento příkaz neproběhne úspěšně, ověřte, zda je přepínač pro ověřování a všechna další síťová zařízení nakonfigurována tak, aby [povolovala síťový provoz](azure-stack-network.md).
 
@@ -129,4 +140,9 @@ Další informace o konfiguraci prahové hodnoty pro uchování a opětovného z
 ## <a name="troubleshoot-storage"></a>Řešení potíží s úložištěm
 ### <a name="storage-reclamation"></a>Recyklace úložiště
 Může trvat až 14 hodin, než se kapacita uvolní, aby se na portálu zobrazovala. Recyklace místa závisí na různých faktorech, včetně procentuálního využití vnitřních souborů kontejneru v úložišti objektů blob bloku. V závislosti na tom, kolik dat je odstraněno, však není zaručeno množství místa, které by mohlo být uvolněno při spuštění systému uvolňování paměti.
+
+## <a name="troubleshooting-app-service"></a>Řešení potíží s App Service
+### <a name="create-aadidentityappps1-script-fails"></a>Skript Create-AADIdentityApp. ps1 se nezdařil
+
+Pokud skript Create-AADIdentityApp. ps1, který je vyžadován pro App Service, neproběhne úspěšně, nezapomeňte při spuštění skriptu zahrnout parametr Required-AzureStackAdminCredential. Další informace najdete v tématu [předpoklady pro nasazení App Service v Azure Stack](azure-stack-app-service-before-you-get-started.md#create-an-azure-active-directory-app).
 

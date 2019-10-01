@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na (Kubernetes)
 ms.devlang: nav
 ms.topic: article
-ms.date: 09/25/2019
+ms.date: 09/27/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/25/2019
-ms.openlocfilehash: 957ea4bc52e6f629ffd7fbd06a14d8dc2fb85021
-ms.sourcegitcommit: d967cf8cae320fa09f1e97eeb888e3db5b6e7972
+ms.lastreviewed: 09/27/2019
+ms.openlocfilehash: 0cccd93ca24f2e93717bfbbd6ec05137d91f5bd0
+ms.sourcegitcommit: 036d4b22a8076ca9ba5c667a451c544d88f8bb94
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71279177"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71681826"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack"></a>Nasazení clusteru Kubernetes s modulem AKS na Azure Stack
 
@@ -60,9 +60,23 @@ V této části se podíváme na vytvoření modelu rozhraní API pro váš clus
     aks-engine get-versions
     ```
 
-4.  Vyhledejte `portalURL` adresu URL portálu tenanta a poskytněte ji. Například, `https://portal.local.azurestack.external`.
+4.  Vyhledejte `customCloudProfile` adresu URL portálu tenanta a poskytněte ji. Například, `https://portal.local.azurestack.external`. 
 
-5.  `masterProfile`V poli nastavte následující pole:
+5. Pokud používáte AD FS, přidejte `"identitySystem":"adfs"`. Například
+
+    ```JSON  
+        "customCloudProfile": {
+            "portalURL": "https://portal.local.azurestack.external",
+            "identitySystem": "adfs"
+        },
+    ```
+
+    > [!Note]  
+    > Pokud pro svůj systém identit používáte Azure AD, nemusíte přidat pole **identitySystem** .
+
+6. Vyhledejte `portalURL` adresu URL portálu tenanta a poskytněte ji. Například, `https://portal.local.azurestack.external`.
+
+7.  `masterProfile`V poli nastavte následující pole:
 
     | Pole | Popis |
     | --- | --- |
@@ -71,7 +85,7 @@ V této části se podíváme na vytvoření modelu rozhraní API pro váš clus
     | vmSize |  Zadejte [velikost podporovanou Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes), například `Standard_D2_v2`. |
     | distribuce | Zadejte `aks-ubuntu-16.04`. |
 
-6.  V poli aktualizace `agentPoolProfiles` pole:
+8.  V poli aktualizace `agentPoolProfiles` pole:
 
     | Pole | Popis |
     | --- | --- |
@@ -79,7 +93,7 @@ V této části se podíváme na vytvoření modelu rozhraní API pro váš clus
     | vmSize | Zadejte [velikost podporovanou Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes), například `Standard_D2_v2`. |
     | distribuce | Zadejte `aks-ubuntu-16.04`. |
 
-7.  V poli aktualizace `linuxProfile` pole:
+9.  V poli aktualizace `linuxProfile` pole:
 
     | Pole | Popis |
     | --- | --- |
