@@ -73,16 +73,19 @@
               href: azure-stack-develop-templates.md
             - name: Vývoj šablon v Azure
               href: azure-stack-developer.md
-            - name: Kontrola šablon
+            - name: Nasazení šablon
               href: azure-stack-validate-templates.md
-            - name: Nasazení s využitím portálu
-              href: azure-stack-deploy-template-portal.md
-            - name: Nasazení s využitím PowerShellu
-              href: azure-stack-deploy-template-powershell.md
-            - name: Nasazení pomocí rozhraní příkazového řádku
-              href: azure-stack-deploy-template-command-line.md
-            - name: Nasazení s využitím sady Visual Studio
-              href: azure-stack-deploy-template-visual-studio.md
+              items:
+                - name: Nasazení s využitím portálu
+                  href: azure-stack-deploy-template-portal.md
+                - name: Nasazení s využitím PowerShellu
+                  href: azure-stack-deploy-template-powershell.md
+                - name: Nasazení pomocí rozhraní příkazového řádku
+                  href: azure-stack-deploy-template-command-line.md
+                - name: Nasazení pomocí Visual Studio Code
+                  href: azure-stack-resource-manager-deploy-template-vscode.md
+                - name: Nasazení s využitím sady Visual Studio
+                  href: azure-stack-deploy-template-visual-studio.md
         - name: Použití profilů verzí rozhraní API
           items:
             - name: Přehled

@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/13/2019
 ms.author: sethm
-ms.reviewer: unknown
+ms.reviewer: sijuman
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: e6a9c9569f7a2aeff044232d15817313b43ed69f
-ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
+ms.openlocfilehash: bbbbbc5548397f82752a43c7a1aaca7b62151b75
+ms.sourcegitcommit: e8aa26b078a9bab09c8fafd888a96785cc7abb4d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68991863"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71708993"
 ---
 # <a name="deploy-a-template-using-the-portal-in-azure-stack"></a>Nasazení šablony pomocí portálu v Azure Stack
 
@@ -59,7 +59,7 @@ Portál můžete použít k nasazení Azure Resource Manager šablon pro Azure S
 
    ![Vytvoření šablony na portálu Azure Stack](media/azure-stack-deploy-template-portal/template-deploy7.png)
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 Další informace o nasazování šablon najdete v následujícím článku:
 

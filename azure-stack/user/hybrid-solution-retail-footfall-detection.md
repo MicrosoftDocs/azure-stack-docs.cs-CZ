@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/23/2019
+ms.date: 10/01/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 09/23/2019
-ms.openlocfilehash: e87baeba1b961c134fc5754fda8c9f1688f3fe90
-ms.sourcegitcommit: f38903cb925276e96dd62ebe8ffe92df8bf6e5c8
+ms.openlocfilehash: 32533b063d4c42b740825923e9e2b5692ec03728
+ms.sourcegitcommit: bbf3edbfc07603d2c23de44240933c07976ea550
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71256531"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71714643"
 ---
 # <a name="footfall-detection-solution"></a>Řešení Footfall Detection
 
@@ -92,6 +92,6 @@ Toto řešení zachycuje obrázky zákazníků a má jistotu na nejdůležitěj�
 
 ## <a name="next-steps"></a>Další kroky
 
-Další informace o souvisejících vzorech, které toto řešení používá, najdete v tématu [vrstvený model dat](azure-stack-solution-staged-data.md). 
-
-Další informace o používání vlastní vize najdete v [Custom Vision AI dev Kit](https://azure.github.io/Vision-AI-DevKit-Pages/). 
+- Další informace o souvisejících vzorech, které toto řešení používá, najdete v tématu [vrstvený model dat](azure-stack-solution-staged-data.md). 
+- Další informace o používání vlastní vize najdete v [Custom Vision AI dev Kit](https://azure.github.io/Vision-AI-DevKit-Pages/). 
+- Stáhněte a nasaďte [ukázkovou implementaci řešení Footfall](https://github.com/Azure-Samples/azure-intelligent-edge-patterns/tree/master/footfall-analysis). Naučíte se, jak vygenerovat přehledy z reálných akcí, pomocí Azure, Azure Stack a Custom Vision AI dev Kit.   
