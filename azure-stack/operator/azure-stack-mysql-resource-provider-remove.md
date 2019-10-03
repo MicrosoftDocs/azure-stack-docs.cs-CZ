@@ -1,6 +1,6 @@
 ---
-title: Odebrání poskytovatele prostředků MySQL ve službě Azure Stack | Dokumentace Microsoftu
-description: Zjistěte, jak můžete odebrat poskytovatele prostředků MySQL z nasazení služby Azure Stack.
+title: Odebrání poskytovatele prostředků MySQL v Azure Stack | Microsoft Docs
+description: Přečtěte si, jak můžete odebrat poskytovatele prostředků MySQL z nasazení Azure Stack.
 services: azure-stack
 documentationCenter: ''
 author: mattbriggs
@@ -11,52 +11,52 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/20/2018
-ms.openlocfilehash: d44d60495ad4820277b6fdb7532404fb9aa42b09
-ms.sourcegitcommit: 104ccafcb72a16ae7e91b154116f3f312321cff7
+ms.openlocfilehash: 3a48ded6a9a21650bae488e0a858086a3575235e
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67308590"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71829410"
 ---
-# <a name="remove-the-mysql-resource-provider"></a>Odebrat poskytovatele prostředků MySQL
+# <a name="remove-the-mysql-resource-provider"></a>Odebrání poskytovatele prostředků MySQL
 
-Před odebráním poskytovatele prostředků MySQL, musíte odebrat všechny závislosti zprostředkovatele. Budete také potřebovat kopii balíčku pro nasazení, který byl použit k instalaci zprostředkovatele prostředků.
+Než odeberete poskytovatele prostředků MySQL, je nutné odebrat všechny závislosti zprostředkovatele. Budete také potřebovat kopii balíčku pro nasazení, který se použil k instalaci poskytovatele prostředků.
 
 > [!NOTE]
-> Můžete najít odkazy ke stažení pro prostředek zprostředkovatele instalační programy v [nasazení požadavky na poskytovatele prostředků](./azure-stack-mysql-resource-provider-deploy.md#prerequisites).
+> Odkazy ke stažení pro instalační programy poskytovatele prostředků najdete v části [nasazení požadavků poskytovatele prostředků](./azure-stack-mysql-resource-provider-deploy.md#prerequisites).
 
-Odebrání poskytovatele prostředků MySQL nedojde k odstranění databáze tenantů z hostitelské servery.
+Odebrání poskytovatele prostředků MySQL neodstraní databáze tenantů z hostitelských serverů.
 
-## <a name="dependency-cleanup"></a>Vyčištění závislostí
+## <a name="dependency-cleanup"></a>Vyčištění závislosti
 
-Následuje několik úloh vyčištění před spuštěním skriptu DeployMySqlProvider.ps1 odebrat poskytovatele prostředků.
+Před spuštěním skriptu DeployMySqlProvider. ps1 pro odebrání poskytovatele prostředků je třeba provést několik úloh čištění.
 
-Operátor Azure stacku zodpovídá za tyto úlohy čištění:
+Operátor Azure Stack zodpovídá za následující úlohy čištění:
 
 * Odstraňte všechny plány, které odkazují na adaptér MySQL.
-* Odstraňte všechny kvóty, které jsou spojené s adaptérem MySQL.
+* Odstraňte všechny kvóty, které jsou přidruženy k adaptéru MySQL.
 
-## <a name="to-remove-the-mysql-resource-provider"></a>Chcete-li odebrat poskytovatele prostředků MySQL
+## <a name="to-remove-the-mysql-resource-provider"></a>Odebrání poskytovatele prostředků MySQL
 
-1. Ověřte, že jste odebrali všechny existující MySQL zprostředkovatele závislosti prostředků.
+1. Ověřte, že jste odebrali všechny existující závislosti poskytovatele prostředků MySQL.
 
    > [!NOTE]
-   > Odinstalace poskytovatele prostředků MySQL bude pokračovat i v případě poskytovatele prostředků aktuálně používají závislé prostředky.
+   > Odinstalace poskytovatele prostředků MySQL bude pokračovat i v případě, že závislé prostředky aktuálně používají poskytovatele prostředků.
   
-2. Získat kopii balíčku instalace poskytovatele prostředků MySQL a pak spusťte Self-Extractor extrahujte obsah do dočasného adresáře.
-3. Otevřete okno konzole Powershellu s nová se zvýšenými oprávněními a přejděte do adresáře, které jste extrahovali instalační soubory poskytovatele prostředků MySQL.
-4. Spusťte skript DeployMySqlProvider.ps1 s následujícími parametry:
-    - **Odinstalujte**. Odebere poskytovatele prostředků a všechny související prostředky.
-    - **PrivilegedEndpoint**. IP adresa nebo název DNS privileged koncového bodu.
-    - **AzureEnvironment**. Prostředí Azure používá pro nasazení Azure Stack. Vyžaduje se jenom pro nasazení služby Azure AD.
-    - **CloudAdminCredential**. Přihlašovací údaje pro správce cloudu potřebné pro přístup k privilegovaným koncový bod.
+2. Získejte kopii instalačního balíčku poskytovatele prostředků MySQL a potom spusťte samočinný extrahování, který extrahuje obsah do dočasného adresáře.
+3. Otevřete nové okno konzoly PowerShellu se zvýšenými oprávněními a přejděte do adresáře, do kterého jste extrahovali instalační soubory poskytovatele prostředků MySQL.
+4. Spusťte skript DeployMySqlProvider. ps1 pomocí následujících parametrů:
+    - **Odinstalujte**. Odebere poskytovatele prostředků a všechny přidružené prostředky.
+    - **PrivilegedEndpoint**. IP adresa nebo název DNS privilegovaného koncového bodu.
+    - **AzureEnvironment**. Prostředí Azure používané pro nasazení Azure Stack. Vyžaduje se jenom pro nasazení Azure AD.
+    - **CloudAdminCredential**. Přihlašovací údaje pro správce cloudu, které jsou nezbytné pro přístup k privilegovanému koncovému bodu.
     - **DirectoryTenantID**
-    - **AzCredential**. Přihlašovací údaje pro účet správce služby Azure Stack. Použijte stejné přihlašovací údaje, které jste použili k nasazení Azure Stack.
+    - **AzCredential**. Přihlašovací údaje pro účet správce služby Azure Stack Použijte stejné přihlašovací údaje, které jste použili pro nasazení Azure Stack.
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
-[Nabídka App Service jako PaaS](azure-stack-app-service-overview.md)
+[Nabídka App Services jako PaaS](azure-stack-app-service-overview.md)

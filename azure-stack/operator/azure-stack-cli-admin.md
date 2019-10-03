@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: CLI
 ms.topic: article
-ms.date: 05/16/2019
+ms.date: 10/02/2019
 ms.author: mabrigg
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 6e901b2d806e85f7bc394dc9bee6412270753649
-ms.sourcegitcommit: c196463492732218d2474d3a964f88e995272c80
+ms.openlocfilehash: eed0626458d6186b651801d5bda29c4cf77cef9a
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71094302"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71829040"
 ---
 # <a name="enable-azure-cli-for-azure-stack-users"></a>Povolení Azure CLI pro uživatele Azure Stack
 
@@ -68,7 +68,7 @@ K dispozici je [ukázkový soubor aliasu](https://raw.githubusercontent.com/Azur
 2. Vytvořte účet úložiště v Azure Stack. Až to bude hotové, vytvořte kontejner objektů BLOB. Nastavte zásady přístupu na veřejné.  
 3. Nahrajte soubor JSON do nového kontejneru. Až to uděláte, můžete zobrazit adresu URL objektu BLOB. Vyberte název objektu BLOB a potom vyberte adresu URL z vlastností objektu BLOB.
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 - [Nasazení šablon pomocí Azure CLI](../user/azure-stack-deploy-template-command-line.md )
 - [Připojení přes PowerShell](azure-stack-powershell-install.md)

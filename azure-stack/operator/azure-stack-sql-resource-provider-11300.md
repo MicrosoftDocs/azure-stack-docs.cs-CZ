@@ -1,6 +1,6 @@
 ---
-title: Azure Stack SQL prostředků poskytovatele 1.1.30.0 poznámky k verzi | Dokumentace Microsoftu
-description: Další informace o novinky v nejnovější Azure Stack prostředků poskytovatele aktualizaci SQL, včetně všech známých problémů a kde ho můžete stáhnout.
+title: Azure Stack 1.1.30.0 zpráva k vydání verze poskytovatele prostředků SQL | Microsoft Docs
+description: Přečtěte si o tom, co je v nejnovější aktualizaci poskytovatele prostředků SQL Azure Stack, včetně všech známých problémů a místa, kde si je můžete stáhnout.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,86 +12,86 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: 22525fc9109bd2c03e28c4ca34b60c7a1f2585fe
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: f17c2ba41097d5b9bda903ae5d95c62e0ac9f53a
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618048"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71829359"
 ---
 # <a name="sql-resource-provider-11300-release-notes"></a>Poznámky k verzi 1.1.30.0 poskytovatele prostředků SQL
 
-*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
 
-Tyto poznámky k verzi popisují vylepšení a známých problémech ve verzi poskytovatele prostředků 1.1.30.0 SQL.
+Tyto poznámky k verzi popisují vylepšení a známé problémy ve verzi 1.1.30.0 poskytovatele prostředků SQL.
 
 ## <a name="build-reference"></a>Referenční informace o buildu
-Stáhnout poskytovatele prostředků SQL binární a pak spusťte Self-Extractor extrahujte obsah do dočasného adresáře. Poskytovatel prostředků má minimální odpovídající Azure Stack sestavení. Minimální verze služby Azure Stack požadovaná k instalaci této verze poskytovatele prostředků SQL jsou uvedeny níže:
+Stáhněte si binární soubor poskytovatele prostředků SQL a potom spusťte samočinný extrahování a extrahujte obsah do dočasného adresáře. Poskytovatel prostředků má minimálně odpovídající sestavení Azure Stack. Minimální verze Azure Stack vydaná pro instalaci této verze poskytovatele prostředků SQL je uvedená níže:
 
-> |Minimální verze služby Azure Stack|Verze poskytovatele prostředků SQL|
+> |Minimální verze Azure Stack|Verze zprostředkovatele prostředků SQL|
 > |-----|-----|
-> |Verze. 1808 (1.1808.0.97)|[1.1.30.0](https://aka.ms/azurestacksqlrp11300)|
+> |Verze 1808 (1.1808.0.97)|[1.1.30.0](https://aka.ms/azurestacksqlrp11300)|
 > |     |     |
 
 > [!IMPORTANT]
-> Platí minimální podporované aktualizace služby Azure Stack pro Azure Stack integrované systému nebo nasadit nejnovější Azure Stack Development Kit (ASDK) před nasazením nejnovější verzi poskytovatele prostředků SQL.
+> Před nasazením nejnovější verze poskytovatele prostředků SQL použijte minimální podporovanou aktualizaci Azure Stack v integrovaném systému Azure Stack nebo nasaďte nejnovější Azure Stack Development Kit (ASDK).
 
 ## <a name="new-features-and-fixes"></a>Nové funkce a opravy
 Tato verze poskytovatele prostředků Azure Stack SQL zahrnuje následující vylepšení a opravy:
 
-- **Telemetrie pro nasazení poskytovatele prostředků SQL povoleno**. Nasazení poskytovatele prostředků SQL je povoleno shromažďování telemetrie. Shromažďovat telemetrii zahrnuje nasazení poskytovatele prostředků, spuštění a zastavení časy, ukončete stavové zprávy o ukončení a podrobnosti o chybě (pokud existuje).
+- **Telemetrie se povolila pro nasazení poskytovatele prostředků SQL**. Kolekce telemetrie je povolená pro nasazení poskytovatele prostředků SQL. Shromážděná telemetrie zahrnuje nasazení poskytovatele prostředků, časy spuštění a zastavení, stav ukončení, zprávy ukončení a podrobnosti o chybě (Pokud je k dispozici).
 
-- **Aktualizace šifrování TLS 1.2**. Povoleno jen 1.2 podpora TLS pro prostředek zprostředkovatele komunikace s interní komponenty služby Azure Stack. 
+- **Aktualizace šifrování TLS 1,2**. Povoleno TLS 1,2 – Podpora pouze pro komunikaci poskytovatele prostředků s interními součástmi Azure Stack. 
 
 ### <a name="fixes"></a>Opravy
 
-- **Poskytovatele prostředků SQL Azure Stack Powershellu kompatibility**. Poskytovatele prostředků SQL byla aktualizována na pracovním profilem Azure Stack 2018-03-01hybridní prostředí PowerShell a k zajištění kompatibility se AzureRM 1.3.0 a novější.
+- **Poskytovatel prostředků SQL Azure Stack kompatibility PowerShellu**. Poskytovatel prostředků SQL se aktualizoval tak, aby fungoval s Azure Stack 2018-03-01-hybridním profilem PowerShellu a zajistil kompatibilitu s AzureRM 1.3.0 a novějším.
 
-- **Okno heslo změnit přihlašovací jméno SQL**. Opravili jsme problém, kde heslo nelze změnit, v okně změnit heslo. Upozornění na změnu odstraněny odkazy z hesla.
+- **Okno heslo pro změnu přihlašovacího údaje SQL** Opravili jsme problém, kdy se heslo nedá změnit v okně změnit heslo. Odebrali jsme odkazy z oznámení o změně hesla.
 
-- **Hostování aktualizovat okno nastavení serveru SQL**. Opravili jsme problém, kde v okně nastavení byla správně s názvem jako "Password".
+- **Aktualizuje se okno nastavení hostitelského serveru SQL**. Opravili jsme problém, kdy se okno nastavení nesprávně vyvolalo jako heslo.
 
 ## <a name="known-issues"></a>Známé problémy 
 
-- **SKU SQL může trvat až hodinu, uvidí na portálu**. Může trvat až hodinu nově vytvořený skladová jednotka byla viditelná jenom pro použití při vytváření nové databáze SQL. 
+- Zobrazení **SKU SQL může trvat až hodinu**, než se na portálu zobrazí. Může trvat až hodinu, než se nově vytvořené skladové položky zobrazí pro použití při vytváření nových databází SQL. 
 
-    **Alternativní řešení**: Žádné
+    **Alternativní řešení**: Žádné.
 
-- **Znovu použít přihlášeních SQL**. Pokus o vytvoření nové SQL přihlásit se pomocí stejné uživatelské jméno jako stávající přihlašovací údaje v rámci stejného předplatného způsobí opětovné použití stejné přihlašovací údaje a stávající heslo. 
+- **Znovu použita přihlášení SQL**. Při pokusu o vytvoření nového přihlášení SQL se stejným uživatelským jménem, jako má existující přihlašovací jméno v rámci stejného předplatného, bude použito stejné přihlášení a stávající heslo. 
 
-    **Alternativní řešení**: Použít různá uživatelská jména, při vytváření nové přihlašovací údaje v rámci stejného předplatného nebo vytvářet přihlášení se stejným uživatelským jménem v rámci různých předplatných.
+    **Alternativní řešení**: Při vytváření nových přihlašovacích údajů v rámci stejného předplatného nebo při vytváření přihlašovacích údajů se stejným uživatelským jménem v různých předplatných použijte jiná uživatelská jména.
 
-- **Sdílené přihlašovací údaje SQL způsobovat datové nekonzistence**. Pokud je přihlašovací jméno SQL sdílí pro více databází SQL v rámci stejného předplatného, změna hesla přihlášení způsobí nekonzistenci dat.
+- **Sdílená přihlášení SQL způsobují nekonzistenci dat**. Pokud je přihlašovací jméno SQL sdílené pro více databází SQL v rámci stejného předplatného, Změna přihlašovacího hesla způsobí nekonzistenci dat.
 
-    **Alternativní řešení**: Vždy používejte jiné přihlašovací údaje pro různé databáze v rámci stejného předplatného.
+    **Alternativní řešení**: Pro různé databáze v rámci stejného předplatného používejte vždycky jiná přihlášení.
 
-- **Požadavek na podporu protokolu TLS 1.2**. Pokud se pokusíte nasadit nebo aktualizovat poskytovatele prostředků SQL na počítači, kde není povolený protokol TLS 1.2, může operace selhat. Spusťte následující příkaz Powershellu na počítači, který se použije k nasazení nebo aktualizujte zprostředkovatele prostředků k ověření, že se vrátí TLS 1.2, podporuje:
+- **Požadavek na podporu TLS 1,2**. Pokud se pokusíte nasadit nebo aktualizovat poskytovatele prostředků SQL z počítače, kde není povolený protokol TLS 1,2, může operace selhat. Spusťte následující příkaz PowerShellu na počítači, který se používá k nasazení nebo aktualizaci poskytovatele prostředků, aby se ověřilo, že se TLS 1,2 vrátí jako podporovaný:
 
   ```powershell
   [System.Net.ServicePointManager]::SecurityProtocol
   ```
 
-  Pokud **Tls12** není součástí výstupu příkazu v počítači není povolená TLS 1.2.
+  Pokud **Tls12** není součástí výstupu příkazu, TLS 1,2 není v počítači povolen.
 
-    **Alternativní řešení**: Spusťte následující příkaz Powershellu k povolení protokolu TLS 1.2 a spusťte nasazení poskytovatele prostředků nebo aktualizujte skript v téže relaci prostředí PowerShell:
+    **Alternativní řešení**: Spuštěním následujícího příkazu PowerShellu povolte TLS 1,2 a potom spusťte nasazení poskytovatele prostředků nebo aktualizujte skript ze stejné relace PowerShellu:
 
     ```powershell
     [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
     ```
-- **Poskytovatele prostředků SQL se nepodařilo přidat naslouchací proces SQL serveru Always On**. Pokud používáte SQL Server vždy na naslouchací proces IP adresu naslouchacího procesu, poskytovatele prostředků SQL virtuálního počítače nemůže přeložit název hostitele naslouchacího procesu.
+- **Poskytovatel prostředků SQL nemůže přidat SQL Server vždy na naslouchací proces**. Při použití IP adresy naslouchacího procesu pro naslouchací proces služby SQL Server Always On nemůže virtuální počítač poskytovatele prostředků SQL přeložit název hostitele naslouchacího procesu.
 
-    **Alternativní řešení**: Ujistěte se, že DNS funguje správně přeložit IP adresu naslouchacího procesu na název naslouchacího procesu hostitele.
+    **Alternativní řešení**: Ujistěte se, že služba DNS správně funguje pro překlad IP adresy naslouchacího procesu na název hostitele naslouchacího procesu.
     
-### <a name="known-issues-for-cloud-admins-operating-azure-stack"></a>Známé problémy pro správce cloudu provoz služby Azure Stack
-Přečtěte si dokumentaci v [zpráva k vydání verze Azure Stack](azure-stack-servicing-policy.md).
+### <a name="known-issues-for-cloud-admins-operating-azure-stack"></a>Známé problémy pro cloudové správce, kteří pracují Azure Stack
+Informace najdete v dokumentaci k [verzi Azure Stack](azure-stack-servicing-policy.md).
 
-## <a name="next-steps"></a>Další postup
-[Další informace o poskytovateli prostředků SQL](azure-stack-sql-resource-provider.md).
+## <a name="next-steps"></a>Další kroky
+[Přečtěte si další informace o poskytovateli prostředků SQL](azure-stack-sql-resource-provider.md).
 
 [Příprava na nasazení poskytovatele prostředků SQL](azure-stack-sql-resource-provider-deploy.md#prerequisites).
 
-[Upgrade z předchozí verze poskytovatele prostředků SQL](azure-stack-sql-resource-provider-update.md). 
+[Upgradujte poskytovatele prostředků SQL z předchozí verze](azure-stack-sql-resource-provider-update.md). 

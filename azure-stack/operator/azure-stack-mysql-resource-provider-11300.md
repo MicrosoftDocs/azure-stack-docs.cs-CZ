@@ -1,6 +1,6 @@
 ---
-title: Azure Stack MySQL prostředků poskytovatele 1.1.30.0 poznámky k verzi | Dokumentace Microsoftu
-description: Další informace o novinky v nejnovější Azure Stack MySQL prostředků poskytovatele aktualizaci, včetně všech známých problémů a kde ho můžete stáhnout.
+title: 1\.1.30.0 poznámky k verzi poskytovatele prostředků MySQL | Azure Stack Microsoft Docs
+description: Seznamte se s nejnovější aktualizací poskytovatele prostředků MySQL Azure Stack, včetně všech známých problémů a místa, kde ho stáhnout.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,77 +12,77 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: e5126f55a60b98ec7c410b7f8f2256ad08fa9753
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 7679589090022f6f07c5e1fddb9c768716628865
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618562"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71829437"
 ---
-# <a name="mysql-resource-provider-11300--release-notes"></a>Poznámky k verzi poskytovatele 1.1.30.0 prostředků MySQL
+# <a name="mysql-resource-provider-11300--release-notes"></a>Poznámky k verzi pro poskytovatele prostředků MySQL 1.1.30.0
 
-*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
 
-Tyto poznámky k verzi popisují vylepšení a známé problémy v MySQL verze zprostředkovatele prostředků 1.1.30.0.
+Tyto poznámky k verzi popisují vylepšení a známé problémy ve verzi poskytovatele prostředků MySQL verze 1.1.30.0.
 
 ## <a name="build-reference"></a>Referenční informace o buildu
-Stáhnout poskytovatele prostředků MySQL binární a pak spusťte Self-Extractor extrahujte obsah do dočasného adresáře. Poskytovatel prostředků má minimální odpovídající Azure Stack sestavení. Minimální verze služby Azure Stack požadovaná k instalaci této verze poskytovatele prostředků MySQL jsou uvedeny níže:
+Stáhněte si binární soubor poskytovatele prostředků MySQL a potom spusťte samočinného extrahování a extrahujte obsah do dočasného adresáře. Poskytovatel prostředků má minimálně odpovídající sestavení Azure Stack. Minimální verze Azure Stack vydaná pro instalaci této verze poskytovatele prostředků MySQL je uvedena níže:
 
-> |Minimální verze služby Azure Stack|Verze poskytovatele prostředků MySQL|
+> |Minimální verze Azure Stack|Verze poskytovatele prostředků MySQL|
 > |-----|-----|
-> |Aktualizace Azure Stack. 1808 (1.1808.0.97)|[1.1.30.0](https://aka.ms/azurestackmysqlrp11300)|
+> |Aktualizace 1808 Azure Stack (1.1808.0.97)|[1.1.30.0](https://aka.ms/azurestackmysqlrp11300)|
 > |     |     |
 
 > [!IMPORTANT]
-> Platí minimální podporované aktualizace služby Azure Stack pro Azure Stack integrované systému nebo nasadit nejnovější Azure Stack Development Kit (ASDK) před nasazením nejnovější verzi poskytovatele prostředků MySQL.
+> Před nasazením nejnovější verze poskytovatele prostředků MySQL použijte minimální podporovanou aktualizaci Azure Stack v integrovaném systému Azure Stack nebo nasaďte nejnovější Azure Stack Development Kit (ASDK).
 
 ## <a name="new-features-and-fixes"></a>Nové funkce a opravy
 Tato verze poskytovatele prostředků Azure Stack MySQL zahrnuje následující vylepšení a opravy:
 
-- **Telemetrická data povolená pro nasazení poskytovatele prostředků MySQL**. Nasazení poskytovatele prostředků MySQL je povoleno shromažďování telemetrie. Shromažďovat telemetrii zahrnuje nasazení poskytovatele prostředků, spuštění a zastavení časy, ukončete stavové zprávy o ukončení a podrobnosti o chybě (pokud existuje).
+- **Telemetrie se povolila pro nasazení poskytovatele prostředků MySQL**. Kolekce telemetrie je povolená pro nasazení poskytovatele prostředků MySQL. Shromážděná telemetrie zahrnuje nasazení poskytovatele prostředků, časy spuštění a zastavení, stav ukončení, zprávy ukončení a podrobnosti o chybě (Pokud je k dispozici).
 
-- **Aktualizace šifrování TLS 1.2**. Povoleno jen 1.2 podpora TLS pro prostředek zprostředkovatele komunikace s interní komponenty služby Azure Stack. 
+- **Aktualizace šifrování TLS 1,2**. Povoleno TLS 1,2 – Podpora pouze pro komunikaci poskytovatele prostředků s interními součástmi Azure Stack. 
 
 ### <a name="fixes"></a>Opravy
 
-- **Poskytovatele prostředků MySQL Azure Stack Powershellu kompatibility**. Poskytovatele prostředků MySQL byla aktualizována na pracovním profilem Azure Stack 2018-03-01hybridní prostředí PowerShell a k zajištění kompatibility se AzureRM 1.3.0 a novější.
+- **Poskytovatel prostředků MySQL Azure Stack kompatibility PowerShellu**. Poskytovatel prostředků MySQL se aktualizoval tak, aby fungoval s Azure Stack 2018-03-01-hybridním profilem PowerShellu a zajistil kompatibilitu s AzureRM 1.3.0 a novějším.
 
-- **MySQL přihlášení změnit heslo okno**. Opravili jsme problém, kde heslo nelze změnit, v okně změnit heslo. Upozornění na změnu odstraněny odkazy z hesla.
+- **Okno pro změnu přihlašovacího hesla MySQL** Opravili jsme problém, kdy se heslo nedá změnit v okně změnit heslo. Odebrali jsme odkazy z oznámení o změně hesla.
 
 ## <a name="known-issues"></a>Známé problémy 
 
-- **SKU MySQL může trvat až hodinu, uvidí na portálu**. Může trvat až hodinu nově vytvořený skladová jednotka byla viditelná jenom pro použití při vytváření nových databází MySQL. 
+- **SKU MySQL můžou trvat až hodinu,** než se na portálu zobrazí. Může trvat až hodinu, než se nově vytvořené skladové položky zobrazí pro použití při vytváření nových databází MySQL. 
 
-    **Alternativní řešení**: Žádné
+    **Alternativní řešení**: Žádné.
 
-- **Znovu použít přihlašovací údaje MySQL**. Při pokusu o vytvoření nové databáze MySQL přihlášení pomocí stejné uživatelské jméno jako stávající přihlašovací údaje v rámci stejného předplatného způsobí opětovné použití stejné přihlašovací údaje a stávající heslo. 
+- **Znovu se využívala přihlášení MySQL**. Při pokusu o vytvoření nového přihlášení MySQL se stejným uživatelským jménem, jako je existující přihlášení v rámci stejného předplatného, bude použito stejné přihlašovací jméno a stávající heslo. 
 
-    **Alternativní řešení**: Použít různá uživatelská jména, při vytváření nové přihlašovací údaje v rámci stejného předplatného nebo vytvářet přihlášení se stejným uživatelským jménem v rámci různých předplatných.
+    **Alternativní řešení**: Při vytváření nových přihlašovacích údajů v rámci stejného předplatného nebo při vytváření přihlašovacích údajů se stejným uživatelským jménem v různých předplatných použijte jiná uživatelská jména.
 
-- **Požadavek na podporu protokolu TLS 1.2**. Pokud se pokusíte nasadit nebo aktualizovat poskytovatele prostředků MySQL z počítače, kde není povolený protokol TLS 1.2, může operace selhat. Spusťte následující příkaz Powershellu na počítači, který se použije k nasazení nebo aktualizujte zprostředkovatele prostředků k ověření, že se vrátí TLS 1.2, podporuje:
+- **Požadavek na podporu TLS 1,2**. Pokud se pokusíte nasadit nebo aktualizovat poskytovatele prostředků MySQL z počítače, kde není povolený protokol TLS 1,2, může operace selhat. Spusťte následující příkaz PowerShellu na počítači, který se používá k nasazení nebo aktualizaci poskytovatele prostředků, aby se ověřilo, že se TLS 1,2 vrátí jako podporovaný:
 
   ```powershell
   [System.Net.ServicePointManager]::SecurityProtocol
   ```
 
-  Pokud **Tls12** není součástí výstupu příkazu v počítači není povolená TLS 1.2.
+  Pokud **Tls12** není součástí výstupu příkazu, TLS 1,2 není v počítači povolen.
 
-    **Alternativní řešení**: Spusťte následující příkaz Powershellu k povolení protokolu TLS 1.2 a spusťte nasazení poskytovatele prostředků nebo aktualizujte skript v téže relaci prostředí PowerShell:
+    **Alternativní řešení**: Spuštěním následujícího příkazu PowerShellu povolte TLS 1,2 a potom spusťte nasazení poskytovatele prostředků nebo aktualizujte skript ze stejné relace PowerShellu:
 
     ```powershell
     [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
     ```
  
-### <a name="known-issues-for-cloud-admins-operating-azure-stack"></a>Známé problémy pro správce cloudu provoz služby Azure Stack
-Přečtěte si dokumentaci v [zpráva k vydání verze Azure Stack](azure-stack-servicing-policy.md).
+### <a name="known-issues-for-cloud-admins-operating-azure-stack"></a>Známé problémy pro cloudové správce, kteří pracují Azure Stack
+Informace najdete v dokumentaci k [verzi Azure Stack](azure-stack-servicing-policy.md).
 
-## <a name="next-steps"></a>Další postup
-[Další informace o poskytovatele prostředků MySQL](azure-stack-mysql-resource-provider.md).
+## <a name="next-steps"></a>Další kroky
+[Přečtěte si další informace o poskytovateli prostředků MySQL](azure-stack-mysql-resource-provider.md).
 
-[Příprava na nasazení poskytovatele prostředků MySQL](azure-stack-mysql-resource-provider-deploy.md#prerequisites).
+[Připravte se na nasazení poskytovatele prostředků MySQL](azure-stack-mysql-resource-provider-deploy.md#prerequisites).
 
-[Upgrade z předchozí verze poskytovatele prostředků MySQL](azure-stack-mysql-resource-provider-update.md). 
+[Upgradujte poskytovatele prostředků MySQL z předchozí verze](azure-stack-mysql-resource-provider-update.md). 

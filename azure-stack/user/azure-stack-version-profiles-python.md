@@ -10,32 +10,36 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2019
+ms.date: 10/01/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
 <!-- dev: viananth -->
-ms.openlocfilehash: 35ce331c29e89af3a81396a9658cf8a0f29018d3
-ms.sourcegitcommit: 58c28c0c4086b4d769e9d8c5a8249a76c0f09e57
+ms.openlocfilehash: bf44716c160948f3deafdc8afb87b9b6d49f9eb5
+ms.sourcegitcommit: 3d14ae30ce3ee44729e5419728cce14b3000e968
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68959424"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71814438"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack"></a>Použití profilů verzí rozhraní API s Pythonem v Azure Stack
 
 *Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
 
+Python SDK podporuje profily verzí rozhraní API pro cílení na různé cloudové platformy, jako je Azure Stack a globální Azure. Profily rozhraní API můžete používat při vytváření řešení pro hybridní cloud.
+
+Pokyny v tomto článku vyžadují předplatné Microsoft Azure. Pokud ho nemáte, můžete získat [bezplatný zkušební účet](https://go.microsoft.com/fwlink/?LinkId=330212).
+
 ## <a name="python-and-api-version-profiles"></a>Profily verze Pythonu a rozhraní API
 
-Python SDK podporuje profily verzí rozhraní API pro cílení na různé cloudové platformy, jako je Azure Stack a globální Azure. Profily rozhraní API můžete používat při vytváření řešení pro hybridní cloud. Python SDK podporuje následující profily rozhraní API:
+Python SDK podporuje následující profily rozhraní API:
 
 - **nejnovější**  
     Tento profil cílí na nejnovější verze rozhraní API pro všechny poskytovatele služeb na platformě Azure.
 - **2019-03-01-hybrid**  
-    Tento profil cílí na nejnovější verze rozhraní API pro všechny poskytovatele prostředků v Azure Stack platformě pro razítko verze 1904 nebo novější.
+    Tento profil cílí na nejnovější verze rozhraní API pro všechny poskytovatele prostředků na platformě Azure Stack pro verze 1904 nebo novější.
 - **2018-03-01-hybrid**  
-    Tento profil cílí na nejvíce kompatibilní verze rozhraní API pro všechny poskytovatele prostředků v Azure Stack platformě.
+    Tento profil cílí na nejvíce kompatibilní verze rozhraní API pro všechny poskytovatele prostředků na platformě Azure Stack.
 - **2017-03-09-profile**  
     Tento profil cílí na nejvíce kompatibilní verze rozhraní API zprostředkovatelů prostředků, které podporuje Azure Stack.
 
@@ -44,42 +48,42 @@ Python SDK podporuje profily verzí rozhraní API pro cílení na různé cloudo
 ## <a name="install-the-azure-python-sdk"></a>Instalace sady Azure Python SDK
 
 1. Nainstalujte git z [oficiální lokality](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
-2. Pokyny k instalaci sady Python SDK najdete v tématu [Azure pro vývojáře](/python/azure/python-sdk-azure-install?view=azure-python)v Pythonu.
+2. Pokyny k instalaci sady Python SDK najdete v tématu [Azure pro vývojáře v Pythonu](/python/azure/python-sdk-azure-install?view=azure-python).
 3. Pokud není k dispozici, vytvořte odběr a uložte ID předplatného, které chcete později použít. Pokyny k vytvoření předplatného najdete [v tématu Vytvoření předplatných nabídek v Azure Stack](../operator/azure-stack-subscribe-plan-provision-vm.md).
 4. Vytvořte instanční objekt a uložte jeho ID a tajný klíč. Pokyny o tom, jak vytvořit instanční objekt pro Azure Stack najdete v tématu [poskytují aplikacím přístup ke službě Azure Stack](../operator/azure-stack-create-service-principals.md).
 5. Ujistěte se, že má instančního objektu služby roli Přispěvatel nebo vlastník v rámci předplatného. Pokyny k přiřazení role k instančnímu objektu najdete v tématu [poskytnutí přístupu k aplikacím Azure Stack](../operator/azure-stack-create-service-principals.md).
 
 ## <a name="prerequisites"></a>Požadavky
 
-Pokud chcete použít sadu Python Azure SDK s Azure Stack, musíte zadat následující hodnoty a potom nastavit hodnoty pomocí proměnných prostředí. Chcete-li nastavit proměnné prostředí, přečtěte si pokyny uvedené v tabulce pro konkrétní operační systém.
+Pokud chcete použít sadu Python Azure SDK s Azure Stack, musíte zadat následující hodnoty a potom nastavit hodnoty pomocí proměnných prostředí. Chcete-li nastavit proměnné prostředí, postupujte podle pokynů v následující tabulce pro konkrétní operační systém.
 
 | Value | Proměnné prostředí | Popis |
 |---------------------------|-----------------------|-------------------------------------------------------------------------------------------------------------------------|
-| ID tenanta | `AZURE_TENANT_ID` | Hodnota vašeho [ID tenanta](../operator/azure-stack-identity-overview.md)Azure Stack. |
+| ID tenanta | `AZURE_TENANT_ID` | Vaše [ID tenanta](../operator/azure-stack-identity-overview.md)Azure Stack. |
 | ID klienta | `AZURE_CLIENT_ID` | ID aplikace instančního objektu se uložilo při vytvoření instančního objektu v předchozí části tohoto článku. |
-| ID předplatného | `AZURE_SUBSCRIPTION_ID` | [ID](../operator/azure-stack-plan-offer-quota-overview.md#subscriptions) předplatného je způsob, jakým přistupujete k nabídkám v Azure Stack. |
+| ID předplatného | `AZURE_SUBSCRIPTION_ID` | [ID předplatného](../operator/azure-stack-plan-offer-quota-overview.md#subscriptions) se používá pro přístup k nabídkám v Azure Stack. |
 | Tajný kód klienta | `AZURE_CLIENT_SECRET` | Tajný kód aplikace instančního objektu se uložil při vytvoření objektu služby. |
-| Koncový bod Resource Manageru | `ARM_ENDPOINT` | Viz [koncový bod Správce prostředků Azure Stack](azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint). |
+| Koncový bod Resource Manageru | `ARM_ENDPOINT` | Viz článek [Azure Stack správce prostředků koncového bodu](azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint) . |
 | Umístění prostředku | `AZURE_RESOURCE_LOCATION` | Umístění prostředku vašeho Azure Stackho prostředí.
 
 ### <a name="trust-the-azure-stack-ca-root-certificate"></a>Důvěřovat kořenovému certifikátu certifikační autority Azure Stack
 
-Pokud používáte ASDK, musíte na svém vzdáleném počítači důvěřovat kořenovému certifikátu certifikační autority. Kořenový certifikát certifikační autority nemusíte důvěřovat s integrovanými systémy.
+Pokud používáte ASDK, musíte explicitně důvěřovat kořenovému certifikátu certifikační autority na vzdáleném počítači. Kořenový certifikát certifikační autority nemusíte důvěřovat s Azure Stack integrovanými systémy.
 
 #### <a name="windows"></a>Windows
 
-1. Najděte umístění úložiště certifikátů Pythonu na vašem počítači. Umístění se může lišit v závislosti na tom, kde jste nainstalovali Python. Otevřete příkazový řádek nebo příkazový řádek PowerShell se zvýšenými oprávněními a zadejte tento příkaz:
+1. Najděte umístění úložiště certifikátů Pythonu na vašem počítači. Umístění se může lišit v závislosti na tom, kde jste nainstalovali Python. Otevřete příkazový řádek nebo příkazový řádek PowerShellu se zvýšenými oprávněními a zadejte tento příkaz:
 
     ```PowerShell  
       python -c "import certifi; print(certifi.where())"
     ```
 
-    Poznamenejte si umístění úložiště certifikátů. Například *~/lib/python3.5/site-Packages/certifi/CAcert.pem*. Vaše konkrétní cesta závisí na vašem operačním systému a verzi Pythonu, kterou jste nainstalovali.
+    Poznamenejte si umístění úložiště certifikátů. například **~/lib/python3.5/site-Packages/certifi/CAcert.pem**. Vaše konkrétní cesta závisí na vašem operačním systému a verzi Pythonu, kterou jste nainstalovali.
 
-2. Důvěřování kořenovému certifikátu certifikační autority Azure Stack připojením k existujícímu certifikátu Pythonu.
+2. Důvěřovat kořenovému certifikátu certifikační autority Azure Stack připojením k existujícímu certifikátu Pythonu:
 
     ```powershell
-    $pemFile = "<Fully qualified path to the PEM certificate Ex: C:\Users\user1\Downloads\root.pem>"
+    $pemFile = "<Fully qualified path to the PEM certificate; for ex: C:\Users\user1\Downloads\root.pem>"
 
     $root = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2
     $root.Import($pemFile)
@@ -105,25 +109,22 @@ Pokud používáte ASDK, musíte na svém vzdáleném počítači důvěřovat k
     Add-Content "${env:ProgramFiles(x86)}\Python35\Lib\site-packages\certifi\cacert.pem" $rootCertEntry
 
     Write-Host "Python Cert store was updated to allow the Azure Stack CA root certificate"
-
     ```
 
 > [!NOTE]  
-> Pokud používáte virtualenv pro vývoj pomocí Python SDK, jak je uvedeno níže, musíte přidat výše uvedený certifikát do úložiště certifikátů virtuálního prostředí. Cesta může vypadat podobně jako: ".. \mytestenv\Lib\site-packages\certifi\cacert.pem"
-
-
+> Pokud používáte **virtualenv** pro vývoj pomocí sady Python SDK, jak je uvedeno v následující části [spuštění ukázky Pythonu](#run-the-python-sample) , musíte do úložiště certifikátů virtuálního prostředí přidat předchozí certifikát. Cesta může vypadat podobně jako: `..\mytestenv\Lib\site-packages\certifi\cacert.pem`.
 
 ## <a name="python-samples-for-azure-stack"></a>Ukázky Pythonu pro Azure Stack
 
-Některé ukázky kódu, které jsou k dispozici pro Azure Stack pomocí Python SDK:
+Některé ukázky kódu, které jsou k dispozici pro Azure Stack pomocí sady Python SDK:
 
 - [Správa prostředků a skupin prostředků](https://azure.microsoft.com/resources/samples/hybrid-resourcemanager-python-manage-resources/)
 - [Spravovat účet úložiště](https://azure.microsoft.com/resources/samples/hybrid-storage-python-manage-storage-account/)
-- [Správa Virtual Machines](https://azure.microsoft.com/resources/samples/hybrid-compute-python-manage-vm/) (Tato ukázka používá 2019-03-01 – hybrid, který cílí na nejnovější verze rozhraní API podporované nástrojem Azure Stack)
+- [Správa virtuálních počítačů](https://azure.microsoft.com/resources/samples/hybrid-compute-python-manage-vm/): Tato ukázka používá **2019-03-01 – hybridní** profil, který cílí na nejnovější verze rozhraní API podporované nástrojem Azure Stack.
 
-## <a name="python-manage-virtual-machine-sample"></a>Ukázka správy virtuálních počítačů v Pythonu
+## <a name="manage-virtual-machine-sample"></a>Ukázka správy virtuálního počítače
 
-Pomocí následující ukázky kódu můžete provádět běžné úlohy správy pro virtuální počítače ve vašem Azure Stack. Ukázka kódu vám ukáže:
+K provádění běžných úloh správy virtuálních počítačů ve vašem Azure Stack použijte následující ukázku kódu Pythonu. Ukázka kódu ukazuje, jak:
 
 - Vytváření virtuálních počítačů:
   - Vytvoření virtuálního počítače s Linuxem
@@ -142,15 +143,15 @@ Pomocí následující ukázky kódu můžete provádět běžné úlohy správy
 
 Pokud si chcete prohlédnout kód, který provádí tyto operace, přečtěte si funkci **run_example ()** ve skriptu Python **example.py** v úložišti GitHub [Hybrid-COMPUTE-Python-manage-VM](https://github.com/Azure-Samples/Hybrid-Compute-Python-Manage-VM).
 
-Každá operace má jasně popisek s komentářem a funkcí tisku. Příklady nejsou nutně v pořadí zobrazeném v tomto seznamu.
+Každá operace má jasně popisek s komentářem a funkcí tisku. Příklady nejsou nutně v pořadí uvedeném v tomto seznamu.
 
 ## <a name="run-the-python-sample"></a>Spuštění ukázky Pythonu
 
 1. [Nainstalujte Python](https://www.python.org/downloads/) , pokud ještě není nainstalovaný. Tato ukázka (a sada SDK) je kompatibilní s Pythonem 2,7, 3,4, 3,5 a 3,6.
 
-2. Obecné doporučení pro vývoj v Pythonu je použití virtuálního prostředí. Další informace najdete v [dokumentaci k Pythonu](https://docs.python.org/3/tutorial/venv.html).
+2. Obecné doporučení pro vývoj v jazyce Python je použití virtuálního prostředí. Další informace najdete v [dokumentaci k Pythonu](https://docs.python.org/3/tutorial/venv.html).
 
-3. Instalace a inicializace virtuálního prostředí s modulem "venv" v Pythonu 3 (je nutné nainstalovat [virtualenv](https://pypi.python.org/pypi/virtualenv) pro Python 2,7):
+3. Instalace a inicializace virtuálního prostředí s modulem **venv** v Pythonu 3 (je nutné nainstalovat [virtualenv](https://pypi.python.org/pypi/virtualenv) pro Python 2,7):
 
     ```bash
     python -m venv mytestenv # Might be "python3" or "py -3.6" depending on your Python installation
@@ -166,7 +167,7 @@ Každá operace má jasně popisek s komentářem a funkcí tisku. Příklady ne
     git clone https://github.com/Azure-Samples/Hybrid-Compute-Python-Manage-VM.git
     ```
 
-5. Nainstalujte závislosti pomocí PIP:
+5. Nainstalujte závislosti pomocí **PIP**:
 
     ```bash
     cd Hybrid-Compute-Python-Manage-VM
@@ -194,11 +195,8 @@ Každá operace má jasně popisek s komentářem a funkcí tisku. Příklady ne
     python example.py
     ```
 
-
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 - [Centrum pro vývoj v Pythonu pro Azure](https://azure.microsoft.com/develop/python/)
 - [Dokumentace k Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/)
 - [Studijní cesta pro Virtual Machines](/learn/paths/deploy-a-website-with-azure-virtual-machines/)
-
-Pokud nemáte předplatné Microsoft Azure, můžete si [tady](https://go.microsoft.com/fwlink/?LinkId=330212)stáhnout bezplatný zkušební účet.

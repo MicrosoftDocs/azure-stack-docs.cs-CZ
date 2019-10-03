@@ -1,6 +1,6 @@
 ---
 title: Delegování nabídek v Azure Stack | Microsoft Docs
-description: Naučte se, jak umístit další lidi na vytváření nabídek a registraci uživatelů za vás.
+description: Naučte se delegovat úlohy, jako je vytváření nabídek a registrace uživatelů.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,12 +15,12 @@ ms.date: 08/12/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 97b253e4df3762d4579923124b7768c14f40d3de
-ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
+ms.openlocfilehash: eee3a928f8f3c6f376e9019af6da71a77ab09450
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71159670"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71829242"
 ---
 # <a name="delegate-offers-in-azure-stack"></a>Delegování nabídek v Azure Stacku
 
@@ -30,7 +30,7 @@ Jako operátor Azure Stack možná budete chtít umístit další lidi pro regis
 
 Delegování usnadňuje dosažení a správu více uživatelů, než můžete sami sebe, jak je znázorněno na následujícím obrázku:
 
-![Úrovně delegování](media/azure-stack-delegated-provider/image1.png)
+![Úrovně delegování v Azure Stack](media/azure-stack-delegated-provider/image1.png)
 
 Delegovaný zprostředkovatel pomocí delegování spravuje nabídku (nazývanou *delegovanou nabídku*) a koncovým zákazníkům získává předplatná v rámci této nabídky bez zásahu správce systému.
 
@@ -54,7 +54,7 @@ Existují dva základní kroky nastavení delegování:
 
 Následující obrázek ukazuje postup nastavení delegování:
 
-![Vytvořit delegovaného zprostředkovatele a povolit jim registraci uživatelů](media/azure-stack-delegated-provider/image2.png)
+![Postup vytvoření delegovaného zprostředkovatele a jeho povolení k registraci uživatelů v Azure Stack](media/azure-stack-delegated-provider/image2.png)
 
 ### <a name="delegated-provider-requirements"></a>Požadavky na delegovaného zprostředkovatele
 
@@ -76,7 +76,7 @@ Chcete-li použít tento návod, potřebujete kromě účtu operátora Azure Sta
 | Uživatel |Uživatel |
 
  > [!NOTE]
- > V případě prodejců CSP musí vytvoření tohoto delegovaného zprostředkovatele vyžadovat tyto uživatele v adresáři tenanta (uživatel Azure AD). Operátor Azure Stack musí [nejdřív](azure-stack-enable-multitenancy.md) připojit klienta Azure AD a pak pomocí [těchto kroků](azure-stack-csp-howto-register-tenants.md)nakonfigurovat využití a fakturace.
+ > V případě prodejců CSP by vytváření tohoto delegovaného zprostředkovatele vyžadovalo, aby tito uživatelé byli v adresáři tenanta (uživatel Azure AD). Operátor Azure Stack musí [nejdřív](azure-stack-enable-multitenancy.md) připojit klienta Azure AD a pak pomocí následujících [kroků](azure-stack-csp-howto-register-tenants.md)nastavit a vyúčtování.
 
 ### <a name="identify-the-delegated-provider"></a>Identifikace delegovaného zprostředkovatele
 
@@ -91,25 +91,25 @@ Chcete-li použít tento návod, potřebujete kromě účtu operátora Azure Sta
 
    c.  Přidejte delegovaného zprostředkovatele jako předplatitele této nabídky, a to tak, že vyberete odběry, pak **přidáte**a pak **nové předplatné tenanta**.
 
-   ![Přidejte delegovaného zprostředkovatele jako předplatitele.](media/azure-stack-delegated-provider/image3.png)
+   ![Přidejte delegovaného zprostředkovatele jako předplatitele na portálu Azure Stack správce.](media/azure-stack-delegated-provider/image3.png)
 
    > [!NOTE]
    > Stejně jako u všech nabídek Azure Stack máte možnost nastavit si nabídku jako veřejnou a umožnit uživatelům, aby si ji zaregistrovali nebo si ji zavedli jako soukromou a umožnili, aby se registrace mohla řídit pomocí operátoru Azure Stack. Delegovaní zprostředkovatelé jsou obvykle malé skupiny. Chcete určit, kdo k němu je přihlášený, takže tato nabídka bude ve většině případů vhodná.
 
 ### <a name="azure-stack-operator-creates-the-delegated-offer"></a>Operátor Azure Stack vytvoří delegovanou nabídku.
 
-Dalším krokem je vytvoření plánu a nabídky, která bude delegována a kterou budou uživatelé používat. Tuto nabídku je vhodné definovat přesně tak, jak chcete, aby ji uživatelé viděli, protože delegovaný zprostředkovatel nemůže změnit plány a kvóty, které obsahuje.
+Dalším krokem je vytvoření plánu a nabídky, která bude delegována a kterou budou uživatelé používat. Tuto nabídku je vhodné definovat tak, jak chcete, aby ji uživatelé viděli, protože delegovaný zprostředkovatel nemůže měnit plány a kvóty, které obsahuje.
 
 1. Jako operátor Azure Stack [vytvořit plán](azure-stack-create-plan.md) a [nabídku](azure-stack-create-offer.md) na základě plánu. V tomto článku se jako příklad používá nabídka s názvem **DelegatedOffer** .
 
    > [!NOTE]
-   > Tato nabídka nemusí být veřejná, ale můžete ji zveřejnit. Ve většině případů ale chcete, aby delegovaní zprostředkovatelé měli přístup k této nabídce. Po delegování soukromé nabídky, jak je popsáno v následujícím postupu, má delegovaný zprostředkovatel přístup k němu.
+   > Tato nabídka nemusí být veřejná, ale můžete ji zveřejnit. Ve většině případů ale chcete, aby k této nabídce měli přístup jenom delegovaní zprostředkovatelé. Po delegování soukromé nabídky, jak je popsáno v následujícím postupu, má delegovaný zprostředkovatel přístup k němu.
 
 2. Delegovat nabídku Přejít na **DelegatedOffer**. V části **Nastavení**vyberte **delegovaní zprostředkovatelé**a pak vyberte **Přidat**.
 
 3. V rozevíracím seznamu vyberte předplatné delegovaného zprostředkovatele a pak vyberte **delegovat**.
 
-   ![Přidat delegovaného zprostředkovatele](media/azure-stack-delegated-provider/image4.png)
+   ![Přidání delegovaného zprostředkovatele na portálu Azure Stack správce](media/azure-stack-delegated-provider/image4.png)
 
 ### <a name="delegated-provider-customizes-the-offer"></a>Delegovaný poskytovatel přizpůsobuje nabídku.
 
@@ -117,24 +117,24 @@ Přihlaste se k portálu User Portal jako delegovaný zprostředkovatel a pak vy
 
 1. Vyberte **+ vytvořit prostředek**, pak **nabídky tenanta + plány**a pak vyberte **nabídky**.
 
-    ![Vytvořit novou nabídku](media/azure-stack-delegated-provider/image5.png)
+    ![Vytvoření nové nabídky na portálu Azure Stack User Portal](media/azure-stack-delegated-provider/image5.png)
 
 2. Přiřaďte k nabídce název. V tomto příkladu se používá **ResellerOffer**. Vyberte delegovanou nabídku, na které se má založit, a pak vyberte **vytvořit**.
 
-   ![Přiřadit název](media/azure-stack-delegated-provider/image6.png)
+   ![Přiřazení názvu v Azure Stack User Portal](media/azure-stack-delegated-provider/image6.png)
 
    >[!IMPORTANT]
-   >Je důležité pochopit, že delegovaní zprostředkovatelé můžou zvolit jenom nabídky, které jsou na ně delegované. Tyto nabídky nemůžou provádět změny. Pouze operátor Azure Stack může změnit tyto nabídky, například změnu jejich plánů a kvót. Delegovaný zprostředkovatel nevytváří nabídku ze základních plánů a plánů doplňku.
+   >Je důležité pochopit, že delegovaní zprostředkovatelé můžou zvolit jenom nabídky, které jsou na ně delegované. Tyto nabídky nemůžou provádět změny. Pouze operátor Azure Stack může změnit tyto nabídky. Například pouze operátor může změnit své plány a kvóty. Delegovaný zprostředkovatel nevytváří nabídku ze základních plánů a plánů doplňku.
 
 3. Delegovaný zprostředkovatel může tyto nabídky zveřejnit prostřednictvím vlastní adresy URL portálu. Pokud chcete nabídku zveřejnit, vyberte **Procházet**a pak **nabídky**. Vyberte nabídku a pak vyberte **změnit stav**.
 
 4. Veřejné delegované nabídky se teď zobrazují jenom prostřednictvím delegovaného portálu. Vyhledání a změna této adresy URL:
 
-    a.  Vyberte **Procházet**, pak **všechny služby**a potom v kategorii **Obecné** vyberte předplatná. Vyberte předplatné delegovaného poskytovatele; například **DPSubscription**a pak **vlastnosti**.
+    a.  Vyberte **Procházet**, pak **všechny služby**a potom v kategorii **Obecné** vyberte předplatná. Vyberte předplatné delegovaného poskytovatele (například **DPSubscription**) a pak **vlastnosti**.
 
     b.  Zkopírujte adresu URL portálu do samostatného umístění, například do poznámkového bloku.
 
-    ![Vyberte předplatné delegovaného poskytovatele.](media/azure-stack-delegated-provider/dpportaluri.png)  
+    ![Vyberte předplatné delegovaného poskytovatele na portálu Azure Stack User Portal.](media/azure-stack-delegated-provider/dpportaluri.png)  
 
    Dokončili jste vytváření delegované nabídky jako delegovaného poskytovatele. Odhlaste se jako delegovaný zprostředkovatel a zavřete okno prohlížeče.
 
@@ -147,18 +147,18 @@ Přihlaste se k portálu User Portal jako delegovaný zprostředkovatel a pak vy
 
 1. Na řídicím panelu vyberte **získat předplatné**. Uvidíte, že uživateli se zobrazí jenom delegované nabídky, které vytvořil delegovaný zprostředkovatel.
 
-   ![Zobrazení a výběr nabídek](media/azure-stack-delegated-provider/image8.png)
+   ![Zobrazení a výběr nabídek v Azure Stack User Portal](media/azure-stack-delegated-provider/image8.png)
 
 Proces delegování nabídky je dokončený. Nyní se uživatel může zaregistrovat k této nabídce a získat tak jejich předplatné.
 
 ## <a name="move-subscriptions-between-delegated-providers"></a>Přesun předplatných mezi delegovanými zprostředkovateli
 
-V případě potřeby se předplatné dá přesunout mezi novými nebo existujícími delegovanými zprostředkovateli, kteří patří do stejného tenanta adresáře. To se provádí pomocí rutiny [Move-AzsSubscription](/powershell/module/azs.subscriptions.admin)v PowerShellu.
+V případě potřeby se předplatné dá přesunout mezi novými nebo existujícími delegovanými zprostředkovateli, kteří patří do stejného tenanta adresáře. Můžete je přesunout pomocí rutiny prostředí PowerShell [Move-AzsSubscription](/powershell/module/azs.subscriptions.admin).
 
-To je užitečné v těchto případech:
+Přesunutí předplatných je užitečné v těchto případech:
 
 * Připojíte nového člena týmu, který bude přebírat role delegovaného zprostředkovatele, a chcete přiřadit k předplatným členů týmu, které byly dříve vytvořeny v rámci výchozího předplatného poskytovatele.
-* Máte několik delegovaných poskytovatelů předplatných ve stejném tenantovi adresáře (Azure Active Directory) a potřebujete mezi nimi přesunout odběry uživatelů. K tomuto scénáři může dojít, když se člen týmu přesouvá mezi týmy a jejich předplatné musí být přiděleno novému týmu.
+* Máte několik delegovaných poskytovatelů předplatných v rámci stejného tenanta adresáře (Azure AD) a potřebujete mezi nimi přesunout odběry uživatelů. K tomuto scénáři může dojít, když se člen týmu přesouvá mezi týmy a jejich předplatné musí být přiděleno novému týmu.
 
 ## <a name="next-steps"></a>Další kroky
 

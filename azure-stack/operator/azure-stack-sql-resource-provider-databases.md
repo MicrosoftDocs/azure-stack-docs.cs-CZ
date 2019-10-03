@@ -1,6 +1,6 @@
 ---
-title: Použití databází od poskytovatele prostředků SQL adaptér ve službě Azure Stack | Dokumentace Microsoftu
-description: Vytvoření a Správa databází SQL Database zřízení pomocí poskytovatele prostředků SQL adaptéru
+title: Používání databází poskytovaných poskytovatelem prostředků SQL adaptéru na Azure Stack | Microsoft Docs
+description: Jak vytvářet a spravovat databáze SQL zřízené pomocí poskytovatele prostředků SQL Adapter
 services: azure-stack
 documentationCenter: ''
 author: mattbriggs
@@ -11,72 +11,72 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2019
+ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: a8ebc50be9b1c3e1eaae491b6d8f8916f900e500
-ms.sourcegitcommit: 104ccafcb72a16ae7e91b154116f3f312321cff7
+ms.openlocfilehash: dfa8e778b21826ff1f589efbf2b49097d5ee3685
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67308458"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71829329"
 ---
 # <a name="create-sql-databases"></a>Vytvoření databáze SQL
 
-Můžete vytvořit a spravovat databáze samoobslužného portálu user portal. Uživatele služby Azure Stack potřebuje předplatné se nabídka, která obsahuje službu SQL database.
+Samoobslužné databáze můžete vytvářet a spravovat na portálu User Portal. Uživatel Azure Stack potřebuje předplatné s nabídkou, která zahrnuje službu SQL Database.
 
-1. Přihlaste se k [Azure Stack](azure-stack-overview.md) portálu user portal.
+1. Přihlaste se k portálu [Azure Stack](azure-stack-overview.md) User Portal.
 
-2. Vyberte **+ nový** &gt; **Data + úložiště** &gt; **databázi systému SQL Server** &gt; **přidat**.
+2. Vyberte **+ Nový** &gt; **data + úložiště** &gt; **SQL Server databáze** &gt; **Přidat**.
 
-3. V části **Create Database**, zadejte požadované informace, jako například **název_databáze** a **maximální velikost v MB**.
-
-   >[!NOTE]
-   >Velikost databáze musí být minimálně 64 MB, což může zvýšit až nasazení databáze.
-
-   Další nastavení nakonfigurujte podle potřeby pro vaše prostředí.
-
-4. V části **Create Database**vyberte **SKU**. V části **vyberte skladovou Položku**, vyberte SKU pro vaši databázi.
-
-   ![Vytvoření databáze](./media/azure-stack-sql-rp-deploy/newsqldb.png)
+3. V části **vytvořit databázi**zadejte požadované informace, například **název databáze** a **maximální velikost v MB**.
 
    >[!NOTE]
-   >Jako hostitelské servery jsou přidány do služby Azure Stack, je přiřazený SKU. Databáze se vytvářejí ve fondu hostitelské servery v SKU.
+   >Velikost databáze musí být minimálně 64 MB, což se dá po nasazení databáze zvětšit.
 
-5. Vyberte **přihlášení**.
-6. V části **vyberte přihlášení**, vyberte stávající přihlašovací údaje, nebo vyberte **+ vytvořit nové přihlašovací údaje**.
-7. V části **nového přihlašovacího jména**, zadejte název pro **přihlášení k databázi** a **heslo**.
+   Nakonfigurujte další nastavení podle požadavků vašeho prostředí.
+
+4. V části **vytvořit databázi**vyberte **SKU**. V části **Vybrat SKU**vyberte SKU pro vaši databázi.
+
+   ![Vytvořit databázi](./media/azure-stack-sql-rp-deploy/newsqldb.png)
 
    >[!NOTE]
-   >Tato nastavení jsou přihlašovací údaje ověřování SQL, který je vytvořen pro přístup k této databázi pouze. Uživatelské jméno musí být globálně jedinečný. Nastavení přihlášení pro další databáze, které používají stejným SKU můžete znovu použít.
+   >Když se do Azure Stack přidají hostitelské servery, přiřadí se mu SKU. Databáze se vytvářejí ve fondu hostitelských serverů v SKU.
 
-   ![Vytvořte nové přihlašovací údaje databáze](./media/azure-stack-sql-rp-deploy/create-new-login.png)
+5. Vyberte **Přihlásit**se.
+6. V části **Vybrat přihlášení**zvolte existující přihlášení nebo vyberte **+ vytvořit nové přihlášení**.
+7. V části **nové přihlášení**zadejte jméno a **heslo**pro **přihlášení k databázi** .
 
-8. Vyberte **OK** k dokončení nasazení databáze.
+   >[!NOTE]
+   >Tato nastavení jsou přihlašovací údaje pro ověřování SQL, které jsou vytvořené pro váš přístup jenom k této databázi. Přihlašovací uživatelské jméno musí být globálně jedinečné. Můžete znovu použít nastavení přihlášení pro další databáze, které používají stejnou SKU.
 
-V části **Essentials**, který se zobrazí po nasazení databáze, poznamenejte si **připojovací řetězec**. Tento řetězec můžete použít v jakékoli aplikaci, která vyžaduje přístup k databázi SQL serveru.
+   ![Vytvořit nové přihlášení k databázi](./media/azure-stack-sql-rp-deploy/create-new-login.png)
+
+8. Kliknutím na **OK** dokončete nasazení databáze.
+
+V části **Essentials**, která se zobrazí po nasazení databáze, si poznamenejte **připojovací řetězec**. Tento řetězec můžete použít v libovolné aplikaci, která potřebuje přístup k databázi SQL Server.
 
 ![Načtení připojovacího řetězce](./media/azure-stack-sql-rp-deploy/sql-db-settings.png)
 
 ## <a name="sql-always-on-databases"></a>Databáze SQL Always On
 
-Návrh databáze AlwaysOn jsou zpracovány jinak než v samostatném prostředí serveru. Další informace najdete v tématu [Úvod do SQL serveru skupiny dostupnosti AlwaysOn na virtuálních počítačích Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview).
+V databázích, které jsou vždy zpracovávány, jsou databáze vždy zpracovávány jinak než v samostatném serverovém prostředí. Další informace najdete v tématu [představení skupin dostupnosti Always on SQL Server na virtuálních počítačích Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview).
 
-### <a name="verify-sql-always-on-databases"></a>Ověření databáze SQL Always On
+### <a name="verify-sql-always-on-databases"></a>Ověření databází SQL Always On
 
-Následující snímek obrazovky ukazuje, jak můžete použít SQL Server Management Studio se podívat na stav databáze v SQL Always On.
+Následující snímek obrazovky ukazuje, jak můžete použít SQL Server Management Studio k zobrazení stavu databáze v SQL Always On.
 
 ![Stav databáze AlwaysOn](./media/azure-stack-sql-rp-deploy/verifyalwayson.png)
 
-Always On databáze by měla zobrazit jako Synchronized a k dispozici na všech instancích SQL a zobrazeny podle skupin dostupnosti. Na předchozím snímku obrazovky je příklad databáze newdb1 a její stav je **newdb1 (synchronizované)** .
+Databáze Always On by se měly zobrazovat jako synchronizované a dostupné ve všech instancích SQL a zobrazují se ve skupinách dostupnosti. V předchozím snímku obrazovky je příklad databáze newdb1 a jeho stav je **newdb1 (synchronizovaný)** .
 
-### <a name="delete-an-alwayson-database"></a>Odstranit databázi AlwaysOn
+### <a name="delete-an-alwayson-database"></a>Odstranění databáze AlwaysOn
 
-Při odstranění databáze SQL AlwaysOn od tohoto poskytovatele prostředků SQL odstraní databázi z primární repliky a ze skupiny dostupnosti.
+Když odstraníte databázi SQL AlwaysOn z poskytovatele prostředků, SQL odstraní databázi z primární repliky a ze skupiny dostupnosti.
 
-SQL pak umístí na tyto repliky databáze do stavu obnovení a nebude vymazání databáze, pokud aktivuje. Pokud databáze není Vyřazená, sekundární repliky přejít do stavu Not Synchronizing.
+SQL pak převede databázi do stavu obnovování v ostatních replikách a nevyřadí databázi, pokud se neaktivuje. Pokud databáze není vyřazena, sekundární replika přejde do stavu nesynchronizace.
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
-[Spravovat poskytovatele prostředků SQL serveru](azure-stack-sql-resource-provider-maintain.md)
+[Údržba poskytovatele prostředků SQL Server](azure-stack-sql-resource-provider-maintain.md)

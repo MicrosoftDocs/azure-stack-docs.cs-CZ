@@ -1,63 +1,63 @@
 ---
-title: Nasazení webové aplikace v Pythonu do virtuálního počítače ve službě Azure Stack | Dokumentace Microsoftu
-description: Nasazení webové aplikace v Pythonu do virtuálního počítače ve službě Azure Stack.
+title: Nasazení webové aplikace v Pythonu na virtuální počítač v Azure Stack | Microsoft Docs
+description: Nasazení webové aplikace v Pythonu na virtuální počítač v Azure Stack.
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: overview
-ms.date: 04/24/2019
+ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 04/24/2019
-ms.openlocfilehash: f37e963ad73a361f9d4cd5a6e68ec4213d5f32fb
-ms.sourcegitcommit: 05a16552569fae342896b6300514c656c1df3c4e
+ms.lastreviewed: 10/02/2019
+ms.openlocfilehash: 9fdb5767e225f9d5d8372058984c9128609339f1
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65838311"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71824226"
 ---
-# <a name="deploy-a-python-web-app-to-a-vm-in-azure-stack"></a>Nasazení webové aplikace v Pythonu do virtuálního počítače ve službě Azure Stack
+# <a name="deploy-a-python-web-app-to-a-vm-in-azure-stack"></a>Nasazení webové aplikace v Pythonu na virtuální počítač v Azure Stack
 
-Můžete vytvořit virtuální počítač pro hostování vaší webové aplikace v Pythonu ve službě Azure Stack. V tomto článku se nastavení serveru, nakonfigurujte server k hostování vaší webové aplikace v Pythonu a pak nasadíte aplikaci do služby Azure Stack.
+Můžete vytvořit virtuální počítač pro hostování webové aplikace v Pythonu v Azure Stack. V tomto článku jste nastavili server, nakonfigurujete server pro hostování webové aplikace v Pythonu a pak nasadíte aplikaci na Azure Stack.
 
-Tento článek používá Python 3.x spuštěných Flask na serveru Nginx ve virtuálním prostředí.
+V tomto článku se používá Python 3. x, ve kterém je ve virtuálním prostředí na serveru Nginx.
 
 ## <a name="create-a-vm"></a>Vytvoření virtuálního počítače
 
-1. Nastavení virtuálního počítače ve službě Azure Stack podle pokynů v [nasazení virtuálního počítače s Linuxem k hostování webové aplikace ve službě Azure Stack](azure-stack-dev-start-howto-deploy-linux.md).
+1. Nastavte virtuální počítač v Azure Stack podle pokynů v tématu [nasazení virtuálního počítače se systémem Linux pro hostování webové aplikace v Azure Stack](azure-stack-dev-start-howto-deploy-linux.md).
 
-2. V podokně sítě virtuálních počítačů Ujistěte se, že jsou dostupné následující porty:
+2. V podokně síť virtuálních počítačů se ujistěte, že jsou dostupné tyto porty:
 
     | Port | Protocol | Popis |
     | --- | --- | --- |
-    | 80 | HTTP | Protokol HTTP (Hypertext Transfer) je protokol, který slouží k doručování webových stránkách od serverů. Klienti se připojují přes protokol HTTP s názvem DNS nebo IP adresu. |
-    | 443 | HTTPS | Protokol zabezpečení HTTPS (Hypertext Transfer) je zabezpečený verzi protokolu HTTP, který vyžaduje certifikát zabezpečení a umožňuje šifrovaného přenosu informací. |
-    | 22 | SSH | Secure Shell (SSH) je protokol šifrovaných sítí pro zabezpečenou komunikaci. Pomocí tohoto připojení klienta SSH pro konfiguraci virtuálního počítače a nasaďte aplikaci. |
-    | 3389 | Protokol RDP | Volitelné. Protokol RDP (Remote Desktop) umožňuje připojení ke vzdálené ploše na pomocí grafického uživatelského rozhraní na svém počítači.   |
-    | 5000, 8000 | Vlastní | Porty, které jsou používány architektury Flask webů ve vývoji. Pro produkční server směrovat provoz přes 80 a 443. |
+    | 80 | HTTP | HTTP (Hypertext Transfer Protocol) je protokol, který se používá k doručování webových stránek ze serverů. Klienti se připojují přes protokol HTTP s názvem DNS nebo IP adresou. |
+    | 443 | HTTPS | Protokol HTTPS (Hypertext Transfer Protocol Secure) je zabezpečená verze protokolu HTTP, která vyžaduje certifikát zabezpečení a umožňuje šifrovaný přenos informací. |
+    | 22 | SSH | Secure Shell (SSH) je zašifrovaný síťový protokol pro zabezpečenou komunikaci. Pomocí tohoto připojení s klientem SSH nakonfigurujete virtuální počítač a nasadíte aplikaci. |
+    | 3389 | PROTOKOL RDP | Volitelný parametr. Protokol RDP (Remote Desktop Protocol) (RDP) umožňuje připojení ke vzdálené ploše pro použití grafického uživatelského rozhraní na vašem počítači.   |
+    | 5000, 8000 | Vlastní | Porty používané webovým rozhraním v baňce pro vývoj. V případě provozního serveru směrujete provoz mezi 80 a 443. |
 
 ## <a name="install-python"></a>Instalace Pythonu
 
-1. Připojení k vašemu virtuálnímu počítači pomocí klienta SSH. Pokyny najdete v tématu [připojit přes SSH pomocí PuTTy](azure-stack-dev-start-howto-ssh-public-key.md#connect-with-ssh-by-using-putty).
-2. Na řádku prostředí bash ve virtuálním počítači zadejte následující příkaz:
+1. Připojte se k VIRTUÁLNÍmu počítači pomocí klienta SSH. Pokyny najdete v tématu [připojení přes SSH pomocí výstupu](azure-stack-dev-start-howto-ssh-public-key.md#connect-with-ssh-by-using-putty).
+2. Na příkazovém řádku bash na svém VIRTUÁLNÍm počítači zadejte následující příkaz:
 
     ```bash  
     sudo apt-get -y install python3 python3-venv python3-dev
     ```
 
-3. Ověření instalace. Když jste stále připojeni k virtuálnímu počítači v relaci SSH, zadejte následující příkaz:
+3. Ověřte instalaci. I když jste stále připojeni k VIRTUÁLNÍmu počítači v relaci SSH, zadejte následující příkaz:
 
     ```bash  
         python -version
     ```
 
-3. [Instalaci serveru Nginx](https://www.nginx.com/resources/wiki/), odlehčeného webového serveru. Když jste stále připojeni k virtuálnímu počítači v relaci SSH, zadejte následující příkaz:
+3. [Nainstalujte Nginx](https://www.nginx.com/resources/wiki/), jednoduchý webový server. I když jste stále připojeni k VIRTUÁLNÍmu počítači v relaci SSH, zadejte následující příkaz:
 
     ```bash  
        sudo apt-get -y install nginx git
     ```
 
-4. [Instalace Gitu](https://git-scm.com), široce distribuovanou správu verzí a zdrojový kód systému pro správu (SCM). Když jste stále připojeni k virtuálnímu počítači v relaci SSH, zadejte následující příkaz:
+4. [Nainstalujte Git](https://git-scm.com), široce distribuovanou správu verzí a systém správy zdrojového kódu (SCM). I když jste stále připojeni k VIRTUÁLNÍmu počítači v relaci SSH, zadejte následující příkaz:
 
     ```bash  
        sudo apt-get -y install git
@@ -65,7 +65,7 @@ Tento článek používá Python 3.x spuštěných Flask na serveru Nginx ve vir
 
 ## <a name="deploy-and-run-the-app"></a>Nasazení a spuštění aplikace
 
-1. Nastavení úložiště Git na virtuálním počítači. Když jste stále připojeni k virtuálnímu počítači v relaci SSH, zadejte následující příkazy:
+1. Nastavte úložiště Git na VIRTUÁLNÍm počítači. I když jste stále připojeni k VIRTUÁLNÍmu počítači v relaci SSH, zadejte následující příkazy:
 
     ```bash  
        git clone https://github.com/mattbriggs/flask-hello-world.git
@@ -73,7 +73,7 @@ Tento článek používá Python 3.x spuštěných Flask na serveru Nginx ve vir
        cd flask-hello-world
     ```
 
-2. Vytvořit virtuální prostředí a přidejte do ní všechny závislosti balíčků. Když jste stále připojeni k virtuálnímu počítači v relaci SSH, zadejte následující příkazy:
+2. Vytvořte virtuální prostředí a naplňte ho všemi závislostmi balíčku. I když jste stále připojeni k VIRTUÁLNÍmu počítači v relaci SSH, zadejte následující příkazy:
 
     ```bash  
     python3 -m venv venv
@@ -85,15 +85,15 @@ Tento článek používá Python 3.x spuštěných Flask na serveru Nginx ve vir
     flask run -h 0.0.0.0
     ```
 
-3. Přejdete na nový server. Měli byste vidět spuštěné webové aplikace.
+3. Přejít na nový server. Měla by se zobrazit vaše spuštěná webová aplikace.
 
     ```HTTP  
        http://yourhostname.cloudapp.net:5000
     ```
 
-## <a name="update-your-server"></a>Aktualizovat server
+## <a name="update-your-server"></a>Aktualizace serveru
 
-1. Připojte se ke svému virtuálnímu počítači v relaci SSH. Zastavte službu zadáním kombinace kláves Ctrl + C.
+1. Připojte se k VIRTUÁLNÍmu počítači v relaci SSH. Zastavte Server zadáním kombinace kláves CTRL + C.
 
 2. Zadejte následující příkazy:
 
@@ -111,8 +111,8 @@ Tento článek používá Python 3.x spuštěných Flask na serveru Nginx ve vir
     flask run -h 0.0.0.0
     ```
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
-- Další informace o tom, jak [vývoj pro Azure Stack](azure-stack-dev-start.md).
-- Další informace o [běžné nasazení pro službu Azure Stack jako IaaS](azure-stack-dev-start-deploy-app.md).
-- Přečtěte si programovacího jazyka Python a najít další zdroje informací pro Python najdete v tématu [Python.org](https://www.python.org).
+- Přečtěte si další informace o [vývoji pro Azure Stack](azure-stack-dev-start.md).
+- Přečtěte si o [běžných nasazeních Azure Stack jako IaaS](azure-stack-dev-start-deploy-app.md).
+- Informace o programovacím jazyce Pythonu a o dalších prostředcích pro Python najdete v tématu [Python.org](https://www.python.org).

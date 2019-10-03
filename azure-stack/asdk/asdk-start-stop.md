@@ -16,15 +16,15 @@ ms.date: 07/18/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 07/18/2019
-ms.openlocfilehash: 5232b1087414d6e7149157063a253b18a6b6e13a
-ms.sourcegitcommit: 7968f9f0946138867323793be9966ee2ef99dcf4
+ms.openlocfilehash: b33ae5ce88cf05fb73e2519f7f697fca90f7f8bc
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70025815"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71824759"
 ---
 # <a name="start-and-stop-the-asdk"></a>Spuštění a zastavení ASDK
-Nedoporučuje se jednoduše restartovat hostitelský počítač ASDK. Místo toho byste měli postupovat podle pokynů v tomto článku, abyste správně vypnuli a restartovali ASDK služby.
+Nedoporučuje se jednoduše restartovat hostitelský počítač ASDK. Místo toho postupujte podle pokynů v tomto článku, abyste správně vypnuli a restartovali ASDK služby.
 
 ## <a name="stop-azure-stack"></a>Zastavit Azure Stack 
 Pro správné vypnutí služby Azure Stack Services a hostitelského počítače ASDK použijte následující příkazy PowerShellu:
@@ -66,7 +66,7 @@ Bez ohledu na to, jak byl ASDK vypnutý, byste měli pomocí následujících kr
 Další informace o doporučených postupech pro správné vypnutí a restartování služeb Azure Stack najdete v tématu [spuštění a zastavení Azure Stack](../operator/azure-stack-start-and-stop.md).
 
 ## <a name="troubleshoot-startup-and-shutdown"></a>Řešení potíží při spuštění a vypnutí 
-Tyto kroky proveďte v případě, že se služby Azure Stack Services po uplynutí dvou hodin po zapnutí počítače s hostitelským počítačem ASDK neúspěšně spustí:
+Postupujte podle těchto kroků, pokud se Azure Stack služby nespustí do dvou hodin po zapnutí počítače s hostitelským počítačem s ASDK:
 
 1. Přihlaste se jako AzureStack\AzureStackAdmin na hostitelském počítači ASDK.
 2. Otevřete PowerShell jako správce (ne PowerShell ISE).
@@ -90,4 +90,4 @@ Tyto kroky proveďte v případě, že se služby Azure Stack Services po uplynu
 Pokud při spuštění **Start-AzureStack** dojde k chybě, navštivte [fórum podpory Azure Stack](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurestack) , kde můžete získat podporu pro řešení potíží s ASDK. 
 
 ## <a name="next-steps"></a>Další kroky 
-Další informace o nástroji pro diagnostiku Azure Stack a o protokolování problémů najdete v tématu [Azure Stack diagnostické nástroje](../operator/azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep).
+Další informace o nástroji pro diagnostiku Azure Stack a o protokolování problémů najdete v tématu [Azure Stack diagnostické nástroje](../operator/azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep-to-collect-diagnostic-logs).

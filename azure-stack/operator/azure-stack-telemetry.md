@@ -1,6 +1,6 @@
 ---
-title: Telemetrická data Azure Stack | Dokumentace Microsoftu
-description: Popisuje postup konfigurace nastavení telemetrie Azure Stack powershellu.
+title: Telemetrie Azure Stack | Microsoft Docs
+description: Popisuje postup konfigurace Azure Stack nastavení telemetrie pomocí prostředí PowerShell.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,105 +12,105 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/13/2019
+ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: comartin
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 136dee8980860bb463da14fda0dcd9aff84d3803
-ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
+ms.openlocfilehash: 439a058ea4153e0b6f74932a0ad027a0f5f8a42b
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67131428"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71829255"
 ---
-# <a name="azure-stack-telemetry"></a>Telemetrická data Azure Stack
+# <a name="azure-stack-telemetry"></a>Telemetrie Azure Stack
 
-*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
 
-Azure Stack telemetrie automaticky nahrává data systému společnosti Microsoft prostřednictvím uživatelského rozhraní připojené. Týmy Microsoftu používají data, která ke zlepšení zkušeností zákazníků shromažďuje telemetrická data Azure Stack. Tato data se také používá pro zabezpečení, stavu, kvality a analýza výkonu.
+Telemetrie Azure Stack automaticky odesílá systémová data společnosti Microsoft prostřednictvím prostředí připojeného uživatele. Microsoft Teams používá data, která Azure Stack telemetrii shromažďují, aby vylepšila zkušenosti zákazníků. Tato data se taky používají k analýze zabezpečení, stavu, kvality a výkonu.
 
-Telemetrie pro operátory Azure stacku, můžou poskytovat cenné informace v podnikových nasazeních a poskytuje hlasový vstup, který pomáhá tvar budoucí verze služby Azure Stack.
+V případě operátoru Azure Stack může telemetrie poskytovat cenné přehledy o podnikových nasazeních a poskytuje hlas, který pomáhá vytvarovat budoucí verze Azure Stack.
 
 > [!NOTE]
-> Můžete také nakonfigurovat služby Azure Stack k předávání informací o využití do Azure pro účely fakturace. Toto je nezbytné pro Azure Stack Několikauzlovými zákazníky, kteří zvolte platit jako využití fakturace. Generování sestav o využívání je řízen nezávisle z telemetrických dat a nevyžaduje pro zákazníky s několika uzly, kteří se rozhodnou kapacitního modelu, nebo pro uživatele Azure Stack Development Kit. Pro tyto scénáře vytváření sestav využití může být vypnuto [pomocí registrace skriptu](azure-stack-usage-reporting.md).
+> Můžete také nakonfigurovat Azure Stack pro přeposílání informací o využití do Azure pro účely fakturace. Tato možnost je vyžadována pro zákazníky s více Azure Stack uzly, kteří používají účtování s průběžnými platbami. Vytváření sestav o využití se řídí nezávisle na telemetrie a není vyžadováno pro zákazníky s více uzly, kteří volí model kapacity nebo pro Azure Stack Development Kit uživatele. V těchto scénářích lze vytváření sestav využití vypnout [pomocí registračního skriptu](azure-stack-usage-reporting.md).
 
-Telemetrická data Azure Stack je založená na Windows serveru 2016 připojené uživatelské prostředí a Telemetrie součásti, která používá [trasování událostí pro Windows (ETW)](https://msdn.microsoft.com/library/dn904632(v=vs.85).aspx) TraceLogging technologie ke shromažďování a ukládání události a data. Komponenty služby Azure Stack pomocí stejné technologie publikovat události a data shromáždit pomocí veřejného operačního systému protokolování událostí a trasování rozhraní API. Tyto součásti služby Azure Stack příklady tito poskytovatelé: Síťového prostředku, prostředek úložiště, sledování prostředků a provést upgrade prostředku. Součást připojené uživatelské prostředí a Telemetrie zašifruje data pomocí protokolu SSL a používá Připnutí certifikátu k přenosu dat prostřednictvím protokolu HTTPS na službu pro správu dat společnosti Microsoft.
+Telemetrie Azure Stack je založená na komponentě Windows Server 2016 s připojeným uživatelským prostředím a telemetrie, která využívá technologii [trasování událostí pro Windows (ETW)](https://msdn.microsoft.com/library/dn904632(v=vs.85).aspx) TraceLogging k shromažďování a ukládání událostí a dat. Azure Stack komponenty používají stejnou technologii pro publikování událostí a dat shromážděných pomocí protokolu událostí veřejného operačního systému a rozhraní API pro trasování. Mezi příklady těchto Azure Stack komponent patří tito poskytovatelé: Prostředek sítě, prostředek úložiště, prostředek monitorování a prostředek aktualizace. Rozhraní připojené uživatele a komponenta telemetrie šifrují data pomocí protokolu SSL a pomocí připnutí certifikátů odesílá data přes HTTPS službě Microsoft Správa dat Service.
 
 > [!IMPORTANT]
-> Pokud chcete povolit tok telemetrických dat, musí být otevřený ve vaší síti port 443 (HTTPS). Součásti připojené uživatelské prostředí a Telemetrie připojí ke službě správy dat společnosti Microsoft na https://v10.vortex-win.data.microsoft.com. Součásti připojené uživatelské prostředí a Telemetrie se také připojuje k https://settings-win.data.microsoft.com ke stažení informací o konfiguraci.
+> Aby bylo možné tok dat telemetrie povolit, musí být ve vaší síti otevřený port 443 (HTTPS). Komponenta s připojeným uživatelským prostředím a telemetrie se připojí ke službě https://v10.vortex-win.data.microsoft.com Microsoft Správa dat na adrese. Prostředí připojené uživatele a komponenta telemetrie se také připojí https://settings-win.data.microsoft.com ke stažení informací o konfiguraci.
 
-## <a name="privacy-considerations"></a>Aspekty ochrany osobních údajů
+## <a name="privacy-considerations"></a>Požadavky na ochranu osobních údajů
 
-Trasování událostí pro Windows service směruje telemetrická data do služby chráněný cloud storage. Objekt zabezpečení nejnižší možná oprávnění provede přístup k telemetrická data. Pouze pracovníci společnosti Microsoft s platným obchodní potřebě získávali přístup k telemetrická data. Microsoft nebude sdílet osobní zákaznická data s třetími stranami, s výjimkou uvážení zákazníka nebo omezené důvodů popsaných v [prohlášení o ochraně osobních údajů Microsoft](https://privacy.microsoft.com/PrivacyStatement). Obchodní sestavy, které jsou sdíleny s výrobci OEM a partnery zahrnovat agregované, anonymizovaná data. Data sdílení rozhodnutí, která vyrábí celá interní Microsoft team, včetně ochrany osobních údajů, právní informace a data správy zúčastněných stran.
+Služba ETW směruje data telemetrie zpátky do chráněného cloudového úložiště. Objekt zabezpečení nejnižších průvodců oprávnění přistupuje k datům telemetrie. Přístup k datům telemetrie mají jenom pracovníci Microsoftu s platnými obchodními potřebami. Společnost Microsoft nesdílí osobní údaje o zákaznících s třetími stranami s výjimkou rozhodnutí zákazníka nebo omezeného účelu popsaného v [prohlášení společnosti Microsoft o zásadách ochrany osobních údajů](https://privacy.microsoft.com/PrivacyStatement). Obchodní sestavy, které jsou sdíleny s výrobci OEM a partnery, zahrnují agregovaná, anonymitná data. Rozhodnutí o sdílení dat provádí interní tým Microsoftu, včetně zúčastněných stran ochrany osobních údajů, právních předpisů a správy dat.
 
-Společnost Microsoft se řídí zásadou v a postupy pro minimalizaci informací. Usilujeme o získání informací, které je potřeba a uložte ho pro pouze po dobu podle potřeby k poskytování služeb nebo pro analýzu. Většinu informací o fungování systémech pro Azure Stack a Azure services je odstranit do šesti měsíců. Shrnuto nebo agregovaná data se uchovávají po delší dobu.
+Společnost Microsoft se domnívá, že se jedná o postupy a jejich minimalizaci. Snažíme se shromáždit jenom potřebné informace a uložit je jenom tak dlouho, jak je potřeba k poskytování služby nebo k analýze. Většina informací o fungování systému Azure Stack a služeb Azure se odstraní do šesti měsíců. Souhrnná nebo agregovaná data budou uchována po delší dobu.
 
-Chápeme, že je důležité o ochraně osobních údajů a zabezpečení informací o zákaznících.  Microsoft používá přístup promyšleného a komplexní ochranu osobních údajů zákazníků a ochraně zákaznických dat ve službě Azure Stack. Správci IT mají ovládací prvky pro přizpůsobení funkce a nastavení ochrany osobních údajů v každém okamžiku. Je jasné naší snahy o transparentnost a vztahu důvěryhodnosti:
+Chápeme, že ochrana osobních údajů a zabezpečení zákaznických informací je důležitá.  Microsoft využívá důkladné a komplexní přístup k ochraně osobních údajů zákazníků a ochraně zákaznických dat v Azure Stack. Správci IT mají k dispozici ovládací prvky pro přizpůsobení funkcí a nastavení ochrany osobních údajů. Náš závazek na transparentnost a důvěryhodnost je jasný:
 
-- Jsme otevření se zákazníky o typech dat, které shromažďujeme.
-- Máme podnikových zákazníků v ovládacím prvku, můžou přizpůsobit svoje vlastní nastavení ochrany osobních údajů.
-- Máme zákazníků o ochraně osobních údajů a zabezpečení nejprve.
-- Jsme transparentní o tom, jak získává telemetrická data používají.
-- Telemetrická data používáme ke zlepšování zkušeností zákazníků.
+- Otevíráme zákazníky o typech shromažďovaných dat.
+- Podnikoví zákazníci umísťují řízení – můžou si přizpůsobit svoje vlastní nastavení ochrany osobních údajů.
+- Nejdřív uvádíme ochranu osobních údajů a zabezpečení zákazníků.
+- Transparentní je, jak se data telemetrie používají.
+- Data telemetrie používáme ke zlepšování zkušeností zákazníků.
 
-Microsoft nebude v úmyslu shromažďovat citlivá data, třeba čísla kreditních karet, uživatelská jména a hesla, e-mailové adresy nebo podobné citlivé informace. Pokud vyhodnotíme neúmyslně přijatých citlivé informace, budeme ji odstranit.
+Společnost Microsoft nemá v úmyslu shromažďovat citlivá data, jako jsou třeba čísla kreditních karet, uživatelská jména a hesla, e-mailové adresy nebo podobné citlivé informace. Pokud zjistíme, že se nechtěně přijaly citlivé informace, odstraníme je.
 
-## <a name="examples-of-how-microsoft-uses-the-telemetry-data"></a>Příklady, jak Microsoft využívá telemetrická data
+## <a name="examples-of-how-microsoft-uses-the-telemetry-data"></a>Příklady toho, jak Microsoft používá data telemetrie
 
-Telemetrie hraje důležitou roli v pomáhá rychle identifikovat a opravit problémy se spolehlivostí důležité v zákaznických nasazení a konfigurace. Přehledy na základě telemetrických dat může pomoci identifikovat problémy s službami nebo konfigurací hardwaru. Možnosti Microsoftu k získání těchto dat zákazníků a vylepšovat k ekosystému, vyvolá laťku kvality integrované řešení pro Azure Stack.
+Telemetrii hraje důležitou roli, která pomáhá rychle identifikovat a opravit kritické problémy spolehlivosti v nasazeních a konfiguracích zákazníků. Poznatky z dat telemetrie vám můžou pomáhat identifikovat problémy se službami nebo konfiguracemi hardwaru. Tato data může společnost Microsoft získat od zákazníků a řídit jejich vylepšení v ekosystému, což vyvolává panel s kvalitou integrovaných Azure Stack řešení.
 
-Telemetrická data také pomáhají společnosti Microsoft lépe pochopit, jak zákazníci nasadit komponenty, používat funkce a služby použít k dosažení firemních cílů. Těmto poznatkům pomáhají nastavit priority investic v oblasti, které můžou mít přímo vliv spokojenost zákazníků a úloh.
+Telemetrie taky pomáhá Microsoftu lépe pochopit, jak zákazníci nasazují komponenty, využívají funkce a využívají služby k dosažení svých obchodních cílů. Tyto přehledy vám pomůžou určit prioritu technologických investic v oblastech, které mohou přímo ovlivnit prostředí a úlohy zákazníků.
 
-Mezi příklady patří používání zákazníka kontejnery, úložiště a síťové konfigurace, které jsou spojené s rolemi Azure stacku. Použijeme také insights vylepšovat a inteligenci v Azure stacku správu a sledování řešení. Tato vylepšení usnadňují zákazníky k diagnostice problémů a ušetřit peníze tím, že méně podporu volá společnosti Microsoft.
+Mezi příklady patří zákaznické použití kontejnerů, úložišť a síťových konfigurací, které jsou přidružené k rolím Azure Stack. Tyto přehledy také využíváme k vylepšování vylepšení a analýz Azure Stack řešení pro správu a monitorování. Tato vylepšení usnadňují zákazníkům diagnostikovat problémy a ušetřit peníze tím, že v Microsoftu vyvolají méně volání podpory.
 
-## <a name="manage-telemetry-collection"></a>Správa shromažďování telemetrie
+## <a name="manage-telemetry-collection"></a>Správa kolekce telemetrie
 
-Není doporučenou vypnutí telemetrie ve vaší organizaci. Ale v některých případech to může být nezbytné.
+Nedoporučujeme si vypínat telemetrii ve vaší organizaci. V některých scénářích to však může být nutné.
 
-V těchto scénářích platí můžete nakonfigurovat úroveň telemetrie, které jsou odesílány společnosti Microsoft s použitím nastavení registru, než nasadíte Azure Stack nebo s použitím koncových bodů telemetrická data, poté, co nasadíte Azure Stack.
+V těchto scénářích můžete nakonfigurovat úroveň telemetrie odeslanou společnosti Microsoft pomocí nastavení registru před nasazením Azure Stack nebo pomocí koncových bodů telemetrie po nasazení Azure Stack.
 
-### <a name="telemetry-levels-and-data-collection"></a>Telemetrie úrovně a shromažďování dat
+### <a name="telemetry-levels-and-data-collection"></a>Úrovně telemetrie a shromažďování dat
 
-Než změníte nastavení telemetrie, měli byste porozumět úrovně telemetrie a jaká data se shromažďují na každé úrovni.
+Před změnou nastavení telemetrie byste měli pochopit úrovně telemetrie a shromažďovaná data na jednotlivých úrovních.
 
-Nastavení telemetrie jsou seskupené do čtyři úrovně (0 – 3), které jsou kumulativní a zařazená do kategorie takto:
+Nastavení telemetrie se seskupují na čtyři úrovně (0-3), které jsou kumulativní a kategorizované následujícím způsobem:
 
 **0 (zabezpečení)**</br>
-Pouze data zabezpečení. Informace, které je potřeba zabezpečit operačního systému. To zahrnuje data o nastavení součásti připojené uživatelské prostředí a Telemetrie a programem Windows Defender. Žádná telemetrie, které jsou specifické pro Azure Stack je vygenerován na této úrovni.
+Pouze data zabezpečení. Informace, které jsou potřebné k zajištění zabezpečení operačního systému. To zahrnuje data o nastavení komponenty prostředí pro připojené uživatele a telemetrie a o programu Windows Defender. Na této úrovni se nevysílá žádná telemetrie specifická pro Azure Stack.
 
-**1 (basic)**</br>
-Zabezpečení a základní stav a kvalitu data. Informace o základní zařízení, včetně: týkající se kvality, kompatibilita aplikací, data o využití aplikace a data z **zabezpečení** úroveň. Nastavením telemetrická data úrovně Basic umožňuje službě Azure Stack telemetrie. Data shromážděná na této úrovni zahrnují:
+**1 (základní)**</br>
+Data zabezpečení a základní data o stavu a kvalitě. Základní informace o zařízení, včetně dat týkajících se kvality, kompatibility aplikací, dat o využití aplikací a dat z úrovně **zabezpečení** . Nastavení úrovně telemetrie na Basic umožní telemetrii Azure Stack. Data shromážděná na této úrovni zahrnují:
 
-- *Informace o základní zařízení* , která poskytuje představu o typech a konfigurace nativní a virtuální instancí Windows serveru 2016 v ekosystému. To zahrnuje:
+- *Základní informace o zařízení* , které poskytují porozumění typům a konfiguracím nativních a virtuálních instancí Windows Server 2016 v ekosystému To zahrnuje:
 
-  - Počítač atributy, jako je například výrobce OEM a modelu.
-  - Atributy, jako je počet síťových adaptérů a jejich rychlosti sítě.
-  - Procesor a paměť atributy, jako je počet jader a množství nainstalované paměti.
-  - Úložiště atributů, jako je počet jednotek, typ disku a velikost jednotky.
+  - Atributy počítače, jako je například výrobce OEM a model.
+  - Síťové atributy, například počet síťových adaptérů a jejich rychlost.
+  - Atributy procesoru a paměti, jako je počet jader a množství nainstalované paměti.
+  - Atributy úložiště, například počet jednotek, typ jednotky a velikost jednotky.
 
-- *Telemetrické funkce*, včetně procento nahrané události, přetažené události a data poslední doba nahrávání.
-- *Informace týkající se kvality* , který pomáhá rozvíjet základní znalosti o jaký je výkon služby Azure Stack společnosti Microsoft. Například počet kritických výstrah na konkrétní konfiguraci.
-- *Data o kompatibilitě* , pomáhá dosahovat představu o tom, které nainstalují poskytovatele prostředků na systém a virtuální počítač. Ten identifikuje potenciální problémy s kompatibilitou.
+- *Funkce telemetrie*, včetně procenta nahraných událostí, vyřazených událostí a času posledního nahrávání dat.
+- *Informace související s kvalitou* , které pomáhají Microsoftu vyvíjet základní znalosti o tom, jak probíhá Azure Stack. Například počet kritických výstrah pro konkrétní hardwarovou konfiguraci.
+- *Data kompatibility* , která pomáhají poskytnout informace o tom, které poskytovatele prostředků se instalují do systému a virtuálního počítače. Tato možnost identifikuje potenciální problémy s kompatibilitou.
 
-**2 (rozšířená)**</br>
-Další přehledy, včetně: použití operačního systému a služby Azure Stack, jak provést tyto služby, pokročilé spolehlivost dat a dat z **zabezpečení** a **základní** úrovně.
+**2 (rozšířené)**</br>
+Další přehledy, včetně: jak se používají operační systém a Azure Stack služby, jak tyto služby provádějí, pokročilá data o spolehlivosti a data z úrovní **zabezpečení** a úrovně **Basic** .
 
 > [!NOTE]
 > Toto je výchozí nastavení telemetrie.
 
-**3 (úplné)**</br>
-Všechna data potřebná k identifikaci a k řešení problémů a data ze **zabezpečení**, **základní**, a **rozšířená** úrovně.
+**3 (plná)**</br>
+Veškerá data potřebná pro identifikaci a pomoc při řešení problémů a data ze **zabezpečení**, úrovně **Basic**a vylepšené úrovně.
 
 > [!IMPORTANT]
-> Tyto úrovně telemetrie platí jenom pro komponenty Microsoft Azure Stack. Součásti od jiných výrobců softwaru a služeb, které jsou spuštěny v hostitelském hardwaru životního cyklu od partnerů pro hardware Azure Stack může komunikovat s jejich cloudové služby mimo tyto úrovně telemetrická data. Měli byste u svého poskytovatele řešení hardware Azure Stack vám pomohou pochopit jejich zásady telemetrická data a jak můžete vyjádřit výslovný souhlas nebo odhlásit se totiž pracovat.
+> Tyto úrovně telemetrie platí jenom pro Microsoft Azure Stack komponenty. Softwarové komponenty a služby od jiných výrobců, které běží na hostiteli životního cyklu hardwaru od Azure Stack mohou komunikovat s jejich Cloud Services mimo tyto úrovně telemetrie. Měli byste pracovat s vaším poskytovatelem hardwarových řešení Azure Stack, abyste pochopili jejich zásady telemetrie a jak se můžete rozhodnout nebo odhlásit.
 
-Vypnutí telemetrie Windows a ve službě Azure Stack také zakáže SQL telemetrie. Další informace o důsledcích nastavení telemetrie Windows serveru, najdete v článku [dokument White Paper Telemetrie Windows](https://aka.ms/winservtelemetry).
+Vypnutí telemetrie Windows a Azure Stack taky zakáže telemetrii SQL. Další informace o důsledcích nastavení telemetrie Windows serveru najdete na stránce [White paper o telemetrie Windows](https://aka.ms/winservtelemetry).
 
-### <a name="asdk-set-the-telemetry-level-in-the-windows-registry"></a>ASDK: Nastaví úroveň telemetrie v registru Windows
+### <a name="asdk-set-the-telemetry-level-in-the-windows-registry"></a>ASDK: Nastavte úroveň telemetrie v registru Windows.
 
-Editor registru Windows můžete ručně nastavit úroveň telemetrie na fyzickém hostitelském počítači před nasazením služby Azure Stack. Pokud už existuje zásad správy, jako je například zásady skupiny, přepíše nastavení registru.
+Můžete použít Editor registru Windows k ručnímu nastavení úrovně telemetrie na fyzickém hostitelském počítači před nasazením Azure Stack. Pokud zásada správy již existuje, například Zásady skupiny, přepíše toto nastavení registru.
 
-Před nasazením služby Azure Stack na hostiteli development kit, spusťte v CloudBuilder.vhdx a v okně PowerShell se zvýšenými oprávněními spusťte následující skript:
+Před nasazením Azure Stack na hostiteli vývojové sady spusťte soubor CloudBuilder. vhdx a spusťte následující skript v okně PowerShellu se zvýšenými oprávněními:
 
 ```powershell
 ### Get current AllowTelemetry value on DVM Host
@@ -123,16 +123,16 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies
 -Name AllowTelemetry).AllowTelemetry
 ```
 
-### <a name="asdk-and-multi-node-enable-or-disable-telemetry-after-deployment"></a>ASDK a více uzly: povolení nebo zakázání telemetrie po nasazení
+### <a name="asdk-and-multi-node-enable-or-disable-telemetry-after-deployment"></a>ASDK a vícenásobný uzel: povolení nebo zakázání telemetrie po nasazení
 
-K povolení nebo zakázání telemetrie po nasazení, musíte mít přístup k privilegované koncový bod (období), který je zveřejněný na virtuálních počítačích ERCS.
+Pokud chcete povolit nebo zakázat telemetrii po nasazení, musíte mít přístup k privilegovanému koncovému bodu (PEP), který je vystavený na virtuálních počítačích ERCS.
 
-1. Pokud chcete povolit: `Set-Telemetry -Enable`
-2. Chcete-li zakázat: `Set-Telemetry -Disable`
+1. Povolení:`Set-Telemetry -Enable`
+2. Chcete-li zakázat:`Set-Telemetry -Disable`
 
-Parametr podrobnosti:
-> . Parametr Enable - zapnout odesílání dat telemetrie</br>
-> . Zakažte parametr - vypnout odesílání telemetrických dat  
+Podrobnosti parametru:
+> . PARAMETR enable-zapnout nahrávání dat telemetrie</br>
+> . Parametr disable – vypnutí nahrávání dat telemetrie  
 
 **Skript pro povolení telemetrie:**
 
@@ -148,7 +148,7 @@ if($psSession)
 }
 ```
 
-**Skript zakazující telemetrická data:**
+**Skript pro vypnutí telemetrie:**
 
 ```powershell
 $ip = "<IP ADDRESS OF THE PEP VM>" # You can also use the machine name instead of IP here.
@@ -162,6 +162,6 @@ if($psSession)
 }
 ```
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 [Registrace služby Azure Stack v Azure](azure-stack-registration.md)

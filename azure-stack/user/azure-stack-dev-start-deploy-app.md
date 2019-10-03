@@ -1,32 +1,32 @@
 ---
-title: Nasazení aplikace do služby Azure Stack | Dokumentace Microsoftu
-description: Nasazení aplikace do služby Azure Stack.
+title: Nasazení aplikace do Azure Stack | Microsoft Docs
+description: Nasaďte aplikaci do Azure Stack.
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: overview
-ms.date: 04/24/2019
+ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 04/24/2019
-ms.openlocfilehash: b139ad30c663d57330ab6b4f404d803c0ace1df3
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.lastreviewed: 10/02/2019
+ms.openlocfilehash: 4d8dbc22a69c204b8d6a755d2a8402ba7185d03e
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617644"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71824743"
 ---
-# <a name="common-deployments-for-azure-stack"></a>Běžné nasazení pro službu Azure Stack
+# <a name="common-deployments-for-azure-stack"></a>Společná nasazení pro Azure Stack
 
-Azure Stack podporuje obě infrastruktura jako služba (IaaS) a platforma jako služba (PaaS). Tento článek obsahuje seznam zdrojů pro nastavení virtuálního počítače (VM) a potom je nasadit do služby Azure Stack.
+Azure Stack podporuje infrastrukturu as a Service (IaaS) a platformu jako službu (PaaS). Tento článek obsahuje seznam prostředků pro nastavení virtuálního počítače a jeho nasazení na Azure Stack.
 
-## <a name="before-you-begin"></a>Než začnete
+## <a name="before-you-begin"></a>Před zahájením
 
-Před zahájením nasazení aplikace do služby Azure Stack, nastavení vývojového počítače. Pokyny pro práci s Azure Stack jako vývojář Připravujeme, najdete v tématu [nastavení vývojového prostředí ve službě Azure Stack](azure-stack-dev-start.md).
+Než začnete s nasazováním aplikace Azure Stack, nastavte svůj vývojový počítač. Pokyny, jak začít pracovat s Azure Stack jako vývojář, najdete [v tématu Nastavení vývojového prostředí v Azure Stack](azure-stack-dev-start.md).
 
 ## <a name="deploy-an-app-to-a-vm"></a>Nasazení aplikace do virtuálního počítače
 
-V následující články s návody nastavte virtuální počítač (VM) ve službě Azure Stack a pak nasadíte aplikaci z vaší pracovní stanici do služby Azure Stack.
+V následujících článcích s návody jste v Azure Stack nastavili virtuální počítač (VM) a pak nasadíte aplikaci z pracovní stanice pro vývoj na Azure Stack.
 
 - [.NET Core (C#)](azure-stack-dev-start-howto-vm-dotnet.md)
 - [Java](azure-stack-dev-start-howto-vm-java.md)
@@ -35,7 +35,7 @@ V následující články s návody nastavte virtuální počítač (VM) ve slu�
 - [Python](azure-stack-dev-start-howto-vm-python.md)
 - [NodeJS](azure-stack-dev-start-howto-vm-nodejs.md)
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
-- Nastavení [vývojového prostředí ve službě Azure Stack](azure-stack-dev-start.md).
-- Nastavení [kanál průběžné integrace a doručování (CI/CD) ve službě Azure Stack](azure-stack-solution-pipeline.md).
+- Nastavte [vývojové prostředí v Azure Stack](azure-stack-dev-start.md).
+- Nastavení [kanálu průběžné integrace nebo průběžného doručování (CI/CD) v Azure Stack](azure-stack-solution-pipeline.md).

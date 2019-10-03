@@ -3,23 +3,23 @@ title: Správa Azure Stack pomocí Azure CLI | Microsoft Docs
 description: Naučte se používat rozhraní příkazového řádku (CLI) pro různé platformy ke správě a nasazení prostředků v Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: sethmanheim
+author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/16/2019
-ms.author: sethm
+ms.date: 10/02/2019
+ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 05/08/2019
-ms.openlocfilehash: 18644d3d331a5c093d0a78da435d6f79e03cb531
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.lastreviewed: 10/02/2019
+ms.openlocfilehash: a0218652e2dace72356a32fe99ac5f6ac450cc94
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70974648"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71824796"
 ---
 # <a name="manage-and-deploy-resources-to-azure-stack-with-azure-cli"></a>Správa a nasazení prostředků pro Azure Stack pomocí Azure CLI
 
@@ -175,7 +175,7 @@ Pokud chcete důvěřovat kořenovému certifikátu certifikační autority Azur
     | Value | Příklad | Popis |
     | --- | --- | --- |
     | Název prostředí | AzureStackUser | Použijte `AzureStackUser` pro uživatelské prostředí. Pokud jste operátor, zadejte `AzureStackAdmin`. |
-    | Koncový bod Resource Manageru | https://management.local.azurestack.external | **ResourceManagerUrl** v ASDK je: `https://management.local.azurestack.external/`**ResourceManagerUrl** v integrovaných systémech je: `https://management.<region>.<fqdn>/`Načtení požadovaných metadat: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`Pokud máte dotaz týkající se integrovaného systémového koncového bodu, obraťte se na svého operátora cloudu. |
+    | Koncový bod Resource Manageru | https://management.local.azurestack.external | **ResourceManagerUrl** v ASDK je: `https://management.local.azurestack.external/`**ResourceManagerUrl** v integrovaných systémech je: @no__t – 0 Pokud máte dotaz týkající se integrovaného systémového koncového bodu, obraťte se na svého operátora cloudu. |
     | Koncový bod úložiště | local.azurestack.external | `local.azurestack.external`je pro rozhraní ASDK. Pro integrovaný systém použijte pro svůj systém koncový bod.  |
     | Přípona trezoru klíčů | . trezor. Local. azurestack. external | `.vault.local.azurestack.external`je pro rozhraní ASDK. Pro integrovaný systém použijte pro svůj systém koncový bod.  |
     | Koncový bod dokumentu aliasu pro image virtuálního počítače – | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | Identifikátor URI dokumentu, který obsahuje aliasy imagí virtuálních počítačů Další informace najdete v tématu [Nastavení koncového bodu aliasy virtuálních počítačů](#set-up-the-virtual-machine-aliases-endpoint). |
@@ -295,7 +295,7 @@ Pokud používáte ASDK, musíte na svém vzdáleném počítači důvěřovat k
     | Value | Příklad | Popis |
     | --- | --- | --- |
     | Název prostředí | AzureStackUser | Použijte `AzureStackUser` pro uživatelské prostředí. Pokud jste operátor, zadejte `AzureStackAdmin`. |
-    | Koncový bod Resource Manageru | https://management.local.azurestack.external | **ResourceManagerUrl** v ASDK je: `https://management.local.azurestack.external/`**ResourceManagerUrl** v integrovaných systémech je: `https://management.<region>.<fqdn>/`Načtení požadovaných metadat: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`Pokud máte dotaz týkající se integrovaného systémového koncového bodu, obraťte se na svého operátora cloudu. |
+    | Koncový bod Resource Manageru | https://management.local.azurestack.external | **ResourceManagerUrl** v ASDK je: `https://management.local.azurestack.external/`**ResourceManagerUrl** v integrovaných systémech je: @no__t – 0 Pokud máte dotaz týkající se integrovaného systémového koncového bodu, obraťte se na svého operátora cloudu. |
     | Koncový bod úložiště | local.azurestack.external | `local.azurestack.external`je pro rozhraní ASDK. Pro integrovaný systém použijte pro svůj systém koncový bod.  |
     | Přípona trezoru klíčů | . trezor. Local. azurestack. external | `.vault.local.azurestack.external`je pro rozhraní ASDK. Pro integrovaný systém použijte pro svůj systém koncový bod.  |
     | Koncový bod dokumentu aliasu pro image virtuálního počítače – | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | Identifikátor URI dokumentu, který obsahuje aliasy imagí virtuálních počítačů Další informace najdete v tématu [Nastavení koncového bodu aliasy virtuálních počítačů](#set-up-the-virtual-machine-aliases-endpoint). |
@@ -411,7 +411,7 @@ Pomocí následujících kroků se připojte k Azure Stack:
     | Value | Příklad | Popis |
     | --- | --- | --- |
     | Název prostředí | AzureStackUser | Použijte `AzureStackUser` pro uživatelské prostředí. Pokud jste operátor, zadejte `AzureStackAdmin`. |
-    | Koncový bod Resource Manageru | https://management.local.azurestack.external | **ResourceManagerUrl** v ASDK je: `https://management.local.azurestack.external/`**ResourceManagerUrl** v integrovaných systémech je: `https://management.<region>.<fqdn>/`Načtení požadovaných metadat: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`Pokud máte dotaz týkající se integrovaného systémového koncového bodu, obraťte se na svého operátora cloudu. |
+    | Koncový bod Resource Manageru | https://management.local.azurestack.external | **ResourceManagerUrl** v ASDK je: `https://management.local.azurestack.external/`**ResourceManagerUrl** v integrovaných systémech je: @no__t – 0 Pokud máte dotaz týkající se integrovaného systémového koncového bodu, obraťte se na svého operátora cloudu. |
     | Koncový bod úložiště | local.azurestack.external | `local.azurestack.external`je pro rozhraní ASDK. Pro integrovaný systém použijte pro svůj systém koncový bod.  |
     | Přípona trezoru klíčů | . trezor. Local. azurestack. external | `.vault.local.azurestack.external`je pro rozhraní ASDK. Pro integrovaný systém použijte pro svůj systém koncový bod.  |
     | Koncový bod dokumentu aliasu pro image virtuálního počítače – | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | Identifikátor URI dokumentu, který obsahuje aliasy imagí virtuálních počítačů Další informace najdete v tématu [Nastavení koncového bodu aliasy virtuálních počítačů](#set-up-the-virtual-machine-aliases-endpoint). |
@@ -522,7 +522,7 @@ Pomocí následujících kroků se připojte k Azure Stack:
     | Value | Příklad | Popis |
     | --- | --- | --- |
     | Název prostředí | AzureStackUser | Použijte `AzureStackUser` pro uživatelské prostředí. Pokud jste operátor, zadejte `AzureStackAdmin`. |
-    | Koncový bod Resource Manageru | https://management.local.azurestack.external | **ResourceManagerUrl** v ASDK je: `https://management.local.azurestack.external/`**ResourceManagerUrl** v integrovaných systémech je: `https://management.<region>.<fqdn>/`Načtení požadovaných metadat: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`Pokud máte dotaz týkající se integrovaného systémového koncového bodu, obraťte se na svého operátora cloudu. |
+    | Koncový bod Resource Manageru | https://management.local.azurestack.external | **ResourceManagerUrl** v ASDK je: `https://management.local.azurestack.external/`**ResourceManagerUrl** v integrovaných systémech je: @no__t – 0 Pokud máte dotaz týkající se integrovaného systémového koncového bodu, obraťte se na svého operátora cloudu. |
     | Koncový bod úložiště | local.azurestack.external | `local.azurestack.external`je pro rozhraní ASDK. Pro integrovaný systém použijte pro svůj systém koncový bod.  |
     | Přípona trezoru klíčů | . trezor. Local. azurestack. external | `.vault.local.azurestack.external`je pro rozhraní ASDK. Pro integrovaný systém použijte pro svůj systém koncový bod.  |
     | Koncový bod dokumentu aliasu pro image virtuálního počítače – | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | Identifikátor URI dokumentu, který obsahuje aliasy imagí virtuálních počítačů Další informace najdete v tématu [Nastavení koncového bodu aliasy virtuálních počítačů](#set-up-the-virtual-machine-aliases-endpoint). |
@@ -597,7 +597,7 @@ Při použití rozhraní příkazového řádku v Azure Stack se vyskytly znám�
  - Pokud chcete získat seznam imagí virtuálních počítačů, které jsou k dispozici `az vm image list --all` v Azure Stack, použijte `az vm image list` příkaz místo příkazu. Zadáním `--all` možnosti zajistíte, že odpověď vrátí pouze obrázky, které jsou k dispozici v prostředí Azure Stack.
  - Aliasy imagí virtuálních počítačů, které jsou k dispozici v Azure, se nemusí pro Azure Stack použít. Při použití imagí virtuálních počítačů musíte použít celý parametr URN (kanonický: UbuntuServer: 14.04.3-LTS: 1.0.0) místo aliasu image. Tento název URN se musí shodovat s specifikacemi obrázku odvozenými z `az vm images list` příkazu.
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 - [Nasazení šablon pomocí Azure CLI](azure-stack-deploy-template-command-line.md)
 - [Povolení Azure CLI pro uživatele Azure Stack (operátor)](../operator/azure-stack-cli-admin.md)

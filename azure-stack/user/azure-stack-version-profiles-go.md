@@ -10,16 +10,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/26/2019
+ms.date: 10/01/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/26/2019
-ms.openlocfilehash: dac2eeaf3499068812d9c9a66348b0c44ea07b7d
-ms.sourcegitcommit: 637018771ac016b7d428174e88d4dcb131b54959
+ms.openlocfilehash: 0636f3069db80613f02e979b5a102a471f12efad
+ms.sourcegitcommit: 3d14ae30ce3ee44729e5419728cce14b3000e968
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68842707"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71814457"
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack"></a>Použití profilů verzí rozhraní API s funkcí přejít v Azure Stack
 
@@ -32,13 +32,13 @@ Profil je kombinací různých typů prostředků s různými verzemi z různýc
 - Stabilita vaší aplikace při zamykání na konkrétní verze rozhraní API
 - Kompatibilita vaší aplikace s Azure Stack a místními datacentry Azure.
 
-V sadě SDK pro cestu jsou profily k dispozici v cestě k profilům. Jejich čísla verzí jsou označena ve formátu **RRRR-MM-DD** . Nejnovější verze profilu rozhraní API pro Azure Stack je **2019-03-01** pro značky verze 1904 nebo novější. Pokud chcete z profilu importovat danou službu, importujte odpovídající modul z profilu. Pokud například chcete importovat **výpočetní** službu z profilu **2019-03-01** , použijte následující kód:
+V sadě SDK pro cestu jsou profily k dispozici v cestě k profilům. Čísla verzí profilů jsou označená ve formátu **RRRR-MM-DD** . Nejnovější verze profilu rozhraní API pro Azure Stack je **2019-03-01** pro Azure Stack verze 1904 nebo novější. Pokud chcete z profilu importovat danou službu, importujte odpovídající modul z profilu. Pokud například chcete importovat **výpočetní** službu z profilu **2019-03-01** , použijte následující kód:
 
 ```go
 import "github.com/Azure/azure-sdk-for-go/profiles/2019-03-01/compute/mgmt/compute"
 ```
 
-## <a name="install-azure-sdk-for-go"></a>Nainstalovat Azure SDK pro Go
+## <a name="install-the-azure-sdk-for-go"></a>Instalace Azure SDK for Go
 
 1. Instalace Gitu. Pokyny najdete v tématu [Začínáme - instalaci Gitu](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 2. Nainstalujte [jazyk programovacího jazyka](https://golang.org/dl). Profily rozhraní API pro Azure vyžadují verzi verze 1,9 nebo novější.
@@ -53,7 +53,7 @@ import "github.com/Azure/azure-sdk-for-go/profiles/2019-03-01/compute/mgmt/compu
 Další informace o sadě Azure cestách SDK najdete na následujících odkazech:
 
 - Sada Azure SDK pro [instalaci Azure SDK pro go](/go/azure/azure-sdk-go-install).
-- Azure Směřuj SDK je veřejně dostupná na GitHubu v úložišti [Azure-SDK-for-cestách](https://github.com/Azure/azure-sdk-for-go) .
+- Azure přejít SDK je veřejně dostupný na GitHubu v úložišti [Azure-SDK-for-na cestách](https://github.com/Azure/azure-sdk-for-go) .
 
 ### <a name="go-autorest-dependencies"></a>Přejít – autov závislosti na REST
 
@@ -63,7 +63,7 @@ Sada SDK sady SDK závisí na modulech Azure **Přejít – AutoRest** k posíl�
 
 Chcete-li spustit ukázku kódu Přejít na Azure Stack, postupujte takto:
 
-1. Nainstalujte Azure SDK pro Go a jeho závislosti. Pokyny najdete v předchozí části [instalace Azure SDK pro go](#install-azure-sdk-for-go).
+1. Nainstalujte Azure SDK pro Go a jeho závislosti. Pokyny najdete v předchozí části [instalace Azure SDK pro go](#install-the-azure-sdk-for-go).
 2. Získat informace o metadatech z Správce prostředkůho koncového bodu. Koncový bod vrátí soubor JSON s informacemi potřebnými ke spuštění kódu vašeho přechodu.
 
    > [!NOTE]  
@@ -86,9 +86,9 @@ Chcete-li spustit ukázku kódu Přejít na Azure Stack, postupujte takto:
 
 3. Pokud není k dispozici, vytvořte předplatné a uložte ID předplatného pro pozdější použití. Informace o vytváření předplatného najdete [v tématu Vytvoření předplatných nabídek v Azure Stack](../operator/azure-stack-subscribe-plan-provision-vm.md).
 
-4. Vytvořte instanční objekt, který používá tajný klíč klienta, s oborem předplatného a rolí **vlastníka** . Uložte ID objektu služby a tajný klíč. Informace o vytváření instančního objektu pro Azure Stack najdete v tématu [použití identity aplikace pro přístup k prostředkům](../operator/azure-stack-create-service-principals.md). <br>Vaše prostředí Azure Stack je teď nastavené.
+4. Vytvořte instanční objekt, který používá tajný klíč klienta, s oborem **předplatného** a rolí **vlastníka** . Uložte ID objektu služby a tajný klíč. Informace o vytváření instančního objektu pro Azure Stack najdete v tématu [použití identity aplikace pro přístup k prostředkům](../operator/azure-stack-create-service-principals.md). Vaše prostředí Azure Stack je teď nastavené.
 
-5. Importujte modul služby z profilu sady SDK přejít do kódu. Aktuální verze profilu Azure Stack je **2019-03-01**. Chcete-li například importovat síťový modul z typu profilu **2019-03-01** , použijte následující kód:
+5. Importujte modul služby z profilu sady SDK přejít do kódu. Aktuální verze profilu Azure Stack je **2019-03-01**. Pokud například chcete importovat síťový modul z typu profilu **2019-03-01** , použijte následující kód:
 
    ```go
    package main
@@ -109,7 +109,7 @@ Chcete-li spustit ukázku kódu Přejít na Azure Stack, postupujte takto:
 
    Nastavte `<baseURI>` na hodnotu **ResourceManagerUrl** použitou v kroku 2. Nastavte `<subscriptionID>` na **SubscriptionId** hodnotu uloženou z kroku 3.
 
-   Chcete-li vytvořit token, přečtěte si následující část.  
+   Chcete-li vytvořit token, přečtěte si další část.  
 
 7. Vyvolejte metody rozhraní API pomocí klienta, kterého jste vytvořili v předchozím kroku. Pokud například chcete vytvořit virtuální síť pomocí klienta z předchozího kroku, přečtěte si následující příklad:
 
@@ -134,7 +134,7 @@ Pro klienta prostředků musí být povolený autorizačníer. Existují různé
 
 1. Pokud je k dispozici instanční objekt s rolí vlastníka v předplatném, přeskočte tento krok. V opačném případě se podívejte na téma [použití identity aplikace pro přístup k prostředkům](../operator/azure-stack-create-service-principals.md) , kde najdete pokyny k vytvoření instančního objektu, který používá tajný klíč klienta, a nápovědu k přiřazení role "vlastník" oboru pro vaše předplatné. Nezapomeňte zachytit ID a tajný klíč aplikace instančního objektu.
 
-2. Importujte balíček **ADAL** z možnosti přejít-AutoRest do kódu.
+2. Importujte balíček **ADAL** z možnosti **Přejít-AutoRest** do kódu.
 
    ```go
    package main
@@ -175,7 +175,7 @@ Pro klienta prostředků musí být povolený autorizačníer. Existují různé
    ```
 
     Nastavte `<activeDirectoryResourceID>` na jednu z hodnot v seznamu "cílová" z metadat **ResourceManagerUrl** získaných v předchozí části tohoto článku.
-    Nastaví `<clientID>` se na ID aplikace instančního objektu uložené při vytvoření instančního objektu v předchozí části tohoto článku.
+    Nastavte `<clientID>` na ID aplikace instančního objektu uložené při vytvoření instančního objektu v předchozí části tohoto článku.
     Nastaví `<clientSecret>` se na tajný klíč aplikace instančního objektu uložený při vytvoření instančního objektu v předchozí části tohoto článku.
 
 ## <a name="example"></a>Příklad
@@ -299,11 +299,14 @@ Tento příklad ukazuje ukázku kódu přejít, který vytváří virtuální s�
       }
    }
    ```
-Některé ukázky kódu, které jsou k dispozici pro Azure Stack s využitím sady SDK, jsou:
+
+Některé ukázky kódu, které jsou k dispozici pro Azure Stack s využitím sady SDK pro:
+
 - [Vytvořit virtuální počítač](https://github.com/Azure-Samples/Hybrid-Compute-Go-Create-VM)
 - [Plán pro datastorage](https://github.com/Azure-Samples/Hybrid-Storage-Go-Dataplane)
-- [Použít Managed disks](https://github.com/Azure-Samples/Hybrid-Compute-Go-ManagedDisks) (ukázka, která používá profil 2019-03-01, který cílí na nejnovější verze rozhraní API podporované nástrojem Azure Stack)
-## <a name="next-steps"></a>Další postup
+- [Použít Managed disks](https://github.com/Azure-Samples/Hybrid-Compute-Go-ManagedDisks) (ukázka používající profil 2019-03-01, který cílí na nejnovější verze rozhraní API podporované Azure Stack)
+
+## <a name="next-steps"></a>Další kroky
 
 - [Instalace PowerShellu pro Azure Stack](../operator/azure-stack-powershell-install.md)
-- [Konfigurace prostředí PowerShellu Azure Stackho uživatele](azure-stack-powershell-configure-user.md)  
+- [Konfigurace prostředí PowerShellu Azure Stackho uživatele](azure-stack-powershell-configure-user.md)

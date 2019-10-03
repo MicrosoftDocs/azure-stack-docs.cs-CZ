@@ -5,16 +5,16 @@ services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: overview
-ms.date: 04/24/2019
+ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 04/24/2019
-ms.openlocfilehash: 28d60e8fc5b575cd2fbefee1298220418e4f59a1
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.lastreviewed: 10/02/2019
+ms.openlocfilehash: 2c9c43439872a19ba590fb22059969f9a7c742f0
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68418229"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71824444"
 ---
 # <a name="deploy-a-java-web-app-to-a-vm-in-azure-stack"></a>Nasazení webové aplikace v jazyce Java do virtuálního počítače v Azure Stack
 
@@ -31,7 +31,7 @@ Můžete vytvořit virtuální počítač, který bude hostovat vaši webovou ap
     | 80 | HTTP | HTTP (Hypertext Transfer Protocol) je protokol, který se používá k doručování webových stránek ze serverů. Klienti se připojují přes protokol HTTP s názvem DNS nebo IP adresou. |
     | 443 | HTTPS | Protokol HTTPS (Hypertext Transfer Protocol Secure) je zabezpečená verze protokolu HTTP, která vyžaduje certifikát zabezpečení a umožňuje šifrovaný přenos informací. |
     | 22 | SSH | Secure Shell (SSH) je zašifrovaný síťový protokol pro zabezpečenou komunikaci. Pomocí tohoto připojení s klientem SSH nakonfigurujete virtuální počítač a nasadíte aplikaci. |
-    | 3389 | PROTOKOL RDP | Volitelné. Protokol RDP (Remote Desktop Protocol) (RDP) umožňuje připojení ke vzdálené ploše pro použití grafického uživatelského rozhraní na vašem počítači.   |
+    | 3389 | PROTOKOL RDP | Volitelný parametr. Protokol RDP (Remote Desktop Protocol) (RDP) umožňuje připojení ke vzdálené ploše pro použití grafického uživatelského rozhraní na vašem počítači.   |
     | 8080 | Vlastní | Výchozí port pro službu Apache Tomcat V případě provozního serveru směrujete provoz mezi 80 a 443. |
 
 ## <a name="install-java"></a>Nainstalovat Java
@@ -95,7 +95,7 @@ Můžete vytvořit virtuální počítač, který bude hostovat vaši webovou ap
         sudo chmod g+x conf
     ```
 
-1. Vytvořte soubor  se systémovou službou, abyste mohli spustit Tomcat jako službu.
+1. Vytvořte soubor se systémovou službou, abyste mohli spustit Tomcat jako službu.
 
    a. Tomcat potřebuje, abyste věděli, kde jste nainstalovali Java. Tato cesta se obvykle označuje jako *JAVA_HOME*. Najděte umístění spuštěním:
 
@@ -292,7 +292,7 @@ Pokyny k vývoji aplikací v jazyce Java v Azure najdete v tématu sestavování
        http://yourmachine.local.cloudapp.azurestack.external:8080/sample
     ```
     
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 - Přečtěte si další informace o [vývoji pro Azure Stack](azure-stack-dev-start.md).
 - Přečtěte si o [běžných nasazeních Azure Stack jako IaaS](azure-stack-dev-start-deploy-app.md).

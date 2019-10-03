@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2019
+ms.date: 10/01/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: c0faaa7be69ad8d23dc94eec1107362a7a7eadfa
-ms.sourcegitcommit: 58c28c0c4086b4d769e9d8c5a8249a76c0f09e57
+ms.openlocfilehash: d9ef8ab09031db59311317693f72433b63737c34
+ms.sourcegitcommit: 3d14ae30ce3ee44729e5419728cce14b3000e968
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68959347"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71814474"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack"></a>Používejte profily verzí rozhraní API s Ruby v Azure Stack
 
@@ -46,12 +46,16 @@ Profil rozhraní API je kombinací poskytovatelů prostředků a verzí služby.
 - Pomocí oficiálních pokynů nainstalujte [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 - Podle oficiálních pokynů nainstalujte [Ruby](https://www.ruby-lang.org/en/documentation/installation/).
   - Při instalaci nástroje vyberte možnost **Přidat Ruby do proměnné cesty**.
-  - Po zobrazení výzvy nainstalujte vývojovou sadu při instalaci Ruby.
-  - Dále nainstalujte sadu prostředků pomocí následujícího příkazu:  
-    `Gem install bundler`
-- Pokud není k dispozici, vytvořte předplatné a uložte ID předplatného pro pozdější použití. Pokyny k vytvoření předplatného [najdete tady](../operator/azure-stack-subscribe-plan-provision-vm.md).
-- Vytvořte instanční objekt a uložte jeho ID a tajný klíč. [Tady najdete](../operator/azure-stack-create-service-principals.md)pokyny k vytvoření instančního objektu pro Azure Stack.
-- Ujistěte se, že váš instanční objekt má přiřazenou roli Přispěvatel/vlastník v rámci vašeho předplatného. [Tady najdete](../operator/azure-stack-create-service-principals.md)pokyny k přiřazení role k instančnímu objektu.
+  - Po zobrazení výzvy při instalaci Ruby nainstalujte vývojovou sadu.
+  - Dále nainstalujte sadu prostředků pomocí následujícího příkazu: 
+
+       ```Ruby
+       Gem install bundler
+       ```
+
+- Pokud není k dispozici, vytvořte předplatné a uložte ID předplatného pro pozdější použití. Pokyny k vytvoření předplatného najdete v tématu [Vytvoření předplatných pro nabídky v Azure Stackm](../operator/azure-stack-subscribe-plan-provision-vm.md) článku.
+- Vytvořte instanční objekt a uložte jeho ID a tajný klíč. Pokyny k vytvoření instančního objektu pro Azure Stack jsou v článku [použití identity aplikace k přístupu k prostředkům](../operator/azure-stack-create-service-principals.md) .
+- Ujistěte se, že váš instanční objekt má přiřazenou roli Přispěvatel/vlastník v rámci vašeho předplatného. Pokyny k přiřazení role k instančnímu objektu jsou v tématu [použití identity aplikace pro přístup k prostředkům](../operator/azure-stack-create-service-principals.md).
 
 ## <a name="install-the-rubygem-packages"></a>Instalace balíčků RubyGem
 
@@ -62,7 +66,11 @@ gem install azure_mgmt_compute
 gem install azure_mgmt_storage
 gem install azure_mgmt_resources
 gem install azure_mgmt_network
-Or use them in your Gemfile.
+```
+
+Případně je můžete použít ve své Gemfile.
+
+```Ruby
 gem 'azure_mgmt_storage'
 gem 'azure_mgmt_compute'
 gem 'azure_mgmt_resources'
@@ -87,10 +95,10 @@ Pokud chcete použít sadu Ruby Azure SDK s Azure Stack, musíte zadat následuj
 
 | Value | Proměnné prostředí | Popis |
 | --- | --- | --- |
-| ID tenanta | `AZURE_TENANT_ID` | Hodnota vašeho [ID tenanta](../operator/azure-stack-identity-overview.md)Azure Stack. |
-| ID klienta | `AZURE_CLIENT_ID` | ID aplikace instančního objektu se uložilo při vytvoření instančního objektu v předchozí části tohoto dokumentu.  |
-| ID předplatného | `AZURE_SUBSCRIPTION_ID` | [ID](../operator/azure-stack-plan-offer-quota-overview.md#subscriptions) předplatného je způsob, jakým přistupujete k nabídkám v Azure Stack. |
-| Tajný kód klienta | `AZURE_CLIENT_SECRET` | Tajný kód aplikace instančního objektu se uložil při vytváření instančního objektu. |
+| ID tenanta | `AZURE_TENANT_ID` | Vaše [ID tenanta](../operator/azure-stack-identity-overview.md)Azure Stack. |
+| ID klienta | `AZURE_CLIENT_ID` | ID aplikace instančního objektu se uložilo při vytvoření instančního objektu v předchozí části tohoto článku.  |
+| ID předplatného | `AZURE_SUBSCRIPTION_ID` | [ID předplatného](../operator/azure-stack-plan-offer-quota-overview.md#subscriptions) se používá pro přístup k nabídkám v Azure Stack. |
+| Tajný kód klienta | `AZURE_CLIENT_SECRET` | Tajný kód aplikace instančního objektu se uložil při vytvoření objektu služby. |
 | Koncový bod Resource Manageru | `ARM_ENDPOINT` | Viz [koncový bod Správce prostředků Azure Stack](#the-azure-stack-resource-manager-endpoint).  |
 
 ### <a name="the-azure-stack-resource-manager-endpoint"></a>Koncový bod Azure Stack Správce prostředků
@@ -117,26 +125,31 @@ Informace o metadatech můžete získat z Správce prostředkůho koncového bod
  }
 ```
 
-### <a name="set-environmental-variables"></a>Nastavení proměnných prostředí
+### <a name="set-environment-variables"></a>Nastavení proměnných prostředí
 
-**Microsoft Windows**  
-Chcete-li nastavit proměnné prostředí, použijte následující formát v příkazovém řádku systému Windows:  
-`set AZURE_TENANT_ID=<YOUR_TENANT_ID>`
+#### <a name="microsoft-windows"></a>Microsoft Windows
 
-**systémy macOS, Linux a UNIX** <br>
-V počítačích se systémem UNIX použijte následující příkaz:  
-`export AZURE_TENANT_ID=<YOUR_TENANT_ID>`
+Chcete-li nastavit proměnné prostředí, použijte následující formát v příkazovém řádku systému Windows:
+
+```shell
+set AZURE_TENANT_ID=<YOUR_TENANT_ID>
+```
+
+#### <a name="macos-linux-and-unix-based-systems"></a>Systémy MacOS, Linux a UNIX
+
+V systémech UNIX použijte následující příkaz:
+
+```bash
+export AZURE_TENANT_ID=<YOUR_TENANT_ID>
+```
 
 ## <a name="existing-api-profiles"></a>Existující profily rozhraní API
 
-Azure_sdk kumulativní Gem má následující tři profily:
+**Azure_sdk** Rollup Gem má následující 3 profily:
 
-1. **V2019_03_01_Hybrid** <br>
-  Profil sestavený pro Azure Stack. Tento profil použijte k využití všech nejnovějších verzí služeb dostupných v Azure Stack razítko verze 1904 nebo novější.
-1. **V2017_03_09**  
-  Profil sestavený pro Azure Stack. Tento profil použijte pro služby, které mají být nejvíce kompatibilní s Azure Stack razítkem verze 1808 nebo starším.
-1. **Nejnovější**  
-  Profil se skládá z nejnovějších verzí všech služeb. Použijte nejnovější verze všech služeb.
+- **V2019_03_01_Hybrid**: Profil sestavený pro Azure Stack. Tento profil použijte pro všechny nejnovější verze služeb, které jsou k dispozici v Azure Stack verze 1904 nebo novější.
+- **V2017_03_09**: Profil sestavený pro Azure Stack. Tento profil použijte pro služby, které mají být nejvíce kompatibilní s Azure Stack verze 1808 nebo starší.
+- **Nejnovější**: Profil se skládá z nejnovějších verzí všech služeb. Použijte nejnovější verze všech služeb.
 
 Další informace o Azure Stack a profilech rozhraní API najdete v tématu [Přehled profilů rozhraní API](azure-stack-version-profiles.md#summary-of-api-profiles).
 
@@ -181,7 +194,7 @@ purchase_plan_obj = Azure::Profiles::V2019_03_01_Hybrid::Compute::Mgmt::Models::
 
 ## <a name="define-azure-stack-environment-setting-functions"></a>Definování funkcí, nastavení prostředí Azure Stack
 
-Chcete-li ověřit instanční objekt v prostředí Azure Stack, definujte koncové body pomocí `get_active_directory_settings()`. Tato metoda používá proměnnou prostředí **ARM_Endpoint** , kterou jste nastavili při vytváření proměnných prostředí:
+Chcete-li ověřit instanční objekt v prostředí Azure Stack, definujte koncové body pomocí `get_active_directory_settings()`. Tato metoda používá proměnnou prostředí **ARM_Endpoint** , kterou jste nastavili dříve:
 
 ```Ruby  
 # Get Authentication endpoints using Arm Metadata Endpoints
@@ -203,10 +216,10 @@ end
 
 ## <a name="samples-using-api-profiles"></a>Ukázky pomocí profilů rozhraní API
 
-Použijte následující ukázky na GitHubu jako odkazy pro vytváření řešení s profily Ruby a Azure Stack API:
+Použijte následující ukázky na GitHubu jako odkazy k vytváření řešení pomocí profilů Ruby a Azure Stack API:
 
 - [Spravujte prostředky Azure a skupiny prostředků pomocí Ruby](https://github.com/Azure-Samples/Hybrid-Resource-Manager-Ruby-Resources-And-Groups).
-- [Správa virtuálních počítačů pomocí Ruby](https://github.com/Azure-Samples/Hybrid-Compute-Ruby-Manage-VM) (Ukázka, která používá 2019-03-01 – hybridní profil pro cílení na nejnovější verze rozhraní API podporované nástrojem Azure Stack).
+- [Správa virtuálních počítačů pomocí Ruby](https://github.com/Azure-Samples/Hybrid-Compute-Ruby-Manage-VM) (ukázka, která používá 2019-03-01 – hybridní profil pro cílení na nejnovější verze rozhraní API podporované nástrojem Azure Stack).
 - [Nasaďte virtuální počítač s povoleným SSH se šablonou v Ruby](https://github.com/Azure-Samples/Hybrid-Resource-Manager-Ruby-Template-Deployment).
 
 ### <a name="sample-resource-manager-and-groups"></a>Ukázka Správce prostředků a skupin
@@ -214,7 +227,7 @@ Použijte následující ukázky na GitHubu jako odkazy pro vytváření řešen
 Pokud chcete ukázku spustit, ujistěte se, že máte nainstalovanou Ruby. Pokud používáte Visual Studio Code, Stáhněte si také rozšíření Ruby SDK.
 
 > [!NOTE]  
-> Získejte úložiště pro ukázku v tématu[Správa prostředků Azure a skupin prostředků pomocí Ruby](https://github.com/Azure-Samples/Hybrid-Resource-Manager-Ruby-Resources-And-Groups).
+> Úložiště pro ukázku je [Hybrid-Resource-Manager-Ruby-Resources-a-Groups](https://github.com/Azure-Samples/Hybrid-Resource-Manager-Ruby-Resources-And-Groups).
 
 1. Naklonujte úložiště:
 
@@ -234,13 +247,14 @@ Pokud chcete ukázku spustit, ujistěte se, že máte nainstalovanou Ruby. Pokud
    Pokyny k vytvoření instančního objektu najdete v tématu [pomocí prostředí Azure PowerShell k vytvoření instančního objektu s certifikátem](../operator/azure-stack-create-service-principals.md).
 
    Požadované hodnoty:
+
    - ID tenanta
    - ID klienta
    - Tajný kód klienta
    - ID předplatného
    - Koncový bod Resource Manageru
 
-   Nastavte následující proměnné prostředí pomocí informací, které jste získali z vytvořeného objektu služby.
+   Nastavte následující proměnné prostředí pomocí informací získaných z vytvořeného objektu služby:
 
    - `export AZURE_TENANT_ID={your tenant ID}`
    - `export AZURE_CLIENT_ID={your client ID}`
@@ -249,17 +263,17 @@ Pokud chcete ukázku spustit, ujistěte se, že máte nainstalovanou Ruby. Pokud
    - `export ARM_ENDPOINT={your Azure Stack Resource Manager URL}`
 
    > [!NOTE]  
-   > Ve Windows použijte místo exportu sadu set.
+   > Ve Windows použijte místo `export` `set`.
 
 4. Zajistěte, aby byla proměnná umístění nastavená na vaše Azure Stack umístění; například `LOCAL="local"`.
 
-5. Přidejte následující řádek kódu, pokud používáte Azure Stack nebo jiné privátní cloudy k cílení na správné koncové body služby Active Directory:
+5. Pokud chcete cílit na správné koncové body služby Active Directory, přidejte následující řádek kódu, pokud používáte Azure Stack nebo jiné privátní cloudy:
 
    ```Ruby  
    active_directory_settings = get_active_directory_settings(ENV['ARM_ENDPOINT'])
    ```
 
-6. V proměnné možnosti přidejte nastavení služby Active Directory a základní adresu URL pro práci s Azure Stack:
+6. V proměnné `options` přidejte nastavení služby Active Directory a základní adresu URL pro práci s Azure Stack:
 
    ```ruby  
    options = {
@@ -276,7 +290,7 @@ Pokud chcete ukázku spustit, ujistěte se, že máte nainstalovanou Ruby. Pokud
    client = Azure::Resources::Profiles::V2019_03_01_Hybrid::Mgmt::Client.new(options)
    ```
 
-8. Chcete-li ověřit instanční objekt pomocí Azure Stack, koncové body by měly být definovány pomocí **get_active_directory_settings ()** . Tato metoda používá proměnnou prostředí **ARM_Endpoint** , kterou jste nastavili při vytváření proměnných prostředí:
+8. Chcete-li ověřit instanční objekt pomocí Azure Stack, koncové body by měly být definovány pomocí **get_active_directory_settings ()** . Tato metoda používá proměnnou prostředí **ARM_Endpoint** , kterou jste nastavili dříve:
 
    ```ruby  
    def get_active_directory_settings(armEndpoint)
@@ -297,11 +311,11 @@ Pokud chcete ukázku spustit, ujistěte se, že máte nainstalovanou Ruby. Pokud
 
 9. Spusťte ukázku.
 
-   ```ruby
+   ```Ruby
    bundle exec ruby example.rb
    ```
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 - [Instalace PowerShellu pro Azure Stack](../operator/azure-stack-powershell-install.md)
 - [Konfigurace prostředí PowerShellu Azure Stackho uživatele](azure-stack-powershell-configure-user.md)  

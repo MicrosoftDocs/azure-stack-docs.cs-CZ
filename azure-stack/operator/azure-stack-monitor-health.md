@@ -1,6 +1,6 @@
 ---
-title: Monitorování stavu a výstrah ve službě Azure Stack | Dokumentace Microsoftu
-description: Další informace o monitorování stavu a výstrah ve službě Azure Stack.
+title: Monitorování stavu a výstrah v Azure Stack | Microsoft Docs
+description: Naučte se monitorovat stav a výstrahy v Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,87 +11,87 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2019
+ms.date: 10/2/2019
 ms.author: mabrigg
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: 4763025917172e3b8acaeb1ad748410e65143864
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.openlocfilehash: 00f4a9c0aaaf52ed08706e9024059d7b24268290
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782507"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71829478"
 ---
-# <a name="monitor-health-and-alerts-in-azure-stack"></a>Monitorování stavu a výstrah ve službě Azure Stack
+# <a name="monitor-health-and-alerts-in-azure-stack"></a>Monitorování stavu a výstrah v Azure Stack
 
-*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
 
-Azure Stack zahrnuje monitorování infrastruktury, které vám zobrazení stavu a výstrahy pro určitá oblast Azure Stack. **Správa oblastí** dlaždice připnuté v portálu správce ve výchozím nastavení pro výchozí předplatné poskytovatele, obsahuje seznam všech nasazených oblastech služby Azure Stack. Na dlaždici se zobrazuje počet aktivní kritických a výstražných oznámení pro každou oblast. Tato dlaždice je vaším vstupním bodem do stavu a výstrah funkce služby Azure Stack.
+Azure Stack zahrnuje možnosti monitorování infrastruktury, které vám pomůžou zobrazit stav a výstrahy pro Azure Stack oblasti. Dlaždice **Správa oblasti** , která je ve výchozím nastavení připnuté na portálu pro správu pro výchozí předplatné poskytovatele, obsahuje seznam všech nasazených oblastí Azure Stack. Tato dlaždice zobrazuje počet aktivních výstrah kritických a varovných upozornění pro jednotlivé oblasti. Tato dlaždice je vaším vstupním bodem do funkce stavu a výstrahy Azure Stack.
 
-![Dlaždice Správa oblastí](media/azure-stack-monitor-health/image1.png)
+![Dlaždice správy oblastí](media/azure-stack-monitor-health/image1.png)
 
-## <a name="understand-health-in-azure-stack"></a>Pochopení stavu ve službě Azure Stack
+## <a name="understand-health-in-azure-stack"></a>Vysvětlení stavu v Azure Stack
 
-Stav poskytovatele prostředků spravuje stav a výstrahy. Komponenty infrastruktury Azure stacku zaregistrujte poskytovatele prostředků stavu během nasazení Azure stacku a konfigurace. Díky této registraci může zobrazovat stav a výstrahy pro jednotlivé komponenty. Stav ve službě Azure Stack je jednoduchý koncept. Pokud existují výstrahy pro registrované instance komponenty, stav této součásti odráží nejhorší aktivní závažnost výstrahy: varování nebo kritické.
+Poskytovatel prostředků stavu spravuje stav a výstrahy. Komponenty infrastruktury Azure Stack během nasazování a konfigurace Azure Stack registrovat u poskytovatele prostředků stavu. Tato registrace umožňuje zobrazit stav a výstrahy pro jednotlivé komponenty. Stav v Azure Stack je jednoduchý koncept. Pokud existují výstrahy pro registrovanou instanci komponenty, stav této součásti odráží nejhorší závažnost aktivní výstrahy: upozornění nebo kritická.
 
-## <a name="alert-severity-definition"></a>Definice závažnost výstrahy
+## <a name="alert-severity-definition"></a>Definice závažnosti výstrahy
 
-Ve službě Azure Stack vyvolá výstrahy s pouze dvěma závažnosti: **upozornění** a **kritické**.
+V Azure Stack vyvolává výstrahy se dvěma závažnostmi: **Upozornění** a **kritické**.
 
 - **Upozornění**  
-  Operátor může vyřešit výstražné upozornění naplánované způsobem. Upozornění obvykle nemá vliv na zatížení uživatele.
+  Operátor může výstražné upozornění naplánovaným způsobem vyřešit. Výstraha obvykle nemá vliv na úlohy uživatelů.
 
-- **Kritická**  
-  Operátor by měl se naléhavost zabývat kritickou výstrahu. Toto jsou problémy, které aktuálně ovlivnit nebo brzy ovlivní uživatele Azure stacku.
+- **Kritické**  
+  Operátor by měl vyřešit kritickou výstrahu s naléhavostí. Jedná se o problémy, které aktuálně ovlivňují nebo brzy ovlivní Azure Stack uživatelů.
 
 
-## <a name="view-and-manage-component-health-state"></a>Umožňuje zobrazit a spravovat stav součásti
+## <a name="view-and-manage-component-health-state"></a>Zobrazení a Správa stavu součásti
 
-Na portálu pro správce a prostřednictvím rozhraní REST API a Powershellu můžete zobrazit stav komponent.
+Stav komponent můžete zobrazit na portálu pro správu a pomocí REST API a PowerShellu.
 
-Chcete-li zobrazit stav na portálu, klikněte na tlačítko, který chcete zobrazit v oblasti **Správa oblastí** dlaždici. Můžete zobrazit stav infrastruktury rolí a poskytovatelů prostředků.
+Chcete-li zobrazit stav na portálu, klikněte na oblast, kterou chcete zobrazit v dlaždici **Správa oblastí** . Můžete zobrazit stav rolí infrastruktury a poskytovatelů prostředků.
 
 ![Seznam rolí infrastruktury](media/azure-stack-monitor-health/image2.png)
 
-Můžete kliknout na poskytovatele prostředků nebo infrastrukturu role, chcete-li zobrazit podrobnější informace.
+Kliknutím na poskytovatel prostředků nebo na roli infrastruktury zobrazíte podrobnější informace.
 
 > [!WARNING]  
-> Pokud klikněte na roli infrastrukturu a pak klikněte na instanci role, existují možnosti **Start**, **restartovat**, nebo **vypnutí**. Nepoužívejte tyto akce, při použití aktualizací na integrovaný systém. Také proveďte **není** tyto možnosti použít v prostředí Azure Stack Development Kit. Tyto možnosti jsou určeny pouze pro integrované systémy pro prostředí, ve kterých je více než jednu instanci role na roli serveru infrastruktury. Restartování instance role (zejména AzS-Xrp01) development Kit způsobí, že nestabilitu systému. Pomoc při řešení potíží, odeslat váš problém [fórum pro Azure Stack](https://aka.ms/azurestackforum).
+> Pokud kliknete na roli infrastruktury a pak na instanci role, existují možnosti **spuštění**, **restartování**nebo **vypnutí**. Tyto akce nepoužívejte při použití aktualizací pro integrovaný systém. Nepoužívejte také tyto možnosti v prostředí Azure Stack Development Kit. Tyto možnosti jsou určené jenom pro prostředí s integrovanými systémy, kde je na jednu roli infrastruktury víc instancí role. Restartování instance role (obzvláště AzS-Xrp01) v vývojové sadě způsobí nestabilitu systému. Pokud potřebujete pomoc s řešením potíží, vystavte svůj problém do [fóra Azure Stack](https://aka.ms/azurestackforum).
 >
 
 ## <a name="view-alerts"></a>Zobrazení upozornění
 
-Seznam aktivních výstrah pro každou oblast Azure Stack je k dispozici přímo **Správa oblastí** okno. První dlaždice ve výchozím nastavení je **výstrahy** dlaždici, která zobrazuje souhrn důležité a upozorňující výstrahy pro oblast. Můžete připnout dlaždici výstrahy, stejně jako libovolnou dlaždici na toto okno na řídicí panel pro rychlý přístup.
+Seznam aktivních výstrah pro každou oblast Azure Stack je k dispozici přímo v okně **Správa oblastí** . První dlaždice ve výchozí konfiguraci je dlaždice **výstrahy** , která zobrazuje souhrn kritických výstrah a upozornění pro oblast. Dlaždici výstrahy můžete připnout jako jakoukoli jinou dlaždici v tomto okně na řídicí panel pro rychlý přístup.
 
-![Dlaždice zobrazující upozornění upozornění](media/azure-stack-monitor-health/image3.png)
+![Dlaždice výstrahy, která zobrazuje upozornění](media/azure-stack-monitor-health/image3.png)
 
-Výběrem horní část **výstrahy** dlaždice, přejděte na seznam všech aktivních výstrah pro danou oblast. Pokud vyberete buď **kritický** nebo **upozornění** položky řádku v bloku, přejděte na filtrovaný seznam výstrah (kritický nebo upozornění). 
+Výběrem horní části dlaždice **výstrahy** přejdete do seznamu všech aktivních výstrah pro danou oblast. Pokud vyberete položku kritická nebo **varovná** položka v rámci dlaždice, přejdete na filtrovaný seznam výstrah (kritické nebo varovné). 
 
-**Výstrahy** okna podporuje možnost filtrovat ve stavu (aktivní nebo Uzavřeno) a závažnosti (kritický nebo upozornění). Výchozí zobrazení zobrazuje všechny aktivní výstrahy. Odeberou se všechny zavřené výstrahy ze systému po sedmi dnech.
+Okno **výstrahy** podporuje možnost filtrovat stav (aktivní nebo Uzavřeno) a závažnost (kritická nebo varovná). Ve výchozím zobrazení se zobrazí všechny aktivní výstrahy. Všechny uzavřené výstrahy se ze systému po sedmi dnech odeberou.
 
-![Podokno filtru pro filtrování podle kritický nebo stav varování](media/azure-stack-monitor-health/alert-view.png)
+![Filtrovat podokno podle kritického nebo varovného stavu](media/azure-stack-monitor-health/alert-view.png)
 
-**Zobrazení rozhraní API** akce zobrazí rozhraní REST API, který se použil k vygenerování zobrazení seznamu. Tato akce nabízí rychlý způsob, jak se seznámit se syntaxí rozhraní REST API, můžete použít k upozornění dotazu. Toto rozhraní API můžete použít ve službě automation, nebo pro integraci s vašeho existujícího datacentra, monitorování, vytváření sestav a vytváření tiketů řešení.
+Akce **Zobrazit rozhraní API** zobrazuje REST API, která byla použita k vygenerování zobrazení seznamu. Tato akce poskytuje rychlý způsob, jak se seznámit se syntaxí REST API, kterou můžete použít k dotazování výstrah. Toto rozhraní API můžete použít ve službě Automation nebo pro integraci s vaším stávajícím řešením pro monitorování, generování sestav a vytváření lístků Datacenter.
 
-Můžete kliknout na konkrétní výstrahu a prohlédněte si podrobnosti výstrahy. Podrobnosti výstrahy zobrazit všechna pole, které jsou spojeny s výstrahou a umožňují rychlou navigaci ovlivněné komponenty a zdroj výstrahy. Například následující výstraha v případě, některé z instancí rolí infrastruktury přejde do režimu offline nebo není přístupný.  
+Kliknutím na konkrétní výstrahu můžete zobrazit podrobnosti výstrahy. V podrobnostech výstrahy se zobrazují všechna pole, která jsou spojená s výstrahou, a umožňují rychlou navigaci na ovlivněnou součást a zdroj výstrahy. Například následující výstraha nastane, pokud se jedna z instancí role infrastruktury přepne do režimu offline nebo není přístupná.  
 
-![V okně podrobností výstrah](media/azure-stack-monitor-health/alert-detail.png)
+![Okno Podrobnosti výstrahy](media/azure-stack-monitor-health/alert-detail.png)
 
-## <a name="repair-alerts"></a>Opravit upozornění
+## <a name="repair-alerts"></a>Opravit výstrahy
 
-Můžete vybrat **opravit** v některé výstrahy.
+V některých upozorněních můžete vybrat možnost **opravit** .
 
-Pokud je vybráno, **opravit** akce provede kroky konkrétní výstrahu, kterou chcete pokus o vyřešení problému. Po výběru stavu **opravit** akce je dostupná jako oznámení na portálu.
+Je-li tento příkaz vybrán, provede akce **opravit** kroky specifické pro výstrahu a pokuste se problém vyřešit. Po výběru možnosti stav akce **opravit** je k dispozici jako oznámení na portálu.
 
 ![Probíhá oprava](media/azure-stack-monitor-health/repair-in-progress.png)
 
-**Opravit** akce oznámí úspěšné dokončení nebo se nepodařilo dokončit akci ve stejném okně portálu oznámení.  Pokud se opravné akce nezdaří výstrahu, může znovu spustíte **opravit** akce z podrobností výstrahy. Pokud se opravné akce úspěšně dokončí, **nejsou** znovu spustit **opravit** akce.
+Akce **opravit** bude hlásit úspěšné dokončení nebo neúspěšné dokončení akce v okně oznámení na portálu.  Pokud se akce opravy u výstrahy nezdařila, můžete znovu spustit akci **opravy** z podrobností výstrahy. Pokud se akce opravy úspěšně dokončí , neprovádějte znovu akci **opravit** .
 
-![Oprava úspěšně dokončí.](media/azure-stack-monitor-health/repair-completed.png)
+![Oprava se úspěšně dokončila.](media/azure-stack-monitor-health/repair-completed.png)
 
-Po instance role infrastruktury je zpátky do online režimu, tato výstraha se automaticky zavře. Mnoho, ale ne všechny výstrahy, se automaticky zavře po vyřešení problému. Výstrahy, které poskytují tlačítko Akce opravy se automaticky zavře, je-li tento problém řeší Azure Stack.  Pro všechny ostatní výstrahy vyberte **zavřít upozornění** po provedení nápravných kroků. Pokud se problém nevyřeší, Azure Stack vygeneruje nová výstraha. Pokud chcete problém vyřešit, výstrahu zůstává uzavřený a vyžaduje žádné další kroky.
+Po opětovném návratu instance role infrastruktury do režimu online se tato výstraha automaticky zavře. Mnohé, ale ne všechny výstrahy, se automaticky zavřou při vyřešení podkladového problému. Výstrahy, které poskytují tlačítko akce opravy, se automaticky zavřou, pokud Azure Stack problém vyřeší.  Pro všechny ostatní výstrahy vyberte po provedení opravných kroků možnost **Zavřít výstrahu** . Pokud se problém nevyřeší, Azure Stack vygeneruje novou výstrahu. Pokud tento problém vyřešíte, výstraha zůstane zavřená a nevyžaduje žádné další kroky.
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 [Správa aktualizací ve službě Azure Stack](azure-stack-updates.md)
 
-[Správa oblastí ve službě Azure Stack](azure-stack-region-management.md)
+[Správa oblastí v Azure Stack](azure-stack-region-management.md)

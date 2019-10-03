@@ -1,6 +1,6 @@
 ---
-title: Azure stack úložiště rozdíly a aspekty | Dokumentace Microsoftu
-description: Znát rozdíly mezi úložiště služby Azure stack a Azure storage, spolu s důležité informace o nasazení služby Azure Stack.
+title: Rozdíly a požadavky na úložiště Azure Stack | Microsoft Docs
+description: Pochopte rozdíly mezi úložištěm Azure Stack a úložištěm Azure spolu s Azure Stackmi požadavky na nasazení.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,62 +11,62 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/16/2019
+ms.date: 10/2/2019
 ms.author: mabrigg
 ms.reviwer: xiaofmao
 ms.lastreviewed: 01/30/2019
-ms.openlocfilehash: cb7a9358a8c80c31f251bfdda16246c3ef6d0822
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.openlocfilehash: e2680a91aa2b9232eb86de4338d1198fb515e6d3
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65783039"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71824728"
 ---
-# <a name="azure-stack-storage-differences-and-considerations"></a>Úložiště Azure Stack: Rozdíly a aspekty
+# <a name="azure-stack-storage-differences-and-considerations"></a>Azure Stack úložiště: Rozdíly a aspekty
 
-*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
 
-Úložiště Azure Stack je sada cloudových služeb úložiště ve službě Microsoft Azure Stack. Úložiště Azure Stack nabízí objektů blob, tabulky, fronty a funkce správy účtu se sémantikou konzistentních s Azure.
+Azure Stack Storage je sada cloudových služeb úložiště v Microsoft Azure Stack. Služba Azure Stack Storage poskytuje funkce pro správu objektů blob, tabulek, front a účtů s sémantikou konzistentní vzhledem k Azure.
 
-Tento článek shrnuje známé rozdíly Azure Stack Storage ze služby Azure Storage. Také uvádí, co je třeba zvážit při nasazení Azure Stack. Další informace o nejvýraznějších rozdílů mezi globální Azure a Azure Stack, najdete v článku [klíče aspekty](azure-stack-considerations.md) článku.
+Tento článek shrnuje známé Azure Stack nerozdílů v úložišti služeb Azure Storage. Také uvádí, co je potřeba vzít v úvahu při nasazení Azure Stack. Další informace o rozdílech na vysoké úrovni mezi globálním Azure a Azure Stack najdete v článku [klíčové důležité informace](azure-stack-considerations.md) .
 
-## <a name="cheat-sheet-storage-differences"></a>Tahák: Rozdíly úložiště
+## <a name="cheat-sheet-storage-differences"></a>Tahák list: Rozdíly v úložišti
 
-| Funkce | Azure (globální) | Azure Stack |
+| Funkce | Azure (Global) | Azure Stack |
 | --- | --- | --- |
-|File Storage|Cloudové sdílené složky SMB podporované|Není dosud podporován.
-|Šifrování služby Azure storage pro neaktivní uložená data|256bitového šifrování AES. Podpora šifrování pomocí klíčů spravovaných zákazníkem ve službě Key Vault.|Nástroj BitLocker 128bitové šifrování AES. Šifrování pomocí klíčů spravovaných zákazníkem není podporováno.
-|Typ účtu úložiště|Účty pro obecné účely V1, V2 a Blob storage|Pouze pro obecné účely V1.
-|Možnosti replikace|Místně redundantní úložiště, geograficky redundantní úložiště, geograficky redundantní úložiště jen pro čtení a zónově redundantní úložiště|Místně redundantní úložiště.
-|Premium Storage|Poskytuje vysoký výkon a úložiště s nízkou latencí. V účtech úložiště úrovně premium podporují jenom objekty BLOB stránky.|Je možné zřídit, ale bez omezení výkonu nebo záruk. Nebude blokovat, s využitím objektů BLOB bloku, doplňovací objekty BLOB, tabulky a fronty v účtech úložiště úrovně premium.
-|Spravované disky|Premium a standard podporována|Podporovány, pokud používáte verzi 1808 nebo novější.
-|Název objektu blob|1 024 znaků (2 048 bajtů)|880 znaků (1,760 bajty)
-|Maximální velikost objektu blob bloku|4,75 TB (100 MB × 50 000 bloků)|4,75 TB (100 MB × 50 000 bloků) pro verzi 1802 update nebo novější verze. 50 000 × 4 MB (přibližně 195 GB) pro předchozí verze.
-|Kopie snímků objektů blob stránky|Zálohování Azure nespravovaných disků virtuálních počítačů připojený spuštěný virtuální počítač nepodporuje|Ještě není podporované.
-|Kopie přírůstkový snímek objektu blob stránky|Premium a objekty BLOB stránky standardní Azure, které jsou podporovány|Ještě není podporované.
-|Fakturace objektů blob stránky|Poplatky se účtují pro jedinečný stránky, ať už jsou v objektu blob nebo ve snímku. Nebude se účtovat další poplatky za snímky přidružené tomuto objektu blob dokud základní objekt blob se aktualizuje.|Poplatky se účtují pro základní snímky objektů blob a assiociated. Bude se účtovat další poplatky za každé jednotlivé snímku.
-|Úrovně úložiště pro ukládání objektů blob|Horké studené a archivní úroveň úložiště.|Ještě není podporované.
-|Obnovitelného odstranění pro úložiště objektů blob|Obecně dostupná|Ještě není podporované.
+|File Storage|Podporované cloudové sdílené složky SMB|Zatím nepodporováno
+|Šifrování služby Azure Storage pro neaktivní neaktivní data|256 šifrování AES. Podpora šifrování pomocí klíčů spravovaných zákazníkem v Key Vault.|BitLocker 128-bit AES Encryption. Šifrování pomocí klíčů spravovaných zákazníkem se nepodporuje.
+|Typ účtu úložiště|Účty úložiště pro obecné účely V1, v2 a BLOB|Jenom pro obecné účely v1.
+|Možnosti replikace|Místně redundantní úložiště, geograficky redundantní úložiště, geograficky redundantní úložiště s přístupem pro čtení a úložiště redundantní v zóně|Místně redundantní úložiště.
+|Premium Storage|Poskytněte úložiště s vysokým výkonem a nízkou latencí. Podporují se jenom objekty blob stránky v účtech Premium Storage.|Dá se zřídit, ale bez omezení výkonu ani záruky. Neblokuje použití objektů blob bloku, doplňovacích objektů blob, tabulek a front v účtech Premium Storage.
+|Spravované disky|Podporovaná verze Premium a Standard|Podporováno při použití verze 1808 nebo novější.
+|Název objektu blob|1 024 znaků (2 048 bajtů)|880 znaků (1 760 bajtů)
+|Maximální velikost objektu blob bloku|4,75 TB (100 MB X 50 000 bloků)|4,75 TB (100 MB x 50 000 bloků) pro aktualizaci 1802 nebo novější verzi. 50 000 X 4 MB (přibližně 195 GB) pro předchozí verze.
+|Kopie snímku objektu blob stránky|Zálohování disků nespravovaných virtuálních počítačů Azure připojených k běžícímu virtuálnímu počítači|Zatím se nepodporuje.
+|Kopie přírůstkového snímku objektu blob stránky|Podporované objekty blob stránky Azure úrovně Premium a Standard|Zatím se nepodporuje.
+|Fakturace objektu blob stránky|Poplatky se účtují pro jedinečné stránky, ať už jsou v objektu blob, nebo ve snímku. Neúčtují se další poplatky za snímky přidružené k objektu blob, dokud se neaktualizuje základní objekt BLOB.|Účtují se poplatky za základní objekty BLOB a assiociated snímky. Za každý jednotlivý snímek se účtují další poplatky.
+|Vrstvy úložiště pro Blob Storage|Horké, studené a archivní úrovně úložiště.|Zatím se nepodporuje.
+|Obnovitelné odstranění pro úložiště objektů BLOB|Obecné dostupné|Zatím se nepodporuje.
 |Maximální velikost objektu blob stránky|8 TB|1 TB
 |Velikost stránky objektu blob stránky|512 bajtů|4 KB
-|Velikost klíče tabulky klíče oddílu a řádku|1 024 znaků (2 048 bajtů)|až 400 znaků (800 bajtů)
-|Snímek objektu BLOB|Maximální počet snímků jeden objekt blob není omezený.|Maximální počet snímků jeden objekt blob je 1 000.
-|Ověřování Azure AD pro úložiště|Ve verzi Preview|Ještě není podporované.
-|Neměnné objekty BLOB|Obecně dostupná|Ještě není podporované.
-|Brána firewall a pravidla virtuální sítě pro úložiště|Obecně dostupná|Ještě není podporované.|
+|Klíč oddílu tabulky a velikost klíče řádku|1 024 znaků (2 048 bajtů)|400 znaků (800 bajtů)
+|Snímek objektu BLOB|Maximální počet snímků jednoho objektu BLOB není omezený.|Maximální počet snímků jednoho objektu BLOB je 1 000.
+|Ověřování Azure AD pro úložiště|Ve verzi Preview|Zatím se nepodporuje.
+|Neměnné objekty blob|Obecné dostupné|Zatím se nepodporuje.
+|Pravidla brány firewall a virtuální sítě pro úložiště|Obecné dostupné|Zatím se nepodporuje.|
 
-Existují také rozdíly pomocí metrik storage:
+Existují také rozdíly v metrikách úložiště:
 
-* Transakce data v metrikách storage nerozlišují šířky pásma sítě interní nebo externí.
-* Transakce data v metrikách storage neobsahuje virtuální počítač přístup k připojené disky.
+* Data transakcí v metrikách úložiště nerozlišují vnitřní nebo externí šířku pásma sítě.
+* Data transakcí v metrikách úložiště nezahrnují přístup virtuálních počítačů k připojeným diskům.
 
 ## <a name="api-version"></a>Verze API
 
-S úložištěm Azure Stack se podporují následující verze:
+Azure Stack Storage podporuje následující verze:
 
-Rozhraní API pro služby Azure Storage:
+Rozhraní API služby Azure Storage Services:
 
-1811 update nebo novější verze:
+1811 aktualizace nebo novější verze:
 
 - [2017-11-09](https://docs.microsoft.com/rest/api/storageservices/version-2017-11-09)
 - [2017-07-29](https://docs.microsoft.com/rest/api/storageservices/version-2017-07-29)
@@ -84,9 +84,9 @@ Předchozí verze:
 - [2015-07-08](https://docs.microsoft.com/rest/api/storageservices/version-2015-07-08)
 - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
 
-Rozhraní API pro správu služby Azure Storage:
+Rozhraní API pro správu služby Azure Storage Services:
 
-1811 update nebo novější verze:
+1811 aktualizace nebo novější verze:
 
 - [2017-10-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
 - [2017-06-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
@@ -102,10 +102,10 @@ Předchozí verze:
 - [2015-06-15](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
 - [2015-05-01-preview](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
 
-Další informace o klientských knihoven pro úložiště Azure Stack podporovány naleznete v tématu: [Začínáme s Azure Stack nástroje pro vývoj úložišť](azure-stack-storage-dev.md).
+Další informace o Azure Stack podporovaných klientských knihovnách pro úložiště najdete v tématu: [Začínáme s nástroji pro vývoj Azure Stackho úložiště](azure-stack-storage-dev.md)
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
-* [Začínáme s Azure Stack Storage vývojové nástroje](azure-stack-storage-dev.md)
-* [Použití nástrojů pro přenos dat pro úložiště Azure Stack](azure-stack-storage-transfer.md)
-* [Úvod do úložiště Azure Stack](azure-stack-storage-overview.md)
+* [Začínáme s nástroji pro vývoj Azure Stackho úložiště](azure-stack-storage-dev.md)
+* [Použití nástrojů pro přenos dat pro Azure Stack Storage](azure-stack-storage-transfer.md)
+* [Seznámení s Azure Stack Storage](azure-stack-storage-overview.md)
