@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: 4f9e9c4f79a06e0f1f74db8152047beb3af07b75
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: a7bd45b8eefe201a8c3767f31f7de138e37bb01d
+ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68417546"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71909276"
 ---
 # <a name="manage-azure-stack-storage-accounts"></a>Správa účtů úložiště Azure Stack
 
@@ -93,7 +93,7 @@ V Azure Stack existuje jednoduchý způsob, jak to provést:
   Účet se v seznamu účtů nemusí zobrazovat, pokud byl odstraněný účet už uvolněný z paměti. V takovém případě ho nelze obnovit. Podívejte se na [kapacitu uvolnění](#reclaim) v tomto článku.
 
 ## <a name="set-the-retention-period"></a>Nastavit dobu uchování
-Nastavení Doba uchování umožňuje operátorovi cloudu zadat časové období ve dnech (mezi 0 a 9999 dny), během kterého může být kterýkoli odstraněný účet potenciálně obnoven. Výchozí doba uchování je nastavená na 0 dní. Nastavením hodnoty "0" znamená, že libovolný odstraněný účet je ihned mimo uchování a označen pro pravidelné uvolňování paměti.
+Nastavení doby uchovávání umožňuje operátorovi cloudu nastavit časové období ve dnech (od 0 do 9 999 dnů), během kterého je potenciálně možné obnovit jakýkoli odstraněný účet. Výchozí doba uchovávání je nastavená na 0 dnů. Nastavení na hodnotu 0 znamená, že se všechny odstraněné účty okamžitě vyjmou z uchovávání a označí se pro pravidelné uvolňování paměti.
 
 **Postup změny doby uchování:**
 
@@ -144,7 +144,7 @@ Pomocí prostředí PowerShell můžete také explicitně přepsat dobu uchován
 Další informace najdete v [dokumentaci k prostředí PowerShell pro Azure Stack](https://docs.microsoft.com/powershell/azure/azure-stack/overview).
  
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
  - Informace o správě oprávnění najdete v tématu [správa Access Control na základě rolí](azure-stack-manage-permissions.md).
  - Informace o správě kapacity úložiště pro Azure Stack najdete v tématu [Správa kapacity úložiště pro Azure Stack](azure-stack-manage-storage-shares.md).

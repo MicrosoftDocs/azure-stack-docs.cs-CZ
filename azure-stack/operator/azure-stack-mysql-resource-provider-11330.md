@@ -1,6 +1,6 @@
 ---
-title: Azure Stack MySQL prostředků poskytovatele 1.1.30.0 poznámky k verzi | Dokumentace Microsoftu
-description: Další informace o novinky v nejnovější Azure Stack MySQL prostředků poskytovatele aktualizaci, včetně všech známých problémů a kde ho můžete stáhnout.
+title: 1\.1.30.0 poznámky k verzi poskytovatele prostředků MySQL | Azure Stack Microsoft Docs
+description: Seznamte se s nejnovější aktualizací poskytovatele prostředků MySQL Azure Stack, včetně všech známých problémů a místa, kde ho stáhnout.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,67 +12,67 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2019
+ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: b5ccba4ae4aeb002a3a4c65805bad1ed615999cc
-ms.sourcegitcommit: ca46bef5d5f824d22bdbc00605eb881410b1ffd0
+ms.openlocfilehash: fdac6c099980a1c2cedb3271123908539d18169d
+ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67042030"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71909166"
 ---
-# <a name="mysql-resource-provider-11330--release-notes"></a>Poznámky k verzi poskytovatele 1.1.33.0 prostředků MySQL
+# <a name="mysql-resource-provider-11330--release-notes"></a>Poznámky k verzi pro poskytovatele prostředků MySQL 1.1.33.0
 
-*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
 
-Tyto poznámky k verzi popisují vylepšení a známé problémy v MySQL verze zprostředkovatele prostředků 1.1.33.0.
+Tyto poznámky k verzi popisují vylepšení a známé problémy ve verzi poskytovatele prostředků MySQL verze 1.1.33.0.
 
 ## <a name="build-reference"></a>Referenční informace o buildu
-Stáhnout poskytovatele prostředků MySQL binární a pak spusťte Self-Extractor extrahujte obsah do dočasného adresáře. Poskytovatel prostředků má minimální odpovídající Azure Stack sestavení. Minimální verze služby Azure Stack požadovaná k instalaci této verze poskytovatele prostředků MySQL jsou uvedeny níže:
+Stáhněte si binární soubor poskytovatele prostředků MySQL a potom spusťte samočinného extrahování a extrahujte obsah do dočasného adresáře. Poskytovatel prostředků má minimálně odpovídající sestavení Azure Stack. Minimální verze Azure Stack vydaná pro instalaci této verze poskytovatele prostředků MySQL je uvedena níže:
 
-> |Minimální verze služby Azure Stack|Verze poskytovatele prostředků MySQL|
+> |Minimální verze Azure Stack|Verze poskytovatele prostředků MySQL|
 > |-----|-----|
-> |Verze. 1808 (1.1808.0.97)|[Poskytovatele prostředků MySQL verze 1.1.33.0](https://aka.ms/azurestackmysqlrp11330)|  
+> |Verze 1808 (1.1808.0.97)|[MySQL RP verze 1.1.33.0](https://aka.ms/azurestackmysqlrp11330)|  
 > |     |     |
 
 > [!IMPORTANT]
-> Platí minimální podporované aktualizace služby Azure Stack pro Azure Stack integrované systému nebo nasadit nejnovější Azure Stack Development Kit (ASDK) před nasazením nejnovější verzi poskytovatele prostředků MySQL.
+> Před nasazením nejnovější verze poskytovatele prostředků MySQL použijte minimální podporovanou aktualizaci Azure Stack v integrovaném systému Azure Stack nebo nasaďte nejnovější Azure Stack Development Kit (ASDK).
 
 ## <a name="new-features-and-fixes"></a>Nové funkce a opravy
 Tato verze poskytovatele prostředků Azure Stack MySQL zahrnuje následující vylepšení a opravy:
 
 ### <a name="fixes"></a>Opravy
-- **Rozšíření portálu poskytovatele prostředků MySQL rozhodnout, že nesprávné předplatné**. Poskytovatele prostředků MySQL pomocí Azure Resource Manageru volání k určení prvního správce předplatného služby použití, které nemusí být *výchozí předplatné poskytovatele*. Pokud k tomu dojde, poskytovatele prostředků MySQL normálně nefunguje. 
+- **Rozšíření portálu poskytovatele prostředků MySQL může zvolit špatné předplatné**. Poskytovatel prostředků MySQL používá Azure Resource Manager volání k určení prvního předplatného Správce služby, které se používá, což nemusí být *výchozí předplatné poskytovatele*. Pokud k tomu dojde, poskytovatel prostředků MySQL nepracuje normálně. 
 
-- **MySQL, který neobsahuje hostitelský server hostitelem databází.** Vytvoří uživatele databáze nemusí být uvedeny při procházení prostředků klienta pro hostitelské servery MySQL.
+- **Hostující Server MySQL nezobrazuje seznam hostovaných databází.** Uživatelem vytvořené databáze nemusí být vypsány při zobrazení prostředků tenanta pro hostitelské servery MySQL.
 
-- **Předchozí nasazení zprostředkovatele (1.1.30.0) prostředků MySQL může selhat, pokud není povolený protokol TLS 1.2**. Aktualizovat poskytovatele prostředků MySQL 1.1.33.0 k povolení protokolu TLS 1.2, při nasazení poskytovatele prostředků, aktualizuje se zprostředkovatel prostředků nebo otočení tajných kódů. 
+- **Předchozí nasazení poskytovatele prostředků MySQL (1.1.30.0) by mohlo selhat, pokud není TLS 1,2 povolený**. Aktualizovali jsme poskytovatele prostředků MySQL 1.1.33.0, aby při nasazování poskytovatele prostředků, aktualizaci poskytovatele prostředků nebo střídání tajných klíčů povolil protokol TLS 1,2. 
 
-- **Selhání tajných kódů otočení poskytovatele prostředků MySQL**. Oprava potíží, což vede k následujícím kódem chyby při obměně tajných kódů: `New-AzureRmResourceGroupDeployment - Error: Code=InvalidDeploymentParameterValue; Message=The value of deployment parameter 'StorageAccountBlobUri' is null.`
+- **Rotace tajného kódu poskytovatele prostředků MySQL**se nezdařila. Při střídání tajných klíčů došlo k problému, který má za následek následující kód chyby:`New-AzureRmResourceGroupDeployment - Error: Code=InvalidDeploymentParameterValue; Message=The value of deployment parameter 'StorageAccountBlobUri' is null.`
 
 ## <a name="known-issues"></a>Známé problémy 
 
-- **SKU MySQL může trvat až hodinu, uvidí na portálu**. Může trvat až hodinu nově vytvořený skladová jednotka byla viditelná jenom pro použití při vytváření nových databází MySQL. 
+- **SKU MySQL můžou trvat až hodinu,** než se na portálu zobrazí. Může trvat až hodinu, než se nově vytvořené skladové položky zobrazí pro použití při vytváření nových databází MySQL. 
 
-    **Alternativní řešení**: Žádné
+    **Alternativní řešení**: Žádné.
 
-- **Znovu použít přihlašovací údaje MySQL**. Při pokusu o vytvoření nové databáze MySQL přihlášení pomocí stejné uživatelské jméno jako stávající přihlašovací údaje v rámci stejného předplatného způsobí opětovné použití stejné přihlašovací údaje a stávající heslo. 
+- **Znovu se využívala přihlášení MySQL**. Při pokusu o vytvoření nového přihlášení MySQL se stejným uživatelským jménem, jako je existující přihlášení v rámci stejného předplatného, bude použito stejné přihlašovací jméno a stávající heslo. 
 
-    **Alternativní řešení**: Použít různá uživatelská jména, při vytváření nové přihlašovací údaje v rámci stejného předplatného nebo vytvářet přihlášení se stejným uživatelským jménem v rámci různých předplatných.
+    **Alternativní řešení**: Při vytváření nových přihlašovacích údajů v rámci stejného předplatného nebo při vytváření přihlašovacích údajů se stejným uživatelským jménem v různých předplatných použijte jiná uživatelská jména.
 
-- **Sdílené přihlašovací údaje MySQL způsobovat datové nekonzistence**. Pokud přihlášení MySQL je sdílený více databází MySQL v rámci stejného předplatného, změna hesla přihlášení způsobí nekonzistenci dat.
+- **Sdílená přihlášení MySQL způsobují nekonzistenci dat**. Pokud je přihlášení MySQL sdíleno pro více databází MySQL v rámci stejného předplatného, Změna přihlašovacího hesla způsobí nekonzistenci dat.
 
-    **Alternativní řešení**: Vždy používejte jiné přihlašovací údaje pro různé databáze v rámci stejného předplatného.
+    **Alternativní řešení**: Pro různé databáze v rámci stejného předplatného používejte vždycky jiná přihlášení.
 
 
-### <a name="known-issues-for-cloud-admins-operating-azure-stack"></a>Známé problémy pro správce cloudu provoz služby Azure Stack
-Přečtěte si dokumentaci v [zpráva k vydání verze Azure Stack](azure-stack-servicing-policy.md).
+### <a name="known-issues-for-cloud-admins-operating-azure-stack"></a>Známé problémy pro cloudové správce, kteří pracují Azure Stack
+Informace najdete v dokumentaci k [verzi Azure Stack](azure-stack-servicing-policy.md).
 
-## <a name="next-steps"></a>Další postup
-[Další informace o poskytovatele prostředků MySQL](azure-stack-mysql-resource-provider.md).
+## <a name="next-steps"></a>Další kroky
+[Přečtěte si další informace o poskytovateli prostředků MySQL](azure-stack-mysql-resource-provider.md).
 
-[Příprava na nasazení poskytovatele prostředků MySQL](azure-stack-mysql-resource-provider-deploy.md#prerequisites).
+[Připravte se na nasazení poskytovatele prostředků MySQL](azure-stack-mysql-resource-provider-deploy.md#prerequisites).
 
-[Upgrade z předchozí verze poskytovatele prostředků MySQL](azure-stack-mysql-resource-provider-update.md). 
+[Upgradujte poskytovatele prostředků MySQL z předchozí verze](azure-stack-mysql-resource-provider-update.md). 

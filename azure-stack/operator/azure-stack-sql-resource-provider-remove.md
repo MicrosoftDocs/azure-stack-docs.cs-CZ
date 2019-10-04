@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2019
+ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/20/2018
-ms.openlocfilehash: e753e4bbbf3dbaac8473667a0422a3ad49329bac
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: 3a1b3dc51bbbd48ebe27ce9cafd9617ba7a1d07a
+ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68418031"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71909490"
 ---
 # <a name="remove-the-sql-resource-provider"></a>Odebrat poskytovatele prostředků SQL
 
@@ -59,6 +59,6 @@ Operátor Azure Stack zodpovídá za následující úlohy čištění:
     * **CloudAdminCredential**. Přihlašovací údaje pro správce cloudu, které jsou nezbytné pro přístup k privilegovanému koncovému bodu.
     * **AzCredential**. Přihlašovací údaje pro účet správce služby Azure Stack Použijte stejné přihlašovací údaje, které jste použili pro nasazení Azure Stack.
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 [Nabídka App Services jako PaaS](azure-stack-app-service-overview.md)

@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2019
+ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: ce89ffdee0e0de2db8109102418f4513ce1cb99a
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: 24271bf3f4155433980972df19e541dbb77fa908
+ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68418153"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71909472"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Přidání hostitelských serverů pro poskytovatele prostředků SQL
 
@@ -62,10 +62,10 @@ K dispozici jsou další možnosti pro nasazení virtuálních počítačů SQL,
 
 Můžete vytvořit administrativního uživatele s nižšími oprávněními, než má správce systému SQL. Uživatel potřebuje oprávnění pouze pro následující operace:
 
-* Databáze: Vytvořit, změnit s omezením (jenom pro Always On), vyřadit, zálohovat
+* Databáze Vytvořit, změnit s omezením (jenom pro Always On), vyřadit, zálohovat
 * Skupina dostupnosti: Změnit, připojit, přidat nebo odebrat databázi
-* Přihlášení: Vytvoření, výběr, změna, zrušení, odvolání
-* Vyberte operace: \[hlavní\]server\[ . sys\].\[ availability_group_listeners\] (AlwaysOn), sys. availability_replicas (AlwaysOn), sys. databases\],\[ \[Master. sys\].\[ dm_os_sys_memory\], ServerProperty, \[Master\].\[ sys\].\[ availability_groups\] (AlwaysOn), sys. master_files
+* Hlas Vytvoření, výběr, změna, zrušení, odvolání
+* Vyberte operace: \[master @ no__t-1. \[sys @ no__t-3. \[availability_group_listeners @ no__t-5 (AlwaysOn), sys. availability_replicas (AlwaysOn), sys. databases, \[master @ no__t-7. \[sys @ no__t-9. \]0dm_os_ sys_memory @ no__t-11, SERVERPROPERTY, 2master @ no__t-13. 4sys @ no__t-15. 6availability_groups @ no__t-17 (AlwaysOn), sys. master_files
 
 ### <a name="additional-security-information"></a>Další informace o zabezpečení
 
@@ -158,7 +158,7 @@ Pomocí těchto příkazů nastavte u každé instance možnost Server pro ově�
 
 1. Přihlaste se k portálu pro správu Azure Stack jako správce služby.
 
-2. Vyberte **Procházet** &gt; **prostředky**  &gt; pro správu hostitelské servery SQL a přidat. &gt;
+2. Vyberte **Procházet** &gt; **prostředky** &gt;pro správu hostitelské servery SQL a přidat. &gt;
 
    V části **hostitelské servery SQL**můžete poskytovatele prostředků SQL Server připojit k skutečným instancím SQL Server, které slouží jako back-end poskytovatele prostředků.
 
@@ -166,7 +166,7 @@ Pomocí těchto příkazů nastavte u každé instance možnost Server pro ově�
 
 4. Pokud chcete povolit podporu instancí skupin dostupnosti Always On SQL, zaškrtněte políčko Skupina dostupnosti Always On.
 
-   ![Povolit Always On](./media/azure-stack-sql-rp-deploy/AlwaysOn.PNG)
+   ![Povolení skupin dostupnosti AlwaysOn](./media/azure-stack-sql-rp-deploy/AlwaysOn.PNG)
 
 5. Přidejte instanci SQL Always On do SKU.
 

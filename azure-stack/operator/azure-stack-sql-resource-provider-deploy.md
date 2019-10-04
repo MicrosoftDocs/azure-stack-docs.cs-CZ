@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2019
+ms.date: 10/02/2019
 ms.lastreviewed: 03/18/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
-ms.openlocfilehash: 22fdf65ae4949468d3408097c787f0a5b93dd75f
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: fb2e5d33baf2dfd4a6cafd2567c2650e89ac8c38
+ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68418082"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71909405"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack"></a>Nasazení poskytovatele prostředků SQL Server v Azure Stack
 
@@ -168,6 +168,6 @@ Pomocí následujících kroků můžete ověřit, jestli je poskytovatel prost�
       ![Ověření nasazení poskytovatele prostředků SQL](./media/azure-stack-sql-rp-deploy/sqlrp-verify.png)
 5. Nakonec vyberte **virtuální počítače** na portálu pro správu, abyste ověřili, že se virtuální počítač poskytovatele prostředků SQL úspěšně vytvořil a běží.
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 [Přidat hostitelské servery](azure-stack-sql-resource-provider-hosting-servers.md)

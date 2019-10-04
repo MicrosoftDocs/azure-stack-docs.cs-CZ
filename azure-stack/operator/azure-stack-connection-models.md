@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2019
+ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: wfayed
 ms.lastreviewed: 02/21/2019
-ms.openlocfilehash: de9051ceee89244182c1d6d9d5724fa80a594ae6
-ms.sourcegitcommit: c196463492732218d2474d3a964f88e995272c80
+ms.openlocfilehash: 8646e9d1936c865482368d176194c095c9dd0483
+ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71094381"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71909421"
 ---
 # <a name="azure-stack-integrated-systems-connection-models"></a>Azure Stack modely připojení integrovaných systémů
 Pokud vás zajímá nákup Azure Stack integrovaného systému, je potřeba pochopit [několik důležitých informací o integraci Datacenter](azure-stack-datacenter-integration.md) pro Azure Stack nasazení, abyste zjistili, jak se systém vejde do vašeho datacentra. Kromě toho se musíte rozhodnout, jak budete Azure Stack do svého hybridního cloudového prostředí integrovat. Tento článek obsahuje přehled těchto hlavních rozhodnutí, včetně modelů připojení Azure, možností úložiště identit a možností modelu fakturace.
@@ -45,11 +45,11 @@ Můžete zvolit nasazení Azure Stack buď připojeného k Internetu (a k Azure)
 |Fakturace na základě kapacity|![Podporováno](media/azure-stack-connection-models/check.png)|![Podporováno](media/azure-stack-connection-models/check.png)|
 |Licencování| Poskytovatel řešení smlouva Enterprise nebo cloudu | Smlouva Enterprise |
 |Oprava a aktualizace|Balíček aktualizace se dá stáhnout přímo z Internetu a Azure Stack |  Požadováno<br><br>Vyžaduje taky vyměnitelné médium.<br> a samostatné připojené zařízení |
-| Registrace | Automaticky | Požadováno<br><br>Vyžaduje taky vyměnitelné médium.<br> a samostatné připojené zařízení |
+| Registrace | Automatické | Požadováno<br><br>Vyžaduje taky vyměnitelné médium.<br> a samostatné připojené zařízení |
 
 Až se rozhodnete, že se model připojení Azure bude používat pro nasazení Azure Stack, je nutné provést další rozhodnutí závislá na připojení pro úložiště identit a metodu fakturace.
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 [Rozhodování související s nasazením služby Azure Stack propojené s Azure](azure-stack-connected-deployment.md)
 

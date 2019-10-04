@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/13/2019
+ms.date: 10/02/2019
 ms.author: mabrigg
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: c8828076c74e5f12c742206e3c38c8ee44f90b4c
-ms.sourcegitcommit: 72d45bb935db0db172d4d7c37d8e48e79e25af64
+ms.openlocfilehash: dfa9666387093f60dfd41e371707dff23119dc9a
+ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68376860"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71909593"
 ---
 # <a name="introduction-to-azure-stack-storage"></a>Seznámení s Azure Stack Storage
 
@@ -92,7 +92,7 @@ Při navrhování aplikací pro škálování se součásti aplikací často odp
 
 Účet úložiště může obsahovat libovolný počet front a fronta může obsahovat libovolný počet zpráv (až do limitu kapacity účtu úložiště). Jednotlivé zprávy můžou mít velikost až 64 KB.
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 - [Úložiště konzistentní s Azure: rozdíly a požadavky](azure-stack-acs-differences.md)
 

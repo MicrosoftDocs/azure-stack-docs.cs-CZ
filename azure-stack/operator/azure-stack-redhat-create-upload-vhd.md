@@ -13,16 +13,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2019
+ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jeffgo
 ms.lastreviewed: 08/15/2018
-ms.openlocfilehash: 52ca03b01e762f980cbabcbe63d718bfd4c2c152
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: 093caab420dea8b8cf3221855a3dc5f40e6f9ed3
+ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68418177"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71909338"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack"></a>Příprava virtuálního počítače založeného na Red Hat pro Azure Stack
 
@@ -671,7 +671,7 @@ V této části se předpokládá, že jste už nainstalovali virtuální počí
 
     c. Nastavte systém BIOS na spouštění z disku CD-ROM.
 
-1. Umožňuje spustit virtuální počítač. Po zobrazení Průvodce instalací stiskněte klávesu **TAB** a nakonfigurujte možnosti spuštění.
+1. Spusťte virtuální počítač. Po zobrazení Průvodce instalací stiskněte klávesu **TAB** a nakonfigurujte možnosti spuštění.
 
 1. Zadejte `inst.ks=<the location of the kickstart file>` na konci možností spuštění a stiskněte klávesu **ENTER**.
 

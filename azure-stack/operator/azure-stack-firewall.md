@@ -1,6 +1,6 @@
 ---
-title: Integrované systémy pro Azure Stack firewall plánování pro službu Azure Stack | Dokumentace Microsoftu
-description: Popisuje aspekty brány firewall služby Azure Stack pro nasazení na víc uzlů Azure stacku Azure připojené.
+title: Azure Stack plánování brány firewall pro Azure Stack integrované systémy | Microsoft Docs
+description: V této části najdete popis Azure Stack brány firewall pro nasazení s více uzly Azure Stack připojení k Azure.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,58 +12,58 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2019
+ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: wfayed
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: abca6560e8644b201483001258542121fefb6b08
-ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
+ms.openlocfilehash: ec8d45add2b2d0312d82d2a7e2d71fbd2a2b41d6
+ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67131523"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71909196"
 ---
-# <a name="azure-stack-firewall-integration"></a>Integrace brány firewall služby Azure Stack
-Doporučuje se použít zařízení brány firewall umožňující zabezpečení Azure stacku. Brány firewall můžete chránit proti věci jako jsou útoky distribuované útok na dostupnost služby (DDOS), zjišťování neoprávněných vniknutí a kontrolu obsahu. Ale zároveň může stát kritickým bodem propustnost pro služby Azure storage jako objekty BLOB, tabulky a fronty.
+# <a name="azure-stack-firewall-integration"></a>Integrace brány Azure Stack firewall
+Pro lepší zabezpečení Azure Stack doporučujeme použít zařízení brány firewall. Brány firewall můžou přispět k obraně proti akcím, jako jsou například distribuované útoky s cílem odepření služeb (DDOS), zjišťování vniknutí a kontrola obsahu. Můžou se ale taky stát kritickými body pro služby Azure Storage, jako jsou objekty blob, tabulky a fronty.
 
- Pokud použijete nasazení v odpojeném režimu, je nutné publikovat koncový bod služby AD FS. Další informace najdete v tématu [datacenter integrace identit článku](azure-stack-integrate-identity.md).
+ Pokud se používá režim odpojeného nasazení, je nutné publikovat AD FS koncový bod. Další informace najdete v článku věnovaném identitě pro [integraci Datacenter](azure-stack-integrate-identity.md).
 
-Azure Resource Manageru (správce), portál správce a koncové body služby Key Vault (správce) nutně nevyžadují externí publikování. Například jako poskytovatel služeb, můžete omezit pro možný útok prostřednictvím pouze správy služby Azure Stack od uvnitř vaší sítě a nikoli z Internetu.
+Koncové body pro Azure Resource Manager (správce), portál pro správu a Key Vault (správce) nemusí nutně vyžadovat externí publikování. Například jako poskytovatel služeb můžete omezit plochu pro útok tím, že pouze spravujete Azure Stack zevnitř vaší sítě, nikoli z Internetu.
 
-Pro organizace může být externí síť existující podnikové síti. V tomto scénáři je nutné publikovat koncové body pro provoz služby Azure Stack od podnikové sítě.
+V případě podnikových organizací může být externí síť stávající podnikovou sítí. V tomto scénáři je nutné publikovat koncové body pro provoz Azure Stack z podnikové sítě.
 
 ### <a name="network-address-translation"></a>Překlad síťových adres
-Překlad síťových adres (NAT) je doporučená metoda má povolit nasazení virtuálního počítače (DVM) pro přístup k externím prostředkům a Internetu během nasazení, a také virtuální počítače nouzovou obnovení konzoly (ERCS) nebo privilegovaného koncový bod (období) během registrace a řešení potíží.
+Překlad síťových adres (NAT) je doporučená metoda, která umožňuje virtuálnímu počítači pro nasazení (DVM) získat přístup k externím prostředkům a Internetu během nasazení a také k virtuálním počítačům ERCS (Emergency Recovery Console) nebo privilegovanému koncovému bodu (PEP) během registrace a odstraňování potíží.
 
-NAT může být také o alternativu k veřejné IP adresy v externí síti nebo veřejné virtuální IP adresy. Ale nedoporučujeme to provést, protože omezuje klienta uživatelské prostředí a zvyšuje složitost. Jednou z možností by jedna ku jedné NAT, která se stále vyžaduje jedna veřejná IP adresa a uživatel IP adresu ve fondu. Další možností je mnoho k jedné NAT, která vyžaduje pravidlo NAT, za uživatele virtuálních IP adres pro všechny porty, které může uživatel použít.
+Překlad adres (NAT) může být také alternativou k veřejným IP adresám na externí nebo veřejné VIP. Nedoporučuje se to udělat, protože to omezuje činnost koncového uživatele tenanta a zvyšuje složitost. Jednou z možností je jeden pro překlad adres (NAT), který stále vyžaduje jednu veřejnou IP adresu pro uživatele ve fondu. Další možností je celá řada pro překlad adres (NAT), která vyžaduje pravidlo překladu adres (NAT) na uživatelskou VIP pro všechny porty, které uživatel může použít.
 
-Zde jsou některé nevýhody použití NAT pro veřejných virtuálních IP adres:
-- NAT přidá režie při správě pravidel brány firewall, protože uživatelé řídit své vlastní koncové body a jejich vlastní pravidla pro publikování v zásobníku softwarově definované sítě (SDN). Uživatelé musí kontaktovat operátory Azure stacku získat své virtuální IP adresy, publikovat a aktualizovat seznam portů.
-- Při použití NAT limity uživatelské prostředí, poskytuje úplné řízení pro operátor prostřednictvím žádosti o publikování.
-- U scénářů s hybridní cloud s Azure vezměte v úvahu, že Azure nepodporuje nastavení tunelového připojení sítě VPN do koncového bodu pomocí NAT.
+K downsides používání protokolu NAT pro veřejné virtuální IP adresy patří:
+- Překlad adres (NAT) zvyšuje režii při správě pravidel brány firewall, protože uživatelé řídí jejich vlastní koncové body a jejich vlastní pravidla publikování v zásobníku SDN (Software-Defined Networking). Uživatelé se musí spojit s operátorem Azure Stack, aby mohli své virtuální IP adresy publikovat a aktualizovat seznam portů.
+- I když použití překladu adres (NAT) omezuje činnost koncového uživatele, poskytuje operátorovi úplnou kontrolu nad požadavky publikování.
+- V případě hybridních cloudových scénářů s Azure zvažte, že Azure nepodporuje nastavení tunelu VPN na koncový bod pomocí překladu adres (NAT).
 
 ### <a name="ssl-decryption"></a>Dešifrování SSL
-Aktuálně se doporučuje zakázat dešifrování SSL na veškerý provoz služby Azure Stack. Pokud je podporovaná v budoucích aktualizacích, poskytujeme pokyny, jak povolit dešifrování SSL pro službu Azure Stack.
+V současné době se doporučuje zakázat dešifrování SSL u všech Azure Stackch přenosů. Pokud je podpora v budoucích aktualizacích podporovaná, poskytnou se pokyny, jak povolit dešifrování SSL pro Azure Stack.
 
-## <a name="edge-firewall-scenario"></a>Hraniční brána firewall scénář
-V nasazení edge služby Azure Stack nasazuje přímo za hraniční směrovač nebo bránu firewall. V těchto scénářích platí pro bránu firewall, aby se nad ohraničení (scénář 1), kde podporuje konfiguraci aktivní aktivní a aktivní pasivní brány firewall nebo funguje jako hraniční zařízení (scénář 2), kde se podporuje jenom aktivní aktivní brána firewall Konfigurace spoléhat na stejné náklady s více cesta ECMP () pomocí protokolu BGP nebo statické směrování pro převzetí služeb při selhání.
+## <a name="edge-firewall-scenario"></a>Scénář brány firewall na hraničních zařízeních
+V nasazení Edge je Azure Stack nasazena přímo za hraničním směrovačem nebo bránou firewall. V těchto scénářích se podporuje, aby brána firewall byla nad hranicí (scénář 1), kde podporuje konfigurace brány firewall aktivní-aktivní i aktivní – pasivní, nebo funguje jako hraniční zařízení (scénář 2), kde podporuje jenom bránu firewall aktivní-aktivní. konfigurace se spoléhá na ECMP (EQUAL cost multi Path) s protokolem BGP nebo statickým směrováním pro převzetí služeb při selhání.
 
-Veřejné IP adresy směrovatelné jsou určeny pro fond veřejných virtuálních IP adres z externí sítě v době nasazení. Ve scénáři edge se doporučuje použít veřejné IP adresy směrovatelné na jinou síť z bezpečnostních důvodů. Tento scénář umožňuje uživateli prostředí plně svým řízené cloudového prostředí jako veřejný cloud, jako je Azure.  
+Veřejné IP adresy určené pro veřejný fond VIP z externí sítě v době nasazení. Ve scénáři hraniční sítě nedoporučujeme používat veřejné IP adresy směrování v žádné jiné síti pro účely zabezpečení. Tento scénář umožňuje uživateli vyzkoušet si plně řízené cloudové prostředí jako ve veřejném cloudu, jako je Azure.  
 
-![Příklad edge brány firewall pomocí Azure Stack](./media/azure-stack-firewall/firewallScenarios.png)
+![Příklad brány firewall Azure Stack Edge](./media/azure-stack-firewall/firewallScenarios.png)
 
-## <a name="enterprise-intranet-or-perimeter-network-firewall-scenario"></a>Podnikového intranetu nebo hraniční sítě brány firewall scénáře
-V podnikovém intranetu nebo hraniční nasazení se nasadí Azure Stack na bráně firewall rozdělený zóny s více nebo mezi hraniční bráně firewall a brány firewall interní podnikové sítě. Jeho provoz je poté distribuován mezi zabezpečené, hraniční síti (nebo hraniční síti) a nezabezpečené zóny, jako je popsáno níže:
+## <a name="enterprise-intranet-or-perimeter-network-firewall-scenario"></a>Scénář pro bránu firewall Enterprise intranet nebo hraniční sítě
+V podnikovém intranetu nebo hraničním nasazení je Azure Stack nasazený v bráně firewall s více zónami nebo mezi hraniční bránou firewall a interní bránou firewall pro podnikovou síť. Provoz se pak distribuuje mezi zabezpečenou, hraniční sítí (nebo DMZ) a nezabezpečenými zónami, jak je popsáno níže:
 
-- **Zabezpečené zóně**: Toto je interní sítě, který používá interní nebo firemní směrovatelné IP adresy. Zabezpečené sítě je možné rozdělit, mít odchozí přístup k Internetu prostřednictvím překladu adres v bráně Firewall a je obvykle přístupné z kdekoli uvnitř vašeho datového centra prostřednictvím interní síti. Všechny služby Azure Stack sítě by měl být uložený v zabezpečené zóně s výjimkou veřejný fond VIP externí síť.
-- **Zóna hraniční**. Hraniční síť je tam, kde je to externí nebo aplikace, jako jsou webové servery jsou obvykle implementovány směřujících do Internetu. Obvykle je monitorovaný bránou firewall, aby se zabránilo útokům DDoS a neoprávněného vniknutí (hacking) zároveň umožní zadané příchozí provoz z Internetu. Pouze externí síť veřejných virtuálních IP adres fondu služby Azure Stack by měl být umístěn v zóně DMZ.
-- **Nezabezpečená zóny**. Jedná se o externí síť Internetu. To **není** doporučujeme nasadit Azure Stack v nezabezpečené zóny.
+- **Zabezpečená zóna**: Jedná se o interní síť, která používá interní nebo firemní IP adresy s směrováním. Zabezpečenou síť je možné rozdělit, mít internetový odchozí přístup prostřednictvím NAT v bráně firewall a jsou obvykle přístupné z libovolného místa v rámci datového centra prostřednictvím interní sítě. Všechny Azure Stack sítě by se měly nacházet v zabezpečené zóně s výjimkou veřejného fondu VIP externí sítě.
+- **Hraniční zóna**. Hraniční síť je obvykle nasazení externích nebo internetových aplikací, jako jsou webové servery. Obvykle je monitorovaná branou firewall, aby se předešlo útokům, jako je DDoS a vniknutí (hacker), a zároveň umožňuje zadaný příchozí provoz z Internetu. V zóně DMZ by se měl umístit jenom fond virtuálních IP adres Azure Stack externí sítě.
+- **Nezabezpečená zóna**. Toto je externí síť, Internet. Nedoporučuje se nasazovat Azure Stack v nezabezpečené zóně.
 
-![Příklad hraniční sítě pomocí Azure Stack](./media/azure-stack-firewall/perimeter-network-scenario.png)
+![Příklad Azure Stack hraniční sítě](./media/azure-stack-firewall/perimeter-network-scenario.png)
 
 ## <a name="learn-more"></a>Víc se uč
-Další informace o [portech a protokolech používaných koncové body služby Azure Stack](azure-stack-integrate-endpoints.md).
+Přečtěte si další informace o [portech a protokolech používaných Azure Stack koncovými body](azure-stack-integrate-endpoints.md).
 
-## <a name="next-steps"></a>Další postup
-[Požadavky služby Azure Stack infrastruktury veřejných KLÍČŮ](azure-stack-pki-certs.md)
+## <a name="next-steps"></a>Další kroky
+[Azure Stack požadavky PKI](azure-stack-pki-certs.md)
 
