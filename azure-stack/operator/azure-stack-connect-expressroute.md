@@ -10,20 +10,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/22/2019
+ms.date: 10/03/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: d7fa69b632ec6d205eff0ed0c388c1f9ec9b9c41
-ms.sourcegitcommit: c196463492732218d2474d3a964f88e995272c80
+ms.openlocfilehash: 4d9331f5167a0ce9d305a76225987d8b1d3f3dcc
+ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71094406"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71961558"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>Připojení Azure Stack k Azure pomocí Azure ExpressRoute
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit @ no__t-0
 
 Tento článek popisuje, jak připojit virtuální síť Azure Stack k virtuální síti Azure pomocí [Microsoft Azure ExpressRoute](/azure/expressroute/) přímého připojení.
 
@@ -188,7 +188,7 @@ K otestování přenosů dat přes připojení VPN potřebujete virtuální poč
 1. V seznamu imagí virtuálních počítačů vyberte Image **Windows Server 2016 Datacenter Eval** .
 
    >[!NOTE]
-   >Pokud bitová kopie použitá pro tento článek není k dispozici, požádejte operátora Azure Stack, aby poskytoval jinou bitovou kopii Windows serveru.
+   >Pokud bitová kopie používaná pro tento článek není k dispozici, požádejte operátora Azure Stack, aby poskytoval jinou bitovou kopii Windows serveru.
 
 1. V části **vytvořit virtuální počítač**vyberte **základy**a jako **název**zadejte **VM01** .
 1. Zadejte platné uživatelské jméno a heslo. Tento účet použijete pro přihlášení k virtuálnímu počítači po jeho vytvoření.
@@ -219,7 +219,7 @@ Pokud používáte jako příklad klienta 2, nezapomeňte změnit IP adresy, aby
 > [!IMPORTANT]
 > Tato část je určena jenom pro nasazení ASDK. Překlad adres (NAT) není potřebný pro nasazení ve více uzlech.
 
-ASDK je samostatný a izolovaný od sítě, ve které je nasazený fyzický hostitel. Síť VIP, ke které jsou brány připojené, není externí; je skrytý za směrovačem, který provádí překlad síťových adres (NAT).
+ASDK je samostatný a izolovaný od sítě, ve které je nasazený fyzický hostitel. Síť VIP, ke které jsou brány připojené, není externí. je skrytý za směrovačem, který provádí překlad síťových adres (NAT).
 
 Směrovač je ASDK hostitel, na kterém běží role služby Směrování a vzdálený přístup (RRAS). Na hostiteli ASDK je nutné nakonfigurovat překlad adres (NAT), aby připojení VPN typu Site-to-site bylo možné připojit na obou koncích.
 
@@ -232,7 +232,7 @@ Směrovač je ASDK hostitel, na kterém běží role služby Směrování a vzd�
    Get-NetNatExternalAddress
    ```
 
-1. Pokud chcete nakonfigurovat překlad adres (NAT), zkopírujte a upravte následující skript PowerShellu. Upravte skript tak, aby nahradil `External BGPNAT address` hodnoty `Internal IP address` a pomocí následujících ukázkových hodnot:
+1. Pokud chcete nakonfigurovat překlad adres (NAT), zkopírujte a upravte následující skript PowerShellu. Upravte skript tak, aby nahradil `External BGPNAT address` a `Internal IP address` s použitím následujících ukázkových hodnot:
 
    * Pro *externí adresu BGPNAT* použijte 10.10.0.62.
    * Pro *interní IP adresu* použijte 192.168.102.1
@@ -560,7 +560,7 @@ route-map VNET-ONLY permit 10
 !
 ```
 
-## <a name="test-the-connection"></a>Otestovat připojení
+## <a name="test-the-connection"></a>Otestování připojení
 
 Po vytvoření připojení Site-to-site a okruhu ExpressRoute otestujte připojení.
 
@@ -604,7 +604,7 @@ Pokud chcete zjistit, kolik přenosů prochází přes vaše připojení, může
 1. Přihlaste se k portálu Azure Stack User Portal a vyberte **všechny prostředky**.
 1. Přejděte do skupiny prostředků pro vaši VPN Gateway a vyberte typ objektu **připojení** .
 1. Vyberte připojení **ConnectToAzure** ze seznamu.
-1. V části**Přehled** **připojení** > vidíte statistiku pro **data v** nástroji a **data odchozí**. Měly by se zobrazit některé nenulové hodnoty.
+1. V části **připojení**@no__t-**1 můžete**zobrazit statistiku pro **data v** nástroji a **data odchozí**. Měly by se zobrazit některé nenulové hodnoty.
 
    ![Data a odchozí data](media/azure-stack-connect-expressroute/DataInDataOut.png)
 

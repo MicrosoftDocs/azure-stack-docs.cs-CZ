@@ -31,7 +31,7 @@
       items:
         - name: Přihlášení k odběru nabídky
           href: azure-stack-subscribe-services.md
-        - name: Povolit poskytovatele cloudových služeb
+        - name: Povolení poskytovatele Cloud Solution Provider
           href: azure-stack-csp-enable-billing-usage-tracking.md
         - name: Použití portálu Azure Stack
           href: azure-stack-use-portal.md
@@ -267,6 +267,14 @@
           href: azure-stack-solution-mongodb-ha.md
         - name: Nasazení SQL Server 2016 s vysokou dostupností
           href: azure-stack-solution-sql-ha.md
+    - name: Nasazení základních vzorů
+      items:
+        - name: Nastavit VPN na Prem
+          href: azure-stack-network-howto-vnet-to-onprem.md
+        - name: Připojení virtuální sítě k virtuální síti
+          href: azure-stack-network-howto-vnet-to-vnet-stacks.md
+        - name: Partnerský vztah virtuální sítě
+          href: azure-stack-network-howto-vnet-to-vnet.md
 - name: Koncepty
   items:
     - name: Hybridní cloudové vzory

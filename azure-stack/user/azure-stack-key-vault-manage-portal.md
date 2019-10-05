@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2019
+ms.date: 10/03/2019
 ms.author: sethm
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 4b6d6e784a640894fb1ef304d4469586e9fc2297
-ms.sourcegitcommit: 637018771ac016b7d428174e88d4dcb131b54959
+ms.openlocfilehash: fc0907ffb905012043a3e446fcc29cc9e06f6932
+ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68842745"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71961510"
 ---
 # <a name="manage-key-vault-in-azure-stack-using-the-portal"></a>Správa Key Vault v Azure Stack pomocí portálu
 
@@ -96,7 +96,7 @@ Po úspěšném vytvoření tajného klíče ho můžete vybrat pod **tajnými k
 
 ![Tajný kód identifikátoru URI](media/azure-stack-key-vault-manage-portal/image5.png)
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 * [Nasazení virtuálního počítače načtením hesla uloženého v Key Vault](azure-stack-key-vault-deploy-vm-with-secret.md)
 * [Nasazení virtuálního počítače s certifikátem uloženým v Key Vault](azure-stack-key-vault-push-secret-into-vm.md)

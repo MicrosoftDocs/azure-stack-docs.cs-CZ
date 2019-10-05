@@ -15,12 +15,12 @@ ms.date: 08/09/2019
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 07/31/2019
-ms.openlocfilehash: c93b4535189830ee8e84acb882f85a9a51d5f443
-ms.sourcegitcommit: c2ea4ffb42563c26faaf2993ba7b484bcb6d5cb7
+ms.openlocfilehash: c5b0472921c25379f894be5e0b799b7abcb8a43b
+ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71342723"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71961819"
 ---
 # <a name="azure-stack-marketplace-changes"></a>Změny Azure Stack Marketplace
 
@@ -84,7 +84,7 @@ Tento článek popisuje poslední dodatky, aktualizace, změny a [Azure Stack od
 - Bitnami SugarCRM
 - Cluster s vysokou dostupností Bitnami Node. js
 - A10 vThunder: L4 – kontroler doručování aplikací pro L7, globální vyrovnávání zatížení serveru (GSLB), přehled SSL
-- Rozšíření JsonADDomain
+
 
 ## <a name="updated-marketplace-items"></a>Aktualizované položky Marketplace
 
@@ -110,6 +110,7 @@ Tento článek popisuje poslední dodatky, aktualizace, změny a [Azure Stack od
 - 09/12/2019: Service Fabric verze 1.0.3
 - 09/24/2019: F5 – sítě – Virtual Edition Big-IP – verze 14.1.200000
 - 09/25/2019: Debian 8 – verze 8.0.20190806
+- 10/1/2019:  Rozšíření Microsoft JsonADDomain Extension – verze 1.3.4
 
 
 ## <a name="next-steps"></a>Další kroky

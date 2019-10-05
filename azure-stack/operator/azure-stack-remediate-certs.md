@@ -1,6 +1,6 @@
 ---
-title: Oprava problémů s certifikáty pro službu Azure Stack | Dokumentace Microsoftu
-description: Kontrola připravenosti Azure Stack můžete zkontrolovat a opravit problémy s certifikáty.
+title: Napravit problémy s certifikátem pro Azure Stack | Microsoft Docs
+description: Pomocí nástroje pro kontrolu připravenosti na Azure Stack zkontrolujte a opravte problémy s certifikáty.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -12,134 +12,134 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/04/2019
+ms.date: 10/03/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/19/2018
-ms.openlocfilehash: ac6e04fbb884b3689cec7e5f435f9265f7e2108e
-ms.sourcegitcommit: 593d40bccf1b2957a763017a8a2d7043f8d8315c
+ms.openlocfilehash: 6e8adbc0d84c7816a081e751473764aab79cfcf2
+ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67152421"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71961916"
 ---
-# <a name="remediate-common-issues-for-azure-stack-pki-certificates"></a>Řešení běžných potíží s certifikáty infrastruktury veřejných KLÍČŮ Azure Stack
+# <a name="remediate-common-issues-for-azure-stack-pki-certificates"></a>Řešení běžných problémů Azure Stack certifikátů PKI
 
-Informace v tomto článku můžete pochopit a řešit obvyklé problémy pro certifikáty Azure Stack PKI. Problémy můžete zjistit, když použijete nástroj prerequisite checker připravenosti služby Azure Stack na [ověřování certifikátů Azure Stack infrastruktury veřejných KLÍČŮ](azure-stack-validate-pki-certs.md). Nástroj zkontroluje, zajistěte, aby certifikáty infrastruktury veřejných KLÍČŮ požadavky nasazení Azure stacku a otočení tajných kódů služby Azure Stack a zaznamená výsledky [report.json souboru](azure-stack-validation-report.md).  
+Informace v tomto článku vám pomůžou pochopit a vyřešit běžné problémy s Azure Stack certifikáty PKI. Problémy můžete zjišťovat při použití nástroje pro kontrolu připravenosti Azure Stack k [ověření Azure Stack certifikátů PKI](azure-stack-validate-pki-certs.md). Nástroj zkontroluje, jestli certifikáty splňují požadavky na infrastrukturu veřejných klíčů pro nasazení Azure Stack a Azure Stackou rotaci, a výsledky zaprotokolují do [souboru Report. JSON](azure-stack-validation-report.md).  
 
 ## <a name="pfx-encryption"></a>Šifrování PFX
 
-**Selhání** – PFX šifrování není TripleDES SHA1.
+**Selhání** – šifrování PFX není v TRIPLEDES-SHA1.
 
-**Náprava** – PFX exportovat soubory s **TripleDES SHA1** šifrování. Toto je výchozí pro všechny klienty s Windows 10, při exportu z modulu snap-in nebo pomocí certifikátu `Export-PFXCertificate`.
+**Oprava** – EXPORTUJTE soubory PFX pomocí šifrování **TripleDES-SHA1** . Toto je výchozí nastavení pro všechny klienty Windows 10 při exportu z modulu snap-in certifikáty nebo pomocí `Export-PFXCertificate`.
 
-## <a name="read-pfx"></a>Přečtěte si PFX
+## <a name="read-pfx"></a>Přečíst PFX
 
-**Upozornění** – heslo chrání pouze soukromé informace v certifikátu.  
+**Upozornění** – heslo chrání jenom soukromé informace v certifikátu.  
 
-**Náprava** – Export PFX souborů s volitelné nastavení pro **povolit ochranu osobních údajů certifikát**.  
+**Oprava** – EXPORTUJTE soubory PFX s volitelným nastavením pro **možnost Povolit ochranu osobních údajů certifikátu**.  
 
-**Selhání** – neplatný soubor PFX.  
+**Chyba** – soubor PFX je neplatný.  
 
-**Náprava** -znovu exportovat certifikát pomocí kroků v [připravit Azure Stack infrastruktury veřejných KLÍČŮ certifikátů pro nasazení](azure-stack-prepare-pki-certs.md).
+**Náprava** – certifikát znovu exportujte pomocí postupu v části [Příprava Azure Stack certifikátů PKI pro nasazení](azure-stack-prepare-pki-certs.md).
 
 ## <a name="signature-algorithm"></a>Algoritmus podpisu
 
-**Selhání** -algoritmus podpisu je SHA1.
+**Chyba** – algoritmus podpisu je SHA1.
 
-**Náprava** – postupujte podle kroků v Azure stacku certifikáty Podepisování generování požadavek znovu vygenerovat žádost o podepsání certifikátu (CSR) se podpisový algoritmus SHA256. Odešlete žádost o podepsání certifikátu na certifikační autority to obnášet opětovné vystavení certifikátu.
+**Náprava** – pomocí kroků v části Azure Stack certifikáty podepisování požadavků vygenerujte žádost o podepsání certifikátu (CSR) pomocí algoritmu podpisu SHA256. Poté znovu odešlete CSR k certifikační autoritě, aby se certifikát mohl znovu vystavit.
 
-## <a name="private-key"></a>privátní klíč
+## <a name="private-key"></a>Privátní klíč
 
-**Selhání** – privátní klíč nebyl nalezen nebo neobsahuje atribut místního počítače.  
+**Chyba** : privátní klíč chybí nebo neobsahuje atribut místního počítače.  
 
-**Náprava** – z počítače, generovány žádost o podepsání certifikátu, znovu exportovat certifikát pomocí kroků v [připravit Azure Stack infrastruktury veřejných KLÍČŮ certifikátů pro nasazení](azure-stack-prepare-pki-certs.md#prepare-certificates-for-deployment). Tyto kroky zahrnují export z úložiště certifikátů místního počítače.
+**Náprava** – z počítače, který vygeneroval CSR, znovu exportujte certifikát pomocí postupu v části [Příprava Azure Stack certifikátů PKI pro nasazení](azure-stack-prepare-pki-certs.md#prepare-certificates-for-deployment). Tyto kroky zahrnují export z úložiště certifikátů místního počítače.
 
 ## <a name="certificate-chain"></a>Řetěz certifikátů
 
-**Selhání** – řetěz certifikátů se ještě úplně nenainstalovalo.  
+**Selhání** – řetěz certifikátů není úplný.  
 
-**Náprava** -certifikáty by měl obsahovat řetěz certifikátů dokončení. Znovu exportovat certifikát pomocí kroků v [připravit Azure Stack infrastruktury veřejných KLÍČŮ certifikátů pro nasazení](azure-stack-prepare-pki-certs.md#prepare-certificates-for-deployment) a vyberte možnost **zahrnout všechny certifikáty cestě k certifikátu, pokud je to možné**.
+**Náprava** – certifikáty by měly obsahovat úplný řetěz certifikátů. Znovu exportujte certifikát pomocí postupu v části [příprava Azure Stack certifikátů PKI pro nasazení](azure-stack-prepare-pki-certs.md#prepare-certificates-for-deployment) a vyberte možnost **Zahrnout všechny certifikáty na cestě k certifikátu, pokud je to možné**.
 
 ## <a name="dns-names"></a>Názvy DNS
 
-**Selhání** – **DNSNameList** na tento certifikát neobsahuje název koncového bodu služby Azure Stack nebo shodou platný zástupný znak. Zástupný znak odpovídá jsou platné pouze pro obor názvů nejvíce vlevo od názvu DNS. Například `*.region.domain.com` je platná pouze pro `portal.region.domain.com`, nikoli `*.table.region.domain.com`.
+**Chyba** – **DNSNameList** na certifikátu neobsahuje název koncového bodu služby Azure Stack nebo platná shoda se zástupnými znaky. Zástupné shody jsou platné pouze pro levý krajní obor názvů názvu DNS. Například hodnota `*.region.domain.com` je platná pouze pro `portal.region.domain.com`, nikoli `*.table.region.domain.com`.
 
-**Náprava** – postupujte podle kroků v Azure stacku certifikáty Podepisování generování požadavku se obnovit žádost o podepsání certifikátu se správné názvy DNS pro podporu koncových bodů služby Azure Stack. Znovu odeslat žádost o podepsání certifikátu na certifikační autority a pak postupujte podle kroků v [připravit Azure Stack infrastruktury veřejných KLÍČŮ certifikátů pro nasazení](azure-stack-prepare-pki-certs.md#prepare-certificates-for-deployment) exportujte certifikát z počítače, který vygeneruje žádost o podepsání certifikátu.  
+**Náprava** – pomocí kroků v Azure Stack certifikáty podepisování žádosti o podepsání znovu vygenerujte CSR se správnými názvy DNS pro podporu Azure Stackch koncových bodů. Odešlete CSR do certifikační autority a pak postupujte podle kroků v části [příprava Azure Stack certifikátů PKI pro nasazení](azure-stack-prepare-pki-certs.md#prepare-certificates-for-deployment) , které vyexportují certifikát z počítače, který vygeneroval CSR.  
 
 ## <a name="key-usage"></a>Použití klíče
 
-**Selhání** – chybí použití klíče, digitální podpis nebo šifrování klíče, nebo chybí rozšířené použití klíče ověření serveru nebo klienta.  
+**Selhání** -použití klíče postrádá digitální podpis nebo šifrování klíče nebo rozšířené použití klíče nemá ověřování serveru nebo ověřování klientů.  
 
-**Náprava** – postupujte podle kroků v [podepisování generování žádosti o certifikáty Azure Stack](azure-stack-get-pki-certs.md) se obnovit žádost o podepsání certifikátu s atributy správné použití klíče. Znovu odeslat žádost o podepsání certifikátu na certifikační autority a potvrďte, že použití klíče v požadavku není přepsání pro šablonu certifikátu.
+**Náprava** – pomocí kroků v [Azure Stack certifikáty podepisování žádosti o podepsání](azure-stack-get-pki-certs.md) znovu vygenerujte CSR se správnými atributy použití klíče. Odešlete CSR do certifikační autority a ověřte, že šablona certifikátu nepřepisuje použití klíče v žádosti.
 
 ## <a name="key-size"></a>Velikost klíče
 
-**Selhání** -Key velikost je menší než 2048.
+**Chyba** -velikost klíče je menší než 2048.
 
-**Náprava** – postupujte podle kroků v [podepisování generování žádosti o certifikáty Azure Stack](azure-stack-get-pki-certs.md) obnovit žádost o podepsání certifikátu se správnou délku klíče (2048) a potom znovu odeslat žádost o podepsání certifikátu na certifikační autority.
+**Náprava** – pomocí kroků v [Azure Stack certifikáty podepisování žádosti o podepsání](azure-stack-get-pki-certs.md) znovu vygenerujte CSR se správnou délkou klíče (2048) a pak znovu odešlete CSR k certifikační autoritě.
 
-## <a name="chain-order"></a>Pořadí v řetězci
+## <a name="chain-order"></a>Pořadí řetězců
 
-**Selhání** – pořadí v řetězu certifikátů je nesprávný.  
+**Selhání** – pořadí certifikátů je nesprávné.  
 
-**Náprava** -znovu exportovat certifikát pomocí kroků v [připravit Azure Stack infrastruktury veřejných KLÍČŮ certifikátů pro nasazení](azure-stack-prepare-pki-certs.md#prepare-certificates-for-deployment) a vyberte možnost **zahrnout všechny certifikáty cestě k certifikátu, pokud je to možné** . Ujistěte se, že je vybrána pouze listový certifikát pro export.
+**Náprava** – certifikát znovu exportujte pomocí postupu v části [Příprava Azure Stack certifikátů PKI pro nasazení](azure-stack-prepare-pki-certs.md#prepare-certificates-for-deployment) a vyberte možnost **Zahrnout všechny certifikáty na cestě k certifikátu, pokud je to možné**. Zajistěte, aby byl pro export vybraný jenom listový certifikát.
 
 ## <a name="other-certificates"></a>Další certifikáty
 
-**Selhání** – PFX balíček obsahuje certifikáty, které nejsou listový certifikát nebo celý řetěz certifikátů.  
+**Chyba** – balíček PFX obsahuje certifikáty, které nejsou listový certifikát nebo část řetězu certifikátů.  
 
-**Náprava** -znovu exportovat certifikát pomocí kroků v [připravit Azure Stack infrastruktury veřejných KLÍČŮ certifikátů pro nasazení](azure-stack-prepare-pki-certs.md#prepare-certificates-for-deployment)a vyberte možnost **zahrnout všechny certifikáty cestě k certifikátu, pokud je to možné** . Ujistěte se, že je vybrána pouze listový certifikát pro export.
+**Náprava** – certifikát znovu exportujte pomocí postupu v části [Příprava Azure Stack certifikátů PKI pro nasazení](azure-stack-prepare-pki-certs.md#prepare-certificates-for-deployment)a vyberte možnost **Zahrnout všechny certifikáty na cestě k certifikátu, pokud je to možné**. Zajistěte, aby byl pro export vybraný jenom listový certifikát.
 
-## <a name="fix-common-packaging-issues"></a>Řešení běžných problémů balení
+## <a name="fix-common-packaging-issues"></a>Řešení běžných problémů s balíčkem
 
-**AzsReadinessChecker** nástroj obsahuje pomocné rutiny volat `Repair-AzsPfxCertificate`, který by mohl importovat, a pak export PFX souboru pro řešení běžných problémů balení, včetně:
+Nástroj **AzsReadinessChecker** obsahuje pomocnou rutinu nazvanou **Repair-AzsPfxCertificate**, která může importovat a exportovat soubor PFX za účelem opravy běžných problémů s balíčkem, včetně:
 
-- **Šifrování PFX** není TripleDES SHA1.
-- **Privátní klíč** chybí atribut místního počítače.
-- **Řetěz certifikátů** je neúplný nebo má nesprávné. Místní počítač musí obsahovat řetěz certifikátů, pokud balíček PFX.
+- **Šifrování PFX** není v TRIPLEDES-SHA1.
+- V **privátním klíči** chybí atribut místního počítače.
+- **Řetěz certifikátů** je neúplný nebo chybný. Pokud balíček PFX nepoužívá, musí místní počítač obsahovat řetěz certifikátů.
 - **Další certifikáty**
 
-`Repair-AzsPfxCertificate` vám nemůže pomoci, pokud je potřeba vygenerovat nový soubor CSR a opakujte certifikát.
+**Oprava – AzsPfxCertificate** nemůže pomáhat, pokud potřebujete vygenerovat nového CSR a znovu vydat certifikát.
 
 ### <a name="prerequisites"></a>Požadavky
 
-Na počítači, na kterém je nástroj spuštěn musí být splněné následující požadavky:
+Na počítači, na kterém je nástroj spuštěný, musí být nahlášené tyto požadavky:
 
 - Windows 10 nebo Windows Server 2016 s připojením k Internetu.
-- Prostředí PowerShell 5.1 nebo novější. K ověření verze, spusťte následující rutinu prostředí PowerShell a pak si projděte *hlavní** a **menší** verze:
+- PowerShell 5,1 nebo novější. Pokud chcete zkontrolovat verzi, spusťte následující rutinu prostředí PowerShell a pak zkontrolujte *Hlavní* *** a** podverze:
 
    ```powershell
    $PSVersionTable.PSVersion
    ```
 
-- Konfigurace [prostředí PowerShell pro Azure Stack](azure-stack-powershell-install.md).
-- Stáhněte si nejnovější verzi [Kontrola připravenosti služby Azure Stack](https://aka.ms/AzsReadinessChecker) nástroj.
+- Nakonfigurujte [PowerShell pro Azure Stack](azure-stack-powershell-install.md).
+- Stáhněte si nejnovější verzi nástroje pro [kontrolu připravenosti na Azure Stack](https://aka.ms/AzsReadinessChecker) .
 
-### <a name="import-and-export-an-existing-pfx-file"></a>Import a export existujícího souboru PFX
+### <a name="import-and-export-an-existing-pfx-file"></a>Importovat a exportovat existující soubor PFX
 
-1. Na počítači, který splňuje požadavky otevřete řádku Powershellu se zvýšenými oprávněními a spusťte následující příkaz k instalaci požadovaných součástí připravenosti služby Azure Stack:
+1. V počítači, který splňuje požadavky, otevřete příkazový řádek PowerShellu se zvýšenými oprávněními a spusťte následující příkaz pro instalaci nástroje pro kontrolu připravenosti Azure Stack:
 
    ```powershell
    Install-Module Microsoft.AzureStack.ReadinessChecker -Force
    ```
 
-2. Z příkazového řádku PowerShell spusťte následující rutinu k nastavení hesla PFX. Nahraďte `PFXpassword` skutečné heslem:
+2. Z příkazového řádku PowerShellu spusťte následující rutinu a nastavte heslo PFX. Nahraďte `PFXpassword` skutečným heslem:
 
    ```powershell
    $password = Read-Host -Prompt PFXpassword -AsSecureString
    ```
 
-3. Z příkazového řádku PowerShell spuštěním následujícího exportovat nový soubor PFX:
+3. Z příkazového řádku PowerShellu spusťte následující příkaz pro export nového souboru PFX:
 
-   - Pro `-PfxPath`, zadejte cestu k souboru PFX pracujete. V následujícím příkladu je tato cesta `.\certificates\ssl.pfx`.
-   - Pro `-ExportPFXPath`, zadejte umístění a název souboru PFX pro export. V následujícím příkladu je tato cesta `.\certificates\ssl_new.pfx`:
+   - U `-PfxPath` zadejte cestu k souboru PFX, se kterým pracujete. V následujícím příkladu je cesta `.\certificates\ssl.pfx`.
+   - Pro `-ExportPFXPath` zadejte umístění a název souboru PFX pro export. V následujícím příkladu je cesta `.\certificates\ssl_new.pfx`:
 
    ```powershell
    Repair-AzsPfxCertificate -PfxPassword $password -PfxPath .\certificates\ssl.pfx -ExportPFXPath .\certificates\ssl_new.pfx
    ```  
 
-4. Jakmile nástroj dokončí, prohlédněte si výstup pro úspěch:
+4. Po dokončení nástroje si přečtěte výstup pro úspěch:
 
    ```shell
    Repair-AzsPfxCertificate v1.1809.1005.1 started.
@@ -152,6 +152,6 @@ Na počítači, na kterém je nástroj spuštěn musí být splněné následuj�
    Repair-AzsPfxCertificate Completed
    ```
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 - [Další informace o zabezpečení služby Azure Stack](azure-stack-rotate-secrets.md)

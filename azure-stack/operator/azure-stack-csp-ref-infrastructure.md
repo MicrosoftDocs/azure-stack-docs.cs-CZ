@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/31/2019
+ms.date: 10/03/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 1a3c59ab7650c9cd2337e8256556f8a449feacec
-ms.sourcegitcommit: c2ea4ffb42563c26faaf2993ba7b484bcb6d5cb7
+ms.openlocfilehash: c170e450739609e0ef0be353f2354a17e39a28b1
+ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71342806"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71961842"
 ---
 # <a name="usage-reporting-infrastructure-for-cloud-solution-providers"></a>Využití infrastruktury vytváření sestav pro poskytovatele cloudových řešení
 
@@ -45,7 +45,7 @@ Následující pojmy a koncepty se používají pro účely využití a fakturac
 
 | Termín | Definice |
 | --- | --- |
-| Přímý poskytovatel CSP | Partner s přímým cloudovým řešením (CSP) obdrží fakturu přímo od Microsoftu k Azure a využití Azure Stack a zákazníkům fakturuje přímo. |
+| Přímý poskytovatel CSP | Přímý poskytovatel CSP obdrží fakturu přímo od Microsoftu pro účely Azure a Azure Stack využití a zákazníky, kteří si ho vyfakturují přímo. |
 | Nepřímý CSP | Nepřímí prodejci pracují s nepřímým poskytovatelem (také označovaným jako distributor). Prodejci přikupují koncové zákazníky; nepřímý poskytovatel obsahuje fakturační vztah s Microsoftem, spravuje fakturaci zákazníků a poskytuje další služby, jako je podpora produktů. |
 | Koncový zákazník | Koncoví zákazníci jsou podniky a státní úřady, které vlastní aplikace a další úlohy, které běží na Azure Stack. |
 

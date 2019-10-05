@@ -12,28 +12,29 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2019
+ms.date: 10/03/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 30513e279b406561fd2bcf88f9119807b371e4a1
-ms.sourcegitcommit: 72d45bb935db0db172d4d7c37d8e48e79e25af64
+ms.openlocfilehash: a5e86f0f0719e30ef693c736ac4c70f05830c3bb
+ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68376777"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71961654"
 ---
 # <a name="use-the-template-validation-tool-in-azure-stack"></a>Použijte nástroj pro ověření šablony v Azure Stack
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
 
-Pomocí nástroje pro ověření šablony ověřte, jestli jsou [šablony](azure-stack-arm-templates.md) Azure Resource Manager připravené k nasazení do Azure Stack. Nástroj pro ověření šablony je k dispozici jako součást Azure Stackch nástrojů. Stáhněte si Azure Stack nástroje pomocí postupu popsaného v tématu [Stažení nástrojů z GitHubu](../operator/azure-stack-powershell-download.md).
+*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit @ no__t-0
+
+Pomocí nástroje pro ověření šablony ověřte, jestli jsou [šablony](azure-stack-arm-templates.md) Azure Resource Manager připravené k nasazení do Azure Stack. Nástroj pro ověření šablony je k dispozici jako součást úložiště GitHub nástroje Azure Stack Tools. Stáhněte si Azure Stack nástroje pomocí postupu popsaného v tématu [Stažení nástrojů z GitHubu](../operator/azure-stack-powershell-download.md).
 
 ## <a name="overview"></a>Přehled
 
 Chcete-li ověřit šablonu, je nutné nejprve sestavit soubor možností cloudu a poté spustit nástroj pro ověření. Použijte následující moduly PowerShellu z Azure Stack nástrojů:
 
-- Ve složce **CloudCapabilities** : `AzureRM.CloudCapabilities.psm1` vytvoří soubor JSON cloudové možnosti, který představuje služby a verze v cloudu Azure Stack.
-- Ve složce **TemplateValidator** : `AzureRM.TemplateValidator.psm1` používá soubor JSON možností cloudu k testování šablon pro nasazení v Azure Stack.
+- Ve složce **CloudCapabilities** : **AzureRM. CloudCapabilities. psm1** vytvoří soubor JSON cloudové možnosti, který představuje služby a verze v cloudu Azure Stack.
+- Ve složce **TemplateValidator** : **AzureRM. TemplateValidator. psm1** používá soubor JSON možností cloudu k testování šablon pro nasazení v Azure Stack.
 
 ## <a name="build-the-cloud-capabilities-file"></a>Sestavení souboru možností cloudu
 
@@ -49,7 +50,7 @@ Než použijete validátor šablon, spusťte modul PowerShellu **AzureRM. CloudC
     Import-Module .\CloudCapabilities\AzureRM.CloudCapabilities.psm1
     ```
 
-3. `Get-CloudCapabilities` Pomocí rutiny načtěte verze služby a vytvořte soubor JSON cloudové možnosti. Pokud nezadáte `-OutputPath`, v aktuálním adresáři se vytvoří soubor AzureCloudCapabilities. JSON. Použijte své skutečné umístění v Azure:
+3. Pomocí rutiny **Get-CloudCapabilities** načtěte verze služby a vytvořte soubor JSON cloudové možnosti. Pokud nezadáte `-OutputPath`, v aktuálním adresáři se vytvoří soubor **AzureCloudCapabilities. JSON** . Použijte své skutečné umístění v Azure:
 
     ```powershell
     Get-AzureRMCloudCapability -Location <your location> -Verbose
@@ -57,7 +58,7 @@ Než použijete validátor šablon, spusťte modul PowerShellu **AzureRM. CloudC
 
 ## <a name="validate-templates"></a>Ověřit šablony
 
-Pomocí těchto kroků můžete ověřit šablony pomocí modulu PowerShellu **AzureRM. TemplateValidator** . Můžete použít vlastní šablony nebo ověřit [Azure Stack šablon pro rychlý Start](https://github.com/Azure/AzureStack-QuickStart-Templates).
+Pomocí těchto kroků můžete ověřit šablony pomocí modulu PowerShellu **AzureRM. TemplateValidator** . Můžete použít vlastní šablony nebo [šablony pro rychlý start Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates).
 
 1. Importujte modul prostředí PowerShell **AzureRM. TemplateValidator. psm1** :
 
@@ -94,7 +95,7 @@ Rutina pro validátor šablon podporuje následující parametry.
 
 ### <a name="examples"></a>Příklady
 
-Tento příklad ověřuje všechny [Azure Stack šablony pro rychlý Start](https://github.com/Azure/AzureStack-QuickStart-Templates) stažené do místního úložiště. V tomto příkladu se taky ověřují velikosti a rozšíření virtuálních počítačů proti funkcím Azure Stack Development Kit:
+Tento příklad ověřuje všechny [Azure Stack šablony pro rychlý Start](https://github.com/Azure/AzureStack-QuickStart-Templates) stažené do místního úložiště. V tomto příkladu se taky ověřují velikosti a rozšíření virtuálních počítačů proti funkcím ASDK:
 
 ```powershell
 test-AzureRMTemplate -TemplatePath C:\AzureStack-Quickstart-Templates `

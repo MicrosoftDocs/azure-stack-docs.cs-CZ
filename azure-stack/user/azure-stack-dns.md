@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2019
+ms.date: 10/03/2019
 ms.author: sethm
 ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: 8bfe15ad19e4aaec45492aa98cfb2ef02294742a
-ms.sourcegitcommit: b3dac698f2e1834491c2f9af56a80e95654f11f3
+ms.openlocfilehash: 5600dd6537df35e703e0ac7a08ad4a61f976e489
+ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68658472"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71961484"
 ---
 # <a name="use-dns-in-azure-stack"></a>Použít DNS v Azure Stack
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit @ no__t-0
 
 Azure Stack podporuje následující funkce Azure DNS:
 
@@ -49,7 +49,7 @@ Následující snímek obrazovky ukazuje dialog **vytvořit veřejnou IP adresu*
 
 Máte k dispozici nástroj pro vyrovnávání zatížení, který zpracovává požadavky z webové aplikace. Za nástrojem pro vyrovnávání zatížení je web, který běží na jednom nebo několika virtuálních počítačích. K webu s vyrovnáváním zatížení můžete přistupovat pomocí názvu DNS místo IP adresy.
 
-## <a name="create-and-manage-dns-zones-and-records-using-the-api"></a>Vytváření a Správa záznamů a zón DNS pomocí rozhraní API
+## <a name="create-and-manage-dns-zones-and-records-using-the-apis"></a>Vytváření a Správa zón DNS a záznamů pomocí rozhraní API
 
 V Azure Stack můžete vytvářet a spravovat zóny a záznamy DNS.
 
@@ -61,9 +61,9 @@ Azure Stack infrastruktura DNS je kompaktnější než Azure. Velikost a umíst�
 
 Služba DNS v Azure Stack je podobná DNS v Azure, ale existuje několik důležitých výjimek:
 
-* **Nepodporuje záznamy AAAA**: Azure Stack nepodporuje záznamy AAAA, protože Azure Stack nepodporuje adresy IPv6. Jedná se o klíčový rozdíl mezi DNS v Azure a Azure Stack.
+* Nepodporuje **záznamy AAAA**: Azure Stack nepodporuje záznamy AAAA, protože Azure Stack nepodporuje adresy IPv6. Jedná se o klíčový rozdíl mezi DNS v Azure a Azure Stack.
 
-* **Není více tenantů**: Služba DNS v Azure Stack není víceklientské. Klienti nemůžou vytvořit stejnou zónu DNS. Pouze první předplatné, které se pokouší vytvořit zónu úspěšně, a pozdější požadavky selžou. Jedná se o další klíčový rozdíl mezi Azure a Azure Stack DNS.
+* Není **Vícenásobný tenant**: Služba DNS v Azure Stack není víceklientské. Klienti nemůžou vytvořit stejnou zónu DNS. Pouze první předplatné, které se pokouší vytvořit zónu úspěšně, a pozdější požadavky selžou. Jedná se o další klíčový rozdíl mezi Azure a Azure Stack DNS.
 
 * **Značky, metadata a značky ETag**: Existují drobné rozdíly ve způsobu, jakým Azure Stack zpracovává značky, metadata, značky ETag a omezení.
 
@@ -81,15 +81,15 @@ Jako alternativu k značkám sady záznamů Azure Stack DNS podporuje přidává
 
 Předpokládejme, že se dva lidé nebo dva procesy pokusí změnit záznam DNS současně. Kterou jednu službu WINS? A ví, že přepsané změny vytvořil někdo jiný?
 
-Azure Stack DNS používá *značky ETag* k bezpečnému zpracování souběžných změn stejného prostředku. Značky ETag se liší od Azure Resource Manager *značek*. K každému prostředku DNS (zóně nebo sadě záznamů) je přidružená značka ETag. Při načtení prostředku je načtena také značka ETag. Když aktualizujete prostředek, můžete se rozhodnout, že se má převrátit značka ETag, aby Azure Stack DNS mohlo ověřit, jestli se shoduje se značkou ETag na serveru. Vzhledem k tomu, že každá aktualizace prostředku má za následek opětovné vygenerování značky ETag, neshoda značek ETag indikuje, že došlo k souběžné změně. Značky ETag se dají použít taky při vytváření nového prostředku, abyste se ujistili, že prostředek ještě neexistuje.
+Azure Stack DNS používá *značky ETag* k bezpečnému zpracování souběžných změn stejného prostředku. Značky ETag se liší od Azure Resource Manager *značek*. K každému prostředku DNS (zóně nebo sadě záznamů) je přidružená značka ETag. Při načtení prostředku je načtena také značka ETag. Když aktualizujete prostředek, můžete se rozhodnout, že se má převrátit značka ETag, aby Azure Stack DNS mohlo ověřit, jestli se shoduje se značkou ETag na serveru. Vzhledem k tomu, že každá aktualizace prostředku má za následek opětovné vygenerování značky ETag, neshoda značek ETag indikuje, že došlo k souběžné změně. Značky ETag lze také použít při vytváření nového prostředku, abyste zajistili, že prostředek ještě neexistuje.
 
-Ve výchozím nastavení Azure Stack rutiny prostředí PowerShell služby DNS pomocí značek ETag zablokují souběžné změny zón a sad záznamů. Můžete použít volitelný `-Overwrite` přepínač pro potlačení kontrol značek ETag. Bez kontrol ETag nejsou všechny souběžné změny, ke kterým došlo, přepsány.
+Ve výchozím nastavení Azure Stack rutiny prostředí PowerShell služby DNS pomocí značek ETag zablokují souběžné změny zón a sad záznamů. Pomocí volitelného přepínače `-Overwrite` můžete potlačit kontroly značek ETag. Bez kontrol ETag nejsou všechny souběžné změny, ke kterým došlo, přepsány.
 
 Na úrovni Azure Stack DNS REST API jsou značky ETag zadány pomocí hlaviček protokolu HTTP. Jejich chování je popsané v následující tabulce:
 
 | Záhlaví | Chování|
 |--------|---------|
-| Žádný   | VLOŽENÍ vždy proběhne úspěšně (žádné kontroly ETag).|
+| Žádné   | VLOŽENÍ vždy proběhne úspěšně (žádné kontroly ETag).|
 | If-Match| VLOŽENÍ se zdaří pouze v případě, že prostředek existuje a odpovídá ETag.|
 | If-Match *| Pokud prostředek existuje, operace PUT se podaří.|
 | If-None-Match *| Pokud prostředek neexistuje, operace PUT se podaří.|
@@ -98,12 +98,12 @@ Na úrovni Azure Stack DNS REST API jsou značky ETag zadány pomocí hlaviček 
 
 Při použití Azure Stack DNS platí následující výchozí omezení:
 
-| Resource| Výchozí omezení|
+| Resource| Výchozí limit|
 |---------|--------------|
 | Zóny na předplatné| 100|
 | Sady záznamů na zónu| 5000|
 | Počet záznamů na sadu záznamů| 20|
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 * [Představujeme iDNS pro Azure Stack](azure-stack-understanding-dns.md)

@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/11/2019
+ms.date: 10/03/2019
 ms.author: sethm
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 9fa12d91e9f2ec738c68f4a04438a93415bd36fb
-ms.sourcegitcommit: 5efa09034a56eb2f3dc0c9da238fe60cff0c67ac
+ms.openlocfilehash: 650257a0bfe94741d00345f98b40fddd8d00cb44
+ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70144032"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71961461"
 ---
 # <a name="configure-vpn-gateway-settings-for-azure-stack"></a>Konfigurace nastavení služby VPN Gateway pro Azure Stack
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit @ no__t-0
 
 Brána sítě VPN je typem brány virtuální sítě, která odesílá šifrovaný provoz mezi vaší virtuální sítí v Azure Stack a vzdálenou bránou VPN. Vzdálená brána VPN se může nacházet v Azure, v zařízení v datovém centru nebo v zařízení na jiné lokalitě. Pokud je mezi dvěma koncovými body síťové připojení, můžete mezi těmito dvěma sítěmi vytvořit zabezpečené připojení VPN typu Site-to-Site (S2S).
 
@@ -36,7 +36,7 @@ Připojení brány VPN se spoléhá na konfiguraci více prostředků, z nichž 
 
 Každá Azure Stack virtuální síť podporuje jednu bránu virtuální sítě, která musí být typu **VPN**.  Tato podpora se liší od Azure, která podporuje další typy.
 
-Když vytvoříte bránu virtuální sítě, musíte se ujistit, že je typ brány správný pro vaši konfiguraci. Brána sítě VPN vyžaduje `-GatewayType Vpn` příznak, například:
+Když vytvoříte bránu virtuální sítě, musíte se ujistit, že je typ brány správný pro vaši konfiguraci. Brána sítě VPN vyžaduje příznak `-GatewayType Vpn`; například:
 
 ```powershell
 New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
@@ -48,7 +48,7 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 Při vytváření brány virtuální sítě je nutné zadat SKU brány, které chcete použít. Vyberte SKU, které splňují vaše požadavky na základě typů úloh, propustnosti, funkcí a SLA.
 
-Azure Stack nabízí SKU brány VPN, které jsou uvedené v následující tabulce.
+Azure Stack nabízí SKU brány VPN, které jsou uvedené v následující tabulce:
 
 | | Propustnost brány VPN Gateway |Maximální počet tunelových propojení IPsec brány VPN Gateway |
 |-------|-------|-------|
@@ -70,7 +70,7 @@ Pokud k vytvoření Správce prostředků brány virtuální sítě použijete p
 
 #### <a name="powershell"></a>PowerShell
 
-Následující příklad prostředí PowerShell Určuje `-GatewaySku` **standardní**:
+Následující příklad prostředí PowerShell určuje parametr `-GatewaySku` jako **Standard**:
 
 ```powershell
 New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
@@ -80,7 +80,7 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 ### <a name="connection-types"></a>Typy připojení
 
-V modelu nasazení Správce prostředků Každá konfigurace vyžaduje konkrétní typ připojení brány virtuální sítě. Dostupné správce prostředků hodnoty PowerShellu pro `-ConnectionType` jsou **IPSec**.
+V modelu nasazení Správce prostředků Každá konfigurace vyžaduje konkrétní typ připojení brány virtuální sítě. Dostupné hodnoty Správce prostředků PowerShellu pro `-ConnectionType` jsou **IPSec**.
 
 V následujícím příkladu PowerShellu se vytvoří připojení S2S, které vyžaduje typ připojení IPsec:
 
@@ -97,7 +97,7 @@ Když vytvoříte bránu virtuální sítě pro konfiguraci brány sítě VPN, m
 > [!IMPORTANT]  
 > V současné době Azure Stack podporuje jenom typ sítě VPN založený na trasách. Pokud vaše zařízení podporuje jenom sítě VPN založené na zásadách, pak se připojení k těmto zařízením z Azure Stack nepodporují.  
 >
-> Kromě toho Azure Stack nepodporuje v současné době používání selektorů přenosu na základě zásad pro brány založené na trasách, protože vlastní konfigurace zásad IPSec/IKE se nepodporují.
+> Kromě toho Azure Stack nepodporuje používání selektorů přenosu na základě zásad pro brány založené na trasách, protože vlastní konfigurace zásad IPSec/IKE se nepodporuje.
 
 * **PolicyBased**: Sítě VPN založené na zásadách šifrují a směrují pakety prostřednictvím tunelů IPsec na základě zásad IPsec nakonfigurovaných s kombinacemi předpon adres mezi vaší místní sítí a Azure Stack VNet. Zásada nebo selektor provozu je obvykle seznam přístupu v konfiguraci zařízení VPN.
 
@@ -106,7 +106,7 @@ Když vytvoříte bránu virtuální sítě pro konfiguraci brány sítě VPN, m
 
 * **RouteBased**: Sítě VPN založené na směrování používají trasy, které jsou nakonfigurované v tabulce předávání IP nebo směrovací tabulky, k přímému směrování paketů na odpovídající rozhraní tunelového propojení. Rozhraní tunelového propojení potom šifrují nebo dešifrují pakety směřující do tunelových propojení nebo z nich. Zásady nebo selektor provozu pro sítě VPN **RouteBased** jsou nakonfigurovány jako libovolné (nebo používají zástupné karty). Ve výchozím nastavení se nedají změnit. Hodnota pro typ VPN **RouteBased** je **RouteBased**.
 
-Následující příklad prostředí PowerShell Určuje `-VpnType` jako **RouteBased**. Když vytvoříte bránu, musíte se ujistit, že `-VpnType` je správná pro vaši konfiguraci.
+Následující příklad prostředí PowerShell určuje `-VpnType` jako **RouteBased**. Když vytvoříte bránu, musíte se ujistit, že `-VpnType` je pro vaši konfiguraci správné.
 
 ```powershell
 New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
@@ -134,7 +134,7 @@ Než vytvoříte bránu sítě VPN, musíte vytvořit podsíť brány. Podsíť 
 
 Při vytváření podsítě brány zadáte počet IP adres, které podsíť obsahuje. IP adresy v podsíti brány jsou přiděleny virtuálním počítačům brány a službám brány. Některé konfigurace vyžadují víc IP adres než jiné. Podívejte se na pokyny pro konfiguraci, kterou chcete vytvořit, a ověřte, že podsíť brány, kterou chcete vytvořit, splňuje tyto požadavky.
 
-Měli byste se také ujistit, že má podsíť brány dostatek IP adres pro zpracování dalších budoucích konfigurací. I když můžete vytvořit podsíť brány, která je menší než/29, doporučujeme vytvořit podsíť brány o velikosti/28 nebo větší (/28,/27,/26 atd.). To znamená, že pokud přidáte funkci v budoucnu, nemusíte odtrhnout bránu a pak ji odstranit a znovu vytvořit, aby bylo možné povolit další IP adresy.
+Měli byste se také ujistit, že má podsíť brány dostatek IP adres pro zpracování dalších budoucích konfigurací. I když můžete vytvořit podsíť brány, která je menší než/29, doporučujeme vytvořit podsíť brány o velikosti/28 nebo větší (/28,/27,/26 atd.). To znamená, že pokud přidáte funkci v budoucnu, nemusíte tuto bránu odtrhnout a pak ji odstranit a znovu vytvořit, aby bylo možné povolit další IP adresy.
 
 Následující příklad Správce prostředků PowerShell ukazuje podsíť brány s názvem **GatewaySubnet**. Můžete vidět, že zápis CIDR určuje/27, což umožňuje dostatek IP adres pro většinu konfigurací, které aktuálně existují.
 
@@ -151,7 +151,7 @@ Při vytváření konfigurace brány VPN v Azure, brána místní sítě často 
 
 Bráně místní sítě dáte název, veřejnou IP adresu zařízení VPN a určíte předpony adres, které jsou na místním umístění. Azure nahlíží na předpony cílových adres pro síťový provoz, sleduje konfiguraci, kterou jste zadali pro bránu místní sítě, a odpovídajícím způsobem směruje pakety.
 
-Následující příklad prostředí PowerShell vytvoří novou bránu místní sítě:
+Tento příklad PowerShellu vytvoří novou bránu místní sítě:
 
 ```powershell
 New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
@@ -164,7 +164,7 @@ Někdy je potřeba upravit nastavení místní síťové brány; například kdy
 
 Při nastavování připojení VPN v Azure Stack musíte nakonfigurovat připojení na obou koncích. Pokud konfigurujete připojení VPN mezi Azure Stack a hardwarovým zařízením, jako je přepínač nebo směrovač, který funguje jako brána sítě VPN, může toto zařízení vyžadovat další nastavení.
 
-Na rozdíl od Azure, který podporuje více nabídek jako iniciátor i respondér, Azure Stack ve výchozím nastavení podporuje pouze jednu nabídku.  Pokud pro práci se zařízením VPN potřebujete použít jiné nastavení protokolu IPSec/IKE, máte k dispozici více nastavení pro ruční konfiguraci připojení.  Další informace najdete v tématu [Konfigurace zásad IPSec/IKE pro připojení VPN typu Site-to-site](azure-stack-vpn-s2s.md).
+Na rozdíl od Azure, který podporuje více nabídek jako iniciátor i respondér, Azure Stack ve výchozím nastavení podporuje pouze jednu nabídku. Pokud pro práci se zařízením VPN potřebujete použít jiné nastavení protokolu IPSec/IKE, máte k dispozici více nastavení pro ruční konfiguraci připojení. Další informace najdete v tématu [Konfigurace zásad IPSec/IKE pro připojení VPN typu Site-to-site](azure-stack-vpn-s2s.md).
 
 ### <a name="ike-phase-1-main-mode-parameters"></a>Parametry protokolu IKE fáze 1 (hlavní režim)
 
@@ -185,10 +185,10 @@ Na rozdíl od Azure, který podporuje více nabídek jako iniciátor i respondé
 |Šifrování šifrovacích & algoritmů hash (ověřování) | GCMAES256|
 |Životnost SA (čas)  | 27 000 sekund  |
 |Životnost SA (kilobajty) | 33 553 408     |
-|Metoda Perfect Forward Secrecy (PFS) |Žádné (viz poznámka 1) |
+|Metoda Perfect Forward Secrecy (PFS) |Žádné (viz **Poznámka 1**) |
 |Detekce mrtvých partnerských zařízení | Podporováno|  
 
-* *Poznámka 1:*  Před verzí 1807 Azure Stack pro metodu PFS (Perfect Forward Secrecy) používala hodnotu PFS2048.
+**Poznámka 1:** Před verzí 1807 Azure Stack pro metodu PFS (Perfect Forward Secrecy) používala hodnotu PFS2048.
 
 ## <a name="next-steps"></a>Další kroky
 
