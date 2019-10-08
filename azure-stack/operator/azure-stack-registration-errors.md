@@ -15,12 +15,12 @@ ms.date: 10/04/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 06/27/2019
-ms.openlocfilehash: b06892e5e4c9d388756a2197f2054c1bac9f013c
-ms.sourcegitcommit: f91979c1613ea1aa0e223c818fc208d902b81299
+ms.openlocfilehash: e660b5024e9aa2b582fd3e8d2f6f51d7d20a5130
+ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71974000"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72019487"
 ---
 # <a name="usage-and-billing-registration-error-codes"></a>Kódy chyb registrace využití a fakturace
 
@@ -41,6 +41,6 @@ Pokud jste CSP, můžou při [Přidávání klientů](azure-stack-csp-ref-operat
 
 ## <a name="next-steps"></a>Další kroky
 
-- Přečtěte si další informace o [infrastruktuře vytváření sestav využití pro poskytovatele cloudových služeb](azure-stack-csp-ref-infrastructure.md).
+- Přečtěte si další informace o [infrastruktuře vytváření sestav využití pro poskytovatele Cloud Solution Provider](azure-stack-csp-ref-infrastructure.md).
 - Další informace o programu CSP najdete v tématu [cloudová řešení](https://partner.microsoft.com/solutions/microsoft-cloud-solutions).
 - Další informace o tom, jak načíst informace o využití prostředků z Azure Stack, najdete [v tématu využití a fakturace v Azure Stack](azure-stack-billing-and-chargeback.md).

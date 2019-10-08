@@ -15,16 +15,16 @@ ms.date: 09/25/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: 76b870d795b79cf966dcf6742ad08f739d24a42a
-ms.sourcegitcommit: 32609bdb04a07b063c8f20f892c30769ad6903dd
+ms.openlocfilehash: 3b728bb08d41c234ccffb94005be740bea0766b6
+ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71269496"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72019285"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Přidat tenanta pro použití a fakturaci na Azure Stack
 
-*Platí pro: Azure Stack integrovaných systémů*
+*Platí pro: Azure Stack integrovaných systémů @ no__t-0
 
 V tomto článku se dozvíte, jak přidat tenanta do nasazení Azure Stack spravovaného poskytovatelem Cloud Solution Provider (CSP). Když nový tenant používá prostředky, Azure Stack sestavy využití jejich předplatného CSP.
 
@@ -37,11 +37,11 @@ Následující obrázek znázorňuje kroky, které zprostředkovatel CSP potřeb
 
 ## <a name="add-an-end-customer"></a>Přidat koncového zákazníka
 
-Před přidáním koncového zákazníka musíte povolit u registrace více tenantů. Aby bylo možné povolit účtování více tenantů, odešlete ID předplatného registrace, název skupiny prostředků a název registrace do `azstcsp@microsoft.com`. K povolení víceklientské architektury obvykle trvá 1-2 pracovních dnů.
+Před přidáním koncového zákazníka musíte povolit u registrace více tenantů. Aby bylo možné povolit účtování více tenantů, odešlete ID předplatného registrace, název skupiny prostředků a název registrace `azstcsp@microsoft.com`. K povolení víceklientské architektury obvykle trvá 1-2 pracovních dnů.
 
 Chcete-li přidat koncového zákazníka, jak je znázorněno na následujícím obrázku, proveďte následující kroky:
 
-![Nastavení poskytovatele cloudových služeb pro sledování využití a správu účtu koncového zákazníka](media/azure-stack-csp-enable-billing-usage-tracking/process-csp-enable-billing.png)
+![Nastavení poskytovatele Cloud Solution Provider pro sledování využití a Správa účtu koncového zákazníka](media/azure-stack-csp-enable-billing-usage-tracking/process-csp-enable-billing.png)
 
 ### <a name="create-a-new-customer-in-partner-center"></a>Vytvoření nového zákazníka v partnerském centru
 
@@ -49,7 +49,7 @@ V partnerském centru vytvořte pro zákazníka nové předplatné Azure. Pokyny
 
 ### <a name="create-an-azure-subscription-for-the-end-customer"></a>Vytvoření předplatného Azure pro koncového zákazníka
 
-Jakmile vytvoříte záznam o zákazníkovi v partnerském centru, můžete si ho prodávat do produktů v katalogu. Pokyny najdete v tématu [Vytvoření, pozastavení nebo zrušení zákaznických](/partner-center/create-a-new-subscription)předplatných.
+Jakmile vytvoříte záznam o zákazníkovi v partnerském centru, můžete si ho prodávat do produktů v katalogu. Pokyny najdete v tématu [Vytvoření, pozastavení nebo zrušení zákaznických předplatných](/partner-center/create-a-new-subscription).
 
 ### <a name="create-a-guest-user-in-the-end-customer-directory"></a>Vytvoření uživatele typu Host v adresáři koncového zákazníka
 
@@ -66,7 +66,7 @@ Aktualizujte svou registraci pomocí nového zákaznického předplatného. Azur
    ```
 
    >[!Note]
-   > Pokud vaše relace vyprší, vaše heslo se změnilo nebo chcete jednoduše přepnout účty, spusťte následující rutinu ještě před přihlášením pomocí rutiny Add-AzureRmAccount:`Remove-AzureRmAccount-Scope Process`
+   > Pokud vaše relace vyprší, vaše heslo se změnilo nebo chcete jednoduše přepnout účty, spusťte následující rutinu ještě před přihlášením pomocí rutiny Add-AzureRmAccount: `Remove-AzureRmAccount-Scope Process`.
 
 2. Zadejte svoje přihlašovací údaje Azure.
 3. V relaci PowerShellu spusťte příkaz:
@@ -102,4 +102,4 @@ Po přidání nového zákazníka do Azure Stack nebo koncový tenant zákazník
 
 - Pokud chcete zkontrolovat chybové zprávy, pokud se aktivují v procesu registrace, přečtěte si téma [chybové zprávy registrace tenanta](azure-stack-registration-errors.md).
 - Další informace o tom, jak načíst informace o využití prostředků z Azure Stack, najdete [v tématu využití a fakturace v Azure Stack](azure-stack-billing-and-chargeback.md).
-- Pokud chcete zjistit, jak může koncový zákazník přidat vás, CSP, jako správce pro svého tenanta Azure Stack, přečtěte si téma [povolení poskytovatele cloudové služby ke správě předplatného Azure Stack](../user/azure-stack-csp-enable-billing-usage-tracking.md).
+- Pokud chcete zjistit, jak může koncový zákazník přidat vás, CSP jako správce pro svého klienta Azure Stack, přečtěte si téma [povolení poskytovatele Cloud Solution pro správu předplatného Azure Stack](../user/azure-stack-csp-enable-billing-usage-tracking.md).

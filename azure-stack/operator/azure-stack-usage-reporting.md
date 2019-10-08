@@ -15,12 +15,12 @@ ms.date: 08/12/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 3aeae5c1a0106a0c13c9b6bbe2eb4ba07de14dd4
-ms.sourcegitcommit: 58c28c0c4086b4d769e9d8c5a8249a76c0f09e57
+ms.openlocfilehash: 5fecdbe7bcc85ea01e1502afcfc1c67d3b830c3e
+ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68959444"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72019385"
 ---
 # <a name="report-azure-stack-usage-data-to-azure"></a>Sestava údajů o využití Azure Stack do Azure
 
@@ -45,8 +45,8 @@ Pokud chcete nastavit vytváření sestav dat o využití, musíte [zaregistrova
 - **Množství** využití prostředků.
 - **Umístění** – umístění, kde je nasazen aktuální Azure Stack prostředek.
 - **Identifikátor URI prostředku** – plně kvalifikovaný identifikátor URI prostředku, pro který se vykazuje využití.
-- **ID** předplatného – ID předplatného uživatele Azure Stack, které je místní (Azure Stack) předplatné.
-- Čas – počáteční a koncový čas dat o využití. Mezi časem, kdy se tyto prostředky spotřebují v Azure Stack a když se data o využití hlásí do obchodu, dojde k prodlevě. Azure Stack agreguje data o využití každých 24 hodin a vykazování dat o využití do kanálu pro obchod v Azure trvá několik minut. Proto se může v Azure během následujícího dne objevit využití, ke kterému dojde krátce před půlnocí.
+- **ID předplatného** – ID předplatného uživatele Azure Stack, které je místní (Azure Stack) předplatné.
+- **Čas – počáteční** a koncový čas dat o využití. Mezi časem, kdy se tyto prostředky spotřebují v Azure Stack a když se data o využití hlásí do obchodu, dojde k prodlevě. Azure Stack agreguje data o využití každých 24 hodin a vykazování dat o využití do kanálu pro obchod v Azure trvá několik minut. Proto se může v Azure během následujícího dne objevit využití, ke kterému dojde krátce před půlnocí.
 
 ## <a name="generate-usage-data-reporting"></a>Generování sestav dat využití
 
@@ -58,7 +58,7 @@ Pokud chcete nastavit vytváření sestav dat o využití, musíte [zaregistrova
 
 Pokud jste Azure Stack zaregistrovali pomocí předplatného CSP, můžete si prohlédnout své využití a poplatky stejným způsobem jako při zobrazení využití Azure. Ve vaší faktuře a v souboru pro odsouhlasení, který je k dispozici prostřednictvím [partnerského centra](https://partnercenter.microsoft.com/partner/home), je použití Azure Stack. Soubor pro odsouhlasení se aktualizuje měsíčně. Pokud potřebujete získat přístup k nejnovějším informacím o použití Azure Stack, můžete použít rozhraní API partnerského centra.
 
-![Partnerské centrum](media/azure-stack-usage-reporting/partner-center.png)
+![partnerské centrum](media/azure-stack-usage-reporting/partner-center.png)
 
 ## <a name="view-usage---enterprise-agreement-subscriptions"></a>Zobrazení předplatných smlouva Enterprise využití
 
@@ -96,7 +96,7 @@ Pro Azure Stack podporují více uzlů smlouva Enterprise (EA) a CSP. Pro Azure 
 
 ## <a name="does-usage-data-reporting-work-in-sovereign-clouds"></a>Funguje vytváření sestav údajů o využití v cloudech z svrchovaného díla?
 
-V Azure Stack Development Kit vytváření sestav dat o využití vyžaduje předplatná, která jsou vytvořená v globálním systému Azure. Předplatná vytvořená v jednom z svrchovaných cloudů (cloudy Azure Government, Azure Německo a Azure Čína) nejde registrovat v Azure, takže nepodporují generování sestav dat o využití.
+V Azure Stack Development Kit vytváření sestav dat o využití vyžaduje předplatná, která jsou vytvořená v globálním systému Azure. Předplatná vytvořená v jednom z těchto cloudů z svrchovaného cloudu (Azure Government, Azure Německo a Azure Čína 21Vianet cloudy) nejde registrovat v Azure, takže nepodporují generování sestav dat o využití.
 
 ## <a name="why-doesnt-the-usage-reported-in-azure-stack-match-the-report-generated-from-azure-account-center"></a>Proč se použití hlášené v Azure Stack neshoduje se sestavou vygenerovanou Centrum účtů Azure?
 
@@ -107,4 +107,4 @@ Data o využití uvedená v rozhraních API pro Azure Stack využití a data o v
 - [Rozhraní API využití zprostředkovatele](azure-stack-provider-resource-api.md)  
 - [Rozhraní API využití tenanta](azure-stack-tenant-resource-usage-api.md)
 - [Nejčastější dotazy k využití](azure-stack-usage-related-faq.md)
-- [Správa využití a fakturace jako poskytovatel cloudových služeb](azure-stack-add-manage-billing-as-a-csp.md)
+- [Správa využití a fakturace jako poskytovatel cloudových řešení](azure-stack-add-manage-billing-as-a-csp.md)

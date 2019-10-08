@@ -15,12 +15,12 @@ ms.date: 10/04/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 06/27/2019
-ms.openlocfilehash: 81ba613ec6a816d1ae6161d078452eea63ce1164
-ms.sourcegitcommit: f91979c1613ea1aa0e223c818fc208d902b81299
+ms.openlocfilehash: 265645b69e909c7c9762cd03e4f49035baa2872b
+ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71974021"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72019425"
 ---
 # <a name="usage-connectivity-errors"></a>Chyby připojení využití
 
@@ -61,4 +61,4 @@ Kromě toho může být nutné zadat soubory protokolu pro součásti Azure Brid
 
 - Přečtěte si další informace o [vytváření sestav Azure Stack dat o využití do Azure](azure-stack-usage-reporting.md).
 - Pokud chcete zkontrolovat chybové zprávy, pokud se spouštějí v procesu registrace, přečtěte si téma [chybové zprávy registrace klienta](azure-stack-registration-errors.md).
-- Přečtěte si další informace o [infrastruktuře vytváření sestav využití pro poskytovatele cloudových služeb](azure-stack-csp-ref-infrastructure.md).
+- Přečtěte si další informace o [infrastruktuře vytváření sestav využití pro poskytovatele Cloud Solution Provider](azure-stack-csp-ref-infrastructure.md).

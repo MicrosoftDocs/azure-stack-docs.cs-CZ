@@ -16,12 +16,12 @@ ms.date: 09/06/2019
 ms.author: sethm
 ms.reviewer: harik
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 9ca13d62c69c84f29e3038899ff224d7d9cdc6d3
-ms.sourcegitcommit: c46d913ebfa4cb6c775c5117ac5c9e87d032a271
+ms.openlocfilehash: 083d30e07d924e38f682785866b0739e4cdb36e6
+ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71101179"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72019481"
 ---
 # <a name="azure-stack-servicing-policy"></a>Zásady obsluhy Azure Stack
 
@@ -60,7 +60,7 @@ Informace o konkrétní aktualizaci, včetně toho, jak ji stáhnout, najdete v 
 
 ## <a name="hotfixes"></a>Opravy hotfix
 
-*Platí pro: Azure Stack integrovaných systémů*
+*Platí pro: Azure Stack integrovaných systémů @ no__t-0
 
 V některých případech společnost Microsoft poskytuje opravy hotfix pro Azure Stack, které řeší konkrétní problém, který je často preventivní nebo časově citlivý.  Každá oprava hotfix je vydána spolu s odpovídajícím článkem znalostní báze Microsoft Knowledge Base, který podrobně popisuje problém, příčinu a řešení.
 
@@ -85,7 +85,7 @@ Balíčky aktualizací softwaru společnosti Microsoft jsou nekumulativní a vy�
 
 ## <a name="get-support"></a>Získat podporu
 
-Azure Stack se řídí stejným procesem podpory jako Azure. Podnikoví zákazníci mohou postupovat podle postupu popsaného v tématu [Postup vytvoření žádosti o podporu Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Pokud jste zákazníkem poskytovatele cloudové služby (CSP), požádejte o podporu svého CSP. Další informace najdete v nejčastějších dotazech k [podpoře Azure](https://azure.microsoft.com/support/faq/).
+Azure Stack se řídí stejným procesem podpory jako Azure. Podnikoví zákazníci mohou postupovat podle postupu popsaného v tématu [Postup vytvoření žádosti o podporu Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Pokud jste zákazníkem poskytovatele Cloud Solution Provider (CSP), požádejte o podporu svého CSP. Další informace najdete v nejčastějších dotazech k [podpoře Azure](https://azure.microsoft.com/support/faq/).
 
 ## <a name="next-steps"></a>Další kroky
 

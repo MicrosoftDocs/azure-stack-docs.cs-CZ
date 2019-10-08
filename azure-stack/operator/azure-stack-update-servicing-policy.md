@@ -15,16 +15,16 @@ ms.date: 09/10/2019
 ms.author: mabrigg
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 70fe7c8cdb43f55c8e013dcca27dcde870b1cc9a
-ms.sourcegitcommit: dc633e862d49412a963daee481226c1543287e5e
+ms.openlocfilehash: 4794ad098e83677d712af611fc74395e0e5f4e20
+ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70862965"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72019450"
 ---
 # <a name="azure-stack-servicing-policy"></a>Zásady obsluhy Azure Stack
 
-*Platí pro: Azure Stack integrovaných systémů*
+*Platí pro: Azure Stack integrovaných systémů @ no__t-0
 
 Tento článek popisuje zásady pro obsluhu Azure Stack integrovaných systémů, co je potřeba udělat, abyste zachovali systém v podporovaném stavu, a jak získat podporu.
 
@@ -42,8 +42,8 @@ Balíčky aktualizací softwaru společnosti Microsoft jsou nekumulativní a vy�
 
 ## <a name="get-support"></a>Získat podporu
 
-Azure Stack se řídí stejným procesem podpory jako Azure. Podnikoví zákazníci mohou postupovat podle postupu popsaného v tématu [Postup vytvoření žádosti o podporu Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Pokud jste zákazníkem poskytovatele cloudové služby (CSP), požádejte o podporu svého CSP. Další informace najdete v nejčastějších dotazech k [podpoře Azure](https://azure.microsoft.com/support/faq/).
+Azure Stack se řídí stejným procesem podpory jako Azure. Podnikoví zákazníci mohou postupovat podle postupu popsaného v tématu [Postup vytvoření žádosti o podporu Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Pokud jste zákazníkem poskytovatele Cloud Solution Provider (CSP), požádejte o podporu svého CSP. Další informace najdete v nejčastějších dotazech k [podpoře Azure](https://azure.microsoft.com/support/faq/).
 
-# <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 [Správa aktualizací ve službě Azure Stack](azure-stack-updates.md)

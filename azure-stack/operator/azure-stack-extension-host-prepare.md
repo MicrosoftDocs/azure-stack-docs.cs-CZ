@@ -1,6 +1,6 @@
 ---
-title: Příprava na hostitele rozšíření pro Azure Stack | Microsoft Docs
-description: Naučte se připravit na hostitele rozšíření, který se automaticky povolí s budoucím balíčkem Azure Stack aktualizace.
+title: Příprava pro hostitele rozšíření v Azure Stack | Microsoft Docs
+description: Přečtěte si, jak připravit hostitele rozšíření v Azure Stack, který se automaticky povolí prostřednictvím balíčku aktualizace Azure Stack po verzi 1808.
 services: azure-stack
 keywords: ''
 author: mattbriggs
@@ -11,33 +11,33 @@ ms.service: azure-stack
 ms.reviewer: thoroet
 manager: femila
 ms.lastreviewed: 03/07/2019
-ms.openlocfilehash: d64e0e3ce0dd499304bebfe2f78aebca11ff6668
-ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
+ms.openlocfilehash: 75070550f1863457c3a2aaf9ab5915536372d55b
+ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71909102"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72019269"
 ---
-# <a name="prepare-for-extension-host-for-azure-stack"></a>Příprava na hostitele rozšíření pro Azure Stack
+# <a name="prepare-for-extension-host-in-azure-stack"></a>Příprava na hostitele rozšíření v Azure Stack
 
 Hostitel rozšíření je zabezpečený Azure Stack snížením počtu požadovaných portů TCP/IP. V tomto článku se podíváme na přípravu Azure Stack pro hostitele rozšíření, který se automaticky povolí prostřednictvím balíčku aktualizace Azure Stack po aktualizaci 1808. Tento článek se týká Azure Stack aktualizací 1808, 1809 a 1811.
 
 ## <a name="certificate-requirements"></a>Požadavky na certifikát
 
-Hostitel rozšíření implementuje dva nové obory názvů domén za účelem zaručení jedinečných hostitelských záznamů pro každé rozšíření portálu. Nové obory názvů domény vyžadují pro zajištění zabezpečené komunikace dva další certifikáty se zástupnými kartami.
+Hostitel rozšíření implementuje dva nové obory názvů domény pro zaručení jedinečných hostitelských záznamů pro každé rozšíření portálu. Nové obory názvů domény vyžadují pro zajištění zabezpečené komunikace dva další certifikáty se zástupnými znaky.
 
 V tabulce jsou uvedeny nové obory názvů a přidružené certifikáty:
 
-| Složka pro nasazení | Požadovaný předmět certifikátu a alternativní názvy subjektu (SAN) | Rozsah (na oblast) | SubDomain namespace |
+| Složka pro nasazení | Požadovaný předmět certifikátu a alternativní názvy subjektu (SAN) | Rozsah (na oblast) | Obor názvů subdomény |
 |-----------------------|------------------------------------------------------------------|-----------------------|------------------------------|
-| Hostitel rozšíření Správce | *.adminhosting. \<> oblasti \<plně kvalifikovaný název domény > (zástupné certifikáty SSL) | Hostitel rozšíření Správce | adminhosting.\<region>.\<fqdn> |
-| Hostitel veřejného rozšíření | *. Hosting. \<> oblasti \<plně kvalifikovaný název domény > (zástupné certifikáty SSL) | Hostitel veřejného rozšíření | který. \<> oblasti \<plně kvalifikovaný název domény > |
+| Hostitel rozšíření Správce | *. adminhosting. \<region >. \<fqdn > (zástupné certifikáty SSL) | Hostitel rozšíření Správce | adminhosting.\<region>.\<fqdn> |
+| Hostitel veřejného rozšíření | *. Hosting. \<region >. \<fqdn > (zástupné certifikáty SSL) | Hostitel veřejného rozšíření | hostování. \<region >. \<fqdn > |
 
-Podrobné požadavky na certifikáty najdete v článku [Azure Stack požadavky na certifikát infrastruktury veřejných klíčů](azure-stack-pki-certs.md) .
+Podrobné požadavky na certifikáty najdete v tématu [Azure Stack požadavky na certifikát infrastruktury veřejných klíčů](azure-stack-pki-certs.md).
 
 ## <a name="create-certificate-signing-request"></a>Vytvořit žádost o podepsání certifikátu
 
-Nástroj pro kontrolu připravenosti na Azure Stack poskytuje možnost vytvořit žádost o podepsání certifikátu pro tyto dva nové, požadované certifikáty SSL. Postupujte podle kroků v článku [generování žádosti o podepsání certifikátů Azure Stack certifikáty](azure-stack-get-pki-certs.md).
+Nástroj pro kontrolu připravenosti na Azure Stack umožňuje vytvořit žádost o podepsání certifikátu pro dva nové a požadované certifikáty SSL. Postupujte podle kroků v článku [generování žádosti o podepsání certifikátů Azure Stack certifikáty](azure-stack-get-pki-certs.md).
 
 > [!Note]  
 > Tento krok můžete přeskočit v závislosti na tom, jak jste si vyžádali certifikáty SSL.
@@ -45,7 +45,7 @@ Nástroj pro kontrolu připravenosti na Azure Stack poskytuje možnost vytvořit
 ## <a name="validate-new-certificates"></a>Ověřit nové certifikáty
 
 1. Otevřete PowerShell se zvýšenými oprávněními na hostiteli životního cyklu hardwaru nebo na pracovní stanici pro správu Azure Stack.
-2. Spuštěním následující rutiny nainstalujte nástroj pro kontrolu připravenosti na Azure Stack.
+2. Spuštěním následující rutiny nainstalujte nástroj pro kontrolu připravenosti na Azure Stack:
 
     ```powershell  
     Install-Module -Name Microsoft.AzureStack.ReadinessChecker
@@ -66,7 +66,7 @@ Nástroj pro kontrolu připravenosti na Azure Stack poskytuje možnost vytvořit
     > [!Note]  
     > Pokud nasazujete s Azure Active Directory federované služby (AD FS), musí se do **$Directories** ve skriptu přidat tyto adresáře: `ADFS`, `Graph`.
 
-4. V příslušných adresářích umístěte existující certifikáty, které aktuálně používáte v Azure Stack. Zadejte například certifikát **ARM správce** do `Arm Admin` složky. A potom umístěte nově vytvořené hostitelské certifikáty do `Admin extension host` adresářů a. `Public extension host`
+4. V příslušných adresářích umístěte existující certifikáty, které aktuálně používáte v Azure Stack. Zadejte například certifikát **ARM správce** do složky `Arm Admin`. A pak vložte nově vytvořené hostitelské certifikáty do adresářů `Admin extension host` a `Public extension host`.
 5. Spuštěním následující rutiny spusťte kontrolu certifikátu:
 
     ```powershell  
@@ -75,7 +75,7 @@ Nástroj pro kontrolu připravenosti na Azure Stack poskytuje možnost vytvořit
     Start-AzsReadinessChecker -CertificatePath c:\certificates -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD
     ```
 
-6. Ověřte výstup a všechny certifikáty předejte všechny testy.
+6. Zkontroluje výstup a pokud všechny certifikáty přejdou všechny testy.
 
 
 ## <a name="import-extension-host-certificates"></a>Importovat certifikáty hostitele rozšíření
@@ -129,14 +129,14 @@ Pokud je u jednotlivých hostitelů nakonfigurovaných pro publikování Azure S
 
 | IP | Název hostitele | type |
 |----|------------------------------|------|
-| \<IP> | *. Adminhosting. \<> Oblasti \<Plně kvalifikovaný název domény > | A |
-| \<IP> | *. Který. \<> Oblasti \<Plně kvalifikovaný název domény > | A |
+| \<IP> | *. Adminhosting. \<Region >. \<FQDN > | A |
+| \<IP> | *. Hostování. \<Region >. \<FQDN > | A |
 
 Přidělené IP adresy se dají načíst pomocí privilegovaného koncového bodu spuštěním rutiny **Get-AzureStackStampInformation**.
 
 ### <a name="ports-and-protocols"></a>Porty a protokoly
 
-Článek [Azure Stack integrace Datacenter – publikování koncových bodů](azure-stack-integrate-endpoints.md), zahrnuje porty a protokoly, které pro publikování Azure Stack před zavedením hostitele rozšíření vyžadují příchozí komunikaci.
+Článek [Azure Stack integrace Datacenter – koncové body pro publikování](azure-stack-integrate-endpoints.md) zahrnují porty a protokoly, které pro publikování Azure Stack před zavedením hostitele rozšíření vyžadují příchozí komunikaci.
 
 ### <a name="publish-new-endpoints"></a>Publikování nových koncových bodů
 
@@ -148,7 +148,7 @@ winrm s winrm/config/client '@{TrustedHosts= "<IpOfERCSMachine>"}'
 $PEPCreds = Get-Credential
 $PEPSession = New-PSSession -ComputerName <IpOfERCSMachine> -Credential $PEPCreds -ConfigurationName "PrivilegedEndpoint"
 
-# Obtain DNS Servers and Extension Host information from Azure Stack Stamp Information and find the IPs for the Host Extension Endpoints
+# Obtain DNS Servers and extension host information from Azure Stack Stamp Information and find the IPs for the Host Extension Endpoints
 $StampInformation = Invoke-Command $PEPSession {Get-AzureStackStampInformation} | Select-Object -Property ExternalDNSIPAddress01, ExternalDNSIPAddress02, @{n="TenantHosting";e={($_.TenantExternalEndpoints.TenantHosting) -replace "https://*.","testdnsentry"-replace "/"}},  @{n="AdminHosting";e={($_.AdminExternalEndpoints.AdminHosting)-replace "https://*.","testdnsentry"-replace "/"}},@{n="TenantHostingDNS";e={($_.TenantExternalEndpoints.TenantHosting) -replace "https://",""-replace "/"}},  @{n="AdminHostingDNS";e={($_.AdminExternalEndpoints.AdminHosting)-replace "https://",""-replace "/"}}
 If (Resolve-DnsName -Server $StampInformation.ExternalDNSIPAddress01 -Name $StampInformation.TenantHosting -ErrorAction SilentlyContinue) {
     Write-Host "Can access AZS DNS" -ForegroundColor Green
@@ -192,7 +192,7 @@ The Record to be added in the DNS zone: Type A, Name: *.hosting.\<region>.\<fqdn
 ### <a name="update-existing-publishing-rules-post-enablement-of-extension-host"></a>Aktualizovat existující pravidla publikování (povolení hostitele rozšíření)
 
 > [!Note]  
-> Balíček aktualizace 1808 Azure Stack ještě nepovoluje hostitele rozšíření. Umožňuje připravit pro hostitele rozšíření importem požadovaných certifikátů. Než bude hostitel rozšíření automaticky povolený prostřednictvím balíčku aktualizací Azure Stack po aktualizaci 1808, nezavírejte žádné porty.
+> Balíček aktualizace 1808 **Azure Stack ještě nepovoluje hostitele** rozšíření. Umožňuje připravit hostitele rozšíření importem požadovaných certifikátů. Než bude hostitel rozšíření automaticky povolený prostřednictvím balíčku aktualizací Azure Stack po aktualizaci 1808, nezavírejte žádné porty.
 
 Následující existující porty koncového bodu musí být uzavřeny ve stávajících pravidlech brány firewall.
 
@@ -209,4 +209,4 @@ Následující existující porty koncového bodu musí být uzavřeny ve stáva
 ## <a name="next-steps"></a>Další kroky
 
 - Přečtěte si o [integraci brány firewall](azure-stack-firewall.md).
-- Další informace o [generování žádosti o podepsání certifikátů Azure Stack](azure-stack-get-pki-certs.md)
+- Přečtěte si informace o [generování žádosti o podepsání certifikátů Azure Stack](azure-stack-get-pki-certs.md).

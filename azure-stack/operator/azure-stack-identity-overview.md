@@ -1,6 +1,6 @@
 ---
-title: Přehled identity pro službu Azure Stack | Dokumentace Microsoftu
-description: Další informace o systémech identity, která vám pomůže s využitím Azure stacku.
+title: Přehled zprostředkovatelů identity pro Azure Stack | Microsoft Docs
+description: Přečtěte si o poskytovatelích identity, které můžete použít s Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: PatAltimore
@@ -16,191 +16,190 @@ ms.date: 06/03/2019
 ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: f57ded9df4fe799a5795ee541f7a03e650202aab
-ms.sourcegitcommit: 80775f5c5235147ae730dfc7e896675a9a79cdbe
+ms.openlocfilehash: 8b05b2cc9fdde7987efd78c5beb0123b035e03ea
+ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/03/2019
-ms.locfileid: "66459057"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72019352"
 ---
-# <a name="overview-of-identity-for-azure-stack"></a>Přehled identity pro službu Azure Stack
+# <a name="overview-of-identity-providers-for-azure-stack"></a>Přehled zprostředkovatelů identity pro Azure Stack
 
-Azure Stack vyžaduje Azure Active Directory (Azure AD) nebo Active Directory Federation Services (AD FS), podporovaný službou Active Directory jako zprostředkovatele identity. Výběr zprostředkovatele je jednorázový rozhodnutí, která učiníte při prvním nasazení Azure Stack. Koncepty a podrobnosti o ověřování v tomto článku můžete vybrat mezi zprostředkovatele identity.
+Azure Stack vyžaduje Azure Active Directory (Azure AD) nebo Active Directory Federation Services (AD FS) (AD FS), kterou zajišťuje služba Active Directory jako zprostředkovatel identity. Volbou poskytovatele je jednorázové rozhodnutí, které uděláte při prvním nasazení Azure Stack. Koncepty a podrobnosti o autorizaci v tomto článku vám pomůžou vybrat mezi zprostředkovateli identity.
 
-Azure AD nebo AD FS podle vašeho výběru se určuje podle režimu, ve kterém nasadíte Azure Stack:
+Vaše volba pro Azure AD nebo AD FS je určená režimem, ve kterém nasazujete Azure Stack:
 
-- Při nasazení v režimu připojení, můžete použít buď Azure AD nebo AD FS.
-- Při nasazení v odpojeném režimu, bez připojení k Internetu, je podporována pouze služba AD FS.
+- Když ho nasadíte v připojeném režimu, můžete použít buď službu Azure AD, nebo AD FS.
+- Když ho nasadíte v odpojeném režimu bez připojení k Internetu, podporuje se jenom AD FS.
 
-Další informace o možnostech, které závisí na vašem prostředí Azure Stack, najdete v následujících článcích:
+Další informace o možnostech, které jsou závislé na vašem prostředí Azure Stack, najdete v následujících článcích:
 
-- Sada nasazení Azure Stack: [Důležité informace o identitu](azure-stack-datacenter-integration.md#identity-considerations).
-- Integrované systémy Azure Stack: [Integrované systémy pro nasazení, plánování rozhodnutí pro službu Azure Stack](azure-stack-connection-models.md).
+- Sada Azure Stack Deployment Kit: [Požadavky na identitu](azure-stack-datacenter-integration.md#identity-considerations).
+- Azure Stack integrované systémy: [Rozhodnutí týkající se plánování nasazení Azure Stack integrovaných systémů](azure-stack-connection-models.md).
 
-## <a name="common-concepts-for-identity"></a>Koncepty používané v identity
+## <a name="common-concepts-for-identity-providers"></a>Běžné koncepty pro zprostředkovatele identity
 
-Následující části popisují běžné koncepty o zprostředkovatelů identity a jejich použití ve službě Azure Stack.
+V dalších částech se dozvíte o běžných konceptech zprostředkovatelů identity a jejich použití v Azure Stack.
 
 ![Terminologie pro zprostředkovatele identity](media/azure-stack-identity-overview/terminology.png)
 
-### <a name="directory-tenants-and-organizations"></a>Tenanti adresáře a organizace
+### <a name="directory-tenants-and-organizations"></a>Klienti adresáře a organizace
 
-Adresář je kontejner, který obsahuje informace o *uživatelé*, *aplikací*, *skupiny*, a *instanční*.
+Adresář je kontejner, který obsahuje informace o *uživatelích*, *aplikacích*, *skupinách*a *instančních objektech*.
 
-Tenanta adresáře. je *organizace*, jako je například Microsoft nebo z vaší společnosti.
+Tenant adresáře je *organizace*, jako je například Microsoft nebo vaše společnost.
 
-- Azure AD podporuje více tenantů a dokáže podporovat i více organizací ve vlastních adresářích. Pokud používáte Azure AD a máte více tenantů, můžete udělit aplikacím a uživatelům z jednoho tenanta přístup do jiných tenantů stejného adresáře.
-- Služba AD FS podporuje pouze jednoho tenanta a tedy pouze jedna organizace.
+- Azure AD podporuje více tenantů a dokáže podporovat i více organizací ve vlastních adresářích. Pokud používáte Azure AD a máte více tenantů, můžete aplikacím a uživatelům udělit přístup z jednoho tenanta k ostatním klientům stejného adresáře.
+- AD FS podporuje jenom jednoho tenanta, a proto jenom jednu organizaci.
 
 ### <a name="users-and-groups"></a>Uživatelé a skupiny
 
-Uživatelské účty (identity), standardní účty, které se ověřují jednotlivce pomocí ID uživatele a heslo. Skupiny mohou obsahovat uživatele nebo jiné skupiny.
+Uživatelské účty (identity) jsou standardní účty, které ověřují jednotlivce pomocí ID a hesla uživatele. Skupiny můžou zahrnovat uživatele nebo jiné skupiny.
 
-Jak vytvořit a spravovat uživatele a skupiny závisí na řešení identit, které používáte.
+Způsob vytváření a správy uživatelů a skupin závisí na používaném řešení identity.
 
-Ve službě Azure Stack, uživatelských účtů:
+V Azure Stack uživatelské účty:
 
-- Vytvářejí *uživatelské jméno\@domény* formátu. I když služba AD FS mapuje uživatelské účty do instance služby Active Directory, služby AD FS nepodporuje použití  *\\ \<domény >\\\<alias >* formátu.
-- Můžete nastavit na použití služby Multi-Factor authentication.
-- Jsou omezeny do adresáře, ve kterém se nejprve zaregistrovat, tedy adresáře své organizace.
-- Je možné importovat z místních adresářů. Další informace najdete v tématu [integrace místních adresářů se službou Azure Active Directory](/azure/active-directory/connect/active-directory-aadconnect).
+- Jsou vytvořeny ve formátu *username @ no__t-1domain* . I když AD FS mapuje uživatelské účty k instanci služby Active Directory, AD FS nepodporuje použití formátu *\\ @ no__t-2domain > \\ @ no__t-4alias >* .
+- Dá se nastavit tak, aby používal službu Multi-Factor Authentication.
+- Jsou omezeny na adresář, ve kterém jsou poprvé registrována, což je adresář organizace.
+- Dá se importovat z vašich místních adresářů. Další informace najdete v tématu [Integrace místních adresářů s Azure Active Directory](/azure/active-directory/connect/active-directory-aadconnect).
 
-Při přihlášení k portálu tenanta vaší organizace, je použít *https:\//portal.local.azurestack.external* adresy URL. Při přihlašování k portálu Azure Stack z jiných domén, než jaký se používá k registraci Azure Stack, použili k registraci ve službě Azure Stack název domény musí být připojeno k portálu pro adresu url. Pokud Azure Stack je zaregistrován s fabrikam.onmicrosoft.com a uživatelský účet přihlášení je například admin@contoso.com, by měla adresa url pro použití k protokolování do portálu user portal: https:\//portal.local.azurestack.external/ Fabrikam.onmicrosoft.com.
+Když se přihlásíte na portál tenanta vaší organizace, použijete adresu URL *https: \//Portal. Local. azurestack. external* . Pokud se přihlašujete k portálu Azure Stack z jiných domén, než je ta, která se používá k registraci Azure Stack, musí být název domény, který se používá k registraci Azure Stack, připojený k adrese URL portálu. Pokud je například Azure Stack zaregistrován v fabrikam.onmicrosoft.com a přihlašování k uživatelskému účtu je admin@contoso.com, adresa URL pro přihlášení k portálu User Portal bude: https: \//Portal. Local. azurestack. external/Fabrikam. com.
 
-### <a name="guest-users"></a>Uživatelé typu Host
+### <a name="guest-users"></a>Uživatelé typu host
 
-Uživatelé typu Host jsou uživatelské účty z jiných tenantů adresáře, kterým byl udělen přístup k prostředkům ve vašem adresáři. Pro podporu uživatelů typu Host, použijte Azure AD a povolit podporu pro více tenantů. Pokud je povolena podpora, můžete pozvat uživatele typu Host pro přístup k prostředkům ve vašem tenantovi adresář, který umožňuje vzájemnou spolupráci s vnějším organizacemi.
+Uživatelé typu Host jsou uživatelské účty z jiných tenantů adresářů, kterým byl udělen přístup k prostředkům ve vašem adresáři. Pokud chcete zajistit podporu pro uživatele typu Host, použijte službu Azure AD a povolte podporu pro víceklientské architektury. Pokud je povolená podpora, můžete pozvat uživatele typu Host, aby měli přístup k prostředkům ve vašem tenantovi adresáře, což zase umožní spolupráci s externími organizacemi.
 
-Pozvat uživatele typu Host, můžete použít operátoři cloudů a uživatelé [spolupráce B2B ve službě Azure AD](/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b). Pozvaní uživatelé získat přístup k dokumentům, prostředky a aplikace z adresáře a zachovat kontrolu nad prostředky a data. 
+K pozvání uživatelů typu Host můžou používat cloudové operátory a uživatelé [Azure AD spolupráci B2B](/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b). Pozvaní uživatelé získají přístup k dokumentům, prostředkům a aplikacím z vašeho adresáře a Vy si udržujete kontrolu nad svými vlastními prostředky a daty.
 
-Jako uživatele typu Host můžete se přihlásit k adresáři tenanta jiné organizace. Uděláte to tak, připojte název adresáře vaší organizace na portálu pro adresu URL. Například pokud patří do organizace Contoso a chcete k přihlášení do adresáře společnosti Fabrikam, pomocí protokolu https:\//portal.local.azurestack.external/fabrikam.onmicrosoft.com.
+Jako uživatel typu Host se můžete přihlásit k tenantovi adresáře jiné organizace. Uděláte to tak, že název adresáře této organizace připojíte k adrese URL portálu. Pokud například patříte do organizace contoso a chcete se přihlásit k adresáři Fabrikam, použijte protokol https: \//Portal. Local. azurestack. external/Fabrikam. Microsoft. com.
 
-### <a name="applications"></a>Aplikace
+### <a name="apps"></a>Aplikace
 
-Můžou registrovat aplikace do Azure AD nebo AD FS a potom ve své organizaci nabízet aplikace pro uživatele.
+Aplikace můžete registrovat do služby Azure AD nebo AD FS a pak je nabízet uživatelům ve vaší organizaci.
 
-Použití patří:
+Mezi aplikace patří:
 
-- **Webová aplikace**: Mezi příklady patří Azure Resource Manageru a webu Azure portal. Volání webového rozhraní API podporují.
-- **Nativní klient systému**: Mezi příklady patří prostředí Azure PowerShell, sady Visual Studio a rozhraní příkazového řádku Azure.
+- **Webové aplikace**: Mezi příklady patří Azure Portal a Azure Resource Manager. Podporují volání webového rozhraní API.
+- **Nativní klient**: Mezi příklady patří Azure PowerShell, Visual Studio a Azure CLI.
 
-Aplikace podporuje dva typy tenantů:
+Aplikace můžou podporovat dva typy tenantů:
 
-- **Jednoho tenanta**: Podporuje uživatele a služby pouze ze stejného adresáře, ve kterém aplikace bude zaregistrovaná.
+- **Jeden tenant**: Podporuje uživatele a služby jenom ze stejného adresáře, ve kterém je aplikace zaregistrovaná.
 
   > [!NOTE]
-  > Vzhledem k tomu, že služba AD FS podporuje pouze jeden adresář, aplikace, které vytvoříte v topologii AD FS jsou, návrh aplikace s jedním tenantem.
+  > Vzhledem k tomu, že AD FS podporuje jenom jeden adresář, aplikace, které vytvoříte v topologii AD FS, jsou navržené aplikacemi pro jednoho tenanta.
 
-- **Víceklientské**: Podporuje použití podle uživatele a služby z adresáře, ve kterém aplikace bude zaregistrovaná a další tenanta adresáře. Pomocí aplikace s více tenanty uživatelé z jiného tenanta adresáře (s jiným tenantem Azure AD) můžou přihlašovat do vaší aplikace. 
+- **Vícenásobný tenant**: Podporuje použití pro uživatele a služby z adresáře, ve kterém je aplikace zaregistrovaná, a dalších adresářů tenanta. S aplikacemi pro více tenantů se můžou uživatelé jiného adresáře tenanta (jiný tenant Azure AD) přihlásit k vaší aplikaci.
 
-  Další informace o víceklientské architektury, najdete v části [povolení víceklientské architektury](azure-stack-enable-multitenancy.md).
+  Další informace o víceklientské architektuře najdete v tématu [Povolení víceklientské architektury](azure-stack-enable-multitenancy.md).
 
-  Další informace o vývoji aplikace s více tenanty najdete v tématu [aplikace s více tenanty](/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview).
+  Další informace o vývoji aplikace s více klienty najdete v tématu [víceklientské aplikace](/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview).
 
-Když si zaregistrujete aplikaci, můžete vytvořit dva objekty:
+Při registraci aplikace vytvoříte dva objekty:
 
-- **Objekt aplikace**: Globální reprezentace aplikace ve všech tenantech. Tento vztah 1: 1 s aplikací softwaru a existuje pouze v adresáři, ve kterém je aplikace nejprve registrována.
+- **Aplikační objekt**: Globální reprezentace aplikace napříč všemi klienty. Tento vztah se softwarovou aplikací používá a existuje jenom v adresáři, ve kterém se aplikace poprvé zaregistrovala.
 
-- **Instanční objekt**: Přihlašovací údaj, který je vytvořen pro aplikaci v adresáři, ve kterém je aplikace nejprve registrována. Instanční objekt služby se také vytvoří v adresáři každý další klient, kde se tato aplikace používá. Tento vztah může být jeden mnoho s softwarová aplikace.
+- **Instanční objekt služby**: Přihlašovací údaje, které se vytvoří pro aplikaci v adresáři, ve kterém se aplikace poprvé zaregistrovala Instanční objekt se vytvoří také v adresáři každého dalšího tenanta, ve kterém se tato aplikace používá. Tento vztah může být v softwarové aplikaci jeden až mnoho.
 
-Další informace o aplikaci a instanční objekty, najdete v článku [aplikace a instanční objekty v Azure Active Directory](/azure/active-directory/develop/active-directory-application-objects).
+Další informace o aplikacích a instančních objektech zabezpečení naleznete [v tématu Application and Service Principal Objects in Azure Active Directory](/azure/active-directory/develop/active-directory-application-objects).
 
 ### <a name="service-principals"></a>Instanční objekty
 
-Instanční objekt služby je sada *pověření* pro aplikace nebo služba, která uděluje přístup k prostředkům ve službě Azure Stack. Použití instančního objektu odděluje oprávnění aplikace z oprávnění uživatele aplikace.
+Instanční objekt je sada *přihlašovacích údajů* pro aplikaci nebo službu, která uděluje přístup k prostředkům v Azure Stack. Použití instančního objektu odděluje oprávnění aplikace od oprávnění uživatele k aplikaci.
 
-Instanční objekt služby se vytvoří v každého klienta, kde se aplikace používá. Instanční objekt služby vytvoří identitu pro přihlášení a přístup k prostředkům (třeba uživatelé), které jsou zabezpečené pomocí tohoto tenanta.
+V každém tenantovi, ve kterém se aplikace používá, se vytvoří instanční objekt. Instanční objekt vytváří identitu pro přihlašování a přístup k prostředkům (například uživatelům) zabezpečeným tímto klientem.
 
-- Aplikace jedním tenantem má pouze jeden objekt služby, v adresáři, ve kterém se nejdřív vytvoří. Tento instanční objekt je vytvořen a souhlasí na používá při registraci aplikace.
-- Víceklientské webová aplikace nebo rozhraní API má hlavní název služby, která je vytvořená v rámci každého tenanta, kde souhlas uživatele z tohoto tenanta se používání aplikace.
+- Aplikace pro jednoho tenanta má jenom jeden instanční objekt, který je v adresáři, ve kterém se nejdřív vytvořil. Tento instanční objekt se vytvoří a pošle se k použití během registrace aplikace.
+- Webová aplikace nebo rozhraní API pro více tenantů má instanční objekt, který je vytvořený v každém tenantovi, kde se uživatel z tohoto tenanta souhlasí s používáním aplikace.
 
-Přihlašovací údaje pro instanční objekty můžou být buď klíč, který je generován prostřednictvím webu Azure portal nebo certifikát. Použití certifikátu je vhodný pro automatizaci, protože certifikáty se považuje za bezpečnější než klíče. 
+Přihlašovací údaje pro instanční objekty můžou být buď klíč, který se generuje prostřednictvím Azure Portal nebo certifikátu. Použití certifikátu je vhodné pro automatizaci, protože certifikáty se považují za bezpečnější než klíče.
 
 > [!NOTE]
-> Když používáte službu AD FS pomocí služby Azure Stack, můžete vytvořit pouze správce instančních objektů. Instanční objekty se službou AD FS, vyžadují certifikáty a jsou vytvořeny pomocí privilegovaných koncového bodu (období). Další informace najdete v tématu [poskytují aplikacím přístup ke službě Azure Stack](azure-stack-create-service-principals.md).
+> Pokud používáte AD FS s Azure Stack, může vytvořit instanční objekty pouze správce. U AD FS instanční objekty vyžadují certifikáty a vytvářejí je prostřednictvím privilegovaného koncového bodu (PEP). Další informace najdete v tématu [použití identity aplikace pro přístup k prostředkům](azure-stack-create-service-principals.md).
 
-Další informace o instančních objektů pro službu Azure Stack, najdete v článku [vytvoření instančních objektů](azure-stack-create-service-principals.md).
+Další informace o instančních objektech pro Azure Stack najdete v tématu [Create Service instančních objektů](azure-stack-create-service-principals.md).
 
 ### <a name="services"></a>Služby
 
-Služby ve službě Azure Stack, které pracují s poskytovatelem identity jsou registrovány jako aplikace pomocí zprostředkovatele identity. Podobně jako aplikace umožňuje registraci služby k ověření pomocí systému identit.
+Služby v Azure Stack, které komunikují se zprostředkovatelem identity, se registrují jako aplikace s poskytovatelem identity. Podobně jako aplikace registrace umožňuje službě ověřování pomocí systému identit.
 
-Všechny služby Azure pomocí [OpenID Connect](/azure/active-directory/develop/active-directory-protocols-openid-connect-code) protokoly a [webových tokenů JSON](/azure/active-directory/develop/active-directory-token-and-claims) vytvořit svoji identitu. Protože Azure AD a AD FS používají protokoly konzistentně, můžete použít [Azure Active Directory Authentication Library](/azure/active-directory/develop/active-directory-authentication-libraries) (ADAL) pro ověření v místním nebo do Azure (v případě propojené). Ověřování adal můžete také použít nástroje, jako je Azure PowerShell a rozhraní příkazového řádku Azure pro správu cloudu a místních prostředků.
+Všechny služby Azure používají ke zřízení své identity protokoly [OpenID Connect](/azure/active-directory/develop/active-directory-protocols-openid-connect-code) a [webové tokeny JSON](/azure/active-directory/develop/active-directory-token-and-claims) . Vzhledem k tomu, že Azure AD a AD FS používají protokoly konzistentně, můžete k ověřování místně nebo k Azure (v připojeném scénáři) použít [knihovnu služby Azure Active Directory Authentication Library](/azure/active-directory/develop/active-directory-authentication-libraries) (ADAL). Pomocí ADAL můžete také používat nástroje, jako je Azure PowerShell a Azure CLI pro správu mezi cloudy a místními prostředky.
 
-### <a name="identities-and-your-identity-system"></a>Identity a systému identit
+### <a name="identities-and-your-identity-system"></a>Identity a systém identit
 
-Identit pro službu Azure Stack obsahují uživatelské účty, skupiny a instanční objekty.
+Mezi identity pro Azure Stack patří uživatelské účty, skupiny a instanční objekty.
 
-Při instalaci Azure Stack několik integrovaných aplikací a služeb automaticky registrovat pomocí zprostředkovatele identity v tenantu Active directory. Některé služby, které registrují se používají pro správu. Další služby jsou k dispozici pro uživatele. Výchozí registrace poskytují základní služby identity, které mohou komunikovat mezi sebou i s identitami, které přidáte později.
+Když nainstalujete Azure Stack, několik integrovaných aplikací a služeb se automaticky zaregistruje u vašeho poskytovatele identity v tenantovi adresáře. Některé služby, které se registrují, se používají ke správě. Pro uživatele jsou k dispozici další služby. Výchozí registrace poskytují identity Core Services, které mohou vzájemně komunikovat, a s identitami, které přidáte později.
 
-Pokud jste nastavili Azure AD s více tenantů, některé aplikace se rozšíří do nového adresáře.
+Pokud nastavíte Azure AD s využitím víceklientské architektury, některé aplikace se rozšíří do nových adresářů.
 
 ## <a name="authentication-and-authorization"></a>Ověřování a autorizace
 
-### <a name="authentication-by-applications-and-users"></a>Ověřování aplikace a uživatelé
+### <a name="authentication-by-apps-and-users"></a>Ověřování pomocí aplikací a uživatelů
 
-![Identity mezi vrstvami služby Azure Stack](media/azure-stack-identity-overview/identity-layers.png)
+![Identita mezi vrstvami Azure Stack](media/azure-stack-identity-overview/identity-layers.png)
 
-Pro aplikace a uživatele je popsán čtyři vrstvy architektury Azure Stack. Interakce mezi jednotlivými tyto vrstvy můžete použít různé typy ověřování.
+Pro aplikace a uživatele je architektura Azure Stack popsaná čtyřmi vrstvami. Interakce mezi každou z těchto vrstev může používat různé typy ověřování.
 
 |Vrstva    |Ověřování mezi vrstvami  |
 |---------|---------|
-|Nástroje a klienty, jako je například portál pro správu     | Do prostředků ve službě Azure Stack, upravit nebo přistoupit k nástrojům a klienti používat [webového tokenu JSON](/azure/active-directory/develop/active-directory-token-and-claims) volání do Azure Resource Manageru. <br>Azure Resource Manageru JSON Web Token ověří a prohlédne *deklarace identity* v vydaný token odhadnout úroveň autorizace uživatele nebo instanční objekt služby má ve službě Azure Stack. |
-|Azure Resource Manageru a jeho základní služby     |Azure Resource Manageru komunikuje s poskytovatele prostředků pro přenos komunikace od uživatelů. <br> Přenese použití *přímé dnešní* volání nebo *deklarativní* volá prostřednictvím [šablon Azure Resource Manageru](/azure-stack/user/azure-stack-arm-templates).|
-|Poskytovatelé prostředků     |Volání předána poskytovatelů prostředků jsou zabezpečené pomocí ověřování prostřednictvím certifikátu. <br>Azure Resource Manageru a poskytovatele prostředků a zůstat v komunikaci přes rozhraní API. Pro každé volání, které se získaly z Azure Resource Manageru poskytovatel prostředků ověří volání pomocí tohoto certifikátu.|
-|Infrastrukturu a obchodní logiky     |Poskytovatelé prostředků komunikovat s obchodní logiky a infrastruktury s využitím režimu ověřování podle vlastní volby. Výchozí poskytovatele prostředků, které se dodávají pomocí služby Azure Stack pomocí ověřování Windows pro zabezpečení této komunikace.|
+|Nástroje a klienti, jako je například portál pro správu     | Chcete-li získat přístup k prostředku v Azure Stack nebo ho upravit, používají nástroje a klienti [JSON web token](/azure/active-directory/develop/active-directory-token-and-claims) k umístění volání Azure Resource Manager. <br>Azure Resource Manager ověří JSON Web Token a prohlédne *deklarace identity* v vystaveném tokenu k odhadu úrovně oprávnění, které má uživatel nebo instanční objekt v Azure Stack. |
+|Azure Resource Manager a jeho základní služby     |Azure Resource Manager komunikuje s poskytovateli prostředků pro přenos komunikace od uživatelů. <br> Přenáší použití *přímých imperativních* volání nebo *deklarativních* volání prostřednictvím [šablon Azure Resource Manager](/azure-stack/user/azure-stack-arm-templates).|
+|Poskytovatelé prostředků     |Volání předaná poskytovatelům prostředků jsou zabezpečena pomocí ověřování založeného na certifikátech. <br>Azure Resource Manager a poskytovatel prostředků pak zůstanou v komunikaci prostřednictvím rozhraní API. Pro každé volání, které je přijato od Azure Resource Manager poskytovatel prostředků ověřuje volání s tímto certifikátem.|
+|Infrastruktura a obchodní logika     |Poskytovatelé prostředků komunikují s obchodní logikou a infrastrukturou pomocí režimu ověřování podle svého výběru. Výchozí poskytovatelé prostředků, kteří dodávají Azure Stack používají k zabezpečení této komunikace ověřování systému Windows.|
 
-![Informace potřebné pro ověřování](media/azure-stack-identity-overview/authentication.png)
+![Informace potřebné k ověřování](media/azure-stack-identity-overview/authentication.png)
 
-### <a name="authenticate-to-azure-resource-manager"></a>Ověřování do Azure Resource Manageru
+### <a name="authenticate-to-azure-resource-manager"></a>Ověřování pro Azure Resource Manager
 
-Ověřování pomocí zprostředkovatele identity a přijímat webového tokenu JSON, musíte mít následující informace:
+Chcete-li provést ověření u poskytovatele identity a získat JSON Web Token, je nutné mít následující informace:
 
-1. **Adresa URL pro systém identit (autorita)** : Adresa URL, na které se dá kontaktovat zprostředkovatele identity. Například *https:\//login.windows.net*.
-2. **Identifikátor URI ID aplikace pro Azure Resource Manageru**: Jedinečný identifikátor pro Azure Resource Manageru, který je zaregistrovaný u vašeho zprostředkovatele identity. Je také jedinečná pro každou instalaci Azure Stack.
-3. **přihlašovací údaje**: Přihlašovací údaje, které použijete k ověřování pomocí zprostředkovatele identity.
-4. **Adresa URL pro Azure Resource Manageru**: Adresa URL je umístění služby Azure Resource Manageru. Například *https:\//management.azure.com* nebo *https:\//management.local.azurestack.external*.
+1. **Adresa URL pro systém identity (autorita)** : Adresa URL, na které je možné získat poskytovatele identity. Například *https: \//Login. Windows. NET*.
+2. **Identifikátor URI ID aplikace pro Azure Resource Manager**: Jedinečný identifikátor pro Azure Resource Manager, který je zaregistrován u vašeho poskytovatele identity. Je také jedinečné pro každou Azure Stack instalaci.
+3. **Přihlašovací údaje**: Přihlašovací údaje, které používáte k ověření u poskytovatele identity.
+4. **Adresa URL pro Azure Resource Manager**: Adresa URL je umístění služby Azure Resource Manager. Například *https: \//Management. Azure. com* nebo *https: \//Management. Local. azurestack. external*.
 
-Pokud objekt zabezpečení (klienta, aplikace nebo uživatele) odešle požadavek na ověření pro přístup k prostředku, musí zahrnovat požadavek:
+Když objekt zabezpečení (klient, aplikace nebo uživatel) odešle požadavek na ověření k přístupu k prostředku, požadavek musí zahrnovat:
 
-- Přihlašovací údaje daného objektu zabezpečení.
-- Identifikátor URI pro ID prostředku, který chce, aby se objekt zabezpečení pro přístup k aplikaci.
+- Přihlašovací údaje objektu zabezpečení
+- Identifikátor URI ID aplikace prostředku, k němuž chce získat přístup.
 
-Přihlašovací údaje jsou ověřeny poskytovatelem identity. Zprostředkovatel identity také ověří, že aplikace identifikátor URI ID je pro zaregistrovanou aplikaci a, objekt zabezpečení má správná oprávnění k získání tokenu pro daný prostředek. Pokud je požadavek platný, je povoleno webového tokenu JSON.
+Přihlašovací údaje jsou ověřeny zprostředkovatelem identity. Zprostředkovatel identity taky ověří, že identifikátor URI ID aplikace je pro registrovanou aplikaci a že objekt zabezpečení má správná oprávnění k získání tokenu pro tento prostředek. Je-li požadavek platný, je udělen JSON Web Token.
 
-Token, který pak je nutné předat v hlavičce požadavku na Azure Resource Manager. Azure Resource Manageru nepodporuje následující v žádné konkrétní pořadí:
+Token se pak musí předat do hlavičky žádosti, aby se Azure Resource Manager. Azure Resource Manager provede následující akce bez konkrétního pořadí:
 
-- Ověřuje *vystavitele* potvrďte, že token pochází od poskytovatele správnou identitu deklarací identity (iss).
-- Ověřuje *cílovou skupinu* deklarace identity (aud) pro potvrzení, zda byl token vydán pro Azure Resource Manageru.
-- Ověřuje, že webového tokenu JSON je podepsaný certifikátem, který je nakonfigurovaný pomocí OpenID se označuje do Azure Resource Manageru.
-- Zkontrolujte *vystaveno* (iat) a *vypršení platnosti* (exp) deklarace identity pro potvrzení, že token, který je aktivní a může být přijata.
+- Ověří deklaraci identity *vystavitele* (ISS), aby zkontrolovala, že token pochází od správného zprostředkovatele identity.
+- Ověří deklaraci identity *cílové skupiny* (AUD), aby se ověřilo, že token byl vydán pro Azure Resource Manager.
+- Ověří, jestli je JSON Web Token podepsaný certifikátem, který je nakonfigurovaný prostřednictvím OpenID a je známý pro Azure Resource Manager.
+- Přečtěte si deklarace identity *vydaná v* (IAT) a *vypršení platnosti* (EXP) a potvrďte, že je token aktivní a který lze přijmout.
 
-Po dokončení všech ověření pomocí Azure Resource Manageru *námitky* (oid) a *skupiny* deklarací identity, aby seznam prostředků, které můžete přístup k objektu zabezpečení.
+Po dokončení všech ověření používá Azure Resource Manager k vytvoření seznamu prostředků, k jejichž přístupu má objekt zabezpečení, deklarace identity *objektu* (OID) a *skupiny* .
 
-![Diagram průběhu výměny tokenů protokolu](media/azure-stack-identity-overview/token-exchange.png)
+![Diagram protokolu výměny tokenů](media/azure-stack-identity-overview/token-exchange.png)
 
 > [!NOTE]
-> Po nasazení není potřeba oprávnění globálního správce Azure Active Directory. Některé operace však může vyžadovat přihlašovací údaje globálního správce. Například skript instalační program zprostředkovatele prostředků nebo nová funkce vyžaduje oprávnění bylo uděleno. Můžete buď dočasně znovu vytvořit oprávnění účtu globálního správce nebo použijte samostatné globální správce účtu, který je vlastníkem *výchozí předplatné poskytovatele*.
+> Po nasazení se Azure Active Directory oprávnění globálního správce nevyžadují. Některé operace ale můžou vyžadovat přihlašovací údaje globálního správce (například skript instalačního programu poskytovatele prostředků nebo novou funkci, která vyžaduje udělení oprávnění). Můžete buď dočasně znovu vytvořit oprávnění globálního správce účtu, nebo použít samostatný účet globálního správce, který je vlastníkem *výchozího předplatného poskytovatele*.
 
-### <a name="use-role-based-access-control"></a>Použití řízení přístupu na základě rolí
+### <a name="use-role-based-access-control"></a>Použití Access Control na základě rolí
 
-Řízení přístupu na základě role (RBAC) ve službě Azure Stack je konzistentní s implementací v Microsoft Azure. Přístup k prostředkům můžete spravovat přiřazováním odpovídajících rolí RBAC uživatelům, skupinám a aplikacím.
-Informace o tom, jak pomocí RBAC pro Azure Stack, najdete v následujících článcích:
+Řízení přístupu na základě role (RBAC) ve službě Azure Stack je konzistentní s implementací v Microsoft Azure. Přístup k prostředkům můžete spravovat přiřazením příslušné role RBAC uživatelům, skupinám a aplikacím. Informace o použití RBAC s Azure Stack najdete v následujících článcích:
 
-- [Začínáme s řízením přístupu na základě rolí na portálu Azure portal](/azure/role-based-access-control/overview).
-- [Použití řízení přístupu na základě rolí ke správě přístupu k prostředkům předplatného Azure](/azure/role-based-access-control/role-assignments-portal).
-- [Vytvoření vlastních rolí pro řízení přístupu](/azure/role-based-access-control/custom-roles).
-- [Správa řízení přístupu na základě rolí](azure-stack-manage-permissions.md) ve službě Azure Stack.
+- Začněte [s Access Control na základě rolí v Azure Portal](/azure/role-based-access-control/overview).
+- Ke [správě přístupu k prostředkům předplatného Azure použijte Access Control na základě rolí](/azure/role-based-access-control/role-assignments-portal).
+- [Vytvořte vlastní role pro Access Control na základě rolí Azure](/azure/role-based-access-control/custom-roles).
+- [Spravujte Access Control na základě rolí](azure-stack-manage-permissions.md) v Azure Stack.
 
-### <a name="authenticate-with-azure-powershell"></a>Ověřování pomocí Azure Powershellu
+### <a name="authenticate-with-azure-powershell"></a>Ověřování s využitím Azure PowerShellu
 
-Podrobnosti o použití Azure Powershellu k ověření pomocí služby Azure Stack najdete v [konfigurace uživatele služby Azure Stack Powershellu prostředí](../user/azure-stack-powershell-configure-user.md).
+Podrobnosti o používání Azure PowerShell k ověřování pomocí Azure Stack najdete v [části Konfigurace prostředí PowerShellu pro Azure Stack uživatele](../user/azure-stack-powershell-configure-user.md).
 
 ### <a name="authenticate-with-azure-cli"></a>Ověřování pomocí Azure CLI
 
-Informace o použití Azure Powershellu k ověření pomocí služby Azure Stack najdete v tématu [instalace a konfigurace rozhraní příkazového řádku Azure pro použití s Azure Stackem](/azure-stack/user/azure-stack-version-profiles-azurecli2).
+Informace o použití Azure PowerShell k ověřování pomocí Azure Stack najdete v tématu [instalace a konfigurace rozhraní příkazového řádku Azure CLI pro použití s Azure Stack](/azure-stack/user/azure-stack-version-profiles-azurecli2).
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 - [Architektura identity](azure-stack-identity-architecture.md)
-- [Integrace datových center - identity](azure-stack-integrate-identity.md)
+- [Integrace Datacenter – identita](azure-stack-integrate-identity.md)

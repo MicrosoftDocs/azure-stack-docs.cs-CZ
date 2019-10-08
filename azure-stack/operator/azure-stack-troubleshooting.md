@@ -16,12 +16,12 @@ ms.date: 09/30/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 09/30/2019
-ms.openlocfilehash: 0fb46cd1b92c1b811ba1c72a91188201a7d2af96
-ms.sourcegitcommit: 79ead51be63c372b23b7fca6ffeaf95fd44de786
+ms.openlocfilehash: 7e2f13fa20c9aafd90abe34277c907a4d12b4d81
+ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71687975"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72019438"
 ---
 # <a name="microsoft-azure-stack-troubleshooting"></a>Řešení potíží s Microsoft Azure Stack
 
@@ -57,7 +57,7 @@ Tyto části obsahují odkazy na dokumenty, které pokrývají běžné otázky 
 
 Pokud chcete zvýšit celkovou dostupnou kapacitu paměti pro službu Azure Stack, můžete přidat další paměť. Ve službě Azure Stack se fyzický server označuje také jako uzel jednotky škálování. Všechny uzly jednotek škálování, které jsou členy jedné jednotky škálování, musí mít [stejnou velikost paměti](azure-stack-manage-storage-physical-memory-capacity.md).
 
-#### <a name="retention-period"></a>Období udržení
+#### <a name="retention-period"></a>Doba uchovávání
 
 Nastavení doby uchovávání umožňuje operátorovi cloudu nastavit časové období ve dnech (od 0 do 9 999 dnů), během kterého je potenciálně možné obnovit jakýkoli odstraněný účet. Výchozí doba uchování je nastavená na **0** dní. Nastavení hodnoty na **0** znamená, že libovolný odstraněný účet je ihned neuchováván a označený pro periodické uvolňování paměti.
 
@@ -82,7 +82,7 @@ Pokud předdefinované role pro prostředky Azure nesplňují konkrétní požad
 
 Zvolte typ účtu sdílených služeb, který používáte pro službu Azure Stack. K registraci služby Azure Stack pro více tenantů je možné použít následující typy předplatných:
 
-* Poskytovatel cloudových služeb
+* Cloud Solution Provider
 * Předplatné Partner Shared Services
 
 

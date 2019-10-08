@@ -17,12 +17,12 @@ ms.author: sethm
 ms.reviewer: troettinger
 ms.lastreviewed: 09/10/2019
 monikerRange: azs-1802
-ms.openlocfilehash: a341ff38b0a2540fbf8e1070d9c98bdd9ec4df5f
-ms.sourcegitcommit: 305536bfd49319455ca3ca270fe3644b1796bad1
+ms.openlocfilehash: 2dd88656491a474e4082ff4e8321af836776b1f0
+ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70878779"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72019113"
 ---
 # <a name="clear-portal-user-data-from-azure-stack"></a>Vymazat data uživatelů portálu z Azure Stack
 
@@ -86,7 +86,7 @@ Pro účely tohoto postupu použijte počítač, který může komunikovat s Spr
 
 ## <a name="clear-portal-user-data-in-guest-directory"></a>Vymazání uživatelských dat portálu v adresáři hosta
 
-V tomto scénáři nemá operátor Azure Stack žádný přístup k adresáři hosta, ve kterém se nachází uživatel. Toto je běžný scénář, pokud jste poskytovatel cloudových služeb (CSP).
+V tomto scénáři nemá operátor Azure Stack žádný přístup k adresáři hosta, ve kterém se nachází uživatel. Toto je běžný scénář, pokud jste poskytovatelem Cloud Solution Provider (CSP).
 
 Aby mohl operátor Azure Stack odebrat uživatelská data portálu, je nutné zadat alespoň ID uživatelského objektu.
 
