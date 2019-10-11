@@ -17,12 +17,12 @@ ms.date: 06/04/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 11/13/2018
-ms.openlocfilehash: f47278fed9cd9e93024d37a0a433388594bbd124
-ms.sourcegitcommit: 1bae55e754d7be75e03af7a4db3ec43fd7ff3e9c
+ms.openlocfilehash: e6e09dffa6682a615c01e6fee841a5d736054546
+ms.sourcegitcommit: dfaf0126bc9975ca1643d55f06c71df9e32ea976
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71319158"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72165001"
 ---
 # <a name="tutorial-create-and-test-a-subscription-in-azure-stack"></a>Kurz: Vytvoření a otestování předplatného v Azure Stack
 
@@ -54,7 +54,7 @@ Pokud se chcete přihlásit k odběru nabídky jako uživatel, přihlaste se k p
    > [!TIP]
    > Aktualizujte portál User Portal, abyste mohli začít používat vaše předplatné.
 
-3. Pokud chcete zobrazit předplatné, které jste vytvořili, vyberte **všechny služby**. Pak v kategorii **Obecné** vyberte předplatnáa potom vyberte nové předplatné. Po přihlášení k odběru nabídky aktualizujte portál a podívejte se, jestli byly nové služby zahrnuté jako součást nového předplatného. V tomto příkladu se přidaly **virtuální počítače** .
+3. Pokud chcete zobrazit předplatné, které jste vytvořili, vyberte **všechny služby**. Pak v kategorii **Obecné** vyberte **předplatná**a potom vyberte nové předplatné. Po přihlášení k odběru nabídky aktualizujte portál a podívejte se, jestli byly nové služby zahrnuté jako součást nového předplatného. V tomto příkladu se přidaly **virtuální počítače** .
 
    ![Zobrazit předplatné](media/azure-stack-subscribe-services/view-subscription.png)
 
@@ -79,7 +79,7 @@ Když jste přihlášení k portálu User Portal, otestujte nabídku tím, že z
 
 7. Pokud chcete zobrazit nový virtuální počítač, vyberte **virtuální počítače**, vyhledejte nový virtuální počítač a vyberte jeho jméno.
 
-    ![Všechny zdroje](media/azure-stack-subscribe-services/view-vm.png)
+    ![Všechny prostředky](media/azure-stack-subscribe-services/view-vm.png)
 
 > [!NOTE]
 > Dokončení nasazení virtuálního počítače trvá několik minut.

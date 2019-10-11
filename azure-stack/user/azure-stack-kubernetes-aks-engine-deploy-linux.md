@@ -11,20 +11,20 @@ ms.workload: na
 pms.tgt_pltfrm: na (Kubernetes)
 ms.devlang: nav
 ms.topic: article
-ms.date: 09/27/2019
+ms.date: 10/09/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/27/2019
-ms.openlocfilehash: d831f5ad30fe2c7e2b4c2ce5d6a9018f8cc833fb
-ms.sourcegitcommit: 036d4b22a8076ca9ba5c667a451c544d88f8bb94
+ms.lastreviewed: 10/09/2019
+ms.openlocfilehash: 3debcd152a54fd3a0b940ad3dd4d379c6688faec
+ms.sourcegitcommit: 12034a1190d52ca2c7d3f05c8c096416120d8392
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71681726"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72037962"
 ---
 # <a name="install-the-aks-engine-on-linux-in-azure-stack"></a>Instalace modulu AKS v systému Linux v Azure Stack
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit @ no__t-0
 
 Pomocí počítače se systémem Linux v Azure Stack můžete hostovat modul AKS, aby bylo možné nasadit a spravovat cluster Kubernetes. V tomto článku se podíváme na přípravu klientského virtuálního počítače pro správu clusteru pro připojené i odpojené Azure Stack instance, Projděte si instalaci a nastavte virtuální počítač klienta na ASDK.
 
@@ -41,15 +41,15 @@ Při volbě klientského počítače zvažte následující:
 
 Můžete nainstalovat klientský virtuální počítač pro správu clusteru Kubernetes na Azure Stack připojeném k Internetu.
 
-1. Ve svém Azure Stack vytvořte virtuální počítač se systémem Linux. Pokyny najdete v tématu [rychlý Start: Vytvořte virtuální počítač s Linux serverem pomocí portálu](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-linux-portal)Azure Stack.
+1. Ve svém Azure Stack vytvořte virtuální počítač se systémem Linux. Pokyny najdete v tématu [Quickstart: Pomocí portálu Azure Stack @ no__t-0 vytvořte virtuální počítač serveru se systémem Linux.
 2. Připojte se k VIRTUÁLNÍmu počítači.
-3. Vyhledá verzi AKS Engine v tabulce [podporovaných verzí Kubernetes](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions) . Základní modul AKS musí být k dispozici na webu Marketplace pro Azure Stack. Při spuštění příkazu je nutné zadat verzi `--version v0.40.1`. Pokud nezadáte verzi, příkaz nainstaluje nejnovější verzi, která může potřebovat image VHD, která není na vašem webu Marketplace k dispozici.
+3. Vyhledá verzi AKS Engine v tabulce [podporovaných verzí Kubernetes](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions) . Základní modul AKS musí být k dispozici na webu Marketplace pro Azure Stack. Při spuštění příkazu je nutné zadat verzi `--version v0.41.2`. Pokud nezadáte verzi, příkaz nainstaluje nejnovější verzi, která může potřebovat image VHD, která není na vašem webu Marketplace k dispozici.
 4. Spusťte následující příkaz:
 
     ```bash  
         curl -o get-akse.sh https://raw.githubusercontent.com/Azure/aks-engine/master/scripts/get-akse.sh
         chmod 700 get-akse.sh
-        ./get-akse.sh --version v0.40.1
+        ./get-akse.sh --version v0.41.2
     ```
 
     > [!Note]  
@@ -63,7 +63,7 @@ Můžete nainstalovat klientský virtuální počítač pro správu clusteru Kub
 
 2.  Vytvořte v instanci Azure Stack účet úložiště pro nahrání souboru archivu (*. tar. gz) s binárním modulem AKS. Pokyny k používání Průzkumník služby Azure Storage najdete v tématu [Průzkumník služby Azure Storage s Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-connect-se).
 
-3. Ve svém Azure Stack vytvořte virtuální počítač se systémem Linux. Pokyny najdete v tématu [rychlý Start: Vytvořte virtuální počítač s Linux serverem pomocí portálu](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-linux-portal)Azure Stack.
+3. Ve svém Azure Stack vytvořte virtuální počítač se systémem Linux. Pokyny najdete v tématu [Quickstart: Pomocí portálu Azure Stack @ no__t-0 vytvořte virtuální počítač serveru se systémem Linux.
 
 3.  Z adresy URL objektu blob Azure Stack účtu úložiště, kam jste nahráli archivní soubor (*. tar. gz), Stáhněte soubor na virtuální počítač pro správu. Extrahujte archiv do adresáře `/usr/local/bin`.
 
@@ -94,7 +94,7 @@ Pokud se nemůžete ověřit, jestli máte na VIRTUÁLNÍm počítači klienta n
 
 Při spuštění virtuálního počítače klienta pro modul AKS na ASDK budete muset přidat certifikát.
 
-Pokud používáte ASDK, váš Azure Resource Manager koncový bod používá certifikát podepsaný svým držitelem, musíte tento certifikát explicitně přidat do důvěryhodného úložiště certifikátů počítače. Kořenový certifikát ASDK najdete na každém virtuálním počítači, který nasadíte v ASDK. Například na virtuálním počítači s Ubuntu se v tomto adresáři `/var/lib/waagent/Certificates.pem`nachází. 
+Pokud používáte ASDK, váš Azure Resource Manager koncový bod používá certifikát podepsaný svým držitelem, musíte tento certifikát explicitně přidat do důvěryhodného úložiště certifikátů počítače. Kořenový certifikát ASDK najdete na každém virtuálním počítači, který nasadíte v ASDK. Například na virtuálním počítači s Ubuntu najdete ho v tomto adresáři `/var/lib/waagent/Certificates.pem`. 
 
 Zkopírujte soubor certifikátu pomocí následujícího příkazu:
 

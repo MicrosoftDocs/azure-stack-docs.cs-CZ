@@ -12,24 +12,27 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2019
+ms.date: 10/08/2019
 ms.author: justinha
 ms.reviewer: prchint
-ms.lastreviewed: 07/31/2019
-ms.openlocfilehash: 9d8510c121c424c3c66fd179639256e8834e932e
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.lastreviewed: 10/08/2019
+ms.openlocfilehash: fd56e7aa7805614829985a2e083d228d1960b402
+ms.sourcegitcommit: 534117888d9b7d6d363ebe906a10dcf0acf8b685
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829066"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72173053"
 ---
 # <a name="collect-azure-stack-diagnostic-logs-on-demand"></a>Shromažďovat protokoly diagnostiky Azure Stack na vyžádání
 
 *Platí pro: Azure Stack integrovaných systémů*
 
-V rámci řešení potíží můžou služby Microsoft Customer Support Services (CSS) potřebovat analyzovat diagnostické protokoly. Od verze 1907 mohou operátoři Azure Stack do kontejneru objektů BLOB v Azure nahrávat diagnostické protokoly na vyžádání pomocí **pomoci a podpory**. Alternativně, pokud je portál nedostupný, můžou operátory shromažďovat protokoly pomocí Get-AzureStackLog prostřednictvím privilegovaného koncového bodu (PEP). Toto téma popisuje jak shromažďovat diagnostické protokoly na vyžádání.
+V rámci řešení potíží můžou služby Microsoft Customer Support Services (CSS) potřebovat analyzovat diagnostické protokoly. Od verze 1907 mohou operátoři Azure Stack do kontejneru objektů BLOB v Azure nahrávat diagnostické protokoly na vyžádání pomocí **pomoci a podpory**. Pokud je portál nedostupný, můžou operátory shromažďovat protokoly pomocí Get-AzureStackLog prostřednictvím privilegovaného koncového bodu (PEP). Toto téma popisuje jak shromažďovat diagnostické protokoly na vyžádání.
 
-## <a name="use-help-and-support-to-collect-diagnostic-logs"></a>Pro shromažďování diagnostických protokolů použít pomoc a podporu
+>[!Note]
+>Jako alternativu ke shromažďování protokolů na vyžádání můžete zjednodušit proces řešení potíží tím, že povolíte [automatické shromažďování diagnostických protokolů](azure-stack-configure-automatic-diagnostic-log-collection.md). Pokud je potřeba prozkoumat stav systému, protokoly se nahrají automaticky pro účely analýzy šablonou CSS. 
+
+## <a name="use-help-and-support-to-collect-diagnostic-logs-on-demand"></a>Použití pomoci a podpory ke shromažďování diagnostických protokolů na vyžádání
 
 V případě řešení problému může CSS požádat o operátora Azure Stack ke shromáždění diagnostických protokolů na vyžádání pro konkrétní časové období z předchozího týdne. V takovém případě vám CSS poskytne operátor s adresou URL SAS pro nahrání kolekce. Pomocí následujících kroků proveďte konfiguraci shromažďování protokolů na vyžádání pomocí adresy URL SAS z šablony stylů CSS:
 
@@ -99,7 +102,7 @@ if ($session) {
 
 #### <a name="run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system"></a>Spuštění rutiny Get-AzureStackLog v systému Azure Stack Development Kit (ASDK)
 
-Pomocí těchto kroků můžete spustit `Get-AzureStackLog` na hostitelském počítači s ASDK.
+Pomocí těchto kroků spustíte `Get-AzureStackLog` na hostitelském počítači s ASDK.
 
 1. Přihlaste se jako **AzureStack\CloudAdmin** na hostitelském počítači ASDK.
 2. Otevřete nové okno PowerShellu jako správce.
@@ -137,7 +140,7 @@ Pomocí těchto kroků můžete spustit `Get-AzureStackLog` na hostitelském po�
   Get-AzureStackLog -OutputSasUri "<Blob service SAS Uri>"
   ```
 
-  Příklad:
+  Například:
 
   ```powershell
   Get-AzureStackLog -OutputSasUri "https://<storageAccountName>.blob.core.windows.net/<ContainerName><SAS token>"
@@ -161,7 +164,7 @@ Pomocí těchto kroků můžete spustit `Get-AzureStackLog` na hostitelském po�
   6. Klikněte pravým tlačítkem na nový kontejner a pak klikněte na **získat sdílený přístupový podpis**.
   7. V závislosti na vašich požadavcích Vyberte platný **čas spuštění** a **čas ukončení**.
   8. Pro požadovaná oprávnění vyberte **čtení**, **zápis**a **seznam**.
-  9. Vyberte **Vytvořit**.
+  9. Vyberte **Create** (Vytvořit).
   10. Získáte sdílený přístupový podpis. Zkopírujte část adresy URL a poskytněte ji parametru `-OutputSasUri`.
 
 ### <a name="parameter-considerations-for-both-asdk-and-integrated-systems"></a>Hlediska parametrů pro ASDK i integrované systémy
@@ -170,13 +173,13 @@ Pomocí těchto kroků můžete spustit `Get-AzureStackLog` na hostitelském po�
 
 * Parametry **FromDate** a na více dní lze použít ke shromažďování protokolů pro konkrétní časové období. Nejsou-li tyto parametry zadány, budou ve výchozím nastavení shromažďovány protokoly za poslední čtyři hodiny.
 
-* Pomocí parametru **FilterByNode** můžete filtrovat protokoly podle názvu počítače. Příklad:
+* Pomocí parametru **FilterByNode** můžete filtrovat protokoly podle názvu počítače. Například:
 
     ```powershell
     Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -FilterByNode azs-xrp01
     ```
 
-* Pomocí parametru **FilterByLogType** můžete filtrovat protokoly podle typu. Můžete zvolit filtrování podle souboru, sdílení nebo WindowsEvent. Příklad:
+* Pomocí parametru **FilterByLogType** můžete filtrovat protokoly podle typu. Můžete zvolit filtrování podle souboru, sdílení nebo WindowsEvent. Například:
 
     ```powershell
     Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -FilterByLogType File
@@ -188,18 +191,18 @@ Pomocí těchto kroků můžete spustit `Get-AzureStackLog` na hostitelském po�
 
   |   |   |   |    |     |
   | - | - | - | -  |  -  |
-  |ACS                   |Certifikační úřad                             |HRP                            |OboService                |VirtualMachines|
-  |ACSBlob               |CacheService                   |IBC                            |OEM                       |VYTVOŘEN            |
-  |ACSDownloadService    |Compute                        |InfraServiceController         |OnboardRP                 |WASPUBLIC|
-  |ACSFabric             |CPI                            |KeyVaultAdminResourceProvider  |PROTOKOLU                       |         |
+  |ACS                   |CA                             |HRP                            |OboService                |VirtualMachines|
+  |ACSBlob               |CacheService                   |DATY IBC                            |OEM                       |VYTVOŘEN            |
+  |ACSDownloadService    |Služby Compute                        |InfraServiceController         |OnboardRP                 |WASPUBLIC|
+  |ACSFabric             |PALEC                            |KeyVaultAdminResourceProvider  |PROTOKOLU                       |         |
   |ACSFrontEnd           |CRP                            |KeyVaultControlPlane           |QueryServiceCoordinator   |         | 
   |ACSMetrics            |DeploymentMachine              |KeyVaultDataPlane              |QueryServiceWorker        |         |
   |ACSMigrationService   |DiskRP                         |KeyVaultInternalControlPlane   |SeedRing                  |         |
-  |ACSMonitoringService  |Doména                         |KeyVaultInternalDataPlane      |SeedRingServices          |         |
-  |ACSSettingsService    |OSN                            |KeyVaultNamingService          |SLB                       |         |
-  |ACSTableMaster        |EventAdminRP                   |MDM                            |SQL                       |         |
+  |ACSMonitoringService  |Domain (Doména)                         |KeyVaultInternalDataPlane      |SeedRingServices          |         |
+  |ACSSettingsService    |OSN                            |KeyVaultNamingService          |KLÍČOVÝCH                       |         |
+  |ACSTableMaster        |EventAdminRP                   |PRODUKTU                            |SQL                       |         |
   |ACSTableServer        |EventRP                        |MetricsAdminRP                 |OBSAŽEN                       |         |
-  |ACSWac                |ExternalDNS                    |MetricsRP                      |Storage                   |         |
+  |ACSWac                |ExternalDNS                    |MetricsRP                      |Úložiště                   |         |
   |ADFS                  |FabricRing                     |MetricsServer                  |StorageController         |         |
   |ApplicationController |FabricRingServices             |MetricsStoreService            |URP                       |         |
   |ASAppGateway          |FirstTierAggregationService    |MonAdminRP                     |SupportBridgeController   |         |
@@ -214,7 +217,7 @@ Pomocí těchto kroků můžete spustit `Get-AzureStackLog` na hostitelském po�
 * Spuštění příkazu může nějakou dobu trvat, a to na základě rolí, které protokoly shromažďují. Přispívající faktory také zahrnují dobu trvání určenou pro shromažďování protokolů a počty uzlů v prostředí Azure Stack.
 * Když je shromažďování protokolů spuštěno, ověřte novou složku vytvořenou v parametru **OutputSharePath** zadaného v příkazu.
 * Každá role má své protokoly uvnitř jednotlivých souborů zip. V závislosti na velikosti shromážděných protokolů může být role rozdělená do více souborů zip. Pokud pro takovou roli chcete, aby všechny soubory protokolu byly extrahovány do jediné složky, použijte nástroj, který se může volně rozkomprimovat. Vyberte všechny soubory zip pro roli a vyberte **extrahovat sem**. Všechny soubory protokolu této role budou v jedné sloučené složce extrahovány.
-* Ve složce, která obsahuje soubory protokolu zip, se vytvoří také soubor s názvem **Get-AzureStackLog_Output. log** . Tento soubor je protokolem výstupu příkazu, který se dá použít k řešení problémů během shromažďování protokolů. V některých případech soubor protokolu `PS>TerminatingError` obsahuje položky, které je možné ignorovat, pokud po spuštění shromažďování protokolů nechybějí žádné soubory protokolu.
+* Ve složce, která obsahuje soubory protokolu zip, se vytvoří také soubor s názvem **Get-AzureStackLog_Output. log** . Tento soubor je protokolem výstupu příkazu, který se dá použít k řešení problémů během shromažďování protokolů. V některých případech soubor protokolu obsahuje položky `PS>TerminatingError`, které je možné ignorovat, pokud po spuštění shromažďování protokolů nebudou chybět očekávané soubory protokolu.
 * Pro prošetření konkrétního selhání mohou být protokoly potřeba z více než jedné součásti.
 
   * V roli **VirtualMachines** jsou shromažďovány systémové protokoly a protokoly událostí pro všechny virtuální počítače infrastruktury.
@@ -225,15 +228,15 @@ Pomocí těchto kroků můžete spustit `Get-AzureStackLog` na hostitelském po�
 > [!NOTE]
 > Limity velikosti a stáří se v protokolech shromažďují, protože jsou nezbytné k zajištění efektivního využití prostoru úložiště a k tomu, abyste se vyhnuli zahlcení protokoly. Při diagnostikování problému ale někdy budete potřebovat protokoly, které už neexistují z důvodu těchto limitů. Proto se **důrazně doporučuje** přesměrovat protokoly do externího prostoru úložiště (účet úložiště v Azure, dalších místních úložných zařízení atd.) každých 8 až 12 hodin a v závislosti na vašich požadavcích je uchovávat po dobu 1-3 měsíců. Zajistěte také, aby bylo toto umístění úložiště šifrované.
 
-### <a name="invoke-azurestackondemandlog"></a>Invoke-AzureStackOnDemandLog
+### <a name="invoke-azurestackondemandlog"></a>Invoke – AzureStackOnDemandLog
 
 Pomocí rutiny **Invoke-AzureStackOnDemandLog** můžete pro určité role generovat protokoly na vyžádání (viz seznam na konci této části). Protokoly generované touto rutinou nejsou ve výchozím nastavení k dispozici v sadě protokolů, které obdržíte při spuštění rutiny **Get-AzureStackLog** . Také se doporučuje shromažďovat tyto protokoly pouze v případě, že je požaduje tým podpory společnosti Microsoft.
 
-V současné době můžete pomocí `-FilterByRole` parametru filtrovat shromažďování protokolů podle následujících rolí:
+V současné době můžete pomocí parametru `-FilterByRole` filtrovat shromažďování protokolů podle následujících rolí:
 
 * OEM
 * NC
-* SLB
+* KLÍČOVÝCH
 * brána
 
 #### <a name="example-of-collecting-on-demand-diagnostic-logs"></a>Příklad shromažďování diagnostických protokolů na vyžádání

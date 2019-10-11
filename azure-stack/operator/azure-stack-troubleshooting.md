@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/30/2019
+ms.date: 10/08/2019
 ms.author: justinha
 ms.reviewer: prchint
-ms.lastreviewed: 09/30/2019
-ms.openlocfilehash: 7e2f13fa20c9aafd90abe34277c907a4d12b4d81
-ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
+ms.lastreviewed: 10/08/2019
+ms.openlocfilehash: b3540727b1868c700e43e2865848a71635e8003d
+ms.sourcegitcommit: 534117888d9b7d6d363ebe906a10dcf0acf8b685
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72019438"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72173104"
 ---
 # <a name="microsoft-azure-stack-troubleshooting"></a>Řešení potíží s Microsoft Azure Stack
 
@@ -53,11 +53,11 @@ Tyto části obsahují odkazy na dokumenty, které pokrývají běžné otázky 
 
 ### <a name="manage-capacity"></a>Správa kapacity
 
-#### <a name="memory"></a>Memory (Paměť)
+#### <a name="memory"></a>Paměť
 
 Pokud chcete zvýšit celkovou dostupnou kapacitu paměti pro službu Azure Stack, můžete přidat další paměť. Ve službě Azure Stack se fyzický server označuje také jako uzel jednotky škálování. Všechny uzly jednotek škálování, které jsou členy jedné jednotky škálování, musí mít [stejnou velikost paměti](azure-stack-manage-storage-physical-memory-capacity.md).
 
-#### <a name="retention-period"></a>Doba uchovávání
+#### <a name="retention-period"></a>Doba uchování
 
 Nastavení doby uchovávání umožňuje operátorovi cloudu nastavit časové období ve dnech (od 0 do 9 999 dnů), během kterého je potenciálně možné obnovit jakýkoli odstraněný účet. Výchozí doba uchování je nastavená na **0** dní. Nastavení hodnoty na **0** znamená, že libovolný odstraněný účet je ihned neuchováván a označený pro periodické uvolňování paměti.
 
@@ -73,9 +73,9 @@ Uživatel ve službě Azure Stack může být čtenářem, vlastníkem nebo při
 
 Pokud předdefinované role pro prostředky Azure nesplňují konkrétní požadavky vaší organizace, můžete si vytvořit vlastní role. V tomto kurzu pomocí Azure PowerShellu vytvoříte vlastní roli Čtenář lístků podpory.
 
-* [Kurz: Vytvoření vlastní role pro prostředky Azure pomocí Azure PowerShellu](https://docs.microsoft.com/azure/role-based-access-control/tutorial-custom-role-powershell)
+* [Kurz: Vytvoření vlastní role pro prostředky Azure pomocí Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/tutorial-custom-role-powershell)
 
-### <a name="manage-usage-and-billing-as-a-csp"></a>Spravovat využití a fakturace jako zprostředkovatel kryptografických služeb
+### <a name="manage-usage-and-billing-as-a-csp"></a>Správa využití a fakturace jako poskytovatel CSP
 
 * [Správa využití a fakturace jako poskytovatel CSP](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-apss-subscription)
 * [Vytvoření předplatného CSP nebo APSS](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-apss-subscription)
@@ -85,6 +85,17 @@ Zvolte typ účtu sdílených služeb, který používáte pro službu Azure Sta
 * Cloud Solution Provider
 * Předplatné Partner Shared Services
 
+## <a name="get-scale-unit-metrics"></a>Získat metriky jednotek škálování
+
+Pomocí prostředí PowerShell můžete získat informace o využití razítka bez nutnosti pomáhat z šablon stylů CSS. Získání využití razítka: 
+
+1. Vytvoření relace PEP
+2. Spuštění rutiny Test-azurestack
+3. Ukončit relaci PEP
+4. Spuštění rutiny Get-azurestacklog-filterbyrole s použitím volání Invoke-Command
+5. Extrahujte soubor seedring. zip a můžete získat zprávu o ověření ze složky ERCS, ve které jste spustili test-azurestack
+
+Další informace najdete v tématu [diagnostika Azure Stack](azure-stack-configure-on-demand-diagnostic-log-collection.md#to-run-get-azurestacklog-on-azure-stack-integrated-systems).
 
 ## <a name="troubleshoot-deployment"></a>Řešení potíží s nasazením 
 ### <a name="general-deployment-failure"></a>Obecné selhání nasazení
@@ -95,7 +106,7 @@ Pokud při instalaci dojde k chybě, můžete restartovat nasazení z neúspěš
 Pokud se během ověřování šablony zobrazí chybová zpráva, že parametr osProfile není povolen, ujistěte se, že používáte správné verze rozhraní API pro tyto komponenty:
 
 - [Compute](https://docs.microsoft.com/azure-stack/user/azure-stack-profiles-azure-resource-manager-versions#microsoftcompute)
-- [Sítě](https://docs.microsoft.com/azure-stack/user/azure-stack-profiles-azure-resource-manager-versions#microsoftnetwork)
+- [Síť](https://docs.microsoft.com/azure-stack/user/azure-stack-profiles-azure-resource-manager-versions#microsoftnetwork)
 
 Pokud chcete zkopírovat VHD z Azure do Azure Stack, použijte [AzCopy 7.3.0](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-transfer#download-and-install-azcopy). Spolupracujte se svým dodavatelem, abyste mohli vyřešit problémy s samotným obrázkem. Další informace o požadavcích na WALinuxAgent pro Azure Stack najdete v tématu [Agent Azure Linux](azure-stack-linux.md#azure-linux-agent).
 

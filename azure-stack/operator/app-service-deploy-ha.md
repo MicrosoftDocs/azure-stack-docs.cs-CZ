@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/23/2019
+ms.date: 10/07/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 77ec512f5e2996aaec53ef77c000d0334bda456a
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.openlocfilehash: 0bf89b0f80557f99c83fb5ad6afd0c4a5dcd3849
+ms.sourcegitcommit: dfaf0126bc9975ca1643d55f06c71df9e32ea976
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70975209"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72165009"
 ---
 # <a name="deploy-app-service-in-a-highly-available-configuration"></a>Nasazení App Service v konfiguraci s vysokou dostupností
 
@@ -56,16 +56,16 @@ Pomocí kroků v této části vytvoříte vlastní nasazení pomocí šablony *
 
 1. [!INCLUDE [azs-admin-portal](../includes/azs-admin-portal.md)]
 
-2. Vyberte **\+** **vytvořit prostředek** > **vlastní**a pak **template Deployment**.
+2. Vyberte **\+** **vytvořit prostředek** > **vlastní**a potom **template Deployment**.
 
    ![Nasazení vlastní šablony](media/app-service-deploy-ha/1.png)
 
 
-3. V okně **vlastní nasazení** vyberte **Upravit** > šablonu**rychlý Start** šablony a potom pomocí rozevíracího seznamu dostupných vlastních šablon vyberte šablonu **AppService-\ Share-SQLServer-ha** . Klikněte na **OK**a pak na **Uložit**.
+3. V okně **vlastní nasazení** vyberte **Upravit šablonu** >  šablona pro**rychlý Start** a pak pomocí rozevíracího seznamu dostupných vlastních šablon vyberte šablonu **AppService-\ Share-SQLServer-ha** . Klikněte na **OK**a pak na **Uložit**.
 
    ![Vyberte šablonu AppService-\ Share-SQLServer-ha.](media/app-service-deploy-ha/2.png)
 
-4. V okně **vlastní nasazení** vyberte **Upravit parametry** a posuňte se dolů a zkontrolujte výchozí hodnoty šablon. Upravte tyto hodnoty podle potřeby, abyste zadali všechny požadované informace o parametrech, a pak klikněte na **OK**.<br><br> Pro `ADMINPASSWORD`parametry, `FILESHAREOWNERPASSWORD`, `FILESHAREUSERPASSWORD`, azadejte`SQLLOGINPASSWORD`alespoňsložitáhesla. `SQLSERVERSERVICEACCOUNTPASSWORD`
+4. V okně **vlastní nasazení** vyberte **Upravit parametry** a posuňte se dolů a zkontrolujte výchozí hodnoty šablon. Upravte tyto hodnoty podle potřeby, abyste zadali všechny požadované informace o parametrech, a pak klikněte na **OK**.<br><br> Pro parametry `ADMINPASSWORD`, `FILESHAREOWNERPASSWORD`, `FILESHAREUSERPASSWORD`, `SQLSERVERSERVICEACCOUNTPASSWORD` a `SQLLOGINPASSWORD` Zadejte přinejmenším složitá hesla.
     
    ![Upravit parametry vlastního nasazení](media/app-service-deploy-ha/3.png)
 
@@ -101,7 +101,7 @@ Pomocí těchto kroků zjistíte výstupní hodnoty šablony:
 
     ![Microsoft. Template deployment](media/app-service-deploy-ha/6.png)
 
-4. Po výběru nasazení **Microsoft. template** vyberte výstupy a zaznamenejte výstup parametrů šablony. Tyto informace jsou požadovány při nasazení App Service.
+4. Po výběru nasazení **Microsoft. template** vyberte **výstupy** a zaznamenejte výstup parametrů šablony. Tyto informace jsou požadovány při nasazení App Service.
 
     ![Výstup parametru](media/app-service-deploy-ha/7.png)
 
@@ -173,7 +173,7 @@ Pokud chcete nasadit poskytovatele prostředků App Service, použijte následuj
     Pokud se rozhodnete nasadit do existující virtuální sítě a interní IP adresu pro připojení k souborovému serveru, musíte přidat odchozí pravidlo zabezpečení. Toto pravidlo povoluje provoz protokolu SMB mezi podsítí pracovních procesů a souborovým serverem. Na portálu pro správu přejdete na WorkersNsg a přidáte odchozí pravidlo zabezpečení s následujícími vlastnostmi:
     - Zdroj: Any
     - Rozsah zdrojových portů: *
-    - Cíl: Adresy IP
+    - Cíl: IP adresy
     - Rozsah cílových IP adres: Rozsah IP adres pro souborový server
     - Rozsah cílových portů: 445
     - Protokol: TCP
@@ -236,7 +236,7 @@ Pokud chcete nasadit poskytovatele prostředků App Service, použijte následuj
 
 ## <a name="next-steps"></a>Další kroky
 
-Pokud jste poskytli App Service poskytovatele prostředků s instancí SQL Always On, [přidejte databáze appservice_hosting a appservice_metering do skupiny dostupnosti](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) . Synchronizujte databáze, aby nedošlo ke ztrátě služeb v případě převzetí služeb při selhání databáze.
+Pokud jste poskytli App Service poskytovatele prostředků s instancí SQL Always On, [přidejte databáze appservice_hosting a appservice_metering do skupiny dostupnosti](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) . Synchronizujte databáze, aby nedošlo ke ztrátě služeb v případě převzetí služeb při selhání databáze. Můžete také spustit [skript](https://blog.sqlauthority.com/2017/11/30/sql-server-alwayson-availability-groups-script-sync-logins-replicas/) pro import přihlášení aplikační služby z původního primárního serveru na server pro převzetí služeb při selhání.
 
 Horizontální navýšení [kapacity App Service](azure-stack-app-service-add-worker-roles.md). Je možné, že budete muset přidat další pracovní pracovníky role App Service, abyste splnili očekávanou poptávku aplikace ve vašem prostředí. Ve výchozím nastavení App Service v Azure Stack podporuje bezplatné a sdílené úrovně pracovních procesů. Chcete-li přidat další vrstvy pracovního procesu, je nutné přidat další role pracovního procesu.
 

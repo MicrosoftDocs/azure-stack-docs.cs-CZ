@@ -123,6 +123,8 @@
       items:
         - name: Základy správy
           href: azure-stack-manage-basics.md
+        - name: Kontrolní seznam operací
+          href: azure-stack-operations-checklist.md
         - name: Vymazat uživatelská data z portálu
           href: azure-stack-portal-clear.md
         - name: Konfigurace shromažďování telemetrie
@@ -314,7 +316,7 @@
           href: app-service-billing-faq.md
         - name: Než začnete
           href: azure-stack-app-service-before-you-get-started.md
-        - name: Nasadit službu App Service
+        - name: Nasazení App Service
           href: azure-stack-app-service-deploy.md
         - name: Nasazení App Service pro vysokou dostupnost
           href: app-service-deploy-ha.md

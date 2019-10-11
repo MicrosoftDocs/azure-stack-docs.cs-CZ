@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2019
+ms.date: 10/08/2019
 ms.author: justinha
 ms.reviewer: prchint
-ms.lastreviewed: 07/25/2019
-ms.openlocfilehash: 4d6bc431b292fc7a124aa2b8051d0a927d736eee
-ms.sourcegitcommit: 4e48f1e5af74712a104eda97757dc5f50a591936
+ms.lastreviewed: 10/08/2019
+ms.openlocfilehash: e9ee5d3b8ad67c7955fa4da7b64d2c0962f21a15
+ms.sourcegitcommit: 534117888d9b7d6d363ebe906a10dcf0acf8b685
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71224955"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72173082"
 ---
 # <a name="configure-automatic-azure-stack-diagnostic-log-collection"></a>Konfigurace automatického shromažďování protokolů Azure Stack diagnostiky
 
@@ -33,7 +33,7 @@ Pro zjednodušení shromažďování protokolů a možnosti zákaznické podpory
 
 Než budete moct nakonfigurovat automatické shromažďování protokolů, budete muset pro kontejner objektů BLOB získat sdílený přístupový podpis (SAS). SAS umožňuje udělit přístup k prostředkům v účtu úložiště bez sdílení klíčů účtu. Soubory protokolu Azure Stack můžete uložit do kontejneru objektů BLOB v Azure a pak zadat adresu URL SAS, kde může CSS shromažďovat protokoly. 
 
-### <a name="prerequisites"></a>Požadavky
+### <a name="prerequisites"></a>Předpoklady
 
 V Azure můžete použít nový nebo existující kontejner objektů BLOB. Pokud chcete vytvořit kontejner objektů BLOB v Azure, potřebujete aspoň [roli Přispěvatel objektů BLOB úložiště](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) nebo [konkrétní oprávnění](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). Globální správci mají také potřebná oprávnění. 
 
@@ -41,17 +41,17 @@ Osvědčené postupy při volbě parametrů pro účet úložiště automatické
 
 ### <a name="create-a-blob-storage-account"></a>Vytvoření účtu úložiště BLOB
  
-1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
-1. Klikněte na **účty** > úložiště**Přidat**. 
+1. Přihlaste se na web [Azure Portal](https://portal.azure.com).
+1. Klikněte na **účty úložiště** > **Přidat**. 
 1. Vytvořte kontejner objektů BLOB s těmito nastaveními:
-   - **Předplatné:** Zvolte svoje předplatné Azure.
-   - **Skupina prostředků**: Zadejte skupinu prostředků.
+   - **Předplatné**: volba předplatného Azure
+   - **Skupina prostředků**: zadejte skupinu prostředků.
    - **Název účtu úložiště**: Zadejte jedinečný název účtu úložiště.
-   - **Umístění**: Volba datového centra v souladu se zásadami vaší společnosti
-   - **Výkon:** Zvolit standard
+   - **Umístění**: Vyberte datové centrum v souladu se zásadami vaší společnosti.
+   - **Výkon**: zvolit standard
    - **Druh účtu** Zvolit StorageV2 (pro obecné účely v2) 
-   - **Replikace**: Výběr místně redundantního úložiště (LRS)
-   - **Úroveň přístupu**: Zvolit studenou
+   - **Replikace**: výběr místně redundantního úložiště (LRS)
+   - **Úroveň přístupu**: zvolit studenou
 
    ![Snímek obrazovky zobrazující vlastnosti kontejneru objektů BLOB](media/azure-stack-automatic-log-collection/azure-stack-log-collection-create-storage-account.png)
 
@@ -71,13 +71,13 @@ Osvědčené postupy při volbě parametrů pro účet úložiště automatické
 
 1. Vyberte tyto vlastnosti:
    - Čas spuštění: Volitelně můžete přesunout čas zahájení zpět. 
-   - Čas vypršení platnosti: Dva roky
+   - Čas vypršení platnosti: dva roky
    - Časové pásmo: UTC
-   - Nastaven Čtení, zápis a výpis
+   - Oprávnění: čtení, zápis a výpis
 
    ![Snímek obrazovky se zobrazením vlastností sdíleného přístupového podpisu](media/azure-stack-automatic-log-collection/sas-properties.png) 
 
-1. Klikněte na možnost **Vytvořit**.  
+1. Klikněte na **Vytvořit**.  
 
 Zkopírujte adresu URL a zadejte ji při [konfiguraci automatického shromažďování protokolů](azure-stack-configure-automatic-diagnostic-log-collection.md). Další informace o adresách URL SAS najdete v tématu [použití sdílených přístupových podpisů (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1). 
 
@@ -104,9 +104,9 @@ Pomocí těchto kroků přidejte adresu URL SAS do uživatelského rozhraní shr
 
 Historie protokolů shromážděných z Azure Stack se zobrazí na stránce **shromažďování protokolů** v nápovědě a podpoře s následujícími daty a časy:
 
-- **Čas shromažďování dat**: Při zahájení operace shromažďování protokolů 
-- **Od data**: Začátek časového období, pro které chcete shromáždit
-- **Datum do**: Konec časového období
+- **Čas shromažďování dat**: při zahájení operace shromažďování protokolů 
+- **Od data**: začátek časového období, které chcete shromáždit.
+- **Do data**: konec časového období
 
 ![Snímek obrazovky se zobrazením kolekcí protokolů](media/azure-stack-automatic-log-collection/azure-stack-log-collection.png)
 
@@ -118,12 +118,14 @@ Operátoři můžou také kontrolovat účet úložiště pro automaticky shrom�
 
 ## <a name="automatic-diagnostic-log-collection-alerts"></a>Automatické výstrahy shromažďování protokolů diagnostiky 
 
-Pokud je povoleno, bude automatické shromažďování protokolů diagnostiky provedeno pouze v případě potřeby. Pouze následující kolekce triggerů výstrah. 
+Pokud je povoleno, bude automatické shromažďování protokolů diagnostiky provedeno pouze v případě potřeby. Jenom výstrahy v následující tabulce jsou triggerem. 
+
+Například **Chyba aktualizace** je výstraha, která spustí automatické shromažďování protokolů diagnostiky. Pokud je povolena automatická kolekce, diagnostické protokoly budou během chyby aktualizace aktivně zachyceny, aby bylo možné problém vyřešit pomocí šablony stylů CSS. Diagnostické protokoly jsou shromažďovány pouze v případě, že se vyvolá výstraha pro **aktualizaci** . 
 
 |Název výstrahy  | FaultIdType|    
 |-------------|------------|
 |Nejde se připojit ke vzdálené službě |  UsageBridge.NetworkError|
-|Aktualizace se nezdařila. |    Urp.UpdateFailure   |          
+|Aktualizace se nezdařila |    Urp.UpdateFailure   |          
 |Infrastruktura nebo závislosti poskytovatele prostředků úložiště nejsou k dispozici. |  StorageResourceProviderDependencyUnavailable     |     
 |Uzel není připojený k řadiči.|  ServerHostNotConnectedToController   |     
 |Selhání publikování trasy |    SlbMuxRoutePublicationFailure | 
@@ -143,11 +145,11 @@ Pokud je povoleno, bude automatické shromažďování protokolů diagnostiky pr
 |Blížící se vypršení platnosti externího certifikátu |  CertificateExpiration. ExternalCert. Critical |
 |Pro konkrétní třídu a velikost nejde zřídit virtuální počítače kvůli nedostatečné kapacitě paměti |  AzureStack. ComputeController. VmCreationFailure. LowMemory |
 |Nedostupný uzel pro umístění virtuálního počítače |  AzureStack. ComputeController. HostUnresponsive | 
-|Zálohování neproběhlo úspěšně  | AzureStack. BackupController. BackupFailedGeneralFault |    
+|Zálohování nebylo úspěšné.  | AzureStack. BackupController. BackupFailedGeneralFault |    
 |Naplánované zálohování bylo přeskočeno z důvodu konfliktu s neúspěšnými operacemi.  | AzureStack. BackupController. BackupSkippedWithFailedOperationFault |   
 
 
-## <a name="see-also"></a>Viz také:
+## <a name="see-also"></a>Další informace najdete v tématech
 
 [Azure Stack zpracování dat protokolů a zákazníků](https://docs.microsoft.com/azure-stack/operator/azure-stack-data-collection)
 
