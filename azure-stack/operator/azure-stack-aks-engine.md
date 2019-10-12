@@ -15,16 +15,16 @@ ms.date: 10/09/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 10/09/2019
-ms.openlocfilehash: 6695af1e27a2182321a468b853a4650f42146a15
-ms.sourcegitcommit: 12034a1190d52ca2c7d3f05c8c096416120d8392
+ms.openlocfilehash: 1e1e72cea27bf036f662cfaa64a84a57fe9bc964
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72037905"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72283059"
 ---
 # <a name="add-the-azure-kubernetes-services-aks-engine-prerequisites-to-the-azure-stack-marketplace"></a>Přidání požadavků modulu Azure Kubernetes Services (AKS) do tržiště Azure Stack
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit @ no__t-0
+*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
 
 Přidáním položek popsaných v tomto článku k vašemu Azure Stack můžete uživatelům povolit, aby si nastavili modul Azure Kubernetes Services (AKS). Uživatelé pak mohou nasadit cluster Kubernetes v rámci jediné koordinované operace. Tento článek vás provede kroky potřebnými k tomu, aby byl modul AKS k dispozici pro vaše uživatele v připojených i odpojených prostředích. Modul AKS závisí na identitě služby a na webu Marketplace, ve vlastním rozšíření skriptu a na základní imagi AKS.
 
@@ -32,13 +32,13 @@ Přidáním položek popsaných v tomto článku k vašemu Azure Stack můžete 
 
 > [!IMPORTANT]
 > Modul AKS je aktuálně ve verzi Public Preview.
-> Tato verze Preview se poskytuje bez smlouvy o úrovni služeb a nedoporučuje se pro úlohy v produkčním prostředí. Některé funkce se nemusí podporovat nebo mohou mít omezené možnosti. Další informace najdete v [dodatečných podmínkách použití pro verze Preview v Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Tato verze Preview se poskytuje bez smlouvy o úrovni služeb a nedoporučuje se pro produkční úlohy. Některé funkce nemusí být podporované nebo můžou mít omezené možnosti. Další informace najdete v tématu [doplňujících podmínek použití pro Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)verze Preview.
 
 ## <a name="check-your-users-service-offering"></a>Ověření nabídky služeb uživatele
 
 Uživatelé budou potřebovat plán, nabídku a předplatné, které Azure Stack s dostatkem místa. Uživatelé často chtějí nasadit clustery až šesti virtuálních počítačů, které se skládají ze tří hlavních a tří pracovních uzlů. Budete chtít zajistit, aby měli dostatečně velkou kvótu.
 
-Pokud potřebujete další informace o plánování a nastavování nabídky služeb, přečtěte si téma [Přehled nabízených služeb v Azure Stack](azure-stack-offer-services-overview.md)
+Pokud potřebujete další informace o plánování a nastavování nabídky služeb, přečtěte si téma [Přehled nabízených služeb v Azure Stack](service-plan-offer-subscription-overview.md)
 
 ## <a name="create-a-service-principal-and-credentials"></a>Vytvoření instančního objektu a přihlašovacích údajů
 
@@ -58,7 +58,7 @@ Základní image AKS můžete na Marketplace přidat tak, že získáte položku
 
 Do Marketplace přidejte následující položku:
 
-1. Přihlaste se k [portál pro správu](https://adminportal.local.azurestack.external).
+1. Přihlaste se k [portálu pro správu](https://adminportal.local.azurestack.external).
 
 1. Vyberte **všechny služby**a potom v kategorii **Správa** vyberte **Správa Marketplace**.
 
@@ -69,9 +69,9 @@ Do Marketplace přidejte následující položku:
 1. Vyberte verzi image, která odpovídá verzi modulu AKS. Výpis základní image AKS můžete najít ve verzi AKS Engine v [podporovaných verzích Kubernetes](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions). 
 
     V seznamu vyberte:
-    - **Vydavatel**: Azure Kubernetes Service
+    - **Vydavatel**: Služba Azure Kubernetes
     - **Nabídka**: AKS
-    - **Verze**: AKS Base image 16,04 – LTS image distribuce, září 2019 (2019.09.19 nebo verze, která se mapuje na AKS Engine)
+    - **Verze**: AKS Base image 16,04-LTS image distribuce, září 2019 (2019.09.19 nebo verze, která se MAPUJE na AKS Engine)
 
 1. Vyberte **Stáhnout.**
 
@@ -88,7 +88,7 @@ Pomocí položky z Azure můžete přidat vlastní skript na Marketplace. Pokud 
 1. Zadejte `Custom Script for Linux`.
 
 1. Vyberte skript s následujícím profilem:
-   - **Nabídka**: Vlastní skript pro Linux 2,0
+   - **Nabídka**: vlastní skript pro Linux 2,0
    - **Verze**: 2.0.6 (nebo nejnovější verze)
    - **Vydavatel**: Microsoft Corp
 
@@ -101,4 +101,4 @@ Pomocí položky z Azure můžete přidat vlastní skript na Marketplace. Pokud 
 
 [Co je modul AKS v Azure Stack?](../user/azure-stack-kubernetes-aks-engine-overview.md)
 
-[Přehled nabízených služeb v Azure Stack](azure-stack-offer-services-overview.md)
+[Přehled nabízených služeb v Azure Stack](service-plan-offer-subscription-overview.md)

@@ -1,6 +1,6 @@
 ---
-title: Zpráva k vydání verze Azure Stack ověření jako služba | Dokumentace Microsoftu
-description: Zpráva k vydání verze Azure Stack ověření jako služba.
+title: Azure Stack ověření jako poznámky k verzi služby | Microsoft Docs
+description: Azure Stack ověření jako poznámky k verzi služby.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -10,63 +10,63 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/10/2019
+ms.date: 10/10/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: 9360e8e5f4db14fbebba2642ed11ca2e3830bdf1
-ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
+ms.openlocfilehash: d42b1f161d1b74633c4e9924e45677a57b3493e1
+ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66828411"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72277819"
 ---
-# <a name="release-notes-for-validation-as-a-service"></a>Zpráva k vydání verze pro ověření jako služba
+# <a name="release-notes-for-validation-as-a-service"></a>Poznámky k verzi pro ověřování jako službu
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Tento článek obsahuje poznámky k verzi pro Azure Stack ověření jako služba.
+V tomto článku najdete poznámky k verzi pro ověřování Azure Stack jako služby.
 
-## <a name="version-405"></a>Verze 4.0.5
+## <a name="version-405"></a>4\.0.5 verze
 
-2019 7. června
+2019. června 7
 
-- Cloud simulace modulu v pracovním postupu ověřování balíčku se aktualizovala na urychlit čas ověření:  
-    Čas spuštění: Omezit na 6 hodin  
-    Verze: 5.1.13.0 -> 5.1.22.0  
+- Modul pro simulaci cloudu v pracovním postupu ověření balíčku byl aktualizován, aby urychlil čas ověření:  
+    Doba běhu: zmenšeno na 6 hodin  
+    Verze: 5.1.13.0-> 5.1.22.0  
 
 
-2019 ledna 17
+2019. ledna 17
 
-- Test identifikace disku aktualizovat, aby adresa nekonzistence fondu úložiště. Verze: 5.1.14.0 -> 5.1.15.0
-- Azure Stack měsíční aktualizace ověření aktualizovat na adresu schválený software a obsah ověření nekonzistence. Verze: 5.1.14.0 -> 5.1.17.0
-- Aktualizováno za účelem provést nezbytné kontroly před krokem aktualizace služby Azure Stack ověřování balíčků rozšíření výrobce OEM. Verze: 5.1.14.0 -> 5.1.16.0
-- Interní opravy chyb
+- Test identifikace disku se aktualizoval pro řešení nekonzistencí fondu úložiště. Verze: 5.1.14.0-> 5.1.15.0
+- Azure Stack aktualizace měsíčního ověření aktualizací pro řešení schváleného softwaru a nekonzistencí ověření obsahu. Verze: 5.1.14.0-> 5.1.17.0
+- Ověření balíčku rozšíření OEM bylo aktualizováno pro provedení nezbytných kontrol před krokem aktualizace Azure Stack. Verze: 5.1.14.0-> 5.1.16.0
+- Opravy interních chyb
 
-## <a name="version-402"></a>Verze 4.0.2
+## <a name="version-402"></a>4\.0.2 verze
 
-2019 dne 7
+2019. ledna 7
 
-Pokud používáte Azure Stack měsíční aktualizace ověření pracovního postupu a verze pro aktualizace balíčku výrobce OEM není 1810 nebo vyšší, obdržíte chybu po načtení krok aktualizace výrobce OEM. Jedná se o chybu. Oprava se vyvíjejí. Kroky pro zmírnění rizika jsou následující:
+Pokud používáte pracovní postup aktualizace Azure Stack měsíčně a verze balíčku OEM není 1810 nebo vyšší, zobrazí se chyba, až se dostanete k kroku aktualizace OEM. Jedná se o chybu. Vyvíjí se oprava. Postup zmírnění je následující:
 
-1. Výrobce OEM aktualizaci spusťte jako za normálních okolností.
-2. Spustit Test AzureStack po úspěšném použití balíčku a uložte si výstup.
-3. Zrušení testu.
-4. Odeslat uložený výstup do VaaSHelp@microsoft.com přijímat předávání výsledky spuštění.
+1. Spusťte aktualizaci OEM jako normální.
+2. Po úspěšném použití balíčku spusťte test-AzureStack a uložte výstup.
+3. Zrušte test.
+4. Odešlete uložený výstup do VaaSHelp@microsoft.com pro příjem výsledků pro spuštění.
 
-## <a name="version-402"></a>Verze 4.0.2
+## <a name="version-402"></a>4\.0.2 verze
 
 30. listopadu 2018
 
-- Interní opravy chyb
+- Opravy interních chyb
 
-## <a name="version-401"></a>Verze 4.0.1
+## <a name="version-401"></a>4\.0.1 verze
 
-8. října 2018
+2018. října 8
 
-- VaaS požadavky
+- Požadavky na VaaS
 
-    `Install-VaaSPrerequisites` už vyžadují přihlašovací údaje správce cloudu. Pokud používáte nejnovější verzi této rutiny, přečtěte si téma [stáhnout a nainstalovat agenta](azure-stack-vaas-local-agent.md#download-and-install-the-agent) pro revidovaný příkazy pro instalaci požadavků. Tady jsou příkazy:
+    @no__t – 0 už nevyžaduje přihlašovací údaje správce cloudu. Pokud používáte nejnovější verzi této rutiny, přečtěte si téma [Stažení a instalace agenta](azure-stack-vaas-local-agent.md#download-and-install-the-agent) pro revidované příkazy pro instalaci požadovaných součástí. Tady jsou příkazy:
 
     ```powershell
     $ServiceAdminCreds = New-Object System.Management.Automation.PSCredential "<aadServiceAdminUser>", (ConvertTo-SecureString "<aadServiceAdminPassword>" -AsPlainText -Force)
@@ -77,13 +77,13 @@ Pokud používáte Azure Stack měsíční aktualizace ověření pracovního po
                               -Region $Region
     ```
 
-## <a name="version-400"></a>Verze 4.0.0
+## <a name="version-400"></a>4\.0.0 verze
 
-29. srpna 2018
+2018. srpna
 
-- Aktualizuje VaaS požadavky a virtuálního pevného disku
+- VaaS předpoklady a aktualizace VHD
 
-    `Install-VaaSPrerequisites` nyní vyžadují přihlašovací údaje správce cloudových řešení problémů při ověřování balíčku. V dokumentaci na [stáhnout a nainstalovat agenta](azure-stack-vaas-local-agent.md#download-and-install-the-agent) má aktualizované a přinášejí následující:
+    @no__t – 0 teď vyžaduje přihlašovací údaje správce cloudu, aby se vyřešil problém při ověřování balíčku. Dokumentace ke [Stažení a instalaci agenta](azure-stack-vaas-local-agent.md#download-and-install-the-agent) byla aktualizována následujícím způsobem:
 
     ```powershell
     $ServiceAdminCreds = New-Object System.Management.Automation.PSCredential "<aadServiceAdminUser>", (ConvertTo-SecureString "<aadServiceAdminPassword>" -AsPlainText -Force)
@@ -96,30 +96,30 @@ Pokud používáte Azure Stack měsíční aktualizace ověření pracovního po
                               -CloudAdminCredentials $CloudAdminCreds
     ```
     > [!NOTE]
-    > `$CloudAdminCreds` Vyžaduje skript pro službu Azure Stack instanci Probíhá ověřování. Nejsou používané tenanta VaaS přihlašovací údaje Azure Active Directory.
+    > @No__t-0 vyžadované skriptem jsou pro ověřování instance Azure Stack. Nejedná se o Azure Active Directory přihlašovací údaje, které používá tenant VaaS.
 
 - Aktualizace místního agenta
 
-    Předchozí verze místní agent není kompatibilní s aktuální 4.0.0 vydání služby. Všichni uživatelé musí aktualizovat svá místní agenti. Zobrazit [stáhnout a nainstalovat agenta](azure-stack-vaas-local-agent.md#download-and-install-the-agent) pokyny k instalaci nejnovějšího agenta.
+    Předchozí verze místního agenta není kompatibilní s aktuálním vydáním služby 4.0.0. Všichni uživatelé musí aktualizovat své místní agenty. Pokyny k instalaci nejnovějšího agenta najdete v tématu [Stažení a instalace agenta](azure-stack-vaas-local-agent.md#download-and-install-the-agent) .
 
-- Aktualizace automatizace Powershellu
+- Aktualizace automatizace PowerShellu
 
-    Provedly se změny `LaunchVaaSTests` Powershellové skripty, které vyžadují nejnovější verzi skriptování balíčků. Zobrazit [spuštění pracovního postupu průchodu testů](azure-stack-vaas-automate-with-powershell.md#launch-the-test-pass-workflow) pokyny k instalaci nejnovější verze skriptovací balíček.
+    Byly provedeny změny @no__t skriptů prostředí PowerShell, které vyžadují nejnovější verzi skriptovacích balíčků. Pokyny k instalaci nejnovější verze balíčku Scripting najdete v tématu [spuštění pracovního postupu test Pass](azure-stack-vaas-automate-with-powershell.md#launch-the-test-pass-workflow) .
 
-- Ověření jako portál služby
+- Ověřování jako portál služby
 
-  - Podepisování oznámení balíčku
+  - Oznámení podepisování balíčků
 
-    Při odeslání balíčku výrobce OEM přizpůsobení jako součást pracovního postupu ověřování balíčku se ověří formát balíčku k zajištění, že splňuje specifikaci publikovaná. Pokud balíček není v souladu, se nezdaří spuštění. E-mailová oznámení se pošle e-mailovou adresu registrované kontaktování Azure Active Directory pro příslušného tenanta.
+    Při odeslání balíčku pro přizpůsobení OEM jako součást pracovního postupu ověření balíčku se ověří formát balíčku, aby se zajistilo, že bude postupovat podle publikované specifikace. Pokud balíček nevyhovuje, spuštění se nezdaří. E-mailová oznámení se odesílají na e-mailovou adresu zaregistrovaného Azure Active Directory kontaktu pro tenanta.
 
-  - Kategorie interaktivní testu
+  - Kategorie interaktivního testu
 
-    **Interaktivní** byla přidána kategorie testu. Tyto testy výkonu interaktivní, neautomatický scénáře služby Azure Stack.
+    Byla přidána kategorie **interaktivního** testu. Tyto testy cvičení využívají interaktivní, neautomatizované Azure Stack scénáře.
 
-  - Interaktivní funkce ověřování
+  - Interaktivní ověřování funkcí
 
-    Schopnost poskytnout zpětnou vazbu cílené pro určité funkce je teď k dispozici v pracovním postupu průchodu testu. `OEM Update on Azure Stack 1806 RC Validation 5.1.4.0` Test zkontroluje, pokud byly správně použili konkrétní aktualizace a pak shromažďuje zpětnou vazbu.
+    Možnost poskytnout fokus na určité funkce je teď dostupná v pracovním postupu test Pass. Test `OEM Update on Azure Stack 1806 RC Validation 5.1.4.0` kontroluje, zda byly konkrétní aktualizace správně aplikovány, a poté shromažďuje zpětnou vazbu.
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
-- [Řešení potíží s ověření jako služba](azure-stack-vaas-troubleshoot.md)
+- [Řešení potíží s ověřováním jako službou](azure-stack-vaas-troubleshoot.md)

@@ -1,6 +1,6 @@
 ---
-title: Předávání syslog Azure Stack
-description: Zjistěte, jak pomocí řešení monitorování s použitím protokolu syslog předávání k integraci Azure Stack
+title: Integrace Azure Stack s řešeními monitorování pomocí předávání syslog | Microsoft Docs
+description: Naučte se integrovat Azure Stack s řešeními monitorování pomocí předávání syslog.
 services: azure-stack
 author: PatAltimore
 manager: femila
@@ -11,41 +11,41 @@ ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/23/2019
 keywords: ''
-ms.openlocfilehash: a045ed6b64b80c521e6930b651635591ec0e50d4
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: f28eda4a54ae95b1d5f3cc9c694344f8aec46f33
+ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985310"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72277256"
 ---
-# <a name="azure-stack-datacenter-integration---syslog-forwarding"></a>Integrace datových center Azure Stack – předávání syslog
+# <a name="integrate-azure-stack-with-monitoring-solutions-using-syslog-forwarding"></a>Integrace Azure Stack s řešeními monitorování pomocí předávání syslog
 
-Tento článek ukazuje, jak infrastruktura Azure stacku integrovat řešení externí zabezpečení už nasazená ve vašem datovém centru pomocí syslog. Například systém správu informace událostí zabezpečení (SIEM). Kanál syslog zpřístupňuje audity, výstrahy a protokolů zabezpečení ze všech komponent infrastruktury Azure stacku. Použití syslog předávání k integraci s řešeními monitorování zabezpečení a/nebo k načtení všech audity, výstrahy a zabezpečení zaznamená do úložiště pro uchovávání informací.
+V tomto článku se dozvíte, jak pomocí protokolu syslog integrovat Azure Stack infrastrukturu s externími řešeními zabezpečení, která jsou už ve vašem datovém centru nasazená. Například systém správy událostí pro informace o zabezpečení (SIEM). Kanál syslog zpřístupňuje audity, výstrahy a protokoly zabezpečení ze všech součástí infrastruktury Azure Stack. Pomocí předávání syslog můžete integrovat řešení pro monitorování zabezpečení a načíst všechny audity, výstrahy a protokoly zabezpečení a ukládat je do uchování.
 
-Počínaje aktualizací 1809, má Azure Stack integrované syslog klienta, který po nakonfigurování se generuje zprávy syslog s datovou částí v události formát cef (Common Format).
+Počínaje aktualizací 1809 Azure Stack má integrovaného klienta syslog, který po nakonfigurování generuje zprávy syslog s datovou částí ve formátu Common Event Format (CEF).
 
-Následující diagram popisuje integrace služby Azure Stack s externí SIEM. Existují dva způsoby integrace, které je potřeba považovat za: první jednou (jeden modře) je infrastruktura Azure stacku, která zahrnuje virtuální počítače infrastruktury a uzly Hyper-V. Audity, protokolů zabezpečení a výstrahy z těchto komponent jsou centrálně shromažďovat a vystavené prostřednictvím syslogu s datovou částí CEF. Tento model integrace je popsaný na této stránce dokumentu.
-Druhý vzor integrace je použité v ukázkách oranžově a zahrnuje řadiče pro správu základní desky (BMC), životního cyklu hostitelů hardwaru (HLH), virtuální počítače a/nebo virtuálních zařízení, na kterých běží hardwarových partnerů, monitorování a správu software a horní části přepínače (TOR rack). Protože tyto součásti jsou konkrétní, kontaktujte hardwarových partnerů hardwaru partnera pro dokumentaci o tom, jak integrovat se službou externí SIEM.
+Následující diagram popisuje integraci Azure Stack s externím SIEM. Existují dva způsoby integrace, které je potřeba vzít v úvahu: první z nich (modře) je Azure Stack infrastruktura, která zahrnuje virtuální počítače infrastruktury a uzly Hyper-V. Všechny audity, protokoly zabezpečení a výstrahy z těchto komponent jsou centrálně shromažďovány a zpřístupněny prostřednictvím protokolu syslog s CEF datovou částí. Tento vzor integrace je popsán na této stránce dokumentu.
+Druhým modelem integrace je ten, který je znázorněný oranžová a pokrývá řadiče pro správu základní desky (BMC), hostitele životního cyklu hardwaru (HLH), virtuální počítače a virtuální zařízení, na kterých běží software pro monitorování a správu s hardwarovým partnerem. a přepínače pro začátek racku. Vzhledem k tomu, že jsou tyto součásti závislé na hardwaru, obraťte se na svého hardwarového partnera, který vám poskytne dokumentaci, jak je integrovat s externím SIEM.
 
-![Diagram předávání Syslog](media/azure-stack-integrate-security/syslog-forwarding.png)
+![Diagram předávání syslog](media/azure-stack-integrate-security/syslog-forwarding.png)
 
-## <a name="configuring-syslog-forwarding"></a>Konfigurace předávání protokolu syslog
+## <a name="configuring-syslog-forwarding"></a>Konfigurace předávání syslog
 
-Klient protokolu syslog v Azure stacku podporuje následující konfigurace:
+Klient syslog v Azure Stack podporuje následující konfigurace:
 
-1. **Syslog přes protokol TCP, vzájemné ověřování (klient a server) a TLS 1.2 šifrování:** V této konfiguraci syslog server a klient syslog ověření identity mezi sebou prostřednictvím certifikátů. Zprávy se odesílají přes zašifrovaný kanál TLS 1.2.
+1. **Syslog přes TCP se vzájemným ověřováním (klient a Server) a šifrování TLS 1,2:** V této konfiguraci může server syslog i klient syslog ověřit identitu sebe navzájem pomocí certifikátů. Zprávy se odesílají přes zašifrovaný kanál TLS 1,2.
 
-2. **Syslog přes protokol TCP. server ověřování a šifrování TLS 1.2:** V této konfiguraci syslog klient lze ověřit identitu serveru syslog prostřednictvím certifikátu. Zprávy se odesílají přes zašifrovaný kanál TLS 1.2.
+2. **Syslog přes TCP s ověřováním serveru a šifrováním TLS 1,2:** V této konfiguraci může klient syslog ověřit identitu serveru syslog prostřednictvím certifikátu. Zprávy se odesílají přes zašifrovaný kanál TLS 1,2.
 
-3. **Syslog přes protokol TCP, žádné šifrování:** V této konfiguraci nejsou ověřeny syslog klienta a identit server syslog. Zprávy jsou odesílány ve formátu prostého textu prostřednictvím protokolu TCP.
+3. **Syslog přes TCP bez šifrování:** V této konfiguraci nejsou ověřeny identity klienta a serveru syslog. Zprávy se odesílají jako nešifrovaný text přes TCP.
 
-4. **Syslog přes protokol UDP se žádné šifrování:** V této konfiguraci nejsou ověřeny syslog klienta a identit server syslog. Zprávy jsou odesílány ve formátu prostého textu prostřednictvím protokolu UDP.
+4. **Syslog přes UDP bez šifrování:** V této konfiguraci nejsou ověřeny identity klienta a serveru syslog. Zprávy se odesílají jako nešifrovaný text přes UDP.
 
 > [!IMPORTANT]
-> Společnost Microsoft důrazně doporučuje použití ověřování a šifrování pomocí protokolu TCP (konfigurace #1 nebo na velmi minimální #2) pro produkční prostředí pro ochranu před útoky man-in-the-middle a odposlouchávání zpráv.
+> Společnost Microsoft důrazně doporučuje používat protokol TCP s použitím ověřování a šifrování (konfigurace #1 nebo #2) pro produkční prostředí k ochraně před útoky prostředníkem a odposloucháváním zpráv.
 
-### <a name="cmdlets-to-configure-syslog-forwarding"></a>Ke konfiguraci předávání syslog
-Konfigurace předávání protokolu syslog vyžaduje přístup k privilegovaným koncový bod (období). Dvě rutiny Powershellu jsou přidané do období konfigurace předávání protokolu syslog:
+### <a name="cmdlets-to-configure-syslog-forwarding"></a>Rutiny pro konfiguraci předávání syslogu
+Konfigurace předávání syslog vyžaduje přístup k privilegovanému koncovému bodu (PEP). Do PEP byly přidány dvě rutiny prostředí PowerShell pro konfiguraci předávání syslog:
 
 
 ```powershell
@@ -57,36 +57,36 @@ Set-SyslogServer [-ServerName <String>] [-ServerPort <String>] [-NoEncryption] [
 
 Set-SyslogClient [-pfxBinary <Byte[]>] [-CertPassword <SecureString>] [-RemoveCertificate] [-OutputSeverity]
 ```
-#### <a name="cmdlets-parameters"></a>Parametry rutiny
+#### <a name="cmdlets-parameters"></a>Parametry rutin
 
-Parametry pro *Set-SyslogServer* rutiny:
+Parametry pro rutinu *set-SyslogServer* :
 
-| Parametr | Popis | Type | Požaduje se |
+| Parametr | Popis | Typ | Požadováno |
 |---------|---------|---------|---------|
-|*ServerName* | Plně kvalifikovaný název domény nebo IP adresa serveru syslog | String | ano|
-|*ServerPort* | Číslo portu serveru syslog naslouchá | String | ano|
-|*NoEncryption*| Platnost klienta k odeslání zprávy syslog ve formátu prostého textu | Příznak | ne|
-|*SkipCertificateCheck*| Přeskočit ověření certifikátu poskytnutého na server syslog během počáteční TLS handshake | Příznak | ne|
-|*SkipCNCheck*| Přeskočit ověření hodnoty běžný název certifikátu poskytnutého na server syslog během počáteční TLS handshake | Příznak | ne|
-|*UseUDP*| Syslog používat UDP jako přenosový protokol |Příznak | ne|
-|*odebrat*| Odebrat konfiguraci serveru z klienta a ukončit předávání syslog| Příznak | ne|
+|*ServerName* | Plně kvalifikovaný název domény nebo IP adresa serveru syslog | String | Ano|
+|*ServerPort* | Číslo portu, na kterém naslouchá Server syslog. | String | Ano|
+|*Šifrování*| Vynutit, aby klient odesílal zprávy syslog ve formátu prostého textu. | příznaků | Ne|
+|*SkipCertificateCheck*| Při počátečním ověřování TLS vynechejte ověření certifikátu poskytnutého serverem syslog. | příznaků | Ne|
+|*SkipCNCheck*| Při počátečním ověřování TLS vynechejte vynechání hodnoty pro běžný název certifikátu poskytnutého serverem syslog. | příznaků | Ne|
+|*UseUDP*| Použijte protokol syslog se UDP jako transportní protokol. |příznaků | Ne|
+|*Odebrány*| Odeberte konfiguraci serveru z klienta a Zastavte předávání syslog.| příznaků | Ne|
 
-Parametry pro *Set-SyslogClient* rutiny:
+Parametry pro rutinu *set-SyslogClient* :
 
-| Parametr | Popis | Type |
+| Parametr | Popis | Typ |
 |---------|---------| ---------|
-| *pfxBinary* | soubor PFX obsahující certifikát, který se použije klient jako identita k ověření vůči serveru syslog  | Byte[] |
-| *CertPassword* |  Heslo pro import privátní klíč, který je přidružený k souboru pfx | SecureString |
-|*RemoveCertificate* | Odeberte certifikát z klienta | Příznak|
-| *OutputSeverity* | Úroveň protokolování výstupu. Hodnoty jsou **výchozí** nebo **Verbose**. Výchozí hodnotou jsou úrovně závažnosti varování, kritické nebo chyba. Verbose zahrnuje všechny úrovně závažnosti - verbose, informační, varování, kritické, a chyby  | String |
-### <a name="configuring-syslog-forwarding-with-tcp-mutual-authentication-and-tls-12-encryption"></a>Konfigurace předávání protokolu syslog pomocí protokolu TCP, vzájemného ověřování a šifrování TLS 1.2
+| *pfxBinary* | soubor PFX obsahující certifikát, který má klient používat jako identitu k ověřování na serveru syslog.  | Byte [] |
+| *CertPassword* |  Heslo pro import privátního klíče, který je přidružen k souboru PFX. | SecureString |
+|*RemoveCertificate* | Odeberte certifikát z klienta. | příznaků|
+| *OutputSeverity* | Úroveň protokolování výstupu. Hodnoty jsou **výchozí** nebo **podrobné**. Výchozí hodnota zahrnuje úrovně závažnosti: upozornění, kritická nebo chyba. Verbose obsahuje všechny úrovně závažnosti: Verbose, informativní, Warning, kritická nebo chyba.  | String |
+### <a name="configuring-syslog-forwarding-with-tcp-mutual-authentication-and-tls-12-encryption"></a>Konfigurace předávání syslogu pomocí protokolu TCP, vzájemného ověřování a šifrování TLS 1,2
 
-V této konfiguraci syslog klienta ve službě Azure Stack přeposílá zprávy na server syslog přes protokol TCP, pomocí šifrování TLS 1.2. Během počáteční handshake klient ověří, že server poskytuje certifikát platný a důvěryhodné; Podobně klient také poskytuje certifikát na server jako potvrzení identity. Tato konfigurace je nejbezpečnější jako jeho poskytuje úplné ověření identity klienta a serveru a posílání zpráv přes zašifrovaný kanál. 
+V této konfiguraci klient syslog v Azure Stack přepošle zprávy na server syslog přes protokol TCP s šifrováním TLS 1,2. Při počáteční signalizaci klient ověří, že server poskytuje platný důvěryhodný certifikát. Klient také poskytuje certifikát serveru jako důkaz své identity. Tato konfigurace je nejbezpečnější, protože poskytuje úplné ověření identity klienta i serveru a odesílá zprávy přes zašifrovaný kanál.
 
 > [!IMPORTANT]
-> Společnost Microsoft důrazně doporučuje použít tuto konfiguraci pro produkční prostředí. 
+> Microsoft důrazně doporučuje použít tuto konfiguraci pro produkční prostředí. 
 
-Konfigurace předávání protokolu syslog pomocí protokolu TCP, vzájemného ověřování a šifrování TLS 1.2, spusťte v relaci období obě tyto rutiny:
+Pokud chcete nakonfigurovat předávání syslog pomocí protokolu TCP, vzájemného ověřování a šifrování TLS 1,2, spusťte obě tyto rutiny v relaci PEP:
 
 ```powershell
 # Configure the server
@@ -96,7 +96,7 @@ Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -ServerPort <
 Set-SyslogClient -pfxBinary <Byte[] of pfx file> -CertPassword <SecureString, password for accessing the pfx file>
 ```
 
-Klientský certifikát musí mít stejným kořenem jako se zadal při nasazení služby Azure Stack. Také musí obsahovat privátní klíč.
+Klientský certifikát musí mít stejný kořenový adresář jako ten, který jste zadali během nasazování Azure Stack. Musí také obsahovat privátní klíč.
 
 ```powershell
 ##Example on how to set your syslog client with the certificate for mutual authentication.
@@ -129,16 +129,16 @@ Invoke-Command @params -ScriptBlock {
     Set-SyslogClient -PfxBinary $CertContent -CertPassword $CertPassword }
 ```
 
-### <a name="configuring-syslog-forwarding-with-tcp-server-authentication-and-tls-12-encryption"></a>Konfigurace předávání protokolu syslog s TCP, Server ověřování a šifrování TLS 1.2
+### <a name="configuring-syslog-forwarding-with-tcp-server-authentication-and-tls-12-encryption"></a>Konfigurace předávání syslogu pomocí protokolu TCP, ověřování serveru a šifrování TLS 1,2
 
-V této konfiguraci syslog klienta ve službě Azure Stack přeposílá zprávy na server syslog přes protokol TCP, pomocí šifrování TLS 1.2. Během počáteční handshake klient také ověří, že server poskytuje platný důvěryhodný certifikát. Tato konfigurace zabraňuje klienta pro odesílání zpráv do nedůvěryhodných cílů.
-Ověřování a šifrování pomocí protokolu TCP je výchozí konfigurace a představuje minimální úroveň zabezpečení, které společnost Microsoft doporučuje pro produkční prostředí. 
+V této konfiguraci klient syslog v Azure Stack přepošle zprávy na server syslog přes protokol TCP s šifrováním TLS 1,2. Při počáteční signalizaci klienta taky ověří, že server poskytuje platný důvěryhodný certifikát. Tato konfigurace brání klientovi v posílání zpráv do nedůvěryhodných cílů.
+Protokol TCP používá k ověřování a šifrování výchozí konfiguraci a představuje minimální úroveň zabezpečení, kterou společnost Microsoft doporučuje pro produkční prostředí.
 
 ```powershell
 Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -ServerPort <Port number on which the syslog server is listening on>
 ```
 
-V případě, že chcete testovat integraci váš server syslog s klientem služby Azure Stack pomocí certifikátu podepsaného svým držitelem a/nebo nedůvěryhodných, můžete použít tyto příznaky pro přeskočení ověření serveru prováděných klientem během počáteční metody handshake.
+Pokud chcete otestovat integraci vašeho serveru syslog s klientem Azure Stack pomocí certifikátu podepsaného svým držitelem nebo nedůvěryhodného certifikátu, můžete tyto příznaky použít k přeskočení ověření serveru provedeného klientem během počáteční metody handshake.
 
 ```powershell
  #Skip validation of the Common Name value in the server certificate. Use this flag if you provide an IP address for your syslog server
@@ -151,76 +151,76 @@ V případě, že chcete testovat integraci váš server syslog s klientem služ
 ```
 
 > [!IMPORTANT]
-> Společnost Microsoft nedoporučuje použití příznaku - SkipCertificateCheck pro produkční prostředí. 
+> Společnost Microsoft doporučuje použití příznaku-SkipCertificateCheck pro produkční prostředí. 
 
-### <a name="configuring-syslog-forwarding-with-tcp-and-no-encryption"></a>Konfigurace předávání protokolu syslog pomocí protokolu TCP a bez šifrování
+### <a name="configuring-syslog-forwarding-with-tcp-and-no-encryption"></a>Konfigurace předávání syslogu pomocí protokolu TCP a bez šifrování
 
-V této konfiguraci syslog klienta ve službě Azure Stack přeposílá zprávy na server syslog přes protokol TCP, se bez šifrování. Klient neověřuje identity serveru se ani poskytuje vlastní identity k serveru pro ověření. 
+V této konfiguraci klient syslog v Azure Stack přepošle zprávy na server syslog přes protokol TCP bez šifrování. Klient neověřuje identitu serveru ani neposkytuje vlastní identitu serveru pro ověřování.
 
 ```powershell
 Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -ServerPort <Port number on which the syslog server is listening on> -NoEncryption
 ```
 
 > [!IMPORTANT]
-> Společnost Microsoft nedoporučuje používat tuto konfiguraci pro produkční prostředí. 
+> Společnost Microsoft doporučuje použití této konfigurace pro produkční prostředí.
 
 
-### <a name="configuring-syslog-forwarding-with-udp-and-no-encryption"></a>Konfigurace předávání protokolu syslog UDP a bez šifrování
+### <a name="configuring-syslog-forwarding-with-udp-and-no-encryption"></a>Konfigurace předávání syslogu pomocí protokolu UDP a bez šifrování
 
-V této konfiguraci syslog klienta ve službě Azure Stack přeposílá zprávy na server syslog přes protokol UDP, se bez šifrování. Klient neověřuje identity serveru se ani poskytuje vlastní identity k serveru pro ověření. 
+V této konfiguraci klient syslog v Azure Stack přepošle zprávy na server syslog přes protokol UDP bez šifrování. Klient neověřuje identitu serveru ani neposkytuje vlastní identitu serveru pro ověřování.
 
 ```powershell
 Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -ServerPort <Port number on which the syslog server is listening on> -UseUDP
 ```
 
-I UDP se žádné šifrování je nejjednodušší konfiguraci, neposkytuje žádné ochranu proti útokům man-in-the-middle a odposlouchávání zpráv. 
+I když je protokol UDP bez šifrování jednodušší nakonfigurovat, neposkytuje žádnou ochranu proti útokům prostředníkem a odposlouchávání zpráv.
 
 > [!IMPORTANT]
-> Společnost Microsoft nedoporučuje používat tuto konfiguraci pro produkční prostředí. 
+> Společnost Microsoft doporučuje použití této konfigurace pro produkční prostředí.
 
 
-## <a name="removing-syslog-forwarding-configuration"></a>Odebírá se konfigurace předávání protokolu syslog
+## <a name="removing-syslog-forwarding-configuration"></a>Odebírá se konfigurace předávání syslog.
 
-Chcete úplně odebrat konfiguraci serveru syslog a ukončit předávání syslog:
+Chcete-li odebrat konfiguraci serveru syslog úplně a zastavit předávání syslogu, postupujte takto:
 
-**Odebrat z klienta Konfigurace serveru syslog**
+**Odebrání konfigurace serveru syslog z klienta**
 
 ```powershell  
 Set-SyslogServer -Remove
 ```
 
-**Odebrat certifikát klienta z klienta**
+**Odebrat klientský certifikát z klienta**
 
 ```powershell  
 Set-SyslogClient -RemoveCertificate
 ```
 
-## <a name="verifying-the-syslog-setup"></a>Ověřuje se nastavení protokolu syslog
+## <a name="verifying-the-syslog-setup"></a>Ověření nastavení syslog
 
-Pokud klienta syslog se úspěšně připojí k vašemu syslog serveru, by brzo začít přijímat události. Pokud nevidíte žádné události, zkontrolujte konfiguraci vašeho klienta protokolu syslog spuštěním následující rutiny:
+Pokud jste klienta syslog úspěšně připojili k serveru syslog, měli byste brzy začít přijímat události. Pokud se nezobrazí žádná událost, ověřte konfiguraci klienta syslog spuštěním následujících rutin:
 
-**Ověření konfigurace serveru syslog klienta**
+**Ověření konfigurace serveru v klientovi syslog**
 
 ```powershell  
 Get-SyslogServer
 ```
 
-**Ověření instalace certifikátu klienta syslog**
+**Ověření nastavení certifikátu v klientovi syslog**
 
 ```powershell  
 Get-SyslogClient
 ```
 
-## <a name="syslog-message-schema"></a>Schéma zprávy Syslog
+## <a name="syslog-message-schema"></a>Schéma zprávy syslog
 
-Předávání syslog infrastruktury Azure stacku odesílá zprávy ve formátu v Common Event Format (CEF).
-Každou zprávu syslog je uspořádáno na základě tohoto schématu: 
+Předávání syslogu infrastruktury Azure Stack odesílá zprávy formátované ve formátu Common Event Format (CEF).
+Jednotlivé zprávy syslog jsou strukturované na základě tohoto schématu:
 
 ```Syslog
 <Time> <Host> <CEF payload>
 ```
 
-Datová část CEF je založená na struktuře níže, ale mapování pro každé pole se liší v závislosti na typu zprávy (Windows událost, výstraha vytvořena, výstraha uzavřena).
+Datová část CEF je založena na struktuře níže, ale mapování pro každé pole se liší v závislosti na typu zprávy (událost Windows, výstraha vytvořena, výstraha zavřena).
 
 ```CEF
 # Common Event Format schema
@@ -231,7 +231,7 @@ CEF: <Version>|<Device Vendor>|<Device Product>|<Device Version>|<Signature ID>|
 * Device Version: 1.0
 ```
 
-### <a name="cef-mapping-for-privileged-endpoint-events"></a>CEF mapování pro privilegované koncový bod události
+### <a name="cef-mapping-for-privileged-endpoint-events"></a>Mapování CEF pro události privilegovaného koncového bodu
 
 ```
 Prefix fields
@@ -240,34 +240,34 @@ Prefix fields
 * Severity: mapped from PEP Level (details see the PEP Severity table below)
 ```
 
-Tabulka událostí pro privilegované koncový bod:
+Tabulka událostí pro privilegovaný koncový bod:
 
-| Událost | ID události období | Název úlohy období | Severity |
+| Událost | ID události PEP | Název úlohy PEP | Závažnost |
 |-------|--------------| --------------|----------|
 |PrivilegedEndpointAccessed|1000|PrivilegedEndpointAccessedEvent|5|
 |SupportSessionTokenRequested |1001|SupportSessionTokenRequestedEvent|5|
 |SupportSessionDevelopmentTokenRequested |1002|SupportSessionDevelopmentTokenRequestedEvent|5|
-|SupportSessionUnlocked |1003|SupportSessionUnlockedEvent|10|
-|SupportSessionFailedToUnlock |1004|SupportSessionFailedToUnlockEvent|10|
+|SupportSessionUnlocked |1003|SupportSessionUnlockedEvent|10pruhový|
+|SupportSessionFailedToUnlock |1004|SupportSessionFailedToUnlockEvent|10pruhový|
 |PrivilegedEndpointClosed |1005|PrivilegedEndpointClosedEvent|5|
-|NewCloudAdminUser |1006|NewCloudAdminUserEvent|10|
-|RemoveCloudAdminUser |1007|RemoveCloudAdminUserEvent|10|
+|NewCloudAdminUser |1006|NewCloudAdminUserEvent|10pruhový|
+|RemoveCloudAdminUser |1007|RemoveCloudAdminUserEvent|10pruhový|
 |SetCloudAdminUserPassword |1008|SetCloudAdminUserPasswordEvent|5|
-|GetCloudAdminPasswordRecoveryToken |1009|GetCloudAdminPasswordRecoveryTokenEvent|10|
-|ResetCloudAdminPassword |1010|ResetCloudAdminPasswordEvent|10|
+|GetCloudAdminPasswordRecoveryToken |1009|GetCloudAdminPasswordRecoveryTokenEvent|10pruhový|
+|ResetCloudAdminPassword |1010|ResetCloudAdminPasswordEvent|10pruhový|
 
-Tabulka závažnost období:
+Tabulka PEP závažnosti:
 
-| Severity | Úroveň | Číselná hodnota |
+| Závažnost | Obsah | Číselná hodnota |
 |----------|-------| ----------------|
-|0|Nedefinováno|Hodnota: 0. Označuje protokolů na všech úrovních|
-|10|Kritická|Hodnota: 1. Označuje informace pro kritická výstraha|
-|8|Chyba| Hodnota: 2. Označuje chybu v protokolech|
-|5|Upozornění|Hodnota: 3. Označuje informace pro upozornění|
-|2|Informace|Hodnota: 4. Označuje informace pro informační zpráva|
-|0|Podrobnosti|Hodnota: 5. Označuje protokolů na všech úrovních|
+|0,8|Nedefinované|Hodnota: 0. Indikuje protokoly na všech úrovních.|
+|10pruhový|Kritická|Hodnota: 1. Označuje protokoly pro kritickou výstrahu.|
+|8|Chyba| Hodnota: 2. Označuje protokoly pro chybu.|
+|5|Upozornění|Hodnota: 3. Indikuje protokoly pro upozornění.|
+|odst|Informace o|Hodnota: 4. Označuje protokoly pro informační zprávu.|
+|0,8|Podrobné|Hodnota: 5. Indikuje protokoly na všech úrovních.|
 
-### <a name="cef-mapping-for-recovery-endpoint-events"></a>CEF mapování pro události koncového bodu obnovení
+### <a name="cef-mapping-for-recovery-endpoint-events"></a>Mapování CEF pro události koncového bodu obnovení
 
 ```
 Prefix fields
@@ -278,27 +278,27 @@ Prefix fields
 
 Tabulka událostí pro koncový bod obnovení:
 
-| Událost | ID události zástupce | Název úlohy zástupce | Severity |
+| Událost | ID události zástupce | Název úlohy zástupce | Závažnost |
 |-------|--------------| --------------|----------|
 |RecoveryEndpointAccessed |1011|RecoveryEndpointAccessedEvent|5|
 |RecoverySessionTokenRequested |1012|RecoverySessionTokenRequestedEvent |5|
 |RecoverySessionDevelopmentTokenRequested |1013|RecoverySessionDevelopmentTokenRequestedEvent|5|
-|RecoverySessionUnlocked |1014|RecoverySessionUnlockedEvent |10|
-|RecoverySessionFailedToUnlock |1015|RecoverySessionFailedToUnlockEvent|10|
+|RecoverySessionUnlocked |1014|RecoverySessionUnlockedEvent |10pruhový|
+|RecoverySessionFailedToUnlock |1015|RecoverySessionFailedToUnlockEvent|10pruhový|
 |RecoveryEndpointClosed |1016|RecoveryEndpointClosedEvent|5|
 
-Tabulka zástupce závažnosti:
+Tabulka závažnosti zástupce:
 
-| Severity | Úroveň | Číselná hodnota |
+| Závažnost | Obsah | Číselná hodnota |
 |----------|-------| ----------------|
-|0|Nedefinováno|Hodnota: 0. Označuje protokolů na všech úrovních|
-|10|Kritická|Hodnota: 1. Označuje informace pro kritická výstraha|
-|8|Chyba| Hodnota: 2. Označuje chybu v protokolech|
-|5|Upozornění|Hodnota: 3. Označuje informace pro upozornění|
-|2|Informace|Hodnota: 4. Označuje informace pro informační zpráva|
-|0|Podrobnosti|Hodnota: 5. Označuje protokolů na všech úrovních|
+|0,8|Nedefinované|Hodnota: 0. Indikuje protokoly na všech úrovních.|
+|10pruhový|Kritická|Hodnota: 1. Označuje protokoly pro kritickou výstrahu.|
+|8|Chyba| Hodnota: 2. Označuje protokoly pro chybu.|
+|5|Upozornění|Hodnota: 3. Indikuje protokoly pro upozornění.|
+|odst|Informace o|Hodnota: 4. Označuje protokoly pro informační zprávu.|
+|0,8|Podrobné|Hodnota: 5. Indikuje protokoly na všech úrovních.|
 
-### <a name="cef-mapping-for-windows-events"></a>CEF mapování pro události Windows
+### <a name="cef-mapping-for-windows-events"></a>Mapování CEF pro události Windows
 
 ```
 * Signature ID: ProviderName:EventID
@@ -307,27 +307,27 @@ Tabulka zástupce závažnosti:
 * Extension: Custom Extension Name (for details, see the Custom Extension table below)
 ```
 
-Tabulka závažnosti události Windows:
+Tabulka závažnosti pro události systému Windows:
 
 | Hodnota závažnosti CEF | Úroveň události Windows | Číselná hodnota |
 |--------------------|---------------------| ----------------|
-|0|Nedefinováno|Hodnota: 0. Označuje protokolů na všech úrovních|
-|10|Kritická|Hodnota: 1. Označuje informace pro kritická výstraha|
-|8|Chyba| Hodnota: 2. Označuje chybu v protokolech|
-|5|Upozornění|Hodnota: 3. Označuje informace pro upozornění|
-|2|Informace|Hodnota: 4. Označuje informace pro informační zpráva|
-|0|Podrobnosti|Hodnota: 5. Označuje protokolů na všech úrovních|
+|0,8|Nedefinované|Hodnota: 0. Indikuje protokoly na všech úrovních.|
+|10pruhový|Kritická|Hodnota: 1. Označuje protokoly pro kritickou výstrahu.|
+|8|Chyba| Hodnota: 2. Označuje protokoly pro chybu.|
+|5|Upozornění|Hodnota: 3. Indikuje protokoly pro upozornění.|
+|odst|Informace o|Hodnota: 4. Označuje protokoly pro informační zprávu.|
+|0,8|Podrobné|Hodnota: 5. Indikuje protokoly na všech úrovních.|
 
-Tabulka vlastní rozšíření pro události Windows ve službě Azure Stack:
+Vlastní tabulka rozšíření pro události systému Windows v Azure Stack:
 
-| Název vlastní rozšíření | Příklad události Windows | 
+| Název vlastního rozšíření | Příklad události systému Windows | 
 |-----------------------|---------|
-|MasChannel | Systémový|
+|MasChannel | Systém|
 |MasComputer | test.azurestack.contoso.com|
 |MasCorrelationActivityID| C8F40D7C-3764-423B-A4FA-C994442238AF|
 |MasCorrelationRelatedActivityID| C8F40D7C-3764-423B-A4FA-C994442238AF|
-|MasEventData| svchost!!4132,G,0!!!!EseDiskFlushConsistency!!ESENT!!0x800000|
-|MasEventDescription| Nastavení zásad skupiny pro uživatele byla úspěšně zpracována. Nebyly od poslední úspěšné zpracování zásad skupiny se nezjistily žádné změny.|
+|MasEventData| proces Svchost! 4132, G, 0!!!! EseDiskFlushConsistency!! ESENT! 0x800000|
+|MasEventDescription| Nastavení Zásady skupiny pro uživatele se úspěšně zpracovalo. Od posledního úspěšného zpracování Zásady skupiny se nezjistily žádné změny.|
 |MasEventID|1501|
 |MasEventRecordID|26637|
 |MasExecutionProcessID | 29380|
@@ -335,18 +335,18 @@ Tabulka vlastní rozšíření pro události Windows ve službě Azure Stack:
 |MasKeywords |0x8000000000000000|
 |MasKeywordName |Úspěšný audit|
 |MasLevel |4|
-|MasOpcode |1|
-|MasOpcodeName |informace|
+|MasOpcode |první|
+|MasOpcodeName |Příjemce|
 |MasProviderEventSourceName ||
 |MasProviderGuid |AEA1B4FA-97D1-45F2-A64C-4D69FFFD92C9|
 |MasProviderName |Microsoft-Windows-GroupPolicy|
-|MasSecurityUserId |\<Windows SID\> |
-|MasTask |0|
-|MasTaskCategory| Vytvoření procesu|
-|MasUserData|KB4093112!!5112!!Installed!!0x0!!WindowsUpdateAgent Xpath: /Event/UserData/*|
-|MasVersion|0|
+|MasSecurityUserId |\<Windows SID @ no__t-1 |
+|MasTask |0,8|
+|MasTaskCategory| Vytváření procesů|
+|MasUserData|KB4093112!! 5112! Nainstalováno! 0x0!! WindowsUpdateAgent XPath:/Event/UserData/*|
+|MasVersion|0,8|
 
-### <a name="cef-mapping-for-alerts-created"></a>CEF mapování pro vytvoření výstrahy
+### <a name="cef-mapping-for-alerts-created"></a>Mapování CEF pro vytvořené výstrahy
 
 ```
 * Signature ID: Microsoft Azure Stack Alert Creation : FaultTypeId
@@ -355,21 +355,21 @@ Tabulka vlastní rozšíření pro události Windows ve službě Azure Stack:
 * Extension: Custom Extension Name (for details, see the Custom Extension table below)
 ```
 
-Tabulka závažnost výstrahy:
+Tabulka Závažnost výstrahy:
 
-| Severity | Úroveň |
+| Závažnost | Obsah |
 |----------|-------|
-|0|Nedefinováno|
-|10|Kritická|
+|0,8|Nedefinované|
+|10pruhový|Kritická|
 |5|Upozornění|
 
-Vlastní rozšíření tabulky pro upozornění vytvořená ve službě Azure Stack:
+Vlastní tabulka rozšíření pro výstrahy vytvořené v Azure Stack:
 
-| Název vlastní rozšíření | Příklad: | 
+| Název vlastního rozšíření | Příklad | 
 |-----------------------|---------|
-|MasEventDescription|POPIS: Uživatelský účet \<TestUser\> bylo vytvořeno za \<TestDomain\>. Je možné bezpečnostní riziko. --OPRAVY: Kontaktujte podporu. K vyřešení tohoto problému je nutné pomoc zákazníkům. Nepokoušejte se vyřešit tento problém bez jejich pomoci. Než otevřete žádost o podporu, spusťte proces shromažďování souborů protokolů pomocí pokynů z https://aka.ms/azurestacklogfiles |
+|MasEventDescription|Popis: uživatelský účet \<TestUser @ no__t-1 byl vytvořen pro \<TestDomain @ no__t-3. Jde o potenciální bezpečnostní riziko. --NÁPRAVa: obraťte se na podporu. K vyřešení tohoto problému se vyžaduje zákaznická podpora. Nepokoušejte se tento problém vyřešit bez pomoci. Než otevřete žádost o podporu, spusťte proces shromažďování souborů protokolu pomocí pokynů z https://aka.ms/azurestacklogfiles.
 
-### <a name="cef-mapping-for-alerts-closed"></a>CEF mapování pro zavření výstrahy
+### <a name="cef-mapping-for-alerts-closed"></a>Mapování CEF pro uzavřené výstrahy
 
 ```
 * Signature ID: Microsoft Azure Stack Alert Creation : FaultTypeId
@@ -377,11 +377,11 @@ Vlastní rozšíření tabulky pro upozornění vytvořená ve službě Azure St
 * Severity: Information
 ```
 
-Následující příklad ukazuje zprávy syslog s datovou částí CEF:
+Následující příklad ukazuje zprávu syslog s datovou částí CEF:
 ```
 2018:05:17:-23:59:28 -07:00 TestHost CEF:0.0|Microsoft|Microsoft Azure Stack|1.0|3|TITLE: User Account Created -- DESCRIPTION: A user account \<TestUser\> was created for \<TestDomain\>. It's a potential security risk. -- REMEDIATION: Please contact Support. Customer Assistance is required to resolve this issue. Do not try to resolve this issue without their assistance. Before you open a support request, start the log file collection process using the guidance from https://aka.ms/azurestacklogfiles|10
 ```
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 [Zásady údržby](azure-stack-servicing-policy.md)

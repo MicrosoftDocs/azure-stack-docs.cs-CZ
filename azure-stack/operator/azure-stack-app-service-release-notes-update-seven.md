@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2019
+ms.date: 10/11/2019
 ms.author: anwestg
 ms.reviewer: ''
-ms.openlocfilehash: ec07277043068835d1d1d5a41285ee5df5ee7691
-ms.sourcegitcommit: 701685f0b59e5a3d1a8d39fe477b8df701a51cd2
+ms.openlocfilehash: 77fb9772f027d25b0d8c0d8355e3a868c2142d6c
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70165337"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72282598"
 ---
 # <a name="app-service-on-azure-stack-update-7-release-notes"></a>App Service v poznámce k verzi Update 7 pro Azure Stack
 
@@ -32,7 +32,7 @@ Tyto poznámky k verzi popisují vylepšení a opravy v Azure App Service na Azu
 > Před nasazením Azure App Service 1,7 použijte aktualizaci 1907 pro váš Azure Stack integrovaný systém nebo nasaďte nejnovější Azure Stack vývojovou sadu.
 
 
-## <a name="build-reference"></a>Referenční informace o buildu
+## <a name="build-reference"></a>Odkaz na sestavení
 
 App Service číslo buildu Azure Stack Update 7 je **84.0.2.10**
 
@@ -47,7 +47,7 @@ Než začnete s upgradem Azure App Service v Azure Stack na 1,7:
 - Zálohování App Service a hlavních databází:
   - AppService_Hosting;
   - AppService_Metering;
-  - Předloha
+  - Hlavní
 
 - Zálohování sdílené složky obsahu aplikace tenanta
 
@@ -56,6 +56,8 @@ Než začnete s upgradem Azure App Service v Azure Stack na 1,7:
 ### <a name="new-features-and-fixes"></a>Nové funkce a opravy
 
 Azure App Service na Azure Stack Update 7 obsahuje následující vylepšení a opravy:
+
+- Řešení chyby zabezpečení v [CVE-2019-1372](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-1372) vzdálené spuštění kódu
 
 - Aktualizace pro **App Service klientů, správců, funkcí portálů a nástrojů Kudu** Konzistentní s Azure Stack verze sady SDK portálu.
 
@@ -77,14 +79,14 @@ Azure App Service na Azure Stack Update 7 obsahuje následující vylepšení a 
   - [2019-08 kumulativní aktualizace pro Windows Server 2016 pro systémy založené na platformě x64 (KB4512495)](https://support.microsoft.com/help/4512495)
 
 - **Na portálu User Portal jsou nyní povolena omezení přístupu**:
-  - Od tohoto vydání můžou uživatelé nakonfigurovat omezení přístupu pro své aplikace Web/API/Functions podle dokumentace publikované v dokumentaci – [Azure App Service omezení přístupu](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions), **Poznámka**: Azure App Service v Azure Stack nepodporuje koncové body služby.
+  - Od tohoto vydání můžou uživatelé nakonfigurovat omezení přístupu pro své aplikace Web/API/Functions podle dokumentace publikované v dokumentaci [Azure App Service omezení přístupu](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions), **Poznámka**: Azure App Service na Azure Stack nepodporuje Koncové body služby.
 
 - **Obnovena funkčnost možností nasazení (Classic)** :
   - Uživatelé můžou znovu použít možnosti nasazení (Classic) ke konfiguraci nasazení svých aplikací z GitHubu, BitBucket, Dropboxu, OneDrivu, místních i externích úložišť a k nastavení přihlašovacích údajů nasazení pro své aplikace.
 
 - **Monitorování funkcí Azure** je správně nakonfigurované.
 
-- **Chování web Windows Update**: Na základě zpětné vazby od zákazníků jsme změnili způsob, jakým web Windows Update konfigurace App Service role z aktualizace 7:
+- **Chování web Windows Update**: na základě zpětné vazby od zákazníků jsme změnili způsob, jakým jsou web Windows Update nakonfigurovaná na role App Service z aktualizace 7:
   - Tři režimy:
     - **Zakázaná** služba web Windows Update zakázaná, Windows se bude aktualizovat s KB, která se dodává s Azure App Service v Azure Stack verzích.
     - Služba **automatické** web Windows Update povolena a web Windows Update určuje, jak a kdy se má aktualizovat.
@@ -92,7 +94,7 @@ Azure App Service na Azure Stack Update 7 obsahuje následující vylepšení a 
 
   **Nové** Nasazení – služba web Windows Update je ve výchozím nastavení zakázaná.
 
-  **Existující** Nasazení – Pokud jste v řadiči změnili nastavení, hodnota se teď změní z **false** na zakázaná a předchozí hodnota **true** se změní na **automaticky** .
+  **Existující** Nasazení – Pokud jste v řadiči změnili nastavení, hodnota se teď změní z **false** na **zakázaná** a předchozí hodnota **true** se změní na **automaticky** .
 
 ### <a name="post-deployment-steps"></a>Kroky po nasazení
 
@@ -106,11 +108,11 @@ Azure App Service na Azure Stack Update 7 obsahuje následující vylepšení a 
 Pokud se rozhodnete nasadit do existující virtuální sítě a interní IP adresu pro připojení k souborovému serveru, musíte přidat odchozí pravidlo zabezpečení, které povoluje provoz SMB mezi podsítí pracovních procesů a souborovým serverem. Na portálu pro správu přejdete na WorkersNsg a přidáte odchozí pravidlo zabezpečení s následujícími vlastnostmi:
  * Zdroj: Any
  * Rozsah zdrojových portů: *
- * Cíl: Adresy IP
- * Rozsah cílových IP adres: Rozsah IP adres pro souborový server
+ * Cíl: IP adresy
+ * Rozsah cílových IP adres: rozsah IP adres pro souborový server
  * Rozsah cílových portů: 445
  * Protokol: TCP
- * Akce: Allow
+ * Akce: povolení
  * Priorita: 700
  * Název: Outbound_Allow_SMB445
 
@@ -118,7 +120,7 @@ Pokud se rozhodnete nasadit do existující virtuální sítě a interní IP adr
 
 Informace najdete v dokumentaci k [verzi Azure Stack 1907](azure-stack-release-notes-1907.md) .
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 - Přehled Azure App Service najdete v tématu [přehled Azure App Service na Azure Stack](azure-stack-app-service-overview.md).
 - Další informace o tom, jak připravit nasazení App Service v Azure Stack, najdete v tématu [před zahájením práce s App Service na Azure Stack](azure-stack-app-service-before-you-get-started.md).

@@ -13,20 +13,20 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.custom: mvc
-ms.date: 06/11/2019
+ms.date: 10/05/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 06/11/2019
-ms.openlocfilehash: d34b57a76f654e4d1825124f0f13ca26049332e5
-ms.sourcegitcommit: 1bae55e754d7be75e03af7a4db3ec43fd7ff3e9c
+ms.openlocfilehash: 4b3fed8ee02739cf82b1446cc8c0a9b807763d49
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71319184"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72283288"
 ---
 # <a name="azure-stack-add-on-plans"></a>Azure Stack plány pro Doplňky
 
-Jako operátor Azure Stack vytvoříte doplňkovou plány pro úpravu [základního plánu](azure-stack-create-plan.md) , pokud chcete nabízet další služby nebo zvýšit kapacitu *počítačů*, *úložiště*nebo *síťových* kvót mimo počáteční nabídku základní plán. Plány doplňku upravují základní plán a jsou volitelná rozšíření, která si uživatelé můžou zvolit k přihlášení k odběru.
+Jako operátor Azure Stack vytvoříte doplňkovou plány pro úpravu [základního plánu](azure-stack-create-plan.md) , pokud chcete nabízet další služby nebo zvýšit kapacitu *počítačů*, *úložiště*nebo *síťových* kvót mimo počáteční nabídku základní plán. Plány doplňku upravují základní plán a jsou volitelná rozšíření, která si uživatelé můžou povolit ve svém předplatném.
 
 Existují situace, kdy kombinace všeho v jednom plánu je optimální. Jindy možná budete chtít mít základní plán a potom nabízet další služby pomocí doplňkových plánů. Například se můžete rozhodnout nabízet služby IaaS jako součást základního plánu, přičemž všechny služby PaaS se zpracují jako doplňková plán.
 
@@ -35,9 +35,7 @@ Dalším důvodem pro použití doplňkových plánů je pomáhat sledovat využ
 > [!NOTE]
 > Pokud nechcete, aby kvóta rozšířila plán doplňku, můžete také zvolit [úpravu původní konfigurace kvóty](azure-stack-quota-types.md#edit-a-quota).
 
-Když do stávajícího předplatného nabídky přidáte plán doplňku, může trvat až hodinu, než se zobrazí další prostředky.
-
-Plány doplňku se vytvářejí úpravou stávající nabídky.
+Plány doplňku jsou [vytvořeny stejným způsobem](azure-stack-create-plan.md) jako základní plán. Rozdíl mezi těmito dvěma hodnotami je určen při přidání plánu do nabídky. Je určený buď jako základní plán, nebo jako plán doplňku. Když do existující nabídky přidáte plán doplňku, může trvat až hodinu, než se v předplatném zobrazí další prostředky.
 
 ::: moniker range=">=azs-1902"
 ## <a name="create-an-add-on-plan-1902-and-later"></a>Vytvoření doplňkového plánu (1902 a novější)
@@ -48,7 +46,7 @@ Plány doplňku se vytvářejí úpravou stávající nabídky.
 
    ![Vytvořit plán doplňku](media/create-add-on-plan/add-on1.png)
 
-4. V dolní části vlastností nabídky vyberte možnost **plány doplňku**. Klikněte na **Přidat**.
+4. V dolní části vlastností nabídky vyberte možnost **plány doplňku**. Klikněte na tlačítko **Přidat**.
 
     ![Vytvořit plán doplňku](media/create-add-on-plan/add-on2.png)
 
@@ -58,7 +56,7 @@ Plány doplňku se vytvářejí úpravou stávající nabídky.
 
 6. Zkontrolujte seznam doplňkových plánů, který je součástí nabídky, a ověřte, že je uvedený nový plán doplňku.
 
-    [![Vytvořit plán doplňku](media/create-add-on-plan/add-on4.png "Vytvořit plán doplňku")](media/create-add-on-plan/add-on4lg.png#lightbox)
+    [![Vytvořit plán doplňku pro](media/create-add-on-plan/add-on4.png "Vytvoření plánu doplňku")](media/create-add-on-plan/add-on4lg.png#lightbox)
 ::: moniker-end
 
 ::: moniker range="<=azs-1901"
@@ -70,7 +68,7 @@ Plány doplňku se vytvářejí úpravou stávající nabídky.
 
    ![Vytvořit plán doplňku](media/create-add-on-plan/1.PNG)
 
-4. Posuňte se do dolní části vlastností nabídky a vyberte možnost **plány doplňku**. Klikněte na **Přidat**.
+4. Posuňte se do dolní části vlastností nabídky a vyberte možnost **plány doplňku**. Klikněte na tlačítko **Přidat**.
 
     ![Vytvořit plán doplňku](media/create-add-on-plan/2.PNG)
 

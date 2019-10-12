@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/20/2019
+ms.date: 10/10/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 06/20/2019
-ms.openlocfilehash: 841b2b3d525380d927b9d4b121b7e832c99b7147
-ms.sourcegitcommit: 35b13ea6dc0221a15cd0840be796f4af5370ddaf
+ms.openlocfilehash: afb295d775eb9e8d35878c4d9c69106c558ffec0
+ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68602930"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72277757"
 ---
 # <a name="deploy-a-sql-server-2016-availability-group-to-azure-and-azure-stack"></a>Nasazení skupiny dostupnosti SQL Server 2016 do Azure a Azure Stack
 
@@ -34,7 +34,7 @@ V tomto řešení vytvoříte ukázkové prostředí pro:
 > - Nasazení základního vysoce dostupného clusteru SQL Server 2016 Enterprise s lokalitou pro obnovení po havárii
 
 > [!Tip]  
-> ![hybridní pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
+> @no__t -0hybrid-Pillars. png @ no__t-1  
 > Microsoft Azure Stack je rozšířením Azure. Azure Stack přináší flexibilitu a inovace cloud computingu do místního prostředí a umožňuje jenom hybridní cloud, který umožňuje vytvářet a nasazovat hybridní aplikace odkudkoli.  
 > 
 > Požadavky na [Návrh pro hybridní aplikace](azure-stack-edge-pattern-overview.md) kontrolují pilíře kvality softwaru (umístění, škálovatelnost, dostupnost, odolnost, možnosti správy a zabezpečení) pro navrhování, nasazování a provozování hybridních aplikací. Pokyny k návrhu pomáhají při optimalizaci návrhu hybridní aplikace a minimalizaci výzev v produkčních prostředích.
@@ -97,7 +97,7 @@ Image Docker pro každé nasazení eliminují problémy závislosti mezi různý
       -AzureStackSubscriptionId_DR "drSubscriptionId"
       ```
 
-4.  Zadejte `Y` , pokud chcete, aby se nainstaloval poskytovatel NuGet, který se aktivuje z profilu rozhraní API "2018-03-01-hybrid" modulů, které se mají nainstalovat.
+4.  Zadejte `Y`, aby se mohl nainstalovat poskytovatel NuGet. tím se zahájí instalace modulů rozhraní API "2018-03-01-hybrid".
 
 5.  Počkejte, až se nasazení prostředků dokončí.
 
@@ -111,8 +111,8 @@ Image Docker pro každé nasazení eliminují problémy závislosti mezi různý
 
 ![SQL Server 2016 SQL HA](media/azure-stack-solution-sql-ha/image2.png)
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
   - Použití SQL Server Management Studio k ručnímu převzetí služeb při selhání clusteru najdete v tématu [provedení vynuceného ručního převzetí služeb při selhání skupiny dostupnosti Always On (SQL Server)](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/perform-a-forced-manual-failover-of-an-availability-group-sql-server?view=sql-server-2017) .
   - Další informace o hybridních cloudových aplikacích najdete v tématu [hybridní cloudová řešení.](https://aka.ms/azsdevtutorials)
-  - Použijte vlastní data nebo upravte kód v této ukázce na GitHubu [](https://github.com/Azure-Samples/azure-intelligent-edge-patterns).
+  - Použijte vlastní data nebo upravte kód v této ukázce na [GitHubu](https://github.com/Azure-Samples/azure-intelligent-edge-patterns).

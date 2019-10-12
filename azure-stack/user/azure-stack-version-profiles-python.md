@@ -15,12 +15,12 @@ ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
 <!-- dev: viananth -->
-ms.openlocfilehash: bf44716c160948f3deafdc8afb87b9b6d49f9eb5
-ms.sourcegitcommit: 3d14ae30ce3ee44729e5419728cce14b3000e968
+ms.openlocfilehash: d0bec72b86fc2cfc729514343a3749a7907ae04c
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71814438"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72282826"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack"></a>Použití profilů verzí rozhraní API s Pythonem v Azure Stack
 
@@ -36,11 +36,11 @@ Python SDK podporuje následující profily rozhraní API:
 
 - **nejnovější**  
     Tento profil cílí na nejnovější verze rozhraní API pro všechny poskytovatele služeb na platformě Azure.
-- **2019-03-01-hybrid**  
+- **2019-03-01 – Hybrid**  
     Tento profil cílí na nejnovější verze rozhraní API pro všechny poskytovatele prostředků na platformě Azure Stack pro verze 1904 nebo novější.
-- **2018-03-01-hybrid**  
+- **2018-03-01 – Hybrid**  
     Tento profil cílí na nejvíce kompatibilní verze rozhraní API pro všechny poskytovatele prostředků na platformě Azure Stack.
-- **2017-03-09-profile**  
+- **2017-03-09 – profil**  
     Tento profil cílí na nejvíce kompatibilní verze rozhraní API zprostředkovatelů prostředků, které podporuje Azure Stack.
 
    Další informace o profilech rozhraní API a Azure Stack najdete v tématu [Správa profilů verzí rozhraní API v Azure Stack](azure-stack-version-profiles.md).
@@ -50,20 +50,20 @@ Python SDK podporuje následující profily rozhraní API:
 1. Nainstalujte git z [oficiální lokality](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 2. Pokyny k instalaci sady Python SDK najdete v tématu [Azure pro vývojáře v Pythonu](/python/azure/python-sdk-azure-install?view=azure-python).
 3. Pokud není k dispozici, vytvořte odběr a uložte ID předplatného, které chcete později použít. Pokyny k vytvoření předplatného najdete [v tématu Vytvoření předplatných nabídek v Azure Stack](../operator/azure-stack-subscribe-plan-provision-vm.md).
-4. Vytvořte instanční objekt a uložte jeho ID a tajný klíč. Pokyny o tom, jak vytvořit instanční objekt pro Azure Stack najdete v tématu [poskytují aplikacím přístup ke službě Azure Stack](../operator/azure-stack-create-service-principals.md).
-5. Ujistěte se, že má instančního objektu služby roli Přispěvatel nebo vlastník v rámci předplatného. Pokyny k přiřazení role k instančnímu objektu najdete v tématu [poskytnutí přístupu k aplikacím Azure Stack](../operator/azure-stack-create-service-principals.md).
+4. Vytvořte instanční objekt a uložte jeho ID a tajný klíč. Pokyny k vytvoření instančního objektu pro Azure Stack najdete v tématu [poskytnutí přístupu aplikací k Azure Stack](../operator/azure-stack-create-service-principals.md).
+5. Ujistěte se, že váš instanční objekt má v předplatném roli Přispěvatel/vlastník. Pokyny k přiřazení role k instančnímu objektu najdete v tématu [poskytnutí přístupu k aplikacím Azure Stack](../operator/azure-stack-create-service-principals.md).
 
 ## <a name="prerequisites"></a>Požadavky
 
 Pokud chcete použít sadu Python Azure SDK s Azure Stack, musíte zadat následující hodnoty a potom nastavit hodnoty pomocí proměnných prostředí. Chcete-li nastavit proměnné prostředí, postupujte podle pokynů v následující tabulce pro konkrétní operační systém.
 
-| Value | Proměnné prostředí | Popis |
+| Hodnota | Proměnné prostředí | Popis |
 |---------------------------|-----------------------|-------------------------------------------------------------------------------------------------------------------------|
 | ID tenanta | `AZURE_TENANT_ID` | Vaše [ID tenanta](../operator/azure-stack-identity-overview.md)Azure Stack. |
 | ID klienta | `AZURE_CLIENT_ID` | ID aplikace instančního objektu se uložilo při vytvoření instančního objektu v předchozí části tohoto článku. |
-| ID předplatného | `AZURE_SUBSCRIPTION_ID` | [ID předplatného](../operator/azure-stack-plan-offer-quota-overview.md#subscriptions) se používá pro přístup k nabídkám v Azure Stack. |
+| ID předplatného | `AZURE_SUBSCRIPTION_ID` | [ID předplatného](../operator/service-plan-offer-subscription-overview.md#subscriptions) se používá pro přístup k nabídkám v Azure Stack. |
 | Tajný kód klienta | `AZURE_CLIENT_SECRET` | Tajný kód aplikace instančního objektu se uložil při vytvoření objektu služby. |
-| Koncový bod Resource Manageru | `ARM_ENDPOINT` | Viz článek [Azure Stack správce prostředků koncového bodu](azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint) . |
+| Správce prostředků koncový bod | `ARM_ENDPOINT` | Viz článek [Azure Stack správce prostředků koncového bodu](azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint) . |
 | Umístění prostředku | `AZURE_RESOURCE_LOCATION` | Umístění prostředku vašeho Azure Stackho prostředí.
 
 ### <a name="trust-the-azure-stack-ca-root-certificate"></a>Důvěřovat kořenovému certifikátu certifikační autority Azure Stack
@@ -127,7 +127,7 @@ Některé ukázky kódu, které jsou k dispozici pro Azure Stack pomocí sady Py
 K provádění běžných úloh správy virtuálních počítačů ve vašem Azure Stack použijte následující ukázku kódu Pythonu. Ukázka kódu ukazuje, jak:
 
 - Vytváření virtuálních počítačů:
-  - Vytvoření virtuálního počítače s Linuxem
+  - Vytvoření virtuálního počítače se systémem Linux
   - Vytvoření virtuálního počítače s Windows
 - Aktualizace virtuálního počítače:
   - Rozbalení jednotky
@@ -138,7 +138,7 @@ K provádění běžných úloh správy virtuálních počítačů ve vašem Azu
   - Spuštění virtuálního počítače
   - Zastavení virtuálního počítače
   - Restartování virtuálního počítače
-- Vypsat virtuální počítače
+- Výpis virtuálních počítačů
 - Odstranění virtuálního počítače
 
 Pokud si chcete prohlédnout kód, který provádí tyto operace, přečtěte si funkci **run_example ()** ve skriptu Python **example.py** v úložišti GitHub [Hybrid-COMPUTE-Python-manage-VM](https://github.com/Azure-Samples/Hybrid-Compute-Python-Manage-VM).
