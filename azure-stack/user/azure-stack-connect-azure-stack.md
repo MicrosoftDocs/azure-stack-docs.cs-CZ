@@ -11,18 +11,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/16/2019
+ms.date: 10/10/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: fe10926fdcb3b01cef84e021300d37168c68ae0b
-ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
+ms.openlocfilehash: 6ccb86bd3ef0ded9126e68f53d87282e505b416e
+ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71159335"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72277038"
 ---
-# <a name="connect-to-azure-stack"></a>Připojení ke službě Azure Stack
+# <a name="connect-to-azure-stack"></a>Připojení k Azure Stack
 
 Chcete-li spravovat prostředky, je nutné se připojit k Azure Stack Development Kit. Tento článek podrobně popisuje kroky potřebné pro připojení k vývojové sadě. Můžete použít kteroukoli z následujících možností připojení:
 
@@ -36,7 +36,7 @@ S Připojení ke vzdálené ploše může jeden souběžný uživatel pracovat s
 
 2. V počítači vývojové sady otevřete Správce serveru, klikněte na **místní server**, vypněte rozšířené zabezpečení aplikace Internet Explorer a potom zavřete Správce serveru.
 
-3. Portál otevřete tak, že přejdete na https://portal.local.azurestack.external/) adresu (a přihlásíte se pomocí přihlašovacích údajů uživatele).
+3. Portál otevřete tak, že přejdete na adresu (https://portal.local.azurestack.external/) a přihlásíte se pomocí přihlašovacích údajů uživatele).
 
 
 ## <a name="connect-to-azure-stack-with-vpn"></a>Připojení k Azure Stack pomocí sítě VPN
@@ -49,9 +49,9 @@ K Azure Stack Development Kit můžete vytvořit připojení VPN typu dělené t
 ### <a name="prerequisites"></a>Požadavky
 
 * Do místního počítače nainstalujte [Azure Stack kompatibilní Azure PowerShell](../operator/azure-stack-powershell-install.md) .  
-* Ve službě [Azure Stack development Kit by měl být blobEndpoint](../operator/azure-stack-powershell-download.md) . 
+* Stáhněte si [nástroje potřebné pro práci s Azure Stack](../operator/azure-stack-powershell-download.md). 
 
-### <a name="configure-vpn-connectivity"></a>Konfigurace připojení k síti VPN
+### <a name="configure-vpn-connectivity"></a>Konfigurace připojení VPN
 
 Pokud chcete vytvořit připojení VPN k vývojové sadě, otevřete relaci PowerShellu se zvýšenými oprávněními z místního počítače se systémem Windows a spusťte následující skript (nezapomeňte aktualizovat IP adresu a heslo pro vaše prostředí):
 
@@ -84,15 +84,15 @@ Add-AzsVpnConnection `
 
 ```
 
-Pokud je nastavení úspěšné, zobrazí `azurestack` se v seznamu připojení VPN.
+Pokud je nastavení úspěšné, zobrazí se v seznamu připojení VPN `azurestack`.
 
 ![Síťová připojení](media/azure-stack-connect-azure-stack/image3.png)  
 
-### <a name="connect-to-azure-stack"></a>Připojení ke službě Azure Stack
+### <a name="connect-to-azure-stack"></a>Připojení k Azure Stack
 
 Připojte se k instanci Azure Stack pomocí některé z následujících dvou metod:  
 
-* Pomocí `Connect-AzsVpn` příkazu: 
+* Pomocí příkazu `Connect-AzsVpn`: 
     
   ```powershell
   Connect-AzsVpn `
@@ -101,11 +101,11 @@ Připojte se k instanci Azure Stack pomocí některé z následujících dvou me
 
   Po zobrazení výzvy Důvěřujte hostiteli Azure Stack a nainstalujte certifikát z **AzureStackCertificateAuthority** do úložiště certifikátů místního počítače. Výzva se může zobrazit za oknem relace PowerShellu. 
 
-* V místním počítači, přejít na **Nastavení** > sítě**VPN** > vyberte `azurestack`  >  **připojit**. Do příkazového řádku pro přihlášení zadejte uživatelské jméno (AzureStack\AzureStackAdmin) a heslo.
+* V místním počítači přejít na **nastavení sítě** > **VPN** > vyberte `azurestack` @ no__t-4**připojit**. Do příkazového řádku pro přihlášení zadejte uživatelské jméno (AzureStack\AzureStackAdmin) a heslo.
 
 ### <a name="test-the-vpn-connectivity"></a>Testování připojení VPN
 
-Pokud chcete otestovat připojení k portálu, otevřete prohlížeč a navštivte Portál User Portal (https://portal.local.azurestack.external/), přihlaste se a pak vytvořte prostředky.  
+Pokud chcete otestovat připojení k portálu, otevřete prohlížeč a pokračujte na portál User Portal (https://portal.local.azurestack.external/), přihlaste se a pak vytvořte prostředky.  
 
 ## <a name="next-steps"></a>Další kroky
 

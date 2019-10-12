@@ -1,5 +1,5 @@
 ---
-title: Nasazení aplikací na platformy Azure a Azure Stack
+title: Nasazení aplikací do Azure a Azure Stack
 description: Naučte se nasazovat aplikace do Azure a Azure Stack pomocí hybridního kanálu CI/CD.
 services: azure-stack
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.topic: conceptual
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/07/2018
-ms.openlocfilehash: 5357fcf548971e0962bec41ad9238bf88290531c
-ms.sourcegitcommit: 35b13ea6dc0221a15cd0840be796f4af5370ddaf
+ms.openlocfilehash: eb9ed23437d5fd708d3f98d5a5b601f3ed1a02a0
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68603098"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72283722"
 ---
-# <a name="deploy-apps-to-azure-and-azure-stack"></a>Nasazení aplikací na platformy Azure a Azure Stack
+# <a name="deploy-apps-to-azure-and-azure-stack"></a>Nasazení aplikací do Azure a Azure Stack
 
 *Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
 
@@ -54,21 +54,21 @@ Kontinuita nasazení aplikace, zabezpečení a spolehlivost jsou kritické prvky
 - Aplikace a služby nasazené v Azure nebo Azure Stack jsou zaměnitelné a stejný kód může běžet v libovolném umístění. Můžete využívat možnosti a funkce místního a veřejného cloudu.
 
 > [!TIP]
-> ![hybridní pillars.png](./media/azure-stack-solution-pipeline/hybrid-pillars.png)  
+> @no__t -0hybrid-Pillars. png @ no__t-1  
 > [Vzor návrhu hybridního cloudu pro Azure Stack](azure-stack-edge-pattern-overview.md) kontroluje pilíře kvality softwaru pro navrhování, nasazování a provozování hybridních aplikací. Mezi kritéria kvality patří umístění, škálovatelnost, dostupnost, odolnost, možnosti správy a zabezpečení. Tyto otázky návrhu pomáhají při optimalizaci návrhu hybridní aplikace a minimalizaci výzev v produkčních prostředích.
 
 ## <a name="prerequisites"></a>Požadavky
 
 - Základní znalosti Azure a Azure Stack. Pokud chcete získat další informace před nasazením tohoto řešení, přečtěte si následující články:
   
-  - [Úvod do Azure](https://azure.microsoft.com/overview/what-is-azure/)
+  - [Seznámení s Azure](https://azure.microsoft.com/overview/what-is-azure/)
   - [Přehled Azure Stack](../operator/azure-stack-overview.md)
   
-- Předplatné Azure. Pokud ho nemáte, [vytvořte si bezplatný účet](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) před tím, než začnete.
+- Předplatné Azure. Pokud ho ještě nemáte, [Vytvořte si bezplatný účet](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) před tím, než začnete.
   
 - Webová aplikace vytvořená v Azure Pomocí [šablony Azure Resource Manager](https://azure.microsoft.com/resources/templates/) vytvoříte webovou aplikaci, kterou můžete nasadit v místním prostředí i ve veřejném cloudu. Poznamenejte si identifikátor URI aplikace pro pozdější použití. 
   
-- Je nainstalovaná [](/visualstudio/install/install-visual-studio)aplikace Visual Studio 2019.
+- Je [nainstalovaná](/visualstudio/install/install-visual-studio)aplikace Visual Studio 2019.
   
 - Přístup správce k organizaci [Azure DevOps](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services) , která může vytvářet kanály a [projekt](/azure/devops/organizations/projects/create-project) DevOps nebo [pracovní prostor](/azure/devops/repos/tfvc/create-work-workspaces). 
   
@@ -97,7 +97,7 @@ Kontinuita nasazení aplikace, zabezpečení a spolehlivost jsou kritické prvky
      
   1. Nasaďte [Azure App Service](../operator/azure-stack-app-service-deploy.md) služby PaaS a Azure Stack.
      
-  1. Vytvořte [plán a nabídku](../operator/azure-stack-plan-offer-quota-overview.md) v Azure Stack.
+  1. Vytvořte [plán a nabídku](../operator/service-plan-offer-subscription-overview.md) v Azure Stack.
      
   1. Vytvořte [předplatné tenanta](../operator/azure-stack-subscribe-plan-provision-vm.md) pro nabídku v Azure Stack. 
      
@@ -110,7 +110,7 @@ Kontinuita nasazení aplikace, zabezpečení a spolehlivost jsou kritické prvky
 
 ## <a name="register-your-web-app-and-give-it-access-to-resources"></a>Registrace webové aplikace a udělení přístupu k prostředkům 
 
-Ve službě Azure Active Directory (Azure AD) Azure Pipelines ověřuje se Azure Resource Manager pomocí instančního *objektu*. Aby bylo možné zřídit prostředky pro Azure Pipelines, instanční objekt musí mít  roli přispěvatele v předplatném Azure. 
+Ve službě Azure Active Directory (Azure AD) Azure Pipelines ověřuje se Azure Resource Manager pomocí *instančního objektu*. Aby bylo možné zřídit prostředky pro Azure Pipelines, instanční objekt musí mít roli **přispěvatele** v předplatném Azure. 
 
 K nakonfigurování ověřování pro vaši aplikaci můžete použít Azure Portal. 
 
@@ -135,19 +135,19 @@ K vytvoření instančního objektu a koncových bodů můžete [použít také 
    1. Zadejte název vaší webové aplikace.
    1. Vyberte podporovaný typ účtu. 
    1. V části **identifikátor URI pro přesměrování**vyberte **Web** pro typ aplikace, kterou chcete vytvořit, a zadejte identifikátor URI vaší webové aplikace. 
-   1. Vyberte **Zaregistrovat**.
+   1. Vyberte **Registrovat**.
       
-      ![Zaregistrujte svoji aplikaci.](./media/azure-stack-solution-pipeline/create-app.png) 
+      ![Registrace aplikace](./media/azure-stack-solution-pipeline/create-app.png) 
 
 ### <a name="assign-the-app-to-a-role"></a>Přiřazení aplikace k roli
 
-Pro přístup k prostředkům ve vašem předplatném musíte aplikaci přiřadit k roli. Azure RBAC umožňuje řídit úroveň přístupu, který uživatelé potřebují ke své práci. Další informace o RBAC najdete v tématu [Správa přístupu k prostředkům předplatného Azure](/azure/role-based-access-control/role-assignments-portal?toc=%252fazure%252factive-directory%252ftoc.json). Další informace o dostupných rolích najdete v [tématu RBAC: Předdefinované role](/azure/role-based-access-control/built-in-roles).
+Pro přístup k prostředkům ve vašem předplatném musíte aplikaci přiřadit k roli. Azure RBAC umožňuje řídit úroveň přístupu, který uživatelé potřebují ke své práci. Další informace o RBAC najdete v tématu [Správa přístupu k prostředkům předplatného Azure](/azure/role-based-access-control/role-assignments-portal?toc=%252fazure%252factive-directory%252ftoc.json). Další informace o dostupných rolích naleznete v části [RBAC: předdefinované role](/azure/role-based-access-control/built-in-roles).
 
 Azure Pipelines musí mít roli **přispěvatele** možnost zřídit prostředky v předplatném Azure Stack. 
 
-Rozsah rolí můžete nastavit na úrovni předplatného, skupiny prostředků nebo prostředku. Oprávnění se dědí do oboru na nižších úrovních. Například přidání aplikace do role **Čtenář** pro skupinu prostředků znamená, že aplikace může číst skupinu prostředků a všechny její prostředky.
+Rozsah rolí můžete nastavit na úrovni předplatného, skupiny prostředků nebo prostředku. Oprávnění jsou zděděna na nižší úrovně rozsahu. Například přidání aplikace do role **Čtenář** pro skupinu prostředků znamená, že aplikace může číst skupinu prostředků a všechny její prostředky.
 
-Přiřazení aplikace k roli přispěvatele  :
+Přiřazení aplikace k roli **přispěvatele** :
 
 1. V Azure Portal přejděte k požadované úrovni rozsahu. Pokud například chcete přiřadit roli v oboru předplatného, vyberte **všechny služby** a **odběry**.
    
@@ -163,7 +163,7 @@ Přiřazení aplikace k roli přispěvatele  :
    
    ![Vybrat roli a aplikaci](./media/azure-stack-solution-pipeline/select-role.png)
    
-1. Vyberte **Uložit** k dokončení přiřazení role. Aplikaci si můžete prohlédnout v seznamu uživatelů přiřazených k roli pro tento obor.
+1. Kliknutím na **Uložit** dokončete přiřazení role. Aplikaci si můžete prohlédnout v seznamu uživatelů přiřazených k roli pro tento obor.
 
 Vaše instanční objekt je nastavený. V další části se dozvíte, jak získat hodnoty, které Azure Pipelines nutné přihlašovat programově.
 
@@ -171,7 +171,7 @@ Vaše instanční objekt je nastavený. V další části se dozvíte, jak získ
 
 Při vytváření koncových bodů pro Azure Pipelines musíte zadat ID tenanta a ID aplikace. Získání těchto hodnot:
 
-1. Na portálu Azure Portal vyberte **Azure Active Directory**.
+1. V Azure Portal vyberte **Azure Active Directory**.
    
 1. V levém navigačním panelu vyberte **Registrace aplikací**a pak vyberte svou aplikaci.
    
@@ -187,7 +187,7 @@ Pomocí postupu v části [certifikáty a tajné](/azure/active-directory/develo
 
 Nebo, pokud chcete vytvořit nový tajný klíč aplikace:
 
-1. Na portálu Azure Portal vyberte **Azure Active Directory**.
+1. V Azure Portal vyberte **Azure Active Directory**.
    
 1. V levém navigačním panelu vyberte **Registrace aplikací**a pak vyberte svou aplikaci.
    
@@ -201,7 +201,7 @@ Nebo, pokud chcete vytvořit nový tajný klíč aplikace:
    
    ![Zkopírujte tajnou hodnotu, protože ji nemůžete později načíst.](./media/azure-stack-solution-pipeline/copy-secret.png)
 
-## <a name="create-endpoints"></a>Vytváření koncových bodů
+## <a name="create-endpoints"></a>Vytvoření koncových bodů
 
 Vytvořením koncových bodů může Azure Pipelines Build nasazovat aplikace služby Azure AD, aby se Azure Stack. Azure Pipelines se připojí k agentu sestavení, který se připojí k Azure Stack.
 
@@ -223,7 +223,7 @@ Po nastavení oprávnění pro vytváření koncových bodů můžete vytvořit 
    
    ![Přidat člena](./media/azure-stack-solution-pipeline/endpoint-permissions.png)
    
-1. V seznamu **skupiny DevOps Azure** vyberte **autoři koncových bodů**a zopakováním předchozích kroků přidejte uživatele do skupiny Creators **Endpoint Creators** . 
+1. V seznamu **skupiny DevOps Azure** vyberte **autoři koncových bodů**a zopakováním předchozích kroků přidejte uživatele do skupiny **Creators Endpoint Creators** . 
 
 ### <a name="create-an-endpoint-for-azure-ad-or-ad-fs-deployments"></a>Vytvoření koncového bodu pro nasazení Azure AD nebo AD FS
 
@@ -231,21 +231,21 @@ Podle pokynů v části [vytvoření připojení služby Azure Resource Manager 
 
 K vyplnění formuláře použijte následující hodnoty: 
 
-- **Název připojení**: Zadejte uživatelsky přívětivý název, který se má použít při odkazování na toto připojení služby.
+- **Název připojení**: zadejte uživatelsky přívětivý název, který se má použít při odkazování na toto připojení služby.
   
-- **Prostředí**: Vyberte název prostředí, například **AzureCloud** nebo **AzureStack**. Pokud v rozevíracím seznamu nevidíte AzureStack, přečtěte si téma [připojení k Azure Stack](/azure/devops/pipelines/library/connect-to-azure?view=azure-devops#connect-to-azure-stack).
+- **Prostředí**: vyberte název prostředí, například **AzureCloud** nebo **AzureStack**. Pokud v rozevíracím seznamu nevidíte AzureStack, přečtěte si téma [připojení k Azure Stack](/azure/devops/pipelines/library/connect-to-azure?view=azure-devops#connect-to-azure-stack).
   
-- **Adresa URL prostředí**: Pokud jste nevybrali **AzureCloud**, zadejte adresu URL prostředí, například *https:\//Management.Local.azurestack.external*.
+- **Adresa URL prostředí**: Pokud jste nevybrali **AzureCloud**, zadejte adresu URL prostředí, například *https: \//Management. Local. azurestack. external*.
   
-- **Úroveň oboru**: Vyberte úroveň rozsahu, kterou potřebujete, třeba **předplatné**. 
+- **Úroveň oboru**: vyberte úroveň rozsahu, kterou potřebujete, třeba **předplatné**. 
   
-- **ID**předplatného: Zadejte ID předplatného.
+- **ID předplatného**: Zadejte ID předplatného.
   
-- **Název**předplatného: Zadejte své uživatelské jméno z Azure Stack.
+- **Název předplatného**: Zadejte své uživatelské jméno z Azure Stack.
   
-- **ID klienta instančního objektu**: Zadejte **ID aplikace (klienta)** , které jste předtím uložili. 
+- **ID klienta instančního objektu**: zadejte **ID aplikace (klienta)** , které jste si dříve uložili. 
   
-- Klíč nebo **certifikát** **instančního objektu služby** : Vyberte jednu nebo druhou možnost. 
+- Klíč nebo **certifikát** **instančního objektu** : vyberte jednu nebo druhou možnost. 
   
   > [!NOTE]
   > Chcete-li vytvořit AD FS koncový bod, je nutné použít certifikát pro ověřování. 
@@ -254,11 +254,11 @@ K vyplnění formuláře použijte následující hodnoty:
   - Pokud zvolíte možnost **certifikát**, zadejte obsah části certifikátu a privátního klíče souboru certifikátu *. pem* . 
     
     > [!NOTE]
-    > Chcete-li převést soubor *. pfx* na soubor certifikátu *. pem* , `openssl pkcs12 -in file.pfx -out file.pem -nodes -password pass:<password_here>`spusťte příkaz.
+    > Chcete-li převést soubor *. pfx* na soubor certifikátu *. pem* , spusťte příkaz `openssl pkcs12 -in file.pfx -out file.pem -nodes -password pass:<password_here>`.
   
-- **ID tenanta**: Zadejte **ID adresáře (tenanta)** , které jste předtím uložili.
+- **ID tenanta**: zadejte **ID adresáře (tenanta)** , které jste předtím uložili.
   
-- **Vázán Neověřeno**: Vyberte **ověřit připojení** a ověřte nastavení připojení k instančnímu objektu.
+- **Připojení: Neověřeno**: vyberte **ověřit připojení** a ověřte nastavení připojení k instančnímu objektu.
   
   > [!NOTE]
   > Pokud Váš koncový bod Azure Resource Manager není přístupný pro Internet, ověření připojení se nezdaří. Tato možnost je očekávaná a můžete ověřit připojení vytvořením kanálu vydání s jednoduchým úkolem.
@@ -303,7 +303,7 @@ Ve službě Azure DevOps vytvořte osobní přístupový token (PAT), který se 
 
 Nyní, když jste vytvořili koncový bod a nainstalovali Azure Pipelines agenta sestavení na serveru sestavení, je Azure Pipelines pro Azure Stack připojení připraveno k použití. Agent sestavení v Azure Stack získá pokyny od Azure Pipelines a potom agent přenáší informace koncového bodu pro komunikaci s Azure Stack.
 
-Místo toho, aby se jednotliví agenti spravovali samostatně, můžete uspořádat agenty do *fondů agentů*. Fond agentů definuje hranice sdílení pro všechny agenty v tomto fondu. Fondy agentů jsou vymezeny na organizaci Azure DevOps, což znamená, že můžete sdílet fond agentů napříč projekty. Další informace o fondech agentů najdete v tématu [vytváření fondů agentů a front](/azure/devops/pipelines/agents/pools-queues).
+Místo toho, aby se jednotliví agenti spravovali samostatně, můžete uspořádat agenty do *fondů agentů*. Fond agentů definuje hranice sdílení pro všechny agenty v daném fondu. Fondy agentů jsou vymezeny na organizaci Azure DevOps, což znamená, že můžete sdílet fond agentů napříč projekty. Další informace o fondech agentů najdete v tématu [vytváření fondů agentů a front](/azure/devops/pipelines/agents/pools-queues).
 
 ## <a name="create-build-and-release-pipelines"></a>Vytváření kanálů sestavení a vydání 
 
@@ -341,13 +341,13 @@ Hybridní CI/CD může platit pro kód aplikace i kód infrastruktury. Pomocí [
 
 1. Ve webovém prohlížeči otevřete svoji organizaci a projekt Azure DevOps.
    
-1. V levém navigačním panelu vyberte**sestavení** **kanálů** > a pak vyberte **Nový kanál**. 
+1. V levém navigačním panelu vyberte **kanály** > **sestavení** a pak vyberte **Nový kanál**. 
    
 1. V části **Vybrat šablonu**vyberte šablonu **ASP.NET Core** a pak vyberte **použít**. 
    
 1. Na stránce konfigurace v levém podokně vyberte **publikovat** .
    
-1. V pravém podokně v části **argumenty**přidejte `-r win10-x64` do konfigurace. 
+1. V pravém podokně v části **argumenty**přidejte do konfigurace `-r win10-x64`. 
    
    ![Přidat argument kanálu sestavení](media/azure-stack-solution-pipeline/buildargument.png)
    
@@ -357,11 +357,11 @@ Hybridní CI/CD může platit pro kód aplikace i kód infrastruktury. Pomocí [
    
 [Sestavení samostatného nasazení](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) publikuje artefakty, které mohou běžet na platformě Azure i Azure Stack.
 
-### <a name="create-a-release-pipeline"></a>Vytvoření kanálu verze
+### <a name="create-a-release-pipeline"></a>Vytvoření kanálu pro vydání
 
 Vytvoření kanálu pro vydávání verzí je posledním krokem v procesu konfigurace hybridní CI/CD. Kanál pro vydávání verzí slouží k vytvoření vydání a nasazení sestavení.
 
-1. V projektu Azure DevOps vyberte v levém navigačním panelu**vydané verze** **kanálů** > a pak vyberte **Nový kanál**. 
+1. V projektu Azure DevOps v levém navigačním panelu vyberte **kanály** > **vydání** a pak vyberte **Nový kanál**. 
    
 1. Na stránce **Vyberte šablonu** vyberte **Azure App Service nasazení**a pak vyberte **použít**.
    
@@ -369,7 +369,7 @@ Vytvoření kanálu pro vydávání verzí je posledním krokem v procesu konfig
    
 1. Na kartě **kanál** vyberte **Přidat artefakt** v levém podokně. V pravém podokně vyberte sestavení webové aplikace, které jste právě vytvořili, z rozevírací nabídky **zdroj (kanál sestavení)** a vyberte **Přidat**.
    
-   ![Přidejte artefakt sestavení](media/azure-stack-solution-pipeline/addartifact.png)
+   ![Přidat artefakt sestavení](media/azure-stack-solution-pipeline/addartifact.png)
    
 1. Na kartě **kanál** v části **fáze**vyberte hypertextový odkaz ve **fázi 1** a **Zobrazte úlohy fáze**.
    
@@ -440,7 +440,7 @@ Vytvoření a nasazení vydané verze:
    
 1. Na stránce **vytvořit novou verzi** :
    1. V části **kanál**vyberte fázi **Azure** , abyste změnili aktivační událost z automatizované na ruční. 
-   1. V části artefakty se ujistěte, že jsou vybrané správné artefakty.
+   1. V části **artefakty**se ujistěte, že jsou vybrané správné artefakty.
    1. Zadejte **Popis verze**a pak vyberte **vytvořit**. 
    
    Banner označuje, že se vytvořila nová verze. Kliknutím na odkaz název verze můžete zobrazit stránku souhrnu vydání s podrobnostmi o vydané verzi, jako je třeba stav nasazení.
@@ -461,7 +461,7 @@ Správce může snadno sledovat celkový průběh vydaných verzí a zjistit, kt
 
 Můžete si zobrazit protokoly vydaných verzí ze všech nasazení: 
 
-1. V projektu Azure DevOps vyberte na levé straně vydaná**vydání** **kanálů** > a pak vyberte verzi. 
+1. V projektu Azure DevOps vyberte **kanály** > **vydání** na levé straně a pak vyberte verzi. 
    
 1. Na stránce souhrnu vydané verze umístěte ukazatel myši na nebo vyberte fázi a pak vyberte **protokoly**. 
    
@@ -475,6 +475,6 @@ Zobrazení protokolů jednotlivých kroků usnadňuje trasování a ladění č�
    
 ![Protokol verze](media/azure-stack-solution-pipeline/releaselog.png)
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
-Další informace o vzorech cloudu Azure, najdete v článku [vzory návrhu v cloudu](/azure/architecture/patterns).
+Další informace o vzorech cloudu Azure najdete v tématu [vzory návrhu cloudu](/azure/architecture/patterns).

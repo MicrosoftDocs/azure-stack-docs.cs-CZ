@@ -1,136 +1,131 @@
 ---
-title: Nabízí vysoce dostupné databáze MySQL v Azure stacku | Dokumentace Microsoftu
-description: Zjistěte, jak vytvořit poskytovatele prostředků MySQL Server hostitelský počítač a vysoce dostupné databáze MySQL pomocí služby Azure Stack.
+title: Nabízet vysoce dostupné databáze MySQL v Azure Stack
+description: Naučte se, jak vytvořit hostitelský počítač poskytovatele prostředků serveru MySQL a vysoce dostupné databáze MySQL s Azure Stack.
 services: azure-stack
-documentationcenter: ''
-author: justinha
+author: BryanLa
 manager: femila
 editor: ''
-ms.assetid: ''
 ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: tutorial
-ms.date: 02/12/2019
-ms.author: justinha
+ms.topic: article
+ms.date: 10/07/2019
+ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: e62e78705d6ca1ec8fa7d839b70eda3f147f82ab
-ms.sourcegitcommit: 3f52cf06fb5b3208057cfdc07616cd76f11cdb38
+ms.openlocfilehash: a03fbf9170e6cc1840bea62efeb33b960a25f99c
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67316290"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72283399"
 ---
-# <a name="tutorial-offer-highly-available-mysql-databases"></a>Kurz: Nabízí vysoce dostupné databáze MySQL
+# <a name="offer-highly-available-mysql-databases"></a>Nabízet vysoce dostupné databáze MySQL
 
-Jako operátor Azure stacku můžete nakonfigurovat virtuální počítače serveru pro hostování databází serveru MySQL. Po MySQL je cluster úspěšně vytvořit a spravovat ve službě Azure Stack, uživatelé, kteří se přihlásili k odběru služby MySQL můžete snadno vytvořit vysoce dostupné databáze MySQL.
+Jako operátor Azure Stack můžete nakonfigurovat serverové virtuální počítače pro hostování databází MySQL serveru. Po úspěšném vytvoření clusteru MySQL a jeho správě pomocí Azure Stack můžou uživatelé, kteří se přihlásili k odběru služeb MySQL, snadno vytvářet vysoce dostupné databáze MySQL.
 
-Tento kurz ukazuje, jak použít k vytvoření položky marketplace služby Azure Stack [MySQL s clusterem replikace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.mysql-cluster). Toto řešení používá k replikaci databáze z hlavního uzlu Konfigurovatelný počet replik několika virtuálních počítačů. Po vytvoření clusteru je potom možné přidat jako Server služby Azure Stack MySQL hostování, a pak uživatelé můžou vytvářet vysoce dostupné databáze MySQL.
+V tomto článku se dozvíte, jak pomocí Azure Stackch položek na webu Marketplace vytvořit [MySQL s clusterem replikace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.mysql-cluster). Toto řešení používá více virtuálních počítačů pro replikaci databází z hlavního uzlu do konfigurovatelného počtu replik. Po vytvoření se cluster dá přidat jako Azure Stack hostitelský server MySQL a potom můžou uživatelé vytvářet vysoce dostupné databáze MySQL.
 
 > [!IMPORTANT]
-> **MySQL s replikací** položky marketplace služby Azure Stack nemusí být k dispozici pro všechna prostředí předplatného cloudu Azure. Ověřte, že položka marketplace není k dispozici ve vašem předplatném, než se pokusíte použijte zbytek tomto tutoral.
+> Položka **MySQL s replikací** Azure Stack Marketplace možná není dostupná pro všechna prostředí Azure Cloud Subscriptions. Před pokusem o provedení zbývající části tohoto Tutoral ověřte, že je ve vašem předplatném dostupná položka Marketplace.
 
 Co se naučíte:
 
 > [!div class="checklist"]
-> * Vytvořit cluster MySQL serveru z položky marketplace
-> * Vytvoření databáze MySQL Azure Stack, který je hostitelem serveru
+> * Vytvoření clusteru serverů MySQL z položek Marketplace
+> * Vytvoření hostitelského serveru Azure Stack MySQL
 > * Vytvoření vysoce dostupné databáze MySQL
 
-V tomto kurzu se cluster tři virtuální počítač serveru MySQL se vytvoří a nakonfigurovat pomocí položky marketplace k dispozici služby Azure Stack. 
+Vytvoří se tři clustery serveru MySQL pro virtuální počítače a nakonfigurují se pomocí dostupných Azure Stack položek Marketplace. 
 
-Před zahájením těchto kroků v tomto kurzu, ujistěte se, že [poskytovatele prostředků MySQL Server](azure-stack-mysql-resource-provider-deploy.md) byl úspěšně nainstalován a že následující položky jsou dostupné v Tržišti Azure Stack:
+Než začnete, ujistěte se, že [poskytovatel prostředků serveru MySQL](azure-stack-mysql-resource-provider-deploy.md) je úspěšně nainstalovaný a že na Azure Stack Marketplace jsou k dispozici následující položky:
 
 > [!IMPORTANT]
-> Všechny tyto vyžadovaných pro vytvoření clusteru MySQL.
+> K vytvoření clusteru MySQL se vyžadují všechny následující.
 
-- [MySQL s replikací](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.mysql-cluster). Toto je šablona Bitnami řešení, který se použije pro nasazení clusterů MySQL.
-- [Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.Debian). Debian 8 "Jessie" s zpětné jádra pro Microsoft Azure poskytnuté credativ. Debian GNU/Linux je jedním z nejoblíbenějších Linuxových distribucí.
-- [Vlastní skript pro linux 2.0](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft.custom-script-linux?tab=Overview). Rozšíření vlastních skriptů je nástroj pro spuštění vašeho virtuálního počítače přizpůsobení úloh příspěvek virtuálního počítače zřizování. Když toto rozšíření se přidá do virtuálního počítače, ho můžete stáhnout skripty z úložiště Azure a spustit na virtuálním počítači. Vlastní rozšíření skriptů úlohy je také možné automatizovat pomocí rutin prostředí Azure PowerShell a rozhraní příkazového řádku Azure víc platforem (xPlat CLI).
-- Přístup k virtuálním počítačům pro Linuxové rozšíření 1.4.7. Rozšíření přístupu virtuálních počítačů umožňuje resetovat heslo, klíč SSH nebo konfigurace SSH, takže jste znovu získali přístup k vašemu virtuálnímu počítači. Můžete také přidat nového uživatele pomocí hesla nebo klíče SSH nebo odstranění uživatele pomocí tohoto rozšíření. Toto rozšíření cílí na virtuální počítače s Linuxem.
+- [MySQL s replikací](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.mysql-cluster) Toto je šablona řešení Bitnami, která se bude používat pro nasazení clusteru MySQL.
+- [Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.Debian). Debian 8 "Jessie" s jádrem pro Microsoft Azure poskytovaného credativ. Debian GNU/Linux je jednou z nejoblíbenějších distribucí systému Linux.
+- [Vlastní skript pro linux 2,0](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft.custom-script-linux?tab=Overview). Rozšíření vlastních skriptů je nástroj, který umožňuje provádět úlohy přizpůsobení virtuálních počítačů po zřízení virtuálního počítače. Když se toto rozšíření přidá do virtuálního počítače, může stáhnout skripty z Azure Storage a spustit je na VIRTUÁLNÍm počítači. Úkoly rozšíření vlastních skriptů je také možné automatizovat pomocí rutin Azure PowerShell a rozhraní příkazového řádku Azure pro více platforem (xPlat CLI).
+- Přístup k virtuálnímu počítači pro rozšíření pro Linux 1.4.7 Rozšíření pro přístup k VIRTUÁLNÍm počítačům umožňuje resetovat heslo, klíč SSH nebo konfigurace SSH, takže můžete znovu získat přístup k vašemu VIRTUÁLNÍmu počítači. Můžete také přidat nového uživatele pomocí hesla nebo klíče SSH nebo odstranit uživatele pomocí tohoto rozšíření. Toto rozšíření cílí na virtuální počítače Linux.
 
-Další informace o přidávání položek do Tržiště Azure Stack, najdete v článku [přehled Azure Stack Marketplace](azure-stack-marketplace.md).
+Další informace o přidávání položek do webu Azure Stack Marketplace najdete v tématu [přehled Azure Stack Marketplace](azure-stack-marketplace.md).
 
-Budete také potřebovat klienta SSH jako [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) k přihlášení do virtuálních počítačů s Linuxem po nasazení.
+Také budete potřebovat klienta SSH, jako je například výstup pro přihlášení k virtuálním [počítačům se systémem](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) Linux po jejich nasazení.
 
-## <a name="create-a-mysql-server-cluster"></a>Vytvořit cluster MySQL Server 
-Použijte postup v této části MySQL serveru k nasazení clusteru s použitím [MySQL s replikací](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.mysql-cluster) položky marketplace. Tato šablona nasadí tři instance serveru MySQL nakonfigurované v clusteru s vysokou dostupností MySQL. Ve výchozím nastavení vytvoří následující prostředky:
+## <a name="create-a-mysql-server-cluster"></a>Vytvoření clusteru serverů MySQL 
+Pomocí kroků v této části můžete nasadit cluster serveru MySQL pomocí položky [MySQL s replikací](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.mysql-cluster) Marketplace. Tato šablona nasadí tři instance serveru MySQL nakonfigurované v clusteru MySQL s vysokou dostupností. Ve výchozím nastavení vytvoří následující prostředky:
 
 - Virtuální síť
 - Skupina zabezpečení sítě
 - Účet úložiště
-- Skupinu dostupnosti
-- Tři síťová rozhraní (jeden pro každý virtuální počítač výchozí)
-- Veřejnou IP adresu (pro primární cluster MySQL virtuálního počítače)
-- Tři virtuální počítače s Linuxem k hostování MySQL cluster
+- Skupina dostupnosti
+- Tři síťová rozhraní (jedna pro každý výchozí virtuální počítač)
+- Veřejná IP adresa (pro primární virtuální počítač clusteru MySQL)
+- Tři virtuální počítače se systémem Linux pro hostování clusteru MySQL
 
 1. 
    [!INCLUDE [azs-admin-portal](../includes/azs-admin-portal.md)]
 
-2. Vyberte **\+** **vytvořit prostředek** > **Compute**a potom **MySQL s replikací**.
+2. Vyberte **\+** **vytvořit prostředek** > **COMPUTE**a pak **MySQL s replikací**.
 
    ![Nasazení vlastní šablony](media/azure-stack-tutorial-mysqlrp/1.png)
 
-3. Zadejte informace o základní nasazení na **Základy** stránky. Zkontrolujte výchozí hodnoty a podle potřeby a klikněte na **OK**.<br><br>Minimálně poskytnout následující:
-   - Název nasazení (výchozí hodnota je mymysql)
-   - Kořenové heslo aplikace. Zadejte alfanumerické heslo 12 znaků s **žádné speciální znaky**
-   - Název databáze aplikace (výchozí hodnota je bitnami)
-   - Počet replik databáze MySQL virtuálních počítačů určených k vytvoření (výchozí hodnota je 2)
-   - Vyberte předplatné, které chcete použít
-   - Vyberte skupinu prostředků nebo vytvořte novou
-   - Vyberte umístění (výchozí hodnota je místní pro ASDK)
+3. Poskytněte základní informace o nasazení na stránce **základy** . Zkontrolujte výchozí hodnoty a podle potřeby změňte nastavení a klikněte na tlačítko **OK**.<br><br>Minimálně zadejte následující:
+   - Název nasazení (výchozí je mymysql)
+   - Kořenové heslo aplikace Zadejte alfanumerické heslo o 12 znacích **bez speciálních znaků** .
+   - Název aplikační databáze (výchozí hodnota je Bitnami)
+   - Počet virtuálních počítačů repliky databáze MySQL k vytvoření (výchozí hodnota je 2)
+   - Vyberte předplatné, které chcete použít.
+   - Vyberte skupinu prostředků, kterou chcete použít, nebo vytvořte novou.
+   - Vyberte umístění (výchozí nastavení je místní pro ASDK).
 
-   [![](media/azure-stack-tutorial-mysqlrp/2-sm.PNG "Základní informace o nasazení")](media/azure-stack-tutorial-mysqlrp/2-lg.PNG#lightbox)
+   [![](media/azure-stack-tutorial-mysqlrp/2-sm.PNG "Základy nasazení")](media/azure-stack-tutorial-mysqlrp/2-lg.PNG#lightbox)
 
-4. Na **konfiguraci prostředí** stránky, zadejte následující informace a klikněte na **OK**: 
-   - Heslo nebo SSH veřejný klíč pro ověřování (SSH secure shell). Pokud použijete heslo, musí obsahovat písmena, číslice a **můžete** obsahovat speciální znaky
-   - Velikost virtuálního počítače (výchozí hodnota je virtuální počítače Standard D1 v2)
-   - Velikost v GB, klikněte na tlačítko datového disku **OK**
+4. Na stránce **Konfigurace prostředí** zadejte následující informace a pak klikněte na **OK**: 
+   - Heslo nebo veřejný klíč SSH pro ověřování pomocí protokolu Secure Shell (SSH). Pokud použijete heslo, musí obsahovat písmena, číslice a **může** obsahovat speciální znaky.
+   - Velikost virtuálního počítače (výchozí nastavení je Standard D1 v2 VM)
+   - Velikost datového disku v GB klikněte na **OK** .
 
    [![](media/azure-stack-tutorial-mysqlrp/3-sm.PNG "Konfigurace prostředí")](media/azure-stack-tutorial-mysqlrp/3-lg.PNG#lightbox)
 
-5. Zkontrolujte nasazení **Souhrn**. Volitelně můžete stáhnout přizpůsobenou šablonu a parametry a potom klikněte na **OK**.
+5. Projděte si **Souhrn**nasazení. Volitelně si můžete stáhnout vlastní šablonu a parametry a pak kliknout na **OK**.
 
-   [![](media/azure-stack-tutorial-mysqlrp/4-sm.PNG "Souhrn")](media/azure-stack-tutorial-mysqlrp/4-lg.PNG#lightbox)
+   [![](media/azure-stack-tutorial-mysqlrp/4-sm.PNG "Shrnut")](media/azure-stack-tutorial-mysqlrp/4-lg.PNG#lightbox)
 
-6. Klikněte na tlačítko **vytvořit** na **koupit** stránku ke spuštění nasazení.
+6. Nasazení spustíte kliknutím na **vytvořit** na stránce **koupit** .
 
-   ![Koupit](media/azure-stack-tutorial-mysqlrp/5.png)
+   ![Zakoupit](media/azure-stack-tutorial-mysqlrp/5.png)
 
     > [!NOTE]
-    > Nasazení bude trvat přibližně hodinu. Ujistěte se, že nasazení bylo dokončeno a MySQL cluster zcela nakonfigurované než budete pokračovat. 
+    > Nasazení bude trvat přibližně hodinu. Než budete pokračovat, ujistěte se, že nasazení bylo dokončeno a cluster MySQL byl zcela nakonfigurován. 
 
-7. Po všechna nasazení byly úspěšně dokončeny, zkontrolujte položky skupiny prostředků a vyberte **mysqlip** položky veřejné IP adresy. Zaznamenejte veřejné IP adresy a úplný plně kvalifikovaný název domény veřejné IP adresy pro cluster.<br><br>Je potřeba zadat operátor Azure stacku, aby mohli vytvářet na hostitelský server MySQL využívá tento cluster MySQL.
+7. Po úspěšném dokončení všech nasazení zkontrolujte položky skupiny prostředků a vyberte položku veřejné IP adresy **mysqlip** . Poznamenejte si veřejnou IP adresu a celý plně kvalifikovaný název domény veřejné IP adresy clusteru.<br><br>Tuto možnost bude nutné poskytnout operátoru Azure Stack, aby mohl vytvořit hostitelský server MySQL, který využívá tento cluster MySQL.
 
 
 ### <a name="create-a-network-security-group-rule"></a>Vytvoření pravidla skupiny zabezpečení sítě
-Ve výchozím nastavení je nakonfigurován žádný veřejný přístup pro MySQL do hostitele virtuálního počítače. Pro poskytovatele prostředků Azure Stack MySQL připojit a spravovat MySQL cluster je potřeba vytvořit příchozí pravidlo zabezpečení sítě (NSG) skupiny.
+Ve výchozím nastavení není pro MySQL na hostitelském virtuálním počítači nakonfigurován žádný veřejný přístup. Aby mohl poskytovatel prostředků služby Azure Stack MySQL připojit a spravovat cluster MySQL, je nutné vytvořit pravidlo skupiny zabezpečení NSG (příchozí sítě).
 
-1. Na portálu správce, přejděte do skupiny prostředků vytvořené při nasazování clusteru MySQL a vybrat skupinu zabezpečení sítě (**výchozí podsíť sg**):
+1. Na portálu pro správu přejděte na skupinu prostředků vytvořenou při nasazení clusteru MySQL a vyberte skupinu zabezpečení sítě (**výchozí-podsíť-SG**):
 
-   ![open (otevírá)](media/azure-stack-tutorial-mysqlrp/6.png)
+   ![open](media/azure-stack-tutorial-mysqlrp/6.png)
 
-2. Vyberte **příchozí pravidla zabezpečení** a potom klikněte na tlačítko **přidat**.<br><br>Zadejte **3306** v **rozsah cílových portů** a volitelně také popis v **název** a **popis** pole. Klikněte na Přidat a zavřete dialogové okno pravidla zabezpečení příchozích dat.
+2. Vyberte **příchozí pravidla zabezpečení** a pak klikněte na **Přidat**.<br><br>Do pole název **cílového portu** zadejte **3306** a v poli **název** a **Popis** volitelně zadejte popis. Kliknutím na tlačítko Přidat zavřete dialogové okno příchozí pravidlo zabezpečení.
 
-   ![open (otevírá)](media/azure-stack-tutorial-mysqlrp/7.png)
+   ![open](media/azure-stack-tutorial-mysqlrp/7.png)
 
-### <a name="configure-external-access-to-the-mysql-cluster"></a>Konfigurace externího přístupu k MySQL cluster
-Předtím, než je MySQL cluster se dá přidat jako hostitele služby Azure Stack MySQL serveru, musí být povolená externí přístup.
+### <a name="configure-external-access-to-the-mysql-cluster"></a>Konfigurace externího přístupu ke clusteru MySQL
+Předtím, než se dá cluster MySQL přidat jako hostitel serveru Azure Stack MySQL, musí být povolený externí přístup.
 
-1. Pomocí klienta SSH, v tomto příkladu [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html), přihlaste se k primární počítač MySQL na počítači, který může přistupovat k veřejné IP adresy. Primární název virtuálního počítače MySQL většinou končí **0** a má veřejnou IP adresu přiřazenou.<br><br>Použít veřejné IP adresy a protokolu k virtuálnímu počítači k uživatelskému jménu **bitnami** a heslo aplikace, který jste vytvořili dříve bez speciálních znaků.
+1. V tomto [příkladu používá klient SSH,](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)přihlásí se k primárnímu počítači MySQL z počítače, který má přístup k veřejné IP adrese. Primární název virtuálního počítače MySQL obvykle končí na **0** a má přiřazenou veřejnou IP adresu.<br><br>Použijte veřejnou IP adresu a přihlaste se k virtuálnímu počítači pomocí uživatelského jména **Bitnami** a hesla aplikace, které jste vytvořili dřív bez speciálních znaků.
 
    ![LinuxLogin](media/azure-stack-tutorial-mysqlrp/bitnami1.png)
 
 
-2. V okně Klient SSH použijte následující příkaz k zajištění, že služba bitnami je aktivní a v chodu. Po zobrazení výzvy znovu zadali heslo bitnami:
+2. V okně Klient SSH pomocí následujícího příkazu zkontrolujte, že je služba Bitnami aktivní a spuštěná. Po zobrazení výzvy zadejte heslo Bitnami:
 
    `sudo service bitnami status`
 
-   ![Zkontrolujte službu](media/azure-stack-tutorial-mysqlrp/bitnami2.png)
+   ![Kontrolovat službu](media/azure-stack-tutorial-mysqlrp/bitnami2.png)
 
-3. Vytvoření uživatelského účtu vzdáleného přístupu použije hostující Server MySQL Azure Stack pro připojení k MySQL a poté ukončete klienta SSH.<br><br>Spusťte následující příkazy a přihlaste se jako uživatel root, pomocí hesla kořenového vytvořili dříve, MySQL a vytvoření nového správce uživatele, nahraďte *\<uživatelské jméno\>* a *\<heslo\>* podle potřeby pro vaše prostředí. V tomto příkladu je pojmenována uživatele, který se má vytvořit **sqlsa** a silné heslo se používá:
+3. Vytvořte uživatelský účet vzdáleného přístupu, který bude Azure Stack hostitelským serverem MySQL používat pro připojení k MySQL, a pak ukončete klienta SSH.<br><br>Spusťte následující příkazy, abyste se přihlásili do MySQL jako kořenového adresáře pomocí kořenového hesla, které jste vytvořili dříve, a vytvořili nového uživatele správce. nahraďte *\<username @ no__t-2* a *\<password @ no__t-5* podle požadavků vašeho prostředí. V tomto příkladu se uživatel, který má být vytvořen, jmenuje **sqlsa** a použije se silné heslo:
 
    ```mysql
    mysql -u root -p
@@ -138,63 +133,54 @@ Předtím, než je MySQL cluster se dá přidat jako hostitele služby Azure Sta
    grant all privileges on *.* to <username>@'%' with grant option;
    flush privileges;
    ```
-   ![Vytvoření uživatele s rolí správce](media/azure-stack-tutorial-mysqlrp/bitnami3.png)
+   ![Vytvořit administrativního uživatele](media/azure-stack-tutorial-mysqlrp/bitnami3.png)
 
 
-4. Zaznamenejte informace o novém uživateli MySQL.<br><br>Je potřeba zadat uživatelské jméno a heslo, společně s veřejnou IP adresu nebo úplný plně kvalifikovaný název domény veřejné IP adresy pro cluster, operátorovi Azure Stack, aby mohli vytvářet na hostitelský server MySQL pomocí tento cluster MySQL.
+4. Zaznamenejte nové informace o uživateli MySQL.<br><br>Toto uživatelské jméno a heslo budete muset zadat spolu s veřejnou IP adresou nebo úplným plně kvalifikovaným názvem domény veřejné IP adresy pro daný cluster, k operátoru Azure Stack, aby mohli vytvořit hostitelský server MySQL pomocí tohoto clusteru MySQL.
 
 
-## <a name="create-an-azure-stack-mysql-hosting-server"></a>Vytvoření databáze MySQL Azure Stack, který je hostitelem serveru
-Po clusteru serveru MySQL byla vytvořena a správně nakonfigurované, musí operátor Azure stacku vytvořit Server služby Azure Stack MySQL hostování zpřístupnit další kapacitu pro uživatele k vytváření databází. 
+## <a name="create-an-azure-stack-mysql-hosting-server"></a>Vytvoření hostitelského serveru Azure Stack MySQL
+Po vytvoření a správné konfiguraci clusteru serveru MySQL musí operátor Azure Stack vytvořit Azure Stack hostitelský server MySQL, aby mohli uživatelé vytvořit databáze. 
 
-Použijte veřejnou IP adresu nebo úplný plně kvalifikovaný název domény pro veřejnou IP adresu clusteru MySQL dříve zaznamenaných primární virtuální počítač při vytvoření skupiny prostředků clusteru MySQL (**mysqlip**). Kromě toho operátor, který se bude znát MySQL Server ověřování pověření, které jste vytvořili pro vzdálený přístup ke clusteru databázi MySQL.
+Pokud jste vytvořili skupinu prostředků clusteru MySQL (**mysqlip**), ujistěte se, že používáte veřejnou IP adresu nebo plně kvalifikovaný název domény pro veřejnou IP adresu prvního virtuálního počítače clusteru MySQL zaznamenanou dříve. Kromě toho bude muset operátor znát přihlašovací údaje pro ověření serveru MySQL, které jste vytvořili pro vzdálený přístup k databázi clusteru MySQL.
 
 > [!NOTE]
-> Tento krok se musí spouštět z portálu pro správu služby Azure Stack nezavřel operátor Azure stacku.
+> Tento krok je nutné spustit z portálu pro správu Azure Stack pomocí operátoru Azure Stack.
 
-Pomocí MySQL cluster veřejnou IP adresu a MySQL přihlašovací údaje pro ověřování, operátor Azure stacku nyní mohou [vytvořit nový cluster MySQL pomocí hostování serveru MySQL](azure-stack-mysql-resource-provider-hosting-servers.md#connect-to-a-mysql-hosting-server). 
+Pomocí veřejné IP adresy clusteru MySQL a přihlašovacích údajů pro ověřování MySQL teď může operátor Azure Stack [vytvořit hostitelský server MySQL pomocí nového clusteru MySQL](azure-stack-mysql-resource-provider-hosting-servers.md#connect-to-a-mysql-hosting-server). 
 
-Také se ujistěte, že jste vytvořili plány a nabízí uživatelům zpřístupnit vytvoření databáze MySQL. Operátor bude nutné přidat **Microsoft.MySqlAdapter** služby k plánu a vytvořit novou kvótu speciálně pro vysoce dostupné databáze. Další informace o vytváření plánů najdete v tématu [plán, nabídky, kvót a předplatného přehled](azure-stack-plan-offer-quota-overview.md).
+Také se ujistěte, že máte vytvořené plány a nabídky, aby bylo možné vytvářet databáze MySQL pro uživatele. Operátor bude muset přidat službu **Microsoft. MySqlAdapter** do plánu a vytvořit novou kvótu specifickou pro vysoce dostupné databáze. Další informace o vytváření plánů najdete v tématu [Přehled služeb, plánů, nabídek a předplatných](service-plan-offer-subscription-overview.md).
 
 > [!TIP]
-> **Microsoft.MySqlAdapter** služba nebude k dispozici pro přidání do plánů až [nasazení poskytovatele prostředků MySQL Server](azure-stack-mysql-resource-provider-deploy.md).
+> Službu **Microsoft. MySqlAdapter** nebude možné přidat do plánů, dokud nebude [nasazený poskytovatel prostředků serveru MySQL](azure-stack-mysql-resource-provider-deploy.md).
 
 
 
 ## <a name="create-a-highly-available-mysql-database"></a>Vytvoření vysoce dostupné databáze MySQL
-Po MySQL cluster byla vytvořena, konfiguraci a přidat jako Server služby Azure Stack MySQL hostování operátorem Azure Stack, uživatel tenanta s předplatným, včetně schopnosti databáze serveru MySQL můžete vytvořit vysoce dostupné databáze MySQL pomocí podle kroků v této části. 
+Jakmile se cluster MySQL vytvoří, nakonfiguruje a přidá jako Azure Stack hostitelský server MySQL pomocí operátoru Azure Stack, uživatel s předplatným, včetně možností databáze MySQL serveru, může vytvořit vysoce dostupné databáze MySQL podle postupujte podle kroků v této části. 
 
 > [!NOTE]
-> Projít tyto kroky na portálu user portal Azure Stack jako uživatel tenanta s předplatným zajišťuje serveru MySQL (Microsoft.MySQLAdapter služby).
+> Tyto kroky spusťte na portálu Azure Stack User Portal jako uživatel tenanta s předplatným, které poskytuje možnosti serveru MySQL (Microsoft. MySQLAdapter Service).
 
 1. 
    [!INCLUDE [azs-user-portal](../includes/azs-user-portal.md)]
 
-2. Vyberte **\+** **vytvořit prostředek** > **Data \+ úložiště**a potom **databázi MySQL** .<br><br>Zadejte informace o vlastnosti databáze, včetně názvu, řazení, předplatné se má použít a umístění pro nasazení. 
+2. Vyberte **\+** **vytvořit prostředek** > **úložiště data \+** a pak **MySQL Database**.<br><br>Zadejte požadované informace o vlastnostech databáze, včetně názvu, kolace, předplatného, které chcete použít, a umístění, které se má použít pro nasazení. 
 
    ![Vytvořit databázi MySQL](./media/azure-stack-tutorial-mysqlrp/createdb1.png)
 
-3. Vyberte **SKU** a pak zvolte příslušné MySQL hostování serveru SKU používat. V tomto příkladu je operátor Azure stacku vytvořil **MySQL-HA** SKU pro podporu vysoké dostupnosti pro cluster databází MySQL.
+3. Vyberte **SKU** a pak zvolte příslušnou SKU hostitelského serveru MySQL, které chcete použít. V tomto příkladu operátor Azure Stack vytvořil SKU **MySQL-ha** , aby podporoval vysokou dostupnost databází clusteru MySQL.
 
-   ![Vyberte SKU](./media/azure-stack-tutorial-mysqlrp/createdb2.png)
+   ![Vybrat SKU](./media/azure-stack-tutorial-mysqlrp/createdb2.png)
 
-4. Vyberte **přihlášení** > **vytvořte nové přihlašovací údaje** a pak zadejte přihlašovací údaje ověřování MySQL má být použit pro novou databázi. Až budete hotovi, klikněte na tlačítko **OK** a potom **vytvořit** zahájíte proces nasazení databáze.
+4. Vyberte **přihlašovací** > **vytvořte nové přihlášení** a potom zadejte přihlašovací údaje pro ověřování MySQL, které se mají použít pro novou databázi. Po dokončení klikněte na **OK** a pak na **vytvořit** a zahajte proces nasazení databáze.
 
-   ![Přidání přihlášení](./media/azure-stack-tutorial-mysqlrp/createdb3.png)
+   ![Přidat přihlašovací údaje](./media/azure-stack-tutorial-mysqlrp/createdb3.png)
 
-5. Při nasazení databáze MySQL se úspěšně dokončí, zkontrolujte vlastnosti databáze ke zjištění připojovací řetězec pro připojení k nové databázi s vysokou dostupností. 
+5. Po úspěšném dokončení nasazení databáze MySQL zkontrolujte vlastnosti databáze a zjistěte připojovací řetězec, který se má použít pro připojení k nové vysoce dostupné databázi. 
 
-   ![Zobrazení připojovacího řetězce](./media/azure-stack-tutorial-mysqlrp/createdb4.png)
+   ![Zobrazit připojovací řetězec](./media/azure-stack-tutorial-mysqlrp/createdb4.png)
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
-V tomto kurzu jste se naučili:
-
-> [!div class="checklist"]
-> * Vytvořit cluster MySQL serveru z položky marketplace
-> * Vytvoření databáze MySQL Azure Stack, který je hostitelem serveru
-> * Vytvoření vysoce dostupné databáze MySQL
-
-Pokračujte k dalším kurzu se dozvíte, jak:
-> [!div class="nextstepaction"]
-> [Nabídka webových aplikací](azure-stack-tutorial-app-service.md)
+[Aktualizace poskytovatele prostředků MySQL](azure-stack-mysql-resource-provider-update.md)

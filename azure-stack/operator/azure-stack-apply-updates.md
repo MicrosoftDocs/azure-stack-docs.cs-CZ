@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2019
-ms.author: mabriggs
+ms.author: mabrigg
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 3d760e981f3dd298284b10ed56c4c6ace683f49b
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.openlocfilehash: a3864bc7233edd5b6b81a19a467ad1dca63fd3fa
+ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70974798"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72277611"
 ---
 # <a name="install-azure-stack-updates"></a>Nainstalovat aktualizace Azure Stack
 
@@ -83,7 +83,7 @@ Aktuální verzi Azure Stack můžete zobrazit v okně **aktualizace** . Pro ote
 
     ![Historie aktualizace Azure Stack](./media/azure-stack-update-apply/image7.png)
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
--   [Správa aktualizací v přehledu služby Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates)  
--   [Zásady údržby služby Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-servicing-policy)  
+-   [Přehled správy aktualizací v Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates)  
+-   [Zásady obsluhy Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-servicing-policy)  

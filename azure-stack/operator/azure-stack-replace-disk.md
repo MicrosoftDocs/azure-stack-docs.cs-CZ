@@ -12,29 +12,29 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/04/2019
+ms.date: 10/10/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 06/04/2019
-ms.openlocfilehash: 5d0c3bdff2684c90f118e26ac62b8219802fa25b
-ms.sourcegitcommit: b8260ef3e43f3703dd0df16fb752610ec8a86942
+ms.openlocfilehash: 5da479853487dfd93467bd1413159d6e602b93c6
+ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70008648"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72277669"
 ---
 # <a name="replace-a-physical-disk-in-azure-stack"></a>Nahrazení fyzického disku v Azure Stack
 
 *Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
 
-Tento článek popisuje obecný proces nahrazení fyzického disku v Azure Stack. Pokud selže fyzický disk, měli byste ho co nejdříve nahradit.
+Tento článek popisuje obecný proces nahrazení fyzického disku v Azure Stack. Pokud fyzický disk přestane fungovat, měli byste ho co nejdříve nahradit.
 
 Tento postup můžete použít pro integrované systémy a pro nasazení vývojových sad, která mají disky Hot-swaped.
 
-Konkrétní postup nahrazení disku se bude lišit v závislosti na vašem dodavateli hardwaru od výrobce OEM. Konkrétní podrobný postup pro váš systém najdete v dokumentaci k jednotce nahraditelné v terénu od vašeho dodavatele.
+Skutečné kroky pro nahrazení disku se budou lišit v závislosti na dodavateli hardwaru OEM (Original Equipment Manufacturer). Podrobné pokyny, které jsou specifické pro váš systém, najdete v dokumentaci k umístění jednotky v poli vašeho dodavatele (FRU).
 
 ## <a name="review-disk-alert-information"></a>Kontrola informací o výstrahách disku
-Když selže disk, obdržíte upozornění s informací, že došlo ke ztrátě připojení k fyzickému disku.
+Když dojde k chybě disku, obdržíte výstrahu, která oznamuje, že došlo ke ztrátě připojení na fyzický disk.
 
 ![Upozornění ukazující ztracené připojení na fyzický disk](media/azure-stack-replace-disk/DiskAlert.png)
 
@@ -42,7 +42,7 @@ Pokud otevřete výstrahu, popis výstrahy obsahuje uzel jednotka škálování 
 
 ## <a name="replace-the-disk"></a>Výměna disku
 
-Při vlastním nahrazování disku postupujte podle pokynů k jednotce nahraditelné v terénu od vašeho dodavatele hardwaru OEM.
+Použijte pokyny pro vlastní nahrazení disku od dodavatele hardwaru OEM.
 
 > [!note]
 > V jednom okamžiku nahraďte disky pro jeden uzel jednotky škálování. Před přechodem na uzel jednotky škálování na další jednotku počkejte, než se dokončí úlohy opravy virtuálního disku.

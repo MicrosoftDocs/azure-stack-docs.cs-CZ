@@ -1,5 +1,5 @@
 ---
-title: Co je Azure Stack? | Dokumenty Microsoft
+title: Co je Azure Stack? | Microsoft Docs
 description: Přečtěte si, jak Azure Stack umožňuje spouštět služby Azure ve vašem datovém centru.
 services: azure-stack
 documentationcenter: ''
@@ -17,14 +17,14 @@ ms.author: justinha
 ms.reviewer: unknown
 ms.custom: ''
 ms.lastreviewed: 05/14/2019
-ms.openlocfilehash: 7c84a9cb841f06887d09a650d277566fb9ff18ed
-ms.sourcegitcommit: 95f30e32e5441599790d39542ff02ba90e70f9d6
+ms.openlocfilehash: 060258b07e3eef385298600794a6dd8154a461fc
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71070165"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72283417"
 ---
-# <a name="azure-stack-overview"></a>Přehled služby Azure Stack
+# <a name="azure-stack-overview"></a>Přehled Azure Stack
 
 Azure Stack je rozšíření Azure, které poskytuje způsob, jak spouštět aplikace v místním prostředí a poskytovat služby Azure ve vašem datovém centru. S konzistentní cloudovou platformou můžou organizace bez obav dělat rozhodování o technologiích na základě podnikových požadavků, a ne podle obchodních rozhodnutí založených na omezeních technologie.
 
@@ -71,11 +71,11 @@ Azure Stack se nabízí ve dvou možnostech nasazení, které odpovídají vaši
     - Síťové scénáře jsou omezené z důvodu požadavků na nasazení s jedním hostitelem a síťovým ROZHRANÍm.
 
 ### <a name="connection-models"></a>Modely připojení
-Můžete zvolit nasazení Azure Stack buď připojeného k Internetu (a k Azure), nebo z něj **Odpojit** . Tato volba definuje, jaké možnosti jsou k dispozici pro vaše úložiště identit (Azure AD nebo AD FS) a model fakturace (platíte při použití fakturace nebo fakturace na základě kapacity).
+Můžete zvolit nasazení Azure Stack buď **připojeného** k Internetu (a k Azure), nebo z něj **Odpojit** . Tato volba definuje, jaké možnosti jsou k dispozici pro vaše úložiště identit (Azure AD nebo AD FS) a model fakturace (platíte při použití fakturace nebo fakturace na základě kapacity).
 
 > Další informace najdete v tématu požadavky na [připojené](azure-stack-connected-deployment.md) a [odpojené](azure-stack-disconnected-deployment.md) modely nasazení. 
 
-### <a name="identity-provider"></a>Poskytovatel identit 
+### <a name="identity-provider"></a>Zprostředkovatel identity 
 Azure Stack používá k poskytnutí identit buď Azure Active Directory (Azure AD) nebo Active Directory Federation Services (AD FS) (AD FS). Azure AD je cloudový zprostředkovatel identity pro více tenantů od Microsoftu. Většina hybridních scénářů s nasazeními připojenými k Internetu používá jako úložiště identit službu Azure AD. 
 
 Pro odpojená nasazení Azure Stack musíte použít Active Directory Federation Services (AD FS) (AD FS). Poskytovatelé prostředků Azure Stack a další aplikace fungují podobně jako AD FS nebo Azure AD. Azure Stack obsahuje svou vlastní instanci služby Active Directory a Graph API služby Active Directory.
@@ -92,7 +92,7 @@ Azure Stack můžete spravovat pomocí portálu pro správu, portálu User Porta
 
 Jako operátor Azure Stack můžete doručovat širokou škálu služeb a aplikací, jako jsou [virtuální počítače](azure-stack-tutorial-tenant-vm.md), [webové aplikace](azure-stack-app-service-overview.md), vysoce dostupné [SQL Server](azure-stack-tutorial-sql.md)a databáze [MySQL serveru](azure-stack-tutorial-mysql.md) . K nasazení SharePointu, Exchange a dalších šablon můžete použít taky [Azure Stack rychlý start Azure Resource Manager šablony](https://github.com/Azure/AzureStack-QuickStart-Templates) . 
 
-Pomocí portálu pro správu můžete [nakonfigurovat Azure Stack pro poskytování služeb](azure-stack-plan-offer-quota-overview.md) klientům pomocí plánů, kvót, nabídek a předplatných. Uživatelé tenanta se můžou přihlásit k odběru několika nabídek. Nabídky mohou mít jeden nebo více plánů a plány můžou mít jednu nebo více služeb. Operátoři také spravují kapacitu a reagují na výstrahy. 
+Pomocí portálu pro správu můžete [nakonfigurovat Azure Stack pro poskytování služeb](service-plan-offer-subscription-overview.md) klientům pomocí plánů, kvót, nabídek a předplatných. Uživatelé tenanta se můžou přihlásit k odběru několika nabídek. Nabídky mohou mít jeden nebo více plánů a plány můžou mít jednu nebo více služeb. Operátoři také spravují kapacitu a reagují na výstrahy. 
 
 Když je nakonfigurované Azure Stack, **Azure Stack uživatel** (označovaný také jako tenant) spotřebovává služby, které nabízí operátor. Uživatelé můžou zřizovat, monitorovat a spravovat služby, ke kterým se přihlásili, jako jsou webové aplikace, úložiště a virtuální počítače.
 
@@ -113,7 +113,7 @@ Existují tři volitelné poskytovatele prostředků PaaS, které můžete nasad
 
 - **App Service**. [Azure App Service v Azure Stack](azure-stack-app-service-overview.md) je nabídka typu platforma jako služba (PaaS) Microsoft Azure dostupná pro Azure Stack. Služba umožňuje vašim interním nebo externím zákazníkům vytvářet webové aplikace, rozhraní API a Azure Functions aplikací pro libovolnou platformu nebo zařízení. 
 - **SQL Server**. Použijte [poskytovatele prostředků SQL Server](azure-stack-sql-resource-provider.md) k nabídnutí databází SQL jako služby Azure Stack. Až nainstalujete poskytovatele prostředků a připojíte ho k jedné nebo více instancím SQL Server, můžete vy a vaši uživatelé vytvářet databáze pro cloudové nativní aplikace, weby, které používají SQL, a další úlohy, které používají SQL.
-- **MySQL Server**. K zveřejnění databází MySQL jako Azure Stack služby použijte [poskytovatele prostředků serveru MySQL](azure-stack-mysql-resource-provider-deploy.md) . Poskytovatel prostředků MySQL se spouští jako služba na virtuálním počítači se systémem Windows Server 2016 Server Core (VM).
+- **Server MySQL**. K zveřejnění databází MySQL jako Azure Stack služby použijte [poskytovatele prostředků serveru MySQL](azure-stack-mysql-resource-provider-deploy.md) . Poskytovatel prostředků MySQL se spouští jako služba na virtuálním počítači se systémem Windows Server 2016 Server Core (VM).
 
 ## <a name="providing-high-availability"></a>Zajištění vysoké dostupnosti
 Aby se dosáhlo vysoké dostupnosti produkčního systému více virtuálních počítačů v Azure, virtuální počítače se umístí do [skupiny dostupnosti](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) , která je rozšíří napříč více doménami selhání a aktualizačními doménami. V menším měřítku Azure Stack je doména selhání ve skupině dostupnosti definovaná jako jeden uzel v jednotce škálování.  
@@ -127,7 +127,7 @@ I když je infrastruktura Azure Stack už odolná vůči selháním, pak základ
 ## <a name="role-based-access-control"></a>Řízení přístupu na základě role
 Řízení přístupu na základě role (RBAC) můžete použít k udělení přístupu k systému autorizovaným uživatelům, skupinám a službám tím, že jim přiřadíte role v předplatném, skupině prostředků nebo jednotlivé úrovni prostředků. Každá role definuje úroveň přístupu, kterou uživatel, skupina nebo služba překročí Microsoft Azure Stack prostředky.
 
-Azure Stack RBAC má tři základní role, které se vztahují na všechny typy prostředků: Vlastník, přispěvatel a čtenář. Vlastník má úplný přístup ke všem prostředkům, včetně práva k delegování přístupu jiným uživatelům. Přispěvatel může vytvářet a spravovat všechny typy prostředků Azure, ale nemůže udělovat přístup ostatním. Čtenář může zobrazit jenom existující prostředky. Zbývající role RBAC umožňují správu konkrétních prostředků Azure. Role Přispěvatel virtuálních počítačů například umožňuje vytváření a správu virtuálních počítačů, ale neumožňuje správu virtuální sítě ani podsítě, ke které se virtuální počítač připojuje.
+Azure Stack RBAC má tři základní role, které se vztahují na všechny typy prostředků: vlastník, přispěvatel a čtenář. Vlastník má úplný přístup ke všem prostředkům, včetně práva k delegování přístupu jiným uživatelům. Přispěvatel může vytvářet a spravovat všechny typy prostředků Azure, ale nemůže udělovat přístup ostatním. Čtenář může zobrazit jenom existující prostředky. Zbývající role RBAC umožňují správu konkrétních prostředků Azure. Role Přispěvatel virtuálních počítačů například umožňuje vytváření a správu virtuálních počítačů, ale neumožňuje správu virtuální sítě ani podsítě, ke které se virtuální počítač připojuje.
 
 > Další informace najdete v tématu [Správa řízení přístupu na základě rolí](azure-stack-manage-permissions.md) . 
 

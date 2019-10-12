@@ -1,39 +1,34 @@
 ---
-title: Přihlášení k odběru nabídky v Azure Stack | Microsoft Docs
+title: Přihlášení k odběru nabídky ve Azure Stack
 description: Vytvoření předplatných nabídek v Azure Stack
 services: azure-stack
 documentationcenter: ''
 author: bryanla
 manager: femila
-editor: ''
-ms.assetid: 7f3f8683-ef09-4838-92ed-41f2fddbbbed
 ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/13/2019
+ms.date: 10/05/2019
 ms.author: bryanla
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: a35f8fe34cedbeb1a2ef068c666bc6a75effe111
-ms.sourcegitcommit: 1bae55e754d7be75e03af7a4db3ec43fd7ff3e9c
+ms.openlocfilehash: c69c8a4be93cc392ca1eaf4edb70fb7fb4fc8676
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71319150"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72283370"
 ---
 # <a name="create-subscriptions-to-offers-in-azure-stack"></a>Vytváření předplatných nabídek v Azure Stack
 
 *Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
 
-Když [vytvoříte nabídku](azure-stack-create-offer.md), uživatelé potřebují předplatné pro tuto nabídku, aby ji mohli využít. Uživatelé můžou získat předplatné nabídky dvěma způsoby:
+Po [Vytvoření nabídky](azure-stack-create-offer.md)uživatelé k této nabídce potřebují předplatné, aby ji mohli používat. Existují dva způsoby, jak můžou uživatelé získat předplatné nabídky:
 
-- Jako operátor cloudu můžete pro uživatele vytvořit předplatné na portálu pro správu. Můžete vytvářet předplatná veřejných i privátních nabídek.
-- Jako uživatel tenanta si můžete vytvořit předplatné veřejné nabídky na portálu User Portal.  
+- Jako operátor cloudu můžete vytvořit předplatné pro uživatele v portálu pro správu. Předplatná, která vytvoříte, můžou být pro veřejné i soukromé nabídky.
+- Jako uživatel klienta se můžete přihlásit k odběru veřejné nabídky při používání portálu User Portal.  
 
 ## <a name="create-a-subscription-as-a-cloud-operator"></a>Vytvoření předplatného jako operátora cloudu
 
-Operátoři cloudu můžou pomocí portálu pro správu vytvořit předplatné nabídky pro uživatele. Můžete vytvářet předplatná pro členy vašeho vlastního tenanta adresáře. Pokud je povolená [víceklientská](azure-stack-enable-multitenancy.md) architektura, můžete také vytvořit odběry pro uživatele v dalších adresářových klientech.
+Operátoři cloudu používají portál pro správu k vytvoření odběru nabídky pro uživatele. Odběry je možné vytvořit pro členy vašeho vlastního tenanta adresáře. Pokud je povolená [víceklientská](azure-stack-enable-multitenancy.md) architektura, můžete také vytvořit odběry pro uživatele v dalších adresářových klientech.
 
 Pokud nechcete, aby klienti vytvářeli vlastní odběry, zajistěte, aby vaše nabídky byly soukromé a pak vytvořili předplatná pro klienty. Tento přístup je společný při integraci Azure Stack s externími systémy fakturace nebo katalogu služeb.
 
@@ -61,7 +56,7 @@ Po vytvoření předplatného pro uživatele se mohou přihlásit k portálu Use
 
 Operátor cloudu může kdykoli přidat plán do dříve vytvořeného předplatného:
 
-1. Na portálu pro správu vyberte **všechny služby** a potom v kategorii **prostředky pro správu** vyberte odběry **uživatelů**. Vyberte předplatné, které chcete změnit.
+1. Na portálu pro správu vyberte **všechny služby** a potom v kategorii **prostředky pro správu** vyberte **odběry uživatelů**. Vyberte předplatné, které chcete změnit.
 
 2. Vyberte **Doplňky** a pak vybrat **+ Přidat**.  
 
@@ -76,11 +71,11 @@ Jako uživatel se můžete přihlásit k portálu User Portal a vyhledat a přih
 
 ### <a name="to-subscribe-to-an-offer"></a>Přihlášení k odběru nabídky
 
-1. [](../asdk/asdk-connect.md) Přihlaste se k [portálu Azure Stack User Portal](https://portal.local.azurestack.external) a vyberte **získat předplatné**.
+1. [Přihlaste](../asdk/asdk-connect.md) se k [portálu Azure Stack User Portal](https://portal.local.azurestack.external) a vyberte **získat předplatné**.
 
    ![Získat předplatné](media/azure-stack-subscribe-plan-provision-vm/image01.png)
   
-2. V části **získat předplatné**zadejte popisný název předplatného ve zobrazovaném **názvu**. Vyberte **nabídku** a v části **Zvolte nabídku**vyberte nabídku. Vyberte **vytvořit** a vytvořte odběr.
+2. V části **získat předplatné**zadejte popisný název předplatného ve **zobrazovaném názvu**. Vyberte **nabídku** a v části **Zvolte nabídku**vyberte nabídku. Vyberte **vytvořit** a vytvořte odběr.
 
    ![Vytvoření nabídky](media/azure-stack-subscribe-plan-provision-vm/image02.png)
   
@@ -88,11 +83,11 @@ Jako uživatel se můžete přihlásit k portálu User Portal a vyhledat a přih
 
 4. Pokud se chcete podívat na předplatné, které jste vytvořili, vyberte **všechny služby** a potom v kategorii **Obecné** vyberte **odběry**. Pokud si chcete zobrazit podrobnosti o předplatném, vyberte předplatné.  
 
-### <a name="to-subscribe-to-an-add-on-plan"></a>Přihlášení k odběru plánu doplňku
+### <a name="to-enable-an-add-on-plan-in-your-subscription"></a>Povolení doplňkového plánu v rámci předplatného
 
-Pokud má nabídka plán doplňku, můžete tento plán kdykoli přidat do svého předplatného.  
+Pokud vám nabídka, kterou jste přihlásili k odběru, má plán doplňku, můžete tento plán kdykoli přidat do svého předplatného.  
 
-1. Na portálu User Portal vyberte **všechny služby**. Dále v kategorii **Obecné** vyberte předplatná apotom vyberte předplatné, které chcete změnit. Pokud jsou k dispozici nějaké dostupné plány, **+ Přidat plán** je aktivní a je k dispozici dlaždice pro **plány doplňku**.
+1. Na portálu User Portal vyberte **všechny služby**. Dále v kategorii **Obecné** vyberte **předplatná**a potom vyberte předplatné, které chcete změnit. Pokud jsou k dispozici nějaké dostupné plány, **+ Přidat plán** je aktivní a zobrazí se dlaždice pro **plány doplňku**.
 
    Pokud není aktivní **+ Přidat plán** , neexistují žádné doplňkové plány pro nabídku přidruženou k tomuto předplatnému.
 
@@ -100,4 +95,6 @@ Pokud má nabídka plán doplňku, můžete tento plán kdykoli přidat do svéh
 
 ## <a name="next-steps"></a>Další kroky
 
-- [Zřízení virtuálního počítače](../user/azure-stack-create-vm-template.md)
+Další informace o tom, jak uživatel teď může nasadit prostředky do svého předplatného: 
+  - [Několik rychlých startů uživatelů](../user/azure-stack-quick-windows-portal.md) ukazuje, jak zřídit virtuální počítače s Windows a Linux pomocí PowerShellu, rozhraní příkazového řádku Azure a portálu User Portal. 
+  - [Kurz, který používá šablonu Azure Resource Manager,](../user/azure-stack-create-vm-template.md) ukazuje, jak nasadit virtuální počítač s Ubuntu 16,04, na kterém běží Minikube, ke správě clusteru kubenetes. 

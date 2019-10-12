@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/18/2019
+ms.date: 10/10/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 501040273eca6ce80972ae2a69eca2018f9f8d2d
-ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
+ms.openlocfilehash: 4fcfb0c8ef509ab827c15321cff5fc945230d69e
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71159605"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72283428"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Přidání Kubernetes do webu Azure Stack Marketplace
 
@@ -48,17 +48,17 @@ Vytvořte plán, nabídku a předplatné pro položku Kubernetes Marketplace. M�
 
 1. Vyberte **změnit stav**. Vyberte možnost **veřejné**.
 
-1. Vyberte **+ vytvořit prostředek** > **nabídky a plány** > **předplatné** , abyste mohli vytvořit předplatné.
+1. Vyberte **+ vytvořit prostředek** > **nabídky a plány** > **předplatné** k vytvoření předplatného.
 
     a. Zadejte **Zobrazovaný název**.
 
     b. Zadejte **uživatele**. Použijte účet Azure AD přidružený k vašemu tenantovi.
 
-    c. **Popis poskytovatele**
+    r. **Popis poskytovatele**
 
-    d. Nastavte **tenanta adresáře** na TENANTA Azure AD pro vaši Azure Stack. 
+    trojrozměrné. Nastavte **tenanta adresáře** na TENANTA Azure AD pro vaši Azure Stack. 
 
-    e. Vyberte **nabídku**. Vyberte název nabídky, kterou jste vytvořili. Poznamenejte si ID předplatného.
+    Cerebrální. Vyberte **nabídku**. Vyberte název nabídky, kterou jste vytvořili. Poznamenejte si ID předplatného.
 
 ## <a name="create-a-service-principal-and-credentials-in-ad-fs"></a>Vytvoření instančního objektu a přihlašovacích údajů ve službě AD FS
 
@@ -68,7 +68,7 @@ Pokud pro službu správy identit používáte službu Active Directory federova
 
 Do Marketplace přidejte následující image serveru Ubuntu:
 
-1. Přihlaste se k [portál pro správu](https://adminportal.local.azurestack.external).
+1. Přihlaste se k [portálu pro správu](https://adminportal.local.azurestack.external).
 
 1. Vyberte **všechny služby**a potom v kategorii **Správa** vyberte **Správa Marketplace**.
 
@@ -77,10 +77,10 @@ Do Marketplace přidejte následující image serveru Ubuntu:
 1. Zadejte `Ubuntu Server`.
 
 1. Vyberte nejnovější verzi serveru. Zkontrolujte plnou verzi a ujistěte se, že máte nejnovější verzi:
-    - **Vydavatel**: Canonical
+    - **Vydavatel**: kanonické
     - **Nabídka**: UbuntuServer
     - **Verze**: 16.04.201806120 (nebo nejnovější verze)
-    - **SKU**: 16.04-LTS
+    - **SKU**: 16,04 – LTS
 
 1. Vyberte **Stáhnout.**
 
@@ -97,7 +97,7 @@ Přidejte Kubernetes z webu Marketplace:
 1. Zadejte `Custom Script for Linux`.
 
 1. Vyberte skript s následujícím profilem:
-   - **Nabídka**: Vlastní skript pro Linux 2,0
+   - **Nabídka**: vlastní skript pro Linux 2,0
    - **Verze**: 2.0.6 (nebo nejnovější verze)
    - **Vydavatel**: Microsoft Corp
 
@@ -140,7 +140,7 @@ Odebrání položky Kubernetes:
     Get-AzsGalleryItem | Select Name
     ```
     
-3. Název aktuální položky, jako třeba`Microsoft.AzureStackKubernetesCluster.0.3.0`
+3. Název aktuální položky, například `Microsoft.AzureStackKubernetesCluster.0.3.0`
 
 4. Odeberte položku pomocí následující rutiny prostředí PowerShell:
 
@@ -154,4 +154,4 @@ Odebrání položky Kubernetes:
 
 [Nasazení Kubernetes pro Azure Stack](../user/azure-stack-solution-template-kubernetes-deploy.md)
 
-[Přehled nabízených služeb v Azure Stack](azure-stack-offer-services-overview.md)
+[Přehled nabízených služeb v Azure Stack](service-plan-offer-subscription-overview.md)

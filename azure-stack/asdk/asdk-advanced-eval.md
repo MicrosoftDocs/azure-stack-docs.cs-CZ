@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 36c4dae72f7fcf91438880f07231c94c8d286253
-ms.sourcegitcommit: 4eb1766c7a9d1ccb1f1362ae1211ec748a7d708c
+ms.openlocfilehash: a47bae619b2525534797158cf2660d5bc77192c9
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69579071"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72282628"
 ---
 # <a name="advanced-asdk-evaluation-tasks"></a>Pokročilé úlohy hodnocení ASDK
 Po zjištění zkušeností s funkcemi a možnostmi služby Basic Azure Stack Development Kit (ASDK) můžete své porozumění Azure Stack dále prohloubit otestováním pokročilejších scénářů. Tyto pokročilejší úkoly hodnocení jsou plně dokumentovány v dokumentaci k operátoru Azure Stack.
@@ -29,7 +29,7 @@ Po zjištění zkušeností s funkcemi a možnostmi služby Basic Azure Stack De
 > [!NOTE]
 > I když se pro nasazení ASDK i produkčních i Azure Stack pro více uzlů podporuje mnoho úloh operátorů, není pro nasazení ASDK podporována podpora všech scénářů použití. Další informace najdete v tématu [ASDK a multi-node – rozdíly v Azure Stack](asdk-what-is.md#asdk-and-multi-node-azure-stack-differences).
 
-## <a name="delegate-offers-in-azure-stack"></a>Delegování nabídek v Azure Stacku
+## <a name="delegate-offers-in-azure-stack"></a>Delegování nabídek v Azure Stack
 Jako operátor Azure Stack často chcete dát ostatním lidem na starosti vytváření nabídek a registraci uživatelů. Pokud jste například poskytovatelem služeb, můžete chtít, aby prodejci mohli registrovat zákazníky a spravovat je vaším jménem. Nebo pokud jste součástí centrální skupiny IT v podniku, můžete chtít, aby se pobočky mohli registrovat bez zásahu uživatele.
 
 [Delegování nabídek v Azure Stack](../operator/azure-stack-delegated-provider.md) pomáhá s těmito úkoly, protože umožňuje oslovit a spravovat více uživatelů, než můžete přímo.
@@ -44,6 +44,6 @@ Jako operátor Azure Stack můžete vytvořit nabídky, které umožní vašim u
 
 Nasaďte poskytovatele prostředků App Service, aby [weby a aplikace API byly dostupné pro vaše Azure Stack uživatele](../operator/azure-stack-tutorial-app-service.md).
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
-[Další informace o poskytování služeb s Azure Stack integrovanými systémy](../operator/azure-stack-offer-services-overview.md)
+[Další informace o poskytování služeb s Azure Stack integrovanými systémy](../operator/service-plan-offer-subscription-overview.md)

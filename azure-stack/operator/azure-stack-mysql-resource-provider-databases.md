@@ -15,12 +15,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 6a933f812edeede1802c35e3d25915ce09b6f01b
-ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
+ms.openlocfilehash: 594d1f45e19717bdbbc5f9fee56cf253c03b6efb
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71909218"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72283469"
 ---
 # <a name="create-mysql-databases"></a>Vytváření databází MySQL
 Uživatel Azure Stack, který se přihlásí k odběru nabídky, která obsahuje databázovou službu MySQL, může vytvořit a spravovat samoobslužné databáze MySQL na portálu User Portal.
@@ -28,7 +28,7 @@ Uživatel Azure Stack, který se přihlásí k odběru nabídky, která obsahuje
 ## <a name="create-a-mysql-database"></a>Vytvoření databáze MySQL
 
 1. Přihlaste se k portálu Azure Stack User Portal.
-2. Vyberte **+ vytvořit prostředek** > **data + úložiště** > **MySQL databáze** > **Přidat**.
+2. Vyberte **+ vytvořit prostředek** > **Data + úložiště** >  úložiště**MySQL** > **Přidat**.
 3. V části **vytvořit databázi MySQL**zadejte název databáze a nakonfigurujte další nastavení podle požadavků vašeho prostředí.
 
     ![Vytvoření testovací databáze MySQL](./media/azure-stack-mysql-rp-deploy/mysql-create-db.png)
@@ -58,7 +58,7 @@ Po nasazení databáze si poznamenejte **připojovací řetězec** v části **z
 
 Heslo můžete upravit tak, že ho změníte v instanci serveru MySQL.
 
-1.  > Vyberte **prostředky pro správu** **servery MySQL hosting**. Vyberte hostitelský server.
+1. Vyberte **prostředky pro správu** > **hostující servery MySQL**. Vyberte hostitelský server.
 2. V části **Nastavení**vyberte **heslo**.
 3. V části **heslo**zadejte nové heslo a pak vyberte **Uložit**.
 
@@ -66,4 +66,4 @@ Heslo můžete upravit tak, že ho změníte v instanci serveru MySQL.
 
 ## <a name="next-steps"></a>Další kroky
 
-[Aktualizace poskytovatele prostředků MySQL](azure-stack-mysql-resource-provider-update.md)
+Informace o tom, jak [nabízet vysoce dostupné databáze MySQL](azure-stack-tutorial-mysql.md)

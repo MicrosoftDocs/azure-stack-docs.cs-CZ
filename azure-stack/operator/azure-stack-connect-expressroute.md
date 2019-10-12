@@ -14,12 +14,12 @@ ms.date: 10/03/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: 36ed1b7ef7225f848aa3e5869b8c46f911be7e19
-ms.sourcegitcommit: 0866555e0ed240a65595052899ef1b836dd07fbc
+ms.openlocfilehash: 2fee81a79b58294a9c43f8d550f139157cb64a9b
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72257774"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72283567"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>Připojení Azure Stack k Azure pomocí Azure ExpressRoute
 
@@ -84,7 +84,7 @@ Pro nastavení Azure Stack prostředí pro prvního tenanta použijte následuj�
 Než začnete s konfigurací Azure Stack, budete potřebovat:
 
 * Azure Stack nasazení integrovaného systému nebo nasazení Azure Stack Development Kit (ASDK). Informace o nasazení rozhraní ASDK naleznete v tématu [rychlý Start nasazení Azure Stack Development Kit](../asdk/asdk-download.md).
-* Nabídka v Azure Stack, ke které se uživatelé můžou přihlásit Další informace najdete v tématu [plány, nabídky a předplatná](azure-stack-plan-offer-quota-overview.md).
+* Nabídka v Azure Stack, ke které se uživatelé můžou přihlásit Další informace najdete v tématu [Přehled služeb, plánů, nabídek a předplatných](service-plan-offer-subscription-overview.md).
 
 ### <a name="create-network-resources-in-azure-stack"></a>Vytváření síťových prostředků v Azure Stack
 

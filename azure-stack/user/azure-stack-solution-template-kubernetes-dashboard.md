@@ -1,6 +1,6 @@
 ---
-title: Přístup k řídicímu panelu Kubernetes v Azure stacku | Dokumentace Microsoftu
-description: Zjistěte, jak získat přístup k řídicímu panelu Kubernetes ve službě Azure Stack
+title: Přístup k řídicímu panelu Kubernetes v Azure Stack | Microsoft Docs
+description: Přečtěte si, jak získat přístup k řídicímu panelu Kubernetes v Azure Stack
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,59 +11,59 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/18/2019
+ms.date: 10/10/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: ecd0d3c79edc2359cf82aa9c52fb9021d7fc7a6f
-ms.sourcegitcommit: 104ccafcb72a16ae7e91b154116f3f312321cff7
+ms.openlocfilehash: 2c1a762f002e5058e11857117b4210ad0b59e564
+ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67308676"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72277542"
 ---
-# <a name="access-the-kubernetes-dashboard-in-azure-stack"></a>Přístup k řídicímu panelu Kubernetes v Azure stacku 
+# <a name="access-the-kubernetes-dashboard-in-azure-stack"></a>Přístup k řídicímu panelu Kubernetes v Azure Stack 
 
-*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit* 
+*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit* 
 > [!Note]   
-> Kubernetes ve službě Azure Stack je ve verzi preview. Odpojené scénář Azure Stack není aktuálně podporován ve verzi preview. Pouze pomocí položky marketplace pro vývoj a testování scénářů.
+> Kubernetes on Azure Stack je ve verzi Preview. V tuto chvíli není ve verzi Preview podporován Azure Stack odpojený scénář. Pro scénáře vývoje a testování používejte jenom položku Marketplace.
 
-Kubernetes zahrnuje webové řídicí panel, který můžete použít pro operací základní správy. Tento řídicí panel umožňuje zobrazit základní stav a metriky pro vaše aplikace, vytvoření a nasazení služeb a upravit stávající aplikace. V tomto článku se dozvíte, jak nastavit řídicí panel Kubernetes ve službě Azure Stack.
+Kubernetes zahrnuje webový řídicí panel, který můžete použít pro základní operace správy. Tento řídicí panel umožňuje zobrazit základní stav a metriky pro vaše aplikace, vytvářet a nasazovat služby a upravovat stávající aplikace. V tomto článku se dozvíte, jak nastavit řídicí panel Kubernetes na Azure Stack.
 
-## <a name="prerequisites-for-kubernetes-dashboard"></a>Požadavky na řídicí panel Kubernetes
+## <a name="prerequisites-for-kubernetes-dashboard"></a>Předpoklady pro řídicí panel Kubernetes
 
-* Cluster Azure Kubernetes zásobníku
+* Cluster Kubernetes Azure Stack
 
-    Je potřeba jste nasadili Kubernetes cluster pro Azure Stack. Další informace najdete v tématu [nasazení Kubernetes](azure-stack-solution-template-kubernetes-deploy.md).
+    Pro Azure Stack budete muset nasadit cluster Kubernetes. Další informace najdete v tématu [nasazení Kubernetes](azure-stack-solution-template-kubernetes-deploy.md).
 
 * Klient SSH
 
-    Budete potřebovat klienta SSH k zabezpečení připojení k vaší hlavní uzel v clusteru. Pokud používáte Windows, můžete použít [Putty](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-connect-vm). Budete potřebovat privátní klíč, který jste použili při nasazení clusteru Kubernetes.
+    K zabezpečení připojení k hlavnímu uzlu v clusteru budete potřebovat klienta SSH. Pokud používáte systém Windows, můžete použít výstup do [výstupu](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-connect-vm). Budete potřebovat privátní klíč, který se použije při nasazení clusteru Kubernetes.
 
 * FTP (PSCP)
 
-    Možná bude nutné také klienta FTP, který podporuje SSH a SSH File Transfer Protocol přenos certifikáty z hlavního uzlu do Azure stacku správu počítače. Můžete použít [Filezilly](https://filezilla-project.org/download.php?type=client). Budete potřebovat privátní klíč, který jste použili při nasazení clusteru Kubernetes.
+    Je také možné, že budete potřebovat klienta FTP, který podporuje SSH a SSH protokol FTP (File Transfer Protocol) k přenosu certifikátů z hlavního uzlu do počítače se správou Azure Stack. Můžete použít [FileZilly](https://filezilla-project.org/download.php?type=client). Budete potřebovat privátní klíč, který se použije při nasazení clusteru Kubernetes.
 
-## <a name="overview-of-steps-to-enable-dashboard"></a>Přehled kroky, aby řídicí panel
+## <a name="overview-of-steps-to-enable-dashboard"></a>Přehled kroků pro povolení řídicího panelu
 
-1.  Exportujte certifikátů Kubernetes z hlavního uzlu v clusteru. 
-2.  Naimportujte certifikáty do Azure stacku správu počítače.
-2.  Otevřete řídicí panel Kubernetes web. 
+1.  Exportujte certifikáty Kubernetes z hlavního uzlu v clusteru. 
+2.  Importujte certifikáty do počítače pro správu Azure Stack.
+2.  Otevřete webový řídicí panel Kubernetes. 
 
-## <a name="export-certificate-from-the-master"></a>Exportujte certifikát z hlavního serveru 
+## <a name="export-certificate-from-the-master"></a>Exportovat certifikát z hlavní větve 
 
 Adresu URL řídicího panelu můžete načíst z hlavního uzlu v clusteru.
 
-1. Získejte veřejnou IP adresu a uživatelské jméno pro hlavní clusteru z řídicího panelu služby Azure Stack. Pokud chcete získat tyto informace:
+1. Získejte veřejnou IP adresu a uživatelské jméno pro hlavní server vašeho clusteru z řídicího panelu Azure Stack. Získat tyto informace:
 
-    - Přihlaste se k [portálu Azure Stack](https://portal.local.azurestack.external/)
-    - Vyberte **všechny služby** > **všechny prostředky**. Najdete hlavnímu serveru ve vaší skupině prostředků clusteru. Název hlavní `k8s-master-<sequence-of-numbers>`. 
+    - Přihlášení k [portálu Azure Stack](https://portal.local.azurestack.external/)
+    - Vyberte **všechny služby** > **všechny prostředky**. Ve vaší skupině prostředků clusteru Najděte hlavní server. Hlavní název je pojmenován `k8s-master-<sequence-of-numbers>`. 
 
-2. Hlavní uzel otevřete na portálu. Kopírovat **veřejnou IP adresu** adresu. Klikněte na tlačítko **připojit** získat uživatelské jméno **přihlásit se pomocí místního účtu virtuálního počítače** pole. Toto je stejné uživatelské jméno, které jste nastavili při vytváření clusteru. Použijte veřejnou IP adresu než privátní IP adresy uvedené v okně připojení.
+2. Otevřete hlavní uzel na portálu. Zkopírujte **veřejnou IP** adresu. Kliknutím na **připojit** získáte své uživatelské jméno v poli **přihlášení pomocí místního účtu virtuálního počítače** . Toto je stejné uživatelské jméno, které jste nastavili při vytváření clusteru. Místo soukromé IP adresy uvedené v okně připojit použijte veřejnou IP adresu.
 
-3.  Otevřete klienta SSH pro připojení k hlavnímu serveru. Pokud pracujete ve Windows, můžete použít [Putty](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-connect-vm) k vytvoření připojení. Budete používat veřejnou IP adresu pro hlavní uzel uživatelské jméno a přidejte privátní klíč, který jste použili při vytváření clusteru.
+3.  Otevřete klienta SSH pro připojení k hlavnímu serveru. Pokud pracujete v systému Windows, můžete vytvořit připojení pomocí [výstupu](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-connect-vm) . Použijete veřejnou IP adresu pro hlavní uzel, uživatelské jméno a přidáte privátní klíč, který jste použili při vytváření clusteru.
 
-4.  Když se připojí terminálu zadejte `kubectl` otevřete klienta příkazového řádku Kubernetes.
+4.  Po připojení terminálu zadejte `kubectl` a otevřete tak klienta příkazového řádku Kubernetes.
 
 5. Spusťte následující příkaz:
 
@@ -72,22 +72,22 @@ Adresu URL řídicího panelu můžete načíst z hlavního uzlu v clusteru.
     ``` 
     Vyhledejte adresu URL řídicího panelu. Například: `https://k8-1258.local.cloudapp.azurestack.external/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy`
 
-6.  Extrahování certifikátu podepsaného svým držitelem a převést do formátu PFX. Spusťte následující příkaz:
+6.  Extrahujte certifikát podepsaný svým držitelem a převeďte ho do formátu PFX. Spusťte následující příkaz:
 
     ```Bash  
     sudo su 
     openssl pkcs12 -export -out /etc/kubernetes/certs/client.pfx -inkey /etc/kubernetes/certs/client.key  -in /etc/kubernetes/certs/client.crt -certfile /etc/kubernetes/certs/ca.crt 
     ```
 
-7.  Získat seznam tajných kódů v **kube-system** oboru názvů. Spusťte následující příkaz:
+7.  Získejte seznam tajných kódů v oboru názvů **Kube-System** . Spusťte následující příkaz:
 
     ```Bash  
     kubectl -n kube-system get secrets
     ```
 
-    Poznamenejte si kubernetes – řídicí panel-token -\<XXXXX > hodnota. 
+    Poznamenejte si hodnotu > Kubernetes-Dashboard-token-\<XXXXX. 
 
-8.  Získat token a uložte ho. Aktualizace `kubernetes-dashboard-token-<####>` s hodnota tajného klíče z předchozího kroku.
+8.  Získejte token a uložte ho. Aktualizujte `kubernetes-dashboard-token-<####>` s použitím tajné hodnoty z předchozího kroku.
 
     ```Bash  
     kubectl -n kube-system describe secret kubernetes-dashboard-token-<####>| awk '$1=="token:"{print $2}' 
@@ -95,16 +95,16 @@ Adresu URL řídicího panelu můžete načíst z hlavního uzlu v clusteru.
 
 ## <a name="import-the-certificate"></a>Importovat certifikát
 
-1. Otevřete Filezilly a připojte se k hlavnímu uzlu. Budete potřebovat:
+1. Otevřete FileZilly a připojte se k hlavnímu uzlu. Budete potřebovat:
 
-    - veřejnou IP adresu hlavního uzlu
+    - Veřejná IP adresa hlavního uzlu
     - uživatelské jméno
     - privátní tajný klíč
-    - Použití **SFTP - SSH File Transfer Protocol**
+    - Použití protokolu **SFTP-SSH Protokol FTP (File Transfer Protocol)**
 
-2. Kopírování `/etc/kubernetes/certs/client.pfx` a `/etc/kubernetes/certs/ca.crt` do Azure stacku správu počítače.
+2. Zkopírujte `/etc/kubernetes/certs/client.pfx` a `/etc/kubernetes/certs/ca.crt` do počítače pro správu Azure Stack.
 
-3. Poznamenejte si umístění souborů. Aktualizujte skript pomocí umístění a pak otevřete prostředí PowerShell s řádku se zvýšenými oprávněními. Spusťte skript aktualizace:  
+3. Poznamenejte si umístění souborů. Aktualizujte skript pomocí umístění a pak otevřete PowerShell s výzvou se zvýšenými oprávněními. Spusťte aktualizovaný skript:  
 
     ```powershell   
     Import-Certificate -Filepath "ca.crt" -CertStoreLocation cert:\LocalMachine\Root 
@@ -112,29 +112,29 @@ Adresu URL řídicího panelu můžete načíst z hlavního uzlu v clusteru.
     Import-PfxCertificate -Filepath "client.pfx" -CertStoreLocation cert:\CurrentUser\My -Password $pfxpwd.Password 
     ``` 
 
-## <a name="open-the-kubernetes-dashboard"></a>Otevřete řídicí panel Kubernetes 
+## <a name="open-the-kubernetes-dashboard"></a>Otevření řídicího panelu Kubernetes 
 
-1. Zakáže blokování automaticky otevíraných oken ve webovém prohlížeči.
+1. Zakažte blokování automaticky otevíraných oken ve webovém prohlížeči.
 
-2. Bod prohlížeče na adresu URL jste si poznamenali, když jste spustili příkaz `kubectl cluster-info`. Například: https:\//azurestackdomainnamefork8sdashboard/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard: / proxy serveru 
-3. Vyberte klientský certifikát.
+2. Najeďte na adresu URL v prohlížeči, který jste si poznamenali při spuštění příkazu `kubectl cluster-info`. Například: https: \//azurestackdomainnamefork8sdashboard/API/v1/obory názvů/Kube-System/Services/https: Kubernetes-Dashboard:/proxy 
+3. Vyberte certifikát klienta.
 4. Zadejte token. 
-5. Znovu připojit k příkazovému řádku bash na hlavní uzel a udělit oprávnění k `kubernetes-dashboard`. Spusťte následující příkaz:
+5. Znovu se připojte k příkazovému řádku bash na hlavním uzlu a udělte oprávnění `kubernetes-dashboard`. Spusťte následující příkaz:
 
     ```Bash  
     kubectl create clusterrolebinding kubernetes-dashboard --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard 
     ``` 
 
-    Skript vypíše `kubernetes-dashboard` cloudu oprávnění správce. Další informace najdete v tématu [clustery s podporou pro RBAC](https://docs.microsoft.com/azure/aks/kubernetes-dashboard).
+    Skript poskytuje `kubernetes-dashboard` oprávnění správce cloudu. Další informace najdete v tématu [pro clustery s podporou RBAC](https://docs.microsoft.com/azure/aks/kubernetes-dashboard).
 
-Mohou pomocí řídicího panelu. Další informace na řídicí panel Kubernetes najdete v tématu [řídicí panel Kubernetes webového uživatelského rozhraní](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/) 
+Řídicí panel můžete použít. Další informace o řídicím panelu Kubernetes najdete v tématu [řídicí panel webového uživatelského rozhraní Kubernetes](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/) . 
 
-![Řídicí panel Kubernetes pro Azure Stack](media/azure-stack-solution-template-kubernetes-dashboard/azure-stack-kub-dashboard.png)
+![Řídicí panel Azure Stack Kubernetes](media/azure-stack-solution-template-kubernetes-dashboard/azure-stack-kub-dashboard.png)
 
-## <a name="next-steps"></a>Další postup 
+## <a name="next-steps"></a>Další kroky 
 
-[Nasazení Kubernetes pro Azure Stack](azure-stack-solution-template-kubernetes-deploy.md)  
+[Nasazení Kubernetes do Azure Stack](azure-stack-solution-template-kubernetes-deploy.md)  
 
-[Přidání clusteru Kubernetes na webu Marketplace (pro operátory Azure stacku)](../operator/azure-stack-solution-template-kubernetes-cluster-add.md)  
+[Přidání clusteru Kubernetes do Marketplace (pro operátor Azure Stack)](../operator/azure-stack-solution-template-kubernetes-cluster-add.md)  
 
 [Kubernetes v Azure](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)  

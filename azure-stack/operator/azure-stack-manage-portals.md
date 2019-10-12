@@ -1,6 +1,6 @@
 ---
-title: Pomocí portálu pro správu ve službě Azure Stack | Dokumentace Microsoftu
-description: Jako operátory Azure stacku Další informace o použití portálu pro správu.
+title: Použití portálu pro správu v Azure Stack | Microsoft Docs
+description: Naučte se používat portál pro správu v Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,85 +16,85 @@ ms.date: 06/07/2019
 ms.author: justinha
 ms.reviewer: efemmano
 ms.lastreviewed: 06/07/2019
-ms.openlocfilehash: cb57d43306b69c3698441b9bb7b01c0c292bd704
-ms.sourcegitcommit: 7ceddf8b67f920d5a5eef4a84e157079a53b3374
+ms.openlocfilehash: a5a2c86d4680d38b3923eea4a04cacbf61fff108
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/10/2019
-ms.locfileid: "66821746"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72283498"
 ---
-# <a name="quickstart-use-the-azure-stack-administration-portal"></a>Rychlý start: použití portálu pro správu služby Azure Stack
+# <a name="use-the-administrator-portal-in-azure-stack"></a>Použití portálu pro správu v Azure Stack
 
-*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
 
-Existují dva portály ve službě Azure Stack; na portálu pro správu a na portálu user portal (někdy označovány jako *tenanta* portálu.) Jako operátor Azure stacku můžete použít portál pro správu pro každodenní správu a operace služby Azure Stack.
+V Azure Stack existují dva Portály: portál pro správu a portál User Portal. Jako operátor Azure Stack používáte portál pro správu pro každodenní správu a provoz Azure Stack.
 
-## <a name="access-the-administrator-portal"></a>Přístup k portálu správce
+## <a name="access-the-administrator-portal"></a>Přístup k portálu pro správu
 
-Přístup k portálu pro správu získáte tak, že přejdete na adresu URL portálu a přihlásíte se pomocí přihlašovacích údajů operátora služby Azure Stack. Pro integrovaný systém portálu, k němuž adresy URL se liší podle oblasti názvu a externí plně kvalifikovaný název domény (FQDN) vašeho nasazení Azure Stack. Na portálu pro správu adresy URL je vždy stejný pro nasazení Azure Stack Development Kit (ASDK). 
+Pokud chcete získat přístup k portálu pro správu, přejděte na adresu URL portálu a přihlaste se pomocí přihlašovacích údajů operátora Azure Stack. V případě integrovaného systému se adresa URL portálu liší v závislosti na názvu oblasti a externím plně kvalifikovaném názvu domény (FQDN) nasazení Azure Stack. Adresa URL portálu pro správu je vždycky stejná pro nasazení Azure Stack Development Kit (ASDK).
 
-| Prostředí | Adresa URL portálu pro správce |   
+| Prostředí | Adresa URL portálu pro správu |   
 | -- | -- | 
 | ASDK| https://adminportal.local.azurestack.external  |
-| Integrované systémy | https://adminportal.&lt;*region*&gt;.&lt;*FQDN*&gt; | 
+| Integrované systémy | @no__t – 0; *region*&gt;. &lt;*plně kvalifikovaný název domény*&gt; | 
 | | |
 
 > [!TIP]
-> ASDK prostředí, budete muset nejprve se ujistěte, že můžete [připojení k hostiteli development kit](../asdk/asdk-connect.md) prostřednictvím připojení ke vzdálené ploše nebo virtuální privátní sítě (VPN).
+> Pro prostředí ASDK je potřeba nejdřív zajistit, abyste se mohli [připojit k hostiteli vývojové sady](../asdk/asdk-connect.md) prostřednictvím připojení ke vzdálené ploše nebo prostřednictvím virtuální privátní sítě (VPN).
 
- ![Na portálu pro správu](media/azure-stack-manage-portals/admin-portal.png)
+ ![Portál pro správu Azure Stack](media/azure-stack-manage-portals/admin-portal.png)
 
-Výchozí časové pásmo pro všechna nasazení Azure Stack nastavený na koordinovaný univerzální čas (UTC). 
+Výchozí časové pásmo pro všechna Azure Stack nasazení je nastaveno na koordinovaný světový čas (UTC).
 
-Na portálu správce můžete provádět věci, jako je:
+Na portálu pro správu můžete provádět například tyto akce:
 
-* [Registrace služby Azure Stack v Azure](azure-stack-registration.md)
-* [Naplnění webu marketplace](azure-stack-download-azure-marketplace-item.md)
-* [Vytvořit plány, nabídky a předplatné pro uživatele](azure-stack-plan-offer-quota-overview.md)
-* [Monitorování stavu a upozornění](azure-stack-monitor-health.md)
+* [Registrace Azure Stack s využitím Azure](azure-stack-registration.md)
+* [Naplnění Marketplace](azure-stack-download-azure-marketplace-item.md)
+* [Vytváření plánů, nabídek a předplatných pro uživatele](service-plan-offer-subscription-overview.md)
+* [Monitorování stavu a výstrah](azure-stack-monitor-health.md)
 * [Správa aktualizací Azure Stack](azure-stack-updates.md)
 
-**Rychlý úvodní kurz** dlaždice obsahuje odkazy na online dokumentaci pro nejběžnější úkoly.
+Dlaždice **kurzu rychlý Start** obsahuje odkazy na online dokumentaci pro nejběžnější úlohy.
 
-I když operátor mohou vytvořit prostředky, jako jsou virtuální počítače, virtuální sítě a účty úložiště v portálu pro správu, měli byste [přihlásit k portálu user portal](../user/azure-stack-use-portal.md) vytvořit a otestovat prostředky.
+I když může operátor vytvořit prostředky, jako jsou virtuální počítače (VM), virtuální sítě a účty úložiště, na portálu pro správu, měli byste se [přihlásit k portálu User Portal](../user/azure-stack-use-portal.md) a vytvářet a testovat prostředky.
 
 >[!NOTE]
->**Vytvoření virtuálního počítače** má odkaz na dlaždici kurz rychlý start můžete vytvořit virtuální počítač v portálu pro správu, ale to je určené jenom k ověření úspěšného nasazení Azure Stack.
+>Odkaz **vytvořit virtuální počítač** na dlaždici úvodní kurz vám umožní vytvořit virtuální počítač na portálu pro správu, ale je určený jenom k ověření, jestli se Azure Stack úspěšně nasadil.
 
-## <a name="understand-subscription-behavior"></a>Pochopte chování předplatného
+## <a name="understand-subscription-behavior"></a>Principy chování předplatného
 
-Existují tři předplatná vytvořená ve výchozím nastavení v portálu správy. využití, výchozího zprostředkovatele a měření. Jakožto Obsluha budete nejčastěji používat *výchozí předplatné poskytovatele*. Nelze přidat další předplatná a jejich použití v portálu pro správu. 
+Na portálu pro správu jsou ve výchozím nastavení vytvořeny tři předplatná: spotřeba, výchozí zprostředkovatel a měření. Jako operátor použijete většinou *předplatné výchozího poskytovatele*. Nemůžete přidat žádná další předplatná a používat je na portálu pro správu.
 
-Další předplatná jsou vytvořené uživateli na portálu user portal na základě plánů a nabídek, které vytvoříte pro ně. Portál user portal, ale neposkytuje přístup k libovolnému administrativních nebo provozních možnosti na portálu pro správu.
+Další předplatná jsou vytvořena uživateli na portálu User Portal na základě plánů a nabídek, které pro ně vytvoříte. Portál User Portal ale neposkytuje přístup k žádným z administrativních a provozních možností portálu pro správu.
 
-Portály pro správu a uživatel se zálohují na samostatných instancí služby Azure Resource Manageru. Z důvodu toto oddělení Azure Resource Manageru předplatná nepřecházejí portálů. Například pokud, jako operátor Azure stacku, přihlášení k portálu user portal, nelze získat přístup *výchozí předplatné poskytovatele*. I když nemáte přístup pro všechny funkce správy, můžete vytvořit předplatná sami z veřejné dostupným nabídkám. Tak dlouho, dokud jste přihlášení k portálu user portal se považují za tenanta uživatele.
+Správce a uživatelské portály jsou zajištěny oddělenými instancemi Azure Resource Manager. Z důvodu tohoto oddělení Azure Resource Manager se odběry nevztahují mezi portály. Pokud se například jako operátor Azure Stack přihlásíte k portálu User Portal, nebudete mít přístup k *předplatnému výchozímu poskytovatele*. I když nemáte přístup k žádným funkcím pro správu, můžete si vytvořit předplatná z dostupných veřejných nabídek. Pokud jste přihlášeni k portálu User Portal, jste považováni za uživatele klienta.
 
   >[!NOTE]
-  >V prostředí ASDK Pokud uživatel patří do stejného adresáře tenanta jako operátor Azure stacku mu nejsou zablokovat přihlášení k portálu pro správu. Však nelze použít žádnou z funkcí správy nebo přidání předplatného pro přístup k nabídky, která jsou k dispozici na portálu user portal.
+  >Pokud uživatel do ASDK prostředí patří do stejného adresáře tenanta jako operátor Azure Stack, není jim zablokovaný, aby se přihlásil k portálu pro správu. Nemůžou ale mít přístup ke všem funkcím správy ani přidávat předplatná k nabídkám přístupu, které jsou k dispozici na portálu User Portal.
 
-## <a name="administration-portal-tips"></a>Tipy portálu pro správu
+## <a name="administrator-portal-tips"></a>Tipy pro správu portálu
 
 ### <a name="customize-the-dashboard"></a>Přizpůsobení řídicího panelu
 
-Řídicí panel obsahuje sadu výchozích dlaždic. Můžete vybrat **upravit řídicí panel** změnit výchozí řídicí panel, nebo vyberte **nový řídicí panel** přidáte vlastní řídicí panel. Dlaždice můžete snadno přidat na řídicí panel. Například můžete vybrat **+ vytvořit prostředek**, klikněte pravým tlačítkem na **nabízí + plány**a pak vyberte **připnout na řídicí panel**.
+Řídicí panel obsahuje sadu výchozích dlaždic. Můžete vybrat **Upravit řídicí panel** pro úpravu výchozího řídicího panelu, nebo výběrem **nového řídicího** panelu Přidat vlastní řídicí panel. Do řídicího panelu můžete přidat také dlaždice. Vyberte například **+ vytvořit prostředek**, klikněte pravým tlačítkem **nabídky nabídky + plány**a pak vyberte **Připnout na řídicí panel**.
 
-V některých případech se může zobrazit prázdný řídicí panel portálu. Obnovit řídicí panel, klikněte na tlačítko **upravit řídicí panel**a pak klikněte pravým tlačítkem a vyberte **resetovat do výchozího stavu**.
+V některých případech se může na portálu zobrazit prázdný řídicí panel. Řídicí panel obnovíte tak, že kliknete na **Upravit řídicí panel**a kliknete pravým tlačítkem a vyberete **obnovit do výchozího stavu**.
 
 ### <a name="quick-access-to-online-documentation"></a>Rychlý přístup k online dokumentaci
 
-Pro přístup k dokumentaci k Azure Stack operátor, v nápovědě a podpoře ikonu (otazník) v pravém horním rohu portálu správce. Přesuňte ukazatel myši na ikonu a pak vyberte **Nápověda a podpora**.
+Pokud chcete získat přístup k dokumentaci k operátoru Azure Stack, použijte v pravém horním rohu portálu pro správu ikonu Nápověda a podpora (otazník). Přesuňte kurzor na ikonu a pak vyberte **help + podpora**.
 
 ### <a name="quick-access-to-help-and-support"></a>Rychlý přístup k nápovědě a podpoře
 
-Pokud kliknete na ikonu nápovědy (otazník) v pravém horním rohu portálu správce, klikněte na tlačítko **Nápověda a podpora**a potom klikněte na tlačítko **nová žádost o podporu** pod **podporují**, jeden z následujících výsledků se stane:
+Pokud kliknete na ikonu nápovědy (otazník) v pravém horním rohu portálu pro správu, klikněte na tlačítko **Nápověda a podpora**a potom klikněte na možnost **Nová žádost o podporu** v části **Podpora**, dojde k jednomu z následujících výsledků:
 
-- Pokud používáte integrovaný systém, tato akce otevře web, kde můžete přímo otevřít lístek podpory s Microsoft podporu služby zákazníkům (CSS). Odkazovat na [získání podpory](azure-stack-manage-basics.md#where-to-get-support) pochopit, kdy byste se měli zúčastnit prostřednictvím podpory Microsoftu nebo prostřednictvím podpory výrobce OEM (OEM) dodavatele hardwaru.
-- Pokud používáte ASDK, tato akce otevře [webu fór Azure Stack](https://social.msdn.microsoft.com/Forums/home?forum=AzureStack) přímo. Tato fóra jsou pravidelně monitorované. Vzhledem k tomu, ASDK zkušební prostředí, neexistuje žádné oficiální podpora dostupná prostřednictvím Microsoft CSS.
+- Pokud používáte integrovaný systém, tato akce otevře web, kde můžete přímo otevřít lístek podpory pomocí služeb zákaznické podpory Microsoftu (CSS). Přečtěte si, [kde získat podporu](azure-stack-manage-basics.md#where-to-get-support) pro pochopení, kdy byste měli projít podporu Microsoftu, nebo prostřednictvím podpory dodavatele hardwaru OEM (Original Equipment Manufacturer).
+- Pokud používáte ASDK, tato akce otevře [web Azure Stack fóra](https://social.msdn.microsoft.com/Forums/home?forum=AzureStack) přímo. Tato fóra se pravidelně monitorují. Vzhledem k tomu, že ASDK je zkušební prostředí, není oficiální podpora nabídnuta prostřednictvím šablon stylů CSS společnosti Microsoft.
 
-### <a name="quick-access-to-the-azure-roadmap"></a>Rychlý přístup k Azure do budoucna
+### <a name="quick-access-to-the-azure-roadmap"></a>Rychlý přístup k plánu Azure
 
-Pokud vyberete **Nápověda a podpora** (otazník) v pravém horním rohu portálu a potom vyberte možnost správy **plány Azure do budoucna**, otevře se nová karta prohlížeče a přejdete do plány Azure do budoucna. Zadáním **Azure Stack** v **produkty** vyhledávacího pole, zobrazí se všechny služby Azure Stack plán aktualizace.
+Pokud v pravém horním rohu portálu pro správu vyberete **Nápověda a podpora** (otazník) a pak vyberete **plán Azure**, otevře se nová karta prohlížeče a přejdete na plán Azure. Zadáním **Azure Stack** do vyhledávacího pole **produkty** můžete zobrazit všechny aktualizace pro Azure Stack.
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
-[Registrace Azure Stack s využitím Azure](azure-stack-registration.md) a naplňte jimi [marketplace služby Azure Stack](azure-stack-marketplace.md) s položkami a nabídnout uživatelům. 
+[Zaregistrujte Azure Stack s Azure](azure-stack-registration.md) a nasaďte [Azure Stack Marketplace](azure-stack-marketplace.md) s položkami, které nabídnou vašim uživatelům.

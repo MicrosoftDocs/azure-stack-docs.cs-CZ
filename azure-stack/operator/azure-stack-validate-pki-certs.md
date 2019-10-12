@@ -15,12 +15,12 @@ ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: 8d929a3b1fd67f3ec73137b2e1a87f594ea5b544
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: 3823aa73d58af48c662690aa0d8e8a21180b4ed6
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68417824"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72283233"
 ---
 # <a name="validate-azure-stack-pki-certificates"></a>Ověření Azure Stack certifikátů PKI
 
@@ -58,7 +58,7 @@ Před ověřením certifikátů PKI pro nasazení Azure Stack musí systém spl�
 
 - Kontrola připravenosti na Microsoft Azure Stack
 - Certifikáty SSL se vyexportují podle [pokynů pro přípravu](azure-stack-prepare-pki-certs.md) .
-- DeploymentData.json
+- DeploymentData. JSON
 - Windows 10 nebo Windows Server 2016
 
 ## <a name="perform-core-services-certificate-validation"></a>Provést ověření certifikátu základní služby
@@ -71,7 +71,7 @@ Pomocí těchto kroků Připravte a ověřte Azure Stack certifikáty PKI pro na
         Install-Module Microsoft.AzureStack.ReadinessChecker -force 
     ```
 
-2. Vytvořte strukturu adresářů certifikátů. V následujícím příkladu se můžete změnit `<c:\certificates>` na cestu k novému adresáři podle vašeho výběru.
+2. Vytvořte strukturu adresářů certifikátů. V následujícím příkladu můžete změnit `<c:\certificates>` na novou cestu k adresáři podle vašeho výběru.
     ```powershell  
     New-Item C:\Certificates -ItemType Directory
     
@@ -150,9 +150,9 @@ Invoke-AzsCertificateValidation Completed
 
 ### <a name="known-issues"></a>Známé problémy
 
-**Příznak**: Testy se přeskočí.
+**Příznak**: testy se přeskočí.
 
-**Příčina:** AzsReadinessChecker přeskočí určité testy, pokud není splněna závislost:
+**Příčina**: AzsReadinessChecker přeskočí některé testy, pokud není splněna závislost:
 
  - Další certifikáty se přeskočí, pokud řetěz certifikátů selhává.
 
@@ -177,7 +177,7 @@ Invoke-AzsCertificateValidation Completed
     Invoke-AzsCertificateValidation Completed
     ```
 
-**Rozlišení**: Postupujte podle pokynů k nástroji v části Podrobnosti v každé sadě testů pro každý certifikát.
+**Řešení**: postupujte podle pokynů k nástroji v části Podrobnosti v každé sadě testů pro každý certifikát.
 
 ## <a name="perform-platform-as-a-service-certificate-validation"></a>Provést ověření certifikátu platformy jako služby
 
@@ -201,7 +201,7 @@ Pomocí těchto kroků můžete připravit a ověřit Azure Stack certifikáty P
         }
     ```
 
-3.  Zahajte ověřování změnou hodnot **RegionName** a **plně kvalifikovaného názvu domény** tak, aby odpovídaly vašemu prostředí Azure Stack. Potom následujícím příkazem:
+3.  Zahajte ověřování změnou hodnot **RegionName** a **plně kvalifikovaného názvu domény** tak, aby odpovídaly vašemu prostředí Azure Stack. Pak spusťte:
 
     ```powershell  
     Invoke-AzsCertificateValidation -PaaSCertificates $PaaSCertificates -RegionName east -FQDN azurestack.contoso.com 
@@ -252,28 +252,28 @@ Pomocí těchto kroků můžete připravit a ověřit Azure Stack certifikáty P
 
 ## <a name="certificates"></a>Certifikáty
 
-| Adresář | Certifikát |
+| Službě | Certifikát |
 | ---    | ----        |
-| acsBlob | oblast\<wildcard_blob_ > _\<externalFQDN > |
-| ACSQueue  |  wildcard_queue_\<region>_\<externalFQDN> |
-| ACSTable  |  wildcard_table_\<region>_\<externalFQDN> |
-| Hostitel rozšíření Správce  |  wildcard_adminhosting_\<region>_\<externalFQDN> |
-| Portál pro správu  |  adminportal_\<region>_\<externalFQDN> |
-| Správce ARM  |  adminmanagement_\<region>_\<externalFQDN> |
-| Veřejné ARM  |  management_\<region>_\<externalFQDN> |
-| KeyVault  |  oblast\<wildcard_vault_ > _\<externalFQDN > |
-| KeyVaultInternal  |  oblast\<wildcard_adminvault_ > _\<externalFQDN > |
-| Hostitel veřejného rozšíření  |  wildcard_hosting_\<region>_\<externalFQDN> |
-| Veřejný portál  |  portal_\<region>_\<externalFQDN> |
+| acsBlob | wildcard_blob_ @ no__t-0region > _ @ no__t-1externalFQDN > |
+| ACSQueue  |  wildcard_queue_ @ no__t-0region > _ @ no__t-1externalFQDN > |
+| ACSTable  |  wildcard_table_ @ no__t-0region > _ @ no__t-1externalFQDN > |
+| Hostitel rozšíření Správce  |  wildcard_adminhosting_ @ no__t-0region > _ @ no__t-1externalFQDN > |
+| Portál pro správu  |  adminportal_ @ no__t-0region > _ @ no__t-1externalFQDN > |
+| Správce ARM  |  adminmanagement_ @ no__t-0region > _ @ no__t-1externalFQDN > |
+| Veřejné ARM  |  management_ @ no__t-0region > _ @ no__t-1externalFQDN > |
+| KeyVault  |  wildcard_vault_ @ no__t-0region > _ @ no__t-1externalFQDN > |
+| KeyVaultInternal  |  wildcard_adminvault_ @ no__t-0region > _ @ no__t-1externalFQDN > |
+| Hostitel veřejného rozšíření  |  wildcard_hosting_ @ no__t-0region > _ @ no__t-1externalFQDN > |
+| Veřejný portál  |  portal_ @ no__t-0region > _ @ no__t-1externalFQDN > |
 
 ## <a name="using-validated-certificates"></a>Použití ověřených certifikátů
 
-Po ověření certifikátů rutinou AzsReadinessChecker je můžete začít používat v nasazení služby Azure Stack nebo k obměně tajných klíčů ve službě Azure Stack. 
+Po ověření certifikátů nástrojem AzsReadinessChecker jste připraveni je použít ve svém nasazení Azure Stack nebo pro Azure Stackovou rotaci. 
 
  - Pro nasazení proveďte zabezpečený přenos vašich certifikátů do nástroje pro vývoj nasazení, aby je bylo možné zkopírovat do hostitele nasazení, jak je uvedeno v [dokumentaci Azure Stack požadavky PKI](azure-stack-pki-certs.md).
  - Pro rotaci tajných klíčů můžete použít certifikáty k aktualizaci starých certifikátů pro koncové body veřejné infrastruktury Azure Stack prostředí, a to podle pokynů v [dokumentaci Azure Stack pro střídání tajných klíčů](azure-stack-rotate-secrets.md).
- - V případě služeb PaaS Services můžete certifikáty použít k instalaci poskytovatelů prostředků SQL, MySQL a App Services v Azure Stack podle [přehledu nabídky služby v dokumentaci Azure Stack](azure-stack-offer-services-overview.md).
+ - V případě služeb PaaS Services můžete certifikáty použít k instalaci poskytovatelů prostředků SQL, MySQL a App Services v Azure Stack podle [přehledu nabídky služby v dokumentaci Azure Stack](service-plan-offer-subscription-overview.md).
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 [Integrace identit datacentra](azure-stack-integrate-identity.md)

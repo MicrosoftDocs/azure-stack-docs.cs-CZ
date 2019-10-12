@@ -1,6 +1,6 @@
 ---
-title: Integrace Azure Stack Datacenter – publikování koncových bodů | Microsoft Docs
-description: Informace o publikování Azure Stackch koncových bodů ve vašem datovém centru
+title: Publikování Azure Stackch služeb ve vašem datovém centru | Microsoft Docs
+description: Naučte se publikovat Azure Stack služby ve vašem datovém centru.
 services: azure-stack
 author: mattbriggs
 manager: femila
@@ -10,20 +10,20 @@ ms.date: 09/09/2019
 ms.author: justinha
 ms.reviewer: wamota
 ms.lastreviewed: 09/09/2019
-ms.openlocfilehash: 9333cfde7985977607f7108fd90b62e376fa9462
-ms.sourcegitcommit: dc633e862d49412a963daee481226c1543287e5e
+ms.openlocfilehash: cfd9434bc52684f89617eff3b62a7bf51fc68bcd
+ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70862996"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72277432"
 ---
-# <a name="azure-stack-datacenter-integration---publish-azure-stack-services"></a>Integrace Azure Stack Datacenter – publikování Azure Stackch služeb
+# <a name="publish-azure-stack-services-in-your-datacenter"></a>Publikování Azure Stackch služeb ve vašem datovém centru 
 
-Azure Stack nastaví virtuální IP adresy (VIP) pro své role infrastruktury. Tyto VIP adresy se přiřazují z fondu veřejných IP adres. Každá virtuální IP adresa je zabezpečená pomocí seznamu řízení přístupu (ACL) ve vrstvě softwarově definované sítě. Seznamy řízení přístupu (ACL) se používají také napříč fyzickými přepínači (tory a BMC) k dalšímu posílení zabezpečení řešení. Položka DNS se vytvoří pro každý koncový bod v externí zóně DNS, která se zadala v době nasazení. Například uživatelský portál má přiřazenou položku hostitel DNS na portálu.  *>oblasti&lt;&lt; plně kvalifikovaný název domény >* .
+Azure Stack nastaví virtuální IP adresy (VIP) pro své role infrastruktury. Tyto VIP adresy se přiřazují z fondu veřejných IP adres. Každá virtuální IP adresa je zabezpečená pomocí seznamu řízení přístupu (ACL) ve vrstvě softwarově definované sítě. Seznamy řízení přístupu (ACL) se používají také napříč fyzickými přepínači (tory a BMC) k dalšímu posílení zabezpečení řešení. Pro každý koncový bod v externí zóně DNS, která je zadaná v době nasazení, se vytvoří položka DNS. Například uživatelský portál má přiřazenou položku hostitel DNS na portálu. *&lt;region >. &lt;fqdn >* .
 
 Následující diagram architektury znázorňuje různé vrstvy sítě a seznamy ACL:
 
-![Strukturální obrázek](media/azure-stack-integrate-endpoints/Integrate-Endpoints-01.png)
+![Diagram znázorňující různé vrstvy sítě a seznamy ACL](media/azure-stack-integrate-endpoints/Integrate-Endpoints-01.png)
 
 ### <a name="ports-and-urls"></a>Porty a adresy URL
 Chcete-li zpřístupnit Azure Stack služby (například portály, Azure Resource Manager, DNS atd.) k dispozici pro externí sítě, musíte povolit příchozí provoz do těchto koncových bodů pro konkrétní adresy URL, porty a protokoly.
@@ -34,37 +34,37 @@ V nasazení, kde transparentní proxy odchozí připojení k tradičnímu proxy 
 
 K publikování koncových bodů Azure Stack externích sítích se vyžaduje sada virtuálních IP adres infrastruktury. Tabulka *koncový bod (VIP)* zobrazuje jednotlivé koncové body, požadovaný port a protokol. V dokumentaci k nasazení konkrétního poskytovatele prostředků najdete koncové body, které vyžadují další poskytovatele prostředků, jako je třeba poskytovatel prostředků SQL.
 
-Interní virtuální IP adresy infrastruktury nejsou uvedené, protože nejsou nutné k publikování Azure Stack. Uživatelské virtuální IP adresy jsou dynamické, definovány vlastními uživateli bez řízení operátorem Azure Stack.
+Interní virtuální IP adresy infrastruktury nejsou uvedené, protože nejsou nutné k publikování Azure Stack. Uživatelské virtuální IP adresy jsou dynamické a definované uživateli, bez řízení operátoru Azure Stack.
 
 > [!Note]  
-> IKEv2 VPN je řešení IPsec VPN založené na standardech, které používá port UDP 500 a 4500 a port TCP 50. Brány firewall tyto porty nikdy neotevřou, takže VPN typu IKEv2 nemusí být schopná procházet proxy a brány firewall.
+> IKEv2 VPN je řešení IPsec VPN založené na standardech, které používá port UDP 500 a 4500 a port TCP 50. Brány firewall tyto porty nikdy neotevírají, takže VPN typu IKEv2 nemusí být schopná procházet proxy a brány firewall.
 
-Při přidání [hostitele rozšíření](azure-stack-extension-host-prepare.md)nejsou porty v rozsahu 12495-30015 požadovány.
+Po přidání [hostitele rozšíření](azure-stack-extension-host-prepare.md)nejsou porty v rozsahu 12495-30015 vyžadovány.
 
-|Koncový bod (VIP)|DNS host A record|Protocol|Porty|
+|Koncový bod (VIP)|Záznam o záznamu hostitele DNS|Protokol|Porty|
 |---------|---------|---------|---------|
-|AD FS|Adfs. *&lt;region>.&lt;fqdn>*|HTTPS|443|
-|Portál (správce)|Adminportal.  *>oblasti&lt;&lt; plně kvalifikovaný název domény >*|HTTPS|443|
-|Adminhosting | *.adminhosting.\<region>.\<fqdn> | HTTPS | 443 |
-|Azure Resource Manager (správce)|Adminmanagement.  *>oblasti&lt;&lt; plně kvalifikovaný název domény >*|HTTPS|443|
-|Portál (uživatel)|Bran.  *>oblasti&lt;&lt; plně kvalifikovaný název domény >*|HTTPS|443|
-|Azure Resource Manager (uživatel)|Správu.  *>oblasti&lt;&lt; plně kvalifikovaný název domény >*|HTTPS|443|
-|Graph|Graph. *&lt;region>.&lt;fqdn>*|HTTPS|443|
-|Seznam odvolaných certifikátů|Seznam CRL. *&lt;> oblasti&lt; . plně kvalifikovaný název domény >*|HTTP|80|
-|DNS|&#42;.  *>oblasti&lt;&lt; plně kvalifikovaný název domény >*|TCP & UDP|53|
-|Hostování | *.hosting.\<region>.\<fqdn> | HTTPS | 443 |
-|Key Vault (uživatel)|&#42;hesel.  *>oblasti&lt;&lt; plně kvalifikovaný název domény >*|HTTPS|443|
-|Key Vault (správce)|&#42;.adminvault.  *>oblasti&lt;&lt; plně kvalifikovaný název domény >*|HTTPS|443|
-|Fronta úložiště|&#42;.queue. *&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
-|Tabulka úložiště|&#42;.table. *&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
-|Storage Blob|&#42;.blob. *&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
-|Poskytovatel prostředků SQL|sqladapter.dbadapter. *&lt;region>.&lt;fqdn>*|HTTPS|44300-44304|
-|Poskytovatel prostředků MySQL|mysqladapter.dbadapter. *&lt;region>.&lt;fqdn>*|HTTPS|44300-44304|
-|App Service|&#42;.appservice. *&lt;region>.&lt;fqdn>*|TCP|80 (HTTP)<br>443 (HTTPS)<br>8172 (MSDeploy)|
-|  |&#42;.scm.appservice. *&lt;region>.&lt;fqdn>*|TCP|443 (HTTPS)|
-|  |api.appservice. *&lt;region>.&lt;fqdn>*|TCP|443 (HTTPS)<br>44300 (Azure Resource Manager)|
-|  |ftp.appservice. *&lt;region>.&lt;fqdn>*|TCP, UDP|21, 1021, 10001-10100 (FTP)<br>990 (FTPS)|
-|Brány VPN Gateway|     |     |[Podívejte se na téma Nejčastější dotazy ke službě VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-vpn-faq#can-i-traverse-proxies-and-firewalls-using-point-to-site-capability).|
+|AD FS|Službou. *&lt;region >. &lt;fqdn >*|HTTPS|443|
+|Portál (správce)|Adminportal. *&lt;region >. &lt;fqdn >*|HTTPS|443|
+|Adminhosting | *. adminhosting. \<region >. \<fqdn > | HTTPS | 443 |
+|Azure Resource Manager (správce)|Adminmanagement. *&lt;region >. &lt;fqdn >*|HTTPS|443|
+|Portál (uživatel)|Bran. *&lt;region >. &lt;fqdn >*|HTTPS|443|
+|Azure Resource Manager (uživatel)|Správu. *&lt;region >. &lt;fqdn >*|HTTPS|443|
+|Zapisovací|Zapisovací. *&lt;region >. &lt;fqdn >*|HTTPS|443|
+|Seznam odvolaných certifikátů|Seznam CRL. *&lt;region >. &lt;fqdn >*|HTTP|80|
+|NÁZV|&#42;. *&lt;region >. &lt;fqdn >*|TCP & UDP|53|
+|Hostování | *. Hosting. \<region >. \<fqdn > | HTTPS | 443 |
+|Key Vault (uživatel)|&#42;hesel. *&lt;region >. &lt;fqdn >*|HTTPS|443|
+|Key Vault (správce)|&#42;.adminvault. *&lt;region >. &lt;fqdn >*|HTTPS|443|
+|Fronta úložiště|&#42;provedených. *&lt;region >. &lt;fqdn >*|HTTP<br>HTTPS|80<br>443|
+|Tabulka úložiště|&#42;stolní. *&lt;region >. &lt;fqdn >*|HTTP<br>HTTPS|80<br>443|
+|Objekt BLOB úložiště|&#42;příznaky. *&lt;region >. &lt;fqdn >*|HTTP<br>HTTPS|80<br>443|
+|Poskytovatel prostředků SQL|sqladapter.dbadapter. *&lt;region >. &lt;fqdn >*|HTTPS|44300-44304|
+|Poskytovatel prostředků MySQL|mysqladapter.dbadapter. *&lt;region >. &lt;fqdn >*|HTTPS|44300-44304|
+|App Service|&#42;AppService. *&lt;region >. &lt;fqdn >*|PROTOKOLU|80 (HTTP)<br>443 (HTTPS)<br>8172 (MSDeploy)|
+|  |&#42;. SCM. AppService. *&lt;region >. &lt;fqdn >*|PROTOKOLU|443 (HTTPS)|
+|  |API. AppService. *&lt;region >. &lt;fqdn >*|PROTOKOLU|443 (HTTPS)<br>44300 (Azure Resource Manager)|
+|  |FTP. AppService. *&lt;region >. &lt;fqdn >*|TCP, UDP|21, 1021, 10001-10100 (FTP)<br>990 (FTPS)|
+|Brány VPN|     |     |[Podívejte se na téma Nejčastější dotazy ke službě VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-vpn-faq#can-i-traverse-proxies-and-firewalls-using-point-to-site-capability).|
 |     |     |     |     |
 
 ## <a name="ports-and-urls-outbound"></a>Porty a adresy URL (odchozí)
@@ -74,29 +74,29 @@ Azure Stack podporuje pouze transparentní proxy servery. V nasazení pomocí tr
 > [!Note]  
 > Azure Stack nepodporuje použití ExpressRoute pro přístup ke službám Azure uvedeným v následující tabulce, protože ExpressRoute nemusí být schopná směrovat provoz do všech koncových bodů.
 
-|Účel|Cílová adresa URL|Protocol|Porty|Zdrojová síť|
+|Účel|Cílová adresa URL|Protokol|Porty|Zdrojová síť|
 |---------|---------|---------|---------|---------|
-|Identita|**Azure**<br>login.windows.net<br>login.microsoftonline.com<br>graph.windows.net<br>https:\//secure.aadcdn.microsoftonline-p.com<br>www.office.com<br>**Azure Government**<br>https:\//Login.microsoftonline.us/<br>https:\//Graph.Windows.NET/<br>**Azure China 21Vianet**<br>https:\//Login.chinacloudapi.cn/<br>https:\//Graph.chinacloudapi.cn/<br>**Azure Německo**<br>https:\//Login.microsoftonline.de/<br>https:\//Graph.cloudapi.de/|HTTP<br>HTTPS|80<br>443|Veřejná VIP-/27<br>Síť veřejné infrastruktury|
-|Syndikace Marketplace|**Azure**<br>https:\//management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://&#42;.azureedge.net<br>**Azure Government**<br>https:\//Management.usgovcloudapi.NET/<br>https://&#42;. blob.Core.usgovcloudapi.NET/<br>**Azure China 21Vianet**<br>https:\//Management.chinacloudapi.cn/<br>http://&#42;. blob.Core.chinacloudapi.cn|HTTPS|443|Veřejná VIP-/27|
-|Oprava & aktualizace|https://&#42;.azureedge.net<br>https:\//aka.MS/azurestackautomaticupdate|HTTPS|443|Veřejná VIP-/27|
-|Registrace|**Azure**<br>https:\//management.azure.com<br>**Azure Government**<br>https:\//Management.usgovcloudapi.NET/<br>**Azure China 21Vianet**<br>https:\//Management.chinacloudapi.cn|HTTPS|443|Veřejná VIP-/27|
-|Použití|**Azure**<br>https://&#42;. trafficmanager.NET<br>**Azure Government**<br>https://&#42;. usgovtrafficmanager.NET<br>**Azure China 21Vianet**<br>https://&#42;. trafficmanager.cn|HTTPS|443|Veřejná VIP-/27|
-|Windows Defender|&#42;. wdcp.microsoft.com<br>&#42;. wdcpalt.microsoft.com<br>&#42;. wd.microsoft.com<br>&#42;. update.microsoft.com<br>&#42;. download.microsoft.com<br>https:\//www.microsoft.com/pkiops/crl<br>https:\//www.microsoft.com/pkiops/certs<br>https:\//crl.microsoft.com/pki/crl/products<br>https:\//www.microsoft.com/pki/certs<br>https:\//secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|Veřejná VIP-/27<br>Síť veřejné infrastruktury|
+|Identita|**Azure**<br>login.windows.net<br>login.microsoftonline.com<br>graph.windows.net<br>https: \//Secure. aadcdn. microsoftonline-p. com<br>www.office.com<br>**Azure Government**<br>https: \//Login. microsoftonline. us/<br>https: \//Graph. Windows. NET/<br>**Azure Čína 21Vianet**<br>https: \//Login. chinacloudapi. cn/<br>https: \//Graph. chinacloudapi. cn/<br>**Azure Německo**<br>https: \//Login. microsoftonline. de/<br>https: \//Graph. cloudapi. de/|HTTP<br>HTTPS|80<br>443|Veřejná VIP-/27<br>Síť veřejné infrastruktury|
+|Syndikace Marketplace|**Azure**<br>https: \//Management. Azure. com<br>https://&#42;. blob.Core.Windows.NET<br>https://&#42;. azureedge.NET<br>**Azure Government**<br>https: \//Management. usgovcloudapi. NET/<br>https://&#42;. blob.Core.usgovcloudapi.NET/<br>**Azure Čína 21Vianet**<br>https: \//Management. chinacloudapi. cn/<br>http://&#42;. blob.Core.chinacloudapi.cn|HTTPS|443|Veřejná VIP-/27|
+|Oprava & aktualizace|https://&#42;. azureedge.NET<br>https: \//s neboli. MS/azurestackautomaticupdate|HTTPS|443|Veřejná VIP-/27|
+|Registrace|**Azure**<br>https: \//Management. Azure. com<br>**Azure Government**<br>https: \//Management. usgovcloudapi. NET/<br>**Azure Čína 21Vianet**<br>https: \//Management. chinacloudapi. cn|HTTPS|443|Veřejná VIP-/27|
+|Použití|**Azure**<br>https://&#42;. trafficmanager.NET<br>**Azure Government**<br>https://&#42;. usgovtrafficmanager.NET<br>**Azure Čína 21Vianet**<br>https://&#42;. trafficmanager.cn|HTTPS|443|Veřejná VIP-/27|
+|Program Windows Defender|&#42;. wdcp.microsoft.com<br>&#42;. wdcpalt.microsoft.com<br>&#42;. wd.microsoft.com<br>&#42;. update.microsoft.com<br>&#42;. download.microsoft.com<br>https: \//www. Microsoft. com/pkiops/CRL<br>https: \//www. Microsoft. com/pkiops/certifikáty<br>https: \//CRL. Microsoft. com/pki/crl/products<br>https: \//www. Microsoft. com/PKI/certifikáty<br>https: \//Secure. aadcdn. microsoftonline-p. com<br>|HTTPS|80<br>443|Veřejná VIP-/27<br>Síť veřejné infrastruktury|
 |NTP|(IP adresa serveru NTP, který je k dispozici pro nasazení)|UDP|123|Veřejná VIP-/27|
-|DNS|(IP adresa serveru DNS poskytnutá pro nasazení)|TCP<br>UDP|53|Veřejná VIP-/27|
+|NÁZV|(IP adresa serveru DNS poskytnutá pro nasazení)|PROTOKOLU<br>UDP|53|Veřejná VIP-/27|
 |VOLANÝ|(Adresa URL v rámci distribučních bodů seznamu CRL na vašem certifikátu)|HTTP|80|Veřejná VIP-/27|
-|LDAP|Doménová struktura služby Active Directory poskytnutá pro integraci grafu|TCP<br>UDP|389|Veřejná VIP-/27|
-|LDAP SSL|Doménová struktura služby Active Directory poskytnutá pro integraci grafu|TCP|636|Veřejná VIP-/27|
-|GC PROTOKOLU LDAP|Doménová struktura služby Active Directory poskytnutá pro integraci grafu|TCP|3268|Veřejná VIP-/27|
-|LDAP GC SSL|Doménová struktura služby Active Directory poskytnutá pro integraci grafu|TCP|3269|Veřejná VIP-/27|
-|AD FS|Pro integraci AD FS AD FS poskytnutý koncový bod metadat|TCP|443|Veřejná VIP-/27|
+|ADRESÁŘOVÝ|Doménová struktura služby Active Directory poskytnutá pro integraci grafu|PROTOKOLU<br>UDP|389|Veřejná VIP-/27|
+|PROTOKOL LDAP SSL|Doménová struktura služby Active Directory poskytnutá pro integraci grafu|PROTOKOLU|636|Veřejná VIP-/27|
+|GC PROTOKOLU LDAP|Doménová struktura služby Active Directory poskytnutá pro integraci grafu|PROTOKOLU|3268|Veřejná VIP-/27|
+|PROTOKOL SSL GC PROTOKOLU LDAP|Doménová struktura služby Active Directory poskytnutá pro integraci grafu|PROTOKOLU|3269|Veřejná VIP-/27|
+|AD FS|Pro integraci AD FS AD FS poskytnutý koncový bod metadat|PROTOKOLU|443|Veřejná VIP-/27|
 |Služba Shromažďování protokolů diagnostiky|Azure Storage zadaná adresa URL SAS objektu BLOB|HTTPS|443|Veřejná VIP-/27|
 |     |     |     |     |     |
 
-Odchozí adresy URL využívají vyrovnávání zatížení pomocí Azure Traffic Manageru a poskytují nejlepší možnou konektivitu na základě geografického umístění. V případě adres URL s vyrovnáváním zatížení může společnost Microsoft aktualizovat a změnit koncové body back-endu bez dopadu na zákazníky. Společnost Microsoft nesdílí seznam IP adres pro adresy URL s vyrovnáváním zatížení. Měli byste použít zařízení, které podporuje filtrování podle adresy URL, nikoli podle IP adresy.
+Odchozí adresy URL využívají vyrovnávání zatížení pomocí Azure Traffic Manageru a poskytují nejlepší možné připojení na základě geografického umístění. V případě adres URL s vyrovnáváním zatížení může Microsoft aktualizovat koncové body back-endu, aniž by to ovlivnilo zákazníky Microsoft nesdílí seznam IP adres pro adresy URL s vyrovnáváním zatížení. Použijte zařízení, které podporuje filtrování podle adresy URL, nikoli podle IP adresy.
 
-Odchozí DNS se vyžaduje ve všech případech. To znamená, že se jedná o zdroj dotazování externí služby DNS a o tom, jaký druh integrace identity byl vybrán. V průběhu nasazení v připojeném scénáři potřebuje DVM, který je umístěn v síti řadiče pro správu základní desky, odchozí přístup. Ale po nasazení se služba DNS přesune do interní součásti, která odešle dotazy prostřednictvím veřejné virtuální IP adresy. V tuto chvíli je možné odebrat odchozí přístup k DNS prostřednictvím sítě řadiče pro správu základní desky, ale přístup k tomuto serveru DNS pomocí veřejné VIP musí zůstat nebo jinak se ověřování nezdaří.
+Odchozí DNS se vyžaduje ve všech případech. To znamená, že se jedná o zdroj dotazování externí služby DNS a o tom, jaký typ integrace identity byl vybrán. V průběhu nasazení v připojeném scénáři potřebuje DVM, který je umístěn v síti řadiče pro správu základní desky, odchozí přístup. Ale po nasazení se služba DNS přesune do interní součásti, která odešle dotazy prostřednictvím veřejné virtuální IP adresy. V tuto chvíli je možné odebrat odchozí přístup k DNS prostřednictvím sítě řadiče pro správu základní desky, ale přístup k tomuto serveru DNS pomocí veřejné VIP musí zůstat nebo jinak se ověřování nezdaří.
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 [Azure Stack požadavky PKI](azure-stack-pki-certs.md)

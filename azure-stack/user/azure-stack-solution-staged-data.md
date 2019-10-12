@@ -11,16 +11,16 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 06/20/2019
+ms.date: 10/10/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 06/20/2019
-ms.openlocfilehash: 37ffb494ab6ae124c6a0eb460da4569f660cd283
-ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
+ms.openlocfilehash: 187fe88ad304804462cc4461b24eb10a7af7a299
+ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71159356"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72277731"
 ---
 # <a name="deploy-a-staged-data-analytics-solution-to-azure-stack"></a>Nasazení řešení dvoufázové analýzy dat do Azure Stack
 
@@ -37,7 +37,7 @@ V tomto řešení vytvoříte ukázkové prostředí pro:
 > - Otestujte funkci aktivovanou ve frontě.
 
 > [!Tip]  
-> ![hybridní pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
+> @no__t -0hybrid-Pillars. png @ no__t-1  
 > Microsoft Azure Stack je rozšířením Azure. Azure Stack přináší flexibilitu a inovace cloud computingu do místního prostředí a umožňuje jenom hybridní cloud, který umožňuje vytvářet a nasazovat hybridní aplikace odkudkoli.  
 > 
 > Požadavky na [Návrh pro hybridní aplikace](azure-stack-edge-pattern-overview.md) kontrolují pilíře kvality softwaru (umístění, škálovatelnost, dostupnost, odolnost, možnosti správy a zabezpečení) pro navrhování, nasazování a provozování hybridních aplikací. Pokyny k návrhu pomáhají při optimalizaci návrhu hybridní aplikace a minimalizaci výzev v produkčních prostředích.
@@ -105,7 +105,7 @@ Image Docker pro každé nasazení eliminují problémy závislosti mezi různý
 
 4.  Přečtěte si data, která jsou zpracovávána, pomocí přechodu na webové aplikace nasazené do Azure nebo Azure Stack.
 
-### <a name="azure-web-app"></a>Webové aplikace Azure
+### <a name="azure-web-app"></a>Webová aplikace Azure
  
 ![řešení dvoufázové analýzy dat](media/azure-stack-solution-staged-data/image2.png)
  

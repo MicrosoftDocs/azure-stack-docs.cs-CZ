@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/11/2019
-ms.author: mabrigg
+ms.author: BryanLa
 ms.reviewer: anwestg
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 698d38e971d37457d50637cb2e7e2ffe88890c20
-ms.sourcegitcommit: 7d7a4c8c46613b6104caf23763bfd2275f6a826b
+ms.openlocfilehash: 14c37e894d87d7a19ff6edc91b9c827ce53c08e8
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70808217"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72282632"
 ---
-# <a name="app-service-on-azure-stack-overview"></a>Přehled App Service v Azure Stacku
+# <a name="app-service-on-azure-stack-overview"></a>Přehled App Service Azure Stack
 
 *Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
 
@@ -32,11 +32,11 @@ Azure App Service umožňuje automatizovat obchodní procesy a hostovat cloudov�
 
 ## <a name="why-offer-azure-app-service-on-azure-stack"></a>Proč nabízet Azure App Service Azure Stack?
 
-Toto jsou některé klíčové funkce a možnosti služby App Service:
+Tady jsou některé klíčové funkce a funkce App Service:
 
-- **Více jazyků a platforem**: App Service má první třídu podpora pro ASP.NET, Node. js, Java, PHP a Python. V App Service virtuálních počítačích můžete také spouštět prostředí Windows PowerShell a další skripty nebo spustitelné soubory.
-- **Optimalizace DevOps**: Nastavte průběžnou integraci a nasazování pomocí GitHubu, místního Gitu nebo BitBucket. Pomocí Azure PowerShell nebo rozhraní příkazového řádku (CLI) pro více platforem vám pomůžou propagovat aktualizace prostřednictvím testovacích a přípravných prostředí a spravovat aplikace v App Service.
-- **Integrace sady Visual Studio**: Vyhrazené nástroje v aplikaci Visual Studio zjednodušují práci při vytváření a nasazování aplikací.
+- **Více jazyků a platforem**: App Service má prvotřídní podporu pro ASP.NET, Node. js, Java, php a Python. V App Service virtuálních počítačích můžete také spouštět prostředí Windows PowerShell a další skripty nebo spustitelné soubory.
+- **Optimalizace DevOps**: nastavení průběžné integrace a nasazování pomocí GitHubu, místního Gitu nebo Bitbucket. Pomocí Azure PowerShell nebo rozhraní příkazového řádku (CLI) pro více platforem vám pomůžou propagovat aktualizace prostřednictvím testovacích a přípravných prostředí a spravovat aplikace v App Service.
+- **Integrace sady Visual Studio**: vyhrazené nástroje v nástroji Visual Studio zjednodušují práci při vytváření a nasazování aplikací.
 
 ## <a name="app-types-in-app-service"></a>Typy aplikací v App Service
 
@@ -51,9 +51,9 @@ App Service nabízí několik typů aplikací, z nichž každá je určena k hos
 Vaše aplikace se může skládat z více App Service aplikací různých druhů. Pokud se například vaše aplikace skládá z webového front-endu a REST API back-endu, můžete:
 
 - Nasazení obou (front-end i rozhraní API) do jedné webové aplikace
-- Nasadit kód front-endu do webové aplikace a kód back-endu do aplikace API.
+- Nasaďte front-end kód do webové aplikace a do back-endového kódu do aplikace API.
 
-   [![Přehled App Service s daty monitorování](media/azure-stack-app-service-overview/image01.png "Přehled App Service s daty monitorování")](media/azure-stack-app-service-overview/image01.png#lightbox)
+   [Přehled ![App Service s daty monitorování](media/azure-stack-app-service-overview/image01.png "App Service přehled s daty monitorování")](media/azure-stack-app-service-overview/image01.png#lightbox)
 
 ## <a name="what-is-an-app-service-plan"></a>Co je plán App Service?
 
@@ -70,4 +70,4 @@ App Service v Azure Stack používá stejné uživatelské rozhraní, které Azu
 - [Předpoklady pro nasazení App Service v Azure Stack](azure-stack-app-service-before-you-get-started.md)
 - [Instalace poskytovatele prostředků App Service](azure-stack-app-service-deploy.md)
 
-Můžete také vyzkoušet jiné [služby platformy jako služby (PaaS)](azure-stack-offer-services-overview.md), například [poskytovatele prostředků SQL Server](azure-stack-sql-resource-provider-deploy.md) a [poskytovatele prostředků MySQL](azure-stack-mysql-resource-provider-deploy.md).
+Můžete také vyzkoušet jiné [služby platformy jako služby (PaaS)](service-plan-offer-subscription-overview.md), například [poskytovatele prostředků SQL Server](azure-stack-sql-resource-provider-deploy.md) a [poskytovatele prostředků MySQL](azure-stack-mysql-resource-provider-deploy.md).

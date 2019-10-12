@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/20/2019
+ms.date: 10/10/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 06/20/2019
-ms.openlocfilehash: 25be3914f58abad44b64870f9da94610a7498d52
-ms.sourcegitcommit: 35b13ea6dc0221a15cd0840be796f4af5370ddaf
+ms.openlocfilehash: e31a71098cda4f769fbce4e55bec6ec72a5a651b
+ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68603034"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72277775"
 ---
 # <a name="deploy-a-highly-available-mongodb-solution-to-azure-and-azure-stack"></a>Nasazení vysoce dostupného řešení MongoDB do Azure a Azure Stack
 
@@ -35,7 +35,7 @@ V tomto řešení vytvoříte ukázkové prostředí pro:
 
 
 > [!Tip]  
-> ![hybridní pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
+> @no__t -0hybrid-Pillars. png @ no__t-1  
 > Microsoft Azure Stack je rozšířením Azure. Azure Stack přináší flexibilitu a inovace cloud computingu do místního prostředí a umožňuje jenom hybridní cloud, který umožňuje vytvářet a nasazovat hybridní aplikace odkudkoli.  
 > 
 > Požadavky na [Návrh pro hybridní aplikace](azure-stack-edge-pattern-overview.md) kontrolují pilíře kvality softwaru (umístění, škálovatelnost, dostupnost, odolnost, možnosti správy a zabezpečení) pro navrhování, nasazování a provozování hybridních aplikací. Pokyny k návrhu pomáhají při optimalizaci návrhu hybridní aplikace a minimalizaci výzev v produkčních prostředích.
@@ -97,7 +97,7 @@ docker pull intelligentedge/mongodb-hadr:1.0.0
     -AzureStackSubscriptionId_DR "drSubscriptionId"
     ```
 
-4.  Zadejte `Y` , pokud chcete, aby se nainstaloval poskytovatel NuGet, který se aktivuje z profilu rozhraní API "2018-03-01-hybrid" modulů, které se mají nainstalovat.
+4.  Zadejte `Y`, aby se mohl nainstalovat poskytovatel NuGet. tím se zahájí instalace modulů rozhraní API "2018-03-01-hybrid".
 
 5.  Nejprve se nasadí prostředky HA. Monitorujte nasazení a počkejte, než se dokončí. Jakmile se zobrazí zpráva s oznámením, že nasazení HA bylo dokončeno, můžete na portálu HA Azure Stack zjistit, jestli jsou nasazené prostředky. 
 
@@ -111,7 +111,7 @@ docker pull intelligentedge/mongodb-hadr:1.0.0
   exit
   ```
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
   - Pokud jste povolili virtuální počítač skokového pole na Azure Stack DR, můžete se připojit přes SSH a komunikovat s clusterem MongoDB instalací rozhraní příkazového řádku Mongo. Další informace o interakci s MongoDB najdete v tématu [prostředí Mongo](https://docs.mongodb.com/manual/mongo/).
 

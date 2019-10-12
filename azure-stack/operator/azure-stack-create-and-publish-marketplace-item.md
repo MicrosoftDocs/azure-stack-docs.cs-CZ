@@ -11,115 +11,200 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/20/2019
+ms.date: 10/10/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 668882b1f5e0702ce51798468c8f102efe92edcd
-ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
+ms.openlocfilehash: 3202b138dbc1b01c1438ee8988400e2845a58775
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71159682"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72283671"
 ---
-# <a name="create-and-publish-a-marketplace-item-in-azure-stack"></a>Vytvoření a publikování položky Marketplace v Azure Stack
+# <a name="create-and-publish-a-custom-azure-stack-marketplace-item"></a>Vytvoření a publikování vlastní položky Azure Stack Marketplace
 
 *Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
 
-## <a name="create-a-marketplace-item"></a>Vytvoření položky Marketplace
+Každá položka publikovaná na webu Azure Stack Marketplace používá formát balíčku Galerie Azure (. azpkg). Nástroj *Azure Gallery Packager* umožňuje vytvořit vlastní balíček Azure Gallery, který můžete nahrát na web služby Azure Stack Marketplace, který je pak možné stáhnout pomocí uživatelů. Proces nasazení používá šablonu Azure Resource Manager.
 
-1. Stáhněte si [nástroj Azure Gallery Packager](https://www.aka.ms/azurestackmarketplaceitem) a ukázkovou položku Azure Stack Marketplace.
-2. Otevřete ukázkovou položku Marketplace a přejmenujte složku **SimpleVMTemplate** . Použijte stejný název jako položka Marketplace; například **contoso. TodoList**. Tato složka obsahuje:
+## <a name="marketplace-items"></a>Položky Marketplace
 
-   ```shell
-   /Contoso.TodoList/
-   /Contoso.TodoList/Manifest.json
-   /Contoso.TodoList/UIDefinition.json
-   /Contoso.TodoList/Icons/
-   /Contoso.TodoList/Strings/
-   /Contoso.TodoList/DeploymentTemplates/
-   ```
+Příklady v tomto článku ukazují, jak vytvořit jednu nabídku tržiště virtuálního počítače typu Windows nebo Linux.
 
-3. [Vytvořte šablonu Azure Resource Manager](/azure/azure-resource-manager/resource-group-authoring-templates) nebo vyberte šablonu z GitHubu. Položka Marketplace používá tuto šablonu k vytvoření prostředku.
+## <a name="create-a-marketplace-item"></a>Vytvořit položku Marketplace
 
-    > [!NOTE]  
-    > Nikdy nepoužívejte v šabloně Azure Resource Manager žádné tajné kódy, jako jsou kódy Product Key, heslo nebo žádné informace o zákazníkovi. Soubory JSON šablon jsou přístupné bez nutnosti ověřování po publikování v galerii. Ukládejte všechna tajná klíče v [Key Vault](/azure/azure-resource-manager/resource-manager-keyvault-parameter) a volejte je v rámci šablony.
+> [!IMPORTANT]
+> Před vytvořením položky Marketplace virtuálního počítače nahrajte vlastní image virtuálního počítače na portál Azure Stack, podle pokynů v části [Přidání image virtuálního počítače do Azure Stack](azure-stack-add-vm-image.md#add-a-vm-image-as-an-azure-stack-operator-using-the-portal). Pak postupujte podle pokynů v tomto článku a zabalením Image (vytvořte soubor. azpkg) a nahrajte ho do webu Azure Stack Marketplace.
 
-4. Chcete-li zajistit, aby bylo možné prostředek nasadit úspěšně, otestujte šablonu pomocí rozhraní API Microsoft Azure Stack.
-5. Pokud vaše šablona spoléhá na image virtuálního počítače, postupujte podle pokynů pro [Přidání image virtuálního počítače do Azure Stack](azure-stack-add-vm-image.md).
-6. Uložte šablonu Azure Resource Manager do složky **/contoso.TodoList/DeploymentTemplates/** .
-7. Vyberte ikony a text pro položku Marketplace. Přidejte ikony do složky **ikony** a přidejte text do souboru Resources ve složce **řetězce** . Použijte pro ikony **malé**, **střední**, **velké**a **široké** konvence pojmenování. Podrobný popis těchto velikostí najdete v referenčních informacích k [uživatelskému rozhraní položky Marketplace](#reference-marketplace-item-ui) .
+Pokud chcete vytvořit vlastní položku Marketplace, udělejte toto:
 
-   > [!NOTE]
-   > Pro správné vytvoření položky Marketplace se vyžadují všechny čtyři velikosti ikon (malá, střední, Velká, rozsáhlá).
-   >
-   >
+1. Stáhněte si [nástroj Azure Gallery Packager](https://www.aka.ms/azurestackmarketplaceitem) a ukázkový balíček Azure Stack galerie. Tento soubor ke stažení obsahuje vlastní šablony virtuálních počítačů. Rozbalte soubor. zip a přejmenujte složku **SimpleVMTemplate** názvem položky, kterou zobrazíte na portálu Azure Stack.
 
-8. V souboru **manifest. JSON** změňte **název** na název vaší položky Marketplace. Změňte také **vydavatele** na jméno nebo společnost. Před publikováním image aktualizujte soubor manifest. JSON a aktualizujte tento řádek: "název": "XXX". Nezapomeňte pro každou verzi image použít jiný název.
-9. Včásti artefakty změňte **název** a **cestu** na správné informace pro šablonu Azure Resource Manager, kterou jste zahrnuli:
+2. Vytvořte šablonu Azure Resource Manager nebo použijte naše ukázkové šablony pro Windows/Linux. Tyto ukázkové šablony jsou k dispozici v souboru. zip nástroje balíčku, který jste stáhli v kroku 1. Můžete buď použít šablonu a změnit textová pole, nebo si můžete stáhnout předem nakonfigurovanou šablonu z GitHubu. Další informace o šablonách Azure Resource Manager naleznete v tématu [Azure Resource Manager Templates](/azure/azure-resource-manager/resource-group-authoring-templates).
 
-   ```json
-   "artifacts": [
-      {
-          "name": "Your template name",
-          "type": "Template",
-          "path": "DeploymentTemplates\\your path",
-          "isDefault": true
-      }
-   ```
+3. Balíček Galerie by měl obsahovat následující strukturu:
 
-10. Nahradit **Moje položky Marketplace** seznamem kategorií, ve kterých by se měla zobrazit vaše položka Marketplace:
+   :::image type="content" source="media/azure-stack-create-and-publish-marketplace-item/gallerypkg1.png" alt-text="Balíček galerie":::
+
+   Struktura souborů šablon nasazení se zobrazí takto:
+
+   :::image type="content" source="media/azure-stack-create-and-publish-marketplace-item/gallerypkg2.png" alt-text="Balíček galerie":::
+
+4. Nahraďte následující zvýrazněné hodnoty (s čísly) v šabloně manifest. JSON hodnotou, kterou jste zadali při [nahrávání vlastní image](azure-stack-add-vm-image.md#add-a-vm-image-as-an-azure-stack-operator-using-the-portal).
+
+   > [!NOTE]  
+   > Nikdy nepoužívejte v šabloně Azure Resource Manager žádné tajné kódy, jako jsou kódy Product Key, heslo nebo žádné informace o zákazníkovi. Soubory JSON šablon jsou přístupné bez nutnosti ověřování po publikování v galerii. Ukládejte všechna tajná klíče v [Key Vault](/azure/azure-resource-manager/resource-manager-keyvault-parameter) a volejte je v rámci šablony.
+
+   Následující šablona je ukázkou souboru manifest. JSON:
 
     ```json
-    "categories":[
-    "My Marketplace Items"
-    ],
+    {
+       "$schema": "https://gallery.azure.com/schemas/2015-10-01/manifest.json#",
+       "name": "Test", (1)
+       "publisher": "<Publisher name>", (2)
+       "version": "<Version number>", (3)
+       "displayName": "ms-resource:displayName", (4)
+       "publisherDisplayName": "ms-resource:publisherDisplayName", (5)
+       "publisherLegalName": "ms-resource:publisherDisplayName", (6)
+       "summary": "ms-resource:summary",
+       "longSummary": "ms-resource:longSummary",
+       "description": "ms-resource:description",
+       "longDescription": "ms-resource:description",
+       "uiDefinition": {
+          "path": "UIDefinition.json" (7)
+          },
+       "links": [
+        { "displayName": "ms-resource:documentationLink", "uri": "http://go.microsoft.com/fwlink/?LinkId=532898" }
+        ],
+       "artifacts": [
+          {
+             "name": "<Template name>",
+             "type": "Template",
+             "path": "DeploymentTemplates\\<Template name>.json", (8)
+             "isDefault": true
+          }
+       ],
+       "categories":[ (9)
+          "Custom",
+          "<Template name>"
+          ],
+       "images": [{
+          "context": "ibiza",
+          "items": [{
+             "id": "small",
+             "path": "icons\\Small.png", (10)
+             "type": "icon"
+             },
+             {
+                "id": "medium",
+                "path": "icons\\Medium.png",
+                "type": "icon"
+             },
+             {
+                "id": "large",
+                "path": "icons\\Large.png",
+                "type": "icon"
+             },
+             {
+                "id": "wide",
+                "path": "icons\\Wide.png",
+                "type": "icon"
+             }]
+        }]
+    }
     ```
 
-11. Další úpravy manifestu manifest. JSON najdete v [referenčních informacích: Položka webu Marketplace manifest.](#reference-marketplace-item-manifestjson)JSON.
+    Následující seznam vysvětluje předchozí číslované hodnoty v příkladu šablony:
 
-12. Chcete-li zabalit složky do souboru. azpkg, otevřete příkazový řádek a spusťte následující příkaz:
+    - (1) – název nabídky
+    - (2) – název vydavatele bez mezer.
+    - (3) – verze šablony bez mezer.
+    - (4) – název, který se zákazníkům zobrazí.
+    - (5) – název vydavatele, který se zobrazí zákazníkům.
+    - (6) – právní jméno vydavatele.
+    - (7) – cesta k umístění souboru **UIDefinition. JSON** , který je uložený.  
+    - (8) – cesta a název souboru hlavní šablony JSON.
+    - (9) – názvy kategorií, ve kterých se tato šablona zobrazuje
+    - (10) – cesta a název pro každou ikonu.
+
+5. U všech polí odkazujících na **MS-Resource**je nutné změnit příslušné hodnoty v souboru **strings/Resources. JSON** :
+
+    ```json
+    {
+    "displayName": "<OfferName.PublisherName.Version>",
+    "publisherDisplayName": "<Publisher name>",
+    "summary": "Create a simple VM",
+    "longSummary": "Create a simple VM and use it",
+    "description": "<p>This is just a sample of the type of description you could create for your gallery item!</p><p>This is a second paragraph.</p>",
+    "documentationLink": "Documentation"
+    }
+    ```
+
+    ![Package displej @ no__t-1 ![Package Display @ no__t-3
+
+6. Chcete-li zajistit, aby bylo možné prostředek nasadit úspěšně, otestujte šablonu pomocí [rozhraní api Azure Stack](../user/azure-stack-profiles-azure-resource-manager-versions.md).
+
+7. Pokud vaše šablona spoléhá na image virtuálního počítače, postupujte podle pokynů pro [Přidání image virtuálního počítače do Azure Stack](azure-stack-add-vm-image.md).
+
+8. Uložte šablonu Azure Resource Manager do složky **/contoso.TodoList/DeploymentTemplates/** .
+
+9. Vyberte ikony a text pro položku Marketplace. Přidejte ikony do složky **ikony** a přidejte text do souboru **Resources** ve složce **řetězce** . Použijte pro ikony **malé**, **střední**, **velké**a **široké** konvence pojmenování. Podrobný popis těchto velikostí najdete v [referenčních informacích k uživatelskému rozhraní položky Marketplace](#reference-marketplace-item-ui) .
+
+    > [!NOTE]
+    > Pro správné vytvoření položky Marketplace se vyžadují všechny čtyři velikosti ikon (malá, střední, Velká, rozsáhlá).
+
+10. Další úpravy manifestu manifest. JSON naleznete v tématu [Reference: Item Marketplace manifest. JSON](#reference-marketplace-item-manifestjson).
+
+11. Až dokončíte úpravu souborů, převeďte ji na soubor. azpkg. Převod provedete pomocí nástroje **AzureGalleryPackager. exe** a balíčku Sample Gallery, který jste předtím stáhli. Spusťte následující příkaz:
 
     ```shell
-    AzureGalleryPackager.exe package -m <absolute path to manifest.json> -o <output location for the package>
+    .\AzureGalleryPackager.exe package –m c:\<path>\<gallery package name>\manifest.json –o c:\Temp
     ```
 
     > [!NOTE]
-    > Musí existovat úplná cesta k souboru manifest. JSON i výstupní balíček. Pokud je například výstupní cesta C:\MarketPlaceItem\yourpackage.azpkg, musí existovat složka **C:\MarketPlaceItem** .
+    > Výstupní cesta může být libovolná cesta, kterou si zvolíte, a nemusí být v jednotce C:. Nicméně musí existovat úplná cesta k souboru manifest. JSON i výstupní balíček. Pokud je například výstupní cesta `C:\<path>\galleryPackageName.azpkg`, musí existovat složka `C:\<path>`.
     >
     >
 
-## <a name="publish-a-marketplace-item"></a>Zveřejnění položky Marketplace
+## <a name="publish-a-marketplace-item"></a>Publikování položky Marketplace
 
 1. Pomocí PowerShellu nebo Průzkumník služby Azure Storage nahrajte položku Marketplace (. azpkg) do úložiště objektů BLOB v Azure. Můžete nahrávat do místního úložiště Azure Stack nebo nahrávat do Azure Storage, což je dočasné umístění balíčku. Ujistěte se, že je objekt BLOB veřejně přístupný.
-2. Na virtuálním počítači klienta v prostředí Microsoft Azure Stack se ujistěte, že je vaše relace PowerShellu nastavená s přihlašovacími údaji správce služby. Pokyny k ověřování PowerShellu v Azure Stack najdete v tématu [nasazení šablony pomocí PowerShellu](../user/azure-stack-deploy-template-powershell.md).
-3. Pokud používáte [prostředí PowerShell 1.3.0](azure-stack-powershell-install.md) nebo novější, můžete k publikování položky Marketplace do Azure Stack použít rutinu prostředí PowerShell **Add-AzsGalleryItem** . V případě starších verzí použijte rutinu **Add-AzureRMGalleryitem** místo rutiny **Add-AzsGalleryItem**. Například při použití prostředí PowerShell 1.3.0 nebo novější:
 
-   ```powershell
-   Add-AzsGalleryItem -GalleryItemUri `
-   https://sample.blob.core.windows.net/gallerypackages/Microsoft.SimpleTemplate.1.0.0.azpkg -Verbose
-   ```
+2. Pokud chcete importovat balíček galerie do Azure Stack, prvním krokem je vzdálené připojení (RDP) k virtuálnímu počítači klienta, aby bylo možné zkopírovat soubor, který jste právě vytvořili, do Azure Stack.
 
-   | Parametr | Popis |
-   | --- | --- |
-   | SubscriptionID |ID předplatného správce. Můžete ho načíst pomocí PowerShellu. Pokud byste ho chtěli zobrazit na portálu, přejdete do předplatného poskytovatele a zkopírujete ID předplatného. |
-   | GalleryItemUri |Identifikátor URI objektu BLOB pro balíček galerie, který je už nahraný do úložiště |
-   | Apiversion |Nastavte jako **2015-04-01**. |
+3. Přidejte kontext:
 
-4. Přejít na portál. Položku Marketplace teď můžete zobrazit na portálu, jako operátor nebo jako uživatel. Zobrazení balíčku může trvat několik minut.
+    ```powershell
+    $ArmEndpoint = "https://adminmanagement.local.azurestack.external"
+    Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint $ArmEndpoint
+    Add-AzureRmAccount -EnvironmentName "AzureStackAdmin"
+    ```
 
-5. Vaše položka Marketplace je teď uložená na webu Azure Stack Marketplace. Můžete ji odstranit z umístění úložiště objektů BLOB.
+4. Spusťte následující skript pro import prostředku do Galerie:
 
-    > [!CAUTION]  
-    > Všechny výchozí artefakty galerie a vaše vlastní artefakty galerie jsou teď dostupné bez ověřování v těchto adresách URL:  
-`https://adminportal.[Region].[external FQDN]:30015/artifact/20161101/[Template Name]/DeploymentTemplates/Template.json`
-`https://portal.[Region].[external FQDN]:30015/artifact/20161101/[Template Name]/DeploymentTemplates/Template.json`
-`https://systemgallery.blob.[Region].[external FQDN]/dev20161101-microsoft-windowsazure-gallery/[Template Name]/UiDefinition.json`
+    ```powershell
+    Add-AzsGalleryItem -GalleryItemUri `
+    https://sample.blob.core.windows.net/<temporary blob name>/<offerName.publisherName.version>.azpkg –Verbose
+    ```
+
+5. Ověřte, že máte platný účet úložiště, který je k dispozici pro uložení vaší položky. Hodnotu `GalleryItemURI` můžete získat z portálu Azure Stack správce. Vyberte **účet úložiště-> vlastnosti objektu BLOB – > URL**s příponou. azpkg. Účet úložiště se používá jenom pro dočasné použití, aby se daly publikovat na webu Marketplace.
+
+   Po dokončení balíčku galerie a jeho nahrání pomocí **Add-AzsGalleryItem**by se teď měl váš vlastní virtuální počítač zobrazit na webu Marketplace i v zobrazení **vytvořit prostředek** . Všimněte si, že ve **správě Marketplace**není balíček vlastní Galerie viditelný.
+
+   [![Vlastní položka Marketplace odeslala](media/azure-stack-create-and-publish-marketplace-item/pkg6sm.png "vlastní položku Marketplace") .](media/azure-stack-create-and-publish-marketplace-item/pkg6.png#lightbox)
+
+6. Po úspěšném publikování položky na webu Marketplace můžete obsah odstranit z účtu úložiště.
+
+   > [!CAUTION]  
+   > Všechny výchozí artefakty galerie a vaše vlastní artefakty galerie jsou teď dostupné bez ověřování v těchto adresách URL:  
+   `https://adminportal.[Region].[external FQDN]:30015/artifact/20161101/[Template Name]/DeploymentTemplates/Template.json`
+   `https://portal.[Region].[external FQDN]:30015/artifact/20161101/[Template Name]/DeploymentTemplates/Template.json`
 
 6. Položku Marketplace můžete odebrat pomocí rutiny **Remove-AzureRMGalleryItem** . Příklad:
 
    ```powershell
-   Remove-AzsGalleryItem -Name Microsoft.SimpleTemplate.1.0.0  -Verbose
+   Remove-AzsGalleryItem -Name <Gallery package name> -Verbose
    ```
 
    > [!NOTE]
@@ -127,40 +212,40 @@ ms.locfileid: "71159682"
    >
    >
 
-## <a name="reference-marketplace-item-manifestjson"></a>Další informace: Položka Marketplace manifest. JSON
+## <a name="reference-marketplace-item-manifestjson"></a>Referenční informace: položka Marketplace manifest. JSON
 
 ### <a name="identity-information"></a>Informace o identitě
 
-| Name | Požadováno | type | Omezení | Popis |
+| Name | Požadováno | Typ | Omezení | Popis |
 | --- | --- | --- | --- | --- |
-| Name |X |Řetězec |[A-Za-z0-9]+ | |
-| Vydavatel |X |Řetězec |[A-Za-z0-9]+ | |
-| Version |X |Řetězec |[SemVer v2](https://semver.org/) | |
+| Name |X |String |[A-za-Z0-9] + | |
+| Microsoft |X |String |[A-za-Z0-9] + | |
+| Version |X |String |[SemVer v2](https://semver.org/) | |
 
 ### <a name="metadata"></a>Metadata
 
-| Name | Požadováno | type | Omezení | Popis |
+| Name | Požadováno | Typ | Omezení | Popis |
 | --- | --- | --- | --- | --- |
-| DisplayName |X |Řetězec |Doporučení 80 znaků |Portál nemusí správně zobrazit název položky, pokud je delší než 80 znaků. |
-| PublisherDisplayName |X |Řetězec |Doporučení 30 znaků |Portál nemusí správně zobrazit název vašeho vydavatele, pokud je delší než 30 znaků. |
-| PublisherLegalName |X |Řetězec |Maximálně 256 znaků | |
-| Souhrn |X |Řetězec |60 až 100 znaků | |
-| LongSummary |X |Řetězec |140 až 256 znaků |V Azure Stack ještě neplatí. |
-| Popis |X |[HTML](https://github.com/Azure/portaldocs/blob/master/gallery-sdk/generated/index-gallery.md#gallery-item-metadata-html-sanitization) |500 až 5 000 znaků | |
+| DisplayName |X |String |Doporučení 80 znaků |Portál nemusí správně zobrazit název položky, pokud je delší než 80 znaků. |
+| PublisherDisplayName |X |String |Doporučení 30 znaků |Portál nemusí správně zobrazit název vašeho vydavatele, pokud je delší než 30 znaků. |
+| PublisherLegalName |X |String |Maximálně 256 znaků | |
+| Souhrn |X |String |60 až 100 znaků | |
+| LongSummary |X |String |140 až 256 znaků |V Azure Stack ještě neplatí. |
+| Popis |X |[KÓDU](https://github.com/Azure/portaldocs/blob/master/gallery-sdk/generated/index-gallery.md#gallery-item-metadata-html-sanitization) |500 až 5 000 znaků | |
 
 ### <a name="images"></a>Obrázky
 
 Tržiště používá následující ikony:
 
-| Name | Šířka | Výška | Poznámky |
+| Name | Délk | Výška | Poznámky |
 | --- | --- | --- | --- |
-| Široký |255 px |115 px |Vždy vyžadováno |
-| Velké |115 px |115 px |Vždy vyžadováno |
-| Střední |90 px |90 px |Vždy vyžadováno |
-| Malé |40 px |40 px |Vždy vyžadováno |
-| Snímek obrazovky |533 px |324 px |Vždy vyžadováno |
+| Rozlehlý |255 px |115 px |Vždy vyžadováno |
+| Celou |115 px |115 px |Vždy vyžadováno |
+| Úrovně |90 px |90 px |Vždy vyžadováno |
+| Nejmenší |40 px |40 px |Vždy vyžadováno |
+| – |533 px |324 px |Vždy vyžadováno |
 
-### <a name="categories"></a>Categories
+### <a name="categories"></a>Kategorie
 
 Každá položka Marketplace by měla být označena kategorií, která identifikuje, kde se položka zobrazí v uživatelském rozhraní portálu. Můžete zvolit jednu z existujících kategorií v Azure Stack (**COMPUTE**, **data + úložiště**a tak dále) nebo zvolit nové.
 
@@ -168,19 +253,19 @@ Každá položka Marketplace by měla být označena kategorií, která identifi
 
 Každá položka na webu Marketplace může obsahovat různé odkazy na další obsah. Odkazy jsou zadány jako seznam názvů a identifikátorů URI:
 
-| Name | Požadováno | type | Omezení | Popis |
+| Name | Požadováno | Typ | Omezení | Popis |
 | --- | --- | --- | --- | --- |
-| DisplayName |X |Řetězec |Maximálně 64 znaků. | |
-| Uri |X |Identifikátor URI | | |
+| DisplayName |X |String |Maximálně 64 znaků. | |
+| identifikátor URI |X |Identifikátor URI | | |
 
 ### <a name="additional-properties"></a>Další vlastnosti
 
 Kromě předchozích metadat mohou autoři na webu Marketplace poskytovat vlastní data párů klíč/hodnota v následujícím tvaru:
 
-| Name | Požadováno | type | Omezení | Popis |
+| Name | Požadováno | Typ | Omezení | Popis |
 | --- | --- | --- | --- | --- |
-| DisplayName |X |Řetězec |Maximálně 25 znaků. | |
-| Value |X |Řetězec |Maximálně 30 znaků. | |
+| DisplayName |X |String |Maximálně 25 znaků. | |
+| Hodnota |X |String |Maximálně 30 znaků. | |
 
 ### <a name="html-sanitization"></a>Upravení HTML
 
@@ -188,11 +273,11 @@ Pro každé pole, které povoluje jazyk HTML, [jsou povoleny následující prvk
 
 `h1, h2, h3, h4, h5, p, ol, ul, li, a[target|href], br, strong, em, b, i`
 
-## <a name="reference-marketplace-item-ui"></a>Další informace: Uživatelské rozhraní položky Marketplace
+## <a name="reference-marketplace-item-ui"></a>Referenční dokumentace: uživatelské rozhraní položky Marketplace
 
 V následujícím příkladu jsou ikony a text pro položky Marketplace, jak je vidět na portálu Azure Stack.
 
-### <a name="create-blade"></a>Okno Vytvořit
+### <a name="create-blade"></a>Vytvořit okno
 
 ![Vytvořit okno – Azure Stack položky Marketplace](media/azure-stack-create-and-publish-marketplace-item/image1.png)
 
@@ -202,5 +287,6 @@ V následujícím příkladu jsou ikony a text pro položky Marketplace, jak je 
 
 ## <a name="next-steps"></a>Další kroky
 
-* [Přehled Azure Stack Marketplace](azure-stack-marketplace.md)
-* [Stažení položek z Marketplace](azure-stack-download-azure-marketplace-item.md)
+- [Přehled Azure Stack Marketplace](azure-stack-marketplace.md)
+- [Stažení položek z Marketplace](azure-stack-download-azure-marketplace-item.md)
+- [Formátování a struktura Azure Resource Manager šablon](/azure/azure-resource-manager/resource-group-authoring-templates)

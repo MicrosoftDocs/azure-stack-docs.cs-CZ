@@ -1,6 +1,6 @@
 ---
-title: Základy správy Azure Stack | Dokumentace Microsoftu
-description: Zjistěte, co potřebujete vědět o správě služby Azure Stack.
+title: Základy správy Azure Stack | Microsoft Docs
+description: Seznamte se se základy správy Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -14,139 +14,139 @@ ms.topic: article
 ms.date: 05/29/2019
 ms.author: justinha
 ms.lastreviewed: 05/29/2019
-ms.openlocfilehash: 3887712d2c7f14498536e5ad22494bedaa41197c
-ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
+ms.openlocfilehash: f9b9d6d1474c22c8e31d24ae08faf1aac6d5e9c1
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66691669"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72283480"
 ---
 # <a name="azure-stack-administration-basics"></a>Základy správy Azure Stack
 
-Pokud jste nový pro správu služby Azure Stack, existuje pár věcí, které je potřeba vědět. Tento článek poskytuje přehled o vaší role jako jejich operátory Azure stacku a co je potřeba říct uživatelům mohli pomoct jejich produktivitu.
+Pokud s Azure Stack administrativou nezačínáte, je třeba znát několik věcí. Tento článek poskytuje přehled vaší role jako operátor Azure Stack a to, co je potřeba k tomu, abychom svým uživatelům informovali, že jim pomohou zajistit jejich produktivitu.
 
-## <a name="understand-the-builds"></a>Vysvětlení sestavení
+## <a name="understand-the-builds"></a>Pochopení sestavení
 
 ### <a name="integrated-systems"></a>Integrované systémy
 
-Pokud používáte systémech pro Azure Stack integrované, distribuci balíčků aktualizací aktualizované verze služby Azure Stack. Můžete importovat tyto balíčky a použít je s použitím **aktualizace** dlaždici na portálu pro správce.
+Pokud používáte Azure Stack integrovaný systém, balíčky aktualizací distribuují aktualizované verze Azure Stack. Tyto balíčky můžete importovat a použít pomocí dlaždice **aktualizace** na portálu pro správu.
  
 ### <a name="development-kit"></a>Vývojová sada
 
-Pokud používáte Azure Stack Development Kit (ASDK), přečtěte si [co je Azure Stack?](../asdk/asdk-what-is.md) další účel ASDK a jaká jsou její omezení. Můžete použít ASDK jako *izolovaného prostoru*, ve kterém můžete vyhodnotit Azure Stack a vyvíjet a testovat své aplikace v neprodukčním prostředí. Informace o nasazení naleznete v tématu [nasazení Azure Stack Development Kit](../asdk/asdk-install.md).
+Pokud používáte Azure Stack Development Kit (ASDK), přečtěte si téma [co je Azure Stack?](../asdk/asdk-what-is.md) pro zjištění účelu a omezení ASDK. ASDK můžete použít jako *izolovaný prostor (sandbox)* , kde můžete vyhodnotit Azure Stack a vyvíjet a testovat aplikace v neprodukčním prostředí. Informace o nasazení najdete v tématu [nasazení Azure Stack Development Kit](../asdk/asdk-install.md).
 
-Jako je Azure můžeme inovovat rychle. Pravidelně vydáváme nové buildy. Pokud spouštíte ASDK a chcete přesunout na nejnovější verzi, je nutné [opětovné nasazení Azure Stack](../asdk/asdk-redeploy.md). Balíčky aktualizací nelze použít. Tento proces trvá určitou dobu, ale má výhodu, že budete moct vyzkoušet nejnovější funkce. Dokumentace ke službě ASDK na našem webu odráží nejnovější sestavení pro vydání.
+Podobně jako u Azure provedeme rychlé inovace. Pravidelně vydáváme nová sestavení. Pokud používáte ASDK a chcete přejít na nejnovější sestavení, je nutné [znovu nasadit Azure Stack](../asdk/asdk-redeploy.md). Nemůžete použít balíčky aktualizací. Tento proces trvá čas, ale výhodou je, že můžete vyzkoušet nejnovější funkce. Dokumentace ASDK na našem webu odráží nejnovější sestavení pro vydání.
 
-## <a name="learn-about-available-services"></a>Další informace o dostupných služeb
+## <a name="learn-about-available-services"></a>Další informace o dostupných službách
 
-Budete potřebovat povědomí o služby, které můžete zpřístupnit uživatelům. Azure Stack podporuje podmnožinu služeb Azure. Seznam podporovaných služeb bude dál vyvíjejí.
+Budete potřebovat povědomí o tom, které služby můžete uživatelům zpřístupnit. Azure Stack podporuje podmnožinu služeb Azure. Seznam podporovaných služeb bude i nadále vyvíjet.
 
 **Základní služby**
 
-Ve výchozím nastavení, služby Azure Stack zahrnuje následující "základní služby" při nasazení Azure Stack:
+Ve výchozím nastavení Azure Stack při nasazení Azure Stack zahrnovat následující "základní služby":
 
-- Compute
+- Výpočetní
 - Úložiště
-- Sítě
+- Síťové služby
 - Key Vault
 
-Pomocí těchto základních služeb můžou nabízet Infrastructure-as--Service (IaaS) uživatelům s minimální konfigurací.
+S těmito základními službami můžete uživatelům s minimální konfigurací nabídnout infrastrukturu jako službu (IaaS).
 
 **Další služby**
 
-V současné době Podporujeme následující další služby Platform-as-a-Service (PaaS):
+V současné době podporujeme následující další služby PaaS (Platform as a Service):
 
 - App Service
 - Azure Functions
 - Databáze SQL a MySQL
-- Kubernetes (ve verzi preview)
+- Kubernetes (ve verzi Preview)
 
-Tyto služby vyžadují další konfiguraci, předtím, než můžete zpřístupnit je pro vaše uživatele. Další informace najdete v tématu "Kurzy" a "s postupy guides\Offer služby" oddílů část naší dokumentace operátor Azure stacku.
+Tyto služby vyžadují další konfiguraci, abyste je mohli zpřístupnit uživatelům. Další informace najdete v částech kurzy a guides\Offer služby v dokumentaci k operátorovi Azure Stack.
 
 **Plán služby**
 
-Azure Stack bude pokračovat a přidat podporu pro služby Azure. Předpokládané plán služby, najdete v článku [Azure Stack: Rozšíření Azure](https://go.microsoft.com/fwlink/?LinkId=842846&clcid=0x409) dokument White Paper. Také můžete monitorovat [příspěvcích na blogu Azure Stack](https://azure.microsoft.com/blog/tag/azure-stack-technical-preview) pro nové oznámení.
+Azure Stack bude pokračovat v přidávání podpory pro služby Azure. Plánovaný plán najdete v tématu [Azure Stack: rozšíření Azure](https://go.microsoft.com/fwlink/?LinkId=842846&clcid=0x409) White Paper. Můžete také sledovat příspěvky na [blogu Azure Stack](https://azure.microsoft.com/blog/tag/azure-stack-technical-preview) pro nová oznámení.
 
 ## <a name="what-account-should-i-use"></a>Jaký účet mám použít?
-Existuje několik důležitých informací účtu je potřeba vědět při správě služby Azure Stack. Zejména v nasazeních pomocí systému Windows Server Active Directory Federation Services (AD FS) jako poskytovatel identit Azure Active Directory (Azure AD). Integrované systémy Azure Stack a ASDK nasazení, platí následující aspekty účtu:
+Při správě Azure Stack je potřeba vědět o několika ohledech. Hlavně v nasazeních používá Windows Server Active Directory Federation Services (AD FS) (AD FS) jako zprostředkovatele identity místo Azure Active Directory (Azure AD). Následující požadavky na účet platí pro Azure Stack integrovaných systémů i nasazení ASDK:
 
 
-|Účet|Azure AD|AD FS|
+|Zohledňují|Služba Azure AD|AD FS|
 |-----|-----|-----|
-|Místní správce (. \Administrator)|Správce ASDK hostitele|Správce ASDK hostitele|
-|AzureStack\AzureStackAdmin|Správce ASDK hostitele<br><br>Je možné se přihlásit na portál pro správu služby Azure Stack<br><br>Přístup k zobrazení a správě okruhů Service Fabric|Správce ASDK hostitele<br><br>Žádný přístup k portálu pro správu služby Azure Stack<br><br>Přístup k zobrazení a správě okruhů Service Fabric<br><br>Už vlastníka z výchozí zprostředkovatel předplatného (službou Device Provisioning)|
-|AzureStack\CloudAdmin|Můžete používat a povolených příkazů v rámci privilegovaných koncového bodu|Můžete používat a povolených příkazů v rámci privilegovaných koncového bodu<br><br>Nemůžete se přihlásit k hostiteli ASDK<br><br>Výchozí zprostředkovatel předplatného (DPS)|
-|Globální správce Azure AD|Použít během instalace<br><br>Výchozí zprostředkovatel předplatného (DPS)|Neuvedeno|
+|Místní správce (.\Administrator)|Správce hostitele ASDK|Správce hostitele ASDK|
+|AzureStack\AzureStackAdmin|Správce hostitele ASDK<br><br>Dá se použít k přihlášení na portál správce Azure Stack.<br><br>Přístup k zobrazení a správě Service Fabricch okruhů.|Správce hostitele ASDK<br><br>Nemáte přístup k portálu Azure Stack pro správu.<br><br>Přístup k zobrazení a správě Service Fabricch okruhů.<br><br>Již není vlastníkem předplatného výchozího poskytovatele (DPS).|
+|AzureStack\CloudAdmin|Umožňuje přístup k povoleným příkazům v rámci privilegovaného koncového bodu a jejich spouštění.|Umožňuje přístup k povoleným příkazům v rámci privilegovaného koncového bodu a jejich spouštění.<br><br>Nejde se přihlásit k hostiteli ASDK.<br><br>Vlastník předplatného výchozího poskytovatele (DPS).|
+|Globální správce Azure AD|Používá se během instalace.<br><br>Vlastník předplatného výchozího poskytovatele (DPS).|Nelze použít.|
 |
 
-## <a name="what-tools-do-i-use-to-manage"></a>Jaké nástroje použít ke správě?
+## <a name="what-tools-do-i-use-to-manage"></a>Jaké nástroje se používají ke správě?
  
-Můžete použít [portálu správce](azure-stack-manage-portals.md) nebo prostředí PowerShell pro správu služby Azure Stack. Nejjednodušší způsob, jak informace o základních konceptech je prostřednictvím portálu. Pokud chcete použít PowerShell, jsou přípravné kroky. Než začnete, můžete chtít Seznamte se s použití prostředí PowerShell ve službě Azure Stack. Další informace najdete v tématu [Začínáme s prostředím PowerShell ve službě Azure Stack](../user/azure-stack-powershell-overview.md).
+Ke správě Azure Stack můžete použít [portál](azure-stack-manage-portals.md) pro správu nebo PowerShell. Nejjednodušší způsob, jak se naučit základní koncepty, je prostřednictvím portálu. Pokud chcete používat PowerShell, existují přípravné kroky. Než začnete, je vhodné se seznámit s tím, jak se prostředí PowerShell používá na Azure Stack. Další informace najdete v tématu [Začínáme s prostředím PowerShell v Azure Stack](../user/azure-stack-powershell-overview.md).
 
-Azure Stack jako základní mechanismus nasazování, správu a organizace používá Azure Resource Manageru. Pokud budete ke správě služby Azure Stack a bylo možné podporovat uživatele, můžete se dozvědět o Resource Manageru. Zobrazit [Začínáme s Azure Resource Managerem](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf) dokument White Paper.
+Azure Stack používá Azure Resource Manager jako základní mechanismus nasazení, správy a organizace. Pokud se chystáte spravovat Azure Stack a pomáhat uživatelům podpory, můžete se dozvědět víc o Správce prostředků. Další informace najdete v [Začínáme Azure Resource Manager](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf) dokumentu White Paper.
 
-## <a name="your-typical-responsibilities"></a>Typické odpovědnosti
+## <a name="your-typical-responsibilities"></a>Vaše typické povinnosti
 
-Vaši uživatelé chtějí používat služby. Z perspektivy hlavní role je, aby tyto služby jsou pro ně dostupné. Rozhodněte, jaké služby nabízí a zpřístupněte tyto služby tak, že vytvoříte plánů, nabídek a kvót. Další informace najdete v tématu [přehled nabízených služeb ve službě Azure Stack](azure-stack-offer-services-overview.md). 
+Vaši uživatelé chtějí používat služby. Z perspektivy je hlavním úkolem, aby jim byly dostupné tyto služby. Rozhodněte, které služby se mají nabízet, a zpřístupněte tyto služby vytvořením plánů, nabídek a kvót. Další informace najdete v tématu [Přehled nabízených služeb v Azure Stack](service-plan-offer-subscription-overview.md). 
 
-Také budete muset přidat položky do [na webu marketplace](azure-stack-marketplace.md), například jako Image virtuálních počítačů. Nejjednodušší způsob je [stažení položek z marketplace z Azure do služby Azure Stack](azure-stack-download-azure-marketplace-item.md).
+Budete také muset přidat položky do [Azure Stack Marketplace](azure-stack-marketplace.md). Nejjednodušším způsobem je [stáhnout z Azure položky Marketplace do Azure Stack](azure-stack-download-azure-marketplace-item.md).
 
 > [!NOTE]
-> Pokud chcete testovat plány, nabídky a služby, můžete použít [portálu user portal](azure-stack-manage-portals.md); není na portálu správce.
+> Pokud chcete testovat vaše plány, nabídky a služby, můžete použít [portál User Portal](azure-stack-manage-portals.md). Nejedná se o portál pro správu.
 
-Kromě poskytování služeb, je nutné provést regulární povinnosti operátor zachovat Azure Stack, zprovoznění. Tyto povinnosti patří:
+Kromě poskytování služeb je potřeba, abyste měli k disAzure Stack pravidelné poplatky za operátora. Mezi tyto funkce patří následující úlohy:
 
-- Přidání uživatelských účtů (pro [Azure Active Directory](azure-stack-add-new-user-aad.md) nasazení nebo pro [Active Directory Federation Services](azure-stack-add-users-adfs.md) nasazení)
-- [Přiřadit role (RBAC) řízení přístupu na základě role](azure-stack-manage-permissions.md) (to se neomezuje na správce.)
+- Přidejte uživatelské účty (pro nasazení [Azure AD](azure-stack-add-new-user-aad.md) nebo nasazení [AD FS](azure-stack-add-users-adfs.md) ).
+- [Přiřazení rolí řízení přístupu na základě role (RBAC)](azure-stack-manage-permissions.md) (Tato úloha není omezena na správce.)
 - [Monitorování stavu infrastruktury](azure-stack-monitor-health.md)
-- Správa [sítě](azure-stack-viewing-public-ip-address-consumption.md) a [úložiště](azure-stack-manage-storage-accounts.md) prostředky
-- Nahradí chybný hardwaru, například [poškozený disk nahraďte](azure-stack-replace-disk.md).
+- Správa prostředků [sítě](azure-stack-viewing-public-ip-address-consumption.md) a [úložiště](azure-stack-manage-storage-accounts.md)
+- Nahraďte špatný hardware. Například [nahraďte disk, který selhal](azure-stack-replace-disk.md).
 
 ## <a name="what-to-tell-your-users"></a>Co říct uživatelům
 
-Bude potřeba dát uživatelům vědět, jak pracovat se službami v Azure stacku, jak se připojit k prostředí a jak k odběru nabídky. Kromě jakékoli vlastní dokumentace, můžete chtít poskytnout uživatelům, můžete nasměrovat uživatele na web dokumentace ke službě Azure Stack uživatelů.
+Budete muset uživatelům sdělit, jak pracovat se službami v Azure Stack, jak se připojit k prostředí a jak se přihlásit k odběru nabídek. Kromě jakékoli vlastní dokumentace, kterou byste mohli chtít poskytnout uživatelům, můžete uživatele nasměrovat tak, aby [Azure Stack dokumentaci pro uživatele](https://docs.microsoft.com/en-us/azure-stack/user/).
 
-**Naučte se pracovat se službami v Azure stacku**
+**Naučte se pracovat se službami v Azure Stack**
 
-Zde jsou informace, které vaši uživatelé musí porozumět před využívat služby a sestavovat aplikace ve službě Azure Stack. Například jsou konkrétní požadavky na verzi prostředí PowerShell a rozhraní API. Navíc existují některé funkce rozdíly mezi služby v Azure a ekvivalentní ve službě Azure Stack. Ujistěte se, že vaši uživatelé najdete v následujících článcích:
+Aby uživatelé mohli používat služby a sestavovat aplikace v Azure Stack, musí si uvědomit informace. Například existují konkrétní požadavky na PowerShell a verzi rozhraní API. Mezi službou v Azure a ekvivalentní službou v Azure Stack taky existuje několik rozdílů funkcí. Ujistěte se, že uživatelé si přečtěte následující články:
 
-- [Klíčové aspekty: Pomocí služby nebo vytvářet aplikace pro Azure Stack](../user/azure-stack-considerations.md)
-- [Důležité informace týkající se virtuálních počítačů v Azure stacku](../user/azure-stack-vm-considerations.md)
-- [Úložiště: rozdíly a aspekty](../user/azure-stack-acs-differences.md)
+- [Klíčové doporučení: použití služeb nebo sestavování aplikací pro Azure Stack](../user/azure-stack-considerations.md)
+- [Předpoklady pro Virtual Machines v Azure Stack](../user/azure-stack-vm-considerations.md)
+- [Úložiště: rozdíly a požadavky](../user/azure-stack-acs-differences.md)
 
-Informace v těchto článcích shrnuje rozdíly mezi service v Azure a Azure Stack. Doplňuje informace, které je k dispozici pro službu Azure globální dokumentace k Azure.
+Informace v těchto článcích shrnuje rozdíly mezi službou v Azure a Azure Stack. Doplňuje informace, které jsou k dispozici pro službu Azure v globální dokumentaci k Azure.
 
-**Připojení ke službě Azure Stack jako uživatel**
+**Připojení k Azure Stack jako uživatel**
 
-Pokud uživatel nemá k připojení k hostiteli ASDK pomocí vzdálené plochy se v prostředí ASDK nakonfigurujte připojení virtuální privátní sítě (VPN) pro připojení ke službě Azure Stack. Zobrazit [připojení k Azure Stack](../asdk/asdk-connect.md). 
+Pokud se v prostředí ASDK uživatel nepoužívá k připojení k hostiteli ASDK Vzdálená plocha, může nakonfigurovat připojení k virtuální privátní síti (VPN) pro připojení k Azure Stack. Viz [připojení k Azure Stack](../asdk/asdk-connect.md).
 
-Vaši uživatelé budou chtít vědět jak [přístup k portálu user portal](../user/azure-stack-use-portal.md) nebo jak se připojit prostřednictvím prostředí PowerShell. V prostředí integrované systémy uživatelského portálu adresy se liší podle nasazení. Budete muset uživatelům poskytnout správnou adresu URL.
+Uživatelé budou chtít, abyste věděli, jak [získat přístup k portálu User Portal](../user/azure-stack-use-portal.md) nebo jak se připojit prostřednictvím PowerShellu. V prostředí integrovaných systémů se adresa uživatelského portálu liší podle nasazení. Musíte uživatelům poskytnout správnou adresu URL.
 
-Pokud používáte PowerShell, uživatelé nemusí registrovat poskytovatele prostředků před použitím služby. (Poskytovatel prostředků spravuje služba. For example, poskytovateli síťových prostředků spravuje prostředky, jako jsou virtuální sítě, síťová rozhraní a nástroje pro vyrovnávání zatížení.) Musí [nainstalovat](azure-stack-powershell-install.md) prostředí PowerShell, [Stáhnout](azure-stack-powershell-download.md) dalších modulů, a [nakonfigurovat](../user/azure-stack-powershell-configure-user.md) Powershellu (která zahrnuje registrace poskytovatele prostředků).
+Pokud používáte PowerShell, uživatelé budou muset registrovat poskytovatele prostředků předtím, než budou moci používat služby. Poskytovatel prostředků spravuje službu. Poskytovatel síťových prostředků například spravuje prostředky, jako jsou virtuální sítě, síťová rozhraní a nástroje pro vyrovnávání zatížení. Musí si [nainstalovat](azure-stack-powershell-install.md) PowerShell, [Stáhnout](azure-stack-powershell-download.md) další moduly a [nakonfigurovat](../user/azure-stack-powershell-configure-user.md) PowerShell (který zahrnuje registraci poskytovatele prostředků).
 
 **Přihlášení k odběru nabídky**
 
-Předtím, než může uživatel používat služby, musí [předplatit nabídky](azure-stack-subscribe-plan-provision-vm.md) , kterou jste vytvořili jako operátor.
+Předtím, než může uživatel použít služby, se musí [přihlásit k odběru nabídky](azure-stack-subscribe-plan-provision-vm.md) , kterou jste vytvořili jako operátor.
 
-## <a name="where-to-get-support"></a>Kde lze získat podporu
+## <a name="where-to-get-support"></a>Kde získat podporu
 
 > [!Note]  
-> Informace o podpoře pro dřívější verze služby Azure Stack (pre-1905) najdete v tématu [Nápověda a podpora pro starší verze služby Azure Stack (pre-1905)](azure-stack-servicing-policy.md).
+> Informace o podpoře pro dřívější verze Azure Stack (pre-1905) najdete v tématu [pomoc a podpora pro starší verze Azure Stack (pre-1905)](azure-stack-servicing-policy.md).
 
 ### <a name="integrated-systems"></a>Integrované systémy
 
-Pro integrovaný systém je koordinovanou eskalaci a řešení procesu mezi Microsoftem a našimi hardwarovými partnery výrobce OEM (OEM).
+Pro integrovaný systém existuje koordinovaný proces eskalace a rozlišení mezi společností Microsoft a našimi hardwarovými partnery OEM (Original Equipment Manufacturer).
 
-Pokud nastane problém s cloud services, podpora je dostupná prostřednictvím Microsoft podporu služby zákazníkům (CSS). Pokud vyberte ikonu nápovědy a podpory (otazník) v pravém horním rohu portálu správce a pak vyberte **Nápověda a podpora** a pak vyberte **nová žádost o podporu** pod **Podporu** oddílu. Žádost o podporu.
+Pokud dojde k problému s cloudovou službou, podpora je poskytována prostřednictvím služby Microsoft Customer Support Services (CSS). Chcete-li otevřít žádost o podporu, vyberte ikonu Nápověda a podpora (otazník) v pravém horním rohu portálu pro správu, vyberte možnost **Nápověda a podpora**a potom v části **Podpora** vyberte možnost **Nová žádost o podporu** .
 
-Pokud se vyskytl problém s nasazením, opravy a aktualizace, hardwaru (včetně pole replaceable jednotek) a veškerý software pod značkou jiných hardwaru, jako je software spuštěný na hostiteli životního cyklu hardwaru, obraťte se na vašeho OEM dodavatele hardwaru nejprve.
+Pokud dojde k potížím s nasazením, opravou a aktualizací, hardwarem (včetně nahraditelných jednotek v poli) nebo jakýmkoli softwarem v hardwarovém prostředí, jako je třeba software spuštěný na hostiteli životního cyklu hardwaru, obraťte se na dodavatele hardwaru výrobce OEM.
 
-Pokud se vyskytl problém s nasazením, opravy a aktualizace hardwaru (včetně pole replaceable jednotek) a veškerý software pod značkou jiných hardwaru, jako je například software spuštěný na hostiteli životního cyklu hardwaru, obraťte se na vašeho OEM dodavatele hardwaru nejprve. Na něco jiného obraťte se na Microsoft CSS.
+U cokoli jiného kontaktujte Microsoft CSS.
 
 ### <a name="azure-stack-development-kit-asdk"></a>Azure Stack Development Kit (ASDK)
 
-Pro ASDK, můžete klást otázky týkající se podpory v [fórech Microsoftu](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). Pokud vyberte ikonu nápovědy a podpory (otazník) v pravém horním rohu portálu správce a pak vyberte **Nápověda a podpora** a pak vyberte **DISKUZNÍ fóra MSDN** pod  **Podpora** oddílu.  Otevře se web fóra. Tato fóra jsou pravidelně monitorované. Vzhledem k tomu, ASDK zkušební prostředí, neexistuje žádné oficiální podpora dostupná prostřednictvím Microsoft CSS.
+Pro ASDK se můžete zeptat na dotazy související s podporou na [fórech Microsoftu](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). Pokud se chcete dostat do fóra, v pravém horním rohu portálu pro správu vyberte ikonu Nápověda a podpora (otazník), pak vyberte **Nápověda a podpora**a potom v části **Podpora** vyberte **fóra MSDN** . Tato fóra se pravidelně monitorují. Vzhledem k tomu, že ASDK je zkušební prostředí, není oficiální podpora nabídnuta prostřednictvím šablon stylů CSS společnosti Microsoft.
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
-[Správa oblastí ve službě Azure Stack](azure-stack-region-management.md)
+[Správa oblastí v Azure Stack](azure-stack-region-management.md)

@@ -1,6 +1,6 @@
 ---
-title: Auditování Azure Stack fyzického zařízení
-description: Zjistěte, jak integrovat auditování přístupu k fyzického zařízení ve službě Azure Stack
+title: Integrace fyzického auditu zařízení s Azure Stack Datacenter | Microsoft Docs
+description: Naučte se integrovat auditování přístupu fyzických zařízení k vašemu Azure Stack datacentra.
 services: azure-stack
 author: PatAltimore
 manager: femila
@@ -11,33 +11,31 @@ ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 06/10/2019
 keywords: ''
-ms.openlocfilehash: 5ded88064fa91222ca061073f72c9f3b539c374c
-ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
+ms.openlocfilehash: b5fa17b3913db7ebec210fc3bf986bac6414368e
+ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66828283"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72277220"
 ---
-# <a name="azure-stack-datacenter-integration---physical-device-auditing"></a>Integrace datových center Azure Stack – auditování fyzického zařízení
+# <a name="integrate-physical-device-auditing-with-your-azure-stack-datacenter"></a>Integrace fyzického auditu zařízení s Azure Stack Datacenter
 
-Všechny fyzické zařízení ve službě Azure Stack, jako jsou řadiče pro správu základní desky (BMC) a síťové přepínače, vysílala protokoly auditu. Protokoly auditu můžete integrovat vaše celkové řešení auditování. Vzhledem k tomu, že zařízení se liší v různých dodavatelů hardware Azure Stack pro výrobce OEM, obraťte se na dodavatele dokumentaci k integraci auditování.
-Následující části obsahují některé obecné informace pro auditování fyzického zařízení ve službě Azure Stack.  
+Všechna fyzická zařízení v Azure Stack, jako jsou řadiče pro správu základní desky (BMC) a přepínače sítě, generují protokoly auditu. Protokoly auditu můžete integrovat do svého celkového řešení auditování. Vzhledem k tomu, že se zařízení liší v různých Azure Stack dodavatelích hardwaru OEM, požádejte dodavatele o dokumentaci o integraci auditu. V následujících částech najdete obecné informace o auditování fyzických zařízení v Azure Stack.  
 
-## <a name="physical-device-access-auditing"></a>Auditování přístupu k fyzickým zařízením
+## <a name="physical-device-access-auditing"></a>Auditování přístupu fyzických zařízení
 
-Všechny fyzické zařízení ve službě Azure Stack podporují použití TACACS nebo pomocí protokolu RADIUS. Podpora zahrnuje přístup k řadiči pro správu základní desky (BMC) a síťové přepínače.
+Všechna fyzická zařízení v Azure Stack podporují použití rozhraní TACACS nebo RADIUS. Podpora zahrnuje přístup k řadiči pro správu základní desky (BMC) a síťovým přepínačům.
 
-Řešení Azure Stack se nedodává s protokolem RADIUS nebo TACACS součástí. Ale řešení ověřily pro podporu použití existující RADIUS nebo TACACS řešení na trhu.
+Azure Stack řešení se nedodává s integrovaným protokolem RADIUS nebo TACACS. Řešení však byla ověřena tak, aby podporovala používání stávajících řešení RADIUS nebo TACACS dostupných na trhu.
 
-Pro RADIUS pouze MSCHAPv2 potvrzená. To představuje nejbezpečnější implementace pomocí protokolu RADIUS.
-Poraďte se s OEM dodavatele hardwaru pro povolení TACAS nebo pomocí protokolu RADIUS v zařízení zahrnutých v rámci řešení pro Azure Stack.
+Pouze pro poloměr byl ověřen protokol MSCHAPv2. To představuje nejbezpečnější implementaci pomocí protokolu RADIUS. Projděte si dodavatele hardwaru OEM a povolte TACAS nebo RADIUS v zařízeních, která jsou součástí vašeho řešení Azure Stack.
 
-## <a name="syslog-forwarding-for-network-devices"></a>Předávání Syslog pro síťová zařízení
+## <a name="syslog-forwarding-for-network-devices"></a>Předávání syslogu pro síťová zařízení
 
-Všechny fyzické síťové zařízení ve službě Azure Stack podporují zprávy syslog. Řešení Azure Stack se nedodává s syslog server. Ale zařízení ověřily pro podporu odesílání zpráv do existujícího řešení syslog na trhu.
+Všechna fyzická síťová zařízení v Azure Stack podporují zprávy syslog. Azure Stack řešení se nedodává se serverem syslog. Zařízení se ale ověřila tak, aby podporovala odesílání zpráv na stávající řešení syslog dostupná na trhu.
 
-Cílová adresa syslog je volitelný parametr shromážděných pro nasazení, ale také přidáním po nasazení. Poraďte se s OEM dodavatele hardwaru a nakonfigurujte předávání v síťových zařízeních syslog.
+Cílová adresa syslog je volitelný parametr, který se shromažďuje pro nasazení, ale dá se taky přidat po nasazení. Pokud chcete nakonfigurovat předávání syslogu na vašich síťových zařízeních, obraťte se na dodavatele hardwaru OEM.
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 [Zásady údržby](azure-stack-servicing-policy.md)

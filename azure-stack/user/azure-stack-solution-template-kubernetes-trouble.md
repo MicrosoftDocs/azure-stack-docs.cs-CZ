@@ -11,15 +11,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.author: mabrigg
-ms.date: 06/18/2019
+ms.date: 10/10/2019
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 8d6730135e2a7055fc50f5c69918d1f0b2dbe5af
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: 14a32696a3e46782b8990ba57f9510976200f7d3
+ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71823873"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72277571"
 ---
 # <a name="troubleshoot-kubernetes-deployment-to-azure-stack"></a>Řešení potíží s nasazením Kubernetes pro Azure Stack
 
@@ -45,10 +45,10 @@ Následující diagram ukazuje obecný proces nasazení clusteru.
 1. Shromáždí vstupní parametry z položky Marketplace.
 
     Zadejte hodnoty, které potřebujete k nastavení clusteru Kubernetes, včetně:
-    -  **Uživatelské jméno**: Uživatelské jméno pro virtuální počítače (VM) pro Linux, které jsou součástí clusteru Kubernetes a DVM.
-    -  **Veřejný klíč SSH**: Klíč, který se používá pro autorizaci všech počítačů se systémem Linux, které byly vytvořeny jako součást clusteru Kubernetes a DVM.
+    -  **Uživatelské jméno**: uživatelské jméno pro virtuální počítače (VM) pro Linux, které jsou součástí clusteru KUBERNETES a DVM.
+    -  **Veřejný klíč SSH**: klíč, který se používá pro autorizaci všech počítačů se systémem Linux, které byly vytvořeny jako součást clusteru KUBERNETES a DVM.
     -  **Instanční objekt**: ID, které používá poskytovatel cloudu Azure Kubernetes. ID klienta identifikované jako ID aplikace při vytváření instančního objektu. 
-    -  **Tajný klíč klienta:** Klíč, který jste vytvořili při vytváření instančního objektu.
+    -  **Tajný klíč klienta**: klíč, který jste vytvořili při vytváření instančního objektu.
 
 2. Vytvořte virtuální počítač nasazení a rozšíření vlastních skriptů.
     -  Vytvořte virtuální počítač pro nasazení Linux pomocí webu Marketplace Linux image **Ubuntu Server 16,04-LTS**.
@@ -101,7 +101,7 @@ Na virtuálních počítačích, které podporují cluster Kubernetes, můžete 
 
 Když nasadíte cluster Kubernetes, můžete zkontrolovat stav nasazení a zkontrolovat případné problémy.
 
-1. Otevřít [portálu Azure Stack](https://portal.local.azurestack.external).
+1. Otevřete [portál Azure Stack](https://portal.local.azurestack.external).
 2. Vyberte **skupiny prostředků**a pak vyberte název skupiny prostředků, kterou jste použili při nasazování clusteru Kubernetes.
 3. Vyberte **nasazení**a potom vyberte **název nasazení**.
 
@@ -111,11 +111,11 @@ Když nasadíte cluster Kubernetes, můžete zkontrolovat stav nasazení a zkont
     
     | Vlastnost | Popis |
     | ----     | ----        |
-    | Resource | Název prostředku. |
-    | type | Poskytovatel prostředků a typ prostředku. |
+    | Partner | Název prostředku. |
+    | Typ | Poskytovatel prostředků a typ prostředku. |
     | Stav | Stav položky |
     | Časové razítko | Časové razítko UTC v čase. |
-    | Detaily operace | Podrobnosti o operaci, jako je například poskytovatel prostředků, který byl součástí operace, koncový bod prostředku a název prostředku. |
+    | Podrobnosti operace | Podrobnosti o operaci, jako je například poskytovatel prostředků, který byl součástí operace, koncový bod prostředku a název prostředku. |
 
     Každá položka má ikonu stavu zelenou nebo červenou.
 
@@ -131,7 +131,7 @@ K počítači, který použijete ke správě Azure Stack, budete potřebovat vý
 
 Pomocí těchto kroků můžete shromáždit a stáhnout protokoly clusteru:
 
-1. Otevřete příkazový řádek bash. Z počítače s Windows otevřete _Git bash_ nebo spusťte: `C:\Program Files\Git\git-bash.exe`.
+1. Otevřete příkazový řádek bash. Z počítače se systémem Windows otevřete _Git bash_ nebo spusťte: `C:\Program Files\Git\git-bash.exe`.
 
 2. Spuštěním následujících příkazů v příkazovém řádku bash Stáhněte skript kolektoru protokolů:
 
@@ -146,10 +146,10 @@ Pomocí těchto kroků můžete shromáždit a stáhnout protokoly clusteru:
 
     | Parametr           | Popis                                                                                                      | Příklad                                                                       |
     |---------------------|------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
-    | -d, --vmd-host      | Veřejná IP adresa nebo plně kvalifikovaný název domény (FQDN) pro DVM. Název virtuálního počítače začíná na `vmd-`. | IP: 192.168.102.38<br>DNS: VMD-myk8s. Local. cloudapp. azurestack. external |
+    | -d,--VMD-Host      | Veřejná IP adresa nebo plně kvalifikovaný název domény (FQDN) pro DVM. Název virtuálního počítače začíná na `vmd-`. | IP ADRESA: 192.168.102.38<br>DNS: VMD-myk8s. Local. cloudapp. azurestack. external |
     | -h,--help  | Použití příkazu tisku. | |
-    | -i,--identity-File | Cesta k souboru privátního klíče RSA předanému položce Marketplace při vytváření clusteru Kubernetes. Vyžaduje se pro vzdálené přihlášení k uzlům Kubernetes. | C:\data\id_rsa.pem (Putty)<br>~/.ssh/id_rsa (SSH)
-    | -m,--Master-Host   | Veřejná IP adresa nebo plně kvalifikovaný název domény (FQDN) hlavního uzlu Kubernetes Název virtuálního počítače začíná na `k8s-master-`. | IP: 192.168.102.37<br>Plně kvalifikovaný název domény: k8s-12345. Local. cloudapp. azurestack. external      |
+    | -i,--identity-File | Cesta k souboru privátního klíče RSA předanému položce Marketplace při vytváření clusteru Kubernetes. Vyžaduje se pro vzdálené přihlášení k uzlům Kubernetes. | C:\data\id_rsa.pem (výstupu)<br>~/.ssh/id_rsa (SSH)
+    | -m,--Master-Host   | Veřejná IP adresa nebo plně kvalifikovaný název domény (FQDN) hlavního uzlu Kubernetes Název virtuálního počítače začíná na `k8s-master-`. | IP ADRESA: 192.168.102.37<br>Plně kvalifikovaný název domény: k8s-12345. Local. cloudapp. azurestack. external      |
     | -u,--User          | Uživatelské jméno předané položce Marketplace při vytváření clusteru Kubernetes. Vyžaduje se pro vzdálené přihlášení k uzlům Kubernetes. | azureuser (výchozí hodnota) |
 
 
