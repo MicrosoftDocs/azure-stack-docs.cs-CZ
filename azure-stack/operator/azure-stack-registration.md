@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2019
+ms.date: 10/14/2019
 ms.author: mabrigg
 ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: 27dda5b79525c4a5d1c12c998077bb19cbea0079
-ms.sourcegitcommit: 9f4c6e96f60b4c229316e7a4ab6e0e5ef0a9a232
+ms.openlocfilehash: e972c7799b8cac37d1cd75cda9dc4e94a7ae73e2
+ms.sourcegitcommit: 5eae057cb815f151e6b8af07e3ccaca4d8e4490e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71061181"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72310552"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registrace Azure Stack s využitím Azure
 
@@ -32,7 +32,7 @@ Informace v tomto článku popisují registraci Azure Stack integrovaných syst�
 > [!IMPORTANT]  
 > K podpoře úplných funkcí Azure Stack, včetně položek nabídky na webu Marketplace, je nutná registrace. Pokud se nezaregistrujete při použití modelu fakturace s průběžnými platbami, budete mít porušení licenčních podmínek Azure Stack. Další informace o Azure Stack modelech licencování najdete na [stránce Jak koupit](https://azure.microsoft.com/overview/azure-stack/how-to-buy/).
 
-## <a name="prerequisites"></a>Požadavky
+## <a name="prerequisites"></a>Předpoklady
 
 Před registrací musíte splnit následující předpoklady:
 
@@ -46,7 +46,7 @@ Před registrací musíte splnit následující předpoklady:
 
 Před registrací Azure Stack s Azure musíte mít:
 
-- ID předplatného pro předplatné Azure. Pro registraci jsou podporovány pouze odběry služeb EA, CSP nebo CSP sdílené služby. CSP musí rozhodnout, jestli se má [použít předplatné CSP nebo APSS](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-apss-subscription).<br><br>ID získáte tak, že se přihlásíte k Azure a kliknete na **všechny služby**. Pak v kategorii **Obecné** vyberte předplatná,klikněte na předplatné, které chcete použít, a v části **Essentials** můžete najít ID předplatného.
+- ID předplatného pro předplatné Azure. Pro registraci jsou podporovány pouze odběry služeb EA, CSP nebo CSP sdílené služby. CSP musí rozhodnout, jestli se má [použít předplatné CSP nebo APSS](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-apss-subscription).<br><br>ID získáte tak, že se přihlásíte k Azure a kliknete na **všechny služby**. Pak v kategorii **Obecné** vyberte **předplatná**, klikněte na předplatné, které chcete použít, a v části **Essentials** můžete najít ID předplatného. Jako osvědčený postup použijte samostatné odběry pro produkční a vývojové nebo testovací prostředí. 
 
   > [!Note]  
   > V současné době se nepodporují předplatná pro Německo Cloud.
@@ -137,7 +137,7 @@ Připojená prostředí mají přístup k Internetu a k Azure. V těchto prostř
    | EnvironmentName | Název prostředí Azure Cloud Subscription. Podporované názvy prostředí jsou **AzureCloud**, **AzureUSGovernment**, nebo pokud používáte čínské předplatné Azure **AzureChinaCloud**.  |
 
    >[!Note]
-   > Pokud vaše relace vyprší, vaše heslo se změnilo nebo chcete jednoduše přepnout účty, spusťte následující rutinu ještě před přihlášením pomocí rutiny Add-AzureRmAccount:`Remove-AzureRmAccount-Scope Process`
+   > Pokud vaše relace vyprší, vaše heslo se změnilo nebo chcete jednoduše přepnout účty, spusťte následující rutinu ještě před přihlášením pomocí rutiny Add-AzureRmAccount: `Remove-AzureRmAccount-Scope Process`.
 
 3. Máte-li více předplatných, spusťte následující příkaz a vyberte ten, který chcete použít:  
 
@@ -178,7 +178,7 @@ Připojená prostředí mají přístup k Internetu a k Azure. V těchto prostř
       -BillingModel PayAsYouUse `
       -RegistrationName $RegistrationName
    ```
-   Další informace o rutině Set-AzsRegistration najdete v referenčních informacích k [registraci](#registration-reference).
+   Další informace o rutině Set-AzsRegistration najdete v [referenčních](#registration-reference)informacích k registraci.
 
    Proces trvá od 10 do 15 minut. Až se příkaz dokončí, zobrazí se zpráva **"vaše prostředí je teď zaregistrované a aktivované pomocí zadaných parametrů."**
 
@@ -230,7 +230,7 @@ Připojená prostředí mají přístup k Internetu a k Azure. V těchto prostř
    > [!Note]  
    > Pomocí parametru UsageReportingEnabled pro rutinu **set-AzsRegistration** můžete zakázat funkci generování sestav využití nastavením parametru na hodnotu false. 
    
-   Další informace o rutině Set-AzsRegistration najdete v referenčních informacích k [registraci](#registration-reference).
+   Další informace o rutině Set-AzsRegistration najdete v [referenčních](#registration-reference)informacích k registraci.
 
 ## <a name="register-disconnected-with-capacity-billing"></a>Registrovat odpojeno pomocí fakturace kapacity
 
@@ -250,7 +250,7 @@ Pokud zaregistrujete Azure Stack v odpojeném prostředí (bez připojení k Int
    $FilePathForRegistrationToken = "$env:SystemDrive\RegistrationToken.txt"
    $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential $YourCloudAdminCredential -UsageReportingEnabled:$False -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel Capacity -AgreementNumber '<EA agreement number>' -TokenOutputFilePath $FilePathForRegistrationToken
    ```
-   Další informace o rutině Get-AzsRegistrationToken najdete v referenčních informacích k [registraci](#registration-reference).
+   Další informace o rutině Get-AzsRegistrationToken najdete v [referenčních](#registration-reference)informacích k registraci.
 
    > [!Tip]  
    > Registrační token je uložený v souboru určeném pro *$FilePathForRegistrationToken*. Můžete změnit cestu k souboru FilePath nebo filename podle vašeho uvážení.
@@ -336,14 +336,14 @@ Pomocí dlaždice **Správa oblastí** můžete ověřit, že byla registrace Az
 
 2. Z řídicího panelu vyberte **Správa oblastí**.
 
-3. Vyberte **vlastnosti**. Toto okno zobrazuje stav a podrobnosti vašeho prostředí. Stav lze **zaregistrovat**, **není**zaregistrováno nebo **vypršela jeho platnost**.
+3. Vyberte **Vlastnosti**. Toto okno zobrazuje stav a podrobnosti vašeho prostředí. Stav lze **zaregistrovat**, **není zaregistrováno**nebo **vypršela jeho platnost**.
 
-    [![Dlaždice správy oblastí](media/azure-stack-registration/admin1sm.png "Dlaždice správy oblastí")](media/azure-stack-registration/admin1.png#lightbox)
+    [(media/azure-stack-registration/admin1sm.png "Dlaždice") správy oblastí na ![dlaždici Správa oblastí]](media/azure-stack-registration/admin1.png#lightbox)
 
     Pokud jsou zaregistrované, zahrnují tyto vlastnosti:
     
-    - **ID odběru registrace**: ID předplatného Azure, které je zaregistrované a přidružené k Azure Stack
-    - **Skupina prostředků registrace**: Skupina prostředků Azure v souvisejícím předplatném, které obsahuje prostředky Azure Stack.
+    - **ID předplatného registrace**: ID předplatného Azure, které je zaregistrované a přidružené k Azure Stack
+    - **Skupina prostředků registrace**: Skupina prostředků Azure v přidruženém předplatném, které obsahuje prostředky Azure Stack.
 
 4. Azure Portal můžete použít k zobrazení prostředků registrace Azure Stack a pak ověřte, že se registrace úspěšně dokončila. Přihlaste se k [Azure Portal](https://portal.azure.com) pomocí účtu přidruženého k předplatnému, které jste použili k registraci Azure Stack. Vyberte **všechny prostředky**, povolte zaškrtávací políčko **Zobrazit skryté typy** a vyberte název registrace.
 5. Pokud se registrace nezdařila, je nutné znovu provést registraci pomocí následujících [kroků](#change-the-subscription-you-use) pro vyřešení problému.  
@@ -365,7 +365,7 @@ Registraci budete muset aktualizovat nebo obnovit v následujících případech
 
 #### <a name="change-the-subscription-you-use"></a>Změna předplatného, které používáte
 
-Pokud chcete změnit předplatné, které používáte, musíte nejdřív spustit rutinu **Remove-AzsRegistration** , ověřit, že jste přihlášeni ke správnému kontextu Azure PowerShell a nakonec spustit rutinu **set-AzsRegistration** s případnými změněnými parametry. zahrnutí `<billing model>`:
+Pokud chcete změnit předplatné, které používáte, musíte nejdřív spustit rutinu **Remove-AzsRegistration** , ověřit, že jste přihlášeni ke správnému kontextu Azure PowerShell a nakonec spustit rutinu **set-AzsRegistration** s případnými změněnými parametry. včetně `<billing model>`:
 
   ```powershell  
   Remove-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -RegistrationName $RegistrationName
@@ -452,7 +452,7 @@ U Azure Stack prostředí, která používají model fakturace kapacity, vypnět
 
 ## <a name="move-a-registration-resource"></a>Přesunutí prostředku registrace
 
-Přesunutí prostředku registrace mezi skupinami prostředků v rámci stejného předplatného **je** podporováno pro všechna prostředí. Přesun registračního prostředku mezi předplatnými se ale podporuje jenom pro zprostředkovatele CSP, pokud oba odběry řeší stejné ID partnera. Další informace o přesouvání prostředků do nové skupiny prostředků najdete v tématu [Přesunutí prostředků do nové skupiny prostředků nebo](/azure/azure-resource-manager/resource-group-move-resources)předplatného.
+Přesunutí prostředku registrace mezi skupinami prostředků v rámci stejného předplatného **je** podporováno pro všechna prostředí. Přesun registračního prostředku mezi předplatnými se ale podporuje jenom pro zprostředkovatele CSP, pokud oba odběry řeší stejné ID partnera. Další informace o přesouvání prostředků do nové skupiny prostředků najdete v tématu [Přesunutí prostředků do nové skupiny prostředků nebo předplatného](/azure/azure-resource-manager/resource-group-move-resources).
 
 > [!IMPORTANT]
 > Aby se zabránilo nechtěnému odstranění prostředků registrace na portálu, registrační skript automaticky přidá ke zdroji zámek. Před přesunutím nebo odstraněním tohoto zámku je nutné tento zámek odebrat. Doporučuje se přidat zámek k registračnímu prostředku, abyste zabránili nechtěnému odstranění.
@@ -475,16 +475,16 @@ Set-AzsRegistration [-PrivilegedEndpointCredential] <PSCredential> [-PrivilegedE
     <String>] [<CommonParameters>]
 ```
 
-| Parametr | type | Popis |
+| Parametr | Typ | Popis |
 |-------------------------------|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | PrivilegedEndpointCredential | PSCredential | Přihlašovací údaje použité pro [přístup k privilegovanému koncovému bodu](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). Uživatelské jméno má formát **AzureStackDomain\CloudAdmin**. |
 | PrivilegedEndpoint | Řetězec | Předem nakonfigurovaná Vzdálená konzola PowerShellu, která poskytuje možnosti, jako je shromažďování protokolů a další úkoly po nasazení. Další informace najdete v článku [použití privilegovaného koncového bodu](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) . |
 | AzureContext | PSObject |  |
 | ResourceGroupName | Řetězec |  |
 | ResourceGroupLocation | Řetězec |  |
-| BillingModel | Řetězec | Model fakturace, který používá vaše předplatné. Povolené hodnoty pro tento parametr jsou: Kapacita, PayAsYouUse a vývoj. |
-| MarketplaceSyndicationEnabled | True nebo False | Určuje, jestli je na portálu dostupná funkce správy Marketplace. Nastavte na hodnotu true, pokud se registruje s připojením k Internetu. Nastavte na hodnotu false, pokud se registruje v odpojených prostředích. U odpojených registrací se dá [Nástroj pro offline syndikaci](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario) použít ke stažení položek Marketplace. |
-| UsageReportingEnabled | True nebo False | Ve výchozím nastavení Azure Stack sestavy metriky využití. Používání funkce vytváření sestav vyžaduje, aby operátoři s využitím kapacity nebo podpora odpojeného prostředí vypnuli. Povolené hodnoty pro tento parametr jsou: True, false. |
+| BillingModel | Řetězec | Model fakturace, který používá vaše předplatné. Povolené hodnoty pro tento parametr jsou: Capacity, PayAsYouUse a vývoj. |
+| MarketplaceSyndicationEnabled | True nebo false | Určuje, jestli je na portálu dostupná funkce správy Marketplace. Nastavte na hodnotu true, pokud se registruje s připojením k Internetu. Nastavte na hodnotu false, pokud se registruje v odpojených prostředích. U odpojených registrací se dá [Nástroj pro offline syndikaci](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario) použít ke stažení položek Marketplace. |
+| UsageReportingEnabled | True nebo false | Ve výchozím nastavení Azure Stack sestavy metriky využití. Používání funkce vytváření sestav vyžaduje, aby operátoři s využitím kapacity nebo podpora odpojeného prostředí vypnuli. Povolené hodnoty pro tento parametr jsou: true, false. |
 | AgreementNumber | Řetězec |  |
 | registrace | Řetězec | Pokud používáte registrační skript ve více než jedné instanci Azure Stack s použitím stejného ID předplatného Azure, nastavte pro registraci jedinečný název. Parametr má výchozí hodnotu **AzureStackRegistration**. Pokud však použijete stejný název na více než jedné instanci Azure Stack, skript se nezdařil. |
 
@@ -497,16 +497,16 @@ Get-AzsRegistrationToken [-PrivilegedEndpointCredential] <PSCredential> [-Privil
     [-BillingModel] <String> [[-TokenOutputFilePath] <String>] [-UsageReportingEnabled] [[-AgreementNumber] <String>]
     [<CommonParameters>]
 ```
-| Parametr | type | Popis |
+| Parametr | Typ | Popis |
 |-------------------------------|--------------|-------------|
 | PrivilegedEndpointCredential | PSCredential | Přihlašovací údaje použité pro [přístup k privilegovanému koncovému bodu](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). Uživatelské jméno má formát **AzureStackDomain\CloudAdmin**. |
 | PrivilegedEndpoint | Řetězec |  Předem nakonfigurovaná Vzdálená konzola PowerShellu, která poskytuje možnosti, jako je shromažďování protokolů a další úkoly po nasazení. Další informace najdete v článku [použití privilegovaného koncového bodu](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) . |
 | AzureContext | PSObject |  |
 | ResourceGroupName | Řetězec |  |
 | ResourceGroupLocation | Řetězec |  |
-| BillingModel | Řetězec | Model fakturace, který používá vaše předplatné. Povolené hodnoty pro tento parametr jsou: Kapacita, PayAsYouUse a vývoj. |
-| MarketplaceSyndicationEnabled | True nebo False |  |
-| UsageReportingEnabled | True nebo False | Ve výchozím nastavení Azure Stack sestavy metriky využití. Používání funkce vytváření sestav vyžaduje, aby operátoři s využitím kapacity nebo podpora odpojeného prostředí vypnuli. Povolené hodnoty pro tento parametr jsou: True, false. |
+| BillingModel | Řetězec | Model fakturace, který používá vaše předplatné. Povolené hodnoty pro tento parametr jsou: Capacity, PayAsYouUse a vývoj. |
+| MarketplaceSyndicationEnabled | True nebo false |  |
+| UsageReportingEnabled | True nebo false | Ve výchozím nastavení Azure Stack sestavy metriky využití. Používání funkce vytváření sestav vyžaduje, aby operátoři s využitím kapacity nebo podpora odpojeného prostředí vypnuli. Povolené hodnoty pro tento parametr jsou: true, false. |
 | AgreementNumber | Řetězec |  |
 
 ## <a name="registration-failures"></a>Selhání registrace
@@ -524,6 +524,6 @@ Při pokusu o přístup ke správě Marketplace dojde k chybě při pokusu o zas
 Správa Marketplace se stále zeptá, abyste zaregistrovali a aktivovali Azure Stack, i když jste razítko už zaregistrovali pomocí odpojeného procesu. 
 > Příčina: Jedná se o známý problém pro odpojená prostředí. Stav registrace můžete ověřit pomocí následujících [kroků](azure-stack-registration.md#verify-azure-stack-registration). Aby bylo možné používat správu na webu Marketplace, budete muset použít [offline nástroj](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario). 
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 [Stažení položek z Marketplace z Azure](azure-stack-download-azure-marketplace-item.md)

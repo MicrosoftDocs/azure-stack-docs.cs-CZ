@@ -3,7 +3,7 @@ title: Vývoj šablon pro Azure Stack | Microsoft Docs
 description: Naučte se vyvíjet šablony Azure Resource Manager pro přenositelnost aplikací mezi Azure a Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: sethmanheim
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: 8a5bc713-6f51-49c8-aeed-6ced0145e07b
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/01/2019
-ms.author: sethm
+ms.author: mabrigg
 ms.reviewer: unknown
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: 5cd8e87613d1d4aa4adc8dedac7dcac4fa57eae2
-ms.sourcegitcommit: bbf3edbfc07603d2c23de44240933c07976ea550
+ms.openlocfilehash: 96e43607809c192b9498c092b4a2584cec40a515
+ms.sourcegitcommit: 7226979ece29d9619c959b11352be601562b41d3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71714721"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72304100"
 ---
 # <a name="develop-templates-for-azure-stack-with-azure-resource-manager"></a>Vývoj šablon pro Azure Stack s využitím Azure Resource Manager
 
@@ -35,7 +35,7 @@ Při vývoji aplikace je důležité mít přenositelnost šablon mezi Azure a A
 
 ## <a name="public-namespaces"></a>Veřejné obory názvů
 
-Vzhledem k tomu, že Azure Stack hostuje vaše datové centrum, má jiné obory názvů koncového bodu služby než veřejný cloud Azure. V důsledku toho pevně zakódované veřejné koncové body v šablonách Azure Resource Manager selžou při pokusu o jejich nasazení do Azure Stack. Koncovým bodům služby můžete dynamicky sestavovat `concatenate` pomocí `reference` funkcí a k načtení hodnot od poskytovatele prostředků během nasazování. Například místo hardwarového kódování `blob.core.windows.net` ve vaší šabloně načtěte [objekt primaryEndpoints. blob](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-vm-windows-create/azuredeploy.json#L175) k dynamickému nastavení koncového bodu *osDisk. URI* :
+Vzhledem k tomu, že Azure Stack hostuje vaše datové centrum, má jiné obory názvů koncového bodu služby než veřejný cloud Azure. V důsledku toho pevně zakódované veřejné koncové body v šablonách Azure Resource Manager selžou při pokusu o jejich nasazení do Azure Stack. Koncové body služby můžete dynamicky sestavovat pomocí funkcí `reference` a `concatenate` k načtení hodnot od poskytovatele prostředků během nasazování. Například místo hardwarového kódování `blob.core.windows.net` ve vaší šabloně načtěte [objekt primaryEndpoints. blob](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-vm-windows-create/azuredeploy.json#L175) k dynamickému nastavení koncového bodu *osDisk. URI* :
 
 ```json
 "osDisk": {"name": "osdisk","vhd": {"uri":
@@ -49,11 +49,11 @@ Verze služeb Azure se můžou mezi Azure a Azure Stack lišit. Každý prostře
 
 | Poskytovatel prostředků | apiVersion |
 | --- | --- |
-| Compute |**2015-06-15** |
-| Síť |**2015-06-15**, **2015-05-01-preview** |
-| Storage |**2016-01-01**, **2015-06-15**, **2015-05-01-preview** |
+| Služby Compute |**2015-06-15** |
+| Síť |**2015-06-15**, **2015-05-01 – Preview** |
+| Úložiště |**2016-01-01**, **2015-06-15**, **2015-05-01 – Preview** |
 | KeyVault | **2015-06-01** |
-| App Service |**2015-08-01** |
+| Aplikační služba |**2015-08-01** |
 
 ## <a name="template-functions"></a>Funkce šablon
 
@@ -66,11 +66,11 @@ Verze služeb Azure se můžou mezi Azure a Azure Stack lišit. Každý prostře
 Tyto funkce nejsou k dispozici v Azure Stack:
 
 * Přeskočit
-* nezbytná
+* Nezbytná
 
 ## <a name="resource-location"></a>Umístění prostředku
 
-Azure Resource Manager šablony používají `location` atribut k umístění prostředků během nasazování. Umístění v Azure odkazuje na oblast, jako je Západní USA nebo Jižní Amerika. V Azure Stack umístění jsou odlišná, protože Azure Stack je ve vašem datovém centru. Chcete-li zajistit přenos šablon mezi Azure a Azure Stack, měli byste při nasazení jednotlivých prostředků odkazovat na umístění skupiny prostředků. To můžete provést pomocí `[resourceGroup().Location]` , aby všechny prostředky zdědily umístění skupiny prostředků. Následující kód je příkladem použití této funkce při nasazení účtu úložiště:
+Azure Resource Manager šablony používají k umístění prostředků během nasazování atribut `location`. Umístění v Azure odkazuje na oblast, jako je Západní USA nebo Jižní Amerika. V Azure Stack umístění jsou odlišná, protože Azure Stack je ve vašem datovém centru. Chcete-li zajistit přenos šablon mezi Azure a Azure Stack, měli byste při nasazení jednotlivých prostředků odkazovat na umístění skupiny prostředků. To můžete provést pomocí `[resourceGroup().Location]`, abyste zajistili, že všechny prostředky zdědí umístění skupiny prostředků. Následující kód je příkladem použití této funkce při nasazení účtu úložiště:
 
 ```json
 "resources": [

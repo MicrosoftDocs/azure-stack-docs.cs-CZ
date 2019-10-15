@@ -1,5 +1,5 @@
 ---
-title: Nasazení aplikací do Azure a Azure Stack
+title: Nasazení aplikací na platformy Azure a Azure Stack
 description: Naučte se nasazovat aplikace do Azure a Azure Stack pomocí hybridního kanálu CI/CD.
 services: azure-stack
 documentationcenter: ''
@@ -10,19 +10,19 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 07/23/2019
+ms.date: 10/07/2019
 ms.topic: conceptual
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/07/2018
-ms.openlocfilehash: eb9ed23437d5fd708d3f98d5a5b601f3ed1a02a0
-ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
+ms.openlocfilehash: c821f35928df5da4c34455a0b541699b0a84d490
+ms.sourcegitcommit: 5eae057cb815f151e6b8af07e3ccaca4d8e4490e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72283722"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72310652"
 ---
-# <a name="deploy-apps-to-azure-and-azure-stack"></a>Nasazení aplikací do Azure a Azure Stack
+# <a name="deploy-apps-to-azure-and-azure-stack"></a>Nasazení aplikací na platformy Azure a Azure Stack
 
 *Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
 
@@ -57,14 +57,14 @@ Kontinuita nasazení aplikace, zabezpečení a spolehlivost jsou kritické prvky
 > @no__t -0hybrid-Pillars. png @ no__t-1  
 > [Vzor návrhu hybridního cloudu pro Azure Stack](azure-stack-edge-pattern-overview.md) kontroluje pilíře kvality softwaru pro navrhování, nasazování a provozování hybridních aplikací. Mezi kritéria kvality patří umístění, škálovatelnost, dostupnost, odolnost, možnosti správy a zabezpečení. Tyto otázky návrhu pomáhají při optimalizaci návrhu hybridní aplikace a minimalizaci výzev v produkčních prostředích.
 
-## <a name="prerequisites"></a>Požadavky
+## <a name="prerequisites"></a>Předpoklady
 
 - Základní znalosti Azure a Azure Stack. Pokud chcete získat další informace před nasazením tohoto řešení, přečtěte si následující články:
   
   - [Seznámení s Azure](https://azure.microsoft.com/overview/what-is-azure/)
   - [Přehled Azure Stack](../operator/azure-stack-overview.md)
   
-- Předplatné Azure. Pokud ho ještě nemáte, [Vytvořte si bezplatný účet](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) před tím, než začnete.
+- Předplatné Azure. Pokud ho nemáte, [vytvořte si bezplatný účet](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) před tím, než začnete.
   
 - Webová aplikace vytvořená v Azure Pomocí [šablony Azure Resource Manager](https://azure.microsoft.com/resources/templates/) vytvoříte webovou aplikaci, kterou můžete nasadit v místním prostředí i ve veřejném cloudu. Poznamenejte si identifikátor URI aplikace pro pozdější použití. 
   
@@ -122,7 +122,7 @@ K nakonfigurování ověřování pro vaši aplikaci můžete použít Azure Por
 K vytvoření instančního objektu a koncových bodů můžete [použít také skript prostředí PowerShell](https://github.com/Microsoft/vsts-rm-extensions/blob/master/TaskModules/powershell/Azure/SPNCreation.ps1#L5) . Tento proces vysvětluje článek [vytvoření připojení služby Azure Resource Manager s existujícím objektem služby](/vsts/pipelines/library/connect-to-azure?view=vsts#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal) .
 
  > [!Note]  
- > Pokud k vytvoření Azure Stackho koncového bodu Azure Resource Manager použijete skript prostředí PowerShell, musíte předat parametr **-azureStackManagementURL** a parametr **-Environment** . Příklad:  
+ > Pokud k vytvoření Azure Stackho koncového bodu Azure Resource Manager použijete skript prostředí PowerShell, musíte předat parametr **-azureStackManagementURL** a parametr **-Environment** . Například:  
  > `-azureStackManagementURL https://management.local.azurestack.external -environmentName AzureStack`
 
 ### <a name="register-your-app-in-azure-ad"></a>Registrace aplikace ve službě Azure AD 
@@ -135,9 +135,9 @@ K vytvoření instančního objektu a koncových bodů můžete [použít také 
    1. Zadejte název vaší webové aplikace.
    1. Vyberte podporovaný typ účtu. 
    1. V části **identifikátor URI pro přesměrování**vyberte **Web** pro typ aplikace, kterou chcete vytvořit, a zadejte identifikátor URI vaší webové aplikace. 
-   1. Vyberte **Registrovat**.
+   1. Vyberte **Zaregistrovat**.
       
-      ![Registrace aplikace](./media/azure-stack-solution-pipeline/create-app.png) 
+      ![Registrace vaší aplikace](./media/azure-stack-solution-pipeline/create-app.png) 
 
 ### <a name="assign-the-app-to-a-role"></a>Přiřazení aplikace k roli
 
@@ -171,7 +171,7 @@ Vaše instanční objekt je nastavený. V další části se dozvíte, jak získ
 
 Při vytváření koncových bodů pro Azure Pipelines musíte zadat ID tenanta a ID aplikace. Získání těchto hodnot:
 
-1. V Azure Portal vyberte **Azure Active Directory**.
+1. Na portálu Azure Portal vyberte **Azure Active Directory**.
    
 1. V levém navigačním panelu vyberte **Registrace aplikací**a pak vyberte svou aplikaci.
    
@@ -187,7 +187,7 @@ Pomocí postupu v části [certifikáty a tajné](/azure/active-directory/develo
 
 Nebo, pokud chcete vytvořit nový tajný klíč aplikace:
 
-1. V Azure Portal vyberte **Azure Active Directory**.
+1. Na portálu Azure Portal vyberte **Azure Active Directory**.
    
 1. V levém navigačním panelu vyberte **Registrace aplikací**a pak vyberte svou aplikaci.
    
@@ -201,7 +201,7 @@ Nebo, pokud chcete vytvořit nový tajný klíč aplikace:
    
    ![Zkopírujte tajnou hodnotu, protože ji nemůžete později načíst.](./media/azure-stack-solution-pipeline/copy-secret.png)
 
-## <a name="create-endpoints"></a>Vytvoření koncových bodů
+## <a name="create-endpoints"></a>Vytváření koncových bodů
 
 Vytvořením koncových bodů může Azure Pipelines Build nasazovat aplikace služby Azure AD, aby se Azure Stack. Azure Pipelines se připojí k agentu sestavení, který se připojí k Azure Stack.
 
@@ -342,22 +342,64 @@ Hybridní CI/CD může platit pro kód aplikace i kód infrastruktury. Pomocí [
 1. Ve webovém prohlížeči otevřete svoji organizaci a projekt Azure DevOps.
    
 1. V levém navigačním panelu vyberte **kanály** > **sestavení** a pak vyberte **Nový kanál**. 
-   
-1. V části **Vybrat šablonu**vyberte šablonu **ASP.NET Core** a pak vyberte **použít**. 
-   
-1. Na stránce konfigurace v levém podokně vyberte **publikovat** .
-   
-1. V pravém podokně v části **argumenty**přidejte do konfigurace `-r win10-x64`. 
-   
-   ![Přidat argument kanálu sestavení](media/azure-stack-solution-pipeline/buildargument.png)
-   
-1. V horní části stránky vyberte **uložit & frontu** .
-   
-1. V dialogovém okně **Spustit kanál** vyberte **Uložit a spustit**. 
-   
-[Sestavení samostatného nasazení](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) publikuje artefakty, které mohou běžet na platformě Azure i Azure Stack.
 
-### <a name="create-a-release-pipeline"></a>Vytvoření kanálu pro vydání
+1. Vyberte úložiště kódu. Azure Pipelines analyzuje a identifikuje projekt jako ASP.NET Core a otevře výchozí šablonu sestavení ASP.NET Core *Azure-Pipelines. yml* . 
+   
+   ![Soubor ASP.NET Core Azure-Pipelines. yml](media/azure-stack-solution-pipeline/buildargument.png)
+   
+1. Kód kanálu můžete upravit přímo nebo můžete vybrat **Zobrazit asistenta** a otevřít podokno **úlohy** , které vám pomůže přidat úlohy a kroky. 
+   
+   Pokud vyberete možnost **Zobrazit pomocníka**, vyberte v podokně **úlohy** možnost **.NET Core** . Ve formuláři **.NET Core** :
+   - V části **příkaz**rozbalte rozevírací seznam a vyberte **publikovat**. 
+   - V části **argumenty**zadejte *-r Win10-x64*.
+   - Ujistěte se, že je vybrána možnost **publikovat webové projekty** .
+   - Vyberte **Přidat**.
+   
+   Namísto použití pomocníka můžete upravit a přidat následující kód přímo do souboru *Azure-Pipelines. yml* :
+   
+   - V části `pool` změňte `vmImage` z `ubuntu-latest` na `vs2017-win2016`.
+     
+   - V části `steps` přidejte úlohu [DotNetCoreCLI](/azure/devops/pipelines/tasks/build/dotnet-core-cli) , příkaz a argumenty: 
+     
+     ```yaml
+     - task: DotNetCoreCLI@2
+       inputs:
+         command: 'publish'
+         publishWebProjects: true
+         arguments: '-r win10-x64'
+     ```
+   Váš soubor *Azure-Pipelines. yml* by teď měl mít následující kód: 
+   
+   ```yaml
+   # ASP.NET Core
+   # Build and test ASP.NET Core projects targeting .NET Core.
+   # Add steps that run tests, create a NuGet package, deploy, and more:
+   # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
+   
+   trigger:
+   - master
+   
+   pool:
+     vmImage: 'vs2017-win2016'
+   
+   variables:
+     buildConfiguration: 'Release'
+
+   steps:
+   - script: dotnet build --configuration $(buildConfiguration)
+     displayName: 'dotnet build $(buildConfiguration)'
+   
+   - task: DotNetCoreCLI@2
+     inputs:
+       command: 'publish'
+       publishWebProjects: true
+       arguments: '-r win10-x64'
+   ```
+1. Vyberte **Uložit a spustit**, přidejte potvrzovací zprávu a volitelný popis a pak vyberte **Uložit a spustit** znovu. 
+   
+[Sestavení samostatného nasazení](/dotnet/core/deploying/#self-contained-deployments-scd) publikuje artefakty, které mohou běžet na platformě Azure i Azure Stack.
+
+### <a name="create-a-release-pipeline"></a>Vytvoření kanálu verze
 
 Vytvoření kanálu pro vydávání verzí je posledním krokem v procesu konfigurace hybridní CI/CD. Kanál pro vydávání verzí slouží k vytvoření vydání a nasazení sestavení.
 
@@ -381,25 +423,25 @@ Vytvoření kanálu pro vydávání verzí je posledním krokem v procesu konfig
    
    ![Vyberte předplatné a zadejte App Service název.](media/azure-stack-solution-pipeline/stage1.png)
    
-1. V levém podokně vyberte **Spustit na agentovi**. V pravém podokně vyberte možnost **hostované VS2017** z rozevíracího seznamu **fond agentů** , pokud ještě není vybraná.
+1. V levém podokně vyberte **Spustit na agentovi**. V pravém podokně vyberte v rozevíracím seznamu **fond agentů** možnost **Azure Pipelines** a v rozevíracím seznamu **specifikace agenta** vyberte **vs2017-win2016** .
    
    ![Vybrat hostovaného agenta](media/azure-stack-solution-pipeline/agentjob.png)
    
-1. V levém podokně vyberte **nasadit Azure App Service**a v pravém podokně vyhledejte **balíček nebo složku** pro sestavení webové aplikace Azure.
+1. V levém podokně vyberte **nasadit Azure App Service**. V pravém podokně se posuňte dolů a vyberte tři tečky. **..** vedle **balíčku nebo složky**.
    
    ![Vybrat balíček nebo složku](media/azure-stack-solution-pipeline/packageorfolder.png)
    
-1. V dialogovém okně **Vyberte soubor nebo složku** vyberte **OK**.
+1. V dialogovém okně **Vyberte soubor nebo složku** přejděte do umístění svého sestavení webové aplikace Azure a pak vyberte **OK**.
    
-1. V pravém horním rohu stránky **Nový kanál verze** vyberte **Uložit** .
+1. Na stránce **Nový kanál vydání** vyberte **Uložit** v pravém horním rohu. 
    
-   ![Uložit změny](media/azure-stack-solution-pipeline/save-devops-icon.png)
+1. Na kartě **kanál** vyberte **Přidat artefakt**. Vyberte svůj projekt a pak vyberte své Azure Stack sestavení z rozevírací nabídky **zdroj (sestavení kanálu)** . Vyberte **Přidat**. 
    
-1. Na kartě **kanál** vyberte **Přidat artefakt**. Vyberte svůj projekt a vyberte Azure Stack sestavení v rozevírací nabídce **zdroj (sestavení kanálu)** . Vyberte **Přidat**. 
+1. V části **fáze**umístěte ukazatel myši na fázi **Azure** , dokud se nezobrazí **+** , a pak vyberte **Přidat**.
    
-1. Na kartě **kanál** v části **fáze**vyberte **Přidat**.
+1. V části **Šablona**vyberte **prázdná úloha**. 
    
-1. V nové fázi vyberte hypertextový odkaz pro **zobrazení úloh fáze**. Jako název fáze zadejte *Azure Stack* . 
+1. V dialogovém okně **fáze** zadejte jako název fáze *Azure Stack* . 
    
    ![Zobrazit novou fázi](media/azure-stack-solution-pipeline/newstage.png)
    
@@ -430,7 +472,7 @@ Vytvoření kanálu pro vydávání verzí je posledním krokem v procesu konfig
 
 Teď, když máte kanál verze, můžete ho použít k vytvoření vydání a nasazení aplikace. 
 
-Vzhledem k tomu, že Trigger průběžného nasazování je nastaven v kanálu verze, změna zdrojového kódu spustí nové sestavení a automaticky vytvoří novou verzi. Tuto novou verzi ale vytvoříte a spustíte ručně.
+Vzhledem k tomu, že Trigger průběžného nasazování je nastaven v kanálu verze, změna zdrojového kódu spustí nové sestavení a automaticky vytvoří novou verzi. Tentokrát ale vytvoříte a spustíte novou vydanou verzi ručně.
 
 Vytvoření a nasazení vydané verze:
 

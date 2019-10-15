@@ -3,7 +3,7 @@ title: Nasazení šablony pomocí portálu v Azure Stack | Microsoft Docs
 description: Naučte se používat portál Azure Stack k nasazení šablony.
 services: azure-stack
 documentationcenter: ''
-author: sethmanheim
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: eafa60f2-16c9-4ef1-b724-47709e9ea29e
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/13/2019
-ms.author: sethm
+ms.date: 10/07/2019
+ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: bbbbbc5548397f82752a43c7a1aaca7b62151b75
-ms.sourcegitcommit: e8aa26b078a9bab09c8fafd888a96785cc7abb4d
+ms.openlocfilehash: 7777fc41de282e9fedec8f967d3a9387f7da8b0b
+ms.sourcegitcommit: 7226979ece29d9619c959b11352be601562b41d3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71708993"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72304128"
 ---
 # <a name="deploy-a-template-using-the-portal-in-azure-stack"></a>Nasazení šablony pomocí portálu v Azure Stack
 
@@ -39,7 +39,7 @@ Portál můžete použít k nasazení Azure Resource Manager šablon pro Azure S
 
    ![Nasazení šablony na portálu Azure Stack](media/azure-stack-deploy-template-portal/template-deploy2.png)
 
-1. Vyberte **Upravit šablonu**a vložte kód šablony JSON do okna Code (kód). Vyberte **Uložit**.
+1. Vyberte **Upravit šablonu**a vložte kód šablony JSON do okna Code (kód). Vyberte **Save** (Uložit).
 
    ![Upravit šablonu na portálu Azure Stack](media/azure-stack-deploy-template-portal/template-deploy3.png)
 
@@ -55,7 +55,7 @@ Portál můžete použít k nasazení Azure Resource Manager šablon pro Azure S
 
    ![Výběr skupiny prostředků na portálu Azure Stack](media/azure-stack-deploy-template-portal/template-deploy6.png)
 
-1. Vyberte **Vytvořit**. Nová dlaždice na řídicím panelu sleduje průběh nasazení šablony.
+1. Vyberte **Create** (Vytvořit). Nová dlaždice na řídicím panelu sleduje průběh nasazení šablony.
 
    ![Vytvoření šablony na portálu Azure Stack](media/azure-stack-deploy-template-portal/template-deploy7.png)
 

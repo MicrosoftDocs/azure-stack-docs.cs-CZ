@@ -3,7 +3,7 @@ title: Nasazení šablony pomocí PowerShellu v Azure Stack | Microsoft Docs
 description: Nasazení šablony pomocí PowerShellu v Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: sethmanheim
+author: mattbriggs
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/23/2019
-ms.author: sethm
+ms.date: 10/07/2019
+ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/23/2019
-ms.openlocfilehash: af4ac82e03b96b4fc3f6d728cbebf5a6fa9d6388
-ms.sourcegitcommit: e8aa26b078a9bab09c8fafd888a96785cc7abb4d
+ms.openlocfilehash: 38c3c428443afa251c8a6185929bfe0b80680b86
+ms.sourcegitcommit: 7226979ece29d9619c959b11352be601562b41d3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71708965"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72304079"
 ---
 # <a name="deploy-a-template-using-powershell-in-azure-stack"></a>Nasazení šablony pomocí PowerShellu v Azure Stack
 
@@ -35,7 +35,7 @@ Tento příklad používá rutiny prostředí PowerShell **AzureRM** a šablonu 
 >[!NOTE]
 > Než si vyzkoušíte tento příklad, ujistěte se, že jste pro uživatele Azure Stack [nakonfigurovali PowerShell](azure-stack-powershell-configure-user.md) .
 
-1. Procházejte [úložiště AzureStackGitHub](https://aka.ms/AzureStackGitHub) a vyhledejte šablonu **101-Simple-Windows-VM** . Uložte šablonu do tohoto umístění: `C:\templates\azuredeploy-101-simple-windows-vm.json`.
+1. Projděte si [úložiště AzureStack-Starter Templates](https://aka.ms/AzureStackGitHub) a vyhledejte šablonu **101-Simple-Windows-VM** . Uložte šablonu do tohoto umístění: `C:\templates\azuredeploy-101-simple-windows-vm.json`.
 2. Otevřete příkazový řádek PowerShellu se zvýšenými oprávněními.
 3. Pomocí uživatelského jména a hesla nahraďte `username` a `password` v následujícím skriptu a spusťte skript:
 
@@ -58,7 +58,7 @@ Tento příklad používá rutiny prostředí PowerShell **AzureRM** a šablonu 
     ```
 
     >[!IMPORTANT]
-    > Pokaždé, když tento skript spustíte, zvyšte hodnotu `$myNum` parametru, aby nedošlo k přepsání nasazení.
+    > Pokaždé, když tento skript spustíte, zvyšte hodnotu parametru `$myNum`, aby se zabránilo přepsání nasazení.
 
 4. Otevřete portál Azure Stack, vyberte **Procházet**a pak vyberte **virtuální počítače** , abyste našli nový virtuální počítač (**myDeployment001**).
 

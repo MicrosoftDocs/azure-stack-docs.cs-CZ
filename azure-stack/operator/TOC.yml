@@ -42,13 +42,15 @@
     - name: Integrace datových center
       href: azure-stack-customer-journey.md
       items:
-        - name: Obecné pokyny k integraci Azure Stack
+        - name: Názorný postup
+          href: azure-stack-customer-journey.md
+        - name: Obecné požadavky
           href: azure-stack-datacenter-integration.md
-        - name: Modely připojení Azure Stack nasazení
+        - name: Modely připojení
           href: azure-stack-connection-models.md
-        - name: Požadavky na připojené nasazení
+        - name: Připojené nasazení
           href: azure-stack-connected-deployment.md
-        - name: Požadavky na odpojené nasazení
+        - name: Odpojené nasazení
           href: azure-stack-disconnected-deployment.md
         - name: Integrace sítě Datacenter
           items:
@@ -119,8 +121,6 @@
       items:
         - name: Základy správy
           href: azure-stack-manage-basics.md
-        - name: Kontrolní seznam operací
-          href: azure-stack-operations-checklist.md
         - name: Vymazat uživatelská data z portálu
           href: azure-stack-portal-clear.md
         - name: Konfigurace kolekce telemetrie
