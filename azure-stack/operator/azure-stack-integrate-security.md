@@ -11,12 +11,12 @@ ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/23/2019
 keywords: ''
-ms.openlocfilehash: f28eda4a54ae95b1d5f3cc9c694344f8aec46f33
-ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
+ms.openlocfilehash: bb5ece23c0e484dbc2fec7881ce3ef2e29ed2d4a
+ms.sourcegitcommit: 70147e858956443bc66b3541ec278c102bb45c07
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72277256"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72381404"
 ---
 # <a name="integrate-azure-stack-with-monitoring-solutions-using-syslog-forwarding"></a>Integrace Azure Stack s řešeními monitorování pomocí předávání syslog
 
@@ -61,15 +61,15 @@ Set-SyslogClient [-pfxBinary <Byte[]>] [-CertPassword <SecureString>] [-RemoveCe
 
 Parametry pro rutinu *set-SyslogServer* :
 
-| Parametr | Popis | Typ | Požadováno |
+| Parametr | Popis | Typ | Požaduje se |
 |---------|---------|---------|---------|
-|*ServerName* | Plně kvalifikovaný název domény nebo IP adresa serveru syslog | String | Ano|
-|*ServerPort* | Číslo portu, na kterém naslouchá Server syslog. | String | Ano|
-|*Šifrování*| Vynutit, aby klient odesílal zprávy syslog ve formátu prostého textu. | příznaků | Ne|
-|*SkipCertificateCheck*| Při počátečním ověřování TLS vynechejte ověření certifikátu poskytnutého serverem syslog. | příznaků | Ne|
-|*SkipCNCheck*| Při počátečním ověřování TLS vynechejte vynechání hodnoty pro běžný název certifikátu poskytnutého serverem syslog. | příznaků | Ne|
-|*UseUDP*| Použijte protokol syslog se UDP jako transportní protokol. |příznaků | Ne|
-|*Odebrány*| Odeberte konfiguraci serveru z klienta a Zastavte předávání syslog.| příznaků | Ne|
+|*ServerName* | Plně kvalifikovaný název domény nebo IP adresa serveru syslog | Řetězec | ano|
+|*ServerPort* | Číslo portu, na kterém naslouchá Server syslog. | Řetězec | ano|
+|*Šifrování*| Vynutit, aby klient odesílal zprávy syslog ve formátu prostého textu. | příznaků | ne|
+|*SkipCertificateCheck*| Při počátečním ověřování TLS vynechejte ověření certifikátu poskytnutého serverem syslog. | příznaků | ne|
+|*SkipCNCheck*| Při počátečním ověřování TLS vynechejte vynechání hodnoty pro běžný název certifikátu poskytnutého serverem syslog. | příznaků | ne|
+|*UseUDP*| Použijte protokol syslog se UDP jako transportní protokol. |příznaků | ne|
+|*Odebrány*| Odeberte konfiguraci serveru z klienta a Zastavte předávání syslog.| příznaků | ne|
 
 Parametry pro rutinu *set-SyslogClient* :
 
@@ -78,7 +78,7 @@ Parametry pro rutinu *set-SyslogClient* :
 | *pfxBinary* | soubor PFX obsahující certifikát, který má klient používat jako identitu k ověřování na serveru syslog.  | Byte [] |
 | *CertPassword* |  Heslo pro import privátního klíče, který je přidružen k souboru PFX. | SecureString |
 |*RemoveCertificate* | Odeberte certifikát z klienta. | příznaků|
-| *OutputSeverity* | Úroveň protokolování výstupu. Hodnoty jsou **výchozí** nebo **podrobné**. Výchozí hodnota zahrnuje úrovně závažnosti: upozornění, kritická nebo chyba. Verbose obsahuje všechny úrovně závažnosti: Verbose, informativní, Warning, kritická nebo chyba.  | String |
+| *OutputSeverity* | Úroveň protokolování výstupu. Hodnoty jsou **výchozí** nebo **podrobné**. Výchozí hodnota zahrnuje úrovně závažnosti: upozornění, kritická nebo chyba. Verbose obsahuje všechny úrovně závažnosti: Verbose, informativní, Warning, kritická nebo chyba.  | Řetězec |
 ### <a name="configuring-syslog-forwarding-with-tcp-mutual-authentication-and-tls-12-encryption"></a>Konfigurace předávání syslogu pomocí protokolu TCP, vzájemného ověřování a šifrování TLS 1,2
 
 V této konfiguraci klient syslog v Azure Stack přepošle zprávy na server syslog přes protokol TCP s šifrováním TLS 1,2. Při počáteční signalizaci klient ověří, že server poskytuje platný důvěryhodný certifikát. Klient také poskytuje certifikát serveru jako důkaz své identity. Tato konfigurace je nejbezpečnější, protože poskytuje úplné ověření identity klienta i serveru a odesílá zprávy přes zašifrovaný kanál.
@@ -244,28 +244,29 @@ Tabulka událostí pro privilegovaný koncový bod:
 
 | Událost | ID události PEP | Název úlohy PEP | Závažnost |
 |-------|--------------| --------------|----------|
-|PrivilegedEndpointAccessed|1000|PrivilegedEndpointAccessedEvent|5|
+|PrivilegedEndpointAccessed|1 000|PrivilegedEndpointAccessedEvent|5|
 |SupportSessionTokenRequested |1001|SupportSessionTokenRequestedEvent|5|
 |SupportSessionDevelopmentTokenRequested |1002|SupportSessionDevelopmentTokenRequestedEvent|5|
-|SupportSessionUnlocked |1003|SupportSessionUnlockedEvent|10pruhový|
-|SupportSessionFailedToUnlock |1004|SupportSessionFailedToUnlockEvent|10pruhový|
+|SupportSessionUnlocked |1003|SupportSessionUnlockedEvent|10|
+|SupportSessionFailedToUnlock |1004|SupportSessionFailedToUnlockEvent|10|
 |PrivilegedEndpointClosed |1005|PrivilegedEndpointClosedEvent|5|
-|NewCloudAdminUser |1006|NewCloudAdminUserEvent|10pruhový|
-|RemoveCloudAdminUser |1007|RemoveCloudAdminUserEvent|10pruhový|
+|NewCloudAdminUser |1006|NewCloudAdminUserEvent|10|
+|RemoveCloudAdminUser |1007|RemoveCloudAdminUserEvent|10|
 |SetCloudAdminUserPassword |1008|SetCloudAdminUserPasswordEvent|5|
-|GetCloudAdminPasswordRecoveryToken |1009|GetCloudAdminPasswordRecoveryTokenEvent|10pruhový|
-|ResetCloudAdminPassword |1010|ResetCloudAdminPasswordEvent|10pruhový|
+|GetCloudAdminPasswordRecoveryToken |1009|GetCloudAdminPasswordRecoveryTokenEvent|10|
+|ResetCloudAdminPassword |1010|ResetCloudAdminPasswordEvent|10|
+|PrivilegedEndpointSessionTimedOut |1017|PrivilegedEndpointSessionTimedOutEvent|5|
 
 Tabulka PEP závažnosti:
 
-| Závažnost | Obsah | Číselná hodnota |
+| Závažnost | Úroveň | Číselná hodnota |
 |----------|-------| ----------------|
-|0,8|Nedefinované|Hodnota: 0. Indikuje protokoly na všech úrovních.|
-|10pruhový|Kritická|Hodnota: 1. Označuje protokoly pro kritickou výstrahu.|
+|0|Nedefinováno|Hodnota: 0. Indikuje protokoly na všech úrovních.|
+|10|Kritické|Hodnota: 1. Označuje protokoly pro kritickou výstrahu.|
 |8|Chyba| Hodnota: 2. Označuje protokoly pro chybu.|
 |5|Upozornění|Hodnota: 3. Indikuje protokoly pro upozornění.|
-|odst|Informace o|Hodnota: 4. Označuje protokoly pro informační zprávu.|
-|0,8|Podrobné|Hodnota: 5. Indikuje protokoly na všech úrovních.|
+|2|Informace|Hodnota: 4. Označuje protokoly pro informační zprávu.|
+|0|Podrobné|Hodnota: 5. Indikuje protokoly na všech úrovních.|
 
 ### <a name="cef-mapping-for-recovery-endpoint-events"></a>Mapování CEF pro události koncového bodu obnovení
 
@@ -283,20 +284,20 @@ Tabulka událostí pro koncový bod obnovení:
 |RecoveryEndpointAccessed |1011|RecoveryEndpointAccessedEvent|5|
 |RecoverySessionTokenRequested |1012|RecoverySessionTokenRequestedEvent |5|
 |RecoverySessionDevelopmentTokenRequested |1013|RecoverySessionDevelopmentTokenRequestedEvent|5|
-|RecoverySessionUnlocked |1014|RecoverySessionUnlockedEvent |10pruhový|
-|RecoverySessionFailedToUnlock |1015|RecoverySessionFailedToUnlockEvent|10pruhový|
+|RecoverySessionUnlocked |1014|RecoverySessionUnlockedEvent |10|
+|RecoverySessionFailedToUnlock |1015|RecoverySessionFailedToUnlockEvent|10|
 |RecoveryEndpointClosed |1016|RecoveryEndpointClosedEvent|5|
 
 Tabulka závažnosti zástupce:
 
-| Závažnost | Obsah | Číselná hodnota |
+| Závažnost | Úroveň | Číselná hodnota |
 |----------|-------| ----------------|
-|0,8|Nedefinované|Hodnota: 0. Indikuje protokoly na všech úrovních.|
-|10pruhový|Kritická|Hodnota: 1. Označuje protokoly pro kritickou výstrahu.|
+|0|Nedefinováno|Hodnota: 0. Indikuje protokoly na všech úrovních.|
+|10|Kritické|Hodnota: 1. Označuje protokoly pro kritickou výstrahu.|
 |8|Chyba| Hodnota: 2. Označuje protokoly pro chybu.|
 |5|Upozornění|Hodnota: 3. Indikuje protokoly pro upozornění.|
-|odst|Informace o|Hodnota: 4. Označuje protokoly pro informační zprávu.|
-|0,8|Podrobné|Hodnota: 5. Indikuje protokoly na všech úrovních.|
+|2|Informace|Hodnota: 4. Označuje protokoly pro informační zprávu.|
+|0|Podrobné|Hodnota: 5. Indikuje protokoly na všech úrovních.|
 
 ### <a name="cef-mapping-for-windows-events"></a>Mapování CEF pro události Windows
 
@@ -311,12 +312,12 @@ Tabulka závažnosti pro události systému Windows:
 
 | Hodnota závažnosti CEF | Úroveň události Windows | Číselná hodnota |
 |--------------------|---------------------| ----------------|
-|0,8|Nedefinované|Hodnota: 0. Indikuje protokoly na všech úrovních.|
-|10pruhový|Kritická|Hodnota: 1. Označuje protokoly pro kritickou výstrahu.|
+|0|Nedefinováno|Hodnota: 0. Indikuje protokoly na všech úrovních.|
+|10|Kritické|Hodnota: 1. Označuje protokoly pro kritickou výstrahu.|
 |8|Chyba| Hodnota: 2. Označuje protokoly pro chybu.|
 |5|Upozornění|Hodnota: 3. Indikuje protokoly pro upozornění.|
-|odst|Informace o|Hodnota: 4. Označuje protokoly pro informační zprávu.|
-|0,8|Podrobné|Hodnota: 5. Indikuje protokoly na všech úrovních.|
+|2|Informace|Hodnota: 4. Označuje protokoly pro informační zprávu.|
+|0|Podrobné|Hodnota: 5. Indikuje protokoly na všech úrovních.|
 
 Vlastní tabulka rozšíření pro události systému Windows v Azure Stack:
 
@@ -335,16 +336,16 @@ Vlastní tabulka rozšíření pro události systému Windows v Azure Stack:
 |MasKeywords |0x8000000000000000|
 |MasKeywordName |Úspěšný audit|
 |MasLevel |4|
-|MasOpcode |první|
+|MasOpcode |1\. místo|
 |MasOpcodeName |Příjemce|
 |MasProviderEventSourceName ||
 |MasProviderGuid |AEA1B4FA-97D1-45F2-A64C-4D69FFFD92C9|
 |MasProviderName |Microsoft-Windows-GroupPolicy|
 |MasSecurityUserId |\<Windows SID @ no__t-1 |
-|MasTask |0,8|
+|MasTask |0|
 |MasTaskCategory| Vytváření procesů|
 |MasUserData|KB4093112!! 5112! Nainstalováno! 0x0!! WindowsUpdateAgent XPath:/Event/UserData/*|
-|MasVersion|0,8|
+|MasVersion|0|
 
 ### <a name="cef-mapping-for-alerts-created"></a>Mapování CEF pro vytvořené výstrahy
 
@@ -357,15 +358,15 @@ Vlastní tabulka rozšíření pro události systému Windows v Azure Stack:
 
 Tabulka Závažnost výstrahy:
 
-| Závažnost | Obsah |
+| Závažnost | Úroveň |
 |----------|-------|
-|0,8|Nedefinované|
-|10pruhový|Kritická|
+|0|Nedefinováno|
+|10|Kritické|
 |5|Upozornění|
 
 Vlastní tabulka rozšíření pro výstrahy vytvořené v Azure Stack:
 
-| Název vlastního rozšíření | Příklad | 
+| Název vlastního rozšíření | Příklad: | 
 |-----------------------|---------|
 |MasEventDescription|Popis: uživatelský účet \<TestUser @ no__t-1 byl vytvořen pro \<TestDomain @ no__t-3. Jde o potenciální bezpečnostní riziko. --NÁPRAVa: obraťte se na podporu. K vyřešení tohoto problému se vyžaduje zákaznická podpora. Nepokoušejte se tento problém vyřešit bez pomoci. Než otevřete žádost o podporu, spusťte proces shromažďování souborů protokolu pomocí pokynů z https://aka.ms/azurestacklogfiles.
 

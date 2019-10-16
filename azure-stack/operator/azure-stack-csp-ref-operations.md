@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2019
+ms.date: 10/14/2019
 ms.author: sethm
 ms.reviewer: alfredop
-ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: a9e0dd05195d7ece62689aa8b5971cf72a6e3713
-ms.sourcegitcommit: c2ea4ffb42563c26faaf2993ba7b484bcb6d5cb7
+ms.lastreviewed: 10/14/2019
+ms.openlocfilehash: 72310e813d0dd0a64575f1b2452bf4a5191638ef
+ms.sourcegitcommit: 97d41b3ebed07aa85a50087b6076671fd37e08c5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71342836"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72350183"
 ---
 # <a name="register-tenants-for-usage-tracking-in-azure-stack"></a>Registrace tenantů pro sledování využití v Azure Stack
 
@@ -52,7 +52,7 @@ Další informace o Azure Stack a profilech rozhraní API najdete v tématu [Spr
 | registrationSubscriptionID | Předplatné Azure, které se použilo pro prvotní registraci. |
 | customerSubscriptionID     | Předplatné Azure (není Azure Stack) patřící zákazníkovi k registraci. Musí se vytvořit v nabídce zprostředkovatel Cloud Solution Provider (CSP) prostřednictvím partnerského centra. Pokud má zákazník více než jednoho tenanta, vytvořte si předplatné pro tenanta, abyste se přihlásili k Azure Stack. |
 | resourceGroup              | Skupina prostředků v Azure, ve které je uložená vaše registrace. |
-| registrationName           | Název registrace Azure Stack. Je to objekt uložený v Azure. Název je obvykle ve tvaru **azurestack-CloudID**, kde **CloudID** je ID cloudu nasazení Azure Stack. |
+| registrace           | Název registrace Azure Stack. Je to objekt uložený v Azure. Název je obvykle ve tvaru **azurestack-CloudID**, kde **CloudID** je ID cloudu nasazení Azure Stack. |
 
 > [!NOTE]  
 > Klienti musí být zaregistrovaní u každého Azure Stack nasazení, které používají. Pokud tenant používá více než jeden Azure Stack, aktualizujte počáteční registraci každého nasazení u předplatného tenanta.
@@ -61,17 +61,16 @@ Další informace o Azure Stack a profilech rozhraní API najdete v tématu [Spr
 
 K přidání tenanta použijte rutinu **New-AzureRmResource** . [Připojte se k Azure Stack](azure-stack-powershell-configure-admin.md)a potom na příkazovém řádku se zvýšenými oprávněními použijte následující rutinu:
 
-```powershell
-New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties
+```powershell  
+New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01
 ```
 
 ### <a name="api-call"></a>Volání rozhraní API
 
-**Operace**: PUT  
-**RequestURI**:`subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}  /providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/  
-{customerSubscriptionId}?api-version=2017-06-01 HTTP/1.1`  
+**Operace**: Put  
+**RequestURI**: `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}?api-version=2017-06-01 HTTP/1.1`  
 **Odpověď**: 201 vytvořeno  
-**Tělo odpovědi**: Prázdné  
+**Tělo odpovědi**: prázdné  
 
 ## <a name="list-all-registered-tenants"></a>Zobrazit seznam všech registrovaných tenantů
 
@@ -86,7 +85,7 @@ Získá seznam všech tenantů, které byly přidány k registraci.
 |---                         | ---                  |
 | registrationSubscriptionId | Předplatné Azure, které se použilo pro prvotní registraci.   |
 | resourceGroup              | Skupina prostředků v Azure, ve které je uložená vaše registrace.    |
-| registrationName           | Název registrace Azure Stack nasazení. Je to objekt uložený v Azure. Název je obvykle ve formátu **azurestack-CloudID**, kde **CloudID** je ID cloudu nasazení Azure Stack.   |
+| registrace           | Název registrace Azure Stack nasazení. Je to objekt uložený v Azure. Název je obvykle ve formátu **azurestack-CloudID**, kde **CloudID** je ID cloudu nasazení Azure Stack.   |
 
 ### <a name="powershell"></a>PowerShell
 
@@ -100,10 +99,8 @@ Get-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/reso
 
 Můžete získat seznam mapování všech klientů pomocí operace GET.
 
-**Operace**: GET  
-**RequestURI**:`subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}  
-/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions?  
-api-version=2017-06-01 HTTP/1.1`  
+**Operace**: Get  
+**RequestURI**: `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions?api-version=2017-06-01 HTTP/1.1`  
 **Odpověď**: 200  
 **Tělo odpovědi**:
 
@@ -136,7 +133,7 @@ Můžete odebrat klienta, který byl přidán k registraci. Pokud tento tenant s
 |---                         | ---                  |
 | registrationSubscriptionId | ID předplatného pro registraci.   |
 | resourceGroup              | Skupina prostředků pro registraci.   |
-| registrationName           | Název registrace.  |
+| registrace           | Název registrace.  |
 | customerSubscriptionId     | ID předplatného zákazníka.  |
 
 ### <a name="powershell"></a>PowerShell
@@ -151,12 +148,10 @@ Remove-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/r
 
 Mapování klientů můžete odebrat pomocí operace DELETE.
 
-**Operace**: DELETE  
-**RequestURI**:`subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}  
-/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/  
-{customerSubscriptionId}?api-version=2017-06-01 HTTP/1.1`  
+**Operace**: odstranit  
+**RequestURI**: `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}?api-version=2017-06-01 HTTP/1.1`  
 **Odpověď**: 204 bez obsahu  
-**Tělo odpovědi**: Prázdné
+**Tělo odpovědi**: prázdné
 
 ## <a name="next-steps"></a>Další kroky
 

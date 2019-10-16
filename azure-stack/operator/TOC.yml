@@ -277,35 +277,53 @@
           href: azure-stack-quota-types.md
     - name: Nabídka síťových řešení
       href: azure-stack-network-solutions-enable.md
-    - name: Nabídka SQL jako PaaS
+    - name: Spravovat poskytovatele prostředků služby doplňku
       items:
-        - name: Nabízet databáze SQL na Azure Stack
+        - name: App Service v Azure Stack
           items:
             - name: Přehled
-              href: azure-stack-sql-resource-provider.md
-            - name: Nasazení poskytovatele prostředků SQL Server
-              href: azure-stack-sql-resource-provider-deploy.md
-            - name: Přidat hostitelské servery SQL
-              href: azure-stack-sql-resource-provider-hosting-servers.md
-            - name: Vytvoření databází SQL
-              href: azure-stack-sql-resource-provider-databases.md
-        - name: Nabízet vysoce dostupné databáze SQL
-          href: azure-stack-tutorial-sql.md
-        - name: Aktualizace poskytovatele prostředků SQL Server
-          href: azure-stack-sql-resource-provider-update.md
-        - name: Údržba poskytovatele prostředků SQL Server
-          href: azure-stack-sql-resource-provider-maintain.md
-        - name: Odebrat poskytovatele prostředků SQL Server
-          href: azure-stack-sql-resource-provider-remove.md
-        - name: Poznámky k verzi poskytovatele prostředků SQL
-          items:
-            - name: 1.1.30.0 poznámky k verzi poskytovatele prostředků SQL
-              href: azure-stack-sql-resource-provider-11300.md
-            - name: 1.1.33.0 poznámky k verzi poskytovatele prostředků SQL
-              href: azure-stack-sql-resource-provider-11330.md
-    - name: Nabídka MySQL jako PaaS
-      items:
-        - name: Nabízet databáze MySQL na Azure Stack
+              href: azure-stack-app-service-overview.md
+            - name: App Service plánování kapacity
+              href: azure-stack-app-service-capacity-planning.md
+            - name: Než začnete
+              href: azure-stack-app-service-before-you-get-started.md
+            - name: Nasazení App Service
+              href: azure-stack-app-service-deploy.md
+            - name: Nasazení App Service pro vysokou dostupnost
+              href: app-service-deploy-ha.md
+            - name: Nasazení App Service offline
+              href: azure-stack-app-service-deploy-offline.md
+            - name: Aktualizovat App Service
+              href: azure-stack-app-service-update.md
+            - name: Aktualizovat App Service offline
+              href: azure-stack-app-service-update-offline.md
+            - name: Přidání rolí infrastruktury App Service
+              href: azure-stack-app-service-add-worker-roles.md
+            - name: Konfigurace zdrojů nasazení
+              href: azure-stack-app-service-configure-deployment-sources.md
+            - name: Zálohování App Service
+              href: app-service-back-up.md
+            - name: Obnovit App Service
+              href: app-service-recover.md
+            - name: Nejčastější dotazy k fakturaci App Service
+              href: app-service-billing-faq.md
+            - name: Zpráva k vydání verze App Service v Azure Stack
+              items:
+                - name: Zpráva k vydání verze App Service v Azure Stack Update 1
+                  href: azure-stack-app-service-release-notes-update-one.md
+                - name: Zpráva k vydání verze App Service ve Azure Stack Update 2
+                  href: azure-stack-app-service-release-notes-update-two.md
+                - name: Zpráva k vydání verze App Service ve Azure Stack Update 3
+                  href: azure-stack-app-service-release-notes-update-three.md
+                - name: Zpráva k vydání verze App Service ve Azure Stack Update 4
+                  href: azure-stack-app-service-release-notes-update-four.md
+                - name: App Service na Azure Stack Update 5 – zpráva k vydání verze
+                  href: azure-stack-app-service-release-notes-update-five.md
+                - name: App Service ve zprávách k vydání verze Azure Stack Update 6
+                  href: azure-stack-app-service-release-notes-update-six.md
+                - name: App Service v poznámce k verzi Update 7 pro Azure Stack
+                  href: azure-stack-app-service-release-notes-update-seven.md
+        - name: MySQL v Azure Stack
           items:
             - name: Přehled
               href: azure-stack-mysql-resource-provider.md
@@ -315,63 +333,44 @@
               href: azure-stack-mysql-resource-provider-hosting-servers.md
             - name: Vytváření databází MySQL
               href: azure-stack-mysql-resource-provider-databases.md
-        - name: Nabízet vysoce dostupné databáze MySQL
-          href: azure-stack-tutorial-mysql.md
-        - name: Aktualizace poskytovatele prostředků serveru MySQL
-          href: azure-stack-mysql-resource-provider-update.md
-        - name: Udržovat poskytovatele prostředků serveru MySQL
-          href: azure-stack-mysql-resource-provider-maintain.md
-        - name: Odebrání poskytovatele prostředků serveru MySQL
-          href: azure-stack-mysql-resource-provider-remove.md
-        - name: Poznámky k verzi poskytovatele prostředků MySQL
+            - name: Nasazení vysoce dostupných databází MySQL
+              href: azure-stack-tutorial-mysql.md
+            - name: Aktualizace poskytovatele prostředků serveru MySQL
+              href: azure-stack-mysql-resource-provider-update.md
+            - name: Udržovat poskytovatele prostředků serveru MySQL
+              href: azure-stack-mysql-resource-provider-maintain.md
+            - name: Odebrání poskytovatele prostředků serveru MySQL
+              href: azure-stack-mysql-resource-provider-remove.md
+            - name: Poznámky k verzi poskytovatele prostředků MySQL
+              items:
+                - name: Poznámky k verzi pro poskytovatele prostředků MySQL 1.1.30.0
+                  href: azure-stack-mysql-resource-provider-11300.md
+                - name: Poznámky k verzi pro poskytovatele prostředků MySQL 1.1.33.0
+                  href: azure-stack-mysql-resource-provider-11330.md
+        - name: SQL na Azure Stack
           items:
-            - name: Poznámky k verzi pro poskytovatele prostředků MySQL 1.1.30.0
-              href: azure-stack-mysql-resource-provider-11300.md
-            - name: Poznámky k verzi pro poskytovatele prostředků MySQL 1.1.33.0
-              href: azure-stack-mysql-resource-provider-11330.md
-    - name: Nabídka App Service jako PaaS
-      href: azure-stack-app-service-overview.md
-      items:
-        - name: App Service plánování kapacity
-          href: azure-stack-app-service-capacity-planning.md
-        - name: Nejčastější dotazy k fakturaci App Service
-          href: app-service-billing-faq.md
-        - name: Než začnete
-          href: azure-stack-app-service-before-you-get-started.md
-        - name: Nasazení App Service
-          href: azure-stack-app-service-deploy.md
-        - name: Nasazení App Service pro vysokou dostupnost
-          href: app-service-deploy-ha.md
-        - name: Nasazení App Service offline
-          href: azure-stack-app-service-deploy-offline.md
-        - name: Aktualizovat App Service
-          href: azure-stack-app-service-update.md
-        - name: Aktualizovat App Service offline
-          href: azure-stack-app-service-update-offline.md
-        - name: Přidání rolí infrastruktury App Service
-          href: azure-stack-app-service-add-worker-roles.md
-        - name: Konfigurace zdrojů nasazení
-          href: azure-stack-app-service-configure-deployment-sources.md
-        - name: Zálohování App Service
-          href: app-service-back-up.md
-        - name: Obnovit App Service
-          href: app-service-recover.md
-        - name: Zpráva k vydání verze App Service v Azure Stack
-          items:
-            - name: Zpráva k vydání verze App Service v Azure Stack Update 1
-              href: azure-stack-app-service-release-notes-update-one.md
-            - name: Zpráva k vydání verze App Service ve Azure Stack Update 2
-              href: azure-stack-app-service-release-notes-update-two.md
-            - name: Zpráva k vydání verze App Service ve Azure Stack Update 3
-              href: azure-stack-app-service-release-notes-update-three.md
-            - name: Zpráva k vydání verze App Service ve Azure Stack Update 4
-              href: azure-stack-app-service-release-notes-update-four.md
-            - name: App Service na Azure Stack Update 5 – zpráva k vydání verze
-              href: azure-stack-app-service-release-notes-update-five.md
-            - name: App Service ve zprávách k vydání verze Azure Stack Update 6
-              href: azure-stack-app-service-release-notes-update-six.md
-            - name: App Service v poznámce k verzi Update 7 pro Azure Stack
-              href: azure-stack-app-service-release-notes-update-seven.md
+            - name: Přehled
+              href: azure-stack-sql-resource-provider.md
+            - name: Nasazení poskytovatele prostředků SQL Server
+              href: azure-stack-sql-resource-provider-deploy.md
+            - name: Přidat hostitelské servery SQL
+              href: azure-stack-sql-resource-provider-hosting-servers.md
+            - name: Vytvoření databází SQL
+              href: azure-stack-sql-resource-provider-databases.md
+            - name: Nasazení vysoce dostupných databází SQL
+              href: azure-stack-tutorial-sql.md
+            - name: Aktualizace poskytovatele prostředků SQL Server
+              href: azure-stack-sql-resource-provider-update.md
+            - name: Údržba poskytovatele prostředků SQL Server
+              href: azure-stack-sql-resource-provider-maintain.md
+            - name: Odebrat poskytovatele prostředků SQL Server
+              href: azure-stack-sql-resource-provider-remove.md
+            - name: Poznámky k verzi poskytovatele prostředků SQL
+              items:
+                - name: 1.1.30.0 poznámky k verzi poskytovatele prostředků SQL
+                  href: azure-stack-sql-resource-provider-11300.md
+                - name: 1.1.33.0 poznámky k verzi poskytovatele prostředků SQL
+                  href: azure-stack-sql-resource-provider-11330.md
     - name: Využití a fakturace
       href: azure-stack-billing-and-chargeback.md
       items:

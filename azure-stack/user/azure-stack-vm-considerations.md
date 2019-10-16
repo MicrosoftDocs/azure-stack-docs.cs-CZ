@@ -15,12 +15,12 @@ ms.date: 10/09/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/09/2019
-ms.openlocfilehash: ea117df9b763d33fee59b6a7f8f951b8d81cc6e7
-ms.sourcegitcommit: 03f5932da0147f78e986dcc3da610db54f195bd7
+ms.openlocfilehash: e3601f4489a0a80881cccd2ba64f98b61e14683a
+ms.sourcegitcommit: 70147e858956443bc66b3541ec278c102bb45c07
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72252489"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72381446"
 ---
 # <a name="azure-stack-vm-features"></a>Funkce Azure Stack virtuálního počítače
 
@@ -42,7 +42,7 @@ Virtuální počítače s Azure Stack poskytují škálovatelné výpočetní pr
 | Verze rozhraní API | Azure má vždycky nejnovější verze rozhraní API pro všechny funkce virtuálních počítačů. | Azure Stack podporuje pro tyto služby specifické služby Azure a konkrétní verze rozhraní API. Pokud chcete zobrazit seznam podporovaných verzí rozhraní API, přečtěte si část [verze rozhraní API](#api-versions) tohoto článku. |
 | Instance Metadata Service Azure | Azure Instance Metadata Service poskytuje informace o spuštěných instancích virtuálních počítačů, které se dají použít ke správě a nastavení virtuálního počítače.  | Azure Instance Metadata Service se v Azure Stack nepodporuje. |
 | Skupiny dostupnosti virtuálních počítačů|Více domén selhání (2 nebo 3 podle oblasti).<br>Více aktualizačních domén.|Více domén selhání (2 nebo 3 podle oblasti).<br>Jediná aktualizační doména s migrací za provozu k ochraně úloh během aktualizace. 20 aktualizačních domén podporovaných pro kompatibilitu šablon.<br>Skupina virtuálních počítačů a dostupnosti by měla být ve stejném umístění a skupině prostředků.|
-| Virtual Machine Scale Sets|Automatické škálování je podporováno.|Automatické škálování se nepodporuje.<br><br>Přidejte další instance do sady škálování pomocí portálu, Správce prostředků šablon nebo PowerShellu. |
+| Škálovací sady virtuálních počítačů|Automatické škálování je podporováno.|Automatické škálování se nepodporuje.<br><br>Přidejte další instance do sady škálování pomocí portálu, Správce prostředků šablon nebo PowerShellu. |
 | Disk s kopií cloudu | Vyberte koncové body z vlastností účtu úložiště, které jsou k dispozici v Azure Stack. | [Určující Cloud](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness) je typ určujícího disku kvora clusteru s podporou převzetí služeb při selhání, který používá Microsoft Azure k poskytnutí hlasu kvora clusteru.<br>Koncové body v globálním Azure v porovnání s Azure Stack můžou vypadat takto:<br>Pro globální Azure:<br>`https://mywitness.blob.core.windows.net/`<br>Pro Azure Stack:<br>`https://mywitness.blob.<region>.<FQDN>/`|
 | Diagnostika virtuálního počítače | Diagnostika virtuálního počítače se systémem Linux je podporována. | Diagnostika virtuálního počítače se systémem Linux není v Azure Stack podporována. Když nasadíte virtuální počítač se systémem Linux s povoleným diagnostikou virtuálních počítačů, nasazení se nezdařilo. Nasazení se také nepovede, pokud povolíte základní metriky virtuálního počítače se systémem Linux prostřednictvím nastavení diagnostiky. |
 
@@ -58,24 +58,24 @@ V následující tabulce jsou uvedené virtuální počítače, které jsou podp
 
 | Typ            | Velikost          | Rozsah podporovaných velikostí |
 | ----------------| ------------- | ------------------------ |
-|Obecné účely  |Základní A        |[A0 – A4](azure-stack-vm-sizes.md#basic-a)                   |
-|Obecné účely  |Standardní A     |[A0 – A7](azure-stack-vm-sizes.md#standard-a)              |
-|Obecné účely  |Av2-Series     |[A1_v2 - A8m_v2](azure-stack-vm-sizes.md#av2-series)     |
-|Obecné účely  |Řady D-Series       |[D1 – D4](azure-stack-vm-sizes.md#d-series)              |
-|Obecné účely  |Dv2-Series     |[D1_v2 - D5_v2](azure-stack-vm-sizes.md#ds-series)        |
-|Obecné účely  |Řada DS      |[DS1 – DS4](azure-stack-vm-sizes.md#dv2-series)            |
-|Obecné účely  |DSv2-Series    |[DS1_v2 - DS5_v2](azure-stack-vm-sizes.md#dsv2-series)      |
-|Paměťově optimalizovaná |Řady D-Series       |[D11 – D14](azure-stack-vm-sizes.md#mo-d)            |
-|Paměťově optimalizovaná |Řada DS      |[DS11 – DS14](azure-stack-vm-sizes.md#mo-ds)|
-|Paměťově optimalizovaná |Dv2-Series     |[D11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dv2)     |
-|Paměťově optimalizovaná |DSv2-Series    |[DS11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dsv2)    |
-|Optimalizované pro výpočty|Řada F-Series       |[F1 – F16 ÚROVNĚ](azure-stack-vm-sizes.md#f-series)    |
-|Optimalizované pro výpočty|Řada FS      |[F1s úrovně – F16s úrovně](azure-stack-vm-sizes.md#fs-series)    |
-|Optimalizované pro výpočty|Fsv2-Series    |[F2s_v2 - F64s_v2](azure-stack-vm-sizes.md#fsv2-series)    |
+|Obecné použití  |Basic A        |[A0 – A4](azure-stack-vm-sizes.md#basic-a)                   |
+|Obecné použití  |Standardní A     |[A0 – A7](azure-stack-vm-sizes.md#standard-a)              |
+|Obecné použití  |Av2-series     |[A1_v2 - A8m_v2](azure-stack-vm-sizes.md#av2-series)     |
+|Obecné použití  |D-series       |[D1 – D4](azure-stack-vm-sizes.md#d-series)              |
+|Obecné použití  |Řada Dv2     |[D1_v2 - D5_v2](azure-stack-vm-sizes.md#ds-series)        |
+|Obecné použití  |Řada DS      |[DS1 – DS4](azure-stack-vm-sizes.md#dv2-series)            |
+|Obecné použití  |Řada DSv2    |[DS1_v2 - DS5_v2](azure-stack-vm-sizes.md#dsv2-series)      |
+|Paměťově optimalizované |D-series       |[D11 – D14](azure-stack-vm-sizes.md#mo-d)            |
+|Paměťově optimalizované |Řada DS      |[DS11 – DS14](azure-stack-vm-sizes.md#mo-ds)|
+|Paměťově optimalizované |Řada Dv2     |[D11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dv2)     |
+|Paměťově optimalizované |Řada DSv2    |[DS11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dsv2)    |
+|Výpočtově optimalizované|Řada F       |[F1 – F16 ÚROVNĚ](azure-stack-vm-sizes.md#f-series)    |
+|Výpočtově optimalizované|Řada Fs      |[F1s úrovně – F16s úrovně](azure-stack-vm-sizes.md#fs-series)    |
+|Výpočtově optimalizované|Fsv2-series    |[F2s_v2 - F64s_v2](azure-stack-vm-sizes.md#fsv2-series)    |
 
 Velikosti virtuálních počítačů a jejich přidružená množství prostředků jsou konzistentní mezi Azure Stack a Azure. Tato konzistence zahrnuje množství paměti, počet jader a počet a velikost datových disků, které lze vytvořit. Výkon virtuálních počítačů se stejnou velikostí ale závisí na základních charakteristikách konkrétního Azure Stackho prostředí.
 
-## <a name="vm-extensions"></a>Rozšíření virtuálních počítačů
+## <a name="vm-extensions"></a>Rozšíření virtuálního počítače
 
 Azure Stack obsahuje malou sadu rozšíření. Aktualizace a další rozšíření jsou k dispozici prostřednictvím syndikace webu Marketplace.
 
@@ -95,7 +95,7 @@ Pokud zřízení rozšíření na nasazení virtuálního počítače trvá moc 
 
 Funkce virtuálních počítačů v Azure Stack podporují následující verze rozhraní API:
 
-![Typy prostředků virtuálních počítačů](media/azure-stack-vm-considerations/vm-resoource-types.png)
+"2017-12-01", "2017-03-30", "2016-03-30", "2015-06-15"
 
 K získání verzí rozhraní API pro funkce virtuálních počítačů, které jsou k dispozici ve vašem prostředí Azure Stack, můžete použít následující skript prostředí PowerShell:
 
