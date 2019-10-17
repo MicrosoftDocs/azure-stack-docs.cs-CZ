@@ -5,15 +5,15 @@ author: BryanLa
 ms.author: bryanla
 ms.service: azure-stack
 ms.topic: tutorial
-ms.date: 10/03/2019
+ms.date: 10/16/2019
 ms.reviewer: shriramnat
-ms.lastreviewed: 10/06/2019
-ms.openlocfilehash: dc35f5249a9fb71722d51f2a47afc516a8d51379
-ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
+ms.lastreviewed: 10/16/2019
+ms.openlocfilehash: 87542483f2a35fba315258e9ba66b1792739033b
+ms.sourcegitcommit: df20662e77a6ed0a7eba03f79eb53e8cd4471206
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72287078"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72445353"
 ---
 # <a name="tutorial-offer-a-service-to-users"></a>Kurz: nabídka služby uživatelům
 
@@ -29,7 +29,7 @@ V tomto kurzu se naučíte:
 
 ## <a name="overview"></a>Přehled
 
-Nabídka se skládá z jednoho nebo více plánů. Plán opravňuje přístup k jedné nebo více službám zadáním odpovídajícího poskytovatele prostředků a kvóty. Plány je možné přidat do nabídky jako základní plán nebo tuto nabídku rozšiřuje jako doplněk. Další informace najdete v tématu [Přehled služeb, plánů, nabídek a předplatných](service-plan-offer-subscription-overview.md).
+Nabídka se skládá z jednoho nebo více plánů. Plán opravňuje přístup k jedné nebo více službám zadáním odpovídajícího poskytovatele prostředků a kvóty jednotlivých služeb. Plány je možné přidat do nabídky jako základní plán nebo tuto nabídku rozšiřuje jako doplněk. Další informace najdete v tématu [Přehled služeb, plánů, nabídek a předplatných](service-plan-offer-subscription-overview.md).
 
 ![Předplatná, nabídky a plány](media/azure-stack-key-features/image4.png)
 
@@ -48,17 +48,17 @@ Základní služby jsou podporovány následujícími poskytovateli prostředků
 
 | Poskytovatel prostředků | Příklady prostředků |
 | ----------------- | ------------------|
-| Microsoft. COMPUTE | Virtuální počítače, disky a sady škálování virtuálních počítačů |
+| Microsoft.Compute | Virtuální počítače, disky a sady škálování virtuálních počítačů |
 | Trezor Microsoft. | Trezory klíčů, tajné kódy |
-| Microsoft. Network | Virtuální sítě, veřejné IP adresy, nástroje pro vyrovnávání zatížení |
-| Microsoft. Storage | Účty úložiště, objekty blob, fronty, tabulky |
+| Microsoft.Network | Virtuální sítě, veřejné IP adresy, nástroje pro vyrovnávání zatížení |
+| Microsoft.Storage | Účty úložiště, objekty blob, fronty, tabulky |
 
 ### <a name="add-on-services"></a>Služby doplňků
 
 >[!NOTE]
 > Aby bylo možné nabídnout doplňkovou službu, musí se nejdřív nainstalovat odpovídající poskytovatel prostředků na Azure Stack Marketplace. Po nainstalování se prostředky uživatelům nabídnou stejným způsobem jako základní služby. Aktuální sadu poskytovatelů prostředků, kteří podporují nabídky služeb doplňku, najdete v části věnované **průvodcům** v obsahu.
 
-Služby doplňku jsou podporovány poskytovateli prostředků, kteří jsou nainstalováni po nasazení Azure Stack. Příklady:
+Služby doplňku jsou podporovány poskytovateli prostředků, kteří jsou nainstalováni po nasazení Azure Stack. Patří mezi ně například:
 
 | Poskytovatel prostředků | Příklady prostředků |
 | ----------------- | ------------------------- |
@@ -82,7 +82,7 @@ Během procesu vytváření nabídky vytvoříte nabídku i plán. Plán se pou�
 
 1. V části **vytvořit novou nabídku** na kartě **základy** zadejte **Zobrazovaný název**, **název prostředku**a vyberte existující nebo vytvořte novou **skupinu prostředků**. Zobrazovaný název je popisný název nabídky. Název prostředku může zobrazit pouze operátor cloudu, což je název, který správci používají pro práci s nabídkou jako s prostředkem Azure Resource Manager.
 
-   ![zobrazované jméno](media/tutorial-offer-services/2-create-new-offer.png)
+   ![Zobrazované jméno](media/tutorial-offer-services/2-create-new-offer.png)
 
 1. Vyberte kartu **základní plány** , vyberte **vytvořit nový plán** a vytvořte nový plán. Plán se také přidá do nabídky jako základní plán.
 
@@ -100,7 +100,7 @@ Během procesu vytváření nabídky vytvoříte nabídku i plán. Plán se pou�
 
    ![Vytvořit kvótu COMPUTE](media/tutorial-offer-services/6-create-new-plan-quotas.png)
 
-1. Vyberte kartu **Revize + vytvořit** . V horní části by se měla zobrazit zpráva zelená "ověření proběhla", což znamená, že nový základní plán je připravený k vytvoření. Vyberte **vytvořit**. Mělo by se zobrazit také oznámení oznamující, že byl plán vytvořen.
+1. Vyberte kartu **Revize + vytvořit** . V horní části by se měla zobrazit zpráva zelená "ověření proběhla", což znamená, že nový základní plán je připravený k vytvoření. Vyberte **Create** (Vytvořit). Mělo by se zobrazit také oznámení oznamující, že byl plán vytvořen.
 
    ![Vytvořit nový plán](media/tutorial-offer-services/7-create-new-plan-review-create.png)
 
@@ -110,7 +110,7 @@ Během procesu vytváření nabídky vytvoříte nabídku i plán. Plán se pou�
 
 1. Na kartě **Revize + vytvořit** by se v horní části měla zobrazit zpráva o zeleném ověření proběhlo. Přečtěte si informace v části "základní" a "základní plány" a po přípravě vyberte **vytvořit** . 
 
-   ![Vytvořit novou nabídku](media/tutorial-offer-services/9-create-new-offer-review-create.png)
+   ![Vytvoření nové nabídky](media/tutorial-offer-services/9-create-new-offer-review-create.png)
 
 1. Po nasazení nabídky se zpočátku zobrazí stránka "vaše nasazení probíhá", po které následuje "nasazení bylo dokončeno". Klikněte na název nabídky pod sloupcem **prostředek** .
 
@@ -138,7 +138,7 @@ Během procesu vytváření nabídky vytvoříte nabídku i plán. Plán se pou�
 
 1. V **nabídce nová nabídka**zadejte **Zobrazovaný název** a **název prostředku**a potom vyberte novou nebo existující **skupinu prostředků**. Zobrazovaný název je popisný název nabídky. Pouze operátor cloudu může zobrazit název prostředku, což je název, který správci používají pro práci s nabídkou jako s prostředkem Azure Resource Manager.
 
-   ![zobrazované jméno](media/tutorial-offer-services/image02.png)
+   ![Zobrazované jméno](media/tutorial-offer-services/image02.png)
 
 1. Vyberte **základní plány**a v části **plán** vyberte **Přidat** a přidejte do nabídky nový plán.
 
@@ -183,7 +183,7 @@ Během procesu vytváření nabídky vytvoříte nabídku i plán. Plán se pou�
  
 ## <a name="next-steps"></a>Další kroky
 
-V tomto kurzu jste se dozvěděli, jak:
+V tomto kurzu jste se naučili:
 
 > [!div class="checklist"]
 > * Vytvoření nabídky

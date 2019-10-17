@@ -14,12 +14,12 @@ ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/14/2019
-ms.openlocfilehash: ebee962bbf53cad48df11bd21653830410f04d9d
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: 454fe5b07dc5576cecdb11b59e5424e3c5ccbb72
+ms.sourcegitcommit: df20662e77a6ed0a7eba03f79eb53e8cd4471206
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68417554"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72445374"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-subscription-or-a-storage-account"></a>Připojení Průzkumníka služby Storage k předplatnému Azure Stack nebo účtu úložiště
 
@@ -38,16 +38,16 @@ Po připojení k předplatnému Azure Stack nebo účtu úložiště můžete po
 
 Pro přístup k Azure Stack předplatného Průzkumník služby Storage potřebujete přímý přístup k Azure Stack nebo připojení k síti VPN. Další informace o tom, jak nastavit připojení VPN ke službě Azure Stack, najdete v tématu [Připojení ke službě Azure Stack pomocí sítě VPN](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn).
 
-Pro Azure Stack Development Kit (ASDK) je potřeba exportovat kořenový certifikát Azure Stack autority.
-
 > [!Note]  
-> Pokud se ASDK připojujete k ASDK prostřednictvím sítě VPN, nepoužívejte kořenový certifikát (CA. cer), který byl vytvořen během procesu instalace sítě VPN.  Toto je certifikát s kódováním DER, který neumožňuje Průzkumník služby Storage načíst předplatná Azure Stack. Pomocí následujících kroků exportujte certifikát s kódováním Base-64, který se má používat s Průzkumník služby Storage.
+> Pokud se ASDK připojujete k ASDK prostřednictvím sítě VPN, nepoužívejte kořenový certifikát (CA. cer), který byl vytvořen během procesu instalace sítě VPN.  Toto je certifikát s kódováním DER, který neumožňuje Průzkumník služby Storage načíst předplatná Azure Stack. Pomocí následujících kroků exportujte certifikát s kódováním Base-64 pro použití s Průzkumník služby Storage.
+
+V případě integrovaných systémů, které jsou odpojené a pro ASDK, doporučujeme použít interní podnikovou certifikační autoritu k exportu kořenového certifikátu ve formátu Base-64 a pak ho naimportovat do Průzkumník služby Azure Storage.  
 
 ### <a name="export-and-then-import-the-azure-stack-certificate"></a>Exportovat a potom importovat certifikát Azure Stack
 
-Exportujte a pak importujte Azure Stack certifikát pro ASDK. V případě integrovaných systémů je certifikát veřejně podepsaný a tento krok není nezbytný.
+Exportujte a pak importujte Azure Stack certifikát pro odpojené integrované systémy a pro ASDK. U připojených integrovaných systémů je certifikát veřejně podepsaný a tento krok není nezbytný.
 
-1. Otevřete `mmc.exe` na Azure Stack hostitelském počítači nebo v místním počítači s připojením k síti VPN pro Azure Stack. 
+1. Otevřete `mmc.exe` na Azure Stack hostitelském počítači nebo v místním počítači s připojením VPN k Azure Stack. 
 
 2. V **souboru**vyberte **Přidat nebo odebrat modul snap-in**. V okně dostupné moduly snap-in vyberte **certifikáty** . 
 
@@ -57,7 +57,7 @@ Exportujte a pak importujte Azure Stack certifikát pro ASDK. V případě integ
 
     ![Načtení kořenového certifikátu služby Azure Stack pomocí mmc.exe](./media/azure-stack-storage-connect-se/add-certificate-azure-stack.png)
 
-5. Klikněte pravým tlačítkem na certifikát, vyberte **všechny úlohy** > **exportovat**a pak podle pokynů exportujte certifikát se zakódovaným **X. 509 s kódováním Base-64 (. CER)** .
+5. Klikněte na certifikát pravým tlačítkem, vyberte **všechny úlohy** > **exportovat**a pak podle pokynů exportujte certifikát s **kódováním Base-64 s kódováním X. 509 (. CER)** .
 
     Vyexportovaný certifikát se použije v dalším kroku.
 
@@ -159,7 +159,7 @@ Můžete se také připojit k Azure Stackmu účtu úložiště pomocí názvu �
 
     ![VMWINDISK](./media/azure-stack-storage-connect-se/azure-stack-vmwindisk.png)
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 * [Začínáme s Průzkumníkem služby Storage](/azure/vs-azure-tools-storage-manage-with-storage-explorer)
 * [Azure Stack úložiště: rozdíly a požadavky](azure-stack-acs-differences.md)
