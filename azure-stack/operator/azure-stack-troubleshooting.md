@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/09/2019
+ms.date: 10/16/2019
 ms.author: justinha
 ms.reviewer: prchint
-ms.lastreviewed: 10/09/2019
-ms.openlocfilehash: 45600ee6e35c7e80a1dd74c6c6d456b3bf68ed3f
-ms.sourcegitcommit: 5eae057cb815f151e6b8af07e3ccaca4d8e4490e
+ms.lastreviewed: 10/16/2019
+ms.openlocfilehash: 3c0b1ce32399b4739796b2718e97c69d96291dc6
+ms.sourcegitcommit: df20662e77a6ed0a7eba03f79eb53e8cd4471206
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72310536"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72445285"
 ---
 # <a name="microsoft-azure-stack-troubleshooting"></a>Řešení potíží s Microsoft Azure Stack
 
@@ -151,6 +151,11 @@ Další informace o konfiguraci prahové hodnoty pro uchování a opětovného z
 ## <a name="troubleshoot-storage"></a>Řešení potíží s úložištěm
 ### <a name="storage-reclamation"></a>Recyklace úložiště
 Může trvat až 14 hodin, než se kapacita uvolní, aby se na portálu zobrazovala. Recyklace místa závisí na různých faktorech, včetně procentuálního využití vnitřních souborů kontejneru v úložišti objektů blob bloku. V závislosti na tom, kolik dat je odstraněno, však není zaručeno množství místa, které by mohlo být uvolněno při spuštění systému uvolňování paměti.
+
+### <a name="azure-storage-explorer-not-working-with-azure-stack"></a>Průzkumník služby Azure Storage nepracuje s Azure Stack 
+ 
+Pokud používáte integrovaný systém v odpojeném scénáři, doporučuje se používat certifikační autoritu (CA) organizace. Exportujte kořenový certifikát ve formátu Base-64 a pak ho importujte do Průzkumník služby Azure Storage. Nezapomeňte odebrat koncové lomítko ('/') z koncového bodu ARM. Další informace najdete v tématu [Příprava na připojení k Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-connect-se#prepare-for-connecting-to-azure-stack).
+ 
 
 ## <a name="troubleshooting-app-service"></a>Řešení potíží s App Service
 ### <a name="create-aadidentityappps1-script-fails"></a>Skript Create-AADIdentityApp. ps1 se nezdařil
