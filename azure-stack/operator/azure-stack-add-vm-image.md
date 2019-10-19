@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: conceptual
-ms.date: 10/10/2019
+ms.date: 10/16/2019
 ms.author: Justinha
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/08/2018
-ms.openlocfilehash: 9dc5039a2c8b74b14da59573758a4cf8d1a3657a
-ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
+ms.openlocfilehash: 91fdd5c0068638f3e597f72ce5aee50fe04b324c
+ms.sourcegitcommit: b5eb024d170f12e51cc852aa2c72eabf26792d8d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72282653"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72534035"
 ---
 # <a name="add-a-custom-vm-to-azure-stack"></a>Přidání vlastního virtuálního počítače do Azure Stack
 
@@ -40,11 +40,11 @@ Pokud virtuální pevný disk pochází z Azure, postupujte podle pokynů v čá
 
 Pokud je virtuální pevný disk mimo Azure, postupujte podle příslušných pokynů k generalizaci VHD:
 
-- [Distribuce na základě CentOS](/azure/virtual-machines/linux/create-upload-centos?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Distribuce založené na CentOS](/azure/virtual-machines/linux/create-upload-centos?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Debian Linux](/azure/virtual-machines/linux/debian-create-upload-vhd?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Red Hat Enterprise Linux](/azure/azure-stack/azure-stack-redhat-create-upload-vhd)
 - [SLES nebo openSUSE](/azure/virtual-machines/linux/suse-create-upload-vhd?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Server Ubuntu](/azure/virtual-machines/linux/create-upload-ubuntu?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Ubuntu Server](/azure/virtual-machines/linux/create-upload-ubuntu?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 Pokud virtuální pevný disk pochází z Azure, postupujte podle těchto pokynů pro generalizaci VHD:
 
@@ -57,6 +57,8 @@ Pokud virtuální pevný disk pochází z Azure, postupujte podle těchto pokyn�
    ```
 
 2. Vypněte virtuální počítač a stáhněte VHD. Pokud předáváte virtuální pevný disk z Azure, můžete to udělat pomocí exportu disku, jak je znázorněno v [stažení virtuálního pevného disku s Windows z Azure](/azure/virtual-machines/windows/download-vhd).
+
+Mějte na paměti, že verze agenta Azure Linux fungují s Azure Stack popsané [tady](azure-stack-linux.md#azure-linux-agent). Ujistěte se, že image nástroje Sysprep má verzi agenta Azure Linux, která je kompatibilní s Azure Stack.
 
 ### <a name="common-steps-for-both-windows-and-linux"></a>Běžné kroky pro Windows i Linux
 
@@ -80,7 +82,7 @@ Než obrázek nahrajete, je důležité vzít v úvahu následující:
 
    - Po nahrání [image virtuálního počítače s Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/)se ujistěte, že jste přepnuli krok **přihlášení do Azure** pomocí kroku [Konfigurace prostředí PowerShellu Azure Stack operator](azure-stack-powershell-configure-admin.md) .  
 
-3. Poznamenejte si identifikátor URI úložiště objektů blob, do kterého nahráváte obrázek. Identifikátor URI úložiště objektů BLOB má následující formát: *&lt;storageAccount @ no__t-2 @ no__t-3 @ no__t-4blobContainer @ no__t-5 @ no__t-6 @ no__t-7targetVHDName @ no__t-8*. VHD.
+3. Poznamenejte si identifikátor URI úložiště objektů blob, do kterého nahráváte obrázek. Identifikátor URI úložiště objektů BLOB má následující formát: *&lt;storageAccount &gt; / &lt;blobContainer &gt; / &lt;targetVHDName &gt;* . VHD.
 
 4. Pokud chcete objekt BLOB anonymně zpřístupnit, přečtěte si kontejner objektů BLOB účtu úložiště, ve kterém se nahrál virtuální pevný disk image virtuálního počítače. Vyberte **objekt BLOB**a potom vyberte **zásady přístupu**. Volitelně můžete pro kontejner vygenerovat sdílený přístupový podpis a zahrnout ho jako součást identifikátoru URI objektu BLOB. Tento krok zajistí, že je objekt BLOB dostupný pro použití. Pokud objekt BLOB není anonymně přístupný, vytvoří se image virtuálního počítače ve stavu selhání.
 
@@ -127,22 +129,22 @@ Než obrázek nahrajete, je důležité vzít v úvahu následující:
 
    Rutina **Add-AzsPlatformimage** určuje hodnoty, které používají šablony Azure Resource Manager k odkazování na image virtuálního počítače. Mezi tyto hodnoty patří:
    - **Microsoft**  
-     Například: `Canonical`  
+     Příklad: `Canonical`  
      Název **vydavatele** image virtuálního počítače, který uživatelé používají při nasazování bitové kopie. Do tohoto pole nezahrnujte mezeru ani jiné speciální znaky.  
    - **dodání**  
-     Například: `UbuntuServer`  
+     Příklad: `UbuntuServer`  
      Název **nabídky** image virtuálního počítače, kterou uživatelé používají při nasazování image virtuálního počítače. Do tohoto pole nezahrnujte mezeru ani jiné speciální znaky.  
    - **skladové**  
-     Například: `14.04.3-LTS`  
+     Příklad: `14.04.3-LTS`  
      Segment názvu **SKU** image virtuálního počítače, který uživatelé používají při nasazování image virtuálního počítače. Do tohoto pole nezahrnujte mezeru ani jiné speciální znaky.  
-   - **version**  
-     Například: `1.0.0`  
+   - **znění**  
+     Příklad: `1.0.0`  
      Verze image virtuálního počítače, kterou uživatelé používají při nasazování image virtuálního počítače Tato verze je ve formátu *\#. \#. \#* . Do tohoto pole nezahrnujte mezeru ani jiné speciální znaky.  
    - **osType**  
-     Například: `Linux`  
+     Příklad: `Linux`  
      **OsType** obrázku musí být buď **Windows** , nebo **Linux**.  
    - **OSUri**  
-     Například: `https://storageaccount.blob.core.windows.net/vhds/Ubuntu1404.vhd`  
+     Příklad: `https://storageaccount.blob.core.windows.net/vhds/Ubuntu1404.vhd`  
      Identifikátor URI úložiště objektů blob můžete zadat pro `osDisk`.  
 
      Další informace najdete v referenčních informacích k prostředí PowerShell pro rutiny [Add-AzsPlatformimage](/powershell/module/azs.compute.admin/add-azsplatformimage) a [New-DataDiskObject](/powershell/module/Azs.Compute.Admin/New-DataDiskObject) .
@@ -167,16 +169,16 @@ Pokud už bitovou kopii virtuálního počítače, kterou jste nahráli, nepotř
 
    Rutina **Remove-AzsPlatformImage** určuje hodnoty, které používají šablony Azure Resource Manager k odkazování na image virtuálního počítače. Mezi tyto hodnoty patří:
    - **Microsoft**  
-     Například: `Canonical`  
+     Příklad: `Canonical`  
      Název **vydavatele** image virtuálního počítače, který uživatelé používají při nasazování bitové kopie. Do tohoto pole nezahrnujte mezeru ani jiné speciální znaky.  
    - **dodání**  
-     Například: `UbuntuServer`  
+     Příklad: `UbuntuServer`  
      Název **nabídky** image virtuálního počítače, kterou uživatelé používají při nasazování image virtuálního počítače. Do tohoto pole nezahrnujte mezeru ani jiné speciální znaky.  
    - **skladové**  
-     Například: `14.04.3-LTS`  
+     Příklad: `14.04.3-LTS`  
      Segment názvu **SKU** image virtuálního počítače, který uživatelé používají při nasazování image virtuálního počítače. Do tohoto pole nezahrnujte mezeru ani jiné speciální znaky.  
-   - **version**  
-     Například: `1.0.0`  
+   - **znění**  
+     Příklad: `1.0.0`  
      Verze image virtuálního počítače, kterou uživatelé používají při nasazování image virtuálního počítače Tato verze je ve formátu *\#. \#. \#* . Do tohoto pole nezahrnujte mezeru ani jiné speciální znaky.  
 
      Další informace o rutině **Remove-AzsPlatformImage** najdete v dokumentaci modulu Microsoft PowerShell [Azure Stack operator](/powershell/module/).

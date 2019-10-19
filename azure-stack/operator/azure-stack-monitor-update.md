@@ -14,42 +14,42 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: 7cfbba830b91d5dba8935cce20a2cdc0e65e49de
-ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
+ms.openlocfilehash: d99a49676f9ab684c5b83e8e68cf58f86efc948f
+ms.sourcegitcommit: b5eb024d170f12e51cc852aa2c72eabf26792d8d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71909157"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72534064"
 ---
 # <a name="monitor-updates-in-azure-stack-using-the-privileged-endpoint"></a>Monitorování aktualizací v Azure Stack pomocí privilegovaného koncového bodu
 
 *Platí pro: Azure Stack integrovaných systémů*
 
-Pomocí [privilegovaného koncového bodu](azure-stack-privileged-endpoint.md) můžete monitorovat průběh Azure Stack spuštění aktualizace a pokračovat v neúspěšném spuštění aktualizace z posledního úspěšného kroku, aby se Azure Stack portál nedostupný.  Použití portálu Azure Stack je doporučenou metodou pro správu aktualizací v Azure Stack.
+Pomocí [privilegovaného koncového bodu](azure-stack-privileged-endpoint.md) můžete monitorovat průběh Azure Stack spuštění aktualizace. Pomocí privilegovaného koncového bodu můžete také pokračovat v neúspěšném spuštění aktualizace z posledního úspěšného kroku, Azure Stack portál nebude k dispozici. Použití portálu Azure Stack je doporučenou metodou pro správu aktualizací v Azure Stack.
 
 Následující nové rutiny PowerShellu pro správu aktualizací jsou součástí aktualizace 1710 pro Azure Stack integrovaných systémů.
 
-| Rutiny  | Popis  |
+| Rutina  | Popis  |
 |---------|---------|
-| `Get-AzureStackUpdateStatus` | Vrátí stav aktuálně spuštěných, dokončených nebo neúspěšných aktualizací. Poskytuje stav operace aktualizace na nejvyšší úrovni a dokument XML, který popisuje jak aktuální krok, tak i odpovídající stav. |
+| `Get-AzureStackUpdateStatus` | Vrátí stav aktuálně spuštěných, dokončených nebo neúspěšných aktualizací. Poskytuje stav operace aktualizace na nejvyšší úrovni a dokumentu XML, který popisuje aktuální a odpovídající stav. |
 | `Resume-AzureStackUpdate` | Obnoví neúspěšnou aktualizaci v místě, kde se nezdařila. V některých scénářích může být nutné před pokračováním aktualizace dokončit kroky pro zmírnění rizik.         |
 | | |
 
 ## <a name="verify-the-cmdlets-are-available"></a>Ověřte, jestli jsou dostupné rutiny.
-Vzhledem k tomu, že rutiny jsou v balíčku aktualizace 1710 pro Azure Stack nové, musí se proces aktualizace 1710 dostat do konkrétního bodu, než bude k dispozici možnost monitorování. Rutiny jsou obvykle dostupné, pokud stav na portálu pro správu označuje, že aktualizace 1710 je v kroku **restartovat úložiště hostitelé** . Konkrétně proběhne aktualizace rutiny během **kroku: Spusťte krok 2,6 – aktualizace seznamu povolených**PrivilegedEndpoint.
+Vzhledem k tomu, že rutiny jsou v balíčku aktualizace 1710 pro Azure Stack nové, musí se proces aktualizace 1710 dostat do konkrétního bodu, než bude k dispozici možnost monitorování. Rutiny jsou obvykle dostupné, pokud stav na portálu pro správu označuje, že aktualizace 1710 je v kroku **restartovat úložiště hostitelé** . Konkrétně proběhne aktualizace rutiny během **kroku: krok 2,6 – aktualizace seznamu povolených PrivilegedEndpoint**.
 
-Můžete také zjistit, jestli jsou rutiny k dispozici programově pomocí dotazu na seznam příkazů z privilegovaného koncového bodu. Pokud to chcete provést, spusťte následující příkazy z hostitele životního cyklu hardwaru nebo z pracovní stanice privilegovaného přístupu. Také se ujistěte, že je privilegovaným koncovým bodem důvěryhodný hostitel. Další informace najdete v části Krok 1 [přístupu k privilegovanému koncovému bodu](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). 
+Můžete také zjistit, jestli jsou rutiny k dispozici programově pomocí dotazu na seznam příkazů z privilegovaného koncového bodu. K provedení tohoto dotazu spusťte následující příkazy z hostitele životního cyklu hardwaru nebo z pracovní stanice privilegovaného přístupu. Také se ujistěte, že je privilegovaným koncovým bodem důvěryhodný hostitel. Další informace najdete v části Krok 1 [přístupu k privilegovanému koncovému bodu](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint).
 
-1. Vytvořte relaci PowerShellu na libovolném virtuálním počítači s ERCS v prostředí Azure Stack (*předpona*-ERCS01, *prefix*-ERCS02 nebo *prefix*-ERCS03). Nahraďte *předponu* řetězcem předpony virtuálního počítače, který je specifický pro vaše prostředí.
+1. Vytvořte relaci PowerShellu na libovolném virtuálním počítači s ERCS v prostředí Azure Stack (*předpona*-ERCS01, *prefix*-ERCS02 nebo *prefix*-ERCS03). Nahraďte *předponu* řetězcem PŘEDPONY virtuálního počítače, který je specifický pro vaše prostředí.
 
    ```powershell
    $cred = Get-Credential
 
    $pepSession = New-PSSession -ComputerName <Prefix>-ercs01 -Credential $cred -ConfigurationName PrivilegedEndpoint 
    ```
-   Po zobrazení výzvy k zadání přihlašovacích &lt;údajů použijte účet *Azure Stack domény*&gt;\cloudadmin nebo účet, který je členem skupiny CloudAdmins. Pro účet CloudAdmin zadejte stejné heslo, které bylo zadáno během instalace pro účet správce domény AzureStackAdmin.
+   Po zobrazení výzvy k zadání přihlašovacích údajů použijte účet služby &lt;*Azure Stack domény* &gt; \cloudadmin nebo účet, který je členem skupiny CloudAdmins. Pro účet CloudAdmin zadejte stejné heslo, které bylo zadáno během instalace pro účet správce domény AzureStackAdmin.
 
-2. Získejte úplný seznam příkazů, které jsou k dispozici v privilegovaném koncovém bodu. 
+2. Získejte úplný seznam příkazů, které jsou k dispozici v privilegovaném koncovém bodu.
 
    ```powershell
    $commands = Invoke-Command -Session $pepSession -ScriptBlock { Get-Command } 
@@ -70,7 +70,7 @@ Můžete také zjistit, jestli jsou rutiny k dispozici programově pomocí dotaz
    ```powershell
    $commands | ? Source -eq $updateManagementModuleName 
    ```
-   Příklad:
+   Například:
    ```powershell
    $commands | ? Source -eq $updateManagementModuleName
    
@@ -87,18 +87,18 @@ Můžete také zjistit, jestli jsou rutiny k dispozici programově pomocí dotaz
 
 ### <a name="connect-to-the-privileged-endpoint-and-assign-session-variable"></a>Připojte se k privilegovanému koncovému bodu a přiřaďte proměnnou relace.
 
-Spuštěním následujících příkazů vytvořte relaci PowerShellu na libovolném virtuálním počítači s ERCS v prostředí Azure Stack (předpona-ERCS01, *prefix*-ERCS02 nebo *prefix*-ERCS03) a přiřaďte proměnnou relace.
+Spuštěním následujících příkazů vytvořte relaci PowerShellu na libovolném virtuálním počítači s ERCS ve vašem prostředí Azure Stack (*předpona*-ERCS01, *prefix*-ERCS02 nebo *prefix*-ERCS03) a přiřaďte proměnnou relace.
 
 ```powershell
 $cred = Get-Credential
 
 $pepSession = New-PSSession -ComputerName <Prefix>-ercs01 -Credential $cred -ConfigurationName PrivilegedEndpoint 
 ```
- Po zobrazení výzvy k zadání přihlašovacích &lt;údajů použijte účet *Azure Stack domény*&gt;\cloudadmin nebo účet, který je členem skupiny CloudAdmins. Pro účet CloudAdmin zadejte stejné heslo, které bylo zadáno během instalace pro účet správce domény AzureStackAdmin.
+ Po zobrazení výzvy k zadání přihlašovacích údajů použijte účet služby &lt;*Azure Stack domény* &gt; \cloudadmin nebo účet, který je členem skupiny CloudAdmins. Pro účet CloudAdmin zadejte stejné heslo, které bylo zadáno během instalace pro účet správce domény AzureStackAdmin.
 
-### <a name="get-high-level-status-of-the-current-update-run"></a>Získá stav vysoké úrovně pro aktuální běh aktualizace. 
+### <a name="get-high-level-status-of-the-current-update-run"></a>Získá stav vysoké úrovně pro aktuální běh aktualizace.
 
-Chcete-li získat stav vysoké úrovně aktuálního spuštění aktualizace, spusťte následující příkazy: 
+Chcete-li získat stav vysoké úrovně aktuálního spuštění aktualizace, spusťte následující příkazy:
 
 ```powershell
 $statusString = Invoke-Command -Session $pepSession -ScriptBlock { Get-AzureStackUpdateStatus -StatusOnly }
@@ -115,9 +115,9 @@ Možné hodnoty:
 
 Chcete-li zobrazit nejaktuálnější stav, můžete spustit tyto příkazy opakovaně. Nemusíte znovu navázat připojení pro kontrolu.
 
-### <a name="get-the-full-update-run-status-with-details"></a>Získat úplný stav spuštění aktualizace s podrobnostmi 
+### <a name="get-the-full-update-run-status-with-details"></a>Získat úplný stav spuštění aktualizace s podrobnostmi
 
-Můžete získat souhrn úplného spuštění aktualizace jako řetězec XML. Můžete napsat řetězec do souboru k vyhodnocení nebo ho převést na dokument XML a pomocí PowerShellu ho analyzovat. Následující příkaz analyzuje soubor XML, aby získal hierarchický seznam aktuálně spuštěných kroků.
+Můžete získat souhrn úplného spuštění aktualizace jako řetězec XML. Můžete napsat řetězec do souboru k vyhodnocení nebo ho převést na dokument XML a pomocí PowerShellu ho analyzovat. Následující příkaz analyzuje soubor XML a získá hierarchický seznam aktuálně spuštěných kroků:
 
 ```powershell
 [xml]$updateStatus = Invoke-Command -Session $pepSession -ScriptBlock { Get-AzureStackUpdateStatus }
@@ -168,10 +168,10 @@ Invoke-Command -Session $pepSession -ScriptBlock { Resume-AzureStackUpdate }
 
 ## <a name="troubleshoot"></a>Řešení potíží
 
-Privilegovaný koncový bod je k dispozici na všech virtuálních počítačích s ERCS v prostředí Azure Stack. Vzhledem k tomu, že připojení není navázáno na koncový bod s vysokou dostupností, může docházet k příležitostnému přerušení, varování nebo chybovým zprávám. Tyto zprávy mohou znamenat, že relace byla odpojena nebo došlo k chybě při komunikaci se službou EHK. Toto chování je očekávané. Operaci můžete opakovat za několik minut nebo vytvořit novou relaci privilegovaného koncového bodu na jednom z dalších virtuálních počítačů s ERCS. 
+Privilegovaný koncový bod je k dispozici na všech virtuálních počítačích s ERCS v prostředí Azure Stack. Vzhledem k tomu, že připojení není navázáno na koncový bod s vysokou dostupností, může docházet k příležitostnému přerušení, varování nebo chybovým zprávám. Tyto zprávy mohou znamenat, že relace byla odpojena nebo došlo k chybě při komunikaci se službou EHK. Jde o očekávané chování. Operaci můžete opakovat za několik minut nebo vytvořit novou relaci privilegovaného koncového bodu na jednom z dalších virtuálních počítačů ERCS.
 
 ## <a name="next-steps"></a>Další kroky
 
-- [Správa aktualizací v Azure Stack](azure-stack-updates.md) 
+- [Správa aktualizací v Azure Stack](azure-stack-updates.md)
 
 

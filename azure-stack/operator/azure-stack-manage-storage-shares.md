@@ -1,6 +1,6 @@
 ---
 title: Správa kapacity úložiště v Azure Stack | Microsoft Docs
-description: Monitorování a Správa Azure Stack kapacity úložiště a prostoru úložiště dostupnosti pro Azure Stack.
+description: Naučte se monitorovat a spravovat kapacitu a dostupnost úložiště v Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,22 +15,22 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: 48452a9a5c02bca8e99b7769e90495544bd95c0e
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: 73c4594672dea4a8bb8030a35c79f3d7e7cca04c
+ms.sourcegitcommit: b5eb024d170f12e51cc852aa2c72eabf26792d8d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829503"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72534176"
 ---
-# <a name="manage-storage-capacity-for-azure-stack"></a>Správa kapacity úložiště pro Azure Stack 
+# <a name="manage-storage-capacity-for-azure-stack"></a>Správa kapacity úložiště pro Azure Stack
 
 *Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
 
-Informace v tomto článku pomáhají Azure Stack operátora cloudu monitorovat a spravovat kapacitu úložiště Azure Stack nasazení. Azure Stack infrastruktura úložiště přiděluje podmnožinu celkové úložné kapacity nasazení Azure Stack, která se má použít pro **služby úložiště**. Služby úložiště ukládají data tenantů do sdílených složek na svazcích, které odpovídají uzlům nasazení.
+Informace v tomto článku pomáhají Azure Stack operátora cloudu monitorovat a spravovat kapacitu úložiště Azure Stack nasazení. Azure Stack infrastruktura úložiště přiděluje podmnožinu celkové úložné kapacity Azure Stack nasazení, které se má použít pro **služby úložiště**. Služby úložiště ukládají data tenantů do sdílených složek na svazcích, které odpovídají uzlům nasazení.
 
-Jako operátor cloudu máte k dispozici omezené množství úložiště, se kterým pracujete. Velikost úložiště je definována řešením, které implementujete. Vaše řešení zajišťuje dodavatel OEM, když použijete řešení s více uzly nebo hardware, na který Azure Stack Development Kit nainstalujete.
+Jako operátor cloudu máte k dispozici omezené množství úložiště, se kterým pracujete. Velikost úložiště je definována řešením, které implementujete. Vaše řešení zajišťuje dodavatel OEM, když používáte řešení s více uzly, nebo hardware, na kterém instalujete Azure Stack Development Kit (ASKD).
 
-Vzhledem k tomu, že Azure Stack nepodporuje rozšíření kapacity úložiště, je důležité monitorovat [](#monitor-shares) dostupné úložiště, aby se zajistilo zachování efektivních operací.  
+Vzhledem k tomu, že Azure Stack nepodporuje rozšíření kapacity úložiště, je důležité [monitorovat](#monitor-shares) dostupné úložiště, aby se zajistilo zachování efektivních operací.
 
 Když se zbývající volná kapacita sdíleného prostředku omezí, naplánujte [správu prostoru](#manage-available-space) , aby nedocházelo k nedostatku kapacity sdílených složek.
 
@@ -44,14 +44,14 @@ Pokud je sdílená složka 100%, služba úložiště pro tuto sdílenou složku
 ### <a name="volumes-and-shares"></a>Svazky a sdílené složky
 *Služba úložiště* rozdělí dostupné úložiště na samostatné a stejné svazky, které jsou přiděleny pro uchovávání dat klientů. Počet svazků se rovná počtu uzlů v nasazení Azure Stack:
 
-- V nasazení se čtyřmi uzly jsou čtyři svazky. Každý svazek má jednu sdílenou složku. V nasazení s více uzly se počet sdílených složek nesníží, pokud dojde k odebrání nebo selhání uzlu.
-- Pokud používáte sadu Azure Stack Developer Kit, existuje jeden svazek s jednou sdílenou složkou.
+- V nasazení se čtyřmi uzly jsou čtyři svazky. Každý svazek má jednu sdílenou složku. Při nasazení s více uzly se počet sdílených složek nesníží, pokud dojde k odebrání nebo selhání uzlu.
+- Pokud používáte ASDK, existuje jeden svazek s jednou sdílenou složkou.
 
 Vzhledem k tomu, že sdílené složky úložiště jsou pro exkluzivní použití služeb úložiště, nesmíte přímo upravovat, přidávat ani odebírat žádné soubory ve sdílených složkách. Na souborech uložených na těchto svazcích by měly fungovat jenom služby úložiště.
 
 Sdílené složky na svazcích uchovávají data tenanta. Data tenanta zahrnují objekty blob stránky, objekty blob bloku, doplňovací objekty blob, tabulky, fronty, databáze a související úložiště metadat. Vzhledem k tomu, že objekty úložiště (objekty blob atd.) jsou jednotlivě obsaženy v rámci jedné sdílené složky, maximální velikost každého objektu nemůže být větší než velikost sdílené složky. Maximální velikost nových objektů závisí na kapacitě, která zůstává ve sdílené složce jako nevyužité místo při vytvoření nového objektu.
 
-Pokud je sdílená složka nedostatek volného místa a akce pro [](#reclaim-capacity) uvolnění místa není úspěšná nebo nedostupná, operátor Azure Stack Cloud může migrovat kontejnery objektů BLOB z jedné sdílené složky do jiné.
+Pokud je u sdílené složky nedostatek volného místa a [akce pro uvolnění](#reclaim-capacity) místa není úspěšná nebo nedostupná, operátor Azure Stack Cloud může migrovat kontejnery objektů BLOB z jedné sdílené složky do jiné.
 
 - Informace o tom, jak uživatelé klienta pracují s úložištěm objektů BLOB v Azure Stack, najdete v tématu [služby Azure Stack Storage](/azure-stack/user/azure-stack-storage-overview#azure-stack-storage-services).
 
@@ -63,37 +63,40 @@ Po umístění objektu blob do kontejneru může tento objekt BLOB zvětšit pou
 
 Kontejnery nejsou omezeny pouze na jednu sdílenou složku. Když se kombinovaná data objektů BLOB v kontejneru zvětšují o použití 80% nebo více dostupného místa, kontejner přejde do režimu *přetečení* . V režimu přetečení jsou všechny nové objekty blob vytvořené v tomto kontejneru přiděleny na jiný svazek, který má dostatek místa. V průběhu času může kontejner v režimu přetečení obsahovat objekty blob distribuované napříč více svazky.
 
-Když se použije 80%, a pak se na svazku, na kterém je svazek 90% dostupného místa, vyvolá upozornění na portálu pro správu Azure Stack. Operátoři cloudu by měli zkontrolovat dostupnou kapacitu úložiště a naplánovat, aby se obsah znovu vyrovnal. Služba úložiště přestane fungovat, když se používá disk 100%, a nevyvolává se žádné další výstrahy.
+Když 80% (a pak 90%) v případě, že se používá dostupné místo ve svazku, vyvolá systém výstrahy na portálu pro správu Azure Stack. Operátoři cloudu by měli zkontrolovat dostupnou kapacitu úložiště a naplánovat, aby se obsah znovu vyrovnal. Služba úložiště přestane fungovat, když se používá disk 100% a nejsou vyvolány žádné další výstrahy.
 
 ### <a name="disks"></a>Disky
 Disky virtuálních počítačů se přidávají do kontejnerů v klientech a zahrnují disk s operačním systémem. Virtuální počítače mohou mít také jeden nebo více datových disků. Oba typy disků se ukládají jako objekty blob stránky. Pro zvýšení výkonu virtuálního počítače je potřeba umístit jednotlivé disky do samostatného kontejneru a zajistit tak jejich pomoc.
+
 - Každý kontejner, který obsahuje disk (objekt blob stránky) z virtuálního počítače, se považuje za připojený kontejner k virtuálnímu počítači, který je vlastníkem disku.
 - Kontejner, který nedrží žádný disk z virtuálního počítače, se považuje za bezplatný kontejner.
 
 Možnosti uvolnění místa na připojeném kontejneru [jsou omezené](#move-vm-disks).
-> [!TIP]  
+
+>[!TIP]  
 > Operátoři cloudu nespravují přímo disky, které jsou připojené k virtuálním počítačům, které můžou klienti přidávat do kontejneru. Když ale naplánujete správu místa na sdílených složkách úložiště, může být k pochopení, jak disky souvisejí s kontejnery a sdílenými složkami, použít.
 
 ## <a name="monitor-shares"></a>Monitorovat sdílené složky
-Pomocí PowerShellu nebo portálu pro správu monitorujte sdílené složky, abyste mohli pochopit, kdy je volné místo omezené. Když použijete portál, dostanete výstrahy o sdílených složkách, které mají nedostatek místa.    
+Pomocí PowerShellu nebo portálu pro správu monitorujte sdílené složky, abyste mohli pochopit, kdy je volné místo omezené. Když použijete portál, dostanete výstrahy o sdílených složkách, které mají nedostatek místa.
 
-### <a name="use-powershell"></a>Použití prostředí PowerShell
-Jako operátor cloudu můžete sledovat kapacitu úložiště sdílené složky pomocí rutiny PowerShellu **Get-AzsStorageShare** . Rutina Get-AzsStorageShare vrátí celkovou, přidělenou a volnou velikost v bajtech na každé sdílené složky.   
-![Příklad: Vrátit volné místo pro sdílené složky](media/azure-stack-manage-storage-shares/free-space.png)
+### <a name="use-powershell"></a>Použití PowerShellu
+Jako operátor cloudu můžete sledovat kapacitu úložiště sdílené složky pomocí rutiny PowerShellu **Get-AzsStorageShare** . Rutina Get-AzsStorageShare vrátí celkovou, přidělenou a volnou velikost v bajtech na každé sdílené složky.
 
-- **Celková kapacita** je celkové místo v bajtech, které jsou k dispozici ve sdílené složce. Tento prostor se používá pro data a metadata, která jsou spravována službou úložiště.
+![Příklad: vrácení volného místa pro sdílené složky](media/azure-stack-manage-storage-shares/free-space.png)
+
+- **Celková kapacita** je celkové místo v bajtech, které jsou k dispozici ve sdílené složce. Tento prostor se používá pro data a metadata, která jsou spravovaná službami úložiště.
 - **Využitá kapacita** je množství dat v bajtech, které se používá u všech rozsahů ze souborů, které ukládají data tenanta a přidružená metadata.
 
 ### <a name="use-the-administrator-portal"></a>Použití portálu pro správu
 Jako operátor cloudu můžete pomocí portálu pro správu zobrazit kapacitu úložiště pro všechny sdílené složky.
 
 1. Přihlaste se k [portálu pro správu](https://adminportal.local.azurestack.external).
-2. Výběrem položky **všechny služby** > **úložiště** > **sdílené složky** otevřete seznam sdílení souborů, kde můžete zobrazit informace o použití. 
+2. Výběrem položky **všechny služby**  > **úložiště**  > **sdílené složky** otevřete seznam sdílení souborů, kde můžete zobrazit informace o použití.
 
-    ![Příklad: Sdílené souborové složky úložiště](media/azure-stack-manage-storage-shares/storage-file-shares.png)
+    ![Příklad: úložiště sdílené složky na portálu Azure Stack správce](media/azure-stack-manage-storage-shares/storage-file-shares.png)
 
-   - **Total** je celkové místo v bajtech, které jsou k dispozici ve sdílené složce. Tento prostor se používá pro data a metadata, která jsou spravována službou úložiště.
-   - **Používá** se množství dat v bajtech, které se používá u všech rozsahů ze souborů, které ukládají data tenanta a přidružená metadata.
+   - **Total** je celkové místo v bajtech, které jsou k dispozici ve sdílené složce. Tento prostor se používá pro data a metadata, která jsou spravovaná službami úložiště.
+   - **Používá** se množství dat v bajtech, které se používá v rozsahu ze souborů, které ukládají data tenanta a přidružená metadata.
 
 ### <a name="storage-space-alerts"></a>Výstrahy prostoru úložiště
 Když použijete portál pro správu, zobrazí se upozornění na sdílené složky, které mají nedostatek místa.
@@ -101,13 +104,15 @@ Když použijete portál pro správu, zobrazí se upozornění na sdílené slo�
 > [!IMPORTANT]
 > Jako operátor cloudu Udržujte sdílené složky, abyste dosáhli plného využití. Pokud je sdílená složka 100%, služba úložiště pro tuto sdílenou složku přestane fungovat. Chcete-li obnovit volné místo a operace obnovení ve sdílené složce, která je 100%, je nutné se obrátit na podporu společnosti Microsoft.
 
-**Upozornění**: Pokud je sdílená složka větší než 80%, obdržíte *Upozornění* na portálu pro správu: ![Případě Upozornění](media/azure-stack-manage-storage-shares/alert-warning.png)
+**Upozornění**: Pokud je sdílená složka větší než 80%, obdržíte *Upozornění* na portálu pro správu:
 
+![Příklad: výstražné upozornění na portálu pro správu Azure Stack](media/azure-stack-manage-storage-shares/alert-warning.png)
 
-**Kritické**: Pokud je sdílená složka větší než 90%, obdržíte *kritickou* výstrahu na portálu pro správu: ![Případě Kritická výstraha](media/azure-stack-manage-storage-shares/alert-critical.png)
+**Kritické**: Pokud je sdílená složka větší než 90%, obdržíte *kritickou* výstrahu na portálu pro správu:
 
-**Zobrazit podrobnosti**: Na portálu pro správu můžete otevřít podrobnosti výstrahy pro zobrazení možností zmírnění rizika: ![Případě Zobrazit podrobnosti výstrahy](media/azure-stack-manage-storage-shares/alert-details.png)
+![Příklad: kritická výstraha v portálu pro správu Azure Stack](media/azure-stack-manage-storage-shares/alert-critical.png)
 
+**Zobrazit podrobnosti**: na portálu pro správu můžete otevřít podrobnosti výstrahy pro zobrazení možností zmírnění rizika: ![Example: zobrazení podrobností o výstrahách v Azure Stack portálu pro správu ](media/azure-stack-manage-storage-shares/alert-details.png)
 
 ## <a name="manage-available-space"></a>Spravovat dostupné místo
 Pokud je nutné uvolnit místo na sdílené složce, použijte nejprve nejméně invazivní metody. Například zkuste uvolnit místo před tím, než se rozhodnete migrovat kontejner.  
@@ -120,22 +125,22 @@ Můžete uvolnit kapacitu, kterou používají účty klientů, které byly odst
 Další informace najdete v tématu věnovaném [uvolnění kapacity](azure-stack-manage-storage-accounts.md#reclaim) v tématu Správa prostředků úložiště.
 
 ### <a name="migrate-a-container-between-volumes"></a>Migrace kontejneru mezi svazky
-*Tato možnost se vztahuje pouze na nasazení s více uzly.*
+*Tato možnost se týká jenom Azure Stack integrovaných systémů.*
 
-Vzhledem ke vzorům využití tenanta používají některé sdílené složky tenanta víc místa než jiné. Výsledkem může být sdílená složka, ve které je málo volného místa, než se vybírají nevyužité sdílené složky.
+Vzhledem k tomu, že jsou vzory využití tenanta, můžou některé sdílené složky tenanta používat víc místa než jiné. Výsledkem může být sdílená složka, ve které je málo volného místa, než se vybírají nevyužité sdílené složky.
 
-Můžete zkusit uvolnit místo na nevyužité sdílené složce tak, že ručně migrujete některé kontejnery objektů blob do jiné sdílené složky. Můžete migrovat několik menších kontejnerů na jednu sdílenou složku, která má kapacitu uchovat vše. K přesunu *volných* kontejnerů můžete použít migraci. Kontejnery Free jsou kontejnery, které neobsahují disk pro virtuální počítač.   
+Místo na nevyužité sdílené složce můžete uvolnit tak, že ručně migrujete některé kontejnery objektů blob do jiné sdílené složky. Můžete migrovat několik menších kontejnerů na jednu sdílenou složku, která má kapacitu uchovat vše. K přesunu *volných* kontejnerů použijte migraci. Volné kontejnery jsou kontejnery, které neobsahují disk pro virtuální počítač.
 
-Migrace slučuje všechny objekty blob kontejnerů v nové sdílené složce.
+Migrace slučuje všechny objekty blob kontejneru v nové sdílené složce.
 
 - Pokud kontejner přešel do režimu přetečení a umístil objekty blob na další svazky, musí mít Nová sdílená složka dostatečnou kapacitu pro uložení všech objektů BLOB pro kontejner, který migrujete. To zahrnuje objekty blob, které se nacházejí v dalších sdílených složkách.
 
-- Rutina PowerShellu *Get-AzsStorageContainer* identifikuje jenom používané místo na počátečním svazku pro kontejner. Rutina neidentifikuje prostor používaný objekty blob, který je umístěn na dalších svazcích. Proto nemusí být úplná velikost kontejneru zřejmá. Je možné, že konsolidace kontejneru v nové sdílené složce může poslat tuto novou sdílenou složku do stavu přetečení, kde data umísťují do dalších sdílených složek. V důsledku toho může být nutné znovu vyvážit sdílené složky.
+- Rutina PowerShellu *Get-AzsStorageContainer* identifikuje jenom používané místo na počátečním svazku pro kontejner. Rutina neidentifikuje prostor, který používají objekty blob, které jsou umístěny na dalších svazcích. Proto nemusí být úplná velikost kontejneru zřejmá. Je možné, že konsolidace kontejneru v nové sdílené složce může poslat tuto novou sdílenou složku do stavu přetečení, kde data umísťují do dalších sdílených složek. V důsledku toho může být nutné znovu vyvážit sdílené složky.
 
-- Pokud nemáte oprávnění ke skupině prostředků a nemůžete použít PowerShell k dotazování dalších svazků pro přetečení dat, pracujte s vlastníkem těchto skupin prostředků a kontejnerů, abyste pochopili celkovou velikost dat, která se mají migrovat, před migrací těchto dat.  
+- Pokud nemáte oprávnění ke skupině prostředků a nemůžete použít PowerShell k dotazování dalších svazků na data přetečení, pracujte s vlastníkem těchto skupin prostředků a kontejnerů, abyste pochopili celkovou velikost dat, která se mají migrovat, před migrací těchto dat.  
 
 > [!IMPORTANT]
-> Migrace objektů BLOB pro kontejner je offline operace, která vyžaduje použití PowerShellu. Dokud nebude migrace dokončená, všechny objekty blob pro kontejner, které migrujete, zůstávají offline a nelze je použít. Měli byste se také vyhnout upgradu Azure Stack, dokud nebude dokončena veškerá probíhající migrace.
+> Migrace objektů BLOB pro kontejner je offline operace, která vyžaduje použití PowerShellu. Dokud nebude migrace dokončená, všechny objekty blob pro kontejner, které migrujete, zůstávají offline a nejde je použít. Měli byste se také vyhnout upgradu Azure Stack, dokud nebude dokončena veškerá probíhající migrace.
 
 #### <a name="to-migrate-containers-using-powershell"></a>Migrace kontejnerů pomocí PowerShellu
 1. Potvrďte, že máte [nainstalovanou a nakonfigurovanou Azure PowerShell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/). Další informace najdete v tématu [Použití Azure PowerShellu s Azure Resource Managerem](https://go.microsoft.com/fwlink/?LinkId=394767).
@@ -187,7 +192,7 @@ Migrace slučuje všechny objekty blob kontejnerů v nové sdílené složce.
    Get-AzsStorageContainerMigrationStatus -JobId $job_id -FarmName $farm_name
    ```
 
-   ![Příklad: Stav migrace](media/azure-stack-manage-storage-shares/migration-status1.png)
+   ![Příklad: stav migrace](media/azure-stack-manage-storage-shares/migration-status1.png)
 
 6. Probíhající úlohu migrace můžete zrušit. Zrušené úlohy migrace se zpracovávají asynchronně. Zrušení můžete sledovat pomocí $jobid:
 
@@ -195,16 +200,16 @@ Migrace slučuje všechny objekty blob kontejnerů v nové sdílené složce.
    Stop-AzsStorageContainerMigration -JobId $job_id -FarmName $farm_name
    ```
 
-   ![Příklad: Stav vrácení zpět](media/azure-stack-manage-storage-shares/rollback.png)
+   ![Příklad: vrácení stavu zpět](media/azure-stack-manage-storage-shares/rollback.png)
 
 7. Příkaz můžete spustit z kroku 6 znovu, dokud stav nepotvrdí, že se úloha migrace **zruší**:  
 
-    ![Příklad: Stav zrušení](media/azure-stack-manage-storage-shares/cancelled.png)
+    ![Příklad: zrušený stav](media/azure-stack-manage-storage-shares/cancelled.png)
 
 ### <a name="move-vm-disks"></a>Přesunutí disků virtuálního počítače
-*Tato možnost se vztahuje pouze na nasazení s více uzly.*
+*Tato možnost se týká jenom Azure Stack integrovaných systémů.*
 
 Největší způsob, jak spravovat prostor, zahrnuje přesun disků virtuálních počítačů. Vzhledem k tomu, že přesun připojeného kontejneru (ten, který obsahuje disk virtuálního počítače) je složitý, kontaktujte podpora Microsoftu k provedení této akce.
 
 ## <a name="next-steps"></a>Další kroky
-Přečtěte si další informace o tom [, jak virtuální počítače nabídnout uživatelům](azure-stack-tutorial-tenant-vm.md).
+Přečtěte si další informace o [nabídce virtuálních počítačů pro uživatele](azure-stack-tutorial-tenant-vm.md).

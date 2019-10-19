@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2019
+ms.date: 10/17/2019
 ms.author: mabrigg
 ms.lastreviewed: 08/23/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 60515f257dc8ab04e351d1353919a749e9cf4224
-ms.sourcegitcommit: 79ead51be63c372b23b7fca6ffeaf95fd44de786
+ms.openlocfilehash: 44eca76e3b9e969681f4540093088785ad06f97c
+ms.sourcegitcommit: b5eb024d170f12e51cc852aa2c72eabf26792d8d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71687959"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72534003"
 ---
 # <a name="plan-for-an-azure-stack-update"></a>Plánování aktualizace Azure Stack
 
@@ -55,6 +55,8 @@ Můžete připravit na aktualizaci tím, že zadáte všechny opravy hotfix, opr
 6. Ujistěte se, že je balíček OEM kompatibilní s verzí Azure Stack, na kterou aktualizujete. Pokud balíček OEM není kompatibilní s verzí Azure Stack, na kterou aktualizujete, budete muset před spuštěním aktualizace Azure Stack provést aktualizaci balíčku OEM. Pokyny najdete v části "použití Azure Stack aktualizací OEM (Original Equipment Manufacturer)". Zopakujte kroky 3 a 4 po instalaci aktualizace balíčku OEM.
 
 7. Spusťte nástroj Capacity Planner. Přehled a pokyny k používání tohoto nástroje najdete v tématu [přehled Azure Stackho plánování kapacity](https://docs.microsoft.com/azure-stack/operator/azure-stack-capacity-planning-overview).
+
+8. Volitelně můžete [Povolit automatické shromažďování protokolů diagnostiky](azure-stack-configure-automatic-diagnostic-log-collection.md) pro proaktivní shromažďování protokolů pro analýzu zákaznické podpory, pokud se zobrazí výstraha, například **Chyba aktualizace**. 
 
 8. Projděte si balíček aktualizace. Při plánování časového intervalu pro správu a údržbu je důležité zkontrolovat konkrétní typ balíčku aktualizace vydaný od Microsoftu, který se vyvolal v poznámkách k verzi.
 
