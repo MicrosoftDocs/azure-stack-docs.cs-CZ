@@ -1,6 +1,6 @@
 ---
-title: Používání databází MySQL na Azure Stack | Microsoft Docs
-description: Přečtěte si, jak můžete nasadit databáze MySQL jako službu v Azure Stack a rychlé kroky pro nasazení adaptéru poskytovatele prostředků serveru MySQL.
+title: Nasazení poskytovatele prostředků MySQL na Azure Stack | Microsoft Docs
+description: Naučte se nasadit adaptér poskytovatele prostředků MySQL a databáze MySQL jako službu na Azure Stack.
 services: azure-stack
 documentationCenter: ''
 author: mattbriggs
@@ -15,12 +15,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 03/18/2019
-ms.openlocfilehash: 603a42fcd98872a59109a1c8f6806fba72e615e0
-ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
+ms.openlocfilehash: c3b3c30eb10e767cf20336af67bd094994def2f9
+ms.sourcegitcommit: a23b80b57668615c341c370b70d0a106a37a02da
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71908999"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72682120"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack"></a>Nasazení poskytovatele prostředků MySQL na Azure Stack
 
@@ -29,13 +29,13 @@ Použijte poskytovatele prostředků MySQL Serveru a zveřejněte databáze MySQ
 > [!IMPORTANT]
 > Pouze poskytovatel prostředků je podporován k vytváření položek na serverech, které jsou hostiteli SQL nebo MySQL. Položky vytvořené na hostitelském serveru, které nejsou vytvořené poskytovatelem prostředků, můžou vést k neshodě stavu.
 
-## <a name="prerequisites"></a>Požadavky
+## <a name="prerequisites"></a>Předpoklady
 
 Aby bylo možné nasadit poskytovatele prostředků Azure Stack MySQL, je nutné, aby bylo provedeno několik požadavků. Abyste splnili tyto požadavky, proveďte kroky v tomto článku v počítači, který má přístup k VIRTUÁLNÍmu počítači s privilegovaným koncovým bodem.
 
-* Pokud jste to ještě neudělali, zaregistrujte [Azure Stack](./azure-stack-registration.md) s Azure, abyste si mohli stáhnout položky Azure Marketplace.
-* Moduly Azure a Azure Stack PowerShellu musíte nainstalovat do systému, kde budete spouštět tuto instalaci. Tento systém musí být bitová kopie systému Windows 10 nebo Windows Server 2016 s nejnovější verzí modulu .NET Runtime. Azure Stack najdete v tématu věnovaném [instalaci PowerShellu](./azure-stack-powershell-install.md).
-* Přidejte požadovaný virtuální počítač se systémem Windows Server Core do webu Azure Stack Marketplace stažením **základní image Windows server 2016 Datacenter-Server** .
+* Pokud jste to ještě neudělali, [zaregistrujte Azure Stack](./azure-stack-registration.md) s Azure, abyste si mohli stáhnout Azure Marketplace položky.
+* Nainstalujte moduly Azure a Azure Stack PowerShellu do systému, kde budete spouštět tuto instalaci. Tento systém musí být bitová kopie systému Windows 10 nebo Windows Server 2016 s nejnovější verzí modulu .NET Runtime. Azure Stack najdete v tématu věnovaném [instalaci PowerShellu](./azure-stack-powershell-install.md).
+* Přidejte požadovaný virtuální počítač s Windows serverem Core pro Azure Stack Marketplace stažením **základní image serveru Windows server 2016 Datacenter-Server** .
 
 * Stáhněte si binární soubor poskytovatele prostředků MySQL a potom spusťte samočinného extrahování a extrahujte obsah do dočasného adresáře.
 
@@ -53,11 +53,11 @@ Aby bylo možné nasadit poskytovatele prostředků Azure Stack MySQL, je nutné
 
 * Ujistěte se, že jsou splněné předpoklady pro integraci Datacenter:
 
-    |Požadavek|Reference|
+    |Požadavek|Referenční informace|
     |-----|-----|
     |Podmíněné předávání DNS je nastaveno správně.|[Integrace Azure Stack Datacenter – DNS](azure-stack-integrate-dns.md)|
     |Příchozí porty pro poskytovatele prostředků jsou otevřené.|[Integrace Azure Stack Datacenter – publikování koncových bodů](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|
-    |Subjekt certifikátu PKI a síť SAN jsou nastavené správně.|[Povinné předpoklady PKI pro nasazení Azure Stack](azure-stack-pki-certs.md#mandatory-certificates) [Požadavky na certifikát PaaS nasazení Azure Stack](azure-stack-pki-certs.md#optional-paas-certificates)|
+    |Subjekt certifikátu PKI a síť SAN jsou nastavené správně.|[Azure Stack povinné infrastruktury veřejných klíčů nasazení](azure-stack-pki-certs.md#mandatory-certificates)[Azure Stack nasazení požadavky na certifikát PaaS](azure-stack-pki-certs.md#optional-paas-certificates)|
     |     |     |
 
 ### <a name="certificates"></a>Certifikáty
@@ -91,13 +91,13 @@ Tyto parametry můžete zadat z příkazového řádku. Pokud ne, nebo pokud se 
 
 | Název parametru | Popis | Komentář nebo výchozí hodnota |
 | --- | --- | --- |
-| **CloudAdminCredential** | Přihlašovací údaje pro správce cloudu, které jsou nezbytné pro přístup k privilegovanému koncovému bodu. | _Požadováno_ |
-| **AzCredential** | Přihlašovací údaje pro účet správce služby Azure Stack Použijte stejné přihlašovací údaje, které jste použili pro nasazení Azure Stack. | _Požadováno_ |
-| **VMLocalCredential** | Přihlašovací údaje pro účet místního správce virtuálního počítače poskytovatele prostředků MySQL. | _Požadováno_ |
-| **PrivilegedEndpoint** | IP adresa nebo název DNS privilegovaného koncového bodu. |  _Požadováno_ |
+| **CloudAdminCredential** | Přihlašovací údaje pro správce cloudu, které jsou nezbytné pro přístup k privilegovanému koncovému bodu. | _Požadovanou_ |
+| **AzCredential** | Přihlašovací údaje pro účet správce služby Azure Stack Použijte stejné přihlašovací údaje, které jste použili pro nasazení Azure Stack. | _Požadovanou_ |
+| **VMLocalCredential** | Přihlašovací údaje pro účet místního správce virtuálního počítače poskytovatele prostředků MySQL. | _Požadovanou_ |
+| **PrivilegedEndpoint** | IP adresa nebo název DNS privilegovaného koncového bodu. |  _Požadovanou_ |
 | **AzureEnvironment** | Prostředí Azure účtu správce služby používaného pro nasazení Azure Stack. Vyžaduje se jenom pro nasazení Azure AD. Podporované názvy prostředí jsou **AzureCloud**, **AzureUSGovernment**nebo, pokud používáte Čína Azure AD **AzureChinaCloud**. | AzureCloud |
 | **DependencyFilesLocalPath** | V případě pouze integrovaných systémů musí být soubor Certificate. pfx umístěn v tomto adresáři. V případě odpojených prostředí stáhněte do tohoto adresáře [MySQL-Connector-NET-6.10.5. msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi) . Volitelně můžete zkopírovat jeden web Windows Update balíček MSU zde. | _Volitelné_ (_povinné_ pro integrované systémy nebo odpojená prostředí) |
-| **DefaultSSLCertificatePassword** | Heslo pro certifikát. pfx. | _Požadováno_ |
+| **DefaultSSLCertificatePassword** | Heslo pro certifikát. pfx. | _Požadovanou_ |
 | **MaxRetryCount** | Počet pokusů o opakování všech operací, pokud dojde k selhání.| 2 |
 | **RetryDuration** | Interval časového limitu mezi opakovanými pokusy (v sekundách). | 120 |
 | **Odinstalace** | Odebere poskytovatele prostředků a všechny přidružené prostředky (viz následující poznámky). | Ne |
@@ -118,7 +118,7 @@ Install-Module -Name AzureStack -RequiredVersion 1.6.0
 # Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time.
 $domain = "AzureStack"  
 
-# For integrated systems, use the IP address of one of the ERCS virtual machines.
+# For integrated systems, use the IP address of one of the ERCS VMs.
 $privilegedEndpoint = "AzS-ERCS01"
 
 # Provide the Azure environment used for deploying Azure Stack. Required only for Azure AD deployments. Supported environment names are AzureCloud, AzureUSGovernment, or AzureChinaCloud. 
@@ -132,7 +132,7 @@ $serviceAdmin = "admin@mydomain.onmicrosoft.com"
 $AdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $AdminCreds = New-Object System.Management.Automation.PSCredential ($serviceAdmin, $AdminPass)
 
-# Set the credentials for the new resource provider VM local administrator account
+# Set the credentials for the new resource provider VM local admin account
 $vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("mysqlrpadmin", $vmLocalAdminPass)
 
@@ -147,7 +147,7 @@ Clear-AzureRMContext -Scope Process -Force
 # Change the following as appropriate.
 $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
-# Change to the directory folder where you extracted the installation files. Do not provide a certificate on ASDK!
+# Change to the directory folder where you extracted the installation files. Don't provide a certificate on ASDK!
 . $tempDir\DeployMySQLProvider.ps1 `
     -AzCredential $AdminCreds `
     -VMLocalCredential $vmLocalAdminCreds `
@@ -165,10 +165,10 @@ Po dokončení instalačního skriptu poskytovatele prostředků aktualizujte pr
 ## <a name="verify-the-deployment-by-using-the-azure-stack-portal"></a>Ověření nasazení pomocí portálu Azure Stack
 
 1. Přihlaste se k portálu pro správu jako správce služby.
-2. Výběr **skupin prostředků**
-3. Vyberte **systém.\< Location\>. mysqladapter** skupina prostředků.
+2. Vyberte **skupiny prostředků**.
+3. Vyberte skupinu prostředků **System. \<location \>. mysqladapter** .
 4. Na stránce Souhrn pro skupinu prostředků by se neměla nasazovat žádná neúspěšná nasazení.
-5. Nakonec vyberte **virtuální počítače** na portálu pro správu, abyste ověřili, že se virtuální počítač poskytovatele prostředků MySQL úspěšně vytvořil a běží.
+5. Nakonec vyberte **virtuální počítače** na portálu pro správu, abyste ověřili, jestli se virtuální počítač poskytovatele prostředků MySQL úspěšně vytvořil a běží.
 
 ## <a name="next-steps"></a>Další kroky
 

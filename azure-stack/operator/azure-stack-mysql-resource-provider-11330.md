@@ -1,6 +1,6 @@
 ---
-title: 1\.1.30.0 poznámky k verzi poskytovatele prostředků MySQL | Azure Stack Microsoft Docs
-description: Seznamte se s nejnovější aktualizací poskytovatele prostředků MySQL Azure Stack, včetně všech známých problémů a místa, kde ho stáhnout.
+title: 1\.1.33.0 poznámky k verzi poskytovatele prostředků MySQL | Azure Stack Microsoft Docs
+description: Podívejte se na poznámky k verzi a zjistěte, co je nového Azure Stack ve 1.1.33.0 aktualizace poskytovatele prostředků MySQL.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,12 +16,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: fdac6c099980a1c2cedb3271123908539d18169d
-ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
+ms.openlocfilehash: 0ff97155d1ad27c36e86e142aa000c4987c5c8fd
+ms.sourcegitcommit: a23b80b57668615c341c370b70d0a106a37a02da
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71909166"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72682156"
 ---
 # <a name="mysql-resource-provider-11330--release-notes"></a>Poznámky k verzi pro poskytovatele prostředků MySQL 1.1.33.0
 
@@ -29,7 +29,7 @@ ms.locfileid: "71909166"
 
 Tyto poznámky k verzi popisují vylepšení a známé problémy ve verzi poskytovatele prostředků MySQL verze 1.1.33.0.
 
-## <a name="build-reference"></a>Referenční informace o buildu
+## <a name="build-reference"></a>Odkaz na sestavení
 Stáhněte si binární soubor poskytovatele prostředků MySQL a potom spusťte samočinného extrahování a extrahujte obsah do dočasného adresáře. Poskytovatel prostředků má minimálně odpovídající sestavení Azure Stack. Minimální verze Azure Stack vydaná pro instalaci této verze poskytovatele prostředků MySQL je uvedena níže:
 
 > |Minimální verze Azure Stack|Verze poskytovatele prostředků MySQL|
@@ -43,28 +43,29 @@ Stáhněte si binární soubor poskytovatele prostředků MySQL a potom spusťte
 ## <a name="new-features-and-fixes"></a>Nové funkce a opravy
 Tato verze poskytovatele prostředků Azure Stack MySQL zahrnuje následující vylepšení a opravy:
 
-### <a name="fixes"></a>Opravy
-- **Rozšíření portálu poskytovatele prostředků MySQL může zvolit špatné předplatné**. Poskytovatel prostředků MySQL používá Azure Resource Manager volání k určení prvního předplatného Správce služby, které se používá, což nemusí být *výchozí předplatné poskytovatele*. Pokud k tomu dojde, poskytovatel prostředků MySQL nepracuje normálně. 
+### <a name="fixes"></a>Řeší
 
-- **Hostující Server MySQL nezobrazuje seznam hostovaných databází.** Uživatelem vytvořené databáze nemusí být vypsány při zobrazení prostředků tenanta pro hostitelské servery MySQL.
+- **Rozšíření portálu poskytovatele prostředků MySQL může zvolit špatné předplatné**. Poskytovatel prostředků MySQL používá Azure Resource Manager volání k určení prvního předplatného Správce služby, které se používá, což nemusí být *výchozí předplatné poskytovatele*. Pokud k tomu dojde, poskytovatel prostředků MySQL nepracuje normálně.
 
-- **Předchozí nasazení poskytovatele prostředků MySQL (1.1.30.0) by mohlo selhat, pokud není TLS 1,2 povolený**. Aktualizovali jsme poskytovatele prostředků MySQL 1.1.33.0, aby při nasazování poskytovatele prostředků, aktualizaci poskytovatele prostředků nebo střídání tajných klíčů povolil protokol TLS 1,2. 
+- **Hostující Server MySQL neuvádí hostované databáze.** Uživatelem vytvořené databáze nemusí být vypsány při zobrazení prostředků tenanta pro hostitelské servery MySQL.
 
-- **Rotace tajného kódu poskytovatele prostředků MySQL**se nezdařila. Při střídání tajných klíčů došlo k problému, který má za následek následující kód chyby:`New-AzureRmResourceGroupDeployment - Error: Code=InvalidDeploymentParameterValue; Message=The value of deployment parameter 'StorageAccountBlobUri' is null.`
+- **Předchozí nasazení poskytovatele prostředků MySQL (1.1.30.0) by mohlo selhat, pokud není povolený protokol TLS 1,2**. Aktualizovali jsme poskytovatele prostředků MySQL 1.1.33.0, aby při nasazování poskytovatele prostředků, aktualizaci poskytovatele prostředků nebo střídání tajných klíčů povolil protokol TLS 1,2.
 
-## <a name="known-issues"></a>Známé problémy 
+- **Rotace tajného kódu poskytovatele prostředků MySQL se nezdařila**. Opravili jsme problém, který při střídání tajných klíčů vyplývají z následujícího kódu chyby: `New-AzureRmResourceGroupDeployment - Error: Code=InvalidDeploymentParameterValue; Message=The value of deployment parameter 'StorageAccountBlobUri' is null.`
+
+## <a name="known-issues"></a>Známé problémy
 
 - **SKU MySQL můžou trvat až hodinu,** než se na portálu zobrazí. Může trvat až hodinu, než se nově vytvořené skladové položky zobrazí pro použití při vytváření nových databází MySQL. 
 
-    **Alternativní řešení**: Žádné.
+    **Alternativní řešení**: žádné.
 
-- **Znovu se využívala přihlášení MySQL**. Při pokusu o vytvoření nového přihlášení MySQL se stejným uživatelským jménem, jako je existující přihlášení v rámci stejného předplatného, bude použito stejné přihlašovací jméno a stávající heslo. 
+- **Znovu se využívala přihlášení MySQL**. Při pokusu o vytvoření nového přihlášení MySQL se stejným uživatelským jménem, jako je existující přihlášení v rámci stejného předplatného, bude použito stejné přihlašovací jméno a stávající heslo.
 
-    **Alternativní řešení**: Při vytváření nových přihlašovacích údajů v rámci stejného předplatného nebo při vytváření přihlašovacích údajů se stejným uživatelským jménem v různých předplatných použijte jiná uživatelská jména.
+    **Alternativní řešení**: při vytváření nových přihlášení v rámci stejného předplatného použijte jiná uživatelská jména nebo vytvořte přihlášení se stejným uživatelským jménem v různých předplatných.
 
 - **Sdílená přihlášení MySQL způsobují nekonzistenci dat**. Pokud je přihlášení MySQL sdíleno pro více databází MySQL v rámci stejného předplatného, Změna přihlašovacího hesla způsobí nekonzistenci dat.
 
-    **Alternativní řešení**: Pro různé databáze v rámci stejného předplatného používejte vždycky jiná přihlášení.
+    **Alternativní řešení**: pro různé databáze v rámci stejného předplatného používejte vždycky jiná přihlášení.
 
 
 ### <a name="known-issues-for-cloud-admins-operating-azure-stack"></a>Známé problémy pro cloudové správce, kteří pracují Azure Stack

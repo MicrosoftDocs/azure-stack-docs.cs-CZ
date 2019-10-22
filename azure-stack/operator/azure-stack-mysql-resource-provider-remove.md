@@ -1,6 +1,6 @@
 ---
-title: Odebrání poskytovatele prostředků MySQL v Azure Stack | Microsoft Docs
-description: Přečtěte si, jak můžete odebrat poskytovatele prostředků MySQL z nasazení Azure Stack.
+title: Odeberte poskytovatele prostředků MySQL v Azure Stack | Microsoft Docs
+description: Naučte se odebrat poskytovatele prostředků MySQL z nasazení Azure Stack.
 services: azure-stack
 documentationCenter: ''
 author: mattbriggs
@@ -15,14 +15,14 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/20/2018
-ms.openlocfilehash: 3a48ded6a9a21650bae488e0a858086a3575235e
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: a2b55707bc05aecf8681cb866c58b0ed34fb87cd
+ms.sourcegitcommit: a23b80b57668615c341c370b70d0a106a37a02da
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829410"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72682162"
 ---
-# <a name="remove-the-mysql-resource-provider"></a>Odebrání poskytovatele prostředků MySQL
+# <a name="remove-the-mysql-resource-provider-in-azure-stack"></a>Odeberte poskytovatele prostředků MySQL v Azure Stack
 
 Než odeberete poskytovatele prostředků MySQL, je nutné odebrat všechny závislosti zprostředkovatele. Budete také potřebovat kopii balíčku pro nasazení, který se použil k instalaci poskytovatele prostředků.
 
@@ -50,12 +50,12 @@ Operátor Azure Stack zodpovídá za následující úlohy čištění:
 2. Získejte kopii instalačního balíčku poskytovatele prostředků MySQL a potom spusťte samočinný extrahování, který extrahuje obsah do dočasného adresáře.
 3. Otevřete nové okno konzoly PowerShellu se zvýšenými oprávněními a přejděte do adresáře, do kterého jste extrahovali instalační soubory poskytovatele prostředků MySQL.
 4. Spusťte skript DeployMySqlProvider. ps1 pomocí následujících parametrů:
-    - **Odinstalujte**. Odebere poskytovatele prostředků a všechny přidružené prostředky.
-    - **PrivilegedEndpoint**. IP adresa nebo název DNS privilegovaného koncového bodu.
-    - **AzureEnvironment**. Prostředí Azure používané pro nasazení Azure Stack. Vyžaduje se jenom pro nasazení Azure AD.
-    - **CloudAdminCredential**. Přihlašovací údaje pro správce cloudu, které jsou nezbytné pro přístup k privilegovanému koncovému bodu.
+    - **Odinstalace**: Odebere poskytovatele prostředků a všechny přidružené prostředky.
+    - **PrivilegedEndpoint**: IP adresa nebo název DNS privilegovaného koncového bodu.
+    - **AzureEnvironment**: prostředí Azure používané pro nasazení Azure Stack. Vyžaduje se jenom pro nasazení Azure AD.
+    - **CloudAdminCredential**: pověření pro správce cloudu, které je nutné pro přístup k privilegovanému koncovému bodu.
     - **DirectoryTenantID**
-    - **AzCredential**. Přihlašovací údaje pro účet správce služby Azure Stack Použijte stejné přihlašovací údaje, které jste použili pro nasazení Azure Stack.
+    - **AzCredential**: přihlašovací údaje pro účet správce služby Azure Stack. Použijte stejné přihlašovací údaje, které jste použili pro nasazení Azure Stack.
 
 ## <a name="next-steps"></a>Další kroky
 

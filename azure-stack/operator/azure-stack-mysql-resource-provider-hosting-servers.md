@@ -1,6 +1,6 @@
 ---
-title: Hostující servery MySQL na Azure Stack | Microsoft Docs
-description: Postup přidání instancí MySQL pro zřizování prostřednictvím poskytovatele prostředků adaptéru MySQL
+title: Přidání hostitelských serverů MySQL v Azure Stack | Microsoft Docs
+description: Naučte se, jak přidat hostitelské servery MySQL pro zřizování prostřednictvím poskytovatele prostředků adaptéru MySQL.
 services: azure-stack
 documentationCenter: ''
 author: mattbriggs
@@ -15,14 +15,14 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: 8c774d78cd03efeee830b1cbc5e726c7c53e3c57
-ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
+ms.openlocfilehash: 632528519bbca9286ab72fb806ee756ccdb6a166
+ms.sourcegitcommit: a23b80b57668615c341c370b70d0a106a37a02da
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71909043"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72682217"
 ---
-# <a name="add-hosting-servers-for-the-mysql-resource-provider"></a>Přidání hostitelských serverů pro poskytovatele prostředků MySQL
+# <a name="add-mysql-hosting-servers-in-azure-stack"></a>Přidání hostitelských serverů MySQL v Azure Stack
 
 Instanci hostitelského serveru MySQL můžete hostovat na virtuálním počítači v [Azure Stack](azure-stack-overview.md)nebo na virtuálním počítači mimo vaše Azure Stack prostředí, pokud se poskytovatel prostředků MySQL může připojit k instanci.
 
@@ -35,17 +35,17 @@ Pro hostitelské servery lze použít verze MySQL 5,6, 5,7 a 8,0. MySQL RP nepod
 
 Ujistěte se, že máte přihlašovací údaje k účtu s oprávněními správce systému. Chcete-li přidat hostitelský server, postupujte podle následujících kroků:
 
-1. Přihlaste se k portálu Azure Stack operator jako správce služby.
+1. Přihlaste se k portálu pro správu Azure Stack jako správce služby.
 2. Vyberte **Všechny služby**.
-3. V kategorii **prostředky pro správu** vyberte položku **MySQL hosting servery** >  **+ Přidat**. Tím se otevře dialogové okno **Přidat hostitelský server MySQL** zobrazené na následujícím snímku obrazovky.
+3. V kategorii **prostředky pro správu** vyberte možnost **MySQL hostingové servery**  >  **+ Přidat**. Otevře se dialogové okno **Přidat hostitelský server MySQL** , které se zobrazí na následujícím snímku obrazovky.
 
-   ![Konfigurace hostitelského serveru](./media/azure-stack-mysql-rp-deploy/mysql-add-hosting-server-2.png)
+   ![Konfigurace hostitelského serveru MySQL](./media/azure-stack-mysql-rp-deploy/mysql-add-hosting-server-2.png)
 
 4. Zadejte podrobnosti o připojení instance serveru MySQL.
 
    * Pro **název hostitelského serveru MySQL**zadejte plně kvalifikovaný název domény (FQDN) nebo platnou adresu IPv4. Nepoužívejte krátký název virtuálního počítače.
-   * Výchozí **uživatelské jméno** správce pro Image Bitnami MySQL dostupné na webu Azure Stack Marketplace je *root*. 
-   * Pokud neznáte kořenové **heslo**, přečtěte si [dokumentaci k Bitnami](https://docs.bitnami.com/azure/faq/#how-to-find-application-credentials) , kde najdete informace o tom, jak je získat. 
+   * Výchozí **uživatelské jméno** správce pro Image Bitnami MySQL dostupné v Azure Stack Marketplace je *root*.
+   * Pokud neznáte kořenové **heslo**, přečtěte si [dokumentaci k Bitnami](https://docs.bitnami.com/azure/faq/#how-to-find-application-credentials) , kde najdete informace o tom, jak je získat.
    * Není zadaná výchozí instance MySQL, takže musíte zadat **Velikost hostitelského serveru v GB**. Zadejte velikost, která je blízko kapacity databázového serveru.
    * Ponechte výchozí nastavení pro **předplatné**.
    * Pro **skupinu prostředků**, vytvořte novou nebo použijte existující skupinu.
@@ -84,15 +84,15 @@ Použijte název SKU, který popisuje možnosti serverů v SKU, jako je napřík
   
 * vysoká kapacita
 * vysoký výkon
-* vysoká dostupnost
+* Vysoká dostupnost
 
 Osvědčeným postupem je, že všechny hostitelské servery v SKU by měly mít stejné charakteristiky prostředků a výkonu.
 
 SKU nelze přiřadit konkrétním uživatelům nebo skupinám.
 
-Pokud chcete upravit SKU, otevřete **všechny služby** > **SKU** **adaptéru** > MySQL. Vyberte SKLADOVOU položku, kterou chcete upravit, proveďte potřebné změny a uložte změny kliknutím na **Uložit** . 
+Pokud chcete upravit SKU, otevřete **všechny služby**  > **adaptér MySQL**  > **SKU**. Vyberte SKLADOVOU položku, kterou chcete upravit, proveďte potřebné změny a uložte změny kliknutím na **Uložit** . 
 
-Pokud chcete odstranit SKU, které už nepotřebujete, přečtěte si **všechny služby** > **SKU** **adaptéru** > MySQL. Klikněte pravým tlačítkem na název SKU a vyberte **Odstranit** a odstraňte ho.
+Pokud chcete odstranit SKU, které už nepotřebujete, přečtěte si **všechny služby**  > **adaptéru MySQL**  > **SKU**. Klikněte pravým tlačítkem na název SKU a vyberte **Odstranit** a odstraňte ho.
 
 > [!IMPORTANT]
 > Může trvat až hodinu, než se nové SKU zpřístupní na portálu User Portal.

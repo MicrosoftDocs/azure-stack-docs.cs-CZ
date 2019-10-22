@@ -1,6 +1,6 @@
 ---
-title: Používání databází poskytovaných adaptérem MySQL RP v Azure Stack | Microsoft Docs
-description: Jak vytvářet a spravovat databáze MySQL zřízené pomocí poskytovatele prostředků adaptéru MySQL
+title: Vytváření databází MySQL v Azure Stack | Microsoft Docs
+description: Naučte se vytvářet a spravovat databáze MySQL zřízené pomocí poskytovatele prostředků adaptéru MySQL v Azure Stack.
 services: azure-stack
 documentationCenter: ''
 author: mattbriggs
@@ -15,15 +15,15 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 594d1f45e19717bdbbc5f9fee56cf253c03b6efb
-ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
+ms.openlocfilehash: 9daaea395ee28da79da1d6fd553d2e0b30e28156
+ms.sourcegitcommit: a23b80b57668615c341c370b70d0a106a37a02da
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72283469"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72682237"
 ---
-# <a name="create-mysql-databases"></a>Vytváření databází MySQL
-Uživatel Azure Stack, který se přihlásí k odběru nabídky, která obsahuje databázovou službu MySQL, může vytvořit a spravovat samoobslužné databáze MySQL na portálu User Portal.
+# <a name="create-mysql-databases-in-azure-stack"></a>Vytváření databází MySQL v Azure Stack
+Uživatel Azure Stack, který se přihlásil k odběru nabídky, která obsahuje databázovou službu MySQL, může vytvořit a spravovat samoobslužné databáze MySQL na portálu User Portal.
 
 ## <a name="create-a-mysql-database"></a>Vytvoření databáze MySQL
 
@@ -66,4 +66,4 @@ Heslo můžete upravit tak, že ho změníte v instanci serveru MySQL.
 
 ## <a name="next-steps"></a>Další kroky
 
-Informace o tom, jak [nabízet vysoce dostupné databáze MySQL](azure-stack-tutorial-mysql.md)
+Přečtěte si, jak [nabízet vysoce dostupné databáze MySQL](azure-stack-tutorial-mysql.md).
