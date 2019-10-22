@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2019
+ms.date: 10/21/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 08/30/2019
-ms.openlocfilehash: 6e7f4785603dc6a0523186ee31af5ef9b51bec46
-ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
+ms.openlocfilehash: 34422c5d868b26be599065c33ef0cfe20d790a2f
+ms.sourcegitcommit: a23b80b57668615c341c370b70d0a106a37a02da
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71909526"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72682138"
 ---
 # <a name="azure-stack-updates-release-notes"></a>Aktualizace Azure Stack: poznámky k verzi
 
@@ -33,7 +33,7 @@ Pokud chcete získat přístup k poznámkám k verzi pro jinou verzi, použijte 
 
 ::: moniker range=">=azs-1905"
 > [!IMPORTANT]  
-> Tento balíček aktualizace je pouze pro integrované systémy Azure Stack. Tento balíček aktualizace nevztahují na Azure Stack Development Kit.
+> Tento balíček aktualizace je určen pouze pro Azure Stack integrovaných systémů. Nepoužívejte tento balíček aktualizace na Azure Stack Development Kit.
 ::: moniker-end
 ::: moniker range="<azs-1905"
 > [!IMPORTANT]  
@@ -62,7 +62,7 @@ Nápovědu k řešení potíží s aktualizacemi a procesu aktualizace najdete v
 
 V 1908 se základní operační systém, na kterém Azure Stack běžet, aktualizoval na Windows Server 2019. To umožňuje základní vylepšení základních funkcí a také možnost přinášet další možnosti Azure Stack v blízké budoucnosti.
 
-Typ sestavení aktualizace Azure Stack 1908 je **plný**. V důsledku toho má aktualizace 1908 delší dobu běhu než expresní aktualizace jako 1906 a 1907. Přesné moduly runtime pro úplné aktualizace obvykle závisí na počtu uzlů, které vaše instance Azure Stack obsahuje, na kapacitě používané v systému podle úloh klientů, na síťovém připojení vašeho systému (Pokud je připojené k Internetu) a na vašem systémovém hardwaru. rozšířeného. Aktualizace 1908 měla v našem interním testování následující očekávané moduly runtime: 4 uzly – 42 hodin, 8 uzlů – 50 hodin, 12 uzlů – 60 hodin, 16 uzlů – 70 hodiny. Aktualizační moduly, které trvají déle než tyto očekávané hodnoty, nejsou Neběžné a nevyžadují akci Azure Stack operátory, pokud aktualizace neproběhne úspěšně.
+Typ sestavení aktualizace Azure Stack 1908 je **plný**. V důsledku toho má aktualizace 1908 delší dobu běhu než expresní aktualizace jako 1906 a 1907. Přesné moduly runtime pro úplné aktualizace obvykle závisí na počtu uzlů, které vaše instance Azure Stack obsahuje, na kapacitě používané v systému podle úloh klientů, na síťovém připojení vašeho systému (Pokud je připojené k Internetu) a na vašem systémovém hardwaru. rozšířeného. Aktualizace 1908 měla během interního testování následující očekávané moduly runtime: 4 uzly-42 hodiny, 8 uzlů – 50 hodin, 12 uzlů – 60 hodiny, 16 uzlů – 70 hodin. Aktualizační moduly, které trvají déle než tyto očekávané hodnoty, nejsou Neběžné a nevyžadují akci Azure Stack operátory, pokud aktualizace neproběhne úspěšně.
 
 Další informace o typech sestavení aktualizací najdete v tématu [Správa aktualizací v Azure Stack](azure-stack-updates.md).
 
@@ -114,7 +114,7 @@ Azure Stack pravidelně vydává opravy hotfix. Před aktualizací Azure Stack n
 
 Azure Stack oprav hotfix se týkají pouze Azure Stack integrovaných systémů. Nepokoušejte se instalovat opravy hotfix na ASDK.
 
-### <a name="prerequisites-before-applying-the-1908-update"></a>Požadavky: Před použitím aktualizace 1908
+### <a name="prerequisites-before-applying-the-1908-update"></a>Požadavky: před instalací aktualizace 1908
 
 Vydání verze 1908 Azure Stack se musí použít ve verzi 1907 s následujícími opravami hotfix:
 
@@ -128,7 +128,7 @@ Aktualizace Azure Stack 1908 vyžaduje **Azure Stack OEM verze 2,1 nebo novějš
 Po instalaci této aktualizace nainstalujte všechny příslušné opravy hotfix. Další informace najdete v našich [zásadách obsluhy](azure-stack-servicing-policy.md).
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- Pro 1908 není k dispozici žádná oprava hotfix.
+- [Azure Stack opravy hotfix 1.1908.6.37](https://support.microsoft.com/help/4527372)
 ::: moniker-end
 
 ::: moniker range="azs-1907"
@@ -380,7 +380,7 @@ Po instalaci této aktualizace nainstalujte všechny příslušné opravy hotfix
 
 ### <a name="update-type-1905"></a>Typ aktualizace
 
-Typ sestavení aktualizace Azure Stack 1905 je **plný**. V důsledku toho má aktualizace 1905 delší dobu běhu než expresní aktualizace jako 1903 a 1904. Přesné moduly runtime pro úplné aktualizace obvykle závisí na počtu uzlů, které vaše instance Azure Stack obsahuje, na kapacitě používané v systému podle úloh klientů, na síťovém připojení vašeho systému (Pokud je připojené k Internetu) a na vašem systémovém hardwaru. rozšířeného. Aktualizace 1905 měla v našem interním testování následující očekávané moduly runtime: 4 uzly – 35 hodin, 8 uzlů – 45 hodin, 12 uzlů – 55 hodin, 16 uzlů – 70 hodiny. 1905 za běhu trvající delší dobu než tyto očekávané hodnoty nejsou běžné a nevyžadují akci Azure Stack operátory, pokud se aktualizace nezdařila. Další informace o typech sestavení aktualizací najdete v tématu [Správa aktualizací v Azure Stack](azure-stack-updates.md).
+Typ sestavení aktualizace Azure Stack 1905 je **plný**. V důsledku toho má aktualizace 1905 delší dobu běhu než expresní aktualizace jako 1903 a 1904. Přesné moduly runtime pro úplné aktualizace obvykle závisí na počtu uzlů, které vaše instance Azure Stack obsahuje, na kapacitě používané v systému podle úloh klientů, na síťovém připojení vašeho systému (Pokud je připojené k Internetu) a na vašem systémovém hardwaru. rozšířeného. Aktualizace 1905 měla během interního testování následující očekávané moduly runtime: 4 uzly-35 hodiny, 8 uzlů – 45 hodin, 12 uzlů – 55 hodiny, 16 uzlů – 70 hodin. 1905 za běhu trvající delší dobu než tyto očekávané hodnoty nejsou běžné a nevyžadují akci Azure Stack operátory, pokud se aktualizace nezdařila. Další informace o typech sestavení aktualizací najdete v tématu [Správa aktualizací v Azure Stack](azure-stack-updates.md).
 
 ## <a name="whats-in-this-update-1905"></a>Co je v této aktualizaci
 
@@ -400,11 +400,11 @@ V této aktualizaci se teď dá úspěšně aktivovat Windows Server 2019 na hos
 <!-- Changes and product improvements with tangible customer-facing value. -->
 - V rámci vynucování TLS 1,2 na Azure Stack se následující rozšíření aktualizovala na tyto verze:
 
-  - microsoft.customscriptextension-arm-1.9.3
-  - microsoft.iaasdiagnostics-1.12.2.2
-  - microsoft.antimalware-windows-arm-1.5.5.9
-  - microsoft.dsc-arm-2.77.0.0
-  - microsoft.vmaccessforlinux-1.5.2
+  - Microsoft. CustomScriptExtension – ARM – 1.9.3
+  - Microsoft. iaasdiagnostics – 1.12.2.2
+  - Microsoft. antimalware – Windows – ARM – 1.5.5.9
+  - Microsoft. DSC – ARM – 2.77.0.0
+  - Microsoft. vmaccessforlinux – 2.5.1
 
   Stáhněte si prosím tyto verze rozšíření hned, aby nová nasazení rozšíření nebyla úspěšná, když se TLS 1,2 vynutil v budoucí verzi. Vždy nastavte **autoUpgradeMinorVersion = true** , aby se automaticky prováděla aktualizace dílčí verze na rozšíření (například 1,8 až 1,9).
 
@@ -422,8 +422,8 @@ V této aktualizaci se teď dá úspěšně aktivovat Windows Server 2019 na hos
 
 - 1905 Azure Stack aktualizace přináší dvě nové role infrastruktury pro zlepšení spolehlivosti a podpory platforem:
 
-  - **Kanál infrastruktury**: V budoucnu bude kanál infrastruktury hostovat verze stávajících rolí infrastruktury (například XRP), které aktuálně vyžadují vlastní určené virtuální počítače infrastruktury. Tím se Vylepšete spolehlivost platformy a sníží se počet virtuálních počítačů infrastruktury, které Azure Stack vyžaduje. Tím se následně omezí celková spotřeba prostředků Azure Stack rolí infrastruktury v budoucnu.
-  - **Aktualizační kanál podpory**: V budoucnu se ke zpracování lepších scénářů podpory pro zákazníky použije aktualizační kanál podpory.  
+  - **Infrastruktura pro infrastrukturu**: v budoucnu bude zazvonění infrastruktury hostovat ve verzích stávajících rolí infrastruktury, například XRP – které aktuálně vyžadují vlastní určené virtuální počítače infrastruktury. Tím se Vylepšete spolehlivost platformy a sníží se počet virtuálních počítačů infrastruktury, které Azure Stack vyžaduje. Tím se následně omezí celková spotřeba prostředků Azure Stack rolí infrastruktury v budoucnu.
+  - **Prstenec podpory**: v budoucnu se k podpoře scénářů podpory pro zákazníky použije aktualizační kanál.  
 
   Kromě toho jsme přidali další instanci virtuálního počítače řadiče domény, aby se zlepšila dostupnost této role.
 
@@ -505,7 +505,7 @@ Systémy, které mají přístup k Internetu ze sítě infrastruktury, uvidí na
 > [!TIP]  
 > Přihlaste se k odběru následujících informačních kanálů *RSS* nebo *Atom* , abyste zachovali Azure Stack opravy hotfix:
 >
-> - [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss)
+> - [OBSAH](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss)
 > - [Počtu](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom)
 
 ## <a name="archive"></a>Archiv
@@ -514,10 +514,10 @@ Pokud chcete získat přístup k archivovaným dokumentům k verzi pro starší 
 
 ## <a name="next-steps"></a>Další kroky
 
-- Přehled správy aktualizací ve službě Azure Stack najdete v tématu [správy aktualizací ve službě Azure Stack přehled](azure-stack-updates.md).  
-- Další informace o tom, jak použít aktualizace pomocí služby Azure Stack najdete v tématu [použití aktualizací ve službě Azure Stack](azure-stack-apply-updates.md).
-- Zásady údržby pro integrované systémy Azure Stack, a co musíte udělat, aby byl váš systém v podporovaném stavu najdete v tématu [Azure Stack zásady obsluhy](azure-stack-servicing-policy.md).  
-- Privilegované koncový bod (období) použít ke sledování a obnovit aktualizace, najdete v článku [monitorování aktualizací ve službě Azure Stack pomocí privilegovaných koncového bodu](azure-stack-monitor-update.md).
+- Přehled správy aktualizací v Azure Stack najdete v tématu [Správa aktualizací v Azure Stack přehledu](azure-stack-updates.md).  
+- Další informace o tom, jak použít aktualizace s Azure Stack, najdete v tématu věnovaném [použití aktualizací v Azure Stack](azure-stack-apply-updates.md).
+- Informace o zásadách obsluhy pro Azure Stack integrovaných systémech a o tom, co je potřeba udělat, abyste zachovali svůj systém v podporovaném stavu, najdete v tématu [zásady pro obsluhu Azure Stack](azure-stack-servicing-policy.md).  
+- Postup pro monitorování a obnovení aktualizací pomocí privilegovaného koncového bodu (PEP) najdete v tématu [monitorování aktualizací v Azure Stack pomocí privilegovaného koncového bodu](azure-stack-monitor-update.md).
 ::: moniker-end
 
 <!------------------------------------------------------------>
