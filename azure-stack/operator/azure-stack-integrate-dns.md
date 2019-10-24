@@ -11,12 +11,12 @@ ms.author: mabrigg
 ms.reviewer: wfayed
 ms.lastreviewed: 08/21/2019
 keywords: ''
-ms.openlocfilehash: 4949ed2533ed550f61efd2cc4e0dfed7de3a1d7e
-ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
+ms.openlocfilehash: 1f84eeffffae3c103c33b366a5c503a907cf6715
+ms.sourcegitcommit: 4a2318ad395b2a931833ccba4430d8d04cdd8819
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72019230"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72780486"
 ---
 # <a name="azure-stack-datacenter-dns-integration"></a>Integrace služby DNS Azure Stack datacentra
 
@@ -27,12 +27,12 @@ Aby bylo možné přistupovat k Azure Stack koncovým bodům, jako je **portál*
 Když nasadíte Azure Stack, budete muset poskytnout nějaké důležité informace týkající se DNS.
 
 
-|Pole  |Popis  |Příklad|
+|Pole  |Popis  |Příklad:|
 |---------|---------|---------|
 |Oblast|Geografické umístění vašeho nasazení Azure Stack.|`east`|
 |Název externí domény|Název zóny, kterou chcete použít pro nasazení Azure Stack.|`cloud.fabrikam.com`|
-|Internal Domain Name|Název interní zóny, která se používá pro služby infrastruktury v Azure Stack. Je to integrovaná a privátní adresářová služba (není dostupná z vnějšku Azure Stack nasazení).|`azurestack.local`|
-|Servery DNS pro přeposílání|Servery DNS, které se používají k přeposílání dotazů DNS, zón DNS a záznamů hostovaných mimo Azure Stack, a to buď na podnikovém intranetu nebo na veřejném Internetu. Pokud nahradíte službu DNS pro přeposílání, musí se aktualizovat IP adresa. |`10.57.175.34`<br>`8.8.8.8`|
+|Interní název domény|Název interní zóny, která se používá pro služby infrastruktury v Azure Stack. Je to integrovaná a privátní adresářová služba (není dostupná z vnějšku Azure Stack nasazení).|`azurestack.local`|
+|Servery DNS pro přeposílání|Servery DNS, které se používají k přeposílání dotazů DNS, zón DNS a záznamů hostovaných mimo Azure Stack, a to buď na podnikovém intranetu nebo na veřejném Internetu. Po nasazení můžete hodnotu služby DNS resílat upravit pomocí [rutiny **set-AzSDnsForwarder** ](#editing-dns-forwarder-ips) . 
 |Předpona názvů (volitelné)|Předpona názvů, kterou chcete, aby názvy počítačů v rolích infrastruktury Azure Stack měly.  Pokud není zadaný, výchozí hodnota je `azs`.|`azs`|
 
 Plně kvalifikovaný název domény (FQDN) nasazení Azure Stack a koncových bodů je kombinací parametru region a parametru názvu externí domény. Při použití hodnot z příkladů v předchozí tabulce bude plně kvalifikovaný název domény pro toto nasazení Azure Stack následující název:
@@ -48,8 +48,8 @@ Například příklady některých koncových bodů tohoto nasazení by vypadaly
 Chcete-li použít tento příklad oboru názvů DNS pro nasazení Azure Stack, jsou vyžadovány následující podmínky:
 
 - Zóna `fabrikam.com` je zaregistrovaná buď s doménovým registrátorem, interním podnikovým serverem DNS nebo obojím, v závislosti na vašich požadavcích na překlad názvů.
-- Podřízená doména `cloud.fabrikam.com` existuje v zóně `fabrikam.com`.
-- Servery DNS, které hostují zóny `fabrikam.com` a `cloud.fabrikam.com`, lze získat z nasazení Azure Stack.
+- Podřízená doména `cloud.fabrikam.com` existuje v `fabrikam.com` zóny.
+- Servery DNS, které hostují zóny `fabrikam.com` a `cloud.fabrikam.com` lze dosáhnout z nasazení Azure Stack.
 
 Aby bylo možné přeložit názvy DNS pro koncové body a instance Azure Stack mimo Azure Stack, je nutné integrovat servery DNS, které jsou hostiteli externích zón DNS, pro Azure Stack se servery DNS, které hostují nadřazenou zónu, kterou chcete použít.
 
@@ -80,7 +80,9 @@ Azure Stack zahrnuje autoritativní i rekurzivní servery DNS. Rekurzivní serve
 
 ## <a name="resolving-external-dns-names-from-azure-stack"></a>Překlad externích názvů DNS z Azure Stack
 
-Pokud chcete přeložit názvy DNS pro koncové body mimo Azure Stack (například: www\.bing.com), musíte poskytnout servery DNS, které Azure Stack můžou použít k přeposílání požadavků DNS, pro které není Azure Stack autoritativní. Pro nasazení se servery DNS, na které Azure Stack předává požadavky, vyžadují v listu nasazení (v poli pro přeposílání DNS). Pro odolnost proti chybám zadejte v tomto poli aspoň dva servery. Bez těchto hodnot není nasazení Azure Stack úspěšné. Pokud se nahrazují servery DNS, aktualizujte IP adresy.
+Chcete-li přeložit názvy DNS pro koncové body mimo Azure Stack (například: www \.bing. com), musíte poskytnout servery DNS, které Azure Stack mohou používat k přeposílání požadavků DNS, pro které Azure Stack nejsou autoritativní. Pro nasazení se servery DNS, na které Azure Stack předává požadavky, vyžadují v listu nasazení (v poli pro přeposílání DNS). Pro odolnost proti chybám zadejte v tomto poli aspoň dva servery. Bez těchto hodnot není nasazení Azure Stack úspěšné. Po nasazení můžete hodnoty DNS pro přeposílání upravit pomocí [rutiny **set-AzSDnsForwarder** ](#editing-dns-forwarder-ips) . 
+
+
 
 ### <a name="configure-conditional-dns-forwarding"></a>Konfigurace podmíněného předávání DNS
 
@@ -114,7 +116,7 @@ Autoritativní servery jsou ty, které obsahují informace o externích zónách
 K integraci nasazení Azure Stack s infrastrukturou DNS potřebujete tyto informace:
 
 - Plně kvalifikované názvy domén serveru DNS
-- DNS server IP addresses
+- IP adresy serveru DNS
 
 Plně kvalifikované názvy domén pro Azure Stack DNS serverů mají následující formát:
 
@@ -131,13 +133,13 @@ Pomocí ukázkových hodnot jsou plně kvalifikované názvy domény pro servery
 
 Tyto informace se vytvoří také na konci všech Azure Stack nasazení v souboru s názvem `AzureStackStampInformation.json`. Tento soubor se nachází ve složce `C:\CloudDeployment\logs` virtuálního počítače nasazení. Pokud si nejste jistí, jaké hodnoty byly použity pro nasazení Azure Stack, můžete získat hodnoty z tohoto místa.
 
-Pokud virtuální počítač pro nasazení již není dostupný nebo je nepřístupný, můžete hodnoty získat připojením k privilegovanému koncovému bodu a spuštěním rutiny `Get-AzureStackStampInformation` prostředí PowerShell. Další informace najdete v tématu [privilegovaný koncový bod](azure-stack-privileged-endpoint.md).
+Pokud virtuální počítač pro nasazení už není dostupný nebo není dostupný, můžete hodnoty získat připojením k privilegovanému koncovému bodu a spuštěním rutiny `Get-AzureStackStampInformation` PowerShellu. Další informace najdete v tématu [privilegovaný koncový bod](azure-stack-privileged-endpoint.md).
 
 ## <a name="setting-up-conditional-forwarding-to-azure-stack"></a>Nastavení podmíněného předávání na Azure Stack
 
 Nejjednodušší a nejbezpečnější způsob, jak integrovat Azure Stack s infrastrukturou DNS, je provést podmíněné přesměrování zóny ze serveru, který hostuje nadřazenou zónu. Tento přístup se doporučuje, pokud máte přímou kontrolu nad servery DNS, které hostují nadřazenou zónu pro Azure Stack externí obor názvů DNS.
 
-Pokud nejste obeznámeni s tím, jak provést podmíněné přesměrování pomocí služby DNS, přečtěte si následující článek na webu TechNet: [Přiřaďte pro název domény podmíněný překlad](https://technet.microsoft.com/library/cc794735)nebo dokumentaci specifickou pro vaše řešení DNS.
+Pokud nejste obeznámeni s tím, jak provést podmíněné přesměrování pomocí služby DNS, přečtěte si následující článek na webu TechNet: [přiřazení podmíněného předávání pro název domény](https://technet.microsoft.com/library/cc794735)nebo dokumentaci specifickou pro vaše řešení DNS.
 
 V případech, kdy jste určili svou externí Azure Stack zónu DNS, aby vypadala jako podřízená doména názvu vaší podnikové domény, nelze použít podmíněné přesměrování. Je třeba nakonfigurovat delegování DNS.
 
@@ -145,6 +147,10 @@ Příklad:
 
 - Název domény DNS společnosti: `contoso.com`
 - Azure Stack název externí domény DNS: `azurestack.contoso.com`
+
+## <a name="editing-dns-forwarder-ips"></a>Úprava IP adresy DNS pro přeposílání
+
+IP adresy DNS pro přeposílání jsou nastaveny během nasazování Azure Stack. Pokud se ale IP adresy pro předávací službu musí z jakéhokoli důvodu aktualizovat, můžete hodnoty upravit připojením k privilegovanému koncovému bodu a spuštěním rutin `Get-AzSDnsForwarder` a `Set-AzSDnsForwarder [[-IPAddress] <IPAddress[]>]` PowerShellu. Další informace najdete v tématu [privilegovaný koncový bod](azure-stack-privileged-endpoint.md).
 
 ## <a name="delegating-the-external-dns-zone-to-azure-stack"></a>Delegování externí zóny DNS na Azure Stack
 
