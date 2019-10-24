@@ -3,7 +3,7 @@ title: Vytvoření připojení VPN typu Site-to-site mezi dvěma virtuálními s
 description: Kurz pro operátory cloudu pro vytvoření připojení VPN typu Site-to-site mezi dvěma prostředími ASDK (Single-Node Azure Stack Development Kit).
 services: azure-stack
 documentationcenter: ''
-author: sethmanheim
+author: justinha
 manager: femila
 editor: ''
 ms.assetid: 3f1b4e02-dbab-46a3-8e11-a777722120ec
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/16/2019
-ms.author: sethm
-ms.reviewer: scottnap
+ms.author: justinha
+ms.reviewer: tbd
 ms.lastreviewed: 09/12/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 2ae267d470d9862e262f26ea11d2ba4b07bfb299
-ms.sourcegitcommit: c2ea4ffb42563c26faaf2993ba7b484bcb6d5cb7
+ms.openlocfilehash: ef0fd3aef095dc0ee2865e7f1fb2a8821d378e70
+ms.sourcegitcommit: 4a2318ad395b2a931833ccba4430d8d04cdd8819
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71342910"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72780526"
 ---
 # <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-asdk-environments"></a>Vytvoření připojení VPN typu Site-to-site mezi dvěma virtuálními sítěmi v různých prostředích ASDK
 
@@ -36,11 +36,11 @@ Následující obrázek ukazuje, jak by konfigurace připojení měla vypadat, j
 
 ![Konfigurace připojení VPN typu Site-to-site](media/azure-stack-create-vpn-connection-one-node-tp2/OneNodeS2SVPN.png)
 
-### <a name="before-you-begin"></a>Před zahájením
+### <a name="before-you-begin"></a>Než začnete
 
 Pokud chcete dokončit konfiguraci připojení, ujistěte se, že máte následující položky, než začnete:
 
-* Dva servery a další požadavky, které splňují požadavky na hardware ASDK, jak je [popsáno v tématu rychlý Start: Vyhodnoťte Azure Stack Development Kit](../asdk/asdk-download.md).
+* Dva servery a další požadavky, které splňují požadavky na hardware ASDK, jak je popsáno v tématu [rychlý Start: vyhodnocení Azure Stack Development Kit](../asdk/asdk-download.md).
 * Balíček pro nasazení [ASDK](https://azure.microsoft.com/overview/azure-stack/try/) .
 
 ## <a name="deploy-the-azure-stack-development-kit-environments"></a>Nasazení Azure Stack Development Kit prostředí
@@ -62,9 +62,9 @@ Následující tabulka shrnuje konfiguraci sítě pro prostředí ASDK. Použijt
 
 |   |POC1|POC2|
 |---------|---------|---------|
-|Název virtuální sítě     |VNET-01|VNET-02 |
+|Název virtuální sítě     |VNET – 01|VIRTUÁLNÍ SÍŤ-02 |
 |Adresní prostor virtuální sítě |10.0.10.0/23|10.0.20.0/23|
-|Název podsítě     |Subnet-01|Subnet-02|
+|Název podsítě     |Podsíť – 01|Podsíť-02|
 |Rozsah adres podsítě|10.0.10.0/24 |10.0.20.0/24 |
 |Podsíť brány     |10.0.11.0/24|10.0.21.0/24|
 |Externí BGPNAT adresa     |         |         |
@@ -109,11 +109,11 @@ Správce služeb se může přihlásit jako tenant, aby otestoval plány, nabíd
 3. Otevřete **web Marketplace**a pak vyberte **sítě**.
 4. Vyberte **Virtuální síť**.
 5. V poli **název**, **adresní prostor**, **název podsítě**a **Rozsah adres podsítě**použijte hodnoty, které se objeví dříve v tabulce konfigurace sítě.
-6. Vpředplatném se zobrazí předplatné, které jste vytvořili dříve.
+6. V **předplatném**se zobrazí předplatné, které jste vytvořili dříve.
 7. V případě **skupiny prostředků**můžete buď vytvořit skupinu prostředků, nebo pokud ji už máte, vyberte **použít existující**.
 8. Ověřte výchozí umístění.
 9. Zaškrtněte **Připnout na řídicí panel**.
-10. Vyberte **Vytvořit**.
+10. Vyberte **Create** (Vytvořit).
 
 ### <a name="create-the-gateway-subnet"></a>Vytvoření podsítě brány
 
@@ -136,8 +136,8 @@ Správce služeb se může přihlásit jako tenant, aby otestoval plány, nabíd
 5. Vyberte položku **virtuální síť** a zvolte virtuální síť. Ze seznamu vyberte **VNet-01** .
 6. Vyberte položku nabídky **veřejné IP adresy** . Po otevření okna **zvolit veřejnou IP adresu** vyberte **vytvořit novou**.
 7. Do **název**zadejte **gw1-PIP**a pak vyberte **OK**.
-8. Ve výchozím nastavení je vybrána možnost **typ sítě VPN**, který je **založený na trasách** . Zachovejte typ sítě VPN **založený** na trasách.
-9. Ověřte, že nastavení **Předplatné** a **Umístění** jsou správná. Prostředek můžete připnout na řídicí panel. Vyberte **Vytvořit**.
+8. Ve výchozím nastavení je vybrána možnost **typ sítě VPN**, který je **založený na trasách** . Zachovejte typ sítě VPN **založený na trasách** .
+9. Ověřte, že nastavení **Předplatné** a **Umístění** jsou správná. Prostředek můžete připnout na řídicí panel. Vyberte **Create** (Vytvořit).
 
 ### <a name="create-the-local-network-gateway"></a>Vytvoření brány místní sítě
 
@@ -200,11 +200,11 @@ Správce služeb se může přihlásit jako tenant, aby otestoval plány, nabíd
 3. Otevřete **web Marketplace**a pak vyberte **sítě**.
 4. Vyberte **Virtuální síť**.
 5. Použijte informace uvedené dříve v tabulce konfigurace sítě k identifikaci hodnot pro **název**POC2, **adresní prostor**, **název podsítě**a **Rozsah adres podsítě**.
-6. Vpředplatném se zobrazí předplatné, které jste vytvořili dříve.
+6. V **předplatném**se zobrazí předplatné, které jste vytvořili dříve.
 7. V případě **skupiny prostředků**vytvořte novou skupinu prostředků, nebo pokud ji už máte, vyberte **použít existující**.
 8. Ověřte výchozí **umístění**.
 9. Zaškrtněte **Připnout na řídicí panel**.
-10. Vyberte **Vytvořit**.
+10. Vyberte **Create** (Vytvořit).
 
 ### <a name="create-gateway-subnet"></a>Vytvořit podsíť brány
 
@@ -224,8 +224,8 @@ Správce služeb se může přihlásit jako tenant, aby otestoval plány, nabíd
 5. Chcete-li zvolit virtuální síť, vyberte možnost **virtuální síť**. Pak ze seznamu vyberte **VNet-02** .
 6. Vyberte **Veřejná IP adresa**. Když se otevře okno **zvolit veřejnou IP adresu** , vyberte **vytvořit nové**.
 7. Do **název**zadejte **GW2-PIP**a pak vyberte **OK**.
-8. Ve výchozím nastavení je pro **typ sítě VPN**vybraná možnost **Směrování** . Zachovejte typ sítě VPN **založený** na trasách.
-9. Ověřte, že nastavení **Předplatné** a **Umístění** jsou správná. Prostředek můžete připnout na řídicí panel. Vyberte **Vytvořit**.
+8. Ve výchozím nastavení je pro **typ sítě VPN**vybraná možnost **Směrování** . Zachovejte typ sítě VPN **založený na trasách** .
+9. Ověřte, že nastavení **Předplatné** a **Umístění** jsou správná. Prostředek můžete připnout na řídicí panel. Vyberte **Create** (Vytvořit).
 
 ### <a name="create-local-network-gateway-resource"></a>Vytvoření prostředku brány místní sítě
 
@@ -237,7 +237,7 @@ Správce služeb se může přihlásit jako tenant, aby otestoval plány, nabíd
 6. Do pole **adresní prostor**z POC1 zadejte adresní prostor **10.0.10.0/23** **virtuální sítě VNet-01**.
 7. Ověřte, jestli je vaše **předplatné**, **Skupina prostředků**a **umístění** správné, a pak vyberte **vytvořit**.
 
-## <a name="create-connection"></a>Vytvořte připojení
+## <a name="create-connection"></a>Vytvoření připojení
 
 1. Na portálu User Portal vyberte **+ vytvořit prostředek**.
 2. Otevřete **web Marketplace**a pak vyberte **sítě**.
@@ -285,7 +285,7 @@ Pokud chcete nakonfigurovat připojení VPN, musíte vytvořit trasu mapy static
    ![Interní IP adresa](media/azure-stack-create-vpn-connection-one-node-tp2/InternalIP.PNG)
 
 2. Přihlaste se k Azure Stack fyzického počítače pro POC1.
-3. Zkopírujte a upravte následující skript prostředí PowerShell. Pokud chcete nakonfigurovat překlad adres (NAT) na každém ASDK, spusťte skript v Integrované skriptovací prostředí (ISE) v prostředí Windows PowerShell se zvýšenými oprávněními. Do skriptu přidejte hodnoty do `External BGPNAT address` zástupných symbolů a: `Internal IP address`
+3. Zkopírujte a upravte následující skript prostředí PowerShell. Pokud chcete nakonfigurovat překlad adres (NAT) na každém ASDK, spusťte skript v Integrované skriptovací prostředí (ISE) v prostředí Windows PowerShell se zvýšenými oprávněními. Do skriptu přidejte hodnoty do `External BGPNAT address` a `Internal IP address` zástupné symboly:
 
    ```powershell
    # Designate the external NAT address for the ports that use the IKE authentication.
