@@ -11,16 +11,16 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/10/2019
+ms.date: 10/24/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 06/20/2019
-ms.openlocfilehash: 187fe88ad304804462cc4461b24eb10a7af7a299
-ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
+ms.openlocfilehash: 4d93e16a46efad33c4392e40ca3a79e89a14795b
+ms.sourcegitcommit: e6a738f674634e1d5dd4eb23b6c44b660ea2fe84
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72277731"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72891280"
 ---
 # <a name="deploy-a-staged-data-analytics-solution-to-azure-stack"></a>Nasazení řešení dvoufázové analýzy dat do Azure Stack
 
@@ -37,7 +37,7 @@ V tomto řešení vytvoříte ukázkové prostředí pro:
 > - Otestujte funkci aktivovanou ve frontě.
 
 > [!Tip]  
-> @no__t -0hybrid-Pillars. png @ no__t-1  
+> ![Hybrid-Pillars. png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
 > Microsoft Azure Stack je rozšířením Azure. Azure Stack přináší flexibilitu a inovace cloud computingu do místního prostředí a umožňuje jenom hybridní cloud, který umožňuje vytvářet a nasazovat hybridní aplikace odkudkoli.  
 > 
 > Požadavky na [Návrh pro hybridní aplikace](azure-stack-edge-pattern-overview.md) kontrolují pilíře kvality softwaru (umístění, škálovatelnost, dostupnost, odolnost, možnosti správy a zabezpečení) pro navrhování, nasazování a provozování hybridních aplikací. Pokyny k návrhu pomáhají při optimalizaci návrhu hybridní aplikace a minimalizaci výzev v produkčních prostředích.
@@ -83,12 +83,12 @@ Image Docker pro každé nasazení eliminují problémy závislosti mezi různý
       ```powershell
       .\DeploySolution-Azure-AzureStack.ps1 `
       -AzureApplicationId "applicationIDforAzureServicePrincipal" `
-      -AzureApplicationSercet "clientSecretforServicePrincipal" `
+      -AzureApplicationSecret "clientSecretforServicePrincipal" `
       -AzureTenantId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" `
       -AzureStackAADTenantName "azurestacktenant.onmicrosoft.com" `
       -AzureStackTenantARMEndpoint "https://management.haazurestack.com" `
       -AzureStackApplicationId "applicationIDforStackServicePrincipal" `
-      -AzureStackApplicationSercet "ClientSecretforStackServicePrincipal" `
+      -AzureStackApplicationSecret "ClientSecretforStackServicePrincipal" `
       -AzureStackTenantId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" `
       -ResourcePrefix "aPrefixForResources"
       ```
@@ -105,7 +105,7 @@ Image Docker pro každé nasazení eliminují problémy závislosti mezi různý
 
 4.  Přečtěte si data, která jsou zpracovávána, pomocí přechodu na webové aplikace nasazené do Azure nebo Azure Stack.
 
-### <a name="azure-web-app"></a>Webová aplikace Azure
+### <a name="azure-web-app"></a>Webové aplikace Azure
  
 ![řešení dvoufázové analýzy dat](media/azure-stack-solution-staged-data/image2.png)
  

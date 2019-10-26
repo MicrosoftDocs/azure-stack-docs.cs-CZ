@@ -16,12 +16,12 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/25/2019
-ms.openlocfilehash: 9098fb61c0d4edcb534bd7b9d07b4727c953df8d
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.openlocfilehash: e42ad185373eeb59b6fdfa5d1c769a5843774537
+ms.sourcegitcommit: 64c18637cafcc38044d139bf35b16422ada8160c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70974894"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72889852"
 ---
 # <a name="app-service-on-azure-stack-update-4-release-notes"></a>Zpráva k vydání verze App Service ve Azure Stack Update 4
 
@@ -32,11 +32,11 @@ Tyto poznámky k verzi popisují vylepšení, opravy a známé problémy v Azure
 > [!IMPORTANT]
 > Před nasazením Azure App Service 1,4 použijte aktualizaci 1809 na integrovaný systém Azure Stack nebo nasaďte nejnovější Azure Stack Development Kit (ASDK).
 
-## <a name="build-reference"></a>Referenční informace o buildu
+## <a name="build-reference"></a>Odkaz na sestavení
 
 App Service číslo sestavení Azure Stack Update 4 je **78.0.13698.5**
 
-### <a name="prerequisites"></a>Požadavky
+### <a name="prerequisites"></a>Předpoklady
 
 Než začnete s nasazením, přečtěte si [požadavky pro nasazení App Service v Azure Stack](azure-stack-app-service-before-you-get-started.md) .
 
@@ -47,7 +47,7 @@ Než začnete s upgradem Azure App Service v Azure Stack na 1,4:
 - Zálohování App Service a hlavních databází:
   - AppService_Hosting;
   - AppService_Metering;
-  - Předloha
+  - Master
 
 - Zálohujte sdílenou složku obsahu aplikace tenanta.
 
@@ -159,9 +159,9 @@ Pro zákazníky, kteří chtějí migrovat na databázi s omezením na existují
             GO  
 
             /********[appservice_hosting] Migration End********/
-    '''
+    ```
 
-1. Migrate logins to contained database users.
+1. Migruje přihlášení pro uživatele databáze s omezením.
 
     ```sql
         IF EXISTS(SELECT * FROM sys.databases WHERE Name=DB_NAME() AND containment = 1)
@@ -212,10 +212,10 @@ Pokud se rozhodnete nasadit do existující virtuální sítě a interní IP adr
  * Zdroj: Any
  * Rozsah zdrojových portů: *
  * Cíl: IP adresy
- * Rozsah cílových IP adres: Rozsah IP adres pro souborový server
+ * Rozsah cílových IP adres: rozsah IP adres pro souborový server
  * Rozsah cílových portů: 445
  * Protokol: TCP
- * Akce: Allow
+ * Akce: povolení
  * Priorita: 700
  * Název: Outbound_Allow_SMB445
 
@@ -223,7 +223,7 @@ Pokud se rozhodnete nasadit do existující virtuální sítě a interní IP adr
 
 Informace najdete v dokumentaci k [verzi Azure Stack 1809](azure-stack-update-1903.md) .
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 - Přehled Azure App Service najdete v tématu [přehled Azure App Service na Azure Stack](azure-stack-app-service-overview.md).
 - Další informace o přípravě na nasazení App Service v Azure Stack najdete v tématu [předpoklady pro nasazení App Service na Azure Stack](azure-stack-app-service-before-you-get-started.md).
