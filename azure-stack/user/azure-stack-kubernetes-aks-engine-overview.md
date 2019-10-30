@@ -1,5 +1,5 @@
 ---
-title: Co je modul AKS v Azure Stack? | Dokumenty Microsoft
+title: Co je modul AKS v Azure Stack? | Microsoft Docs
 description: Naučte se, jak pomocí nástroje příkazového řádku AKS Engine nasadit a spravovat cluster Kubernetes v Azure a Azure Stack.
 services: azure-stack
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.date: 09/14/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/14/2019
-ms.openlocfilehash: 0b1c28369fb1865778c68040894d100af9ea7fd6
-ms.sourcegitcommit: 09d14eb77a43fd585e7e6be93c32fa427770adb6
+ms.openlocfilehash: 93a835b6d3eff233ccbd421930f9618325126ea4
+ms.sourcegitcommit: 58e1911a54ba249a82fa048c7798dadedb95462b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71019180"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73057760"
 ---
 # <a name="what-is-the-aks-engine-on-azure-stack"></a>Co je modul AKS v Azure Stack?
 
@@ -50,7 +50,7 @@ Tým podpory Azure Stack podporuje následující scénáře:
 2.  AKS Engine nasadí cluster do existující virtuální sítě. Další informace najdete v tématu [použití vlastní virtuální sítě s modulem AKS](https://github.com/Azure/aks-engine/blob/master/docs/tutorials/custom-vnet.md).
 3.  Operace [upgradu](azure-stack-kubernetes-aks-engine-upgrade.md) a [škálování](azure-stack-kubernetes-aks-engine-scale.md) .
 
-Další informace o modulu AKS a Azure Stack najdete v tématu [zásady podpory pro modul AKS na Azure Stack](azure-stack-kubernetes-ask-engine-support.md).
+Další informace o modulu AKS a Azure Stack najdete v tématu [zásady podpory pro modul AKS na Azure Stack](azure-stack-kubernetes-aks-engine-support.md).
 
 ## <a name="install-the-aks-engine-and-deploy-a-kubernetes-cluster"></a>Instalace modulu AKS a nasazení clusteru Kubernetes
 
@@ -62,7 +62,7 @@ Nasazení clusteru Kubernetes s modulem AKS na Azure Stack:
      - [Instalace modulu AKS v systému Linux v Azure Stack](azure-stack-kubernetes-aks-engine-deploy-linux.md)
 3. [Nasazení clusteru Kubernetes s modulem AKS na Azure Stack](azure-stack-kubernetes-aks-engine-deploy-cluster.md)
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 > [!div class="nextstepaction"]
 > [Nastavení požadavků pro modul AKS](azure-stack-kubernetes-aks-engine-set-up.md)

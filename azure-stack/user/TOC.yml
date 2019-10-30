@@ -1,4 +1,4 @@
-- name: Uživatelská dokumentace k Azure Stacku
+- name: Uživatelská dokumentace k platformě Azure Stack
   href: index.yml
 - name: Přehled
   items:
@@ -6,7 +6,7 @@
       href: azure-stack-hybrid-cloud-patterns.md
     - name: Klíčové aspekty
       href: azure-stack-considerations.md
-- name: Šablony Rychlý start
+- name: Rychlé starty
   expanded: true
   items:
     - name: Vytvoření virtuálního počítače s Windows – portál
@@ -48,7 +48,7 @@
                   maintainContext: true
                 - name: Připojení přes PowerShell
                   href: azure-stack-powershell-configure-user.md
-                - name: Stáhnout nástroje pro Azure Stack
+                - name: Stáhnout Azure Stack nástroje
                   href: /azure-stack/operator/azure-stack-powershell-download?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
                   maintainContext: true
                 - name: Použití Docker ke spuštění PowerShellu
@@ -69,22 +69,22 @@
           items:
             - name: Přehled šablon
               href: azure-stack-arm-templates.md
-            - name: Aspekty šablon
+            - name: Pokyny pro šablonu
               href: azure-stack-develop-templates.md
             - name: Vývoj šablon v Azure
               href: azure-stack-developer.md
-            - name: Nasazení šablon
+            - name: Šablony nasazení
               href: azure-stack-validate-templates.md
               items:
                 - name: Nasazení s využitím portálu
                   href: azure-stack-deploy-template-portal.md
-                - name: Nasazení s využitím PowerShellu
+                - name: Nasazení s PowerShellem
                   href: azure-stack-deploy-template-powershell.md
                 - name: Nasazení pomocí rozhraní příkazového řádku
                   href: azure-stack-deploy-template-command-line.md
                 - name: Nasazení pomocí Visual Studio Code
                   href: azure-stack-resource-manager-deploy-template-vscode.md
-                - name: Nasazení s využitím sady Visual Studio
+                - name: Nasazení pomocí sady Visual Studio
                   href: azure-stack-deploy-template-visual-studio.md
         - name: Použití profilů verzí rozhraní API
           items:
@@ -102,7 +102,7 @@
               href: azure-stack-version-profiles-python.md
             - name: NodeJS
               href: azure-stack-version-profile-nodejs.md
-            - name: Poskytovatel prostředků rozhraní API podporuje profily
+            - name: Rozhraní API pro poskytovatele prostředků podporovaná profily
               href: azure-stack-profiles-azure-resource-manager-versions.md
     - name: Použití poskytovatelů prostředků
       items:
@@ -114,25 +114,25 @@
               href: /azure-stack/operator/azure-stack-create-service-principals?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
         - name: Použití služeb
           items:
-            - name: Compute
+            - name: Služby Compute
               items:
                 - name: Přehled
                   href: azure-stack-compute-overview.md
                 - name: Aspekty virtuálních počítačů
                   href: azure-stack-vm-considerations.md
-                - name: Velikost virtuálních počítačů
+                - name: Velikosti virtuálních počítačů
                   href: azure-stack-vm-sizes.md
                 - name: Správa disků virtuálních počítačů
                   href: azure-stack-manage-vm-disks.md
-                - name: Důležité informace o spravovaných discích
+                - name: Požadavky na Managed disks
                   href: azure-stack-managed-disk-considerations.md
                 - name: Ochrana virtuálních počítačů
                   href: azure-stack-manage-vm-protect.md
-                - name: Aktualizace virtuálního počítače a správy
+                - name: Aktualizace a správa virtuálních počítačů
                   href: vm-update-management.md
-                - name: Důležité informace o virtuální počítač s SQL serverem
+                - name: Požadavky na SQL Server VM
                   href: azure-stack-sql-server-vm-considerations.md
-            - name: Storage
+            - name: Úložiště
               items:
                 - name: Přehled
                   href: azure-stack-storage-overview.md
@@ -154,11 +154,11 @@
                   items:
                     - name: Připojení pomocí VPN
                       href: azure-stack-connect-vpn.md
-                    - name: Informace o službě VPN gateway
+                    - name: Informace o službě VPN Gateway
                       href: azure-stack-vpn-gateway-about-vpn-gateways.md
                     - name: Konfigurace zásad připojení IPSec/IKE
                       href: azure-stack-vpn-s2s.md
-                    - name: Nastavení služby VPN gateway
+                    - name: Nastavení služby VPN Gateway
                       href: azure-stack-vpn-gateway-settings.md
                 - name: iDNS pro Azure Stack
                   href: azure-stack-understanding-dns.md
@@ -189,7 +189,7 @@
                   href: azure-stack-metrics-monitor.md
         - name: Nasazení doplňkových služeb
           items:
-            - name: Ethereum během nasazení
+            - name: Nasazení Ethereem
               href: azure-stack-ethereum.md
             - name: Nasazení clusteru Service Fabric
               href: azure-stack-solution-template-service-fabric-cluster.md
@@ -200,7 +200,7 @@
                     - name: AKS modul na Azure Stack
                       href: azure-stack-kubernetes-aks-engine-overview.md
                     - name: Zásady podpory
-                      href: azure-stack-kubernetes-ask-engine-support.md
+                      href: azure-stack-kubernetes-aks-engine-support.md
                     - name: Nastavit požadavky
                       href: azure-stack-kubernetes-aks-engine-set-up.md
                     - name: Vytvořit klienta pro Linux
@@ -251,15 +251,15 @@
       items:
         - name: Nasazení aplikací na platformy Azure a Azure Stack
           href: azure-stack-solution-pipeline.md
-        - name: Konfigurace hybridní Cloudová identita
+        - name: Konfigurace hybridní cloudové identity
           href: azure-stack-solution-hybrid-identity.md
-        - name: Konfigurace připojení k hybridní cloud
+        - name: Konfigurace hybridního cloudového připojení
           href: azure-stack-solution-hybrid-connectivity.md
-        - name: Vytvoření řešení škálování cloudu s Azure
+        - name: Vytváření řešení škálování mezi cloudy pomocí Azure
           href: azure-stack-solution-cloud-burst.md
-        - name: Vytvoření řešení geograficky distribuované aplikace
+        - name: Vytvořit geograficky distribuované řešení aplikace
           href: azure-stack-solution-geo-distributed.md
-        - name: Nasazení řešení s hybridní cloud
+        - name: Nasazení hybridního cloudového řešení
           href: azure-stack-solution-hybrid-cloud.md
         - name: Nasazení připravené analýzy dat
           href: azure-stack-solution-staged-data.md
@@ -275,9 +275,11 @@
           href: azure-stack-network-howto-vnet-to-vnet-stacks.md
         - name: Partnerský vztah virtuální sítě
           href: azure-stack-network-howto-vnet-to-vnet.md
+        - name: Připojení k úložišti iSCSI
+          href: azure-stack-network-howto-iscsi-storage.md
 - name: Koncepty
   items:
-    - name: Hybridní cloudové vzory
+    - name: Vzory hybridního cloudu
       items:
         - name: Přehled hybridních cloudových schémat
           href: azure-stack-edge-pattern-overview.md
@@ -289,11 +291,11 @@
           href: hybrid-solution-retail-footfall-detection.md
         - name: Geograficky distribuovaná aplikace
           href: azure-stack-edge-pattern-geo-distribution.md
-- name: Reference
+- name: Referenční informace
   items:
     - name: Azure Stack PowerShell
       href: /powershell/azure/azure-stack/overview?view=azurestackps-1.3.0
-    - name: Prohlížeč rozhraní REST API služby Azure Stack
+    - name: Prohlížeč REST API Azure Stack
       href: /rest/api/
     - name: Azure Stack CLI
       href: /cli/azure/reference-index?view=azure-cli-2017-03-09-profile
@@ -301,15 +303,15 @@
   items:
     - name: Dokumentace operátora k Azure Stacku
       href: /azure-stack/operator/
-    - name: Dokumentace ke službě ASDK
+    - name: Dokumentace k ASDK
       href: /azure-stack/asdk/
-- name: Zdroje a prostředky
+- name: Materiály
   items:
-    - name: Plán služby Azure Stack
+    - name: Azure Stack plán
       href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'
-    - name: Fóru pro Azure Stack MSDN
+    - name: Azure Stack Fórum MSDN
       href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack'
-    - name: Váš názor na Azure Stack dokumentace
+    - name: Váš názor na dokumentaci Azure Stack
       href: 'https://feedback.azure.com/forums/344565-azure-stack?category_id=160275'
     - name: Informace o cenách
       href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'

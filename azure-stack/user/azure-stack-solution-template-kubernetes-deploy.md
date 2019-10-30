@@ -15,19 +15,19 @@ ms.date: 10/10/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 74cad0b1f41c5c764bef361f3f521162eec59198
-ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
+ms.openlocfilehash: 0fc45ae0413fb7e269d8d7347e2279895c234950
+ms.sourcegitcommit: 0d27456332031ab98ba2277117395ae5ffcbb79f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72277652"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73047166"
 ---
 # <a name="deploy-kubernetes-to-use-containers-with-azure-stack"></a>Nasazení Kubernetes pro použití kontejnerů s Azure Stack
 
 *Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
 
 > [!Note]  
-> Kubernetes on Azure Stack je ve verzi Preview. V tuto chvíli není ve verzi Preview podporován Azure Stack odpojený scénář. Pro scénáře vývoje a testování používejte jenom položku Marketplace.
+> K nasazení clusterů jako zkušebního konceptu použijte jenom položku Kubernetes Azure Stack Marketplace. Pro podporované Kubernetes clustery v Azure Stack použijte [modul AKS](azure-stack-kubernetes-aks-engine-overview.md).
 
 Postup v tomto článku můžete použít k nasazení a nastavení prostředků pro Kubernetes v rámci jediné koordinované operace. Kroky používají šablonu řešení Azure Resource Manager. Budete potřebovat shromáždit požadované informace o instalaci Azure Stack, vygenerovat šablonu a pak ji nasadit do svého cloudu. Šablona Azure Stack nepoužívá stejnou spravovanou službu AKS nabízenou v globálním Azure.
 

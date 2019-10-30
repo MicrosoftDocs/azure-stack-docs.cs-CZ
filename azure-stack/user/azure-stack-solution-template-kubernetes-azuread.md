@@ -15,23 +15,23 @@ ms.date: 10/10/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: e625ba27e683dc11cd8a825441ef73ef37d00f0a
-ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
+ms.openlocfilehash: 902645ffcb6fda4afad76a1a258b55f0ace2b189
+ms.sourcegitcommit: 0d27456332031ab98ba2277117395ae5ffcbb79f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72277709"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73047246"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-using-azure-active-directory"></a>Nasazení Kubernetes k Azure Stack pomocí Azure Active Directory
 
 *Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
 
 > [!Note]  
-> Kubernetes on Azure Stack je ve verzi Preview. V tuto chvíli není ve verzi Preview podporován Azure Stack odpojený scénář. Pro scénáře vývoje a testování používejte jenom položku Marketplace.
+> K nasazení clusterů jako zkušebního konceptu použijte jenom položku Kubernetes Azure Stack Marketplace. Pro podporované Kubernetes clustery v Azure Stack použijte [modul AKS](azure-stack-kubernetes-aks-engine-overview.md).
 
 Postup v tomto článku můžete použít k nasazení a nastavení prostředků pro Kubernetes, při použití Azure Active Directory (Azure AD) jako služby správy identit, v jediné koordinované operaci.
 
-## <a name="prerequisites"></a>Požadavky
+## <a name="prerequisites"></a>Předpoklady
 
 Pokud chcete začít, ujistěte se, že máte správná oprávnění a že je váš Azure Stack připravený.
 
@@ -63,19 +63,19 @@ Nastavte instanční objekt v Azure. Instanční objekt poskytuje vaší aplikac
 
     a. Přihlaste se ke svému účtu Azure prostřednictvím [Azure Portal](https://portal.azure.com).  
     b. Vyberte **Azure Active Directory** > **Registrace aplikací** > **Nová registrace**.  
-    r. Zadejte název a adresu URL pro aplikaci.  
-    trojrozměrné. Vyberte **podporované typy účtů**.  
-    Cerebrální.  Přidejte `http://localhost` pro identifikátor URI pro aplikaci. Vyberte **Web** pro typ aplikace, kterou chcete vytvořit. Po nastavení hodnot vyberte **Registrovat**.
+    c. Zadejte název a URL aplikace.  
+    d. Vyberte **podporované typy účtů**.  
+    e.  Přidejte `http://localhost` pro identifikátor URI pro aplikaci. Vyberte **Web** pro typ aplikace, kterou chcete vytvořit. Po nastavení hodnot vyberte **Registrovat**.
 
 1. Poznamenejte si **ID aplikace**. Při vytváření clusteru budete potřebovat ID. ID je odkazováno jako **ID klienta instančního objektu**.
 
-1. V okně pro princip služby vyberte **nový tajný klíč klienta**. **Nastavení**@no__t**klíčů**– 1 Pro princip služby musíte vygenerovat ověřovací klíč.
+1. V okně pro princip služby vyberte **nový tajný klíč klienta**. **Nastavení** > **klíčů**. Pro princip služby musíte vygenerovat ověřovací klíč.
 
     a. Zadejte **Popis**.
 
     b. Pro **vypršení platnosti**vyberte možnost **nikdy nevyprší platnost** .
 
-    r. Vyberte **Přidat**. Poznamenejte si řetězec klíče. Při vytváření clusteru budete potřebovat řetězec klíče. Na klíč se odkazuje jako na **tajný klíč klienta instančního objektu**.
+    c. Vyberte **Přidat**. Poznamenejte si řetězec klíče. Při vytváření clusteru budete potřebovat řetězec klíče. Na klíč se odkazuje jako na **tajný klíč klienta instančního objektu**.
 
 ## <a name="give-the-service-principal-access"></a>Poskytnutí přístupu k instančnímu objektu
 
@@ -99,7 +99,7 @@ Udělte instančnímu objektu přístup k vašemu předplatnému, aby objekt zab
 
 1. Otevřete [portál Azure Stack](https://portal.local.azurestack.external).
 
-1. Vyberte **+ vytvořit prostředek**@no__t Cluster**COMPUTE** > **Kubernetes**. Klikněte na **vytvořit**.
+1. Vyberte **+ vytvořit prostředek** > Cluster **COMPUTE** > **Kubernetes**. Klikněte na **Vytvořit**.
 
     ![Nasadit šablonu řešení](media/azure-stack-solution-template-kubernetes-deploy/01_kub_market_item.png)
 

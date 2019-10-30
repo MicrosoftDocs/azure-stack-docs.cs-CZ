@@ -11,23 +11,24 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2019
+ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 4fcfb0c8ef509ab827c15321cff5fc945230d69e
-ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
+ms.lastreviewed: 10/28/2019
+ms.openlocfilehash: fc83c8c68402622d721864f24a3ef9c5bab10479
+ms.sourcegitcommit: 0d27456332031ab98ba2277117395ae5ffcbb79f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72283428"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73047188"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Přidání Kubernetes do webu Azure Stack Marketplace
 
 *Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
 
 > [!note]  
-> Kubernetes on Azure Stack je ve verzi Preview. V tuto chvíli není ve verzi Preview podporován Azure Stack odpojený scénář. Pro scénáře vývoje a testování používejte jenom položku Marketplace.
+> K nasazení clusterů jako zkušebního konceptu použijte jenom položku Kubernetes Azure Stack Marketplace. Pro podporované Kubernetes clustery v Azure Stack použijte [modul AKS](azure-stack-aks-engine.md).
+
 Pro uživatele můžete nabízet Kubernetes jako položku Marketplace. Uživatelé můžou a pak nasazovat Kubernetes v rámci jediné koordinované operace.
 
 Následující článek popisuje použití šablony Azure Resource Manager k nasazení a zřízení prostředků samostatného clusteru Kubernetes. Než začnete, Projděte si Azure Stack a globální nastavení klienta Azure. Shromážděte požadované informace o vašem Azure Stack. Přidejte potřebné prostředky do svého tenanta a na Azure Stack Marketplace. Cluster závisí na serveru Ubuntu, vlastním skriptu a položce tržiště clusteru Kubernetes na webu Marketplace.
@@ -54,11 +55,11 @@ Vytvořte plán, nabídku a předplatné pro položku Kubernetes Marketplace. M�
 
     b. Zadejte **uživatele**. Použijte účet Azure AD přidružený k vašemu tenantovi.
 
-    r. **Popis poskytovatele**
+    c. **Popis poskytovatele**
 
-    trojrozměrné. Nastavte **tenanta adresáře** na TENANTA Azure AD pro vaši Azure Stack. 
+    d. Nastavte **tenanta adresáře** na TENANTA Azure AD pro vaši Azure Stack. 
 
-    Cerebrální. Vyberte **nabídku**. Vyberte název nabídky, kterou jste vytvořili. Poznamenejte si ID předplatného.
+    e. Vyberte **nabídku**. Vyberte název nabídky, kterou jste vytvořili. Poznamenejte si ID předplatného.
 
 ## <a name="create-a-service-principal-and-credentials-in-ad-fs"></a>Vytvoření instančního objektu a přihlašovacích údajů ve službě AD FS
 

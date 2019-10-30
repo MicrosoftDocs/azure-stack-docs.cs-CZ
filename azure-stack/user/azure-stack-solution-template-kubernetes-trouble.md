@@ -14,19 +14,19 @@ ms.author: mabrigg
 ms.date: 10/10/2019
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 14a32696a3e46782b8990ba57f9510976200f7d3
-ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
+ms.openlocfilehash: 1070608db881426d6cb7ca78d0b19444bdba77ce
+ms.sourcegitcommit: 0d27456332031ab98ba2277117395ae5ffcbb79f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72277571"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73047205"
 ---
 # <a name="troubleshoot-kubernetes-deployment-to-azure-stack"></a>Řešení potíží s nasazením Kubernetes pro Azure Stack
 
 *Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
 
 > [!Note]  
-> Kubernetes on Azure Stack je ve verzi Preview. V tuto chvíli není ve verzi Preview podporován Azure Stack odpojený scénář. Pro scénáře vývoje a testování používejte jenom položku Marketplace.
+> K nasazení clusterů jako zkušebního konceptu použijte jenom položku Kubernetes Azure Stack Marketplace. Pro podporované Kubernetes clustery v Azure Stack použijte [modul AKS](azure-stack-kubernetes-aks-engine-overview.md).
 
 Tento článek popisuje, jak řešit potíže s clusterem Kubernetes. Chcete-li zahájit odstraňování potíží, zkontrolujte prvky požadované pro nasazení. Možná budete muset shromáždit protokoly nasazení z Azure Stack nebo virtuálních počítačů se systémem Linux, které hostují Kubernetes. Chcete-li načíst protokoly z koncového bodu správy, obraťte se na správce Azure Stack.
 
@@ -111,11 +111,11 @@ Když nasadíte cluster Kubernetes, můžete zkontrolovat stav nasazení a zkont
     
     | Vlastnost | Popis |
     | ----     | ----        |
-    | Partner | Název prostředku. |
+    | Prostředek | Název prostředku. |
     | Typ | Poskytovatel prostředků a typ prostředku. |
     | Stav | Stav položky |
     | Časové razítko | Časové razítko UTC v čase. |
-    | Podrobnosti operace | Podrobnosti o operaci, jako je například poskytovatel prostředků, který byl součástí operace, koncový bod prostředku a název prostředku. |
+    | Podrobnosti o operaci | Podrobnosti o operaci, jako je například poskytovatel prostředků, který byl součástí operace, koncový bod prostředku a název prostředku. |
 
     Každá položka má ikonu stavu zelenou nebo červenou.
 
@@ -123,7 +123,7 @@ Když nasadíte cluster Kubernetes, můžete zkontrolovat stav nasazení a zkont
 
 Pokud Azure Stack portál neposkytuje dostatek informací, abyste mohli vyřešit nebo překonat selhání nasazení, je dalším krokem dig do protokolů clusteru. Pokud chcete protokoly nasazení načíst ručně, musíte se obvykle připojit k jednomu z hlavních virtuálních počítačů v clusteru. Jednodušší alternativní přístup by byl stáhnout a spustit následující [skript bash](https://aka.ms/AzsK8sLogCollectorScript) poskytnutý týmem Azure Stack. Tento skript se připojuje k virtuálním počítačům DVM a clusteru, shromažďuje relevantní protokoly systému a clusteru a stáhne je zpátky do pracovní stanice.
 
-### <a name="prerequisites"></a>Požadavky
+### <a name="prerequisites"></a>Předpoklady
 
 K počítači, který použijete ke správě Azure Stack, budete potřebovat výzvu k bash. Na počítači s Windows můžete získat výzvu bash instalací [Gitu pro Windows](https://git-scm.com/downloads). Po instalaci vyhledejte _Git bash_ v nabídce Start.
 
@@ -144,7 +144,7 @@ Pomocí těchto kroků můžete shromáždit a stáhnout protokoly clusteru:
 
 3. Vyhledejte informace požadované skriptem a spusťte ho:
 
-    | Parametr           | Popis                                                                                                      | Příklad                                                                       |
+    | Parametr           | Popis                                                                                                      | Příklad:                                                                       |
     |---------------------|------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
     | -d,--VMD-Host      | Veřejná IP adresa nebo plně kvalifikovaný název domény (FQDN) pro DVM. Název virtuálního počítače začíná na `vmd-`. | IP ADRESA: 192.168.102.38<br>DNS: VMD-myk8s. Local. cloudapp. azurestack. external |
     | -h,--help  | Použití příkazu tisku. | |

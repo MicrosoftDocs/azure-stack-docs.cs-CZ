@@ -1,5 +1,5 @@
 ---
-title: Vytvoření virtuálního počítače s Linux serverem pomocí Azure Stack | Microsoft Docs
+title: Vytvoření virtuálního počítače se systémem Linux pomocí Azure Stack | Microsoft Docs
 description: Vytvořte virtuální počítač s Linux serverem pomocí Azure Stack.
 services: azure-stack
 cloud: azure-stack
@@ -12,14 +12,14 @@ ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.custom: mvc
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 7bfb56ef9fcb2795a579321bfa58ded872ed3485
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: 5c3b8d85f5dca0eeb439ca475d4396848d316366
+ms.sourcegitcommit: 0d27456332031ab98ba2277117395ae5ffcbb79f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71824366"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73047270"
 ---
-# <a name="quickstart-create-a-linux-server-vm-by-using-the-azure-stack-portal"></a>Rychlý start: Vytvoření virtuálního počítače s Linux serverem pomocí Azure Stackového portálu
+# <a name="quickstart-create-a-linux-server-vm-by-using-the-azure-stack-portal"></a>Rychlý Start: Vytvoření virtuálního počítače s Linux serverem pomocí Azure Stackového portálu
 
 *Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
 
@@ -32,7 +32,7 @@ Virtuální počítač s Ubuntu serverem 16,04 LTS můžete vytvořit pomocí po
 > [!NOTE]  
 > Obrázky v tomto článku jsou aktualizované tak, aby odpovídaly změnám, které byly představeny ve verzi Azure Stack 1808. Verze 1808 kromě nespravovaných disků přidává podporu pro používání *spravovaných disků* . Pokud používáte starší verzi, obrázky pro některé úlohy, jako je výběr disku, se liší od toho, co se zobrazuje v uživatelském rozhraní.  
 
-## <a name="prerequisites"></a>Požadavky
+## <a name="prerequisites"></a>Předpoklady
 
 * Image Linux na webu Azure Stack Marketplace
 
@@ -70,7 +70,7 @@ Vytvoření páru klíčů SSH:
 
 Adresa Azure Stackového portálu závisí na tom, ke kterému Azure Stack produktu se připojujete:
 
-* Pro ASDK použijte https://portal.local.azurestack.external.
+* V případě ASDK přejít na https://portal.local.azurestack.external.
 
 * V případě Azure Stack integrovaného systému, přejít na adresu URL, kterou zadal operátor Azure Stack.
 
@@ -82,7 +82,7 @@ Adresa Azure Stackového portálu závisí na tom, ke kterému Azure Stack produ
    
    ![Vybrat server pro Linux](media/azure-stack-quick-linux-portal/select.png)
 
-1. Vyberte **Vytvořit**.
+1. Vyberte **Create** (Vytvořit).
 
 1. Zadejte informace o virtuálním počítači. Jako **typ ověřování**vyberte **veřejný klíč SSH**, vložte veřejný klíč SSH, který jste uložili, a pak vyberte **OK**.
 
@@ -163,7 +163,7 @@ Skupina zabezpečení sítě (NSG) zabezpečuje příchozí a odchozí provoz. K
 
 Když jste nainstalovali NGINX a na VIRTUÁLNÍm počítači jste otevřeli port 80, můžete k webovému serveru přistupovat pomocí veřejné IP adresy virtuálního počítače. (Veřejná IP adresa se zobrazí na stránce **Přehled** virtuálního počítače.)
 
-Otevřete webový prohlížeč a v *> IP adresa http://\<public*.
+Otevřete webový prohlížeč a na *> http://\<veřejné IP adresy*.
 
 ![Úvodní stránka webového serveru NGINX](media/azure-stack-quick-linux-portal/linux-05.PNG)
 
