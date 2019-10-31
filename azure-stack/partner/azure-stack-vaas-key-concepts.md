@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2019
+ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 03/11/2019
+ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1ffb66bb1abe9f2ffb64162f834c682df2aaa609
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: a79b6e6f34c8293febf30a9cb48ddbfae9c99816
+ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68418401"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73167320"
 ---
 # <a name="validation-as-a-service-key-concepts"></a>Koncepce ověřování jako klíč služby
 
@@ -34,10 +34,10 @@ Tento článek popisuje klíčové koncepty v rámci ověřování jako služby 
 
 1. Přihlaste se k [portálu VaaS](https://azurestackvalidation.com).
 2. Na řídicím panelu řešení vyberte **nové řešení**.
-3. Zadejte název řešení. Návrhy pojmenování najdete v tématu konvence pojmenování [pro řešení VaaS](azure-stack-vaas-best-practice.md#naming-convention-for-vaas-solutions).
+3. Zadejte název řešení. Návrhy pojmenování najdete v tématu [konvence pojmenování pro řešení VaaS](azure-stack-vaas-best-practice.md#naming-convention-for-vaas-solutions).
 4. Vyberte **Save (Uložit** ) a vytvořte řešení.
 
-## <a name="workflows"></a>Workflows
+## <a name="workflows"></a>Pracovní postupy
 
 Pracovní postup VaaS funguje v kontextu řešení VaaS. Představuje sadu testovacích sad, které vykonávají funkce nasazení Azure Stack. Pracovní postup by měl být vytvořen pro každé nasazení nebo aktualizaci softwaru Azure Stack řešení.
 
@@ -46,7 +46,7 @@ Pracovní postupy jsou rozdělené do kategorií podle typu testovacího scéná
 ![Dlaždice pracovního postupu VaaS](media/tile_all-workflows.png)
 
 > [!NOTE]
-> Pracovní postup **ověření balíčku** v současné době podporuje dva scénáře: [Ověří balíčky OEM](azure-stack-vaas-validate-oem-package.md) a [ověří aktualizace softwaru od Microsoftu](azure-stack-vaas-validate-microsoft-updates.md).
+> Pracovní postup **ověření balíčku** v současné době podporuje dva scénáře: [ověřit balíčky OEM](azure-stack-vaas-validate-oem-package.md) a [Ověřit aktualizace softwaru od Microsoftu](azure-stack-vaas-validate-microsoft-updates.md).
 
 Další informace o typech pracovních postupů najdete v tématu [co je ověřování jako služba pro Azure Stack?](azure-stack-vaas-overview.md).
 
@@ -54,10 +54,10 @@ Další informace o typech pracovních postupů najdete v tématu [co je ověřo
 
 1. Na řídicím panelu řešení vytvořte nové řešení nebo vyberte některý z existujících. Tím se aktualizuje a aktivuje dlaždice pracovního postupu.
 2. Chcete-li vytvořit nový pracovní postup, vyberte možnost **začít** na libovolné dlaždici. Informace specifické pro jednotlivé pracovní postupy najdete v následujících článcích:
-    - Průchod testu: [Rychlé zprovoznění: Použití ověřování jako portálu služby k naplánování prvního testu](azure-stack-vaas-schedule-test-pass.md)
-    - Ověřování řešení: [Ověření nového řešení Azure Stack](azure-stack-vaas-validate-solution-new.md)
-    - Ověření balíčku (měsíční aktualizace): [Ověřit aktualizace softwaru od Microsoftu](azure-stack-vaas-validate-microsoft-updates.md)
-    - Ověření balíčku (podpis balíčku): [Ověřit balíčky OEM](azure-stack-vaas-validate-oem-package.md)
+    - Test Pass: [rychlý Start: použití ověřování jako portálu služby k naplánování prvního testu](azure-stack-vaas-schedule-test-pass.md)
+    - Ověřování řešení: [ověření nového řešení Azure Stack](azure-stack-vaas-validate-solution-new.md)
+    - Ověření balíčku (měsíční aktualizace): [ověření aktualizací softwaru od Microsoftu](azure-stack-vaas-validate-microsoft-updates.md)
+    - Ověření balíčku (podepisování balíčku): [ověření balíčků OEM](azure-stack-vaas-validate-oem-package.md)
 
 3. Pokud chcete spravovat nebo sledovat existující pracovní postup, vyberte na dlaždici pracovní postup možnost **Spravovat** . Vyberte název pracovního postupu a použijte tlačítko **Upravit** k zobrazení vlastností nebo změně společných parametrů testu.
 

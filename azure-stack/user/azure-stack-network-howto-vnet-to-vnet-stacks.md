@@ -9,20 +9,22 @@ ms.date: 10/03/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: b68b0119e30d39b126aa43c2c8ed4c859073663e
-ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
+ms.openlocfilehash: cf9239f57423b54f6cd7f093779f5c7afa7745b1
+ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71962185"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73167239"
 ---
 # <a name="how-to-establish-a-vnet-to-vnet-connection-in-azure-stack-with-fortinet-fortigate-nva"></a>Jak navázat připojení VNET-to-VNET v Azure Stack s Fortinet FortiGate síťové virtuální zařízení
+
+*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
 
 V tomto článku připojíte virtuální síť v jednom Azure Stack k virtuální síti v jiném Azure Stack pomocí Fortinet FortiGate síťové virtuální zařízení, síťového virtuálního zařízení.
 
 Tento článek se zabývá aktuálním omezením Azure Stack, které umožňuje klientům nastavit jenom jedno připojení VPN ve dvou prostředích. Uživatelé se dozvíte, jak nastavit vlastní bránu na virtuálním počítači se systémem Linux, který umožní více připojení k síti VPN v různých Azure Stack. Postup v tomto článku nasadí dvě virtuální sítěy s FortiGate síťové virtuální zařízení v každé virtuální síti: jedno nasazení na Azure Stack prostředí. Také podrobně popisuje změny potřebné k nastavení sítě VPN IPSec mezi dvěma virtuální sítě. Kroky v tomto článku by se měly opakovat pro každou virtuální síť v každé Azure Stack. 
 
-## <a name="prerequisites"></a>Požadavky
+## <a name="prerequisites"></a>Předpoklady
 
 -  Přístup k integrovaným systémům Azure Stack s dostupnou kapacitou k nasazení požadovaných výpočetních, síťových a prostředků potřebných pro toto řešení. 
 
@@ -41,9 +43,9 @@ Tento článek se zabývá aktuálním omezením Azure Stack, které umožňuje 
 
 Následující tabulka shrnuje parametry, které se v těchto nasazeních používají pro referenci:
 
-### <a name="deployment-one-forti1"></a>Jedno nasazení: Forti1
+### <a name="deployment-one-forti1"></a>Nasazení One: Forti1
 
-| Název instance FortiGate | Forti1 |
+| Název instance FortiGate | forti1 |
 |-----------------------------------|---------------------------|
 | Licence a verze BYOL | 6.0.3 |
 | Uživatelské jméno správce FortiGate | fortiadmin |
@@ -54,9 +56,9 @@ Následující tabulka shrnuje parametry, které se v těchto nasazeních použ�
 | Předpona adresy veřejné virtuální sítě | 172.16.0.0/24 * |
 | Název podsítě virtuální sítě | forti1-InsideSubnet |
 | Předpona podsítě virtuální sítě | 172.16.1.0/24 * |
-| Velikost virtuálního počítače pro FortiGate síťové virtuální zařízení | Standard F2s_v2 |
+| Velikost virtuálního počítače pro FortiGate síťové virtuální zařízení | F2s_v2 úrovně Standard |
 | Název veřejné IP adresy | forti1-publicip1 |
-| Typ veřejné IP adresy | Static |
+| Typ veřejné IP adresy | Statický |
 
 ### <a name="deployment-two-forti2"></a>Nasazení dvě: Forti2
 
@@ -71,12 +73,12 @@ Následující tabulka shrnuje parametry, které se v těchto nasazeních použ�
 | Předpona adresy veřejné virtuální sítě | 172.17.0.0/24 * |
 | Název podsítě virtuální sítě | Forti2-InsideSubnet |
 | Předpona podsítě virtuální sítě | 172.17.1.0/24 * |
-| Velikost virtuálního počítače pro FortiGate síťové virtuální zařízení | Standard F2s_v2 |
+| Velikost virtuálního počítače pro FortiGate síťové virtuální zařízení | F2s_v2 úrovně Standard |
 | Název veřejné IP adresy | Forti2-publicip1 |
-| Typ veřejné IP adresy | Static |
+| Typ veřejné IP adresy | Statický |
 
 > [!Note]
-> \* vyberte jinou sadu adresních prostorů a prefixů podsítě, pokud se výše překrývají jakýmkoli způsobem v rámci místního síťového prostředí, včetně fondu VIP buď Azure Stack. Také se ujistěte, že se rozsahy adres nepřesahují mezi sebou. * *
+> \* zvolit jinou sadu adresních prostorů a prefixů podsítě, pokud se výše překrývají jakýmkoli způsobem pomocí místního síťového prostředí, včetně fondu VIP buď pro Azure Stack. Také se ujistěte, že se rozsahy adres nepřesahují mezi sebou. * *
 
 ## <a name="deploy-the-fortigate-ngfw-marketplace-items"></a>Nasazení položek webu Marketplace pro FortiGate NGFW
 
@@ -112,7 +114,7 @@ Tento postup opakujte pro Azure Stack prostředí.
 
 8. Vyberte **OK** a pak vyberte **OK**.
 
-9. Vyberte **Vytvořit**.
+9. Vyberte **Create** (Vytvořit).
 
 Nasazení bude trvat přibližně 10 minut. Nyní můžete opakováním kroků vytvořit další nasazení FortiGate síťové virtuální zařízení a VNET v jiném prostředí Azure Stack.
 
@@ -138,7 +140,7 @@ Proveďte tyto kroky pro obě nasazení, forti1-RG1 a forti2-RG1.
 
 6. Vyberte **Přidat**.
 
-7. Pojmenujte **trasu** `to-forti1` nebo `to-forti2`. Rozsah IP adres použijte v případě, že používáte jiný rozsah IP adres.
+7. Pojmenujte `to-forti1` **trasy** nebo `to-forti2`. Rozsah IP adres použijte v případě, že používáte jiný rozsah IP adres.
 
 8. Napište
     - forti1: `172.17.0.0/16`  
@@ -154,7 +156,7 @@ Proveďte tyto kroky pro obě nasazení, forti1-RG1 a forti2-RG1.
 
     ![](./media/azure-stack-network-howto-vnet-to-vnet-stacks/image12.png)
 
-10. Vyberte **Uložit**.
+10. Vyberte **Save** (Uložit).
 
 Opakujte postup pro každou skupinu prostředků v každé trase **InsideSubnet** .
 
@@ -180,7 +182,7 @@ Následující kroky proveďte jak pro forti1 síťové virtuální zařízení,
 
     ![](./media/azure-stack-network-howto-vnet-to-vnet/image14.png)
 
-5.  Vyberte**firmware** **System** > .
+5.  Vyberte **systém**  > **firmware**.
 
 6.  Zaškrtněte políčko, které zobrazuje nejnovější firmware, například `FortiOS v6.2.0 build0866`.
 
@@ -190,7 +192,7 @@ Následující kroky proveďte jak pro forti1 síťové virtuální zařízení,
 
 8.  SÍŤOVÉ virtuální zařízení aktualizuje svůj firmware na nejnovější sestavení a restartování. Tento proces trvá přibližně pět minut. Přihlaste se zpátky do webové konzoly FortiGate.
 
-10.  Klikněte na možnost **VPN** > **Průvodce IPSec**.
+10.  Klikněte na průvodce **VPN**  > **IPSec**.
 
 11. Zadejte název sítě VPN, například `conn1` v **Průvodci vytvořením sítě VPN**.
 
@@ -216,14 +218,14 @@ Následující kroky proveďte jak pro forti1 síťové virtuální zařízení,
 18. Jako **místní rozhraní**vyberte **PORT2** .
 
 19. Zadejte rozsah místní podsítě:
-    - forti1: 172.16.0.0/16
-    - forti2: 172.17.0.0/16
+    - forti1:172.16.0.0/16
+    - forti2:172.17.0.0/16
 
     Rozsah IP adres použijte v případě, že používáte jiný rozsah IP adres.
 
 20. Zadejte odpovídající vzdálené podsítě, které reprezentují místní síť, ke které se připojíte prostřednictvím místního zařízení VPN.
-    - forti1: 172.16.0.0/16
-    - forti2: 172.17.0.0/16
+    - forti1:172.16.0.0/16
+    - forti2:172.17.0.0/16
 
     Rozsah IP adres použijte v případě, že používáte jiný rozsah IP adres.
 
@@ -231,7 +233,7 @@ Následující kroky proveďte jak pro forti1 síťové virtuální zařízení,
 
 21. Vyberte **Vytvořit**.
 
-22. Vyberte **síťová** > **rozhraní**.
+22. Vyberte **síťová**  > **rozhraní**.
 
     ![](./media/azure-stack-network-howto-vnet-to-vnet/image19.png)
 
@@ -248,11 +250,11 @@ Opakujte postup pro ostatní síťové virtuální zařízení.
 
 Po výše uvedeném případě se u **obou** síťová virtuální zařízení dokončilo:
 
-1.  Ve webové konzoli forti2 FortiGate vyberte možnost **monitorování** **monitorování protokolu IPSec** > . 
+1.  Na webové konzole forti2 FortiGate vyberte možnost **monitorování** > **protokolu IPSec**. 
 
     ![](./media/azure-stack-network-howto-vnet-to-vnet/image20.png)
 
-2.  Zvýrazněte `conn1` a zaškrtněte políčko **zahrnout @no__t-** 2**všechny selektory fáze 2**.
+2.  Zvýrazněte `conn1` a vyberte možnost **zahrnout > ** **všechny selektory fáze 2**.
 
     ![](./media/azure-stack-network-howto-vnet-to-vnet/image21.png)
 

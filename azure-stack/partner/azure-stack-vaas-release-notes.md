@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2019
+ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: d42b1f161d1b74633c4e9924e45677a57b3493e1
-ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
+ms.lastreviewed: 10/28/2019
+ms.openlocfilehash: 0ac21cc388b55be6548f9fdba6c8985dd2316c4e
+ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72277819"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73167133"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>Poznámky k verzi pro ověřování jako službu
 
@@ -66,7 +66,7 @@ Pokud používáte pracovní postup aktualizace Azure Stack měsíčně a verze 
 
 - Požadavky na VaaS
 
-    @no__t – 0 už nevyžaduje přihlašovací údaje správce cloudu. Pokud používáte nejnovější verzi této rutiny, přečtěte si téma [Stažení a instalace agenta](azure-stack-vaas-local-agent.md#download-and-install-the-agent) pro revidované příkazy pro instalaci požadovaných součástí. Tady jsou příkazy:
+    `Install-VaaSPrerequisites` už nevyžadují přihlašovací údaje správce cloudu. Pokud používáte nejnovější verzi této rutiny, přečtěte si téma [Stažení a instalace místního agenta](azure-stack-vaas-local-agent.md#download-and-install-the-local-agent) pro revidované příkazy pro instalaci požadovaných součástí. Tady jsou příkazy:
 
     ```powershell
     $ServiceAdminCreds = New-Object System.Management.Automation.PSCredential "<aadServiceAdminUser>", (ConvertTo-SecureString "<aadServiceAdminPassword>" -AsPlainText -Force)
@@ -77,13 +77,13 @@ Pokud používáte pracovní postup aktualizace Azure Stack měsíčně a verze 
                               -Region $Region
     ```
 
-## <a name="version-400"></a>4\.0.0 verze
+## <a name="version-400"></a>Verze 4.0.0
 
 2018. srpna
 
 - VaaS předpoklady a aktualizace VHD
 
-    @no__t – 0 teď vyžaduje přihlašovací údaje správce cloudu, aby se vyřešil problém při ověřování balíčku. Dokumentace ke [Stažení a instalaci agenta](azure-stack-vaas-local-agent.md#download-and-install-the-agent) byla aktualizována následujícím způsobem:
+    `Install-VaaSPrerequisites` teď vyžaduje přihlašovací údaje správce cloudu k vyřešení problému při ověřování balíčku. Dokumentace ke [Stažení a instalaci místního agenta](azure-stack-vaas-local-agent.md#download-and-install-the-local-agent) byla aktualizována následujícím způsobem:
 
     ```powershell
     $ServiceAdminCreds = New-Object System.Management.Automation.PSCredential "<aadServiceAdminUser>", (ConvertTo-SecureString "<aadServiceAdminPassword>" -AsPlainText -Force)
@@ -96,15 +96,15 @@ Pokud používáte pracovní postup aktualizace Azure Stack měsíčně a verze 
                               -CloudAdminCredentials $CloudAdminCreds
     ```
     > [!NOTE]
-    > @No__t-0 vyžadované skriptem jsou pro ověřování instance Azure Stack. Nejedná se o Azure Active Directory přihlašovací údaje, které používá tenant VaaS.
+    > `$CloudAdminCreds` vyžadované skriptem jsou pro ověřování instance Azure Stack. Nejedná se o Azure Active Directory přihlašovací údaje, které používá tenant VaaS.
 
 - Aktualizace místního agenta
 
-    Předchozí verze místního agenta není kompatibilní s aktuálním vydáním služby 4.0.0. Všichni uživatelé musí aktualizovat své místní agenty. Pokyny k instalaci nejnovějšího agenta najdete v tématu [Stažení a instalace agenta](azure-stack-vaas-local-agent.md#download-and-install-the-agent) .
+    Předchozí verze místního agenta není kompatibilní s aktuálním vydáním služby 4.0.0. Všichni uživatelé musí aktualizovat své místní agenty. Pokyny k instalaci nejnovějšího agenta najdete v tématu [Stažení a instalace místního agenta](azure-stack-vaas-local-agent.md#download-and-install-the-local-agent) .
 
 - Aktualizace automatizace PowerShellu
 
-    Byly provedeny změny @no__t skriptů prostředí PowerShell, které vyžadují nejnovější verzi skriptovacích balíčků. Pokyny k instalaci nejnovější verze balíčku Scripting najdete v tématu [spuštění pracovního postupu test Pass](azure-stack-vaas-automate-with-powershell.md#launch-the-test-pass-workflow) .
+    Byly provedeny změny `LaunchVaaSTests` skriptů PowerShellu, které vyžadují nejnovější verzi skriptovacích balíčků. Pokyny k instalaci nejnovější verze balíčku Scripting najdete v tématu [spuštění pracovního postupu test Pass](azure-stack-vaas-automate-with-powershell.md#launch-the-test-pass-workflow) .
 
 - Ověřování jako portál služby
 

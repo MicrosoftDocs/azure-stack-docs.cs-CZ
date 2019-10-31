@@ -215,6 +215,8 @@
                       href: azure-stack-kubernetes-aks-engine-upgrade.md
                     - name: Řešení potíží s modulem AKS
                       href: azure-stack-kubernetes-aks-engine-troubleshoot.md
+                    - name: Přesunout modul AKS z položky Marketplace
+                      href: azure-stack-kubernetes-aks-engine-dvm.md
                 - name: Položka Marketplace
                   items:
                     - name: Nasazení clusteru Kubernetes
@@ -275,8 +277,8 @@
           href: azure-stack-network-howto-vnet-to-vnet-stacks.md
         - name: Partnerský vztah virtuální sítě
           href: azure-stack-network-howto-vnet-to-vnet.md
-        - name: Připojení k úložišti iSCSI
-          href: azure-stack-network-howto-iscsi-storage.md
+        - name: Kopírovat prostředky předplatného
+          href: azure-stack-network-howto-backup-replicator.md
 - name: Koncepty
   items:
     - name: Vzory hybridního cloudu

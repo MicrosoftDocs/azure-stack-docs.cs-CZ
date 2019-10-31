@@ -1,5 +1,5 @@
 ---
-title: Azure Stack osvědčené postupy ověřování. | Dokumenty Microsoft
+title: Azure Stack osvědčené postupy ověřování. | Microsoft Docs
 description: Tento článek popisuje osvědčené postupy pro ověřování jako službu.
 services: azure-stack
 documentationcenter: ''
@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2019
+ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 03/11/2019
+ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6b4e74cce10522fc241c7662ed381793bd264093
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: 930a8ea40fde7a021a893e5289d16fa73398300f
+ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68418581"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73167266"
 ---
 # <a name="best-practices-for-validation-as-a-service"></a>Osvědčené postupy pro ověřování jako službu
 
@@ -48,7 +48,7 @@ Používejte stejné řešení VaaS při spouštění pracovních postupů se st
 
 Používejte konzistentní konvence pojmenování pro všechna spuštění pracovního postupu VaaS. Například můžete vytvořit název pracovního postupu z vlastností sestavení níže následujícím způsobem:
 
-|Číslo sestavení (hlavní) | Date | Velikost řešení | Název pracovního postupu
+|Číslo sestavení (hlavní) | Datum | Velikost řešení | Název pracovního postupu
 |---|---|---| ---|
 1808 | 081518 | 4NODE | 1808_081518_4NODE
 

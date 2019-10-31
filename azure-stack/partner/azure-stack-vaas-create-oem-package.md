@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2019
+ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 03/11/2019
+ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: a7e866187c81b488cc90f7ddaa443db4868ba4d9
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: 2ee5a873a6281ed5d71db05b05abd15986043676
+ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68417735"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73167370"
 ---
 # <a name="create-an-oem-package"></a>Vytvoření balíčku OEM
 
@@ -38,7 +38,7 @@ Po vytvoření a ověření se balíček rozšíření OEM dá použít v VaaS. 
 
 2. Vyberte soubory obsahu a vytvořte soubor zip z tohoto obsahu:
 
-    ![](media/vaas-create-oem-package-1.png) Obsah![souboru ZIP – komprimace obsahu položky](media/vaas-create-oem-package-2.png)
+    ![obsahu souboru ZIP](media/vaas-create-oem-package-1.png) ![komprimace obsahu položky](media/vaas-create-oem-package-2.png)
 
 3. Přejmenujte výsledný soubor tak, aby byl dostatečně popisný, abyste ho mohli identifikovat.
 
@@ -52,6 +52,6 @@ Chcete-li ověřit strukturu souboru zip, zkontrolujte jej a zkontrolujte, zda n
 
 Soubor zip se teď dá nahrát na VaaS a podepsaný Microsoftem v pracovním postupu ověření balíčku.
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 - [Ověření balíčku OEM](azure-stack-vaas-validate-oem-package.md)

@@ -257,6 +257,8 @@
           href: azure-stack-solution-template-kubernetes-cluster-add.md
         - name: Vytvoření připojení VPN typu Site-to-site
           href: azure-stack-create-vpn-connection-one-node.md
+        - name: Nabídka CommVault položky Marketplace
+          href: azure-stack-network-offer-backup-commvault.md
     - name: Nabídka služeb
       items:
         - name: 'Přehled služeb, plánů, nabídek, předplatných'

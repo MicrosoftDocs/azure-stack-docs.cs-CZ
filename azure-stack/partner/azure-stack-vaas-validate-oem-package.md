@@ -15,12 +15,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 69bb9c89793789280debe13a142f4c96470f7c31
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: 20d5d2d962fbe85db5d4725c864defe84c2c152c
+ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68418316"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73167365"
 ---
 # <a name="validate-oem-packages"></a>Ověřit balíčky OEM
 
@@ -37,7 +37,7 @@ Můžete otestovat nový balíček OEM, pokud došlo ke změně firmwaru nebo ov
 
 Při ověřování balíčku pomocí pracovního postupu **ověření balíčku** budete muset zadat adresu URL **Azure Storage objektu BLOB**. Tento objekt BLOB je test podepsaný balíčkem OEM, který se nainstaluje jako součást procesu aktualizace. Vytvořte objekt BLOB pomocí účtu Azure Storage, který jste vytvořili během instalace (viz [nastavení ověřování jako prostředků služby](azure-stack-vaas-set-up-resources.md)).
 
-### <a name="prerequisite-provision-a-storage-container"></a>Požadovaných součástí Zřízení kontejneru úložiště
+### <a name="prerequisite-provision-a-storage-container"></a>Předpoklad: zřízení kontejneru úložiště
 
 Vytvořte kontejner v účtu úložiště pro objekty blob balíčku. Tento kontejner se dá použít pro všechna vaše spuštění ověření balíčku.
 
@@ -46,19 +46,19 @@ Vytvořte kontejner v účtu úložiště pro objekty blob balíčku. Tento kont
 2. V levém okně v části **BLOB Service**vyberte **kontejnery**.
 
 3. Z panelu nabídek vyberte **+ kontejner** .
-    1. Zadejte název kontejneru, `vaaspackages`například.
+    1. Zadejte název kontejneru, například `vaaspackages`.
     1. Vyberte požadovanou úroveň přístupu pro neověřené klienty, například VaaS. Podrobnosti o tom, jak udělit přístup VaaS k balíčkům v jednotlivých scénářích, najdete v tématu [zpracování úrovně přístupu kontejneru](#handling-container-access-level).
 
 ### <a name="upload-package-to-storage-account"></a>Nahrát balíček do účtu úložiště
 
-1. Připravte balíček, který chcete ověřit. Jedná se o `.zip` soubor, jehož obsah se musí shodovat s strukturou popsanou v tématu [Vytvoření balíčku OEM](azure-stack-vaas-create-oem-package.md).
+1. Připravte balíček, který chcete ověřit. Toto je `.zip` soubor, jehož obsah se musí shodovat s strukturou popsanou v tématu [Vytvoření balíčku OEM](azure-stack-vaas-create-oem-package.md).
 
     > [!NOTE]
-    > Ujistěte se prosím, `.zip` že obsah je umístěný v kořenu `.zip` souboru. V balíčku by neměly být žádné podadresáře.
+    > Ujistěte se prosím, že obsah `.zip` umístěný v kořenovém adresáři souboru `.zip`. V balíčku by neměly být žádné podadresáře.
 
 1. V [Azure Portal](https://portal.azure.com)vyberte kontejner balíčku a nahrajte balíček výběrem možnosti **nahrát** na panelu nabídek.
 
-1. Vyberte soubor balíčku `.zip` , který se má nahrát. Nechejte výchozí hodnoty pro **typ objektu BLOB** (tj. **objekt blob bloku**) a **velikost bloku**.
+1. Vyberte soubor balíčku `.zip` který se má nahrát. Nechejte výchozí hodnoty pro **typ objektu BLOB** (tj. **objekt blob bloku**) a **velikost bloku**.
 
 ### <a name="generate-package-blob-url-for-vaas"></a>Generovat adresu URL objektu BLOB balíčku pro VaaS
 
@@ -72,18 +72,18 @@ V případě úrovní přístupu **Private** a **BLOB** musíte dočasně uděli
 
 |Úroveň přístupu | Požadavek pracovního postupu | Požadavek testu |
 |---|---------|---------|
-|Soukromé | Vygenerujte adresu URL SAS na jeden objekt BLOB balíčku ([možnost 1](#option-1-generate-a-blob-sas-url)). | Vygenerujte adresu URL SAS na úrovni účtu a ručně přidejte název objektu BLOB balíčku ([možnost 2](#option-2-construct-a-container-sas-url)). |
-|Blob | Zadejte vlastnost URL objektu BLOB ([možnost 3](#option-3-grant-public-read-access)). | Vygenerujte adresu URL SAS na úrovni účtu a ručně přidejte název objektu BLOB balíčku ([možnost 2](#option-2-construct-a-container-sas-url)). |
+|Privátní | Vygenerujte adresu URL SAS na jeden objekt BLOB balíčku ([možnost 1](#option-1-generate-a-blob-sas-url)). | Vygenerujte adresu URL SAS na úrovni účtu a ručně přidejte název objektu BLOB balíčku ([možnost 2](#option-2-construct-a-container-sas-url)). |
+|Objekt blob | Zadejte vlastnost URL objektu BLOB ([možnost 3](#option-3-grant-public-read-access)). | Vygenerujte adresu URL SAS na úrovni účtu a ručně přidejte název objektu BLOB balíčku ([možnost 2](#option-2-construct-a-container-sas-url)). |
 |Kontejner | Zadejte vlastnost URL objektu BLOB ([možnost 3](#option-3-grant-public-read-access)). | Zadejte vlastnost URL objektu BLOB ([možnost 3](#option-3-grant-public-read-access)).
 
 Možnosti pro udělení přístupu k vašim balíčkům jsou seřazené z minimálního přístupu k největšímu přístupu.
 
-#### <a name="option-1-generate-a-blob-sas-url"></a>Možnost 1: Vygenerovat adresu URL SAS objektu BLOB
+#### <a name="option-1-generate-a-blob-sas-url"></a>Možnost 1: vygenerování adresy URL SAS objektu BLOB
 
 Tuto možnost použijte, pokud je úroveň přístupu kontejneru úložiště nastavená na **Private**, kde kontejner nepovoluje veřejný přístup pro čtení kontejneru nebo jeho objektů BLOB.
 
 > [!NOTE]
-> Tato metoda nebude pro *interaktivní* testy fungovat. Viz [možnost 2: Sestavte adresu URL](#option-2-construct-a-container-sas-url)SAS kontejneru.
+> Tato metoda nebude pro *interaktivní* testy fungovat. Viz [možnost 2: vytvoření adresy URL SAS kontejneru](#option-2-construct-a-container-sas-url).
 
 1. V [Azure Portal](https://portal.azure.com/)přejděte na svůj účet úložiště a přejděte do souboru. zip, který obsahuje váš balíček.
 
@@ -93,13 +93,13 @@ Tuto možnost použijte, pokud je úroveň přístupu kontejneru úložiště na
 
 4. Nastavte **čas zahájení** na aktuální čas a **čas ukončení** na nejméně 48 hodin od **počátečního času**. Pokud budete vytvářet jiné pracovní postupy se stejným balíčkem, zvažte zvýšení **času ukončení** pro délku testování.
 
-5. Vyberte **vygenerujte token SAS objektů blob a adresa URL**.
+5. Vyberte **Generovat token SAS objektu BLOB a adresu URL**.
 
 Při poskytování adres URL objektů BLOB balíčku na portál použijte **adresu URL SAS objektu BLOB** .
 
-#### <a name="option-2-construct-a-container-sas-url"></a>Možnost 2: Vytvoření adresy URL SAS kontejneru
+#### <a name="option-2-construct-a-container-sas-url"></a>Možnost 2: vytvoření adresy URL SAS kontejneru
 
-Tuto možnost použijte, pokud je úroveň přístupu kontejneru úložiště nastavená na **Private** a potřebujete zadat adresu URL objektu BLOB balíčku k interaktivnímu testu  . Tuto adresu URL lze také použít na úrovni pracovního postupu.
+Tuto možnost použijte, pokud je úroveň přístupu kontejneru úložiště nastavená na **Private** a potřebujete zadat adresu URL objektu BLOB balíčku k *interaktivnímu* testu. Tuto adresu URL lze také použít na úrovni pracovního postupu.
 
 1. [!INCLUDE [azure-stack-vaas-sas-step_navigate](includes/azure-stack-vaas-sas-step_navigate.md)]
 
@@ -112,15 +112,15 @@ Tuto možnost použijte, pokud je úroveň přístupu kontejneru úložiště na
 1. Vyberte možnost **čas spuštění** jako aktuální a **koncový čas** do alespoň 14 dnů od **počátečního času**. Pokud budete spouštět další testy se stejným balíčkem, zvažte zvýšení **času ukončení** pro délku testování. Jakékoli testy naplánované prostřednictvím VaaS po **čase ukončení** selžou a bude nutné vygenerovat nové SAS.
 
 1. [!INCLUDE [azure-stack-vaas-sas-step_generate](includes/azure-stack-vaas-sas-step_generate.md)]
-    Formát by měl vypadat takto:`https://storageaccountname.blob.core.windows.net/?sv=2016-05-31&ss=b&srt=co&sp=rl&se=2017-05-11T21:41:05Z&st=2017-05-11T13:41:05Z&spr=https`
+    Formát by měl vypadat takto: `https://storageaccountname.blob.core.windows.net/?sv=2016-05-31&ss=b&srt=co&sp=rl&se=2017-05-11T21:41:05Z&st=2017-05-11T13:41:05Z&spr=https`
 
-1. Upravte vygenerovanou adresu URL SAS tak, aby zahrnovala `{containername}`kontejner balíčku, a název `{mypackage.zip}`objektu BLOB balíčku, a to následujícím způsobem:`https://storageaccountname.blob.core.windows.net/{containername}/{mypackage.zip}?sv=2016-05-31&ss=b&srt=co&sp=rl&se=2017-05-11T21:41:05Z&st=2017-05-11T13:41:05Z&spr=https`
+1. Upravte generovanou adresu URL SAS tak, aby zahrnovala kontejner balíčku, `{containername}`a název objektu BLOB balíčku, `{mypackage.zip}`následujícím způsobem: `https://storageaccountname.blob.core.windows.net/{containername}/{mypackage.zip}?sv=2016-05-31&ss=b&srt=co&sp=rl&se=2017-05-11T21:41:05Z&st=2017-05-11T13:41:05Z&spr=https`
 
     Tuto hodnotu použijte při poskytování adres URL objektů BLOB balíčku na portál.
 
-#### <a name="option-3-grant-public-read-access"></a>Možnost 3: Udělit veřejný přístup pro čtení
+#### <a name="option-3-grant-public-read-access"></a>Možnost 3: udělení veřejného přístupu pro čtení
 
-Tuto možnost použijte, pokud je přijatelné, aby povolovaly neověřené klienty přístup k jednotlivým objektům blob,  nebo v případě interaktivních testů, kontejneru.
+Tuto možnost použijte, pokud je přijatelné, aby povolovaly neověřené klienty přístup k jednotlivým objektům blob, nebo v případě *interaktivních* testů, kontejneru.
 
 > [!CAUTION]
 > Tato možnost otevře objekty blob pro anonymní přístup s oprávněním jen pro čtení.
@@ -148,24 +148,30 @@ Tuto možnost použijte, pokud je přijatelné, aby povolovaly neověřené klie
 
 5. Zadejte adresu URL objektu blob Azure Storage k testovanému balíčku OEM s podpisem, který vyžaduje podpis od Microsoftu. Pokyny najdete v tématu [generování adresy URL objektu BLOB balíčku pro VaaS](#generate-package-blob-url-for-vaas).
 
-6. [!INCLUDE [azure-stack-vaas-workflow-step_upload-stampinfo](includes/azure-stack-vaas-workflow-step_upload-stampinfo.md)]
+6. Zkopírujte složku balíčku aktualizace AzureStack do místního adresáře na DVM. Zadejte cestu k nadřazenému adresáři pro cestu ke složce balíčku aktualizace AzureStack.
 
-7. [!INCLUDE [azure-stack-vaas-workflow-step_test-params](includes/azure-stack-vaas-workflow-step_test-params.md)]
+7. Zkopírujte složku balíčku OEM vytvořenou výše do místního adresáře na DVM. Zadejte cestu k nadřazenému adresáři pro cestu ke složce balíčku pro aktualizaci OEM.
+
+    > [!NOTE]
+    > Zkopírujte aktualizaci AzureStack a OEM Update na **2 samostatné** nadřazené adresáře.
+
+8. [!INCLUDE [azure-stack-vaas-workflow-step_test-params](includes/azure-stack-vaas-workflow-step_test-params.md)]
 
     > [!NOTE]
     > Po vytvoření pracovního postupu nelze změnit parametry prostředí.
 
-8. [!INCLUDE [azure-stack-vaas-workflow-step_tags](includes/azure-stack-vaas-workflow-step_tags.md)]
+9. [!INCLUDE [azure-stack-vaas-workflow-step_tags](includes/azure-stack-vaas-workflow-step_tags.md)]
 
-9. [!INCLUDE [azure-stack-vaas-workflow-step_submit](includes/azure-stack-vaas-workflow-step_submit.md)]
+10. [!INCLUDE [azure-stack-vaas-workflow-step_submit](includes/azure-stack-vaas-workflow-step_submit.md)]
     Budete přesměrováni na stránku souhrn testů.
 
 ## <a name="required-tests"></a>Požadované testy
 
-Pro ověření balíčku OEM jsou vyžadovány následující testy:
+Následující testy musí být spuštěny v určeném pořadí pro ověření balíčku OEM:
 
-- Ověření balíčku rozšíření OEM
-- Modul pro simulaci cloudu
+- Krok 1 – měsíční ověření aktualizací AzureStack
+- Krok 2 – ověření balíčku rozšíření OEM
+- Krok 3 – výrobce OEM – modul pro simulaci cloudu
 
 ## <a name="run-package-validation-tests"></a>Spustit testy pro ověření balíčku
 
@@ -177,43 +183,23 @@ Pro ověření balíčku OEM jsou vyžadovány následující testy:
     > Plánování ověřovacího testu přes existující instanci vytvoří na portálu novou instanci místo staré instance. Protokoly pro starou instanci budou zachovány, ale nebudou přístupné z portálu.  
     > Po úspěšném dokončení testu se akce **plánu** zakáže.
 
-2. Vyberte agenta, který spustí test. Informace o přidávání místních agentů spuštění testů najdete v tématu [nasazení místního agenta](azure-stack-vaas-local-agent.md).
+2. Pro ověření balíčku spustíte **požadované testy**v uvedeném pořadí.
 
-3. Chcete-li dokončit ověření balíčku rozšíření OEM, v místní nabídce vyberte možnost **plán** . otevře se výzva k naplánování testovací instance.
+    > [!CAUTION]
+    > VaaS spustí testy v pořadí, v jakém byly naplánovány. Je nutné naplánovat testy v zadaném pořadí.
 
-4. Zkontrolujte parametry testu a pak vyberte **Odeslat** a naplánujte ověření balíčku rozšíření OEM pro spuštění.
+3. Vyberte agenta, který spustí test. Informace o přidávání místních agentů spuštění testů najdete v tématu [nasazení místního agenta](azure-stack-vaas-local-agent.md).
 
-    Ověření balíčku rozšíření OEM je rozděleno do dvou ručních kroků: Aktualizace Azure Stack a OEM Update.
+4. Chcete-li naplánovat testovací běh, vyberte možnost **plán** z kontextové nabídky a otevřete výzvu pro plánování testovací instance.
 
-   1. **Vybrat** "Run" v uživatelském rozhraní pro spuštění skriptu pro kontrolu. Toto je automatizovaný test, který dokončení trvá přibližně 5 minut a nevyžaduje žádnou akci.
+5. Zkontrolujte parametry testu a pak vyberte **Odeslat** a naplánujte test.
 
-   1. Po dokončení skriptu předkontroly proveďte ruční krok: **nainstalujte** nejnovější dostupnou Azure Stack aktualizaci pomocí portálu Azure Stack.
+6. Před plánováním dalšího testu nemusíte čekat na dokončení testu. Naplánujte všechny **požadované** testy v zadaném pořadí.
 
-   1. **Spustit příkaz** Test-AzureStack razítka. Pokud dojde k nějaké chybě, nepokračujte v testování a kontaktujte [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com).
+7. Zkontrolujte výsledky **požadovaných** testů.
 
-       Informace o tom, jak spustit příkaz Test-AzureStack, najdete v tématu [ověření stavu systému Azure Stack](../operator/azure-stack-diagnostic-test.md).
+Pokud chcete odeslat žádost o podepsání balíčku, odešlete [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com) název řešení a název ověření balíčku, který je přidružený k tomuto spuštění.
 
-   1. **Vybrat** "Next" pro spuštění skriptu postcheck. Toto je automatizovaný test a označuje konec procesu aktualizace Azure Stack.
-
-   1. **Vybrat** Run (spustit) pro spuštění předkontrolního skriptu pro aktualizaci OEM.
-
-   1. Po dokončení předkontroly proveďte ruční krok: **instalace** balíčku rozšíření OEM prostřednictvím portálu.
-
-   1. **Spustit příkaz** Test-AzureStack razítka.
-
-      > [!NOTE]
-      > Stejně jako dřív nepokračujte v testu a v případě neúspěchu kontaktujte [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com) . Tento krok je velmi důležitý, protože vám ušetří opětovné nasazení.
-
-   1. **Vybrat** "Next" pro spuštění skriptu postcheck. Tím se označí konec kroku aktualizace OEM.
-
-   1. Odpovězte na všechny zbývající otázky na konci testu a **Vyberte** odeslat.
-
-   1. Tato značka označuje konec interaktivního testu.
-
-5. Prohlédněte si výsledek ověření balíčku rozšíření OEM. Po úspěšném dokončení testu Naplánujte modul simulace cloudu pro spuštění.
-
-Pokud chcete odeslat žádost o podepsání balíčku [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com) , odešlete název řešení a název balíčku, který je přidružený k tomuto spuštění.
-
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 - [Monitorování a Správa testů na portálu VaaS](azure-stack-vaas-monitor-test.md)

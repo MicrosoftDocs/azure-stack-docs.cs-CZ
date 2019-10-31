@@ -10,12 +10,12 @@ ms.date: 05/10/2019
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: c7d0396f01970366696309445efb911e2e189162
-ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
+ms.openlocfilehash: 4d4ece9946d257bce5cf19876b940cf4d828872d
+ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72277198"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73167165"
 ---
 # <a name="integrate-ad-fs-identity-with-your-azure-stack-datacenter"></a>Integrace AD FS identity s vaším Azure Stack Datacenter
 
@@ -42,11 +42,11 @@ Pro konfiguraci grafu je nutné poskytnout účet služby, který má oprávněn
 
 Pro poslední krok je pro výchozí předplatné zprostředkovatele nakonfigurovaný nový vlastník. Tento účet má úplný přístup ke všem prostředkům, pokud se přihlásíte na portál správce Azure Stack.
 
-Požadavků
+Požadavky:
 
 |Součást|Požadavek|
 |---------|---------|
-|Zapisovací|Microsoft Active Directory 2012/2012 R2/2016|
+|Graf|Microsoft Active Directory 2012/2012 R2/2016|
 |AD FS|Windows Server 2012/2012 R2/2016|
 
 ## <a name="setting-up-graph-integration"></a>Nastavení integrace grafu
@@ -55,7 +55,7 @@ Graf podporuje pouze integraci s jednou doménovou strukturou služby Active Dir
 
 Jako vstupy pro parametry automatizace se vyžadují tyto informace:
 
-|Parametr|Parametr listu nasazení|Popis|Příklad|
+|Parametr|Parametr listu nasazení|Popis|Příklad:|
 |---------|---------|---------|---------|
 |`CustomADGlobalCatalog`|AD FS plně kvalifikovaný název domény doménové struktury|Plně kvalifikovaný název domény cílové doménové struktury služby Active Directory, se kterou chcete integrovat|Contoso.com|
 |`CustomADAdminCredentials`| |Uživatel s oprávněním ke čtení protokolu LDAP|YOURDOMAIN\graphservice|
@@ -116,22 +116,22 @@ Služba Graph v Azure Stack používá následující protokoly a porty ke komun
 
 Služba Graph Service v Azure Stack používá ke komunikaci s cílovou službou Active Directory následující protokoly a porty:
 
-|Typ|Přístavní|Protokol|
+|Typ|Port|Protocol (Protokol)|
 |---------|---------|---------|
 |ADRESÁŘOVÝ|389|TCP & UDP|
-|PROTOKOL LDAP SSL|636|PROTOKOLU|
-|GC PROTOKOLU LDAP|3268|PROTOKOLU|
-|PROTOKOL SSL GC PROTOKOLU LDAP|3269|PROTOKOLU|
+|PROTOKOL LDAP SSL|636|TCP|
+|GC PROTOKOLU LDAP|3268|TCP|
+|PROTOKOL SSL GC PROTOKOLU LDAP|3269|TCP|
 
 ## <a name="setting-up-ad-fs-integration-by-downloading-federation-metadata"></a>Nastavení integrace AD FS stažením federačních metadat
 
 Pro parametry automatizace se jako vstup vyžadují tyto informace:
 
-|Parametr|Parametr listu nasazení|Popis|Příklad|
+|Parametr|Parametr listu nasazení|Popis|Příklad:|
 |---------|---------|---------|---------|
 |CustomAdfsName|Název poskytovatele AD FS|Název zprostředkovatele deklarací identity.<br>Toto zobrazení se zobrazí na AD FS cílové stránce.|Contoso|
 |CustomAD<br>FSFederationMetadataEndpointUri|Identifikátor URI AD FS metadat|Odkaz federačních metadat| https: \//AD01. contoso. com/federationmetadata/2007-06/federationmetadata. XML |
-|SigningCertificateRevocationCheck|NÁ|Volitelný parametr pro přeskočení kontroly CRL|Žádné|
+|SigningCertificateRevocationCheck|není k dispozici|Volitelný parametr pro přeskočení kontroly CRL|Žádné|
 
 
 ### <a name="trigger-automation-to-configure-claims-provider-trust-in-azure-stack"></a>Aktivace automatizace pro konfiguraci vztahu důvěryhodnosti zprostředkovatele deklarací v Azure Stack
@@ -167,7 +167,7 @@ Počínaje verzí 1807 použijte tuto metodu, pokud jsou splněné některé z n
 Pro parametry automatizace se jako vstup vyžadují tyto informace:
 
 
-|Parametr|Popis|Příklad|
+|Parametr|Popis|Příklad:|
 |---------|---------|---------|
 |CustomAdfsName|Název zprostředkovatele deklarací identity. Toto zobrazení se zobrazí na AD FS cílové stránce.|Contoso|
 |CustomADFSFederationMetadataFileContent|Obsah metadat|$using: federationMetadataFileContent|
@@ -263,7 +263,7 @@ Pokud se rozhodnete tyto příkazy spustit ručně, postupujte následovně:
    ```
 
     > [!Note]  
-    > Pro vaše nasazení AD FS můžou být zastaralá podporovaná řetězce uživatelského agenta Windows Integrated Authentication (WIA), což může vyžadovat aktualizaci pro podporu nejnovějších klientů. Další informace o aktualizaci řetězců uživatelského agenta podporovaného zařízením WIA najdete v článku [Konfigurace ověřování na základě intranetových formulářů pro zařízení, která nepodporují WIA](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-intranet-forms-based-authentication-for-devices-that-do-not-support-wia).<br><br>Postup pro povolení zásad ověřování na základě formulářů najdete v tématu [Konfigurace zásad ověřování](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-authentication-policies).
+    > Pro vaše nasazení AD FS můžou být zastaralá podporovaná řetězce uživatelského agenta Windows Integrated Authentication (WIA) a můžou vyžadovat aktualizaci pro podporu nejnovějších klientů. Další informace o aktualizaci řetězců uživatelského agenta podporovaného zařízením WIA najdete v článku [Konfigurace ověřování na základě intranetových formulářů pro zařízení, která nepodporují WIA](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-intranet-forms-based-authentication-for-devices-that-do-not-support-wia).<br><br>Postup pro povolení zásad ověřování na základě formulářů najdete v tématu [Konfigurace zásad ověřování](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-authentication-policies).
 
 3. Chcete-li přidat vztah důvěryhodnosti předávající strany, spusťte následující příkaz prostředí Windows PowerShell na instanci AD FS nebo členu farmy. Nezapomeňte aktualizovat koncový bod AD FS a Ukázat na soubor vytvořený v kroku 1.
 
@@ -307,7 +307,7 @@ Existuje mnoho scénářů, které vyžadují použití hlavního názvu služby
 Další informace o vytváření hlavního názvu služby (SPN) najdete v tématu [Vytvoření instančního objektu pro AD FS](azure-stack-create-service-principals.md).
 
 
-## <a name="troubleshooting"></a>Poradce při potížích
+## <a name="troubleshooting"></a>Řešení potíží
 
 ### <a name="configuration-rollback"></a>Vrácení změn konfigurace
 

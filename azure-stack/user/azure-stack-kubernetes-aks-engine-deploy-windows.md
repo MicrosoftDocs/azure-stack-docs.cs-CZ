@@ -11,20 +11,20 @@ ms.workload: na
 pms.tgt_pltfrm: na (Kubernetes)
 ms.devlang: nav
 ms.topic: article
-ms.date: 10/09/2019
+ms.date: 10/30/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 10/09/2019
-ms.openlocfilehash: 9c19047629d95ba1ffe7c0fe6ab2da5c745576a0
-ms.sourcegitcommit: 12034a1190d52ca2c7d3f05c8c096416120d8392
+ms.lastreviewed: 10/30/2019
+ms.openlocfilehash: c646f8229b5360aed12c9cd8070a00bf38ca3e01
+ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72037941"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73167308"
 ---
 # <a name="install-the-aks-engine-on-windows-in-azure-stack"></a>Nainstalujte modul AKS ve Windows do Azure Stack
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit @ no__t-0
+*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
 
 Počítač s Windows můžete ve svém Azure Stack použít k hostování modulu AKS, aby bylo možné nasadit a spravovat cluster Kubernetes. V tomto článku se podíváme na přípravu klientského virtuálního počítače pro správu clusteru pro připojené i odpojené Azure Stack instance, Projděte si instalaci a nastavte virtuální počítač klienta na ASDK.
 
@@ -41,16 +41,16 @@ Při volbě klientského počítače zvažte následující:
 
 Můžete nainstalovat klientský virtuální počítač pro správu clusteru Kubernetes na Azure Stack připojeném k Internetu.
 
-1. Vytvořte ve svém Azure Stack virtuální počítač s Windows. Pokyny najdete v tématu [Quickstart: Vytvořte virtuální počítač s Windows serverem pomocí portálu Azure Stack @ no__t-0.
+1. Vytvořte ve svém Azure Stack virtuální počítač s Windows. Pokyny najdete v tématu [rychlý Start: Vytvoření virtuálního počítače s Windows serverem pomocí Azure Stackového portálu](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-windows-portal).
 2. Připojte se k VIRTUÁLNÍmu počítači.
 3. [Nainstalujte čokolády pomocí instrukcí PowerShellu.](https://chocolatey.org/install#install-with-powershellexe) 
 
-    Podle webu Chocolaty: Čokoláda je správce balíčků pro Windows, jako je apt-get nebo Yumu, ale pro Windows. Byla navržena jako decentralizovaná architektura pro rychlé instalování aplikací a nástrojů, které potřebujete. Je postavená na infrastruktuře NuGet, která aktuálně používá PowerShell jako svůj fokus pro doručování balíčků z distribuce na vaše dvířka, Err, Computer.
-4. Vyhledá verzi AKS Engine v tabulce [podporovaných verzí Kubernetes](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions) . Základní modul AKS musí být k dispozici na webu Marketplace pro Azure Stack. Při spuštění příkazu je nutné zadat verzi `--version v0.41.2`. Pokud nezadáte verzi, příkaz nainstaluje nejnovější verzi, která může potřebovat image VHD, která není na vašem webu Marketplace k dispozici.
+    Podle webu Chocolaty: čokoláda je správce balíčků pro Windows, jako je apt-get nebo Yumu, ale pro Windows. Byla navržena jako decentralizovaná architektura pro rychlé instalování aplikací a nástrojů, které potřebujete. Je postavená na infrastruktuře NuGet, která aktuálně používá PowerShell jako svůj fokus pro doručování balíčků z distribuce na vaše dvířka, Err, Computer.
+4. Vyhledá verzi AKS Engine v tabulce [podporovaných verzí Kubernetes](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions) . Základní modul AKS musí být k dispozici na webu Marketplace pro Azure Stack. Při spuštění příkazu je nutné zadat `--version v0.41.2`verze. Pokud nezadáte verzi, příkaz nainstaluje nejnovější verzi, která může potřebovat image VHD, která není na vašem webu Marketplace k dispozici.
 5. Z příkazového řádku se zvýšenými oprávněními spusťte následující příkaz a zahrňte číslo verze:
 
     ```PowerShell  
-        choco install aks-engine --version v0.41.2 -y
+        choco install aks-engine --version 0.41.2 -y
     ```
 
 > [!Note]  
@@ -64,7 +64,7 @@ Můžete nainstalovat klientský virtuální počítač pro správu clusteru Kub
 
 2.  Vytvořte v instanci Azure Stack účet úložiště pro nahrání souboru archivu (*. tar. gz) s binárním modulem AKS. Pokyny k používání Průzkumník služby Azure Storage najdete v tématu [Průzkumník služby Azure Storage s Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-connect-se).
 
-3. Vytvořte ve svém Azure Stack virtuální počítač s Windows. Pokyny najdete v tématu [Quickstart: Vytvoření virtuálního počítače s Windows serverem pomocí Azure Stackového portálu @ no__t-0
+3. Vytvořte ve svém Azure Stack virtuální počítač s Windows. Pokyny najdete v tématu [rychlý Start: Vytvoření virtuálního počítače s Windows serverem pomocí Azure Stackového portálu.](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-windows-portal)
 
 4.  Z adresy URL objektu blob Azure Stack účtu úložiště, kam jste nahráli archivní soubor (*. tar. gz), Stáhněte soubor na virtuální počítač pro správu. Extrahujte archiv do adresáře, ke kterému máte přístup z příkazového řádku.
 
