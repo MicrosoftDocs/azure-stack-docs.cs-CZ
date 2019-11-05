@@ -1,0 +1,117 @@
+### YamlMime:Hub
+title: Dokumentace k Azure Stacku
+summary: Azure Stack je řada produktů a řešení, která šíří Azure do vašeho datového centra nebo Edge. Zahrnuje Azure Stack hub, Azure Stack HCL a Azure Stack Edge.
+brand: azure
+metadata:
+  title: Dokumentace k Azure Stacku
+  description: Azure Stack je řada produktů a řešení, která šíří Azure do vašeho datového centra nebo Edge. Zahrnuje Azure Stack hub, Azure Stack HCL a Azure Stack Edge.
+  ms.service: azure-stack
+  ms.topic: hub-page
+  author: BryanLa
+  ms.author: bryanla
+  ms.date: 11/04/2019
+  ms.openlocfilehash: 188a1e58f592f88beee2781d5ee53a9fef48d418
+  ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
+  ms.translationtype: MT
+  ms.contentlocale: cs-CZ
+  ms.lasthandoff: 11/05/2019
+  ms.locfileid: "73607959"
+highlightedContent:
+  items:
+  - title: Oznámení o Azure Stack rodině
+    itemType: overview
+    url: http://aka.ms/AzsFamAnnounce
+  - title: Porovnání Azure Stack řady produktů a řešení
+    itemType: overview
+    url: /azure-stack/operator/compare-azure-azure-stack
+productDirectory:
+  items:
+  - title: Centrum Azure Stack
+    imageSrc: media/index/azure-stack-hub.svg
+    links:
+    - url: /azure-stack/operator/azure-stack-overview
+      text: Co je centrum Azure Stack?
+  - title: Azure Stack Edge
+    imageSrc: media/index/azure-stack-edge.svg
+    links:
+    - url: /azure/databox-online/data-box-edge-overview
+      text: Co je Azure Stack Edge?
+  - title: HCI služby Azure Stack
+    imageSrc: media/index/azure-stack-hci.svg
+    links:
+    - url: /azure-stack/operator/azure-stack-hci-overview
+      text: Přehled Azure Stack HCI
+additionalContent:
+  sections:
+  - title: Centrum Azure Stack
+    items:
+    - title: Operátor
+      links:
+      - url: /azure-stack/operator/azure-stack-manage-portals
+        text: Použití portálu pro správu
+      - url: /azure-stack/operator/release-notes
+        text: Poznámky k verzi
+      - url: /azure-stack/operator/azure-stack-servicing-policy
+        text: Zásady obsluhy centra Azure Stack
+      - url: /azure-stack/operator/azure-stack-create-service-principals
+        text: Použití identity aplikace pro přístup k prostředkům
+    - title: Uživatel
+      links:
+      - url: /azure-stack/user/azure-stack-quick-windows-portal
+        text: Nasazení virtuálního počítače
+      - url: /azure-stack/user/azure-stack-vm-sizes
+        text: Podporované velikosti virtuálních počítačů
+      - url: /azure-stack/user/azure-stack-considerations
+        text: Klíčové důležité požadavky pro sestavování aplikací
+      - url: /azure-stack/user/azure-stack-key-vault-manage-portal
+        text: Vytvoření a Správa Key Vault
+    - title: Vývojová sada Azure Stack hub (ASDK)
+      links:
+      - url: /azure-stack/asdk/asdk-deploy-considerations
+        text: Požadavky a předpoklady pro ASDK
+      - url: /azure-stack/asdk/asdk-download
+        text: Stažení a extrahování ASDK
+      - url: /azure-stack/asdk/asdk-prepare-host
+        text: Příprava hostitelského počítače s ASDK
+  - title: Azure Stack Edge
+    items:
+    - title: Nasazení
+      links:
+      - url: /azure/databox-online/data-box-edge-system-requirements
+        text: Kontrola požadavků na systém
+      - url: /azure/databox-online/data-box-edge-limits
+        text: Pochopení limitů
+      - url: /azure/databox-online/data-box-edge-deploy-prep
+        text: Příprava nasazení
+      - url: /azure/databox-online/data-box-edge-deploy-install
+        text: Instalace
+    - title: Vyvíjejte
+      links:
+      - url: /azure/databox-online/data-box-edge-create-iot-edge-module
+        text: Vývoj modulu IoT Edge (C#)
+      - url: /samples/azure-samples/data-box-edge-csharp-modules/data-box-edge-csharp-modules
+        text: Ukázky modulu IoT Edge (C#)
+  - title: HCI služby Azure Stack
+    items:
+    - title: Řešení
+      links:
+      - url: https://azure.microsoft.com/overview/azure-stack/hci/
+        text: Přehled řešení Azure Stack HCI
+      - url: https://www.microsoft.com/cloud-platform/azure-stack-hci-catalog
+        text: Azure Stack katalogu HCI
+    - title: Spravujte
+      links:
+      - url: /windows-server/manage/windows-admin-center/understand/windows-admin-center
+        text: Windows Admin Center
+      - url: /windows-server/manage/windows-admin-center/azure
+        text: Služba Azure Hybrid Services
+    - title: Základní technologie
+      links:
+      - url: /windows-server/virtualization/hyper-v/hyper-v-on-windows-server
+        text: Hyper-V
+      - url: /windows-server/storage/storage-spaces/storage-spaces-direct-overview
+        text: Prostory úložiště s přímým přístupem
+      - url: /windows-server/networking/sdn
+        text: Softwarově definované sítě
+      - url: /windows-server/failover-clustering/failover-clustering-overview
+        text: Clusteringu s podporou převzetí služeb při selhání
