@@ -15,12 +15,12 @@ ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: 49684cb1821a5014e984a8e177f881be13123829
-ms.sourcegitcommit: 0d27456332031ab98ba2277117395ae5ffcbb79f
+ms.openlocfilehash: 7c2dfd33db3847f386136922716b0ee35c61ce75
+ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73047147"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73595274"
 ---
 # <a name="troubleshoot-the-aks-engine-on-azure-stack"></a>Řešení potíží s modulem AKS na Azure Stack
 
@@ -36,7 +36,7 @@ Může dojít k potížím při nasazení nebo práci s modulem AKS na Azure Sta
 
 ### <a name="try-gofish"></a>Vyzkoušejte GoFish
 
-Pokud se instalační kroky v nástroji nezdařily, pokusíte se nainstalovat pomocí Správce balíčků GoFish. [GoFish](https://gofi.sh) popisuje sebe sama jako homebrew pro různé platformy.
+Pokud předchozí kroky instalace selhaly, můžete modul AKS nainstalovat pomocí Správce balíčků GoFish. [GoFish](https://gofi.sh) popisuje sebe sama jako homebrew pro různé platformy.
 
 #### <a name="install-the-aks-engine-with-gofish-on-linux"></a>Instalace modulu AKS pomocí GoFish v systému Linux
 
@@ -62,7 +62,7 @@ Nainstalujte GoFish ze stránky [instalace](https://gofi.sh/#install) .
 
     ```PowerShell
     Set-ExecutionPolicy Bypass -Scope Process -Force
-iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/fishworks/gofish/master/scripts/install.ps1'))
+    iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/fishworks/gofish/master/scripts/install.ps1'))
     ```
 
 2.  Spuštěním následujícího příkazu ve stejné relaci nainstalujte modul AKS s GoFish:
@@ -126,8 +126,8 @@ Požadavky:
     ```bash  
     mkdir -p $HOME/kuberneteslogs
     cd $HOME/kuberneteslogs
-    wget https://github.com/msazurestackworkloads/azurestack-gallery/releases/download/diagnosis-v0.1.0/diagnosis.tar.gz
-    tar xvzf diagnosis.tar.gz -C ./
+    wget https://github.com/msazurestackworkloads/azurestack-gallery/releases/download/diagnosis-v0.1.1/diagnosis-v0.1.1.tar.gz
+    tar xvf diagnosis-v0.1.1.tar.gz -C ./
     ```
 
 2. Vyhledejte parametry vyžadované skriptem `getkuberneteslogs.sh`. Skript bude používat následující parametry:

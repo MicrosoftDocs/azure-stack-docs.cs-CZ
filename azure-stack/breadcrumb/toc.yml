@@ -6,26 +6,26 @@
       tocHref: /azure-stack/
       topicHref: /azure-stack/
       items:
-        - name: ASDK
+        - name: ASDK centra
           tocHref: /azure-stack/asdk/
           topicHref: /azure-stack/asdk/index
-        - name: Operátor
+        - name: Operátor centra
           tocHref: /azure-stack/operator/
           topicHref: /azure-stack/operator/index
           items:
-            - name: Postupy provede / zálohování Azure stacku
+            - name: Návody a zálohování Azure Stack
               tocHref: /azure-stack/operator/azure-stack-backup-infrastructure-backup/
               topicHref: /azure-stack/operator/azure-stack-backup-infrastructure-backup/
               items:
-                - name: Zálohování souborů a aplikací ve službě Azure Stack
+                - name: Zálohování souborů a aplikací na Azure Stack
                   tocHref: /azure/backup/backup-mabs-files-applications-azure-stack
                   topicHref: /azure/backup/backup-mabs-files-applications-azure-stack
-                - name: Replikace virtuálních počítačů Azure stacku pro Azure
+                - name: Replikace virtuálních počítačů Azure Stack do Azure
                   tocHref: /azure/site-recovery/azure-stack-site-recovery
                   topicHref: /azure/site-recovery/azure-stack-site-recovery
-        - name: Partner
+        - name: Centrální partner
           tocHref: /azure-stack/partner/
           topicHref: /azure-stack/partner/index
-        - name: Uživatel
+        - name: Uživatel centra
           tocHref: /azure-stack/user/
           topicHref: /azure-stack/user/index

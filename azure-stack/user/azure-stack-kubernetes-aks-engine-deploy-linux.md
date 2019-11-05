@@ -15,16 +15,16 @@ ms.date: 10/09/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 10/09/2019
-ms.openlocfilehash: 3debcd152a54fd3a0b940ad3dd4d379c6688faec
-ms.sourcegitcommit: 12034a1190d52ca2c7d3f05c8c096416120d8392
+ms.openlocfilehash: 3979dfdf6a229f1d81b6c5cc017d4d3f75a62e1a
+ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72037962"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73595356"
 ---
 # <a name="install-the-aks-engine-on-linux-in-azure-stack"></a>Instalace modulu AKS v systému Linux v Azure Stack
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit @ no__t-0
+*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
 
 Pomocí počítače se systémem Linux v Azure Stack můžete hostovat modul AKS, aby bylo možné nasadit a spravovat cluster Kubernetes. V tomto článku se podíváme na přípravu klientského virtuálního počítače pro správu clusteru pro připojené i odpojené Azure Stack instance, Projděte si instalaci a nastavte virtuální počítač klienta na ASDK.
 
@@ -41,15 +41,15 @@ Při volbě klientského počítače zvažte následující:
 
 Můžete nainstalovat klientský virtuální počítač pro správu clusteru Kubernetes na Azure Stack připojeném k Internetu.
 
-1. Ve svém Azure Stack vytvořte virtuální počítač se systémem Linux. Pokyny najdete v tématu [Quickstart: Pomocí portálu Azure Stack @ no__t-0 vytvořte virtuální počítač serveru se systémem Linux.
+1. Ve svém Azure Stack vytvořte virtuální počítač se systémem Linux. Pokyny najdete v tématu [rychlý Start: Vytvoření virtuálního počítače s Linux serverem pomocí Azure Stackového portálu](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-linux-portal).
 2. Připojte se k VIRTUÁLNÍmu počítači.
-3. Vyhledá verzi AKS Engine v tabulce [podporovaných verzí Kubernetes](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions) . Základní modul AKS musí být k dispozici na webu Marketplace pro Azure Stack. Při spuštění příkazu je nutné zadat verzi `--version v0.41.2`. Pokud nezadáte verzi, příkaz nainstaluje nejnovější verzi, která může potřebovat image VHD, která není na vašem webu Marketplace k dispozici.
+3. Vyhledá verzi AKS Engine v tabulce [podporovaných verzí Kubernetes](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions) . Základní modul AKS musí být k dispozici na webu Marketplace pro Azure Stack. Při spuštění příkazu je nutné zadat verzi `--version v0.43.0`. Pokud nezadáte verzi, příkaz nainstaluje nejnovější verzi, která může potřebovat image VHD, která není na vašem webu Marketplace k dispozici.
 4. Spusťte následující příkaz:
 
     ```bash  
         curl -o get-akse.sh https://raw.githubusercontent.com/Azure/aks-engine/master/scripts/get-akse.sh
         chmod 700 get-akse.sh
-        ./get-akse.sh --version v0.41.2
+        ./get-akse.sh --version v0.43.0
     ```
 
     > [!Note]  
@@ -63,7 +63,7 @@ Můžete nainstalovat klientský virtuální počítač pro správu clusteru Kub
 
 2.  Vytvořte v instanci Azure Stack účet úložiště pro nahrání souboru archivu (*. tar. gz) s binárním modulem AKS. Pokyny k používání Průzkumník služby Azure Storage najdete v tématu [Průzkumník služby Azure Storage s Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-connect-se).
 
-3. Ve svém Azure Stack vytvořte virtuální počítač se systémem Linux. Pokyny najdete v tématu [Quickstart: Pomocí portálu Azure Stack @ no__t-0 vytvořte virtuální počítač serveru se systémem Linux.
+3. Ve svém Azure Stack vytvořte virtuální počítač se systémem Linux. Pokyny najdete v tématu [rychlý Start: Vytvoření virtuálního počítače s Linux serverem pomocí Azure Stackového portálu](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-linux-portal).
 
 3.  Z adresy URL objektu blob Azure Stack účtu úložiště, kam jste nahráli archivní soubor (*. tar. gz), Stáhněte soubor na virtuální počítač pro správu. Extrahujte archiv do adresáře `/usr/local/bin`.
 

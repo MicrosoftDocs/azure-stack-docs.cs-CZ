@@ -1,5 +1,5 @@
 ---
-title: Co je modul AKS v Azure Stack? | Microsoft Docs
+title: Co je modul AKS v Azure Stack? | Dokumentace Microsoftu
 description: Naučte se, jak pomocí nástroje příkazového řádku AKS Engine nasadit a spravovat cluster Kubernetes v Azure a Azure Stack.
 services: azure-stack
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.date: 09/14/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/14/2019
-ms.openlocfilehash: 93a835b6d3eff233ccbd421930f9618325126ea4
-ms.sourcegitcommit: 58e1911a54ba249a82fa048c7798dadedb95462b
+ms.openlocfilehash: 22779072b2dfed018a2ff6d5eac5bf2c294ccd31
+ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73057760"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73595131"
 ---
 # <a name="what-is-the-aks-engine-on-azure-stack"></a>Co je modul AKS v Azure Stack?
 

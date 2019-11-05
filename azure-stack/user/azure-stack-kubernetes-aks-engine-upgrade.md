@@ -15,12 +15,12 @@ ms.date: 10/16/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 10/16/2019
-ms.openlocfilehash: 3720781dc2545fefaff0b2cd703d7c3880c4b97b
-ms.sourcegitcommit: 83cef2c4ec6e1b2fd3f997c91675c1058a850e2f
+ms.openlocfilehash: 39eebfbc4d60d4cd68bb33d6efcf35cc12ffe313
+ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "72999885"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73594896"
 ---
 # <a name="upgrade-a-kubernetes-cluster-on-azure-stack"></a>Upgrade clusteru Kubernetes na Azure Stack
 
@@ -86,7 +86,7 @@ Následující pokyny používají minimální postup k provedení upgradu. Poku
 
     | Parametr | Příklad: | Popis |
     | --- | --- | --- |
-    | Azure – ENV | AzureStackCloud | Pro indikaci AKS stroje, že vaše cílová platforma je Azure Stack použít `AzureStackCloud`. |
+    | Azure – ENV | AzureStackCloud | K indikaci AKS Engine, že vaše cílová platforma je Azure Stack použít `AzureStackCloud`. |
     | location | místní | Název oblasti pro váš Azure Stack. Pro ASDK je oblast nastavená na `local`. |
     | resource-group | Kube – RG | Zadejte název nové skupiny prostředků nebo vyberte existující skupinu prostředků. Název prostředku musí být alfanumerický a malý. |
     | ID předplatného | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Zadejte ID předplatného. Další informace najdete v tématu [přihlášení k odběru nabídky](https://docs.microsoft.com/azure-stack/user/azure-stack-subscribe-services#subscribe-to-an-offer) . |

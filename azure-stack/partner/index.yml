@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Dokumentace ke službě partnera Azure Stack
+title: Dokumentace k partnerovi centra Azure Stack
 metadata:
   document_id: null
-  title: 'Azure Stack partnera D\documentation – kurzy, rozhraní API R\reference'
-  description: 'Zjistěte, jak ověřit hardware pro hostování služby Azure Stack. Ověření jako služba je určen pro řešení partnerů, kteří jsou společně technické nabídek Azure Stack s Microsoftem nativní služby Azure.'
+  title: 'D\documentation Partner centra pro Azure Stack – kurzy, API R\reference'
+  description: 'Zjistěte, jak ověřit hardware pro hostování Azure Stack. Ověřování jako služba je nativní služba Azure určená pro partnery řešení, kteří jsou spolustrojírenství Azure Stack nabídky centra s Microsoftem.'
   services: azure-stack
   author: mattbriggs
   manager: femila
@@ -16,26 +16,26 @@ metadata:
   ms.author: mabrigg
   ms.reviewer: johnhas
 abstract:
-  description: 'Ověření slouží jako službu k zkontrolujte, jestli váš hardware pro použití se službou Azure Stack. Služba je nativní Azure služba určená pro použití řešení partnerů, kteří jsou společně technické nabídek Azure Stack s Microsoftem.'
+  description: 'Ověřování jako službu můžete použít ke kontrole hardwaru pro použití s Azure Stack. Tato služba je nativní službou Azure určenou pro použití partnery pro řešení, kteří jsou spolustrojírenství v Azure Stack centra pro spolupráci s Microsoftem.'
 sections:
   - title: Zprovoznění během 5 minut
     items:
       - type: paragraph
-        text: 'Zjistěte, jak pomocí ověření jako portál služby můžete naplánovat testy na hardwaru.'
+        text: Naučte se používat ověřování jako portál služby k naplánování testů na hardware.
       - type: list
         style: icon48
         items:
           - image:
               src: media/i_account-management.svg
-            text: Použít ověření jako portál služby k naplánování prvního testu
+            text: Použití ověřování jako portálu služby k naplánování prvního testu
             href: azure-stack-vaas-schedule-test-pass.md
   - title: Podrobné kurzy
     items:
       - type: paragraph
-        text: 'Zjistěte, jak ověřit váš hardware Azure Stack.'
+        text: 'Zjistěte, jak ověřit hardware centra Azure Stack.'
       - type: list
         style: unordered
         items:
-          - html: <a href="/azure-stack/partner/azure-stack-vaas-validate-solution-new">Ověření nového řešení Azure Stack</a>
-          - html: <a href="/azure-stack/partner/azure-stack-vaas-validate-oem-package">Ověření balíčky výrobce OEM</a>
-          - html: <a href="/azure-stack/partner/azure-stack-vaas-validate-microsoft-updates">Ověření aktualizace softwaru od Microsoftu</a>
+          - html: <a href="/azure-stack/partner/azure-stack-vaas-validate-solution-new">Ověřit nové řešení centra Azure Stack</a>
+          - html: <a href="/azure-stack/partner/azure-stack-vaas-validate-oem-package">Ověřit balíčky OEM</a>
+          - html: <a href="/azure-stack/partner/azure-stack-vaas-validate-microsoft-updates">Ověřit aktualizace softwaru od Microsoftu</a>

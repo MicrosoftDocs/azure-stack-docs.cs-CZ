@@ -15,12 +15,12 @@ ms.date: 09/14/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/14/2019
-ms.openlocfilehash: b56c5a2be45e9f92630283a2b702f37471e80290
-ms.sourcegitcommit: 534117888d9b7d6d363ebe906a10dcf0acf8b685
+ms.openlocfilehash: 9a1f25873512da735df4e098804bb474d9ce75ea
+ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72173100"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73594935"
 ---
 # <a name="set-up-the-prerequisites-for-the-aks-engine-on-azure-stack"></a>Nastavení požadavků pro modul AKS na Azure Stack
 
@@ -39,11 +39,11 @@ Pokud chcete používat modul AKS, musíte mít k dispozici následující prost
 | Požadavek | Popis | Požaduje se | Pokyny |
 | --- | --- | --- | --- |
 | Rozšíření vlastních skriptů pro Linux | Rozšíření vlastních skriptů pro Linux 2,0<br>Nabídka: vlastní skript pro Linux 2,0<br>Verze: 2.0.6 (nebo nejnovější verze)<br>Vydavatel: Microsoft Corp | Požaduje se | Pokud ve svém předplatném nemáte tuto položku, obraťte se na svého operátora cloudu. |
-| AKS Base Ubuntu image | Základní obrázek AKS<br>Nabídka: AKS<br>Verze: 2019.09.19 (nebo novější verze)<br>Vydavatel: Microsoft-AKS<br>SKU: AKS-Ubuntu-1604-201909 | Požaduje se | Pokud ve svém předplatném nemáte tuto položku, obraťte se na svého operátora cloudu. Podívejte se na Další informace o závislostech verze, viz [shodný modul se základní verzí image](#matching-engine-to-base-image-version).<br> Pokud jste operátor cloudu pro Azure Stack a chcete nabízet modul AKS, postupujte podle pokynů v části [Přidání modulu AKS do tržiště služby Azure Stack](../operator/azure-stack-aks-engine.md). |
+| AKS Base Ubuntu image | Základní obrázek AKS<br>Nabídka: AKS<br> 2019.10.24 (nebo novější verze)<br>Vydavatel: Microsoft-AKS<br>SKU: AKS-Ubuntu-1604-201910 | Požaduje se | Pokud ve svém předplatném nemáte tuto položku, obraťte se na svého operátora cloudu. Podívejte se na Další informace o závislostech verze, viz [shodný modul se základní verzí image](#matching-engine-to-base-image-version).<br> Pokud jste operátor cloudu pro Azure Stack a chcete nabízet modul AKS, postupujte podle pokynů v části [Přidání modulu AKS do tržiště služby Azure Stack](../operator/azure-stack-aks-engine.md). |
 | Předplatné Azure Stack | K nabídkám ve Azure Stack přistupujete prostřednictvím předplatných. Nabídka obsahuje služby, které máte k dispozici. | Požaduje se | Aby bylo možné nasadit jakékoli klientské úlohy v Azure Stack, musíte nejprve získat [Azure Stack předplatné](https://docs.microsoft.com/azure-stack/user/azure-stack-subscribe-services). |
 | Identita objektu služby (SPN) |  Aplikace, která potřebuje nasadit nebo nakonfigurovat prostředky prostřednictvím Azure Resource Manager, musí být reprezentována instančním objektem. | Požaduje se | Pro tuto položku bude možná potřeba kontaktovat operátor Azure Stack.  Pokyny najdete v tématu [použití identity aplikace pro přístup k prostředkům](https://docs.microsoft.com/azure-stack/operator/azure-stack-create-service-principals) . |
 | (SPN) přiřazená role **přispěvatele** | Aby mohla aplikace přistupovat k prostředkům ve vašem předplatném pomocí instančního objektu, musíte instančnímu objektu přiřadit roli pro konkrétní prostředek. | Požaduje se | Pokyny najdete v tématu [přiřazení role](https://docs.microsoft.com/azure-stack/operator/azure-stack-create-service-principals#assign-a-role) . |
-| Skupina prostředků | Skupina prostředků je kontejner, který obsahuje související prostředky pro řešení Azure. Pokud nezadáte žádnou existující skupinu prostředků, nástroj si ji pro vás vytvoří. | Volitelné | [Správa Azure Resource Manager skupin prostředků pomocí Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-portal) |
+| Skupina prostředků | Skupina prostředků je kontejner, který obsahuje související prostředky pro řešení Azure. Pokud nezadáte žádnou existující skupinu prostředků, nástroj si ji pro vás vytvoří. | Nepovinné | [Správa Azure Resource Manager skupin prostředků pomocí Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-portal) |
 | Privátní veřejný klíč | Pokud chcete použít otevřené připojení SSH z vývojového počítače k VIRTUÁLNÍmu počítači serveru ve vaší instanci Azure Stack, která je hostitelem vaší webové aplikace, je potřeba vytvořit dvojici veřejného a privátního klíče Secure Shell (SSH). | Požaduje se | Pokyny k vygenerování klíče najdete v tématu [generování klíče SSH](https://docs.microsoft.com/azure-stack/user/azure-stack-dev-start-howto-ssh-public-key).|
 
 > [!Note]  
@@ -51,9 +51,9 @@ Pokud chcete používat modul AKS, musíte mít k dispozici následující prost
 
 ## <a name="matching-engine-to-base-image-version"></a>Shodný modul se základní verzí image
 
-Modul AKS používá sestavenou image, **základní image AKS**. Jakákoli verze AKS stroje je závislá na konkrétní verzi image, která je k dispozici ve vašem Azure Stack vaším operátorem Azure Stack. V [podporovaných verzích Kubernetes](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions)můžete najít tabulku se seznamem verzí modulu AKS a odpovídající podporované verze Kubernetes. Například AKS Engine verze `v0.41.2` závisí na verzi `2019.09.19` základní image AKS. Požádejte svého operátora Azure Stack o stažení konkrétní verze image z Azure Marketplace na web Azure Stack Marketplace.
+Modul AKS používá sestavenou image, **základní image AKS**. Jakákoli verze AKS stroje je závislá na konkrétní verzi image, která je k dispozici ve vašem Azure Stack vaším operátorem Azure Stack. V [podporovaných verzích Kubernetes](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions)můžete najít tabulku se seznamem verzí modulu AKS a odpovídající podporované verze Kubernetes. Například AKS stroje verze `v0.43.0` závisí na verzi `2019.10.24` základní image AKS. Požádejte svého operátora Azure Stack o stažení konkrétní verze image z Azure Marketplace na web Azure Stack Marketplace.
 
-Pokud není ve vašem Azure Stack Marketplace k dispozici obrázek, aktivuje se a zobrazí se chyba. Pokud například aktuálně používáte modul AKS verze v 0.41.2 a verzi image AKS Base, `2019.09.19` není k dispozici, při spuštění modulu AKS se zobrazí následující chyba: 
+Pokud není ve vašem Azure Stack Marketplace k dispozici obrázek, aktivuje se a zobrazí se chyba. Pokud například aktuálně používáte modul AKS verze v 0.43.0 a `2019.10.24` verze AKS Base image nejsou k dispozici, při spuštění modulu AKS se zobrazí následující chyba: 
 
 ```Text  
 The platform image 'microsoft-aks:aks:aks-ubuntu-1604-201908:2019.08.09' is not available. 

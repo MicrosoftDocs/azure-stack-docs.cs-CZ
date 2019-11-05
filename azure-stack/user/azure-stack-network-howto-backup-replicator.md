@@ -1,28 +1,28 @@
 ---
-title: Postup zálohování prostředků pomocí Azure Stack replikátoru předplatného | Microsoft Docs
-description: Naučte se, jak zálohovat prostředky pomocí Azure Stack replikátoru předplatného.
+title: Postup replikace prostředků napříč několika předplatnými Azure Stack | Microsoft Docs
+description: Naučte se replikovat prostředky pomocí sady Azure Stack replikátoru předplatného.
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: how-to
-ms.date: 10/29/2019
+ms.date: 10/30/2019
 ms.author: mabrigg
 ms.reviewer: rtiberiu
-ms.lastreviewed: 10/29/2019
-ms.openlocfilehash: 5ef02dbe7683b4c7364811452af59013476687fd
-ms.sourcegitcommit: cc5c965b13bc3dae9a4f46a899e602f41dc66f78
+ms.lastreviewed: 10/30/2019
+ms.openlocfilehash: f468d28ae1642235735f4e1472a8aa84859dc6e6
+ms.sourcegitcommit: 8a74a5572e24bfc42f71e18e181318c82c8b4f24
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73236239"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73567784"
 ---
-# <a name="how-to-back-up-resources-using-the-azure-stack-subscription-replicator"></a>Postup zálohování prostředků pomocí replikátoru předplatného Azure Stack
+# <a name="how-to-replicate-resources-using-the-azure-stack-subscription-replicator"></a>Postup replikace prostředků pomocí replikátoru předplatného Azure Stack
 
-K kopírování prostředků mezi odběry Azure Stack můžete použít skript prostředí PowerShell pro Azure Stack předplatné. Skript replikátoru načte a znovu sestaví Azure Resource Manager prostředky z různých předplatných Azure a Azure Stack. Tento článek se zabývá tím, jak skript funguje, jak můžete použít skript, a poskytuje odkaz na operace ve skriptu.
+Pomocí skriptu PowerShellu pro Azure Stack předplatného můžete kopírovat prostředky mezi odběry Azure Stack, přes Azure Stacková razítka nebo mezi Azure Stack a Azure. Skript replikátoru načte a znovu sestaví Azure Resource Manager prostředky z různých předplatných Azure a Azure Stack. Tento článek se zabývá tím, jak skript funguje, jak můžete použít skript, a poskytuje referenční informace pro operace se skripty.
 
 ## <a name="subscription-replicator-overview"></a>Přehled replikátoru předplatného
 
-Replikátor předplatných Azure (V3) byl navržen jako modulární. Tento nástroj používá základní procesor, který orchestruje replikaci prostředků. Nástroj navíc podporuje přizpůsobitelné procesory, které fungují jako šablony pro kopírování různých typů prostředků. 
+Replikátor předplatných Azure byl navržen jako modulární. Tento nástroj používá základní procesor, který orchestruje replikaci prostředků. Nástroj navíc podporuje přizpůsobitelné procesory, které fungují jako šablony pro kopírování různých typů prostředků. 
 
 Základní procesor se skládá z následujících tří skriptů:
 
@@ -70,11 +70,11 @@ Existuje však možnost, že verze rozhraní API poskytovatele prostředků cíl
 
 Nástroj vyžaduje parametr pojmenovaný **Parallel**. Tento parametr přebírá logickou hodnotu určující, zda mají být načteny prostředky paralelně nasazeny. Pokud je hodnota nastavená na **true,** pak každé volání **New-AzureRmResourceGroupDeployment** bude mít příznak **-asJob** a bloky kódu, které se budou čekat na dokončení paralelních úloh, se přidají do mezi sadami nasazení prostředků na základě prostředku. druhy. Zajišťuje, aby všechny prostředky jednoho typu byly nasazeny před nasazením dalšího typu prostředku. Pokud je hodnota **paralelního** parametru nastavena na **false**, všechny prostředky budou nasazeny v sériovém tvaru.
 
-## <a name="adding-additional-resource-types"></a>Přidání dalších typů prostředků
+## <a name="add-additional-resource-types"></a>Přidat další typy prostředků
 
 Přidávání nových typů prostředků je jednoduché. Vývojář musí vytvořit přizpůsobený procesor a buď šablonu Azure Resource Manager, nebo generátor šablon Azure Resource Manager. Po dokončení tohoto nástroje musí vývojář přidat typ prostředku do ValidateSet pro parametr **$ResourceType** a pole **$resourceTypes** v resource_retriever. ps1. Když přidáte typ prostředku do pole * * $resourceTypes * *, je nutné ho přidat ve správném pořadí. Pořadí pole určuje pořadí, v jakém budou prostředky nasazeny, takže mějte na paměti, že jsou zachovány závislosti. A konečně, pokud vlastní procesor používá generátor šablon Azure Resource Manager, musí přidat název typu prostředku do pole **$customTypes** v **post_process. ps1**.
 
-## <a name="running-azure-subscription-replicator"></a>Spouští se Replikátor předplatných Azure.
+## <a name="run-azure-subscription-replicator"></a>Spustit Replikátor předplatných Azure
 
 Pokud chcete spustit nástroj replikátoru předplatného Azure (V3), budete muset aktivovat resource_retriever. ps1 a uvést všechny parametry. Parametr **ResourceType** má možnost zvolit **vše** , nikoli jeden typ prostředku. Pokud je vybrána možnost **vše** , resource_retriever. ps1 zpracuje všechny prostředky v pořadí tak, aby při spuštění nasazení byly nejprve nasazeny závislé prostředky. Například virtuální sítě se nasazují před virtuálními počítači, protože virtuální počítače vyžadují, aby byla virtuální síť v místě, aby se mohla správně nasadit.
 
@@ -89,39 +89,22 @@ Deployment_Files budou obsahovat dva soubory **DeployResourceGroups. ps1** a **D
 
 1.  Spusťte skript.
 
-    ![](./media/azure-stack-network-howto-backup-replicator/image2.png)
+    ![Spuštění skriptu](./media/azure-stack-network-howto-backup-replicator/image2.png)
 
-1.  Počkejte, než se skript spustí.
+    > [!Note]  
+    > Nezapomeňte konfigurovat zdrojový evironment a kontext předplatného pro instanci PS. 
 
-    ![](./media/azure-stack-network-howto-backup-replicator/image3.png)
+2.  Zkontrolujte nově vytvořené složky:
 
-1.  Zkontrolujte nově vytvořené složky:
+    ![Kontrola složek](./media/azure-stack-network-howto-backup-replicator/image4.png)
 
-    ![](./media/azure-stack-network-howto-backup-replicator/image4.png)
+3.  Nastavte kontext na cílové předplatné, změňte složku na **Deployment_Files**, nasaďte skupiny prostředků a potom spusťte nasazení prostředků.
 
-    ![](./media/azure-stack-network-howto-backup-replicator/image5.png)
+    ![Konfigurace a spuštění nasazení](./media/azure-stack-network-howto-backup-replicator/image6.png)
 
-1.  Nastavte kontext na cílové předplatné.
+4.  Ke kontrole stavu spusťte `Get-Job`. Get-Job | Receive – úloha vrátí výsledky.
 
-    ![](./media/azure-stack-network-howto-backup-replicator/image6.png)
-
-1.  Zadejte `cd` pro změnu do složky **Deployment_Files** .
-
-    ![](./media/azure-stack-network-howto-backup-replicator/image7.png)
-
-1.  Pro nasazení skupin prostředků spusťte `DeployResourceGroups.ps1`.
-
-    ![](./media/azure-stack-network-howto-backup-replicator/image8.png)
-
-1.  K nasazení prostředků spusťte `DeployResources.ps1`.
-
-    ![](./media/azure-stack-network-howto-backup-replicator/image9.png)
-
-1.  Ke kontrole stavu spusťte `Get-Job`. Get-Job | Receive – úloha vrátí výsledky.
-
-    ![](./media/azure-stack-network-howto-backup-replicator/image10.png)
-
-## <a name="clean-up"></a>Vyčistit
+## <a name="clean-up"></a>Vyčištění
 
 Ve složce replicatorV3 se nachází soubor s názvem **cleanup_generated_items. ps1** – odstraní složky **Deployment_Files**, **Parameter_Files**a **Custom_ARM_Templates** a veškerý jejich obsah.
 
@@ -186,17 +169,19 @@ Při spuštění nástroje se **všemi** typy prostředků se při replikaci a n
             – Privátní IP adresa síťového rozhraní  
             – Konfigurace skupiny zabezpečení sítě  
             -Konfigurace sady dostupnosti  
- 
+
 > [!Note]  
-> Pro disk s operačním systémem a datové disky se vytvoří jenom spravované disky. V současné době není k dispozici žádná podpora pro používání účtů úložiště. 
+> Pro disk s operačním systémem a datové disky se vytvoří jenom spravované disky. V současné době není k dispozici podpora pro použití účtů úložiště. 
 
 ### <a name="limitations"></a>Omezení
 
 Nástroj může replikovat prostředky z jednoho předplatného do jiného, pokud poskytovatelé prostředků cílového předplatného podporují všechny prostředky a možnosti, které se replikují ze zdrojového předplatného.
 
-Aby se zajistila úspěšná replikace, zajistěte, aby verze poskytovatele prostředků cílového předplatného byly stejné jako u zdrojového předplatného.
+Aby se zajistila úspěšná replikace, Mare zajistěte, aby verze poskytovatele prostředků cílového předplatného odpovídaly verzi zdrojového předplatného.
 
 Při replikaci z komerčního Azure do komerčního prostředí Azure nebo z jednoho předplatného v rámci Azure Stack do jiného předplatného v rámci stejné Azure Stack budou při replikaci účtů úložiště k dispozici problémy. Důvodem je požadavek na pojmenovávání účtu úložiště, že všechny názvy účtů úložiště jsou jedinečné ve všech komerčních Azure nebo ve všech předplatných v Azure Stack oblasti nebo instanci. Replikace účtů úložiště napříč různými instancemi Azure Stack bude úspěšná, protože zásobníky jsou samostatné oblasti/instance.
+
+
 
 ## <a name="next-steps"></a>Další kroky
 

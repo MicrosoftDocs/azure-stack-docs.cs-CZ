@@ -1,8 +1,8 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Dokumentace operátora k Azure Stacku
+title: Dokumentace k operátorovi centra Azure Stack
 metadata:
-  title: 'Dokumentace k Azure Stacku – kurzy, reference k rozhraní API'
+  title: 'Dokumentace centra Azure Stack – kurzy, Reference k rozhraní API'
   meta.description: azure-stack
   services: azure-stack
   author: justinha
@@ -16,9 +16,9 @@ metadata:
   ms.date: 07/09/2019
   ms.author: justinha
 abstract:
-  description: 'Microsoft Azure Stack je hybridní cloudová platforma, která umožňuje zřizovat služby Azure z vašeho datového centra. Naučte se spravovat infrastrukturu Azure Stack integrovaných systémů a nabízet služby prostřednictvím našich šablon rychlý Start a kurzů.<br/><br/>Pokud jste Azure Stack uživatel, který používá služby nebo sestavování aplikace pro Azure Stack, přečtěte si naši <a href="/azure-stack/user">dokumentaci pro uživatele</a>.<br/><br/>Pokud jste Azure Stacký operátor, který se zajímá o Azure Stack Development Kit (ASDK), nasazení v jednom uzlu Azure Stack, které si můžete stáhnout a použít zdarma, najdete v naší <a href="/azure-stack/asdk">dokumentaci k ASDK</a>.'
+  description: 'Centrum Microsoft Azure Stack je hybridní cloudová platforma, která vám umožní poskytovat služby Azure z vašeho datového centra. Naučte se spravovat infrastrukturu integrovaných systémů centra Azure Stack a jak nabízet služby prostřednictvím našich šablon rychlý Start a kurzů.<br/><br/>Pokud jste uživatelem centra Azure Stack, který používá služby nebo sestavování aplikací pro centrum Azure Stack, přečtěte si naši <a href="/azure-stack/user">dokumentaci pro uživatele</a>.<br/><br/>Pokud jste Azure Stack operátor centra, který se zajímá o Azure Stack hub Development Kit (ASDK), nasazení centra Azure Stack s jedním uzlem, které si můžete stáhnout a používat zdarma, přečtěte si naši <a href="/azure-stack/asdk">dokumentaci k ASDK</a>.'
 sections:
-  - title: Začínáme se službou Azure Stack
+  - title: Začínáme se službou Azure Stack hub
     items:
       - type: list
         style: cards
@@ -27,19 +27,19 @@ sections:
           - html: |-
               <a href="/azure-stack/operator/azure-stack-manage-portals">
               <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_portal.svg" alt="">
-              <br><b>Použití portálu pro správu</b></a>
-              <p>Portál pro správu použijte pro každodenní správu a provoz Azure Stack.</p>
+              <br><b>Použijte</a> portálu pro správu</b> .
+              <p>Portál pro správu použijte pro každodenní správu a provoz centra Azure Stack.</p>
           - html: |-
               <a href="/azure-stack/operator/azure-stack-powershell-install">
               <img height="48" width="48" src="https://docs.microsoft.com/media/logos/logo_powershell.svg" alt="">
               <br><b>Azure Stack PowerShell</b></a>
-              <p>Z PowerShellu můžete snadno spravovat prostředky Azure Stack.</p>
+              <p>Z PowerShellu můžete snadno spravovat prostředky centra Azure Stack.</p>
           - html: |-
               <a href="/azure-stack/operator/azure-stack-capacity-planning-overview">
               <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_load-testing.svg" alt="">
-              <br><b>Plánování kapacity</b></a>
+              <br></a> <b>plánování kapacity</b>
               <p>Podívejte se, jak se různé výpočetní prostředky vejdou do výběru nabídky hardwaru.</p>
-  - title: Nabídka Azure Stack služeb
+  - title: Nabídka Azure Stack služby centra
     items:
       - type: list
         style: cards
@@ -48,19 +48,19 @@ sections:
           - html: |-
               <a href="/azure-stack/operator/azure-stack-sql-resource-provider">
               <img height="48" width="48" src="https://docs.microsoft.com/media/logos/logo_SQL.svg" alt="hybrid cloud app ci/cd">
-              <br><b>Nabídka SQL jako PaaS</b></a>
-              <p>Použijte poskytovatele prostředků SQL Server k nabídnutí databází SQL jako služby Azure Stack.</p>
+              <br><b>Nabídnout SQL jako PaaS</b></a>
+              <p>Pomocí poskytovatele prostředků SQL Server můžete nabízet databáze SQL jako službu centra Azure Stack.</p>
           - html: |-
               <a href="/azure-stack/operator/azure-stack-mysql-resource-provider">
               <img height="48" width="48" src="https://docs.microsoft.com/media/logos/logo_mysql.svg" alt="hybrid cloud app identity">
-              <br><b>Nabídka MySQL jako PaaS</b></a>
-              <p>Pomocí poskytovatele prostředků MySQL poskytněte databáze MySQL jako službu Azure Stack.</p>
+              <br><b>Nabízet MySQL jako PaaS</b></a>
+              <p>Pomocí poskytovatele prostředků MySQL poskytněte databáze MySQL jako službu centra Azure Stack.</p>
           - html: |-
               <a href="/azure-stack/operator/azure-stack-app-service-overview">
               <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_web-apps.svg" alt="hybrid cloud app scaling">
               <br><b>Nabídka Azure App Service jako PaaS</b></a>
               <p>Pomáhat uživatelům vytvářet webové aplikace a rozhraní API pro jakoukoli platformu nebo zařízení.</p>
-  - title: Správa Azure Stack
+  - title: Správa centra Azure Stack
     items:
       - type: list
         style: cards
@@ -69,15 +69,15 @@ sections:
           - html: |-
               <a href="/azure-stack/operator/azure-stack-updates">
               <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_upgrade.svg" alt="">
-              <br><b>Aktualizovat Azure Stack</b></a>
-              <p>Microsoft vytvoří každý měsíc jeden balíček, aby Azure Stack integrované systémy zůstaly aktuální. </p>
+              <br><b>Aktualizace centra Azure Stack</b></a>
+              <p>Microsoft vytvoří každý měsíc jeden balíček, aby se zajistilo aktuálnost integrovaných systémů Azure Stack hub. </p>
           - html: |-
               <a href="/azure-stack/operator/azure-stack-backup-infrastructure-backup">
               <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_usb.svg" alt="">
-              <br><b>Zálohování Azure Stack</b></a>
+              <br><b>Zálohování centra Azure Stack</b></a>
               <p>Zálohujte a obnovte data konfigurace a služby pomocí služby Infrastructure Backup.</p>
           - html: |-
               <a href="/azure-stack/operator/azure-stack-security-configuration">
               <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_cloud-security.svg" alt="">
-              <br><b>Konfigurace zabezpečení Azure Stack</b></a>
-              <p>Azure Stack je určený k obraně před moderními hrozbami a splnění standardů dodržování předpisů.</p>
+              <br><b>Konfigurace</a> Azure Stack centra zabezpečení</b>
+              <p>Centrum Azure Stack je určené k obraně před moderními hrozbami a splnění standardů dodržování předpisů.</p>
