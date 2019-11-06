@@ -2,8 +2,6 @@
   href: index.yml
 - name: Přehled
   items:
-    - name: Sestavování řešení pomocí centra Azure Stack
-      href: azure-stack-hybrid-cloud-patterns.md
     - name: Klíčové aspekty
       href: azure-stack-considerations.md
 - name: Rychlé starty
@@ -73,18 +71,18 @@
               href: azure-stack-develop-templates.md
             - name: Vývoj šablon v Azure
               href: azure-stack-developer.md
-            - name: Nasazení šablon
+            - name: Šablony nasazení
               href: azure-stack-validate-templates.md
               items:
                 - name: Nasazení s využitím portálu
                   href: azure-stack-deploy-template-portal.md
-                - name: Nasazení s využitím PowerShellu
+                - name: Nasazení s PowerShellem
                   href: azure-stack-deploy-template-powershell.md
                 - name: Nasazení pomocí rozhraní příkazového řádku
                   href: azure-stack-deploy-template-command-line.md
                 - name: Nasazení pomocí Visual Studio Code
                   href: azure-stack-resource-manager-deploy-template-vscode.md
-                - name: Nasazení s využitím sady Visual Studio
+                - name: Nasazení pomocí sady Visual Studio
                   href: azure-stack-deploy-template-visual-studio.md
         - name: Použití profilů verzí rozhraní API
           items:
@@ -114,7 +112,7 @@
               href: /azure-stack/operator/azure-stack-create-service-principals?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
         - name: Použití služeb
           items:
-            - name: Compute
+            - name: Služby Compute
               items:
                 - name: Přehled
                   href: azure-stack-compute-overview.md
@@ -132,7 +130,7 @@
                   href: vm-update-management.md
                 - name: Požadavky na SQL Server VM
                   href: azure-stack-sql-server-vm-considerations.md
-            - name: Storage
+            - name: Úložiště
               items:
                 - name: Přehled
                   href: azure-stack-storage-overview.md
@@ -150,7 +148,7 @@
                   href: azure-stack-network-overview.md
                 - name: Aspekty sítí
                   href: azure-stack-network-differences.md
-                - name: VPN Gateway
+                - name: Brány VPN Gateway
                   items:
                     - name: Připojení pomocí VPN
                       href: azure-stack-connect-vpn.md
@@ -249,26 +247,6 @@
               href: azure-stack-dev-start-howto-vm-python.md
             - name: Nasazení webové aplikace v NodeJS
               href: azure-stack-dev-start-howto-vm-nodejs.md
-    - name: Nasazení vzorů hybridního cloudu
-      items:
-        - name: Nasazení aplikací do Azure a centra Azure Stack
-          href: azure-stack-solution-pipeline.md
-        - name: Konfigurace hybridní cloudové identity
-          href: azure-stack-solution-hybrid-identity.md
-        - name: Konfigurace hybridního cloudového připojení
-          href: azure-stack-solution-hybrid-connectivity.md
-        - name: Vytváření řešení škálování mezi cloudy pomocí Azure
-          href: azure-stack-solution-cloud-burst.md
-        - name: Vytvořit geograficky distribuované řešení aplikace
-          href: azure-stack-solution-geo-distributed.md
-        - name: Nasazení hybridního cloudového řešení
-          href: azure-stack-solution-hybrid-cloud.md
-        - name: Nasazení připravené analýzy dat
-          href: azure-stack-solution-staged-data.md
-        - name: Nasazení MongoDB s vysokou dostupností
-          href: azure-stack-solution-mongodb-ha.md
-        - name: Nasazení SQL Server 2016 s vysokou dostupností
-          href: azure-stack-solution-sql-ha.md
     - name: Nasazení základních vzorů
       items:
         - name: Partnerský vztah virtuální sítě
@@ -305,7 +283,7 @@
   items:
     - name: IaaS architektury
       items:
-        - name: Virtuální počítači s Linuxem
+        - name: Virtuální počítač s Linuxem
           href: iaas-architecture-vm-linux.md
         - name: Virtuální počítač s Windows
           href: iaas-architecture-vm-windows.md
@@ -315,18 +293,6 @@
           href: iaas-architecture-sql-n-tier-multi-region.md
         - name: Síťová virtuální zařízení
           href: iaas-architecture-nva-architecture.md
-    - name: Vzory hybridního cloudu
-      items:
-        - name: Přehled hybridních cloudových schémat
-          href: azure-stack-edge-pattern-overview.md
-        - name: Škálování mezi různými cloudy
-          href: azure-stack-edge-pattern-cross-cloud-scaling.md
-        - name: DevOps (hybridní CI/CD)
-          href: azure-stack-edge-pattern-hybrid-ci-cd.md
-        - name: Detekce Footfall
-          href: hybrid-solution-retail-footfall-detection.md
-        - name: Geograficky distribuovaná aplikace
-          href: azure-stack-edge-pattern-geo-distribution.md
 - name: Referenční informace
   items:
     - name: Azure Stack PowerShell

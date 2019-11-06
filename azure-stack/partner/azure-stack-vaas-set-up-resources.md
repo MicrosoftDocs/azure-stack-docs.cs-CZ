@@ -15,14 +15,14 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 33ead43fd8dbe77feae12db58ca7c689030c6f98
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: e36235af4dea72ae6d8016085ee18aec819ae4dd
+ms.sourcegitcommit: 20d1c0ab3892e9c4c71d5b039457f1e15b1c84c7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829106"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73618245"
 ---
-# <a name="tutorial-set-up-resources-for-validation-as-a-service"></a>Kurz: Nastavení prostředků pro ověřování jako služby
+# <a name="tutorial-set-up-resources-for-validation-as-a-service"></a>Kurz: nastavení prostředků pro ověřování jako služby
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
@@ -32,7 +32,7 @@ V tomto kurzu se naučíte:
 
 > [!div class="checklist"]
 > * Připravte se na použití VaaS nastavením Azure Active Directory (AD).
-> * Vytvoření účtu úložiště.
+> * Vytvoření účtu úložiště
 
 ## <a name="configure-an-azure-ad-tenant"></a>Konfigurace tenanta Azure AD
 
@@ -50,15 +50,15 @@ Vytvořte tenanta, který bude vaše organizace používat pro přístup ke slu�
 
     | Název role | Popis |
     |---------------------|------------------------------------------|
-    | Owner | Má úplný přístup ke všem prostředkům. |
+    | Vlastník | Má úplný přístup ke všem prostředkům. |
     | Čtenář | Může zobrazit všechny prostředky, ale ne vytvářet ani spravovat. |
     | Přispěvatel testů | Může vytvářet a spravovat prostředky testu. |
 
     Přiřazení rolí v aplikaci **Azure Stack Validation Service** :
 
-   1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
+   1. Přihlaste se na web [Azure Portal](https://portal.azure.com).
    2. V části **Identita** vyberte **všechny služby** > **Azure Active Directory** .
-   3. Vyberte možnost **podnikové aplikace** > **Azure Stack ověřovací aplikace služby** .
+   3. Vyberte **podnikové aplikace** > aplikaci **služby ověřování Azure Stack** .
    4. Vyberte **Uživatelé a skupiny**. Okno **Azure Stack služby ověřování – uživatelé a skupiny** zobrazí seznam uživatelů s oprávněním k používání aplikace.
    5. Vyberte **+ Přidat uživatele** a přidejte uživatele ze svého tenanta a přiřaďte roli.
 
@@ -68,7 +68,7 @@ Vytvořte tenanta, který bude vaše organizace používat pro přístup ke slu�
 
 Tento proces autorizuje vašeho tenanta pomocí aplikace Azure AD **služby Azure Stack Validation Service** .
 
-1. Odeslat následující informace o tenantovi společnosti Microsoft na adrese [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com).
+1. Odeslat následující informace o tenantovi společnosti Microsoft na [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com).
 
     | Data | Popis |
     |--------------------------------|---------------------------------------------------------------------------------------------|
@@ -100,7 +100,7 @@ Během provádění testu VaaS výstupy pro diagnostické protokoly na účet Az
 
 3. V části **Skupina prostředků**vyberte **vytvořit novou**. Zadejte název nové skupiny prostředků.
 
-4. Přečtěte si [zásady vytváření názvů](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions#storage) pro účty Azure Storage. Zadejte název účtu úložiště.
+4. Přečtěte si [zásady vytváření názvů](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#storage) pro účty Azure Storage. Zadejte název účtu úložiště.
 
 5. Vyberte oblast **USA – západ** pro váš účet úložiště.
 

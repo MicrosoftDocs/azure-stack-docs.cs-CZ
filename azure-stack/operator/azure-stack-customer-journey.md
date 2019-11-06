@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2019
+ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: asganesh
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: fdb0f9a34fe40b3d3fef6abf96b9e1a6927b04e6
-ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
+ms.openlocfilehash: 6ea5248881e10ca9e96ba423ecb4ea5569f00211
+ms.sourcegitcommit: 20d1c0ab3892e9c4c71d5b039457f1e15b1c84c7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71909311"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73618259"
 ---
 # <a name="azure-stack-datacenter-integration-walkthrough"></a>Návod pro integraci Azure Stack Datacenter
 
@@ -29,12 +29,49 @@ Tento článek popisuje kompletní Azure Stack pro zákazníky z nákupu integro
 
 Jako Azure Stack zákazníkem byste měli odhadnout následující fáze:
 
-|     |Plánovací fáze|Proces pořadí|Před nasazením|Proces výroby|Hardwarové doručování|Nasazení na pracovišti|
-|-----|-----|-----|-----|-----|-----|-----|
-|**Microsoft**|Zapojte se s partnerem a poskytněte předprodejní podporu.|Připravte si licencování softwaru a smlouvy podle potřeby.|Poskytněte požadované nástroje pro shromažďování požadavků na integraci Datacenter a dokumentaci pro zákazníky.|Poskytněte nejnovější základní buildy a aktualizace řetězců nástrojů na měsíční tempo.|neuvedeno|Technici podpory Microsoftu pomáhají s případnými problémy při nasazení.|
-|**Partner**|Doporučte možnosti řešení na základě požadavků zákazníků.<br><br>V případě potřeby Navrhujte testování konceptu (pro ověření koncepce).<br><br>Vytvořte obchodní vztah.<br><br>Určete úroveň podpory.|Příprava nezbytných smluv na zákazníka<br><br>Vytvořte objednávku nákupu zákazníka.<br><br>Určete časovou osu doručení.<br><br>V případě potřeby propojte zákazníka s Microsoftem.|Poskytněte zákazníkům potřebné školení, aby se zajistilo porozumění všem požadavkům nasazení a možnostem integrace Datacenter.<br><br>Pomůže zákazníkovi ověřit shromážděná data, aby se zajistila úplnost a přesnost.|Použijte poslední ověřené sestavení směrného plánu.<br><br>Použijte požadovanou sadu nástrojů Microsoft Deployment Toolkit.|Dodejte hardware na zákaznickou lokalitu.|Nasazení zpracovávané inženýrem na pracovišti.<br><br>Stojan a zásobník.<br><br>Nasazení hostitele životního cyklu hardwaru (HLH).<br><br>Nasazení Azure Stack.<br><br>Předání zákazníkovi.|
-|**Zákazníka**|Popište zamýšlené případy použití a určete požadavky.|Určete, jak má model fakturace používat, kontrolovat a schvalovat smlouvy.|Dokončete [sešit nasazení](azure-stack-deployment-worksheet.md)a ujistěte se, že všechny požadavky nasazení jsou splněné a připravené k nasazení.|neuvedeno|Připravte si datové centrum tím, že zajistíte splnění všech požadovaných požadavků na napájení a chlazení, hraniční připojení a další požadované požadavky na integraci Datacenter.|K dispozici během nasazení za účelem poskytnutí přihlašovacích údajů a podpory předplatného, pokud se na poskytnutých datech nacházejí nějaké otázky.|
-| | | | | | | |
+# <a name="customertabcustomer"></a>[Zákazníka](#tab/customer)
+
+1. Popište zamýšlené případy použití a určete požadavky.
+2. Určete, jak má model fakturace používat, kontrolovat a schvalovat smlouvy.
+3. Dokončete [sešit nasazení](azure-stack-deployment-worksheet.md)a ujistěte se, že všechny požadavky nasazení jsou splněné a připravené k nasazení.
+4. Připravte datové centrum tím, že zajistíte, aby bylo zajištěné veškeré požadované napájení a chlazení, připojení k hraniční síti a další požadované požadavky na integraci datového centra.
+5. K dispozici během nasazení za účelem poskytnutí přihlašovacích údajů a podpory předplatného, pokud se na poskytnutých datech nacházejí nějaké otázky.
+
+# <a name="partnertabpartner"></a>[Instituc](#tab/partner)
+
+1. Plánovací fáze:
+   - Doporučte možnosti řešení na základě požadavků zákazníků.
+   - V případě potřeby Navrhujte testování konceptu (pro ověření koncepce).
+   - Vytvořte obchodní vztah.
+   - Určete úroveň podpory.
+2. Proces pořadí:
+   - Příprava nezbytných smluv na zákazníka
+   - Vytvořte objednávku nákupu zákazníka.
+   - Určete časovou osu doručení.
+   - V případě potřeby propojte zákazníka s Microsoftem.
+3. Před nasazením
+   - Poskytněte zákazníkům potřebné školení, aby se zajistilo porozumění možnostem všech požadavků na nasazení a integrace datového centra.
+   - Pomůže zákazníkovi ověřit shromážděná data, aby se zajistila úplnost a přesnost.
+4. Proces výroby
+   - Použijte poslední ověřené sestavení směrného plánu.
+   - Použijte požadovanou sadu nástrojů Microsoft Deployment Toolkit.
+5. Hardwarové doručování:
+   - Dodejte hardware na zákaznickou lokalitu.
+6. Nasazení na pracovišti
+   - Nasazení zpracovávané inženýrem na pracovišti.
+   - Stojan a zásobník.
+   - Nasazení hostitele životního cyklu hardwaru (HLH).
+   - Nasazení Azure Stack.
+   - Předání zákazníkovi.
+
+# <a name="microsofttabmicro"></a>[Microsoft](#tab/micro)
+
+1. Zapojte se s partnerem a poskytněte předprodejní podporu.
+2. Připravte si licencování softwaru a smlouvy podle potřeby.
+3. Poskytněte požadované nástroje pro shromažďování požadavků na integraci Datacenter a dokumentaci pro zákazníky.
+4. Poskytněte nejnovější základní buildy a aktualizace řetězců nástrojů na měsíční tempo.
+5. Technici podpory Microsoftu pomáhají s případnými problémy při nasazení.
+
 
 
 ## <a name="planning-phase"></a>Plánovací fáze
@@ -52,7 +89,7 @@ Pomůžou vám rozhodnout na následujících otázkách:
 
 Aby se zajistilo, že hardwarové řešení bude nejlépe vyhovovat vašim potřebám, [Azure Stack Capacity Planner](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) se bude pomáhat při plánování předběžného nákupu, aby bylo možné určit vhodnou kapacitu a konfiguraci pro vaše Azure Stack hardwarové řešení.
 
-Tabulka není určena k použití jako náhrada za vaše vlastní šetření a analýzu hardwarových řešení, která nejlépe vyhovuje vašim potřebám. Při plánování nasazení Azure Stack byste si měli projít také [Obecné požadavky na integraci Datacenter](azure-stack-datacenter-integration.md) pro Azure Stack integrované systémy.
+Tabulka *není určena k* použití jako náhrada za vaše vlastní šetření a analýzu hardwarových řešení, která nejlépe vyhovuje vašim potřebám. Při plánování nasazení Azure Stack byste si měli projít také [Obecné požadavky na integraci Datacenter](azure-stack-datacenter-integration.md) pro Azure Stack integrované systémy.
 
 ## <a name="order-process-phase"></a>Fáze procesu pořadí
 V této fázi bylo zodpovězeno mnoho vašich otázek s ohledem na proveditelnost. Teď, když jste připraveni potvrdit Azure Stack nákupu a po podepsání všech požadovaných smluv a nákupních objednávek, budete požádáni o poskytnutí údajů o integraci do poskytovatele řešení.
@@ -67,7 +104,7 @@ V průběhu této fáze se musíte rozhodnout, jak chcete integrovat Azure Stack
 
 Ve fázi předběžného nasazení se musíte rozhodnout na následujících položkách:
 
-- **Model připojení Azure Stack a zprostředkovatel identity**. Můžete zvolit nasazení Azure Stack buď připojeného [k Internetu (a k Azure), nebo odpojeni](azure-stack-connection-models.md). Pokud chcete využít výhod Azure Stack, včetně hybridních scénářů, měli byste je nasadit do Azure. Výběr Active Directory Federation Services (AD FS) (AD FS) nebo Azure Active Directory (Azure AD) je jednorázové rozhodnutí, které je nutné provést v době nasazení. **Zprostředkovatele identity nemůžete později změnit, aniž byste museli znovu nasazovat celý systém**.
+- **Model připojení Azure Stack a zprostředkovatel identity**. Můžete zvolit nasazení Azure Stack buď [připojeného k Internetu (a k Azure), nebo odpojeni](azure-stack-connection-models.md). Pokud chcete využít výhod Azure Stack, včetně hybridních scénářů, měli byste je nasadit do Azure. Výběr Active Directory Federation Services (AD FS) (AD FS) nebo Azure Active Directory (Azure AD) je jednorázové rozhodnutí, které je nutné provést v době nasazení. **Zprostředkovatele identity nemůžete později změnit, aniž byste museli znovu nasazovat celý systém**.
 
 - **Licenční model**. Možnosti licenčního modelu, ze kterých si můžete vybrat, závisí na typu nasazení, které budete mít. Vaše volba poskytovatele identity nemá žádný vliv na virtuální počítače klientů ani na používané systémy identit a účty.
     - Zákazníci, kteří jsou v [odpojeném nasazení](azure-stack-disconnected-deployment.md) , mají jenom jednu možnost: fakturace na základě kapacity.

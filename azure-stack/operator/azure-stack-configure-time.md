@@ -14,12 +14,12 @@ ms.date: 10/10/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 10/10/2019
-ms.openlocfilehash: cc432538715c1c990a9efe6473b33303deb78734
-ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
+ms.openlocfilehash: a70eaaf46988524f5323052a3f2ca90f5b7719e1
+ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72280531"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73636801"
 ---
 # <a name="configure-the-time-server-for-azure-stack"></a>Konfigurace časového serveru pro Azure Stack
 
@@ -29,7 +29,10 @@ Pomocí privilegovaného koncového bodu (PEP) můžete aktualizovat časový se
 
 Azure Stack používá protokol NTP (Network Time Protocol) pro připojení k časovým serverům v Internetu. Servery NTP poskytují přesný systémový čas. Čas se používá v rámci fyzických síťových přepínačů Azure Stack, hostitele životního cyklu, služby infrastruktury a virtuálních počítačů. Pokud hodiny nejsou synchronizované, může Azure Stack dojít k vážným problémům se sítí a ověřováním. Soubory protokolu, dokumenty a jiné soubory mohou být vytvořeny s nesprávnými časovými razítky.
 
-Azure Stack k synchronizaci času je nutný alespoň jeden časový server (NTP). Když nasadíte Azure Stack, zadáte adresu serveru NTP. Čas je kritická služba infrastruktury Datacenter. Pokud se služba změní, budete muset čas aktualizovat.
+Pro Azure Stack k synchronizaci času je vyžadován jeden časový server (NTP). Když nasadíte Azure Stack, zadáte adresu serveru NTP. Čas je kritická služba infrastruktury Datacenter. Pokud se služba změní, budete muset čas aktualizovat.
+
+> [!NOTE]
+> Azure Stack podporuje synchronizaci času s pouze jedním časovým serverem (NTP). Nelze poskytnout více NTPs pro Azure Stack k synchronizaci času s.
 
 ## <a name="configure-time"></a>Konfigurovat čas
 

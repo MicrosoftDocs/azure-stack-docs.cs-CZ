@@ -9,12 +9,12 @@ ms.date: 10/30/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/30/2019
-ms.openlocfilehash: 428a91503c6943ed1dcc2f48ccad09620d650039
-ms.sourcegitcommit: cc5c965b13bc3dae9a4f46a899e602f41dc66f78
+ms.openlocfilehash: 4294f7f1d53f77c55532645de428678cf42be531
+ms.sourcegitcommit: 20d1c0ab3892e9c4c71d5b039457f1e15b1c84c7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73236259"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73618285"
 ---
 # <a name="back-up-your-vm-on-azure-stack-with-commvault"></a>Zálohování virtuálního počítače na Azure Stack pomocí CommVault
 
@@ -149,7 +149,7 @@ Budete potřebovat zjistit, jestli je váš správce identit Azure AD nebo AD DF
 
 9. Zadejte informace o přístupu pro svůj účet úložiště. Pokyny k nastavení Azure Storage účtu najdete tady. Přístup k informacím:
 
-    -  **Hostitel služby**: Získá název adresy URL z vlastností kontejneru objektů BLOB ve vašem prostředku. Například moje adresa URL byla https://backuptest.blob.westus.stackpoc.com/mybackups a používá se blob.westus.stackpoc.com v hostiteli služby.
+    -  **Hostitel služby**: Získá název adresy URL z vlastností kontejneru objektů BLOB ve vašem prostředku. Například moje adresa URL byla https:\//backuptest.blob.westus.stackpoc.com/mybackups a používá se blob.westus.stackpoc.com v hostiteli služby.
     
     -   **Název účtu**: použijte název účtu úložiště. Najdete ho v okně přístupové klíče v prostředku úložiště.
     

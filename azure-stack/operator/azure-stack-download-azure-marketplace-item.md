@@ -16,12 +16,12 @@ ms.date: 10/10/2019
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: 91314fcd33d3b4171dc7e9a3e2d78cdf07e2f50e
-ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
+ms.openlocfilehash: 095744322937a34dffd680b886fd4b06ca65d7d6
+ms.sourcegitcommit: 20d1c0ab3892e9c4c71d5b039457f1e15b1c84c7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72283542"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73618283"
 ---
 # <a name="download-existing-marketplace-items-from-azure-and-publish-to-azure-stack"></a>Stažení stávajících položek Marketplace z Azure a publikování do Azure Stack
 
@@ -36,11 +36,11 @@ Existují dva scénáře, jak se připojit k Azure Marketplace:
 
 Úplný seznam položek na webu Marketplace, které si můžete stáhnout, najdete v tématu [Azure Marketplace položky Azure Stack](azure-stack-marketplace-azure-items.md) . Seznam nedávných přidání, odstranění a aktualizací pro Azure Stack Marketplace najdete v článku o [Azure Stack na webu Marketplace](azure-stack-marketplace-changes.md) .
 
-## <a name="connected-scenario"></a>Scénář připojení
+## <a name="connected-scenario"></a>Připojený scénář
 
 Pokud se Azure Stack připojí k Internetu, můžete k stažení položek z webu Marketplace použít portál pro správu.
 
-### <a name="prerequisites"></a>Požadavky
+### <a name="prerequisites"></a>Předpoklady
 
 Vaše nasazení Azure Stack musí mít připojení k Internetu a musí být [zaregistrované v Azure](azure-stack-registration.md).
 
@@ -81,7 +81,7 @@ Tento scénář obsahuje dvě části:
 - **Část 1:** Stažení z Azure Marketplace. Na počítači s přístupem k Internetu konfigurujete PowerShell, stáhnete nástroj syndikace a pak stáhnete položky z Azure Marketplace.  
 - **Část 2:** Nahrajte a publikujte na webu Azure Stack Marketplace. Soubory, které jste stáhli do prostředí Azure Stack, přesouváte, naimportujete do Azure Stack a pak je publikujete na Azure Stack Marketplace.  
 
-### <a name="prerequisites"></a>Požadavky
+### <a name="prerequisites"></a>Předpoklady
 
 - Připojené prostředí (nemusí být Azure Stack). Potřebujete připojení, abyste získali seznam produktů z Azure s jejich podrobnostmi a stáhli všechno místně. Až to uděláte, zbývající část postupu nevyžaduje žádné připojení k Internetu. Vytvoří katalog položek, které jste předtím stáhli, abyste je mohli použít v odpojeném prostředí.
 
@@ -101,7 +101,7 @@ Tento scénář obsahuje dvě části:
 
 Po registraci můžete ignorovat následující zprávu, která se zobrazí v okně správy Marketplace, protože to není relevantní pro případ odpojeného použití:
 
-[![Neregistrovaná]zpráva zpráva(media/azure-stack-download-azure-marketplace-item/toolsmsgsm.png "neregistrována")](media/azure-stack-download-azure-marketplace-item/toolsmsg.png#lightbox)
+[![Neregistrovaná zpráva](media/azure-stack-download-azure-marketplace-item/toolsmsgsm.png "Neregistrovaná zpráva")](media/azure-stack-download-azure-marketplace-item/toolsmsg.png#lightbox)
 
 ### <a name="use-the-marketplace-syndication-tool-to-download-marketplace-items"></a>Stažení položek z Marketplace pomocí nástroje pro syndikaci na webu Marketplace
 
@@ -150,9 +150,9 @@ Po registraci můžete ignorovat následující zprávu, která se zobrazí v ok
 
 6. Po spuštění nástroje by se měla zobrazit obrazovka podobná následujícímu obrázku se seznamem dostupných položek Azure Marketplace:
 
-   [![Položky Azure Marketplace automaticky otevírané okno](media/azure-stack-download-azure-marketplace-item/image05.png "Azure Marketplace položky")](media/azure-stack-download-azure-marketplace-item/image05.png#lightbox)
+   [![Místní nabídka položek Azure Marketplace](media/azure-stack-download-azure-marketplace-item/image05.png "Azure Marketplace položky")](media/azure-stack-download-azure-marketplace-item/image05.png#lightbox)
 
-7. Pokud jste nenainstalovali nástroje Azure Storage, zobrazí se následující zpráva. Aby bylo možné nainstalovat tyto nástroje, je třeba stáhnout [AzCopy](/azure/storage/common/storage-use-azcopy#download-and-install-azcopy-on-windows):
+7. Pokud jste nenainstalovali nástroje Azure Storage, zobrazí se následující zpráva. Aby bylo možné nainstalovat tyto nástroje, je třeba stáhnout [AzCopy](/azure/storage/common/storage-use-azcopy#download-azcopy):
 
    ![Nástroje úložiště](media/azure-stack-download-azure-marketplace-item/vmnew1.png)
 
@@ -178,7 +178,7 @@ Po registraci můžete ignorovat následující zprávu, která se zobrazí v ok
 
    Následující obrázek ukazuje příklad struktury složek. `D:\downloadfolder` obsahuje všechny stažené položky Marketplace. Každá podsložka je položkou Marketplace (například `microsoft.custom-script-linux-arm-2.0.3`) s názvem ID produktu. V každé podsložce je stažený obsah položky webu Marketplace.
 
-   [Adresář pro ![Stažení služby Marketplace]adresář pro stažení(media/azure-stack-download-azure-marketplace-item/mp1sm.png "Marketplace struktura adresářů")](media/azure-stack-download-azure-marketplace-item/mp1.png#lightbox)
+   [![Adresářová struktura pro stažení Marketplace](media/azure-stack-download-azure-marketplace-item/mp1sm.png "Adresářová struktura pro stažení Marketplace")](media/azure-stack-download-azure-marketplace-item/mp1.png#lightbox)
 
 2. Podle pokynů v [tomto článku](azure-stack-powershell-configure-admin.md) nakonfigurujte relaci powershellu Azure Stack operator.
 
@@ -200,5 +200,5 @@ Po registraci můžete ignorovat následující zprávu, která se zobrazí v ok
 
 ## <a name="next-steps"></a>Další kroky
 
-- [Přidat vlastní image virtuálního počítače](azure-stack-add-vm-image.md)
+- [Přidání vlastní image virtuálního počítače](azure-stack-add-vm-image.md)
 - [Vytvoření a publikování vlastní položky Marketplace](azure-stack-create-and-publish-marketplace-item.md)
