@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/09/2019
+ms.date: 11/05/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 10/09/2019
-ms.openlocfilehash: 3b6d1b9e91acfdb7a54cf3b7fbc70399bf635c09
-ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
+ms.lastreviewed: 11/05/2019
+ms.openlocfilehash: c21223ca8926a1e2b3ca1b06752a79a14adaeda1
+ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73595252"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73636877"
 ---
 # <a name="add-the-azure-kubernetes-services-aks-engine-prerequisites-to-the-azure-stack-marketplace"></a>Přidání požadavků modulu Azure Kubernetes Services (AKS) do tržiště Azure Stack
 
@@ -54,7 +54,7 @@ Pokud pro službu správy identit používáte službu Active Directory federova
 
 ## <a name="add-the-aks-base-image"></a>Přidat základní image AKS
 
-Základní image AKS můžete na Marketplace přidat tak, že získáte položku z Azure. Pokud je ale váš Azure Stack odpojený, použijte tyto pokyny ke [stažení položky Marketplace z Azure](https://docs.microsoft.com/azure-stack/operator/azure-stack-download-azure-marketplace-item?view=azs-1908#disconnected-or-a-partially-connected-scenario) a přidejte položku. Přidejte položku zadanou v kroku pět.
+Základní image AKS můžete na Marketplace přidat tak, že získáte položku z Azure. Pokud je ale váš Azure Stack odpojený, použijte tyto pokyny ke [stažení položky Marketplace z Azure](https://docs.microsoft.com/azure-stack/operator/azure-stack-download-azure-marketplace-item?view=azs-1908#disconnected-or-a-partially-connected-scenario) a přidejte položku. Přidejte položku určenou v kroku 5.
 
 Do Marketplace přidejte následující položku:
 
@@ -64,20 +64,20 @@ Do Marketplace přidejte následující položku:
 
 1. Vyberte **+ Přidat z Azure**.
 
-1. Zadejte `AKS Base Image`.
+1. Zadejte `AKS Base`.
 
 1. Vyberte verzi image, která odpovídá verzi modulu AKS. Výpis základní image AKS můžete najít ve verzi AKS Engine v [podporovaných verzích Kubernetes](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions). 
 
     V seznamu vyberte:
     - **Vydavatel**: Služba Azure Kubernetes
     - **Nabídka**: AKS
-    - **Verze**: AKS Base image 16,04-LTS image distribuce, září 2019 (2019.09.19 nebo verze, která se MAPUJE na AKS Engine)
+    - **Verze**: AKS Base image 16,04-LTS image distribuce, říjen 2019 (2019.10.24 nebo verze, která se MAPUJE na AKS Engine)
 
 1. Vyberte **Stáhnout.**
 
 ## <a name="add-a-custom-script-extension"></a>Přidání rozšíření vlastních skriptů
 
-Pomocí položky z Azure můžete přidat vlastní skript na Marketplace. Pokud je ale váš Azure Stack odpojený, přidejte položku pomocí pokynů ke [stažení položek z webu Marketplace z Azure](https://docs.microsoft.com/azure-stack/operator/azure-stack-download-azure-marketplace-item?view=azs-1908#disconnected-or-a-partially-connected-scenario) .  Přidejte položku zadanou v kroku pět.
+Pomocí položky z Azure můžete přidat vlastní skript na Marketplace. Pokud je ale váš Azure Stack odpojený, přidejte položku pomocí pokynů ke [stažení položek z webu Marketplace z Azure](https://docs.microsoft.com/azure-stack/operator/azure-stack-download-azure-marketplace-item?view=azs-1908#disconnected-or-a-partially-connected-scenario) .  Přidejte položku určenou v kroku 5.
 
 1. Otevřete [portál pro správu](https://adminportal.local.azurestack.external).
 
