@@ -9,6 +9,9 @@
         - name: ASDK centra
           tocHref: /azure-stack/asdk/
           topicHref: /azure-stack/asdk/index
+        - name: Hybridní
+          tocHref: /azure-stack/hybrid/
+          topicHref: /azure-stack/hybrid/index
         - name: Operátor centra
           tocHref: /azure-stack/operator/
           topicHref: /azure-stack/operator/index
