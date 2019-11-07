@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2019
+ms.date: 11/06/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: 632528519bbca9286ab72fb806ee756ccdb6a166
-ms.sourcegitcommit: a23b80b57668615c341c370b70d0a106a37a02da
+ms.lastreviewed: 11/06/2019
+ms.openlocfilehash: 509f6509b00a3bccd005fd93b69006ebbfd2f2f0
+ms.sourcegitcommit: 8203490cf3ab8a8e6d39b137c8c31e3baec52298
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72682217"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73712715"
 ---
 # <a name="add-mysql-hosting-servers-in-azure-stack"></a>Přidání hostitelských serverů MySQL v Azure Stack
 
@@ -71,7 +71,7 @@ Když přidáváte servery, přiřadíte je k nové nebo existující SKU, abyst
 
 Následující informace platí pro hostitelské servery RP a MySQL:
 
-* Zajistěte, aby byly všechny hostitelské servery nakonfigurované pro komunikaci pomocí protokolu TLS 1,2. Viz [Konfigurace MySQL pro použití šifrovaných připojení](https://dev.mysql.com/doc/refman/5.7/en/using-encrypted-connections.html).
+* Zajistěte, aby byly všechny hostitelské servery nakonfigurované pro komunikaci pomocí protokolu TLS 1,1. Viz [Konfigurace MySQL pro použití šifrovaných připojení](https://dev.mysql.com/doc/refman/5.7/en/using-encrypted-connections.html).
 * Použít [transparentní šifrování dat](https://dev.mysql.com/doc/mysql-secure-deployment-guide/5.7/en/secure-deployment-data-encryption.html).
 * MySQL RP nepodporuje ověřování caching_sha2_password.
 

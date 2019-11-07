@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2019
+ms.date: 11/05/2019
 ms.author: justinha
 ms.reviewer: prchint
-ms.lastreviewed: 10/16/2019
-ms.openlocfilehash: 3c0b1ce32399b4739796b2718e97c69d96291dc6
-ms.sourcegitcommit: df20662e77a6ed0a7eba03f79eb53e8cd4471206
+ms.lastreviewed: 11/05/2019
+ms.openlocfilehash: 4c04eafab93da233859b5b67571b70899b081b95
+ms.sourcegitcommit: c583f19d15d81baa25dd49738d53d8fc01463bef
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72445285"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73659237"
 ---
 # <a name="microsoft-azure-stack-troubleshooting"></a>Řešení potíží s Microsoft Azure Stack
 
@@ -45,7 +45,7 @@ Tyto části obsahují odkazy na dokumenty, které pokrývají běžné otázky 
 ### <a name="supported-operating-systems-and-sizes-for-guest-vms"></a>Podporované operační systémy a velikosti pro virtuální počítače hosta
 
 * [Podporované hostované operační systémy ve službě Azure Stack](azure-stack-supported-os.md)
-* [Podporované velikosti virtuálních počítačů v Azure Stack](../user/azure-stack-vm-sizes.md)
+* [Podporované velikosti virtuálních počítačů ve službě Azure Stack](../user/azure-stack-vm-sizes.md)
 
 ### <a name="azure-marketplace"></a>Azure Marketplace
 
@@ -96,42 +96,6 @@ Pomocí prostředí PowerShell můžete získat informace o využití razítka b
 5. Extrahujte soubor seedring. zip a můžete získat zprávu o ověření ze složky ERCS, ve které jste spustili test-azurestack
 
 Další informace najdete v tématu [diagnostika Azure Stack](azure-stack-configure-on-demand-diagnostic-log-collection.md#to-run-get-azurestacklog-on-azure-stack-integrated-systems).
-
-## <a name="troubleshoot-deployment"></a>Řešení potíží s nasazením 
-### <a name="general-deployment-failure"></a>Obecné selhání nasazení
-Pokud při instalaci dojde k chybě, můžete restartovat nasazení z neúspěšného kroku pomocí možnosti-znovu spustit ve skriptu nasazení.  
-
-### <a name="template-validation-error-parameter-osprofile-is-not-allowed"></a>Parametr chyby ověřování šablony osProfile není povolený.
-
-Pokud se během ověřování šablony zobrazí chybová zpráva, že parametr osProfile není povolen, ujistěte se, že používáte správné verze rozhraní API pro tyto komponenty:
-
-- [Compute](https://docs.microsoft.com/azure-stack/user/azure-stack-profiles-azure-resource-manager-versions#microsoftcompute)
-- [Síť](https://docs.microsoft.com/azure-stack/user/azure-stack-profiles-azure-resource-manager-versions#microsoftnetwork)
-
-Pokud chcete zkopírovat VHD z Azure do Azure Stack, použijte [AzCopy 7.3.0](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-transfer#download-and-install-azcopy). Spolupracujte se svým dodavatelem, abyste mohli vyřešit problémy s samotným obrázkem. Další informace o požadavcích na WALinuxAgent pro Azure Stack najdete v tématu [Agent Azure Linux](azure-stack-linux.md#azure-linux-agent).
-
-### <a name="deployment-fails-due-to-lack-of-external-access"></a>Nasazení se nezdařilo z důvodu nedostatku externího přístupu.
-Pokud se nasazení nezdaří ve fázích, kde je vyžadován externí přístup, bude vrácena výjimka jako v následujícím příkladu:
-
-```
-An error occurred while trying to test identity provider endpoints: System.Net.WebException: The operation has timed out.
-   at Microsoft.PowerShell.Commands.WebRequestPSCmdlet.GetResponse(WebRequest request)
-   at Microsoft.PowerShell.Commands.WebRequestPSCmdlet.ProcessRecord()at, <No file>: line 48 - 8/12/2018 2:40:08 AM
-```
-Pokud k této chybě dojde, zajistěte, aby byly splněny všechny minimální požadavky na síť, a to kontrolou [dokumentace k provozu sítě nasazení](deployment-networking.md). Nástroj pro kontrolu sítě je k dispozici také pro partnery jako součást sady partner Toolkit.
-
-K ostatním selháním nasazení obvykle dochází v důsledku potíží s připojením k prostředkům na internetu.
-
-Pokud chcete ověřit připojení k prostředkům na internetu, můžete provést následující kroky:
-
-1. Otevřete PowerShell.
-2. Zadejte-PSSession k WAS01 nebo libovolnému virtuálnímu počítači ERCs.
-3. Spusťte následující rutinu: 
-   ```powershell
-   Test-NetConnection login.windows.net -port 443
-   ```
-
-Pokud tento příkaz neproběhne úspěšně, ověřte, zda je přepínač pro ověřování a všechna další síťová zařízení nakonfigurována tak, aby [povolovala síťový provoz](azure-stack-network.md).
 
 ## <a name="troubleshoot-virtual-machines"></a>Řešení potíží s virtuálními počítači
 ### <a name="default-image-and-gallery-item"></a>Výchozí položka obrázku a galerie
