@@ -1,5 +1,6 @@
 ---
-title: Vytvoření a nahrání Red Hat Enterprise Linux VHD pro použití v Azure Stack | Microsoft Docs
+title: Příprava virtuálního počítače založeného na Red Hat pro Azure Stack | Microsoft Docs
+titleSuffix: Azure Stack
 description: Naučte se vytvořit a nahrát virtuální pevný disk Azure (VHD), který obsahuje operační systém Red Hat Linux.
 services: azure-stack
 documentationcenter: ''
@@ -17,48 +18,48 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jeffgo
 ms.lastreviewed: 08/15/2018
-ms.openlocfilehash: 093caab420dea8b8cf3221855a3dc5f40e6f9ed3
-ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
+ms.openlocfilehash: d8b986dede7e55cb0418219fce6ac78673eeff60
+ms.sourcegitcommit: ca358ea5c91a0441e1d33f540f6dbb5b4d3c92c5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71909338"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73802288"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack"></a>Příprava virtuálního počítače založeného na Red Hat pro Azure Stack
 
-V tomto článku se dozvíte, jak připravit virtuální počítač Red Hat Enterprise Linux (RHEL) pro použití v Azure Stack. Verze RHEL, které jsou pokryté v tomto článku, jsou 7.1 +. Hypervisory pro přípravu, které jsou pokryté v tomto článku, jsou Hyper-V, virtuální počítač založený na jádrech (KVM) a VMware.
+V tomto článku se dozvíte, jak připravit virtuální počítač s Red Hat Enterprise Linux (RHEL) pro použití v Azure Stack. Verze RHEL, které jsou pokryté v tomto článku, jsou 7.1 +. Hypervisory pro přípravu, které jsou pokryté v tomto článku, jsou Hyper-V, virtuální počítač založený na jádrech (KVM) a VMware.
 
-Informace o podpoře Red Hat Enterprise Linux najdete na [Red Hat a Azure Stack: Nejčastější dotazy](https://access.redhat.com/articles/3413531)
+Informace o podpoře Red Hat Enterprise Linux najdete na [Red Hat a Azure Stack: nejčastější dotazy](https://access.redhat.com/articles/3413531).
 
-## <a name="prepare-a-red-hat-based-virtual-machine-from-hyper-v-manager"></a>Příprava virtuálního počítače založeného na Red Hat pomocí Správce technologie Hyper-V
+## <a name="prepare-a-red-hat-based-vm-from-hyper-v-manager"></a>Příprava virtuálního počítače založeného na Red Hat pomocí Správce technologie Hyper-V
 
-V této části se předpokládá, že už máte soubor ISO z webu Red Hat a nainstalovali jste image RHEL na virtuální pevný disk (VHD). Další informace o tom, jak pomocí Správce technologie Hyper-V nainstalovat bitovou kopii operačního systému, najdete v tématu [instalace role Hyper-v a konfigurace virtuálního počítače](https://technet.microsoft.com/library/hh846766.aspx).
+V této části se předpokládá, že už máte soubor ISO z webu Red Hat a máte nainstalovanou image RHEL na virtuální pevný disk (VHD). Další informace o tom, jak pomocí Správce technologie Hyper-V nainstalovat bitovou kopii operačního systému, najdete v tématu [instalace role Hyper-v a konfigurace virtuálního počítače](https://technet.microsoft.com/library/hh846766.aspx).
 
 ### <a name="rhel-installation-notes"></a>Poznámky k instalaci RHEL
 
 * Azure Stack nepodporuje formát VHDX. Azure podporuje jenom pevný virtuální pevný disk. Správce technologie Hyper-V můžete použít k převedení disku na formát VHD, nebo můžete použít rutinu Convert-VHD. Pokud používáte VirtualBox, při vytváření disku vyberte **pevnou velikost** na rozdíl od výchozí dynamicky přidělené možnosti.
-* Azure Stack podporuje pouze virtuální počítače 1. generace. Virtuální počítač 1. generace můžete převést z VHDX na formát souboru VHD a z dynamického rozšiřování na disk s pevnou velikostí. Nemůžete změnit generaci virtuálního počítače. Další informace najdete v tématu [Vytvoření virtuálního počítače generace 1 nebo 2 v Hyper-V](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
+* Azure Stack podporuje pouze virtuální počítače 1. generace. Virtuální počítač 1. generace můžete převést z VHDX na formát souboru VHD a z dynamického rozšiřování na disk s pevnou velikostí. Nemůžete změnit generaci virtuálního počítače. Další informace najdete v tématu [Vytvoření virtuálního počítače generace 1 nebo 2 v Hyper-V?](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
 * Maximální velikost povolená pro virtuální pevný disk je 1 023 GB.
-* Při instalaci operačního systému Linux doporučujeme místo Správce logických svazků (LVM) používat standardní oddíly, což je často výchozí nastavení pro mnoho instalací. Tento postup brání v konfliktu LVM názvů s klonovanými virtuálními počítači, zejména v případě, že někdy potřebujete k řešení potíží s jiným identickým virtuálním počítačem připojit disk s operačním systémem.
-* Podpora jádra pro připojení systémů souborů formátu Universal Disk Format (UDF) je povinná. Při prvním spuštění předává médium ve formátu UDF připojené k hostu konfiguraci zřizování pro virtuální počítač se systémem Linux. Agent Azure Linux musí připojit systém souborů UDF a načíst jeho konfiguraci a zřídit virtuální počítač.
+* Při instalaci operačního systému Linux doporučujeme místo Správce logických svazků (LVM) používat standardní oddíly, což je často výchozí nastavení pro mnoho instalací. Tento postup zabrání konfliktu LVM názvů s klonovanými virtuálními počítači, zejména v případě, že někdy budete potřebovat k řešení potíží disk s operačním systémem připojit k jinému stejnému virtuálnímu počítači.
+* Podpora jádra pro připojení systémů souborů formátu Universal Disk Format (UDF) je povinná. Při prvním spuštění předává médium ve formátu UDF připojené k hostu konfiguraci zřizování pro virtuální počítač Linux. Agent Azure Linux musí připojit systém souborů UDF a načíst jeho konfiguraci a zřídit virtuální počítač.
 * Nekonfigurujte odkládací oddíl na disku s operačním systémem. Agent pro Linux se dá nakonfigurovat tak, aby na dočasném disku prostředků vytvořil odkládací soubor. Další informace o najdete v následujících krocích.
 * Všechny virtuální pevné disky v Azure musí mít virtuální velikost zarovnaná na 1 MB. Při převodu z nezpracovaného disku na VHD je nutné před převodem zajistit, aby velikost nezpracovaného disku byla násobkem 1 MB. Další podrobnosti najdete v následujících krocích.
 * Azure Stack nepodporuje Cloud-init. Váš virtuální počítač musí mít nakonfigurovanou podporovanou verzi agenta Windows Azure Linux (WALA).
 
-### <a name="prepare-an-rhel-7-virtual-machine-from-hyper-v-manager"></a>Příprava virtuálního počítače s RHEL 7 pomocí Správce technologie Hyper-V
+### <a name="prepare-an-rhel-7-vm-from-hyper-v-manager"></a>Příprava virtuálního počítače s RHEL 7 pomocí Správce technologie Hyper-V
 
 1. Ve Správci technologie Hyper-V vyberte virtuální počítač.
 
-1. Kliknutím na **připojit** otevřete okno konzoly pro virtuální počítač.
+1. Vyberte **připojit** a otevřete tak okno konzoly pro virtuální počítač.
 
-1. Vytvořte nebo upravte `/etc/sysconfig/network` soubor a přidejte následující text:
+1. Vytvořte nebo upravte soubor `/etc/sysconfig/network` a přidejte následující text:
 
     ```sh
     NETWORKING=yes
     HOSTNAME=localhost.localdomain
     ```
 
-1. Vytvořte nebo upravte `/etc/sysconfig/network-scripts/ifcfg-eth0` soubor a podle potřeby přidejte následující text:
+1. Vytvořte nebo upravte soubor `/etc/sysconfig/network-scripts/ifcfg-eth0` a podle potřeby přidejte následující text:
 
     ```sh
     DEVICE=eth0
@@ -83,15 +84,15 @@ V této části se předpokládá, že už máte soubor ISO z webu Red Hat a nai
     sudo subscription-manager register --auto-attach --username=XXX --password=XXX
     ```
 
-1. Upravte spouštěcí řádek jádra v konfiguraci GRUB tak, aby zahrnoval další parametry jádra pro Azure. Chcete-li provést tuto úpravu `/etc/default/grub` , otevřete v textovém editoru a `GRUB_CMDLINE_LINUX` upravte parametr. Příklad:
+1. Upravte spouštěcí řádek jádra v konfiguraci GRUB tak, aby zahrnoval další parametry jádra pro Azure. Chcete-li provést tuto úpravu, otevřete `/etc/default/grub` v textovém editoru a upravte parametr `GRUB_CMDLINE_LINUX`. Například:
 
     ```sh
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
     ```
 
-   Tím se zajistí, že se všechny zprávy konzoly odesílají na první sériový port, což může pomoct podpoře Azure s problémy ladění. Tato konfigurace také vypne nové zásady vytváření názvů v RHEL 7 pro síťové karty.
+   Tato změna zajistí, že se všechny zprávy konzoly odesílají na první sériový port, což může pomoct podpoře Azure s problémy s laděním. Tato konfigurace také vypne nové zásady vytváření názvů v RHEL 7 pro síťové karty.
 
-   Grafické a tiché spouštění nejsou užitečné v cloudovém prostředí, kde chceme, aby se všechny protokoly odesílaly na sériový port. Možnost můžete nechat nakonfigurovanou v `crashkernel` případě potřeby. Všimněte si, že tento parametr snižuje množství dostupné paměti ve virtuálním počítači o 128 MB nebo více, což může být problematické u menších velikostí virtuálních počítačů. Doporučujeme odebrat následující parametry:
+   Grafické a tiché spouštění nejsou vhodné v cloudovém prostředí, kde chceme, aby se všechny protokoly odesílaly na sériový port. Možnost `crashkernel` můžete ponechat nakonfigurovanou v případě potřeby. Tento parametr snižuje množství dostupné paměti v virtuálním počítači o 128 MB nebo více, což může být problematické u menších velikostí virtuálních počítačů. Doporučujeme odebrat následující parametry:
 
     ```sh
     rhgb quiet crashkernel=auto
@@ -110,13 +111,13 @@ V této části se předpokládá, že už máte soubor ISO z webu Red Hat a nai
     yum remove cloud-init
     ```
 
-1. Ujistěte se, že je server SSH nainstalovaný a nakonfigurované tak, aby se spouštěl při spuštění, což je obvykle výchozí. Upravte `/etc/ssh/sshd_config` , aby obsahovala následující řádek:
+1. Ujistěte se, že je server SSH nainstalovaný a nakonfigurované tak, aby se spouštěl při spuštění, což je obvykle výchozí. Upravte `/etc/ssh/sshd_config` tak, aby obsahovala následující řádek:
 
     ```sh
     ClientAliveInterval 180
     ```
 
-1. Balíček `WALinuxAgent-<version>`WALinuxAgent byl vložen do úložiště Red Hat Extras. Povolte úložiště Extras spuštěním následujícího příkazu:
+1. Balíček WALinuxAgent, `WALinuxAgent-<version>`, byl vložen do úložiště Red Hat Extras. Povolte úložiště Extras spuštěním následujícího příkazu:
 
     ```bash
     subscription-manager repos --enable=rhel-7-server-extras-rpms
@@ -131,7 +132,7 @@ V této části se předpokládá, že už máte soubor ISO z webu Red Hat a nai
 
 1. Nevytvářejte odkládací místo na disku s operačním systémem.
 
-    Agent Azure Linux může automaticky nakonfigurovat odkládací místo pomocí disku místního prostředku, který je připojený k virtuálnímu počítači po zřízení virtuálního počítače v Azure. Disk místního prostředku je dočasný disk a při zrušení zřízení virtuálního počítače může dojít k jeho vyprázdnění. Po instalaci agenta Azure Linux v předchozím kroku upravte `/etc/waagent.conf` správným způsobem následující parametry:
+    Agent Azure Linux může automaticky nakonfigurovat odkládací prostor pomocí disku místního prostředku, který je připojený k virtuálnímu počítači po zřízení virtuálního počítače v Azure. Disk místního prostředku je dočasný disk a při zrušení zřízení virtuálního počítače může dojít k jeho vyprázdnění. Po instalaci agenta Azure Linux v předchozím kroku upravte následující parametry v `/etc/waagent.conf` odpovídajícím způsobem:
 
     ```sh
     ResourceDisk.Format=y
@@ -147,7 +148,7 @@ V této části se předpokládá, že už máte soubor ISO z webu Red Hat a nai
     sudo subscription-manager unregister
     ```
 
-1. Pokud používáte systém, který byl nasazen pomocí certifikační autority rozlehlé sítě, virtuální počítač s RHEL nebude důvěřovat kořenovému certifikátu Azure Stack. Je nutné umístit ho do důvěryhodného kořenového úložiště. Viz [Přidání důvěryhodných kořenových certifikátů na server](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html).
+1. Pokud používáte systém, který byl nasazen pomocí certifikační autority rozlehlé sítě, virtuální počítač RHEL nebude důvěřovat kořenovému certifikátu Azure Stack. Je nutné umístit ho do důvěryhodného kořenového úložiště. Další informace najdete v tématu [Přidání důvěryhodných kořenových certifikátů na server](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html).
 
 1. Spuštěním následujících příkazů můžete virtuální počítač zrušit a připravit ho pro zřizování v Azure:
 
@@ -157,7 +158,7 @@ V této části se předpokládá, že už máte soubor ISO z webu Red Hat a nai
     logout
     ```
 
-1. Klikněte na **Akce** > **vypnout** ve Správci technologie Hyper-V.
+1. Vyberte **akci** > **vypnout** ve Správci technologie Hyper-V.
 
 1. Převeďte virtuální pevný disk na virtuální pevný disk s pevnou velikostí pomocí funkce "upravit disk Správce technologie Hyper-V" nebo příkazu Convert-VHD PowerShell. Virtuální pevný disk se systémem Linux je teď připravený k nahrání do Azure.
 
@@ -188,14 +189,14 @@ V této části se předpokládá, že už máte soubor ISO z webu Red Hat a nai
 
 1. Z image QCOW2 vytvořte virtuální počítač v KVM. Nastavte typ disku na **QCOW2**a nastavte model zařízení rozhraní virtuální sítě na **virtio**. Pak spusťte virtuální počítač a přihlaste se jako kořenový adresář.
 
-1. Vytvořte nebo upravte `/etc/sysconfig/network` soubor a přidejte následující text:
+1. Vytvořte nebo upravte soubor `/etc/sysconfig/network` a přidejte následující text:
 
     ```sh
     NETWORKING=yes
     HOSTNAME=localhost.localdomain
     ```
 
-1. Vytvořte nebo upravte `/etc/sysconfig/network-scripts/ifcfg-eth0` soubor a přidejte následující text:
+1. Vytvořte nebo upravte soubor `/etc/sysconfig/network-scripts/ifcfg-eth0` a přidejte následující text:
 
     ```sh
     DEVICE=eth0
@@ -220,15 +221,15 @@ V této části se předpokládá, že už máte soubor ISO z webu Red Hat a nai
     subscription-manager register --auto-attach --username=XXX --password=XXX
     ```
 
-1. Upravte spouštěcí řádek jádra v konfiguraci GRUB tak, aby zahrnoval další parametry jádra pro Azure. Chcete-li tuto konfiguraci provést `/etc/default/grub` , otevřete v textovém editoru a `GRUB_CMDLINE_LINUX` upravte parametr. Příklad:
+1. Upravte spouštěcí řádek jádra v konfiguraci GRUB tak, aby zahrnoval další parametry jádra pro Azure. Tuto konfiguraci provedete tak, že v textovém editoru otevřete `/etc/default/grub` a upravíte parametr `GRUB_CMDLINE_LINUX`. Například:
 
     ```sh
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
     ```
 
-   Tento příkaz také zajistí, aby byly všechny zprávy konzoly odesílány do prvního sériového portu, což může pomoct podpoře Azure s problémy ladění. Příkaz také vypne nové zásady vytváření názvů RHEL 7 pro síťové karty.
+   Tento příkaz také zajistí, aby byly všechny zprávy konzoly odesílány do prvního sériového portu, což může pomoct podpoře Azure s problémy ladění. Příkaz také vypne nové zásady vytváření názvů pro síťové adaptéry v RHEL 7.
 
-   Grafické a tiché spouštění nejsou užitečné v cloudovém prostředí, kde se všechny protokoly odesílají do sériového portu. Možnost můžete nechat nakonfigurovanou v `crashkernel` případě potřeby. Tento parametr snižuje množství dostupné paměti ve virtuálním počítači o 128 MB nebo více, což může být problematické u menších velikostí virtuálních počítačů. Doporučujeme odebrat následující parametry:
+   Grafické a tiché spouštění nejsou vhodné v cloudovém prostředí, kde se všechny protokoly odesílají do sériového portu. Možnost `crashkernel` můžete ponechat nakonfigurovanou v případě potřeby. Tento parametr snižuje množství dostupné paměti v virtuálním počítači o 128 MB nebo více, což může být problematické u menších velikostí virtuálních počítačů. Doporučujeme odebrat následující parametry:
 
     ```sh
     rhgb quiet crashkernel=auto
@@ -267,46 +268,54 @@ V této části se předpokládá, že už máte soubor ISO z webu Red Hat a nai
     systemctl enable sshd
     ```
 
-    Upravte/etc/ssh/sshd_config tak, aby zahrnoval následující řádky:
+    Upravte/etc/ssh/sshd_config tak, aby obsahovala tyto řádky:
 
     ```sh
     PasswordAuthentication yes
     ClientAliveInterval 180
     ```
 
-1. Při vytváření vlastního VHD pro Azure Stack Pamatujte na to, že verze WALinuxAgent mezi 2.2.20 a 2.2.35 (obojí) nefunguje v Azure Stack prostředích. K přípravě image můžete použít verze 2.2.20/2.2.35. Pokud chcete k přípravě vlastní image použít verze vyšší než 2.2.35, aktualizujte Azure Stack na verzi 1903 nebo použijte opravu hotfix 1901/1902. 
+1. Při vytváření vlastního VHD pro Azure Stack Pamatujte na to, že verze WALinuxAgent mezi 2.2.20 a 2.2.35 (obojí) nefunguje v Azure Stack prostředích. K přípravě image můžete použít verze 2.2.20/2.2.35. Pokud chcete k přípravě vlastní image použít verze vyšší než 2.2.35, aktualizujte Azure Stack na verzi 1903 nebo použijte opravu hotfix 1901/1902.
 
-     Pomocí těchto pokynů stáhněte WALinuxAgent:
-    
-   a.   Stáhnout setuptools
+    Pomocí těchto pokynů stáhněte WALinuxAgent:
+
+    a. Stáhněte si setuptools.
+
     ```bash
     wget https://pypi.python.org/packages/source/s/setuptools/setuptools-7.0.tar.gz --no-check-certificate
     tar xzf setuptools-7.0.tar.gz
     cd setuptools-7.0
     ```
-   b. Toto je příklad, kde stahujeme verzi "2.2.20" z úložiště GitHub. Stáhněte si a rozbalte verzi 2.2.20 agenta z našeho GitHubu. 
+
+   b. Stáhněte si a rozbalte verzi 2.2.20 agenta z našeho GitHubu.
+
     ```bash
     wget https://github.com/Azure/WALinuxAgent/archive/v2.2.20.zip
     unzip v2.2.20.zip
     cd WALinuxAgent-2.2.20
     ```
-    c. Nainstalovat setup.py
+
+    c. Nainstalujte setup.py.
+
     ```bash
     sudo python setup.py install
     ```
-    d. Restartovat waagent
+
+    d. Restartujte waagent.
+
     ```bash
     sudo systemctl restart waagent
     ```
-    e. Otestujte, jestli verze agenta odpovídá vašemu staženému. V tomto příkladu by měl být 2.2.20.
-    
+
+    e. Otestujte, jestli verze agenta odpovídá vašemu, který jste stáhli. V tomto příkladu by měl být 2.2.20.
+
     ```bash
     waagent -version
     ```
 
 1. Nevytvářejte odkládací místo na disku s operačním systémem.
 
-    Agent Azure Linux může automaticky nakonfigurovat odkládací místo pomocí disku místního prostředku, který je připojený k virtuálnímu počítači po zřízení virtuálního počítače v Azure. Disk místního prostředku je dočasný disk a při zrušení zřízení virtuálního počítače může dojít k jeho vyprázdnění. Po instalaci agenta Azure Linux v předchozím kroku upravte `/etc/waagent.conf` správným způsobem následující parametry:
+    Agent Azure Linux může automaticky nakonfigurovat odkládací prostor pomocí disku místního prostředku, který je připojený k virtuálnímu počítači po zřízení virtuálního počítače v Azure. Disk místního prostředku je dočasný disk a při zrušení zřízení virtuálního počítače může dojít k jeho vyprázdnění. Po instalaci agenta Azure Linux v předchozím kroku upravte následující parametry v `/etc/waagent.conf` odpovídajícím způsobem:
 
     ```sh
     ResourceDisk.Format=y
@@ -322,7 +331,7 @@ V této části se předpokládá, že už máte soubor ISO z webu Red Hat a nai
     subscription-manager unregister
     ```
 
-1. Pokud používáte systém, který byl nasazen pomocí certifikační autority rozlehlé sítě, virtuální počítač s RHEL nebude důvěřovat kořenovému certifikátu Azure Stack. Je nutné umístit ho do důvěryhodného kořenového úložiště. Viz [Přidání důvěryhodných kořenových certifikátů na server](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html).
+1. Pokud používáte systém, který byl nasazen pomocí certifikační autority rozlehlé sítě, virtuální počítač RHEL nebude důvěřovat kořenovému certifikátu Azure Stack. Je nutné umístit ho do důvěryhodného kořenového úložiště. Další informace najdete v tématu [Přidání důvěryhodných kořenových certifikátů na server](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html).
 
 1. Spuštěním následujících příkazů můžete virtuální počítač zrušit a připravit ho pro zřizování v Azure:
 
@@ -361,30 +370,30 @@ V této části se předpokládá, že už máte soubor ISO z webu Red Hat a nai
     qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.4.raw rhel-7.4.vhd
     ```
 
-    Nebo s qemu verze **2.6 +** včetně `force_size` možnosti:
+    Nebo s qemu verze **2.6 +** , zahrňte možnost `force_size`:
 
     ```bash
     qemu-img convert -f raw -o subformat=fixed,force_size -O vpc rhel-7.4.raw rhel-7.4.vhd
     ```
 
-## <a name="prepare-a-red-hat-based-virtual-machine-from-vmware"></a>Příprava virtuálního počítače založeného na Red Hat z VMware
+## <a name="prepare-a-red-hat-based-vm-from-vmware"></a>Příprava virtuálního počítače založeného na Red Hat z VMware
 
 V této části se předpokládá, že jste už nainstalovali virtuální počítač s RHEL ve VMware. Podrobnosti o tom, jak nainstalovat operační systém ve VMware, najdete v tématu [Instalační příručka k hostovanému operačnímu systému VMware](https://partnerweb.vmware.com/GOSIG/home.html).
 
-* Při instalaci operačního systému Linux doporučujeme místo LVM použít standardní oddíly, což je často výchozí nastavení pro mnoho instalací. Tím se zabrání konfliktům LVM názvů s klonováným virtuálním počítačem, zejména pokud se disk s operačním systémem někdy potřebuje připojit k jinému virtuálnímu počítači, aby se mohl problém vyřešit. LVM nebo RAID se dá použít na datových discích, pokud jsou preferované.
-* Nekonfigurujte odkládací oddíl na disku s operačním systémem. Agenta pro Linux můžete nakonfigurovat tak, aby na dočasném disku prostředků vytvořil odkládací soubor. Další informace o tomto postupu najdete v následujících krocích.
+* Při instalaci operačního systému Linux doporučujeme místo LVM použít standardní oddíly, což je často výchozí nastavení pro mnoho instalací. Tato metoda zabrání konfliktu LVM názvů s klonovanými virtuálními počítači, zejména pokud je potřeba disk s operačním systémem připojit k jinému virtuálnímu počítači pro řešení potíží. LVM nebo RAID se dá použít na datových discích, pokud jsou preferované.
+* Nekonfigurujte odkládací oddíl na disku s operačním systémem. Agenta pro Linux můžete nakonfigurovat tak, aby na dočasném disku prostředků vytvořil odkládací soubor. Další informace o této konfiguraci najdete v následujících krocích.
 * Při vytváření virtuálního pevného disku vyberte možnost **Uložit virtuální disk jako jeden soubor**.
 
-### <a name="prepare-an-rhel-7-virtual-machine-from-vmware"></a>Příprava virtuálního počítače s RHEL 7 z VMware
+### <a name="prepare-an-rhel-7-vm-from-vmware"></a>Příprava virtuálního počítače s RHEL 7 z VMware
 
-1. Vytvořte nebo upravte `/etc/sysconfig/network` soubor a přidejte následující text:
+1. Vytvořte nebo upravte soubor `/etc/sysconfig/network` a přidejte následující text:
 
     ```sh
     NETWORKING=yes
     HOSTNAME=localhost.localdomain
     ```
 
-1. Vytvořte nebo upravte `/etc/sysconfig/network-scripts/ifcfg-eth0` soubor a přidejte následující text:
+1. Vytvořte nebo upravte soubor `/etc/sysconfig/network-scripts/ifcfg-eth0` a přidejte následující text:
 
     ```sh
     DEVICE=eth0
@@ -409,19 +418,19 @@ V této části se předpokládá, že jste už nainstalovali virtuální počí
     sudo subscription-manager register --auto-attach --username=XXX --password=XXX
     ```
 
-1. Upravte spouštěcí řádek jádra v konfiguraci GRUB tak, aby zahrnoval další parametry jádra pro Azure. Chcete-li provést tuto úpravu `/etc/default/grub` , otevřete v textovém editoru a `GRUB_CMDLINE_LINUX` upravte parametr. Příklad:
+1. Upravte spouštěcí řádek jádra v konfiguraci GRUB tak, aby zahrnoval další parametry jádra pro Azure. Chcete-li provést tuto úpravu, otevřete `/etc/default/grub` v textovém editoru a upravte parametr `GRUB_CMDLINE_LINUX`. Například:
 
     ```sh
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
     ```
 
-    Tato konfigurace taky zajišťuje, že se všechny zprávy konzoly odesílají na první sériový port, což může pomoct podpoře Azure s problémy ladění. Také vypne nové zásady vytváření názvů pro síťové karty v RHEL 7. Kromě toho doporučujeme odebrat následující parametry:
+    Tato konfigurace taky zajišťuje, že se všechny zprávy konzoly odesílají na první sériový port, což může pomoct podpoře Azure s problémy ladění. Také vypne nové zásady vytváření názvů pro síťové karty v RHEL 7. Doporučujeme odebrat následující parametry:
 
     ```sh
     rhgb quiet crashkernel=auto
     ```
 
-    Grafické a tiché spouštění nejsou užitečné v cloudovém prostředí, kde chceme, aby se všechny protokoly odesílaly na sériový port. Možnost můžete nechat nakonfigurovanou v `crashkernel` případě potřeby. Všimněte si, že tento parametr snižuje množství dostupné paměti ve virtuálním počítači o 128 MB nebo více, což může být problematické u menších velikostí virtuálních počítačů.
+    Grafické a tiché spouštění nejsou vhodné v cloudovém prostředí, kde chceme, aby se všechny protokoly odesílaly na sériový port. Možnost `crashkernel` můžete ponechat nakonfigurovanou v případě potřeby. Tento parametr snižuje množství dostupné paměti v virtuálním počítači o 128 MB nebo více, což může být problematické u menších velikostí virtuálních počítačů.
 
 1. Po dokončení úprav `/etc/default/grub`spusťte následující příkaz pro opětovné sestavení konfigurace grub:
 
@@ -450,13 +459,13 @@ V této části se předpokládá, že jste už nainstalovali virtuální počí
     yum remove cloud-init
     ```
 
-1. Ujistěte se, že je server SSH nainstalovaný a nakonfigurované tak, aby se spouštěl při spuštění. Toto nastavení je obvykle výchozí. Upravte `/etc/ssh/sshd_config` , aby obsahovala následující řádek:
+1. Ujistěte se, že je server SSH nainstalovaný a nakonfigurované tak, aby se spouštěl při spuštění. Toto nastavení je obvykle výchozí. Upravte `/etc/ssh/sshd_config` tak, aby obsahovala následující řádek:
 
     ```sh
     ClientAliveInterval 180
     ```
 
-1. Balíček `WALinuxAgent-<version>`WALinuxAgent byl vložen do úložiště Red Hat Extras. Povolte úložiště Extras spuštěním následujícího příkazu:
+1. Balíček WALinuxAgent, `WALinuxAgent-<version>`, byl vložen do úložiště Red Hat Extras. Povolte úložiště Extras spuštěním následujícího příkazu:
 
     ```bash
     subscription-manager repos --enable=rhel-7-server-extras-rpms
@@ -471,7 +480,7 @@ V této části se předpokládá, že jste už nainstalovali virtuální počí
 
 1. Nevytvářejte odkládací místo na disku s operačním systémem.
 
-    Agent Azure Linux může automaticky nakonfigurovat odkládací místo pomocí disku místního prostředku, který je připojený k virtuálnímu počítači po zřízení virtuálního počítače v Azure. Všimněte si, že místní disk prostředků je dočasný disk a při zrušení zřízení virtuálního počítače může dojít k jeho vyprázdnění. Po instalaci agenta Azure Linux v předchozím kroku upravte `/etc/waagent.conf` správným způsobem následující parametry:
+    Agent Azure Linux může automaticky nakonfigurovat odkládací prostor pomocí disku místního prostředku, který je připojený k virtuálnímu počítači po zřízení virtuálního počítače v Azure. Všimněte si, že místní disk prostředků je dočasný disk a při zrušení zřízení virtuálního počítače může dojít k jeho vyprázdnění. Po instalaci agenta Azure Linux v předchozím kroku upravte následující parametry v `/etc/waagent.conf` odpovídajícím způsobem:
 
     ```sh
     ResourceDisk.Format=y
@@ -487,7 +496,7 @@ V této části se předpokládá, že jste už nainstalovali virtuální počí
     sudo subscription-manager unregister
     ```
 
-1. Pokud používáte systém, který byl nasazen pomocí certifikační autority rozlehlé sítě, virtuální počítač s RHEL nebude důvěřovat kořenovému certifikátu Azure Stack. Je nutné umístit ho do důvěryhodného kořenového úložiště. Viz [Přidání důvěryhodných kořenových certifikátů na server](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html).
+1. Pokud používáte systém, který byl nasazen pomocí certifikační autority rozlehlé sítě, virtuální počítač RHEL nebude důvěřovat kořenovému certifikátu Azure Stack. Je nutné umístit ho do důvěryhodného kořenového úložiště. Další informace najdete v tématu [Přidání důvěryhodných kořenových certifikátů na server](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html).
 
 1. Spuštěním následujících příkazů můžete virtuální počítač zrušit a připravit ho pro zřizování v Azure:
 
@@ -524,13 +533,13 @@ V této části se předpokládá, že jste už nainstalovali virtuální počí
     qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.4.raw rhel-7.4.vhd
     ```
 
-    Nebo s qemu verze **2.6 +** včetně `force_size` možnosti:
+    Nebo s qemu verze **2.6 +** , zahrňte možnost `force_size`:
 
     ```bash
     qemu-img convert -f raw -o subformat=fixed,force_size -O vpc rhel-7.4.raw rhel-7.4.vhd
     ```
 
-## <a name="prepare-a-red-hat-based-virtual-machine-from-an-iso-by-using-a-kickstart-file-automatically"></a>Příprava virtuálního počítače založeného na Red Hat z ISO pomocí souboru Kickstart automaticky
+## <a name="prepare-a-red-hat-based-vm-from-an-iso-by-using-a-kickstart-file-automatically"></a>Příprava virtuálního počítače založeného na Red Hat z ISO pomocí souboru Kickstart automaticky
 
 1. Vytvořte soubor Kickstart, který obsahuje následující obsah, a uložte soubor. Podrobnosti o instalaci Kickstart najdete v [Průvodci instalací Kickstart](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html).
 
@@ -673,17 +682,17 @@ V této části se předpokládá, že jste už nainstalovali virtuální počí
 
 1. Spusťte virtuální počítač. Po zobrazení Průvodce instalací stiskněte klávesu **TAB** a nakonfigurujte možnosti spuštění.
 
-1. Zadejte `inst.ks=<the location of the kickstart file>` na konci možností spuštění a stiskněte klávesu **ENTER**.
+1. Na konci možností spuštění zadejte `inst.ks=<the location of the kickstart file>` a stiskněte klávesu **ENTER**.
 
 1. Počkejte na dokončení instalace. Po dokončení se virtuální počítač automaticky vypne. Virtuální pevný disk se systémem Linux je teď připravený k nahrání do Azure.
 
 ## <a name="known-issues"></a>Známé problémy
 
-### <a name="the-hyper-v-driver-could-not-be-included-in-the-initial-ram-disk-when-using-a-non-hyper-v-hypervisor"></a>Při použití hypervisoru, který není Hyper-V, nejde ovladač Hyper-V zahrnout do počátečního disku RAM.
+### <a name="the-hyper-v-driver-couldnt-be-included-in-the-initial-ram-disk-when-using-a-non-hyper-v-hypervisor"></a>Při použití hypervisoru, který není Hyper-V, nejde ovladač Hyper-V zahrnout do počátečního disku RAM.
 
 V některých případech nemusí instalační programy pro Linux zahrnovat ovladače pro Hyper-V na počátečním disku RAM (Image initrd nebo initramfs), pokud Linux nezjistí, že je spuštěný v prostředí Hyper-V.
 
-Pokud používáte jiný virtualizační systém (to znamená Oracle VM VirtualBox, Xen Project atd.) k přípravě image pro Linux, možná budete muset znovu sestavit image initrd, aby se zajistilo, že v počáteční paměti RAM jsou k dispozici alespoň moduly jádra hv_vmbus a hv_storvsc. disk. Jedná se o známý problém minimálně v systémech, které jsou založené na nadřazené distribuci Red Hat.
+Pokud používáte jiný systém virtualizace (například Oracle VM VirtualBox, projekt Xen atd.) k přípravě image pro Linux, možná budete muset znovu sestavit image initrd, aby se zajistilo, že v počáteční paměti RAM jsou k dispozici alespoň moduly jádra hv_vmbus a hv_storvsc. disk. Jedná se o známý problém minimálně v systémech, které jsou založené na nadřazené distribuci Red Hat.
 
 Pokud chcete tento problém vyřešit, přidejte moduly technologie Hyper-V tak, aby se initramfs a znovu sestavily:
 

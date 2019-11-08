@@ -1,6 +1,7 @@
 ---
-title: Rozhraní API využití prostředků poskytovatele | Dokumentace Microsoftu
-description: Referenční dokumentace pro rozhraní API, využití prostředků, který načte informace o použití služby Azure Stack
+title: Rozhraní API využití prostředků poskytovatele | Microsoft Docs
+titleSuffix: Azure Stack
+description: Referenční informace k rozhraní API pro využití prostředků, které načítá informace o využití Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,26 +16,26 @@ ms.date: 07/16/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 01/25/2018
-ms.openlocfilehash: 631d6764ca7947ddafd70ec57b607df1ea5a4ab5
-ms.sourcegitcommit: 2a4cb9a21a6e0583aa8ade330dd849304df6ccb5
+ms.openlocfilehash: 75a4adca6d9265314c74cdebe642d43b8c2f11ef
+ms.sourcegitcommit: ca358ea5c91a0441e1d33f540f6dbb5b4d3c92c5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68286692"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73802385"
 ---
 # <a name="provider-resource-usage-api"></a>Rozhraní API využití prostředků poskytovatele
 
-Termín *poskytovatele* platí pro správce služeb a žádné delegované poskytovatele. Operátoři Azure stacku a delegované poskytovatele. můžete použít rozhraní API využití zprostředkovatele zobrazíte využití svým klientům s přímým přístupem. Například jak je znázorněno v následujícím diagramu, P0 může volat rozhraní API k získání informací o používání s přímým přístupem na P1 a P2 poskytovatele a P1 lze volat pro informace o využití na P3 a P4.
+Pojem *zprostředkovatel* se vztahuje na správce služeb a na všechny delegované zprostředkovatele. Azure Stack operátory a delegovaní zprostředkovatelé můžou používat rozhraní API Využití poskytovatele k zobrazení využití jejich přímých klientů. Například, jak je znázorněno v následujícím diagramu, P0 může zavolat rozhraní API zprostředkovatele, aby získal informace o přímých použitích P1 a P2 a P1 může volat informace o použití na P3 a P4.
 
-![Konceptuální model hierarchie zprostředkovatele](media/azure-stack-provider-resource-api/image1.png)
+![Koncepční model hierarchie zprostředkovatele](media/azure-stack-provider-resource-api/image1.png)
 
 ## <a name="api-call-reference"></a>Reference k volání rozhraní API
 
 ### <a name="request"></a>Žádost
 
-Požadavek získá podrobnosti o využití pro požadované předplatné a pro požadovaný časový rámec. Není k dispozici není datová část požadavku.
+Požadavek získá podrobnosti o spotřebě pro požadovaná předplatná a pro požadovaný časový rámec. Tělo žádosti není k dispozici.
 
-Použití těchto rozhraní API je poskytovatel rozhraní API, aby volající musí mít přiřazenou **vlastníka**, **Přispěvatel**, nebo **čtečky** roli v předplatném poskytovatele.
+Toto rozhraní API pro použití je poskytovatele API, takže volajícímu musí být v předplatném poskytovatele přiřazená role **vlastník**, **Přispěvatel**nebo **Čtenář** .
 
 | Metoda | Identifikátor URI žádosti |
 | --- | --- |
@@ -44,14 +45,14 @@ Použití těchto rozhraní API je poskytovatel rozhraní API, aby volající mu
 
 | Argument | Popis |
 | --- | --- |
-| `armendpoint` |Azure Resource Manageru koncový bod vašeho prostředí Azure Stack. Vytváření služby Azure Stack je, že název koncového bodu Azure Resource Manageru je ve formátu `https://adminmanagement.{domain-name}`. Například pro development kit, pokud je název domény *local.azurestack.external*, pak je koncový bod Resource Manageru `https://adminmanagement.local.azurestack.external`. |
+| `armendpoint` |Azure Resource Manager koncový bod Azure Stack prostředí. Azure Stack konvence je název koncového bodu Azure Resource Manager ve formátu `https://adminmanagement.{domain-name}`. Například pro Azure Stack Development Kit (ASDK), pokud je název domény *Local. azurestack. external*, pak je `https://adminmanagement.local.azurestack.external`koncový bod správce prostředků. |
 | `subId` |ID předplatného uživatele, který provádí volání. |
-| `reportedStartTime` |Spuštění dotazu. Hodnota pro `DateTime` by měl být koordinovaný univerzální čas (UTC) a na začátek hodiny; například 13:00. Pro denní agregace nastavte tuto hodnotu na půlnoc UTC. Jaké je uvozený ve formátu ISO 8601; například `2015-06-16T18%3a53%3a11%2b00%3a00Z`, kde dvojtečka je převeden na `%3a` a není uvozeno uvozovacím znakem plus na `%2b` tak, aby se zařízení identifikátor URI. |
-| `reportedEndTime` |Konec dotazu. Omezení, které se vztahují k `reportedStartTime` platí také pro tento argument. Hodnota pro `reportedEndTime` nemůže být v budoucnosti nebo aktuální datum. Pokud se jedná, výsledek je nastaven "zpracování není úplný." |
-| `aggregationGranularity` |Volitelný parametr, který má dva jednotlivých možných hodnot: **denní** a **každou hodinu**. Jak navrhnout hodnoty jednoho vrací data v denní členitosti a druhý je hodinové řešení. **Denní** je výchozí nastavení. |
-| `subscriberId` |ID předplatného. Pokud chcete získat filtrovaná data, je potřeba ID předplatného tenanta přímé poskytovatele. Pokud není zadán žádný parametr ID předplatného, volání vrátí data o využití pro všechny poskytovatele tenanty s přímým přístupem. |
-| `api-version` |Verze protokolu, který se používá k této žádosti. Tato hodnota nastavená na `2015-06-01-preview`. |
-| `continuationToken` |Načíst token z posledního volání rozhraní API využití zprostředkovatele. Tento token je nutné, když odpověď je větší než 1 000 řádků. Funguje jako záložku pro průběh. Pokud token není k dispozici, jsou data načtena od začátku dne nebo předaný hodinách, v závislosti na členitosti. |
+| `reportedStartTime` |Počáteční čas dotazu. Hodnota `DateTime` by měla být v koordinovaném univerzálním čase (UTC) a na začátku hodiny. například 13:00. U denní agregace nastavte tuto hodnotu na půlnoc UTC. Formát je řídicí. ISO 8601; například `2015-06-16T18%3a53%3a11%2b00%3a00Z`, kde je dvojtečka uvozena `%3a` a znak plus je uvozen na `%2b`, aby byl popisný identifikátor URI. |
+| `reportedEndTime` |Koncový čas dotazu. Omezení, která platí pro `reportedStartTime`, se vztahují i na tento argument. Hodnota pro `reportedEndTime` nemůže být v budoucnosti nebo v aktuálním datu. Pokud je, výsledek je nastaven na "zpracování není dokončeno". |
+| `aggregationGranularity` |Volitelný parametr, který má dvě diskrétní možné hodnoty: **denně** a **každou hodinu**. Vzhledem k tomu, že hodnoty naznačují, vrátí jedna data v denní členitosti a druhá je hodinové řešení. Možnost **denní** je výchozí hodnota. |
+| `subscriberId` |ID předplatného. Aby bylo možné získat filtrovaná data, je požadováno ID předplatného přímého tenanta poskytovatele. Pokud není zadán parametr ID předplatného, volání vrátí data o využití pro všechny přímé klienty poskytovatele. |
+| `api-version` |Verze protokolu, který se používá k provedení tohoto požadavku. Tato hodnota je nastavená na `2015-06-01-preview`. |
+| `continuationToken` |Token načtený z posledního volání poskytovatele rozhraní API využití Tento token je nutný, pokud je odpověď větší než 1 000 řádků. Slouží jako záložka pro průběh. Pokud token není k dispozici, data se načítají od začátku dne nebo hodiny na základě předané členitosti. |
 
 ### <a name="response"></a>Odpověď
 
@@ -86,51 +87,51 @@ meterID1",
 . . .
 ```
 
-### <a name="response-details"></a>Podrobnosti o odpovědi
+### <a name="response-details"></a>Podrobnosti odpovědi
 
 | Argument | Popis |
 | --- | --- |
-|`id` |Jedinečný Identifikátor využití agregace. |
-|`name` |Název agregace využití. |
+|`id` |Jedinečné ID agregace využití |
+|`name` |Název agregace použití |
 |`type` |Definice prostředků. |
-|`subscriptionId` |Identifikátor předplatného uživatele Azure stacku. |
-|`usageStartTime`|Čas UTC počáteční čas využití kontejneru, do které patří tato agregace využití.|
-|`usageEndTime`|Čas ukončení UTC využití kontejneru, do které patří tato agregace využití. |
-|`instanceData` |Páry klíč hodnota Podrobnosti instance (v novém formátu):<br> `resourceUri`: Plně kvalifikované ID prostředku, který obsahuje skupiny prostředků a název instance. <br> `location`: Oblast, ve kterém byla tato služba spuštěna. <br> `tags`: Značky prostředků, která jsou určena podle uživatele. <br> `additionalInfo`: Další podrobnosti o prostředku, který spotřebovával; například typ operačního systému verze nebo image. |
-|`quantity`|Množství spotřeby prostředků, ke které došlo v tomto časovém rámci. |
-|`meterId` |Jedinečné ID prostředku, který spotřebovával (také nazývané `ResourceID`). |
+|`subscriptionId` |Identifikátor předplatného Azure Stackho uživatele |
+|`usageStartTime`|Čas spuštění v čase UTC sady, do které patří agregace tohoto využití.|
+|`usageEndTime`|Čas ukončení UTC intervalu použití, do kterého patří agregace tohoto využití. |
+|`instanceData` |Páry klíč-hodnota podrobností instance (v novém formátu):<br> `resourceUri`: plně kvalifikované ID prostředku, které zahrnuje skupiny prostředků a název instance. <br> `location`: oblast, ve které byla tato služba spuštěna. <br> `tags`: značky prostředků, které jsou určeny uživatelem. <br> `additionalInfo`: Další podrobnosti o spotřebovaném prostředku; například verze operačního systému nebo typ obrázku. |
+|`quantity`|Množství spotřeby prostředků, ke kterým došlo v tomto časovém rámci. |
+|`meterId` |Jedinečné ID spotřebovaného prostředku (označuje se také jako `ResourceID`). |
 
-## <a name="retrieve-usage-information"></a>Načíst informace o využití
+## <a name="retrieve-usage-information"></a>Načíst informace o použití
 
 ### <a name="powershell"></a>PowerShell
 
-Ke generování dat o využití, byste měli mít prostředky, které jsou spuštěné a aktivně používají systém; například aktivnímu virtuálnímu počítači nebo účet úložiště obsahující nějaká data. Pokud si nejste jistí, jestli nějaké prostředky spuštěné v Tržišti Azure Stack, nasazení virtuálního počítače (VM) a ověřte, virtuální počítač monitorování okno a ujistěte se, že běží. Pro zobrazení dat o využití, použijte následující rutiny prostředí PowerShell:
+Pokud chcete vygenerovat data o využití, měli byste mít prostředky, na kterých běží a aktivně používají systém. Například aktivní virtuální počítač (VM) nebo účet úložiště obsahující data. Pokud si nejste jistí, jestli máte nějaké prostředky spuštěné na webu Azure Stack Marketplace, nasaďte virtuální počítač a ověřte okno monitorování virtuálního počítače, abyste se ujistili, že je spuštěný. K zobrazení dat o využití použijte následující rutiny PowerShellu:
 
-1. [Instalace Powershellu pro Azure Stack](azure-stack-powershell-install.md).
-2. [Konfigurace uživatele služby Azure Stack](../user/azure-stack-powershell-configure-user.md) nebo [operátory Azure stacku](azure-stack-powershell-configure-admin.md) prostředí PowerShell.
-3. Chcete-li načíst data o využití, zavolejte [Get-AzsSubscriberUsage](/powershell/module/azs.commerce.admin/get-azssubscriberusage) rutiny Powershellu:
+1. [Nainstalujte PowerShell pro Azure Stack](azure-stack-powershell-install.md).
+2. [Nakonfigurujte Azure Stackho uživatele](../user/azure-stack-powershell-configure-user.md) nebo prostředí powershellu [Azure Stack operator](azure-stack-powershell-configure-admin.md) .
+3. Pokud chcete načíst data o využití, zavolejte rutinu PowerShellu [Get-AzsSubscriberUsage](/powershell/module/azs.commerce.admin/get-azssubscriberusage) :
 
    ```powershell
    Get-AzsSubscriberUsage -ReportedStartTime "2017-09-06T00:00:00Z" -ReportedEndTime "2017-09-07T00:00:00Z"
    ```
 
-### <a name="rest-api"></a>REST API
+### <a name="rest-api"></a>Rozhraní REST API
 
-Volání služby Microsoft.Commerce.Admin můžete shromažďovat informace o využití pro odstraněné předplatná.
+Informace o použití pro odstraněné odběry můžete shromažďovat voláním služby Microsoft. Commerce. admin.
 
-#### <a name="return-all-tenant-usage-for-deleted-for-active-users"></a>Návrat odstranit veškeré využití tenanta pro aktivní uživatelé
+#### <a name="return-all-tenant-usage-for-deleted-for-active-users"></a>Vrátí všechny využití tenanta pro odstraněné aktivní uživatele.
 
 | Metoda | Identifikátor URI žádosti |
 | --- | --- |
 | GET | `https://{armendpoint}/subscriptions/{subId}/providersMicrosoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={start-time}&reportedEndTime={end-endtime}&aggregationGranularity=Hourly&api-version=2015-06-01-preview` |
 
-#### <a name="return-usage-for-deleted-or-active-tenant"></a>Vraťte využití pro odstraněné nebo aktivní tenanta
+#### <a name="return-usage-for-deleted-or-active-tenant"></a>Vrátit využití pro odstraněné nebo aktivní tenanta
 
 | Metoda | Identifikátor URI žádosti |
 | --- | --- |
 | GET |`https://{armendpoint}/subscriptions/{subId}/providersMicrosoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={start-time}&reportedEndTime={end-endtime}&aggregationGranularity=Hourly&subscriberId={subscriber-id}&api-version=2015-06-01-preview` |
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
-- [Využití prostředků tenanta reference k rozhraní API](azure-stack-tenant-resource-usage-api.md)
-- [Nejčastější dotazy souvisí s využitím](azure-stack-usage-related-faq.md)
+- [Referenční informace k rozhraní API využití prostředků tenanta](azure-stack-tenant-resource-usage-api.md)
+- [Nejčastější dotazy týkající se použití](azure-stack-usage-related-faq.md)

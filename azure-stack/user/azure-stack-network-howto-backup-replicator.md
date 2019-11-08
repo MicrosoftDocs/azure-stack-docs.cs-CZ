@@ -5,20 +5,22 @@ services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: how-to
-ms.date: 10/30/2019
+ms.date: 11/07/2019
 ms.author: mabrigg
 ms.reviewer: rtiberiu
-ms.lastreviewed: 10/30/2019
-ms.openlocfilehash: f468d28ae1642235735f4e1472a8aa84859dc6e6
-ms.sourcegitcommit: 8a74a5572e24bfc42f71e18e181318c82c8b4f24
+ms.lastreviewed: 11/07/2019
+ms.openlocfilehash: e65943bd0b84d11e3696da206d360edc948c203f
+ms.sourcegitcommit: ca358ea5c91a0441e1d33f540f6dbb5b4d3c92c5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73567784"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73802261"
 ---
 # <a name="how-to-replicate-resources-using-the-azure-stack-subscription-replicator"></a>Postup replikace prostředků pomocí replikátoru předplatného Azure Stack
 
 Pomocí skriptu PowerShellu pro Azure Stack předplatného můžete kopírovat prostředky mezi odběry Azure Stack, přes Azure Stacková razítka nebo mezi Azure Stack a Azure. Skript replikátoru načte a znovu sestaví Azure Resource Manager prostředky z různých předplatných Azure a Azure Stack. Tento článek se zabývá tím, jak skript funguje, jak můžete použít skript, a poskytuje referenční informace pro operace se skripty.
+
+Skripty používané v tomto článku najdete v úložišti GitHub ve [vzorcích Azure Intelligent Edge](https://github.com/Azure-Samples/azure-intelligent-edge-patterns) . Skripty jsou ve složce **Replikátor odběrů** .
 
 ## <a name="subscription-replicator-overview"></a>Přehled replikátoru předplatného
 
@@ -52,7 +54,7 @@ Přizpůsobené procesory, které byly zmíněny výše, jsou `ps1` soubory, kte
 
 Přizpůsobený procesor určuje, jak se má prostředek replikovat, určením informací, které jsou důležité a které určují, jak mají být tyto informace z metadat prostředků vydány. Přizpůsobený procesor potom převezme všechna extrahovaná data a použije je k vygenerování souboru parametrů, který se použije ve spojení se šablonou Azure Resource Manager k nasazení prostředku do cílového předplatného. Tento soubor parametrů je uložen v **Parameter_Files** po jeho následném zpracování pomocí post_process. ps1.
 
-Ve struktuře souborů replikátoru s názvem **Standardized_ARM_Templates**je složka. V závislosti na zdrojovém prostředí budou nasazení používat jednu z těchto standardizovaných šablon Azure Resource Manager, jinak bude nutné vygenerovat vlastní šablonu Azure Resource Manager. V takovém případě musí přizpůsobený procesor volat generátor šablon Azure Resource Manager. V předchozím příkladu byl název generátoru šablon Azure Resource Manager pro virtuální počítače pojmenovaný **virtualMachines_ARM_Template_Generator. ps1**. Generátor šablon Azure Resource Manager zodpovídá za vytvoření vlastní šablony Azure Resource Manager na základě toho, jaké informace jsou v metadatech prostředku. Pokud má například prostředek virtuálního počítače metadata, která určují, že je členem skupiny dostupnosti, vytvoří generátor šablon Azure Resource Manager Azure Resource Manager šablonu s kódem, který určuje ID skupiny dostupnosti. virtuální počítač je součástí. Tímto způsobem, když se virtuální počítač nasadí do nového předplatného, automaticky se přidá do skupiny dostupnosti při nasazení. Tyto přizpůsobené šablony Azure Resource Manager jsou uložené ve složce **Custom_ARM_Templates** , která se nachází uvnitř složky **Standardized_ARM_Templates** . Post_processor. ps1 zodpovídá za rozhodnutí, zda nasazení má používat standardizovanou šablonu Azure Resource Manager nebo přizpůsobenou šablonu a generuje odpovídající kód nasazení.
+Ve struktuře souborů replikátoru je složka s názvem **Standardized_ARM_Templates**. V závislosti na zdrojovém prostředí budou nasazení používat jednu z těchto standardizovaných šablon Azure Resource Manager, jinak bude nutné vygenerovat vlastní šablonu Azure Resource Manager. V takovém případě musí přizpůsobený procesor volat generátor šablon Azure Resource Manager. V předchozím příkladu byl název generátoru šablon Azure Resource Manager pro virtuální počítače pojmenovaný **virtualMachines_ARM_Template_Generator. ps1**. Generátor šablon Azure Resource Manager zodpovídá za vytvoření vlastní šablony Azure Resource Manager na základě toho, jaké informace jsou v metadatech prostředku. Pokud má například prostředek virtuálního počítače metadata, která určují, že je členem skupiny dostupnosti, vytvoří generátor šablon Azure Resource Manager Azure Resource Manager šablonu s kódem, který určuje ID skupiny dostupnosti. virtuální počítač je součástí. Tímto způsobem, když se virtuální počítač nasadí do nového předplatného, automaticky se přidá do skupiny dostupnosti při nasazení. Tyto přizpůsobené šablony Azure Resource Manager se ukládají do složky **Custom_ARM_Templates** nacházející se ve složce **Standardized_ARM_Templates** . Post_processor. ps1 zodpovídá za rozhodnutí, jestli nasazení má používat standardizovanou Azure Resource Manager šablonu nebo přizpůsobenou šablonu a generuje odpovídající kód nasazení.
 
 Skript **post-Process. ps1** zodpovídá za vyčištění souborů parametrů a vytváření skriptů, které bude uživatel používat k nasazení nových prostředků. Ve fázi čištění nahradí skript všechny odkazy na ID zdrojového předplatného, ID tenanta a umístění s odpovídajícími cílovými hodnotami. Pak výstup souboru parametrů do složky **Parameter_Files** . Pak určí, zda zpracovávaný prostředek používá vlastní šablonu Azure Resource Manager nebo ne, a vygeneruje odpovídající kód nasazení, který využívá rutinu **New-AzureRmResourceGroupDeployment** . Kód nasazení se pak přidá do souboru s názvem **DeployResources. ps1** , který je uložený ve složce **Deployment_Files** . Nakonec skript určí skupinu prostředků, do které prostředek patří, a zkontroluje skript **DeployResourceGroups. ps1** , aby zjistil, zda již existuje kód nasazení k nasazení této skupiny prostředků. Pokud tomu tak není, přidá do tohoto skriptu kód pro nasazení skupiny prostředků, pokud pak neprovede žádnou akci.
 
@@ -62,7 +64,7 @@ Tento nástroj má vestavěnou dynamickou implementaci rozhraní API, aby se k n
 
 ![Obrázek načtení rozhraní API](./media/azure-stack-network-howto-backup-replicator/image1.png)
 
-Obrázek – načtení rozhraní API v **resource_processor. ps1**
+Obrázek – načtení rozhraní API v **resource_processor. ps1**.
 
 Existuje však možnost, že verze rozhraní API poskytovatele prostředků cílového předplatného je starší než zdrojové předplatné a nepodporuje verzi poskytovanou ze zdrojového předplatného. V tomto případě bude vyvolána chyba při spuštění nasazení. Chcete-li tento problém vyřešit, aktualizujte poskytovatele prostředků v cílovém předplatném tak, aby odpovídal názvům ve zdrojovém předplatném.
 
@@ -76,9 +78,9 @@ Přidávání nových typů prostředků je jednoduché. Vývojář musí vytvo�
 
 ## <a name="run-azure-subscription-replicator"></a>Spustit Replikátor předplatných Azure
 
-Pokud chcete spustit nástroj replikátoru předplatného Azure (V3), budete muset aktivovat resource_retriever. ps1 a uvést všechny parametry. Parametr **ResourceType** má možnost zvolit **vše** , nikoli jeden typ prostředku. Pokud je vybrána možnost **vše** , resource_retriever. ps1 zpracuje všechny prostředky v pořadí tak, aby při spuštění nasazení byly nejprve nasazeny závislé prostředky. Například virtuální sítě se nasazují před virtuálními počítači, protože virtuální počítače vyžadují, aby byla virtuální síť v místě, aby se mohla správně nasadit.
+Pokud chcete spustit nástroj replikátoru předplatného Azure (V3), bude nutné, abyste vypnuli resource_retriever. ps1 a zadali všechny parametry. Parametr **ResourceType** má možnost zvolit **vše** , nikoli jeden typ prostředku. Pokud je vybrána možnost **vše** , resource_retriever. ps1 zpracuje všechny prostředky v pořadí tak, aby při spuštění nasazení byly nejprve nasazeny závislé prostředky. Například virtuální sítě se nasazují před virtuálními počítači, protože virtuální počítače vyžadují, aby byla virtuální síť v místě, aby se mohla správně nasadit.
 
-Po dokončení spuštění skriptu budou existovat tři nové složky, **Deployment_Files**, **Parameter_Files**a **Custom_ARM_Templates**.
+Po dokončení spuštění skriptu budou k dispozici tři nové složky, **Deployment_Files**, **Parameter_Files**a **Custom_ARM_Templates**.
 
  > [!Note]  
  > Před spuštěním některého z generovaných skriptů musíte nastavit správné prostředí a přihlásit se k cílovému předplatnému (v nové Azure Stack pro ex) a nastavit pracovní adresář na složku **Deployment_Files** .
@@ -106,7 +108,7 @@ Deployment_Files budou obsahovat dva soubory **DeployResourceGroups. ps1** a **D
 
 ## <a name="clean-up"></a>Vyčištění
 
-Ve složce replicatorV3 se nachází soubor s názvem **cleanup_generated_items. ps1** – odstraní složky **Deployment_Files**, **Parameter_Files**a **Custom_ARM_Templates** a veškerý jejich obsah.
+Ve složce replicatorV3 je soubor s názvem **cleanup_generated_items. ps1** – odebere **Deployment_Files**, **Parameter_Files**a **Custom_ARM_Templates** složky a veškerý jejich obsah.
 
 ## <a name="subscription-replicator-operations"></a>Operace replikátoru předplatného
 
