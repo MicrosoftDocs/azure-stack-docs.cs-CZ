@@ -14,18 +14,63 @@ ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: 0ac21cc388b55be6548f9fdba6c8985dd2316c4e
-ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
+ms.openlocfilehash: aa85310314a09db47f10424e84fe40e355bacb25
+ms.sourcegitcommit: ed44d477b9fd11573d1e0d1ed3a3c0ef4512df53
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73167133"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73846227"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>Poznámky k verzi pro ověřování jako službu
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 V tomto článku najdete poznámky k verzi pro ověřování Azure Stack jako služby.
+
+## <a name="version-4353"></a>4\.3.5.3 verze
+
+2019. listopadu 7
+
+- Testování aktualizací obsahu
+  - Ověřování aktualizací Azure Stack měsíčně (verze 5.1.46.0-> 5.1.49.0)
+  - Ověření balíčku rozšíření OEM (verze 5.1.46.0-> 5.1.49.0)
+  - Výsledky pro 5.1.46.0 se zachovají. Pokud jste v 5.1.46.0 úspěšně běželi, upozorněte vaashelp@microsoft.com při odesílání výsledků.
+
+- Opravy chyb
+  - Opravili jsme problém, kdy se nepovedlo spustit měsíční Azure Stack ověření aktualizace, pokud soubor Update. zip obsahuje speciální znaky.
+
+- Známé problémy
+  - Testy VaaS selžou, pokud se nenalezne MSTest. exe. Odstraníte
+    1. CTRL + C agent v okně PowerShellu
+    1. Zadejte MSTest. exe, abyste ověřili, že MSTest. exe je rozpoznaný program.
+    1. Pokud MSTest. exe nerozpoznáte, zavřete aktuální okno prostředí PowerShell.
+    1. Klikněte na Start (ne na hlavním panelu prostředí PowerShell), najděte PowerShell a otevřete ho jako správce.
+    1. Zadejte MSTest. exe a ověřte, zda je k dispozici jako příkaz.
+    1. Restartujte agenta a spusťte test znovu.
+  - V některých případech bude modul simulace cloudu hlásit selhání pomocí \*ch testů virtuálních počítačů. Než se pokusíte znovu spustit, kontaktujte vaashelp@microsoft.com. 
+
+
+2019. října 29
+
+- Online dokumentace pro měsíční pracovní postup aktualizace Azure Stack a pracovní postup pro ověření balíčku OEM byly aktualizovány.
+
+    Projděte si aktualizovanou dokumentaci, která ověří balíčky OEM a ověří aktualizace softwaru od Microsoftu.
+- Aktualizace pracovního postupu VaaS: měsíční aktualizace Azure Stack (verze 5.1.30.0-> 5.1.46.0) – aktualizoval se pracovní postup testu měsíčního Azure Stack aktualizace.
+
+    Pracovní postup už nevyžaduje ruční zásah a dá se naplánovat na bezproblémové spuštění.
+- Aktualizace pracovního postupu VaaS: ověření balíčku OEM (verze 5.1.30.0-> 5.1.46.0) – pracovní postup ověření balíčku OEM byl aktualizován.
+
+    Pracovní postup už nevyžaduje ruční zásah a dá se naplánovat na bezproblémové spuštění.
+- Modul pro simulaci cloudu v pracovním postupu ověření balíčku OEM (verze 5.1.30.0-> 5.1.46.0) byl aktualizován tak, aby urychlil čas ověření: doba běhu zkrácená na 1 hodinu.
+- Modul pro simulaci cloudu v pracovním postupu ověření balíčku OEM a pracovní postup aktualizace Azure Stack (verze 5.1.30.0-> 5.1.46.0) vyžaduje, aby se aktualizace ověřily ve 2 různých nadřazených složkách bez dalších aktualizací v podřízených složkách.
+- Modul pro simulaci cloudu v pracovním postupu ověření balíčku OEM a pracovní postup aktualizace služby Azure Stack (verze 5.1.30.0-> 5.1.46.0) vyžaduje, aby byly testy naplánovány v následujícím pořadí – měsíčně Azure Stack test ověření aktualizace, balíček rozšíření OEM Ověřovací test a nakonec modul simulace cloudu.
+- Aktualizace agenta VaaS: aktualizovaný agent VaaS teď Azure Stack používá přihlašovací údaje správce cloudu k dotazování razítka k získání informací o razítku k automatickému naplnění pracovních postupů. 
+
+    Tato aktualizace vyžaduje, aby všichni agenti aktualizovali a restartovali. Podívejte se prosím na tyto pokyny, jak aktualizovat agenta VaaS: https://docs.microsoft.com/en-us/azure-stack/partner/azure-stack-vaas-local-agent
+- Aktualizace uživatelského rozhraní portálu VaaS: tabulka výběru agenta se přesunula nad podokno testovací plánování, aby se usnadnilo testování.
+
+    Při plánování úlohy už není potřeba zadávat informace o razítkě, pokud byly agenti VaaS správně aktualizované.
+
 
 ## <a name="version-405"></a>4\.0.5 verze
 

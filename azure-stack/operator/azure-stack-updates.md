@@ -15,12 +15,12 @@ ms.date: 10/01/2019
 ms.author: mabrigg
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 0a784a80931113b7901a021a7c2ff707ce7df355
-ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
+ms.openlocfilehash: 31436cbe92550044efe8b28a5063da61508e7304
+ms.sourcegitcommit: ed44d477b9fd11573d1e0d1ed3a3c0ef4512df53
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72283261"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73845783"
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Přehled správy aktualizací v Azure Stack
 
@@ -81,7 +81,7 @@ Jakmile víte, že máte aktualizaci, použijte ji pomocí následujících krok
 
 1. **Naplánujte aktualizaci**.
 
-    Připravte Azure Stack, aby se proces aktualizace co nejrychleji napravil, takže bude mít na uživatele minimální dopad. Informujte uživatele o případném výpadku služeb a pak postupujte podle pokynů pro přípravu instance pro aktualizaci. Další kroky k naplánování aktualizace najdete v tématu [Naplánování aktualizace Azure Stack](azure-stack-update-plan.md).
+    Připravte Azure Stack, aby se proces aktualizace co nejrychleji napravil, takže bude mít na uživatele minimální dopad. Informujte uživatele o případném výpadku služeb a pak postupujte podle pokynů pro přípravu instance pro aktualizaci. Další kroky k naplánování aktualizace najdete v tématu [Azure Stack aktualizace kontrolního seznamu aktivit](release-notes-checklist.md).
 
 2. **Nahrání a příprava balíčku aktualizace**.
 
@@ -103,6 +103,6 @@ Při instalaci aktualizací můžete zobrazit stav vysoké úrovně, protože pr
 
 ## <a name="next-steps"></a>Další kroky
 
-- Chcete-li zahájit proces aktualizace, postupujte podle kroků v tématu [Naplánování aktualizace Azure Stack](azure-stack-update-plan.md).
+- Chcete-li zahájit proces aktualizace, postupujte podle kroků v tématu [Azure Stack aktualizace kontrolního seznamu aktivit](release-notes-checklist.md).
 - Informace o tom, jaké verze Azure Stack jsou podporovány, najdete v tématu [zásady služby Azure Stack Servicing](azure-stack-servicing-policy.md).  
 - Další informace o aktuálních a nejnovějších aktualizacích najdete v [poznámkách k verzi Azure Stack](release-notes.md).

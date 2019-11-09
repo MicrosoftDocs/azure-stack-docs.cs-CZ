@@ -9,12 +9,12 @@ ms.date: 10/03/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 91a90146f1f62ebea980a785d8a8e347f04fe137
-ms.sourcegitcommit: 58e1911a54ba249a82fa048c7798dadedb95462b
+ms.openlocfilehash: 9eb4780a80e5cedd595950813d5cb5029e1b1857
+ms.sourcegitcommit: ed44d477b9fd11573d1e0d1ed3a3c0ef4512df53
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73064710"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73845844"
 ---
 # <a name="vnet-peering-in-azure-stack-with-vms"></a>VNET Peering v Azure Stack s virtuálními počítači
 
@@ -24,7 +24,7 @@ Dva Azure Stack virtuální sítě můžete vzájemně propojit v rámci stejné
 
 Tento vzor nasazení je základem, který umožní vytvořit tunely sítě VPN nejen v rámci Azure Stack instance, ale také mezi Azure Stack instancemi a dalšími prostředky, jako jsou místní sítě s použitím tunelových propojení VPN S2S sítě Windows RRAS. 
 
-Šablony najdete v **lucidqdreams** rozvětvení úložiště GitHub ve [vzorcích Azure Intelligent Edge](https://github.com/lucidqdreams/azure-intelligent-edge-patterns
+Šablony najdete v úložišti [GitHub ve vzorcích Azure Intelligent Edge](https://github.com/Azure-Samples/azure-intelligent-edge-patterns
 ) . Šablona se nachází ve složce **S2SVPNTunnel** .
 
 ![alternativní text](./media/azure-stack-network-howto-vnet-peering/overview.png)
