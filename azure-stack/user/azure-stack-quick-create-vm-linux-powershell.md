@@ -11,18 +11,18 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 07/23/2019
+ms.date: 11/11/2019
 ms.author: mabrigg
 ms.custom: mvc
-ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 7cb5d7b90359b73292d9e8209d4237e9d8914302
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.lastreviewed: 11/11/2019
+ms.openlocfilehash: 9d1c9f963433e0a41218bb1984d07f0b47d032eb
+ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68418528"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73955708"
 ---
-# <a name="quickstart-create-a-linux-server-vm-by-using-powershell-in-azure-stack"></a>Rychlý start: Vytvoření virtuálního počítače s Linux serverem pomocí prostředí PowerShell v Azure Stack
+# <a name="quickstart-create-a-linux-server-vm-by-using-powershell-in-azure-stack"></a>Rychlý Start: Vytvoření virtuálního počítače s Linux serverem pomocí prostředí PowerShell v Azure Stack
 
 *Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
 
@@ -32,7 +32,7 @@ Virtuální počítač s Ubuntu serverem 16,04 LTS můžete vytvořit pomocí Az
 * Nainstalujte webový server NGINX a zobrazte výchozí domovskou stránku.
 * Vyčistit nepoužívané prostředky.
 
-## <a name="prerequisites"></a>Požadavky
+## <a name="prerequisites"></a>Předpoklady
 
 * Image Linux na webu Azure Stack Marketplace. Web Azure Stack Marketplace ve výchozím nastavení nemá image Linux. Použijte operátor Azure Stack, který obsahuje bitovou kopii Ubuntu serveru 16,04 LTS, kterou potřebujete. Operátor může použít pokyny v tématu [stažení položek Marketplace z Azure do Azure Stack](../operator/azure-stack-download-azure-marketplace-item.md).
 
@@ -203,7 +203,7 @@ New-AzureRmVM `
   -VM $VirtualMachine
 ```
 
-## <a name="vm-quick-create-full-script"></a>Rychlé vytvoření virtuálního počítače: Celý skript
+## <a name="vm-quick-create-full-script"></a>Rychlé vytvoření virtuálního počítače: úplný skript
 
 > [!NOTE]
 > Tento krok je v podstatě předchozí sloučený kód, ale s heslem namísto klíče SSH pro ověřování.
@@ -404,7 +404,7 @@ apt-get -y install nginx
 
 ## <a name="view-the-nginx-welcome-page"></a>Zobrazení úvodní stránky serveru NGINX
 
-S nainstalovaným webovým serverem NGINX a na vašem VIRTUÁLNÍm počítači se otevře port 80. k webovému serveru se můžete dostat pomocí veřejné IP adresy virtuálního počítače. Otevřete webový prohlížeč a pokračujte na ```http://<public IP address>```.
+S nainstalovaným webovým serverem NGINX a na vašem VIRTUÁLNÍm počítači se otevře port 80. k webovému serveru se můžete dostat pomocí veřejné IP adresy virtuálního počítače. Otevřete webový prohlížeč a přejdete na ```http://<public IP address>```.
 
 ![Úvodní stránka webového serveru NGINX](./media/azure-stack-quick-create-vm-linux-cli/nginx.png)
 

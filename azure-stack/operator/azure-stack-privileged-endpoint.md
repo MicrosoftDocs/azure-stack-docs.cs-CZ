@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2019
+ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: fiseraci
-ms.lastreviewed: 09/18/2019
-ms.openlocfilehash: 3730da9d185f1c38411453a6bef965ab5df7d3ae
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.lastreviewed: 11/11/2019
+ms.openlocfilehash: 52f61321980503667119c5cc45863e51fa0639ac
+ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829373"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73955262"
 ---
 # <a name="use-the-privileged-endpoint-in-azure-stack"></a>Použití privilegovaného koncového bodu v Azure Stack
 
@@ -82,13 +82,13 @@ Než zahájíte tento postup pro integrovaný systém, ujistěte se, že máte p
      ``` 
      Po zobrazení výzvy použijte následující přihlašovací údaje:
 
-     - **Uživatelské jméno**: Zadejte účet CloudAdmin ve formátu  **&lt; *Azure Stack doméně*&gt;\cloudadmin**. (Pro ASDK se uživatelské jméno **azurestack\cloudadmin**.)
-     - **Heslo**: Zadejte stejné heslo, které bylo zadáno během instalace pro účet správce domény AzureStackAdmin.
+     - **Uživatelské jméno**: zadejte účet CloudAdmin ve formátu **&lt;*Azure Stack doméně*&gt;\cloudadmin**. (Pro ASDK se uživatelské jméno **azurestack\cloudadmin**.)
+     - **Heslo**: zadejte stejné heslo, které bylo zadáno během instalace pro účet správce domény AzureStackAdmin.
 
      > [!NOTE]
      > Pokud se nemůžete připojit ke koncovému bodu ERCS, opakujte kroky jedna a dvě s jinou IP adresou virtuálního počítače ERCS.
 
-3. Po připojení se výzva změní na **[*IP adresa nebo název virtuálního počítače ERCS*]: PS >** nebo do  **[AZS-ercs01]: PS >** v závislosti na prostředí. Z tohoto místa spusťte `Get-Command` příkaz pro zobrazení seznamu dostupných rutin.
+3. Po připojení se výzva změní na **[*IP adresa nebo název virtuálního počítače ERCS*]: PS >** nebo na **[AZS-ercs01]: PS >** , v závislosti na prostředí. Z tohoto místa spusťte `Get-Command` pro zobrazení seznamu dostupných rutin.
 
    Mnohé z těchto rutin jsou určené jenom pro integrovaná systémová prostředí (například rutiny související s integrací Datacenter). V ASDK byly ověřeny následující rutiny:
 
@@ -107,8 +107,8 @@ Než zahájíte tento postup pro integrovaný systém, ujistěte se, že máte p
    - Remove-CloudAdminUser
    - Select-Object
    - Set-CloudAdminUserPassword
-   - Test-AzureStack
-   - Stop-AzureStack
+   - Test – AzureStack
+   - Stop – AzureStack
    - Get-ClusterLog
 
 ## <a name="tips-for-using-the-privileged-endpoint"></a>Tipy pro použití privilegovaného koncového bodu 
@@ -154,8 +154,8 @@ Pokud chcete importovat relaci PEP na místním počítači, proveďte následuj
      ``` 
      Po zobrazení výzvy použijte následující přihlašovací údaje:
 
-     - **Uživatelské jméno**: Zadejte účet CloudAdmin ve formátu  **&lt; *Azure Stack doméně*&gt;\cloudadmin**. (Pro ASDK se uživatelské jméno **azurestack\cloudadmin**.)
-     - **Heslo**: Zadejte stejné heslo, které bylo zadáno během instalace pro účet správce domény AzureStackAdmin.
+     - **Uživatelské jméno**: zadejte účet CloudAdmin ve formátu **&lt;*Azure Stack doméně*&gt;\cloudadmin**. (Pro ASDK se uživatelské jméno **azurestack\cloudadmin**.)
+     - **Heslo**: zadejte stejné heslo, které bylo zadáno během instalace pro účet správce domény AzureStackAdmin.
 
 3. Import relace PEP do místního počítače
      ```powershell 
@@ -166,7 +166,7 @@ Pokud chcete importovat relaci PEP na místním počítači, proveďte následuj
 
 ## <a name="close-the-privileged-endpoint-session"></a>Zavřít privilegovanou relaci koncového bodu
 
- Jak bylo zmíněno dříve, PEP protokoluje každou akci (a odpovídající výstup), kterou provedete v relaci PowerShellu. Relaci musíte uzavřít pomocí `Close-PrivilegedEndpoint` rutiny. Tato rutina správně ukončí koncový bod a přenáší soubory protokolu do externí sdílené složky pro uchování.
+ Jak bylo zmíněno dříve, PEP protokoluje každou akci (a odpovídající výstup), kterou provedete v relaci PowerShellu. Relaci je nutné zavřít pomocí rutiny `Close-PrivilegedEndpoint`. Tato rutina správně ukončí koncový bod a přenáší soubory protokolu do externí sdílené složky pro uchování.
 
 Ukončení relace koncového bodu:
 
@@ -177,16 +177,16 @@ Ukončení relace koncového bodu:
      ```
    Rutina používá parametry v následující tabulce:
 
-   | Parametr | Popis | type | Požadováno |
+   | Parametr | Popis | Typ | Požaduje se |
    |---------|---------|---------|---------|
    | *TranscriptsPathDestination* | Cesta k externímu sdílení souborů definovaná jako "fileshareIP\sharefoldername" | Řetězec | Ano|
-   | *Přihlašovací údaje* | přihlašovací údaje pro přístup ke sdílené složce souborů | SecureString |   Ano |
+   | *Pověřovací* | Přihlašovací údaje pro přístup ke sdílené složce souborů | SecureString |   Ano |
 
 
 Po úspěšném přenosu souborů protokolu přepisu do sdílené složky se automaticky odstraní z PEP. 
 
 > [!NOTE]
-> Pokud zavřete relaci PEP pomocí rutin `Exit-PSSession` nebo `Exit`nebo pouze zavřete konzolu PowerShellu, protokoly přepisu se nepřenášejí do sdílené složky. Zůstávají v PEP. Při příštím spuštění `Close-PrivilegedEndpoint` a zahrnutí sdílené složky se také přenesou protokoly přepisu z předchozích relací. Nepoužívejte `Exit-PSSession` nebo `Exit` k uzavření relace PEP; místo toho použijte `Close-PrivilegedEndpoint`.
+> Pokud zavřete relaci PEP pomocí rutin `Exit-PSSession` nebo `Exit`, nebo jenom zavřete konzolu PowerShellu, protokoly přepisu se nepřenášejí do sdílené složky. Zůstávají v PEP. Při příštím spuštění `Close-PrivilegedEndpoint` a zahrnutí sdílené složky se také přenesou protokoly přepisu z předchozích relací. Nepoužívejte `Exit-PSSession` ani `Exit` k uzavření relace PEP; místo toho použijte `Close-PrivilegedEndpoint`.
 
 
 ## <a name="next-steps"></a>Další kroky

@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2019
+ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 03/11/2019
+ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0bd490b5eaf91540d7789c8eb7a7a2d34eb1ae4d
-ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
+ms.openlocfilehash: dee0be0817c8b614c9961d39330b64f4bd11f85f
+ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73595364"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73955865"
 ---
 # <a name="what-is-validation-as-a-service-for-azure-stack-hub"></a>Co je ověřování jako služba pro centrum Azure Stack?
 
@@ -49,7 +49,7 @@ Další informace najdete v tématu [ověření aktualizací softwaru od Microso
 
 ## <a name="get-digitally-signed-solution-partner-packages"></a>Získat digitálně podepsané balíčky partnerů řešení
 
-Kromě ověřování Azure Stackch aktualizací centra partneři pomocí pracovního postupu **ověření balíčku** ověří aktualizace balíčků pro přizpůsobení výrobců OEM, které zahrnují ovladače, firmware a další software pro Azure Stack centrálního partnera, který se používá během nasazení softwaru Azure Stack hub. Nasaďte balíček, který ověřujete v aktuální verzi softwaru Azure Stack hub, pomocí aspoň řešení s minimální velikostí, které se bude podporovat. Balíček se před provedením testů odešle do VaaS. Pokud jsou testy úspěšné, upozorněte [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com) , že balíček dokončil testování a měl by být digitálně podepsaný pomocí digitálního podpisu centra Azure Stack. Microsoft podepíše balíček a oznámí partnerovi centra Azure Stack, že balíček je k dispozici ke stažení na portálu VaaS.
+Kromě ověřování Azure Stackch aktualizací centra partneři pomocí pracovního postupu **ověření balíčku** ověří aktualizace balíčků pro přizpůsobení OEM, které zahrnují ovladače, firmware a další software, které se používají při nasazení Azure Stackho softwaru centra pro Azure Stack. Nasaďte balíček, který ověřujete v aktuální verzi softwaru Azure Stack hub, pomocí aspoň řešení s minimální velikostí, které se bude podporovat. Balíček se před provedením testů odešle do VaaS. Pokud jsou testy úspěšné, upozorněte [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com) , že balíček dokončil testování a měl by být digitálně podepsaný pomocí digitálního podpisu centra Azure Stack. Microsoft podepíše balíček a oznámí partnerovi centra Azure Stack, že balíček je k dispozici ke stažení na portálu VaaS.
 
 Další informace najdete v tématu [ověření balíčků OEM](azure-stack-vaas-validate-oem-package.md).
 

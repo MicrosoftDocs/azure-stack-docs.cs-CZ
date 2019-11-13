@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: bf377234b71683e6c56bef030cd5de5b4a06a743
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.lastreviewed: 11/11/2019
+ms.openlocfilehash: 8843b6791876b4e0362d7aee3aa738453a8c3b88
+ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68418381"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73955929"
 ---
 # <a name="scheduling-a-test"></a>Plánování testu
 
@@ -31,13 +31,13 @@ Chcete-li zkontrolovat řešení, vytvořte pracovní postup pro test. Pracovní
 
 I když lze pracovní postup testovacího průchodu použít ke spuštění libovolného testu, který poskytuje VaaS, včetně testů z pracovních postupů ověření, nejsou výsledky z pracovního postupu test Pass považovány za *oficiální*. Informace o oficiálních ověřovacích pracovních postupech najdete v tématu [pracovní postupy](azure-stack-vaas-key-concepts.md#workflows).
 
-## <a name="prerequisites"></a>Požadavky
+## <a name="prerequisites"></a>Předpoklady
 
 Než budete postupovat podle tohoto rychlého startu, měli byste dokončit následující položky:
 
 - [Nastavení ověřování jako prostředků služby](azure-stack-vaas-set-up-resources.md)
-- [Nasazení místního agenta](azure-stack-vaas-local-agent.md) Požadovanou
-- [Koncepce ověřování jako klíč služby](azure-stack-vaas-key-concepts.md) Požadovanou
+- [Nasadit místního agenta](azure-stack-vaas-local-agent.md) (povinné)
+- [Ověření jako klíčové koncepty služby](azure-stack-vaas-key-concepts.md) (povinné)
 
 ## <a name="start-a-workflow"></a>Spustit pracovní postup
 
@@ -85,6 +85,6 @@ Dokončit vytvoření pracovního postupu
 
 1. [!INCLUDE [azure-stack-vaas-workflow-step_submit](includes/azure-stack-vaas-workflow-step_submit.md)]
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 - [Monitorování a Správa testů na portálu VaaS](azure-stack-vaas-monitor-test.md)

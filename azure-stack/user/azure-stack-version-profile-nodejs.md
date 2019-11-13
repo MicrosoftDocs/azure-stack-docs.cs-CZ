@@ -10,16 +10,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/30/2019
+ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 07/30/2019
-ms.openlocfilehash: 65ea0b4f6f7f7cb3769e83bf9052ac2953668e48
-ms.sourcegitcommit: 20d1c0ab3892e9c4c71d5b039457f1e15b1c84c7
+ms.lastreviewed: 11/11/2019
+ms.openlocfilehash: 8fa2b3524b7d61f27ae30f22133047e8223f2ce3
+ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73618226"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73955218"
 ---
 # <a name="use-api-version-profiles-with-nodejs-software-development-kit-sdk-in-azure-stack"></a>Použití profilů verzí rozhraní API se sadou Node. js Software Development Kit (SDK) v Azure Stack
 
@@ -39,7 +39,7 @@ Profil rozhraní API je kombinací poskytovatelů prostředků a verzí rozhran�
 
   -   Chcete-li používat nejnovější verze všech služeb, použijte **nejnovější** profil balíčků.
 
-  -   Pokud chcete používat služby kompatibilní s Azure Stack, použijte **\@azure/ARM-Resources-Profile-Hybrid-2019-03-01** nebo **\@azure/ARM-Storage-profil-2019-03 -01-Hybrid**
+  -   Pokud chcete používat služby kompatibilní s Azure Stack, použijte **\@Azure/ARM-Resources-Profiles-Hybrid-2019-03-01** nebo **\@Azure/ARM-Storage-Profile-2019-03 -01-Hybrid**
 
 ### <a name="packages-in-npm"></a>Balíčky v npm
 
@@ -60,7 +60,7 @@ Můžete najít tyto balíčky:
 | [Materiály](https://www.npmjs.com/package/@azure/arm-resources-profile-hybrid-2019-03-01) | @azure/arm-resources-profile-hybrid-2019-03-01 |
  | [Keyvault](https://www.npmjs.com/package/@azure/arm-keyvault-profile-2019-03-01-hybrid) | @azure/arm-keyvault-profile-2019-03-01-hybrid |
 
-Chcete-li použít nejnovější verzi služby API-Version, použijte **nejnovější** profil konkrétní klientské knihovny. Pokud například chcete použít nejnovější verzi služby Resources-API, použijte profil `azure-arm-resource` v **klientské knihovně správy prostředků.** balíček.
+Chcete-li použít nejnovější verzi služby API-Version, použijte **nejnovější** profil konkrétní klientské knihovny. Pokud například chcete použít nejnovější verzi služby Resources rozhraní API, použijte profil `azure-arm-resource` **klientské knihovny pro správu prostředků.** balíček.
 
 Použijte konkrétní verze rozhraní API definované v balíčku pro konkrétní verze rozhraní API pro poskytovatele prostředků.
 
@@ -122,7 +122,7 @@ Microsoft Azure Správce prostředků je rozhraní pro správu, které správců
 Informace o metadatech můžete získat z Správce prostředkůho koncového bodu. Koncový bod vrátí soubor JSON s informacemi potřebnými ke spuštění vašeho kódu.
 
 > [!Note]  
-> **ResourceManagerUrl** v Azure Stack Development Kit (ASDK) je: `https://management.local.azurestack.external` **ResourceManagerUrl** v integrovaných systémech je: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com`, který načte požadovaná metadata: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
+> **ResourceManagerUrl** v Azure Stack Development Kit (ASDK) je: `https://management.local.azurestack.external` **ResourceManagerUrl** v integrovaných systémech je: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com` načíst požadovaná metadata: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
 
 Ukázkový soubor JSON:
 
@@ -147,11 +147,11 @@ Ukázkový soubor JSON:
 
 ### <a name="existing-api-profiles"></a>Existující profily rozhraní API
 
--  **\@azure/ARM-resourceprovider-Profile-2019-03 -01 – Hybrid**
+-  **\@Azure/ARM – resourceprovider-Profile-2019-03 -01 – Hybrid**
 
     Nejnovější profil sestavený pro Azure Stack. Tento profil používejte pro služby, aby byl co nejvíc kompatibilní s Azure Stack, pokud jste na razítku 1808 nebo dál.
 
--  **\@azure-ARM-Resource**
+-  **\@Azure-ARM-Resource**
 
     Profil se skládá z nejnovějších verzí všech služeb. Použijte nejnovější verze všech služeb v Azure.
 
@@ -159,7 +159,7 @@ Další informace o Azure Stack a profilech rozhraní API najdete v tématu [Př
 
 ### <a name="azure-nodejs-sdk-api-profile-usage"></a>Použití profilu rozhraní API pro Node. js sady SDK pro Azure
 
-K vytvoření instance klienta profilu by se měly použít následující řádky. Tento parametr je vyžadován pouze pro Azure Stack nebo jiné privátní cloudy. Globální Azure už má tato nastavení ve výchozím nastavení s @azure-arm-resource nebo @azure-arm-storage.
+K vytvoření instance klienta profilu by se měly použít následující řádky. Tento parametr je vyžadován pouze pro Azure Stack nebo jiné privátní cloudy. Globální Azure už ve výchozím nastavení má @azure-arm-resource nebo @azure-arm-storage.
 
 ```Node.js  
 var ResourceManagementClient = require('@azure/arm-resources-profile-hybrid-2019-03-01').ResourceManagementClient;

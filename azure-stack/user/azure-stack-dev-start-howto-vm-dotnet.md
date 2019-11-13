@@ -5,16 +5,16 @@ services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: overview
-ms.date: 08/09/2019
+ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 08/09/2019
-ms.openlocfilehash: cd7ca2e1a198cb66c5d7627029215b55af0de975
-ms.sourcegitcommit: ae79b8bea670ea854ed00e9998d45f6b47fc8347
+ms.lastreviewed: 11/11/2019
+ms.openlocfilehash: 2b2d1bccbe41e57b81492e0ba0b201fe03df2d7d
+ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71142577"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73955775"
 ---
 # <a name="deploy-a-c-aspnet-web-app-to-a-vm-in-azure-stack"></a>Nasazení webové C# aplikace v ASP.NET do virtuálního počítače v Azure Stack
 
@@ -55,12 +55,12 @@ V tomto článku se C# používá aplikace 6,0, která používá ASP.NET Core 2
 
     e. Přidejte příchozí pravidlo zabezpečení pro následující porty:
 
-    | Port | Protocol | Popis |
+    | Port | Protocol (Protokol) | Popis |
     | --- | --- | --- |
     | 80 | HTTP | HTTP (Hypertext Transfer Protocol) je protokol používaný k doručování webových stránek ze serverů. Klienti se připojují přes protokol HTTP s názvem DNS nebo IP adresou. |
     | 443 | HTTPS | Protokol HTTPS (Hypertext Transfer Protocol Secure) je zabezpečená verze protokolu HTTP, která vyžaduje certifikát zabezpečení a umožňuje šifrovaný přenos informací.  |
     | 22 | SSH | Secure Shell (SSH) je zašifrovaný síťový protokol pro zabezpečenou komunikaci. K nakonfigurování virtuálního počítače a nasazení aplikace použijete toto připojení k klientovi SSH. |
-    | 3389 | PROTOKOL RDP | Volitelný parametr. Protokol RDP (Remote Desktop Protocol) umožňuje připojení ke vzdálené ploše pro použití grafického uživatelského rozhraní vašeho počítače.   |
+    | 3389 | Protokol RDP | Volitelné. Protokol RDP (Remote Desktop Protocol) umožňuje připojení ke vzdálené ploše pro použití grafického uživatelského rozhraní vašeho počítače.   |
     | 8172 | Vlastní | Port používaný nástrojem WebDeploy. |
 
     Pro každý port:
@@ -97,10 +97,10 @@ V tomto článku se C# používá aplikace 6,0, která používá ASP.NET Core 2
 
     f. Zadejte popisek názvu DNS, například **MyWebApp**, aby se vaše úplná adresa URL stala *MyWebApp. Local. cloudapp. azurestack. external*.
 
-## <a name="create-an-app"></a>Vytvoření nové aplikace 
+## <a name="create-an-app"></a>Vytvoření aplikace 
 
-V [aplikaci Visual Studio](https://docs.microsoft.com/aspnet/core/tutorials/razor-pages/razor-pages-start?view=aspnetcore-2.2&tabs=visual-studio
-)můžete použít vlastní webovou aplikaci nebo příklad publikování aplikace ASP.NET Core do Azure. Tento článek popisuje, jak vytvořit a publikovat webovou aplikaci v ASP.NET na virtuálním počítači Azure pomocí funkce publikování v Azure Virtual Machines v aplikaci Visual Studio 2017. Po instalaci a zajistěte, aby vaše aplikace běžela místně, aktualizujte svůj cíl publikování na virtuální počítač s Windows ve vaší instanci Azure Stack.
+V aplikaci Visual Studio můžete použít vlastní webovou aplikaci nebo příklad [publikování aplikace ASP.NET Core do Azure](https://docs.microsoft.com/aspnet/core/tutorials/razor-pages/razor-pages-start?view=aspnetcore-2.2&tabs=visual-studio
+). Tento článek popisuje, jak vytvořit a publikovat webovou aplikaci v ASP.NET na virtuálním počítači Azure pomocí funkce publikování v Azure Virtual Machines v aplikaci Visual Studio 2017. Po instalaci a zajistěte, aby vaše aplikace běžela místně, aktualizujte svůj cíl publikování na virtuální počítač s Windows ve vaší instanci Azure Stack.
 
 ## <a name="deploy-and-run-the-app"></a>Nasazení a spuštění aplikace
 
@@ -126,7 +126,7 @@ Vytvořte cíl publikování na svém VIRTUÁLNÍm počítači v Azure Stack.
 1. Nastavte **konfiguraci** jako **verzi**.
 1. Nastavte **cílové rozhraní .NET Framework** jako **netcoreapp 2.2**.
 1. Nastavte **cílový modul runtime** jako **přenosný**.
-1. Vyberte **Uložit**.
+1. Vyberte **Save** (Uložit).
 1. Vyberte **Publikovat**.
 1. Přejít na nový server. Měla by se zobrazit vaše spuštěná webová aplikace.
 

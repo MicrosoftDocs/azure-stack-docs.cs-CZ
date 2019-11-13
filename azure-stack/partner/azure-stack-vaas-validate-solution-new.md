@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 07/23/2019
+ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 03/11/2019
+ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: fe744fc95c79cb7482e1baa213471335ebb6e1fd
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: a29b003dca06ed1b886229f031e90c50fbc8dccb
+ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68418309"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73955791"
 ---
 # <a name="validate-a-new-azure-stack-solution"></a>Ověřit nové řešení Azure Stack
 
@@ -28,7 +28,7 @@ ms.locfileid: "68418309"
 
 Naučte se používat pracovní postup **ověření řešení** k certifikaci nových Azure Stack řešení.
 
-Azure Stack řešení je hardwarový soupis materiálu (BoM), který se společně dohodl mezi společností Microsoft a partnerem po splnění požadavků certifikace loga Windows serveru. Řešení musí být znovu certifikováno, pokud došlo ke změně hardwarového kusovníku. Pokud chcete získat další otázky týkající se recertifikace řešení, obraťte se na tým [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com)na adrese.
+Azure Stack řešení je hardwarový soupis materiálu (BoM), který se společně dohodl mezi společností Microsoft a partnerem po splnění požadavků certifikace loga Windows serveru. Řešení musí být znovu certifikováno, pokud došlo ke změně hardwarového kusovníku. Pokud chcete získat další otázky týkající se recertifikace řešení, obraťte se na tým na [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com).
 
 Chcete-li certifikovat vaše řešení, spusťte pracovní postup ověření řešení dvakrát. Spusťte ji jednou pro *minimální* podporovanou konfiguraci. Spusťte ji podruhé pro *maximální* podporovanou konfiguraci. Společnost Microsoft toto řešení osvědčí, pokud obě konfigurace projde všemi testy.
 
@@ -87,6 +87,6 @@ Po úspěšném dokončení testu se akce **plánu** zakáže.
 
 ![Naplánovat test ověřování řešení](media/workflow_validation-solution_schedule-test.png)
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 - [Monitorování a Správa testů na portálu VaaS](azure-stack-vaas-monitor-test.md)

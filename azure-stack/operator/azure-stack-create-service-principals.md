@@ -1,28 +1,22 @@
 ---
-title: Použití identity aplikace pro přístup k prostředkům | Microsoft Docs
-description: Naučte se spravovat instanční objekt, který se dá použít s řízením přístupu na základě rolí pro přihlašování a přístup k prostředkům.
-services: azure-stack
-documentationcenter: na
+title: Použití identity aplikace pro přístup k prostředkům
+description: Naučte se spravovat instanční objekt služby Azure Stack hub. Instanční objekt se dá použít s řízením přístupu na základě role pro přihlášení a přístup k prostředkům.
 author: BryanLa
-manager: femila
-ms.service: azure-stack
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/06/2019
 ms.author: bryanla
-ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: 7110febfa58fb1d31cde5f0ae1b4df659f567956
-ms.sourcegitcommit: 8203490cf3ab8a8e6d39b137c8c31e3baec52298
+ms.service: azure-stack
+ms.topic: how-to
+ms.date: 11/11/2019
+ms.lastreviewed: 11/11/2019
+ms.openlocfilehash: ff36a5c280df7ecb68d0d181438489ce696ed4fc
+ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73712737"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73955389"
 ---
-# <a name="use-an-app-identity-to-access-resources"></a>Použití identity aplikace pro přístup k prostředkům
+# <a name="use-an-app-identity-to-access-azure-stack-hub-resources"></a>Použití identity aplikace pro přístup k prostředkům Azure Stack hub
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit (ASDK)*
+*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack hub Development Kit (ASDK)*
 
 Aplikace, která potřebuje nasadit nebo nakonfigurovat prostředky prostřednictvím Azure Resource Manager, musí být reprezentovaná instančním objektem. Stejně jako uživatel je reprezentován objektem zabezpečení uživatele, instanční objekt je typ objektu zabezpečení, který představuje aplikaci. Instanční objekt poskytuje identitu vaší aplikace, což vám umožní delegovat jenom potřebná oprávnění k danému instančnímu objektu.  
 
@@ -41,23 +35,23 @@ Spuštění aplikace pod identitou instančního objektu je vhodnější pro jeh
  - Instančnímu objektu můžete přiřadit **více omezující oprávnění** . Obvykle jsou tato oprávnění omezená jenom na to, co aplikace potřebuje, označované jako *Princip nejnižších oprávnění*.
  - Přihlašovací údaje instančního objektu **a oprávnění se nemění tak často** jako přihlašovací údaje uživatele. Například když se změní zodpovědnosti uživatele, požadavky na heslo dostanou změnu nebo uživatel odejde ze společnosti.
 
-Začnete vytvořením nové registrace aplikace ve vašem adresáři, která vytvoří přidružený [objekt instančního objektu](/azure/active-directory/develop/developer-glossary#service-principal-object) , který bude představovat identitu aplikace v adresáři. Tento dokument popisuje proces vytváření a správy instančního objektu v závislosti na adresáři, který jste zvolili pro vaši instanci Azure Stack:
+Začnete vytvořením nové registrace aplikace ve vašem adresáři, která vytvoří přidružený [objekt instančního objektu](/azure/active-directory/develop/developer-glossary#service-principal-object) , který bude představovat identitu aplikace v adresáři. Tento dokument popisuje proces vytváření a správy instančního objektu v závislosti na adresáři, který jste zvolili pro vaši instanci služby Azure Stack hub:
 
-- Azure Active Directory (Azure AD). Azure AD je víceklientské cloudové adresáře a služba pro správu identit. Službu Azure AD můžete použít s připojenou instancí Azure Stack.
-- Active Directory Federation Services (AD FS) (AD FS). AD FS poskytuje zjednodušenou, zabezpečenou federaci identit a možnosti jednotného přihlašování k webu (SSO). AD FS můžete použít s připojenými i odpojenými Azure Stack instancemi.
+- Azure Active Directory (Azure AD). Azure AD je víceklientské cloudové adresáře a služba pro správu identit. Azure AD můžete použít s připojenou instancí centra Azure Stack.
+- Active Directory Federation Services (AD FS) (AD FS). AD FS poskytuje zjednodušenou, zabezpečenou federaci identit a možnosti jednotného přihlašování k webu (SSO). AD FS můžete použít s připojenými i odpojenými Azure Stack instancemi hub.
 
 Nejprve se dozvíte, jak spravovat instanční objekt, a pak přiřazení instančního objektu k roli a omezení jeho přístupu k prostředkům.
 
 ## <a name="manage-an-azure-ad-service-principal"></a>Správa instančního objektu služby Azure AD
 
-Pokud jste nasadili Azure Stack se službou Azure AD jako služba pro správu identit, můžete objekty služby vytvářet stejně jako v případě Azure. V této části se dozvíte, jak provádět kroky prostřednictvím Azure Portal. Než začnete, ověřte, že máte [požadovaná oprávnění služby Azure AD](/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions) .
+Pokud jste nasadili Azure Stack centrum s Azure AD jako službu pro správu identit, můžete objekty služby vytvářet stejně jako v případě Azure. V této části se dozvíte, jak provádět kroky prostřednictvím Azure Portal. Než začnete, ověřte, že máte [požadovaná oprávnění služby Azure AD](/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions) .
 
 ### <a name="create-a-service-principal-that-uses-a-client-secret-credential"></a>Vytvoření instančního objektu, který používá pověření tajného klíče klienta
 
 V této části zaregistrujete aplikaci pomocí Azure Portal, která vytvoří objekt instančního objektu ve vašem tenantovi služby Azure AD. V tomto příkladu se instanční objekt vytvoří s přihlašovacími údaji klienta, ale portál podporuje také pověření x509 založené na certifikátu.
 
 1. Přihlaste se k [Azure Portal](https://portal.azure.com) pomocí svého účtu Azure.
-2. Vyberte **Azure Active Directory** > **Registrace aplikací** > **Nová registrace**.
+2. Vyberte **Azure Active Directory** > **Registrace aplikací** > **nové registrace**.
 3. Zadejte **název** aplikace.
 4. Vyberte příslušné **podporované typy účtů**.
 5. V části **identifikátor URI pro přesměrování**vyberte jako typ aplikace **Web** a (volitelně) zadejte identifikátor URI přesměrování, pokud to vaše aplikace vyžaduje.
@@ -72,9 +66,9 @@ V této části zaregistrujete aplikaci pomocí Azure Portal, která vytvoří o
 
 ## <a name="manage-an-ad-fs-service-principal"></a>Správa instančního objektu služby AD FS
 
-Pokud jste nasadili Azure Stack s AD FS jako službu pro správu identit, musíte ke správě instančního objektu použít PowerShell. Níže jsou uvedené příklady pro správu přihlašovacích údajů instančního objektu, demonstrující certifikát x509 a tajný klíč klienta.
+Pokud jste nasadili Azure Stack centrum s AD FS jako službu pro správu identit, musíte ke správě instančního objektu použít PowerShell. Níže jsou uvedené příklady pro správu přihlašovacích údajů instančního objektu, demonstrující certifikát x509 a tajný klíč klienta.
 
-Skripty musí být spuštěné v konzole PowerShellu se zvýšenými oprávněními ("spustit jako správce"), která otevře další relaci k virtuálnímu počítači, který je hostitelem privilegovaného koncového bodu pro vaši instanci Azure Stack. Jakmile je vytvořená relace privilegovaného koncového bodu, spustí další rutiny a bude spravovat instanční objekt. Další informace o privilegovaném koncovém bodu najdete v tématu [použití privilegovaného koncového bodu v Azure Stack](azure-stack-privileged-endpoint.md).
+Skripty musí být spuštěné v konzole PowerShellu se zvýšenými oprávněními ("spustit jako správce"), která otevře další relaci k virtuálnímu počítači, který je hostitelem privilegovaného koncového bodu pro vaši instanci centra Azure Stack. Jakmile je vytvořená relace privilegovaného koncového bodu, spustí další rutiny a bude spravovat instanční objekt. Další informace o privilegovaném koncovém bodu najdete v tématu [použití privilegovaného koncového bodu v centru Azure Stack](azure-stack-privileged-endpoint.md).
 
 ### <a name="create-a-service-principal-that-uses-a-certificate-credential"></a>Vytvoření instančního objektu, který používá pověření certifikátu
 
@@ -83,13 +77,13 @@ Při vytváření certifikátu pro přihlašovací údaje instančního objektu 
  - V případě produkčního prostředí se certifikát musí vystavit buď z interní certifikační autority, nebo z veřejné certifikační autority. Pokud používáte veřejnou certifikační autoritu, musíte jako součást programu Microsoft Trusted root Authority zahrnout autoritu v základní imagi operačního systému. Úplný seznam můžete najít v [programu Microsoft Trusted Root Certificate Program: účastníci](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca). Příklad vytvoření testovacího certifikátu podepsaného svým držitelem se také zobrazí později během [aktualizace přihlašovacích údajů certifikátu instančního objektu](#update-a-service-principals-certificate-credential). 
  - Zprostředkovatel kryptografických služeb musí být zadaný jako zprostředkovatel klíče zprostředkovatele kryptografických služeb (CSP) pro starší verze společnosti Microsoft.
  - Formát certifikátu musí být v souboru PFX, protože jsou vyžadovány veřejné i privátní klíče. Servery Windows používají soubory. pfx, které obsahují soubor veřejného klíče (soubor certifikátu SSL) a přidružený soubor privátního klíče.
- - Vaše infrastruktura Azure Stack musí mít síťový přístup k umístění seznamu odvolaných certifikátů (CRL) certifikační autority publikovaného v certifikátu. Tento seznam odvolaných certifikátů musí být koncovým bodem HTTP.
+ - Vaše infrastruktura centra Azure Stack musí mít síťový přístup k umístění seznamu odvolaných certifikátů (CRL) certifikační autority publikovaného v certifikátu. Tento seznam odvolaných certifikátů musí být koncovým bodem HTTP.
 
 Po použití certifikátu použijte níže uvedený skript PowerShellu k registraci aplikace a Vytvoření instančního objektu. Instanční objekt se používá také k přihlášení do Azure. Následující zástupné symboly nahraďte vlastními hodnotami:
 
 | Zástupný symbol | Popis | Příklad: |
 | ----------- | ----------- | ------- |
-| \<PepVM\> | Název virtuálního počítače privilegovaného koncového bodu na instanci Azure Stack. | "AzS-ERCS01" |
+| \<PepVM\> | Název virtuálního počítače privilegovaného koncového bodu na instanci centra Azure Stack. | "AzS-ERCS01" |
 | \<YourCertificateLocation\> | Umístění certifikátu x509 v místním úložišti certifikátů. | "CERT: \ CurrentUser\My\AB5A8A3533CC7AA2025BF05120117E06DE407B34" |
 | \<soubor YourAppName\> | Popisný název nové registrace aplikace | "Nástroj pro správu" |
 
@@ -112,7 +106,7 @@ Po použití certifikátu použijte níže uvedený skript PowerShellu k registr
     $AzureStackInfo = Invoke-Command -Session $Session -ScriptBlock {Get-AzureStackStampInformation}
     $Session | Remove-PSSession
 
-    # Using the stamp info for your Azure Stack instance, populate the following variables:
+    # Using the stamp info for your Azure Stack Hub instance, populate the following variables:
     # - AzureRM endpoint used for Azure Resource Manager operations 
     # - Audience for acquiring an OAuth token used to access Graph API 
     # - GUID of the directory tenant
@@ -120,7 +114,7 @@ Po použití certifikátu použijte níže uvedený skript PowerShellu k registr
     $GraphAudience = "https://graph." + $AzureStackInfo.ExternalDomainFQDN + "/"
     $TenantID = $AzureStackInfo.AADTenantID
 
-    # Register and set an AzureRM environment that targets your Azure Stack instance
+    # Register and set an AzureRM environment that targets your Azure Stack Hub instance
     Add-AzureRMEnvironment -Name "AzureStackUser" -ArmEndpoint $ArmEndpoint
 
     # Sign in using the new service principal identity
@@ -160,7 +154,7 @@ Aktualizujte přihlašovací údaje certifikátu pomocí PowerShellu a nahraďte
 
 | Zástupný symbol | Popis | Příklad: |
 | ----------- | ----------- | ------- |
-| \<PepVM\> | Název virtuálního počítače privilegovaného koncového bodu na instanci Azure Stack. | "AzS-ERCS01" |
+| \<PepVM\> | Název virtuálního počítače privilegovaného koncového bodu na instanci centra Azure Stack. | "AzS-ERCS01" |
 | \<soubor YourAppName\> | Popisný název nové registrace aplikace | "Nástroj pro správu" |
 | \<YourCertificateLocation\> | Umístění certifikátu x509 v místním úložišti certifikátů. | "CERT: \ CurrentUser\My\AB5A8A3533CC7AA2025BF05120117E06DE407B34" |
 | \<AppIdentifier\> | Identifikátor přiřazený k registraci aplikace | "S-1-5-21-1512385356-3796245103-1243299919-1356" |
@@ -205,7 +199,7 @@ Teď vytvoříte jinou registraci aplikace, ale tentokrát určíte přihlašova
 
 | Zástupný symbol | Popis | Příklad: |
 | ----------- | ----------- | ------- |
-| \<PepVM\> | Název virtuálního počítače privilegovaného koncového bodu na instanci Azure Stack. | "AzS-ERCS01" |
+| \<PepVM\> | Název virtuálního počítače privilegovaného koncového bodu na instanci centra Azure Stack. | "AzS-ERCS01" |
 | \<soubor YourAppName\> | Popisný název nové registrace aplikace | "Nástroj pro správu" |
 
 1. Otevřete relaci Windows PowerShellu se zvýšenými oprávněními a spusťte následující rutiny:
@@ -222,7 +216,7 @@ Teď vytvoříte jinou registraci aplikace, ale tentokrát určíte přihlašova
      $AzureStackInfo = Invoke-Command -Session $Session -ScriptBlock {Get-AzureStackStampInformation}
      $Session | Remove-PSSession
 
-     # Using the stamp info for your Azure Stack instance, populate the following variables:
+     # Using the stamp info for your Azure Stack Hub instance, populate the following variables:
      # - AzureRM endpoint used for Azure Resource Manager operations 
      # - Audience for acquiring an OAuth token used to access Graph API 
      # - GUID of the directory tenant
@@ -230,7 +224,7 @@ Teď vytvoříte jinou registraci aplikace, ale tentokrát určíte přihlašova
      $GraphAudience = "https://graph." + $AzureStackInfo.ExternalDomainFQDN + "/"
      $TenantID = $AzureStackInfo.AADTenantID
 
-     # Register and set an AzureRM environment that targets your Azure Stack instance
+     # Register and set an AzureRM environment that targets your Azure Stack Hub instance
      Add-AzureRMEnvironment -Name "AzureStackUser" -ArmEndpoint $ArmEndpoint
 
      # Sign in using the new service principal identity
@@ -262,7 +256,7 @@ Aktualizujte pověření tajného klíče klienta pomocí prostředí PowerShell
 
 | Zástupný symbol | Popis | Příklad: |
 | ----------- | ----------- | ------- |
-| \<PepVM\> | Název virtuálního počítače privilegovaného koncového bodu na instanci Azure Stack. | "AzS-ERCS01" |
+| \<PepVM\> | Název virtuálního počítače privilegovaného koncového bodu na instanci centra Azure Stack. | "AzS-ERCS01" |
 | \<AppIdentifier\> | Identifikátor přiřazený k registraci aplikace | "S-1-5-21-1634563105-1224503876-2692824315-2623" |
 
 1. Pomocí relace Windows PowerShellu se zvýšenými oprávněními spusťte následující rutiny:
@@ -299,7 +293,7 @@ Následující zástupné symboly nahraďte vlastními hodnotami:
 
 | Zástupný symbol | Popis | Příklad: |
 | ----------- | ----------- | ------- |
-| \<PepVM\> | Název virtuálního počítače privilegovaného koncového bodu na instanci Azure Stack. | "AzS-ERCS01" |
+| \<PepVM\> | Název virtuálního počítače privilegovaného koncového bodu na instanci centra Azure Stack. | "AzS-ERCS01" |
 | \<AppIdentifier\> | Identifikátor přiřazený k registraci aplikace | "S-1-5-21-1634563105-1224503876-2692824315-2623" |
 
 ```powershell  
@@ -331,7 +325,7 @@ Přístup k prostředkům Azure uživatelům a aplikacím je autorizovaný prost
 
 Typ prostředku, který zvolíte, taky vytvoří *obor přístupu* pro instanční objekt. Rozsah přístupu můžete nastavit na úrovni předplatného, skupiny prostředků nebo prostředku. Oprávnění jsou zděděna na nižší úrovně rozsahu. Například přidání aplikace do role čtenář pro skupinu prostředků znamená, že může číst skupinu prostředků a všechny prostředky, které obsahuje.
 
-1. Přihlaste se k příslušnému portálu na základě adresáře, který jste zadali během Azure Stack instalace (například Azure Portal pro Azure AD nebo Azure Stack User Portal pro AD FS). V tomto příkladu se zobrazuje uživatel přihlášený k portálu Azure Stack User Portal.
+1. Přihlaste se k příslušnému portálu na základě adresáře, který jste zadali při Azure Stack instalaci centra (například Azure Portal pro Azure AD, nebo na portálu User Portal centra Azure Stack pro AD FS). V tomto příkladu se zobrazuje uživatel přihlášený k portálu User Portal centra Azure Stack.
 
    > [!NOTE]
    > Chcete-li přidat přiřazení rolí pro daný prostředek, musí váš uživatelský účet patřit do role, která deklaruje oprávnění `Microsoft.Authorization/roleAssignments/write`. Můžete například použít předdefinované role [vlastníka](/azure/role-based-access-control/built-in-roles#owner) nebo [Správce přístupu uživatele](/azure/role-based-access-control/built-in-roles#user-access-administrator) .  
@@ -352,7 +346,7 @@ Typ prostředku, který zvolíte, taky vytvoří *obor přístupu* pro instančn
 
      [Přiřazená role ![](media/azure-stack-create-service-principal/assigned-role.png)](media/azure-stack-create-service-principal/assigned-role.png#lightbox)
 
-Teď, když jste vytvořili instanční objekt a přiřadili roli, můžete tento instanční objekt v rámci aplikace začít používat pro přístup k prostředkům Azure Stack.  
+Teď, když jste vytvořili instanční objekt a přiřadili roli, můžete tento instanční objekt v rámci aplikace začít používat pro přístup k prostředkům centra Azure Stack.  
 
 ## <a name="next-steps"></a>Další kroky
 

@@ -17,12 +17,12 @@ ms.date: 08/13/2019
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2018
-ms.openlocfilehash: 1fe65370d7631f4096d010756135c67c3d2f359e
-ms.sourcegitcommit: ca358ea5c91a0441e1d33f540f6dbb5b4d3c92c5
+ms.openlocfilehash: 29a154c5c446019e762b1312b9ef2f8a23cc4790
+ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73802303"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73955300"
 ---
 # <a name="quota-types-in-azure-stack"></a>Typy kvót v Azure Stack
 
@@ -41,21 +41,21 @@ ms.locfileid: "73802303"
 | Maximální počet jader virtuálních počítačů | 100 | Maximální počet jader, které může vytvořit předplatné v tomto umístění (například virtuální počítač a3 má čtyři jádra). |
 | Maximální počet skupin dostupnosti | 10 | Maximální počet skupin dostupnosti, které lze vytvořit v tomto umístění. |
 | Maximální počet virtuálních počítačů v sadě škálování | 100 | Maximální počet sad škálování, které je možné vytvořit v tomto umístění. |
-| Maximální kapacita (v GB) standardního spravovaného disku | 2 048 | Maximální kapacita standardních spravovaných disků, které lze vytvořit v tomto umístění. |
-| Maximální kapacita (v GB) spravovaného disku úrovně Premium | 2 048 | Maximální kapacita spravovaných disků úrovně Premium, které je možné vytvořit v tomto umístění. |
+| Maximální kapacita (v GB) standardního spravovaného disku | 2 048 | Maximální kapacita standardních spravovaných disků, které lze vytvořit v tomto umístění. Tato hodnota je celková velikost přidělení všech standardních spravovaných disků a použitá velikost všech standardních snímků. |
+| Maximální kapacita (v GB) spravovaného disku úrovně Premium | 2 048 | Maximální kapacita spravovaných disků úrovně Premium, které je možné vytvořit v tomto umístění. Tato hodnota je celková velikost přidělení všech spravovaných disků úrovně Premium a využité velikosti všech snímků úrovně Premium. |
 
 > [!NOTE]
-> Maximální kapacita nespravovaného disku (objekty blob stránky) je oddělená od kvóty spravovaného disku. Tuto hodnotu můžete nastavit v **kvótách úložiště**.
+> Maximální kapacita nespravovaných disků (objekty blob stránky) je oddělená od kvóty spravovaného disku. Tuto hodnotu můžete nastavit v **maximální kapacitě (GB)** v **kvótách úložiště**.
 
 ## <a name="storage-quota-types"></a>Typy kvót úložiště
 
 | **Položka** | **Výchozí hodnota** | **Popis** |
 | --- | --- | --- |
-| Maximální kapacita (GB) |2 048 |Celková kapacita úložiště (včetně objektů BLOB a všech přidružených snímků, tabulek, front), která může být spotřebovaná předplatným v tomto umístění. |
+| Maximální kapacita (GB) |2 048 |Celková kapacita úložiště, kterou může předplatné spotřebovat v tomto umístění. Tato hodnota je celková velikost využité velikosti všech objektů BLOB (včetně nespravovaných disků) a všech přidružených snímků, tabulek a front. |
 | Celkový počet účtů úložiště |20 |Maximální počet účtů úložiště, které může předplatné vytvořit v tomto umístění. |
 
 > [!NOTE]
-> Maximální kapacita spravovaných disků je oddělená od celkové kvóty úložiště. Tuto hodnotu můžete nastavit v **výpočetních kvótách**.
+> Pokud se v jednom předplatném překročila **Maximální kapacita (GB)** , nemůžete v tomto předplatném vytvořit nový prostředek úložiště. Ale můžete dál používat nespravované disky vytvořené v tomto předplatném na virtuálních počítačích, což může způsobit, že bude celková kapacita využita i mimo limit kvóty.<br>Maximální kapacita spravovaných disků je oddělená od celkové kvóty úložiště. Tuto hodnotu můžete nastavit v **výpočetních kvótách**.
 
 ## <a name="network-quota-types"></a>Typy kvót sítě
 

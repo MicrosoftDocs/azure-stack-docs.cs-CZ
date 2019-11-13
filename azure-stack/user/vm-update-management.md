@@ -12,32 +12,32 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2019
+ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: rtiberiu
-ms.lastreviewed: 03/20/2019
-ms.openlocfilehash: 3fa6d124722d45d727525820b6a99d408f0d2350
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.lastreviewed: 11/11/2019
+ms.openlocfilehash: 87549d27418f787b0e173cfda1ca835dc1c181e4
+ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70975172"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73955949"
 ---
 # <a name="vm-update-and-management-automation-in-azure-stack"></a>Automatizace aktualizací a správy virtuálních počítačů v Azure Stack
 Ke správě virtuálních počítačů s Windows a Linux nasazených pomocí Azure Stack použijte následující Azure Automation řešení:
 
-- **[Update Management](https://docs.microsoft.com/azure/automation/automation-update-management)** : Pomocí řešení Update Management můžete rychle vyhodnotit stav dostupných aktualizací na všech počítačích agenta a spravovat proces instalace požadovaných aktualizací pro virtuální počítače s Windows a Linux.
+- **[Update Management](https://docs.microsoft.com/azure/automation/automation-update-management)** : pomocí řešení Update Management můžete rychle posoudit stav dostupných aktualizací na všech počítačích agenta a spravovat proces instalace požadovaných aktualizací pro virtuální počítače s Windows a Linux.
 
-- **[Change Tracking](https://docs.microsoft.com/azure/automation/automation-change-tracking)** : Změny nainstalovaného softwaru, služeb systému Windows, registru a souborů systému Windows a démonů systému Linux na monitorovaných serverech se odesílají do služby Azure Monitor v cloudu ke zpracování. Logika platí pro přijatá data a cloudové službě zaznamenává data. Pomocí informací na řídicím panelu Change Tracking můžete snadno zobrazit změny provedené v serverové infrastruktuře.
+- **[Change Tracking](https://docs.microsoft.com/azure/automation/automation-change-tracking)** : do služby Azure monitor v cloudu se odesílají změny nainstalovaného softwaru, služeb systému Windows, registru a souborů Windows a démony Linux na monitorovaných serverech. Na přijatá data se aplikuje logika a cloudová služba data zaznamená. Pomocí informací na řídicím panelu Change Tracking můžete snadno zobrazit změny provedené v serverové infrastruktuře.
 
 - **[Inventář](https://docs.microsoft.com/azure/automation/automation-vm-inventory)** . Sledování inventáře pro Azure Stack virtuální počítač poskytuje uživatelské rozhraní založené na prohlížeči pro nastavení a konfiguraci shromažďování inventáře.
 
-- **[Azure monitor pro virtuální počítače](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-overview)** : Azure Monitor pro virtuální počítače monitoruje vaše virtuální počítače Azure a Azure Stack a škálování virtuálních počítačů ve velkém měřítku. Analyzuje výkon a stav virtuálních počítačů s Windows a Linux a také monitoruje jejich procesy a závislosti na jiných prostředcích a externích procesech.
+- **[Azure monitor pro virtuální počítače](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-overview)** : Azure monitor pro virtuální počítače monitoruje vaše virtuální počítače Azure a Azure Stack se škálováním virtuálních počítačů. Analyzuje výkon a stav virtuálních počítačů s Windows a Linux a také monitoruje jejich procesy a závislosti na jiných prostředcích a externích procesech.
 
 > [!IMPORTANT]
 > Tato řešení jsou stejná jako ta, která slouží ke správě virtuálních počítačů Azure. Virtuální počítače Azure i Azure Stack jsou spravované stejným způsobem ze stejného rozhraní, a to pomocí stejných nástrojů. Azure Stack virtuální počítače se také účtují stejně jako virtuální počítače Azure při použití řešení Update Management, Change Tracking, inventarizace a Azure Monitor pro virtuální počítače s Azure Stack.
 
-## <a name="prerequisites"></a>Požadavky
+## <a name="prerequisites"></a>Předpoklady
 Před použitím těchto funkcí k aktualizaci a správě Azure Stack virtuálních počítačů musí být splněno několik požadavků. Patří sem kroky, které je třeba provést v Azure Portal a také na portálu pro správu Azure Stack.
 
 ### <a name="in-the-azure-portal"></a>V Azure Portal
@@ -60,13 +60,13 @@ Dále musíte [vytvořit účet Automation](https://docs.microsoft.com/azure/aut
 
 5. Opakujte kroky 2-4 pro povolení všech tří řešení. 
 
-   [![](media/vm-update-management/1-sm.PNG "Povolit funkce účtu Azure Automation")](media/vm-update-management/1-lg.PNG#lightbox)
+   [![](media/vm-update-management/1-sm.PNG "Enable Azure Automation account features")](media/vm-update-management/1-lg.PNG#lightbox)
 
 ### <a name="enable-azure-monitor-for-vms"></a>Povolit Azure Monitor pro virtuální počítače
 
 Azure Monitor pro virtuální počítače monitoruje vaše virtuální počítače Azure a škálování virtuálních počítačů ve velkém měřítku. Analyzuje výkon a stav virtuálních počítačů s Windows a Linux a také monitoruje jejich procesy a závislosti na jiných prostředcích a externích procesech.
 
-Jako řešení Azure Monitor pro virtuální počítače zahrnuje podporu monitorování výkonu a závislostí aplikací pro virtuální počítače, které jsou hostované místně nebo v jiném poskytovateli cloudu. Tři klíčové funkce poskytovat podrobnější informace:
+Jako řešení Azure Monitor pro virtuální počítače zahrnuje podporu monitorování výkonu a závislostí aplikací pro virtuální počítače, které jsou hostované místně nebo v jiném poskytovateli cloudu. Tři klíčové funkce poskytují podrobný přehled:
 
 1. Logické součásti virtuálních počítačů Azure se systémem Windows a Linux, které jsou měřeny proti předem nakonfigurovaným kritériím stavu, a upozorní vás při splnění vyhodnocené podmínky.
 
@@ -77,7 +77,7 @@ Jako řešení Azure Monitor pro virtuální počítače zahrnuje podporu monito
 Po vytvoření pracovního prostoru Log Analytics povolte čítače výkonu v pracovním prostoru pro shromažďování dat na virtuálních počítačích se systémy Linux a Windows. Pak v pracovním prostoru nainstalujte a povolte řešení ServiceMap a InfrastructureInsights. Tento postup je popsaný v průvodci [nasazením Azure monitor pro virtuální počítače](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-onboard#how-to-enable-azure-monitor-for-vms-preview) .
 
 ### <a name="in-the-azure-stack-administrator-portal"></a>Na portálu pro správu Azure Stack
-Po povolení Azure Automation řešení v Azure Portal se budete muset přihlásit k portálu Azure Stack pro správu jako správce cloudu a stáhnout **Azure monitor, správu aktualizací a konfigurací** a **Azure monitor, aktualizovat a Správa konfigurace pro Linux** Extension na webu Azure Stack Marketplace.
+Po povolení Azure Automation řešení v Azure Portal se budete muset přihlásit k portálu Azure Stack správce jako správce cloudu a stáhnout **Azure monitor, správu aktualizací a konfigurací** a rozšíření **Azure monitor, aktualizace a konfigurace pro Linux** na webu Azure Stack Marketplace.
 
    ![Azure Monitor, aktualizace a rozšíření pro správu konfigurace – položka Marketplace](media/vm-update-management/2.PNG) 
 
@@ -92,15 +92,15 @@ Pomocí těchto kroků můžete povolit správu aktualizací pro virtuální po�
 
 2. Na portálu Azure Stack User-Portal přejděte do okna rozšíření virtuálních počítačů, pro které chcete povolit tato řešení, klikněte na **+ Přidat**, vyberte rozšíření **pro správu služby Azure Update a konfigurace** a pak klikněte na **vytvořit**:
 
-   [![](media/vm-update-management/3-sm.PNG "Okno rozšíření virtuálního počítače")](media/vm-update-management/3-lg.PNG#lightbox)
+   [![](media/vm-update-management/3-sm.PNG "VM extension blade")](media/vm-update-management/3-lg.PNG#lightbox)
 
 3. Poskytněte dříve vytvořené ID pracovního prostoru a primární klíč k propojení agenta s pracovním prostorem LogAnalytics. Pak kliknutím na **OK** nasaďte rozšíření.
 
-   [![](media/vm-update-management/4-sm.PNG "Zadání ID pracovního prostoru a klíče")](media/vm-update-management/4-lg.PNG#lightbox) 
+   [![](media/vm-update-management/4-sm.PNG "Providing the WorkspaceID and Key")](media/vm-update-management/4-lg.PNG#lightbox) 
 
 4. Jak je popsáno v [dokumentaci k Update Management](https://docs.microsoft.com/azure/automation/automation-update-management), je nutné povolit řešení Update Management pro každý virtuální počítač, který chcete spravovat. Chcete-li povolit řešení pro všechny virtuální počítače, které jsou podřízeny k pracovnímu prostoru, vyberte možnost **Správa aktualizací**, klikněte na položku **spravovat počítače**a potom vyberte možnost **Povolit u všech dostupných a budoucích počítačů** .
 
-   [![](media/vm-update-management/5-sm.PNG "Povolit Update Management řešení na všech počítačích")](media/vm-update-management/5-lg.PNG#lightbox) 
+   [![](media/vm-update-management/5-sm.PNG "Enable Update Management solution on all machines")](media/vm-update-management/5-lg.PNG#lightbox) 
 
    > [!TIP]
    > Zopakováním tohoto kroku povolíte každé řešení pro Azure Stack virtuálních počítačů, které se nahlásí do pracovního prostoru. 
@@ -109,7 +109,7 @@ Po povolení rozšíření pro správu služby Azure Update a konfigurace se kon
 
 Po prohledání virtuálních počítačů se tyto virtuální počítače zobrazí v Azure Automationm účtu v řešení Update Management: 
 
-   [![](media/vm-update-management/6-sm.PNG "Účet Azure Automation v Update Management")](media/vm-update-management/6-lg.PNG#lightbox) 
+   [![](media/vm-update-management/6-sm.PNG "Azure Automation account in Update Management")](media/vm-update-management/6-lg.PNG#lightbox) 
 
 > [!IMPORTANT]
 > Může trvat 30 minut a 6 hodin, než se na řídicím panelu zobrazí aktualizovaná data ze spravovaných počítačů.
@@ -120,7 +120,7 @@ Virtuální počítače s Azure Stack teď můžou být zahrnuté do plánovaný
 Jakmile má virtuální počítač **Azure monitor, správu aktualizací a konfigurací**a nainstalují se rozšíření **Azure monitor Dependency agent** , začnou v řešení [Azure monitor pro virtuální počítače](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-overview) začít vytvářet data. 
 
 > [!TIP]
-> Rozšíření **Azure Monitor Dependency agent** nevyžaduje žádné parametry. Azure Monitor pro agenta závislostí mapování virtuálních počítačů nebude přenášet vlastní data a nevyžaduje žádné změny brány firewall nebo porty. Mapy dat je vždy přenášených v rámci agenta Log Analytics ve službě Azure Monitor, buď přímo nebo prostřednictvím [bránu OMS](https://docs.microsoft.com/azure/azure-monitor/platform/gateway) Pokud zásady zabezpečení IT neumožňují počítače v síti pro připojení k Internetu.
+> Rozšíření **Azure Monitor Dependency agent** nevyžaduje žádné parametry. Agent závislostí Azure Monitor pro virtuální počítače neodesílá žádná data a nevyžaduje žádné změny bran firewall nebo portů. Data mapy jsou vždy přenášena agentem Log Analytics do služby Azure Monitor, a to buď přímo, nebo prostřednictvím [brány OMS](https://docs.microsoft.com/azure/azure-monitor/platform/gateway) , pokud zásady zabezpečení IT nedovolují počítačům v síti připojení k Internetu.
 
 Azure Monitor pro virtuální počítače obsahuje sadu grafů výkonu, které cílí na několik klíčových ukazatelů výkonu (KPI), které vám pomůžou určit, jak dobře funguje virtuální počítač. Grafy ukazují použití prostředků v časovém intervalu, takže můžete identifikovat slabá místa a anomálie. Můžete také přepnout na seznam perspektiv v každém počítači a zobrazit tak použití prostředků na základě vybrané metriky. I když existuje mnoho prvků, které je potřeba vzít v úvahu při práci s výkonem, Azure Monitor pro virtuální počítače sleduje klíčové ukazatele výkonu operačního systému týkající se procesoru, paměti, síťového adaptéru a využití disku. Grafy výkonu doplňují funkci monitorování stavu a umožňují vystavovat problémy, které indikují chybu při selhání součásti systému. Azure Monitor pro virtuální počítače podporuje taky plánování kapacity a optimalizaci a optimalizaci, abyste dosáhli efektivity.
 
@@ -136,5 +136,5 @@ V případě, že vám [Azure monitor pro virtuální počítače](https://docs.
 ## <a name="enable-update-management-using-a-resource-manager-template"></a>Povolení Update Management pomocí šablony Správce prostředků
 Pokud máte velký počet Azure Stack virtuálních počítačů, můžete [tuto šablonu Azure Resource Manager](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win) použít k jednoduššímu nasazení řešení na virtuální počítače. Šablona nasadí rozšíření Microsoft Monitoring Agent pro existující virtuální počítač Azure Stack a přidá ho do existujícího pracovního prostoru Azure LogAnalytics.
  
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 [Optimalizace výkonu SQL Server virtuálních počítačů](azure-stack-sql-server-vm-considerations.md)

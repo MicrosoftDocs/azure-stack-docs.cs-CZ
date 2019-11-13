@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2019
+ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: guanghu
-ms.lastreviewed: 12/11/2018
-ms.openlocfilehash: 9098be09e8b5bd20660f12789159a41d5a330408
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.lastreviewed: 11/11/2019
+ms.openlocfilehash: 4323993c76019ffa2b3084679b2587e300094e38
+ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68417320"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73955636"
 ---
 # <a name="deploy-azure-cognitive-services-to-azure-stack"></a>Nasazení služby Azure Cognitive Services do Azure Stack
 
@@ -42,7 +42,7 @@ Kontejnering je přístup k distribuci softwaru, ve kterém se aplikace nebo slu
   Poskytněte uživatelům aplikace aktualizace verze v modelech nasazených v jejich řešení.
 
 - **Přenosná architektura**  
-  Povolte vytvoření přenosové architektury aplikace, abyste mohli své řešení nasadit do veřejného cloudu, do místního privátního cloudu nebo na hranici. Svůj kontejner můžete nasadit do služby Azure Kubernetes, Azure Container Instances nebo do clusteru Kubernetes v Azure Stack. Další informace najdete v tématu [nasazení Kubernetes pro Azure Stack](azure-stack-solution-template-kubernetes-deploy.md).
+  Povolte vytvoření přenosové architektury aplikace, abyste mohli své řešení nasadit do veřejného cloudu, do místního privátního cloudu nebo na hranici. Svůj kontejner můžete nasadit do služby Azure Kubernetes, Azure Container Instances nebo do clusteru Kubernetes v Azure Stack. Další informace najdete v tématu [nasazení Kubernetes do Azure Stack](azure-stack-solution-template-kubernetes-deploy.md).
 
 - **Vysoká propustnost a nízká latence**  
    Poskytněte uživatelům aplikace možnost škálování s využitím špičky v provozu při vysoké propustnosti a nízké latenci. Umožněte, aby Cognitive Services běžely ve službě Azure Kubernetes, fyzicky blízko své aplikační logiky a data.
@@ -55,7 +55,7 @@ Další podrobnosti o Cognitive Services kontejnerech najdete [v podpoře kontej
 
 Tento článek popisuje, jak nasadit Azure Face API v clusteru Kubernetes v Azure Stack. Stejný přístup můžete použít k nasazení jiných kontejnerů služby pro rozpoznávání na Azure Stack clustery Kubernetes.
 
-## <a name="prerequisites"></a>Požadavky
+## <a name="prerequisites"></a>Předpoklady
 
 Než začnete, budete potřebovat:
 
@@ -67,12 +67,12 @@ Než začnete, budete potřebovat:
 
 Vytvořte v Azure prostředek služby pro rozpoznávání, ve kterém můžete zobrazit Rozpoznávání textu LUIS kontejnery. K vytvoření instance kontejnerů služby pro rozpoznávání bude nutné použít klíč předplatného a adresu URL koncového bodu z prostředku.
 
-1. Vytvoření prostředku Azure na webu Azure Portal. Pokud chcete zobrazit náhled kontejnerů obličeje, musíte nejprve vytvořit odpovídající prostředek Face v Azure Portal. Další informace najdete v tématu [rychlý Start: Vytvořte účet Cognitive Services v Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
+1. Vytvořte prostředek Azure v Azure Portal. Pokud chcete zobrazit náhled kontejnerů obličeje, musíte nejprve vytvořit odpovídající prostředek Face v Azure Portal. Další informace najdete v tématu [rychlý Start: vytvoření účtu Cognitive Services v Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
 
    > [!Note]
    >  Prostředek Face nebo Počítačové zpracování obrazu musí používat cenovou úroveň F0.
 
-2. Získáte klíče koncového bodu adresy URL a předplatného pro prostředky Azure. Po vytvoření prostředku Azure použijte klíč předplatného a adresu URL koncového bodu z tohoto prostředku k vytvoření instance odpovídajícího kontejneru Face, LUIS nebo Rozpoznávání textu pro verzi Preview.
+2. Získejte adresu URL koncového bodu a klíč předplatného pro prostředek Azure. Po vytvoření prostředku Azure použijte klíč předplatného a adresu URL koncového bodu z tohoto prostředku k vytvoření instance odpovídajícího kontejneru Face, LUIS nebo Rozpoznávání textu pro verzi Preview.
 
 ## <a name="create-a-kubernetes-secret"></a>Vytvoření tajného klíče Kubernetes 
 
@@ -141,10 +141,10 @@ Podrobnosti o klíčových polích:
 | Pole | Poznámky |
 | --- | --- |
 | replicaNumber | Definuje počáteční repliky instancí, které se mají vytvořit. Můžete ho škálovat později po nasazení. |
-| ImageLocation | Označuje umístění konkrétního obrazu kontejneru služby rozpoznávání v ACR. Například služba obličeje:`aicpppe.azurecr.io/microsoft/cognitive-services-face` |
+| ImageLocation | Označuje umístění konkrétního obrazu kontejneru služby rozpoznávání v ACR. Například služba obličeje: `aicpppe.azurecr.io/microsoft/cognitive-services-face` |
 | BillingURL |Adresa URL koncového bodu, kterou jste si poznamenali v kroku [vytvoření prostředku Azure](#create-azure-resources) |
-| ApiKey | Klíč předplatného, který jste si poznamenali v kroku [vytvoření prostředku Azure](#create-azure-resources) |
-| SecretName | Název tajného klíče, který jste vytvořili v kroku, [vytvoří tajný klíč Kubernetes](#create-a-kubernetes-secret) . |
+| apiKey | Klíč předplatného, který jste si poznamenali v kroku [vytvoření prostředku Azure](#create-azure-resources) |
+| secretName | Název tajného klíče, který jste vytvořili v kroku, [vytvoří tajný klíč Kubernetes](#create-a-kubernetes-secret) . |
 
 ## <a name="deploy-the-cognitive-service"></a>Nasazení služby pro rozpoznávání
 
@@ -160,7 +160,7 @@ Pomocí následujícího příkazu můžete monitorovat, jak se nasazuje:
 
 ## <a name="test-the-cognitive-service"></a>Testování služby pro rozpoznávání
 
-Přístup k [specifikaci openapi](https://swagger.io/docs/specification/about/) z RELATIVNÍho identifikátoru URI **/Swagger** pro daný kontejner. Tato specifikace, dříve označovaná jako specifikace Swagger, popisuje operace podporované vytvořeným kontejnerem. Například následující identifikátor URI poskytuje přístup k specifikace OpenAPI pro analýzu mínění kontejneru, která byla vytvořena instance v předchozím příkladu:
+Přístup k [specifikaci openapi](https://swagger.io/docs/specification/about/) z RELATIVNÍho identifikátoru URI **/Swagger** pro daný kontejner. Tato specifikace, dříve označovaná jako specifikace Swagger, popisuje operace podporované vytvořeným kontejnerem. Například následující identifikátor URI poskytuje přístup k specifikaci OpenAPI pro kontejner Analýza mínění, který byl vytvořen v předchozím příkladu:
 
 ```HTTP  
 http:<External IP>:5000/swagger
@@ -201,7 +201,7 @@ print(faces)
 
 ```
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 [Jak nainstalovat a spustit rozhraní API pro počítačové zpracování obrazu kontejnery.](https://docs.microsoft.com/azure/cognitive-services/computer-vision/computer-vision-how-to-install-containers)
 

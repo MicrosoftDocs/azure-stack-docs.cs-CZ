@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/23/2019
+ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 03/11/2019
+ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5d3d32df25aeba90ef065fc4363f0887dcbc36e5
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: 87ba89298c0a5a134cb0b3b1a2b7e771151e46d9
+ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68418353"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73955910"
 ---
 # <a name="monitor-and-manage-tests-in-the-vaas-portal"></a>Monitorování a Správa testů na portálu VaaS
 
@@ -66,14 +66,14 @@ V případě oficiálních spuštění (tj. **ověřovací** pracovní postupy) 
 
 Každá plánovaná instance testu zobrazuje následující informace:
 
-| Sloupec | Popis |
+| Column | Popis |
 | --- | --- |
 | Název testu | Název a verze testu. |
 | Kategorie | Účel testu. |
 | Vytvořeno | Čas, kdy byl test naplánován. |
-| Spuštěno | Čas spuštění testu. |
-| Trvání | Doba, po kterou byl test spuštěn. |
-| Stav | Stav nebo výsledek testu. Předběžné spuštění nebo průběžné stavy jsou: `Pending`,. `Running` Stavy terminálů jsou: `Cancelled`, `Failed`, `Aborted`, `Succeeded`. |
+| Začínáme | Čas spuštění testu. |
+| Délka | Doba, po kterou byl test spuštěn. |
+| Stav | Stav nebo výsledek testu. Předběžné spuštění nebo průběžné stavy jsou: `Pending`, `Running`. Stavy terminálu jsou: `Cancelled`, `Failed`, `Aborted``Succeeded`. |
 | Název agenta | Název agenta, který test spustil. |
 | Celkový počet operací | Celkový počet operací, které se během testu pokoušely. |
 | Úspěšné operace | Počet operací, které byly během testu úspěšné. |
@@ -118,7 +118,7 @@ Výběrem **Zobrazit operace** z kontextové nabídky zobrazíte podrobný stav 
 
 #### <a name="download-logs-for-a-completed-test-instance"></a>Stažení protokolů pro dokončenou instanci testu
 
-Vyberte možnost **Stáhnout protokoly** z kontextové nabídky a Stáhněte si `.zip` soubor výstupů protokolů během provádění testu. Tato akce je k dispozici pouze pro testy, které byly dokončeny, to znamená test se stavem `Cancelled`buď `Failed`, `Aborted`, nebo `Succeeded`.
+Vyberte možnost **Stáhnout protokoly** z kontextové nabídky a stáhněte soubor `.zip` výstup protokolů během provádění testu. Tato akce je k dispozici pouze pro testy, které byly dokončeny, to znamená test se stavem buď `Cancelled`, `Failed`, `Aborted`nebo `Succeeded`.
 
 #### <a name="reschedule-a-test-instance-or-schedule-a-test"></a>Změna plánu instance testu nebo Naplánování testu
 
@@ -140,12 +140,12 @@ V pracovním postupu test Pass **přeplánuje** instance testu znovu stejnou sad
 
 #### <a name="cancel-a-test-instance"></a>Zrušení instance testu
 
-Plánovaný test může být zrušen, pokud je `Pending` jeho stav nebo. `Running`  
+Plánovaný test může být zrušen, pokud je jeho stav `Pending` nebo `Running`.  
 
 1. V místní nabídce vyberte **Zrušit** a otevřete tak výzvu pro zrušení testovací instance.
 
 1. Vyberte **Odeslat** pro zrušení testovací instance.
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 - [Řešení potíží s ověřováním jako službou](azure-stack-vaas-troubleshoot.md)
