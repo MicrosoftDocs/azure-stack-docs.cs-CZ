@@ -16,12 +16,12 @@ ms.date: 08/14/2019
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/06/2019
-ms.openlocfilehash: 98baf8217bc245f7aa6ac7bc0e2b8f8a5284c6d6
-ms.sourcegitcommit: 86e2b776383a9f761072199ec6b6b8a7d2e6b798
+ms.openlocfilehash: 25a32b1d73818e988a8bdf7fb565d06b06d53d68
+ms.sourcegitcommit: bb2bbfad8061f7677954f6ce5a435b4e6f9299b6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69021832"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74100014"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack"></a>Hostované operační systémy podporované v Azure Stack
 
@@ -33,13 +33,13 @@ Azure Stack podporuje hostované operační systémy Windows, které jsou uveden
 
 | Operační systém | Popis | K dispozici na webu Marketplace |
 | --- | --- | --- |
-| Windows Server verze 1709 | 64 bitů | Jádro s kontejnery |
-| Windows Server. 2019 | 64 bitů |  Datacenter, Datacenter Core, Datacenter s kontejnery |
-| Windows Server 2016 | 64 bitů |  Datacenter, Datacenter Core, Datacenter s kontejnery |
-| Windows Server 2012 R2 | 64 bitů |  Datové centrum |
-| Windows Server 2012 | 64 bitů |  Datové centrum |
-| Windows Server 2008 R2 SP1 | 64 bitů |  Datové centrum |
-| Windows Server 2008 SP2 | 64 bitů |  Přineste si vlastní image |
+| Windows Server verze 1709 | 64 – bit | Jádro s kontejnery |
+| Windows Server 2019 | 64 – bit |  Datacenter, Datacenter Core, Datacenter s kontejnery |
+| Windows Server 2016 | 64 – bit |  Datacenter, Datacenter Core, Datacenter s kontejnery |
+| Windows Server 2012 R2 | 64 – bit |  Datacentrum |
+| Windows Server 2012 | 64 – bit |  Datacentrum |
+| Windows Server 2008 R2 SP1 | 64 – bit |  Datacentrum |
+| Windows Server 2008 SP2 | 64 – bit |  Přineste si vlastní image |
 | Windows 10 *(viz poznámka 1)* | 64-bit, pro a Enterprise | Přineste si vlastní image |
 
 > [!NOTE]
@@ -60,24 +60,24 @@ Distribuce systému Linux uvedená jako dostupná na webu Marketplace zahrnují 
 
 | Distribuce | Popis | Vydavatel | Marketplace |
 | --- | --- | --- | --- |
-| CentOS-based 6,9 | 64 bitů | Neautorizovaný Wave | Ano |
-| CentOS-based 7,5 | 64 bitů | Neautorizovaný Wave | Ano |
-| Distribuce založené na CentOS 7.3 | 64 bitů | Neautorizovaný Wave | Ano |
-| ClearLinux | 64 bitů | ClearLinux.org | Ano |
-| Kontejner Linux |  64 bitů | CoreOS | Stable |
-| Debian 8 "Jessie" | 64 bitů | credativ |  Ano |
-| Debian 9 "Stretch" | 64 bitů | credativ | Ano |
-| Oracle Linux | 64 bitů | Oracle | Ano |
-| Red Hat Enterprise Linux 7,1 (a novější) | 64 bitů | Red Hat | Přineste si vlastní image |
-| SLES 11SP4 | 64 bitů | SUSE | Ano |
-| SLES 12SP3 | 64 bitů | SUSE | Ano |
-| Ubuntu 14,04 – LTS | 64 bitů | Canonical | Ano |
-| Ubuntu 16,04 – LTS | 64 bitů | Canonical | Ano |
-| Ubuntu 18,04 – LTS | 64 bitů | Canonical | Ano |
+| CentOS-based 6,9 | 64 – bit | Neautorizovaný Wave | Ano |
+| CentOS-based 7,5 | 64 – bit | Neautorizovaný Wave | Ano |
+| Distribuce založené na CentOS 7.3 | 64 – bit | Neautorizovaný Wave | Ano |
+| ClearLinux | 64 – bit | ClearLinux.org | Ano |
+| CoreOS Linux (stabilní) |  64 – bit | CoreOS | Ano |
+| Debian 8 "Jessie" | 64 – bit | credativ |  Ano |
+| Debian 9 "Stretch" | 64 – bit | credativ | Ano |
+| Oracle Linux | 64 – bit | Oracle | Ano |
+| Red Hat Enterprise Linux 7,1 (a novější) | 64 – bit | Red Hat | Přineste si vlastní image |
+| SLES 11SP4 | 64 – bit | SUSE | Ano |
+| SLES 12SP3 | 64 – bit | SUSE | Ano |
+| Ubuntu 14,04 – LTS | 64 – bit | Canonical | Ano |
+| Ubuntu 16,04 – LTS | 64 – bit | Canonical | Ano |
+| Ubuntu 18,04 – LTS | 64 – bit | Canonical | Ano |
 
-Informace o podpoře Red Hat Enterprise Linux najdete [na Red Hat a Azure Stack: Nejčastější dotazy](https://access.redhat.com/articles/3413531)
+Informace o podpoře Red Hat Enterprise Linux najdete na [Red Hat a Azure Stack: nejčastější dotazy](https://access.redhat.com/articles/3413531).
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 Další informace o Azure Stack Marketplace najdete v následujících článcích:
 

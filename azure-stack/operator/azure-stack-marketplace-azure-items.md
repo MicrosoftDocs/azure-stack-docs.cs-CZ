@@ -16,12 +16,12 @@ ms.date: 10/17/2019
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 10/17/2019
-ms.openlocfilehash: dac6b6dad423ab3d18e069a91d8bdd5a09498842
-ms.sourcegitcommit: b5eb024d170f12e51cc852aa2c72eabf26792d8d
+ms.openlocfilehash: 53c5273b343a4a1186732928db1ac7bed501dc0f
+ms.sourcegitcommit: bb2bbfad8061f7677954f6ce5a435b4e6f9299b6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72534199"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74100295"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Marketplace položky k dispozici pro Azure Stack
 
@@ -85,7 +85,7 @@ Microsoft Azure Stack podporuje následující Azure Marketplace virtuální po�
 |  | Název položky | Popis | Vydavatel |
 | --- | --- | --- | --- |
 | ![Vymazat operační systém Linux](media/azure-stack-marketplace-azure-items/clearlinux.png) | [Vymazat operační systém Linux](https://azuremarketplace.microsoft.com/marketplace/apps/clear-linux-project.clear-linux-os) | Referenční distribuce systému Linux optimalizovaná pro architekturu Intel. | Vymazat projekt pro Linux |
-| ![Kontejner Linux od CoreOS](media/azure-stack-marketplace-azure-items/coreos.png) | [Kontejner Linux od CoreOS](https://azuremarketplace.microsoft.com/marketplace/apps/CoreOS.CoreOS) | Kontejner Linux je moderní a minimální distribuce systému Linux, která poskytuje snadný způsob, jak spouštět kontejnery, spravovat clustery a plynule aktualizovat servery – všechny komponenty, které umožňují výpočetní služby na úrovni skladu. | CoreOS |
+| ![CoreOS Linux (stabilní)](media/azure-stack-marketplace-azure-items/coreos.png) | [CoreOS Linux (stabilní)](https://azuremarketplace.microsoft.com/marketplace/apps/CoreOS.CoreOS) | CoreOS je moderní a minimální distribuce systému Linux, která poskytuje snadný způsob, jak spouštět kontejnery, spravovat clustery a plynule aktualizovat servery – všechny komponenty, které umožňují výpočetní prostředky ve skladu. | CoreOS |
 | ![Ubuntu Server](media/azure-stack-marketplace-azure-items/ubuntu.png) | [Ubuntu Server](https://azuremarketplace.microsoft.com/marketplace/apps/Canonical.UbuntuServer) | Ubuntu Server je nejoblíbenější Linux pro cloudová prostředí na světě. | Canonical |
 | ![Debian 8 "Jessie"](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.Debian) | Debian GNU/Linux je jednou z nejoblíbenějších distribucí systému Linux. | credativ |
 | ![Oracle Linux](media/azure-stack-marketplace-azure-items/oracle.png) | [Oracle Linux](https://azuremarketplace.microsoft.com/marketplace/apps/oracle.oracle-linux) | Oracle Linux operační systém je navržený pro otevřenou infrastrukturu cloudu. Nabízí špičkový výkon, škálovatelnost a spolehlivost pro úlohy podnikových SaaS a PaaS a také tradiční podnikové aplikace. | Oracle |

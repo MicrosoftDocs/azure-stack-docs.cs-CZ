@@ -261,6 +261,8 @@
           href: azure-stack-network-howto-vnet-to-vnet-stacks.md
         - name: Rozšiřování datového centra
           href: azure-stack-network-howto-extend-datacenter.md
+        - name: F5 pro vyrovnávání zatížení
+          href: network-howto-f5.md
         - name: Připojení k úložišti iSCSI
           href: azure-stack-network-howto-iscsi-storage.md
         - name: Nastavení tunelů
