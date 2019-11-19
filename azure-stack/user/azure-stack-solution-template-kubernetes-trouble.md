@@ -11,22 +11,22 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.author: mabrigg
-ms.date: 10/10/2019
+ms.date: 11/14/2019
 ms.reviewer: waltero
-ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 1070608db881426d6cb7ca78d0b19444bdba77ce
-ms.sourcegitcommit: 0d27456332031ab98ba2277117395ae5ffcbb79f
+ms.lastreviewed: 11/14/2019
+ms.openlocfilehash: 89ed4549dc44eb433f8061aba9bcff9405d80699
+ms.sourcegitcommit: f2a059f1be36f82adea8877f3f6e90d41ef3b161
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73047205"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74162984"
 ---
 # <a name="troubleshoot-kubernetes-deployment-to-azure-stack"></a>Řešení potíží s nasazením Kubernetes pro Azure Stack
 
 *Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
 
 > [!Note]  
-> K nasazení clusterů jako zkušebního konceptu použijte jenom položku Kubernetes Azure Stack Marketplace. Pro podporované Kubernetes clustery v Azure Stack použijte [modul AKS](azure-stack-kubernetes-aks-engine-overview.md).
+> K nasazení clusterů jako zkušebního konceptu použijte jenom položku Kubernetes Azure Stack Marketplace. Pro podporované Kubernetes clustery v Azure Stack použijte [modul AKS](azure-stack-kubernetes-aks-engine-overview.md).
 
 Tento článek popisuje, jak řešit potíže s clusterem Kubernetes. Chcete-li zahájit odstraňování potíží, zkontrolujte prvky požadované pro nasazení. Možná budete muset shromáždit protokoly nasazení z Azure Stack nebo virtuálních počítačů se systémem Linux, které hostují Kubernetes. Chcete-li načíst protokoly z koncového bodu správy, obraťte se na správce Azure Stack.
 
@@ -85,17 +85,18 @@ Následující diagram ukazuje obecný proces nasazení clusteru.
 
 Na virtuálních počítačích, které podporují cluster Kubernetes, můžete shromažďovat a kontrolovat protokoly nasazení. Obraťte se na správce Azure Stack a ověřte verzi Azure Stack, kterou potřebujete použít, a získejte protokoly od Azure Stack, které souvisejí s vaším nasazením.
 
-1. Zkontrolujte [stav nasazení](#review-deployment-status) a načtěte protokoly z hlavního uzlu v clusteru Kubernetes.
-2. Ujistěte se, že používáte nejnovější verzi Azure Stack. Pokud si nejste jistí, kterou verzi používáte, obraťte se na správce Azure Stack.
-3.  Zkontrolujte soubory pro vytváření virtuálních počítačů. Mohli byste mít následující problémy:  
+1. Přečtěte si kód chyby vrácený nasazením ARM v podokně **nasazení** ve skupině prostředků, do které jste cluster nasadili. Popisy chybových kódů najdete v článku [věnovaném řešení potíží](https://github.com/msazurestackworkloads/azurestack-gallery/blob/master/kubernetes/docs/troubleshooting.md) v ÚLOŽIŠTI GitHub AKS Engine. Pokud problém s popisem chyby nemůžete vyřešit, pokračujte v tomto postupu.
+2. Zkontrolujte [stav nasazení](#review-deployment-status) a načtěte protokoly z hlavního uzlu v clusteru Kubernetes.
+3. Ověřte, že používáte nejnovější verzi Azure Stack. Pokud si nejste jistí, kterou verzi používáte, obraťte se na správce Azure Stack.
+4. Zkontrolujte soubory pro vytváření virtuálních počítačů. Mohli byste mít následující problémy:  
     - Veřejný klíč může být neplatný. Zkontrolujte klíč, který jste vytvořili.  
     - Při vytváření virtuálního počítače se možná aktivovala vnitřní chyba nebo se aktivovala Chyba při vytváření. Řada faktorů může způsobit chyby, včetně omezení kapacity pro předplatné Azure Stack.
     - Ujistěte se, že plně kvalifikovaný název domény (FQDN) pro virtuální počítač začíná duplicitní předponou.
-4.  Pokud je virtuální počítač v **pořádku**, vyhodnoťte DVM. Pokud má DVM chybovou zprávu:
+5.  Pokud je virtuální počítač v **pořádku**, vyhodnoťte DVM. Pokud má DVM chybovou zprávu:
 
     - Veřejný klíč může být neplatný. Zkontrolujte klíč, který jste vytvořili.  
     - Obraťte se na správce Azure Stack a načtěte protokoly pro Azure Stack pomocí privilegovaných koncových bodů. Další informace najdete v tématu [Nástroje pro diagnostiku Azure Stack](../operator/azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep-to-collect-diagnostic-logs).
-5. Pokud máte dotaz týkající se nasazení, můžete ho publikovat, nebo zjistit, jestli už někdo na dotaz na [Azure Stack Fórum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)odpověděl. 
+6. Pokud máte dotaz týkající se nasazení, můžete ho publikovat, nebo zjistit, jestli už někdo na dotaz na [Azure Stack Fórum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)odpověděl. 
 
 ## <a name="review-deployment-status"></a>Zkontrolovat stav nasazení
 
@@ -148,7 +149,7 @@ Pomocí těchto kroků můžete shromáždit a stáhnout protokoly clusteru:
     |---------------------|------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
     | -d,--VMD-Host      | Veřejná IP adresa nebo plně kvalifikovaný název domény (FQDN) pro DVM. Název virtuálního počítače začíná na `vmd-`. | IP ADRESA: 192.168.102.38<br>DNS: VMD-myk8s. Local. cloudapp. azurestack. external |
     | -h,--help  | Použití příkazu tisku. | |
-    | -i,--identity-File | Cesta k souboru privátního klíče RSA předanému položce Marketplace při vytváření clusteru Kubernetes. Vyžaduje se pro vzdálené přihlášení k uzlům Kubernetes. | C:\data\id_rsa.pem (výstupu)<br>~/.ssh/id_rsa (SSH)
+    | -i,--identity-File | Cesta k souboru privátního klíče RSA předanému položce Marketplace při vytváření clusteru Kubernetes. Vyžaduje se pro vzdálené přihlášení k uzlům Kubernetes. | C:\data\ id_rsa. pem (do výstupu)<br>~/.ssh/id_rsa (SSH)
     | -m,--Master-Host   | Veřejná IP adresa nebo plně kvalifikovaný název domény (FQDN) hlavního uzlu Kubernetes Název virtuálního počítače začíná na `k8s-master-`. | IP ADRESA: 192.168.102.37<br>Plně kvalifikovaný název domény: k8s-12345. Local. cloudapp. azurestack. external      |
     | -u,--User          | Uživatelské jméno předané položce Marketplace při vytváření clusteru Kubernetes. Vyžaduje se pro vzdálené přihlášení k uzlům Kubernetes. | azureuser (výchozí hodnota) |
 

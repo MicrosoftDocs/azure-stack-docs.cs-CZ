@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2019
+ms.date: 11/15/2019
 ms.author: mabrigg
 ms.reviewer: wamota
-ms.lastreviewed: 08/30/2018
-ms.openlocfilehash: d6e4aa25b558d12cfb437155c453d3d093ea7e00
-ms.sourcegitcommit: ef7efcde76d1d7875ca1c882afebfd6a27f1c686
+ms.lastreviewed: 11/15/2019
+ms.openlocfilehash: 20291fb211ebd19f36b6af03d85fa2017d85820c
+ms.sourcegitcommit: f2a059f1be36f82adea8877f3f6e90d41ef3b161
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72888064"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74162914"
 ---
 # <a name="border-connectivity"></a>Připojení k okraji 
 Plánování integrace sítě je důležitou podmínkou pro úspěšné Azure Stack nasazení integrovaných systémů, operace a správu. Plánování připojení k okraji začíná tím, že zvolíte, jestli chcete používat dynamické směrování s protokolem BGP (Border Gateway Protocol). K tomu je potřeba přiřadit 16bitové číslo autonomního systému protokolu BGP (veřejné nebo soukromé) nebo pomocí statického směrování, kde se hraniční zařízení přiřazují statická výchozí trasa.
@@ -68,6 +68,8 @@ Pokud vaše datacentrum vyžaduje, aby všechny přenosy používaly proxy serve
 Transparentní proxy server (označovaný také jako zachycení, vložený nebo vynucený proxy server) zachycuje normální komunikaci v síťové vrstvě bez nutnosti jakékoli speciální konfigurace klienta. Klienti nemusí vědět o existenci proxy serveru.
 
 ![Transparentní proxy server](media/azure-stack-border-connectivity/transparent-proxy.png)
+
+Zachycení provozu SSL není [podporované](azure-stack-firewall.md#ssl-interception) a může při přístupu k koncovým bodům způsobit selhání služby. Maximální podporovaný časový limit pro komunikaci s koncovými body vyžadovanými pro identitu je 60 s se 3 opakovanými pokusy.
 
 ## <a name="next-steps"></a>Další kroky
 [Integrace DNS](azure-stack-integrate-dns.md)
