@@ -11,20 +11,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 09/18/2019
+ms.date: 09/19/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 09/18/2019
-ms.openlocfilehash: 89a31f6d7894ed9af710263298fef03604d1351b
-ms.sourcegitcommit: acebda8a42ac8ecdeba490fc1738e9041479dab0
+ms.lastreviewed: 09/19/2019
+ms.openlocfilehash: 9ca2e25217886d6b8a55bc394f4ee05df1bea2d6
+ms.sourcegitcommit: cefba8d6a93efaedff303d3c605b02bd28996c5d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72813989"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74298776"
 ---
 # <a name="download-azure-stack-tools-from-github"></a>Stažení Azure Stack nástrojů z GitHubu
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
 
 **AzureStack-Tools** je [úložiště GitHub](https://github.com/Azure/AzureStack-Tools) , které hostuje moduly PowerShellu pro správu a nasazování prostředků do Azure Stack. Pokud plánujete navázat připojení k síti VPN, můžete tyto moduly PowerShell stáhnout do Azure Stack Development Kit (ASDK) nebo do externího klienta založeného na systému Windows. Pokud chcete tyto nástroje získat, naklonujte úložiště GitHubu nebo Stáhněte složku **AzureStack-Tools** spuštěním následujícího skriptu:
 

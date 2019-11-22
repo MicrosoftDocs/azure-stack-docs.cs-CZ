@@ -16,16 +16,16 @@ ms.date: 08/14/2019
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/06/2019
-ms.openlocfilehash: 25a32b1d73818e988a8bdf7fb565d06b06d53d68
-ms.sourcegitcommit: bb2bbfad8061f7677954f6ce5a435b4e6f9299b6
+ms.openlocfilehash: fc3eecb8f4e06ce02737e513c48d946f2a667c21
+ms.sourcegitcommit: cefba8d6a93efaedff303d3c605b02bd28996c5d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74100014"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74298772"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack"></a>Hostované operační systémy podporované v Azure Stack
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
 
 ## <a name="windows"></a>Windows
 
@@ -36,9 +36,9 @@ Azure Stack podporuje hostované operační systémy Windows, které jsou uveden
 | Windows Server verze 1709 | 64 – bit | Jádro s kontejnery |
 | Windows Server 2019 | 64 – bit |  Datacenter, Datacenter Core, Datacenter s kontejnery |
 | Windows Server 2016 | 64 – bit |  Datacenter, Datacenter Core, Datacenter s kontejnery |
-| Windows Server 2012 R2 | 64 – bit |  Datacentrum |
-| Windows Server 2012 | 64 – bit |  Datacentrum |
-| Windows Server 2008 R2 SP1 | 64 – bit |  Datacentrum |
+| Windows Server 2012 R2 | 64 – bit |  Datové centrum |
+| Windows Server 2012 | 64 – bit |  Datové centrum |
+| Windows Server 2008 R2 SP1 | 64 – bit |  Datové centrum |
 | Windows Server 2008 SP2 | 64 – bit |  Přineste si vlastní image |
 | Windows 10 *(viz poznámka 1)* | 64-bit, pro a Enterprise | Přineste si vlastní image |
 
@@ -54,9 +54,9 @@ Edice Datacenter jsou k dispozici na webu Marketplace ke stažení. zákazníci 
 Distribuce systému Linux uvedená jako dostupná na webu Marketplace zahrnují potřebného agenta Windows Azure Linux (WALA). Pokud přenesete vlastní image Azure Stack, postupujte podle pokynů v části [Přidání imagí pro Linux do Azure Stack](azure-stack-linux.md).
 
 > [!NOTE]
-> Vlastní image by se měly sestavit pomocí nejnovější veřejné verze WALA (na 1903 Azure Stack sestavení a výše nebo pomocí opravy hotfix 1901/1902) nebo verze 2.2.20. Verze před 2.2.20 a mezi 2.2.20 a 2.2.35 (exkluzivní) nemusí správně fungovat na Azure Stack.
+> Vlastní image by se měly sestavit pomocí nejnovější veřejné verze WALA (na 1903 Azure Stack sestavení a výše nebo pomocí opravy hotfix 1901/1902) nebo verze 2.2.20. Verze před 2.2.20 a mezi 2.2.21 a 2.2.34 (včetně) nemusí správně fungovat na Azure Stack. Ve verzi Azure Stack 1910 a novějších budou všechny verze agenta Azure WALA pracovat s Azure Stack.
 >
-> v tuto chvíli se Azure Stack nepodporuje [Cloud-init](https://cloud-init.io/) .
+> v tuto chvíli se podporuje [Cloud-init](https://cloud-init.io/) v Azure Stack 1910 a novějších verzích.
 
 | Distribuce | Popis | Vydavatel | Marketplace |
 | --- | --- | --- | --- |

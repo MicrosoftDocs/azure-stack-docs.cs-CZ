@@ -15,16 +15,16 @@ ms.date: 09/25/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: 3b728bb08d41c234ccffb94005be740bea0766b6
-ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
+ms.openlocfilehash: a146a99476912e97c72e7a37ffc5224158feaffc
+ms.sourcegitcommit: 0b783e262ac87ae67929dbd4c366b19bf36740f0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72019285"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74310154"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Přidat tenanta pro použití a fakturaci na Azure Stack
 
-*Platí pro: Azure Stack integrovaných systémů @ no__t-0
+*Platí pro: integrované systémy Azure Stack*
 
 V tomto článku se dozvíte, jak přidat tenanta do nasazení Azure Stack spravovaného poskytovatelem Cloud Solution Provider (CSP). Když nový tenant používá prostředky, Azure Stack sestavy využití jejich předplatného CSP.
 
@@ -37,7 +37,7 @@ Následující obrázek znázorňuje kroky, které zprostředkovatel CSP potřeb
 
 ## <a name="add-an-end-customer"></a>Přidat koncového zákazníka
 
-Před přidáním koncového zákazníka musíte povolit u registrace více tenantů. Aby bylo možné povolit účtování více tenantů, odešlete ID předplatného registrace, název skupiny prostředků a název registrace `azstcsp@microsoft.com`. K povolení víceklientské architektury obvykle trvá 1-2 pracovních dnů.
+Před přidáním koncového zákazníka musíte povolit u registrace více tenantů. Aby bylo možné povolit účtování více tenantů, odešlete ID předplatného registrace, název skupiny prostředků a název registrace, aby bylo možné `azstcsp@microsoft.com`. K povolení víceklientské architektury obvykle trvá 1-2 pracovních dnů.
 
 Chcete-li přidat koncového zákazníka, jak je znázorněno na následujícím obrázku, proveďte následující kroky:
 
@@ -66,13 +66,13 @@ Aktualizujte svou registraci pomocí nového zákaznického předplatného. Azur
    ```
 
    >[!Note]
-   > Pokud vaše relace vyprší, vaše heslo se změnilo nebo chcete jednoduše přepnout účty, spusťte následující rutinu ještě před přihlášením pomocí rutiny Add-AzureRmAccount: `Remove-AzureRmAccount-Scope Process`.
+   > Pokud vaše relace vyprší, vaše heslo se změnilo nebo chcete jednoduše přepnout účty, spusťte následující rutinu ještě před přihlášením pomocí rutiny Add-AzureRmAccount: `Remove-AzureRmAccount-Scope Process`
 
 2. Zadejte svoje přihlašovací údaje Azure.
 3. V relaci PowerShellu spusťte příkaz:
 
    ```powershell
-   New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties <PSObject>
+   New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01
    ```
 
 ### <a name="new-azurermresource-powershell-parameters"></a>Parametry prostředí PowerShell pro New-AzureRmResource
@@ -84,8 +84,7 @@ V následující části jsou popsány parametry pro rutinu **New-AzureRmResourc
 |registrationSubscriptionID | Předplatné Azure, které se použilo při prvotní registraci Azure Stack.|
 | customerSubscriptionID | Předplatné Azure (není Azure Stack) patřící zákazníkovi k registraci. Musí být vytvořen v nabídce CSP. V praxi to znamená prostřednictvím partnerského centra. Pokud má zákazník více než jednoho klienta Azure Active Directory, musí být toto předplatné vytvořeno v tenantovi, které se bude používat pro přihlášení k Azure Stack. ID předplatného zákazníka musí používat malá písmena. |
 | resourceGroup | Skupina prostředků v Azure, ve které je uložená vaše registrace. |
-| registrationName | Název registrace Azure Stack. Je to objekt uložený v Azure. |
-| properties | Určuje vlastnosti prostředku. Pomocí tohoto parametru můžete zadat hodnoty vlastností, které jsou specifické pro daný typ prostředku.
+| registrationName | Název registrace Azure Stack. Je to objekt uložený v Azure. 
 
 > [!NOTE]  
 > Klienty musí být zaregistrované u každé Azure Stack, kterou používají. Pokud máte dvě Azure Stack nasazení a tenant používá oba, musíte aktualizovat počáteční registraci každého nasazení s předplatným tenanta.

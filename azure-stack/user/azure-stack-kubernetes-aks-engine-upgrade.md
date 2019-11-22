@@ -11,20 +11,20 @@ ms.workload: na
 pms.tgt_pltfrm: na (Kubernetes)
 ms.devlang: nav
 ms.topic: article
-ms.date: 10/16/2019
+ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 10/16/2019
-ms.openlocfilehash: 39eebfbc4d60d4cd68bb33d6efcf35cc12ffe313
-ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
+ms.lastreviewed: 11/21/2019
+ms.openlocfilehash: c7db293cb1a24079f66dcf0b047cf66218857003
+ms.sourcegitcommit: 0b783e262ac87ae67929dbd4c366b19bf36740f0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73594896"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74310126"
 ---
 # <a name="upgrade-a-kubernetes-cluster-on-azure-stack"></a>Upgrade clusteru Kubernetes na Azure Stack
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
 
 ## <a name="upgrade-a-cluster"></a>Upgrade clusteru
 
@@ -84,15 +84,15 @@ Následující pokyny používají minimální postup k provedení upgradu. Poku
 
 2. Shromážděte informace, které budete potřebovat ke spuštění příkazu `upgrade`. Upgrade používá následující parametry:
 
-    | Parametr | Příklad: | Popis |
+    | Parametr | Příklad | Popis |
     | --- | --- | --- |
     | Azure – ENV | AzureStackCloud | K indikaci AKS Engine, že vaše cílová platforma je Azure Stack použít `AzureStackCloud`. |
     | location | místní | Název oblasti pro váš Azure Stack. Pro ASDK je oblast nastavená na `local`. |
-    | resource-group | Kube – RG | Zadejte název nové skupiny prostředků nebo vyberte existující skupinu prostředků. Název prostředku musí být alfanumerický a malý. |
+    | resource-group | Kube – RG | Zadejte název nové skupiny prostředků nebo vyberte existující skupinu prostředků. Název prostředku musí být alfanumerické znaky a malá písmena. |
     | ID předplatného | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Zadejte ID předplatného. Další informace najdete v tématu [přihlášení k odběru nabídky](https://docs.microsoft.com/azure-stack/user/azure-stack-subscribe-services#subscribe-to-an-offer) . |
     | rozhraní API – model | ./kubernetes-azurestack.json | Cesta ke konfiguračnímu souboru clusteru nebo modelu rozhraní API. |
     | ID klienta | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Zadejte identifikátor GUID instančního objektu služby. ID klienta identifikované jako ID aplikace, když správce Azure Stack vytvořil instanční objekt. |
-    | tajný kód klienta | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Zadejte tajný klíč objektu služby. Toto je tajný kód klienta, který jste nastavili při vytváření služby. |
+    | client-secret | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Zadejte tajný klíč objektu služby. Toto je tajný kód klienta, který jste nastavili při vytváření služby. |
     | Identita – systém | službou | Volitelné. Pokud používáte federované služby Active Directory (AD FS), zadejte svoje řešení pro správu identit. |
 
 3. Po zadání vašich hodnot spusťte následující příkaz:

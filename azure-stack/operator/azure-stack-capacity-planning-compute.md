@@ -16,12 +16,12 @@ ms.date: 07/16/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 06/13/2019
-ms.openlocfilehash: 17136cbe86029f0ea776d8dc8860ff96c82c756e
-ms.sourcegitcommit: ae79b8bea670ea854ed00e9998d45f6b47fc8347
+ms.openlocfilehash: dac0360bba7c24c85d1f30efbfb7fad30eb97028
+ms.sourcegitcommit: cefba8d6a93efaedff303d3c605b02bd28996c5d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71142594"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74299156"
 ---
 # <a name="azure-stack-compute"></a>Azure Stack COMPUTE
 
@@ -101,21 +101,21 @@ Hodnota V, největší virtuální počítač v jednotce škálování, je dynam
 
 ## <a name="frequently-asked-questions"></a>Nejčastější dotazy
 
-**OTÁZKA**: Můj tenant nasadil nový virtuální počítač, jak dlouho bude trvat, než se v grafu schopností na portálu pro správu zobrazí zbývající kapacita?
+**Otázka**: můj tenant má nasazený nový virtuální počítač, jak dlouho bude trvat, než se v grafu schopností na portálu pro správu zobrazí zbývající kapacita?
 
-**A**: Okno kapacity se aktualizuje každých 15 minut, proto prosím Vezměte v úvahu.
+Odpověď **: okno kapacity se aktualizuje**každých 15 minut, proto prosím Vezměte v úvahu.
 
-**OTÁZKA**: Počet nasazených virtuálních počítačů v mém Azure Stack se nezměnil, ale kapacita se pohybuje. Proč?
+**Otázka**: počet nasazených virtuálních počítačů v mém Azure Stack se nezměnil, ale kapacita se pohybuje. Proč?
 
-**A**: Dostupná paměť pro umístění virtuálního počítače má několik závislostí, jedna z nich je rezerva hostitelského operačního systému. Tato hodnota závisí na paměti používané různými procesy technologie Hyper-V spuštěné na hostiteli, což není konstantní hodnota.
+Odpověď **: dostupná**paměť pro umístění virtuálního počítače má několik závislostí, jedna z nich je rezerva HOSTITELSKÉHO operačního systému. Tato hodnota závisí na paměti používané různými procesy technologie Hyper-V spuštěné na hostiteli, což není konstantní hodnota.
 
-**OTÁZKA**: Jaký stav mají virtuální počítače tenanta pro využívání paměti?
+**Otázka**: jaký stav mají virtuální počítače tenanta pro využívání paměti?
 
-v: Navíc k běžícím virtuálním počítačům je paměť spotřebovaná všemi virtuálními počítači, které se proložily v prostředcích infrastruktury. To znamená, že virtuální počítače, které jsou v rámci "vytváření", "neúspěšné" nebo virtuální počítače vycházející z hosta, na rozdíl od zrušení přidělení z portálu/PowerShell/CLI budou spotřebovávat paměť.
+Odpověď **: Kromě**spuštěných virtuálních počítačů je paměť spotřebovaná všemi virtuálními počítači, které se proložily v prostředcích infrastruktury. To znamená, že virtuální počítače, které jsou v rámci "vytváření", "neúspěšné" nebo virtuální počítače vycházející z hosta, na rozdíl od zrušení přidělení z portálu/PowerShell/CLI budou spotřebovávat paměť.
 
-**OTÁZKA**: Mám čtyři Azure Stack hostitele. Můj tenant má 3 virtuální počítače, které každý z nich spotřebovává 56 GB RAM (D5_v2). U jednoho z virtuálních počítačů se změní velikost na 112 GB RAM (D14_v2) a k dispozici je generování sestav paměti na řídicím panelu s výsledkem špičky 168 GB v okně kapacity. Následná změna velikosti dalších dvou D5_v2 virtuálních počítačů na D14_v2, výsledkem je pouze 56 GB paměti RAM. Proč to jde?
+**Otázka**: Mám k dispozici čtyři Azure Stack hostitele. Můj tenant má 3 virtuální počítače, které využívají 56 GB RAM (D5_v2). U jednoho z virtuálních počítačů se změní velikost na 112 GB RAM (D14_v2) a dostupné generování sestav paměti na řídicím panelu vedlo k celkovému využití 168 GB v okně kapacity. Následná změna velikosti dalších dvou D5_v2 virtuálních počítačů na D14_v2 způsobila, že se nazvyšují jenom 56 GB paměti RAM. Proč to jde?
 
-**A**: Dostupná paměť je funkce rezervy odolnosti udržované Azure Stack. Rezerva odolnosti je funkce největší velikosti virtuálního počítače na Azure Stack razítku. Nejdřív je největší virtuální počítač na razítku 56 GB paměti. Když se změnila velikost virtuálního počítače, největší virtuální počítač na razítku se stal 112 GB paměti, což nejen zvýšilo paměť využitou virtuálním počítačem tenanta, ale také zvýšila rezervu odolnosti. Výsledkem bylo zvýšení 56 GB (56 GB až 112 GB zvýšení paměti virtuálního počítače klienta) + 112 GB zvýšení odolnosti paměti. Když se změnila velikost dalších virtuálních počítačů, největší velikost virtuálního počítače zůstala 112 GB virtuálního počítače, a proto se nemusela zvýšit žádná rezerva v důsledku odolnosti proti chybám. Zvýšení spotřeby paměti bylo pouze zvýšení paměti virtuálního počítače klienta (56 GB). 
+Odpověď **: dostupná**paměť je funkce rezervy odolnosti udržované Azure Stack. Rezerva odolnosti je funkce největší velikosti virtuálního počítače na Azure Stack razítku. Nejdřív je největší virtuální počítač na razítku 56 GB paměti. Když se změnila velikost virtuálního počítače, největší virtuální počítač na razítku se stal 112 GB paměti, což nejen zvýšilo paměť využitou virtuálním počítačem tenanta, ale také zvýšila rezervu odolnosti. Výsledkem bylo zvýšení 56 GB (56 GB až 112 GB zvýšení paměti virtuálního počítače klienta) + 112 GB zvýšení odolnosti paměti. Když se změnila velikost dalších virtuálních počítačů, největší velikost virtuálního počítače zůstala 112 GB virtuálního počítače, a proto se nemusela zvýšit žádná rezerva v důsledku odolnosti proti chybám. Zvýšení spotřeby paměti bylo pouze zvýšení paměti virtuálního počítače klienta (56 GB). 
 
 
 > [!NOTE]

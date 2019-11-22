@@ -15,18 +15,18 @@ ms.date: 10/01/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/16/2018
-ms.openlocfilehash: d7723dcdd755a926990ee52e96c3b75694651520
-ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
+ms.openlocfilehash: 208e632634c59be0338c70020e7fc0fdae846797
+ms.sourcegitcommit: cefba8d6a93efaedff303d3c605b02bd28996c5d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72277208"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74299002"
 ---
 # <a name="add-linux-images-to-azure-stack-marketplace"></a>Přidání imagí Linux do webu Azure Stack Marketplace
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
 
-Virtuální počítače se systémem Linux můžete nasadit na Azure Stack přidáním image založené na systému Linux do webu Azure Stack Marketplace. Nejjednodušší způsob, jak přidat image pro Linux do Azure Stack, je prostřednictvím správy Marketplace. Tyto Image byly připraveny a testovány na kompatibilitu s Azure Stack.
+Virtuální počítače se systémem Linux můžete nasadit na Azure Stack přidáním image založené na systému Linux do webu Azure Stack Marketplace. Nejjednodušší způsob, jak do služby Azure Stack přidat image Linuxu, představuje Správa Marketplace. Tyto image jsou připravené a otestované z hlediska kompatibility se službou Azure Stack.
 
 ## <a name="marketplace-management"></a>Správa Marketplace
 
@@ -36,11 +36,11 @@ Tyto image se často aktualizují, takže je Správa Marketplace často pořád 
 
 ## <a name="prepare-your-own-image"></a>Příprava vlastní image
 
-Pokud je to možné, Stáhněte si image dostupné prostřednictvím správy Marketplace. Tyto Image byly připraveny a testovány pro Azure Stack.
+Kdykoli je to možné, stáhněte si image dostupné prostřednictvím Správy Marketplace. Tyto image jsou připravené a otestované pro službu Azure Stack.
 
 ### <a name="azure-linux-agent"></a>Agent Azure Linux
 
-Je vyžadován agent Azure Linux (obvykle označovaný jako **WALinuxAgent** nebo **WALinuxAgent**) a ne všechny verze agenta fungují na Azure Stack. Verze mezi 2.2.20 a 2.2.35 nejsou v Azure Stack podporovány. Chcete-li použít nejnovější verze agenta výše než 2.2.35, použijte opravu hotfix 1901 hotfix/1902 nebo aktualizujte Azure Stack na verzi 1903 (nebo vyšší). Všimněte si, že v tuto chvíli není v Azure Stack podporována [Cloud-init](https://cloud-init.io/) .
+Je vyžadován agent Azure Linux (obvykle označovaný jako **WALinuxAgent** nebo **WALinuxAgent**) a ne všechny verze agenta fungují na Azure Stack. Verze mezi 2.2.21 a 2.2.34 (včetně) nejsou u Azure Stack podporovány. Chcete-li použít nejnovější verze agenta výše než 2.2.35, použijte opravu hotfix 1901 hotfix/1902 nebo aktualizujte Azure Stack na verzi 1903 (nebo vyšší). Upozorňujeme, že [Cloud-init](https://cloud-init.io/) se podporuje na Azure Stack verzích přesahujících 1910.
 
 | Sestavení Azure Stack | Sestavení agenta Azure Linux |
 | ------------- | ------------- |
@@ -50,23 +50,88 @@ Je vyžadován agent Azure Linux (obvykle označovaný jako **WALinuxAgent** neb
 | 1.1902.2.73  | 2.2.35 nebo novější |
 | 1.1903.0.35  | 2.2.35 nebo novější |
 | Build po 1903 | 2.2.35 nebo novější |
-| Není podporováno | 2.2.21-2.2.34 |
+| Nepodporováno | 2.2.21-2.2.34 |
+| Build po 1910 | Všechny verze agenta Azure WALA|
 
 Vlastní image pro Linux můžete připravit pomocí následujících pokynů:
 
-* [Distribuce na základě CentOS](/azure/virtual-machines/linux/create-upload-centos?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Distribuce založené na CentOS](/azure/virtual-machines/linux/create-upload-centos?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Debian Linux](/azure/virtual-machines/linux/debian-create-upload-vhd?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Red Hat Enterprise Linux](azure-stack-redhat-create-upload-vhd.md)
-* [SLES & openSUSE](/azure/virtual-machines/linux/suse-create-upload-vhd?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Server Ubuntu](/azure/virtual-machines/linux/create-upload-ubuntu?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [SLES a openSUSE](/azure/virtual-machines/linux/suse-create-upload-vhd?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Ubuntu Server](/azure/virtual-machines/linux/create-upload-ubuntu?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+
+## <a name="cloud-init"></a>Cloud-init
+
+V Azure Stack verzích přesahujících 1910 se podporuje [Cloud-init](https://cloud-init.io/) . Pokud chcete použít Cloud-init k přizpůsobení virtuálního počítače se systémem Linux, můžete použít následující pokyny pro PowerShell: 
+
+### <a name="step-1-create-a-cloud-inittxt-file-with-your-cloud-config"></a>Krok 1: vytvoření souboru Cloud-init. txt pomocí cloudové konfigurace
+
+Vytvořte soubor s názvem Cloud-init. txt a vložte následující konfiguraci cloudu:
+
+```yaml
+#cloud-config
+package_upgrade: true
+packages:
+  - nginx
+  - nodejs
+  - npm
+write_files:
+  - owner: www-data:www-data
+    path: /etc/nginx/sites-available/default
+    content: |
+      server {
+        listen 80;
+        location / {
+          proxy_pass http://localhost:3000;
+          proxy_http_version 1.1;
+          proxy_set_header Upgrade $http_upgrade;
+          proxy_set_header Connection keep-alive;
+          proxy_set_header Host $host;
+          proxy_cache_bypass $http_upgrade;
+        }
+      }
+  - owner: azureuser:azureuser
+    path: /home/azureuser/myapp/index.js
+    content: |
+      var express = require('express')
+      var app = express()
+      var os = require('os');
+      app.get('/', function (req, res) {
+        res.send('Hello World from host ' + os.hostname() + '!')
+      })
+      app.listen(3000, function () {
+        console.log('Hello world app listening on port 3000!')
+      })
+runcmd:
+  - service nginx restart
+  - cd "/home/azureuser/myapp"
+  - npm init
+  - npm install express -y
+  - nodejs index.js
+  ```
+  
+### <a name="step-2-reference-the-cloud-inittxt-during-the-linux-vm-deployment"></a>Krok 2: odkazování na Cloud-init. txt během nasazování virtuálního počítače se systémem Linux
+
+Nahrajte soubor do účtu služby Azure Storage, Azure Stack účtu úložiště nebo úložiště GitHub dosažitelného vaším VIRTUÁLNÍm počítačem s Azure Stack Linux.
+V současné době se použití Cloud-init pro nasazení virtuálního počítače podporuje jenom na REST, PowerShellu a CLI a nemá přidružené uživatelské rozhraní portálu na Azure Stack.
+
+Podle [těchto](../user/azure-stack-quick-create-vm-linux-powershell.md) pokynů můžete vytvořit virtuální počítač Linux pomocí prostředí PowerShell, ale nezapomeňte odkazovat na Cloud-init. txt jako součást příznaku `-CustomData`:
+
+```powershell
+$VirtualMachine =Set-AzureRmVMOperatingSystem -VM $VirtualMachine `
+  -Linux `
+  -ComputerName "MainComputer" `
+  -Credential $cred -CustomData "#include https://cloudinitstrg.blob.core.windows.net/strg/cloud-init.txt"
+```
 
 ## <a name="add-your-image-to-marketplace"></a>Přidání image do Marketplace
 
-Postupujte podle pokynů [Přidat obrázek na Marketplace](azure-stack-add-vm-image.md). Zajistěte, aby byl parametr `OSType` nastaven na hodnotu `Linux`.
+Postupujte podle pokynů [Přidat obrázek na Marketplace](azure-stack-add-vm-image.md). Ujistěte se, že parametr `OSType` je nastaven na hodnotu `Linux`.
 
 Po přidání image na Marketplace se vytvoří položka Marketplace a uživatelé můžou nasadit virtuální počítač se systémem Linux.
 
 ## <a name="next-steps"></a>Další kroky
 
-* [Stažení položek z webu Marketplace z Azure do Azure Stack](azure-stack-download-azure-marketplace-item.md)
+* [Stažení položek z marketplace z Azure do služby Azure Stack](azure-stack-download-azure-marketplace-item.md)
 * [Přehled Azure Stack Marketplace](azure-stack-marketplace.md)

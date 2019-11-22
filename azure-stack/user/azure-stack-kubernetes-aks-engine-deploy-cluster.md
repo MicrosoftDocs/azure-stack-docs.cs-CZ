@@ -11,20 +11,20 @@ ms.workload: na
 pms.tgt_pltfrm: na (Kubernetes)
 ms.devlang: nav
 ms.topic: article
-ms.date: 10/10/2019
+ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 10/10/2019
-ms.openlocfilehash: e4f10cb3e5d96942e5fe32b0d8fe3a04cf921521
-ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
+ms.lastreviewed: 11/21/2019
+ms.openlocfilehash: 8018b4637dadfbca948b2caa0528b113755dc6dd
+ms.sourcegitcommit: 0b783e262ac87ae67929dbd4c366b19bf36740f0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73595205"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74310308"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack"></a>Nasazení clusteru Kubernetes s modulem AKS na Azure Stack
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
 
 Cluster Kubernetes můžete nasadit na Azure Stack z virtuálního počítače klienta, na kterém běží modul AKS. V tomto článku se podíváme na zápis specifikace clusteru, nasazení clusteru se souborem `apimodel.json` a kontrolu clusteru nasazením MySQL pomocí Helm.
 
@@ -60,7 +60,7 @@ V této části se podíváme na vytvoření modelu rozhraní API pro váš clus
     aks-engine get-versions
     ```
 
-4.  Vyhledejte `customCloudProfile` a zadejte adresu URL portálu tenanta. například `https://portal.local.azurestack.external`. 
+4.  Vyhledejte `customCloudProfile` a zadejte adresu URL portálu tenanta. Například, `https://portal.local.azurestack.external`. 
 
 5. Pokud používáte AD FS, přidejte `"identitySystem":"adfs"`. Například:
 
@@ -74,7 +74,7 @@ V této části se podíváme na vytvoření modelu rozhraní API pro váš clus
     > [!Note]  
     > Pokud pro svůj systém identit používáte Azure AD, nemusíte přidat pole **identitySystem** .
 
-6. Vyhledejte `portalURL` a zadejte adresu URL portálu tenanta. například `https://portal.local.azurestack.external`.
+6. Vyhledejte `portalURL` a zadejte adresu URL portálu tenanta. Například, `https://portal.local.azurestack.external`.
 
 7.  V poli `masterProfile`pole nastavte následující pole:
 
@@ -98,7 +98,7 @@ V této části se podíváme na vytvoření modelu rozhraní API pro váš clus
     | Pole | Popis |
     | --- | --- |
     | adminUsername | Zadejte uživatelské jméno správce virtuálního počítače. |
-    | protokoly | Zadejte veřejný klíč, který se bude používat pro ověřování SSH s virtuálními počítači. |
+    | SSH | Zadejte veřejný klíč, který se bude používat pro ověřování SSH s virtuálními počítači. |
 
 ### <a name="more-information-about-the-api-model"></a>Další informace o modelu rozhraní API
 
@@ -119,16 +119,16 @@ Pokračujte v nasazení clusteru:
 
 1.  Přečtěte si dostupné parametry pro modul AKS Azure Stack v části Příznaky rozhraní příkazového [řádku (CLI](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#cli-flags)).
 
-    | Parametr | Příklad: | Popis |
+    | Parametr | Příklad | Popis |
     | --- | --- | --- |
     | Azure – ENV | AzureStackCloud | K indikaci AKS Engine, že vaše cílová platforma je Azure Stack použít `AzureStackCloud`. |
     | Identita – systém | službou | Volitelné. Pokud používáte federované služby Active Directory (AD FS), zadejte svoje řešení pro správu identit. |
     | location | místní | Název oblasti pro váš Azure Stack. Pro ASDK je oblast nastavená na `local`. |
-    | resource-group | Kube – RG | Zadejte název nové skupiny prostředků nebo vyberte existující skupinu prostředků. Název prostředku musí být alfanumerický a malý. |
+    | resource-group | Kube – RG | Zadejte název nové skupiny prostředků nebo vyberte existující skupinu prostředků. Název prostředku musí být alfanumerické znaky a malá písmena. |
     | rozhraní API – model | ./kubernetes-azurestack.json | Cesta ke konfiguračnímu souboru clusteru nebo modelu rozhraní API. |
     | výstupní adresář | Kube – RG | Zadejte název adresáře, který bude obsahovat výstupní soubor `apimodel.json` i jiné generované soubory. |
     | ID klienta | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Zadejte identifikátor GUID instančního objektu služby. ID klienta identifikované jako ID aplikace, když správce Azure Stack vytvořil instanční objekt. |
-    | tajný kód klienta | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Zadejte tajný klíč objektu služby. Toto je tajný kód klienta, který jste nastavili při vytváření služby. |
+    | client-secret | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Zadejte tajný klíč objektu služby. Toto je tajný kód klienta, který jste nastavili při vytváření služby. |
     | ID předplatného | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Zadejte ID předplatného. Další informace najdete v tématu [přihlášení k odběru nabídky](https://docs.microsoft.com/azure-stack/user/azure-stack-subscribe-services#subscribe-to-an-offer) . |
 
     Zde naleznete příklad:

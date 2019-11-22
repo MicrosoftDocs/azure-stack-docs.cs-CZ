@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/07/2019
+ms.date: 10/23/2019
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 06/04/2019
-ms.openlocfilehash: 4894fb7184944095d968d08e2d668912a78119d4
-ms.sourcegitcommit: ef7efcde76d1d7875ca1c882afebfd6a27f1c686
+ms.openlocfilehash: 76bc9b83bf97c7817ff5c9cbf8bc0a3275a04d72
+ms.sourcegitcommit: cefba8d6a93efaedff303d3c605b02bd28996c5d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72888036"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74298858"
 ---
 # <a name="network-integration-planning-for-azure-stack"></a>Plánování integrace sítě pro Azure Stack
 
@@ -43,14 +43,17 @@ Logické sítě představuje abstrakci základní fyzické síťové infrastrukt
 
 Následující tabulka uvádí logické sítě a přidružené rozsahy podsítí IPv4, které je nutné naplánovat:
 
-| Logická síť | Popis | Velikost | 
+| Logické sítě | Popis | Velikost | 
 | -------- | ------------- | ------------ | 
 | Veřejná virtuální IP adresa | Azure Stack používá celkem 31 adres z této sítě. Osm veřejných IP adres se používá pro malou sadu Azure Stack služeb a zbývající jsou používány virtuálními počítači klienta. Pokud plánujete použít App Service a poskytovatele prostředků SQL, použijí se 7 dalších adres. Zbývajících 15 IP adres se rezervuje pro budoucí služby Azure. | /26 (62 hostitelů)-/22 (1022 hostitelů)<br><br>Doporučené =/24 (254 hostitelů) | 
-| Přepnout infrastrukturu | IP adresy Point-to-Point pro účely směrování, rozhraní pro správu vyhrazených přepínačů a adresy zpětné smyčky přiřazené přepínači. | za 26 | 
-| Infrastruktura | Slouží k Azure Stack interní součásti pro komunikaci. | za 24 |
-| Privátní | Používá se pro síť úložiště a privátní virtuální IP adresy. | za 24 | 
-| ŘADIČI | Slouží ke komunikaci s BMC na fyzických hostitelích. | za 26 | 
+| Přepnout infrastrukturu | IP adresy Point-to-Point pro účely směrování, rozhraní pro správu vyhrazených přepínačů a adresy zpětné smyčky přiřazené přepínači. | /26 | 
+| Infrastruktura | Slouží k Azure Stack interní součásti pro komunikaci. | /24 |
+| Private | Používá se pro síť úložiště, privátní virtuální IP adresy, kontejnery infrastruktury a další interní funkce. Od 1910 se velikost této podsítě mění na/20. Další informace najdete v části [privátní síť](#private-network) v tomto článku. | /20 | 
+| BMC | Slouží ke komunikaci s BMC na fyzických hostitelích. | /26 | 
 | | | |
+
+> [!NOTE]
+> Když je systém aktualizován na verzi 1910, výstraha na portálu přihlásí operátorovi ke spuštění nové rutiny PEP **set-AzsPrivateNetwork** pro přidání nového/20 PRIVÁTNÍho adresního prostoru. Pokyny ke spuštění rutiny najdete v [poznámkách k verzi 1910](release-notes.md) . Další informace a pokyny k výběru privátního ADRESního prostoru/20 najdete v části [privátní síť](#private-network) v tomto článku.
 
 ## <a name="network-infrastructure"></a>Síťová infrastruktura
 
@@ -66,13 +69,21 @@ HLH také hostuje virtuální počítač nasazení (DVM). DVM se používá běh
 
 ### <a name="private-network"></a>Privátní síť
 
-Tato síť/24 (254 IP adres hostitele) je privátní pro Azure Stack oblasti (nerozšiřuje se nad rámec hraničních zařízení Azure Stack oblasti) a je rozdělená do dvou podsítí:
+Tato/20 IP adres (4096) je privátní pro Azure Stackou oblast (nejedná se o trasu nad rámec hraničních zařízení Azure Stack systému) a je rozdělená do několika podsítí, tady je několik příkladů:
 
-- **Síť úložiště**: a/25 (126 IP adres hostitele), která se používá k podpoře použití prostorových přímých a přenosů úložiště protokolu SMB (Server Message Block) a migrace virtuálního počítače za provozu.
+- **Síť úložiště**: a/25 (128 IP adres), která se používá k podpoře použití prostorových přímých a přenosů úložiště protokolu SMB (Server Message Block) a migrace za provozu virtuálních počítačů.
 - **Interní virtuální IP síť**: a/25 síť vyhrazenou pouze pro interní VIP pro nástroj pro vyrovnávání zatížení softwaru.
+- **Síť kontejneru**: a/23 (512 IP adres), které jsou vyhrazené jenom pro interní přenosy mezi kontejnery, na kterých běží služby infrastruktury.
+
+Od 1910 se velikost privátní sítě změní na/20 (4096 IP adres) privátního ADRESního prostoru. Tato síť bude privátním systémem Azure Stack (netrasuje se nad rámec hraničních zařízení Azure Stack systému) a je možné ji znovu použít ve více systémech Azure Stack v rámci vašeho datového centra. I když je síť soukromá, aby Azure Stack, nesmí se překrývat s ostatními sítěmi v datacentru. Pokyny k privátnímu adresnímu prostoru IP adres vám doporučujeme postupovat podle [dokumentu RFC 1918](https://tools.ietf.org/html/rfc1918).
+
+Tento/20 privátních IP adres se rozdělí do několika sítí, které umožní provozovat interní infrastrukturu Azure Stack systému na kontejnerech v budoucích verzích. Další informace najdete v [poznámkách k verzi 1910](release-notes.md). Kromě toho tato nová privátní IP adresa umožňuje nepřetržité úsilí snížit před nasazením požadované IP místo pro směrování.
+
+Pro systémy nasazené před 1910 bude tato/20 podsíť další síť, která se má po aktualizaci na 1910 zadat do systémů. Další síť bude nutné poskytnout systému pomocí rutiny **set-AzsPrivateNetwork** PEP. Pokyny k této rutině najdete v [poznámkách k verzi 1910](release-notes.md).
 
 ### <a name="azure-stack-infrastructure-network"></a>Síť Azure Stack infrastruktury
-Tato síť/24 je vyhrazená pro interní Azure Stack komponenty, aby mohly komunikovat a vyměňovat data mezi sebou. Tuto podsíť je možné směrovat externě Azure Stack řešení do vašeho datového centra, ale nedoporučujeme používat v této podsíti veřejné nebo internetové IP adresy směrování. Tato síť se inzeruje na hranici, ale většina IP adres je chráněná pomocí seznamů Access Control (ACL). IP adresy povolené pro přístup jsou v malém rozsahu, který je ekvivalentní velikosti až/27 sítě a hostitelských služeb, jako je například [privilegovaný koncový bod (PEP)](azure-stack-privileged-endpoint.md) a [Zálohování Azure Stack](azure-stack-backup-reference.md).
+
+Tato síť/24 je vyhrazená pro interní Azure Stack komponenty, aby mohly komunikovat a vyměňovat data mezi sebou. Tato podsíť může být externě směrovatelné Azure Stack řešení do vašeho datového centra. V této podsíti nedoporučujeme používat veřejné nebo internetové IP adresy směrovatelný. Tato síť se inzeruje na hranici, ale většina IP adres je chráněná pomocí seznamů Access Control (ACL). IP adresy povolené pro přístup jsou v malém rozsahu, který je ekvivalentní velikosti až/27 sítě a hostitelských služeb, jako je například [privilegovaný koncový bod (PEP)](azure-stack-privileged-endpoint.md) a [Zálohování Azure Stack](azure-stack-backup-reference.md).
 
 ### <a name="public-vip-network"></a>Síť veřejných virtuálních IP adres
 
@@ -85,6 +96,10 @@ Tato síť/26 je podsíť, která obsahuje podsítě IP adres Point-to-Point/30 
 ### <a name="switch-management-network"></a>Přepnout síť pro správu
 
 Tato síť/29 (šest hostitelských IP adres) je vyhrazená pro připojení portů pro správu přepínačů. Umožňuje vzdálený přístup pro nasazení, správu a řešení potíží. Počítá se ze sítě infrastruktury přepínače uvedené výše.
+
+## <a name="permitted-networks"></a>Povolené sítě
+
+Počínaje 1910 bude mít list nasazení nové pole, které operátorovi umožní změnit některé seznamy řízení přístupu (ACL), aby povoloval přístup k rozhraním pro správu síťových zařízení a k hostiteli životního cyklu hardwaru (HLH) z rozsahu důvěryhodné sítě Datacenter. Se změnou seznamu řízení přístupu může operátor dovolit, aby JumpBox virtuální počítače pro správu v rámci určitého rozsahu sítě pro přístup k rozhraní pro správu přepínačů, HLH operačním systému a HLH BMC. Operátor může do tohoto seznamu zadat jednu nebo více podsítí, pokud pole necháte prázdné, bude ve výchozím nastavení odepřen přístup. Tato nová funkce nahrazuje ruční zásah po nasazení, který se používá k popisu na základě [nastavení změnit konkrétní v konfiguraci přepínače Azure Stack](azure-stack-customer-defined.md#access-control-list-updates).
 
 ## <a name="next-steps"></a>Další kroky
 

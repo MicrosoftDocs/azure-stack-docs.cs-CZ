@@ -11,26 +11,22 @@ ms.workload: na
 pms.tgt_pltfrm: na (Kubernetes)
 ms.devlang: nav
 ms.topic: article
-ms.date: 11/14/2019
+ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 11/14/2019
-ms.openlocfilehash: a847f04e3766e943aba78b567b0f21a99d0da860
-ms.sourcegitcommit: f2a059f1be36f82adea8877f3f6e90d41ef3b161
+ms.lastreviewed: 11/21/2019
+ms.openlocfilehash: aed53295b7c1748abd8ab3bd2862043d7d69e4b8
+ms.sourcegitcommit: 0b783e262ac87ae67929dbd4c366b19bf36740f0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74162935"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74310343"
 ---
 # <a name="troubleshoot-the-aks-engine-on-azure-stack"></a>Řešení potíží s modulem AKS na Azure Stack
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
 
 Může dojít k potížím při nasazení nebo práci s modulem AKS na Azure Stack. V tomto článku se dozvíte, jak řešit potíže s nasazením modulu AKS, shromažďovat informace o vašem modulu AKS, shromažďovat protokoly Kubernetes, prohlížet kódy chyb v rozšíření vlastních skriptů a pokyny k otevření problému GitHubu pro modul AKS.
-
-> [!IMPORTANT]
-> Modul AKS je aktuálně ve verzi Public Preview.
-> Tato verze Preview se poskytuje bez smlouvy o úrovni služeb a nedoporučuje se pro úlohy v produkčním prostředí. Některé funkce se nemusí podporovat nebo mohou mít omezené možnosti. Další informace najdete v [dodatečných podmínkách použití pro verze Preview v Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="troubleshoot-the-aks-engine-install"></a>Řešení potíží s instalací modulu AKS
 
@@ -132,7 +128,7 @@ Požadavky:
 
 2. Vyhledejte parametry vyžadované skriptem `getkuberneteslogs.sh`. Skript bude používat následující parametry:
 
-    | Parametr | Popis | Požaduje se | Příklad: |
+    | Parametr | Popis | Požaduje se | Příklad |
     | --- | --- | --- | --- |
     | -h,--help | Použití příkazu tisku. | ne | 
     -u,--uživatel | Uživatelské jméno správce pro virtuální počítače clusteru | ano | azureuser<br>(výchozí hodnota) |

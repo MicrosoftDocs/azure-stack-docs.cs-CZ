@@ -1,5 +1,5 @@
 ---
-title: Co je modul AKS v Azure Stack? | Dokumentace Microsoftu
+title: Co je modul AKS v Azure Stack? | Dokumenty Microsoft
 description: Naučte se, jak pomocí nástroje příkazového řádku AKS Engine nasadit a spravovat cluster Kubernetes v Azure a Azure Stack.
 services: azure-stack
 documentationcenter: ''
@@ -11,26 +11,22 @@ ms.workload: na
 pms.tgt_pltfrm: na (Kubernetes)
 ms.devlang: nav
 ms.topic: article
-ms.date: 09/14/2019
+ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/14/2019
-ms.openlocfilehash: 22779072b2dfed018a2ff6d5eac5bf2c294ccd31
-ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
+ms.lastreviewed: 11/21/2019
+ms.openlocfilehash: cb531570191216ea13a0b1a7a6d36738c0765cd3
+ms.sourcegitcommit: 0b783e262ac87ae67929dbd4c366b19bf36740f0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73595131"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74310260"
 ---
 # <a name="what-is-the-aks-engine-on-azure-stack"></a>Co je modul AKS v Azure Stack?
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
 
 Pomocí nástroje příkazového řádku AKS Engine můžete nasadit a spravovat cluster Kubernetes v Azure a Azure Stack. Pomocí modulu AKS můžete vytvářet, upgradovat a škálovat Azure Resource Manager nativních clusterů. Modul můžete použít k nasazení clusteru v připojených i odpojených prostředích. Tento článek poskytuje přehled modulu AKS, podporované scénáře použití modulu s Azure Stack a Úvod k operacím, jako je nasazení, upgrade a škálování.
-
-> [!IMPORTANT]
-> Modul AKS je aktuálně ve verzi Public Preview.
-> Tato verze Preview se poskytuje bez smlouvy o úrovni služeb a nedoporučuje se pro úlohy v produkčním prostředí. Některé funkce se nemusí podporovat nebo mohou mít omezené možnosti. Další informace najdete v [dodatečných podmínkách použití pro verze Preview v Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="overview-of-the-aks-engine"></a>Přehled modulu AKS
 

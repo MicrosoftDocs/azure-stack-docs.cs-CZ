@@ -3,7 +3,7 @@ title: Stažení položek z webu Marketplace z Azure a publikování do Azure St
 description: Naučte se stahovat položky Marketplace z Azure a publikovat na Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: justinha
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -16,16 +16,16 @@ ms.date: 10/10/2019
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: 095744322937a34dffd680b886fd4b06ca65d7d6
-ms.sourcegitcommit: 20d1c0ab3892e9c4c71d5b039457f1e15b1c84c7
+ms.openlocfilehash: bc696d4b14aecd5890893f00b64cf2c4a3804173
+ms.sourcegitcommit: cefba8d6a93efaedff303d3c605b02bd28996c5d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73618283"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74299184"
 ---
 # <a name="download-existing-marketplace-items-from-azure-and-publish-to-azure-stack"></a>Stažení stávajících položek Marketplace z Azure a publikování do Azure Stack
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
 
 Jako operátor cloudu můžete stahovat položky z Azure Marketplace a zpřístupnit je v Azure Stack. Položky, které můžete vybrat, jsou z uspořádaného seznamu Azure Marketplacech položek, které jsou předem testovány a podporovány pro práci s Azure Stack. Do tohoto seznamu se často přidají další položky, takže se budete moct vrátit k novému obsahu.
 
@@ -40,7 +40,7 @@ Existují dva scénáře, jak se připojit k Azure Marketplace:
 
 Pokud se Azure Stack připojí k Internetu, můžete k stažení položek z webu Marketplace použít portál pro správu.
 
-### <a name="prerequisites"></a>Předpoklady
+### <a name="prerequisites"></a>Požadavky
 
 Vaše nasazení Azure Stack musí mít připojení k Internetu a musí být [zaregistrované v Azure](azure-stack-registration.md).
 
@@ -50,7 +50,7 @@ Vaše nasazení Azure Stack musí mít připojení k Internetu a musí být [zar
 
 2. Před stažením položek z webu Marketplace zkontrolujte dostupný prostor úložiště. Později můžete po výběru položek ke stažení porovnat velikost stahovaných zařízení s dostupnou kapacitou úložiště. Pokud je kapacita omezená, zvažte možnosti [správy dostupného místa](azure-stack-manage-storage-shares.md#manage-available-space).
 
-    Chcete-li zkontrolovat dostupné místo: v **oblasti Správa oblastí**vyberte oblast, kterou chcete prozkoumat, a pak přejít k **poskytovatelům prostředků** > **úložiště**:
+    Chcete-li zkontrolovat dostupné místo: v **oblasti Správa oblastí**vyberte oblast, kterou chcete prozkoumat, a poté vyhledejte **poskytovatele prostředků** > **úložiště**:
 
     ![Kontrola místa v úložišti Azure Stack portálu pro správu](media/azure-stack-download-azure-marketplace-item/storage.png)
 
@@ -58,17 +58,21 @@ Vaše nasazení Azure Stack musí mít připojení k Internetu a musí být [zar
 
     ![Přidání položek z Marketplace z Azure](media/azure-stack-download-azure-marketplace-item/marketplace.png)
 
-4. Portál zobrazí seznam položek, které jsou k dispozici ke stažení z Azure Marketplace. Produkty můžete filtrovat podle názvu, vydavatele nebo typu produktu. Můžete také kliknout na každou položku a zobrazit její popis a další informace, včetně její velikosti ke stažení:
+4. Portál zobrazí seznam položek, které jsou k dispozici ke stažení z Azure Marketplace. Produkty můžete filtrovat podle názvu, vydavatele nebo typu produktu. V každé položce řádku se zobrazí také aktuálně dostupná verze. Pokud je k dispozici více než jedna verze položky Marketplace, zobrazí se ve sloupci **verze** **více**. Kliknutím na každou položku můžete zobrazit její popis a další informace, včetně její velikosti ke stažení:
 
-    ![Seznam Azure Marketplacech položek ](media/azure-stack-download-azure-marketplace-item/image03.PNG)
+    [![Seznam položek Marketplace](media/azure-stack-download-azure-marketplace-item/add-from-azure1sm.png "Seznam položek Marketplace")](media/azure-stack-download-azure-marketplace-item/add-from-azure1.png#lightbox)
 
-5. Vyberte položku, kterou chcete, a pak vyberte **Stáhnout**. Doba stahování se liší.
+5. Pokud je verze položky zobrazená jako **více**, můžete tuto položku vybrat a pak vybrat konkrétní verzi z rozevíracího seznamu výsledná verze – výběr:
+
+    [![Vybrat verzi](media/azure-stack-download-azure-marketplace-item/add-from-azure3sm.png "Vybrat verzi")](media/azure-stack-download-azure-marketplace-item/add-from-azure3.png#lightbox)
+
+6. Vyberte položku, kterou chcete, a pak vyberte **Stáhnout**. Doba stahování se liší.
 
     ![Stahování položky Azure Marketplace](media/azure-stack-download-azure-marketplace-item/image04.png)
 
     Po dokončení stahování můžete novou položku Marketplace nasadit buď jako operátor Azure Stack, nebo na uživatele.
 
-6. Pokud chcete staženou položku nasadit, vyberte **+ vytvořit prostředek**a potom vyhledejte kategorie nové položky Marketplace. Dále vyberte položku, která zahájí proces nasazení. Tento proces se liší pro různé položky Marketplace.
+7. Pokud chcete staženou položku nasadit, vyberte **+ vytvořit prostředek**a potom vyhledejte kategorie nové položky Marketplace. Dále vyberte položku, která zahájí proces nasazení. Tento proces se liší pro různé položky Marketplace.
 
 ## <a name="disconnected-or-a-partially-connected-scenario"></a>Odpojený nebo částečně připojený scénář
 
@@ -81,7 +85,7 @@ Tento scénář obsahuje dvě části:
 - **Část 1:** Stažení z Azure Marketplace. Na počítači s přístupem k Internetu konfigurujete PowerShell, stáhnete nástroj syndikace a pak stáhnete položky z Azure Marketplace.  
 - **Část 2:** Nahrajte a publikujte na webu Azure Stack Marketplace. Soubory, které jste stáhli do prostředí Azure Stack, přesouváte, naimportujete do Azure Stack a pak je publikujete na Azure Stack Marketplace.  
 
-### <a name="prerequisites"></a>Předpoklady
+### <a name="prerequisites"></a>Požadavky
 
 - Připojené prostředí (nemusí být Azure Stack). Potřebujete připojení, abyste získali seznam produktů z Azure s jejich podrobnostmi a stáhli všechno místně. Až to uděláte, zbývající část postupu nevyžaduje žádné připojení k Internetu. Vytvoří katalog položek, které jste předtím stáhli, abyste je mohli použít v odpojeném prostředí.
 
@@ -150,7 +154,11 @@ Po registraci můžete ignorovat následující zprávu, která se zobrazí v ok
 
 6. Po spuštění nástroje by se měla zobrazit obrazovka podobná následujícímu obrázku se seznamem dostupných položek Azure Marketplace:
 
-   [![Místní nabídka položek Azure Marketplace](media/azure-stack-download-azure-marketplace-item/image05.png "Azure Marketplace položky")](media/azure-stack-download-azure-marketplace-item/image05.png#lightbox)
+   [![Místní nabídka položek Azure Marketplace](media/azure-stack-download-azure-marketplace-item/tool1sm.png "Azure Marketplace položky")](media/azure-stack-download-azure-marketplace-item/tool1.png#lightbox)
+
+7. Pokud je k dispozici více než jedna verze položky Marketplace, zobrazí se ve sloupci **verze** **více verzí**. Pokud je verze položky zobrazená jako **více verzí**, můžete tuto položku vybrat a pak z okna pro výběr výsledné verze zvolit konkrétní verzi:
+
+   [![Výběr verze](media/azure-stack-download-azure-marketplace-item/tool2sm.png "Vybrat verzi")](media/azure-stack-download-azure-marketplace-item/tool2.png#lightbox)
 
 7. Pokud jste nenainstalovali nástroje Azure Storage, zobrazí se následující zpráva. Aby bylo možné nainstalovat tyto nástroje, je třeba stáhnout [AzCopy](/azure/storage/common/storage-use-azcopy#download-azcopy):
 
@@ -170,7 +178,7 @@ Po registraci můžete ignorovat následující zprávu, která se zobrazí v ok
     Export-AzSOfflineMarketplaceItem -Destination "Destination folder path in quotes"
     ```
 
-    Před opakováním pokusu odeberte složku produktu, ve které se stahování nepovedlo. Například pokud se skript pro stažení nezdařil při stahování do `D:\downloadFolder\microsoft.customscriptextension-arm-1.9.1`, odeberte složku `D:\downloadFolder\microsoft.customscriptextension-arm-1.9.1` a pak znovu spusťte rutinu.
+    Před opakováním pokusu odeberte složku produktu, ve které se stahování nepovedlo. Například pokud se skript pro stažení při stahování do `D:\downloadFolder\microsoft.customscriptextension-arm-1.9.1`nezdařil, odeberte složku `D:\downloadFolder\microsoft.customscriptextension-arm-1.9.1` a pak znovu spusťte rutinu.
 
 ### <a name="import-the-download-and-publish-to-azure-stack-marketplace-using-powershell"></a>Import stažení a publikování na Azure Stack Marketplace pomocí prostředí PowerShell
 

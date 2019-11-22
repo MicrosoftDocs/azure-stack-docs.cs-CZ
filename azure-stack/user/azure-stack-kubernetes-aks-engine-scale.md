@@ -11,20 +11,20 @@ ms.workload: na
 pms.tgt_pltfrm: na (Kubernetes)
 ms.devlang: nav
 ms.topic: article
-ms.date: 09/25/2019
+ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/25/2019
-ms.openlocfilehash: 39c651649aea60ab12aae9daf35b0d07615bf697
-ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
+ms.lastreviewed: 11/21/2019
+ms.openlocfilehash: 078cacad88a0a7d055baef799c5785d5a06ce922
+ms.sourcegitcommit: 0b783e262ac87ae67929dbd4c366b19bf36740f0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73595302"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74310097"
 ---
 # <a name="scale-a-kubernetes-cluster-on-azure-stack"></a>Škálování clusteru Kubernetes na Azure Stack
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
 
 Pomocí příkazu **Scale** můžete škálovat cluster pomocí modulu AKS. Příkaz **Scale** znovu použije váš konfigurační soubor clusteru (`apimodel.json`) ve výstupním adresáři jako vstup pro nové nasazení Azure Resource Manager. Modul provádí operaci škálování v zadaném fondu agentů. Když je operace škálování hotová, modul aktualizuje definici clusteru v tomto stejném `apimodel.json` souboru tak, aby odrážela nové počty uzlů, aby odrážela aktualizovanou aktuální konfiguraci clusteru.
 
@@ -36,15 +36,15 @@ Příkaz `aks-engine scale` může zvýšit nebo snížit počet uzlů v existuj
 
 Následující parametry používá příkaz Scale k vyhledání souboru definice clusteru a aktualizaci clusteru.
 
-| Parametr | Příklad: | Popis |
+| Parametr | Příklad | Popis |
 | --- | --- | --- | 
 | Azure – ENV | AzureStackCloud | Při použití Azure Stack musí být názvy prostředí nastavené na `AzureStackCloud`. | 
 | location | místní | Toto je oblast pro vaši instanci Azure Stack. V případě ASDK je oblast nastavená na `local`.  | 
 | resource-group | Kube – RG | Název skupiny prostředků, která obsahuje váš cluster. | 
 | ID předplatného |  | Identifikátor GUID předplatného, které obsahuje prostředky používané vaším clusterem. Ujistěte se, že máte dostatečnou kvótu pro škálování v rámci vašeho předplatného. | 
 | ID klienta |  | ID klienta instančního objektu používaného při vytváření clusteru z modulu AKS. | 
-| tajný kód klienta |  | Tajný klíč instančního objektu použitý při vytváření clusteru | 
-| rozhraní API – model | Kube-RG/apimodel. JSON | Cesta k souboru definice clusteru (apimodel. JSON) Může to být: _Output/\<pole dnsprefix >/apimodel.JSON | 
+| client-secret |  | Tajný klíč instančního objektu použitý při vytváření clusteru | 
+| rozhraní API – model | Kube-RG/apimodel. JSON | Cesta k souboru definice clusteru (apimodel. JSON) Může to být: _output/\<pole dnsprefix >/apimodel.JSON | 
 | -New-Node-Count | 9 | Požadovaný počet uzlů. | 
 | – hlavní – plně kvalifikovaný název domény |  | Hlavní plně kvalifikovaný název domény. Nutné při horizontálním navýšení kapacity. |
 | Identita – systém | službou | Volitelné. Pokud používáte federované služby Active Directory (AD FS), zadejte svoje řešení pro správu identit. |
@@ -72,4 +72,4 @@ aks-engine scale \
 ## <a name="next-steps"></a>Další kroky
 
 - Přečtěte si o modulu [AKS na Azure Stack](azure-stack-kubernetes-aks-engine-overview.md)
-- [Upgrade clusteru Kubernetes na Azure Stack](azure-stack-kubernetes-aks-engine-upgrade.md)
+- [Upgrade clusteru Kubernetes ve službě Azure Stack](azure-stack-kubernetes-aks-engine-upgrade.md)

@@ -15,12 +15,12 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 1bd138be243c2803b5a280de2a3a8625e84db998
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.openlocfilehash: 99d52dc7165fdd37a614c1396d7e5c1f0165e235
+ms.sourcegitcommit: cefba8d6a93efaedff303d3c605b02bd28996c5d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955331"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74299127"
 ---
 #  <a name="modify-specific-settings-on-your-azure-stack-switch-configuration"></a>Úprava konkrétního nastavení v konfiguraci přepínače Azure Stack
 
@@ -47,13 +47,16 @@ Operátory mohou přesměrovat protokoly přepínačů na server syslog na svém
 
 Operátor může nakonfigurovat protokol SNMP (Simple Network Management Protocol) v2 nebo v3 pro monitorování síťových zařízení a odesílání depeší do aplikace monitorování sítě v datacentru. Z bezpečnostních důvodů použijte protokol SNMPv3, protože je bezpečnější než v2. Pokud potřebujete MIB a konfiguraci, obraťte se na svého poskytovatele hardwaru OEM. Informace o tom, jak nakonfigurovat oprávnění pro přístup ke správě přepínačů, najdete v části [aktualizace seznamu řízení přístupu](#access-control-list-updates) .
 
-## <a name="authentication"></a>Ověření
+## <a name="authentication"></a>Authentication
 
 Operátor může nakonfigurovat buď protokol RADIUS, nebo TACACS pro správu ověřování na síťových zařízeních. Podporované metody a konfigurace si můžete prostudovat u svého poskytovatele hardwaru OEM.  Informace o tom, jak nakonfigurovat oprávnění pro přístup ke správě přepínačů, najdete v části [aktualizace seznamu řízení přístupu](#access-control-list-updates) .
 
 ## <a name="access-control-list-updates"></a>Aktualizace seznamu řízení přístupu
 
-Operátor může změnit některý seznam řízení přístupu (ACL) s tím, aby povoloval přístup k rozhraním pro správu síťových zařízení a k hostiteli životního cyklu hardwaru (HLH) z rozsahu důvěryhodné sítě Datacenter. Operátor může vybrat, která komponenta bude dosažitelná a kde. V seznamu řízení přístupu může operátor dovolit, aby JumpBox virtuální počítače pro správu v rámci určitého rozsahu sítě pro přístup k rozhraní pro správu přepínače a k rozhraní HLH a HLH BMC.
+> [!NOTE]
+> Počínaje 1910 bude mít sešit nasazení nové pole pro **povolené sítě** , které nahradí ruční kroky nutné k povolení přístupu k rozhraním pro správu síťových zařízení a k hostiteli životního cyklu hardwaru (hLH) z rozsahu důvěryhodné sítě Datacenter. Pokud chcete získat další informace o této nové funkci, zkontrolujte prosím [Plánování integrace sítě pro Azure Stack](azure-stack-network.md#permitted-networks).
+
+Operátor může změnit některý seznam řízení přístupu (ACL) s tím, aby povoloval přístup k rozhraním pro správu síťových zařízení a k hostiteli životního cyklu hardwaru (HLH) z rozsahu důvěryhodné sítě Datacenter. Pomocí seznamu řízení přístupu může operátor dovolit svým virtuálním počítačům s JumpBox pro správu v rámci určitého rozsahu sítě získat přístup k rozhraní pro správu přepínače, HLH operačním systému a HLH BMC.
 
 ## <a name="next-steps"></a>Další kroky
 

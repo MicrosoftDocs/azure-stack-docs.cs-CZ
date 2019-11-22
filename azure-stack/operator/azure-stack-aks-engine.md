@@ -11,24 +11,22 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/05/2019
+ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: c21223ca8926a1e2b3ca1b06752a79a14adaeda1
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.lastreviewed: 11/21/2019
+ms.openlocfilehash: 823ea20bbddaceda970d95008e1214e77ca51f7c
+ms.sourcegitcommit: 0b783e262ac87ae67929dbd4c366b19bf36740f0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73636877"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74310120"
 ---
 # <a name="add-the-azure-kubernetes-services-aks-engine-prerequisites-to-the-azure-stack-marketplace"></a>Přidání požadavků modulu Azure Kubernetes Services (AKS) do tržiště Azure Stack
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
 
 Přidáním položek popsaných v tomto článku k vašemu Azure Stack můžete uživatelům povolit, aby si nastavili modul Azure Kubernetes Services (AKS). Uživatelé pak mohou nasadit cluster Kubernetes v rámci jediné koordinované operace. Tento článek vás provede kroky potřebnými k tomu, aby byl modul AKS k dispozici pro vaše uživatele v připojených i odpojených prostředích. Modul AKS závisí na identitě služby a na webu Marketplace, ve vlastním rozšíření skriptu a na základní imagi AKS.
-
-[Modul AKS](https://github.com/Azure/aks-engine) používá sestavenou image, základní image AKS. Jakákoli verze stroje AKS závisí na konkrétní verzi bitové kopie, kterou můžete zpřístupnit v Azure Stack. V tabulce se seznamem verzí modulu AKS a odpovídající verzí Kubernetes v [podporovaných verzích Kubernetes](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions).
 
 > [!IMPORTANT]
 > Modul AKS je aktuálně ve verzi Public Preview.
@@ -58,7 +56,7 @@ Základní image AKS můžete na Marketplace přidat tak, že získáte položku
 
 Do Marketplace přidejte následující položku:
 
-1. Přihlaste se k [portálu pro správu](https://adminportal.local.azurestack.external).
+1. Přihlaste se k [portál pro správu](https://adminportal.local.azurestack.external).
 
 1. Vyberte **všechny služby**a potom v kategorii **Správa** vyberte **Správa Marketplace**.
 
