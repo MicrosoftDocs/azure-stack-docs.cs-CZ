@@ -1,6 +1,6 @@
 ---
-title: Azure Stack známé problémy
-description: Přečtěte si o známých problémech v Azure Stack verzích.
+title: Azure Stack known issues
+description: Learn about known issues in Azure Stack releases.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -16,26 +16,26 @@ ms.date: 11/21/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: f2426699db940622f952809faa9de58b49065b56
-ms.sourcegitcommit: cefba8d6a93efaedff303d3c605b02bd28996c5d
+ms.openlocfilehash: 3948431fcbf9c601d4ac0a47221713603d4463ac
+ms.sourcegitcommit: e7fe1cb8b13b46d2e2beb8a2fc6f1c74734529c2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74298891"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74411120"
 ---
-# <a name="azure-stack-known-issues"></a>Azure Stack známé problémy
+# <a name="azure-stack-known-issues"></a>Azure Stack known issues
 
-V tomto článku jsou uvedené známé problémy ve verzích Azure Stack. Seznam se aktualizuje, protože se identifikují nové problémy.
+This article lists known issues in releases of Azure Stack. The list is updated as new issues are identified.
 
-Chcete-li získat přístup ke známým problémům pro jinou verzi, použijte rozevírací nabídku selektor verzí nad obsahem vlevo.
+To access known issues for a different version, use the version selector dropdown above the table of contents on the left.
 
 ::: moniker range=">=azs-1906"
 > [!IMPORTANT]  
-> Před použitím této aktualizace si přečtěte tento oddíl.
+> Review this section before applying the update.
 ::: moniker-end
 ::: moniker range="<azs-1906"
 > [!IMPORTANT]  
-> Pokud je vaše instance Azure Stack za více než dvěma aktualizacemi, je považována za nedodržující předpisy. Aby bylo možné [získat podporu, musíte aktualizovat aspoň minimální podporovanou verzi](azure-stack-servicing-policy.md#keep-your-system-under-support). 
+> If your Azure Stack instance is behind by more than two updates, it's considered out of compliance. You must [update to at least the minimum supported version to receive support](azure-stack-servicing-policy.md#keep-your-system-under-support). 
 ::: moniker-end
 
 <!---------------------------------------------------------->
@@ -45,204 +45,204 @@ Chcete-li získat přístup ke známým problémům pro jinou verzi, použijte r
 ::: moniker range="azs-1910"
 ## <a name="portal"></a>Portál
 
-### <a name="administrative-subscriptions"></a>Předplatná pro správu
+### <a name="administrative-subscriptions"></a>Administrative subscriptions
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: nemusíte používat dvě předplatná pro správu, která byla představena s verzí 1804. Typy předplatného jsou odběry **měření** a předplatné **spotřeby** .
-- Náprava: Pokud máte na těchto dvou předplatných prostředky, znovu je vytvořte v předplatných uživatele.
-- Výskyt: běžné
+- Applicable: This issue applies to all supported releases.
+- Cause: The two administrative subscriptions that were introduced with version 1804 should not be used. The subscription types are **Metering** subscription, and **Consumption** subscription.
+- Remediation: If you have resources running on these two subscriptions, recreate them in user subscriptions.
+- Occurrence: Common
 
-### <a name="subscriptions-lock-blade"></a>Okno zámku předplatných
+### <a name="subscriptions-lock-blade"></a>Subscriptions Lock blade
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: na portálu pro správu má okno **zámku** pro předplatné uživatele dvě tlačítka, která říká **předplatné**.
-- Výskyt: běžné
+- Applicable: This issue applies to all supported releases.
+- Cause: In the administrator portal, the **Lock** blade for user subscriptions has two buttons that say **Subscription**.
+- Occurrence: Common
 
-### <a name="subscription-permissions"></a>Oprávnění předplatného
+### <a name="subscription-permissions"></a>Subscription permissions
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: k předplatnému nemůžete pomocí portálů Azure Stack zobrazit oprávnění.
-- Náprava: [k ověření oprávnění použijte PowerShell](/powershell/module/azurerm.resources/get-azurermroleassignment).
-- Výskyt: běžné
+- Applicable: This issue applies to all supported releases.
+- Cause: You cannot view permissions to your subscription using the Azure Stack portals.
+- Remediation: Use [PowerShell to verify permissions](/powershell/module/azurerm.resources/get-azurermroleassignment).
+- Occurrence: Common
 
-### <a name="storage-account-settings"></a>Nastavení účtu úložiště
+### <a name="storage-account-settings"></a>Storage account settings
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: na portálu User Portal zobrazuje okno **Konfigurace** účtu úložiště možnost změny **typu přenosu zabezpečení**. Tato funkce v současnosti není v Azure Stack podporovaná.
-- Výskyt: běžné
+- Applicable: This issue applies to all supported releases.
+- Cause: In the user portal, the storage account **Configuration** blade shows an option to change **security transfer type**. The feature is currently not supported in Azure Stack.
+- Occurrence: Common
 
-### <a name="upload-blob-with-oauth-error"></a>Nahrát objekt BLOB s chybou OAuth
+### <a name="upload-blob-with-oauth-error"></a>Upload blob with OAuth error
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: při pokusu o nahrání objektu BLOB pomocí možnosti **OAuth (Preview)** na portálu User Portal se úloha nezdařila s chybovou zprávou.
-- Náprava: Nahrajte objekt BLOB pomocí možnosti SAS.
-- Výskyt: běžné
+- Applicable: This issue applies to all supported releases.
+- Cause: In the user portal, when you try to upload a blob using the **OAuth(preview)** option, the task fails with an error message.
+- Remediation: Upload the blob using the SAS option.
+- Occurrence: Common
 
-### <a name="upload-blob-option-unsupported"></a>Možnost nahrát objekt BLOB není podporována
+### <a name="upload-blob-option-unsupported"></a>Upload blob option unsupported
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: na portálu User Portal se při pokusu o nahrání objektu BLOB v okně nahrávání dá vybrat možnost ověřování **AAD** nebo **klíč**, ale v Azure Stack se nepodporují **AAD** .
-- Výskyt: běžné
+- Applicable: This issue applies to all supported releases.
+- Cause: In the user portal, when you try to upload a blob in the upload blade, there is an option to select **AAD** or **Key Authentication**, however **AAD** is not supported in Azure Stack.
+- Occurrence: Common
 
-### <a name="load-balancer-backend-pool"></a>Back-end fond nástroje pro vyrovnávání zatížení
+### <a name="load-balancer-backend-pool"></a>Load balancer backend pool
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: při přidávání back-endu serveru **Nástroje pro vyrovnávání zatížení** na portálu User Portal výsledkem operace je chybová zpráva oznamující, že **se nepodařilo uložit back-end fond vyrovnávání zatížení**; Tato operace byla ale skutečně úspěšná.
-- Výskyt: běžné
+- Applicable: This issue applies to all supported releases.
+- Cause: In the user portal, when adding a **Load balancer** backend pool, the operation results in an error message of **Failed to save load balancer backend pool**; however, the operation did actually succeed.
+- Occurrence: Common
 
-### <a name="incorrect-tooltip-when-creating-vm"></a>Nesprávný popis při vytváření virtuálního počítače
+### <a name="incorrect-tooltip-when-creating-vm"></a>Incorrect tooltip when creating VM
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: když v uživatelském portálu vyberete spravovaný disk s typem disku SSD úrovně Premium, zobrazí se v rozevíracím seznamu **disk s operačním systémem**. Popis vedle této možnosti říká, že **některé velikosti disků s operačním systémem můžou být dostupné zdarma s bezplatným účtem Azure**; to však není platné pro Azure Stack. Seznam navíc zahrnuje **bezplatný nárok na účet** , který není platný i pro Azure Stack.
-- Výskyt: běžné
+- Applicable: This issue applies to all supported releases.
+- Cause: In the user portal, when you select a managed disk, with disk type Premium SSD, the drop-down list shows **OS Disk**. The tooltip next to that option says **Certain OS Disk sizes may be available for free with Azure Free Account**; however, this is not valid for Azure Stack. In addition, the list includes **Free account eligible** which is also not valid for Azure Stack.
+- Occurrence: Common
 
-### <a name="vpn-troubleshoot-and-metrics"></a>Řešení potíží a metriky sítě VPN
+### <a name="vpn-troubleshoot-and-metrics"></a>VPN troubleshoot and metrics
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: na portálu User Portal se zobrazí funkce **řešení potíží s VPN** a **metriky** v prostředku brány sítě VPN, ale tato možnost není v Azure Stack podporovaná.
-- Výskyt: běžné
+- Applicable: This issue applies to all supported releases.
+- Cause: In the user portal, the **VPN Troubleshoot** feature and **Metrics** in a VPN gateway resource appears, however this is not supported in Azure Stack.
+- Occurrence: Common
 
-### <a name="adding-extension-to-vm-scale-set"></a>Přidání rozšíření do sady škálování virtuálního počítače
+### <a name="adding-extension-to-vm-scale-set"></a>Adding extension to VM Scale Set
 
-- Platí: Tento problém se týká verzí 1907 a novějších.
-- Příčina: na portálu User Portal je po vytvoření sady škálování virtuálních počítačů uživatelské rozhraní nepovoluje, aby uživatel přidal rozšíření.
-- Výskyt: běžné
+- Applicable: This issue applies to releases 1907 and later.
+- Cause: In the user portal, once a virtual machine scale set is created, the UI does not permit the user to add an extension.
+- Occurrence: Common
 
-### <a name="delete-a-storage-container"></a>Odstranění kontejneru úložiště
+### <a name="delete-a-storage-container"></a>Delete a storage container
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: když se uživatel pokusí odstranit kontejner úložiště, v uživatelském portálu se operace nepovede, když uživatel nepřepne **Nastavení Role Azure Policy a RBAC**.
-- Náprava: Ujistěte se, že je zaškrtnuté políčko **přepsat Azure Policy a nastavení role RBAC**.
-- Výskyt: běžné
+- Applicable: This issue applies to all supported releases.
+- Cause: In the user portal, when a user attempts to delete a storage container, the operation fails when the user does not toggle **Override Azure Policy and RBAC Role settings**.
+- Remediation: Ensure that the box is checked for **Override Azure Policy and RBAC Role settings**.
+- Occurrence: Common
 
-### <a name="refresh-button-on-virtual-machines-fails"></a>Tlačítko Aktualizovat na Virtual Machines neúspěšné
+### <a name="refresh-button-on-virtual-machines-fails"></a>Refresh button on virtual machines fails
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: když na portálu User Portal přejdete na Virtual Machines a pokusíte se aktualizovat pomocí tlačítka v horní části, stavy se nemůžou aktualizovat přesně. 
-- Náprava: stav se automaticky aktualizuje každých 5 minut bez ohledu na to, zda bylo tlačítko Aktualizovat stisknuto nebo ne. Počkejte 5 minut a ověřte stav.
-- Výskyt: běžné
+- Applicable: This issue applies to all supported releases.
+- Cause: In the user portal, when you navigate to **Virtual Machines** and try to refresh using the button at the top, the states fail to update accurately.
+- Remediation: The status is automatically updated every 5 minutes regardless of whether the refresh button has been clicked or not. Wait 5 minutes and check the status.
+- Occurrence: Common
 
-### <a name="virtual-network-gateway"></a>Brána virtuální sítě 
+### <a name="virtual-network-gateway"></a>Brána virtuální sítě
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: když v uživatelském portálu vytvoříte směrovací tabulku, **Virtual Network brána** se zobrazí jako jedna z možností dalšího typu segmentu směrování. v Azure Stack to ale není podporované.
-- Výskyt: běžné
+- Applicable: This issue applies to all supported releases.
+- Cause: In the user portal, when you create a route table, **Virtual Network gateway** appears as one of the next hop type options; however, this is not supported in Azure Stack.
+- Occurrence: Common
 
 ### <a name="storage-account-options"></a>Možnosti účtu úložiště
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: na portálu User Portal se názvy účtů úložiště zobrazují jako **účet úložiště – objekt blob, soubor, tabulka, fronta**, ale **soubor** není podporován Azure Stack.
-- Výskyt: běžné
+- Applicable: This issue applies to all supported releases.
+- Cause: In the user portal, the name of storage accounts is shown as **Storage account - blob, file, table, queue**, however **file** is not supported in Azure Stack.
+- Occurrence: Common
 
 ### <a name="storage-account-configuration"></a>Konfigurace účtu úložiště
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: na portálu User Portal při vytváření účtu úložiště a zobrazení jeho **Konfigurace**nemůžete uložit změny konfigurace, protože výsledkem je chyba AJAX. 
-- Výskyt: běžné
+- Applicable: This issue applies to all supported releases.
+- Cause: In the user portal, when you create a storage account and view its **Configuration**, you cannot save configuration changes, as it results in an AJAX error.
+- Occurrence: Common
 
-### <a name="capacity-mnitoring-in-sql-and-mysql-resource-provider-keeps-loading"></a>Mnitoring kapacity ve zprostředkovateli prostředků SQL a MySQL zachovává zatížení
+### <a name="capacity-monitoring-in-sql-resource-provider-keeps-loading"></a>Capacity monitoring in SQL resource provider keeps loading
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: aktuální verze poskytovatele prostředků SQL a MySQL nejsou kompatibilní s některými nejnovějšími změnami portálu v aktualizaci 1910.
-- Náprava: pomocí procesu aktualizace poskytovatele prostředků použijte opravu hotfix 1.1.47.0 pro poskytovatele prostředků serveru SQL a MySQL. ([SQL RP verze 1.1.47.0](https://aka.ms/azurestacksqlrp11470) a [MySQL RP verze 1.1.47.0](https://aka.ms/azurestackmysqlrp11470)).
-- Výskyt: běžné
+- Applicable: This issue applies to the Azure Stack 1910 update or later, with SQL resource provider version 1.1.33.0 or earlier installed.
+- Cause: The current version of the SQL resource provider is not compatible with some of the latest portal changes in the 1910 update.
+- Remediation: Follow the resource provider update process to apply the SQL resource provider hotfix 1.1.47.0 after Azure Stack is upgraded to the 1910 update ([SQL RP version 1.1.47.0](https://aka.ms/azurestacksqlrp11470)). For the MySQL resource provider, it is also recommended that you apply the MySQL resource provider hotfix 1.1.47.0 after Azure Stack is upgraded to 1910 update ([MySQL RP version 1.1.47.0](https://aka.ms/azurestackmysqlrp11470)).
+- Occurrence: Common
 
 ## <a name="networking"></a>Sítě
 
 ### <a name="load-balancer"></a>Nástroj pro vyrovnávání zatížení
 
-- Platí: Tento problém se vztahuje na všechny podporované verze. 
-- Příčina: Když přidáváte virtuální počítače skupiny dostupnosti do back-endu fondu nástroje pro vyrovnávání zatížení, na portálu se zobrazí chybová zpráva s oznámením, že **se nepodařilo uložit fond back-endu nástroje pro**vyrovnávání zatížení. Jedná se o problém s kosmetickým rozhraním na portálu. funkce jsou pořád na místě a virtuální počítače se úspěšně přidávají do back-endu fondu.
-- Výskyt: běžné
+- Applicable: This issue applies to all supported releases.
+- Cause: When adding availability set VMs to the backend pool of a load balancer, an error message is displayed on the portal stating **Failed to save load balancer backend pool**. This is a cosmetic issue on the portal; the functionality is still in place and VMs are successfully added to the backend pool internally.
+- Occurrence: Common
 
-### <a name="network-security-groups"></a>Network Security Groups (Skupiny zabezpečení sítě)
+### <a name="network-security-groups"></a>Skupiny zabezpečení sítě
 
-- Platí: Tento problém se vztahuje na všechny podporované verze. 
-- Příčina: explicitní pravidlo **DenyAllOutbound** nejde vytvořit v NSG, protože to zabrání v dokončení veškeré interní komunikace s infrastrukturou, která je potřebná pro nasazení virtuálního počítače.
-- Výskyt: běžné
+- Applicable: This issue applies to all supported releases. 
+- Cause: An explicit **DenyAllOutbound** rule cannot be created in an NSG as this will prevent all internal communication to infrastructure needed for the VM deployment to complete.
+- Occurrence: Common
 
 ### <a name="service-endpoints"></a>Koncové body služby
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: na portálu User Portal zobrazuje okno **Virtual Network** možnost používat **koncové body služby**. Tato funkce se v Azure Stack v tuto chvíli nepodporuje.
-- Výskyt: běžné
+- Applicable: This issue applies to all supported releases.
+- Cause: In the user portal, the **Virtual Network** blade shows an option to use **Service Endpoints**. This feature is currently not supported in Azure Stack.
+- Occurrence: Common
 
 ### <a name="network-interface"></a>Síťové rozhraní
 
-#### <a name="addingremoving-network-interface"></a>Přidávání/odebírání síťového rozhraní
+#### <a name="addingremoving-network-interface"></a>Adding/removing network interface
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: nové síťové rozhraní se nedá přidat do virtuálního počítače, který je ve **spuštěném** stavu.
-- Náprava: před přidáním nebo odebráním síťového rozhraní zastavte virtuální počítač.
-- Výskyt: běžné
+- Applicable: This issue applies to all supported releases.
+- Cause: A new network interface cannot be added to a VM that is in a **running** state.
+- Remediation: Stop the virtual machine before adding or removing a network interface.
+- Occurrence: Common
 
 #### <a name="primary-network-interface"></a>Primární síťové rozhraní
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: primární síťová karta virtuálního počítače se nedá změnit. Při odstraňování nebo odpojování primární síťové karty dojde k problémům při spouštění virtuálního počítače.
-- Výskyt: běžné
+- Applicable: This issue applies to all supported releases.
+- Cause: The primary NIC of a VM cannot be changed. Deleting or detaching the primary NIC results in issues when starting up the VM.
+- Occurrence: Common
 
 ### <a name="virtual-network-gateway"></a>Brána virtuální sítě
 
-#### <a name="alerts"></a>Upozornění
+#### <a name="alerts"></a>Výstrahy
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: na portálu User Portal se v okně **Virtual Network brány** zobrazí možnost použít **výstrahy**. Tato funkce se v Azure Stack v tuto chvíli nepodporuje.
-- Výskyt: běžné
+- Applicable: This issue applies to all supported releases.
+- Cause: In the user portal, the **Virtual Network Gateway** blade shows an option to use **Alerts**. This feature is currently not supported in Azure Stack.
+- Occurrence: Common
 
 #### <a name="active-active"></a>Aktivní–aktivní
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: na portálu User Portal při vytváření a v nabídce prostředků **služby Virtual Network Gateway**se zobrazí možnost povolit konfiguraci **typu aktivní-aktivní** . Tato funkce se v Azure Stack v tuto chvíli nepodporuje.
-- Výskyt: běžné
+- Applicable: This issue applies to all supported releases.
+- Cause: In the user portal, while creating, and in the resource menu of **Virtual Network Gateway**, you will see an option to enable **Active-Active** configuration. This feature is currently not supported in Azure Stack.
+- Occurrence: Common
 
-#### <a name="vpn-troubleshooter"></a>Poradce při potížích s VPN
+#### <a name="vpn-troubleshooter"></a>VPN troubleshooter
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: na portálu User Portal zobrazuje okno **připojení** funkci **s názvem Poradce při potížích s VPN**. Tato funkce se v Azure Stack v tuto chvíli nepodporuje.
-- Výskyt: běžné
+- Applicable: This issue applies to all supported releases.
+- Cause: In the user portal, the **Connections** blade displays a feature called **VPN Troubleshooter**. This feature is currently not supported in Azure Stack.
+- Occurrence: Common
 
 #### <a name="documentation"></a>Dokumentace
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: dokumentace k dokumentaci na stránce Přehled na Virtual Network bráně odkazuje na Azure místo Azure Stack. Pro dokumentaci Azure Stack použijte následující odkazy:
+- Applicable: This issue applies to all supported releases.
+- Cause: The documentation links in the overview page of Virtual Network gateway link to Azure-specific documentation instead of Azure Stack. Use the following links for the Azure Stack documentation:
 
-  - [SKU brány](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-skus)
-  - [Připojení s vysokou dostupností](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-availability)
-  - [Konfigurace protokolu BGP v Azure Stack](../user/azure-stack-vpn-gateway-settings.md#gateway-requirements)
-  - [Okruhy ExpressRoute](azure-stack-connect-expressroute.md)
-  - [Zadat vlastní zásady IPsec/IKE](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
+  - [Gateway SKUs](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-skus)
+  - [Highly Available Connections](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-availability)
+  - [Configure BGP on Azure Stack](../user/azure-stack-vpn-gateway-settings.md#gateway-requirements)
+  - [ExpressRoute circuits](azure-stack-connect-expressroute.md)
+  - [Specify custom IPsec/IKE policies](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
 
-## <a name="compute"></a>Compute
+## <a name="compute"></a>Služby Compute
 
-### <a name="vm-boot-diagnostics"></a>Diagnostika spouštění virtuálních počítačů
+### <a name="vm-boot-diagnostics"></a>VM boot diagnostics
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: Když vytváříte nový virtuální počítač s Windows, může se zobrazit následující chyba: **nepovedlo se spustit virtuální počítač s názvem VM-Name. Chyba: nepovedlo se aktualizovat nastavení sériového výstupu pro virtuální počítač s názvem VM-Name**. K této chybě dojde, pokud povolíte diagnostiku spouštění na virtuálním počítači, ale odstraníte účet úložiště diagnostiky spouštění.
-- Náprava: vytvořte znovu účet úložiště se stejným názvem, který jste použili dříve.
-- Výskyt: běžné
+- Applicable: This issue applies to all supported releases.
+- Cause: When creating a new Windows virtual machine (VM), the following error might be displayed: **Failed to start virtual machine 'vm-name'. Error: Failed to update serial output settings for VM 'vm-name'** . The error occurs if you enable boot diagnostics on a VM, but delete your boot diagnostics storage account.
+- Remediation: Recreate the storage account with the same name you used previously.
+- Occurrence: Common
 
-### <a name="consumed-compute-quota"></a>Spotřebovaná kvóta COMPUTE
+### <a name="consumed-compute-quota"></a>Consumed compute quota
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Při vytváření nového virtuálního počítače se může zobrazit chyba, například **Toto předplatné je v kapacitě celkového regionu vCPU v tomto umístění. V tomto předplatném je k dispozici všechny dostupné vCPU celkové oblasti 50.** To znamená, že byla dosažena kvóta pro celkový počet jader, která jsou k dispozici.
-- Náprava: požádejte operátora, aby přidal plán doplňku s dodatečnou kvótou. Úpravy kvóty aktuálního plánu nebudou fungovat ani by odrážely vyšší kvótu.
-- Výskyt: vzácná
+- Applicable: This issue applies to all supported releases.
+- When creating a new virtual machine, you may receive an error such as **This subscription is at capacity for Total Regional vCPUs on this location. This subscription is using all 50 Total Regional vCPUs available.** . This indicates that the quota for total cores available to you has been reached.
+- Remediation: Ask your operator for an add-on plan with additional quota. Editing the current plan's quota will not work or reflect increased quota.
+- Occurrence: Rare
 
 ### <a name="virtual-machine-scale-set"></a>Škálovací sada virtuálních počítačů
 
-#### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-environments"></a>Vytváření selhání během opravy a aktualizace v prostředích Azure Stack se čtyřmi uzly
+#### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-environments"></a>Create failures during patch and update on 4-node Azure Stack environments
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: vytváření virtuálních počítačů ve skupině dostupnosti 3 domén selhání a vytvoření instance sady škálování virtuálního počítače selže s chybou **FabricVmPlacementErrorUnsupportedFaultDomainSize** během procesu aktualizace v prostředí Azure Stack se čtyřmi uzly.
-- Náprava: můžete vytvořit jeden virtuální počítač ve skupině dostupnosti se dvěma doménami selhání úspěšně. Vytvoření instance sady škálování však není během procesu aktualizace na Azure Stack nasazení na 4 uzly stále k dispozici.
+- Applicable: This issue applies to all supported releases.
+- Cause: Creating VMs in an availability set of 3 fault domains and creating a virtual machine scale set instance fails with a **FabricVmPlacementErrorUnsupportedFaultDomainSize** error during the update process on a 4-node Azure Stack environment.
+- Remediation: You can create single VMs in an availability set with 2 fault domains successfully. However, scale set instance creation is still not available during the update process on a 4-node Azure Stack deployment.
 
-### <a name="ubuntu-ssh-access"></a>Přístup SSH Ubuntu
+### <a name="ubuntu-ssh-access"></a>Ubuntu SSH access
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: virtuální počítač s Ubuntu 18,04 vytvořený s povoleným autorizací SSH vám neumožňuje používat klíče SSH k přihlášení.
-- Náprava: pomocí přístupu k virtuálnímu počítači pro rozšíření pro Linux implementujte klíče SSH po zřízení nebo použijte ověřování pomocí hesla.
-- Výskyt: běžné
+- Applicable: This issue applies to all supported releases.
+- Cause: An Ubuntu 18.04 VM created with SSH authorization enabled does not allow you to use the SSH keys to sign in.
+- Remediation: Use VM access for the Linux extension to implement SSH keys after provisioning, or use password-based authentication.
+- Occurrence: Common
 
 <!-- ## Storage -->
 <!-- ## SQL and MySQL-->
@@ -253,166 +253,166 @@ Chcete-li získat přístup ke známým problémům pro jinou verzi, použijte r
 ::: moniker-end
 
 ::: moniker range="azs-1908"
-## <a name="1908-update-process"></a>proces aktualizace 1908
+## <a name="1908-update-process"></a>1908 update process
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: při pokusu o instalaci aktualizace Azure Stack se může stát, že se stav aktualizace nezdaří a změní se stav na **PreparationFailed**. To je způsobeno tím, že poskytovatel prostředků aktualizace (URP) nemůže správně přenést soubory z kontejneru úložiště do interní sdílené složky infrastruktury pro zpracování.
-- Náprava: od verze 1901 (1.1901.0.95) můžete tento problém obejít tak, že znovu kliknete na **aktualizovat** ( **nepokračovat**). URP pak vyčistí soubory z předchozího pokusu a restartuje soubor ke stažení. Pokud potíže potrvají, doporučujeme ručně odeslat balíček aktualizace pomocí [oddílu instalovat aktualizace](azure-stack-apply-updates.md#install-updates-and-monitor-progress).
-- Výskyt: běžné
+- Applicable: This issue applies to all supported releases.
+- Cause: When attempting to install the Azure Stack update, the status for the update might fail and change state to **PreparationFailed**. This is caused by the update resource provider (URP) being unable to properly transfer the files from the storage container to an internal infrastructure share for processing.
+- Remediation: Starting with version 1901 (1.1901.0.95), you can work around this issue by clicking **Update now** again (not **Resume**). The URP then cleans up the files from the previous attempt, and restarts the download. If the problem persists, we recommend manually uploading the update package by following the [Install updates section](azure-stack-apply-updates.md#install-updates-and-monitor-progress).
+- Occurrence: Common
 
 ## <a name="portal"></a>Portál
 
-### <a name="administrative-subscriptions"></a>Předplatná pro správu
+### <a name="administrative-subscriptions"></a>Administrative subscriptions
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: nemusíte používat dvě předplatná pro správu, která byla představena s verzí 1804. Typy předplatného jsou odběry **měření** a předplatné **spotřeby** .
-- Náprava: Pokud máte na těchto dvou předplatných prostředky, znovu je vytvořte v předplatných uživatele.
-- Výskyt: běžné
+- Applicable: This issue applies to all supported releases.
+- Cause: The two administrative subscriptions that were introduced with version 1804 should not be used. The subscription types are **Metering** subscription, and **Consumption** subscription.
+- Remediation: If you have resources running on these two subscriptions, recreate them in user subscriptions.
+- Occurrence: Common
 
-### <a name="subscriptions-properties-blade"></a>Okno vlastností předplatných
+### <a name="subscriptions-properties-blade"></a>Subscriptions Properties blade
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: na portálu pro správu se okno **vlastnosti** pro odběry nenačte správně.
-- Náprava: tyto vlastnosti předplatného můžete zobrazit v podokně **základy** v okně s **přehledem předplatných** .
-- Výskyt: běžné
+- Applicable: This issue applies to all supported releases.
+- Cause: In the administrator portal, the **Properties** blade for subscriptions does not load correctly
+- Remediation: You can view these subscription properties in the **Essentials** pane of the **Subscriptions Overview** blade.
+- Occurrence: Common
 
-### <a name="subscriptions-lock-blade"></a>Okno zámku předplatných
+### <a name="subscriptions-lock-blade"></a>Subscriptions Lock blade
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: na portálu pro správu má okno **zámku** pro předplatné uživatele dvě tlačítka označená **předplatným**.
-- Výskyt: běžné
+- Applicable: This issue applies to all supported releases.
+- Cause: In the administrator portal, the **Lock** blade for user subscriptions has two buttons labeled **subscription**.
+- Occurrence: Common
 
-### <a name="subscription-permissions"></a>Oprávnění předplatného
+### <a name="subscription-permissions"></a>Subscription permissions
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: k předplatnému nemůžete pomocí portálů Azure Stack zobrazit oprávnění.
-- Náprava: [k ověření oprávnění použijte PowerShell](/powershell/module/azurerm.resources/get-azurermroleassignment).
-- Výskyt: běžné
+- Applicable: This issue applies to all supported releases.
+- Cause: You cannot view permissions to your subscription using the Azure Stack portals.
+- Remediation: Use [PowerShell to verify permissions](/powershell/module/azurerm.resources/get-azurermroleassignment).
+- Occurrence: Common
 
-### <a name="storage-account-settings"></a>Nastavení účtu úložiště
+### <a name="storage-account-settings"></a>Storage account settings
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: na portálu User Portal zobrazuje okno **Konfigurace** účtu úložiště možnost změny **typu přenosu zabezpečení**. Tato funkce v současnosti není v Azure Stack podporovaná.
-- Výskyt: běžné
+- Applicable: This issue applies to all supported releases.
+- Cause: In the user portal, the storage account **Configuration** blade shows an option to change **security transfer type**. The feature is currently not supported in Azure Stack.
+- Occurrence: Common
 
-### <a name="upload-blob"></a>Nahrát objekt BLOB
+### <a name="upload-blob"></a>Upload blob
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: při pokusu o nahrání objektu BLOB pomocí možnosti **OAuth (Preview)** na portálu User Portal se úloha nezdařila s chybovou zprávou.
-- Náprava: Nahrajte objekt BLOB pomocí možnosti SAS.
-- Výskyt: běžné
+- Applicable: This issue applies to all supported releases.
+- Cause: In the user portal, when you try to upload a blob using the **OAuth(preview)** option, the task fails with an error message.
+- Remediation: Upload the blob using the SAS option.
+- Occurrence: Common
 
 ## <a name="networking"></a>Sítě
 
 ### <a name="load-balancer"></a>Load Balancer
 
-- Platí: Tento problém se vztahuje na všechny podporované verze. 
-- Příčina: Když přidáváte virtuální počítače dostupnost sady do back-endu Load Balancer, na portálu se zobrazí chybová zpráva s oznámením, že **se nepovedlo Uložit fond back-endu nástroje pro vyrovnávání zatížení**. Jedná se o problém na portálu, ale funkce jsou pořád na místě a virtuální počítače se úspěšně přidají do fondu back-endu. 
-- Výskyt: běžné
+- Applicable: This issue applies to all supported releases. 
+- Cause: When adding Avaiability Set VMs to the backend pool of a Load Balancer, an error message is being displayed on the portal stating **Failed to save load balancer backend pool**. This is a cosmetic issue on the portal, the functionality is still in place and VMs are successfully added to the backend pool interally. 
+- Occurrence: Common
 
-### <a name="network-security-groups"></a>Network Security Groups (Skupiny zabezpečení sítě)
+### <a name="network-security-groups"></a>Skupiny zabezpečení sítě
 
-- Platí: Tento problém se vztahuje na všechny podporované verze. 
-- Příčina: explicitní pravidlo **DenyAllOutbound** nejde vytvořit v NSG, protože to zabrání v dokončení veškeré interní komunikace s infrastrukturou, která je potřebná pro nasazení virtuálního počítače.
-- Výskyt: běžné
+- Applicable: This issue applies to all supported releases. 
+- Cause: An explicit **DenyAllOutbound** rule cannot be created in an NSG as this will prevent all internal communication to infrastructure needed for the VM deployment to complete.
+- Occurrence: Common
 
 ### <a name="service-endpoints"></a>Koncové body služby
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: na portálu User Portal zobrazuje okno **Virtual Network** možnost používat **koncové body služby**. Tato funkce se v Azure Stack v tuto chvíli nepodporuje.
-- Výskyt: běžné
+- Applicable: This issue applies to all supported releases.
+- Cause: In the user portal, the **Virtual Network** blade shows an option to use **Service Endpoints**. This feature is currently not supported in Azure Stack.
+- Occurrence: Common
 
 ### <a name="network-interface"></a>Síťové rozhraní
 
-#### <a name="addingremoving-network-interface"></a>Přidávání/odebírání síťového rozhraní
+#### <a name="addingremoving-network-interface"></a>Adding/Removing Network Interface
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: nové síťové rozhraní se nedá přidat do virtuálního počítače, který je ve **spuštěném** stavu.
-- Náprava: před přidáním nebo odebráním síťového rozhraní zastavte virtuální počítač.
-- Výskyt: běžné
+- Applicable: This issue applies to all supported releases.
+- Cause: A new network interface cannot be added to a VM that is in a **running** state.
+- Remediation: Stop the virtual machine before adding/removing a network interface.
+- Occurrence: Common
 
-#### <a name="primary-network-interface"></a>Primární síťové rozhraní
+#### <a name="primary-network-interface"></a>Primary Network Interface
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: nové síťové rozhraní se nedá přidat do virtuálního počítače, který je ve **spuštěném** stavu.
-- Náprava: před přidáním nebo odebráním síťového rozhraní zastavte virtuální počítač.
-- Výskyt: běžné
+- Applicable: This issue applies to all supported releases.
+- Cause: A new network interface cannot be added to a VM that is in a **running** state.
+- Remediation: Stop the virtual machine before adding/removing a network interface.
+- Occurrence: Common
 
 ### <a name="virtual-network-gateway"></a>Brána virtuální sítě
 
-#### <a name="alerts"></a>Upozornění
+#### <a name="alerts"></a>Výstrahy
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: na portálu User Portal se v okně **Virtual Network brány** zobrazí možnost použít **výstrahy**. Tato funkce se v Azure Stack v tuto chvíli nepodporuje.
-- Výskyt: běžné
+- Applicable: This issue applies to all supported releases.
+- Cause: In the user portal, the **Virtual Network Gateway** blade shows an option to use **Alerts**. This feature is currently not supported in Azure Stack.
+- Occurrence: Common
 
 #### <a name="active-active"></a>Aktivní–aktivní
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: na portálu User Portal při vytváření a v nabídce prostředků **služby Virtual Network Gateway**se zobrazí možnost povolit konfiguraci **typu aktivní-aktivní** . Tato funkce se v Azure Stack v tuto chvíli nepodporuje.
-- Výskyt: běžné
+- Applicable: This issue applies to all supported releases.
+- Cause: In the user portal, while creating, and in the resource menu of **Virtual Network Gateway**, you will see an option to enable **Active-Active** configuration. This feature is currently not supported in Azure Stack.
+- Occurrence: Common
 
-#### <a name="vpn-troubleshooter"></a>Poradce při potížích s VPN
+#### <a name="vpn-troubleshooter"></a>VPN troubleshooter
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: na portálu User Portal zobrazuje okno **připojení** funkci **s názvem Poradce při potížích s VPN**. Tato funkce se v Azure Stack v tuto chvíli nepodporuje.
-- Výskyt: běžné
+- Applicable: This issue applies to all supported releases.
+- Cause: In the user portal, the **Connections** blade shows a feature called **VPN Troubleshooter**. This feature is currently not supported in Azure Stack.
+- Occurrence: Common
 
 #### <a name="documentation"></a>Dokumentace
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: dokumentace k dokumentaci na stránce Přehled na Virtual Network bráně odkazuje na Azure místo Azure Stack. Pro dokumentaci Azure Stack použijte následující odkazy:
+- Applicable: This issue applies to all supported releases.
+- Cause: The documentation links in the overview page of Virtual Network gateway link to Azure-specific documentation instead of Azure Stack. Use the following links for the Azure Stack documentation:
 
-  - [SKU brány](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-skus)
-  - [Připojení s vysokou dostupností](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-availability)
-  - [Konfigurace protokolu BGP v Azure Stack](../user/azure-stack-vpn-gateway-settings.md#gateway-requirements)
-  - [Okruhy ExpressRoute](azure-stack-connect-expressroute.md)
-  - [Zadat vlastní zásady IPsec/IKE](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
+  - [Gateway SKUs](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-skus)
+  - [Highly Available Connections](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-availability)
+  - [Configure BGP on Azure Stack](../user/azure-stack-vpn-gateway-settings.md#gateway-requirements)
+  - [ExpressRoute circuits](azure-stack-connect-expressroute.md)
+  - [Specify custom IPsec/IKE policies](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
 
-## <a name="compute"></a>Compute
+## <a name="compute"></a>Služby Compute
 
-### <a name="vm-boot-diagnostics"></a>Diagnostika spouštění virtuálních počítačů
+### <a name="vm-boot-diagnostics"></a>VM boot diagnostics
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: Když vytváříte nový virtuální počítač s Windows, může se zobrazit následující chyba: **nepovedlo se spustit virtuální počítač s názvem VM-Name. Chyba: nepovedlo se aktualizovat nastavení sériového výstupu pro virtuální počítač s názvem VM-Name**. K této chybě dojde, pokud povolíte diagnostiku spouštění na virtuálním počítači, ale odstraníte účet úložiště diagnostiky spouštění.
-- Náprava: vytvořte znovu účet úložiště se stejným názvem, který jste použili dříve.
-- Výskyt: běžné
+- Applicable: This issue applies to all supported releases.
+- Cause: When creating a new Windows virtual machine (VM), the following error may be displayed: **Failed to start virtual machine 'vm-name'. Error: Failed to update serial output settings for VM 'vm-name'** . The error occurs if you enable boot diagnostics on a VM, but delete your boot diagnostics storage account.
+- Remediation: Recreate the storage account with the same name you used previously.
+- Occurrence: Common
 
 ### <a name="virtual-machine-scale-set"></a>Škálovací sada virtuálních počítačů
 
-#### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-environments"></a>Vytváření selhání během opravy a aktualizace v prostředích Azure Stack se čtyřmi uzly
+#### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-environments"></a>Create failures during patch and update on 4-node Azure Stack environments
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: vytváření virtuálních počítačů ve skupině dostupnosti 3 domén selhání a vytvoření instance sady škálování virtuálního počítače selže s chybou **FabricVmPlacementErrorUnsupportedFaultDomainSize** během procesu aktualizace v prostředí Azure Stack se čtyřmi uzly.
-- Náprava: můžete vytvořit jeden virtuální počítač ve skupině dostupnosti se dvěma doménami selhání úspěšně. Vytvoření instance sady škálování však není během procesu aktualizace na 4 uzlech Azure Stack stále k dispozici.
+- Applicable: This issue applies to all supported releases.
+- Cause: Creating VMs in an availability set of 3 fault domains and creating a virtual machine scale set instance fails with a **FabricVmPlacementErrorUnsupportedFaultDomainSize** error during the update process on a 4-node Azure Stack environment.
+- Remediation: You can create single VMs in an availability set with 2 fault domains successfully. However, scale set instance creation is still not available during the update process on a 4-node Azure Stack.
 
-### <a name="ubuntu-ssh-access"></a>Přístup SSH Ubuntu
+### <a name="ubuntu-ssh-access"></a>Ubuntu SSH access
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: virtuální počítač s Ubuntu 18,04 vytvořený s povoleným autorizací SSH vám neumožňuje používat klíče SSH k přihlášení.
-- Náprava: pomocí přístupu k virtuálnímu počítači pro rozšíření pro Linux implementujte klíče SSH po zřízení nebo použijte ověřování pomocí hesla.
-- Výskyt: běžné
+- Applicable: This issue applies to all supported releases.
+- Cause: An Ubuntu 18.04 VM created with SSH authorization enabled does not allow you to use the SSH keys to sign in.
+- Remediation: Use VM access for the Linux extension to implement SSH keys after provisioning, or use password-based authentication.
+- Occurrence: Common
 
-### <a name="virtual-machine-scale-set-reset-password-does-not-work"></a>Resetování hesla sady škálování virtuálního počítače nefunguje
+### <a name="virtual-machine-scale-set-reset-password-does-not-work"></a>Virtual machine scale set reset password does not work
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: nové okno pro resetování hesla se zobrazí v uživatelském rozhraní sady škálování, ale Azure Stack nepodporuje resetování hesla v sadě škálování.
-- Náprava: žádné.
-- Výskyt: běžné
+- Applicable: This issue applies to all supported releases.
+- Cause: A new reset password blade appears in the scale set UI, but Azure Stack does not support resetting password on a scale set yet.
+- Remediation: None.
+- Occurrence: Common
 
-### <a name="rainy-cloud-on-scale-set-diagnostics"></a>Diagnostika deště v diagnostice sady škálování
+### <a name="rainy-cloud-on-scale-set-diagnostics"></a>Rainy cloud on scale set diagnostics
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: na stránce s přehledem sady škálování virtuálního počítače se zobrazuje prázdný graf. Když kliknete na prázdný graf, otevře se okno "deště Cloud". Toto je graf pro diagnostické informace sady škálování, jako je procento využití procesoru, a není funkce podporovaná v aktuálním Azure Stack buildu.
-- Náprava: žádné.
-- Výskyt: běžné
+- Applicable: This issue applies to all supported releases.
+- Cause: The virtual machine scale set overview page shows an empty chart. Clicking on the empty chart opens a "rainy cloud" blade. This is the chart for scale set diagnostic information, such as CPU percentage, and is not a feature supported in the current Azure Stack build.
+- Remediation: None.
+- Occurrence: Common
 
-### <a name="virtual-machine-diagnostic-settings-blade"></a>Okno nastavení diagnostiky virtuálního počítače
+### <a name="virtual-machine-diagnostic-settings-blade"></a>Virtual machine diagnostic settings blade
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.    
-- Příčina: okno nastavení diagnostiky virtuálního počítače má kartu **jímka** , která žádá o **účet Application**Insights. Toto je výsledek nového okna a v Azure Stack ještě není podporovaný.
-- Náprava: žádné.
-- Výskyt: běžné
+- Applicable: This issue applies to all supported releases.    
+- Cause: The virtual machine diagnostic settings blade has a **Sink** tab, which asks for an **Application Insight Account**. This is the result of a new blade and is not yet supported in Azure Stack.
+- Remediation: None.
+- Occurrence: Common
 
 <!-- ## Storage -->
 <!-- ## SQL and MySQL-->
@@ -423,166 +423,166 @@ Chcete-li získat přístup ke známým problémům pro jinou verzi, použijte r
 ::: moniker-end
 
 ::: moniker range="azs-1907"
-## <a name="1907-update-process"></a>proces aktualizace 1907
+## <a name="1907-update-process"></a>1907 update process
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: při pokusu o instalaci aktualizace 1907 Azure Stack aktualizace může dojít k selhání stavu aktualizace a změně stavu na **PreparationFailed**. To je způsobeno tím, že poskytovatel prostředků aktualizace (URP) nemůže správně přenést soubory z kontejneru úložiště do interní sdílené složky infrastruktury pro zpracování.
-- Náprava: od verze 1901 (1.1901.0.95) můžete tento problém obejít tak, že znovu kliknete na **aktualizovat** ( **nepokračovat**). URP pak vyčistí soubory z předchozího pokusu a restartuje soubor ke stažení. Pokud potíže potrvají, doporučujeme ručně odeslat balíček aktualizace pomocí [oddílu import a instalace aktualizací](azure-stack-apply-updates.md).
-- Výskyt: běžné
+- Applicable: This issue applies to all supported releases.
+- Cause: When attempting to install the 1907 Azure Stack update, the status for the update might fail and change state to **PreparationFailed**. This is caused by the update resource provider (URP) being unable to properly transfer the files from the storage container to an internal infrastructure share for processing.
+- Remediation: Starting with version 1901 (1.1901.0.95), you can work around this issue by clicking **Update now** again (not **Resume**). The URP then cleans up the files from the previous attempt, and restarts the download. If the problem persists, we recommend manually uploading the update package by following the [Import and install updates section](azure-stack-apply-updates.md).
+- Occurrence: Common
 
 ## <a name="portal"></a>Portál
 
-### <a name="administrative-subscriptions"></a>Předplatná pro správu
+### <a name="administrative-subscriptions"></a>Administrative subscriptions
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: nemusíte používat dvě předplatná pro správu, která byla představena s verzí 1804. Typy předplatného jsou odběry **měření** a předplatné **spotřeby** .
-- Náprava: Pokud máte na těchto dvou předplatných prostředky, znovu je vytvořte v předplatných uživatele.
-- Výskyt: běžné
+- Applicable: This issue applies to all supported releases.
+- Cause: The two administrative subscriptions that were introduced with version 1804 should not be used. The subscription types are **Metering** subscription, and **Consumption** subscription.
+- Remediation: If you have resources running on these two subscriptions, recreate them in user subscriptions.
+- Occurrence: Common
 
-### <a name="subscriptions-properties-blade"></a>Okno vlastností předplatných
+### <a name="subscriptions-properties-blade"></a>Subscriptions Properties blade
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: na portálu pro správu se okno **vlastnosti** pro odběry nenačte správně.
-- Náprava: tyto vlastnosti předplatného můžete zobrazit v podokně **základy** v okně s **přehledem předplatných** .
-- Výskyt: běžné
+- Applicable: This issue applies to all supported releases.
+- Cause: In the administrator portal, the **Properties** blade for subscriptions does not load correctly
+- Remediation: You can view these subscription properties in the **Essentials** pane of the **Subscriptions Overview** blade.
+- Occurrence: Common
 
-### <a name="subscription-permissions"></a>Oprávnění předplatného
+### <a name="subscription-permissions"></a>Subscription permissions
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: k předplatnému nemůžete pomocí portálů Azure Stack zobrazit oprávnění.
-- Náprava: [k ověření oprávnění použijte PowerShell](/powershell/module/azurerm.resources/get-azurermroleassignment).
-- Výskyt: běžné
+- Applicable: This issue applies to all supported releases.
+- Cause: You cannot view permissions to your subscription using the Azure Stack portals.
+- Remediation: Use [PowerShell to verify permissions](/powershell/module/azurerm.resources/get-azurermroleassignment).
+- Occurrence: Common
 
-### <a name="storage-account-settings"></a>Nastavení účtu úložiště
+### <a name="storage-account-settings"></a>Storage account settings
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: na portálu User Portal zobrazuje okno **Konfigurace** účtu úložiště možnost změny **typu přenosu zabezpečení**. Tato funkce v současnosti není v Azure Stack podporovaná.
-- Výskyt: běžné
+- Applicable: This issue applies to all supported releases.
+- Cause: In the user portal, the storage account **Configuration** blade shows an option to change **security transfer type**. The feature is currently not supported in Azure Stack.
+- Occurrence: Common
 
-### <a name="upload-blob"></a>Nahrát objekt BLOB
+### <a name="upload-blob"></a>Upload blob
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: při pokusu o nahrání objektu BLOB pomocí možnosti **OAuth (Preview)** na portálu User Portal se úloha nezdařila s chybovou zprávou.
-- Náprava: Nahrajte objekt BLOB pomocí možnosti SAS.
-- Výskyt: běžné
+- Applicable: This issue applies to all supported releases.
+- Cause: In the user portal, when you try to upload a blob using the **OAuth(preview)** option, the task fails with an error message.
+- Remediation: Upload the blob using the SAS option.
+- Occurrence: Common
 
 ## <a name="networking"></a>Sítě
 
 ### <a name="load-balancer"></a>Load Balancer
 
-- Platí: Tento problém se vztahuje na všechny podporované verze. 
-- Příčina: Když přidáváte virtuální počítače dostupnost sady do back-endu Load Balancer, na portálu se zobrazí chybová zpráva s oznámením, že **se nepovedlo Uložit fond back-endu nástroje pro vyrovnávání zatížení**. Jedná se o problém na portálu, ale funkce jsou pořád na místě a virtuální počítače se úspěšně přidají do fondu back-endu. 
-- Výskyt: běžné
+- Applicable: This issue applies to all supported releases. 
+- Cause: When adding Avaiability Set VMs to the backend pool of a Load Balancer, an error message is being displayed on the portal stating **Failed to save load balancer backend pool**. This is a cosmetic issue on the portal, the functionality is still in place and VMs are successfully added to the backend pool interally. 
+- Occurrence: Common
 
-### <a name="network-security-groups"></a>Network Security Groups (Skupiny zabezpečení sítě)
+### <a name="network-security-groups"></a>Skupiny zabezpečení sítě
 
-- Platí: Tento problém se vztahuje na všechny podporované verze. 
-- Příčina: explicitní pravidlo **DenyAllOutbound** nejde vytvořit v NSG, protože to zabrání v dokončení veškeré interní komunikace s infrastrukturou, která je potřebná pro nasazení virtuálního počítače.
-- Výskyt: běžné
+- Applicable: This issue applies to all supported releases. 
+- Cause: An explicit **DenyAllOutbound** rule cannot be created in an NSG as this will prevent all internal communication to infrastructure needed for the VM deployment to complete.
+- Occurrence: Common
 
 ### <a name="service-endpoints"></a>Koncové body služby
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: na portálu User Portal zobrazuje okno **Virtual Network** možnost používat **koncové body služby**. Tato funkce se v Azure Stack v tuto chvíli nepodporuje.
-- Výskyt: běžné
+- Applicable: This issue applies to all supported releases.
+- Cause: In the user portal, the **Virtual Network** blade shows an option to use **Service Endpoints**. This feature is currently not supported in Azure Stack.
+- Occurrence: Common
 
 ### <a name="network-interface"></a>Síťové rozhraní
 
-#### <a name="addingremoving-network-interface"></a>Přidávání/odebírání síťového rozhraní
+#### <a name="addingremoving-network-interface"></a>Adding/Removing Network Interface
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: nové síťové rozhraní se nedá přidat do virtuálního počítače, který je ve **spuštěném** stavu.
-- Náprava: před přidáním nebo odebráním síťového rozhraní zastavte virtuální počítač.
-- Výskyt: běžné
+- Applicable: This issue applies to all supported releases.
+- Cause: A new network interface cannot be added to a VM that is in a **running** state.
+- Remediation: Stop the virtual machine before adding/removing a network interface.
+- Occurrence: Common
 
-#### <a name="primary-network-interface"></a>Primární síťové rozhraní
+#### <a name="primary-network-interface"></a>Primary Network Interface
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: nové síťové rozhraní se nedá přidat do virtuálního počítače, který je ve **spuštěném** stavu.
-- Náprava: před přidáním nebo odebráním síťového rozhraní zastavte virtuální počítač.
-- Výskyt: běžné
+- Applicable: This issue applies to all supported releases.
+- Cause: A new network interface cannot be added to a VM that is in a **running** state.
+- Remediation: Stop the virtual machine before adding/removing a network interface.
+- Occurrence: Common
 
 ### <a name="virtual-network-gateway"></a>Brána virtuální sítě
 
-#### <a name="alerts"></a>Upozornění
+#### <a name="alerts"></a>Výstrahy
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: na portálu User Portal se v okně **Virtual Network brány** zobrazí možnost použít **výstrahy**. Tato funkce se v Azure Stack v tuto chvíli nepodporuje.
-- Výskyt: běžné
+- Applicable: This issue applies to all supported releases.
+- Cause: In the user portal, the **Virtual Network Gateway** blade shows an option to use **Alerts**. This feature is currently not supported in Azure Stack.
+- Occurrence: Common
 
 #### <a name="active-active"></a>Aktivní–aktivní
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: na portálu User Portal při vytváření a v nabídce prostředků **služby Virtual Network Gateway**se zobrazí možnost povolit konfiguraci **typu aktivní-aktivní** . Tato funkce se v Azure Stack v tuto chvíli nepodporuje.
-- Výskyt: běžné
+- Applicable: This issue applies to all supported releases.
+- Cause: In the user portal, while creating, and in the resource menu of **Virtual Network Gateway**, you will see an option to enable **Active-Active** configuration. This feature is currently not supported in Azure Stack.
+- Occurrence: Common
 
-#### <a name="vpn-troubleshooter"></a>Poradce při potížích s VPN
+#### <a name="vpn-troubleshooter"></a>VPN troubleshooter
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: na portálu User Portal zobrazuje okno **připojení** funkci **s názvem Poradce při potížích s VPN**. Tato funkce se v Azure Stack v tuto chvíli nepodporuje.
-- Výskyt: běžné
+- Applicable: This issue applies to all supported releases.
+- Cause: In the user portal, the **Connections** blade shows a feature called **VPN Troubleshooter**. This feature is currently not supported in Azure Stack.
+- Occurrence: Common
 
-### <a name="network-connection-type"></a>Typ síťového připojení
+### <a name="network-connection-type"></a>Network Connection Type
 
-- Platí: Tento problém se týká jakéhokoli prostředí 1906 nebo 1907. 
-- Příčina: na portálu User Portal zobrazuje okno **AddConnection** možnost použít **VNet-to-VNet**. Tato funkce se v Azure Stack v tuto chvíli nepodporuje. 
-- Výskyt: běžné 
+- Applicable: This issue applies to any 1906 or 1907 environment. 
+- Cause: In the user portal, the **AddConnection** blade shows an option to use **VNet-to-VNet**. This feature is currently not supported in Azure Stack. 
+- Occurrence: Common 
 
 #### <a name="documentation"></a>Dokumentace
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: dokumentace k dokumentaci na stránce Přehled na Virtual Network bráně odkazuje na Azure místo Azure Stack. Pro dokumentaci Azure Stack použijte následující odkazy:
+- Applicable: This issue applies to all supported releases.
+- Cause: The documentation links in the overview page of Virtual Network gateway link to Azure-specific documentation instead of Azure Stack. Use the following links for the Azure Stack documentation:
 
-  - [SKU brány](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-skus)
-  - [Připojení s vysokou dostupností](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-availability)
-  - [Konfigurace protokolu BGP v Azure Stack](../user/azure-stack-vpn-gateway-settings.md#gateway-requirements)
-  - [Okruhy ExpressRoute](azure-stack-connect-expressroute.md)
-  - [Zadat vlastní zásady IPsec/IKE](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
+  - [Gateway SKUs](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-skus)
+  - [Highly Available Connections](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-availability)
+  - [Configure BGP on Azure Stack](../user/azure-stack-vpn-gateway-settings.md#gateway-requirements)
+  - [ExpressRoute circuits](azure-stack-connect-expressroute.md)
+  - [Specify custom IPsec/IKE policies](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
 
-## <a name="compute"></a>Compute
+## <a name="compute"></a>Služby Compute
 
-### <a name="vm-boot-diagnostics"></a>Diagnostika spouštění virtuálních počítačů
+### <a name="vm-boot-diagnostics"></a>VM boot diagnostics
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: Když vytváříte nový virtuální počítač s Windows, může se zobrazit následující chyba: **nepovedlo se spustit virtuální počítač s názvem VM-Name. Chyba: nepovedlo se aktualizovat nastavení sériového výstupu pro virtuální počítač s názvem VM-Name**. K této chybě dojde, pokud povolíte diagnostiku spouštění na virtuálním počítači, ale odstraníte účet úložiště diagnostiky spouštění.
-- Náprava: vytvořte znovu účet úložiště se stejným názvem, který jste použili dříve.
-- Výskyt: běžné
+- Applicable: This issue applies to all supported releases.
+- Cause: When creating a new Windows virtual machine (VM), the following error may be displayed: **Failed to start virtual machine 'vm-name'. Error: Failed to update serial output settings for VM 'vm-name'** . The error occurs if you enable boot diagnostics on a VM, but delete your boot diagnostics storage account.
+- Remediation: Recreate the storage account with the same name you used previously.
+- Occurrence: Common
 
 ### <a name="virtual-machine-scale-set"></a>Škálovací sada virtuálních počítačů
 
-#### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-environments"></a>Vytváření selhání během opravy a aktualizace v prostředích Azure Stack se čtyřmi uzly
+#### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-environments"></a>Create failures during patch and update on 4-node Azure Stack environments
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: vytváření virtuálních počítačů ve skupině dostupnosti 3 domén selhání a vytvoření instance sady škálování virtuálního počítače selže s chybou **FabricVmPlacementErrorUnsupportedFaultDomainSize** během procesu aktualizace v prostředí Azure Stack se čtyřmi uzly.
-- Náprava: můžete vytvořit jeden virtuální počítač ve skupině dostupnosti se dvěma doménami selhání úspěšně. Vytvoření instance sady škálování však není během procesu aktualizace na 4 uzlech Azure Stack stále k dispozici.
+- Applicable: This issue applies to all supported releases.
+- Cause: Creating VMs in an availability set of 3 fault domains and creating a virtual machine scale set instance fails with a **FabricVmPlacementErrorUnsupportedFaultDomainSize** error during the update process on a 4-node Azure Stack environment.
+- Remediation: You can create single VMs in an availability set with 2 fault domains successfully. However, scale set instance creation is still not available during the update process on a 4-node Azure Stack.
 
-### <a name="ubuntu-ssh-access"></a>Přístup SSH Ubuntu
+### <a name="ubuntu-ssh-access"></a>Ubuntu SSH access
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: virtuální počítač s Ubuntu 18,04 vytvořený s povoleným autorizací SSH vám neumožňuje používat klíče SSH k přihlášení.
-- Náprava: pomocí přístupu k virtuálnímu počítači pro rozšíření pro Linux implementujte klíče SSH po zřízení nebo použijte ověřování pomocí hesla.
-- Výskyt: běžné
+- Applicable: This issue applies to all supported releases.
+- Cause: An Ubuntu 18.04 VM created with SSH authorization enabled does not allow you to use the SSH keys to sign in.
+- Remediation: Use VM access for the Linux extension to implement SSH keys after provisioning, or use password-based authentication.
+- Occurrence: Common
 
-### <a name="virtual-machine-scale-set-reset-password-does-not-work"></a>Resetování hesla sady škálování virtuálního počítače nefunguje
+### <a name="virtual-machine-scale-set-reset-password-does-not-work"></a>Virtual machine scale set reset password does not work
 
-- Platí: Tento problém se týká verzí 1906 a 1907.
-- Příčina: nové okno pro resetování hesla se zobrazí v uživatelském rozhraní sady škálování, ale Azure Stack nepodporuje resetování hesla v sadě škálování.
-- Náprava: žádné.
-- Výskyt: běžné
+- Applicable: This issue applies to the 1906 and 1907 releases.
+- Cause: A new reset password blade appears in the scale set UI, but Azure Stack does not support resetting password on a scale set yet.
+- Remediation: None.
+- Occurrence: Common
 
-### <a name="rainy-cloud-on-scale-set-diagnostics"></a>Diagnostika deště v diagnostice sady škálování
+### <a name="rainy-cloud-on-scale-set-diagnostics"></a>Rainy cloud on scale set diagnostics
 
-- Platí: Tento problém se týká verzí 1906 a 1907.
-- Příčina: na stránce s přehledem sady škálování virtuálního počítače se zobrazuje prázdný graf. Když kliknete na prázdný graf, otevře se okno "deště Cloud". Toto je graf pro diagnostické informace sady škálování, jako je procento využití procesoru, a není funkce podporovaná v aktuálním Azure Stack buildu.
-- Náprava: žádné.
-- Výskyt: běžné
+- Applicable: This issue applies to the 1906 and 1907 releases.
+- Cause: The virtual machine scale set overview page shows an empty chart. Clicking on the empty chart opens a "rainy cloud" blade. This is the chart for scale set diagnostic information, such as CPU percentage, and is not a feature supported in the current Azure Stack build.
+- Remediation: None.
+- Occurrence: Common
 
-### <a name="virtual-machine-diagnostic-settings-blade"></a>Okno nastavení diagnostiky virtuálního počítače
+### <a name="virtual-machine-diagnostic-settings-blade"></a>Virtual machine diagnostic settings blade
 
-- Platí: Tento problém se týká verzí 1906 a 1907.    
-- Příčina: okno nastavení diagnostiky virtuálního počítače má kartu **jímka** , která žádá o **účet Application**Insights. Toto je výsledek nového okna a v Azure Stack ještě není podporovaný.
-- Náprava: žádné.
-- Výskyt: běžné
+- Applicable: This issue applies to the 1906 and 1907 releases.    
+- Cause: The virtual machine diagnostic settings blade has a **Sink** tab, which asks for an **Application Insight Account**. This is the result of a new blade and is not yet supported in Azure Stack.
+- Remediation: None.
+- Occurrence: Common
 
 <!-- ## Storage -->
 <!-- ## SQL and MySQL-->
@@ -593,169 +593,169 @@ Chcete-li získat přístup ke známým problémům pro jinou verzi, použijte r
 ::: moniker-end
 
 ::: moniker range="azs-1906"
-## <a name="1906-update-process"></a>proces aktualizace 1906
+## <a name="1906-update-process"></a>1906 update process
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: při pokusu o instalaci aktualizace 1906 Azure Stack aktualizace může dojít k selhání stavu aktualizace a změně stavu na **PreparationFailed**. To je způsobeno tím, že poskytovatel prostředků aktualizace (URP) nemůže správně přenést soubory z kontejneru úložiště do interní sdílené složky infrastruktury pro zpracování. 
-- Náprava: od verze 1901 (1.1901.0.95) můžete tento problém obejít tak, že znovu kliknete na **aktualizovat** ( **nepokračovat**). URP pak vyčistí soubory z předchozího pokusu a restartuje soubor ke stažení. Pokud potíže potrvají, doporučujeme ručně odeslat balíček aktualizace pomocí [oddílu import a instalace aktualizací](azure-stack-apply-updates.md).
-- Výskyt: běžné
+- Applicable: This issue applies to all supported releases.
+- Cause: When attempting to install the 1906 Azure Stack update, the status for the update might fail and change state to **PreparationFailed**. This is caused by the update resource provider (URP) being unable to properly transfer the files from the storage container to an internal infrastructure share for processing. 
+- Remediation: Starting with version 1901 (1.1901.0.95), you can work around this issue by clicking **Update now** again (not **Resume**). The URP then cleans up the files from the previous attempt, and restarts the download. If the problem persists, we recommend manually uploading the update package by following the [Import and install updates section](azure-stack-apply-updates.md).
+- Occurrence: Common
 
 ## <a name="portal"></a>Portál
 
-### <a name="administrative-subscriptions"></a>Předplatná pro správu
+### <a name="administrative-subscriptions"></a>Administrative subscriptions
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: nemusíte používat dvě předplatná pro správu, která byla představena s verzí 1804. Typy předplatného jsou odběry **měření** a předplatné **spotřeby** .
-- Náprava: Pokud máte na těchto dvou předplatných prostředky, znovu je vytvořte v předplatných uživatele.
-- Výskyt: běžné
+- Applicable: This issue applies to all supported releases.
+- Cause: The two administrative subscriptions that were introduced with version 1804 should not be used. The subscription types are **Metering** subscription, and **Consumption** subscription.
+- Remediation: If you have resources running on these two subscriptions, recreate them in user subscriptions.
+- Occurrence: Common
 
-### <a name="subscription-resources"></a>Prostředky předplatného
+### <a name="subscription-resources"></a>Subscription resources
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: při odstraňování předplatných uživatelů dojde k osamoceným prostředkům.
-- Náprava: nejprve odstraňte prostředky uživatele nebo celou skupinu prostředků a pak odstraňte odběry uživatelů.
-- Výskyt: běžné
+- Applicable: This issue applies to all supported releases.
+- Cause: Deleting user subscriptions results in orphaned resources.
+- Remediation: First delete user resources or the entire resource group, and then delete the user subscriptions.
+- Occurrence: Common
 
-### <a name="subscription-permissions"></a>Oprávnění předplatného
+### <a name="subscription-permissions"></a>Subscription permissions
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: k předplatnému nemůžete pomocí portálů Azure Stack zobrazit oprávnění.
-- Náprava: [k ověření oprávnění použijte PowerShell](/powershell/module/azurerm.resources/get-azurermroleassignment).
-- Výskyt: běžné
+- Applicable: This issue applies to all supported releases.
+- Cause: You cannot view permissions to your subscription using the Azure Stack portals.
+- Remediation: Use [PowerShell to verify permissions](/powershell/module/azurerm.resources/get-azurermroleassignment).
+- Occurrence: Common
 
-### <a name="subscriptions-properties-blade"></a>Okno vlastností předplatných
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: na portálu pro správu se okno **vlastnosti** pro odběry nenačte správně.
-- Náprava: tyto vlastnosti předplatného můžete zobrazit v podokně základy v okně s přehledem předplatných.
-- Výskyt: běžné
+### <a name="subscriptions-properties-blade"></a>Subscriptions Properties blade
+- Applicable: This issue applies to all supported releases.
+- Cause: In the administrator portal, the **Properties** blade for Subscriptions does not load correctly
+- Remediation: You can view these subscriptions properties in the Essentials pane of the Subscriptions Overview blade
+- Occurrence: Common
 
-### <a name="storage-account-settings"></a>Nastavení účtu úložiště
+### <a name="storage-account-settings"></a>Storage account settings
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: na portálu User Portal zobrazuje okno **Konfigurace** účtu úložiště možnost změny **typu přenosu zabezpečení**. Tato funkce v současnosti není v Azure Stack podporovaná.
-- Výskyt: běžné
+- Applicable: This issue applies to all supported releases.
+- Cause: In the user portal, the storage account **Configuration** blade shows an option to change **security transfer type**. The feature is currently not supported in Azure Stack.
+- Occurrence: Common
 
-### <a name="upload-blob"></a>Nahrát objekt BLOB
+### <a name="upload-blob"></a>Upload blob
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: při pokusu o nahrání objektu BLOB pomocí možnosti **OAuth (Preview)** na portálu User Portal se úloha nezdařila s chybovou zprávou.
-- Náprava: Nahrajte objekt BLOB pomocí možnosti SAS.
-- Výskyt: běžné
+- Applicable: This issue applies to all supported releases.
+- Cause: In the user portal, when you try to upload a blob using the **OAuth(preview)** option, the task fails with an error message.
+- Remediation: Upload the blob using the SAS option.
+- Occurrence: Common
 
-### <a name="update"></a>Aktualizace
+### <a name="update"></a>Aktualizovat
 
-- Platí: Tento problém se týká verze 1906.
-- Příčina: na portálu operátora stav aktualizace opravy hotfix zobrazuje nesprávný stav aktualizace. Počáteční stav znamená, že se instalace aktualizace nezdařila, i když stále probíhá.
-- Náprava: aktualizujte portál a stav se aktualizuje na probíhá.
-- Výskyt: občasné
+- Applicable: This issue applies to the 1906 release.
+- Cause: In the operator portal, update status for the hotfix shows an incorrect state for the update. Initial state indicates that the update failed to install, even though it is still in progress.
+- Remediation: Refresh the portal and the state will update to "in progress."
+- Occurrence: Intermittent
 
 ## <a name="networking"></a>Sítě
 
 ### <a name="service-endpoints"></a>Koncové body služby
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: na portálu User Portal zobrazuje okno **Virtual Network** možnost používat **koncové body služby**. Tato funkce se v Azure Stack v tuto chvíli nepodporuje.
-- Výskyt: běžné
+- Applicable: This issue applies to all supported releases.
+- Cause: In the user portal, the **Virtual Network** blade shows an option to use **Service Endpoints**. This feature is currently not supported in Azure Stack.
+- Occurrence: Common
 
 ### <a name="network-interface"></a>Síťové rozhraní
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: nové síťové rozhraní se nedá přidat do virtuálního počítače, který je ve **spuštěném** stavu.
-- Náprava: před přidáním nebo odebráním síťového rozhraní zastavte virtuální počítač.
-- Výskyt: běžné
+- Applicable: This issue applies to all supported releases.
+- Cause: A new network interface cannot be added to a VM that is in a **running** state.
+- Remediation: Stop the virtual machine before adding/removing a network interface.
+- Occurrence: Common
 
 ### <a name="virtual-network-gateway"></a>Brána virtuální sítě
 
-#### <a name="alerts"></a>Upozornění
+#### <a name="alerts"></a>Výstrahy
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: na portálu User Portal se v okně **Virtual Network brány** zobrazí možnost použít **výstrahy**. Tato funkce se v Azure Stack v tuto chvíli nepodporuje.
-- Výskyt: běžné
+- Applicable: This issue applies to all supported releases.
+- Cause: In the user portal, the **Virtual Network Gateway** blade shows an option to use **Alerts**. This feature is currently not supported in Azure Stack.
+- Occurrence: Common
 
 #### <a name="active-active"></a>Aktivní–aktivní
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: na portálu User Portal při vytváření a v nabídce prostředků **služby Virtual Network Gateway**se zobrazí možnost povolit konfiguraci **typu aktivní-aktivní** . Tato funkce se v Azure Stack v tuto chvíli nepodporuje.
-- Výskyt: běžné
+- Applicable: This issue applies to all supported releases.
+- Cause: In the user portal, while creating, and in the resource menu of **Virtual Network Gateway**, you will see an option to enable **Active-Active** configuration. This feature is currently not supported in Azure Stack.
+- Occurrence: Common
 
-#### <a name="vpn-troubleshooter"></a>Poradce při potížích s VPN
+#### <a name="vpn-troubleshooter"></a>VPN troubleshooter
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: na portálu User Portal zobrazuje okno **připojení** funkci **s názvem Poradce při potížích s VPN**. Tato funkce se v Azure Stack v tuto chvíli nepodporuje.
-- Výskyt: běžné
+- Applicable: This issue applies to all supported releases.
+- Cause: In the user portal, the **Connections** blade shows a feature called **VPN Troubleshooter**. This feature is currently not supported in Azure Stack.
+- Occurrence: Common
 
 #### <a name="documentation"></a>Dokumentace
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: dokumentace k dokumentaci na stránce Přehled na Virtual Network bráně odkazuje na Azure místo Azure Stack. Pro Azure Stack dokumentaci použijte následující odkazy:
+- Applicable: This issue applies to all supported releases.
+- Cause: The documentation links in the overview page of Virtual Network gateway link to Azure-specific documentation instead of Azure Stack. Please use the following links for the Azure Stack documentation:
 
-  - [SKU brány](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-skus)
-  - [Připojení s vysokou dostupností](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-availability)
-  - [Konfigurace protokolu BGP v Azure Stack](../user/azure-stack-vpn-gateway-settings.md#gateway-requirements)
-  - [Okruhy ExpressRoute](azure-stack-connect-expressroute.md)
-  - [Zadat vlastní zásady IPsec/IKE](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
+  - [Gateway SKUs](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-skus)
+  - [Highly Available Connections](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-availability)
+  - [Configure BGP on Azure Stack](../user/azure-stack-vpn-gateway-settings.md#gateway-requirements)
+  - [ExpressRoute circuits](azure-stack-connect-expressroute.md)
+  - [Specify custom IPsec/IKE policies](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
 
 ### <a name="load-balancer"></a>Nástroj pro vyrovnávání zatížení
 
-#### <a name="add-backend-pool"></a>Přidat back-end fond
+#### <a name="add-backend-pool"></a>Add backend pool
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: když se na portálu User Portal pokusíte přidat **back-end fond** do **Load Balancer**, operace se nezdaří a chybová zpráva **se nepovedlo aktualizovat Load Balancer...** .
-- Náprava: pomocí PowerShellu, CLI nebo šablony Správce prostředků přidružte fond back-end k prostředku nástroje pro vyrovnávání zatížení.
-- Výskyt: běžné
+- Applicable: This issue applies to all supported releases.
+- Cause: In the user portal, if you attempt to add a **Backend Pool** to a **Load Balancer**, the operation fails with the error message **failed to update Load Balancer...** .
+- Remediation: Use PowerShell, CLI or a Resource Manager template to associate the backend pool with a load balancer resource.
+- Occurrence: Common
 
-#### <a name="create-inbound-nat"></a>Vytvoření příchozího překladu adres (NAT)
+#### <a name="create-inbound-nat"></a>Create inbound NAT
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: když se na portálu User Portal pokusíte vytvořit **pravidlo příchozího překladu adres (NAT)** pro **Load Balancer**, operace se nezdaří a chybová zpráva **se nepovedlo aktualizovat Load Balancer...** .
-- Náprava: pomocí PowerShellu, CLI nebo šablony Správce prostředků přidružte fond back-end k prostředku nástroje pro vyrovnávání zatížení.
-- Výskyt: běžné
+- Applicable: This issue applies to all supported releases.
+- Cause: In the user portal, if you attempt to create an **Inbound NAT Rule** for a **Load Balancer**, the operation fails with the error message **Failed to update Load Balancer...** .
+- Remediation: Use PowerShell, CLI or a Resource Manager template to associate the backend pool with a load balancer resource.
+- Occurrence: Common
 
-## <a name="compute"></a>Compute
+## <a name="compute"></a>Služby Compute
 
-### <a name="vm-boot-diagnostics"></a>Diagnostika spouštění virtuálních počítačů
+### <a name="vm-boot-diagnostics"></a>VM boot diagnostics
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: Když vytváříte nový virtuální počítač s Windows, může se zobrazit následující chyba: **nepovedlo se spustit virtuální počítač s názvem VM-Name. Chyba: nepovedlo se aktualizovat nastavení sériového výstupu pro virtuální počítač s názvem VM-Name**. K této chybě dojde, pokud povolíte diagnostiku spouštění na virtuálním počítači, ale odstraníte účet úložiště diagnostiky spouštění.
-- Náprava: vytvořte znovu účet úložiště se stejným názvem, který jste použili dříve.
-- Výskyt: běžné
+- Applicable: This issue applies to all supported releases.
+- Cause: When creating a new Windows virtual machine (VM), the following error may be displayed: **Failed to start virtual machine 'vm-name'. Error: Failed to update serial output settings for VM 'vm-name'** . The error occurs if you enable boot diagnostics on a VM, but delete your boot diagnostics storage account.
+- Remediation: Recreate the storage account with the same name you used previously.
+- Occurrence: Common
 
 ### <a name="virtual-machine-scale-set"></a>Škálovací sada virtuálních počítačů
 
 
-#### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-environments"></a>Vytváření selhání během opravy a aktualizace v prostředích Azure Stack se čtyřmi uzly
+#### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-environments"></a>Create failures during patch and update on 4-node Azure Stack environments
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: vytváření virtuálních počítačů ve skupině dostupnosti 3 domén selhání a vytvoření instance sady škálování virtuálního počítače selže s chybou **FabricVmPlacementErrorUnsupportedFaultDomainSize** během procesu aktualizace v prostředí Azure Stack se čtyřmi uzly.
-- Náprava: můžete vytvořit jeden virtuální počítač ve skupině dostupnosti se dvěma doménami selhání úspěšně. Vytvoření instance sady škálování však není během procesu aktualizace na 4 uzlech Azure Stack stále k dispozici.
+- Applicable: This issue applies to all supported releases.
+- Cause: Creating VMs in an availability set of 3 fault domains and creating a virtual machine scale set instance fails with a **FabricVmPlacementErrorUnsupportedFaultDomainSize** error during the update process on a 4-node Azure Stack environment.
+- Remediation: You can create single VMs in an availability set with 2 fault domains successfully. However, scale set instance creation is still not available during the update process on a 4-node Azure Stack.
 
-### <a name="ubuntu-ssh-access"></a>Přístup SSH Ubuntu
+### <a name="ubuntu-ssh-access"></a>Ubuntu SSH access
 
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: virtuální počítač s Ubuntu 18,04 vytvořený s povoleným autorizací SSH vám neumožňuje používat klíče SSH k přihlášení.
-- Náprava: pomocí přístupu k virtuálnímu počítači pro rozšíření pro Linux implementujte klíče SSH po zřízení nebo použijte ověřování pomocí hesla.
-- Výskyt: běžné
+- Applicable: This issue applies to all supported releases.
+- Cause: An Ubuntu 18.04 VM created with SSH authorization enabled does not allow you to use the SSH keys to sign in.
+- Remediation: Use VM access for the Linux extension to implement SSH keys after provisioning, or use password-based authentication.
+- Occurrence: Common
 
-### <a name="virtual-machine-scale-set-reset-password-does-not-work"></a>Resetování hesla sady škálování virtuálního počítače nefunguje
+### <a name="virtual-machine-scale-set-reset-password-does-not-work"></a>Virtual machine scale set reset password does not work
 
-- Platí: Tento problém se týká verze 1906.
-- Příčina: nové okno pro resetování hesla se zobrazí v uživatelském rozhraní sady škálování, ale Azure Stack nepodporuje resetování hesla v sadě škálování.
-- Náprava: žádné.
-- Výskyt: běžné
+- Applicable: This issue applies to the 1906 release.
+- Cause: A new reset password blade appears in the scale set UI, but Azure Stack does not support resetting password on a scale set yet.
+- Remediation: None.
+- Occurrence: Common
 
-### <a name="rainy-cloud-on-scale-set-diagnostics"></a>Diagnostika deště v diagnostice sady škálování
+### <a name="rainy-cloud-on-scale-set-diagnostics"></a>Rainy cloud on scale set diagnostics
 
-- Platí: Tento problém se týká verze 1906.
-- Příčina: na stránce s přehledem sady škálování virtuálního počítače se zobrazuje prázdný graf. Když kliknete na prázdný graf, otevře se okno "deště Cloud". Toto je graf pro diagnostické informace sady škálování, jako je procento využití procesoru, a není funkce podporovaná v aktuálním Azure Stack buildu.
-- Náprava: žádné.
-- Výskyt: běžné
+- Applicable: This issue applies to the 1906 release.
+- Cause: The virtual machine scale set overview page shows an empty chart. Clicking on the empty chart opens a "rainy cloud" blade. This is the chart for scale set diagnostic information, such as CPU percentage, and is not a feature supported in the current Azure Stack build.
+- Remediation: None.
+- Occurrence: Common
 
-### <a name="virtual-machine-diagnostic-settings-blade"></a>Okno nastavení diagnostiky virtuálního počítače
+### <a name="virtual-machine-diagnostic-settings-blade"></a>Virtual machine diagnostic settings blade
 
-- Platí: Tento problém se týká verze 1906.
-- Příčina: okno nastavení diagnostiky virtuálního počítače má kartu **jímka** , která žádá o **účet Application**Insights. Toto je výsledek nového okna a v Azure Stack ještě není podporovaný.
-- Náprava: žádné.
-- Výskyt: běžné
+- Applicable: This issue applies to the 1906 release.
+- Cause: The virtual machine diagnostic settings blade has a **Sink** tab, which asks for an **Application Insight Account**. This is the result of a new blade and is not yet supported in Azure Stack.
+- Remediation: None.
+- Occurrence: Common
 
 <!-- ## Storage -->
 <!-- ## SQL and MySQL-->
@@ -768,57 +768,57 @@ Chcete-li získat přístup ke známým problémům pro jinou verzi, použijte r
 ::: moniker range=">=azs-1906"
 ## <a name="archive"></a>Archiv
 
-Chcete-li získat přístup k archivovaným známým problémům pro starší verzi, použijte rozevírací nabídku selektor verzí nad obsahem vlevo a vyberte verzi, kterou chcete zobrazit.
+To access archived known issues for an older version, use the version selector dropdown above the table of contents on the left, and select the version you want to see.
 
 ## <a name="next-steps"></a>Další kroky
 
-- [Kontrola kontrolního seznamu aktivit aktualizací](release-notes-checklist.md)
-- [Kontrola seznamu aktualizací zabezpečení](release-notes-security-updates.md)
+- [Review update activity checklist](release-notes-checklist.md)
+- [Review list of security updates](release-notes-security-updates.md)
 ::: moniker-end
 
 <!------------------------------------------------------------>
 <!------------------- UNSUPPORTED VERSIONS ------------------->
 <!------------------------------------------------------------>
 ::: moniker range="azs-1905"
-## <a name="1905-archived-known-issues"></a>1905 archivovaných známých problémů
+## <a name="1905-archived-known-issues"></a>1905 archived known issues
 ::: moniker-end
 ::: moniker range="azs-1904"
-## <a name="1904-archived-known-issues"></a>1904 archivovaných známých problémů
+## <a name="1904-archived-known-issues"></a>1904 archived known issues
 ::: moniker-end
 ::: moniker range="azs-1903"
-## <a name="1903-archived-known-issues"></a>1903 archivovaných známých problémů
+## <a name="1903-archived-known-issues"></a>1903 archived known issues
 ::: moniker-end
 ::: moniker range="azs-1902"
-## <a name="1902-archived-known-issues"></a>1902 archivovaných známých problémů
+## <a name="1902-archived-known-issues"></a>1902 archived known issues
 ::: moniker-end
 ::: moniker range="azs-1901"
-## <a name="1901-archived-known-issues"></a>1901 archivovaných známých problémů
+## <a name="1901-archived-known-issues"></a>1901 archived known issues
 ::: moniker-end
 ::: moniker range="azs-1811"
-## <a name="1811-archived-known-issues"></a>1811 archivovaných známých problémů
+## <a name="1811-archived-known-issues"></a>1811 archived known issues
 ::: moniker-end
 ::: moniker range="azs-1809"
-## <a name="1809-archived-known-issues"></a>1809 archivovaných známých problémů
+## <a name="1809-archived-known-issues"></a>1809 archived known issues
 ::: moniker-end
 ::: moniker range="azs-1808"
-## <a name="1808-archived-known-issues"></a>1808 archivovaných známých problémů
+## <a name="1808-archived-known-issues"></a>1808 archived known issues
 ::: moniker-end
 ::: moniker range="azs-1807"
-## <a name="1807-archived-known-issues"></a>1807 archivovaných známých problémů
+## <a name="1807-archived-known-issues"></a>1807 archived known issues
 ::: moniker-end
 ::: moniker range="azs-1805"
-## <a name="1805-archived-known-issues"></a>1805 archivovaných známých problémů
+## <a name="1805-archived-known-issues"></a>1805 archived known issues
 ::: moniker-end
 ::: moniker range="azs-1804"
-## <a name="1804-archived-known-issues"></a>1804 archivovaných známých problémů
+## <a name="1804-archived-known-issues"></a>1804 archived known issues
 ::: moniker-end
 ::: moniker range="azs-1803"
-## <a name="1803-archived-known-issues"></a>1803 archivovaných známých problémů
+## <a name="1803-archived-known-issues"></a>1803 archived known issues
 ::: moniker-end
 ::: moniker range="azs-1802"
-## <a name="1802-archived-known-issues"></a>1802 archivovaných známých problémů
+## <a name="1802-archived-known-issues"></a>1802 archived known issues
 ::: moniker-end
 
 ::: moniker range="<azs-1906"
-Ke [starším verzím Azure Stack známým problémům můžete přistupovat v Galerii TechNet](https://aka.ms/azsarchivedrelnotes). Tyto archivované dokumenty jsou k dispozici pouze pro referenční účely a neznamenají podporu těchto verzí. Informace o podpoře Azure Stack najdete v tématu [zásady pro obsluhu Azure Stack](azure-stack-servicing-policy.md). Pokud potřebujete další pomoc, obraťte se na službu zákaznické podpory společnosti Microsoft.
+You can access [older versions of Azure Stack known issues on the TechNet Gallery](https://aka.ms/azsarchivedrelnotes). These archived documents are provided for reference purposes only and do not imply support for these versions. For information about Azure Stack support, see [Azure Stack servicing policy](azure-stack-servicing-policy.md). For further assistance, contact Microsoft Customer Support Services.
 ::: moniker-end
