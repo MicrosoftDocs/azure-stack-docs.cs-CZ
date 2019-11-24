@@ -57,8 +57,8 @@ Společné součásti aplikace, které se mají zahrnout do inventáře, jsou uv
 | **Komponenta** | **Doprovodné materiály k hybridní aplikaci** |
 | ---- | ---- |
 | Připojení klientů | Vaše aplikace (na jakémkoli zařízení) má přístup k uživatelům různými způsoby, od jediného vstupního bodu, včetně následujících:<br>– Model klient-server, který vyžaduje, aby uživatel měl nainstalovaného klienta nástroje pro práci s aplikací. Serverová aplikace, ke které se přistupoval z webového prohlížeče.<br>-Klientská připojení můžou zahrnovat oznámení v případě, že dojde k přerušení připojení nebo upozornění, když můžou platit poplatky za roaming. |
-| Ověření  | Ověřování může být vyžadováno pro uživatele, který se připojuje k aplikaci, nebo z jedné součásti, která se připojuje k jiné. |
-| Rozhraní API  | Vývojářům můžete poskytnout programový přístup k vaší aplikaci pomocí sad rozhraní API a knihoven tříd a poskytovat rozhraní připojení na základě standardů sítě Internet. Rozhraní API můžete použít také k rozloží aplikace na nezávisle provozní logické jednotky. |
+| Authentication  | Ověřování může být vyžadováno pro uživatele, který se připojuje k aplikaci, nebo z jedné součásti, která se připojuje k jiné. |
+| API  | Vývojářům můžete poskytnout programový přístup k vaší aplikaci pomocí sad rozhraní API a knihoven tříd a poskytovat rozhraní připojení na základě standardů sítě Internet. Rozhraní API můžete použít také k rozloží aplikace na nezávisle provozní logické jednotky. |
 | Služby  | Pro poskytování funkcí aplikace můžete využívat stručné služby. Služba může být modul, na kterém je aplikace spuštěná. |
 | Fronty | Fronty můžete použít k uspořádání stavu životního cyklu a stavů komponent aplikace. Tyto fronty můžou poskytovat možnosti zasílání zpráv, oznámení a ukládání do vyrovnávací paměti pro odběr stran. |
 | Úložiště dat | Aplikace může být Bezstavová nebo stavová. Stavové aplikace potřebují úložiště dat, které může být splněno řadou formátů a svazků. |
@@ -72,16 +72,16 @@ Pro každou komponentu vyhodnoťte své charakteristiky pro každý pilíř. Kdy
 
 ### <a name="table-2-pillars"></a>Tabulka 2. Pilíře
 
-| **Pilíř** | **Popis** |
+| **Pillar** | **Popis** |
 | ----------- | --------------------------------------------------------- |
-| Stáž  | Strategické umístění komponent v hybridních aplikacích. |
+| umístění  | Strategické umístění komponent v hybridních aplikacích. |
 | Škálovatelnost  | Schopnost systému zvládnout zvýšenou zátěž |
 | Dostupnost  | Poměr doby, po kterou je hybridní aplikace funkční a funguje. |
 | Odolnost | Schopnost hybridní aplikace obnovit. |
 | Možnosti správy | Provozní procesy, které udržují systém spuštěný v produkčním prostředí. |
 | Zabezpečení | Ochrana hybridních aplikací a dat před hrozbami. |
 
-## <a name="placement"></a>Stáž
+## <a name="placement"></a>umístění
 
 Hybridní aplikace má v podstatě aspekt umístění, například pro datové centrum.
 
@@ -235,7 +235,7 @@ Může se zdát jako časově náročná úloha předem, ale pokud aplikaci navr
 
 ## <a name="next-steps"></a>Další kroky
 
-Další informace najdete v následujících materiálech:
+Další informace naleznete v následujících materiálech:
 
 -   [Hybridní cloud](https://azure.microsoft.com/overview/hybrid-cloud/)
 -   [Hybridní cloudové aplikace](https://azure.microsoft.com/solutions/hybrid-cloud-app/)

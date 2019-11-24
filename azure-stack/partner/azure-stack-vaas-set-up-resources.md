@@ -56,7 +56,7 @@ Vytvořte tenanta, který bude vaše organizace používat pro přístup ke slu�
 
     Přiřazení rolí v aplikaci **Azure Stack Validation Service** :
 
-   1. Přihlaste se na web [Azure Portal](https://portal.azure.com).
+   1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
    2. V části **Identita** vyberte **všechny služby** > **Azure Active Directory** .
    3. Vyberte **podnikové aplikace** > aplikaci **služby ověřování Azure Stack** .
    4. Vyberte **Uživatelé a skupiny**. Okno **Azure Stack služby ověřování – uživatelé a skupiny** zobrazí seznam uživatelů s oprávněním k používání aplikace.

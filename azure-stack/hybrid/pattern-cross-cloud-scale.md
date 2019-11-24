@@ -50,7 +50,7 @@ Název domény systému nebo DNS zodpovídá za překlad (nebo překladu) názvu
 
 ### <a name="cloud"></a>Cloud
 
-**Hostovaný sestavovací Server**  
+**Hosted Build Server**  
 Prostředí pro hostování vašeho kanálu sestavení.
 
 **Prostředky aplikace**  
@@ -64,7 +64,7 @@ Veřejné IP adresy slouží ke směrování příchozího provozu prostřednict
 
 ### <a name="local-cloud"></a>Místní Cloud
 
-**Hostovaný sestavovací Server**  
+**Hosted Build Server**  
 Prostředí pro hostování vašeho kanálu sestavení.
 
 **Prostředky aplikace**  
