@@ -62,10 +62,10 @@ K dispozici jsou další možnosti pro nasazení virtuálních počítačů SQL,
 
 Můžete vytvořit administrativního uživatele s nižšími oprávněními, než má správce systému SQL. Uživatel potřebuje oprávnění pouze pro následující operace:
 
-* Databáze Vytvořit, změnit s omezením (jenom pro Always On), vyřadit, zálohovat
-* Skupina dostupnosti: Změnit, připojit, přidat nebo odebrat databázi
-* Hlas Vytvoření, výběr, změna, zrušení, odvolání
-* Vyberte operace: \[master @ no__t-1. \[sys @ no__t-3. \[availability_group_listeners @ no__t-5 (AlwaysOn), sys. availability_replicas (AlwaysOn), sys. databases, \[master @ no__t-7. \[sys @ no__t-9. \]0dm_os_ sys_memory @ no__t-11, SERVERPROPERTY, 2master @ no__t-13. 4sys @ no__t-15. 6availability_groups @ no__t-17 (AlwaysOn), sys. master_files
+* Databáze: vytvořit, změnit s omezením (jenom pro Always On), vyřadit, zálohovat
+* Skupina dostupnosti: změnit, připojit, přidat nebo odebrat databázi
+* Přihlášení: vytvořit, vybrat, změnit, zrušit, odvolat
+* Vyberte operace: \[hlavní\].\]\[sys.\[availability_group_listeners\] (AlwaysOn), sys. availability_replicas (AlwaysOn), sys. databases, \[Master\].\]\[sys.\[dm_os_sys_memory\], SERVERPROPERTY, \[hlavní\].\]\[sys.\[availability_groups\] (AlwaysOn), sys. master_files
 
 ### <a name="additional-security-information"></a>Další informace o zabezpečení
 
@@ -85,7 +85,7 @@ Chcete-li přidat samostatný hostitelský server, který je již nastaven, post
 
 1. Přihlaste se k portálu Azure Stack operator jako správce služby.
 
-2. Vyberte **všechny služby** &gt; **Správa prostředky** &gt; **servery SQL hosting**.
+2. Vyberte **všechny služby** &gt; **prostředky pro správu** &gt; **hostitelských serverech SQL**.
 
    ![SQL Hosting Servers](./media/azure-stack-sql-rp-deploy/sqlhostingservers.png)
 
@@ -158,7 +158,7 @@ Pomocí těchto příkazů nastavte u každé instance možnost Server pro ově�
 
 1. Přihlaste se k portálu pro správu Azure Stack jako správce služby.
 
-2. Vyberte **Procházet** &gt; **prostředky** &gt;pro správu hostitelské servery SQL a přidat. &gt;
+2. Vyberte **procházet** &gt; **prostředky pro správu** &gt; **hostitelských serverech SQL** &gt; **+ Přidat**.
 
    V části **hostitelské servery SQL**můžete poskytovatele prostředků SQL Server připojit k skutečným instancím SQL Server, které slouží jako back-end poskytovatele prostředků.
 
@@ -186,9 +186,9 @@ SKU nelze přiřadit konkrétním uživatelům nebo skupinám.
 
 SKU může trvat až hodinu, než se na portálu zobrazí. Uživatelé nemůžou vytvořit databázi, dokud se SKU nevytvoří úplně.
 
-Chcete-li upravit SKU, klikněte na položku **všechny služby** > **SKU** **adaptéru** > SQL. Vyberte SKLADOVOU položku, kterou chcete upravit, proveďte potřebné změny a uložte změny kliknutím na **Uložit** . 
+Chcete-li upravit SKLADOVOU položku, klikněte na **všechny služby** > **SQL Adapter** > **SKU**. Vyberte SKLADOVOU položku, kterou chcete upravit, proveďte potřebné změny a uložte změny kliknutím na **Uložit** . 
 
-Pokud chcete odstranit SKU, které už nepotřebujete, přečtěte si **všechny** > **skladové**položky**adaptéru** > SQL. Klikněte pravým tlačítkem na název SKU a vyberte **Odstranit** a odstraňte ho.
+Pokud chcete odstranit SKU, které už nepotřebujete, přečtěte si **všechny služby** > **SQL Adapter** > **SKU**. Klikněte pravým tlačítkem na název SKU a vyberte **Odstranit** a odstraňte ho.
 
 > [!IMPORTANT]
 > Může trvat až hodinu, než se nové SKU zpřístupní na portálu User Portal.

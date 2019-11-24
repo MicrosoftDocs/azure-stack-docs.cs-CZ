@@ -24,7 +24,7 @@ ms.locfileid: "72019372"
 ---
 # <a name="configure-multi-tenancy-in-azure-stack"></a>Konfigurace víceklientské architektury v Azure Stack
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit @ no__t-0
+*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
 
 Azure Stack můžete nakonfigurovat tak, aby podporovaly uživatele z více tenantů Azure Active Directory (Azure AD), což jim umožní používat služby v Azure Stack. Zvažte například následující scénář:
 
@@ -112,9 +112,9 @@ Register-AzSWithMyDirectoryTenant `
 
 ### <a name="direct-users-to-sign-in"></a>Přímé přihlašování uživatelů
 
-Teď, když jste vy a Marie dokončili kroky k zařazení adresáře Marie, může uživatel s názvem Marie nasměrovat uživatele společnosti Fabrikam, aby se přihlásili. Uživatelé společnosti Fabrikam (uživatelé s příponou fabrikam.onmicrosoft.com) se přihlásí pomocí protokolu HTTPS @ no__t-0//Portal. Local. azurestack. external.
+Teď, když jste vy a Marie dokončili kroky k zařazení adresáře Marie, může uživatel s názvem Marie nasměrovat uživatele společnosti Fabrikam, aby se přihlásili. Uživatelé společnosti Fabrikam (uživatelé s příponou fabrikam.onmicrosoft.com) se přihlásí návštěvou https\://Portal.Local.azurestack.external.
 
-Marie nasměruje jakékoli [cizí objekty zabezpečení](/azure/role-based-access-control/rbac-and-directory-admin-roles) v adresáři Fabrikam (uživatelé v adresáři Fabrikam bez přípony Fabrikam.onmicrosoft.com), aby se přihlásili pomocí protokolu HTTPS @ no__t-1//Portal. Local. azurestack. external/Fabrikam. The Microsoft. com. Pokud tuto adresu URL nepoužívají, odešlou se jejich výchozímu adresáři (Fabrikam) a zobrazí se chyba oznamující, že správce nesouhlasí.
+Marie bude směrovat jakékoli [cizí objekty zabezpečení](/azure/role-based-access-control/rbac-and-directory-admin-roles) v adresáři Fabrikam (uživatelé v adresáři Fabrikam bez přípony Fabrikam.onmicrosoft.com), aby se přihlásili pomocí protokolu HTTPS\://Portal.Local.azurestack.external/Fabrikam.onmicrosoft.com. Pokud tuto adresu URL nepoužívají, odešlou se jejich výchozímu adresáři (Fabrikam) a zobrazí se chyba oznamující, že správce nesouhlasí.
 
 ## <a name="disable-multi-tenancy"></a>Zakázat víceklientské architektury
 

@@ -24,7 +24,7 @@ ms.locfileid: "72019450"
 ---
 # <a name="azure-stack-servicing-policy"></a>Zásady obsluhy Azure Stack
 
-*Platí pro: Azure Stack integrovaných systémů @ no__t-0
+*Platí pro: integrované systémy Azure Stack*
 
 Tento článek popisuje zásady pro obsluhu Azure Stack integrovaných systémů, co je potřeba udělat, abyste zachovali systém v podporovaném stavu, a jak získat podporu.
 

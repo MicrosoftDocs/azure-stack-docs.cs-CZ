@@ -69,13 +69,13 @@ Parametry pro rutinu *set-SyslogServer* :
 |*SkipCertificateCheck*| Při počátečním ověřování TLS vynechejte ověření certifikátu poskytnutého serverem syslog. | příznaků | ne|
 |*SkipCNCheck*| Při počátečním ověřování TLS vynechejte vynechání hodnoty pro běžný název certifikátu poskytnutého serverem syslog. | příznaků | ne|
 |*UseUDP*| Použijte protokol syslog se UDP jako transportní protokol. |příznaků | ne|
-|*Odebrány*| Odeberte konfiguraci serveru z klienta a Zastavte předávání syslog.| příznaků | ne|
+|*odebrat*| Odeberte konfiguraci serveru z klienta a Zastavte předávání syslog.| příznaků | ne|
 
 Parametry pro rutinu *set-SyslogClient* :
 
 | Parametr | Popis | Typ |
 |---------|---------| ---------|
-| *pfxBinary* | soubor PFX obsahující certifikát, který má klient používat jako identitu k ověřování na serveru syslog.  | Byte [] |
+| *pfxBinary* | soubor PFX obsahující certifikát, který má klient používat jako identitu k ověřování na serveru syslog.  | Byte[] |
 | *CertPassword* |  Heslo pro import privátního klíče, který je přidružen k souboru PFX. | SecureString |
 |*RemoveCertificate* | Odeberte certifikát z klienta. | příznaků|
 | *OutputSeverity* | Úroveň protokolování výstupu. Hodnoty jsou **výchozí** nebo **podrobné**. Výchozí hodnota zahrnuje úrovně závažnosti: upozornění, kritická nebo chyba. Verbose obsahuje všechny úrovně závažnosti: Verbose, informativní, Warning, kritická nebo chyba.  | Řetězec |
@@ -242,9 +242,9 @@ Prefix fields
 
 Tabulka událostí pro privilegovaný koncový bod:
 
-| Událost | ID události PEP | Název úlohy PEP | Závažnost |
+| Událost | ID události PEP | Název úlohy PEP | Severity |
 |-------|--------------| --------------|----------|
-|PrivilegedEndpointAccessed|1 000|PrivilegedEndpointAccessedEvent|5|
+|PrivilegedEndpointAccessed|1000|PrivilegedEndpointAccessedEvent|5|
 |SupportSessionTokenRequested |1001|SupportSessionTokenRequestedEvent|5|
 |SupportSessionDevelopmentTokenRequested |1002|SupportSessionDevelopmentTokenRequestedEvent|5|
 |SupportSessionUnlocked |1003|SupportSessionUnlockedEvent|10|
@@ -259,14 +259,14 @@ Tabulka událostí pro privilegovaný koncový bod:
 
 Tabulka PEP závažnosti:
 
-| Závažnost | Úroveň | Číselná hodnota |
+| Severity | Level | Číselná hodnota |
 |----------|-------| ----------------|
 |0|Nedefinováno|Hodnota: 0. Indikuje protokoly na všech úrovních.|
-|10|Kritické|Hodnota: 1. Označuje protokoly pro kritickou výstrahu.|
+|10|Kritická|Hodnota: 1. Označuje protokoly pro kritickou výstrahu.|
 |8|Chyba| Hodnota: 2. Označuje protokoly pro chybu.|
 |5|Upozornění|Hodnota: 3. Indikuje protokoly pro upozornění.|
 |2|Informace|Hodnota: 4. Označuje protokoly pro informační zprávu.|
-|0|Podrobné|Hodnota: 5. Indikuje protokoly na všech úrovních.|
+|0|Podrobnosti|Hodnota: 5. Indikuje protokoly na všech úrovních.|
 
 ### <a name="cef-mapping-for-recovery-endpoint-events"></a>Mapování CEF pro události koncového bodu obnovení
 
@@ -279,7 +279,7 @@ Prefix fields
 
 Tabulka událostí pro koncový bod obnovení:
 
-| Událost | ID události zástupce | Název úlohy zástupce | Závažnost |
+| Událost | ID události zástupce | Název úlohy zástupce | Severity |
 |-------|--------------| --------------|----------|
 |RecoveryEndpointAccessed |1011|RecoveryEndpointAccessedEvent|5|
 |RecoverySessionTokenRequested |1012|RecoverySessionTokenRequestedEvent |5|
@@ -290,14 +290,14 @@ Tabulka událostí pro koncový bod obnovení:
 
 Tabulka závažnosti zástupce:
 
-| Závažnost | Úroveň | Číselná hodnota |
+| Severity | Level | Číselná hodnota |
 |----------|-------| ----------------|
 |0|Nedefinováno|Hodnota: 0. Indikuje protokoly na všech úrovních.|
-|10|Kritické|Hodnota: 1. Označuje protokoly pro kritickou výstrahu.|
+|10|Kritická|Hodnota: 1. Označuje protokoly pro kritickou výstrahu.|
 |8|Chyba| Hodnota: 2. Označuje protokoly pro chybu.|
 |5|Upozornění|Hodnota: 3. Indikuje protokoly pro upozornění.|
 |2|Informace|Hodnota: 4. Označuje protokoly pro informační zprávu.|
-|0|Podrobné|Hodnota: 5. Indikuje protokoly na všech úrovních.|
+|0|Podrobnosti|Hodnota: 5. Indikuje protokoly na všech úrovních.|
 
 ### <a name="cef-mapping-for-windows-events"></a>Mapování CEF pro události Windows
 
@@ -313,11 +313,11 @@ Tabulka závažnosti pro události systému Windows:
 | Hodnota závažnosti CEF | Úroveň události Windows | Číselná hodnota |
 |--------------------|---------------------| ----------------|
 |0|Nedefinováno|Hodnota: 0. Indikuje protokoly na všech úrovních.|
-|10|Kritické|Hodnota: 1. Označuje protokoly pro kritickou výstrahu.|
+|10|Kritická|Hodnota: 1. Označuje protokoly pro kritickou výstrahu.|
 |8|Chyba| Hodnota: 2. Označuje protokoly pro chybu.|
 |5|Upozornění|Hodnota: 3. Indikuje protokoly pro upozornění.|
 |2|Informace|Hodnota: 4. Označuje protokoly pro informační zprávu.|
-|0|Podrobné|Hodnota: 5. Indikuje protokoly na všech úrovních.|
+|0|Podrobnosti|Hodnota: 5. Indikuje protokoly na všech úrovních.|
 
 Vlastní tabulka rozšíření pro události systému Windows v Azure Stack:
 
@@ -327,7 +327,7 @@ Vlastní tabulka rozšíření pro události systému Windows v Azure Stack:
 |MasComputer | test.azurestack.contoso.com|
 |MasCorrelationActivityID| C8F40D7C-3764-423B-A4FA-C994442238AF|
 |MasCorrelationRelatedActivityID| C8F40D7C-3764-423B-A4FA-C994442238AF|
-|MasEventData| proces Svchost! 4132, G, 0!!!! EseDiskFlushConsistency!! ESENT! 0x800000|
+|MasEventData| svchost!!4132,G,0!!!!EseDiskFlushConsistency!!ESENT!!0x800000|
 |MasEventDescription| Nastavení Zásady skupiny pro uživatele se úspěšně zpracovalo. Od posledního úspěšného zpracování Zásady skupiny se nezjistily žádné změny.|
 |MasEventID|1501|
 |MasEventRecordID|26637|
@@ -336,15 +336,15 @@ Vlastní tabulka rozšíření pro události systému Windows v Azure Stack:
 |MasKeywords |0x8000000000000000|
 |MasKeywordName |Úspěšný audit|
 |MasLevel |4|
-|MasOpcode |1\. místo|
-|MasOpcodeName |Příjemce|
+|MasOpcode |1|
+|MasOpcodeName |info|
 |MasProviderEventSourceName ||
 |MasProviderGuid |AEA1B4FA-97D1-45F2-A64C-4D69FFFD92C9|
 |MasProviderName |Microsoft-Windows-GroupPolicy|
-|MasSecurityUserId |\<Windows SID @ no__t-1 |
+|MasSecurityUserId |\<Windows SID\> |
 |MasTask |0|
 |MasTaskCategory| Vytváření procesů|
-|MasUserData|KB4093112!! 5112! Nainstalováno! 0x0!! WindowsUpdateAgent XPath:/Event/UserData/*|
+|MasUserData|KB4093112!!5112!!Installed!!0x0!!WindowsUpdateAgent Xpath: /Event/UserData/*|
 |MasVersion|0|
 
 ### <a name="cef-mapping-for-alerts-created"></a>Mapování CEF pro vytvořené výstrahy
@@ -358,17 +358,17 @@ Vlastní tabulka rozšíření pro události systému Windows v Azure Stack:
 
 Tabulka Závažnost výstrahy:
 
-| Závažnost | Úroveň |
+| Severity | Level |
 |----------|-------|
 |0|Nedefinováno|
-|10|Kritické|
+|10|Kritická|
 |5|Upozornění|
 
 Vlastní tabulka rozšíření pro výstrahy vytvořené v Azure Stack:
 
-| Název vlastního rozšíření | Příklad: | 
+| Název vlastního rozšíření | Příklad | 
 |-----------------------|---------|
-|MasEventDescription|Popis: uživatelský účet \<TestUser @ no__t-1 byl vytvořen pro \<TestDomain @ no__t-3. Jde o potenciální bezpečnostní riziko. --NÁPRAVa: obraťte se na podporu. K vyřešení tohoto problému se vyžaduje zákaznická podpora. Nepokoušejte se tento problém vyřešit bez pomoci. Než otevřete žádost o podporu, spusťte proces shromažďování souborů protokolu pomocí pokynů z https://aka.ms/azurestacklogfiles.
+|MasEventDescription|Popis: byl vytvořen uživatelský účet \<TestUser\> pro \<TestDomain\>. Jde o potenciální bezpečnostní riziko. --NÁPRAVa: obraťte se na podporu. K vyřešení tohoto problému se vyžaduje zákaznická podpora. Nepokoušejte se tento problém vyřešit bez pomoci. Než otevřete žádost o podporu, spusťte proces shromažďování souborů protokolu pomocí pokynů z https://aka.ms/azurestacklogfiles.
 
 ### <a name="cef-mapping-for-alerts-closed"></a>Mapování CEF pro uzavřené výstrahy
 

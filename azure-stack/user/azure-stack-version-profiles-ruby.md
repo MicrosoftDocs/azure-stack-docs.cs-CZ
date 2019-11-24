@@ -25,7 +25,7 @@ ms.locfileid: "72282865"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack"></a>Používejte profily verzí rozhraní API s Ruby v Azure Stack
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
 
 ## <a name="ruby-and-api-version-profiles"></a>Profily verze Ruby a API
 
@@ -34,7 +34,7 @@ Sada Ruby SDK pro Azure Stack Správce prostředků poskytuje nástroje, které 
 Profil rozhraní API je kombinací poskytovatelů prostředků a verzí služby. K kombinování různých typů prostředků můžete použít profil rozhraní API.
 
 - Chcete-li použít nejnovější verze všech služeb, použijte **nejnovější** profil kumulativního Gem sady Azure SDK.
-- Pokud chcete používat služby kompatibilní s Azure Stack, použijte profil **V2019_03_01_Hybrid** nebo **V2018_03_01** na stránce kumulativního Gem sady Azure SDK.
+- Pokud chcete používat služby kompatibilní s Azure Stack, použijte profil **V2019_03_01_Hybrid** nebo **V2018_03_01** kumulativního Gem sady Azure SDK.
 - Pokud chcete použít nejnovější **verzi služby API** , použijte **nejnovější** profil konkrétní gem. Pokud například chcete použít nejnovější verzi služby COMPUTE **API** , použijte **nejnovější** profil Gem **COMPUTE** .
 - Pokud chcete pro službu použít konkrétní **verzi rozhraní API** , použijte konkrétní verze rozhraní API definované uvnitř rozhraní gem.
 
@@ -53,7 +53,7 @@ Profil rozhraní API je kombinací poskytovatelů prostředků a verzí služby.
        Gem install bundler
        ```
 
-- Pokud není k dispozici, vytvořte odběr a uložte ID předplatného, které chcete použít později. Pokyny k vytvoření předplatného najdete v tématu [Vytvoření předplatných pro nabídky v Azure Stackm](../operator/azure-stack-subscribe-plan-provision-vm.md) článku.
+- Pokud není k dispozici, vytvořte předplatné a uložte ID předplatného pro pozdější použití. Pokyny k vytvoření předplatného najdete v tématu [Vytvoření předplatných pro nabídky v Azure Stackm](../operator/azure-stack-subscribe-plan-provision-vm.md) článku.
 - Vytvořte instanční objekt a uložte jeho ID a tajný klíč. Pokyny k vytvoření instančního objektu pro Azure Stack jsou v článku [použití identity aplikace k přístupu k prostředkům](../operator/azure-stack-create-service-principals.md) .
 - Ujistěte se, že váš instanční objekt má přiřazenou roli Přispěvatel/vlastník v rámci vašeho předplatného. Pokyny k přiřazení role k instančnímu objektu jsou v tématu [použití identity aplikace pro přístup k prostředkům](../operator/azure-stack-create-service-principals.md).
 
@@ -81,9 +81,9 @@ Sada Azure Resource Manager Ruby SDK je ve verzi Preview a pravděpodobně bude 
 
 ## <a name="use-the-azure_sdk-gem"></a>Použití azure_sdk Gem
 
-**Azure_sdk** Gem je souhrn všech podporovaných Gems v sadě Ruby SDK. Tento Gem se skládá z **nejnovějšího** profile, který podporuje nejnovější verzi všech služeb. Zahrnuje profily se správou verzí **V2017_03_09** a **V2019_03_01_Hybrid**, které jsou sestavené pro Azure Stack.
+**Azure_sdk** Gem je souhrn všech podporovaných Gems v sadě Ruby SDK. Tento Gem se skládá z **nejnovějšího** profilu , který podporuje nejnovější verzi všech služeb. Zahrnuje profily se správou verzí **V2017_03_09** a **V2019_03_01_Hybrid**, které jsou sestavené pro Azure Stack.
 
-Kumulativní Gem azure_sdk můžete nainstalovat pomocí následujícího příkazu:  
+Gem kumulativního azure_sdk můžete nainstalovat pomocí následujícího příkazu:  
 
 ```Ruby  
 gem install 'azure_sdk'
@@ -99,11 +99,11 @@ Pokud chcete použít sadu Ruby Azure SDK s Azure Stack, musíte zadat následuj
 | ID klienta | `AZURE_CLIENT_ID` | ID aplikace instančního objektu se uložilo při vytvoření instančního objektu v předchozí části tohoto článku.  |
 | ID předplatného | `AZURE_SUBSCRIPTION_ID` | [ID předplatného](../operator/service-plan-offer-subscription-overview.md#subscriptions) se používá pro přístup k nabídkám v Azure Stack. |
 | Tajný kód klienta | `AZURE_CLIENT_SECRET` | Tajný kód aplikace instančního objektu se uložil při vytvoření objektu služby. |
-| Správce prostředků koncový bod | `ARM_ENDPOINT` | Viz [koncový bod Správce prostředků Azure Stack](#the-azure-stack-resource-manager-endpoint).  |
+| Koncový bod Resource Manageru | `ARM_ENDPOINT` | Viz [koncový bod Správce prostředků Azure Stack](#the-azure-stack-resource-manager-endpoint).  |
 
 ### <a name="the-azure-stack-resource-manager-endpoint"></a>Koncový bod Azure Stack Správce prostředků
 
-Microsoft Azure Správce prostředků je rozhraní pro správu, které správcům umožňuje nasazovat, spravovat a monitorovat prostředky Azure. Azure Resource Manager může tyto úlohy v jedné operaci zpracovat jako skupinu, nikoli jednotlivě.
+Microsoft Azure Správce prostředků je rozhraní pro správu, které správcům umožňuje nasazovat, spravovat a monitorovat prostředky Azure. Azure Resource Manageru dokáže zpracovat tyto úkoly, jako se skupinou, nikoli samostatně, v rámci jedné operace.
 
 Informace o metadatech můžete získat z Správce prostředkůho koncového bodu. Koncový bod vrátí soubor JSON s informacemi potřebnými ke spuštění vašeho kódu.
 
@@ -145,7 +145,7 @@ export AZURE_TENANT_ID=<YOUR_TENANT_ID>
 
 ## <a name="existing-api-profiles"></a>Existující profily rozhraní API
 
-**Azure_sdk** Rollup Gem má následující 3 profily:
+Gem kumulativního **Azure_sdk** má následující 3 profily:
 
 - **V2019_03_01_Hybrid**: Profil sestavený pro Azure Stack. Tento profil použijte pro všechny nejnovější verze služeb, které jsou k dispozici v Azure Stack verze 1904 nebo novější.
 - **V2017_03_09**: Profil sestavený pro Azure Stack. Tento profil použijte pro služby, které mají být nejvíce kompatibilní s Azure Stack verze 1808 nebo starší.
@@ -155,7 +155,7 @@ Další informace o Azure Stack a profilech rozhraní API najdete v tématu [Př
 
 ## <a name="azure-ruby-sdk-api-profile-usage"></a>Použití profilu rozhraní API pro Azure Ruby SDK
 
-Pomocí následujícího kódu vytvořte instanci klienta profilu. Tento parametr je vyžadován pouze pro Azure Stack nebo jiné privátní cloudy. Globální Azure už má tato nastavení ve výchozím nastavení.
+Pomocí následujícího kódu vytvořte instanci klienta profilu. Tento parametr je jen pro Azure Stack nebo jiných privátních cloudů. Global Azure už má tato nastavení ve výchozím nastavení.
 
 ```Ruby  
 active_directory_settings = get_active_directory_settings(ENV['ARM_ENDPOINT'])
@@ -192,7 +192,7 @@ purchase_plan_obj = profile_client.compute.model_classes.purchase_plan.new
 purchase_plan_obj = Azure::Profiles::V2019_03_01_Hybrid::Compute::Mgmt::Models::PurchasePlan.new
 ```
 
-## <a name="define-azure-stack-environment-setting-functions"></a>Definování funkcí nastavení prostředí Azure Stack
+## <a name="define-azure-stack-environment-setting-functions"></a>Definování funkcí, nastavení prostředí Azure Stack
 
 Chcete-li ověřit instanční objekt v prostředí Azure Stack, definujte koncové body pomocí `get_active_directory_settings()`. Tato metoda používá proměnnou prostředí **ARM_Endpoint** , kterou jste nastavili dříve:
 
@@ -244,15 +244,15 @@ Pokud chcete ukázku spustit, ujistěte se, že máte nainstalovanou Ruby. Pokud
 
 3. Vytvořte instanční objekt Azure pomocí PowerShellu a načtěte potřebné hodnoty.
 
-   Pokyny k vytvoření instančního objektu najdete v tématu [použití Azure PowerShell k vytvoření instančního objektu s certifikátem](../operator/azure-stack-create-service-principals.md).
+   Pokyny k vytvoření instančního objektu najdete v tématu [pomocí prostředí Azure PowerShell k vytvoření instančního objektu s certifikátem](../operator/azure-stack-create-service-principals.md).
 
    Požadované hodnoty:
 
    - ID tenanta
    - ID klienta
-   - Tajný kód klienta
+   - Tajný klíč klienta
    - ID předplatného
-   - Správce prostředků koncový bod
+   - Koncový bod Resource Manageru
 
    Nastavte následující proměnné prostředí pomocí informací získaných z vytvořeného objektu služby:
 
@@ -263,7 +263,7 @@ Pokud chcete ukázku spustit, ujistěte se, že máte nainstalovanou Ruby. Pokud
    - `export ARM_ENDPOINT={your Azure Stack Resource Manager URL}`
 
    > [!NOTE]  
-   > Ve Windows použijte místo `export` `set`.
+   > Ve Windows použijte místo `export``set`.
 
 4. Zajistěte, aby byla proměnná umístění nastavená na vaše Azure Stack umístění; například `LOCAL="local"`.
 

@@ -25,7 +25,7 @@ ms.locfileid: "72283498"
 ---
 # <a name="use-the-administrator-portal-in-azure-stack"></a>Použití portálu pro správu v Azure Stack
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
 
 V Azure Stack existují dva Portály: portál pro správu a portál User Portal. Jako operátor Azure Stack používáte portál pro správu pro každodenní správu a provoz Azure Stack.
 
@@ -36,7 +36,7 @@ Pokud chcete získat přístup k portálu pro správu, přejděte na adresu URL 
 | Prostředí | Adresa URL portálu pro správu |   
 | -- | -- | 
 | ASDK| https://adminportal.local.azurestack.external  |
-| Integrované systémy | @no__t – 0; *region*&gt;. &lt;*plně kvalifikovaný název domény*&gt; | 
+| Integrované systémy | https://adminportal.&lt;&gt;*oblasti*&lt;*plně kvalifikovaný název domény*&gt; | 
 | | |
 
 > [!TIP]
@@ -48,10 +48,10 @@ Výchozí časové pásmo pro všechna Azure Stack nasazení je nastaveno na koo
 
 Na portálu pro správu můžete provádět například tyto akce:
 
-* [Registrace Azure Stack s využitím Azure](azure-stack-registration.md)
+* [Registrace služby Azure Stack v Azure](azure-stack-registration.md)
 * [Naplnění Marketplace](azure-stack-download-azure-marketplace-item.md)
 * [Vytváření plánů, nabídek a předplatných pro uživatele](service-plan-offer-subscription-overview.md)
-* [Monitorování stavu a výstrah](azure-stack-monitor-health.md)
+* [Monitorování stavu a upozornění](azure-stack-monitor-health.md)
 * [Správa aktualizací Azure Stack](azure-stack-updates.md)
 
 Dlaždice **kurzu rychlý Start** obsahuje odkazy na online dokumentaci pro nejběžnější úlohy.

@@ -22,10 +22,10 @@ Virtuální počítač se systémem Linux můžete vytvořit a nasadit pomocí b
 
 Tento virtuální počítač může hostovat webové aplikace pomocí:
 
-- **Python**: Mezi běžné webové architektury Pythonu patří baňka, láhev a Django.
-- **Přejít**: Mezi běžné rozhraní patří Revel, Martini, Gocraft/web a Gorilla. 
-- **Ruby**: Nastavte Ruby na železnici jako architekturu pro doručování webových aplikací Ruby. 
-- **Java**: Pomocí Java můžete vyvíjet webové aplikace, které odesíláte na server Apache Tomcat. Tomcat můžete nainstalovat na Linux a potom nasadit soubory Java WAR přímo na server. 
+- **Python**: společná webová rozhraní Pythonu zahrnují baňky, láhev a Django.
+- **Přejít**: architektury Common směřuje zahrnují Revel, Martini, Gocraft/web a Gorilla. 
+- **Ruby**: nastavte Ruby na železnici jako architekturu pro doručování webových aplikací Ruby. 
+- **Java**: k vývoji webových aplikací, které odesíláte na server Apache Tomcat, použijte Java. Tomcat můžete nainstalovat na Linux a potom nasadit soubory Java WAR přímo na server. 
 
 Pokyny v tomto článku vám pomohou začít pracovat se všemi webovými aplikacemi, architekturou a technologií back-endu, které používají operační systém Linux. Pak můžete pomocí Azure Stack spravovat infrastrukturu a používat nástroje pro správu v rámci vaší technologie ke zpracování úloh údržby pro vaši aplikaci.
 
@@ -50,7 +50,7 @@ Pokud chcete nasadit virtuální počítač, postupujte podle pokynů v následu
 
     ![Nasazení webové aplikace do virtuálního počítače s Azure Stack](media/azure-stack-dev-start-howto-deploy-linux/001-portal-compute.png)
 
-4. V podokně **vytvořit virtuální počítač** pro **1. Konfigurovat základní nastavení @ no__t-0:
+4. V podokně **vytvořit virtuální počítač** pro **1. Konfigurovat základní nastavení**:
 
     a. Zadejte **název vašeho virtuálního počítače**.
 
@@ -74,7 +74,7 @@ Pokud chcete nasadit virtuální počítač, postupujte podle pokynů v následu
     g. Vytvořte novou skupinu prostředků nebo použijte existující, v závislosti na tom, jak chcete organizovat prostředky pro vaši aplikaci.
 
     h. Vyberte své umístění. Azure Stack Development Kit (ASDK) je obvykle v *místní* oblasti. Umístění závisí na vaší instanci Azure Stack.
-1. Pro **2. Velikost @ no__t-0, typ:
+1. Pro **2. Velikost**, zadejte:
     - Vyberte velikost dat a paměti RAM pro váš virtuální počítač, který je k dispozici ve vaší instanci Azure Stack.
     - Můžete buď procházet seznam, nebo filtrovat velikost virtuálního počítače podle **typu COMPUTE**, **CPU**a **prostoru úložiště**.
     
@@ -83,7 +83,7 @@ Pokud chcete nasadit virtuální počítač, postupujte podle pokynů v následu
     > - Doporučené velikosti určuje Vydavatel vybrané image a vycházejí z požadavků na hardware a software.
     > - Použití disků Standard (HDD) místo disků Premium (SSD) může ovlivnit výkon operačního systému.
 
-1. V **3. Nakonfigurujte volitelné funkce @ no__t-0, zadejte:
+1. Ve **3. Nakonfigurujte volitelné** funkce, zadejte:
 
     a. V případě **vysoké dostupnosti** vyberte skupinu dostupnosti. Pokud chcete zajistit redundanci pro vaši aplikaci, seskupte dva nebo více virtuálních počítačů ve skupině dostupnosti. Tato konfigurace zajišťuje, že během plánované nebo neplánované události údržby bude k dispozici alespoň jeden virtuální počítač, který bude splňovat 99,95% Smlouvy o úrovni služeb Azure (SLA). Po vytvoření se skupina dostupnosti virtuálního počítače nedá změnit.
 
@@ -110,7 +110,7 @@ Pokud chcete nasadit virtuální počítač, postupujte podle pokynů v následu
 
     l. Vyberte **OK**.
 
-1. Kontrola @no__t – 04. Shrnutí @ no__t-0:
+1. Přezkoumání **4. Shrnutí**:
     - Portál ověří vaše nastavení.
     - Pokud chcete nastavení znovu použít u pracovního postupu Azure Resource Manager, můžete si stáhnout šablonu Azure Resource Manager pro svůj virtuální počítač.
     - Po úspěšném ověření vyberte **OK**. Nasazení virtuálního počítače trvá několik minut.

@@ -22,7 +22,7 @@ V předchozím kurzu jste vytvořili nabídku pro uživatele. V tomto kurzu se d
 V tomto kurzu se naučíte:
 
 > [!div class="checklist"]
-> * Vytvoření předplatného
+> * Vytvoření odběru
 > * Vytváření a nasazování prostředků
 
 ## <a name="prerequisites"></a>Požadavky
@@ -37,14 +37,14 @@ Před zahájením tohoto kurzu musíte splnit následující předpoklady:
 
 1. Přihlaste se k portálu User Portal pomocí uživatelského účtu. 
 
-   - V případě integrovaného systému se adresa URL liší v závislosti na oblasti vašeho operátoru a názvu externí domény, ve formátu https://portal.&lt; *region*&gt;. &lt;*FQDN*&gt;.
-   - Pokud používáte Azure Stack Development Kit, adresa portálu je https://portal.local.azurestack.external.
+   - V případě integrovaného systému se adresa URL liší v závislosti na oblasti vašeho operátoru a názvu externí domény pomocí formátu https://portal.&lt;&gt;*oblasti*&lt;*plně kvalifikovaný název domény*&gt;.
+   - Pokud používáte Azure Stack Development Kit, adresa portálu se https://portal.local.azurestack.external.
 
 1. Vyberte dlaždici **získat předplatné** .
 
    ![Získat předplatné](media/tutorial-test-offer/1-get-subscription.png)
 
-1. V části **získat předplatné**zadejte do pole **Zobrazovaný název** název nového předplatného. Vyberte **nabídku**a pak zvolte nabídku, kterou jste vytvořili v předchozím kurzu, ze seznamu **vybrat nabídku** . Vyberte **vytvořit**.
+1. V části **získat předplatné**zadejte do pole **Zobrazovaný název** název nového předplatného. Vyberte **nabídku**a pak zvolte nabídku, kterou jste vytvořili v předchozím kurzu, ze seznamu **vybrat nabídku** . Vyberte **Vytvořit**.
 
    ![Vytvoření nabídky](media/tutorial-test-offer/2-create-subscription.png)
 
@@ -67,7 +67,7 @@ Z portálu User Portal zřídíte účet úložiště pomocí předplatného, kt
    - Zadat **název**
    - Vybrat nové **předplatné**
    - Vyberte **skupinu prostředků** (nebo ji vytvořte). 
-   - Vyberte **vytvořit** a vytvořte účet úložiště.
+   - Vyberte **Vytvořit** a vytvořte účet úložiště.
 
 1. Po zahájení nasazení se vrátíte na řídicí panel. Pokud chcete zobrazit nový účet úložiště, vyberte **všechny prostředky**. Vyhledejte účet úložiště a z výsledků hledání vyberte jeho název. Odtud můžete spravovat účet úložiště a jeho obsah.
 
@@ -77,8 +77,8 @@ Z portálu User Portal zřídíte virtuální počítač pomocí předplatného,
 
 1. Přihlaste se k portálu User Portal pomocí uživatelského účtu.
 
-1. Vyberte **+ vytvořit prostředek** > **COMPUTE** > **\<image-Name @ no__t-6**, kde "image-Name" je název virtuálního počítače, který jste stáhli v části požadavky.
-1. V části **vytvořit virtuální počítač** **základy**/ zadejte následující informace:
+1. Vyberte **+ vytvořit prostředek** > **COMPUTE** > **\<image – název\>** , kde "image-Name" je název virtuálního počítače, který jste si stáhli v požadavcích.
+1. V části **vytvořit virtuální počítač** / **základy**zadejte následující informace:
   
    - Zadejte **název** virtuálního počítače.
    - Zadejte **uživatelské jméno** pro účet správce.
@@ -133,10 +133,10 @@ Z portálu User Portal zřizujete virtuální počítač pomocí nového předpl
 
 ## <a name="next-steps"></a>Další kroky
 
-V tomto kurzu jste se dozvěděli, jak:
+V tomto kurzu jste se naučili:
 
 > [!div class="checklist"]
-> * Vytvoření předplatného
+> * Vytvoření odběru
 > * Vytváření a nasazování prostředků 
 
 V dalším kroku se dozvíte, jak nasadit poskytovatele prostředků pro doplňky služby. Umožňují nabízet uživatelům ještě více služeb ve vašich plánech:

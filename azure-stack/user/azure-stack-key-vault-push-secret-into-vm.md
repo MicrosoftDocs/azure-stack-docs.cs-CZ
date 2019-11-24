@@ -24,7 +24,7 @@ ms.locfileid: "71961524"
 ---
 # <a name="deploy-a-vm-with-a-securely-stored-certificate-on-azure-stack"></a>Nasazení virtuálního počítače s zabezpečeným uloženým certifikátem v Azure Stack 
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit @ no__t-0
+*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
 
 Tento článek popisuje, jak nasadit Azure Stack virtuální počítač s nainstalovaným certifikátem Key Vault.
 
@@ -125,7 +125,7 @@ Upravte soubor **azuredeploy. Parameters. JSON** podle hodnot vašich prostřed�
 
 ## <a name="update-the-azuredeployparametersjson-file"></a>Aktualizace souboru azuredeploy. Parameters. JSON
 
-Aktualizujte soubor **azuredeploy. Parameters. JSON** pomocí `vaultName`, TAJNÉho identifikátoru URI, `VmName` a dalších parametrů v rámci vašeho prostředí. Následující soubor JSON ukazuje příklad souboru parametrů šablony:
+Aktualizujte soubor **azuredeploy. Parameters. JSON** pomocí `vaultName`, TAJNÉho identifikátoru URI, `VmName`a dalších parametrů v rámci vašeho prostředí. Následující soubor JSON ukazuje příklad souboru parametrů šablony:
 
 ```json
 {
@@ -186,7 +186,7 @@ Azure Stack během nasazování vloží certifikát do virtuálního počítače
 
 Vyřazení certifikátů je součástí procesu správy certifikátů. Starší verzi certifikátu nelze odstranit, ale můžete ji zakázat pomocí rutiny `Set-AzureKeyVaultSecretAttribute`.
 
-Následující příklad ukazuje, jak zakázat certifikát. Použijte vlastní hodnoty pro parametry `VaultName`, `Name` a `Version`.
+Následující příklad ukazuje, jak zakázat certifikát. Použijte vlastní hodnoty pro parametry `VaultName`, `Name`a `Version`.
 
 ```powershell
 Set-AzureKeyVaultSecretAttribute -VaultName contosovault -Name servicecert -Version e3391a126b65414f93f6f9806743a1f7 -Enable 0

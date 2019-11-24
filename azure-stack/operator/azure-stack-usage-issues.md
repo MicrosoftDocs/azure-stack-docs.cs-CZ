@@ -38,7 +38,7 @@ Pokud chcete tento problém zmírnit, vyzkoušejte následující kroky:
 
 - Ověřte, že konfigurace sítě umožňuje Azure Bridge připojit se ke vzdálené službě.
 
-- V okně pro [ **správu oblastí**@no__t – 2 ](azure-stack-registration.md#verify-azure-stack-registration) Najděte ID předplatného Azure, které se používá pro registraci, skupinu prostředků a název prostředku registrace. Ověřte, že prostředek registrace existuje pod správným ID předplatného Azure v Azure Portal. Provedete to tak, že přejdete na **všechny prostředky** vytvořené v rámci ID předplatného Azure a zaškrtnete políčko **Zobrazit skryté typy** . Pokud nemůžete najít registrační prostředek, postupujte podle kroků v části [obnovení nebo změna registrace](azure-stack-registration.md#renew-or-change-registration) a znovu zaregistrujte své Azure Stack.
+- Pokud chcete najít ID předplatného Azure, které se používá pro registraci, skupinu prostředků a název prostředku registrace, otevřete okno [ **vlastnosti** > **správy oblastí** ](azure-stack-registration.md#verify-azure-stack-registration) . Ověřte, že prostředek registrace existuje pod správným ID předplatného Azure v Azure Portal. Provedete to tak, že přejdete na **všechny prostředky** vytvořené v rámci ID předplatného Azure a zaškrtnete políčko **Zobrazit skryté typy** . Pokud nemůžete najít registrační prostředek, postupujte podle kroků v části [obnovení nebo změna registrace](azure-stack-registration.md#renew-or-change-registration) a znovu zaregistrujte své Azure Stack.
 
   ![Portál](media/azure-stack-usage-issues/stackres.png)
 

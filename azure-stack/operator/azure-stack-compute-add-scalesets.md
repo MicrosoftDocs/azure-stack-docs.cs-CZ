@@ -20,7 +20,7 @@ ms.locfileid: "71974098"
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>Zpřístupněte v Azure Stack sady škálování virtuálních počítačů.
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit @ no__t-0
+*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
   
 Služby Virtual Machine Scale Sets jsou Azure Stack výpočetní prostředky. Můžete je použít k nasazení a správě sady identických virtuálních počítačů (VM). U všech virtuálních počítačů nakonfigurovaných stejným způsobem sady škálování nevyžadují předběžné zřizování virtuálních počítačů. Sestavování rozsáhlých služeb, které cílí na Big COMPUTE, velké objemy dat a kontejnerové úlohy, je snazší.
 
@@ -38,22 +38,22 @@ V Azure Stack Virtual Machine Scale Sets nepodporuje automatické škálování.
 * **Azure Stack Marketplace:** Pokud chcete povolit dostupnost položek na webu Azure Stack Marketplace, zaregistrujte Azure Stack s globálním Azure. Postupujte podle pokynů v části [registrace Azure Stack s Azure](azure-stack-registration.md).
 * **Bitová kopie operačního systému:** Než začnete vytvářet škálu virtuálních počítačů, musíte si stáhnout image virtuálních počítačů pro použití v sadě škálování z [webu Azure Stack Marketplace](azure-stack-download-azure-marketplace-item.md). Předtím, než může uživatel vytvořit novou sadu škálování, již musí být image přítomné.
 
-## <a name="use-the-azure-stack-portal"></a>Použití portálu Azure Stack
+## <a name="use-the-azure-stack-portal"></a>Použití Azure Stackového portálu
 
 >[!IMPORTANT]  
 > Informace v této části platí při použití Azure Stack verze 1808 nebo novější. Pokud je vaše verze 1807 nebo starší, přečtěte si téma [Přidání sady škálování virtuálních počítačů (před 1808)](#add-the-virtual-machine-scale-set-prior-to-version-1808).
 
 1. Přihlaste se k portálu Azure Stack. Pak klikněte na **všechny služby**, pak na **Virtual Machine Scale Sets**a potom v části **COMPUTE**vyberte **Virtual Machine Scale Sets**.
-   @no__t – 0Select Virtual Machine Scale Sets @ no__t-1
+   ![vybrat Virtual Machine Scale Sets](media/azure-stack-compute-add-scalesets/all-services.png)
 
 2. Vyberte ***vytvořit Virtual Machine Scale Sets***.
    ![Vytvoření škálovací sady virtuálních počítačů](media/azure-stack-compute-add-scalesets/create-scale-set.png)
 
 3. Vyplňte prázdná pole a vyberte z rozevíracích seznamů pro **image disku s operačním systémem**, **předplatné**a **velikost instance**. Vyberte **Ano** , pokud chcete **používat spravované disky**. Potom klikněte na **vytvořit**.
-    @no__t – 0Configure a vytvoření sady škálování virtuálních počítačů @ no__t-1
+    ![nakonfigurovat a vytvořit Virtual Machine Scale Sets](media/azure-stack-compute-add-scalesets/create.png)
 
 4. Pokud chcete zobrazit novou sadu škálování virtuálních počítačů, přejděte na **všechny prostředky**, vyhledejte název sady škálování virtuálního počítače a potom vyberte jeho název ve vyhledávání.
-   @no__t – 0View sadu škálování virtuálního počítače @ no__t-1
+   ![zobrazit sadu škálování virtuálního počítače](media/azure-stack-compute-add-scalesets/search.png)
 
 ## <a name="add-the-virtual-machine-scale-set-prior-to-version-1808"></a>Přidat sadu škálování virtuálního počítače (před verzí 1808)
 
@@ -74,7 +74,7 @@ Po vytvoření sady škálování virtuálních počítačů můžou uživatelé
 
 1. Šablona nasazení sady škálování virtuálního počítače určuje **nejnovější** **verzi**pro:  
 
-   Pokud je `version` v šabloně pro sadu škálování nastavenou na **nejnovější** , v části `imageReference` šablony pro sadu škálování použijte nejnovější dostupnou verzi image pro instance sady škálování. Po dokončení škálování můžete odstranit starší instance sady Virtual Machine Scale Sets. Hodnoty pro `publisher`, `offer` a `sku` zůstanou beze změny.
+   Pokud je v části `imageReference` šablony pro sadu škálování nastavená `version` na **nejnovější** , pro operace škálování v sadě škálování použijte nejnovější dostupnou verzi image pro instance sady škálování. Po dokončení škálování můžete odstranit starší instance sady Virtual Machine Scale Sets. Hodnoty pro `publisher`, `offer`a `sku` zůstávají beze změny.
 
    Následující příklad JSON určuje `latest`:  
 

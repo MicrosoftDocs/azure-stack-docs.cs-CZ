@@ -25,7 +25,7 @@ ms.locfileid: "71974112"
 ---
 # <a name="connect-azure-stack-to-azure-using-vpn"></a>Připojení Azure Stack k Azure pomocí sítě VPN
 
-*Platí pro: Azure Stack integrovaných systémů @ no__t-0
+*Platí pro: integrované systémy Azure Stack*
 
 Tento článek popisuje, jak vytvořit síť VPN typu Site-to-site pro připojení virtuální sítě v Azure Stack k virtuální síti v Azure.
 

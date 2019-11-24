@@ -25,7 +25,7 @@ ms.locfileid: "72282887"
 ---
 # <a name="use-api-version-profiles-with-java-in-azure-stack"></a>Použití profilů verzí rozhraní API s Java v Azure Stack
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
 
 Sada Java SDK pro Azure Stack Správce prostředků poskytuje nástroje, které vám pomůžou sestavovat a spravovat infrastrukturu. Poskytovatelé prostředků v sadě SDK zahrnují výpočetní prostředky, sítě, úložiště, App Services a [Key Vault](/azure/key-vault/key-vault-whatis).
 
@@ -35,13 +35,13 @@ Použití sady Java SDK umožňuje skutečné prostředí pro vývojáře hybrid
 
 ## <a name="java-and-api-version-profiles"></a>Profily verzí Java a API
 
-Profil rozhraní API je kombinací poskytovatelů prostředků a verzí rozhraní API. Použijte profil rozhraní API k získání nejnovější a nejvýznamnější verze každého typu prostředku v balíčku poskytovatele prostředků.
+Profil rozhraní API je kombinací poskytovatelů prostředků a verze rozhraní API. Použijte profil rozhraní API k získání nejnovější a nejvýznamnější verze každého typu prostředku v balíčku poskytovatele prostředků.
 
 - Chcete-li použít nejnovější verze všech služeb, použijte jako závislost **nejnovější** profil.
 
   - Pokud chcete použít nejnovější profil, je tato závislost **com. Microsoft. Azure**.
 
-  - Pokud chcete používat nejnovější podporované služby, které jsou dostupné v Azure Stack, použijte **model COM. Microsoft. Azure. Profiles @ no__t-12019 @ no__t-203 @ no__t-301 @ no__t-4hybrid** Profile.
+  - Pokud chcete používat nejnovější podporované služby, které jsou dostupné v Azure Stack, použijte **model COM. Microsoft. Azure. profile\_2019\_03\_01\_Hybrid** Profile.
 
     - Profil je zadán v souboru **pom. XML** jako závislost, která automaticky načítá moduly, pokud zvolíte správnou třídu v rozevíracím seznamu (stejně jako v případě rozhraní .NET).
 
@@ -65,7 +65,7 @@ Pomocí těchto kroků nainstalujete Java SDK:
 
 1. Pomocí oficiálních pokynů nainstalujte Git. Viz [Začínáme – instalace Gitu](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 
-2. Postupujte podle pokynů a nainstalujte [sadu Java SDK](https://zulu.org/download/) a [Maven](https://maven.apache.org/). Správná verze je verze 8 sady Java Developer Kit. Správná verze Apache Maven je 3,0 nebo vyšší. K dokončení rychlého startu musí být proměnná prostředí `JAVA_HOME` nastavená na umístění instalace sady Java Development Kit. Další informace najdete v tématu [Vytvoření první funkce pomocí jazyků Java a Maven](/azure/azure-functions/functions-create-first-java-maven).
+2. Postupujte podle pokynů a nainstalujte [sadu Java SDK](https://zulu.org/download/) a [Maven](https://maven.apache.org/). Správná verze je verze 8 sady Java Developer Kit. Správná verze Apache Maven je 3,0 nebo vyšší. Chcete-li dokončit rychlé spuštění, musí být proměnná prostředí `JAVA_HOME` nastavena na umístění instalace sady Java Development Kit. Další informace najdete v tématu [Vytvoření první funkce pomocí jazyků Java a Maven](/azure/azure-functions/functions-create-first-java-maven).
 
 3. Chcete-li nainstalovat správné balíčky závislostí, otevřete soubor **pom. XML** v aplikaci Java. Přidejte závislost, jak je znázorněno v následujícím kódu:
 
@@ -79,40 +79,40 @@ Pomocí těchto kroků nainstalujete Java SDK:
 
 4. Sada balíčků, které je třeba nainstalovat, závisí na verzi profilu, kterou chcete použít. Názvy balíčků pro verze profilu jsou:
 
-   - **com. Microsoft. Azure. Profiles @ no__t-12019 @ no__t-203 @ no__t-301 @ no__t-4hybrid**
-   - **com. Microsoft. Azure**
+   - **com.microsoft.azure.profile\_2019\_03\_01\_hybrid**
+   - **com.microsoft.azure**
      - **nejnovější**
 
 5. Pokud není k dispozici, vytvořte odběr a uložte si ID předplatného pro pozdější použití. Pokyny k vytvoření předplatného najdete [v tématu Vytvoření předplatných nabídek v Azure Stack](../operator/azure-stack-subscribe-plan-provision-vm.md).
 
-6. Vytvořte instanční objekt a uložte ID klienta a tajný klíč klienta. Pokyny k vytvoření instančního objektu pro Azure Stack najdete v tématu [poskytnutí přístupu aplikací k Azure Stack](../operator/azure-stack-create-service-principals.md). ID klienta se také označuje jako ID aplikace při vytváření instančního objektu.
+6. Vytvořte instanční objekt a uložte ID klienta a tajný klíč klienta. Pokyny o tom, jak vytvořit instanční objekt pro Azure Stack najdete v tématu [poskytují aplikacím přístup ke službě Azure Stack](../operator/azure-stack-create-service-principals.md). ID klienta se také označuje jako ID aplikace při vytváření instančního objektu.
 
-7. Ujistěte se, že váš instanční objekt má v předplatném roli Přispěvatel/vlastník. Pokyny k přiřazení role k instančnímu objektu najdete v tématu [poskytnutí přístupu k aplikacím Azure Stack](../operator/azure-stack-create-service-principals.md).
+7. Ujistěte se, že má instančního objektu služby roli Přispěvatel nebo vlastník v rámci předplatného. Pokyny o tom, jak přiřadit roli instančnímu objektu služby najdete v tématu [poskytují aplikacím přístup ke službě Azure Stack](../operator/azure-stack-create-service-principals.md).
 
 ## <a name="prerequisites"></a>Požadavky
 
-Pokud chcete používat sadu Azure Java SDK s Azure Stack, musíte zadat následující hodnoty a potom nastavit hodnoty pomocí proměnných prostředí. Chcete-li nastavit proměnné prostředí, přečtěte si pokyny uvedené v tabulce pro váš operační systém.
+Pokud chcete používat sadu Azure Java SDK s Azure Stack, musíte zadat následující hodnoty a potom nastavit hodnoty pomocí proměnných prostředí. Chcete-li nastavit proměnné prostředí, přečtěte si pokyny pod tabulkou pro váš operační systém.
 
 | Hodnota                     | Proměnné prostředí | Popis                                                                                                                                                                                                          |
 | ------------------------- | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | ID tenanta                 | `AZURE_TENANT_ID`            | Vaše [ID tenanta](../operator/azure-stack-identity-overview.md)Azure Stack.                                                          |
 | ID klienta                 | `AZURE_CLIENT_ID`             | ID aplikace instančního objektu se uložilo při vytvoření instančního objektu v předchozí části.                                                                                              |
 | ID předplatného           | `AZURE_SUBSCRIPTION_ID`      | [ID předplatného](../operator/service-plan-offer-subscription-overview.md#subscriptions) se používá pro přístup k nabídkám v Azure Stack.                |
-| Tajný kód klienta             | `AZURE_CLIENT_SECRET`        | Tajný kód aplikace instančního objektu uložený při vytvoření objektu služby                                                                                                                                   |
-| Správce prostředků koncový bod | `ARM_ENDPOINT`              | Viz článek [Azure Stack správce prostředků koncového bodu](../user/azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint) . |
+| Tajný kód klienta             | `AZURE_CLIENT_SECRET`        | Služba hlavní tajný klíč aplikace neuloží, když se vytvoří nový instanční objekt služby.                                                                                                                                   |
+| Koncový bod Resource Manageru | `ARM_ENDPOINT`              | Viz článek [Azure Stack správce prostředků koncového bodu](../user/azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint) . |
 | Umístění                  | `RESOURCE_LOCATION`    | **Místní** pro Azure Stack.                                                                                                                                                                                                |
 
 Pokud chcete zjistit ID tenanta pro vaši Azure Stack, přečtěte si pokyny [zde](../operator/azure-stack-csp-ref-operations.md). Chcete-li nastavit proměnné prostředí, použijte postupy v následujících částech:
 
 ### <a name="microsoft-windows"></a>Microsoft Windows
 
-Chcete-li nastavit proměnné prostředí v příkazovém řádku systému Windows, použijte následující formát:
+Chcete-li nastavit proměnné prostředí v příkazovém řádku Windows, použijte následující formát:
 
 ```shell
 Set AZURE_TENANT_ID=<Your_Tenant_ID>
 ```
 
-### <a name="macos-linux-and-unix-based-systems"></a>systémy macOS, Linux a UNIX
+### <a name="macos-linux-and-unix-based-systems"></a>macOS, Linux a systémů založených na systému Unix
 
 V počítačích se systémem UNIX použijte následující příkaz:
 
@@ -138,11 +138,11 @@ Pokud používáte Azure Stack Development Kit (ASDK), musíte důvěřovat koř
 
 ### <a name="the-azure-stack-resource-manager-endpoint"></a>Koncový bod Azure Stack Správce prostředků
 
-Azure Resource Manager je rozhraní pro správu, které správcům umožňuje nasazovat, spravovat a monitorovat prostředky Azure. Azure Resource Manager může tyto úlohy v jedné operaci zpracovat jako skupinu, nikoli jednotlivě.
+Azure Resource Manager je rozhraní pro správu, které správcům umožňuje nasazovat, spravovat a monitorovat prostředky Azure. Azure Resource Manageru dokáže zpracovat tyto úkoly, jako se skupinou, nikoli samostatně, v rámci jedné operace.
 
 Informace o metadatech můžete získat z Správce prostředkůho koncového bodu. Koncový bod vrátí soubor JSON s informacemi potřebnými ke spuštění vašeho kódu.
 
-Vezměte na vědomí následující skutečnosti:
+Mějte na paměti následující aspekty:
 
 - **ResourceManagerUrl** v ASDK je: `https://management.local.azurestack.external/`.
 
@@ -167,9 +167,9 @@ Ukázkový soubor JSON:
 
 ## <a name="existing-api-profiles"></a>Existující profily rozhraní API
 
-- **com. Microsoft. Azure. Profile @ no__t-12019 @ no__t-203 @ no__t-301 @ no__t-4hybrid**: nejnovější profil sestavený pro Azure Stack. Tento profil se používá pro služby, které jsou kompatibilní s Azure Stack, pokud používáte 1904 nebo novější.
+- **com. Microsoft. Azure. profile\_2019\_03\_01\_Hybrid**: nejnovější profil sestavený pro Azure Stack. Tento profil se používá pro služby, které jsou kompatibilní s Azure Stack, pokud používáte 1904 nebo novější.
 
-- **com. Microsoft. Azure. Profile @ no__t-12018 @ no__t-203 @ no__t-301 @ no__t-4hybrid**: Profil sestavený pro Azure Stack. Použijte tento profil pro služby, aby byly kompatibilní s Azure Stack verze 1808 nebo novější.
+- **com. Microsoft. Azure. profile\_2018\_03\_01\_Hybrid**: Profil sestavený pro Azure Stack. Použijte tento profil pro služby, aby byly kompatibilní s Azure Stack verze 1808 nebo novější.
 
 - **com. Microsoft. Azure**: Profil skládající se z nejnovějších verzí všech služeb. Použijte nejnovější verze všech služeb.
 
@@ -189,7 +189,7 @@ Azure azureStack = Azure.configure()
 
 Tento kód umožňuje používat závislosti profilu rozhraní API k úspěšnému nasazení vaší aplikace Azure Stack.
 
-## <a name="define-azure-stack-environment-setting-functions"></a>Definování funkcí nastavení prostředí Azure Stack
+## <a name="define-azure-stack-environment-setting-functions"></a>Definování funkcí, nastavení prostředí Azure Stack
 
 Chcete-li zaregistrovat Azure Stack Cloud se správnými koncovými body, použijte následující kód:
 
@@ -275,7 +275,7 @@ Následující ukázky GitHubu použijte jako reference k vytváření řešení
    git clone https://github.com/Azure-Samples/Hybrid-resources-java-manage-resource-group.git`
    ```
 
-2. Vytvořte instanční objekt Azure a přiřaďte roli pro přístup k předplatnému. Pokyny k vytvoření instančního objektu najdete v tématu [použití Azure PowerShell k vytvoření instančního objektu s certifikátem](../operator/azure-stack-create-service-principals.md).
+2. Vytvoření instančního objektu Azure a přiřazení role přístupu k předplatnému. Pokyny k vytvoření instančního objektu najdete v tématu [pomocí prostředí Azure PowerShell k vytvoření instančního objektu s certifikátem](../operator/azure-stack-create-service-principals.md).
 
 3. Načtěte následující požadované proměnné prostředí:
 
@@ -295,7 +295,7 @@ Následující ukázky GitHubu použijte jako reference k vytváření řešení
    - `export ARM_ENDPOINT={your Azure Stack Resource Manager URL}`
    - `export RESOURCE_LOCATION={location of Azure Stack}`
 
-   V systému Windows použijte místo **exportu**příkaz **set** .
+   Ve Windows, použijte **nastavit** místo **exportovat**.
 
 5. Pro načtení Azure Resource Manager koncových bodů metadat použijte funkci `getActiveDirectorySettings`.
 
@@ -322,7 +322,7 @@ Následující ukázky GitHubu použijte jako reference k vytváření řešení
 
 ## <a name="next-steps"></a>Další kroky
 
-Další informace o profilech rozhraní API najdete v těchto tématech:
+Další informace o profilech rozhraní API najdete v tématu:
 
 - [Profily verzí v Azure Stack](azure-stack-version-profiles.md)
-- [Verze rozhraní API poskytovatele prostředků podporované profily](azure-stack-profiles-azure-resource-manager-versions.md)
+- [Podporuje profily verze rozhraní API poskytovatele prostředků](azure-stack-profiles-azure-resource-manager-versions.md)

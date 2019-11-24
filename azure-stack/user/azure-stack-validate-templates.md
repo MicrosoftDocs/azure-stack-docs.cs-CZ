@@ -25,7 +25,7 @@ ms.locfileid: "71961654"
 ---
 # <a name="use-the-template-validation-tool-in-azure-stack"></a>Použijte nástroj pro ověření šablony v Azure Stack
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit @ no__t-0
+*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
 
 Pomocí nástroje pro ověření šablony ověřte, jestli jsou [šablony](azure-stack-arm-templates.md) Azure Resource Manager připravené k nasazení do Azure Stack. Nástroj pro ověření šablony je k dispozici jako součást úložiště GitHub nástroje Azure Stack Tools. Stáhněte si Azure Stack nástroje pomocí postupu popsaného v tématu [Stažení nástrojů z GitHubu](../operator/azure-stack-powershell-download.md).
 
@@ -33,7 +33,7 @@ Pomocí nástroje pro ověření šablony ověřte, jestli jsou [šablony](azure
 
 Chcete-li ověřit šablonu, je nutné nejprve sestavit soubor možností cloudu a poté spustit nástroj pro ověření. Použijte následující moduly PowerShellu z Azure Stack nástrojů:
 
-- Ve složce **CloudCapabilities** : **AzureRM. CloudCapabilities. psm1** vytvoří soubor JSON cloudové možnosti, který představuje služby a verze v cloudu Azure Stack.
+- Ve složce **CloudCapabilities** : **AzureRM. CloudCapabilities. psm1** vytvoří soubor JSON možností cloudu, který představuje služby a verze v cloudu Azure Stack.
 - Ve složce **TemplateValidator** : **AzureRM. TemplateValidator. psm1** používá soubor JSON možností cloudu k testování šablon pro nasazení v Azure Stack.
 
 ## <a name="build-the-cloud-capabilities-file"></a>Sestavení souboru možností cloudu
@@ -50,7 +50,7 @@ Než použijete validátor šablon, spusťte modul PowerShellu **AzureRM. CloudC
     Import-Module .\CloudCapabilities\AzureRM.CloudCapabilities.psm1
     ```
 
-3. Pomocí rutiny **Get-CloudCapabilities** načtěte verze služby a vytvořte soubor JSON cloudové možnosti. Pokud nezadáte `-OutputPath`, v aktuálním adresáři se vytvoří soubor **AzureCloudCapabilities. JSON** . Použijte své skutečné umístění v Azure:
+3. Pomocí rutiny **Get-CloudCapabilities** načtěte verze služby a vytvořte soubor JSON cloudové možnosti. Pokud neurčíte `-OutputPath`, v aktuálním adresáři se vytvoří soubor **AzureCloudCapabilities. JSON** . Použijte své skutečné umístění v Azure:
 
     ```powershell
     Get-AzureRMCloudCapability -Location <your location> -Verbose
@@ -83,7 +83,7 @@ V konzole PowerShellu se zobrazují upozornění a chyby ověřování šablony 
 
 Rutina pro validátor šablon podporuje následující parametry.
 
-| Parametr | Popis | Požadováno |
+| Parametr | Popis | Požaduje se |
 | ----- | -----| ----- |
 | `TemplatePath` | Určuje cestu k rekurzivnímu nalezení Azure Resource Manager šablon. | Ano |
 | `TemplatePattern` | Určuje názvy souborů šablon, které se mají spárovat. | Ne |

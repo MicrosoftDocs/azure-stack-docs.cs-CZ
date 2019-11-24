@@ -24,7 +24,7 @@ ms.locfileid: "71961877"
 ---
 # <a name="manage-usage-and-billing-for-azure-stack-as-a-cloud-solution-provider"></a>Správa využití a fakturace pro Azure Stack jako Cloud Solution Provider
 
-*Platí pro: Azure Stack integrovaných systémů @ no__t-0
+*Platí pro: integrované systémy Azure Stack*
 
 Tento článek popisuje, jak zaregistrovat Azure Stack jako poskytovatele Cloud Solution Provider (CSP) a jak přidat zákazníky.
 
@@ -47,7 +47,7 @@ Zvolte typ účtu sdílených služeb, který používáte pro službu Azure Sta
 
 Odběry Azure partner Shared Services (APSS) jsou upřednostňovanou volbou pro registraci v případě, že přímý CSP nebo distributor CSP funguje Azure Stack.
 
-APSS předplatná jsou přidružená k tenantovi sdílené služby. Když zaregistrujete Azure Stack, poskytnete přihlašovací údaje pro účet, který je vlastníkem předplatného. Účet, který použijete k registraci Azure Stack, se může lišit od účtu správce, který používáte pro nasazení. Kromě toho tyto dva účty nemusí patřit do stejné domény; můžete nasadit pomocí tenanta, kterého už používáte. Můžete například použít `ContosoCSP.onmicrosoft.com` a pak se zaregistrovat pomocí jiného tenanta. například `IURContosoCSP.onmicrosoft.com`. Při provádění každodenních Azure Stackch správy musíte pamatovat na přihlášení pomocí `ContosoCSP.onmicrosoft.com`. Přihlásíte se k Azure pomocí `IURContosoCSP.onmicrosoft.com`, když potřebujete provádět operace registrace.
+APSS předplatná jsou přidružená k tenantovi sdílené služby. Když zaregistrujete Azure Stack, poskytnete přihlašovací údaje pro účet, který je vlastníkem předplatného. Účet, který použijete k registraci Azure Stack, se může lišit od účtu správce, který používáte pro nasazení. Kromě toho tyto dva účty nemusí patřit do stejné domény; můžete nasadit pomocí tenanta, kterého už používáte. Můžete například použít `ContosoCSP.onmicrosoft.com`a pak se zaregistrovat pomocí jiného tenanta; například `IURContosoCSP.onmicrosoft.com`. Při provádění každodenních Azure Stack správy se musíte pamatovat, že se přihlašujete pomocí `ContosoCSP.onmicrosoft.com`. Přihlásíte se k Azure pomocí `IURContosoCSP.onmicrosoft.com`, když potřebujete provádět operace registrace.
 
 Popis předplatných APSS a postup, jak je vytvořit, najdete v tématu [Přidání partnerských sdílených služeb Azure](/partner-center/shared-services).
 

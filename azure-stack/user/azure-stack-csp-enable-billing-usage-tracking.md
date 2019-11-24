@@ -24,7 +24,7 @@ ms.locfileid: "71961635"
 ---
 # <a name="let-your-cloud-solution-provider-manage-your-azure-stack-subscription"></a>Umožněte vašemu poskytovateli cloudového řešení spravovat Azure Stack předplatné.
 
-*Platí pro: Azure Stack integrovaných systémů @ no__t-0
+*Platí pro: integrované systémy Azure Stack*
 
 Pokud používáte Azure Stack s poskytovatelem Cloud Solution Provider (CSP), můžete se rozhodnout spravovat vlastní předplatné pro přístup k prostředkům v Azure a v Azure Stack. Můžete také povolit poskytovateli spravovat vaše předplatné. V tomto článku se dozvíte, jak:
 

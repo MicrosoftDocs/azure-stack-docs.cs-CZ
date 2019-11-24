@@ -122,31 +122,31 @@ Následující parametry jsou k dispozici pro konfiguraci v souboru azurestack. 
 
 Další informace o tom, jak vytvořit hlavní název služby (SPN), najdete v tématu [použití identity aplikace pro přístup k prostředkům](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-service-principals).
 
-| Parametr | Popis | Ověřování |
+| Parametr | Popis | Authentication |
 | --- | --- | --- |
 | **External_domain_fqdn ** | Plně kvalifikovaný název domény externí domény |    |
-| \* * oblast: * * | Název oblasti |    |
-| **tenant_id: ** | ID tenanta @ no__t-0 |    |
+| **region: ** | Název oblasti |    |
+| \* * tenant_id: * * | ID tenanta\* |    |
 | client_id: | ID klienta | SPN s tajným klíčem |
 | client_secret: | Heslo klienta | SPN s tajným klíčem |
-| client_cert @ no__t-0 @ no__t-1: | Cesta k certifikátu | Hlavní název služby s certifikátem |
-| client_cert_thumbprint @ no__t-0 @ no__t-1: | Kryptografický otisk certifikátu | Hlavní název služby s certifikátem |
+| client_cert\*\*: | Cesta k certifikátu | Hlavní název služby s certifikátem |
+| client_cert_thumbprint\*\*: | Kryptografický otisk certifikátu | Hlavní název služby s certifikátem |
 
-@no__t – ID 0Tenant se nevyžaduje pro nasazení Azure Stack s AD FS.
+\*ID tenanta se nevyžaduje pro nasazení Azure Stack s AD FS.
 
-\* @ no__t-1 klientský tajný klíč a certifikát klienta se vzájemně vylučují.
+\*\* klientský tajný klíč a certifikát klienta se vzájemně vylučují.
 
 Ostatní konfigurační soubory obsahují volitelná nastavení konfigurace, která je možné nakonfigurovat i v Nagios.
 
 > [!Note]  
-> Ověřte cíl umístění v azurestack_hosts. cfg a azurestack_services. cfg.
+> Ověřte umístění cíle v azurestack_hosts. cfg a azurestack_services. cfg.
 
 | Konfigurace | Popis |
 | --- | --- |
-| azurestack_commands. cfg | Konfigurace obslužné rutiny beze změn – požadavek |
-| azurestack_contacts. cfg | Nastavení oznámení |
-| azurestack_hosts. cfg | Azure Stack pojmenovávání nasazení |
-| azurestack_services. cfg | Konfigurace služby |
+| azurestack_commands.cfg | Konfigurace obslužné rutiny beze změn – požadavek |
+| azurestack_contacts.cfg | Nastavení oznámení |
+| azurestack_hosts.cfg | Azure Stack pojmenovávání nasazení |
+| azurestack_services.cfg | Konfigurace služby |
 
 ### <a name="setup-steps"></a>Kroky pro instalaci
 
@@ -194,7 +194,7 @@ Výstrahu můžete také uzavřít pomocí terminálu s následujícím příkaz
 /usr/local/nagios/libexec/azurestack_plugin.py --config-file /usr/local/nagios/etc/objects/azurestack.cfg --action Close --alert-id <ALERT_GUID>
 ```
 
-### <a name="troubleshooting"></a>Poradce při potížích
+### <a name="troubleshooting"></a>Řešení potíží
 
 Řešení potíží s modulem plug-in je prováděno ručním voláním modulu plug-in v terminálu. Použijte následující metodu:
 
@@ -206,7 +206,7 @@ Výstrahu můžete také uzavřít pomocí terminálu s následujícím příkaz
 
 Pokud nepoužíváte Operations Manager, Nagios nebo řešení založené na Nagios, můžete pomocí PowerShellu povolit širokou škálu řešení monitorování, která se budou integrovat s Azure Stack.
 
-1. Pokud chcete použít PowerShell, ujistěte se, že máte [nainstalovaný PowerShell a nakonfigurovat](azure-stack-powershell-install.md) ho pro prostředí Azure Stack operator. Nainstalujte PowerShell do místního počítače, který se může připojit ke koncovému bodu Správce prostředků (správce) (https://adminmanagement. [ oblast]. [External_FQDN]).
+1. Pokud chcete použít PowerShell, ujistěte se, že máte [nainstalovaný PowerShell a nakonfigurovat](azure-stack-powershell-install.md) ho pro prostředí Azure Stack operator. Instalace prostředí PowerShell na místní počítač, který můžete dosáhnout koncového bodu Resource Manager (správce) (https://adminmanagement. [ Oblast]. [External_FQDN]).
 
 2. Spusťte následující příkazy pro připojení k Azure Stack prostředí jako operátor Azure Stack:
 

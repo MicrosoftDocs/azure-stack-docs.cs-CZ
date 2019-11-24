@@ -58,7 +58,7 @@ Před ověřením certifikátů PKI pro nasazení Azure Stack musí systém spl�
 
 - Kontrola připravenosti na Microsoft Azure Stack
 - Certifikáty SSL se vyexportují podle [pokynů pro přípravu](azure-stack-prepare-pki-certs.md) .
-- DeploymentData. JSON
+- DeploymentData.json
 - Windows 10 nebo Windows Server 2016
 
 ## <a name="perform-core-services-certificate-validation"></a>Provést ověření certifikátu základní služby
@@ -71,7 +71,7 @@ Pomocí těchto kroků Připravte a ověřte Azure Stack certifikáty PKI pro na
         Install-Module Microsoft.AzureStack.ReadinessChecker -force 
     ```
 
-2. Vytvořte strukturu adresářů certifikátů. V následujícím příkladu můžete změnit `<c:\certificates>` na novou cestu k adresáři podle vašeho výběru.
+2. Vytvořte strukturu adresářů certifikátů. V následujícím příkladu můžete `<c:\certificates>` změnit na novou cestu k adresáři podle vašeho výběru.
     ```powershell  
     New-Item C:\Certificates -ItemType Directory
     
@@ -201,7 +201,7 @@ Pomocí těchto kroků můžete připravit a ověřit Azure Stack certifikáty P
         }
     ```
 
-3.  Zahajte ověřování změnou hodnot **RegionName** a **plně kvalifikovaného názvu domény** tak, aby odpovídaly vašemu prostředí Azure Stack. Pak spusťte:
+3.  Zahajte ověřování změnou hodnot **RegionName** a **plně kvalifikovaného názvu domény** tak, aby odpovídaly vašemu prostředí Azure Stack. Potom následujícím příkazem:
 
     ```powershell  
     Invoke-AzsCertificateValidation -PaaSCertificates $PaaSCertificates -RegionName east -FQDN azurestack.contoso.com 
@@ -252,23 +252,23 @@ Pomocí těchto kroků můžete připravit a ověřit Azure Stack certifikáty P
 
 ## <a name="certificates"></a>Certifikáty
 
-| Službě | Certifikát |
+| Adresář | Certifikát |
 | ---    | ----        |
-| acsBlob | wildcard_blob_ @ no__t-0region > _ @ no__t-1externalFQDN > |
-| ACSQueue  |  wildcard_queue_ @ no__t-0region > _ @ no__t-1externalFQDN > |
-| ACSTable  |  wildcard_table_ @ no__t-0region > _ @ no__t-1externalFQDN > |
-| Hostitel rozšíření Správce  |  wildcard_adminhosting_ @ no__t-0region > _ @ no__t-1externalFQDN > |
-| Portál pro správu  |  adminportal_ @ no__t-0region > _ @ no__t-1externalFQDN > |
-| Správce ARM  |  adminmanagement_ @ no__t-0region > _ @ no__t-1externalFQDN > |
-| Veřejné ARM  |  management_ @ no__t-0region > _ @ no__t-1externalFQDN > |
-| KeyVault  |  wildcard_vault_ @ no__t-0region > _ @ no__t-1externalFQDN > |
-| KeyVaultInternal  |  wildcard_adminvault_ @ no__t-0region > _ @ no__t-1externalFQDN > |
-| Hostitel veřejného rozšíření  |  wildcard_hosting_ @ no__t-0region > _ @ no__t-1externalFQDN > |
-| Veřejný portál  |  portal_ @ no__t-0region > _ @ no__t-1externalFQDN > |
+| acsBlob | wildcard_blob_\<oblasti > _\<externalFQDN > |
+| ACSQueue  |  wildcard_queue_\<region>_\<externalFQDN> |
+| ACSTable  |  wildcard_table_\<region>_\<externalFQDN> |
+| Hostitel rozšíření Správce  |  wildcard_adminhosting_\<region>_\<externalFQDN> |
+| Portál pro správu  |  adminportal_\<region>_\<externalFQDN> |
+| Správce ARM  |  adminmanagement_\<region>_\<externalFQDN> |
+| Veřejné ARM  |  management_\<region>_\<externalFQDN> |
+| KeyVault  |  wildcard_vault_\<oblasti > _\<externalFQDN > |
+| KeyVaultInternal  |  wildcard_adminvault_\<oblasti > _\<externalFQDN > |
+| Hostitel veřejného rozšíření  |  wildcard_hosting_\<region>_\<externalFQDN> |
+| Veřejný portál  |  portal_\<region>_\<externalFQDN> |
 
 ## <a name="using-validated-certificates"></a>Použití ověřených certifikátů
 
-Po ověření certifikátů nástrojem AzsReadinessChecker jste připraveni je použít ve svém nasazení Azure Stack nebo pro Azure Stackovou rotaci. 
+Po ověření certifikátů rutinou AzsReadinessChecker je můžete začít používat v nasazení služby Azure Stack nebo k obměně tajných klíčů ve službě Azure Stack. 
 
  - Pro nasazení proveďte zabezpečený přenos vašich certifikátů do nástroje pro vývoj nasazení, aby je bylo možné zkopírovat do hostitele nasazení, jak je uvedeno v [dokumentaci Azure Stack požadavky PKI](azure-stack-pki-certs.md).
  - Pro rotaci tajných klíčů můžete použít certifikáty k aktualizaci starých certifikátů pro koncové body veřejné infrastruktury Azure Stack prostředí, a to podle pokynů v [dokumentaci Azure Stack pro střídání tajných klíčů](azure-stack-rotate-secrets.md).
