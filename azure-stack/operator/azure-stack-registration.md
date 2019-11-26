@@ -1,6 +1,7 @@
 ---
-title: Registrace Azure pro integrované systémy Azure Stack | Microsoft Docs
-description: Popisuje proces registrace Azure pro nasazení ve více uzlech Azure Stack připojení k Azure.
+title: Register Azure Stack with Azure
+titleSuffix: Azure Stack
+description: Learn how to register Azure Stack integrated systems with Azure so you can download Azure Marketplace items and set up data reporting.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,117 +17,117 @@ ms.date: 10/14/2019
 ms.author: mabrigg
 ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: e972c7799b8cac37d1cd75cda9dc4e94a7ae73e2
-ms.sourcegitcommit: 5eae057cb815f151e6b8af07e3ccaca4d8e4490e
+ms.openlocfilehash: d777827e6c700167dff6f203045277353837beef
+ms.sourcegitcommit: 284f5316677c9a7f4c300177d0e2a905df8cb478
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72310552"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74465442"
 ---
-# <a name="register-azure-stack-with-azure"></a>Registrace Azure Stack s využitím Azure
+# <a name="register-azure-stack-with-azure"></a>Register Azure Stack with Azure
 
-Registrace služby Azure Stack v Azure vám umožní stahovat z Azure položky z marketplace a nastavit odesílání sestav dat o obchodech zpět do Microsoftu. Po registraci Azure Stack se využití nahlásí službě Azure Commerce a zobrazí se pod ID předplatného fakturace Azure, které se používá k registraci.
+Register Azure Stack with Azure so you can download Azure Marketplace items from Azure and set up commerce data reporting back to Microsoft. After you register Azure Stack, usage is reported to Azure commerce and you can see it under the Azure billing Subscription ID used for registration.
 
-Informace v tomto článku popisují registraci Azure Stack integrovaných systémů s Azure. Informace o registraci ASDK s Azure najdete v tématu [registrace Azure Stack](../asdk/asdk-register.md) v dokumentaci k ASDK.
+The information in this article describes registering Azure Stack integrated systems with Azure. For information about registering the ASDK with Azure, see [Azure Stack registration](../asdk/asdk-register.md) in the ASDK documentation.
 
 > [!IMPORTANT]  
-> K podpoře úplných funkcí Azure Stack, včetně položek nabídky na webu Marketplace, je nutná registrace. Pokud se nezaregistrujete při použití modelu fakturace s průběžnými platbami, budete mít porušení licenčních podmínek Azure Stack. Další informace o Azure Stack modelech licencování najdete na [stránce Jak koupit](https://azure.microsoft.com/overview/azure-stack/how-to-buy/).
+> Registration is required to support full Azure Stack functionality, including offering items in the marketplace. You'll be in violation of Azure Stack licensing terms if you don't register when using the pay-as-you-use billing model. To learn more about Azure Stack licensing models, see the [How to buy page](https://azure.microsoft.com/overview/azure-stack/how-to-buy/).
 
 ## <a name="prerequisites"></a>Předpoklady
 
-Před registrací musíte splnit následující předpoklady:
+You need the following prerequisites in place before you register:
 
-- Ověření přihlašovacích údajů
-- Nastavení režimu jazyka PowerShell
-- Instalace PowerShellu pro Azure Stack
-- Stažení nástrojů pro Azure Stack
-- Určení scénáře registrace
+- Verify your credentials.
+- Set the PowerShell language mode.
+- Install PowerShell for Azure Stack.
+- Download the Azure Stack tools.
+- Determine your registration scenario.
 
-### <a name="verify-your-credentials"></a>Ověření přihlašovacích údajů
+### <a name="verify-your-credentials"></a>Verify your credentials
 
-Před registrací Azure Stack s Azure musíte mít:
+Before registering Azure Stack with Azure, you must have:
 
-- ID předplatného pro předplatné Azure. Pro registraci jsou podporovány pouze odběry služeb EA, CSP nebo CSP sdílené služby. CSP musí rozhodnout, jestli se má [použít předplatné CSP nebo APSS](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-apss-subscription).<br><br>ID získáte tak, že se přihlásíte k Azure a kliknete na **všechny služby**. Pak v kategorii **Obecné** vyberte **předplatná**, klikněte na předplatné, které chcete použít, a v části **Essentials** můžete najít ID předplatného. Jako osvědčený postup použijte samostatné odběry pro produkční a vývojové nebo testovací prostředí. 
+- The subscription ID for an Azure subscription. Only EA, CSP, or CSP shared services subscriptions are supported for registration. CSPs need to decide whether to [use a CSP or APSS subscription](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-apss-subscription).<br><br>To get the ID, sign in to Azure, click **All services**. Then, under the **GENERAL** category, select **Subscriptions**, click the subscription you want to use, and under **Essentials** you can find the Subscription ID. As a best practice, use separate subscriptions for production and dev or test environments. 
 
   > [!Note]  
-  > V současné době se nepodporují předplatná pro Německo Cloud.
+  > Germany cloud subscriptions aren't currently supported.
 
-- Uživatelské jméno a heslo pro účet, který je vlastníkem předplatného.
+- The username and password for an account that's an owner for the subscription.
 
-- Uživatelský účet musí mít přístup k předplatnému Azure a mít oprávnění k vytváření aplikací identity a instančních objektů v adresáři přidruženém k tomuto předplatnému. Doporučujeme, abyste v Azure zaregistrovali Azure Stack s využitím správy s minimálními oprávněními. Další informace o tom, jak vytvořit definici vlastní role, která omezuje přístup k vašemu předplatnému k registraci, najdete v tématu [Vytvoření registrační role pro Azure Stack](azure-stack-registration-role.md).
+- The user account needs to have access to the Azure subscription and have permissions to create identity apps and service principals in the directory associated with that subscription. We recommend that you register Azure Stack with Azure using least-privilege administration. For more information on how to create a custom role definition that limits access to your subscription for registration, see [create a registration role for Azure Stack](azure-stack-registration-role.md).
 
-- Zaregistrovali jste poskytovatele prostředků Azure Stack (podrobnosti najdete v části věnované poskytovateli prostředků Azure Stack v tomto registru).
+- Registered the Azure Stack resource provider (see the following Register Azure Stack Resource Provider section for details).
 
-Po registraci se nepožaduje oprávnění globálního správce Azure Active Directory. Některé operace ale můžou vyžadovat přihlašovací údaje globálního správce. Například skript instalačního programu poskytovatele prostředků nebo nová funkce vyžadující udělené oprávnění. Můžete buď dočasně obnovit oprávnění globálního správce účtu, nebo použít samostatný účet globálního správce, který je vlastníkem *výchozího předplatného poskytovatele*.
+After registration, Azure Active Directory (Azure AD) global administrator permission isn't required. However, some operations may require the global admin credential (for example, a resource provider installer script or a new feature requiring a permission to be granted). You can either temporarily reinstate the account's global admin permissions or use a separate global admin account that's an owner of the *default provider subscription*.
 
-Uživatel, který registruje Azure Stack, je vlastníkem instančního objektu v Azure Active Directory. Registraci Azure Stack může změnit jenom uživatel, který zaregistroval Azure Stack. Pokud se uživatel bez role správce, který není vlastníkem instančního objektu služby, pokusí zaregistrovat nebo znovu zaregistrovat Azure Stack, může dojít k odpovědi 403. Odpověď 403 indikuje, že uživatel nemá dostatečná oprávnění k dokončení operace.
+The user who registers Azure Stack is the owner of the service principal in Azure AD. Only the user who registered Azure Stack can modify the Azure Stack registration. If a non-admin user that's not an owner of the registration service principal attempts to register or re-register Azure Stack, they may come across a 403 response. A 403 response indicates the user has insufficient permissions to complete the operation.
 
-Pokud nemáte předplatné Azure, které tyto požadavky splňuje, můžete si [tady vytvořit bezplatný účet Azure](https://azure.microsoft.com/free/?b=17.06). Registrace Azure Stack nevzniká žádné náklady na vaše předplatné Azure.
+If you don't have an Azure subscription that meets these requirements, you can [create a free Azure account here](https://azure.microsoft.com/free/?b=17.06). Registering Azure Stack incurs no cost on your Azure subscription.
 
 > [!NOTE]
-> Pokud máte více než jeden Azure Stack, je osvědčeným postupem, jak každou Azure Stack zaregistrovat do svého vlastního předplatného. To vám usnadní sledování využití.
+> If you have more than one Azure Stack, a best practice is to register each Azure Stack to its own subscription. This makes it easier for you to track usage.
 
-### <a name="powershell-language-mode"></a>Režim jazyka PowerShell
+### <a name="powershell-language-mode"></a>PowerShell language mode
 
-Aby bylo možné úspěšně zaregistrovat Azure Stack, musí být režim jazyka PowerShell nastaven na **FullLanguageMode**.  Pokud chcete ověřit, jestli je aktuální jazykový režim nastavený na Full, otevřete okno PowerShellu se zvýšenými oprávněními a spusťte následující rutiny PowerShellu:
+To successfully register Azure Stack, the PowerShell language mode must be set to **FullLanguageMode**.  To verify that the current language mode is set to full, open an elevated PowerShell window and run the following PowerShell cmdlets:
 
 ```powershell  
 $ExecutionContext.SessionState.LanguageMode
 ```
 
-Ujistěte se, že výstup vrátí **FullLanguageMode**. Pokud se vrátí jiný jazykový režim, musí být registrace spuštěná na jiném počítači nebo musí být nastavená na **FullLanguageMode** , aby bylo možné pokračovat.
+Ensure the output returns **FullLanguageMode**. If any other language mode is returned, registration needs to be run on another machine or the language mode needs to be set to **FullLanguageMode** before continuing.
 
 ### <a name="install-powershell-for-azure-stack"></a>Instalace PowerShellu pro Azure Stack
 
-K registraci v Azure použijte nejnovější prostředí PowerShell pro Azure Stack.
+Use the latest PowerShell for Azure Stack to register with Azure.
 
-Pokud není nejnovější verze ještě nainstalovaná, přečtěte si téma [instalace PowerShellu pro Azure Stack](azure-stack-powershell-install.md).
+If the latest version isn't already installed, see [install PowerShell for Azure Stack](azure-stack-powershell-install.md).
 
-### <a name="download-the-azure-stack-tools"></a>Stažení nástrojů pro Azure Stack
+### <a name="download-the-azure-stack-tools"></a>Download the Azure Stack tools
 
-Úložiště GitHub pro Azure Stack Tools obsahuje moduly prostředí PowerShell, které podporují funkce Azure Stack. včetně funkce registrace. Během procesu registrace je potřeba importovat a používat modul **RegisterWithAzure. psm1** PowerShell, který se nachází v úložišti nástrojů Azure Stack k registraci vaší instance Azure Stack v Azure.
+The Azure Stack tools GitHub repository contains PowerShell modules that support Azure Stack functionality, including registration functionality. During the registration process, you need to import and use the **RegisterWithAzure.psm1** PowerShell module (found in the Azure Stack tools repository) to register your Azure Stack instance with Azure.
 
-Abyste měli jistotu, že používáte nejnovější verzi, měli byste před registrací v Azure odstranit všechny existující verze nástrojů Azure Stack a [Stáhnout nejnovější verzi z GitHubu](azure-stack-powershell-download.md) .
+To ensure you're using the latest version, delete any existing versions of the Azure Stack tools and [download the latest version from GitHub](azure-stack-powershell-download.md) before registering with Azure.
 
-### <a name="determine-your-registration-scenario"></a>Určení scénáře registrace
+### <a name="determine-your-registration-scenario"></a>Determine your registration scenario
 
-Vaše nasazení Azure Stack může být *připojeno* nebo *Odpojeno*.
+Your Azure Stack deployment may be *connected* or *disconnected*.
 
-- **Připojen**  
- Připojeno znamená, že jste nasadili Azure Stack, aby se mohl připojit k Internetu a k Azure. Pro úložiště identity buď máte Azure Active Directory (Azure AD) nebo Active Directory Federation Services (AD FS) (AD FS). V případě připojeného nasazení si můžete vybrat ze dvou modelů fakturace: průběžné platby nebo na základě kapacity.
-  - [Registrace propojeného Azure Stack s Azure s využitím modelu fakturace s průběžnými **platbami podle aktuálního využití**](#register-connected-with-pay-as-you-go-billing)
-  - [Registrace připojeného Azure Stack s Azure pomocí modelu fakturace **kapacity**](#register-connected-with-capacity-billing)
+- **Connected**  
+ Connected means you've deployed Azure Stack so that it can connect to the internet and to Azure. You either have Azure AD or Active Directory Federation Services (AD FS) for your identity store. With a connected deployment, you can choose from two billing models: pay-as-you-use or capacity-based.
+  - [Register a connected Azure Stack with Azure using the **pay-as-you-use** billing model](#register-connected-with-pay-as-you-go-billing).
+  - [Register a connected Azure Stack with Azure using the **capacity** billing model](#register-connected-with-capacity-billing).
 
-- **Propojení**  
- Díky možnosti nasazení odpojeno od Azure můžete nasadit a používat Azure Stack bez připojení k Internetu. V případě odpojeného nasazení ale budete omezeni na AD FS úložiště identit a model fakturace na základě kapacity.
-  - [Registrace odpojených Azure Stack pomocí modelu fakturace **kapacity**](#register-disconnected-with-capacity-billing)
+- **Disconnected**  
+ With the disconnected from Azure deployment option, you can deploy and use Azure Stack without a connection to the internet. However, with a disconnected deployment, you're limited to an AD FS identity store and the capacity-based billing model.
+  - [Register a disconnected Azure Stack using the **capacity** billing model ](#register-disconnected-with-capacity-billing).
 
-### <a name="determine-a-unique-registration-name-to-use"></a>Určení jedinečného názvu registrace, který se má použít 
+### <a name="determine-a-unique-registration-name-to-use"></a>Determine a unique registration name to use
 
-Když zaregistrujete Azure Stack s Azure, musíte zadat jedinečný název registrace. Snadný způsob, jak přidružit předplatné Azure Stack k registraci Azure, je použití vašeho Azure Stackho **cloudového ID**. 
+When you register Azure Stack with Azure, you must provide a unique registration name. An easy way to associate your Azure Stack subscription with an Azure registration is to use your Azure Stack **Cloud ID**.
 
 > [!NOTE]
-> Azure Stack registrace pomocí modelu fakturace založeného na kapacitě bude muset po vypršení platnosti [registrace](azure-stack-registration.md#change-the-subscription-you-use) a opětovné registraci v Azure změnit jedinečný název při opětovné registraci po uplynutí těchto ročních předplatných.
+> Azure Stack registrations using the capacity-based billing model will need to change the unique name when re-registering after those yearly subscriptions expire unless you [delete the expired registration](azure-stack-registration.md#change-the-subscription-you-use) and re-register with Azure.
 
-Pokud chcete zjistit ID cloudu pro nasazení Azure Stack, otevřete PowerShell jako správce v počítači, který má přístup k privilegovanému koncovému bodu, spusťte následující příkazy a zaznamenejte hodnotu **CloudID** : 
+To determine the Cloud ID for your Azure Stack deployment, open PowerShell as an admin on a computer that can access the Privileged Endpoint, run the following commands, and then record the **CloudID** value:
 
 ```powershell
 Run: Enter-PSSession -ComputerName <privileged endpoint computer name> -ConfigurationName PrivilegedEndpoint
-Run: Get-AzureStackStampInformation 
+Run: Get-AzureStackStampInformation
 ```
 
-## <a name="register-connected-with-pay-as-you-go-billing"></a>Zaregistrujte se k platbám s průběžnými platbami
+## <a name="register-connected-with-pay-as-you-go-billing"></a>Register connected with pay-as-you-go billing
 
-Pomocí těchto kroků zaregistrujete Azure Stack s Azure s využitím modelu fakturace s průběžnými platbami podle aktuálního využití.
+Use these steps to register Azure Stack with Azure using the pay-as-you-use billing model.
 
 > [!Note]  
-> Všechny tyto kroky je nutné spustit z počítače, který má přístup k privilegovanému koncovému bodu (PEP). Podrobnosti o PEP najdete v tématu [použití privilegovaného koncového bodu v Azure Stack](azure-stack-privileged-endpoint.md).
+> All these steps must be run from a computer that has access to the privileged endpoint (PEP). For details about the PEP, see [Using the privileged endpoint in Azure Stack](azure-stack-privileged-endpoint.md).
 
-Připojená prostředí mají přístup k Internetu a k Azure. V těchto prostředích je potřeba zaregistrovat poskytovatele prostředků Azure Stack s Azure a potom nakonfigurovat model fakturace.
+Connected environments can access the internet and Azure. For these environments, you need to register the Azure Stack resource provider with Azure and then configure your billing model.
 
-1. Pokud chcete zaregistrovat poskytovatele prostředků Azure Stack v Azure, spusťte PowerShell ISE jako správce a použijte následující rutiny PowerShellu s parametrem **Environment** nastaveným na příslušný typ předplatného Azure (viz níže uvedené parametry).
+1. To register the Azure Stack resource provider with Azure, start PowerShell ISE as an administrator and use the following PowerShell cmdlets with the **EnvironmentName** parameter set to the appropriate Azure subscription type (see parameters below).
 
-2. Přidejte účet Azure, který používáte k registraci Azure Stack. Pokud chcete účet přidat, spusťte rutinu **Add-AzureRmAccount** . Zobrazí se výzva k zadání přihlašovacích údajů k účtu Azure a možná budete muset použít dvojúrovňové ověřování na základě konfigurace vašeho účtu.
+2. Add the Azure account that you used to register Azure Stack. To add the account, run the **Add-AzureRmAccount** cmdlet. You're prompted to enter your Azure account credentials and you may have to use two-factor authentication based on your account's configuration.
 
    ```powershell
    Add-AzureRmAccount -EnvironmentName "<environment name>"
@@ -134,30 +135,30 @@ Připojená prostředí mají přístup k Internetu a k Azure. V těchto prostř
 
    | Parametr | Popis |  
    |-----|-----|
-   | EnvironmentName | Název prostředí Azure Cloud Subscription. Podporované názvy prostředí jsou **AzureCloud**, **AzureUSGovernment**, nebo pokud používáte čínské předplatné Azure **AzureChinaCloud**.  |
+   | EnvironmentName | The Azure cloud subscription environment name. Supported environment names are **AzureCloud**, **AzureUSGovernment**, or if using a China Azure Subscription, **AzureChinaCloud**.  |
 
    >[!Note]
-   > Pokud vaše relace vyprší, vaše heslo se změnilo nebo chcete jednoduše přepnout účty, spusťte následující rutinu ještě před přihlášením pomocí rutiny Add-AzureRmAccount: `Remove-AzureRmAccount-Scope Process`.
+   > If your session expires, your password has changed, or you simply wish to switch accounts, run the following cmdlet before you sign in using Add-AzureRmAccount: `Remove-AzureRmAccount-Scope Process`
 
-3. Máte-li více předplatných, spusťte následující příkaz a vyberte ten, který chcete použít:  
+3. If you have multiple subscriptions, run the following command to select the one you want to use:  
 
    ```powershell  
    Get-AzureRmSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzureRmSubscription
    ```
 
-4. Spuštěním následujícího příkazu zaregistrujte poskytovatele prostředků Azure Stack v předplatném Azure:
+4. Run the following command to register the Azure Stack resource provider in your Azure subscription:
 
    ```powershell  
    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
    ```
 
-5. Spusťte PowerShell ISE jako správce a přejděte do **registrační** složky v adresáři **AzureStack-Tools-Master** , který jste vytvořili při stahování nástrojů Azure Stack. Importujte modul **RegisterWithAzure. psm1** pomocí prostředí PowerShell:
+5. Start PowerShell ISE as an administrator and navigate to the **Registration** folder in the **AzureStack-Tools-master** directory created when you downloaded the Azure Stack tools. Import the **RegisterWithAzure.psm1** module using PowerShell:
 
    ```powershell  
    Import-Module .\RegisterWithAzure.psm1
    ```
 
-6. Potom ve stejné relaci prostředí PowerShell ověřte, že jste přihlášeni ke správnému kontextu Azure PowerShell. Toto je účet Azure, který byl dříve použit k registraci poskytovatele prostředků Azure Stack. PowerShell ke spuštění:
+6. Next, in the same PowerShell session, ensure you're signed in to the correct Azure PowerShell context. This context would be the Azure account that was used to register the Azure Stack resource provider previously. Powershell to run:
 
    ```powershell  
    Connect-AzureRmAccount -Environment "<environment name>"
@@ -165,9 +166,9 @@ Připojená prostředí mají přístup k Internetu a k Azure. V těchto prostř
 
    | Parametr | Popis |  
    |-----|-----|
-   | EnvironmentName | Název prostředí Azure Cloud Subscription. Podporované názvy prostředí jsou **AzureCloud**, **AzureUSGovernment**, nebo pokud používáte čínské předplatné Azure **AzureChinaCloud**.  |
+   | EnvironmentName | The Azure cloud subscription environment name. Supported environment names are **AzureCloud**, **AzureUSGovernment**, or if using a China Azure Subscription, **AzureChinaCloud**.  |
 
-7. Ve stejné relaci prostředí PowerShell spusťte rutinu **set-AzsRegistration** . PowerShell ke spuštění:  
+7. In the same PowerShell session, run the **Set-AzsRegistration** cmdlet. PowerShell to run:  
 
    ```powershell  
    $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
@@ -178,22 +179,22 @@ Připojená prostředí mají přístup k Internetu a k Azure. V těchto prostř
       -BillingModel PayAsYouUse `
       -RegistrationName $RegistrationName
    ```
-   Další informace o rutině Set-AzsRegistration najdete v [referenčních](#registration-reference)informacích k registraci.
+   For more information on the Set-AzsRegistration cmdlet, see [Registration reference](#registration-reference).
 
-   Proces trvá od 10 do 15 minut. Až se příkaz dokončí, zobrazí se zpráva **"vaše prostředí je teď zaregistrované a aktivované pomocí zadaných parametrů."**
+   The process takes between 10 and 15 minutes. When the command completes, you see the message **"Your environment is now registered and activated using the provided parameters."**
 
-## <a name="register-connected-with-capacity-billing"></a>Zaregistrovat se k fakturaci kapacity
+## <a name="register-connected-with-capacity-billing"></a>Register connected with capacity billing
 
-Pomocí těchto kroků zaregistrujete Azure Stack s Azure s využitím modelu fakturace s průběžnými platbami podle aktuálního využití.
+Use these steps to register Azure Stack with Azure using the pay-as-you-use billing model.
 
 > [!Note]  
-> Všechny tyto kroky je nutné spustit z počítače, který má přístup k privilegovanému koncovému bodu (PEP). Podrobnosti o PEP najdete v tématu [použití privilegovaného koncového bodu v Azure Stack](azure-stack-privileged-endpoint.md).
+> All these steps must be run from a computer that has access to the privileged endpoint (PEP). For details about the PEP, see [Using the privileged endpoint in Azure Stack](azure-stack-privileged-endpoint.md).
 
-Připojená prostředí mají přístup k Internetu a k Azure. V těchto prostředích je potřeba zaregistrovat poskytovatele prostředků Azure Stack s Azure a potom nakonfigurovat model fakturace.
+Connected environments can access the internet and Azure. For these environments, you need to register the Azure Stack resource provider with Azure and then configure your billing model.
 
-1. Pokud chcete zaregistrovat poskytovatele prostředků Azure Stack v Azure, spusťte PowerShell ISE jako správce a použijte následující rutiny PowerShellu s parametrem **Environment** nastaveným na příslušný typ předplatného Azure (viz níže uvedené parametry).
+1. To register the Azure Stack resource provider with Azure, start PowerShell ISE as an administrator and use the following PowerShell cmdlets with the **EnvironmentName** parameter set to the appropriate Azure subscription type (see parameters below).
 
-2. Přidejte účet Azure, který používáte k registraci Azure Stack. Pokud chcete účet přidat, spusťte rutinu **Add-AzureRmAccount** . Zobrazí se výzva k zadání přihlašovacích údajů k účtu Azure a možná budete muset použít dvojúrovňové ověřování na základě konfigurace vašeho účtu.
+2. Add the Azure account that you used to register Azure Stack. To add the account, run the **Add-AzureRmAccount** cmdlet. You're prompted to enter your Azure account credentials and you may have to use two-factor authentication based on your account's configuration.
 
    ```powershell  
    Connect-AzureRmAccount -Environment "<environment name>"
@@ -201,21 +202,21 @@ Připojená prostředí mají přístup k Internetu a k Azure. V těchto prostř
 
    | Parametr | Popis |  
    |-----|-----|
-   | EnvironmentName | Název prostředí Azure Cloud Subscription. Podporované názvy prostředí jsou **AzureCloud**, **AzureUSGovernment**, nebo pokud používáte čínské předplatné Azure **AzureChinaCloud**.  |
+   | EnvironmentName | The Azure cloud subscription environment name. Supported environment names are **AzureCloud**, **AzureUSGovernment**, or if using a China Azure Subscription, **AzureChinaCloud**.  |
 
-3. Máte-li více předplatných, spusťte následující příkaz a vyberte ten, který chcete použít:  
+3. If you have multiple subscriptions, run the following command to select the one you want to use:  
 
    ```powershell  
    Get-AzureRmSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzureRmSubscription
    ```
 
-4. Spuštěním následujícího příkazu zaregistrujte poskytovatele prostředků Azure Stack v předplatném Azure:
+4. Run the following command to register the Azure Stack resource provider in your Azure subscription:
 
    ```powershell  
    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
    ```
 
-5. Spusťte PowerShell ISE jako správce a přejděte do **registrační** složky v adresáři **AzureStack-Tools-Master** , který jste vytvořili při stahování nástrojů Azure Stack. Importujte modul **RegisterWithAzure. psm1** pomocí prostředí PowerShell:
+5. Start PowerShell ISE as an administrator and navigate to the **Registration** folder in the **AzureStack-Tools-master** directory created when you downloaded the Azure Stack tools. Import the **RegisterWithAzure.psm1** module using PowerShell:
 
    ```powershell  
    $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
@@ -228,48 +229,48 @@ Připojená prostředí mají přístup k Internetu a k Azure. V těchto prostř
       -RegistrationName $RegistrationName
    ```
    > [!Note]  
-   > Pomocí parametru UsageReportingEnabled pro rutinu **set-AzsRegistration** můžete zakázat funkci generování sestav využití nastavením parametru na hodnotu false. 
+   > You can disable usage reporting with the UsageReportingEnabled parameter for the **Set-AzsRegistration** cmdlet by setting the parameter to false. 
    
-   Další informace o rutině Set-AzsRegistration najdete v [referenčních](#registration-reference)informacích k registraci.
+   For more information on the Set-AzsRegistration cmdlet, see [Registration reference](#registration-reference).
 
-## <a name="register-disconnected-with-capacity-billing"></a>Registrovat odpojeno pomocí fakturace kapacity
+## <a name="register-disconnected-with-capacity-billing"></a>Register disconnected with capacity billing
 
-Pokud zaregistrujete Azure Stack v odpojeném prostředí (bez připojení k Internetu), musíte získat registrační token z prostředí Azure Stack a pak tento token použít na počítači, který se může připojit k Azure a má PowerShell pro Azure Stack instalovat.  
+If you're registering Azure Stack in a disconnected environment (with no internet connectivity), you need to get a registration token from the Azure Stack environment. Then use that token on a computer that can connect to Azure and has PowerShell for Azure Stack installed.  
 
-### <a name="get-a-registration-token-from-the-azure-stack-environment"></a>Získání registračního tokenu z Azure Stackho prostředí
+### <a name="get-a-registration-token-from-the-azure-stack-environment"></a>Get a registration token from the Azure Stack environment
 
-1. Spusťte PowerShell ISE jako správce a přejděte do **registrační** složky v adresáři **AzureStack-Tools-Master** , který jste vytvořili při stahování nástrojů Azure Stack. Importujte modul **RegisterWithAzure. psm1** :  
+1. Start PowerShell ISE as an administrator and navigate to the **Registration** folder in the **AzureStack-Tools-master** directory created when you downloaded the Azure Stack tools. Import the **RegisterWithAzure.psm1** module:  
 
    ```powershell  
    Import-Module .\RegisterWithAzure.psm1
    ```
 
-2. Pokud chcete získat registrační token, spusťte následující rutiny PowerShellu:  
+2. To get the registration token, run the following PowerShell cmdlets:  
 
    ```Powershell
    $FilePathForRegistrationToken = "$env:SystemDrive\RegistrationToken.txt"
    $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential $YourCloudAdminCredential -UsageReportingEnabled:$False -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel Capacity -AgreementNumber '<EA agreement number>' -TokenOutputFilePath $FilePathForRegistrationToken
    ```
-   Další informace o rutině Get-AzsRegistrationToken najdete v [referenčních](#registration-reference)informacích k registraci.
+   For more information on the Get-AzsRegistrationToken cmdlet, see [Registration reference](#registration-reference).
 
    > [!Tip]  
-   > Registrační token je uložený v souboru určeném pro *$FilePathForRegistrationToken*. Můžete změnit cestu k souboru FilePath nebo filename podle vašeho uvážení.
+   > The registration token is saved in the file specified for *$FilePathForRegistrationToken*. You can change the filepath or filename at your discretion.
 
-3. Uložte tento registrační token, který se použije na počítači připojeném k Azure. Můžete zkopírovat soubor nebo text z $FilePathForRegistrationToken.
+3. Save this registration token for use on the Azure-connected machine. You can copy the file or the text from *$FilePathForRegistrationToken*.
 
-### <a name="connect-to-azure-and-register"></a>Připojení k Azure a registrace
+### <a name="connect-to-azure-and-register"></a>Connect to Azure and register
 
-V počítači, který je připojený k Internetu, proveďte stejný postup, abyste importovali modul RegisterWithAzure. psm1 a přihlásili se ke správnému kontextu Azure PowerShellu. Pak zavolejte Register-AzsEnvironment. Zadejte registrační token, který se má zaregistrovat v Azure. Pokud registrujete více než jednu instanci Azure Stack pomocí stejného ID předplatného Azure, zadejte jedinečný název registrace.
+On the computer that is connected to the internet, do the same steps to import the RegisterWithAzure.psm1 module and sign in to the correct Azure Powershell context. Then call Register-AzsEnvironment. Specify the registration token to register with Azure. If you're registering more than one instance of Azure Stack using the same Azure Subscription ID, specify a unique registration name.
 
-Budete potřebovat registrační token a jedinečný název tokenu.
+You need your registration token and a unique token name.
 
-1. Spusťte PowerShell ISE jako správce a přejděte do **registrační** složky v adresáři **AzureStack-Tools-Master** , který jste vytvořili při stahování nástrojů Azure Stack. Importujte modul **RegisterWithAzure. psm1** :  
+1. Start PowerShell ISE as an administrator and navigate to the **Registration** folder in the **AzureStack-Tools-master** directory created when you downloaded the Azure Stack tools. Import the **RegisterWithAzure.psm1** module:  
 
    ```powershell  
    Import-Module .\RegisterWithAzure.psm1
    ```
 
-2. Pak spusťte následující rutiny PowerShellu:  
+2. Then run the following PowerShell cmdlets:  
 
   ```powershell  
   $RegistrationToken = "<Your Registration Token>"
@@ -277,17 +278,17 @@ Budete potřebovat registrační token a jedinečný název tokenu.
   Register-AzsEnvironment -RegistrationToken $RegistrationToken -RegistrationName $RegistrationName
   ```
 
-Volitelně můžete použít rutinu Get-Content k ukázání na soubor, který obsahuje registrační token.
+Optionally, you can use the Get-Content cmdlet to point to a file that contains your registration token.
 
-Budete potřebovat registrační token a jedinečný název tokenu.
+You need your registration token and a unique token name.
 
-1. Spusťte PowerShell ISE jako správce a přejděte do **registrační** složky v adresáři **AzureStack-Tools-Master** , který jste vytvořili při stahování nástrojů Azure Stack. Importujte modul **RegisterWithAzure. psm1** :  
+1. Start PowerShell ISE as an administrator and navigate to the **Registration** folder in the **AzureStack-Tools-master** directory created when you downloaded the Azure Stack tools. Import the **RegisterWithAzure.psm1** module:  
 
   ```powershell  
   Import-Module .\RegisterWithAzure.psm1
   ```
 
-2. Pak spusťte následující rutiny PowerShellu:  
+2. Then run the following PowerShell cmdlets:  
 
   ```powershell  
   $RegistrationToken = Get-Content -Path '<Path>\<Registration Token File>'
@@ -295,13 +296,13 @@ Budete potřebovat registrační token a jedinečný název tokenu.
   ```
 
   > [!Note]  
-  > Uložte název prostředku registrace a registrační token pro budoucí referenci.
+  > Save the registration resource name and the registration token for future reference.
 
-### <a name="retrieve-an-activation-key-from-azure-registration-resource"></a>Načtení aktivačního klíče z registračního prostředku Azure
+### <a name="retrieve-an-activation-key-from-azure-registration-resource"></a>Retrieve an Activation Key from Azure Registration Resource
 
-Dále je potřeba načíst aktivační klíč z registračního prostředku vytvořeného v Azure během Register-AzsEnvironment.
+Next, you need to retrieve an activation key from the registration resource created in Azure during Register-AzsEnvironment.
 
-Aktivační klíč získáte spuštěním následujících rutin PowerShellu:  
+To get the activation key, run the following PowerShell cmdlets:  
 
   ```Powershell
   $RegistrationResourceName = "<unique-registration-name>"
@@ -310,62 +311,63 @@ Aktivační klíč získáte spuštěním následujících rutin PowerShellu:
   ```
 
   > [!Tip]  
-  > Aktivační klíč je uložený v souboru určeném pro *$KeyOutputFilePath*. Můžete změnit cestu k souboru FilePath nebo filename podle vašeho uvážení.
+  > The activation key is saved in the file specified for *$KeyOutputFilePath*. You can change the filepath or filename at your discretion.
 
-### <a name="create-an-activation-resource-in-azure-stack"></a>Vytvoření prostředku aktivace v Azure Stack
+### <a name="create-an-activation-resource-in-azure-stack"></a>Create an Activation Resource in Azure Stack
 
-Vraťte se do prostředí Azure Stack se souborem nebo textem z aktivačního klíče vytvořeným z get-AzsActivationKey. V dalším kroku vytvoříte prostředek aktivace v Azure Stack pomocí tohoto aktivačního klíče. Pokud chcete vytvořit prostředek aktivace, spusťte následující rutiny PowerShellu: 
+Return to the Azure Stack environment with the file or text from the activation key created from Get-AzsActivationKey. Next create an activation resource in Azure Stack using that activation key. To create an activation resource, run the following PowerShell cmdlets:
 
   ```Powershell
   $ActivationKey = "<activation key>"
   New-AzsActivationResource -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -ActivationKey $ActivationKey
   ```
 
-Volitelně můžete pomocí rutiny Get-Content odkazovat na soubor, který obsahuje registrační token:
+Optionally, you can use the Get-Content cmdlet to point to a file that contains your registration token:
 
   ```Powershell
   $ActivationKey = Get-Content -Path '<Path>\<Activation Key File>'
   New-AzsActivationResource -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -ActivationKey $ActivationKey
   ```
 
-## <a name="verify-azure-stack-registration"></a>Ověřit registraci Azure Stack
+## <a name="verify-azure-stack-registration"></a>Verify Azure Stack registration
 
-Pomocí dlaždice **Správa oblastí** můžete ověřit, že byla registrace Azure Stack úspěšná. Tato dlaždice je k dispozici na výchozím řídicím panelu na portálu pro správu. Stav lze zaregistrovat nebo není zaregistrován. Pokud je zaregistrované, zobrazí se také ID předplatného Azure, které jste použili k registraci svého Azure Stack spolu se skupinou prostředků registrace a názvem.
+You can use the **Region management** tile to verify that the Azure Stack registration was successful. This tile is available on the default dashboard in the administrator portal. The status can be registered, or not registered. If registered, it also shows the Azure subscription ID that you used to register your Azure Stack along with the registration resource group and name.
 
-1. Přihlaste se k [portálu pro správu Azure Stack](https://adminportal.local.azurestack.external).
+1. Sign in to the [Azure Stack administrator portal](https://adminportal.local.azurestack.external).
 
-2. Z řídicího panelu vyberte **Správa oblastí**.
+2. From the Dashboard, select **Region management**.
 
-3. Vyberte **Vlastnosti**. Toto okno zobrazuje stav a podrobnosti vašeho prostředí. Stav lze **zaregistrovat**, **není zaregistrováno**nebo **vypršela jeho platnost**.
+3. Vyberte **Vlastnosti**. This blade shows the status and details of your environment. The status can be **Registered**, **Not registered**, or **Expired**.
 
-    [(media/azure-stack-registration/admin1sm.png "Dlaždice") správy oblastí na ![dlaždici Správa oblastí]](media/azure-stack-registration/admin1.png#lightbox)
+    [![Region management tile in Azure Stack administrator portal](media/azure-stack-registration/admin1sm.png "Region management tile")](media/azure-stack-registration/admin1.png#lightbox)
 
-    Pokud jsou zaregistrované, zahrnují tyto vlastnosti:
+    If registered, the properties include:
     
-    - **ID předplatného registrace**: ID předplatného Azure, které je zaregistrované a přidružené k Azure Stack
-    - **Skupina prostředků registrace**: Skupina prostředků Azure v přidruženém předplatném, které obsahuje prostředky Azure Stack.
+    - **Registration subscription ID**: The Azure subscription ID registered and associated to Azure Stack.
+    - **Registration resource group**: The Azure resource group in the associated subscription containing the Azure Stack resources.
 
-4. Azure Portal můžete použít k zobrazení prostředků registrace Azure Stack a pak ověřte, že se registrace úspěšně dokončila. Přihlaste se k [Azure Portal](https://portal.azure.com) pomocí účtu přidruženého k předplatnému, které jste použili k registraci Azure Stack. Vyberte **všechny prostředky**, povolte zaškrtávací políčko **Zobrazit skryté typy** a vyberte název registrace.
-5. Pokud se registrace nezdařila, je nutné znovu provést registraci pomocí následujících [kroků](#change-the-subscription-you-use) pro vyřešení problému.  
+4. You can use the Azure portal to view Azure Stack registration resources, and then verify that the registration succeeded. Sign in to the [Azure portal](https://portal.azure.com) using an account associated to the subscription you used to register Azure Stack. Select **All resources**, enable the **Show hidden types** checkbox, and select the registration name.
 
-Případně můžete pomocí funkce správy Marketplace ověřit, jestli byla registrace úspěšná. Pokud se v okně Správa Marketplace zobrazí seznam položek Marketplace, vaše Registrace proběhla úspěšně. V odpojených prostředích ale nebudete moct zobrazit položky Marketplace ve správě Marketplace.
+5. If the registration didn't succeed, you must re-register by following the [steps here](#change-the-subscription-you-use) to resolve the issue.  
+
+Alternatively, you can verify if your registration was successful by using the Marketplace management feature. If you see a list of marketplace items in the Marketplace management blade, your registration was successful. However, in disconnected environments, you can't see marketplace items in Marketplace management.
 
 > [!NOTE]
-> Po dokončení registrace se už nebude zobrazovat aktivní upozornění pro neregistraci. V Azure Stack verzích starších než 1904 se v odpojených scénářích zobrazí zpráva s výzvou k registraci a aktivaci Azure Stack, a to i v případě, že jste se zaregistrovali úspěšně. Tato zpráva se nezobrazuje ve verzi 1904 a novější.
+> After registration is complete, the active warning for not registering will no longer appear. In Azure Stack releases before 1904, in disconnected scenarios, you see a message in Marketplace management asking you to register and activate your Azure Stack, even if you have registered successfully. This message doesn't appear in release 1904 and later.
 
-## <a name="renew-or-change-registration"></a>Obnovit nebo změnit registraci
+## <a name="renew-or-change-registration"></a>Renew or change registration
 
-### <a name="renew-or-change-registration-in-connected-environments"></a>Obnovení nebo změna registrace v připojených prostředích
+### <a name="renew-or-change-registration-in-connected-environments"></a>Renew or change registration in connected environments
 
-Registraci budete muset aktualizovat nebo obnovit v následujících případech:
+You need to update or renew your registration in the following circumstances:
 
-- Po obnovení ročního předplatného založeného na kapacitě.
-- Když změníte model fakturace.
-- Při škálování změn (přidávání nebo odebírání uzlů) pro účely fakturace na základě kapacity.
+- After you renew your capacity-based yearly subscription.
+- When you change your billing model.
+- When you scale changes (add/remove nodes) for capacity-based billing.
 
-#### <a name="change-the-subscription-you-use"></a>Změna předplatného, které používáte
+#### <a name="change-the-subscription-you-use"></a>Change the subscription you use
 
-Pokud chcete změnit předplatné, které používáte, musíte nejdřív spustit rutinu **Remove-AzsRegistration** , ověřit, že jste přihlášeni ke správnému kontextu Azure PowerShell a nakonec spustit rutinu **set-AzsRegistration** s případnými změněnými parametry. včetně `<billing model>`:
+If you want to change the subscription you use, you must first run the **Remove-AzsRegistration** cmdlet, then ensure you're signed in to the correct Azure PowerShell context. Then run **Set-AzsRegistration** with any changed parameters including `<billing model>`:
 
   ```powershell  
   Remove-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -RegistrationName $RegistrationName
@@ -373,57 +375,57 @@ Pokud chcete změnit předplatné, které používáte, musíte nejdřív spusti
   Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel <billing model> -RegistrationName $RegistrationName
   ```
 
-#### <a name="change-the-billing-model-or-how-to-offer-features"></a>Změna modelu fakturace nebo nabízení funkcí
+#### <a name="change-the-billing-model-or-how-to-offer-features"></a>Change the billing model or how to offer features
 
-Pokud chcete změnit model fakturace nebo jak nabízet funkce pro vaši instalaci, můžete zavolat funkci registrace a nastavit nové hodnoty. Nemusíte nejdřív odebrat aktuální registraci:
+If you want to change the billing model or how to offer features for your installation, you can call the registration function to set the new values. You don't need to first remove the current registration:
 
   ```powershell  
   Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel <billing model> -RegistrationName $RegistrationName
   ```
 
-### <a name="renew-or-change-registration-in-disconnected-environments"></a>Obnovení nebo změna registrace v odpojených prostředích
+### <a name="renew-or-change-registration-in-disconnected-environments"></a>Renew or change registration in disconnected environments
 
-Registraci budete muset aktualizovat nebo obnovit v následujících případech:
+You need to update or renew your registration in the following circumstances:
 
-- Po obnovení ročního předplatného založeného na kapacitě.
-- Když změníte model fakturace.
-- Při škálování změn (přidávání nebo odebírání uzlů) pro účely fakturace na základě kapacity.
+- After you renew your capacity-based yearly subscription.
+- When you change your billing model.
+- When you scale changes (add/remove nodes) for capacity-based billing.
 
-#### <a name="remove-the-activation-resource-from-azure-stack"></a>Odebrat prostředek aktivace z Azure Stack
+#### <a name="remove-the-activation-resource-from-azure-stack"></a>Remove the activation resource from Azure Stack
 
-Nejdřív je potřeba odebrat prostředek aktivace z Azure Stack a pak prostředek registrace v Azure.  
+You first need to remove the activation resource from Azure Stack, and then the registration resource in Azure.  
 
-Pokud chcete odebrat prostředek aktivace v Azure Stack, spusťte ve svém Azure Stack prostředí následující rutiny PowerShellu:  
+To remove the activation resource in Azure Stack, run the following PowerShell cmdlets in your Azure Stack environment:  
 
   ```Powershell
   Remove-AzsActivationResource -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint
   ```
 
-Chcete-li odebrat registrační prostředek v Azure, ujistěte se, že jste na počítači připojeném k Azure, přihlaste se ke správnému kontextu Azure PowerShell a spusťte příslušné rutiny prostředí PowerShell, jak je popsáno níže.
+Next, to remove the registration resource in Azure, ensure you're on an Azure-connected computer, sign in to the correct Azure PowerShell context, and run the appropriate PowerShell cmdlets as described below.
 
-Můžete použít registrační token použitý k vytvoření prostředku:  
+You can use the registration token used to create the resource:  
 
   ```Powershell
   $RegistrationToken = "<registration token>"
   Unregister-AzsEnvironment -RegistrationToken $RegistrationToken
   ```
 
-Můžete také použít název registrace:
+Or you can use the registration name:
 
   ```Powershell
   $RegistrationName = "AzureStack-<unique-registration-name>"
   Unregister-AzsEnvironment -RegistrationName $RegistrationName
   ```
 
-### <a name="re-register-using-disconnected-steps"></a>Znovu zaregistrovat pomocí odpojených kroků
+### <a name="re-register-using-disconnected-steps"></a>Re-register using disconnected steps
 
-Nyní jste zcela zrušili registraci v odpojeném scénáři a kroky pro registraci Azure Stackho prostředí v odpojeném scénáři se musí zopakovat.
+You've now completely unregistered in a disconnected scenario and must repeat the steps for registering an Azure Stack environment in a disconnected scenario.
 
-### <a name="disable-or-enable-usage-reporting"></a>Zakázat nebo povolit vytváření sestav využití
+### <a name="disable-or-enable-usage-reporting"></a>Disable or enable usage reporting
 
-U Azure Stack prostředí, která používají model fakturace kapacity, vypněte vytváření sestav využití s parametrem **UsageReportingEnabled** pomocí rutiny **set-AzsRegistration** nebo **Get-AzsRegistrationToken** . Ve výchozím nastavení Azure Stack sestavy metriky využití. Používání funkce vytváření sestav vyžaduje, aby operátoři s využitím kapacity nebo podpora odpojeného prostředí vypnuli.
+For Azure Stack environments that use a capacity billing model, turn off usage reporting with the **UsageReportingEnabled** parameter using either the **Set-AzsRegistration** or the **Get-AzsRegistrationToken** cmdlets. Azure Stack reports usage metrics by default. Operators with capacity uses or supporting a disconnected environment need to turn off usage reporting.
 
-#### <a name="with-a-connected-azure-stack"></a>S připojeným Azure Stack
+#### <a name="with-a-connected-azure-stack"></a>With a connected Azure Stack
 
    ```powershell  
    $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
@@ -435,9 +437,9 @@ U Azure Stack prostředí, která používají model fakturace kapacity, vypnět
       -RegistrationName $RegistrationName
    ```
 
-#### <a name="with-a-disconnected-azure-stack"></a>S odpojeným Azure Stack
+#### <a name="with-a-disconnected-azure-stack"></a>With a disconnected Azure Stack
 
-1. Pokud chcete změnit registrační token, spusťte následující rutiny PowerShellu:  
+1. To change the registration token, run the following PowerShell cmdlets:  
 
    ```Powershell
    $FilePathForRegistrationToken = $env:SystemDrive\RegistrationToken.txt
@@ -446,27 +448,27 @@ U Azure Stack prostředí, která používají model fakturace kapacity, vypnět
    ```
 
    > [!Tip]  
-   > Registrační token je uložený v souboru určeném pro *$FilePathForRegistrationToken*. Můžete změnit cestu k souboru FilePath nebo filename podle vašeho uvážení.
+   > The registration token is saved in the file specified for *$FilePathForRegistrationToken*. You can change the filepath or filename at your discretion.
 
-2. Uložte tento registrační token, který se použije na počítači připojeném k Azure. Můžete zkopírovat soubor nebo text z $FilePathForRegistrationToken.
+2. Save this registration token for use on the Azure connected machine. You can copy the file or the text from *$FilePathForRegistrationToken*.
 
-## <a name="move-a-registration-resource"></a>Přesunutí prostředku registrace
+## <a name="move-a-registration-resource"></a>Move a registration resource
 
-Přesunutí prostředku registrace mezi skupinami prostředků v rámci stejného předplatného **je** podporováno pro všechna prostředí. Přesun registračního prostředku mezi předplatnými se ale podporuje jenom pro zprostředkovatele CSP, pokud oba odběry řeší stejné ID partnera. Další informace o přesouvání prostředků do nové skupiny prostředků najdete v tématu [Přesunutí prostředků do nové skupiny prostředků nebo předplatného](/azure/azure-resource-manager/resource-group-move-resources).
+Moving a registration resource between resource groups under the same subscription **is** supported for all environments. However, moving a registration resource between subscriptions is only supported for CSPs when both subscriptions resolve to the same Partner ID. For more information about moving resources to a new resource group, see [Move resources to new resource group or subscription](/azure/azure-resource-manager/resource-group-move-resources).
 
 > [!IMPORTANT]
-> Aby se zabránilo nechtěnému odstranění prostředků registrace na portálu, registrační skript automaticky přidá ke zdroji zámek. Před přesunutím nebo odstraněním tohoto zámku je nutné tento zámek odebrat. Doporučuje se přidat zámek k registračnímu prostředku, abyste zabránili nechtěnému odstranění.
+> To prevent accidental deletion of registration resources on the portal, the registration script automatically adds a lock to the resource. You must remove this lock before moving or deleting it. It's recommended that you add a lock to your registration resource to prevent accidental deletion.
 
-## <a name="registration-reference"></a>Registrační odkaz
+## <a name="registration-reference"></a>Registration reference
 
 ### <a name="set-azsregistration"></a>Set-AzsRegistration
 
-Pomocí **set-AzsRegistration** můžete zaregistrovat Azure Stack s Azure a povolit nebo zakázat nabídku položek na webu Marketplace a vytváření sestav o využití.
+You can use **Set-AzsRegistration** to register Azure Stack with Azure and enable or disable the offer of items in the marketplace and usage reporting.
 
-K provedení rutiny potřebujete:
+To run the cmdlet, you need:
 
-- Globální předplatné Azure libovolného typu.
-- Musíte být také přihlášení k Azure PowerShell s účtem, který je vlastníkem nebo přispěvatelem daného předplatného.
+- A global Azure subscription of any type.
+- To be signed in to Azure PowerShell with an account that's an owner or contributor to that subscription.
 
 ```powershell
 Set-AzsRegistration [-PrivilegedEndpointCredential] <PSCredential> [-PrivilegedEndpoint] <String> [[-AzureContext]
@@ -477,20 +479,20 @@ Set-AzsRegistration [-PrivilegedEndpointCredential] <PSCredential> [-PrivilegedE
 
 | Parametr | Typ | Popis |
 |-------------------------------|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| PrivilegedEndpointCredential | PSCredential | Přihlašovací údaje použité pro [přístup k privilegovanému koncovému bodu](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). Uživatelské jméno má formát **AzureStackDomain\CloudAdmin**. |
-| PrivilegedEndpoint | Řetězec | Předem nakonfigurovaná Vzdálená konzola PowerShellu, která poskytuje možnosti, jako je shromažďování protokolů a další úkoly po nasazení. Další informace najdete v článku [použití privilegovaného koncového bodu](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) . |
+| PrivilegedEndpointCredential | PSCredential | The credentials used to [access the privileged endpoint](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). The username is in the format **AzureStackDomain\CloudAdmin**. |
+| PrivilegedEndpoint | Řetězec | A pre-configured remote PowerShell console that provides you with capabilities like log collection and other post deployment tasks. To learn more, refer to the [using the privileged endpoint](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) article. |
 | AzureContext | PSObject |  |
 | ResourceGroupName | Řetězec |  |
 | ResourceGroupLocation | Řetězec |  |
-| BillingModel | Řetězec | Model fakturace, který používá vaše předplatné. Povolené hodnoty pro tento parametr jsou: Capacity, PayAsYouUse a vývoj. |
-| MarketplaceSyndicationEnabled | True nebo false | Určuje, jestli je na portálu dostupná funkce správy Marketplace. Nastavte na hodnotu true, pokud se registruje s připojením k Internetu. Nastavte na hodnotu false, pokud se registruje v odpojených prostředích. U odpojených registrací se dá [Nástroj pro offline syndikaci](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario) použít ke stažení položek Marketplace. |
-| UsageReportingEnabled | True nebo false | Ve výchozím nastavení Azure Stack sestavy metriky využití. Používání funkce vytváření sestav vyžaduje, aby operátoři s využitím kapacity nebo podpora odpojeného prostředí vypnuli. Povolené hodnoty pro tento parametr jsou: true, false. |
+| BillingModel | Řetězec | The billing model that your subscription uses. Allowed values for this parameter are: Capacity, PayAsYouUse, and Development. |
+| MarketplaceSyndicationEnabled | True/False | Determines if the marketplace management feature is available in the portal. Set to true if registering with internet connectivity. Set to false if registering in disconnected environments. For disconnected registrations, the [offline syndication tool](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario) can be used for downloading marketplace items. |
+| UsageReportingEnabled | True/False | Azure Stack reports usage metrics by default. Operators with capacity uses or supporting a disconnected environment need to turn off usage reporting. Allowed values for this parameter are: True, False. |
 | AgreementNumber | Řetězec |  |
-| registrace | Řetězec | Pokud používáte registrační skript ve více než jedné instanci Azure Stack s použitím stejného ID předplatného Azure, nastavte pro registraci jedinečný název. Parametr má výchozí hodnotu **AzureStackRegistration**. Pokud však použijete stejný název na více než jedné instanci Azure Stack, skript se nezdařil. |
+| RegistrationName | Řetězec | Set a unique name for the registration if you're running the registration script on more than one instance of Azure Stack using the same Azure Subscription ID. The parameter has a default value of **AzureStackRegistration**. However, if you use the same name on more than one instance of Azure Stack, the script fails. |
 
 ### <a name="get-azsregistrationtoken"></a>Get-AzsRegistrationToken
 
-Get-AzsRegistrationToken vygeneruje registrační token ze vstupních parametrů.
+Get-AzsRegistrationToken generates a registration token from the input parameters.
 
 ```powershell  
 Get-AzsRegistrationToken [-PrivilegedEndpointCredential] <PSCredential> [-PrivilegedEndpoint] <String>
@@ -499,31 +501,32 @@ Get-AzsRegistrationToken [-PrivilegedEndpointCredential] <PSCredential> [-Privil
 ```
 | Parametr | Typ | Popis |
 |-------------------------------|--------------|-------------|
-| PrivilegedEndpointCredential | PSCredential | Přihlašovací údaje použité pro [přístup k privilegovanému koncovému bodu](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). Uživatelské jméno má formát **AzureStackDomain\CloudAdmin**. |
-| PrivilegedEndpoint | Řetězec |  Předem nakonfigurovaná Vzdálená konzola PowerShellu, která poskytuje možnosti, jako je shromažďování protokolů a další úkoly po nasazení. Další informace najdete v článku [použití privilegovaného koncového bodu](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) . |
+| PrivilegedEndpointCredential | PSCredential | The credentials used to [access the privileged endpoint](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). The username is in the format **AzureStackDomain\CloudAdmin**. |
+| PrivilegedEndpoint | Řetězec |  A pre-configured remote PowerShell console that provides you with capabilities like log collection and other post deployment tasks. To learn more, refer to the [using the privileged endpoint](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) article. |
 | AzureContext | PSObject |  |
 | ResourceGroupName | Řetězec |  |
 | ResourceGroupLocation | Řetězec |  |
-| BillingModel | Řetězec | Model fakturace, který používá vaše předplatné. Povolené hodnoty pro tento parametr jsou: Capacity, PayAsYouUse a vývoj. |
-| MarketplaceSyndicationEnabled | True nebo false |  |
-| UsageReportingEnabled | True nebo false | Ve výchozím nastavení Azure Stack sestavy metriky využití. Používání funkce vytváření sestav vyžaduje, aby operátoři s využitím kapacity nebo podpora odpojeného prostředí vypnuli. Povolené hodnoty pro tento parametr jsou: true, false. |
+| BillingModel | Řetězec | The billing model that your subscription uses. Allowed values for this parameter are: Capacity, PayAsYouUse, and Development. |
+| MarketplaceSyndicationEnabled | True/False |  |
+| UsageReportingEnabled | True/False | Azure Stack reports usage metrics by default. Operators with capacity uses or supporting a disconnected environment need to turn off usage reporting. Allowed values for this parameter are: True, False. |
 | AgreementNumber | Řetězec |  |
 
 ## <a name="registration-failures"></a>Selhání registrace
 
-Při pokusu o registraci vašeho Azure Stack se může zobrazit jedna z následujících chyb:
-1. Nepovedlo se načíst povinné informace o hardwaru pro $hostName. Zkontrolujte fyzického hostitele a připojení a pak zkuste znovu spustit registraci.
+You might see one of the errors below while attempting to register your Azure Stack:
 
-2. Nejde se připojit k $hostName získat informace o hardwaru – zkontrolujte prosím fyzického hostitele a připojení a zkuste znovu spustit registraci.
+- Could not retrieve mandatory hardware info for $hostName. Check physical host and connectivity then try to rerun registration.
 
-> Příčina: obvykle se snažíme z hostitelů získat podrobnosti o hardwaru, jako je UUID, BIOS a CPU, aby se pokusily o aktivaci a nebylo možné z důvodu neschopnosti připojit se k fyzickému hostiteli.
+- Cannot connect to $hostName to get hardware info - please check physical host and connectivity then try to rerun registration.
 
-Při pokusu o přístup ke správě Marketplace dojde k chybě při pokusu o zasyndikátování produktů. 
-> Příčina: k tomu obvykle dochází, když Azure Stack nedokáže získat přístup k registračnímu prostředku. Jedním z běžných důvodů je, že když se tenant adresáře pro předplatné Azure změní, resetuje registraci. Pokud jste změnili tenanta adresáře pro předplatné, nemůžete získat přístup k Azure Stack Marketplace nebo sestavě. Chcete-li tento problém vyřešit, je nutné provést novou registraci.
+> Cause: this is typically because we try to obtain hardware details such as UUID, Bios, and CPU from the hosts to attempt activation and weren't able to due to the inability to connect to the physical host.
 
-Správa Marketplace se stále zeptá, abyste zaregistrovali a aktivovali Azure Stack, i když jste razítko už zaregistrovali pomocí odpojeného procesu. 
-> Příčina: Jedná se o známý problém pro odpojená prostředí. Stav registrace můžete ověřit pomocí následujících [kroků](azure-stack-registration.md#verify-azure-stack-registration). Aby bylo možné používat správu na webu Marketplace, budete muset použít [offline nástroj](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario). 
+When trying to access Marketplace management, an error occurs when trying to syndicate products. 
+> Cause: this usually happens when Azure Stack is unable to access the registration resource. One common reason for this is that when an Azure subscription's directory tenant changes, it resets the registration. You can't access the Azure Stack marketplace or report usage if you've changed the subscription's directory tenant. You need to re-register to fix this issue.
+
+Marketplace management still asks you to register and activate your Azure Stack even when you've already registered your stamp using the disconnected process.
+> Cause: this is a known issue for disconnected environments. You can verify your registration status by following [these steps](azure-stack-registration.md#verify-azure-stack-registration). In order to use Marketplace management, you need to use [the offline tool](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario).
 
 ## <a name="next-steps"></a>Další kroky
 
-[Stažení položek z Marketplace z Azure](azure-stack-download-azure-marketplace-item.md)
+[Download marketplace items from Azure](azure-stack-download-azure-marketplace-item.md)

@@ -1,6 +1,6 @@
 ---
-title: Aktualizace poskytovatele prostředků Azure Stack SQL | Microsoft Docs
-description: Přečtěte si, jak můžete aktualizovat poskytovatele prostředků Azure Stack SQL.
+title: Updating the Azure Stack SQL resource provider | Microsoft Docs
+description: Learn how you can update the Azure Stack SQL resource provider.
 services: azure-stack
 documentationCenter: ''
 author: mattbriggs
@@ -13,64 +13,64 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/11/2019
 ms.author: mabrigg
-ms.reviewer: jiahan
+ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: b37e4c9f5e7b1aaa1a476b0665a9558e8e86365f
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.openlocfilehash: 26ce99f87f1b0e1e379bad6276c88a8e6772c035
+ms.sourcegitcommit: 284f5316677c9a7f4c300177d0e2a905df8cb478
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955423"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74465349"
 ---
-# <a name="update-the-sql-resource-provider"></a>Aktualizovat poskytovatele prostředků SQL
+# <a name="update-the-sql-resource-provider"></a>Update the SQL resource provider
 
-*Platí pro: Azure Stack integrovaných systémů.*
+*Applies to: Azure Stack integrated systems.*
 
-Když se Azure Stack aktualizuje na nové sestavení, může být vydaný nový poskytovatel prostředků SQL. I když stávající poskytovatel prostředků i nadále funguje, doporučujeme aktualizovat na nejnovější sestavení co nejdříve. 
+A new SQL resource provider might be released when Azure Stack is updated to a new build. Although the existing resource provider continues to work, we recommend updating to the latest build as soon as possible. 
 
-Od verze 1.1.33.0 verze poskytovatele prostředků SQL jsou aktualizace kumulativní a není nutné je instalovat v pořadí, v jakém byly vydány. Pokud začínáte z verze 1.1.24.0 nebo novější. Pokud například používáte verzi 1.1.24.0 poskytovatele prostředků SQL, můžete upgradovat na verzi 1.1.33.0 nebo novější, aniž byste museli nejdřív nainstalovat verzi 1.1.30.0. Pokud chcete zkontrolovat dostupné verze poskytovatele prostředků a verzi Azure Stack podporovaná, přečtěte si téma seznam verzí v tématu [nasazení požadavků poskytovatele prostředků](./azure-stack-sql-resource-provider-deploy.md#prerequisites).
+Starting with the SQL resource provider version 1.1.33.0 release, updates are cumulative and do not need to be installed in the order in which they were released; as long as you're starting from version 1.1.24.0 or later. For example, if you are running version 1.1.24.0 of the SQL resource provider, then you can upgrade to version 1.1.33.0 or later without needing to first install version 1.1.30.0. To review available resource provider versions, and the version of Azure Stack they are supported on, refer to the versions list in [Deploy the resource provider prerequisites](./azure-stack-sql-resource-provider-deploy.md#prerequisites).
 
-Chcete-li aktualizovat poskytovatele prostředků, použijte skript *UpdateSQLProvider. ps1* . Tento skript je součástí stažení nového poskytovatele prostředků SQL. Proces aktualizace je podobný procesu použitému k [nasazení poskytovatele prostředků](./azure-stack-sql-resource-provider-deploy.md). Skript aktualizace používá stejné argumenty jako skript DeploySqlProvider. ps1 a budete muset zadat informace o certifikátu.
+To update the resource provider, use the *UpdateSQLProvider.ps1* script. This script is included with the download of the new SQL resource provider. The update process is similar to the process used to [Deploy the resource provider](./azure-stack-sql-resource-provider-deploy.md). The update script uses the same arguments as the DeploySqlProvider.ps1 script, and you'll need to provide certificate information.
 
  > [!IMPORTANT]
- > Před upgradem poskytovatele prostředků si přečtěte poznámky k verzi, kde najdete informace o nových funkcích, opravách a známých problémech, které by mohly mít vliv na nasazení.
+ > Before upgrading the resource provider, review the release notes to learn about new functionality, fixes, and any known issues that could affect your deployment.
 
-## <a name="update-script-processes"></a>Aktualizovat procesy skriptu
+## <a name="update-script-processes"></a>Update script processes
 
-Skript *UpdateSQLProvider. ps1* vytvoří nový virtuální počítač (VM) s nejnovějším kódem poskytovatele prostředků.
+The *UpdateSQLProvider.ps1* script creates a new virtual machine (VM) with the latest resource provider code.
 
 > [!NOTE]
-> Doporučujeme stáhnout si nejnovější image Windows serveru 2016 Core ze správy Marketplace. Pokud potřebujete nainstalovat aktualizaci, můžete do cesty místní závislosti umístit **jeden** balíček MSU. Pokud je v tomto umístění více než jeden soubor MSU, skript se nezdaří.
+> We recommend that you download the latest Windows Server 2016 Core image from Marketplace Management. If you need to install an update, you can place a **single** MSU package in the local dependency path. The script will fail if there's more than one MSU file in this location.
 
-Po vytvoření nového virtuálního počítače pomocí skriptu *UpdateSQLProvider. ps1* migruje skript následující nastavení z původního virtuálního počítače poskytovatele:
+After the *UpdateSQLProvider.ps1* script creates a new VM, the script migrates the following settings from the old provider VM:
 
-* Informace o databázi
-* informace o hostitelském serveru
-* požadovaný záznam DNS
+* database information
+* hosting server information
+* required DNS record
 
-## <a name="update-script-parameters"></a>Aktualizovat parametry skriptu
+## <a name="update-script-parameters"></a>Update script parameters
 
-Když spustíte skript prostředí PowerShell **UpdateSQLProvider. ps1** , můžete zadat následující parametry z příkazového řádku. Pokud ne, nebo pokud se nějaké ověření parametru nepodaří, budete vyzváni k zadání požadovaných parametrů.
+You can specify the following parameters from the command line when you run the **UpdateSQLProvider.ps1** PowerShell script. If you don't, or if any parameter validation fails, you're prompted to provide the required parameters.
 
-| Název parametru | Popis | Komentář nebo výchozí hodnota |
+| Název parametru | Popis | Comment or default value |
 | --- | --- | --- |
-| **CloudAdminCredential** | Přihlašovací údaje pro správce cloudu, které jsou nezbytné pro přístup k privilegovanému koncovému bodu. | _Požadovanou_ |
-| **AzCredential** | Přihlašovací údaje pro účet správce služby Azure Stack Použijte stejné přihlašovací údaje, které jste použili pro nasazení Azure Stack. | _Požadovanou_ |
-| **VMLocalCredential** | Pověření pro účet místního správce virtuálního počítače poskytovatele prostředků SQL. | _Požadovanou_ |
-| **PrivilegedEndpoint** | IP adresa nebo název DNS privilegovaného koncového bodu. |  _Požadovanou_ |
-| **AzureEnvironment** | Prostředí Azure účtu správce služby, které jste použili pro nasazení Azure Stack. Vyžaduje se jenom pro nasazení Azure AD. Podporované názvy prostředí jsou **AzureCloud**, **AzureUSGovernment**nebo, pokud používáte Čína Azure AD **AzureChinaCloud**. | AzureCloud |
-| **DependencyFilesLocalPath** | Do tohoto adresáře musíte taky vložit soubor Certificate. pfx. | _Volitelné pro jeden uzel, ale je povinný pro více uzlů_ |
-| **DefaultSSLCertificatePassword** | Heslo pro certifikát. pfx. | _Požadovanou_ |
-| **MaxRetryCount** | Počet pokusů o opakování všech operací, pokud dojde k selhání.| 2 |
-| **RetryDuration** |Interval časového limitu mezi opakovanými pokusy (v sekundách). | 120 |
-| **Odinstalace** | Odebere poskytovatele prostředků a všechny přidružené prostředky. | Ne |
-| **DebugMode** | Zabraňuje automatickému vyčištění při selhání. | Ne |
+| **CloudAdminCredential** | The credential for the cloud administrator, necessary for accessing the privileged endpoint. | _Required_ |
+| **AzCredential** | The credentials for the Azure Stack service administrator account. Use the same credentials that you used for deploying Azure Stack. | _Required_ |
+| **VMLocalCredential** | The credentials for the local administrator account of the SQL resource provider VM. | _Required_ |
+| **PrivilegedEndpoint** | The IP address or DNS name of the privileged endpoint. |  _Required_ |
+| **AzureEnvironment** | The Azure environment of the service admin account which you used for deploying Azure Stack. Required only for Azure AD deployments. Supported environment names are **AzureCloud**, **AzureUSGovernment**, or if using a China Azure AD, **AzureChinaCloud**. | AzureCloud |
+| **DependencyFilesLocalPath** | You must also put your certificate .pfx file in this directory. | _Optional for single node, but mandatory for multi-node_ |
+| **DefaultSSLCertificatePassword** | The password for the .pfx certificate. | _Required_ |
+| **MaxRetryCount** | The number of times you want to retry each operation if there's a failure.| 2 |
+| **RetryDuration** |The timeout interval between retries, in seconds. | 120 |
+| **Odinstalace** | Removes the resource provider and all associated resources. | Ne |
+| **DebugMode** | Prevents automatic cleanup on failure. | Ne |
 
-## <a name="update-script-powershell-example"></a>Příklad aktualizace skriptu PowerShellu
-Následuje příklad použití skriptu *UpdateSQLProvider. ps1* , který můžete spustit z konzoly PowerShell se zvýšenými oprávněními. Nezapomeňte změnit informace o proměnné a hesla podle potřeby:  
-
+## <a name="update-script-powershell-example"></a>Update script PowerShell example
 > [!NOTE]
-> Tento proces aktualizace se týká pouze Azure Stack integrovaných systémů.
+> This update process only applies to Azure Stack integrated systems.
+
+If you are updating the SQL resource provider version to 1.1.33.0 or previous versions, you need to install specific versions of AzureRm.BootStrapper and Azure Stack modules in PowerShell. If you are updating to the SQL resource provider version 1.1.47.0, this step can be skipped.
 
 ```powershell
 # Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module
@@ -78,7 +78,11 @@ Následuje příklad použití skriptu *UpdateSQLProvider. ps1* , který můžet
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
 Install-Module -Name AzureStack -RequiredVersion 1.6.0
+```
 
+The following is an example of using the *UpdateSQLProvider.ps1* script that you can run from an elevated PowerShell console. Be sure to change the variable information and passwords as needed:  
+
+```powershell
 # Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but this might have been changed at installation.
 $domain = "AzureStack"
 
@@ -121,4 +125,4 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
 ## <a name="next-steps"></a>Další kroky
 
-[Údržba poskytovatele prostředků SQL](azure-stack-sql-resource-provider-maintain.md)
+[Maintain the SQL resource provider](azure-stack-sql-resource-provider-maintain.md)
