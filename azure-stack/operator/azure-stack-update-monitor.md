@@ -30,7 +30,7 @@ Pomocí koncových bodů správy Azure Stack můžete monitorovat a spravovat ak
 
 Ke správě aktualizací můžete použít tuto rutinu prostředí PowerShell:
 
-| Rutiny | Popis |
+| Rutina | Popis |
 |------------------------------------------------------|-------------|
 | [Get-AzsUpdate](https://docs.microsoft.com/powershell/module/azs.update.admin/Get-AzsUpdate?view=azurestackps-1.8.0) | Získejte seznam dostupných aktualizací. |
 | [Get-AzsUpdateLocation](https://docs.microsoft.com/powershell/module/azs.update.admin/Get-AzsUpdateLocation?view=azurestackps-1.8.0)| Získá seznam umístění aktualizací. |

@@ -79,7 +79,7 @@ Možnosti uvolnění místa na připojeném kontejneru [jsou omezené](#move-vm-
 ## <a name="monitor-shares"></a>Monitorovat sdílené složky
 Pomocí PowerShellu nebo portálu pro správu monitorujte sdílené složky, abyste mohli pochopit, kdy je volné místo omezené. Když použijete portál, dostanete výstrahy o sdílených složkách, které mají nedostatek místa.
 
-### <a name="use-powershell"></a>Použití prostředí PowerShell
+### <a name="use-powershell"></a>Použití PowerShellu
 Jako operátor cloudu můžete sledovat kapacitu úložiště sdílené složky pomocí rutiny PowerShellu **Get-AzsStorageShare** . Rutina Get-AzsStorageShare vrátí celkovou, přidělenou a volnou velikost v bajtech na každé sdílené složky.
 
 ![Příklad: vrácení volného místa pro sdílené složky](media/azure-stack-manage-storage-shares/free-space.png)
