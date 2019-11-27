@@ -15,12 +15,12 @@ ms.date: 09/19/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: 813cfb72a2fad2b22dfce5baff8680b30d2c599d
-ms.sourcegitcommit: cefba8d6a93efaedff303d3c605b02bd28996c5d
-ms.translationtype: HT
+ms.openlocfilehash: ce827f900c6522d720f493c60495bd830cf328f4
+ms.sourcegitcommit: 55ec59f831a98c42a4e9ff0dd954bf10adb98ff1
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74298821"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74540299"
 ---
 # <a name="install-powershell-for-azure-stack"></a>Instalace PowerShellu pro Azure Stack
 
@@ -94,7 +94,18 @@ Profil verze rozhraní API a moduly Azure Stack PowerShellu, které požadujete,
 
 Spusťte následující skript PowerShellu, který nainstaluje tyto moduly na svou vývojovou pracovní stanici:
 
-- Pro Azure Stack 1904 nebo novější:
+- Pro Azure Stack 1910 nebo novější:
+
+    ```powershell  
+    # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
+    Install-Module -Name AzureRM.BootStrapper
+
+    # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
+    Use-AzureRmProfile -Profile 2019-03-01-hybrid -Force
+    Install-Module -Name AzureStack -RequiredVersion 1.8.0
+    ```
+
+- Pro Azure Stack 1908 nebo po 1903:
 
     ```powershell  
     # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
@@ -115,7 +126,8 @@ Spusťte následující skript PowerShellu, který nainstaluje tyto moduly na sv
     ```
 
     > [!Note]  
-    > - Verze modulu Azure Stack 1.7.1 je zásadním vydáním změn. Chcete-li provést migraci z Azure Stack 1.6.0, přečtěte si [příručku k migraci](https://aka.ms/azspshmigration171).
+    > - Verze modulu Azure Stack 1.8.0 je zásadním vydáním změn. Podrobnosti najdete v [poznámkách k verzi](release-notes.md#changes) .
+    > - Verze modulu Azure Stack 1.7.2 je zásadním vydáním změn. Chcete-li provést migraci z Azure Stack 1.6.0, přečtěte si [příručku k migraci](https://aka.ms/azspshmigration171).
     > - Verze modulu AzureRM 2.4.0 obsahuje zásadní změnu rutiny Remove-AzureRmStorageAccount. Tato rutina očekává, `-Force` parametr, který se má zadat pro odebrání účtu úložiště bez potvrzení.
     > - Nemusíte instalovat **AzureRM. zaváděcí nástroj** pro instalaci modulů pro Azure Stack verze 1901 nebo novější.
     > - Kromě používání výše uvedených Azure Stack modulů AzureRM verze 1901 nebo novější neinstalujte profil 2018-03-01-Hybrid.
@@ -147,7 +159,18 @@ Instalace má čtyři kroky:
 
 ### <a name="install-azure-stack-powershell"></a>Instalace Azure Stack PowerShellu
 
-- Azure Stack 1904 nebo novější.
+- Azure Stack 1910 nebo novější.
+
+    ```powershell
+    Import-Module -Name PowerShellGet -ErrorAction Stop
+    Import-Module -Name PackageManagement -ErrorAction Stop
+
+    $Path = "<Path that is used to save the packages>"
+    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.5.0
+    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.8.0
+    ```
+
+- Pro Azure Stack 1908 nebo po 1903:
 
     ```powershell
     Import-Module -Name PowerShellGet -ErrorAction Stop
@@ -170,6 +193,7 @@ Instalace má čtyři kroky:
     ```
 
     > [!Note]  
+    > - Verze modulu Azure Stack 1.8.0 je zásadním vydáním změn. Podrobnosti najdete v [poznámkách k verzi](release-notes.md#changes) .
     > 1\.7.1 modul Azure Stack verze je zásadní změna. Postup migrace z Azure Stack 1.6.0 najdete v [Průvodci migrací](https://github.com/Azure/azure-powershell/tree/AzureRM/documentation/migration-guides/Stack).
 
     > [!NOTE]

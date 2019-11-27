@@ -15,12 +15,12 @@ ms.date: 08/23/2019
 ms.author: mabrigg
 ms.lastreviewed: 08/23/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: a49f2f5c6b06f3362e4cb85553b765ea9fea1a72
-ms.sourcegitcommit: b8260ef3e43f3703dd0df16fb752610ec8a86942
+ms.openlocfilehash: a724320bd066e6d46e33e6bdc9c80687cfb97736
+ms.sourcegitcommit: 55ec59f831a98c42a4e9ff0dd954bf10adb98ff1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70010206"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74540285"
 ---
 # <a name="monitor-updates-in-azure-stack-using-powershell"></a>Monitorování aktualizací v Azure Stack pomocí prostředí PowerShell
 
@@ -32,11 +32,11 @@ Ke správě aktualizací můžete použít tuto rutinu prostředí PowerShell:
 
 | Rutiny | Popis |
 |------------------------------------------------------|-------------|
-| [Get-AzsUpdate](https://docs.microsoft.com/powershell/module/azs.update.admin/Get-AzsUpdate?view=azurestackps-1.7.2) | Získejte seznam dostupných aktualizací. |
-| [Get-AzsUpdateLocation](https://docs.microsoft.com/powershell/module/azs.update.admin/Get-AzsUpdateLocation?view=azurestackps-1.7.2)| Získá seznam umístění aktualizací. |
-| [Get-AzsUpdateRun](https://docs.microsoft.com/powershell/module/azs.update.admin/Get-AzsUpdateRun?view=azurestackps-1.7.2) | Získá seznam běhů aktualizace.  |
-| [Install-AzsUpdate](https://docs.microsoft.com/powershell/module/azs.update.admin/Install-AzsUpdate?view=azurestackps-1.7.2) | Použijte konkrétní aktualizaci v umístění aktualizace. |
-| [Pokračovat – AzsUpdateRun](https://docs.microsoft.com/powershell/module/azs.update.admin/Resume-AzsUpdateRun?view=azurestackps-1.7.2) | Obnoví předchozí spuštěnou aktualizaci, která se nezdařila. |
+| [Get-AzsUpdate](https://docs.microsoft.com/powershell/module/azs.update.admin/Get-AzsUpdate?view=azurestackps-1.8.0) | Získejte seznam dostupných aktualizací. |
+| [Get-AzsUpdateLocation](https://docs.microsoft.com/powershell/module/azs.update.admin/Get-AzsUpdateLocation?view=azurestackps-1.8.0)| Získá seznam umístění aktualizací. |
+| [Get-AzsUpdateRun](https://docs.microsoft.com/powershell/module/azs.update.admin/Get-AzsUpdateRun?view=azurestackps-1.8.0) | Získá seznam běhů aktualizace.  |
+| [Install-AzsUpdate](https://docs.microsoft.com/powershell/module/azs.update.admin/Install-AzsUpdate?view=azurestackps-1.8.0) | Použijte konkrétní aktualizaci v umístění aktualizace. |
+| [Pokračovat – AzsUpdateRun](https://docs.microsoft.com/powershell/module/azs.update.admin/Resume-AzsUpdateRun?view=azurestackps-1.8.0) | Obnoví předchozí spuštěnou aktualizaci, která se nezdařila. |
 
 ## <a name="get-a-list-of-update-runs"></a>Získat seznam spuštění aktualizací
 
@@ -54,6 +54,6 @@ Pokud se aktualizace nepovede, můžete pokračovat ve spuštění aktualizace, 
 Get-AzsUpdateRun -Name 5173e9f4-3040-494f-b7a7-738a6331d55c -UpdateName Microsoft1.0.180305.1 | Resume-AzsUpdateRun
 ```
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 -   [Správa aktualizací v Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates)

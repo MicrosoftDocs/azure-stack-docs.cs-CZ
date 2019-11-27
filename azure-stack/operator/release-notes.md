@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/21/2019
+ms.date: 11/25/2019
 ms.author: sethm
 ms.reviewer: prchint
-ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 81a454fbe2db7d72d94eb499ad276ff28d33f048
-ms.sourcegitcommit: 0b783e262ac87ae67929dbd4c366b19bf36740f0
-ms.translationtype: HT
+ms.lastreviewed: 11/22/2019
+ms.openlocfilehash: a0e925d0c7a8401ea6d3f14f82cdb01bba4b354f
+ms.sourcegitcommit: 55ec59f831a98c42a4e9ff0dd954bf10adb98ff1
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74310083"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74540336"
 ---
 # <a name="azure-stack-updates-release-notes"></a>Aktualizace Azure Stack: poznámky k verzi
 
@@ -137,15 +137,25 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 
 - Při stahování položek Marketplace z Azure do Azure Stack je k dispozici nové uživatelské rozhraní, které umožňuje zadat verzi položky, pokud existuje více verzí. Nové uživatelské rozhraní je k dispozici v rámci připojených i odpojených scénářů. Další informace najdete v tématu [stažení položek Marketplace z Azure do Azure Stack](azure-stack-download-azure-marketplace-item.md).  
 
-- Od 1910 Azure Stack systém vyžaduje další/20 privátní interní IP místo. Tato síť je soukromá pro Azure Stack systém a je možné ji znovu použít na více Azure Stack systémů v rámci vašeho datového centra. I když je síť soukromá, aby Azure Stack, nesmí se překrývat se sítí ve vašem datovém centru. Privátní IP místo/20 je rozdělené do několika sítí, které umožňují provozování infrastruktury Azure Stack v kontejnerech (jak je uvedeno výše v [poznámkách k verzi 1905](release-notes.md?view=azs-1905)). Cílem provozování infrastruktury Azure Stack v kontejnerech je optimalizace využití a zvýšení výkonu. Kromě toho privátní IP místo/20 slouží také k umožnění průběžného úsilí, které před nasazením zmenší požadované IP místo pro směrování.
+- Počínaje verzí 1910 vyžaduje systém Azure Stack další/20 privátní interní IP místo. Tato síť je soukromá pro Azure Stack systém a je možné ji znovu použít na více Azure Stack systémů v rámci vašeho datového centra. I když je síť soukromá, aby Azure Stack, nesmí se překrývat se sítí ve vašem datovém centru. Privátní IP místo/20 je rozdělené do několika sítí, které umožňují provozování infrastruktury Azure Stack v kontejnerech (jak je uvedeno výše v [poznámkách k verzi 1905](release-notes.md?view=azs-1905)). Cílem provozování infrastruktury Azure Stack v kontejnerech je optimalizace využití a zvýšení výkonu. Kromě toho privátní IP místo/20 slouží také k umožnění průběžného úsilí, které před nasazením zmenší požadované IP místo pro směrování.
 
-  - Upozorňujeme, že vstup/20 slouží jako předpoklad pro příští aktualizaci Azure Stack. Po vydání další Azure Stack aktualizace a provedení pokusu o její instalaci se aktualizace nezdaří, pokud jste nedokončili vstup/20, jak je popsáno dále v tématu opravné kroky. V portálu pro správu bude k dispozici výstraha, dokud se výše uvedené kroky nápravy nedokončily. Informace o tom, jak se bude tento nový privátní prostor spotřebovat, najdete v článku věnovaném [integraci sítě Datacenter](azure-stack-network.md#private-network) . 
+  - Upozorňujeme, že vstup/20 slouží jako předpoklad pro další Azure Stack aktualizace po 1910. Po vydání další Azure Stack aktualizace po 1910 a provedení pokusu o její instalaci se aktualizace nezdaří, pokud jste nedokončili vstup/20, jak je popsáno níže v tématu nápravné kroky. V portálu pro správu bude k dispozici výstraha, dokud se výše uvedené kroky nápravy nedokončily. Informace o tom, jak se bude tento nový privátní prostor spotřebovat, najdete v článku věnovaném [integraci sítě Datacenter](azure-stack-network.md#private-network) . 
 
-  - Postup nápravy: Pokud chcete problém vyřešit, postupujte podle pokynů a [otevřete relaci PEP](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). Připravte velikost [privátního interního rozsahu IP adres](azure-stack-network.md#logical-networks) /20 a v relaci PEP spusťte následující rutinu s formátem: `Set-AzsPrivateNetwork -UserSubnet 100.87.0.0/20`. Pokud se operace provede úspěšně, obdržíte do **Konfigurace přidaný rozsah interní sítě AZS**zprávy. Po úspěšném dokončení se výstraha zavře na portálu pro správu. Systém Azure Stack bude nyní moci aktualizovat na další verzi.
+  - Postup nápravy: Pokud chcete problém vyřešit, postupujte podle pokynů a [otevřete relaci PEP](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). Připravte velikost [privátního interního rozsahu IP adres](azure-stack-network.md#logical-networks) /20 a v relaci PEP spusťte následující rutinu (k dispozici pouze počínaje 1910) ve formátu: `Set-AzsPrivateNetwork -UserSubnet 100.87.0.0/20`. Pokud se operace provede úspěšně, obdržíte do **Konfigurace přidaný rozsah interní sítě AZS**zprávy. Po úspěšném dokončení se výstraha zavře na portálu pro správu. Systém Azure Stack bude nyní moci aktualizovat na další verzi.
   
 - Služba zálohování infrastruktury odstraní částečně nahraná zálohovaná data v případě, že umístění externího úložiště během procesu odeslání nevyužívá kapacitu.  
 
 - Služba zálohování infrastruktury přidá službu identit do datové části zálohování pro nasazení AAD.  
+
+- Modul AzureStack PowerShell byl aktualizován na verzi 1.8.0 pro verzi 1910.<br>Změny zahrnují:
+   - **Nový modul Správce DRP**: poskytovatel prostředků nasazení (DRP) umožňuje Orchestrované nasazení poskytovatelů prostředků Azure Stack. Tyto příkazy komunikují s Azure Resource Managerou vrstvou a komunikují s DRP.
+   - **BRP**: <br />
+           – Podporuje obnovení jedné role pro zálohování infrastruktury Azure Stack. <br />
+           – Přidejte parametr `RoleName` do `Restore-AzsBackup`rutiny.
+   - **FRP**: zásadní změny prostředků **jednotky** a **svazku** pomocí rozhraní API verze `2019-05-01`. Funkce jsou podporovány Azure Stack 1910 a novějším: <br />
+            -Byla změněna hodnota `ID`, `Name`, `HealthStatus` a `OperationalStatus`. <br />
+            – Podporované nové vlastnosti `FirmwareVersion`, `IsIndicationEnabled`, `Manufacturer`a `StoragePool` pro prostředky **jednotky** . <br />
+            -Vlastnosti `CanPool` a `CannotPoolReason` prostředků **jednotky** jsou zastaralé; místo toho použijte `OperationalStatus`.
 
 ### <a name="fixes"></a>Opravy
 

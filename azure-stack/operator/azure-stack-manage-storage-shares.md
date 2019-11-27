@@ -15,12 +15,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: 73c4594672dea4a8bb8030a35c79f3d7e7cca04c
-ms.sourcegitcommit: b5eb024d170f12e51cc852aa2c72eabf26792d8d
+ms.openlocfilehash: f569d5dbffaec772657a6fc67b82c9be78f35800
+ms.sourcegitcommit: 55ec59f831a98c42a4e9ff0dd954bf10adb98ff1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72534176"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74540319"
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Správa kapacity úložiště pro Azure Stack
 
@@ -28,7 +28,7 @@ ms.locfileid: "72534176"
 
 Informace v tomto článku pomáhají Azure Stack operátora cloudu monitorovat a spravovat kapacitu úložiště Azure Stack nasazení. Azure Stack infrastruktura úložiště přiděluje podmnožinu celkové úložné kapacity Azure Stack nasazení, které se má použít pro **služby úložiště**. Služby úložiště ukládají data tenantů do sdílených složek na svazcích, které odpovídají uzlům nasazení.
 
-Jako operátor cloudu máte k dispozici omezené množství úložiště, se kterým pracujete. Velikost úložiště je definována řešením, které implementujete. Vaše řešení zajišťuje dodavatel OEM, když používáte řešení s více uzly, nebo hardware, na kterém instalujete Azure Stack Development Kit (ASKD).
+Jako operátor cloudu máte k dispozici omezené množství úložiště, se kterým pracujete. Velikost úložiště je definována řešením, které implementujete. Vaše řešení zajišťuje dodavatel OEM, když používáte řešení s více uzly, nebo hardware, na kterém instalujete Azure Stack Development Kit (ASDK).
 
 Vzhledem k tomu, že Azure Stack nepodporuje rozšíření kapacity úložiště, je důležité [monitorovat](#monitor-shares) dostupné úložiště, aby se zajistilo zachování efektivních operací.
 
@@ -79,7 +79,7 @@ Možnosti uvolnění místa na připojeném kontejneru [jsou omezené](#move-vm-
 ## <a name="monitor-shares"></a>Monitorovat sdílené složky
 Pomocí PowerShellu nebo portálu pro správu monitorujte sdílené složky, abyste mohli pochopit, kdy je volné místo omezené. Když použijete portál, dostanete výstrahy o sdílených složkách, které mají nedostatek místa.
 
-### <a name="use-powershell"></a>Použití PowerShellu
+### <a name="use-powershell"></a>Použití prostředí PowerShell
 Jako operátor cloudu můžete sledovat kapacitu úložiště sdílené složky pomocí rutiny PowerShellu **Get-AzsStorageShare** . Rutina Get-AzsStorageShare vrátí celkovou, přidělenou a volnou velikost v bajtech na každé sdílené složky.
 
 ![Příklad: vrácení volného místa pro sdílené složky](media/azure-stack-manage-storage-shares/free-space.png)
@@ -91,7 +91,7 @@ Jako operátor cloudu můžete sledovat kapacitu úložiště sdílené složky 
 Jako operátor cloudu můžete pomocí portálu pro správu zobrazit kapacitu úložiště pro všechny sdílené složky.
 
 1. Přihlaste se k [portálu pro správu](https://adminportal.local.azurestack.external).
-2. Výběrem položky **všechny služby**  > **úložiště**  > **sdílené složky** otevřete seznam sdílení souborů, kde můžete zobrazit informace o použití.
+2. Výběrem položky **všechny služby** > **úložiště** > **sdílené složky** otevřete seznam sdílení souborů, kde můžete zobrazit informace o použití.
 
     ![Příklad: úložiště sdílené složky na portálu Azure Stack správce](media/azure-stack-manage-storage-shares/storage-file-shares.png)
 
@@ -112,7 +112,7 @@ Když použijete portál pro správu, zobrazí se upozornění na sdílené slo�
 
 ![Příklad: kritická výstraha v portálu pro správu Azure Stack](media/azure-stack-manage-storage-shares/alert-critical.png)
 
-**Zobrazit podrobnosti**: na portálu pro správu můžete otevřít podrobnosti výstrahy pro zobrazení možností zmírnění rizika: ![Example: zobrazení podrobností o výstrahách v Azure Stack portálu pro správu ](media/azure-stack-manage-storage-shares/alert-details.png)
+**Zobrazit podrobnosti**: na portálu pro správu můžete otevřít podrobnosti výstrahy pro zobrazení možností zmírnění rizika: ![příklad: zobrazení podrobností o výstrahách na portálu pro správu Azure Stack](media/azure-stack-manage-storage-shares/alert-details.png)
 
 ## <a name="manage-available-space"></a>Spravovat dostupné místo
 Pokud je nutné uvolnit místo na sdílené složce, použijte nejprve nejméně invazivní metody. Například zkuste uvolnit místo před tím, než se rozhodnete migrovat kontejner.  

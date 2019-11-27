@@ -16,12 +16,12 @@ ms.date: 07/31/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 07/31/2019
-ms.openlocfilehash: f4fe915d07b81a6f99d9bd5a4b222590d1bb9a30
-ms.sourcegitcommit: 305536bfd49319455ca3ca270fe3644b1796bad1
+ms.openlocfilehash: 88b92ce80475ba48b2570dc58082fa75983fdd9b
+ms.sourcegitcommit: 55ec59f831a98c42a4e9ff0dd954bf10adb98ff1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70876588"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74540271"
 ---
 # <a name="post-deployment-configurations-for-asdk"></a>Konfigurace po nasazení pro ASDK
 
@@ -42,9 +42,9 @@ Pomocí profilů verzí rozhraní API můžete určit Azure Stack kompatibilní 
 Nejnovější modul Azure Stack PowerShell můžete nainstalovat s nebo bez připojení k Internetu do hostitelského počítače ASDK:
 
 > [!IMPORTANT]
-> Před instalací požadované verze se ujistěte, že jste odinstalovali [všechny existující Azure PowerShell moduly](../operator/azure-stack-powershell-install.md#3-uninstall-existing-versions-of-the-azure-stack-powershell-modules).
+> Před instalací požadované verze se ujistěte, že jste [odinstalovali všechny existující Azure PowerShell moduly](../operator/azure-stack-powershell-install.md#3-uninstall-existing-versions-of-the-azure-stack-powershell-modules).
 
-- **S připojením k Internetu** z hostitelského počítače ASDK: Spuštěním následujícího skriptu PowerShellu nainstalujte tyto moduly do instalace ASDK:
+- **S připojením k Internetu** z hostitelského počítače ASDK: spuštěním následujícího skriptu PowerShellu tyto moduly nainstalujte do instalace ASDK:
 
 
   ```powershell  
@@ -56,12 +56,12 @@ Nejnovější modul Azure Stack PowerShell můžete nainstalovat s nebo bez při
 
   # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
   Use-AzureRmProfile -Profile 2019-03-01-hybrid -Force
-  Install-Module -Name AzureStack -RequiredVersion 1.7.2
+  Install-Module -Name AzureStack -RequiredVersion 1.8.0
   ```
 
   Pokud je instalace úspěšná, zobrazí se ve výstupu moduly AzureRM a AzureStack.
 
-- **Bez připojení k Internetu** z hostitelského počítače ASDK: V odpojeném scénáři musíte nejdřív stáhnout moduly PowerShellu na počítač, který má připojení k Internetu, a to pomocí následujících příkazů PowerShellu:
+- **Bez připojení k Internetu** z hostitelského počítače ASDK: v odpojeném scénáři musíte nejdřív stáhnout moduly PowerShellu na počítač, který má připojení k Internetu, a to pomocí následujících příkazů PowerShellu:
 
   ```powershell
   $Path = "<Path that is used to save the packages>"
@@ -113,8 +113,8 @@ Pokud chcete mít jistotu, že vaše nasazení ASDK bylo úspěšné, použijte 
 
 1. Přihlaste se jako AzureStack\AzureStackAdmin na hostitelském počítači ASDK.
 2. Otevřete PowerShell jako správce (ne PowerShell ISE).
-3. Spusťte: `Enter-PSSession -ComputerName AzS-ERCS01 -ConfigurationName PrivilegedEndpoint`
-4. Spusťte: `Test-AzureStack`
+3. Spustit: `Enter-PSSession -ComputerName AzS-ERCS01 -ConfigurationName PrivilegedEndpoint`
+4. Spustit: `Test-AzureStack`
 
 Dokončení testů trvá několik minut. Pokud byla instalace úspěšná, výstup vypadá nějak takto:
 
@@ -127,8 +127,8 @@ Pokud dojde k selhání, získáte nápovědu pomocí kroků pro řešení potí
 Pro nasazení, která používají Azure AD, musíte pro instalaci ASDK [Povolit víceklientské](../operator/azure-stack-enable-multitenancy.md#enable-multi-tenancy) prostředí.
 
 > [!NOTE]
-> Pokud se k přihlášení na portál Azure Stack používá účet správce nebo uživatelské účty z jiných domén, než je ta, která se používá k registraci Azure Stack, musí být název domény, který se používá k registraci Azure Stack, připojený k adrese URL portálu. Pokud je například Azure Stack zaregistrován v Fabrikam.onmicrosoft.com a uživatelský účet přihlášení je admin@contoso.com, adresa URL použitá pro přihlášení k portálu User Portal by byla: https//Portal.Local.azurestack.external/\: fabrikam.onmicrosoft.com.
+> Pokud se k přihlášení na portál Azure Stack používá účet správce nebo uživatelské účty z jiných domén, než je ta, která se používá k registraci Azure Stack, musí být název domény, který se používá k registraci Azure Stack, připojený k adrese URL portálu. Pokud je například Azure Stack zaregistrován v fabrikam.onmicrosoft.com a uživatelský účet, který se přihlašuje, je admin@contoso.com, adresa URL pro přihlášení k portálu User Portal bude: https\://Portal.Local.azurestack.external/Fabrikam.onmicrosoft.com.
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 [Registrace ASDKu s využitím Azure](asdk-register.md)
