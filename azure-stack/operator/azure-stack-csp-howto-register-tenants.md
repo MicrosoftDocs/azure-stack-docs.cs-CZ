@@ -24,7 +24,7 @@ ms.locfileid: "74310154"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Přidat tenanta pro použití a fakturaci na Azure Stack
 
-*Platí pro: integrované systémy Azure Stack*
+*Platí pro: Azure Stack integrovaných systémů*
 
 V tomto článku se dozvíte, jak přidat tenanta do nasazení Azure Stack spravovaného poskytovatelem Cloud Solution Provider (CSP). Když nový tenant používá prostředky, Azure Stack sestavy využití jejich předplatného CSP.
 
@@ -83,7 +83,7 @@ V následující části jsou popsány parametry pro rutinu **New-AzureRmResourc
 | --- | --- |
 |registrationSubscriptionID | Předplatné Azure, které se použilo při prvotní registraci Azure Stack.|
 | customerSubscriptionID | Předplatné Azure (není Azure Stack) patřící zákazníkovi k registraci. Musí být vytvořen v nabídce CSP. V praxi to znamená prostřednictvím partnerského centra. Pokud má zákazník více než jednoho klienta Azure Active Directory, musí být toto předplatné vytvořeno v tenantovi, které se bude používat pro přihlášení k Azure Stack. ID předplatného zákazníka musí používat malá písmena. |
-| resourceGroup | Skupina prostředků v Azure, ve které je uložená vaše registrace. |
+| Skupina prostředků | Skupina prostředků v Azure, ve které je uložená vaše registrace. |
 | registrationName | Název registrace Azure Stack. Je to objekt uložený v Azure. 
 
 > [!NOTE]  

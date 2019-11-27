@@ -24,7 +24,7 @@ ms.locfileid: "74310287"
 ---
 # <a name="install-the-aks-engine-on-windows-in-azure-stack"></a>Nainstalujte modul AKS ve Windows do Azure Stack
 
-*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
 
 Počítač s Windows můžete ve svém Azure Stack použít k hostování modulu AKS, aby bylo možné nasadit a spravovat cluster Kubernetes. V tomto článku se podíváme na přípravu klientského virtuálního počítače pro správu clusteru pro připojené i odpojené Azure Stack instance, Projděte si instalaci a nastavte virtuální počítač klienta na ASDK.
 

@@ -24,7 +24,7 @@ ms.locfileid: "74310316"
 ---
 # <a name="use-azure-monitor-for-containers-on-azure-stack-hub"></a>Použití Azure Monitor pro kontejnery v centru Azure Stack
 
-*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
 
 K monitorování kontejnerů v AKS nasazeném clusteru Kubernetes v centru Azure Stack můžete použít [Azure monitor](https://docs.microsoft.com/azure/azure-monitor/) pro kontejnery. 
 

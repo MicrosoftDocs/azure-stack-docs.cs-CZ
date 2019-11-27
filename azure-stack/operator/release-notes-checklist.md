@@ -25,7 +25,7 @@ ms.locfileid: "74299042"
 ---
 # <a name="azure-stack-update-activity-checklist"></a>Kontrolní seznam aktivity Azure Stack aktualizace
 
-*Platí pro: integrované systémy Azure Stack*
+*Platí pro: Azure Stack integrovaných systémů*
 
 Projděte si tento kontrolní seznam, abyste se připravili na aktualizaci Azure Stack. Tento článek obsahuje kontrolní seznam aktivit souvisejících s aktualizací pro operátory Azure Stack.
 

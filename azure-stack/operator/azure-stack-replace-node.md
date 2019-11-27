@@ -1,7 +1,7 @@
 ---
-title: Replace a scale unit node on an Azure Stack integrated system
+title: Nahrazení uzlu jednotky škálování v Azure Stack integrovaném systému
 titleSuffix: Azure Stack
-description: Learn how to replace a physical scale unit node on an Azure Stack integrated system.
+description: Přečtěte si, jak nahradit uzel fyzické jednotky škálování na Azure Stack integrovaném systému.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -23,60 +23,60 @@ ms.contentlocale: cs-CZ
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74465460"
 ---
-# <a name="replace-a-scale-unit-node-on-an-azure-stack-integrated-system"></a>Replace a scale unit node on an Azure Stack integrated system
+# <a name="replace-a-scale-unit-node-on-an-azure-stack-integrated-system"></a>Nahrazení uzlu jednotky škálování v Azure Stack integrovaném systému
 
-*Applies to: Azure Stack integrated systems*
+*Platí pro: Azure Stack integrovaných systémů*
 
-This article describes the general process to replace a physical computer (also referred to as a scale unit node) on an Azure Stack integrated system. Actual scale unit node replacement steps will vary based on your original equipment manufacturer (OEM) hardware vendor. Konkrétní podrobný postup pro váš systém najdete v dokumentaci k jednotce nahraditelné v terénu od vašeho dodavatele.
+Tento článek popisuje obecný proces nahrazení fyzického počítače (také označovaného jako uzel jednotky škálování) na Azure Stack integrovaný systém. Skutečný postup nahrazení uzlu jednotek škálování se bude lišit v závislosti na dodavateli hardwaru OEM (Original Equipment Manufacturer). Konkrétní podrobný postup pro váš systém najdete v dokumentaci k jednotce nahraditelné v terénu od vašeho dodavatele.
 
 > [!CAUTION]  
-> Firmware leveling is critical for the success of the operation described in this article. Missing this step can lead to system instability, performance decrease, security threads, or prevent Azure Stack automation from deploying the operating system. Always consult your hardware partner's documentation when replacing hardware to ensure the applied firmware matches the OEM Version displayed in the [Azure Stack administrator portal](azure-stack-updates.md). For more information and links to partner documentation, see [Replace a hardware component](azure-stack-replace-component.md).
+> Úroveň firmwaru je zásadní pro úspěch operace popsané v tomto článku. Chybějící tento krok může vést k nestabilitě systému, poklesu výkonu, vláknům zabezpečení nebo zabrání službě Azure Stack Automation v nasazení operačního systému. Při nahrazování hardwaru vždy projděte dokumentaci k vašemu hardwarovému partnerovi, aby se zajistilo, že aplikovaný firmware odpovídá verzi OEM zobrazené na [portálu pro správu Azure Stack](azure-stack-updates.md). Další informace a odkazy na dokumentaci k partnerům najdete v tématu [Výměna hardwarové komponenty](azure-stack-replace-component.md).
 
-The following flow diagram shows the general FRU process to replace an entire scale unit node.
+Následující vývojový diagram znázorňuje proces obecného procesu FRU k nahrazení celého uzlu jednotky škálování.
 
-![Flow chart for replace node process](media/azure-stack-replace-node/replacenodeflow.png)
+![Vývojový diagram pro proces nahrazení uzlu](media/azure-stack-replace-node/replacenodeflow.png)
 
-*This action may not be required based on the physical condition of the hardware.
+\* Tato akce se nemusí vyžadovat na základě fyzické podmínky hardwaru.
 
 > [!Note]  
-> If the shutdown operation does fail, it's recommended to use the drain operation followed by the stop operation. For more information, see [Scale unit node actions in Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-node-actions).
+> Pokud operace vypnutí selže, doporučuje se použít operaci vyprázdnění následovanou operací zastavení. Další informace najdete v tématu [akce uzlu škálování jednotky v Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-node-actions).
 
-## <a name="review-alert-information"></a>Review alert information
+## <a name="review-alert-information"></a>Kontrola informací o výstrahách
 
-If a scale unit node is down, you'll receive the following critical alerts:
+Pokud je uzel jednotky škálování mimo provoz, obdržíte následující kritické výstrahy:
 
 - Uzel není připojený k síťovému adaptéru
 - Nedostupný uzel pro umístění virtuálního počítače
 - Uzel jednotky škálování je offline
 
-![List of alerts for scale unit down](media/azure-stack-replace-node/nodedownalerts.png)
+![Seznam výstrah pro jednotku škálování mimo provoz](media/azure-stack-replace-node/nodedownalerts.png)
 
-If you open the **Scale unit node is offline** alert, the alert description contains the scale unit node that's inaccessible. You may also receive additional alerts in the OEM-specific monitoring solution that's running on the hardware lifecycle host.
+Pokud otevřete **uzel jednotka škálování je offline** výstraha, popis výstrahy obsahuje uzel jednotka škálování, který je nepřístupný. Další výstrahy můžete také získat v řešení pro monitorování specifické pro výrobce OEM, které běží na hostiteli životního cyklu hardwaru.
 
-![Details of node offline alert](media/azure-stack-replace-node/nodeoffline.png)
+![Podrobnosti výstrahy na offline uzlu](media/azure-stack-replace-node/nodeoffline.png)
 
-## <a name="scale-unit-node-replacement-process"></a>Scale unit node replacement process
+## <a name="scale-unit-node-replacement-process"></a>Proces nahrazení uzlu jednotky škálování
 
-The following steps are provided as a high-level overview of the scale unit node replacement process. See your OEM hardware vendor's FRU documentation for detailed steps that are specific to your system. Don't follow these steps without referring to your OEM-provided documentation.
+Následující kroky jsou k dispozici v podobě vysokého přehledu o procesu nahrazení uzlu jednotky škálování. Podrobné pokyny, které jsou specifické pro váš systém, najdete v dokumentaci k prostředí FRU dodavatele hardwaru OEM. Tento postup neprovádějte bez odkazování na dokumentaci poskytovanou výrobcem OEM.
 
-1. Use the **Shutdown** action to gracefully shut down the scale unit node. This action may not be required based on the physical condition of the hardware.
+1. K bezproblémovému vypnutí uzlu jednotky škálování použijte akci **vypnutí** . Tato akce se nemusí vyžadovat na základě fyzické podmínky hardwaru.
 
-2. In the unlikely case the shutdown action fails, use the [Drain](azure-stack-node-actions.md#drain) action to put the scale unit node into maintenance mode. This action may not be required based on the physical condition of the hardware.
-
-   > [!NOTE]  
-   > In any case, only one node can be disabled and powered off at the same time without breaking the S2D (Storage Spaces Direct).
-
-3. After the scale unit node is in maintenance mode, use the [Stop](azure-stack-node-actions.md#stop) action. This action may not be required based on the physical condition of the hardware.
+2. V nepravděpodobném případě se akce vypnutí nezdařila, pomocí akce [vyprázdnění](azure-stack-node-actions.md#drain) umístěte uzel jednotky škálování do režimu údržby. Tato akce se nemusí vyžadovat na základě fyzické podmínky hardwaru.
 
    > [!NOTE]  
-   > In the unlikely case that the Power off action doesn't work, use the baseboard management controller (BMC) web interface instead.
+   > V každém případě je možné zakázat a vypnout pouze jeden uzel ve stejnou dobu, aniž by došlo k přerušení S2D (Prostory úložiště s přímým přístupem).
 
-4. Replace the physical computer. Typically, this replacement is done by your OEM hardware vendor.
-5. Use the [Repair](azure-stack-node-actions.md#repair) action to add the new physical computer to the scale unit.
-6. Use the privileged endpoint to [check the status of virtual disk repair](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair-using-the-privileged-endpoint). With new data drives, a full storage repair job can take multiple hours depending on system load and consumed space.
-7. After the repair action has finished, validate that all active alerts have been automatically closed.
+3. Po dokončení uzlu jednotky škálování v režimu údržby použijte akci [zastavit](azure-stack-node-actions.md#stop) . Tato akce se nemusí vyžadovat na základě fyzické podmínky hardwaru.
+
+   > [!NOTE]  
+   > V nepravděpodobném případě akce vypnutí nefunguje, místo toho použijte webové rozhraní řadiče pro správu základní desky (BMC).
+
+4. Nahraďte fyzický počítač. Tuto náhradu obvykle provádí dodavatel hardwaru OEM.
+5. Pomocí akce [opravit](azure-stack-node-actions.md#repair) přidejte do jednotky škálování nový fyzický počítač.
+6. Pomocí privilegovaného koncového bodu [Ověřte stav opravy virtuálního disku](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair-using-the-privileged-endpoint). S novými datovými jednotkami může úplná úloha opravy úložiště trvat několik hodin v závislosti na zatížení systému a spotřebovaném prostoru.
+7. Po dokončení akce opravy ověřte, zda byly všechny aktivní výstrahy automaticky uzavřeny.
 
 ## <a name="next-steps"></a>Další kroky
 
-- For information about replacing a physical disk while the system is powered on, see [Replace a disk](azure-stack-replace-disk.md). 
-- For information about replacing a hardware component that requires the system to be powered off, see [Replace a hardware component](azure-stack-replace-component.md).
+- Informace o nahrazení fyzického disku v době, kdy je systém zapnutý, najdete v tématu [Výměna disku](azure-stack-replace-disk.md). 
+- Informace o nahrazení hardwarové součásti, která vyžaduje vypnutí systému, najdete v tématu [Výměna hardwarové komponenty](azure-stack-replace-component.md).

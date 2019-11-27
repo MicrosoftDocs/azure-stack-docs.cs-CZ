@@ -25,7 +25,7 @@ ms.locfileid: "74299184"
 ---
 # <a name="download-existing-marketplace-items-from-azure-and-publish-to-azure-stack"></a>Stažení stávajících položek Marketplace z Azure a publikování do Azure Stack
 
-*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
 
 Jako operátor cloudu můžete stahovat položky z Azure Marketplace a zpřístupnit je v Azure Stack. Položky, které můžete vybrat, jsou z uspořádaného seznamu Azure Marketplacech položek, které jsou předem testovány a podporovány pro práci s Azure Stack. Do tohoto seznamu se často přidají další položky, takže se budete moct vrátit k novému obsahu.
 

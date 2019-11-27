@@ -24,7 +24,7 @@ ms.locfileid: "74310308"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack"></a>Nasazení clusteru Kubernetes s modulem AKS na Azure Stack
 
-*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
 
 Cluster Kubernetes můžete nasadit na Azure Stack z virtuálního počítače klienta, na kterém běží modul AKS. V tomto článku se podíváme na zápis specifikace clusteru, nasazení clusteru se souborem `apimodel.json` a kontrolu clusteru nasazením MySQL pomocí Helm.
 
@@ -62,7 +62,7 @@ V této části se podíváme na vytvoření modelu rozhraní API pro váš clus
 
 4.  Vyhledejte `customCloudProfile` a zadejte adresu URL portálu tenanta. Například, `https://portal.local.azurestack.external`. 
 
-5. Pokud používáte AD FS, přidejte `"identitySystem":"adfs"`. Například:
+5. Pokud používáte AD FS, přidejte `"identitySystem":"adfs"`. Například
 
     ```JSON  
         "customCloudProfile": {
@@ -122,7 +122,7 @@ Pokračujte v nasazení clusteru:
     | Parametr | Příklad | Popis |
     | --- | --- | --- |
     | Azure – ENV | AzureStackCloud | K indikaci AKS Engine, že vaše cílová platforma je Azure Stack použít `AzureStackCloud`. |
-    | Identita – systém | službou | Volitelné. Pokud používáte federované služby Active Directory (AD FS), zadejte svoje řešení pro správu identit. |
+    | Identita – systém | službou | Volitelná. Pokud používáte federované služby Active Directory (AD FS), zadejte svoje řešení pro správu identit. |
     | location | místní | Název oblasti pro váš Azure Stack. Pro ASDK je oblast nastavená na `local`. |
     | resource-group | Kube – RG | Zadejte název nové skupiny prostředků nebo vyberte existující skupinu prostředků. Název prostředku musí být alfanumerické znaky a malá písmena. |
     | rozhraní API – model | ./kubernetes-azurestack.json | Cesta ke konfiguračnímu souboru clusteru nebo modelu rozhraní API. |

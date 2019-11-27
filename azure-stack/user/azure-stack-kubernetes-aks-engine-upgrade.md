@@ -24,7 +24,7 @@ ms.locfileid: "74310126"
 ---
 # <a name="upgrade-a-kubernetes-cluster-on-azure-stack"></a>Upgrade clusteru Kubernetes na Azure Stack
 
-*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
 
 ## <a name="upgrade-a-cluster"></a>Upgrade clusteru
 
@@ -93,7 +93,7 @@ Následující pokyny používají minimální postup k provedení upgradu. Poku
     | rozhraní API – model | ./kubernetes-azurestack.json | Cesta ke konfiguračnímu souboru clusteru nebo modelu rozhraní API. |
     | ID klienta | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Zadejte identifikátor GUID instančního objektu služby. ID klienta identifikované jako ID aplikace, když správce Azure Stack vytvořil instanční objekt. |
     | client-secret | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Zadejte tajný klíč objektu služby. Toto je tajný kód klienta, který jste nastavili při vytváření služby. |
-    | Identita – systém | službou | Volitelné. Pokud používáte federované služby Active Directory (AD FS), zadejte svoje řešení pro správu identit. |
+    | Identita – systém | službou | Volitelná. Pokud používáte federované služby Active Directory (AD FS), zadejte svoje řešení pro správu identit. |
 
 3. Po zadání vašich hodnot spusťte následující příkaz:
 

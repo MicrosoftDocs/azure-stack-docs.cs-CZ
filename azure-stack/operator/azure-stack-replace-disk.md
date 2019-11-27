@@ -1,7 +1,7 @@
 ---
-title: Replace a physical disk
+title: Nahrazení fyzického disku
 titleSuffix: Azure Stack
-description: Learn how to replace a physical disk in Azure Stack.
+description: Přečtěte si, jak nahradit fyzický disk v Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -24,41 +24,41 @@ ms.contentlocale: cs-CZ
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74465471"
 ---
-# <a name="replace-a-physical-disk-in-azure-stack"></a>Replace a physical disk in Azure Stack
+# <a name="replace-a-physical-disk-in-azure-stack"></a>Nahrazení fyzického disku v Azure Stack
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
 
-This article describes the general process to replace a physical disk in Azure Stack. Pokud selže fyzický disk, měli byste ho co nejdříve nahradit.
+Tento článek popisuje obecný proces nahrazení fyzického disku v Azure Stack. Pokud selže fyzický disk, měli byste ho co nejdříve nahradit.
 
-You can use this procedure for integrated systems, and for Azure Stack Development Kit (ASDK) deployments that have hot-swappable disks.
+Tento postup můžete použít pro integrované systémy a pro nasazení Azure Stack Development Kit (ASDK), která mají disky připojitelných za chodu.
 
 Konkrétní postup nahrazení disku se bude lišit v závislosti na vašem dodavateli hardwaru od výrobce OEM. Konkrétní podrobný postup pro váš systém najdete v dokumentaci k jednotce nahraditelné v terénu od vašeho dodavatele.
 
-## <a name="review-disk-alert-information"></a>Review disk alert information
+## <a name="review-disk-alert-information"></a>Kontrola informací o výstrahách disku
 Když selže disk, obdržíte upozornění s informací, že došlo ke ztrátě připojení k fyzickému disku.
 
-![Alert showing connectivity lost to physical disk in Azure Stack administration](media/azure-stack-replace-disk/DiskAlert.png)
+![Upozornění ukazující ztracené připojení na fyzický disk při správě Azure Stack](media/azure-stack-replace-disk/DiskAlert.png)
 
-If you open the alert, the alert description contains the scale unit node and the exact physical slot location for the disk that you must replace. Azure Stack further helps you to identify the failed disk by using LED indicator capabilities.
+Pokud otevřete výstrahu, popis výstrahy obsahuje uzel jednotka škálování a přesné umístění fyzického slotu pro disk, který je nutné nahradit. Azure Stack dále pomůže identifikovat disk, který selhal, pomocí možností indikátoru LED.
 
-## <a name="replace-the-physical-disk"></a>Replace the physical disk
+## <a name="replace-the-physical-disk"></a>Nahrazení fyzického disku
 
 Při vlastním nahrazování disku postupujte podle pokynů k jednotce nahraditelné v terénu od vašeho dodavatele hardwaru OEM.
 
 > [!note]
-> Replace disks for one scale unit node at a time. Wait for the virtual disk repair jobs to complete before moving on to the next scale unit node.
+> V jednom okamžiku nahraďte disky pro jeden uzel jednotky škálování. Než přejdete na uzel další jednotky škálování, počkejte, než se dokončí úlohy opravy virtuálního disku.
 
-To prevent the use of an unsupported disk in an integrated system, the system blocks disks that aren't supported by your vendor. If you try to use an unsupported disk, a new alert tells you a disk has been quarantined because of an unsupported model or firmware.
+Aby nedocházelo k použití nepodporovaného disku v integrovaném systému, systém blokuje disky, které nejsou podporované vaším dodavatelem. Pokud se pokusíte použít nepodporovaný disk, zobrazí nová výstraha, že disk byl umístěn do karantény z důvodu nepodporovaného modelu nebo firmwaru.
 
-After you replace the disk, Azure Stack automatically discovers the new disk and starts the virtual disk repair process.
+Po nahrazení disku Azure Stack automaticky zjistí nový disk a spustí proces opravy virtuálního disku.
 
-## <a name="check-the-status-of-virtual-disk-repair-using-azure-stack-powershell"></a>Check the status of virtual disk repair using Azure Stack PowerShell
+## <a name="check-the-status-of-virtual-disk-repair-using-azure-stack-powershell"></a>Ověření stavu opravy virtuálního disku pomocí Azure Stack PowerShellu
 
-After you replace the disk, you can monitor the virtual disk health status and repair job progress by using Azure Stack PowerShell.
+Po nahrazení disku můžete monitorovat stav virtuálního disku a průběh úlohy opravy pomocí Azure Stack PowerShellu.
 
-1. Check that you have Azure Stack PowerShell installed. For more information, see [Install PowerShell for Azure Stack](azure-stack-powershell-install.md).
-2. Connect to Azure Stack with PowerShell as an operator. For more information, see [Connect to Azure Stack with PowerShell as an operator](azure-stack-powershell-configure-admin.md).
-3. Run the following cmdlets to verify the virtual disk health and repair status:
+1. Ověřte, že máte nainstalovaný Azure Stack PowerShell. Další informace najdete v tématu [instalace PowerShellu pro Azure Stack](azure-stack-powershell-install.md).
+2. Připojte se k Azure Stack pomocí PowerShellu jako operátoru. Další informace najdete v tématu [připojení k Azure Stack pomocí PowerShellu jako operátoru](azure-stack-powershell-configure-admin.md).
+3. Spusťte následující rutiny k ověření stavu virtuálního disku a stavu opravy:
 
     ```powershell  
     $scaleunit=Get-AzsScaleUnit
@@ -66,10 +66,10 @@ After you replace the disk, you can monitor the virtual disk health status and r
     Get-AzsVolume -StorageSubSystem $StorageSubSystem.Name -ScaleUnit $scaleunit.name | Select-Object VolumeLabel, OperationalStatus, RepairStatus
     ```
 
-    ![Azure Stack volumes health in Powershell](media/azure-stack-replace-disk/get-azure-stack-volumes-health.png)
+    ![Stav Azure Stackch svazků v PowerShellu](media/azure-stack-replace-disk/get-azure-stack-volumes-health.png)
 
-4. Validate Azure Stack system state. For instructions, see [Validate Azure Stack system state](azure-stack-diagnostic-test.md).
-5. Optionally, you can run the following command to verify the status of the replaced physical disk.
+4. Ověří Azure Stack stav systému. Pokyny najdete v tématu [ověření stavu systému Azure Stack](azure-stack-diagnostic-test.md).
+5. Volitelně můžete spuštěním následujícího příkazu ověřit stav nahrazeného fyzického disku.
 
 ```powershell  
 $scaleunit=Get-AzsScaleUnit
@@ -78,37 +78,37 @@ $StorageSubSystem=Get-AzsStorageSubSystem -ScaleUnit $scaleunit.Name
 Get-AzsDrive -StorageSubSystem $StorageSubSystem.Name -ScaleUnit $scaleunit.name | Sort-Object StorageNode,MediaType,PhysicalLocation | Format-Table Storagenode, Healthstatus, PhysicalLocation, Model, MediaType,  CapacityGB, CanPool, CannotPoolReason
 ```
 
-![Replaced physical disks in Azure Stack with Powershell](media/azure-stack-replace-disk/check-replaced-physical-disks-azure-stack.png)
+![Fyzické disky v Azure Stack v prostředí PowerShell nahrazeny](media/azure-stack-replace-disk/check-replaced-physical-disks-azure-stack.png)
 
-## <a name="check-the-status-of-virtual-disk-repair-using-the-privileged-endpoint"></a>Check the status of virtual disk repair using the privileged endpoint
+## <a name="check-the-status-of-virtual-disk-repair-using-the-privileged-endpoint"></a>Ověření stavu opravy virtuálního disku pomocí privilegovaného koncového bodu
 
-After you replace the disk, you can monitor the virtual disk health status and repair job progress by using the privileged endpoint. Follow these steps from any computer that has network connectivity to the privileged endpoint.
+Po nahrazení disku můžete monitorovat stav virtuálního disku a průběh úlohy opravy pomocí privilegovaného koncového bodu. Postupujte podle těchto kroků z libovolného počítače, který má síťové připojení k privilegovanému koncovému bodu.
 
-1. Open a Windows PowerShell session and connect to the privileged endpoint.
+1. Otevřete relaci prostředí Windows PowerShell a připojte se k privilegovanému koncovému bodu.
     ```powershell
         $cred = Get-Credential
         Enter-PSSession -ComputerName <IP_address_of_ERCS>`
           -ConfigurationName PrivilegedEndpoint -Credential $cred
     ```
   
-2. Run the following command to view virtual disk health:
+2. Spuštěním následujícího příkazu zobrazte stav virtuálního disku:
     ```powershell
         Get-VirtualDisk -CimSession s-cluster
     ```
 
-   ![Powershell output of Get-VirtualDisk command](media/azure-stack-replace-disk/GetVirtualDiskOutput.png)
+   ![Výstup PowerShellu příkazu Get-VirtualDisk](media/azure-stack-replace-disk/GetVirtualDiskOutput.png)
 
-3. Run the following command to view current storage job status:
+3. Spusťte následující příkaz, který zobrazí aktuální stav úlohy úložiště:
     ```powershell
         Get-VirtualDisk -CimSession s-cluster | Get-StorageJob
     ```
-      ![Powershell output of Get-StorageJob command](media/azure-stack-replace-disk/GetStorageJobOutput.png)
+      ![Výstup PowerShellu příkazu Get-StorageJob](media/azure-stack-replace-disk/GetStorageJobOutput.png)
 
-4. Validate the Azure Stack system state. For instructions, see [Validate Azure Stack system state](azure-stack-diagnostic-test.md).
+4. Ověří stav Azure Stack systému. Pokyny najdete v tématu [ověření stavu systému Azure Stack](azure-stack-diagnostic-test.md).
 
-## <a name="troubleshoot-virtual-disk-repair-using-the-privileged-endpoint"></a>Troubleshoot virtual disk repair using the privileged endpoint
+## <a name="troubleshoot-virtual-disk-repair-using-the-privileged-endpoint"></a>Řešení potíží s opravou virtuálního disku pomocí privilegovaného koncového bodu
 
-If the virtual disk repair job appears stuck, run the following command to restart the job:
+Pokud se zobrazí úloha opravy virtuálního disku zablokovaná, spusťte následující příkaz k restartování úlohy:
   ```powershell
         Get-VirtualDisk -CimSession s-cluster | Repair-VirtualDisk
   ```

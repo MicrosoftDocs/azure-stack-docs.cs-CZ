@@ -48,7 +48,7 @@ Následující tabulka uvádí logické sítě a přidružené rozsahy podsítí
 | Veřejná virtuální IP adresa | Azure Stack používá celkem 31 adres z této sítě. Osm veřejných IP adres se používá pro malou sadu Azure Stack služeb a zbývající jsou používány virtuálními počítači klienta. Pokud plánujete použít App Service a poskytovatele prostředků SQL, použijí se 7 dalších adres. Zbývajících 15 IP adres se rezervuje pro budoucí služby Azure. | /26 (62 hostitelů)-/22 (1022 hostitelů)<br><br>Doporučené =/24 (254 hostitelů) | 
 | Přepnout infrastrukturu | IP adresy Point-to-Point pro účely směrování, rozhraní pro správu vyhrazených přepínačů a adresy zpětné smyčky přiřazené přepínači. | /26 | 
 | Infrastruktura | Slouží k Azure Stack interní součásti pro komunikaci. | /24 |
-| Private | Používá se pro síť úložiště, privátní virtuální IP adresy, kontejnery infrastruktury a další interní funkce. Od 1910 se velikost této podsítě mění na/20. Další informace najdete v části [privátní síť](#private-network) v tomto článku. | /20 | 
+| Soukromé | Používá se pro síť úložiště, privátní virtuální IP adresy, kontejnery infrastruktury a další interní funkce. Od 1910 se velikost této podsítě mění na/20. Další informace najdete v části [privátní síť](#private-network) v tomto článku. | /20 | 
 | BMC | Slouží ke komunikaci s BMC na fyzických hostitelích. | /26 | 
 | | | |
 

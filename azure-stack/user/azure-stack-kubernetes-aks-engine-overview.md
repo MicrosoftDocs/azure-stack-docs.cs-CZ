@@ -24,7 +24,7 @@ ms.locfileid: "74310260"
 ---
 # <a name="what-is-the-aks-engine-on-azure-stack"></a>Co je modul AKS v Azure Stack?
 
-*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
 
 Pomocí nástroje příkazového řádku AKS Engine můžete nasadit a spravovat cluster Kubernetes v Azure a Azure Stack. Pomocí modulu AKS můžete vytvářet, upgradovat a škálovat Azure Resource Manager nativních clusterů. Modul můžete použít k nasazení clusteru v připojených i odpojených prostředích. Tento článek poskytuje přehled modulu AKS, podporované scénáře použití modulu s Azure Stack a Úvod k operacím, jako je nasazení, upgrade a škálování.
 

@@ -24,7 +24,7 @@ ms.locfileid: "74310097"
 ---
 # <a name="scale-a-kubernetes-cluster-on-azure-stack"></a>Škálování clusteru Kubernetes na Azure Stack
 
-*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
 
 Pomocí příkazu **Scale** můžete škálovat cluster pomocí modulu AKS. Příkaz **Scale** znovu použije váš konfigurační soubor clusteru (`apimodel.json`) ve výstupním adresáři jako vstup pro nové nasazení Azure Resource Manager. Modul provádí operaci škálování v zadaném fondu agentů. Když je operace škálování hotová, modul aktualizuje definici clusteru v tomto stejném `apimodel.json` souboru tak, aby odrážela nové počty uzlů, aby odrážela aktualizovanou aktuální konfiguraci clusteru.
 
@@ -47,7 +47,7 @@ Následující parametry používá příkaz Scale k vyhledání souboru definic
 | rozhraní API – model | Kube-RG/apimodel. JSON | Cesta k souboru definice clusteru (apimodel. JSON) Může to být: _output/\<pole dnsprefix >/apimodel.JSON | 
 | -New-Node-Count | 9 | Požadovaný počet uzlů. | 
 | – hlavní – plně kvalifikovaný název domény |  | Hlavní plně kvalifikovaný název domény. Nutné při horizontálním navýšení kapacity. |
-| Identita – systém | službou | Volitelné. Pokud používáte federované služby Active Directory (AD FS), zadejte svoje řešení pro správu identit. |
+| Identita – systém | službou | Volitelná. Pokud používáte federované služby Active Directory (AD FS), zadejte svoje řešení pro správu identit. |
 
 Při škálování clusteru v Azure Stack musíte zadat parametr **--Azure-ENV** . Další informace o parametrech a jejich hodnotách, které se používají v příkazu **Scale** pro modul AKS, najdete v tématu [Scale-Parameters](https://github.com/Azure/aks-engine/blob/master/docs/topics/scale.md#parameters).
 

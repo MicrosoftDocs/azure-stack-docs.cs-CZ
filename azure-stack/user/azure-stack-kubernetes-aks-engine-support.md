@@ -24,7 +24,7 @@ ms.locfileid: "74310167"
 ---
 # <a name="support-policies-for-aks-engine-on-azure-stack"></a>Zásady podpory pro modul AKS v Azure Stack
 
-*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
 
 Tento článek poskytuje podrobné informace o zásadách technické podpory a omezeních pro AKS modul na Azure Stack. Článek také podrobně popisuje Kubernetes položku Marketplace, komponenty Open-Source třetích stran a zabezpečení nebo správu oprav. 
 
@@ -104,7 +104,7 @@ Pokud je chyba zabezpečení zjištěná v jedné nebo více součástech modulu
 
 Uživatelé si můžou stáhnout položku Kubernetes Marketplace, která umožňuje uživatelům nasadit clustery Kubernetes pomocí modulu AKS nepřímo prostřednictvím šablony na portálu Azure Stack User Portal, což zjednodušuje použití stroje AKS přímo. Tento nástroj je užitečný pro rychlé nastavení clusterů pro ukázky, testování a vývoj. Není určená pro produkční prostředí, protože není součástí sady položek podporovaných Microsoftem.
 
-## <a name="preview-features"></a>Funkce Preview
+## <a name="preview-features"></a>Funkce verze Preview
 
 Pro funkce a funkce, které vyžadují rozšířené testování a zpětnou vazbu od uživatelů, vydává společnost Microsoft nové funkce nebo funkce verze Preview za příznakem funkce. Tyto funkce zvažte jako předprodejní nebo beta funkce. Funkce verze Preview nebo funkce příznaku funkcí nejsou určeny pro produkční prostředí. Průběžné změny funkčnosti a chování, opravy chyb a další změny můžou vést k nestabilním clusterům a výpadkům. Microsoft nepodporuje tyto funkce.
 

@@ -24,7 +24,7 @@ ms.locfileid: "74310265"
 ---
 # <a name="install-the-aks-engine-on-linux-in-azure-stack"></a>Instalace modulu AKS v systému Linux v Azure Stack
 
-*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
 
 Pomocí počítače se systémem Linux v Azure Stack můžete hostovat modul AKS, aby bylo možné nasadit a spravovat cluster Kubernetes. V tomto článku se podíváme na přípravu klientského virtuálního počítače pro správu clusteru pro připojené i odpojené Azure Stack instance, Projděte si instalaci a nastavte virtuální počítač klienta na ASDK.
 

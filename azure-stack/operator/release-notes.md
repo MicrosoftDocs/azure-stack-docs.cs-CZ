@@ -18,14 +18,14 @@ ms.reviewer: prchint
 ms.lastreviewed: 11/21/2019
 ms.openlocfilehash: 81a454fbe2db7d72d94eb499ad276ff28d33f048
 ms.sourcegitcommit: 0b783e262ac87ae67929dbd4c366b19bf36740f0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74310083"
 ---
 # <a name="azure-stack-updates-release-notes"></a>Aktualizace Azure Stack: poznámky k verzi
 
-*Platí pro: integrované systémy Azure Stack*
+*Platí pro: Azure Stack integrovaných systémů*
 
 Tento článek popisuje obsah balíčků aktualizací Azure Stack. Tato aktualizace obsahuje novinky a opravy pro tuto verzi Azure Stack.
 
@@ -127,7 +127,7 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
    |Životnost SA (čas)  | 27 000 sekund  |
    |Životnost SA (kilobajty) | 33 553 408     |
    |Metoda Perfect Forward Secrecy (PFS) | ECP384 |
-   |Detekce mrtvých partnerských zařízení | Podporuje se|
+   |Detekce mrtvých partnerských zařízení | Podporováno|
 
    Tyto změny se projeví také ve výchozí dokumentaci k [návrhu protokolu IPSec/IKE](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters) .
 
@@ -524,7 +524,7 @@ Systémy, které mají přístup k Internetu ze sítě infrastruktury, uvidí na
 > [!TIP]  
 > Přihlaste se k odběru následujících informačních kanálů *RSS* nebo *Atom* , abyste zachovali Azure Stack opravy hotfix:
 >
-> - [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss)
+> - [OBSAH](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss)
 > - [Počtu](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom)
 
 ## <a name="archive"></a>Archiv
@@ -533,10 +533,10 @@ Pokud chcete získat přístup k archivovaným dokumentům k verzi pro starší 
 
 ## <a name="next-steps"></a>Další kroky
 
-- Přehled správy aktualizací ve službě Azure Stack najdete v tématu [správy aktualizací ve službě Azure Stack přehled](azure-stack-updates.md).  
-- Další informace o tom, jak použít aktualizace pomocí služby Azure Stack najdete v tématu [použití aktualizací ve službě Azure Stack](azure-stack-apply-updates.md).
-- Zásady údržby pro integrované systémy Azure Stack, a co musíte udělat, aby byl váš systém v podporovaném stavu najdete v tématu [Azure Stack zásady obsluhy](azure-stack-servicing-policy.md).  
-- Privilegované koncový bod (období) použít ke sledování a obnovit aktualizace, najdete v článku [monitorování aktualizací ve službě Azure Stack pomocí privilegovaných koncového bodu](azure-stack-monitor-update.md).
+- Přehled správy aktualizací v Azure Stack najdete v tématu [Správa aktualizací v Azure Stack přehledu](azure-stack-updates.md).  
+- Další informace o tom, jak použít aktualizace s Azure Stack, najdete v tématu věnovaném [použití aktualizací v Azure Stack](azure-stack-apply-updates.md).
+- Informace o zásadách obsluhy pro Azure Stack integrovaných systémech a o tom, co je potřeba udělat, abyste zachovali svůj systém v podporovaném stavu, najdete v tématu [zásady pro obsluhu Azure Stack](azure-stack-servicing-policy.md).  
+- Postup pro monitorování a obnovení aktualizací pomocí privilegovaného koncového bodu (PEP) najdete v tématu [monitorování aktualizací v Azure Stack pomocí privilegovaného koncového bodu](azure-stack-monitor-update.md).
 ::: moniker-end
 
 <!------------------------------------------------------------>

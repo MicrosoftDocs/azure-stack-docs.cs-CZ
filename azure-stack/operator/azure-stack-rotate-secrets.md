@@ -1,7 +1,7 @@
 ---
-title: Rotate secrets
+title: Otočit tajných kódů
 titleSuffix: Azure Stack
-description: Learn how to rotate your secrets in Azure Stack.
+description: Naučte se, jak tyto tajné kódy otočit v Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -24,117 +24,117 @@ ms.contentlocale: cs-CZ
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74465396"
 ---
-# <a name="rotate-secrets-in-azure-stack"></a>Rotate secrets in Azure Stack
+# <a name="rotate-secrets-in-azure-stack"></a>Otočení tajných kódů v Azure Stack
 
-*These instructions apply only to Azure Stack Integrated Systems version 1803 and Later. Don't attempt secret rotation on pre-1802 Azure Stack Versions*
+*Tyto pokyny se vztahují jenom na Azure Stack integrované systémy verze 1803 a novější. Nepokusit se o rotaci tajného kódu v před1802ch Azure Stack verzích*
 
-Secrets help you maintain secure communication between the Azure Stack infrastructure resources and services.
+Tajné klíče vám pomůžou udržovat zabezpečenou komunikaci mezi Azure Stackmi prostředky infrastruktury a službami.
 
-## <a name="rotate-secrets-overview"></a>Rotate secrets overview
+## <a name="rotate-secrets-overview"></a>Přehled střídání tajných klíčů
 
-1. Prepare the certificates which will be used for secret rotation.
-2. Review the Azure Stack [public key infrastructure certificate requirements](https://docs.microsoft.com/azure-stack/operator/azure-stack-pki-certs).
-3. [Use the privileged endpoint](azure-stack-privileged-endpoint.md) and run **Test-azurestack**  to confirm that everything is fine.  
-4. Review the [pre-steps for secret rotation](#pre-steps-for-secret-rotation).
-5. [Validate Azure Stack PKI certificates](https://docs.microsoft.com/azure-stack/operator/azure-stack-validate-pki-certs). Make sure there are no special characters in the password, like `*` or `)`.
-6. Make sure the PFX encryption is **TripleDES-SHA1**. If you run into an issue, see [Fix common issues with Azure Stack PKI certificates](https://docs.microsoft.com/azure-stack/operator/azure-stack-remediate-certs#pfx-encryption).
-7. Prepare the folder structure.  You can find an example in the [Rotating external secrets](https://docs.microsoft.com/azure-stack/operator/azure-stack-rotate-secrets#rotating-external-secrets) section.
-8. [Start the secret rotation](#use-powershell-to-rotate-secrets).
+1. Připravte certifikáty, které se budou používat pro rotaci tajných klíčů.
+2. Zkontrolujte požadavky na [certifikát infrastruktury veřejných klíčů](https://docs.microsoft.com/azure-stack/operator/azure-stack-pki-certs)Azure Stack.
+3. [Pomocí privilegovaného koncového bodu](azure-stack-privileged-endpoint.md) a spuštěním rutiny **test-azurestack** ověřte, zda je vše v pořádku.  
+4. Přečtěte si [předběžné kroky pro rotaci tajných](#pre-steps-for-secret-rotation)kódů.
+5. [Ověří Azure Stack certifikáty PKI](https://docs.microsoft.com/azure-stack/operator/azure-stack-validate-pki-certs). Ujistěte se, že heslo neobsahuje žádné speciální znaky, například `*` nebo `)`.
+6. Ujistěte se, že šifrování PFX je **TripleDES-SHA1**. Pokud narazíte na problém, přečtěte si téma [řešení běžných problémů s Azure Stack certifikáty PKI](https://docs.microsoft.com/azure-stack/operator/azure-stack-remediate-certs#pfx-encryption).
+7. Připravte strukturu složek.  Příklad najdete v části [střídání externích tajných klíčů](https://docs.microsoft.com/azure-stack/operator/azure-stack-rotate-secrets#rotating-external-secrets) .
+8. [Spusťte rotaci tajných](#use-powershell-to-rotate-secrets)kódů.
 
-## <a name="rotate-secrets"></a>Rotate secrets
+## <a name="rotate-secrets"></a>Otočit tajných kódů
 
-Azure Stack uses various secrets to maintain secure communication between the Azure Stack infrastructure resources and services.
+Azure Stack pomocí různých tajných klíčů udržovat zabezpečenou komunikaci mezi prostředky a službami infrastruktury Azure Stack.
 
-- **Internal secrets**
+- **Interní tajné kódy**
 
-    All the certificates, passwords, secure strings, and keys used by the Azure Stack infrastructure without intervention of the Azure Stack Operator.
+    Všechny certifikáty, hesla, zabezpečené řetězce a klíče používané Azure Stack infrastruktury bez zásahu operátoru Azure Stack.
 
-- **External secrets**
+- **Externí tajná klíčová**
 
-    Infrastructure service certificates for external-facing services that are provided by the Azure Stack Operator. External secrets include the certificates for the following services:
+    Certifikáty služby infrastruktury pro externí služby, které poskytuje operátor Azure Stack. Externí tajné klíče obsahují certifikáty pro následující služby:
 
-    - Administrator portal
-    - Public portal
-    - Administrator Azure Resource Manager
-    - Global Azure Resource Manager
-    - Administrator Key Vault
+    - Portál pro správu
+    - Veřejný portál
+    - Azure Resource Manager správce
+    - Globální Azure Resource Manager
+    - Key Vault správce
     - Key Vault
-    - Admin Extension Host
-    - ACS (including blob, table, and queue storage)
-    - ADFS*
-    - Graph*
+    - Hostitel rozšíření Správce
+    - ACS (včetně objektů blob, Table a Queue Storage)
+    - SLUŽBOU
+    - Zapisovací
     
-    \* Only applicable if the environment's identity provider is Active Directory Federated Services (AD FS).
+    \* platí jenom v případě, že poskytovatel identity prostředí je ve službě Active Directory federované služby (AD FS).
 
 > [!Note]
-> All other secure keys and strings, including BMC and switch passwords as well as user and administrator account passwords are still manually updated by the administrator.
+> Všechny ostatní zabezpečené klíče a řetězce, včetně BMC, hesla pro přepínání a hesla účtů uživatelů a správců, jsou pořád aktualizovány ručně správcem.
 
 > [!Important]
-> Starting with Azure Stack's 1811 release, secret rotation has been separated for internal and external certificates.
+> Počínaje vydáním Azure Stack 1811 byla pro interní a externí certifikáty oddělená tajná rotace.
 
-To maintain the integrity of the Azure Stack infrastructure, operators need the ability to periodically rotate their infrastructure's secrets at frequencies that are consistent with their organization's security requirements.
+Aby bylo možné zachovat integritu infrastruktury Azure Stack, operátoři potřebují schopnost pravidelně střídat tajné klíče infrastruktury v četnostích, které jsou v souladu s požadavky na zabezpečení jejich organizace.
 
-### <a name="rotating-secrets-with-external-certificates-from-a-new-certificate-authority"></a>Rotating Secrets with external certificates from a new Certificate Authority
+### <a name="rotating-secrets-with-external-certificates-from-a-new-certificate-authority"></a>Střídání tajných kódů pomocí externích certifikátů od nové certifikační autority
 
-Azure Stack supports secret rotation with external certificates from a new Certificate Authority (CA) in the following contexts:
+Azure Stack podporuje v následujících kontextech při střídání tajného klíče pomocí externích certifikátů z nové certifikační autority (CA):
 
-|Installed Certificate CA|CA to Rotate To|Podporováno|Azure Stack versions supported|
+|Nainstalovala se certifikační autorita.|CA pro otočení|Podporováno|Podporované verze Azure Stack|
 |-----|-----|-----|-----|
-|From Self-Signed|To Enterprise|Podporováno|1903 & Later|
-|From Self-Signed|To Self-Signed|Nepodporuje se||
-|From Self-Signed|To Public<sup>*</sup>|Podporováno|1803 & Later|
-|From Enterprise|To Enterprise|Podporuje se. From 1803-1903: supported so long as customers use the SAME enterprise CA as used at deployment|1803 & Later|
-|From Enterprise|To Self-Signed|Nepodporuje se||
-|From Enterprise|To Public<sup>*</sup>|Podporováno|1803 & Later|
-|From Public<sup>*</sup>|To Enterprise|Podporováno|1903 & Later|
-|From Public<sup>*</sup>|To Self-Signed|Nepodporuje se||
-|From Public<sup>*</sup>|To Public<sup>*</sup>|Podporováno|1803 & Later|
+|Od sebe podepsané svým držitelem|Do Enterprise|Podporováno|1903 & později|
+|Od sebe podepsané svým držitelem|Na podepsaný svým držitelem|Nepodporuje se||
+|Od sebe podepsané svým držitelem|Na veřejné<sup>*</sup>|Podporováno|1803 & později|
+|Z Enterprise|Do Enterprise|Podporuje se. Od 1803-1903: podporované, pokud zákazníci používají stejnou certifikační autoritu organizace jako při nasazení.|1803 & později|
+|Z Enterprise|Na podepsaný svým držitelem|Nepodporuje se||
+|Z Enterprise|Na veřejné<sup>*</sup>|Podporováno|1803 & později|
+|Z veřejných<sup>*</sup>|Do Enterprise|Podporováno|1903 & později|
+|Z veřejných<sup>*</sup>|Na podepsaný svým držitelem|Nepodporuje se||
+|Z veřejných<sup>*</sup>|Na veřejné<sup>*</sup>|Podporováno|1803 & později|
 
-<sup>*</sup>Indicates that the Public Certificate Authorities are those that are part of the Windows Trusted Root Program. You can find the full list in the article [Microsoft Trusted Root Certificate Program: Participants (as of June 27, 2017)](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
+<sup>*</sup> Označuje, že veřejné certifikační autority jsou ty, které jsou součástí důvěryhodného kořenového programu systému Windows. Úplný seznam najdete v článku [program důvěryhodných kořenových certifikátů společnosti Microsoft: účastníci (od 27. června 2017)](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
 
-## <a name="fixing-alerts"></a>Fixing alerts
+## <a name="fixing-alerts"></a>Oprava výstrah
 
-When secrets are within 30 days of expiration, the following alerts are generated in the administrator portal:
+Když jsou tajná data do 30 dnů od vypršení platnosti, vygenerují se na portálu pro správu následující výstrahy:
 
-- Pending service account password expiration
-- Pending internal certificate expiration
+- Čekání na vypršení platnosti hesla účtu služby
+- Čeká se na vypršení platnosti interního certifikátu.
 - Blížící se vypršení platnosti externího certifikátu
 
-Running secret rotation using the instructions below will fix these alerts.
+Tyto výstrahy opravíte spuštěním rotace tajného klíče pomocí níže uvedených pokynů.
 
 > [!Note]
-> Azure Stack environments on pre-1811 versions may see alerts for pending internal certificate or secret expirations. These alerts are inaccurate and should be ignored without running internal secret rotation. Inaccurate internal secret expiration alerts are a known issue that's resolved in 1811. Internal secrets won't expire unless the environment has been active for two years.
+> Azure Stack prostředí v předběžných 1811 verzích se můžou zobrazovat upozornění na nevyřízené interní certifikáty nebo vypršení platnosti tajného kódu. Tyto výstrahy jsou nepřesné a měly by být ignorovány bez spuštění interního tajného klíče. Nepřesné upozornění na vypršení platnosti interního tajného klíče je známý problém, který je vyřešený v 1811. Platnost interních tajných kódů nekončí, pokud prostředí není aktivní po dobu dvou let.
 
-## <a name="pre-steps-for-secret-rotation"></a>Pre-steps for secret rotation
+## <a name="pre-steps-for-secret-rotation"></a>Předběžné kroky pro rotaci tajných klíčů
 
    > [!IMPORTANT]
-   > If secret rotation has already been performed on your Azure Stack environment then you must update the system to version 1811 or later before you execute secret rotation again. Secret Rotation must be executed via the [Privileged Endpoint](azure-stack-privileged-endpoint.md) and requires Azure Stack Operator credentials. If your environment Azure Stack Operator(s) don't know whether secret rotation has been run on your environment, update to 1811 before executing secret rotation again.
+   > Pokud se ve vašem Azure Stack prostředí už provedla rotace tajných klíčů, musíte systém aktualizovat na verzi 1811 nebo novější a teprve potom znovu spustit přesměrování tajného klíče. Pomocí [privilegovaného koncového bodu](azure-stack-privileged-endpoint.md) se musí provádět rotace tajných klíčů a vyžaduje Azure Stack přihlašovacích údajů operátora. Pokud vaše prostředí Azure Stack operátory neznají, jestli se ve vašem prostředí spustilo střídání tajných klíčů, aktualizujte na 1811, aby se znovu spustilo střídání tajného klíče.
 
-1. It's highly recommended you update your Azure Stack instance to version 1811.
-
-    > [!Note]
-    > For pre-1811 versions, you don't need to rotate secrets to add extension host certificates. You should follow the instructions in the article [Prepare for extension host for Azure Stack](azure-stack-extension-host-prepare.md) to add extension host certificates.
-
-2. Během obměny tajných klíčů služby Azure Stack si operátoři můžou všimnout otevírání a automatického zavírání upozornění.  This behavior is expected and the alerts can be ignored.  Operators can verify the validity of these alerts by running **Test-AzureStack**.  For operators using System Center Operations Manager to monitor Azure Stack systems, placing a system in maintenance mode will prevent these alerts from reaching their ITSM systems but will continue to alert if the Azure Stack system becomes unreachable.
-
-3. Notify your users of any maintenance operations. Schedule normal maintenance windows, as much as possible,  during non-business hours. Maintenance operations may affect both user workloads and portal operations.
+1. Důrazně doporučujeme aktualizovat instanci Azure Stack na verzi 1811.
 
     > [!Note]
-    > The next steps only apply when rotating Azure Stack external secrets.
+    > Pro verze starší než 1811 nemusíte při přidávání certifikátů hostitele rozšíření otáčet tajné klíče. Při přidávání certifikátů hostitelů rozšíření byste měli postupovat podle pokynů v článku [Příprava hostitele rozšíření pro Azure Stack](azure-stack-extension-host-prepare.md) .
 
-4. Run **[Test-AzureStack](azure-stack-diagnostic-test.md)** and confirm all test outputs are healthy before rotating secrets.
-5. Prepare a new set of replacement external certificates. The new set matches the certificate specifications outlined in the [Azure Stack PKI certificate requirements](azure-stack-pki-certs.md). You can generate a certificate signing request (CSR) for purchasing or creating new certificates using the steps outlined in [Generate PKI Certificates](azure-stack-get-pki-certs.md) and prepare them for use in your Azure Stack environment using the steps in [Prepare Azure Stack PKI Certificates](azure-stack-prepare-pki-certs.md). Be sure to validate the certificates you prepare with the steps outlined in [Validate PKI Certificates](azure-stack-validate-pki-certs.md).
-6. Store a backup to the certificates used for rotation in a secure backup location. If your rotation runs and then fails, replace the certificates in the file share with the backup copies before you rerun the rotation. Keep backup copies in the secure backup location.
-7. Create a fileshare you can access from the ERCS VMs. The file share must be  readable and writable for the **CloudAdmin** identity.
-8. Open a PowerShell ISE console from a computer where you have access to the fileshare. Navigate to your fileshare.
-9. Run **[CertDirectoryMaker.ps1](https://www.aka.ms/azssecretrotationhelper)** to create the required directories for your external certificates.
+2. Během obměny tajných klíčů služby Azure Stack si operátoři můžou všimnout otevírání a automatického zavírání upozornění.  Toto chování je očekávané a výstrahy je možné ignorovat.  Operátoři můžou ověřit platnost těchto výstrah spuštěním **test-AzureStack**.  Pro operátory, které používají System Center Operations Manager k monitorování Azure Stack systémů, je potřeba při umístění systému do režimu údržby zabránit tomu, aby se tyto výstrahy dostaly do svých ITSM systémů, ale budou se i nadále zobrazovat výstrahy, pokud se Azure Stack systém stane nedostupným.
+
+3. Informujte uživatele o všech operacích údržby. Naplánujte normální časová období údržby, co nejvíce, během nepracovních hodin. Operace údržby mohou ovlivnit úlohy uživatelů i operace portálu.
+
+    > [!Note]
+    > Další kroky platí pouze při střídání Azure Stack externích tajných klíčů.
+
+4. Spusťte **[test-AzureStack](azure-stack-diagnostic-test.md)** a potvrďte, že všechny výstupy testů jsou v pořádku před otočením tajných kódů.
+5. Připravte novou sadu náhradních externích certifikátů. Nová sada odpovídá specifikacím certifikátu popsaným v [Azure Stack požadavky na certifikát PKI](azure-stack-pki-certs.md). Můžete vygenerovat žádost o podepsání certifikátu (CSR) k nákupu nebo vytváření nových certifikátů pomocí kroků uvedených v části [vygenerování certifikátů PKI](azure-stack-get-pki-certs.md) a jejich příprava pro použití ve vašem Azure Stack prostředí pomocí postupu v části [Příprava Azure Stack certifikátů PKI](azure-stack-prepare-pki-certs.md). Nezapomeňte ověřit certifikáty, které jste připravili s postupem popsaným v části [ověření certifikátů PKI](azure-stack-validate-pki-certs.md).
+6. Uložte zálohu do certifikátů používaných k otočení v umístění zabezpečené zálohy. Pokud se vaše otočení spustí a pak se nepovede, nahraďte certifikáty ve sdílené složce záložními kopiemi a teprve potom znovu spusťte otočení. Uchovávejte záložní kopie v umístění zabezpečené zálohy.
+7. Vytvořte sdílenou složku, ke které máte přístup z virtuálních počítačů s ERCS. Sdílená složka musí být čitelná a zapisovatelné pro **CloudAdmin** identitu.
+8. Otevřete konzolu PowerShellu ISE z počítače, ke kterému máte přístup ke sdílené složce. Přejděte do sdílené složky.
+9. Spuštěním **[CertDirectoryMaker. ps1](https://www.aka.ms/azssecretrotationhelper)** vytvořte požadované adresáře pro externí certifikáty.
 
 > [!IMPORTANT]
-> The CertDirectoryMaker script will create a folder structure that will adhere to:
+> Skript CertDirectoryMaker vytvoří strukturu složek, která bude vyhovovat:
 >
-> **.\Certificates\AAD** or ***.\Certificates\ADFS*** depending on your Identity Provider used for Azure Stack.
+> **.\Certificates\AAD** nebo ***.\Certificates\ADFS*** v závislosti na vašem zprostředkovateli identity, který se používá pro Azure Stack.
 >
-> It's of utmost importance that your folder structure ends with **AAD** or **ADFS** folders and all subdirectories are within this structure; otherwise, **Start-SecretRotation** will come up with:
+> Má nejvyšší důležitost, že struktura složek končí složkami **AAD** nebo **ADFS** a všechny podadresáře jsou v této struktuře. v opačném případě se **spustí – SecretRotation** :
 >
 > ```powershell
 > Cannot bind argument to parameter 'Path' because it is null.
@@ -143,23 +143,23 @@ Running secret rotation using the instructions below will fix these alerts.
 > + PSComputerName        : xxx.xxx.xxx.xxx
 > ```
 >
-> The error massage indicates that there's a problem accessing your fileshare but in reality it's the folder structure that's being enforced here. More information can be found in the Microsoft AzureStack Readiness Checker - [PublicCertHelper module](https://www.powershellgallery.com/packages/Microsoft.AzureStack.ReadinessChecker/1.1811.1101.1/Content/CertificateValidation%5CPublicCertHelper.psm1).
+> Chyba Massage indikuje, že došlo k potížím při přístupu ke sdílené složce souborů, ale ve skutečnosti se tady vynutila struktura složek. Další informace najdete v modulu Microsoft AzureStack Readiness Checker – [PublicCertHelper](https://www.powershellgallery.com/packages/Microsoft.AzureStack.ReadinessChecker/1.1811.1101.1/Content/CertificateValidation%5CPublicCertHelper.psm1).
 >
-> It's also important that your fileshare folder structure begins with **Certificates** folder, otherwise it will also fail on validation.
-> Fileshare mount should look like **\\\\\<IPAddress>\\\<ShareName>\\** and it should contain folder **Certificates\AAD** or **Certificates\ADFS** inside.
+> Je také důležité, aby struktura složek sdílené složky začínala složkou **certifikáty** , v opačném případě se také nezdaří ověření.
+> Připojení sdílené složky by mělo vypadat jako **\\\\\<IPAddress >\\\<název_sdílené_položky >\\** a musí obsahovat složku **Certificates\AAD** nebo **Certificates\ADFS** uvnitř.
 >
-> Například:
-> - Fileshare = **\\\\\<IPAddress>\\\<ShareName>\\**
+> Příklad:
+> - Share = **\\\\\<IPAddress >\\\<název_sdílené_položky >\\**
 > - CertFolder = **Certificates\AAD**
-> - FullPath = **\\\\\<IPAddress>\\\<ShareName>\Certificates\AAD**
+> - FullPath = **\\\\\<IPAddress >\\\<název_sdílené_položky > \Certificates\AAD**
 
-## <a name="rotating-external-secrets"></a>Rotating external secrets
+## <a name="rotating-external-secrets"></a>Otáčení externích tajných klíčů
 
-To rotate external secrets:
+Postup při otočení externích tajných klíčů:
 
-1. Within the newly created **\Certificates\\\<IdentityProvider>** directory created in the pre-steps, place the new set of replacement external certificates in the directory structure according to the format outlined in the **Mandatory certificates** section of the [Azure Stack PKI certificate requirements](azure-stack-pki-certs.md#mandatory-certificates).
+1. V nově vytvořeném **\Certificates\\\<IdentityProvider adresář >** vytvořený v rámci kroků, umístěte novou sadu náhradních externích certifikátů do adresářové struktury podle formátu popsaného v části **povinné certifikáty** v tématu [požadavky na certifikát PKI Azure Stack](azure-stack-pki-certs.md#mandatory-certificates).
 
-    Example of folder structure for the Azure AD Identity Provider:
+    Příklad struktury složek pro zprostředkovatele identit Azure AD:
     ```powershell
         <ShareName>
         │   │
@@ -200,39 +200,39 @@ To rotate external secrets:
 
     ```
 
-2. Create a PowerShell Session with the [Privileged endpoint](azure-stack-privileged-endpoint.md) using the **CloudAdmin** account and store the sessions as a variable. You'll use this variable as the parameter in the next step.
+2. Pomocí účtu **CloudAdmin** vytvořte relaci PowerShellu s [privilegovaným koncovým bodem](azure-stack-privileged-endpoint.md) a uložte tyto relace jako proměnnou. Tuto proměnnou použijete jako parametr v dalším kroku.
 
     > [!IMPORTANT]  
-    > Don't enter the session. Store the session as a variable.
+    > Nezadávejte relaci. Uložte relaci jako proměnnou.
 
-3. Run **[Invoke-Command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/Invoke-Command?view=powershell-5.1)** . Pass your privileged endpoint PowerShell session variable as the **Session** parameter.
+3. Spusťte **[příkaz Invoke-Command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/Invoke-Command?view=powershell-5.1)** . Zadáte proměnnou relace PowerShellu privilegovaného koncového bodu jako parametr **relace** .
 
-4. Run **Start-SecretRotation** with the following parameters:
+4. Spusťte rutinu **Start-SecretRotation** s následujícími parametry:
     - **PfxFilesPath**  
-    Specify the network path to your Certificates directory created earlier.  
+    Zadejte síťovou cestu k adresáři certifikátů, který jste vytvořili dříve.  
     - **PathAccessCredential**  
-    A PSCredential object for credentials to the share.
+    Objekt PSCredential pro přihlašovací údaje ke sdílené složce.
     - **CertificatePassword**  
-    A secure string of the password used for all of the pfx certificate files created.
+    Zabezpečený řetězec hesla použitého pro všechny vytvořené soubory certifikátů PFX.
 
-5. Wait while your secrets rotate. External secret rotation takes approximately one hour.
+5. Počkejte na otočení tajných kódů. Rotace externích tajných klíčů trvá přibližně jednu hodinu.
 
-    When secret rotation successfully completes, your console will display **Overall action status: Success**.
+    Po úspěšném dokončení rotace tajného klíče se v konzole zobrazí **Celkový stav akce: úspěch**.
 
     > [!Note]
-    > If secret rotation fails, follow the instructions in the error message and re-run **Start-SecretRotation** with the **-ReRun** parameter.
+    > Pokud se rotace tajných klíčů nezdařila, postupujte podle pokynů v chybové zprávě a znovu spusťte rutinu **Start-SecretRotation** s parametrem **-** restart.
 
     ```powershell
     Start-SecretRotation -ReRun
     ```
 
-    Contact support if you experience repeated secret rotation failures.
+    Pokud se setkáte s opakovanými chybami při střídání tajných kódů, kontaktujte
 
-6. After successful completion of secret rotation, remove your certificates from the share created in the pre-step and store them in their secure backup location.
+6. Po úspěšném dokončení rotace tajného klíče odeberte svoje certifikáty ze sdílené složky vytvořené v předběžné fázi a uložte je do svého zabezpečeného záložního umístění.
 
-## <a name="use-powershell-to-rotate-secrets"></a>Use PowerShell to rotate secrets
+## <a name="use-powershell-to-rotate-secrets"></a>Použití PowerShellu k otočení tajných kódů
 
-The following PowerShell example demonstrates the cmdlets and parameters to run in order to rotate your secrets.
+Následující příklad prostředí PowerShell ukazuje rutiny a parametry, které je třeba spustit, aby bylo možné tyto tajné kódy otočit.
 
 ```powershell
 # Create a PEP Session
@@ -250,54 +250,54 @@ Invoke-Command -Session $PEPSession -ScriptBlock {
 Remove-PSSession -Session $PEPSession
 ```
 
-## <a name="rotating-only-internal-secrets"></a>Rotating only internal secrets
+## <a name="rotating-only-internal-secrets"></a>Otočení jenom interních tajných kódů
 
 > [!Note]
-> Internal secret rotation should only be done if you suspect an internal secret has been compromised by a malicious entity, or if you've received an alert (on build 1811 or later) indicating internal certificates are nearing expiration. Azure Stack environments on pre-1811 versions may see alerts for pending internal certificate or secret expirations. These alerts are inaccurate and should be ignored without running internal secret rotation. Inaccurate internal secret expiration alerts are a known issue that's resolved in 1811. Internal secrets won't expire unless the environment has been active for two years.
+> Vnitřní rotace tajných klíčů by se mělo provést jenom v případě, že se domníváte, že došlo k ohrožení interního tajného klíče, nebo pokud jste obdrželi upozornění (na buildu 1811 nebo novější), což značí, že se blíží vypršení platnosti vnitřních certifikátů. Azure Stack prostředí v předběžných 1811 verzích se můžou zobrazovat upozornění na nevyřízené interní certifikáty nebo vypršení platnosti tajného kódu. Tyto výstrahy jsou nepřesné a měly by být ignorovány bez spuštění interního tajného klíče. Nepřesné upozornění na vypršení platnosti interního tajného klíče je známý problém, který je vyřešený v 1811. Platnost interních tajných kódů nekončí, pokud prostředí není aktivní po dobu dvou let.
 
-1. Create a PowerShell session with the [Privileged endpoint](azure-stack-privileged-endpoint.md).
-2. In the Privileged Endpoint session, run **Start-SecretRotation -Internal**.
+1. Vytvořte relaci PowerShellu s [privilegovaným koncovým bodem](azure-stack-privileged-endpoint.md).
+2. V relaci privilegovaného koncového bodu spusťte rutinu **Start-SecretRotation-Internal**.
 
     > [!Note]
-    > Azure Stack environments on pre-1811 versions won't require the **-Internal** flag. **Start-SecretRotation** will rotate only internal secrets.
+    > Azure Stack prostředí na verzích starších než 1811 nebudou vyžadovat příznak **-internal** . **Příkaz Start-SecretRotation** provede otočení pouze interních tajných kódů.
 
-3. Wait while your secrets rotate.
+3. Počkejte na otočení tajných kódů.
 
-   When secret rotation successfully completes, your console will display **Overall action status: Success**.
+   Po úspěšném dokončení rotace tajného klíče se v konzole zobrazí **Celkový stav akce: úspěch**.
     > [!Note]
-    > If secret rotation fails, follow the instructions in the error message and rerun **Start-SecretRotation** with the  **-Internal** and **-ReRun** parameters.  
+    > Pokud se rotace tajných klíčů nezdařila, postupujte podle pokynů v chybové zprávě a znovu spusťte **příkaz Start-SecretRotation** s parametry **-internal** a-restart **-** .  
 
 ```powershell
 Start-SecretRotation -Internal -ReRun
 ```
 
-Contact support if you experience repeated secret rotation failures.
+Pokud se setkáte s opakovanými chybami při střídání tajných kódů, kontaktujte
 
-## <a name="start-secretrotation-reference"></a>Start-SecretRotation reference
+## <a name="start-secretrotation-reference"></a>Odkaz na začátek – SecretRotation
 
-Rotates the secrets of an Azure Stack System. Only executed against the Azure Stack privileged endpoint.
+Otočí tajné klíče Azure Stackho systému. Provede se jenom u Azure Stack privilegovaného koncového bodu.
 
 ### <a name="syntax"></a>Syntaxe
 
-#### <a name="for-external-secret-rotation"></a>For external secret rotation
+#### <a name="for-external-secret-rotation"></a>Pro rotaci externích tajných klíčů
 
 ```powershell
 Start-SecretRotation [-PfxFilesPath <string>] [-PathAccessCredential <PSCredential>] [-CertificatePassword <SecureString>]  
 ```
 
-#### <a name="for-internal-secret-rotation"></a>For internal secret rotation
+#### <a name="for-internal-secret-rotation"></a>Pro otočení interního tajného klíče
 
 ```powershell
 Start-SecretRotation [-Internal]  
 ```
 
-#### <a name="for-external-secret-rotation-rerun"></a>For external secret rotation rerun
+#### <a name="for-external-secret-rotation-rerun"></a>Opětovné spuštění pro vyhledání externích tajných klíčů
 
 ```powershell
 Start-SecretRotation [-ReRun]
 ```
 
-#### <a name="for-internal-secret-rotation-rerun"></a>For internal secret rotation rerun
+#### <a name="for-internal-secret-rotation-rerun"></a>Pro opětovné spuštění rotace interního tajného klíče
 
 ```powershell
 Start-SecretRotation [-ReRun] [-Internal]
@@ -305,31 +305,31 @@ Start-SecretRotation [-ReRun] [-Internal]
 
 ### <a name="description"></a>Popis
 
-The **Start-SecretRotation** cmdlet rotates the infrastructure secrets of an Azure Stack system. By default, it rotates only the certificates of all external network infrastructure endpoints. If used with the -Internal flag, internal infrastructure secrets will be rotated. When rotating external network infrastructure endpoints, **Start-SecretRotation** should be run with an **Invoke-Command** script block with the Azure Stack environment's privileged endpoint session passed in as the **Session** parameter.
+Rutina **Start-SecretRotation** otočí tajné klíče infrastruktury Azure Stackho systému. Ve výchozím nastavení otočí jenom certifikáty všech koncových bodů infrastruktury externích sítí. V případě, že se používá s příznakem-Internal, budou se informace o interní infrastruktuře střídat. Při otáčení koncových bodů infrastruktury externí sítě by se měl spustit **-SecretRotation** spustit pomocí bloku skriptu **Invoke-Command** s privilegovaným rozhraním cloudového koncového bodu Azure Stack, který se předává jako parametr **relace** .
 
 ### <a name="parameters"></a>Parametry
 
-| Parametr | Typ | Požaduje se | Position | Výchozí | Popis |
+| Parametr | Typ | Požadováno | Pozice | Výchozí | Popis |
 | -- | -- | -- | -- | -- | -- |
-| `PfxFilesPath` | Řetězec  | Nepravda  | Named  | Žádné  | The fileshare path to the **\Certificates** directory containing all external network endpoint certificates. Only required when rotating external secrets. End directory must be **\Certificates**. |
-| `CertificatePassword` | SecureString | Nepravda  | Named  | Žádné  | The password for all certificates provided in the -PfXFilesPath. Required value if PfxFilesPath is provided when external secrets are rotated. |
-| `Internal` | Řetězec | Nepravda | Named | Žádné | Internal flag must be used anytime an Azure Stack operator wishes to rotate internal infrastructure secrets. |
-| `PathAccessCredential` | PSCredential | Nepravda  | Named  | Žádné  | The PowerShell credential for the fileshare of the **\Certificates** directory containing all external network endpoint certificates. Only required when rotating external secrets.  |
-| `ReRun` | SwitchParameter | Nepravda  | Named  | Žádné  | ReRun must be used anytime secret rotation is reattempted after a failed attempt. |
+| `PfxFilesPath` | Řetězec  | False  | Jmenovanou  | Žádné  | Cesta ke sdílené složce adresáře **\Certificates** obsahující všechny certifikáty koncového bodu externí sítě. Vyžaduje se pouze při otáčení externích tajných klíčů. Koncový adresář musí být **\Certificates**. |
+| `CertificatePassword` | SecureString | False  | Jmenovanou  | Žádné  | Heslo pro všechny certifikáty, které jsou k dispozici v-PfXFilesPath. Požadovaná hodnota, pokud je k dispozici PfxFilesPath při otočení externích tajných klíčů. |
+| `Internal` | Řetězec | False | Jmenovanou | Žádné | Vnitřní příznak se musí použít, kdykoli Azure Stack operátor chce střídat interní tajné klíče infrastruktury. |
+| `PathAccessCredential` | PSCredential | False  | Jmenovanou  | Žádné  | Přihlašovací údaje PowerShellu pro sdílenou složku adresáře **\Certificates** obsahující všechny certifikáty koncového bodu externí sítě. Vyžaduje se pouze při otáčení externích tajných klíčů.  |
+| `ReRun` | Přepínací parametr | False  | Jmenovanou  | Žádné  | Po neúspěšném pokusu je třeba znovu spustit opětovné otočení tajného klíče. |
 
 ### <a name="examples"></a>Příklady
 
-#### <a name="rotate-only-internal-infrastructure-secrets"></a>Rotate only internal infrastructure secrets
+#### <a name="rotate-only-internal-infrastructure-secrets"></a>Otočit jenom tajná klíčová tajemství interní infrastruktury
 
-This command must be run via your Azure Stack [environment's privileged endpoint](azure-stack-privileged-endpoint.md).
+Tento příkaz se musí spustit prostřednictvím [privilegovaného koncového bodu](azure-stack-privileged-endpoint.md)Azure Stackho prostředí.
 
 ```powershell
 PS C:\> Start-SecretRotation -Internal
 ```
 
-This command rotates all of the infrastructure secrets exposed to the Azure Stack internal network.
+Tento příkaz otočí všechny tajné klíče infrastruktury vystavené Azure Stack interní síti.
 
-#### <a name="rotate-only-external-infrastructure-secrets"></a>Rotate only external infrastructure secrets  
+#### <a name="rotate-only-external-infrastructure-secrets"></a>Otočení jenom externích tajných kódů infrastruktury  
 
 ```powershell
 # Create a PEP Session
@@ -348,14 +348,14 @@ Invoke-Command -Session $PEPSession -ScriptBlock {
 Remove-PSSession -Session $PEPSession
 ```
 
-This command rotates the TLS certificates used for Azure Stack's external network infrastructure endpoints.
+Tento příkaz otočí certifikáty TLS používané k externím koncovým bodům infrastruktury sítě Azure Stack.
 
-#### <a name="rotate-internal-and-external-infrastructure-secrets-pre-1811-only"></a>Rotate internal and external infrastructure secrets (**pre-1811** only)
+#### <a name="rotate-internal-and-external-infrastructure-secrets-pre-1811-only"></a>Otočení interních a externích tajných kódů infrastruktury (jenom**před 1811** )
 
 > [!IMPORTANT]
-> This command only applies to Azure Stack **pre-1811** as the rotation has been split for internal and external certificates.
+> Tento příkaz se vztahuje jenom na Azure Stack **pre-1811** , protože rotace je rozdělená na interní a externí certifikáty.
 >
-> **From *1811+* you can't rotate both internal and external certificates anymore!**
+> **Od *1811 +* už nemůžete otočit interní i externí certifikát!**
 
 ```powershell
 # Create a PEP Session
@@ -374,22 +374,22 @@ Invoke-Command -Session $PEPSession -ScriptBlock {
 Remove-PSSession -Session $PEPSession
 ```
 
-This command rotates all of the infrastructure secrets exposed to Azure Stack internal network as well as the TLS certificates used for Azure Stack's external network infrastructure endpoints. Start-SecretRotation rotates all stack-generated secrets, and because there are provided certificates, external endpoint certificates will also be rotated.  
+Tento příkaz otočí všechny tajné klíče infrastruktury vystavené Azure Stack interní síti a také certifikátům TLS používaným pro koncové body infrastruktury externích sítí Azure Stack. Start-SecretRotation otočí všechny tajné klíče generované zásobníkem a protože jsou k dispozici nějaké certifikáty, budou se také otáčet certifikáty externích koncových bodů.  
 
-## <a name="update-the-baseboard-management-controller-bmc-credential"></a>Update the baseboard management controller (BMC) credential
+## <a name="update-the-baseboard-management-controller-bmc-credential"></a>Aktualizace přihlašovacích údajů řadiče pro správu základní desky (BMC)
 
-The baseboard management controller (BMC) monitors the physical state of your servers. Refer to your original equipment manufacturer (OEM) hardware vendor for instructions to update the user account name and password of the BMC.
+Řadič pro správu základní desky (BMC) monitoruje fyzický stav vašich serverů. Pokyny k aktualizaci názvu uživatelského účtu a hesla řadiče pro správu základní desky najdete v tématu dodavatel hardwaru výrobce OEM.
 
 >[!NOTE]
-> Your OEM may provide additional management apps. Updating the user name or password for other management apps has no affect on the BMC user name or password.
+> Výrobce OEM může poskytovat další aplikace pro správu. Aktualizace uživatelského jména nebo hesla pro jiné aplikace pro správu nemá žádný vliv na uživatelské jméno nebo heslo řadiče pro správu základní desky.
 
-1. **Versions earlier than 1910**: Update the BMC on the Azure Stack physical servers by following your OEM instructions. The user name and password for each BMC in your environment must be the same. The BMC user names can't exceed 16 characters.
+1. **Verze starší než 1910**: aktualizujte BMC na Azure Stack fyzických serverech podle pokynů výrobce OEM. Uživatelské jméno a heslo pro každý řadič pro správu základní desky ve vašem prostředí musí být stejné. Uživatelská jména řadiče pro správu základní desky nesmí být delší než 16 znaků.
 
-   **Version 1910 and later**: It's no longer required that you first update the BMC credentials on the Azure Stack physical servers by following your OEM instructions. The user name and password for each BMC in your environment must be the same. The BMC user names can't exceed 16 characters.
+   **Verze 1910 a novější**: již není nutné, abyste nejprve aktualizovali přihlašovací údaje řadiče pro správu základní desky na Azure Stack fyzických serverech podle pokynů výrobce OEM. Uživatelské jméno a heslo pro každý řadič pro správu základní desky ve vašem prostředí musí být stejné. Uživatelská jména řadiče pro správu základní desky nesmí být delší než 16 znaků.
 
-2. Open a privileged endpoint in Azure Stack sessions. For instructions, see [Using the privileged endpoint in Azure Stack](azure-stack-privileged-endpoint.md).
+2. V Azure Stack relacích otevřete privilegovaný koncový bod. Pokyny najdete v tématu [použití privilegovaného koncového bodu v Azure Stack](azure-stack-privileged-endpoint.md).
 
-3. After your PowerShell prompt has changed to **[IP address or ERCS VM name]: PS>** or to **[azs-ercs01]: PS>** , depending on the environment, run `Set-BmcCredential` by running `Invoke-Command`. Pass your privileged endpoint session variable as a parameter. Například:
+3. Po změně výzvy PowerShellu na **[IP adresa nebo ERCS název virtuálního počítače]: ps >** nebo na **[AZS-ERCS01]: PS >** v závislosti na prostředí spusťte `Set-BmcCredential` spuštěním `Invoke-Command`. Předat proměnnou vaší privilegované relace koncového bodu jako parametr. Příklad:
 
     ```powershell
     # Interactive Version
@@ -407,7 +407,7 @@ The baseboard management controller (BMC) monitors the physical state of your se
     Remove-PSSession -Session $PEPSession
     ```
 
-    You can also use the static PowerShell version with the Passwords as code lines:
+    Můžete také použít statickou verzi prostředí PowerShell s hesly jako řádky kódu:
 
     ```powershell
     # Static Version

@@ -24,7 +24,7 @@ ms.locfileid: "74298867"
 ---
 # <a name="connect-to-azure-stack-with-powershell"></a>Připojení k Azure Stack pomocí PowerShellu
 
-*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
 
 Azure Stack můžete nakonfigurovat tak, aby používaly prostředí PowerShell ke správě prostředků, jako je vytváření nabídek, plánů, kvót a výstrah. Toto téma vám pomůže nakonfigurovat prostředí operátora.
 
@@ -32,8 +32,8 @@ Azure Stack můžete nakonfigurovat tak, aby používaly prostředí PowerShell 
 
 Pokud jste [připojení k ASDK prostřednictvím sítě VPN](../asdk/asdk-connect.md#connect-with-vpn), spusťte následující předpoklady buď z [Azure Stack Development Kit (ASDK)](../asdk/asdk-connect.md#connect-with-rdp) , nebo z externího klienta založeného na systému Windows.
 
-- Nainstalujte [moduly Azure Powershellu kompatibilní s Azure Stack](azure-stack-powershell-install.md).  
-- Ve službě [Azure Stack development Kit by měl být blobEndpoint](azure-stack-powershell-download.md) .  
+- Nainstalujte [Azure PowerShell moduly kompatibilní s Azure Stack](azure-stack-powershell-install.md).  
+- Stáhněte si [nástroje potřebné pro práci s Azure Stack](azure-stack-powershell-download.md).  
 
 ## <a name="connect-with-azure-ad"></a>Spojte se s Azure AD
 

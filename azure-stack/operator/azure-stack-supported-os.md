@@ -25,7 +25,7 @@ ms.locfileid: "74298772"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack"></a>Hostované operační systémy podporované v Azure Stack
 
-*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
 
 ## <a name="windows"></a>Windows
 
@@ -34,11 +34,11 @@ Azure Stack podporuje hostované operační systémy Windows, které jsou uveden
 | Operační systém | Popis | K dispozici na webu Marketplace |
 | --- | --- | --- |
 | Windows Server verze 1709 | 64 – bit | Jádro s kontejnery |
-| Windows Server 2019 | 64 – bit |  Datacenter, Datacenter Core, Datacenter s kontejnery |
+| Windows Server. 2019 | 64 – bit |  Datacenter, Datacenter Core, Datacenter s kontejnery |
 | Windows Server 2016 | 64 – bit |  Datacenter, Datacenter Core, Datacenter s kontejnery |
-| Windows Server 2012 R2 | 64 – bit |  Datové centrum |
-| Windows Server 2012 | 64 – bit |  Datové centrum |
-| Windows Server 2008 R2 SP1 | 64 – bit |  Datové centrum |
+| Windows Server 2012 R2 | 64 – bit |  Datacentrum |
+| Windows Server 2012 | 64 – bit |  Datacentrum |
+| Windows Server 2008 R2 SP1 | 64 – bit |  Datacentrum |
 | Windows Server 2008 SP2 | 64 – bit |  Přineste si vlastní image |
 | Windows 10 *(viz poznámka 1)* | 64-bit, pro a Enterprise | Přineste si vlastní image |
 

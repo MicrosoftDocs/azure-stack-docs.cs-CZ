@@ -24,7 +24,7 @@ ms.locfileid: "74299002"
 ---
 # <a name="add-linux-images-to-azure-stack-marketplace"></a>Přidání imagí Linux do webu Azure Stack Marketplace
 
-*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
 
 Virtuální počítače se systémem Linux můžete nasadit na Azure Stack přidáním image založené na systému Linux do webu Azure Stack Marketplace. Nejjednodušší způsob, jak do služby Azure Stack přidat image Linuxu, představuje Správa Marketplace. Tyto image jsou připravené a otestované z hlediska kompatibility se službou Azure Stack.
 
@@ -50,7 +50,7 @@ Je vyžadován agent Azure Linux (obvykle označovaný jako **WALinuxAgent** neb
 | 1.1902.2.73  | 2.2.35 nebo novější |
 | 1.1903.0.35  | 2.2.35 nebo novější |
 | Build po 1903 | 2.2.35 nebo novější |
-| Nepodporováno | 2.2.21-2.2.34 |
+| Nepodporuje se | 2.2.21-2.2.34 |
 | Build po 1910 | Všechny verze agenta Azure WALA|
 
 Vlastní image pro Linux můžete připravit pomocí následujících pokynů:

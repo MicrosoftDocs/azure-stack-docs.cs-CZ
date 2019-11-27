@@ -17,14 +17,14 @@ ms.reviewer: thoroet
 ms.lastreviewed: 09/19/2019
 ms.openlocfilehash: 813cfb72a2fad2b22dfce5baff8680b30d2c599d
 ms.sourcegitcommit: cefba8d6a93efaedff303d3c605b02bd28996c5d
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 11/21/2019
 ms.locfileid: "74298821"
 ---
 # <a name="install-powershell-for-azure-stack"></a>Instalace PowerShellu pro Azure Stack
 
-*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
 
 Azure PowerShell poskytuje sadu rutin, které používají model Azure Resource Manager ke správě Azure Stack prostředků.
 

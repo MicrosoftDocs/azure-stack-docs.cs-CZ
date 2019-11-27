@@ -377,7 +377,7 @@
     - name: Využití a fakturace
       href: azure-stack-billing-and-chargeback.md
       items:
-        - name: Správa využití a fakturace jako poskytovatel CSP
+        - name: Spravovat využití a fakturace jako zprostředkovatel kryptografických služeb
           href: azure-stack-add-manage-billing-as-a-csp.md
           items:
             - name: Přidání tenantů pro využití a fakturace
@@ -441,7 +441,7 @@
                   href: azure-stack-configure-on-demand-diagnostic-log-collection.md
         - name: Ověření pro Azure Stack
           href: azure-stack-diagnostic-test.md
-        - name: Řešení potíží
+        - name: Poradce při potížích
           href: azure-stack-troubleshooting.md
 - name: Odkaz
   items:

@@ -24,7 +24,7 @@ ms.locfileid: "74310343"
 ---
 # <a name="troubleshoot-the-aks-engine-on-azure-stack"></a>Řešení potíží s modulem AKS na Azure Stack
 
-*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
 
 Může dojít k potížím při nasazení nebo práci s modulem AKS na Azure Stack. V tomto článku se dozvíte, jak řešit potíže s nasazením modulu AKS, shromažďovat informace o vašem modulu AKS, shromažďovat protokoly Kubernetes, prohlížet kódy chyb v rozšíření vlastních skriptů a pokyny k otevření problému GitHubu pro modul AKS.
 
@@ -128,7 +128,7 @@ Požadavky:
 
 2. Vyhledejte parametry vyžadované skriptem `getkuberneteslogs.sh`. Skript bude používat následující parametry:
 
-    | Parametr | Popis | Požaduje se | Příklad |
+    | Parametr | Popis | Požadováno | Příklad |
     | --- | --- | --- | --- |
     | -h,--help | Použití příkazu tisku. | ne | 
     -u,--uživatel | Uživatelské jméno správce pro virtuální počítače clusteru | ano | azureuser<br>(výchozí hodnota) |

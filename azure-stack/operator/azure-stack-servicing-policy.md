@@ -60,7 +60,7 @@ Informace o konkrétní aktualizaci, včetně toho, jak ji stáhnout, najdete v 
 
 ## <a name="hotfixes"></a>Opravy hotfix
 
-*Platí pro: integrované systémy Azure Stack*
+*Platí pro: Azure Stack integrovaných systémů*
 
 V některých případech společnost Microsoft poskytuje opravy hotfix pro Azure Stack, které řeší konkrétní problém, který je často preventivní nebo časově citlivý.  Každá oprava hotfix je vydána spolu s odpovídajícím článkem znalostní báze Microsoft Knowledge Base, který podrobně popisuje problém, příčinu a řešení.
 

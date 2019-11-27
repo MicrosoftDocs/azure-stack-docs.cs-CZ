@@ -1,7 +1,7 @@
 ---
-title: Replace a hardware component on an Azure Stack scale unit node
+title: Výměna hardwarové součásti na uzlu jednotky škálování Azure Stack
 titleSuffix: Azure Stack
-description: Learn how to replace a hardware component on an Azure Stack integrated system.
+description: Přečtěte si, jak nahradit hardwarovou součást v Azure Stack integrovaném systému.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -22,73 +22,73 @@ ms.contentlocale: cs-CZ
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74465286"
 ---
-# <a name="replace-a-hardware-component-on-an-azure-stack-scale-unit-node"></a>Replace a hardware component on an Azure Stack scale unit node
+# <a name="replace-a-hardware-component-on-an-azure-stack-scale-unit-node"></a>Výměna hardwarové součásti na uzlu jednotky škálování Azure Stack
 
-*Applies to: Azure Stack integrated systems*
+*Platí pro: Azure Stack integrovaných systémů*
 
-This article describes the general process to replace hardware components that are non hot-swappable. Actual replacement steps vary based on your original equipment manufacturer (OEM) hardware vendor. See your vendor's field replaceable unit (FRU) documentation for detailed steps that are specific to your Azure Stack integrated system.
+Tento článek popisuje obecný proces nahrazení hardwarových komponent, které nejsou Hot-swaped. Skutečné kroky náhrady se liší v závislosti na dodavateli hardwaru OEM (Original Equipment Manufacturer). Podrobné pokyny, které jsou specifické pro váš Azure Stack integrovaný systém, najdete v dokumentaci k umístění jednotky v poli dodavatele.
 
 > [!CAUTION]  
-> Firmware leveling is critical for the success of the operation described in this article. Missing this step can lead to system instability, performance decrease, security threads, or prevent Azure Stack automation from deploying the operating system. Always consult your hardware partner's documentation when replacing hardware to ensure the applied firmware matches the OEM Version displayed in the [Azure Stack administrator portal](azure-stack-updates.md).
+> Úroveň firmwaru je zásadní pro úspěch operace popsané v tomto článku. Chybějící tento krok může vést k nestabilitě systému, poklesu výkonu, vláknům zabezpečení nebo zabrání službě Azure Stack Automation v nasazení operačního systému. Při nahrazování hardwaru vždy projděte dokumentaci k vašemu hardwarovému partnerovi, aby se zajistilo, že aplikovaný firmware odpovídá verzi OEM zobrazené na [portálu pro správu Azure Stack](azure-stack-updates.md).
 
-| Hardware Partner | Oblast | Adresa URL |
+| Hardwarový partner | Oblast | Adresa URL |
 |------------------|--------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Cisco | Všechno | [Cisco Integrated System for Microsoft Azure Stack Operations Guide](https://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/azure-stack/b_Azure_Stack_Operations_Guide_4-0/b_Azure_Stack_Operations_Guide_4-0_chapter_00.html#concept_wks_t1q_wbb)<br><br>[Release Notes for Cisco Integrated System for Microsoft Azure Stack](https://www.cisco.com/c/en/us/support/servers-unified-computing/ucs-c-series-rack-mount-ucs-managed-server-software/products-release-notes-list.html) |
-| Dell EMC | Všechno | [Cloud for Microsoft Azure Stack 14G (account and sign-in required)](https://support.emc.com/downloads/44615_Cloud-for-Microsoft-Azure-Stack-14G)<br><br>[Cloud for Microsoft Azure Stack 13G (account and sign-in required)](https://support.emc.com/downloads/42238_Cloud-for-Microsoft-Azure-Stack-13G) |
-| Fujitsu | JAPAN | [Fujitsu managed service support desk (account and sign-in required)](https://eservice.fujitsu.com/supportdesk-web/) |
-|  | EVROPA, STŘEDNÍ VÝCHOD A AFRIKA | [Fujitsu support IT products and systems](https://support.ts.fujitsu.com/IndexContact.asp?lng=COM&ln=no&LC=del) |
-|  | EU | [Fujitsu MySupport (account and sign-in required)](https://support.ts.fujitsu.com/IndexMySupport.asp) |
-| HPE | Všechno | [HPE ProLiant for Microsoft Azure Stack](http://www.hpe.com/info/MASupdates) |
-| Lenovo | Všechno | [ThinkAgile SXM Best Recipes](https://datacentersupport.lenovo.com/us/en/solutions/ht505122)
-| Wortmann |  | [OEM/firmware package](https://drive.terracloud.de/dl/fiTdTb66mwDAJWgUXUW8KNsd/OEM)<br>[terra Azure Stack documentation (including FRU)](https://drive.terracloud.de/dl/fiWGZwCySZSQyNdykXCFiVCR/TerraAzSDokumentation)
+| Cisco | Vše | [Příručka k operačnímu systému Cisco Integrated System for Microsoft Azure Stack](https://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/azure-stack/b_Azure_Stack_Operations_Guide_4-0/b_Azure_Stack_Operations_Guide_4-0_chapter_00.html#concept_wks_t1q_wbb)<br><br>[Poznámky k verzi integrovaného systému Cisco pro Microsoft Azure Stack](https://www.cisco.com/c/en/us/support/servers-unified-computing/ucs-c-series-rack-mount-ucs-managed-server-software/products-release-notes-list.html) |
+| Dell EMC | Vše | [Cloud pro Microsoft Azure Stack 14G (vyžaduje účet a přihlášení)](https://support.emc.com/downloads/44615_Cloud-for-Microsoft-Azure-Stack-14G)<br><br>[Cloud pro Microsoft Azure Stack 13G (vyžaduje účet a přihlášení)](https://support.emc.com/downloads/42238_Cloud-for-Microsoft-Azure-Stack-13G) |
+| Fujitsu | Japonsko | [Oddělení podpory spravované služby Fujitsu (účet a přihlášení je povinné)](https://eservice.fujitsu.com/supportdesk-web/) |
+|  | EVROPA, STŘEDNÍ VÝCHOD A AFRIKA | [Společnosti Fujitsu podporují IT produkty a systémy](https://support.ts.fujitsu.com/IndexContact.asp?lng=COM&ln=no&LC=del) |
+|  | EU | [Fujitsu MySupport (vyžaduje se účet a přihlášení)](https://support.ts.fujitsu.com/IndexMySupport.asp) |
+| HPE | Vše | [HPE pro Microsoft Azure Stack](http://www.hpe.com/info/MASupdates) |
+| Lenovo | Vše | [Nejlepší recepty ThinkAgile SXM](https://datacentersupport.lenovo.com/us/en/solutions/ht505122)
+| Wortmann |  | [Balíček OEM/firmware](https://drive.terracloud.de/dl/fiTdTb66mwDAJWgUXUW8KNsd/OEM)<br>[dokumentace k Terra Azure Stack (včetně jednotky FRU)](https://drive.terracloud.de/dl/fiWGZwCySZSQyNdykXCFiVCR/TerraAzSDokumentation)
 
-Non hot-swappable components include the following items:
+Mezi součásti, které nejsou Hot-swapem, patří tyto položky:
 
-- CPU*
-- Memory*
-- Motherboard/baseboard management controller (BMC)/video card
-- Disk controller/host bus adapter (HBA)/backplane
-- Network adapter (NIC)
-- Operating system disk*
-- Data drives (drives that don't support hot swap, for example PCI-e add-in cards)*
+- VČETNĚ
+- Rezident
+- Karta pro správu základní desky/řadiče pro správu základní desky (BMC)/video
+- Řadič disku/adaptér hostitelské sběrnice (HBA)/backplane
+- Síťový adaptér (NIC)
+- Disk s operačním systémem *
+- Datové jednotky (jednotky, které nepodporují Hot swap, například karty doplňků PCI-e) *
 
-*These components may support hot swap, but can vary based on vendor implementation. See your OEM vendor's FRU documentation for detailed steps.
+\* Tyto součásti můžou podporovat Hot swap, ale můžou se lišit v závislosti na implementaci od dodavatele. Podrobné pokyny najdete v dokumentaci k prostředí FRU dodavatele OEM.
 
-The following flow diagram shows the general FRU process to replace a non hot-swappable hardware component.
+Následující vývojový diagram znázorňuje proces obecného procesu FRU, který nahradí nehotou hardwarovou součást, kterou nelze vyměnit za horkou.
 
-![Flow diagram showing component replacement flow](media/azure-stack-replace-component/replacecomponentflow.PNG)
+![Vývojový diagram znázorňující tok nahrazení součástí](media/azure-stack-replace-component/replacecomponentflow.PNG)
 
-* This action may not be required based on the physical condition of the hardware.
+* Tato akce se nemusí vyžadovat na základě fyzické podmínky hardwaru.
 
-** Whether your OEM hardware vendor does the component replacement and updates the firmware could vary based on your support contract.
+\* * Jestli dodavatel hardwaru OEM provede nahrazení komponenty a aktualizuje firmware v závislosti na vaší smlouvě o podpoře.
 
-## <a name="review-alert-information"></a>Review alert information
+## <a name="review-alert-information"></a>Kontrola informací o výstrahách
 
-The Azure Stack health and monitoring system tracks the health of network adapters and data drives controlled by Storage Spaces Direct. It doesn't track other hardware components. For all other hardware components, alerts are raised in the vendor-specific hardware monitoring solution that runs on the hardware lifecycle host.  
+Systém Azure Stack stav a monitorování sleduje stav síťových adaptérů a datových jednotek řízených Prostory úložiště s přímým přístupem. Nesleduje jiné hardwarové součásti. U všech ostatních hardwarových součástí se výstrahy vyvolají v řešení monitorování hardwaru specifického pro dodavatele, které běží na hostiteli životního cyklu hardwaru.  
 
-## <a name="component-replacement-process"></a>Component replacement process
+## <a name="component-replacement-process"></a>Proces nahrazení součásti
 
-The following steps provide a high-level overview of the component replacement process. Don't follow these steps without referring to your OEM-provided FRU documentation.
+Následující kroky obsahují podrobný přehled procesu nahrazení komponent. Neprovádějte tyto kroky bez odkazování na dokumentaci k prostředí FRU dodávané výrobcem OEM.
 
-1. Use the Shutdown action to gracefully shut down the scale unit node. This action may not be required based on the physical condition of the hardware.
+1. K bezproblémovému vypnutí uzlu jednotky škálování použijte akci vypnutí. Tato akce se nemusí vyžadovat na základě fyzické podmínky hardwaru.
 
-2. In an unlikely case the shutdown action does fail, use the [Drain](azure-stack-node-actions.md#drain) action to put the scale unit node into maintenance mode. This action may not be required based on the physical condition of the hardware.
-
-   > [!NOTE]  
-   > In any case, only one node can be disabled and powered off at the same time without breaking the S2D (Storage Spaces Direct).
-
-3. After the scale unit node is in maintenance mode, use the [Power off](azure-stack-node-actions.md#scale-unit-node-actions) action. This action may not be required based on the physical condition of the hardware.
+2. V nepravděpodobném případě se akce vypnutí nezdařila, pomocí akce [vyprázdnění](azure-stack-node-actions.md#drain) umístěte uzel jednotky škálování do režimu údržby. Tato akce se nemusí vyžadovat na základě fyzické podmínky hardwaru.
 
    > [!NOTE]  
-   > In the unlikely case that the power off action doesn't work, use the baseboard management controller (BMC) web interface instead.
+   > V každém případě je možné zakázat a vypnout pouze jeden uzel ve stejnou dobu, aniž by došlo k přerušení S2D (Prostory úložiště s přímým přístupem).
 
-4. Replace the damaged hardware component. Whether your OEM hardware vendor does the component replacement could vary based on your support contract.  
-5. Update the firmware. Follow your vendor-specific firmware update process using the hardware lifecycle host to make sure the replaced hardware component has the approved firmware level applied. Whether your OEM hardware vendor does this step could vary based on your support contract.  
-6. Use the [Repair](azure-stack-node-actions.md#scale-unit-node-actions) action to bring the scale unit node back into the scale unit.
-7. Use the privileged endpoint to [check the status of virtual disk repair](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair-using-the-privileged-endpoint). With new data drives, a full storage repair job can take multiple hours depending on system load and consumed space.
-8. After the repair action has finished, validate that all active alerts have been automatically closed.
+3. Po rozchodu uzlu jednotky škálování v režimu údržby použijte akci [vypínání](azure-stack-node-actions.md#scale-unit-node-actions) . Tato akce se nemusí vyžadovat na základě fyzické podmínky hardwaru.
+
+   > [!NOTE]  
+   > V nepravděpodobném případě akce vypnutí nefunguje, místo toho použijte webové rozhraní řadiče pro správu základní desky (BMC).
+
+4. Nahraďte poškozenou hardwarovou součást. Bez ohledu na to, jestli dodavatel hardwaru OEM může nahradit součást, se může lišit v závislosti na vaší smlouvě o podpoře.  
+5. Aktualizujte firmware. Použijte proces aktualizace firmwaru specifický pro dodavatele pomocí hostitele životního cyklu životního cyklu a ujistěte se, že nahrazená hardwarová součást má použitu schválenou úroveň firmwaru. Bez ohledu na to, jestli se Váš dodavatel hardwaru OEM může tento krok lišit v závislosti na vaší smlouvě o podpoře.  
+6. Pomocí akce [opravit](azure-stack-node-actions.md#scale-unit-node-actions) přeneste uzel jednotky škálování zpátky do jednotky škálování.
+7. Pomocí privilegovaného koncového bodu [Ověřte stav opravy virtuálního disku](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair-using-the-privileged-endpoint). S novými datovými jednotkami může úplná úloha opravy úložiště trvat několik hodin v závislosti na zatížení systému a spotřebovaném prostoru.
+8. Po dokončení akce opravy ověřte, zda byly všechny aktivní výstrahy automaticky uzavřeny.
 
 ## <a name="next-steps"></a>Další kroky
 
-- For information about replacing a hot-swappable physical disk, see [Replace a disk](azure-stack-replace-disk.md).
-- For information about replacing a physical node, see [Replace a scale unit node](azure-stack-replace-node.md).
+- Informace o nahrazení fyzického disku s výměnou za provozu najdete v tématu [Výměna disku](azure-stack-replace-disk.md).
+- Informace o nahrazení fyzického uzlu najdete v tématu [nahrazení uzlu jednotky škálování](azure-stack-replace-node.md).

@@ -1,6 +1,6 @@
 ---
-title: Configure VPN gateway settings for Azure Stack | Microsoft Docs
-description: Learn about and configure VPN gateways settings for Azure Stack.
+title: Konfigurace nastavení služby VPN Gateway pro Azure Stack | Microsoft Docs
+description: Přečtěte si o nastaveních služby VPN Gateway a nakonfigurujte je Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -22,21 +22,21 @@ ms.contentlocale: cs-CZ
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74239314"
 ---
-# <a name="configure-vpn-gateway-settings-for-azure-stack"></a>Configure VPN gateway settings for Azure Stack
+# <a name="configure-vpn-gateway-settings-for-azure-stack"></a>Konfigurace nastavení služby VPN Gateway pro Azure Stack
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
 
-A VPN gateway is a type of virtual network gateway that sends encrypted traffic between your virtual network in Azure Stack and a remote VPN gateway. The remote VPN gateway can be in Azure, a device in your datacenter, or a device on another site. If there is network connectivity between the two endpoints, you can establish a secure Site-to-Site (S2S) VPN connection between the two networks.
+Brána sítě VPN je typem brány virtuální sítě, která odesílá šifrovaný provoz mezi vaší virtuální sítí v Azure Stack a vzdálenou bránou VPN. Vzdálená brána VPN se může nacházet v Azure, v zařízení v datovém centru nebo v zařízení na jiné lokalitě. Pokud je mezi dvěma koncovými body síťové připojení, můžete mezi těmito dvěma sítěmi vytvořit zabezpečené připojení VPN typu Site-to-Site (S2S).
 
-A VPN gateway connection relies on the configuration of multiple resources, each of which contains configurable settings. This article describes the resources and settings that relate to a VPN gateway for a virtual network that you create in the Resource Manager deployment model. You can find descriptions and topology diagrams for each connection solution in [About VPN Gateway for Azure Stack](azure-stack-vpn-gateway-about-vpn-gateways.md).
+Připojení brány VPN se spoléhá na konfiguraci více prostředků, z nichž každá obsahuje konfigurovatelné nastavení. Tento článek popisuje prostředky a nastavení vztahující se k bráně VPN pro virtuální síť, kterou vytvoříte v modelu nasazení Správce prostředků. Popisy a diagramy topologie pro každé řešení připojení najdete v [o VPN Gateway pro Azure Stack](azure-stack-vpn-gateway-about-vpn-gateways.md).
 
-## <a name="vpn-gateway-settings"></a>VPN gateway settings
+## <a name="vpn-gateway-settings"></a>Nastavení služby VPN gateway
 
 ### <a name="gateway-types"></a>Typy bran
 
-Each Azure Stack virtual network supports a single virtual network gateway, which must be of the type **Vpn**.  This support is different from Azure, which supports additional types.
+Každá Azure Stack virtuální síť podporuje jednu bránu virtuální sítě, která musí být typu **VPN**.  Tato podpora se liší od Azure, která podporuje další typy.
 
-When you create a virtual network gateway, you must make sure that the gateway type is correct for your configuration. A VPN gateway requires the `-GatewayType Vpn` flag; for example:
+Když vytvoříte bránu virtuální sítě, musíte se ujistit, že je typ brány správný pro vaši konfiguraci. Brána sítě VPN vyžaduje příznak `-GatewayType Vpn`; například:
 
 ```powershell
 New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
@@ -46,31 +46,31 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 ### <a name="gateway-skus"></a>Skladové jednotky (SKU) brány
 
-When you create a virtual network gateway, you must specify the gateway SKU that you want to use. Vyberte SKU, které splňují vaše požadavky na základě typů úloh, propustnosti, funkcí a SLA.
+Při vytváření brány virtuální sítě je nutné zadat SKU brány, které chcete použít. Vyberte SKU, které splňují vaše požadavky na základě typů úloh, propustnosti, funkcí a SLA.
 
-Azure Stack offers the VPN gateway SKUs shown in the following table:
+Azure Stack nabízí SKU brány VPN, které jsou uvedené v následující tabulce:
 
-| | VPN gateway throughput |VPN gateway maximum IPsec tunnels |
+| | Propustnost brány VPN Gateway |Maximální počet tunelových propojení IPsec brány VPN Gateway |
 |-------|-------|-------|
-|**Basic SKU**  | 100 Mb/s  | 20    |
-|**Standard SKU**   | 100 Mb/s  | 20 |
-|**High Performance SKU** | 200 Mb/s | 10 |
+|**Základní SKU**  | 100 Mb/s  | 20    |
+|**SKU Standard**   | 100 Mb/s  | 20 |
+|**SKU s vysokým výkonem** | 200 Mb/s | 10 |
 
-### <a name="resizing-gateway-skus"></a>Resizing gateway SKUs
+### <a name="resizing-gateway-skus"></a>Změna velikosti SKU brány
 
-Azure Stack does not support a resize of SKUs between the supported legacy SKUs.
+Azure Stack nepodporuje změnu velikosti SKU mezi podporovanými staršími SKU.
 
-Similarly, Azure Stack does not support a resize from a supported legacy SKU (**Basic**, **Standard**, and **HighPerformance**) to a newer SKU supported by Azure (**VpnGw1**, **VpnGw2**, and **VpnGw3**).
+Podobně Azure Stack nepodporuje změnu velikosti z podporované starší verze SKU (**Basic**, **Standard**a **HighPerformance**) na novější SKU podporovanou Azure (**VpnGw1**, **VpnGw2**a **VpnGw3**).
 
-### <a name="configure-the-gateway-sku"></a>Configure the gateway SKU
+### <a name="configure-the-gateway-sku"></a>Konfigurace SKU brány
 
-#### <a name="azure-stack-portal"></a>Azure Stack portal
+#### <a name="azure-stack-portal"></a>Portál Azure Stack
 
-If you use the Azure Stack portal to create a Resource Manager virtual network gateway, you can select the gateway SKU by using the dropdown list. The options correspond to the gateway type and VPN type that you select.
+Pokud k vytvoření Správce prostředků brány virtuální sítě použijete portál Azure Stack, můžete vybrat SKU brány pomocí rozevíracího seznamu. Možnosti odpovídají typu brány a typu sítě VPN, který vyberete.
 
 #### <a name="powershell"></a>PowerShell
 
-The following PowerShell example specifies the `-GatewaySku` parameter as **Standard**:
+Následující příklad prostředí PowerShell určuje parametr `-GatewaySku` jako **Standard**:
 
 ```powershell
 New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
@@ -80,9 +80,9 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 ### <a name="connection-types"></a>Typy připojení
 
-In the Resource Manager deployment model, each configuration requires a specific virtual network gateway connection type. The available Resource Manager PowerShell values for `-ConnectionType` are **IPsec**.
+V modelu nasazení Správce prostředků Každá konfigurace vyžaduje konkrétní typ připojení brány virtuální sítě. Dostupné hodnoty Správce prostředků PowerShellu pro `-ConnectionType` jsou **IPSec**.
 
-In the following PowerShell example, a S2S connection is created that requires the IPsec connection type:
+V následujícím příkladu PowerShellu se vytvoří připojení S2S, které vyžaduje typ připojení IPsec:
 
 ```powershell
 New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg `
@@ -92,21 +92,21 @@ New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName t
 
 ### <a name="vpn-types"></a>Typy sítě VPN
 
-When you create the virtual network gateway for a VPN gateway configuration, you must specify a VPN type. The VPN type that you choose depends on the connection topology that you want to create. A VPN type can also depend on the hardware that you're using. S2S configurations require a VPN device. Some VPN devices only support a certain VPN type.
+Když vytvoříte bránu virtuální sítě pro konfiguraci brány sítě VPN, musíte zadat typ sítě VPN. Typ sítě VPN, který zvolíte, závisí na topologii připojení, kterou chcete vytvořit. Typ sítě VPN může také záviset na hardwaru, který používáte. Konfigurace S2S vyžadují zařízení VPN. Některá zařízení VPN podporují jenom určitý typ sítě VPN.
 
 > [!IMPORTANT]  
-> Currently, Azure Stack only supports the route-based VPN type. If your device only supports policy-based VPNs, then connections to those devices from Azure Stack are not supported.  
+> V současné době Azure Stack podporuje jenom typ sítě VPN založený na trasách. Pokud vaše zařízení podporuje jenom sítě VPN založené na zásadách, pak se připojení k těmto zařízením z Azure Stack nepodporují.  
 >
-> In addition, Azure Stack does not support using policy-based traffic selectors for route-based gateways at this time, because custom IPSec/IKE policy configurations are not supported.
+> Kromě toho Azure Stack nepodporuje používání selektorů přenosu na základě zásad pro brány založené na trasách, protože vlastní konfigurace zásad IPSec/IKE se nepodporuje.
 
-* **PolicyBased**: Policy-based VPNs encrypt and direct packets through IPsec tunnels based on the IPsec policies that are configured with the combinations of address prefixes between your on-premises network and the Azure Stack VNet. The policy, or traffic selector, is usually an access list in the VPN device configuration.
+* **PolicyBased**: sítě VPN založené na zásadách šifrují a směrují pakety prostřednictvím tunelů IPsec v závislosti na zásadách IPSec, které jsou nakonfigurované s kombinacemi předpon adres mezi vaší místní sítí a Azure Stack VNET. Zásada nebo selektor provozu je obvykle seznam přístupu v konfiguraci zařízení VPN.
 
   >[!NOTE]
-  >**PolicyBased** is supported in Azure, but not in Azure Stack.
+  >**PolicyBased** se podporuje v Azure, ale ne v Azure Stack.
 
-* **RouteBased**: Route-based VPNs use routes that are configured in the IP forwarding or routing table to direct packets to their corresponding tunnel interfaces. Rozhraní tunelového propojení potom šifrují nebo dešifrují pakety směřující do tunelových propojení nebo z nich. The policy, or traffic selector, for **RouteBased** VPNs are configured as any-to-any (or use wild cards). By default, they cannot be changed. The value for a **RouteBased** VPN type is **RouteBased**.
+* **RouteBased**: sítě VPN založené na směrování používají trasy, které jsou nakonfigurované v tabulce předávání IP nebo směrovací tabulky, k přímému směrování paketů na odpovídající rozhraní tunelového propojení. Rozhraní tunelového propojení potom zašifruje nebo dešifruje pakety směřující do tunelových propojení nebo z nich. Zásady nebo selektor provozu pro sítě VPN **RouteBased** jsou nakonfigurovány jako libovolné (nebo používají zástupné karty). Ve výchozím nastavení se nedají změnit. Hodnota pro typ VPN **RouteBased** je **RouteBased**.
 
-The following PowerShell example specifies the `-VpnType` as **RouteBased**. When you create a gateway, you must make sure that the `-VpnType` is correct for your configuration.
+Následující příklad prostředí PowerShell určuje `-VpnType` jako **RouteBased**. Když vytváříte bránu, musíte zajistit, aby byla `-VpnType` správná pro vaši konfiguraci.
 
 ```powershell
 New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
@@ -116,55 +116,55 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 ### <a name="gateway-requirements"></a>Požadavky na bránu
 
-The following table lists the requirements for VPN gateways.
+V následující tabulce jsou uvedeny požadavky na brány VPN.
 
 | |Základní brána sítě VPN založená na zásadách | Základní brána sítě VPN založená na trasách | Standardní brána sítě VPN založená na trasách | Vysoce výkonná brána sítě VPN založená na trasách|
 |--|--|--|--|--|
-| **Site-to-Site connectivity (S2S connectivity)** | Nepodporuje se | Konfigurace sítě VPN založené na trasách | Konfigurace sítě VPN založené na trasách | Konfigurace sítě VPN založené na trasách |
-| **Authentication method**  | Nepodporuje se | Pre-shared key for S2S connectivity  | Pre-shared key for S2S connectivity  | Pre-shared key for S2S connectivity  |
-| **Maximum number of S2S connections**  | Nepodporuje se | 20 | 20| 10|
-|**Active routing support (BGP)** | Nepodporováno | Nepodporováno | Podporováno | Podporováno |
+| **Připojení Site-to-Site (připojení S2S)** | Nepodporuje se | Konfigurace sítě VPN založené na trasách | Konfigurace sítě VPN založené na trasách | Konfigurace sítě VPN založené na trasách |
+| **Metoda ověřování**  | Nepodporuje se | Předsdílený klíč pro připojení S2S  | Předsdílený klíč pro připojení S2S  | Předsdílený klíč pro připojení S2S  |
+| **Maximální počet připojení S2S**  | Nepodporuje se | 20 | 20| 10|
+|**Podpora aktivních směrování (BGP)** | Nepodporuje se | Nepodporuje se | Podporováno | Podporováno |
 
 ### <a name="gateway-subnet"></a>Podsíť brány
 
-Before you create a VPN gateway, you must create a gateway subnet. The gateway subnet has the IP addresses that the virtual network gateway VMs and services use. When you create your virtual network gateway, gateway VMs are deployed to the gateway subnet and configured with the required VPN gateway settings. Don't deploy anything else (for example, additional VMs) to the gateway subnet.
+Než vytvoříte bránu sítě VPN, musíte vytvořit podsíť brány. Podsíť brány obsahuje IP adresy, které používají virtuální počítače a služby brány virtuální sítě. Když vytvoříte bránu virtuální sítě, virtuální počítače brány se nasadí do podsítě brány a nakonfigurují s požadovaným nastavením služby VPN Gateway. Nesaďte nic jiného (například další virtuální počítače) do podsítě brány.
 
 >[!IMPORTANT]
->Pro správné fungování podsítě brány je nutné, aby měla název **GatewaySubnet**. Azure Stack uses this name to identify the subnet to which to deploy the virtual network gateway VMs and services.
+>Pro správné fungování podsítě brány je nutné, aby měla název **GatewaySubnet**. Azure Stack používá tento název k identifikaci podsítě, do které chcete nasadit virtuální počítače a služby brány virtuální sítě.
 
-Při vytváření podsítě brány zadáte počet IP adres, které podsíť obsahuje. The IP addresses in the gateway subnet are allocated to the gateway VMs and gateway services. Některé konfigurace vyžadují víc IP adres než jiné. Look at the instructions for the configuration that you want to create and verify that the gateway subnet you want to create meets those requirements.
+Při vytváření podsítě brány zadáte počet IP adres, které podsíť obsahuje. IP adresy v podsíti brány jsou přiděleny virtuálním počítačům brány a službám brány. Některé konfigurace vyžadují víc IP adres než jiné. Podívejte se na pokyny pro konfiguraci, kterou chcete vytvořit, a ověřte, že podsíť brány, kterou chcete vytvořit, splňuje tyto požadavky.
 
-Additionally, you should make sure your gateway subnet has enough IP addresses to handle additional future configurations. Although you can create a gateway subnet as small as /29, we recommend you create a gateway subnet of /28 or larger (/28, /27, /26, and so on.) That way, if you add functionality in the future, you do not have to tear down your gateway, then delete and recreate the gateway subnet to allow for more IP addresses.
+Měli byste se také ujistit, že má podsíť brány dostatek IP adres pro zpracování dalších budoucích konfigurací. I když můžete vytvořit podsíť brány, která je menší než/29, doporučujeme vytvořit podsíť brány o velikosti/28 nebo větší (/28,/27,/26 atd.). To znamená, že pokud přidáte funkci v budoucnu, nemusíte tuto bránu odtrhnout a pak ji odstranit a znovu vytvořit, aby bylo možné povolit další IP adresy.
 
-The following Resource Manager PowerShell example shows a gateway subnet named **GatewaySubnet**. You can see the CIDR notation specifies a /27, which allows for enough IP addresses for most configurations that currently exist.
+Následující příklad Správce prostředků PowerShell ukazuje podsíť brány s názvem **GatewaySubnet**. Můžete vidět, že zápis CIDR určuje/27, což umožňuje dostatek IP adres pro většinu konfigurací, které aktuálně existují.
 
 ```powershell
 Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/27
 ```
 
 > [!IMPORTANT]
-> Při práci s podsítěmi brány nepřidružujte skupinu zabezpečení sítě (NSG) k podsíti brány. Associating a network security group to this subnet can cause your VPN gateway to stop functioning as expected. For more information about network security groups, see [What is a network security group?](/azure/virtual-network/virtual-networks-nsg).
+> Při práci s podsítěmi brány nepřidružujte skupinu zabezpečení sítě (NSG) k podsíti brány. Přidružení skupiny zabezpečení sítě k této podsíti může způsobit, že vaše brána VPN přestane fungovat podle očekávání. Další informace o skupinách zabezpečení sítě najdete v tématu [co je skupina zabezpečení sítě](/azure/virtual-network/virtual-networks-nsg).
 
 ### <a name="local-network-gateways"></a>Brány místní sítě
 
-When creating a VPN gateway configuration in Azure, the local network gateway often represents your on-premises location. In Azure Stack, it represents any remote VPN device that sits outside Azure Stack. This device could be a VPN device in your datacenter (or a remote datacenter), or a VPN gateway in Azure.
+Při vytváření konfigurace brány VPN v Azure, brána místní sítě často představuje vaše místní umístění. V Azure Stack představuje všechna vzdálená zařízení VPN, která jsou umístěná mimo Azure Stack. Toto zařízení může být ve vašem datovém centru (nebo na vzdáleném datovém centru) nebo bráně VPN v Azure.
 
-You give the local network gateway a name, the public IP address of the VPN device, and specify the address prefixes that are on the on-premises location. Azure looks at the destination address prefixes for network traffic, consults the configuration that you've specified for your local network gateway, and routes packets accordingly.
+Bráně místní sítě dáte název, veřejnou IP adresu zařízení VPN a určíte předpony adres, které jsou na místním umístění. Azure nahlíží na předpony cílových adres pro síťový provoz, sleduje konfiguraci, kterou jste zadali pro bránu místní sítě, a odpovídajícím způsobem směruje pakety.
 
-This PowerShell example creates a new local network gateway:
+Tento příklad PowerShellu vytvoří novou bránu místní sítě:
 
 ```powershell
 New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
 -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix '10.5.51.0/24'
 ```
 
-Sometimes you need to modify the local network gateway settings; for example, when you add or modify the address range, or if the IP address of the VPN device changes. For more info, see [Modify local network gateway settings using PowerShell](/azure/vpn-gateway/vpn-gateway-modify-local-network-gateway).
+Někdy je potřeba upravit nastavení místní síťové brány; například když přidáte nebo upravíte rozsah adres nebo pokud se změní IP adresa zařízení VPN. Další informace najdete v tématu [Úprava nastavení místní síťové brány pomocí PowerShellu](/azure/vpn-gateway/vpn-gateway-modify-local-network-gateway).
 
-## <a name="ipsecike-parameters"></a>IPsec/IKE parameters
+## <a name="ipsecike-parameters"></a>Parametry protokolu IPsec/IKE
 
-When you set up a VPN connection in Azure Stack, you must configure the connection at both ends. If you're configuring a VPN connection between Azure Stack and a hardware device such as a switch or router that is acting as a VPN gateway, that device might ask you for additional settings.
+Při nastavování připojení VPN v Azure Stack musíte nakonfigurovat připojení na obou koncích. Pokud konfigurujete připojení VPN mezi Azure Stack a hardwarovým zařízením, jako je přepínač nebo směrovač, který funguje jako brána sítě VPN, může toto zařízení vyžadovat další nastavení.
 
-Unlike Azure, which supports multiple offers as both an initiator and a responder, Azure Stack supports only one offer by default. If you need to use different IPSec/IKE settings to work with your VPN device, there are more settings available to you to configure your connection manually. For more information, see [Configure IPsec/IKE policy for site-to-site VPN connections](azure-stack-vpn-s2s.md).
+Na rozdíl od Azure, který podporuje více nabídek jako iniciátor i respondér, Azure Stack ve výchozím nastavení podporuje pouze jednu nabídku. Pokud pro práci se zařízením VPN potřebujete použít jiné nastavení protokolu IPSec/IKE, máte k dispozici více nastavení pro ruční konfiguraci připojení. Další informace najdete v tématu [Konfigurace zásad IPSec/IKE pro připojení VPN typu Site-to-site](azure-stack-vpn-s2s.md).
 
 ### <a name="ike-phase-1-main-mode-parameters"></a>Parametry protokolu IKE fáze 1 (hlavní režim)
 
@@ -181,13 +181,13 @@ Unlike Azure, which supports multiple offers as both an initiator and a responde
 | Vlastnost| Hodnota|
 |-|-|
 |Verze IKE |IKEv2 |
-|Encryption & Hashing Algorithms (Encryption)     | GCMAES256|
-|Encryption & Hashing Algorithms (Authentication) | GCMAES256|
+|Šifrování & algoritmy hash (šifrování)     | GCMAES256|
+|Šifrování šifrovacích & algoritmů hash (ověřování) | GCMAES256|
 |Životnost SA (čas)  | 27 000 sekund  |
-|SA Lifetime (Kilobytes) | 33,553,408     |
+|Životnost SA (kilobajty) | 33 553 408     |
 |Metoda Perfect Forward Secrecy (PFS) | ECP384 |
 |Detekce mrtvých partnerských zařízení | Podporováno|  
 
 ## <a name="next-steps"></a>Další kroky
 
-* [Connect using ExpressRoute](../operator/azure-stack-connect-expressroute.md)
+* [Připojení pomocí ExpressRoute](../operator/azure-stack-connect-expressroute.md)
