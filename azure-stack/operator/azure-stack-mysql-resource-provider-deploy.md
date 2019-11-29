@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/02/2019
 ms.author: mabrigg
-ms.reviewer: jiahan
+ms.reviewer: xiaofmao
 ms.lastreviewed: 03/18/2019
-ms.openlocfilehash: c3b3c30eb10e767cf20336af67bd094994def2f9
-ms.sourcegitcommit: a23b80b57668615c341c370b70d0a106a37a02da
+ms.openlocfilehash: aa76766ad6528148cc8662780c4bc4dd593b366a
+ms.sourcegitcommit: 3a8e116fd0b16e1201e55e2088dde2e581004045
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72682120"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74557596"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack"></a>Nasazení poskytovatele prostředků MySQL na Azure Stack
 
@@ -46,10 +46,14 @@ Aby bylo možné nasadit poskytovatele prostředků Azure Stack MySQL, je nutné
 
   |Minimální verze Azure Stack|Verze MySQL RP|
   |-----|-----|
+  |Verze 1910 (1.1910.0.58)|[MySQL RP verze 1.1.47.0](https://aka.ms/azurestackmysqlrp11470)|
   |Verze 1808 (1.1808.0.97)|[MySQL RP verze 1.1.33.0](https://aka.ms/azurestackmysqlrp11330)|  
   |Verze 1808 (1.1808.0.97)|[MySQL RP verze 1.1.30.0](https://aka.ms/azurestackmysqlrp11300)|
   |Verze 1804 (1.0.180513.1)|[MySQL RP verze 1.1.24.0](https://aka.ms/azurestackmysqlrp11240)
   |     |     |
+  
+> [!IMPORTANT]
+> Než nasadíte poskytovatele prostředků MySQL verze 1.1.47.0, měli byste mít upgrade systému Azure Stack na verzi 1910 Update nebo novější. Poskytovatel prostředků MySQL verze 1.1.47.0 v předchozích nepodporovaných verzích Azure Stack nefunguje.
 
 * Ujistěte se, že jsou splněné předpoklady pro integraci Datacenter:
 
@@ -106,7 +110,7 @@ Tyto parametry můžete zadat z příkazového řádku. Pokud ne, nebo pokud se 
 
 ## <a name="deploy-the-mysql-resource-provider-using-a-custom-script"></a>Nasazení poskytovatele prostředků MySQL pomocí vlastního skriptu
 
-Chcete-li při nasazování poskytovatele prostředků eliminovat jakoukoli ruční konfiguraci, můžete přizpůsobit následující skript. Podle potřeby můžete změnit výchozí informace o účtu a hesla pro nasazení Azure Stack.
+Pokud nasazujete poskytovatele prostředků MySQL verze 1.1.33.0 nebo předchozí verze, budete muset v PowerShellu nainstalovat konkrétní verze AzureRm. zaváděcího nástroje a Azure Stack moduly. Pokud nasazujete poskytovatele prostředků MySQL verze 1.1.47.0, tento krok se dá přeskočit.
 
 ```powershell
 # Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module
@@ -114,7 +118,11 @@ Chcete-li při nasazování poskytovatele prostředků eliminovat jakoukoli ruč
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
 Install-Module -Name AzureStack -RequiredVersion 1.6.0
+```
 
+Chcete-li při nasazování poskytovatele prostředků eliminovat jakoukoli ruční konfiguraci, můžete přizpůsobit následující skript. Podle potřeby můžete změnit výchozí informace o účtu a hesla pro nasazení Azure Stack.
+
+```powershell
 # Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time.
 $domain = "AzureStack"  
 
@@ -166,7 +174,7 @@ Po dokončení instalačního skriptu poskytovatele prostředků aktualizujte pr
 
 1. Přihlaste se k portálu pro správu jako správce služby.
 2. Vyberte **skupiny prostředků**.
-3. Vyberte skupinu prostředků **System. \<location \>. mysqladapter** .
+3. Vyberte **umístění System.\<\>** skupinu prostředků. mysqladapter.
 4. Na stránce Souhrn pro skupinu prostředků by se neměla nasazovat žádná neúspěšná nasazení.
 5. Nakonec vyberte **virtuální počítače** na portálu pro správu, abyste ověřili, jestli se virtuální počítač poskytovatele prostředků MySQL úspěšně vytvořil a běží.
 

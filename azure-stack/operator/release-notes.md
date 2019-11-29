@@ -16,12 +16,12 @@ ms.date: 11/25/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 11/22/2019
-ms.openlocfilehash: a0e925d0c7a8401ea6d3f14f82cdb01bba4b354f
-ms.sourcegitcommit: 55ec59f831a98c42a4e9ff0dd954bf10adb98ff1
+ms.openlocfilehash: 75f1c4cae33987a7a2c662ced7806ed094c6ca82
+ms.sourcegitcommit: 3a8e116fd0b16e1201e55e2088dde2e581004045
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74540336"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74557693"
 ---
 # <a name="azure-stack-updates-release-notes"></a>Aktualizace Azure Stack: poznámky k verzi
 
@@ -94,6 +94,16 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 
 - Přidání rutiny **Get-AzSDnsForwarder** do privilegovaného koncového bodu (PEP), aby se načetlo nastavení služby pro přeposílání serverů DNS v Azure Stack. Další informace o konfiguraci DNS najdete v tématu [Azure Stack integrace služby DNS Datacenter](azure-stack-integrate-dns.md).
 
+- Přidání podpory pro správu **clusterů Kubernetes** pomocí [stroje AKS](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview) Od tohoto aktualizace můžou zákazníci nasazovat produkční clustery Kubernetes. AKS Engine umožňuje uživatelům provádět tyto akce:
+   - Spravujte životní cyklus svých clusterů Kubernetes. Můžou vytvářet, aktualizovat a škálovat clustery.
+   - Udržujte své clustery pomocí spravovaných imagí vyprodukovaných AKS a týmy Azure Stack.
+   - Využijte poskytovatele cloudu Kubernetes integrovaného s Azure Resource Manager, který sestaví clustery pomocí nativních prostředků Azure.
+   - Nasaďte a spravujte svoje clustery v připojených nebo odpojených Azure Stack razítkech.
+   - Využijte Azure Hybrid Features:
+      * Integrace s Azure ARC (brzy připravujeme verzi Preview)
+      * Integrace s Azure Monitor pro kontejnery (ve verzi Public Preview)
+   - Používejte kontejnery Windows s modulem AKS (v privátní verzi Preview).
+   - Příjem podpory šablon stylů CSS a PG pro jejich nasazení.
 
 ### <a name="improvements"></a>Vylepšen
 

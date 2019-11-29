@@ -9,18 +9,18 @@ ms.date: 11/07/2019
 ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: e65943bd0b84d11e3696da206d360edc948c203f
-ms.sourcegitcommit: ca358ea5c91a0441e1d33f540f6dbb5b4d3c92c5
+ms.openlocfilehash: 03388b08e6cc258437656f2e580b75de14b8cee5
+ms.sourcegitcommit: 3a8e116fd0b16e1201e55e2088dde2e581004045
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73802261"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74557683"
 ---
 # <a name="how-to-replicate-resources-using-the-azure-stack-subscription-replicator"></a>Postup replikace prostředků pomocí replikátoru předplatného Azure Stack
 
 Pomocí skriptu PowerShellu pro Azure Stack předplatného můžete kopírovat prostředky mezi odběry Azure Stack, přes Azure Stacková razítka nebo mezi Azure Stack a Azure. Skript replikátoru načte a znovu sestaví Azure Resource Manager prostředky z různých předplatných Azure a Azure Stack. Tento článek se zabývá tím, jak skript funguje, jak můžete použít skript, a poskytuje referenční informace pro operace se skripty.
 
-Skripty používané v tomto článku najdete v úložišti GitHub ve [vzorcích Azure Intelligent Edge](https://github.com/Azure-Samples/azure-intelligent-edge-patterns) . Skripty jsou ve složce **Replikátor odběrů** .
+Skripty používané v tomto článku najdete v úložišti GitHub ve [vzorcích Azure Intelligent Edge](https://github.com/Azure-Samples/azure-intelligent-edge-patterns) . Skripty jsou ve složce [Replikátor odběrů](https://github.com/Azure-Samples/azure-intelligent-edge-patterns/tree/master/subscription%20replicator) .
 
 ## <a name="subscription-replicator-overview"></a>Přehled replikátoru předplatného
 
