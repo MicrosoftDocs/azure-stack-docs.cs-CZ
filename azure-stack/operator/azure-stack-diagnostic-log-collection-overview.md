@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/23/2019
+ms.date: 11/07/2019
 ms.author: justinha
 ms.reviewer: prchint
-ms.lastreviewed: 09/23/2019
-ms.openlocfilehash: cd65f51867a4626e8f9b288c5113909bfa32b1c2
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.lastreviewed: 11/07/2019
+ms.openlocfilehash: 1d40c0c7884773cf1f10341a90c78531c07e13f8
+ms.sourcegitcommit: 7817d61fa34ac4f6410ce6f8ac11d292e1ad807c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829195"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74690007"
 ---
 # <a name="overview-of-azure-stack-diagnostic-log-collection"></a>Přehled shromažďování diagnostických protokolů Azure Stack 
 
@@ -29,7 +29,7 @@ ms.locfileid: "71829195"
 
 Azure Stack je rozsáhlá kolekce součástí pracujících společně a vzájemně spolupracuje. Všechny tyto komponenty generují vlastní jedinečné protokoly. Díky tomu mohou diagnostikovat problémy náročný úkol, zejména chyby pocházející z více interakcí Azure Stack komponent. Aby bylo možné vyřešit tuto výzvu, navrhli jsme prostředí pro shromažďování diagnostických protokolů. 
 
-Před 1907 se v diagnostickém prostředí, které je součástí [služby test-AzureStack](azure-stack-diagnostic-test.md) , ověřil stav systému a pomocí [privilegovaného koncového bodu (PEP)](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep-to-collect-diagnostic-logs) shromažďuje protokoly pro řešení potíží. 
+Před 1907 se v diagnostickém prostředí, které je součástí [služby test-AzureStack](azure-stack-diagnostic-test.md) , ověřil stav systému a pomocí [privilegovaného koncového bodu (PEP)](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs) shromažďuje protokoly pro řešení potíží. 
 
 Od verze 1907 se na stránce **pomoc a podpora** přidá jednodušší prostředí pomocí **shromažďování protokolů diagnostiky**. 
 **Shromažďování protokolů diagnostiky** je součástí trvalé investice za účelem zlepšení zkušeností operátorů Azure Stack pomocí procesu řešení potíží. Pomocí těchto vylepšení můžou operátoři rychle shromažďovat a sdílet diagnostické protokoly se službou zákaznické podpory Microsoftu (CSS). Protokoly se můžou ukládat do kontejneru objektů BLOB v Azure, kde můžete podle potřeby přizpůsobit přístup.    
@@ -37,12 +37,12 @@ Od verze 1907 se na stránce **pomoc a podpora** přidá jednodušší prostřed
 **Shromažďování protokolů diagnostiky** funguje dvěma různými způsoby:
 
 - **Automatická kolekce**: Pokud je povoleno (doporučeno), kolekce protokolů se automaticky aktivuje konkrétními upozorněními na stav a uloženými v účtu úložiště Azure.
-- **Shromažďovat protokoly hned teď**: Jedná se o možnost na vyžádání, kde se můžete rozhodnout pro shromažďování protokolů z posledních sedmi dnů od 1-4 hodinových oken.
+- **Shromažďovat protokoly nyní**: Jedná se o možnost na vyžádání, kde můžete zvolit shromažďování protokolů z 1-4 hodinových oken za posledních sedm dní.
 
 ![Snímek obrazovky s možnostmi shromažďování diagnostických protokolů](media/azure-stack-automatic-log-collection/azure-stack-log-collection-overview.png)
 
 **Shromažďování protokolů diagnostiky** má jednoduché uživatelské rozhraní a nevyžaduje prostředí PowerShell. Protokoly se shromažďují spolehlivě i v případě, že jsou služby infrastruktury mimo provoz.
-Pokud vaše zásada umožňuje sdílení diagnostických protokolů pomocí šablony stylů CSS, je **shromažďování protokolů diagnostiky** doporučovanou metodou shromažďování dat od verze 1907. [PEP](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep-to-collect-diagnostic-logs) byste měli použít jenom ke shromažďování protokolů, pokud není k dispozici **shromažďování diagnostických protokolů** v nápovědě a podpoře.
+Pokud vaše zásada umožňuje sdílení diagnostických protokolů pomocí šablony stylů CSS, je **shromažďování protokolů diagnostiky** doporučovanou metodou shromažďování dat od verze 1907. [PEP](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs) byste měli použít jenom ke shromažďování protokolů, pokud není k dispozici **shromažďování diagnostických protokolů** v nápovědě a podpoře.
 
 ## <a name="automatic-diagnostic-log-collection"></a>Shromažďování automatických protokolů diagnostiky 
 
@@ -71,7 +71,7 @@ V následující tabulce jsou uvedeny požadavky pro prostředí s omezenými ne
 
 Další informace najdete v tématu [osvědčené postupy pro automatické shromažďování protokolů Azure Stack](azure-stack-best-practices-automatic-diagnostic-log-collection.md).
 
-## <a name="see-also"></a>Viz také:
+## <a name="see-also"></a>Další informace najdete v tématech
 
 [Azure Stack zpracování dat protokolů a zákazníků](https://docs.microsoft.com/azure-stack/operator/azure-stack-data-collection)
 

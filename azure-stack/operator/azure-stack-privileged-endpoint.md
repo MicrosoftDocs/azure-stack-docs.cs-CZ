@@ -15,12 +15,12 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 52f61321980503667119c5cc45863e51fa0639ac
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.openlocfilehash: f77a497960b49e3a212ea5cc2b63c18d8382a99c
+ms.sourcegitcommit: 7817d61fa34ac4f6410ce6f8ac11d292e1ad807c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955262"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74689962"
 ---
 # <a name="use-the-privileged-endpoint-in-azure-stack"></a>Použití privilegovaného koncového bodu v Azure Stack
 
@@ -30,7 +30,7 @@ Jako operátor služby Azure Stack byste pro většinu každodenních úloh spr�
 
 K provedení těchto úloh můžete použít PEP:
 
-- Úlohy nízké úrovně, jako je například [shromažďování diagnostických protokolů](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep-to-collect-diagnostic-logs).
+- Úlohy nízké úrovně, jako je například [shromažďování diagnostických protokolů](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs).
 - Mnoho úloh integrace Datacenter po nasazení pro integrované systémy, jako je přidání služby pro odesílání DNS (Domain Name System) po nasazení, nastavení integrace Microsoft Graph integrace, Active Directory Federation Services (AD FS) (AD FS), certifikát rotace atd.
 - Pro práci s podporou pro získání dočasného přístupu s vysokou úrovní pro důkladné řešení potíží s integrovaným systémem.
 
@@ -191,4 +191,4 @@ Po úspěšném přenosu souborů protokolu přepisu do sdílené složky se aut
 
 ## <a name="next-steps"></a>Další kroky
 
-[Diagnostické nástroje Azure Stack](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep-to-collect-diagnostic-logs)
+[Diagnostické nástroje Azure Stack](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)

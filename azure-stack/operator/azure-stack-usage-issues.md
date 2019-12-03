@@ -15,12 +15,12 @@ ms.date: 10/04/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 06/27/2019
-ms.openlocfilehash: 265645b69e909c7c9762cd03e4f49035baa2872b
-ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
+ms.openlocfilehash: 3c7b3dcd304b684170cec8974910a42f7f86e84f
+ms.sourcegitcommit: 7817d61fa34ac4f6410ce6f8ac11d292e1ad807c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72019425"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74690088"
 ---
 # <a name="usage-connectivity-errors"></a>Chyby připojení využití
 
@@ -46,7 +46,7 @@ Pokud chcete tento problém zmírnit, vyzkoušejte následující kroky:
 
 Tato část popisuje kódy chyb využití.
 
-| Kód chyby                 | Problém                                                                                                                                             | Náprava                                                                                                                                                                                                                                                                                        |
+| Kód chyby                 | Problém                                                                                                                                             | Nápravy                                                                                                                                                                                                                                                                                        |
 |----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | NetworkError               | Azure Stack most nemůže odeslat požadavek na použití koncového bodu služby v Azure.                                                            | Zkontroluje, jestli proxy server blokuje nebo zachytává přístup k koncovému bodu služby Usage.                                                                                                                                                                                                             |
 | RequestTimedOut            | Požadavek byl odeslán z Azure Bridge, ale služba využití v Azure nedokázala odpovědět v časovém limitu.                             | Zkontroluje, jestli proxy server blokuje nebo zachytává přístup k koncovému bodu služby Usage.                                                                                                                                                                                                                        |
@@ -55,7 +55,7 @@ Tato část popisuje kódy chyb využití.
 | Neautorizováno               | Most Azure nemůže odeslat data do služby využití v Azure, protože služba Azure nemůže ověřit most Azure Stack. | Ověřte, zda byl registrační prostředek změněn a v případě potřeby jej znovu zaregistrujte Azure Stack. <br><br> V některých případech může tato chyba způsobit problémy s synchronizací mezi Azure Stack a službou Azure AD. V takovém případě je nutné zajistit, aby se časy v Azure Stackch virtuálních počítačích XRP synchronizovaná se službou Azure AD. |
 |                            |                                                                                                                                                   |                                                                                                                                                                                                                                                                                                    |
 
-Kromě toho může být nutné zadat soubory protokolu pro součásti Azure Bridge, WAS a WASPublic pomocí následujících [kroků](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep-to-collect-diagnostic-logs).
+Kromě toho může být nutné zadat soubory protokolu pro součásti Azure Bridge, WAS a WASPublic pomocí následujících [kroků](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs).
 
 ## <a name="next-steps"></a>Další kroky
 

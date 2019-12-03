@@ -16,14 +16,14 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 5072c40f4e8eba787e0a18c7c73a51111d0c847b
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: e0e23ca6d469e33adbcd47bc66125d6af92f0123
+ms.sourcegitcommit: 7817d61fa34ac4f6410ce6f8ac11d292e1ad807c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829270"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74689985"
 ---
-# <a name="start-and-stop-azure-stack"></a>Spuštění a zastavení služby Azure Stack
+# <a name="start-and-stop-azure-stack"></a>Spuštění a zastavení Azure Stack
 Postupujte podle pokynů v tomto článku, abyste správně vypnuli a restartovali Azure Stack služby. Vypínání bude fyzicky vypnout celé Azure Stack prostředí. Spusťte své pravomoci na všech rolích infrastruktury a vrátí prostředky tenanta do stavu napájení, který existoval před vypnutím.
 
 ## <a name="stop-azure-stack"></a>Zastavit Azure Stack 
@@ -51,7 +51,7 @@ Spusťte Azure Stack pomocí následujících kroků. Postupujte podle těchto k
 
 1. Zapněte na každém fyzickém uzlu v prostředí Azure Stack. Podle pokynů výrobce OEM (Original Equipment Manufacturer), který dodal hardware pro váš Azure Stack, ověřte pokyny pro fyzické uzly.
 
-2. Počkejte, dokud se nespustí služby infrastruktury Azure Stack. Služby infrastruktury Azure Stack můžou k dokončení procesu spuštění vyžadovat dvě hodiny. Stav spuštění Azure Stack můžete ověřit pomocí rutiny [ **Get-ActionStatus** ](#get-the-startup-status-for-azure-stack).
+2. Počkejte, dokud se nespustí služby infrastruktury Azure Stack. Služby infrastruktury Azure Stack můžou k dokončení procesu spuštění vyžadovat dvě hodiny. Stav spuštění Azure Stack můžete ověřit pomocí [rutiny **Get-ActionStatus** ](#get-the-startup-status-for-azure-stack).
 
 3. Zajistěte, aby se všechny prostředky tenanta vrátily do stavu před vypnutím. Úlohy spuštěné v prostředcích tenanta možná budete muset po spuštění znovu nakonfigurovat správcem úloh.
 
@@ -91,4 +91,4 @@ Proveďte následující kroky, pokud se infrastruktura a služby tenanta po zap
 
 ## <a name="next-steps"></a>Další kroky 
 
-Další informace o [diagnostických nástrojích Azure Stack](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep-to-collect-diagnostic-logs)
+Další informace o [diagnostických nástrojích Azure Stack](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)

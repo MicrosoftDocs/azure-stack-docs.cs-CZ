@@ -15,12 +15,12 @@ ms.date: 10/24/2019
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: b42f21a3225194cfe50b5ae7d39d8d1a7cffb6d0
-ms.sourcegitcommit: e6a738f674634e1d5dd4eb23b6c44b660ea2fe84
+ms.openlocfilehash: a9c0016ef75040263acfe8400e9e04dce9eb744c
+ms.sourcegitcommit: 7817d61fa34ac4f6410ce6f8ac11d292e1ad807c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72891267"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74690234"
 ---
 # <a name="create-vm-disk-storage-in-azure-stack"></a>Vytvoření diskového úložiště virtuálního počítače v Azure Stack
 
@@ -38,7 +38,9 @@ Nespravované disky vyžadují, abyste vytvořili účet úložiště pro uklád
 
 ### <a name="best-practice-guidelines"></a>Pokyny k osvědčeným postupům
 
-Pro zvýšení výkonu a snížení celkových nákladů doporučujeme umístit všechny disky virtuálního počítače do samostatného kontejneru. Kontejner by měl obsahovat buď disk s operačním systémem, nebo datový disk, ale ne obojí současně. Do stejného kontejneru ale také můžete umístit oba typy disků.
+Pro snazší správu a rovnováhu kapacity se doporučuje použít Managed Disks pro virtuální počítač. Před použitím spravovaného disku nemusíte připravovat účet úložiště a kontejnery.  Při vytváření více Managed Disks se disky distribuují do několika svazků, což přináší výhody vyvážení kapacity svazků.  
+
+U nespravovaných disků za účelem zvýšení výkonu a snížení celkových nákladů doporučujeme umístit jednotlivé disky virtuálních počítačů do samostatného kontejneru. I když můžete do stejného kontejneru umístit i disky operačního systému a datové disky, nejlepší postup je, že by měl obsahovat disk s operačním systémem nebo datový disk, ale ne obojí současně. 
 
 Pokud přidáte jeden nebo více datových disků k virtuálnímu počítači, použijte k uložení těchto disků další kontejnery jako umístění. Disk s operačním systémem pro další virtuální počítače by měl být také ve vlastních kontejnerech.
 

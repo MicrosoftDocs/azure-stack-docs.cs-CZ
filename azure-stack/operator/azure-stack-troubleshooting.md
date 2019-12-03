@@ -16,12 +16,12 @@ ms.date: 11/05/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 4c04eafab93da233859b5b67571b70899b081b95
-ms.sourcegitcommit: c583f19d15d81baa25dd49738d53d8fc01463bef
+ms.openlocfilehash: 28e067abef24fbc60cff629e5112ffacdf14b1ec
+ms.sourcegitcommit: 7817d61fa34ac4f6410ce6f8ac11d292e1ad807c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73659237"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74689945"
 ---
 # <a name="microsoft-azure-stack-troubleshooting"></a>Řešení potíží s Microsoft Azure Stack
 
@@ -95,7 +95,7 @@ Pomocí prostředí PowerShell můžete získat informace o využití razítka b
 4. Spuštění rutiny Get-azurestacklog-filterbyrole s použitím volání Invoke-Command
 5. Extrahujte soubor seedring. zip a můžete získat zprávu o ověření ze složky ERCS, ve které jste spustili test-azurestack
 
-Další informace najdete v tématu [diagnostika Azure Stack](azure-stack-configure-on-demand-diagnostic-log-collection.md#to-run-get-azurestacklog-on-azure-stack-integrated-systems).
+Další informace najdete v tématu [diagnostika Azure Stack](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs).
 
 ## <a name="troubleshoot-virtual-machines"></a>Řešení potíží s virtuálními počítači
 ### <a name="default-image-and-gallery-item"></a>Výchozí položka obrázku a galerie

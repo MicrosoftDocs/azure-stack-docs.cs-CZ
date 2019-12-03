@@ -14,12 +14,12 @@ ms.date: 06/26/2019
 ms.author: justinha
 ms.reviewer: adshar
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 194af241480cce42273ff81d91213a63b1b9fd59
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: 7d0d83c415b52f53e8e791e8c632c5ad2da6fe58
+ms.sourcegitcommit: 7817d61fa34ac4f6410ce6f8ac11d292e1ad807c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829171"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74690099"
 ---
 # <a name="validate-azure-stack-system-state"></a>Ověřit Azure Stack stav systému
 
@@ -48,7 +48,7 @@ Jak je uvedeno výše, nástroj pro ověření se spouští přes PEP. Každý t
 
    Další informace najdete v tématu věnovaném [parametrům](azure-stack-diagnostic-test.md#parameter-considerations) a [příkladům případu použití](azure-stack-diagnostic-test.md#use-case-examples).
 
-3. Pokud dojde k **selhání**jakékoli testy, spusťte `Get-AzureStackLog`. Pokyny k integrovanému systému najdete v tématu [spuštění rutiny Get-AzureStackLog v Azure Stack integrovaných systémech](azure-stack-configure-on-demand-diagnostic-log-collection.md#to-run-get-azurestacklog-on-azure-stack-integrated-systems)nebo na ASDK v tématu [spuštění rutiny Get-AZURESTACKLOG v systému ASDK](azure-stack-configure-on-demand-diagnostic-log-collection.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system).
+3. Pokud dojde k **selhání**jakékoli testy, spusťte `Get-AzureStackLog`. Pokyny k integrovanému systému najdete v tématu [spuštění rutiny Get-AzureStackLog v Azure Stack integrovaných systémech](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)nebo na ASDK v tématu [spuštění rutiny Get-AZURESTACKLOG v systému ASDK](azure-stack-configure-on-demand-diagnostic-log-collection.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system).
 
    Rutina shromáždí protokoly generované rutinou test-AzureStack. Doporučujeme, abyste neshromáždili protokoly a místo toho kontaktovali šablony stylů CSS, pokud testy **upozorňují**na zprávu.
 
@@ -160,14 +160,14 @@ Enter-PSSession -ComputerName "<ERCS VM-name/IP address>" -ConfigurationName Pri
 Test-AzureStack -ServiceAdminCredential "<Cloud administrator user name>" -Include AzsScenarios   
 ```
 
-Uživatelské jméno správce cloudu musí být zadané ve formátu hlavního názvu uživatele (UPN): serviceadmin@contoso.onmicrosoft.com(Azure AD). Po zobrazení výzvy zadejte heslo k účtu správce cloudu.
+Uživatelské jméno správce cloudu musí být zadané ve formátu UPN: serviceadmin@contoso.onmicrosoft.com (Azure AD). Po zobrazení výzvy zadejte heslo k účtu správce cloudu.
 
 ### <a name="groups"></a>Skupiny
 
 Pro zlepšení prostředí operátora je povolený parametr **skupiny** , aby bylo možné spustit více kategorií testů současně. V současné době jsou definovány tři skupiny: **Default**, **UpdateReadiness**a **SecretRotationReadiness**.
 
-- **Výchozí**: Považuje se za standardní spuštění rutiny **test-AzureStack**. Tato skupina se spouští ve výchozím nastavení, pokud nejsou vybrané žádné jiné skupiny.
-- **UpdateReadiness**: Zkontroluje, jestli se instance Azure Stack dá aktualizovat. Když je spuštěná skupina **UpdateReadiness** , zobrazí se upozornění jako chyby ve výstupu konzoly a měla by se považovat za blokování pro aktualizaci. Následující kategorie jsou součástí skupiny **UpdateReadiness** :
+- **Výchozí**: považuje se za standardní běh rutiny **test-AzureStack**. Tato skupina se spouští ve výchozím nastavení, pokud nejsou vybrané žádné jiné skupiny.
+- **UpdateReadiness**: Zkontrolujte, zda je možné aktualizovat instanci Azure Stack. Když je spuštěná skupina **UpdateReadiness** , zobrazí se upozornění jako chyby ve výstupu konzoly a měla by se považovat za blokování pro aktualizaci. Následující kategorie jsou součástí skupiny **UpdateReadiness** :
 
   - **AzsAcsSummary**
   - **AzsDefenderSummary**
@@ -178,7 +178,7 @@ Pro zlepšení prostředí operátora je povolený parametr **skupiny** , aby by
   - **AzsSFRoleSummary**
   - **AzsStoreSummary**
 
-- **SecretRotationReadiness**: Kontroluje, zda je instance Azure Stack ve stavu, ve kterém lze spustit rotaci tajných klíčů. Když je spuštěná skupina **SecretRotationReadiness** , zobrazí se upozornění jako chyby ve výstupu konzoly a měla by se považovat za blokování pro rotaci tajných klíčů. Následující kategorie jsou součástí skupiny SecretRotationReadiness:
+- **SecretRotationReadiness**: zkontroluje, jestli je instance Azure Stack ve stavu, ve kterém se dá spustit rotace tajných klíčů. Když je spuštěná skupina **SecretRotationReadiness** , zobrazí se upozornění jako chyby ve výstupu konzoly a měla by se považovat za blokování pro rotaci tajných klíčů. Následující kategorie jsou součástí skupiny SecretRotationReadiness:
 
   - **AzsAcsSummary**
   - **AzsDefenderSummary**
@@ -240,6 +240,6 @@ Test-AzureStack -Include AzsNetworkInfra -Debug
 
 ## <a name="next-steps"></a>Další kroky
 
-Další informace o Azure Stack diagnostických nástrojů a protokolování problémů najdete v tématu [nástroje Azure Stack Diagnostics](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep-to-collect-diagnostic-logs).
+Další informace o Azure Stack diagnostických nástrojů a protokolování problémů najdete v tématu [nástroje Azure Stack Diagnostics](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs).
 
 Další informace o řešení potíží najdete v tématu [řešení potíží s Microsoft Azure Stack](azure-stack-troubleshooting.md).

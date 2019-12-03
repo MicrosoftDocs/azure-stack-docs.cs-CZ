@@ -16,12 +16,12 @@ ms.date: 06/10/2019
 ms.author: patricka
 ms.reviewer: chengwei
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: 31fa9bcdf60b27b2eb2e8396be1d2a0e89f31b70
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: ff633133b7d0fd0489b3e81295ea53351968ac8f
+ms.sourcegitcommit: 7817d61fa34ac4f6410ce6f8ac11d292e1ad807c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829187"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74690198"
 ---
 # <a name="azure-stack-log-and-customer-data-handling"></a>Azure Stack zpracování dat protokolů a zákazníků 
 *Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*  
@@ -31,7 +31,7 @@ V takovém případě je společnost Microsoft v souvislosti s Azure Stack proce
 - "Zpracování osobních údajů; GDPR "pravidla ochrany dat" v tématu [online služby](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31).
 - Evropské unie Obecné nařízení o ochraně osobních údajů podmínkami v příloze 4 [podmínek pro online služby](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31).
 
-Jako Azure Stack se nachází v datových centrech zákazníků, Microsoft je řadič dat výhradně z dat, která se v Microsoftu sdílí prostřednictvím diagnostiky [](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep-to-collect-diagnostic-logs), [telemetrie](azure-stack-telemetry.md)a [fakturace](azure-stack-usage-reporting.md).  
+Jako Azure Stack se nachází v datových centrech zákazníků, Microsoft je řadič dat výhradně z dat, která se v Microsoftu sdílí prostřednictvím [diagnostiky](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs), [telemetrie](azure-stack-telemetry.md)a [fakturace](azure-stack-usage-reporting.md).  
 
 ## <a name="data-access-controls"></a>Řízení přístupu k datům 
 Zaměstnanci Microsoftu, kteří jsou přiřazeni k prozkoumání konkrétního případu podpory, budou mít k šifrovaným datům oprávnění jen pro čtení. Zaměstnanci Microsoftu mají také přístup k nástrojům, které slouží k odstranění dat v případě potřeby. Veškerý přístup k zákaznickým datům je auditován a zaznamenán.  
@@ -51,7 +51,7 @@ Pro akci automatizovaného odstranění dat (90 dní po uzavření případu) ne
 Pro akci odstranění dat na vyžádání mají pracovníci podpory Microsoftu přístup k nástroji, který jim umožňuje odstranit data na vyžádání. Když se zákazník dokončí, může na telefonu poskytnout potvrzení.
 
 ## <a name="diagnostic-data"></a>Diagnostická data
-V rámci procesu podpory můžou Azure Stack operátoři [Sdílet diagnostické protokoly](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep-to-collect-diagnostic-logs) s Azure Stack podpory a technickými týmy pro pomoc s řešením problémů.
+V rámci procesu podpory můžou Azure Stack operátoři [Sdílet diagnostické protokoly](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs) s Azure Stack podpory a technickými týmy pro pomoc s řešením problémů.
 
 Společnost Microsoft poskytuje nástroj a skript pro zákazníky, kteří budou shromažďovat a nahrávat požadované soubory protokolu diagnostiky. Po shromáždění se soubory protokolu přenesou prostřednictvím šifrovaného připojení chráněného protokolem HTTPS společnosti Microsoft. Vzhledem k tomu, že protokol HTTPS zajišťuje šifrování po drátě, není při přenosu vyžadováno žádné heslo. Po přijetí se protokoly zašifrují a uloží do doby, než se automaticky odstraní 90 dnů po uzavření případu podpory.
 

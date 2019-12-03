@@ -14,12 +14,12 @@ ms.author: mabrigg
 ms.date: 11/14/2019
 ms.reviewer: waltero
 ms.lastreviewed: 11/14/2019
-ms.openlocfilehash: 89ed4549dc44eb433f8061aba9bcff9405d80699
-ms.sourcegitcommit: f2a059f1be36f82adea8877f3f6e90d41ef3b161
+ms.openlocfilehash: 900ff88136d75759fdc3bc05bf351968f9c13654
+ms.sourcegitcommit: 7817d61fa34ac4f6410ce6f8ac11d292e1ad807c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74162984"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74689938"
 ---
 # <a name="troubleshoot-kubernetes-deployment-to-azure-stack"></a>Řešení potíží s nasazením Kubernetes pro Azure Stack
 
@@ -93,10 +93,10 @@ Na virtuálních počítačích, které podporují cluster Kubernetes, můžete 
     - Při vytváření virtuálního počítače se možná aktivovala vnitřní chyba nebo se aktivovala Chyba při vytváření. Řada faktorů může způsobit chyby, včetně omezení kapacity pro předplatné Azure Stack.
     - Ujistěte se, že plně kvalifikovaný název domény (FQDN) pro virtuální počítač začíná duplicitní předponou.
 5.  Pokud je virtuální počítač v **pořádku**, vyhodnoťte DVM. Pokud má DVM chybovou zprávu:
-
     - Veřejný klíč může být neplatný. Zkontrolujte klíč, který jste vytvořili.  
-    - Obraťte se na správce Azure Stack a načtěte protokoly pro Azure Stack pomocí privilegovaných koncových bodů. Další informace najdete v tématu [Nástroje pro diagnostiku Azure Stack](../operator/azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep-to-collect-diagnostic-logs).
-6. Pokud máte dotaz týkající se nasazení, můžete ho publikovat, nebo zjistit, jestli už někdo na dotaz na [Azure Stack Fórum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)odpověděl. 
+    - Obraťte se na správce Azure Stack a načtěte protokoly pro Azure Stack pomocí privilegovaných koncových bodů. Další informace najdete v tématu [Nástroje pro diagnostiku Azure Stack](../operator/azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs).
+5. Pokud máte dotaz týkající se nasazení, můžete ho publikovat, nebo zjistit, jestli už někdo na dotaz na [Azure Stack Fórum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)odpověděl. 
+
 
 ## <a name="review-deployment-status"></a>Zkontrolovat stav nasazení
 
