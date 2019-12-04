@@ -1,6 +1,6 @@
 ---
-title: Jak zálohovat virtuální počítač v Azure Stack hub pomocí CommVault | Microsoft Docs
-description: Naučte se, jak zálohovat virtuální počítač v Azure Stack hub pomocí CommVault.
+title: Postup nasazení F5 ve dvou instancích centra Azure Stack | Microsoft Docs
+description: Naučte se nasazovat F5 v rámci dvou Azure Stackch instancí centra.
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,12 +9,12 @@ ms.date: 11/06/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: 64fef6bdcd0315bc9dc289b48f80b406cefba0eb
-ms.sourcegitcommit: bb2bbfad8061f7677954f6ce5a435b4e6f9299b6
+ms.openlocfilehash: c1166b1755b33687757b4587942c5472413e2b3e
+ms.sourcegitcommit: 62283e9826ea78b218f5d2c6c555cc44196b085d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74103000"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74780877"
 ---
 # <a name="how-to-deploy-f5-across-two-azure-stack-hub-instances"></a>Postup nasazení F5 v rámci dvou instancí centra Azure Stack
 

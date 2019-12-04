@@ -1,6 +1,7 @@
 ---
-title: Azure Stack 1.1.30.0 zpráva k vydání verze poskytovatele prostředků SQL | Microsoft Docs
-description: Přečtěte si o tom, co je v nejnovější aktualizaci poskytovatele prostředků SQL Azure Stack, včetně všech známých problémů a místa, kde si je můžete stáhnout.
+title: Azure Stack zpráva k vydání verze pro poskytovatele prostředků SQL 1.1.33.0
+titleSuffix: Azure Stack
+description: Prohlédněte si poznámky k vydání pro Azure Stack 1.1.33.0 aktualizace poskytovatele prostředků SQL.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,12 +17,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: 69ea42a9efbf57cfdeb589cc221eae8a9f21913c
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: 03a2ec5a0485f184e34c2837d8bc55edaed39f1d
+ms.sourcegitcommit: 62283e9826ea78b218f5d2c6c555cc44196b085d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829325"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74780690"
 ---
 # <a name="sql-resource-provider-11330-release-notes"></a>1\.1.33.0 poznámky k verzi poskytovatele prostředků SQL
 
@@ -29,7 +30,7 @@ ms.locfileid: "71829325"
 
 Tyto poznámky k verzi popisují vylepšení a známé problémy ve verzi 1.1.33.0 poskytovatele prostředků SQL.
 
-## <a name="build-reference"></a>Referenční informace o buildu
+## <a name="build-reference"></a>Odkaz na sestavení
 Stáhněte si binární soubor poskytovatele prostředků SQL a potom spusťte samočinný extrahování a extrahujte obsah do dočasného adresáře. Poskytovatel prostředků má minimálně odpovídající sestavení Azure Stack. Minimální verze Azure Stack vydaná pro instalaci této verze poskytovatele prostředků SQL je uvedená níže:
 
 > |Minimální verze Azure Stack|Verze zprostředkovatele prostředků SQL|
@@ -43,28 +44,29 @@ Stáhněte si binární soubor poskytovatele prostředků SQL a potom spusťte s
 ## <a name="new-features-and-fixes"></a>Nové funkce a opravy
 Tato verze poskytovatele prostředků Azure Stack SQL zahrnuje následující vylepšení a opravy:
 
-### <a name="fixes"></a>Opravy
-- **Rozšíření portálu poskytovatele prostředků SQL může zvolit špatné předplatné**. Poskytovatel prostředků SQL používá Azure Resource Manager volání k určení prvního předplatného Správce služby, které se používá, což nemusí být *výchozí předplatné poskytovatele*. Pokud k tomu dojde, poskytovatel prostředků SQL nepracuje normálně. 
+### <a name="fixes"></a>Řeší
 
-- **Hostitelský server SQL nezobrazuje seznam hostovaných databází.** Uživatelem vytvořené databáze nemusí být uvedeny při zobrazení prostředků tenanta pro hostitelské servery SQL.
+- **Rozšíření portálu poskytovatele prostředků SQL může zvolit špatné předplatné**. Poskytovatel prostředků SQL používá Azure Resource Manager volání k určení prvního předplatného Správce služby, které se používá, což nemusí být *výchozí předplatné poskytovatele*. Pokud k tomu dojde, poskytovatel prostředků SQL nepracuje normálně.
 
-- **Předchozí nasazení poskytovatele prostředků SQL (1.1.30.0) může selhat, pokud není TLS 1,2 povolený**. Aktualizovaný poskytovatel prostředků SQL 1.1.33.0, aby povoloval TLS 1,2 při nasazování poskytovatele prostředků, aktualizaci poskytovatele prostředků nebo střídání tajných klíčů. 
+- **Hostitelský server SQL neuvádí hostované databáze.** Uživatelem vytvořené databáze nemusí být uvedeny při zobrazení prostředků tenanta pro hostitelské servery SQL.
 
-- **Rotace tajného kódu poskytovatele prostředků SQL**se nezdařila. Při střídání tajných klíčů došlo k problému, který má za následek následující kód chyby:`New-AzureRmResourceGroupDeployment - Error: Code=InvalidDeploymentParameterValue; Message=The value of deployment parameter 'StorageAccountBlobUri' is null.`
+- **Předchozí nasazení poskytovatele prostředků SQL (1.1.30.0) by mohlo selhat, pokud není povolený protokol TLS 1,2**. Aktualizovaný poskytovatel prostředků SQL 1.1.33.0, aby povoloval TLS 1,2 při nasazování poskytovatele prostředků, aktualizaci poskytovatele prostředků nebo střídání tajných klíčů.
 
-## <a name="known-issues"></a>Známé problémy 
+- **Rotace tajného kódu poskytovatele prostředků SQL se nezdařila**. Při střídání tajných klíčů došlo k problému, který má za následek následující kód chyby: `New-AzureRmResourceGroupDeployment - Error: Code=InvalidDeploymentParameterValue; Message=The value of deployment parameter 'StorageAccountBlobUri' is null.`
 
-- Zobrazení **SKU SQL může trvat až hodinu**, než se na portálu zobrazí. Může trvat až hodinu, než se nově vytvořené skladové položky zobrazí pro použití při vytváření nových databází SQL. 
+## <a name="known-issues"></a>Známé problémy
 
-    **Alternativní řešení**: Žádné.
+- Zobrazení **SKU SQL může trvat až hodinu**, než se na portálu zobrazí. Může trvat až hodinu, než se nově vytvořené skladové položky zobrazí pro použití při vytváření nových databází SQL.
 
-- **Znovu použita přihlášení SQL**. Při pokusu o vytvoření nového přihlášení SQL se stejným uživatelským jménem, jako má existující přihlašovací jméno v rámci stejného předplatného, bude použito stejné přihlášení a stávající heslo. 
+    **Alternativní řešení**: žádné.
 
-    **Alternativní řešení**: Při vytváření nových přihlašovacích údajů v rámci stejného předplatného nebo při vytváření přihlašovacích údajů se stejným uživatelským jménem v různých předplatných použijte jiná uživatelská jména.
+- **Znovu použita přihlášení SQL**. Při pokusu o vytvoření nového přihlášení SQL se stejným uživatelským jménem, jako má existující přihlašovací jméno v rámci stejného předplatného, bude použito stejné přihlášení a stávající heslo.
+
+    **Alternativní řešení**: při vytváření nových přihlášení v rámci stejného předplatného použijte jiná uživatelská jména nebo vytvořte přihlášení se stejným uživatelským jménem v různých předplatných.
 
 - **Sdílená přihlášení SQL způsobují nekonzistenci dat**. Pokud je přihlašovací jméno SQL sdílené pro více databází SQL v rámci stejného předplatného, Změna přihlašovacího hesla způsobí nekonzistenci dat.
 
-    **Alternativní řešení**: Pro různé databáze v rámci stejného předplatného používejte vždycky jiná přihlášení.
+    **Alternativní řešení**: pro různé databáze v rámci stejného předplatného používejte vždycky jiná přihlášení.
 
 - **Poskytovatel prostředků SQL nemůže přidat SQL Server vždy na naslouchací proces**. Při použití IP adresy naslouchacího procesu pro naslouchací proces služby SQL Server Always On nemůže virtuální počítač poskytovatele prostředků SQL přeložit název hostitele naslouchacího procesu.
 
@@ -78,4 +80,4 @@ Informace najdete v dokumentaci k [verzi Azure Stack](azure-stack-servicing-poli
 
 [Příprava na nasazení poskytovatele prostředků SQL](azure-stack-sql-resource-provider-deploy.md#prerequisites).
 
-[Upgradujte poskytovatele prostředků SQL z předchozí verze](azure-stack-sql-resource-provider-update.md). 
+[Upgradujte poskytovatele prostředků SQL z předchozí verze](azure-stack-sql-resource-provider-update.md).

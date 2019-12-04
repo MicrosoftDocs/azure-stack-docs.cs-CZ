@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/24/2019
+ms.date: 12/03/2019
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: a9c0016ef75040263acfe8400e9e04dce9eb744c
-ms.sourcegitcommit: 7817d61fa34ac4f6410ce6f8ac11d292e1ad807c
+ms.openlocfilehash: 049698c1b4e19dc3567c07bb8a433c0fcf9208d8
+ms.sourcegitcommit: 62283e9826ea78b218f5d2c6c555cc44196b085d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74690234"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74780775"
 ---
 # <a name="create-vm-disk-storage-in-azure-stack"></a>Vytvoření diskového úložiště virtuálního počítače v Azure Stack
 
@@ -36,17 +36,17 @@ Počínaje verzí 1808 Azure Stack podporuje na virtuálních počítačích pou
 
 Nespravované disky vyžadují, abyste vytvořili účet úložiště pro ukládání disků. Disky, které vytvoříte, jsou označovány jako disky virtuálních počítačů a jsou uloženy v kontejnerech v účtu úložiště.
 
-### <a name="best-practice-guidelines"></a>Pokyny k osvědčeným postupům
+## <a name="best-practice-guidelines"></a>Pokyny k osvědčeným postupům
 
-Pro snazší správu a rovnováhu kapacity se doporučuje použít Managed Disks pro virtuální počítač. Před použitím spravovaného disku nemusíte připravovat účet úložiště a kontejnery.  Při vytváření více Managed Disks se disky distribuují do několika svazků, což přináší výhody vyvážení kapacity svazků.  
+Pro snazší správu a rovnováhu kapacity se doporučuje použít Managed Disks pro virtuální počítač. Před použitím Managed Disks nemusíte připravovat účet úložiště a kontejnery. Při vytváření více spravovaných disků jsou disky distribuovány do více svazků, což pomáhá vyrovnávat kapacitu svazků.  
 
-U nespravovaných disků za účelem zvýšení výkonu a snížení celkových nákladů doporučujeme umístit jednotlivé disky virtuálních počítačů do samostatného kontejneru. I když můžete do stejného kontejneru umístit i disky operačního systému a datové disky, nejlepší postup je, že by měl obsahovat disk s operačním systémem nebo datový disk, ale ne obojí současně. 
+U nespravovaných disků za účelem zvýšení výkonu a snížení celkových nákladů doporučujeme umístit jednotlivé nespravované disky do samostatného kontejneru. I když můžete do stejného kontejneru umístit i disky s operačním systémem a datové disky, osvědčeným postupem je, že jeden kontejner by měl obsahovat disk s operačním systémem nebo datový disk, ale ne obojí současně.
 
 Pokud přidáte jeden nebo více datových disků k virtuálnímu počítači, použijte k uložení těchto disků další kontejnery jako umístění. Disk s operačním systémem pro další virtuální počítače by měl být také ve vlastních kontejnerech.
 
 Při vytváření virtuálních počítačů můžete znovu použít stejný účet úložiště pro každý nový virtuální počítač. Pouze kontejnery, které vytvoříte, by měly být jedinečné.
 
-### <a name="adding-new-disks"></a>Přidávání nových disků
+## <a name="adding-new-disks"></a>Přidávání nových disků
 
 Následující tabulka shrnuje, jak přidat disky pomocí portálu a pomocí prostředí PowerShell:
 

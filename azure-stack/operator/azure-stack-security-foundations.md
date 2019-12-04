@@ -1,6 +1,7 @@
 ---
-title: Principy ovládacích prvků zabezpečení služby Azure Stack
-description: Jako správce služeb Další informace o zabezpečení ovládacích prvků použitá ke službě Azure Stack
+title: Azure Stack kontroly zabezpečení
+titleSuffix: Azure Stack
+description: Seznamte se s stav a ovládacími prvky zabezpečení použitými pro Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: PatAltimore
@@ -15,91 +16,102 @@ ms.date: 06/10/2019
 ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: 437fb7c62436c0565945b851f0a70550a228d54c
-ms.sourcegitcommit: bcaad8b7db2ea596018d973cb29283d8c6daebfb
+ms.openlocfilehash: 4050a33be2436b919ffe4b4668b38a595523bd0d
+ms.sourcegitcommit: 62283e9826ea78b218f5d2c6c555cc44196b085d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/27/2019
-ms.locfileid: "67419535"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74780792"
 ---
-# <a name="azure-stack-infrastructure-security-posture"></a>Stav zabezpečení infrastruktury služby Azure Stack
+# <a name="azure-stack-infrastructure-security-controls"></a>Azure Stack kontroly zabezpečení infrastruktury
 
-*Platí pro: Integrované systémy Azure Stack*
+*Platí pro: Azure Stack integrovaných systémů*
 
-Důležité informace o zabezpečení a dodržování předpisů patří mezi hlavní ovladačů pro použití hybridních cloudů. Azure Stack je navržena pro tyto scénáře. Tento článek vysvětluje ovládacích prvků zabezpečení v místě pro službu Azure Stack.
+Mezi hlavní faktory ovlivňující výběr hybridních cloudů patří aspekty zabezpečení a požadavky na dodržování předpisů. Pro tyto scénáře je určená služby Azure Stack. Tento článek vysvětluje ovládací prvky zabezpečení, které jsou na místě Azure Stack.
 
-Dvě vrstvy stavu zabezpečení ve službě Azure Stack existovat vedle sebe. První vrstva je infrastruktura Azure stacku, která zahrnuje hardwarové součásti až Azure Resource Manageru. První vrstva zahrnuje správce a Tenanta portálů. Druhá vrstva se skládá z úlohy vytvořené, nasazují a spravují tenanty. Druhá vrstva zahrnuje různé věci, třeba virtuálních počítačů a webů App Services.
+Dvě vrstvy zabezpečení stav koexistovat v Azure Stack. První vrstvou je Azure Stack infrastruktura, která zahrnuje hardwarové součásti až do Azure Resource Manager. První vrstva zahrnuje správce a portál tenanta. Druhá vrstva se skládá z úloh vytvořených, nasazených a spravovaných klienty. Druhá vrstva zahrnuje položky, jako jsou virtuální počítače a App Services weby.
 
-## <a name="security-approach"></a>Zabezpečení přístupu
+## <a name="security-approach"></a>Bezpečnostní přístup
 
-Stav zabezpečení pro službu Azure Stack je navržen pro ochranu před moderními hrozbami a byla vytvořena pro splnění požadavků z hlavní dodržování předpisů standardů. Stav zabezpečení infrastruktury služby Azure Stack v důsledku toho je postavená na dvou pilíře:
+Stav zabezpečení pro Azure Stack je navržená tak, aby se zabránilo moderním hrozbám a byla vytvořená tak, aby splňovala požadavky na hlavní standardy dodržování předpisů. V důsledku toho je stav zabezpečení infrastruktury Azure Stack postaven na dvou pilířích:
 
- - **Předpokládej chybu zabezpečení**  
-Spuštění z předpokladu, že systém již došlo k nedodržení, zaměřte se na *zjišťování a omezit dopad těchto porušení* oproti pouze při prevenci proti útokům. 
- - **Posílené už ve výchozím nastavení**  
-Že díky infrastruktuře provozované na jasně definovaném hardwaru a softwaru, služby Azure Stack *povolí, konfiguruje a ověří všechny funkce zabezpečení* ve výchozím nastavení.
+- **Předpokládat porušení**  
+    Počínaje předpokladem, že již došlo k porušení systému, se zaměřte na *zjištění a omezení dopadu porušení a* pokusu o předcházení útokům.
 
-Protože Azure Stack se dodává jako integrovaný systém, je definován stav zabezpečení infrastruktury Azure stacku společností Microsoft. Stejně jako v Azure, klienti jsou zodpovědné za definování stav zabezpečení svých úloh tenanta. Tento dokument obsahuje základní znalosti o stavu zabezpečení infrastruktury Azure stacku.
+- **Zpřísněno standardně**  
+    Vzhledem k tomu, že infrastruktura běží na dobře definovaném hardwaru a softwaru, Azure Stack ve výchozím nastavení *povolí, nakonfiguruje a ověří všechny funkce zabezpečení* .
 
-## <a name="data-at-rest-encryption"></a>Data šifrování neaktivních dat
-Všechny služby Azure Stack infrastruktury a klientského data se šifrují v klidu pomocí Bitlockeru. Toto šifrování se chrání před fyzické ztráty či odcizení komponent úložiště služby Azure Stack. Další informace najdete v tématu [data šifrování neaktivních dat ve službě Azure Stack](azure-stack-security-bitlocker.md).
+Vzhledem k tomu, že Azure Stack se doručuje jako integrovaný systém, je stav zabezpečení infrastruktury Azure Stack definována společností Microsoft. Stejně jako v Azure jsou klienti zodpovědní za definování stav zabezpečení svých úloh klientů. Tento dokument poskytuje základní znalosti o stavi zabezpečení infrastruktury Azure Stack.
 
-## <a name="data-in-transit-encryption"></a>Data v šifrování přenosu
-Součásti infrastruktury Azure stacku komunikaci pomocí kanálů, které jsou šifrované pomocí protokolu TLS 1.2. Certifikáty šifrování samoobslužných spravuje infrastrukturu. 
+## <a name="data-at-rest-encryption"></a>Šifrování dat v klidovém umístění
 
-Všechny koncové body externí infrastruktury, jako jsou koncové body REST nebo na portálu Azure Stack podporovala TLS 1.2 pro zabezpečenou komunikaci. Pro tyto koncové body je třeba zadat šifrovací certifikáty, buď z jiného výrobce nebo certifikační autorita rozlehlé sítě. 
+Všechna Azure Stacková data infrastruktury a klientů jsou v klidovém stavu zašifrovaná pomocí nástroje BitLocker. Toto šifrování chrání před fyzickou ztrátou nebo krádeží Azure Stackch součástí úložiště. Další informace najdete v tématu šifrování neaktivních [dat v Azure Stack](azure-stack-security-bitlocker.md).
 
-Certifikáty podepsané svým držitelem můžete využít pro tyto externí koncové body, Microsoft důrazně nedoporučuje jejich používání. 
+## <a name="data-in-transit-encryption"></a>Data při přenosu – šifrování
 
-## <a name="secret-management"></a>Správa tajných kódů
-Infrastruktura Azure stacku používá velké množství tajné kódy, jako jsou hesla, aby fungoval. Většina z nich jsou automaticky otočit často, protože jsou účty Group-Managed služby, které otočit každých 24 hodin.
+Komponenty infrastruktury Azure Stack komunikují pomocí kanálů šifrovaných pomocí TLS 1,2. Šifrovací certifikáty jsou samy spravované infrastrukturou.
 
-Zbývající tajné klíče, které nejsou účty služeb Group-Managed lze otočit ručně pomocí skriptu v privilegovaných koncový bod.
+Všechny koncové body externí infrastruktury, jako jsou koncové body REST nebo portál Azure Stack, podporují protokol TLS 1,2 pro zabezpečenou komunikaci. Pro tyto koncové body musí být k dispozici šifrovací certifikáty, buď od třetí strany, nebo z certifikační autority rozlehlé sítě.
+
+I když se certifikáty podepsané svým držitelem dají použít pro tyto externí koncové body, Microsoft je při jejich používání důrazně doporučuje.
+
+## <a name="secret-management"></a>Správa tajných klíčů
+
+Azure Stack infrastruktura používá k fungování velké množství tajných kódů, jako jsou hesla. Většina z nich se často automaticky otáčí, protože seskupují účty spravované služby (gMSA), které se v každé 24 hodinách střídají.
+
+Zbývající tajné kódy, které nejsou gMSA, je možné ručně otočit pomocí skriptu v privilegovaném koncovém bodu.
 
 ## <a name="code-integrity"></a>Integrita kódu
-Azure Stack využívá nejnovější Windows serveru 2016 funkce zabezpečení. Jeden z nich je Windows Defender Device Guard, která zajišťuje seznamu povolených aplikací a zajišťuje, který pouze oprávnění kód běží v rámci infrastruktury Azure stacku. 
 
-Autorizovaného kódu je podepsán společností Microsoft nebo partnera výrobce OEM. Podepsané autorizovaného kódu je zahrnuta v seznamu povolených softwaru uveden v zásadách definované microsoftem. Jinými slovy mohou být provedeny pouze software, který je schválená pro spuštění v infrastruktuře Azure Stack. Pokus o provedení neoprávněný kód blokovaný a je generována auditu.
+Azure Stack využívá nejnovější funkce zabezpečení systému Windows Server 2016. Jedním z nich je ochrana zařízení v programu Windows Defender, která poskytuje seznam povolených aplikací a zajišťuje, aby se v Azure Stack infrastruktuře spouštěl jenom autorizovaný kód.
 
-Zásady Device Guard zabrání ve spuštění v infrastruktuře Azure Stack také třetích stran agentů nebo softwaru.
+Autorizovaný kód je podepsaný Microsoftem nebo partnerem OEM. Podepsaný autorizovaný kód je zahrnutý v seznamu povoleného softwaru zadaného v zásadě definované Microsoftem. Jinými slovy, lze spustit pouze software, který byl schválen pro spuštění v infrastruktuře Azure Stack. Všechny pokusy o spuštění neoprávněného kódu jsou blokované a vygeneruje se audit.
+
+Zásady ochrany zařízení také zabrání spuštění agentů nebo softwaru třetích stran v infrastruktuře Azure Stack.
 
 ## <a name="credential-guard"></a>Credential Guard
-Další funkce zabezpečení Windows serveru 2016 ve službě Azure Stack je Windows Defender Credential Guard, který se používá k ochraně přihlašovacích údajů k Azure Stack infrastruktury před Pass-the-Hash a Pass-the-Ticket útoky.
+
+Další funkcí zabezpečení Windows serveru 2016 v systému Azure Stack je ochrana Credential Guard v programu Windows Defender, která se používá k ochraně Azure Stackch přihlašovacích údajů infrastruktury z útoků pass-the-hash a Pass-The-Ticket.
 
 ## <a name="antimalware"></a>Antimalware
-Všechny komponenty ve službě Azure Stack (hostitele Hyper-V a virtuálních počítačů) je chráněný pomocí antivirové ochrany v programu Windows Defender.
 
-V propojených scénářích se použijí antivirové aktualizace definic a stroje a více než jednou za den. V odpojených scénářů aktualizací antimalwarového softwaru se použijí jako součást měsíční aktualizace služby Azure Stack. Další informace najdete v tématu [aktualizovat antivirové ochrany Windows Defender ve službě Azure Stack](azure-stack-security-av.md).
+Všechny součásti v Azure Stack (hostitelé a virtuální počítače Hyper-V) jsou chráněni pomocí antivirové ochrany v programu Windows Defender.
 
-## <a name="constrained-administration-model"></a>Model omezeného správy
-Správy ve službě Azure Stack je řízen pomocí tří vstupních bodů, každý s konkrétním účelem: 
-1. [Portálu správce](azure-stack-manage-portals.md) poskytuje možnosti ukázat a kliknout pro každodenní operace správy.
-2. Azure Resource Manageru zpřístupňuje všechny operace správy portálu správce prostřednictvím rozhraní REST API, Powershellu a rozhraní příkazového řádku Azure. 
-3. Pro konkrétní operace nízké úrovně, například data center integrace nebo podporují scénáře, Azure Stack zpřístupňuje koncový bod Powershellu volá [privilegovaných koncový bod](azure-stack-privileged-endpoint.md). Tento koncový bod vystavuje pouze přidat na seznam povolených sadu rutin a výrazně se Audituje.
+V propojených scénářích se definice antivirového programu a aktualizace stroje používají několikrát denně. V odpojených scénářích se antimalwarové aktualizace používají jako součást měsíčních aktualizací Azure Stack. Další informace najdete v tématu [aktualizace antivirové ochrany v programu Windows Defender na Azure Stack](azure-stack-security-av.md).
 
-## <a name="network-controls"></a>Ovládací prvky pro síť
-Infrastruktura Azure stacku se dodává s víc vrstvami sítě seznamu řízení přístupu (ACL). Seznamy ACL zabránit neoprávněnému přístupu k součástem infrastruktury a omezit infrastruktury komunikaci jenom cesty, které jsou vyžadovány pro její fungování. 
+## <a name="constrained-administration-model"></a>Model omezené správy
 
-Seznamy ACL sítě se vynucují ve třech vrstvách:
-1.  Top-of-Rack přepínače
-2.  Softwarově definované sítě
-3.  Brány firewall operačního systému hostitele a virtuálního počítače
+Správa v Azure Stack se řídí třemi vstupními body, z nichž každý má určitý účel:
 
-## <a name="regulatory-compliance"></a>Dodržování legislativní předpisů
+- [Portál](azure-stack-manage-portals.md) pro správu nabízí možnosti každodenních operací správy a kliknutí na něj.
+- Azure Resource Manager zveřejňuje všechny operace správy portálu pro správu prostřednictvím REST API používaného prostředím PowerShell a Azure CLI.
+- Pro konkrétní operace nízké úrovně (například scénáře integrace Datacenter nebo podpory) Azure Stack zveřejňuje koncový bod PowerShellu s názvem [privilegovaný koncový bod](azure-stack-privileged-endpoint.md). Tento koncový bod zpřístupňuje jenom seznam povolených rutin a je silně auditovaný.
 
-Azure Stack je prošli Formální vyhodnocování auditování podnikem nezávislé třetí strany. Dokumentace o tom, jak infrastruktura Azure stacku splňuje použitelné ovládací prvky z několika standardy pro dodržování předpisů hlavní v důsledku toho je k dispozici. V dokumentaci k není kvůli standardy, včetně několik ovládacích prvků související s pracovníky a související s procesem certifikace služby Azure Stack. Místo toho zákazníci mohou tuto dokumentaci využít ke pokročilé podpoří jejich procesu certifikace.
+## <a name="network-controls"></a>Ovládací prvky sítě
 
-Posouzení, která zahrnují následující normy:
+Infrastruktura Azure Stack přichází s více vrstvami seznam Access Control sítě (ACL). Seznamy řízení přístupu brání neoprávněnému přístupu k součástem infrastruktury a omezují komunikaci infrastruktury jenom na cesty, které jsou pro její fungování nutné.
 
-- [PCI-DSS](https://www.pcisecuritystandards.org/pci_security/) adresy odvětví platebních karet.
-- [Matice CSA cloudu ovládacích prvků](https://cloudsecurityalliance.org/group/cloud-controls-matrix/#_overview) je komplexní mapování mezi více standardy, včetně střední FedRAMP, ISO27001, HIPAA, HITRUST, ITAR, NIST SP800-53 a další.
-- [FedRAMP High](https://www.fedramp.gov/fedramp-releases-high-baseline/) pro zákazníky ze státní správy.
+Seznamy ACL sítě se vysazují ve třech vrstvách:
 
-Dokumentace k dodržování předpisů najdete v [Microsoft Service Trust Portal](https://servicetrust.microsoft.com/ViewPage/Blueprint). Průvodci dodržování předpisů jsou chráněné prostředky a vyžadují, abyste přihlásit pomocí přihlašovacích údajů Azure cloud service.
+- Vrstva 1: horní části přepínačů stojanu
+- Vrstva 2: softwarově definovaná síť
+- Vrstva 3: brány firewall pro operační systémy hostitele a virtuálního počítače
 
-## <a name="next-steps"></a>Další postup
+## <a name="regulatory-compliance"></a>Dodržování právních předpisů
 
-- [Konfiguraci ovládacích prvků zabezpečení služby Azure Stack](azure-stack-security-configuration.md)
-- [Zjistěte, jak otočit vaše tajné kódy ve službě Azure Stack](azure-stack-rotate-secrets.md)
-- [PCI DSS a CSA-CCM dokumentů pro službu Azure Stack](https://servicetrust.microsoft.com/ViewPage/TrustDocuments)
-- [Ministerstva obrany USA a NIST dokumentů pro službu Azure Stack](https://servicetrust.microsoft.com/ViewPage/Blueprint)
+Azure Stack prošla formálním posouzením interního auditu nezávislého na třetích stran. V důsledku toho je k dispozici dokumentace k tomu, jak Azure Stack infrastruktura splňuje příslušné ovládací prvky z několika hlavních standardů dodržování předpisů. Dokumentace není certifikace Azure Stack, protože standardy zahrnují několik ovládacích prvků souvisejících s pracovníky a procesy. Zákazníci můžou místo toho použít tuto dokumentaci k tomu, abyste mohli začít se svým certifikačním procesem.
+
+Posouzení zahrnuje následující standardy:
+
+- [PCI-DSS](https://www.pcisecuritystandards.org/pci_security/) adresuje odvětví platební karty.
+- Aplikace [CSA Cloud Control Matrix](https://cloudsecurityalliance.org/group/cloud-controls-matrix/#_overview) je komplexní mapování mezi několika standardy, včetně FedRAMP střední, ISO27001, HIPAA, HiTRUST, ITAR, NIST SP800-53 a dalších.
+- [FedRAMP vysoká](https://www.fedramp.gov/fedramp-releases-high-baseline/) pro zákazníky ze státní správy.
+
+Dokumentaci k dodržování předpisů najdete na [portálu Microsoft Trust Service](https://servicetrust.microsoft.com/ViewPage/Blueprint). Příručky dodržování předpisů jsou chráněné prostředky a vyžadují, abyste se přihlásili pomocí svých přihlašovacích údajů ke cloudové službě Azure.
+
+## <a name="next-steps"></a>Další kroky
+
+- [Konfigurace ovládacích prvků zabezpečení Azure Stack](azure-stack-security-configuration.md)
+- [Informace o obměně tajných klíčů ve službě Azure Stack](azure-stack-rotate-secrets.md)
+- [Dokumenty PCI-DSS a CSA-CCM pro Azure Stack](https://servicetrust.microsoft.com/ViewPage/TrustDocuments)
+- [Dokumenty DoD a NIST pro Azure Stack](https://servicetrust.microsoft.com/ViewPage/Blueprint)

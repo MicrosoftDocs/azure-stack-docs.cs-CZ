@@ -1,6 +1,7 @@
 ---
-title: Používání databází SQL na Azure Stack | Microsoft Docs
-description: Přečtěte si, jak můžete nasadit databáze SQL jako službu v Azure Stack a rychlé kroky pro nasazení SQL Serverho adaptéru poskytovatele prostředků.
+title: Použití databází SQL
+titleSuffix: Azure Stack
+description: Naučte se používat SQL Server poskytovatele prostředků k nabízení databází SQL jako služby v Azure Stack.
 services: azure-stack
 documentationCenter: ''
 author: mattbriggs
@@ -15,22 +16,22 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 210d8e074cd8c0d62567b33b70cd75984f72d149
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: d2ce6c0af2912a2658db80301c9a64c8e3d5c066
+ms.sourcegitcommit: 62283e9826ea78b218f5d2c6c555cc44196b085d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829285"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74780724"
 ---
-# <a name="use-sql-databases-on-microsoft-azure-stack"></a>Použití databází SQL na Microsoft Azure Stack
+# <a name="use-sql-databases-on-azure-stack"></a>Použití databází SQL na Azure Stack
 
-Použijte poskytovatele prostředků SQL Server k nabídnutí databází SQL jako služby [Azure Stack](azure-stack-overview.md). Až nainstalujete poskytovatele prostředků a připojíte ho k jedné nebo více instancím SQL Server, můžete vy a vaši uživatelé vytvořit:
+Pomocí poskytovatele prostředků SQL Server můžete nabízet databáze SQL jako službu pro [Azure Stack](azure-stack-overview.md). Po instalaci poskytovatele prostředků a jeho připojení k jedné nebo několika instancím SQL Serveru můžete vy i vaši uživatelé vytvářet:
 
 - Databáze pro nativní aplikace v cloudu
 - Weby, které používají SQL.
 - Úlohy, které používají SQL.
 
-Poskytovatel prostředků neposkytuje všechny možnosti správy databáze [Azure SQL Database](https://azure.microsoft.com/services/sql-database/). Například elastické fondy, které automaticky přidělují prostředky, nejsou podporovány. Poskytovatel prostředků však podporuje podobné operace vytvoření, čtení, aktualizace a odstranění (CRUD) v databázi SQL Server. 
+Poskytovatel prostředků neposkytuje všechny možnosti správy databáze [Azure SQL Database](https://azure.microsoft.com/services/sql-database/). Například elastické fondy, které automaticky přidělují prostředky, nejsou podporovány. Poskytovatel prostředků však podporuje podobné operace vytvoření, čtení, aktualizace a odstranění (CRUD) v databázi SQL Server.
 
 ## <a name="sql-resource-provider-adapter-architecture"></a>Architektura adaptéru poskytovatele prostředků SQL
 

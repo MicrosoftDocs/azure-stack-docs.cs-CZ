@@ -1,6 +1,7 @@
 ---
-title: Aktualizovat antivirové ochrany Windows Defender v Azure stacku
-description: Podrobnosti o tom, jak antivirový je udržovat ve službě Azure Stack
+title: Aktualizovat antivirovou ochranu v programu Windows Defender
+titleSuffix: Azure Stack
+description: Naučte se aktualizovat antivirovou ochranu v programu Windows Defender na Azure Stack
 services: azure-stack
 author: PatAltimore
 manager: femila
@@ -10,27 +11,27 @@ ms.date: 06/10/2019
 ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: 6e9c4a5334ce44da777126f09ca0ecf578ccfcbd
-ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
+ms.openlocfilehash: dc2a58e9b6e8701246a279b1f632ffcdd937c7ca
+ms.sourcegitcommit: 62283e9826ea78b218f5d2c6c555cc44196b085d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66828120"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74780639"
 ---
-# <a name="update-windows-defender-antivirus-on-azure-stack"></a>Aktualizovat antivirové ochrany Windows Defender v Azure stacku
+# <a name="update-windows-defender-antivirus-on-azure-stack"></a>Aktualizace antivirové ochrany v programu Windows Defender v Azure Stack
 
-[Antivirová ochrana v programu Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10) je antimalwarové řešení, která poskytuje zabezpečení a antivirové ochrany. Všechny komponenty infrastruktury Azure stacku (hostitelů Hyper-V a virtuálních počítačů) je chráněný pomocí antivirové ochrany v programu Windows Defender. Pro aktuální ochranu vyžadovat pravidelné aktualizace definice antivirové ochrany v programu Windows Defender, jádro a platformy. Jak se aktualizace závisí na vaší konfiguraci.
+[Antivirová ochrana v programu Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10) je antimalwarové řešení, které zajišťuje zabezpečení a antivirovou ochranu. Každá součást infrastruktury Azure Stack (hostitelé a virtuální počítače Hyper-V) je chráněná pomocí antivirové ochrany v programu Windows Defender. V případě aktuálnosti ochrany budete potřebovat pravidelné aktualizace definic, strojů a platforem v programu Windows Defender. Způsob použití aktualizací závisí na konfiguraci.
 
-## <a name="connected-scenario"></a>Připojené scénář
+## <a name="connected-scenario"></a>Připojený scénář
 
-Antimalwarových definic a stroje a aktualizací, službě Azure Stack [poskytovatele prostředků aktualizace](azure-stack-updates.md#the-update-resource-provider) stáhne antimalwarových definic a aktualizací stroje více než jednou za den. Jednotlivé komponenty infrastruktury Azure stacku získá aktualizaci ze zprostředkovatele prostředků aktualizace a aktualizace použije automaticky.
+[Poskytovatel prostředků Azure Stack Update](azure-stack-updates.md#the-update-resource-provider) stahuje definice antimalwaru a aktualizace modulu několikrát denně. Každá součást infrastruktury Azure Stack získá aktualizaci od poskytovatele prostředků aktualizace a automaticky použije aktualizaci.
 
-Antimalwarová platforma aktualizací, použije [měsíční aktualizace služby Azure Stack](azure-stack-apply-updates.md). Měsíční aktualizace služby Azure Stack zahrnuje aktualizace platformy antivirové ochrany v programu Windows Defender pro daný měsíc.
+U aktualizací pro antimalwarovou platformu použijte [měsíční aktualizaci Azure Stack](azure-stack-apply-updates.md). Měsíční aktualizace Azure Stack zahrnuje aktualizace antivirové ochrany v programu Windows Defender pro daný měsíc.
 
-## <a name="disconnected-scenario"></a>Odpojené scénář
+## <a name="disconnected-scenario"></a>Odpojený scénář
 
- Použít [měsíční aktualizace služby Azure Stack](azure-stack-apply-updates.md). Měsíční aktualizace služby Azure Stack zahrnuje definice antivirové ochrany v programu Windows Defender, jádro a aktualizace platformy pro daný měsíc.
+ Použijte [měsíční aktualizaci Azure Stack](azure-stack-apply-updates.md). Měsíční aktualizace Azure Stack zahrnuje definice antivirových programů v programu Windows Defender, modul a aktualizace platforem pro daný měsíc.
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 [Další informace o zabezpečení služby Azure Stack](azure-stack-security-foundations.md)
