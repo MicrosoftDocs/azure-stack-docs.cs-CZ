@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/25/2019
+ms.date: 12/04/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 11/22/2019
-ms.openlocfilehash: 1b8b0d8719a6456d7509bfacd3d996cd2a623368
-ms.sourcegitcommit: 11e0c2d9abbc0a2506f992976b3c9f8ca4e746b9
+ms.openlocfilehash: db050565b7ef2b1b22192e7f39366ac1e341cd0f
+ms.sourcegitcommit: 53f7daf295783a30feb284d4c48c30c6936557c5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74810201"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74830971"
 ---
 # <a name="azure-stack-updates-release-notes"></a>Aktualizace Azure Stack: poznámky k verzi
 
@@ -108,6 +108,12 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 ### <a name="improvements"></a>Vylepšen
 
 <!-- Changes and product improvements with tangible customer-facing value. -->
+
+- Azure Stack zvýšil svou schopnost automaticky opravovat některé aktualizace a problémy s aktualizací, které dříve způsobily chyby aktualizace, nebo nebrání operátorům zahájit aktualizaci Azure Stack. Výsledkem je, že ve skupině **test-AzureStack-UpdateReadiness** je k dispozici méně testů. Další informace najdete v tématu [ověření stavu systému Azure Stack](azure-stack-diagnostic-test.md#groups). Ve skupině **UpdateReadiness** zůstanou tyto tři testy:
+
+  - **AzSInfraFileValidation**
+  - **AzSActionPlanStatus**
+  - **AzsStampBMCSummary**
 
 - Přidání pravidla auditování k vytvoření sestavy, když je externí zařízení (třeba klíč USB) připojené k uzlu infrastruktury Azure Stack. Protokol auditu se vysílá přes protokol syslog a zobrazí se jako **Microsoft-Windows-Security-audit: 6416 | Technologie Plug and Play události** Další informace o tom, jak nakonfigurovat klienta syslog, najdete v tématu [předávání SYSLOG](azure-stack-integrate-security.md).
 

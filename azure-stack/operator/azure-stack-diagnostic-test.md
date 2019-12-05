@@ -14,16 +14,16 @@ ms.date: 06/26/2019
 ms.author: justinha
 ms.reviewer: adshar
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 7d0d83c415b52f53e8e791e8c632c5ad2da6fe58
-ms.sourcegitcommit: 7817d61fa34ac4f6410ce6f8ac11d292e1ad807c
+ms.openlocfilehash: 98732c3eb5933e1fd6d7ce42d726d3f5019c97eb
+ms.sourcegitcommit: 53f7daf295783a30feb284d4c48c30c6936557c5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74690099"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74830960"
 ---
 # <a name="validate-azure-stack-system-state"></a>Ověřit Azure Stack stav systému
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
 
 Jako operátor Azure Stack je možné určit stav systému na vyžádání v podstatě. Nástroj pro ověření Azure Stack (**test-AzureStack**) je rutina prostředí PowerShell, která umožňuje spuštění řady testů v systému, aby bylo možné identifikovat chyby, pokud jsou k dispozici. Obvykle budete vyzváni ke spuštění tohoto nástroje prostřednictvím [privilegovaného koncového bodu (PEP)](azure-stack-privileged-endpoint.md) při kontaktování podpory zákaznických služeb Microsoftu (CSS) s problémem. Pomocí informací o stavu a stavu v rámci systému může šablona stylů CSS shromažďovat a analyzovat podrobné protokoly, soustředit se na oblast, ve které došlo k chybě, a s vámi vyřešit problémy.
 
@@ -167,16 +167,11 @@ Uživatelské jméno správce cloudu musí být zadané ve formátu UPN: service
 Pro zlepšení prostředí operátora je povolený parametr **skupiny** , aby bylo možné spustit více kategorií testů současně. V současné době jsou definovány tři skupiny: **Default**, **UpdateReadiness**a **SecretRotationReadiness**.
 
 - **Výchozí**: považuje se za standardní běh rutiny **test-AzureStack**. Tato skupina se spouští ve výchozím nastavení, pokud nejsou vybrané žádné jiné skupiny.
-- **UpdateReadiness**: Zkontrolujte, zda je možné aktualizovat instanci Azure Stack. Když je spuštěná skupina **UpdateReadiness** , zobrazí se upozornění jako chyby ve výstupu konzoly a měla by se považovat za blokování pro aktualizaci. Následující kategorie jsou součástí skupiny **UpdateReadiness** :
+- **UpdateReadiness**: Zkontrolujte, zda je možné aktualizovat instanci Azure Stack. Když je spuštěná skupina **UpdateReadiness** , zobrazí se upozornění jako chyby ve výstupu konzoly a měla by se považovat za blokování pro aktualizaci. Od verze Azure Stack 1910 jsou součástí skupiny **UpdateReadiness** tyto kategorie:
 
-  - **AzsAcsSummary**
-  - **AzsDefenderSummary**
-  - **AzsHostingInfraSummary**
-  - **AzsInfraCapacity**
-  - **AzsInfraRoleSummary**
-  - **AzsPortalAPISummary**
-  - **AzsSFRoleSummary**
-  - **AzsStoreSummary**
+  - **AzsInfraFileValidation**
+  - **AzsActionPlanStatus**
+  - **AzsStampBMCSummary**
 
 - **SecretRotationReadiness**: zkontroluje, jestli je instance Azure Stack ve stavu, ve kterém se dá spustit rotace tajných klíčů. Když je spuštěná skupina **SecretRotationReadiness** , zobrazí se upozornění jako chyby ve výstupu konzoly a měla by se považovat za blokování pro rotaci tajných klíčů. Následující kategorie jsou součástí skupiny SecretRotationReadiness:
 
