@@ -16,12 +16,12 @@ ms.date: 10/23/2019
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 06/04/2019
-ms.openlocfilehash: 76bc9b83bf97c7817ff5c9cbf8bc0a3275a04d72
-ms.sourcegitcommit: cefba8d6a93efaedff303d3c605b02bd28996c5d
+ms.openlocfilehash: 87afcdb3508f66c69477f0109c2c86d03a6b04e0
+ms.sourcegitcommit: 11e0c2d9abbc0a2506f992976b3c9f8ca4e746b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74298858"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74810166"
 ---
 # <a name="network-integration-planning-for-azure-stack"></a>Plánování integrace sítě pro Azure Stack
 
@@ -48,7 +48,7 @@ Následující tabulka uvádí logické sítě a přidružené rozsahy podsítí
 | Veřejná virtuální IP adresa | Azure Stack používá celkem 31 adres z této sítě. Osm veřejných IP adres se používá pro malou sadu Azure Stack služeb a zbývající jsou používány virtuálními počítači klienta. Pokud plánujete použít App Service a poskytovatele prostředků SQL, použijí se 7 dalších adres. Zbývajících 15 IP adres se rezervuje pro budoucí služby Azure. | /26 (62 hostitelů)-/22 (1022 hostitelů)<br><br>Doporučené =/24 (254 hostitelů) | 
 | Přepnout infrastrukturu | IP adresy Point-to-Point pro účely směrování, rozhraní pro správu vyhrazených přepínačů a adresy zpětné smyčky přiřazené přepínači. | /26 | 
 | Infrastruktura | Slouží k Azure Stack interní součásti pro komunikaci. | /24 |
-| Soukromé | Používá se pro síť úložiště, privátní virtuální IP adresy, kontejnery infrastruktury a další interní funkce. Od 1910 se velikost této podsítě mění na/20. Další informace najdete v části [privátní síť](#private-network) v tomto článku. | /20 | 
+| Privátní | Používá se pro síť úložiště, privátní virtuální IP adresy, kontejnery infrastruktury a další interní funkce. Od 1910 se velikost této podsítě mění na/20. Další informace najdete v části [privátní síť](#private-network) v tomto článku. | /20 | 
 | BMC | Slouží ke komunikaci s BMC na fyzických hostitelích. | /26 | 
 | | | |
 
@@ -75,7 +75,7 @@ Tato/20 IP adres (4096) je privátní pro Azure Stackou oblast (nejedná se o tr
 - **Interní virtuální IP síť**: a/25 síť vyhrazenou pouze pro interní VIP pro nástroj pro vyrovnávání zatížení softwaru.
 - **Síť kontejneru**: a/23 (512 IP adres), které jsou vyhrazené jenom pro interní přenosy mezi kontejnery, na kterých běží služby infrastruktury.
 
-Od 1910 se velikost privátní sítě změní na/20 (4096 IP adres) privátního ADRESního prostoru. Tato síť bude privátním systémem Azure Stack (netrasuje se nad rámec hraničních zařízení Azure Stack systému) a je možné ji znovu použít ve více systémech Azure Stack v rámci vašeho datového centra. I když je síť soukromá, aby Azure Stack, nesmí se překrývat s ostatními sítěmi v datacentru. Pokyny k privátnímu adresnímu prostoru IP adres vám doporučujeme postupovat podle [dokumentu RFC 1918](https://tools.ietf.org/html/rfc1918).
+Od 1910 se velikost privátní sítě změní na/20 (4096 IP adres) privátního ADRESního prostoru. Tato síť bude privátním systémem Azure Stack (netrasuje se nad rámec hraničních zařízení Azure Stack systému) a je možné ji znovu použít ve více systémech Azure Stack v rámci vašeho datového centra. I když je síť soukromá, aby Azure Stack, nesmí se překrývat s ostatními sítěmi v datacentru. Pokud dojde k překrytí, je možné, že Azure Stack nemusí směrovat síťový provoz v podnikové síti externě. Pokyny k privátnímu adresnímu prostoru IP adres vám doporučujeme postupovat podle [dokumentu RFC 1918](https://tools.ietf.org/html/rfc1918).
 
 Tento/20 privátních IP adres se rozdělí do několika sítí, které umožní provozovat interní infrastrukturu Azure Stack systému na kontejnerech v budoucích verzích. Další informace najdete v [poznámkách k verzi 1910](release-notes.md). Kromě toho tato nová privátní IP adresa umožňuje nepřetržité úsilí snížit před nasazením požadované IP místo pro směrování.
 

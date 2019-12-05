@@ -16,16 +16,16 @@ ms.date: 11/25/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 11/22/2019
-ms.openlocfilehash: 75f1c4cae33987a7a2c662ced7806ed094c6ca82
-ms.sourcegitcommit: 3a8e116fd0b16e1201e55e2088dde2e581004045
+ms.openlocfilehash: 1b8b0d8719a6456d7509bfacd3d996cd2a623368
+ms.sourcegitcommit: 11e0c2d9abbc0a2506f992976b3c9f8ca4e746b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74557693"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74810201"
 ---
 # <a name="azure-stack-updates-release-notes"></a>Aktualizace Azure Stack: poznámky k verzi
 
-*Platí pro: Azure Stack integrovaných systémů*
+*Platí pro: integrované systémy Azure Stack*
 
 Tento článek popisuje obsah balíčků aktualizací Azure Stack. Tato aktualizace obsahuje novinky a opravy pro tuto verzi Azure Stack.
 
@@ -33,7 +33,7 @@ Pokud chcete získat přístup k poznámkám k verzi pro jinou verzi, použijte 
 
 ::: moniker range=">=azs-1906"
 > [!IMPORTANT]  
-> Tento balíček aktualizace je určen pouze pro Azure Stack integrovaných systémů. Nepoužívejte tento balíček aktualizace na Azure Stack Development Kit.
+> Tento balíček aktualizace je pouze pro integrované systémy Azure Stack. Tento balíček aktualizace nevztahují na Azure Stack Development Kit.
 ::: moniker-end
 ::: moniker range="<azs-1906"
 > [!IMPORTANT]  
@@ -80,7 +80,7 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 
 - Systém Azure Stack stav a monitorování teď může vyvolávat výstrahy pro různé hardwarové součásti, pokud dojde k chybě. To vyžaduje další konfiguraci. Další informace najdete v tématu [monitorování Azure Stack hardwarových komponent](azure-stack-hardware-monitoring.md).
 
-- [Podpora Cloud-init pro Azure Stack](/azure/virtual-machines/linux/using-cloud-init): Cloud-init je široce používaný přístup k přizpůsobení virtuálního počítače se systémem Linux při prvním spuštění. Pomocí cloud-init můžete instalovat balíčky a zapisovat soubory nebo konfigurovat uživatele a zabezpečení. Vzhledem k tomu, že se během procesu prvotního spuštění volá Cloud-init, neexistují žádné další kroky ani nepotřebné agenti pro použití konfigurace. Image Ubuntu na webu Marketplace byly aktualizovány tak, aby podporovaly Cloud-init pro zřizování.
+- [Podpora Cloud-init pro Azure Stack](/azure/virtual-machines/linux/using-cloud-init): Cloud-init je široce používaný přístup k přizpůsobení virtuálního počítače se systémem Linux při prvním spuštění. Pomocí cloud-init můžete instalovat balíčky a zapisovat soubory nebo konfigurovat uživatele a zabezpečení. Protože cloud-init je volána v průběhu procesu prvotního spuštění, nejsou žádné další kroky ani agenty vyžaduje použití vaší konfigurace. Image Ubuntu na webu Marketplace byly aktualizovány tak, aby podporovaly Cloud-init pro zřizování.
 
 - Azure Stack teď podporuje všechny verze agenta Windows Azure Linux jako Azure.
 
@@ -143,15 +143,15 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 
 - Služba Backup v infrastruktuře vylepšuje logiku, která počítá požadované místo na zálohování místo spoléhání na pevnou prahovou hodnotu. Služba bude používat velikost zálohování, zásady uchovávání informací, rezervu a aktuální využití externího umístění úložiště k určení, jestli je potřeba vystavit upozornění pro daný provoz. 
 
-### <a name="changes"></a>Provedeny
+### <a name="changes"></a>Změny
 
 - Při stahování položek Marketplace z Azure do Azure Stack je k dispozici nové uživatelské rozhraní, které umožňuje zadat verzi položky, pokud existuje více verzí. Nové uživatelské rozhraní je k dispozici v rámci připojených i odpojených scénářů. Další informace najdete v tématu [stažení položek Marketplace z Azure do Azure Stack](azure-stack-download-azure-marketplace-item.md).  
 
-- Počínaje verzí 1910 vyžaduje systém Azure Stack další/20 privátní interní IP místo. Tato síť je soukromá pro Azure Stack systém a je možné ji znovu použít na více Azure Stack systémů v rámci vašeho datového centra. I když je síť soukromá, aby Azure Stack, nesmí se překrývat se sítí ve vašem datovém centru. Privátní IP místo/20 je rozdělené do několika sítí, které umožňují provozování infrastruktury Azure Stack v kontejnerech (jak je uvedeno výše v [poznámkách k verzi 1905](release-notes.md?view=azs-1905)). Cílem provozování infrastruktury Azure Stack v kontejnerech je optimalizace využití a zvýšení výkonu. Kromě toho privátní IP místo/20 slouží také k umožnění průběžného úsilí, které před nasazením zmenší požadované IP místo pro směrování.
+- Počínaje verzí 1910 **vyžaduje** systém Azure Stack další/20 privátní interní IP místo. Tato síť je soukromá pro Azure Stack systém a je možné ji znovu použít na více Azure Stack systémů v rámci vašeho datového centra. I když je síť soukromá, aby Azure Stack, nesmí se překrývat se sítí ve vašem datovém centru. Privátní IP místo/20 je rozdělené do několika sítí, které umožňují provozování infrastruktury Azure Stack v kontejnerech (jak je uvedeno výše v [poznámkách k verzi 1905](release-notes.md?view=azs-1905)). Cílem provozování infrastruktury Azure Stack v kontejnerech je optimalizace využití a zvýšení výkonu. Kromě toho privátní IP místo/20 slouží také k umožnění průběžného úsilí, které před nasazením zmenší požadované IP místo pro směrování.
 
   - Upozorňujeme, že vstup/20 slouží jako předpoklad pro další Azure Stack aktualizace po 1910. Po vydání další Azure Stack aktualizace po 1910 a provedení pokusu o její instalaci se aktualizace nezdaří, pokud jste nedokončili vstup/20, jak je popsáno níže v tématu nápravné kroky. V portálu pro správu bude k dispozici výstraha, dokud se výše uvedené kroky nápravy nedokončily. Informace o tom, jak se bude tento nový privátní prostor spotřebovat, najdete v článku věnovaném [integraci sítě Datacenter](azure-stack-network.md#private-network) . 
 
-  - Postup nápravy: Pokud chcete problém vyřešit, postupujte podle pokynů a [otevřete relaci PEP](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). Připravte velikost [privátního interního rozsahu IP adres](azure-stack-network.md#logical-networks) /20 a v relaci PEP spusťte následující rutinu (k dispozici pouze počínaje 1910) ve formátu: `Set-AzsPrivateNetwork -UserSubnet 100.87.0.0/20`. Pokud se operace provede úspěšně, obdržíte do **Konfigurace přidaný rozsah interní sítě AZS**zprávy. Po úspěšném dokončení se výstraha zavře na portálu pro správu. Systém Azure Stack bude nyní moci aktualizovat na další verzi.
+  - Postup nápravy: Pokud chcete problém vyřešit, postupujte podle pokynů a [otevřete relaci PEP](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). Připravte velikost [privátního interního rozsahu IP adres](azure-stack-network.md#logical-networks) /20 a v relaci PEP spusťte následující rutinu (k dispozici pouze počínaje 1910) pomocí následujícího příkladu: `Set-AzsPrivateNetwork -UserSubnet 100.87.0.0/20`. Pokud se operace provede úspěšně, obdržíte do **Konfigurace přidaný rozsah interní sítě AZS**zprávy. Po úspěšném dokončení se výstraha zavře na portálu pro správu. Systém Azure Stack bude nyní moci aktualizovat na další verzi.
   
 - Služba zálohování infrastruktury odstraní částečně nahraná zálohovaná data v případě, že umístění externího úložiště během procesu odeslání nevyužívá kapacitu.  
 
@@ -167,7 +167,7 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
             – Podporované nové vlastnosti `FirmwareVersion`, `IsIndicationEnabled`, `Manufacturer`a `StoragePool` pro prostředky **jednotky** . <br />
             -Vlastnosti `CanPool` a `CannotPoolReason` prostředků **jednotky** jsou zastaralé; místo toho použijte `OperationalStatus`.
 
-### <a name="fixes"></a>Řeší
+### <a name="fixes"></a>Opravy
 
 <!-- Product fixes that came up from customer deployments worth highlighting, especially if there is an SR/ICM associated to it. -->
 
@@ -190,7 +190,7 @@ Před použitím této aktualizace se ujistěte, že si provedete následující
 - [Aktualizace zabezpečení](release-notes-security-updates.md)
 - [Kontrolní seznam aktivit před a po instalaci aktualizace](release-notes-checklist.md)
 
-## <a name="download-the-update"></a>Stáhnout aktualizaci
+## <a name="download-the-update"></a>Stáhnout aktualizaci.
 
 Balíček aktualizace Azure Stack 1910 můžete stáhnout ze [stránky pro stažení Azure Stack](https://aka.ms/azurestackupdatedownload).
 
@@ -249,11 +249,11 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 <!-- Changes and product improvements with tangible customer-facing value. -->
 - Vylepšení v oblasti šifrování uložených dat Azure Stack pro zachování tajných kódů do hardwaru Trusted Platform Module (TPM) fyzických uzlů.
 
-### <a name="changes"></a>Provedeny
+### <a name="changes"></a>Změny
 
 - Poskytovatelé hardwaru budou vycházet z balíčku rozšíření OEM 2,1 nebo novějšího ve stejnou dobu jako verze Azure Stack 1908. Balíček rozšíření OEM 2,1 nebo novější je předpokladem pro Azure Stack verze 1908. Další informace o tom, jak stáhnout balíček rozšíření OEM 2,1 nebo novější, získáte od poskytovatele hardwaru vašeho systému a v článku věnovaném [aktualizacím OEM](azure-stack-update-oem.md#oem-contact-information) .  
 
-### <a name="fixes"></a>Řeší
+### <a name="fixes"></a>Opravy
 
 - Opravili jsme problém s kompatibilitou s budoucími Azure Stack aktualizacemi OEM a problémem s nasazením virtuálního počítače pomocí uživatelských imagí zákazníka. Tento problém byl nalezen v 1907 a opraven v opravě hotfix [KB4517473](https://support.microsoft.com/en-us/help/4517473/azure-stack-hotfix-1-1907-12-44)  
 - Opravili jsme problém s aktualizací firmwaru OEM a opravili jsme chybnou diagnostiku v test-AzureStack pro Fabric Ring stav. Tento problém byl nalezen v 1907 a opraven v opravě hotfix [KB4515310](https://support.microsoft.com/en-us/help/4515310/azure-stack-hotfix-1-1907-7-35)
@@ -336,7 +336,7 @@ Typ sestavení aktualizace Azure Stack 1907 je **Express**. Další informace o 
 
 - Vylepšené úložiště vnitřních protokolů pro operace správy. Výsledkem je vyšší výkon a spolehlivost během operací správy tím, že minimalizují spotřebu paměti a úložiště interních procesů protokolů. Můžete si také všimnout lepších časů načítání stránky v okně aktualizace na portálu pro správu. V rámci tohoto vylepšení už nebudou v systému k dispozici protokoly aktualizací starší než 6 měsíců. Pokud pro tyto aktualizace požadujete protokoly, nezapomeňte [si stáhnout Shrnutí](azure-stack-apply-updates.md) pro všechny aktualizace, které jsou starší než 6 měsíců před provedením aktualizace 1907.
 
-### <a name="changes"></a>Provedeny
+### <a name="changes"></a>Změny
 
 - Azure Stack verze 1907 obsahuje varovnou výstrahu, která dává operátorům pokyn, aby před aktualizací na verzi 1908 aktualizovala balíček OEM svého systému na verzi 2,1 nebo novější. Další informace o tom, jak použít Azure Stack aktualizace OEM, najdete v části [použití Azure Stack původní aktualizace výrobce zařízení](azure-stack-update-oem.md).
 
@@ -350,7 +350,7 @@ Typ sestavení aktualizace Azure Stack 1907 je **Express**. Další informace o 
 
 - Sada privilegovaných koncových bodů **set-BmcCredential** nyní aktualizuje přihlašovací údaje v řadiči pro správu základní desky.
 
-### <a name="fixes"></a>Řeší
+### <a name="fixes"></a>Opravy
 
 <!-- Product fixes that came up from customer deployments worth highlighting, especially if there is an SR/ICM associated to it. -->
 - Opravili jsme problém, kdy byl Vydavatel, nabídka a SKU ošetřen v Správce prostředků šabloně s rozlišením malých a velkých písmen: image nebyla načtena pro nasazení, pokud by parametry Image byly stejného případu jako u vydavatele, nabídky a SKU.
@@ -391,7 +391,7 @@ Před použitím této aktualizace se ujistěte, že si provedete následující
 - [Aktualizace zabezpečení](release-notes-security-updates.md)
 - [Kontrolní seznam aktivit před a po instalaci aktualizace](release-notes-checklist.md)
 
-## <a name="download-the-update"></a>Stáhnout aktualizaci
+## <a name="download-the-update"></a>Stáhnout aktualizaci.
 
 Balíček aktualizace Azure Stack 1907 můžete stáhnout ze [stránky pro stažení Azure Stack](https://aka.ms/azurestackupdatedownload).
 
@@ -467,7 +467,7 @@ Typ sestavení aktualizace Azure Stack 1906 je **Express**. Další informace o 
 
 - Odebrali jsme možnost **Standard** SKU z nástroje pro vyrovnávání zatížení i z veřejné IP adresy, protože se v tuto chvíli nepodporuje.
 
-### <a name="changes"></a>Provedeny
+### <a name="changes"></a>Změny
 
 - Vytvoření prostředí účtu úložiště je teď konzistentní s Azure.
 
@@ -477,7 +477,7 @@ Typ sestavení aktualizace Azure Stack 1906 je **Express**. Další informace o 
 
 - Aktualizované řetězce v poskytovateli prostředků zálohování infrastruktury pro konzistentní terminologii.
 
-### <a name="fixes"></a>Řeší
+### <a name="fixes"></a>Opravy
 
 <!-- Product fixes that came up from customer deployments worth highlighting, especially if there is an SR/ICM associated to it. -->
 
@@ -511,7 +511,7 @@ Před použitím této aktualizace se ujistěte, že si provedete následující
 - [Aktualizace zabezpečení](release-notes-security-updates.md)
 - [Kontrolní seznam aktivit před a po instalaci aktualizace](release-notes-checklist.md)
 
-## <a name="download-the-update"></a>Stáhnout aktualizaci
+## <a name="download-the-update"></a>Stáhnout aktualizaci.
 
 Balíček aktualizace Azure Stack 1906 můžete stáhnout ze [stránky pro stažení Azure Stack](https://aka.ms/azurestackupdatedownload).
 
@@ -544,7 +544,7 @@ Systémy, které mají přístup k Internetu ze sítě infrastruktury, uvidí na
 > [!TIP]  
 > Přihlaste se k odběru následujících informačních kanálů *RSS* nebo *Atom* , abyste zachovali Azure Stack opravy hotfix:
 >
-> - [OBSAH](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss)
+> - [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss)
 > - [Počtu](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom)
 
 ## <a name="archive"></a>Archiv
@@ -553,10 +553,10 @@ Pokud chcete získat přístup k archivovaným dokumentům k verzi pro starší 
 
 ## <a name="next-steps"></a>Další kroky
 
-- Přehled správy aktualizací v Azure Stack najdete v tématu [Správa aktualizací v Azure Stack přehledu](azure-stack-updates.md).  
-- Další informace o tom, jak použít aktualizace s Azure Stack, najdete v tématu věnovaném [použití aktualizací v Azure Stack](azure-stack-apply-updates.md).
-- Informace o zásadách obsluhy pro Azure Stack integrovaných systémech a o tom, co je potřeba udělat, abyste zachovali svůj systém v podporovaném stavu, najdete v tématu [zásady pro obsluhu Azure Stack](azure-stack-servicing-policy.md).  
-- Postup pro monitorování a obnovení aktualizací pomocí privilegovaného koncového bodu (PEP) najdete v tématu [monitorování aktualizací v Azure Stack pomocí privilegovaného koncového bodu](azure-stack-monitor-update.md).
+- Přehled správy aktualizací ve službě Azure Stack najdete v tématu [správy aktualizací ve službě Azure Stack přehled](azure-stack-updates.md).  
+- Další informace o tom, jak použít aktualizace pomocí služby Azure Stack najdete v tématu [použití aktualizací ve službě Azure Stack](azure-stack-apply-updates.md).
+- Zásady údržby pro integrované systémy Azure Stack, a co musíte udělat, aby byl váš systém v podporovaném stavu najdete v tématu [Azure Stack zásady obsluhy](azure-stack-servicing-policy.md).  
+- Privilegované koncový bod (období) použít ke sledování a obnovit aktualizace, najdete v článku [monitorování aktualizací ve službě Azure Stack pomocí privilegovaných koncového bodu](azure-stack-monitor-update.md).
 ::: moniker-end
 
 <!------------------------------------------------------------>
