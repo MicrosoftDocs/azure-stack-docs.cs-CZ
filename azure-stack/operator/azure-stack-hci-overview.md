@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
 ms.date: 11/04/2019
-ms.openlocfilehash: f3e3e79f5c570127f1f7f39613cafca1bd869f36
-ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
+ms.openlocfilehash: 2179ce6c52ce121b6cbb0307f5fbae73126650bb
+ms.sourcegitcommit: 8e5a4659d8669ccfe6cd75d03200ae09a16b5f8a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73595430"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74898598"
 ---
 # <a name="azure-stack-hci-overview"></a>Přehled Azure Stack HCI
 
@@ -43,7 +43,7 @@ Azure Stack HCI je řešení s jednou konvergou Microsoftu dostupné z široké 
 
 ## <a name="the-azure-stack-family"></a>Řada Azure Stack
 
-Azure Stack rozhraní HCI je součástí řady Azure a Azure Stack, která využívá stejný software definovaný pro výpočetní prostředky, úložiště a síťový software jako Azure Stack. Tady je stručný přehled různých řešení (Další informace najdete v tématu [porovnání Azure Stack ekosystému](compare-azure-azure-stack.md)):
+Azure Stack rozhraní HCI je součástí řady Azure a Azure Stack, která využívá stejný software definovaný pro výpočetní prostředky, úložiště a síťový software jako centrum Azure Stack. Tady je stručný přehled různých řešení (Další informace najdete v tématu [porovnání Azure Stack ekosystému](compare-azure-azure-stack.md)):
 
 - [Azure](https://azure.microsoft.com) – využijte veřejné cloudové služby pro samoobslužné výpočetní prostředky na vyžádání k migraci a modernizovat stávajících aplikací a vytváření nových aplikací nativních pro Cloud.
 - [Azure Stack Edge](https://docs.microsoft.com/azure/databox-online/data-box-edge-overview) – Zrychlete úlohy strojového učení a Spouštějte aplikace s podporou kontejnerů nebo virtualizovaných úloh na zařízení spravovaném pomocí cloudu.
@@ -52,7 +52,7 @@ Azure Stack rozhraní HCI je součástí řady Azure a Azure Stack, která využ
 
 ![Azure Stack Edge je cloudové zařízení spravované pro provoz strojového učení a kontejnerů na hraničních zařízeních, Azure Stack HCI je vysoce sblížené řešení pro spouštění virtuálních počítačů a úložiště v místním prostředí, zatímco služba Azure Stack hub poskytuje cloudové nativní prostředí, které je konzistentní vzhledem k Azure místní služby.](media/compare-azure-azure-stack/azure-stack-family.png)
 
-Další informace:
+Další informace najdete v tématech:
 
 - Další informace najdete na našem webu řešení [Azure Stack HCL](https://azure.microsoft.com/overview/azure-stack/hci) .
 - Sledujte odborníky Microsoftu Jan Woolsey a Vijay Tewari a [prodiskutujte nové řešení Azure Stack HCI](https://aka.ms/AzureStackOverviewVideo).
@@ -87,7 +87,7 @@ Podrobnosti najdete v tématu [propojení Windows serveru s Azure Hybrid Service
 
 ## <a name="management-tools-and-system-center"></a>Nástroje pro správu a System Center
 
-Azure Stack HCI používá stejnou virtualizační a softwarově definované úložiště a síťový software jako Azure Stack. U Azure Stack HCL máte v clusteru úplná práva správce a můžete spravovat libovolné technologie přímo:
+Azure Stack HCI používá stejnou virtualizaci a softwarově definované úložiště a síťový software jako centrum Azure Stack. U Azure Stack HCL máte v clusteru úplná práva správce a můžete spravovat libovolné technologie přímo:
 
 - [Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/hyper-v-on-windows-server)
 - [Prostory úložiště s přímým přístupem](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview)
@@ -108,11 +108,11 @@ Pokud se rozhodnete k nasazení a správě infrastruktury používat System Cent
 
 Můžete koupit ověřená Azure Stack řešení HCI, která používají Windows Server 2019 od 20 partnerů. Upřednostňovaný partner Microsoftu vám pomůže pracovat bez zdlouhavého návrhu a času sestavování. Nabízí také jeden kontaktní bod pro implementaci a služby podpory.
 
-Navštivte [web Azure Stack HCL](https://azure.microsoft.com/overview/azure-stack/hci) pro zobrazení našich 70 a Azure Stack HCL, které jsou aktuálně k dispozici od těchto partnerů Microsoftu: ASUS, Axellio, bluechip, DataON, Dell EMC, Fujitsu, HPE, Hitachi, Huawei, Lenovo, NEC, primeLine Solutions, QCT, SecureGUARD a mikromikro.
+Navštivte [web Azure Stack HCL](https://azure.microsoft.com/overview/azure-stack/hci) , kde můžete zobrazit naše 70 a Azure Stack HCL, které jsou aktuálně k dispozici od těchto partnerů Microsoftu: ASUS, Axellio, bluechip, DataON, Dell EMC, Fujitsu, HPE, Hitachi, Huawei, Lenovo, NEC, primeLine Solutions, QCT, SecureGUARD a Micro.
 
-## <a name="faq"></a>Nejčastější dotazy
+## <a name="faq"></a>Časté otázky
 
-### <a name="what-do-azure-stack-and-azure-stack-hci-solutions-have-in-common"></a>Co jsou běžné řešení Azure Stack a Azure Stack HCL?
+### <a name="what-do-azure-stack-hub-and-azure-stack-hci-solutions-have-in-common"></a>Co jsou běžné řešení Azure Stack hub a Azure Stack HCL?
 
 Azure Stack řešení HCI obsahují stejné technologie založené na výpočetním, úložném a síťovém softwaru založeném na technologii Hyper-V jako centrum Azure Stack. Obě nabídky splňují přísná kritéria testování a ověřování, která zajišťují spolehlivost a kompatibilitu s podkladovou hardwarovou platformou.
 
@@ -146,7 +146,7 @@ Aktualizovaný seznam služeb Azure, ke kterým se můžete připojit Azure Stac
 
 ### <a name="how-does-the-cost-of-azure-stack-hci-compare-to-azure-stack-hub"></a>Jak se náklady na Azure Stack HCI porovnávají s Azure Stack hub? 
 
-Centrum Azure Stack se prodává jako plně integrovaný systém, který zahrnuje služby a podporu. Azure Stack můžete koupit jako systém, který spravujete, nebo jako plně spravovanou službu od našich partnerů. Kromě základního systému se služby Azure, které běží na Azure Stack nebo Azure, prodávají na základě průběžných plateb.
+Centrum Azure Stack se prodává jako plně integrovaný systém, který zahrnuje služby a podporu. Centrum Azure Stack můžete koupit jako systém, který spravujete, nebo jako plně spravovanou službu od našich partnerů. Kromě základního systému se služby Azure, které běží na službě Azure Stack hub nebo Azure, prodávají na základě průběžných plateb.
 
 Řešení Azure Stack HCI sledují tradiční model nákupu. Ověřený hardware si můžete koupit z Azure Stack partneři a software funkce HCI (Windows Server 2019 Datacenter Edition pomocí softwarově definovaných funkcí Datacenter a centra pro správu systému Windows) z různých existujících kanálů. Pro služby Azure, které můžete používat s centrem pro správu Windows, platíte pomocí předplatného Azure.
 
@@ -164,14 +164,14 @@ Postupujte následovně:
 
 V případě, že vaše organizace bude digitálně transformovat, může se stát, že můžete rychleji přesunout pomocí veřejných cloudových služeb a vytvořit si moderní architektury a aktualizovat starší aplikace. Z důvodů, které zahrnují technologické a regulativní překážky, ale mnoho úloh musí zůstat v místním prostředí. Následující tabulka vám pomůže určit, kterou strategii hybridního cloudu od Microsoftu nabízí, co potřebujete, a dodávat cloudové inovace pro úlohy bez ohledu na to, kde jsou.
 
-| Centrum Azure Stack | HCI služby Azure Stack |
+| Azure Stack Hub | HCI služby Azure Stack |
 | --------------- | --------------- |
 | Nové dovednosti, inovativní procesy | Stejné dovednosti, známé procesy |
 | Služby Azure ve vašem datovém centru | Připojení datacentra ke službám Azure |
 
 ### <a name="when-to-use-azure-stack-hub"></a>Kdy použít centrum Azure Stack
 
-| Centrum Azure Stack | HCI služby Azure Stack |
+| Azure Stack Hub | HCI služby Azure Stack |
 | --------------- | --------------- |
 | Služba Azure Stack hub slouží k samoobslužné infrastruktuře jako služby (IaaS) se silným izolací a přesným sledováním využití a vrácení peněz pro více společně umístěných klientů. Ideální pro poskytovatele služeb a privátní cloudy v podniku. Šablony z Azure Marketplace. | Azure Stack HCI není nativně vynutila nebo neposkytuje pro víceklientské architektury. |
 | Pomocí centra Azure Stack můžete vyvíjet a spouštět aplikace, které spoléhají na služby typu platforma jako služba (PaaS), jako jsou Web Apps, funkce nebo Event Hubs v místním prostředí. Tyto služby běží na Azure Stack přesně stejně jako v Azure a poskytují konzistentní prostředí pro hybridní vývoj a běhové prostředí. | Azure Stack HCI neběží v místním prostředí PaaS Services. |
@@ -179,7 +179,7 @@ V případě, že vaše organizace bude digitálně transformovat, může se st�
 
 ### <a name="when-to-use-azure-stack-hci"></a>Kdy použít Azure Stack HCL
 
-| Centrum Azure Stack | HCI služby Azure Stack |
+| Azure Stack Hub | HCI služby Azure Stack |
 | --------------- | --------------- |
 | Azure Stack hub vyžaduje minimálně 4 uzly a vlastní síťové přepínače. | Pro minimální nároky na vzdálené pobočky a větve použijte Azure Stack HCL. Začněte s využitím pouhých 2 uzlů serveru a bez přepínat zpět na zpětnou síť pro zjednodušení a dostupnost. V nabídce hardware se spouští 4 jednotky, 64 GB paměti, a to i v poli $10 000/uzel. |
 | Rozbočovač Azure Stack omezuje možnost využití technologie Hyper-V a sadu funkcí pro zajištění konzistence s Azure. | K virtualizaci Frills technologie Hyper-V pro klasické podnikové aplikace, jako je Exchange, SharePoint a SQL Server a Virtualizujte role Windows serveru jako souborové servery, DNS, DHCP, IIS a AD, použijte Azure Stack HCI. Neomezený přístup ke všem funkcím technologie Hyper-V, jako jsou stíněné virtuální počítače.|
