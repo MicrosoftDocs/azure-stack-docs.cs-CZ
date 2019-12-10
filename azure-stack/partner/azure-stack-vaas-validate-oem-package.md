@@ -15,12 +15,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: dcfd50c533558bff0bdac75dfa3231d5196039cc
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.openlocfilehash: 774778e382526cffb30e2a69d16c32cc1e548225
+ms.sourcegitcommit: 08d2938006b743b76fba42778db79202d7c3e1c4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955828"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74954549"
 ---
 # <a name="validate-oem-packages"></a>Ověřit balíčky OEM
 
@@ -93,7 +93,7 @@ Tuto možnost použijte, pokud je úroveň přístupu kontejneru úložiště na
 
 4. Nastavte **čas zahájení** na aktuální čas a **čas ukončení** na nejméně 48 hodin od **počátečního času**. Pokud budete vytvářet jiné pracovní postupy se stejným balíčkem, zvažte zvýšení **času ukončení** pro délku testování.
 
-5. Vyberte **Generovat token SAS objektu BLOB a adresu URL**.
+5. Vyberte **vygenerujte token SAS objektů blob a adresa URL**.
 
 Při poskytování adres URL objektů BLOB balíčku na portál použijte **adresu URL SAS objektu BLOB** .
 
@@ -148,30 +148,30 @@ Tuto možnost použijte, pokud je přijatelné, aby povolovaly neověřené klie
 
 5. Zadejte adresu URL objektu blob Azure Storage k testovanému balíčku OEM s podpisem, který vyžaduje podpis od Microsoftu. Pokyny najdete v tématu [generování adresy URL objektu BLOB balíčku pro VaaS](#generate-package-blob-url-for-vaas).
 
-6. Zkopírujte složku balíčku aktualizace AzureStack do místního adresáře na DVM. Zadejte cestu k nadřazenému adresáři pro cestu ke složce balíčku aktualizace AzureStack.
+6. Zkopírujte složku balíčku aktualizace AzureStack do místního adresáře na DVM. Zadejte cestu ke **složce, která obsahuje soubor zip balíčku a soubor metadat** pro cestu ke složce balíčku aktualizace AzureStack.
 
-7. Zkopírujte složku balíčku OEM vytvořenou výše do místního adresáře na DVM. Zadejte cestu k nadřazenému adresáři pro cestu ke složce balíčku pro aktualizaci OEM.
+7. Zkopírujte složku balíčku OEM vytvořenou výše do místního adresáře na DVM. Zadejte cestu ke **složce, která obsahuje soubor zip balíčku a soubor metadat** pro cestu ke složce balíčku pro aktualizaci OEM.
 
     > [!NOTE]
-    > Zkopírujte aktualizaci AzureStack a OEM Update na **2 samostatné** nadřazené adresáře.
+    > Zkopírujte aktualizaci AzureStack a OEM Update na **2 samostatné** adresáře.
 
-8. [!INCLUDE [azure-stack-vaas-workflow-step_test-params](includes/azure-stack-vaas-workflow-step_test-params.md)]
+8. ' RequireDigitalSignature ' – Pokud potřebujete, aby byl balíček podepsaný společností Microsoft (spouští se ověřovací pracovní postup výrobce OEM), zadejte **hodnotu true** . Pokud ověřujete balíček podepsaný Microsoftem na nejnovější aktualizaci AzureStack, zadejte tuto hodnotu jako NEPRAVDA (spouští se měsíční ověření aktualizace AzureStack).
+
+9. [!INCLUDE [azure-stack-vaas-workflow-step_test-params](includes/azure-stack-vaas-workflow-step_test-params.md)]
 
     > [!NOTE]
     > Po vytvoření pracovního postupu nelze změnit parametry prostředí.
 
-9. [!INCLUDE [azure-stack-vaas-workflow-step_tags](includes/azure-stack-vaas-workflow-step_tags.md)]
+10. [!INCLUDE [azure-stack-vaas-workflow-step_tags](includes/azure-stack-vaas-workflow-step_tags.md)]
 
-10. [!INCLUDE [azure-stack-vaas-workflow-step_submit](includes/azure-stack-vaas-workflow-step_submit.md)]
+11. [!INCLUDE [azure-stack-vaas-workflow-step_submit](includes/azure-stack-vaas-workflow-step_submit.md)]
     Budete přesměrováni na stránku souhrn testů.
 
 ## <a name="required-tests"></a>Požadované testy
 
-Následující testy musí být spuštěny v určeném pořadí pro ověření balíčku OEM:
+Pro ověření balíčku OEM se musí spustit následující testy:
 
-- Krok 1 – měsíční ověření aktualizací AzureStack
-- Krok 2 – ověření balíčku rozšíření OEM
-- Krok 3 – výrobce OEM – modul pro simulaci cloudu
+- Pracovní postup ověření výrobce OEM
 
 ## <a name="run-package-validation-tests"></a>Spustit testy pro ověření balíčku
 
@@ -183,20 +183,13 @@ Následující testy musí být spuštěny v určeném pořadí pro ověření b
     > Plánování ověřovacího testu přes existující instanci vytvoří na portálu novou instanci místo staré instance. Protokoly pro starou instanci budou zachovány, ale nebudou přístupné z portálu.  
     > Po úspěšném dokončení testu se akce **plánu** zakáže.
 
-2. Pro ověření balíčku spustíte **požadované testy**v uvedeném pořadí.
+2. Vyberte agenta, který spustí test. Informace o přidávání místních agentů spuštění testů najdete v tématu [nasazení místního agenta](azure-stack-vaas-local-agent.md).
 
-    > [!CAUTION]
-    > VaaS spustí testy v pořadí, v jakém byly naplánovány. Je nutné naplánovat testy v zadaném pořadí.
+3. Chcete-li naplánovat testovací běh, vyberte možnost **plán** z kontextové nabídky a otevřete výzvu pro plánování testovací instance.
 
-3. Vyberte agenta, který spustí test. Informace o přidávání místních agentů spuštění testů najdete v tématu [nasazení místního agenta](azure-stack-vaas-local-agent.md).
+4. Zkontrolujte parametry testu a pak vyberte **Odeslat** a naplánujte test.
 
-4. Chcete-li naplánovat testovací běh, vyberte možnost **plán** z kontextové nabídky a otevřete výzvu pro plánování testovací instance.
-
-5. Zkontrolujte parametry testu a pak vyberte **Odeslat** a naplánujte test.
-
-6. Před plánováním dalšího testu nemusíte čekat na dokončení testu. Naplánujte všechny **požadované** testy v zadaném pořadí.
-
-7. Zkontrolujte výsledky **požadovaných** testů.
+5. Zkontrolujte výsledky **požadovaných** testů.
 
 Pokud chcete odeslat žádost o podepsání balíčku, odešlete [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com) název řešení a název ověření balíčku, který je přidružený k tomuto spuštění.
 

@@ -14,18 +14,33 @@ ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: aa85310314a09db47f10424e84fe40e355bacb25
-ms.sourcegitcommit: ed44d477b9fd11573d1e0d1ed3a3c0ef4512df53
+ms.openlocfilehash: 963944f2ade4db168c1b7f9070e72fe503bdfcf9
+ms.sourcegitcommit: 08d2938006b743b76fba42778db79202d7c3e1c4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73846227"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74954464"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>Poznámky k verzi pro ověřování jako službu
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 V tomto článku najdete poznámky k verzi pro ověřování Azure Stack jako služby.
+
+## <a name="version-4421"></a>4\.4.2.1 verze
+
+2019 prosince 3
+
+- Testování aktualizací obsahu
+  - Online dokumentace pro měsíční pracovní postup aktualizace Azure Stack a pracovní postup pro ověření balíčku OEM byly aktualizovány. Projděte si aktualizovanou dokumentaci, která ověří balíčky OEM a ověří aktualizace softwaru od Microsoftu.
+  - Aktualizace pracovního postupu ověření balíčku VaaS: ověřovací pracovní postup OEM je jediným testem vyžadovaným pro měsíční Azure Stack ověřování aktualizací a ověření balíčku OEM. Test aktualizuje razítko pomocí poskytnutých balíčků AzureStack/OEM a spustí ověřovací testy modulu simulace cloudu.
+  - Aktualizace rozšíření PowerShell VaaS: automatizace pracovních postupů ověření balíčku je teď podporovaná. Podrobné informace o umístění a podrobné pokyny k použití tohoto rozšíření najdete v tématu Azure Stack VaaS automatizovat pomocí prostředí PowerShell.
+
+- Známé problémy
+  - Kontaktujte vaashelp@microsoft.com, pokud se následující testovací případy nepodaří spustit během ověřovacího pracovního postupu výrobce OEM:
+    - Test101LinuxEmptyAttachedDiskManagedDisk
+    - Test101WindowsEmptyAttachedDiskManagedDisk
+
 
 ## <a name="version-4353"></a>4\.3.5.3 verze
 
@@ -40,7 +55,7 @@ V tomto článku najdete poznámky k verzi pro ověřování Azure Stack jako sl
   - Opravili jsme problém, kdy se nepovedlo spustit měsíční Azure Stack ověření aktualizace, pokud soubor Update. zip obsahuje speciální znaky.
 
 - Známé problémy
-  - Testy VaaS selžou, pokud se nenalezne MSTest. exe. Odstraníte
+  - Testy VaaS selžou, pokud se nenalezne MSTest. exe. Alternativní řešení:
     1. CTRL + C agent v okně PowerShellu
     1. Zadejte MSTest. exe, abyste ověřili, že MSTest. exe je rozpoznaný program.
     1. Pokud MSTest. exe nerozpoznáte, zavřete aktuální okno prostředí PowerShell.
@@ -66,7 +81,7 @@ V tomto článku najdete poznámky k verzi pro ověřování Azure Stack jako sl
 - Modul pro simulaci cloudu v pracovním postupu ověření balíčku OEM a pracovní postup aktualizace služby Azure Stack (verze 5.1.30.0-> 5.1.46.0) vyžaduje, aby byly testy naplánovány v následujícím pořadí – měsíčně Azure Stack test ověření aktualizace, balíček rozšíření OEM Ověřovací test a nakonec modul simulace cloudu.
 - Aktualizace agenta VaaS: aktualizovaný agent VaaS teď Azure Stack používá přihlašovací údaje správce cloudu k dotazování razítka k získání informací o razítku k automatickému naplnění pracovních postupů. 
 
-    Tato aktualizace vyžaduje, aby všichni agenti aktualizovali a restartovali. Podívejte se prosím na tyto pokyny, jak aktualizovat agenta VaaS: https://docs.microsoft.com/en-us/azure-stack/partner/azure-stack-vaas-local-agent
+    Tato aktualizace vyžaduje, aby všichni agenti aktualizovali a restartovali. Podívejte se prosím na tyto pokyny, jak aktualizovat agenta VaaS: https://docs.microsoft.com/azure-stack/partner/azure-stack-vaas-local-agent
 - Aktualizace uživatelského rozhraní portálu VaaS: tabulka výběru agenta se přesunula nad podokno testovací plánování, aby se usnadnilo testování.
 
     Při plánování úlohy už není potřeba zadávat informace o razítkě, pokud byly agenti VaaS správně aktualizované.
@@ -92,12 +107,12 @@ V tomto článku najdete poznámky k verzi pro ověřování Azure Stack jako sl
 
 2019. ledna 7
 
-Pokud používáte pracovní postup aktualizace Azure Stack měsíčně a verze balíčku OEM není 1810 nebo vyšší, zobrazí se chyba, až se dostanete k kroku aktualizace OEM. Jedná se o chybu. Vyvíjí se oprava. Postup zmírnění je následující:
+Pokud používáte pracovní postup aktualizace Azure Stack měsíčně a verze balíčku OEM není 1810 nebo vyšší, zobrazí se chyba, až se dostanete k kroku aktualizace OEM. Je to chyba. Vyvíjí se oprava. Postup zmírnění je následující:
 
 1. Spusťte aktualizaci OEM jako normální.
 2. Po úspěšném použití balíčku spusťte test-AzureStack a uložte výstup.
 3. Zrušte test.
-4. Odešlete uložený výstup do VaaSHelp@microsoft.com pro příjem výsledků pro spuštění.
+4. Odešlete uložený výstup do VaaSHelp@microsoft.com pro příjem výsledků předávání.
 
 ## <a name="version-402"></a>4\.0.2 verze
 
@@ -149,7 +164,7 @@ Pokud používáte pracovní postup aktualizace Azure Stack měsíčně a verze 
 
 - Aktualizace automatizace PowerShellu
 
-    Byly provedeny změny `LaunchVaaSTests` skriptů PowerShellu, které vyžadují nejnovější verzi skriptovacích balíčků. Pokyny k instalaci nejnovější verze balíčku Scripting najdete v tématu [spuštění pracovního postupu test Pass](azure-stack-vaas-automate-with-powershell.md#launch-the-test-pass-workflow) .
+    Byly provedeny změny `LaunchVaaSTests` skriptů PowerShellu, které vyžadují nejnovější verzi skriptovacích balíčků. Pokyny k instalaci nejnovější verze balíčku Scripting najdete v tématu [spuštění pracovního postupu test Pass](azure-stack-vaas-automate-with-powershell.md) .
 
 - Ověřování jako portál služby
 
@@ -163,7 +178,7 @@ Pokud používáte pracovní postup aktualizace Azure Stack měsíčně a verze 
 
   - Interaktivní ověřování funkcí
 
-    Možnost poskytnout fokus na určité funkce je teď dostupná v pracovním postupu test Pass. Test `OEM Update on Azure Stack 1806 RC Validation 5.1.4.0` kontroluje, zda byly konkrétní aktualizace správně aplikovány, a poté shromažďuje zpětnou vazbu.
+    Možnost poskytnout fokus na určité funkce je teď dostupná v pracovním postupu test Pass. `OEM Update on Azure Stack 1806 RC Validation 5.1.4.0` test kontroluje, zda byly konkrétní aktualizace správně aplikovány, a poté shromažďuje zpětnou vazbu.
 
 ## <a name="next-steps"></a>Další kroky
 

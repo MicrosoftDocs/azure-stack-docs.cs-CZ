@@ -1,5 +1,5 @@
 ---
-title: SQL Server osvědčené postupy pro optimalizaci výkonu v Azure Stack. | Dokumenty Microsoft
+title: SQL Server osvědčené postupy pro optimalizaci výkonu v Azure Stack. | Microsoft Docs
 description: Tento článek popisuje osvědčené postupy pro SQL Server, které vám pomůžou zvýšit výkon a optimalizovat SQL Server v Azure Stack virtuálních počítačích.
 services: azure-stack
 documentationcenter: ''
@@ -16,21 +16,21 @@ ms.date: 04/02/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: eca886314388f404e7a26a22f7a3b03294ff0577
-ms.sourcegitcommit: 5e53eb5d43d28ab07b4f84891dd269bbfcf65622
+ms.openlocfilehash: 96dbca8c3b834565d2fafb73aa02b870cb2bc9a6
+ms.sourcegitcommit: 6bb20ed3dcbd64231331a8e807ba69eff8b7439b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71311297"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74946814"
 ---
 # <a name="sql-server-best-practices-to-optimize-performance-in-azure-stack"></a>Osvědčené postupy k SQL serveru pro optimalizaci výkonu v Azure Stack
 
 Tento článek popisuje osvědčené postupy pro SQL Server, které optimalizují SQL Server a zlepšují výkon v Microsoft Azure Stack virtuálních počítačích (VM). Při spuštění SQL Server v Azure Stack virtuálních počítačích použijte stejné možnosti pro ladění výkonu databáze, které platí pro SQL Server v místním serverovém prostředí. Výkon relační databáze v cloudu Azure Stack závisí na mnoha faktorech, včetně rodinné velikosti virtuálního počítače a konfigurace datových disků.
 
-Při vytváření SQL Server imagí [zvažte zřízení virtuálních počítačů na portálu Azure Stack](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision). Stáhněte si rozšíření SQL IaaS ze správy Marketplace na portálu pro správu Azure Stack a Stáhněte si svůj výběr virtuálních pevných disků (VHD) pro virtuální počítače SQL. Patří mezi ně SQL2014SP2, SQL2016SP1 a SQL2017.
+Při vytváření SQL Server imagí [zvažte zřízení virtuálních počítačů na portálu Azure Stack](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision). Stáhněte si rozšíření SQL IaaS ze správy Marketplace na portálu pro správu Azure Stack a Stáhněte si své možnosti SQL Server imagí virtuálních počítačů. Mezi ně patří SQL Server 2016 SP1, SQL Server 2016 SP2 a SQL Server 2017.
 
 > [!NOTE]  
-> V tomto článku se dozvíte, jak zřídit SQL Server virtuální počítač s využitím globálního Azure Portal, ale pokyny platí i pro Azure Stack s těmito rozdíly: SSD není pro disk s operačním systémem k dispozici, spravované disky nejsou k dispozici a existují drobné rozdíly v konfiguraci úložiště.
+> V tomto článku se dozvíte, jak zřídit SQL Server virtuální počítač s využitím globálního Azure Portal, ale pokyny platí i pro Azure Stack s těmito rozdíly: SSD není pro disk s operačním systémem k dispozici a existují drobné rozdíly v úložišti. rozšířeného.
 
 *Dosažení nejlepšího* výkonu pro SQL Server Azure Stack virtuálních počítačů se zaměřuje na tento článek. Pokud je vaše úloha méně náročná, možná nebudete potřebovat při každé doporučené optimalizaci. Při hodnocení těchto doporučení Vezměte v úvahu potřeby výkonu a vzory úloh.
 
@@ -45,9 +45,9 @@ Následující kontrolní seznam slouží k zajištění optimálního výkonu S
 |Oblast|Optimalizace|
 |-----|-----|
 |Velikost virtuálního počítače |[DS3](azure-stack-vm-sizes.md) nebo vyšší pro edici SQL Server Enterprise.<br><br>[DS2](azure-stack-vm-sizes.md) nebo vyšší pro edice SQL Server Standard a Web Edition.|
-|Storage |Použijte rodinu virtuálních počítačů, která podporuje [Premium Storage](azure-stack-acs-differences.md).|
+|Úložiště |Použijte rodinu virtuálních počítačů, která podporuje [Premium Storage](azure-stack-acs-differences.md).|
 |Disky |Použijte minimálně dva datové disky (jeden pro soubory protokolů a jeden pro datový soubor a databázi TempDB) a podle potřeb kapacity vyberte velikost disku. Nastavte výchozí umístění datových souborů na tyto disky během instalace SQL Server.<br><br>Nepoužívejte operační systém ani dočasné disky pro ukládání a protokolování databáze.<br>Proložením několika datových disků Azure získáte vyšší propustnost vstupně-výstupních operací pomocí prostorů úložiště.<br><br>Formát s dokumentovanými velikostmi přidělení|
-|I/O|Povolí okamžitou inicializaci souborů pro datové soubory.<br><br>Omezte autogrow v databázích s přiměřenými malými pevnými přírůstky (64 MB – 256 MB).<br><br>Zakáže v databázi automaticky zmenšení.<br><br>Nastavte výchozí zálohu a umístění souborů databáze na datových discích, nikoli na disku operačního systému.<br><br>Povolit uzamčené stránky.<br><br>Použijte SQL Server Service Pack a kumulativní aktualizace.|
+|V/V|Povolí okamžitou inicializaci souborů pro datové soubory.<br><br>Omezte autogrow v databázích s přiměřenými malými pevnými přírůstky (64 MB – 256 MB).<br><br>Zakáže v databázi automaticky zmenšení.<br><br>Nastavte výchozí zálohu a umístění souborů databáze na datových discích, nikoli na disku operačního systému.<br><br>Povolit uzamčené stránky.<br><br>Použijte SQL Server Service Pack a kumulativní aktualizace.|
 |Specifické pro jednotlivé funkce|Zálohujte se přímo do úložiště objektů BLOB (pokud to podporuje SQL Server používané verze).|
 |||
 
@@ -61,7 +61,7 @@ Pro aplikace citlivé na výkon jsou doporučené následující [velikosti virt
 
 - **Edice SQL Server Standard a web:** DS2 nebo vyšší
 
-V Azure Stack neexistuje žádný rozdíl mezi výkonem řady DS a řady virtuálních počítačů DS v2.
+V Azure Stack neexistuje žádný rozdíl mezi výkonem řady DS a DS_v2 řady virtuálních počítačů.
 
 ## <a name="storage-guidance"></a>Pokyny k ukládání
 
@@ -86,7 +86,7 @@ Na Azure Stackm virtuálním počítači existují tři hlavní typy disků:
 
 Následující části popisují doporučení pro používání těchto různých disků.
 
-### <a name="operating-system-disk"></a>Disk operačního systému
+### <a name="operating-system-disk"></a>Disk operačním systému
 
 Disk s operačním systémem je virtuální pevný disk, který můžete spustit a připojit jako běžící verzi operačního systému a který je označený jako jednotka **C** .
 
@@ -103,7 +103,7 @@ Databázi TempDB doporučujeme uložit na datový disk, protože každý datový
 > [!NOTE]  
 > Když zřizujete SQL Server virtuální počítač na portálu, máte možnost upravit si konfiguraci úložiště. V závislosti na konfiguraci Azure Stack nakonfiguruje jeden nebo více disků. Více disků je sloučeno do jednoho fondu úložiště. Data i soubory protokolů se v této konfiguraci nacházejí společně.
 
-- **Diskové svazky:** Pro zvýšení propustnosti můžete přidat další datové disky a používat diskové svazky. Pokud chcete zjistit počet potřebných datových disků, analyzujte počet IOPS potřebných pro soubory protokolů a pro vaše data a soubory TempDB. Všimněte si, že omezení IOPS jsou na datový disk založená na rodině řad virtuálních počítačů, a ne na základě velikosti virtuálního počítače. Omezení šířky pásma sítě jsou však založena na velikosti virtuálního počítače. Další podrobnosti najdete v tabulkách o [velikostech virtuálních počítačů v Azure Stack](azure-stack-vm-sizes.md) . Použijte následující pokyny:
+- **Diskové svazky:** Pro zvýšení propustnosti můžete přidat další datové disky a používat diskové svazky. Pokud chcete zjistit počet potřebných datových disků, analyzujte počet IOPS potřebných pro soubory protokolů a pro vaše data a soubory TempDB. Všimněte si, že omezení IOPS jsou na datový disk založená na rodině řad virtuálních počítačů, a ne na základě velikosti virtuálního počítače. Omezení šířky pásma sítě jsou však založena na velikosti virtuálního počítače. Další podrobnosti najdete v tabulkách o [velikostech virtuálních počítačů v Azure Stack](azure-stack-vm-sizes.md) . Postupujte takto:
 
   - Pro Windows Server 2012 nebo novější použijte [prostory úložiště](https://technet.microsoft.com/library/hh831739.aspx) s následujícími pokyny:
 
@@ -130,7 +130,7 @@ Databázi TempDB doporučujeme uložit na datový disk, protože každý datový
 
 ## <a name="io-guidance"></a>Doprovodné materiály k v/v
 
-- Zvažte možnost Povolit okamžitou inicializaci souborů, aby se zkrátila doba potřebná k počátečnímu přidělení souborů. Pokud chcete využít výhod okamžité inicializace souborů, udělíte účtu služby SQL Server (MSSQLSERVER) pomocí **SE_MANAGE_VOLUME_NAME** a přidáte ho do zásad zabezpečení **provádět úlohy údržby multilicence** . Pokud používáte image platformy SQL Server pro Azure, výchozí účet služby (**NT Service\MSSQLSERVER**) se nepřidá do zásad zabezpečení **provádět úlohy údržby multilicence** . Jinými slovy, okamžitá inicializace souborů není povolená v SQL Server Image platformy Azure. Po přidání účtu služby SQL Server do zásad zabezpečení **úlohy údržby multilicence proveďte** restart služby SQL Server. Při použití této funkce se mohly vycházet z bezpečnostních důvodů. Další informace najdete v tématu [inicializace souboru databáze](https://msdn.microsoft.com/library/ms175935.aspx).
+- Zvažte možnost Povolit okamžitou inicializaci souborů, aby se zkrátila doba potřebná k počátečnímu přidělení souborů. Pokud chcete využít výhod okamžité inicializace souborů, udělíte účtu služby SQL Server (MSSQLSERVER) **SE_MANAGE_VOLUME_NAME** a přidáte ho do zásad zabezpečení **provádět úlohy údržby multilicence** . Pokud používáte image platformy SQL Server pro Azure, výchozí účet služby (**NT Service\MSSQLSERVER**) se nepřidá do zásad zabezpečení **provádět úlohy údržby multilicence** . Jinými slovy, okamžitá inicializace souborů není povolená v SQL Server Image platformy Azure. Po přidání účtu služby SQL Server do zásad zabezpečení **úlohy údržby multilicence proveďte** restart služby SQL Server. Při použití této funkce se mohly vycházet z bezpečnostních důvodů. Další informace najdete v tématu [inicializace souboru databáze](https://msdn.microsoft.com/library/ms175935.aspx).
 - **Autogrow** je pohotovostní pro neočekávaný nárůst. Nespravujte svoje data a protokolujte na každodenní bázi pomocí autogrow. Pokud se používá autogrow, soubor předem Rozšiřte pomocí přepínače **Size** .
 - Ujistěte se, že je možnost automaticky **zmenšit** zakázaná, aby nedocházelo k zbytečné režii, která může negativně ovlivnit výkon
 - Nastavte výchozí zálohu a umístění souborů databáze. Použijte doporučení v tomto článku a proveďte změny v okně Vlastnosti serveru. Pokyny najdete v tématu [zobrazení nebo změna výchozích umístění pro data a soubory protokolů (SQL Server Management Studio)](https://msdn.microsoft.com/library/dd206993.aspx). Následující snímek obrazovky ukazuje, kde provést tyto změny:
@@ -145,7 +145,7 @@ Databázi TempDB doporučujeme uložit na datový disk, protože každý datový
 
 Některá nasazení mohou dosáhnout dalších výhod výkonu s využitím pokročilejších technik konfigurace. V následujícím seznamu se vysvětlují některé SQL Server funkce, které vám pomůžou dosáhnout vyššího výkonu:
 
-- **Zálohování do Azure** **úložiště.** Při vytváření záloh pro SQL Server běžící v Azure Stackch virtuálních počítačích můžete použít SQL Server zálohování na adresu URL. Tato funkce je k dispozici od verze SQL Server 2012 SP1 CU2 a doporučuje se pro zálohování na připojené datové disky.
+- **Zálohování do Azure** **Storage.** Při vytváření záloh pro SQL Server běžící v Azure Stackch virtuálních počítačích můžete použít SQL Server zálohování na adresu URL. Tato funkce je k dispozici od verze SQL Server 2012 SP1 CU2 a doporučuje se pro zálohování na připojené datové disky.
 
     Při zálohování nebo obnovení pomocí Azure Storage postupujte podle doporučení uvedených v článku [SQL Server zálohování na Doporučené postupy a řešení potíží](https://msdn.microsoft.com/library/jj919149.aspx) a [obnovení ze záloh uložených v Microsoft Azure](https://docs.microsoft.com/sql/relational-databases/backup-restore/restoring-from-backups-stored-in-microsoft-azure?view=sql-server-2017). Tyto zálohy můžete také automatizovat pomocí [automatizovaného zálohování pro SQL Server ve virtuálních počítačích Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup).
 

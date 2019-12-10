@@ -16,12 +16,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: d2ce6c0af2912a2658db80301c9a64c8e3d5c066
-ms.sourcegitcommit: 62283e9826ea78b218f5d2c6c555cc44196b085d
+ms.openlocfilehash: 4aef28f0351a89f02dc4c00cd042d6bdd33ee957
+ms.sourcegitcommit: 6bb20ed3dcbd64231331a8e807ba69eff8b7439b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74780724"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74946797"
 ---
 # <a name="use-sql-databases-on-azure-stack"></a>Použití databází SQL na Azure Stack
 
@@ -32,6 +32,8 @@ Pomocí poskytovatele prostředků SQL Server můžete nabízet databáze SQL ja
 - Úlohy, které používají SQL.
 
 Poskytovatel prostředků neposkytuje všechny možnosti správy databáze [Azure SQL Database](https://azure.microsoft.com/services/sql-database/). Například elastické fondy, které automaticky přidělují prostředky, nejsou podporovány. Poskytovatel prostředků však podporuje podobné operace vytvoření, čtení, aktualizace a odstranění (CRUD) v databázi SQL Server.
+
+Operátor Azure Stack zodpovídá za nasazení, konfiguraci a údržbu instancí databázového serveru pro zabezpečení, HA, zálohování, opravy a aktualizace. Instance databázového serveru se sdílí s různými uživatelskými databázemi, včetně názvu databázového serveru a veřejné IP adresy. A neexistuje žádné hlášení o využití databáze.
 
 ## <a name="sql-resource-provider-adapter-architecture"></a>Architektura adaptéru poskytovatele prostředků SQL
 

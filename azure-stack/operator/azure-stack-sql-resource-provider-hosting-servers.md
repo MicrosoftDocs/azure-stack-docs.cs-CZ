@@ -1,6 +1,7 @@
 ---
-title: Hostitelské servery SQL na Azure Stack | Microsoft Docs
-description: Postup přidání instancí SQL pro zřizování prostřednictvím poskytovatele prostředků SQL Adapter.
+title: Přidání hostitelských serverů pro poskytovatele prostředků SQL
+titleSuffix: Azure Stack
+description: Naučte se, jak přidat hostitelské servery pro zřizování prostřednictvím adaptéru poskytovatele prostředků SQL.
 services: azure-stack
 documentationCenter: ''
 author: mattbriggs
@@ -15,12 +16,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 24271bf3f4155433980972df19e541dbb77fa908
-ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
+ms.openlocfilehash: 6684e432180b0daee4cf69d524d3fa9bebe7b26b
+ms.sourcegitcommit: 08d2938006b743b76fba42778db79202d7c3e1c4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71909472"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74954515"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Přidání hostitelských serverů pro poskytovatele prostředků SQL
 
@@ -36,19 +37,19 @@ Před přidáním hostitelského serveru SQL zkontrolujte následující povinn�
 ### <a name="mandatory-requirements"></a>Povinné požadavky
 
 * Povolte ověřování SQL pro instanci SQL Server. Vzhledem k tomu, že virtuální počítač poskytovatele prostředků SQL není připojený k doméně, může se připojit k hostitelskému serveru jenom pomocí ověřování SQL.
-* Nakonfigurujte IP adresy pro instance SQL jako veřejné, pokud jsou nainstalované v Azure Stack. Poskytovatel prostředků a uživatelé, například Web Apps, komunikují přes síť uživatelů, takže je potřeba připojení k instanci SQL v této síti.
+* Nakonfigurujte IP adresy pro instance SQL jako veřejné, pokud jsou nainstalované v Azure Stack. Poskytovatel prostředků a uživatelé, jako jsou webové aplikace, komunikují přes síť uživatelů, takže je potřeba připojení k instanci SQL v této síti.
 
 ### <a name="general-requirements"></a>Obecné požadavky
 
 * Vyhradit instanci SQL pro použití poskytovatelem prostředků a uživatelských úloh. Nemůžete použít instanci SQL, kterou používá žádný jiný uživatel. Toto omezení platí také pro App Services.
 * Nakonfigurujte účet s příslušnými úrovněmi oprávnění pro poskytovatele prostředků (popsaný níže).
-* Zodpovídáte za správu instancí SQL a jejich hostitelů.  Poskytovatel prostředků například nepoužívá aktualizace, zpracovává zálohování nebo zpracovává rotaci přihlašovacích údajů.
+* Zodpovídáte za správu instancí SQL a jejich hostitelů. Poskytovatel prostředků například nepoužívá aktualizace, zpracovává zálohování nebo zpracovává rotaci přihlašovacích údajů.
 
-### <a name="sql-server-virtual-machine-images"></a>SQL Server imagí virtuálních počítačů
+### <a name="sql-server-vm-images"></a>SQL Server imagí virtuálních počítačů
 
 Image virtuálních počítačů s IaaS SQL jsou k dispozici prostřednictvím funkce správy Marketplace. Tyto image jsou stejné jako virtuální počítače SQL, které jsou k dispozici v Azure.
 
-Před nasazením virtuálního počítače SQL pomocí položky Marketplace si nezapomeňte vždycky stáhnout nejnovější verzi **rozšíření SQL IaaS** . Rozšíření IaaS a odpovídající vylepšení portálu poskytují další funkce, jako jsou automatické opravy a zálohování. Další informace o tomto rozšíření najdete v tématu [Automatizace úloh správy v Azure Virtual Machines s rozšířením agenta SQL Server](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension).
+Před nasazením virtuálního počítače SQL pomocí položky Marketplace si nezapomeňte vždycky stáhnout nejnovější verzi **rozšíření SQL IaaS** . Rozšíření IaaS a odpovídající vylepšení portálu poskytují další funkce, jako jsou automatické opravy a zálohování. Další informace o tomto rozšíření najdete v tématu [Automatizace úloh správy na virtuálních počítačích Azure s rozšířením agenta SQL Server](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension).
 
 > [!NOTE]
 > Pro všechny image SQL na webu Marketplace se _vyžaduje_ rozšíření SQL IaaS. Pokud jste rozšíření nestáhli, virtuální počítač se nepodaří nasadit. Nepoužívá se pro image virtuálních počítačů SQL se systémem Linux.
@@ -60,7 +61,7 @@ K dispozici jsou další možnosti pro nasazení virtuálních počítačů SQL,
 
 ### <a name="required-privileges"></a>Požadovaná oprávnění
 
-Můžete vytvořit administrativního uživatele s nižšími oprávněními, než má správce systému SQL. Uživatel potřebuje oprávnění pouze pro následující operace:
+Můžete vytvořit uživatele s oprávněním správce s nižšími oprávněními, než má správce systému SQL. Uživatel potřebuje oprávnění pouze pro následující operace:
 
 * Databáze: vytvořit, změnit s omezením (jenom pro Always On), vyřadit, zálohovat
 * Skupina dostupnosti: změnit, připojit, přidat nebo odebrat databázi
@@ -72,8 +73,8 @@ Můžete vytvořit administrativního uživatele s nižšími oprávněními, ne
 Následující informace poskytují další pokyny k zabezpečení:
 
 * Všechna Azure Stack úložiště jsou šifrována pomocí nástroje BitLocker, takže jakákoli instance SQL v Azure Stack bude používat šifrované úložiště objektů BLOB.
-* Poskytovatel prostředků SQL plně podporuje TLS 1,2. Zajistěte, aby všechny SQL Server spravované prostřednictvím SQL RP byly nakonfigurované _jenom_ pro TLS 1,2 a RP na to bude mít výchozí hodnotu. Všechny podporované verze SQL Server podporují protokol TLS 1,2, viz [Podpora tls 1,2 pro Microsoft SQL Server](https://support.microsoft.com/en-us/help/3135244/tls-1-2-support-for-microsoft-sql-server).
-* Pomocí SQL Server Configuration Manager nastavte možnost **ForceEncryption** , aby se zajistilo, že veškerá komunikace s SQL serverem je vždycky šifrovaná. Informace najdete v tématu [Konfigurace serveru pro vynucení šifrovaných připojení](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine?view=sql-server-2017#to-configure-the-server-to-force-encrypted-connections).
+* Poskytovatel prostředků SQL plně podporuje TLS 1,2. Zajistěte, aby všechny SQL Server spravované prostřednictvím SQL RP byly nakonfigurované _jenom_ pro TLS 1,2 a RP na to bude mít výchozí hodnotu. Všechny podporované verze SQL Server podporují protokol TLS 1,2. Další informace najdete v tématu [Podpora TLS 1,2 pro Microsoft SQL Server](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server).
+* Pomocí SQL Server Configuration Manager nastavte možnost **ForceEncryption** , aby se zajistilo, že veškerá komunikace s SQL serverem je vždycky šifrovaná. Další informace najdete v tématu [Konfigurace serveru pro vynucení šifrovaných připojení](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine?view=sql-server-2017#to-configure-the-server-to-force-encrypted-connections).
 * Zajistěte, aby všechny klientské aplikace komunikovaly i přes šifrované připojení.
 * RP je nakonfigurován tak, aby důvěřoval certifikátů, které používá instance SQL Server.
 
@@ -83,19 +84,19 @@ Samostatné servery SQL (bez HA) můžete použít v jakékoli edici SQL Server 
 
 Chcete-li přidat samostatný hostitelský server, který je již nastaven, postupujte takto:
 
-1. Přihlaste se k portálu Azure Stack operator jako správce služby.
+1. Přihlaste se k portálu pro správu Azure Stack jako správce služby.
 
 2. Vyberte **všechny služby** &gt; **prostředky pro správu** &gt; **hostitelských serverech SQL**.
 
-   ![SQL Hosting Servers](./media/azure-stack-sql-rp-deploy/sqlhostingservers.png)
+   ![Hostitelské servery SQL na portálu pro správu Azure Stack](./media/azure-stack-sql-rp-deploy/sqlhostingservers.png)
 
    V části **hostitelské servery SQL**můžete poskytovatele prostředků SQL připojit k instancím SQL Server, které budou sloužit jako back-end poskytovatele prostředků.
 
-   ![Řídicí panel adaptéru SQL](./media/azure-stack-sql-rp-deploy/sqlrp-hostingserver.png)
+   ![Řídicí panel adaptéru SQL na portálu pro správu Azure Stack](./media/azure-stack-sql-rp-deploy/sqlrp-hostingserver.png)
 
 3. Klikněte na **Přidat** a zadejte podrobnosti o připojení pro vaši instanci SQL Server v okně **Přidat hostitelský server SQL** .
 
-   ![Přidání hostitelského serveru SQL](./media/azure-stack-sql-rp-deploy/sqlrp-newhostingserver.png)
+   ![Přidání hostitelského serveru SQL na portál Azure Stack správce](./media/azure-stack-sql-rp-deploy/sqlrp-newhostingserver.png)
 
     Volitelně můžete zadat název instance a zadat číslo portu, pokud není instance přiřazena k výchozímu portu 1433.
 
@@ -107,7 +108,7 @@ Chcete-li přidat samostatný hostitelský server, který je již nastaven, post
    * Pokud chcete použít existující SKU, zvolte dostupnou SKU a pak vyberte **vytvořit**.
    * Pokud chcete vytvořit SKU, vyberte **+ vytvořit novou skladovou**položku. V části **vytvořit SKU**zadejte požadované informace a pak vyberte **OK**.
 
-     ![Vytvoření SKU](./media/azure-stack-sql-rp-deploy/sqlrp-newsku.png)
+     ![Vytvoření SKU na portálu pro správu Azure Stack](./media/azure-stack-sql-rp-deploy/sqlrp-newsku.png)
 
 ## <a name="provide-high-availability-using-sql-always-on-availability-groups"></a>Zajištění vysoké dostupnosti pomocí skupin dostupnosti Always On SQL serveru
 
@@ -166,7 +167,7 @@ Pomocí těchto příkazů nastavte u každé instance možnost Server pro ově�
 
 4. Pokud chcete povolit podporu instancí skupin dostupnosti Always On SQL, zaškrtněte políčko Skupina dostupnosti Always On.
 
-   ![Povolení skupin dostupnosti AlwaysOn](./media/azure-stack-sql-rp-deploy/AlwaysOn.PNG)
+   ![Povolit skupinu dostupnosti Always On na portálu Azure Stack správce](./media/azure-stack-sql-rp-deploy/AlwaysOn.PNG)
 
 5. Přidejte instanci SQL Always On do SKU.
 

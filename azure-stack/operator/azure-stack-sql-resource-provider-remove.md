@@ -1,5 +1,6 @@
 ---
-title: Odebírání poskytovatele prostředků SQL na Azure Stack | Microsoft Docs
+title: Odebrat poskytovatele prostředků SQL
+titleSuffix: Azure Stack
 description: Naučte se, jak odebrat poskytovatele prostředků SQL z nasazení Azure Stack.
 services: azure-stack
 documentationCenter: ''
@@ -15,12 +16,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/20/2018
-ms.openlocfilehash: 3a1b3dc51bbbd48ebe27ce9cafd9617ba7a1d07a
-ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
+ms.openlocfilehash: a172b56c43dafd637a66fa8354c2e06e06a67b98
+ms.sourcegitcommit: 08d2938006b743b76fba42778db79202d7c3e1c4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71909490"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74954447"
 ---
 # <a name="remove-the-sql-resource-provider"></a>Odebrat poskytovatele prostředků SQL
 
@@ -53,11 +54,11 @@ Operátor Azure Stack zodpovídá za následující úlohy čištění:
 
 4. Spusťte skript DeploySqlProvider. ps1 pomocí následujících parametrů:
 
-    * **Odinstalujte**. Odebere poskytovatele prostředků a všechny přidružené prostředky.
-    * **PrivilegedEndpoint**. IP adresa nebo název DNS privilegovaného koncového bodu.
-    * **AzureEnvironment**. Prostředí Azure používané pro nasazení Azure Stack. Vyžaduje se jenom pro nasazení Azure AD.
-    * **CloudAdminCredential**. Přihlašovací údaje pro správce cloudu, které jsou nezbytné pro přístup k privilegovanému koncovému bodu.
-    * **AzCredential**. Přihlašovací údaje pro účet správce služby Azure Stack Použijte stejné přihlašovací údaje, které jste použili pro nasazení Azure Stack.
+    * **Odinstalace**: Odebere poskytovatele prostředků a všechny přidružené prostředky.
+    * **PrivilegedEndpoint**: IP adresa nebo název DNS privilegovaného koncového bodu.
+    * **AzureEnvironment**: prostředí Azure používané pro nasazení Azure Stack. Vyžaduje se jenom pro nasazení Azure AD.
+    * **CloudAdminCredential**: přihlašovací údaje pro správce cloudu, které jsou nezbytné pro přístup k privilegovanému koncovému bodu.
+    * **AzCredential**: přihlašovací údaje pro účet správce služby Azure Stack. Použijte stejné přihlašovací údaje, které jste použili pro nasazení Azure Stack.
 
 ## <a name="next-steps"></a>Další kroky
 

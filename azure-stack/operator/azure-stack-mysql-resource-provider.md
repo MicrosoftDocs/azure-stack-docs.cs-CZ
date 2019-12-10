@@ -15,21 +15,23 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 8f498896489a0c217b1f7c51ec4dda6b493ddda7
-ms.sourcegitcommit: b5eb024d170f12e51cc852aa2c72eabf26792d8d
+ms.openlocfilehash: d99e32b68011d34977eb73f9cff2f5ac91293527
+ms.sourcegitcommit: 6bb20ed3dcbd64231331a8e807ba69eff8b7439b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72534031"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74946763"
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Použití databází MySQL na Microsoft Azure Stack
 
 Databáze MySQL se běžně používají s weby a podporují mnoho platforem webu. Můžete například vytvořit weby WordPress pomocí doplňku poskytovatele prostředků App Services (PaaS).
 
-Po nasazení poskytovatele prostředků můžete:
+Po nasazení poskytovatele prostředků a jeho propojení s jednou nebo více instancemi serveru MySQL můžete:
 
-* Vytvářejte servery a databáze MySQL pomocí Azure Resource Manager šablon nasazení.
+* Vytvářejte databáze MySQL pomocí Azure Resource Manager šablon nasazení.
 * Poskytněte databáze MySQL jako službu.  
+
+Operátor Azure Stack zodpovídá za nasazení, konfiguraci a údržbu instancí databázového serveru pro zabezpečení, HA, zálohování, opravy a aktualizace. Instance databázového serveru se sdílí s různými uživatelskými databázemi, včetně názvu databázového serveru a veřejné IP adresy. A neexistuje žádné hlášení o využití databáze.
 
 ## <a name="mysql-resource-provider-adapter-architecture"></a>Architektura adaptéru poskytovatele prostředků MySQL
 
