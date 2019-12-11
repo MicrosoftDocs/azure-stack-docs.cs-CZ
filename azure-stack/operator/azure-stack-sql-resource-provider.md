@@ -16,24 +16,27 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 4aef28f0351a89f02dc4c00cd042d6bdd33ee957
-ms.sourcegitcommit: 6bb20ed3dcbd64231331a8e807ba69eff8b7439b
+ms.openlocfilehash: 438cf2d8a34046f29d156aadc1cc82571e4b8a12
+ms.sourcegitcommit: d619612f54eeba3231ed73ed149ff894f9bf838a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74946797"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74993887"
 ---
 # <a name="use-sql-databases-on-azure-stack"></a>Použití databází SQL na Azure Stack
 
-Pomocí poskytovatele prostředků SQL Server můžete nabízet databáze SQL jako službu pro [Azure Stack](azure-stack-overview.md). Po instalaci poskytovatele prostředků a jeho připojení k jedné nebo několika instancím SQL Serveru můžete vy i vaši uživatelé vytvářet:
+Použijte poskytovatele prostředků SQL k nabídnutí databází SQL jako služby v [Azure Stack](azure-stack-overview.md). Po instalaci poskytovatele prostředků a jeho připojení k jedné nebo několika instancím SQL Serveru můžete vy i vaši uživatelé vytvářet:
 
 - Databáze pro nativní aplikace v cloudu
 - Weby, které používají SQL.
 - Úlohy, které používají SQL.
 
-Poskytovatel prostředků neposkytuje všechny možnosti správy databáze [Azure SQL Database](https://azure.microsoft.com/services/sql-database/). Například elastické fondy, které automaticky přidělují prostředky, nejsou podporovány. Poskytovatel prostředků však podporuje podobné operace vytvoření, čtení, aktualizace a odstranění (CRUD) v databázi SQL Server.
+Před instalací poskytovatele prostředků MySQL je potřeba zvážit několik omezení:
 
-Operátor Azure Stack zodpovídá za nasazení, konfiguraci a údržbu instancí databázového serveru pro zabezpečení, HA, zálohování, opravy a aktualizace. Instance databázového serveru se sdílí s různými uživatelskými databázemi, včetně názvu databázového serveru a veřejné IP adresy. A neexistuje žádné hlášení o využití databáze.
+- Uživatelé mohou vytvářet a spravovat pouze jednotlivé databáze. Instance databázového serveru není pro koncové uživatele přístupná. To může omezit kompatibilitu s místními databázovými aplikacemi, které potřebují přístup k hlavní, dočasné databázi nebo k dynamické správě databází.
+- Váš operátor Azure Stack zodpovídá za nasazení, aktualizaci, zabezpečení, konfiguraci a údržbu serverů a hostitelů služby SQL Database. Služba RP neposkytuje žádné funkce správy instance hostitele a databázového serveru. 
+- Databáze od různých uživatelů v různých předplatných můžou být umístěné ve stejné instanci databázového serveru. RP neposkytuje žádný mechanismus pro izolaci databází na různých hostitelích nebo instancích databázového serveru.
+- RP neposkytuje žádné sestavy o využití databáze pro tenanta.
 
 ## <a name="sql-resource-provider-adapter-architecture"></a>Architektura adaptéru poskytovatele prostředků SQL
 

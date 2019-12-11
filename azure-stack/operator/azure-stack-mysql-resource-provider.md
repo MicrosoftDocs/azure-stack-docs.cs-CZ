@@ -15,12 +15,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: d99e32b68011d34977eb73f9cff2f5ac91293527
-ms.sourcegitcommit: 6bb20ed3dcbd64231331a8e807ba69eff8b7439b
+ms.openlocfilehash: b66a72ce872d64f8fde3cb80ced5e6ad33d80b4d
+ms.sourcegitcommit: d619612f54eeba3231ed73ed149ff894f9bf838a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74946763"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74993779"
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Použití databází MySQL na Microsoft Azure Stack
 
@@ -31,7 +31,12 @@ Po nasazení poskytovatele prostředků a jeho propojení s jednou nebo více in
 * Vytvářejte databáze MySQL pomocí Azure Resource Manager šablon nasazení.
 * Poskytněte databáze MySQL jako službu.  
 
-Operátor Azure Stack zodpovídá za nasazení, konfiguraci a údržbu instancí databázového serveru pro zabezpečení, HA, zálohování, opravy a aktualizace. Instance databázového serveru se sdílí s různými uživatelskými databázemi, včetně názvu databázového serveru a veřejné IP adresy. A neexistuje žádné hlášení o využití databáze.
+Před instalací poskytovatele prostředků MySQL je potřeba zvážit několik omezení:
+
+- Uživatelé mohou vytvářet a spravovat pouze jednotlivé databáze. Instance databázového serveru není pro koncové uživatele přístupná. To může omezit kompatibilitu s místními databázovými aplikacemi, které potřebují přístup k hlavní, dočasné databázi nebo k dynamické správě databází.
+- Váš operátor Azure Stack zodpovídá za nasazení, aktualizaci, zabezpečení, konfiguraci a údržbu databázových serverů MySQL a hostitelů. Služba RP neposkytuje žádné funkce správy instance hostitele a databázového serveru. 
+- Databáze od různých uživatelů v různých předplatných můžou být umístěné ve stejné instanci databázového serveru. RP neposkytuje žádný mechanismus pro izolaci databází na různých hostitelích nebo instancích databázového serveru.
+- RP neposkytuje žádné sestavy o využití databáze pro tenanta.
 
 ## <a name="mysql-resource-provider-adapter-architecture"></a>Architektura adaptéru poskytovatele prostředků MySQL
 

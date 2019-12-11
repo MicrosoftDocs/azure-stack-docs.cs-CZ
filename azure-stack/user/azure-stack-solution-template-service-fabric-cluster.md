@@ -15,12 +15,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: shnatara
 ms.lastreviewed: 09/25/2019
-ms.openlocfilehash: 1b6975490a876c0ff0b51fdf9f21ba010e14622d
-ms.sourcegitcommit: cefba8d6a93efaedff303d3c605b02bd28996c5d
+ms.openlocfilehash: e8b7809908bf09cdc60017c8944e26461aa6f07d
+ms.sourcegitcommit: d619612f54eeba3231ed73ed149ff894f9bf838a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74299104"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74993854"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Nasazení clusteru Service Fabric v Azure Stack
 
@@ -28,9 +28,9 @@ Pomocí položky **Service Fabric clusteru** z Azure Marketplace nasaďte zabezp
 
 Další informace o práci s Service Fabric najdete v tématu Přehled [scénářů zabezpečení](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) [azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) a Service Fabric v dokumentaci k Azure.
 
-Cluster Service Fabric v Azure Stack nepoužívá poskytovatele prostředků Microsoft. ServiceFabric. Místo toho je v Azure Stack Service Fabric clusterem sada škálování virtuálních počítačů s předinstalovaným softwarem pomocí [Konfigurace požadovaného stavu (DSC)](https://docs.microsoft.com/powershell/dsc/overview/overview).
+Cluster Service Fabric v Azure Stack nepoužívá poskytovatele prostředků Microsoft. ServiceFabric. Místo toho je v Azure Stack Service Fabric clusterem sada škálování virtuálních počítačů s předinstalovaným softwarem pomocí [Konfigurace požadovaného stavu (DSC)](https://docs.microsoft.com/powershell/scripting/dsc/overview/overview).
 
-## <a name="prerequisites"></a>Požadavky
+## <a name="prerequisites"></a>Předpoklady
 
 K nasazení Service Fabric clusteru se vyžadují tyto požadavky:
 1. **Certifikát clusteru**  
@@ -196,7 +196,7 @@ Ke clusteru Service Fabric můžete přistupovat pomocí Service Fabric Explorer
 
 1. Pokud chcete najít adresu URL pro Service Fabric Explorer a koncový bod připojení klienta, Projděte si výsledky Template deployment.
 
-1. V prohlížeči přejdete na <https://*FQDN*:19080>. V kroku 2 nahraďte *plně kvalifikovaný název* domény plně kvalifikovaným názvem domény vašeho clusteru Service Fabric.   
+1. V prohlížeči přejděte na <https://*FQDN*:19080>. V kroku 2 nahraďte *plně kvalifikovaný název* domény plně kvalifikovaným názvem domény vašeho clusteru Service Fabric.   
    Pokud jste použili certifikát podepsaný svým držitelem, zobrazí se upozornění, že připojení není zabezpečené. Chcete-li pokračovat na web, vyberte **Další informace**a potom **přejděte na webovou stránku**. 
 
 1. Chcete-li provést ověření v lokalitě, je nutné vybrat certifikát, který chcete použít. Vyberte **Další možnosti**, vyberte příslušný certifikát a potom se kliknutím na tlačítko **OK** připojte k Service Fabric Explorer. 

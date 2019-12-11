@@ -1,6 +1,6 @@
 ---
-title: Porovnání služby Azure Stack a global Azure | Dokumentace Microsoftu
-description: Zjistěte, jak společnost Microsoft poskytuje Azure a Azure Stack řady služeb v ekosystému Azure
+title: Porovnání Azure Stack a globálních Azure | Microsoft Docs
+description: Přečtěte si, jak Microsoft poskytuje Azure a Azure Stack rodinu služeb v jednom ekosystému Azure.
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -17,90 +17,89 @@ ms.author: justinha
 ms.reviewer: unknown
 ms.custom: ''
 ms.lastreviewed: 03/29/2019
-ms.openlocfilehash: 8badb1fbcabc6f1a3ffbef0b8489dea0f06e649c
-ms.sourcegitcommit: 07cc716d97bf484c7260eb165ae205ae25e09589
+ms.openlocfilehash: 1a847e842dff8b8b2b3032ded2466402897a3ae4
+ms.sourcegitcommit: d9430072dd96ae305101da6d8a47d6c23a0a64c2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66453432"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74995599"
 ---
-# <a name="differences-between-global-azure-azure-stack-and-azure-stack-hci"></a>Rozdíly mezi globální Azure, Azure Stack a Azure Stack HCL
+# <a name="differences-between-global-azure-azure-stack-and-azure-stack-hci"></a>Rozdíly mezi globálním Azure, Azure Stack a Azure Stack HCL
 
-Společnost Microsoft poskytuje Azure a Azure Stack řady služeb v ekosystému Azure. Použijte stejný aplikační model, samoobslužné portály a rozhraní API pomocí Azure Resource Manageru k zajištění cloudové možnosti, jestli vaší firmě používá globální Azure nebo místním prostředkům.
+Microsoft poskytuje Azure a Azure Stackovou rodinu služeb v jednom ekosystému Azure. Používejte stejný aplikační model, samoobslužné portály a rozhraní API s Azure Resource Manager k poskytování cloudových funkcí, ať už vaše firma používá globální Azure nebo místní prostředky.
 
-Tento článek popisuje globální funkce Azure, Azure Stack a Azure Stack HCL a poskytuje běžné scénáře doporučení, která vám pomůže zajistit nejlepší volbou pro doručování cloudových služeb Microsoftu pro vaši organizaci.
+Tento článek popisuje globální možnosti Azure, Azure Stack a Azure Stack HCI a poskytuje běžná doporučení pro scénáře, která vám pomůžou s tím, že vám usnadní poskytování cloudových služeb Microsoftu pro vaši organizaci.
 
 ![Přehled ekosystému Azure](./media/compare-azure-azure-stack/azure-family.png)
 
-## <a name="global-azure"></a>Global Azure
+## <a name="global-azure"></a>Globální Azure
 
-Microsoft Azure je neustále se rozšiřující sada cloudových služeb, které pomáhají vaší organizaci překonávat překážky v podnikání. Je k sestavování, Správa a nasazování aplikací v síti masivní, globální pomocí oblíbených nástrojů a architektur těmto účelům.
+Microsoft Azure je neustále se rozšiřující sada cloudových služeb, které pomáhají vaší organizaci překonávat překážky v podnikání. Je to volnost při sestavování, správě a nasazování aplikací v obrovské globální síti pomocí vašich oblíbených nástrojů a architektur.
 
-Global Azure nabízí více než 100 služeb dostupných v 54 oblastech po celém světě. Nejaktuálnější seznam globálních služeb Azure, najdete v článku [ *dostupné produkty v jednotlivých oblastech*](https://azure.microsoft.com/regions/services). Služby jsou dostupné v Azure jsou uvedené podle kategorie, také určuje, zda jsou obecně dostupné nebo jsou k dispozici ve verzi preview.
+Globální Azure nabízí více než 100 služeb dostupných v 54 oblastech po celém světě. Aktuální seznam globálních služeb Azure najdete v tématu [*Dostupné produkty v jednotlivých oblastech*](https://azure.microsoft.com/regions/services). Služby, které jsou dostupné v Azure, jsou uvedené podle kategorie a taky jestli jsou všeobecně dostupné nebo dostupné ve verzi Preview.
 
-Další informace o globální služby Azure najdete v tématu [Začínáme s Azure](https://docs.microsoft.com/azure/#pivot=get-started&panel=get-started1).
+Další informace o globálních službách Azure najdete v tématu [Začínáme s Azure](https://docs.microsoft.com/azure/#pivot=get-started&panel=get-started1).
 
 ## <a name="azure-stack"></a>Azure Stack
 
-Azure Stack je rozšířením Azure, které přináší flexibilitu a inovace cloud computingu do místního prostředí. Nasazená místně, Azure Stack slouží k poskytování služeb Azure konzistentní vzhledem k aplikacím, které buď připojené k Internetu (a Azure) nebo v odpojených prostředích bez připojení k Internetu. Azure Stack používá stejný základní technologie jako globální Azure, která zahrnuje základní komponenty infrastruktury as-a-Service (IaaS), Software-as-a-Service (SaaS), a volitelné funkce Platform-as-a-Service (PaaS), včetně:
+Azure Stack je rozšířením Azure, které přináší flexibilitu a inovace cloud computingu do místního prostředí. Nasazená místně, Azure Stack se dají použít k poskytování služeb konzistentních v Azure, které se připojují k Internetu (a Azure) nebo v odpojených prostředích bez připojení k Internetu. Azure Stack používá stejné základní technologie jako globální Azure, což zahrnuje základní součásti infrastruktury jako služby (IaaS), softwaru typu software jako služba (SaaS) a volitelné funkce PaaS (Platform as a Service), včetně:
 
 - Virtuální počítače Azure pro Windows a Linux
-- Azure Web Apps a Functions
+- Funkce a Web Apps Azure
 - Azure Key Vault
 - Azure Resource Manager
 - Azure Marketplace
 - Containers
-- Azure IoT Hub a Event Hubs
-- Nástroje pro správu (plány, nabídky, RBAC, atd.)
+- Nástroje pro správu (plány, nabídky, RBAC atd.)
 
-Možnosti modelu PaaS služby Azure Stack jsou volitelné, protože Azure Stack není provozované společností Microsoft – je provozována společností naše zákazníky. To znamená, že můžete nabídnout libovolné služby PaaS chcete koncovým uživatelům, pokud jste připraveni abstraktní základní infrastrukturu a procesy od koncového uživatele. Azure Stack však zahrnuje několik volitelných poskytovatelů služeb PaaS včetně služby App Service, databází SQL a databáze MySQL. Toto jsou dodané jako poskytovatele prostředků, takže jsou připravená více tenantů, aktualizované v čase standardu, který aktualizace služby Azure Stack, nezobrazuje na portálu Azure Stack a dobře integrovaná s Azure Stack.
+PaaS možnosti služby Azure Stack jsou volitelné, protože Azure Stack není provozována společností Microsoft, je provozována našimi zákazníky. To znamená, že pokud jste připraveni k abstrakci základní infrastruktury a procesů od koncového uživatele, můžete nabízet libovolné služby PaaS, které chcete koncovým uživatelům nabídnout. Azure Stack ale obsahuje několik volitelných poskytovatelů služeb PaaS, včetně databází App Service, SQL Database a MySQL. Ty se doručují jako poskytovatelé prostředků, takže jsou připravené pro více tenantů, které se aktualizují v čase se standardními aktualizacemi Azure Stack, viditelné na portálu Azure Stack a dobře integrované s Azure Stack.
 
-Kromě poskytovatelů prostředků je popsáno výše, jsou k dispozici další služby PaaS k dispozici a otestované jako [řešení založené na šablonách Azure Resource Manageru](https://github.com/Azure/AzureStack-QuickStart-Templates) , na kterých běží v IaaS, ale jako může operátor Azure Stack nabízí je jako Služby PaaS vašim uživatelům, včetně:
+Kromě poskytovatelů prostředků popsaných výše jsou k dispozici další služby PaaS a testovány jako [Azure Resource Manager řešení založených na šablonách](https://github.com/Azure/AzureStack-QuickStart-Templates) , která běží v IaaS, ale jste jako operátor Azure Stack mohou nabízet uživatele jako PaaS služby uživatelům, včetně těchto:
 
 - Service Fabric
-- Služby kontejnerů Kubernetes
+- Služba kontejneru Kubernetes
 - Ethereum Blockchain
 - Cloud Foundry
 
-### <a name="example-use-cases-for-azure-stack"></a>Vzorové případy použití pro službu Azure Stack:
+### <a name="example-use-cases-for-azure-stack"></a>Příklady případů použití pro Azure Stack:
 
 - Finanční modelování
-- Lékařské a deklarace dat.
-- Analýzy zařízení IoT
-- Optimalizace sortiment maloobchodního prodeje
-- Optimalizace dodavatelský řetězec
+- Data o klinických a deklaracích
+- Analýza zařízení IoT
+- Optimalizace maloobchodního sortimentu
+- Optimalizace dodavatelských řetězců
 - Průmyslové IoT
 - Prediktivní údržba
-- Inteligentní Město
-- Angažovanosti občanů
+- Inteligentní město
+- Zapojení občanů
 
-Další informace o službě Azure Stack na [co je Azure Stack](azure-stack-overview.md).
+Přečtěte si další informace o Azure Stack v [Azure Stack](azure-stack-overview.md).
 
 ## <a name="azure-stack-hci"></a>HCI služby Azure Stack
 
-[Azure Stack HCL](azure-stack-hci-overview.md) řešení umožňují spouštět virtuální počítače v místním a snadno připojit k Azure pomocí hyperkonvergovaného řešení infrastruktury (HCL). Sestavujte a spouštějte cloudové aplikace s využitím konzistentních služeb Azure v místním prostředí a zajistěte splnění legislativních a technických požadavků. Kromě spuštěné virtualizované aplikace místně umožňuje Azure Stack HCL nahradit a konsolidovat stárnoucích serverové infrastruktury a připojení k Azure pro cloudové služby pomocí Windows Admin Center.
+[Azure Stack řešení HCI](azure-stack-hci-overview.md) vám umožní spustit virtuální počítače místně a snadno se připojit k Azure pomocí řešení konvergované infrastruktury (HCI). Sestavujte a spouštějte cloudové aplikace s využitím konzistentních služeb Azure v místním prostředí a zajistěte splnění legislativních a technických požadavků. Kromě spouštění virtualizovaných aplikací v místním prostředí Azure Stack HCL umožňuje nahradit a konsolidovat infrastrukturu serveru pro stárnutí a připojit se k Azure pro Cloud Services pomocí centra pro správu systému Windows.
 
-Azure Stack HCL poskytuje ověřené řešení HCL používá technologii Hyper-V a prostory úložiště – přímé s Windows serverem. 2019 softwarově definované datového centra (SDDC). Windows Admin Center se používá ke správě a integrovaný přístup ke službám Azure, jako:
+Azure Stack HCI poskytují ověřená řešení HCI založená na technologii Hyper-V a Prostory úložiště s přímým přístupem s Windows serverem 2019 Software-Defined Datacenter (SDDC). Centrum pro správu Windows se používá ke správě a integrovanému přístupu ke službám Azure, jako jsou:
 
 - Azure Backup
 - Azure Site Recovery
 - Azure Monitor a aktualizace
 
-Aktualizovaný seznam Azure služeb, které se můžete připojit HCL Azure Stack, přejděte k části [připojení Windows serveru do služby Azure hybrid](https://docs.microsoft.com/windows-server/azure-hybrid-services/index).
+Aktualizovaný seznam služeb Azure, ke kterým se můžete připojit Azure Stack HCL, najdete v tématu [připojení Windows serveru k Azure Hybrid Services](https://docs.microsoft.com/windows-server/azure-hybrid-services/index).
 
-### <a name="example-use-cases-for-azure-stack-hci"></a>Vzorové případy použití pro Azure Stack HCL
-- Vzdálené nebo pobočkové systémy office
-- Konsolidace datových center
-- Virtual desktop Infrastructure
-- Důležité obchodní informace infrastruktury
-- Nízkonákladové úložiště
+### <a name="example-use-cases-for-azure-stack-hci"></a>Příklady případů použití pro Azure Stack HCI
+- Systémy vzdálené sady nebo pobočky
+- Konsolidace Datacenter
+- Infrastruktura virtuálních klientských počítačů
+- Kritická podniková infrastruktura
+- Nižší náklady na úložiště
 - Vysoká dostupnost a zotavení po havárii v cloudu
 - Podnikové aplikace, jako je SQL Server
 
-Přejděte [HCL Azure Stack web](https://azure.microsoft.com/overview/azure-stack/hci/) zobrazíte 70 Azure Stack HCL řešení aktuálně k dispozici od partnerů Microsoftu.
+Navštivte [web Azure Stack HCL](https://azure.microsoft.com/overview/azure-stack/hci/) pro zobrazení 70 + Azure Stack HCL aktuálně dostupných od partnerů Microsoftu.
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 [Základy správy Azure Stack](azure-stack-manage-basics.md)
 
-[Rychlý start: použití portálu pro správu služby Azure Stack](azure-stack-manage-portals.md)
+[Rychlý Start: použití portálu pro správu Azure Stack](azure-stack-manage-portals.md)

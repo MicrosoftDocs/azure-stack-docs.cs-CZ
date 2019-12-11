@@ -17,12 +17,12 @@ ms.date: 10/30/2019
 ms.author: sethm
 ms.reviewer: harik
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: b874e81afc37684e15dd9cfe79adbf123f126f89
-ms.sourcegitcommit: 62283e9826ea78b218f5d2c6c555cc44196b085d
+ms.openlocfilehash: c9f9558d1885de28b1bf685d370e67951542a6ac
+ms.sourcegitcommit: d619612f54eeba3231ed73ed149ff894f9bf838a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74780656"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74993792"
 ---
 # <a name="azure-stack-servicing-policy"></a>Zásady obsluhy Azure Stack
 
@@ -61,7 +61,7 @@ Informace o konkrétní aktualizaci, včetně toho, jak ji stáhnout, najdete v 
 
 ## <a name="hotfixes"></a>Opravy hotfix
 
-*Platí pro: Azure Stack integrovaných systémů*
+*Platí pro: integrované systémy Azure Stack*
 
 V některých případech společnost Microsoft poskytuje opravy hotfix pro Azure Stack, které řeší konkrétní problém, který je často preventivní nebo časově citlivý. Každá oprava hotfix je vydána spolu s odpovídajícím článkem znalostní báze Microsoft Knowledge Base, který podrobně popisuje problém, příčinu a řešení.
 
@@ -70,9 +70,9 @@ Opravy hotfix se stáhnou a nainstalují stejně jako běžné úplné aktualiza
 Informace o aktuálně dostupných opravách hotfix naleznete v poznámkách k verzi této aktualizace:
 
 - [Oprava hotfix Azure Stack 1910](/azure-stack/operator/release-notes?view=azs-1910#hotfixes)
-- [Oprava hotfix Azure Stack 1908](/azure-stack/operator/release-notes?view=azs-1908#hotfixes)
-- [Oprava hotfix Azure Stack 1907](/azure-stack/operator/release-notes?view=azs-1907#hotfixes)
-- [Oprava hotfix Azure Stack 1906](/azure-stack/operator/release-notes?view=azs-1906#hotfixes)
+- [Oprava hotfix Azure Stack 1908](/azure-stack/operator/release-notes?view=azs-1908#hotfixes-1)
+- [Oprava hotfix Azure Stack 1907](/azure-stack/operator/release-notes?view=azs-1907#hotfixes-2)
+- [Oprava hotfix Azure Stack 1906](/azure-stack/operator/release-notes?view=azs-1906#hotfixes-3)
 
 ## <a name="keep-your-system-under-support"></a>Zachování systému v rámci podpory
 

@@ -15,16 +15,16 @@ ms.date: 09/19/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: ce827f900c6522d720f493c60495bd830cf328f4
-ms.sourcegitcommit: 55ec59f831a98c42a4e9ff0dd954bf10adb98ff1
+ms.openlocfilehash: e20012ce8ca397a9e74b97e380753b8f3ad33e45
+ms.sourcegitcommit: d619612f54eeba3231ed73ed149ff894f9bf838a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74540299"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74993831"
 ---
 # <a name="install-powershell-for-azure-stack"></a>Instalace PowerShellu pro Azure Stack
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
 
 Azure PowerShell poskytuje sadu rutin, které používají model Azure Resource Manager ke správě Azure Stack prostředků.
 
@@ -39,7 +39,7 @@ Můžete nainstalovat Azure Stack kompatibilní moduly PowerShellu ve scénář�
 Než začnete s Azure Stack a prostředím PowerShell, musíte mít následující požadavky:
 
 - **PowerShell verze 5,0** <br>
-Pokud chcete zjistit verzi, spusťte **$PSVersionTable. PSVersion** a porovnejte **hlavní** verzi. Pokud nemáte PowerShell 5,0, postupujte podle pokynů pro [instalaci Windows PowerShellu](https://docs.microsoft.com/powershell/scripting/setup/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell).
+Pokud chcete zjistit verzi, spusťte **$PSVersionTable. PSVersion** a porovnejte **hlavní** verzi. Pokud nemáte PowerShell 5,0, postupujte podle pokynů pro [instalaci Windows PowerShellu](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell#upgrading-existing-windows-powershell).
 
   > [!Note]
   > Prostředí PowerShell 5,0 vyžaduje počítač se systémem Windows.
@@ -126,7 +126,7 @@ Spusťte následující skript PowerShellu, který nainstaluje tyto moduly na sv
     ```
 
     > [!Note]  
-    > - Verze modulu Azure Stack 1.8.0 je zásadním vydáním změn. Podrobnosti najdete v [poznámkách k verzi](release-notes.md#changes) .
+    > - Verze modulu Azure Stack 1.8.0 je zásadním vydáním změn. Podrobnosti najdete v [poznámkách k verzi](release-notes.md) .
     > - Verze modulu Azure Stack 1.7.2 je zásadním vydáním změn. Chcete-li provést migraci z Azure Stack 1.6.0, přečtěte si [příručku k migraci](https://aka.ms/azspshmigration171).
     > - Verze modulu AzureRM 2.4.0 obsahuje zásadní změnu rutiny Remove-AzureRmStorageAccount. Tato rutina očekává, `-Force` parametr, který se má zadat pro odebrání účtu úložiště bez potvrzení.
     > - Nemusíte instalovat **AzureRM. zaváděcí nástroj** pro instalaci modulů pro Azure Stack verze 1901 nebo novější.
@@ -193,7 +193,7 @@ Instalace má čtyři kroky:
     ```
 
     > [!Note]  
-    > - Verze modulu Azure Stack 1.8.0 je zásadním vydáním změn. Podrobnosti najdete v [poznámkách k verzi](release-notes.md#changes) .
+    > - Verze modulu Azure Stack 1.8.0 je zásadním vydáním změn. Podrobnosti najdete v [poznámkách k verzi](release-notes.md) .
     > 1\.7.1 modul Azure Stack verze je zásadní změna. Postup migrace z Azure Stack 1.6.0 najdete v [Průvodci migrací](https://github.com/Azure/azure-powershell/tree/AzureRM/documentation/migration-guides/Stack).
 
     > [!NOTE]
@@ -208,7 +208,7 @@ Instalace má čtyři kroky:
 
 2. Přihlaste se k odpojené pracovní stanici a zkopírujte balíčky ze zařízení USB do umístění v pracovní stanici.
 
-3. Ručně nabootstrap zprostředkovatele NuGet na odpojené pracovní stanici. Pokyny najdete v tématu [Ruční zavedení zprostředkovatele NuGet na počítači, který není připojený k Internetu](https://docs.microsoft.com/powershell/gallery/how-to/getting-support/bootstrapping-nuget#manually-bootstrapping-the-nuget-provider-on-a-machine-that-is-not-connected-to-the-internet).
+3. Ručně nabootstrap zprostředkovatele NuGet na odpojené pracovní stanici. Pokyny najdete v tématu [Ruční zavedení zprostředkovatele NuGet na počítači, který není připojený k Internetu](https://docs.microsoft.com/powershell/scripting/gallery/how-to/getting-support/bootstrapping-nuget#manually-bootstrapping-the-nuget-provider-on-a-machine-that-is-not-connected-to-the-internet).
 
 4. Zaregistrujte toto umístění jako výchozí úložiště a nainstalujte moduly AzureRM a `AzureStack` z tohoto úložiště:
 

@@ -16,16 +16,16 @@ ms.date: 10/07/2019
 ms.author: mabrigg
 ms.reviewer: justini
 ms.lastreviewed: 11/14/2018
-ms.openlocfilehash: e2daa9416c966966b3c7cff240ddeb72ac227a8c
-ms.sourcegitcommit: 7226979ece29d9619c959b11352be601562b41d3
+ms.openlocfilehash: df7a6e7c42a8863117faaccfd4108c4ffd806a5a
+ms.sourcegitcommit: d619612f54eeba3231ed73ed149ff894f9bf838a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72304052"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74993762"
 ---
 # <a name="use-azure-resource-manager-templates-in-azure-stack"></a>Použití šablon Azure Resource Manager v Azure Stack
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
 
 Šablony Azure Resource Manager můžete použít k nasazení a zřízení všech prostředků aplikace v rámci jediné koordinované operace. Šablony můžete také znovu nasadit, abyste provedli změny prostředků ve skupině prostředků.
 
@@ -35,7 +35,7 @@ Následující šablony pro rychlý Start jsou [k dispozici na GitHubu](https://
 
 ## <a name="deploy-sharepoint-server-non-high-availability-deployment"></a>Nasazení serveru SharePoint Server (nasazení bez vysoké dostupnosti)
 
-Pomocí rozšíření [Konfigurace požadovaného stavu](/powershell/dsc/overview/overview) prostředí PowerShell [vytvořte farmu serveru SharePoint 2013](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/sharepoint-2013-non-ha) , která obsahuje následující zdroje:
+Pomocí rozšíření [Konfigurace požadovaného stavu](/powershell/scripting/dsc/overview/overview) prostředí PowerShell [vytvořte farmu serveru SharePoint 2013](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/sharepoint-2013-non-ha) , která obsahuje následující zdroje:
 
 * Virtuální síť
 * Tři účty úložiště
@@ -63,7 +63,7 @@ Použijte rozšíření PowerShell DSC k vytvoření samostatného [serveru SQL 
 * Jeden virtuální počítač (VM) nakonfigurovaný jako řadič domény pro novou doménovou strukturu s jednou doménou
 * Jeden virtuální počítač nakonfigurovaný jako samostatný server SQL Server 2014
 
-## <a name="vm-dsc-extension-azure-automation-pull-server"></a>VM-DSC-rozšíření-Azure-Automation-Pull-Server
+## <a name="vm-dsc-extension-azure-automation-pull-server"></a>VM-DSC-Extension-Azure-Automation-Pull-Server
 
 Pomocí rozšíření PowerShell DSC nakonfigurujte existující místní Configuration Manager virtuálního počítače (LCM) a zaregistrujte ho na serveru vyžádané replikace DSC Azure Automation účtu.
 
@@ -77,7 +77,7 @@ Pomocí rozšíření PowerShell DSC nakonfigurujte existující místní Config
 
 ## <a name="cancel-a-running-template-deployment"></a>Zrušení běžícího nasazení šablony
 
-Pokud chcete zrušit nasazení spuštěné šablony, použijte [rutinu](/powershell/developer/cmdlet/cmdlet-overview)PowerShellu [stop-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/stop-azurermresourcegroupdeployment) .
+Pokud chcete zrušit nasazení spuštěné šablony, použijte [rutinu](/powershell/scripting/developer/cmdlet/cmdlet-overview)PowerShellu [stop-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/stop-azurermresourcegroupdeployment) .
 
 ## <a name="next-steps"></a>Další kroky
 

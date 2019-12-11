@@ -15,12 +15,12 @@ ms.date: 11/21/2019
 ms.author: sethm
 ms.reviewer: misainat
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: f5955751df89262441b7afc2381d34b6cc74691c
-ms.sourcegitcommit: cefba8d6a93efaedff303d3c605b02bd28996c5d
+ms.openlocfilehash: 2323f13029d4d356ce54b825bab69da5ca21d6ab
+ms.sourcegitcommit: d619612f54eeba3231ed73ed149ff894f9bf838a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74298736"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74993583"
 ---
 # <a name="asdk-release-notes"></a>Poznámky k verzi ASDK
 
@@ -54,13 +54,13 @@ Seznamte se s novinkami v ASDK tak, že se přihlásíte k odběru informačníh
 
 ### <a name="new-features"></a>Nové funkce
 
-- Seznam nových funkcí v této verzi najdete v [této části](/azure-stack/operator/release-notes?view=azs-1908#whats-new-1908) poznámky k verzi Azure Stack.
+- Seznam nových funkcí v této verzi najdete v [této části](/azure-stack/operator/release-notes?view=azs-1908#whats-new-1) poznámky k verzi Azure Stack.
 
 <!-- ### Changes -->
 
 ### <a name="fixed-and-known-issues"></a>Opravené a známé problémy
 
-<!-- - For a list of Azure Stack issues fixed in this release, see [this section](/azure-stack/operator/release-notes?view=azs-1908#fixes-1908) of the Azure Stack release notes. -->
+<!-- - For a list of Azure Stack issues fixed in this release, see [this section](/azure-stack/operator/release-notes?view=azs-1908#fixes-1) of the Azure Stack release notes. -->
 - Seznam známých problémů najdete v [tomto článku](/azure-stack/operator/known-issues?view=azs-1908).
 - Všimněte si, že dostupné opravy hotfix Azure Stack neplatí pro ASDK.
 ::: moniker-end
@@ -70,16 +70,16 @@ Seznamte se s novinkami v ASDK tak, že se přihlásíte k odběru informačníh
 
 ### <a name="new-features"></a>Nové funkce
 
-- Seznam nových funkcí v této verzi najdete v [této části](/azure-stack/operator/release-notes?view=azs-1907#whats-in-this-update-1907) poznámky k verzi Azure Stack.
+- Seznam nových funkcí v této verzi najdete v [této části](/azure-stack/operator/release-notes?view=azs-1907#whats-in-this-update) poznámky k verzi Azure Stack.
 
 <!-- ### Changes -->
 
 ### <a name="fixed-and-known-issues"></a>Opravené a známé problémy
 
 - Při vytváření prostředků virtuálních počítačů pomocí některých imagí Marketplace možná nebudete moci dokončit nasazení. Jako alternativní řešení můžete kliknout na odkaz **Stáhnout šablonu a parametry** na stránce **Souhrn** a kliknout na tlačítko **nasadit** v okně **Šablona** .
-- Seznam problémů s Azure Stack opravených v této verzi najdete v [této části](/azure-stack/operator/release-notes?view=azs-1907#fixes-1907) poznámky k verzi Azure Stack.
+- Seznam problémů s Azure Stack opravených v této verzi najdete v [této části](/azure-stack/operator/release-notes?view=azs-1907#fixes-2) poznámky k verzi Azure Stack.
 - Seznam známých problémů najdete v [tomto článku](/azure-stack/operator/known-issues?view=azs-1907).
-- Upozorňujeme, že [k dispozici Azure Stack opravy hotfix](/azure-stack/operator/release-notes?view=azs-1907#hotfixes-1907) se nevztahují na Azure Stack ASDK.
+- Upozorňujeme, že [k dispozici Azure Stack opravy hotfix](/azure-stack/operator/release-notes?view=azs-1907#hotfixes-2) se nevztahují na Azure Stack ASDK.
 ::: moniker-end
 
 ::: moniker range="azs-1906"
@@ -87,7 +87,7 @@ Seznamte se s novinkami v ASDK tak, že se přihlásíte k odběru informačníh
 
 ### <a name="new-features"></a>Nové funkce
 
-- Seznam nových funkcí v této verzi najdete v [této části](/azure-stack/operator/release-notes?view=azs-1906#whats-in-this-update-1906) poznámky k verzi Azure Stack.
+- Seznam nových funkcí v této verzi najdete v [této části](/azure-stack/operator/release-notes?view=azs-1906#whats-in-this-update-1) poznámky k verzi Azure Stack.
 
 ### <a name="changes"></a>Změny
 
@@ -96,7 +96,7 @@ Seznamte se s novinkami v ASDK tak, že se přihlásíte k odběru informačníh
 ### <a name="fixed-and-known-issues"></a>Opravené a známé problémy
 
 - Při vytváření prostředků virtuálních počítačů pomocí některých imagí Marketplace možná nebudete moci dokončit nasazení. Jako alternativní řešení můžete kliknout na odkaz **Stáhnout šablonu a parametry** na stránce **Souhrn** a kliknout na tlačítko **nasadit** v okně **Šablona** .
-- Seznam problémů s Azure Stack opravených v této verzi najdete v [této části](/azure-stack/operator/release-notes?view=azs-1906#fixes-1906) poznámky k verzi Azure Stack.
+- Seznam problémů s Azure Stack opravených v této verzi najdete v [této části](/azure-stack/operator/release-notes?view=azs-1906#fixes-3) poznámky k verzi Azure Stack.
 - Seznam známých problémů najdete v [tomto článku](/azure-stack/operator/known-issues?view=azs-1906).
-- Upozorňujeme, že [k dispozici Azure Stack opravy hotfix](/azure-stack/operator/release-notes?view=azs-1906#hotfixes-1906) se nevztahují na Azure Stack ASDK.
+- Upozorňujeme, že [k dispozici Azure Stack opravy hotfix](/azure-stack/operator/release-notes?view=azs-1906#hotfixes-3) se nevztahují na Azure Stack ASDK.
 ::: moniker-end
