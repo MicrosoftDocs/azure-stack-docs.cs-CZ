@@ -6,16 +6,16 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 11/22/2019
+ms.date: 12/11/2019
 ms.author: justinha
 ms.reviewer: wamota
-ms.lastreviewed: 11/22/2019
-ms.openlocfilehash: 4104698b8d615f1078573009a65bd26c361fb0f2
-ms.sourcegitcommit: b4de234174864659eb7e08aa5c10de59f5fa6f43
+ms.lastreviewed: 12/11/2019
+ms.openlocfilehash: 2da6bb4fb70a3d8e816870c8569f8f3e3aa7d678
+ms.sourcegitcommit: ae9d29c6a158948a7dbc4fd53082984eba890c59
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74478475"
+ms.lasthandoff: 12/12/2019
+ms.locfileid: "75007992"
 ---
 # <a name="publish-azure-stack-services-in-your-datacenter"></a>Publikování Azure Stackch služeb ve vašem datovém centru 
 
@@ -46,27 +46,27 @@ Po přidání [hostitele rozšíření](azure-stack-extension-host-prepare.md)ne
 
 |Koncový bod (VIP)|DNS host A record|Protocol (Protokol)|Porty|
 |---------|---------|---------|---------|
-|AD FS|Službou. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*|HTTPS|443|
-|Portál (správce)|Adminportal. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*|HTTPS|443|
-|Adminhosting | *.adminhosting. >\<oblasti.\<plně kvalifikovaný název domény > | HTTPS | 443 |
-|Azure Resource Manager (správce)|Adminmanagement. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*|HTTPS|443|
-|Portál (uživatel)|Bran. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*|HTTPS|443|
-|Azure Resource Manager (uživatel)|Správu. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*|HTTPS|443|
-|Graf|Zapisovací. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*|HTTPS|443|
+|AD FS|Adfs. *&lt;region>.&lt;fqdn>*|HTTPS|443|
+|Portál (správce)|Adminportal. *&lt;oblasti.&lt;plně kvalifikovaný název domény >*|HTTPS|443|
+|Adminhosting | *.adminhosting.\<region>.\<fqdn> | HTTPS | 443 |
+|Azure Resource Manager (správce)|Adminmanagement. *&lt;oblasti.&lt;plně kvalifikovaný název domény >*|HTTPS|443|
+|Portál (uživatel)|Bran. *&lt;oblasti.&lt;plně kvalifikovaný název domény >*|HTTPS|443|
+|Azure Resource Manager (uživatel)|Správu. *&lt;oblasti.&lt;plně kvalifikovaný název domény >*|HTTPS|443|
+|Graf|Graph. *&lt;region>.&lt;fqdn>*|HTTPS|443|
 |Seznam odvolaných certifikátů|Seznam CRL. *&lt;oblast >.&lt;plně kvalifikovaný název domény >*|HTTP|80|
-|DNS|&#42;. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*|TCP & UDP|53|
-|Hostování | *. Hosting. >\<oblasti.\<plně kvalifikovaný název domény > | HTTPS | 443 |
-|Key Vault (uživatel)|&#42;hesel. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*|HTTPS|443|
-|Key Vault (správce)|&#42;.adminvault. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*|HTTPS|443|
-|Fronta úložiště|&#42;provedených. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*|HTTP<br>HTTPS|80<br>443|
-|Tabulka úložiště|&#42;stolní. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*|HTTP<br>HTTPS|80<br>443|
-|Storage Blob|&#42;příznaky. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*|HTTP<br>HTTPS|80<br>443|
-|Poskytovatel prostředků SQL|sqladapter.dbadapter. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*|HTTPS|44300-44304|
-|Poskytovatel prostředků MySQL|mysqladapter.dbadapter. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*|HTTPS|44300-44304|
-|App Service|&#42;AppService. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*|TCP|80 (HTTP)<br>443 (HTTPS)<br>8172 (MSDeploy)|
-|  |&#42;. SCM. AppService. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*|TCP|443 (HTTPS)|
-|  |API. AppService. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*|TCP|443 (HTTPS)<br>44300 (Azure Resource Manager)|
-|  |FTP. AppService. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*|TCP, UDP|21, 1021, 10001-10100 (FTP)<br>990 (FTPS)|
+|DNS|&#42;. *&lt;oblasti.&lt;plně kvalifikovaný název domény >*|TCP & UDP|53|
+|Hostování | *.hosting.\<region>.\<fqdn> | HTTPS | 443 |
+|Key Vault (uživatel)|&#42;hesel. *&lt;oblasti.&lt;plně kvalifikovaný název domény >*|HTTPS|443|
+|Key Vault (správce)|&#42;.adminvault. *&lt;oblasti.&lt;plně kvalifikovaný název domény >*|HTTPS|443|
+|Fronta úložiště|&#42;.queue. *&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
+|Tabulka úložiště|&#42;.table. *&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
+|Storage Blob|&#42;.blob. *&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
+|Poskytovatel prostředků SQL|sqladapter.dbadapter. *&lt;region>.&lt;fqdn>*|HTTPS|44300-44304|
+|Poskytovatel prostředků MySQL|mysqladapter.dbadapter. *&lt;region>.&lt;fqdn>*|HTTPS|44300-44304|
+|Aplikační služba|&#42;.appservice. *&lt;region>.&lt;fqdn>*|TCP|80 (HTTP)<br>443 (HTTPS)<br>8172 (MSDeploy)|
+|  |&#42;.scm.appservice. *&lt;region>.&lt;fqdn>*|TCP|443 (HTTPS)|
+|  |api.appservice. *&lt;region>.&lt;fqdn>*|TCP|443 (HTTPS)<br>44300 (Azure Resource Manager)|
+|  |ftp.appservice. *&lt;region>.&lt;fqdn>*|TCP, UDP|21, 1021, 10001-10100 (FTP)<br>990 (FTPS)|
 |Brány VPN Gateway|     |     |[Podívejte se na téma Nejčastější dotazy ke službě VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-vpn-faq#can-i-traverse-proxies-and-firewalls-using-point-to-site-capability).|
 |     |     |     |     |
 
@@ -81,11 +81,11 @@ Zachycení provozu SSL není [podporované](azure-stack-firewall.md#ssl-intercep
 
 |Účel|Cílová adresa URL|Protocol (Protokol)|Porty|Zdrojová síť|
 |---------|---------|---------|---------|---------|
-|Identita|**Azure**<br>login.windows.net<br>login.microsoftonline.com<br>graph.windows.net<br>https:\//secure.aadcdn.microsoftonline-p.com<br>www.office.com<br>https:\//\*. msftauth.net<br>https:\//\*. msauth.net<br>https:\//\*. msocdn.com<br>**Azure Government**<br>https:\//login.microsoftonline.us/<br>https:\//graph.windows.net/<br>**Azure Čína 21Vianet**<br>https:\//login.chinacloudapi.cn/<br>https:\//graph.chinacloudapi.cn/<br>**Azure Německo**<br>https:\//login.microsoftonline.de/<br>https:\//graph.cloudapi.de/|HTTP<br>HTTPS|80<br>443|Veřejná VIP-/27<br>Síť veřejné infrastruktury|
-|Syndikace Marketplace|**Azure**<br>https:\//management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://&#42;.azureedge.net<br>**Azure Government**<br>https:\//management.usgovcloudapi.net/<br>https://&#42;. blob.Core.usgovcloudapi.NET/<br>**Azure Čína 21Vianet**<br>https:\//management.chinacloudapi.cn/<br>http://&#42;. blob.Core.chinacloudapi.cn|HTTPS|443|Veřejná VIP-/27|
+|Identita|**Azure**<br>login.windows.net<br>login.microsoftonline.com<br>graph.windows.net<br>https:\//secure.aadcdn.microsoftonline-p.com<br>www.office.com<br>ManagementServiceUri = https:\//management.core.windows.net<br>ARMUri = https:\//management.azure.com<br>https:\//\*. msftauth.net<br>https:\//\*. msauth.net<br>https:\//\*. msocdn.com<br>**Azure Government**<br>https:\//login.microsoftonline.us/<br>https:\//graph.windows.net/<br>**Azure China 21Vianet**<br>https:\//login.chinacloudapi.cn/<br>https:\//graph.chinacloudapi.cn/<br>**Azure Německo**<br>https:\//login.microsoftonline.de/<br>https:\//graph.cloudapi.de/|HTTP<br>HTTPS|80<br>443|Veřejná VIP-/27<br>Síť veřejné infrastruktury|
+|Syndikace Marketplace|**Azure**<br>https:\//management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://&#42;.azureedge.net<br>**Azure Government**<br>https:\//management.usgovcloudapi.net/<br>https://&#42;. blob.Core.usgovcloudapi.NET/<br>**Azure China 21Vianet**<br>https:\//management.chinacloudapi.cn/<br>http://&#42;. blob.Core.chinacloudapi.cn|HTTPS|443|Veřejná VIP-/27|
 |Oprava & aktualizace|https://&#42;.azureedge.net<br>https:\//aka.ms/azurestackautomaticupdate|HTTPS|443|Veřejná VIP-/27|
-|Registrace|**Azure**<br>https:\//management.azure.com<br>**Azure Government**<br>https:\//management.usgovcloudapi.net/<br>**Azure Čína 21Vianet**<br>https:\//management.chinacloudapi.cn|HTTPS|443|Veřejná VIP-/27|
-|Využití|**Azure**<br>https://&#42;. trafficmanager.NET<br>**Azure Government**<br>https://&#42;. usgovtrafficmanager.NET<br>**Azure Čína 21Vianet**<br>https://&#42;. trafficmanager.cn|HTTPS|443|Veřejná VIP-/27|
+|Registrace|**Azure**<br>https:\//management.azure.com<br>**Azure Government**<br>https:\//management.usgovcloudapi.net/<br>**Azure China 21Vianet**<br>https:\//management.chinacloudapi.cn|HTTPS|443|Veřejná VIP-/27|
+|Využití|**Azure**<br>https://&#42;. trafficmanager.NET<br>**Azure Government**<br>https://&#42;. usgovtrafficmanager.NET<br>**Azure China 21Vianet**<br>https://&#42;. trafficmanager.cn|HTTPS|443|Veřejná VIP-/27|
 |Windows Defender|&#42;. wdcp.microsoft.com<br>&#42;. wdcpalt.microsoft.com<br>&#42;. wd.microsoft.com<br>&#42;. update.microsoft.com<br>&#42;. download.microsoft.com<br>https:\//www.microsoft.com/pkiops/crl<br>https:\//www.microsoft.com/pkiops/certs<br>https:\//crl.microsoft.com/pki/crl/products<br>https:\//www.microsoft.com/pki/certs<br>https:\//secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|Veřejná VIP-/27<br>Síť veřejné infrastruktury|
 |NTP|(IP adresa serveru NTP, který je k dispozici pro nasazení)|UDP|123|Veřejná VIP-/27|
 |DNS|(IP adresa serveru DNS poskytnutá pro nasazení)|TCP<br>UDP|53|Veřejná VIP-/27|

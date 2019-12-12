@@ -14,16 +14,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2019
+ms.date: 12/11/2019
 ms.author: mabrigg
-ms.reviewer: jeffgo
-ms.lastreviewed: 08/15/2018
-ms.openlocfilehash: d8b986dede7e55cb0418219fce6ac78673eeff60
-ms.sourcegitcommit: ca358ea5c91a0441e1d33f540f6dbb5b4d3c92c5
+ms.reviewer: kivenkat
+ms.lastreviewed: 12/11/2019
+ms.openlocfilehash: deea66ed257ecab933c294022fbdd07d1ccb137b
+ms.sourcegitcommit: ae9d29c6a158948a7dbc4fd53082984eba890c59
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73802288"
+ms.lasthandoff: 12/12/2019
+ms.locfileid: "75007958"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack"></a>Příprava virtuálního počítače založeného na Red Hat pro Azure Stack
 
@@ -44,7 +44,7 @@ V této části se předpokládá, že už máte soubor ISO z webu Red Hat a má
 * Podpora jádra pro připojení systémů souborů formátu Universal Disk Format (UDF) je povinná. Při prvním spuštění předává médium ve formátu UDF připojené k hostu konfiguraci zřizování pro virtuální počítač Linux. Agent Azure Linux musí připojit systém souborů UDF a načíst jeho konfiguraci a zřídit virtuální počítač.
 * Nekonfigurujte odkládací oddíl na disku s operačním systémem. Agent pro Linux se dá nakonfigurovat tak, aby na dočasném disku prostředků vytvořil odkládací soubor. Další informace o najdete v následujících krocích.
 * Všechny virtuální pevné disky v Azure musí mít virtuální velikost zarovnaná na 1 MB. Při převodu z nezpracovaného disku na VHD je nutné před převodem zajistit, aby velikost nezpracovaného disku byla násobkem 1 MB. Další podrobnosti najdete v následujících krocích.
-* Azure Stack nepodporuje Cloud-init. Váš virtuální počítač musí mít nakonfigurovanou podporovanou verzi agenta Windows Azure Linux (WALA).
+* Azure Stack podporuje Cloud-init. [Cloud-init](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init) je široce využívaným přístupem k přizpůsobení virtuálního počítače s Linuxem při jeho prvním spuštění. Pomocí cloud-init můžete instalovat balíčky a zapisovat soubory nebo konfigurovat uživatele a zabezpečení. Protože cloud-init je volána v průběhu procesu prvotního spuštění, nejsou žádné další kroky ani agenty vyžaduje použití vaší konfigurace.
 
 ### <a name="prepare-an-rhel-7-vm-from-hyper-v-manager"></a>Příprava virtuálního počítače s RHEL 7 pomocí Správce technologie Hyper-V
 

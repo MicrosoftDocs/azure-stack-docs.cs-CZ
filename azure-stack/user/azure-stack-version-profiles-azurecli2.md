@@ -10,20 +10,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2019
+ms.date: 12/10/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 11/22/2019
-ms.openlocfilehash: a5a6cf3ef5c2c03992647c207422eb266f171ac4
-ms.sourcegitcommit: 284f5316677c9a7f4c300177d0e2a905df8cb478
+ms.lastreviewed: 12/10/2019
+ms.openlocfilehash: f8acc74aed978b3672dacd65524a8f1dbb5e6909
+ms.sourcegitcommit: 3c40e6df2447531a69e33b2fd0f2365b7dcf8892
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74465483"
+ms.lasthandoff: 12/11/2019
+ms.locfileid: "75005382"
 ---
 # <a name="manage-and-deploy-resources-to-azure-stack-with-azure-cli"></a>Správa a nasazení prostředků pro Azure Stack pomocí Azure CLI
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
 
 Podle kroků v tomto článku nastavte rozhraní příkazového řádku Azure (CLI) pro správu prostředků Azure Stack Development Kit (ASDK) z klientských platforem Linux, Mac a Windows.
 
@@ -165,7 +165,7 @@ Pokud chcete důvěřovat kořenovému certifikátu certifikační autority Azur
 
 2. Zaregistrujte své prostředí. Při spuštění `az cloud register`použijte následující parametry:
 
-    | Hodnota | Příklad | Popis |
+    | Hodnota | Příklad: | Popis |
     | --- | --- | --- |
     | Název prostředí | AzureStackUser | Pro uživatelské prostředí použijte `AzureStackUser`. Pokud jste operátor, zadejte `AzureStackAdmin`. |
     | Koncový bod Resource Manageru | https://management.local.azurestack.external | **ResourceManagerUrl** v ASDK je: `https://management.local.azurestack.external/` **ResourceManagerUrl** v integrovaných systémech je: `https://management.<region>.<fqdn>/` Pokud máte dotaz týkající se integrovaného systémového koncového bodu, obraťte se na svého operátora cloudu. |
@@ -278,7 +278,7 @@ Pokud používáte ASDK, musíte na svém vzdáleném počítači důvěřovat k
 
 2. Zaregistrujte své prostředí. Při spuštění `az cloud register`použijte následující parametry:
 
-    | Hodnota | Příklad | Popis |
+    | Hodnota | Příklad: | Popis |
     | --- | --- | --- |
     | Název prostředí | AzureStackUser | Pro uživatelské prostředí použijte `AzureStackUser`. Pokud jste operátor, zadejte `AzureStackAdmin`. |
     | Koncový bod Resource Manageru | https://management.local.azurestack.external | **ResourceManagerUrl** v ASDK je: `https://management.local.azurestack.external/` **ResourceManagerUrl** v integrovaných systémech je: `https://management.<region>.<fqdn>/` Pokud máte dotaz týkající se integrovaného systémového koncového bodu, obraťte se na svého operátora cloudu. |
@@ -362,7 +362,7 @@ Důvěřování kořenovému certifikátu certifikační autority Azure Stack p�
 1. Najděte umístění certifikátu na svém počítači. Umístění se může lišit v závislosti na tom, kde jste nainstalovali Python. Musíte mít nainstalovaný PIP a modul certifi. Z příkazového řádku bash použijte následující příkaz Pythonu:
 
     ```bash  
-    python3 -c "import certifi; print(certifi.where())"
+    az --version
     ```
 
     Poznamenejte si umístění certifikátu. Například, `~/lib/python3.5/site-packages/certifi/cacert.pem`. Vaše konkrétní cesta závisí na vašem operačním systému a verzi Pythonu, kterou jste nainstalovali.
@@ -385,16 +385,11 @@ Důvěřování kořenovému certifikátu certifikační autority Azure Stack p�
 
 Pomocí následujících kroků se připojte k Azure Stack:
 
-1. Zaregistrujte Azure Stack prostředí spuštěním příkazu `az cloud register`. V některých scénářích je přímé odchozí připojení k Internetu směrováno prostřednictvím proxy serveru nebo brány firewall, která vynutila zachycení SSL. V těchto případech může příkaz `az cloud register` selhat s chybou, jako je například "nepovedlo se získat koncové body z cloudu". Tuto chybu můžete obejít tak, že nastavíte následující proměnné prostředí:
-
-   ```shell
-   export AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1
-   export ADAL_PYTHON_SSL_NO_VERIFY=1
-   ```
+1. Zaregistrujte Azure Stack prostředí spuštěním příkazu `az cloud register`.
 
 2. Zaregistrujte své prostředí. Při spuštění `az cloud register`použijte následující parametry:
 
-    | Hodnota | Příklad | Popis |
+    | Hodnota | Příklad: | Popis |
     | --- | --- | --- |
     | Název prostředí | AzureStackUser | Pro uživatelské prostředí použijte `AzureStackUser`. Pokud jste operátor, zadejte `AzureStackAdmin`. |
     | Koncový bod Resource Manageru | https://management.local.azurestack.external | **ResourceManagerUrl** v ASDK je: `https://management.local.azurestack.external/` **ResourceManagerUrl** v integrovaných systémech je: `https://management.<region>.<fqdn>/` Pokud máte dotaz týkající se integrovaného systémového koncového bodu, obraťte se na svého operátora cloudu. |
@@ -473,7 +468,7 @@ Důvěřování kořenovému certifikátu certifikační autority Azure Stack p�
 1. Najděte umístění certifikátu na svém počítači. Umístění se může lišit v závislosti na tom, kde jste nainstalovali Python. Musíte mít nainstalovaný PIP a modul certifi. Z příkazového řádku bash použijte následující příkaz Pythonu:
 
     ```bash  
-    python3 -c "import certifi; print(certifi.where())"
+    az --version 
     ```
 
     Poznamenejte si umístění certifikátu. Například, `~/lib/python3.5/site-packages/certifi/cacert.pem`. Vaše konkrétní cesta závisí na vašem operačním systému a verzi Pythonu, kterou jste nainstalovali.
@@ -496,16 +491,11 @@ Důvěřování kořenovému certifikátu certifikační autority Azure Stack p�
 
 Pomocí následujících kroků se připojte k Azure Stack:
 
-1. Zaregistrujte Azure Stack prostředí spuštěním příkazu `az cloud register`. V některých scénářích je přímé odchozí připojení k Internetu směrováno prostřednictvím proxy serveru nebo brány firewall, která vynutila zachycení SSL. V těchto případech může příkaz `az cloud register` selhat s chybou, jako je například "nepovedlo se získat koncové body z cloudu". Tuto chybu můžete obejít tak, že nastavíte následující proměnné prostředí:
-
-   ```shell
-   export AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1
-   export ADAL_PYTHON_SSL_NO_VERIFY=1
-   ```
+1. Zaregistrujte Azure Stack prostředí spuštěním příkazu `az cloud register`.
 
 2. Zaregistrujte své prostředí. Při spuštění `az cloud register`použijte následující parametry.
 
-    | Hodnota | Příklad | Popis |
+    | Hodnota | Příklad: | Popis |
     | --- | --- | --- |
     | Název prostředí | AzureStackUser | Pro uživatelské prostředí použijte `AzureStackUser`. Pokud jste operátor, zadejte `AzureStackAdmin`. |
     | Koncový bod Resource Manageru | https://management.local.azurestack.external | **ResourceManagerUrl** v ASDK je: `https://management.local.azurestack.external/` **ResourceManagerUrl** v integrovaných systémech je: `https://management.<region>.<fqdn>/` Pokud máte dotaz týkající se integrovaného systémového koncového bodu, obraťte se na svého operátora cloudu. |
