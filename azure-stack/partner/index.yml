@@ -2,7 +2,6 @@
 documentType: LandingData
 title: Dokumentace k partnerovi centra Azure Stack
 metadata:
-  document_id: null
   title: 'D\documentation Partner centra pro Azure Stack – kurzy, API R\reference'
   description: 'Zjistěte, jak ověřit hardware pro hostování Azure Stack. Ověřování jako služba je nativní služba Azure určená pro partnery řešení, kteří jsou spolustrojírenství Azure Stack nabídky centra s Microsoftem.'
   services: azure-stack

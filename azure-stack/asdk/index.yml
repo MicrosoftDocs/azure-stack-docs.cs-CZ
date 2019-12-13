@@ -2,7 +2,6 @@
 documentType: LandingData
 title: Dokumentace k vývojové sadě Azure Stack hub
 metadata:
-  document_id: null
   title: 'Dokumentace k vývojové sadě Azure Stack hub – kurzy, Reference k rozhraní API'
   description: 'Naučte se, jak nasadit a používat vývojové sady Azure Stack hub.'
   services: azure-stack
