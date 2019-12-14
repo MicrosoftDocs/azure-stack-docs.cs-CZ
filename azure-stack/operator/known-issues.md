@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/21/2019
+ms.date: 12/13/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 684f6925c32eabca51fa89776ec95b57a852a987
-ms.sourcegitcommit: d9430072dd96ae305101da6d8a47d6c23a0a64c2
+ms.openlocfilehash: 77163d12cd23e578bcc9ae7f30f5343fd106ee5b
+ms.sourcegitcommit: 8b266d7bee8b9228e2b46ae69318a9e9994e6449
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74995582"
+ms.lasthandoff: 12/14/2019
+ms.locfileid: "75032351"
 ---
 # <a name="azure-stack-known-issues"></a>Azure Stack známé problémy
 
@@ -154,9 +154,9 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 
 ### <a name="access-control-iam"></a>Řízení přístupu (IAM)
 
-- Platí: Tento problém se týká verzí 1903 a novějších.
-- Příčina: rozšíření IAM není aktuální. Ibiza se dodává s Azure Stack zavádí nové chování, které způsobí přerušení rozšíření RBAC, pokud uživatel otevírá rozšíření RBAC z předplatného, které není vybrané v nástroji pro výběr globálního předplatného.
-- Náprava: Ujistěte se, že je předplatné zaškrtnuto v části Výběr globálního předplatného. 
+- Platí: Tento problém se týká razítek nasazených se základní imagí 1903 nebo starší.
+- Příčina: rozšíření IAM není aktuální. Portál Ibiza, který se dodává s Azure Stack zavádí nové chování, které způsobí selhání rozšíření RBAC, pokud uživatel otevírá okno **Access Control (IAM)** pro předplatné, které není vybrané v nástroji pro výběr globálního předplatného (**adresář + předplatné** na portálu User Portal). V okně se zobrazí **načítání** ve smyčce a uživatel nemůže do předplatného přidat nové role. Okno **Přidat** také zobrazuje **načítání** ve smyčce.
+- Náprava: Ujistěte se, že je předplatné zaškrtnuté v nabídce **adresář a předplatné** . K nabídce se dá dostat z horní části portálu, poblíž tlačítka **oznámení** nebo prostřednictvím zástupce v okně **všechny prostředky** , ve kterém se zobrazuje **předplatné nezobrazené? Otevřete nastavení adresář a předplatné**. V této nabídce je nutné vybrat odběr.
 
 ## <a name="networking"></a>Sítě
 

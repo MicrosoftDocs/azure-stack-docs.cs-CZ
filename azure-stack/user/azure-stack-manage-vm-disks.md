@@ -15,16 +15,16 @@ ms.date: 12/03/2019
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: 049698c1b4e19dc3567c07bb8a433c0fcf9208d8
-ms.sourcegitcommit: 62283e9826ea78b218f5d2c6c555cc44196b085d
+ms.openlocfilehash: 49b89a23b33607eac217e2393a489fac6ce59934
+ms.sourcegitcommit: e509ae283c6c3c6a83143dbdc63d0b5556daf54a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74780775"
+ms.lasthandoff: 12/13/2019
+ms.locfileid: "75031815"
 ---
 # <a name="create-vm-disk-storage-in-azure-stack"></a>Vytvoření diskového úložiště virtuálního počítače v Azure Stack
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
 
 Tento článek popisuje, jak vytvořit úložiště disku virtuálního počítače pomocí Azure Stackového portálu nebo pomocí PowerShellu.
 
@@ -53,7 +53,7 @@ Následující tabulka shrnuje, jak přidat disky pomocí portálu a pomocí pro
 | Metoda | Možnosti
 |-|-|
 |Portál User Portal|– Přidejte nové datové disky do existujícího virtuálního počítače. Nové disky jsou vytvořeny pomocí Azure Stack. </br> </br> – Přidejte existující soubor disku (. VHD) do dříve vytvořeného virtuálního počítače. K tomu je potřeba připravit soubor. VHD a pak ho nahrát do Azure Stack. |
-|[PowerShell](#use-powershell-to-add-multiple-unmanaged-disks-to-a-vm) | – Vytvořte nový virtuální počítač s diskem s operačním systémem a na tento virtuální počítač přidejte aspoň jeden datový disk. |
+|[PowerShell](#use-powershell-to-add-multiple-disks-to-a-vm) | – Vytvořte nový virtuální počítač s diskem s operačním systémem a na tento virtuální počítač přidejte aspoň jeden datový disk. |
 
 ## <a name="use-the-portal-to-add-disks-to-a-vm"></a>Přidání disků do virtuálního počítače pomocí portálu
 
@@ -92,7 +92,7 @@ Každý nespravovaný disk, který přidáte, by měl být umístěn v samostatn
    * Vyberte **typ účtu**.
       ![příklad: Připojte k virtuálnímu počítači nový disk](media/azure-stack-manage-vm-disks/create-manage-disk.png)
 
-      **SSD úrovně Premium**  
+      **Premium SSD**  
       Disky úrovně Premium (SSD) jsou založené na jednotkách Solid-State a nabízejí konzistentní výkon s nízkou latencí. Poskytují nejlepší rovnováhu mezi cenou a výkonem a jsou ideální pro aplikace náročné na vstupně-výstupní operace a produkční úlohy.
 
       **HDD úrovně Standard**  
@@ -168,24 +168,99 @@ Další informace o práci s účty úložiště v Azure Stack najdete v tématu
 
     ![Příklad: dokončení připojení k disku](media/azure-stack-manage-vm-disks/complete-disk-attach.png)
 
-## <a name="use-powershell-to-add-multiple-unmanaged-disks-to-a-vm"></a>Použití PowerShellu k přidání několika nespravovaných disků do virtuálního počítače
+## <a name="use-powershell-to-add-multiple-disks-to-a-vm"></a>Přidání více disků do virtuálního počítače pomocí PowerShellu
 
-Pomocí PowerShellu můžete zřídit virtuální počítač a přidat nový datový disk nebo připojit existující soubor. VHD jako datový disk.
+Pomocí prostředí PowerShell můžete zřídit virtuální počítač a přidat nové datové disky nebo připojit existující spravovaný disk nebo soubor VHD jako datový disk.
 
-Rutina **Add-AzureRmVMDataDisk** přidá datový disk k virtuálnímu počítači. Datový disk můžete přidat při vytváření virtuálního počítače nebo můžete přidat datový disk k existujícímu virtuálnímu počítači. Zadejte parametr **VhdUri** pro distribuci disků do různých kontejnerů.
+Rutina **Add-AzureRmVMDataDisk** přidá datový disk k virtuálnímu počítači. Datový disk můžete přidat při vytváření virtuálního počítače nebo můžete přidat datový disk k existujícímu virtuálnímu počítači. U nespravovaného disku zadejte parametr **VhdUri** pro distribuci disků do různých kontejnerů.
 
-### <a name="add-data-disks-to-a-new-vm"></a>Přidání datových disků do nového virtuálního počítače
+### <a name="add-data-disks-to-a-new-vm"></a>Přidání datových disků do **nového** virtuálního počítače
 
-Následující příklady používají příkazy prostředí PowerShell k vytvoření virtuálního počítače se třemi datovými disky, které jsou umístěny v jiném kontejneru.
+Následující příklady používají příkazy prostředí PowerShell k vytvoření virtuálního počítače se třemi datovými disky. Příkazy jsou k dispozici s několika částmi v důsledku menších rozdílů při použití spravovaných disků nebo nespravovaných disků. 
 
-První příkaz vytvoří objekt virtuálního počítače a uloží jej do proměnné `$VirtualMachine`. Příkaz přiřadí virtuálnímu počítači název a velikost:
+#### <a name="create-virtual-machine-configuration-and-network-resources"></a>Vytvořit konfiguraci virtuálního počítače a síťové prostředky
+
+Následující skript vytvoří objekt virtuálního počítače a uloží jej do proměnné `$VirtualMachine`. Příkazy přiřadí virtuálnímu počítači název a velikost a pak vytvoří síťové prostředky (virtuální síť, podsíť, virtuální síťový adaptér, NSG a veřejnou IP adresu) pro virtuální počítač:
 
 ```powershell
+# Create new virtual machine configuration
 $VirtualMachine = New-AzureRmVMConfig -VMName "VirtualMachine" `
                                       -VMSize "Standard_A2"
+
+# Set variables
+$rgName = "myResourceGroup"
+$location = "local"
+
+# Create a subnet configuration
+$subnetName = "mySubNet"
+$singleSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
+
+# Create a vnet configuration
+$vnetName = "myVnetName"
+$vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location `
+                                  -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
+
+# Create a public IP
+$ipName = "myIP"
+$pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $location `
+                                  -AllocationMethod Dynamic
+
+# Create a network security group configuration
+$nsgName = "myNsg"
+$rdpRule = New-AzureRmNetworkSecurityRuleConfig -Name myRdpRule -Description "Allow RDP" `
+                                                -Access Allow -Protocol Tcp -Direction Inbound -Priority 110 `
+                                                -SourceAddressPrefix Internet -SourcePortRange * `
+                                                -DestinationAddressPrefix * -DestinationPortRange 3389
+$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $rgName -Location $location `
+                                       -Name $nsgName -SecurityRules $rdpRule
+
+# Create a NIC configuration
+$nicName = "myNicName"
+$nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName `
+                                   -Location $location -SubnetId $vnet.Subnets[0].Id `
+                                   -NetworkSecurityGroupId $nsg.Id -PublicIpAddressId $pip.Id
+
 ```
 
-Následující tři příkazy přiřadí cesty tří datových disků k proměnným `$DataDiskVhdUri01`, `$DataDiskVhdUri02`a `$DataDiskVhdUri03`. V adrese URL definujte jiný název cesty pro distribuci disků do různých kontejnerů:
+#### <a name="add-managed-disk"></a>Přidat spravovaný disk
+>[!NOTE]  
+>Jenom pro přidání spravovaných disků v této části. 
+
+Následující tři příkazy přidávají spravované datové disky do virtuálního počítače uloženého v `$VirtualMachine`. Každý příkaz určuje název a další vlastnosti disku:
+
+```powershell
+$VirtualMachine = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name 'DataDisk1' `
+                                        -Caching 'ReadOnly' -DiskSizeInGB 10 -Lun 0 `
+                                        -CreateOption Empty
+```
+
+```powershell
+$VirtualMachine = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name 'DataDisk2' `
+                                        -Caching 'ReadOnly' -DiskSizeInGB 11 -Lun 1 `
+                                        -CreateOption Empty
+```
+
+```powershell
+$VirtualMachine = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name 'DataDisk3' `
+                                        -Caching 'ReadOnly' -DiskSizeInGB 12 -Lun 2 `
+                                        -CreateOption Empty
+```
+
+Následující příkaz přidá disk s operačním systémem jako spravovaný disk do virtuálního počítače uloženého v `$VirtualMachine`.
+
+```powershell
+# Set OS Disk
+$osDiskName = "osDisk"
+$VirtualMachine = Set-AzureRmVMOSDisk -VM $VirtualMachine -Name $osDiskName  `
+                                      -CreateOption FromImage -Windows
+```
+
+#### <a name="add-unmanaged-disk"></a>Přidat nespravovaný disk
+
+>[!NOTE]  
+>Tato část je určena pouze pro přidání nespravovaných disků. 
+
+Následující tři příkazy přiřadí cesty tří nespravovaných datových disků do proměnných `$DataDiskVhdUri01`, `$DataDiskVhdUri02`a `$DataDiskVhdUri03`. V adrese URL definujte jiný název cesty pro distribuci disků do různých kontejnerů:
 
 ```powershell
 $DataDiskVhdUri01 = "https://contoso.blob.local.azurestack.external/test1/data1.vhd"
@@ -199,84 +274,90 @@ $DataDiskVhdUri02 = "https://contoso.blob.local.azurestack.external/test2/data2.
 $DataDiskVhdUri03 = "https://contoso.blob.local.azurestack.external/test3/data3.vhd"
 ```
 
-Poslední tři příkazy přidávají datové disky do virtuálního počítače uloženého v `$VirtualMachine`. Každý příkaz určuje název, umístění a další vlastnosti disku. Identifikátor URI každého disku je uložený v `$DataDiskVhdUri01`, `$DataDiskVhdUri02`a `$DataDiskVhdUri03`:
+Následující tři příkazy přidávají datové disky do virtuálního počítače uloženého v `$VirtualMachine`. Každý příkaz určuje název a další vlastnosti disku. Identifikátor URI každého disku je uložený v `$DataDiskVhdUri01`, `$DataDiskVhdUri02`a `$DataDiskVhdUri03`:
 
 ```powershell
 $VirtualMachine = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name 'DataDisk1' `
-                -Caching 'ReadOnly' -DiskSizeInGB 10 -Lun 0 `
-                -VhdUri $DataDiskVhdUri01 -CreateOption Empty
+                                        -Caching 'ReadOnly' -DiskSizeInGB 10 -Lun 0 `
+                                        -VhdUri $DataDiskVhdUri01 -CreateOption Empty
 ```
 
 ```powershell
 $VirtualMachine = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name 'DataDisk2' `
-                -Caching 'ReadOnly' -DiskSizeInGB 11 -Lun 1 `
-                -VhdUri $DataDiskVhdUri02 -CreateOption Empty
+                                        -Caching 'ReadOnly' -DiskSizeInGB 11 -Lun 1 `
+                                        -VhdUri $DataDiskVhdUri02 -CreateOption Empty
 ```
 
 ```powershell
 $VirtualMachine = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name 'DataDisk3' `
-                -Caching 'ReadOnly' -DiskSizeInGB 12 -Lun 2 `
-                -VhdUri $DataDiskVhdUri03 -CreateOption Empty
+                                        -Caching 'ReadOnly' -DiskSizeInGB 12 -Lun 2 `
+                                        -VhdUri $DataDiskVhdUri03 -CreateOption Empty
 ```
 
-Pomocí následujících příkazů PowerShell přidejte do virtuálního počítače disk s operačním systémem a konfiguraci sítě a potom spusťte nový virtuální počítač:
+Následující příkazy přidají nespravovaný disk s operačním systémem do virtuálního počítače uloženého v `$VirtualMachine`.
 
 ```powershell
-# Set variables
-$rgName = "myResourceGroup"
-$location = "local"
 # Set OS Disk
 $osDiskUri = "https://contoso.blob.local.azurestack.external/vhds/osDisk.vhd"
 $osDiskName = "osDisk"
-
 $VirtualMachine = Set-AzureRmVMOSDisk -VM $VirtualMachine -Name $osDiskName -VhdUri $osDiskUri `
-    -CreateOption FromImage -Windows
+                                      -CreateOption FromImage -Windows
+```
 
-# Create a subnet configuration
-$subnetName = "mySubNet"
-$singleSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
 
-# Create a vnet configuration
-$vnetName = "myVnetName"
-$vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location `
-    -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
+#### <a name="create-new-virtual-machine"></a>Vytvořit nový virtuální počítač
+Pomocí následujících příkazů PowerShellu nastavte bitovou kopii operačního systému, přidejte do virtuálního počítače konfiguraci sítě a potom spusťte nový virtuální počítač.
 
-# Create a public IP
-$ipName = "myIP"
-$pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $location `
-    -AllocationMethod Dynamic
-
-# Create a network security group configuration
-$nsgName = "myNsg"
-$rdpRule = New-AzureRmNetworkSecurityRuleConfig -Name myRdpRule -Description "Allow RDP" `
-    -Access Allow -Protocol Tcp -Direction Inbound -Priority 110 `
-    -SourceAddressPrefix Internet -SourcePortRange * `
-    -DestinationAddressPrefix * -DestinationPortRange 3389
-$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $rgName -Location $location `
-    -Name $nsgName -SecurityRules $rdpRule
-
-# Create a NIC configuration
-$nicName = "myNicName"
-$nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName `
--Location $location -SubnetId $vnet.Subnets[0].Id -NetworkSecurityGroupId $nsg.Id -PublicIpAddressId $pip.Id
-
+```powershell
 #Create the new VM
-$VirtualMachine = Set-AzureRmVMOperatingSystem -VM $VirtualMachine -Windows -ComputerName VirtualMachine | `
-    Set-AzureRmVMSourceImage -PublisherName MicrosoftWindowsServer -Offer WindowsServer `
-    -Skus 2016-Datacenter -Version latest | Add-AzureRmVMNetworkInterface -Id $nic.Id
+$VirtualMachine = Set-AzureRmVMOperatingSystem -VM $VirtualMachine -Windows -ComputerName VirtualMachine -ProvisionVMAgent | `
+                  Set-AzureRmVMSourceImage -PublisherName MicrosoftWindowsServer -Offer WindowsServer `
+                  -Skus 2016-Datacenter -Version latest | Add-AzureRmVMNetworkInterface -Id $nic.Id
+
 New-AzureRmVM -ResourceGroupName $rgName -Location $location -VM $VirtualMachine
 ```
 
-### <a name="add-data-disks-to-an-existing-vm"></a>Přidání datových disků do existujícího virtuálního počítače
 
-Následující příklady používají příkazy prostředí PowerShell k přidání tří datových disků do existujícího virtuálního počítače. První příkaz načte virtuální počítač s názvem **VirtualMachine** pomocí rutiny **Get-AzureRmVM** . Příkaz uloží virtuální počítač do proměnné `$VirtualMachine`:
+### <a name="add-data-disks-to-an-existing-vm"></a>Přidání datových disků do **existujícího** virtuálního počítače
+Následující příklady používají příkazy prostředí PowerShell k přidání tří datových disků do existujícího virtuálního počítače.
+
+#### <a name="get-virtual-machine"></a>Získat virtuální počítač
+
+ První příkaz načte virtuální počítač s názvem **VirtualMachine** pomocí rutiny **Get-AzureRmVM** . Příkaz uloží virtuální počítač do proměnné `$VirtualMachine`:
 
 ```powershell
 $VirtualMachine = Get-AzureRmVM -ResourceGroupName "myResourceGroup" `
                                 -Name "VirtualMachine"
 ```
 
-Následující tři příkazy přiřadí cesty tří datových disků k proměnným `$DataDiskVhdUri01`, `$DataDiskVhdUri02`a `$DataDiskVhdUri03`. Názvy různých cest v identifikátorech URI VHD označují různé kontejnery pro umístění disku:
+#### <a name="add-managed-disk"></a>Přidat spravovaný disk
+
+>[!NOTE]  
+>Tato část je určena jenom pro přidávání spravovaných disků.
+
+Následující tři příkazy na virtuální počítač, který je uložený v proměnné `$VirtualMachine`, přidají spravované datové disky. Každý příkaz určuje název a další vlastnosti disku:
+
+```powershell
+Add-AzureRmVMDataDisk -VM $VirtualMachine -Name "DataDisk1" -Lun 0 `
+                      -Caching ReadOnly -DiskSizeinGB 10 -CreateOption Empty
+```
+
+```powershell
+Add-AzureRmVMDataDisk -VM $VirtualMachine -Name "DataDisk2" -Lun 1 `
+                      -Caching ReadOnly -DiskSizeinGB 11 -CreateOption Empty
+```
+
+```powershell
+Add-AzureRmVMDataDisk -VM $VirtualMachine -Name "DataDisk3" -Lun 2 `
+                      -Caching ReadOnly -DiskSizeinGB 12 -CreateOption Empty
+```
+
+#### <a name="add-unmanaged-disk"></a>Přidat nespravovaný disk
+
+>[!NOTE]  
+>Tato část je určena pouze pro přidání nespravovaných disků. 
+
+Následující tři příkazy přiřadí cesty pro tři datové disky do proměnných `$DataDiskVhdUri01`, `$DataDiskVhdUri02`a `$DataDiskVhdUri03`. Názvy různých cest v identifikátorech URI VHD označují různé kontejnery pro umístění disku:
 
 ```powershell
 $DataDiskVhdUri01 = "https://contoso.blob.local.azurestack.external/test1/data1.vhd"
@@ -293,24 +374,26 @@ $DataDiskVhdUri03 = "https://contoso.blob.local.azurestack.external/test3/data3.
 Následující tři příkazy přidají datové disky do virtuálního počítače uloženého v proměnné `$VirtualMachine`. Každý příkaz určuje název, umístění a další vlastnosti disku. Identifikátor URI každého disku je uložený v `$DataDiskVhdUri01`, `$DataDiskVhdUri02`a `$DataDiskVhdUri03`:
 
 ```powershell
-Add-AzureRmVMDataDisk -VM $VirtualMachine -Name "disk1" `
+Add-AzureRmVMDataDisk -VM $VirtualMachine -Name "DataDisk1" `
                       -VhdUri $DataDiskVhdUri01 -LUN 0 `
                       -Caching ReadOnly -DiskSizeinGB 10 -CreateOption Empty
 ```
 
 ```powershell
-Add-AzureRmVMDataDisk -VM $VirtualMachine -Name "disk2" `
+Add-AzureRmVMDataDisk -VM $VirtualMachine -Name "DataDisk2" `
                       -VhdUri $DataDiskVhdUri02 -LUN 1 `
                       -Caching ReadOnly -DiskSizeinGB 11 -CreateOption Empty
 ```
 
 ```powershell
-Add-AzureRmVMDataDisk -VM $VirtualMachine -Name "disk3" `
+Add-AzureRmVMDataDisk -VM $VirtualMachine -Name "DataDisk3" `
                       -VhdUri $DataDiskVhdUri03 -LUN 2 `
                       -Caching ReadOnly -DiskSizeinGB 12 -CreateOption Empty
 ```
 
-Poslední příkaz aktualizuje stav virtuálního počítače uloženého v `$VirtualMachine` `-ResourceGroupName`:
+#### <a name="update-virtual-machine-state"></a>Aktualizovat stav virtuálního počítače
+
+Tento příkaz aktualizuje stav virtuálního počítače uloženého v `$VirtualMachine` `-ResourceGroupName`:
 
 ```powershell
 Update-AzureRmVM -ResourceGroupName "myResourceGroup" -VM $VirtualMachine

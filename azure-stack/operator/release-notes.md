@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2019
+ms.date: 12/13/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 11/22/2019
-ms.openlocfilehash: db050565b7ef2b1b22192e7f39366ac1e341cd0f
-ms.sourcegitcommit: 53f7daf295783a30feb284d4c48c30c6936557c5
+ms.openlocfilehash: 54693e1aa67edd2851429e45f1a00365ca99160c
+ms.sourcegitcommit: 8b266d7bee8b9228e2b46ae69318a9e9994e6449
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74830971"
+ms.lasthandoff: 12/14/2019
+ms.locfileid: "75032334"
 ---
 # <a name="azure-stack-updates-release-notes"></a>Aktualizace Azure Stack: poznámky k verzi
 
@@ -218,7 +218,7 @@ Vydání verze 1910 Azure Stack se musí použít ve verzi 1908 s následující
 Po instalaci této aktualizace nainstalujte všechny příslušné opravy hotfix. Další informace najdete v našich [zásadách obsluhy](azure-stack-servicing-policy.md).
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- Pro 1910 není k dispozici žádná oprava hotfix.
+- [Azure Stack opravy hotfix 1.1910.8.76](https://support.microsoft.com/help/4534999)
 ::: moniker-end
 
 ::: moniker range="azs-1908"
