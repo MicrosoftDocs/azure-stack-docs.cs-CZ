@@ -16,12 +16,12 @@ ms.date: 12/13/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 77163d12cd23e578bcc9ae7f30f5343fd106ee5b
-ms.sourcegitcommit: 8b266d7bee8b9228e2b46ae69318a9e9994e6449
+ms.openlocfilehash: 755bd556d9e4643ff5e17d900cdf7e5245f1894e
+ms.sourcegitcommit: 7dd9d7bc2b86cca3be5118da149c1d422b2fb09d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2019
-ms.locfileid: "75032351"
+ms.lasthandoff: 12/16/2019
+ms.locfileid: "75033941"
 ---
 # <a name="azure-stack-known-issues"></a>Azure Stack známé problémy
 
@@ -46,7 +46,6 @@ Chcete-li získat přístup ke známým problémům pro jinou verzi, použijte r
 ## <a name="update"></a>Aktualizovat
 
 Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešení potíží s aktualizacemi v centru Azure Stack](azure-stack-updates-troubleshoot.md).
-
 
 ## <a name="portal"></a>Portál
 
@@ -236,8 +235,15 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 ### <a name="consumed-compute-quota"></a>Spotřebovaná kvóta COMPUTE
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
-- Při vytváření nového virtuálního počítače se může zobrazit chyba, například **Toto předplatné je v kapacitě celkového regionu vCPU v tomto umístění. V tomto předplatném je k dispozici všechny dostupné vCPU celkové oblasti 50.** To znamená, že byla dosažena kvóta pro celkový počet jader, která jsou k dispozici.
+- Příčina: při vytváření nového virtuálního počítače se může zobrazit chyba, například **Toto předplatné má kapacitu pro celkovou oblast vCPU v tomto umístění. V tomto předplatném je k dispozici všechny dostupné vCPU celkové oblasti 50.** To znamená, že byla dosažena kvóta pro celkový počet jader, která jsou k dispozici.
 - Náprava: Zeptejte se operátora na plán doplňku s dodatečnou kvótou. Úpravy kvóty aktuálního plánu nebudou fungovat ani by odrážely vyšší kvótu.
+- Výskyt: vzácná
+
+### <a name="privileged-endpoint"></a>Privilegovaný koncový bod
+
+- Platí: Tento problém se týká 1910 a starších verzí.
+- Příčina: k privilegovanému koncovému bodu (virtuálním počítačům s ERC) se nejde připojit z počítače, na kterém běží jiná než anglická verze Windows.
+- Náprava: Jedná se o známý problém, který byl vyřešen v vydáních později než 1910. Jako alternativní řešení můžete spustit rutiny prostředí PowerShell **New-PSSession** a **Enter-PSSession** pomocí jazykové verze **en-US** . v příkladech nastavte jazykovou verzi pomocí tohoto skriptu: https://resources.oreilly.com/examples/9780596528492/blob/master/Use-Culture.ps1.
 - Výskyt: vzácná
 
 ### <a name="virtual-machine-scale-set"></a>Škálovací sada virtuálních počítačů

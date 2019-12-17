@@ -12,17 +12,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/30/2019
+ms.date: 12/13/2019
 ms.reviewer: ppacent
 ms.author: mabrigg
-ms.lastreviewed: 09/30/2019
+ms.lastreviewed: 12/13/2019
 monikerRange: '>=azs-1802'
-ms.openlocfilehash: 14c1d6ba96cd8c9671b28f435db90b7b3ce3ad34
-ms.sourcegitcommit: ae9d29c6a158948a7dbc4fd53082984eba890c59
+ms.openlocfilehash: 2d6329a150e4ab1a81e9c9d092101a085d00afd0
+ms.sourcegitcommit: 7dd9d7bc2b86cca3be5118da149c1d422b2fb09d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/12/2019
-ms.locfileid: "75007975"
+ms.lasthandoff: 12/16/2019
+ms.locfileid: "75033958"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Otočení tajných kódů v Azure Stack
 
@@ -386,6 +386,10 @@ Tento příkaz otočí všechny tajné klíče infrastruktury vystavené Azure S
 1. **Verze starší než 1910**: aktualizujte BMC na Azure Stack fyzických serverech podle pokynů výrobce OEM. Uživatelské jméno a heslo pro každý řadič pro správu základní desky ve vašem prostředí musí být stejné. Uživatelská jména řadiče pro správu základní desky nesmí být delší než 16 znaků.
 
    **Verze 1910 a novější**: již není nutné, abyste nejprve aktualizovali přihlašovací údaje řadiče pro správu základní desky na Azure Stack fyzických serverech podle pokynů výrobce OEM. Uživatelské jméno a heslo pro každý řadič pro správu základní desky ve vašem prostředí musí být stejné. Uživatelská jména řadiče pro správu základní desky nesmí být delší než 16 znaků.
+
+    | Parametr | Popis | Stav |
+    | --- | --- | --- |
+    | BypassBMCUpdate | Když použijete parametr, přihlašovací údaje v řadiči pro správu základní desky se neaktualizují. Aktualizuje se jenom interní úložiště dat Azure Stack. | Volitelné |
 
 2. V Azure Stack relacích otevřete privilegovaný koncový bod. Pokyny najdete v tématu [použití privilegovaného koncového bodu v Azure Stack](azure-stack-privileged-endpoint.md).
 

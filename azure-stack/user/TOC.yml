@@ -37,6 +37,8 @@
           items:
             - name: Nastavení vývojového prostředí
               href: azure-stack-dev-start.md
+            - name: Získat informace o autorizaci
+              href: authenticate-azure-stack-hub.md
             - name: Použití PowerShellu s Azure Stack hub
               items:
                 - name: Azure Stack centra PowerShell – přehled
@@ -67,7 +69,7 @@
           items:
             - name: Přehled šablon
               href: azure-stack-arm-templates.md
-            - name: Pokyny pro šablonu
+            - name: Aspekty šablon
               href: azure-stack-develop-templates.md
             - name: Vývoj šablon v Azure
               href: azure-stack-developer.md
@@ -101,7 +103,7 @@
               href: azure-stack-version-profiles-python.md
             - name: NodeJS
               href: azure-stack-version-profile-nodejs.md
-            - name: Rozhraní API pro poskytovatele prostředků podporovaná profily
+            - name: Poskytovatel prostředků rozhraní API podporuje profily
               href: azure-stack-profiles-azure-resource-manager-versions.md
     - name: Použití poskytovatelů prostředků
       items:
@@ -123,13 +125,13 @@
                   href: azure-stack-vm-sizes.md
                 - name: Správa disků virtuálních počítačů
                   href: azure-stack-manage-vm-disks.md
-                - name: Požadavky na Managed disks
+                - name: Důležité informace o spravovaných discích
                   href: azure-stack-managed-disk-considerations.md
                 - name: Ochrana virtuálních počítačů
                   href: azure-stack-manage-vm-protect.md
-                - name: Aktualizace a správa virtuálních počítačů
+                - name: Aktualizace virtuálního počítače a správy
                   href: vm-update-management.md
-                - name: Požadavky na SQL Server VM
+                - name: Důležité informace o virtuální počítač s SQL serverem
                   href: azure-stack-sql-server-vm-considerations.md
             - name: Úložiště
               items:
@@ -153,11 +155,11 @@
                   items:
                     - name: Připojení pomocí VPN
                       href: azure-stack-connect-vpn.md
-                    - name: Informace o službě VPN Gateway
+                    - name: Informace o službě VPN gateway
                       href: azure-stack-vpn-gateway-about-vpn-gateways.md
                     - name: Konfigurace zásad připojení IPSec/IKE
                       href: azure-stack-vpn-s2s.md
-                    - name: Nastavení služby VPN Gateway
+                    - name: Nastavení služby VPN gateway
                       href: azure-stack-vpn-gateway-settings.md
                 - name: IDN pro centrum Azure Stack
                   href: azure-stack-understanding-dns.md
@@ -188,7 +190,7 @@
                   href: azure-stack-metrics-monitor.md
         - name: Nasazení doplňkových služeb
           items:
-            - name: Nasazení Ethereem
+            - name: Ethereum během nasazení
               href: azure-stack-ethereum.md
             - name: Nasazení clusteru Service Fabric
               href: azure-stack-solution-template-service-fabric-cluster.md
@@ -232,7 +234,7 @@
                       href: azure-stack-solution-template-kubernetes-trouble.md
             - name: Nasazení Cognitive Services
               href: azure-stack-solution-template-cognitive-services.md
-    - name: Nasazení aplikací
+    - name: Nasazování aplikací
       items:
         - name: 'Nasazení C# webové aplikace na virtuální počítač s Windows'
           href: azure-stack-dev-start-howto-vm-dotnet.md
@@ -310,15 +312,15 @@
   items:
     - name: Dokumentace k operátorovi centra Azure Stack
       href: /azure-stack/operator/
-    - name: Dokumentace k ASDK
+    - name: Dokumentace ke službě ASDK
       href: /azure-stack/asdk/
 - name: Materiály
   items:
-    - name: Azure Stack plán
+    - name: Plán služby Azure Stack
       href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'
-    - name: Azure Stack Fórum MSDN
+    - name: Fóru pro Azure Stack MSDN
       href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack'
-    - name: Váš názor na dokumentaci Azure Stack
+    - name: Váš názor na Azure Stack dokumentace
       href: 'https://feedback.azure.com/forums/344565-azure-stack?category_id=160275'
     - name: Informace o cenách
       href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'
