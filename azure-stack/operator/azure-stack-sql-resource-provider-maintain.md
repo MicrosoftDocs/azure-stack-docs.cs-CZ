@@ -16,12 +16,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 8d8464c35b2aaa48c5611f7eac84ed6f9d80e866
-ms.sourcegitcommit: 08d2938006b743b76fba42778db79202d7c3e1c4
+ms.openlocfilehash: 5841509f9c5c9aef20dd2687adb0e54856fa5d3e
+ms.sourcegitcommit: de577d821d3b93ab524fee9e7a18a07c0ecc243c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74954498"
+ms.lasthandoff: 12/17/2019
+ms.locfileid: "75183527"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>Operace údržby poskytovatele prostředků SQL
 
@@ -231,6 +231,27 @@ $cleanup = Invoke-Command -Session $session -ScriptBlock {Remove-AzsDBAdapterLog
 # Close the session.
 $session | Remove-PSSession
 ```
+## <a name="configure-azure-diagnostics-extension-for-sql-resource-provider"></a>Konfigurace rozšíření Azure Diagnostics pro poskytovatele prostředků SQL
+Ve výchozím nastavení je na virtuálním počítači adaptéru poskytovatele prostředků SQL nainstalované rozšíření Azure Diagnostics. Následující kroky ukazují, jak přizpůsobit rozšíření pro shromáždění protokolů provozní události poskytovatele prostředků SQL a protokolů IIS pro účely řešení potíží a auditování.
+
+1. Přihlaste se k portálu pro správu centra Azure Stack.
+
+2. V levém podokně vyberte **virtuální počítače** , vyhledejte virtuální počítač adaptéru poskytovatele prostředků SQL a vyberte virtuální počítač.
+
+3. V **nastavení diagnostiky** virtuálního počítače otevřete kartu **protokoly** a výběrem možnosti **vlastní** Přizpůsobte shromážděné protokoly událostí.
+![přejít na nastavení diagnostiky](media/azure-stack-sql-resource-provider-maintain/sqlrp-diagnostics-settings.png)
+
+4. Přidejte **Microsoft-AzureStack-DatabaseAdapter/Operational!\*** ke shromáždění protokolů provozních událostí poskytovatele prostředků SQL.
+![přidat protokoly událostí](media/azure-stack-sql-resource-provider-maintain/sqlrp-event-logs.png)
+
+5. Chcete-li povolit shromažďování protokolů služby IIS, zaškrtněte **protokoly služby IIS** a **protokoly neúspěšných požadavků**.
+![přidání protokolů IIS](media/azure-stack-sql-resource-provider-maintain/sqlrp-iis-logs.png)
+
+6. Nakonec výběrem možnosti **Uložit** uložte všechna nastavení diagnostiky.
+
+Jakmile jsou protokoly událostí a kolekce protokolů služby IIS nakonfigurované pro poskytovatele prostředků SQL, můžete protokoly najít v účtu úložiště systému s názvem **sqladapterdiagaccount**.
+
+Další informace o rozšíření Azure Diagnostics najdete v tématu [co je to Azure Diagnostics rozšíření](/azure-monitor/platform/diagnostics-extension-overview).
 
 ## <a name="next-steps"></a>Další kroky
 

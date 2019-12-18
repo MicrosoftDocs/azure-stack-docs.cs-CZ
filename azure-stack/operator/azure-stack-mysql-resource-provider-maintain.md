@@ -15,12 +15,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 9dc2de86828e188aa82b44d376e693be887717d8
-ms.sourcegitcommit: a23b80b57668615c341c370b70d0a106a37a02da
+ms.openlocfilehash: 75135801bf5762f597ae70d980588dedadf31b36
+ms.sourcegitcommit: de577d821d3b93ab524fee9e7a18a07c0ecc243c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72682180"
+ms.lasthandoff: 12/17/2019
+ms.locfileid: "75183427"
 ---
 # <a name="mysql-resource-provider-maintenance-operations-in-azure-stack"></a>Operace údržby poskytovatele prostředků MySQL v Azure Stack
 
@@ -169,8 +169,8 @@ Pokud používáte poskytovatele prostředků SQL a MySQL s Azure Stack integrov
 **Problém**:<br>
 Protokoly pro rotaci tajných klíčů nejsou automaticky shromažďovány, pokud při spuštění dojde k chybě skriptu pro otočení tajného klíče.
 
-**Odstraníte**<br>
-Pomocí rutiny Get-AzsDBAdapterLogs Shromážděte všechny protokoly poskytovatele prostředků, včetně AzureStack. DatabaseAdapter. SecretRotation. ps1 _*. log uloženého v C:\Logs.
+**Alternativní řešení:**<br>
+Pomocí rutiny Get-AzsDBAdapterLogs Shromážděte všechny protokoly poskytovatele prostředků, včetně AzureStack. DatabaseAdapter. SecretRotation. ps1_ *. log, uložené v C:\Logs.
 
 ## <a name="collect-diagnostic-logs"></a>Shromažďovat diagnostické protokoly
 
@@ -225,6 +225,32 @@ $cleanup = Invoke-Command -Session $session -ScriptBlock {Remove-AzsDBAdapterLog
 $session | Remove-PSSession
 
 ```
+
+## <a name="configure-azure-diagnostics-extension-for-mysql-resource-provider"></a>Konfigurace rozšíření Azure Diagnostics pro poskytovatele prostředků MySQL
+
+Ve výchozím nastavení je na virtuálním počítači adaptéru poskytovatele prostředků MySQL nainstalováno rozšíření Azure Diagnostics. Následující kroky ukazují, jak přizpůsobit rozšíření pro shromáždění protokolů provozní události poskytovatele prostředků MySQL a protokolů IIS pro účely řešení potíží a auditování.
+
+1. Přihlaste se k portálu pro správu centra Azure Stack.
+
+2. V levém podokně vyberte **virtuální počítače** , vyhledejte virtuální počítač adaptéru poskytovatele prostředků MySQL a vyberte virtuální počítač.
+
+3. V **nastavení diagnostiky** virtuálního počítače otevřete kartu **protokoly** a výběrem možnosti **vlastní** Přizpůsobte shromážděné protokoly událostí.
+   
+   ![Přejít na nastavení diagnostiky](media/azure-stack-mysql-resource-provider-maintain/mysqlrp-diagnostics-settings.png)
+
+4. Přidejte **Microsoft-AzureStack-DatabaseAdapter/Operational!\*** pro shromáždění protokolů provozních událostí poskytovatele prostředků MySQL.
+
+   ![Přidat protokoly událostí](media/azure-stack-mysql-resource-provider-maintain/mysqlrp-event-logs.png)
+
+5. Chcete-li povolit shromažďování protokolů služby IIS, zaškrtněte **protokoly služby IIS** a **protokoly neúspěšných požadavků**.
+
+   ![Přidat protokoly IIS](media/azure-stack-mysql-resource-provider-maintain/mysqlrp-iis-logs.png)
+
+6. Nakonec výběrem možnosti **Uložit** uložte všechna nastavení diagnostiky.
+
+Jakmile jsou protokoly událostí a kolekce protokolů služby IIS nakonfigurované pro poskytovatele prostředků MySQL, můžete protokoly najít v účtu úložiště systému s názvem **mysqladapterdiagaccount**.
+
+Další informace o rozšíření Azure Diagnostics najdete v tématu [co je to Azure Diagnostics rozšíření](/azure-monitor/platform/diagnostics-extension-overview).
 
 ## <a name="next-steps"></a>Další kroky
 

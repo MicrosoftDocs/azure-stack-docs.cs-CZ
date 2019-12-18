@@ -254,30 +254,35 @@
               href: azure-stack-dev-start-howto-vm-nodejs.md
     - name: Nasazení základních vzorů
       items:
-        - name: Partnerský vztah virtuální sítě
+        - name: Modely sítě
           items:
-            - name: VNet peering s FortiGate
-              href: azure-stack-network-howto-vnet-to-vnet.md
             - name: Partnerský vztah virtuální sítě s virtuálními počítači
               href: azure-stack-network-howto-vnet-peering.md
-        - name: Nastavit VPN na Prem
-          href: azure-stack-network-howto-vnet-to-onprem.md
-        - name: Připojení virtuální sítě k virtuální síti
-          href: azure-stack-network-howto-vnet-to-vnet-stacks.md
-        - name: Rozšiřování datového centra
-          href: azure-stack-network-howto-extend-datacenter.md
+            - name: Použití síťová virtuální zařízení třetí strany (Fortinet FortiGate síťové virtuální zařízení)
+              items:
+                - name: VNet peering s FortiGate
+                  href: azure-stack-network-howto-vnet-to-vnet.md
+                - name: Nastavit VPN na Prem
+                  href: azure-stack-network-howto-vnet-to-onprem.md
+                - name: Připojení virtuální sítě k virtuální síti
+                  href: azure-stack-network-howto-vnet-to-vnet-stacks.md
+            - name: Použití služby RRAS
+              items:
+                - name: Nastavení více sítí VPN typu Site-to-site
+                  href: network-howto-vpn-tunnel.md
+                - name: Vytvoření tunelu VPN (GRE)
+                  href: network-howto-vpn-tunnel-gre.md
+                - name: Vytvoření tunelu VPN (IPSEC)
+                  href: network-howto-vpn-tunnel-ipsec.md
         - name: F5 pro vyrovnávání zatížení
           href: network-howto-f5.md
-        - name: Připojení k úložišti iSCSI
-          href: azure-stack-network-howto-iscsi-storage.md
-        - name: Nastavení tunelů
+        - name: Připojit k externímu úložišti
           items:
-            - name: Nastavení více sítí VPN typu Site-to-site
-              href: network-howto-vpn-tunnel.md
-            - name: Vytvoření tunelu VPN (GRE)
-              href: network-howto-vpn-tunnel-gre.md
-            - name: Vytvoření tunelu VPN (IPSEC)
-              href: network-howto-vpn-tunnel-ipsec.md
+            - name: Připojení k úložišti iSCSI
+              href: azure-stack-network-howto-iscsi-storage.md
+            - name: Rozšiřování datového centra
+              href: azure-stack-network-howto-extend-datacenter.md
+        - name: Partnerský vztah virtuální sítě
         - name: Zálohování a obnovení
           items:
             - name: Zálohování virtuálního počítače na Azure Stack pomocí CommVault
