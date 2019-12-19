@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2019
+ms.date: 12/18/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 11/22/2019
-ms.openlocfilehash: 54693e1aa67edd2851429e45f1a00365ca99160c
-ms.sourcegitcommit: 8b266d7bee8b9228e2b46ae69318a9e9994e6449
+ms.openlocfilehash: 8c124f44ed938108a4b23cea44642b7e275eb04d
+ms.sourcegitcommit: c0fe1ac8c38d0475621ad8022db96983f9e5ae79
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2019
-ms.locfileid: "75032334"
+ms.lasthandoff: 12/18/2019
+ms.locfileid: "75188399"
 ---
 # <a name="azure-stack-updates-release-notes"></a>Aktualizace Azure Stack: poznámky k verzi
 
@@ -211,7 +211,7 @@ Azure Stack oprav hotfix se týkají pouze Azure Stack integrovaných systémů.
 Vydání verze 1910 Azure Stack se musí použít ve verzi 1908 s následujícími opravami hotfix:
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack opravy hotfix 1.1908.9.43](https://support.microsoft.com/help/4531007)
+- [Azure Stack opravy hotfix 1.1908.11.47](https://support.microsoft.com/help/4535000)
 
 ### <a name="after-successfully-applying-the-1910-update"></a>Po úspěšné instalaci aktualizace 1910
 
@@ -295,7 +295,7 @@ Aktualizace Azure Stack 1908 vyžaduje **Azure Stack OEM verze 2,1 nebo novějš
 Po instalaci této aktualizace nainstalujte všechny příslušné opravy hotfix. Další informace najdete v našich [zásadách obsluhy](azure-stack-servicing-policy.md).
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack opravy hotfix 1.1908.9.43](https://support.microsoft.com/help/4531007)
+- [Azure Stack opravy hotfix 1.1908.11.47](https://support.microsoft.com/help/4535000)
 ::: moniker-end
 
 ::: moniker range="azs-1907"

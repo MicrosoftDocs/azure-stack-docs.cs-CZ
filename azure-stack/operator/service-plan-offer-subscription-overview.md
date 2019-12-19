@@ -8,20 +8,20 @@ manager: femila
 editor: ''
 ms.service: azure-stack
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 12/18/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 10/01/2019
-ms.openlocfilehash: 2242da61eaa457a8cc234fb3310787eb26b9148e
-ms.sourcegitcommit: acebda8a42ac8ecdeba490fc1738e9041479dab0
+ms.openlocfilehash: a228e20de1786529374e5e2431ca7bb79a9c14bf
+ms.sourcegitcommit: f3d40c9fe73cf0a32fc643832085de887edf7cf3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72814070"
+ms.lasthandoff: 12/18/2019
+ms.locfileid: "75187266"
 ---
 # <a name="azure-stack-services-plans-offers-subscriptions-overview"></a>Přehled služby Azure Stack Services, plánů, nabídek a předplatných
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
 
 [Microsoft Azure Stack](azure-stack-overview.md) je hybridní cloudová platforma, která umožňuje doručovat služby z vašeho datového centra. Služby zahrnují virtuální počítače, SQL Server databáze, SharePoint, Exchange a dokonce i [Azure Marketplace položky](azure-stack-marketplace-azure-items.md). Jako poskytovatel služeb můžete nabízet služby vašim klientům. V rámci státní nebo státní instituce můžete svým zaměstnancům nabídnout místní služby.
 

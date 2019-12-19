@@ -8,12 +8,12 @@ ms.date: 10/31/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 10/31/2019
-ms.openlocfilehash: a7a7563db3c315c4913287e8f286f07abd633602
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: d165381b6f8f3138d434b8d62376feb8879a21b3
+ms.sourcegitcommit: f3d40c9fe73cf0a32fc643832085de887edf7cf3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73638351"
+ms.lasthandoff: 12/18/2019
+ms.locfileid: "75187276"
 ---
 # <a name="footfall-detection-pattern"></a>Model detekce Footfall
 
@@ -37,25 +37,25 @@ Tady je přehled toho, jak řešení funguje:
 2. Pokud se model dohlíží na osobu, převezme obrázek a nahraje ho pro Azure Stack úložiště objektů BLOB hub. 
 3. Služba BLOB Service aktivuje funkci Azure ve službě Azure Stack hub. 
 4. Funkce Azure volá kontejner s Face API, aby získala data demografických a emoce z obrázku.
-5. Data se replikují a odesílají do centra událostí Azure.
-6. Centrum událostí odesílá data do Stream Analytics.
+5. Data se v clusteru Azure Event Hubs neodesílají a odešlou.
+6. Cluster Event Hubs zasune data do Stream Analytics.
 7. Stream Analytics agreguje data a odešle je do Power BI.
 
 ## <a name="components"></a>Komponenty
 
 Toto řešení používá následující komponenty:
 
-| Vrstvení | Součást | Popis |
+| Vrstva | Součást | Popis |
 |----------|-----------|-------------|
 | Hardware v obchodě | [Custom Vision AI dev Kit](https://azure.github.io/Vision-AI-DevKit-Pages/) | Poskytuje filtrování in-Store pomocí místního modelu ML, který zachycuje jenom obrázky lidí pro účely analýzy. Bezpečně zřízené a aktualizované prostřednictvím IoT Hub.<br><br>|
 | Azure | [Azure Event Hubs](/azure/event-hubs/) | Azure Event Hubs poskytuje škálovatelnou platformu pro ingestování anonymních dat, která se v Azure Stream Analytics integrují s využitím. |
 |  | [Azure Stream Analytics](/azure/stream-analytics/) | Úloha Azure Stream Analytics agreguje data a seskupuje je do 15 sekund Windows pro vizualizaci. |
-|  | [Power BI Microsoftu](https://powerbi.microsoft.com/) | Power BI poskytuje snadno použitelné rozhraní řídicího panelu pro zobrazení výstupu z Azure Stream Analytics. |
-| Centrum Azure Stack | [App Service](../operator/azure-stack-app-service-overview.md) | Poskytovatel prostředků App Service (RP) poskytuje základ pro komponenty Edge. Včetně funkcí hostování a správy pro webové aplikace/rozhraní API a funkce. |
+|  | [Microsoft Power BI](https://powerbi.microsoft.com/) | Power BI poskytuje snadno použitelné rozhraní řídicího panelu pro zobrazení výstupu z Azure Stream Analytics. |
+| Azure Stack Hub | [App Service](../operator/azure-stack-app-service-overview.md) | Poskytovatel prostředků App Service (RP) poskytuje základ pro komponenty Edge. Včetně funkcí hostování a správy pro webové aplikace/rozhraní API a funkce. |
 | | Cluster [modulu AKS (](https://github.com/Azure/aks-engine) Azure Kubernetes Service) | AKS RP s clusterem AKS nasazeným do centra Azure Stack přináší škálovatelný a odolný modul pro spuštění kontejneru Face API. |
 | | [Kontejnery Face API](/azure/cognitive-services/face/face-how-to-install-containers) Azure Cognitive Services| Azure Cognitive Services RP s Face API Containers poskytuje demografické, emoce a jedinečné zjišťování návštěvníků v privátní síti společnosti Contoso. |
 | | Blob Storage | Image zachycené ze sady AI dev Kit se nahrají do úložiště objektů BLOB v centru Azure Stack. |
-| | Funkce Azure | Funkce Azure spuštěná v centru Azure Stack přijímá vstup z úložiště objektů BLOB a spravuje interakce s Face API. Emituje data do centra událostí umístěného v Azure.<br><br>|
+| | Funkce Azure | Funkce Azure spuštěná v centru Azure Stack přijímá vstup z úložiště objektů BLOB a spravuje interakce s Face API. Emituje data do clusteru Event Hubs umístěného v Azure.<br><br>|
 
 ## <a name="issues-and-considerations"></a>Problémy a důležité informace
 
@@ -67,7 +67,7 @@ Pokud chcete toto řešení povolit pro škálování napříč několika fotoap
 
 - Zvýšit počet Stream Analytics jednotek streamování
 - Horizontální navýšení kapacity Face API nasazení
-- Zvýšení propustnosti Event Hubs
+- Zvýšení propustnosti Event Hubs clusteru
 - V extrémních případech může být potřeba migrovat z Azure Functions do virtuálního počítače.
 
 ### <a name="availability"></a>Dostupnost
