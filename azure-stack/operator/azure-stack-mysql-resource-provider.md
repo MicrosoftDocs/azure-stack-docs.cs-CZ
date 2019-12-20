@@ -15,18 +15,16 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: b66a72ce872d64f8fde3cb80ced5e6ad33d80b4d
-ms.sourcegitcommit: d619612f54eeba3231ed73ed149ff894f9bf838a
+ms.openlocfilehash: ceda705c4a06ac9465c3f017a87986ba6e20e4b3
+ms.sourcegitcommit: e57a53caac50d1f8762307e065fe886fcda7eadf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74993779"
+ms.lasthandoff: 12/19/2019
+ms.locfileid: "75190858"
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Použití databází MySQL na Microsoft Azure Stack
 
-Databáze MySQL se běžně používají s weby a podporují mnoho platforem webu. Můžete například vytvořit weby WordPress pomocí doplňku poskytovatele prostředků App Services (PaaS).
-
-Po nasazení poskytovatele prostředků a jeho propojení s jednou nebo více instancemi serveru MySQL můžete:
+Pomocí poskytovatele prostředků MySQL poskytněte službu MySQL Database Service v [Azure Stack](azure-stack-overview.md). Po nasazení poskytovatele prostředků a jeho propojení s jednou nebo více instancemi serveru MySQL můžete:
 
 * Vytvářejte databáze MySQL pomocí Azure Resource Manager šablon nasazení.
 * Poskytněte databáze MySQL jako službu.  

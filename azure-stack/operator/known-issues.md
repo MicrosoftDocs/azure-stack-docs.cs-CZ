@@ -1,6 +1,6 @@
 ---
-title: Azure Stack známé problémy
-description: Přečtěte si o známých problémech v Azure Stack verzích.
+title: Známé problémy centra Azure Stack
+description: Přečtěte si o známých problémech v Azure Stackch vydáních centra.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -12,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2019
+ms.date: 12/18/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 755bd556d9e4643ff5e17d900cdf7e5245f1894e
-ms.sourcegitcommit: 7dd9d7bc2b86cca3be5118da149c1d422b2fb09d
+ms.openlocfilehash: fd65fd8fc43135ac9c7985fc4d6a90f4ced90f45
+ms.sourcegitcommit: c3be6b2e962c5905eb3c54f9555e13095f6b4d40
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/16/2019
-ms.locfileid: "75033941"
+ms.lasthandoff: 12/20/2019
+ms.locfileid: "75303768"
 ---
-# <a name="azure-stack-known-issues"></a>Azure Stack známé problémy
+# <a name="azure-stack-hub-known-issues"></a>Známé problémy centra Azure Stack
 
-V tomto článku jsou uvedené známé problémy ve verzích Azure Stack. Seznam se aktualizuje, protože se identifikují nové problémy.
+V tomto článku jsou uvedené známé problémy v části vydání centra Azure Stack. Seznam se aktualizuje, protože se identifikují nové problémy.
 
 Chcete-li získat přístup ke známým problémům pro jinou verzi, použijte rozevírací nabídku selektor verzí nad obsahem vlevo.
 
@@ -35,7 +35,7 @@ Chcete-li získat přístup ke známým problémům pro jinou verzi, použijte r
 ::: moniker-end
 ::: moniker range="<azs-1906"
 > [!IMPORTANT]  
-> Pokud je vaše instance Azure Stack za více než dvěma aktualizacemi, je považována za nedodržující předpisy. Aby bylo možné [získat podporu, musíte aktualizovat aspoň minimální podporovanou verzi](azure-stack-servicing-policy.md#keep-your-system-under-support). 
+> Pokud je vaše instance centra Azure Stack za více než dvěma aktualizacemi, je považována za nedodržující předpisy. Aby bylo možné [získat podporu, musíte aktualizovat aspoň minimální podporovanou verzi](azure-stack-servicing-policy.md#keep-your-system-under-support). 
 ::: moniker-end
 
 <!---------------------------------------------------------->
@@ -65,14 +65,14 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 ### <a name="subscription-permissions"></a>Oprávnění předplatného
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: k předplatnému nemůžete pomocí portálů Azure Stack zobrazit oprávnění.
+- Příčina: k předplatnému nemůžete pomocí portálů Azure Stack hub zobrazit oprávnění.
 - Náprava: [k ověření oprávnění použijte PowerShell](/powershell/module/azurerm.resources/get-azurermroleassignment).
 - Výskyt: běžné
 
 ### <a name="storage-account-settings"></a>Nastavení účtu úložiště
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: na portálu User Portal zobrazuje okno **Konfigurace** účtu úložiště možnost změny **typu přenosu zabezpečení**. Tato funkce v současnosti není v Azure Stack podporovaná.
+- Příčina: na portálu User Portal zobrazuje okno **Konfigurace** účtu úložiště možnost změny **typu přenosu zabezpečení**. Tato funkce v současnosti není v centru Azure Stack podporována.
 - Výskyt: běžné
 
 ### <a name="upload-blob-with-oauth-error"></a>Nahrát objekt BLOB s chybou OAuth
@@ -85,7 +85,7 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 ### <a name="upload-blob-option-unsupported"></a>Možnost nahrát objekt BLOB není podporována
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: na portálu User Portal se při pokusu o nahrání objektu BLOB v okně nahrávání dá vybrat možnost ověřování **AAD** nebo **klíč**, ale v Azure Stack se nepodporují **AAD** .
+- Příčina: na portálu User Portal se při pokusu o nahrání objektu BLOB v okně nahrávání dá vybrat možnost ověřování **AAD** nebo **klíč**, ale v centru Azure Stack se nepodporuje **AAD** .
 - Výskyt: běžné
 
 ### <a name="load-balancer-backend-pool"></a>Back-end fond nástroje pro vyrovnávání zatížení
@@ -97,13 +97,13 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 ### <a name="incorrect-tooltip-when-creating-vm"></a>Nesprávný popis při vytváření virtuálního počítače
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: když v uživatelském portálu vyberete spravovaný disk s typem disku SSD úrovně Premium, zobrazí se v rozevíracím seznamu **disk s operačním systémem**. Popis vedle této možnosti říká, že **některé velikosti disků s operačním systémem můžou být dostupné zdarma s bezplatným účtem Azure**; to však není platné pro Azure Stack. Seznam navíc zahrnuje **bezplatný nárok na účet** , který není platný i pro Azure Stack.
+- Příčina: když v uživatelském portálu vyberete spravovaný disk s typem disku SSD úrovně Premium, zobrazí se v rozevíracím seznamu **disk s operačním systémem**. Popis vedle této možnosti říká, že **některé velikosti disků s operačním systémem můžou být dostupné zdarma s bezplatným účtem Azure**; to však není platné pro Azure Stack hub. Seznam navíc zahrnuje **bezplatný nárok na účet** , který není platný i pro centrum Azure Stack.
 - Výskyt: běžné
 
 ### <a name="vpn-troubleshoot-and-metrics"></a>Řešení potíží a metriky sítě VPN
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: na portálu User Portal se zobrazí funkce **řešení potíží s VPN** a **metriky** v prostředku brány sítě VPN, ale tato možnost není v Azure Stack podporovaná.
+- Příčina: na portálu User Portal se zobrazí funkce **řešení potíží s VPN** a **metriky** v prostředku brány sítě VPN, ale toto nastavení není v centru Azure Stack podporováno.
 - Výskyt: běžné
 
 ### <a name="adding-extension-to-vm-scale-set"></a>Přidání rozšíření do sady škálování virtuálního počítače
@@ -129,13 +129,13 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 ### <a name="virtual-network-gateway"></a>Brána virtuální sítě
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: když v uživatelském portálu vytvoříte směrovací tabulku, **Virtual Network brána** se zobrazí jako jedna z možností dalšího typu segmentu směrování. v Azure Stack to ale není podporované.
+- Příčina: když v uživatelském portálu vytvoříte směrovací tabulku, **Virtual Network brána** se zobrazí jako jedna z možností dalšího typu segmentu směrování. To se ale v centru Azure Stack nepodporuje.
 - Výskyt: běžné
 
 ### <a name="storage-account-options"></a>Možnosti účtu úložiště
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: na portálu User Portal se názvy účtů úložiště zobrazují jako **účet úložiště – objekt blob, soubor, tabulka, fronta**, ale **soubor** se v Azure Stack nepodporuje.
+- Příčina: na portálu User Portal se názvy účtů úložiště zobrazují jako **účet úložiště – objekt blob, soubor, tabulka, fronta**; v Azure Stackovém centru se ale nepodporuje **soubor** .
 - Výskyt: běžné
 
 ### <a name="storage-account-configuration"></a>Konfigurace účtu úložiště
@@ -146,16 +146,22 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 
 ### <a name="capacity-monitoring-in-sql-resource-provider-keeps-loading"></a>Sledování kapacity v poskytovateli prostředků SQL udržuje načítání
 
-- Platí: Tento problém se týká Azure Stack 1910 Update nebo novějšího s nainstalovaným poskytovatelem prostředků SQL verze 1.1.33.0 nebo starší.
+- Platí: Tento problém se týká centra Azure Stack aktualizace 1910 nebo novější s nainstalovanou verzí poskytovatele prostředků SQL verze 1.1.33.0 nebo starší.
 - Příčina: aktuální verze poskytovatele prostředků SQL není kompatibilní s některými nejnovějšími změnami portálu v aktualizaci 1910.
-- Náprava: pomocí procesu aktualizace poskytovatele prostředků použijte opravu hotfix poskytovatele prostředků SQL 1.1.47.0 Azure Stack po upgradu na aktualizaci 1910 ([SQL RP verze 1.1.47.0](https://aka.ms/azurestacksqlrp11470)). U poskytovatele prostředků MySQL doporučujeme, abyste Azure Stack po upgradu 1.1.47.0 na verzi 1910 Update ([MySQL RP verze 1.1.47.0](https://aka.ms/azurestackmysqlrp11470)) použili opravu hotfix poskytovatele prostředků MySQL.
+- Náprava: pomocí procesu aktualizace poskytovatele prostředků použijte opravu hotfix poskytovatele prostředků SQL 1.1.47.0 po upgradu centra Azure Stack na aktualizaci 1910 ([SQL RP verze 1.1.47.0](https://aka.ms/azurestacksqlrp11470)). U poskytovatele prostředků MySQL doporučujeme, abyste po upgradu centra Azure Stack na verzi 1910 Update ([MySQL RP verze 1.1.47.0](https://aka.ms/azurestackmysqlrp11470)) použili opravu hotfix poskytovatele prostředků MySQL 1.1.47.0.
 - Výskyt: běžné
 
 ### <a name="access-control-iam"></a>Řízení přístupu (IAM)
 
 - Platí: Tento problém se týká razítek nasazených se základní imagí 1903 nebo starší.
-- Příčina: rozšíření IAM není aktuální. Portál Ibiza, který se dodává s Azure Stack zavádí nové chování, které způsobí selhání rozšíření RBAC, pokud uživatel otevírá okno **Access Control (IAM)** pro předplatné, které není vybrané v nástroji pro výběr globálního předplatného (**adresář + předplatné** na portálu User Portal). V okně se zobrazí **načítání** ve smyčce a uživatel nemůže do předplatného přidat nové role. Okno **Přidat** také zobrazuje **načítání** ve smyčce.
+- Příčina: rozšíření IAM není aktuální. Portál Ibiza, který se dodává s centrem Azure Stack, zavádí nové chování, které způsobí selhání rozšíření RBAC, pokud uživatel otevírá okno **Access Control (IAM)** pro předplatné, které není vybrané v nástroji pro výběr globálního předplatného (**adresář + předplatné** na portálu User Portal). V okně se zobrazí **načítání** ve smyčce a uživatel nemůže do předplatného přidat nové role. Okno **Přidat** také zobrazuje **načítání** ve smyčce.
 - Náprava: Ujistěte se, že je předplatné zaškrtnuté v nabídce **adresář a předplatné** . K nabídce se dá dostat z horní části portálu, poblíž tlačítka **oznámení** nebo prostřednictvím zástupce v okně **všechny prostředky** , ve kterém se zobrazuje **předplatné nezobrazené? Otevřete nastavení adresář a předplatné**. V této nabídce je nutné vybrat odběr.
+
+### <a name="sql-resource-provider"></a>Poskytovatel prostředků SQL
+
+- Platí: Tento problém se týká razítek se systémem 1908 nebo starším.
+- Příčina: při nasazení poskytovatele prostředků SQL (RP) verze 1.1.47.0 na portálu se nezobrazuje žádné prostředky, které jsou přidružené k SQL RP.
+- Náprava: Odstraňte RP, upgradujte razítko a znovu nasaďte SQL RP.
 
 ## <a name="networking"></a>Sítě
 
@@ -174,7 +180,7 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 ### <a name="service-endpoints"></a>Koncové body služby
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: na portálu User Portal zobrazuje okno **Virtual Network** možnost používat **koncové body služby**. Tato funkce se v Azure Stack v tuto chvíli nepodporuje.
+- Příčina: na portálu User Portal zobrazuje okno **Virtual Network** možnost používat **koncové body služby**. Tato funkce se v současnosti v centru Azure Stack nepodporuje.
 - Výskyt: běžné
 
 ### <a name="network-interface"></a>Síťové rozhraní
@@ -197,29 +203,29 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 #### <a name="alerts"></a>Výstrahy
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: na portálu User Portal se v okně **Virtual Network brány** zobrazí možnost použít **výstrahy**. Tato funkce se v Azure Stack v tuto chvíli nepodporuje.
+- Příčina: na portálu User Portal se v okně **Virtual Network brány** zobrazí možnost použít **výstrahy**. Tato funkce se v současnosti v centru Azure Stack nepodporuje.
 - Výskyt: běžné
 
 #### <a name="active-active"></a>Aktivní–aktivní
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: na portálu User Portal při vytváření a v nabídce prostředků **služby Virtual Network Gateway**se zobrazí možnost povolit konfiguraci **typu aktivní-aktivní** . Tato funkce se v Azure Stack v tuto chvíli nepodporuje.
+- Příčina: na portálu User Portal při vytváření a v nabídce prostředků **služby Virtual Network Gateway**se zobrazí možnost povolit konfiguraci **typu aktivní-aktivní** . Tato funkce se v současnosti v centru Azure Stack nepodporuje.
 - Výskyt: běžné
 
 #### <a name="vpn-troubleshooter"></a>Poradce při potížích s VPN
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: na portálu User Portal zobrazí okno **připojení** funkci **s názvem Poradce při potížích s VPN**. Tato funkce se v Azure Stack v tuto chvíli nepodporuje.
+- Příčina: na portálu User Portal zobrazí okno **připojení** funkci **s názvem Poradce při potížích s VPN**. Tato funkce se v současnosti v centru Azure Stack nepodporuje.
 - Výskyt: běžné
 
 #### <a name="documentation"></a>Dokumentace
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: dokumentace k dokumentaci na stránce Přehled na Virtual Network bráně odkazuje na Azure místo Azure Stack. Pro dokumentaci Azure Stack použijte následující odkazy:
+- Příčina: dokumentace k dokumentaci na stránce Přehled na Virtual Network bráně odkazuje na Azure místo centra Azure Stack. Pro dokumentaci centra Azure Stack použijte následující odkazy:
 
   - [SKU brány](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-skus)
   - [Připojení s vysokou dostupností](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-availability)
-  - [Konfigurace protokolu BGP v Azure Stack](../user/azure-stack-vpn-gateway-settings.md#gateway-requirements)
+  - [Konfigurace protokolu BGP v centru Azure Stack](../user/azure-stack-vpn-gateway-settings.md#gateway-requirements)
   - [Okruhy ExpressRoute](azure-stack-connect-expressroute.md)
   - [Zadat vlastní zásady IPsec/IKE](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
 
@@ -248,11 +254,11 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 
 ### <a name="virtual-machine-scale-set"></a>Škálovací sada virtuálních počítačů
 
-#### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-environments"></a>Vytváření selhání během opravy a aktualizace v prostředích Azure Stack se čtyřmi uzly
+#### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-hub-environments"></a>Vytváření selhání během opravy a aktualizace v prostředích centra Azure Stack se čtyřmi uzly
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: vytváření virtuálních počítačů ve skupině dostupnosti 3 domén selhání a vytvoření instance sady škálování virtuálního počítače selže s chybou **FabricVmPlacementErrorUnsupportedFaultDomainSize** během procesu aktualizace v prostředí Azure Stack se čtyřmi uzly.
-- Náprava: můžete vytvořit jeden virtuální počítač ve skupině dostupnosti se dvěma doménami selhání úspěšně. Vytvoření instance sady škálování však není během procesu aktualizace na Azure Stack nasazení na 4 uzly stále k dispozici.
+- Příčina: vytváření virtuálních počítačů ve skupině dostupnosti 3 domén selhání a vytvoření instance sady škálování virtuálního počítače selže s chybou **FabricVmPlacementErrorUnsupportedFaultDomainSize** během procesu aktualizace v prostředí centra Azure Stack se 4 uzly.
+- Náprava: můžete vytvořit jeden virtuální počítač ve skupině dostupnosti se dvěma doménami selhání úspěšně. Vytvoření instance sady škálování však není během procesu aktualizace ve 4 Azure Stackovém nasazení centra stále k dispozici.
 
 <!-- ## Storage -->
 <!-- ## SQL and MySQL-->

@@ -1,6 +1,6 @@
 ---
-title: Poznámky k verzi Azure Stack – aktualizace zabezpečení pro 1910 | Microsoft Docs
-description: Přečtěte si o aktualizacích zabezpečení 1909 pro Azure Stack.
+title: Poznámky k verzi centra Azure Stack – aktualizace zabezpečení pro 1910 | Microsoft Docs
+description: Přečtěte si o aktualizacích zabezpečení 1910 pro centrum Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -16,21 +16,21 @@ ms.date: 11/21/2019
 ms.author: sethm
 ms.reviewer: fiseraci
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 9294e0fad863345758527fb622fd5f3e753a29d1
-ms.sourcegitcommit: cefba8d6a93efaedff303d3c605b02bd28996c5d
+ms.openlocfilehash: 9766c1fb0c5186f33038716f0d56d1ccac9d90cb
+ms.sourcegitcommit: c3be6b2e962c5905eb3c54f9555e13095f6b4d40
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74299080"
+ms.lasthandoff: 12/20/2019
+ms.locfileid: "75303681"
 ---
-# <a name="azure-stack-security-updates"></a>Aktualizace zabezpečení Azure Stack
+# <a name="azure-stack-hub-security-updates"></a>Azure Stack aktualizace zabezpečení centra
 
-V tomto článku jsou uvedené všechny aktualizace zabezpečení v posledních čtyřech aktualizacích Azure Stack. Tyto informace jsou k dispozici pouze pro účely reference.
+V tomto článku jsou uvedené všechny aktualizace zabezpečení v posledních čtyřech aktualizacích centra Azure Stack. Tyto informace jsou k dispozici pouze pro účely reference.
 
 ::: moniker range="azs-1910"
 ## <a name="1910-update"></a>aktualizace 1910
 
-Tato aktualizace Azure Stack nezahrnuje aktualizace zabezpečení pro základní operační systém, který hostuje Azure Stack. Tato aktualizace obsahuje aktualizaci zabezpečení pro součást Azure Stack infrastruktury:
+Tato aktualizace centra Azure Stack nezahrnuje aktualizace zabezpečení pro základní operační systém, který je hostitelem centra Azure Stack. Tato aktualizace obsahuje aktualizaci zabezpečení pro součást infrastruktury centra Azure Stack:
 
 - [CVE-2019-1234](https://portal.msrc.microsoft.com/security-guidance/advisory/CVE-2019-1234)
 

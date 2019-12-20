@@ -15,20 +15,30 @@ ms.date: 09/23/2019
 ms.author: mabrigg
 ms.lastreviewed: 09/23/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: d5606e7904fe311a54d792a18e5d4029c709b33c
-ms.sourcegitcommit: 0866555e0ed240a65595052899ef1b836dd07fbc
+ms.openlocfilehash: 0021776f5b3be93a82305f41a9aa70c524273e4b
+ms.sourcegitcommit: e57a53caac50d1f8762307e065fe886fcda7eadf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72257753"
+ms.lasthandoff: 12/19/2019
+ms.locfileid: "75190879"
 ---
-# <a name="troubleshooting-patch-and-update-issues-for-azure-stack"></a>Řešení potíží s opravou a aktualizacemi pro Azure Stack
+# <a name="best-practices-for-troubleshooting-azure-stack-hub-patch-and-update-issues"></a>Osvědčené postupy pro řešení potíží s problémy s aktualizacemi a aktualizacemi centra Azure Stack
 
-*Platí pro: Azure Stack integrovaných systémů*
+Tento článek poskytuje přehled osvědčených postupů pro řešení potíží s Azure Stack opravou a aktualizací, jakož i opravy běžných problémů s opravou a aktualizací.
 
-Pomocí pokynů v tomto článku můžete vyřešit problémy, které máte při aktualizaci Azure Stack.
 
-## <a name="preparationfailed"></a>PreparationFailed
+Proces aktualizace a aktualizace centra Azure Stack slouží k tomu, aby operátoři mohli instalovat balíčky aktualizací konzistentním a efektivnějším způsobem. V neobvyklém případě mohou nastat problémy při opravách a aktualizacích. V následujících krocích se doporučuje, abyste při procesu aktualizace a aktualizace nastavili problém:
+
+0. **Požadavky**: Ujistěte se, že jste postupovali podle [kontrolního seznamu aktivity aktualizace](release-notes-checklist.md) a máte [nakonfigurované automatické shromažďování protokolů](azure-stack-configure-automatic-diagnostic-log-collection.md).
+1. Postupujte podle kroků pro nápravu v upozornění na selhání vytvořeného při selhání aktualizace.
+2. Přečtěte si [Nejčastější aktualizace centra Azure Stack a aktualizujte problémy](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates-troubleshoot#Common-Azure-Stack-Hub-patch-and-update-issues) a podle uvedeného problému proveďte doporučené akce.
+3. Pokud jste nedokázali vyřešit váš problém pomocí výše uvedeného postupu, vytvořte [lístek podpory Azure Stack](azure-stack-help-and-support-overview.md). Ujistěte se, že máte [shromážděné protokoly](https://docs.microsoft.com/azure-stack/operator/azure-stack-configure-on-demand-diagnostic-log-collection) pro časový interval, ke kterému došlo k problému.
+
+## <a name="common-azure-stack-hub-patch-and-update-issues"></a>Běžné problémy s opravou a aktualizacemi centra Azure Stack
+
+*Platí pro: Azure Stack integrovaných systémů centra*
+
+### <a name="preparationfailed"></a>PreparationFailed
 
 **Platí**: Tento problém se vztahuje na všechny podporované verze.
 
