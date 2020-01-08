@@ -16,16 +16,16 @@ ms.date: 08/29/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: 0fbb57771976b896f8f6b37b62780e34d6635d78
-ms.sourcegitcommit: e2aec63cacfdc830a20a02ee40e715e3c5dfdf22
+ms.openlocfilehash: df5af3cbb919856a7cf1aeaeb72a8780241167a7
+ms.sourcegitcommit: 7626143e5d2a5e32a43162692f59306182fec854
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70386237"
+ms.lasthandoff: 12/24/2019
+ms.locfileid: "75333056"
 ---
 # <a name="prerequisites-for-deploying-app-service-on-azure-stack"></a>Předpoklady pro nasazení App Service v Azure Stack
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
 
 Před nasazením Azure App Service v Azure Stack musíte dokončit požadované kroky v tomto článku.
 
@@ -72,8 +72,8 @@ Když spustíte následující příkaz PowerShellu, musíte zadat privilegovan�
 
 | Parametr | Požadované nebo volitelné | Výchozí hodnota | Popis |
 | --- | --- | --- | --- |
-| PrivilegedEndpoint | Požadováno | AzS-ERCS01 | Privilegovaný koncový bod |
-| CloudAdminCredential | Požadováno | AzureStack\CloudAdmin | Přihlašovací údaje účtu domény pro Azure Stack cloudových správců |
+| PrivilegedEndpoint | Požaduje se | AzS-ERCS01 | Privilegovaný koncový bod |
+| CloudAdminCredential | Požaduje se | AzureStack\CloudAdmin | Přihlašovací údaje účtu domény pro Azure Stack cloudových správců |
 
 ### <a name="certificates-required-for-asdk-deployment-of-azure-app-service"></a>Certifikáty vyžadované pro ASDK nasazení Azure App Service
 
@@ -81,7 +81,7 @@ Skript *Create-AppServiceCerts. ps1* spolupracuje s certifikační autoritou Azu
 
 | Název souboru | Použití |
 | --- | --- |
-| _.appservice.local.azurestack.external.pfx | Výchozí certifikát SSL služby App Service |
+| _.appservice.local.azurestack.external.pfx | App Service výchozí certifikát SSL |
 | api.appservice.local.azurestack.external.pfx | Certifikát SSL pro App Service rozhraní API |
 | ftp.appservice.local.azurestack.external.pfx | App Service certifikát SSL vydavatele |
 | sso.appservice.local.azurestack.external.pfx | Certifikát aplikace App Service identity |
@@ -97,8 +97,8 @@ K vytvoření certifikátů použijte následující postup:
 
 | Parametr | Požadované nebo volitelné | Výchozí hodnota | Popis |
 | --- | --- | --- | --- |
-| pfxPassword | Požadováno | Null | Heslo, které pomáhá chránit privátní klíč certifikátu |
-| DomainName | Požadováno | local.azurestack.external | Azure Stack oblast a přípona domény |
+| pfxPassword | Požaduje se | Null | Heslo, které pomáhá chránit privátní klíč certifikátu |
+| DomainName | Požaduje se | local.azurestack.external | Azure Stack oblast a přípona domény |
 
 ### <a name="certificates-required-for-azure-stack-production-deployment-of-azure-app-service"></a>Certifikáty vyžadované pro Azure Stack produkčního nasazení Azure App Service
 
@@ -115,7 +115,7 @@ Výchozí certifikát domény je umístěn na front-end roli. Uživatelské apli
 
 Certifikát musí být ve formátu. pfx a měl by se jednat o certifikát zástupných znaků se třemi tématy. Tento požadavek umožňuje jednomu certifikátu pokrýt jak výchozí doménu, tak koncový bod SCM pro operace správy zdrojových kódů.
 
-| Formát | Příklad |
+| Formát | Příklad: |
 | --- | --- |
 | `*.appservice.<region>.<DomainName>.<extension>` | `*.appservice.redmond.azurestack.external` |
 | `*.scm.appservice.<region>.<DomainName>.<extension>` | `*.scm.appservice.redmond.azurestack.external` |
@@ -125,7 +125,7 @@ Certifikát musí být ve formátu. pfx a měl by se jednat o certifikát zástu
 
 Certifikát rozhraní API se umístí do role správy. Poskytovatel prostředků ho používá k zajištění zabezpečení volání rozhraní API. Certifikát pro publikování musí obsahovat předmět, který odpovídá položce DNS rozhraní API.
 
-| Formát | Příklad |
+| Formát | Příklad: |
 | --- | --- |
 | api.appservice.\<region\>.\<DomainName\>.\<extension\> | api.appservice.redmond.azurestack.external |
 
@@ -133,7 +133,7 @@ Certifikát rozhraní API se umístí do role správy. Poskytovatel prostředků
 
 Certifikát pro roli vydavatele zabezpečuje přenos FTPS pro vlastníky aplikací při nahrávání obsahu. Certifikát pro publikování musí obsahovat předmět, který odpovídá položce DNS FTPS.
 
-| Formát | Příklad |
+| Formát | Příklad: |
 | --- | --- |
 | ftp.appservice.\<region\>.\<DomainName\>.\<extension\> | ftp.appservice.redmond.azurestack.external |
 
@@ -146,13 +146,13 @@ Certifikát pro aplikaci identity umožňuje:
 
 Certifikát pro identitu musí obsahovat předmět, který odpovídá následujícímu formátu.
 
-| Formát | Příklad |
+| Formát | Příklad: |
 | --- | --- |
 | sso.appservice.\<region\>.\<DomainName\>.\<extension\> | sso.appservice.redmond.azurestack.external |
 
 ### <a name="validate-certificates"></a>Ověřit certifikáty
 
-Než nasadíte poskytovatele prostředků App Service, měli byste [ověřit certifikáty, které se mají použít](azure-stack-validate-pki-certs.md#perform-platform-as-a-service-certificate-validation) , pomocí nástroje pro kontrolu připravenosti Azure Stack, který je dostupný z [Galerie prostředí PowerShell](https://aka.ms/AzsReadinessChecker). Nástroj pro kontrolu připravenosti Azure Stack ověří, že vygenerované certifikáty PKI jsou vhodné pro App Service nasazení.
+Než nasadíte poskytovatele prostředků App Service, měli byste [ověřit certifikáty, které se mají použít](azure-stack-validate-pki-certs.md#using-validated-certificates) , pomocí nástroje pro kontrolu připravenosti Azure Stack, který je dostupný z [Galerie prostředí PowerShell](https://aka.ms/AzsReadinessChecker). Nástroj pro kontrolu připravenosti Azure Stack ověří, že vygenerované certifikáty PKI jsou vhodné pro App Service nasazení.
 
 Osvědčeným postupem je při práci s některou z nezbytných [Azure Stack certifikátů PKI](azure-stack-pki-certs.md)naplánovat dostatek času na testování a vystavování certifikátů v případě potřeby.
 
@@ -180,7 +180,7 @@ Azure App Service v Azure Stack vyžaduje, aby mohl souborový server a SQL Serv
 Pokud se rozhodnete nasadit prostředky v rámci předplatného výchozího poskytovatele Azure Stack, jsou licence pro tyto prostředky (licence na Windows Server a licence SQL Server) zahrnuté do nákladů na Azure App Service Azure Stack následující: jednotlivým
 
 - infrastruktura se nasadí do **výchozího předplatného poskytovatele**;
-- infrastruktura se používá výhradně Azure App Service u poskytovatele prostředků Azure Stack.  Žádné jiné úlohy, administrativní (jiní poskytovatelé prostředků, například: SQL-RP) nebo tenant (například: klientské aplikace, které vyžadují databázi), mají povoleno používat tuto infrastrukturu.
+- infrastruktura se používá výhradně Azure App Service u poskytovatele prostředků Azure Stack.  Tuto infrastrukturu můžou používat i žádné jiné úlohy, administrativní (jiní poskytovatelé prostředků, například: SQL-RP) nebo tenant (například klientské aplikace, které vyžadují databázi).
 
 ## <a name="prepare-the-file-server"></a>Příprava souborového serveru
 
@@ -261,7 +261,7 @@ Sdílená složka obsahuje obsah webu tenanta. Postup zřízení sdílené slož
 
 #### <a name="provision-the-content-share-on-a-single-file-server-active-directory-or-workgroup"></a>Zřízení sdílené složky obsahu na jednom souborovém serveru (ve službě Active Directory nebo v pracovní skupině)
 
-Na jediném souborovém serveru spusťte na příkazovém řádku se zvýšenými oprávněními následující příkazy. Nahraďte hodnotu pro `C:\WebSites` odpovídajícími cestami ve vašem prostředí.
+Na jediném souborovém serveru spusťte na příkazovém řádku se zvýšenými oprávněními následující příkazy. Hodnotu pro `C:\WebSites` nahraďte odpovídajícími cestami ve vašem prostředí.
 
 ```DOS
 set WEBSITES_SHARE=WebSites
@@ -275,7 +275,7 @@ net share %WEBSITES_SHARE%=%WEBSITES_FOLDER% /grant:Everyone,full
 
 Spusťte následující příkazy na příkazovém řádku se zvýšenými oprávněními na souborovém serveru nebo na uzlu clusteru s podporou převzetí služeb při selhání, který je aktuálním vlastníkem prostředku clusteru. Nahraďte hodnoty kurzívou hodnotami, které jsou specifické pro vaše prostředí.
 
-#### <a name="active-directory"></a>Active Directory
+#### <a name="active-directory"></a>Adresář služby Active Directory
 
 ```DOS
 set DOMAIN=<DOMAIN>
@@ -368,13 +368,13 @@ Postupujte následovně:
 
 | Parametr | Požadované nebo volitelné | Výchozí hodnota | Popis |
 | --- | --- | --- | --- |
-| DirectoryTenantName | Požadováno | Null | ID tenanta Azure AD. Zadejte GUID nebo řetězec. Příkladem je myazureaaddirectory.onmicrosoft.com. |
-| AdminArmEndpoint | Požadováno | Null | Správce Azure Resource Manager koncový bod. Příkladem je adminmanagement. Local. azurestack. external. |
-| TenantARMEndpoint | Požadováno | Null | Koncový bod klienta Azure Resource Manager. Příkladem může být Management. Local. azurestack. external. |
-| AzureStackAdminCredential | Požadováno | Null | Přihlašovací údaje správce služby Azure AD. |
-| CertificateFilePath | Požadováno | Null | **Úplná cesta** k souboru certifikátu aplikace identity vygenerovaného dříve. |
-| CertificatePassword | Požadováno | Null | Heslo, které pomáhá chránit privátní klíč certifikátu. |
-| Prostředí | volitelná, | AzureCloud | Název podporovaného cloudového prostředí, ve kterém je dostupná cílová služba Azure Active Directory Graph.  Povolené hodnoty: "AzureCloud", "AzureChinaCloud", "AzureUSGovernment", "AzureGermanCloud".|
+| DirectoryTenantName | Požaduje se | Null | ID tenanta Azure AD. Zadejte GUID nebo řetězec. Příkladem je myazureaaddirectory.onmicrosoft.com. |
+| AdminArmEndpoint | Požaduje se | Null | Správce Azure Resource Manager koncový bod. Příkladem je adminmanagement. Local. azurestack. external. |
+| TenantARMEndpoint | Požaduje se | Null | Koncový bod klienta Azure Resource Manager. Příkladem může být Management. Local. azurestack. external. |
+| AzureStackAdminCredential | Požaduje se | Null | Přihlašovací údaje správce služby Azure AD. |
+| CertificateFilePath | Požaduje se | Null | **Úplná cesta** k souboru certifikátu aplikace identity vygenerovaného dříve. |
+| CertificatePassword | Požaduje se | Null | Heslo, které pomáhá chránit privátní klíč certifikátu. |
+| Prostředí | Volitelné | AzureCloud | Název podporovaného cloudového prostředí, ve kterém je dostupná cílová služba Azure Active Directory Graph.  Povolené hodnoty: "AzureCloud", "AzureChinaCloud", "AzureUSGovernment", "AzureGermanCloud".|
 
 ## <a name="create-an-active-directory-federation-services-app"></a>Vytvoření aplikace Active Directory Federation Services (AD FS)
 
@@ -404,11 +404,11 @@ Postupujte následovně:
 
 | Parametr | Požadované nebo volitelné | Výchozí hodnota | Popis |
 | --- | --- | --- | --- |
-| AdminArmEndpoint | Požadováno | Null | Správce Azure Resource Manager koncový bod. Příkladem je adminmanagement. Local. azurestack. external. |
-| PrivilegedEndpoint | Požadováno | Null | Privilegovaný koncový bod. Příkladem je AzS-ERCS01. |
-| CloudAdminCredential | Požadováno | Null | Přihlašovací údaje účtu domény pro Azure Stack Cloud Admins Příkladem je Azurestack\CloudAdmin. |
-| CertificateFilePath | Požadováno | Null | **Úplná cesta** k souboru PFX pro certifikát aplikace identity |
-| CertificatePassword | Požadováno | Null | Heslo, které pomáhá chránit privátní klíč certifikátu. |
+| AdminArmEndpoint | Požaduje se | Null | Správce Azure Resource Manager koncový bod. Příkladem je adminmanagement. Local. azurestack. external. |
+| PrivilegedEndpoint | Požaduje se | Null | Privilegovaný koncový bod. Příkladem je AzS-ERCS01. |
+| CloudAdminCredential | Požaduje se | Null | Přihlašovací údaje účtu domény pro Azure Stack Cloud Admins Příkladem je Azurestack\CloudAdmin. |
+| CertificateFilePath | Požaduje se | Null | **Úplná cesta** k souboru PFX pro certifikát aplikace identity |
+| CertificatePassword | Požaduje se | Null | Heslo, které pomáhá chránit privátní klíč certifikátu. |
 
 ## <a name="next-steps"></a>Další kroky
 

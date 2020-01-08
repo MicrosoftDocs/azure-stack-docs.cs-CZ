@@ -15,12 +15,12 @@ ms.date: 11/06/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: 509f6509b00a3bccd005fd93b69006ebbfd2f2f0
-ms.sourcegitcommit: 8203490cf3ab8a8e6d39b137c8c31e3baec52298
+ms.openlocfilehash: 897cb42ad2a84f3802f4d35e97a03d4976800121
+ms.sourcegitcommit: bbe1048682c7dccc6cebde542462c14ee1f3d0d1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73712715"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75677871"
 ---
 # <a name="add-mysql-hosting-servers-in-azure-stack"></a>Přidání hostitelských serverů MySQL v Azure Stack
 
@@ -29,15 +29,20 @@ Instanci hostitelského serveru MySQL můžete hostovat na virtuálním počíta
 > [!NOTE]
 > Poskytovatel prostředků MySQL by se měl vytvořit v předplatném výchozího poskytovatele, zatímco hostitelské servery MySQL by se měly vytvářet v fakturovatelných předplatných uživatele. Server poskytovatele prostředků by neměl být používán k hostování uživatelských databází.
 
-Pro hostitelské servery lze použít verze MySQL 5,6, 5,7 a 8,0. MySQL RP nepodporuje ověřování caching_sha2_password; které budou přidány v další verzi. Servery MySQL 8,0 musí být nakonfigurovány tak, aby používaly mysql_native_password. MariaDB je také podporováno.
+Pro hostitelské servery lze použít verze MySQL 5,6, 5,7 a 8,0. MySQL RP nepodporuje caching_sha2_password ověřování; které budou přidány v další verzi. Servery MySQL 8,0 musí být nakonfigurovány tak, aby používaly mysql_native_password. MariaDB je také podporováno.
 
 ## <a name="connect-to-a-mysql-hosting-server"></a>Připojení k hostitelskému serveru MySQL
 
-Ujistěte se, že máte přihlašovací údaje k účtu s oprávněními správce systému. Chcete-li přidat hostitelský server, postupujte podle následujících kroků:
+Ujistěte se, že máte přihlašovací údaje k účtu s oprávněními správce systému.
+
+> [!NOTE]
+> Pro MySQL 8,0 a novější verze není vzdálený přístup ve výchozím nastavení povolen. Musíte vytvořit nový uživatelský účet a před tím, než ho přidáte jako hostitelský server, udělit previledge vzdálený přístup k tomuto uživatelskému účtu.
+
+Chcete-li přidat hostitelský server, postupujte podle následujících kroků:
 
 1. Přihlaste se k portálu pro správu Azure Stack jako správce služby.
 2. Vyberte **Všechny služby**.
-3. V kategorii **prostředky pro správu** vyberte možnost **MySQL hostingové servery**  >  **+ Přidat**. Otevře se dialogové okno **Přidat hostitelský server MySQL** , které se zobrazí na následujícím snímku obrazovky.
+3. V kategorii **prostředky pro správu** vyberte možnost **MySQL hostingové servery** >  **+ Přidat**. Otevře se dialogové okno **Přidat hostitelský server MySQL** , které se zobrazí na následujícím snímku obrazovky.
 
    ![Konfigurace hostitelského serveru MySQL](./media/azure-stack-mysql-rp-deploy/mysql-add-hosting-server-2.png)
 
@@ -73,7 +78,7 @@ Následující informace platí pro hostitelské servery RP a MySQL:
 
 * Zajistěte, aby byly všechny hostitelské servery nakonfigurované pro komunikaci pomocí protokolu TLS 1,1. Viz [Konfigurace MySQL pro použití šifrovaných připojení](https://dev.mysql.com/doc/refman/5.7/en/using-encrypted-connections.html).
 * Použít [transparentní šifrování dat](https://dev.mysql.com/doc/mysql-secure-deployment-guide/5.7/en/secure-deployment-data-encryption.html).
-* MySQL RP nepodporuje ověřování caching_sha2_password.
+* MySQL RP nepodporuje caching_sha2_password ověřování.
 
 ## <a name="increase-backend-database-capacity"></a>Zvýšení kapacity back-end databáze
 
@@ -84,15 +89,15 @@ Použijte název SKU, který popisuje možnosti serverů v SKU, jako je napřík
   
 * vysoká kapacita
 * vysoký výkon
-* Vysoká dostupnost
+* vysoká dostupnost
 
 Osvědčeným postupem je, že všechny hostitelské servery v SKU by měly mít stejné charakteristiky prostředků a výkonu.
 
 SKU nelze přiřadit konkrétním uživatelům nebo skupinám.
 
-Pokud chcete upravit SKU, otevřete **všechny služby**  > **adaptér MySQL**  > **SKU**. Vyberte SKLADOVOU položku, kterou chcete upravit, proveďte potřebné změny a uložte změny kliknutím na **Uložit** . 
+Pokud chcete upravit SKU, otevřete **všechny služby** > **adaptér MySQL** > **SKU**. Vyberte SKLADOVOU položku, kterou chcete upravit, proveďte potřebné změny a uložte změny kliknutím na **Uložit** . 
 
-Pokud chcete odstranit SKU, které už nepotřebujete, přečtěte si **všechny služby**  > **adaptéru MySQL**  > **SKU**. Klikněte pravým tlačítkem na název SKU a vyberte **Odstranit** a odstraňte ho.
+Pokud chcete odstranit SKU, které už nepotřebujete, přečtěte si **všechny služby** > **adaptéru MySQL** > **SKU**. Klikněte pravým tlačítkem na název SKU a vyberte **Odstranit** a odstraňte ho.
 
 > [!IMPORTANT]
 > Může trvat až hodinu, než se nové SKU zpřístupní na portálu User Portal.

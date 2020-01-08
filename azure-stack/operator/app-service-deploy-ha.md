@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/07/2019
+ms.date: 01/02/2020
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 0bf89b0f80557f99c83fb5ad6afd0c4a5dcd3849
-ms.sourcegitcommit: dfaf0126bc9975ca1643d55f06c71df9e32ea976
+ms.lastreviewed: 01/02/2020
+ms.openlocfilehash: 9e5b99a5787e6472b2e9d25a509f615a1b02a732
+ms.sourcegitcommit: a6c02421069ab9e72728aa9b915a52ab1dd1dbe2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72165009"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75654984"
 ---
 # <a name="deploy-app-service-in-a-highly-available-configuration"></a>Nasazení App Service v konfiguraci s vysokou dostupností
 
@@ -61,11 +61,11 @@ Pomocí kroků v této části vytvoříte vlastní nasazení pomocí šablony *
    ![Nasazení vlastní šablony](media/app-service-deploy-ha/1.png)
 
 
-3. V okně **vlastní nasazení** vyberte **Upravit šablonu** >  šablona pro**rychlý Start** a pak pomocí rozevíracího seznamu dostupných vlastních šablon vyberte šablonu **AppService-\ Share-SQLServer-ha** . Klikněte na **OK**a pak na **Uložit**.
+3. V okně **vlastní nasazení** vyberte **Upravit šablonu** > šablonu pro **rychlý Start** a pak pomocí rozevíracího seznamu dostupných vlastních šablon vyberte šablonu **AppService-\ Share-SQLServer-ha** . Klikněte na **OK**a pak na **Uložit**.
 
    ![Vyberte šablonu AppService-\ Share-SQLServer-ha.](media/app-service-deploy-ha/2.png)
 
-4. V okně **vlastní nasazení** vyberte **Upravit parametry** a posuňte se dolů a zkontrolujte výchozí hodnoty šablon. Upravte tyto hodnoty podle potřeby, abyste zadali všechny požadované informace o parametrech, a pak klikněte na **OK**.<br><br> Pro parametry `ADMINPASSWORD`, `FILESHAREOWNERPASSWORD`, `FILESHAREUSERPASSWORD`, `SQLSERVERSERVICEACCOUNTPASSWORD` a `SQLLOGINPASSWORD` Zadejte přinejmenším složitá hesla.
+4. V okně **vlastní nasazení** vyberte **Upravit parametry** a posuňte se dolů a zkontrolujte výchozí hodnoty šablon. Upravte tyto hodnoty podle potřeby, abyste zadali všechny požadované informace o parametrech, a pak klikněte na **OK**.<br><br> Pro `ADMINPASSWORD`, `FILESHAREOWNERPASSWORD`, `FILESHAREUSERPASSWORD`, `SQLSERVERSERVICEACCOUNTPASSWORD`a `SQLLOGINPASSWORD` parametrů zadejte minimálně složitá hesla.
     
    ![Upravit parametry vlastního nasazení](media/app-service-deploy-ha/3.png)
 
@@ -78,7 +78,7 @@ Pomocí kroků v této části vytvoříte vlastní nasazení pomocí šablony *
    > [!NOTE]
    > Dokončení nasazení šablony trvá přibližně hodinu.
 
-   [![](media/app-service-deploy-ha/5-sm.png "Zkontrolovat stav nasazení šablony")](media/app-service-deploy-ha/5-lg.png#lightbox)
+   [![](media/app-service-deploy-ha/5-sm.png "Review template deployment status")](media/app-service-deploy-ha/5-lg.png#lightbox)
 
 
 ### <a name="record-template-outputs"></a>Zaznamenat výstupy šablony
@@ -162,7 +162,7 @@ Pokud chcete nasadit poskytovatele prostředků App Service, použijte následuj
 
     ![Výběr virtuální sítě na App Service](media/app-service-deploy-ha/06.png)
 
-8. Poskytněte dříve zaznamenané informace o výstupech šablony pro cestu ke sdílené složce a parametry vlastníka sdílené složky. Po dokončení klikněte na tlačítko **Další**.
+8. Poskytněte dříve zaznamenané informace o výstupech šablony pro cestu ke sdílené složce a parametry vlastníka sdílené složky. Jakmile budete hotovi, klikněte na tlačítko **Další**.
 
     ![Informace o výstupu sdílení souborů v App Service](media/app-service-deploy-ha/07.png)
 
@@ -174,10 +174,10 @@ Pokud chcete nasadit poskytovatele prostředků App Service, použijte následuj
     - Zdroj: Any
     - Rozsah zdrojových portů: *
     - Cíl: IP adresy
-    - Rozsah cílových IP adres: Rozsah IP adres pro souborový server
+    - Rozsah cílových IP adres: rozsah IP adres pro souborový server
     - Rozsah cílových portů: 445
-    - Protokol: TCP
-    - Akce: Allow
+    - Protocol: TCP
+    - Akce: povolení
     - Priorita: 700
     - Název: Outbound_Allow_SMB445
 
@@ -207,16 +207,16 @@ Pokud chcete nasadit poskytovatele prostředků App Service, použijte následuj
     |Role|Výchozí|Doporučení s vysokou dostupností|
     |-----|-----|-----|
     |Role kontroleru|2|2|
-    |Role správy|1|3|
-    |Role vydavatele|1|3|
-    |Role front-endu|1|3|
-    |Role sdíleného pracovního procesu|1|10|
+    |Role správy|1\. místo|3|
+    |Role vydavatele|1\. místo|3|
+    |Role front-endu|1\. místo|3|
+    |Role sdíleného pracovního procesu|1\. místo|2|
     |     |     |     |
 
     ![Hodnoty instance role infrastruktury na App Service](media/app-service-deploy-ha/12.png)
 
     > [!NOTE]
-    > Změnou výchozích hodnot na ty, které se doporučují v tomto Tutoral, se zvýší požadavky na hardware pro instalaci App Service. Pro podporu doporučených 21 virtuálních počítačů místo výchozích 18 jader a 32 256 MB paměti RAM pro 15 virtuálních počítačů je potřeba celkem 26 jader a 46 592 MB paměti RAM.
+    > Změnou výchozích hodnot na ty, které se doporučují v tomto Tutoral, se zvýší požadavky na hardware pro instalaci App Service. Pro podporu doporučených virtuálních počítačů, nikoli výchozích 9 jader a 16 128 MB paměti RAM pro 6 virtuálních počítačů, je potřeba celkem 18 jader a 32 256 MB paměti RAM.
 
 15. Vyberte image platformy, která se má použít pro instalaci virtuálních počítačů infrastruktury App Service, a klikněte na **Další**:
 

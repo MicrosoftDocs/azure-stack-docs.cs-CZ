@@ -8,12 +8,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 54d79742ab39a2732a774401a1765b7a264e1fab
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: d6adbc374cbd2472ceed1895fe7efb34ab5b9d64
+ms.sourcegitcommit: a6c02421069ab9e72728aa9b915a52ab1dd1dbe2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73638450"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75654912"
 ---
 # <a name="deploy-an-app-that-scales-cross-cloud-using-azure-and-azure-stack-hub"></a>Nasazení aplikace, která škáluje více cloudů pomocí Azure a centra Azure Stack
 
@@ -33,18 +33,18 @@ V tomto řešení sestavíte ukázkové prostředí pro:
 > - Naučte se monitorovat a sledovat vaše nasazení.
 
 > [!Tip]  
-> ![Hybrid-Pillars. png](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
+> ![hybridní pillars.png](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
 > Centrum Microsoft Azure Stack je rozšířením Azure. Centrum Azure Stack přináší flexibilitu a inovace cloud computingu do místního prostředí. tím se umožní jenom hybridní cloud, který umožňuje vytvářet a nasazovat hybridní aplikace odkudkoli.  
 > 
 > Požadavky na [Návrh pro hybridní aplikace](overview-app-design-considerations.md) kontrolují pilíře kvality softwaru (umístění, škálovatelnost, dostupnost, odolnost, možnosti správy a zabezpečení) pro navrhování, nasazování a provozování hybridních aplikací. Pokyny k návrhu pomáhají při optimalizaci návrhu hybridní aplikace a minimalizaci výzev v produkčních prostředích.
 
-## <a name="prerequisites"></a>Předpoklady
+## <a name="prerequisites"></a>Požadavky
 
 -   Předplatné Azure. V případě potřeby vytvořte si [bezplatný účet](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) před tím, než začnete.
 
 - Azure Stack integrovaným systémem nebo nasazením centra Azure Stack hub Development Kit.
     - Pokyny k instalaci centra Azure Stack najdete v tématu [instalace vývojové sady Azure Stack hub](../asdk/asdk-install.md).
-    - ASDK skript pro automatizaci po nasazení přejdete na: [https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1) . 
+    - Skript pro automatizaci ASDK po nasazení najdete tady: [https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1) 
     - Dokončení této instalace může trvat několik hodin.
 
 -   Nasaďte [App Service](../operator/azure-stack-app-service-deploy.md) služby PaaS do centra Azure Stack.
@@ -59,7 +59,7 @@ V tomto řešení sestavíte ukázkové prostředí pro:
 
 -   Vyžaduje se virtuální počítač se systémem Windows Server 2016 s rozhraním .NET 3,5. Tento virtuální počítač bude sestaven v rámci předplatného tenanta na Azure Stack hub jako privátní agent sestavení.
 
--   [Windows Server 2016 s IMAGÍ SQL 2017 VM](../operator/azure-stack-add-vm-image.md#add-a-vm-image-as-an-azure-stack-operator-using-the-portal) je k dispozici v tržišti Azure Stack hub. Pokud tento obrázek není k dispozici, pracujte s operátorem centra Azure Stack, abyste se ujistili, že je přidaný do prostředí.
+-   [Windows Server 2016 s IMAGÍ SQL 2017 VM](../operator/azure-stack-add-vm-image.md) je k dispozici v tržišti Azure Stack hub. Pokud tento obrázek není k dispozici, pracujte s operátorem centra Azure Stack, abyste se ujistili, že je přidaný do prostředí.
 
 ## <a name="issues-and-considerations"></a>Problémy a důležité informace
 
@@ -118,7 +118,7 @@ Azure Repos
 
 3.  Ověřte, že je kód aplikace zkontrolovaný Azure Repos.
 
-## <a name="create-the-build-definition"></a>Vytvoření definice sestavení
+## <a name="create-the-build-definition"></a>Vytvořte definici sestavení
 
 1. Přihlaste se k Azure Pipelines a potvrďte možnost vytvářet definice sestavení.
 
@@ -242,7 +242,7 @@ Vytvořením koncových bodů může sestavení Visual Studio Online (VSTO) nasa
 
 5.  V části **Přidat uživatele a skupiny**zadejte uživatelské jméno a vyberte tohoto uživatele ze seznamu uživatelů.
 
-6.  Vyberte **Uložit změny**.
+6.  Vyberte **uložit změny**.
 
 7.  V seznamu **skupiny VSTS** vyberte možnost **Správci koncových bodů**.
 
@@ -250,7 +250,7 @@ Vytvořením koncových bodů může sestavení Visual Studio Online (VSTO) nasa
 
 9.  V části **Přidat uživatele a skupiny**zadejte uživatelské jméno a vyberte tohoto uživatele ze seznamu uživatelů.
 
-10. Vyberte **Uložit změny**.
+10. Vyberte **uložit změny**.
 
 Teď, když existují informace o koncovém bodu, je Azure Pipelines připojení k rozbočovači Azure Stack připraveno k použití. Agent sestavení v centru Azure Stack získá pokyny od Azure Pipelines a potom agent přenáší informace koncového bodu pro komunikaci s centrem Azure Stack.
 
@@ -275,7 +275,7 @@ K nasazení do obou cloudů použijte [Azure Resource Manager šablony](https://
 
 3.  Potvrďte, že kód aplikace byl zkontrolován Azure Repos.
 
-### <a name="create-the-build-definition"></a>Vytvoření definice sestavení
+### <a name="create-the-build-definition"></a>Vytvořte definici sestavení
 
 1.  Přihlaste se k Azure Pipelines pomocí účtu, který může vytvořit definici sestavení.
 
@@ -375,4 +375,4 @@ Vytvoření definice verze je posledním krokem v procesu sestavování aplikace
 Flexibilní a robustní cloudová služba poskytuje zabezpečení dat, zálohování a redundanci, konzistentní a rychlé dostupnosti, škálovatelné úložiště a distribuci a směrování vyhovující geografickým požadavkům. Tento ručně aktivovaný proces zajišťuje spolehlivé a efektivní přepínání zatížení mezi hostovanými webovými aplikacemi a okamžitou dostupností důležitých dat.
 
 ## <a name="next-steps"></a>Další kroky
-- Další informace o vzorech cloudu Azure najdete v tématu [vzory návrhu cloudu](https://docs.microsoft.com/azure/architecture/patterns).
+- Další informace o vzorech cloudu Azure, najdete v článku [vzory návrhu v cloudu](https://docs.microsoft.com/azure/architecture/patterns).

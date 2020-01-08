@@ -11,20 +11,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2019
+ms.date: 01/03/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: d03049fd6dea5f5d7a10a61a25639cb1de3d67ad
-ms.sourcegitcommit: 58e1911a54ba249a82fa048c7798dadedb95462b
+ms.openlocfilehash: 5740ff6bc550aa27f15761e6be2c69247eecaf03
+ms.sourcegitcommit: a6c02421069ab9e72728aa9b915a52ab1dd1dbe2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73057785"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75654878"
 ---
 # <a name="create-and-publish-a-custom-azure-stack-marketplace-item"></a>Vytvoření a publikování vlastní položky Azure Stack Marketplace
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
 
 Každá položka publikovaná na webu Azure Stack Marketplace používá formát balíčku Galerie Azure (. azpkg). Nástroj *Azure Gallery Packager* umožňuje vytvořit vlastní balíček Azure Gallery, který můžete nahrát na web služby Azure Stack Marketplace, který je pak možné stáhnout pomocí uživatelů. Proces nasazení používá šablonu Azure Resource Manager.
 
@@ -35,11 +35,11 @@ Příklady v tomto článku ukazují, jak vytvořit jednu nabídku tržiště vi
 ## <a name="create-a-marketplace-item"></a>Vytvoření položky Marketplace
 
 > [!IMPORTANT]
-> Před vytvořením položky Marketplace virtuálního počítače nahrajte vlastní image virtuálního počítače na portál Azure Stack, podle pokynů v části [Přidání image virtuálního počítače do Azure Stack](azure-stack-add-vm-image.md#add-a-vm-image-as-an-azure-stack-operator-using-the-portal). Pak postupujte podle pokynů v tomto článku a zabalením Image (vytvořte soubor. azpkg) a nahrajte ho do webu Azure Stack Marketplace.
+> Před vytvořením položky Marketplace virtuálního počítače nahrajte vlastní image virtuálního počítače na portál Azure Stack, podle pokynů v části [Přidání image virtuálního počítače do Azure Stack](azure-stack-add-vm-image.md). Pak postupujte podle pokynů v tomto článku a zabalením Image (vytvořte soubor. azpkg) a nahrajte ho do webu Azure Stack Marketplace.
 
 Pokud chcete vytvořit vlastní položku Marketplace, udělejte toto:
 
-1. Stáhněte si [nástroj Azure Gallery Packager](https://aka.ms/azsmarketplaceitem) a ukázkový balíček Azure Stack galerie. Tento soubor ke stažení obsahuje vlastní šablony virtuálních počítačů. Rozbalte soubor. zip a přejmenujte složku **SimpleVMTemplate** názvem položky, kterou zobrazíte na portálu Azure Stack.
+1. Stáhněte si [nástroj Azure Gallery Packager](https://aka.ms/azsmarketplaceitem) a ukázkový balíček Azure Stack galerie. Tento soubor ke stažení obsahuje vlastní šablony virtuálních počítačů. Rozbalte soubor. zip a v části **vlastní virtuální počítače**složky můžete použít buď systémy Linux, nebo šablony systému Windows, které jsou k dispozici. Můžete se rozhodnout znovu použít předem připravené šablony a upravit příslušné parametry s podrobnostmi o produktu položky, kterou zobrazíte na portálu Azure Stack. Nebo můžete jednoduše znovu použít soubor. azpkg k dispozici a přeskočit následující postup pro přizpůsobení vlastního balíčku galerie.
 
 2. Vytvořte šablonu Azure Resource Manager nebo použijte naše ukázkové šablony pro Windows/Linux. Tyto ukázkové šablony jsou k dispozici v souboru. zip nástroje balíčku, který jste stáhli v kroku 1. Můžete buď použít šablonu a změnit textová pole, nebo si můžete stáhnout předem nakonfigurovanou šablonu z GitHubu. Další informace o šablonách Azure Resource Manager naleznete v tématu [Azure Resource Manager Templates](/azure/azure-resource-manager/resource-group-authoring-templates).
 
@@ -51,7 +51,7 @@ Pokud chcete vytvořit vlastní položku Marketplace, udělejte toto:
 
    ![Snímek obrazovky struktury šablon nasazení](media/azure-stack-create-and-publish-marketplace-item/gallerypkg2.png)
 
-4. Nahraďte následující zvýrazněné hodnoty (s čísly) v šabloně manifest. JSON hodnotou, kterou jste zadali při [nahrávání vlastní image](azure-stack-add-vm-image.md#add-a-vm-image-as-an-azure-stack-operator-using-the-portal).
+4. Nahraďte následující zvýrazněné hodnoty (s čísly) v šabloně manifest. JSON hodnotou, kterou jste zadali při [nahrávání vlastní image](azure-stack-add-vm-image.md).
 
    > [!NOTE]  
    > Nikdy nepoužívejte v šabloně Azure Resource Manager žádné tajné kódy, jako jsou kódy Product Key, heslo nebo žádné informace o zákazníkovi. Soubory JSON šablon jsou přístupné bez nutnosti ověřování po publikování v galerii. Ukládejte všechna tajná klíče v [Key Vault](/azure/azure-resource-manager/resource-manager-keyvault-parameter) a volejte je v rámci šablony.
@@ -163,7 +163,7 @@ Pokud chcete vytvořit vlastní položku Marketplace, udělejte toto:
     ```
 
     > [!NOTE]
-    > Výstupní cesta může být libovolná cesta, kterou si zvolíte, a nemusí být v jednotce C:. Nicméně musí existovat úplná cesta k souboru manifest. JSON i výstupní balíček. Pokud je například výstupní cesta `C:\<path>\galleryPackageName.azpkg`, musí existovat složka `C:\<path>`.
+    > Výstupní cesta může být libovolná cesta, kterou si zvolíte, a nemusí být v jednotce C:. Nicméně musí existovat úplná cesta k souboru manifest. JSON i výstupní balíček. Pokud je například výstupní cesta `C:\<path>\galleryPackageName.azpkg`, musí existovat `C:\<path>` složky.
     >
     >
 
@@ -201,7 +201,7 @@ Pokud chcete vytvořit vlastní položku Marketplace, udělejte toto:
    `https://adminportal.[Region].[external FQDN]:30015/artifact/20161101/[Template Name]/DeploymentTemplates/Template.json`
    `https://portal.[Region].[external FQDN]:30015/artifact/20161101/[Template Name]/DeploymentTemplates/Template.json`
 
-6. Položku Marketplace můžete odebrat pomocí rutiny **Remove-AzureRMGalleryItem** . Například:
+6. Položku Marketplace můžete odebrat pomocí rutiny **Remove-AzureRMGalleryItem** . Příklad:
 
    ```powershell
    Remove-AzsGalleryItem -Name <Gallery package name> -Verbose
@@ -218,9 +218,9 @@ Pokud chcete vytvořit vlastní položku Marketplace, udělejte toto:
 
 | Name (Název) | Požaduje se | Typ | Omezení | Popis |
 | --- | --- | --- | --- | --- |
-| Name (Název) |× |Řetězec |[A-za-Z0-9] + | |
-| Vydavatel |× |Řetězec |[A-za-Z0-9] + | |
-| Version |× |Řetězec |[SemVer v2](https://semver.org/) | |
+| Name (Název) |× |Řetězec |[A-Za-z0-9]+ | |
+| Vydavatel |× |Řetězec |[A-Za-z0-9]+ | |
+| Verze |× |Řetězec |[SemVer v2](https://semver.org/) | |
 
 ### <a name="metadata"></a>Metadata
 
@@ -237,13 +237,13 @@ Pokud chcete vytvořit vlastní položku Marketplace, udělejte toto:
 
 Tržiště používá následující ikony:
 
-| Name (Název) | Délk | Výška | Poznámky |
+| Name (Název) | Šířka | Výška | Poznámky |
 | --- | --- | --- | --- |
 | Rozlehlý |255 px |115 px |Vždy vyžadováno |
 | Velké |115 px |115 px |Vždy vyžadováno |
 | Střední |90 px |90 px |Vždy vyžadováno |
 | Malé |40 px |40 px |Vždy vyžadováno |
-| – |533 px |324 px |Vždy vyžadováno |
+| Snímek obrazovky |533 px |324 px |Vždy vyžadováno |
 
 ### <a name="categories"></a>Kategorie
 
@@ -256,7 +256,7 @@ Každá položka na webu Marketplace může obsahovat různé odkazy na další 
 | Name (Název) | Požaduje se | Typ | Omezení | Popis |
 | --- | --- | --- | --- | --- |
 | DisplayName |× |Řetězec |Maximálně 64 znaků. | |
-| identifikátor URI |× |IDENTIFIKÁTOR URI | | |
+| Uri |× |Identifikátor URI | | |
 
 ### <a name="additional-properties"></a>Další vlastnosti
 

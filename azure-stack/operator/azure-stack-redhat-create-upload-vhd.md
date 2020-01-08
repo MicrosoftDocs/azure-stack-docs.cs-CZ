@@ -18,12 +18,12 @@ ms.date: 12/11/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 12/11/2019
-ms.openlocfilehash: deea66ed257ecab933c294022fbdd07d1ccb137b
-ms.sourcegitcommit: ae9d29c6a158948a7dbc4fd53082984eba890c59
+ms.openlocfilehash: be51964d4416e632f5ef3462c3c42861a82e47d5
+ms.sourcegitcommit: a6c02421069ab9e72728aa9b915a52ab1dd1dbe2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/12/2019
-ms.locfileid: "75007958"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75654895"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack"></a>Příprava virtuálního počítače založeného na Red Hat pro Azure Stack
 
@@ -44,7 +44,7 @@ V této části se předpokládá, že už máte soubor ISO z webu Red Hat a má
 * Podpora jádra pro připojení systémů souborů formátu Universal Disk Format (UDF) je povinná. Při prvním spuštění předává médium ve formátu UDF připojené k hostu konfiguraci zřizování pro virtuální počítač Linux. Agent Azure Linux musí připojit systém souborů UDF a načíst jeho konfiguraci a zřídit virtuální počítač.
 * Nekonfigurujte odkládací oddíl na disku s operačním systémem. Agent pro Linux se dá nakonfigurovat tak, aby na dočasném disku prostředků vytvořil odkládací soubor. Další informace o najdete v následujících krocích.
 * Všechny virtuální pevné disky v Azure musí mít virtuální velikost zarovnaná na 1 MB. Při převodu z nezpracovaného disku na VHD je nutné před převodem zajistit, aby velikost nezpracovaného disku byla násobkem 1 MB. Další podrobnosti najdete v následujících krocích.
-* Azure Stack podporuje Cloud-init. [Cloud-init](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init) je široce využívaným přístupem k přizpůsobení virtuálního počítače s Linuxem při jeho prvním spuštění. Pomocí cloud-init můžete instalovat balíčky a zapisovat soubory nebo konfigurovat uživatele a zabezpečení. Protože cloud-init je volána v průběhu procesu prvotního spuštění, nejsou žádné další kroky ani agenty vyžaduje použití vaší konfigurace.
+* Azure Stack podporuje Cloud-init. [Cloud-init](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init) je široce využívaným přístupem k přizpůsobení virtuálního počítače s Linuxem při jeho prvním spuštění. Pomocí cloud-init můžete instalovat balíčky a zapisovat soubory nebo konfigurovat uživatele a zabezpečení. Protože cloud-init je volána v průběhu procesu prvotního spuštění, nejsou žádné další kroky ani agenty vyžaduje použití vaší konfigurace. Pokyny k přidání Cloud-init do image najdete v tématu [Příprava existující image virtuálního počítače Azure pro Linux pro použití s Cloud-init](https://docs.microsoft.com/azure/virtual-machines/linux/cloudinit-prepare-custom-image).
 
 ### <a name="prepare-an-rhel-7-vm-from-hyper-v-manager"></a>Příprava virtuálního počítače s RHEL 7 pomocí Správce technologie Hyper-V
 
@@ -84,7 +84,7 @@ V této části se předpokládá, že už máte soubor ISO z webu Red Hat a má
     sudo subscription-manager register --auto-attach --username=XXX --password=XXX
     ```
 
-1. Upravte spouštěcí řádek jádra v konfiguraci GRUB tak, aby zahrnoval další parametry jádra pro Azure. Chcete-li provést tuto úpravu, otevřete `/etc/default/grub` v textovém editoru a upravte parametr `GRUB_CMDLINE_LINUX`. Například:
+1. Upravte spouštěcí řádek jádra v konfiguraci GRUB tak, aby zahrnoval další parametry jádra pro Azure. Chcete-li provést tuto úpravu, otevřete `/etc/default/grub` v textovém editoru a upravte parametr `GRUB_CMDLINE_LINUX`. Příklad:
 
     ```sh
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
@@ -104,7 +104,7 @@ V této části se předpokládá, že už máte soubor ISO z webu Red Hat a má
     sudo grub2-mkconfig -o /boot/grub2/grub.cfg
     ```
 
-1. Zastavení a odinstalace Cloud-Init:
+1. [Volitelné po 1910 vydání] Zastavení a odinstalace Cloud-Init:
 
     ```bash
     systemctl stop cloud-init
@@ -117,18 +117,59 @@ V této části se předpokládá, že už máte soubor ISO z webu Red Hat a má
     ClientAliveInterval 180
     ```
 
-1. Balíček WALinuxAgent, `WALinuxAgent-<version>`, byl vložen do úložiště Red Hat Extras. Povolte úložiště Extras spuštěním následujícího příkazu:
+1. Při vytváření vlastního virtuálního pevného disku pro Azure Stack mějte na paměti, že WALinuxAgent verze mezi 2.2.20 a 2.2.35 (obojí) nefungují v Azure Stack prostředích před vydáním verze 1910. K přípravě image můžete použít verze 2.2.20/2.2.35. Pokud chcete použít verze vyšší než 2.2.35 pro přípravu vlastní image, aktualizujte Azure Stack na verzi 1903 a novější nebo použijte opravu hotfix 1901/1902.
+
+    [Před 1910 verzí] Pro stažení kompatibilního WALinuxAgent postupujte podle těchto pokynů:
+
+    1. Stáhněte si setuptools.
+
+    ```bash
+    wget https://pypi.python.org/packages/source/s/setuptools/setuptools-7.0.tar.gz --no-check-certificate
+    tar xzf setuptools-7.0.tar.gz
+    cd setuptools-7.0
+    ```
+
+    1. Stáhněte si a rozbalte verzi 2.2.20 agenta z našeho GitHubu.
+
+    ```bash
+    wget https://github.com/Azure/WALinuxAgent/archive/v2.2.20.zip
+    unzip v2.2.20.zip
+    cd WALinuxAgent-2.2.20
+    ```
+
+    1. Nainstalujte setup.py.
+
+    ```bash
+    sudo python setup.py install
+    ```
+
+    1. Restartujte waagent.
+
+    ```bash
+    sudo systemctl restart waagent
+    ```
+
+    1. Otestujte, jestli verze agenta odpovídá vašemu, který jste stáhli. V tomto příkladu by měl být 2.2.20.
+
+    ```bash
+    waagent -version
+    ```
+    
+    [Po 1910 vydání] Pro stažení kompatibilního WALinuxAgent postupujte podle těchto pokynů:
+    
+    1. Balíček WALinuxAgent, `WALinuxAgent-<version>`, byl vložen do úložiště Red Hat Extras. Povolte úložiště Extras spuštěním následujícího příkazu:
 
     ```bash
     subscription-manager repos --enable=rhel-7-server-extras-rpms
     ```
 
-1. Nainstalujte agenta Azure Linux spuštěním následujícího příkazu:
+    1. Nainstalujte agenta Azure Linux spuštěním následujícího příkazu:
 
     ```bash
     sudo yum install WALinuxAgent
     sudo systemctl enable waagent.service
     ```
+
 
 1. Nevytvářejte odkládací místo na disku s operačním systémem.
 
@@ -221,7 +262,7 @@ V této části se předpokládá, že už máte soubor ISO z webu Red Hat a má
     subscription-manager register --auto-attach --username=XXX --password=XXX
     ```
 
-1. Upravte spouštěcí řádek jádra v konfiguraci GRUB tak, aby zahrnoval další parametry jádra pro Azure. Tuto konfiguraci provedete tak, že v textovém editoru otevřete `/etc/default/grub` a upravíte parametr `GRUB_CMDLINE_LINUX`. Například:
+1. Upravte spouštěcí řádek jádra v konfiguraci GRUB tak, aby zahrnoval další parametry jádra pro Azure. Tuto konfiguraci provedete tak, že v textovém editoru otevřete `/etc/default/grub` a upravíte parametr `GRUB_CMDLINE_LINUX`. Příklad:
 
     ```sh
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
@@ -255,7 +296,7 @@ V této části se předpokládá, že už máte soubor ISO z webu Red Hat a má
     dracut -f -v
     ```
 
-1. Zastavení a odinstalace Cloud-Init:
+1. [Volitelné po 1910 vydání] Zastavení a odinstalace Cloud-Init:
 
     ```bash
     systemctl stop cloud-init
@@ -275,11 +316,11 @@ V této části se předpokládá, že už máte soubor ISO z webu Red Hat a má
     ClientAliveInterval 180
     ```
 
-1. Při vytváření vlastního VHD pro Azure Stack Pamatujte na to, že verze WALinuxAgent mezi 2.2.20 a 2.2.35 (obojí) nefunguje v Azure Stack prostředích. K přípravě image můžete použít verze 2.2.20/2.2.35. Pokud chcete k přípravě vlastní image použít verze vyšší než 2.2.35, aktualizujte Azure Stack na verzi 1903 nebo použijte opravu hotfix 1901/1902.
+1. Při vytváření vlastního virtuálního pevného disku pro Azure Stack mějte na paměti, že WALinuxAgent verze mezi 2.2.20 a 2.2.35 (obojí) nefungují v Azure Stack prostředích před vydáním verze 1910. K přípravě image můžete použít verze 2.2.20/2.2.35. Pokud chcete použít verze vyšší než 2.2.35 pro přípravu vlastní image, aktualizujte Azure Stack na verzi 1903 a novější nebo použijte opravu hotfix 1901/1902.
 
-    Pomocí těchto pokynů stáhněte WALinuxAgent:
+    [Před 1910 verzí] Pro stažení kompatibilního WALinuxAgent postupujte podle těchto pokynů:
 
-    a. Stáhněte si setuptools.
+    1. Stáhněte si setuptools.
 
     ```bash
     wget https://pypi.python.org/packages/source/s/setuptools/setuptools-7.0.tar.gz --no-check-certificate
@@ -287,7 +328,7 @@ V této části se předpokládá, že už máte soubor ISO z webu Red Hat a má
     cd setuptools-7.0
     ```
 
-   b. Stáhněte si a rozbalte verzi 2.2.20 agenta z našeho GitHubu.
+    1. Stáhněte si a rozbalte verzi 2.2.20 agenta z našeho GitHubu.
 
     ```bash
     wget https://github.com/Azure/WALinuxAgent/archive/v2.2.20.zip
@@ -295,22 +336,37 @@ V této části se předpokládá, že už máte soubor ISO z webu Red Hat a má
     cd WALinuxAgent-2.2.20
     ```
 
-    c. Nainstalujte setup.py.
+    1. Nainstalujte setup.py.
 
     ```bash
     sudo python setup.py install
     ```
 
-    d. Restartujte waagent.
+    1. Restartujte waagent.
 
     ```bash
     sudo systemctl restart waagent
     ```
 
-    e. Otestujte, jestli verze agenta odpovídá vašemu, který jste stáhli. V tomto příkladu by měl být 2.2.20.
+    1. Otestujte, jestli verze agenta odpovídá vašemu, který jste stáhli. V tomto příkladu by měl být 2.2.20.
 
     ```bash
     waagent -version
+    ```
+    
+    [Po 1910 vydání] Pro stažení kompatibilního WALinuxAgent postupujte podle těchto pokynů:
+    
+    1. Balíček WALinuxAgent, `WALinuxAgent-<version>`, byl vložen do úložiště Red Hat Extras. Povolte úložiště Extras spuštěním následujícího příkazu:
+
+    ```bash
+    subscription-manager repos --enable=rhel-7-server-extras-rpms
+    ```
+
+    1. Nainstalujte agenta Azure Linux spuštěním následujícího příkazu:
+
+    ```bash
+    sudo yum install WALinuxAgent
+    sudo systemctl enable waagent.service
     ```
 
 1. Nevytvářejte odkládací místo na disku s operačním systémem.
@@ -418,7 +474,7 @@ V této části se předpokládá, že jste už nainstalovali virtuální počí
     sudo subscription-manager register --auto-attach --username=XXX --password=XXX
     ```
 
-1. Upravte spouštěcí řádek jádra v konfiguraci GRUB tak, aby zahrnoval další parametry jádra pro Azure. Chcete-li provést tuto úpravu, otevřete `/etc/default/grub` v textovém editoru a upravte parametr `GRUB_CMDLINE_LINUX`. Například:
+1. Upravte spouštěcí řádek jádra v konfiguraci GRUB tak, aby zahrnoval další parametry jádra pro Azure. Chcete-li provést tuto úpravu, otevřete `/etc/default/grub` v textovém editoru a upravte parametr `GRUB_CMDLINE_LINUX`. Příklad:
 
     ```sh
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
@@ -452,7 +508,7 @@ V této části se předpokládá, že jste už nainstalovali virtuální počí
     dracut -f -v
     ```
 
-1. Zastavení a odinstalace Cloud-Init:
+1. [Volitelné po 1910 vydání] Zastavení a odinstalace Cloud-Init:
 
     ```bash
     systemctl stop cloud-init
@@ -465,13 +521,53 @@ V této části se předpokládá, že jste už nainstalovali virtuální počí
     ClientAliveInterval 180
     ```
 
-1. Balíček WALinuxAgent, `WALinuxAgent-<version>`, byl vložen do úložiště Red Hat Extras. Povolte úložiště Extras spuštěním následujícího příkazu:
+1. Při vytváření vlastního virtuálního pevného disku pro Azure Stack mějte na paměti, že WALinuxAgent verze mezi 2.2.20 a 2.2.35 (obojí) nefungují v Azure Stack prostředích před vydáním verze 1910. K přípravě image můžete použít verze 2.2.20/2.2.35. Pokud chcete použít verze vyšší než 2.2.35 pro přípravu vlastní image, aktualizujte Azure Stack na verzi 1903 a novější nebo použijte opravu hotfix 1901/1902.
+
+    [Před 1910 verzí] Pro stažení kompatibilního WALinuxAgent postupujte podle těchto pokynů:
+
+    1. Stáhněte si setuptools.
+
+    ```bash
+    wget https://pypi.python.org/packages/source/s/setuptools/setuptools-7.0.tar.gz --no-check-certificate
+    tar xzf setuptools-7.0.tar.gz
+    cd setuptools-7.0
+    ```
+
+    1. Stáhněte si a rozbalte verzi 2.2.20 agenta z našeho GitHubu.
+
+    ```bash
+    wget https://github.com/Azure/WALinuxAgent/archive/v2.2.20.zip
+    unzip v2.2.20.zip
+    cd WALinuxAgent-2.2.20
+    ```
+
+    1. Nainstalujte setup.py.
+
+    ```bash
+    sudo python setup.py install
+    ```
+
+    1. Restartujte waagent.
+
+    ```bash
+    sudo systemctl restart waagent
+    ```
+
+    1. Otestujte, jestli verze agenta odpovídá vašemu, který jste stáhli. V tomto příkladu by měl být 2.2.20.
+
+    ```bash
+    waagent -version
+    ```
+    
+    [Po 1910 vydání] Pro stažení kompatibilního WALinuxAgent postupujte podle těchto pokynů:
+    
+    1. Balíček WALinuxAgent, `WALinuxAgent-<version>`, byl vložen do úložiště Red Hat Extras. Povolte úložiště Extras spuštěním následujícího příkazu:
 
     ```bash
     subscription-manager repos --enable=rhel-7-server-extras-rpms
     ```
 
-1. Nainstalujte agenta Azure Linux spuštěním následujícího příkazu:
+    1. Nainstalujte agenta Azure Linux spuštěním následujícího příkazu:
 
     ```bash
     sudo yum install WALinuxAgent
@@ -541,7 +637,7 @@ V této části se předpokládá, že jste už nainstalovali virtuální počí
 
 ## <a name="prepare-a-red-hat-based-vm-from-an-iso-by-using-a-kickstart-file-automatically"></a>Příprava virtuálního počítače založeného na Red Hat z ISO pomocí souboru Kickstart automaticky
 
-1. Vytvořte soubor Kickstart, který obsahuje následující obsah, a uložte soubor. Podrobnosti o instalaci Kickstart najdete v [Průvodci instalací Kickstart](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html).
+1. Vytvořte soubor Kickstart, který obsahuje následující obsah, a uložte soubor. Zastavení a odinstalace Cloud-init je volitelná (Cloud-init se podporuje v Azure Stack vydání po 1910). Nainstalujte agenta z úložiště RedHat jenom po vydání 1910. Před 1910 použijte úložiště Azure, jak je to hotové v předchozí části. Podrobnosti o instalaci Kickstart najdete v [Průvodci instalací Kickstart](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html).
 
     ```sh
     Kickstart for provisioning a RHEL 7 Azure VM

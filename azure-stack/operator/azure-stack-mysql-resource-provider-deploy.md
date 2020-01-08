@@ -15,12 +15,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/18/2019
-ms.openlocfilehash: aa76766ad6528148cc8662780c4bc4dd593b366a
-ms.sourcegitcommit: 3a8e116fd0b16e1201e55e2088dde2e581004045
+ms.openlocfilehash: 4b2cbde2222e13b148072149d461ff4636b77d59
+ms.sourcegitcommit: 4cd33bcb1bb761a424afd51f511b093543786d76
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74557596"
+ms.lasthandoff: 12/21/2019
+ms.locfileid: "75325106"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack"></a>Nasazení poskytovatele prostředků MySQL na Azure Stack
 
@@ -29,7 +29,7 @@ Použijte poskytovatele prostředků MySQL Serveru a zveřejněte databáze MySQ
 > [!IMPORTANT]
 > Pouze poskytovatel prostředků je podporován k vytváření položek na serverech, které jsou hostiteli SQL nebo MySQL. Položky vytvořené na hostitelském serveru, které nejsou vytvořené poskytovatelem prostředků, můžou vést k neshodě stavu.
 
-## <a name="prerequisites"></a>Předpoklady
+## <a name="prerequisites"></a>Požadavky
 
 Aby bylo možné nasadit poskytovatele prostředků Azure Stack MySQL, je nutné, aby bylo provedeno několik požadavků. Abyste splnili tyto požadavky, proveďte kroky v tomto článku v počítači, který má přístup k VIRTUÁLNÍmu počítači s privilegovaným koncovým bodem.
 
@@ -95,13 +95,13 @@ Tyto parametry můžete zadat z příkazového řádku. Pokud ne, nebo pokud se 
 
 | Název parametru | Popis | Komentář nebo výchozí hodnota |
 | --- | --- | --- |
-| **CloudAdminCredential** | Přihlašovací údaje pro správce cloudu, které jsou nezbytné pro přístup k privilegovanému koncovému bodu. | _Požadovanou_ |
-| **AzCredential** | Přihlašovací údaje pro účet správce služby Azure Stack Použijte stejné přihlašovací údaje, které jste použili pro nasazení Azure Stack. | _Požadovanou_ |
-| **VMLocalCredential** | Přihlašovací údaje pro účet místního správce virtuálního počítače poskytovatele prostředků MySQL. | _Požadovanou_ |
-| **PrivilegedEndpoint** | IP adresa nebo název DNS privilegovaného koncového bodu. |  _Požadovanou_ |
+| **CloudAdminCredential** | Přihlašovací údaje pro správce cloudu, které jsou nezbytné pro přístup k privilegovanému koncovému bodu. | _Vyžaduje_ |
+| **AzCredential** | Přihlašovací údaje pro účet správce služby Azure Stack Použijte stejné přihlašovací údaje, které jste použili pro nasazení Azure Stack. | _Vyžaduje_ |
+| **VMLocalCredential** | Přihlašovací údaje pro účet místního správce virtuálního počítače poskytovatele prostředků MySQL. | _Vyžaduje_ |
+| **PrivilegedEndpoint** | IP adresa nebo název DNS privilegovaného koncového bodu. |  _Vyžaduje_ |
 | **AzureEnvironment** | Prostředí Azure účtu správce služby používaného pro nasazení Azure Stack. Vyžaduje se jenom pro nasazení Azure AD. Podporované názvy prostředí jsou **AzureCloud**, **AzureUSGovernment**nebo, pokud používáte Čína Azure AD **AzureChinaCloud**. | AzureCloud |
 | **DependencyFilesLocalPath** | V případě pouze integrovaných systémů musí být soubor Certificate. pfx umístěn v tomto adresáři. V případě odpojených prostředí stáhněte do tohoto adresáře [MySQL-Connector-NET-6.10.5. msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi) . Volitelně můžete zkopírovat jeden web Windows Update balíček MSU zde. | _Volitelné_ (_povinné_ pro integrované systémy nebo odpojená prostředí) |
-| **DefaultSSLCertificatePassword** | Heslo pro certifikát. pfx. | _Požadovanou_ |
+| **DefaultSSLCertificatePassword** | Heslo pro certifikát. pfx. | _Vyžaduje_ |
 | **MaxRetryCount** | Počet pokusů o opakování všech operací, pokud dojde k selhání.| 2 |
 | **RetryDuration** | Interval časového limitu mezi opakovanými pokusy (v sekundách). | 120 |
 | **Odinstalace** | Odebere poskytovatele prostředků a všechny přidružené prostředky (viz následující poznámky). | Ne |
@@ -148,10 +148,6 @@ $vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("mysq
 $CloudAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domain\cloudadmin", $CloudAdminPass)
 
-# Clear the existing login information from the Azure PowerShell context.
-Clear-AzureRMContext -Scope CurrentUser -Force
-Clear-AzureRMContext -Scope Process -Force
-
 # Change the following as appropriate.
 $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
@@ -173,7 +169,7 @@ Po dokončení instalačního skriptu poskytovatele prostředků aktualizujte pr
 ## <a name="verify-the-deployment-by-using-the-azure-stack-portal"></a>Ověření nasazení pomocí portálu Azure Stack
 
 1. Přihlaste se k portálu pro správu jako správce služby.
-2. Vyberte **skupiny prostředků**.
+2. Vyberte **Skupiny prostředků**.
 3. Vyberte **umístění System.\<\>** skupinu prostředků. mysqladapter.
 4. Na stránce Souhrn pro skupinu prostředků by se neměla nasazovat žádná neúspěšná nasazení.
 5. Nakonec vyberte **virtuální počítače** na portálu pro správu, abyste ověřili, jestli se virtuální počítač poskytovatele prostředků MySQL úspěšně vytvořil a běží.

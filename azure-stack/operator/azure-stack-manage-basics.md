@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 05/29/2019
 ms.author: justinha
 ms.lastreviewed: 05/29/2019
-ms.openlocfilehash: f9b9d6d1474c22c8e31d24ae08faf1aac6d5e9c1
-ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
+ms.openlocfilehash: 32f82a832b150c4512c854d2ddbfc24941bf7228
+ms.sourcegitcommit: 7626143e5d2a5e32a43162692f59306182fec854
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72283480"
+ms.lasthandoff: 12/24/2019
+ms.locfileid: "75333052"
 ---
 # <a name="azure-stack-administration-basics"></a>Základy správy Azure Stack
 
@@ -45,9 +45,9 @@ Budete potřebovat povědomí o tom, které služby můžete uživatelům zpří
 
 Ve výchozím nastavení Azure Stack při nasazení Azure Stack zahrnovat následující "základní služby":
 
-- Výpočetní
-- Úložiště
-- Síťové služby
+- Služby Compute
+- Storage
+- Sítě
 - Key Vault
 
 S těmito základními službami můžete uživatelům s minimální konfigurací nabídnout infrastrukturu jako službu (IaaS).
@@ -56,8 +56,8 @@ S těmito základními službami můžete uživatelům s minimální konfigurac�
 
 V současné době podporujeme následující další služby PaaS (Platform as a Service):
 
-- App Service
-- Azure Functions
+- Aplikační služba
+- Funkce Azure
 - Databáze SQL a MySQL
 - Kubernetes (ve verzi Preview)
 
@@ -68,15 +68,15 @@ Tyto služby vyžadují další konfiguraci, abyste je mohli zpřístupnit uživ
 Azure Stack bude pokračovat v přidávání podpory pro služby Azure. Plánovaný plán najdete v tématu [Azure Stack: rozšíření Azure](https://go.microsoft.com/fwlink/?LinkId=842846&clcid=0x409) White Paper. Můžete také sledovat příspěvky na [blogu Azure Stack](https://azure.microsoft.com/blog/tag/azure-stack-technical-preview) pro nová oznámení.
 
 ## <a name="what-account-should-i-use"></a>Jaký účet mám použít?
+
 Při správě Azure Stack je potřeba vědět o několika ohledech. Hlavně v nasazeních používá Windows Server Active Directory Federation Services (AD FS) (AD FS) jako zprostředkovatele identity místo Azure Active Directory (Azure AD). Následující požadavky na účet platí pro Azure Stack integrovaných systémů i nasazení ASDK:
 
-
-|Zohledňují|Služba Azure AD|AD FS|
+|Účet|Azure AD|AD FS|
 |-----|-----|-----|
 |Místní správce (.\Administrator)|Správce hostitele ASDK|Správce hostitele ASDK|
 |AzureStack\AzureStackAdmin|Správce hostitele ASDK<br><br>Dá se použít k přihlášení na portál správce Azure Stack.<br><br>Přístup k zobrazení a správě Service Fabricch okruhů.|Správce hostitele ASDK<br><br>Nemáte přístup k portálu Azure Stack pro správu.<br><br>Přístup k zobrazení a správě Service Fabricch okruhů.<br><br>Již není vlastníkem předplatného výchozího poskytovatele (DPS).|
 |AzureStack\CloudAdmin|Umožňuje přístup k povoleným příkazům v rámci privilegovaného koncového bodu a jejich spouštění.|Umožňuje přístup k povoleným příkazům v rámci privilegovaného koncového bodu a jejich spouštění.<br><br>Nejde se přihlásit k hostiteli ASDK.<br><br>Vlastník předplatného výchozího poskytovatele (DPS).|
-|Globální správce Azure AD|Používá se během instalace.<br><br>Vlastník předplatného výchozího poskytovatele (DPS).|Nelze použít.|
+|Globální správce Azure AD|Používá se během instalace.<br><br>Vlastník předplatného výchozího poskytovatele (DPS).|Není k dispozici.|
 |
 
 ## <a name="what-tools-do-i-use-to-manage"></a>Jaké nástroje se používají ke správě?
@@ -104,7 +104,7 @@ Kromě poskytování služeb je potřeba, abyste měli k disAzure Stack pravidel
 
 ## <a name="what-to-tell-your-users"></a>Co říct uživatelům
 
-Budete muset uživatelům sdělit, jak pracovat se službami v Azure Stack, jak se připojit k prostředí a jak se přihlásit k odběru nabídek. Kromě jakékoli vlastní dokumentace, kterou byste mohli chtít poskytnout uživatelům, můžete uživatele nasměrovat tak, aby [Azure Stack dokumentaci pro uživatele](https://docs.microsoft.com/en-us/azure-stack/user/).
+Budete muset uživatelům sdělit, jak pracovat se službami v Azure Stack, jak se připojit k prostředí a jak se přihlásit k odběru nabídek. Kromě jakékoli vlastní dokumentace, kterou byste mohli chtít poskytnout uživatelům, můžete uživatele nasměrovat tak, aby [Azure Stack dokumentaci pro uživatele](/azure-stack/user/).
 
 **Naučte se pracovat se službami v Azure Stack**
 

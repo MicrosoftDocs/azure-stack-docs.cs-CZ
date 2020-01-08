@@ -16,12 +16,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 438cf2d8a34046f29d156aadc1cc82571e4b8a12
-ms.sourcegitcommit: d619612f54eeba3231ed73ed149ff894f9bf838a
+ms.openlocfilehash: 9e7800c018816155205569397520271fb86c4c12
+ms.sourcegitcommit: dc3d0b77ee77742525fa0cd72d8547d25393022f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74993887"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75492755"
 ---
 # <a name="use-sql-databases-on-azure-stack"></a>Použití databází SQL na Azure Stack
 
@@ -31,7 +31,7 @@ Použijte poskytovatele prostředků SQL k nabídnutí databází SQL jako služ
 - Weby, které používají SQL.
 - Úlohy, které používají SQL.
 
-Před instalací poskytovatele prostředků MySQL je potřeba zvážit několik omezení:
+Před instalací poskytovatele prostředků SQL je potřeba zvážit několik omezení:
 
 - Uživatelé mohou vytvářet a spravovat pouze jednotlivé databáze. Instance databázového serveru není pro koncové uživatele přístupná. To může omezit kompatibilitu s místními databázovými aplikacemi, které potřebují přístup k hlavní, dočasné databázi nebo k dynamické správě databází.
 - Váš operátor Azure Stack zodpovídá za nasazení, aktualizaci, zabezpečení, konfiguraci a údržbu serverů a hostitelů služby SQL Database. Služba RP neposkytuje žádné funkce správy instance hostitele a databázového serveru. 

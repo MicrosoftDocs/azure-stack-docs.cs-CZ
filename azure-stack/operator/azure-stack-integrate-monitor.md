@@ -15,12 +15,12 @@ ms.date: 06/05/2019
 ms.author: jeffgilb
 ms.reviewer: thoroet
 ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: aa9b20b9ee80cfdb17dba3020c03718085d8b625
-ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
+ms.openlocfilehash: 69522b0a32d2044ff334b91ea3142aadb11c89c8
+ms.sourcegitcommit: 7626143e5d2a5e32a43162692f59306182fec854
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72277177"
+ms.lasthandoff: 12/24/2019
+ms.locfileid: "75333093"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Integrace řešení pro externí monitorování pomocí Azure Stack
 
@@ -81,9 +81,9 @@ Modul plug-in funguje s Nagios 4x a XI. Pokud chcete stáhnout modul plug-in, p�
 
 ### <a name="requirements-for-nagios"></a>Požadavky na Nagios
 
-1.  Minimální verze Nagios je 4. x
+1. Minimální verze Nagios je 4. x
 
-2.  Microsoft Azure Active Directory knihovna Pythonu. Tuto knihovnu je možné nainstalovat pomocí Python PIP.
+2. Microsoft Azure Active Directory knihovna Pythonu. Tuto knihovnu je možné nainstalovat pomocí Python PIP.
 
     ```bash  
     sudo pip install adal pyyaml six
@@ -105,11 +105,11 @@ samples/etc/azurestack_hosts.cfg
 samples/etc/azurestack_services.cfg
 ```
 
-1.  Zkopírujte modul plug-in `azurestack_plugin.py` do následujícího adresáře: `/usr/local/nagios/libexec`.
+1. Zkopírujte modul plug-in `azurestack_plugin.py` do následujícího adresáře: `/usr/local/nagios/libexec`.
 
-2.  Zkopírujte obslužnou rutinu `azurestack_handler.sh` do následujícího adresáře: `/usr/local/nagios/libexec/eventhandlers`.
+2. Zkopírujte obslužnou rutinu `azurestack_handler.sh` do následujícího adresáře: `/usr/local/nagios/libexec/eventhandlers`.
 
-3.  Ujistěte se, že je soubor modulu plug-in nastavený jako spustitelný:
+3. Ujistěte se, že je soubor modulu plug-in nastavený jako spustitelný:
 
     ```bash
     sudo cp azurestack_plugin.py <PLUGINS_DIR>
@@ -120,9 +120,9 @@ samples/etc/azurestack_services.cfg
 
 Následující parametry jsou k dispozici pro konfiguraci v souboru azurestack. cfg. Parametry tučného písma je potřeba nakonfigurovat nezávisle na zvoleném modelu ověřování.
 
-Další informace o tom, jak vytvořit hlavní název služby (SPN), najdete v tématu [použití identity aplikace pro přístup k prostředkům](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-service-principals).
+Další informace o tom, jak vytvořit hlavní název služby (SPN), najdete v tématu [použití identity aplikace pro přístup k prostředkům](azure-stack-create-service-principals.md).
 
-| Parametr | Popis | Authentication |
+| Parametr | Popis | Ověření |
 | --- | --- | --- |
 | **External_domain_fqdn ** | Plně kvalifikovaný název domény externí domény |    |
 | **region: ** | Název oblasti |    |
@@ -148,37 +148,37 @@ Ostatní konfigurační soubory obsahují volitelná nastavení konfigurace, kte
 | azurestack_hosts.cfg | Azure Stack pojmenovávání nasazení |
 | azurestack_services.cfg | Konfigurace služby |
 
-### <a name="setup-steps"></a>Kroky pro instalaci
+### <a name="setup-steps"></a>Postup nastavení
 
-1.  Upravte konfigurační soubor.
+1. Upravte konfigurační soubor.
 
-2.  Zkopírujte upravené konfigurační soubory do následující složky: `/usr/local/nagios/etc/objects`.
+2. Zkopírujte upravené konfigurační soubory do následující složky: `/usr/local/nagios/etc/objects`.
 
 ### <a name="update-nagios-configuration"></a>Aktualizovat konfiguraci Nagios
 
 Konfigurace Nagios se musí aktualizovat, aby se zajistilo, že se načte modul plug-in Azure Stack – Nagios.
 
-1.  Otevřete následující soubor:
+1. Otevřete následující soubor:
 
-```bash  
-/usr/local/nagios/etc/nagios.cfg
-```
+   ```bash  
+   /usr/local/nagios/etc/nagios.cfg
+   ```
 
-2.  Přidejte následující položku:
+2. Přidejte následující položku:
 
-```bash  
-# Load the Azure Stack Plugin Configuration
-cfg_file=/usr/local/Nagios/etc/objects/azurestack_contacts.cfg
-cfg_file=/usr/local/Nagios/etc/objects/azurestack_commands.cfg
-cfg_file=/usr/local/Nagios/etc/objects/azurestack_hosts.cfg
-cfg_file=/usr/local/Nagios/etc/objects/azurestack_services.cfg
-```
+   ```bash  
+   # Load the Azure Stack Plugin Configuration
+   cfg_file=/usr/local/Nagios/etc/objects/azurestack_contacts.cfg
+   cfg_file=/usr/local/Nagios/etc/objects/azurestack_commands.cfg
+   cfg_file=/usr/local/Nagios/etc/objects/azurestack_hosts.cfg
+   cfg_file=/usr/local/Nagios/etc/objects/azurestack_services.cfg
+   ```
 
-3.  Znovu načíst Nagios.
+3. Znovu načíst Nagios.
 
-```bash  
-sudo service nagios reload
-```
+   ```bash  
+   sudo service nagios reload
+   ```
 
 ### <a name="manually-close-active-alerts"></a>Ručně zavřít aktivní výstrahy
 
@@ -240,7 +240,7 @@ Pokud nepoužíváte Operations Manager, Nagios nebo řešení založené na Nag
     Get-AzsRegistrationHealth -ServiceRegistrationId $FRPID.RegistrationId
     ```
 
-## <a name="learn-more"></a>Víc se uč
+## <a name="learn-more"></a>Další informace
 
 Informace o integrovaném monitorování stavu najdete v tématu [monitorování stavu a výstrah v Azure Stack](azure-stack-monitor-health.md).
 

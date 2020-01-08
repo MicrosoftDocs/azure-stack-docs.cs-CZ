@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2019
+ms.date: 01/02/2020
 ms.author: sethm
 ms.reviewer: ihcherie
-ms.lastreviewed: 10/17/2019
-ms.openlocfilehash: 7d884919b19901512661f005b9128715b6e6ede1
-ms.sourcegitcommit: d619612f54eeba3231ed73ed149ff894f9bf838a
+ms.lastreviewed: 01/02/2020
+ms.openlocfilehash: 3740c94ed6de01ba7e7ae5b0edbf074833fd50a6
+ms.sourcegitcommit: a6c97b4de91e9812e8ff40133ab56e2aba10811d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74993936"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75652719"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Marketplace položky k dispozici pro Azure Stack
 
@@ -237,7 +237,9 @@ Microsoft Azure Stack podporuje následující Azure Marketplace virtuální po�
 | ![Xoops](media/azure-stack-marketplace-azure-items/xoops.png) | [Xoops](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.xoops) | Program CMS a webový portál, který vytváří dynamické weby. | Bitnami |
 | ![Zurmo](media/azure-stack-marketplace-azure-items/zurmo.png) | [Zurmo](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.zurmo) | Open source systém CRM: mobilní, sociální a Gamified. | Bitnami |
 | ![ZooKeeper](media/azure-stack-marketplace-azure-items/zookeeper.png) | [ZooKeeper](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.zookeeper) | ZooKeeper poskytuje spolehlivý a centralizovaný registr konfiguračních dat a služeb pro distribuované aplikace. | Bitnami |
-| ![Správa zabezpečení Check Point vSEC](media/azure-stack-marketplace-azure-items/checkpoint.png) | [Správa zabezpečení Check Point vSEC](https://azuremarketplace.microsoft.com/marketplace/apps/checkpoint.vsec) | Check Point vSEC poskytuje pokročilou prevenci před několika vrstvami k ochraně zákaznických prostředků v Azure před malwarem a sofistikovanými hrozbami. **Stáhněte si položky vSEC pro Marketplace.** | Check Point |
+| ![Check Point CloudGuard IaaS High Availability](media/azure-stack-marketplace-azure-items/checkpoint.png) | [CloudGuard IaaS High Availability](https://azuremarketplace.microsoft.com/marketplace/apps/checkpoint.vsec) | Toto řešení nasadí cluster CloudGuard IaaS kontrolního bodu člena. Každý člen má 2 síťová rozhraní. | Check Point |
+| ![Kontrolní bod CloudGuard IaaS – Správa zabezpečení](media/azure-stack-marketplace-azure-items/checkpoint.png) | [Kontrolní bod CloudGuard IaaS – Správa zabezpečení](https://azuremarketplace.microsoft.com/marketplace/apps/checkpoint.vsec) | Toto řešení nasadí jeden server pro správu zabezpečení kontrolního bodu s jedním síťovým rozhraním. | Check Point |
+| ![Check Point CloudGuard IaaS Single Gateway](media/azure-stack-marketplace-azure-items/checkpoint.png) | [Check Point CloudGuard IaaS Single Gateway](https://azuremarketplace.microsoft.com/marketplace/apps/checkpoint.vsec) | Toto řešení nasadí jednu bránu zabezpečení CloudGuard IaaS, která má dvě síťová rozhraní. Po nasazení byste měli nastavit trasy definované uživatelem (udr) pro směrování provozu přes bránu. | Check Point |
 | ![Chef Automate](media/azure-stack-marketplace-azure-items/chefautomate.png) | [Automatizace](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate) | Automatizovaná platforma pro automatizaci umožňuje sestavovat, nasazovat a spravovat pomocí nástroje pro automatizaci. **Stáhněte si položky pro Marketplace Marketplace**. | Software pro software, Inc. |
 | ![Commvault](media/azure-stack-marketplace-azure-items/commvault.png) | [CommVault](https://azuremarketplace.microsoft.com/marketplace/apps/commvault.commvault) | Komplexní řešení pro zálohování a obnovení, migraci aplikací a virtuálních počítačů do Azure Stack a zotavení po havárii pro Azure Stack prostředí v jednom řešení. | Commvault |
 | ![Dodavatelů CloudLink SecureVM](media/azure-stack-marketplace-azure-items/cloudlink.png) | [Dodavatelů CloudLink SecureVM](https://azuremarketplace.microsoft.com/marketplace/apps/cloudlink.cloudlink-securevm)  | Snadné a spolehlivé řízení, monitorování a šifrování virtuálních počítačů. **Stáhněte všechny položky dodavatelů CloudLink SecureVM.** | Dell EMC |
@@ -248,7 +250,7 @@ Microsoft Azure Stack podporuje následující Azure Marketplace virtuální po�
 | ![Izolovaný prostor Hortonworks data Platform (HDP)](media/azure-stack-marketplace-azure-items/hortonworks.png) | [Izolovaný prostor Hortonworks data Platform (HDP)](https://azuremarketplace.microsoft.com/marketplace/apps/hortonworks.hortonworks-sandbox) | Používá se HDP 2,5 100% Open-Source platforma pro Hadoop, Spark,, HBA, Kafka, podregistr, Ambari. | Hortonworks |
 | ![Kaspersky](media/azure-stack-marketplace-azure-items/kaspersky.png) | [Zabezpečení hybridního cloudu Kaspersky](https://azuremarketplace.microsoft.com/marketplace/apps/kaspersky_lab.kaspersky_hybrid_cloud_security?tab=Overview) | Hybridní cloudové zabezpečení Kaspersky umožňuje bezproblémové Orchestrace a adaptivní ekosystémy kyberbezpečnosti. | Prostředí Kaspersky Lab |
 | ![KEMP LoadMaster Load Balancer přepínač obsahu ADC](media/azure-stack-marketplace-azure-items/kemp.png) | [KEMP LoadMaster Load Balancer přepínač obsahu ADC](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure) | Load Balancer, přepínač obsahu a Traffic Manager vrstvy 4-7 pro řízení doručování aplikací (ADC). | KEMP Technologies Inc. |
-| ![Kubernetes](media/azure-stack-marketplace-azure-items/kubernetes.png) | [Kubernetes](azure-stack-solution-template-kubernetes-cluster-add.md) | Toto řešení nasadí cluster Kubernetes se systémem jako samostatný cluster se šablonami generovanými pomocí AKS-Engine.<br>**Tato šablona řešení také vyžaduje Ubuntu Server 16,04 LTS a vlastní skript pro Linux 2,0.**| Microsoft |
+| ![Kubernetes](media/azure-stack-marketplace-azure-items/kubernetes.png) | [Kubernetes](azure-stack-aks-engine.md) | Toto řešení nasadí cluster Kubernetes se systémem jako samostatný cluster se šablonami generovanými pomocí AKS-Engine.<br>**Tato šablona řešení také vyžaduje Ubuntu Server 16,04 LTS a vlastní skript pro Linux 2,0.**| Microsoft |
 | ![Cluster Service Fabric](media/azure-stack-marketplace-azure-items/servicefrabric.png) | [Cluster Service Fabric](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ServiceFabricCluster?tab=Overview) | Toto řešení nasadí Service Fabric spuštěné jako samostatný cluster na sadě škálování virtuálního počítače. <br>**Tato šablona řešení vyžaduje, abyste si také stáhli Windows Server 2016 Datacenter.**| Microsoft |
 | ![NRI mPLAT Suite – vícenásobný cloudový vodič](media/azure-stack-marketplace-azure-items/nri.png) | [mPLAT Suite – vícenásobný cloudový vodič](https://azuremarketplace.microsoft.com/marketplace/apps/nri.mplatmc2018-vm) | Jediné podokno skla pro monitorování, konfiguraci, zřizování, automatizaci a řízení libovolné zátěže nebo cloudu. | NRI |
 | ![NooBaa Hybrid AWS S3 kompatibilní s Community Edition](media/azure-stack-marketplace-azure-items/noobaa.png) | [NooBaa Hybrid AWS S3 kompatibilní s Community Edition](https://www.noobaa.io/hybrid-cloud) | Služba úložiště kompatibilní se systémem S3, která zahrnuje prostředky veřejné a místní kapacity. | NooBaa |
