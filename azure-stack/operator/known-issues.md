@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/18/2019
+ms.date: 12/27/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: fd65fd8fc43135ac9c7985fc4d6a90f4ced90f45
-ms.sourcegitcommit: c3be6b2e962c5905eb3c54f9555e13095f6b4d40
+ms.openlocfilehash: 11dcd7288f629282c1f69d12c33e9bd1a8e440b6
+ms.sourcegitcommit: df8de80b8c295495edc091e0a12012ccc7a96594
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/20/2019
-ms.locfileid: "75303768"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75503619"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Známé problémy centra Azure Stack
 
@@ -94,6 +94,12 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 - Příčina: při přidávání back-endu serveru **Nástroje pro vyrovnávání zatížení** na portálu User Portal výsledkem operace je chybová zpráva oznamující, že **se nepodařilo uložit back-end fond vyrovnávání zatížení**; Tato operace byla ale skutečně úspěšná.
 - Výskyt: běžné
 
+### <a name="alert-for-network-interface-disconnected"></a>Výstraha pro síťové rozhraní odpojena
+
+- Platí: Tento problém se týká verzí 1908 a 1910.
+- Příčina: když je kabel odpojený od síťového adaptéru, výstraha se na portálu pro správu nezobrazí. Příčinou této chyby je, že tato chyba je ve výchozím nastavení ve Windows serveru 2019 zakázaná.
+- Výskyt: běžné
+
 ### <a name="incorrect-tooltip-when-creating-vm"></a>Nesprávný popis při vytváření virtuálního počítače
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
@@ -153,7 +159,7 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 
 ### <a name="access-control-iam"></a>Řízení přístupu (IAM)
 
-- Platí: Tento problém se týká razítek nasazených se základní imagí 1903 nebo starší.
+- Platí: Tento problém se vztahuje na všechny podporované verze.
 - Příčina: rozšíření IAM není aktuální. Portál Ibiza, který se dodává s centrem Azure Stack, zavádí nové chování, které způsobí selhání rozšíření RBAC, pokud uživatel otevírá okno **Access Control (IAM)** pro předplatné, které není vybrané v nástroji pro výběr globálního předplatného (**adresář + předplatné** na portálu User Portal). V okně se zobrazí **načítání** ve smyčce a uživatel nemůže do předplatného přidat nové role. Okno **Přidat** také zobrazuje **načítání** ve smyčce.
 - Náprava: Ujistěte se, že je předplatné zaškrtnuté v nabídce **adresář a předplatné** . K nabídce se dá dostat z horní části portálu, poblíž tlačítka **oznámení** nebo prostřednictvím zástupce v okně **všechny prostředky** , ve kterém se zobrazuje **předplatné nezobrazené? Otevřete nastavení adresář a předplatné**. V této nabídce je nutné vybrat odběr.
 
@@ -316,6 +322,12 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 - Platí: Tento problém se vztahuje na všechny podporované verze.
 - Příčina: při pokusu o nahrání objektu BLOB pomocí možnosti **OAuth (Preview)** na portálu User Portal se úloha nezdařila s chybovou zprávou.
 - Náprava: Nahrajte objekt BLOB pomocí možnosti SAS.
+- Výskyt: běžné
+
+### <a name="alert-for-network-interface-disconnected"></a>Výstraha pro síťové rozhraní odpojena
+
+- Platí: Tento problém se týká verze 1908.
+- Příčina: když je kabel odpojený od síťového adaptéru, výstraha se na portálu pro správu nezobrazí. Příčinou této chyby je, že tato chyba je ve výchozím nastavení ve Windows serveru 2019 zakázaná.
 - Výskyt: běžné
 
 ## <a name="networking"></a>Sítě

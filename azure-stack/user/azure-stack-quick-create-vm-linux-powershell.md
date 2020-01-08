@@ -15,12 +15,12 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.custom: mvc
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 9d1c9f963433e0a41218bb1984d07f0b47d032eb
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.openlocfilehash: 2bd72ad2de570eeb3089645c5ee7c9dd3784e83c
+ms.sourcegitcommit: bbe1048682c7dccc6cebde542462c14ee1f3d0d1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955708"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75677667"
 ---
 # <a name="quickstart-create-a-linux-server-vm-by-using-powershell-in-azure-stack"></a>Rychlý Start: Vytvoření virtuálního počítače s Linux serverem pomocí prostředí PowerShell v Azure Stack
 
@@ -32,7 +32,7 @@ Virtuální počítač s Ubuntu serverem 16,04 LTS můžete vytvořit pomocí Az
 * Nainstalujte webový server NGINX a zobrazte výchozí domovskou stránku.
 * Vyčistit nepoužívané prostředky.
 
-## <a name="prerequisites"></a>Předpoklady
+## <a name="prerequisites"></a>Požadavky
 
 * Image Linux na webu Azure Stack Marketplace. Web Azure Stack Marketplace ve výchozím nastavení nemá image Linux. Použijte operátor Azure Stack, který obsahuje bitovou kopii Ubuntu serveru 16,04 LTS, kterou potřebujete. Operátor může použít pokyny v tématu [stažení položek Marketplace z Azure do Azure Stack](../operator/azure-stack-download-azure-marketplace-item.md).
 
@@ -61,7 +61,7 @@ New-AzureRmResourceGroup `
 
 ## <a name="create-storage-resources"></a>Vytvoření prostředků úložiště
 
-Vytvořte účet úložiště a pak vytvořte kontejner úložiště pro Image Ubuntu serveru 16,04 LTS.
+Vytvořte účet úložiště, který se použije k uložení výstupu diagnostiky spouštění.
 
 ```powershell  
 # Create variables to store the storage account name and the storage account SKU information
