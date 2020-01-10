@@ -1,6 +1,6 @@
 ---
-title: Zásady podpory pro modul AKS v Azure Stack | Microsoft Docs
-description: Toto téma obsahuje zásady podpory pro modul AKS v Azure Stack.
+title: Zásady podpory pro modul AKS v centru Azure Stack | Microsoft Docs
+description: Toto téma obsahuje zásady podpory pro modul AKS v centru Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,20 +15,20 @@ ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 1aa8aa65f0b19efcbafc85887e644c1c2b773bde
-ms.sourcegitcommit: 0b783e262ac87ae67929dbd4c366b19bf36740f0
+ms.openlocfilehash: 89563c8703ce987fa8621e6c971d8f658f582d50
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74310167"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75820096"
 ---
-# <a name="support-policies-for-aks-engine-on-azure-stack"></a>Zásady podpory pro modul AKS v Azure Stack
+# <a name="support-policies-for-aks-engine-on-azure-stack-hub"></a>Zásady podpory pro modul AKS v centru Azure Stack
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
-Tento článek poskytuje podrobné informace o zásadách technické podpory a omezeních pro AKS modul na Azure Stack. Článek také podrobně popisuje Kubernetes položku Marketplace, komponenty Open-Source třetích stran a zabezpečení nebo správu oprav. 
+Tento článek poskytuje podrobné informace o zásadách a omezeních technické podpory pro modul AKS v centru Azure Stack. Článek také podrobně popisuje Kubernetes položku Marketplace, komponenty Open-Source třetích stran a zabezpečení nebo správu oprav. 
 
-## <a name="self-managed-kubernetes-clusters-on-azure-stack-with-aks-engine"></a>Samoobslužné Kubernetes clustery na Azure Stack s modulem AKS
+## <a name="self-managed-kubernetes-clusters-on-azure-stack-hub-with-aks-engine"></a>Samoobslužné clustery Kubernetes v centru Azure Stack s modulem AKS
 
 Cloudové komponenty infrastruktury jako služby (IaaS), jako jsou výpočetní nebo síťové komponenty, poskytují uživatelům přístup k ovládacím prvkům nízké úrovně a možnostem přizpůsobení. AKS Engine umožňuje uživatelům laydown Kubernetes clustery, které využívají tyto IaaS komponenty transparentně. uživatelé mají přístup a mají vliv na všechny aspekty jejich nasazení.
 
@@ -42,10 +42,10 @@ Společnost Microsoft poskytuje technickou podporu pro následující:
 
 -  Problémy s příkazy modulu AKS: nasazení, generování, upgrade a škálování. Nástroj by měl být v souladu s chováním v Azure.
 -  Problémy s clusterem Kubernetes nasazeným podle [přehledu modulu AKS](azure-stack-kubernetes-aks-engine-overview.md).
--  Problémy s připojením k jiným Azure Stack službám 
+-  Problémy s připojením k ostatním službám Azure Stack hub 
 -  Problémy s připojením rozhraní API Kubernetes
--  Problémy s funkcemi poskytovatele Azure Stack Kubernetes a možností připojení Azure Resource Manager
--  Problémy s konfigurací Azure Stackch nativních artefaktů, jako jsou nástroje pro vyrovnávání zatížení, skupiny zabezpečení sítě, virtuální sítě, podsítě, síťová rozhraní, směrovací tabulka, sady dostupnosti, veřejné IP adresy, účet úložiště a počítače virtuálních počítačů, vygenerovaná modulem AKS. 
+-  Problémy s funkcemi poskytovatele služby Azure Stack hub Kubernetes a připojením k Azure Resource Manager
+-  Problémy s konfigurací vygenerovanou pomocí modulu AKS Azure Stack nativní artefakty centra, jako jsou nástroje pro vyrovnávání zatížení, skupiny zabezpečení sítě, virtuální sítě, podsítě, síťová rozhraní, směrovací tabulka, sady dostupnosti, veřejné IP adresy, účet úložiště a počítače virtuálních počítačů 
 -  Problémy se síťovým výkonem a latencí
 -  Problémy se základní imagí AKS, kterou modul AKS používá v odpojených nasazeních. 
 
@@ -54,7 +54,7 @@ Společnost Microsoft poskytuje technickou podporu pro následující:
 Společnost Microsoft neposkytuje technickou podporu pro následující:
 
 -  Použití modulu AKS v Azure.
--  Azure Stack Kubernetes položku Marketplace.
+-  Položka Kubernetes centra webu Marketplace. Azure Stack
 -  Pomocí následujících možností definice clusteru AKS Engine a doplňků.
     -  Nepodporované doplňky:  
             -Identity AAD pod  
@@ -98,11 +98,11 @@ Společnost Microsoft neposkytuje technickou podporu pro následující:
 
 ##  <a name="security-issues-and-patching"></a>Problémy se zabezpečením a opravy
 
-Pokud je chyba zabezpečení zjištěná v jedné nebo více součástech modulu AKS nebo poskytovatele Kubernetes pro Azure Stack, Microsoft zpřístupní zákazníkům opravu ovlivněných clusterů za účelem zmírnění problému. Případně tým poskytne pokyny k upgradu uživatelů. Všimněte si, že opravy mohou vyžadovat výpadky clusteru. Pokud se vyžaduje restartování, společnost Microsoft bude informovat zákazníky tohoto požadavku. Pokud uživatelé nepoužijí opravy podle pokynů Microsoftu, jejich cluster bude i nadále ohrožen problémem se zabezpečením.
+Pokud se chyba zabezpečení nachází v jedné nebo více součástech modulu AKS nebo poskytovatele Kubernetes pro centrum Azure Stack, Microsoft zpřístupní zákazníkům opravu ovlivněných clusterů za účelem zmírnění problému. Případně tým poskytne pokyny k upgradu uživatelů. Všimněte si, že opravy mohou vyžadovat výpadky clusteru. Pokud se vyžaduje restartování, společnost Microsoft bude informovat zákazníky tohoto požadavku. Pokud uživatelé nepoužijí opravy podle pokynů Microsoftu, jejich cluster bude i nadále ohrožen problémem se zabezpečením.
 
 ## <a name="kubernetes-marketplace-item"></a>Kubernetes položku Marketplace
 
-Uživatelé si můžou stáhnout položku Kubernetes Marketplace, která umožňuje uživatelům nasadit clustery Kubernetes pomocí modulu AKS nepřímo prostřednictvím šablony na portálu Azure Stack User Portal, což zjednodušuje použití stroje AKS přímo. Tento nástroj je užitečný pro rychlé nastavení clusterů pro ukázky, testování a vývoj. Není určená pro produkční prostředí, protože není součástí sady položek podporovaných Microsoftem.
+Uživatelé si můžou stáhnout položku Kubernetes Marketplace, která umožňuje uživatelům nasadit clustery Kubernetes pomocí modulu AKS nepřímo prostřednictvím šablony na portálu User Portal centra Azure Stack, což zjednodušuje použití stroje AKS. Tento nástroj je užitečný pro rychlé nastavení clusterů pro ukázky, testování a vývoj. Není určená pro produkční prostředí, protože není součástí sady položek podporovaných Microsoftem.
 
 ## <a name="preview-features"></a>Funkce verze Preview
 
@@ -110,4 +110,4 @@ Pro funkce a funkce, které vyžadují rozšířené testování a zpětnou vazb
 
 ## <a name="next-steps"></a>Další kroky
 
-- Přečtěte si o modulu [AKS na Azure Stack](azure-stack-kubernetes-aks-engine-overview.md)
+- Přečtěte si o modulu [AKS v centru Azure Stack](azure-stack-kubernetes-aks-engine-overview.md) .

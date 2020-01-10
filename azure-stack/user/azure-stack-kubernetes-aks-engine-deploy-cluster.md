@@ -1,6 +1,6 @@
 ---
-title: Nasazení clusteru Kubernetes s modulem AKS v Azure Stack | Microsoft Docs
-description: Jak nasadit cluster Kubernetes na Azure Stack z virtuálního počítače klienta, na kterém běží modul AKS.
+title: Nasazení clusteru Kubernetes s modulem AKS v centru Azure Stack | Microsoft Docs
+description: Postup nasazení clusteru Kubernetes na rozbočovači Azure Stack z virtuálního počítače klienta, na kterém běží modul AKS.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,18 +15,18 @@ ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 8018b4637dadfbca948b2caa0528b113755dc6dd
-ms.sourcegitcommit: 0b783e262ac87ae67929dbd4c366b19bf36740f0
+ms.openlocfilehash: da1b38df17904042ade28575f1f919708d845252
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74310308"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75820249"
 ---
-# <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack"></a>Nasazení clusteru Kubernetes s modulem AKS na Azure Stack
+# <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>Nasazení clusteru Kubernetes s modulem AKS v centru Azure Stack
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
-Cluster Kubernetes můžete nasadit na Azure Stack z virtuálního počítače klienta, na kterém běží modul AKS. V tomto článku se podíváme na zápis specifikace clusteru, nasazení clusteru se souborem `apimodel.json` a kontrolu clusteru nasazením MySQL pomocí Helm.
+Cluster Kubernetes můžete v Azure Stack hub nasadit z virtuálního počítače klienta, na kterém běží modul AKS. V tomto článku se podíváme na zápis specifikace clusteru, nasazení clusteru se souborem `apimodel.json` a kontrolu clusteru nasazením MySQL pomocí Helm.
 
 ## <a name="define-a-cluster-specification"></a>Definování specifikace clusteru
 
@@ -36,7 +36,7 @@ Specifikaci clusteru můžete zadat v souboru dokumentu pomocí formátu JSON, k
 
 V této části se podíváme na vytvoření modelu rozhraní API pro váš cluster.
 
-1.  Začněte pomocí [ukázkového](https://github.com/Azure/aks-engine/tree/master/examples/azure-stack) souboru modelu rozhraní API Azure Stack a vytvořte místní kopii pro vaše nasazení. Z počítače jste nainstalovali modul AKS, spusťte:
+1.  Začněte tím, že použijete [ukázkový](https://github.com/Azure/aks-engine/tree/master/examples/azure-stack) soubor modelu rozhraní API Azure Stack hub a vytvoříte místní kopii pro vaše nasazení. Z počítače jste nainstalovali modul AKS, spusťte:
 
     ```bash
     curl -o kubernetes-azurestack.json https://raw.githubusercontent.com/Azure/aks-engine/master/examples/azure-stack/kubernetes-azurestack.json
@@ -62,7 +62,7 @@ V této části se podíváme na vytvoření modelu rozhraní API pro váš clus
 
 4.  Vyhledejte `customCloudProfile` a zadejte adresu URL portálu tenanta. Například, `https://portal.local.azurestack.external`. 
 
-5. Pokud používáte AD FS, přidejte `"identitySystem":"adfs"`. Například
+5. Pokud používáte AD FS, přidejte `"identitySystem":"adfs"`. Například:
 
     ```JSON  
         "customCloudProfile": {
@@ -82,7 +82,7 @@ V této části se podíváme na vytvoření modelu rozhraní API pro váš clus
     | --- | --- |
     | Pole dnsprefix | Zadejte jedinečný řetězec, který bude sloužit k identifikaci názvu hostitele virtuálních počítačů. Například název založený na názvu skupiny prostředků. |
     | count |  Zadejte počet hlavních serverů, které chcete pro nasazení nasadit. Minimální pro nasazení HA je 3, ale 1 je povolená pro nasazení bez vysoké dostupnosti. |
-    | vmSize |  Zadejte [velikost podporovanou Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes), například `Standard_D2_v2`. |
+    | vmSize |  Zadejte [velikost podporovanou centrem Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes), například `Standard_D2_v2`. |
     | distribuce | Zadejte `aks-ubuntu-16.04`. |
 
 8.  V poli `agentPoolProfiles` aktualizace:
@@ -90,7 +90,7 @@ V této části se podíváme na vytvoření modelu rozhraní API pro váš clus
     | Pole | Popis |
     | --- | --- |
     | count | Zadejte počet agentů, které chcete pro nasazení. |
-    | vmSize | Zadejte [velikost podporovanou Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes), například `Standard_D2_v2`. |
+    | vmSize | Zadejte [velikost podporovanou centrem Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes), například `Standard_D2_v2`. |
     | distribuce | Zadejte `aks-ubuntu-16.04`. |
 
 9.  V poli `linuxProfile` aktualizace:
@@ -103,13 +103,13 @@ V této části se podíváme na vytvoření modelu rozhraní API pro váš clus
 ### <a name="more-information-about-the-api-model"></a>Další informace o modelu rozhraní API
 
 - Úplný přehled všech dostupných možností v modelu rozhraní API najdete v tématu [definice clusteru](https://github.com/Azure/aks-engine/blob/master/docs/topics/clusterdefinitions.md).  
-- Nejdůležitější informace o konkrétních možnostech Azure Stack najdete v tématu [Azure Stack specifické definice clusteru](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#cluster-definition-aka-api-model).  
+- Nejdůležitější informace o konkrétních možnostech centra Azure Stack najdete v tématu věnovaném [specifickým definicím clusteru Azure Stack hub](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#cluster-definition-aka-api-model).  
 
 ## <a name="deploy-a-kubernetes-cluster"></a>Nasazení clusteru Kubernetes
 
 Po shromáždění všech požadovaných hodnot v modelu rozhraní API můžete vytvořit svůj cluster. V tomto okamžiku byste měli:
 
-Zeptejte se Azure Stack operátora na:
+Požádejte svého operátora centra Azure Stack:
 
 - Ověřte stav systému, navrhněte spuštění `Test-AzureStack` a nástroj pro monitorování hardwaru od dodavatele OEM.
 - Ověřte kapacitu systému včetně prostředků, jako jsou paměť, úložiště a veřejné IP adresy.
@@ -117,17 +117,17 @@ Zeptejte se Azure Stack operátora na:
 
 Pokračujte v nasazení clusteru:
 
-1.  Přečtěte si dostupné parametry pro modul AKS Azure Stack v části Příznaky rozhraní příkazového [řádku (CLI](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#cli-flags)).
+1.  Přečtěte si dostupné parametry pro modul AKS v části Azure Stack centra [CLI](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#cli-flags).
 
-    | Parametr | Příklad | Popis |
+    | Parametr | Příklad: | Popis |
     | --- | --- | --- |
-    | Azure – ENV | AzureStackCloud | K indikaci AKS Engine, že vaše cílová platforma je Azure Stack použít `AzureStackCloud`. |
-    | Identita – systém | službou | Volitelná. Pokud používáte federované služby Active Directory (AD FS), zadejte svoje řešení pro správu identit. |
-    | location | místní | Název oblasti pro váš Azure Stack. Pro ASDK je oblast nastavená na `local`. |
+    | Azure – ENV | AzureStackCloud | K indikaci AKS Engine, který je vaší cílovou platformou `AzureStackCloud`Azure Stack centra použít. |
+    | Identita – systém | službou | Nepovinný parametr. Pokud používáte federované služby Active Directory (AD FS), zadejte svoje řešení pro správu identit. |
+    | location | místní | Název oblasti centra Azure Stack. Pro ASDK je oblast nastavená na `local`. |
     | resource-group | Kube – RG | Zadejte název nové skupiny prostředků nebo vyberte existující skupinu prostředků. Název prostředku musí být alfanumerické znaky a malá písmena. |
     | rozhraní API – model | ./kubernetes-azurestack.json | Cesta ke konfiguračnímu souboru clusteru nebo modelu rozhraní API. |
     | výstupní adresář | Kube – RG | Zadejte název adresáře, který bude obsahovat výstupní soubor `apimodel.json` i jiné generované soubory. |
-    | ID klienta | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Zadejte identifikátor GUID instančního objektu služby. ID klienta identifikované jako ID aplikace, když správce Azure Stack vytvořil instanční objekt. |
+    | ID klienta | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Zadejte identifikátor GUID instančního objektu služby. ID klienta identifikované jako ID aplikace, když správce centra Azure Stack vytvořil instanční objekt. |
     | client-secret | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Zadejte tajný klíč objektu služby. Toto je tajný kód klienta, který jste nastavili při vytváření služby. |
     | ID předplatného | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Zadejte ID předplatného. Další informace najdete v tématu [přihlášení k odběru nabídky](https://docs.microsoft.com/azure-stack/user/azure-stack-subscribe-services#subscribe-to-an-offer) . |
 
@@ -160,9 +160,9 @@ Pokračujte v nasazení clusteru:
 
 Ověřte cluster tak, že nasadíte MySQL s Helm a zkontrolujete cluster.
 
-1. Získejte veřejnou IP adresu jednoho z vašich hlavních uzlů pomocí portálu Azure Stack.
+1. Získejte veřejnou IP adresu jednoho z vašich hlavních uzlů pomocí portálu Azure Stack hub.
 
-2. Z počítače s přístupem k instanci Azure Stack se připojte přes SSH k novému hlavnímu uzlu pomocí klienta, jako je například vstup do výstupu nebo MobaXterm. 
+2. Z počítače s přístupem k instanci centra Azure Stack se připojte přes SSH k novému hlavnímu uzlu pomocí klienta, jako je například zápis do výstupu nebo MobaXterm. 
 
 3. Pro uživatelské jméno SSH použijete "azureuser" a soubor privátního klíče páru klíčů, který jste zadali pro nasazení clusteru.
 
@@ -196,4 +196,4 @@ Ověřte cluster tak, že nasadíte MySQL s Helm a zkontrolujete cluster.
 ## <a name="next-steps"></a>Další kroky
 
 > [!div class="nextstepaction"]
-> [Řešení potíží s modulem AKS na Azure Stack](azure-stack-kubernetes-aks-engine-troubleshoot.md)
+> [Řešení potíží s modulem AKS v centru Azure Stack](azure-stack-kubernetes-aks-engine-troubleshoot.md)

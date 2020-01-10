@@ -1,5 +1,5 @@
 ---
-title: Jak používat veřejný klíč SSH s Azure Stack | Microsoft Docs
+title: Jak používat veřejný klíč SSH s Azure Stack hub | Microsoft Docs
 description: Jak používat veřejný klíč SSH
 services: azure-stack
 author: mattbriggs
@@ -9,22 +9,22 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 3d2854511415421b69a6972cd807132639300f96
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: b40fb92eefa696369ed57aabefb4e8298dad3eea
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71824510"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75820691"
 ---
 # <a name="use-an-ssh-public-key"></a>Použití veřejného klíče SSH
 
-Pokud chcete použít otevřené připojení SSH z vývojového počítače k VIRTUÁLNÍmu počítači serveru ve vaší instanci Azure Stack, který hostuje vaši webovou aplikaci, možná budete muset vytvořit dvojici veřejného a privátního klíče Secure Shell (SSH). 
+Pokud chcete použít otevřené připojení SSH z vývojového počítače k VIRTUÁLNÍmu počítači serveru ve vaší instanci centra Azure Stack, který hostuje vaši webovou aplikaci, možná budete muset vytvořit dvojici veřejného a privátního klíče Secure Shell (SSH). 
 
 V tomto článku vytvoříte klíče a pak je použijete pro připojení k vašemu serveru. Klienta SSH můžete použít k získání výzvy bash na serveru Linux nebo k přesunutí souborů na server a ze serveru pomocí zabezpečeného klienta FTP (SFTP).
 
 ## <a name="create-an-ssh-public-key-on-windows"></a>Vytvoření veřejného klíče SSH ve Windows
 
-V této části použijete generátor klíčů pro výstupy k vytvoření veřejného klíče SSH a páru privátních klíčů, který použijete při vytváření zabezpečeného připojení k počítačům se systémem Linux ve vaší instanci Azure Stack. K dispozici je bezplatný emulátor terminálu, který vám umožní připojit se k serveru přes SSH a Telnet.
+V této části použijete generátor klíčů pro tvorbu a vytvoříte veřejný pár klíčů SSH a privátního klíče, který použijete při vytváření zabezpečeného připojení k počítačům se systémem Linux ve vaší instanci centra Azure Stack. K dispozici je bezplatný emulátor terminálu, který vám umožní připojit se k serveru přes SSH a Telnet.
 
 1. [Stáhněte a nainstalujte si pro svůj počítač výstup výstupu.](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)
 
@@ -66,14 +66,14 @@ Když aplikace požádá o klíč, zkopírujete a vložíte celý obsah textové
 
 ## <a name="connect-with-ssh-by-using-putty"></a>Připojení pomocí SSH pomocí výstupu
 
-Při instalaci výstupu obsahuje generátor klíčů pro výstup i klienta SSH. V této části otevřete klienta SSH, zadáte a nakonfigurujete hodnoty připojení a klíč SSH. Pokud se nacházíte ve stejné síti jako instance Azure Stack, připojíte se k VIRTUÁLNÍmu počítači.
+Při instalaci výstupu obsahuje generátor klíčů pro výstup i klienta SSH. V této části otevřete klienta SSH, zadáte a nakonfigurujete hodnoty připojení a klíč SSH. Pokud jste ve stejné síti, jako je Azure Stack hub instance, připojíte se k VIRTUÁLNÍmu počítači.
 
 Než se připojíte, budete potřebovat:
 - PuTTY
-- IP adresa a uživatelské jméno pro počítač se systémem Linux ve vaší instanci Azure Stack, který jako typ ověřování používá veřejný klíč SSH.
+- IP adresa a uživatelské jméno pro počítač se systémem Linux ve vaší instanci centra Azure Stack, který jako typ ověřování používá veřejný klíč SSH.
 - Port 22, který se má pro počítač otevřít.
 - Veřejný klíč SSH, který jste použili při vytváření počítače.
-- Klientský počítač, který spouští výstup, se nachází ve stejné síti jako instance Azure Stack.
+- Klientský počítač, který spouští výstup, se nachází ve stejné síti jako vaše instance centra Azure Stack.
 
 1. Otevřete PuTTY.
 
@@ -85,7 +85,7 @@ Než se připojíte, budete potřebovat:
 
     ![Konfigurační podokno pro výstupy do výstupu – privátní klíč SSH](media/azure-stack-dev-start-howto-ssh-public-key/002-putty-set-private-key.png)
 
-5. Vedle pole **soubor privátního klíče pro ověřování** vyberte **Procházet**a vyhledejte soubor privátního klíče ( *\<filename >. ppk*) páru veřejného a privátního klíče.
+5. Vedle pole **soubor privátního klíče pro ověřování** vyberte **Procházet**a vyhledejte soubor privátního klíče ( *\<filename >. ppk*) vašeho páru veřejného a privátního klíče.
 6. Ve stromové struktuře **kategorie** vyberte možnost **relace**.
 
     ![Pole "uložené relace" v podokně Konfigurace výstupu](media/azure-stack-dev-start-howto-ssh-public-key/003-puTTY-save-session.png)
@@ -127,4 +127,4 @@ Chcete-li přesunout soubory do a z počítače se systémem Linux, můžete pou
 
 ## <a name="next-steps"></a>Další kroky
 
-Přečtěte si, jak [nastavit vývojové prostředí v Azure Stack](azure-stack-dev-start.md).
+Přečtěte si, jak [nastavit vývojové prostředí v Azure Stack hub](azure-stack-dev-start.md).

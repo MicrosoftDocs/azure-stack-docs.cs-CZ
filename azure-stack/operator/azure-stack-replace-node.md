@@ -1,7 +1,7 @@
 ---
-title: Nahrazení uzlu jednotky škálování v Azure Stack integrovaném systému
-titleSuffix: Azure Stack
-description: Přečtěte si, jak nahradit uzel fyzické jednotky škálování na Azure Stack integrovaném systému.
+title: Nahrazení uzlu jednotky škálování v integrovaném systému služby Azure Stack hub
+titleSuffix: Azure Stack Hub
+description: Přečtěte si, jak nahradit uzel fyzické jednotky škálování v integrovaném systému Azure Stack hub.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,21 +16,21 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 255802151183cc2b832aaa64f2110b9c9052a0ba
-ms.sourcegitcommit: 284f5316677c9a7f4c300177d0e2a905df8cb478
+ms.openlocfilehash: 1a64e0b8ea2774146bac410a38c6b8c09d8be741
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74465460"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75808358"
 ---
-# <a name="replace-a-scale-unit-node-on-an-azure-stack-integrated-system"></a>Nahrazení uzlu jednotky škálování v Azure Stack integrovaném systému
+# <a name="replace-a-scale-unit-node-on-an-azure-stack-hub-integrated-system"></a>Nahrazení uzlu jednotky škálování v integrovaném systému služby Azure Stack hub
 
-*Platí pro: Azure Stack integrovaných systémů*
+*Platí pro: Azure Stack integrovaných systémů centra*
 
-Tento článek popisuje obecný proces nahrazení fyzického počítače (také označovaného jako uzel jednotky škálování) na Azure Stack integrovaný systém. Skutečný postup nahrazení uzlu jednotek škálování se bude lišit v závislosti na dodavateli hardwaru OEM (Original Equipment Manufacturer). Konkrétní podrobný postup pro váš systém najdete v dokumentaci k jednotce nahraditelné v terénu od vašeho dodavatele.
+Tento článek popisuje obecný proces nahrazení fyzického počítače (také označovaného jako uzel jednotky škálování) v integrovaném systému Azure Stack hub. Skutečný postup nahrazení uzlu jednotek škálování se bude lišit v závislosti na dodavateli hardwaru OEM (Original Equipment Manufacturer). Konkrétní podrobný postup pro váš systém najdete v dokumentaci k jednotce nahraditelné v terénu od vašeho dodavatele.
 
 > [!CAUTION]  
-> Úroveň firmwaru je zásadní pro úspěch operace popsané v tomto článku. Chybějící tento krok může vést k nestabilitě systému, poklesu výkonu, vláknům zabezpečení nebo zabrání službě Azure Stack Automation v nasazení operačního systému. Při nahrazování hardwaru vždy projděte dokumentaci k vašemu hardwarovému partnerovi, aby se zajistilo, že aplikovaný firmware odpovídá verzi OEM zobrazené na [portálu pro správu Azure Stack](azure-stack-updates.md). Další informace a odkazy na dokumentaci k partnerům najdete v tématu [Výměna hardwarové komponenty](azure-stack-replace-component.md).
+> Úroveň firmwaru je zásadní pro úspěch operace popsané v tomto článku. Chybějící tento krok může vést k nestabilitě systému, poklesu výkonu, vláknům zabezpečení nebo zabrání automatizaci centra Azure Stack v nasazení operačního systému. Při nahrazování hardwaru vždy projděte dokumentaci k vašemu hardwarovému partnerovi, aby se zajistilo, že aplikovaný firmware odpovídá verzi OEM zobrazené na [portálu pro správu centra Azure Stack](azure-stack-updates.md). Další informace a odkazy na dokumentaci k partnerům najdete v tématu [Výměna hardwarové komponenty](azure-stack-replace-component.md).
 
 Následující vývojový diagram znázorňuje proces obecného procesu FRU k nahrazení celého uzlu jednotky škálování.
 
@@ -39,7 +39,7 @@ Následující vývojový diagram znázorňuje proces obecného procesu FRU k na
 \* Tato akce se nemusí vyžadovat na základě fyzické podmínky hardwaru.
 
 > [!Note]  
-> Pokud operace vypnutí selže, doporučuje se použít operaci vyprázdnění následovanou operací zastavení. Další informace najdete v tématu [akce uzlu škálování jednotky v Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-node-actions).
+> Pokud operace vypnutí selže, doporučuje se použít operaci vyprázdnění následovanou operací zastavení. Další informace najdete v tématu [akce uzlu škálování jednotky v centru Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-node-actions).
 
 ## <a name="review-alert-information"></a>Kontrola informací o výstrahách
 

@@ -1,6 +1,6 @@
 ---
-title: Nasazení virtuálního počítače s zabezpečeným uloženým certifikátem v Azure Stack | Microsoft Docs
-description: Přečtěte si, jak nasadit virtuální počítač a jak do něj odeslat certifikát pomocí trezoru klíčů v Azure Stack
+title: Nasazení virtuálního počítače s zabezpečeným uloženým certifikátem v centru Azure Stack | Microsoft Docs
+description: Přečtěte si, jak nasadit virtuální počítač a vložit do něj certifikát pomocí trezoru klíčů v centru Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,22 +15,22 @@ ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: sethm
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 8741d63dbbcefde950fc10c0917d87bc4e9718f7
-ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
+ms.openlocfilehash: e393f0142f403e175427de87738db1a2bf64233a
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71961524"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75820317"
 ---
-# <a name="deploy-a-vm-with-a-securely-stored-certificate-on-azure-stack"></a>Nasazení virtuálního počítače s zabezpečeným uloženým certifikátem v Azure Stack 
+# <a name="deploy-a-vm-with-a-securely-stored-certificate-on-azure-stack-hub"></a>Nasazení virtuálního počítače s zabezpečeným uloženým certifikátem v centru Azure Stack 
 
-*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
-Tento článek popisuje, jak nasadit Azure Stack virtuální počítač s nainstalovaným certifikátem Key Vault.
+Tento článek popisuje, jak nasadit virtuální počítač s Azure Stack hub s nainstalovaným certifikátem Key Vault.
 
 ## <a name="overview"></a>Přehled
 
-Certifikáty se používají v mnoha scénářích, jako je ověřování ve službě Active Directory nebo šifrování webového provozu. Certifikáty můžete bezpečně ukládat jako tajné klíče do trezoru klíčů Azure Stack. Výhody použití Azure Stack Key Vault jsou:
+Certifikáty se používají v mnoha scénářích, jako je ověřování ve službě Active Directory nebo šifrování webového provozu. Certifikáty můžete bezpečně ukládat jako tajné klíče v trezoru klíčů centra Azure Stack. Mezi výhody použití centra Azure Stack Key Vault patří:
 
 * Certifikáty nejsou zveřejněné ve skriptu, historii příkazového řádku nebo šabloně.
 * Proces správy certifikátů je zjednodušený.
@@ -50,8 +50,8 @@ Následující kroky popisují proces vyžadovaný k odeslání certifikátu do 
 ## <a name="prerequisites"></a>Požadavky
 
 * Musíte se přihlásit k odběru nabídky, která zahrnuje službu Key Vault.
-* [Nainstalujte PowerShell pro Azure Stack](../operator/azure-stack-powershell-install.md).
-* [Nakonfigurujte prostředí PowerShell Azure Stackového uživatele](azure-stack-powershell-configure-user.md).
+* [Nainstalujte PowerShell pro centrum Azure Stack](../operator/azure-stack-powershell-install.md).
+* [Nakonfigurujte prostředí PowerShell uživatele centra Azure Stack](azure-stack-powershell-configure-user.md).
 
 ## <a name="create-a-key-vault-secret"></a>Vytvoření tajného klíče trezoru klíčů
 
@@ -177,7 +177,7 @@ Po úspěšném nasazení šablony se zobrazí následující výstup:
 
 ![Výsledky Template deployment](media/azure-stack-key-vault-push-secret-into-vm/deployment-output.png)
 
-Azure Stack během nasazování vloží certifikát do virtuálního počítače. Umístění certifikátu závisí na operačním systému virtuálního počítače:
+Centrum Azure Stack během nasazování vloží certifikát do virtuálního počítače. Umístění certifikátu závisí na operačním systému virtuálního počítače:
 
 * V systému Windows se certifikát přidá do umístění certifikátu **LocalMachine** s úložištěm certifikátů, které zadal uživatel.
 * V systému Linux je certifikát umístěn v adresáři **/var/lib/waagent** s názvem souboru **UppercaseThumbprint. CRT** pro soubor certifikátu x509 a **UppercaseThumbprint. prv** pro privátní klíč.

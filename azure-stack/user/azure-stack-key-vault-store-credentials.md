@@ -1,6 +1,6 @@
 ---
-title: Ukládat přihlašovací údaje instančního objektu v Azure Stack Key Vault | Microsoft Docs
-description: Přečtěte si, jak Key Vault ukládá přihlašovací údaje instančního objektu na Azure Stack
+title: Přihlašovací údaje instančního objektu se ukládají ve službě Azure Stack hub Key Vault | Microsoft Docs
+description: Informace o tom, jak Key Vault ukládá přihlašovací údaje instančního objektu do centra Azure Stack
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -14,35 +14,35 @@ ms.topic: article
 ms.date: 10/01/2019
 ms.author: sethm
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 9d86f7e68b2e96eb4a22f9896ff65a4ed6b96f92
-ms.sourcegitcommit: bbf3edbfc07603d2c23de44240933c07976ea550
+ms.openlocfilehash: a953666396b89706b935b73abea0b4d42c1dcc1a
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71714740"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75820266"
 ---
-# <a name="store-service-principal-credentials-in-azure-stack-key-vault"></a>Uložení přihlašovacích údajů instančního objektu ve službě Azure Stack Key Vault
+# <a name="store-service-principal-credentials-in-azure-stack-hub-key-vault"></a>Ukládat přihlašovací údaje instančního objektu ve službě Azure Stack hub Key Vault
 
-Vývoj aplikací na Azure Stack obvykle vyžaduje vytvoření instančního objektu a použití těchto pověření k ověření před nasazením. Někdy ale ztratíte uložené přihlašovací údaje k instančnímu objektu. Tento článek popisuje, jak vytvořit instanční objekt a uložit hodnoty v Azure Key Vault pro pozdější načtení.
+Vývoj aplikací v centru Azure Stack obvykle vyžaduje vytvoření instančního objektu a používání těchto pověření k ověření před nasazením. Někdy ale ztratíte uložené přihlašovací údaje k instančnímu objektu. Tento článek popisuje, jak vytvořit instanční objekt a uložit hodnoty v Azure Key Vault pro pozdější načtení.
 
-Další informace o Key Vault najdete v tématu [Úvod do Key Vault v Azure Stack](azure-stack-key-vault-intro.md).
+Další informace o Key Vault najdete v tématu [Úvod do Key Vault v centru Azure Stack](azure-stack-key-vault-intro.md).
 
 ## <a name="prerequisites"></a>Požadavky
 
 - Předplatné nabídky, která zahrnuje službu Azure Key Vault.
-- Prostředí PowerShell je nainstalované a nakonfigurované pro použití s Azure Stack.
+- Prostředí PowerShell je nainstalované a nakonfigurované pro použití s rozbočovačem Azure Stack.
 
-## <a name="key-vault-in-azure-stack"></a>Key Vault v Azure Stack
+## <a name="key-vault-in-azure-stack-hub"></a>Key Vault v centru Azure Stack
 
-Key Vault v Azure Stack pomáhají chránit kryptografické klíče a tajné kódy, které využívají cloudové aplikace a služby. Pomocí Key Vault můžete šifrovat klíče a tajné kódy.
+Key Vault v centru Azure Stack pomáhají chránit kryptografické klíče a tajné kódy, které využívají cloudové aplikace a služby. Pomocí Key Vault můžete šifrovat klíče a tajné kódy.
 
 K vytvoření trezoru klíčů použijte tento postup:
 
-1. Přihlaste se k portálu Azure Stack.
+1. Přihlaste se k portálu centra Azure Stack.
 
 2. Z řídicího panelu vyberte **+ vytvořit prostředek**a pak **zabezpečení a identita**a pak vyberte **Key Vault.**
 
-   ![Vytvořit trezor klíčů](media/azure-stack-key-vault-store-credentials/create-key-vault.png)
+   ![Vytvoření trezoru klíčů](media/azure-stack-key-vault-store-credentials/create-key-vault.png)
 
 3. V podokně **vytvořit Key Vault** přiřaďte k trezoru **název** . Názvy trezorů mohou obsahovat pouze alfanumerické znaky a znak spojovníku (-). Nesmí začínat číslicí.
 
@@ -80,7 +80,7 @@ K vytvoření trezoru klíčů použijte tento postup:
 
 ## <a name="store-the-service-principal-inside-key-vault"></a>Uložení instančního objektu v rámci služby Key Vault
 
-1. Přihlaste se k portálu User Portal pro Azure Stack a pak vyberte Trezor klíčů, který jste vytvořili dříve, a pak vyberte dlaždici **tajné** .
+1. Přihlaste se k portálu User Portal pro centrum Azure Stack, vyberte Trezor klíčů, který jste vytvořili dříve, a pak vyberte dlaždici **tajné** .
 
 2. V podokně **tajný kód** vyberte **Generovat/importovat**.
 
@@ -101,5 +101,5 @@ Po úspěšném vytvoření tajného klíče se tam uloží hlavní informace o 
 ## <a name="next-steps"></a>Další kroky
 
 - [Použití instančních objektů](azure-stack-create-service-principals.md)
-- [Správa Key Vault v Azure Stack na portálu](azure-stack-key-vault-manage-portal.md)  
-- [Správa Key Vault v Azure Stack pomocí prostředí PowerShell](azure-stack-key-vault-manage-powershell.md)
+- [Správa Key Vault v centru Azure Stack na portálu](azure-stack-key-vault-manage-portal.md)  
+- [Správa Key Vault v centru Azure Stack pomocí prostředí PowerShell](azure-stack-key-vault-manage-powershell.md)

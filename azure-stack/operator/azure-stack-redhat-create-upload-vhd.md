@@ -1,6 +1,6 @@
 ---
-title: Příprava virtuálního počítače založeného na Red Hat pro Azure Stack | Microsoft Docs
-titleSuffix: Azure Stack
+title: Příprava virtuálního počítače založeného na Red Hat pro centrum Azure Stack | Microsoft Docs
+titleSuffix: Azure Stack Hub
 description: Naučte se vytvořit a nahrát virtuální pevný disk Azure (VHD), který obsahuje operační systém Red Hat Linux.
 services: azure-stack
 documentationcenter: ''
@@ -18,18 +18,18 @@ ms.date: 12/11/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 12/11/2019
-ms.openlocfilehash: be51964d4416e632f5ef3462c3c42861a82e47d5
-ms.sourcegitcommit: a6c02421069ab9e72728aa9b915a52ab1dd1dbe2
+ms.openlocfilehash: 4a3b79a8b1b58ad3da4abf9d5a59d750aaeae0ec
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75654895"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75809759"
 ---
-# <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack"></a>Příprava virtuálního počítače založeného na Red Hat pro Azure Stack
+# <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack-hub"></a>Příprava virtuálního počítače založeného na Red Hat pro Azure Stack hub
 
-V tomto článku se dozvíte, jak připravit virtuální počítač s Red Hat Enterprise Linux (RHEL) pro použití v Azure Stack. Verze RHEL, které jsou pokryté v tomto článku, jsou 7.1 +. Hypervisory pro přípravu, které jsou pokryté v tomto článku, jsou Hyper-V, virtuální počítač založený na jádrech (KVM) a VMware.
+V tomto článku se dozvíte, jak připravit virtuální počítač s Red Hat Enterprise Linux (RHEL) pro použití v centru Azure Stack. Verze RHEL, které jsou pokryté v tomto článku, jsou 7.1 +. Hypervisory pro přípravu, které jsou pokryté v tomto článku, jsou Hyper-V, virtuální počítač založený na jádrech (KVM) a VMware.
 
-Informace o podpoře Red Hat Enterprise Linux najdete na [Red Hat a Azure Stack: nejčastější dotazy](https://access.redhat.com/articles/3413531).
+Informace o podpoře Red Hat Enterprise Linux najdete v tématu [Red Hat a Azure Stack hub: nejčastější dotazy](https://access.redhat.com/articles/3413531).
 
 ## <a name="prepare-a-red-hat-based-vm-from-hyper-v-manager"></a>Příprava virtuálního počítače založeného na Red Hat pomocí Správce technologie Hyper-V
 
@@ -37,14 +37,14 @@ V této části se předpokládá, že už máte soubor ISO z webu Red Hat a má
 
 ### <a name="rhel-installation-notes"></a>Poznámky k instalaci RHEL
 
-* Azure Stack nepodporuje formát VHDX. Azure podporuje jenom pevný virtuální pevný disk. Správce technologie Hyper-V můžete použít k převedení disku na formát VHD, nebo můžete použít rutinu Convert-VHD. Pokud používáte VirtualBox, při vytváření disku vyberte **pevnou velikost** na rozdíl od výchozí dynamicky přidělené možnosti.
-* Azure Stack podporuje pouze virtuální počítače 1. generace. Virtuální počítač 1. generace můžete převést z VHDX na formát souboru VHD a z dynamického rozšiřování na disk s pevnou velikostí. Nemůžete změnit generaci virtuálního počítače. Další informace najdete v tématu [Vytvoření virtuálního počítače generace 1 nebo 2 v Hyper-V?](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
+* Centrum Azure Stack nepodporuje formát VHDX. Azure podporuje jenom pevný virtuální pevný disk. Správce technologie Hyper-V můžete použít k převedení disku na formát VHD, nebo můžete použít rutinu Convert-VHD. Pokud používáte VirtualBox, při vytváření disku vyberte **pevnou velikost** na rozdíl od výchozí dynamicky přidělené možnosti.
+* Centrum Azure Stack podporuje jenom virtuální počítače 1. generace. Virtuální počítač 1. generace můžete převést z VHDX na formát souboru VHD a z dynamického rozšiřování na disk s pevnou velikostí. Nemůžete změnit generaci virtuálního počítače. Další informace najdete v tématu [Vytvoření virtuálního počítače generace 1 nebo 2 v Hyper-V?](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
 * Maximální velikost povolená pro virtuální pevný disk je 1 023 GB.
 * Při instalaci operačního systému Linux doporučujeme místo Správce logických svazků (LVM) používat standardní oddíly, což je často výchozí nastavení pro mnoho instalací. Tento postup zabrání konfliktu LVM názvů s klonovanými virtuálními počítači, zejména v případě, že někdy budete potřebovat k řešení potíží disk s operačním systémem připojit k jinému stejnému virtuálnímu počítači.
 * Podpora jádra pro připojení systémů souborů formátu Universal Disk Format (UDF) je povinná. Při prvním spuštění předává médium ve formátu UDF připojené k hostu konfiguraci zřizování pro virtuální počítač Linux. Agent Azure Linux musí připojit systém souborů UDF a načíst jeho konfiguraci a zřídit virtuální počítač.
 * Nekonfigurujte odkládací oddíl na disku s operačním systémem. Agent pro Linux se dá nakonfigurovat tak, aby na dočasném disku prostředků vytvořil odkládací soubor. Další informace o najdete v následujících krocích.
 * Všechny virtuální pevné disky v Azure musí mít virtuální velikost zarovnaná na 1 MB. Při převodu z nezpracovaného disku na VHD je nutné před převodem zajistit, aby velikost nezpracovaného disku byla násobkem 1 MB. Další podrobnosti najdete v následujících krocích.
-* Azure Stack podporuje Cloud-init. [Cloud-init](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init) je široce využívaným přístupem k přizpůsobení virtuálního počítače s Linuxem při jeho prvním spuštění. Pomocí cloud-init můžete instalovat balíčky a zapisovat soubory nebo konfigurovat uživatele a zabezpečení. Protože cloud-init je volána v průběhu procesu prvotního spuštění, nejsou žádné další kroky ani agenty vyžaduje použití vaší konfigurace. Pokyny k přidání Cloud-init do image najdete v tématu [Příprava existující image virtuálního počítače Azure pro Linux pro použití s Cloud-init](https://docs.microsoft.com/azure/virtual-machines/linux/cloudinit-prepare-custom-image).
+* Centrum Azure Stack podporuje Cloud-init. [Cloud-init](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init) je široce využívaným přístupem k přizpůsobení virtuálního počítače s Linuxem při jeho prvním spuštění. Pomocí cloud-init můžete instalovat balíčky a zapisovat soubory nebo konfigurovat uživatele a zabezpečení. Protože cloud-init je volána v průběhu procesu prvotního spuštění, nejsou žádné další kroky ani agenty vyžaduje použití vaší konfigurace. Pokyny k přidání Cloud-init do image najdete v tématu [Příprava existující image virtuálního počítače Azure pro Linux pro použití s Cloud-init](https://docs.microsoft.com/azure/virtual-machines/linux/cloudinit-prepare-custom-image).
 
 ### <a name="prepare-an-rhel-7-vm-from-hyper-v-manager"></a>Příprava virtuálního počítače s RHEL 7 pomocí Správce technologie Hyper-V
 
@@ -117,7 +117,7 @@ V této části se předpokládá, že už máte soubor ISO z webu Red Hat a má
     ClientAliveInterval 180
     ```
 
-1. Při vytváření vlastního virtuálního pevného disku pro Azure Stack mějte na paměti, že WALinuxAgent verze mezi 2.2.20 a 2.2.35 (obojí) nefungují v Azure Stack prostředích před vydáním verze 1910. K přípravě image můžete použít verze 2.2.20/2.2.35. Pokud chcete použít verze vyšší než 2.2.35 pro přípravu vlastní image, aktualizujte Azure Stack na verzi 1903 a novější nebo použijte opravu hotfix 1901/1902.
+1. Při vytváření vlastního virtuálního pevného disku pro Azure Stack hub mějte na paměti, že WALinuxAgent verze mezi 2.2.20 a 2.2.35 (obojí) nefungují v prostředích Azure Stack hub před vydáním verze 1910. K přípravě image můžete použít verze 2.2.20/2.2.35. Pokud chcete pro přípravu vlastní image použít verze vyšší než 2.2.35, aktualizujte Azure Stack centra na verzi 1903 nebo použijte opravu hotfix 1901/1902.
 
     [Před 1910 verzí] Pro stažení kompatibilního WALinuxAgent postupujte podle těchto pokynů:
 
@@ -189,7 +189,7 @@ V této části se předpokládá, že už máte soubor ISO z webu Red Hat a má
     sudo subscription-manager unregister
     ```
 
-1. Pokud používáte systém, který byl nasazen pomocí certifikační autority rozlehlé sítě, virtuální počítač RHEL nebude důvěřovat kořenovému certifikátu Azure Stack. Je nutné umístit ho do důvěryhodného kořenového úložiště. Další informace najdete v tématu [Přidání důvěryhodných kořenových certifikátů na server](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html).
+1. Pokud používáte systém, který byl nasazen pomocí certifikační autority rozlehlé sítě, virtuální počítač RHEL nebude důvěřovat kořenovému certifikátu centra Azure Stack. Je nutné umístit ho do důvěryhodného kořenového úložiště. Další informace najdete v tématu [Přidání důvěryhodných kořenových certifikátů na server](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html).
 
 1. Spuštěním následujících příkazů můžete virtuální počítač zrušit a připravit ho pro zřizování v Azure:
 
@@ -316,7 +316,7 @@ V této části se předpokládá, že už máte soubor ISO z webu Red Hat a má
     ClientAliveInterval 180
     ```
 
-1. Při vytváření vlastního virtuálního pevného disku pro Azure Stack mějte na paměti, že WALinuxAgent verze mezi 2.2.20 a 2.2.35 (obojí) nefungují v Azure Stack prostředích před vydáním verze 1910. K přípravě image můžete použít verze 2.2.20/2.2.35. Pokud chcete použít verze vyšší než 2.2.35 pro přípravu vlastní image, aktualizujte Azure Stack na verzi 1903 a novější nebo použijte opravu hotfix 1901/1902.
+1. Při vytváření vlastního virtuálního pevného disku pro Azure Stack hub mějte na paměti, že WALinuxAgent verze mezi 2.2.20 a 2.2.35 (obojí) nefungují v prostředích Azure Stack hub před vydáním verze 1910. K přípravě image můžete použít verze 2.2.20/2.2.35. Pokud chcete pro přípravu vlastní image použít verze vyšší než 2.2.35, aktualizujte Azure Stack centra na verzi 1903 nebo použijte opravu hotfix 1901/1902.
 
     [Před 1910 verzí] Pro stažení kompatibilního WALinuxAgent postupujte podle těchto pokynů:
 
@@ -387,7 +387,7 @@ V této části se předpokládá, že už máte soubor ISO z webu Red Hat a má
     subscription-manager unregister
     ```
 
-1. Pokud používáte systém, který byl nasazen pomocí certifikační autority rozlehlé sítě, virtuální počítač RHEL nebude důvěřovat kořenovému certifikátu Azure Stack. Je nutné umístit ho do důvěryhodného kořenového úložiště. Další informace najdete v tématu [Přidání důvěryhodných kořenových certifikátů na server](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html).
+1. Pokud používáte systém, který byl nasazen pomocí certifikační autority rozlehlé sítě, virtuální počítač RHEL nebude důvěřovat kořenovému certifikátu centra Azure Stack. Je nutné umístit ho do důvěryhodného kořenového úložiště. Další informace najdete v tématu [Přidání důvěryhodných kořenových certifikátů na server](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html).
 
 1. Spuštěním následujících příkazů můžete virtuální počítač zrušit a připravit ho pro zřizování v Azure:
 
@@ -521,7 +521,7 @@ V této části se předpokládá, že jste už nainstalovali virtuální počí
     ClientAliveInterval 180
     ```
 
-1. Při vytváření vlastního virtuálního pevného disku pro Azure Stack mějte na paměti, že WALinuxAgent verze mezi 2.2.20 a 2.2.35 (obojí) nefungují v Azure Stack prostředích před vydáním verze 1910. K přípravě image můžete použít verze 2.2.20/2.2.35. Pokud chcete použít verze vyšší než 2.2.35 pro přípravu vlastní image, aktualizujte Azure Stack na verzi 1903 a novější nebo použijte opravu hotfix 1901/1902.
+1. Při vytváření vlastního virtuálního pevného disku pro Azure Stack hub mějte na paměti, že WALinuxAgent verze mezi 2.2.20 a 2.2.35 (obojí) nefungují v prostředích Azure Stack hub před vydáním verze 1910. K přípravě image můžete použít verze 2.2.20/2.2.35. Pokud chcete pro přípravu vlastní image použít verze vyšší než 2.2.35, aktualizujte Azure Stack centra na verzi 1903 nebo použijte opravu hotfix 1901/1902.
 
     [Před 1910 verzí] Pro stažení kompatibilního WALinuxAgent postupujte podle těchto pokynů:
 
@@ -592,7 +592,7 @@ V této části se předpokládá, že jste už nainstalovali virtuální počí
     sudo subscription-manager unregister
     ```
 
-1. Pokud používáte systém, který byl nasazen pomocí certifikační autority rozlehlé sítě, virtuální počítač RHEL nebude důvěřovat kořenovému certifikátu Azure Stack. Je nutné umístit ho do důvěryhodného kořenového úložiště. Další informace najdete v tématu [Přidání důvěryhodných kořenových certifikátů na server](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html).
+1. Pokud používáte systém, který byl nasazen pomocí certifikační autority rozlehlé sítě, virtuální počítač RHEL nebude důvěřovat kořenovému certifikátu centra Azure Stack. Je nutné umístit ho do důvěryhodného kořenového úložiště. Další informace najdete v tématu [Přidání důvěryhodných kořenových certifikátů na server](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html).
 
 1. Spuštěním následujících příkazů můžete virtuální počítač zrušit a připravit ho pro zřizování v Azure:
 
@@ -637,7 +637,7 @@ V této části se předpokládá, že jste už nainstalovali virtuální počí
 
 ## <a name="prepare-a-red-hat-based-vm-from-an-iso-by-using-a-kickstart-file-automatically"></a>Příprava virtuálního počítače založeného na Red Hat z ISO pomocí souboru Kickstart automaticky
 
-1. Vytvořte soubor Kickstart, který obsahuje následující obsah, a uložte soubor. Zastavení a odinstalace Cloud-init je volitelná (Cloud-init se podporuje v Azure Stack vydání po 1910). Nainstalujte agenta z úložiště RedHat jenom po vydání 1910. Před 1910 použijte úložiště Azure, jak je to hotové v předchozí části. Podrobnosti o instalaci Kickstart najdete v [Průvodci instalací Kickstart](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html).
+1. Vytvořte soubor Kickstart, který obsahuje následující obsah, a uložte soubor. Zastavování a odinstalace Cloud-init je volitelná (Cloud-init se podporuje v Azure Stackém centru po 1910 vydání). Nainstalujte agenta z úložiště RedHat jenom po vydání 1910. Před 1910 použijte úložiště Azure, jak je to hotové v předchozí části. Podrobnosti o instalaci Kickstart najdete v [Průvodci instalací Kickstart](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html).
 
     ```sh
     Kickstart for provisioning a RHEL 7 Azure VM
@@ -808,6 +808,6 @@ Další informace najdete v tématu [sestavování initramfs](https://access.red
 
 ## <a name="next-steps"></a>Další kroky
 
-Nyní jste připraveni použít virtuální pevný disk Red Hat Enterprise Linux k vytvoření nových virtuálních počítačů v Azure Stack. Pokud soubor VHD nahráváte poprvé do Azure Stack, přečtěte si téma [Vytvoření a publikování položky Marketplace](azure-stack-create-and-publish-marketplace-item.md).
+Nyní jste připraveni k vytváření nových virtuálních počítačů v centru Azure Stack pomocí svého Red Hat Enterprise Linuxho virtuálního pevného disku. Pokud soubor VHD nahráváte poprvé do centra Azure Stack, přečtěte si téma [Vytvoření a publikování položky Marketplace](azure-stack-create-and-publish-marketplace-item.md).
 
 Další informace o hypervisorech, které jsou certifikované pro spouštění Red Hat Enterprise Linux, najdete [na webu Red Hat](https://access.redhat.com/certified-hypervisors).

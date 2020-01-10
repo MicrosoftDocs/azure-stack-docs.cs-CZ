@@ -1,7 +1,7 @@
 ---
-title: Azure Stack zpráva k vydání verze pro poskytovatele prostředků SQL 1.1.30.0
-titleSuffix: Azure Stack
-description: Prohlédněte si poznámky k vydání pro Azure Stack 1.1.30.0 aktualizace poskytovatele prostředků SQL.
+title: 1\.1.30.0 zpráva k vydání verze poskytovatele prostředků SQL centra pro Azure Stack
+titleSuffix: Azure Stack Hub
+description: Prohlédněte si poznámky k vydání pro poskytovatele prostředků SQL centra Azure Stack 1.1.30.0 Update.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -17,40 +17,40 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: c1c2b824b8cf44a983c851f20337658d020de4c8
-ms.sourcegitcommit: 62283e9826ea78b218f5d2c6c555cc44196b085d
+ms.openlocfilehash: 62bec361c734bf51d4d0337623cc3e299f0025fa
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74780622"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75814826"
 ---
-# <a name="sql-resource-provider-11300-release-notes"></a>1\.1.30.0 poznámky k verzi poskytovatele prostředků SQL
+# <a name="sql-resource-provider-11300-release-notes"></a>Poznámky k verzi 1.1.30.0 poskytovatele prostředků SQL
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 Tyto poznámky k verzi popisují vylepšení a známé problémy ve verzi 1.1.30.0 poskytovatele prostředků SQL.
 
-## <a name="build-reference"></a>Odkaz na sestavení
-Stáhněte si binární soubor poskytovatele prostředků SQL a potom spusťte samočinný extrahování a extrahujte obsah do dočasného adresáře. Poskytovatel prostředků má minimálně odpovídající sestavení Azure Stack. Minimální verze Azure Stack vydaná pro instalaci této verze poskytovatele prostředků SQL je uvedená níže:
+## <a name="build-reference"></a>Referenční informace o buildu
+Stáhněte si binární soubor poskytovatele prostředků SQL a potom spusťte samočinný extrahování a extrahujte obsah do dočasného adresáře. Poskytovatel prostředků má minimálně odpovídající sestavení centra Azure Stack. Minimální verze Azure Stack centra pro vydání, která je vyžadována pro instalaci této verze poskytovatele prostředků SQL, je uvedena níže:
 
-> |Minimální verze Azure Stack|Verze zprostředkovatele prostředků SQL|
+> |Minimální verze centra Azure Stack|Verze zprostředkovatele prostředků SQL|
 > |-----|-----|
 > |Verze 1808 (1.1808.0.97)|[1.1.30.0](https://aka.ms/azurestacksqlrp11300)|
 > |     |     |
 
 > [!IMPORTANT]
-> Před nasazením nejnovější verze poskytovatele prostředků SQL použijte minimální podporovanou aktualizaci Azure Stack v integrovaném systému Azure Stack nebo nasaďte nejnovější Azure Stack Development Kit (ASDK).
+> Před nasazením nejnovější verze poskytovatele prostředků SQL použijte minimální podporovanou aktualizaci centra Azure Stack do integrovaného systému služby Azure Stack hub nebo nasaďte nejnovější Azure Stack Development Kit (ASDK).
 
 ## <a name="new-features-and-fixes"></a>Nové funkce a opravy
-Tato verze poskytovatele prostředků Azure Stack SQL zahrnuje následující vylepšení a opravy:
+Tato verze poskytovatele prostředků SQL centra Azure Stack zahrnuje následující vylepšení a opravy:
 
 - **Telemetrie se povolila pro nasazení poskytovatele prostředků SQL**. Kolekce telemetrie je povolená pro nasazení poskytovatele prostředků SQL. Shromážděná telemetrie zahrnuje nasazení poskytovatele prostředků, časy spuštění a zastavení, stav ukončení, zprávy ukončení a podrobnosti o chybě (Pokud je k dispozici).
 
-- **Aktualizace šifrování TLS 1,2**. Povoleno TLS 1,2 – Podpora pouze pro komunikaci poskytovatele prostředků s interními součástmi Azure Stack. 
+- **Aktualizace šifrování TLS 1,2**. Povoleno TLS 1,2 – Podpora pouze pro komunikaci poskytovatele prostředků s interními komponentami centra Azure Stack. 
 
-### <a name="fixes"></a>Řeší
+### <a name="fixes"></a>Opravy
 
-- **Poskytovatel prostředků SQL Azure Stack kompatibility PowerShellu**. Poskytovatel prostředků SQL se aktualizoval tak, aby fungoval s Azure Stack 2018-03-01-hybridním profilem PowerShellu a zajistil kompatibilitu s AzureRM 1.3.0 a novějším.
+- **Poskytovatel prostředků SQL Azure Stack kompatibility PowerShellu centra**. Poskytovatel prostředků SQL se aktualizoval tak, aby fungoval s profilem Azure Stack hub 2018-03-01 – Hybrid PowerShellu a zajistil kompatibilitu s AzureRM 1.3.0 a novějším.
 
 - **Okno heslo pro změnu přihlašovacího údaje SQL** Opravili jsme problém, kdy se heslo nedá změnit v okně změnit heslo. Odebrali jsme odkazy z oznámení o změně hesla.
 
@@ -60,7 +60,7 @@ Tato verze poskytovatele prostředků Azure Stack SQL zahrnuje následující vy
 
 - Zobrazení **SKU SQL může trvat až hodinu**, než se na portálu zobrazí. Může trvat až hodinu, než se nově vytvořené skladové položky zobrazí pro použití při vytváření nových databází SQL.
 
-    **Alternativní řešení**: žádné.
+    **Řešení**: Žádné
 
 - **Znovu použita přihlášení SQL**. Při pokusu o vytvoření nového přihlášení SQL se stejným uživatelským jménem, jako má existující přihlašovací jméno v rámci stejného předplatného, bude použito stejné přihlášení a stávající heslo.
 
@@ -88,8 +88,8 @@ Tato verze poskytovatele prostředků Azure Stack SQL zahrnuje následující vy
 
     **Alternativní řešení**: Ujistěte se, že služba DNS správně funguje pro překlad IP adresy naslouchacího procesu na název hostitele naslouchacího procesu.
 
-### <a name="known-issues-for-cloud-admins-operating-azure-stack"></a>Známé problémy pro cloudové správce, kteří pracují Azure Stack
-Informace najdete v dokumentaci k [verzi Azure Stack](azure-stack-servicing-policy.md).
+### <a name="known-issues-for-cloud-admins-operating-azure-stack-hub"></a>Známé problémy pro cloudová správce, kteří pracují Azure Stack hub
+Informace najdete v dokumentaci k [verzi centra Azure Stack](azure-stack-servicing-policy.md).
 
 ## <a name="next-steps"></a>Další kroky
 [Přečtěte si další informace o poskytovateli prostředků SQL](azure-stack-sql-resource-provider.md).

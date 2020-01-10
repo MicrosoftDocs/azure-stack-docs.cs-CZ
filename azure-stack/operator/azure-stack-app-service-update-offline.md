@@ -1,6 +1,6 @@
 ---
 title: Aktualizovat Azure App Service offline | Microsoft Docs
-description: Podrobné pokyny pro aktualizaci Azure App Service Azure Stack offline
+description: Podrobné pokyny pro aktualizaci Azure App Service v centru Azure Stack offline
 services: azure-stack
 documentationcenter: ''
 author: bryanla
@@ -15,31 +15,31 @@ ms.topic: article
 ms.date: 08/29/2019
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.openlocfilehash: 5482d078e4edbda10806220c989909424d9fcd95
-ms.sourcegitcommit: 701685f0b59e5a3d1a8d39fe477b8df701a51cd2
+ms.openlocfilehash: a16c35e3f2beb386a81d27a6c1a7d49352c97df3
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70159595"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75816681"
 ---
-# <a name="offline-update-of-azure-app-service-on-azure-stack"></a>Offline aktualizace Azure App Service v Azure Stack
+# <a name="offline-update-of-azure-app-service-on-azure-stack-hub"></a>Offline aktualizace Azure App Service v centru Azure Stack
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 > [!IMPORTANT]
-> Před nasazením Azure App Service 1,7 1907 nainstalujte do integrovaného systému Azure Stack nebo novější verzi Azure Stack Development Kit.
+> Před nasazením Azure App Service 1,7 1907 nainstalujte do integrovaného systému Azure Stack hub nebo novější verzi Azure Stack Development Kit.
 
-Podle pokynů v tomto článku můžete upgradovat [App Service poskytovatele prostředků](azure-stack-app-service-overview.md) nasazeného v Azure Stack prostředí:
+Podle pokynů v tomto článku můžete upgradovat [poskytovatele App Serviceho prostředku](azure-stack-app-service-overview.md) nasazeného v prostředí Azure Stack hub:
 
 * Nepřipojeno k Internetu
-* zabezpečeno pomocí Active Directory Federation Services (AD FS) (AD FS).
+* Zabezpečeno pomocí Active Directory Federation Services (AD FS) (AD FS).
 
 > [!IMPORTANT]
-> Před spuštěním upgradu se ujistěte, že jste už dokončili [nasazení Azure App Service na Azure Stack poskytovatele prostředků](azure-stack-app-service-deploy-offline.md) a že jste si přečetli [poznámky k verzi](azure-stack-app-service-release-notes-update-seven.md), které doprovází vydání 1,7, abyste se dozvěděli o nových funkce, opravy a všechny známé problémy, které by mohly mít vliv na nasazení.
+> Před spuštěním upgradu se ujistěte, že jste už dokončili [nasazení Azure App Service v poskytovateli prostředků služby Azure Stack hub](azure-stack-app-service-deploy-offline.md) a že jste si přečetli poznámky k [verzi](azure-stack-app-service-release-notes-update-seven.md), ke které doprovází vydání 1,7, abyste se seznámili s novými funkcemi, opravami a všemi známými problémy, které by mohly mít vliv na nasazení.
 
 ## <a name="run-the-app-service-resource-provider-installer"></a>Spuštění instalačního programu poskytovatele prostředků App Service
 
-Chcete-li upgradovat poskytovatele prostředků App Service v prostředí Azure Stack, je nutné dokončit tyto úlohy:
+Chcete-li upgradovat poskytovatele prostředků App Service v prostředí centra Azure Stack, je nutné dokončit tyto úlohy:
 
 1. Stáhněte [instalační program App Service](https://aka.ms/appsvcupdate7installer).
 2. Vytvořte offline balíček s upgradem.
@@ -61,18 +61,18 @@ Chcete-li upgradovat App Service v odpojeném prostředí, musíte nejprve vytvo
 
     ![Instalační služba App Service][1]
 
-2. Kliknout na **Upřesnit** > **vytvořit offline balíček**
+2. Kliknutím na **upřesnit** > **vytvořit offline balíček**
 
     ![Rozšířené instalační služby App Service][2]
 
 3. Instalační služba App Service vytvoří balíček s upgradem offline a zobrazí cestu k němu.  Kliknutím na **Otevřít složku** můžete otevřít složku v Průzkumníku souborů.
 
-4. Zkopírujte instalační program (AppService. exe) a offline balíček s upgradem na hostitelský počítač Azure Stack.
+4. Zkopírujte instalační program (AppService. exe) a offline balíček s upgradem na hostitelský počítač centra Azure Stack.
 
-## <a name="complete-the-upgrade-of-app-service-on-azure-stack"></a>Dokončete upgrade App Service v Azure Stack
+## <a name="complete-the-upgrade-of-app-service-on-azure-stack-hub"></a>Dokončení upgradu App Service v centru Azure Stack
 
 > [!IMPORTANT]
-> Instalační program App Service musí být spuštěný na počítači, který se může připojit ke koncovému bodu Azure Stack správce Azure Resource Manager.
+> Instalační program App Service musí být spuštěný na počítači, který se může připojit ke koncovému bodu správce centra Azure Stack Azure Resource Manager.
 >
 >
 
@@ -80,7 +80,7 @@ Chcete-li upgradovat App Service v odpojeném prostředí, musíte nejprve vytvo
 
     ![Instalační služba App Service][1]
 
-2. Klikněte na **Upřesnit** > **Dokončit offline instalaci nebo upgrade**.
+2. Kliknutím na **upřesnit** > **dokončete offline instalaci nebo upgrade**.
 
     ![Rozšířené instalační služby App Service][2]
 
@@ -90,31 +90,31 @@ Chcete-li upgradovat App Service v odpojeném prostředí, musíte nejprve vytvo
 
 5. Přečtěte si a přijměte licenční podmínky třetí strany a klikněte na **Další**.
 
-6. Ujistěte se, že jsou informace o Azure Stack Azure Resource Manager koncový bod a informace o Tenantovi služby Active Directory správné. Pokud jste během nasazení Azure Stack Development Kit použili výchozí nastavení, můžete zde přijmout výchozí hodnoty. Pokud jste však přizpůsobili možnosti při nasazení Azure Stack, je nutné upravit hodnoty v tomto okně. Pokud například použijete příponu domény *MyCloud.com*, musí se koncový bod Azure Resource Manager Azure Stack změnit na *Management.region.MyCloud.com*. Po potvrzení vašich informací klikněte na tlačítko **Další**.
+6. Ujistěte se, že jsou správné informace o klientovi služby Azure Stack centrum Azure Resource Manager a službě Active Directory. Pokud jste během nasazení Azure Stack Development Kit použili výchozí nastavení, můžete zde přijmout výchozí hodnoty. Pokud jste však přizpůsobili možnosti při nasazení centra Azure Stack, je nutné upravit hodnoty v tomto okně. Pokud například použijete příponu domény *MyCloud.com*, Azure Resource Manager koncový bod centra Azure Stack se musí změnit na *Management.region.MyCloud.com*. Po potvrzení vašich informací klikněte na tlačítko **Další**.
 
-    ![Informace o cloudu Azure Stack][3]
+    ![Informace o cloudu centra Azure Stack][3]
 
 7. Na další stránce:
 
-   1. Klikněte na tlačítko **připojit** vedle pole **Azure Stack odběry** .
-      * Pokud používáte Azure Active Directory (Azure AD), zadejte účet správce Azure AD a heslo, které jste zadali při nasazení Azure Stack. Klikněte na **Přihlásit se**.
+   1. Klikněte na tlačítko **připojit** vedle pole **Azure Stack předplatné centra** .
+      * Pokud používáte Azure Active Directory (Azure AD), zadejte účet správce Azure AD a heslo, které jste zadali při nasazení centra Azure Stack. Klikněte na **Přihlásit se**.
       * Pokud používáte Active Directory Federation Services (AD FS) (AD FS), zadejte účet správce. Příklad: _cloudadmin@azurestack.local_ . Zadejte heslo a klikněte na **Přihlásit**.
-   2. V poli **Azure Stack odběry** vyberte **výchozí předplatné poskytovatele**.
-   3. V poli **Azure Stack umístění** vyberte umístění, které odpovídá oblasti, do které nasazujete. Pokud například nasazujete na Azure Stack Development Kit, vyberte možnost **místní** .
+   2. V poli **předplatná centra Azure Stack** vyberte **výchozí předplatné poskytovatele**.
+   3. V poli **Azure Stack centra umístění** vyberte umístění, které odpovídá oblasti, do které nasazujete. Pokud například nasazujete na Azure Stack Development Kit, vyberte možnost **místní** .
    4. Pokud se zjistí existující nasazení App Service, naplní se skupina prostředků a účet úložiště a zobrazí se šedě.
    5. Kliknutím na **Další** zkontrolujte souhrn upgradu.
 
       ![Zjistila se instalace App Service.][4]
 
 8. Na stránce Souhrn:
-   1. Ověřte provedené volby. Chcete-li provést změny, přejděte na předchozí tlačítka, kde můžete přejít na předchozí stránky.
+   1. Ověřte provedené volby. Chcete-li provést změny, **přejděte na předchozí tlačítka,** kde můžete přejít na předchozí stránky.
    2. Jsou-li konfigurace správné, zaškrtněte políčko.
    3. Chcete-li spustit upgrade, klikněte na tlačítko **Další**.
 
        ![Souhrn App Serviceho upgradu][5]
 
 9. Stránka průběh upgradu:
-    1. Sledujte průběh upgradu. Doba trvání upgradu App Service v Azure Stack se liší v závislosti na počtu nasazených instancí rolí.
+    1. Sledujte průběh upgradu. Doba trvání upgradu App Service v centru Azure Stack se liší v závislosti na počtu nasazených instancí rolí.
     2. Po úspěšném dokončení upgradu klikněte na tlačítko **konec**.
 
         ![App Service průběh upgradu][6]
@@ -127,9 +127,9 @@ Chcete-li upgradovat App Service v odpojeném prostředí, musíte nejprve vytvo
 [5]: ./media/azure-stack-app-service-update-offline/app-service-upgrade-summary.png
 [6]: ./media/azure-stack-app-service-update-offline/app-service-upgrade-complete.png
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
-Příprava na další operace správy pro App Service v Azure Stack
+Příprava na další operace správy pro App Service v centru Azure Stack
 
 * [Plánování další kapacity](azure-stack-app-service-capacity-planning.md)
 * [Přidat další kapacitu](azure-stack-app-service-add-worker-roles.md)

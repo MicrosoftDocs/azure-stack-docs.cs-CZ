@@ -1,6 +1,6 @@
 ---
-title: Azure Stack zpracování dat protokolů a zákazníků | Microsoft Docs
-description: Přečtěte si, jak Azure Stack shromažďuje údaje o zákaznících a informace.
+title: Azure Stack řízení a zpracování zákaznických dat v protokolu centra | Microsoft Docs
+description: Přečtěte si, jak Azure Stack centrum shromažďuje zákaznická data a informace.
 services: azure-stack
 documentationcenter: ''
 author: PatAltimore
@@ -16,22 +16,22 @@ ms.date: 06/10/2019
 ms.author: patricka
 ms.reviewer: chengwei
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: ff633133b7d0fd0489b3e81295ea53351968ac8f
-ms.sourcegitcommit: 7817d61fa34ac4f6410ce6f8ac11d292e1ad807c
+ms.openlocfilehash: 651ad93a457a14118c3182b980f90f5f73613eeb
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74690198"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75811902"
 ---
-# <a name="azure-stack-log-and-customer-data-handling"></a>Azure Stack zpracování dat protokolů a zákazníků 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*  
+# <a name="azure-stack-hub-log-and-customer-data-handling"></a>Azure Stack zpracování dat protokolů a zákazníků centra 
+*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*  
 
-V takovém případě je společnost Microsoft v souvislosti s Azure Stack procesorem nebo podprocesorem osobních údajů, a to od 25. května 2018 následující závazky:
+V případě, že je Microsoft v souvislosti s centrem Azure Stack procesorem nebo podprocesorem osobních údajů, společnost Microsoft provádí všem zákazníkům platná 25. května 2018 následující závazky:
 
 - "Zpracování osobních údajů; GDPR "pravidla ochrany dat" v tématu [online služby](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31).
 - Evropské unie Obecné nařízení o ochraně osobních údajů podmínkami v příloze 4 [podmínek pro online služby](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31).
 
-Jako Azure Stack se nachází v datových centrech zákazníků, Microsoft je řadič dat výhradně z dat, která se v Microsoftu sdílí prostřednictvím [diagnostiky](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs), [telemetrie](azure-stack-telemetry.md)a [fakturace](azure-stack-usage-reporting.md).  
+Jako centrum Azure Stack se nachází v datacentrech zákazníků, Microsoft je řadič dat výhradně z dat, která se v Microsoftu sdílí prostřednictvím [diagnostiky](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs), [telemetrie](azure-stack-telemetry.md)a [fakturace](azure-stack-usage-reporting.md).  
 
 ## <a name="data-access-controls"></a>Řízení přístupu k datům 
 Zaměstnanci Microsoftu, kteří jsou přiřazeni k prozkoumání konkrétního případu podpory, budou mít k šifrovaným datům oprávnění jen pro čtení. Zaměstnanci Microsoftu mají také přístup k nástrojům, které slouží k odstranění dat v případě potřeby. Veškerý přístup k zákaznickým datům je auditován a zaznamenán.  
@@ -51,20 +51,20 @@ Pro akci automatizovaného odstranění dat (90 dní po uzavření případu) ne
 Pro akci odstranění dat na vyžádání mají pracovníci podpory Microsoftu přístup k nástroji, který jim umožňuje odstranit data na vyžádání. Když se zákazník dokončí, může na telefonu poskytnout potvrzení.
 
 ## <a name="diagnostic-data"></a>Diagnostická data
-V rámci procesu podpory můžou Azure Stack operátoři [Sdílet diagnostické protokoly](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs) s Azure Stack podpory a technickými týmy pro pomoc s řešením problémů.
+V rámci procesu podpory mohou operátoři centra Azure Stack [Sdílet diagnostické protokoly](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs) s pracovníky podpory centra Azure Stack a technickými týmy pro pomoc s řešením problémů.
 
 Společnost Microsoft poskytuje nástroj a skript pro zákazníky, kteří budou shromažďovat a nahrávat požadované soubory protokolu diagnostiky. Po shromáždění se soubory protokolu přenesou prostřednictvím šifrovaného připojení chráněného protokolem HTTPS společnosti Microsoft. Vzhledem k tomu, že protokol HTTPS zajišťuje šifrování po drátě, není při přenosu vyžadováno žádné heslo. Po přijetí se protokoly zašifrují a uloží do doby, než se automaticky odstraní 90 dnů po uzavření případu podpory.
 
 ## <a name="telemetry-data"></a>Data telemetrie
-[Telemetrie Azure Stack](azure-stack-telemetry.md) automaticky odesílá systémová data společnosti Microsoft prostřednictvím prostředí připojeného uživatele. Azure Stack operátory mají ovládací prvky pro přizpůsobení funkcí telemetrie a nastavení ochrany osobních údajů.
+[Telemetrii centra Azure Stack](azure-stack-telemetry.md) automaticky odesílá systémová data společnosti Microsoft prostřednictvím prostředí připojeného uživatele. Operátoři centra Azure Stack mají ovládací prvky pro přizpůsobení funkcí telemetrie a nastavení ochrany osobních údajů.
 
 Společnost Microsoft nemá v úmyslu shromažďovat citlivá data, jako jsou třeba čísla kreditních karet, uživatelská jména a hesla, e-mailové adresy atd. Pokud zjistíme, že se nechtěně přijaly citlivé informace, odstraníme je.
 
 ## <a name="billing-data"></a>Fakturační údaje
-[Azure Stack faktura](azure-stack-usage-reporting.md) využívá kanál pro fakturaci a využití globálního Azure a je proto v souladu s pokyny pro dodržování předpisů Microsoftu.
+Při [fakturaci centra Azure Stack](azure-stack-usage-reporting.md) využíváme kanál pro fakturaci a využití globálního Azure a je proto v souladu s pokyny pro dodržování předpisů Microsoftu.
 
-Operátoři Azure Stack můžou nakonfigurovat Azure Stack k přeposílání informací o využití do Azure pro účely fakturace. Tato konfigurace je nutná pro zákazníky s integrovanými systémy Azure Stack, kteří si zvolí model fakturace s průběžnými platbami podle aktuálního využití. Vytváření sestav o využití se řídí nezávisle na telemetrie a nevyžaduje se pro zákazníky s integrovanými systémy, kteří volí model kapacity nebo pro Azure Stack Development Kit uživatele. V těchto scénářích lze vytváření sestav využití vypnout pomocí [registračního skriptu](azure-stack-usage-reporting.md).
+Operátoři centra Azure Stack můžou nakonfigurovat centrum Azure Stack a předají informace o využití do Azure pro účely fakturace. Tato konfigurace je nutná pro zákazníky s integrovanými systémy Azure Stack hub, kteří si vyberou model fakturace s průběžnými platbami. Vytváření sestav o využití se řídí nezávisle na telemetrie a nevyžaduje se pro zákazníky s integrovanými systémy, kteří volí model kapacity nebo pro Azure Stack Development Kit uživatele. V těchto scénářích lze vytváření sestav využití vypnout pomocí [registračního skriptu](azure-stack-usage-reporting.md).
 
 
 ## <a name="next-steps"></a>Další kroky 
-[Další informace o zabezpečení služby Azure Stack](azure-stack-security-foundations.md) 
+[Další informace o zabezpečení centra Azure Stack](azure-stack-security-foundations.md) 

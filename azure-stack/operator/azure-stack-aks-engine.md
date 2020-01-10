@@ -1,6 +1,6 @@
 ---
-title: Přidání požadavků modulu Azure Kubernetes Services (AKS) do tržiště Azure Stack | Microsoft Docs
-description: Přečtěte si, jak přidat požadavky na modul AKS do tržiště Azure Stack.
+title: Přidání požadavků modulu Azure Kubernetes Services (AKS) do tržiště centra Azure Stack | Microsoft Docs
+description: Přečtěte si, jak přidat požadavky na modul AKS do tržiště centra Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,28 +15,28 @@ ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: ee19c6ee32960c52bcf7a4918c3d1e48406129c3
-ms.sourcegitcommit: 31e04af4d405215ef200aba0b40d601fc5ca7662
+ms.openlocfilehash: c03b945f9580d1d64bee2530d6a380613d266dab
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74391544"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75803751"
 ---
-# <a name="add-the-azure-kubernetes-services-aks-engine-prerequisites-to-the-azure-stack-marketplace"></a>Přidání požadavků modulu Azure Kubernetes Services (AKS) do tržiště Azure Stack
+# <a name="add-the-azure-kubernetes-services-aks-engine-prerequisites-to-the-azure-stack-hub-marketplace"></a>Přidání požadavků modulu Azure Kubernetes Services (AKS) do tržiště centra Azure Stack
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
-Přidáním položek popsaných v tomto článku k vašemu Azure Stack můžete uživatelům povolit, aby si nastavili modul Azure Kubernetes Services (AKS). Uživatelé pak mohou nasadit cluster Kubernetes v rámci jediné koordinované operace. Tento článek vás provede kroky potřebnými k tomu, aby byl modul AKS k dispozici pro vaše uživatele v připojených i odpojených prostředích. Modul AKS závisí na identitě služby a na webu Marketplace, ve vlastním rozšíření skriptu a na základní imagi AKS.
+Přidáním položek popsaných v tomto článku do centra Azure Stack můžete uživatelům povolit, aby si nastavili modul Azure Kubernetes Services (AKS). Uživatelé pak mohou nasadit cluster Kubernetes v rámci jediné koordinované operace. Tento článek vás provede kroky potřebnými k tomu, aby byl modul AKS k dispozici pro vaše uživatele v připojených i odpojených prostředích. Modul AKS závisí na identitě služby a na webu Marketplace, ve vlastním rozšíření skriptu a na základní imagi AKS.
 
 ## <a name="check-your-users-service-offering"></a>Ověření nabídky služeb uživatele
 
-Uživatelé budou potřebovat plán, nabídku a předplatné, které Azure Stack s dostatkem místa. Uživatelé často chtějí nasadit clustery až šesti virtuálních počítačů, které se skládají ze tří hlavních a tří pracovních uzlů. Budete chtít zajistit, aby měli dostatečně velkou kvótu.
+Uživatelé budou potřebovat plán, nabídku a předplatné Azure Stack centra s dostatkem místa. Uživatelé často chtějí nasadit clustery až šesti virtuálních počítačů, které se skládají ze tří hlavních a tří pracovních uzlů. Budete chtít zajistit, aby měli dostatečně velkou kvótu.
 
-Pokud potřebujete další informace o plánování a nastavování nabídky služeb, přečtěte si téma [Přehled nabízených služeb v Azure Stack](service-plan-offer-subscription-overview.md)
+Pokud potřebujete další informace o plánování a nastavování nabídky služeb, přečtěte si téma [Přehled nabízených služeb v centru Azure Stack](service-plan-offer-subscription-overview.md) .
 
 ## <a name="create-a-service-principal-and-credentials"></a>Vytvoření instančního objektu a přihlašovacích údajů
 
-Cluster Kubernetes bude potřebovat instanční objekt (SPN) a oprávnění na základě rolí v Azure Stack.
+Cluster Kubernetes bude potřebovat instanční objekt (SPN) a oprávnění na základě rolí ve službě Azure Stack hub.
 
 ### <a name="create-an-spn-in-azure-ad"></a>Vytvoření hlavního názvu služby (SPN) ve službě Azure AD
 
@@ -48,11 +48,11 @@ Pokud pro službu správy identit používáte službu Active Directory federova
 
 ## <a name="add-the-aks-base-image"></a>Přidat základní image AKS
 
-Základní image AKS můžete na Marketplace přidat tak, že získáte položku z Azure. Pokud je ale váš Azure Stack odpojený, použijte tyto pokyny ke [stažení položky Marketplace z Azure](https://docs.microsoft.com/azure-stack/operator/azure-stack-download-azure-marketplace-item?view=azs-1908#disconnected-or-a-partially-connected-scenario) a přidejte položku. Přidejte položku určenou v kroku 5.
+Základní image AKS můžete na Marketplace přidat tak, že získáte položku z Azure. Pokud je ale vaše centrum Azure Stack odpojené, použijte tyto pokyny ke [stažení položky Marketplace z Azure](https://docs.microsoft.com/azure-stack/operator/azure-stack-download-azure-marketplace-item?view=azs-1908#disconnected-or-a-partially-connected-scenario) a přidejte položku. Přidejte položku určenou v kroku 5.
 
 Do Marketplace přidejte následující položku:
 
-1. Přihlaste se k [portálu pro správu](https://adminportal.local.azurestack.external).
+1. Přihlaste se k [portál pro správu](https://adminportal.local.azurestack.external).
 
 1. Vyberte **všechny služby**a potom v kategorii **Správa** vyberte **Správa Marketplace**.
 
@@ -71,7 +71,7 @@ Do Marketplace přidejte následující položku:
 
 ## <a name="add-a-custom-script-extension"></a>Přidání rozšíření vlastních skriptů
 
-Pomocí položky z Azure můžete přidat vlastní skript na Marketplace. Pokud je ale váš Azure Stack odpojený, přidejte položku pomocí pokynů ke [stažení položek z webu Marketplace z Azure](https://docs.microsoft.com/azure-stack/operator/azure-stack-download-azure-marketplace-item?view=azs-1908#disconnected-or-a-partially-connected-scenario) .  Přidejte položku určenou v kroku 5.
+Pomocí položky z Azure můžete přidat vlastní skript na Marketplace. Pokud je ale vaše centrum Azure Stack odpojené, přidejte položku pomocí pokynů ke [stažení položek z webu Marketplace z Azure](https://docs.microsoft.com/azure-stack/operator/azure-stack-download-azure-marketplace-item?view=azs-1908#disconnected-or-a-partially-connected-scenario) .  Přidejte položku určenou v kroku 5.
 
 1. Otevřete [portál pro správu](https://adminportal.local.azurestack.external).
 
@@ -93,6 +93,6 @@ Pomocí položky z Azure můžete přidat vlastní skript na Marketplace. Pokud 
 
 ## <a name="next-steps"></a>Další kroky
 
-[Co je modul AKS v Azure Stack?](../user/azure-stack-kubernetes-aks-engine-overview.md)
+[Co je modul AKS v centru Azure Stack?](../user/azure-stack-kubernetes-aks-engine-overview.md)
 
-[Přehled nabízených služeb v Azure Stack](service-plan-offer-subscription-overview.md)
+[Přehled nabízených služeb v centru Azure Stack](service-plan-offer-subscription-overview.md)

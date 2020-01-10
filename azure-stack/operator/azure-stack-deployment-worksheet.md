@@ -1,6 +1,6 @@
 ---
-title: Integrované systémy pro nasazení list pro službu Azure Stack | Dokumentace Microsoftu
-description: Zjistěte, jak nainstalovat a používat nástroj pro nasazení listu pro nasazení Azure Stack.
+title: Sešit nasazení pro integrované systémy centra Azure Stack | Microsoft Docs
+description: Naučte se instalovat a používat nástroj pro nasazení sešitu Azure Stack k nasazení centra.
 services: azure-stack
 documentationcenter: ''
 author: wamota
@@ -15,83 +15,83 @@ ms.date: 04/19/2019
 ms.author: wamota
 ms.reviewer: wamota
 ms.lastreviewed: 04/19/2019
-ms.openlocfilehash: d75915f110b6316f4621f66b1f91b010f735d165
-ms.sourcegitcommit: ccd86bd0862c45de1f6a4993f783ea2e186c187a
+ms.openlocfilehash: 0ec6f85e0df5bcc818f57410a442d532d024fc02
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65172668"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75804896"
 ---
-# <a name="deployment-worksheet-for-azure-stack-integrated-systems"></a>List nasazení pro integrované systémy Azure Stack
+# <a name="deployment-worksheet-for-azure-stack-hub-integrated-systems"></a>Sešit nasazení pro integrované systémy centra Azure Stack
 
-List nasazení Azure Stack je aplikace Windows Forms, který agreguje všechny informace potřebné pro zavedení a rozhodnutí, která na jednom místě. Můžete dokončit list nasazení během procesu plánování a projděte si před zahájením nasazení.
+Sešit Azure Stackho nasazení centra je model Windows Forms aplikace, která agreguje všechny nezbytné informace o nasazení a rozhodnutí na jednom místě. Během plánování můžete dokončit list nasazení a před zahájením nasazení ho zkontrolovat.
 
-Informace vyžadované list obsahuje informace sítě, zabezpečení a identity. Vyžaduje důležité rozhodnutí, které může být nutné znalostní báze v mnoha různých oblastech; Proto můžete chtít poraďte se s týmy, aby bylo možné dokončit list má odborné znalosti v těchto oblastech.
+Informace požadované v listu zahrnují informace o síti, zabezpečení a identitě. Vyžaduje důležitá rozhodnutí, která mohou vyžadovat znalosti v mnoha různých oblastech; Proto byste se měli chtít poradit s týmy, které mají zkušenosti v těchto oblastech, aby bylo možné list dokončit.
 
-Při vyplňování listu, může být potřeba udělat nějaké změny konfigurace před nasazením do prostředí vaší sítě. To může zahrnovat rezervace adresní prostory IP adres pro Azure Stack řešení a konfigurace směrovače, přepínače a brány firewall, Příprava připojení k nové řešení Azure Stack.
+Při vyplňování listu může být nutné provést některé změny konfigurace před nasazením ve vašem síťovém prostředí. To může zahrnovat rezervaci adresních prostorů IP adres pro řešení centra Azure Stack a konfiguraci směrovačů, přepínačů a bran firewall pro přípravu připojení k novému řešení centra Azure Stack.
 
 > [!NOTE]
-> Další informace o tom, jak dokončit listu nástroj pro nasazení najdete v tématu [Tento článek v dokumentaci k Azure Stack](azure-stack-datacenter-integration.md).
+> Další informace o tom, jak dokončit nástroj listu nasazení, najdete [v tomto článku v dokumentaci centra Azure Stack](azure-stack-datacenter-integration.md).
 
-[![List nasazení](media/azure-stack-deployment-worksheet/depworksheet.png "list nasazení")](media/azure-stack-deployment-worksheet/depworksheet.png)
+[![Sešit nasazení](media/azure-stack-deployment-worksheet/depworksheet.png "Sešit nasazení")](media/azure-stack-deployment-worksheet/depworksheet.png)
 
-## <a name="installing-the-windows-powershell-module"></a>Instalace modulu prostředí Windows PowerShell
+## <a name="installing-the-windows-powershell-module"></a>Instalace modulu Windows PowerShell
 
-Pro každou verzi list nasazení je nutné provést jednorázovou instalace modulu prostředí Powershell pro každý počítač, na který chcete použít list nasazení.
+Pro každé vydání listu nasazení je třeba provést jednorázovou instalaci modulu prostředí PowerShell pro každý počítač, na kterém chcete použít sešit nasazení.
 
 > [!NOTE]  
-> Musí být počítač připojený k Internetu pro tuto metodu pro práci.
+> Aby tato metoda fungovala, musí být počítač připojen k Internetu.
 
-1. Otevřete řádku Powershellu se zvýšenými oprávněními.
+1. Otevřete příkazový řádek PowerShell se zvýšenými oprávněními.
 
-2. V okně Powershellu nainstalujte modul z [Galerie prostředí PowerShell](https://www.powershellgallery.com/packages/Azs.Deployment.Worksheet/):
+2. V okně PowerShellu nainstalujte modul z [Galerie prostředí PowerShell](https://www.powershellgallery.com/packages/Azs.Deployment.Worksheet/):
 
    ```PowerShell
    Install-Module -Name Azs.Deployment.Worksheet -Repository PSGallery
    ```
 
-Pokud se zobrazí zpráva o instalaci z nedůvěryhodného úložiště, stiskněte **Y** a pokračujte v instalaci.
+Pokud se vám zobrazí zpráva o instalaci z nedůvěryhodného úložiště, stiskněte klávesu **Y** a pokračujte v instalaci.
 
-## <a name="use-the-deployment-worksheet-tool"></a>Pomocí nástroje deployment list
+## <a name="use-the-deployment-worksheet-tool"></a>Použití nástroje list nasazení
 
-Spustit a používat list nasazení na počítači, do které jste nainstalovali modul prostředí PowerShell listu nasazení, proveďte následující kroky:
+Pokud chcete spustit sešit nasazení a použít ho na počítači, na kterém máte nainstalovaný modul PowerShellu pro nasazení, proveďte následující kroky:
 
-1. Spusťte prostředí Windows PowerShell (nepoužívejte prostředí PowerShell ISE, protože může dojít k neočekávaným výsledkům). Není nutné spustit PowerShell jako správce.
+1. Spusťte prostředí Windows PowerShell (nepoužívejte PowerShellový ISE, protože může dojít k neočekávaným výsledkům). Není nutné spouštět prostředí PowerShell jako správce.
 
-2. Import **AzS.Deployment.Worksheet** modul prostředí PowerShell:
+2. Importujte modul PowerShellu **AzS. Deployment. Worksheet** :
 
    ```PowerShell
    Import-Module AzS.Deployment.Worksheet
    ```
 
-3. Po importu modulu spuštění list nasazení:
+3. Po importu modulu otevřete sešit nasazení:
 
    ```PowerShell
    Start-DeploymentWorksheet
    ```
 
-List nasazení se skládá ze samostatných kartách k shromažďování údajů o nastavení prostředí, jako například **nastavení zákazníka**, **nastavení sítě**, a **jednotka škálování #**. Je nutné zadat všechny hodnoty (s výjimkou žádné označené **volitelné**) na všechny karty před jakoukoli konfiguraci je možné generovat datové soubory. Byly zadány všechny požadované hodnoty do nástroje, můžete použít **akce** nabídky **Import**, **exportovat**, a **generovat**. Soubory JSON pro nasazení jsou následující:
+List nasazení se skládá ze samostatných karet pro shromažďování nastavení prostředí, jako je **nastavení zákazníka**, **nastavení sítě**a **škálování jednotky #** . Než bude možné vygenerovat jakékoli soubory konfiguračních dat, je nutné zadat všechny hodnoty (kromě těch, které jsou označeny jako **volitelné**) na všech kartách. Po zadání všech požadovaných hodnot do nástroje můžete pomocí nabídky **Akce** **importovat**, **exportovat**a **Generovat**. Soubory JSON vyžadované pro nasazení jsou následující:
 
-**Import**: Umožňuje importovat Azure Stack soubor konfiguračních dat (ConfigurationData.json), který vygeneroval tento nástroj nebo vytvořených jakékoli předchozí verzi deployment list. Provedením importu obnoví formuláře a odstraňuje všechny dříve zadané nastavení nebo vygenerovala data.
+**Import**: umožňuje importovat soubor dat konfigurace centra Azure Stack (ConfigurationData. JSON), který byl vygenerován pomocí tohoto nástroje, nebo ty, které byly vytvořeny v předchozí verzi listu nasazení. Při provádění importu se resetují formuláře a odstraní se všechna dříve zadaná nastavení nebo generovaná data.
 
-**Export**: Ověří údaje, které aktuálně zadali do formuláře, generuje podsítí protokolu IP a přiřazení a pak uloží obsah jako soubory ve formátu JSON konfigurace. Tyto soubory pak můžete vygenerovat konfiguraci sítě a nainstalovat Azure Stack.
+**Export**: ověří aktuálně zadaná data do formulářů, vygeneruje podsítě IP a přiřazení a pak obsah uloží jako konfigurační soubory ve formátu JSON. Pak můžete tyto soubory použít k vygenerování konfigurace sítě a instalaci centra Azure Stack.
 
-**Generovat**: Ověří aktuálně zadané údaje a generuje mapy sítě bez export souborů JSON nasazení. Pokud jsou vytvořeny dva nových kartách **generovat** úspěšné: **Souhrn podsítě** a **přiřazení IP**. Můžete analyzovat data na těchto kartách zajistit přiřazení sítě podle očekávání.
+**Generate**: ověří aktuálně zadaná data a vygeneruje mapu sítě bez exportu souborů JSON nasazení. Pokud je **generování** úspěšné, vytvoří se dvě nové karty: **Souhrn podsítě** a **přiřazení IP adresy**. Data na těchto kartách můžete analyzovat, abyste zajistili, že budou přiřazení sítě očekávaná.
 
-**Vymazat vše**: Vymaže všechny aktuálně zadané ve formulářích data a vrátí na výchozí hodnoty.
+**Clear All**: vymaže všechna aktuálně zadaná data ve formulářích a vrátí je do výchozích hodnot.
 
-**Uložit nebo otevřít vaše pracovní probíhá**: Můžete uložit a otevřít částečně zadaných dat, protože pracujete, pomocí **soubor -> Uložit** a **soubor -> Otevřít** nabídky. Tím se liší od **Import** a **exportovat** funguje, protože vyžadují všechna data pro zadaná a ověřit. Otevřít/Uložit neověřuje a nevyžaduje, aby všechna pole, abyste zadali zahájenou práci uložte.
+**Uložte nebo otevřete svůj nedokončený průběh**: můžete uložit a otevřít částečně zadaná data, když na ní pracujete, a to pomocí **souborů > Save** a **soubor-> otevřít** nabídky. To se liší od funkcí **importu** a **exportu** , protože to vyžaduje, aby byla všechna data zadávána a ověřena. Otevření nebo uložení neověřuje a nevyžaduje, aby byla zadávána všechna pole, aby bylo možné svou nedokončenou práci uložit.
 
-**Protokolování a upozorněních**: Při formuláře se může zobrazit méně důležité zprávy upozornění se zobrazí v okně Powershellu. Kritické chyby se zobrazují jako místní zpráva. Volitelné podrobné protokolování, včetně protokolu zapisují na disk, můžete povolit jako pomoc při řešení potíží.
+**Protokolovací zprávy a upozornění**: při použití formuláře se v okně PowerShellu můžou zobrazit nekritické zprávy s upozorněním. Kritické chyby se zobrazují jako místní zpráva. Volitelné podrobné protokolování, včetně protokolu zapsaného na disk, může být umožněno pro pomoc při řešení problémů.
 
-Spusťte nástroj pomocí podrobného protokolování:
+Postup spuštění nástroje s podrobným protokolováním:
 
    ```PowerShell
    Start-DeploymentWorksheet -EnableLogging
    ```
 
-Uložený protokol můžete najít v aktuální uživatel **Temp** directory; například: **C:\Users\me\AppData\Local\Temp\Microsoft_AzureStack\DeploymentWorksheet_Log.txt**.
+Uložený protokol najdete v **dočasném** adresáři aktuálního uživatele. například: **c:\users\me\appdata\local\temp\ Microsoft_AzureStack \ DeploymentWorksheet_Log. txt**.
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
-* [Modely připojení k nasazení služby Azure Stack](azure-stack-connection-models.md)
+* [Modely připojení nasazení centra Azure Stack](azure-stack-connection-models.md)

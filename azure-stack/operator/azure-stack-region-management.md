@@ -1,7 +1,7 @@
 ---
-title: Správa oblastí v Azure Stack | Microsoft Docs
-titleSuffix: Azure Stack
-description: Přehled správy oblastí v Azure Stack.
+title: Správa oblastí v centru Azure Stack | Microsoft Docs
+titleSuffix: Azure Stack Hub
+description: Přehled správy oblastí v centru Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -17,44 +17,44 @@ ms.date: 08/13/2019
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 11/27/2018
-ms.openlocfilehash: 38004b88f43ef59448ca99c3eb2762e5ca63e89c
-ms.sourcegitcommit: ca358ea5c91a0441e1d33f540f6dbb5b4d3c92c5
+ms.openlocfilehash: 1e7127647ef4b0653e759c7008c9874e9a5d2be2
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73802277"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75809742"
 ---
-# <a name="region-management-in-azure-stack"></a>Správa oblastí v Azure Stack
+# <a name="region-management-in-azure-stack-hub"></a>Správa oblastí v centru Azure Stack
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
-Azure Stack používá koncept *oblastí*, které jsou logickými entitami sestávající z hardwarových prostředků tvořících Azure Stack infrastrukturu. V části Správa oblastí můžete najít všechny prostředky, které jsou potřeba k úspěšnému provozování infrastruktury Azure Stack.
+Azure Stack hub používá koncept *oblastí*, což jsou logické entity skládající se z hardwarových prostředků tvořících infrastrukturu centra Azure Stack. V části Správa oblastí můžete najít všechny prostředky, které jsou potřeba k úspěšnému provozování infrastruktury centra Azure Stack.
 
-Jediné nasazení integrovaného systému (označované jako *cloud Azure Stack*) tvoří jednu oblast. Každý Azure Stack Development Kit (ASDK) má jednu oblast s názvem **Local**. Pokud nasadíte druhý Azure Stack integrovaný systém nebo nastavíte jinou instanci ASDK na samostatném hardwaru, bude tento Azure Stack Cloud jinou oblastí.
+Jediné nasazení integrovaného systému (označované jako *cloudové centrum Azure Stack*) tvoří jednu oblast. Každý Azure Stack Development Kit (ASDK) má jednu oblast s názvem **Local**. Pokud nasadíte druhý integrovaný systém Azure Stack hub nebo nastavíte jinou instanci ASDK na samostatný hardware, bude tento cloud Azure Stack hub jinou oblastí.
 
 ## <a name="information-available-through-the-region-management-tile"></a>Informace dostupné prostřednictvím dlaždice Správa oblastí
 
-Azure Stack má na dlaždici **Správa oblastí** k dispozici sadu možností správy oblastí. Tato dlaždice je k dispozici pro operátor Azure Stack na výchozím řídicím panelu na portálu pro správu. Prostřednictvím této dlaždice můžete monitorovat a aktualizovat svou Azure Stackovou oblast a její součásti, které jsou specifické pro oblast.
+Centrum Azure Stack má na dlaždici **Správa oblastí** k dispozici sadu možností správy oblastí. Tato dlaždice je k dispozici pro operátor centra Azure Stack na výchozím řídicím panelu na portálu pro správu. Prostřednictvím této dlaždice můžete monitorovat a aktualizovat oblast centra Azure Stack a její součásti, které jsou specifické pro oblast.
 
-![Dlaždice správy oblastí na portálu Azure Stack správce](media/azure-stack-region-management/image1.png)
+![Dlaždice správy oblastí na portálu správce centra Azure Stack](media/azure-stack-region-management/image1.png)
 
 Pokud kliknete na oblast v dlaždici **Správa oblastí** , můžete získat přístup k následujícím informacím:
 
-[![Popis podoken v okně Správa oblastí na portálu Azure Stack správce](media/azure-stack-region-management/regionssm.png "Okno Správa oblastí na portálu pro správu Azure Stack")](media/azure-stack-region-management/regions.png#lightbox)
+[![Popis podoken v okně Správa oblastí na portálu pro správu centra Azure Stack](media/azure-stack-region-management/regionssm.png "Okno Správa oblastí na portálu pro správu centra Azure Stack")](media/azure-stack-region-management/regions.png#lightbox)
 
 1. **Nabídka prostředků**: přístup k různým oblastem správy infrastruktury a zobrazení a Správa uživatelských prostředků, jako jsou účty úložiště a virtuální sítě.
 
 2. **Výstrahy**: vypíše výstrahy na úrovni systému a poskytne podrobnosti o jednotlivých výstrahách.
 
-3. **Aktualizace**: zobrazit aktuální verzi vaší Azure Stack infrastruktury, dostupné aktualizace a historii aktualizací. Můžete také aktualizovat integrovaný systém.
+3. **Aktualizace**: zobrazit aktuální verzi infrastruktury centra Azure Stack, dostupné aktualizace a historii aktualizací. Můžete také aktualizovat integrovaný systém.
 
-4. **Poskytovatelé prostředků**: Spravujte uživatelské funkce nabízené součástmi, které jsou potřebné ke spuštění Azure Stack. Každý poskytovatel prostředků se dodává s prostředím pro správu. Toto prostředí může obsahovat výstrahy pro konkrétního poskytovatele, metriky a další možnosti správy, které jsou specifické pro poskytovatele prostředků.
+4. **Poskytovatelé prostředků**: Spravujte uživatelské funkce nabízené součástmi, které jsou potřebné ke spuštění centra Azure Stack. Každý poskytovatel prostředků se dodává s prostředím pro správu. Toto prostředí může obsahovat výstrahy pro konkrétního poskytovatele, metriky a další možnosti správy, které jsou specifické pro poskytovatele prostředků.
 
-5. **Role infrastruktury**: komponenty nezbytné ke spuštění Azure Stack. V seznamu se zobrazí jenom role infrastruktury, na které se hlásí výstrahy. Výběrem role můžete zobrazit výstrahy spojené s rolí a instancemi rolí, na kterých je tato role spuštěná.
+5. **Role infrastruktury**: komponenty nezbytné ke spuštění centra Azure Stack. V seznamu se zobrazí jenom role infrastruktury, na které se hlásí výstrahy. Výběrem role můžete zobrazit výstrahy spojené s rolí a instancemi rolí, na kterých je tato role spuštěná.
 
-6. **Vlastnosti**: stav registrace a podrobnosti vašeho prostředí v okně Správa oblastí. Stav lze **zaregistrovat**, **není zaregistrováno**nebo **vypršela jeho platnost**. Pokud je zaregistrované, zobrazí se také ID předplatného Azure, které jste použili k registraci Azure Stack, spolu se skupinou prostředků registrace a názvem.
+6. **Vlastnosti**: stav registrace a podrobnosti vašeho prostředí v okně Správa oblastí. Stav lze **zaregistrovat**, **není zaregistrováno**nebo **vypršela jeho platnost**. Pokud je zaregistrované, zobrazí se také ID předplatného Azure, které jste použili k registraci centra Azure Stack, spolu se skupinou prostředků registrace a názvem.
 
 ## <a name="next-steps"></a>Další kroky
 
-- [Monitorování stavu a upozornění ve službě Azure Stack](azure-stack-monitor-health.md)
-- [Správa aktualizací ve službě Azure Stack](azure-stack-updates.md)
+- [Monitorování stavu a výstrah v centru Azure Stack](azure-stack-monitor-health.md)
+- [Správa aktualizací v centru Azure Stack](azure-stack-updates.md)

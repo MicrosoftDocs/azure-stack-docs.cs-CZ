@@ -1,6 +1,6 @@
 ---
-title: Co je nového ve službě Azure Stack Marketplace | Microsoft Docs
-description: Změny a aktualizace na webu Azure Stack Marketplace.
+title: Co je nového v Marketplace centra Azure Stack | Microsoft Docs
+description: Změny a aktualizace na tržišti Azure Stack hub.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,18 +15,18 @@ ms.date: 10/01/2019
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 10/01/2019
-ms.openlocfilehash: 49b3ac4123a385b468d5eb995ac00bb768347d5d
-ms.sourcegitcommit: b5eb024d170f12e51cc852aa2c72eabf26792d8d
+ms.openlocfilehash: a5d0a50765a44a677ad2c5c1b0795296b57b7b0e
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72534072"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75817036"
 ---
-# <a name="azure-stack-marketplace-changes"></a>Změny Azure Stack Marketplace
+# <a name="azure-stack-hub-marketplace-changes"></a>Změny v tržišti centra Azure Stack
 
-Tento článek popisuje poslední dodatky, aktualizace, změny a [Azure Stack odebrání položek na webu Marketplace](azure-stack-marketplace-azure-items.md) za přibližně poslední 3 měsíce. Informace v této části se často aktualizují, proto se můžete podívat na časté změny.
+Tento článek popisuje poslední přidání, aktualizace, změny a odebrání [položek na webu Marketplace pro Azure Stack](azure-stack-marketplace-azure-items.md) v rámci více než posledních 3 měsíců. Informace v této části se často aktualizují, proto se můžete podívat na časté změny.
 
-[Azure Stack položky na webu Marketplace](azure-stack-marketplace-azure-items.md) vždycky obsahuje nejaktuálnější seznam dostupných položek Azure Stack Marketplace.
+Článek o [položkách na webu Marketplace centra Azure Stack](azure-stack-marketplace-azure-items.md) vždy obsahuje nejaktuálnější seznam dostupných položek centra Azure Stack na webu Marketplace.
 
 ## <a name="new-marketplace-items"></a>Nové položky Marketplace
 
@@ -105,7 +105,7 @@ Tento článek popisuje poslední dodatky, aktualizace, změny a [Azure Stack od
 - 07/30/2019: SQLIaaSExtension-Version 1.3.20180
 - 08/08/2019: rozšíření dodavatelů CloudLink SecureVM pro Linux – verze 6,8
 - 08/08/2019: rozšíření dodavatelů CloudLink SecureVM pro Windows – verze 6,8
-- 08/30/2019: Azure Stack Kubernetes clusteru – verze 0.5.1
+- 08/30/2019 Azure Stack: cluster Kubernetes hub – verze 0.5.1
 - 09/02/2019: AKS Base image – verze 2019.08.09 a verze 2019.08.21
 - 09/12/2019: Service Fabric 1.0.3 verze
 - 09/24/2019: F5 – sítě s Big-IP Virtual Edition – verze 14.1.200000
@@ -115,8 +115,8 @@ Tento článek popisuje poslední dodatky, aktualizace, změny a [Azure Stack od
 
 ## <a name="next-steps"></a>Další kroky
 
-Další informace o Azure Stack Marketplace najdete v následujících článcích:
+Další informace o tržišti centra Azure Stack najdete v následujících článcích:
 
 - [Přehled Azure Marketplace](azure-stack-marketplace.md)
-- [Dostupné položky Azure Marketplace pro službu Azure Stack](azure-stack-marketplace-azure-items.md)
-- [Vytvoření a publikování položky Azure Stack Marketplace](azure-stack-create-and-publish-marketplace-item.md)
+- [Azure Marketplace dostupné položky pro centrum Azure Stack](azure-stack-marketplace-azure-items.md)
+- [Vytvoření a publikování položky na webu Marketplace centra Azure Stack](azure-stack-create-and-publish-marketplace-item.md)

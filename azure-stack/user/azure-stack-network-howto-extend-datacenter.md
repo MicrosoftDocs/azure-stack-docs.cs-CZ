@@ -1,6 +1,6 @@
 ---
-title: Postup rozšiřování datového centra v centru Azure Stack | Microsoft Docs
-description: Naučte se, jak rozšířím datacentrum na Azure Stack.
+title: Postup rozšiřování datacentra v centru Azure Stacke | Microsoft Docs
+description: Naučte se, jak centrálně roztáhnout datacentrum do centra Azure Stack.
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,50 +9,50 @@ ms.date: 12/13/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/13/2019
-ms.openlocfilehash: 949736f091b02ce3118725b9fd3cf6f34c1fc402
-ms.sourcegitcommit: 708c2eb0af3779517cebe8e3b1dc533c5d26561a
+ms.openlocfilehash: 21ee510182e5c2e8056f1d19373708df3ec9b273
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/17/2019
-ms.locfileid: "75184209"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75816203"
 ---
-# <a name="extending-storage-to-azure-stack"></a>Rozšíření úložiště na Azure Stack
+# <a name="extending-storage-to-azure-stack-hub"></a>Rozšíření úložiště do centra Azure Stack
 
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack centrum pro vývoj*
+*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
-Tento článek poskytuje Azure Stack informace o infrastruktuře úložiště centra, které vám pomůžou rozhodnout, jak integrovat Azure Stack do stávajícího síťového prostředí. Po poskytnutí Obecné diskuze o rozšíření datového centra se v článku zobrazí dva různé scénáře. Můžete se připojit k serveru Windows File Storage. Můžete se také připojit k serveru Windows iSCSI.
+Tento článek poskytuje Azure Stack informace o infrastruktuře úložiště centra, které vám pomůžou rozhodnout, jak integrovat Azure Stack hub do stávajícího síťového prostředí. Po poskytnutí Obecné diskuze o rozšíření datového centra obsahuje článek dva různé scénáře. Můžete se připojit k serveru Windows File Storage. Můžete se také připojit k serveru Windows iSCSI.
 
 ## <a name="overview-of-extending-storage-to-azure-stack-hub"></a>Přehled rozšíření úložiště do centra Azure Stack
 
 Existují situace, kdy vaše data uložená ve veřejném cloudu nejsou dostatečná. Možná máte úlohu virtualizované databáze náročné na výpočetní výkon, která je citlivá na latenci a dobu odezvy na veřejný cloud může ovlivnit výkon databázového zatížení. Možná existují data v místním prostředí, která jsou držená na souborovém serveru, na serveru NAS nebo v poli úložiště iSCSI, ke kterému se musí přicházet v místních úlohách a musí se nacházet v místním prostředí, aby se splnily zákonné předpisy nebo cíle dodržování předpisů. Jedná se jenom o dva scénáře, ve kterých jsou data uložená místně, ale jsou důležitá pro mnoho organizací.
 
-Proto nestačí hostovat tato data v účtech úložiště v Azure Stack nebo uvnitř virtualizovaného souborového serveru spuštěného v Azure Stackm systému? Na rozdíl od Azure je Azure Stack úložiště omezené. Kapacita, kterou máte k dispozici pro vaše využití, závisí výhradně na kapacitě jednotlivých uzlů, kterou jste si zvolili k nákupu, a navíc k počtu uzlů, které máte. A vzhledem k tomu, že Azure Stack je řešení sblížené s technologií Hyper-v případě, že chcete rozšířit kapacitu úložiště tak, aby splňovala požadavky na využití, musíte také rozšířit výpočetní nároky prostřednictvím přidávání uzlů. To může být potenciálně nenáročné, zejména pokud je potřeba dodatečnou kapacitu pro studené, archivní úložiště, které by bylo možné přidat za nízké náklady mimo Azure Stack systém.
+Proto nestačí hostovat tato data v účtech úložiště v Azure Stackovém centru nebo uvnitř virtualizovaného souborového serveru, který běží v systému Azure Stack hub? Na rozdíl od Azure je úložiště centra Azure Stack omezené. Kapacita, kterou máte k dispozici pro vaše využití, závisí výhradně na kapacitě jednotlivých uzlů, kterou jste si zvolili k nákupu, a navíc k počtu uzlů, které máte. A vzhledem k tomu, že Azure Stack hub je řešení sblížené pomocí technologie Hyper-v, měli byste chtít rozšířit kapacitu úložiště tak, aby splňovala požadavky na využití, a také je potřeba rozšířit výpočetní nároky prostřednictvím přidávání uzlů. To může být potenciálně nenáročné, zejména pokud je potřeba dodatečnou kapacitu pro studené, archivní úložiště, které by bylo možné přidat za nízké náklady mimo Azure Stack centrálního systému.
 
-Díky tomu se zobrazí scénář, který se vám bude týkat. Jak můžete připojit Azure Stack systémy, virtualizované úlohy běžící v Azure Stack, a to jednoduše a efektivně až do úložných systémů mimo Azure Stack, přístupné prostřednictvím sítě.
+Díky tomu se zobrazí scénář, který se vám bude týkat. Jak můžete připojit Azure Stack systémy centra, virtualizované úlohy běžící v centru Azure Stack, a to jednoduše a efektivně, až do úložných systémů mimo centrum Azure Stack, přístupné prostřednictvím sítě.
 
 ### <a name="design-for-extending-storage"></a>Návrh pro rozšíření úložiště
 
-Diagram znázorňuje scénář, kde je jeden virtuální počítač, spouští se úloha, připojuje k a využívá externí (k VIRTUÁLNÍmu počítači a Azure Stack sám) úložiště pro účely čtení a zápisu dat atd. V tomto článku se zaměříte na jednoduché načítání souborů, ale tento příklad můžete rozšířit pro složitější scénáře, jako je vzdálené úložiště databázových souborů.
+Diagram znázorňuje scénář, ve kterém se na jednom virtuálním počítači, spuštění úlohy, připojuje k a využívá externí úložiště (k VIRTUÁLNÍmu počítači a Azure Stack samotného centra) pro účely čtení a zápisu dat atd. V tomto článku se zaměříte na jednoduché načítání souborů, ale tento příklad můžete rozšířit pro složitější scénáře, jako je vzdálené úložiště databázových souborů.
 
 ![](./media/azure-stack-network-howto-extend-datacenter/image1.png)
 
-V diagramu uvidíte, že virtuální počítač v systému Azure Stack byl nasazen s více síťovými kartami. Z redundance, ale také z hlediska úložiště, je důležité mít více cest mezi cílem a cílem. V případě, že se něco stanou složitější, jsou virtuální počítače v Azure Stack mít jak veřejné, tak privátní IP adresy, stejně jako v Azure. Pokud se k virtuálnímu počítači vyžaduje externí úložiště, může to provést jenom přes veřejnou IP adresu, protože privátní IP adresy se primárně používají v rámci Azure Stack systémů v rámci virtuální sítě a podsítí. Externí úložiště by nedokázalo komunikovat s privátním adresním prostorem virtuálního počítače, pokud ho neprojde lokalitou sítě VPN, aby se mohla vyseknout do samotné virtuální sítě. Proto se v tomto příkladu zaměříme na komunikaci prostřednictvím veřejného prostoru IP adres. Jednou z nich, jak si všimnout veřejné IP adresy v diagramu, je, že existuje 2 různých veřejných podsítí fondů IP adres. Ve výchozím nastavení Azure Stack vyžaduje pouze jeden fond pro účely veřejné IP adresy, ale u redundantního směrování je třeba zvážit, aby bylo možné přidat druhý. V tuto chvíli ale nemůžete vybrat IP adresu z konkrétního fondu, takže můžete mít ve skutečnosti virtuální počítače s veřejnými IP adresami ze stejného fondu na víc virtuálních síťových karet.
+V diagramu uvidíte, že virtuální počítač v systému Azure Stack hub byl nasazen s více síťovými kartami. Z redundance, ale také z hlediska úložiště, je důležité mít více cest mezi cílem a cílem. V případě, že se něco stane složitějším, jsou virtuální počítače v Azure Stackovém rozbočovači jak veřejné, tak i soukromé IP adresy, stejně jako v Azure. Pokud externí úložiště potřebuje k přístupu k virtuálnímu počítači, může to provést jenom přes veřejnou IP adresu, protože privátní IP adresy se primárně používají v rámci systémů Azure Stack hub v rámci virtuální sítě a podsítí. Externí úložiště by nedokázalo komunikovat s privátním adresním prostorem virtuálního počítače, pokud ho neprojde lokalitou sítě VPN, aby se mohla vyseknout do samotné virtuální sítě. Proto se v tomto příkladu zaměříme na komunikaci prostřednictvím veřejného prostoru IP adres. Jednou z nich, jak si všimnout veřejné IP adresy v diagramu, je, že existuje 2 různých veřejných podsítí fondů IP adres. Ve výchozím nastavení služba Azure Stack hub vyžaduje jenom jeden fond pro účely veřejné IP adresy, ale pro redundantní směrování zvažte, že se může přidat druhý objekt. V tuto chvíli ale nemůžete vybrat IP adresu z konkrétního fondu, takže můžete mít ve skutečnosti virtuální počítače s veřejnými IP adresami ze stejného fondu na víc virtuálních síťových karet.
 
 Pro účely této diskuze budeme předpokládat, že se bude věnovat směrování mezi hraničními zařízeními a externím úložištěm, a přenos může správně procházet síť. V tomto příkladu se nezáleží na tom, jestli je páteřní síť 10 GbE LOM, 10GbE, 25 nebo dokonce rychleji, ale je důležité vzít v úvahu při plánování integrace, aby bylo možné řešit potřeby výkonu všech aplikací, které přistupují k tomuto externímu úložišti.
 
 ## <a name="connect-to-a-windows-server-iscsi-target"></a>Připojení k cíli iSCSI Windows serveru
 
-V tomto scénáři nasadíme a nakonfigurujeme virtuální počítač s Windows serverem 2019 na Azure Stack a připravujeme ho pro připojení k externímu cíli iSCSI, který bude taky používat Windows Server 2019. Tam, kde je to vhodné, umožníme použití klíčových funkcí, jako je MPIO, k optimalizaci výkonu a připojení mezi virtuálním počítačem a externím úložištěm.
+V tomto scénáři nasadíme a nakonfigurujeme virtuální počítač s Windows serverem 2019 na Azure Stack hub a připravíte ho pro připojení k externímu cíli iSCSI, který bude taky používat Windows Server 2019. Tam, kde je to vhodné, umožníme použití klíčových funkcí, jako je MPIO, k optimalizaci výkonu a připojení mezi virtuálním počítačem a externím úložištěm.
 
-### <a name="deploy-the-windows-server-2019-vm-on-azure-stack"></a>Nasazení virtuálního počítače s Windows serverem 2019 na Azure Stack
+### <a name="deploy-the-windows-server-2019-vm-on-azure-stack-hub"></a>Nasazení virtuálního počítače s Windows serverem 2019 do centra Azure Stack
 
-1.  Z **portálu pro správu Azure Stack**za předpokladu, že je tento systém správně zaregistrován a je připojený k webu Marketplace, vyberte **Správa Marketplace** a pak za předpokladu, že ještě nemáte bitovou kopii Windows serveru 2019, vyberte **Přidat z Azure** a pak vyhledejte **Windows server 2019**a přidejte image **Windows serveru 2019 Datacenter** .
+1.  Z **portálu pro správu centra Azure Stack**za předpokladu, že je tento systém správně zaregistrován a je připojený k webu Marketplace, vyberte **Správa Marketplace** a pak za předpokladu, že ještě nemáte bitovou kopii Windows serveru 2019, vyberte **Přidat z Azure** a pak vyhledejte **Windows server 2019**a přidejte image **Windows serveru 2019 Datacenter** .
 
     ![](./media/azure-stack-network-howto-extend-datacenter/image2.png)
 
     Stažení bitové kopie systému Windows Server 2019 může trvat delší dobu.
 
-2.  Až ve svém Azure Stackovém prostředí máte image Windows serveru 2019, **Přihlaste se k portálu User Portal služby Azure Stack hub**.
+2.  Až budete mít v prostředí Azure Stackového centra bitovou kopii Windows serveru 2019, **Přihlaste se k portálu User Portal služby Azure Stack hub**.
 
 3.  Po přihlášení k portálu User Portal služby Azure Stack hub se ujistěte, že máte [předplatné nabídky](https://docs.microsoft.com/azure-stack/operator/azure-stack-subscribe-plan-provision-vm?view=azs-1908), které vám umožní zřídit prostředky IaaS (výpočetní prostředky, úložiště a síť).
 
@@ -136,9 +136,9 @@ V tomto scénáři nasadíme a nakonfigurujeme virtuální počítač s Windows 
 
 27. Po připojení k VIRTUÁLNÍmu počítači otevřete **cmd** (jako správce) a zadejte název **hostitele** pro načtení názvu operačního systému. **Měl by odpovídat VM001**. Tuto poznámku si poznamenejte pro pozdější účely.
 
-### <a name="configure-second-network-adapter-on-windows-server-2019-vm-on-azure-stack"></a>Konfigurace druhého síťového adaptéru na virtuálním počítači s Windows serverem 2019 na Azure Stack
+### <a name="configure-second-network-adapter-on-windows-server-2019-vm-on-azure-stack-hub"></a>Konfigurace druhého síťového adaptéru na virtuálním počítači s Windows serverem 2019 na rozbočovači Azure Stack
 
-Ve výchozím nastavení Azure Stack přiřadí výchozí bránu k prvnímu (primárnímu) síťovému rozhraní připojenému k virtuálnímu počítači. Azure Stack nepřiřazuje výchozí bránu k dalším (sekundárním) síťovým rozhraním připojeným k virtuálnímu počítači. Proto ve výchozím nastavení nemůžete komunikovat s prostředky mimo podsíť, ve které sekundární síťové rozhraní je. Sekundární síťová rozhraní však mohou komunikovat s prostředky mimo jejich podsíť, i když se postup pro povolení komunikace liší v různých operačních systémech.
+Ve výchozím nastavení Azure Stack centrum přiřadí výchozí bránu k prvnímu (primárnímu) síťovému rozhraní připojenému k virtuálnímu počítači. Centrum Azure Stack nepřiřazuje výchozí bránu k dalším (sekundárním) síťovým rozhraním připojeným k virtuálnímu počítači. Proto ve výchozím nastavení nemůžete komunikovat s prostředky mimo podsíť, ve které sekundární síťové rozhraní je. Sekundární síťová rozhraní však mohou komunikovat s prostředky mimo jejich podsíť, i když se postup pro povolení komunikace liší v různých operačních systémech.
 
 1.  Pokud ještě nemáte otevřené připojení, navažte připojení RDP k **VM001**.
 
@@ -172,11 +172,11 @@ Ve výchozím nastavení Azure Stack přiřadí výchozí bránu k prvnímu (pri
 
 ### <a name="configure-the-windows-server-2019-iscsi-target"></a>Konfigurace cíle iSCSI Windows serveru 2019
 
-Pro účely tohoto scénáře budete ověřovat konfiguraci, kde je cílovým serverem iSCSI Windows Server 2019 virtuální počítač, který běží na Hyper-V, mimo prostředí Azure Stack. Tento virtuální počítač se nakonfiguruje s 8 virtuálními procesory, jedním souborem VHDX a nejdůležitějším 2 virtuálními síťovými adaptéry. V ideálním scénáři budou mít tyto síťové adaptéry různé směrovatelné podsítě, ale v této validaci budou mít síťové adaptéry ve stejné podsíti.
+Pro účely tohoto scénáře budete ověřovat konfiguraci, kde je cílovým serverem iSCSI Windows Server 2019 virtuální počítač, který běží na Hyper-V, mimo prostředí Azure Stack hub. Tento virtuální počítač se nakonfiguruje s 8 virtuálními procesory, jedním souborem VHDX a nejdůležitějším 2 virtuálními síťovými adaptéry. V ideálním scénáři budou mít tyto síťové adaptéry různé směrovatelné podsítě, ale v této validaci budou mít síťové adaptéry ve stejné podsíti.
 
 ![](./media/azure-stack-network-howto-extend-datacenter/image9.png)
 
-Pro váš cílový server iSCSI může to být Windows Server 2016 nebo 2019, fyzický nebo virtuální, spuštěný v Hyper-V, VMware nebo jiné zařízení podle vašeho výběru, jako je vyhrazená fyzická síť SAN iSCSI. Klíč se tady zaměřuje, je připojení k Azure Stackmu systému a odchází od něj, ale má několik cest mezi zdrojem a cílem, protože poskytuje další redundanci a umožňuje vyšší využití pokročilých funkcí. výkon, například MPIO.
+Pro váš cílový server iSCSI může to být Windows Server 2016 nebo 2019, fyzický nebo virtuální, spuštěný v Hyper-V, VMware nebo jiné zařízení podle vašeho výběru, jako je vyhrazená fyzická síť SAN iSCSI. Klíč se tady zaměřuje, je připojení k systému Azure Stack hub a je z něj k dispozici, ale existuje několik cest mezi zdrojem a cílem, protože poskytuje další redundanci a umožňuje vyšší využití pokročilých funkcí. výkon, například MPIO.
 
 Doporučuje se aktualizovat cíl iSCSI Windows serveru 2019 s nejnovějšími kumulativními aktualizacemi a opravami, a to v případě potřeby restartováním, než budete pokračovat v konfiguraci sdílených složek.
 
@@ -224,7 +224,7 @@ Po aktualizaci a restartu teď můžete tento server nakonfigurovat jako cíl iS
 
 ### <a name="configure-the-windows-server-2019-iscsi-initiator-and-mpio"></a>Konfigurace iniciátoru iSCSI Windows serveru 2019 a funkce MPIO
 
-Chcete-li nastavit iniciátor iSCSI, nejprve se přihlaste k **portálu pro uživatele centra Azure Stack** v systému **Azure Stack** a přejděte do okna **Přehled** pro **VM001.**
+Chcete-li nastavit iniciátor iSCSI, nejprve se přihlaste k **portálu pro uživatele centra Azure Stack** v systému **Azure Stack hub** a přejděte do okna **Přehled** pro **VM001.**
 
 1.  Navažte připojení RDP k VM001. Po připojení otevřete **Správce serveru**.
 
@@ -334,7 +334,7 @@ Chcete-li nastavit iniciátor iSCSI, nejprve se přihlaste k **portálu pro uži
 
 ### <a name="testing-external-storage-connectivity"></a>Testování připojení k externímu úložišti
 
-Pokud chcete ověřit komunikaci a spustit test kopírování souborů základní, nejprve se přihlaste k **portálu pro uživatele centra Azure Stack** v systému **Azure Stack** a přejděte do okna **Přehled** pro **VM001** .
+Pokud chcete ověřit komunikaci a spustit test kopírování souborů základní, nejdřív se znovu přihlaste do **portálu pro uživatele centra Azure Stack** v systému **Azure Stack hub** a přejděte do okna **Přehled** pro **VM001** .
 
 1.  Vyberte **připojit** a navažte připojení RDP k **VM001**
 
@@ -365,8 +365,8 @@ Pokud chcete ověřit komunikaci a spustit test kopírování souborů základn�
 
     ![](./media/azure-stack-network-howto-extend-datacenter/image29.png)
 
-Tento scénář byl navržený tak, aby zdůrazněn připojení mezi úlohami běžícími na Azure Stack a externím polem úložiště v tomto případě jako cíl iSCSI založený na systému Windows Server. Nevedlo se k tomu, aby se jednalo o test výkonnosti, ani se nereflektují kroky, které byste měli provést, pokud jste používali alternativní zařízení založené na standardu iSCSI, ale vysvětlete některé základní důležité požadavky, které byste provedli při nasazování úloh na Azure Stack. a jejich propojením s úložnými systémy mimo prostředí Azure Stack.
+Tento scénář byl navržený tak, aby zdůrazněn připojení mezi úlohami běžícími v Azure Stackovém centru a externím polem úložiště v tomto případě do cíle iSCSI založeného na Windows serveru. Nevedlo se k tomu, aby se jednalo o test výkonnosti, ani se nereflektují kroky, které byste měli provést, pokud jste používali alternativní zařízení založené na standardu iSCSI, ale vysvětlete některé základní důležité požadavky, které byste provedli při nasazování úloh do centra Azure Stack. a jejich propojením s úložnými systémy mimo prostředí Azure Stack hub.
 
 ## <a name="next-steps"></a>Další kroky
 
-[Rozdíly a požadavky pro Azure Stack sítě](azure-stack-network-differences.md)
+[Rozdíly a požadavky pro sítě Azure Stack hub](azure-stack-network-differences.md)

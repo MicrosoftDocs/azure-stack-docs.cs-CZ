@@ -1,5 +1,5 @@
 ---
-title: Přidání hostitelských serverů MySQL v Azure Stack | Microsoft Docs
+title: Přidání hostitelských serverů MySQL do centra Azure Stack | Microsoft Docs
 description: Naučte se, jak přidat hostitelské servery MySQL pro zřizování prostřednictvím poskytovatele prostředků adaptéru MySQL.
 services: azure-stack
 documentationCenter: ''
@@ -15,16 +15,16 @@ ms.date: 11/06/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: 897cb42ad2a84f3802f4d35e97a03d4976800121
-ms.sourcegitcommit: bbe1048682c7dccc6cebde542462c14ee1f3d0d1
+ms.openlocfilehash: cf721c98b957d95e945d4979865c7d7b5aa169af
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75677871"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75811205"
 ---
-# <a name="add-mysql-hosting-servers-in-azure-stack"></a>Přidání hostitelských serverů MySQL v Azure Stack
+# <a name="add-mysql-hosting-servers-in-azure-stack-hub"></a>Přidání hostitelských serverů MySQL do centra Azure Stack
 
-Instanci hostitelského serveru MySQL můžete hostovat na virtuálním počítači v [Azure Stack](azure-stack-overview.md)nebo na virtuálním počítači mimo vaše Azure Stack prostředí, pokud se poskytovatel prostředků MySQL může připojit k instanci.
+Instanci hostitelského serveru MySQL můžete hostovat na virtuálním počítači (VM) v [Azure Stackovém centru](azure-stack-overview.md)nebo na virtuálním počítači mimo prostředí Azure Stack hub, pokud se poskytovatel prostředků MySQL může připojit k instanci.
 
 > [!NOTE]
 > Poskytovatel prostředků MySQL by se měl vytvořit v předplatném výchozího poskytovatele, zatímco hostitelské servery MySQL by se měly vytvářet v fakturovatelných předplatných uživatele. Server poskytovatele prostředků by neměl být používán k hostování uživatelských databází.
@@ -40,7 +40,7 @@ Ujistěte se, že máte přihlašovací údaje k účtu s oprávněními správc
 
 Chcete-li přidat hostitelský server, postupujte podle následujících kroků:
 
-1. Přihlaste se k portálu pro správu Azure Stack jako správce služby.
+1. Přihlaste se k portálu správce Azure Stackového centra jako správce služby.
 2. Vyberte **Všechny služby**.
 3. V kategorii **prostředky pro správu** vyberte možnost **MySQL hostingové servery** >  **+ Přidat**. Otevře se dialogové okno **Přidat hostitelský server MySQL** , které se zobrazí na následujícím snímku obrazovky.
 
@@ -49,7 +49,7 @@ Chcete-li přidat hostitelský server, postupujte podle následujících kroků:
 4. Zadejte podrobnosti o připojení instance serveru MySQL.
 
    * Pro **název hostitelského serveru MySQL**zadejte plně kvalifikovaný název domény (FQDN) nebo platnou adresu IPv4. Nepoužívejte krátký název virtuálního počítače.
-   * Výchozí **uživatelské jméno** správce pro Image Bitnami MySQL dostupné v Azure Stack Marketplace je *root*.
+   * Výchozí **uživatelské jméno** správce pro Image Bitnami MySQL dostupné v tržišti služby Azure Stack hub je *root*.
    * Pokud neznáte kořenové **heslo**, přečtěte si [dokumentaci k Bitnami](https://docs.bitnami.com/azure/faq/#how-to-find-application-credentials) , kde najdete informace o tom, jak je získat.
    * Není zadaná výchozí instance MySQL, takže musíte zadat **Velikost hostitelského serveru v GB**. Zadejte velikost, která je blízko kapacity databázového serveru.
    * Ponechte výchozí nastavení pro **předplatné**.
@@ -82,7 +82,7 @@ Následující informace platí pro hostitelské servery RP a MySQL:
 
 ## <a name="increase-backend-database-capacity"></a>Zvýšení kapacity back-end databáze
 
-Kapacitu back-end databáze můžete zvýšit nasazením dalších serverů MySQL na portálu Azure Stack. Přidejte tyto servery do nové nebo existující SKU. Pokud přidáte server do existující SKU, ujistěte se, že jsou vlastnosti serveru stejné jako ostatní servery v SKU.
+Kapacitu back-endu databáze můžete zvýšit nasazením dalších serverů MySQL na portálu centra Azure Stack. Přidejte tyto servery do nové nebo existující SKU. Pokud přidáte server do existující SKU, ujistěte se, že jsou vlastnosti serveru stejné jako ostatní servery v SKU.
 
 ## <a name="sku-notes"></a>Poznámky SKU
 Použijte název SKU, který popisuje možnosti serverů v SKU, jako je například kapacita a výkon. Název slouží jako pomůcka k tomu, aby uživatelé mohli nasadit své databáze do příslušné SKU. Například můžete použít názvy SKU k odlišení nabídek služeb následujícími charakteristikami:

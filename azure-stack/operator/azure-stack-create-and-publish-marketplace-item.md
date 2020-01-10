@@ -1,6 +1,6 @@
 ---
-title: Vytvoření a publikování položky Marketplace v Azure Stack | Microsoft Docs
-description: Naučte se, jak vytvořit a publikovat položku Azure Stack Marketplace.
+title: Vytvoření a publikování položky Marketplace v centru Azure Stack | Microsoft Docs
+description: Naučte se vytvářet a publikovat položku na webu Marketplace centra Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,18 +15,18 @@ ms.date: 01/03/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 5740ff6bc550aa27f15761e6be2c69247eecaf03
-ms.sourcegitcommit: a6c02421069ab9e72728aa9b915a52ab1dd1dbe2
+ms.openlocfilehash: 69d25b9a7eafa1dbf71384e2e82bef9bc87bd5af
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75654878"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75817784"
 ---
-# <a name="create-and-publish-a-custom-azure-stack-marketplace-item"></a>Vytvoření a publikování vlastní položky Azure Stack Marketplace
+# <a name="create-and-publish-a-custom-azure-stack-hub-marketplace-item"></a>Vytvoření a publikování položky Marketplace pro vlastní Azure Stack centra
 
-*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
-Každá položka publikovaná na webu Azure Stack Marketplace používá formát balíčku Galerie Azure (. azpkg). Nástroj *Azure Gallery Packager* umožňuje vytvořit vlastní balíček Azure Gallery, který můžete nahrát na web služby Azure Stack Marketplace, který je pak možné stáhnout pomocí uživatelů. Proces nasazení používá šablonu Azure Resource Manager.
+Každá položka publikovaná na tržišti centra Azure Stack používá formát balíčku Galerie Azure (. azpkg). Nástroj *Azure Gallery Packager* umožňuje vytvořit vlastní balíček Azure Gallery, který můžete nahrát na web centra Azure Stack hub, který pak můžou uživatelé stáhnout. Proces nasazení používá šablonu Azure Resource Manager.
 
 ## <a name="marketplace-items"></a>Položky Marketplace
 
@@ -35,11 +35,11 @@ Příklady v tomto článku ukazují, jak vytvořit jednu nabídku tržiště vi
 ## <a name="create-a-marketplace-item"></a>Vytvoření položky Marketplace
 
 > [!IMPORTANT]
-> Před vytvořením položky Marketplace virtuálního počítače nahrajte vlastní image virtuálního počítače na portál Azure Stack, podle pokynů v části [Přidání image virtuálního počítače do Azure Stack](azure-stack-add-vm-image.md). Pak postupujte podle pokynů v tomto článku a zabalením Image (vytvořte soubor. azpkg) a nahrajte ho do webu Azure Stack Marketplace.
+> Než vytvoříte položku virtuálního počítače Marketplace, nahrajte vlastní image virtuálního počítače na portál centra Azure Stack podle pokynů v části [Přidání image virtuálního počítače do centra Azure Stack](azure-stack-add-vm-image.md). Pak postupujte podle pokynů v tomto článku a zabalením Image (vytvořte soubor. azpkg) a nahrajte ho do tržiště centra Azure Stack.
 
 Pokud chcete vytvořit vlastní položku Marketplace, udělejte toto:
 
-1. Stáhněte si [nástroj Azure Gallery Packager](https://aka.ms/azsmarketplaceitem) a ukázkový balíček Azure Stack galerie. Tento soubor ke stažení obsahuje vlastní šablony virtuálních počítačů. Rozbalte soubor. zip a v části **vlastní virtuální počítače**složky můžete použít buď systémy Linux, nebo šablony systému Windows, které jsou k dispozici. Můžete se rozhodnout znovu použít předem připravené šablony a upravit příslušné parametry s podrobnostmi o produktu položky, kterou zobrazíte na portálu Azure Stack. Nebo můžete jednoduše znovu použít soubor. azpkg k dispozici a přeskočit následující postup pro přizpůsobení vlastního balíčku galerie.
+1. Stáhněte si [nástroj Azure Gallery Packager](https://aka.ms/azsmarketplaceitem) a ukázkový balíček Azure Stack centra pro galerii. Tento soubor ke stažení obsahuje vlastní šablony virtuálních počítačů. Rozbalte soubor. zip a v části **vlastní virtuální počítače**složky můžete použít buď systémy Linux, nebo šablony systému Windows, které jsou k dispozici. Můžete se rozhodnout znovu použít předem připravené šablony a upravit příslušné parametry s údaji o produktu, které se zobrazí na portálu centra Azure Stack. Nebo můžete jednoduše znovu použít soubor. azpkg k dispozici a přeskočit následující postup pro přizpůsobení vlastního balíčku galerie.
 
 2. Vytvořte šablonu Azure Resource Manager nebo použijte naše ukázkové šablony pro Windows/Linux. Tyto ukázkové šablony jsou k dispozici v souboru. zip nástroje balíčku, který jste stáhli v kroku 1. Můžete buď použít šablonu a změnit textová pole, nebo si můžete stáhnout předem nakonfigurovanou šablonu z GitHubu. Další informace o šablonách Azure Resource Manager naleznete v tématu [Azure Resource Manager Templates](/azure/azure-resource-manager/resource-group-authoring-templates).
 
@@ -143,9 +143,9 @@ Pokud chcete vytvořit vlastní položku Marketplace, udělejte toto:
 
     ![](media/azure-stack-create-and-publish-marketplace-item/pkg1.png) zobrazení balíčku ![](media/azure-stack-create-and-publish-marketplace-item/pkg2.png)
 
-6. Chcete-li zajistit, aby bylo možné prostředek nasadit úspěšně, otestujte šablonu pomocí [rozhraní api Azure Stack](../user/azure-stack-profiles-azure-resource-manager-versions.md).
+6. Chcete-li zajistit, aby bylo možné prostředek nasadit úspěšně, otestujte šablonu pomocí [rozhraní API centra Azure Stack](../user/azure-stack-profiles-azure-resource-manager-versions.md).
 
-7. Pokud vaše šablona spoléhá na image virtuálního počítače, postupujte podle pokynů pro [Přidání image virtuálního počítače do Azure Stack](azure-stack-add-vm-image.md).
+7. Pokud vaše šablona spoléhá na image virtuálního počítače, postupujte podle pokynů pro [Přidání image virtuálního počítače do centra Azure Stack](azure-stack-add-vm-image.md).
 
 8. Uložte šablonu Azure Resource Manager do složky **/contoso.TodoList/DeploymentTemplates/** .
 
@@ -169,9 +169,9 @@ Pokud chcete vytvořit vlastní položku Marketplace, udělejte toto:
 
 ## <a name="publish-a-marketplace-item"></a>Zveřejnění položky Marketplace
 
-1. Pomocí PowerShellu nebo Průzkumník služby Azure Storage nahrajte položku Marketplace (. azpkg) do úložiště objektů BLOB v Azure. Můžete nahrávat do místního úložiště Azure Stack nebo nahrávat do Azure Storage, což je dočasné umístění balíčku. Ujistěte se, že je objekt BLOB veřejně přístupný.
+1. Pomocí PowerShellu nebo Průzkumník služby Azure Storage nahrajte položku Marketplace (. azpkg) do úložiště objektů BLOB v Azure. Můžete nahrávat do místního úložiště centra Azure Stack nebo nahrávat do Azure Storage, což je dočasné umístění balíčku. Ujistěte se, že je objekt BLOB veřejně přístupný.
 
-2. Pokud chcete importovat balíček galerie do Azure Stack, prvním krokem je vzdálené připojení (RDP) k virtuálnímu počítači klienta, aby bylo možné zkopírovat soubor, který jste právě vytvořili, do Azure Stack.
+2. Pokud chcete importovat balíček galerie do centra Azure Stack, prvním krokem je vzdálené připojení (RDP) k virtuálnímu počítači klienta, aby bylo možné zkopírovat soubor, který jste právě vytvořili, do centra Azure Stack.
 
 3. Přidejte kontext:
 
@@ -188,7 +188,7 @@ Pokud chcete vytvořit vlastní položku Marketplace, udělejte toto:
     https://sample.blob.core.windows.net/<temporary blob name>/<offerName.publisherName.version>.azpkg –Verbose
     ```
 
-5. Ověřte, že máte platný účet úložiště, který je k dispozici pro uložení vaší položky. Hodnotu `GalleryItemURI` můžete získat z portálu Azure Stack správce. Vyberte **účet úložiště-> vlastnosti objektu BLOB – > URL**s příponou. azpkg. Účet úložiště se používá jenom pro dočasné použití, aby se daly publikovat na webu Marketplace.
+5. Ověřte, že máte platný účet úložiště, který je k dispozici pro uložení vaší položky. Hodnotu `GalleryItemURI` můžete získat z portálu Azure Stack správce centra. Vyberte **účet úložiště-> vlastnosti objektu BLOB – > URL**s příponou. azpkg. Účet úložiště se používá jenom pro dočasné použití, aby se daly publikovat na webu Marketplace.
 
    Po dokončení balíčku galerie a jeho nahrání pomocí **Add-AzsGalleryItem**by se teď měl váš vlastní virtuální počítač zobrazit na webu Marketplace i v zobrazení **vytvořit prostředek** . Všimněte si, že ve **správě Marketplace**není balíček vlastní Galerie viditelný.
 
@@ -230,7 +230,7 @@ Pokud chcete vytvořit vlastní položku Marketplace, udělejte toto:
 | PublisherDisplayName |× |Řetězec |Doporučení 30 znaků |Portál nemusí správně zobrazit název vašeho vydavatele, pokud je delší než 30 znaků. |
 | PublisherLegalName |× |Řetězec |Maximálně 256 znaků | |
 | Souhrn |× |Řetězec |60 až 100 znaků | |
-| LongSummary |× |Řetězec |140 až 256 znaků |V Azure Stack ještě neplatí. |
+| LongSummary |× |Řetězec |140 až 256 znaků |Ještě neplatí v Azure Stack hub. |
 | Popis |× |[HTML](https://github.com/Azure/portaldocs/blob/master/gallery-sdk/generated/index-gallery.md#gallery-item-metadata-html-sanitization) |500 až 5 000 znaků | |
 
 ### <a name="images"></a>Image
@@ -247,7 +247,7 @@ Tržiště používá následující ikony:
 
 ### <a name="categories"></a>Kategorie
 
-Každá položka Marketplace by měla být označena kategorií, která identifikuje, kde se položka zobrazí v uživatelském rozhraní portálu. Můžete zvolit jednu z existujících kategorií v Azure Stack (**COMPUTE**, **data + úložiště**a tak dále) nebo zvolit nové.
+Každá položka Marketplace by měla být označena kategorií, která identifikuje, kde se položka zobrazí v uživatelském rozhraní portálu. Můžete zvolit jednu z existujících kategorií v Azure Stackovém centru (**COMPUTE**, **data + úložiště**atd.) nebo zvolit novou.
 
 ### <a name="links"></a>Odkazy
 
@@ -275,18 +275,18 @@ Pro každé pole, které povoluje jazyk HTML, [jsou povoleny následující prvk
 
 ## <a name="reference-marketplace-item-ui"></a>Referenční dokumentace: uživatelské rozhraní položky Marketplace
 
-V následujícím příkladu jsou ikony a text pro položky Marketplace, jak je vidět na portálu Azure Stack.
+V následujícím příkladu jsou ikony a text pro položky Marketplace, jak je vidět na portálu centra Azure Stack.
 
 ### <a name="create-blade"></a>Okno Vytvořit
 
-![Vytvořit okno – Azure Stack položky Marketplace](media/azure-stack-create-and-publish-marketplace-item/image1.png)
+![Vytvořit okno – Azure Stack položky centra Marketplace](media/azure-stack-create-and-publish-marketplace-item/image1.png)
 
 ### <a name="marketplace-item-details-blade"></a>Okno podrobností položky Marketplace
 
-![Okno podrobností položky Azure Stack Marketplace](media/azure-stack-create-and-publish-marketplace-item/image3.png)
+![Okno s podrobnostmi o položce Azure Stack centra Marketplace](media/azure-stack-create-and-publish-marketplace-item/image3.png)
 
 ## <a name="next-steps"></a>Další kroky
 
-- [Přehled Azure Stack Marketplace](azure-stack-marketplace.md)
+- [Přehled centra Azure Stack Marketplace](azure-stack-marketplace.md)
 - [Stažení položek z Marketplace](azure-stack-download-azure-marketplace-item.md)
 - [Formátování a struktura Azure Resource Manager šablon](/azure/azure-resource-manager/resource-group-authoring-templates)

@@ -1,6 +1,6 @@
 ---
-title: Postup replikace prostředků napříč několika předplatnými Azure Stack | Microsoft Docs
-description: Naučte se replikovat prostředky pomocí sady Azure Stack replikátoru předplatného.
+title: Postup replikace prostředků napříč několika předplatnými centra Azure Stack | Microsoft Docs
+description: Naučte se replikovat prostředky pomocí sady Azure Stack Replikátor předplatných rozbočovače.
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,16 +9,16 @@ ms.date: 11/07/2019
 ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: 03388b08e6cc258437656f2e580b75de14b8cee5
-ms.sourcegitcommit: 3a8e116fd0b16e1201e55e2088dde2e581004045
+ms.openlocfilehash: ef492c0e5bf63e73e3b8f59befa642d6d6b854bf
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74557683"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75816118"
 ---
-# <a name="how-to-replicate-resources-using-the-azure-stack-subscription-replicator"></a>Postup replikace prostředků pomocí replikátoru předplatného Azure Stack
+# <a name="how-to-replicate-resources-using-the-azure-stack-hub-subscription-replicator"></a>Postup replikace prostředků pomocí replikátoru předplatného centra Azure Stack
 
-Pomocí skriptu PowerShellu pro Azure Stack předplatného můžete kopírovat prostředky mezi odběry Azure Stack, přes Azure Stacková razítka nebo mezi Azure Stack a Azure. Skript replikátoru načte a znovu sestaví Azure Resource Manager prostředky z různých předplatných Azure a Azure Stack. Tento článek se zabývá tím, jak skript funguje, jak můžete použít skript, a poskytuje referenční informace pro operace se skripty.
+Pomocí skriptu PowerShellu pro replikátor předplatného centra Azure Stack můžete kopírovat prostředky mezi odběry centra Azure Stack, Azure Stack přes časová razítka centra nebo mezi Azure Stack a Azure. Skript replikátoru načte a znovu sestaví Azure Resource Manager prostředky z různých předplatných Azure a centra Azure Stack. Tento článek se zabývá tím, jak skript funguje, jak můžete použít skript, a poskytuje referenční informace pro operace se skripty.
 
 Skripty používané v tomto článku najdete v úložišti GitHub ve [vzorcích Azure Intelligent Edge](https://github.com/Azure-Samples/azure-intelligent-edge-patterns) . Skripty jsou ve složce [Replikátor odběrů](https://github.com/Azure-Samples/azure-intelligent-edge-patterns/tree/master/subscription%20replicator) .
 
@@ -70,7 +70,7 @@ Existuje však možnost, že verze rozhraní API poskytovatele prostředků cíl
 
 ### <a name="parallel-deployments"></a>Paralelní nasazení
 
-Nástroj vyžaduje parametr pojmenovaný **Parallel**. Tento parametr přebírá logickou hodnotu určující, zda mají být načteny prostředky paralelně nasazeny. Pokud je hodnota nastavená na **true,** pak každé volání **New-AzureRmResourceGroupDeployment** bude mít příznak **-asJob** a bloky kódu, které se budou čekat na dokončení paralelních úloh, se přidají do mezi sadami nasazení prostředků na základě prostředku. druhy. Zajišťuje, aby všechny prostředky jednoho typu byly nasazeny před nasazením dalšího typu prostředku. Pokud je hodnota **paralelního** parametru nastavena na **false**, všechny prostředky budou nasazeny v sériovém tvaru.
+Nástroj vyžaduje parametr pojmenovaný **Parallel**. Tento parametr přebírá logickou hodnotu určující, zda mají být načteny prostředky paralelně nasazeny. Pokud je hodnota nastavená na **true,** pak každé volání **New-AzureRmResourceGroupDeployment** bude mít příznak **-asJob** a bloky kódu, které se budou čekat na dokončení paralelních úloh, se přidají do mezi sadami nasazení prostředků na základě typů prostředků. Zajišťuje, aby všechny prostředky jednoho typu byly nasazeny před nasazením dalšího typu prostředku. Pokud je hodnota **paralelního** parametru nastavena na **false**, všechny prostředky budou nasazeny v sériovém tvaru.
 
 ## <a name="add-additional-resource-types"></a>Přidat další typy prostředků
 
@@ -83,9 +83,9 @@ Pokud chcete spustit nástroj replikátoru předplatného Azure (V3), bude nutn�
 Po dokončení spuštění skriptu budou k dispozici tři nové složky, **Deployment_Files**, **Parameter_Files**a **Custom_ARM_Templates**.
 
  > [!Note]  
- > Před spuštěním některého z generovaných skriptů musíte nastavit správné prostředí a přihlásit se k cílovému předplatnému (v nové Azure Stack pro ex) a nastavit pracovní adresář na složku **Deployment_Files** .
+ > Před spuštěním některého z generovaných skriptů musíte nastavit správné prostředí a přihlásit se k cílovému předplatnému (v novém centru Azure Stack pro ex) a nastavit pracovní adresář na složku **Deployment_Files** .
 
-Deployment_Files budou obsahovat dva soubory **DeployResourceGroups. ps1** a **DeployResources. ps1**. Spouštěním DeployResourceGroups. ps1 se nasadí skupiny prostředků. Spuštění DeployResources. ps1 nasadí všechny prostředky, které se zpracovaly. V případě, že se nástroj spustil se **všemi** nebo **Microsoft. COMPUTE/virtualMachines** jako typ prostředku, DeployResources. ps1 vyzve uživatele, aby zadal heslo správce virtuálního počítače, které se použije k vytvoření všech virtuálních počítačů. .
+Deployment_Files budou obsahovat dva soubory **DeployResourceGroups. ps1** a **DeployResources. ps1**. Spouštěním DeployResourceGroups. ps1 se nasadí skupiny prostředků. Spuštění DeployResources. ps1 nasadí všechny prostředky, které se zpracovaly. V případě, že se nástroj spustil se **všemi** nebo **Microsoft. COMPUTE/virtualMachines** jako typ prostředku, DeployResources. ps1 vyzve uživatele, aby zadal heslo správce virtuálního počítače, které se použije k vytvoření všech virtuálních počítačů.
 
 ### <a name="example"></a>Příklad:
 
@@ -128,7 +128,7 @@ Replikátor předplatných Azure (V3) nyní může replikovat následující typ
 
 - Microsoft.Network/virtualNetworks
 
-- Microsoft. Network/virtualNetworkGateways
+- Microsoft.Network/virtualNetworkGateways
 
 - Microsoft.Storage/storageAccounts
 
@@ -138,7 +138,7 @@ Při spuštění nástroje se **všemi** typy prostředků se při replikaci a n
 
     - Replikuje: – všechny adresní prostory – všechny podsítě
 
-- Microsoft. Network/virtualNetworkGateways
+- Microsoft.Network/virtualNetworkGateways
 
     - Replikace:-Konfigurace veřejné IP adresy-konfigurace podsítě-typ sítě VPN – typ brány
 
@@ -181,10 +181,10 @@ Nástroj může replikovat prostředky z jednoho předplatného do jiného, poku
 
 Aby se zajistila úspěšná replikace, Mare zajistěte, aby verze poskytovatele prostředků cílového předplatného odpovídaly verzi zdrojového předplatného.
 
-Při replikaci z komerčního Azure do komerčního prostředí Azure nebo z jednoho předplatného v rámci Azure Stack do jiného předplatného v rámci stejné Azure Stack budou při replikaci účtů úložiště k dispozici problémy. Důvodem je požadavek na pojmenovávání účtu úložiště, že všechny názvy účtů úložiště jsou jedinečné ve všech komerčních Azure nebo ve všech předplatných v Azure Stack oblasti nebo instanci. Replikace účtů úložiště napříč různými instancemi Azure Stack bude úspěšná, protože zásobníky jsou samostatné oblasti/instance.
+Při replikaci z komerčního Azure do komerčního prostředí Azure nebo z jednoho předplatného v rámci centra Azure Stack do jiného předplatného v rámci stejného centra Azure Stack budou při replikaci účtů úložiště k dispozici problémy. Důvodem je nutnost pojmenovávání účtů úložiště, že všechny názvy účtů úložiště jsou jedinečné ve všech komerčních Azure nebo ve všech předplatných v oblasti nebo instanci centra Azure Stack. Replikace účtů úložiště napříč různými instancemi centra Azure Stack bude úspěšná, protože zásobníky jsou samostatné oblasti nebo instance.
 
 
 
 ## <a name="next-steps"></a>Další kroky
 
-[Rozdíly a požadavky pro Azure Stack sítě](azure-stack-network-differences.md)  
+[Rozdíly a požadavky pro sítě Azure Stack hub](azure-stack-network-differences.md)  

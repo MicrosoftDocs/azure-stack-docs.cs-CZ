@@ -1,6 +1,6 @@
 ---
-title: Nasazení šablony pomocí příkazového řádku v Azure Stack | Microsoft Docs
-description: Naučte se používat rozhraní příkazového řádku (CLI) Azure pro různé platformy k nasazení šablon do Azure Stack.
+title: Nasazení šablony pomocí příkazového řádku v Azure Stack hub | Microsoft Docs
+description: Naučte se používat rozhraní příkazového řádku (CLI) Azure pro různé platformy k nasazení šablon do centra Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,31 +15,31 @@ ms.date: 10/07/2019
 ms.author: mabrigg
 ms.reviewer: unknown
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 7b3daaefd8fa7e7bce9c6d5708e664911fc906fe
-ms.sourcegitcommit: 7226979ece29d9619c959b11352be601562b41d3
+ms.openlocfilehash: 1f2c37339ce3fd61b582bd205e348f79378ffccd
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72304086"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75820759"
 ---
-# <a name="deploy-a-template-with-the-command-line-in-azure-stack"></a>Nasazení šablony pomocí příkazového řádku v Azure Stack
+# <a name="deploy-a-template-with-the-command-line-in-azure-stack-hub"></a>Nasazení šablony pomocí příkazového řádku v centru Azure Stack
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
-K nasazení Azure Resource Manager šablon v Azure Stack můžete použít rozhraní příkazového řádku Azure (CLI). Šablony Azure Resource Manager nasazují a nastavují prostředky pro vaši aplikaci v jediné koordinované akci.
+K nasazení Azure Resource Manager šablon v centru Azure Stack můžete použít rozhraní příkazového řádku Azure (CLI). Šablony Azure Resource Manager nasazují a nastavují prostředky pro vaši aplikaci v jediné koordinované akci.
 
 ## <a name="deploy-template"></a>Nasazení šablony
 
-1. Projděte si [úložiště AzureStack-Start-Templates](https://aka.ms/AzureStackGitHub) a vyhledejte šablonu **101-Create-Storage-Account** . Uložte šablonu (`azuredeploy.json`) a soubory parametrů `(azuredeploy.parameters.json`) do umístění na místním disku, například `C:\templates\`.
+1. Projděte si [úložiště AzureStack-Start-Templates](https://aka.ms/AzureStackGitHub) a vyhledejte šablonu **101-Create-Storage-Account** . Uložte šablonu (`azuredeploy.json`) a soubory parametrů `(azuredeploy.parameters.json`) do umístění na místním disku, například `C:\templates\`
 2. Přejděte do složky, do které jste stáhli soubory. 
-3. [Instalace a připojení](azure-stack-version-profiles-azurecli2.md) k Azure Stack pomocí Azure CLI.
-4. Aktualizujte oblast a umístění v následujícím příkazu. Pokud používáte ASDK, použijte pro parametr Location hodnotu `local`. Nasazení šablony:
+3. [Instalace a připojení](azure-stack-version-profiles-azurecli2.md) k centru Azure Stack pomocí Azure CLI.
+4. Aktualizujte oblast a umístění v následujícím příkazu. Pokud používáte ASDK, použijte `local` pro parametr Location. Nasazení šablony:
     ```azurecli
     az group create --name testDeploy --location local
     az group deployment create --resource-group testDeploy --template-file ./azuredeploy.json --parameters ./azuredeploy.parameters.json
     ```
 
-Tento příkaz nasadí šablonu do skupiny prostředků **testDeploy** ve vaší instanci Azure Stack.
+Tento příkaz nasadí šablonu do skupiny prostředků **testDeploy** ve vaší instanci centra Azure Stack.
 
 ## <a name="validate-template-deployment"></a>Ověřit nasazení šablony
 

@@ -1,6 +1,6 @@
 ---
-title: Zálohování Azure Stack | Microsoft Docs
-description: Naučte se, jak provést zálohování na vyžádání v Azure Stack.
+title: Zálohování centra Azure Stack | Microsoft Docs
+description: Naučte se, jak provést zálohování na vyžádání v centru Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,20 +16,20 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 09/05/2018
-ms.openlocfilehash: 01a4ff62b7cc340a0cf0f98298ee28425d6df892
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.openlocfilehash: 2e956d6fc9d646d33442eee21c74bea791babcb4
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70974723"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75816713"
 ---
-# <a name="back-up-azure-stack"></a>Zálohování Azure stacku
+# <a name="back-up-azure-stack-hub"></a>Zálohování centra Azure Stack
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
-V tomto článku se dozvíte, jak provést zálohování na vyžádání v Azure Stack. Pokyny týkající se konfigurace prostředí PowerShellu najdete v tématu [instalace PowerShellu pro Azure Stack](azure-stack-powershell-install.md). Pokud se chcete přihlásit k Azure Stack, přečtěte si téma [používání portálu pro správu v Azure Stack](azure-stack-manage-portals.md).
+V tomto článku se dozvíte, jak provést zálohování na vyžádání v centru Azure Stack. Pokyny týkající se konfigurace prostředí PowerShellu najdete v tématu [instalace PowerShellu pro Azure Stack hub](azure-stack-powershell-install.md). Pokud se chcete přihlásit do centra Azure Stack, přečtěte si téma [použití portálu pro správu v centru Azure Stack](azure-stack-manage-portals.md).
 
-## <a name="start-azure-stack-backup"></a>Spustit zálohování Azure Stack
+## <a name="start-azure-stack-hub-backup"></a>Spustit zálohování centra Azure Stack
 
 ### <a name="start-a-new-backup-without-job-progress-tracking"></a>Spuštění nové zálohy bez sledování průběhu úlohy
 K okamžitému spuštění nové zálohy bez sledování průběhu úlohy použijte Start-AzSBackup.
@@ -38,7 +38,7 @@ K okamžitému spuštění nové zálohy bez sledování průběhu úlohy použi
    Start-AzsBackup -Force
 ```
 
-### <a name="start-azure-stack-backup-with-job-progress-tracking"></a>Spustit zálohování Azure Stack pomocí sledování průběhu úlohy
+### <a name="start-azure-stack-hub-backup-with-job-progress-tracking"></a>Spustit zálohování centra Azure Stack pomocí sledování průběhu úlohy
 Pomocí Start-AzSBackup spusťte novou zálohu s parametrem **-AsJob** a uložte ji jako proměnnou pro sledování průběhu úlohy zálohování.
 
 > [!NOTE]
@@ -112,9 +112,9 @@ Výsledek by měl vypadat jako následující výstup:
 ```
 
 ### <a name="confirm-backup-has-completed-in-the-administrator-portal"></a>Potvrzení zálohování se dokončilo na portálu pro správu.
-Pomocí portálu Azure Stack správce ověřte, že se zálohování úspěšně dokončilo pomocí následujících kroků:
+Pomocí portálu Azure Stack hub správce ověřte, že se zálohování úspěšně dokončilo, pomocí následujících kroků:
 
-1. Otevřete [portál Azure Stack správce](azure-stack-manage-portals.md).
+1. Otevřete [portál Azure Stack centrum pro správu](azure-stack-manage-portals.md).
 2. Vyberte **všechny služby**a potom v kategorii **Správa** vyberte > **zálohování infrastruktury**. V okně **zálohování infrastruktury** vyberte **Konfigurace** .
 3. V seznamu **dostupné zálohy** vyhledejte **název** a **Datum dokončení** zálohování.
 4. Ověřte, zda je **stav** **úspěšný**.

@@ -1,6 +1,6 @@
 ---
-title: Přihlášení k odběru nabídky ve Azure Stack
-description: Vytvoření předplatných nabídek v Azure Stack
+title: Přihlášení k odběru nabídky v centru Azure Stack
+description: Vytvoření předplatných nabídek v centru Azure Stack
 services: azure-stack
 documentationcenter: ''
 author: bryanla
@@ -10,27 +10,27 @@ ms.topic: conceptual
 ms.date: 10/05/2019
 ms.author: bryanla
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: c69c8a4be93cc392ca1eaf4edb70fb7fb4fc8676
-ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
+ms.openlocfilehash: 3d5203481eea68c9f4dbc231f346bef845622ba2
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72283370"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75814112"
 ---
-# <a name="create-subscriptions-to-offers-in-azure-stack"></a>Vytváření předplatných nabídek v Azure Stack
+# <a name="create-subscriptions-to-offers-in-azure-stack-hub"></a>Vytváření předplatných nabídek v centru Azure Stack
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
-Po [Vytvoření nabídky](azure-stack-create-offer.md)uživatelé k této nabídce potřebují předplatné, aby ji mohli používat. Existují dva způsoby, jak můžou uživatelé získat předplatné nabídky:
+Když [vytvoříte nabídku](azure-stack-create-offer.md), uživatelé potřebují předplatné pro tuto nabídku, aby ji mohli využít. Uživatelé můžou získat předplatné nabídky dvěma způsoby:
 
-- Jako operátor cloudu můžete vytvořit předplatné pro uživatele v portálu pro správu. Předplatná, která vytvoříte, můžou být pro veřejné i soukromé nabídky.
-- Jako uživatel klienta se můžete přihlásit k odběru veřejné nabídky při používání portálu User Portal.  
+- Jako operátor cloudu můžete pro uživatele vytvořit předplatné na portálu pro správu. Můžete vytvářet předplatná veřejných i privátních nabídek.
+- Jako uživatel tenanta si můžete vytvořit předplatné veřejné nabídky na portálu User Portal.  
 
 ## <a name="create-a-subscription-as-a-cloud-operator"></a>Vytvoření předplatného jako operátora cloudu
 
 Operátoři cloudu používají portál pro správu k vytvoření odběru nabídky pro uživatele. Odběry je možné vytvořit pro členy vašeho vlastního tenanta adresáře. Pokud je povolená [víceklientská](azure-stack-enable-multitenancy.md) architektura, můžete také vytvořit odběry pro uživatele v dalších adresářových klientech.
 
-Pokud nechcete, aby klienti vytvářeli vlastní odběry, zajistěte, aby vaše nabídky byly soukromé a pak vytvořili předplatná pro klienty. Tento přístup je společný při integraci Azure Stack s externími systémy fakturace nebo katalogu služeb.
+Pokud nechcete, aby klienti vytvářeli vlastní odběry, zajistěte, aby vaše nabídky byly soukromé a pak vytvořili předplatná pro klienty. Tento přístup je běžný při integraci Azure Stackho centra s externími fakturačními nebo servisními systémy katalogu.
 
 Po vytvoření předplatného pro uživatele se mohou přihlásit k portálu User Portal a zobrazit, že se přihlásí k odběru této nabídky.  
 
@@ -67,11 +67,11 @@ Operátor cloudu může kdykoli přidat plán do dříve vytvořeného předplat
 Jako uživatel se můžete přihlásit k portálu User Portal a vyhledat a přihlásit se k odběru veřejných nabídek a doplňkových plánů pro tenanta adresáře (organizace).
 
 >[!NOTE]
->Pokud vaše prostředí Azure Stack podporuje [více tenantů](azure-stack-enable-multitenancy.md), můžete se také přihlásit k odběru nabídek z tenanta vzdáleného adresáře.
+>Pokud vaše prostředí Azure Stack hub podporuje víceklientské [architektury](azure-stack-enable-multitenancy.md), můžete se také přihlásit k odběru nabídek z tenanta vzdáleného adresáře.
 
 ### <a name="to-subscribe-to-an-offer"></a>Přihlášení k odběru nabídky
 
-1. [Přihlaste](../asdk/asdk-connect.md) se k [portálu Azure Stack User Portal](https://portal.local.azurestack.external) a vyberte **získat předplatné**.
+1. [Přihlaste](../asdk/asdk-connect.md) se k [portálu user Portal centra Azure Stack](https://portal.local.azurestack.external) a vyberte **získat předplatné**.
 
    ![Získat předplatné](media/azure-stack-subscribe-plan-provision-vm/image01.png)
   

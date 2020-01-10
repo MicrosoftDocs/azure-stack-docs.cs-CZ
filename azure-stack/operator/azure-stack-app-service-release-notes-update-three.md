@@ -1,6 +1,6 @@
 ---
-title: App Service v poznámce k verzi Azure Stack Update 3 | Microsoft Docs
-description: Přečtěte si o vylepšeních, opravách a známých problémech v aktualizaci 3 pro App Service v Azure Stack.
+title: App Service ve Azure Stack centra aktualizace 3 – zpráva k vydání verze | Microsoft Docs
+description: Přečtěte si o vylepšeních, opravách a známých problémech v aktualizaci 3 pro App Service v centru Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: bryanla
@@ -16,43 +16,43 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 08/20/2018
-ms.openlocfilehash: d226be9bad3bd6ddf775d8415329ea1fa8099eb0
-ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
+ms.openlocfilehash: a21f5377e1138ab48e2478880b26ba75e939667f
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71159547"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75804924"
 ---
-# <a name="app-service-on-azure-stack-update-3-release-notes"></a>Zpráva k vydání verze App Service ve Azure Stack Update 3
+# <a name="app-service-on-azure-stack-hub-update-3-release-notes"></a>Zpráva k vydání verze App Service v centru Azure Stack Center Update 3
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
-Tyto poznámky k verzi popisují vylepšení, opravy a známé problémy v Azure App Service na Azure Stack Update 3. Známé problémy jsou rozdělené na tři části: problémy přímo související s nasazením, problémy s procesem aktualizace a problémy se sestavením (po instalaci).
+Tyto poznámky k verzi popisují vylepšení, opravy a známé problémy v Azure App Service v centru Azure Stack s aktualizací Update 3. Známé problémy jsou rozdělené na tři části: problémy přímo související s nasazením, problémy s procesem aktualizace a problémy se sestavením (po instalaci).
 
 > [!IMPORTANT]
-> Před nasazením Azure App Service 1,3 použijte aktualizaci 1807 na integrovaný systém Azure Stack nebo nasaďte nejnovější Azure Stack Development Kit (ASDK).
+> Před nasazením Azure App Service 1,3 použijte aktualizaci 1807 pro integrovaný systém Azure Stack hub nebo nasaďte nejnovější Azure Stack Development Kit (ASDK).
 
 ## <a name="build-reference"></a>Referenční informace o buildu
 
-App Service číslo buildu Azure Stack Update 3 je **74.0.13698.31**.
+App Service číslo buildu Azure Stack centra aktualizace 3 je **74.0.13698.31**.
 
 ### <a name="prerequisites"></a>Požadavky
 
-Než začnete s nasazením, přečtěte si [požadavky pro nasazení App Service v Azure Stack](azure-stack-app-service-before-you-get-started.md) .
+Než začnete s nasazením, přečtěte si [požadavky pro nasazení App Service v centru Azure Stack](azure-stack-app-service-before-you-get-started.md) .
 
-Než začnete s upgradem Azure App Service v Azure Stack na 1,3, zajistěte, aby všechny role byly připravené ve správě Azure App Service na portálu Azure Stack Administrator.
+Než začnete s upgradem Azure App Service v centru Azure Stack na 1,3, zajistěte, aby všechny role byly připravené ve správě Azure App Service na portálu Azure Stack správce centra.
 
 ![Stav role App Service](media/azure-stack-app-service-release-notes-update-three/image01.png)
 
 ### <a name="new-features-and-fixes"></a>Nové funkce a opravy
 
-Azure App Service na Azure Stack Update 3 obsahuje následující vylepšení a opravy:
+Azure App Service v centru Azure Stack s aktualizací Update 3 obsahuje následující vylepšení a opravy:
 
 - Podpora používání služby SQL Server Always On pro Azure App Service databáze poskytovatele prostředků.
 
 - Přidání nového parametru prostředí do skriptu pomocníka Create-AADIdentityApp, který vám pomůže zaměřit se na různé oblasti Azure AD.
 
-- Aktualizace pro **App Service klientů, správců, funkcí portálů a nástrojů Kudu** Konzistentní s Azure Stack verze sady SDK portálu.
+- Aktualizace pro **App Service klientů, správců, funkcí portálů a nástrojů Kudu** Konzistentní s verzí sady SDK portálu Azure Stack hub.
 
 - Aktualizuje **Azure Functions runtime** na **v 1.0.11820**.
 
@@ -78,10 +78,10 @@ Azure App Service na Azure Stack Update 3 obsahuje následující vylepšení a 
 
 ### <a name="post-update-steps-optional"></a>Kroky po aktualizaci (volitelné)
 
-Pro zákazníky, kteří chtějí migrovat na databázi s omezením na existující Azure App Service v nasazeních Azure Stack proveďte tyto kroky po dokončení Azure App Service aktualizace Azure Stack 1,3:
+Pro zákazníky, kteří chtějí migrovat na databázi s omezením na existující Azure App Service v nasazeních centra Azure Stack, proveďte tyto kroky po dokončení Azure App Service aktualizace Azure Stack centra 1,3:
 
 > [!IMPORTANT]
-> Tento postup trvá přibližně 5-10 minut. Tento postup zahrnuje ukončení stávajících přihlašovacích relací databáze. Plánování výpadků migrace a ověření Azure App Service Azure Stack po migraci
+> Tento postup trvá přibližně 5-10 minut. Tento postup zahrnuje ukončení stávajících přihlašovacích relací databáze. Plánování výpadků migrace a ověření Azure App Service v příspěvku Azure Stack centra po migraci
 >
 >
 
@@ -182,25 +182,25 @@ Pro zákazníky, kteří chtějí migrovat na databázi s omezením na existují
 
 ### <a name="known-issues-post-installation"></a>Známé problémy (po instalaci)
 
-- Pokud je App Service nasazená ve stávající virtuální síti a souborový server je k dispozici jenom v privátní síti, zaměstnanci nemůžou kontaktovat souborový server. Tento problém se zavolá v dokumentaci pro nasazení Azure App Service Azure Stack.
+- Pokud je App Service nasazená ve stávající virtuální síti a souborový server je k dispozici jenom v privátní síti, zaměstnanci nemůžou kontaktovat souborový server. Tento problém se nazývá Azure App Service v dokumentaci k nasazení centra Azure Stack.
 
 Pokud se rozhodnete nasadit do existující virtuální sítě a interní IP adresu pro připojení k souborovému serveru, musíte přidat odchozí pravidlo zabezpečení, které umožňuje provoz protokolu SMB mezi podsítí pracovních procesů a souborovým serverem. Na portálu pro správu přejdete na WorkersNsg a přidáte odchozí pravidlo zabezpečení s následujícími vlastnostmi:
 
  * Zdroj: Any
  * Rozsah zdrojových portů: *
  * Cíl: IP adresy
- * Rozsah cílových IP adres: Rozsah IP adres pro souborový server
+ * Rozsah cílových IP adres: rozsah IP adres pro souborový server
  * Rozsah cílových portů: 445
- * Protokol: TCP
- * Akce: Allow
+ * Protocol: TCP
+ * Akce: povolení
  * Priorita: 700
  * Název: Outbound_Allow_SMB445
 
-### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Známé problémy pro cloudové správce pracující Azure App Service v Azure Stack
+### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Známé problémy pro Cloud Admins, které pracují Azure App Service v centru Azure Stack
 
-Informace najdete v dokumentaci k vydání verze Azure Stack 1807.
+Informace najdete v poznámkách k verzi centra Azure Stack 1807.
 
 ## <a name="next-steps"></a>Další kroky
 
-- Přehled Azure App Service najdete v tématu [přehled Azure App Service na Azure Stack](azure-stack-app-service-overview.md).
-- Další informace o přípravě na nasazení App Service v Azure Stack najdete v tématu [předpoklady pro nasazení App Service na Azure Stack](azure-stack-app-service-before-you-get-started.md).
+- Přehled Azure App Service najdete v tématu [Azure App Service v tématu Přehled centra Azure Stack](azure-stack-app-service-overview.md).
+- Další informace o přípravě nasazení App Service v centru Azure Stack najdete v tématu [předpoklady pro nasazení App Service na Azure Stack hub](azure-stack-app-service-before-you-get-started.md).

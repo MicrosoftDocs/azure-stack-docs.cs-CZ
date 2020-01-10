@@ -1,6 +1,6 @@
 ---
-title: Nasazení aplikace Java WAR na virtuální počítač v Azure Stack | Microsoft Docs
-description: Nasaďte Java WAR na virtuální počítač v Azure Stack.
+title: Nasazení aplikace Java WAR na virtuální počítač v centru Azure Stack | Microsoft Docs
+description: Nasaďte Java WAR do virtuálního počítače v Azure Stackovém centru.
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,29 +9,29 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 2c9c43439872a19ba590fb22059969f9a7c742f0
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: 75633b7e695db3c6b1e48b7e5f98e9145b6b1fc9
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71824444"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75820623"
 ---
-# <a name="deploy-a-java-web-app-to-a-vm-in-azure-stack"></a>Nasazení webové aplikace v jazyce Java do virtuálního počítače v Azure Stack
+# <a name="deploy-a-java-web-app-to-a-vm-in-azure-stack-hub"></a>Nasazení webové aplikace v jazyce Java do virtuálního počítače v Azure Stackovém centru
 
-Můžete vytvořit virtuální počítač, který bude hostovat vaši webovou aplikaci v Pythonu v Azure Stack. V tomto článku nainstalujete a nakonfigurujete server Apache Tomcat na virtuálním počítači se systémem Linux v Azure Stack. Poté načtete soubor prostředků webové aplikace Java (WAR) do serveru aplikace. Soubor WAR se používá k distribuci kolekce souborů archivu Java (JAR), komprimovaných souborů obsahujících prostředky Java, jako jsou třídy, text, obrázky, XML a další prostředky, které se používají k doručování webové aplikace.
+Můžete vytvořit virtuální počítač, který bude hostovat webovou aplikaci v Pythonu v centru Azure Stack. V tomto článku nainstalujete a nakonfigurujete server Apache Tomcat na virtuálním počítači se systémem Linux v centru Azure Stack. Poté načtete soubor prostředků webové aplikace Java (WAR) do serveru aplikace. Soubor WAR se používá k distribuci kolekce souborů archivu Java (JAR), komprimovaných souborů obsahujících prostředky Java, jako jsou třídy, text, obrázky, XML a další prostředky, které se používají k doručování webové aplikace.
 
 ## <a name="create-a-vm"></a>Vytvoření virtuálního počítače
 
-1. Nastavte virtuální počítač v Azure Stack podle pokynů v tématu [nasazení virtuálního počítače se systémem Linux pro hostování webové aplikace v Azure Stack](azure-stack-dev-start-howto-deploy-linux.md).
+1. Nastavte svůj virtuální počítač v centru Azure Stack podle pokynů v tématu [nasazení virtuálního počítače se systémem Linux pro hostování webové aplikace v centru Azure Stack](azure-stack-dev-start-howto-deploy-linux.md).
 
 2. V podokně síť virtuálních počítačů se ujistěte, že jsou dostupné tyto porty:
 
-    | Port | Protocol | Popis |
+    | Port | Protocol (Protokol) | Popis |
     | --- | --- | --- |
     | 80 | HTTP | HTTP (Hypertext Transfer Protocol) je protokol, který se používá k doručování webových stránek ze serverů. Klienti se připojují přes protokol HTTP s názvem DNS nebo IP adresou. |
     | 443 | HTTPS | Protokol HTTPS (Hypertext Transfer Protocol Secure) je zabezpečená verze protokolu HTTP, která vyžaduje certifikát zabezpečení a umožňuje šifrovaný přenos informací. |
     | 22 | SSH | Secure Shell (SSH) je zašifrovaný síťový protokol pro zabezpečenou komunikaci. Pomocí tohoto připojení s klientem SSH nakonfigurujete virtuální počítač a nasadíte aplikaci. |
-    | 3389 | PROTOKOL RDP | Volitelný parametr. Protokol RDP (Remote Desktop Protocol) (RDP) umožňuje připojení ke vzdálené ploše pro použití grafického uživatelského rozhraní na vašem počítači.   |
+    | 3389 | Protokol RDP | Nepovinný parametr. Protokol RDP (Remote Desktop Protocol) (RDP) umožňuje připojení ke vzdálené ploše pro použití grafického uživatelského rozhraní na vašem počítači.   |
     | 8080 | Vlastní | Výchozí port pro službu Apache Tomcat V případě provozního serveru směrujete provoz mezi 80 a 443. |
 
 ## <a name="install-java"></a>Nainstalovat Java
@@ -95,9 +95,9 @@ Můžete vytvořit virtuální počítač, který bude hostovat vaši webovou ap
         sudo chmod g+x conf
     ```
 
-1. Vytvořte soubor se systémovou službou, abyste mohli spustit Tomcat jako službu.
+1. Vytvořte soubor se *systémovou* službou, abyste mohli spustit Tomcat jako službu.
 
-   a. Tomcat potřebuje, abyste věděli, kde jste nainstalovali Java. Tato cesta se obvykle označuje jako *JAVA_HOME*. Najděte umístění spuštěním:
+   a. Tomcat potřebuje, abyste věděli, kde jste nainstalovali Java. Tato cesta se běžně označuje jako *JAVA_HOME*. Najděte umístění spuštěním:
 
     ```bash  
         sudo update-java-alternatives -l
@@ -174,11 +174,11 @@ Můžete vytvořit virtuální počítač, který bude hostovat vaši webovou ap
         sudo ufw allow 8080
     ```
 
-    Pokud jste nepřidali *pravidla portů pro příchozí* Azure Stack pro virtuální počítač, přidejte je nyní. Další informace najdete v tématu [Vytvoření virtuálního počítače](#create-a-vm).
+    Pokud jste nepřidali *pravidla portů pro příchozí spojení* pro virtuální počítač centra Azure Stack, přidejte je nyní. Další informace najdete v tématu [Vytvoření virtuálního počítače](#create-a-vm).
 
-1. Otevřete prohlížeč ve stejné síti jako váš Azure Stack a pak otevřete Server, *yourmachine. Local. cloudapp. azurestack. external: 8080*.
+1. Otevřete prohlížeč ve stejné síti jako centrum Azure Stack a pak otevřete Server, *yourmachine. Local. cloudapp. azurestack. external: 8080*.
 
-    ![Apache Tomcat na virtuálním počítači s Azure Stack](media/azure-stack-dev-start-howto-vm-java/apache-tomcat.png)
+    ![Apache Tomcat na virtuálním počítači centra Azure Stack](media/azure-stack-dev-start-howto-vm-java/apache-tomcat.png)
 
     Načte se stránka Apache Tomcat na vašem serveru. Dále nakonfigurujete server, který vám umožní přístup k stavu serveru, aplikaci správce a správci hostitele.
 
@@ -190,13 +190,13 @@ Můžete vytvořit virtuální počítač, který bude hostovat vaši webovou ap
 
 1. Pokud chcete umožnění přístupu k rozhraní webové správy, nakonfigurujte server Tomcat. 
 
-   a. Upravte soubor *Tomcat-Users. XML* a definujte roli a uživatele, abyste se mohli přihlásit. Zadejte uživatele pro přístup `manager-gui` k a. `admin-gui`
+   a. Upravte soubor *Tomcat-Users. XML* a definujte roli a uživatele, abyste se mohli přihlásit. Zadejte uživatele pro přístup k `manager-gui` a `admin-gui`.
 
     ```bash  
         sudo nano /opt/tomcat/conf/tomcat-users.xml
     ```
 
-   b. Do `<tomcat-users>` oddílu přidejte následující prvky:
+   b. Do části `<tomcat-users>` přidejte následující prvky:
 
     ```XML  
         <role rolename="tomcat"/>
@@ -217,7 +217,7 @@ Můžete vytvořit virtuální počítač, který bude hostovat vaši webovou ap
 
     c. Uložte soubor a zavřete ho.
 
-1. Tomcat omezuje přístup k aplikacím *správce* a *hosta* do připojení přicházejících ze serveru. Vzhledem k tomu, že instalujete Tomcat na virtuální počítač v Azure Stack, budete toto omezení chtít odebrat. Upravte omezení IP adres v těchto aplikacích úpravou příslušných souborů *Context. XML* .
+1. Tomcat omezuje přístup k aplikacím *správce* a *hosta* do připojení přicházejících ze serveru. Vzhledem k tomu, že instalujete Tomcat na virtuální počítač v centru Azure Stack, budete chtít toto omezení odebrat. Upravte omezení IP adres v těchto aplikacích úpravou příslušných souborů *Context. XML* .
 
     a. Aktualizace *Context. XML* v aplikaci Správce:
 
@@ -250,19 +250,19 @@ Můžete vytvořit virtuální počítač, který bude hostovat vaši webovou ap
         sudo systemctl restart tomcat
     ```
 
-1. Otevřete prohlížeč ve stejné síti jako váš Azure Stack a pak otevřete Server: *yourmachine. Local. cloudapp. azurestack. external: 8080*.
+1. Otevřete prohlížeč ve stejné síti jako centrum Azure Stack a pak otevřete Server: *yourmachine. Local. cloudapp. azurestack. external: 8080*.
 
     a. Chcete-li zkontrolovat stav serveru Tomcat a ověřit, zda máte přístup, vyberte možnost **stav serveru**.
 
     b. Přihlaste se pomocí přihlašovacích údajů Tomcat.
 
-    ![Apache Tomcat na virtuálním počítači s Azure Stack](media/azure-stack-dev-start-howto-vm-java/apache-tomcat-management-app.png)
+    ![Apache Tomcat na virtuálním počítači centra Azure Stack](media/azure-stack-dev-start-howto-vm-java/apache-tomcat-management-app.png)
 
-## <a name="create-an-app"></a>Vytvoření nové aplikace
+## <a name="create-an-app"></a>Vytvoření aplikace
 
 Pro nasazení do Tomcat budete muset vytvořit WAR. Pokud chcete pouze ověřit prostředí, najdete příklad WAR na [webu Apache Tomcat](https://tomcat.apache.org/tomcat-6.0-doc/appdev/sample/).
 
-Pokyny k vývoji aplikací v jazyce Java v Azure najdete v tématu sestavování [a nasazování aplikací v jazyce Java v Azure](https://azure.microsoft.com/develop/java/).
+Pokyny k vývoji aplikací v jazyce Java v Azure najdete v tématu [sestavování a nasazování aplikací v jazyce Java v Azure](https://azure.microsoft.com/develop/java/).
 
 ## <a name="deploy-and-run-the-app"></a>Nasazení a spuštění aplikace
 
@@ -274,7 +274,7 @@ Pokyny k vývoji aplikací v jazyce Java v Azure najdete v tématu sestavování
         sudo systemctl stop tomcat
     ```
 
-1. Aby bylo možné zapisovat do složky webapps, přidejte uživatele FTP do skupiny Tomcat. Uživatel FTP je uživatelem, kterého definujete při vytváření virtuálního počítače v Azure Stack.
+1. Aby bylo možné zapisovat do složky webapps, přidejte uživatele FTP do skupiny Tomcat. Uživatel FTP je uživatelem, kterého definujete při vytváření virtuálního počítače v centru Azure Stack.
 
     ```bash  
         sudo usermod -a -G tomcat <VM-user>
@@ -294,6 +294,6 @@ Pokyny k vývoji aplikací v jazyce Java v Azure najdete v tématu sestavování
     
 ## <a name="next-steps"></a>Další kroky
 
-- Přečtěte si další informace o [vývoji pro Azure Stack](azure-stack-dev-start.md).
-- Přečtěte si o [běžných nasazeních Azure Stack jako IaaS](azure-stack-dev-start-deploy-app.md).
+- Přečtěte si další informace o [vývoji centra Azure Stack](azure-stack-dev-start.md).
+- Přečtěte si o [běžných nasazeních centra Azure Stack jako IaaS](azure-stack-dev-start-deploy-app.md).
 - Informace o programovacím jazyce Java a vyhledání dalších prostředků pro jazyk Java najdete v tématu [Java.com](https://www.java.com).

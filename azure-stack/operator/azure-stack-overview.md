@@ -17,12 +17,12 @@ ms.author: justinha
 ms.reviewer: unknown
 ms.custom: ''
 ms.lastreviewed: 11/08/2019
-ms.openlocfilehash: dee0d3164f0c521b657f9b8f26377e062ee1e536
-ms.sourcegitcommit: 7817d61fa34ac4f6410ce6f8ac11d292e1ad807c
+ms.openlocfilehash: ffd96cb9c99fcce60f4f90df3324c744da984caa
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74690047"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75810550"
 ---
 # <a name="azure-stack-hub-overview"></a>Přehled centra Azure Stack
 
@@ -50,13 +50,13 @@ Architektura centra Azure Stack umožňuje poskytovat služby Azure na hraničn�
 
 ## <a name="deployment-options"></a>Možnosti nasazení
 
-<!---At deployment, move out asdk, break into connected/disc…then explain  roles operator vs user < replace how is azure stack managed with role description, rbac, reporting, high availability take out.--->
+<!---At deployment, move out asdk, break into connected/disc…then explain  roles operator vs user < replace how is Azure Stack Hub managed with role description, rbac, reporting, high availability take out.--->
 
 Integrované systémy Azure Stack hub jsou nabízeny prostřednictvím partnerství s Microsoftem a hardwarovými partnery a vytvářejí řešení, které nabízí cloudové inovace a jednoduchost správy computingu. Vzhledem k tomu, že centrum Azure Stack se nabízí jako integrovaný hardware a softwarový systém, máte flexibilitu a kontrolu, které potřebujete, a také schopnost inovovat z cloudu. 
 
 Integrovaný systém Azure Stackového centra může mít velikost v rozsahu od 4-16 serverů, které se nazývají *jednotka škálování*. Integrované systémy jsou společně podporovány hardwarovým partnerem a společností Microsoft. V následujícím diagramu vidíte příklad jednotky škálování. 
 
-![Diagram znázorňující Azure Stack integrovaný systém](./media/azure-stack-overview/azure-stack-integrated-system.png). 
+![Diagram znázorňující integrovaný systém Azure Stack hub](./media/azure-stack-overview/azure-stack-integrated-system.png). 
 
 <!---add info and image on regions, etc--->
 
@@ -75,9 +75,9 @@ Pro odpojená nasazení centra Azure Stack musíte použít AD FS. Poskytovatel�
 
 ## <a name="how-is-azure-stack-hub-managed"></a>Jak se spravuje centrum Azure Stack?
 
-Azure Stack používá stejný model operací jako Azure. Operátor centra Azure Stack může doručovat nejrůznější služby a aplikace uživatelům klientů, podobně jako Microsoft poskytuje služby Azure pro uživatele klientů. 
+Azure Stack hub používá stejný model operací jako Azure. Operátor centra Azure Stack může doručovat nejrůznější služby a aplikace uživatelům klientů, podobně jako Microsoft poskytuje služby Azure pro uživatele klientů. 
 
-![Diagram znázorňující Azure Stack role úloh](./media/azure-stack-overview/azure-stack-job-roles.png)
+![Diagram znázorňující Azure Stack role úloh centra](./media/azure-stack-overview/azure-stack-job-roles.png)
 
 Centrum Azure Stack můžete spravovat pomocí portálu pro správu, portálu User Portal nebo [PowerShellu](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.7.1). Portály centra Azure Stack jsou každou zálohované samostatnými instancemi Azure Resource Manager. **Operátor centra Azure Stack** využívá portál pro správu ke správě centra Azure Stack a k provádění akcí, jako je vytváření nabídek tenantů, a udržování stavu a monitorování stavu integrovaného systému. Portál User Portal poskytuje samoobslužné prostředí pro využívání cloudových prostředků, jako jsou virtuální počítače, účty úložiště a webové aplikace.
 
@@ -113,7 +113,7 @@ Existují tři Volitelní poskytovatelé prostředků PaaS, které můžete nasa
 
 ## <a name="next-steps"></a>Další kroky
 
-[Porovnat Azure Stack portfolio](compare-azure-azure-stack.md)
+[Porovnat portfolio centra Azure Stack](compare-azure-azure-stack.md)
 
 [Základy správy](azure-stack-manage-basics.md)
 

@@ -1,6 +1,6 @@
 ---
-title: Správa Azure Stack pomocí Azure CLI | Microsoft Docs
-description: Naučte se používat rozhraní příkazového řádku (CLI) pro různé platformy ke správě a nasazení prostředků v Azure Stack.
+title: Správa centra Azure Stack pomocí Azure CLI | Microsoft Docs
+description: Naučte se používat rozhraní příkazového řádku (CLI) pro různé platformy ke správě a nasazení prostředků v centru Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,50 +14,50 @@ ms.date: 12/10/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/10/2019
-ms.openlocfilehash: f8acc74aed978b3672dacd65524a8f1dbb5e6909
-ms.sourcegitcommit: 3c40e6df2447531a69e33b2fd0f2365b7dcf8892
+ms.openlocfilehash: 8d6d02da1768f6cbcdaaecdfe9a1cf03d47ce0d6
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2019
-ms.locfileid: "75005382"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75818855"
 ---
-# <a name="manage-and-deploy-resources-to-azure-stack-with-azure-cli"></a>Správa a nasazení prostředků pro Azure Stack pomocí Azure CLI
+# <a name="manage-and-deploy-resources-to-azure-stack-hub-with-azure-cli"></a>Správa a nasazení prostředků do centra Azure Stack pomocí Azure CLI
 
-*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 Podle kroků v tomto článku nastavte rozhraní příkazového řádku Azure (CLI) pro správu prostředků Azure Stack Development Kit (ASDK) z klientských platforem Linux, Mac a Windows.
 
 ## <a name="prepare-for-azure-cli"></a>Příprava pro Azure CLI
 
-Pokud používáte ASDK, budete potřebovat kořenový certifikát certifikační autority pro Azure Stack používat rozhraní příkazového řádku Azure CLI na vašem vývojovém počítači. Certifikát použijete ke správě prostředků přes rozhraní příkazového řádku.
+Pokud používáte ASDK, budete potřebovat kořenový certifikát certifikační autority pro Azure Stack centra pro použití rozhraní příkazového řádku Azure CLI na vašem vývojovém počítači. Certifikát použijete ke správě prostředků přes rozhraní příkazového řádku.
 
- - Pokud používáte rozhraní příkazového řádku z pracovní stanice mimo ASDK, je vyžadován **kořenový certifikát CA Azure Stack** .  
+ - Pokud používáte rozhraní příkazového řádku z pracovní stanice mimo ASDK, vyžaduje se **kořenový certifikát CA centra Azure Stack** .  
 
  - **Aliasy aliasů virtuálních počítačů** poskytují alias, například "UbuntuLTS" nebo "Win2012Datacenter". Tento alias odkazuje na vydavatele image, nabídku, SKU a verzi jako jeden parametr při nasazování virtuálních počítačů.  
 
 Následující části popisují, jak tyto hodnoty získat.
 
-### <a name="export-the-azure-stack-ca-root-certificate"></a>Export kořenového certifikátu certifikační autority Azure Stack
+### <a name="export-the-azure-stack-hub-ca-root-certificate"></a>Export kořenového certifikátu certifikační autority centra Azure Stack
 
 Pokud používáte integrovaný systém, nemusíte exportovat kořenový certifikát certifikační autority. Pokud používáte ASDK, exportujte kořenový certifikát CA na ASDK.
 
 Export kořenového certifikátu ASDK ve formátu PEM:
 
-1. Získání názvu kořenového certifikátu Azure Stack:
-    - Přihlaste se k Azure Stack uživateli nebo portálu pro správu.
+1. Získání názvu kořenového certifikátu centra Azure Stack:
+    - Přihlaste se k portálu Azure Stack nebo uživateli centra pro správu.
     - Klikněte na **zabezpečený** poblíž panelu Adresa.
     - V automaticky otevíraném okně klikněte na **platné**.
     - V okně certifikát klikněte na kartu **cesta k certifikaci** .
-    - Poznamenejte si název vašeho kořenového certifikátu Azure Stack.
+    - Poznamenejte si název kořenového certifikátu centra Azure Stack.
 
-    ![Azure Stack kořenový certifikát](media/azure-stack-version-profiles-azurecli2/root-cert-name.png)
+    ![Kořenový certifikát centra Azure Stack](media/azure-stack-version-profiles-azurecli2/root-cert-name.png)
 
-2. [Vytvořte virtuální počítač s Windows na Azure Stack](azure-stack-quick-windows-portal.md).
+2. [Vytvořte virtuální počítač s Windows na rozbočovači Azure Stack](azure-stack-quick-windows-portal.md).
 
 3. Přihlaste se k virtuálnímu počítači, otevřete příkazový řádek prostředí PowerShell se zvýšenými oprávněními a spusťte následující skript:
 
     ```powershell  
-      $label = "<the name of your azure stack root cert from Step 1>"
+      $label = "<the name of your Azure Stack Hub root cert from Step 1>"
       Write-Host "Getting certificate from the current user trusted store with subject CN=$label"
       $root = Get-ChildItem Cert:\CurrentUser\Root | Where-Object Subject -eq "CN=$label" | select -First 1
       if (-not $root)
@@ -84,13 +84,13 @@ Můžete nastavit veřejně přístupný koncový bod, který hostuje soubor s a
 
 2. Stáhněte si [ukázkový soubor](https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json) z GitHubu.
 
-3. Vytvořte účet úložiště v Azure Stack. Až to bude hotové, vytvořte kontejner objektů BLOB. Nastavte zásady přístupu na veřejné.  
+3. Vytvořte účet úložiště v centru Azure Stack. Až to bude hotové, vytvořte kontejner objektů BLOB. Nastavte zásady přístupu na veřejné.  
 
 4. Nahrajte soubor JSON do nového kontejneru. Až to uděláte, můžete zobrazit adresu URL objektu BLOB. Vyberte název objektu BLOB a potom vyberte adresu URL z vlastností objektu BLOB.
 
 ### <a name="install-or-upgrade-cli"></a>Instalace nebo upgrade rozhraní příkazového řádku
 
-Přihlaste se k vývojové pracovní stanici a nainstalujte rozhraní příkazového řádku. Azure Stack vyžaduje Azure CLI verze 2,0 nebo novější. Nejnovější verze profilů rozhraní API vyžaduje aktuální verzi rozhraní příkazového řádku. Rozhraní příkazového řádku nainstalujete pomocí postupu popsaného v článku [instalace Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) . 
+Přihlaste se k vývojové pracovní stanici a nainstalujte rozhraní příkazového řádku. Azure Stack hub vyžaduje Azure CLI verze 2,0 nebo novější. Nejnovější verze profilů rozhraní API vyžaduje aktuální verzi rozhraní příkazového řádku. Rozhraní příkazového řádku nainstalujete pomocí postupu popsaného v článku [instalace Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) . 
 
 1. Chcete-li ověřit, zda byla instalace úspěšná, otevřete okno terminálu nebo příkazového řádku a spusťte následující příkaz:
 
@@ -100,7 +100,7 @@ Přihlaste se k vývojové pracovní stanici a nainstalujte rozhraní příkazov
 
     Měla by se zobrazit verze rozhraní příkazového řádku Azure CLI a dalších závislých knihoven, které jsou nainstalované ve vašem počítači.
 
-    ![Rozhraní příkazového řádku Azure v umístění Azure Stack Pythonu](media/azure-stack-version-profiles-azurecli2/cli-python-location.png)
+    ![Rozhraní příkazového řádku Azure v umístění Pythonu centra Azure Stack](media/azure-stack-version-profiles-azurecli2/cli-python-location.png)
 
 2. Poznamenejte si umístění Pythonu pro rozhraní příkazového řádku. Pokud používáte ASDK, musíte k přidání certifikátu použít toto umístění.
 
@@ -109,11 +109,11 @@ Přihlaste se k vývojové pracovní stanici a nainstalujte rozhraní příkazov
 
 V této části se dozvíte, jak nastavit rozhraní příkazového řádku, pokud používáte Azure AD jako službu pro správu identit a používáte rozhraní příkazového řádku v počítači s Windows.
 
-### <a name="trust-the-azure-stack-ca-root-certificate"></a>Důvěřovat kořenovému certifikátu certifikační autority Azure Stack
+### <a name="trust-the-azure-stack-hub-ca-root-certificate"></a>Důvěřovat kořenovému certifikátu certifikační autority centra Azure Stack
 
 Pokud používáte ASDK, musíte na svém vzdáleném počítači důvěřovat kořenovému certifikátu certifikační autority. Tento krok není nezbytný u integrovaných systémů.
 
-Pokud chcete důvěřovat kořenovému certifikátu certifikační autority Azure Stack, připojovat ho k existujícímu úložišti certifikátů Pythonu pro verzi Pythonu nainstalovanou pomocí Azure CLI. Možná budete pracovat s vlastní instancí Pythonu. Azure CLI obsahuje svou vlastní verzi Pythonu.
+Pokud chcete důvěřovat kořenovému certifikátu certifikační autority centra Azure Stack, přidejte ho do stávajícího úložiště certifikátů Pythonu pro verzi Pythonu nainstalovanou pomocí Azure CLI. Možná budete pracovat s vlastní instancí Pythonu. Azure CLI obsahuje svou vlastní verzi Pythonu.
 
 1. Najděte umístění úložiště certifikátů na vašem počítači.  Umístění můžete najít spuštěním příkazu `az --version`.
 
@@ -128,7 +128,7 @@ Pokud chcete důvěřovat kořenovému certifikátu certifikační autority Azur
 
     Poznamenejte si umístění certifikátu. Například, `C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\lib\site-packages\certifi\cacert.pem`. Vaše konkrétní cesta závisí na vašem operačním systému a na instalaci rozhraní příkazového řádku.
 
-2. Důvěřování kořenovému certifikátu certifikační autority Azure Stack připojením k existujícímu certifikátu Pythonu.
+2. Důvěřování kořenovému certifikátu certifikační autority centra Azure Stack tak, že ho připojíte k existujícímu certifikátu Pythonu.
 
     ```powershell
     $pemFile = "<Fully qualified path to the PEM certificate Ex: C:\Users\user1\Downloads\root.pem>"
@@ -156,12 +156,12 @@ Pokud chcete důvěřovat kořenovému certifikátu certifikační autority Azur
     Write-Host "Adding the certificate content to Python Cert store"
     Add-Content "${env:ProgramFiles(x86)}\Microsoft SDKs\Azure\CLI2\Lib\site-packages\certifi\cacert.pem" $rootCertEntry
 
-    Write-Host "Python Cert store was updated to allow the Azure Stack CA root certificate"
+    Write-Host "Python Cert store was updated to allow the Azure Stack Hub CA root certificate"
     ```
 
-### <a name="connect-to-azure-stack"></a>Připojení k Azure Stack
+### <a name="connect-to-azure-stack-hub"></a>Připojení k centru Azure Stack
 
-1. Zaregistrujte Azure Stack prostředí spuštěním příkazu `az cloud register`.
+1. Zaregistrujte své prostředí Azure Stackového centra spuštěním příkazu `az cloud register`.
 
 2. Zaregistrujte své prostředí. Při spuštění `az cloud register`použijte následující parametry:
 
@@ -183,16 +183,16 @@ Pokud chcete důvěřovat kořenovému certifikátu certifikační autority Azur
       az cloud set -n <environmentname>
       ```
 
-1. Aktualizujte konfiguraci prostředí tak, aby používala konkrétní profil verze rozhraní API Azure Stack. Chcete-li aktualizovat konfiguraci, spusťte následující příkaz:
+1. Aktualizujte konfiguraci prostředí tak, aby používala profil konkrétní verze rozhraní API centra Azure Stack. Chcete-li aktualizovat konfiguraci, spusťte následující příkaz:
 
     ```azurecli
     az cloud update --profile 2019-03-01-hybrid
    ```
 
     >[!NOTE]  
-    >Pokud používáte verzi Azure Stack před sestavením 1808, musíte použít profil verze API **2017-03-09-Profile** , nikoli profil verze API **2019-03-01-Hybrid**. Musíte také použít nejnovější verzi Azure CLI.
+    >Pokud používáte verzi centra Azure Stack před sestavením 1808, musíte použít profil verze API **2017-03-09-Profile** , nikoli profil verze rozhraní API **2019-03-01-Hybrid**. Musíte také použít nejnovější verzi Azure CLI.
  
-1. Přihlaste se ke svému Azure Stack prostředí pomocí příkazu `az login`. Přihlaste se k prostředí Azure Stack, a to buď jako uživatel, nebo jako [instanční objekt](/azure/active-directory/develop/app-objects-and-service-principals). 
+1. Přihlaste se k prostředí Azure Stackového centra pomocí příkazu `az login`. Přihlaste se do prostředí Azure Stack hub buď jako uživatel, nebo jako [instanční objekt](/azure/active-directory/develop/app-objects-and-service-principals). 
 
    - Přihlaste se jako *uživatel*: 
 
@@ -215,7 +215,7 @@ Pokud chcete důvěřovat kořenovému certifikátu certifikační autority Azur
 
 ### <a name="test-the-connectivity"></a>Otestovat připojení
 
-Když máte všechno nastavené, pomocí rozhraní příkazového řádku můžete vytvářet prostředky v rámci Azure Stack. Můžete například vytvořit skupinu prostředků pro aplikaci a přidat virtuální počítač. Pomocí následujícího příkazu vytvořte skupinu prostředků s názvem "MyResourceGroup":
+Když máte všechno nastavené, pomocí rozhraní příkazového řádku můžete vytvářet prostředky v rámci centra Azure Stack. Můžete například vytvořit skupinu prostředků pro aplikaci a přidat virtuální počítač. Pomocí následujícího příkazu vytvořte skupinu prostředků s názvem "MyResourceGroup":
 
 ```azurecli
 az group create -n MyResourceGroup -l local
@@ -229,7 +229,7 @@ Pokud je skupina prostředků úspěšně vytvořená, předchozí příkaz vytv
 
 V této části se dozvíte, jak nastavit rozhraní příkazového řádku, pokud jako službu pro správu identit používáte službu Active Directory federovaného Services (AD FS) a používáte rozhraní příkazového řádku (CLI) na počítači s Windows.
 
-### <a name="trust-the-azure-stack-ca-root-certificate"></a>Důvěřovat kořenovému certifikátu certifikační autority Azure Stack
+### <a name="trust-the-azure-stack-hub-ca-root-certificate"></a>Důvěřovat kořenovému certifikátu certifikační autority centra Azure Stack
 
 Pokud používáte ASDK, musíte na svém vzdáleném počítači důvěřovat kořenovému certifikátu certifikační autority. Tento krok není nezbytný u integrovaných systémů.
 
@@ -241,7 +241,7 @@ Pokud používáte ASDK, musíte na svém vzdáleném počítači důvěřovat k
 
     Poznamenejte si umístění certifikátu. Například, `~/lib/python3.5/site-packages/certifi/cacert.pem`. Vaše konkrétní cesta závisí na vašem operačním systému a verzi Pythonu, kterou jste nainstalovali.
 
-2. Důvěřování kořenovému certifikátu certifikační autority Azure Stack připojením k existujícímu certifikátu Pythonu.
+2. Důvěřování kořenovému certifikátu certifikační autority centra Azure Stack tak, že ho připojíte k existujícímu certifikátu Pythonu.
 
     ```powershell
     $pemFile = "<Fully qualified path to the PEM certificate Ex: C:\Users\user1\Downloads\root.pem>"
@@ -269,12 +269,12 @@ Pokud používáte ASDK, musíte na svém vzdáleném počítači důvěřovat k
     Write-Host "Adding the certificate content to Python Cert store"
     Add-Content "${env:ProgramFiles(x86)}\Microsoft SDKs\Azure\CLI2\Lib\site-packages\certifi\cacert.pem" $rootCertEntry
 
-    Write-Host "Python Cert store was updated to allow the Azure Stack CA root certificate"
+    Write-Host "Python Cert store was updated to allow the Azure Stack Hub CA root certificate"
     ```
 
-### <a name="connect-to-azure-stack"></a>Připojení k Azure Stack
+### <a name="connect-to-azure-stack-hub"></a>Připojení k centru Azure Stack
 
-1. Zaregistrujte Azure Stack prostředí spuštěním příkazu `az cloud register`.
+1. Zaregistrujte své prostředí Azure Stackového centra spuštěním příkazu `az cloud register`.
 
 2. Zaregistrujte své prostředí. Při spuštění `az cloud register`použijte následující parametry:
 
@@ -296,16 +296,16 @@ Pokud používáte ASDK, musíte na svém vzdáleném počítači důvěřovat k
       az cloud set -n <environmentname>
       ```
 
-1. Aktualizujte konfiguraci prostředí tak, aby používala konkrétní profil verze rozhraní API Azure Stack. Chcete-li aktualizovat konfiguraci, spusťte následující příkaz:
+1. Aktualizujte konfiguraci prostředí tak, aby používala profil konkrétní verze rozhraní API centra Azure Stack. Chcete-li aktualizovat konfiguraci, spusťte následující příkaz:
 
     ```azurecli
     az cloud update --profile 2019-03-01-hybrid
    ```
 
     >[!NOTE]  
-    >Pokud používáte verzi Azure Stack před sestavením 1808, musíte použít profil verze API **2017-03-09-Profile** , nikoli profil verze API **2019-03-01-Hybrid**. Musíte také použít nejnovější verzi Azure CLI.
+    >Pokud používáte verzi centra Azure Stack před sestavením 1808, musíte použít profil verze API **2017-03-09-Profile** , nikoli profil verze rozhraní API **2019-03-01-Hybrid**. Musíte také použít nejnovější verzi Azure CLI.
 
-1. Přihlaste se ke svému Azure Stack prostředí pomocí příkazu `az login`. K prostředí Azure Stack se můžete přihlásit buď jako uživatel, nebo jako [instanční objekt](/azure/active-directory/develop/app-objects-and-service-principals). 
+1. Přihlaste se k prostředí Azure Stackového centra pomocí příkazu `az login`. K prostředí služby Azure Stack hub se můžete přihlásit buď jako uživatel, nebo jako [instanční objekt](/azure/active-directory/develop/app-objects-and-service-principals). 
 
    - Přihlaste se jako *uživatel*:
 
@@ -338,7 +338,7 @@ Pokud používáte ASDK, musíte na svém vzdáleném počítači důvěřovat k
 
 ### <a name="test-the-connectivity"></a>Otestovat připojení
 
-Když máte všechno nastavené, pomocí rozhraní příkazového řádku můžete vytvářet prostředky v rámci Azure Stack. Můžete například vytvořit skupinu prostředků pro aplikaci a přidat virtuální počítač. Pomocí následujícího příkazu vytvořte skupinu prostředků s názvem "MyResourceGroup":
+Když máte všechno nastavené, pomocí rozhraní příkazového řádku můžete vytvářet prostředky v rámci centra Azure Stack. Můžete například vytvořit skupinu prostředků pro aplikaci a přidat virtuální počítač. Pomocí následujícího příkazu vytvořte skupinu prostředků s názvem "MyResourceGroup":
 
 ```azurecli
 az group create -n MyResourceGroup -l local
@@ -353,11 +353,11 @@ Pokud je skupina prostředků úspěšně vytvořená, předchozí příkaz vytv
 
 V této části se seznámíte s nastavením rozhraní příkazového řádku, pokud používáte Azure AD jako službu pro správu identit a používáte rozhraní příkazového řádku v počítači se systémem Linux.
 
-### <a name="trust-the-azure-stack-ca-root-certificate"></a>Důvěřovat kořenovému certifikátu certifikační autority Azure Stack
+### <a name="trust-the-azure-stack-hub-ca-root-certificate"></a>Důvěřovat kořenovému certifikátu certifikační autority centra Azure Stack
 
 Pokud používáte ASDK, musíte na svém vzdáleném počítači důvěřovat kořenovému certifikátu certifikační autority. Tento krok není nezbytný u integrovaných systémů.
 
-Důvěřování kořenovému certifikátu certifikační autority Azure Stack připojením k existujícímu certifikátu Pythonu.
+Důvěřování kořenovému certifikátu certifikační autority centra Azure Stack tak, že ho připojíte k existujícímu certifikátu Pythonu.
 
 1. Najděte umístění certifikátu na svém počítači. Umístění se může lišit v závislosti na tom, kde jste nainstalovali Python. Musíte mít nainstalovaný PIP a modul certifi. Z příkazového řádku bash použijte následující příkaz Pythonu:
 
@@ -375,17 +375,17 @@ Důvěřování kořenovému certifikátu certifikační autority Azure Stack p�
      sudo cat PATH_TO_PEM_FILE >> ~/<yourpath>/cacert.pem
      ```
 
-   - Pro počítač se systémem Linux v prostředí Azure Stack:
+   - Pro počítač se systémem Linux v prostředí Azure Stack hub:
 
      ```bash  
      sudo cat /var/lib/waagent/Certificates.pem >> ~/<yourpath>/cacert.pem
      ```
 
-### <a name="connect-to-azure-stack"></a>Připojení k Azure Stack
+### <a name="connect-to-azure-stack-hub"></a>Připojení k centru Azure Stack
 
-Pomocí následujících kroků se připojte k Azure Stack:
+Pomocí následujících kroků se připojte k centru Azure Stack:
 
-1. Zaregistrujte Azure Stack prostředí spuštěním příkazu `az cloud register`.
+1. Zaregistrujte své prostředí Azure Stackového centra spuštěním příkazu `az cloud register`.
 
 2. Zaregistrujte své prostředí. Při spuštění `az cloud register`použijte následující parametry:
 
@@ -407,16 +407,16 @@ Pomocí následujících kroků se připojte k Azure Stack:
         az cloud set -n <environmentname>
       ```
 
-4. Aktualizujte konfiguraci prostředí tak, aby používala konkrétní profil verze rozhraní API Azure Stack. Chcete-li aktualizovat konfiguraci, spusťte následující příkaz:
+4. Aktualizujte konfiguraci prostředí tak, aby používala profil konkrétní verze rozhraní API centra Azure Stack. Chcete-li aktualizovat konfiguraci, spusťte následující příkaz:
 
     ```azurecli
       az cloud update --profile 2019-03-01-hybrid
    ```
 
     >[!NOTE]  
-    >Pokud používáte verzi Azure Stack před sestavením 1808, musíte použít profil verze API **2017-03-09-Profile** , nikoli profil verze API **2019-03-01-Hybrid**. Musíte také použít nejnovější verzi Azure CLI.
+    >Pokud používáte verzi centra Azure Stack před sestavením 1808, musíte použít profil verze API **2017-03-09-Profile** , nikoli profil verze rozhraní API **2019-03-01-Hybrid**. Musíte také použít nejnovější verzi Azure CLI.
 
-5. Přihlaste se ke svému Azure Stack prostředí pomocí příkazu `az login`. K prostředí Azure Stack se můžete přihlásit buď jako uživatel, nebo jako [instanční objekt](/azure/active-directory/develop/app-objects-and-service-principals). 
+5. Přihlaste se k prostředí Azure Stackového centra pomocí příkazu `az login`. K prostředí služby Azure Stack hub se můžete přihlásit buď jako uživatel, nebo jako [instanční objekt](/azure/active-directory/develop/app-objects-and-service-principals). 
 
    * Přihlaste se jako *uživatel*:
 
@@ -445,7 +445,7 @@ Pomocí následujících kroků se připojte k Azure Stack:
 
 ### <a name="test-the-connectivity"></a>Otestovat připojení
 
-Když máte všechno nastavené, pomocí rozhraní příkazového řádku můžete vytvářet prostředky v rámci Azure Stack. Můžete například vytvořit skupinu prostředků pro aplikaci a přidat virtuální počítač. Pomocí následujícího příkazu vytvořte skupinu prostředků s názvem "MyResourceGroup":
+Když máte všechno nastavené, pomocí rozhraní příkazového řádku můžete vytvářet prostředky v rámci centra Azure Stack. Můžete například vytvořit skupinu prostředků pro aplikaci a přidat virtuální počítač. Pomocí následujícího příkazu vytvořte skupinu prostředků s názvem "MyResourceGroup":
 
 ```azurecli
     az group create -n MyResourceGroup -l local
@@ -459,11 +459,11 @@ Pokud je skupina prostředků úspěšně vytvořená, předchozí příkaz vytv
 
 V této části se dozvíte, jak nastavit rozhraní příkazového řádku, pokud jako službu pro správu používáte službu Active Directory federovaného Services (AD FS) a používáte rozhraní příkazového řádku (CLI) na počítači se systémem Linux.
 
-### <a name="trust-the-azure-stack-ca-root-certificate"></a>Důvěřovat kořenovému certifikátu certifikační autority Azure Stack
+### <a name="trust-the-azure-stack-hub-ca-root-certificate"></a>Důvěřovat kořenovému certifikátu certifikační autority centra Azure Stack
 
 Pokud používáte ASDK, musíte na svém vzdáleném počítači důvěřovat kořenovému certifikátu certifikační autority. Tento krok není nezbytný u integrovaných systémů.
 
-Důvěřování kořenovému certifikátu certifikační autority Azure Stack připojením k existujícímu certifikátu Pythonu.
+Důvěřování kořenovému certifikátu certifikační autority centra Azure Stack tak, že ho připojíte k existujícímu certifikátu Pythonu.
 
 1. Najděte umístění certifikátu na svém počítači. Umístění se může lišit v závislosti na tom, kde jste nainstalovali Python. Musíte mít nainstalovaný PIP a modul certifi. Z příkazového řádku bash použijte následující příkaz Pythonu:
 
@@ -481,17 +481,17 @@ Důvěřování kořenovému certifikátu certifikační autority Azure Stack p�
      sudo cat PATH_TO_PEM_FILE >> ~/<yourpath>/cacert.pem
      ```
 
-   - Pro počítač se systémem Linux v prostředí Azure Stack:
+   - Pro počítač se systémem Linux v prostředí Azure Stack hub:
 
      ```bash  
      sudo cat /var/lib/waagent/Certificates.pem >> ~/<yourpath>/cacert.pem
      ```
 
-### <a name="connect-to-azure-stack"></a>Připojení k Azure Stack
+### <a name="connect-to-azure-stack-hub"></a>Připojení k centru Azure Stack
 
-Pomocí následujících kroků se připojte k Azure Stack:
+Pomocí následujících kroků se připojte k centru Azure Stack:
 
-1. Zaregistrujte Azure Stack prostředí spuštěním příkazu `az cloud register`.
+1. Zaregistrujte své prostředí Azure Stackového centra spuštěním příkazu `az cloud register`.
 
 2. Zaregistrujte své prostředí. Při spuštění `az cloud register`použijte následující parametry.
 
@@ -513,16 +513,16 @@ Pomocí následujících kroků se připojte k Azure Stack:
         az cloud set -n <environmentname>
       ```
 
-4. Aktualizujte konfiguraci prostředí tak, aby používala konkrétní profil verze rozhraní API Azure Stack. Chcete-li aktualizovat konfiguraci, spusťte následující příkaz:
+4. Aktualizujte konfiguraci prostředí tak, aby používala profil konkrétní verze rozhraní API centra Azure Stack. Chcete-li aktualizovat konfiguraci, spusťte následující příkaz:
 
     ```azurecli
       az cloud update --profile 2019-03-01-hybrid
    ```
 
     >[!NOTE]  
-    >Pokud používáte verzi Azure Stack před sestavením 1808, musíte použít profil verze API **2017-03-09-Profile** , nikoli profil verze API **2019-03-01-Hybrid**. Musíte také použít nejnovější verzi Azure CLI.
+    >Pokud používáte verzi centra Azure Stack před sestavením 1808, musíte použít profil verze API **2017-03-09-Profile** , nikoli profil verze rozhraní API **2019-03-01-Hybrid**. Musíte také použít nejnovější verzi Azure CLI.
 
-5. Přihlaste se ke svému Azure Stack prostředí pomocí příkazu `az login`. K prostředí Azure Stack se můžete přihlásit buď jako uživatel, nebo jako [instanční objekt](/azure/active-directory/develop/app-objects-and-service-principals). 
+5. Přihlaste se k prostředí Azure Stackového centra pomocí příkazu `az login`. K prostředí služby Azure Stack hub se můžete přihlásit buď jako uživatel, nebo jako [instanční objekt](/azure/active-directory/develop/app-objects-and-service-principals). 
 
 6. Přihlásit se: 
 
@@ -555,7 +555,7 @@ Pomocí následujících kroků se připojte k Azure Stack:
 
 ### <a name="test-the-connectivity"></a>Otestovat připojení
 
-Když máte všechno nastavené, pomocí rozhraní příkazového řádku můžete vytvářet prostředky v rámci Azure Stack. Můžete například vytvořit skupinu prostředků pro aplikaci a přidat virtuální počítač. Pomocí následujícího příkazu vytvořte skupinu prostředků s názvem "MyResourceGroup":
+Když máte všechno nastavené, pomocí rozhraní příkazového řádku můžete vytvářet prostředky v rámci centra Azure Stack. Můžete například vytvořit skupinu prostředků pro aplikaci a přidat virtuální počítač. Pomocí následujícího příkazu vytvořte skupinu prostředků s názvem "MyResourceGroup":
 
 ```azurecli
   az group create -n MyResourceGroup -l local
@@ -567,14 +567,14 @@ Pokud je skupina prostředků úspěšně vytvořená, předchozí příkaz vytv
 
 ## <a name="known-issues"></a>Známé problémy
 
-Při použití rozhraní příkazového řádku v Azure Stack se vyskytly známé problémy:
+Při použití rozhraní příkazového řádku v Azure Stackovém centru jsou známé problémy:
 
- - Interaktivní režim rozhraní příkazového řádku Například příkaz `az interactive` není dosud podporován v Azure Stack.
- - Pokud chcete získat seznam imagí virtuálních počítačů, které jsou k dispozici v Azure Stack, použijte příkaz `az vm image list --all` namísto příkazu `az vm image list`. Zadáním možnosti `--all` zajistíte, že odpověď vrátí pouze obrázky, které jsou k dispozici ve vašem Azure Stack prostředí.
- - Aliasy imagí virtuálních počítačů, které jsou k dispozici v Azure, se nemusí pro Azure Stack použít. Při použití imagí virtuálních počítačů musíte použít celý parametr URN (kanonický: UbuntuServer: 14.04.3-LTS: 1.0.0) místo aliasu image. Tento název URN se musí shodovat s specifikacemi obrázku odvozenými z příkazu `az vm images list`.
+ - Interaktivní režim rozhraní příkazového řádku Například příkaz `az interactive` se v centru Azure Stack ještě nepodporuje.
+ - Pokud chcete získat seznam imagí virtuálních počítačů, které jsou k dispozici v Azure Stackovém centru, použijte příkaz `az vm image list --all` namísto příkazu `az vm image list`. Zadáním možnosti `--all` zajistíte, že odpověď vrátí pouze obrázky, které jsou k dispozici ve vašem prostředí centra Azure Stack.
+ - Aliasy imagí virtuálních počítačů, které jsou dostupné v Azure, se nedají použít pro centrum Azure Stack. Při použití imagí virtuálních počítačů musíte použít celý parametr URN (kanonický: UbuntuServer: 14.04.3-LTS: 1.0.0) místo aliasu image. Tento název URN se musí shodovat s specifikacemi obrázku odvozenými z příkazu `az vm images list`.
 
 ## <a name="next-steps"></a>Další kroky
 
 - [Nasazení šablon pomocí Azure CLI](azure-stack-deploy-template-command-line.md)
-- [Povolení Azure CLI pro uživatele Azure Stack (operátor)](../operator/azure-stack-cli-admin.md)
+- [Povolení Azure CLI pro uživatele centra Azure Stack (operátor)](../operator/azure-stack-cli-admin.md)
 - [Správa uživatelských oprávnění](azure-stack-manage-permissions.md) 

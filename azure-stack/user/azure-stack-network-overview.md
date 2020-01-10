@@ -1,6 +1,6 @@
 ---
-title: Úvod do sítě Azure Stack | Microsoft Docs
-description: Informace o Azure Stack sítě
+title: Úvod do sítě centra Azure Stack | Microsoft Docs
+description: Další informace o sítích centra Azure Stack
 services: azure-stack
 author: mattbriggs
 manager: femila
@@ -10,37 +10,37 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: scottnap
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: e47079b100487331434a201a05bbcae7645de4f1
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: 0def34d0eb7209cdeb7d13e0e84529862a0ae71d
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71824163"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75816033"
 ---
-# <a name="introduction-to-azure-stack-networking"></a>Úvod do práce se sítěmi na platformě Azure Stack
+# <a name="introduction-to-azure-stack-hub-networking"></a>Úvod do sítě Azure Stack hub
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
-Azure Stack poskytuje různé druhy síťových schopností, které se dají použít společně nebo samostatně:
+Centrum Azure Stack nabízí různé druhy síťových schopností, které se dají použít společně nebo samostatně:
 
-- **Připojení mezi prostředky Azure Stack**  
+- **Připojení mezi prostředky centra Azure Stack**  
     Propojte prostředky Azure společně v zabezpečené a privátní virtuální síti v cloudu.
 - **Připojení k Internetu**  
-    Komunikace s Azure Stack prostředky přes Internet a z nich.
+    Komunikace s prostředky centra Azure Stack a jejich využití přes Internet.
 - **Místní připojení**  
-    Připojení místní sítě k Azure Stack prostředků prostřednictvím virtuální privátní sítě (VPN) přes Internet nebo prostřednictvím vyhrazeného připojení k Azure Stack.
+    Připojte místní síť, abyste mohli Azure Stack prostředky centra prostřednictvím virtuální privátní sítě (VPN) přes Internet nebo prostřednictvím vyhrazeného připojení k Azure Stackmu centru.
 - **Vyrovnávání zatížení a směr provozu**  
     Vyrovnávání zatížení provozu na servery ve stejném umístění a přímý provoz na servery v různých umístěních.
 - **Zabezpečení**  
     Filtrovat síťový provoz mezi síťovými podsítěmi nebo jednotlivými virtuálními počítači.
 - **Směrování**  
-    Použijte výchozí směrování nebo plně řídit směrování mezi Azure Stack a místními prostředky.
+    Použijte výchozí směrování nebo plně řídit směrování mezi Azure Stackm rozbočovačem a místními prostředky.
 - **Možnosti správy**  
-    Monitorujte a spravujte své Azure Stack síťové prostředky.
+    Monitorujte a spravujte své síťové prostředky centra Azure Stack.
 - **Nástroje pro nasazení a konfiguraci**  
     K nasazení a konfiguraci síťových prostředků použijte webové portály nebo nástroje příkazového řádku pro různé platformy.
 
 
 ## <a name="next-steps"></a>Další kroky
 
-* [Aspekty sítí Azure Stack](azure-stack-network-differences.md)
+* [Požadavky na síť centra Azure Stack](azure-stack-network-differences.md)

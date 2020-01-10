@@ -1,6 +1,6 @@
 ---
-title: Vytvořte virtuální počítač se systémem Linux pomocí rozhraní příkazového řádku Azure v Azure Stack | Microsoft Docs
-description: Vytvořte virtuální počítač se systémem Linux pomocí rozhraní příkazového řádku Azure v Azure Stack.
+title: Vytvoření virtuálního počítače se systémem Linux pomocí rozhraní příkazového řádku Azure v centru pro Azure Stack | Microsoft Docs
+description: Vytvořte virtuální počítač se systémem Linux pomocí rozhraní příkazového řádku Azure v centru Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,16 +15,16 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.custom: mvc
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 84689e45bff8150616f37205eaa4a9bd9b25ff04
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: 2c716504dafe4ec76f53006b97e1623289b2c036
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71824252"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75819450"
 ---
-# <a name="quickstart-create-a-linux-server-vm-by-using-the-azure-cli-in-azure-stack"></a>Rychlý start: Vytvoření virtuálního počítače s Linux serverem pomocí Azure CLI v Azure Stack
+# <a name="quickstart-create-a-linux-server-vm-by-using-the-azure-cli-in-azure-stack-hub"></a>Rychlý Start: Vytvoření virtuálního počítače s Linux serverem pomocí rozhraní příkazového řádku Azure v centru Azure Stack
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 Virtuální počítač s Ubuntu serverem 16,04 LTS můžete vytvořit pomocí rozhraní příkazového řádku Azure. V tomto článku vytvoříte a použijete virtuální počítač. Tento článek také ukazuje, jak:
 
@@ -34,17 +34,17 @@ Virtuální počítač s Ubuntu serverem 16,04 LTS můžete vytvořit pomocí ro
 
 ## <a name="prerequisites"></a>Požadavky
 
-* Image Linux na webu Azure Stack Marketplace
+* Image Linux na webu centra Azure Stack Marketplace
 
-   Web Azure Stack Marketplace ve výchozím nastavení neobsahuje bitovou kopii systému Linux. Použijte operátor Azure Stack, který obsahuje bitovou kopii Ubuntu serveru 16,04 LTS, kterou potřebujete. Operátor může použít pokyny v tématu [stažení položek Marketplace z Azure do Azure Stack](../operator/azure-stack-download-azure-marketplace-item.md).
+   Tržiště centra Azure Stack ve výchozím nastavení neobsahuje image Linux. Použijte operátor centra Azure Stack, který obsahuje bitovou kopii Ubuntu serveru 16,04 LTS, kterou potřebujete. Operátor může použít pokyny v tématu [stažení položek Marketplace z Azure do centra Azure Stack](../operator/azure-stack-download-azure-marketplace-item.md).
 
-* Azure Stack vyžaduje pro vytváření a správu prostředků specifickou verzi rozhraní příkazového řádku Azure CLI. Pokud nemáte rozhraní příkazového řádku Azure nakonfigurované pro Azure Stack, přihlaste se k [Azure Stack Development Kit](../asdk/asdk-connect.md#connect-to-azure-stack-using-rdp) (nebo externímu klientovi se systémem Windows, pokud jste [připojení prostřednictvím sítě VPN](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn)) a postupujte podle pokynů k [instalaci a konfiguraci Azure. ](azure-stack-version-profiles-azurecli2.md)Rozhraní příkazového řádku
+* Aby bylo možné vytvářet a spravovat prostředky, Azure Stack centrum vyžaduje specifickou verzi rozhraní příkazového řádku Azure. Pokud nemáte rozhraní příkazového řádku Azure nakonfigurované pro centrum Azure Stack, přihlaste se k [Azure Stack Development Kit](../asdk/asdk-connect.md#connect-to-azure-stack-using-rdp) (nebo externímu klientovi se systémem Windows, pokud jste [připojení prostřednictvím sítě VPN](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn)) a postupujte podle pokynů k [instalaci a konfiguraci rozhraní příkazového řádku Azure CLI](azure-stack-version-profiles-azurecli2.md).
 
 * Klíč veřejného Secure Shell (SSH) s názvem *id_rsa. pub* uložený v adresáři *. ssh* uživatelského profilu Windows. Podrobné informace o vytváření klíčů SSH najdete v tématu [použití veřejného klíče SSH](azure-stack-dev-start-howto-ssh-public-key.md).
 
 ## <a name="create-a-resource-group"></a>Vytvoření skupiny prostředků
 
-Skupina prostředků je logický kontejner, ve kterém můžete nasazovat a spravovat prostředky Azure Stack. V sadě pro vývoj nebo v integrovaném systému Azure Stack spusťte pomocí příkazu [AZ Group Create](/cli/azure/group#az-group-create) , aby se vytvořila skupina prostředků.
+Skupina prostředků je logický kontejner, ve kterém můžete nasazovat a spravovat prostředky centra Azure Stack. Z vývojové sady nebo integrovaného systému centra Azure Stack vytvořte skupinu prostředků spuštěním příkazu [AZ Group Create](/cli/azure/group#az-group-create) .
 
 > [!NOTE]
 > V následujících příkladech kódu jsme přiřadili hodnoty pro všechny proměnné. Můžete ale přiřadit vlastní hodnoty.
@@ -117,4 +117,4 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Další kroky
 
-V tomto rychlém startu jste nasadili základní virtuální počítač s Linux serverem s webovým serverem. Další informace o Azure Stack virtuálních počítačích najdete v tématu [informace o virtuálních počítačích v Azure Stack](azure-stack-vm-considerations.md).
+V tomto rychlém startu jste nasadili základní virtuální počítač s Linux serverem s webovým serverem. Další informace o virtuálních počítačích s Azure Stack hub najdete [v tématu informace o virtuálních počítačích v centru Azure Stack](azure-stack-vm-considerations.md).

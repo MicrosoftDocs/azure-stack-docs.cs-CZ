@@ -1,7 +1,7 @@
 ---
-title: Aktualizace poskytovatele prostředků Azure Stack SQL
-titleSuffix: Azure Stack
-description: Naučte se aktualizovat poskytovatele prostředků Azure Stack SQL.
+title: Aktualizace poskytovatele prostředků SQL centra Azure Stack
+titleSuffix: Azure Stack Hub
+description: Naučte se aktualizovat poskytovatele prostředků SQL centra Azure Stack.
 services: azure-stack
 documentationCenter: ''
 author: mattbriggs
@@ -16,20 +16,20 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 2669ed87e46307bb84aa9639d42b100cdc0cfd46
-ms.sourcegitcommit: 08d2938006b743b76fba42778db79202d7c3e1c4
+ms.openlocfilehash: e7436c6a96dfbe5bdfd392b915d0206bf969130e
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74954430"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75814299"
 ---
 # <a name="update-the-sql-resource-provider"></a>Aktualizovat poskytovatele prostředků SQL
 
-*Platí pro: Azure Stack integrovaných systémů.*
+*Platí pro: Azure Stack integrovaných systémů centra.*
 
-Když se Azure Stack aktualizuje na nové sestavení, může být vydaný nový poskytovatel prostředků SQL. I když stávající poskytovatel prostředků i nadále funguje, doporučujeme aktualizovat na nejnovější sestavení co nejdříve.
+Nový poskytovatel prostředků SQL může být vydaný, když se Azure Stack centrum aktualizuje na nové sestavení. I když stávající poskytovatel prostředků i nadále funguje, doporučujeme aktualizovat na nejnovější sestavení co nejdříve.
 
-Od verze 1.1.33.0 verze poskytovatele prostředků SQL jsou aktualizace kumulativní a nemusíte je instalovat v pořadí, ve kterém byly vydané, pokud začínáte z verze 1.1.24.0 nebo novější. Například pokud používáte 1.1.24.0 verze poskytovatele prostředků SQL, můžete upgradovat na verzi 1.1.33.0 nebo novější, aniž byste museli nejdřív nainstalovat verzi 1.1.30.0. Pokud chcete zkontrolovat dostupné verze poskytovatele prostředků a verzi Azure Stack podporovaná na, přečtěte si článek seznam verzí v tématu [nasazení požadavků poskytovatele prostředků](./azure-stack-sql-resource-provider-deploy.md#prerequisites).
+Od verze 1.1.33.0 verze poskytovatele prostředků SQL jsou aktualizace kumulativní a nemusíte je instalovat v pořadí, ve kterém byly vydané, pokud začínáte z verze 1.1.24.0 nebo novější. Například pokud používáte 1.1.24.0 verze poskytovatele prostředků SQL, můžete upgradovat na verzi 1.1.33.0 nebo novější, aniž byste museli nejdřív nainstalovat verzi 1.1.30.0. Pokud chcete zkontrolovat dostupné verze poskytovatele prostředků a verzi centra Azure Stack, na které jsou podporované, přečtěte si téma seznam verzí v tématu [nasazení požadavků poskytovatele prostředků](./azure-stack-sql-resource-provider-deploy.md#prerequisites).
 
 Chcete-li aktualizovat poskytovatele prostředků, použijte skript *UpdateSQLProvider. ps1* . Tento skript je součástí stažení nového poskytovatele prostředků SQL. Proces aktualizace je podobný procesu použitému k [nasazení poskytovatele prostředků](./azure-stack-sql-resource-provider-deploy.md). Skript aktualizace používá stejné argumenty jako skript DeploySqlProvider. ps1 a budete muset zadat informace o certifikátu.
 
@@ -45,7 +45,7 @@ Skript *UpdateSQLProvider. ps1* vytvoří nový virtuální počítač (VM) s ne
 
 Po vytvoření nového virtuálního počítače pomocí skriptu *UpdateSQLProvider. ps1* migruje skript následující nastavení z původního virtuálního počítače poskytovatele:
 
-* informace o databázi
+* Informace o databázi
 * informace o hostitelském serveru
 * požadovaný záznam DNS
 
@@ -56,10 +56,10 @@ Když spustíte skript prostředí PowerShell **UpdateSQLProvider. ps1** , můž
 | Název parametru | Popis | Komentář nebo výchozí hodnota |
 | --- | --- | --- |
 | **CloudAdminCredential** | Přihlašovací údaje pro správce cloudu, které jsou nezbytné pro přístup k privilegovanému koncovému bodu. | _Vyžaduje_ |
-| **AzCredential** | Přihlašovací údaje pro účet správce služby Azure Stack Použijte stejné přihlašovací údaje, které jste použili pro nasazení Azure Stack. | _Vyžaduje_ |
+| **AzCredential** | Přihlašovací údaje pro účet správce služby Azure Stack hub. Použijte stejné přihlašovací údaje, které jste použili k nasazení centra Azure Stack. | _Vyžaduje_ |
 | **VMLocalCredential** | Přihlašovací údaje pro účet místního správce virtuálního počítače poskytovatele prostředků SQL. | _Vyžaduje_ |
 | **PrivilegedEndpoint** | IP adresa nebo název DNS privilegovaného koncového bodu. |  _Vyžaduje_ |
-| **AzureEnvironment** | Prostředí Azure účtu správce služby, které jste použili pro nasazení Azure Stack. Vyžaduje se jenom pro nasazení Azure AD. Podporované názvy prostředí jsou **AzureCloud**, **AzureUSGovernment**nebo, pokud používáte Čína Azure AD **AzureChinaCloud**. | AzureCloud |
+| **AzureEnvironment** | Prostředí Azure účtu správce služby, které jste použili k nasazení centra Azure Stack. Vyžaduje se jenom pro nasazení Azure AD. Podporované názvy prostředí jsou **AzureCloud**, **AzureUSGovernment**nebo, pokud používáte Čína Azure AD **AzureChinaCloud**. | AzureCloud |
 | **DependencyFilesLocalPath** | Do tohoto adresáře musíte taky vložit soubor Certificate. pfx. | _Volitelné pro jeden uzel, ale je povinný pro více uzlů_ |
 | **DefaultSSLCertificatePassword** | Heslo pro certifikát. pfx. | _Vyžaduje_ |
 | **MaxRetryCount** | Počet pokusů o opakování všech operací, pokud dojde k selhání.| 2 |
@@ -69,13 +69,13 @@ Když spustíte skript prostředí PowerShell **UpdateSQLProvider. ps1** , můž
 
 ## <a name="update-script-powershell-example"></a>Příklad aktualizace skriptu PowerShellu
 > [!NOTE]
-> Tento proces aktualizace se týká pouze Azure Stack integrovaných systémů.
+> Tento proces aktualizace platí jenom pro integrované systémy Azure Stack hub.
 
-Pokud aktualizujete verzi poskytovatele prostředků SQL na 1.1.33.0 nebo předchozí verze, budete muset v PowerShellu nainstalovat konkrétní verze AzureRm. zaváděcího nástroje a Azure Stack moduly. Pokud aktualizujete na poskytovatele prostředků SQL verze 1.1.47.0, tento krok se dá přeskočit.
+Pokud aktualizujete verzi poskytovatele prostředků SQL na 1.1.33.0 nebo předchozí verze, budete muset v PowerShellu nainstalovat konkrétní verze modulů AzureRm. zaváděcího nástroje a Azure Stack hub. Pokud aktualizujete na poskytovatele prostředků SQL verze 1.1.47.0, tento krok se dá přeskočit.
 
 ```powershell
 # Install the AzureRM.Bootstrapper module, set the profile, and install the AzureStack module.
-# Note that this might not be the most currently available version of Azure Stack PowerShell.
+# Note that this might not be the most currently available version of Azure Stack Hub PowerShell.
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
 Install-Module -Name AzureStack -RequiredVersion 1.6.0
@@ -84,13 +84,13 @@ Install-Module -Name AzureStack -RequiredVersion 1.6.0
 Následuje příklad použití skriptu *UpdateSQLProvider. ps1* , který můžete spustit z konzoly PowerShell se zvýšenými oprávněními. Nezapomeňte změnit informace o proměnné a hesla podle potřeby:  
 
 ```powershell
-# Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but this might have been changed at installation.
+# Use the NetBIOS name for the Azure Stack Hub domain. On the Azure Stack Hub SDK, the default is AzureStack but this might have been changed at installation.
 $domain = "AzureStack"
 
 # For integrated systems, use the IP address of one of the ERCS VMs.
 $privilegedEndpoint = "AzS-ERCS01"
 
-# Provide the Azure environment used for deploying Azure Stack. Required only for Azure AD deployments. Supported values for the <environment name> parameter are AzureCloud, AzureChinaCloud, or AzureUSGovernment depending which Azure subscription you're using.
+# Provide the Azure environment used for deploying Azure Stack Hub. Required only for Azure AD deployments. Supported values for the <environment name> parameter are AzureCloud, AzureChinaCloud, or AzureUSGovernment depending which Azure subscription you're using.
 $AzureEnvironment = "<EnvironmentName>"
 
 # Point to the directory where the resource provider installation files were extracted.

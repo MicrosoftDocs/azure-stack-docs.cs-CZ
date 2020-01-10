@@ -1,6 +1,6 @@
 ---
-title: Vytvoření virtuálního počítače s Windows serverem pomocí PowerShellu v Azure Stack | Microsoft Docs
-description: Vytvořte virtuální počítač s Windows serverem pomocí PowerShellu v Azure Stack.
+title: Vytvoření virtuálního počítače s Windows serverem pomocí prostředí PowerShell v centru pro Azure Stack | Microsoft Docs
+description: Vytvořte virtuální počítač s Windows serverem pomocí PowerShellu v centru Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,18 +16,18 @@ ms.author: mabrigg
 ms.custom: mvc
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: e31edd266c16fa51855efa3259c86ecf9b53660b
-ms.sourcegitcommit: bbe1048682c7dccc6cebde542462c14ee1f3d0d1
+ms.openlocfilehash: 6bb40ef1f10bcb0d4cadf6252d5e0dd5d8f268bc
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75677684"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75815965"
 ---
-# <a name="quickstart-create-a-windows-server-vm-by-using-powershell-in-azure-stack"></a>Rychlý Start: Vytvoření virtuálního počítače s Windows serverem pomocí PowerShellu v Azure Stack
+# <a name="quickstart-create-a-windows-server-vm-by-using-powershell-in-azure-stack-hub"></a>Rychlý Start: Vytvoření virtuálního počítače s Windows serverem pomocí PowerShellu v Azure Stackovém centru
 
-*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
-Virtuální počítač s Windows serverem 2016 můžete vytvořit pomocí Azure Stack PowerShellu. Pokud chcete vytvořit a použít virtuální počítač, postupujte podle kroků v tomto článku. Tento článek také popisuje kroky pro:
+Virtuální počítač s Windows serverem 2016 můžete vytvořit pomocí centra Azure Stack PowerShell. Pokud chcete vytvořit a použít virtuální počítač, postupujte podle kroků v tomto článku. Tento článek také popisuje kroky pro:
 
 * Připojte se k virtuálnímu počítači pomocí vzdáleného klienta.
 * Nainstalujte webový server služby IIS a zobrazte výchozí domovskou stránku.
@@ -38,15 +38,15 @@ Virtuální počítač s Windows serverem 2016 můžete vytvořit pomocí Azure 
 
 ## <a name="prerequisites-for-windows-server-vm"></a>Předpoklady pro virtuální počítač s Windows serverem
 
-* Ujistěte se, že váš operátor Azure Stack přidal do webu Azure Stack Marketplace image **Windows serveru 2016** .
+* Ujistěte se, že váš operátor centra Azure Stack přidal do tržiště centra Azure Stack image **Windows serveru 2016** .
 
-* Azure Stack vyžaduje pro vytváření a správu prostředků specifickou verzi Azure PowerShell. Pokud nemáte PowerShell nakonfigurovaný pro Azure Stack, postupujte podle pokynů k [instalaci](../operator/azure-stack-powershell-install.md) PowerShellu.
+* Azure Stack centrum vyžaduje pro vytváření a správu prostředků specifickou verzi Azure PowerShell. Pokud nemáte PowerShell nakonfigurovaný pro centrum Azure Stack, postupujte podle pokynů k [instalaci](../operator/azure-stack-powershell-install.md) PowerShellu.
 
-* Když nastavíte Azure Stack PowerShell, budete se muset připojit k vašemu Azure Stack prostředí. Pokyny najdete v tématu [připojení k Azure Stack pomocí prostředí PowerShell jako uživatel](azure-stack-powershell-configure-user.md).
+* S nastavením prostředí PowerShell centra Azure Stack se budete muset připojit k prostředí centra Azure Stack. Pokyny najdete v tématu [připojení k Azure Stack hub pomocí PowerShellu jako uživatel](azure-stack-powershell-configure-user.md).
 
 ## <a name="create-a-resource-group"></a>Vytvoření skupiny prostředků
 
-Skupina prostředků je logický kontejner, do kterého se Azure Stack prostředky nasazují a spravují. Z vývojové sady nebo Azure Stack integrovaného systému spusťte následující blok kódu, který vytvoří skupinu prostředků. 
+Skupina prostředků je logický kontejner, ve kterém se nasazují a spravují prostředky centra Azure Stack. Z vývojové sady nebo integrovaného systému centra Azure Stack spusťte následující blok kódu, který vytvoří skupinu prostředků. 
 
 > [!NOTE]
 > Hodnoty jsou přiřazeny pro všechny proměnné v příkladech kódu. V případě potřeby však můžete přiřadit nové hodnoty.
@@ -248,4 +248,4 @@ Remove-AzureRmResourceGroup `
 
 ## <a name="next-steps"></a>Další kroky
 
-V tomto rychlém startu jste nasadili jednoduchý virtuální počítač s Windows. Další informace o Azure Stack virtuálních počítačů najdete v [Azure Stack funkcích virtuálních počítačů](azure-stack-vm-considerations.md).
+V tomto rychlém startu jste nasadili jednoduchý virtuální počítač s Windows. Další informace o Azure Stackch virtuálních počítačích centra najdete v [Azure Stack funkcí virtuálních počítačů centra](azure-stack-vm-considerations.md).

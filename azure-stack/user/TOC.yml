@@ -43,7 +43,7 @@
               items:
                 - name: Azure Stack centra PowerShell – přehled
                   href: azure-stack-powershell-overview.md
-                - name: Instalace Azure Stack PowerShellu
+                - name: Nainstalovat Azure Stack centra PowerShell
                   href: /azure-stack/operator/azure-stack-powershell-install?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
                   maintainContext: true
                 - name: Připojení přes PowerShell
@@ -133,7 +133,7 @@
                   href: vm-update-management.md
                 - name: Důležité informace o virtuální počítač s SQL serverem
                   href: azure-stack-sql-server-vm-considerations.md
-            - name: Úložiště
+            - name: Storage
               items:
                 - name: Přehled
                   href: azure-stack-storage-overview.md
@@ -145,7 +145,7 @@
                   href: azure-stack-storage-transfer.md
                 - name: Připojení průzkumníka úložišť
                   href: azure-stack-storage-connect-se.md
-            - name: Síť
+            - name: Network (Síť)
               items:
                 - name: Přehled
                   href: azure-stack-network-overview.md
@@ -280,14 +280,14 @@
           items:
             - name: Připojení k úložišti iSCSI
               href: azure-stack-network-howto-iscsi-storage.md
-            - name: Rozšiřování datového centra
+            - name: Rozšiřování datacentra
               href: azure-stack-network-howto-extend-datacenter.md
         - name: Partnerský vztah virtuální sítě
         - name: Zálohování a obnovení
           items:
-            - name: Zálohování virtuálního počítače na Azure Stack pomocí CommVault
+            - name: Zálohování virtuálního počítače v Azure Stack hub pomocí CommVault
               href: azure-stack-network-howto-backup-commvault.md
-            - name: Zálohování účtů úložiště v Azure Stack
+            - name: Zálohování účtů úložiště v centru Azure Stack
               href: azure-stack-network-howto-backup-storage.md
             - name: Kopírovat prostředky předplatného
               href: azure-stack-network-howto-backup-replicator.md
@@ -307,7 +307,7 @@
           href: iaas-architecture-nva-architecture.md
 - name: Referenční informace
   items:
-    - name: Azure Stack PowerShell
+    - name: Prostředí PowerShell centra Azure Stack
       href: /powershell/azure/azure-stack/overview?view=azurestackps-1.3.0
     - name: Prohlížeč REST API centra Azure Stack
       href: /rest/api/
@@ -321,11 +321,11 @@
       href: /azure-stack/asdk/
 - name: Materiály
   items:
-    - name: Plán služby Azure Stack
+    - name: Plán centra Azure Stack
       href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'
-    - name: Fóru pro Azure Stack MSDN
+    - name: Fórum MSDN centra Azure Stack
       href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack'
-    - name: Váš názor na Azure Stack dokumentace
+    - name: Názory na dokumentaci centra Azure Stack
       href: 'https://feedback.azure.com/forums/344565-azure-stack?category_id=160275'
     - name: Informace o cenách
       href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'

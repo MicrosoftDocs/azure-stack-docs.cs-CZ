@@ -1,6 +1,6 @@
 ---
-title: Vytvoření diskového úložiště virtuálního počítače v Azure Stack | Microsoft Docs
-description: Vytvořte disky pro virtuální počítače v Azure Stack.
+title: Vytvoření úložiště disku virtuálního počítače v centru Azure Stack | Microsoft Docs
+description: Vytvořte disky pro virtuální počítače v centru Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,24 +15,24 @@ ms.date: 12/03/2019
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: 49b89a23b33607eac217e2393a489fac6ce59934
-ms.sourcegitcommit: e509ae283c6c3c6a83143dbdc63d0b5556daf54a
+ms.openlocfilehash: eda17ea2c33e826df303870a3ae6c25e7b017226
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2019
-ms.locfileid: "75031815"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75819943"
 ---
-# <a name="create-vm-disk-storage-in-azure-stack"></a>Vytvoření diskového úložiště virtuálního počítače v Azure Stack
+# <a name="create-vm-disk-storage-in-azure-stack-hub"></a>Vytvoření úložiště disku virtuálního počítače v centru Azure Stack
 
-*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
-Tento článek popisuje, jak vytvořit úložiště disku virtuálního počítače pomocí Azure Stackového portálu nebo pomocí PowerShellu.
+Tento článek popisuje, jak pomocí portálu Azure Stack hub vytvořit virtuální počítač (VM) úložiště disku nebo pomocí PowerShellu.
 
 ## <a name="overview"></a>Přehled
 
-Počínaje verzí 1808 Azure Stack podporuje na virtuálních počítačích použití spravovaných disků a nespravovaných disků, jako je operační systém (OS) i datový disk. Před verzí 1808 jsou podporovány pouze nespravované disky.
+Od verze 1808 centrum Azure Stack podporuje na virtuálních počítačích použití spravovaných disků a nespravovaných disků, jako je operační systém (OS) i datový disk. Před verzí 1808 jsou podporovány pouze nespravované disky.
 
-[Spravované disky](/azure/virtual-machines/windows/managed-disks-overview) zjednodušují správu disků pro virtuální počítače Azure IaaS tím, že spravují účty úložiště přidružené k DISKŮM virtuálních počítačů. Stačí jenom zadat požadovanou velikost disku a Azure Stack ho vytvoří a bude spravovat za vás.
+[Spravované disky](/azure/virtual-machines/windows/managed-disks-overview) zjednodušují správu disků pro virtuální počítače Azure IaaS tím, že spravují účty úložiště přidružené k DISKŮM virtuálních počítačů. Stačí zadat velikost disku, kterou potřebujete, a Azure Stack rozbočovač vytvoří a spravuje disk za vás.
 
 Nespravované disky vyžadují, abyste vytvořili účet úložiště pro ukládání disků. Disky, které vytvoříte, jsou označovány jako disky virtuálních počítačů a jsou uloženy v kontejnerech v účtu úložiště.
 
@@ -52,7 +52,7 @@ Následující tabulka shrnuje, jak přidat disky pomocí portálu a pomocí pro
 
 | Metoda | Možnosti
 |-|-|
-|Portál User Portal|– Přidejte nové datové disky do existujícího virtuálního počítače. Nové disky jsou vytvořeny pomocí Azure Stack. </br> </br> – Přidejte existující soubor disku (. VHD) do dříve vytvořeného virtuálního počítače. K tomu je potřeba připravit soubor. VHD a pak ho nahrát do Azure Stack. |
+|Portál User Portal|– Přidejte nové datové disky do existujícího virtuálního počítače. Nové disky jsou vytvářeny pomocí centra Azure Stack. </br> </br> – Přidejte existující soubor disku (. VHD) do dříve vytvořeného virtuálního počítače. K tomu je potřeba připravit soubor. VHD a pak ho nahrát do centra Azure Stack. |
 |[PowerShell](#use-powershell-to-add-multiple-disks-to-a-vm) | – Vytvořte nový virtuální počítač s diskem s operačním systémem a na tento virtuální počítač přidejte aspoň jeden datový disk. |
 
 ## <a name="use-the-portal-to-add-disks-to-a-vm"></a>Přidání disků do virtuálního počítače pomocí portálu
@@ -113,15 +113,15 @@ Každý nespravovaný disk, který přidáte, by měl být umístěn v samostatn
 
      Náklady na disk úrovně Standard se zvyšují podle velikosti disku. Náklady na disk Premium a výkon se zvyšují na základě velikosti disku. Další informace najdete v tématu [Managed disks ceny](https://go.microsoft.com/fwlink/?linkid=843142).
 
-   * Vyberte **Create** (Vytvořit). Azure Stack vytvoří a ověří spravovaný disk.
+   * Vyberte **Vytvořit**. Centrum Azure Stack vytvoří a ověří spravovaný disk.
 
-6. Po Azure Stack vytvoří disk a připojí ho k virtuálnímu počítači, nový disk se zobrazí v nastavení disku virtuálního počítače v části **datové disky**.
+6. Když Azure Stack hub vytvoří disk a připojí ho k virtuálnímu počítači, nový disk se zobrazí v nastavení disku virtuálního počítače v části **datové disky**.
 
    ![Příklad: zobrazení disku](media/azure-stack-manage-vm-disks/view-data-disk.png)
 
 ### <a name="add-a-data-disk-from-a-storage-account"></a>Přidání datového disku z účtu úložiště
 
-Další informace o práci s účty úložiště v Azure Stack najdete v tématu [Úvod do Azure Stack Storage](azure-stack-storage-overview.md).
+Další informace o práci s účty úložiště v centru Azure Stack najdete v tématu [Úvod do úložiště Azure Stack hub](azure-stack-storage-overview.md).
 
 1. Vyberte **účet úložiště** , který se má použít.
 2. Vyberte **kontejner** , do kterého chcete uložit datový disk. V okně **kontejnery** můžete vytvořit nový kontejner, pokud chcete. Pak můžete změnit umístění nového disku na vlastní kontejner. Pokud pro každý disk použijete samostatný kontejner, rozšíříte umístění datového disku, který zvyšuje výkon.
@@ -164,7 +164,7 @@ Další informace o práci s účty úložiště v Azure Stack najdete v tématu
 
     ![Příklad: připojení souboru VHD](media/azure-stack-manage-vm-disks/attach-vhd.png)
 
-8. Po Azure Stack vytvoří disk a připojí ho k virtuálnímu počítači, nový disk se zobrazí v nastavení disku virtuálního počítače v části **datové disky**.
+8. Když Azure Stack hub vytvoří disk a připojí ho k virtuálnímu počítači, nový disk se zobrazí v nastavení disku virtuálního počítače v části **datové disky**.
 
     ![Příklad: dokončení připojení k disku](media/azure-stack-manage-vm-disks/complete-disk-attach.png)
 
@@ -401,4 +401,4 @@ Update-AzureRmVM -ResourceGroupName "myResourceGroup" -VM $VirtualMachine
 
 ## <a name="next-steps"></a>Další kroky
 
-Další informace o Azure Stack virtuálních počítačů najdete [v tématu týkajícím se Virtual Machines v Azure Stack](azure-stack-vm-considerations.md).
+Další informace o Azure Stackch virtuálních počítačů centra najdete v tématu [požadavky pro Virtual Machines v centru Azure Stack](azure-stack-vm-considerations.md).

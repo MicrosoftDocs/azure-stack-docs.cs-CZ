@@ -1,6 +1,6 @@
 ---
-title: Jak se připojit k úložišti iSCSI pomocí Azure Stack | Microsoft Docs
-description: Přečtěte si, jak se připojit k úložišti iSCSI pomocí Azure Stack.
+title: Jak se připojit k úložišti iSCSI pomocí centra Azure Stack | Microsoft Docs
+description: Přečtěte si, jak se připojit k úložišti iSCSI pomocí centra Azure Stack.
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,31 +9,31 @@ ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: bed928bdd8ed7c521bd95ec005baafd42eb93047
-ms.sourcegitcommit: 58e1911a54ba249a82fa048c7798dadedb95462b
+ms.openlocfilehash: a8cb3ad8e45f6effc593b8c5b2cc9e59dd176f5f
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73064798"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75819688"
 ---
-# <a name="how-to-connect-to-iscsi-storage-with-azure-stack"></a>Jak se připojit k úložišti iSCSI pomocí Azure Stack
+# <a name="how-to-connect-to-iscsi-storage-with-azure-stack-hub"></a>Jak se připojit k úložišti iSCSI pomocí centra Azure Stack
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
-Pomocí šablony v tomto článku můžete připojit Azure Stack virtuální počítač k místnímu cíli iSCSI nastavení virtuálního počítače tak, aby používal úložiště hostované mimo naše Azure Stack a jinde ve vašem datovém centru. Tento článek se zabývá tím, že se jako cíl iSCSI používá počítač se systémem Windows.
+Pomocí šablony v tomto článku můžete připojit virtuální počítač centra Azure Stack k místnímu cíli iSCSI a nastavit virtuální počítač tak, aby používal úložiště hostované mimo naše Azure Stack centra a kdekoli ve vašem datovém centru. Tento článek se zabývá tím, že se jako cíl iSCSI používá počítač se systémem Windows.
 
-Šablonu najdete v **lucidqdreams** rozvětvení úložiště GitHub ve [vzorcích Azure Intelligent Edge](https://github.com/lucidqdreams/azure-intelligent-edge-patterns) . Šablona se nachází ve složce **úložiště – iSCSI** . Šablona byla navržena tak, aby na straně Azure Stack nastavila infrastrukturu potřebnou k připojení k cíli iSCSI. To zahrnuje virtuální počítač, který bude sloužit jako iniciátor iSCSI, spolu s doprovodnou sítí VNet, NSG, PIP a Storage. Po nasazení šablony musí být spuštěny dva skripty prostředí PowerShell, aby se konfigurace dokončila. Jeden skript se spustí na místním virtuálním počítači (cíl) a jeden se spustí na VIRTUÁLNÍm počítači s Azure Stack (iniciátor). Po dokončení budete mít k vašemu Azure Stack VIRTUÁLNÍmu počítači přidané místní úložiště. 
+Šablonu najdete v **lucidqdreams** rozvětvení úložiště GitHub ve [vzorcích Azure Intelligent Edge](https://github.com/lucidqdreams/azure-intelligent-edge-patterns) . Šablona se nachází ve složce **úložiště – iSCSI** . Šablona byla navržena tak, aby na straně centra Azure Stack nastavila infrastrukturu potřebnou k připojení k cíli iSCSI. To zahrnuje virtuální počítač, který bude sloužit jako iniciátor iSCSI, spolu s doprovodnou sítí VNet, NSG, PIP a Storage. Po nasazení šablony musí být spuštěny dva skripty prostředí PowerShell, aby se konfigurace dokončila. Jeden skript se spustí na místním virtuálním počítači (cíl) a jeden se spustí na virtuálním počítači centra Azure Stack (iniciátor). Po dokončení budete mít k VIRTUÁLNÍmu počítači centra Azure Stack přidat místní úložiště. 
 
 ## <a name="overview"></a>Přehled
 
-Diagram zobrazuje virtuální počítač hostovaný na Azure Stack s připojeným diskem iSCSI z počítače s Windows místně (fyzický nebo virtuální), což umožňuje, aby se úložiště Azure Stack externě připojovat k VIRTUÁLNÍmu počítači v Azure Stack hostovaném přes protokol iSCSI.
+Diagram zobrazuje virtuální počítač hostovaný v centru Azure Stack s připojeným diskem iSCSI z počítače s Windows místně (fyzický nebo virtuální) Azure Stack, což umožňuje, aby se externí úložiště připojilo k VIRTUÁLNÍmu počítači, který je hostitelem vašeho centra Azure Stack, přes protokol iSCSI.
 
 ![alternativní text](./media/azure-stack-network-howto-iscsi-storage/overview.png)
 
 ### <a name="requirements"></a>Požadavky
 
 - Místní počítač (fyzický nebo virtuální) se systémem Windows Server 2016 Datacenter nebo Windows Server 2019 Datacenter.
-- Požadované položky Azure Stack Marketplace:
+- Požadované položky centra Azure Stack na webu Marketplace:
     -  Windows Server 2016 Datacenter nebo Windows Server 2019 Datacenter (doporučuje se nejnovější sestavení).
     -  Rozšíření PowerShell DSC
     -  Rozšíření vlastních skriptů.
@@ -65,10 +65,10 @@ Diagram zobrazuje prostředky nasazené ze šablony za účelem vytvoření klie
 
 ### <a name="the-deployment-process"></a>Proces nasazení
 
-Šablona skupiny prostředků vygeneruje výstup, který je určen jako vstup pro další krok. Primárně se zaměřuje na název serveru a Azure Stack veřejnou IP adresu, kterou pocházejí z provozu iSCSI. V tomto příkladu:
+Šablona skupiny prostředků vygeneruje výstup, který je určen jako vstup pro další krok. Primárně se zaměřuje na název serveru a veřejnou IP adresu centra Azure Stack, kde provoz iSCSI pochází. Pro tento příklad:
 
 1. Nasaďte šablonu infrastruktury.
-2. Nasaďte Azure Stack virtuální počítač na virtuální počítač hostovaný jinde v datovém centru. 
+2. Nasaďte virtuální počítač centra Azure Stack do virtuálního počítače hostovaného jinde ve vašem datovém centru. 
 3. Spusťte `Create-iSCSITarget.ps1` s použitím výstupů IP adres a serverů z šablony jako parametrů pro výstup pro skript v cíli iSCSI, což může být virtuální počítač nebo fyzický server.
 4. Pro spuštění skriptu `Connect-toiSCSITarget.ps1` použijte externí IP adresu nebo adresy cílového serveru iSCSI jako vstupy. 
 
@@ -76,14 +76,14 @@ Diagram zobrazuje prostředky nasazené ze šablony za účelem vytvoření klie
 
 ### <a name="inputs-for-azuredeployjson"></a>Vstupy pro azuredeploy. JSON
 
-|**Parametry**|**výchozí**|**název**|
+|**Parametry**|**default**|**název**|
 |------------------|---------------|------------------------------|
 |WindowsImageSKU         |2019 – Datacenter   |Vyberte prosím základní image virtuálního počítače s Windows.
 |VMSize                  |Standard_D2_v2    |Zadejte prosím velikost virtuálního počítače.
 |VMName                  |Souborového serveru        |název virtuálního počítače
 |adminUsername           |storageadmin      |Jméno správce nového virtuálního počítače
 |adminPassword           |                  |Heslo pro účet správce pro nové virtuální počítače. Výchozí hodnota je ID předplatného.
-|VNetName                |Úložiště           |Název virtuální sítě. Tato akce bude sloužit k označení prostředků.
+|VNetName                |Storage           |Název virtuální sítě. Tato akce bude sloužit k označení prostředků.
 |VNetAddressSpace        |10.10.0.0/23      |Adresní prostor pro virtuální síť
 |VNetInternalSubnetName  |Interní          |Název interní podsítě virtuální sítě
 |VNetInternalSubnetRange |10.10.1.0/24      |Rozsah adres pro interní podsíť virtuální sítě
@@ -118,7 +118,7 @@ Po instalaci těchto požadavků je důležité restartovat systém. Zásady vyr
 
 Skript `Create-iSCSITarget.ps1 `musí být spuštěný v systému, který obsluhuje úložiště. Můžete vytvořit více disků a cílů omezených iniciátory. Tento skript můžete spustit vícekrát, abyste mohli vytvořit mnoho virtuálních disků, které můžete připojit k různým cílům. Můžete připojit více disků k jednomu cíli. 
 
-|**Input** (Vstup)|**výchozí**|**název**|
+|**Input** (Vstup)|**default**|**název**|
 |------------------|---------------|------------------------------|
 |Vzdálený_server         |Souborového serveru               |Název serveru připojujícího se k cíli iSCSI
 |RemoteServerIPs      |1.1.1.1                  |IP adresa, ze které bude přenosy iSCSI přijít
@@ -133,7 +133,7 @@ Skript `Create-iSCSITarget.ps1 `musí být spuštěný v systému, který obsluh
 
 `Connect-toiSCSITarget.ps1` je finální skript, který se spouští na klientovi iSCSI a připojuje disk prezentovaný cílem iSCSI k klientovi iSCSI.
 
-|**Input** (Vstup)|**výchozí**|**název**|
+|**Input** (Vstup)|**default**|**název**|
 |------------------|---------------|------------------------------|
 |TargetiSCSIAddresses   |"2.2.2.2","2.2.2.3"    |IP adresy cíle iSCSI
 |LocalIPAddresses       |"10.10.1.4"            |Jedná se o interní IP adresu, ze které budou přenosy iSCSI přijít.
@@ -143,4 +143,4 @@ Skript `Create-iSCSITarget.ps1 `musí být spuštěný v systému, který obsluh
 
 ## <a name="next-steps"></a>Další kroky
 
-[Rozdíly a požadavky pro Azure Stack sítě](azure-stack-network-differences.md)  
+[Rozdíly a požadavky pro sítě Azure Stack hub](azure-stack-network-differences.md)  

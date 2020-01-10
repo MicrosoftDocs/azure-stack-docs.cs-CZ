@@ -1,6 +1,6 @@
 ---
-title: Připojení k Azure Stack pomocí rozšíření účtu Azure v Visual Studio Code | Microsoft Docs
-description: Jako vývojář se můžete připojit k Azure Stack pomocí rozšíření účtu Azure v Visual Studio Code
+title: Připojení k centru Azure Stack pomocí rozšíření účtu Azure v Visual Studio Code | Microsoft Docs
+description: Jako vývojář se můžete připojit k centru Azure Stack pomocí rozšíření účtu Azure v Visual Studio Code
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,34 +9,34 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 58fecc801312d9da1a2311e4a51114cfbf245e9d
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.openlocfilehash: 62e334ca62d4fddcd14357f45f00d309e8440103
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955756"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75820521"
 ---
-# <a name="connect-to-azure-stack-using-azure-account-extension-in-visual-studio-code"></a>Připojení k Azure Stack pomocí rozšíření účtu Azure v Visual Studio Code
+# <a name="connect-to-azure-stack-hub-using-azure-account-extension-in-visual-studio-code"></a>Připojení k centru Azure Stack pomocí rozšíření účtu Azure v Visual Studio Code
 
-V tomto článku Vás provedeme, jak se připojit k Azure Stack pomocí rozšíření účtu Azure. Budete muset aktualizovat nastavení Visual Studio Code (VS Code).
+V tomto článku Vás provedeme postupem připojení k centru Azure Stack pomocí rozšíření účtu Azure. Budete muset aktualizovat nastavení Visual Studio Code (VS Code).
 
-VS Code je zjednodušený editor pro sestavování a ladění webových a cloudových aplikací. ASP.NET Core, Python, NodeJS, přejít a další vývojáři používají VS Code. Pomocí rozšíření účtu Azure můžete použít jedno přihlášení Azure s filtrováním předplatného pro další rozšíření Azure. Rozšíření zpřístupňuje Azure Cloud Shell v terminálu integrovaném s VS Code. Pomocí tohoto rozšíření se můžete ke svému předplatnému Azure Stack připojit pomocí Azure AD (Azure AD) i služby Active Directory federovaných služeb (AD FS) pro správce identit. Můžete se přihlásit k Azure Stack, vybrat předplatné a otevřít nový příkazový řádek ve službě cloud Shell. 
+VS Code je zjednodušený editor pro sestavování a ladění webových a cloudových aplikací. ASP.NET Core, Python, NodeJS, přejít a další vývojáři používají VS Code. Pomocí rozšíření účtu Azure můžete použít jedno přihlášení Azure s filtrováním předplatného pro další rozšíření Azure. Rozšíření zpřístupňuje Azure Cloud Shell v terminálu integrovaném s VS Code. Pomocí tohoto rozšíření se můžete ke svému předplatnému centra Azure Stack připojit pomocí Azure AD (Azure AD) i služby Active Directory federovaných služeb (AD FS) pro správce identit. Můžete se přihlásit do centra Azure Stack, vybrat své předplatné a otevřít nový příkazový řádek ve službě cloud Shell. 
 
 > [!Note]  
 > Kroky v tomto článku můžete použít pro prostředí služby Active Directory federované služby (AD FS). Použijte své AD FS přihlašovací údaje a koncové body.
 
 ## <a name="pre-requisites-for-the-azure-account-extension"></a>Předpoklady pro rozšíření účtu Azure
 
-1. Azure Stack prostředí 1904 Build nebo novější
+1. Prostředí centra Azure Stack 1904 Build nebo novější
 2. [Visual Studio Code](https://code.visualstudio.com/)
 3. [Rozšíření účtu Azure](https://github.com/Microsoft/vscode-azure-account)
-4. [Předplatné Azure Stack](https://azure.microsoft.com/overview/azure-stack/)
+4. [Předplatné centra Azure Stack](https://azure.microsoft.com/overview/azure-stack/)
 
-## <a name="steps-to-connect-to-azure-stack"></a>Postup připojení k Azure Stack
+## <a name="steps-to-connect-to-azure-stack-hub"></a>Postup připojení k centru Azure Stack
 
-1. Spusťte skript **identity** z Azure Stack nástrojů na GitHubu.
+1. Spusťte skript **identity** z Azure Stack nástrojů centra na GitHubu.
 
-    - Před spuštěním skriptu budete muset mít nainstalovaný a nakonfigurovaný PowerShell pro vaše prostředí. Pokyny najdete v tématu [instalace PowerShellu pro Azure Stack](../operator/azure-stack-powershell-install.md).
+    - Před spuštěním skriptu budete muset mít nainstalovaný a nakonfigurovaný PowerShell pro vaše prostředí. Pokyny najdete v tématu [instalace PowerShellu pro Azure Stack hub](../operator/azure-stack-powershell-install.md).
 
     - Pokyny a skripty pro **identitu** najdete v tématu [AzureStack-Tools/identity](https://github.com/Azure/AzureStack-Tools/tree/master/Identity).
 
@@ -57,11 +57,11 @@ VS Code je zjednodušený editor pro sestavování a ladění webových a cloudo
 
 5. Vyberte **účet Azure** a vyberte **nainstalovat**.
 
-      ![Azure Stack Visual Studio Code](media/azure-stack-dev-start-vscode-azure/image1.png)
+      ![Visual Studio Code centra Azure Stack](media/azure-stack-dev-start-vscode-azure/image1.png)
 
 6. Pro načtení rozšíření restartujte VS Code.
 
-7. Načtěte metadata pro připojení k Azure Resource Manager v Azure Stack. 
+7. Načtěte metadata pro připojení k Azure Resource Manager v centru Azure Stack. 
     
     Microsoft Azure Správce prostředků je rozhraní pro správu, které umožňuje nasazovat, spravovat a monitorovat prostředky Azure.
     - Správce prostředků adresa URL pro Azure Stack Development Kit (ASDK) je: `https://management.local.azurestack.external/` 
@@ -80,10 +80,10 @@ VS Code je zjednodušený editor pro sestavování a ladění webových a cloudo
 
         | Parametr | Popis |
         | --- | --- |
-        | `tenant-ID` | Hodnota vašeho [ID tenanta](../operator/azure-stack-identity-overview.md)Azure Stack. |
+        | `tenant-ID` | Hodnota [ID tenanta](../operator/azure-stack-identity-overview.md)centra Azure Stack. |
         | `activeDirectoryEndpointUrl` | Toto je adresa URL z vlastnosti loginEndpoint. |
         | `activeDirectoryResourceId` | Toto je adresa URL z vlastnosti cílové skupiny.
-        | `resourceManagerEndpointUrl` | Toto je kořenová adresa URL pro Azure Resource Manager Azure Stack. | 
+        | `resourceManagerEndpointUrl` | Toto je kořenová adresa URL Azure Resource Manager pro centrum Azure Stack. | 
 
     - Fragment kódu JSON:
 
@@ -101,7 +101,7 @@ VS Code je zjednodušený editor pro sestavování a ladění webových a cloudo
 
 11. Vyberte **AzurePPE**. Ověřovací stránka se načte v prohlížeči. Přihlaste se ke svému koncovému bodu.
 
-12. K otestování úspěšného přihlášení k předplatnému Azure Stack použijte **kombinaci kláves CTRL + SHIFT + P** a vyberte **Azure: vyberte předplatné** a podívejte se, jestli je předplatné k dispozici.
+12. K otestování úspěšného přihlášení k předplatnému centra Azure Stack použijte **kombinaci kláves CTRL + SHIFT + P** a vyberte **Azure: vyberte předplatné** a podívejte se, jestli je předplatné k dispozici.
 
 ## <a name="commands"></a>Příkazy
 
@@ -118,4 +118,4 @@ VS Code je zjednodušený editor pro sestavování a ladění webových a cloudo
 
 ## <a name="next-steps"></a>Další kroky
 
-[Nastavení vývojového prostředí v Azure Stack](azure-stack-dev-start.md)
+[Nastavení vývojového prostředí v centru Azure Stack](azure-stack-dev-start.md)

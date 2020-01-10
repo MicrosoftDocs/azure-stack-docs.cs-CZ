@@ -1,5 +1,5 @@
 ---
-title: Nabízí Azure Stack služby pro předplatné.
+title: Nabízí Azure Stack služby centra pro předplatné.
 description: Naučte se, jak vytvořit nabídku služeb, a to pomocí nabídek, plánů a služeb.
 author: BryanLa
 ms.author: bryanla
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/16/2019
 ms.reviewer: shriramnat
 ms.lastreviewed: 10/16/2019
-ms.openlocfilehash: 87542483f2a35fba315258e9ba66b1792739033b
-ms.sourcegitcommit: df20662e77a6ed0a7eba03f79eb53e8cd4471206
+ms.openlocfilehash: 331d76a61ec67165473702d47f35c02533dcd0b8
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72445353"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75816560"
 ---
 # <a name="tutorial-offer-a-service-to-users"></a>Kurz: nabídka služby uživatelům
 
@@ -37,32 +37,32 @@ Nabídka se skládá z jednoho nebo více plánů. Plán opravňuje přístup k 
 
 Poskytovatel prostředků podporuje vytváření, nasazování a správu svých prostředků jako služeb. Běžným příkladem je poskytovatel prostředků Microsoft. COMPUTE, který nabízí možnost vytvářet a nasazovat virtuální počítače (VM). Přehled modelu správy prostředků Azure najdete v tématu [Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview) .
 
-V Azure Stack existují dvě obecné kategorie poskytovatelů prostředků: ty, které nasazují prostředky jako základní služby, a ty, které se nasazují jako doplňkové služby.
+V centru Azure Stack jsou k dispozici dvě obecné kategorie poskytovatelů prostředků: ty, které nasazují prostředky jako základní služby, a ty, které se nasazují jako služby s hodnotou přidat.
 
 ### <a name="foundational-services"></a>Základní služby
 
 >[!NOTE]
 > V tomto kurzu se naučíte, jak vytvořit nabídku založenou na základních službách. 
 
-Základní služby jsou podporovány následujícími poskytovateli prostředků, které jsou k dispozici nativně při každé instalaci Azure Stack:
+Základní služby jsou podporovány následujícími poskytovateli prostředků, které jsou k dispozici nativně při každé instalaci centra Azure Stack:
 
 | Poskytovatel prostředků | Příklady prostředků |
 | ----------------- | ------------------|
 | Microsoft.Compute | Virtuální počítače, disky a sady škálování virtuálních počítačů |
-| Trezor Microsoft. | Trezory klíčů, tajné kódy |
+| Microsoft.KeyVault | Trezory klíčů, tajné kódy |
 | Microsoft.Network | Virtuální sítě, veřejné IP adresy, nástroje pro vyrovnávání zatížení |
 | Microsoft.Storage | Účty úložiště, objekty blob, fronty, tabulky |
 
-### <a name="add-on-services"></a>Služby doplňků
+### <a name="value-add-services"></a>Hodnota – přidat služby
 
 >[!NOTE]
-> Aby bylo možné nabídnout doplňkovou službu, musí se nejdřív nainstalovat odpovídající poskytovatel prostředků na Azure Stack Marketplace. Po nainstalování se prostředky uživatelům nabídnou stejným způsobem jako základní služby. Aktuální sadu poskytovatelů prostředků, kteří podporují nabídky služeb doplňku, najdete v části věnované **průvodcům** v obsahu.
+> Aby bylo možné nabídnout službu pro přidávání hodnot, musí být nejprve na webu služby Azure Stack hub Marketplace nainstalován odpovídající poskytovatel prostředků. Po nainstalování se prostředky uživatelům nabídnou stejným způsobem jako základní služby. Aktuální sadu poskytovatelů prostředků, kteří podporují nabídky služby Value-Add, najdete v části s **návody k** sestavám v obsahu.
 
-Služby doplňku jsou podporovány poskytovateli prostředků, kteří jsou nainstalováni po nasazení Azure Stack. Patří mezi ně například:
+Poskytovatelé prostředků, kteří jsou nainstalováni po nasazení centra Azure Stack, podporují služby Value-Add. Patří mezi ně například:
 
 | Poskytovatel prostředků | Příklady prostředků |
 | ----------------- | ------------------------- |
-| Microsoft. Web | App Service aplikace Function App, webové aplikace a API Apps | 
+| Microsoft.Web | App Service aplikace Function App, webové aplikace a API Apps | 
 | Microsoft. MySqlAdapter | Hostující Server MySQL, databáze MySQL | 
 | Microsoft. SqlAdapter | SQL Server hostitelský server, SQL Server databáze |
 
@@ -73,7 +73,7 @@ Během procesu vytváření nabídky vytvoříte nabídku i plán. Plán se pou�
 
 1. Přihlaste se k portálu pro správu pomocí účtu správce cloudu.
 
-   - V případě integrovaného systému se adresa URL liší v závislosti na oblasti vašeho operátoru a názvu externí domény, ve formátu https://adminportal.&lt; *region*&gt;. &lt;*FQDN*&gt;.
+   - V případě integrovaného systému se adresa URL liší v závislosti na oblasti vašeho operátoru a názvu externí domény pomocí formátu https://adminportal.&lt;&gt;*oblasti*&lt;*plně kvalifikovaný název domény*&gt;.
    - Pokud používáte Azure Stack Development Kit, adresa URL je https://adminportal.local.azurestack.external.
 
    Pak vyberte **+ vytvořit prostředek** > **nabídky + plány** > **nabídky**.
@@ -100,7 +100,7 @@ Během procesu vytváření nabídky vytvoříte nabídku i plán. Plán se pou�
 
    ![Vytvořit kvótu COMPUTE](media/tutorial-offer-services/6-create-new-plan-quotas.png)
 
-1. Vyberte kartu **Revize + vytvořit** . V horní části by se měla zobrazit zpráva zelená "ověření proběhla", což znamená, že nový základní plán je připravený k vytvoření. Vyberte **Create** (Vytvořit). Mělo by se zobrazit také oznámení oznamující, že byl plán vytvořen.
+1. Vyberte kartu **Revize + vytvořit** . V horní části by se měla zobrazit zpráva zelená "ověření proběhla", což znamená, že nový základní plán je připravený k vytvoření. Vyberte **Vytvořit**. Mělo by se zobrazit také oznámení oznamující, že byl plán vytvořen.
 
    ![Vytvořit nový plán](media/tutorial-offer-services/7-create-new-plan-review-create.png)
 
@@ -129,7 +129,7 @@ Během procesu vytváření nabídky vytvoříte nabídku i plán. Plán se pou�
 
 1. Přihlaste se k portálu pro správu pomocí účtu správce cloudu.
 
-   - V případě integrovaného systému se adresa URL liší v závislosti na oblasti vašeho operátoru a názvu externí domény, ve formátu https://adminportal.&lt; *region*&gt;. &lt;*FQDN*&gt;.
+   - V případě integrovaného systému se adresa URL liší v závislosti na oblasti vašeho operátoru a názvu externí domény pomocí formátu https://adminportal.&lt;&gt;*oblasti*&lt;*plně kvalifikovaný název domény*&gt;.
    - Pokud používáte Azure Stack Development Kit, adresa URL je https://adminportal.local.azurestack.external.
    
    Pak vyberte **+ vytvořit prostředek** > **nabídky + plány** > **nabídky**.

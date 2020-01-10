@@ -1,7 +1,7 @@
 ---
-title: Přidání Kubernetes do Marketplace Azure Stack
-titleSuffix: Azure Stack
-description: Naučte se, jak přidat Kubernetes do tržiště Azure Stack.
+title: Přidání Kubernetes do tržiště centra Azure Stack
+titleSuffix: Azure Stack Hub
+description: Naučte se, jak přidat Kubernetes do Marketplace centra Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,23 +16,23 @@ ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: 985d0e33fd5a15329a1a47bd2d6b11e50cd82a1c
-ms.sourcegitcommit: 62283e9826ea78b218f5d2c6c555cc44196b085d
+ms.openlocfilehash: 801520c33459203856daffc60080182d7aaf1178
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74780809"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75814877"
 ---
-# <a name="add-kubernetes-to-azure-stack-marketplace"></a>Přidání Kubernetes do Marketplace Azure Stack
+# <a name="add-kubernetes-to-azure-stack-hub-marketplace"></a>Přidání Kubernetes do tržiště centra Azure Stack
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 > [!note]  
-> K nasazení clusterů jako zkušebního konceptu použijte jenom položku Kubernetes Azure Stack Marketplace. Pro podporované Kubernetes clustery v Azure Stack použijte [modul AKS](azure-stack-aks-engine.md).
+> K nasazení clusterů jako konceptu Kubernetes použijte jenom položku tržiště centra Azure Stack. Pro podporované clustery Kubernetes v centru Azure Stack použijte [modul AKS](azure-stack-aks-engine.md).
 
 Pro uživatele můžete nabízet Kubernetes jako položku Marketplace. Vaši uživatelé pak můžou nasazovat Kubernetes v rámci jediné koordinované operace.
 
-Tento článek se zabývá používáním Azure Resource Manager šablony pro nasazení a zřízení prostředků samostatného clusteru Kubernetes. Než začnete, Projděte si Azure Stack a globální nastavení klienta Azure. Shromážděte požadované informace o vašem Azure Stack. Přidejte do svého tenanta potřebné prostředky a Azure Stack Marketplace. Cluster závisí na serveru Ubuntu, vlastním skriptu a položce tržiště clusteru Kubernetes na Azure Stack Marketplace.
+Tento článek se zabývá používáním Azure Resource Manager šablony pro nasazení a zřízení prostředků samostatného clusteru Kubernetes. Než začnete, Projděte si centrum Azure Stack a globální nastavení klienta Azure. Shromážděte požadované informace o centru Azure Stack. Přidejte potřebné prostředky do svého tenanta a na web Azure Stack hub. Cluster závisí na serveru Ubuntu, vlastním skriptu a položce tržiště clusteru Kubernetes na webu Marketplace centra Azure Stack.
 
 ## <a name="create-a-plan-an-offer-and-a-subscription"></a>Vytvoření plánu, nabídky a předplatného
 
@@ -40,15 +40,15 @@ Vytvořte plán, nabídku a předplatné pro položku Kubernetes Marketplace. M�
 
 1. Přihlaste se k [portálu pro správu.](https://adminportal.local.azurestack.external)
 
-1. Vytvořte plán jako základní plán. Pokyny najdete v tématu [Vytvoření plánu v Azure Stack](azure-stack-create-plan.md).
+1. Vytvořte plán jako základní plán. Pokyny najdete v tématu [Vytvoření plánu v centru Azure Stack](azure-stack-create-plan.md).
 
-1. Vytvořte nabídku. Pokyny najdete v tématu [Vytvoření nabídky v Azure Stack](azure-stack-create-offer.md).
+1. Vytvořte nabídku. Pokyny najdete v tématu [Vytvoření nabídky v centru Azure Stack](azure-stack-create-offer.md).
 
 1. Vyberte **nabídky**a najděte nabídku, kterou jste vytvořili.
 
 1. V okně nabídka vyberte **Přehled** .
 
-1. Vyberte **změnit stav**. Vyberte možnost **veřejné**.
+1. Vyberte **změnit stav**. Vyberte **Veřejný**.
 
 1. Vyberte **+ vytvořit prostředek** > **nabídky a plány** > **předplatné** k vytvoření předplatného.
 
@@ -58,7 +58,7 @@ Vytvořte plán, nabídku a předplatné pro položku Kubernetes Marketplace. M�
 
     c. **Popis poskytovatele**
 
-    d. Nastavte **tenanta adresáře** na TENANTA Azure AD pro vaši Azure Stack. 
+    d. Nastavte **tenanta adresáře** na TENANTA Azure AD pro vaše centrum Azure Stack. 
 
     e. Vyberte **nabídku**. Vyberte název nabídky, kterou jste vytvořili. Poznamenejte si ID předplatného.
 
@@ -68,7 +68,7 @@ Pokud pro službu správy identit používáte službu Active Directory federova
 
 ## <a name="add-an-ubuntu-server-image"></a>Přidání image serveru Ubuntu
 
-Přidejte následující image serveru Ubuntu do webu Azure Stack Marketplace:
+Přidejte následující image serveru Ubuntu do tržiště centra Azure Stack:
 
 1. Přihlaste se k [portálu pro správu](https://adminportal.local.azurestack.external).
 
@@ -88,7 +88,7 @@ Přidejte následující image serveru Ubuntu do webu Azure Stack Marketplace:
 
 ## <a name="add-a-custom-script-for-linux"></a>Přidání vlastního skriptu pro Linux
 
-Přidat Kubernetes z webu Azure Stack Marketplace:
+Přidejte Kubernetes z webu centra Azure Stack:
 
 1. Otevřete [portál pro správu](https://adminportal.local.azurestack.external).
 
@@ -123,17 +123,17 @@ Přidat Kubernetes z webu Azure Stack Marketplace:
 1. Vyberte **Stáhnout.**
 
     > [!note]  
-    > Může trvat pět minut, než se položka Marketplace zobrazí v Azure Stack Marketplace.
+    > Může trvat pět minut, než se položka Marketplace zobrazí v tržišti centra Azure Stack.
 
-    ![Položka Kubernetes na webu Azure Stack Marketplace](../user/media/azure-stack-solution-template-kubernetes-deploy/marketplaceitem.png)
+    ![Položka Kubernetes v tržišti centra Azure Stack](../user/media/azure-stack-solution-template-kubernetes-deploy/marketplaceitem.png)
 
 ## <a name="update-or-remove-the-kubernetes"></a>Aktualizace nebo odebrání Kubernetes
 
-Když aktualizujete položku Kubernetes, odeberete předchozí položku na webu Azure Stack Marketplace. Podle pokynů níže přidejte aktualizaci Kubernetes do webu Azure Stack Marketplace.
+Když aktualizujete položku Kubernetes, odeberete předchozí položku v tržišti centra Azure Stack. Podle pokynů níže přidejte aktualizaci Kubernetes do tržiště centra Azure Stack.
 
 Odebrání položky Kubernetes:
 
-1. Připojte se k Azure Stack pomocí PowerShellu jako operátoru. Pokyny najdete v tématu [připojení k Azure Stack pomocí PowerShellu jako operátoru](azure-stack-powershell-configure-admin.md).
+1. Připojte se k Azure Stack centra pomocí PowerShellu jako operátoru. Pokyny najdete v tématu [připojení k Azure Stack hub pomocí PowerShellu jako operátoru](azure-stack-powershell-configure-admin.md).
 
 2. Najde aktuální položku clusteru Kubernetes v galerii.
 
@@ -153,6 +153,6 @@ Odebrání položky Kubernetes:
 
 ## <a name="next-steps"></a>Další kroky
 
-[Nasazení Kubernetes pro Azure Stack](../user/azure-stack-solution-template-kubernetes-deploy.md)
+[Nasazení Kubernetes do centra Azure Stack](../user/azure-stack-solution-template-kubernetes-deploy.md)
 
-[Přehled nabízených služeb v Azure Stack](service-plan-offer-subscription-overview.md)
+[Přehled nabízených služeb v centru Azure Stack](service-plan-offer-subscription-overview.md)

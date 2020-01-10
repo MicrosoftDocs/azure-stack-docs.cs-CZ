@@ -16,7 +16,7 @@ metadata:
   ms.date: 07/09/2019
   ms.author: justinha
 abstract:
-  description: 'Centrum Microsoft Azure Stack je hybridní cloudová platforma, která vám umožní poskytovat služby Azure z vašeho datového centra. Naučte se spravovat infrastrukturu integrovaných systémů centra Azure Stack a jak nabízet služby prostřednictvím našich šablon rychlý Start a kurzů.<br/><br/>Pokud jste uživatelem centra Azure Stack, který používá služby nebo sestavování aplikací pro centrum Azure Stack, přečtěte si naši <a href="/azure-stack/user">dokumentaci pro uživatele</a>.<br/><br/>Pokud jste Azure Stack operátor centra, který se zajímá o Azure Stack hub Development Kit (ASDK), nasazení centra Azure Stack s jedním uzlem, které si můžete stáhnout a používat zdarma, přečtěte si naši <a href="/azure-stack/asdk">dokumentaci k ASDK</a>.'
+  description: 'Centrum Microsoft Azure Stack je hybridní cloudová platforma, která vám umožní poskytovat služby Azure z vašeho datového centra. Naučte se spravovat infrastrukturu integrovaných systémů centra Azure Stack a jak nabízet služby prostřednictvím našich šablon rychlý Start a kurzů.<br/><br/>Pokud jste uživatelem centra Azure Stack, který používá služby nebo sestavování aplikací pro centrum Azure Stack, přečtěte si naši <a href="/azure-stack/user">dokumentaci pro uživatele</a>.<br/><br/>Pokud jste Azure Stack operátor centra, který zajímá Azure Stack Development Kit (ASDK), nasazení v jednom uzlu Azure Stackho centra, které si můžete stáhnout a používat zdarma, přečtěte si naši <a href="/azure-stack/asdk">dokumentaci k ASDK</a>.'
 sections:
   - title: Začínáme se službou Azure Stack hub
     items:
@@ -32,7 +32,7 @@ sections:
           - html: |-
               <a href="/azure-stack/operator/azure-stack-powershell-install">
               <img height="48" width="48" src="https://docs.microsoft.com/media/logos/logo_powershell.svg" alt="">
-              <br><b>Azure Stack PowerShell</b></a>
+              <br><b>Azure Stack centra PowerShell</b></a>
               <p>Z PowerShellu můžete snadno spravovat prostředky centra Azure Stack.</p>
           - html: |-
               <a href="/azure-stack/operator/azure-stack-capacity-planning-overview">

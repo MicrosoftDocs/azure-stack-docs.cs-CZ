@@ -1,6 +1,6 @@
 ---
-title: Nasazení zabezpečeného clusteru Service Fabric v Azure Stack | Microsoft Docs
-description: Přečtěte si, jak nasadit zabezpečený Cluster Service Fabric v Azure Stack
+title: Nasazení zabezpečeného clusteru Service Fabric v centru Azure Stack | Microsoft Docs
+description: Naučte se, jak nasadit zabezpečený Cluster Service Fabric v centru Azure Stack
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,22 +15,22 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: shnatara
 ms.lastreviewed: 09/25/2019
-ms.openlocfilehash: e8b7809908bf09cdc60017c8944e26461aa6f07d
-ms.sourcegitcommit: d619612f54eeba3231ed73ed149ff894f9bf838a
+ms.openlocfilehash: bb0e9fdb3e1ce1c3778d1167ca76cddae3d67aa7
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74993854"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75819195"
 ---
-# <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Nasazení clusteru Service Fabric v Azure Stack
+# <a name="deploy-a-service-fabric-cluster-in-azure-stack-hub"></a>Nasazení clusteru Service Fabric v centru Azure Stack
 
-Pomocí položky **Service Fabric clusteru** z Azure Marketplace nasaďte zabezpečený Service Fabric Cluster v Azure Stack. 
+Pomocí položky **Service Fabric clusteru** z Azure Marketplace nasaďte zabezpečený Service Fabric Cluster v Azure Stack hub. 
 
 Další informace o práci s Service Fabric najdete v tématu Přehled [scénářů zabezpečení](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) [azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) a Service Fabric v dokumentaci k Azure.
 
-Cluster Service Fabric v Azure Stack nepoužívá poskytovatele prostředků Microsoft. ServiceFabric. Místo toho je v Azure Stack Service Fabric clusterem sada škálování virtuálních počítačů s předinstalovaným softwarem pomocí [Konfigurace požadovaného stavu (DSC)](https://docs.microsoft.com/powershell/scripting/dsc/overview/overview).
+Cluster Service Fabric v centru Azure Stack nepoužívá poskytovatele prostředků Microsoft. ServiceFabric. Místo toho se v centru Azure Stack Service Fabric cluster používá sada škálování virtuálních počítačů s předinstalovaným softwarem pomocí [Konfigurace požadovaného stavu (DSC)](https://docs.microsoft.com/powershell/scripting/dsc/overview/overview).
 
-## <a name="prerequisites"></a>Předpoklady
+## <a name="prerequisites"></a>Požadavky
 
 K nasazení Service Fabric clusteru se vyžadují tyto požadavky:
 1. **Certifikát clusteru**  
@@ -45,7 +45,7 @@ K nasazení Service Fabric clusteru se vyžadují tyto požadavky:
 1. **Certifikát klienta správce**  
    Jedná se o certifikát, který klient používá k ověření v clusteru Service Fabric, který může být podepsaný svým držitelem. Viz [požadavky](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) pro vytvoření certifikátu klienta.
 
-1. **Na webu Azure Stack Marketplace musí být k dispozici následující položky:**
+1. **V tržišti centra Azure Stack musí být k dispozici následující položky:**
     - **Windows server 2016** – šablona používá k vytvoření clusteru image Windows serveru 2016.  
     - **Rozšíření vlastních skriptů** – rozšíření virtuálního počítače od Microsoftu  
     - **Konfigurace požadovaného stádia prostředí PowerShell** – rozšíření virtuálního počítače od Microsoftu
@@ -120,7 +120,7 @@ Pomocí následujícího skriptu vytvořte Key Vault a přidejte do něj *certif
    ``` 
 
 
-Další informace najdete v tématu [správa Key Vault v Azure Stack pomocí prostředí PowerShell](azure-stack-key-vault-manage-powershell.md).
+Další informace najdete v tématu [správa Key Vault v centru Azure Stack pomocí PowerShellu](azure-stack-key-vault-manage-powershell.md).
 
 ## <a name="deploy-the-marketplace-item"></a>Nasadit položku Marketplace
 
@@ -130,13 +130,13 @@ Další informace najdete v tématu [správa Key Vault v Azure Stack pomocí pro
 
 2. Pro každou stránku, například *základy*, vyplňte formulář nasazení. Pokud si nejste jisti hodnotou, použijte výchozí nastavení.
 
-    Pro nasazení do odpojené Azure Stack nebo nasazení jiné verze Service Fabric Stáhněte balíček Service Fabric pro nasazení a jeho odpovídající balíček runtime a Hostujte ho na Azure Stack objekt BLOB. Zadejte tyto hodnoty do polí **Adresa URL balíčku pro nasazení Service Fabric** a **Adresa URL balíčku za běhu Service Fabric** .
+    Pro nasazení do odpojeného centra Azure Stack nebo pro nasazení jiné verze Service Fabric si Stáhněte balíček Service Fabric pro nasazení a jeho odpovídající balíček runtime a zahostte ho v Azure Stack objekt BLOB centra. Zadejte tyto hodnoty do polí **Adresa URL balíčku pro nasazení Service Fabric** a **Adresa URL balíčku za běhu Service Fabric** .
     > [!NOTE]  
     > Existují problémy s kompatibilitou mezi nejnovějším vydáním Service Fabric a odpovídající sadou SDK. Dokud se tento problém nevyřeší, zadejte prosím následující parametry URL balíčku pro nasazení a adresu URL balíčku za běhu. V opačném případě se nasazení nezdaří.
     > - Adresa URL balíčku nasazení Service Fabric: <https://download.microsoft.com/download/8/3/6/836E3E99-A300-4714-8278-96BC3E8B5528/6.5.641.9590/Microsoft.Azure.ServiceFabric.WindowsServer.6.5.641.9590.zip>
     > - Adresa URL balíčku Service Fabric Runtime: <https://download.microsoft.com/download/B/0/B/B0BCCAC5-65AA-4BE3-AB13-D5FF5890F4B5/6.5.641.9590/MicrosoftAzureServiceFabric.6.5.641.9590.cab>
     >
-    > V případě odpojených nasazení stáhněte tyto balíčky ze zadaného umístění a hostovat je místně na Azure Stackm objektu BLOB.
+    > V případě odpojených nasazení stáhněte tyto balíčky ze zadaného umístění a hostovat je místně na Azure Stackovém objektu BLOB centra.
 
    ![Základy](media/azure-stack-solution-template-service-fabric-cluster/image3.png)
 
@@ -241,4 +241,4 @@ Ke clusteru Service Fabric můžete přistupovat pomocí Service Fabric Explorer
 
 ## <a name="next-steps"></a>Další kroky
 
-[Nasazení Kubernetes do Azure Stack](azure-stack-solution-template-kubernetes-deploy.md)
+[Nasazení Kubernetes do centra Azure Stack](azure-stack-solution-template-kubernetes-deploy.md)

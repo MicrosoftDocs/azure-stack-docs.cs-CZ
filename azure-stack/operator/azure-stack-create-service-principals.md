@@ -7,16 +7,16 @@ ms.service: azure-stack
 ms.topic: how-to
 ms.date: 11/11/2019
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: ff36a5c280df7ecb68d0d181438489ce696ed4fc
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.openlocfilehash: 1fc771f82820149b01b6d11d37ac9a8720483e51
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955389"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75815302"
 ---
 # <a name="use-an-app-identity-to-access-azure-stack-hub-resources"></a>Použití identity aplikace pro přístup k prostředkům Azure Stack hub
 
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack hub Development Kit (ASDK)*
+*Platí pro: integrované systémy a Azure Stack Development Kit centra Azure Stack (ASDK)*
 
 Aplikace, která potřebuje nasadit nebo nakonfigurovat prostředky prostřednictvím Azure Resource Manager, musí být reprezentovaná instančním objektem. Stejně jako uživatel je reprezentován objektem zabezpečení uživatele, instanční objekt je typ objektu zabezpečení, který představuje aplikaci. Instanční objekt poskytuje identitu vaší aplikace, což vám umožní delegovat jenom potřebná oprávnění k danému instančnímu objektu.  
 
@@ -37,8 +37,8 @@ Spuštění aplikace pod identitou instančního objektu je vhodnější pro jeh
 
 Začnete vytvořením nové registrace aplikace ve vašem adresáři, která vytvoří přidružený [objekt instančního objektu](/azure/active-directory/develop/developer-glossary#service-principal-object) , který bude představovat identitu aplikace v adresáři. Tento dokument popisuje proces vytváření a správy instančního objektu v závislosti na adresáři, který jste zvolili pro vaši instanci služby Azure Stack hub:
 
-- Azure Active Directory (Azure AD). Azure AD je víceklientské cloudové adresáře a služba pro správu identit. Azure AD můžete použít s připojenou instancí centra Azure Stack.
-- Active Directory Federation Services (AD FS) (AD FS). AD FS poskytuje zjednodušenou, zabezpečenou federaci identit a možnosti jednotného přihlašování k webu (SSO). AD FS můžete použít s připojenými i odpojenými Azure Stack instancemi hub.
+- Azure Active Directory (Azure AD). Azure AD je cloudová adresářová služba a služba pro správu identit pro více tenantů. Azure AD můžete použít s připojenou instancí centra Azure Stack.
+- Active Directory Federation Services (AD FS) AD FS poskytuje zjednodušenou, zabezpečenou federaci identit a možnosti jednotného přihlašování k webu (SSO). AD FS můžete použít s připojenými i odpojenými Azure Stack instancemi hub.
 
 Nejprve se dozvíte, jak spravovat instanční objekt, a pak přiřazení instančního objektu k roli a omezení jeho přístupu k prostředkům.
 
@@ -50,7 +50,7 @@ Pokud jste nasadili Azure Stack centrum s Azure AD jako službu pro správu iden
 
 V této části zaregistrujete aplikaci pomocí Azure Portal, která vytvoří objekt instančního objektu ve vašem tenantovi služby Azure AD. V tomto příkladu se instanční objekt vytvoří s přihlašovacími údaji klienta, ale portál podporuje také pověření x509 založené na certifikátu.
 
-1. Přihlaste se k [Azure Portal](https://portal.azure.com) pomocí svého účtu Azure.
+1. Přihlaste se k webu [Azure Portal](https://portal.azure.com) pomocí svého účtu Azure.
 2. Vyberte **Azure Active Directory** > **Registrace aplikací** > **nové registrace**.
 3. Zadejte **název** aplikace.
 4. Vyberte příslušné **podporované typy účtů**.
@@ -84,8 +84,8 @@ Po použití certifikátu použijte níže uvedený skript PowerShellu k registr
 | Zástupný symbol | Popis | Příklad: |
 | ----------- | ----------- | ------- |
 | \<PepVM\> | Název virtuálního počítače privilegovaného koncového bodu na instanci centra Azure Stack. | "AzS-ERCS01" |
-| \<YourCertificateLocation\> | Umístění certifikátu x509 v místním úložišti certifikátů. | "CERT: \ CurrentUser\My\AB5A8A3533CC7AA2025BF05120117E06DE407B34" |
-| \<soubor YourAppName\> | Popisný název nové registrace aplikace | "Nástroj pro správu" |
+| \<YourCertificateLocation\> | Umístění certifikátu x509 v místním úložišti certifikátů. | "Cert:\CurrentUser\My\AB5A8A3533CC7AA2025BF05120117E06DE407B34" |
+| \<YourAppName\> | Popisný název nové registrace aplikace | "Nástroj pro správu" |
 
 1. Otevřete relaci Windows PowerShellu se zvýšenými oprávněními a spusťte následující skript:
 
@@ -155,8 +155,8 @@ Aktualizujte přihlašovací údaje certifikátu pomocí PowerShellu a nahraďte
 | Zástupný symbol | Popis | Příklad: |
 | ----------- | ----------- | ------- |
 | \<PepVM\> | Název virtuálního počítače privilegovaného koncového bodu na instanci centra Azure Stack. | "AzS-ERCS01" |
-| \<soubor YourAppName\> | Popisný název nové registrace aplikace | "Nástroj pro správu" |
-| \<YourCertificateLocation\> | Umístění certifikátu x509 v místním úložišti certifikátů. | "CERT: \ CurrentUser\My\AB5A8A3533CC7AA2025BF05120117E06DE407B34" |
+| \<YourAppName\> | Popisný název nové registrace aplikace | "Nástroj pro správu" |
+| \<YourCertificateLocation\> | Umístění certifikátu x509 v místním úložišti certifikátů. | "Cert:\CurrentUser\My\AB5A8A3533CC7AA2025BF05120117E06DE407B34" |
 | \<AppIdentifier\> | Identifikátor přiřazený k registraci aplikace | "S-1-5-21-1512385356-3796245103-1243299919-1356" |
 
 1. Pomocí relace Windows PowerShellu se zvýšenými oprávněními spusťte následující rutiny:
@@ -200,7 +200,7 @@ Teď vytvoříte jinou registraci aplikace, ale tentokrát určíte přihlašova
 | Zástupný symbol | Popis | Příklad: |
 | ----------- | ----------- | ------- |
 | \<PepVM\> | Název virtuálního počítače privilegovaného koncového bodu na instanci centra Azure Stack. | "AzS-ERCS01" |
-| \<soubor YourAppName\> | Popisný název nové registrace aplikace | "Nástroj pro správu" |
+| \<YourAppName\> | Popisný název nové registrace aplikace | "Nástroj pro správu" |
 
 1. Otevřete relaci Windows PowerShellu se zvýšenými oprávněními a spusťte následující rutiny:
 
@@ -323,7 +323,7 @@ VERBOSE: Remove-GraphApplication : END on AZS-ADFS01 under ADFSGraphEndpoint con
 
 Přístup k prostředkům Azure uživatelům a aplikacím je autorizovaný prostřednictvím Access Control na základě rolí (RBAC). Pokud chcete aplikaci dovolit přístup k prostředkům ve vašem předplatném pomocí instančního objektu, musíte instanční objekt *přiřadit* *roli* pro konkrétní *prostředek*. Nejdřív se rozhodněte, která role představuje správná *oprávnění* pro aplikaci. Další informace o dostupných rolích najdete v tématu [předdefinované role pro prostředky Azure](/azure/role-based-access-control/built-in-roles).
 
-Typ prostředku, který zvolíte, taky vytvoří *obor přístupu* pro instanční objekt. Rozsah přístupu můžete nastavit na úrovni předplatného, skupiny prostředků nebo prostředku. Oprávnění jsou zděděna na nižší úrovně rozsahu. Například přidání aplikace do role čtenář pro skupinu prostředků znamená, že může číst skupinu prostředků a všechny prostředky, které obsahuje.
+Typ prostředku, který zvolíte, taky vytvoří *obor přístupu* pro instanční objekt. Rozsah přístupu můžete nastavit na úrovni předplatného, skupiny prostředků nebo prostředku. Oprávnění se dědí do oboru na nižších úrovních. Například přidání aplikace do role čtenář pro skupinu prostředků znamená, že může číst skupinu prostředků a všechny prostředky, které obsahuje.
 
 1. Přihlaste se k příslušnému portálu na základě adresáře, který jste zadali při Azure Stack instalaci centra (například Azure Portal pro Azure AD, nebo na portálu User Portal centra Azure Stack pro AD FS). V tomto příkladu se zobrazuje uživatel přihlášený k portálu User Portal centra Azure Stack.
 
@@ -338,7 +338,7 @@ Typ prostředku, který zvolíte, taky vytvoří *obor přístupu* pro instančn
 5. V části **role**vyberte roli, kterou chcete aplikaci přiřadit.
 6. V části **Vybrat**vyhledejte aplikaci pomocí úplného nebo částečného názvu aplikace. Během registrace se název aplikace vygeneruje jako *Azurestack-\<soubor yourappname\>-\<ClientId\>* . Pokud jste například použili název aplikace *app2*a ClientID *2bbe67d8-3fdb-4b62-87cf-cc41dd4344ff* byl během vytváření přiřazen, bude mít úplný název *Azurestack-app2-2bbe67d8-3fdb-4b62-87cf-cc41dd4344ff*. Můžete vyhledat přesný řetězec nebo část, jako je například *Azurestack* nebo *Azurestack-app2*.
 7. Jakmile aplikaci najde, vyberte ji a zobrazí se v části **Vybraní členové**.
-8. Kliknutím na **Uložit** dokončete přiřazení role.
+8. Vyberte **Uložit** k dokončení přiřazení role.
 
      [Přiřazení role ![](media/azure-stack-create-service-principal/assign-role.png)](media/azure-stack-create-service-principal/assign-role.png#lightbox)
 

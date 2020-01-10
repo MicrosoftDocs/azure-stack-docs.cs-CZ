@@ -1,6 +1,6 @@
 ---
-title: Přidat klienty pro využití a fakturace Azure Stack | Microsoft Docs
-description: Naučte se, jak přidat tenanta pro využití a fakturace do Azure Stack.
+title: Přidání tenantů pro použití a fakturaci do centra Azure Stack | Microsoft Docs
+description: Naučte se, jak přidat tenanta pro využití a fakturace do centra Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,24 +15,24 @@ ms.date: 09/25/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: a146a99476912e97c72e7a37ffc5224158feaffc
-ms.sourcegitcommit: 0b783e262ac87ae67929dbd4c366b19bf36740f0
+ms.openlocfilehash: 2b70d2e04883da963da6b410ac6e5e8c7bf7d396
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74310154"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75817682"
 ---
-# <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Přidat tenanta pro použití a fakturaci na Azure Stack
+# <a name="add-tenant-for-usage-and-billing-to-azure-stack-hub"></a>Přidat tenanta pro využití a fakturace do centra Azure Stack
 
-*Platí pro: Azure Stack integrovaných systémů*
+*Platí pro: Azure Stack integrovaných systémů centra*
 
-V tomto článku se dozvíte, jak přidat tenanta do nasazení Azure Stack spravovaného poskytovatelem Cloud Solution Provider (CSP). Když nový tenant používá prostředky, Azure Stack sestavy využití jejich předplatného CSP.
+V tomto článku se dozvíte, jak přidat tenanta do nasazení centra Azure Stack spravovaného poskytovatelem Cloud Solution Provider (CSP). Když nový tenant používá prostředky, Azure Stack Centrum sestav využití jejich předplatného CSP.
 
-CSP často nabízí služby pro různé koncové zákazníky (klienty) na svém nasazení Azure Stack. Přidání tenantů do registrace Azure Stack zajistí, že bude využití každého tenanta hlášené a bude účtované na odpovídající předplatné CSP. Pokud neprovedete kroky v tomto článku, bude využití tenanta účtováno v rámci předplatného používaného při prvotní registraci Azure Stack. Než budete moct přidat koncového zákazníka do Azure Stack pro sledování využití a spravovat svého tenanta, musíte nakonfigurovat Azure Stack jako CSP. Postup a prostředky najdete v tématu [Správa využití a fakturace pro Azure Stack jako poskytovatele Cloud Solution Provider](azure-stack-add-manage-billing-as-a-csp.md).
+CSP často nabízí služby pro různé koncové zákazníky (klienty) na svém nasazení centra Azure Stack. Přidání tenantů do registrace centra Azure Stack zajistí, že bude využití každého tenanta hlášené a bude účtované na odpovídající předplatné CSP. Pokud neprovedete kroky v tomto článku, bude využití tenanta účtováno v rámci předplatného používaného při prvotní registraci centra Azure Stack. Než budete moct přidat koncového zákazníka do centra Azure Stack pro sledování využití a spravovat svého tenanta, musíte nakonfigurovat Azure Stack hub jako CSP. Postup a prostředky najdete v tématu [Správa využití a fakturace pro centra Azure Stack jako poskytovatele Cloud Solution Provider](azure-stack-add-manage-billing-as-a-csp.md).
 
-Následující obrázek znázorňuje kroky, které zprostředkovatel CSP potřebuje k tomu, aby mohl novému koncovému zákazníkovi povolit použití Azure Stack a nastavení sledování využití pro zákazníka. Přidáním koncového zákazníka také můžete spravovat prostředky v Azure Stack. Pro správu svých prostředků máte dvě možnosti:
+Následující obrázek znázorňuje kroky, které zprostředkovatel CSP potřebuje k tomu, aby mohl novému koncovému zákazníkovi používat centrum Azure Stack a k nastavení sledování využívání pro zákazníka. Přidáním koncového zákazníka také můžete spravovat prostředky v centru Azure Stack. Pro správu svých prostředků máte dvě možnosti:
 
-- Můžete zachovat koncového zákazníka a zadat přihlašovací údaje pro místní předplatné Azure Stack koncovému zákazníkovi.  
+- Můžete zachovat koncového zákazníka a zadat přihlašovací údaje pro místní předplatné centra Azure Stack pro koncového zákazníka.  
 - Koncový zákazník může pracovat s předplatným místně a přidat CSP jako hosta s oprávněním vlastníka.
 
 ## <a name="add-an-end-customer"></a>Přidat koncového zákazníka
@@ -53,11 +53,11 @@ Jakmile vytvoříte záznam o zákazníkovi v partnerském centru, můžete si h
 
 ### <a name="create-a-guest-user-in-the-end-customer-directory"></a>Vytvoření uživatele typu Host v adresáři koncového zákazníka
 
-Ve výchozím nastavení vám jako CSP nebude mít přístup k předplatnému Azure Stack koncového zákazníka. Pokud ale zákazník chce spravovat svoje prostředky, může přidat svůj účet jako vlastníka nebo přispěvatele ke svému předplatnému Azure Stack. Aby to bylo možné, bude nutné přidat účet jako uživatel typu Host do svého tenanta služby Azure AD. Doporučujeme použít jiný účet z vašeho účtu Azure CSP ke správě předplatného Azure Stack zákazníka, abyste se ujistili, že nepřijdete o přístup k předplatnému Azure vašeho zákazníka.
+Ve výchozím nastavení vám jako CSP nebude mít přístup k předplatnému centra Azure Stack pro koncové zákazníky. Pokud ale zákazník chce spravovat svoje prostředky, může přidat svůj účet jako vlastníka nebo přispěvatele do svého předplatného centra Azure Stack. Aby to bylo možné, bude nutné přidat účet jako uživatel typu Host do svého tenanta služby Azure AD. Doporučujeme použít jiný účet z vašeho účtu Azure CSP ke správě předplatného centra Azure Stack zákazníka, abyste se ujistili, že nepřijdete o přístup k předplatnému Azure vašeho zákazníka.
 
 ### <a name="update-the-registration-with-the-end-customer-subscription"></a>Aktualizace registrace pomocí předplatného koncového zákazníka
 
-Aktualizujte svou registraci pomocí nového zákaznického předplatného. Azure oznamuje využívání zákazníků pomocí zákaznické identity z partnerského centra. Tento krok zajistí, že se využití každého zákazníka hlásí v rámci příslušného předplatného zprostředkovatele CSP daného zákazníka. Díky tomu je sledování využití a fakturace jednodušší. Chcete-li provést tento krok, je nutné nejprve [zaregistrovat Azure Stack](azure-stack-registration.md).
+Aktualizujte svou registraci pomocí nového zákaznického předplatného. Azure oznamuje využívání zákazníků pomocí zákaznické identity z partnerského centra. Tento krok zajistí, že se využití každého zákazníka hlásí v rámci příslušného předplatného zprostředkovatele CSP daného zákazníka. Díky tomu je sledování využití a fakturace jednodušší. Chcete-li provést tento krok, je třeba nejprve [zaregistrovat Azure Stack hub](azure-stack-registration.md).
 
 1. Otevřete prostředí Windows PowerShell s výzvou se zvýšenými oprávněními a spusťte příkaz:  
 
@@ -81,24 +81,24 @@ V následující části jsou popsány parametry pro rutinu **New-AzureRmResourc
 
 | Parametr | Popis |
 | --- | --- |
-|registrationSubscriptionID | Předplatné Azure, které se použilo při prvotní registraci Azure Stack.|
-| customerSubscriptionID | Předplatné Azure (není Azure Stack) patřící zákazníkovi k registraci. Musí být vytvořen v nabídce CSP. V praxi to znamená prostřednictvím partnerského centra. Pokud má zákazník více než jednoho klienta Azure Active Directory, musí být toto předplatné vytvořeno v tenantovi, které se bude používat pro přihlášení k Azure Stack. ID předplatného zákazníka musí používat malá písmena. |
-| Skupina prostředků | Skupina prostředků v Azure, ve které je uložená vaše registrace. |
-| registrationName | Název registrace Azure Stack. Je to objekt uložený v Azure. 
+|registrationSubscriptionID | Předplatné Azure, které se použilo při prvotní registraci centra Azure Stack.|
+| customerSubscriptionID | Předplatné Azure (ne Azure Stack centrum) patřící zákazníkovi, který se má zaregistrovat Musí být vytvořen v nabídce CSP. V praxi to znamená prostřednictvím partnerského centra. Pokud má zákazník více než jednoho klienta Azure Active Directory, musí být toto předplatné vytvořeno v tenantovi, které se bude používat k přihlášení do centra Azure Stack. ID předplatného zákazníka musí používat malá písmena. |
+| resourceGroup | Skupina prostředků v Azure, ve které je uložená vaše registrace. |
+| registrationName | Název registrace centra Azure Stack. Je to objekt uložený v Azure. 
 
 > [!NOTE]  
-> Klienty musí být zaregistrované u každé Azure Stack, kterou používají. Pokud máte dvě Azure Stack nasazení a tenant používá oba, musíte aktualizovat počáteční registraci každého nasazení s předplatným tenanta.
+> Klienti musí být zaregistrované u každého Azure Stackho centra, které používají. Pokud máte dvě nasazení centra Azure Stack a klient používá oba z nich, je nutné aktualizovat počáteční registraci každého nasazení u předplatného tenanta.
 
-### <a name="onboard-tenant-to-azure-stack"></a>Připojit klienta k Azure Stack
+### <a name="onboard-tenant-to-azure-stack-hub"></a>Začlenit tenanta do centra Azure Stack
 
-Nakonfigurujte Azure Stack pro podporu uživatelů z více tenantů Azure AD, aby používaly služby v Azure Stack. Pokyny najdete v tématu [Povolení víceklientské architektury v Azure Stack](azure-stack-enable-multitenancy.md).
+Nakonfigurujte centrum Azure Stack tak, aby podporovalo uživatele z více tenantů Azure AD, aby mohli používat služby v centru Azure Stack. Pokyny najdete v tématu [Povolení víceklientské architektury v centru Azure Stack](azure-stack-enable-multitenancy.md).
 
-### <a name="create-a-local-resource-in-the-end-customer-tenant-in-azure-stack"></a>Vytvoření místního prostředku v klientovi koncového zákazníka v Azure Stack
+### <a name="create-a-local-resource-in-the-end-customer-tenant-in-azure-stack-hub"></a>Vytvoření místního prostředku v tenantovi koncového zákazníka v centru Azure Stack
 
-Po přidání nového zákazníka do Azure Stack nebo koncový tenant zákazníka povolil váš účet Guest s oprávněními vlastníka, ověřte, že můžete vytvořit prostředek ve svém tenantovi. Například mohou [vytvořit virtuální počítač s Windows pomocí portálu Azure Stack](../user/azure-stack-quick-windows-portal.md).
+Jakmile přidáte nového zákazníka do centra Azure Stack nebo koncový tenant zákazníka povolil váš účet Guest s oprávněními vlastníka, ověřte, že můžete vytvořit prostředek ve svém tenantovi. Například mohou [vytvořit virtuální počítač s Windows pomocí portálu Azure Stack hub](../user/azure-stack-quick-windows-portal.md).
 
 ## <a name="next-steps"></a>Další kroky
 
 - Pokud chcete zkontrolovat chybové zprávy, pokud se aktivují v procesu registrace, přečtěte si téma [chybové zprávy registrace tenanta](azure-stack-registration-errors.md).
-- Další informace o tom, jak načíst informace o využití prostředků z Azure Stack, najdete [v tématu využití a fakturace v Azure Stack](azure-stack-billing-and-chargeback.md).
-- Pokud chcete zjistit, jak může koncový zákazník přidat vás, CSP jako správce pro svého klienta Azure Stack, přečtěte si téma [povolení poskytovatele Cloud Solution pro správu předplatného Azure Stack](../user/azure-stack-csp-enable-billing-usage-tracking.md).
+- Další informace o tom, jak načíst informace o využití prostředků z centra Azure Stack, najdete [v tématu využití a fakturace v centru Azure Stack](azure-stack-billing-and-chargeback.md).
+- Pokud chcete zjistit, jak může koncový zákazník přidat vás, CSP jako správce pro svého tenanta centra Azure Stack, přečtěte si téma [povolení poskytovatele Cloud Solution pro správu předplatného centra Azure Stack](../user/azure-stack-csp-enable-billing-usage-tracking.md).

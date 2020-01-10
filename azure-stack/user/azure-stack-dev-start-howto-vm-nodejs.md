@@ -1,6 +1,6 @@
 ---
-title: Nasazení aplikace Node. js na virtuální počítač v Azure Stack | Microsoft Docs
-description: Nasaďte aplikaci Node. js na Azure Stack.
+title: Nasazení aplikace Node. js na virtuální počítač v centru Azure Stack | Microsoft Docs
+description: Nasaďte aplikaci Node. js do centra Azure Stack.
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,29 +9,29 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 0b145ab315e855ee08b25ea4980bdde40d0bfc1c
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: b848678eab2b913331208e13882c3b8b125c51a8
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71824200"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75820589"
 ---
-# <a name="deploy-a-nodejs-web-app-to-a-vm-in-azure-stack"></a>Nasazení webové aplikace v Node. js na virtuální počítač v Azure Stack
+# <a name="deploy-a-nodejs-web-app-to-a-vm-in-azure-stack-hub"></a>Nasazení webové aplikace v Node. js do virtuálního počítače v Azure Stackovém centru
 
-Můžete vytvořit virtuální počítač, který bude hostovat webovou aplikaci Node. js v Azure Stack. V tomto článku jste nastavili server, nakonfigurujete server tak, aby byl hostitelem webové aplikace Node. js, a pak nasadíte aplikaci do Azure Stack.
+Můžete vytvořit virtuální počítač, který bude hostovat webovou aplikaci Node. js v centru Azure Stack. V tomto článku jste nastavili server, nakonfigurujete server tak, aby byl hostitelem webové aplikace Node. js, a pak nasadíte aplikaci do centra Azure Stack.
 
 ## <a name="create-a-vm"></a>Vytvoření virtuálního počítače
 
-1. Nastavte virtuální počítač v Azure Stack podle pokynů v tématu [nasazení virtuálního počítače se systémem Linux pro hostování webové aplikace v Azure Stack](azure-stack-dev-start-howto-deploy-linux.md).
+1. Nastavte svůj virtuální počítač v centru Azure Stack podle pokynů v tématu [nasazení virtuálního počítače se systémem Linux pro hostování webové aplikace v centru Azure Stack](azure-stack-dev-start-howto-deploy-linux.md).
 
 2. V podokně síť virtuálních počítačů se ujistěte, že jsou dostupné tyto porty:
 
-    | Port | Protocol | Popis |
+    | Port | Protocol (Protokol) | Popis |
     | --- | --- | --- |
     | 80 | HTTP | HTTP (Hypertext Transfer Protocol) je protokol, který se používá k doručování webových stránek ze serverů. Klienti se připojují přes protokol HTTP s názvem DNS nebo IP adresou. |
     | 443 | HTTPS | Protokol HTTPS (Hypertext Transfer Protocol Secure) je zabezpečená verze protokolu HTTP, která vyžaduje certifikát zabezpečení a umožňuje šifrovaný přenos informací. |
     | 22 | SSH | Secure Shell (SSH) je zašifrovaný síťový protokol pro zabezpečenou komunikaci. Pomocí tohoto připojení s klientem SSH nakonfigurujete virtuální počítač a nasadíte aplikaci. |
-    | 3389 | PROTOKOL RDP | Volitelný parametr. Protokol RDP (Remote Desktop Protocol) (RDP) umožňuje připojení ke vzdálené ploše pro použití grafického uživatelského rozhraní na vašem počítači.   |
+    | 3389 | Protokol RDP | Nepovinný parametr. Protokol RDP (Remote Desktop Protocol) (RDP) umožňuje připojení ke vzdálené ploše pro použití grafického uživatelského rozhraní na vašem počítači.   |
     | 1337 | Vlastní | Port používaný uzlem Node. js. V případě provozního serveru směrujete provoz mezi 80 a 443. |
 
 ## <a name="install-node"></a>Instalovat uzel
@@ -87,6 +87,6 @@ Můžete vytvořit virtuální počítač, který bude hostovat webovou aplikaci
 
 ## <a name="next-steps"></a>Další kroky
 
-- Přečtěte si další informace o [vývoji pro Azure Stack](azure-stack-dev-start.md).
-- Přečtěte si o [běžných nasazeních Azure Stack jako IaaS](azure-stack-dev-start-deploy-app.md).
+- Přečtěte si další informace o [vývoji centra Azure Stack](azure-stack-dev-start.md).
+- Přečtěte si o [běžných nasazeních centra Azure Stack jako IaaS](azure-stack-dev-start-deploy-app.md).
 - Informace o programovacím jazyku uzlu a vyhledání dalších prostředků pro uzel najdete v tématu [NodeJS.org](https://nodejs.org).

@@ -1,6 +1,6 @@
 ---
-title: Aktualizace poskytovatele prostředků MySQL v Azure Stack | Microsoft Docs
-description: Naučte se aktualizovat poskytovatele prostředků Azure Stack MySQL v Azure Stack.
+title: Aktualizace poskytovatele prostředků MySQL v centru Azure Stack | Microsoft Docs
+description: Naučte se aktualizovat poskytovatele prostředků MySQL centra Azure Stack v centru Azure Stack.
 services: azure-stack
 documentationCenter: ''
 author: mattbriggs
@@ -15,20 +15,20 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 2fd85cb897f1d5e457183ffeeffc5340cbb48696
-ms.sourcegitcommit: 3a8e116fd0b16e1201e55e2088dde2e581004045
+ms.openlocfilehash: 6b0c849a6550ecae8d2127be0be3fbdbc8708f0b
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74557566"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75810967"
 ---
-# <a name="update-the-mysql-resource-provider-in-azure-stack"></a>Aktualizujte poskytovatele prostředků MySQL v Azure Stack
+# <a name="update-the-mysql-resource-provider-in-azure-stack-hub"></a>Aktualizace poskytovatele prostředků MySQL v Azure Stack hub
 
-*Platí pro: Azure Stack integrovaných systémů.*
+*Platí pro: Azure Stack integrovaných systémů centra.*
 
-Při aktualizaci Azure Stack sestavení může být uvolněn nový adaptér poskytovatele prostředků MySQL. I když existující adaptér funguje i nadále, doporučujeme aktualizovat na nejnovější sestavení co nejdříve.
+Při aktualizaci Azure Stackch sestavení centra se může uvolnit nový adaptér poskytovatele prostředků MySQL. I když existující adaptér funguje i nadále, doporučujeme aktualizovat na nejnovější sestavení co nejdříve.
 
-Počínaje verzí 1.1.33.0 verze poskytovatele prostředků MySQL budou aktualizace kumulativní a nemusíte je instalovat v pořadí, ve kterém byly vydané, pokud začínáte z verze 1.1.24.0 nebo novější. Pokud například používáte verzi 1.1.24.0 poskytovatele prostředků MySQL, můžete upgradovat na verzi 1.1.33.0 nebo novější, aniž byste museli nejdřív nainstalovat verzi 1.1.30.0. Pokud chcete zkontrolovat dostupné verze poskytovatele prostředků a verzi Azure Stack, na které jsou podporované, přečtěte si seznam verzí v tématu [nasazení požadavků poskytovatele prostředků](./azure-stack-mysql-resource-provider-deploy.md#prerequisites).
+Počínaje verzí 1.1.33.0 verze poskytovatele prostředků MySQL budou aktualizace kumulativní a nemusíte je instalovat v pořadí, ve kterém byly vydané, pokud začínáte z verze 1.1.24.0 nebo novější. Pokud například používáte verzi 1.1.24.0 poskytovatele prostředků MySQL, můžete upgradovat na verzi 1.1.33.0 nebo novější, aniž byste museli nejdřív nainstalovat verzi 1.1.30.0. Pokud chcete zkontrolovat dostupné verze poskytovatele prostředků a verzi centra Azure Stack, na které jsou podporované, přečtěte si téma seznam verzí v tématu [nasazení požadavků poskytovatele prostředků](./azure-stack-mysql-resource-provider-deploy.md#prerequisites).
 
 Chcete-li aktualizovat poskytovatele prostředků, použijte skript **UpdateMySQLProvider. ps1** . Proces se podobá procesu použitému k instalaci poskytovatele prostředků, jak je popsáno v části nasazení poskytovatele prostředků v tomto článku. Skript je součástí stahování poskytovatele prostředků. 
 
@@ -50,13 +50,13 @@ Když spustíte skript prostředí PowerShell **UpdateMySQLProvider. ps1** , zad
 
 | Název parametru | Popis | Komentář nebo výchozí hodnota | 
 | --- | --- | --- | 
-| **CloudAdminCredential** | Přihlašovací údaje pro správce cloudu, které jsou nezbytné pro přístup k privilegovanému koncovému bodu. | _Požadovanou_ | 
-| **AzCredential** | Přihlašovací údaje pro účet správce služby Azure Stack Použijte stejné přihlašovací údaje, jako jste použili k nasazení Azure Stack. | _Požadovanou_ | 
-| **VMLocalCredential** |Přihlašovací údaje pro účet místního správce virtuálního počítače poskytovatele prostředků SQL. | _Požadovanou_ | 
-| **PrivilegedEndpoint** | IP adresa nebo název DNS privilegovaného koncového bodu. |  _Požadovanou_ | 
-| **AzureEnvironment** | Prostředí Azure účtu správce služby používaného pro nasazení Azure Stack. Vyžaduje se jenom pro nasazení Azure AD. Podporované názvy prostředí jsou **AzureCloud**, **AzureUSGovernment**nebo, pokud používáte Čína Azure AD **AzureChinaCloud**. | AzureCloud |
+| **CloudAdminCredential** | Přihlašovací údaje pro správce cloudu, které jsou nezbytné pro přístup k privilegovanému koncovému bodu. | _Vyžaduje_ | 
+| **AzCredential** | Přihlašovací údaje pro účet správce služby Azure Stack hub. Použijte stejné přihlašovací údaje jako při nasazení centra Azure Stack. | _Vyžaduje_ | 
+| **VMLocalCredential** |Přihlašovací údaje pro účet místního správce virtuálního počítače poskytovatele prostředků SQL. | _Vyžaduje_ | 
+| **PrivilegedEndpoint** | IP adresa nebo název DNS privilegovaného koncového bodu. |  _Vyžaduje_ | 
+| **AzureEnvironment** | Prostředí Azure účtu správce služby používaného pro nasazení centra Azure Stack. Vyžaduje se jenom pro nasazení Azure AD. Podporované názvy prostředí jsou **AzureCloud**, **AzureUSGovernment**nebo, pokud používáte Čína Azure AD **AzureChinaCloud**. | AzureCloud |
 | **DependencyFilesLocalPath** | Soubor certifikátu. pfx musí být umístěný i v tomto adresáři. | _Volitelné_ (_povinné_ pro více uzlů) | 
-| **DefaultSSLCertificatePassword** | Heslo pro certifikát. pfx. | _Požadovanou_ | 
+| **DefaultSSLCertificatePassword** | Heslo pro certifikát. pfx. | _Vyžaduje_ | 
 | **MaxRetryCount** | Počet pokusů o opakování všech operací, pokud dojde k selhání.| 2 | 
 | **RetryDuration** | Interval časového limitu mezi opakovanými pokusy (v sekundách). | 120 | 
 | **Odinstalace** | Odebrání poskytovatele prostředků a všech přidružených prostředků (viz následující poznámky). | Ne | 
@@ -68,11 +68,11 @@ Když spustíte skript prostředí PowerShell **UpdateMySQLProvider. ps1** , zad
 > [!NOTE] 
 > Proces aktualizace platí jenom pro integrované systémy.
 
-Pokud aktualizujete verzi poskytovatele prostředků MySQL na 1.1.33.0 nebo předchozí verze, budete muset v PowerShellu nainstalovat konkrétní verze AzureRm. zaváděcího nástroje a Azure Stack moduly. Pokud aktualizujete poskytovatele prostředků MySQL na verzi 1.1.47.0, tento krok se dá přeskočit.
+Pokud aktualizujete verzi poskytovatele prostředků MySQL na 1.1.33.0 nebo předchozí verze, budete muset v PowerShellu nainstalovat konkrétní verze modulů AzureRm. zaváděcího nástroje a Azure Stack hub. Pokud aktualizujete poskytovatele prostředků MySQL na verzi 1.1.47.0, tento krok se dá přeskočit.
 
 ```powershell 
 # Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module
-# Note that this might not be the most currently available version of Azure Stack PowerShell.
+# Note that this might not be the most currently available version of Azure Stack Hub PowerShell.
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
 Install-Module -Name AzureStack -RequiredVersion 1.6.0
@@ -81,13 +81,13 @@ Install-Module -Name AzureStack -RequiredVersion 1.6.0
 Následující příklad ukazuje skript *UpdateMySQLProvider. ps1* , který můžete spustit z konzoly PowerShellu se zvýšenými oprávněními. Nezapomeňte změnit informace o proměnné a hesla podle potřeby:
 
 ```powershell 
-# Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time.
+# Use the NetBIOS name for the Azure Stack Hub domain. On the Azure Stack Hub SDK, the default is AzureStack but could have been changed at install time.
 $domain = "AzureStack" 
 
 # For integrated systems, use the IP address of one of the ERCS VMs.
 $privilegedEndpoint = "AzS-ERCS01" 
 
-# Provide the Azure environment used for deploying Azure Stack. Required only for Azure AD deployments. Supported environment names are AzureCloud, AzureUSGovernment, or AzureChinaCloud. 
+# Provide the Azure environment used for deploying Azure Stack Hub. Required only for Azure AD deployments. Supported environment names are AzureCloud, AzureUSGovernment, or AzureChinaCloud. 
 $AzureEnvironment = "<EnvironmentName>"
 
 # Point to the directory where the resource provider installation files were extracted. 

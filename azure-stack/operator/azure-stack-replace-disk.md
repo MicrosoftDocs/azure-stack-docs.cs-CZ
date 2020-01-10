@@ -1,7 +1,7 @@
 ---
 title: Nahrazení fyzického disku
-titleSuffix: Azure Stack
-description: Přečtěte si, jak nahradit fyzický disk v Azure Stack.
+titleSuffix: Azure Stack Hub
+description: Naučte se, jak nahradit fyzický disk v Azure Stack hub.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -17,21 +17,21 @@ ms.date: 12/02/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 12/02/2019
-ms.openlocfilehash: 3c7808374621d3b60b1884df8ad44e27c244bfc5
-ms.sourcegitcommit: 62283e9826ea78b218f5d2c6c555cc44196b085d
+ms.openlocfilehash: 6fdf88d24c36e8782b880d4ddea43dee96516034
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74780843"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75808494"
 ---
-# <a name="replace-a-physical-disk-in-azure-stack"></a>Nahrazení fyzického disku v Azure Stack
+# <a name="replace-a-physical-disk-in-azure-stack-hub"></a>Nahrazení fyzického disku v Azure Stackovém centru
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
-Tento článek popisuje obecný proces nahrazení fyzického disku v Azure Stack. Pokud selže fyzický disk, měli byste ho co nejdříve nahradit.
+Tento článek popisuje obecný proces nahrazení fyzického disku v Azure Stackovém centru. Pokud selže fyzický disk, měli byste ho co nejdříve nahradit.
 
 > [!Note]  
-> Nahrazení fyzické datové **jednotky nevyžaduje,** aby uzel jednotky škálování byl přepnut do režimu údržby (vyprázdnění) předem. I po nahrazení fyzické jednotky uzel jednotky škálování není potřeba opravit pomocí portálu Azure Stack hub pro správu. Následující článek obsahuje další informace, pokud je nutná oprava, [nahrazuje hardwarovou součást v uzlu jednotky škálování Azure Stack](azure-stack-replace-component.md).
+> Nahrazení fyzické datové **jednotky nevyžaduje,** aby uzel jednotky škálování byl přepnut do režimu údržby (vyprázdnění) předem. I po nahrazení fyzické jednotky uzel jednotky škálování není potřeba opravit pomocí portálu Azure Stack hub pro správu. Následující článek obsahuje další informace o tom, že je nutná oprava a [nahrazuje hardwarovou komponentu na uzlu jednotky škálování centra Azure Stack](azure-stack-replace-component.md).
 
 Tento postup můžete použít pro integrované systémy a pro nasazení Azure Stack Development Kit (ASDK), která mají disky připojitelných za chodu.
 
@@ -40,9 +40,9 @@ Konkrétní postup nahrazení disku se bude lišit v závislosti na vašem dodav
 ## <a name="review-disk-alert-information"></a>Kontrola informací o výstrahách disku
 Když selže disk, obdržíte upozornění s informací, že došlo ke ztrátě připojení k fyzickému disku.
 
-![Upozornění ukazující ztracené připojení na fyzický disk při správě Azure Stack](media/azure-stack-replace-disk/DiskAlert.png)
+![Upozornění ukazující ztracené připojení na fyzický disk ve správě centra Azure Stack](media/azure-stack-replace-disk/DiskAlert.png)
 
-Pokud otevřete výstrahu, popis výstrahy obsahuje uzel jednotka škálování a přesné umístění fyzického slotu pro disk, který je nutné nahradit. Azure Stack dále pomůže identifikovat disk, který selhal, pomocí možností indikátoru LED.
+Pokud otevřete výstrahu, popis výstrahy obsahuje uzel jednotka škálování a přesné umístění fyzického slotu pro disk, který je nutné nahradit. Azure Stack hub vám pomůže s identifikací disku, který selhal, pomocí možností indikátoru LED.
 
 ## <a name="replace-the-physical-disk"></a>Nahrazení fyzického disku
 
@@ -53,14 +53,14 @@ Při vlastním nahrazování disku postupujte podle pokynů k jednotce nahradite
 
 Aby nedocházelo k použití nepodporovaného disku v integrovaném systému, systém blokuje disky, které nejsou podporované vaším dodavatelem. Pokud se pokusíte použít nepodporovaný disk, zobrazí nová výstraha, že disk byl umístěn do karantény z důvodu nepodporovaného modelu nebo firmwaru.
 
-Po nahrazení disku Azure Stack automaticky zjistí nový disk a spustí proces opravy virtuálního disku.
+Po nahrazení disku Azure Stack centrum automaticky zjistí nový disk a spustí proces opravy virtuálního disku.
 
-## <a name="check-the-status-of-virtual-disk-repair-using-azure-stack-powershell"></a>Ověření stavu opravy virtuálního disku pomocí Azure Stack PowerShellu
+## <a name="check-the-status-of-virtual-disk-repair-using-azure-stack-hub-powershell"></a>Ověření stavu opravy virtuálního disku pomocí centra Azure Stackho prostředí PowerShell
 
-Po nahrazení disku můžete monitorovat stav virtuálního disku a průběh úlohy opravy pomocí Azure Stack PowerShellu.
+Po nahrazení disku můžete monitorovat stav virtuálního disku a průběh úlohy opravy pomocí centra Azure Stack PowerShell.
 
-1. Ověřte, že máte nainstalovaný Azure Stack PowerShell. Další informace najdete v tématu [instalace PowerShellu pro Azure Stack](azure-stack-powershell-install.md).
-2. Připojte se k Azure Stack pomocí PowerShellu jako operátoru. Další informace najdete v tématu [připojení k Azure Stack pomocí PowerShellu jako operátoru](azure-stack-powershell-configure-admin.md).
+1. Ověřte, že máte nainstalovaný PowerShell Azure Stack hub. Další informace najdete v tématu [instalace PowerShellu pro centrum Azure Stack](azure-stack-powershell-install.md).
+2. Připojte se k Azure Stack centra pomocí PowerShellu jako operátoru. Další informace najdete v tématu [připojení k Azure Stack hub pomocí PowerShellu jako operátoru](azure-stack-powershell-configure-admin.md).
 3. Spusťte následující rutiny k ověření stavu virtuálního disku a stavu opravy:
 
     ```powershell  
@@ -69,9 +69,9 @@ Po nahrazení disku můžete monitorovat stav virtuálního disku a průběh úl
     Get-AzsVolume -StorageSubSystem $StorageSubSystem.Name -ScaleUnit $scaleunit.name | Select-Object VolumeLabel, OperationalStatus, RepairStatus
     ```
 
-    ![Stav Azure Stackch svazků v PowerShellu](media/azure-stack-replace-disk/get-azure-stack-volumes-health.png)
+    ![Stav svazků Azure Stack hub v PowerShellu](media/azure-stack-replace-disk/get-azure-stack-volumes-health.png)
 
-4. Ověří Azure Stack stav systému. Pokyny najdete v tématu [ověření stavu systému Azure Stack](azure-stack-diagnostic-test.md).
+4. Ověří stav systému Azure Stack hub. Pokyny najdete v tématu [ověření stavu systému centra Azure Stack](azure-stack-diagnostic-test.md).
 5. Volitelně můžete spuštěním následujícího příkazu ověřit stav nahrazeného fyzického disku.
 
     ```powershell  
@@ -81,7 +81,7 @@ Po nahrazení disku můžete monitorovat stav virtuálního disku a průběh úl
     Get-AzsDrive -StorageSubSystem $StorageSubSystem.Name -ScaleUnit $scaleunit.name | Sort-Object StorageNode,MediaType,PhysicalLocation | Format-Table Storagenode, Healthstatus, PhysicalLocation, Model, MediaType,  CapacityGB, CanPool, CannotPoolReason
     ```
 
-    ![Fyzické disky v Azure Stack v prostředí PowerShell nahrazeny](media/azure-stack-replace-disk/check-replaced-physical-disks-azure-stack.png)
+    ![Nahrazení fyzických disků v Azure Stackovém centru pomocí PowerShellu](media/azure-stack-replace-disk/check-replaced-physical-disks-azure-stack.png)
 
 ## <a name="check-the-status-of-virtual-disk-repair-using-the-privileged-endpoint"></a>Ověření stavu opravy virtuálního disku pomocí privilegovaného koncového bodu
 
@@ -111,7 +111,7 @@ Po nahrazení disku můžete monitorovat stav virtuálního disku a průběh úl
 
     ![Výstup PowerShellu příkazu Get-StorageJob](media/azure-stack-replace-disk/GetStorageJobOutput.png)
 
-4. Ověří stav Azure Stack systému. Pokyny najdete v tématu [ověření stavu systému Azure Stack](azure-stack-diagnostic-test.md).
+4. Ověří stav systému centra Azure Stack. Pokyny najdete v tématu [ověření stavu systému centra Azure Stack](azure-stack-diagnostic-test.md).
 
 ## <a name="troubleshoot-virtual-disk-repair-using-the-privileged-endpoint"></a>Řešení potíží s opravou virtuálního disku pomocí privilegovaného koncového bodu
 

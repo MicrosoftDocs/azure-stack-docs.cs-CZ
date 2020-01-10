@@ -1,6 +1,6 @@
 ---
-title: Povolení Azure CLI pro uživatele Azure Stack | Microsoft Docs
-description: Naučte se, jak povolit rozhraní příkazového řádku (CLI) pro různé platformy pro správu a nasazení prostředků v Azure Stack.
+title: Povolení Azure CLI pro uživatele centra Azure Stack | Microsoft Docs
+description: Naučte se, jak povolit rozhraní příkazového řádku (CLI) pro různé platformy pro správu a nasazení prostředků v centru Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,26 +14,26 @@ ms.topic: article
 ms.date: 10/02/2019
 ms.author: mabrigg
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: eed0626458d6186b651801d5bda29c4cf77cef9a
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: 51dbef18134c3a5441808c698193fc11f00b223e
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829040"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75812174"
 ---
-# <a name="enable-azure-cli-for-azure-stack-users"></a>Povolení Azure CLI pro uživatele Azure Stack
+# <a name="enable-azure-cli-for-azure-stack-hub-users"></a>Povolení Azure CLI pro uživatele centra Azure Stack
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
-Kořenový certifikát certifikační autority můžete poskytnout uživatelům Azure Stack, aby mohli na svých vývojových počítačích povolit Azure CLI. Uživatelé potřebují certifikát pro správu prostředků přes rozhraní příkazového řádku.
+Kořenový certifikát certifikační autority můžete poskytnout uživatelům Azure Stackového centra, aby mohli povolit Azure CLI na svých vývojových počítačích. Uživatelé potřebují certifikát pro správu prostředků přes rozhraní příkazového řádku.
 
- - Pokud uživatelé používají CLI z pracovní stanice mimo Azure Stack Development Kit (ASDK), je vyžadován **kořenový certifikát certifikační autority. Azure Stack**  
+ - Pokud uživatelé používají CLI z pracovní stanice mimo Azure Stack Development Kit (ASDK), vyžaduje se **kořenový certifikát CA centra Azure Stack** .  
 
  - **Koncový bod aliasů virtuálního počítače** poskytuje alias, jako je například "UbuntuLTS" nebo "Win2012Datacenter", který odkazuje na vydavatele image, nabídku, SKU a verzi jako jeden parametr při nasazování virtuálních počítačů.  
 
 Následující části popisují, jak tyto hodnoty získat.
 
-## <a name="export-the-azure-stack-ca-root-certificate"></a>Export kořenového certifikátu certifikační autority Azure Stack
+## <a name="export-the-azure-stack-hub-ca-root-certificate"></a>Export kořenového certifikátu certifikační autority centra Azure Stack
 
 Pokud používáte integrovaný systém, nemusíte exportovat kořenový certifikát certifikační autority. Je potřeba exportovat kořenový certifikát certifikační autority na ASDK.
 
@@ -58,14 +58,14 @@ certutil -encode root.cer root.pem
 
 ## <a name="set-up-the-vm-aliases-endpoint"></a>Nastavení koncového bodu aliasů virtuálních počítačů
 
-Operátoři Azure Stack by měli nastavit veřejně přístupný koncový bod, který hostuje soubor s aliasem virtuálního počítače. Soubor aliasu virtuálního počítače je soubor JSON, který poskytuje běžný název pro obrázek. Název použijete při nasazení virtuálního počítače jako parametru Azure CLI.  
+Operátoři centra Azure Stack by měli nastavit veřejně přístupný koncový bod, který hostuje soubor s aliasem virtuálního počítače. Soubor aliasu virtuálního počítače je soubor JSON, který poskytuje běžný název pro obrázek. Název použijete při nasazení virtuálního počítače jako parametru Azure CLI.  
 
-Před přidáním položky do souboru s aliasem se ujistěte, že jste [stáhli obrázky z Azure Marketplace](azure-stack-download-azure-marketplace-item.md) nebo jste publikovali vlastní [Image](azure-stack-add-vm-image.md). Pokud publikujete vlastní image, poznamenejte si informace o vydavateli, nabídce, SKU a verzi, které jste zadali během publikování. Pokud se jedná o image z webu Marketplace, můžete si informace zobrazit pomocí `Get-AzureVMImage` rutiny.  
+Před přidáním položky do souboru s aliasem se ujistěte, že jste [stáhli obrázky z Azure Marketplace](azure-stack-download-azure-marketplace-item.md) nebo jste [publikovali vlastní image](azure-stack-add-vm-image.md). Pokud publikujete vlastní image, poznamenejte si informace o vydavateli, nabídce, SKU a verzi, které jste zadali během publikování. Pokud se jedná o image z webu Marketplace, můžete zobrazit informace pomocí rutiny `Get-AzureVMImage`.  
 
 K dispozici je [ukázkový soubor aliasu](https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json) s mnoha běžnými aliasy obrázků. Můžete ho použít jako výchozí bod. Tento soubor hostovat v prostoru, kde se k němu klienti rozhraní příkazového řádku můžou připojit. Jedním ze způsobů je hostovat soubor v účtu BLOB Storage a sdílet adresu URL s uživateli:
 
 1. Stáhněte si [ukázkový soubor](https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json) z GitHubu.
-2. Vytvořte účet úložiště v Azure Stack. Až to bude hotové, vytvořte kontejner objektů BLOB. Nastavte zásady přístupu na veřejné.  
+2. Vytvořte účet úložiště v centru Azure Stack. Až to bude hotové, vytvořte kontejner objektů BLOB. Nastavte zásady přístupu na veřejné.  
 3. Nahrajte soubor JSON do nového kontejneru. Až to uděláte, můžete zobrazit adresu URL objektu BLOB. Vyberte název objektu BLOB a potom vyberte adresu URL z vlastností objektu BLOB.
 
 ## <a name="next-steps"></a>Další kroky

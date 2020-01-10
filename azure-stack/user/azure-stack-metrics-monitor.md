@@ -1,6 +1,6 @@
 ---
-title: Spotřebovat data monitorování z Azure Stack | Microsoft Docs
-description: Seznamte se s možnostmi pro využívání dat monitorování z Azure Stack.
+title: Využití dat monitorování z centra Azure Stack | Microsoft Docs
+description: Seznamte se s možnostmi pro využívání dat monitorování z centra Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,24 +14,24 @@ ms.topic: article
 ms.date: 11/11/2019
 ms.author: mabrigg
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 20e4f71480aa377e56115c499f96492e768010c3
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.openlocfilehash: 307f0db126048f53559f6f4e29681e650b27a375
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955743"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75819824"
 ---
-# <a name="how-to-consume-monitoring-data-from-azure-stack"></a>Jak spotřebovat data monitorování z Azure Stack
+# <a name="how-to-consume-monitoring-data-from-azure-stack-hub"></a>Jak spotřebovávat data monitorování z centra Azure Stack
 
-*Platí pro: Azure Stack integrovaných systémů*
+*Platí pro: Azure Stack integrovaných systémů centra*
 
-Data monitorování se nacházejí v jednom umístění s kanálem Azure Monitor, stejně jako Azure Monitor v globálním Azure. Ale ne všechna data monitorování, která najdete v globálním Azure, jsou k dispozici v Azure Stack. V tomto článku poskytujeme přehled různých způsobů využívání dat monitorování v Azure Stack.
+Data monitorování se nacházejí v jednom umístění s kanálem Azure Monitor, stejně jako Azure Monitor v globálním Azure. Ale ne všechna data monitorování, která najdete v globálním Azure, jsou k dispozici v Azure Stack hub. V tomto článku poskytujeme přehled různých způsobů využívání dat monitorování v centru Azure Stack.
  
 ## <a name="options-for-data-consumption"></a>Možnosti pro spotřebu dat
 
 | Data type | Kategorie | Podporované služby | Metody přístupu |
 |-------------------------------------------------------------|----------|------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|
-| Azure Monitor metriky na úrovni platformy | Metriky | [Podporované metriky s Azure Monitor v Azure Stack](azure-stack-metrics-supported.md) | Rozhraní REST API |
+| Azure Monitor metriky na úrovni platformy | Metriky | [Podporované metriky s Azure Monitor v centru Azure Stack](azure-stack-metrics-supported.md) | Rozhraní REST API |
 | Metriky pro operační systémy služby COMPUTE pro výpočty (například čítač výkonu) | Metriky | Virtuální počítače se systémem Windows a Linux | Tabulka nebo objekt BLOB úložiště:<br>Azure Diagnostics systému Windows nebo Linux <br>Centrum událostí:<br>Diagnostika Azure pro Windows |
 | Metriky úložiště | Metriky | Azure Storage | Tabulka úložiště:<br>Storage Analytics |
 | Protokol aktivit | Akce | Všechny služby Azure | REST API:<br>Rozhraní API pro Azure Monitor události |
@@ -40,4 +40,4 @@ Data monitorování se nacházejí v jednom umístění s kanálem Azure Monitor
 
 ## <a name="next-steps"></a>Další kroky
 
-Přečtěte si další informace o [službě Azure monitor na Azure Stack](azure-stack-metrics-azure-data.md).
+Přečtěte si další informace o [službě Azure monitor v centru Azure Stack](azure-stack-metrics-azure-data.md).

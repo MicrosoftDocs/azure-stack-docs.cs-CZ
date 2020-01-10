@@ -1,6 +1,6 @@
 ---
-title: App Service obnovení Azure Stack | Microsoft Docs
-description: Přečtěte si o zotavení po havárii pro App Service v Azure Stack.
+title: App Service obnovení v centru Azure Stack | Microsoft Docs
+description: Přečtěte si o zotavení po havárii pro App Service v centru Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: bryanla
@@ -16,25 +16,25 @@ ms.date: 03/21/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/21/2019
-ms.openlocfilehash: 82498781e83aedf13a3ba33da24f484bc7e80d4b
-ms.sourcegitcommit: 4eb1766c7a9d1ccb1f1362ae1211ec748a7d708c
+ms.openlocfilehash: b6c4ffabbcd9ead11103552a0a037c4783305f71
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69579024"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75809768"
 ---
-# <a name="app-service-recovery-on-azure-stack"></a>App Service obnovení Azure Stack
+# <a name="app-service-recovery-on-azure-stack-hub"></a>App Service obnovení v centru Azure Stack
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*  
+*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*  
 
 V tomto tématu najdete pokyny k tomu, jaké akce se App Service zotavení po havárii.
 
-Aby bylo možné obnovit App Service Azure Stack ze zálohy, je nutné provést následující akce:
+Aby bylo možné obnovit App Service v centru Azure Stack ze zálohy, je nutné provést následující akce:
 1. Obnovte App Service databáze.
 2. Obnovte obsah sdílené složky souborového serveru.
 3. Obnovte App Service role a služby.
 
-Pokud se pro úložiště Function Apps použilo úložiště Azure Stack, musíte také provést kroky k obnovení aplikací Function App.
+Pokud se pro úložiště Function Apps použilo úložiště centra Azure Stack, musíte také provést kroky k obnovení aplikací Function App.
 
 ## <a name="restore-the-app-service-databases"></a>Obnovení databází App Service
 Databáze App Service SQL Server by měly být obnoveny na instanci SQL Server připravené pro produkční prostředí. 
@@ -71,7 +71,7 @@ Po obnovení databází App Service a obsahu sdílené složky souborů je dál 
 1. Přihlaste se k řadiči App Service **CN0-VM** VM jako **roleadmin** pomocí hesla, které jste zadali během instalace App Service. 
     > [!TIP]
     > Aby bylo možné připojení RDP, je nutné upravit skupinu zabezpečení sítě virtuálního počítače. 
-2. Zkopírujte soubor **SystemSecrets. JSON** místně do virtuálního počítače kontroleru. V dalším kroku musíte zadat cestu k tomuto souboru jako `$pathToExportedSecretFile` parametr.
+2. Zkopírujte soubor **SystemSecrets. JSON** místně do virtuálního počítače kontroleru. V dalším kroku musíte zadat cestu k tomuto souboru jako parametr `$pathToExportedSecretFile`.
 3. Pomocí následujících příkazů v okně konzoly PowerShellu se zvýšenými oprávněními obnovte App Service role a služby:
 
     ```powershell
@@ -105,9 +105,9 @@ Po obnovení databází App Service a obsahu sdílené složky souborů je dál 
 > Po dokončení příkazu se důrazně doporučuje tuto relaci PowerShellu zavřít.
 
 ## <a name="restore-function-apps"></a>Obnovení aplikací Function App 
-App Service pro Azure Stack nepodporují obnovování uživatelských aplikací tenanta ani jiných dat než obsahu sdílení souborů. Všechna ostatní data musí být zálohována a obnovena mimo App Service operací zálohování a obnovení. Pokud se pro úložiště Function Apps použilo úložiště Azure Stack, je potřeba provést následující kroky, aby se obnovila ztracená data:
+App Service pro centrum Azure Stack nepodporuje obnovování uživatelských aplikací tenanta nebo dat kromě obsahu sdílení souborů. Všechna ostatní data musí být zálohována a obnovena mimo App Service operací zálohování a obnovení. Pokud se pro úložiště Function Apps použilo úložiště centra Azure Stack, je potřeba provést následující kroky pro obnovení ztracených dat:
 
-1. Vytvořte nový účet úložiště, který bude Function App používat. Toto úložiště může být Azure Stack úložištěm, úložištěm Azure nebo jakýmkoli kompatibilním úložištěm.
+1. Vytvořte nový účet úložiště, který bude Function App používat. Toto úložiště může být Azure Stack úložiště centra, úložiště Azure nebo jakékoli kompatibilní úložiště.
 2. Načtěte připojovací řetězec pro úložiště.
 3. Otevřete portál funkcí a přejděte do aplikace Function App.
 4. Přejděte na kartu **funkce platformy** a klikněte na **nastavení aplikace**.
@@ -116,4 +116,4 @@ App Service pro Azure Stack nepodporují obnovování uživatelských aplikací 
 7. Restartujte aplikaci. Vymazání všech chyb může trvat několik pokusů.
 
 ## <a name="next-steps"></a>Další kroky
-[Přehled App Service v Azure Stacku](azure-stack-app-service-overview.md)
+[Přehled App Service v centru Azure Stack](azure-stack-app-service-overview.md)

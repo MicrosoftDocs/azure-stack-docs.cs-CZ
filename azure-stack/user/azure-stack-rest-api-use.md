@@ -1,6 +1,6 @@
 ---
-title: Vydávat požadavky rozhraní API Azure Stack | Microsoft Docs
-description: Naučte se, jak načíst ověřování z Azure, aby vytvářely požadavky rozhraní API na Azure Stack.
+title: Vytvoření požadavků rozhraní API na centrum Azure Stack | Microsoft Docs
+description: Naučte se, jak načíst ověřování z Azure a vydávat požadavky rozhraní API na Azure Stack hub.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -14,32 +14,32 @@ ms.date: 10/01/2019
 ms.author: sethm
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 822d05c53db2d55b3cddac44fa919c72e9af2efe
-ms.sourcegitcommit: bbf3edbfc07603d2c23de44240933c07976ea550
+ms.openlocfilehash: 8ee6cfbae5557a2f90c25effe57891b1541867d2
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71714652"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75815829"
 ---
 <!--  cblackuk and charliejllewellyn. This is a community contribution by cblackuk-->
 
-# <a name="make-api-requests-to-azure-stack"></a>Vydávat požadavky rozhraní API Azure Stack
+# <a name="make-api-requests-to-azure-stack-hub"></a>Vydávat požadavky rozhraní API na centrum Azure Stack
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
-Rozhraní REST API Azure Stack můžete použít k automatizaci operací, jako je přidání virtuálního počítače do cloudu Azure Stack.
+Rozhraní REST API služby Azure Stack Hub můžete použít k automatizaci operací, jako je přidání virtuálního počítače do cloudu centra Azure Stack.
 
-Rozhraní API vyžadují, aby se váš klient ověřil na Microsoft Azure koncový bod přihlášení. Koncový bod vrátí token, který má být použit v záhlaví všech požadavků odeslaných do rozhraní API Azure Stack. Microsoft Azure používá OAuth 2,0.
+Rozhraní API vyžadují, aby se váš klient ověřil na Microsoft Azure koncový bod přihlášení. Koncový bod vrátí token, který se použije v hlavičce všech požadavků odeslaných do rozhraní API centra Azure Stack. Microsoft Azure používá OAuth 2,0.
 
-Tento článek popisuje příklady, které používají Nástroj pro vytváření Azure Stackch požadavků. kudrlinkou je nástroj příkazového řádku s knihovnou pro přenos dat. Tyto příklady vás provedou procesem Načtení tokenu pro přístup k rozhraním API Azure Stack. Většina programovacích jazyků poskytuje knihovny OAuth 2,0, které mají robustní správu tokenů a zpracovávají úlohy, jako je například aktualizace tokenu.
+Tento článek popisuje příklady, které používají **Nástroj pro** vytváření Azure Stackch požadavků centra. kudrlinkou je nástroj příkazového řádku s knihovnou pro přenos dat. Tyto příklady vás provedou procesem Načtení tokenu pro přístup k rozhraním API centra Azure Stack. Většina programovacích jazyků poskytuje knihovny OAuth 2,0, které mají robustní správu tokenů a zpracovávají úlohy, jako je například aktualizace tokenu.
 
-Projděte si celý proces použití rozhraní REST API Azure Stack s obecným klientem REST, jako je například **kudrlinkou**, který vám pomůže pochopit základní požadavky a co můžete očekávat v datové části odpovědi.
+Projděte si celý proces použití rozhraní REST API centra Azure Stack s obecným klientem REST, jako je například **kudrlinkou**, který vám pomůže pochopit základní požadavky a co můžete očekávat v datové části odpovědi.
 
 Tento článek nezkoumá všechny možnosti, které jsou k dispozici pro načítání tokenů, například interaktivní přihlašování nebo vytváření ID vyhrazených aplikací. Informace o těchto tématech najdete v referenčních informacích k [Azure REST API](/rest/api/).
 
 ## <a name="get-a-token-from-azure"></a>Získání tokenu z Azure
 
-Vytvořte text požadavku formátovaný pomocí typu obsahu `x-www-form-urlencoded` pro získání přístupového tokenu. ODEŠLEte požadavek do koncového bodu ověřování Azure REST a přihlášení.
+Vytvořte text požadavku formátovaný pomocí typu obsahu `x-www-form-urlencoded` k získání přístupového tokenu. ODEŠLEte požadavek do koncového bodu ověřování Azure REST a přihlášení.
 
 ### <a name="uri"></a>Identifikátor URI
 
@@ -49,9 +49,9 @@ POST https://login.microsoftonline.com/{tenant id}/oauth2/token
 
 **ID tenanta** je buď:
 
-- Vaše doména tenanta, například`fabrikam.onmicrosoft.com`
-- Vaše ID tenanta, například`8eaed023-2b34-4da1-9baa-8bc8c9d6a491`
-- Výchozí hodnota pro klíče nezávislé na tenantovi:`common`
+- Vaše doména tenanta, například `fabrikam.onmicrosoft.com`
+- Vaše ID tenanta, například `8eaed023-2b34-4da1-9baa-8bc8c9d6a491`
+- Výchozí hodnota pro klíče nezávislé na tenantovi: `common`
 
 ### <a name="post-body"></a>Tělo příspěvku
 
@@ -67,19 +67,19 @@ grant_type=password
 Pro každou hodnotu:
 
 - **grant_type**:  
-   Typ schématu ověřování, který budete používat. V tomto příkladu je `password`hodnota.
+   Typ schématu ověřování, který budete používat. V tomto příkladu je hodnota `password`.
 
 - **prostředek**:  
-   Prostředek, ke kterému token přistupuje. Prostředek můžete najít dotazem na koncový bod metadat správy Azure Stack. Podívejte se na část **cílové skupiny** .
+   Prostředek, ke kterému token přistupuje. Prostředek můžete najít dotazem na koncový bod metadat správy centra Azure Stack. Podívejte se na část **cílové skupiny** .
 
-- **Koncový bod správy Azure Stack**:
+- **Koncový bod správy centra Azure Stack**:
 
    ```bash
-   https://management.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-01
+   https://management.{region}.{Azure Stack Hub domain}/metadata/endpoints?api-version=2015-01-01
    ```
 
   > [!NOTE]  
-  > Pokud jste správce, který se pokouší získat přístup k rozhraní API tenanta, ujistěte se, že používáte koncový bod tenanta. například `https://adminmanagement.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-011`.
+  > Pokud jste správce, který se pokouší získat přístup k rozhraní API tenanta, ujistěte se, že používáte koncový bod tenanta. například `https://adminmanagement.{region}.{Azure Stack Hub domain}/metadata/endpoints?api-version=2015-01-011`.
 
   Například s Azure Stack Development Kit jako koncovým bodem:
 
@@ -101,7 +101,7 @@ Pro každou hodnotu:
   }
   ```
 
-### <a name="example"></a>Příklad
+### <a name="example"></a>Příklad:
 
   ```bash
   https://contoso.onmicrosoft.com/4de154de-f8a8-4017-af41-df619da68155
@@ -127,7 +127,7 @@ Pro každou hodnotu:
 
 - **uživatelské jméno**
 
-  Například Azure Stack účet služby Azure AD:
+  Například účet služby Azure AD Azure Stack hub:
 
   ```bash
   azurestackadmin@fabrikam.onmicrosoft.com
@@ -135,9 +135,9 @@ Pro každou hodnotu:
 
 - **Heslo**
 
-  Azure Stack heslo správce Azure AD.
+  Azure Stack centrum pro správu Azure AD.
 
-### <a name="example"></a>Příklad
+### <a name="example"></a>Příklad:
 
 Požadavek:
 
@@ -190,18 +190,18 @@ subscriptionPolicies : @{locationPlacementId=AzureStack}
 
 ### <a name="url-structure-and-query-syntax"></a>Struktura adres URL a syntaxe dotazů
 
-Identifikátor URI obecné žádosti se skládá z těchto:`{URI-scheme} :// {URI-host} / {resource-path} ? {query-string}`
+Identifikátor URI obecné žádosti se skládá z těchto: `{URI-scheme} :// {URI-host} / {resource-path} ? {query-string}`
 
 - **Schéma identifikátoru URI**:  
 Identifikátor URI označuje protokol použitý k odeslání požadavku. Například `http` nebo `https`.
 - **Hostitel identifikátoru URI**:  
-Hostitel Určuje název domény nebo IP adresu serveru, na kterém je hostovaný koncový bod služby REST, například `graph.microsoft.com` nebo. `adminmanagement.local.azurestack.external`
+Hostitel Určuje název domény nebo IP adresu serveru, na kterém je hostovaný koncový bod služby REST, například `graph.microsoft.com` nebo `adminmanagement.local.azurestack.external`.
 - **Cesta prostředku**:  
 Cesta Určuje prostředek nebo kolekci prostředků, které mohou zahrnovat více segmentů používaných službou při určování výběru těchto prostředků. Například: `beta/applications/00003f25-7e1f-4278-9488-efc7bac53c4a/owners` lze použít k dotazování seznamu na konkrétní vlastníky aplikace v rámci kolekce aplikací.
 - **Řetězec dotazu**:  
 Řetězec poskytuje další jednoduché parametry, jako je například verze rozhraní API nebo kritéria výběru prostředku.
 
-## <a name="azure-stack-request-uri-construct"></a>Azure Stack konstrukce identifikátoru URI žádosti
+## <a name="azure-stack-hub-request-uri-construct"></a>Konstrukce identifikátoru URI žádosti centra Azure Stack
 
 ```bash
 {URI-scheme} :// {URI-host} / {subscription id} / {resource group} / {provider} / {resource-path} ? {OPTIONAL: filter-expression} {MANDATORY: api-version}

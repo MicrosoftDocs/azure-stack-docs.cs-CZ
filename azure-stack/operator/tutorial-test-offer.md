@@ -1,5 +1,5 @@
 ---
-title: Otestujte nabídku služby Azure Stack.
+title: Otestujte nabídku služby Azure Stack hub.
 description: Naučte se testovat nabídku služeb vytvořením předplatného a nasazením prostředků.
 author: BryanLa
 ms.author: bryanla
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/13/2019
 ms.reviewer: shriramnat
 ms.lastreviewed: 10/06/2019
-ms.openlocfilehash: 63c8e37c19b46f5cabe197dd55875e9bcbd5cb12
-ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
+ms.openlocfilehash: fd14a6099c9906a0b37c8227164b213235dcfee3
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286990"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75820929"
 ---
 # <a name="tutorial-test-a-service-offering"></a>Kurz: testování nabídky služeb
 
@@ -31,7 +31,7 @@ Před zahájením tohoto kurzu musíte splnit následující předpoklady:
 
 - Dokončete kurz [nabídky služby pro uživatele](tutorial-offer-services.md) . V tomto kurzu se dozvíte, jak vytvořit nabídku, kterou používá tento kurz.
 
-- Nabídka, kterou jste přihlásili k odběru v tomto kurzu, umožňuje nasazení prostředku virtuálního počítače (VM). Pokud chcete otestovat nasazení virtuálního počítače, musíte nejdřív vytvořit image virtuálního počítače na portálu Azure Stack Marketplace, a to stažením z Azure Marketplace. Pokyny najdete v tématu [stažení položek Marketplace z Azure do Azure Stack](azure-stack-download-azure-marketplace-item.md) . 
+- Nabídka, kterou jste přihlásili k odběru v tomto kurzu, umožňuje nasazení prostředku virtuálního počítače (VM). Pokud chcete otestovat nasazení virtuálního počítače, musíte nejdřív vytvořit bitovou kopii virtuálního počítače v tržišti Azure Stack hub, a to stažením z Azure Marketplace. Pokyny najdete v tématu [stažení položek Marketplace z Azure do centra Azure Stack](azure-stack-download-azure-marketplace-item.md) . 
 
 ## <a name="subscribe-to-the-offer"></a>Přihlášení k odběru nabídky
 
@@ -80,7 +80,7 @@ Z portálu User Portal zřídíte virtuální počítač pomocí předplatného,
 1. Vyberte **+ vytvořit prostředek** > **COMPUTE** > **\<image – název\>** , kde "image-Name" je název virtuálního počítače, který jste si stáhli v požadavcích.
 1. V části **vytvořit virtuální počítač** / **základy**zadejte následující informace:
   
-   - Zadejte **název** virtuálního počítače.
+   - Zadejte **Název** virtuálního počítače.
    - Zadejte **uživatelské jméno** pro účet správce.
    - Pro virtuální počítače se systémem Linux vyberte možnost heslo pro **typ ověřování**.
    - Pro účet správce zadejte **heslo** , které se bude shodovat s **heslem pro potvrzení**.
@@ -139,8 +139,8 @@ V tomto kurzu jste se naučili:
 > * Vytvoření odběru
 > * Vytváření a nasazování prostředků 
 
-V dalším kroku se dozvíte, jak nasadit poskytovatele prostředků pro doplňky služby. Umožňují nabízet uživatelům ještě více služeb ve vašich plánech:
+V dalším kroku se dozvíte, jak nasadit poskytovatele prostředků pro služby s přidáním hodnoty. Umožňují nabízet uživatelům ještě více služeb ve vašich plánech:
 
-- [Nabídnout SQL na Azure Stack](azure-stack-sql-resource-provider.md)
-- [Nabídka MySQL na Azure Stack](azure-stack-mysql-resource-provider.md)
-- [App Service nabídky Azure Stack](azure-stack-app-service-overview.md)
+- [Nabídka SQL v centru Azure Stack](azure-stack-sql-resource-provider.md)
+- [Nabídka MySQL v centru Azure Stack](azure-stack-mysql-resource-provider.md)
+- [Nabídka App Service v centru Azure Stack](azure-stack-app-service-overview.md)

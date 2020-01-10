@@ -1,6 +1,6 @@
 ---
-title: Jak propojit dvě zásobníky Azure prostřednictvím partnerského vztahu virtuálních sítí | Microsoft Docs
-description: Přečtěte si, jak propojit dvě Azure stacky prostřednictvím partnerského vztahu virtuální sítě.
+title: Jak propojit dvě centra Azure Stack prostřednictvím partnerského vztahu virtuálních sítí | Microsoft Docs
+description: Přečtěte si, jak propojit dvě centra Azure Stack prostřednictvím partnerského vztahu virtuální sítě.
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,20 +9,20 @@ ms.date: 10/03/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 9eb4780a80e5cedd595950813d5cb5029e1b1857
-ms.sourcegitcommit: ed44d477b9fd11573d1e0d1ed3a3c0ef4512df53
+ms.openlocfilehash: e1cb999e6c7bc740f890efffccb1c80ec4575457
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73845844"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75816067"
 ---
-# <a name="vnet-peering-in-azure-stack-with-vms"></a>VNET Peering v Azure Stack s virtuálními počítači
+# <a name="vnet-peering-in-azure-stack-hub-with-vms"></a>VNET Peering v centru Azure Stack s virtuálními počítači
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
-Dva Azure Stack virtuální sítě můžete vzájemně propojit v rámci stejného Azure Stack prostředí. V současné době není možné připojit Azure Stack virtuální sítě pomocí předdefinované [Virtual Network brány](https://docs.microsoft.com/azure-stack/user/azure-stack-network-differences). K vytvoření tunelu VPN mezi dvěma Azure Stack virtuální sítě je nutné použít zařízení síťové virtuální zařízení. V odkazech na šablony v tomto článku se nasadí dva virtuální počítače s Windows serverem 2016 s nainstalovaným serverem RRAS. Dva servery RRAS jsou nakonfigurovány k implementaci tunelu S2SVPN IKEv2 mezi dvěma virtuální sítě. Vytvoří se odpovídající pravidla NSG a UDR umožňující směrování mezi podsítěmi v každé virtuální síti, která je označena jako **interní**. 
+Můžete propojit dvě Azure Stack centra virtuální sítě mezi sebou v rámci stejného Azure Stack centra. V současné době není možné připojit Azure Stack centra virtuální sítě pomocí integrované [Virtual Network brány](https://docs.microsoft.com/azure-stack/user/azure-stack-network-differences). K vytvoření tunelu VPN mezi dvěma Azure Stack centra virtuální sítě musíte použít zařízení síťové virtuální zařízení. V odkazech na šablony v tomto článku se nasadí dva virtuální počítače s Windows serverem 2016 s nainstalovaným serverem RRAS. Dva servery RRAS jsou nakonfigurovány k implementaci tunelu S2SVPN IKEv2 mezi dvěma virtuální sítě. Vytvoří se odpovídající pravidla NSG a UDR umožňující směrování mezi podsítěmi v každé virtuální síti, která je označena jako **interní**. 
 
-Tento vzor nasazení je základem, který umožní vytvořit tunely sítě VPN nejen v rámci Azure Stack instance, ale také mezi Azure Stack instancemi a dalšími prostředky, jako jsou místní sítě s použitím tunelových propojení VPN S2S sítě Windows RRAS. 
+Tento vzor nasazení je základem, který umožní vytvořit tunely sítě VPN nejen v rámci instance centra Azure Stack, ale také mezi Azure Stack instancemi centra a dalšími prostředky, jako jsou místní sítě s použitím tunelových propojení VPN S2S sítě Windows RRAS. . 
 
 Šablony najdete v úložišti [GitHub ve vzorcích Azure Intelligent Edge](https://github.com/Azure-Samples/azure-intelligent-edge-patterns
 ) . Šablona se nachází ve složce **S2SVPNTunnel** .
@@ -31,8 +31,8 @@ Tento vzor nasazení je základem, který umožní vytvořit tunely sítě VPN n
 
 ## <a name="requirements"></a>Požadavky
 
-- ASDK nebo Azure Stack integrovaný systém s nejnovějšími aktualizacemi. 
-- Požadované položky Azure Stack Marketplace:
+- ASDK nebo integrovaný systém centra Azure Stack s použitím nejnovějších aktualizací. 
+- Požadované položky centra Azure Stack na webu Marketplace:
     -  Windows Server 2016 Datacenter (doporučuje se nejnovější sestavení)
     -  Rozšíření vlastních skriptů
 
@@ -59,4 +59,4 @@ Tento vzor nasazení je základem, který umožní vytvořit tunely sítě VPN n
 
 ## <a name="next-steps"></a>Další kroky
 
-[Rozdíly a požadavky pro Azure Stack sítě](azure-stack-network-differences.md)  
+[Rozdíly a požadavky pro sítě Azure Stack hub](azure-stack-network-differences.md)  

@@ -1,6 +1,6 @@
 ---
-title: App Service v poznámce k verzi Azure Stack Update 5 | Microsoft Docs
-description: Přečtěte si o vylepšeních, opravách a známých problémech v aktualizaci 5 pro App Service v Azure Stack.
+title: App Service ve Azure Stack centra aktualizace 5 – zpráva k vydání verze | Microsoft Docs
+description: Přečtěte si o vylepšeních, opravách a známých problémech v aktualizaci 5 pro App Service v centru Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: bryanla
@@ -16,33 +16,33 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/25/2019
-ms.openlocfilehash: f44bfcaf91e06979d1a9eb745bf681c0d9f69371
-ms.sourcegitcommit: cb9548e5a2ca27d9c44f349eeb08d94c9c6334da
+ms.openlocfilehash: a5bd63b7e55c0092c48c913b63d942613d6aed7e
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/11/2019
-ms.locfileid: "73916400"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75812191"
 ---
-# <a name="app-service-on-azure-stack-update-5-release-notes"></a>App Service na Azure Stack Update 5 – zpráva k vydání verze
+# <a name="app-service-on-azure-stack-hub-update-5-release-notes"></a>Zpráva k vydání verze v App Service Azure Stack centra aktualizace 5
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
-Tyto poznámky k verzi popisují vylepšení, opravy a známé problémy v Azure App Service na Azure Stack Update 5. Známé problémy jsou rozdělené na tři části: problémy přímo související s nasazením, problémy s procesem aktualizace a problémy se sestavením (po instalaci).
+Tyto poznámky k verzi popisují vylepšení, opravy a známé problémy v Azure App Service v Azure Stack centra aktualizace 5. Známé problémy jsou rozdělené na tři části: problémy přímo související s nasazením, problémy s procesem aktualizace a problémy se sestavením (po instalaci).
 
 > [!IMPORTANT]
-> Před nasazením Azure App Service 1,5 použijte aktualizaci 1901 na integrovaný systém Azure Stack nebo nasaďte nejnovější Azure Stack Development Kit (ASDK).
+> Před nasazením Azure App Service 1,5 použijte aktualizaci 1901 pro integrovaný systém Azure Stack hub nebo nasaďte nejnovější Azure Stack Development Kit (ASDK).
 
-## <a name="build-reference"></a>Odkaz na sestavení
+## <a name="build-reference"></a>Referenční informace o buildu
 
-App Service číslo buildu Azure Stack Update 5 je **80.0.2.15**.
+App Service číslo buildu Azure Stack centra aktualizace 5 je **80.0.2.15**.
 
-### <a name="prerequisites"></a>Předpoklady
+### <a name="prerequisites"></a>Požadavky
 
-Než začnete s nasazením, přečtěte si [požadavky pro nasazení App Service v Azure Stack](azure-stack-app-service-before-you-get-started.md) .
+Než začnete s nasazením, přečtěte si [požadavky pro nasazení App Service v centru Azure Stack](azure-stack-app-service-before-you-get-started.md) .
 
-Než začnete s upgradem Azure App Service v Azure Stack na 1,5:
+Než začnete s upgradem Azure App Service v centru Azure Stack na 1,5:
 
-- Ujistěte se, že všechny role jsou připravené ve správě Azure App Service na portálu Azure Stack správce.
+- Ujistěte se, že všechny role jsou připravené ve správě Azure App Service na portálu Azure Stack správce centra.
 
 - Zálohování App Service a hlavních databází:
   - AppService_Hosting;
@@ -55,13 +55,13 @@ Než začnete s upgradem Azure App Service v Azure Stack na 1,5:
 
 ### <a name="new-features-and-fixes"></a>Nové funkce a opravy
 
-Azure App Service na Azure Stack Update 5 zahrnuje následující vylepšení a opravy:
+Azure App Service v centru Azure Stack s aktualizací Update 5 zahrnuje následující vylepšení a opravy:
 
-- Aktualizace pro **App Service klientů, správců, funkcí portálů a nástrojů Kudu** Konzistentní s Azure Stack verze sady SDK portálu.
+- Aktualizace pro **App Service klientů, správců, funkcí portálů a nástrojů Kudu** Konzistentní s verzí sady SDK portálu Azure Stack hub.
 
 - Aktualizuje **Azure Functions runtime** na **v 1.0.12205**.
 
-- Aktualizace **Kudu nástrojů** pro řešení problémů se stylem a funkcemi pro zákazníky, kteří provozují **odpojené** Azure Stack. 
+- Aktualizace **Kudu nástrojů** pro řešení problémů se stylem a funkcemi pro zákazníky, kteří provozují **odpojený** Azure Stack hub. 
 
 - Aktualizace služby Core pro zlepšení spolehlivosti a chybového zasílání zpráv umožňují snazší diagnostiku běžných problémů.
 
@@ -79,12 +79,12 @@ Azure App Service na Azure Stack Update 5 zahrnuje následující vylepšení a 
 > [!IMPORTANT]  
 > Pokud jste poskytli App Service poskytovatele prostředků s instancí SQL Always On, je *nutné* [přidat databáze appservice_hosting a appservice_metering do skupiny dostupnosti](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) a synchronizovat databáze, aby nedošlo ke ztrátě služeb v případě převzetí služeb při selhání databáze.
 
-### <a name="post-update-steps"></a>Kroky po aktualizaci
+### <a name="post-update-steps"></a>Postup po aktualizaci
 
-Pro zákazníky, kteří chtějí migrovat na databázi s omezením na existující Azure App Service v nasazeních Azure Stack proveďte tyto kroky po dokončení Azure App Service aktualizace Azure Stack 1,5:
+Pro zákazníky, kteří chtějí migrovat na databázi s omezením na existující Azure App Service v nasazeních centra Azure Stack, proveďte tyto kroky po dokončení Azure App Service aktualizace Azure Stack centra 1,5:
 
 > [!IMPORTANT]
-> Postup migrace trvá přibližně 5-10 minut. Tento postup zahrnuje ukončení stávajících přihlašovacích relací databáze. Naplánujte výpadky migrace a ověření Azure App Service Azure Stack příspěvku po migraci. Pokud jste tyto kroky dokončili po aktualizaci na Azure App Service Azure Stack 1,3, pak tyto kroky nejsou potřeba.
+> Postup migrace trvá přibližně 5-10 minut. Tento postup zahrnuje ukončení stávajících přihlašovacích relací databáze. Naplánujte výpadky migrace a ověření Azure App Service v příspěvku Azure Stack centra po migraci. Pokud jste tyto kroky dokončili po aktualizaci na Azure App Service v centru Azure Stack 1,3, tyto kroky se nevyžadují.
 
 1. Přidejte [databáze AppService (appservice_hosting a appservice_metering) do skupiny dostupnosti](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database).
 
@@ -183,7 +183,7 @@ Pro zákazníky, kteří chtějí migrovat na databázi s omezením na existují
 
 ### <a name="known-issues-post-installation"></a>Známé problémy (po instalaci)
 
-- Pokud je App Service nasazená ve stávající virtuální síti a souborový server je k dispozici jenom v privátní síti, zaměstnanci nemůžou kontaktovat souborový server. Tento problém se zavolá v dokumentaci pro nasazení Azure App Service Azure Stack.
+- Pokud je App Service nasazená ve stávající virtuální síti a souborový server je k dispozici jenom v privátní síti, zaměstnanci nemůžou kontaktovat souborový server. Tento problém se nazývá Azure App Service v dokumentaci k nasazení centra Azure Stack.
 
 Pokud se rozhodnete nasadit do existující virtuální sítě a interní IP adresu pro připojení k souborovému serveru, musíte přidat odchozí pravidlo zabezpečení, které umožňuje provoz protokolu SMB mezi podsítí pracovních procesů a souborovým serverem. Na portálu pro správu přejdete na WorkersNsg a přidáte odchozí pravidlo zabezpečení s následujícími vlastnostmi:
 
@@ -192,16 +192,16 @@ Pokud se rozhodnete nasadit do existující virtuální sítě a interní IP adr
  * Cíl: IP adresy
  * Rozsah cílových IP adres: rozsah IP adres pro souborový server
  * Rozsah cílových portů: 445
- * Protokol: TCP
+ * Protocol: TCP
  * Akce: povolení
  * Priorita: 700
  * Název: Outbound_Allow_SMB445
 
-### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Známé problémy pro cloudové správce pracující Azure App Service v Azure Stack
+### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Známé problémy pro Cloud Admins, které pracují Azure App Service v centru Azure Stack
 
-Informace najdete v dokumentaci k [vydání verze Azure Stack 1809](azure-stack-update-1903.md).
+Informace najdete v [poznámkách k verzi centra Azure Stack 1809](azure-stack-update-1903.md).
 
 ## <a name="next-steps"></a>Další kroky
 
-- Přehled Azure App Service najdete v tématu [přehled Azure App Service na Azure Stack](azure-stack-app-service-overview.md).
-- Další informace o přípravě na nasazení App Service v Azure Stack najdete v tématu [předpoklady pro nasazení App Service na Azure Stack](azure-stack-app-service-before-you-get-started.md).
+- Přehled Azure App Service najdete v tématu [Azure App Service v tématu Přehled centra Azure Stack](azure-stack-app-service-overview.md).
+- Další informace o tom, jak připravit nasazení App Service v centru Azure Stack, najdete v tématu [předpoklady pro nasazení App Service na Azure Stack hub](azure-stack-app-service-before-you-get-started.md).

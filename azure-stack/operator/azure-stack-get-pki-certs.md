@@ -1,6 +1,6 @@
 ---
-title: Generovat žádosti o podepsání certifikátu pro Azure Stack | Microsoft Docs
-description: Naučte se generovat žádosti o podepsání certifikátu pro Azure Stack certifikáty PKI v Azure Stack integrovaných systémech.
+title: Vygenerovat žádosti o podepsání certifikátu pro centrum Azure Stack | Microsoft Docs
+description: Naučte se generovat žádosti o podepsání certifikátu pro Azure Stack centrálních certifikátů PKI v integrovaných systémech centra Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -14,39 +14,39 @@ ms.date: 09/10/2019
 ms.author: justinha
 ms.reviewer: ppacent
 ms.lastreviewed: 09/10/2019
-ms.openlocfilehash: 365f727f7e07c697dc2fd3cfe2a5c1bea5b68409
-ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
+ms.openlocfilehash: 9eba64e86a375f275c159e6d571e3557f2164726
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72019257"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75818260"
 ---
-# <a name="generate-certificate-signing-requests-for-azure-stack"></a>Generovat žádosti o podepsání certifikátu pro Azure Stack
+# <a name="generate-certificate-signing-requests-for-azure-stack-hub"></a>Vygenerovat žádosti o podepsání certifikátu pro centrum Azure Stack
 
-Pomocí nástroje pro kontrolu připravenosti na Azure Stack můžete vytvořit žádosti o podepsání certifikátů, které jsou vhodné pro Azure Stack nasazení. Certifikáty by se měly požadovat, vygenerovat a ověřit dostatečně včas k testování před nasazením. Nástroj můžete získat [z Galerie prostředí PowerShell](https://aka.ms/AzsReadinessChecker).
+Nástroj pro kontrolu připravenosti centra Azure Stack můžete použít k vytvoření žádostí o podepsání certifikátů, které jsou vhodné pro nasazení centra Azure Stack. Certifikáty by se měly požadovat, vygenerovat a ověřit dostatečně včas k testování před nasazením. Nástroj můžete získat [z Galerie prostředí PowerShell](https://aka.ms/AzsReadinessChecker).
 
-K vyžádání následujících certifikátů můžete použít nástroj pro kontrolu připravenosti na Azure Stack (AzsReadinessChecker):
+K vyžádání následujících certifikátů můžete použít nástroj pro kontrolu připravenosti centra Azure Stack (AzsReadinessChecker):
 
 - **Standardní požadavky na certifikáty** podle [vygenerování žádosti o podepsání certifikátu](azure-stack-get-pki-certs.md#generate-certificate-signing-requests)
-- **Platform-as-a-Service**: Pro certifikáty můžete požádat o názvy PaaS (platforma jako služba), jak je uvedeno v [Azure Stack požadavky na certifikát infrastruktury veřejných klíčů – volitelné certifikáty PaaS](azure-stack-pki-certs.md#optional-paas-certificates).
+- **Platforma jako služba**: pro certifikáty můžete požádat o názvy PaaS (platforma jako služba), které jsou uvedené v [požadavcích na certifikát infrastruktury veřejných klíčů služby Azure Stack hub – volitelné certifikáty PaaS](azure-stack-pki-certs.md#optional-paas-certificates).
 
 ## <a name="prerequisites"></a>Požadavky
 
-Před vygenerováním jakýchkoli zástupců pro certifikáty PKI pro nasazení Azure Stack musí systém splňovat následující požadavky:
+Před generováním jakýchkoli zástupců pro certifikáty PKI pro nasazení Azure Stackho centra by měl systém splňovat následující požadavky:
 
-- Kontrola připravenosti na Microsoft Azure Stack
+- Kontrola připravenosti centra Microsoft Azure Stack
 - Atributy certifikátu:
   - Název oblasti
   - Externí plně kvalifikovaný název domény (FQDN)
-  - Subject
+  - Předmět
 - Windows 10 nebo Windows Server 2016 nebo novější
 
   > [!NOTE]  
-  > Když obdržíte své certifikáty zpátky od certifikační autority, kroky v části [příprava Azure Stack certifikátů PKI](azure-stack-prepare-pki-certs.md) se musí dokončit ve stejném systému!
+  > Když obdržíte své certifikáty zpátky od certifikační autority, musíte provést kroky v části [Příprava certifikátů PKI ve službě Azure Stack hub](azure-stack-prepare-pki-certs.md) .
 
 ## <a name="generate-certificate-signing-requests"></a>Generování žádostí o podepsání certifikátu
 
-Pomocí těchto kroků Připravte a ověřte Azure Stack certifikáty PKI:
+Pomocí těchto kroků můžete připravit a ověřit certifikáty PKI Azure Stack hub:
 
 1. Nainstalujte AzsReadinessChecker z příkazového řádku PowerShellu (5,1 nebo vyšší) spuštěním následující rutiny:
 
@@ -54,14 +54,14 @@ Pomocí těchto kroků Připravte a ověřte Azure Stack certifikáty PKI:
         Install-Module Microsoft.AzureStack.ReadinessChecker
     ```
 
-2. Deklarujte **Předmět** jako seřazený slovník. Příklad:
+2. Deklarovat **Předmět** Příklad:
 
     ```powershell  
-    $subjectHash = [ordered]@{"OU"="AzureStack";"O"="Microsoft";"L"="Redmond";"ST"="Washington";"C"="US"}
+    $subject = "C=US,ST=Washington,L=Redmond,O=Microsoft,OU=Azure Stack Hub"
     ```
 
-    > [!note]  
-    > Pokud je zadán běžný název (CN), bude tento název přepsán prvním názvem DNS žádosti o certifikát.
+    > [!NOTE]  
+    > Pokud je zadán běžný název (CN), bude nakonfigurován na každou žádost o certifikát. Pokud je parametr CN vynechán, bude na žádost o certifikát nakonfigurován první název DNS služby Azure Stack hub.
 
 3. Deklarujete výstupní adresář, který již existuje. Příklad:
 
@@ -82,50 +82,62 @@ Pomocí těchto kroků Připravte a ověřte Azure Stack certifikáty PKI:
     ```powershell
     $IdentitySystem = "ADFS"
     ```
+    > [!NOTE]  
+    > Parametr je vyžadován pouze pro nasazení CertificateType.
 
-5. Deklarujete **název oblasti** a **externí plně kvalifikovaný název domény** , který je určený pro nasazení Azure Stack.
+5. Deklarujete **název oblasti** a **externí plně kvalifikovaný název domény** , který je určený pro nasazení centra Azure Stack.
 
     ```powershell
     $regionName = 'east'
     $externalFQDN = 'azurestack.contoso.com'
     ```
 
-    > [!note]  
-    > `<regionName>.<externalFQDN>` je základem, na kterém jsou vytvořeny všechny názvy externích názvů DNS v Azure Stack v tomto příkladu by byl portál `portal.east.azurestack.contoso.com`.  
+    > [!NOTE]  
+    > `<regionName>.<externalFQDN>` tvoří základ, na kterém jsou vytvořeny všechny názvy externích DNS v centru Azure Stack. V tomto příkladu by byl portál `portal.east.azurestack.contoso.com`.  
 
-6. Vygenerujte žádosti o podepsání certifikátu pro každý název DNS:
+6. Generování žádostí o podepsání certifikátu pro nasazení:
 
     ```powershell  
-    New-AzsCertificateSigningRequest -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
+    New-AzsCertificateSigningRequest -certificateType Deployment -RegionName $regionName -FQDN $externalFQDN -subject $subject -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
     ```
 
-    Pokud chcete zahrnout služby PaaS Services, zadejte přepínač ```-IncludePaaS```.
+    Chcete-li generovat žádosti o certifikát pro jiné služby Azure Stack centra, změňte hodnotu `-CertificateType`. Příklad:
+
+    ```powershell  
+    # App Services
+    New-AzsCertificateSigningRequest -certificateType AppServices -RegionName $regionName -FQDN $externalFQDN -subject $subject -OutputRequestPath $OutputDirectory
+
+    # DBAdapter
+    New-AzsCertificateSigningRequest -certificateType DBAdapter -RegionName $regionName -FQDN $externalFQDN -subject $subject -OutputRequestPath $OutputDirectory
+
+    # EventHub
+    New-AzsCertificateSigningRequest -certificateType EventHub -RegionName $regionName -FQDN $externalFQDN -subject $subject -OutputRequestPath $OutputDirectory
+
+    # IoTHub
+    New-AzsCertificateSigningRequest -certificateType IoTHub -RegionName $regionName -FQDN $externalFQDN -subject $subject -OutputRequestPath $OutputDirectory
+    ```
 
 7. Případně pro vývojová/testovací prostředí vygenerujte jednu žádost o certifikát s více alternativními názvy subjektu Add **-RequestType SingleCSR** parametr a Value (nedoporučuje**se** pro produkční prostředí):
 
     ```powershell  
-    New-AzsCertificateSigningRequest -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType SingleCSR -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
+    New-AzsCertificateSigningRequest -certificateType Deployment -RegionName $regionName -FQDN $externalFQDN -RequestType SingleCSR -subject $subject -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
     ```
 
-    Pokud chcete zahrnout služby PaaS Services, zadejte přepínač ```-IncludePaaS```.
-
-8. Zkontrolujte výstup:
+8.  Zkontrolujte výstup:
 
     ```powershell  
-    New-AzsCertificateSigningRequest v1.1809.1005.1 started.
-
-    CSR generating for following SAN(s): dns=*.east.azurestack.contoso.com&dns=*.blob.east.azurestack.contoso.com&dns=*.queue.east.azurestack.contoso.com&dns=*.table.east.azurestack.cont
-    oso.com&dns=*.vault.east.azurestack.contoso.com&dns=*.adminvault.east.azurestack.contoso.com&dns=portal.east.azurestack.contoso.com&dns=adminportal.east.azurestack.contoso.com&dns=ma
-    nagement.east.azurestack.contoso.com&dns=adminmanagement.east.azurestack.contoso.com*dn2=*.adminhosting.east.azurestack.contoso.com@dns=*.hosting.east.azurestack.contoso.com
-    Present this CSR to your Certificate Authority for Certificate Generation: C:\Users\username\Documents\AzureStackCSR\wildcard_east_azurestack_contoso_com_CertRequest_20180405233530.req
+    New-AzsCertificateSigningRequest v1.1912.1082.37 started.
+    Starting Certificate Request Process for Deployment
+    CSR generating for following SAN(s): *.adminhosting.east.azurestack.contoso.com,*.adminvault.east.azurestack.contoso.com,*.blob.east.azurestack.contoso.com,*.hosting.east.azurestack.contoso.com,*.queue.east.azurestack.contoso.com,*.table.east.azurestack.contoso.com,*.vault.east.azurestack.contoso.com,adminmanagement.east.azurestack.contoso.com,adminportal.east.azurestack.contoso.com,management.east.azurestack.contoso.com,portal.east.azurestack.contoso.com
+    Present this CSR to your Certificate Authority for Certificate Generation: C:\Users\checker\Documents\AzureStackCSR\wildcard_adminhosting_east_azurestack_contoso_com_CertRequest_20191219140359.req
     Certreq.exe output: CertReq: Request Created
 
     Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
     New-AzsCertificateSigningRequest Completed
     ```
 
-9. Odeslat **. Soubor požadavku** vygenerovaný vaší certifikační autoritou (buď interní, nebo veřejný). Výstupní adresář **New-AzsCertificateSigningRequest** obsahuje oddělení služeb zákazníkům, které je nutné odeslat certifikační autoritě. Tento adresář obsahuje také podřízený adresář, který obsahuje soubory INF použité během generování žádosti o certifikát. Ujistěte se, že certifikační autorita generuje certifikáty pomocí vygenerované žádosti, která splňuje [Azure Stack požadavky PKI](azure-stack-pki-certs.md).
+9.  Odeslat **. Soubor požadavku** vygenerovaný vaší certifikační autoritou (buď interní, nebo veřejný). Výstupní adresář **New-AzsCertificateSigningRequest** obsahuje oddělení služeb zákazníkům, které je nutné odeslat certifikační autoritě. Tento adresář obsahuje také podřízený adresář, který obsahuje soubory INF použité během generování žádosti o certifikát. Ujistěte se, že certifikační autorita generuje certifikáty pomocí vygenerované žádosti, která splňuje [požadavky infrastruktury PKI centra Azure Stack](azure-stack-pki-certs.md).
 
 ## <a name="next-steps"></a>Další kroky
 
-[Příprava Azure Stack certifikátů PKI](azure-stack-prepare-pki-certs.md)
+[Příprava certifikátů PKI Azure Stack hub](azure-stack-prepare-pki-certs.md)

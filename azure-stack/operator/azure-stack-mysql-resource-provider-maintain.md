@@ -1,6 +1,6 @@
 ---
-title: Operace údržby poskytovatele prostředků MySQL v Azure Stack | Microsoft Docs
-description: Naučte se udržovat službu poskytovatele prostředků MySQL v Azure Stack.
+title: Operace údržby poskytovatele prostředků MySQL v centru Azure Stack | Microsoft Docs
+description: Naučte se udržovat službu poskytovatele prostředků MySQL v Azure Stack hub.
 services: azure-stack
 documentationCenter: ''
 author: mattbriggs
@@ -15,14 +15,14 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 75135801bf5762f597ae70d980588dedadf31b36
-ms.sourcegitcommit: de577d821d3b93ab524fee9e7a18a07c0ecc243c
+ms.openlocfilehash: aaa352dedeed36335302a990b6a3bc3f37851f47
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/17/2019
-ms.locfileid: "75183427"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75811086"
 ---
-# <a name="mysql-resource-provider-maintenance-operations-in-azure-stack"></a>Operace údržby poskytovatele prostředků MySQL v Azure Stack
+# <a name="mysql-resource-provider-maintenance-operations-in-azure-stack-hub"></a>Operace údržby poskytovatele prostředků MySQL v centru Azure Stack
 
 Poskytovatel prostředků MySQL běží na uzamčeném virtuálním počítači (VM). Chcete-li povolit operace údržby, je nutné aktualizovat zabezpečení virtuálního počítače. Pokud to chcete provést pomocí principu minimálního oprávnění (POLP), můžete použít PowerShell, který je dostatečně dostupný jako koncový bod pro správu JEA (). Instalační balíček poskytovatele prostředků obsahuje skript pro tuto operaci.
 
@@ -93,9 +93,9 @@ $session | Remove-PSSession
 
 ## <a name="secrets-rotation"></a>Rotace tajných kódů
 
-*Tyto pokyny platí jenom pro Azure Stack integrované systémy.*
+*Tyto pokyny platí pouze pro integrované systémy Azure Stack hub.*
 
-Pokud používáte poskytovatele prostředků SQL a MySQL s Azure Stack integrovanými systémy, zodpovídá Azure Stack operátor za účelem rotace následujících tajných kódů infrastruktury poskytovatele prostředků, aby se zajistilo, že nevyprší jejich platnost:
+Pokud používáte poskytovatele prostředků SQL a MySQL s integrovanými systémy Azure Stack hub, zodpovídá operátor centra Azure Stack za účelem střídání následujících tajných kódů infrastruktury poskytovatele prostředků, aby se zajistilo, že nevyprší jejich platnost:
 
 - [Při nasazení se zadal](azure-stack-pki-certs.md)externí certifikát SSL.
 - Heslo účtu místního správce virtuálního počítače poskytovatele prostředků zadané během nasazování.
@@ -155,8 +155,8 @@ Pokud používáte poskytovatele prostředků SQL a MySQL s Azure Stack integrov
 
 |Parametr|Popis|
 |-----|-----|
-|AzCredential|Azure Stack přihlašovací údaje účtu správce služby.|
-|CloudAdminCredential|Azure Stack přihlašovací údaje účtu domény správce cloudu.|
+|AzCredential|Přihlašovací údaje účtu správce služby Azure Stack hub.|
+|CloudAdminCredential|Přihlašovací údaje účtu domény správce cloudu Azure Stack hub.|
 |PrivilegedEndpoint|Privilegovaný koncový bod pro přístup k Get-AzureStackStampInformation.|
 |DiagnosticsUserPassword|Heslo uživatelského účtu diagnostiky|
 |VMLocalCredential|Účet místního správce na virtuálním počítači s MySQLAdapter.|
@@ -250,7 +250,7 @@ Ve výchozím nastavení je na virtuálním počítači adaptéru poskytovatele 
 
 Jakmile jsou protokoly událostí a kolekce protokolů služby IIS nakonfigurované pro poskytovatele prostředků MySQL, můžete protokoly najít v účtu úložiště systému s názvem **mysqladapterdiagaccount**.
 
-Další informace o rozšíření Azure Diagnostics najdete v tématu [co je to Azure Diagnostics rozšíření](/azure-monitor/platform/diagnostics-extension-overview).
+Další informace o rozšíření Azure Diagnostics najdete v tématu [co je to Azure Diagnostics rozšíření](/azure/azure-monitor/platform/diagnostics-extension-overview).
 
 ## <a name="next-steps"></a>Další kroky
 

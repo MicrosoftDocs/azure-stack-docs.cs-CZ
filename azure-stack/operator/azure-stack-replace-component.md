@@ -1,7 +1,7 @@
 ---
-title: Výměna hardwarové součásti na uzlu jednotky škálování Azure Stack
-titleSuffix: Azure Stack
-description: Přečtěte si, jak nahradit hardwarovou součást v Azure Stack integrovaném systému.
+title: Výměna hardwarové součásti na uzlu jednotky škálování centra Azure Stack
+titleSuffix: Azure Stack Hub
+description: Naučte se, jak nahradit hardwarovou součást v integrovaném systému Azure Stack hub.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,32 +15,32 @@ ms.topic: article
 ms.date: 07/18/2019
 ms.author: thoroet
 ms.lastreviewed: 07/18/2019
-ms.openlocfilehash: ff78409ecdbdec8b7a6860db18244a4835351ed8
-ms.sourcegitcommit: 284f5316677c9a7f4c300177d0e2a905df8cb478
+ms.openlocfilehash: 819f25af457cd48a9342852e189908073df7af8f
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74465286"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75808426"
 ---
-# <a name="replace-a-hardware-component-on-an-azure-stack-scale-unit-node"></a>Výměna hardwarové součásti na uzlu jednotky škálování Azure Stack
+# <a name="replace-a-hardware-component-on-an-azure-stack-hub-scale-unit-node"></a>Výměna hardwarové součásti na uzlu jednotky škálování centra Azure Stack
 
-*Platí pro: Azure Stack integrovaných systémů*
+*Platí pro: Azure Stack integrovaných systémů centra*
 
-Tento článek popisuje obecný proces nahrazení hardwarových komponent, které nejsou Hot-swaped. Skutečné kroky náhrady se liší v závislosti na dodavateli hardwaru OEM (Original Equipment Manufacturer). Podrobné pokyny, které jsou specifické pro váš Azure Stack integrovaný systém, najdete v dokumentaci k umístění jednotky v poli dodavatele.
+Tento článek popisuje obecný proces nahrazení hardwarových komponent, které nejsou Hot-swaped. Skutečné kroky náhrady se liší v závislosti na dodavateli hardwaru OEM (Original Equipment Manufacturer). Podrobné pokyny, které jsou specifické pro váš integrovaný systém Azure Stack hub, najdete v dokumentaci k umístění jednotky v poli dodavatele.
 
 > [!CAUTION]  
-> Úroveň firmwaru je zásadní pro úspěch operace popsané v tomto článku. Chybějící tento krok může vést k nestabilitě systému, poklesu výkonu, vláknům zabezpečení nebo zabrání službě Azure Stack Automation v nasazení operačního systému. Při nahrazování hardwaru vždy projděte dokumentaci k vašemu hardwarovému partnerovi, aby se zajistilo, že aplikovaný firmware odpovídá verzi OEM zobrazené na [portálu pro správu Azure Stack](azure-stack-updates.md).
+> Úroveň firmwaru je zásadní pro úspěch operace popsané v tomto článku. Chybějící tento krok může vést k nestabilitě systému, poklesu výkonu, vláknům zabezpečení nebo zabrání automatizaci centra Azure Stack v nasazení operačního systému. Při nahrazování hardwaru vždy projděte dokumentaci k vašemu hardwarovému partnerovi, aby se zajistilo, že aplikovaný firmware odpovídá verzi OEM zobrazené na [portálu pro správu centra Azure Stack](azure-stack-updates.md).
 
-| Hardwarový partner | Oblast | Adresa URL |
+| Hardwarový partner | Region (Oblast) | Adresa URL |
 |------------------|--------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Cisco | Vše | [Příručka k operačnímu systému Cisco Integrated System for Microsoft Azure Stack](https://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/azure-stack/b_Azure_Stack_Operations_Guide_4-0/b_Azure_Stack_Operations_Guide_4-0_chapter_00.html#concept_wks_t1q_wbb)<br><br>[Poznámky k verzi integrovaného systému Cisco pro Microsoft Azure Stack](https://www.cisco.com/c/en/us/support/servers-unified-computing/ucs-c-series-rack-mount-ucs-managed-server-software/products-release-notes-list.html) |
-| Dell EMC | Vše | [Cloud pro Microsoft Azure Stack 14G (vyžaduje účet a přihlášení)](https://support.emc.com/downloads/44615_Cloud-for-Microsoft-Azure-Stack-14G)<br><br>[Cloud pro Microsoft Azure Stack 13G (vyžaduje účet a přihlášení)](https://support.emc.com/downloads/42238_Cloud-for-Microsoft-Azure-Stack-13G) |
+| Cisco | Všechno | [Příručka k provoznímu systému Cisco Integrated System for Microsoft Azure Stack hub](https://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/azure-stack/b_Azure_Stack_Operations_Guide_4-0/b_Azure_Stack_Operations_Guide_4-0_chapter_00.html#concept_wks_t1q_wbb)<br><br>[Poznámky k verzi integrovaného systému Cisco pro Centrum Microsoft Azure Stack](https://www.cisco.com/c/en/us/support/servers-unified-computing/ucs-c-series-rack-mount-ucs-managed-server-software/products-release-notes-list.html) |
+| Dell EMC | Všechno | [Cloud pro Microsoft Azure Stack hub 14G (účet a přihlášení požadováno)](https://support.emc.com/downloads/44615_Cloud-for-Microsoft-Azure-Stack-14G)<br><br>[Cloud pro Microsoft Azure Stack hub 13G (účet a přihlášení požadováno)](https://support.emc.com/downloads/42238_Cloud-for-Microsoft-Azure-Stack-13G) |
 | Fujitsu | Japonsko | [Oddělení podpory spravované služby Fujitsu (účet a přihlášení je povinné)](https://eservice.fujitsu.com/supportdesk-web/) |
 |  | EVROPA, STŘEDNÍ VÝCHOD A AFRIKA | [Společnosti Fujitsu podporují IT produkty a systémy](https://support.ts.fujitsu.com/IndexContact.asp?lng=COM&ln=no&LC=del) |
 |  | EU | [Fujitsu MySupport (vyžaduje se účet a přihlášení)](https://support.ts.fujitsu.com/IndexMySupport.asp) |
-| HPE | Vše | [HPE pro Microsoft Azure Stack](http://www.hpe.com/info/MASupdates) |
-| Lenovo | Vše | [Nejlepší recepty ThinkAgile SXM](https://datacentersupport.lenovo.com/us/en/solutions/ht505122)
-| Wortmann |  | [Balíček OEM/firmware](https://drive.terracloud.de/dl/fiTdTb66mwDAJWgUXUW8KNsd/OEM)<br>[dokumentace k Terra Azure Stack (včetně jednotky FRU)](https://drive.terracloud.de/dl/fiWGZwCySZSQyNdykXCFiVCR/TerraAzSDokumentation)
+| HPE | Všechno | [HPE pro Centrum Microsoft Azure Stack](http://www.hpe.com/info/MASupdates) |
+| Lenovo | Všechno | [Nejlepší recepty ThinkAgile SXM](https://datacentersupport.lenovo.com/us/en/solutions/ht505122)
+| Wortmann |  | [Balíček OEM/firmware](https://drive.terracloud.de/dl/fiTdTb66mwDAJWgUXUW8KNsd/OEM)<br>[dokumentace centra Terra Azure Stack (včetně jednotky FRU)](https://drive.terracloud.de/dl/fiWGZwCySZSQyNdykXCFiVCR/TerraAzSDokumentation)
 
 Mezi součásti, které nejsou Hot-swapem, patří tyto položky:
 
@@ -64,7 +64,7 @@ Následující vývojový diagram znázorňuje proces obecného procesu FRU, kte
 
 ## <a name="review-alert-information"></a>Kontrola informací o výstrahách
 
-Systém Azure Stack stav a monitorování sleduje stav síťových adaptérů a datových jednotek řízených Prostory úložiště s přímým přístupem. Nesleduje jiné hardwarové součásti. U všech ostatních hardwarových součástí se výstrahy vyvolají v řešení monitorování hardwaru specifického pro dodavatele, které běží na hostiteli životního cyklu hardwaru.  
+Systém Azure Stackho centra stavů a monitorování sleduje stav síťových adaptérů a datových jednotek řízených Prostory úložiště s přímým přístupem. Nesleduje jiné hardwarové součásti. U všech ostatních hardwarových součástí se výstrahy vyvolají v řešení monitorování hardwaru specifického pro dodavatele, které běží na hostiteli životního cyklu hardwaru.  
 
 ## <a name="component-replacement-process"></a>Proces nahrazení součásti
 

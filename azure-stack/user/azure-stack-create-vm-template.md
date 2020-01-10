@@ -17,29 +17,29 @@ ms.date: 10/03/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/13/2018
-ms.openlocfilehash: 02300ae5c3a6ef7fd104dfb59e179b557e0c8778
-ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
+ms.openlocfilehash: 3efa4da68a5149f78c21c9bd3e8416371f03eb77
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71961708"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75820810"
 ---
 # <a name="tutorial-create-a-vm-using-a-community-template"></a>Kurz: Vytvoření virtuálního počítače pomocí šablony komunity
 
-Jako operátor Azure Stack nebo uživatel můžete místo ručního nasazení šablony z webu Azure Stack Marketplace vytvořit virtuální počítač (VM) pomocí [vlastních šablon pro rychlý Start GitHubu](https://github.com/Azure/AzureStack-QuickStart-Templates) .
+Jako operátor nebo uživatel Azure Stackového centra můžete vytvořit virtuální počítač pomocí [vlastních šablon rychlý Start pro GitHub](https://github.com/Azure/AzureStack-QuickStart-Templates) místo ručního nasazení šablony z webu centra Azure Stack.
 
 V tomto kurzu se naučíte:
 
 > [!div class="checklist"]
-> * Použití šablon pro rychlý Start Azure Stack
+> * Použití šablon rychlý Start centra Azure Stack
 > * Vytvoření virtuálního počítače pomocí vlastní šablony GitHubu
 > * Spuštění Minikube a instalace aplikace
 
-## <a name="azure-stack-quickstart-templates"></a>Šablony pro rychlý Start Azure Stack
+## <a name="azure-stack-hub-quickstart-templates"></a>Šablony rychlý Start centra Azure Stack
 
-Šablony pro rychlý Start Azure Stack jsou uložené v [úložišti šablon globálního Azure Stack pro rychlé](https://github.com/Azure/AzureStack-QuickStart-Templates)zprovoznění v GitHubu. Toto úložiště obsahuje Azure Resource Manager šablony nasazení, které byly testovány pomocí sady Microsoft Azure Stack Development Kit (ASDK). Můžete je použít k tomu, abyste mohli snadněji vyhodnocovat Azure Stack a používat prostředí ASDK.
+Šablony pro rychlý Start centra Azure Stack jsou uložené v [úložišti šablon pro rychlé zprovoznění centra globálního Azure Stack centra](https://github.com/Azure/AzureStack-QuickStart-Templates)pro GitHub. Toto úložiště obsahuje Azure Resource Manager šablony nasazení, které byly testovány pomocí sady Microsoft Azure Stack Development Kit (ASDK). Můžete je použít ke snazšímu vyhodnocení Azure Stack centra a k použití prostředí ASDK.
 
-V průběhu času se k úložišti přispělo spousta uživatelů GitHubu, což vedlo ke kolekci více než 400 šablon nasazení. Toto úložiště je dobrým výchozím bodem pro porozumění, jak můžete nasadit různé druhy prostředí pro Azure Stack.
+V průběhu času se k úložišti přispělo spousta uživatelů GitHubu, což vedlo ke kolekci více než 400 šablon nasazení. Toto úložiště je dobrým výchozím bodem pro porozumění, jak můžete nasadit různé druhy prostředí do centra Azure Stack.
 
 >[!IMPORTANT]
 > Některé z těchto šablon vytváří členové komunity a ne společnost Microsoft. Každá šablona je licencovaná v rámci licenční smlouvy od jejího vlastníka, nikoli od společnosti Microsoft. Společnost Microsoft není zodpovědná za tyto šablony a není na obrazovce pro zabezpečení, kompatibilitu nebo výkon. Šablony komunity nejsou podporované v rámci žádného programu nebo služby podpory společnosti Microsoft a jsou dostupné "tak, jak jsou", bez záruky jakéhokoli druhu.
@@ -48,7 +48,7 @@ Pokud chcete přispívat Azure Resource Manager šablon do GitHubu, udělejte sv
 
 ## <a name="create-a-vm-using-a-custom-github-template"></a>Vytvoření virtuálního počítače pomocí vlastní šablony GitHubu
 
-V tomto ukázkovém kurzu se k nasazení virtuálního počítače Ubuntu 16,04 na Azure Stack se spuštěným Minikube pro správu clusteru Kubernetes používá šablona pro rychlý Start [101-VM-Linux-minikube](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-linux-minikube) Azure Stack.
+V tomto ukázkovém kurzu se šablona pro rychlý Start centra [101-VM-Linux-minikube](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-linux-minikube) Azure Stack slouží k nasazení virtuálního počítače Ubuntu 16,04 do centra Azure Stack se systémem minikube pro správu clusteru Kubernetes.
 
 Minikube je nástroj, který usnadňuje místní spuštění Kubernetes. Minikube spouští cluster Kubernetes s jedním uzlem v rámci virtuálního počítače, který vám umožní vyzkoušet si Kubernetes nebo vyvíjet s využitím každodenního provozu. Podporuje jednoduchý cluster Kubernetes s jedním uzlem běžícího na virtuálním počítači se systémem Linux. Minikube je nejrychlejší a nejpřímější způsob, jak získat plně funkční cluster Kubernetes se systémem. Umožňuje vývojářům vyvíjet a testovat nasazení svých aplikací založených na Kubernetes na místních počítačích. V rámci architektury Minikube virtuální počítač spouští součásti hlavního uzlu i uzlu agenta místně:
 
@@ -65,7 +65,7 @@ Tato šablona nainstaluje následující součásti:
 * xRDP
 
 > [!IMPORTANT]
-> Image virtuálního počítače s Ubuntu (Ubuntu Server 16,04 LTS v tomto příkladu) už musí být před provedením těchto kroků přidaná na Azure Stack Marketplace.
+> Image virtuálního počítače s Ubuntu (Ubuntu Server 16,04 LTS, v tomto příkladu) už musí být před provedením těchto kroků přidaná na web centra Azure Stack.
 
 1. Vyberte **+ vytvořit prostředek**, pak **vlastní**a pak **template Deployment**.
 
@@ -81,7 +81,7 @@ Tato šablona nainstaluje následující součásti:
 
 4. V rozevíracím seznamu **Vyberte šablonu** vyberte **101-VM-Linux-minikube** z dostupných šablon a pak klikněte na **OK**.
 
-    ![Vybrat šablonu](media/azure-stack-create-vm-template/4.PNG)
+    ![Vyberte šablonu](media/azure-stack-create-vm-template/4.PNG)
 
 5. Pokud chcete provést úpravy JSON šablony, můžete to udělat. Pokud ne, nebo po dokončení vyberte **Uložit** a zavřete dialogové okno **Upravit šablonu** .
 
@@ -108,7 +108,7 @@ Teď, když byl virtuální počítač se systémem Linux úspěšně vytvořen,
 
 1. Po dokončení nasazení vyberte **připojit** a ZOBRAZTE veřejnou IP adresu, která se bude používat pro připojení k virtuálnímu počítači se systémem Linux.
 
-    ![Připojit](media/azure-stack-create-vm-template/9.PNG)
+    ![Propojení](media/azure-stack-create-vm-template/9.PNG)
 
 2. Z příkazového řádku se zvýšenými oprávněními spusťte příkaz **mstsc. exe** a otevřete připojení ke vzdálené ploše a připojte se k veřejné IP adrese virtuálního počítače se systémem Linux zjištěné v předchozím kroku. Po zobrazení výzvy k přihlášení k xRDP použijte přihlašovací údaje, které jste zadali při vytváření virtuálního počítače.
 
@@ -135,6 +135,6 @@ Teď, když byl virtuální počítač se systémem Linux úspěšně vytvořen,
 V tomto kurzu jste se naučili:
 
 > [!div class="checklist"]
-> * Další informace o Azure Stack šablonách rychlého startu
+> * Další informace o šablonách rychlého startu centra Azure Stack
 > * Vytvoření virtuálního počítače pomocí vlastní šablony GitHubu
 > * Spuštění minikube a instalace aplikace

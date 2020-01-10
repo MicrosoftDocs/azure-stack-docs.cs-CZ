@@ -9,16 +9,16 @@ ms.date: 12/13/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/13/2019
-ms.openlocfilehash: 624f0fb87b84ee06284185a521a68bebeb695362
-ms.sourcegitcommit: 7dd9d7bc2b86cca3be5118da149c1d422b2fb09d
+ms.openlocfilehash: d10fbc7ad009456459a8719fbc6e6c8ce51529f1
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/16/2019
-ms.locfileid: "75033974"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75816475"
 ---
 # <a name="how-to-get-authentication-information-for-azure-stack-hub"></a>Jak získat ověřovací informace pro centrum Azure Stack
 
-Aby se ověřilo, že Azure Stack hub vyžaduje, abyste zadali ID předplatného, ID tenanta a umístění a Správce prostředků koncový bod centra Azure Stack. Tyto hodnoty můžete získat z [správce prostředkůho koncového bodu centra Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles-ruby?view=azs-1910#the-azure-stack-resource-manager-endpoint) pro centrum Azure Stack. Můžete je také získat pomocí kroků v tomto článku.
+Aby se ověřilo, že Azure Stack hub vyžaduje, abyste zadali ID předplatného, ID tenanta a umístění a Správce prostředků koncový bod centra Azure Stack. Tyto hodnoty můžete získat z [správce prostředkůho koncového bodu centra Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles-ruby?view=azs-1910#the-azure-stack-hub-resource-manager-endpoint) pro centrum Azure Stack. Můžete je také získat pomocí kroků v tomto článku.
 
 ## <a name="values-needed-to-authenticate"></a>Hodnoty potřebné k ověření
 
@@ -26,7 +26,7 @@ Potřebujete tyto informace:
 
 -   **ID předplatného**  
 
-    ID předplatného se používá pro přístup k nabídkám v Azure Stack.
+    ID předplatného se používá pro přístup k nabídkám v centru Azure Stack.
 
 -   **ID tenanta**
 
@@ -76,4 +76,4 @@ Pro získání koncového bodu metadat, který odkazuje na vlastnosti, jako je k
 
 ## <a name="next-steps"></a>Další kroky
 
-Přečtěte si další informace o použití [Azure Stack správce prostředků](https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles?view=azs-1910) s Azure Stackm rozbočovačem.
+Přečtěte si další informace o použití [Správce prostředků centra Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles?view=azs-1910) v centru Azure Stack.

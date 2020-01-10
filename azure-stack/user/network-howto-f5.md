@@ -9,12 +9,12 @@ ms.date: 11/06/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: c1166b1755b33687757b4587942c5472413e2b3e
-ms.sourcegitcommit: 62283e9826ea78b218f5d2c6c555cc44196b085d
+ms.openlocfilehash: 360bd0fee975aaa1eb7f7dd02948493862f6105d
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74780877"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75815387"
 ---
 # <a name="how-to-deploy-f5-across-two-azure-stack-hub-instances"></a>Postup nasazení F5 v rámci dvou instancí centra Azure Stack
 
@@ -24,21 +24,21 @@ Tento článek vás provede nastavením externího nástroje pro vyrovnávání 
 
 ## <a name="overview-of-load-balancing-with-f5"></a>Přehled vyrovnávání zatížení pomocí F5
 
-Hardware F5, nástroj pro vyrovnávání zatížení, může být mimo Azure Stack a v rámci datového centra, které hostuje Azure Stack. Azure Stack nemá nativní schopnost vyrovnávat zatížení úloh ve dvou různých nasazeních Azure Stack. Virtuální edice F5's BIG-IP (VE verzi) běží na obou platformách. Tato sada podporuje paritu mezi architekturami Azure a Azure Stack prostřednictvím replikace podpůrných aplikačních služeb. Můžete vyvíjet aplikaci v jednom prostředí a přesunout ji do jiného. Můžete také zrcadlit celou Azure Stack připravenou pro produkční prostředí, včetně stejných konfigurací, zásad a aplikačních služeb pro velké IP adresy. Přístup eliminuje nutnost dlouhé hodin refaktoringu a testování aplikací a umožňuje vám začít s psaním kódu.
+Hardware F5, nástroj pro vyrovnávání zatížení, může být mimo Azure Stack centra a v rámci datového centra, které je hostitelem centra Azure Stack. Centrum Azure Stack nemá nativní schopnost vyrovnávat zatížení úloh ve dvou různých nasazeních centra Azure Stack. Virtuální edice F5's BIG-IP (VE verzi) běží na obou platformách. Tato sada podporuje paritu mezi architekturami centra Azure a Azure Stack prostřednictvím replikace podpůrných aplikačních služeb. Můžete vyvíjet aplikaci v jednom prostředí a přesunout ji do jiného. Můžete také zrcadlit celé prostředí Azure Stack připravené pro produkční prostředí, včetně stejných konfigurací, zásad a aplikačních služeb pro velké objemy IP adres. Přístup eliminuje nutnost dlouhé hodin refaktoringu a testování aplikací a umožňuje vám začít s psaním kódu.
 
-Zabezpečení aplikací a jejich dat často se týká vývojářů, kteří přesouvá aplikace do veřejného cloudu. To nemusí být případ. Aplikaci můžete v prostředí Azure Stack sestavit, zatímco architekt zabezpečení konfiguruje potřebná nastavení na firewallu webových aplikací F5's (WAF). Celý zásobník se dá replikovat v Azure Stack s vědomím, že aplikace bude chráněná stejnými špičkovými WAFmi. Se stejnými zásadami a RuleSets nebudou žádné bezpečnostní zneužitelných ani ohrožení zabezpečení, které by jinak bylo možné vygenerovat pomocí různých WAF.
+Zabezpečení aplikací a jejich dat často se týká vývojářů, kteří přesouvá aplikace do veřejného cloudu. To nemusí být případ. Aplikaci můžete vytvořit v prostředí Azure Stack hub, zatímco architekt zabezpečení nakonfiguruje potřebná nastavení na firewallu webových aplikací F5's (WAF). Celý zásobník se dá v Azure Stackovém centru replikovat s vědomím, že aplikace bude chráněná stejným oborem, který špičkové WAF. Se stejnými zásadami a RuleSets nebudou žádné bezpečnostní zneužitelných ani ohrožení zabezpečení, které by jinak bylo možné vygenerovat pomocí různých WAF.
 
-Azure Stack má z Azure samostatné tržiště. Přidávají se jenom určité položky. V takovém případě, pokud chcete vytvořit novou skupinu prostředků v každé z hromádek Azure a nasadit virtuální zařízení F5, které už je dostupné. Odtud uvidíte, že se bude vyžadovat, aby byla k dispozici **Veřejná IP** adresa, aby bylo možné síťové připojení mezi oběma Azure Stack instancemi. V podstatě se jedná o obě ostrovy a **Veřejná IP adresa** jim umožní komunikovat v obou umístěních.
+Centrum Azure Stack má samostatné tržiště z Azure. Přidávají se jenom určité položky. V takovém případě, pokud chcete vytvořit novou skupinu prostředků na každém z Azure Stack Center a nasadit virtuální zařízení F5, které už je dostupné. Odtud uvidíte, že se bude vyžadovat, aby byla k dispozici **Veřejná IP** adresa, která umožňuje připojení k síti mezi Azure Stackmi instancemi hub. V podstatě se jedná o obě ostrovy a **Veřejná IP adresa** jim umožní komunikovat v obou umístěních.
 
 ## <a name="prerequisites-for-big-ip-ve"></a>Předpoklady pro BIG-IP VE
 
--  Stáhněte si soubor **F5 Big-IP ve všech (BYOL, 2 Boot Locations)** do každého Azure Stack Marketplace. Pokud je nemáte k dispozici na portálu, obraťte se na svého operátora cloudu.
+-  Stáhněte si soubor **F5 Big-IP ve všech (BYOL, 2 Boot Locations)** do každého portálu Azure Stack hub Marketplace. Pokud je nemáte k dispozici na portálu, obraťte se na svého operátora cloudu.
 
 -  Šablonu Azure Resource Manager můžete najít v následujícím úložišti GitHub: https://github.com/Mikej81/f5-azurestack-gslb.
 
 ## <a name="deploy-f5-big-ip-ve-on-each-instance"></a>Nasazení F5 BIG-IP v každé instanci
 
-Nasaďte do Azure Stack instance a a instanci B.
+Nasaďte do Azure Stack a instance centra a instanci B.
 
 1. Přihlaste se k portálu Azure Stack User Portal.
 
@@ -69,20 +69,20 @@ Nasaďte do Azure Stack instance a a instanci B.
 
 ## <a name="configure-big-ip-appliances"></a>Konfigurace zařízení se BIG-IP
 
-Postupujte podle těchto kroků pro Azure Stack a a B.
+Postupujte podle těchto kroků pro Azure Stack hub a i B.
 
-1. Přihlaste se k portálu User Portal centra Azure Stack v části Azure Stack instance A Zkontrolujte prostředky vytvořené z nasazení šablony BIG-IP.
+1. Přihlaste se k portálu Azure Stackho centra uživatelů v instanci centra Azure Stack A Zkontrolujte prostředky vytvořené z nasazení šablony BIG-IP.
 
     ![](./media/network-howto-f5/image18.png)
 
 2. Postupujte podle pokynů na adrese F5 pro [položky konfigurace Big-IP](https://clouddocs.f5.com/training/community/dns/html/class1/class1.html). 
 
-3. Nakonfigurujte seznam adres IP s velkým rozsahem IP adres, který bude naslouchat v obou zařízeních nasazených do Azure Stack instance a a B. Pokyny najdete v tématu [Konfigurace GTM Big-IP](https://techdocs.f5.com/kb/en-us/products/big-ip_gtm/manuals/product/gtm-concepts-11-5-0/4.html).
+3. Nakonfigurujte seznam adres IP s velkým rozsahem IP adres, který bude naslouchat na obou zařízeních nasazených do Azure Stack hub instance a a B. Pokyny najdete v tématu [Konfigurace GTM Big-IP](https://techdocs.f5.com/kb/en-us/products/big-ip_gtm/manuals/product/gtm-concepts-11-5-0/4.html).
 
 
 4. Ověří převzetí služeb při selhání zařízení se BIG-IP. V testovacím systému nakonfigurujte servery DNS tak, aby používaly následující:
-    - Azure Stack instance A = `f5stack1-ext` veřejné IP adresy
-    - Azure Stack instance B = `f5stack1-ext` veřejné IP adresy
+    - Instance centra Azure Stack A = `f5stack1-ext` veřejné IP adresy
+    - Azure Stack hub instance B = `f5stack1-ext` veřejnou IP adresou
 
 5. Přejděte do `www.contoso.com` a v prohlížeči se načte výchozí stránka NGINX.
 
@@ -103,7 +103,7 @@ Postupujte podle těchto kroků pro Azure Stack a a B.
 
 ## <a name="post-install-configurations"></a>Konfigurace po instalaci
 
-Po instalaci nástroje je potřeba nakonfigurovat Azure Stack skupin zabezpečení sítě a uzamknout zdrojové IP adresy.
+Po instalaci nástroje je potřeba nakonfigurovat skupin zabezpečení sítě centra pro Azure Stack a uzamknout zdrojové IP adresy.
 
 1. Po navázání vztahu důvěryhodnosti zakažte port 22.
 
@@ -113,12 +113,12 @@ Po instalaci nástroje je potřeba nakonfigurovat Azure Stack skupin zabezpečen
 
     ![](./media/network-howto-f5/image7.png)
 
-4. Nasaďte základní zatížení webové aplikace v prostředí Azure Stack, abyste vyrovnali zatížení za velkou IP adresou. Příklad použití serveru NGNIX najdete v části [nasazení Nginx a Nginx plus v Docker](https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-docker/).
+4. Nasaďte základní úlohu webové aplikace v prostředí Azure Stack hub, abyste vyrovnali zatížení za velkou IP adresou. Příklad použití serveru NGNIX najdete v části [nasazení Nginx a Nginx plus v Docker](https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-docker/).
 
     > [!Note]  
-    > Nasaďte instanci NGNIX na Azure Stack a a Azure Stack B.
+    > Nasaďte instanci NGNIX do centra Azure Stack a a Azure Stack Hub B.
 
-5. Po nasazení NGINX v kontejneru Docker na virtuálním počítači s Ubuntu v rámci každé instance Azure Stack ověřte, že se můžete dostat na výchozí webovou stránku na serverech.
+5. Po nasazení NGINX v kontejneru Docker na virtuálním počítači s Ubuntu v rámci každé instance centra Azure Stack ověřte, že se můžete dostat k výchozí webové stránce na serverech.
 
     ![](./media/network-howto-f5/image8.png)
 
@@ -189,10 +189,10 @@ Po instalaci nástroje je potřeba nakonfigurovat Azure Stack skupin zabezpečen
 
 Několik referenčních článků o použití F5 najdete v těchto článcích:
 
-- [Služby dostupnosti datového centra využívající službu DNS pro BIG-IP](https://clouddocs.f5.com/training/community/dns/html/class3/class3.html)
+- [Služby dostupnosti datových center využívající službu DNS s velkým objemem IP adres](https://clouddocs.f5.com/training/community/dns/html/class3/class3.html)
 - [Nasazení systému BIG-IP s aplikacemi HTTP](https://www.f5.com/content/dam/f5/corp/global/pdf/deployment-guides/iapp-http-dg.pdf)
 - [Vytvoření sítě WAN pro GSLB](https://clouddocs.f5.com/training/community/big-iq-cloud-edition/html/class10/module2/lab1.html)
 
 ## <a name="next-steps"></a>Další kroky
 
-[Rozdíly a požadavky pro Azure Stack sítě](azure-stack-network-differences.md) 
+[Rozdíly a požadavky pro sítě Azure Stack hub](azure-stack-network-differences.md) 

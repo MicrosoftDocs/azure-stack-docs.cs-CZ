@@ -1,6 +1,6 @@
 ---
-title: Řešení potíží s modulem AKS v Azure Stack | Microsoft Docs
-description: Tento článek obsahuje postup řešení potíží pro modul AKS v Azure Stack.
+title: Řešení potíží s modulem AKS v centru Azure Stack | Microsoft Docs
+description: Tento článek obsahuje postup řešení potíží pro modul AKS v centru Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,18 +15,18 @@ ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: aed53295b7c1748abd8ab3bd2862043d7d69e4b8
-ms.sourcegitcommit: 0b783e262ac87ae67929dbd4c366b19bf36740f0
+ms.openlocfilehash: 229d066438cbdad52c167706c4b77b0c425f137b
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74310343"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75820028"
 ---
-# <a name="troubleshoot-the-aks-engine-on-azure-stack"></a>Řešení potíží s modulem AKS na Azure Stack
+# <a name="troubleshoot-the-aks-engine-on-azure-stack-hub"></a>Řešení potíží s modulem AKS v centru Azure Stack
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
-Může dojít k potížím při nasazení nebo práci s modulem AKS na Azure Stack. V tomto článku se dozvíte, jak řešit potíže s nasazením modulu AKS, shromažďovat informace o vašem modulu AKS, shromažďovat protokoly Kubernetes, prohlížet kódy chyb v rozšíření vlastních skriptů a pokyny k otevření problému GitHubu pro modul AKS.
+Může dojít k potížím při nasazení nebo práci s modulem AKS v centru Azure Stack. V tomto článku se dozvíte, jak řešit potíže s nasazením modulu AKS, shromažďovat informace o vašem modulu AKS, shromažďovat protokoly Kubernetes, prohlížet kódy chyb v rozšíření vlastních skriptů a pokyny k otevření problému GitHubu pro modul AKS.
 
 ## <a name="troubleshoot-the-aks-engine-install"></a>Řešení potíží s instalací modulu AKS
 
@@ -72,9 +72,9 @@ Nainstalujte GoFish ze stránky [instalace](https://gofi.sh/#install) .
 Když při nasazování clusteru Kubernetes pomocí modulu AKS narazíte na chyby, můžete ověřit:
 
 1.  Používáte správné přihlašovací údaje instančního objektu (SPN)?
-2.  Má hlavní název služby (SPN) roli přispěvatelé u předplatného Azure Stack?
-3. Máte v plánu Azure Stack dostatečně velkou kvótu?
-4.  Je použita instance Azure Stack s použitou opravou nebo upgradem?
+2.  Má hlavní název služby (SPN) roli přispěvatelé k předplatnému centra Azure Stack?
+3. Máte v plánu centra Azure Stack dostatečně velkou kvótu?
+4.  Je instance centra Azure Stack s použitím opravy nebo upgradu?
 
 Další informace najdete v článku [věnovaném řešení potíží](https://github.com/Azure/aks-engine/blob/master/docs/howto/troubleshooting.md) v úložišti GitHub **Azure/AKS-Engine** .
 
@@ -113,7 +113,7 @@ Požadavky:
 
  - Virtuální počítač Linux, Git bash nebo bash ve Windows.
  - Rozhraní příkazového [řádku Azure](azure-stack-version-profiles-azurecli2.md) je nainstalované v počítači, ze kterého se skript spustí.
- - Identita instančního objektu se přihlásila do relace Azure CLI a Azure Stack. Vzhledem k tomu, že skript má schopnost zjistit a vytvořit prostředky ARM, aby fungoval, vyžaduje Azure CLI a identitu instančního objektu.
+ - Identita instančního objektu se přihlásila k relaci Azure CLI a Azure Stack hub. Vzhledem k tomu, že skript má schopnost zjistit a vytvořit prostředky ARM, aby fungoval, vyžaduje Azure CLI a identitu instančního objektu.
  - Uživatelský účet (předplatné), kde je v prostředí již vybraný cluster Kubernetes. 
 1. Stáhněte si nejnovější verzi souboru tar Script do svého klientského virtuálního počítače, počítače, který má přístup ke clusteru Kubernetes nebo ke stejnému počítači, který jste použili k nasazení clusteru s modulem AKS.
 
@@ -128,16 +128,16 @@ Požadavky:
 
 2. Vyhledejte parametry vyžadované skriptem `getkuberneteslogs.sh`. Skript bude používat následující parametry:
 
-    | Parametr | Popis | Požadováno | Příklad |
+    | Parametr | Popis | Požaduje se | Příklad: |
     | --- | --- | --- | --- |
     | -h,--help | Použití příkazu tisku. | ne | 
     -u,--uživatel | Uživatelské jméno správce pro virtuální počítače clusteru | ano | azureuser<br>(výchozí hodnota) |
     | -i,--identity-File | Privátní klíč RSA vázaný k veřejnému klíči, který se používá k vytvoření clusteru Kubernetes (někdy s názvem "id_rsa")  | ano | `./rsa.pem` (výstupu)<br>`~/.ssh/id_rsa` (SSH) |
     |   -g,--Resource-Group    | Skupina prostředků clusteru Kubernetes | ano | k8sresourcegroup |
-    |   -n,--User-Namespace               | Shromažďovat protokoly z kontejnerů v zadaných oborech názvů (Kube – systémové protokoly se vždycky shromažďují) | ne |   sledovaný |
-    |       --API-model                    | Uchovává soubor apimodel. JSON v účtu úložiště Azure Stack. Nahrání souboru apimodel. JSON do účtu úložiště se stane, když je k dispozici i parametr--upload-Logs. | ne | `./apimodel.json` |
+    |   -n,--User-Namespace               | Shromažďovat protokoly z kontejnerů v zadaných oborech názvů (Kube – systémové protokoly se vždycky shromažďují) | ne |   monitorování |
+    |       --API-model                    | Uchovává soubor apimodel. JSON v účtu úložiště centra Azure Stack. Nahrání souboru apimodel. JSON do účtu úložiště se stane, když je k dispozici i parametr--upload-Logs. | ne | `./apimodel.json` |
     | --všechny – obory názvů               | Shromažďování protokolů z kontejnerů ve všech oborech názvů. Přepisuje nastavení--User-Namespace. | ne | |
-    | --upload-logs                  | Uchovává načtené protokoly v účtu úložiště Azure Stack. Protokoly najdete ve skupině prostředků KubernetesLogs. | ne | |
+    | --upload-logs                  | Uchovává načtené protokoly v účtu úložiště Azure Stack hub. Protokoly najdete ve skupině prostředků KubernetesLogs. | ne | |
     --Disable-host-key-kontrola    | Nastaví možnost StrictHostKeyChecking SSH na ne, zatímco se skript spustí. Používejte pouze v bezpečném prostředí. | ne | |
 
 3. Spusťte libovolný z následujících ukázkových příkazů s vašimi informacemi:
@@ -158,9 +158,9 @@ Můžete se obrátit na seznam kódů chyb vytvořených pomocí rozšíření v
 
 Pokud po shromáždění a prozkoumání protokolů stále nemůžete problém vyřešit, můžete chtít zahájit proces vytváření lístku podpory a poskytnout protokoly, které jste shromáždili spuštěním `getkuberneteslogs.sh` s `--upload-logs` sadou parametrů. 
 
-Obraťte se na operátor Azure Stack. Váš operátor používá informace od vašich protokolů k vytvoření případu podpory.
+Obraťte se na svého operátora centra Azure Stack. Váš operátor používá informace od vašich protokolů k vytvoření případu podpory.
 
-Během procesu řešení potíží s podporou může pracovník podpory Microsoftu požádat, aby váš operátor Azure Stack shromažďovat protokoly Azure Stack systému. K informacím o účtu úložiště, do kterého jste nahráli protokoly Kubernetes spuštěním `getkuberneteslogs.sh`, budete možná muset zadat operátora.
+Během procesu řešení potíží s podporou může pracovník podpory Microsoftu požádat, aby váš operátor centra Azure Stack shromažďovat protokoly systému Azure Stack hub. K informacím o účtu úložiště, do kterého jste nahráli protokoly Kubernetes spuštěním `getkuberneteslogs.sh`, budete možná muset zadat operátora.
 
 Operátor může spustit PowerShell rutiny **Get-AzureStackLog** . Tento příkaz používá parametr (`-InputSaSUri`), který určuje účet úložiště, kam jste uložili protokoly Kubernetes.
 
@@ -180,4 +180,4 @@ Pokud nemůžete vyřešit chybu nasazení, můžete otevřít problém GitHubu.
 
 ## <a name="next-steps"></a>Další kroky
 
-- Přečtěte si o modulu [AKS na Azure Stack](azure-stack-kubernetes-aks-engine-overview.md)
+- Přečtěte si o modulu [AKS v centru Azure Stack](azure-stack-kubernetes-aks-engine-overview.md) .

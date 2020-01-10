@@ -1,6 +1,6 @@
 ---
-title: Instalace PowerShellu pro Azure Stack | Microsoft Docs
-description: Přečtěte si, jak nainstalovat PowerShell pro Azure Stack.
+title: Instalace PowerShellu pro centrum Azure Stack | Microsoft Docs
+description: Přečtěte si, jak nainstalovat PowerShell pro centrum Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,28 +15,28 @@ ms.date: 09/19/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: e20012ce8ca397a9e74b97e380753b8f3ad33e45
-ms.sourcegitcommit: d619612f54eeba3231ed73ed149ff894f9bf838a
+ms.openlocfilehash: 0835b81387c83560183763ff5604da5c279a0851
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74993831"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75810184"
 ---
-# <a name="install-powershell-for-azure-stack"></a>Instalace PowerShellu pro Azure Stack
+# <a name="install-powershell-for-azure-stack-hub"></a>Instalace PowerShellu pro centrum Azure Stack
 
-*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
-Azure PowerShell poskytuje sadu rutin, které používají model Azure Resource Manager ke správě Azure Stack prostředků.
+Azure PowerShell poskytuje sadu rutin, které používají model Azure Resource Manager ke správě prostředků služby Azure Stack hub.
 
-Pokud chcete pracovat s cloudem, musíte nainstalovat Azure Stack kompatibilní moduly PowerShellu. Azure Stack používá modul **AzureRM** místo novějšího modulu **AzureAZ** používaného v globálním Azure. K určení kompatibilních koncových bodů pro poskytovatele prostředků Azure Stack musíte také použít *profily rozhraní API* .
+Pokud chcete pracovat s cloudem, je nutné nainstalovat moduly prostředí PowerShell kompatibilní s Azure Stack hub. Centrum Azure Stack používá modul **AzureRM** místo novějšího modulu **AzureAZ** používaného v globálním Azure. K určení kompatibilních koncových bodů pro poskytovatele prostředků Azure Stack hub je také potřeba použít *profily rozhraní API* .
 
-Profily rozhraní API poskytují způsob, jak spravovat rozdíly mezi verzemi Azure a Azure Stack. Profil verze rozhraní API je sada Azure Resource Managerch modulů PowerShellu s konkrétními verzemi rozhraní API. Každá cloudová platforma má sadu podporovaných profilů verze rozhraní API. Azure Stack například podporuje konkrétní verzi profilu, jako je například **2019-03-01 – Hybrid**. Když nainstalujete profil, nainstalují se moduly Azure Resource Manager PowerShellu, které odpovídají zadanému profilu.
+Profily rozhraní API poskytují způsob, jak spravovat rozdíly mezi verzemi Azure a centra Azure Stack. Profil verze rozhraní API je sada Azure Resource Managerch modulů PowerShellu s konkrétními verzemi rozhraní API. Každá cloudová platforma má sadu podporovaných profilů verze rozhraní API. Například centrum Azure Stack podporuje konkrétní verzi profilu, například **2019-03-01-Hybrid**. Když nainstalujete profil, nainstalují se moduly Azure Resource Manager PowerShellu, které odpovídají zadanému profilu.
 
-Můžete nainstalovat Azure Stack kompatibilní moduly PowerShellu ve scénářích připojených k Internetu, částečně propojených nebo odpojených scénářích. Tento článek vás provede podrobnými pokyny pro tyto scénáře.
+Můžete nainstalovat moduly prostředí PowerShell kompatibilní s centrem Azure Stack ve scénářích připojených k Internetu, částečně propojených nebo odpojených. Tento článek vás provede podrobnými pokyny pro tyto scénáře.
 
 ## <a name="1-verify-your-prerequisites"></a>1. ověřte požadavky.
 
-Než začnete s Azure Stack a prostředím PowerShell, musíte mít následující požadavky:
+Než začnete s Azure Stackm centrem a prostředím PowerShell, musíte splnit následující předpoklady:
 
 - **PowerShell verze 5,0** <br>
 Pokud chcete zjistit verzi, spusťte **$PSVersionTable. PSVersion** a porovnejte **hlavní** verzi. Pokud nemáte PowerShell 5,0, postupujte podle pokynů pro [instalaci Windows PowerShellu](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell#upgrading-existing-windows-powershell).
@@ -71,9 +71,9 @@ Register-PSRepository -Default
 Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 ```
 
-## <a name="3-uninstall-existing-versions-of-the-azure-stack-powershell-modules"></a>3. odinstalujte existující verze modulů Azure Stack PowerShellu
+## <a name="3-uninstall-existing-versions-of-the-azure-stack-hub-powershell-modules"></a>3. odinstalujte existující verze modulů prostředí PowerShell centra Azure Stack.
 
-Před instalací požadované verze se ujistěte, že jste odinstalovali všechny dříve nainstalované Azure Stack moduly PowerShellu pro AzureRM. Moduly odinstalujte pomocí jedné z následujících dvou metod:
+Před instalací požadované verze se ujistěte, že jste odinstalovali všechny dříve nainstalované moduly AzureRM prostředí PowerShell pro Azure Stack hub. Moduly odinstalujte pomocí jedné z následujících dvou metod:
 
 1. Pokud chcete odinstalovat stávající moduly PowerShellu AzureRM, zavřete všechny aktivní relace PowerShellu a spusťte následující rutiny:
 
@@ -86,51 +86,51 @@ Před instalací požadované verze se ujistěte, že jste odinstalovali všechn
 
 2. Odstraní všechny složky, které začínají na `Azure` nebo `Azs.` z `C:\Program Files\WindowsPowerShell\Modules` a složky `C:\Users\{yourusername}\Documents\WindowsPowerShell\Modules`. Odstranění těchto složek odebere všechny existující moduly prostředí PowerShell.
 
-## <a name="4-connected-install-powershell-for-azure-stack-with-internet-connectivity"></a>4. připojeno: instalace PowerShellu pro Azure Stack s připojením k Internetu
+## <a name="4-connected-install-powershell-for-azure-stack-hub-with-internet-connectivity"></a>4. připojeno: instalace PowerShellu pro centrum Azure Stack s připojením k Internetu
 
-Profil verze rozhraní API a moduly Azure Stack PowerShellu, které požadujete, budou záviset na verzi Azure Stack, kterou používáte.
+Profil verze rozhraní API a moduly Azure Stack centra prostředí PowerShell, které požadujete, budou záviset na verzi Azure Stack centra, kterou používáte.
 
-### <a name="install-azure-stack-powershell"></a>Instalace Azure Stack PowerShellu
+### <a name="install-azure-stack-hub-powershell"></a>Nainstalovat Azure Stack centra PowerShell
 
 Spusťte následující skript PowerShellu, který nainstaluje tyto moduly na svou vývojovou pracovní stanici:
 
-- Pro Azure Stack 1910 nebo novější:
+- Pro Azure Stack hub 1910 nebo novější:
 
     ```powershell  
     # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
     Install-Module -Name AzureRM.BootStrapper
 
-    # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
+    # Install and import the API Version Profile required by Azure Stack Hub into the current PowerShell session.
     Use-AzureRmProfile -Profile 2019-03-01-hybrid -Force
     Install-Module -Name AzureStack -RequiredVersion 1.8.0
     ```
 
-- Pro Azure Stack 1908 nebo po 1903:
+- Pro Azure Stack hub 1908 nebo po 1903:
 
     ```powershell  
     # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
     Install-Module -Name AzureRM.BootStrapper
 
-    # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
+    # Install and import the API Version Profile required by Azure Stack Hub into the current PowerShell session.
     Use-AzureRmProfile -Profile 2019-03-01-hybrid -Force
     Install-Module -Name AzureStack -RequiredVersion 1.7.2
     ```
   
-- Pro Azure Stack verze 1903 nebo starší nainstalujte jenom tyto dva moduly:
+- Pro Azure Stack hub verze 1903 nebo starší nainstalujte jenom tyto dva moduly:
 
     ```powershell  
-    # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
+    # Install and import the API Version Profile required by Azure Stack Hub into the current PowerShell session.
 
     Install-Module -Name AzureRM -RequiredVersion 2.4.0
     Install-Module -Name AzureStack -RequiredVersion 1.7.1
     ```
 
     > [!Note]  
-    > - Verze modulu Azure Stack 1.8.0 je zásadním vydáním změn. Podrobnosti najdete v [poznámkách k verzi](release-notes.md) .
-    > - Verze modulu Azure Stack 1.7.2 je zásadním vydáním změn. Chcete-li provést migraci z Azure Stack 1.6.0, přečtěte si [příručku k migraci](https://aka.ms/azspshmigration171).
+    > - 1\.8.0 centra verze je zásadní verze změny. Azure Stack Podrobnosti najdete v [poznámkách k verzi](release-notes.md) .
+    > - 1\.7.2 modul centra Azure Stack pro správu verze je zásadní verzí změny. Pokud chcete provést migraci z centra Azure Stack 1.6.0, přečtěte si [příručku k migraci](https://aka.ms/azspshmigration171).
     > - Verze modulu AzureRM 2.4.0 obsahuje zásadní změnu rutiny Remove-AzureRmStorageAccount. Tato rutina očekává, `-Force` parametr, který se má zadat pro odebrání účtu úložiště bez potvrzení.
-    > - Nemusíte instalovat **AzureRM. zaváděcí nástroj** pro instalaci modulů pro Azure Stack verze 1901 nebo novější.
-    > - Kromě používání výše uvedených Azure Stack modulů AzureRM verze 1901 nebo novější neinstalujte profil 2018-03-01-Hybrid.
+    > - Nemusíte instalovat **AzureRM. zaváděcí nástroj** pro instalaci modulů pro centra Azure Stack verze 1901 nebo novější.
+    > - Kromě používání výše uvedených modulů AzureRM v centru Azure Stack verze 1901 nebo novější neinstalujte profil 2018-03-01-Hybrid.
 
 ### <a name="confirm-the-installation-of-powershell"></a>Potvrzení instalace PowerShellu
 
@@ -147,19 +147,19 @@ Pokud je instalace úspěšná, zobrazí se ve výstupu moduly `AzureRM` a `Azur
 
 V odpojeném scénáři nejprve stáhnete moduly PowerShellu do počítače, který má připojení k Internetu. Pak je přenesete do Azure Stack Development Kit (ASDK) pro instalaci.
 
-Přihlaste se k počítači s připojením k Internetu a pomocí následujících skriptů Stáhněte balíčky Azure Resource Manager a Azure Stack v závislosti na vaší verzi Azure Stack.
+Přihlaste se k počítači s připojením k Internetu a pomocí následujících skriptů Stáhněte balíčky Azure Resource Manager a Azure Stack centra v závislosti na vaší verzi centra Azure Stack.
 
 Instalace má čtyři kroky:
 
-1. Instalace Azure Stack PowerShellu do připojeného počítače.
+1. Instalace prostředí PowerShell centra Azure Stack do připojeného počítače.
 2. Povolí další funkce úložiště.
 3. Přenos balíčků PowerShellu na odpojenou pracovní stanici.
 4. Ručně nabootstrap zprostředkovatele NuGet na odpojené pracovní stanici.
 5. Potvrďte instalaci PowerShellu.
 
-### <a name="install-azure-stack-powershell"></a>Instalace Azure Stack PowerShellu
+### <a name="install-azure-stack-hub-powershell"></a>Nainstalovat Azure Stack centra PowerShell
 
-- Azure Stack 1910 nebo novější.
+- Azure Stack hub 1910 nebo novější.
 
     ```powershell
     Import-Module -Name PowerShellGet -ErrorAction Stop
@@ -170,7 +170,7 @@ Instalace má čtyři kroky:
     Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.8.0
     ```
 
-- Pro Azure Stack 1908 nebo po 1903:
+- Pro Azure Stack hub 1908 nebo po 1903:
 
     ```powershell
     Import-Module -Name PowerShellGet -ErrorAction Stop
@@ -181,7 +181,7 @@ Instalace má čtyři kroky:
     Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.7.2
     ```
 
-- Azure Stack 1903 nebo starší.
+- Azure Stack hub 1903 nebo starší.
 
     ```powershell
     Import-Module -Name PowerShellGet -ErrorAction Stop
@@ -193,8 +193,8 @@ Instalace má čtyři kroky:
     ```
 
     > [!Note]  
-    > - Verze modulu Azure Stack 1.8.0 je zásadním vydáním změn. Podrobnosti najdete v [poznámkách k verzi](release-notes.md) .
-    > 1\.7.1 modul Azure Stack verze je zásadní změna. Postup migrace z Azure Stack 1.6.0 najdete v [Průvodci migrací](https://github.com/Azure/azure-powershell/tree/AzureRM/documentation/migration-guides/Stack).
+    > - 1\.8.0 centra verze je zásadní verze změny. Azure Stack Podrobnosti najdete v [poznámkách k verzi](release-notes.md) .
+    > 1\.7.1 modul centra Azure Stack je zásadní změnou. Pokud chcete provést migraci z centra Azure Stack 1.6.0, přečtěte si [příručku k migraci](https://github.com/Azure/azure-powershell/tree/AzureRM/documentation/migration-guides/Stack).
 
     > [!NOTE]
     > V počítačích bez připojení k Internetu doporučujeme pro zakázání shromažďování dat telemetrie spustit následující rutinu. Může dojít ke snížení výkonu rutin bez zakázání shromažďování dat telemetrie. To platí jenom pro počítače bez připojení k Internetu.
@@ -254,7 +254,7 @@ Ve scénářích, které vyžadují proxy server pro přístup k Internetu, mus�
 
 ## <a name="next-steps"></a>Další kroky
 
-- [Stažení Azure Stack nástrojů z GitHubu](azure-stack-powershell-download.md)
-- [Konfigurace prostředí PowerShellu Azure Stackho uživatele](../user/azure-stack-powershell-configure-user.md)
-- [Konfigurace prostředí PowerShell pro Azure Stack operátor](azure-stack-powershell-configure-admin.md)
-- [Správa profilů verzí rozhraní API ve službě Azure Stack](../user/azure-stack-version-profiles.md)
+- [Stažení nástrojů centra Azure Stack z GitHubu](azure-stack-powershell-download.md)
+- [Konfigurace prostředí PowerShell uživatele centra Azure Stack](../user/azure-stack-powershell-configure-user.md)
+- [Konfigurace prostředí PowerShell pro operátor centra Azure Stack](azure-stack-powershell-configure-admin.md)
+- [Správa profilů verzí rozhraní API v centru Azure Stack](../user/azure-stack-version-profiles.md)

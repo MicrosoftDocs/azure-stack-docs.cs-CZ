@@ -1,6 +1,6 @@
 ---
-title: Nainstalovat aktualizace Azure Stack | Microsoft Docs
-description: Naučte se instalovat aktualizace Azure Stack.
+title: Nainstalovat aktualizace centra Azure Stack | Microsoft Docs
+description: Naučte se instalovat aktualizace centra Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,18 +15,18 @@ ms.date: 09/10/2019
 ms.author: mabrigg
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: a3864bc7233edd5b6b81a19a467ad1dca63fd3fa
-ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
+ms.openlocfilehash: 32ad63180e1386f5daea8dac46379a4ad749fa8c
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72277611"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75816730"
 ---
-# <a name="install-azure-stack-updates"></a>Nainstalovat aktualizace Azure Stack
+# <a name="install-azure-stack-hub-updates"></a>Nainstalovat aktualizace centra Azure Stack
 
-*Platí pro: Azure Stack integrovaných systémů*
+*Platí pro: Azure Stack integrovaných systémů centra*
 
-Balíčky aktualizací můžete nainstalovat pomocí okna **aktualizace** v Azure Stack. Tento článek vás provede jednotlivými kroky aktualizace, monitorování a řešení potíží s procesem aktualizace. Pomocí okna aktualizace si můžete zobrazit informace o aktualizaci, nainstalovat aktualizace, sledovat průběh aktualizace, zkontrolovat historii aktualizací a zobrazit aktuální Azure Stack a verzi balíčku OEM.
+Balíčky aktualizací můžete nainstalovat pomocí okna **aktualizace** v centru Azure Stack. Tento článek vás provede jednotlivými kroky aktualizace, monitorování a řešení potíží s procesem aktualizace. Pomocí okna aktualizace si můžete zobrazit informace o aktualizaci, nainstalovat aktualizace, sledovat průběh aktualizace, zkontrolovat historii aktualizací a zobrazit aktuální Azure Stack centra a verzi balíčku OEM.
 
 Aktualizace můžete spravovat z portálu pro správu a pomocí části **aktualizace** na řídicím panelu:
 
@@ -37,9 +37,9 @@ Aktualizace můžete spravovat z portálu pro správu a pomocí části **aktual
 
 ## <a name="determine-the-current-version"></a>Určení aktuální verze
 
-Aktuální verzi Azure Stack můžete zobrazit v okně **aktualizace** . Pro otevření:
+Aktuální verzi centra Azure Stack můžete zobrazit v okně **aktualizace** . Pro otevření:
 
-1.  Otevřete portál Azure Stack správce.
+1.  Otevřete portál Azure Stack centrum pro správu.
 
 2.  Vyberte **řídicí panel**. V okně **aktualizace** je uvedena aktuální verze.
 
@@ -49,41 +49,41 @@ Aktuální verzi Azure Stack můžete zobrazit v okně **aktualizace** . Pro ote
 
 ## <a name="install-updates-and-monitor-progress"></a>Instalace aktualizací a sledování průběhu
 
-1. Otevřete portál Azure Stack správce.
+1. Otevřete portál Azure Stack centrum pro správu.
 
-2. Vyberte **řídicí panel**. Vyberte **aktualizovat**.
+2. Vyberte **řídicí panel**. Vyberte **Aktualizovat**.
 
 3. Vyberte dostupnou aktualizaci, kterou chcete nainstalovat. Pokud nemáte aktualizaci označenou jako **k dispozici**, musíte [připravit balíček aktualizace](azure-stack-update-prepare-package.md) .
 
 4. Vyberte **aktualizovat hned**.
 
-    ![Podrobnosti o spuštění aktualizace Azure Stack](./media/azure-stack-update-apply/image2.png)
+    ![Podrobnosti o spuštění aktualizace centra Azure Stack](./media/azure-stack-update-apply/image2.png)
 
-5. Stav vysoké úrovně můžete zobrazit, protože proces aktualizace prochází různými subsystémy v Azure Stack. Příklady subsystémů zahrnují fyzické hostitele, Service Fabric, virtuální počítače infrastruktury a služby, které poskytují portál pro správu i uživatele. V průběhu procesu aktualizace hlásí poskytovatel prostředků aktualizace další podrobnosti o aktualizaci, například počet kroků, které byly úspěšné, a počet probíhajících.
+5. Stav vysoké úrovně můžete zobrazit v případě, že proces aktualizace prochází z různých subsystémů v centru Azure Stack. Příklady subsystémů zahrnují fyzické hostitele, Service Fabric, virtuální počítače infrastruktury a služby, které poskytují portál pro správu i uživatele. V průběhu procesu aktualizace hlásí poskytovatel prostředků aktualizace další podrobnosti o aktualizaci, například počet kroků, které byly úspěšné, a počet probíhajících.
 
 6. Pro stažení úplných protokolů vyberte **Souhrn stažení** v okně Podrobnosti o spuštění aktualizace.
 
-    Pokud narazíte na problém při monitorování aktualizace, můžete pomocí [privilegovaného koncového bodu](https://docs.microsoft.com/azure-stack/operator/azure-stack-privileged-endpoint) monitorovat průběh spuštění aktualizace Azure Stack. Pomocí privilegovaného koncového bodu můžete také pokračovat v neúspěšném spuštění aktualizace z posledního úspěšného kroku, pokud Azure Stack portál nebude k dispozici. Pokyny najdete v tématu [monitorování aktualizací v Azure Stack pomocí prostředí PowerShell](azure-stack-update-monitor.md).
+    Pokud narazíte na problém při monitorování aktualizace, můžete pomocí [privilegovaného koncového bodu](https://docs.microsoft.com/azure-stack/operator/azure-stack-privileged-endpoint) monitorovat průběh spuštění aktualizace centra Azure Stack. Pomocí privilegovaného koncového bodu můžete také pokračovat v neúspěšném spuštění aktualizace z posledního úspěšného kroku, pokud portál centra Azure Stack nezůstane k dispozici. Pokyny najdete v tématu [monitorování aktualizací v centru Azure Stack pomocí PowerShellu](azure-stack-update-monitor.md).
 
-    ![Podrobnosti o spuštění aktualizace Azure Stack](./media/azure-stack-update-apply/image3.png)
+    ![Podrobnosti o spuštění aktualizace centra Azure Stack](./media/azure-stack-update-apply/image3.png)
 
 7. Po dokončení dokončí poskytovatel prostředků aktualizace **úspěšné** potvrzení, které ukáže, že proces aktualizace skončil a jak dlouho trvalo. Odtud můžete zobrazit informace o všech aktualizacích, dostupných aktualizacích nebo nainstalovaných aktualizacích pomocí filtru.
 
     ![Azure-Stack-Update-Apply](./media/azure-stack-update-apply/image4.png)
 
-    Pokud se aktualizace nezdařila, sestavy okna **aktualizace** **vyžadují pozornost**. Použijte možnost **Stáhnout úplné protokoly** a získejte stav vysoké úrovně, kde se aktualizace nezdařila. Shromažďování protokolů Azure Stack pomáhá s diagnostikou a řešením potíží.
+    Pokud se aktualizace nezdařila, sestavy okna **aktualizace** **vyžadují pozornost**. Použijte možnost **Stáhnout úplné protokoly** a získejte stav vysoké úrovně, kde se aktualizace nezdařila. Shromažďování protokolů centra Azure Stack pomáhá s diagnostikou a řešením potíží.
 
 ## <a name="review-update-history"></a>Zkontrolovat historii aktualizací
 
 1. Otevřete portál pro správu.
 
-2. Vyberte **řídicí panel**. Vyberte **aktualizovat**.
+2. Vyberte **řídicí panel**. Vyberte **Aktualizovat**.
 
 3. Vyberte **historii aktualizací**.
 
-    ![Historie aktualizace Azure Stack](./media/azure-stack-update-apply/image7.png)
+    ![Historie aktualizace centra Azure Stack](./media/azure-stack-update-apply/image7.png)
 
 ## <a name="next-steps"></a>Další kroky
 
--   [Přehled správy aktualizací v Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates)  
--   [Zásady obsluhy Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-servicing-policy)  
+-   [Přehled správy aktualizací v centru Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates)  
+-   [Zásady obsluhy centra Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-servicing-policy)  

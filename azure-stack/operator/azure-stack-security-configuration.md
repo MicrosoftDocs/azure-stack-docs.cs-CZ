@@ -1,6 +1,6 @@
 ---
-title: Konfiguraci ovládacích prvků zabezpečení služby Azure Stack
-description: Další informace o konfiguraci kontrolních mechanismů pro zabezpečení ve službě Azure Stack
+title: Konfigurace ovládacích prvků zabezpečení centra Azure Stack
+description: Naučte se konfigurovat řízení zabezpečení v centru Azure Stack.
 services: azure-stack
 author: PatAltimore
 ms.service: azure-stack
@@ -9,33 +9,33 @@ ms.date: 06/17/2019
 ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 06/17/2019
-ms.openlocfilehash: b36a6d826dc7249f10b4785b27511096e45923a9
-ms.sourcegitcommit: 7348876a97e8bed504b5f5d90690ec8d1d9472b0
+ms.openlocfilehash: 1423b21de6236bf316e426aa175ddb2b95c70199
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67557862"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75814928"
 ---
-# <a name="configure-azure-stack-security-controls"></a>Konfiguraci ovládacích prvků zabezpečení služby Azure Stack
+# <a name="configure-azure-stack-hub-security-controls"></a>Konfigurace ovládacích prvků zabezpečení centra Azure Stack
 
-*Platí pro: Integrované systémy Azure Stack*
+*Platí pro: Azure Stack integrovaných systémů centra*
 
-Tento článek vysvětluje ovládací prvky zabezpečení, které lze změnit ve službě Azure Stack a zvýrazní nevýhody, kde je to možné.
+Tento článek vysvětluje ovládací prvky zabezpečení, které je možné změnit v Azure Stack hub, a zvýrazní případné kompromisy.
 
-Architektura služby Azure Stack je postavená na dva hlavní pilíře zabezpečení: předpokládej chybu zabezpečení a posílené už ve výchozím nastavení. Další informace o zabezpečení služby Azure Stack, najdete v části [stavu zabezpečení infrastruktury Azure stacku](azure-stack-security-foundations.md). Výchozí stav zabezpečení služby Azure Stack je připravené pro produkční prostředí, nejsou některé scénáře nasazení, které vyžadují další posílení zabezpečení.
+Architektura centra Azure Stack je postavená na dvou bezpečnostních pilířích zabezpečení: ve výchozím nastavení předpokládat porušení a posílení zabezpečení. Další informace Azure Stack zabezpečení centra najdete v tématu [zabezpečení infrastruktury centra Azure Stack stav](azure-stack-security-foundations.md). I když je výchozí stav centra zabezpečení Azure Stack pro přípravu do provozu, existují některé scénáře nasazení, které vyžadují další posílení zabezpečení.
 
 ## <a name="tls-version-policy"></a>Zásada verze TLS
 
-Protokol zabezpečení TLS (Transport Layer) je běžně používaných kryptografických protokol k navázání šifrovaného komunikace v síti. Protokol TLS se průběžně vyvíjel a byly vydány více verzí. Infrastruktura Azure stacku výhradně používá TLS 1.2 pro jeho komunikaci. Pro externí rozhraní služby Azure Stack aktuálně výchozí použití protokolu TLS 1.2. Ale pro zpětnou kompatibilitu, podporuje také vyjednávání dolů protokolu TLS 1.1. do 1,0. Když klient TLS požaduje pro komunikaci pomocí protokolu TLS 1.1 a TLS 1.0, Azure Stack respektuje žádost o vyjednávání na nižší verzi TLS. Pokud si klient vyžádá TLS 1.2, Azure Stack se připojení TLS pomocí protokolu TLS 1.2.
+Protokol TLS (Transport Layer Security) je široce přijatý kryptografický protokol pro navázání šifrované komunikace přes síť. Protokol TLS se vyvinul v čase a vystavilo se několik verzí. Infrastruktura centra Azure Stack pro veškerou komunikaci používá pouze TLS 1,2. V případě externích rozhraní Azure Stack centrum aktuálně používá protokol TLS 1,2. U zpětné kompatibility ale taky podporuje vyjednávání až po TLS 1,1. a 1,0. Když klient TLS požaduje komunikaci přes TLS 1,1 nebo TLS 1,0, Azure Stack centrum dodrží požadavek vyjednáním s nižší verzí TLS. Pokud klient požaduje TLS 1,2, Azure Stack hub vytvoří připojení TLS pomocí protokolu TLS 1,2.
 
-Protože protokol TLS 1.0 a 1.1 se postupně přestanou nebo zakázané standardy organizace a dodržování předpisů, od. 1906 aktualizace teď můžete nakonfigurovat zásady TLS ve službě Azure Stack. Můžou vynutit zásadu jenom TLS 1.2. Pokud není jakékoli pokusy o navázání relace protokolu TLS verze nižší než 1.2 odmítl a povolené.
+Vzhledem k tomu, že TLS 1,0 a 1,1 jsou postupně zastaralé nebo zakázané organizacemi a standardy dodržování předpisů, a to od aktualizace 1906, můžete teď nakonfigurovat zásadu TLS v centru Azure Stack. Zásadu pouze TLS 1,2 můžete vystavit pouze v případě, že se některý pokus o vytvoření relace protokolu TLS s verzí nižší než 1,2 není povolen a zamítnut.
 
 > [!IMPORTANT]
-> Microsoft doporučuje používat pouze zásady protokolu TLS 1.2 pro produkční prostředí Azure Stack.
+> Microsoft doporučuje používat pouze zásady TLS 1,2 pro produkční prostředí Azure Stack hub.
 
-## <a name="get-tls-policy"></a>Získání zásad pro protokol TLS
+## <a name="get-tls-policy"></a>Získat zásady TLS
 
-Použití [privilegovaných koncový bod (období)](azure-stack-privileged-endpoint.md) TLS zásadách pro všechny koncové body služby Azure Stack:
+Pro zobrazení zásad TLS pro všechny koncové body centra Azure Stack použijte [privilegovaný koncový bod (PEP)](azure-stack-privileged-endpoint.md) :
 
 ```powershell
 Get-TLSPolicy
@@ -47,30 +47,30 @@ Příklad výstupu:
 
 ## <a name="set-tls-policy"></a>Nastavení zásad TLS
 
-Použití [privilegovaných koncový bod (období)](azure-stack-privileged-endpoint.md) nastavení zásad protokolu TLS pro všechny koncové body služby Azure Stack:
+Pomocí [privilegovaného koncového bodu (PEP)](azure-stack-privileged-endpoint.md) nastavte zásady TLS pro všechny koncové body centra Azure Stack:
 
 ```powershell
 Set-TLSPolicy -Version <String>
 ```
 
-Parametry pro *Set-TLSPolicy* rutiny:
+Parametry pro rutinu *set-TLSPolicy* :
 
-| Parametr | Popis | Type | Požaduje se |
+| Parametr | Popis | Typ | Požaduje se |
 |---------|---------|---------|---------|
-| *Verze* | Povolené verze protokolu TLS ve službě Azure Stack | String | ano|
+| *Verze* | Povolené verze protokolu TLS v centru Azure Stack | Řetězec | ano|
 
-Ke konfiguraci povolených verzí protokolu TLS pro všechny koncové body služby Azure Stack, použijte jednu z následujících hodnot:
+Pomocí jedné z následujících hodnot nakonfigurujte povolené verze TLS pro všechny koncové body centra Azure Stack:
 
 | Hodnota verze | Popis |
 |---------|---------|
-| *TLS_All* | Koncové body Azure Stack TLS podporovala TLS 1.2, ale dolů vyjednávání protokolu TLS 1.1 a TLS 1.0 je povolen. |
-| *TLS_1.2* | Koncové body Azure Stack TLS podporují jenom TLS 1.2. | 
+| *TLS_All* | Koncové body TLS centra Azure Stack podporují protokol TLS 1,2, ale je povolené vyjednávání na TLS 1,1 a TLS 1,0. |
+| *TLS_1.2* | Koncové body TLS centra Azure Stack podporují pouze TLS 1,2. | 
 
-Aktualizují se zásady TLS trvá několik minut na dokončení.
+Aktualizace zásad TLS trvá několik minut.
 
-### <a name="enforce-tls-12-configuration-example"></a>Vynucení protokolu TLS 1.2 konfigurace – příklad
+### <a name="enforce-tls-12-configuration-example"></a>Vynutilit příklad konfigurace TLS 1,2
 
-V tomto příkladu nastaví TLS zásadu vynutit pouze TLS 1.2.
+Tento příklad nastaví zásady protokolu TLS tak, aby vynutila pouze TLS 1,2.
 
 ```powershell
 Set-TLSPolicy -Version TLS_1.2
@@ -93,9 +93,9 @@ Příklad výstupu:
     VERBOSE:     TLS protocol TLS 1.2 enabled value: 1
     VERBOSE: TLS 1.2 is enforced
 
-### <a name="allow-all-versions-of-tls-12-11-and-10-configuration-example"></a>Povolit všechny verze protokolu TLS (1.1 a 1.2, 1.0) konfigurace – příklad
+### <a name="allow-all-versions-of-tls-12-11-and-10-configuration-example"></a>Příklad konfigurace povolení všech verzí TLS (1,2, 1,1 a 1,0)
 
-Tento příklad nastaví zásadu TLS povolit všechny verze protokolu TLS (1.1 a 1.2, 1.0).
+Tento příklad nastaví zásady TLS tak, aby povolovaly všechny verze TLS (1,2, 1,1 a 1,0).
 
 ```powershell
 Set-TLSPolicy -Version TLS_All
@@ -118,8 +118,8 @@ Příklad výstupu:
     VERBOSE:     TLS protocol TLS 1.2 enabled value: 1
     VERBOSE: TLS 1.2 is not enforced
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
-- [Další informace o stavu zabezpečení infrastruktury Azure stacku](azure-stack-security-foundations.md)
-- [Zjistěte, jak otočit vaše tajné kódy ve službě Azure Stack](azure-stack-rotate-secrets.md)
-- [Aktualizovat antivirové ochrany Windows Defender v Azure stacku](azure-stack-security-av.md)
+- [Další informace o stav zabezpečení infrastruktury centra Azure Stack](azure-stack-security-foundations.md)
+- [Naučte se, jak tyto tajné klíče otočit v centru Azure Stack.](azure-stack-rotate-secrets.md)
+- [Aktualizace antivirové ochrany v programu Windows Defender v centru Azure Stack](azure-stack-security-av.md)

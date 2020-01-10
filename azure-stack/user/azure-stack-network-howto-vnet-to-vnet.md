@@ -1,6 +1,6 @@
 ---
-title: Jak propojit dvě zásobníky Azure prostřednictvím partnerského vztahu virtuálních sítí | Microsoft Docs
-description: Přečtěte si, jak propojit dvě Azure stacky prostřednictvím partnerského vztahu virtuální sítě.
+title: Jak propojit dvě centra Azure Stack prostřednictvím partnerského vztahu virtuálních sítí | Microsoft Docs
+description: Přečtěte si, jak propojit dvě centra Azure Stack prostřednictvím partnerského vztahu virtuální sítě.
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,26 +9,26 @@ ms.date: 10/03/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 7a9f293c35856a9d1e29652a097d789f86b7b03c
-ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
+ms.openlocfilehash: 3750088fbf29611c97db1e3ba504997914706587
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71961998"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75819671"
 ---
 # <a name="how-to-connect-two-vnets-through-peering"></a>Postup propojení dvou virtuální sítě prostřednictvím partnerského vztahu
 
-Tento článek popisuje, jak vytvořit připojení mezi dvěma virtuálními sítěmi ve stejném prostředí. Při nastavování připojení se dozvíte, jak služby VPN Gateway v Azure Stack fungují. Připojte dva virtuální sítě v rámci stejného Azure Stack prostředí pomocí Fortinet FortiGate. Tento postup nasadí dvě virtuální sítě pomocí FortiGate síťové virtuální zařízení, síťového virtuálního zařízení v každé virtuální síti v rámci samostatné skupiny prostředků. Také podrobně popisuje změny potřebné k nastavení sítě VPN IPSec mezi dvěma virtuální sítě. Opakujte kroky v tomto článku pro každé nasazení virtuální sítě.
+Tento článek popisuje, jak vytvořit připojení mezi dvěma virtuálními sítěmi ve stejném prostředí. Při nastavování připojení se dozvíte, jak fungují brány VPN ve službě Azure Stack hub. Připojení dvou virtuální sítě ve stejném prostředí centra Azure Stack pomocí Fortinet FortiGate. Tento postup nasadí dvě virtuální sítě pomocí FortiGate síťové virtuální zařízení, síťového virtuálního zařízení v každé virtuální síti v rámci samostatné skupiny prostředků. Také podrobně popisuje změny potřebné k nastavení sítě VPN IPSec mezi dvěma virtuální sítě. Opakujte kroky v tomto článku pro každé nasazení virtuální sítě.
 
 ## <a name="prerequisites"></a>Požadavky
 
--   Přístup k Azure Stack integrovanému systému nebo ASDK s dostupnou kapacitou k nasazení požadovaných požadavků na výpočetní výkon, síť a prostředky, které jsou potřebné pro toto řešení.
+-   Přístup k integrovanému systému Azure Stack hub nebo ASDK s dostupnou kapacitou k nasazení požadovaných výpočetních, síťových a prostředků potřebných pro toto řešení.
 
--  Řešení síťového virtuálního zařízení (síťové virtuální zařízení) se stáhlo a publikovalo na webu Azure Stack Marketplace. SÍŤOVÉ virtuální zařízení řídí tok síťového provozu z hraniční sítě do jiných sítí nebo podsítí. Tento postup využívá [řešení Fortinet FortiGate Next-Generation brány firewall s jedním virtuálním počítačem](https://azuremarketplace.microsoft.com/marketplace/apps/fortinet.fortinet-FortiGate-singlevm).
+-  Řešení síťového virtuálního zařízení (síťové virtuální zařízení) se stáhlo a publikovalo na tržišti centra Azure Stack. SÍŤOVÉ virtuální zařízení řídí tok síťového provozu z hraniční sítě do jiných sítí nebo podsítí. Tento postup využívá [řešení Fortinet FortiGate Next-Generation brány firewall s jedním virtuálním počítačem](https://azuremarketplace.microsoft.com/marketplace/apps/fortinet.fortinet-FortiGate-singlevm).
 
 -  K aktivaci FortiGate síťové virtuální zařízení aktivujte aspoň dva dostupné FortiGate licenčních souborů. Informace o tom, jak tyto licence získat, najdete v článku knihovna dokumentů Fortinet [registrace a stažení vaší licence](https://docs2.fortinet.com/vm/azure/FortiGate/6.2/azure-cookbook/6.2.0/19071/registering-and-downloading-your-license).
 
-    Tato procedura používá [nasazení Single FortiGate-VM](ttps://docs2.fortinet.com/vm/azure/FortiGate/6.2/azure-cookbook/6.2.0/632940/single-FortiGate-vm-deployment). Postup, jak připojit FortiGate síťové virtuální zařízení k virtuální síti Azure Stack do místní sítě, najdete v tématu.
+    Tato procedura používá [nasazení Single FortiGate-VM](ttps://docs2.fortinet.com/vm/azure/FortiGate/6.2/azure-cookbook/6.2.0/632940/single-FortiGate-vm-deployment). Postup, jak připojit FortiGate síťové virtuální zařízení k virtuální síti centra Azure Stack do místní sítě, najdete v tématu.
 
     Další informace o tom, jak nasadit řešení FortiGate v nastavení aktivní – pasivní (HA), najdete v podrobnostech v knihovně dokumentů Fortinet článku [ha pro FortiGate-VM v Azure](https://docs2.fortinet.com/vm/azure/FortiGate/6.2/azure-cookbook/6.2.0/983245/ha-for-FortiGate-vm-on-azure).
 
@@ -38,7 +38,7 @@ Následující tabulka shrnuje parametry, které se v těchto nasazeních použ�
 
 ### <a name="deployment-one-forti1"></a>Nasazení One: Forti1
 
-| Název instance FortiGate | Forti1 |
+| Název instance FortiGate | forti1 |
 |-----------------------------------|---------------------------|
 | Licence a verze BYOL | 6.0.3 |
 | Uživatelské jméno správce FortiGate | fortiadmin |
@@ -51,7 +51,7 @@ Následující tabulka shrnuje parametry, které se v těchto nasazeních použ�
 | Předpona podsítě virtuální sítě | 172.16.1.0/24 * |
 | Velikost virtuálního počítače pro FortiGate síťové virtuální zařízení | Standardní F2s_v2 |
 | Název veřejné IP adresy | forti1-publicip1 |
-| Typ veřejné IP adresy | Static |
+| Typ veřejné IP adresy | Statický |
 
 ### <a name="deployment-two-forti2"></a>Nasazení dvě: Forti2
 
@@ -68,14 +68,14 @@ Následující tabulka shrnuje parametry, které se v těchto nasazeních použ�
 | Předpona podsítě virtuální sítě | 172.17.1.0/24 * |
 | Velikost virtuálního počítače pro FortiGate síťové virtuální zařízení | Standardní F2s_v2 |
 | Název veřejné IP adresy | Forti2-publicip1 |
-| Typ veřejné IP adresy | Static |
+| Typ veřejné IP adresy | Statický |
 
 > [!Note]
-> \* zvolit jinou sadu adresních prostorů a prefixů podsítě, pokud se výše překrývají jakýmkoli způsobem pomocí místního síťového prostředí, včetně fondu VIP buď pro Azure Stack. Také se ujistěte, že se rozsahy adres nepřesahují mezi sebou.
+> \* zvolit jinou sadu adresních prostorů a prefixů podsítě, pokud se výše překrývají jakýmkoli způsobem pomocí místního síťového prostředí, včetně fondu VIP buď z centra Azure Stack. Také se ujistěte, že se rozsahy adres nepřesahují mezi sebou.
 
 ## <a name="deploy-the-fortigate-ngfw"></a>Nasazení FortiGate NGFW
 
-1.  Otevřete portál Azure Stack User Portal.
+1.  Otevřete portál Azure Stack hub User Portal.
 
     ![](./media/azure-stack-network-howto-vnet-to-onprem/image5.png)
 
@@ -112,7 +112,7 @@ Nasazení bude trvat přibližně 10 minut.
 
 Proveďte tyto kroky pro obě nasazení, forti1-RG1 a forti2-RG1.
 
-1. Otevřete portál Azure Stack User Portal.
+1. Otevřete portál Azure Stack hub User Portal.
 
 2. Vyberte skupiny prostředků. Do filtru zadejte `forti1-rg1` a dvakrát klikněte na skupinu prostředků forti1-RG1.
 
@@ -239,9 +239,9 @@ Po výše uvedeném případě se u *obou* síťová virtuální zařízení dok
 
 ## <a name="test-and-validate-connectivity"></a>Testování a ověření připojení
 
-Nyní byste měli být schopni směrovat mezi každou virtuální sítí přes FortiGate síťová virtuální zařízení. Pokud chcete připojení ověřit, vytvořte Azure Stack virtuální počítač v InsideSubnet každé virtuální sítě. Vytvoření virtuálního počítače s Azure Stack se dá udělat prostřednictvím portálu, rozhraní příkazového řádku nebo PowerShellu. Při vytváření virtuálních počítačů:
+Nyní byste měli být schopni směrovat mezi každou virtuální sítí přes FortiGate síťová virtuální zařízení. Pokud chcete připojení ověřit, vytvořte virtuální počítač centra Azure Stack v každé virtuální síti InsideSubnet. Vytvoření virtuálního počítače centra Azure Stack se dá udělat prostřednictvím portálu, rozhraní příkazového řádku nebo PowerShellu. Při vytváření virtuálních počítačů:
 
--   Virtuální počítače s Azure Stack jsou umístěné na **InsideSubnet** každé virtuální sítě.
+-   Virtuální počítače centra Azure Stack jsou umístěné na **InsideSubnet** každé virtuální sítě.
 
 -   Při vytváření virtuálního počítače **nepoužijete** žádné skupin zabezpečení sítě (to znamená, že odeberete NSG, které se ve výchozím nastavení přidá, pokud virtuální počítač vytvoříte z portálu.
 
@@ -249,5 +249,5 @@ Nyní byste měli být schopni směrovat mezi každou virtuální sítí přes F
 
 ## <a name="next-steps"></a>Další kroky
 
-[Rozdíly a požadavky pro Azure Stack sítě](azure-stack-network-differences.md)  
-[Nabídka síťového řešení v Azure Stack s Fortinet FortiGate](../operator/azure-stack-network-solutions-enable.md)  
+[Rozdíly a požadavky pro sítě Azure Stack hub](azure-stack-network-differences.md)  
+[Nabídka síťového řešení v centru Azure Stack s FortiGate Fortinet](../operator/azure-stack-network-solutions-enable.md)  

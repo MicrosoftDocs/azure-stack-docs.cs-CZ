@@ -1,7 +1,6 @@
 ---
-title: Typy kvót v Azure Stack | Microsoft Docs
-titleSuffix: Azure Stack
-description: Zobrazení a úprava různých typů kvót, které jsou k dispozici pro služby a prostředky v Azure Stack.
+title: Typy kvót v centru Azure Stack | Microsoft Docs
+description: Zobrazení a úprava různých typů kvót, které jsou dostupné pro služby a prostředky v centru Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -13,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/13/2019
+ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2018
-ms.openlocfilehash: 049e4577541dea4f41a8ad18fc7f61875109153e
-ms.sourcegitcommit: 3a8e116fd0b16e1201e55e2088dde2e581004045
+ms.openlocfilehash: 2ce9d539d68c64a2a57976ee8b4b6af2b99f6af7
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74557552"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75809827"
 ---
-# <a name="quota-types-in-azure-stack"></a>Typy kvót v Azure Stack
+# <a name="quota-types-in-azure-stack-hub"></a>Typy kvót v centru Azure Stack
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 [Kvóty](service-plan-offer-subscription-overview.md#plans) definují omezení prostředků, které může předplatné uživatele zřizovat nebo využívat. Kvóta může například uživateli dovolit vytvořit až pět virtuálních počítačů (VM). Každý prostředek může mít své vlastní typy kvót.
 
@@ -80,7 +79,7 @@ Existují dva různé způsoby, jak zobrazit existující kvótu:
 3. V okně, které se otevře, vyberte **služby a kvóty**.
 4. Vyberte kvótu, kterou chcete zobrazit, kliknutím na ni ve sloupci **název** .
 
-    [![Kvóty na portálu pro správu Azure Stack](media/azure-stack-quota-types/quotas1sm.png "Zobrazení kvót na portálu pro správu")](media/azure-stack-quota-types/quotas1.png#lightbox)
+    [![Kvóty na portálu pro správu centra Azure Stack](media/azure-stack-quota-types/quotas1sm.png "Zobrazení kvót na portálu pro správu")](media/azure-stack-quota-types/quotas1.png#lightbox)
 
 ### <a name="resource-providers"></a>Poskytovatelé prostředků
 
@@ -99,11 +98,11 @@ Existují dva různé způsoby, jak kvótu upravit:
 3. V okně, které se otevře, vyberte **služby a kvóty**.
 4. Vyberte kvótu, kterou chcete upravit, kliknutím na ni ve sloupci **název** .
 
-    [![Kvóty na portálu pro správu Azure Stack](media/azure-stack-quota-types/quotas1sm.png "Zobrazení kvót na portálu pro správu")](media/azure-stack-quota-types/quotas1.png#lightbox)
+    [![Kvóty na portálu pro správu centra Azure Stack](media/azure-stack-quota-types/quotas1sm.png "Zobrazení kvót na portálu pro správu")](media/azure-stack-quota-types/quotas1.png#lightbox)
 
 5. V okně, které se otevře, vyberte **Upravit v části výpočty**, **Upravit v síti**nebo **Upravit v úložišti**.
 
-    ![Úprava plánu v Azure Stack portálu pro správu](media/azure-stack-quota-types/quotas3.png "Úprava plánu v Azure Stack portálu pro správu")
+    ![Úprava plánu na portálu pro správu centra Azure Stack](media/azure-stack-quota-types/quotas3.png "Úprava plánu na portálu pro správu centra Azure Stack")
 
 Alternativně můžete pomocí tohoto postupu upravit kvótu:
 

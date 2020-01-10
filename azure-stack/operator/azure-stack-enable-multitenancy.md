@@ -1,6 +1,6 @@
 ---
-title: Konfigurace víceklientské architektury v Azure Stack | Microsoft Docs
-description: Naučte se, jak povolit a zakázat více Azure Active Directory tenantů v Azure Stack.
+title: Konfigurace víceklientské architektury v centru Azure Stacke | Microsoft Docs
+description: Naučte se, jak povolit a zakázat více Azure Active Directory tenantů v centru Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: PatAltimore
@@ -15,43 +15,43 @@ ms.date: 06/10/2019
 ms.author: patricka
 ms.reviewer: bryanr
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: 168565a47a7c3511111fbae565e80dbfe0e3c606
-ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
+ms.openlocfilehash: abd194fee2e855e0170cdc5c7fa2ac8814af9424
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72019372"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75804856"
 ---
-# <a name="configure-multi-tenancy-in-azure-stack"></a>Konfigurace víceklientské architektury v Azure Stack
+# <a name="configure-multi-tenancy-in-azure-stack-hub"></a>Konfigurace víceklientské architektury v centru Azure Stack
 
-*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
-Azure Stack můžete nakonfigurovat tak, aby podporovaly uživatele z více tenantů Azure Active Directory (Azure AD), což jim umožní používat služby v Azure Stack. Zvažte například následující scénář:
+Centrum Azure Stack můžete nakonfigurovat tak, aby podporovalo uživatele z více tenantů Azure Active Directory (Azure AD), což jim umožňuje používat služby v centru Azure Stack. Představte si třeba následující scénář:
 
-- Jste správcem služby contoso.onmicrosoft.com, kde je nainstalovaný Azure Stack.
+- Jste správcem služby contoso.onmicrosoft.com, kde je nainstalovaný Azure Stack hub.
 - Marie je správcem adresáře fabrikam.onmicrosoft.com, kde se nacházejí uživatelé typu Host.
-- Společnost Marie obdrží z vaší společnosti služby IaaS a PaaS a potřebuje, aby uživatelům povolili, aby se přihlásili a používali Azure Stack prostředky v contoso.onmicrosoft.com.
+- Společnost Marie přijímá služby IaaS a PaaS od vaší společnosti a potřebuje, aby uživatelům v adresáři hosta (fabrikam.onmicrosoft.com) přihlásili a používali prostředky centra Azure Stack v contoso.onmicrosoft.com.
 
-Tato příručka popisuje požadované kroky v souvislosti s tímto scénářem ke konfiguraci víceklientské architektury v Azure Stack. V tomto scénáři je nutné provést kroky, aby se uživatelé ze společnosti Fabrikam mohli přihlašovat a využívat služby z nasazení Azure Stack ve společnosti Contoso.
+Tato příručka popisuje požadované kroky v souvislosti s tímto scénářem ke konfiguraci víceklientské architektury v Azure Stackovém centru. V tomto scénáři je nutné provést kroky, aby se uživatelé ze společnosti Fabrikam mohli přihlašovat a využívat služby z nasazení centra Azure Stack ve společnosti Contoso.
 
 ## <a name="enable-multi-tenancy"></a>Povolení víceklientské architektury
 
-Před konfigurací víceklientské architektury v Azure Stack existuje několik požadavků na účet:
+Předtím, než nakonfigurujete víceklientské architektury v Azure Stackovém centru, je nutné mít na zřeteli několik požadavků:
   
- - A Marie musí koordinovat postup správy v rámci adresáře Azure Stack je nainstalován v (Contoso) a v adresáři hosta (Fabrikam).
- - Ujistěte se, že jste [nainstalovali](azure-stack-powershell-install.md) a [nakonfigurovali](azure-stack-powershell-configure-admin.md) PowerShell pro Azure Stack.
- - [Stáhněte si nástroje Azure Stack](azure-stack-powershell-download.md)a importujte moduly připojení a identita:
+ - A Marie musí koordinovat kroky správy v rámci adresáře Azure Stackho centra, který je nainstalovaný v (Contoso), a v adresáři hosta (Fabrikam).
+ - Ujistěte se, že jste [nainstalovali](azure-stack-powershell-install.md) a [nakonfigurovali](azure-stack-powershell-configure-admin.md) PowerShell pro Azure Stack hub.
+ - [Stáhněte si nástroje Azure Stack hub](azure-stack-powershell-download.md)a importujte moduly připojení a identita:
 
     ```powershell
     Import-Module .\Connect\AzureStack.Connect.psm1
     Import-Module .\Identity\AzureStack.Identity.psm1
     ```
 
-### <a name="configure-azure-stack-directory"></a>Konfigurace Azure Stack Directory
+### <a name="configure-azure-stack-hub-directory"></a>Konfigurovat adresář centra Azure Stack
 
-V této části nakonfigurujete Azure Stack pro povolení přihlášení z tenantů klienta adresáře služby Azure AD společnosti Fabrikam.
+V této části nakonfigurujete centrum Azure Stack tak, aby povolovalo přihlášení z tenantů klienta adresáře služby Azure AD společnosti Fabrikam.
 
-Připojte klienta adresáře hosta (Fabrikam) k Azure Stack konfigurací Azure Resource Manager pro příjem uživatelů a instančních objektů z tenanta hostovaného adresáře.
+Připojte tenanta adresáře hostů (Fabrikam) do centra Azure Stack, a to tak, že nakonfigurujete Azure Resource Manager pro příjem uživatelů a instančních objektů z tenanta hostovaného adresáře.
 
 Správce služby contoso.onmicrosoft.com spustí následující příkazy:
 
@@ -59,7 +59,7 @@ Správce služby contoso.onmicrosoft.com spustí následující příkazy:
 ## The following Azure Resource Manager endpoint is for the ASDK. If you're in a multinode environment, contact your operator or service provider to get the endpoint.
 $adminARMEndpoint = "https://adminmanagement.local.azurestack.external"
 
-## Replace the value below with the Azure Stack directory
+## Replace the value below with the Azure Stack Hub directory
 $azureStackDirectoryTenant = "contoso.onmicrosoft.com"
 
 ## Replace the value below with the guest tenant directory. 
@@ -84,9 +84,9 @@ Register-AzSGuestDirectoryTenant -AdminResourceManagerEndpoint $adminARMEndpoint
 
 ### <a name="configure-guest-directory"></a>Konfigurace adresáře hosta
 
-Jakmile operátor Azure Stack povolí, aby byl adresář společnosti Fabrikam použit v Azure Stack, Marie musí zaregistrovat Azure Stack u klienta adresáře společnosti Fabrikam.
+Jakmile operátor centra Azure Stack povolí, aby se adresář Fabrikam používal s centrem Azure Stack, musí Marie zaregistrovat Azure Stackho centra s tenant adresáře společnosti Fabrikam.
 
-#### <a name="registering-azure-stack-with-the-guest-directory"></a>Registrace Azure Stack s adresářem hosta
+#### <a name="registering-azure-stack-hub-with-the-guest-directory"></a>Registrace centra Azure Stack s adresářem hosta
 
 Marie (Správce adresáře společnosti Fabrikam) spustí v adresáři hosta fabrikam.onmicrosoft.com následující příkazy:
 
@@ -104,9 +104,9 @@ Register-AzSWithMyDirectoryTenant `
 ```
 
 > [!IMPORTANT]
-> Pokud správce Azure Stack v budoucnu nainstaluje nové služby nebo aktualizace, bude pravděpodobně nutné spustit tento skript znovu.
+> Pokud správce centra Azure Stack v budoucnu nainstaluje nové služby nebo aktualizace, možná budete muset tento skript spustit znovu.
 >
-> Spusťte tento skript kdykoli znovu, abyste zkontrolovali stav aplikací Azure Stack ve vašem adresáři.
+> Spusťte tento skript kdykoli znovu, abyste zkontrolovali stav aplikací centra Azure Stack ve vašem adresáři.
 >
 > Pokud jste si všimli potíží s vytvářením virtuálních počítačů v Managed Disks (představených v aktualizaci 1808), přidal se nový **poskytovatel prostředků disku** , který vyžaduje, aby se tento skript spouštěl znovu.
 
@@ -118,9 +118,9 @@ Marie bude směrovat jakékoli [cizí objekty zabezpečení](/azure/role-based-a
 
 ## <a name="disable-multi-tenancy"></a>Zakázat víceklientské architektury
 
-Pokud již nechcete, aby se v Azure Stack více tenantů, můžete zakázat víceklientské prostředí provedením následujících kroků v uvedeném pořadí:
+Pokud již nechcete více tenantů v centru Azure Stack, můžete zakázat víceklientské prostředí provedením následujících kroků v uvedeném pořadí:
 
-1. Jako správce adresáře hosta (Marie v tomto scénáři) spusťte příkaz *zrušit registraci – AzsWithMyDirectoryTenant*. Rutina odinstaluje všechny aplikace Azure Stack z nového adresáře.
+1. Jako správce adresáře hosta (Marie v tomto scénáři) spusťte příkaz *zrušit registraci – AzsWithMyDirectoryTenant*. Rutina odinstaluje všechny aplikace Azure Stack hub z nového adresáře.
 
     ``` PowerShell
     ## The following Azure Resource Manager endpoint is for the ASDK. If you're in a multinode environment, contact your operator or service provider to get the endpoint.
@@ -135,13 +135,13 @@ Pokud již nechcete, aby se v Azure Stack více tenantů, můžete zakázat víc
      -Verbose 
     ```
 
-2. Jako správce služby Azure Stack (v tomto scénáři jste v tomto scénáři) spusťte příkaz *zrušit registraci – AzSGuestDirectoryTenant*.
+2. Jako správce služby centra Azure Stack (v tomto scénáři) spusťte příkaz *zrušit registraci – AzSGuestDirectoryTenant*.
 
     ``` PowerShell
     ## The following Azure Resource Manager endpoint is for the ASDK. If you're in a multinode environment, contact your operator or service provider to get the endpoint.
     $adminARMEndpoint = "https://adminmanagement.local.azurestack.external"
     
-    ## Replace the value below with the Azure Stack directory
+    ## Replace the value below with the Azure Stack Hub directory
     $azureStackDirectoryTenant = "contoso.onmicrosoft.com"
     
     ## Replace the value below with the guest tenant directory. 
@@ -162,6 +162,6 @@ Pokud již nechcete, aby se v Azure Stack více tenantů, můžete zakázat víc
 ## <a name="next-steps"></a>Další kroky
 
 - [Spravovat delegované zprostředkovatele](azure-stack-delegated-provider.md)
-- [Azure Stack klíčové koncepty](azure-stack-overview.md)
-- [Správa využití a fakturace pro Azure Stack jako Cloud Solution Provider](azure-stack-add-manage-billing-as-a-csp.md)
-- [Přidání tenanta pro využití a fakturaci do služby Azure Stack](azure-stack-csp-howto-register-tenants.md)
+- [Klíčové koncepty centra Azure Stack](azure-stack-overview.md)
+- [Správa využití a fakturace pro centra Azure Stack jako poskytovatele Cloud Solution Provider](azure-stack-add-manage-billing-as-a-csp.md)
+- [Přidat tenanta pro využití a fakturace do centra Azure Stack](azure-stack-csp-howto-register-tenants.md)

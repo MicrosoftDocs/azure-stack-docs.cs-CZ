@@ -1,5 +1,5 @@
 ---
-title: Správa síťových prostředků v Azure Stack | Microsoft Docs
+title: Správa síťových prostředků v centru Azure Stack | Microsoft Docs
 description: Správci mohou spravovat síťové prostředky, včetně fondu adres MAC a spotřeby veřejných IP adres v oblasti.
 services: azure-stack
 documentationcenter: ''
@@ -15,33 +15,33 @@ ms.date: 09/17/2019
 ms.author: mabrigg
 ms.reviewer: scottnap
 ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: 6abf8480528aad0bff121d553172bdc8d0446e11
-ms.sourcegitcommit: 95f30e32e5441599790d39542ff02ba90e70f9d6
+ms.openlocfilehash: 6dc64857b3fd421b7e6ca94fdf044b16b1b6a691
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71070199"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75812684"
 ---
 # <a name="manage-network-resources"></a>Správa síťových prostředků
 
 ## <a name="mac-address-pool"></a>Fond adres MAC
 
-Azure Stack používá ke automatickému vygenerování a přiřazování adres MAC k virtuálním počítačům statický fond adres MAC.
+Azure Stack hub používá ke automatickému vygenerování a přiřazování adres MAC k virtuálním počítačům statický fond adres MAC.
 Tento fond adres MAC je automaticky vygenerován během nasazování a používá následující rozsah:
 
 - StartMacAddress: 00-1D-D8-B7-00-00
-- EndMacAddress : 00-1D-D8-F4-FF-FF
+- EndMacAddress: 00-1D-D8-F4-FF-FF
 
 > [!Note]  
-> Tento fond adres MAC je v každém Azure Stackovém systému stejný a nedá se konfigurovat.
+> Tento fond adres MAC je stejný pro každý Azure Stack systém centra a nedá se konfigurovat.
 
 V závislosti na tom, jak se virtuální sítě připojí k existujícím firemním sítím, můžete očekávat duplicitní adresy MAC virtuálních počítačů.
 
-Další informace najdete v části využití fondu adres MAC pomocí rutiny [Get-AzsMacAddressPool](https://docs.microsoft.com/powershell/module/azs.fabric.admin/get-azsmacaddresspool) v modulu PowerShell pro správce Azure Stack.
+Další informace najdete v části využití fondu adres MAC pomocí rutiny [Get-AzsMacAddressPool](https://docs.microsoft.com/powershell/module/azs.fabric.admin/get-azsmacaddresspool) v modulu PowerShell pro správce centra Azure Stack.
 
-## <a name="view-public-ip-address-consumption-in-azure-stack"></a>Zobrazit využití veřejné IP adresy v Azure Stack
+## <a name="view-public-ip-address-consumption-in-azure-stack-hub"></a>Zobrazení spotřeby veřejných IP adres v centru Azure Stack
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 Jako správce cloudu můžete zobrazit:
  - Počet veřejných IP adres, které byly přiděleny klientům.
@@ -50,15 +50,15 @@ Jako správce cloudu můžete zobrazit:
 
 Na dlaždici **využití fondů veřejné IP** adresy se zobrazuje počet veřejných IP adres spotřebovaných napříč fondy veřejných IP adres. Pro každou IP adresu dlaždice zobrazuje využití pro instance virtuálních počítačů IaaS tenanta, služby infrastruktury prostředků infrastruktury a prostředky veřejné IP adresy, které byly explicitně vytvořeny klienty.
 
-Účelem dlaždice je poskytnout operátorům Azure Stack smyslem počtu veřejných IP adres, které se používají v tomto umístění. Toto číslo pomáhá správcům určit, jestli mají na tomto prostředku nedostatek provozu.
+Účelem dlaždice je poskytnout operátorům Azure Stackového rozbočovače smysl počtu veřejných IP adres, které se používají v tomto umístění. Toto číslo pomáhá správcům určit, jestli mají na tomto prostředku nedostatek provozu.
 
-Položka nabídky **veřejné IP adresy** v části **prostředky tenanta** uvádí jenom veřejné IP adresy, které byly *explicitně vytvořené klienty*. Položku nabídky můžete najít v podokně poskytovatelé **prostředků**, **síť** . Počet **použitých** veřejných IP adres na dlaždici **využití fondů veřejné IP** adresy se vždycky liší od (větší než) čísla na dlaždici **veřejné IP adresy** v části **prostředky tenanta**.
+Položka nabídky **veřejné IP adresy** v části **prostředky tenanta** uvádí jenom veřejné IP adresy, které byly *explicitně vytvořené klienty*. Položku nabídky můžete najít v podokně **poskytovatelé prostředků**, **síť** . Počet **použitých** veřejných IP adres na dlaždici **využití fondů veřejné IP** adresy se vždycky liší od (větší než) čísla na dlaždici **veřejné IP adresy** v části **prostředky tenanta**.
 
 ### <a name="view-the-public-ip-address-usage-information"></a>Zobrazit informace o využití veřejné IP adresy
 
 Zobrazení celkového počtu veřejných IP adres, které byly spotřebovány v oblasti:
 
-1. Na portálu pro správu Azure Stack vyberte **všechny služby**. Pak v kategorii **Správa** vyberte **síť**.
+1. Na portálu Azure Stack správce centra vyberte **všechny služby**. Pak v kategorii **Správa** vyberte **síť**.
 1. V podokně **síť** se zobrazí dlaždice **využití fondů veřejných IP adres** v části **Přehled** .
 
     ![Podokno poskytovatele síťových prostředků](media/azure-stack-viewing-public-ip-address-consumption/ip-address-consumption-01.png)
@@ -87,6 +87,6 @@ V různých případech jsou k disadrese veřejné IP adresy, které určují, j
 | Statická veřejná IP adresa přiřazená ke koncovému bodu služby infrastruktury prostředků infrastruktury. |Ano |Ne |
 | Veřejná IP adresa se implicitně vytvořila pro instance virtuálních počítačů s IaaS a používá se pro odchozí překlad adres (NAT) ve virtuální síti. Ty se vytvářejí na pozadí vždy, když tenant vytvoří instanci virtuálního počítače, aby virtuální počítače mohli odesílat informace na Internet. |Ano |Ne |
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
-[Správa účtů úložiště v Azure Stack](azure-stack-manage-storage-accounts.md)
+[Správa účtů úložiště v centru Azure Stack](azure-stack-manage-storage-accounts.md)

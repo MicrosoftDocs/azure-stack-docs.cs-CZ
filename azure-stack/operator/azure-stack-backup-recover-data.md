@@ -1,6 +1,6 @@
 ---
-title: Zotavení z závažné ztráty dat v Azure Stack | Microsoft Docs
-description: Naučte se, jak obnovit a obnovit data infrastruktury v Azure Stack po závažné ztrátě dat.
+title: Obnovení z závažné ztráty dat v centru Azure Stack | Microsoft Docs
+description: Naučte se obnovovat a obnovovat data infrastruktury v Azure Stack hub po závažných ztrátách dat.
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,20 +16,20 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: fd7c1ede611f9505ed48c8efc3caa5311c285cd3
-ms.sourcegitcommit: c2ea4ffb42563c26faaf2993ba7b484bcb6d5cb7
+ms.openlocfilehash: fbc11f6aebb0d513d96dc46cac77ae6202961a44
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71342865"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75804958"
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>Obnovit ze ztráty dat
 
-*Platí pro: Azure Stack integrovaných systémů.*
+*Platí pro: Azure Stack integrovaných systémů centra.*
 
-Azure Stack spouští služby Azure ve vašem datovém centru a může běžet v prostředích tak, jak je to malé jako čtyři uzly nainstalované v jednom stojanu. Naproti tomu Azure běží ve více než 40 oblastech v několika datových centrech a v každé oblasti je víc zón. Prostředky uživatelů mohou zahrnovat několik serverů, stojanů, datových center a oblastí. V případě Azure Stack máte momentálně možnost nasadit celý Cloud pouze do jednoho stojanu. Toto omezení zpřístupňuje Cloud riziku závažných událostí v datovém centru nebo selhání kvůli důležitým chybám produktu. Když dojde k havárii, Azure Stack instance přejde do režimu offline. Všechna data mohou být neobnovitelné.
+Služba Azure Stack hub spouští služby Azure ve vašem datovém centru a může běžet v prostředích jako malá, protože čtyři uzly nainstalované v jednom stojanu. Naproti tomu Azure běží ve více než 40 oblastech v několika datových centrech a v každé oblasti je víc zón. Prostředky uživatelů mohou zahrnovat několik serverů, stojanů, datových center a oblastí. Pomocí centra Azure Stack máte momentálně možnost nasadit celý Cloud do jednoho racku. Toto omezení zpřístupňuje Cloud riziku závažných událostí v datovém centru nebo selhání kvůli důležitým chybám produktu. Když dojde k výpadku, instance centra Azure Stack přejde do režimu offline. Všechna data mohou být neobnovitelné.
 
-V závislosti na hlavní příčině ztráty dat možná budete muset opravit jednu službu infrastruktury nebo obnovit celou instanci Azure Stack. Dokonce je možné, že budete muset obnovit na jiný hardware ve stejném umístění nebo v jiném umístění.
+V závislosti na hlavní příčině ztráty dat možná budete muset opravit jednu službu infrastruktury nebo obnovit celou instanci centra Azure Stack. Dokonce je možné, že budete muset obnovit na jiný hardware ve stejném umístění nebo v jiném umístění.
 
 Tento scénář řeší celou instalaci, pokud dojde k selhání a opětovnému nasazení privátního cloudu.
 
@@ -37,30 +37,30 @@ Tento scénář řeší celou instalaci, pokud dojde k selhání a opětovnému 
 |--------------------------------------------------------------------|--------------------------------------|----------------------------------------------------------------------------|
 | Zotavení z závažné ztráty dat kvůli havárii nebo chybě produktu. | Všechna data infrastruktury a uživatelů a aplikací. | Uživatelská aplikace a data jsou chráněny odděleně od dat infrastruktury. |
 
-## <a name="workflows"></a>Workflows
+## <a name="workflows"></a>Pracovní postupy
 
 Cesta k ochraně Azure Start začíná zálohováním infrastruktury a dat aplikace/tenanta samostatně. Tento dokument popisuje, jak chránit infrastrukturu. 
 
-![Azure Stack pracovní postup obnovení dat – nasazení](media/azure-stack-backup/azure-stack-backup-workflow1.png)
+![Pracovní postup obnovení dat centra Azure Stack – nasazení](media/azure-stack-backup/azure-stack-backup-workflow1.png)
 
-V nejhorších případech, kdy dojde ke ztrátě všech dat, obnovení Azure Stack je proces obnovování dat infrastruktury jedinečných pro toto nasazení Azure Stack a veškerá uživatelská data. 
+V nejhorších případech, kdy dojde ke ztrátě všech dat, je obnovení Azure Stackho centra proces obnovování dat infrastruktury jedinečných pro toto nasazení Azure Stackho centra a všech uživatelských dat. 
 
-![Azure Stack pracovní postup obnovení dat – opětovné nasazení](media/azure-stack-backup/azure-stack-backup-workflow2.png)
+![Pracovní postup obnovení dat centra Azure Stack – opětovné nasazení](media/azure-stack-backup/azure-stack-backup-workflow2.png)
 
-## <a name="restore"></a>Obnovit
+## <a name="restore"></a>Obnovení
 
-Pokud dojde k závažné ztrátě dat, ale hardware je stále použitelný, je nutné znovu nasadit Azure Stack. Během opětovného nasazení můžete zadat umístění úložiště a přihlašovací údaje požadované pro přístup k zálohám. V tomto režimu není nutné zadávat služby, které je nutné obnovit. Infrastructure Backup Controller vloží stav roviny ovládacího prvku jako součást pracovního postupu nasazení.
+Pokud dojde ke zhoršení ztrátám dat, ale hardware je stále použitelný, je nutné znovu nasadit centrum Azure Stack. Během opětovného nasazení můžete zadat umístění úložiště a přihlašovací údaje požadované pro přístup k zálohám. V tomto režimu není nutné zadávat služby, které je nutné obnovit. Infrastructure Backup Controller vloží stav roviny ovládacího prvku jako součást pracovního postupu nasazení.
 
 Pokud dojde k havárii, která vykreslí nepoužitelný hardware, je možné znovu nasadit pouze na novém hardwaru. Opětovné nasazení může trvat několik týdnů, než se v datacentru seřadí a dorazí na náhradní hardware. Obnovení dat řídicí roviny je možné kdykoli. Obnovení se ale nepodporuje, pokud verze znovu nasazené instance je víc než jedna verze, která se používá při poslední záloze.
 
 | Režim nasazení | Výchozí bod | Koncový bod                                                                                                                                                                                                     |
 |-----------------|----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Vyčistit instalaci   | Směrný Build | Výrobce OEM nasadí Azure Stack a aktualizace nejnovější podporované verze.                                                                                                                                          |
-| Režim obnovení   | Směrný Build | Výrobce OEM nasadí Azure Stack do režimu obnovení a zpracovává požadavky na porovnání verzí na základě nejnovější dostupné zálohy. Výrobce OEM dokončí nasazení aktualizací na nejnovější podporovanou verzi. |
+| Vyčistit instalaci   | Směrný Build | Výrobce OEM nasadí centrum Azure Stack a aktualizace na nejnovější podporovanou verzi.                                                                                                                                          |
+| Režim obnovení   | Směrný Build | Výrobce OEM nasadí Azure Stack centrum v režimu obnovení a zpracovává požadavky na porovnání verzí na základě nejnovější dostupné zálohy. Výrobce OEM dokončí nasazení aktualizací na nejnovější podporovanou verzi. |
 
 ## <a name="data-in-backups"></a>Data v zálohách
 
-Azure Stack podporuje typ nasazení nazvaný režim Cloud Recovery. Tento režim se používá jenom v případě, že se rozhodnete obnovit Azure Stack po havárii nebo chybě produktu, kterou řešení vykreslilo, je neobnovitelné. Tento režim nasazení neobnovuje žádná uživatelská data uložená v řešení. Rozsah tohoto režimu nasazení je omezený na obnovení následujících dat:
+Centrum Azure Stack podporuje typ nasazení s názvem režim Cloud Recovery. Tento režim se používá jenom v případě, že se rozhodnete pro obnovení centra Azure Stack po havárii nebo chybě produktu, že řešení není možné obnovit. Tento režim nasazení neobnovuje žádná uživatelská data uložená v řešení. Rozsah tohoto režimu nasazení je omezený na obnovení následujících dat:
 
  - Vstupy nasazení
  - Interní data služby identity (nasazení ADFS).

@@ -1,6 +1,6 @@
 ---
-title: Přidat uživatele Azure Stack v AD FS | Microsoft Docs
-description: Naučte se přidávat Azure Stack uživatelů pro nasazení Active Directory Federation Services (AD FS) (AD FS).
+title: Přidání uživatelů centra Azure Stack v AD FS | Microsoft Docs
+description: Naučte se přidávat uživatele centra Azure Stack pro nasazení Active Directory Federation Services (AD FS) (AD FS).
 services: azure-stack
 documentationcenter: ''
 author: PatAltimore
@@ -15,15 +15,15 @@ ms.date: 06/03/2019
 ms.author: patricka
 ms.reviewer: unknown
 ms.lastreviewed: 06/03/2019
-ms.openlocfilehash: 4411290b075e105a827de8fb2c8295dfd84e3b50
-ms.sourcegitcommit: e8f7fe07b32be33ef621915089344caf1fdca3fd
+ms.openlocfilehash: 93e2e60e235ae26016f52a94916f429c38286511
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70118633"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75804873"
 ---
-# <a name="add-azure-stack-users-in-ad-fs"></a>Přidat uživatele Azure Stack v AD FS
-Modul snap-in **Uživatelé a počítače služby Active Directory** můžete použít k přidání dalších uživatelů do Azure Stackho prostředí pomocí Active Directory Federation Services (AD FS) (AD FS) jako zprostředkovatele identity.
+# <a name="add-azure-stack-hub-users-in-ad-fs"></a>Přidání uživatelů centra Azure Stack v AD FS
+Pomocí modulu snap-in **Uživatelé a počítače služby Active Directory** můžete přidat další uživatele do prostředí Azure Stackového centra pomocí Active Directory Federation Services (AD FS) (AD FS) jako zprostředkovatele identity.
 
 ## <a name="add-windows-server-active-directory-users"></a>Přidat uživatele služby Active Directory systému Windows Server
 > [!TIP]
@@ -31,9 +31,9 @@ Modul snap-in **Uživatelé a počítače služby Active Directory** můžete po
 
 1. Přihlaste se k počítači pomocí účtu, který poskytuje přístup k nástrojům pro správu systému Windows a otevřete novou konzolu MMC (Microsoft Management Console).
 2. Vyberte **soubor > přidat nebo odebrat modul snap-in**.
-3.  > Vyberte **Uživatelé a počítače služby Active Directory** **AzureStack. místní** > **Uživatelé**.
-4. Vyberte **Akce** > novýUživatel > .
-5. V novém objektu – uživatel zadejte podrobnosti o uživateli. Vyberte **Další**.
+3. Vyberte **Uživatelé a počítače služby Active Directory** > **AzureStack. místní** > **Uživatelé**.
+4. Vyberte **akci** > **Nový** > **uživatel**.
+5. V novém objektu – uživatel zadejte podrobnosti o uživateli. Vyberte **Next** (Další).
 6. Zadejte a potvrďte heslo.
 7. Kliknutím na tlačítko **Další** dokončete hodnoty. Kliknutím na tlačítko **Dokončit** vytvořte uživatele.
 

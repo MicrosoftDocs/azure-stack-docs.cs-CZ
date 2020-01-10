@@ -1,7 +1,7 @@
 ---
 title: Aktualizovat antivirovou ochranu v programu Windows Defender
-titleSuffix: Azure Stack
-description: Naučte se aktualizovat antivirovou ochranu v programu Windows Defender na Azure Stack
+titleSuffix: Azure Stack Hub
+description: Naučte se aktualizovat antivirovou ochranu v programu Windows Defender v centru Azure Stack.
 services: azure-stack
 author: justinha
 manager: femila
@@ -11,26 +11,26 @@ ms.date: 12/04/2019
 ms.author: justinha
 ms.reviewer: fiseraci
 ms.lastreviewed: 12/04/2019
-ms.openlocfilehash: 97a9fe73eb83df07a9b24dc130c8295218cda7ad
-ms.sourcegitcommit: 53f7daf295783a30feb284d4c48c30c6936557c5
+ms.openlocfilehash: a631d700bc83e4fabeca4472f5d2a81c411ddc9b
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74831036"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75821082"
 ---
 # <a name="update-windows-defender-antivirus-on-azure-stack-hub"></a>Aktualizace antivirové ochrany v programu Windows Defender v centru Azure Stack
 
-[Antivirová ochrana v programu Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10) je antimalwarové řešení, které zajišťuje zabezpečení a antivirovou ochranu. Každá součást infrastruktury Azure Stack (hostitelé a virtuální počítače Hyper-V) je chráněná pomocí antivirové ochrany v programu Windows Defender. V případě aktuálnosti ochrany budete potřebovat pravidelné aktualizace definic, strojů a platforem v programu Windows Defender. Způsob použití aktualizací závisí na konfiguraci.
+[Antivirová ochrana v programu Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10) je antimalwarové řešení, které zajišťuje zabezpečení a antivirovou ochranu. Každá součást infrastruktury centra Azure Stack (hostitelé a virtuální počítače Hyper-V) je chráněná pomocí antivirové ochrany v programu Windows Defender. V případě aktuálnosti ochrany budete potřebovat pravidelné aktualizace definic, strojů a platforem v programu Windows Defender. Způsob použití aktualizací závisí na konfiguraci.
 
 ## <a name="connected-scenario"></a>Připojený scénář
 
-[Poskytovatel prostředků aktualizace](azure-stack-updates.md#the-update-resource-provider) centra Azure Stack stahuje aktualizace antimalwaru a stroje několikrát denně. Každá součást infrastruktury Azure Stack získá aktualizaci od poskytovatele prostředků aktualizace a automaticky použije aktualizaci.
+[Poskytovatel prostředků aktualizace](azure-stack-updates.md#the-update-resource-provider) centra Azure Stack stahuje aktualizace antimalwaru a stroje několikrát denně. Každá součást infrastruktury centra Azure Stack získá aktualizaci od poskytovatele prostředků aktualizace a automaticky použije aktualizaci.
 
-U těchto Azure Stack nasazení centra, která jsou připojená k veřejnému Internetu, použijte [měsíční aktualizaci Azure Stack](azure-stack-apply-updates.md). Měsíční aktualizace centra Azure Stack obsahuje aktualizace antivirové ochrany v programu Windows Defender pro daný měsíc.
+Pro ta Azure Stack nasazení centra, která jsou připojená k veřejnému Internetu, použijte [měsíční aktualizaci centra Azure Stack](azure-stack-apply-updates.md). Měsíční aktualizace centra Azure Stack obsahuje aktualizace antivirové ochrany v programu Windows Defender pro daný měsíc.
 
 ## <a name="disconnected-scenario"></a>Odpojený scénář
 
-U těchto Azure Stackch nasazení centra, která nejsou připojená k veřejnému Internetu (např. letecká data centra gapped), počínaje vydáním 1910, můžou zákazníci při publikování použít antimalwarové definice a aktualizace stroje. 
+U těchto Azure Stackch nasazení centra, která nejsou připojená k veřejnému Internetu (například datacentra air gapped), počínaje verzí 1910 můžou zákazníci při publikování použít antimalwarové definice a aktualizace stroje. 
 
 Chcete-li aktualizace použít pro řešení centra Azure Stack, je nutné je nejprve stáhnout z webu společnosti Microsoft (odkazy níže) a následně je importovat do kontejneru objektů BLOB úložiště v rámci *updateadminaccount*. Naplánovaná úloha prohledává kontejner objektů BLOB každých 30 minut a v případě, že se najde nové definice a aktualizace modulu Defenderu, aplikují se na infrastrukturu centra Azure Stack. 
 

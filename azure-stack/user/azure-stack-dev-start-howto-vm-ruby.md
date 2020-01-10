@@ -1,6 +1,6 @@
 ---
-title: Nasazení aplikace v Ruby do virtuálního počítače v Azure Stack | Microsoft Docs
-description: Nasaďte aplikaci v Ruby na virtuální počítač v Azure Stack.
+title: Nasazení aplikace v Ruby do virtuálního počítače v centru Azure Stacke | Microsoft Docs
+description: Nasaďte aplikaci Ruby do virtuálního počítače v Azure Stackovém centru.
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,31 +9,31 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: e54fc1cd1e8fe8588a9498b5af8476437880e988
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: 1490a571078556d5fd958ecf9717a21f5607ab79
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71824175"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75820538"
 ---
-# <a name="deploy-a-ruby-web-app-to-a-vm-in-azure-stack"></a>Nasazení webové aplikace v Ruby do virtuálního počítače v Azure Stack
+# <a name="deploy-a-ruby-web-app-to-a-vm-in-azure-stack-hub"></a>Nasazení webové aplikace v Ruby do virtuálního počítače v Azure Stackovém centru
 
-Můžete vytvořit virtuální počítač pro hostování webové aplikace v Ruby v Azure Stack. V tomto článku jste nastavili server, nakonfigurujete server pro hostování webové aplikace Ruby a pak nasadíte aplikaci na Azure Stack.
+Můžete vytvořit virtuální počítač pro hostování webové aplikace v Ruby v centru Azure Stack. V tomto článku jste nastavili server, nakonfigurujete server pro hostování webové aplikace Ruby a pak nasadíte aplikaci do centra Azure Stack.
 
 V tomto článku se používají webové rozhraní Ruby a Ruby na železnici.
 
 ## <a name="create-a-vm"></a>Vytvoření virtuálního počítače
 
-1. Nastavte virtuální počítač v Azure Stack. Pokyny najdete v tématu [nasazení virtuálního počítače se systémem Linux pro hostování webové aplikace v Azure Stack](azure-stack-dev-start-howto-deploy-linux.md).
+1. Nastavte svůj virtuální počítač v centru Azure Stack. Pokyny najdete v tématu [nasazení virtuálního počítače se systémem Linux pro hostování webové aplikace v centru Azure Stack](azure-stack-dev-start-howto-deploy-linux.md).
 
 2. V podokně síť virtuálních počítačů zkontrolujte, že jsou dostupné tyto porty:
 
-    | Port | Protocol | Popis |
+    | Port | Protocol (Protokol) | Popis |
     | --- | --- | --- |
     | 80 | HTTP | HTTP (Hypertext Transfer Protocol) je protokol, který se používá k doručování webových stránek ze serverů. Klienti se připojují přes protokol HTTP s názvem DNS nebo IP adresou. |
     | 443 | HTTPS | Protokol HTTPS (Hypertext Transfer Protocol Secure) je zabezpečená verze protokolu HTTP, která vyžaduje certifikát zabezpečení a umožňuje šifrovaný přenos informací. |
     | 22 | SSH | Secure Shell (SSH) je zašifrovaný síťový protokol pro zabezpečenou komunikaci. Pomocí tohoto připojení s klientem SSH nakonfigurujete virtuální počítač a nasadíte aplikaci. |
-    | 3389 | PROTOKOL RDP | Volitelný parametr. Protokol RDP (Remote Desktop Protocol) (RDP) umožňuje připojení ke vzdálené ploše pro použití grafického uživatelského rozhraní na vašem počítači.   |
+    | 3389 | Protokol RDP | Nepovinný parametr. Protokol RDP (Remote Desktop Protocol) (RDP) umožňuje připojení ke vzdálené ploše pro použití grafického uživatelského rozhraní na vašem počítači.   |
     | 3000 | Vlastní | Port používaný webovým rozhraním Ruby on Kolejnices ve vývoji. V případě provozního serveru směrujete provoz mezi 80 a 443. |
 
 ## <a name="install-ruby"></a>Instalace Ruby
@@ -100,6 +100,6 @@ V tomto článku se používají webové rozhraní Ruby a Ruby na železnici.
 
 ## <a name="next-steps"></a>Další kroky
 
-- Přečtěte si další informace o [vývoji pro Azure Stack](azure-stack-dev-start.md).
-- Přečtěte si o [běžných nasazeních Azure Stack jako IaaS](azure-stack-dev-start-deploy-app.md).
+- Přečtěte si další informace o [vývoji centra Azure Stack](azure-stack-dev-start.md).
+- Přečtěte si o [běžných nasazeních centra Azure Stack jako IaaS](azure-stack-dev-start-deploy-app.md).
 - Informace o programovacím jazyce Ruby a hledání dalších zdrojů pro Ruby najdete v tématu [Ruby-lang.org](https://www.ruby-lang.org).

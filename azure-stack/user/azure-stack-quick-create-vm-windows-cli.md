@@ -1,6 +1,6 @@
 ---
-title: Vytvoření virtuálního počítače s Windows na Azure Stack pomocí rozhraní příkazového řádku Azure | Microsoft Docs
-description: Vytvoření virtuálního počítače s Windows na Azure Stack pomocí rozhraní příkazového řádku Azure
+title: Vytvoření virtuálního počítače s Windows na Azure Stackovém centru pomocí Azure CLI | Microsoft Docs
+description: Vytvoření virtuálního počítače s Windows v Azure Stackovém centru pomocí Azure CLI
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,16 +15,16 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.custom: mvc
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: b88d65806abfe83dfff59307d3bdcd4e99adf96d
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: 4a55f50afdc6be63d327ae79ad397cfc1f95385f
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71824265"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75819433"
 ---
-# <a name="quickstart-create-a-windows-server-virtual-machine-using-azure-cli-in-azure-stack"></a>Rychlý start: Vytvoření virtuálního počítače s Windows serverem pomocí rozhraní příkazového řádku Azure v Azure Stack
+# <a name="quickstart-create-a-windows-server-virtual-machine-using-azure-cli-in-azure-stack-hub"></a>Rychlý Start: Vytvoření virtuálního počítače s Windows serverem pomocí rozhraní příkazového řádku Azure v centru Azure Stack
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 Virtuální počítač s Windows serverem 2016 můžete vytvořit pomocí rozhraní příkazového řádku Azure CLI. Pokud chcete vytvořit a použít virtuální počítač, postupujte podle kroků v tomto článku. Tento článek také obsahuje následující kroky:
 
@@ -34,13 +34,13 @@ Virtuální počítač s Windows serverem 2016 můžete vytvořit pomocí rozhra
 
 ## <a name="prerequisites"></a>Požadavky
 
-* Ujistěte se, že operátor Azure Stack přidal do webu Azure Stack Marketplace image **Windows serveru 2016** .
+* Ujistěte se, že váš operátor centra Azure Stack přidal do tržiště centra Azure Stack image **Windows serveru 2016** .
 
-* Pro vytváření a správu prostředků vyžaduje Azure Stack specifickou verzi rozhraní příkazového řádku Azure CLI. Pokud nemáte rozhraní příkazového řádku Azure nakonfigurované pro Azure Stack, postupujte podle pokynů k [instalaci a konfiguraci rozhraní příkazového řádku Azure CLI](azure-stack-version-profiles-azurecli2.md).
+* Aby bylo možné vytvořit a spravovat prostředky, Azure Stack centrum vyžaduje specifickou verzi rozhraní příkazového řádku Azure CLI. Pokud nemáte rozhraní příkazového řádku Azure nakonfigurované pro centrum Azure Stack, postupujte podle pokynů k [instalaci a konfiguraci rozhraní příkazového řádku Azure CLI](azure-stack-version-profiles-azurecli2.md).
 
 ## <a name="create-a-resource-group"></a>Vytvoření skupiny prostředků
 
-Skupina prostředků je logický kontejner, ve kterém můžete nasazovat a spravovat prostředky Azure Stack. V prostředí Azure Stack spuštěním příkazu [AZ Group Create](/cli/azure/group#az-group-create) vytvořte skupinu prostředků.
+Skupina prostředků je logický kontejner, ve kterém můžete nasazovat a spravovat prostředky centra Azure Stack. V prostředí Azure Stack hub spuštěním příkazu [AZ Group Create](/cli/azure/group#az-group-create) vytvořte skupinu prostředků.
 
 > [!NOTE]
 >  Hodnoty jsou přiřazeny pro všechny proměnné v příkladech kódu. V případě potřeby však můžete přiřadit nové hodnoty.
@@ -109,4 +109,4 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Další kroky
 
-V tomto rychlém startu jste nasadili základní virtuální počítač s Windows serverem. Pokud se chcete dozvědět víc o Azure Stack virtuálních počítačích, pokračujte [v otázkách Virtual Machines v Azure Stack](azure-stack-vm-considerations.md).
+V tomto rychlém startu jste nasadili základní virtuální počítač s Windows serverem. Pokud chcete získat další informace o virtuálních počítačích s Azure Stack hub, pokračujte [v otázkách Virtual Machines v centru Azure Stack](azure-stack-vm-considerations.md).

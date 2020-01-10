@@ -1,6 +1,6 @@
 ---
-title: Sestava ověření pro Azure Stack | Microsoft Docs
-description: Pomocí sestavy nástroje pro kontrolu připravenosti na Azure Stack můžete zkontrolovat výsledky ověření.
+title: Sestava ověření pro centrum Azure Stack | Microsoft Docs
+description: Pomocí sestavy pro kontrolu připravenosti centra Azure Stack můžete zkontrolovat výsledky ověřování.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -12,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/13/2019
+ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: c00ce005ac72fcde34b58a1afe7e134c27274247
-ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
+ms.openlocfilehash: 426c7d9070fd0e1b7d194ae27cd9f0b9ab91e4cc
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68991729"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75812786"
 ---
-# <a name="azure-stack-validation-report"></a>Sestava ověření Azure Stack
+# <a name="azure-stack-hub-validation-report"></a>Sestava ověření centra Azure Stack
 
-Pomocí nástroje pro *kontrolu připravenosti na Azure Stack* můžete spouštět ověřování, která podporují nasazení a obsluhu Azure Stackho prostředí. Nástroj zapisuje výsledky do souboru sestavy. JSON. V sestavě se zobrazí podrobná a souhrnná data o stavu požadavků pro nasazení Azure Stack. Sestava obsahuje také informace o rotaci tajných klíčů pro existující nasazení Azure Stack.  
+Pomocí nástroje pro *kontrolu připravenosti centra Azure Stack* spusťte ověřování, které podporuje nasazení a údržbu prostředí Azure Stack hub. Nástroj zapisuje výsledky do souboru sestavy. JSON. V sestavě se zobrazí podrobná a souhrnná data o stavu požadavků pro nasazení centra Azure Stack. V sestavě se zobrazí také informace o rotaci tajných klíčů pro existující nasazení centra Azure Stack.  
 
 ## <a name="where-to-find-the-report"></a>Kde najít sestavu
 
@@ -37,10 +37,10 @@ Oba soubory uchovávají Výsledky následných ověřovacích kontrol při spu�
 
 Ve výchozím nastavení jsou oba soubory zapisovány do **C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.JSON**.  
 
-- `-OutputPath <path>` Použijte parametr na konci příkazového řádku a zadejte jiné umístění sestavy.
-- Použijte parametr na konci příkazového řádku, chcete-li vymazat informace o předchozích spuštěních nástroje z **AzsReadinessCheckerReport. JSON.** `-CleanReport`
+- K určení jiného umístění sestavy použijte parametr `-OutputPath <path>` na konci příkazového řádku.
+- Použijte parametr `-CleanReport` na konci příkazového řádku, chcete-li vymazat informace o předchozích spuštěních nástroje z **AzsReadinessCheckerReport. JSON**.
 
-## <a name="view-the-report"></a>Zobrazení sestavy
+## <a name="view-the-report"></a>Zobrazit zprávu
 
 Chcete-li zobrazit sestavu v prostředí PowerShell, zadejte cestu k sestavě jako hodnotu pro `-ReportPath`. Tento příkaz zobrazí obsah sestavy a identifikuje ověření, která ještě nemají výsledky.
 
@@ -76,13 +76,13 @@ Error Details                 :
 
 Azure Identity Validation found no errors or warnings.
 
-############### Azure Stack Graph Validation Summary ###############
+############### Azure Stack Hub Graph Validation Summary ###############
 
-Azure Stack Graph Validation results not available.
+Azure Stack Hub Graph Validation results not available.
 
-############### Azure Stack ADFS Validation Summary ###############
+############### Azure Stack Hub ADFS Validation Summary ###############
 
-Azure Stack ADFS Validation results not available.
+Azure Stack Hub ADFS Validation results not available.
 
 ############### AzsReadiness Job Summary ###############
 
@@ -96,7 +96,7 @@ PSBoundParameters :
 
 ## <a name="view-the-report-summary"></a>Zobrazit souhrn sestavy
 
-Chcete-li zobrazit souhrn sestavy, můžete přidat `-summary` parametr na konec příkazu prostředí PowerShell. Příklad:
+Chcete-li zobrazit souhrn sestavy, můžete na konec příkazu prostředí PowerShell přidat parametr `-summary`. Příklad:
 
 ```powershell
 Read-AzsReadinessReport -ReportPath .\Contoso-AzsReadinessReport.json -summary
@@ -119,13 +119,13 @@ Registration Validation found no errors or warnings.
 
 Azure Identity Validation found no errors or warnings.
 
-############### Azure Stack Graph Validation Summary ###############
+############### Azure Stack Hub Graph Validation Summary ###############
 
-Azure Stack Graph Validation results not available.
+Azure Stack Hub Graph Validation results not available.
 
-############### Azure Stack ADFS Validation Summary ###############
+############### Azure Stack Hub ADFS Validation Summary ###############
 
-Azure Stack ADFS Validation results not available.
+Azure Stack Hub ADFS Validation results not available.
 ```
 
 ## <a name="view-a-filtered-report"></a>Zobrazit filtrovanou sestavu
@@ -135,10 +135,10 @@ Pokud chcete zobrazit sestavu, která je filtrovaná podle jednoho typu ověřov
 - Certifikát
 - AzureRegistration
 - AzureIdentity
-- Graph
+- Grafová databáze
 - ADFS
 - Úlohy
-- Vše  
+- Všechno  
 
 Chcete-li například zobrazit souhrn sestavy pouze pro certifikáty, použijte následující příkazový řádek prostředí PowerShell:
 

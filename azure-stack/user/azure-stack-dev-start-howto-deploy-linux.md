@@ -1,6 +1,6 @@
 ---
-title: Nasazení virtuálního počítače se systémem Linux pro Azure Stack | Microsoft Docs
-description: Nasaďte aplikaci do Azure Stack.
+title: Nasazení virtuálního počítače se systémem Linux do centra Azure Stack | Microsoft Docs
+description: Nasaďte aplikaci do centra Azure Stack.
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,14 +9,14 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: d1fae6caf6ac37f29382f4d24ce0d8b2299aa1d7
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: cda7f90154f9a5731eaa34bd1256f60ef76de193
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71824827"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75816152"
 ---
-# <a name="deploy-a-linux-vm-to-host-a-web-app-in-azure-stack"></a>Nasazení virtuálního počítače se systémem Linux pro hostování webové aplikace v Azure Stack
+# <a name="deploy-a-linux-vm-to-host-a-web-app-in-azure-stack-hub"></a>Nasazení virtuálního počítače se systémem Linux pro hostování webové aplikace v centru Azure Stack
 
 Virtuální počítač se systémem Linux můžete vytvořit a nasadit pomocí bitové kopie Ubuntu v Azure Marketplace k hostování webové aplikace, kterou jste vytvořili s webovým rozhraním. 
 
@@ -27,17 +27,17 @@ Tento virtuální počítač může hostovat webové aplikace pomocí:
 - **Ruby**: nastavte Ruby na železnici jako architekturu pro doručování webových aplikací Ruby. 
 - **Java**: k vývoji webových aplikací, které odesíláte na server Apache Tomcat, použijte Java. Tomcat můžete nainstalovat na Linux a potom nasadit soubory Java WAR přímo na server. 
 
-Pokyny v tomto článku vám pomohou začít pracovat se všemi webovými aplikacemi, architekturou a technologií back-endu, které používají operační systém Linux. Pak můžete pomocí Azure Stack spravovat infrastrukturu a používat nástroje pro správu v rámci vaší technologie ke zpracování úloh údržby pro vaši aplikaci.
+Pokyny v tomto článku vám pomohou začít pracovat se všemi webovými aplikacemi, architekturou a technologií back-endu, které používají operační systém Linux. Pak můžete pomocí centra Azure Stack spravovat infrastrukturu a pomocí nástrojů pro správu v rámci vaší technologie zpracovávat úlohy údržby pro vaši aplikaci.
 
 ## <a name="deploy-a-linux-vm-for-a-web-app"></a>Nasazení virtuálního počítače se systémem Linux pro webovou aplikaci
 
-V tomto procesu vytvoříte tajný klíč, použijete základní bitovou kopii virtuálního počítače se systémem Linux, určíte konkrétní atributy virtuálního počítače a potom vytvoříte virtuální počítač. Po vytvoření virtuálního počítače otevřete porty, které jsou nezbytné pro práci s virtuálním počítačem a pro virtuální počítač k hostování vaší aplikace. V dalším kroku vytvoříte název DNS. Nakonec se připojíte k VIRTUÁLNÍmu počítači a aktualizujte počítač pomocí nástroje apt-get. Po dokončení procesu budete mít v instanci Azure Stack k dispozici virtuální počítač, který je připravený k hostování vaší webové aplikace.
+V tomto procesu vytvoříte tajný klíč, použijete základní bitovou kopii virtuálního počítače se systémem Linux, určíte konkrétní atributy virtuálního počítače a potom vytvoříte virtuální počítač. Po vytvoření virtuálního počítače otevřete porty, které jsou nezbytné pro práci s virtuálním počítačem a pro virtuální počítač k hostování vaší aplikace. V dalším kroku vytvoříte název DNS. Nakonec se připojíte k VIRTUÁLNÍmu počítači a aktualizujte počítač pomocí nástroje apt-get. Po dokončení procesu budete mít virtuální počítač v instanci centra Azure Stack, který je připravený k hostování vaší webové aplikace.
 
 Než začnete, ujistěte se, že máte všechno, co potřebujete.
 
 ## <a name="prerequisites"></a>Požadavky
 
-- Azure Stack předplatné s přístupem k imagi LTS serveru Ubuntu 16,04. Můžete použít novější verzi image, ale tyto pokyny se zapisují s 16,04 LTS. Pokud tuto image nemáte, obraťte se na svého operátora cloudu, aby se image získala na Azure Stack Marketplace.
+- Předplatné centra Azure Stack s přístupem k imagi LTS serveru Ubuntu 16,04. Můžete použít novější verzi image, ale tyto pokyny se zapisují s 16,04 LTS. Pokud tuto image nemáte, obraťte se na svého operátora cloudu, abyste získali image do tržiště centra Azure Stack.
 
 ## <a name="deploy-the-vm-by-using-the-portal"></a>Nasazení virtuálního počítače pomocí portálu
 
@@ -46,9 +46,9 @@ Pokud chcete nasadit virtuální počítač, postupujte podle pokynů v následu
 ### <a name="create-your-vm"></a>Vytvoření virtuálního počítače
 
 1. Vytvořte veřejný klíč Secure Shell (SSH) pro váš server. Další informace najdete v tématu [Jak používat veřejný klíč SSH](azure-stack-dev-start-howto-ssh-public-key.md).
-1. Na portálu Azure Stack vyberte **vytvořit prostředek** > **COMPUTE** > **Ubuntu Server 16,04 LTS**.
+1. Na portálu centra Azure Stack vyberte **vytvořit prostředek** > **COMPUTE** > **Ubuntu Server 16,04 LTS**.
 
-    ![Nasazení webové aplikace do virtuálního počítače s Azure Stack](media/azure-stack-dev-start-howto-deploy-linux/001-portal-compute.png)
+    ![Nasazení webové aplikace do virtuálního počítače centra Azure Stack](media/azure-stack-dev-start-howto-deploy-linux/001-portal-compute.png)
 
 4. V podokně **vytvořit virtuální počítač** pro **1. Konfigurovat základní nastavení**:
 
@@ -69,13 +69,13 @@ Pokud chcete nasadit virtuální počítač, postupujte podle pokynů v následu
     ---- END SSH2 PUBLIC KEY ----
     ```
 
-    f. Vyberte předplatné pro vaši instanci Azure Stack.
+    f. Vyberte předplatné pro vaši instanci centra Azure Stack.
 
     g. Vytvořte novou skupinu prostředků nebo použijte existující, v závislosti na tom, jak chcete organizovat prostředky pro vaši aplikaci.
 
-    h. Vyberte své umístění. Azure Stack Development Kit (ASDK) je obvykle v *místní* oblasti. Umístění závisí na vaší instanci Azure Stack.
+    h. Vyberte své umístění. Azure Stack Development Kit (ASDK) je obvykle v *místní* oblasti. Umístění závisí na vaší instanci centra Azure Stack.
 1. Pro **2. Velikost**, zadejte:
-    - Vyberte velikost dat a paměti RAM pro váš virtuální počítač, který je k dispozici ve vaší instanci Azure Stack.
+    - Vyberte velikost dat a paměti RAM pro váš virtuální počítač, který je k dispozici ve vaší instanci centra Azure Stack.
     - Můžete buď procházet seznam, nebo filtrovat velikost virtuálního počítače podle **typu COMPUTE**, **CPU**a **prostoru úložiště**.
     
     > [!NOTE]
@@ -123,7 +123,7 @@ Pokud chcete, aby byla webová aplikace přístupná uživatelům ve vaší sít
 
 Můžete upravit cílový protokol a rozsah portů pro předdefinovanou službu, například RDP nebo SSH, nebo zadat vlastní rozsah portů. Například můžete chtít pracovat s rozsahem portů vašeho webového rozhraní. Například komunikuje na portu 3000.
 
-1. Otevřete portál Azure Stack pro vašeho tenanta.
+1. Otevřete portál centra Azure Stack pro vašeho tenanta.
 
 1. Vyhledejte svůj virtuální počítač. Je možné, že jste virtuální počítač připnuli k řídicímu panelu, nebo ho můžete vyhledat v poli **Hledat prostředky** .
 
@@ -151,7 +151,7 @@ Můžete upravit cílový protokol a rozsah portů pro předdefinovanou službu,
 
 Kromě toho můžete vytvořit název DNS pro váš server, aby se uživatelé mohli k webu připojit pomocí adresy URL.
 
-1. Otevřete portál Azure Stack pro vašeho tenanta.
+1. Otevřete portál centra Azure Stack pro vašeho tenanta.
 
 1. Vyhledejte svůj virtuální počítač. Je možné, že jste virtuální počítač připnuli k řídicímu panelu, nebo ho můžete vyhledat v poli **Hledat prostředky** .
 
@@ -165,7 +165,7 @@ Kromě toho můžete vytvořit název DNS pro váš server, aby se uživatelé m
 
 ### <a name="connect-via-ssh-to-update-your-vm"></a>Připojte se přes SSH a aktualizujte virtuální počítač.
 
-1. Ve stejné síti jako instance Azure Stack otevřete klienta SSH. Další informace najdete v tématu [použití veřejného klíče SSH](azure-stack-dev-start-howto-ssh-public-key.md).
+1. Ve stejné síti jako instance centra Azure Stack otevřete klienta SSH. Další informace najdete v tématu [použití veřejného klíče SSH](azure-stack-dev-start-howto-ssh-public-key.md).
 
 1. Zadejte následující příkazy:
 
@@ -176,4 +176,4 @@ Kromě toho můžete vytvořit název DNS pro váš server, aby se uživatelé m
 
 ## <a name="next-steps"></a>Další kroky
 
-Přečtěte si, jak [nastavit vývojové prostředí v Azure Stack](azure-stack-dev-start.md).
+Přečtěte si, jak [nastavit vývojové prostředí v Azure Stack hub](azure-stack-dev-start.md).

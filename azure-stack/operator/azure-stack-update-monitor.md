@@ -1,6 +1,6 @@
 ---
-title: Monitorování aktualizací v Azure Stack pomocí prostředí PowerShell | Microsoft Docs
-description: Naučte se monitorovat aktualizace v Azure Stack pomocí PowerShellu.
+title: Monitorování aktualizací v centru Azure Stack pomocí PowerShellu | Microsoft Docs
+description: Naučte se monitorovat aktualizace v centru Azure Stack pomocí PowerShellu.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,18 +15,18 @@ ms.date: 08/23/2019
 ms.author: mabrigg
 ms.lastreviewed: 08/23/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: a724320bd066e6d46e33e6bdc9c80687cfb97736
-ms.sourcegitcommit: 55ec59f831a98c42a4e9ff0dd954bf10adb98ff1
+ms.openlocfilehash: 91d5d0e7c63be8a192113d26818380983c668aa7
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74540285"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75813568"
 ---
-# <a name="monitor-updates-in-azure-stack-using-powershell"></a>Monitorování aktualizací v Azure Stack pomocí prostředí PowerShell
+# <a name="monitor-updates-in-azure-stack-hub-using-powershell"></a>Monitorování aktualizací v centru Azure Stack pomocí PowerShellu
 
-*Platí pro: Azure Stack integrovaných systémů*
+*Platí pro: Azure Stack integrovaných systémů centra*
 
-Pomocí koncových bodů správy Azure Stack můžete monitorovat a spravovat aktualizace. Jsou přístupné pomocí PowerShellu. Pokyny k nastavení prostředí PowerShell v Azure Stack najdete v tématu [instalace PowerShellu pro Azure Stack](azure-stack-powershell-install.md).
+Pomocí koncových bodů správy centra Azure Stack můžete monitorovat a spravovat vaše aktualizace. Jsou přístupné pomocí PowerShellu. Pokyny k nastavení prostředí PowerShell v centru Azure Stack najdete v tématu [instalace PowerShellu pro Azure Stack hub](azure-stack-powershell-install.md).
 
 Ke správě aktualizací můžete použít tuto rutinu prostředí PowerShell:
 
@@ -56,4 +56,4 @@ Get-AzsUpdateRun -Name 5173e9f4-3040-494f-b7a7-738a6331d55c -UpdateName Microsof
 
 ## <a name="next-steps"></a>Další kroky
 
--   [Správa aktualizací v Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates)
+-   [Správa aktualizací v centru Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates)

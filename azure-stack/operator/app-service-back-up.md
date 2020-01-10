@@ -1,6 +1,6 @@
 ---
-title: Zálohování App Service v Azure Stack | Microsoft Docs
-description: Naučte se, jak zálohovat App Services v Azure Stack.
+title: Zálohování App Service v centru Azure Stack | Microsoft Docs
+description: Naučte se, jak zálohovat App Services v centru Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: bryanla
@@ -16,23 +16,23 @@ ms.date: 04/23/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/21/2019
-ms.openlocfilehash: a41943a598545b1a4c5dbe6325307a8fa3594cd5
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.openlocfilehash: a0a1d2b1025e814152b2a9b643683c5ed68bf5ff
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70975021"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75804533"
 ---
-# <a name="back-up-app-service-on-azure-stack"></a>Zálohování App Service v Azure Stack
+# <a name="back-up-app-service-on-azure-stack-hub"></a>Zálohování App Service v centru Azure Stack
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*  
+*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*  
 
-Tento dokument poskytuje pokyny, jak zálohovat App Service v Azure Stack.
+Tento dokument poskytuje pokyny, jak zálohovat App Service v centru Azure Stack.
 
 > [!IMPORTANT]
-> App Service v Azure Stack nejsou zálohovány jako součást [zálohování infrastruktury Azure Stack](azure-stack-backup-infrastructure-backup.md). Jako operátor Azure Stack musíte provést kroky, abyste zajistili, že App Service se v případě potřeby dají úspěšně obnovit.
+> App Service v centru Azure Stack se nezálohují jako součást [zálohování infrastruktury centra Azure Stack](azure-stack-backup-infrastructure-backup.md). Jako operátor centra Azure Stack musíte provést kroky, abyste zajistili, že App Service se v případě potřeby dají úspěšně obnovit.
 
-Azure App Service v Azure Stack má při plánování zotavení po havárii čtyři hlavní komponenty, které je potřeba vzít v úvahu:
+Azure App Service v centru Azure Stack mají čtyři hlavní součásti, které je potřeba vzít v úvahu při plánování zotavení po havárii:
 1. Infrastruktura poskytovatele prostředků; role serveru, úrovně pracovního procesu atd. 
 2. App Service tajných kódů.
 3. App Service SQL Server hostování a měření databází.
@@ -43,23 +43,23 @@ Při obnovování App Service ze zálohy je nutné zadat App Service klíče pou
 
 Použijte portál pro správu k zálohování tajných kódů App Service pomocí následujících kroků: 
 
-1. Přihlaste se k portálu Azure Stack admin jako správce služby.
+1. Přihlaste se k portálu správce Azure Stackového centra jako správce služby.
 
 2. Vyhledejte **App Service** -> **tajných**kódů. 
 
 3. Vyberte **Stáhnout tajné**kódy.
 
-   ![Stažení tajných kódů na portálu pro správu Azure Stack](./media/app-service-back-up/download-secrets.png)
+   ![Stažení tajných kódů na portálu pro správu centra Azure Stack](./media/app-service-back-up/download-secrets.png)
 
 4. Až budou tajná klíčová místa připravená ke stažení, klikněte na **Uložit** a uložte soubor App Service tajných kódů (**SystemSecrets. JSON**) do bezpečného umístění. 
 
-   ![Uložení tajných kódů na portálu pro správu Azure Stack](./media/app-service-back-up/save-secrets.png)
+   ![Uložení tajných klíčů na portále správce centra Azure Stack](./media/app-service-back-up/save-secrets.png)
 
 > [!NOTE]
 > Tyto kroky opakujte při každém otočení App Servicech tajných kódů.
 
 ## <a name="back-up-the-app-service-databases"></a>Zálohování databází App Service
-K obnovení App Service potřebujete zálohy databáze **Appservice_hosting** a **Appservice_metering** . Doporučujeme použít SQL Server plány údržby nebo Azure Backup Server, abyste zajistili, že se tyto databáze budou zálohovat a bezpečně ukládat v pravidelných intervalech. Je však možné použít jakoukoli metodu zajištění pravidelného zálohování SQL.
+K obnovení App Service budete potřebovat zálohy databáze **Appservice_hosting** a **Appservice_metering** . Doporučujeme použít SQL Server plány údržby nebo Azure Backup Server, abyste zajistili, že se tyto databáze budou zálohovat a bezpečně ukládat v pravidelných intervalech. Je však možné použít jakoukoli metodu zajištění pravidelného zálohování SQL.
 
 K ručnímu zálohování těchto databází při přihlášení k SQL Server použijte následující příkazy PowerShellu:
 
@@ -92,4 +92,4 @@ net use $destination /delete
 ```
 
 ## <a name="next-steps"></a>Další kroky
-[Obnovit App Service v Azure Stack](app-service-recover.md)
+[Obnovit App Service v centru Azure Stack](app-service-recover.md)

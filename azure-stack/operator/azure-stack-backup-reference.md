@@ -1,6 +1,6 @@
 ---
 title: Odkaz na službu Infrastructure Backup | Microsoft Docs
-description: Referenční materiál pro službu Infrastructure Backup v Azure Stack.
+description: Referenční materiál pro službu Infrastructure Backup v centru Azure Stack
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,20 +16,20 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 282d6f3a501550e49424c257b928e708f63ccadc
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.openlocfilehash: b1a62edc088cbe73475a88f8303e28d71d2dc63f
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70974855"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75816747"
 ---
 # <a name="infrastructure-backup-service-reference"></a>Odkaz na službu Infrastructure Backup
 
 ## <a name="azure-backup-infrastructure"></a>Infrastruktura zálohování Azure
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
-Azure Stack se skládá z mnoha služeb, které tvoří portál (Azure Resource Manager) a celkové prostředí pro správu infrastruktury. Prostředí pro správu Azure Stack jako aplikace se zaměřuje na omezení složitosti vystavené pro operátor řešení.
+Centrum Azure Stack se skládá z mnoha služeb, které tvoří portál (Azure Resource Manager) a celkové prostředí pro správu infrastruktury. Prostředí pro správu Azure Stackového centra se zaměřuje na aplikace, aby se snížila složitost vystavená operátorovi řešení.
 
 Služba Infrastructure Backup je navržená tak, aby Internalize složitost zálohování a obnovování dat pro služby infrastruktury, a zajistila tak, že se operátoři můžou soustředit na správu řešení a údržbu smlouvy SLA pro uživatele.
 
@@ -40,17 +40,17 @@ Export zálohovaných dat do externí sdílené složky je nutný k tomu, aby se
 Služba Infrastructure Backup zahrnuje tyto komponenty:
 
  - **Řadič Infrastructure Backup**  
- Řadič Infrastructure Backup má vytvořenou instanci a je umístěn v každém Azure Stack cloudu.
+ Řadič Infrastructure Backup má vytvořenou instanci a je umístěn v každém cloudu centra Azure Stack.
  - **Poskytovatel prostředků pro zálohování**  
- Zprostředkovatel prostředků zálohování (záloha RP) se skládá z uživatelského rozhraní a rozhraní API, které zveřejňují základní funkce zálohování pro Azure Stack infrastrukturu.
+ Zprostředkovatel prostředků zálohování (záložní RP) se skládá z uživatelského rozhraní a rozhraní API, které zveřejňují základní funkce zálohování pro Azure Stack infrastrukturu centra.
 
 #### <a name="infrastructure-backup-controller"></a>Řadič Infrastructure Backup
 
-Řadič Infrastructure Backup je Service Fabric služba, která má vytvořenou instanci Azure Stackho cloudu. Prostředky zálohování se vytvářejí na regionální úrovni a zachytí data služeb specifická pro oblast ze služby AD, CA, Azure Resource Manager, CRP, SRP, NRP, Key Vault a RBAC.
+Řadič Infrastructure Backup je Service Fabric služba, která vytváří instance pro cloud služby Azure Stack hub. Prostředky zálohování se vytvářejí na regionální úrovni a zachytí data služeb specifická pro oblast ze služby AD, CA, Azure Resource Manager, CRP, SRP, NRP, Key Vault a RBAC.
 
 ### <a name="backup-resource-provider"></a>Poskytovatel prostředků pro zálohování
 
-Zprostředkovatel prostředků zálohování prezentuje uživatelské rozhraní na portálu Azure Stack pro základní konfiguraci a seznam prostředků zálohy. Operátory mohou v uživatelském rozhraní provádět následující akce:
+Poskytovatel prostředků zálohování prezentuje uživatelské rozhraní na portálu centra Azure Stack pro základní konfiguraci a seznam prostředků zálohy. Operátory mohou v uživatelském rozhraní provádět následující akce:
 
  - Zapněte zálohování poprvé tak, že zadáte umístění externího úložiště, přihlašovací údaje a šifrovací klíč.
  - Zobrazení dokončených prostředků zálohování a stavových prostředků v části Vytvoření.
@@ -61,7 +61,7 @@ Zprostředkovatel prostředků zálohování prezentuje uživatelské rozhraní 
 
 ## <a name="backup-controller-requirements"></a>Požadavky na řadič zálohování
 
-Tato část popisuje důležité požadavky služby Infrastructure Backup Service. Doporučujeme pečlivě zkontrolovat informace, než povolíte zálohování pro vaši instanci Azure Stack, a pak se na ni po nasazení a následné operaci vrátíte zpátky.
+Tato část popisuje důležité požadavky služby Infrastructure Backup Service. Doporučujeme pečlivě zkontrolovat informace, než povolíte zálohování pro vaši instanci centra Azure Stack, a pak se na ni v průběhu nasazení a následné operaci vrátíte zpátky.
 
 Mezi tyto požadavky patří:
 
@@ -74,13 +74,13 @@ Mezi tyto požadavky patří:
 
 | Umístění úložiště                                                                 | Podrobnosti                                                                                                                                                  |
 |----------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Sdílená složka SMB hostovaná na úložném zařízení v rámci důvěryhodného síťového prostředí. | Sdílená složka SMB ve stejném datovém centru, kde je nasazený Azure Stack nebo v jiném datovém centru. Stejná sdílená složka může používat více instancí Azure Stack. |
+| Sdílená složka SMB hostovaná na úložném zařízení v rámci důvěryhodného síťového prostředí. | Sdílená složka SMB ve stejném datovém centru, kde je nasazený Azure Stack rozbočovač nebo v jiném datovém centru. Stejná sdílená složka může používat více instancí centra Azure Stack. |
 | Sdílená složka SMB v Azure.                                                          | Aktuálně se nepodporuje.                                                                                                                                 |
 | Úložiště objektů BLOB v Azure.                                                            | Aktuálně se nepodporuje.                                                                                                                                 |
 
 #### <a name="supported-smb-versions"></a>Podporované verze protokolu SMB
 
-| SMB | Version |
+| SMB | Verze |
 |-----|---------|
 | SMB | 3.x     |
 
@@ -92,7 +92,7 @@ Služba Infrastructure Backup podporuje přenos zálohovaných dat do externího
 
 #### <a name="storage-location-sizing"></a>Velikost umístění úložiště
 
-Doporučujeme, abyste se v poslední době provedli zálohování v posledních dvou dnech a zachovali jste několik dní zálohování. Toto je výchozí chování při povolování zálohování infrastruktury v Azure Stack.
+Doporučujeme, abyste se v poslední době provedli zálohování v posledních dvou dnech a zachovali jste několik dní zálohování. Toto je výchozí chování při povolování zálohování infrastruktury v centru Azure Stack.
 
 **1907 a novější**
 
@@ -107,20 +107,20 @@ Doporučujeme, abyste se v poslední době provedli zálohování v posledních 
 | Škálování prostředí | Předpokládané velikosti zálohy | Celková velikost požadovaných míst |
 |-------------------|--------------------------|--------------------------------|
 | uzly 4-16        | 20 GB                    | 280 GB                        |
-| ASDK              | 10 GB                    | 140 GB                        |
+| ASDK              | 10 GB                    | 140 GB                        |
 
 **Před 1907**
 
 | Škálování prostředí | Předpokládané velikosti zálohy | Celková velikost požadovaných míst |
 |-------------------|--------------------------|--------------------------------|
 | uzly 4-16        | 20 GB                    | 280 GB                        |
-| ASDK              | 10 GB                    | 140 GB                        |
+| ASDK              | 10 GB                    | 140 GB                        |
 
 ### <a name="network-requirements"></a>Síťové požadavky
 
 | Umístění úložiště                                                                 | Podrobnosti                                                                                                                                                                                 |
 |----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Sdílená složka SMB hostovaná na úložném zařízení v rámci důvěryhodného síťového prostředí. | Pokud se instance Azure Stack nachází v prostředí brány firewall, je vyžadován port 445. Řadič Infrastructure Backup inicializuje připojení k souborovému serveru SMB přes port 445. |
+| Sdílená složka SMB hostovaná na úložném zařízení v rámci důvěryhodného síťového prostředí. | Port 445 se vyžaduje, pokud se instance centra Azure Stack nachází v prostředí s bránou firewall. Řadič Infrastructure Backup inicializuje připojení k souborovému serveru SMB přes port 445. |
 | Aby bylo možné použít plně kvalifikovaný název domény souborového serveru, musí být název přeložitelný z PEP.             |                                                                                                                                                                                         |
 
 > [!Note]  
@@ -130,41 +130,41 @@ Doporučujeme, abyste se v poslední době provedli zálohování v posledních 
 
 Počínaje 1901 bude služba Infrastructure Backup používat certifikát s veřejným klíčem (. CER) k šifrování zálohovaných dat a certifikátů pomocí privátního klíče (. PFX) k dešifrování zálohovaných dat během obnovení cloudu.
 
- - Certifikát se používá pro přenos klíčů a nepoužívá se k navázání zabezpečené ověřené komunikace. Z tohoto důvodu může být certifikát podepsaný svým držitelem. Azure Stack nemusí pro tento certifikát ověřit kořen nebo vztah důvěryhodnosti, takže externí přístup k Internetu není vyžadován.
+ - Certifikát se používá pro přenos klíčů a nepoužívá se k navázání zabezpečené ověřené komunikace. Z tohoto důvodu může být certifikát podepsaný svým držitelem. Rozbočovač Azure Stack nepotřebuje pro tento certifikát ověřit kořen nebo vztah důvěryhodnosti, aby externí internetový přístup nemusel.
 
 Certifikát podepsaný svým držitelem se nachází ve dvou částech, jeden s veřejným klíčem a jedním s privátním klíčem:
 
- - Šifrovat zálohovaná data: Certifikát s veřejným klíčem (exportováno do. Soubor CER) slouží k šifrování zálohovaných dat.
- - Dešifrovat zálohovaná data: Certifikát s privátním klíčem (exportováno do. Soubor PFX) slouží k dešifrování zálohovaných dat.
+ - Šifrovat zálohovaná data: certifikát s veřejným klíčem (exportováno do. Soubor CER) slouží k šifrování zálohovaných dat.
+ - Dešifrovat zálohovaná data: certifikát s privátním klíčem (exportováno do. Soubor PFX) slouží k dešifrování zálohovaných dat.
 
 Certifikát s veřejným klíčem (. CER) není spravováno interním otočením v tajných klíčích. Chcete-li certifikát otočit, je nutné vytvořit nový certifikát podepsaný svým držitelem a aktualizovat nastavení zálohování novým souborem (. CER). 
  
  - Všechny existující zálohy zůstanou šifrované pomocí předchozího veřejného klíče. Nové zálohy používají nový veřejný klíč.
  
-Certifikát použitý při obnovení cloudu s privátním klíčem (. PFX) není Azure Stack z bezpečnostních důvodů trvalá. Tento soubor bude nutné zadat explicitně během obnovování cloudu.  
+Certifikát použitý při obnovení cloudu s privátním klíčem (. PFX) není z bezpečnostních důvodů trvale Azure Stack hub. Tento soubor bude nutné zadat explicitně během obnovování cloudu.  
 
-**Režim zpětné kompatibility** Od verze 1901 je podpora šifrovacího klíče zastaralá a v budoucí verzi se odebere. Pokud jste aktualizovali z 1811 se zálohou, která už je povolená pomocí šifrovacího klíče, Azure Stack bude i nadále používat šifrovací klíč. Režim zpětné kompatibility bude podporován minimálně pro tři verze. Po uplynutí této doby bude vyžadován certifikát.
+**Režim zpětné kompatibility** Od verze 1901 je podpora šifrovacího klíče zastaralá a v budoucí verzi se odebere. Pokud jste aktualizovali z 1811 se zálohou, která už je povolená pomocí šifrovacího klíče, Azure Stack centrum bude dál používat šifrovací klíč. Režim zpětné kompatibility bude podporován minimálně pro tři verze. Po uplynutí této doby bude vyžadován certifikát.
 
  * Aktualizace z šifrovacího klíče na certifikát je jednosměrná operace.  
  * Všechny existující zálohy zůstanou šifrované pomocí šifrovacího klíče. Nové zálohy použijí certifikát. 
 
 ## <a name="infrastructure-backup-limits"></a>Omezení Infrastructure Backup
 
-Při plánování, nasazování a provozování instancí Microsoft Azure Stack Vezměte v úvahu tato omezení. Následující tabulka popisuje tato omezení.
+Při plánování, nasazování a provozování instancí centra Microsoft Azure Stack Vezměte v úvahu tato omezení. Následující tabulka popisuje tato omezení.
 
 ### <a name="infrastructure-backup-limits"></a>Omezení Infrastructure Backup
 
-| Identifikátor omezení                                                 | Omezení        | Komentáře                                                                                                                                    |
+| Identifikátor omezení                                                 | škálování        | Komentáře                                                                                                                                    |
 |------------------------------------------------------------------|--------------|---------------------------------------------------------------------------------------------------------------------------------------------|
 | Typ zálohování                                                      | Pouze úplné    | Řadič Infrastructure Backup podporuje pouze úplné zálohování. Přírůstkové zálohování se nepodporuje.                                          |
 | Naplánovaná zálohování                                                | Naplánováno a ruční  | Řadič zálohování podporuje plánované zálohy a zálohování na vyžádání.                                                                                 |
-| Maximální počet souběžných úloh zálohování                                   | 1            | Pro každou instanci řadiče zálohování je podporována pouze jedna aktivní úloha zálohování.                                                                  |
-| Konfigurace síťového přepínače                                     | Není v oboru | Správce musí zálohovat konfiguraci síťového přepínače pomocí nástrojů OEM. Informace o Azure Stack poskytovaných každým dodavatelem OEM najdete v dokumentaci. |
-| Hostitel životního cyklu hardwaru                                          | Není v oboru | Správce musí zálohovat hostitele životního cyklu hardwaru pomocí nástrojů OEM. Informace o Azure Stack poskytovaných každým dodavatelem OEM najdete v dokumentaci.      |
-| Maximální počet sdílených složek                                    | 1            | K ukládání zálohovaných dat lze použít pouze jednu sdílenou složku.                                                                                        |
+| Maximální počet souběžných úloh zálohování                                   | 1\. místo            | Pro každou instanci řadiče zálohování je podporována pouze jedna aktivní úloha zálohování.                                                                  |
+| Konfigurace síťového přepínače                                     | Není v oboru | Správce musí zálohovat konfiguraci síťového přepínače pomocí nástrojů OEM. Informace najdete v dokumentaci pro centrum Azure Stack od každého dodavatele OEM. |
+| Hostitel životního cyklu hardwaru                                          | Není v oboru | Správce musí zálohovat hostitele životního cyklu hardwaru pomocí nástrojů OEM. Informace najdete v dokumentaci pro centrum Azure Stack od každého dodavatele OEM.      |
+| Maximální počet sdílených složek                                    | 1\. místo            | K ukládání zálohovaných dat lze použít pouze jednu sdílenou složku.                                                                                        |
 | Data poskytovatele prostředků pro zálohování App Services, funkce, SQL, MySQL | Není v oboru | Informace najdete v pokynech publikovaných pro nasazení a správu hodnot – přidat RPs vytvořené Microsoftem.                                                  |
 | Zálohování poskytovatelů prostředků třetích stran                              | Není v oboru | Informace najdete v pokynech publikovaných pro nasazení a správu hodnot – přidat RPs vytvořené dodavateli třetích stran.                                          |
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
- - Další informace o službě Infrastructure Backup najdete v tématu [zálohování a obnovení dat pro Azure Stack se službou Infrastructure Backup](azure-stack-backup-infrastructure-backup.md).
+ - Další informace o službě Infrastructure Backup najdete v tématu [zálohování a obnovení dat pro Azure Stack centra pomocí služby Infrastructure Backup](azure-stack-backup-infrastructure-backup.md).

@@ -1,6 +1,6 @@
 ---
-title: Vývoj aplikací pro Azure Stack | Microsoft Docs
-description: Požadavky na vývoj pro vytváření prototypů aplikací v Azure Stack pomocí služeb Azure.
+title: Vývoj aplikací pro centrum Azure Stack | Microsoft Docs
+description: Požadavky na vývoj pro vytváření prototypů aplikací v centru Azure Stack s využitím služeb Azure.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -16,30 +16,30 @@ ms.date: 10/01/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: 0f1450ff7ce6d7e4cffee3d31f80b046f07f9ac1
-ms.sourcegitcommit: bbf3edbfc07603d2c23de44240933c07976ea550
+ms.openlocfilehash: ca4102e53d06b8f7c4876fd6cd0fd9e6d9ade42e
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71714774"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75820453"
 ---
-# <a name="develop-for-azure-stack"></a>Vývoj pro Azure Stack
+# <a name="develop-for-azure-stack-hub"></a>Vývoj pro centrum Azure Stack
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
-Můžete začít vyvíjet aplikace ještě dnes i v případě, že nemáte přístup k Azure Stack prostředí. Azure Stack zajišťuje Microsoft Azure služby, které běží ve vašem datovém centru, což znamená, že můžete používat stejné nástroje a procesy Azure pro vývoj na Azure Stack.
+Můžete začít vyvíjet aplikace ještě dnes i v případě, že nemáte přístup k prostředí Azure Stack hub. Azure Stack centrum zajišťuje Microsoft Azure služby, které běží ve vašem datovém centru, což znamená, že můžete použít stejné nástroje a procesy Azure pro vývoj v Azure Stack hub.
 
 ## <a name="development-considerations"></a>Aspekty vývoje
 
-S určitou přípravou a používáním pokynů v následujících tématech můžete k emulaci Azure Stackho prostředí použít Azure.
+S určitou přípravou a používáním pokynů v následujících tématech můžete pomocí Azure emulovat prostředí Azure Stack hub.
 
-* V Azure můžete vytvářet Azure Resource Manager šablony, které lze nasadit Azure Stack. Pokyny k vývoji šablon pro zajištění přenositelnosti najdete v tématu věnovaném [hlediskům šablon](azure-stack-develop-templates.md) .
-* Existují rozdíly v dostupnosti služeb a verzích služeb mezi Azure a Azure Stack. [Modul zásad Azure Stack](azure-stack-policy-module.md) slouží k omezení dostupnosti služeb Azure a typů prostředků na to, co je k dispozici v Azure Stack. Omezení služeb zajišťuje, aby vaše aplikace spoléhaly na služby dostupné pro Azure Stack.
-* [Šablony pro rychlý start Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates) jsou běžné příklady scénářů, které ukazují, jak vyvíjet Šablony nasazené pro Azure i Azure Stack.
+* V Azure můžete vytvářet Azure Resource Manager šablony, které lze nasadit do centra Azure Stack. Pokyny k vývoji šablon pro zajištění přenositelnosti najdete v tématu věnovaném [hlediskům šablon](azure-stack-develop-templates.md) .
+* Existují rozdíly v dostupnosti služeb a verzích služeb mezi Azure a centra Azure Stack. [Modul zásad centra Azure Stack](azure-stack-policy-module.md) slouží k omezení dostupnosti služeb Azure a typů prostředků na to, co je k dispozici v centru Azure Stack. Omezení služeb zajišťuje, aby vaše aplikace spoléhaly na služby dostupné pro Azure Stack hub.
+* [Šablony pro rychlý Start centra Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates) jsou běžné příklady scénářů, které ukazují, jak vyvíjet šablony nasadit do centra Azure i Azure Stack.
 
 ## <a name="next-steps"></a>Další kroky
 
 Další informace o vývoji Azure Stack najdete v následujících článcích:
 
 * [Osvědčené postupy pro šablony Azure Resource Manageru](azure-stack-develop-templates.md)
-* [Azure Stack šablon pro rychlý Start na GitHubu](https://github.com/Azure/AzureStack-QuickStart-Templates)
+* [Šablony rychlý Start centra Azure Stack na GitHubu](https://github.com/Azure/AzureStack-QuickStart-Templates)

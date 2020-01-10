@@ -1,6 +1,6 @@
 ---
 title: Vytvoření databáze SQL
-titleSuffix: Azure Stack
+titleSuffix: Azure Stack Hub
 description: Naučte se vytvářet a spravovat databáze SQL zřízené pomocí adaptéru poskytovatele prostředků SQL.
 services: azure-stack
 documentationCenter: ''
@@ -16,18 +16,18 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 97d53772127cbae66e95159617cb9e50e21176ac
-ms.sourcegitcommit: 08d2938006b743b76fba42778db79202d7c3e1c4
+ms.openlocfilehash: f6c030767ba64aa3c8acd47d5b358a4b385785ac
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74954532"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75814537"
 ---
 # <a name="create-sql-databases"></a>Vytvoření databáze SQL
 
-Samoobslužné databáze můžete vytvářet a spravovat na portálu User Portal. Uživatel Azure Stack potřebuje předplatné s nabídkou, která zahrnuje službu SQL Database.
+Samoobslužné databáze můžete vytvářet a spravovat na portálu User Portal. Uživatel centra Azure Stack potřebuje předplatné s nabídkou, která zahrnuje službu SQL Database.
 
-1. Přihlaste se k portálu [Azure Stack](azure-stack-overview.md) User Portal.
+1. Přihlaste se k portálu pro uživatele [centra Azure Stack](azure-stack-overview.md) .
 
 2. Vyberte **+ nový** &gt;**Data + úložiště** &gt; **SQL Server Database** &gt; **Přidat**.
 
@@ -40,10 +40,10 @@ Samoobslužné databáze můžete vytvářet a spravovat na portálu User Portal
 
 4. V části **vytvořit databázi**vyberte **SKU**. V části **Vybrat SKU**vyberte SKU pro vaši databázi.
 
-   ![Vytvořte databázi na portálu Azure Stack User Portal.](./media/azure-stack-sql-rp-deploy/newsqldb.png)
+   ![Vytvořte databázi na portálu User Portal pro Azure Stack hub.](./media/azure-stack-sql-rp-deploy/newsqldb.png)
 
    >[!NOTE]
-   >Když se do Azure Stack přidají hostitelské servery, přiřadí se mu SKU. Databáze se vytvářejí ve fondu hostitelských serverů v SKU.
+   >Jelikož se hostitelské servery přidávají do centra Azure Stack, přiřadí se mu SKU. Databáze se vytvářejí ve fondu hostitelských serverů v SKU.
 
 5. Vyberte **Přihlásit**se.
 
@@ -54,7 +54,7 @@ Samoobslužné databáze můžete vytvářet a spravovat na portálu User Portal
    >[!NOTE]
    >Tato nastavení jsou přihlašovací údaje pro ověřování SQL, které jsou vytvořené pro váš přístup jenom k této databázi. Přihlašovací uživatelské jméno musí být globálně jedinečné. Můžete znovu použít nastavení přihlášení pro další databáze, které používají stejnou SKU.
 
-   ![Vytvoření nového přihlášení k databázi v Azure Stack User Portal](./media/azure-stack-sql-rp-deploy/create-new-login.png)
+   ![Vytvoření nového přihlášení k databázi na portálu Azure Stack User Portal](./media/azure-stack-sql-rp-deploy/create-new-login.png)
 
 8. Kliknutím na **OK** dokončete nasazení databáze.
 

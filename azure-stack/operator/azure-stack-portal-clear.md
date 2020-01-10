@@ -1,6 +1,6 @@
 ---
-title: Vymaže data uživatelů portálu na vyžádání z Azure Stack. | Dokumenty Microsoft
-description: Jako operátor Azure Stack se naučíte, jak vymazat data uživatelů portálu, když to požadují Azure Stack uživatelé.
+title: Vymažte data uživatelů portálu na vyžádání z centra Azure Stack. | Dokumentace Microsoftu
+description: Jako operátor centra Azure Stack se naučíte, jak vymazat data uživatelů portálu, když to požadují uživatelé centra Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -17,16 +17,16 @@ ms.author: sethm
 ms.reviewer: troettinger
 ms.lastreviewed: 09/10/2019
 monikerRange: azs-1802
-ms.openlocfilehash: 2dd88656491a474e4082ff4e8321af836776b1f0
-ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
+ms.openlocfilehash: ebc3371983dce4c74e3a7c48d5fa3b17bac557a8
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72019113"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75810316"
 ---
-# <a name="clear-portal-user-data-from-azure-stack"></a>Vymazat data uživatelů portálu z Azure Stack
+# <a name="clear-portal-user-data-from-azure-stack-hub"></a>Vymaže data uživatelů portálu z centra Azure Stack.
 
-Azure Stack operátory můžou na vyžádání vymazat data uživatelů portálu, když je Azure Stack uživatelé požadují. Jako uživatel Azure Stack může být portál přizpůsobený připnutím dlaždic a změnou rozložení řídicího panelu. Uživatelé také mohou změnit motiv a nastavit výchozí jazyk tak, aby odpovídal osobním potřebám. 
+Operátory centra Azure Stack můžou na vyžádání vymazat data uživatelů portálu, když je Azure Stack uživatelé centra požadují. Jako uživatel centra Azure Stack můžete portál přizpůsobit pomocí připnutí dlaždic a změnou rozložení řídicího panelu. Uživatelé také mohou změnit motiv a nastavit výchozí jazyk tak, aby odpovídal osobním potřebám. 
 
 Uživatelská data portálu zahrnují oblíbené a nedávno použité prostředky na portálu Azure Stack User Portal. Tento článek popisuje, jak vymazat data uživatelů portálu.
 
@@ -37,10 +37,10 @@ Odebrání uživatelských nastavení portálu by se mělo provádět jenom po o
 
 ## <a name="requirements"></a>Požadavky
 
-- [Nainstalujte PowerShell pro Azure Stack](azure-stack-powershell-install.md).
-- [Stáhněte si nejnovější Azure Stack nástroje](azure-stack-powershell-download.md) z GitHubu.
+- [Nainstalujte PowerShell pro centrum Azure Stack](azure-stack-powershell-install.md).
+- [Stáhněte si nejnovější nástroje Azure Stack hub](azure-stack-powershell-download.md) z GitHubu.
 - Uživatelský účet musí stále existovat v adresáři.
-- Azure Stack přihlašovací údaje správce pro přístup ke koncovému bodu Správce prostředků správce.
+- Azure Stack přihlašovací údaje správce centra pro přístup ke koncovému bodu Správce prostředků správce.
 
 > [!NOTE]
 > Pokud se pokusíte odstranit informace o uživatelích portálu z uživatele, který byl pozván z adresáře hosta (víceklientské prostředí), musíte mít v tomto adresáři oprávnění ke čtení. Další informace najdete v části [scénář CSP dále v tomto článku](#clear-portal-user-data-in-guest-directory).
@@ -49,9 +49,9 @@ Odebrání uživatelských nastavení portálu by se mělo provádět jenom po o
 
 V tomto scénáři se předpokládá, že buď je výchozí předplatné poskytovatele a uživatel součástí stejného adresáře, nebo že máte oprávnění ke čtení adresáře, ve kterém se uživatel nachází.
 
-Než budete pokračovat, nezapomeňte [si stáhnout nejnovější verzi Azure Stack nástrojů](azure-stack-powershell-download.md) z GitHubu.
+Než budete pokračovat, nezapomeňte [si stáhnout nejnovější verzi nástrojů Azure Stack hub](azure-stack-powershell-download.md) z GitHubu.
 
-Pro účely tohoto postupu použijte počítač, který může komunikovat s Správce prostředků koncovým bodem Azure Stack správce.
+Pro účely tohoto postupu použijte počítač, který může komunikovat s Správce prostředků koncovým bodem Azure Stack centra pro správu.
 
 1. Otevřete relaci Windows PowerShellu se zvýšenými oprávněními (Spustit jako správce), přejděte do kořenové složky v adresáři **AzureStack-Tools-Master** a importujte požadovaný modul prostředí PowerShell:
 
@@ -66,7 +66,7 @@ Pro účely tohoto postupu použijte počítač, který může komunikovat s Spr
 
    $adminARMEndpoint = "https://adminmanagement.local.azurestack.external"
 
-   ## Replace the following value with the Azure Stack directory tenant ID.
+   ## Replace the following value with the Azure Stack Hub directory tenant ID.
    $azureStackDirectoryTenantId = "f5025bf2-547f-4b49-9693-6420c1d5e4ca"
 
    ## Replace the following value with the user directory tenant ID.
@@ -82,15 +82,15 @@ Pro účely tohoto postupu použijte počítač, který může komunikovat s Spr
    ```
 
    > [!NOTE]
-   > Parametr `azureStackDirectoryTenantId` je volitelný. Pokud tuto hodnotu nezadáte, skript vyhledá hlavní název uživatele ve všech adresářích klienta registrovaných v Azure Stack a pak vymaže data portálu pro všechny odpovídající uživatele.
+   > Parametr `azureStackDirectoryTenantId` je volitelný. Pokud tuto hodnotu nezadáte, skript vyhledá hlavní název uživatele ve všech adresářích tenanta zaregistrovaných v Azure Stackovém centru a pak vymaže data portálu pro všechny odpovídající uživatele.
 
 ## <a name="clear-portal-user-data-in-guest-directory"></a>Vymazání uživatelských dat portálu v adresáři hosta
 
-V tomto scénáři nemá operátor Azure Stack žádný přístup k adresáři hosta, ve kterém se nachází uživatel. Toto je běžný scénář, pokud jste poskytovatelem Cloud Solution Provider (CSP).
+V tomto scénáři nemá operátor centra Azure Stack žádný přístup k adresáři hosta, ve kterém se nachází uživatel. Toto je běžný scénář, pokud jste poskytovatelem Cloud Solution Provider (CSP).
 
-Aby mohl operátor Azure Stack odebrat uživatelská data portálu, je nutné zadat alespoň ID uživatelského objektu.
+Pro operátor centra Azure Stack pro odebrání uživatelských dat portálu je nutné zadat alespoň ID uživatelského objektu.
 
-Uživatel musí zadat dotaz na ID objektu a poskytnout ho operátoru Azure Stack. Operátor nemá přístup k adresáři, ve kterém se nachází uživatel.
+Uživatel musí zadat dotaz na ID objektu a poskytnout mu operátor centra Azure Stack. Operátor nemá přístup k adresáři, ve kterém se nachází uživatel.
 
 ### <a name="user-retrieves-the-user-object-id"></a>Uživatel načte ID objektu uživatele.
 
@@ -118,11 +118,11 @@ Uživatel musí zadat dotaz na ID objektu a poskytnout ho operátoru Azure Stack
    ```
 
    > [!NOTE]
-   > Jako uživatel musíte zadat ID objektu uživatele, který je výstupem předchozího skriptu, k operátoru Azure Stack.
+   > Jako uživatel musíte zadat ID objektu uživatele, což je výstup předchozího skriptu, do operátoru centra Azure Stack.
 
-## <a name="azure-stack-operator-removes-the-portal-user-data"></a>Operátor Azure Stack odebere uživatelská data portálu.
+## <a name="azure-stack-hub-operator-removes-the-portal-user-data"></a>Operátor centra Azure Stack odebere data uživatelů portálu.
 
-Po přijetí ID objektu uživatele jako operátoru Azure Stack spusťte následující příkazy pro odebrání uživatelských dat portálu:
+Po přijetí ID objektu uživatele jako operátoru centra Azure Stack spusťte následující příkazy pro odebrání uživatelských dat portálu:
 
 1. Otevřete relaci Windows PowerShellu se zvýšenými oprávněními (Spustit jako správce), přejděte do kořenové složky v adresáři **AzureStack-Tools-Master** a pak importujte potřebný modul PowerShellu.
 
@@ -136,7 +136,7 @@ Po přijetí ID objektu uživatele jako operátoru Azure Stack spusťte následu
    ## The following Azure Resource Manager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
    $AzsAdminARMEndpoint = "https://adminmanagement.local.azurestack.external"
 
-   ## Replace the following value with the Azure Stack directory tenant ID.
+   ## Replace the following value with the Azure Stack Hub directory tenant ID.
    $AzsAdminDirectoryTenantId = "f5025bf2-547f-4b49-9693-6420c1d5e4ca"
    
    ## Replace the following value with the directory tenant ID of the user to clear.
@@ -152,4 +152,4 @@ Po přijetí ID objektu uživatele jako operátoru Azure Stack spusťte následu
 
 ## <a name="next-steps"></a>Další kroky
 
-- [Zaregistrujte Azure Stack s Azure](azure-stack-registration.md) a naplňte na [web Azure Stack Marketplace](azure-stack-marketplace.md) položkami, které nabídnou vašim uživatelům.
+- [Zaregistrujte Azure Stack hub pomocí Azure](azure-stack-registration.md) a naplňte na [web centra Azure Stack](azure-stack-marketplace.md) a položky, které nabídnou vašim uživatelům.

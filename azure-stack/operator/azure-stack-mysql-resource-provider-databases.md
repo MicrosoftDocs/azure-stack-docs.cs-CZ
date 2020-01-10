@@ -1,6 +1,6 @@
 ---
-title: Vytváření databází MySQL v Azure Stack | Microsoft Docs
-description: Naučte se vytvářet a spravovat databáze MySQL zřízené pomocí poskytovatele prostředků adaptéru MySQL v Azure Stack.
+title: Vytváření databází MySQL v centru Azure Stack | Microsoft Docs
+description: Naučte se vytvářet a spravovat databáze MySQL zřízené pomocí poskytovatele prostředků adaptéru MySQL v Azure Stack hub.
 services: azure-stack
 documentationCenter: ''
 author: mattbriggs
@@ -15,20 +15,20 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 9daaea395ee28da79da1d6fd553d2e0b30e28156
-ms.sourcegitcommit: a23b80b57668615c341c370b70d0a106a37a02da
+ms.openlocfilehash: 4bdbc8007be3aae0ec6313b02138eb043b5d393c
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72682237"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75811375"
 ---
-# <a name="create-mysql-databases-in-azure-stack"></a>Vytváření databází MySQL v Azure Stack
-Uživatel Azure Stack, který se přihlásil k odběru nabídky, která obsahuje databázovou službu MySQL, může vytvořit a spravovat samoobslužné databáze MySQL na portálu User Portal.
+# <a name="create-mysql-databases-in-azure-stack-hub"></a>Vytváření databází MySQL v centru Azure Stack
+Uživatel centra Azure Stack, který se přihlásí k odběru nabídky, která obsahuje databázovou službu MySQL, může vytvořit a spravovat samoobslužné databáze MySQL na portálu User Portal.
 
 ## <a name="create-a-mysql-database"></a>Vytvoření databáze MySQL
 
-1. Přihlaste se k portálu Azure Stack User Portal.
-2. Vyberte **+ vytvořit prostředek** > **Data + úložiště** >  úložiště**MySQL** > **Přidat**.
+1. Přihlaste se k portálu pro uživatele centra Azure Stack.
+2. Vyberte **+ vytvořit prostředek** > **Data + úložiště** > **MySQL Database** > **Přidat**.
 3. V části **vytvořit databázi MySQL**zadejte název databáze a nakonfigurujte další nastavení podle požadavků vašeho prostředí.
 
     ![Vytvoření testovací databáze MySQL](./media/azure-stack-mysql-rp-deploy/mysql-create-db.png)
@@ -38,7 +38,7 @@ Uživatel Azure Stack, který se přihlásil k odběru nabídky, která obsahuje
     ![Vybrat SKU MySQL](./media/azure-stack-mysql-rp-deploy/mysql-select-sku.png)
 
     >[!Note]
-    >Když se do Azure Stack přidají hostitelské servery, přiřadí se mu SKU. Databáze se vytvářejí ve fondu hostitelských serverů v SKU.
+    >Jelikož se hostitelské servery přidávají do centra Azure Stack, přiřadí se mu SKU. Databáze se vytvářejí ve fondu hostitelských serverů v SKU.
 
 5. V části **přihlášení**vyberte ***konfigurovat požadovaná nastavení***.
 6. V části **Vybrat přihlášení**můžete zvolit existující přihlášení nebo vybrat **+ vytvořit nové přihlášení** a nastavit nové přihlášení.  Zadejte přihlašovací jméno a **heslo** **databáze** a pak vyberte **OK**.
@@ -58,7 +58,7 @@ Po nasazení databáze si poznamenejte **připojovací řetězec** v části **z
 
 Heslo můžete upravit tak, že ho změníte v instanci serveru MySQL.
 
-1. Vyberte **prostředky pro správu** > **hostující servery MySQL**. Vyberte hostitelský server.
+1. Vyberte **prostředky pro správu** > **hostitelských serverech MySQL**. Vyberte hostitelský server.
 2. V části **Nastavení**vyberte **heslo**.
 3. V části **heslo**zadejte nové heslo a pak vyberte **Uložit**.
 

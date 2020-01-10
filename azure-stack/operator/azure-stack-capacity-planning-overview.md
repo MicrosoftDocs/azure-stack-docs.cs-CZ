@@ -1,6 +1,6 @@
 ---
-title: Přehled plánování kapacity pro Azure Stack | Dokumentace Microsoftu
-description: Další informace o plánování kapacity pro nasazení Azure Stack.
+title: Přehled plánování kapacity pro centrum Azure Stack | Microsoft Docs
+description: Přečtěte si o plánování kapacity pro Azure Stack nasazení centra.
 services: azure-stack
 documentationcenter: ''
 author: prchint
@@ -16,28 +16,28 @@ ms.date: 05/31/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 05/31/2019
-ms.openlocfilehash: 335e92fcdb2eadd8bebfbfd3fb2e3b31edd00734
-ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
+ms.openlocfilehash: 22226425adf17ef031a300c65e6d5fc1c173dfda
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67131342"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75817546"
 ---
-# <a name="overview-of-azure-stack-capacity-planning"></a>Přehled plánování kapacity služby Azure Stack
+# <a name="overview-of-azure-stack-hub-capacity-planning"></a>Přehled plánování kapacity centra Azure Stack
 
-Když vyhodnocujete vaše řešení s Azure Stack, vezměte v úvahu možnosti konfigurace hardwaru, které mají přímý vliv na celkové kapacity cloudu služby Azure Stack. 
+Když vyhodnocujete řešení centra Azure Stack, zvažte volby konfigurace hardwaru, které mají přímý vliv na celkovou kapacitu cloudu Azure Stack hub. 
 
-Například musíte rozhodovat o procesoru, paměti hustota, konfiguraci úložiště a celkové řešení škálování nebo počet serverů. Na rozdíl od tradiční virtualizaci řešení jednoduché aritmetické operace těchto komponent k určení využitelné kapacity neplatí. Azure Stack je vytvořená tak být hostitelem komponent infrastruktury nebo správu v rámci vlastním řešením. Navíc některé kapacitu tohoto řešení je vyhrazený pro podporu odolnost proti chybám, aktualizace softwaru řešení tak, aby se minimalizovalo přerušení úlohy klientů. 
+Například je třeba provést volby týkající se CPU, hustoty paměti, konfigurace úložiště a celkového rozsahu řešení nebo počtu serverů. Na rozdíl od tradičního řešení virtualizace neplatí jednoduché aritmetické operace s určením použitelné kapacity. Centrum Azure Stack je postavené na hostování infrastruktury nebo součástí správy v rámci samotného řešení. Část kapacity řešení je také vyhrazena pro zajištění odolnosti a aktualizace softwaru tohoto řešení způsobem, který minimalizuje přerušení zatížení klientů. 
 
 > [!IMPORTANT]
-> Tato kapacita informace o plánování a [Azure Stack Capacity Planner](https://aka.ms/azstackcapacityplanner) jsou výchozím bodem pro rozhodnutí o plánování a konfigurace Azure Stack. Tyto informace nemají sloužit jako náhradu pro zkoumání a analýzy. Společnost Microsoft neposkytuje žádná vyjádření či záruky, vyjádřené nebo předpokládané, s ohledem na uvedené informace.
+> Tyto informace o plánování kapacity a [Capacity Planner centra Azure Stack](https://aka.ms/azstackcapacityplanner) jsou výchozím bodem pro rozhodování Azure Stack plánování a konfigurace centra. Tyto informace nemají sloužit jako náhrada za vaše vlastní šetření a analýzu. Společnost Microsoft neposkytuje žádné reprezentace ani záruky, vyjádřené ani odvozené, s ohledem na informace, které jsou zde k dispozici.
  
-Řešení s Azure Stack je vytvořený jako hyperkonvergovaného clusteru výpočetních operací a úložiště. Konvergence umožňuje sdílení kapacitu hardwaru v clusteru, uvedené jako *jednotka škálování*. Jednotky škálování ve službě Azure Stack, poskytuje dostupnost a škálovatelnost prostředků. Jednotka škálování se skládá ze sady Azure Stack servery, označuje jako *hostitele*. Software infrastruktury hostována v rámci sady virtuálních počítačů (VM) a sdílí stejné fyzické servery jako virtuální počítače klientů. Všechny virtuální počítače Azure Stack spravuje pak jednotka škálování technologie clusteringu Windows Server a jednotlivých instancí technologie Hyper-V. 
+Řešení centra Azure Stack je postavené jako předem sblížený cluster výpočetních a úložných prostředků. Konvergence umožňuje sdílení kapacity hardwaru v clusteru, označované jako *jednotka škálování*. V Azure Stackovém centru poskytuje jednotka škálování dostupnost a škálovatelnost prostředků. Jednotka škálování se skládá ze sady Azure Stack hub serverů, které se označují jako *hostitelé*. Software infrastruktury je hostovaný v rámci sady virtuálních počítačů (VM) a sdílí stejné fyzické servery jako virtuální počítače klientů. Všechny virtuální počítače centra Azure Stack se pak spravují pomocí technologií Windows Server Clustering jednotky škálování a jednotlivých instancí Hyper-V. 
 
-Jednotka škálování zjednodušuje pořízení a správu služby Azure Stack. Jednotka škálování umožňuje také pro přesun a škálovatelnost všech služeb (tenantů a infrastruktury) ve službě Azure Stack. 
+Jednotka škálování zjednodušuje Azure Stack centrum pro získávání a správu. Jednotka škálování také umožňuje přesun a škálovatelnost všech služeb (klientů a infrastruktury) v rámci centra Azure Stack. 
 
-Další podrobnosti o jednotlivých součástech naleznete v následujících tématech:
+Následující témata obsahují další podrobnosti o jednotlivých součástech:
 
-- [Výpočetní prostředky Azure Stack](azure-stack-capacity-planning-compute.md)
-- [Úložiště Azure Stack](azure-stack-capacity-planning-storage.md)
-- [Capacity Planner služby Azure Stack](azure-stack-capacity-planner.md)
+- [Výpočetní prostředí centra Azure Stack](azure-stack-capacity-planning-compute.md)
+- [Azure Stack úložiště centra](azure-stack-capacity-planning-storage.md)
+- [Capacity Planner centra Azure Stack](azure-stack-capacity-planner.md)

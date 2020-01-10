@@ -1,6 +1,6 @@
 ---
-title: Velikosti virtuálních počítačů podporované v Azure Stack | Microsoft Docs
-description: Referenční informace o podporovaných velikostech virtuálních počítačů v Azure Stack.
+title: Podporované velikosti virtuálních počítačů v centru Azure Stack | Microsoft Docs
+description: Referenční informace o podporovaných velikostech virtuálních počítačů v centru Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,20 +14,20 @@ ms.date: 12/3/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 12/3/2019
-ms.openlocfilehash: d38168fee437b27dfde8d5381c960b8e2a237487
-ms.sourcegitcommit: 757f612663059f1af8c535d8b37f63a8cf4a5e7d
+ms.openlocfilehash: 0e657293a23326bffb6ed6d7e5a2e581fbe3a1cb
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74784089"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75815472"
 ---
-# <a name="vm-sizes-supported-in-azure-stack"></a>Podporované velikosti virtuálních počítačů v Azure Stack
+# <a name="vm-sizes-supported-in-azure-stack-hub"></a>Podporované velikosti virtuálních počítačů v centru Azure Stack
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
-V tomto článku jsou uvedeny velikosti virtuálních počítačů, které jsou k dispozici v Azure Stack. Tento článek vám může pomoci zajistit, aby váš výběr virtuálního počítače podporoval vaše řešení Azure Stack.
+V tomto článku jsou uvedeny velikosti virtuálních počítačů, které jsou k dispozici v Azure Stack hub. Tento článek vám může pomoci zajistit, aby váš výběr virtuálního počítače podporoval vaše řešení centra Azure Stack.
 
-Disk IOPS (vstupně-výstupní operace za sekundu) na Azure Stack je funkce velikosti virtuálního počítače místo typu disku. To znamená, že pro virtuální počítač s Standard_Fs Series bez ohledu na to, jestli pro daný typ disku zvolíte SSD nebo HDD, je limit IOPS pro jeden další datový disk 2300 IOPS. Stanovená omezení IOPS je limit (maximální možný), aby se zabránilo sousedním sousedům. Nejedná se o záruku za IOPS, kterou získáte na konkrétní velikosti virtuálního počítače.
+Disk IOPS (vstupně-výstupní operace za sekundu) na rozbočovači Azure Stack je funkce velikosti virtuálního počítače místo typu disku. To znamená, že pro virtuální počítač s Standard_Fs Series bez ohledu na to, jestli pro daný typ disku zvolíte SSD nebo HDD, je limit IOPS pro jeden další datový disk 2300 IOPS. Stanovená omezení IOPS je limit (maximální možný), aby se zabránilo sousedním sousedům. Nejedná se o záruku za IOPS, kterou získáte na konkrétní velikosti virtuálního počítače.
 
 ## <a name="vm-general-purpose"></a>Obecné účely virtuálního počítače
 
@@ -36,15 +36,15 @@ Velikosti virtuálních počítačů pro obecné účely představují vyvážen
 ### <a name="basic-a"></a>Basic A
 
 > [!NOTE]
-> *Základní A* Velikosti virtuálních počítačů se při [vytváření služby Virtual Machine Scale Sets](../operator/azure-stack-compute-add-scalesets.md) (VMSS) prostřednictvím portálu neúčtují. Pokud chcete vytvořit VMSS s touto velikostí, použijte PowerShell nebo šablonu.
+> *Základní A* Velikosti virtuálních počítačů se při [vytváření služby Virtual Machine Scale Sets](../operator/azure-stack-compute-add-scalesets.md) (VMSS) prostřednictvím portálu neúčtují. Pokud chcete vytvořit VMSS se tato velikost, pomocí Powershellu nebo šablony.
 
 |Velikost – Size\Name |vCPU     |Paměť | Max. velikost dočasného disku | Maximální propustnost disku s operačním systémem: (IOPS) | Maximální propustnost dočasného úložiště (IOPS) | Maximální propustnost datového disku (IOPS) | Maximální počet síťových karet |    
 |-----------------|-----|---------|---------|-----|------|-----------|----|
-|**A0 \ Basic_A0**  |1\. místo    |768 MB   | 20 GB   |300  | 300  |1/1x300  |2   |
-|**A1 \ Basic_A1**  |1\. místo    |1,75 GB  | 40 GB   |300  | 300  |2/2x300  |2   |
-|**A2 \ Basic_A2**  |2    |3,5 GB   | 60 GB   |300  | 300  |4/4x300  |2   |
-|**A3 \ Basic_A3**  |4    |7 GB     | 120 GB  |300  | 300  |8/8x300  |2   |
-|**A4 \ Basic_A4**  |8    |14 GB    | 240 GB  |300  | 300  |16/16X300 |2   |
+|**A0\Basic_A0**  |1\. místo    |768 MB   | 20 GB   |300  | 300  |1/1x300  |2   |
+|**A1\Basic_A1**  |1\. místo    |1,75 GB  | 40 GB   |300  | 300  |2/2x300  |2   |
+|**A2\Basic_A2**  |2    |3,5 GB   | 60 GB   |300  | 300  |4/4x300  |2   |
+|**A3\Basic_A3**  |4    |7 GB     | 120 GB  |300  | 300  |8/8x300  |2   |
+|**A4\Basic_A4**  |8    |14 GB    | 240 GB  |300  | 300  |16/16X300 |2   |
 
 ### <a name="standard-a"></a>Standardní A 
 |Velikost     |vCPU     |Paměť (GiB) | Dočasné úložiště (GiB)  | Maximální propustnost disku s operačním systémem (IOPS) | Maximální propustnost dočasného úložiště (IOPS) | Maximální počet datových disků/propustnost (IOPS) | Maximální počet síťových karet |    
@@ -59,7 +59,7 @@ Velikosti virtuálních počítačů pro obecné účely představují vyvážen
 |**Standard_A7** |8 |56    |605 |500 |500 |16×500 |4 |
 
 ### <a name="av2-series"></a>Av2-series
-*Vyžaduje Azure Stack verze 1804 nebo novější.*
+*Vyžaduje centrum Azure Stack verze 1804 nebo novější.*
 
 |Velikost     |vCPU     |Paměť (GiB) | Dočasné úložiště (GiB)  | Maximální propustnost disku s operačním systémem (IOPS) | Maximální propustnost dočasného úložiště (IOPS) | Maximální počet datových disků/propustnost (IOPS) | Maximální počet síťových karet |
 |-----------------|----|----|-----|-----|------|--------------|---------|
@@ -83,10 +83,10 @@ Velikosti virtuálních počítačů pro obecné účely představují vyvážen
 ### <a name="ds-series"></a>Řada DS
 |Velikost     |vCPU     |Paměť (GiB) | Dočasné úložiště (GiB)  | Maximální propustnost disku s operačním systémem (IOPS) | Maximální propustnost dočasného úložiště (IOPS) | Maximální počet datových disků/propustnost (IOPS) | Maximální počet síťových karet |
 |-----------------|----|----|-----|-----|------|-------------|---------|
-|**Standard_DS1** |1\. místo   |3,5 |7    |1 000 |4000  |4/4x2300   |2 |
+|**Standard_DS1** |1\. místo   |3,5 |7    |1 000 |4000  |4 / 4x2300   |2 |
 |**Standard_DS2** |2   |7   |14   |1 000 |8000  |8/8x2300   |2 |
-|**Standard_DS3** |4   |14  |28   |1 000 |16000 |16/16x2300 |4 |
-|**Standard_DS4** |8   |28  |56   |1 000 |32000 |32/32x2300 |8 |
+|**Standard_DS3** |4   |14  |28   |1 000 |16000 |16 / 16x2300 |4 |
+|**Standard_DS4** |8   |28  |56   |1 000 |32000 |32 / 32x2300 |8 |
 
 ### <a name="dv2-series"></a>Řada Dv2
 |Velikost     |vCPU     |Paměť (GiB) | Dočasné úložiště (GiB)  | Maximální propustnost disku s operačním systémem (IOPS) | Maximální propustnost dočasného úložiště (IOPS) | Maximální počet datových disků/propustnost (IOPS) | Maximální počet síťových karet |
@@ -100,16 +100,16 @@ Velikosti virtuálních počítačů pro obecné účely představují vyvážen
 ### <a name="dsv2-series"></a>Řada DSv2
 |Velikost     |vCPU     |Paměť (GiB) | Dočasné úložiště (GiB)  | Maximální propustnost disku s operačním systémem (IOPS) | Maximální propustnost dočasného úložiště (IOPS) | Maximální počet datových disků/propustnost (IOPS) | Maximální počet síťových karet |
 |--------------------|----|----|----|-----|------|-------------|---------|
-|**Standard_DS1_v2** |1\. místo   |3,5 |7   |1 000 |4000  |4/4x2300   |2 |
+|**Standard_DS1_v2** |1\. místo   |3,5 |7   |1 000 |4000  |4 / 4x2300   |2 |
 |**Standard_DS2_v2** |2   |7   |14  |1 000 |8000  |8/8x2300   |2 |
-|**Standard_DS3_v2** |4   |14  |28  |1 000 |16000 |16/16x2300 |4 |
-|**Standard_DS4_v2** |8   |28  |56  |1 000 |32000 |32/32x2300 |8 |
-|**Standard_DS5_v2** |16  |56  |112 |1 000 |64000 |64/64x2300 |8 |
+|**Standard_DS3_v2** |4   |14  |28  |1 000 |16000 |16 / 16x2300 |4 |
+|**Standard_DS4_v2** |8   |28  |56  |1 000 |32000 |32 / 32x2300 |8 |
+|**Standard_DS5_v2** |16  |56  |112 |1 000 |64000 |64 / 64x2300 |8 |
 
 
 ## <a name="compute-optimized"></a>Výpočtově optimalizované
 ### <a name="f-series"></a>Řada F
-*Vyžaduje Azure Stack verze 1804 nebo novější.*
+*Vyžaduje centrum Azure Stack verze 1804 nebo novější.*
 
 |Velikost     |vCPU     |Paměť (GiB) | Dočasné úložiště (GiB)  | Maximální propustnost disku s operačním systémem (IOPS) | Maximální propustnost dočasného úložiště (IOPS) | Maximální počet datových disků/propustnost (IOPS) | Maximální počet síťových karet |
 |-----------------|----|----|-----|----|------|------------|---------|
@@ -121,28 +121,28 @@ Velikosti virtuálních počítačů pro obecné účely představují vyvážen
 
 
 ### <a name="fs-series"></a>Řada Fs
-*Vyžaduje Azure Stack verze 1804 nebo novější.*  
+*Vyžaduje centrum Azure Stack verze 1804 nebo novější.*  
 
 |Velikost     |vCPU     |Paměť (GiB) | Dočasné úložiště (GiB)  | Maximální propustnost disku s operačním systémem (IOPS) | Maximální propustnost dočasného úložiště (IOPS) | Maximální počet datových disků/propustnost (IOPS) | Maximální počet síťových karet |
 |------------------|----|----|----|-----|------|-------------|---------|
-|**Standard_F1s**  |1\. místo   |2   |4   |1 000 |4000  |4/4x2300   |2 |
+|**Standard_F1s**  |1\. místo   |2   |4   |1 000 |4000  |4 / 4x2300   |2 |
 |**Standard_F2s**  |2   |4   |8   |1 000 |8000  |8/8x2300   |2 |
-|**Standard_F4s**  |4   |8   |16  |1 000 |16000 |16/16x2300 |4 |
-|**Standard_F8s**  |8   |16  |32  |1 000 |32000 |32/32x2300 |8 |
-|**Standard_F16s** |16  |32  |64  |1 000 |64000 |64/64x2300 |8 |
+|**Standard_F4s**  |4   |8   |16  |1 000 |16000 |16 / 16x2300 |4 |
+|**Standard_F8s**  |8   |16  |32  |1 000 |32000 |32 / 32x2300 |8 |
+|**Standard_F16s** |16  |32  |64  |1 000 |64000 |64 / 64x2300 |8 |
 
 
 ### <a name="fsv2-series"></a>Fsv2-series
-*Vyžaduje Azure Stack verze 1804 nebo novější.* 
+*Vyžaduje centrum Azure Stack verze 1804 nebo novější.* 
 
 |Velikost     |vCPU     |Paměť (GiB) | Dočasné úložiště (GiB)  | Maximální propustnost disku s operačním systémem (IOPS) | Maximální propustnost dočasného úložiště (IOPS) | Maximální počet datových disků/propustnost (IOPS) | Maximální počet síťových karet |
 |---------------------|----|----|-----|-----|-------|--------------|---------|
-|**Standard_F2s_v2**  |2   |4   |16   |1 000 |4000   |4/4x2300    |2 |
+|**Standard_F2s_v2**  |2   |4   |16   |1 000 |4000   |4 / 4x2300    |2 |
 |**Standard_F4s_v2**  |4   |8   |32   |1 000 |8000   |8/8x2300    |2 |
-|**Standard_F8s_v2**  |8   |16  |64   |1 000 |16000  |16/16x2300  |4 |
-|**Standard_F16s_v2** |16  |32  |128  |1 000 |32000  |32/32x2300  |4 |
-|**Standard_F32s_v2** |32  |64  |256  |1 000 |64000  |32/32x2300  |8 |
-|**Standard_F64s_v2** |64  |128 |512  |1 000 |128000 |32/32x2300  |8 |
+|**Standard_F8s_v2**  |8   |16  |64   |1 000 |16000  |16 / 16x2300  |4 |
+|**Standard_F16s_v2** |16  |32  |128  |1 000 |32000  |32 / 32x2300  |4 |
+|**Standard_F32s_v2** |32  |64  |256  |1 000 |64000  |32 / 32x2300  |8 |
+|**Standard_F64s_v2** |64  |128 |512  |1 000 |128000 |32 / 32x2300  |8 |
 
 
 ## <a name="memory-optimized"></a>Paměťově optimalizované
@@ -161,11 +161,11 @@ Paměťově optimalizované velikosti virtuálních počítačů poskytují vyso
 |Velikost     |vCPU     |Paměť (GiB) | Dočasné úložiště (GiB)  | Maximální propustnost disku s operačním systémem (IOPS) | Maximální propustnost dočasného úložiště (IOPS) | Maximální počet datových disků/propustnost (IOPS) | Maximální počet síťových karet |
 |-------------------|---|----|----|--------|------|-------------|---------|
 |**Standard_DS11**  |2  |14  |28  |1 000    |8000  |8/8x2300   |2 |
-|**Standard_DS12**  |4  |28  |56  |1 000    |12000 |16/16x2300 |4 |
-|**Standard_DS13**  |8  |56  |112 |1 000    |32000 |32/32x2300 |8 |
-|**Standard_DS14**  |16 |112 |224 |1 000    |64000 |64/64x2300 |8 |
+|**Standard_DS12**  |4  |28  |56  |1 000    |12000 |16 / 16x2300 |4 |
+|**Standard_DS13**  |8  |56  |112 |1 000    |32000 |32 / 32x2300 |8 |
+|**Standard_DS14**  |16 |112 |224 |1 000    |64000 |64 / 64x2300 |8 |
 
-### <a name="mo-dv2"></a>Dv2-Series
+### <a name="mo-dv2"></a>Dv2-series
 |Velikost     |vCPU     |Paměť (GiB) | Dočasné úložiště (GiB)  | Maximální propustnost disku s operačním systémem (IOPS) | Maximální propustnost dočasného úložiště (IOPS) | Maximální počet datových disků/propustnost (IOPS) | Maximální počet síťových karet |
 |--------------------|----|----|-----|----|-------|-------------|---------|
 |**Standard_D11_v2** |2   |14  |100  |500 |6000   |8 / 8×500    |2 |
@@ -177,12 +177,12 @@ Paměťově optimalizované velikosti virtuálních počítačů poskytují vyso
 ### <a name="mo-dsv2"></a>DSv2-Series
 |Velikost     |vCPU     |Paměť (GiB) | Dočasné úložiště (GiB)  | Maximální propustnost disku s operačním systémem (IOPS) | Maximální propustnost dočasného úložiště (IOPS) | Maximální počet datových disků/propustnost (IOPS) | Maximální počet síťových karet |
 |---------------------|----|----|-----|-----|-------|--------------|---------|
-|**Standard_DS11_v2** |2   |14  |28   |1 000 |8000   |4/4x2300    |2 |
+|**Standard_DS11_v2** |2   |14  |28   |1 000 |8000   |4 / 4x2300    |2 |
 |**Standard_DS12_v2** |4   |28  |56   |1 000 |16000  |8/8x2300    |4 |
-|**Standard_DS13_v2** |8   |56  |112  |1 000 |32000  |16/16x2300  |8 |
-|**Standard_DS14_v2** |16  |112 |224  |1 000 |64000  |32/32x2300  |8 |
+|**Standard_DS13_v2** |8   |56  |112  |1 000 |32000  |16 / 16x2300  |8 |
+|**Standard_DS14_v2** |16  |112 |224  |1 000 |64000  |32 / 32x2300  |8 |
 
 
 ## <a name="next-steps"></a>Další kroky
 
-[Funkce Azure Stack virtuálního počítače](azure-stack-vm-considerations.md)
+[Funkce virtuálního počítače centra Azure Stack](azure-stack-vm-considerations.md)

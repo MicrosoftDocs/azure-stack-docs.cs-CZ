@@ -1,6 +1,6 @@
 ---
-title: Správa kapacity fyzické paměti v Azure Stack | Microsoft Docs
-description: Naučte se monitorovat a spravovat fyzickou paměť a kapacitu v Azure Stack.
+title: Správa kapacity fyzické paměti v centru Azure Stack | Microsoft Docs
+description: Naučte se monitorovat a spravovat fyzickou paměť a kapacitu v Azure Stack hub.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,18 +16,18 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: f72ad1b86bf8ef84e64f79603c27d14571b00838
-ms.sourcegitcommit: b5eb024d170f12e51cc852aa2c72eabf26792d8d
+ms.openlocfilehash: 83b9383b8afe0363d9a7bc436dde73dcbab54547
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72534164"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75817070"
 ---
-# <a name="manage-physical-memory-capacity-in-azure-stack"></a>Správa kapacity fyzické paměti v Azure Stack
+# <a name="manage-physical-memory-capacity-in-azure-stack-hub"></a>Správa kapacity fyzické paměti v centru Azure Stack
 
-*Platí pro: Azure Stack integrovaných systémů*
+*Platí pro: Azure Stack integrovaných systémů centra*
 
-Chcete-li zvýšit celkovou dostupnou kapacitu paměti v Azure Stack, můžete přidat více paměti. V Azure Stack se fyzický server označuje také jako *uzel jednotky škálování*. Všechny uzly jednotek škálování, které jsou členy jedné jednotky škálování, musí mít stejnou velikost paměti.
+Pokud chcete zvýšit celkovou dostupnou kapacitu paměti v Azure Stackovém centru, můžete přidat více paměti. V Azure Stackovém centru se váš fyzický server označuje také jako *uzel jednotky škálování*. Všechny uzly jednotek škálování, které jsou členy jedné jednotky škálování, musí mít stejnou velikost paměti.
 
 > [!note]  
 > Než budete pokračovat, přečtěte si dokumentaci výrobce hardwaru a zjistěte, jestli váš výrobce podporuje upgrade fyzické paměti. Smlouva o podpoře dodavatele hardwaru OEM může vyžadovat, aby dodavatel prováděl umístění racku fyzického serveru a aktualizaci firmwaru zařízení.
@@ -45,11 +45,11 @@ Následující kroky obsahují podrobný přehled procesu přidání paměti.
 > [!Warning]
 > Celá jednotka škálování musí být vypnutá, protože při upgradu do paměti se nepodporuje postupná aktualizace.
 
-1. Zastavte Azure Stack pomocí kroků popsaných v článku [spuštění a zastavení Azure Stack](azure-stack-start-and-stop.md) .
+1. Zastavte Azure Stack centrum pomocí kroků popsaných v článku [spuštění a zastavení Azure Stack centra](azure-stack-start-and-stop.md) .
 2. Upgradujte paměť na každém fyzickém počítači pomocí dokumentace výrobce hardwaru.
-3. Spusťte Azure Stack podle kroků v článku [spuštění a zastavení Azure Stack](azure-stack-start-and-stop.md) .
+3. Pomocí postupu v článku [spuštění a zastavení Azure Stack centra](azure-stack-start-and-stop.md) spusťte Azure Stack centrum.
 
 ## <a name="next-steps"></a>Další kroky
 
- - Informace o tom, jak spravovat účty úložiště v Azure Stack, najdete v tématu [Správa účtů úložiště v Azure Stack](azure-stack-manage-storage-accounts.md).
- - Informace o tom, jak monitorovat a spravovat kapacitu úložiště pro nasazení Azure Stack, najdete v tématu [Správa kapacity úložiště pro Azure Stack](azure-stack-manage-storage-shares.md).
+ - Informace o tom, jak spravovat účty úložiště v centru Azure Stack, najdete v tématu [Správa účtů úložiště v centru Azure Stack](azure-stack-manage-storage-accounts.md).
+ - Informace o tom, jak monitorovat a spravovat kapacitu úložiště nasazení centra Azure Stack, najdete v tématu [Správa kapacity úložiště pro centrum Azure Stack](azure-stack-manage-storage-shares.md).

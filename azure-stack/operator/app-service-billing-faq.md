@@ -1,6 +1,6 @@
 ---
-title: Azure App Service na fakturační Přehled služby Azure Stack a nejčastější dotazy | Dokumentace Microsoftu
-description: Informace o fungování služby Azure App Service ve službě Azure Stack měří a účtují.
+title: Přehled a časté otázky týkající se fakturace centra Azure Stack Azure App Service | Microsoft Docs
+description: Podrobnosti o tom, jak se Azure App Service v centru Azure Stack měří a účtuje.
 services: azure-stack
 documentationcenter: ''
 author: apwestgarth
@@ -16,88 +16,88 @@ ms.date: 06/10/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: 8b17020419183067793309055a6487f31da51246
-ms.sourcegitcommit: d67ae2877e3b049bf70b2567b917e55394fb8984
+ms.openlocfilehash: c67b2be49babda140b1440356d63af5abbbbfdfb
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67712677"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75808460"
 ---
-# <a name="azure-app-service-on-azure-stack-billing-overview-and-faq"></a>Přehled fakturace Azure Stack a nejčastější dotazy k službě Azure App Service
+# <a name="azure-app-service-on-azure-stack-hub-billing-overview-and-faq"></a>Přehled a nejčastější dotazy týkající se fakturace centra Azure Stack Azure App Service
 
-*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
-Tento článek popisuje, jak se účtují operátorům cloudu pro nabídky Azure App Service ve službě Azure Stack a jak se fakturovat svým klientům pro jejich používání služby.
+V tomto článku se dozvíte, jak se operátoři cloudu účtují za nabídku Azure App Service v centru Azure Stack a jak můžou vyúčtováním svých tenantů jejich používání.
 
 ## <a name="billing-overview"></a>Přehled fakturace
 
-Operátoři Azure stacku cloudu zvolit pro nasazení služby Azure App Service ve službě Azure Stack do své služby Azure Stack razítka nabízet zákazníkům možnosti tenanta služby Azure App Service a Azure Functions. Poskytovatel prostředků Azure App Service se skládá z několika typy rolí, které je možné rozdělit mezi infrastruktury a pracovní vrstvu.
+Operátoři cloudu Azure Stack hub zvolit nasazení Azure App Service v Azure Stack hub do svého Azure Stack razítka centra, aby nabídli možnosti tenanta Azure App Service a Azure Functions zákazníkům. Poskytovatel prostředků Azure App Service se skládá z několika typů rolí, které je možné rozdělit mezi infrastrukturu a úrovně pracovních procesů.
 
-Infrastrukturu role se nic neúčtuje, protože jsou potřeba pro základní provoz služby. Infrastrukturu role lze škálovat, jsou potřeba pro podporu požadavků klientů operátor cloudu. Infrastrukturu role jsou následující:
+Role infrastruktury se neúčtují, protože jsou nutné pro základní provozní operace služby. Role infrastruktury se dají škálovat podle potřeby, aby se podporovaly požadavky na klienty cloudového operátora. Role infrastruktury jsou následující:
 
 - Kontrolery
-- Role pro správu
+- Role správy
 - Vydavatelé
-- Front-endů
+- Front-endy
 
-Vrstvy pracovních procesů se skládají ze dvou hlavních typů: sdílené a vyhrazené. Používání pracovních procesů je účtuje na operátor cloudu podle následujících kritérií.
+Vrstvy pracovního procesu se skládají ze dvou hlavních typů: Shared a vyhrazené. Využití pracovního procesu se fakturuje operátorovi cloudu podle následujících kritérií.
 
-## <a name="shared-workers"></a>Sdílených pracovních procesů
+## <a name="shared-workers"></a>Sdílené pracovní procesy
 
-Sdílené zaměstnanci jsou více klientů a plány služby App Service free a shared hostitele a založenou na skutečné spotřebě Azure functions pro velký počet klientů. Generování sdílených pracovních procesů využití měřičů, když se označí jako připravené v poskytovateli prostředků služby Azure App Service.
+Sdílené pracovní procesy jsou víceklientské a hostitelské a sdílené App Service plány a služby Azure Functions založené na spotřebě pro mnoho klientů. Sdílené pracovní procesy generují měřiče využití, pokud jsou označeny jako připravené v poskytovateli prostředků Azure App Service.
 
 ## <a name="dedicated-workers"></a>Vyhrazené pracovní procesy
 
-Vyhrazené pracovní procesy jsou svázány se plány služby App Service, které vytvářejí tenantů. Například v rámci S1 SKU tenanty můžete škálovat na 10 instancí ve výchozím nastavení. Když si tenant vytvoří plán služby S1 App Service, Azure App Service přidělí jednu z instancí ve škálovací vrstvy pracovního procesu malé sadě na plán služby App Service pro tohoto tenanta. Přiřazené pracovní proces už pak nejsou k dispozici pro přiřazení do jiných tenantů. Pokud klient vybere možnost škálovat plán služby App Service na 10 instancí, devět další pracovní procesy jsou odebrány z fondu k dispozici a jsou přiřazené k plánu služby App Service tenanta.
+Vyhrazené pracovní procesy jsou vázané na plány App Service vytvořené klienty. Například v SKU S1 se klienti můžou ve výchozím nastavení škálovat na 10 instancí. Když tenant vytvoří plán App Service S1, Azure App Service přidělí jednu z instancí v malém měřítku vrstvy pracovního procesu nastavené na plán App Service daného tenanta. Přiřazený pracovník už není k dispozici pro přiřazení k žádným jiným klientům. Pokud se klient rozhodne škálovat App Service plán na 10 instancí, odebere se z dostupného fondu devět dalších pracovních procesů a přiřadí se k plánu App Service tenanta.
 
-Měření jsou emitovány pro vyhrazené pracovní procesy, když budou:
+Plynoměry se generují pro vyhrazené pracovní procesy, když jsou:
 
-- Označí jako připravené v poskytovateli prostředků služby Azure App Service.
-- Přiřazené k plánu služby App Service.
+- V Azure App Service poskytovatel prostředků je označený jako připravený.
+- Přiřazeno k plánu App Service.
 
-Tento model fakturace umožňuje operátorům cloudu ke zřízení fondu připravené pro zákazníky bez nutnosti platit za dělníky, dokud se efektivně vyhrazenými plán služby App Service pro příslušného tenanta používat vyhrazené pracovní procesy. 
+Tento model fakturace umožňuje operátorům cloudu zřídit fond vyhrazených pracovníků, kteří budou pro zákazníky připraveni použít bez placení zaměstnanců, dokud nebudou efektivně rezervováni plánem App Service svého tenanta. 
 
-Řekněme například, že máte 20 pracovních procesů na úrovni pracovního procesu malé velikosti. Pokud máte pět zákazníků, které vytvářejí dva S1 plány služby App Service každý a každá škálovat plán služby App Service, až dvě instance, máte k dispozici žádné pracovní procesy. V důsledku toho není také žádná kapacita pro všechny zákazníky nebo novým zákazníkům škálovat na více systémů nebo vytvořit nové plány služby App Service. 
+Řekněme například, že máte 20 pracovních procesů na úrovni malé pracovní procesy. Pokud máte pět zákazníků, kteří vytvoří dva plány App Service S1 a každý rozsah App Service naplánuje na dvě instance, nemáte k dispozici žádné pracovní procesy. V důsledku toho není k dispozici žádná kapacita pro žádné z vašich zákazníků ani nové zákazníky, kteří by mohli škálovat nebo vytvářet nové plány App Service. 
 
-Operátoři cloudu můžete zobrazit aktuální počet dostupných pracovních procesů na vrstvu pracovního procesu zobrazením vrstvy pracovních procesů v konfiguraci služby Azure App Service v Azure stacku správu.
+Operátoři cloudu můžou zobrazit aktuální počet dostupných pracovních procesů na úrovni pracovního procesu, a to tak, že si prohlížíte vrstvy pracovních procesů v Azure App Service konfiguraci Azure Stack správy centra.
 
-![App Service – obrazovky vrstvy pracovních procesů][1]
+![App Service – obrazovka vrstev pracovního procesu][1]
 
-## <a name="see-customer-usage-by-using-the-azure-stack-usage-service"></a>Zobrazit využití ze strany zákazníků pomocí využití služby Azure Stack
+## <a name="see-customer-usage-by-using-the-azure-stack-hub-usage-service"></a>Podívejte se na zákaznická využití pomocí služby Azure Stack hub Usage.
 
-Operátoři cloudu můžete zadávat dotazy [API využití Tenanta prostředků Azure Stack](azure-stack-tenant-resource-usage-api.md) načíst informace o využití pro své zákazníky. Můžete vyhledat všechny jednotlivé měřičů, vytvářejí služby App Service k popisu využití tenanta [nejčastější dotazy k využití](azure-stack-usage-related-faq.md). Těchto měřičů jsou pak používá k výpočtu využití podle předplatného zákazníka k výpočtu poplatků.
+Operátoři cloudu se můžou dotazovat na [rozhraní API využití prostředků tenanta centra Azure Stack](azure-stack-tenant-resource-usage-api.md) a získat informace o využití pro své zákazníky. Můžete najít všechny měřiče, které App Service emitují k popisu využití tenanta v [nejčastějších dotazech k používání](azure-stack-usage-related-faq.md). Tyto měřiče se pak použijí k výpočtu nákladů na předplatné zákazníka za účelem výpočtu poplatků.
 
 ## <a name="frequently-asked-questions"></a>Nejčastější dotazy
 
-### <a name="how-do-i-license-the-sql-server-and-file-server-infrastructure-required-in-the-prerequisites"></a>Jak licence SQL serveru a souboru server infrastruktury potřebné v rámci požadavků?
+### <a name="how-do-i-license-the-sql-server-and-file-server-infrastructure-required-in-the-prerequisites"></a>Návody licence SQL Server a infrastruktura souborového serveru požadovaná v požadavcích?
 
-Licencování pro SQL Server a souboru, třeba přes poskytovatele prostředků služby Azure App Service, infrastruktura serveru je zahrnuté ve službě Azure App Service ve službě Azure Stack [před zahájením práce](azure-stack-app-service-before-you-get-started.md#licensing-concerns-for-required-file-server-and-sql-server) článku.
+Licencování pro SQL Server a infrastrukturu souborového serveru, kterou vyžaduje poskytovatel prostředků Azure App Service, je popsaná v Azure App Service na Azure Stack hub [před zahájením práce](azure-stack-app-service-before-you-get-started.md#licensing-concerns-for-required-file-server-and-sql-server) s článkem.
 
-### <a name="the-usage-faq-lists-the-tenant-meters-but-not-the-prices-for-those-meters-where-can-i-find-them"></a>Nejčastější dotazy k využití uvádí měřiče tenanta, ale ne ceny pro tyto měřiče. Kde je?
+### <a name="the-usage-faq-lists-the-tenant-meters-but-not-the-prices-for-those-meters-where-can-i-find-them"></a>V části Nejčastější dotazy o využití se zobrazují měřiče klientů, ale ne ceny za tyto měřiče. Kde je můžu najít?
 
-Jako operátor cloudu budete moci použít vlastní cenový model pro vaše zákazníky. Služba usage poskytuje měření využití. Potom můžete množství měřiče strhávat zákazníky na základě podle cenového modelu, který určíte. Možnost nastavit ceny umožňuje operátorům odlišil od jiných operátorům Azure stacku.
+Jako operátor cloudu můžete zákazníkům používat vlastní cenový model. Služba využití poskytuje měření využití. Množství měřiče pak můžete použít k účtování zákazníků na základě cenového modelu, který určíte. Možnost nastavit ceny umožňuje operátorům odlišit od ostatních operátorů centra Azure Stack.
 
-### <a name="as-a-csp-how-can-i-offer-free-and-shared-skus-for-customers-to-try-out-the-service"></a>Jako zprostředkovatel kryptografických služeb Jak můžu nabízí skladové položky free a shared můžete vyzkoušet na služby zákazníkům?
+### <a name="as-a-csp-how-can-i-offer-free-and-shared-skus-for-customers-to-try-out-the-service"></a>Jak se jako CSP dá nabídnout zákazníkům bezplatné a sdílené skladové jednotky, aby si ji mohli vyzkoušet?
 
-Jako operátor cloudu se vám účtovat za bezplatných a sdílených skladových položek nabídky, protože jste hostované ve sdílených pracovních procesů. Chcete-li minimalizovat náklady, můžete vertikálně snížit kapacitu vrstvy sdílených pracovních procesů na úplném. 
+Jako operátor cloudu se účtují náklady na bezplatné a sdílené skladové položky, protože jsou hostované ve sdílených pracovních procesech. K minimalizaci těchto nákladů můžete zvolit možnost horizontálního navýšení kapacity úrovně sdíleného pracovního procesu na minimum. 
 
-Například nabízí plán služby App Service free a shared SKU a, která nabízí funkce založené na spotřebě, potřebujete minimálně jedné instance A1 k dispozici. Sdílených pracovních procesů jsou víceklientské, takže může být hostitelem více zákaznických aplikací, každý jednotlivě izolované a je chráněn sandboxu služby App Service. Tímto způsobem Škálováním vrstvy sdílených pracovních serverů, můžete omezit vaše výdaj náklady na jeden virtuální procesor za měsíc.
+Pokud například chcete nabízet bezplatné a sdílené skladové jednotky plánů App Service a nabízet funkce založené na spotřebě, potřebujete minimálně jednu dostupnou instanci a1. Sdílené pracovní procesy jsou víceklientské, takže mohou hostovat více zákaznických aplikací, jednotlivě izolované a chráněné App Service izolovaným prostorem (sandbox). Změnou měřítka sdílené pracovní vrstvy tímto způsobem můžete nákladům omezit na cenu jednoho vCPU měsíčně.
 
-Potom můžete vytvořit kvótu pro použití v plánu, který pouze nabízí skladové položky free a shared a omezuje počet bezplatných a sdílených plánů služby App Service, které můžete vytvořit vaše zákazníky.
+Pak můžete zvolit vytvoření kvóty pro použití v plánu, který nabízí jenom bezplatné a sdílené skladové položky a omezuje počet bezplatných a sdílených App Service plánů, které zákazník může vytvořit.
 
-## <a name="sample-scripts-to-assist-with-billing"></a>Ukázky skriptů pro účely pomoci s fakturací
+## <a name="sample-scripts-to-assist-with-billing"></a>Ukázkové skripty, které vám pomůžou s fakturací
 
-Tým Azure App Service vytvoří ukázkové skripty Powershellu pro účely pomoci s dotazování na využití služby Azure Stack. Operátoři cloudu můžete použít tyto ukázkové skripty připravit své vlastní účtování pro jejich klienty. Ukázkové skripty jsou ve [úložiště nástroje pro Azure Stack](https://github.com/Azure/AzureStack-tools) v Githubu. Skripty služby App Service jsou v [služby App Service ve složce využití](https://github.com/Azure/AzureStack-Tools/tree/master/Usage/AppService).
+Tým Azure App Service vytvořil ukázkové skripty PowerShellu, které vám pomůžou s dotazování služby využití centra Azure Stack. Operátoři cloudu můžou tyto ukázkové skripty použít k přípravě jejich fakturace pro své klienty. Ukázkové skripty jsou v [úložišti nástrojů centra Azure Stack](https://github.com/Azure/AzureStack-tools) v GitHubu. Skripty App Service jsou ve [složce AppService v části použití](https://github.com/Azure/AzureStack-Tools/tree/master/Usage/AppService).
 
-Ukázkové skripty k dispozici jsou:
+K dispozici jsou tyto ukázkové skripty:
 
-- [Get-AppServiceBillingRecords](https://github.com/Azure/AzureStack-Tools/blob/master/Usage/AppService/Get-AppServiceBillingRecords.ps1): Tento příklad načte služby Azure App Service na záznamů fakturace Azure Stack z rozhraní API využití služby Azure Stack.
-- [Get-AppServiceSubscriptionUsage](https://github.com/Azure/AzureStack-Tools/blob/master/Usage/AppService/Get-AppServiceSubscriptionUsage.ps1): Tato ukázka vypočítá služby Azure App Service v Azure stacku objem využití předplatného. Tento skript vypočítá částky využití na základě dat z rozhraní API pro využití a ceny za měřiče poskytované operátor cloudu.
-- [Pozastavit UserSubscriptions](https://github.com/Azure/AzureStack-Tools/blob/master/Usage/AppService/Suspend-UserSubscriptions.ps1): Tato ukázka pozastaví nebo povolí předplatná na základě limitů využití určené operátor cloudu.
+- [Get-AppServiceBillingRecords](https://github.com/Azure/AzureStack-Tools/blob/master/Usage/AppService/Get-AppServiceBillingRecords.ps1): Tato ukázka NAČTE z rozhraní API Azure Stack využití centra Azure Stack Azure App Service záznamy fakturace na rozbočovači.
+- [Get-AppServiceSubscriptionUsage](https://github.com/Azure/AzureStack-Tools/blob/master/Usage/AppService/Get-AppServiceSubscriptionUsage.ps1): Tato ukázka vypočítá Azure App Service v Azure Stack využití centra na základě předplatného. Tento skript vypočítá množství využití na základě dat z rozhraní API využití a cen zadaných za měřič cloudového operátora.
+- [Suspend-UserSubscriptions](https://github.com/Azure/AzureStack-Tools/blob/master/Usage/AppService/Suspend-UserSubscriptions.ps1): Tato ukázka pozastaví nebo povolí odběry na základě omezení využití určeného operátorem cloudu.
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
-- [Azure Stack rozhraní API využití prostředků Tenanta](azure-stack-tenant-resource-usage-api.md)
+- [Rozhraní API využití prostředků tenanta centra Azure Stack](azure-stack-tenant-resource-usage-api.md)
 
 <!--Image references-->
 [1]: ./media/app-service-billing-faq/app-service-worker-tiers.png

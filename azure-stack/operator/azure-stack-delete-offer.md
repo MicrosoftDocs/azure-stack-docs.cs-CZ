@@ -1,6 +1,6 @@
 ---
 title: Odstranění kvót, plánů, nabídek a předplatných | Microsoft Docs
-description: Naučte se odstraňovat Azure Stack kvóty, plány, nabídky a odběry.
+description: Naučte se odstraňovat kvóty, plány, nabídky a odběry centra Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: bryanla
@@ -15,16 +15,16 @@ ms.date: 08/13/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 04/25/2019
-ms.openlocfilehash: e89fcb3c218ab8b7228b63211b9f94c7e03d9865
-ms.sourcegitcommit: 1bae55e754d7be75e03af7a4db3ec43fd7ff3e9c
+ms.openlocfilehash: c957997308c5b2aa0fb4e2cfb97f79860c04da82
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71319133"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75811732"
 ---
 # <a name="delete-quotas-plans-offers-and-subscriptions"></a>Odstranění kvót, plánů, nabídek a předplatných
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 Tento článek popisuje, jak odstranit kvóty, plány, nabídky a odběry, které už nepotřebujete. Obecně platí, že můžete odstranit pouze to, co se nepoužívá. Například odstranění nabídky je možné pouze v případě, že nejsou k dispozici žádná předplatná, která patří do této nabídky.
 
@@ -70,7 +70,7 @@ Stávající kvóty můžete zobrazit a upravit pomocí portálu pro správu: vy
 Případně můžete některé kvóty odstranit pomocí těchto rozhraní REST API:
 
 - [Compute](/rest/api/azurestack/quotas%20(compute)/delete)
-- [Sítě](/rest/api/azurestack/quotas%20(network)/delete)
+- [Síť](/rest/api/azurestack/quotas%20(network)/delete)
 - [Storage](/rest/api/azurestack/storagequotas/delete)
 
 > [!NOTE]

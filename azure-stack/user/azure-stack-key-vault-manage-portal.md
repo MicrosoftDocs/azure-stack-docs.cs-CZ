@@ -1,6 +1,6 @@
 ---
-title: Správa Key Vault v Azure Stack pomocí portálu | Microsoft Docs
-description: Naučte se spravovat Key Vault v Azure Stack pomocí portálu Azure Stack.
+title: Správa Key Vault v centru Azure Stack pomocí portálu | Microsoft Docs
+description: Naučte se spravovat Key Vault v centru Azure Stack pomocí portálu Azure Stack hub.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 10/03/2019
 ms.author: sethm
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: fc0907ffb905012043a3e446fcc29cc9e06f6932
-ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
+ms.openlocfilehash: 69052164c3f32f77d8ccf3c5216e821700907928
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71961510"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75820334"
 ---
-# <a name="manage-key-vault-in-azure-stack-using-the-portal"></a>Správa Key Vault v Azure Stack pomocí portálu
+# <a name="manage-key-vault-in-azure-stack-hub-using-the-portal"></a>Správa Key Vault v centru Azure Stack pomocí portálu
 
-Tento článek popisuje, jak vytvořit a spravovat Trezor klíčů v Azure Stack pomocí portálu Azure Stack.
+Tento článek popisuje, jak vytvořit a spravovat Trezor klíčů v centru Azure Stack pomocí portálu Azure Stack hub.
 
 ## <a name="prerequisites"></a>Požadavky
 
@@ -76,7 +76,7 @@ Po úspěšném vytvoření klíče ho můžete vybrat v části **klíče** a z
 
 ![Klíč identifikátoru URI](media/azure-stack-key-vault-manage-portal/image4.png)
 
-### <a name="create-a-secret"></a>Vytvoření tajného kódu
+### <a name="create-a-secret"></a>Vytvoření tajného klíče
 
 1. Přihlaste se k [portálu User Portal](https://portal.local.azurestack.external).
 

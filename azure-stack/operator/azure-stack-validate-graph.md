@@ -1,6 +1,6 @@
 ---
-title: Ověření Azure Graph integrace pro Azure Stack
-description: Kontrola připravenosti Azure Stack slouží k ověření grafu integrace pro Azure Stack.
+title: Ověřit integraci Azure graphu pro Azure Stack hub
+description: Pomocí nástroje pro kontrolu připravenosti centra Azure Stack ověřte integraci grafů pro Azure Stack centrum.
 services: azure-stack
 documentationcenter: ''
 author: PatAltimore
@@ -16,62 +16,62 @@ ms.date: 06/10/2019
 ms.author: patricka
 ms.reviewer: jerskine
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: 75943b3259db736a3dfcd4b30b76f434eaf19111
-ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
+ms.openlocfilehash: b12cf8b12b0765b150a119483125ffcfecb6fc69
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66828446"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75812922"
 ---
-# <a name="validate-graph-integration-for-azure-stack"></a>Ověření grafu integrace pro Azure Stack
+# <a name="validate-graph-integration-for-azure-stack-hub"></a>Ověřit integraci grafu pro Azure Stack hub
 
-Nástroj Azure Stack připravenosti kontrola (AzsReadinessChecker) k ověření, že je prostředí připravené pro integraci graphu pomocí služby Azure Stack. Ověření integrace grafu před zahájením integrace datových center nebo před nasazením Azure Stack.
+Pomocí nástroje pro kontrolu připravenosti centra Azure Stack (AzsReadinessChecker) ověřte, že je prostředí připravené pro integraci grafů s Azure Stackm centrem. Než začnete s integrací Datacenter nebo nasazením centra Azure Stack, ověřte integraci grafu.
 
-Kontrola připravenosti ověří:
+Kontrola připravenosti ověřuje:
 
-* Přihlašovací údaje pro účet služby pro integraci graphu vytvořit nemáte příslušná oprávnění k dotazování služby Active Directory.
-* *Globálního katalogu* lze vyřešit a je dotknout.
-* Služba KDC lze vyřešit a je dotknout.
-* Připojení k síti nutné je na místě.
+* Přihlašovací údaje k účtu služby vytvořenému pro integraci grafu mají příslušná práva k dotazování služby Active Directory.
+* *Globální katalog* se dá vyřešit a je kontaktní.
+* Služba KDC se dá vyřešit a je kontaktní.
+* Nezbytné síťové připojení je zavedeno.
 
-Další informace o integraci datového centra Azure Stack, najdete v části [integrace datových center Azure Stack – identita](azure-stack-integrate-identity.md).
+Další informace o integraci centrálního centra Azure Stack najdete v tématu věnovaném [integraci služby Azure Stack hub Datacenter-identity](azure-stack-integrate-identity.md).
 
-## <a name="get-the-readiness-checker-tool"></a>Získejte nástroj prerequisite checker připravenosti
+## <a name="get-the-readiness-checker-tool"></a>Získat nástroj pro kontrolu připravenosti
 
-Stáhněte si nejnovější verzi nástroje Azure Stack připravenosti kontrola (AzsReadinessChecker) z [Galerie prostředí PowerShell](https://aka.ms/AzsReadinessChecker).
+Z [Galerie prostředí PowerShell](https://aka.ms/AzsReadinessChecker)si stáhněte nejnovější verzi nástroje pro kontrolu připravenosti centra Azure Stack (AzsReadinessChecker).
 
 ## <a name="prerequisites"></a>Požadavky
 
-Následující požadavky musí být splněné.
+Je nutné, aby byly splněny následující požadavky.
 
 **Počítač, ve kterém se nástroj spouští:**
 
-* Windows 10 nebo Windows serveru 2016 a připojení k doméně.
-* Prostředí PowerShell 5.1 nebo novější. K ověření verze, spusťte následující příkaz prostředí PowerShell a pak si projděte *hlavní* verze a *menší* verze:  
+* Windows 10 nebo Windows Server 2016 s připojením k doméně.
+* PowerShell 5,1 nebo novější. Pokud chcete zkontrolovat verzi, spusťte následující příkaz PowerShellu a pak zkontrolujte *Hlavní* verzi a *dílčí* verze:  
    > `$PSVersionTable.PSVersion`
-* Modul služby Active Directory pro prostředí PowerShell.
-* Nejnovější verzi [Microsoft Azure Stack připravenosti kontrola](https://aka.ms/AzsReadinessChecker) nástroj.
+* Modul PowerShellu služby Active Directory.
+* Nejnovější verzi nástroje pro [kontrolu připravenosti centra Microsoft Azure Stack](https://aka.ms/AzsReadinessChecker) .
 
-**Prostředí Active Directory:**
+**Prostředí služby Active Directory:**
 
-* Určete uživatelské jméno a heslo pro účet služby graph v existující instanci služby Active Directory.
-* Identifikujte kořenová doména doménové struktury služby Active Directory plně kvalifikovaný název domény.
+* Identifikujte uživatelské jméno a heslo pro účet služby Graph v existující instanci služby Active Directory.
+* Identifikujte kořenový plně kvalifikovaný název domény doménové struktury služby Active Directory.
 
-## <a name="validate-the-graph-service"></a>Ověření služby graph
+## <a name="validate-the-graph-service"></a>Ověření služby Graph
 
-1. Na počítači, který splňuje požadavky otevřete Správce příkazový řádek Powershellu a spusťte následující příkaz k instalaci AzsReadinessChecker:
+1. V počítači, který splňuje požadavky, otevřete příkazový řádek PowerShell pro správu a spusťte následující příkaz, kterým nainstalujete AzsReadinessChecker:
 
      `Install-Module Microsoft.AzureStack.ReadinessChecker -Force`
 
-1. Z příkazového řádku PowerShell, spusťte následující příkaz pro nastavení *$graphCredential* proměnné pro účet grafů. Nahraďte `contoso\graphservice` k vašemu účtu pomocí `domain\username` formátu.
+1. Z příkazového řádku PowerShellu spusťte následující příkaz, který nastaví proměnnou *$graphCredential* na účet grafu. Nahraďte `contoso\graphservice` účtem pomocí formátu `domain\username`.
 
     `$graphCredential = Get-Credential contoso\graphservice -Message "Enter Credentials for the Graph Service Account"`
 
-1. Z příkazového řádku PowerShell spusťte následující příkaz k ověření služby graph spustit. Zadejte hodnotu pro **- ForestFQDN** jako plně kvalifikovaný název domény pro kořenovou doménu struktury.
+1. Z příkazového řádku PowerShellu spusťte následující příkaz, který spustí ověřování pro službu Graph Service. Jako plně kvalifikovaný název domény pro kořen doménové struktury zadejte hodnotu **ForestFQDN** .
 
      `Invoke-AzsGraphValidation -ForestFQDN contoso.com -Credential $graphCredential`
 
-1. Po spuštění nástroje, prohlédněte si výstup. Ověřte, zda je stav OK pro požadavky na integraci grafu. Úspěšné ověření se podobá následujícímu příkladu:
+1. Po spuštění nástroje si Projděte výstup. Ověřte, že stav je OK pro požadavky na integraci grafu. Úspěšné ověření je podobné jako v následujícím příkladu:
 
     ```
     Testing Graph Integration (v1.0)
@@ -84,7 +84,7 @@ Následující požadavky musí být splněné.
 
     Details:
 
-    [-] In standalone mode, some tests should not be considered fully indicative of connectivity or readiness the Azure Stack Stamp requires prior to Data Center Integration.
+    [-] In standalone mode, some tests should not be considered fully indicative of connectivity or readiness the Azure Stack Hub Stamp requires prior to Datacenter Integration.
 
     Additional help URL: https://aka.ms/AzsGraphIntegration
 
@@ -95,26 +95,26 @@ Následující požadavky musí být splněné.
     Invoke-AzsGraphValidation Completed
     ```
 
-V produkčním prostředí testování připojení k síti z pracovní stanice operátoru není plně orientační připojení dostupné pro Azure Stack. Veřejné sítě VIP razítko Azure Stack potřebuje připojení pro přenos pomocí protokolu LDAP k provedení integrace identit.
+V produkčních prostředích není testování připojení k síti z pracovní stanice tohoto operátoru plně informativní jako dostupné připojení Azure Stack hub. Veřejná VIP adresa razítka centra Azure Stack potřebuje připojení pro provoz protokolu LDAP, aby mohl provádět integraci identit.
 
-## <a name="report-and-log-file"></a>Sestavy a soubor protokolu
+## <a name="report-and-log-file"></a>Soubor sestavy a protokolu
 
-Každé ověření při spuštění, zaznamená výsledky do **AzsReadinessChecker.log** a **AzsReadinessCheckerReport.json**. Umístění těchto souborů se zobrazí s výsledky ověření v prostředí PowerShell.
+Pokaždé, když se ověřování spustí, protokoluje výsledky do **AzsReadinessChecker. log** a **AzsReadinessCheckerReport. JSON**. Umístění těchto souborů se zobrazí s výsledky ověřování v prostředí PowerShell.
 
-Ověřování souborů můžete sdílet stav před nasazením služby Azure Stack nebo prozkoumat zaznamenané problémy s ověřením. Oba soubory zachovat výsledky každé následné ověření. Tato sestava vám poskytuje vaše nasazení team potvrzení konfigurace identity. Soubor protokolu mohou pomoci týmu nasazení nebo odborné pomoci prozkoumat problémy s ověřením.
+Soubory ověření vám můžou přispět ke sdílení stavu před nasazením centra Azure Stack nebo prozkoumání problémů s ověřováním. Oba soubory uchovávají výsledky každé následné kontroly ověření. Tato sestava poskytne vašemu týmu nasazení potvrzení konfigurace identity. Soubor protokolu může pomoci týmu nasazení nebo podpory prozkoumat problémy s ověřením.
 
-Ve výchozím nastavení, oba soubory jsou zapsány do `C:\Users\<username>\AppData\Local\Temp\AzsReadinessChecker\`.
+Ve výchozím nastavení jsou oba soubory zapisovány do `C:\Users\<username>\AppData\Local\Temp\AzsReadinessChecker\`.
 
-Použití:
+Použije
 
-* **-OutputPath**: *Cesta* parametr na konci příkazu run a zadejte umístění různých sestav.
-* **-CleanReport**: Parametr na konci příkazu run se vymazat *AzsReadinessCheckerReport.json* předchozí informací sestavy. Další informace najdete v tématu [sestavu ověření služby Azure Stack](azure-stack-validation-report.md).
+* **-OutputPath**: parametr *path* na konci příkazu Run pro určení jiného umístění sestavy.
+* **-CleanReport**: parametr na konci příkazu Run, který vymaže *AzsReadinessCheckerReport. JSON* předchozí informace sestavy. Další informace najdete v tématu [Sestava ověřování centra Azure Stack](azure-stack-validation-report.md).
 
-## <a name="validation-failures"></a>Chyby ověřování
+## <a name="validation-failures"></a>Selhání ověřování
 
-Pokud se ověření nezdaří, zobrazí podrobnosti o chybě v okně Powershellu. Nástroj také zaznamenává informace, které *AzsGraphIntegration.log*.
+Pokud se ověření nezdaří, zobrazí se v okně PowerShellu podrobnosti o selhání. Nástroj také zapisuje informace do *protokolu AzsGraphIntegration. log*.
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
-[Podívejte se na sestavu připravenosti](azure-stack-validation-report.md)  
-[Důležité informace o integraci Azure Stack obecné](azure-stack-datacenter-integration.md)  
+[Zobrazit sestavu připravenosti](azure-stack-validation-report.md)  
+[Obecné pokyny k integraci centra Azure Stack](azure-stack-datacenter-integration.md)  

@@ -1,6 +1,6 @@
 ---
-title: Nasazení služby Azure Cognitive Services do Azure Stack | Microsoft Docs
-description: Přečtěte si, jak nasadit Azure Cognitive Services k Azure Stack.
+title: Nasazení služby Azure Cognitive Services pro Azure Stack centra | Microsoft Docs
+description: Přečtěte si, jak nasadit Azure Cognitive Services do centra Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,25 +15,25 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: guanghu
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 4323993c76019ffa2b3084679b2587e300094e38
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.openlocfilehash: b08f86a7cc239b2e39a4fd47ce5ac9d1aab8e355
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955636"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75819246"
 ---
-# <a name="deploy-azure-cognitive-services-to-azure-stack"></a>Nasazení služby Azure Cognitive Services do Azure Stack
+# <a name="deploy-azure-cognitive-services-to-azure-stack-hub"></a>Nasazení služby Azure Cognitive Services do centra Azure Stack
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 > [!Note]  
-> Azure Cognitive Services v Azure Stack je ve verzi Preview.
+> Azure Cognitive Services v centru Azure Stack je ve verzi Preview.
 
-Můžete použít Azure Cognitive Services s podporou kontejneru v Azure Stack. Podpora kontejnerů v Azure Cognitive Services umožňuje používat stejná bohatá rozhraní API, která jsou k dispozici v Azure. Vaše používání kontejnerů umožňuje flexibilitu při nasazení a hostování služeb dodaných v [kontejnerech Docker](https://www.docker.com/what-container). Podpora kontejnerů je aktuálně dostupná ve verzi Preview pro podmnožinu Azure Cognitive Services, včetně částí [počítačové zpracování obrazu](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home), [obličeje](https://docs.microsoft.com/azure/cognitive-services/face/overview)a [Analýza textu](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview)a [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/luis-container-howto) (Luis).
+Můžete použít Azure Cognitive Services s podporou kontejneru v centru Azure Stack. Podpora kontejnerů v Azure Cognitive Services umožňuje používat stejná bohatá rozhraní API, která jsou k dispozici v Azure. Vaše používání kontejnerů umožňuje flexibilitu při nasazení a hostování služeb dodaných v [kontejnerech Docker](https://www.docker.com/what-container). Podpora kontejnerů je aktuálně dostupná ve verzi Preview pro podmnožinu Azure Cognitive Services, včetně částí [počítačové zpracování obrazu](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home), [obličeje](https://docs.microsoft.com/azure/cognitive-services/face/overview)a [Analýza textu](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview)a [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/luis-container-howto) (Luis).
 
 Kontejnering je přístup k distribuci softwaru, ve kterém se aplikace nebo služba, včetně jejích závislostí a konfigurace, balí jako image kontejneru. S minimální nebo žádnou úpravou můžete nasadit image do hostitele kontejneru. Každý kontejner je izolovaný od jiných kontejnerů a od základního operačního systému. Samotný systém má pouze součásti potřebné ke spuštění vaší image. Hostitel kontejneru má menší nároky, než je virtuální počítač. Můžete také vytvořit kontejnery z imagí pro krátkodobé úlohy a odstranit je, pokud už nepotřebujete.
 
-## <a name="use-containers-with-cognitive-services-on-azure-stack"></a>Použití kontejnerů s Cognitive Services v Azure Stack
+## <a name="use-containers-with-cognitive-services-on-azure-stack-hub"></a>Použití kontejnerů s Cognitive Services v centru Azure Stack
 
 - **Kontrola nad daty**  
   Umožněte uživatelům vaší aplikace ovládat svá data při použití Cognitive Services. Můžete doručovat Cognitive Services uživatelům aplikace, kteří nemůžou odesílat data do globálního Azure nebo veřejného cloudu.
@@ -42,37 +42,37 @@ Kontejnering je přístup k distribuci softwaru, ve kterém se aplikace nebo slu
   Poskytněte uživatelům aplikace aktualizace verze v modelech nasazených v jejich řešení.
 
 - **Přenosná architektura**  
-  Povolte vytvoření přenosové architektury aplikace, abyste mohli své řešení nasadit do veřejného cloudu, do místního privátního cloudu nebo na hranici. Svůj kontejner můžete nasadit do služby Azure Kubernetes, Azure Container Instances nebo do clusteru Kubernetes v Azure Stack. Další informace najdete v tématu [nasazení Kubernetes do Azure Stack](azure-stack-solution-template-kubernetes-deploy.md).
+  Povolte vytvoření přenosové architektury aplikace, abyste mohli své řešení nasadit do veřejného cloudu, do místního privátního cloudu nebo na hranici. Svůj kontejner můžete nasadit do služby Azure Kubernetes, Azure Container Instances nebo do clusteru Kubernetes v centru Azure Stack. Další informace najdete v tématu [nasazení Kubernetes do centra Azure Stack](azure-stack-solution-template-kubernetes-deploy.md).
 
 - **Vysoká propustnost a nízká latence**  
    Poskytněte uživatelům aplikace možnost škálování s využitím špičky v provozu při vysoké propustnosti a nízké latenci. Umožněte, aby Cognitive Services běžely ve službě Azure Kubernetes, fyzicky blízko své aplikační logiky a data.
 
-Pomocí Azure Stack nasaďte Cognitive Services kontejnery v clusteru Kubernetes spolu s kontejnery aplikací pro zajištění vysoké dostupnosti a elastického škálování. Můžete vyvíjet aplikace kombinováním služeb rozpoznávání se součástmi postavenými na App Services, funkcích, BLOB Storage, SQL nebo mySQL databáze.
+Pomocí centra Azure Stack nasaďte Cognitive Services kontejnery v clusteru Kubernetes spolu s kontejnery aplikací pro zajištění vysoké dostupnosti a elastického škálování. Můžete vyvíjet aplikace kombinováním služeb rozpoznávání se součástmi postavenými na App Services, funkcích, BLOB Storage, SQL nebo mySQL databáze.
 
 Další podrobnosti o Cognitive Services kontejnerech najdete [v podpoře kontejnerů ve službě Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-container-support).
 
 ## <a name="deploy-the-azure-face-api"></a>Nasazení Azure Face API
 
-Tento článek popisuje, jak nasadit Azure Face API v clusteru Kubernetes v Azure Stack. Stejný přístup můžete použít k nasazení jiných kontejnerů služby pro rozpoznávání na Azure Stack clustery Kubernetes.
+Tento článek popisuje, jak nasadit Azure Face API v clusteru Kubernetes v centru Azure Stack. Stejný přístup můžete použít k nasazení jiných kontejnerů služby pro rozpoznávání na Azure Stack clustery Kubernetes hub.
 
-## <a name="prerequisites"></a>Předpoklady
+## <a name="prerequisites"></a>Požadavky
 
 Než začnete, budete potřebovat:
 
 1.  Vyžádejte si přístup k registru kontejneru, který načte image kontejneru z Azure Cognitive Services Container Registry. Podrobnosti najdete v tématu [vyžádání přístupu k privátnímu registru kontejneru](https://docs.microsoft.com/azure/cognitive-services/face/face-how-to-install-containers#request-access-to-the-private-container-registry).
 
-2.  Připravte cluster Kubernetes na Azure Stack. Můžete postupovat podle článku [nasazení Kubernetes pro Azure Stack](azure-stack-solution-template-kubernetes-deploy.md).
+2.  Připravte cluster Kubernetes na rozbočovači Azure Stack. Můžete postupovat podle článku [nasazení Kubernetes do centra Azure Stack](azure-stack-solution-template-kubernetes-deploy.md).
 
 ## <a name="create-azure-resources"></a>Vytvoření prostředků Azure
 
 Vytvořte v Azure prostředek služby pro rozpoznávání, ve kterém můžete zobrazit Rozpoznávání textu LUIS kontejnery. K vytvoření instance kontejnerů služby pro rozpoznávání bude nutné použít klíč předplatného a adresu URL koncového bodu z prostředku.
 
-1. Vytvořte prostředek Azure v Azure Portal. Pokud chcete zobrazit náhled kontejnerů obličeje, musíte nejprve vytvořit odpovídající prostředek Face v Azure Portal. Další informace najdete v tématu [rychlý Start: vytvoření účtu Cognitive Services v Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
+1. Vytvoření prostředku Azure na webu Azure Portal. Pokud chcete zobrazit náhled kontejnerů obličeje, musíte nejprve vytvořit odpovídající prostředek Face v Azure Portal. Další informace najdete v tématu [rychlý start: vytvoření účtu služeb Cognitive Services na webu Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
 
    > [!Note]
    >  Prostředek Face nebo Počítačové zpracování obrazu musí používat cenovou úroveň F0.
 
-2. Získejte adresu URL koncového bodu a klíč předplatného pro prostředek Azure. Po vytvoření prostředku Azure použijte klíč předplatného a adresu URL koncového bodu z tohoto prostředku k vytvoření instance odpovídajícího kontejneru Face, LUIS nebo Rozpoznávání textu pro verzi Preview.
+2. Získáte klíče koncového bodu adresy URL a předplatného pro prostředky Azure. Po vytvoření prostředku Azure použijte klíč předplatného a adresu URL koncového bodu z tohoto prostředku k vytvoření instance odpovídajícího kontejneru Face, LUIS nebo Rozpoznávání textu pro verzi Preview.
 
 ## <a name="create-a-kubernetes-secret"></a>Vytvoření tajného klíče Kubernetes 
 
@@ -89,7 +89,7 @@ K přístupu k soukromému registru kontejneru použijte příkaz Kubectl Create
 
 Pomocí souboru konfigurace YAML zjednodušíte nasazení služby rozpoznávání v clusteru Kubernetes.
 
-Tady je ukázkový soubor YAML konfigurace, který umožňuje nasadit službu obličeje do Azure Stack:
+Tady je ukázkový soubor YAML konfigurace pro nasazení služby Faceer do centra Azure Stack:
 
 ```Yaml  
 apiVersion: apps/v1beta1
@@ -143,8 +143,8 @@ Podrobnosti o klíčových polích:
 | replicaNumber | Definuje počáteční repliky instancí, které se mají vytvořit. Můžete ho škálovat později po nasazení. |
 | ImageLocation | Označuje umístění konkrétního obrazu kontejneru služby rozpoznávání v ACR. Například služba obličeje: `aicpppe.azurecr.io/microsoft/cognitive-services-face` |
 | BillingURL |Adresa URL koncového bodu, kterou jste si poznamenali v kroku [vytvoření prostředku Azure](#create-azure-resources) |
-| apiKey | Klíč předplatného, který jste si poznamenali v kroku [vytvoření prostředku Azure](#create-azure-resources) |
-| secretName | Název tajného klíče, který jste vytvořili v kroku, [vytvoří tajný klíč Kubernetes](#create-a-kubernetes-secret) . |
+| ApiKey | Klíč předplatného, který jste si poznamenali v kroku [vytvoření prostředku Azure](#create-azure-resources) |
+| SecretName | Název tajného klíče, který jste vytvořili v kroku, [vytvoří tajný klíč Kubernetes](#create-a-kubernetes-secret) . |
 
 ## <a name="deploy-the-cognitive-service"></a>Nasazení služby pro rozpoznávání
 
@@ -160,7 +160,7 @@ Pomocí následujícího příkazu můžete monitorovat, jak se nasazuje:
 
 ## <a name="test-the-cognitive-service"></a>Testování služby pro rozpoznávání
 
-Přístup k [specifikaci openapi](https://swagger.io/docs/specification/about/) z RELATIVNÍho identifikátoru URI **/Swagger** pro daný kontejner. Tato specifikace, dříve označovaná jako specifikace Swagger, popisuje operace podporované vytvořeným kontejnerem. Například následující identifikátor URI poskytuje přístup k specifikaci OpenAPI pro kontejner Analýza mínění, který byl vytvořen v předchozím příkladu:
+Přístup k [specifikaci openapi](https://swagger.io/docs/specification/about/) z RELATIVNÍho identifikátoru URI **/Swagger** pro daný kontejner. Tato specifikace, dříve označovaná jako specifikace Swagger, popisuje operace podporované vytvořeným kontejnerem. Například následující identifikátor URI poskytuje přístup k specifikace OpenAPI pro analýzu mínění kontejneru, která byla vytvořena instance v předchozím příkladu:
 
 ```HTTP  
 http:<External IP>:5000/swagger
@@ -174,7 +174,7 @@ Externí IP adresu můžete získat z následujícího příkazu:
 
 ## <a name="try-the-services-with-python"></a>Vyzkoušejte si služby pomocí Pythonu
 
-Můžete se pokusit ověřit službu rozpoznávání na svém Azure Stack spuštěním některých jednoduchých skriptů Pythonu. K dispozici jsou oficiální úvodní ukázky Pythonu pro [počítačové zpracování obrazu](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home), [obličej](https://docs.microsoft.com/azure/cognitive-services/face/overview), [Analýza textu](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview)a [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/luis-container-howto) (Luis) pro váš odkaz.
+Můžete se pokusit ověřit službu rozpoznávání na svém Azure Stackovém centru spuštěním některých jednoduchých skriptů Pythonu. K dispozici jsou oficiální úvodní ukázky Pythonu pro [počítačové zpracování obrazu](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home), [obličej](https://docs.microsoft.com/azure/cognitive-services/face/overview), [Analýza textu](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview)a [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/luis-container-howto) (Luis) pro váš odkaz.
 
 Existují dvě věci, které je potřeba vzít v úvahu při ověřování služeb spuštěných v kontejnerech pomocí aplikací v Pythonu: 
 1. Vyměnitelné služby v kontejnerech nepotřebují pro ověřování podklíče, ale pro splnění sady SDK stále vyžadují libovolný řetězec jako zástupný text. 
@@ -190,7 +190,7 @@ import cognitive_face as CF
 KEY = '0'  #  (keeping the quotes in place).
 CF.Key.set(KEY)
 
-# Get your actual Ip Address of service endpoint of your cognitive service on Azure Stack
+# Get your actual Ip Address of service endpoint of your cognitive service on Azure Stack Hub
 BASE_URL = 'http://<svc IP Address>:5000/face/v1.0/'  
 CF.BaseUrl.set(BASE_URL)
 

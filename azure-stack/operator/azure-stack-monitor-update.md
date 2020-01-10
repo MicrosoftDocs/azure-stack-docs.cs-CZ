@@ -1,6 +1,6 @@
 ---
-title: Monitorování aktualizací v Azure Stack pomocí privilegovaného koncového bodu | Microsoft Docs
-description: Přečtěte si, jak pomocí privilegovaného koncového bodu monitorovat stav aktualizací Azure Stack integrovaných systémů.
+title: Monitorování aktualizací v centru Azure Stack pomocí privilegovaného koncového bodu | Microsoft Docs
+description: Přečtěte si, jak pomocí privilegovaného koncového bodu monitorovat stav aktualizací pro integrované systémy centra Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,20 +14,20 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: d99a49676f9ab684c5b83e8e68cf58f86efc948f
-ms.sourcegitcommit: b5eb024d170f12e51cc852aa2c72eabf26792d8d
+ms.openlocfilehash: 0ae83367559c51a415253e13b68df2409c107789
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72534064"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75817019"
 ---
-# <a name="monitor-updates-in-azure-stack-using-the-privileged-endpoint"></a>Monitorování aktualizací v Azure Stack pomocí privilegovaného koncového bodu
+# <a name="monitor-updates-in-azure-stack-hub-using-the-privileged-endpoint"></a>Monitorování aktualizací v centru Azure Stack pomocí privilegovaného koncového bodu
 
-*Platí pro: Azure Stack integrovaných systémů*
+*Platí pro: Azure Stack integrovaných systémů centra*
 
-Pomocí [privilegovaného koncového bodu](azure-stack-privileged-endpoint.md) můžete monitorovat průběh Azure Stack spuštění aktualizace. Pomocí privilegovaného koncového bodu můžete také pokračovat v neúspěšném spuštění aktualizace z posledního úspěšného kroku, Azure Stack portál nebude k dispozici. Použití portálu Azure Stack je doporučenou metodou pro správu aktualizací v Azure Stack.
+Pomocí [privilegovaného koncového bodu](azure-stack-privileged-endpoint.md) můžete monitorovat průběh spuštění aktualizace centra Azure Stack. Pomocí privilegovaného koncového bodu můžete také pokračovat v neúspěšném spuštění aktualizace z posledního úspěšného kroku, protože portál Azure Stack hub nebude k dispozici. Použití portálu centra Azure Stack je doporučená metoda pro správu aktualizací v centru Azure Stack.
 
-Následující nové rutiny PowerShellu pro správu aktualizací jsou součástí aktualizace 1710 pro Azure Stack integrovaných systémů.
+Následující nové rutiny PowerShellu pro správu aktualizací jsou součástí aktualizace 1710 pro integrované systémy Azure Stack hub.
 
 | Rutina  | Popis  |
 |---------|---------|
@@ -36,18 +36,18 @@ Následující nové rutiny PowerShellu pro správu aktualizací jsou součást�
 | | |
 
 ## <a name="verify-the-cmdlets-are-available"></a>Ověřte, jestli jsou dostupné rutiny.
-Vzhledem k tomu, že rutiny jsou v balíčku aktualizace 1710 pro Azure Stack nové, musí se proces aktualizace 1710 dostat do konkrétního bodu, než bude k dispozici možnost monitorování. Rutiny jsou obvykle dostupné, pokud stav na portálu pro správu označuje, že aktualizace 1710 je v kroku **restartovat úložiště hostitelé** . Konkrétně proběhne aktualizace rutiny během **kroku: krok 2,6 – aktualizace seznamu povolených PrivilegedEndpoint**.
+Vzhledem k tomu, že rutiny jsou nové v balíčku aktualizace 1710 pro centrum Azure Stack, musí se proces aktualizace 1710 dostat do určitého bodu, než bude k dispozici možnost monitorování. Rutiny jsou obvykle dostupné, pokud stav na portálu pro správu označuje, že aktualizace 1710 je v kroku **restartovat úložiště hostitelé** . Konkrétně proběhne aktualizace rutiny během **kroku: krok 2,6 – aktualizace seznamu povolených PrivilegedEndpoint**.
 
 Můžete také zjistit, jestli jsou rutiny k dispozici programově pomocí dotazu na seznam příkazů z privilegovaného koncového bodu. K provedení tohoto dotazu spusťte následující příkazy z hostitele životního cyklu hardwaru nebo z pracovní stanice privilegovaného přístupu. Také se ujistěte, že je privilegovaným koncovým bodem důvěryhodný hostitel. Další informace najdete v části Krok 1 [přístupu k privilegovanému koncovému bodu](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint).
 
-1. Vytvořte relaci PowerShellu na libovolném virtuálním počítači s ERCS v prostředí Azure Stack (*předpona*-ERCS01, *prefix*-ERCS02 nebo *prefix*-ERCS03). Nahraďte *předponu* řetězcem PŘEDPONY virtuálního počítače, který je specifický pro vaše prostředí.
+1. Vytvořte relaci PowerShellu na libovolném virtuálním počítači s ERCS ve vašem prostředí centra Azure Stack (*předpona*-ERCS01, *prefix*-ERCS02 nebo *prefix*-ERCS03). Nahraďte *předponu* řetězcem PŘEDPONY virtuálního počítače, který je specifický pro vaše prostředí.
 
    ```powershell
    $cred = Get-Credential
 
    $pepSession = New-PSSession -ComputerName <Prefix>-ercs01 -Credential $cred -ConfigurationName PrivilegedEndpoint 
    ```
-   Po zobrazení výzvy k zadání přihlašovacích údajů použijte účet služby &lt;*Azure Stack domény* &gt; \cloudadmin nebo účet, který je členem skupiny CloudAdmins. Pro účet CloudAdmin zadejte stejné heslo, které bylo zadáno během instalace pro účet správce domény AzureStackAdmin.
+   Po zobrazení výzvy k zadání přihlašovacích údajů použijte účet služby &lt;*Azure Stack&gt;doméně* nebo účet, který je členem skupiny CloudAdmins. Pro účet CloudAdmin zadejte stejné heslo, které bylo zadáno během instalace pro účet správce domény AzureStackAdmin.
 
 2. Získejte úplný seznam příkazů, které jsou k dispozici v privilegovaném koncovém bodu.
 
@@ -70,7 +70,7 @@ Můžete také zjistit, jestli jsou rutiny k dispozici programově pomocí dotaz
    ```powershell
    $commands | ? Source -eq $updateManagementModuleName 
    ```
-   Například:
+   Příklad:
    ```powershell
    $commands | ? Source -eq $updateManagementModuleName
    
@@ -87,14 +87,14 @@ Můžete také zjistit, jestli jsou rutiny k dispozici programově pomocí dotaz
 
 ### <a name="connect-to-the-privileged-endpoint-and-assign-session-variable"></a>Připojte se k privilegovanému koncovému bodu a přiřaďte proměnnou relace.
 
-Spuštěním následujících příkazů vytvořte relaci PowerShellu na libovolném virtuálním počítači s ERCS ve vašem prostředí Azure Stack (*předpona*-ERCS01, *prefix*-ERCS02 nebo *prefix*-ERCS03) a přiřaďte proměnnou relace.
+Spuštěním následujících příkazů vytvořte relaci PowerShellu na libovolném virtuálním počítači s ERCS v prostředí centra Azure Stack (*předpona*-ERCS01, *prefix*-ERCS02 nebo *prefix*-ERCS03) a přiřaďte proměnnou relace.
 
 ```powershell
 $cred = Get-Credential
 
 $pepSession = New-PSSession -ComputerName <Prefix>-ercs01 -Credential $cred -ConfigurationName PrivilegedEndpoint 
 ```
- Po zobrazení výzvy k zadání přihlašovacích údajů použijte účet služby &lt;*Azure Stack domény* &gt; \cloudadmin nebo účet, který je členem skupiny CloudAdmins. Pro účet CloudAdmin zadejte stejné heslo, které bylo zadáno během instalace pro účet správce domény AzureStackAdmin.
+ Po zobrazení výzvy k zadání přihlašovacích údajů použijte účet služby &lt;*Azure Stack&gt;doméně* nebo účet, který je členem skupiny CloudAdmins. Pro účet CloudAdmin zadejte stejné heslo, které bylo zadáno během instalace pro účet správce domény AzureStackAdmin.
 
 ### <a name="get-high-level-status-of-the-current-update-run"></a>Získá stav vysoké úrovně pro aktuální běh aktualizace.
 
@@ -168,10 +168,10 @@ Invoke-Command -Session $pepSession -ScriptBlock { Resume-AzureStackUpdate }
 
 ## <a name="troubleshoot"></a>Řešení potíží
 
-Privilegovaný koncový bod je k dispozici na všech virtuálních počítačích s ERCS v prostředí Azure Stack. Vzhledem k tomu, že připojení není navázáno na koncový bod s vysokou dostupností, může docházet k příležitostnému přerušení, varování nebo chybovým zprávám. Tyto zprávy mohou znamenat, že relace byla odpojena nebo došlo k chybě při komunikaci se službou EHK. Jde o očekávané chování. Operaci můžete opakovat za několik minut nebo vytvořit novou relaci privilegovaného koncového bodu na jednom z dalších virtuálních počítačů ERCS.
+Privilegovaný koncový bod je k dispozici na všech virtuálních počítačích s ERCS v prostředí centra Azure Stack. Vzhledem k tomu, že připojení není navázáno na koncový bod s vysokou dostupností, může docházet k příležitostnému přerušení, varování nebo chybovým zprávám. Tyto zprávy mohou znamenat, že relace byla odpojena nebo došlo k chybě při komunikaci se službou EHK. Jde o očekávané chování. Operaci můžete opakovat za několik minut nebo vytvořit novou relaci privilegovaného koncového bodu na jednom z dalších virtuálních počítačů ERCS.
 
 ## <a name="next-steps"></a>Další kroky
 
-- [Správa aktualizací v Azure Stack](azure-stack-updates.md)
+- [Správa aktualizací v centru Azure Stack](azure-stack-updates.md)
 
 

@@ -16,12 +16,12 @@ ms.date: 12/27/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 11dcd7288f629282c1f69d12c33e9bd1a8e440b6
-ms.sourcegitcommit: df8de80b8c295495edc091e0a12012ccc7a96594
+ms.openlocfilehash: 0b150f97adf3e456b41dc3af9ac92e0a281b793a
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75503619"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75812395"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Známé problémy centra Azure Stack
 
@@ -278,7 +278,7 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 ## <a name="1908-update-process"></a>proces aktualizace 1908
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: při pokusu o instalaci aktualizace Azure Stack se může stát, že se stav aktualizace nezdaří a změní se stav na **PreparationFailed**. To je způsobeno tím, že poskytovatel prostředků aktualizace (URP) nemůže správně přenést soubory z kontejneru úložiště do interní sdílené složky infrastruktury pro zpracování.
+- Příčina: při pokusu o instalaci aktualizace centra Azure Stack se může stát, že se stav aktualizace nezdaří a změní se stav na **PreparationFailed**. To je způsobeno tím, že poskytovatel prostředků aktualizace (URP) nemůže správně přenést soubory z kontejneru úložiště do interní sdílené složky infrastruktury pro zpracování.
 - Náprava: od verze 1901 (1.1901.0.95) můžete tento problém obejít tak, že znovu kliknete na **aktualizovat** ( **nepokračovat**). URP pak vyčistí soubory z předchozího pokusu a restartuje soubor ke stažení. Pokud potíže potrvají, doporučujeme ručně odeslat balíček aktualizace pomocí [oddílu instalovat aktualizace](azure-stack-apply-updates.md#install-updates-and-monitor-progress).
 - Výskyt: běžné
 
@@ -307,14 +307,14 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 ### <a name="subscription-permissions"></a>Oprávnění předplatného
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: k předplatnému nemůžete pomocí portálů Azure Stack zobrazit oprávnění.
+- Příčina: k předplatnému nemůžete pomocí portálů Azure Stack hub zobrazit oprávnění.
 - Náprava: [k ověření oprávnění použijte PowerShell](/powershell/module/azurerm.resources/get-azurermroleassignment).
 - Výskyt: běžné
 
 ### <a name="storage-account-settings"></a>Nastavení účtu úložiště
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: na portálu User Portal zobrazuje okno **Konfigurace** účtu úložiště možnost změny **typu přenosu zabezpečení**. Tato funkce v současnosti není v Azure Stack podporovaná.
+- Příčina: na portálu User Portal zobrazuje okno **Konfigurace** účtu úložiště možnost změny **typu přenosu zabezpečení**. Tato funkce v současnosti není v centru Azure Stack podporována.
 - Výskyt: běžné
 
 ### <a name="upload-blob"></a>Nahrát objekt blob
@@ -347,7 +347,7 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 ### <a name="service-endpoints"></a>Koncové body služby
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: na portálu User Portal zobrazuje okno **Virtual Network** možnost používat **koncové body služby**. Tato funkce se v Azure Stack v tuto chvíli nepodporuje.
+- Příčina: na portálu User Portal zobrazuje okno **Virtual Network** možnost používat **koncové body služby**. Tato funkce se v současnosti v centru Azure Stack nepodporuje.
 - Výskyt: běžné
 
 ### <a name="network-interface"></a>Síťové rozhraní
@@ -371,29 +371,29 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 #### <a name="alerts"></a>Výstrahy
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: na portálu User Portal se v okně **Virtual Network brány** zobrazí možnost použít **výstrahy**. Tato funkce se v Azure Stack v tuto chvíli nepodporuje.
+- Příčina: na portálu User Portal se v okně **Virtual Network brány** zobrazí možnost použít **výstrahy**. Tato funkce se v současnosti v centru Azure Stack nepodporuje.
 - Výskyt: běžné
 
 #### <a name="active-active"></a>Aktivní–aktivní
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: na portálu User Portal při vytváření a v nabídce prostředků **služby Virtual Network Gateway**se zobrazí možnost povolit konfiguraci **typu aktivní-aktivní** . Tato funkce se v Azure Stack v tuto chvíli nepodporuje.
+- Příčina: na portálu User Portal při vytváření a v nabídce prostředků **služby Virtual Network Gateway**se zobrazí možnost povolit konfiguraci **typu aktivní-aktivní** . Tato funkce se v současnosti v centru Azure Stack nepodporuje.
 - Výskyt: běžné
 
 #### <a name="vpn-troubleshooter"></a>Poradce při potížích s VPN
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: na portálu User Portal zobrazuje okno **připojení** funkci **s názvem Poradce při potížích s VPN**. Tato funkce se v Azure Stack v tuto chvíli nepodporuje.
+- Příčina: na portálu User Portal zobrazuje okno **připojení** funkci **s názvem Poradce při potížích s VPN**. Tato funkce se v současnosti v centru Azure Stack nepodporuje.
 - Výskyt: běžné
 
 #### <a name="documentation"></a>Dokumentace
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: dokumentace k dokumentaci na stránce Přehled na Virtual Network bráně odkazuje na Azure místo Azure Stack. Pro dokumentaci Azure Stack použijte následující odkazy:
+- Příčina: dokumentace k dokumentaci na stránce Přehled na Virtual Network bráně odkazuje na Azure místo centra Azure Stack. Pro dokumentaci centra Azure Stack použijte následující odkazy:
 
   - [SKU brány](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-skus)
   - [Připojení s vysokou dostupností](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-availability)
-  - [Konfigurace protokolu BGP v Azure Stack](../user/azure-stack-vpn-gateway-settings.md#gateway-requirements)
+  - [Konfigurace protokolu BGP v centru Azure Stack](../user/azure-stack-vpn-gateway-settings.md#gateway-requirements)
   - [Okruhy ExpressRoute](azure-stack-connect-expressroute.md)
   - [Zadat vlastní zásady IPsec/IKE](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
 
@@ -408,11 +408,11 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 
 ### <a name="virtual-machine-scale-set"></a>Škálovací sada virtuálních počítačů
 
-#### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-environments"></a>Vytváření selhání během opravy a aktualizace v prostředích Azure Stack se čtyřmi uzly
+#### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-hub-environments"></a>Vytváření selhání během opravy a aktualizace v prostředích centra Azure Stack se čtyřmi uzly
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: vytváření virtuálních počítačů ve skupině dostupnosti 3 domén selhání a vytvoření instance sady škálování virtuálního počítače selže s chybou **FabricVmPlacementErrorUnsupportedFaultDomainSize** během procesu aktualizace v prostředí Azure Stack se čtyřmi uzly.
-- Náprava: můžete vytvořit jeden virtuální počítač ve skupině dostupnosti se dvěma doménami selhání úspěšně. Vytvoření instance sady škálování však není během procesu aktualizace na 4 uzlech Azure Stack stále k dispozici.
+- Příčina: vytváření virtuálních počítačů ve skupině dostupnosti 3 domén selhání a vytvoření instance sady škálování virtuálního počítače selže s chybou **FabricVmPlacementErrorUnsupportedFaultDomainSize** během procesu aktualizace v prostředí centra Azure Stack se 4 uzly.
+- Náprava: můžete vytvořit jeden virtuální počítač ve skupině dostupnosti se dvěma doménami selhání úspěšně. Vytvoření instance sady škálování však není během procesu aktualizace na 4 uzlech Azure Stackch prostředcích stále k dispozici.
 
 ### <a name="ubuntu-ssh-access"></a>Přístup SSH Ubuntu
 
@@ -424,21 +424,21 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 ### <a name="virtual-machine-scale-set-reset-password-does-not-work"></a>Resetování hesla sady škálování virtuálního počítače nefunguje
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: nové okno pro resetování hesla se zobrazí v uživatelském rozhraní sady škálování, ale Azure Stack nepodporuje resetování hesla v sadě škálování.
+- Příčina: v uživatelském rozhraní sady škálování se zobrazí nové okno pro resetování hesla, ale centrum Azure Stack v sadě škálování ještě nepodporuje heslo pro obnovení.
 - Náprava: žádné.
 - Výskyt: běžné
 
 ### <a name="rainy-cloud-on-scale-set-diagnostics"></a>Diagnostika deště v diagnostice sady škálování
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: na stránce s přehledem sady škálování virtuálního počítače se zobrazuje prázdný graf. Když kliknete na prázdný graf, otevře se okno "deště Cloud". Toto je graf pro diagnostické informace sady škálování, jako je procento využití procesoru, a není funkce podporovaná v aktuálním Azure Stack buildu.
+- Příčina: na stránce s přehledem sady škálování virtuálního počítače se zobrazuje prázdný graf. Když kliknete na prázdný graf, otevře se okno "deště Cloud". Toto je graf pro diagnostické informace sady škálování, jako je procento využití procesoru, a není funkce podporovaná v aktuálním sestavení centra Azure Stack.
 - Náprava: žádné.
 - Výskyt: běžné
 
 ### <a name="virtual-machine-diagnostic-settings-blade"></a>Okno nastavení diagnostiky virtuálního počítače
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.    
-- Příčina: okno nastavení diagnostiky virtuálního počítače má kartu **jímka** , která žádá o **účet Application**Insights. Toto je výsledek nového okna a v Azure Stack ještě není podporovaný.
+- Příčina: okno nastavení diagnostiky virtuálního počítače má kartu **jímka** , která žádá o **účet Application**Insights. Toto je výsledek nového okna a zatím není v Azure Stackovém centru podporován.
 - Náprava: žádné.
 - Výskyt: běžné
 
@@ -454,7 +454,7 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 ## <a name="1907-update-process"></a>proces aktualizace 1907
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: při pokusu o instalaci aktualizace 1907 Azure Stack aktualizace může dojít k selhání stavu aktualizace a změně stavu na **PreparationFailed**. To je způsobeno tím, že poskytovatel prostředků aktualizace (URP) nemůže správně přenést soubory z kontejneru úložiště do interní sdílené složky infrastruktury pro zpracování.
+- Příčina: při pokusu o instalaci aktualizace 1907 Azure Stack centra se může stát, že se stav aktualizace nezdaří a změní se stav na **PreparationFailed**. To je způsobeno tím, že poskytovatel prostředků aktualizace (URP) nemůže správně přenést soubory z kontejneru úložiště do interní sdílené složky infrastruktury pro zpracování.
 - Náprava: od verze 1901 (1.1901.0.95) můžete tento problém obejít tak, že znovu kliknete na **aktualizovat** ( **nepokračovat**). URP pak vyčistí soubory z předchozího pokusu a restartuje soubor ke stažení. Pokud potíže potrvají, doporučujeme ručně odeslat balíček aktualizace pomocí [oddílu import a instalace aktualizací](azure-stack-apply-updates.md).
 - Výskyt: běžné
 
@@ -477,14 +477,14 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 ### <a name="subscription-permissions"></a>Oprávnění předplatného
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: k předplatnému nemůžete pomocí portálů Azure Stack zobrazit oprávnění.
+- Příčina: k předplatnému nemůžete pomocí portálů Azure Stack hub zobrazit oprávnění.
 - Náprava: [k ověření oprávnění použijte PowerShell](/powershell/module/azurerm.resources/get-azurermroleassignment).
 - Výskyt: běžné
 
 ### <a name="storage-account-settings"></a>Nastavení účtu úložiště
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: na portálu User Portal zobrazuje okno **Konfigurace** účtu úložiště možnost změny **typu přenosu zabezpečení**. Tato funkce v současnosti není v Azure Stack podporovaná.
+- Příčina: na portálu User Portal zobrazuje okno **Konfigurace** účtu úložiště možnost změny **typu přenosu zabezpečení**. Tato funkce v současnosti není v centru Azure Stack podporována.
 - Výskyt: běžné
 
 ### <a name="upload-blob"></a>Nahrát objekt blob
@@ -511,7 +511,7 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 ### <a name="service-endpoints"></a>Koncové body služby
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: na portálu User Portal zobrazuje okno **Virtual Network** možnost používat **koncové body služby**. Tato funkce se v Azure Stack v tuto chvíli nepodporuje.
+- Příčina: na portálu User Portal zobrazuje okno **Virtual Network** možnost používat **koncové body služby**. Tato funkce se v současnosti v centru Azure Stack nepodporuje.
 - Výskyt: běžné
 
 ### <a name="network-interface"></a>Síťové rozhraní
@@ -535,35 +535,35 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 #### <a name="alerts"></a>Výstrahy
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: na portálu User Portal se v okně **Virtual Network brány** zobrazí možnost použít **výstrahy**. Tato funkce se v Azure Stack v tuto chvíli nepodporuje.
+- Příčina: na portálu User Portal se v okně **Virtual Network brány** zobrazí možnost použít **výstrahy**. Tato funkce se v současnosti v centru Azure Stack nepodporuje.
 - Výskyt: běžné
 
 #### <a name="active-active"></a>Aktivní–aktivní
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: na portálu User Portal při vytváření a v nabídce prostředků **služby Virtual Network Gateway**se zobrazí možnost povolit konfiguraci **typu aktivní-aktivní** . Tato funkce se v Azure Stack v tuto chvíli nepodporuje.
+- Příčina: na portálu User Portal při vytváření a v nabídce prostředků **služby Virtual Network Gateway**se zobrazí možnost povolit konfiguraci **typu aktivní-aktivní** . Tato funkce se v současnosti v centru Azure Stack nepodporuje.
 - Výskyt: běžné
 
 #### <a name="vpn-troubleshooter"></a>Poradce při potížích s VPN
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: na portálu User Portal zobrazuje okno **připojení** funkci **s názvem Poradce při potížích s VPN**. Tato funkce se v Azure Stack v tuto chvíli nepodporuje.
+- Příčina: na portálu User Portal zobrazuje okno **připojení** funkci **s názvem Poradce při potížích s VPN**. Tato funkce se v současnosti v centru Azure Stack nepodporuje.
 - Výskyt: běžné
 
 ### <a name="network-connection-type"></a>Typ připojení
 
 - Platí: Tento problém se týká jakéhokoli prostředí 1906 nebo 1907. 
-- Příčina: na portálu User Portal zobrazuje okno **AddConnection** možnost použít **VNet-to-VNet**. Tato funkce se v Azure Stack v tuto chvíli nepodporuje. 
+- Příčina: na portálu User Portal zobrazuje okno **AddConnection** možnost použít **VNet-to-VNet**. Tato funkce se v současnosti v centru Azure Stack nepodporuje. 
 - Výskyt: běžné 
 
 #### <a name="documentation"></a>Dokumentace
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: dokumentace k dokumentaci na stránce Přehled na Virtual Network bráně odkazuje na Azure místo Azure Stack. Pro dokumentaci Azure Stack použijte následující odkazy:
+- Příčina: dokumentace k dokumentaci na stránce Přehled na Virtual Network bráně odkazuje na Azure místo centra Azure Stack. Pro dokumentaci centra Azure Stack použijte následující odkazy:
 
   - [SKU brány](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-skus)
   - [Připojení s vysokou dostupností](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-availability)
-  - [Konfigurace protokolu BGP v Azure Stack](../user/azure-stack-vpn-gateway-settings.md#gateway-requirements)
+  - [Konfigurace protokolu BGP v centru Azure Stack](../user/azure-stack-vpn-gateway-settings.md#gateway-requirements)
   - [Okruhy ExpressRoute](azure-stack-connect-expressroute.md)
   - [Zadat vlastní zásady IPsec/IKE](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
 
@@ -578,11 +578,11 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 
 ### <a name="virtual-machine-scale-set"></a>Škálovací sada virtuálních počítačů
 
-#### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-environments"></a>Vytváření selhání během opravy a aktualizace v prostředích Azure Stack se čtyřmi uzly
+#### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-hub-environments"></a>Vytváření selhání během opravy a aktualizace v prostředích centra Azure Stack se čtyřmi uzly
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: vytváření virtuálních počítačů ve skupině dostupnosti 3 domén selhání a vytvoření instance sady škálování virtuálního počítače selže s chybou **FabricVmPlacementErrorUnsupportedFaultDomainSize** během procesu aktualizace v prostředí Azure Stack se čtyřmi uzly.
-- Náprava: můžete vytvořit jeden virtuální počítač ve skupině dostupnosti se dvěma doménami selhání úspěšně. Vytvoření instance sady škálování však není během procesu aktualizace na 4 uzlech Azure Stack stále k dispozici.
+- Příčina: vytváření virtuálních počítačů ve skupině dostupnosti 3 domén selhání a vytvoření instance sady škálování virtuálního počítače selže s chybou **FabricVmPlacementErrorUnsupportedFaultDomainSize** během procesu aktualizace v prostředí centra Azure Stack se 4 uzly.
+- Náprava: můžete vytvořit jeden virtuální počítač ve skupině dostupnosti se dvěma doménami selhání úspěšně. Vytvoření instance sady škálování však není během procesu aktualizace na 4 uzlech Azure Stackch prostředcích stále k dispozici.
 
 ### <a name="ubuntu-ssh-access"></a>Přístup SSH Ubuntu
 
@@ -594,21 +594,21 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 ### <a name="virtual-machine-scale-set-reset-password-does-not-work"></a>Resetování hesla sady škálování virtuálního počítače nefunguje
 
 - Platí: Tento problém se týká verzí 1906 a 1907.
-- Příčina: nové okno pro resetování hesla se zobrazí v uživatelském rozhraní sady škálování, ale Azure Stack nepodporuje resetování hesla v sadě škálování.
+- Příčina: v uživatelském rozhraní sady škálování se zobrazí nové okno pro resetování hesla, ale centrum Azure Stack v sadě škálování ještě nepodporuje heslo pro obnovení.
 - Náprava: žádné.
 - Výskyt: běžné
 
 ### <a name="rainy-cloud-on-scale-set-diagnostics"></a>Diagnostika deště v diagnostice sady škálování
 
 - Platí: Tento problém se týká verzí 1906 a 1907.
-- Příčina: na stránce s přehledem sady škálování virtuálního počítače se zobrazuje prázdný graf. Když kliknete na prázdný graf, otevře se okno "deště Cloud". Toto je graf pro diagnostické informace sady škálování, jako je procento využití procesoru, a není funkce podporovaná v aktuálním Azure Stack buildu.
+- Příčina: na stránce s přehledem sady škálování virtuálního počítače se zobrazuje prázdný graf. Když kliknete na prázdný graf, otevře se okno "deště Cloud". Toto je graf pro diagnostické informace sady škálování, jako je procento využití procesoru, a není funkce podporovaná v aktuálním sestavení centra Azure Stack.
 - Náprava: žádné.
 - Výskyt: běžné
 
 ### <a name="virtual-machine-diagnostic-settings-blade"></a>Okno nastavení diagnostiky virtuálního počítače
 
 - Platí: Tento problém se týká verzí 1906 a 1907.    
-- Příčina: okno nastavení diagnostiky virtuálního počítače má kartu **jímka** , která žádá o **účet Application**Insights. Toto je výsledek nového okna a v Azure Stack ještě není podporovaný.
+- Příčina: okno nastavení diagnostiky virtuálního počítače má kartu **jímka** , která žádá o **účet Application**Insights. Toto je výsledek nového okna a zatím není v Azure Stackovém centru podporován.
 - Náprava: žádné.
 - Výskyt: běžné
 
@@ -624,7 +624,7 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 ## <a name="1906-update-process"></a>proces aktualizace 1906
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: při pokusu o instalaci aktualizace 1906 Azure Stack aktualizace může dojít k selhání stavu aktualizace a změně stavu na **PreparationFailed**. To je způsobeno tím, že poskytovatel prostředků aktualizace (URP) nemůže správně přenést soubory z kontejneru úložiště do interní sdílené složky infrastruktury pro zpracování. 
+- Příčina: při pokusu o instalaci aktualizace 1906 Azure Stack centra se může stát, že se stav aktualizace nezdaří a změní se stav na **PreparationFailed**. To je způsobeno tím, že poskytovatel prostředků aktualizace (URP) nemůže správně přenést soubory z kontejneru úložiště do interní sdílené složky infrastruktury pro zpracování. 
 - Náprava: od verze 1901 (1.1901.0.95) můžete tento problém obejít tak, že znovu kliknete na **aktualizovat** ( **nepokračovat**). URP pak vyčistí soubory z předchozího pokusu a restartuje soubor ke stažení. Pokud potíže potrvají, doporučujeme ručně odeslat balíček aktualizace pomocí [oddílu import a instalace aktualizací](azure-stack-apply-updates.md).
 - Výskyt: běžné
 
@@ -647,7 +647,7 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 ### <a name="subscription-permissions"></a>Oprávnění předplatného
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: k předplatnému nemůžete pomocí portálů Azure Stack zobrazit oprávnění.
+- Příčina: k předplatnému nemůžete pomocí portálů Azure Stack hub zobrazit oprávnění.
 - Náprava: [k ověření oprávnění použijte PowerShell](/powershell/module/azurerm.resources/get-azurermroleassignment).
 - Výskyt: běžné
 
@@ -660,7 +660,7 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 ### <a name="storage-account-settings"></a>Nastavení účtu úložiště
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: na portálu User Portal zobrazuje okno **Konfigurace** účtu úložiště možnost změny **typu přenosu zabezpečení**. Tato funkce v současnosti není v Azure Stack podporovaná.
+- Příčina: na portálu User Portal zobrazuje okno **Konfigurace** účtu úložiště možnost změny **typu přenosu zabezpečení**. Tato funkce v současnosti není v centru Azure Stack podporována.
 - Výskyt: běžné
 
 ### <a name="upload-blob"></a>Nahrát objekt blob
@@ -682,7 +682,7 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 ### <a name="service-endpoints"></a>Koncové body služby
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: na portálu User Portal zobrazuje okno **Virtual Network** možnost používat **koncové body služby**. Tato funkce se v Azure Stack v tuto chvíli nepodporuje.
+- Příčina: na portálu User Portal zobrazuje okno **Virtual Network** možnost používat **koncové body služby**. Tato funkce se v současnosti v centru Azure Stack nepodporuje.
 - Výskyt: běžné
 
 ### <a name="network-interface"></a>Síťové rozhraní
@@ -697,29 +697,29 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 #### <a name="alerts"></a>Výstrahy
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: na portálu User Portal se v okně **Virtual Network brány** zobrazí možnost použít **výstrahy**. Tato funkce se v Azure Stack v tuto chvíli nepodporuje.
+- Příčina: na portálu User Portal se v okně **Virtual Network brány** zobrazí možnost použít **výstrahy**. Tato funkce se v současnosti v centru Azure Stack nepodporuje.
 - Výskyt: běžné
 
 #### <a name="active-active"></a>Aktivní–aktivní
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: na portálu User Portal při vytváření a v nabídce prostředků **služby Virtual Network Gateway**se zobrazí možnost povolit konfiguraci **typu aktivní-aktivní** . Tato funkce se v Azure Stack v tuto chvíli nepodporuje.
+- Příčina: na portálu User Portal při vytváření a v nabídce prostředků **služby Virtual Network Gateway**se zobrazí možnost povolit konfiguraci **typu aktivní-aktivní** . Tato funkce se v současnosti v centru Azure Stack nepodporuje.
 - Výskyt: běžné
 
 #### <a name="vpn-troubleshooter"></a>Poradce při potížích s VPN
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: na portálu User Portal zobrazuje okno **připojení** funkci **s názvem Poradce při potížích s VPN**. Tato funkce se v Azure Stack v tuto chvíli nepodporuje.
+- Příčina: na portálu User Portal zobrazuje okno **připojení** funkci **s názvem Poradce při potížích s VPN**. Tato funkce se v současnosti v centru Azure Stack nepodporuje.
 - Výskyt: běžné
 
 #### <a name="documentation"></a>Dokumentace
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: dokumentace k dokumentaci na stránce Přehled na Virtual Network bráně odkazuje na Azure místo Azure Stack. Pro Azure Stack dokumentaci použijte následující odkazy:
+- Příčina: dokumentace k dokumentaci na stránce Přehled na Virtual Network bráně odkazuje na Azure místo centra Azure Stack. Pro dokumentaci centra Azure Stack použijte následující odkazy:
 
   - [SKU brány](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-skus)
   - [Připojení s vysokou dostupností](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-availability)
-  - [Konfigurace protokolu BGP v Azure Stack](../user/azure-stack-vpn-gateway-settings.md#gateway-requirements)
+  - [Konfigurace protokolu BGP v centru Azure Stack](../user/azure-stack-vpn-gateway-settings.md#gateway-requirements)
   - [Okruhy ExpressRoute](azure-stack-connect-expressroute.md)
   - [Zadat vlastní zásady IPsec/IKE](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
 
@@ -751,11 +751,11 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 ### <a name="virtual-machine-scale-set"></a>Škálovací sada virtuálních počítačů
 
 
-#### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-environments"></a>Vytváření selhání během opravy a aktualizace v prostředích Azure Stack se čtyřmi uzly
+#### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-hub-environments"></a>Vytváření selhání během opravy a aktualizace v prostředích centra Azure Stack se čtyřmi uzly
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: vytváření virtuálních počítačů ve skupině dostupnosti 3 domén selhání a vytvoření instance sady škálování virtuálního počítače selže s chybou **FabricVmPlacementErrorUnsupportedFaultDomainSize** během procesu aktualizace v prostředí Azure Stack se čtyřmi uzly.
-- Náprava: můžete vytvořit jeden virtuální počítač ve skupině dostupnosti se dvěma doménami selhání úspěšně. Vytvoření instance sady škálování však není během procesu aktualizace na 4 uzlech Azure Stack stále k dispozici.
+- Příčina: vytváření virtuálních počítačů ve skupině dostupnosti 3 domén selhání a vytvoření instance sady škálování virtuálního počítače selže s chybou **FabricVmPlacementErrorUnsupportedFaultDomainSize** během procesu aktualizace v prostředí centra Azure Stack se 4 uzly.
+- Náprava: můžete vytvořit jeden virtuální počítač ve skupině dostupnosti se dvěma doménami selhání úspěšně. Vytvoření instance sady škálování však není během procesu aktualizace na 4 uzlech Azure Stackch prostředcích stále k dispozici.
 
 ### <a name="ubuntu-ssh-access"></a>Přístup SSH Ubuntu
 
@@ -767,21 +767,21 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 ### <a name="virtual-machine-scale-set-reset-password-does-not-work"></a>Resetování hesla sady škálování virtuálního počítače nefunguje
 
 - Platí: Tento problém se týká verze 1906.
-- Příčina: nové okno pro resetování hesla se zobrazí v uživatelském rozhraní sady škálování, ale Azure Stack nepodporuje resetování hesla v sadě škálování.
+- Příčina: v uživatelském rozhraní sady škálování se zobrazí nové okno pro resetování hesla, ale centrum Azure Stack v sadě škálování ještě nepodporuje heslo pro obnovení.
 - Náprava: žádné.
 - Výskyt: běžné
 
 ### <a name="rainy-cloud-on-scale-set-diagnostics"></a>Diagnostika deště v diagnostice sady škálování
 
 - Platí: Tento problém se týká verze 1906.
-- Příčina: na stránce s přehledem sady škálování virtuálního počítače se zobrazuje prázdný graf. Když kliknete na prázdný graf, otevře se okno "deště Cloud". Toto je graf pro diagnostické informace sady škálování, jako je procento využití procesoru, a není funkce podporovaná v aktuálním Azure Stack buildu.
+- Příčina: na stránce s přehledem sady škálování virtuálního počítače se zobrazuje prázdný graf. Když kliknete na prázdný graf, otevře se okno "deště Cloud". Toto je graf pro diagnostické informace sady škálování, jako je procento využití procesoru, a není funkce podporovaná v aktuálním sestavení centra Azure Stack.
 - Náprava: žádné.
 - Výskyt: běžné
 
 ### <a name="virtual-machine-diagnostic-settings-blade"></a>Okno nastavení diagnostiky virtuálního počítače
 
 - Platí: Tento problém se týká verze 1906.
-- Příčina: okno nastavení diagnostiky virtuálního počítače má kartu **jímka** , která žádá o **účet Application**Insights. Toto je výsledek nového okna a v Azure Stack ještě není podporovaný.
+- Příčina: okno nastavení diagnostiky virtuálního počítače má kartu **jímka** , která žádá o **účet Application**Insights. Toto je výsledek nového okna a zatím není v Azure Stackovém centru podporován.
 - Náprava: žádné.
 - Výskyt: běžné
 
@@ -848,5 +848,5 @@ Chcete-li získat přístup k archivovaným známým problémům pro starší ve
 ::: moniker-end
 
 ::: moniker range="<azs-1906"
-Ke [starším verzím Azure Stack známým problémům můžete přistupovat v Galerii TechNet](https://aka.ms/azsarchivedrelnotes). Tyto archivované dokumenty jsou k dispozici pouze pro referenční účely a neznamenají podporu těchto verzí. Informace o podpoře Azure Stack najdete v tématu [zásady pro obsluhu Azure Stack](azure-stack-servicing-policy.md). Pokud potřebujete další pomoc, obraťte se na službu zákaznické podpory společnosti Microsoft.
+Ke [známým problémům centra Azure Stack můžete přistupovat v Galerii TechNet](https://aka.ms/azsarchivedrelnotes). Tyto archivované dokumenty jsou k dispozici pouze pro referenční účely a neznamenají podporu těchto verzí. Informace o podpoře centra Azure Stack najdete v tématu [zásady obsluhy centra Azure Stack](azure-stack-servicing-policy.md). Pokud potřebujete další pomoc, obraťte se na službu zákaznické podpory společnosti Microsoft.
 ::: moniker-end

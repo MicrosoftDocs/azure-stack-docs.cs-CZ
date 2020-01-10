@@ -1,6 +1,6 @@
 ---
-title: Nasazení modulu AKS ve Windows v Azure Stack | Microsoft Docs
-description: Naučte se, jak pomocí počítače s Windows v Azure Stack hostovat modul AKS, aby bylo možné nasadit a spravovat cluster Kubernetes.
+title: Nasazení modulu AKS ve Windows v centru Azure Stack | Microsoft Docs
+description: Naučte se, jak pomocí počítače s Windows v centru Azure Stack hostovat modul AKS za účelem nasazení a správy clusteru Kubernetes.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,22 +15,22 @@ ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 1a4e11996b3dc1f86e8dd337c3243c210c68b33e
-ms.sourcegitcommit: 0b783e262ac87ae67929dbd4c366b19bf36740f0
+ms.openlocfilehash: 3c329217ae6b8331c2b74fb46d4082069b011429
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74310287"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75820198"
 ---
-# <a name="install-the-aks-engine-on-windows-in-azure-stack"></a>Nainstalujte modul AKS ve Windows do Azure Stack
+# <a name="install-the-aks-engine-on-windows-in-azure-stack-hub"></a>Instalace stroje AKS ve Windows do centra Azure Stack
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
-Počítač s Windows můžete ve svém Azure Stack použít k hostování modulu AKS, aby bylo možné nasadit a spravovat cluster Kubernetes. V tomto článku se podíváme na přípravu klientského virtuálního počítače pro správu clusteru pro připojené i odpojené Azure Stack instance, Projděte si instalaci a nastavte virtuální počítač klienta na ASDK.
+Počítač s Windows můžete v centru Azure Stack použít k hostování modulu AKS, aby bylo možné nasadit a spravovat cluster Kubernetes. V tomto článku se podíváme na přípravu klientského virtuálního počítače pro správu clusteru pro připojení i odpojení Azure Stackch instancí, Projděte si instalaci a nastavte virtuální počítač klienta na ASDK.
 
 ## <a name="prepare-the-client-vm"></a>Příprava virtuálního počítače klienta
 
-Modul AKS je nástroj příkazového řádku, který slouží k nasazení a správě clusteru Kubernetes. Modul můžete spustit na počítači v Azure Stack. Z tohoto počítače spustíte modul AKS a nasadíte prostředky IaaS a software potřebný ke spuštění clusteru. Pak můžete pomocí počítače, na kterém je spuštěný modul, provádět úlohy správy v clusteru.
+Modul AKS je nástroj příkazového řádku, který slouží k nasazení a správě clusteru Kubernetes. Modul můžete spustit na počítači v centru Azure Stack. Z tohoto počítače spustíte modul AKS a nasadíte prostředky IaaS a software potřebný ke spuštění clusteru. Pak můžete pomocí počítače, na kterém je spuštěný modul, provádět úlohy správy v clusteru.
 
 Při volbě klientského počítače zvažte následující:
 
@@ -39,14 +39,14 @@ Při volbě klientského počítače zvažte následující:
 
 ## <a name="install-in-a-connected-environment"></a>Instalace v připojeném prostředí
 
-Můžete nainstalovat klientský virtuální počítač pro správu clusteru Kubernetes na Azure Stack připojeném k Internetu.
+Můžete nainstalovat klientský virtuální počítač pro správu clusteru Kubernetes na rozbočovači Azure Stack připojeném k Internetu.
 
-1. Vytvořte ve svém Azure Stack virtuální počítač s Windows. Pokyny najdete v tématu [rychlý Start: Vytvoření virtuálního počítače s Windows serverem pomocí Azure Stackového portálu](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-windows-portal).
+1. Vytvořte virtuální počítač s Windows ve svém rozbočovači Azure Stack. Pokyny najdete v tématu [rychlý Start: Vytvoření virtuálního počítače s Windows serverem pomocí portálu Azure Stack hub](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-windows-portal).
 2. Připojte se k VIRTUÁLNÍmu počítači.
 3. [Nainstalujte čokolády pomocí instrukcí PowerShellu.](https://chocolatey.org/install#install-with-powershellexe) 
 
     Podle webu Chocolaty: čokoláda je správce balíčků pro Windows, jako je apt-get nebo Yumu, ale pro Windows. Byla navržena jako decentralizovaná architektura pro rychlé instalování aplikací a nástrojů, které potřebujete. Je postavená na infrastruktuře NuGet, která aktuálně používá PowerShell jako svůj fokus pro doručování balíčků z distribuce na vaše dvířka, Err, Computer.
-4. Vyhledá verzi AKS Engine v tabulce [podporovaných verzí Kubernetes](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions) . Základní modul AKS musí být k dispozici na webu Marketplace pro Azure Stack. Při spuštění příkazu je nutné zadat `--version v0.43.0`verze. Pokud nezadáte verzi, příkaz nainstaluje nejnovější verzi, která může potřebovat image VHD, která není na vašem webu Marketplace k dispozici.
+4. Vyhledá verzi AKS Engine v tabulce [podporovaných verzí Kubernetes](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions) . V tržišti centra Azure Stack musí být dostupný základní modul AKS. Při spuštění příkazu je nutné zadat `--version v0.43.0`verze. Pokud nezadáte verzi, příkaz nainstaluje nejnovější verzi, která může potřebovat image VHD, která není na vašem webu Marketplace k dispozici.
 5. Z příkazového řádku se zvýšenými oprávněními spusťte následující příkaz a zahrňte číslo verze:
 
     ```PowerShell  
@@ -58,15 +58,15 @@ Můžete nainstalovat klientský virtuální počítač pro správu clusteru Kub
 
 ## <a name="install-in-a-disconnected-environment"></a>Instalace v odpojeném prostředí
 
-Můžete nainstalovat klientský virtuální počítač pro správu clusteru Kubernetes na Azure Stack odpojený od Internetu.
+Můžete nainstalovat klientský virtuální počítač pro správu clusteru Kubernetes na rozbočovači Azure Stack odpojený od Internetu.
 
 1.  Z počítače s přístupem k Internetu přejděte na GitHub [Azure/AKS-Engine](https://github.com/Azure/aks-engine/releases/latest). Stáhněte si archiv (*. tar. gz) pro počítač s Windows, například `aks-engine-v0.38.8-windows-amd64.tar.gz`.
 
-2.  Vytvořte v instanci Azure Stack účet úložiště pro nahrání souboru archivu (*. tar. gz) s binárním modulem AKS. Pokyny k používání Průzkumník služby Azure Storage najdete v tématu [Průzkumník služby Azure Storage s Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-connect-se).
+2.  Vytvořte účet úložiště v instanci centra Azure Stack, abyste nahráli archivní soubor (*. tar. gz) s binárním modulem AKS. Pokyny k používání Průzkumník služby Azure Storage najdete v tématu [Průzkumník služby Azure Storage pomocí centra Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-connect-se).
 
-3. Vytvořte ve svém Azure Stack virtuální počítač s Windows. Pokyny najdete v tématu [rychlý Start: Vytvoření virtuálního počítače s Windows serverem pomocí Azure Stackového portálu.](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-windows-portal)
+3. Vytvořte virtuální počítač s Windows ve svém rozbočovači Azure Stack. Pokyny najdete v tématu [rychlý Start: Vytvoření virtuálního počítače s Windows serverem pomocí portálu Azure Stack hub.](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-windows-portal)
 
-4.  Z adresy URL objektu blob Azure Stack účtu úložiště, kam jste nahráli archivní soubor (*. tar. gz), Stáhněte soubor na virtuální počítač pro správu. Extrahujte archiv do adresáře, ke kterému máte přístup z příkazového řádku.
+4.  Z adresy URL objektu BLOB účtu úložiště centra Azure Stack, kam jste nahráli archivní soubor (*. tar. gz), Stáhněte soubor na virtuální počítač pro správu. Extrahujte archiv do adresáře, ke kterému máte přístup z příkazového řádku.
 
 5. Připojte se k VIRTUÁLNÍmu počítači.
 
@@ -98,10 +98,10 @@ Pokud spouštíte virtuální počítač klienta pro modul AKS na ASDK na počí
 
 Pokud používáte ASDK, váš Azure Resource Manager koncový bod používá certifikát podepsaný svým držitelem, musíte tento certifikát explicitně přidat do důvěryhodného úložiště certifikátů počítače. Kořenový certifikát ASDK najdete na každém virtuálním počítači, který nasadíte v ASDK.
 
-1. Exportujte kořenový certifikát certifikační autority. Pokyny najdete v tématu [Export kořenového certifikátu certifikační autority Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles-azurecli2#export-the-azure-stack-ca-root-certificate) .
-2. Důvěřovat kořenovému certifikátu certifikační autority Azure Stack. Pokyny najdete v tématu [důvěřování kořenovému certifikátu certifikační autority Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles-azurecli2#trust-the-azure-stack-ca-root-certificate).
+1. Exportujte kořenový certifikát certifikační autority. Pokyny najdete v tématu [Export kořenového certifikátu certifikační autority centra Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles-azurecli2#export-the-azure-stack-hub-ca-root-certificate) .
+2. Důvěřovat kořenovému certifikátu certifikační autority centra Azure Stack. Pokyny najdete v tématu [důvěřování kořenovému certifikátu certifikační autority centra Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles-azurecli2#trust-the-azure-stack-hub-ca-root-certificate).
 
 ## <a name="next-steps"></a>Další kroky
 
 > [!div class="nextstepaction"]
-> [Nasazení clusteru Kubernetes s modulem AKS na Azure Stack](azure-stack-kubernetes-aks-engine-deploy-cluster.md)
+> [Nasazení clusteru Kubernetes s modulem AKS v centru Azure Stack](azure-stack-kubernetes-aks-engine-deploy-cluster.md)

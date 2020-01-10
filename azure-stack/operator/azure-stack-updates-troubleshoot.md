@@ -1,6 +1,6 @@
 ---
-title: Řešení potíží s aktualizacemi v Azure Stack | Microsoft Docs
-description: Jako operátor Azure Stack se naučíte řešit problémy s aktualizací, aby se Azure Stack mohli co nejrychleji vrátit do produkčního prostředí.
+title: Řešení potíží s aktualizacemi v centru Azure Stack | Microsoft Docs
+description: Jako operátor centra Azure Stack se naučíte řešit problémy s aktualizací, aby se Azure Stack centrum mohl co nejrychleji vrátit do produkčního prostředí.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,24 +15,24 @@ ms.date: 09/23/2019
 ms.author: mabrigg
 ms.lastreviewed: 09/23/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 0021776f5b3be93a82305f41a9aa70c524273e4b
-ms.sourcegitcommit: e57a53caac50d1f8762307e065fe886fcda7eadf
+ms.openlocfilehash: f2bbcf10feb47ba42bb6133bd4ab4320e120b283
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/19/2019
-ms.locfileid: "75190879"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75813313"
 ---
 # <a name="best-practices-for-troubleshooting-azure-stack-hub-patch-and-update-issues"></a>Osvědčené postupy pro řešení potíží s problémy s aktualizacemi a aktualizacemi centra Azure Stack
 
-Tento článek poskytuje přehled osvědčených postupů pro řešení potíží s Azure Stack opravou a aktualizací, jakož i opravy běžných problémů s opravou a aktualizací.
+Tento článek poskytuje přehled osvědčených postupů pro řešení potíží s aktualizacemi centra Azure Stack a problémy s aktualizací, jakož i opravy běžných problémů s aktualizacemi a aktualizacemi.
 
 
 Proces aktualizace a aktualizace centra Azure Stack slouží k tomu, aby operátoři mohli instalovat balíčky aktualizací konzistentním a efektivnějším způsobem. V neobvyklém případě mohou nastat problémy při opravách a aktualizacích. V následujících krocích se doporučuje, abyste při procesu aktualizace a aktualizace nastavili problém:
 
 0. **Požadavky**: Ujistěte se, že jste postupovali podle [kontrolního seznamu aktivity aktualizace](release-notes-checklist.md) a máte [nakonfigurované automatické shromažďování protokolů](azure-stack-configure-automatic-diagnostic-log-collection.md).
 1. Postupujte podle kroků pro nápravu v upozornění na selhání vytvořeného při selhání aktualizace.
-2. Přečtěte si [Nejčastější aktualizace centra Azure Stack a aktualizujte problémy](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates-troubleshoot#Common-Azure-Stack-Hub-patch-and-update-issues) a podle uvedeného problému proveďte doporučené akce.
-3. Pokud jste nedokázali vyřešit váš problém pomocí výše uvedeného postupu, vytvořte [lístek podpory Azure Stack](azure-stack-help-and-support-overview.md). Ujistěte se, že máte [shromážděné protokoly](https://docs.microsoft.com/azure-stack/operator/azure-stack-configure-on-demand-diagnostic-log-collection) pro časový interval, ke kterému došlo k problému.
+2. Přečtěte si [Nejčastější aktualizace centra Azure Stack a aktualizujte problémy](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates-troubleshoot#Common-azure-stack-hub-patch-and-update-issues) a podle uvedeného problému proveďte doporučené akce.
+3. Pokud jste nedokázali problém vyřešit pomocí výše uvedeného postupu, vytvořte [lístek podpory centra Azure Stack](azure-stack-help-and-support-overview.md). Ujistěte se, že máte [shromážděné protokoly](https://docs.microsoft.com/azure-stack/operator/azure-stack-configure-on-demand-diagnostic-log-collection) pro časový interval, ke kterému došlo k problému.
 
 ## <a name="common-azure-stack-hub-patch-and-update-issues"></a>Běžné problémy s opravou a aktualizacemi centra Azure Stack
 
@@ -42,7 +42,7 @@ Proces aktualizace a aktualizace centra Azure Stack slouží k tomu, aby operát
 
 **Platí**: Tento problém se vztahuje na všechny podporované verze.
 
-**Příčina**: při pokusu o instalaci aktualizace Azure Stack se může stát, že se stav aktualizace nezdaří a změní se stav na `PreparationFailed`. Pro systémy připojené k Internetu je to obvykle informativní jako aktualizace balíčku aktualizace, který se nedá správně stáhnout z důvodu slabého připojení k Internetu. 
+**Příčina**: při pokusu o instalaci aktualizace centra Azure Stack se může stát, že se stav aktualizace nezdaří a změní se stav na `PreparationFailed`. Pro systémy připojené k Internetu je to obvykle informativní jako aktualizace balíčku aktualizace, který se nedá správně stáhnout z důvodu slabého připojení k Internetu. 
 
 **Náprava**: Tento problém můžete obejít tak, že znovu kliknete na **nainstalovat** . Pokud potíže potrvají, doporučujeme ručně odeslat balíček aktualizace pomocí oddílu [instalovat aktualizace](azure-stack-apply-updates.md?#install-updates-and-monitor-progress) .
 
@@ -50,5 +50,5 @@ Proces aktualizace a aktualizace centra Azure Stack slouží k tomu, aby operát
 
 ## <a name="next-steps"></a>Další kroky
 
-- [Aktualizovat Azure Stack](azure-stack-updates.md)  
-- [Microsoft Azure Stack pomoc a podpora](azure-stack-help-and-support-overview.md)
+- [Aktualizace centra Azure Stack](azure-stack-updates.md)  
+- [Pomoc a podpora centra Microsoft Azure Stack](azure-stack-help-and-support-overview.md)

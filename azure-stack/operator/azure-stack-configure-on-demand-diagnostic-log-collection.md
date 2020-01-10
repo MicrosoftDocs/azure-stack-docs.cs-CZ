@@ -1,6 +1,6 @@
 ---
-title: Shromažďovat Azure Stack diagnostické protokoly na vyžádání | Microsoft Docs
-description: Naučte se shromažďovat diagnostické protokoly na vyžádání v Azure Stack pomocí služby Help and Support nebo privilegovaného koncového bodu (PEP).
+title: Shromažďovat diagnostické protokoly centra Azure Stack na vyžádání | Microsoft Docs
+description: Naučte se shromažďovat diagnostické protokoly na vyžádání v centru Azure Stack s využitím pomoci a podpory nebo privilegovaného koncového bodu (PEP).
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,25 +16,25 @@ ms.date: 11/07/2019
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: ccc552e6daee4f1492d1070a08f5be19e41217dd
-ms.sourcegitcommit: 7817d61fa34ac4f6410ce6f8ac11d292e1ad807c
+ms.openlocfilehash: 906215478ba9828464de6cc760db30491bf445c9
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74690017"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75817654"
 ---
-# <a name="collect-azure-stack-diagnostic-logs-on-demand"></a>Shromažďovat protokoly diagnostiky Azure Stack na vyžádání
+# <a name="collect-azure-stack-hub-diagnostic-logs-on-demand"></a>Shromažďovat diagnostické protokoly centra Azure Stack na vyžádání
 
-*Platí pro: Azure Stack integrovaných systémů*
+*Platí pro: Azure Stack integrovaných systémů centra*
 
-V rámci řešení potíží můžou služby Microsoft Customer Support Services (CSS) potřebovat analyzovat diagnostické protokoly. Od verze 1907 mohou operátoři služby Azure Stack nahrávat diagnostické protokoly do kontejneru objektů BLOB v Azure pomocí **pomoci a podpory**. Použití **pomoci a podpory** se doporučuje nad předchozí metodou použití prostředí PowerShell, protože je jednodušší. Pokud však portál není k dispozici, operátory mohou nadále shromažďovat protokoly pomocí **Get-AzureStackLog** prostřednictvím privilegovaného koncového bodu (PEP) jako v předchozích verzích. Toto téma popisuje jak shromažďovat diagnostické protokoly na vyžádání.
+V rámci řešení potíží můžou služby Microsoft Customer Support Services (CSS) potřebovat analyzovat diagnostické protokoly. Od verze 1907 mohou operátoři centra Azure Stack nahrávat diagnostické protokoly do kontejneru objektů BLOB v Azure pomocí nástroje **Help and Support**. Použití **pomoci a podpory** se doporučuje nad předchozí metodou použití prostředí PowerShell, protože je jednodušší. Pokud však portál není k dispozici, operátory mohou nadále shromažďovat protokoly pomocí **Get-AzureStackLog** prostřednictvím privilegovaného koncového bodu (PEP) jako v předchozích verzích. Toto téma popisuje jak shromažďovat diagnostické protokoly na vyžádání.
 
 >[!Note]
 >Jako alternativu ke shromažďování protokolů na vyžádání můžete zjednodušit proces řešení potíží tím, že povolíte [automatické shromažďování diagnostických protokolů](azure-stack-configure-automatic-diagnostic-log-collection.md). Pokud je potřeba prozkoumat stav systému, protokoly se nahrají automaticky pro účely analýzy šablonou CSS. 
 
 ## <a name="use-help-and-support-to-collect-diagnostic-logs-on-demand"></a>Použití pomoci a podpory ke shromažďování diagnostických protokolů na vyžádání
 
-V případě řešení problému může CSS požádat o operátora Azure Stack ke shromáždění diagnostických protokolů na vyžádání pro konkrétní časové období z předchozího týdne. V takovém případě vám CSS poskytne operátor s adresou URL SAS pro nahrání kolekce. Pomocí následujících kroků proveďte konfiguraci shromažďování protokolů na vyžádání pomocí adresy URL SAS z šablony stylů CSS:
+V případě řešení problému může CSS požádat o operátora centra Azure Stack ke shromáždění diagnostických protokolů na vyžádání pro konkrétní časové období z předchozího týdne. V takovém případě vám CSS poskytne operátor s adresou URL SAS pro nahrání kolekce. Pomocí následujících kroků proveďte konfiguraci shromažďování protokolů na vyžádání pomocí adresy URL SAS z šablony stylů CSS:
 
 1. Otevřete okno **pomoc a podpora – přehled** a hned klikněte na **shromáždit protokoly**. 
 1. Vyberte okno posunuté z 1-4 hodin za posledních sedm dní. 
@@ -52,7 +52,7 @@ V případě řešení problému může CSS požádat o operátora Azure Stack k
 
 
 
-### <a name="run-get-azurestacklog-on-azure-stack-integrated-systems"></a>Spuštění rutiny Get-AzureStackLog na Azure Stack integrovaných systémech
+### <a name="run-get-azurestacklog-on-azure-stack-hub-integrated-systems"></a>Spuštění rutiny Get-AzureStackLog v integrovaných systémech centra Azure Stack
 
 Ke spuštění rutiny Get-AzureStackLog v integrovaném systému je potřeba mít přístup k privilegovanému koncovému bodu (PEP). Tady je ukázkový skript, který můžete spustit pomocí PEP a shromažďovat protokoly v integrovaném systému:
 
@@ -110,13 +110,13 @@ Pomocí těchto kroků spustíte `Get-AzureStackLog` v hostitelském počítači
   Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
   ```
 
-* Shromažďování protokolů z nasazení klientů, na kterých běží samoobslužně spravované služby Azure Kubernetes (AKS) na Azure Stack. Protokoly AKS by se měly ukládat do účtu úložiště tenanta ve formátu, který umožní, aby se na ně používal časový rozsah shromažďování dat. 
+* Shromažďovat protokoly z nasazení klientů, na kterých běží samoobslužně spravované služby Azure Kubernetes (AKS) na rozbočovači Azure Stack. Protokoly AKS by se měly ukládat do účtu úložiště tenanta ve formátu, který umožní, aby se na ně používal časový rozsah shromažďování dat. 
 
   ```powershell
   Get-AzureStackLog -OutputPath <Path> -InputSasUri "<Blob Service Sas URI>" -FromDate "<Beginning of the time range>" -ToDate "<End of the time range>"
   ```
 
-  Například:
+  Příklad:
 
   ```powershell
   Get-AzureStackLog -OutputPath C:\KubernetesLogs -InputSasUri "https://<storageAccountName>.blob.core.windows.net/<ContainerName><SAS token>" -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2) 
@@ -128,14 +128,14 @@ Pomocí těchto kroků spustíte `Get-AzureStackLog` v hostitelském počítači
   Get-AzureStackLog -OutputSasUri "<Blob service SAS Uri>"
   ```
 
-  Například:
+  Příklad:
 
   ```powershell
   Get-AzureStackLog -OutputSasUri "https://<storageAccountName>.blob.core.windows.net/<ContainerName><SAS token>"
   ```
 
   > [!NOTE]
-  > Tento postup je vhodný pro nahrávání protokolů. I když nemáte přístup ke sdílené složce SMB nebo přístup k Internetu, můžete na svém Azure Stack vytvořit účet Blob Storage pro přenos protokolů a potom pomocí klienta tyto protokoly načíst.  
+  > Tento postup je vhodný pro nahrávání protokolů. I když nemáte přístup ke sdílené složce SMB nebo přístup k Internetu, můžete v centru Azure Stack vytvořit účet Blob Storage pro přenos protokolů a potom pomocí klienta tyto protokoly načíst.  
 
   K vygenerování tokenu SAS pro účet úložiště se vyžadují následující oprávnění:
 
@@ -152,7 +152,7 @@ Pomocí těchto kroků spustíte `Get-AzureStackLog` v hostitelském počítači
   6. Klikněte pravým tlačítkem na nový kontejner a pak klikněte na **získat sdílený přístupový podpis**.
   7. V závislosti na vašich požadavcích Vyberte platný **čas spuštění** a **čas ukončení**.
   8. Pro požadovaná oprávnění vyberte **čtení**, **zápis**a **seznam**.
-  9. Vyberte **Create** (Vytvořit).
+  9. Vyberte **Vytvořit**.
   10. Získáte sdílený přístupový podpis. Zkopírujte část adresy URL a zadejte ji do parametru `-OutputSasUri`.
 
 ### <a name="parameter-considerations-for-both-asdk-and-integrated-systems"></a>Hlediska parametrů pro ASDK i integrované systémy
@@ -161,13 +161,13 @@ Pomocí těchto kroků spustíte `Get-AzureStackLog` v hostitelském počítači
 
 * Parametry **FromDate** a na více dní lze použít ke shromažďování protokolů pro konkrétní časové období. Nejsou-li tyto parametry zadány, budou ve výchozím nastavení shromažďovány protokoly za poslední čtyři hodiny.
 
-* Pomocí parametru **FilterByNode** můžete filtrovat protokoly podle názvu počítače. Například:
+* Pomocí parametru **FilterByNode** můžete filtrovat protokoly podle názvu počítače. Příklad:
 
     ```powershell
     Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -FilterByNode azs-xrp01
     ```
 
-* Pomocí parametru **FilterByLogType** můžete filtrovat protokoly podle typu. Můžete zvolit filtrování podle souboru, sdílení nebo WindowsEvent. Například:
+* Pomocí parametru **FilterByLogType** můžete filtrovat protokoly podle typu. Můžete zvolit filtrování podle souboru, sdílení nebo WindowsEvent. Příklad:
 
     ```powershell
     Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -FilterByLogType File
@@ -179,18 +179,18 @@ Pomocí těchto kroků spustíte `Get-AzureStackLog` v hostitelském počítači
 
   |   |   |   |    |     |
   | - | - | - | -  |  -  |
-  |ACS                   |CA                             |HRP                            |OboService                |virtualMachines|
-  |ACSBlob               |CacheService                   |DATY IBC                            |OEM                       |VYTVOŘEN            |
+  |ACS                   |CA                             |HRP                            |OboService                |VirtualMachines|
+  |ACSBlob               |CacheService                   |IBC                            |OEM                       |WAS            |
   |ACSDownloadService    |Služby Compute                        |InfraServiceController         |OnboardRP                 |WASPUBLIC|
-  |ACSFabric             |PALEC                            |KeyVaultAdminResourceProvider  |PROTOKOLU                       |         |
+  |ACSFabric             |CPI                            |KeyVaultAdminResourceProvider  |PXE                       |         |
   |ACSFrontEnd           |CRP                            |KeyVaultControlPlane           |QueryServiceCoordinator   |         | 
   |ACSMetrics            |DeploymentMachine              |KeyVaultDataPlane              |QueryServiceWorker        |         |
   |ACSMigrationService   |DiskRP                         |KeyVaultInternalControlPlane   |SeedRing                  |         |
   |ACSMonitoringService  |Domain (Doména)                         |KeyVaultInternalDataPlane      |SeedRingServices          |         |
-  |ACSSettingsService    |OSN                            |KeyVaultNamingService          |KLÍČOVÝCH                       |         |
-  |ACSTableMaster        |EventAdminRP                   |PRODUKTU                            |SQL                       |         |
-  |ACSTableServer        |EventRP                        |MetricsAdminRP                 |OBSAŽEN                       |         |
-  |ACSWac                |ExternalDNS                    |MetricsRP                      |Úložiště                   |         |
+  |ACSSettingsService    |OSN                            |KeyVaultNamingService          |SLB                       |         |
+  |ACSTableMaster        |EventAdminRP                   |MDM                            |SQL                       |         |
+  |ACSTableServer        |EventRP                        |MetricsAdminRP                 |SRP                       |         |
+  |ACSWac                |ExternalDNS                    |MetricsRP                      |Storage                   |         |
   |ADFS                  |FabricRing                     |MetricsServer                  |StorageController         |         |
   |ApplicationController |FabricRingServices             |MetricsStoreService            |URP                       |         |
   |ASAppGateway          |FirstTierAggregationService    |MonAdminRP                     |SupportBridgeController   |         |
@@ -202,7 +202,7 @@ Pomocí těchto kroků spustíte `Get-AzureStackLog` v hostitelském počítači
 
 ### <a name="additional-considerations-on-diagnostic-logs"></a>Další požadavky na diagnostické protokoly
 
-* Spuštění příkazu může nějakou dobu trvat, a to na základě rolí, které protokoly shromažďují. Přispívající faktory také zahrnují dobu trvání určenou pro shromažďování protokolů a počty uzlů v prostředí Azure Stack.
+* Spuštění příkazu může nějakou dobu trvat, a to na základě rolí, které protokoly shromažďují. Přispívající faktory také zahrnují dobu určenou pro shromažďování protokolů a počty uzlů v prostředí Azure Stack hub.
 * Když je shromažďování protokolů spuštěno, ověřte novou složku vytvořenou v parametru **OutputSharePath** zadaného v příkazu.
 * Každá role má své protokoly uvnitř jednotlivých souborů zip. V závislosti na velikosti shromážděných protokolů může být role rozdělená do více souborů zip. Pokud pro takovou roli chcete, aby všechny soubory protokolu byly extrahovány do jediné složky, použijte nástroj, který se může volně rozkomprimovat. Vyberte všechny soubory zip pro roli a vyberte **extrahovat sem**. Všechny soubory protokolu této role budou v jedné sloučené složce extrahovány.
 * Ve složce, která obsahuje soubory protokolu zip, se vytvoří i soubor s názvem **Get-AzureStackLog_Output. log** . Tento soubor je protokolem výstupu příkazu, který se dá použít k řešení problémů během shromažďování protokolů. V některých případech soubor protokolu obsahuje `PS>TerminatingError` položky, které je možné ignorovat, pokud po spuštění shromažďování protokolů nechybějí žádné soubory protokolu.
@@ -216,7 +216,7 @@ Pomocí těchto kroků spustíte `Get-AzureStackLog` v hostitelském počítači
 > [!NOTE]
 > Limity velikosti a stáří se v protokolech shromažďují, protože jsou nezbytné k zajištění efektivního využití prostoru úložiště a k tomu, abyste se vyhnuli zahlcení protokoly. Při diagnostikování problému ale někdy budete potřebovat protokoly, které už neexistují z důvodu těchto limitů. Proto se **důrazně doporučuje** přesměrovat protokoly do externího prostoru úložiště (účet úložiště v Azure, dalších místních úložných zařízení atd.) každých 8 až 12 hodin a v závislosti na vašich požadavcích je uchovávat po dobu 1-3 měsíců. Zajistěte také, aby bylo toto umístění úložiště šifrované.
 
-### <a name="invoke-azurestackondemandlog"></a>Invoke – AzureStackOnDemandLog
+### <a name="invoke-azurestackondemandlog"></a>Invoke-AzureStackOnDemandLog
 
 Pomocí rutiny **Invoke-AzureStackOnDemandLog** můžete pro určité role generovat protokoly na vyžádání (viz seznam na konci této části). Protokoly generované touto rutinou nejsou ve výchozím nastavení k dispozici v sadě protokolů, které obdržíte při spuštění rutiny **Get-AzureStackLog** . Také se doporučuje shromažďovat tyto protokoly pouze v případě, že je požaduje tým podpory společnosti Microsoft.
 
@@ -224,7 +224,7 @@ V současné době můžete pomocí parametru `-FilterByRole` filtrovat shromaž
 
 * OEM
 * NC
-* KLÍČOVÝCH
+* SLB
 * brána
 
 #### <a name="example-of-collecting-on-demand-diagnostic-logs"></a>Příklad shromažďování diagnostických protokolů na vyžádání
@@ -254,25 +254,25 @@ if ($session) {
 
 ### <a name="how-diagnostic-log-collection-using-the-pep-works"></a>Jak shromažďování protokolů diagnostiky pomocí PEP funguje
 
-Nástroje pro diagnostiku Azure Stack umožňují snadno a efektivně vytvářet kolekce protokolů. Následující diagram znázorňuje fungování diagnostických nástrojů:
+Nástroje pro diagnostiku centra Azure Stack umožňují snadno a efektivně vytvářet kolekce protokolů. Následující diagram znázorňuje fungování diagnostických nástrojů:
 
-![Diagram pracovního postupu Azure Stack diagnostických nástrojů](media/azure-stack-diagnostics/get-azslogs.png)
+![Diagram pracovního postupu diagnostických nástrojů centra Azure Stack](media/azure-stack-diagnostics/get-azslogs.png)
 
 
 #### <a name="trace-collector"></a>Kolektor trasování
 
-Kolektor trasování je ve výchozím nastavení povolená a na pozadí se bude shromažďovat všechny protokoly ETW (Event Tracing for Windows) ze služby Azure Stack Component Services. Protokoly ETW se ukládají do běžné místní sdílené složky s omezením stáří na pět dní. Po dosažení tohoto limitu se nejstarší soubory odstraní, jakmile se vytvoří nové. Výchozí maximální velikost povolená pro každý soubor je 200 MB. K kontrole velikosti dojde každé 2 minuty a pokud je aktuální soubor > = 200 MB, je uložen a generuje se nový soubor. Celková velikost souborů vygenerovaných každou relaci události je také omezena na 8 GB.
+Kolektor trasování je ve výchozím nastavení povolená a na pozadí se bude shromažďovat všechny protokoly ETW (Event Tracing for Windows) ze služby komponent Azure Stack hub. Protokoly ETW se ukládají do běžné místní sdílené složky s omezením stáří na pět dní. Po dosažení tohoto limitu se nejstarší soubory odstraní, jakmile se vytvoří nové. Výchozí maximální velikost povolená pro každý soubor je 200 MB. K kontrole velikosti dojde každé 2 minuty a pokud je aktuální soubor > = 200 MB, je uložen a generuje se nový soubor. Celková velikost souborů vygenerovaných každou relaci události je také omezena na 8 GB.
 
 #### <a name="get-azurestacklog"></a>Get-AzureStackLog
 
-Rutina PowerShellu Get-AzureStackLog se dá použít ke shromažďování protokolů ze všech komponent v prostředí Azure Stack. Ukládá je do souborů zip v uživatelsky definovaném umístění. Pokud tým technické podpory Azure Stack potřebuje k tomu, aby vaše protokoly pomohl problém vyřešit, může požádat o spuštění rutiny Get-AzureStackLog.
+Rutina PowerShellu Get-AzureStackLog se dá použít ke shromažďování protokolů ze všech komponent v prostředí centra Azure Stack. Ukládá je do souborů zip v uživatelsky definovaném umístění. Pokud tým technické podpory centra Azure Stack potřebuje vaše protokoly, aby mohl pomoct vyřešit problém, může vás požádat o spuštění rutiny Get-AzureStackLog.
 
 > [!CAUTION]
 > Tyto soubory protokolu mohou obsahovat identifikovatelné osobní údaje (PII). Před tím, než budete veřejně publikovat všechny soubory protokolu, je nutné vzít v úvahu.
 
 Níže jsou uvedeny příklady typů protokolů, které jsou shromažďovány:
 
-* **Protokoly nasazení Azure Stack**
+* **Protokoly nasazení centra Azure Stack**
 * **Protokoly událostí systému Windows**
 * **Protokoly Panther**
 * **Protokoly clusteru**

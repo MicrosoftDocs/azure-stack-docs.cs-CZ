@@ -1,6 +1,6 @@
 ---
-title: Publikování Azure Stackch služeb ve vašem datovém centru | Microsoft Docs
-description: Naučte se publikovat Azure Stack služby ve vašem datovém centru.
+title: Publikování služby Azure Stack hub ve vašem datovém centru | Microsoft Docs
+description: Naučte se publikovat Azure Stack služby centra ve svém datovém centru.
 services: azure-stack
 author: mattbriggs
 manager: femila
@@ -10,16 +10,16 @@ ms.date: 12/11/2019
 ms.author: justinha
 ms.reviewer: wamota
 ms.lastreviewed: 12/11/2019
-ms.openlocfilehash: 2da6bb4fb70a3d8e816870c8569f8f3e3aa7d678
-ms.sourcegitcommit: ae9d29c6a158948a7dbc4fd53082984eba890c59
+ms.openlocfilehash: 5ed74e225df2e2667acc536e0b8dbd901a086b9a
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/12/2019
-ms.locfileid: "75007992"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75818005"
 ---
-# <a name="publish-azure-stack-services-in-your-datacenter"></a>Publikování Azure Stackch služeb ve vašem datovém centru 
+# <a name="publish-azure-stack-hub-services-in-your-datacenter"></a>Publikování služby Azure Stack hub ve vašem datovém centru 
 
-Azure Stack nastaví virtuální IP adresy (VIP) pro své role infrastruktury. Tyto VIP adresy se přiřazují z fondu veřejných IP adres. Každá virtuální IP adresa je zabezpečená pomocí seznamu řízení přístupu (ACL) ve vrstvě softwarově definované sítě. Seznamy řízení přístupu (ACL) se používají také napříč fyzickými přepínači (tory a BMC) k dalšímu posílení zabezpečení řešení. Pro každý koncový bod v externí zóně DNS, která je zadaná v době nasazení, se vytvoří položka DNS. Například uživatelský portál má přiřazenou položku hostitel DNS na portálu. *&lt;oblast >.&lt;plně kvalifikovaný název domény >* .
+Centrum Azure Stack nastaví virtuální IP adresy (VIP) pro své role infrastruktury. Tyto VIP adresy se přiřazují z fondu veřejných IP adres. Každá virtuální IP adresa je zabezpečená pomocí seznamu řízení přístupu (ACL) ve vrstvě softwarově definované sítě. Seznamy řízení přístupu (ACL) se používají také napříč fyzickými přepínači (tory a BMC) k dalšímu posílení zabezpečení řešení. Pro každý koncový bod v externí zóně DNS, která je zadaná v době nasazení, se vytvoří položka DNS. Například uživatelský portál má přiřazenou položku hostitel DNS na portálu. *&lt;oblast >.&lt;plně kvalifikovaný název domény >* .
 
 Následující diagram architektury znázorňuje různé vrstvy sítě a seznamy ACL:
 
@@ -27,7 +27,7 @@ Následující diagram architektury znázorňuje různé vrstvy sítě a seznamy
 
 ### <a name="ports-and-urls"></a>Porty a adresy URL
 
-Chcete-li zpřístupnit Azure Stack služby (například portály, Azure Resource Manager, DNS atd.) k dispozici pro externí sítě, musíte povolit příchozí provoz do těchto koncových bodů pro konkrétní adresy URL, porty a protokoly.
+Chcete-li zpřístupnit služby Azure Stack hub (například portály, Azure Resource Manager, DNS atd.) k dispozici pro externí sítě, musíte povolit příchozí provoz do těchto koncových bodů pro konkrétní adresy URL, porty a protokoly.
  
 V nasazení, kde transparentní proxy odchozí připojení k tradičnímu proxy server nebo brána firewall chrání řešení, musíte povolit konkrétní porty a adresy URL pro [příchozí](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound) i [odchozí](azure-stack-integrate-endpoints.md#ports-and-urls-outbound) komunikaci. Patří mezi ně porty a adresy URL pro identitu, tržiště, opravu a aktualizace, registrace a data o využití.
 
@@ -35,9 +35,9 @@ Zachycení provozu SSL není [podporované](azure-stack-firewall.md#ssl-intercep
 
 ## <a name="ports-and-protocols-inbound"></a>Porty a protokoly (příchozí)
 
-K publikování koncových bodů Azure Stack externích sítích se vyžaduje sada virtuálních IP adres infrastruktury. Tabulka *koncový bod (VIP)* zobrazuje jednotlivé koncové body, požadovaný port a protokol. V dokumentaci k nasazení konkrétního poskytovatele prostředků najdete koncové body, které vyžadují další poskytovatele prostředků, jako je třeba poskytovatel prostředků SQL.
+K publikování koncových bodů centra Azure Stack do externích sítí se vyžaduje sada virtuálních IP adres infrastruktury. Tabulka *koncový bod (VIP)* zobrazuje jednotlivé koncové body, požadovaný port a protokol. V dokumentaci k nasazení konkrétního poskytovatele prostředků najdete koncové body, které vyžadují další poskytovatele prostředků, jako je třeba poskytovatel prostředků SQL.
 
-Interní virtuální IP adresy infrastruktury nejsou uvedené, protože nejsou nutné k publikování Azure Stack. Uživatelské virtuální IP adresy jsou dynamické a definované uživateli, bez řízení operátoru Azure Stack.
+Interní virtuální IP adresy infrastruktury nejsou uvedené, protože nejsou nutné k publikování centra Azure Stack. Uživatelské virtuální IP adresy jsou dynamické a definované uživateli, bez řízení pomocí operátoru centra Azure Stack.
 
 > [!Note]  
 > IKEv2 VPN je řešení IPsec VPN založené na standardech, které používá port UDP 500 a 4500 a port TCP 50. Brány firewall tyto porty nikdy neotevírají, takže VPN typu IKEv2 nemusí být schopná procházet proxy a brány firewall.
@@ -52,7 +52,7 @@ Po přidání [hostitele rozšíření](azure-stack-extension-host-prepare.md)ne
 |Azure Resource Manager (správce)|Adminmanagement. *&lt;oblasti.&lt;plně kvalifikovaný název domény >*|HTTPS|443|
 |Portál (uživatel)|Bran. *&lt;oblasti.&lt;plně kvalifikovaný název domény >*|HTTPS|443|
 |Azure Resource Manager (uživatel)|Správu. *&lt;oblasti.&lt;plně kvalifikovaný název domény >*|HTTPS|443|
-|Graf|Graph. *&lt;region>.&lt;fqdn>*|HTTPS|443|
+|Grafová databáze|Graph. *&lt;region>.&lt;fqdn>*|HTTPS|443|
 |Seznam odvolaných certifikátů|Seznam CRL. *&lt;oblast >.&lt;plně kvalifikovaný název domény >*|HTTP|80|
 |DNS|&#42;. *&lt;oblasti.&lt;plně kvalifikovaný název domény >*|TCP & UDP|53|
 |Hostování | *.hosting.\<region>.\<fqdn> | HTTPS | 443 |
@@ -72,12 +72,12 @@ Po přidání [hostitele rozšíření](azure-stack-extension-host-prepare.md)ne
 
 ## <a name="ports-and-urls-outbound"></a>Porty a adresy URL (odchozí)
 
-Azure Stack podporuje pouze transparentní proxy servery. V nasazení pomocí transparentního odchozího připojení proxy k tradičnímu proxy server musíte pro odchozí komunikaci použít porty a adresy URL v následující tabulce.
+Centrum Azure Stack podporuje jenom transparentní proxy servery. V nasazení pomocí transparentního odchozího připojení proxy k tradičnímu proxy server musíte pro odchozí komunikaci použít porty a adresy URL v následující tabulce.
 
 Zachycení provozu SSL není [podporované](azure-stack-firewall.md#ssl-interception) a může při přístupu k koncovým bodům způsobit selhání služby. Maximální podporovaný časový limit pro komunikaci s koncovými body vyžadovanými pro identitu je 60 s.
 
 > [!Note]  
-> Azure Stack nepodporuje použití ExpressRoute pro přístup ke službám Azure uvedeným v následující tabulce, protože ExpressRoute nemusí být schopná směrovat provoz do všech koncových bodů.
+> Centrum Azure Stack nepodporuje použití ExpressRoute pro přístup ke službám Azure uvedeným v následující tabulce, protože ExpressRoute nemusí být schopná směrovat provoz do všech koncových bodů.
 
 |Účel|Cílová adresa URL|Protocol (Protokol)|Porty|Zdrojová síť|
 |---------|---------|---------|---------|---------|
@@ -104,4 +104,4 @@ Odchozí DNS se vyžaduje ve všech případech. To znamená, že se jedná o zd
 
 ## <a name="next-steps"></a>Další kroky
 
-[Azure Stack požadavky PKI](azure-stack-pki-certs.md)
+[Požadavky na infrastrukturu veřejných klíčů centra Azure Stack](azure-stack-pki-certs.md)

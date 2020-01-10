@@ -1,6 +1,6 @@
 ---
-title: Seznámení s Azure Stack Storage | Microsoft Docs
-description: Přečtěte si o službě Azure Stack Storage.
+title: Úvod do úložiště centra Azure Stack | Microsoft Docs
+description: Přečtěte si o Azure Stack služby úložiště hub.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,24 +14,24 @@ ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: mabrigg
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: dfa9666387093f60dfd41e371707dff23119dc9a
-ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
+ms.openlocfilehash: 462213c5564967c08961c0277f54bfafbaa59a4a
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71909593"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75815795"
 ---
-# <a name="introduction-to-azure-stack-storage"></a>Seznámení s Azure Stack Storage
+# <a name="introduction-to-azure-stack-hub-storage"></a>Úvod do úložiště centra Azure Stack
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 ## <a name="overview"></a>Přehled
 
-Azure Stack Storage je sada služeb cloudového úložiště, která je konzistentní se službami poskytovanými Azure Storage. Mezi tyto služby patří objekty blob, tabulky a fronty.
+Úložiště centra Azure Stack je sada služeb cloudového úložiště, která odpovídá službám poskytovaným Azure Storage. Mezi tyto služby patří objekty blob, tabulky a fronty.
 
-## <a name="azure-stack-storage-services"></a>Služba Azure Stack Storage
+## <a name="azure-stack-hub-storage-services"></a>Služby úložiště Azure Stack hub
 
-Služba Azure Stack Storage poskytuje tyto tři služby:
+Úložiště centra Azure Stack poskytuje následující tři služby:
 
 - **Blob Storage**
 
@@ -45,11 +45,11 @@ Služba Azure Stack Storage poskytuje tyto tři služby:
 
     Queue Storage poskytuje spolehlivé zasílání zpráv pro zpracování pracovních postupů a komunikaci mezi komponentami cloudových služeb.
 
-Účet úložiště Azure Stack je zabezpečený účet, který poskytuje přístup ke službám v úložišti Azure Stack. Váš účet úložiště poskytuje jedinečný obor názvů pro vaše prostředky úložiště. Následující diagram znázorňuje vztahy mezi Azure Stack prostředky úložiště v účtu úložiště:
+Účet úložiště centra Azure Stack je zabezpečený účet, který poskytuje přístup ke službám v úložišti centra Azure Stack. Váš účet úložiště poskytuje jedinečný obor názvů pro vaše prostředky úložiště. Následující diagram znázorňuje vztahy mezi prostředky úložiště centra Azure Stack v účtu úložiště:
 
-![Přehled služby Azure Stack Storage](media/azure-stack-storage-overview/AzureStackStorageOverview.png)
+![Přehled úložiště centra Azure Stack](media/azure-stack-storage-overview/AzureStackStorageOverview.png)
 
-### <a name="blob-storage"></a>Blob Storage
+### <a name="blob-storage"></a>Úložiště blobů
 
 Pro uživatele s velkým množstvím nestrukturovaných dat objektů, které se mají uložit v cloudu, nabízí úložiště objektů BLOB efektivní a škálovatelné řešení. Úložiště objektů blob můžete použít k ukládání obsahu, jako je například:
 
@@ -68,13 +68,13 @@ Každý objekt blob se organizuje do kontejneru. Kontejnery také nabízejí pra
 
     Objekty blob bloku jsou optimalizované pro streamování a ukládání objektů cloudu. Jsou dobrou volbou pro ukládání dokumentů, mediálních souborů, záloh a dalších podobných souborů.
 
-- **Připojit objekty blob**
+- **Doplňovací objekty blob**
 
     Doplňovací objekty blob jsou podobné objektům blob bloku, ale jsou optimalizované pro doplňovací operace. Doplňovací objekt blob se může aktualizovat jen přidáním nového bloku na konec. Doplňovací objekty blob jsou dobrou volbou pro takové scénáře, jako je například protokolování, kde se nová data potřebují zapisovat jen na konec objektu blob.
 
 - **Objekty blob stránky**
 
-    Objekty blob stránky jsou optimalizované tak, aby představovaly disky IaaS a podporovaly náhodné zápisy o velikosti až 1 TB. IaaS disk připojený k virtuálnímu počítači je virtuální pevný disk uložený jako objekt blob stránky. Azure Stack
+    Objekty blob stránky jsou optimalizované tak, aby představovaly disky IaaS a podporovaly náhodné zápisy o velikosti až 1 TB. IaaS disk, který je připojen k virtuálnímu počítači centra Azure Stack, je VHD uložený jako objekt blob stránky.
 
 ### <a name="table-storage"></a>Úložiště tabulek
 
@@ -86,7 +86,7 @@ Tabulkové úložiště můžete použít k ukládání flexibilních datových 
 
 Účet úložiště může obsahovat libovolný počet tabulek a tabulka může obsahovat libovolný počet entit až do limitu kapacity účtu úložiště.
 
-### <a name="queue-storage"></a>Queue Storage
+### <a name="queue-storage"></a>Úložiště front
 
 Při navrhování aplikací pro škálování se součásti aplikací často odpojí, aby se mohly škálovat nezávisle. Queue Storage poskytuje spolehlivé řešení zasílání zpráv pro asynchronní komunikaci mezi součástmi aplikací, ať už běží v cloudu, na ploše, na místním serveru nebo na mobilním zařízení. Queue Storage také podporuje správu asynchronních úloh a pracovní postupy procesů sestavování buildů.
 

@@ -1,6 +1,6 @@
 ---
-title: App Service na Azure Stack Update 2 – zpráva k vydání verze | Microsoft Docs
-description: Přečtěte si o vylepšeních, opravách a známých problémech v aktualizaci Update 2 pro App Service v Azure Stack.
+title: App Service ve Azure Stack centra aktualizace 2 – zpráva k vydání verze | Microsoft Docs
+description: Přečtěte si o vylepšeních, opravách a známých problémech v aktualizaci Update 2 pro App Service v centru Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: bryanla
@@ -16,38 +16,38 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 05/18/2018
-ms.openlocfilehash: f427a31001f8f486fd231af7e59ef2bb30592661
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.openlocfilehash: a73df75f5dd46a2b76218a29a1bdd6f16ced570f
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70974813"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75816577"
 ---
-# <a name="app-service-on-azure-stack-update-2-release-notes"></a>Zpráva k vydání verze App Service ve Azure Stack Update 2
+# <a name="app-service-on-azure-stack-hub-update-2-release-notes"></a>Zpráva k vydání verze Azure Stack centra aktualizace 2 App Service
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
-Tyto poznámky k verzi popisují vylepšení, opravy a známé problémy v Azure App Service na Azure Stack Update 2. Známé problémy jsou rozdělené na tři části: problémy přímo související s nasazením, problémy s procesem aktualizace a problémy se sestavením (po instalaci).
+Tyto poznámky k verzi popisují vylepšení, opravy a známé problémy v Azure App Service v Azure Stack centra aktualizace 2. Známé problémy jsou rozdělené na tři části: problémy přímo související s nasazením, problémy s procesem aktualizace a problémy se sestavením (po instalaci).
 
 > [!IMPORTANT]
-> Před nasazením Azure App Service 1,2 použijte aktualizaci 1804 na integrovaný systém Azure Stack nebo nasaďte nejnovější Azure Stack Development Kit (ASDK).
+> Před nasazením Azure App Service 1,2 použijte aktualizaci 1804 pro integrovaný systém Azure Stack hub nebo nasaďte nejnovější Azure Stack Development Kit (ASDK).
 
 ## <a name="build-reference"></a>Referenční informace o buildu
 
-App Service číslo buildu Azure Stack Update 2 je **72.0.13698.10**.
+App Service číslo buildu Azure Stack centra aktualizace 2 je **72.0.13698.10**.
 
 ### <a name="prerequisites"></a>Požadavky
 
 > [!IMPORTANT]
-> Nová nasazení Azure App Service v Azure Stack nyní vyžadují [certifikát se zástupným znakem tři subjektu](azure-stack-app-service-before-you-get-started.md#get-certificates) z důvodu vylepšení způsobu, jakým se v Azure App Service zpracovává jednotné přihlašování pro Kudu. Nový předmět je:  **\*. SSO.\< AppService. oblast\>.\< \>název_domény.\< klapk\>**
+> Nová nasazení Azure App Service v centru Azure Stack nyní vyžadují [certifikát se zástupným znakem tři subjektu](azure-stack-app-service-before-you-get-started.md#get-certificates) z důvodu vylepšení způsobu, jakým se v Azure App Service zpracovává jednotné přihlašování pro Kudu. Nový předmět je: **\*. SSO. AppService.\<region\>.\<domainname\>.\<rozšíření\>**
 
-Než začnete s nasazením, přečtěte si [požadavky pro nasazení App Service v Azure Stack](azure-stack-app-service-before-you-get-started.md) .
+Než začnete s nasazením, přečtěte si [požadavky pro nasazení App Service v centru Azure Stack](azure-stack-app-service-before-you-get-started.md) .
 
 ### <a name="new-features-and-fixes"></a>Nové funkce a opravy
 
-Azure App Service v Azure Stack Update 2 obsahuje následující vylepšení a opravy:
+Azure App Service v Azure Stack centra aktualizace 2 obsahuje následující vylepšení a opravy:
 
-- Aktualizace pro **App Service klientů, správců, funkcí portálů a nástrojů Kudu** Konzistentní s Azure Stack verze sady SDK portálu.
+- Aktualizace pro **App Service klientů, správců, funkcí portálů a nástrojů Kudu** Konzistentní s verzí sady SDK portálu Azure Stack hub.
 
 - Aktualizuje **Azure Functions runtime** na **v 1.0.11612**.
 
@@ -86,18 +86,18 @@ Pokud se rozhodnete nasadit do existující virtuální sítě a interní IP adr
 * Zdroj: Any
 * Rozsah zdrojových portů: *
 * Cíl: IP adresy
-* Rozsah cílových IP adres: Rozsah IP adres pro souborový server
+* Rozsah cílových IP adres: rozsah IP adres pro souborový server
 * Rozsah cílových portů: 445
-* Protokol: TCP
-* Akce: Allow
+* Protocol: TCP
+* Akce: povolení
 * Priorita: 700
 * Název: Outbound_Allow_SMB445
 
-### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Známé problémy pro cloudové správce pracující Azure App Service v Azure Stack
+### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Známé problémy pro Cloud Admins, které pracují Azure App Service v centru Azure Stack
 
-Informace najdete v dokumentaci k [verzi Azure Stack 1804](azure-stack-update-1903.md) .
+Informace najdete v dokumentaci k [verzi centra Azure Stack 1804](azure-stack-update-1903.md) .
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
-- Přehled Azure App Service najdete v tématu [přehled Azure App Service na Azure Stack](azure-stack-app-service-overview.md).
-- Další informace o přípravě na nasazení App Service v Azure Stack najdete v tématu [předpoklady pro nasazení App Service na Azure Stack](azure-stack-app-service-before-you-get-started.md).
+- Přehled Azure App Service najdete v tématu [Azure App Service v tématu Přehled centra Azure Stack](azure-stack-app-service-overview.md).
+- Další informace o přípravě nasazení App Service v centru Azure Stack najdete v tématu [předpoklady pro nasazení App Service na Azure Stack hub](azure-stack-app-service-before-you-get-started.md).

@@ -1,6 +1,6 @@
 ---
-title: Nasazení sítě Ethereem blockchain v Azure Stack | Microsoft Docs
-description: Kurz použití vlastních šablon řešení k nasazení a konfiguraci sítě konsorcia Ethereem blockchain Network na Azure Stack.
+title: Nasazení sítě Ethereem blockchain v centru Azure Stack | Microsoft Docs
+description: Kurz použití vlastních šablon řešení k nasazení a konfiguraci sítě konsorcia Ethereem blockchain v Azure Stackovém centru
 services: azure-stack
 keywords: ''
 author: PatAltimore
@@ -12,18 +12,18 @@ ms.reviewer: seyadava
 ms.custom: mvc
 manager: femila
 ms.lastreviewed: 06/03/2019
-ms.openlocfilehash: b68a6df35b5345d3e1f00be126cdae24e87d3d0b
-ms.sourcegitcommit: 637018771ac016b7d428174e88d4dcb131b54959
+ms.openlocfilehash: e09e11ef8e5b454fbc6bffe4a9d8e4753b263ec4
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68842982"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75820402"
 ---
-# <a name="deploy-an-ethereum-blockchain-network-on-azure-stack"></a>Nasazení sítě Ethereem blockchain na Azure Stack
+# <a name="deploy-an-ethereum-blockchain-network-on-azure-stack-hub"></a>Nasazení sítě Ethereem blockchain v centru Azure Stack
 
 Šablona řešení Ethereem je navržená tak, aby usnadnila a zjednodušila nasazení a konfiguraci blockchain sítě konsorcia Ethereem pro více členů s minimálními znalostmi Azure a Ethereem.
 
-Díky několik uživatelským vstupům a nasazení jedním kliknutím prostřednictvím portálu tenanta Azure Stack může každý člen zřídit své síťové nároky. Síťové nároky jednotlivých členů se skládají ze tří věcí:
+Díky několik uživatelským vstupům a nasazením jedním kliknutím prostřednictvím portálu tenanta centra Azure Stack může každý člen zřídit své síťové nároky. Síťové nároky jednotlivých členů se skládají ze tří věcí:
 
 1. Sada uzlů transakcí s vyrovnáváním zatížení, se kterými může aplikace nebo uživatel interaktivně odeslat transakce.
 2. Sada uzlů dolování pro záznam transakcí.
@@ -47,7 +47,7 @@ Stáhněte si nejnovější položky [z webu Marketplace](../operator/azure-stac
 
 Další informace o blockchainch scénářích najdete v tématu [Šablona řešení ethereem pro ověření úřadu](/azure/blockchain/templates/ethereum-poa-deployment).
 
-## <a name="deployment-architecture"></a>Architektura nasazení
+## <a name="deployment-architecture"></a>architektura nasazení
 
 Tato šablona řešení může nasadit jednu nebo více Ethereemch sítí konsorcia pro více členů. Virtuální síť je připojená k topologii řetězení pomocí síťového virtuálního zařízení a prostředků připojení.
 
@@ -55,15 +55,15 @@ Tato šablona řešení může nasadit jednu nebo více Ethereemch sítí konsor
 
 Šablona může nasazovat Ethereem Consortium pro vedoucí a člen mnoha různými způsoby. Tady jsou ty, které jsme otestovali:
 
-- V Azure Stack s více uzly se službou Azure AD nebo AD FS nasaďte zájemce a člena pomocí stejného předplatného nebo různých předplatných.
-- V Azure Stack s jedním uzlem (s Azure AD) nasaďte vedoucí a člen pomocí stejného předplatného.
+- V Azure Stackovém centru s více uzly se službou Azure AD nebo AD FS nasaďte zájemce a člena pomocí stejného předplatného nebo různých předplatných.
+- V centru Azure Stack s jedním uzlem (s Azure AD) nasaďte vedoucí a člen pomocí stejného předplatného.
 
 ### <a name="standalone-and-consortium-leader-deployment"></a>Samostatné nasazení vedoucího a konsorcia
 
 Šablona vedoucího nadřízeného nakonfiguruje v síti své nároky na prvního člena. 
 
 1. Stáhněte si [šablonu vedoucí služby z GitHubu](https://raw.githubusercontent.com/Azure/AzureStack-QuickStart-Templates/master/ethereum-consortium-blockchain/marketplace/ConsortiumLeader/mainTemplate.json).
-2. Na portálu Azure Stack tenanta vyberte **+ vytvořit prostředek > Template Deployment** k nasazení z vlastní šablony.
+2. Na portálu tenanta centra Azure Stack vyberte **+ vytvořit prostředek > Template Deployment** k nasazení z vlastní šablony.
 3. Vyberte **Upravit šablonu** a upravte novou vlastní šablonu.
 4. V podokně úpravy na pravé straně zkopírujte a vložte šablonu JSON šablony, kterou jste stáhli dříve.
     
@@ -79,7 +79,7 @@ Tato šablona řešení může nasadit jednu nebo více Ethereemch sítí konsor
     NAMEPREFIX | Řetězec, který se používá jako základ pro pojmenování nasazených prostředků. | Alfanumerické znaky s délkou 1 až 6. | ETH
     TYP AUTHTYPE | Metoda, která se má ověřit pro virtuální počítač. | Heslo nebo veřejný klíč SSH. | Heslo
     ADMINUSERNAME | Uživatelské jméno správce všech nasazených virtuálních počítačů. | 1-64 znaků. | gethadmin
-    ADMINPASSWORD (typ ověřování = heslo)| Heslo pro účet správce pro každý nasazený virtuální počítač. Heslo musí obsahovat 3 z následujících požadavků: 1 velké písmeno, 1 znak malého písmena, 1 číslice a 1 speciální znak. <br />Všechny virtuální počítače mají zpočátku stejné heslo, ale po zřízení můžete heslo změnit.|12-72 znaků. |
+    ADMINPASSWORD (typ ověřování = heslo)| Heslo pro účet správce pro každý nasazený virtuální počítač. Heslo musí obsahovat 3 z těchto požadavků: 1 velké písmeno, 1 malé písmeno, 1 číslice a 1 speciální znak. <br />Všechny virtuální počítače mají zpočátku stejné heslo, ale po zřízení můžete heslo změnit.|12-72 znaků. |
     ADMINSSHKEY (typ ověřování = sshPublicKey) | Klíč zabezpečeného prostředí používaný pro vzdálené přihlášení | |
     GENESISBLOCK | Řetězec JSON představující vlastní blok Genesis  Zadání hodnoty pro tento parametr je volitelné. | |
     ETHEREUMACCOUNTPSSWD | Heslo správce, které se používá k zabezpečení účtu Ethereem. | |
@@ -89,7 +89,7 @@ Tato šablona řešení může nasadit jednu nebo více Ethereemch sítí konsor
     NUMMININGNODES | Počet uzlů dolování. | Mezi 2 a 15. | 2
     MNNODEVMSIZE | Velikost virtuálního počítače pro uzly dolování. | | Standard_A1
     MNSTORAGEACCOUNTTYPE | Výkon úložiště pro uzly dolování. | | Standard_LRS
-    NUMTXNODES | Počet uzlů transakce. | Mezi 1 a 5. | 1
+    NUMTXNODES | Počet uzlů transakce. | Mezi 1 a 5. | 1\. místo
     TXNODEVMSIZE | Velikost virtuálního počítače v uzlech transakcí. | | Standard_A1
     TXSTORAGEACCOUNTTYPE | Výkon úložiště v uzlech transakce. | | Standard_LRS
     BASEURL | Základní adresa URL, ze které se mají získat šablony nasazení | Pokud nechcete přizpůsobit šablony nasazení, použijte výchozí hodnotu. | 
@@ -101,9 +101,9 @@ Tato šablona řešení může nasadit jednu nebo více Ethereemch sítí konsor
 
     Název parametru | Popis | Povolené hodnoty | Ukázková hodnota
     ---------------|-------------|----------------|-------------
-    Subscription | Předplatné, ke kterému se má nasadit síť konsorcia | | Předplatné spotřeby
+    Předplatné | Předplatné, ke kterému se má nasadit síť konsorcia | | Předplatné spotřeby
     Skupina prostředků | Skupina prostředků, do které se má nasadit síť konsorcia | | EthereumResources
-    Location | Oblast Azure pro skupinu prostředků. | | místní
+    Umístění | Oblast Azure pro skupinu prostředků. | | místní
 
 8. Vyberte **Vytvořit**.
 
@@ -118,7 +118,7 @@ Pokud chcete ověřit nasazení vedoucího vedoucího, navštivte web správce v
 ### <a name="joining-consortium-member-deployment"></a>Spojování nasazení členů konsorcia
 
 1. Stáhněte si [šablonu člena konsorcia z GitHubu](https://raw.githubusercontent.com/Azure/AzureStack-QuickStart-Templates/master/ethereum-consortium-blockchain/marketplace/JoiningMember/mainTemplate.json).
-2. Na portálu Azure Stack tenanta vyberte **+ vytvořit prostředek > Template Deployment** k nasazení z vlastní šablony.
+2. Na portálu tenanta centra Azure Stack vyberte **+ vytvořit prostředek > Template Deployment** k nasazení z vlastní šablony.
 3. Vyberte **Upravit šablonu** a upravte novou vlastní šablonu.
 4. V podokně úpravy na pravé straně zkopírujte a vložte JSON šablony, kterou jste si stáhli dříve.
 5. Vyberte **Uložit**.
@@ -129,13 +129,13 @@ Pokud chcete ověřit nasazení vedoucího vedoucího, navštivte web správce v
     NAMEPREFIX | Řetězec, který se používá jako základ pro pojmenování nasazených prostředků. | Alfanumerické znaky s délkou 1 až 6. | ETH
     TYP AUTHTYPE | Metoda ověřování pro virtuální počítač | Heslo nebo veřejný klíč SSH. | Heslo
     ADMINUSERNAME | Uživatelské jméno správce každého nasazeného virtuálního počítače | 1-64 znaků. | gethadmin
-    ADMINPASSWORD (typ ověřování = heslo)| Heslo pro účet správce pro každý nasazený virtuální počítač. Heslo musí obsahovat 3 z následujících požadavků: 1 velké písmeno, 1 znak malého písmena, 1 číslice a 1 speciální znak. <br />Všechny virtuální počítače mají zpočátku stejné heslo, ale po zřízení můžete heslo změnit.|12-72 znaků. |
+    ADMINPASSWORD (typ ověřování = heslo)| Heslo pro účet správce pro každý nasazený virtuální počítač. Heslo musí obsahovat 3 z těchto požadavků: 1 velké písmeno, 1 malé písmeno, 1 číslice a 1 speciální znak. <br />Všechny virtuální počítače mají zpočátku stejné heslo, ale po zřízení můžete heslo změnit.|12-72 znaků. |
     ADMINSSHKEY (typ ověřování = sshPublicKey) | Klíč zabezpečeného prostředí používaný pro vzdálené přihlášení | |
     CONSORTIUMMEMBERID | ID přidružené k jednotlivým členům sítě konsorcia.   | Toto ID by mělo být v síti jedinečné. | 0
     NUMMININGNODES | Počet uzlů dolování. | Mezi 2 a 15. | 2
     MNNODEVMSIZE | Velikost virtuálního počítače pro uzly dolování. | | Standard_A1
     MNSTORAGEACCOUNTTYPE | Výkon úložiště pro uzly dolování. | | Standard_LRS
-    NUMTXNODES | Počet uzlů transakce. | Mezi 1 a 5. | 1
+    NUMTXNODES | Počet uzlů transakce. | Mezi 1 a 5. | 1\. místo
     TXNODEVMSIZE | Velikost virtuálního počítače v uzlech transakcí. | | Standard_A1
     TXSTORAGEACCOUNTTYPE | Výkon úložiště v uzlech transakce. | | Standard_LRS
     CONSORTIUMDATA | Adresa URL odkazující na relevantní konfigurační data konsorcia poskytnutá nasazením jiného člena. Tuto hodnotu najdete ve výstupu nasazení vedoucího procesu. | |
@@ -149,9 +149,9 @@ Pokud chcete ověřit nasazení vedoucího vedoucího, navštivte web správce v
 
     Název parametru | Popis | Povolené hodnoty | Ukázková hodnota
     ---------------|-------------|----------------|-------------
-    Subscription | Předplatné, ke kterému se má nasadit síť konsorcia | | Předplatné spotřeby
+    Předplatné | Předplatné, ke kterému se má nasadit síť konsorcia | | Předplatné spotřeby
     Skupina prostředků | Skupina prostředků, do které se má nasadit síť konsorcia | | MemberResources
-    Location | Oblast Azure pro skupinu prostředků. | | místní
+    Umístění | Oblast Azure pro skupinu prostředků. | | místní
 
 8. Vyberte **Vytvořit**.
 
@@ -170,7 +170,7 @@ Jak je znázorněno na obrázku, stav uzlů členů není **spuštěno**. Tento 
 Tato šablona vytvoří připojení od vedoucího ke vzdálenému členovi. 
 
 1. Stáhněte si [člen a šablonu vedoucího člena z GitHubu](https://raw.githubusercontent.com/Azure/AzureStack-QuickStart-Templates/master/ethereum-consortium-blockchain/marketplace/Connection/mainTemplate.json).
-2. Na portálu Azure Stack tenanta vyberte **+ vytvořit prostředek > Template Deployment** k nasazení z vlastní šablony.
+2. Na portálu tenanta centra Azure Stack vyberte **+ vytvořit prostředek > Template Deployment** k nasazení z vlastní šablony.
 3. Vyberte **Upravit šablonu** a upravte novou vlastní šablonu.
 4. V podokně úpravy na pravé straně zkopírujte a vložte JSON šablony, kterou jste si stáhli dříve.
     
@@ -189,7 +189,7 @@ Tato šablona vytvoří připojení od vedoucího ke vzdálenému členovi.
     CONNECTIONSHAREDKEY | Předem zavedený tajný klíč mezi členy konsorcia sítě, která vytváří připojení.  | |
     REMOTEMEMBERNVAPUBLICIP | SÍŤOVÉ virtuální zařízení IP adresu člena. Tuto hodnotu lze najít ve výstupu nasazení člena. | |
     MEMBERNVAPRIVATEIP | Privátní IP adresa vedoucího síťové virtuální zařízení Tuto hodnotu najdete ve výstupu nasazení vedoucího procesu. | |
-    UMÍSTĚNÍ | Umístění Azure Stackho prostředí. | | místní
+    UMÍSTĚNÍ | Umístění vašeho prostředí centra Azure Stack. | | místní
     BASEURL | Základní adresa URL šablony | Pokud nechcete přizpůsobit šablony nasazení, použijte výchozí hodnotu. | 
 
 7. Vyberte **OK**.
@@ -199,9 +199,9 @@ Tato šablona vytvoří připojení od vedoucího ke vzdálenému členovi.
 
     Název parametru | Popis | Povolené hodnoty | Ukázková hodnota
     ---------------|-------------|----------------|-------------
-    Subscription | Předplatné vedoucího. | | Předplatné spotřeby
+    Předplatné | Předplatné vedoucího. | | Předplatné spotřeby
     Skupina prostředků | Skupina prostředků vedoucího procesu. | | EthereumResources
-    Location | Oblast Azure pro skupinu prostředků. | | místní
+    Umístění | Oblast Azure pro skupinu prostředků. | | místní
 
 8. Vyberte **Vytvořit**.
 

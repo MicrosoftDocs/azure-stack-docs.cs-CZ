@@ -1,6 +1,6 @@
 ---
-title: Správa přístupu k prostředkům v Azure Stack pomocí řízení přístupu na základě role | Microsoft Docs
-description: Naučte se spravovat oprávnění řízení přístupu na základě role (RBAC) jako správce nebo tenanta v Azure Stack.
+title: Správa přístupu k prostředkům v centru Azure Stack s řízením přístupu na základě role | Microsoft Docs
+description: Naučte se spravovat oprávnění řízení přístupu na základě role (RBAC) jako správce nebo tenanta v centru Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: bryanla
@@ -16,29 +16,29 @@ ms.date: 09/13/2019
 ms.author: bryanla
 ms.reviewer: fiseraci
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: a784da0d16f6ec92a105d9360430f4e8da2817ef
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.openlocfilehash: cdce49b5bf86222bd963d894238d121b76c694ee
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70974932"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75819960"
 ---
-# <a name="manage-access-to-resources-in-azure-stack-with-role-based-access-control"></a>Správa přístupu k prostředkům v Azure Stack pomocí řízení přístupu na základě role
+# <a name="manage-access-to-resources-in-azure-stack-hub-with-role-based-access-control"></a>Správa přístupu k prostředkům v centru Azure Stack s řízením přístupu na základě role
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
-Azure Stack podporuje řízení přístupu na základě role (RBAC), stejné [model zabezpečení pro správu přístupu](/azure/role-based-access-control/overview) používající Microsoft Azure. RBAC můžete použít ke správě uživatelů, skupin nebo přístupu aplikací k předplatným, prostředkům a službám.
+Centrum Azure Stack podporuje řízení přístupu na základě role (RBAC), což je stejný [model zabezpečení pro správu přístupu](/azure/role-based-access-control/overview) , který Microsoft Azure používá. RBAC můžete použít ke správě uživatelů, skupin nebo přístupu aplikací k předplatným, prostředkům a službám.
 
 ## <a name="basics-of-access-management"></a>Základní informace o řízení přístupu
 
 Řízení přístupu na základě role (RBAC) poskytuje jemně odstupňované řízení přístupu, které můžete použít k zabezpečení svého prostředí. Uživatelům dáte přesná oprávnění, která potřebují, přiřazením role RBAC v určitém oboru. Obor přiřazení role může být předplatné, skupinu prostředků nebo jediný prostředek. Podrobnější informace o správě přístupu najdete v tématu [Access Control na základě rolí v článku Azure Portal](/azure/role-based-access-control/overview) .
 
 > [!NOTE]
-> Když Azure Stack nasadíte pomocí Active Directory Federation Services (AD FS) jako poskytovatele identity, pro scénáře RBAC se podporují jenom univerzální skupiny.
+> Když se Azure Stack centrum nasazuje pomocí Active Directory Federation Services (AD FS) jako poskytovatel identity, pro scénáře RBAC se podporují jenom univerzální skupiny.
 
 ### <a name="built-in-roles"></a>Vestavěné role
 
-Azure Stack má tři základní role, které můžete použít na všechny typy prostředků:
+Centrum Azure Stack má tři základní role, které se dají použít pro všechny typy prostředků:
 
 * **Vlastník**: může spravovat všechno, včetně přístupu k prostředkům.
 * **Přispěvatel**: může spravovat všechno, s výjimkou přístupu k prostředkům.
@@ -46,7 +46,7 @@ Azure Stack má tři základní role, které můžete použít na všechny typy 
 
 ### <a name="resource-hierarchy-and-inheritance"></a>Hierarchie prostředků a dědičnost
 
-Azure Stack má následující hierarchie prostředků:
+Centrum Azure Stack má následující hierarchii prostředků:
 
 * Každé předplatné patří k jednomu adresáři.
 * Každé skupině prostředků patří k jednomu předplatnému.
@@ -83,6 +83,6 @@ Následující kroky popisují, jak nakonfigurovat oprávnění pro uživatele.
 
 7. Vyberte **Uložit**.
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
 [Vytvoření instančních objektů](../operator/azure-stack-create-service-principals.md)

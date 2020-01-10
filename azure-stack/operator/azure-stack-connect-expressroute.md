@@ -1,6 +1,6 @@
 ---
-title: Připojení Azure Stack k Azure pomocí ExpressRoute | Microsoft Docs
-description: Naučte se, jak propojit virtuální sítě v Azure Stack k virtuálním sítím v Azure pomocí ExpressRoute.
+title: Připojení centra Azure Stack k Azure pomocí ExpressRoute | Microsoft Docs
+description: Naučte se, jak propojit virtuální sítě v Azure Stack hub k virtuálním sítím v Azure pomocí ExpressRoute.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -14,18 +14,18 @@ ms.date: 10/03/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: efea925c421a031206ac33b49a13bd486bab1eea
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: 1e476f29909d3057deaf9331d11b780c1a887e6c
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73636891"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75804975"
 ---
-# <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>Připojení Azure Stack k Azure pomocí Azure ExpressRoute
+# <a name="connect-azure-stack-hub-to-azure-using-azure-expressroute"></a>Připojení centra Azure Stack k Azure pomocí Azure ExpressRoute
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
-Tento článek popisuje, jak připojit virtuální síť Azure Stack k virtuální síti Azure pomocí [Microsoft Azure ExpressRoute](/azure/expressroute/) přímého připojení.
+Tento článek popisuje, jak připojit virtuální síť centra Azure Stack k virtuální síti Azure pomocí [Microsoft Azure ExpressRoute](/azure/expressroute/) přímého připojení.
 
 Tento článek můžete použít jako kurz a příklady můžete použít k nastavení stejného testovacího prostředí. Případně můžete článek použít jako návod, který vás provede nastavením vlastního prostředí ExpressRoute.
 
@@ -40,59 +40,59 @@ Další informace o Azure ExpressRoute najdete v tématu [Přehled ExpressRoute]
 V tomto článku se předpokládá, že:
 
 * Máte praktické znalosti Azure.
-* Máte základní znalosti o Azure Stack.
+* Máte základní znalosti centra Azure Stack.
 * Máte základní znalosti o sítích.
 
-### <a name="prerequisites"></a>Předpoklady
+### <a name="prerequisites"></a>Požadavky
 
-Pokud chcete připojit Azure Stack a Azure pomocí ExpressRoute, musíte splnit následující požadavky:
+Pokud chcete připojit Azure Stack hub a Azure pomocí ExpressRoute, musíte splnit následující požadavky:
 
 * Zřízený [okruh ExpressRoute](/azure/expressroute/expressroute-circuit-peerings) prostřednictvím [poskytovatele připojení](/azure/expressroute/expressroute-locations).
 * Předplatné Azure pro vytvoření okruhu ExpressRoute a virtuální sítě v Azure.
 * Směrovač, který musí:
-  * Podpora připojení VPN typu Site-to-site mezi rozhraním LAN a Azure Stack bránou pro více tenantů.
-  * Podpora vytváření více VRFs (virtuální směrování a předávání), pokud je v nasazení Azure Stack více tenantů.
+  * Podpora připojení VPN typu Site-to-site mezi rozhraním LAN a bránou víceklientské architektury centra Azure Stack.
+  * Podpora vytváření více VRFs (virtuální směrování a předávání), pokud je v nasazení centra Azure Stack více než jeden tenant.
 * Směrovač, který má:
   * Port sítě WAN připojený k okruhu ExpressRoute.
-  * Port LAN připojený k bráně Azure Stack s více klienty.
+  * Port LAN připojený k bráně Azure Stack hub pro více tenantů.
 
 ### <a name="expressroute-network-architecture"></a>Architektura sítě ExpressRoute
 
-Následující obrázek ukazuje Azure Stack a prostředí Azure po dokončení nastavení ExpressRoute pomocí příkladů v tomto článku:
+Následující obrázek ukazuje centrum Azure Stack a prostředí Azure po dokončení nastavení ExpressRoute pomocí příkladů v tomto článku:
 
 ![ExpressRoute síť](media/azure-stack-connect-expressroute/Conceptual.png)
 
-Následující obrázek ukazuje, jak se více klientů připojuje z infrastruktury Azure Stack prostřednictvím směrovače ExpressRoute do Azure:
+Následující obrázek ukazuje, jak se více klientů připojuje z infrastruktury centra Azure Stack k Azure prostřednictvím směrovače ExpressRoute:
 
 ![Připojení s více klienty pomocí ExpressRoute](media/azure-stack-connect-expressroute/Architecture.png)
 
-Příklad v tomto článku používá pro připojení Azure Stack k Azure pomocí privátního partnerského vztahu ExpressRoute stejnou architekturu víceklientské architektury, kterou vidíte v tomto diagramu. Připojení se provádí pomocí připojení VPN typu Site-to-Site z brány virtuální sítě v Azure Stack ke směrovači ExpressRoute.
+V příkladu v tomto článku se používá stejná víceklientská architektura jako v tomto diagramu k připojení centra Azure Stack k Azure pomocí privátního partnerského vztahu ExpressRoute. Připojení se provádí pomocí připojení VPN typu Site-to-Site z brány virtuální sítě v Azure Stack hub ke směrovači ExpressRoute.
 
-V krocích v tomto článku se dozvíte, jak vytvořit komplexní připojení mezi dvěma virtuální sítěy ze dvou různých tenantů v Azure Stack k odpovídajícím virtuální sítě v Azure. Nastavení dvou tenantů je volitelné. Tento postup můžete použít také pro jednoho tenanta.
+V krocích v tomto článku se dozvíte, jak vytvořit ucelené připojení mezi dvěma virtuální sítěy ze dvou různých tenantů v centru Azure Stack a odpovídající virtuální sítě v Azure. Nastavení dvou tenantů je volitelné. Tento postup můžete použít také pro jednoho tenanta.
 
-## <a name="configure-azure-stack"></a>Konfigurace Azure Stack
+## <a name="configure-azure-stack-hub"></a>Konfigurace centra Azure Stack
 
-Pro nastavení Azure Stack prostředí pro prvního tenanta použijte následující postup jako vodítko. Pokud nastavujete více než jednoho tenanta, opakujte tento postup:
+Chcete-li nastavit prostředí centra Azure Stack pro prvního klienta, použijte následující postup jako vodítko. Pokud nastavujete více než jednoho tenanta, opakujte tento postup:
 
 >[!NOTE]
->Tyto kroky ukazují, jak vytvořit prostředky pomocí portálu Azure Stack, ale můžete také použít PowerShell.
+>Tyto kroky ukazují, jak vytvořit prostředky pomocí portálu centra Azure Stack, ale můžete také použít PowerShell.
 
-![Instalace Azure Stack sítě](media/azure-stack-connect-expressroute/image2.png)
+![Nastavení sítě centra Azure Stack](media/azure-stack-connect-expressroute/image2.png)
 
 ### <a name="before-you-begin"></a>Než začnete
 
-Než začnete s konfigurací Azure Stack, budete potřebovat:
+Než začnete s konfigurací centra Azure Stack, budete potřebovat:
 
-* Azure Stack nasazení integrovaného systému nebo nasazení Azure Stack Development Kit (ASDK). Informace o nasazení rozhraní ASDK naleznete v tématu [rychlý Start nasazení Azure Stack Development Kit](../asdk/asdk-download.md).
-* Nabídka v Azure Stack, ke které se uživatelé můžou přihlásit Další informace najdete v tématu [Přehled služeb, plánů, nabídek a předplatných](service-plan-offer-subscription-overview.md).
+* Nasazení integrovaného systému Azure Stackho centra nebo nasazení Azure Stack Development Kit (ASDK). Informace o nasazení rozhraní ASDK naleznete v tématu [rychlý Start nasazení Azure Stack Development Kit](../asdk/asdk-download.md).
+* Nabídka centra Azure Stack, ke které se uživatelé můžou přihlásit Další informace najdete v tématu [Přehled služeb, plánů, nabídek a předplatných](service-plan-offer-subscription-overview.md).
 
-### <a name="create-network-resources-in-azure-stack"></a>Vytváření síťových prostředků v Azure Stack
+### <a name="create-network-resources-in-azure-stack-hub"></a>Vytváření síťových prostředků v centru Azure Stack
 
-K vytvoření požadovaných síťových prostředků v Azure Stack pro tenanta použijte následující postupy.
+Pro vytvoření požadovaných síťových prostředků v centru Azure Stack pro tenanta použijte následující postupy.
 
 #### <a name="create-the-virtual-network-and-vm-subnet"></a>Vytvoření virtuální sítě a podsítě virtuálních počítačů
 
-1. Přihlaste se k portálu Azure Stack User Portal.
+1. Přihlaste se k portálu pro uživatele centra Azure Stack.
 
 2. Na portálu vyberte **+ vytvořit prostředek**.
 
@@ -127,7 +127,7 @@ K vytvoření požadovaných síťových prostředků v Azure Stack pro tenanta 
 
 #### <a name="create-the-virtual-network-gateway"></a>Vytvoření brány virtuální sítě
 
-1. Na portálu Azure Stack User Portal klikněte na **+ vytvořit prostředek**.
+1. V uživatelském portálu centra Azure Stack klikněte na **+ vytvořit prostředek**.
 1. V části **Azure Marketplace**vyberte **sítě**.
 1. V seznamu síťových prostředků vyberte **bránu virtuální sítě**.
 1. Do pole **název** zadejte **gw1**.
@@ -142,7 +142,7 @@ K vytvoření požadovaných síťových prostředků v Azure Stack pro tenanta 
 
 Prostředek brány místní sítě identifikuje vzdálenou bránu na druhém konci připojení VPN. V tomto příkladu je vzdáleným koncem připojení dílčí rozhraní sítě LAN směrovače ExpressRoute. U tenanta 1 v předchozím diagramu je Vzdálená adresa 10.60.3.255.
 
-1. Přihlaste se k portálu Azure Stack User Portal a vyberte **+ vytvořit prostředek**.
+1. Přihlaste se k portálu User Portal centra Azure Stack a vyberte **+ vytvořit prostředek**.
 1. V části **Azure Marketplace**vyberte **sítě**.
 1. V seznamu prostředků vyberte **bránu místní sítě**.
 1. Do pole **název** zadejte **ER-router-GS**.
@@ -153,13 +153,13 @@ Prostředek brány místní sítě identifikuje vzdálenou bránu na druhém kon
    * 10.100.0.0/16 je virtuální síť rozbočovače v Azure.
 
    > [!IMPORTANT]
-   > V tomto příkladu se předpokládá, že používáte statické trasy pro připojení VPN typu Site-to-site mezi bránou Azure Stack a směrovačem ExpressRoute.
+   > V tomto příkladu se předpokládá, že používáte statické trasy pro připojení VPN typu Site-to-site mezi bránou centra Azure Stack a směrovačem ExpressRoute.
 
 1. Ověřte, jestli je vaše **předplatné**, **Skupina prostředků**a **umístění** správné. Potom vyberte **Vytvořit**.
 
 #### <a name="create-the-connection"></a>Vytvoření připojení
 
-1. Na portálu Azure Stack User Portal vyberte **+ vytvořit prostředek**.
+1. Na portálu Azure Stack hub User Portal vyberte **+ vytvořit prostředek**.
 1. V části **Azure Marketplace**vyberte **sítě**.
 1. V seznamu prostředků vyberte **Připojení**.
 1. V části **základy**vyberte **Typ připojení** **site-to-Site (IPSec)** .
@@ -174,21 +174,21 @@ Prostředek brány místní sítě identifikuje vzdálenou bránu na druhém kon
 
 Po vytvoření brány virtuální sítě můžete získat veřejnou IP adresu brány. Tuto adresu si poznamenejte pro případ, že ji pro nasazení budete potřebovat později. V závislosti na vašem nasazení se tato adresa používá jako **interní IP adresa**.
 
-1. Na portálu Azure Stack User Portal vyberte **všechny prostředky**.
+1. V uživatelském portálu Azure Stack centra vyberte **všechny prostředky**.
 1. V části **všechny prostředky**vyberte v příkladu bránu virtuální sítě, která je **gw1** .
 1. V části **Brána virtuální sítě**vyberte **Přehled** ze seznamu prostředků. Případně můžete vybrat **vlastnosti**.
 1. IP adresa, kterou chcete zaznamenat, je uvedena v části **Veřejná IP adresa**. Pro příklad konfigurace je tato adresa 192.68.102.1.
 
-#### <a name="create-a-virtual-machine-vm"></a>Vytvoření virtuálního počítače (VM)
+#### <a name="create-a-virtual-machine-vm"></a>Vytvořit virtuální počítač
 
-K otestování přenosů dat přes připojení VPN potřebujete virtuální počítače pro posílání a přijímání dat ve Azure Stack virtuální síti. Vytvořte virtuální počítač a nasaďte ho do podsítě virtuálních počítačů pro virtuální síť.
+K otestování přenosů dat přes připojení VPN potřebujete virtuální počítače pro posílání a přijímání dat ve virtuální síti centra Azure Stack. Vytvořte virtuální počítač a nasaďte ho do podsítě virtuálních počítačů pro virtuální síť.
 
-1. Na portálu Azure Stack User Portal vyberte **+ vytvořit prostředek**.
+1. Na portálu Azure Stack hub User Portal vyberte **+ vytvořit prostředek**.
 1. V části **Azure Marketplace**vyberte **COMPUTE**.
 1. V seznamu imagí virtuálních počítačů vyberte Image **Windows Server 2016 Datacenter Eval** .
 
    >[!NOTE]
-   >Pokud bitová kopie používaná pro tento článek není k dispozici, požádejte operátora Azure Stack, aby poskytoval jinou bitovou kopii Windows serveru.
+   >Pokud bitová kopie použitá pro tento článek není k dispozici, požádejte svého operátora centra Azure Stack, aby poskytoval jinou bitovou kopii Windows serveru.
 
 1. V části **vytvořit virtuální počítač**vyberte **základy**a jako **název**zadejte **VM01** .
 1. Zadejte platné uživatelské jméno a heslo. Tento účet použijete pro přihlášení k virtuálnímu počítači po jeho vytvoření.
@@ -225,14 +225,14 @@ Směrovač je ASDK hostitel, na kterém běží role služby Směrování a vzd�
 
 #### <a name="configure-the-nat"></a>Konfigurace překladu adres (NAT)
 
-1. Přihlaste se k počítači Azure Stack hostitele pomocí svého účtu správce.
+1. Přihlaste se k hostitelskému počítači centra Azure Stack pomocí svého účtu správce.
 1. Spusťte skript v PowerShellu se zvýšenými oprávněními ISE. Tento skript vrátí vaši **externí adresu BGPNAT**.
 
    ```powershell
    Get-NetNatExternalAddress
    ```
 
-1. Pokud chcete nakonfigurovat překlad adres (NAT), zkopírujte a upravte následující skript PowerShellu. Upravte skript tak, aby nahradil `External BGPNAT address` a `Internal IP address` s použitím následujících ukázkových hodnot:
+1. Pokud chcete nakonfigurovat překlad adres (NAT), zkopírujte a upravte následující skript PowerShellu. Upravte skript tak, aby nahradil `External BGPNAT address` a `Internal IP address` pomocí následujících ukázkových hodnot:
 
    * Pro *externí adresu BGPNAT* použijte 10.10.0.62.
    * Pro *interní IP adresu* použijte 192.168.102.1
@@ -274,11 +274,11 @@ Směrovač je ASDK hostitel, na kterém běží role služby Směrování a vzd�
 
 ## <a name="configure-azure"></a>Konfigurace Azure
 
-Po dokončení konfigurace Azure Stack můžete nasadit prostředky Azure. Následující obrázek ukazuje příklad virtuální sítě tenanta v Azure. Pro virtuální síť v Azure můžete použít jakékoli schéma názvů a adresování. Rozsah adres virtuální sítě v Azure a Azure Stack ale musí být jedinečný a nesmí se překrývat:
+Po dokončení konfigurace centra Azure Stack můžete nasadit prostředky Azure. Následující obrázek ukazuje příklad virtuální sítě tenanta v Azure. Pro virtuální síť v Azure můžete použít jakékoli schéma názvů a adresování. Rozsah adres virtuální sítě v Azure a centru Azure Stack ale musí být jedinečný a nesmí se překrývat:
 
 ![Virtuální sítě Azure](media/azure-stack-connect-expressroute/AzureArchitecture.png)
 
-Prostředky, které nasadíte v Azure, se podobají prostředkům, které jste nasadili v Azure Stack. Nasadíte následující komponenty:
+Prostředky, které nasadíte v Azure, se podobají prostředkům, které jste nasadili v Azure Stack hub. Nasadíte následující komponenty:
 
 * Virtuální sítě a podsítě
 * Podsíť brány
@@ -339,7 +339,7 @@ Jako vodítko pro konfiguraci směrovače ExpressRoute můžete použít násled
 
 ![Konfigurace směrovače ExpressRoute](media/azure-stack-connect-expressroute/EndToEnd.png)
 
-K ukončení připojení VPN typu Site-to-Site z Azure Stack můžete použít libovolný směrovač, který podporuje IKEv2 VPN a BGP. Stejný směrovač se používá pro připojení k Azure pomocí okruhu ExpressRoute.
+K ukončení připojení VPN typu Site-to-Site z centra Azure Stack můžete použít libovolný směrovač, který podporuje IKEv2 VPN a BGP. Stejný směrovač se používá pro připojení k Azure pomocí okruhu ExpressRoute.
 
 Následující příklad konfigurace směrovače Cisco ASR 1000 series agregací služby podporuje síťovou infrastrukturu zobrazenou v diagramu *Konfigurace směrovače ExpressRoute* .
 
@@ -566,8 +566,8 @@ Po vytvoření připojení Site-to-site a okruhu ExpressRoute otestujte připoje
 
 Proveďte následující testy pro příkazy:
 
-* Přihlaste se k jednomu z virtuálních počítačů ve virtuální síti Azure a otestujte virtuální počítač, který jste vytvořili v Azure Stack.
-* Přihlaste se k jednomu z virtuálních počítačů, které jste vytvořili v Azure Stack a otestujte virtuální počítač, který jste vytvořili ve virtuální síti Azure.
+* Přihlaste se k jednomu z virtuálních počítačů ve virtuální síti Azure a otestujte virtuální počítač, který jste vytvořili v Azure Stack hub.
+* Přihlaste se k jednomu z virtuálních počítačů, které jste vytvořili v centru Azure Stack hub, a otestujte virtuální počítač, který jste vytvořili ve virtuální síti Azure.
 
 >[!NOTE]
 >Abyste se ujistili, že odesíláte přenosy přes připojení typu Site-to-site a ExpressRoute, musíte na obou koncích poslat adresu vyhrazené IP adresy (DIP) a ne virtuální IP adresa virtuálního počítače.
@@ -583,9 +583,9 @@ New-NetFirewallRule `
   -Protocol ICMPv4
 ```
 
-### <a name="ping-the-azure-stack-vm"></a>Odeslání požadavku na virtuální počítač Azure Stack
+### <a name="ping-the-azure-stack-hub-vm"></a>Odeslání požadavku na virtuální počítač centra Azure Stack
 
-1. Přihlaste se k portálu Azure Stack User Portal.
+1. Přihlaste se k portálu pro uživatele centra Azure Stack.
 
 1. Najděte virtuální počítač, který jste vytvořili, a vyberte ho.
 
@@ -599,9 +599,9 @@ New-NetFirewallRule `
 
 ### <a name="view-data-transfer-statistics"></a>Zobrazit statistiku přenosu dat
 
-Pokud chcete zjistit, kolik přenosů prochází přes vaše připojení, můžete tyto informace najít na portálu Azure Stack User Portal. Zobrazení statistik přenosu dat je také dobrým způsobem, jak zjistit, jestli vaše data testů pro testování pomocí připojení VPN a ExpressRoute provedla:
+Pokud chcete zjistit, kolik přenosů prochází přes vaše připojení, najdete tyto informace na portálu pro uživatele centra Azure Stack. Zobrazení statistik přenosu dat je také dobrým způsobem, jak zjistit, jestli vaše data testů pro testování pomocí připojení VPN a ExpressRoute provedla:
 
-1. Přihlaste se k portálu Azure Stack User Portal a vyberte **všechny prostředky**.
+1. Přihlaste se k portálu User Portal centra Azure Stack a vyberte **všechny prostředky**.
 1. Přejděte do skupiny prostředků pro vaši VPN Gateway a vyberte typ objektu **připojení** .
 1. Vyberte připojení **ConnectToAzure** ze seznamu.
 1. V části **připojení** > **Přehled**uvidíte statistiku pro **data v** nástroji a **data odchozí**. Měly by se zobrazit některé nenulové hodnoty.
@@ -610,4 +610,4 @@ Pokud chcete zjistit, kolik přenosů prochází přes vaše připojení, může
 
 ## <a name="next-steps"></a>Další kroky
 
-[Nasazení aplikací do Azure a Azure Stack](../user/azure-stack-solution-pipeline.md)
+[Nasazení aplikací do Azure a centra Azure Stack](../user/azure-stack-solution-pipeline.md)

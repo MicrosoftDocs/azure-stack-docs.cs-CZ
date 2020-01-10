@@ -1,5 +1,5 @@
 ---
-title: Přidat nový Azure Stack účet tenanta do Azure Active Directory | Microsoft Docs
+title: Přidat nový účet tenanta centra Azure Stack v Azure Active Directory | Microsoft Docs
 description: Naučte se, jak vytvořit účet tenanta v ASDK, abyste mohli prozkoumat portál tenanta.
 services: azure-stack
 documentationcenter: ''
@@ -16,27 +16,27 @@ ms.date: 05/20/2019
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: b9b18b62786c0720b531d0f74ed68c629034b8d7
-ms.sourcegitcommit: 5efa09034a56eb2f3dc0c9da238fe60cff0c67ac
+ms.openlocfilehash: 46bb8fc18453da5775ff0b9a3b1df12cdc21ebfc
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70143993"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75812310"
 ---
-# <a name="add-a-new-azure-stack-tenant-account-in-azure-active-directory"></a>Přidat nový Azure Stack účet tenanta do Azure Active Directory
+# <a name="add-a-new-azure-stack-hub-tenant-account-in-azure-active-directory"></a>Přidat nový účet tenanta centra Azure Stack v Azure Active Directory
 
 
 Po [nasazení Azure Stack Development Kit](../asdk/asdk-install.md)budete potřebovat uživatelský účet tenanta, abyste mohli prozkoumat portál tenanta a testovat své nabídky a plány. Účet tenanta můžete vytvořit pomocí Azure Portal nebo pomocí prostředí PowerShell.
 
 
 
-## <a name="create-an-azure-stack-tenant-account-by-using-the-azure-portal"></a>Vytvoření účtu klienta Azure Stack pomocí Azure Portal
+## <a name="create-an-azure-stack-hub-tenant-account-by-using-the-azure-portal"></a>Vytvoření účtu tenanta Azure Stackového centra pomocí Azure Portal
 
 Abyste mohli Azure Portal používat, musíte mít předplatné Azure.
 
 1. Přihlaste se k [Azure](https://portal.azure.com).
-2. V levém navigačním panelu vyberte možnost **Active Directory** a přejděte do adresáře, který chcete použít pro Azure Stack (nebo vytvořte nový).
-3. Vyberte **Azure Active Directory** > uživatelénový > **uživatel**.
+2. V levém navigačním panelu vyberte **Active Directory** a přejděte do adresáře, který chcete použít pro Azure Stack hub (nebo vytvořte nový).
+3. Vyberte **Azure Active Directory** > **Uživatelé** > **novém uživateli**.
 
     ![Uživatelé – všichni uživatelé stránce zvýrazněnou nového uživatele](media/azure-stack-add-new-user-aad/new-user-all-users.png)
 
@@ -44,8 +44,8 @@ Abyste mohli Azure Portal používat, musíte mít předplatné Azure.
 
     ![Přidání nového uživatele, uživatel stránka s informace o uživateli](media/azure-stack-add-new-user-aad/new-user-user.png)
 
-   - **Název (povinné)** : První a poslední název nového uživatele. Například Mary Parker.
-   - **Uživatelské jméno (povinné)** : Uživatelské jméno nového uživatele. Například, mary@contoso.com.
+   - **Název (povinné)** : jméno a příjmení nového uživatele. Například Mary Parker.
+   - **Uživatelské jméno (povinné)** : uživatelské jméno nového uživatele. Například, mary@contoso.com.
        Součást domény uživatelské jméno musí používat buď počáteční výchozí název domény, <_názevvašídomény_>. onmicrosoft.com, nebo vlastní název domény, třeba contoso.com. Další informace o tom, jak vytvořit vlastní název domény, najdete v tématu [Postup přidání vlastního názvu domény do Azure AD](/azure/active-directory/fundamentals/add-custom-domain).
    - **Profil**: Volitelně můžete přidat další informace o uživateli. Později můžete také přidat informace o uživateli. Další informace o přidání informací o uživateli najdete v tématu [jak přidat nebo změnit informace o profilu uživatele](/azure/active-directory/fundamentals/active-directory-users-profile-azure-portal).
    - **Role adresáře**: vyberte možnost **uživatel**.
@@ -57,9 +57,9 @@ Abyste mohli Azure Portal používat, musíte mít předplatné Azure.
     Uživatel je vytvořen a přidán do vašeho tenanta Azure AD.
 
 7. Přihlaste se k Azure Portal pomocí nového účtu. Po zobrazení výzvy změňte heslo.
-8. Přihlaste `https://portal.local.azurestack.external` se k novému účtu, abyste viděli portál tenanta.
+8. Přihlaste se k `https://portal.local.azurestack.external` pomocí nového účtu, abyste viděli portál tenanta.
 
-## <a name="create-an-azure-stack-user-account-using-powershell"></a>Vytvoření uživatelského účtu Azure Stack pomocí prostředí PowerShell
+## <a name="create-an-azure-stack-hub-user-account-using-powershell"></a>Vytvoření uživatelského účtu centra Azure Stack pomocí prostředí PowerShell
 
 Pokud nemáte předplatné Azure, nemůžete použít Azure Portal k přidání uživatelského účtu klienta. V takovém případě můžete místo toho použít modul Azure AD pro prostředí Windows PowerShell.
 
@@ -91,8 +91,8 @@ Pokud nemáte předplatné Azure, nemůžete použít Azure Portal k přidání 
     ```
 
 1. Přihlaste se k Azure pomocí nového účtu. Po zobrazení výzvy změňte heslo.
-2. Přihlaste `https://portal.local.azurestack.external` se k novému účtu, abyste viděli portál tenanta.
+2. Přihlaste se k `https://portal.local.azurestack.external` pomocí nového účtu, abyste viděli portál tenanta.
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
-[Přidání uživatelů služby Azure Stack do AD FS](azure-stack-add-users-adfs.md)
+[Přidání uživatelů centra Azure Stack v AD FS](azure-stack-add-users-adfs.md)

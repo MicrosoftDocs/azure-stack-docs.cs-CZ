@@ -1,6 +1,6 @@
 ---
-title: Azure Stack služby, plány, nabídky, přehled předplatných | Microsoft Docs
-description: Přehled služby Azure Stack Services, plánů, nabídek a předplatných.
+title: Azure Stack služby centra, plánů, nabídek, přehled předplatných | Microsoft Docs
+description: Přehled služeb Azure Stack hub, plánů, nabídek a předplatných.
 services: azure-stack
 documentationcenter: ''
 author: BryanLa
@@ -12,22 +12,22 @@ ms.date: 12/18/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 10/01/2019
-ms.openlocfilehash: a228e20de1786529374e5e2431ca7bb79a9c14bf
-ms.sourcegitcommit: f3d40c9fe73cf0a32fc643832085de887edf7cf3
+ms.openlocfilehash: 630c3b13248895091f425190cc00ad019ee0df1f
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2019
-ms.locfileid: "75187266"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75820963"
 ---
-# <a name="azure-stack-services-plans-offers-subscriptions-overview"></a>Přehled služby Azure Stack Services, plánů, nabídek a předplatných
+# <a name="azure-stack-hub-services-plans-offers-subscriptions-overview"></a>Přehled služeb Azure Stack hub, plánů, nabídek a předplatných
 
-*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
-[Microsoft Azure Stack](azure-stack-overview.md) je hybridní cloudová platforma, která umožňuje doručovat služby z vašeho datového centra. Služby zahrnují virtuální počítače, SQL Server databáze, SharePoint, Exchange a dokonce i [Azure Marketplace položky](azure-stack-marketplace-azure-items.md). Jako poskytovatel služeb můžete nabízet služby vašim klientům. V rámci státní nebo státní instituce můžete svým zaměstnancům nabídnout místní služby.
+[Centrum Microsoft Azure Stack](azure-stack-overview.md) je hybridní cloudová platforma, která umožňuje doručovat služby z vašeho datového centra. Služby zahrnují virtuální počítače, SQL Server databáze, SharePoint, Exchange a dokonce i [Azure Marketplace položky](azure-stack-marketplace-azure-items.md). Jako poskytovatel služeb můžete nabízet služby vašim klientům. V rámci státní nebo státní instituce můžete svým zaměstnancům nabídnout místní služby.
 
 ## <a name="overview"></a>Přehled
 
-Jako operátor Azure Stack konfigurujete a doručujete služby pomocí nabídek, plánů a předplatných. Nabídky obsahují jeden nebo více plánů a každý plán zahrnuje jednu nebo více služeb, které jsou nakonfigurovány s kvótami. Díky vytvoření plánů a jejich kombinování do různých nabídek se uživatelé můžou přihlásit k odběru vašich nabídek a nasazovat prostředky. Tato struktura vám umožní spravovat tyto možnosti:
+Jako operátor centra Azure Stack můžete nakonfigurovat a doručovat služby pomocí nabídek, plánů a předplatných. Nabídky obsahují jeden nebo více plánů a každý plán zahrnuje jednu nebo více služeb, které jsou nakonfigurovány s kvótami. Díky vytvoření plánů a jejich kombinování do různých nabídek se uživatelé můžou přihlásit k odběru vašich nabídek a nasazovat prostředky. Tato struktura vám umožní spravovat tyto možnosti:
 
 - Které služby a prostředky, ke kterým mají uživatelé přístup.
 - Množství prostředků, které může uživatel spotřebovat.
@@ -38,7 +38,7 @@ Chcete-li doručovat službu, postupujte podle následujících kroků vysoké �
 1. Plánování nabídky služeb pomocí:
 
    - Základní služby, jako jsou výpočetní prostředky, úložiště, sítě nebo Key Vault.
-   - Služby doplňku, například App Service, SQL Server nebo MySQL server.
+   - Value – přidejte služby, jako je App Service, SQL Server nebo MySQL server.
 
 2. Vytvořte plán, který se skládá z jedné nebo více služeb. Při vytváření plánu vyberte nebo vytvořte kvóty, které definují omezení prostředků u každé služby v plánu.
 3. Vytvořte nabídku, která má jeden nebo více plánů. Nabídka může zahrnovat základní plány a volitelné plány doplňku.
@@ -51,7 +51,7 @@ Po vytvoření nabídky se uživatelé můžou přihlásit k odběru služeb a n
 
 Můžete nabízet služby [infrastruktury jako služby](https://azure.microsoft.com/overview/what-is-iaas/) (IaaS), které uživatelům umožňují vytvářet výpočetní infrastrukturu na vyžádání, zřídit a spravovat z portálu Azure Stack User Portal.
 
-Můžete také nasadit služby [Platform as a Service](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) pro Azure Stack od Microsoftu a jiných poskytovatelů třetích stran. Mezi služby PaaS, které můžete poskytovat, patří mimo jiné:
+Můžete také nasazovat služby PaaS ( [Platform as a Service](https://azure.microsoft.com/overview/what-is-paas/) ) pro Azure Stack hub od Microsoftu a jiných poskytovatelů třetích stran. Mezi služby PaaS, které můžete poskytovat, patří mimo jiné:
 
 - [App Service](azure-stack-app-service-overview.md)
 - [SQL Server](azure-stack-sql-resource-provider-deploy.md)
@@ -71,11 +71,11 @@ Můžete nastavit kvóty podle oblasti. Například plán, který poskytuje výp
 >[!NOTE]
 >V Azure Stack Development Kit (ASDK) je k dispozici pouze jedna oblast (s názvem *místní*).
 
-Přečtěte si další informace o [typech kvót v Azure Stack](azure-stack-quota-types.md).
+Přečtěte si další informace o [typech kvót v centru Azure Stack](azure-stack-quota-types.md).
 
 ## <a name="plans"></a>Plány
 
-Plány představují seskupení jedné nebo více služeb. Jako operátor Azure Stack [vytvoříte plány](azure-stack-create-plan.md) , které nabídnete vašim uživatelům. Vaši uživatelé se pak můžou přihlásit k odběru nabídek, aby mohli používat plány a služby, které k nim patří. Při vytváření plánů se ujistěte, že jste nastavili své kvóty, definovali základní plány a zvažte zahrnutí volitelných plánů doplňku.
+Plány představují seskupení jedné nebo více služeb. Jako operátor centra Azure Stack [vytvoříte plány](azure-stack-create-plan.md) , které nabízíte uživatelům. Vaši uživatelé se pak můžou přihlásit k odběru nabídek, aby mohli používat plány a služby, které k nim patří. Při vytváření plánů se ujistěte, že jste nastavili své kvóty, definovali základní plány a zvažte zahrnutí volitelných plánů doplňku.
 
 ### <a name="base-plan"></a>Základní plán
 
@@ -101,13 +101,13 @@ Při plánování nabídek mějte na paměti následující body:
 
 ## <a name="subscriptions"></a>Předplatná
 
-Předplatná umožňují uživatelům přístup k Vašim nabídkám. Pokud jste operátorem Azure Stack pro poskytovatele služeb, vaši uživatelé (klienti) si své služby kupují pomocí přihlášení k odběru vašich nabídek. Pokud jste operátor Azure Stack v organizaci, uživatelé (zaměstnanci) se můžou přihlásit k odběru služeb, které nabízíte bez placení.
+Předplatná umožňují uživatelům přístup k Vašim nabídkám. Pokud jste operátorem Azure Stackového centra pro poskytovatele služeb, vaši uživatelé (klienti) si své služby kupují pomocí přihlášení k odběru vašich nabídek. Pokud jste operátor centra Azure Stack v organizaci, uživatelé (zaměstnanci) se můžou přihlásit k odběru služeb, které nabízíte bez placení.
 
-Uživatelé vytvoří nové odběry a získají přístup k existujícím předplatným přihlašováním k Azure Stack. Každé předplatné představuje přidružení s jednou nabídkou. Nabídku (a její plány a kvóty) přiřazené k jednomu předplatnému nejde sdílet s ostatními předplatnými. Každý prostředek, který uživatel vytvoří, je přidružený k jednomu předplatnému.
+Uživatelé vytvoří nové odběry a získají přístup k existujícím předplatným, když se přihlásí k centru Azure Stack. Každé předplatné představuje přidružení s jednou nabídkou. Nabídku (a její plány a kvóty) přiřazené k jednomu předplatnému nejde sdílet s ostatními předplatnými. Každý prostředek, který uživatel vytvoří, je přidružený k jednomu předplatnému.
 
 ### <a name="default-provider-subscription"></a>Předplatné výchozího poskytovatele
 
-Výchozí předplatné poskytovatele se automaticky vytvoří při nasazení ASDK. Pomocí tohoto předplatného můžete spravovat Azure Stack, nasazovat další poskytovatele prostředků a vytvářet plány a nabídky pro uživatele. Z důvodů zabezpečení a licencování by se nemělo používat k provádění úloh a aplikací pro zákazníky. Kvótu výchozího předplatného poskytovatele nelze změnit.
+Výchozí předplatné poskytovatele se automaticky vytvoří při nasazení ASDK. Pomocí tohoto předplatného můžete spravovat centrum Azure Stack, nasazovat další poskytovatele prostředků a vytvářet plány a nabídky pro uživatele. Z důvodů zabezpečení a licencování by se nemělo používat k provádění úloh a aplikací pro zákazníky. Kvótu výchozího předplatného poskytovatele nelze změnit.
 
 ## <a name="next-steps"></a>Další kroky
 

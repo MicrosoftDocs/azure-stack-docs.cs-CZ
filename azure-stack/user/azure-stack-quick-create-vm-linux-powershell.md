@@ -1,6 +1,6 @@
 ---
-title: Vytvoření virtuálního počítače se systémem Linux pomocí prostředí PowerShell v Azure Stack | Microsoft Docs
-description: Vytvořte virtuální počítač se systémem Linux pomocí prostředí PowerShell v Azure Stack.
+title: Vytvoření virtuálního počítače se systémem Linux pomocí prostředí PowerShell v centru Azure Stack | Microsoft Docs
+description: Vytvořte virtuální počítač se systémem Linux pomocí prostředí PowerShell v centru Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,18 +15,18 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.custom: mvc
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 2bd72ad2de570eeb3089645c5ee7c9dd3784e83c
-ms.sourcegitcommit: bbe1048682c7dccc6cebde542462c14ee1f3d0d1
+ms.openlocfilehash: 4d846734c609485532da4534231a7b94c0514f21
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75677667"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75816016"
 ---
-# <a name="quickstart-create-a-linux-server-vm-by-using-powershell-in-azure-stack"></a>Rychlý Start: Vytvoření virtuálního počítače s Linux serverem pomocí prostředí PowerShell v Azure Stack
+# <a name="quickstart-create-a-linux-server-vm-by-using-powershell-in-azure-stack-hub"></a>Rychlý Start: Vytvoření virtuálního počítače s Linux serverem pomocí prostředí PowerShell v centru Azure Stack
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
-Virtuální počítač s Ubuntu serverem 16,04 LTS můžete vytvořit pomocí Azure Stack PowerShellu. V tomto článku vytvoříte a použijete virtuální počítač. Tento článek také ukazuje, jak:
+Virtuální počítač s Ubuntu serverem 16,04 LTS můžete vytvořit pomocí centra prostředí PowerShell pro Azure Stack. V tomto článku vytvoříte a použijete virtuální počítač. Tento článek také ukazuje, jak:
 
 * Připojte se k virtuálnímu počítači pomocí vzdáleného klienta.
 * Nainstalujte webový server NGINX a zobrazte výchozí domovskou stránku.
@@ -34,17 +34,17 @@ Virtuální počítač s Ubuntu serverem 16,04 LTS můžete vytvořit pomocí Az
 
 ## <a name="prerequisites"></a>Požadavky
 
-* Image Linux na webu Azure Stack Marketplace. Web Azure Stack Marketplace ve výchozím nastavení nemá image Linux. Použijte operátor Azure Stack, který obsahuje bitovou kopii Ubuntu serveru 16,04 LTS, kterou potřebujete. Operátor může použít pokyny v tématu [stažení položek Marketplace z Azure do Azure Stack](../operator/azure-stack-download-azure-marketplace-item.md).
+* Image Linux na tržišti Azure Stack hub. Tržiště centra Azure Stack ve výchozím nastavení nemá image Linux. Použijte operátor centra Azure Stack, který obsahuje bitovou kopii Ubuntu serveru 16,04 LTS, kterou potřebujete. Operátor může použít pokyny v tématu [stažení položek Marketplace z Azure do centra Azure Stack](../operator/azure-stack-download-azure-marketplace-item.md).
 
-* Azure Stack vyžaduje pro vytváření a správu prostředků specifickou verzi rozhraní příkazového řádku Azure CLI. 
-  * Pokud nemáte PowerShell nakonfigurovaný pro Azure Stack, přečtěte si téma [instalace PowerShellu pro Azure Stack](../operator/azure-stack-powershell-install.md). 
-  * Po nastavení Azure Stack PowerShellu se připojíte k vašemu Azure Stack prostředí. Pokyny najdete v tématu [připojení k Azure Stack pomocí prostředí PowerShell jako uživatel](azure-stack-powershell-configure-user.md).
+* Aby bylo možné vytvářet a spravovat prostředky, Azure Stack centrum vyžaduje specifickou verzi rozhraní příkazového řádku Azure. 
+  * Pokud nemáte PowerShell nakonfigurovaný pro centrum Azure Stack, přečtěte si téma [instalace PowerShellu pro Azure Stack hub](../operator/azure-stack-powershell-install.md). 
+  * Po nastavení centra Azure Stackho prostředí PowerShell se připojíte k vašemu prostředí Azure Stack hub. Pokyny najdete v tématu [připojení k Azure Stack hub pomocí prostředí PowerShell jako uživatel](azure-stack-powershell-configure-user.md).
 
 * Klíč veřejného Secure Shell (SSH) s názvem *id_rsa. pub* uložený v adresáři *. ssh* uživatelského profilu Windows. Podrobné informace o vytváření klíčů SSH najdete v tématu [použití veřejného klíče SSH](azure-stack-dev-start-howto-ssh-public-key.md).
 
 ## <a name="create-a-resource-group"></a>Vytvoření skupiny prostředků
 
-Skupina prostředků je logický kontejner, ve kterém můžete nasazovat a spravovat prostředky Azure Stack. Pokud chcete vytvořit skupinu prostředků, v Azure Stack Development Kit (ASDK) nebo v integrovaném systému Azure Stack spusťte následující blok kódu: 
+Skupina prostředků je logický kontejner, ve kterém můžete nasazovat a spravovat prostředky centra Azure Stack. Pokud chcete vytvořit skupinu prostředků, z Azure Stack Development Kit (ASDK) nebo z integrovaného systému centra Azure Stack spusťte následující blok kódu: 
 
 > [!NOTE]
 > V následujících příkladech kódu jsme přiřadili hodnoty pro všechny proměnné. Můžete ale přiřadit vlastní hodnoty.
@@ -212,7 +212,7 @@ New-AzureRmVM `
 ## Create a resource group
 
 <#
-A resource group is a logical container where you can deploy and manage Azure Stack resources. From your development kit or the Azure Stack integrated system, run the following code block to create a resource group. Though we've assigned values for all the variables in this article, you can use these values or assign new ones.
+A resource group is a logical container where you can deploy and manage Azure Stack Hub resources. From your development kit or the Azure Stack Hub integrated system, run the following code block to create a resource group. Though we've assigned values for all the variables in this article, you can use these values or assign new ones.
 #>
 
 # Edit your variables, if required
@@ -418,4 +418,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 ## <a name="next-steps"></a>Další kroky
 
-V tomto rychlém startu jste nasadili základní virtuální počítač s Linux serverem. Další informace o Azure Stack virtuálních počítačů najdete [v informacích o virtuálních počítačích v Azure Stack](azure-stack-vm-considerations.md).
+V tomto rychlém startu jste nasadili základní virtuální počítač s Linux serverem. Další informace o Azure Stackch virtuálních počítačů centra najdete [v centru Azure Stack na webu s důležitými informacemi o virtuálních počítačích](azure-stack-vm-considerations.md).

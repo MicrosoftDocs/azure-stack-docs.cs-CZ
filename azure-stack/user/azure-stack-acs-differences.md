@@ -1,6 +1,6 @@
 ---
-title: Rozdíly a požadavky na úložiště Azure Stack | Microsoft Docs
-description: Pochopte rozdíly mezi úložištěm Azure Stack a úložištěm Azure spolu s Azure Stackmi požadavky na nasazení.
+title: Rozdíly a požadavky na úložiště centra Azure Stack | Microsoft Docs
+description: Seznamte se s rozdíly mezi Azure Stack úložiště centra a Azure Storage společně s Azure Stackmi požadavky na nasazení centra.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,26 +15,26 @@ ms.date: 10/2/2019
 ms.author: mabrigg
 ms.reviwer: xiaofmao
 ms.lastreviewed: 01/30/2019
-ms.openlocfilehash: e2680a91aa2b9232eb86de4338d1198fb515e6d3
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: cef2b4f801ee6b088b0b187cc798c71ad302f1ce
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71824728"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75820878"
 ---
-# <a name="azure-stack-storage-differences-and-considerations"></a>Azure Stack úložiště: Rozdíly a aspekty
+# <a name="azure-stack-hub-storage-differences-and-considerations"></a>Úložiště centra Azure Stack: rozdíly a požadavky
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
-Azure Stack Storage je sada cloudových služeb úložiště v Microsoft Azure Stack. Služba Azure Stack Storage poskytuje funkce pro správu objektů blob, tabulek, front a účtů s sémantikou konzistentní vzhledem k Azure.
+Úložiště centra Azure Stack je sada cloudových služeb úložiště v centru Microsoft Azure Stack. Úložiště centra Azure Stack poskytuje funkce pro správu objektů blob, tabulek, front a účtů s sémantikou konzistentní vzhledem k Azure.
 
-Tento článek shrnuje známé Azure Stack nerozdílů v úložišti služeb Azure Storage. Také uvádí, co je potřeba vzít v úvahu při nasazení Azure Stack. Další informace o rozdílech na vysoké úrovni mezi globálním Azure a Azure Stack najdete v článku [klíčové důležité informace](azure-stack-considerations.md) .
+Tento článek shrnuje známé rozdíly v úložištích Azure Stack centra od služby Azure Storage. Také uvádí, co je potřeba vzít v úvahu při nasazení centra Azure Stack. Další informace o hlavních rozdílech mezi globálním centrem Azure a Azure Stack najdete v článku [důležité informace](azure-stack-considerations.md) .
 
-## <a name="cheat-sheet-storage-differences"></a>Tahák list: Rozdíly v úložišti
+## <a name="cheat-sheet-storage-differences"></a>Tahák list: rozdíly v úložišti
 
-| Funkce | Azure (Global) | Azure Stack |
+| Funkce | Azure (Global) | Azure Stack Hub |
 | --- | --- | --- |
-|File Storage|Podporované cloudové sdílené složky SMB|Zatím nepodporováno
+|Úložiště souborů|Podporované cloudové sdílené složky SMB|Zatím nepodporováno
 |Šifrování služby Azure Storage pro neaktivní neaktivní data|256 šifrování AES. Podpora šifrování pomocí klíčů spravovaných zákazníkem v Key Vault.|BitLocker 128-bit AES Encryption. Šifrování pomocí klíčů spravovaných zákazníkem se nepodporuje.
 |Typ účtu úložiště|Účty úložiště pro obecné účely V1, v2 a BLOB|Jenom pro obecné účely v1.
 |Možnosti replikace|Místně redundantní úložiště, geograficky redundantní úložiště, geograficky redundantní úložiště s přístupem pro čtení a úložiště redundantní v zóně|Místně redundantní úložiště.
@@ -47,8 +47,8 @@ Tento článek shrnuje známé Azure Stack nerozdílů v úložišti služeb Azu
 |Fakturace objektu blob stránky|Poplatky se účtují pro jedinečné stránky, ať už jsou v objektu blob, nebo ve snímku. Neúčtují se další poplatky za snímky přidružené k objektu blob, dokud se neaktualizuje základní objekt BLOB.|Účtují se poplatky za základní objekty BLOB a assiociated snímky. Za každý jednotlivý snímek se účtují další poplatky.
 |Vrstvy úložiště pro Blob Storage|Horké, studené a archivní úrovně úložiště.|Zatím se nepodporuje.
 |Obnovitelné odstranění pro úložiště objektů BLOB|Obecné dostupné|Zatím se nepodporuje.
-|Maximální velikost objektu blob stránky|8 TB|1 TB
-|Velikost stránky objektu blob stránky|512 bajtů|4 KB
+|Maximální velikost objektu blob stránky|8 TB|1 TB
+|Velikost stránky objektu blob stránky|512 bajtů|4 kB
 |Klíč oddílu tabulky a velikost klíče řádku|1 024 znaků (2 048 bajtů)|400 znaků (800 bajtů)
 |Snímek objektu BLOB|Maximální počet snímků jednoho objektu BLOB není omezený.|Maximální počet snímků jednoho objektu BLOB je 1 000.
 |Ověřování Azure AD pro úložiště|Ve verzi Preview|Zatím se nepodporuje.
@@ -60,9 +60,9 @@ Existují také rozdíly v metrikách úložiště:
 * Data transakcí v metrikách úložiště nerozlišují vnitřní nebo externí šířku pásma sítě.
 * Data transakcí v metrikách úložiště nezahrnují přístup virtuálních počítačů k připojeným diskům.
 
-## <a name="api-version"></a>Verze API
+## <a name="api-version"></a>Verze rozhraní API
 
-Azure Stack Storage podporuje následující verze:
+Azure Stack úložiště centra podporuje následující verze:
 
 Rozhraní API služby Azure Storage Services:
 
@@ -102,10 +102,20 @@ Předchozí verze:
 - [2015-06-15](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
 - [2015-05-01-preview](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
 
-Další informace o Azure Stack podporovaných klientských knihovnách pro úložiště najdete v tématu: [Začínáme s nástroji pro vývoj Azure Stackho úložiště](azure-stack-storage-dev.md)
+## <a name="powershell-version"></a>Verze prostředí PowerShell
+
+V případě modulu úložiště PowerShell si pamatujte na verzi, která je kompatibilní s REST API. 
+
+| Modul | Podporovaná verze | Využití |
+|----------------|-------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Azure.Storage | [4.5.0](https://www.powershellgallery.com/packages/Azure.Storage/4.5.0) | Spravuje objekty blob, fronty a tabulky v Azure Stack účty úložiště centra. |
+| AzureRM.Storage | [5.0.4](https://www.powershellgallery.com/packages/AzureRM.Storage/5.0.4) | Vytvoří a spravuje účty úložiště v centru Azure Stack. |
+
+
+Další informace o podporovaných klientských knihovnách úložiště služby Azure Stack hub najdete v tématu [Začínáme s Azure Stack centrum pro vývoj úložiště](azure-stack-storage-dev.md).
 
 ## <a name="next-steps"></a>Další kroky
 
-* [Začínáme s nástroji pro vývoj Azure Stackho úložiště](azure-stack-storage-dev.md)
-* [Použití nástrojů pro přenos dat pro Azure Stack Storage](azure-stack-storage-transfer.md)
-* [Seznámení s Azure Stack Storage](azure-stack-storage-overview.md)
+* [Začínáme s nástroji pro vývoj pro úložiště Azure Stack hub](azure-stack-storage-dev.md)
+* [Použití nástrojů pro přenos dat pro úložiště Azure Stack hub](azure-stack-storage-transfer.md)
+* [Úvod do úložiště centra Azure Stack](azure-stack-storage-overview.md)

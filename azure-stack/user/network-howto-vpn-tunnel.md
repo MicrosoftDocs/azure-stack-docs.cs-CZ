@@ -1,6 +1,6 @@
 ---
-title: Jak nastavit několik tunelových propojení VPN typu Site-to-site v Azure Stack | Microsoft Docs
-description: Přečtěte si, jak nastavit několik tunelových propojení VPN typu Site-to-site v Azure Stack.
+title: Jak nastavit několik tunelových propojení VPN typu Site-to-site v centru Azure Stack | Microsoft Docs
+description: Přečtěte si, jak nastavit několik tunelových propojení VPN typu Site-to-site v centru Azure Stack.
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,18 +9,18 @@ ms.date: 09/19/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: d85de1892e2e6620249ff3a95ee2debb01b81981
-ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
+ms.openlocfilehash: fc3a49e5e65952ebc687b1e83218e7f497b1d7b7
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73167660"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75815353"
 ---
-# <a name="how-to-set-up-a-multiple-site-to-site-vpn-tunnel-in-azure-stack"></a>Jak nastavit několik tunelových propojení VPN typu Site-to-site v Azure Stack
+# <a name="how-to-set-up-a-multiple-site-to-site-vpn-tunnel-in-azure-stack-hub"></a>Jak nastavit několik tunelových propojení VPN typu Site-to-site v centru Azure Stack
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
-V tomto článku se dozvíte, jak použít šablonu Azure Stack Správce prostředků k nasazení řešení. Řešení vytvoří několik skupin prostředků s přidruženými virtuálními sítěmi a Postup připojení těchto systémů.
+V tomto článku se dozvíte, jak použít šablonu Správce prostředků centra Azure Stack k nasazení řešení. Řešení vytvoří několik skupin prostředků s přidruženými virtuálními sítěmi a Postup připojení těchto systémů.
 
 Šablony najdete v úložišti GitHub ve [vzorcích Azure Intelligent Edge](https://github.com/Azure-Samples/azure-intelligent-edge-patterns) . Šablona se nachází ve složce **RRAS-GRE-VNet-VNet** . 
 
@@ -34,7 +34,7 @@ V tomto článku se dozvíte, jak použít šablonu Azure Stack Správce prostř
 
 -  Nasazení tří aplikačních vrstev, webu, aplikace a DB.
 
--  Nasaďte první dvě šablony na samostatné instance Azure Stack.
+-  Nasaďte první dvě šablony na samostatné instance centra Azure Stack.
 
 -  **Webvrstva** bude nasazená na PPE1 a **AppTier** se nasadí na PPE2.
 
@@ -44,15 +44,15 @@ V tomto článku se dozvíte, jak použít šablonu Azure Stack Správce prostř
 
 ## <a name="steps-to-deploy-multiple-vpns"></a>Postup nasazení více sítí VPN
 
-Toto je proces více kroků. V případě tohoto řešení budete používat portál Azure Stack. Můžete ale použít PowerShell, rozhraní příkazového řádku Azure nebo jiné řetězy nástrojů infrastruktury jako kódu k zachycení výstupů a použít je jako vstupy.
+Toto je proces více kroků. V případě tohoto řešení budete používat portál Azure Stack hub. Můžete ale použít PowerShell, rozhraní příkazového řádku Azure nebo jiné řetězy nástrojů infrastruktury jako kódu k zachycení výstupů a použít je jako vstupy.
 
 ![alternativní text](./media/azure-stack-network-howto-vpn-tunnel/image2.png)
 
 ## <a name="walkthrough"></a>Názorný postup
 
-### <a name="deploy-web-tier-to-azure-stack-instances-ppe1"></a>Nasazení webové vrstvy do instancí Azure Stack PPE1
+### <a name="deploy-web-tier-to-azure-stack-hub-instances-ppe1"></a>Nasazení webové vrstvy do instancí centra Azure Stack PPE1
 
-1.  Otevřete Azure Stack User Portal a vyberte **vytvořit prostředek**.
+1.  Otevřete portál Azure Stack centrum uživatelů a vyberte **vytvořit prostředek**.
 
 2.  Vyberte **nasazení šablony**.
 
@@ -69,7 +69,7 @@ Toto je proces více kroků. V případě tohoto řešení budete používat por
 
     ![](./media/azure-stack-network-howto-vpn-tunnel/image5.png)
 
-### <a name="deploy-app-tier-to-the-second-azure-stack-instances"></a>Nasazení vrstvy aplikace do druhé instance Azure Stack
+### <a name="deploy-app-tier-to-the-second-azure-stack-hub-instances"></a>Nasazení vrstvy aplikace do druhé instance centra Azure Stack
 
 Stejný postup můžete použít jako **Webvrstva** , ale jiné parametry, jak je znázorněno zde:
 
@@ -80,7 +80,7 @@ Stejný postup můžete použít jako **Webvrstva** , ale jiné parametry, jak j
 
 ### <a name="review-the-deployments-for-web-tier-and-app-tier-and-capture-outputs"></a>Projděte si nasazení pro webovou vrstvu a vrstvu aplikace a zaznamenejte výstupy.
 
-1.  Zkontrolujte, jestli se nasazení úspěšně dokončilo. Vyberte **výstupy**.
+1.  Zkontrolujte, jestli se nasazení úspěšně dokončilo. Vyberte **Výstupy**.
 
     ![](./media/azure-stack-network-howto-vpn-tunnel/image7.png)
 
@@ -96,7 +96,7 @@ Stejný postup můžete použít jako **Webvrstva** , ale jiné parametry, jak j
 
 ### <a name="create-tunnel-from-web-tier-to-app-tier"></a>Vytvoření tunelu z webové vrstvy do aplikační vrstvy
 
-1.  Otevřete Azure Stack User Portal a vyberte **vytvořit prostředek**.
+1.  Otevřete portál Azure Stack centrum uživatelů a vyberte **vytvořit prostředek**.
 
 2.  Vyberte **nasazení šablony**.
 
@@ -108,7 +108,7 @@ Stejný postup můžete použít jako **Webvrstva** , ale jiné parametry, jak j
 
 ### <a name="create-tunnel-from-app-tier-to-web-tier"></a>Vytvoření tunelu z aplikační vrstvy do webové vrstvy
 
-1.  Otevřete Azure Stack User Portal a vyberte **vytvořit prostředek**.
+1.  Otevřete portál Azure Stack centrum uživatelů a vyberte **vytvořit prostředek**.
 
 2.  Vyberte **Template deployment**.
 
@@ -163,7 +163,7 @@ Pokud zobrazíte výstup z rozšíření vlastních skriptů, uvidíte, že se v
 
 ### <a name="configure-app-tier-to-db-tier"></a>Konfigurace aplikační vrstvy na úroveň DB
 
-1.  Otevřete Azure Stack User Portal a vyberte **vytvořit prostředek**.
+1.  Otevřete portál Azure Stack centrum uživatelů a vyberte **vytvořit prostředek**.
 
 2.  Vyberte **Template deployment**.
 
@@ -201,7 +201,7 @@ Pokud zobrazíte výstup z rozšíření vlastních skriptů, uvidíte, že se v
     > Můžete testovat protokol RDP jak z jednoho počítače na druhý, tak z druhého do prvního.
 
     > [!Note]  
-    > K implementaci tohoto řešení v místním prostředí budete muset nasazovat trasy do Azure Stack vzdálené sítě, abyste přepnuli infrastrukturu nebo minimálně na konkrétní virtuální počítače.
+    > K implementaci tohoto řešení v místním prostředí budete muset nasazovat trasy do vzdálené sítě centra Azure Stack v rámci přepínání infrastruktury nebo minimálně na konkrétní virtuální počítače.
 
 ### <a name="deploying-a-gre-tunnel"></a>Nasazení tunelu GRE
 
@@ -213,6 +213,6 @@ Proces je skoro identický. Pokud však šablonu tunelového propojení nasadít
 
 ## <a name="next-steps"></a>Další kroky
 
-[Rozdíly a požadavky pro Azure Stack sítě](azure-stack-network-differences.md)  
+[Rozdíly a požadavky pro sítě Azure Stack hub](azure-stack-network-differences.md)  
 [Postup vytvoření tunelu VPN pomocí protokolu GRE](network-howto-vpn-tunnel-gre.md)  
 [Postup vytvoření tunelu VPN pomocí protokolu IPSEC](network-howto-vpn-tunnel-ipsec.md)

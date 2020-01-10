@@ -1,6 +1,6 @@
 ---
-title: Použití privilegovaného koncového bodu v Azure Stack | Microsoft Docs
-description: Naučte se používat privilegovaný koncový bod (PEP) v Azure Stack jako operátor.
+title: Použití privilegovaného koncového bodu v centru Azure Stack | Microsoft Docs
+description: Naučte se používat privilegovaný koncový bod (PEP) v centru Azure Stack jako operátor.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,22 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/11/2019
+ms.date: 1/8/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
-ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: f77a497960b49e3a212ea5cc2b63c18d8382a99c
-ms.sourcegitcommit: 7817d61fa34ac4f6410ce6f8ac11d292e1ad807c
+ms.lastreviewed: 1/8/2020
+ms.openlocfilehash: 7754a1e88a8000ede2b4058e09a7e91c3c6171e7
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74689962"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75810048"
 ---
-# <a name="use-the-privileged-endpoint-in-azure-stack"></a>Použití privilegovaného koncového bodu v Azure Stack
+# <a name="use-the-privileged-endpoint-in-azure-stack-hub"></a>Použití privilegovaného koncového bodu v centru Azure Stack
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
-Jako operátor služby Azure Stack byste pro většinu každodenních úloh správy měli používat portál pro správu, PowerShell nebo rozhraní API Azure Resource Manageru. U některých méně běžných operací ale potřebujete použít *privilegovaný koncový bod* (PEP). PEP je předem nakonfigurovaná konzola vzdáleného prostředí PowerShell, která poskytuje dostatek možností, které vám pomůžou provést požadovanou úlohu. Koncový bod používá [prostředí POWERSHELL JEA (jen dostatečná Správa)](https://docs.microsoft.com/powershell/scripting/learn/remoting/jea/overview) k zobrazení pouze omezené sady rutin. Pokud chcete získat přístup k PEP a vyvolat omezenou sadu rutin, použije se účet s nízkými oprávněními. Nejsou vyžadovány žádné účty správců. Pro zvýšení zabezpečení není skriptování povoleno.
+Jako operátor centra Azure Stack byste pro většinu každodenních úloh správy měli používat rozhraní API pro správu portálu, PowerShell nebo Azure Resource Manager. U některých méně běžných operací ale potřebujete použít *privilegovaný koncový bod* (PEP). PEP je předem nakonfigurovaná konzola vzdáleného prostředí PowerShell, která poskytuje dostatek možností, které vám pomůžou provést požadovanou úlohu. Koncový bod používá [prostředí POWERSHELL JEA (jen dostatečná Správa)](https://docs.microsoft.com/powershell/scripting/learn/remoting/jea/overview) k zobrazení pouze omezené sady rutin. Pokud chcete získat přístup k PEP a vyvolat omezenou sadu rutin, použije se účet s nízkými oprávněními. Nejsou vyžadovány žádné účty správců. Pro zvýšení zabezpečení není skriptování povoleno.
 
 K provedení těchto úloh můžete použít PEP:
 
@@ -43,50 +43,58 @@ PEP zaznamená všechny akce (a odpovídající výstupy), které v relaci Power
 
 K PEP přistupujete prostřednictvím vzdálené relace PowerShellu na virtuálním počítači, který hostuje PEP. V ASDK se tento virtuální počítač jmenuje **AzS-ERCS01**. Pokud používáte integrovaný systém, existují tři instance PEP, z nichž každý běží v rámci virtuálního počítače (*předpona*-ERCS01, *prefix*-ERCS02 nebo *prefix*-ERCS03) na různých hostitelích pro zajištění odolnosti.
 
-Než zahájíte tento postup pro integrovaný systém, ujistěte se, že máte přístup k PEP buď podle IP adresy, nebo prostřednictvím DNS. Po počátečním nasazení Azure Stack můžete k PEP přistupovat pouze pomocí IP adresy, protože integrace služby DNS zatím není nastavená. Dodavatel hardwaru OEM vám poskytne soubor JSON s názvem **AzureStackStampDeploymentInfo** , který obsahuje IP adresy PEP.
+Než zahájíte tento postup pro integrovaný systém, ujistěte se, že máte přístup k PEP buď podle IP adresy, nebo prostřednictvím DNS. Po počátečním nasazení centra Azure Stack můžete k PEP přistupovat jenom pomocí IP adresy, protože integrace DNS zatím není nastavená. Dodavatel hardwaru OEM vám poskytne soubor JSON s názvem **AzureStackStampDeploymentInfo** , který obsahuje IP adresy PEP.
 
+IP adresu můžete najít také na portálu pro správu centra Azure Stack. Otevřete portál, například `https://adminportal.local.azurestack.external`. Vyberte > **vlastnosti** **oblasti Správa oblastí** .
+
+Při spuštění privilegovaného koncového bodu budete potřebovat nastavit aktuální nastavení jazykové verze na `en-US`, jinak rutiny jako test-AzureStack nebo Get-AzureStackLog nebudou fungovat podle očekávání.
 
 > [!NOTE]
 > Z bezpečnostních důvodů vyžadujeme, abyste se připojili ke službě PEP jenom z posíleného virtuálního počítače, který běží na hostiteli životního cyklu hardwaru, nebo z vyhrazeného a zabezpečeného počítače, jako je například [pracovní stanice privilegovaného přístupu](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations). Původní konfigurace hostitele životního cyklu hardwaru nesmí být upravena z původní konfigurace (včetně instalace nového softwaru) nebo používaná pro připojení k PEP.
 
 1. Vytvořte vztah důvěryhodnosti.
 
-    - V integrovaném systému spusťte následující příkaz z relace se zvýšenými oprávněními Windows PowerShellu a přidejte PEP jako důvěryhodného hostitele na zesílený virtuální počítač, který běží na hostiteli životního cyklu hardwaru nebo na pracovní stanici privilegovaného přístupu.
+      - V integrovaném systému spusťte následující příkaz z relace se zvýšenými oprávněními Windows PowerShellu a přidejte PEP jako důvěryhodného hostitele na zesílený virtuální počítač, který běží na hostiteli životního cyklu hardwaru nebo na pracovní stanici privilegovaného přístupu.
 
-      ```powershell
+      ```powershell  
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
       ```
-    - Pokud používáte ASDK, přihlaste se k hostiteli vývojové sady.
+
+      - Pokud používáte ASDK, přihlaste se k hostiteli vývojové sady.
 
 2. V zesíleném virtuálním počítači, který běží na hostiteli životního cyklu hardwaru nebo na pracovní stanici privilegovaného přístupu, otevřete relaci prostředí Windows PowerShell. Spusťte následující příkazy, abyste navázali vzdálenou relaci na virtuálním počítači, který je hostitelem PEP:
  
-   - V integrovaném systému:
-     ```powershell
-       $cred = Get-Credential
+  - V integrovaném systému:
 
-       Enter-PSSession -ComputerName <IP_address_of_ERCS> `
-         -ConfigurationName PrivilegedEndpoint -Credential $cred
-     ```
-     Parametr `ComputerName` může být buď IP adresa, nebo název DNS jednoho z virtuálních počítačů, které hostují PEP.
+    ```powershell  
+    $cred = Get-Credential
 
-     >[!NOTE]
-     >Azure Stack neprovádí vzdálené volání při ověřování přihlašovacích údajů PEP. K tomu se spoléhá na místně uložený veřejný klíč RSA.
-     
+    $pep = New-PSSession -ComputerName <IP_address_of_ERCS> -ConfigurationName PrivilegedEndpoint -Credential $cred -SessionOption (New-PSSessionOption -Culture en-US -UICulture en-US)
+    Enter-PSSession $pep
+    ```
+    
+    Parametr `ComputerName` může být buď IP adresa, nebo název DNS jednoho z virtuálních počítačů, které hostují PEP.
+
+    > [!NOTE]  
+    >Azure Stack centrum neprovádí vzdálené volání při ověřování přihlašovacích údajů PEP. K tomu se spoléhá na místně uložený veřejný klíč RSA.
+
    - Pokud používáte ASDK:
-     
-     ```powershell
-       $cred = Get-Credential
 
-       Enter-PSSession -ComputerName azs-ercs01 `
-         -ConfigurationName PrivilegedEndpoint -Credential $cred
-     ``` 
-     Po zobrazení výzvy použijte následující přihlašovací údaje:
+     ```powershell  
+      $cred = Get-Credential
+    
+      $pep = New-PSSession -ComputerName azs-ercs01 -ConfigurationName PrivilegedEndpoint -Credential $cred -SessionOption (New-PSSessionOption -Culture en-US -UICulture en-US)
+      Enter-PSSession $pep
+     ```
+    
+   - Po zobrazení výzvy použijte následující přihlašovací údaje:
+   
+       - **Uživatelské jméno**: zadejte účet CloudAdmin ve formátu **&lt;*Azure Stack doméně centra*&gt;\cloudadmin**. (Pro ASDK se uživatelské jméno **azurestack\cloudadmin**.)
+  
+        - **Heslo**: zadejte stejné heslo, které bylo zadáno během instalace pro účet správce domény AzureStackAdmin.
 
-     - **Uživatelské jméno**: zadejte účet CloudAdmin ve formátu **&lt;*Azure Stack doméně*&gt;\cloudadmin**. (Pro ASDK se uživatelské jméno **azurestack\cloudadmin**.)
-     - **Heslo**: zadejte stejné heslo, které bylo zadáno během instalace pro účet správce domény AzureStackAdmin.
-
-     > [!NOTE]
-     > Pokud se nemůžete připojit ke koncovému bodu ERCS, opakujte kroky jedna a dvě s jinou IP adresou virtuálního počítače ERCS.
+      > [!NOTE]
+      > Pokud se nemůžete připojit ke koncovému bodu ERCS, opakujte kroky jedna a dvě s jinou IP adresou virtuálního počítače ERCS.
 
 3. Po připojení se výzva změní na **[*IP adresa nebo název virtuálního počítače ERCS*]: PS >** nebo na **[AZS-ercs01]: PS >** , v závislosti na prostředí. Z tohoto místa spusťte `Get-Command` pro zobrazení seznamu dostupných rutin.
 
@@ -94,12 +102,12 @@ Než zahájíte tento postup pro integrovaný systém, ujistěte se, že máte p
 
    - Vymazat – hostitel
    - Zavřít – PrivilegedEndpoint
-   - Konec – PSSession
+   - Exit-PSSession
    - Get-AzureStackLog
    - Get-AzureStackStampInformation
    - Get-Command
    - Get-FormatData
-   - Získat nápovědu
+   - Get-Help
    - Get-ThirdPartyNotices
    - Measure – objekt
    - New-CloudAdminUser
@@ -107,8 +115,8 @@ Než zahájíte tento postup pro integrovaný systém, ujistěte se, že máte p
    - Remove-CloudAdminUser
    - Select-Object
    - Set-CloudAdminUserPassword
-   - Test – AzureStack
-   - Stop – AzureStack
+   - Test-AzureStack
+   - Stop-AzureStack
    - Get-ClusterLog
 
 ## <a name="tips-for-using-the-privileged-endpoint"></a>Tipy pro použití privilegovaného koncového bodu 
@@ -127,42 +135,48 @@ Pokud chcete importovat relaci PEP na místním počítači, proveďte následuj
 
 1. Vytvořte vztah důvěryhodnosti.
 
-    – V integrovaném systému spusťte následující příkaz z relace se zvýšenými oprávněními Windows PowerShell a přidejte PEP jako důvěryhodného hostitele na posílený virtuální počítač, který běží na hostiteli životního cyklu hardwaru nebo v pracovní stanici privilegovaného přístupu.
+    - V integrovaném systému spusťte následující příkaz z relace se zvýšenými oprávněními Windows PowerShellu a přidejte PEP jako důvěryhodného hostitele na zesílený virtuální počítač, který běží na hostiteli životního cyklu hardwaru nebo na pracovní stanici privilegovaného přístupu.
 
-      ```powershell
-        winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
-      ```
+    ```powershell
+    winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
+    ```
+
     - Pokud používáte ASDK, přihlaste se k hostiteli vývojové sady.
 
 2. V zesíleném virtuálním počítači, který běží na hostiteli životního cyklu hardwaru nebo na pracovní stanici privilegovaného přístupu, otevřete relaci prostředí Windows PowerShell. Spusťte následující příkazy, abyste navázali vzdálenou relaci na virtuálním počítači, který je hostitelem PEP:
- 
-   - V integrovaném systému:
-     ```powershell
-       $cred = Get-Credential
 
-       $session = New-PSSession -ComputerName <IP_address_of_ERCS> `
-         -ConfigurationName PrivilegedEndpoint -Credential $cred
-     ```
-     Parametr `ComputerName` může být buď IP adresa, nebo název DNS jednoho z virtuálních počítačů, které hostují PEP.
-   - Pokud používáte ASDK:
+    - V integrovaném systému:
+    
+      ```powershell  
+        $cred = Get-Credential
+      
+        $session = New-PSSession -ComputerName <IP_address_of_ERCS> `
+          -ConfigurationName PrivilegedEndpoint -Credential $cred
+      ```
+    
+      Parametr `ComputerName` může být buď IP adresa, nebo název DNS jednoho z virtuálních počítačů, které hostují PEP.
+
+    - Pokud používáte ASDK:
      
-     ```powershell
-      $cred = Get-Credential
+        ```powershell  
+          $cred = Get-Credential
+    
+          $session = New-PSSession -ComputerName azs-ercs01 `
+             -ConfigurationName PrivilegedEndpoint -Credential $cred
+        ```
 
-      $session = New-PSSession -ComputerName azs-ercs01 `
-         -ConfigurationName PrivilegedEndpoint -Credential $cred
-     ``` 
      Po zobrazení výzvy použijte následující přihlašovací údaje:
 
-     - **Uživatelské jméno**: zadejte účet CloudAdmin ve formátu **&lt;*Azure Stack doméně*&gt;\cloudadmin**. (Pro ASDK se uživatelské jméno **azurestack\cloudadmin**.)
+     - **Uživatelské jméno**: zadejte účet CloudAdmin ve formátu **&lt;*Azure Stack doméně centra*&gt;\cloudadmin**. (Pro ASDK se uživatelské jméno **azurestack\cloudadmin**.)
      - **Heslo**: zadejte stejné heslo, které bylo zadáno během instalace pro účet správce domény AzureStackAdmin.
 
-3. Import relace PEP do místního počítače
-     ```powershell 
-        Import-PSSession $session
-   ```
-4. Nyní můžete použít dokončování karet a provádět skriptování jako obvykle na místní relaci PowerShellu se všemi funkcemi a rutinami PEP, aniž by došlo ke snížení stav zabezpečení Azure Stack. Užijte si ji!
+3. Importujte relaci PEP do místního počítače:
 
+    ```powershell 
+      Import-PSSession $session
+    ```
+
+4. Nyní můžete použít dokončování karet a provádět skriptování jako obvykle na místní relaci PowerShellu se všemi funkcemi a rutinami PEP, aniž by došlo ke snížení stav zabezpečení centra Azure Stack. Užijte si ji!
 
 ## <a name="close-the-privileged-endpoint-session"></a>Zavřít privilegovanou relaci koncového bodu
 
@@ -172,15 +186,17 @@ Ukončení relace koncového bodu:
 
 1. Vytvořte externí sdílení souborů, které je přístupné pro PEP. V prostředí vývojové sady můžete pouze vytvořit sdílenou složku na hostiteli vývojové sady.
 2. Spusťte následující rutinu:
-     ```powershell
+
+  ```powershell  
      Close-PrivilegedEndpoint -TranscriptsPathDestination "\\fileshareIP\SharedFolder" -Credential Get-Credential
-     ```
+  ```
+
    Rutina používá parametry v následující tabulce:
 
    | Parametr | Popis | Typ | Požaduje se |
    |---------|---------|---------|---------|
    | *TranscriptsPathDestination* | Cesta k externímu sdílení souborů definovaná jako "fileshareIP\sharefoldername" | Řetězec | Ano|
-   | *Pověřovací* | Přihlašovací údaje pro přístup ke sdílené složce souborů | SecureString |   Ano |
+   | *Přihlašovací údaje* | Přihlašovací údaje pro přístup ke sdílené složce souborů | SecureString |   Ano |
 
 
 Po úspěšném přenosu souborů protokolu přepisu do sdílené složky se automaticky odstraní z PEP. 
@@ -191,4 +207,4 @@ Po úspěšném přenosu souborů protokolu přepisu do sdílené složky se aut
 
 ## <a name="next-steps"></a>Další kroky
 
-[Diagnostické nástroje Azure Stack](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)
+[Diagnostické nástroje centra Azure Stack](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)

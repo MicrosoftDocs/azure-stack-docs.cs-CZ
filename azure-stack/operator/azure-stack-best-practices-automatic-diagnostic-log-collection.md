@@ -1,6 +1,6 @@
 ---
-title: Osvědčené postupy pro automatické shromažďování protokolů Azure Stack | Microsoft Docs
-description: Osvědčené postupy pro automatické shromažďování protokolů v Azure Stack nápovědě a podpoře
+title: Osvědčené postupy pro automatické shromažďování protokolů Azure Stack centra | Microsoft Docs
+description: Osvědčené postupy pro automatické shromažďování protokolů v centru Azure Stack nápovědu a podpora
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,25 +16,25 @@ ms.date: 07/25/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 07/25/2019
-ms.openlocfilehash: 03fb0550bfaa41a3336ff17dd1c44e03bcea1402
-ms.sourcegitcommit: b752f4e6733d9ebe56dbd171a14528dcb9a693fd
+ms.openlocfilehash: d541605472c2c5dda41ec7c54b7ebdff2223cc25
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68522046"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75804516"
 ---
-# <a name="best-practices-for-automatic-azure-stack-log-collection"></a>Osvědčené postupy pro automatické shromažďování protokolů Azure Stack 
+# <a name="best-practices-for-automatic-azure-stack-hub-log-collection"></a>Osvědčené postupy pro automatické shromažďování protokolů Azure Stack hub 
 
-*Platí pro: Azure Stack integrovaných systémů*
+*Platí pro: Azure Stack integrovaných systémů centra*
 
 
-Toto téma popisuje osvědčené postupy pro správu automatického shromažďování protokolů diagnostiky pro Azure Stack. 
+Toto téma popisuje osvědčené postupy pro správu automatického shromažďování protokolů diagnostiky pro centrum Azure Stack. 
 
-## <a name="collecting-logs-from-multiple-azure-stack-systems"></a>Shromažďování protokolů z více Azure Stack systémů
+## <a name="collecting-logs-from-multiple-azure-stack-hub-systems"></a>Shromažďování protokolů z více systémů Azure Stack hub
 
-Nastavte jeden kontejner objektů BLOB pro každou Azure Stack jednotku škálování, ze které chcete shromažďovat protokoly. Další informace o konfiguraci kontejneru objektů BLOB najdete v tématu [Konfigurace automatického shromažďování protokolů Azure Stack diagnostiky](azure-stack-configure-automatic-diagnostic-log-collection.md). Osvědčeným postupem je ukládat jenom diagnostické protokoly ze stejné Azure Stack jednotky škálování v jednom kontejneru objektů BLOB. 
+Nastavte jeden kontejner objektů BLOB pro každou jednotku škálování centra Azure Stack, ze které chcete shromažďovat protokoly. Další informace o konfiguraci kontejneru objektů BLOB najdete v tématu [Konfigurace automatického shromažďování protokolů diagnostiky Azure Stack hub](azure-stack-configure-automatic-diagnostic-log-collection.md). Osvědčeným postupem je ukládat jenom diagnostické protokoly ze stejné jednotky škálování centra Azure Stack v jednom kontejneru objektů BLOB. 
 
-## <a name="retention-policy"></a>Zásady uchovávání informací
+## <a name="retention-policy"></a>Zásady uchovávání
 
 Vytvořte [pravidlo správy životního cyklu](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts) Azure Blob Storage pro správu zásad uchovávání protokolů. Doporučujeme uchovávat protokoly diagnostiky po dobu 30 dnů. Pokud chcete vytvořit pravidlo správy životního cyklu ve službě Azure Storage, přihlaste se k Azure Portal, klikněte na **účty úložiště**, klikněte na kontejner objektů BLOB a v části **BLOB Service**klikněte na **Správa životního cyklu**.
 
@@ -72,9 +72,9 @@ Následující tabulka může pomáhat prostředím s omezenými nebo měřeným
 
 [Poplatky za službu Azure Blob Storage](https://azure.microsoft.com/pricing/details/storage/blobs/) závisí na množství dat uložených každý měsíc a dalších faktorech, jako je třeba redundance dat. Pokud nemáte existující účet úložiště, můžete se přihlásit k Azure Portal, kliknout na **účty úložiště**a podle postupu [vytvořit adresu URL SAS kontejneru objektů BLOB v Azure](azure-stack-configure-automatic-diagnostic-log-collection.md).
 
-Osvědčeným postupem je vytvořit [zásadu správy životního cyklu](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts) Azure Blob Storage, která minimalizuje průběžné náklady na úložiště. Další informace o tom, jak nastavit účet úložiště, najdete v tématu [Konfigurace automatického shromažďování protokolů Azure Stack diagnostiky](azure-stack-configure-automatic-diagnostic-log-collection.md) .
+Osvědčeným postupem je vytvořit [zásadu správy životního cyklu](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts) Azure Blob Storage, která minimalizuje průběžné náklady na úložiště. Další informace o tom, jak nastavit účet úložiště, najdete v tématu [Konfigurace automatického shromažďování protokolů diagnostiky Azure Stack hub](azure-stack-configure-automatic-diagnostic-log-collection.md) .
 
-## <a name="see-also"></a>Viz také:
+## <a name="see-also"></a>Další informace najdete v tématech
 
-[Konfigurace automatického shromažďování protokolů Azure Stack](azure-stack-best-practices-automatic-diagnostic-log-collection.md)
+[Konfigurovat automatické shromažďování protokolů centra Azure Stack](azure-stack-best-practices-automatic-diagnostic-log-collection.md)
 

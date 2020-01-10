@@ -1,6 +1,6 @@
 ---
-title: Nejčastější dotazy týkající se Azure Stack Windows serveru | Microsoft Docs
-description: Seznam nejčastějších dotazů na Azure Stack Marketplace pro Windows Server
+title: Nejčastější dotazy týkající se Azure Stack centra pro Windows Server | Microsoft Docs
+description: Seznam nejčastějších dotazů k webu centra Azure Stack pro Windows Server
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,16 +15,16 @@ ms.date: 12/27/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 08/29/2019
-ms.openlocfilehash: 8110f48ef9e42ef2ee89b4766164b5005c7d51fa
-ms.sourcegitcommit: df8de80b8c295495edc091e0a12012ccc7a96594
+ms.openlocfilehash: 145aa748121aad65478902ca110d5bf0e5ee68c9
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75503602"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75812616"
 ---
-# <a name="windows-server-in-azure-stack-marketplace-faq"></a>Nejčastější dotazy k Windows serveru v Azure Stack Marketplace
+# <a name="windows-server-in-azure-stack-hub-marketplace-faq"></a>Nejčastější dotazy k Windows serveru na webu centra Azure Stack
 
-Tento článek obsahuje odpovědi na některé nejčastější dotazy týkající se imagí Windows serveru na [webu Azure Stack Marketplace](azure-stack-marketplace.md).
+Tento článek obsahuje odpovědi na některé nejčastější dotazy týkající se imagí Windows serveru v [tržišti Azure Stack hub](azure-stack-marketplace.md).
 
 ## <a name="marketplace-items"></a>Položky Marketplace
 
@@ -34,16 +34,16 @@ Nejdřív Zjistěte, jestli některé šablony Azure Resource Manager odkazují 
 
 Pokud navíc některé sady škálování virtuálních počítačů odkazují na konkrétní verzi, měli byste uvažovat o tom, jestli se budou škálovat později, a rozhodnout se, jestli chcete zachovat starší verze. Pokud se nepoužije žádná z těchto podmínek, před stažením novějších imagí na webu Marketplace odstraňte starší image. Pomocí správy Marketplace je odstraňte, pokud to znamená, jak byl původní stažený. Pak stáhněte novější verzi.
 
-### <a name="what-are-the-licensing-options-for-windows-server-marketplace-images-on-azure-stack"></a>Jaké jsou možnosti licencování imagí Windows serveru Marketplace na Azure Stack?
+### <a name="what-are-the-licensing-options-for-windows-server-marketplace-images-on-azure-stack-hub"></a>Jaké jsou možnosti licencování pro image Windows serveru Marketplace v centru Azure Stack?
 
-Microsoft nabízí dvě verze imagí Windows serveru na webu Azure Stack Marketplace. V Azure Stack prostředí se dá použít jenom jedna verze této image.  
+Microsoft nabízí dvě verze imagí Windows serveru prostřednictvím tržiště centra Azure Stack. V prostředí Azure Stack hub se dá použít jenom jedna verze této image.  
 
 - **Platíte podle svých využití**: tyto image spouštějí celé ceny Windows měřičů.
    Kdo by měl používat: zákazníci smlouva Enterprise (EA), kteří používají *Model fakturace spotřeby*; CSP, kteří nechtějí používat licencování SPLA.
 - **Přineste si vlastní licenci (BYOL)** : tyto image spouštějí základní měřiče.
    Kdo by měl používat: zákazníci se smlouvou EA s licencí k Windows serveru; CSP, kteří používají licencování SPLA.
 
-Zvýhodněné hybridní využití Azure (AHUB) se v Azure Stack nepodporuje. Zákazníci, kteří mají licenci prostřednictvím modelu "Capacity", musí používat Image BYOL. Pokud testujete pomocí Azure Stack Development Kit (ASDK), můžete použít kteroukoli z těchto možností.
+Zvýhodněné hybridní využití Azure (AHUB) se v centru Azure Stack nepodporuje. Zákazníci, kteří mají licenci prostřednictvím modelu "Capacity", musí používat Image BYOL. Pokud testujete pomocí Azure Stack Development Kit (ASDK), můžete použít kteroukoli z těchto možností.
 
 ### <a name="what-if-i-downloaded-the-wrong-version-to-offer-my-tenantsusers"></a>Co když jsem stáhl špatnou verzi, aby nabízela své klienty/uživatele?
 
@@ -89,10 +89,10 @@ V šabloně Azure Resource Manager můžete přidat **LicenseType: Windows_Serve
 
 ## <a name="activation"></a>Aktivace
 
-Pokud chcete aktivovat virtuální počítač s Windows serverem na Azure Stack, musí být splněné následující podmínky:
+Pokud chcete aktivovat virtuální počítač s Windows serverem na rozbočovači Azure Stack, musí být splněné následující podmínky:
 
-- Výrobce OEM nastavil odpovídající značku BIOS na každém hostitelském systému v Azure Stack.
-- Systémy Windows Server 2012 R2 a Windows Server 2016 musí používat [automatickou aktivaci virtuálního počítače](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11)). Služba správy klíčů (KMS) a další aktivační služby nejsou v Azure Stack podporovány.
+- Výrobce OEM nastavil odpovídající značku BIOS na každém hostitelském systému v Azure Stackovém centru.
+- Systémy Windows Server 2012 R2 a Windows Server 2016 musí používat [automatickou aktivaci virtuálního počítače](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11)). Služba správy klíčů (KMS) a další aktivační služby se v Azure Stackovém centru nepodporují.
 
 ### <a name="how-can-i-verify-that-my-virtual-machine-is-activated"></a>Jak se dá ověřit, jestli je můj virtuální počítač aktivovaný?
 
@@ -134,5 +134,5 @@ Obraťte se na dodavatele hardwaru a ověřte, zda byly nainstalovány správné
 
 Další informace najdete v těchto článcích:
 
-- [Přehled Azure Stack Marketplace](azure-stack-marketplace.md)
-- [Stažení položek z marketplace z Azure do služby Azure Stack](azure-stack-download-azure-marketplace-item.md)
+- [Přehled centra Azure Stack Marketplace](azure-stack-marketplace.md)
+- [Stažení položek z webu Marketplace z Azure do centra Azure Stack](azure-stack-download-azure-marketplace-item.md)

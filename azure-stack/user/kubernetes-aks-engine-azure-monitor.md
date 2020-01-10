@@ -15,16 +15,16 @@ ms.date: 11/15/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/15/2019
-ms.openlocfilehash: a3941a3ada52a8588b504884a2d03cb00dd2c850
-ms.sourcegitcommit: 0b783e262ac87ae67929dbd4c366b19bf36740f0
+ms.openlocfilehash: cd0a5425fc072fa056030fb0be0c5ce5f6cc0225
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74310316"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75815421"
 ---
 # <a name="use-azure-monitor-for-containers-on-azure-stack-hub"></a>Použití Azure Monitor pro kontejnery v centru Azure Stack
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 K monitorování kontejnerů v AKS nasazeném clusteru Kubernetes v centru Azure Stack můžete použít [Azure monitor](https://docs.microsoft.com/azure/azure-monitor/) pro kontejnery. 
 
@@ -68,5 +68,5 @@ Podporované definice rozhraní API pro cluster centra Azure Stack najdete v tom
 
 ## <a name="next-steps"></a>Další kroky
 
-- Přečtěte si o modulu [AKS na Azure Stack](azure-stack-kubernetes-aks-engine-overview.md)  
+- Přečtěte si o modulu [AKS v centru Azure Stack](azure-stack-kubernetes-aks-engine-overview.md) .  
 - Přehled o [Azure monitor for Containers](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview)

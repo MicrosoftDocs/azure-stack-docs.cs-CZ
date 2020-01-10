@@ -1,6 +1,6 @@
 ---
-title: Přehled shromažďování protokolů diagnostiky Azure Stack | Microsoft Docs
-description: Vysvětluje shromažďování diagnostických protokolů v Azure Stack nápovědě a podpoře, včetně kolekce na vyžádání a automatického shromažďování protokolů.
+title: Přehled shromažďování protokolů diagnostiky centra Azure Stack | Microsoft Docs
+description: Vysvětluje shromažďování diagnostických protokolů v centru Azure Stack Help a podpora, včetně kolekce na vyžádání a automatického shromažďování protokolů.
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,23 +16,23 @@ ms.date: 11/07/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: 1d40c0c7884773cf1f10341a90c78531c07e13f8
-ms.sourcegitcommit: 7817d61fa34ac4f6410ce6f8ac11d292e1ad807c
+ms.openlocfilehash: 197d39feb91edc8c93d747471f30aff8f56b03ac
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74690007"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75811664"
 ---
-# <a name="overview-of-azure-stack-diagnostic-log-collection"></a>Přehled shromažďování diagnostických protokolů Azure Stack 
+# <a name="overview-of-azure-stack-hub-diagnostic-log-collection"></a>Přehled shromažďování protokolů diagnostiky centra Azure Stack 
 
-*Platí pro: Azure Stack integrovaných systémů*
+*Platí pro: Azure Stack integrovaných systémů centra*
 
-Azure Stack je rozsáhlá kolekce součástí pracujících společně a vzájemně spolupracuje. Všechny tyto komponenty generují vlastní jedinečné protokoly. Díky tomu mohou diagnostikovat problémy náročný úkol, zejména chyby pocházející z více interakcí Azure Stack komponent. Aby bylo možné vyřešit tuto výzvu, navrhli jsme prostředí pro shromažďování diagnostických protokolů. 
+Centrum Azure Stack je rozsáhlá kolekce komponent společně propojená a vzájemně spolupracuje. Všechny tyto komponenty generují vlastní jedinečné protokoly. Díky tomu mohou diagnostikovat problémy náročný úkol, zejména chyby přicházející z více interakcí Azure Stack komponent centra. Aby bylo možné vyřešit tuto výzvu, navrhli jsme prostředí pro shromažďování diagnostických protokolů. 
 
 Před 1907 se v diagnostickém prostředí, které je součástí [služby test-AzureStack](azure-stack-diagnostic-test.md) , ověřil stav systému a pomocí [privilegovaného koncového bodu (PEP)](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs) shromažďuje protokoly pro řešení potíží. 
 
 Od verze 1907 se na stránce **pomoc a podpora** přidá jednodušší prostředí pomocí **shromažďování protokolů diagnostiky**. 
-**Shromažďování protokolů diagnostiky** je součástí trvalé investice za účelem zlepšení zkušeností operátorů Azure Stack pomocí procesu řešení potíží. Pomocí těchto vylepšení můžou operátoři rychle shromažďovat a sdílet diagnostické protokoly se službou zákaznické podpory Microsoftu (CSS). Protokoly se můžou ukládat do kontejneru objektů BLOB v Azure, kde můžete podle potřeby přizpůsobit přístup.    
+**Shromažďování protokolů diagnostiky** je součástí průběžné investice za účelem zlepšení zkušeností operátorů centra Azure Stack s procesem řešení potíží. Pomocí těchto vylepšení můžou operátoři rychle shromažďovat a sdílet diagnostické protokoly se službou zákaznické podpory Microsoftu (CSS). Protokoly se můžou ukládat do kontejneru objektů BLOB v Azure, kde můžete podle potřeby přizpůsobit přístup.    
    
 **Shromažďování protokolů diagnostiky** funguje dvěma různými způsoby:
 
@@ -46,16 +46,16 @@ Pokud vaše zásada umožňuje sdílení diagnostických protokolů pomocí šab
 
 ## <a name="automatic-diagnostic-log-collection"></a>Shromažďování automatických protokolů diagnostiky 
 
-Když je aktivní [specifická výstraha o stavu](azure-stack-configure-automatic-diagnostic-log-collection.md#automatic-diagnostic-log-collection-alerts) , spustí automatické shromažďování protokolů diagnostiky a proaktivně nahraje diagnostické protokoly z Azure Stack do objektu BLOB úložiště v Azure. tím se podstatně zkrátí doba nutná ke sdílení diagnostických protokolů pomocí šablon stylů CSS. Diagnostické protokoly jsou shromažďovány pouze v případě, že je vyvolána výstraha.  
+Když je aktivní [konkrétní upozornění na stav](azure-stack-configure-automatic-diagnostic-log-collection.md#automatic-diagnostic-log-collection-alerts) , automaticky se spustí shromažďování protokolů diagnostiky a proaktivně nahraje diagnostické protokoly z centra Azure Stack do objektu BLOB úložiště v Azure, což výrazně zkracuje dobu potřebnou ke sdílení diagnostických protokolů s CSS. Diagnostické protokoly jsou shromažďovány pouze v případě, že je vyvolána výstraha.  
 
-Další informace o automatickém shromažďování protokolů najdete v tématu [Konfigurace automatického shromažďování protokolů Azure Stack pro diagnostiku](azure-stack-configure-automatic-diagnostic-log-collection.md).
+Další informace o automatickém shromažďování protokolů najdete v tématu [Konfigurace automatického shromáždění protokolů diagnostiky centra Azure Stack](azure-stack-configure-automatic-diagnostic-log-collection.md).
 
 ## <a name="on-demand-diagnostic-log-collection"></a>Shromažďování protokolů diagnostiky na vyžádání
 
-V případě shromažďování na vyžádání se diagnostické protokoly odesílají z Azure Stack do objektu BLOB úložiště v Azure, když Azure Stack operátor ručně spustí kolekci.
-Šablona stylů CSS poskytne adresu URL sdíleného přístupového podpisu (SAS) k objektu BLOB úložiště ve vlastnictví šablon stylů CSS. Operátor Azure Stack může nyní kliknout na **shromáždit protokoly** a zadat adresu URL SAS. Diagnostické protokoly se pak nahrají přímo do objektu BLOB šablon stylů CSS, aniž by bylo nutné dodržet zprostředkující sdílenou složku. 
+V případě shromažďování na vyžádání se diagnostické protokoly odesílají z centra Azure Stack do objektu BLOB úložiště v Azure, když operátor centra Azure Stack ručně spustí kolekci.
+Šablona stylů CSS poskytne adresu URL sdíleného přístupového podpisu (SAS) k objektu BLOB úložiště ve vlastnictví šablon stylů CSS. Operátor centra Azure Stack může hned kliknout na **shromáždit protokoly** a zadat adresu URL SAS. Diagnostické protokoly se pak nahrají přímo do objektu BLOB šablon stylů CSS, aniž by bylo nutné dodržet zprostředkující sdílenou složku. 
 
-Další informace o shromažďování protokolů na vyžádání najdete v tématu o tom, jak [teď shromažďovat protokoly diagnostiky Azure Stack](azure-stack-configure-on-demand-diagnostic-log-collection.md).
+Další informace o shromažďování protokolů na vyžádání najdete v tématu o tom, jak [teď shromažďovat diagnostické protokoly centra Azure Stack](azure-stack-configure-on-demand-diagnostic-log-collection.md).
 
 ## <a name="bandwidth-considerations"></a>Požadavky na šířku pásma
 
@@ -69,12 +69,12 @@ V následující tabulce jsou uvedeny požadavky pro prostředí s omezenými ne
 | Sdílené připojení | Nahrávání může mít vliv i na jiné aplikace nebo uživatele sdílející síťové připojení. |
 | Připojení účtované podle objemu dat | Od poskytovatele internetových služeb může docházet k dodatečnému využití sítě. |
 
-Další informace najdete v tématu [osvědčené postupy pro automatické shromažďování protokolů Azure Stack](azure-stack-best-practices-automatic-diagnostic-log-collection.md).
+Další informace najdete v tématu [osvědčené postupy pro automatické shromažďování protokolů Azure Stack hub](azure-stack-best-practices-automatic-diagnostic-log-collection.md).
 
 ## <a name="see-also"></a>Další informace najdete v tématech
 
-[Azure Stack zpracování dat protokolů a zákazníků](https://docs.microsoft.com/azure-stack/operator/azure-stack-data-collection)
+[Azure Stack zpracování dat protokolů a zákazníků centra](https://docs.microsoft.com/azure-stack/operator/azure-stack-data-collection)
 
 [Použití sdílených přístupových podpisů (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)
 
-[Osvědčené postupy pro automatické shromažďování protokolů Azure Stack](azure-stack-best-practices-automatic-diagnostic-log-collection.md)
+[Osvědčené postupy pro automatické shromažďování protokolů Azure Stack hub](azure-stack-best-practices-automatic-diagnostic-log-collection.md)

@@ -1,6 +1,6 @@
 ---
 title: Nejčastější dotazy týkající se využití rozhraní API | Microsoft Docs
-description: Seznam měřičů Azure Stack, porovnání s rozhraním API využití Azure, čas využití a hlášený čas, kódy chyb.
+description: Seznam měřičů Azure Stack centra, porovnání s rozhraním API využití Azure, čas využití a hlášený čas, kódy chyb.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,22 +15,22 @@ ms.date: 09/25/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 02/26/2019
-ms.openlocfilehash: b4780077f015c060c63abc3abd33bd3e71c63e15
-ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
+ms.openlocfilehash: dea410ab514f095f7ed68a0617b2dd7816544f80
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72019317"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75813058"
 ---
-# <a name="frequently-asked-questions-about-azure-stack-usage"></a>Nejčastější dotazy týkající se použití Azure Stack
+# <a name="frequently-asked-questions-about-azure-stack-hub-usage"></a>Nejčastější dotazy týkající se využití centra Azure Stack
 
-Tento článek obsahuje odpovědi na některé nejčastější dotazy týkající se Azure Stackho využití a rozhraní API pro Azure Stack využití.
+Tento článek obsahuje odpovědi na některé nejčastější dotazy týkající se Azure Stack využití centra a rozhraní API pro využití centra Azure Stack.
 
 ## <a name="what-meter-ids-can-i-see"></a>Jaká ID měřičů můžu zobrazit?
 
 Použití je hlášeno pro následující poskytovatele prostředků:
 
-### <a name="network"></a>Síť
+### <a name="network"></a>Network (Síť)
   
 **ID měřiče**: F271A8A388C44D93956A063E1D2FA80B  
 **Název měřiče**: využití statických IP adres  
@@ -109,7 +109,7 @@ Použití je hlášeno pro následující poskytovatele prostředků:
 **Jednotka**: odchozí data v GB  
 **Poznámky**: Služba front odchozího přenosu dat v GB  
 
-### <a name="compute"></a>Compute
+### <a name="compute"></a>Služby Compute
   
 **ID měřiče**: FAB6EB84-500B-4A09-A8CA-7358F8BBAEA5  
 **Název měřiče**: počet hodin základního virtuálního počítače  
@@ -322,7 +322,7 @@ Použití je hlášeno pro následující poskytovatele prostředků:
 **ID měřiče**: 190C935E-9ADA-48FF-9AB8-56EA1CF9ADAA  
 **Název měřiče**: App Service  
 **Jednotka**: počet hodin virtuálních jader  
-**Poznámky**: počet virtuálních jader používaných ke spuštění App Service. Poznámka: Microsoft pomocí tohoto měřiče účtuje App Service Azure Stack. Poskytovatelé Cloud Solution Provider můžou použít jiné měřiče App Service (níže) k výpočtu využití jejich klientů.  
+**Poznámky**: počet virtuálních jader používaných ke spuštění App Service. Poznámka: Microsoft pomocí tohoto měřiče účtuje App Service v centru Azure Stack. Poskytovatelé Cloud Solution Provider můžou použít jiné měřiče App Service (níže) k výpočtu využití jejich klientů.  
   
 **ID měřiče**: 67CC4AFC-0691-48E1-A4B8-D744D1FEDBDE  
 **Název měřiče**: žádosti o funkce  
@@ -386,18 +386,18 @@ Použití je hlášeno pro následující poskytovatele prostředků:
 **Jednotka**: GB  
 **Poznámky**: celkový počet bajtů příchozích požadavků na odpověď a celkový počet odeslaných bajtů požadavků a celkový počet příchozích odpovědí na požadavek FTP (celkem bajtů požadavků na nasazení webu).  
   
-## <a name="how-do-the-azure-stack-usage-apis-compare-to-the-azure-usage-apihttpsdocsmicrosoftcomazurebillingbilling-usage-rate-card-overviewazure-resource-usage-api-preview-currently-in-public-preview"></a>Jak se rozhraní API pro Azure Stack využití porovnávají s [rozhraním API využití Azure](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview#azure-resource-usage-api-preview) (aktuálně ve verzi Public Preview)?
+## <a name="how-do-the-azure-stack-hub-usage-apis-compare-to-the-azure-usage-apihttpsdocsmicrosoftcomazurebillingbilling-usage-rate-card-overviewazure-resource-usage-api-preview-currently-in-public-preview"></a>Jak se rozhraní API využití centra Azure Stack porovnávají s [rozhraním API využití Azure](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview#azure-resource-usage-api-preview) (aktuálně ve verzi Public Preview)?
 
-* Rozhraní API využití tenanta je konzistentní s rozhraním API Azure s jednou výjimkou: příznak *showDetails* se v tuto chvíli v Azure Stack nepodporuje.
-* Rozhraní API využití zprostředkovatele se vztahuje pouze na Azure Stack.
-* [Rozhraní RateCard API](/azure/billing/billing-usage-rate-card-overview#azure-resource-ratecard-api-preview) dostupné v Azure v současné době není v Azure Stack k dispozici.
+* Rozhraní API využití tenanta je konzistentní s rozhraním API Azure s jednou výjimkou: příznak *showDetails* se v tuto chvíli nepodporuje v centru Azure Stack.
+* Rozhraní API využití zprostředkovatele se vztahuje pouze na centrum Azure Stack.
+* [Rozhraní RateCard API](/azure/billing/billing-usage-rate-card-overview#azure-resource-ratecard-api-preview) , které je dostupné v Azure, v současné době není v centru Azure Stack k dispozici.
 
 ## <a name="what-is-the-difference-between-usage-time-and-reported-time"></a>Jaký je rozdíl mezi časem využití a nahlášeným časem?
 
 Sestavy dat o využití mají dvě hlavní hodnoty času:
 
 * **Nahlášený čas** Čas, kdy se událost využití zadala v systému využití
-* **Čas využití** Čas, kdy byl prostředek Azure Stack spotřebovaný
+* **Čas využití** Čas, kdy byl prostředek centra Azure Stack spotřebovaný
 
 Může se zobrazit nesoulad v hodnotách času využití a nahlášený čas pro konkrétní událost využití. Zpoždění může trvat až několik hodin v jakémkoli prostředí.
 
@@ -419,18 +419,18 @@ V současné době se můžete dotazovat pouze podle *nahlášeného času*.
 
 Spuštění a zastavení virtuálních počítačů generuje data o využití. V souladu s Azure je zrušení přidělení nutné k zastavení emisí dat využití. V případě, že portál není k dispozici, ale poskytovatel prostředků služby COMPUTE stále běží, bude využití vygenerováno.
 
-## <a name="how-do-i-extract-usage-data-from-the-azure-stack-usage-apis"></a>Návody extrahovat data o využití z rozhraní API pro využití Azure Stack?
+## <a name="how-do-i-extract-usage-data-from-the-azure-stack-hub-usage-apis"></a>Návody extrahovat data o využití z rozhraní API využití centra Azure Stack?
 
-Nejjednodušší způsob, jak extrahovat data o využití z místních rozhraní API pro Azure Stack, je použití [skriptu souhrnu využití na GitHubu](https://github.com/Azure/AzureStack-Tools/blob/master/Usage/Usagesummary.ps1). Tento skript vyžaduje počáteční a koncové datum jako vstupní parametry.
+Nejjednodušší způsob, jak extrahovat data o využití z místních rozhraní API v Azure Stackovém centru, je použití [skriptu souhrnu využití na GitHubu](https://github.com/Azure/AzureStack-Tools/blob/master/Usage/Usagesummary.ps1). Tento skript vyžaduje počáteční a koncové datum jako vstupní parametry.
 
 Alternativně můžete použít rozhraní REST API, jak je vysvětleno v článcích [rozhraní API využití prostředků poskytovatele](azure-stack-provider-resource-api.md) a [rozhraní API využití prostředků tenanta](azure-stack-tenant-resource-usage-api.md) .
 
-## <a name="how-can-i-associate-usage-extracted-from-azure-usage-apis-to-a-specific-azure-stack-user-subscription"></a>Jak můžu přidružit získané informace o využití z rozhraní API využití Azure ke konkrétnímu předplatnému Azure Stack uživatele?
+## <a name="how-can-i-associate-usage-extracted-from-azure-usage-apis-to-a-specific-azure-stack-hub-user-subscription"></a>Jak můžu přidružit získané informace o využití z rozhraní API využití Azure ke konkrétnímu předplatnému uživatele centra Azure Stack?
 
-Záznamy o využití zahrnují kontejner objektů a dat s názvem **AdditionalInfo**, který obsahuje ID předplatného Azure Stack. Toto je uživatelské předplatné, které generuje odpovídající záznam o využití.
+Záznamy o využití zahrnují kontejner objektů a dat s názvem **AdditionalInfo**, který obsahuje ID předplatného centra Azure Stack. Toto je uživatelské předplatné, které generuje odpovídající záznam o využití.
 
 ## <a name="next-steps"></a>Další kroky
 
-* [Fakturace a vrácení peněz zákazníka v Azure Stack](azure-stack-billing-and-chargeback.md)
+* [Fakturace a vrácení peněz zákazníka v centru Azure Stack](azure-stack-billing-and-chargeback.md)
 * [Rozhraní API využití prostředků poskytovatele](azure-stack-provider-resource-api.md)
 * [Rozhraní API využití prostředků tenanta](azure-stack-tenant-resource-usage-api.md)

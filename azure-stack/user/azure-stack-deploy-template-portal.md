@@ -1,6 +1,6 @@
 ---
-title: Nasazení šablony pomocí portálu v Azure Stack | Microsoft Docs
-description: Naučte se používat portál Azure Stack k nasazení šablony.
+title: Nasazení šablony pomocí portálu ve službě Azure Stack hub | Microsoft Docs
+description: Naučte se používat portál centra Azure Stack k nasazení šablony.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,48 +16,48 @@ ms.date: 10/07/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 7777fc41de282e9fedec8f967d3a9387f7da8b0b
-ms.sourcegitcommit: 7226979ece29d9619c959b11352be601562b41d3
+ms.openlocfilehash: df7034f60d7e0e4999c4d658b72f47088cb70c3e
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72304128"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75816356"
 ---
-# <a name="deploy-a-template-using-the-portal-in-azure-stack"></a>Nasazení šablony pomocí portálu v Azure Stack
+# <a name="deploy-a-template-using-the-portal-in-azure-stack-hub"></a>Nasazení šablony pomocí portálu v Azure Stackovém centru
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
-Portál můžete použít k nasazení Azure Resource Manager šablon pro Azure Stack.
+Portál můžete použít k nasazení Azure Resource Manager šablon do centra Azure Stack.
 
 ## <a name="to-deploy-a-template"></a>Nasazení šablony
 
 1. Přihlaste se k portálu, vyberte **+ vytvořit prostředek**a pak vyberte **vlastní**.
 
-   ![Vytvoření prostředku na portálu Azure Stack](media/azure-stack-deploy-template-portal/template-deploy1.png)
+   ![Vytvoření prostředku na portálu Azure Stack hub](media/azure-stack-deploy-template-portal/template-deploy1.png)
 
 1. Vyberte **Template deployment**.
 
-   ![Nasazení šablony na portálu Azure Stack](media/azure-stack-deploy-template-portal/template-deploy2.png)
+   ![Nasazení šablony na portálu centra Azure Stack](media/azure-stack-deploy-template-portal/template-deploy2.png)
 
-1. Vyberte **Upravit šablonu**a vložte kód šablony JSON do okna Code (kód). Vyberte **Save** (Uložit).
+1. Vyberte **Upravit šablonu**a vložte kód šablony JSON do okna Code (kód). Vyberte **Uložit**.
 
-   ![Upravit šablonu na portálu Azure Stack](media/azure-stack-deploy-template-portal/template-deploy3.png)
+   ![Upravit šablonu na portálu centra Azure Stack](media/azure-stack-deploy-template-portal/template-deploy3.png)
 
 1. Vyberte **Upravit parametry**, zadejte hodnoty parametrů, které jsou zobrazeny, a pak vyberte **OK**.
 
-   ![Úprava parametrů na portálu Azure Stack](media/azure-stack-deploy-template-portal/template-deploy4.png)
+   ![Upravit parametry na portálu centra Azure Stack](media/azure-stack-deploy-template-portal/template-deploy4.png)
 
 1. Vyberte **předplatné**. Zvolte předplatné, které chcete použít, a pak vyberte **OK**.
 
-   ![Výběr předplatného na portálu Azure Stack](media/azure-stack-deploy-template-portal/template-deploy5.png)
+   ![Výběr předplatného na portálu Azure Stack hub](media/azure-stack-deploy-template-portal/template-deploy5.png)
 
 1. Vyberte **skupinu prostředků**. Zvolte existující skupinu prostředků nebo vytvořte novou, a pak vyberte **OK**.
 
-   ![Výběr skupiny prostředků na portálu Azure Stack](media/azure-stack-deploy-template-portal/template-deploy6.png)
+   ![Vybrat skupinu prostředků na portálu Azure Stack hub](media/azure-stack-deploy-template-portal/template-deploy6.png)
 
-1. Vyberte **Create** (Vytvořit). Nová dlaždice na řídicím panelu sleduje průběh nasazení šablony.
+1. Vyberte **Vytvořit**. Nová dlaždice na řídicím panelu sleduje průběh nasazení šablony.
 
-   ![Vytvoření šablony na portálu Azure Stack](media/azure-stack-deploy-template-portal/template-deploy7.png)
+   ![Vytvořit šablonu na portálu Azure Stack hub](media/azure-stack-deploy-template-portal/template-deploy7.png)
 
 ## <a name="next-steps"></a>Další kroky
 

@@ -1,6 +1,6 @@
 ---
-title: Upgrade clusteru Kubernetes na Azure Stack | Microsoft Docs
-description: Přečtěte si, jak upgradovat cluster Kubernetes na Azure Stack.
+title: Upgrade clusteru Kubernetes v centru Azure Stack | Microsoft Docs
+description: Naučte se upgradovat cluster Kubernetes na rozbočovači Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,16 +15,16 @@ ms.date: 01/02/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/02/2020
-ms.openlocfilehash: fb51e49f449896fde6262790972c958b230d3175
-ms.sourcegitcommit: a37d3d78ed683e783681c567c989cb2b9ad0de0c
+ms.openlocfilehash: f1bc42e757bb53f0a9fc7d9c879b64380a4f468e
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75605870"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75819994"
 ---
-# <a name="upgrade-a-kubernetes-cluster-on-azure-stack"></a>Upgrade clusteru Kubernetes na Azure Stack
+# <a name="upgrade-a-kubernetes-cluster-on-azure-stack-hub"></a>Upgrade clusteru Kubernetes na rozbočovači Azure Stack
 
-*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 ## <a name="upgrade-a-cluster"></a>Upgrade clusteru
 
@@ -37,7 +37,7 @@ Microsoft váš cluster nespravuje. Společnost Microsoft ale poskytuje nástroj
 Pro nasazení nasazených upgradů clusteru:
 
 -   Kubernetes
--   Poskytovatel Azure Stack Kubernetes
+-   Poskytovatel Kubernetesů centra Azure Stack
 -   Základní operační systém
 
 Při upgradu produkčního clusteru Vezměte v úvahu:
@@ -45,7 +45,7 @@ Při upgradu produkčního clusteru Vezměte v úvahu:
 -   Používáte pro cílový cluster správnou specifikaci clusteru (`apimodel.json`) a skupinu prostředků?
 -   Používáte pro klientský počítač spolehlivý počítač ke spuštění modulu AKS a ze kterého provádíte operace upgradu?
 -   Ujistěte se, že máte cluster pro zálohování a že je funkční.
--   Pokud je to možné, spusťte příkaz z virtuálního počítače v prostředí Azure Stack, abyste snížili počet směrování sítě a potenciální problémy s připojením.
+-   Pokud je to možné, spusťte příkaz z virtuálního počítače v prostředí Azure Stack hub, abyste snížili počet směrování sítě a potenciální problémy s připojením.
 -   Ujistěte se, že vaše předplatné má dostatek místa pro celý proces. Proces během procesu přiděluje nové virtuální počítače.
 -   Nejsou plánovány žádné aktualizace systému ani naplánované úlohy.
 -   Nastavte připravený upgrade na cluster, který je nakonfigurovaný přesně jako produkční cluster, a před tím, než to uděláte, otestujte v produkčním clusteru.
@@ -86,12 +86,12 @@ Následující pokyny používají minimální postup k provedení upgradu. Poku
 
     | Parametr | Příklad: | Popis |
     | --- | --- | --- |
-    | Azure – ENV | AzureStackCloud | K indikaci AKS Engine, že vaše cílová platforma je Azure Stack použít `AzureStackCloud`. |
-    | location | místní | Název oblasti pro váš Azure Stack. Pro ASDK je oblast nastavená na `local`. |
+    | Azure – ENV | AzureStackCloud | K indikaci AKS Engine, který je vaší cílovou platformou `AzureStackCloud`Azure Stack centra použít. |
+    | location | místní | Název oblasti centra Azure Stack. Pro ASDK je oblast nastavená na `local`. |
     | resource-group | Kube – RG | Zadejte název nové skupiny prostředků nebo vyberte existující skupinu prostředků. Název prostředku musí být alfanumerické znaky a malá písmena. |
     | ID předplatného | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Zadejte ID předplatného. Další informace najdete v tématu [přihlášení k odběru nabídky](https://docs.microsoft.com/azure-stack/user/azure-stack-subscribe-services#subscribe-to-an-offer) . |
     | rozhraní API – model | ./kubernetes-azurestack.json | Cesta ke konfiguračnímu souboru clusteru nebo modelu rozhraní API. |
-    | ID klienta | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Zadejte identifikátor GUID instančního objektu služby. ID klienta identifikované jako ID aplikace, když správce Azure Stack vytvořil instanční objekt. |
+    | ID klienta | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Zadejte identifikátor GUID instančního objektu služby. ID klienta identifikované jako ID aplikace, když správce centra Azure Stack vytvořil instanční objekt. |
     | client-secret | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Zadejte tajný klíč objektu služby. Toto je tajný kód klienta, který jste nastavili při vytváření služby. |
     | Identita – systém | službou | Nepovinný parametr. Pokud používáte federované služby Active Directory (AD FS), zadejte svoje řešení pro správu identit. |
 
@@ -116,7 +116,7 @@ Následující pokyny používají minimální postup k provedení upgradu. Poku
 
 1. Projděte si [tabulku Supported-Kubernetes-Versions](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions) a určete, jestli máte naou verzi AKS a image AKS Base, kterou plánujete upgradovat. Chcete-li zobrazit verzi modulu AKS Run: `aks-engine version`.
 2. Upgradujte modul AKS odpovídajícím způsobem v počítači, do kterého jste nainstalovali AKS modul runtime: `./get-akse.sh --version vx.xx.x` nahraďte **x. xx. x** cílovou verzí.
-3. Požádejte svého operátora Azure Stack, aby přidal verzi AKS základního obrázku, kterou potřebujete na Azure Stack Marketplace, kterou plánujete použít.
+3. Požádejte svého operátora centra Azure Stack, aby přidal verzi AKS základního obrázku, kterou potřebujete na webu centra Azure Stack, který chcete použít.
 4. Spusťte příkaz `aks-engine upgrade` pomocí stejné verze Kubernetes, kterou jste již používali, ale přidejte `--force`. V takovém případě se můžete podívat na příklad [vynucení upgradu](#forcing-an-upgrade).
 
 
@@ -141,5 +141,5 @@ Pokyny najdete v tématu [vynucení upgradu](https://github.com/Azure/aks-engine
 
 ## <a name="next-steps"></a>Další kroky
 
-- Přečtěte si o modulu [AKS na Azure Stack](azure-stack-kubernetes-aks-engine-overview.md)
-- [Škálování clusteru Kubernetes na Azure Stack](azure-stack-kubernetes-aks-engine-scale.md)
+- Přečtěte si o modulu [AKS v centru Azure Stack](azure-stack-kubernetes-aks-engine-overview.md) .
+- [Škálování clusteru Kubernetes na rozbočovači Azure Stack](azure-stack-kubernetes-aks-engine-scale.md)

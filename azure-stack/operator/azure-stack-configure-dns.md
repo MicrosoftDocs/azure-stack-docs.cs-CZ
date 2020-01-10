@@ -1,6 +1,6 @@
 ---
-title: Aktualizace služby DNS pro přeposílání v Azure Stack | Microsoft Docs
-description: Naučte se aktualizovat službu DNS pro přeposílání v Azure Stack.
+title: Aktualizace služby DNS pro přeposílání v centru Azure Stack | Microsoft Docs
+description: Naučte se aktualizovat službu DNS pro přeposílání v centru Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -14,20 +14,20 @@ ms.date: 11/21/2019
 ms.author: sethm
 ms.reviewer: thoroet
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 22e49f28dee6b4aa97b9e84cf52950dd678450e4
-ms.sourcegitcommit: cefba8d6a93efaedff303d3c605b02bd28996c5d
+ms.openlocfilehash: b16eade221c51664205e865d1680e7f048fbfc7a
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74308199"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75817580"
 ---
-# <a name="update-the-dns-forwarder-in-azure-stack"></a>Aktualizace služby DNS pro přeposílání v Azure Stack
+# <a name="update-the-dns-forwarder-in-azure-stack-hub"></a>Aktualizace služby DNS pro přeposílání v centru Azure Stack
 
-Aby mohla infrastruktura Azure Stack přeložit externí názvy, musí mít aspoň jeden dosažitelný server DNS. Pro nasazení Azure Stack musí být k dispozici předávací služba DNS. Tento vstup se používá pro Azure Stack interní servery DNS jako servery pro přeposílání a umožňuje překlad externích IP adres pro služby, jako je ověřování, Správa Marketplace nebo využití.
+Aby mohla infrastruktura centra Azure Stack přeložit externí názvy, musí mít aspoň jeden dostupný dosažitelný server DNS. Pro nasazení centra Azure Stack musí být k dispozici služba DNS pro přeposílání. Tento vstup se používá pro interní servery DNS centra Azure Stack jako službu pro směrování a umožňuje překlad externích IP adres pro služby, jako je ověřování, Správa Marketplace nebo využití.
 
-DNS je kritická služba infrastruktury Datacenter, která se může změnit, a pokud k tomu dojde, Azure Stack nutné aktualizovat.
+DNS je kritická služba infrastruktury Datacenter, která se může změnit, a pokud k tomu dojde, Azure Stack centrum se musí aktualizovat.
 
-Tento článek popisuje použití privilegovaného koncového bodu (PEP) k aktualizaci služby DNS pro přeposílání v Azure Stack. Doporučuje se používat dvě IP adresy spolehlivého serveru DNS.
+Tento článek popisuje použití privilegovaného koncového bodu (PEP) k aktualizaci služby DNS pro přeposílání v centru Azure Stack. Doporučuje se používat dvě IP adresy spolehlivého serveru DNS.
 
 1. Připojte se k [privilegovanému koncovému bodu](azure-stack-privileged-endpoint.md). Všimněte si, že není nutné odemknout privilegovaný koncový bod otevřením lístku podpory.
 
@@ -37,7 +37,7 @@ Tento článek popisuje použití privilegovaného koncového bodu (PEP) k aktua
    Get-AzsDnsForwarder
    ```
 
-3. Spuštěním následujícího příkazu aktualizujte Azure Stack pro použití nového serveru DNS pro přeposílání:
+3. Spuštěním následujícího příkazu aktualizujte centrum Azure Stack tak, aby používalo nové služby DNS pro přeposílání:
 
    ```powershell
     Set-AzsDnsForwarder -IPAddress "IPAddress 1","IPAddress 2"

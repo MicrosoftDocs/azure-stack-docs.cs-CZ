@@ -1,6 +1,6 @@
 ---
-title: Spuštění N-vrstvé aplikace v několika oblastech Azure Stack pro zajištění vysoké dostupnosti | Microsoft Docs
-description: Naučte se spouštět N-vrstvou aplikaci v několika oblastech Azure Stack pro zajištění vysoké dostupnosti.
+title: Spuštění N-vrstvé aplikace v několika oblastech centra Azure Stack pro vysokou dostupnost | Microsoft Docs
+description: Naučte se spouštět N-vrstvou aplikaci v několika oblastech centra Azure Stack pro zajištění vysoké dostupnosti.
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,23 +9,23 @@ ms.date: 11/01/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: acfeebe626d7745fe200724c8c53c632bada1466
-ms.sourcegitcommit: 8a74a5572e24bfc42f71e18e181318c82c8b4f24
+ms.openlocfilehash: fc3b9d3e620bfd017f7d5870a8e334c1d9ace579
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73569147"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75818498"
 ---
-# <a name="run-an-n-tier-application-in-multiple-azure-stack-regions-for-high-availability"></a>Spuštění N-vrstvé aplikace v několika oblastech Azure Stack pro zajištění vysoké dostupnosti
+# <a name="run-an-n-tier-application-in-multiple-azure-stack-hub-regions-for-high-availability"></a>Spuštění N-vrstvé aplikace v několika oblastech centra Azure Stack pro zajištění vysoké dostupnosti
 
-Tato referenční architektura ukazuje sadu osvědčených postupů pro spuštění v N-vrstvé aplikaci s více Azure Stackmi oblastmi, aby bylo možné dosáhnout dostupnosti a robustní infrastruktury pro zotavení po havárii. V tomto dokumentu se Traffic Manager používá k dosažení vysoké dostupnosti, ale pokud Traffic Manager není upřednostňovanou volbou ve vašem prostředí, můžete v systému nahradit pár vysoce dostupných nástrojů pro vyrovnávání zatížení.
+Tato referenční architektura ukazuje sadu osvědčených postupů pro spuštění v N-vrstvé aplikaci s více Azure Stackmi oblastmi centra, aby bylo možné dosáhnout dostupnosti a robustní infrastruktury pro zotavení po havárii. V tomto dokumentu se Traffic Manager používá k dosažení vysoké dostupnosti, ale pokud Traffic Manager není upřednostňovanou volbou ve vašem prostředí, můžete v systému nahradit pár vysoce dostupných nástrojů pro vyrovnávání zatížení.
 
 > [!Note]  
 > Nezapomeňte prosím, že Traffic Manager používané v níže uvedené architektuře je potřeba nakonfigurovat v Azure a koncové body, které se používají ke konfiguraci Traffic Manager profilu, musí být veřejně směrovatelné IP adresy.
 
 ## <a name="architecture"></a>Architektura
 
-Tato architektura sestaví na takovém obrázku, který je zobrazený v [N-vrstvé aplikaci s SQL Server](iaas-architecture-windows-sql-n-tier.md).
+Tato architektura vychází z článku [N-vrstvá aplikace s SQL serverem](iaas-architecture-windows-sql-n-tier.md).
 
 ![Vysoce dostupná síťová architektura pro N-vrstvé aplikace Azure](./media/iaas-architecturesql-n-tier-multi-region/image1.png)
 
@@ -39,7 +39,7 @@ Tato architektura sestaví na takovém obrázku, který je zobrazený v [N-vrstv
 
 -   **Skupina dostupnosti AlwaysOn systému SQL Server**. Pokud používáte SQL Server, doporučujeme pro vysokou dostupnost [skupiny dostupnosti AlwaysOn pro SQL Server](https://msdn.microsoft.com/library/hh510230.aspx) . Vytvořte jednu skupinu dostupnosti, která obsahuje instance SQL Serveru v obou oblastech.
 
--   **Připojení VPN k virtuální síti**VNET. Protože VNET Peering ještě není v Azure Stack k dispozici, připojte se pomocí připojení VPN VNET k virtuální síti VPN, aby se tyto dvě virtuální sítěy. Další informace najdete [v tématu virtuální síť a virtuální síť v Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-network-howto-vnet-to-vnet?view=azs-1908) .
+-   **Připojení VPN k virtuální síti**VNET. Protože VNET Peering ještě není v centru Azure Stack k dispozici, použijte připojení VPN VNET to VNET, aby se tyto dva virtuální sítěy připojily. Další informace najdete [v tématu virtuální síť a virtuální síť v centru Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-network-howto-vnet-to-vnet?view=azs-1908) .
 
 ## <a name="recommendations"></a>Doporučení
 
@@ -173,4 +173,4 @@ Změřte dobu zotavení a ověřte, zda splňuje vaše obchodní požadavky. Ote
 
 ## <a name="next-steps"></a>Další kroky
 
-- Další informace o vzorech cloudu Azure najdete v tématu [vzory návrhu cloudu](https://docs.microsoft.com/azure/architecture/patterns).
+- Další informace o vzorech cloudu Azure, najdete v článku [vzory návrhu v cloudu](https://docs.microsoft.com/azure/architecture/patterns).

@@ -1,6 +1,6 @@
 ---
-title: Jak zálohovat virtuální počítač v Azure Stack s využitím CommVault | Microsoft Docs
-description: Naučte se, jak zálohovat virtuální počítač v Azure Stack pomocí CommVault.
+title: Jak zálohovat virtuální počítač v Azure Stack hub pomocí CommVault | Microsoft Docs
+description: Naučte se, jak zálohovat virtuální počítač v Azure Stack hub pomocí CommVault.
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,20 +9,20 @@ ms.date: 10/30/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/30/2019
-ms.openlocfilehash: 4294f7f1d53f77c55532645de428678cf42be531
-ms.sourcegitcommit: 20d1c0ab3892e9c4c71d5b039457f1e15b1c84c7
+ms.openlocfilehash: 5210e3874653c268eb72e8ce26c675e2494a1fe9
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73618285"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75819790"
 ---
-# <a name="back-up-your-vm-on-azure-stack-with-commvault"></a>Zálohování virtuálního počítače na Azure Stack pomocí CommVault
+# <a name="back-up-your-vm-on-azure-stack-hub-with-commvault"></a>Zálohování virtuálního počítače v Azure Stack hub pomocí CommVault
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 ## <a name="overview-of-backing-up-a-vm-with-commvault"></a>Přehled zálohování virtuálního počítače pomocí CommVault
 
-Tento článek vás provede konfigurací CommVault Live Sync k aktualizaci virtuálního počítače pro obnovení, který se nachází na samostatné jednotce škálování Azure Stack. Tento článek podrobně popisuje, jak nakonfigurovat společné Partnerské řešení pro ochranu a obnovení dat a stavu systému Virtual Machines nasazených v Azure Stack.
+Tento článek vás provede konfigurací CommVault Live Sync k aktualizaci virtuálního počítače pro obnovení, který se nachází na samostatné jednotce škálování centra Azure Stack. Tento článek podrobně popisuje, jak nakonfigurovat společné Partnerské řešení pro ochranu a obnovení dat a stavu systému Virtual Machines nasazených v centru Azure Stack.
 
 Následující diagram ukazuje celkové řešení při použití CommVault k zálohování virtuálních počítačů.
 
@@ -30,15 +30,15 @@ Následující diagram ukazuje celkové řešení při použití CommVault k zá
 
 V tomto článku se dozvíte, jak:
 
-1. Vytvořte virtuální počítač, na kterém běží CommVault software, na instanci zdrojového Azure Stack.
+1. Vytvořte virtuální počítač, na kterém běží CommVault software, na instanci zdrojového centra Azure Stack.
 
-2. Vytvořte účet úložiště v sekundárním umístění. V článku se předpokládá, že vytvoříte kontejner objektů BLOB v účtu úložiště v instanci služby Azure Stack samostatné (cíl) a že cílový Azure Stack je dosažitelný ze zdrojového Azure Stack.
+2. Vytvořte účet úložiště v sekundárním umístění. V článku se předpokládá, že vytvoříte kontejner objektů BLOB v účtu úložiště v instanci služby Azure Stack hub samostatně (cíl) a že je cílový Azure Stack hub dosažitelný ze zdrojového Azure Stack centra.
 
-3. Nakonfigurujte CommVault instance zdrojového Azure Stack a přidejte virtuální počítače do zdrojového Azure Stack do skupiny virtuálních počítačů.
+3. Nakonfigurujte CommVault na instanci centra zdrojového Azure Stack a přidejte virtuální počítače ve zdrojovém Azure Stack centru do skupiny virtuálních počítačů.
 
 4. Nakonfigurujte LifeSync pro CommVault.
 
-Můžete si také stáhnout a nabídnout kompatibilní image virtuálních počítačů, abyste chránili Vaše Azure Stack virtuálních počítačů do cloudu Azure nebo jiného Azure Stack. Tento článek ilustruje ochranu virtuálních počítačů pomocí CommVault Live Sync.
+Můžete si také stáhnout a nabídnout kompatibilní image virtuálních počítačů, abyste chránili virtuální počítače centra Azure Stack do cloudu Azure nebo jiného centra Azure Stack. Tento článek ilustruje ochranu virtuálních počítačů pomocí CommVault Live Sync.
 
 Topologie tohoto přístupu bude vypadat jako v následujícím diagramu:
 
@@ -46,7 +46,7 @@ Topologie tohoto přístupu bude vypadat jako v následujícím diagramu:
 
 ## <a name="create-the-commvault-vm-form-the-commvault-marketplace-item"></a>Vytvoření virtuálního počítače s CommVault ve formuláři CommVault Marketplace
 
-1. Otevřete portál Azure Stack User Portal.
+1. Otevřete portál Azure Stack hub User Portal.
 
 2. Vyberte **vytvořit prostředek** > **COMPUTE** > **CommVault**.
 
@@ -65,13 +65,13 @@ Topologie tohoto přístupu bude vypadat jako v následujícím diagramu:
     
     d. Zadejte **heslo**.
     
-    e. Potvrďte heslo.
+    e. Potvrďte své heslo.
     
     f. Vyberte **předplatné** pro zálohu.
     
     g. Vyberte **skupinu prostředků**.
     
-    h. Vyberte **umístění** Azure Stack. Pokud používáte ASDK, vyberte **místní**.
+    h. Vyberte **umístění** centra Azure Stack. Pokud používáte ASDK, vyberte **místní**.
     
     i. Vyberte **OK**.
 
@@ -111,39 +111,39 @@ Topologie tohoto přístupu bude vypadat jako v následujícím diagramu:
 
 ## <a name="get-your-service-principal"></a>Získání instančního objektu
 
-Budete potřebovat zjistit, jestli je váš správce identit Azure AD nebo AD DFS. Následující tabulka obsahuje informace, které budete potřebovat k nastavení CommVault v Azure Stack.
+Budete potřebovat zjistit, jestli je váš správce identit Azure AD nebo AD DFS. Následující tabulka obsahuje informace, které budete potřebovat k nastavení CommVault v centru Azure Stack.
 
 | Element | Popis | Zdroj |
 |--------------------------|--------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
-| Adresa URL Azure Resource Manager | Koncový bod Azure Stack Správce prostředků. | https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles-ruby?view=azs-1908#the-azure-stack-resource-manager-endpoint |
+| Adresa URL Azure Resource Manager | Koncový bod Správce prostředků centra Azure Stack. | https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles-ruby?view=azs-1908#the-azure-stack-hub-resource-manager-endpoint |
 | Název aplikace |  |  |
 | ID aplikace | ID aplikace instančního objektu se uložilo při vytvoření instančního objektu v předchozí části tohoto článku. | https://docs.microsoft.com/azure-stack/operator/azure-stack-create-service-principals?view=azs-1908 |
-| ID předplatného | ID předplatného se používá pro přístup k nabídkám v Azure Stack. | https://docs.microsoft.com/azure-stack/operator/service-plan-offer-subscription-overview?view=azs-1908#subscriptions |
-| ID klienta (ID adresáře) | Vaše ID tenanta Azure Stack. | https://docs.microsoft.com/azure-stack/operator/azure-stack-identity-overview?view=azs-1908 |
+| ID předplatného | ID předplatného se používá pro přístup k nabídkám v centru Azure Stack. | https://docs.microsoft.com/azure-stack/operator/service-plan-offer-subscription-overview?view=azs-1908#subscriptions |
+| ID klienta (ID adresáře) | Vaše ID tenanta centra Azure Stack. | https://docs.microsoft.com/azure-stack/operator/azure-stack-identity-overview?view=azs-1908 |
 | Heslo aplikace | Tajný kód aplikace instančního objektu se uložil při vytvoření objektu služby. | https://docs.microsoft.com/azure-stack/operator/azure-stack-create-service-principals?view=azs-1908 |
 
 ## <a name="configure-backup-using-the-commvault-console"></a>Konfigurace zálohování pomocí konzoly CommVault
 
-1. Otevřete klienta RDP a připojte se k virtuálnímu počítači Commavult ve svém Azure Stack. Zadejte své přihlašovací údaje.
+1. Otevřete svého klienta RDP a připojte se k virtuálnímu počítači s Commavult v centru Azure Stack. Zadejte své přihlašovací údaje.
 
-2. Nainstalujte Azure Stack PowerShell a nástroje Azure Stack na virtuálním počítači s CommVault.
+2. Nainstalujte Azure Stack centra PowerShell a nástroje centra Azure Stack na virtuálním počítači s CommVault.
 
-    a. Pokyny k instalaci Azure Stack PowerShellu najdete v tématu [instalace PowerShellu pro Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-install?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fbreadcrumb%2Ftoc.json).  
-    b. Pokyny k instalaci nástrojů Azure Stack najdete v tématu [Stažení nástrojů Azure Stack z GitHubu](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-download?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fuser%2FTOC.json%3Fview%3Dazs-1908&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fbreadcrumb%2Ftoc.json%3Fview%3Dazs-1908&view=azs-1908).
+    a. Pokyny k instalaci prostředí PowerShell centra Azure Stack najdete v tématu [instalace PowerShellu pro centrum Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-install?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fbreadcrumb%2Ftoc.json).  
+    b. Pokyny k instalaci nástrojů centra Azure Stack najdete v tématu [Stažení nástrojů centra Azure Stack z GitHubu](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-download?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fuser%2FTOC.json%3Fview%3Dazs-1908&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fbreadcrumb%2Ftoc.json%3Fview%3Dazs-1908&view=azs-1908).
 
 3. Po instalaci nástroje CommVault na VIRTUÁLNÍm počítači s CommVault otevřete konzolu Commcell. V nabídce Start vyberte **Commvault** > **CommVault Commcell Console**.
 
     ![](./media/azure-stack-network-howto-backup-commvault/commcell-console.png)
 
-4. Nakonfigurujte úložiště záloh tak, aby používalo úložiště mimo Azure Stack v konzole Commcell pro CommVault. V prohlížeči CommCell vyberte prostředky úložiště > fondy úložišť. Klikněte pravým tlačítkem a vyberte **Přidat fond úložiště.** Vyberte **Cloud**.
+4. Nakonfigurujte úložiště záloh tak, aby používalo úložiště externě v konzole služby Azure Stack v konzole CommVault Commcell. V prohlížeči CommCell vyberte prostředky úložiště > fondy úložišť. Klikněte pravým tlačítkem a vyberte **Přidat fond úložiště.** Vyberte **Cloud**.
 
-5. Přidejte název fondu úložiště. Vyberte **Další**.
+5. Přidejte název fondu úložiště. Vyberte **Next** (Další).
 
 6. Vyberte **vytvořit** > **cloudové úložiště**.
 
     ![](./media/azure-stack-network-howto-backup-commvault/commcell-storage-add-storage-device.png)
 
-7. Vyberte poskytovatele cloudové služby. V tomto postupu budeme používat druhý Azure Stack v jiném umístění. Vyberte Microsoft Azure Storage.
+7. Vyberte poskytovatele cloudové služby. V tomto postupu použijeme druhé centrum Azure Stack v jiném umístění. Vyberte Microsoft Azure Storage.
 
 8. Jako svůj MediaAgent vyberte svůj virtuální počítač s CommVault.
 
@@ -159,7 +159,7 @@ Budete potřebovat zjistit, jestli je váš správce identit Azure AD nebo AD DF
     
     -   **Třída úložiště**: ponechte jako výchozí třídu úložiště kontejneru uživatele.
 
-10. Vytvořte klienta Microsoft Azure Stack podle pokynů v [tématu Vytvoření klienta Microsoft Azure Stack](https://documentation.commvault.com/commvault/v11_sp13/article?p=86495.htm)
+10. Vytvořte klienta Microsoft Azure Stack Hub podle pokynů v [tématu Vytvoření klienta Microsoft Azure Stack hub](https://documentation.commvault.com/commvault/v11_sp13/article?p=86495.htm) .
 
     ![](./media/azure-stack-network-howto-backup-commvault/commcell-ceate-client.png)
 
@@ -173,13 +173,13 @@ Budete potřebovat zjistit, jestli je váš správce identit Azure AD nebo AD DF
 
 K dispozici jsou dvě možnosti. Můžete se rozhodnout replikovat změny z primární kopie záloh nebo replikovat změny ze sekundární kopie do virtuálního počítače pro obnovení. Replikace ze zálohovacího skladu eliminuje dopad čtení v/v na zdrojovém počítači.
 
-1. Během konfigurace živé synchronizace bude nutné zadat zdrojovou Azure Stack (agenta virtuálního serveru) a podrobnosti cíle Azure Stack.
+1. Během konfigurace živé synchronizace bude nutné poskytnout zdrojové Azure Stack centra (agenta virtuálního serveru) a podrobnosti o cílovém Azure Stack centru.
 
-2. Postup konfigurace CommVault Live Sync najdete v tématu [replikace za provozu pro Microsoft Azure Stack](https://documentation.commvault.com/commvault/v11_sp13/article?p=94386.htm).
+2. Postup konfigurace CommVault Live Sync najdete v tématu [replikace za provozu pro centrum Microsoft Azure Stack](https://documentation.commvault.com/commvault/v11_sp13/article?p=94386.htm).
 
     ![](./media/azure-stack-network-howto-backup-commvault/live-sync-1.png)
  
-3. Během konfigurace živé synchronizace bude potřeba zadat podrobnosti o cílovém Azure Stack a agentovi virtuálního serveru.
+3. Během konfigurace živé synchronizace bude nutné zadat podrobnosti cílového centra Azure Stack a agenta virtuálního serveru.
 
     ![](./media/azure-stack-network-howto-backup-commvault/live-sync-2.png)
 
@@ -189,7 +189,7 @@ K dispozici jsou dvě možnosti. Můžete se rozhodnout replikovat změny z prim
 
 5. Můžete také změnit velikost virtuálního počítače a nakonfigurovat nastavení sítě výběrem možnosti **Konfigurovat** vedle každého virtuálního počítače.
 
-6. Nastavte četnost replikace na cílovou Azure Stack
+6. Nastavení četnosti replikace do cílového centra Azure Stack
 
     ![](./media/azure-stack-network-howto-backup-commvault/live-sync-5.png)
 
@@ -198,11 +198,11 @@ K dispozici jsou dvě možnosti. Můžete se rozhodnout replikovat změny z prim
 
 ## <a name="set-up-failover-behavior-using-live-sync"></a>Nastavení chování při selhání pomocí živé synchronizace
 
-CommVault Live Sync umožňuje převzetí služeb při selhání z jednoho Azure Stack do jiného a navrácení služeb po obnovení pro obnovení operací na původním Azure Stack. Pracovní postup je automatizovaný a protokolovaný.
+CommVault Live Sync umožňuje převzetí služeb při selhání z jednoho centra Azure Stack do jiného a navrácení služeb po obnovení pro obnovení operací v původním centru Azure Stack. Pracovní postup je automatizovaný a protokolovaný.
 
 ![](./media/azure-stack-network-howto-backup-commvault/back-up-live-sync-panel.png)
 
-Vyberte virtuální počítače, u kterých chcete převzít služby při selhání Azure Stack obnovení, a zvolte plánované nebo neplánované převzetí služeb při selhání. Plánované převzetí služeb při selhání je vhodné v případě, že je čas na bezproblémové vypnutí provozního prostředí před obnovením operací v lokalitě pro obnovení. Při plánovaném převzetí služeb při selhání dojde k vypnutí produkčních virtuálních počítačů, replikují se poslední změny lokality pro obnovení a přinášejí virtuální počítače pro obnovení do online režimu s nejnovějšími daty a uplatní velikost virtuálního počítače a konfiguraci sítě zadanou během konfigurace živé synchronizace. Neplánované převzetí služeb při selhání se pokusí vypnout provozní virtuální počítače, ale bude pokračovat, pokud je provozní prostředí nedostupné a jednoduše přepnete virtuální počítače pro obnovení do režimu online s poslední obdrženou replikační datovou sadou, která se používá pro virtuální počítač a velikost a síť. dříve zvolená konfigurace. Následující obrázky znázorňují neplánované převzetí služeb při selhání, kdy se virtuální počítače pro obnovení dostaly do online režimu CommVault Live Sync.
+Vyberte virtuální počítače, u kterých chcete převzít služby při selhání pro obnovení Azure Stack hub, a zvolte plánované nebo neplánované převzetí služeb při selhání. Plánované převzetí služeb při selhání je vhodné v případě, že je čas na bezproblémové vypnutí provozního prostředí před obnovením operací v lokalitě pro obnovení. Při plánovaném převzetí služeb při selhání dojde k vypnutí produkčních virtuálních počítačů, replikují se poslední změny lokality pro obnovení a přinášejí virtuální počítače pro obnovení do online režimu s nejnovějšími daty a uplatní velikost virtuálního počítače a konfiguraci sítě zadanou během konfigurace živé synchronizace. Neplánované převzetí služeb při selhání se pokusí vypnout provozní virtuální počítače, ale bude pokračovat, pokud je provozní prostředí nedostupné a jednoduše přepnete virtuální počítače pro obnovení do režimu online s poslední obdrženou replikační datovou sadou, která se používá pro virtuální počítač a velikost a síť. dříve zvolená konfigurace. Následující obrázky znázorňují neplánované převzetí služeb při selhání, kdy se virtuální počítače pro obnovení dostaly do online režimu CommVault Live Sync.
 
 ![](./media/azure-stack-network-howto-backup-commvault/unplanned-failover.png)
 
@@ -212,4 +212,4 @@ Vyberte virtuální počítače, u kterých chcete převzít služby při selhá
 
 ## <a name="next-steps"></a>Další kroky
 
-[Rozdíly a požadavky pro Azure Stack sítě](azure-stack-network-differences.md)  
+[Rozdíly a požadavky pro sítě Azure Stack hub](azure-stack-network-differences.md)  

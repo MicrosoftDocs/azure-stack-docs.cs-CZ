@@ -1,6 +1,6 @@
 ---
-title: Použití šablon Azure Resource Manager v Azure Stack | Microsoft Docs
-description: Naučte se používat šablony Azure Resource Manager v Azure Stack ke zřízení prostředků.
+title: Použití šablon Azure Resource Manager v centru Azure Stack | Microsoft Docs
+description: Naučte se používat šablony Azure Resource Manager v centru Azure Stack k zřizování prostředků.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,20 +16,20 @@ ms.date: 10/07/2019
 ms.author: mabrigg
 ms.reviewer: justini
 ms.lastreviewed: 11/14/2018
-ms.openlocfilehash: df7a6e7c42a8863117faaccfd4108c4ffd806a5a
-ms.sourcegitcommit: d619612f54eeba3231ed73ed149ff894f9bf838a
+ms.openlocfilehash: 3ae09f31a0dc1b99a0ec5b18a0e653c02c098ae7
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74993762"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75816458"
 ---
-# <a name="use-azure-resource-manager-templates-in-azure-stack"></a>Použití šablon Azure Resource Manager v Azure Stack
+# <a name="use-azure-resource-manager-templates-in-azure-stack-hub"></a>Použití šablon Azure Resource Manager v centru Azure Stack
 
-*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 Šablony Azure Resource Manager můžete použít k nasazení a zřízení všech prostředků aplikace v rámci jediné koordinované operace. Šablony můžete také znovu nasadit, abyste provedli změny prostředků ve skupině prostředků.
 
-Tyto šablony se dají nasadit pomocí portálu Microsoft Azure Stack, PowerShellu, příkazového řádku a sady Visual Studio.
+Tyto šablony se dají nasadit pomocí portálu centra Microsoft Azure Stack, PowerShellu, příkazového řádku a sady Visual Studio.
 
 Následující šablony pro rychlý Start jsou [k dispozici na GitHubu](https://aka.ms/azurestackgithub):
 

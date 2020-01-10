@@ -1,7 +1,6 @@
 ---
-title: Rozhraní API využití prostředků poskytovatele | Microsoft Docs
-titleSuffix: Azure Stack
-description: Referenční informace k rozhraní API pro využití prostředků, které načítá informace o využití Azure Stack.
+title: Rozhraní API pro využití prostředků poskytovatele centra Azure Stack | Microsoft Docs
+description: Referenční informace k rozhraní API pro využití prostředků, které načítá informace o využití centra Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -12,20 +11,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/16/2019
+ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 01/25/2018
-ms.openlocfilehash: 75a4adca6d9265314c74cdebe642d43b8c2f11ef
-ms.sourcegitcommit: ca358ea5c91a0441e1d33f540f6dbb5b4d3c92c5
+ms.openlocfilehash: f7d39ce1c2a33a6a693a56a6c5c86b7e1275993d
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73802385"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75810065"
 ---
 # <a name="provider-resource-usage-api"></a>Rozhraní API využití prostředků poskytovatele
 
-Pojem *zprostředkovatel* se vztahuje na správce služeb a na všechny delegované zprostředkovatele. Azure Stack operátory a delegovaní zprostředkovatelé můžou používat rozhraní API Využití poskytovatele k zobrazení využití jejich přímých klientů. Například, jak je znázorněno v následujícím diagramu, P0 může zavolat rozhraní API zprostředkovatele, aby získal informace o přímých použitích P1 a P2 a P1 může volat informace o použití na P3 a P4.
+Pojem *zprostředkovatel* se vztahuje na správce služeb a na všechny delegované zprostředkovatele. Operátory centra Azure Stack a delegovaní zprostředkovatelé můžou používat rozhraní API Využití poskytovatele k zobrazení využití jejich přímých klientů. Například, jak je znázorněno v následujícím diagramu, P0 může zavolat rozhraní API zprostředkovatele, aby získal informace o přímých použitích P1 a P2 a P1 může volat informace o použití na P3 a P4.
 
 ![Koncepční model hierarchie zprostředkovatele](media/azure-stack-provider-resource-api/image1.png)
 
@@ -45,7 +44,7 @@ Toto rozhraní API pro použití je poskytovatele API, takže volajícímu musí
 
 | Argument | Popis |
 | --- | --- |
-| `armendpoint` |Azure Resource Manager koncový bod Azure Stack prostředí. Azure Stack konvence je název koncového bodu Azure Resource Manager ve formátu `https://adminmanagement.{domain-name}`. Například pro Azure Stack Development Kit (ASDK), pokud je název domény *Local. azurestack. external*, pak je `https://adminmanagement.local.azurestack.external`koncový bod správce prostředků. |
+| `armendpoint` |Azure Resource Manager koncový bod vašeho prostředí centra Azure Stack. Azure Stack konvence centra je název koncového bodu Azure Resource Manager ve formátu `https://adminmanagement.{domain-name}`. Například pro Azure Stack Development Kit (ASDK), pokud je název domény *Local. azurestack. external*, pak je `https://adminmanagement.local.azurestack.external`koncový bod správce prostředků. |
 | `subId` |ID předplatného uživatele, který provádí volání. |
 | `reportedStartTime` |Počáteční čas dotazu. Hodnota `DateTime` by měla být v koordinovaném univerzálním čase (UTC) a na začátku hodiny. například 13:00. U denní agregace nastavte tuto hodnotu na půlnoc UTC. Formát je řídicí. ISO 8601; například `2015-06-16T18%3a53%3a11%2b00%3a00Z`, kde je dvojtečka uvozena `%3a` a znak plus je uvozen na `%2b`, aby byl popisný identifikátor URI. |
 | `reportedEndTime` |Koncový čas dotazu. Omezení, která platí pro `reportedStartTime`, se vztahují i na tento argument. Hodnota pro `reportedEndTime` nemůže být v budoucnosti nebo v aktuálním datu. Pokud je, výsledek je nastaven na "zpracování není dokončeno". |
@@ -94,7 +93,7 @@ meterID1",
 |`id` |Jedinečné ID agregace využití |
 |`name` |Název agregace použití |
 |`type` |Definice prostředků. |
-|`subscriptionId` |Identifikátor předplatného Azure Stackho uživatele |
+|`subscriptionId` |Identifikátor předplatného uživatele centra Azure Stack. |
 |`usageStartTime`|Čas spuštění v čase UTC sady, do které patří agregace tohoto využití.|
 |`usageEndTime`|Čas ukončení UTC intervalu použití, do kterého patří agregace tohoto využití. |
 |`instanceData` |Páry klíč-hodnota podrobností instance (v novém formátu):<br> `resourceUri`: plně kvalifikované ID prostředku, které zahrnuje skupiny prostředků a název instance. <br> `location`: oblast, ve které byla tato služba spuštěna. <br> `tags`: značky prostředků, které jsou určeny uživatelem. <br> `additionalInfo`: Další podrobnosti o spotřebovaném prostředku; například verze operačního systému nebo typ obrázku. |
@@ -105,10 +104,10 @@ meterID1",
 
 ### <a name="powershell"></a>PowerShell
 
-Pokud chcete vygenerovat data o využití, měli byste mít prostředky, na kterých běží a aktivně používají systém. Například aktivní virtuální počítač (VM) nebo účet úložiště obsahující data. Pokud si nejste jistí, jestli máte nějaké prostředky spuštěné na webu Azure Stack Marketplace, nasaďte virtuální počítač a ověřte okno monitorování virtuálního počítače, abyste se ujistili, že je spuštěný. K zobrazení dat o využití použijte následující rutiny PowerShellu:
+Pokud chcete vygenerovat data o využití, měli byste mít prostředky, na kterých běží a aktivně používají systém. Například aktivní virtuální počítač (VM) nebo účet úložiště obsahující data. Pokud si nejste jistí, jestli máte nějaké prostředky spuštěné v tržišti centra Azure Stack, nasaďte virtuální počítač a ověřte okno monitorování virtuálního počítače, abyste se ujistili, že je spuštěný. K zobrazení dat o využití použijte následující rutiny PowerShellu:
 
-1. [Nainstalujte PowerShell pro Azure Stack](azure-stack-powershell-install.md).
-2. [Nakonfigurujte Azure Stackho uživatele](../user/azure-stack-powershell-configure-user.md) nebo prostředí powershellu [Azure Stack operator](azure-stack-powershell-configure-admin.md) .
+1. [Nainstalujte PowerShell pro centrum Azure Stack](azure-stack-powershell-install.md).
+2. [Nakonfigurujte Azure Stackho uživatele centra](../user/azure-stack-powershell-configure-user.md) nebo prostředí PowerShell pro [operátor centra Azure Stack](azure-stack-powershell-configure-admin.md) .
 3. Pokud chcete načíst data o využití, zavolejte rutinu PowerShellu [Get-AzsSubscriberUsage](/powershell/module/azs.commerce.admin/get-azssubscriberusage) :
 
    ```powershell
@@ -117,7 +116,7 @@ Pokud chcete vygenerovat data o využití, měli byste mít prostředky, na kter
 
 ### <a name="rest-api"></a>Rozhraní REST API
 
-Informace o použití pro odstraněné odběry můžete shromažďovat voláním služby Microsoft. Commerce. admin.
+Informace o použití pro odstraněné odběry můžete shromažďovat voláním služby **Microsoft. Commerce. admin** .
 
 #### <a name="return-all-tenant-usage-for-deleted-for-active-users"></a>Vrátí všechny využití tenanta pro odstraněné aktivní uživatele.
 

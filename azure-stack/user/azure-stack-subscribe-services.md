@@ -1,6 +1,6 @@
 ---
-title: Vytvořte předplatné s nabídkou v Azure Stack | Microsoft Docs
-description: Naučte se, jak vytvořit nové předplatné s nabídkou v Azure Stack a pak otestovat nabídku pomocí testovacího virtuálního počítače.
+title: Vytvoření předplatného s nabídkou v Azure Stack hub | Microsoft Docs
+description: Naučte se vytvářet nové předplatné s nabídkou v Azure Stack hub a potom nabídku otestovat pomocí testovacího virtuálního počítače.
 services: azure-stack
 documentationcenter: ''
 author: bryanla
@@ -17,21 +17,21 @@ ms.date: 06/04/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 11/13/2018
-ms.openlocfilehash: e6e09dffa6682a615c01e6fee841a5d736054546
-ms.sourcegitcommit: dfaf0126bc9975ca1643d55f06c71df9e32ea976
+ms.openlocfilehash: 3aa9231fbcf6032b073a61fa4d96e5ed20257290
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72165001"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75815727"
 ---
-# <a name="tutorial-create-and-test-a-subscription-in-azure-stack"></a>Kurz: Vytvoření a otestování předplatného v Azure Stack
+# <a name="tutorial-create-and-test-a-subscription-in-azure-stack-hub"></a>Kurz: vytvoření a otestování předplatného v centru Azure Stack
 
-V tomto kurzu se dozvíte, jak vytvořit předplatné obsahující nabídku a jak ji otestovat. Pro tento test se přihlašujete k portálu Azure Stack User Portal jako správce cloudu, přihlaste se k odběru nabídky a pak vytvořte virtuální počítač (VM).
+V tomto kurzu se dozvíte, jak vytvořit předplatné obsahující nabídku a jak ji otestovat. Pro test se přihlašujete k portálu User Portal služby Azure Stack hub jako správce cloudu, přihlásíte se k odběru nabídky a pak vytvoříte virtuální počítač (VM).
 
 > [!TIP]
 > Pro pokročilejší prostředí hodnocení můžete [Vytvořit předplatné pro konkrétního uživatele](../operator/azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator) a pak se přihlásit jako tento uživatel na portálu User Portal.
 
-V tomto kurzu se dozvíte, jak se přihlásit k odběru Azure Stack nabídky.
+V tomto kurzu se dozvíte, jak se přihlásit k odběru nabídky centra Azure Stack.
 
 Naučíte se:
 
@@ -41,7 +41,7 @@ Naučíte se:
 
 ## <a name="subscribe-to-an-offer"></a>Přihlášení k odběru nabídky
 
-Pokud se chcete přihlásit k odběru nabídky jako uživatel, přihlaste se k portálu Azure Stack User Portal a ověřte dostupné služby nabízené operátorem Azure Stack.
+Pokud se chcete přihlásit k odběru nabídky jako uživatel, přihlaste se k portálu User Portal služby Azure Stack a ověřte dostupné služby, které nabízí operátor centra Azure Stack.
 
 1. Přihlaste se k portálu User Portal a vyberte **získat předplatné**.
 
@@ -63,7 +63,7 @@ Pokud se chcete přihlásit k odběru nabídky jako uživatel, přihlaste se k p
 Když jste přihlášení k portálu User Portal, otestujte nabídku tím, že zřídíte virtuální počítač s využitím nových možností předplatného.
 
 > [!NOTE]
-> Tento test vyžaduje, aby se virtuální počítač Windows Server 2016 Datacenter nejdřív přidal do webu Azure Stack Marketplace.
+> Tento test vyžaduje, aby se virtuální počítač Windows Server 2016 Datacenter nejdřív přidal do Marketplace centra Azure Stack.
 
 1. Přihlaste se k portálu User Portal.
 

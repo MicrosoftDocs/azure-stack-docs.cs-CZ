@@ -1,6 +1,6 @@
 ---
-title: Stažení položek z webu Marketplace z Azure a publikování do Azure Stack | Microsoft Docs
-description: Naučte se stahovat položky Marketplace z Azure a publikovat na Azure Stack.
+title: Stažení položek z webu Marketplace z Azure a publikování do centra Azure Stack | Microsoft Docs
+description: Přečtěte si, jak stáhnout položky z webu Marketplace z Azure a publikovat do centra Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,23 +15,23 @@ ms.date: 12/23/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 12/23/2018
-ms.openlocfilehash: 4c6da7765705d29a886a774ac55f4c3dfa42f17b
-ms.sourcegitcommit: 52c887b117f1ff51aedac8da79204e79ee3ed223
+ms.openlocfilehash: cff400b3faace08dfcdae86f0fe0d10effb42cae
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75553966"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75817410"
 ---
 # <a name="download-marketplace-items-to-azure-stack-hub"></a>Stažení položek z Marketplace do centra Azure Stack 
 
-Jako operátor cloudu můžete z Marketplace stahovat položky do centra Azure Stack a zpřístupnit je všem uživatelům pomocí prostředí Azure Stack hub. Položky, které můžete vybrat, jsou z uspořádaného seznamu Azure Marketplacech položek, které jsou předem testovány a podporovány pro práci s Azure Stack. Do tohoto seznamu se často přidají další položky, takže se budete moct vrátit k novému obsahu.
+Jako operátor cloudu můžete z Marketplace stahovat položky do centra Azure Stack a zpřístupnit je všem uživatelům pomocí prostředí Azure Stack hub. Položky, které můžete vybrat, jsou z uspořádaného seznamu Azure Marketplacech položek, které jsou předem testovány a podporovány pro práci s centrem Azure Stack. Do tohoto seznamu se často přidají další položky, takže se budete moct vrátit k novému obsahu.
 
 Existují dva scénáře stažení produktů z webu Marketplace:
 
 - **Připojený scénář**: vyžaduje, aby bylo prostředí centra Azure Stack připojené k Internetu. K vyhledání a stažení položek slouží portál pro správu centra Azure Stack.
-- **Odpojený nebo částečně připojený scénář**: vyžaduje, abyste měli přístup k Internetu pomocí syndikačního nástroje Marketplace ke stažení položek Marketplace. Pak přenesete soubory ke stažení na odpojenou Azure Stack instalaci. Tento scénář používá PowerShell.
+- **Odpojený nebo částečně připojený scénář**: vyžaduje, abyste měli přístup k Internetu pomocí syndikačního nástroje Marketplace ke stažení položek Marketplace. Pak přenesete soubory ke stažení na odpojenou instalaci centra Azure Stack. Tento scénář používá PowerShell.
 
-Úplný seznam položek na webu Marketplace, které si můžete stáhnout, najdete v tématu [Azure Marketplace položky Azure Stack](azure-stack-marketplace-azure-items.md) . Seznam nedávných přidání, odstranění a aktualizací pro Azure Stack Marketplace najdete v článku o [Azure Stack na webu Marketplace](azure-stack-marketplace-changes.md) .
+Úplný seznam položek z webu Marketplace, které si můžete stáhnout, najdete v tématu [Azure Marketplace položky pro centrum Azure Stack](azure-stack-marketplace-azure-items.md) . Seznam nedávných přidání, odstranění a aktualizací služby Azure Stack hub Marketplace najdete v článku o [změnách na webu Marketplace centra Azure Stack](azure-stack-marketplace-changes.md) .
 
 > [!NOTE]
 > Katalog se bude lišit v závislosti na cloudu, ke kterému je připojen systém Azure Stack hub. Cloudové prostředí se určuje pomocí předplatného Azure, které používáte k registraci centra Azure Stack.
@@ -52,7 +52,7 @@ Vaše nasazení centra Azure Stack musí mít připojení k Internetu a musí b�
 
    Chcete-li zkontrolovat dostupné místo: v **oblasti Správa oblastí**vyberte oblast, kterou chcete prozkoumat, a poté vyhledejte **poskytovatele prostředků** > **úložiště**:
 
-   ![Kontrola místa v úložišti Azure Stack portálu pro správu](media/azure-stack-download-azure-marketplace-item/storage.png)
+   ![Kontrola prostoru úložiště na portálu pro správu centra Azure Stack](media/azure-stack-download-azure-marketplace-item/storage.png)
 
 3. Otevřete web Centrum pro Azure Stack a připojte se k Azure. Provedete to tak, že vyberete službu **tržiště Management** , vyberete **položky Marketplace**a pak vyberete **Přidat z Azure**:
 
@@ -66,7 +66,7 @@ Vaše nasazení centra Azure Stack musí mít připojení k Internetu a musí b�
 
    ![Přidat z Azure](media/azure-stack-download-azure-marketplace-item/add-from-azure3.png)
 
-6. Vyberte položku, kterou chcete, a pak vyberte **Stáhnout**. Doba stahování se liší a závisí na připojení k síti. Po dokončení stahování můžete novou položku Marketplace nasadit buď jako operátor Azure Stack, nebo na uživatele.
+6. Vyberte položku, kterou chcete, a pak vyberte **Stáhnout**. Doba stahování se liší a závisí na připojení k síti. Po dokončení stahování můžete novou položku Marketplace nasadit jako operátor centra Azure Stack nebo uživatele.
 
 7. Pokud chcete staženou položku nasadit, vyberte **+ vytvořit prostředek**a potom vyhledejte kategorie nové položky Marketplace. Pak vyberte položku, která zahájí proces nasazení. Tento proces se liší pro různé položky Marketplace.
 
@@ -79,7 +79,7 @@ Nástroj syndikace na webu Marketplace se dá použít taky v připojeném scén
 Tento scénář obsahuje dvě části:
 
 - **Část 1**: stažení z položek Marketplace. V počítači s přístupem k Internetu konfigurujete PowerShell, stáhnete nástroj syndikace a pak stáhnete položky z Azure Marketplace.
-- **Část 2**: nahrání a publikování na tržišti Azure Stack hub. Soubory, které jste stáhli do prostředí Azure Stack hub, přesouváte, naimportujete do Azure Stack a pak je publikujete na Azure Stack Marketplace.
+- **Část 2**: nahrání a publikování na tržišti Azure Stack hub. Soubory, které jste stáhli do prostředí Azure Stack hub, přesouváte, naimportujete do centra Azure Stack a pak je publikujete do služby Azure Stack hub Marketplace.
 
 ### <a name="prerequisites"></a>Požadavky
 
@@ -89,15 +89,15 @@ Tento scénář obsahuje dvě části:
 
 - Prostředí odpojeného centra Azure Stack s následujícími požadavky:
 
-  - Vaše nasazení Azure Stack musí být zaregistrované v Azure.
+  - Vaše nasazení centra Azure Stack musí být zaregistrované v Azure.
 
-  - Počítač, který má připojení k Internetu, musí mít **Azure Stack modul prostředí PowerShell verze 1.2.11** nebo novější. Pokud ještě neexistují, [nainstalujte moduly prostředí PowerShell specifické pro Azure Stack](azure-stack-powershell-install.md).
+  - Počítač, který má připojení k Internetu, musí mít **Azure Stack modulu PowerShell verze 1.2.11** nebo novější. Pokud ještě neexistuje, [nainstalujte Azure Stack moduly PowerShellu specifické pro centrum](azure-stack-powershell-install.md).
 
-  - Aby bylo možné povolit import stažené položky Marketplace, je nutné nakonfigurovat [prostředí PowerShell pro operátor Azure Stack](azure-stack-powershell-configure-admin.md) .
+  - Aby bylo možné povolit import stažené položky Marketplace, je nutné nakonfigurovat [prostředí PowerShell pro operátor centra Azure Stack](azure-stack-powershell-configure-admin.md) .
 
-  - Naklonujte [Azure Stack tools](https://github.com/Azure/AzureStack-Tools) úložiště GitHub.
+  - Naklonujte [nástroje Azure Stack Hub](https://github.com/Azure/AzureStack-Tools) úložiště GitHub.
 
-- Musíte mít [účet úložiště](azure-stack-manage-storage-accounts.md) v Azure Stack, který má veřejně přístupný kontejner (což je objekt BLOB úložiště). Kontejner se používá jako dočasné úložiště pro soubory galerie položek Marketplace. Pokud nejste obeznámeni s účty úložiště a kontejnery, přečtěte si téma [práce s objekty blob – Azure Portal](/azure/storage/blobs/storage-quickstart-blobs-portal) v dokumentaci k Azure.
+- Musíte mít [účet úložiště](azure-stack-manage-storage-accounts.md) v centru Azure Stack s veřejně přístupným kontejnerem (což je objekt BLOB úložiště). Kontejner se používá jako dočasné úložiště pro soubory galerie položek Marketplace. Pokud nejste obeznámeni s účty úložiště a kontejnery, přečtěte si téma [práce s objekty blob – Azure Portal](/azure/storage/blobs/storage-quickstart-blobs-portal) v dokumentaci k Azure.
 
 - Nástroj pro syndikaci na webu Marketplace se stáhne během prvního postupu.
 
@@ -114,7 +114,7 @@ Po registraci můžete ignorovat následující zprávu, která se zobrazí v ok
 
 1. V počítači s připojením k Internetu otevřete konzolu PowerShellu jako správce.
 
-2. Přidejte účet Azure, který jste použili k registraci Azure Stack. Pokud chcete účet přidat, v PowerShellu spusťte rutinu **Add-AzureRmAccount** bez parametrů. Zobrazí se výzva k zadání přihlašovacích údajů k účtu Azure a možná budete muset použít dvojúrovňové ověřování v závislosti na konfiguraci vašeho účtu.
+2. Přidejte účet Azure, který jste použili k registraci centra Azure Stack. Pokud chcete účet přidat, v PowerShellu spusťte rutinu **Add-AzureRmAccount** bez parametrů. Zobrazí se výzva k zadání přihlašovacích údajů k účtu Azure a možná budete muset použít dvojúrovňové ověřování v závislosti na konfiguraci vašeho účtu.
 
    > [!NOTE]
    > Pokud vaše relace vyprší, vaše heslo se změnilo nebo chcete jednoduše přepnout účty, spusťte následující rutinu ještě před přihlášením pomocí rutiny **Add-AzureRmAccount**: **Remove-AzureRmAccount-Scope Process**.
@@ -161,7 +161,7 @@ Po registraci můžete ignorovat následující zprávu, která se zobrazí v ok
    Export-AzSOfflineResourceProvider -destination "Destination folder path" -azCopyDownloadThreads "AzCopy threads number" -azureContext $AzureContext
    ```
 
-   Parametr `-azCopyDownloadThreads` je nepovinný. Měla by se používat jenom v případě, že máte síť s malou šířkou pásma a používáte ke stažení prémii. Tato možnost určuje počet souběžných operací v AzCopy. Pokud používáte síť s nízkou šířkou pásma, můžete zadat nižší číslo, aby nedocházelo k selhání způsobenému konkurencí prostředků. Další podrobnosti najdete v [tomto článku Azure](/azure/storage/common/storage-use-azcopy#specify-the-number-of-concurrent-operations-to-start).
+   Parametr `-azCopyDownloadThreads` je nepovinný. Měla by se používat jenom v případě, že máte síť s malou šířkou pásma a používáte ke stažení prémii. Tato možnost určuje počet souběžných operací v AzCopy. Pokud používáte síť s nízkou šířkou pásma, můžete zadat nižší číslo, aby nedocházelo k selhání způsobenému konkurencí prostředků. Další podrobnosti najdete v [tomto článku Azure](/previous-versions/azure/storage/storage-use-azcopy#specify-the-number-of-concurrent-operations-to-start).
 
    Parametr `-azureContext` je také volitelný. Pokud nezadáte kontext Azure, rutina použije výchozí kontext Azure.
 
@@ -195,20 +195,20 @@ Po registraci můžete ignorovat následující zprávu, která se zobrazí v ok
 
    Před opakováním pokusu odeberte složku produktu, ve které se stahování nepovedlo. Například pokud se při stahování do **D:\downloadFolder\microsoft.CustomScriptExtension-ARM-1.9.1**nepovede skript ke stažení, odeberte složku **D:\downloadFolder\microsoft.CustomScriptExtension-ARM-1.9.1** a pak znovu spusťte rutinu.
 
-### <a name="import-the-download-and-publish-to-azure-stack-marketplace-using-powershell"></a>Import stažení a publikování na Azure Stack Marketplace pomocí prostředí PowerShell
+### <a name="import-the-download-and-publish-to-azure-stack-hub-marketplace-using-powershell"></a>Import stažení a publikování do webu Azure Stack hub Marketplace pomocí prostředí PowerShell
 
-1. Soubory, které jste stáhli [již dříve](#use-the-marketplace-syndication-tool-to-download-marketplace-items) , je nutné přesunout místně, aby byly k dispozici pro vaše Azure Stack prostředí. Nástroj pro syndikaci na webu Marketplace musí být také dostupný pro vaše Azure Stack prostředí, protože k provedení operace importu je nutné použít nástroj.
+1. Soubory, které jste stáhli [již dříve](#use-the-marketplace-syndication-tool-to-download-marketplace-items) , je nutné přesunout místně, aby byly dostupné pro vaše prostředí Azure Stack hub. Nástroj pro syndikaci na webu Marketplace musí být také dostupný pro prostředí Azure Stack hub, protože k provedení operace importu je nutné použít nástroj.
 
    Následující obrázek ukazuje příklad struktury složek.  **D:\downloadfolder** obsahuje všechny stažené položky Marketplace. Každá podsložka je položkou Marketplace (například **Microsoft. Custom-Script-Linux-ARM-2.0.3**) s názvem ID produktu. V každé podsložce je stažený obsah položky webu Marketplace.
 
    ![Adresářová struktura pro stažení Marketplace](media/azure-stack-download-azure-marketplace-item/mp1.png)
 
-2. Postupujte podle pokynů v [tomto článku](azure-stack-powershell-configure-admin.md) a nakonfigurujte relaci powershellu Azure Stack operator.
+2. Postupujte podle pokynů v [tomto článku](azure-stack-powershell-configure-admin.md) a nakonfigurujte relaci PowerShellu operátora centra Azure Stack.
 
 3. Importujte modul syndikace a potom spusťte nástroj syndikace webu Marketplace spuštěním následujícího skriptu:
 
    ```powershell
-   $credential = Get-Credential -Message "Enter the azure stack operator credential:"
+   $credential = Get-Credential -Message "Enter the Azure Stack Hub operator credential:"
    Import-AzSOfflineMarketplaceItem -origin "marketplace content folder" -AzsCredential $credential
    ```
 
@@ -217,6 +217,6 @@ Po registraci můžete ignorovat následující zprávu, která se zobrazí v ok
    Parametr `-AzsCredential` je nepovinný. Používá se k obnovení přístupového tokenu, pokud vypršela jeho platnost. Pokud není zadán parametr `-AzsCredential` a vyprší platnost tokenu, zobrazí se výzva k zadání přihlašovacích údajů operátora.
 
    > [!NOTE]
-   > AD FS podporuje pouze interaktivní ověřování s identitami uživatele. Pokud je vyžadován objekt přihlašovacích údajů, je nutné použít instanční objekt (SPN). Další informace o nastavení instančního objektu pomocí Azure Stack a AD FS jako služby správy identit najdete v tématu [Správa služby AD FS instančního objektu](azure-stack-create-service-principals.md#manage-an-ad-fs-service-principal).
+   > AD FS podporuje pouze interaktivní ověřování s identitami uživatele. Pokud je vyžadován objekt přihlašovacích údajů, je nutné použít instanční objekt (SPN). Další informace o nastavení instančního objektu pomocí centra Azure Stack a AD FS jako služby správy identit najdete v tématu [Správa služby AD FS instančního objektu](azure-stack-create-service-principals.md#manage-an-ad-fs-service-principal).
 
-4. Po úspěšném dokončení skriptu by měla být položka k dispozici v Azure Stack Marketplace.
+4. Po úspěšném dokončení skriptu by měla být položka k dispozici v tržišti Azure Stack hub.

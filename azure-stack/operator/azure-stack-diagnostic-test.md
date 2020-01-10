@@ -1,6 +1,6 @@
 ---
-title: Ověření stavu systému pomocí nástroje pro ověření Azure Stack | Microsoft Docs
-description: Naučte se používat nástroj pro ověření Azure Stack k ověření stavu systému.
+title: Použijte nástroj pro ověření centra Azure Stack k ověření stavu systému | Microsoft Docs
+description: Naučte se používat nástroj pro ověření centra Azure Stack k ověření stavu systému.
 services: azure-stack
 author: justinha
 manager: femila
@@ -14,18 +14,18 @@ ms.date: 06/26/2019
 ms.author: justinha
 ms.reviewer: adshar
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 98732c3eb5933e1fd6d7ce42d726d3f5019c97eb
-ms.sourcegitcommit: 53f7daf295783a30feb284d4c48c30c6936557c5
+ms.openlocfilehash: f362fb5dfc47dca23bf7076ecfe0d347a9c789d0
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74830960"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75817393"
 ---
-# <a name="validate-azure-stack-system-state"></a>Ověřit Azure Stack stav systému
+# <a name="validate-azure-stack-hub-system-state"></a>Ověřit stav systému centra Azure Stack
 
-*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
-Jako operátor Azure Stack je možné určit stav systému na vyžádání v podstatě. Nástroj pro ověření Azure Stack (**test-AzureStack**) je rutina prostředí PowerShell, která umožňuje spuštění řady testů v systému, aby bylo možné identifikovat chyby, pokud jsou k dispozici. Obvykle budete vyzváni ke spuštění tohoto nástroje prostřednictvím [privilegovaného koncového bodu (PEP)](azure-stack-privileged-endpoint.md) při kontaktování podpory zákaznických služeb Microsoftu (CSS) s problémem. Pomocí informací o stavu a stavu v rámci systému může šablona stylů CSS shromažďovat a analyzovat podrobné protokoly, soustředit se na oblast, ve které došlo k chybě, a s vámi vyřešit problémy.
+Jako operátor centra Azure Stack je možné určit stav systému na vyžádání v podstatě. Nástroj pro ověření centra Azure Stack (**test-AzureStack**) je rutina prostředí PowerShell, která umožňuje spustit sérii testů v systému, aby bylo možné identifikovat chyby, pokud jsou k dispozici. Obvykle budete vyzváni ke spuštění tohoto nástroje prostřednictvím [privilegovaného koncového bodu (PEP)](azure-stack-privileged-endpoint.md) při kontaktování podpory zákaznických služeb Microsoftu (CSS) s problémem. Pomocí informací o stavu a stavu v rámci systému může šablona stylů CSS shromažďovat a analyzovat podrobné protokoly, soustředit se na oblast, ve které došlo k chybě, a s vámi vyřešit problémy.
 
 ## <a name="running-the-validation-tool-and-accessing-results"></a>Spuštění nástroje pro ověření a přístup k výsledkům
 
@@ -48,7 +48,7 @@ Jak je uvedeno výše, nástroj pro ověření se spouští přes PEP. Každý t
 
    Další informace najdete v tématu věnovaném [parametrům](azure-stack-diagnostic-test.md#parameter-considerations) a [příkladům případu použití](azure-stack-diagnostic-test.md#use-case-examples).
 
-3. Pokud dojde k **selhání**jakékoli testy, spusťte `Get-AzureStackLog`. Pokyny k integrovanému systému najdete v tématu [spuštění rutiny Get-AzureStackLog v Azure Stack integrovaných systémech](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)nebo na ASDK v tématu [spuštění rutiny Get-AZURESTACKLOG v systému ASDK](azure-stack-configure-on-demand-diagnostic-log-collection.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system).
+3. Pokud dojde k **selhání**jakékoli testy, spusťte `Get-AzureStackLog`. Pokyny k integrovanému systému najdete v tématu [spuštění rutiny Get-AzureStackLog v systémech integrovaných v centru Azure Stack](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)nebo na ASDK v tématu spuštění rutiny [Get-AZURESTACKLOG v systému ASDK](azure-stack-configure-on-demand-diagnostic-log-collection.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system).
 
    Rutina shromáždí protokoly generované rutinou test-AzureStack. Doporučujeme, abyste neshromáždili protokoly a místo toho kontaktovali šablony stylů CSS, pokud testy **upozorňují**na zprávu.
 
@@ -64,32 +64,32 @@ Tyto testy s nízkým dopadem fungují na úrovni infrastruktury a poskytují in
 
 | Kategorie testu                                        | Argument pro-include a-Ignore |
 | :--------------------------------------------------- | :-------------------------------- |
-| Shrnutí služby Azure Stack ACS                              | AzsAcsSummary                     |
-| Shrnutí služby Azure Stack Active Directory                 | AzsAdSummary                      |
-| Shrnutí výstrahy Azure Stack                            | AzsAlertSummary                   |
-| Azure Stack souhrn chyby aplikace                | AzsApplicationCrashSummary        |
-| Souhrn přístupnosti sdílené složky zálohování Azure Stack       | AzsBackupShareAccessibility       |
-| Souhrn Azure Stack BMC                              | AzsStampBMCSummary                |
-| Azure Stack souhrn infrastruktury hostování cloudu     | AzsHostingInfraSummary            |
-| Azure Stack využití infrastruktury hostování cloudu | AzsHostingInfraUtilization        |
-| Shrnutí roviny ovládacího prvku Azure Stack                    | AzsControlPlane                   |
-| Souhrn Azure Stack Defenderu                         | AzsDefenderSummary                |
-| Souhrn firmwaru infrastruktury Azure Stack hostování  | AzsHostingInfraFWSummary          |
-| Azure Stack kapacity infrastruktury                  | AzsInfraCapacity                  |
-| Azure Stack výkon infrastruktury               | AzsInfraPerformance               |
-| Souhrn role Azure Stack infrastruktury              | AzsInfraRoleSummary               |
-| Azure Stack síťové infračervené sítě                            | AzsNetworkInfra                   |
-| Přehled Azure Stackho portálu a rozhraní API                   | AzsPortalAPISummary               |
-| Události virtuálního počítače jednotky Azure Stack škálování                     | AzsScaleUnitEvents                |
-| Prostředky virtuálních počítačů jednotek škálování Azure Stack                  | AzsScaleUnitResources             |
-| Azure Stack scénáře                                | AzsScenarios                      |
-| Azure Stack souhrn ověření SDN                   | AzsSDNValidation                  |
-| Souhrn role Azure Stack Service Fabric              | AzsSFRoleSummary                  |
-| Azure Stack rovina dat úložiště                       | AzsStorageDataPlane               |
-| Souhrn služby Azure Stack Storage                 | AzsStorageSvcsSummary             |
-| Souhrn Azure Stack SQL Storu                        | AzsStoreSummary                   |
-| Souhrn aktualizace Azure Stack                           | AzsInfraUpdateSummary             |
-| Shrnutí umístění virtuálního počítače Azure Stack                     | AzsVmPlacement                    |
+| Shrnutí služby ACS centra Azure Stack                              | AzsAcsSummary                     |
+| Souhrn služby Active Directory centra Azure Stack                 | AzsAdSummary                      |
+| Souhrn výstrah centra Azure Stack                            | AzsAlertSummary                   |
+| Shrnutí selhání aplikace centra Azure Stack                | AzsApplicationCrashSummary        |
+| Shrnutí dostupnosti sdílené složky centra Azure Stackho zálohování       | AzsBackupShareAccessibility       |
+| Souhrn řadiče pro správu základní desky Azure Stack centra                              | AzsStampBMCSummary                |
+| Shrnutí infrastruktury cloudového hostování Azure Stack centra     | AzsHostingInfraSummary            |
+| Využití infrastruktury cloudového hostingu centra Azure Stack | AzsHostingInfraUtilization        |
+| Azure Stack souhrn roviny ovládacího prvku centra                    | AzsControlPlane                   |
+| Souhrn Defenderu centra Azure Stack                         | AzsDefenderSummary                |
+| Souhrn firmwaru infrastruktury služby Azure Stack hub pro hostování  | AzsHostingInfraFWSummary          |
+| Kapacita infrastruktury centra Azure Stack                  | AzsInfraCapacity                  |
+| Azure Stack výkonu infrastruktury centra               | AzsInfraPerformance               |
+| Souhrn rolí infrastruktury centra Azure Stack              | AzsInfraRoleSummary               |
+| Infrastruktura sítě Azure Stack hub                            | AzsNetworkInfra                   |
+| Portál centra Azure Stack a Přehled rozhraní API                   | AzsPortalAPISummary               |
+| Události virtuálního počítače jednotky škálování centra Azure Stack                     | AzsScaleUnitEvents                |
+| Prostředky virtuálních počítačů jednotky škálování centra Azure Stack                  | AzsScaleUnitResources             |
+| Scénáře centra Azure Stack                                | AzsScenarios                      |
+| Shrnutí ověřování SDN centra Azure Stack                   | AzsSDNValidation                  |
+| Souhrn rolí Service Fabric centra Azure Stack              | AzsSFRoleSummary                  |
+| Azure Stack rovina dat úložiště centra                       | AzsStorageDataPlane               |
+| Shrnutí služby úložiště Azure Stack hub                 | AzsStorageSvcsSummary             |
+| Shrnutí úložiště SQL centra Azure Stack                        | AzsStoreSummary                   |
+| Shrnutí aktualizace centra Azure Stack                           | AzsInfraUpdateSummary             |
+| Shrnutí umístění virtuálních počítačů centra Azure Stack                     | AzsVmPlacement                    |
 
 ### <a name="cloud-scenario-tests"></a>Cloudové testy scénářů
 
@@ -167,13 +167,13 @@ Uživatelské jméno správce cloudu musí být zadané ve formátu UPN: service
 Pro zlepšení prostředí operátora je povolený parametr **skupiny** , aby bylo možné spustit více kategorií testů současně. V současné době jsou definovány tři skupiny: **Default**, **UpdateReadiness**a **SecretRotationReadiness**.
 
 - **Výchozí**: považuje se za standardní běh rutiny **test-AzureStack**. Tato skupina se spouští ve výchozím nastavení, pokud nejsou vybrané žádné jiné skupiny.
-- **UpdateReadiness**: Zkontrolujte, zda je možné aktualizovat instanci Azure Stack. Když je spuštěná skupina **UpdateReadiness** , zobrazí se upozornění jako chyby ve výstupu konzoly a měla by se považovat za blokování pro aktualizaci. Od verze Azure Stack 1910 jsou součástí skupiny **UpdateReadiness** tyto kategorie:
+- **UpdateReadiness**: zkontroluje, jestli se instance centra Azure Stack dá aktualizovat. Když je spuštěná skupina **UpdateReadiness** , zobrazí se upozornění jako chyby ve výstupu konzoly a měla by se považovat za blokování pro aktualizaci. Od centra Azure Stack verze 1910 jsou součástí skupiny **UpdateReadiness** tyto kategorie:
 
   - **AzsInfraFileValidation**
   - **AzsActionPlanStatus**
   - **AzsStampBMCSummary**
 
-- **SecretRotationReadiness**: zkontroluje, jestli je instance Azure Stack ve stavu, ve kterém se dá spustit rotace tajných klíčů. Když je spuštěná skupina **SecretRotationReadiness** , zobrazí se upozornění jako chyby ve výstupu konzoly a měla by se považovat za blokování pro rotaci tajných klíčů. Následující kategorie jsou součástí skupiny SecretRotationReadiness:
+- **SecretRotationReadiness**: zkontroluje, jestli je instance centra Azure Stack ve stavu, ve kterém je možné spustit rotaci tajných klíčů. Když je spuštěná skupina **SecretRotationReadiness** , zobrazí se upozornění jako chyby ve výstupu konzoly a měla by se považovat za blokování pro rotaci tajných klíčů. Následující kategorie jsou součástí skupiny SecretRotationReadiness:
 
   - **AzsAcsSummary**
   - **AzsDefenderSummary**
@@ -187,13 +187,13 @@ Pro zlepšení prostředí operátora je povolený parametr **skupiny** , aby by
 
 #### <a name="group-parameter-example"></a>Příklad parametru skupiny
 
-Následující příklad spustí **test-AzureStack** pro otestování připravenosti systému před instalací aktualizace nebo opravy hotfix pomocí **skupiny**. Než začnete s instalací aktualizace nebo opravy hotfix, spusťte rutinu **test-AzureStack** a zkontrolujte stav Azure Stack:
+Následující příklad spustí **test-AzureStack** pro otestování připravenosti systému před instalací aktualizace nebo opravy hotfix pomocí **skupiny**. Než začnete s instalací aktualizace nebo opravy hotfix, spusťte rutinu **test-AzureStack** a zkontrolujte stav centra Azure Stack:
 
 ```powershell
 Test-AzureStack -Group UpdateReadiness
 ```
 
-Pokud Azure Stack používá verzi starší než 1811, spusťte rutinu **test-AzureStack**pomocí následujících příkazů PowerShellu:
+Pokud v centru Azure Stack běží verze před 1811, spusťte rutinu **test-AzureStack**pomocí následujících příkazů PowerShellu:
 
 ```powershell
 New-PSSession -ComputerName "<ERCS VM-name/IP address>" -ConfigurationName PrivilegedEndpoint -Credential $localcred 
@@ -225,7 +225,7 @@ Chcete-li otestovat nové přihlašovací údaje s nakonfigurovanou sdílenou sl
 
 ### <a name="run-validation-tool-to-test-network-infrastructure"></a>Spuštění nástroje pro ověření pro otestování síťové infrastruktury
 
-Tento test kontroluje konektivitu síťové infrastruktury, která obchází Azure Stack softwarově definované sítě (SDN). Ukazuje připojení z veřejné virtuální IP adresy k nakonfigurovaným serverům DNS pro přeposílání, serverům NTP a koncovým bodům ověřování. To zahrnuje připojení k Azure při použití Azure AD jako zprostředkovatele identity nebo federovaného serveru při použití AD FS jako zprostředkovatele identity.
+Tento test ověří konektivitu síťové infrastruktury, která obchází síťovou definovanou síť (SDN) Azure Stack hub. Ukazuje připojení z veřejné virtuální IP adresy k nakonfigurovaným serverům DNS pro přeposílání, serverům NTP a koncovým bodům ověřování. To zahrnuje připojení k Azure při použití Azure AD jako zprostředkovatele identity nebo federovaného serveru při použití AD FS jako zprostředkovatele identity.
 
 K získání podrobného výstupu příkazu přidejte parametr Debug:
 
@@ -235,6 +235,6 @@ Test-AzureStack -Include AzsNetworkInfra -Debug
 
 ## <a name="next-steps"></a>Další kroky
 
-Další informace o Azure Stack diagnostických nástrojů a protokolování problémů najdete v tématu [nástroje Azure Stack Diagnostics](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs).
+Další informace o nástrojích pro diagnostiku centra Azure Stack a protokolování problémů najdete v tématu [Nástroje pro diagnostiku Azure Stack centra](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs).
 
-Další informace o řešení potíží najdete v tématu [řešení potíží s Microsoft Azure Stack](azure-stack-troubleshooting.md).
+Další informace o řešení potíží najdete v tématu [řešení potíží s centrem Microsoft Azure Stack](azure-stack-troubleshooting.md).

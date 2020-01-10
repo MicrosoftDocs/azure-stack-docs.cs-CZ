@@ -1,6 +1,6 @@
 ---
-title: Vytvoření virtuálního počítače se systémem Linux pomocí Azure Stack | Microsoft Docs
-description: Vytvořte virtuální počítač s Linux serverem pomocí Azure Stack.
+title: Vytvoření virtuálního počítače se systémem Linux pomocí centra Azure Stack | Microsoft Docs
+description: Vytvořte virtuální počítač s Linux serverem pomocí centra Azure Stack.
 services: azure-stack
 cloud: azure-stack
 author: mattbriggs
@@ -12,31 +12,31 @@ ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.custom: mvc
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 5c3b8d85f5dca0eeb439ca475d4396848d316366
-ms.sourcegitcommit: 0d27456332031ab98ba2277117395ae5ffcbb79f
+ms.openlocfilehash: 1edfff9f684bb5ca9ed46ee06e98685f026b5bea
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73047270"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75819348"
 ---
-# <a name="quickstart-create-a-linux-server-vm-by-using-the-azure-stack-portal"></a>Rychlý Start: Vytvoření virtuálního počítače s Linux serverem pomocí Azure Stackového portálu
+# <a name="quickstart-create-a-linux-server-vm-by-using-the-azure-stack-hub-portal"></a>Rychlý Start: Vytvoření virtuálního počítače s Linux serverem pomocí portálu Azure Stack hub
 
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack Development Kit*
+*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
-Virtuální počítač s Ubuntu serverem 16,04 LTS můžete vytvořit pomocí portálu Azure Stack. V tomto článku vytvoříte a použijete virtuální počítač. Tento článek také ukazuje, jak:
+Virtuální počítač s Ubuntu serverem 16,04 LTS můžete vytvořit pomocí portálu centra Azure Stack. V tomto článku vytvoříte a použijete virtuální počítač. Tento článek také ukazuje, jak:
 
 * Připojte se k virtuálnímu počítači pomocí vzdáleného klienta.
 * Instalace webového serveru NGINX
 * Vyčistěte prostředky.
 
 > [!NOTE]  
-> Obrázky v tomto článku jsou aktualizované tak, aby odpovídaly změnám, které byly představeny ve verzi Azure Stack 1808. Verze 1808 kromě nespravovaných disků přidává podporu pro používání *spravovaných disků* . Pokud používáte starší verzi, obrázky pro některé úlohy, jako je výběr disku, se liší od toho, co se zobrazuje v uživatelském rozhraní.  
+> Obrázky v tomto článku jsou aktualizované tak, aby odpovídaly změnám, které byly představeny v Azure Stack centra verze 1808. Verze 1808 kromě nespravovaných disků přidává podporu pro používání *spravovaných disků* . Pokud používáte starší verzi, obrázky pro některé úlohy, jako je výběr disku, se liší od toho, co se zobrazuje v uživatelském rozhraní.  
 
-## <a name="prerequisites"></a>Předpoklady
+## <a name="prerequisites"></a>Požadavky
 
-* Image Linux na webu Azure Stack Marketplace
+* Image Linux na webu centra Azure Stack Marketplace
 
-   Web Azure Stack Marketplace ve výchozím nastavení nemá bitovou kopii operačního systému Linux. Použijte operátor Azure Stack, který obsahuje bitovou kopii Ubuntu serveru 16,04 LTS, kterou potřebujete. Operátor může použít pokyny v tématu [stažení položek Marketplace z Azure do Azure Stack](../operator/azure-stack-download-azure-marketplace-item.md).
+   Tržiště centra Azure Stack ve výchozím nastavení nemá bitovou kopii operačního systému Linux. Použijte operátor centra Azure Stack, který obsahuje bitovou kopii Ubuntu serveru 16,04 LTS, kterou potřebujete. Operátor může použít pokyny v tématu [stažení položek Marketplace z Azure do centra Azure Stack](../operator/azure-stack-download-azure-marketplace-item.md).
 
 * Přístup k klientovi SSH
 
@@ -66,23 +66,23 @@ Vytvoření páru klíčů SSH:
 
    ![Výsledky generátoru klíčů výstupu](media/azure-stack-quick-linux-portal/Putty02.PNG)
 
-## <a name="sign-in-to-the-azure-stack-portal"></a>Přihlášení k portálu Azure Stack
+## <a name="sign-in-to-the-azure-stack-hub-portal"></a>Přihlášení k portálu centra Azure Stack
 
-Adresa Azure Stackového portálu závisí na tom, ke kterému Azure Stack produktu se připojujete:
+Adresa portálu centra Azure Stack závisí na tom, k jakému produktu Azure Stack centra se připojujete:
 
 * V případě ASDK přejít na https://portal.local.azurestack.external.
 
-* V případě Azure Stack integrovaného systému, přejít na adresu URL, kterou zadal operátor Azure Stack.
+* V případě integrovaného systému služby Azure Stack hub přejít na adresu URL, kterou poskytl váš operátor centra Azure Stack.
 
 ## <a name="create-the-vm"></a>Vytvořte virtuální počítač.
 
-1. V levém horním rohu portálu Azure Stack vyberte **vytvořit prostředek**.
+1. V levém horním rohu portálu centra Azure Stack vyberte **vytvořit prostředek**.
 
 1. Vyberte **Compute** a potom vyberte **Ubuntu Server 16.04 LTS**.
    
    ![Vybrat server pro Linux](media/azure-stack-quick-linux-portal/select.png)
 
-1. Vyberte **Create** (Vytvořit).
+1. Vyberte **Vytvořit**.
 
 1. Zadejte informace o virtuálním počítači. Jako **typ ověřování**vyberte **veřejný klíč SSH**, vložte veřejný klíč SSH, který jste uložili, a pak vyberte **OK**.
 
@@ -97,7 +97,7 @@ Adresa Azure Stackového portálu závisí na tom, ke kterému Azure Stack produ
 
 1. Na stránce **Nastavení** proveďte změny ve výchozích hodnotách.
    
-   Počínaje verzí 1808 Azure Stack můžete nakonfigurovat **úložiště** a vybrat možnost použití *spravovaných disků*. V dřívějších verzích než 1808 lze použít pouze nespravované disky.
+   Od centra Azure Stack verze 1808 můžete nakonfigurovat **úložiště** a vybrat možnost použití *spravovaných disků*. V dřívějších verzích než 1808 lze použít pouze nespravované disky.
 
    ![Konfigurace úložiště pro spravované disky](media/azure-stack-quick-linux-portal/linux-03.PNG)
     
@@ -119,7 +119,7 @@ Adresa Azure Stackového portálu závisí na tom, ke kterému Azure Stack produ
 
 1. V podokně **kategorie** se posuňte nahoru a vyberte možnost **relace**.
 
-1. Do pole **název hostitele (nebo IP adresa)** vložte připojovací řetězec, který je zobrazený na portálu Azure Stack. V tomto příkladu je řetězec *asadmin@192.168.102.34* .
+1. Do pole **název hostitele (nebo IP adresa)** vložte připojovací řetězec, který je zobrazený na portálu centra Azure Stack. V tomto příkladu je řetězec *asadmin@192.168.102.34* .
 
 1. Výběrem **otevřít** otevřete relaci pro virtuální počítač.
 
@@ -139,11 +139,11 @@ sudo apt-get -y update
 sudo apt-get -y install nginx
 ```
 
-Po dokončení instalace NGINX zavřete relaci SSH a otevřete na portálu Azure Stack stránku s **přehledem** virtuálního počítače.
+Po dokončení instalace NGINX zavřete relaci SSH a otevřete stránku **Přehled** virtuálního počítače na portálu centra Azure Stack.
 
 ## <a name="open-port-80-for-web-traffic"></a>Otevření portu 80 pro webový provoz
 
-Skupina zabezpečení sítě (NSG) zabezpečuje příchozí a odchozí provoz. Když se na portálu Azure Stack vytvoří virtuální počítač, vytvoří se příchozí pravidlo na portu 22 pro připojení SSH. Vzhledem k tomu, že tento virtuální počítač je hostitelem webového serveru, je nutné vytvořit pravidlo NSG, které povoluje webový provoz na portu 80.
+Skupina zabezpečení sítě (NSG) zabezpečuje příchozí a odchozí provoz. Když se na portálu centra Azure Stack vytvoří virtuální počítač, vytvoří se příchozí pravidlo na portu 22 pro připojení SSH. Vzhledem k tomu, že tento virtuální počítač je hostitelem webového serveru, je nutné vytvořit pravidlo NSG, které povoluje webový provoz na portu 80.
 
 1. Na stránce **Přehled** virtuálních počítačů vyberte název **skupiny prostředků**.
 
@@ -173,4 +173,4 @@ Vyčistěte prostředky, které už nepotřebujete. Pokud chcete virtuální po�
 
 ## <a name="next-steps"></a>Další kroky
 
-V tomto rychlém startu jste nasadili základní virtuální počítač s Linux serverem s webovým serverem. Další informace o Azure Stack virtuálních počítačů najdete [v informacích o virtuálních počítačích v Azure Stack](azure-stack-vm-considerations.md).
+V tomto rychlém startu jste nasadili základní virtuální počítač s Linux serverem s webovým serverem. Další informace o Azure Stackch virtuálních počítačů centra najdete [v informacích o virtuálních počítačích v centru Azure Stack](azure-stack-vm-considerations.md).
