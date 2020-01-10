@@ -8,12 +8,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: f845aee01e4c87bc877eb77fb793b32472f9f222
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: 3f16b543751ac4bee94cc05045c03de7230f9a3c
+ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73639253"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75717973"
 ---
 # <a name="train-machine-learning-ml-model-at-the-edge-pattern"></a>Postup analýzy Machine Learning (ML) na hraničním modelu
 
@@ -21,7 +21,7 @@ Vygenerujte přenositelné modely ML z dat, která existují jenom místně.
 
 ## <a name="context-and-problem"></a>Kontext a problém
 
-Mnoho organizací chce odemknout poznatky z místních nebo starších dat pomocí nástrojů, které jejich odborníci na data znají. [Služba Azure Machine Learning](/azure/machine-learning/) poskytuje cloudové nástroje pro Cloud, které umožňují výuku, ladění a nasazování modelů ml a hloubkového učení.  
+Mnoho organizací chce odemknout poznatky z místních nebo starších dat pomocí nástrojů, které jejich odborníci na data znají. [Azure Machine Learning](/azure/machine-learning/) poskytuje cloudové nativní nástroje pro školení, ladění a nasazení modelů ml a hloubkového učení.  
 
 Některá data jsou ale příliš velká pro posílání do cloudu nebo se nedají do cloudu odeslat z důvodů regulativních předpisů. Pomocí tohoto modelu mohou odborníci přes data využít Azure Machine Learning k učení modelů pomocí místních dat a výpočetních prostředků. 
 
@@ -44,13 +44,13 @@ Jak řešení funguje:
 
 Toto řešení používá následující komponenty:
 
-| Vrstvení | Součást | Popis |
+| Vrstva | Součást | Popis |
 |----------|-----------|-------------|
 | Azure | Azure Machine Learning | [Azure Machine Learning](/azure/machine-learning/) orchestruje školení modelu ml. |
 | | Azure Container Registry | Azure ML zabalí model do kontejneru a uloží ho do [Azure Container Registry](/azure/container-registry/) pro nasazení.|
-| Centrum Azure Stack | Aplikační služba | [Azure Stack centrum s App Service](/azure-stack/operator/azure-stack-app-service-overview) poskytuje základ pro komponenty na hraničních zařízeních. |
+| Azure Stack Hub | Aplikační služba | [Azure Stack centrum s App Service](/azure-stack/operator/azure-stack-app-service-overview) poskytuje základ pro komponenty na hraničních zařízeních. |
 | | Služby Compute | Pro výuku modelu ML se používá virtuální počítač centra Azure Stack se systémem Ubuntu s Docker. |
-| | Úložiště | Soukromá data můžou být hostovaná v úložišti objektů BLOB centra Azure Stack. |
+| | Storage | Soukromá data můžou být hostovaná v úložišti objektů BLOB centra Azure Stack. |
 
 ## <a name="issues-and-considerations"></a>Problémy a důležité informace
 

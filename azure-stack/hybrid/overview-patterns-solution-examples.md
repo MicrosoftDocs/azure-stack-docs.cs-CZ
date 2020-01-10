@@ -8,12 +8,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 134171c85f91801f83965d376f79d09f6e8e3ac8
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: 82f933babd0be4c001bd3001a631a4345bd0e488
+ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73638725"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75718058"
 ---
 # <a name="hybrid-patterns-and-solution-examples-for-azure-and-azure-stack"></a>Hybridní vzory a příklady řešení pro Azure a Azure Stack
 
@@ -25,7 +25,7 @@ Azure Stack přináší flexibilitu cloud computingu do místního prostředí a
 
 - Používejte kód a spouštějte nativní cloudové aplikace konzistentně napříč Azure a místními prostředími.
 - Spouštějte tradiční virtualizované úlohy s volitelnými připojeními ke službám Azure.
-- Přeneste data do cloudu nebo je Zachovejte v datacentrech dat, abyste zachovali dodržování předpisů.
+- Přeneste data do cloudu nebo je udržujte v datacentru svrchovan, abyste zachovali dodržování předpisů.
 - Spusťte hardwarově akcelerované strojové učení, kontejnery nebo virtualizované úlohy, a to vše na inteligentních hraničních zařízeních.
 
 Aplikace, které zahrnují cloudy, se také označují jako *hybridní aplikace*. V Azure můžete vytvářet hybridní cloudové aplikace a nasazovat je do připojeného nebo odpojeného datacentra, které najdete kdekoli.

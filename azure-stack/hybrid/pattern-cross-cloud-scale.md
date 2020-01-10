@@ -8,12 +8,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: ddc8218aadbf3940ea18ce80012441c5e43c7472
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: 3bd29e8625fac818d05954720d84d572b684c92e
+ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73638802"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75718007"
 ---
 # <a name="cross-cloud-scaling-pattern"></a>Vzor škálování mezi cloudy
 
@@ -42,7 +42,7 @@ Vzor škálování mezi cloudy se skládá z následujících součástí.
 
 **Traffic Manager**  
 
-V tomto diagramu se nachází mimo skupinu veřejných cloudů, ale musela by koordinovat provoz v místním datovém centru i ve veřejném cloudu. Nástroj pro vyrovnávání zatížení poskytuje vysokou dostupnost pro aplikace monitorováním koncových bodů a zajištěním přerozdělení převzetí služeb při selhání.
+V tomto diagramu se nachází mimo skupinu veřejných cloudů, ale musela by koordinovat provoz v místním datacentru i ve veřejném cloudu. Nástroj pro vyrovnávání zatížení poskytuje vysokou dostupnost pro aplikace monitorováním koncových bodů a zajištěním přerozdělení převzetí služeb při selhání.
 
 **DNS (Domain Name System)**  
 
