@@ -14,12 +14,12 @@ ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: 963944f2ade4db168c1b7f9070e72fe503bdfcf9
-ms.sourcegitcommit: 08d2938006b743b76fba42778db79202d7c3e1c4
+ms.openlocfilehash: eb676d914a345c5fe36e063ee08ea226cd1e3209
+ms.sourcegitcommit: 1cb84d8417367b553194614d53a477a94a8e9be9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74954464"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75755173"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>Poznámky k verzi pro ověřování jako službu
 
@@ -28,6 +28,17 @@ ms.locfileid: "74954464"
 V tomto článku najdete poznámky k verzi pro ověřování Azure Stack jako služby.
 
 ## <a name="version-4421"></a>4\.4.2.1 verze
+
+2020. ledna 9
+
+- Testování aktualizací obsahu
+  - Pracovní postup ověření výrobce OEM (verze 5.1.52.0-> 5.1.53.0): snížen počet požadovaných parametrů z podokna testovacího plánu. 
+  - Opravu chyb pro výpočetní výkon – TestVMOperations
+    
+- Známé problémy
+  - Kontaktujte vaashelp@microsoft.com, pokud se následující testovací případy nepodaří spustit během ověřovacího pracovního postupu výrobce OEM:
+    - Test101LinuxEmptyAttachedDiskManagedDisk
+    - Test101WindowsEmptyAttachedDiskManagedDisk
 
 2019 prosince 3
 
