@@ -10,16 +10,14 @@ ms.service: azure-stack
 manager: femila
 ms.reviewer: xiaofmao
 ms.lastreviewed: 02/27/2019
-ms.openlocfilehash: ae32a0cf0142499a13474ecd7d2f422b01820eaa
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 80dbb848eb764f2c0c71e3987c291f9eb505cf91
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75819008"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883316"
 ---
 # <a name="get-started-with-azure-stack-hub-storage-development-tools"></a>Začínáme s nástroji pro vývoj pro úložiště Azure Stack hub
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 Centrum Microsoft Azure Stack poskytuje sadu služeb úložiště, které zahrnují úložiště objektů blob, tabulek a front.
 
