@@ -8,16 +8,14 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: e0fe07495017d6bd56beab78a37f5e0708197087
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: 7c530d537bb5c102091a9f4c68b35dd5a0a91275
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73639011"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881412"
 ---
 # <a name="deploy-a-sql-server-2016-availability-group-to-azure-and-azure-stack-hub"></a>Nasazení skupiny dostupnosti SQL Server 2016 do Azure a centra Azure Stack
-
-*Platí pro: Azure Stack integrovaných systémů centra*
 
 Tento článek vás provede automatizovaným nasazením základního vysoce dostupného clusteru s vysokou dostupností (HA) SQL Server 2016 Enterprise s asynchronním serverem pro zotavení po havárii ve dvou Azure Stack hub prostředích. Další informace o SQL Server 2016 a vysoké dostupnosti najdete v tématu [skupiny dostupnosti Always On: řešení zotavení po havárii s vysokou dostupností](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-2016).
 
@@ -29,7 +27,7 @@ V tomto řešení vytvoříte ukázkové prostředí pro:
 > - Nasazení základního vysoce dostupného clusteru SQL Server 2016 Enterprise s lokalitou pro obnovení po havárii
 
 > [!Tip]  
-> ![Hybrid-Pillars. png](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
+> ![hybridní pillars.png](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
 > Centrum Microsoft Azure Stack je rozšířením Azure. Centrum Azure Stack přináší flexibilitu a inovace cloud computingu do místního prostředí. tím se umožní jenom hybridní cloud, který umožňuje vytvářet a nasazovat hybridní aplikace odkudkoli.  
 > 
 > Požadavky na [Návrh pro hybridní aplikace](overview-app-design-considerations.md) kontrolují pilíře kvality softwaru (umístění, škálovatelnost, dostupnost, odolnost, možnosti správy a zabezpečení) pro navrhování, nasazování a provozování hybridních aplikací. Pokyny k návrhu pomáhají při optimalizaci návrhu hybridní aplikace a minimalizaci výzev v produkčních prostředích.

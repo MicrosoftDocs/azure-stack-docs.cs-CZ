@@ -15,16 +15,14 @@ ms.date: 08/12/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 7850c24a281a91f6797074778e72efdc281f6958
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 8e9ad6917a6f8db571fc41b88fb9ef29e25d247c
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75811834"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882636"
 ---
 # <a name="delegate-offers-in-azure-stack-hub"></a>Delegování nabídek v centru Azure Stack
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 Jako operátor centra Azure Stack můžete chtít, aby se k registraci uživatelů a vytváření předplatných museli zajímat další lidé. Pokud jste například poskytovatelem služeb, můžete chtít, aby prodejci mohli registrovat zákazníky a spravovat je vaším jménem. Nebo, pokud jste součástí centrální skupiny IT v podniku, možná budete chtít delegovat registraci uživatelů na jiné pracovníky IT.
 

@@ -16,16 +16,14 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: e7436c6a96dfbe5bdfd392b915d0206bf969130e
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 5ae8a125521689a1e07e1207e03df4d981b74704
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75814299"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881803"
 ---
 # <a name="update-the-sql-resource-provider"></a>Aktualizovat poskytovatele prostředků SQL
-
-*Platí pro: Azure Stack integrovaných systémů centra.*
 
 Nový poskytovatel prostředků SQL může být vydaný, když se Azure Stack centrum aktualizuje na nové sestavení. I když stávající poskytovatel prostředků i nadále funguje, doporučujeme aktualizovat na nejnovější sestavení co nejdříve.
 
@@ -71,7 +69,7 @@ Když spustíte skript prostředí PowerShell **UpdateSQLProvider. ps1** , můž
 > [!NOTE]
 > Tento proces aktualizace platí jenom pro integrované systémy Azure Stack hub.
 
-Pokud aktualizujete verzi poskytovatele prostředků SQL na 1.1.33.0 nebo předchozí verze, budete muset v PowerShellu nainstalovat konkrétní verze modulů AzureRm. zaváděcího nástroje a Azure Stack hub. Pokud aktualizujete na poskytovatele prostředků SQL verze 1.1.47.0, tento krok se dá přeskočit.
+Pokud aktualizujete verzi poskytovatele prostředků SQL na 1.1.33.0 nebo předchozí verze, budete muset v PowerShellu nainstalovat konkrétní verze modulů AzureRm. zaváděcího nástroje a Azure Stack hub. Pokud aktualizujete na poskytovatele prostředků SQL verze 1.1.47.0, skript nasazení automaticky stáhne a nainstaluje potřebné moduly PowerShellu pro vás do cesty C:\Program Files\SqlMySqlPsh.
 
 ```powershell
 # Install the AzureRM.Bootstrapper module, set the profile, and install the AzureStack module.
@@ -80,6 +78,9 @@ Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
 Install-Module -Name AzureStack -RequiredVersion 1.6.0
 ```
+
+> [!NOTE]
+> V odpojeném scénáři je nutné stáhnout požadované moduly prostředí PowerShell a zaregistrovat úložiště ručně v rámci požadavků. Další informace můžete získat v [nasazení poskytovatele prostředků SQL](azure-stack-sql-resource-provider-deploy.md) .
 
 Následuje příklad použití skriptu *UpdateSQLProvider. ps1* , který můžete spustit z konzoly PowerShell se zvýšenými oprávněními. Nezapomeňte změnit informace o proměnné a hesla podle potřeby:  
 
@@ -112,6 +113,11 @@ $CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domai
 # Change the following as appropriate.
 $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
+# For version 1.1.47.0, the PowerShell modules used by the RP deployment are placed in C:\Program Files\SqlMySqlPsh
+# The deployment script adds this path to the system $env:PSModulePath to ensure correct modules are used.
+$rpModulePath = Join-Path -Path $env:ProgramFiles -ChildPath 'SqlMySqlPsh'
+$env:PSModulePath = $env:PSModulePath + ";" + $rpModulePath
+
 # Change directory to the folder where you extracted the installation files.
 # Then adjust the endpoints.
 . $tempDir\UpdateSQLProvider.ps1 -AzCredential $AdminCreds `
@@ -123,6 +129,8 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
   -DependencyFilesLocalPath $tempDir\cert
 
  ```
+
+Po dokončení skriptu aktualizace poskytovatele prostředků zavřete aktuální relaci PowerShellu.
 
 ## <a name="next-steps"></a>Další kroky
 

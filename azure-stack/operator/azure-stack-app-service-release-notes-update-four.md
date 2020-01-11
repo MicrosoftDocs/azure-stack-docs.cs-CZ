@@ -16,16 +16,14 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/25/2019
-ms.openlocfilehash: aa38f168c6cf56e86fa0605ee7f004c480f94088
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 761d9ca8268664786fadc8c47c7269a346954d8f
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75804567"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75880460"
 ---
 # <a name="app-service-on-azure-stack-hub-update-4-release-notes"></a>Zpráva k vydání verze App Service ve Azure Stack centra pro aktualizaci 4
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 Tyto poznámky k verzi popisují vylepšení, opravy a známé problémy v Azure App Service v centru Azure Stack s aktualizací Update 4. Známé problémy jsou rozdělené na tři části: problémy přímo související s nasazením, problémy s procesem aktualizace a problémy se sestavením (po instalaci).
 
@@ -90,7 +88,7 @@ Azure App Service v centru Azure Stack s aktualizací Update 4 zahrnuje následu
 
 - Vyřešil se problém s konfigurací, když Azure Stack hub otáčí klientský certifikát Azure Resource Manager.
 
-- Obnovená funkce v nastavení sdílení prostředků mezi zdroji na portálu App Service tenant.
+- Obnovená funkce v nastavení sdílení prostředků mezi zdroji na portálu App Service User Portal.
 
 - V App Service portálu pro správu se teď zobrazí chybová zpráva, když se rovina řízení poskytovatele prostředků nemůže připojit k nakonfigurované instanci SQL Server.
 

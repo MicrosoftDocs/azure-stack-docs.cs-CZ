@@ -15,16 +15,14 @@ ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 79eebcd464504a34ceaa25e0f54c15c7c22d271d
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 0fd294e0c7379bed75a0eb753678810d06888106
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75820147"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75878930"
 ---
 # <a name="scale-a-kubernetes-cluster-on-azure-stack-hub"></a>Škálování clusteru Kubernetes na rozbočovači Azure Stack
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 Pomocí příkazu **Scale** můžete škálovat cluster pomocí modulu AKS. Příkaz **Scale** znovu použije váš konfigurační soubor clusteru (`apimodel.json`) ve výstupním adresáři jako vstup pro nové nasazení Azure Resource Manager. Modul provádí operaci škálování v zadaném fondu agentů. Když je operace škálování hotová, modul aktualizuje definici clusteru v tomto stejném `apimodel.json` souboru tak, aby odrážela nové počty uzlů, aby odrážela aktualizovanou aktuální konfiguraci clusteru.
 

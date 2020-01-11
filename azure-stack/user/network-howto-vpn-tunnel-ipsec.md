@@ -9,16 +9,14 @@ ms.date: 09/19/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: 35ad11479fc3697828e0013b849af7ffc2621819
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: a0716d4997a49c2146d64c23defdd6b2f36c0b95
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75815336"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75878454"
 ---
 # <a name="how-to-create-a-vpn-tunnel-using-ipsec--in-azure-stack-hub"></a>Postup vytvoření tunelu VPN pomocí protokolu IPSEC v centru Azure Stack
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 Pomocí šablony Správce prostředků centra Azure Stack v tomto řešení můžete propojit dvě Azure Stack centra virtuální sítě ve stejném prostředí Azure Stack hub. [Nemůžete připojit Azure Stack centra virtuální sítě](https://docs.microsoft.com/azure-stack/user/azure-stack-network-differences) pomocí integrované Virtual Network brány. Prozatím musíte použít síťová virtuální zařízení (síťové virtuální zařízení) s k vytvoření tunelu VPN mezi dvěma Azure Stack centra virtuální sítě. Šablona řešení nasadí dva virtuální počítače se systémem Windows Server 2016 s nainstalovanou službou RRAS. Řešení nakonfiguruje dva servery RRAS tak, aby používaly tunel S2SVPN IKEv2 mezi dvěma virtuální sítě. Vytvoří se odpovídající pravidla NSG a UDR, která umožní směrování mezi podsítěmi v každé virtuální síti určené jako **interní** . 
 
@@ -30,7 +28,7 @@ Toto řešení je základem, který umožní vytvořit tunelové propojení VPN 
 
 ## <a name="requirements"></a>Požadavky
 
-- ASDK nebo integrovaný systém centra Azure Stack s použitím nejnovějších aktualizací. 
+- Použije se systém nasazený s nejnovějšími aktualizacemi. 
 - Požadované položky centra Azure Stack na webu Marketplace:
     -  Windows Server 2016 Datacenter nebo Windows Server 2019 Datacenter (doporučuje se nejnovější sestavení)
     -  Rozšíření vlastních skriptů

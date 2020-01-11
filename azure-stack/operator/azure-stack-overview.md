@@ -17,12 +17,12 @@ ms.author: justinha
 ms.reviewer: unknown
 ms.custom: ''
 ms.lastreviewed: 11/08/2019
-ms.openlocfilehash: ffd96cb9c99fcce60f4f90df3324c744da984caa
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 1d4b3a3dc094adaac0bc7cfc48d3a7aa54166dc6
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75810550"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882143"
 ---
 # <a name="azure-stack-hub-overview"></a>Přehled centra Azure Stack
 
@@ -49,8 +49,6 @@ Centrum Azure Stack je postavené na standardním hardwaru a spravuje se pomocí
 Architektura centra Azure Stack umožňuje poskytovat služby Azure na hraničních zařízeních pro vzdálená umístění nebo přerušované připojení odpojené od Internetu. Můžete vytvářet hybridní řešení, která zpracovávají data místně v Azure Stackovém centru a pak je agregovat do Azure pro další zpracování a analýzu. Vzhledem k tomu, že centrum Azure Stack je nainstalované místně, můžete splnit konkrétní zákonné požadavky nebo požadavky zásad, a to díky flexibilitě nasazování cloudových aplikací v místním prostředí bez změny kódu.
 
 ## <a name="deployment-options"></a>Možnosti nasazení
-
-<!---At deployment, move out asdk, break into connected/disc…then explain  roles operator vs user < replace how is Azure Stack Hub managed with role description, rbac, reporting, high availability take out.--->
 
 Integrované systémy Azure Stack hub jsou nabízeny prostřednictvím partnerství s Microsoftem a hardwarovými partnery a vytvářejí řešení, které nabízí cloudové inovace a jednoduchost správy computingu. Vzhledem k tomu, že centrum Azure Stack se nabízí jako integrovaný hardware a softwarový systém, máte flexibilitu a kontrolu, které potřebujete, a také schopnost inovovat z cloudu. 
 

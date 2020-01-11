@@ -16,18 +16,16 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: b1a62edc088cbe73475a88f8303e28d71d2dc63f
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 8e54ae96cec4fff9a50c541bab4ea8e60323ca22
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75816747"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882925"
 ---
 # <a name="infrastructure-backup-service-reference"></a>Odkaz na službu Infrastructure Backup
 
 ## <a name="azure-backup-infrastructure"></a>Infrastruktura zálohování Azure
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 Centrum Azure Stack se skládá z mnoha služeb, které tvoří portál (Azure Resource Manager) a celkové prostředí pro správu infrastruktury. Prostředí pro správu Azure Stackového centra se zaměřuje na aplikace, aby se snížila složitost vystavená operátorovi řešení.
 

@@ -16,12 +16,12 @@ ms.date: 06/03/2019
 ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 3c30a3c848111da10c736602f2932e1fe7e7a7c4
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: f8c5fdaa638c7ab5fa0669ffee57611e89c192ff
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75818056"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882551"
 ---
 # <a name="overview-of-identity-providers-for-azure-stack-hub"></a>Přehled zprostředkovatelů identity pro centrum Azure Stack
 
@@ -65,7 +65,7 @@ V Azure Stackovém centru jsou uživatelské účty:
 - Jsou omezeny na adresář, ve kterém jsou poprvé registrována, což je adresář organizace.
 - Dá se importovat z vašich místních adresářů. Další informace najdete v tématu [Integrace místních adresářů s Azure Active Directory](/azure/active-directory/connect/active-directory-aadconnect).
 
-Když se přihlásíte na portál tenanta vaší organizace, použijete adresu URL *https:\//Portal.Local.azurestack.external* . Při přihlašování k portálu centra Azure Stack z jiných domén, než je ta, která se používá k registraci Azure Stackho centra, musí být název domény, který se používá k registraci centra Azure Stack, připojený k adrese URL portálu. Pokud jste například Azure Stack centrum zaregistrovali v fabrikam.onmicrosoft.com a přihlašování k uživatelskému účtu je admin@contoso.com, adresa URL, která se má použít pro přihlášení k portálu User Portal, bude: https:\//Portal.Local.azurestack.external/Fabrikam.onmicrosoft.com.
+Když se přihlásíte k portálu User Portal vaší organizace, použijete adresu URL *https:\//Portal.Local.azurestack.external* . Při přihlašování k portálu centra Azure Stack z jiných domén, než je ta, která se používá k registraci Azure Stackho centra, musí být název domény, který se používá k registraci centra Azure Stack, připojený k adrese URL portálu. Pokud jste například Azure Stack centrum zaregistrovali v fabrikam.onmicrosoft.com a přihlašování k uživatelskému účtu je admin@contoso.com, adresa URL, která se má použít pro přihlášení k portálu User Portal, bude: https:\//Portal.Local.azurestack.external/Fabrikam.onmicrosoft.com.
 
 ### <a name="guest-users"></a>Uživatelé typu host
 

@@ -16,16 +16,14 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 1a64e0b8ea2774146bac410a38c6b8c09d8be741
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 9e289420d10cace3c466c0b1ff18c4d84cf97800
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75808358"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881973"
 ---
 # <a name="replace-a-scale-unit-node-on-an-azure-stack-hub-integrated-system"></a>Nahrazení uzlu jednotky škálování v integrovaném systému služby Azure Stack hub
-
-*Platí pro: Azure Stack integrovaných systémů centra*
 
 Tento článek popisuje obecný proces nahrazení fyzického počítače (také označovaného jako uzel jednotky škálování) v integrovaném systému Azure Stack hub. Skutečný postup nahrazení uzlu jednotek škálování se bude lišit v závislosti na dodavateli hardwaru OEM (Original Equipment Manufacturer). Konkrétní podrobný postup pro váš systém najdete v dokumentaci k jednotce nahraditelné v terénu od vašeho dodavatele.
 

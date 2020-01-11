@@ -16,16 +16,14 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: comartin
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 0767c1bf9a24dc22ed68e786872b69f47bd5497f
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 167a230a8e098e0ea4087050a9a5bd36ceae3078
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75813942"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882653"
 ---
 # <a name="azure-stack-hub-telemetry"></a>Telemetrii centra Azure Stack
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 Telemetrii centra Azure Stack automaticky odesílá systémová data společnosti Microsoft prostřednictvím prostředí připojeného uživatele. Microsoft Teams používá data, která Azure Stack telemetrii centra shromažďují pro zlepšení zkušeností zákazníků. Tato data se taky používají k analýze zabezpečení, stavu, kvality a výkonu.
 

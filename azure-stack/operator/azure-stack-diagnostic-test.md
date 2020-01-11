@@ -10,26 +10,32 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 06/26/2019
+ms.date: 01/10/2020
 ms.author: justinha
 ms.reviewer: adshar
-ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: f362fb5dfc47dca23bf7076ecfe0d347a9c789d0
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.lastreviewed: 01/10/2020
+ms.openlocfilehash: 778f38f0ed3d1b1801b162624daa365ed6d1f09c
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75817393"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882500"
 ---
 # <a name="validate-azure-stack-hub-system-state"></a>Ověřit stav systému centra Azure Stack
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 Jako operátor centra Azure Stack je možné určit stav systému na vyžádání v podstatě. Nástroj pro ověření centra Azure Stack (**test-AzureStack**) je rutina prostředí PowerShell, která umožňuje spustit sérii testů v systému, aby bylo možné identifikovat chyby, pokud jsou k dispozici. Obvykle budete vyzváni ke spuštění tohoto nástroje prostřednictvím [privilegovaného koncového bodu (PEP)](azure-stack-privileged-endpoint.md) při kontaktování podpory zákaznických služeb Microsoftu (CSS) s problémem. Pomocí informací o stavu a stavu v rámci systému může šablona stylů CSS shromažďovat a analyzovat podrobné protokoly, soustředit se na oblast, ve které došlo k chybě, a s vámi vyřešit problémy.
 
 ## <a name="running-the-validation-tool-and-accessing-results"></a>Spuštění nástroje pro ověření a přístup k výsledkům
 
 Jak je uvedeno výše, nástroj pro ověření se spouští přes PEP. Každý test vrátí stav **předání nebo selhání** v okně PowerShellu. Tady je přehled kompletního procesu testování ověřování:
+
+1. Vytvořte vztah důvěryhodnosti. V integrovaném systému spusťte následující příkaz z relace se zvýšenými oprávněními Windows PowerShellu a přidejte PEP jako důvěryhodného hostitele na zesílený virtuální počítač, který běží na hostiteli životního cyklu hardwaru nebo na pracovní stanici privilegovaného přístupu.
+
+   ```powershell
+   winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
+   ```
+
+   Pokud používáte Azure Stack Development Kit (ASDK), přihlaste se k hostiteli vývojové sady.
 
 1. Přístup k PEP. Spuštěním následujících příkazů vytvořte relaci PEP:
 
@@ -40,7 +46,7 @@ Jak je uvedeno výše, nástroj pro ověření se spouští přes PEP. Každý t
    > [!TIP]
    > Pro přístup k PEP na hostitelském počítači s Azure Stack Development Kit (ASDK) použijte AzS-ERCS01 pro-ComputerName.
 
-2. Až budete v PEP, spusťte:
+1. Až budete v PEP, spusťte:
 
    ```powershell
    Test-AzureStack
@@ -48,11 +54,11 @@ Jak je uvedeno výše, nástroj pro ověření se spouští přes PEP. Každý t
 
    Další informace najdete v tématu věnovaném [parametrům](azure-stack-diagnostic-test.md#parameter-considerations) a [příkladům případu použití](azure-stack-diagnostic-test.md#use-case-examples).
 
-3. Pokud dojde k **selhání**jakékoli testy, spusťte `Get-AzureStackLog`. Pokyny k integrovanému systému najdete v tématu [spuštění rutiny Get-AzureStackLog v systémech integrovaných v centru Azure Stack](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)nebo na ASDK v tématu spuštění rutiny [Get-AZURESTACKLOG v systému ASDK](azure-stack-configure-on-demand-diagnostic-log-collection.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system).
+1. Pokud dojde k **selhání**jakékoli testy, spusťte `Get-AzureStackLog`. Pokyny k integrovanému systému najdete v tématu [spuštění rutiny Get-AzureStackLog v systémech integrovaných v centru Azure Stack](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)nebo na ASDK v tématu spuštění rutiny [Get-AZURESTACKLOG v systému ASDK](azure-stack-configure-on-demand-diagnostic-log-collection.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system).
 
    Rutina shromáždí protokoly generované rutinou test-AzureStack. Doporučujeme, abyste neshromáždili protokoly a místo toho kontaktovali šablony stylů CSS, pokud testy **upozorňují**na zprávu.
 
-4. Pokud jste požádali o spuštění nástroje pro ověření šablonou stylů CSS, vyžádá si zástupce šablon stylů CSS protokoly, které jste shromáždili, aby bylo možné pokračovat v řešení problému.
+1. Pokud jste požádali o spuštění nástroje pro ověření šablonou stylů CSS, vyžádá si zástupce šablon stylů CSS protokoly, které jste shromáždili, aby bylo možné pokračovat v řešení problému.
 
 ## <a name="tests-available"></a>Dostupné testy
 

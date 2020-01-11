@@ -15,16 +15,15 @@ ms.date: 10/10/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: c1653d572d73e4fea2657d667aed8e5a72a25cb9
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 3a872a60f32b46540f6b55f65555ca9958e67c38
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75815846"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883282"
 ---
 # <a name="access-the-kubernetes-dashboard-in-azure-stack-hub"></a>Přístup k řídicímu panelu Kubernetes v centru Azure Stack 
 
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit* 
 > [!Note]   
 > K nasazení clusterů jako zkušebního konceptu použijte jenom položku Kubernetes Azure Stack Marketplace. Pro podporované Kubernetes clustery v Azure Stack použijte [modul AKS](azure-stack-kubernetes-aks-engine-overview.md).
 

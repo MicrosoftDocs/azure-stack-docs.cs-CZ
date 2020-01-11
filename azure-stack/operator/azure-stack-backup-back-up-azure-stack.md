@@ -16,16 +16,14 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 09/05/2018
-ms.openlocfilehash: 2e956d6fc9d646d33442eee21c74bea791babcb4
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 04f07af2860518174bf1f2e65ed17e85c34b4692
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75816713"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882670"
 ---
 # <a name="back-up-azure-stack-hub"></a>Zálohování centra Azure Stack
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 V tomto článku se dozvíte, jak provést zálohování na vyžádání v centru Azure Stack. Pokyny týkající se konfigurace prostředí PowerShellu najdete v tématu [instalace PowerShellu pro Azure Stack hub](azure-stack-powershell-install.md). Pokud se chcete přihlásit do centra Azure Stack, přečtěte si téma [použití portálu pro správu v centru Azure Stack](azure-stack-manage-portals.md).
 

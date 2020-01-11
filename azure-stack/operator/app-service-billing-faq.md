@@ -16,16 +16,14 @@ ms.date: 06/10/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: c67b2be49babda140b1440356d63af5abbbbfdfb
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 6b2383ada3a4de1d5c33db07d847b5ca2c5c5948
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75808460"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881344"
 ---
 # <a name="azure-app-service-on-azure-stack-hub-billing-overview-and-faq"></a>Přehled a nejčastější dotazy týkající se fakturace centra Azure Stack Azure App Service
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 V tomto článku se dozvíte, jak se operátoři cloudu účtují za nabídku Azure App Service v centru Azure Stack a jak můžou vyúčtováním svých tenantů jejich používání.
 

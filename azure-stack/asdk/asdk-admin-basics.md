@@ -4,7 +4,6 @@ description: Přečtěte si, jak provádět základní úlohy správy pro Azure 
 services: azure-stack
 documentationcenter: ''
 author: justinha
-manager: femila
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
@@ -16,12 +15,12 @@ ms.date: 02/19/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 1074f359063855ef5f80ef6f1e3807b87184a4ca
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.openlocfilehash: 785b787702f173fe3f30b53f29f8770f9f039b1b
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70974868"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881616"
 ---
 # <a name="asdk-admin-basics"></a>Základy správy ASDK
 Pokud s Azure Stack Development Kit (ASDK) nebudete mít jistotu, budete potřebovat několik věcí. Tento návod poskytuje přehled vaší role jako operátor Azure Stack ve zkušebním prostředí. Familiarizing se s těmito informacemi, zajistíte, aby vaši testovací uživatelé byli co nejrychleji produktivní.
@@ -38,7 +37,7 @@ K dispozici je několik důležitých informací o účtech, které byste měli 
 |Místní správce (.\Administrator)|Správce hostitele ASDK|Správce hostitele ASDK|
 |AzureStack\AzureStackAdmin|Správce hostitele ASDK<br><br>Dá se použít k přihlášení na portál správce Azure Stack.<br><br>Přístup k zobrazení a správě Service Fabricch okruhů|Správce hostitele ASDK<br><br>Žádný přístup k portálu pro správu Azure Stack<br><br>Přístup k zobrazení a správě Service Fabricch okruhů<br><br>Už není vlastníkem předplatného výchozího poskytovatele (DPS).|
 |AzureStack\CloudAdmin|Umožňuje přístup k povoleným příkazům v rámci privilegovaného koncového bodu a jejich spouštění.|Umožňuje přístup k povoleným příkazům v rámci privilegovaného koncového bodu a jejich spouštění.<br><br>Nejde se přihlásit k hostiteli ASDK<br><br>Vlastník předplatného výchozího poskytovatele (DPS)|
-|Globální správce Azure AD|Používá se během instalace.<br><br>Vlastník předplatného výchozího poskytovatele (DPS)|Nelze použít|
+|Globální správce Azure AD|Používá se během instalace.<br><br>Vlastník předplatného výchozího poskytovatele (DPS)|Nevztahuje se|
 |
 
 ## <a name="what-tools-do-i-use-to-manage"></a>Jaké nástroje se používají ke správě?

@@ -15,12 +15,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 170cd65d05971bb29eada4cd220513994c9eadd7
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: b16453cd8cc6942417cacc0e70f73f87865df3d2
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75810984"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882177"
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack-hub"></a>Použití databází MySQL v centru Microsoft Azure Stack
 
@@ -48,7 +48,7 @@ Poskytovatel prostředků má následující součásti:
   * Stáhněte a nasaďte Server MySQL z Azure Marketplace.
 
 > [!NOTE]
-> Hostitelské servery, které jsou nainstalované v Azure Stack integrovaných systémech centra, se musí vytvořit z předplatného tenanta. Nelze je vytvořit z výchozího předplatného poskytovatele. Je potřeba je vytvořit z portálu tenanta nebo z relace PowerShellu s odpovídajícím přihlášením. Všechny hostitelské servery jsou Fakturovatelné virtuální počítače a musí mít licence. Správce služby může být vlastníkem předplatného tenanta.
+> Hostitelské servery, které jsou nainstalované v Azure Stack integrovaných systémech centra, se musí vytvořit z předplatného tenanta. Nelze je vytvořit z výchozího předplatného poskytovatele. Je nutné je vytvořit z portálu User Portal nebo z relace PowerShellu s odpovídajícím přihlášením. Všechny hostitelské servery jsou Fakturovatelné virtuální počítače a musí mít licence. Správce služby může být vlastníkem předplatného tenanta.
 
 ### <a name="required-privileges"></a>Požadovaná oprávnění
 

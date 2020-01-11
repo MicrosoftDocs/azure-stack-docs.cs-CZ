@@ -8,16 +8,14 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: d74d2f70ec172ecc2dc640958cb01143ec80af31
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: 1b21766561c39cf795665e8229eb1763acb89465
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73639319"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881786"
 ---
 # <a name="deploy-an-app-that-uses-on-premises-data-and-scales-cross-cloud-using-azure-and-azure-stack-hub"></a>Nasaďte aplikaci, která používá místní data, a škálujte mezi cloudy pomocí Azure a centra Azure Stack.
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack centrum pro vývoj*
 
 V tomto průvodci se dozvíte, jak nasadit hybridní aplikaci, která zahrnuje Azure i Azure Stack hub, a používá jeden místní zdroj dat.
 
@@ -40,7 +38,7 @@ Tento kurz se zabývá následujícími úkony:
 > - Nakonfigurujte automatické přepínání provozu mezi globálním centrem Azure a Azure Stack.
 
 > [!Tip]  
-> ![Hybrid-Pillars. png](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
+> ![hybridní pillars.png](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
 > Centrum Microsoft Azure Stack je rozšířením Azure. Centrum Azure Stack přináší flexibilitu a inovace cloud computingu do místního prostředí. tím se umožní jenom hybridní cloud, který umožňuje vytvářet a nasazovat hybridní aplikace odkudkoli.  
 > 
 > Požadavky na [Návrh pro hybridní aplikace](overview-app-design-considerations.md) kontrolují pilíře kvality softwaru (umístění, škálovatelnost, dostupnost, odolnost, možnosti správy a zabezpečení) pro navrhování, nasazování a provozování hybridních aplikací. Pokyny k návrhu pomáhají při optimalizaci návrhu hybridní aplikace a minimalizaci výzev v produkčních prostředích.
@@ -49,12 +47,12 @@ Tento kurz se zabývá následujícími úkony:
 
 V tomto kurzu se předpokládá, že máte základní znalosti globálního centra Azure a centra Azure Stack. Pokud se chcete dozvědět víc, než začnete s kurzem, přečtěte si tyto články:
 
- - [Seznámení s Azure](https://azure.microsoft.com/overview/what-is-azure/)
+ - [Úvod do Azure](https://azure.microsoft.com/overview/what-is-azure/)
  - [Klíčové koncepty centra Azure Stack](../operator/azure-stack-overview.md)
 
 V tomto kurzu se taky předpokládá, že máte předplatné Azure. Pokud předplatné nemáte, můžete si [vytvořit bezplatný účet](https://azure.microsoft.com/free/) před tím, než začnete.
 
-## <a name="prerequisites"></a>Předpoklady
+## <a name="prerequisites"></a>Požadavky
 
 Než začnete s tímto řešením, ujistěte se, že splňujete následující požadavky:
 
@@ -376,10 +374,10 @@ Při snížení provozu může webová aplikace Azure automaticky snížit poče
 
 Vytvořte v Azure profil Traffic Manager a pak nakonfigurujte koncové body, aby se povolilo škálování mezi cloudy.
 
-### <a name="create-traffic-manager-profile"></a>Vytvořit profil Traffic Manager
+### <a name="create-traffic-manager-profile"></a>Vytvořit profil Traffic Manageru
 
 1. Vyberte **vytvořit prostředek**.
-2. Vyberte **sítě**.
+2. Vyberte **Sítě**.
 3. Vyberte **profil Traffic Manager** a nakonfigurujte následující nastavení:
 
    - Do **název**zadejte název profilu. Tento název **musí** být v zóně trafficmanager.NET jedinečný a používá se k vytvoření nového názvu DNS (například northwindstore.trafficmanager.NET).
@@ -388,9 +386,9 @@ Vytvořte v Azure profil Traffic Manager a pak nakonfigurujte koncové body, aby
    - V rámci **skupiny prostředků**vytvořte novou skupinu prostředků pro tento profil.
    - V poli **Umístění skupiny prostředků** vyberte umístění skupiny prostředků. Toto nastavení odkazuje na umístění skupiny prostředků a nemá žádný vliv na profil Traffic Manager, který je nasazen globálně.
 
-4. Vyberte **Create** (Vytvořit).
+4. Vyberte **Vytvořit**.
 
-    ![Vytvořit profil Traffic Manager](media/solution-deployment-guide-hybrid/image19.png)
+    ![Vytvořit profil Traffic Manageru](media/solution-deployment-guide-hybrid/image19.png)
 
    Po dokončení globálního nasazení profilu Traffic Manager se zobrazí v seznamu prostředků pro skupinu prostředků, ve které jste ji vytvořili.
 
@@ -545,4 +543,4 @@ Pomocí následujících kroků můžete nakonfigurovat automatické přepínán
 
 ## <a name="next-steps"></a>Další kroky
 
-- Další informace o vzorech cloudu Azure najdete v tématu [vzory návrhu cloudu](https://docs.microsoft.com/azure/architecture/patterns).
+- Další informace o vzorech cloudu Azure, najdete v článku [vzory návrhu v cloudu](https://docs.microsoft.com/azure/architecture/patterns).

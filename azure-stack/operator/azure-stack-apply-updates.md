@@ -15,16 +15,14 @@ ms.date: 09/10/2019
 ms.author: mabrigg
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 32ad63180e1386f5daea8dac46379a4ad749fa8c
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 337f5bfccc7deccf7214d452546c1e0ba3296555
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75816730"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882891"
 ---
 # <a name="install-azure-stack-hub-updates"></a>Nainstalovat aktualizace centra Azure Stack
-
-*Platí pro: Azure Stack integrovaných systémů centra*
 
 Balíčky aktualizací můžete nainstalovat pomocí okna **aktualizace** v centru Azure Stack. Tento článek vás provede jednotlivými kroky aktualizace, monitorování a řešení potíží s procesem aktualizace. Pomocí okna aktualizace si můžete zobrazit informace o aktualizaci, nainstalovat aktualizace, sledovat průběh aktualizace, zkontrolovat historii aktualizací a zobrazit aktuální Azure Stack centra a verzi balíčku OEM.
 

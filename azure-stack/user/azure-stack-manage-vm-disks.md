@@ -15,16 +15,14 @@ ms.date: 12/03/2019
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: eda17ea2c33e826df303870a3ae6c25e7b017226
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 66147be9158726ab9ba01d011ba0fa2fd8f141bc
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75819943"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883503"
 ---
 # <a name="create-vm-disk-storage-in-azure-stack-hub"></a>Vytvoření úložiště disku virtuálního počítače v centru Azure Stack
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 Tento článek popisuje, jak pomocí portálu Azure Stack hub vytvořit virtuální počítač (VM) úložiště disku nebo pomocí PowerShellu.
 

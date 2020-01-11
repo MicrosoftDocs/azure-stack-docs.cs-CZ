@@ -14,16 +14,14 @@ ms.topic: article
 ms.date: 01/07/2020
 ms.author: sethm
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 4762cb77583d0a8e026528c47ffce6bc93c7b005
-ms.sourcegitcommit: b9d520f3b7bc441d43d489e3e32f9b89601051e6
+ms.openlocfilehash: 64ff69f87daa2451ab61fd2e950c5688903a955e
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75727594"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883673"
 ---
 # <a name="manage-key-vault-in-azure-stack-hub-using-powershell"></a>Správa Key Vault v centru Azure Stack pomocí PowerShellu
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 Tento článek popisuje, jak vytvořit a spravovat Trezor klíčů v Azure Stackovém centru pomocí PowerShellu. Naučíte se, jak používat rutiny Key Vault PowerShellu k těmto akcím:
 

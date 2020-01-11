@@ -11,12 +11,12 @@ ms.date: 10/07/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: 19d8410c42c301ad05573ec27b815d5eee869843
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 5ba68257b783a2cfde41df5f7a411224a691aa26
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75813789"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881820"
 ---
 # <a name="offer-highly-available-mysql-databases"></a>Nabízí vysoce dostupné databáze MySQL
 
@@ -75,7 +75,7 @@ Pomocí kroků v této části můžete nasadit cluster serveru MySQL pomocí po
    - Počet virtuálních počítačů repliky databáze MySQL k vytvoření (výchozí hodnota je 2)
    - Vyberte předplatné, které chcete použít.
    - Vyberte skupinu prostředků, kterou chcete použít, nebo vytvořte novou.
-   - Vyberte umístění (výchozí nastavení je místní pro ASDK).
+   - Vyberte umístění (výchozí nastavení je `local` pro ASDK).
 
    [![](media/azure-stack-tutorial-mysqlrp/2-sm.PNG "Deployment basics")](media/azure-stack-tutorial-mysqlrp/2-lg.PNG#lightbox)
 

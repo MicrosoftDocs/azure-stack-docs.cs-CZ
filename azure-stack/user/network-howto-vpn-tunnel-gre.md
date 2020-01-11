@@ -9,16 +9,14 @@ ms.date: 09/19/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: 64ed6bf1ad196b2791cfcfd5240ac8de68fd7122
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 7bac9de12a39107f9647b9177462d6b73ebc0aba
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75815370"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883061"
 ---
 # <a name="how-to-create-a-vpn-tunnel-using-gre-in-azure-stack-hub"></a>Postup vytvoření tunelu VPN pomocí protokolu GRE v Azure Stackovém centru
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 Pomocí šablony Správce prostředků centra Azure Stack v tomto řešení můžete propojit dvě Azure Stack centra virtuální sítě ve stejném prostředí Azure Stack hub. [Nemůžete připojit Azure Stack centra virtuální sítě](https://docs.microsoft.com/azure-stack/user/azure-stack-network-differences) pomocí integrované Virtual Network brány. Prozatím musíte použít síťová virtuální zařízení (síťové virtuální zařízení) s k vytvoření tunelu VPN mezi dvěma Azure Stack centra virtuální sítě. Šablona řešení nasadí dva virtuální počítače se systémem Windows Server 2016 s nainstalovanou službou RRAS. Řešení nakonfiguruje dva servery RRAS tak, aby používaly tunel S2SVPN IKEv2 mezi dvěma virtuální sítě. Vytvoří se odpovídající pravidla NSG a UDR, která umožní směrování mezi podsítěmi v každé virtuální síti určené jako **interní** . 
 
@@ -30,7 +28,7 @@ Tento vzor nasazení je základem, který vám umožní vytvářet tunely VPN ne
 
 ## <a name="requirements"></a>Požadavky
 
-- ASDK nebo integrovaný systém centra Azure Stack s použitím nejnovějších aktualizací. 
+- Použije se systém nasazený s nejnovějšími aktualizacemi. 
 - Požadované položky centra Azure Stack na webu Marketplace:
     -  Windows Server 2016 Datacenter (doporučuje se nejnovější sestavení)
     -  Rozšíření vlastních skriptů

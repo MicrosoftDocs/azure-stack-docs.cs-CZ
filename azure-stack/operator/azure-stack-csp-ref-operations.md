@@ -15,16 +15,14 @@ ms.date: 10/14/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/14/2019
-ms.openlocfilehash: 26d0940814ec8b5d9527567154cd0dc6d83894b4
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 981a80692e087cfcb733e73ec43d70fe67516e69
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75817920"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882568"
 ---
 # <a name="register-tenants-for-usage-tracking-in-azure-stack-hub"></a>Registrace tenantů pro sledování využití v centru Azure Stack
-
-*Platí pro: Azure Stack integrovaných systémů centra*
 
 Tento článek obsahuje podrobnosti o operacích registrace. Tyto operace můžete použít k těmto akcím:
 

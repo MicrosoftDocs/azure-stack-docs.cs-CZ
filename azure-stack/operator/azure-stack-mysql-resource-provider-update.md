@@ -15,16 +15,14 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 6b0c849a6550ecae8d2127be0be3fbdbc8708f0b
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 3c184b581233e8bdb9ccade4af73401fe1907527
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75810967"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882194"
 ---
 # <a name="update-the-mysql-resource-provider-in-azure-stack-hub"></a>Aktualizace poskytovatele prostředků MySQL v Azure Stack hub
-
-*Platí pro: Azure Stack integrovaných systémů centra.*
 
 Při aktualizaci Azure Stackch sestavení centra se může uvolnit nový adaptér poskytovatele prostředků MySQL. I když existující adaptér funguje i nadále, doporučujeme aktualizovat na nejnovější sestavení co nejdříve.
 
@@ -68,7 +66,7 @@ Když spustíte skript prostředí PowerShell **UpdateMySQLProvider. ps1** , zad
 > [!NOTE] 
 > Proces aktualizace platí jenom pro integrované systémy.
 
-Pokud aktualizujete verzi poskytovatele prostředků MySQL na 1.1.33.0 nebo předchozí verze, budete muset v PowerShellu nainstalovat konkrétní verze modulů AzureRm. zaváděcího nástroje a Azure Stack hub. Pokud aktualizujete poskytovatele prostředků MySQL na verzi 1.1.47.0, tento krok se dá přeskočit.
+Pokud aktualizujete verzi poskytovatele prostředků MySQL na 1.1.33.0 nebo předchozí verze, budete muset v PowerShellu nainstalovat konkrétní verze modulů AzureRm. zaváděcího nástroje a Azure Stack hub. Pokud aktualizujete poskytovatele prostředků MySQL na verzi 1.1.47.0, skript nasazení bude automaticky stahovat a instalovat potřebné moduly PowerShellu pro vás do cesty C:\Program Files\SqlMySqlPsh.
 
 ```powershell 
 # Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module
@@ -77,6 +75,9 @@ Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
 Install-Module -Name AzureStack -RequiredVersion 1.6.0
 ```
+
+> [!NOTE]
+> V odpojeném scénáři je nutné stáhnout požadované moduly prostředí PowerShell a zaregistrovat úložiště ručně v rámci požadavků. Další informace můžete získat v [nasazení poskytovatele prostředků MySQL](azure-stack-mysql-resource-provider-deploy.md) .
 
 Následující příklad ukazuje skript *UpdateMySQLProvider. ps1* , který můžete spustit z konzoly PowerShellu se zvýšenými oprávněními. Nezapomeňte změnit informace o proměnné a hesla podle potřeby:
 
@@ -108,7 +109,12 @@ $CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domai
 
 # Change the following as appropriate.
 $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force 
- 
+
+# For version 1.1.47.0, the PowerShell modules used by the RP deployment are placed in C:\Program Files\SqlMySqlPsh
+# The deployment script adds this path to the system $env:PSModulePath to ensure correct modules are used.
+$rpModulePath = Join-Path -Path $env:ProgramFiles -ChildPath 'SqlMySqlPsh'
+$env:PSModulePath = $env:PSModulePath + ";" + $rpModulePath 
+
 # Change directory to the folder where you extracted the installation files.
 # Then adjust the endpoints.
 .$tempDir\UpdateMySQLProvider.ps1 -AzCredential $AdminCreds ` 
@@ -120,6 +126,8 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 -DependencyFilesLocalPath $tempDir\cert ` 
 -AcceptLicense 
 ```  
+
+Po dokončení skriptu aktualizace poskytovatele prostředků zavřete aktuální relaci PowerShellu.
 
 ## <a name="next-steps"></a>Další kroky
 [Udržovat poskytovatele prostředků MySQL](azure-stack-mysql-resource-provider-maintain.md)

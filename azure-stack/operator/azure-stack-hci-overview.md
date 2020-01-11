@@ -1,23 +1,19 @@
 ---
 title: Přehled Azure Stack centra HCI
 description: Služba Azure Stack hub HCI je cluster Windows Server 2019 s podporou technologie Hyper-v, který používá ověřený hardware ke spouštění virtualizovaných úloh místně. Volitelně se můžete připojit ke službám Azure za účelem cloudového zálohování, obnovení lokality a dalších možností. Řešení pro Azure Stack centra HCI používají hardware ověřený společností Microsoft k zajištění optimálního výkonu a spolehlivosti a zahrnují podporu pro technologie, jako jsou NVMe Drives, trvalá paměť a sítě RDMA (Remote Direct přímý přístup do paměti).
-ms.technology: storage
 ms.topic: article
 author: jasongerend
 ms.author: jgerend
 ms.localizationpriority: medium
-ms.prod: windows-server-threshold
 ms.date: 11/04/2019
-ms.openlocfilehash: 2a7e01fbaa9b36db96271bc191e7b13bc7e52f58
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: d35c38ab40543556d31af443f45c0c249ae76e2c
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75818226"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882483"
 ---
 # <a name="azure-stack-hub-hci-overview"></a>Přehled Azure Stack centra HCI
-
->Platí pro: Windows Server 2019
 
 HCI Azure Stack hub je vysoce sblížený cluster s Windows serverem 2019, který používá ověřený hardware ke spouštění virtualizovaných úloh místně. Volitelně se můžete připojit ke službám Azure za účelem cloudového zálohování, obnovení lokality a dalších možností. Řešení pro Azure Stack centra HCI používají hardware ověřený společností Microsoft k zajištění optimálního výkonu a spolehlivosti a zahrnují podporu pro technologie, jako jsou NVMe Drives, trvalá paměť a sítě RDMA (Remote Direct přímý přístup do paměti).
 

@@ -14,16 +14,14 @@ ms.date: 10/03/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: 1e476f29909d3057deaf9331d11b780c1a887e6c
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 014ff5a0b4791ac7b939ac3e61a79c89f531aa8d
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75804975"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75877553"
 ---
 # <a name="connect-azure-stack-hub-to-azure-using-azure-expressroute"></a>Připojení centra Azure Stack k Azure pomocí Azure ExpressRoute
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 Tento článek popisuje, jak připojit virtuální síť centra Azure Stack k virtuální síti Azure pomocí [Microsoft Azure ExpressRoute](/azure/expressroute/) přímého připojení.
 
@@ -83,7 +81,7 @@ Chcete-li nastavit prostředí centra Azure Stack pro prvního klienta, použijt
 
 Než začnete s konfigurací centra Azure Stack, budete potřebovat:
 
-* Nasazení integrovaného systému Azure Stackho centra nebo nasazení Azure Stack Development Kit (ASDK). Informace o nasazení rozhraní ASDK naleznete v tématu [rychlý Start nasazení Azure Stack Development Kit](../asdk/asdk-download.md).
+* Nasazení centra Azure Stack. 
 * Nabídka centra Azure Stack, ke které se uživatelé můžou přihlásit Další informace najdete v tématu [Přehled služeb, plánů, nabídek a předplatných](service-plan-offer-subscription-overview.md).
 
 ### <a name="create-network-resources-in-azure-stack-hub"></a>Vytváření síťových prostředků v centru Azure Stack

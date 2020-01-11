@@ -14,16 +14,14 @@ ms.topic: article
 ms.date: 11/11/2019
 ms.author: mabrigg
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: df3644be6384bd264dc78ec80f8119c9cd2ff630
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 321b0c6137b29fd9edea2a6ae05237e0210a8ad2
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75819739"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75878658"
 ---
 # <a name="supported-metrics-for-azure-monitor-on-azure-stack-hub"></a>Podporované metriky pro Azure Monitor v centru Azure Stack
-
-*Platí pro: Azure Stack integrovaných systémů centra*
 
 Metriky z Azure monitoru v Azure Stackovém centru se načítají stejným způsobem jako v globálním Azure. Můžete vytvářet míry na portálu, je získat z rozhraní REST API nebo dotazovat pomocí Powershellu nebo rozhraní příkazového řádku.
 

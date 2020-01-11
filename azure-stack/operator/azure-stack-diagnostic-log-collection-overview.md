@@ -16,16 +16,14 @@ ms.date: 11/07/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: 197d39feb91edc8c93d747471f30aff8f56b03ac
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: cd74be55195975238e9c8454badeab26593811b5
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75811664"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882466"
 ---
 # <a name="overview-of-azure-stack-hub-diagnostic-log-collection"></a>Přehled shromažďování protokolů diagnostiky centra Azure Stack 
-
-*Platí pro: Azure Stack integrovaných systémů centra*
 
 Centrum Azure Stack je rozsáhlá kolekce komponent společně propojená a vzájemně spolupracuje. Všechny tyto komponenty generují vlastní jedinečné protokoly. Díky tomu mohou diagnostikovat problémy náročný úkol, zejména chyby přicházející z více interakcí Azure Stack komponent centra. Aby bylo možné vyřešit tuto výzvu, navrhli jsme prostředí pro shromažďování diagnostických protokolů. 
 

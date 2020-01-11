@@ -16,16 +16,15 @@ ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2018
-ms.openlocfilehash: 2ce9d539d68c64a2a57976ee8b4b6af2b99f6af7
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 5f4d29a95ab56ee4728109f5b74494c39d8b1c98
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75809827"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882058"
 ---
 # <a name="quota-types-in-azure-stack-hub"></a>Typy kvót v centru Azure Stack
 
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 [Kvóty](service-plan-offer-subscription-overview.md#plans) definují omezení prostředků, které může předplatné uživatele zřizovat nebo využívat. Kvóta může například uživateli dovolit vytvořit až pět virtuálních počítačů (VM). Každý prostředek může mít své vlastní typy kvót.
 

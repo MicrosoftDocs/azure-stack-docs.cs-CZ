@@ -17,23 +17,21 @@ ms.date: 12/02/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 12/02/2019
-ms.openlocfilehash: 6fdf88d24c36e8782b880d4ddea43dee96516034
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: ca16ffe2f3a72cbdd9a3cc22ee9b5f3acdf2c119
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75808494"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881990"
 ---
 # <a name="replace-a-physical-disk-in-azure-stack-hub"></a>Nahrazení fyzického disku v Azure Stackovém centru
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 Tento článek popisuje obecný proces nahrazení fyzického disku v Azure Stackovém centru. Pokud selže fyzický disk, měli byste ho co nejdříve nahradit.
 
 > [!Note]  
 > Nahrazení fyzické datové **jednotky nevyžaduje,** aby uzel jednotky škálování byl přepnut do režimu údržby (vyprázdnění) předem. I po nahrazení fyzické jednotky uzel jednotky škálování není potřeba opravit pomocí portálu Azure Stack hub pro správu. Následující článek obsahuje další informace o tom, že je nutná oprava a [nahrazuje hardwarovou komponentu na uzlu jednotky škálování centra Azure Stack](azure-stack-replace-component.md).
 
-Tento postup můžete použít pro integrované systémy a pro nasazení Azure Stack Development Kit (ASDK), která mají disky připojitelných za chodu.
+Tento postup můžete použít pro nasazení, která mají disky připojitelných za chodu.
 
 Konkrétní postup nahrazení disku se bude lišit v závislosti na vašem dodavateli hardwaru od výrobce OEM. Konkrétní podrobný postup pro váš systém najdete v dokumentaci k jednotce nahraditelné v terénu od vašeho dodavatele.
 

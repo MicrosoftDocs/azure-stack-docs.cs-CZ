@@ -15,16 +15,14 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 13dcb779297eddd1d75d3de1b6e47bd882f2126c
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: de0ec0d68b3d63cc0661fe7c4684304d83878a45
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75810593"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882347"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack-hub"></a>Škálování akcí uzlu jednotky v centru Azure Stack
-
-*Platí pro: Azure Stack integrovaných systémů centra*
 
 Tento článek popisuje, jak zobrazit stav jednotky škálování. Můžete zobrazit uzly jednotky. Můžete spouštět akce uzlu, jako je zapnutí, vypnutí, vypnutí, vyprázdnění, obnovení a oprava. Obvykle tyto akce uzlu použijete během nahrazování částí nebo k obnovení uzlu.
 

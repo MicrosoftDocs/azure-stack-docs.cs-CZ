@@ -8,16 +8,14 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: d6adbc374cbd2472ceed1895fe7efb34ab5b9d64
-ms.sourcegitcommit: a6c02421069ab9e72728aa9b915a52ab1dd1dbe2
+ms.openlocfilehash: 3a8edb749ba995636f8e2fe626063ff4c495bb7b
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75654912"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881752"
 ---
 # <a name="deploy-an-app-that-scales-cross-cloud-using-azure-and-azure-stack-hub"></a>Nasazení aplikace, která škáluje více cloudů pomocí Azure a centra Azure Stack
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack centrum pro vývoj*
 
 Naučte se vytvářet řešení pro více cloudů, aby bylo možné ručně aktivovaný proces přepnutí z webové aplikace hostovaného centra Azure Stack do hostované webové aplikace Azure pomocí automatického škálování prostřednictvím Traffic Manageru. Tento proces zajišťuje flexibilní a škálovatelný cloudový nástroj při zatížení.
 

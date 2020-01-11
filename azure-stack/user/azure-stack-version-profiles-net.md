@@ -16,16 +16,14 @@ ms.date: 09/17/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 21d9149de4ebe467ecffa6c00d3b6386cb69eb24
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: ec22eea76e2ab0188c1c7a57ef58b4625dec2fcf
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75818668"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75878488"
 ---
 # <a name="use-api-version-profiles-with-net-in-azure-stack-hub"></a>Použití profilů verzí rozhraní API s .NET v Azure Stackovém centru
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 Sada .NET SDK pro Správce prostředků centra Azure Stack poskytuje nástroje, které vám pomůžou při sestavování a správě vaší infrastruktury. Poskytovatelé prostředků v sadě SDK zahrnují výpočetní prostředky, sítě, úložiště, App Services a [Key Vault](/azure/key-vault/key-vault-whatis). Sada .NET SDK obsahuje 14 balíčků NuGet. Tyto balíčky je nutné stáhnout do řešení při každém kompilování projektu. Můžete si však stáhnout konkrétního poskytovatele prostředků, který budete používat pro **2019-03-01-Hybrid** nebo **2018-03-01-hybrids** pro optimalizaci paměti aplikace. Každý balíček se skládá z poskytovatele prostředků, příslušné verze rozhraní API a rozhraní API profil, ke kterému patří. Profily rozhraní API v sadě .NET SDK umožňují vývoj hybridního cloudu tím, že vám pomůžou přepínat mezi globálním prostředky a prostředky Azure v centru Azure Stack.
 

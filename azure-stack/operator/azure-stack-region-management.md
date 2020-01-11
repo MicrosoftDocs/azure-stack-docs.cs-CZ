@@ -17,16 +17,14 @@ ms.date: 08/13/2019
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 11/27/2018
-ms.openlocfilehash: 1e7127647ef4b0653e759c7008c9874e9a5d2be2
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 56fb993f7c4059ba468100904d10baabac38cd7d
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75809742"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882041"
 ---
 # <a name="region-management-in-azure-stack-hub"></a>Správa oblastí v centru Azure Stack
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 Azure Stack hub používá koncept *oblastí*, což jsou logické entity skládající se z hardwarových prostředků tvořících infrastrukturu centra Azure Stack. V části Správa oblastí můžete najít všechny prostředky, které jsou potřeba k úspěšnému provozování infrastruktury centra Azure Stack.
 

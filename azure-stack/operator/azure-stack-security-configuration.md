@@ -9,16 +9,14 @@ ms.date: 06/17/2019
 ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 06/17/2019
-ms.openlocfilehash: 1423b21de6236bf316e426aa175ddb2b95c70199
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 8fe0019dfee098a7ed022ecb20b6443a4be43f53
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75814928"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881956"
 ---
 # <a name="configure-azure-stack-hub-security-controls"></a>Konfigurace ovládacích prvků zabezpečení centra Azure Stack
-
-*Platí pro: Azure Stack integrovaných systémů centra*
 
 Tento článek vysvětluje ovládací prvky zabezpečení, které je možné změnit v Azure Stack hub, a zvýrazní případné kompromisy.
 

@@ -16,16 +16,14 @@ ms.date: 08/29/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 3e86bf066cd48f804ba40497333e3e317ce0213a
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 0c557b371525c11a869eb6e076bf2076fca3e984
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75805009"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882823"
 ---
 # <a name="deploy-app-service-in-an-offline-environment-in-azure-stack-hub"></a>Nasazení App Service v offline prostředí v centru Azure Stack
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 > [!IMPORTANT]
 > Před nasazením Azure App Service 1,7 použijte aktualizaci 1907 pro integrovaný systém Azure Stack hub nebo nasaďte nejnovější Azure Stack Development Kit (ASDK).
@@ -230,9 +228,9 @@ Až nasadíte a zaregistrujete poskytovatele prostředků App Service, otestujte
 >
 > Abyste mohli vytvářet aplikace, které používají App Service v centru Azure Stack, *musíte* mít předplatné tenanta. Jediné možnosti, které může správce služby dokončit v rámci portálu pro správu, se týkají správy App Service poskytovatele prostředků. Mezi tyto možnosti patří přidání kapacity, konfigurace zdrojů nasazení a přidání úrovní a SKU pracovního procesu.
 >
-> Od třetí verze Technical Preview, abyste mohli vytvářet webové, API a Azure Functions aplikace, musíte použít portál tenanta a mít předplatné tenanta.
+> Od třetí verze Technical Preview, pokud chcete vytvářet webové aplikace, rozhraní API a Azure Functions aplikace, musíte použít portál User Portal a mít předplatné tenanta.
 
-1. Na portálu tenanta centra Azure Stack vyberte **+ vytvořit prostředek** > **web a mobilní zařízení** > **Webová aplikace**.
+1. Na portálu Azure Stack User Portal vyberte **+ vytvořit prostředek** > **web a mobilní zařízení** > **Webová aplikace**.
 
 1. V okně **Webová aplikace** zadejte název do pole **Webová aplikace** .
 
@@ -250,7 +248,7 @@ Až nasadíte a zaregistrujete poskytovatele prostředků App Service, otestujte
 
 ## <a name="deploy-a-wordpress-dnn-or-django-website-optional"></a>Nasazení webu WordPress, DNN nebo Django (volitelné)
 
-1. Na portálu tenanta centra Azure Stack vyberte **+** , přejít na Azure Marketplace, nasaďte web Django a počkejte na úspěšné dokončení. Webová platforma Django používá databázi založenou na systému souborů. Nevyžaduje žádné další poskytovatele prostředků, jako je SQL nebo MySQL.
+1. Na portálu Azure Stack hub User Portal vyberte **+** , přejít na Azure Marketplace, nasaďte web Django a počkejte na úspěšné dokončení. Webová platforma Django používá databázi založenou na systému souborů. Nevyžaduje žádné další poskytovatele prostředků, jako je SQL nebo MySQL.
 
 1. Pokud jste nasadili také poskytovatele prostředků MySQL, můžete web WordPress nasadit z Azure Marketplace. Po zobrazení výzvy k zadání parametrů databáze zadejte uživatelské jméno jako *uživatel1\@Server1*s uživatelským jménem a zvoleným názvem serveru.
 

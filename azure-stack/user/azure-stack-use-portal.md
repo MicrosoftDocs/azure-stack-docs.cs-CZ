@@ -14,16 +14,14 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: efemmano
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 4dec7bfe4ee19f1762311fb40eee9a43626d6cfd
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: fd6dd68773fdfbb595ae5281f57651d068018ce8
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75815710"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75878522"
 ---
 # <a name="use-the-azure-stack-hub-user-portal"></a>Použití uživatelského portálu Azure Stack hub
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 Pomocí portálu Azure Stack hub se přihlaste k odběru veřejných nabídek a použijte služby, které tyto nabídky poskytují. Pokud jste použili globální Azure Portal, již jste obeznámeni s tím, jak lokalita funguje.
 

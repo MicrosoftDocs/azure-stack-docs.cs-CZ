@@ -15,16 +15,14 @@ ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: sethm
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: e393f0142f403e175427de87738db1a2bf64233a
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: a65615e03e6e7fcda84ec16c6323e9fa2c2f6221
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75820317"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75879083"
 ---
 # <a name="deploy-a-vm-with-a-securely-stored-certificate-on-azure-stack-hub"></a>Nasazení virtuálního počítače s zabezpečeným uloženým certifikátem v centru Azure Stack 
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 Tento článek popisuje, jak nasadit virtuální počítač s Azure Stack hub s nainstalovaným certifikátem Key Vault.
 

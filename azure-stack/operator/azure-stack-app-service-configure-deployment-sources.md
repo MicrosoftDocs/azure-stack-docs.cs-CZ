@@ -16,16 +16,14 @@ ms.date: 03/11/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: c8b8be6797821ae3527275293f02dee490f0c278
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 0115e726e8922b94eae437cb76e23f4e77199d97
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75815200"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75880902"
 ---
 # <a name="configure-deployment-sources-for-app-services-on-azure-stack-hub"></a>Konfigurace zdrojů nasazení pro App Services v centru Azure Stack
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 App Service v centru Azure Stack podporuje nasazení na vyžádání od více poskytovatelů správy zdrojového kódu. Tato funkce umožňuje vývojářům aplikací nasadit přímo ze svých úložišť správy zdrojového kódu. Pokud chtějí uživatelé nakonfigurovat App Service pro připojení ke svým úložištím, operátor cloudu musí nejdřív nakonfigurovat integraci mezi App Service v Azure Stackovém centru a poskytovatelem správy zdrojů.  
 

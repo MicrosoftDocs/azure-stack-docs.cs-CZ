@@ -15,16 +15,14 @@ ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 1071bd3a1bda2b5a50f5ba963ff8927cf92734e5
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: c783771d730010e459b444b537175f683f188bb7
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75820164"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883843"
 ---
 # <a name="what-is-the-aks-engine-on-azure-stack-hub"></a>Co je modul AKS v centru Azure Stack?
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 Pomocí nástroje příkazového řádku AKS Engine můžete nasadit a spravovat cluster Kubernetes v Azure a centra Azure Stack. Pomocí modulu AKS můžete vytvářet, upgradovat a škálovat Azure Resource Manager nativních clusterů. Modul můžete použít k nasazení clusteru v připojených i odpojených prostředích. Tento článek poskytuje přehled modulu AKS, podporované scénáře použití modulu s rozbočovačem Azure Stack a Úvod k operacím, jako je nasazení, upgrade a škálování.
 

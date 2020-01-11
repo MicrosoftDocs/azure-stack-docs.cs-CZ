@@ -15,16 +15,14 @@ ms.date: 03/11/2019
 ms.author: BryanLa
 ms.reviewer: anwestg
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 71f194e49f0e852c3975bae61222fb2d94875af2
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 19903ac8c3e2692dbf07569e1c7bc8b9661fe190
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75811953"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75880613"
 ---
 # <a name="app-service-on-azure-stack-hub-overview"></a>Přehled App Service v centru Azure Stack
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 Azure App Service v centru Azure Stack je nabídka typu platforma jako služba (PaaS) z Microsoft Azure dostupná v Azure Stackovém centru. Služba umožňuje vašim interním nebo externím zákazníkům vytvářet webové aplikace, rozhraní API a Azure Functions aplikací pro libovolnou platformu nebo zařízení. Můžou vaše aplikace integrovat s místními aplikacemi a automatizovat jejich obchodní procesy. Operátoři cloudu centra Azure Stack můžou spouštět aplikace zákazníka na plně spravovaných virtuálních počítačích s jejich výběrem ze sdílených prostředků virtuálních počítačů nebo vyhrazených virtuálních počítačů.
 

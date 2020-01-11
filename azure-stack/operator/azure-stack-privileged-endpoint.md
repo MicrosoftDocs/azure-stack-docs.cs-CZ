@@ -15,16 +15,14 @@ ms.date: 1/8/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 1/8/2020
-ms.openlocfilehash: 7754a1e88a8000ede2b4058e09a7e91c3c6171e7
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 665e0a32abfbdce3953423135600eed98cbc2eef
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75810048"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882126"
 ---
 # <a name="use-the-privileged-endpoint-in-azure-stack-hub"></a>Použití privilegovaného koncového bodu v centru Azure Stack
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 Jako operátor centra Azure Stack byste pro většinu každodenních úloh správy měli používat rozhraní API pro správu portálu, PowerShell nebo Azure Resource Manager. U některých méně běžných operací ale potřebujete použít *privilegovaný koncový bod* (PEP). PEP je předem nakonfigurovaná konzola vzdáleného prostředí PowerShell, která poskytuje dostatek možností, které vám pomůžou provést požadovanou úlohu. Koncový bod používá [prostředí POWERSHELL JEA (jen dostatečná Správa)](https://docs.microsoft.com/powershell/scripting/learn/remoting/jea/overview) k zobrazení pouze omezené sady rutin. Pokud chcete získat přístup k PEP a vyvolat omezenou sadu rutin, použije se účet s nízkými oprávněními. Nejsou vyžadovány žádné účty správců. Pro zvýšení zabezpečení není skriptování povoleno.
 

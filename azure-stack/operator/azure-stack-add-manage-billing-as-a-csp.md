@@ -15,16 +15,14 @@ ms.date: 10/02/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 8b97636d8d0dfce09b17c54e52b0fcda1990151e
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 7fcd34efefa9c82085274837829f989908f751ba
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75812123"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881089"
 ---
 # <a name="manage-usage-and-billing-for-azure-stack-hub-as-a-cloud-solution-provider"></a>Správa využití a fakturace pro centra Azure Stack jako poskytovatele Cloud Solution Provider
-
-*Platí pro: Azure Stack integrovaných systémů centra*
 
 Tento článek popisuje, jak zaregistrovat Azure Stack hub jako poskytovatele Cloud Solution Provider (CSP) a jak přidat zákazníky.
 

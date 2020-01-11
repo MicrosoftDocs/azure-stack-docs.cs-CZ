@@ -16,16 +16,14 @@ ms.date: 11/26/2019
 ms.author: justinha
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/26/2019
-ms.openlocfilehash: 949a0eee848c5ad6a123e3d4bd8ae52c9819d23e
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 758390e9190e75125bad5701b810af08456f2efc
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75814622"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881871"
 ---
 # <a name="sql-resource-provider-11470-release-notes"></a>1\.1.47.0 poznámky k verzi poskytovatele prostředků SQL
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 Tyto poznámky k verzi popisují vylepšení a známé problémy ve verzi 1.1.47.0 poskytovatele prostředků SQL.
 
@@ -38,7 +36,7 @@ Stáhněte si binární soubor poskytovatele prostředků SQL a potom spusťte s
 > |     |     |
 
 > [!IMPORTANT]
-> Před nasazením nejnovější verze poskytovatele prostředků SQL použijte minimální podporovanou aktualizaci centra Azure Stack do integrovaného systému služby Azure Stack hub nebo nasaďte nejnovější Azure Stack Development Kit (ASDK).
+> Před nasazením nejnovější verze poskytovatele prostředků SQL použijte pro integrovaný systém služby Azure Stack hub minimální podporovanou aktualizaci centra Azure Stack.
 
 ## <a name="new-features-and-fixes"></a>Nové funkce a opravy
 

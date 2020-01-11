@@ -16,16 +16,14 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/25/2019
-ms.openlocfilehash: a5bd63b7e55c0092c48c913b63d942613d6aed7e
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 4fb08632d994a1d565e949eb42fa264cf520ced6
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75812191"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75880443"
 ---
 # <a name="app-service-on-azure-stack-hub-update-5-release-notes"></a>Zpráva k vydání verze v App Service Azure Stack centra aktualizace 5
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 Tyto poznámky k verzi popisují vylepšení, opravy a známé problémy v Azure App Service v Azure Stack centra aktualizace 5. Známé problémy jsou rozdělené na tři části: problémy přímo související s nasazením, problémy s procesem aktualizace a problémy se sestavením (po instalaci).
 

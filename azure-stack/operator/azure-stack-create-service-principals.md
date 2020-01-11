@@ -7,16 +7,14 @@ ms.service: azure-stack
 ms.topic: how-to
 ms.date: 11/11/2019
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 1fc771f82820149b01b6d11d37ac9a8720483e51
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 73eec3724aa37976809af6d1a4aa1b4b4c7baef5
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75815302"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883095"
 ---
 # <a name="use-an-app-identity-to-access-azure-stack-hub-resources"></a>Použití identity aplikace pro přístup k prostředkům Azure Stack hub
-
-*Platí pro: integrované systémy a Azure Stack Development Kit centra Azure Stack (ASDK)*
 
 Aplikace, která potřebuje nasadit nebo nakonfigurovat prostředky prostřednictvím Azure Resource Manager, musí být reprezentovaná instančním objektem. Stejně jako uživatel je reprezentován objektem zabezpečení uživatele, instanční objekt je typ objektu zabezpečení, který představuje aplikaci. Instanční objekt poskytuje identitu vaší aplikace, což vám umožní delegovat jenom potřebná oprávnění k danému instančnímu objektu.  
 

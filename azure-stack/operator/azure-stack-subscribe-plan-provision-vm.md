@@ -10,16 +10,14 @@ ms.topic: conceptual
 ms.date: 10/05/2019
 ms.author: bryanla
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: 3d5203481eea68c9f4dbc231f346bef845622ba2
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 3a9798b82729a88b2ca3cf8ed2cf403a9dab34c7
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75814112"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882857"
 ---
 # <a name="create-subscriptions-to-offers-in-azure-stack-hub"></a>Vytváření předplatných nabídek v centru Azure Stack
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 Když [vytvoříte nabídku](azure-stack-create-offer.md), uživatelé potřebují předplatné pro tuto nabídku, aby ji mohli využít. Uživatelé můžou získat předplatné nabídky dvěma způsoby:
 
@@ -71,7 +69,7 @@ Jako uživatel se můžete přihlásit k portálu User Portal a vyhledat a přih
 
 ### <a name="to-subscribe-to-an-offer"></a>Přihlášení k odběru nabídky
 
-1. [Přihlaste](../asdk/asdk-connect.md) se k [portálu user Portal centra Azure Stack](https://portal.local.azurestack.external) a vyberte **získat předplatné**.
+1. Přihlaste se k portálu User Portal centra Azure Stack a vyberte **získat předplatné**.
 
    ![Získat předplatné](media/azure-stack-subscribe-plan-provision-vm/image01.png)
   

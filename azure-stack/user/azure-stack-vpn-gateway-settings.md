@@ -15,16 +15,14 @@ ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: sethm
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: d27f644b2f374014895605a3d7b5417af0db7a73
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: ff7667c94b345cbb666232e869ab8871bd081f5c
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75815455"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883129"
 ---
 # <a name="configure-vpn-gateway-settings-for-azure-stack-hub"></a>Konfigurace nastavení služby VPN Gateway pro centrum Azure Stack
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 Brána sítě VPN je typem brány virtuální sítě, která odesílá šifrovaný provoz mezi vaší virtuální sítí v centru Azure Stack a vzdálenou bránou VPN. Vzdálená brána VPN se může nacházet v Azure, v zařízení v datovém centru nebo v zařízení na jiné lokalitě. Pokud je mezi dvěma koncovými body síťové připojení, můžete mezi těmito dvěma sítěmi vytvořit zabezpečené připojení VPN typu Site-to-Site (S2S).
 

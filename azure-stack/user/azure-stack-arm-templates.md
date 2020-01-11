@@ -16,16 +16,14 @@ ms.date: 10/07/2019
 ms.author: mabrigg
 ms.reviewer: justini
 ms.lastreviewed: 11/14/2018
-ms.openlocfilehash: 3ae09f31a0dc1b99a0ec5b18a0e653c02c098ae7
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 734a77692f8f505e84090ee882eaa570ccd897ec
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75816458"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75879253"
 ---
 # <a name="use-azure-resource-manager-templates-in-azure-stack-hub"></a>Použití šablon Azure Resource Manager v centru Azure Stack
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 Šablony Azure Resource Manager můžete použít k nasazení a zřízení všech prostředků aplikace v rámci jediné koordinované operace. Šablony můžete také znovu nasadit, abyste provedli změny prostředků ve skupině prostředků.
 

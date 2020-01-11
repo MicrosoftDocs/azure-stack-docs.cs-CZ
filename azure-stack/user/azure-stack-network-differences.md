@@ -11,16 +11,14 @@ ms.service: azure-stack
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 07/10/2019
-ms.openlocfilehash: 854c249ff6ef5d44f6e8b3451f50b90b296ae997
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 49266e22652b73c9af8ff2e3c08a0604f43760af
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75816084"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883486"
 ---
 # <a name="differences-and-considerations-for-azure-stack-hub-networking"></a>Rozdíly a požadavky pro sítě Azure Stack hub
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 Síť Azure Stack hub má mnoho funkcí poskytovaných službou Azure Networking. Před nasazením sítě Azure Stack hub byste ale měli porozumět nějakým hlavním rozdílům.
 

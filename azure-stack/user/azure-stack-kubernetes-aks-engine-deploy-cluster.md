@@ -11,20 +11,18 @@ ms.workload: na
 pms.tgt_pltfrm: na (Kubernetes)
 ms.devlang: nav
 ms.topic: article
-ms.date: 11/21/2019
+ms.date: 01/10/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: da1b38df17904042ade28575f1f919708d845252
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 34fc30c13cf365560fbd30234a60af4cc4f9a594
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75820249"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883558"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>Nasazení clusteru Kubernetes s modulem AKS v centru Azure Stack
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 Cluster Kubernetes můžete v Azure Stack hub nasadit z virtuálního počítače klienta, na kterém běží modul AKS. V tomto článku se podíváme na zápis specifikace clusteru, nasazení clusteru se souborem `apimodel.json` a kontrolu clusteru nasazením MySQL pomocí Helm.
 
@@ -98,7 +96,9 @@ V této části se podíváme na vytvoření modelu rozhraní API pro váš clus
     | Pole | Popis |
     | --- | --- |
     | adminUsername | Zadejte uživatelské jméno správce virtuálního počítače. |
-    | SSH | Zadejte veřejný klíč, který se bude používat pro ověřování SSH s virtuálními počítači. |
+    | SSH | Zadejte veřejný klíč, který se bude používat pro ověřování SSH s virtuálními počítači. Pokud používáte výstupy, otevřete generátor klíčů pro výstup, který načte soukromý klíč pro výstup a veřejný klíč, který začíná SSH-RSA, jako v následujícím příkladu. Můžete použít klíč generovaný při vytváření klienta pro Linux, ale musíte **zkopírovat veřejný klíč, aby se jedná o jednořádkový text, jak je znázorněno v příkladu**.|
+
+    ![Generátor klíčů pro výstupu](media/azure-stack-kubernetes-aks-engine-deploy-cluster/putty-key-generator.png)
 
 ### <a name="more-information-about-the-api-model"></a>Další informace o modelu rozhraní API
 

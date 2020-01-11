@@ -15,16 +15,14 @@ ms.topic: article
 ms.date: 06/24/2019
 ms.author: anwestg
 ms.reviewer: ''
-ms.openlocfilehash: 3d11184844078f2d888156f6bf4b1a436f345ccd
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 2c96d45aa433fdbae490ed5c1c304b1c000e8c02
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75815268"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75880103"
 ---
 # <a name="app-service-on-azure-stack-hub-update-6-release-notes"></a>App Service zpráva k vydání verze Azure Stack centra pro aktualizaci 6
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 Tyto poznámky k verzi popisují vylepšení a opravy v Azure App Service v centru Azure Stack aktualizace 6 a všech známých problémech. Známé problémy jsou rozděleny do potíží přímo souvisejících s nasazením, procesem aktualizace a problémy se sestavením (po instalaci).
 
@@ -115,7 +113,7 @@ Aby bylo možné dosáhnout možností nasazení a přihlašovacích údajů pro
 
 - Azure Function monitor průběžně zobrazuje "načítání" na portálu.
 
-Když se pokusíte monitorovat jednotlivé funkce, nebudete moct na portálu tenanta zobrazit protokol vyvolání, počet úspěchů nebo počet chyb.  Pokud chcete tuto funkci znovu povolit, přečtěte si **Function App**, navštivte **možnosti platformy**a pak přejít na **nastavení aplikace**.  Přidejte nové nastavení aplikace – název **AzureWebJobsDashboard** a nastavte hodnotu na stejnou hodnotu jako je nastavená v AzureWebJobsStorage.  Pak přejděte do zobrazení monitorování na vaší funkci a zobrazí se informace o monitorování.
+Když se pokusíte monitorovat jednotlivé funkce, zobrazí se na portálu User Portal žádný protokol vyvolání, počet úspěchů nebo počet chyb.  Pokud chcete tuto funkci znovu povolit, přečtěte si **Function App**, navštivte **možnosti platformy**a pak přejít na **nastavení aplikace**.  Přidejte nové nastavení aplikace – název **AzureWebJobsDashboard** a nastavte hodnotu na stejnou hodnotu jako je nastavená v AzureWebJobsStorage.  Pak přejděte do zobrazení monitorování na vaší funkci a zobrazí se informace o monitorování.
 
 ## <a name="next-steps"></a>Další kroky
 

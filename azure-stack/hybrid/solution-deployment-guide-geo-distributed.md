@@ -8,16 +8,14 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 11da2f86bcfce1473e5fabe3712281fa3e9e68b2
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: c18e510d32773905b59cd756ed49daf59a0d03e9
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73639176"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881854"
 ---
 # <a name="create-a-geo-distributed-app-solution-to-direct-traffic-with-azure-and-azure-stack-hub"></a>Vytvoření geograficky distribuované aplikace pro směrování provozu pomocí Azure a centra Azure Stack
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack centrum pro vývoj*
 
 Naučte se směrovat provoz do konkrétních koncových bodů na základě různých metrik pomocí vzoru geograficky distribuovaných aplikací. Když vytvoříte profil Traffic Manager s využitím geografického směrování a konfigurace koncového bodu, zajistíte směrování informací na koncové body na základě regionálních požadavků, podnikových a mezinárodních předpisů a vašich datových potřeb.
 
@@ -64,7 +62,7 @@ Před vytvořením kapacity distribuovaných aplikací vám pomůže tyto věci:
 -   **Konvence pojmenování pro aplikace:** Vzhledem k tomu, že bude nasazeno několik instancí aplikace, je pro každou instanci nasazené aplikace nutné zadat název. V prostředí App Service se stejný název aplikace dá použít v několika prostředích. Vzhledem k tomu, že každý App Service Environment má jedinečnou příponu domény, můžou si vývojáři zvolit, že budou v každém prostředí znovu používat přesný název aplikace. Například vývojář může mít aplikace, které jsou pojmenovány takto: *MyApp.foo1.p.azurewebsites.NET*, *MyApp.foo2.p.azurewebsites.NET*, *MyApp.foo3.p.azurewebsites.NET*a tak dále. Pro aplikaci, která se tady používá, má každá instance aplikace jedinečný název. Používané názvy instancí aplikace jsou *webfrontend1*, *webfrontend2*a *webfrontend3*.
 
 > [!Tip]  
-> ![Hybrid-Pillars. png](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
+> ![hybridní pillars.png](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
 > Centrum Microsoft Azure Stack je rozšířením Azure. Centrum Azure Stack přináší flexibilitu a inovace cloud computingu do místního prostředí. tím se umožní jenom hybridní cloud, který umožňuje vytvářet a nasazovat hybridní aplikace odkudkoli.  
 > 
 > Požadavky na [Návrh pro hybridní aplikace](overview-app-design-considerations.md) kontrolují pilíře kvality softwaru (umístění, škálovatelnost, dostupnost, odolnost, možnosti správy a zabezpečení) pro navrhování, nasazování a provozování hybridních aplikací. Pokyny k návrhu pomáhají při optimalizaci návrhu hybridní aplikace a minimalizaci výzev v produkčních prostředích.
@@ -79,7 +77,7 @@ V této části vytvoříte webovou aplikaci.
 > - Najeďte na sestavení aplikace na více cloudových cílů.
 > - Správa a konfigurace procesu CD
 
-### <a name="prerequisites"></a>Předpoklady
+### <a name="prerequisites"></a>Požadavky
 
 Vyžaduje se instalace předplatného Azure a centra Azure Stack.
 
@@ -124,7 +122,7 @@ Nastavte hybridní průběžnou integraci/průběžné doručování (CI/CD), ab
 
 2.  Potvrďte, že **kód aplikace** byl zkontrolován do Azure Repos.
 
-### <a name="create-the-build-definition"></a>Vytvoření definice sestavení
+### <a name="create-the-build-definition"></a>Vytvořte definici sestavení
 
 1. **Přihlaste se k Azure Pipelines** a potvrďte schopnost vytvářet definice sestavení.
 
@@ -251,7 +249,7 @@ Azure DevOps Services poskytují vysoce konfigurovatelný a spravovatelný kaná
 
 Pokud chcete do služby App Service migrovat živý web a jeho název domény DNS, přečtěte si téma [Migrace aktivního názvu DNS do služby Azure App Service](https://docs.microsoft.com/azure/app-service/manage-custom-dns-migrate-domain).
 
-### <a name="prerequisites"></a>Předpoklady
+### <a name="prerequisites"></a>Požadavky
 
 Dokončení tohoto řešení:
 
@@ -321,7 +319,7 @@ Po přidání CNAME bude stránka záznamů DNS vypadat jako v následujícím p
 
    a.  Záznam **A** pro mapování na IP adresu aplikace.
 
-   b.  Záznam **txt** , který má být namapován na výchozí název hostitele aplikace < APP_NAME > azurewebsites. NET. App Service používá tento záznam pouze v době konfigurace k ověření vlastního vlastnictví domény. Po ověření odstraňte záznam TXT.
+   b.  Záznam **txt** pro mapování na výchozí název hostitele aplikace < APP_NAME >. azurewebsites. NET. App Service používá tento záznam pouze v době konfigurace k ověření vlastního vlastnictví domény. Po ověření odstraňte záznam TXT.
 
 9. Dokončete tuto úlohu na kartě registrátor domény a znovu ověřte, dokud není aktivováno tlačítko **Přidat název hostitele** .
 
@@ -362,7 +360,7 @@ V této části budeme:
 > [!Note]  
 > V případě potřeby Získejte certifikát SSL zákazníka v Azure Portal a navažte ho k webové aplikaci. Další informace najdete v [kurzu App Servicech certifikátů](https://docs.microsoft.com/azure/app-service/web-sites-purchase-ssl-web-site).
 
-### <a name="prerequisites"></a>Předpoklady
+### <a name="prerequisites"></a>Požadavky
 
 Dokončení tohoto řešení:
 
@@ -413,7 +411,7 @@ Vlastní protokol SSL není podporován na úrovni **Free** nebo **Shared** . Po
 
 1.  Vyberte některou z úrovní **Basic**, **Standard** nebo **Premium**.
 
-2.  Vyberte **Vybrat**.
+2.  Vyberte **vyberte**.
 
 ![Výběr cenové úrovně](media/solution-deployment-guide-geo-distributed/image36.png)
 
@@ -486,7 +484,7 @@ Když se k vygenerování žádosti o certifikát použije služba IIS nebo **Ce
 
 Až App Service dokončí nahrávání certifikátu, zobrazí se na stránce **Nastavení SSL** .
 
-![Nastavení SSL](media/solution-deployment-guide-geo-distributed/image39.png)
+![Nastavení protokolu SSL](media/solution-deployment-guide-geo-distributed/image39.png)
 
 #### <a name="bind-your-ssl-certificate"></a>Vytvoření vazby certifikátu SSL
 
@@ -538,9 +536,9 @@ Na stránce webová aplikace vyberte **Nastavení SL**. Pak v části **Pouze HT
 
 ![Vynucení HTTPS](media/solution-deployment-guide-geo-distributed/image43.png)
 
-Po dokončení operace přejděte na libovolnou adresu URL protokolu HTTP, která odkazuje na aplikaci. Například:
+Po dokončení operace přejděte na libovolnou adresu URL protokolu HTTP, která odkazuje na aplikaci. Příklad:
 
--   https://< APP_NAME >. azurewebsites. NET
+-   https://< app_name >. azurewebsites. NET
 -   https://northwindcloud.com
 -   <https://www.northwindcloud.com>
 
@@ -570,7 +568,7 @@ Aplikace ve výchozím nastavení povolí protokol [TLS](https://wikipedia.org/w
 
     5.  V poli **Umístění skupiny prostředků** vyberte umístění skupiny prostředků. Toto nastavení odkazuje na umístění skupiny prostředků a nemá žádný vliv na globálně nasazený profil Traffic Manager.
 
-    6.  Vyberte **Create** (Vytvořit).
+    6.  Vyberte **Vytvořit**.
 
     7.  Po dokončení globálního nasazení profilu Traffic Manager se v příslušné skupině prostředků zobrazí jako jeden z prostředků.
 
@@ -631,4 +629,4 @@ Přímý přenos dat prostřednictvím Azure Traffic Manager a koncových bodů 
 
 ## <a name="next-steps"></a>Další kroky
 
-- Další informace o vzorech cloudu Azure najdete v tématu [vzory návrhu cloudu](https://docs.microsoft.com/azure/architecture/patterns).
+- Další informace o vzorech cloudu Azure, najdete v článku [vzory návrhu v cloudu](https://docs.microsoft.com/azure/architecture/patterns).

@@ -15,16 +15,14 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: ddd24e1fce75d99608b406f99e7ab8648c34c73c
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 612a49649b66b6f7324ea3973a4ec3b02adf2ddb
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75817087"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882313"
 ---
 # <a name="manage-storage-capacity-for-azure-stack-hub"></a>Správa kapacity úložiště pro centrum Azure Stack
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 Informace v tomto článku vám pomohou monitorovat operátor cloudu Azure Stack hub a spravovat kapacitu úložiště nasazení Azure Stack centra. Infrastruktura úložiště centra Azure Stack přiděluje podmnožinu celkové úložné kapacity nasazení centra Azure Stack, která se má použít pro **služby úložiště**. Služby úložiště ukládají data tenantů do sdílených složek na svazcích, které odpovídají uzlům nasazení.
 

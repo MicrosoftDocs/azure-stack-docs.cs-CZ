@@ -15,16 +15,14 @@ ms.topic: article
 ms.date: 08/29/2019
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.openlocfilehash: a16c35e3f2beb386a81d27a6c1a7d49352c97df3
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 5b0e2fab05f0f025955725d5a3d6d95b84cc446b
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75816681"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75880120"
 ---
 # <a name="offline-update-of-azure-app-service-on-azure-stack-hub"></a>Offline aktualizace Azure App Service v centru Azure Stack
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 > [!IMPORTANT]
 > Před nasazením Azure App Service 1,7 1907 nainstalujte do integrovaného systému Azure Stack hub nebo novější verzi Azure Stack Development Kit.

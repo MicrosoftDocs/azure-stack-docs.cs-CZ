@@ -16,16 +16,14 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 83b9383b8afe0363d9a7bc436dde73dcbab54547
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: cfacebb9c4589332b57d3140b6ef43c1156ea55c
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75817070"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882330"
 ---
 # <a name="manage-physical-memory-capacity-in-azure-stack-hub"></a>Správa kapacity fyzické paměti v centru Azure Stack
-
-*Platí pro: Azure Stack integrovaných systémů centra*
 
 Pokud chcete zvýšit celkovou dostupnou kapacitu paměti v Azure Stackovém centru, můžete přidat více paměti. V Azure Stackovém centru se váš fyzický server označuje také jako *uzel jednotky škálování*. Všechny uzly jednotek škálování, které jsou členy jedné jednotky škálování, musí mít stejnou velikost paměti.
 

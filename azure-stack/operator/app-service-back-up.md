@@ -16,16 +16,14 @@ ms.date: 04/23/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/21/2019
-ms.openlocfilehash: a0a1d2b1025e814152b2a9b643683c5ed68bf5ff
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: ba9bff9b63454be8e9f1222d8b63425ad3192724
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75804533"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881361"
 ---
 # <a name="back-up-app-service-on-azure-stack-hub"></a>Zálohování App Service v centru Azure Stack
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*  
 
 Tento dokument poskytuje pokyny, jak zálohovat App Service v centru Azure Stack.
 

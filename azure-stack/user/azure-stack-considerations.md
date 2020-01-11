@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 01/06/2020
 ms.author: sethm
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: dc10ae92e00395a0cc6c19f0dfaafa0aeeac4141
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 2e44c0e70e44d628d32fdf8d15e9d60b78a4ce14
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75816390"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883809"
 ---
 # <a name="differences-between-azure-stack-hub-and-azure-when-using-services-and-building-apps"></a>Rozdíly mezi centrem Azure Stack a Azure při používání služeb a sestavování aplikací
 
@@ -42,8 +42,6 @@ Váš operátor centra Azure Stack oznamuje, které služby jsou k dispozici pro
 ## <a name="cheat-sheet-high-level-differences"></a>List tahák: rozdíly vysoké úrovně
 
 Následující tabulka popisuje rozdíly vysoké úrovně mezi Azure Stack hub a Azure. Mějte na paměti, že při vývoji centra pro Azure Stack nebo používání služby Azure Stack hub máte tyto rozdíly:
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 | Oblast | Azure (Global) | Azure Stack Hub |
 | -------- | ------------- | ----------|

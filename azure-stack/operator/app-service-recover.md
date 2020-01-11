@@ -16,16 +16,14 @@ ms.date: 03/21/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/21/2019
-ms.openlocfilehash: b6c4ffabbcd9ead11103552a0a037c4783305f71
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: c814f19c6f9d5df5b81aedb551c5d2cf31b26bff
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75809768"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881191"
 ---
 # <a name="app-service-recovery-on-azure-stack-hub"></a>App Service obnovení v centru Azure Stack
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*  
 
 V tomto tématu najdete pokyny k tomu, jaké akce se App Service zotavení po havárii.
 

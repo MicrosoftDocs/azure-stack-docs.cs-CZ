@@ -15,16 +15,14 @@ ms.date: 10/01/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/16/2018
-ms.openlocfilehash: 432681002831ec204e6f2fb3552fd67a4c1670f1
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: d8714901bc8ac8f8c20b9b2649527f8e6f6627fc
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75817342"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882398"
 ---
 # <a name="add-linux-images-to-azure-stack-hub-marketplace"></a>Přidání imagí pro Linux do webu centra Azure Stack Marketplace
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 Virtuální počítače se systémem Linux můžete do centra Azure Stack nasadit přidáním image založené na systému Linux do webu centra Azure Stack hub. Nejjednodušší způsob, jak přidat image pro Linux do centra Azure Stack, je prostřednictvím správy Marketplace. Tyto Image byly připraveny a testovány kvůli kompatibilitě s Azure Stackm centrem.
 

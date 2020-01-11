@@ -14,16 +14,14 @@ ms.date: 10/01/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: c04642ea6037813773e8c724c94fa2153bfa8a45
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 556933545af27b1fc22241ced3c83389072b3c8f
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75818651"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883197"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack-hub"></a>Použití profilů verzí rozhraní API s Pythonem v Azure Stackovém centru
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 Python SDK podporuje profily verzí rozhraní API pro cílení na různé cloudové platformy, jako je Azure Stack hub a globální Azure. Profily rozhraní API můžete používat při vytváření řešení pro hybridní cloud.
 

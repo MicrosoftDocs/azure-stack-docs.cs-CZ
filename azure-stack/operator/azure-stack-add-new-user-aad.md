@@ -1,36 +1,26 @@
 ---
-title: Přidat nový účet tenanta centra Azure Stack v Azure Active Directory | Microsoft Docs
-description: Naučte se, jak vytvořit účet tenanta v ASDK, abyste mohli prozkoumat portál tenanta.
-services: azure-stack
-documentationcenter: ''
+title: Přidání nového uživatelského účtu centra Azure Stack v Azure Active Directory
+description: Naučte se, jak vytvořit uživatelský účet v Azure Active Directory, abyste mohli prozkoumat portál User Portal.
 author: PatAltimore
 manager: femila
-editor: ''
-ms.assetid: a75d5c88-5b9e-4e9a-a6e3-48bbfa7069a7
 ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/20/2019
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: 46bb8fc18453da5775ff0b9a3b1df12cdc21ebfc
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 3f0ef1b6a61d271541ee894f854639b13e24d699
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75812310"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75880987"
 ---
-# <a name="add-a-new-azure-stack-hub-tenant-account-in-azure-active-directory"></a>Přidat nový účet tenanta centra Azure Stack v Azure Active Directory
+# <a name="add-a-new-azure-stack-hub-user-account-in-azure-active-directory-azure-ad"></a>Přidání nového uživatelského účtu centra Azure Stack v Azure Active Directory (Azure AD)
 
+Než budete moct testovat nabídky a plány a vytvářet prostředky, budete potřebovat uživatelský účet. Uživatelský účet vytvoříte v tenantovi Azure AD pomocí Azure Portal nebo PowerShellu.
 
-Po [nasazení Azure Stack Development Kit](../asdk/asdk-install.md)budete potřebovat uživatelský účet tenanta, abyste mohli prozkoumat portál tenanta a testovat své nabídky a plány. Účet tenanta můžete vytvořit pomocí Azure Portal nebo pomocí prostředí PowerShell.
-
-
-
-## <a name="create-an-azure-stack-hub-tenant-account-by-using-the-azure-portal"></a>Vytvoření účtu tenanta Azure Stackového centra pomocí Azure Portal
+## <a name="create-user-account-using-the-azure-portal"></a>Vytvoření uživatelského účtu pomocí Azure Portal
 
 Abyste mohli Azure Portal používat, musíte mít předplatné Azure.
 
@@ -57,9 +47,9 @@ Abyste mohli Azure Portal používat, musíte mít předplatné Azure.
     Uživatel je vytvořen a přidán do vašeho tenanta Azure AD.
 
 7. Přihlaste se k Azure Portal pomocí nového účtu. Po zobrazení výzvy změňte heslo.
-8. Přihlaste se k `https://portal.local.azurestack.external` pomocí nového účtu, abyste viděli portál tenanta.
+8. Přihlaste se k `https://portal.local.azurestack.external` pomocí nového účtu, abyste viděli portál User Portal.
 
-## <a name="create-an-azure-stack-hub-user-account-using-powershell"></a>Vytvoření uživatelského účtu centra Azure Stack pomocí prostředí PowerShell
+## <a name="create-a-user-account-using-powershell"></a>Vytvoření uživatelského účtu pomocí prostředí PowerShell
 
 Pokud nemáte předplatné Azure, nemůžete použít Azure Portal k přidání uživatelského účtu klienta. V takovém případě můžete místo toho použít modul Azure AD pro prostředí Windows PowerShell.
 
@@ -82,7 +72,7 @@ Pokud nemáte předplatné Azure, nemůžete použít Azure Portal k přidání 
 
             $msolcred = get-credential
 
-    # Add a tenant account "Tenant Admin <username>@<yourdomainname>" with the initial password "<password>".
+    # Add a user account "Tenant Admin <username>@<yourdomainname>" with the initial password "<password>".
 
             connect-msolservice -credential $msolcred
             $user = new-msoluser -DisplayName "Tenant Admin" -UserPrincipalName <username>@<yourdomainname> -Password <password>
@@ -91,7 +81,7 @@ Pokud nemáte předplatné Azure, nemůžete použít Azure Portal k přidání 
     ```
 
 1. Přihlaste se k Azure pomocí nového účtu. Po zobrazení výzvy změňte heslo.
-2. Přihlaste se k `https://portal.local.azurestack.external` pomocí nového účtu, abyste viděli portál tenanta.
+2. Přihlaste se k `https://portal.local.azurestack.external` pomocí nového účtu, abyste viděli portál User Portal.
 
 ## <a name="next-steps"></a>Další kroky
 

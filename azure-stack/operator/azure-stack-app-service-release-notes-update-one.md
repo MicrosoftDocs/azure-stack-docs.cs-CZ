@@ -16,16 +16,14 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/20/2018
-ms.openlocfilehash: c782806bfcf9a2750c29a790a14e5016d52031dc
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: f36a94bbc442913826571fdacd1303b010212d4c
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75815251"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75880358"
 ---
 # <a name="app-service-on-azure-stack-hub-update-1-release-notes"></a>Zpráva k vydání verze Azure Stack centra aktualizace 1 App Service
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 Tyto poznámky k verzi popisují vylepšení, opravy a známé problémy v Azure App Service v Azure Stack centra aktualizace 1. Známé problémy jsou rozdělené na tři části: problémy přímo související s nasazením, problémy s procesem aktualizace a problémy se sestavením (po instalaci).
 
@@ -83,7 +81,7 @@ Azure App Service v centru Azure Stack aktualizace 1 obsahuje následující vyl
     - Aktualizace **Gitu pro Windows** na v 2.14.1
     - Aktualizace **Mercurial** na verzi v 4.5.0
 
-  - Přidání podpory funkce **pouze protokolu HTTPS** v rámci funkce vlastní doména na portálu tenanta App Service.
+  - Přidání podpory funkce **pouze protokolu HTTPS** v rámci vlastní domény na portálu App Service User Portal.
 
   - Přidání ověření připojení úložiště v nástroji pro výběr vlastního úložiště pro Azure Functions.
 
@@ -91,7 +89,7 @@ Azure App Service v centru Azure Stack aktualizace 1 obsahuje následující vyl
 
 - Při vytváření offline balíčku pro nasazení se uživatelům už při otevření složky z instalačního programu App Service neobdrží chybová zpráva o odepření přístupu.
 
-- Vyřešené problémy při práci na funkci Custom doméns na portálu tenanta App Service.
+- Vyřešené problémy při práci s funkcí vlastní domény na portálu App Service User Portal.
 
 - Zabránit zákazníkům v používání rezervovaných názvů správců během instalace.
 

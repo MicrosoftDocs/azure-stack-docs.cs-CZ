@@ -15,16 +15,14 @@ ms.date: 10/16/2019
 ms.author: Justinha
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/08/2018
-ms.openlocfilehash: 78137349b6bee964f86e6c77ce2f0dd346ab0f40
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 738c9aad910e558f883e3474b248a8271beb30a3
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75812361"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75880885"
 ---
 # <a name="add-a-custom-vm-image-to-azure-stack-hub"></a>Přidání vlastní image virtuálního počítače do centra Azure Stack
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 V centru Azure Stack můžete přidat vlastní image virtuálního počítače (VM) do Marketplace a zpřístupnit ji uživatelům. Image virtuálních počítačů můžete přidat do Marketplace centra Azure Stack pomocí portálu pro správu nebo Windows PowerShellu. Použijte obrázek z globální Azure Marketplace jako základ pro vlastní image nebo vytvořte vlastní pomocí technologie Hyper-V.
 

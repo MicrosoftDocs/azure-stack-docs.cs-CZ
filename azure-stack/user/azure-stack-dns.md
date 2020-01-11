@@ -14,16 +14,14 @@ ms.topic: article
 ms.date: 10/03/2019
 ms.author: sethm
 ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: 239c65ca430140fda3d53be543e2f976ee57f588
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: caf251ad55e10ac1e763c75d61c52de4353eaf9f
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75820436"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75879202"
 ---
 # <a name="use-dns-in-azure-stack-hub"></a>Použití DNS v centru Azure Stack
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 Centrum Azure Stack podporuje následující funkce Azure DNS:
 

@@ -15,16 +15,14 @@ ms.topic: article
 ms.date: 10/11/2019
 ms.author: anwestg
 ms.reviewer: ''
-ms.openlocfilehash: ca1206a23f4f275304b975164dd757f274cc000c
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 87a2fae4c2020b9c37a2907b42299871b0c85095
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75804499"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75880256"
 ---
 # <a name="app-service-on-azure-stack-hub-update-7-release-notes"></a>Zpráva k vydání verze pro Azure Stack centra aktualizace 7 App Service
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 Tyto poznámky k verzi popisují vylepšení a opravy v Azure App Service ve službě Azure Stack centra aktualizace 7 a jakékoli známé problémy. Známé problémy jsou rozděleny do potíží přímo souvisejících s nasazením, procesem aktualizace a problémy se sestavením (po instalaci).
 

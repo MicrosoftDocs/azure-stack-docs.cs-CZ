@@ -15,16 +15,14 @@ ms.date: 10/03/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/20/2019
-ms.openlocfilehash: 54b258fdd91a7a288da22e5e5a8d853c6518d08a
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 44d00381ea11ef6ac7e947c31adce41b3228d93d
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75816373"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883775"
 ---
 # <a name="let-your-cloud-solution-provider-manage-your-azure-stack-hub-subscription"></a>Umožněte vašemu poskytovateli cloudového řešení spravovat předplatné centra Azure Stack.
-
-*Platí pro: Azure Stack integrovaných systémů centra*
 
 Pokud používáte Azure Stack hub s poskytovatelem Cloud Solution Provider (CSP), můžete se rozhodnout spravovat vlastní předplatné pro přístup k prostředkům v Azure a v centru Azure Stack. Můžete také povolit poskytovateli spravovat vaše předplatné. V tomto článku se dozvíte, jak:
 

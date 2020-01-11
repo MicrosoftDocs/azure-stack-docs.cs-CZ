@@ -15,16 +15,14 @@ ms.date: 09/10/2019
 ms.author: mabrigg
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: f3beee51b6971a62ac24a2787426de235c879792
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 889c26089ed6d26adccec200b19191e8ab13c5a7
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75813398"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882619"
 ---
 # <a name="azure-stack-hub-servicing-policy"></a>Zásady obsluhy centra Azure Stack
-
-*Platí pro: Azure Stack integrovaných systémů centra*
 
 Tento článek popisuje zásady obsluhy pro integrované systémy Azure Stack hub, co je potřeba udělat, abyste zachovali systém v podporovaném stavu, a jak získat podporu.
 

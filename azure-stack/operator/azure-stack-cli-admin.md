@@ -14,16 +14,14 @@ ms.topic: article
 ms.date: 10/02/2019
 ms.author: mabrigg
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 51dbef18134c3a5441808c698193fc11f00b223e
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: c4bec9ed2984154d2dde6880f0bf56629aff3070
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75812174"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882993"
 ---
 # <a name="enable-azure-cli-for-azure-stack-hub-users"></a>Povolení Azure CLI pro uživatele centra Azure Stack
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 Kořenový certifikát certifikační autority můžete poskytnout uživatelům Azure Stackového centra, aby mohli povolit Azure CLI na svých vývojových počítačích. Uživatelé potřebují certifikát pro správu prostředků přes rozhraní příkazového řádku.
 

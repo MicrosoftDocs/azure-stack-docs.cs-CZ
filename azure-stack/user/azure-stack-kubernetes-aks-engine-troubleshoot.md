@@ -15,16 +15,14 @@ ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 229d066438cbdad52c167706c4b77b0c425f137b
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 14f3cd2cef05b9514680dabd6849c5e60521ef86
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75820028"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75878811"
 ---
 # <a name="troubleshoot-the-aks-engine-on-azure-stack-hub"></a>Řešení potíží s modulem AKS v centru Azure Stack
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 Může dojít k potížím při nasazení nebo práci s modulem AKS v centru Azure Stack. V tomto článku se dozvíte, jak řešit potíže s nasazením modulu AKS, shromažďovat informace o vašem modulu AKS, shromažďovat protokoly Kubernetes, prohlížet kódy chyb v rozšíření vlastních skriptů a pokyny k otevření problému GitHubu pro modul AKS.
 

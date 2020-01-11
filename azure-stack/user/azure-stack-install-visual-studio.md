@@ -16,16 +16,14 @@ ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: e7254f5fb6a44a268c73ea988d2ba9ecd236d7f0
-ms.sourcegitcommit: b9d520f3b7bc441d43d489e3e32f9b89601051e6
+ms.openlocfilehash: 62b3091ec0ebd2415b7de2be8c04af82d27ccd8d
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75727577"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75879134"
 ---
 # <a name="install-visual-studio-and-connect-to-azure-stack-hub"></a>Instalace sady Visual Studio a připojení k centru Azure Stack
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 Pomocí sady Visual Studio můžete zapisovat a nasazovat [šablony](azure-stack-arm-templates.md) Azure Resource Manager do centra Azure Stack. Postup v tomto článku popisuje, jak nainstalovat Visual Studio do [centra Azure Stack](../asdk/asdk-connect.md#connect-to-azure-stack-using-rdp) nebo na externí počítač, pokud plánujete používat centrum Azure Stack prostřednictvím [sítě VPN](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn).
 

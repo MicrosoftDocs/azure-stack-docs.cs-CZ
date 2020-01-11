@@ -16,16 +16,14 @@ ms.date: 11/07/2019
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: 906215478ba9828464de6cc760db30491bf445c9
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: f30791ec7514a68a6137d2b5d2db3441cf217f58
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75817654"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883078"
 ---
 # <a name="collect-azure-stack-hub-diagnostic-logs-on-demand"></a>Shromažďovat diagnostické protokoly centra Azure Stack na vyžádání
-
-*Platí pro: Azure Stack integrovaných systémů centra*
 
 V rámci řešení potíží můžou služby Microsoft Customer Support Services (CSS) potřebovat analyzovat diagnostické protokoly. Od verze 1907 mohou operátoři centra Azure Stack nahrávat diagnostické protokoly do kontejneru objektů BLOB v Azure pomocí nástroje **Help and Support**. Použití **pomoci a podpory** se doporučuje nad předchozí metodou použití prostředí PowerShell, protože je jednodušší. Pokud však portál není k dispozici, operátory mohou nadále shromažďovat protokoly pomocí **Get-AzureStackLog** prostřednictvím privilegovaného koncového bodu (PEP) jako v předchozích verzích. Toto téma popisuje jak shromažďovat diagnostické protokoly na vyžádání.
 

@@ -16,16 +16,14 @@ ms.date: 10/01/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: ca4102e53d06b8f7c4876fd6cd0fd9e6d9ade42e
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: ba5aefa61db489f5f7063ebc4785785ba2f26f4c
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75820453"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883724"
 ---
 # <a name="develop-for-azure-stack-hub"></a>Vývoj pro centrum Azure Stack
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 Můžete začít vyvíjet aplikace ještě dnes i v případě, že nemáte přístup k prostředí Azure Stack hub. Azure Stack centrum zajišťuje Microsoft Azure služby, které běží ve vašem datovém centru, což znamená, že můžete použít stejné nástroje a procesy Azure pro vývoj v Azure Stack hub.
 

@@ -17,16 +17,14 @@ ms.date: 10/01/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: b639f1511f5a633e60f9d37d974e4a8389582c76
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 2aa7d6be221ad9c877290dc87d98ceec5483c6a9
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75816271"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883707"
 ---
 # <a name="deploy-templates-in-azure-stack-hub-using-visual-studio"></a>Nasazení šablon v centru Azure Stack pomocí sady Visual Studio
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 Pomocí sady Visual Studio můžete nasadit šablony Azure Resource Manager do centra Azure Stack.
 

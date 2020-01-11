@@ -14,16 +14,14 @@ ms.topic: article
 ms.date: 10/2/2019
 ms.author: mabrigg
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: 609f40a7f0677c6505bd06b7de025ba6b491f462
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: d539ea7c2be9cbd124ce3286adda2eff8cd1a7ca
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75817053"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882296"
 ---
 # <a name="monitor-health-and-alerts-in-azure-stack-hub"></a>Monitorování stavu a výstrah v centru Azure Stack
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 Centrum Azure Stack zahrnuje možnosti monitorování infrastruktury, které vám pomůžou zobrazit stav a výstrahy pro oblast centra Azure Stack. Dlaždice **Správa oblastí** obsahuje seznam všech nasazených oblastí centra Azure Stack. Ve výchozím nastavení je připnuté na portálu pro správu pro výchozí předplatné poskytovatele. Tato dlaždice zobrazuje počet aktivních výstrah kritických a varovných upozornění pro jednotlivé oblasti. Tato dlaždice je vaším vstupním bodem do funkce stavu a výstrahy centra Azure Stack.
 

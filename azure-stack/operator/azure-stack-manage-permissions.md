@@ -15,16 +15,14 @@ ms.date: 12/23/2019
 ms.author: justinha
 ms.reviewer: thoroet
 ms.lastreviewed: 12/23/2019
-ms.openlocfilehash: 0c565ae93acfe8b4540af2db288b8b5327e85355
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 7630579591b7d6e4c4179964d522dceb1023f55e
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75817189"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882364"
 ---
 # <a name="set-access-permissions-using-role-based-access-control"></a>Nastavení oprávnění k přístupu pomocí řízení přístupu na základě role
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 Uživatel v centru Azure Stack může být čtenářem, vlastníkem nebo přispěvatelem pro každou instanci předplatného, skupiny prostředků nebo služby. Například uživatel A může mít oprávnění čtenáře k jednomu předplatnému, ale má oprávnění vlastníka k virtuálnímu počítači 7.
 

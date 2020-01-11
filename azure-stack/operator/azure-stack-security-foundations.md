@@ -16,20 +16,18 @@ ms.date: 06/10/2019
 ms.author: justinha
 ms.reviewer: fiseraci
 ms.lastreviewed: 12/29/2019
-ms.openlocfilehash: 9d7807dce064cad87a4cae1b01420efbf59433a0
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 0d136fdb1a72a6c52a3e441470713b77974d1fa3
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75814860"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882874"
 ---
 # <a name="azure-stack-hub-infrastructure-security-controls"></a>Ovládací prvky zabezpečení infrastruktury centra Azure Stack
 
-*Platí pro: Azure Stack integrovaných systémů centra*
-
 Mezi hlavní faktory ovlivňující výběr hybridních cloudů patří aspekty zabezpečení a požadavky na dodržování předpisů. Azure Stack centrum je navrženo pro tyto scénáře. Tento článek vysvětluje ovládací prvky zabezpečení, které jsou na místě pro centrum Azure Stack.
 
-Dvě vrstvy zabezpečení stav koexistovat v Azure Stack hub. První vrstvou je Azure Stack infrastruktura centra, která zahrnuje hardwarové součásti až do Azure Resource Manager. První vrstva zahrnuje správce a portál tenanta. Druhá vrstva se skládá z úloh vytvořených, nasazených a spravovaných klienty. Druhá vrstva zahrnuje položky, jako jsou virtuální počítače a App Services weby.
+Dvě vrstvy zabezpečení stav koexistovat v Azure Stack hub. První vrstvou je Azure Stack infrastruktura centra, která zahrnuje hardwarové součásti až do Azure Resource Manager. První vrstva zahrnuje správce a uživatelské portály. Druhá vrstva se skládá z úloh vytvořených, nasazených a spravovaných klienty. Druhá vrstva zahrnuje položky, jako jsou virtuální počítače a App Services weby.
 
 ## <a name="security-approach"></a>Bezpečnostní přístup
 

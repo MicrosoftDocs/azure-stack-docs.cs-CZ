@@ -14,16 +14,14 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: dede201ba01fd58b05be1dc71ede04c1bdb33218
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 010722e7152af7e51747870ae5bf26229ad339d6
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75819042"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75878403"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-hub-subscription-or-a-storage-account"></a>Připojení Průzkumníka služby Storage k předplatnému centra Azure Stack nebo účtu úložiště
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 V tomto článku se dozvíte, jak se připojit k předplatným centra Azure Stack a účtům úložiště pomocí [Průzkumník služby Azure Storage](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer). Průzkumník služby Storage je samostatná aplikace, která umožňuje snadnou práci s daty úložiště Azure Stack hub v systémech Windows, macOS a Linux.
 

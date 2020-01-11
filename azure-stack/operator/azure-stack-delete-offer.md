@@ -15,16 +15,14 @@ ms.date: 08/13/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 04/25/2019
-ms.openlocfilehash: c957997308c5b2aa0fb4e2cfb97f79860c04da82
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 7184972e6b486ee696b4edb621046d1b41f677a9
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75811732"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882534"
 ---
 # <a name="delete-quotas-plans-offers-and-subscriptions"></a>Odstranění kvót, plánů, nabídek a předplatných
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 Tento článek popisuje, jak odstranit kvóty, plány, nabídky a odběry, které už nepotřebujete. Obecně platí, že můžete odstranit pouze to, co se nepoužívá. Například odstranění nabídky je možné pouze v případě, že nejsou k dispozici žádná předplatná, která patří do této nabídky.
 

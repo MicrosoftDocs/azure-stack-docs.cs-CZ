@@ -16,16 +16,14 @@ ms.date: 06/11/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 06/11/2019
-ms.openlocfilehash: 3c546d34369211a091f63eaec6efe4e5dc9c42ec
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 5fa55edd4c9e089b023cef8b8d0a2adec1606098
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75817988"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882976"
 ---
 # <a name="create-a-plan-in-azure-stack-hub"></a>Vytvoření plánu v centru Azure Stack
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 [Plány centra Azure Stack](azure-stack-overview.md) jsou seskupení jedné nebo více služeb a jejich kvót. Jako poskytovatel můžete vytvořit plány, které nabízí uživatelům. Uživatelé si můžou předplatit vaše nabídky, aby mohli používat plány, služby a kvóty, které zahrnují. V tomto příkladu se dozvíte, jak vytvořit plán, který zahrnuje poskytovatele prostředků COMPUTE, sítě a úložiště. Tento plán dává předplatitelům možnost zřídit virtuální počítače.
 

@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2019
+ms.date: 01/10/2020
 ms.author: sethm
-ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 69052164c3f32f77d8ccf3c5216e821700907928
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.lastreviewed: 1/10/2020
+ms.openlocfilehash: 1ba2be2d37cfa0b0d850f67124440fb9de13a23f
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75820334"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75879151"
 ---
 # <a name="manage-key-vault-in-azure-stack-hub-using-the-portal"></a>Správa Key Vault v centru Azure Stack pomocí portálu
 
@@ -58,11 +58,11 @@ Po vytvoření trezoru klíčů použijte následující postup k vytvoření a 
 
 ### <a name="create-a-key"></a>Vytvoření klíče
 
-1. Přihlaste se k [portálu User Portal](https://portal.local.azurestack.external).
+1. Přihlaste se k [portálu pro uživatele](https://portal.local.azurestack.external)centra Azure Stack.
 
 2. Z řídicího panelu vyberte **všechny prostředky**, vyberte Trezor klíčů, který jste vytvořili dříve, a pak vyberte dlaždici **klíče** .
 
-3. V podokně **klíče** vyberte **Přidat**.
+3. V podokně **klíče** vyberte **Generovat/importovat**.
 
 4. V podokně **vytvořit klíč** klikněte v seznamu **možností**na metodu, kterou chcete použít k vytvoření klíče. Můžete **vygenerovat** nový klíč, **nahrát** existující klíč nebo použít **obnovení zálohy** k výběru zálohy klíče.
 

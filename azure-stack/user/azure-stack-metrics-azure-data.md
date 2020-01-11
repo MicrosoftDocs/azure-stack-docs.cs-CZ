@@ -14,16 +14,14 @@ ms.topic: article
 ms.date: 08/27/2019
 ms.author: mabrigg
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: 71daa893ae3c69ff29632f37eb366913b33adf18
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: e78b8ead05fbb4a95488c077935277429a34e018
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75819892"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75878794"
 ---
 # <a name="use-azure-monitor-on-azure-stack-hub"></a>Použití Azure Monitor v centru Azure Stack
-
-*Platí pro: Azure Stack integrovaných systémů centra*
 
 Tento článek poskytuje přehled služby Azure Monitor v centru Azure Stack. Popisuje provoz Azure Monitor a další informace o tom, jak používat Azure Monitor v Azure Stack hub. 
 

@@ -15,12 +15,12 @@ ms.date: 09/17/2019
 ms.author: mabrigg
 ms.reviewer: scottnap
 ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: 6dc64857b3fd421b7e6ca94fdf044b16b1b6a691
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: d651405fad55501bf655b8b38970a882a8e5dc91
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75812684"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881667"
 ---
 # <a name="manage-network-resources"></a>Správa síťových prostředků
 
@@ -40,8 +40,6 @@ V závislosti na tom, jak se virtuální sítě připojí k existujícím firemn
 Další informace najdete v části využití fondu adres MAC pomocí rutiny [Get-AzsMacAddressPool](https://docs.microsoft.com/powershell/module/azs.fabric.admin/get-azsmacaddresspool) v modulu PowerShell pro správce centra Azure Stack.
 
 ## <a name="view-public-ip-address-consumption-in-azure-stack-hub"></a>Zobrazení spotřeby veřejných IP adres v centru Azure Stack
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 Jako správce cloudu můžete zobrazit:
  - Počet veřejných IP adres, které byly přiděleny klientům.

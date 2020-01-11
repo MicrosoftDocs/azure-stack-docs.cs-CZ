@@ -12,16 +12,14 @@ ms.date: 12/18/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 10/01/2019
-ms.openlocfilehash: 630c3b13248895091f425190cc00ad019ee0df1f
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 4f7cb6bf451ad04a8c6365e5c39a714902f3d0b4
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75820963"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75880001"
 ---
 # <a name="azure-stack-hub-services-plans-offers-subscriptions-overview"></a>Přehled služeb Azure Stack hub, plánů, nabídek a předplatných
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 [Centrum Microsoft Azure Stack](azure-stack-overview.md) je hybridní cloudová platforma, která umožňuje doručovat služby z vašeho datového centra. Služby zahrnují virtuální počítače, SQL Server databáze, SharePoint, Exchange a dokonce i [Azure Marketplace položky](azure-stack-marketplace-azure-items.md). Jako poskytovatel služeb můžete nabízet služby vašim klientům. V rámci státní nebo státní instituce můžete svým zaměstnancům nabídnout místní služby.
 

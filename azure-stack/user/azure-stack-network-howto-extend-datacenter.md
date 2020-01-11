@@ -9,16 +9,14 @@ ms.date: 12/13/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/13/2019
-ms.openlocfilehash: 21ee510182e5c2e8056f1d19373708df3ec9b273
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 292f210d8145bdac64e2f50f4c8ef85dc79d1a77
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75816203"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883639"
 ---
 # <a name="extending-storage-to-azure-stack-hub"></a>Rozšíření úložiště do centra Azure Stack
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 Tento článek poskytuje Azure Stack informace o infrastruktuře úložiště centra, které vám pomůžou rozhodnout, jak integrovat Azure Stack hub do stávajícího síťového prostředí. Po poskytnutí Obecné diskuze o rozšíření datového centra obsahuje článek dva různé scénáře. Můžete se připojit k serveru Windows File Storage. Můžete se také připojit k serveru Windows iSCSI.
 

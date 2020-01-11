@@ -15,16 +15,14 @@ ms.date: 09/25/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: 2b70d2e04883da963da6b410ac6e5e8c7bf7d396
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 9bf0e51deb8e30bfeab978e3bdec1f4c4343561d
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75817682"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882602"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack-hub"></a>Přidat tenanta pro využití a fakturace do centra Azure Stack
-
-*Platí pro: Azure Stack integrovaných systémů centra*
 
 V tomto článku se dozvíte, jak přidat tenanta do nasazení centra Azure Stack spravovaného poskytovatelem Cloud Solution Provider (CSP). Když nový tenant používá prostředky, Azure Stack Centrum sestav využití jejich předplatného CSP.
 

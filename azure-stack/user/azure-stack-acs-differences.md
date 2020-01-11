@@ -15,16 +15,14 @@ ms.date: 10/2/2019
 ms.author: mabrigg
 ms.reviwer: xiaofmao
 ms.lastreviewed: 01/30/2019
-ms.openlocfilehash: cef2b4f801ee6b088b0b187cc798c71ad302f1ce
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 9b945f4cbb5e955c38b18c4bacd18726bbcb5e89
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75820878"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883860"
 ---
 # <a name="azure-stack-hub-storage-differences-and-considerations"></a>Úložiště centra Azure Stack: rozdíly a požadavky
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 Úložiště centra Azure Stack je sada cloudových služeb úložiště v centru Microsoft Azure Stack. Úložiště centra Azure Stack poskytuje funkce pro správu objektů blob, tabulek, front a účtů s sémantikou konzistentní vzhledem k Azure.
 

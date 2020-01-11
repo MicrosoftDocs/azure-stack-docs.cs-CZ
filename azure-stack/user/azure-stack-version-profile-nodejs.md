@@ -14,16 +14,14 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 64628dbd3369a59917f6aaa81130068ea169bac8
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: e6e65ebf39ae08b56f02fca437369f4861613ade
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75815659"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75878301"
 ---
 # <a name="use-api-version-profiles-with-nodejs-software-development-kit-sdk-in-azure-stack-hub"></a>Použití profilů verzí rozhraní API s Node. js Software Development Kit (SDK) v centru Azure Stack
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 ## <a name="nodejs-and-api-version-profiles"></a>Profily verze Node. js a API
 

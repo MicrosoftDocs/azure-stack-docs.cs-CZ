@@ -15,16 +15,14 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.custom: mvc
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 2c716504dafe4ec76f53006b97e1623289b2c036
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: c82dc8dce4f2d72ee5d30379c554c495cfdec28f
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75819450"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883469"
 ---
 # <a name="quickstart-create-a-linux-server-vm-by-using-the-azure-cli-in-azure-stack-hub"></a>Rychlý Start: Vytvoření virtuálního počítače s Linux serverem pomocí rozhraní příkazového řádku Azure v centru Azure Stack
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 Virtuální počítač s Ubuntu serverem 16,04 LTS můžete vytvořit pomocí rozhraní příkazového řádku Azure. V tomto článku vytvoříte a použijete virtuální počítač. Tento článek také ukazuje, jak:
 

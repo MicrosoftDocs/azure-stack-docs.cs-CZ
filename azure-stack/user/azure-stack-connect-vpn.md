@@ -16,16 +16,14 @@ ms.date: 10/04/2019
 ms.author: sethm
 ms.reviewer: scottnap
 ms.lastreviewed: 10/24/2018
-ms.openlocfilehash: 4f8937fc745a58020d82e2680d5db6c4b5abe957
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 210890ce5ae82142906fb8f98d874c2f90ea3713
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75820793"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883826"
 ---
 # <a name="connect-azure-stack-hub-to-azure-using-vpn"></a>Připojení centra Azure Stack k Azure pomocí sítě VPN
-
-*Platí pro: Azure Stack integrovaných systémů centra*
 
 Tento článek popisuje, jak vytvořit síť VPN typu Site-to-site pro připojení virtuální sítě v Azure Stackovém centru k virtuální síti v Azure.
 

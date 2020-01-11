@@ -15,16 +15,14 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: bc0467113ffc1446d4f1bd72f831e050491ae48f
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 01bee6f4f82938c078e22d0587b3f34c2e9f76c7
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75820385"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883656"
 ---
 # <a name="deploy-an-azure-stack-hub-vm-using-a-password-stored-in-key-vault"></a>Nasazení virtuálního počítače centra Azure Stack pomocí hesla uloženého v Key Vault
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 Tento článek popisuje nasazení virtuálního počítače s Windows serverem pomocí hesla uloženého v Key Vault centra Azure Stack. Používání hesla trezoru klíčů je bezpečnější než předání hesla v prostém textu.
 

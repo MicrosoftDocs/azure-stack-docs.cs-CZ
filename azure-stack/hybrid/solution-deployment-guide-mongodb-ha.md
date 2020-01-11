@@ -8,16 +8,14 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 627e6a6092a93161b2d6b216178b84ce056e36e4
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: e850cde0196d496d6d854822ee0cd1a679bccca0
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73639143"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881497"
 ---
 # <a name="deploy-a-highly-available-mongodb-solution-to-azure-and-azure-stack-hub"></a>Nasazení vysoce dostupného řešení MongoDB do Azure a centra Azure Stack
-
-*Platí pro: Azure Stack integrovaných systémů centra*
 
 Tento článek vás provede automatizovaným nasazením clusteru MongoDB s vysokou dostupností (HA) s lokalitou zotavení po havárii (DR) v rámci dvou Azure Stack hub prostředí. Další informace o MongoDB a vysoké dostupnosti najdete v tématu věnovaném [členům sady replik](https://docs.mongodb.com/manual/core/replica-set-members/).
 
@@ -30,7 +28,7 @@ V tomto řešení vytvoříte ukázkové prostředí pro:
 
 
 > [!Tip]  
-> ![Hybrid-Pillars. png](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
+> ![hybridní pillars.png](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
 > Centrum Microsoft Azure Stack je rozšířením Azure. Centrum Azure Stack přináší flexibilitu a inovace cloud computingu do místního prostředí. tím se umožní jenom hybridní cloud, který umožňuje vytvářet a nasazovat hybridní aplikace odkudkoli.  
 > 
 > Požadavky na [Návrh pro hybridní aplikace](overview-app-design-considerations.md) kontrolují pilíře kvality softwaru (umístění, škálovatelnost, dostupnost, odolnost, možnosti správy a zabezpečení) pro navrhování, nasazování a provozování hybridních aplikací. Pokyny k návrhu pomáhají při optimalizaci návrhu hybridní aplikace a minimalizaci výzev v produkčních prostředích.

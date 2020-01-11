@@ -16,16 +16,14 @@ ms.date: 10/01/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 47bf9b1fb54dbc120be42a97f3dc9d3140927cd9
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: d1109d2b0e8e8cffc1bf03c2e897c6c0230084c4
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75818685"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75878336"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack-hub"></a>Použití profilů verzí rozhraní API s Ruby v Azure Stack hub
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 ## <a name="ruby-and-api-version-profiles"></a>Profily verze Ruby a API
 

@@ -15,16 +15,14 @@ ms.date: 10/10/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: c04b0191ec876d22af0115d1fff0acdd3a188992
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 52b94a95c525ac4a327282380c241229e8bd7117
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75819280"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75878471"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-hub-using-azure-active-directory"></a>Nasazení Kubernetes do centra Azure Stack pomocí Azure Active Directory
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 > [!Note]  
 > K nasazení clusterů jako zkušebního konceptu použijte jenom položku Kubernetes Azure Stack Marketplace. Pro podporované Kubernetes clustery v Azure Stack použijte [modul AKS](azure-stack-kubernetes-aks-engine-overview.md).

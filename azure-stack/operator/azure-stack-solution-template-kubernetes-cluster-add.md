@@ -16,16 +16,14 @@ ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: 801520c33459203856daffc60080182d7aaf1178
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 98fb42ba785469482a34a40867b4060769cfd24b
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75814877"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881939"
 ---
 # <a name="add-kubernetes-to-azure-stack-hub-marketplace"></a>Přidání Kubernetes do tržiště centra Azure Stack
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 > [!note]  
 > K nasazení clusterů jako konceptu Kubernetes použijte jenom položku tržiště centra Azure Stack. Pro podporované clustery Kubernetes v centru Azure Stack použijte [modul AKS](azure-stack-aks-engine.md).

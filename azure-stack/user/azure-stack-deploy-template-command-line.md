@@ -15,16 +15,14 @@ ms.date: 10/07/2019
 ms.author: mabrigg
 ms.reviewer: unknown
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 1f2c37339ce3fd61b582bd205e348f79378ffccd
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: f3d159823a9ec5db1309d4f4c0acaaa8272799f7
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75820759"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883758"
 ---
 # <a name="deploy-a-template-with-the-command-line-in-azure-stack-hub"></a>Nasazení šablony pomocí příkazového řádku v centru Azure Stack
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 K nasazení Azure Resource Manager šablon v centru Azure Stack můžete použít rozhraní příkazového řádku Azure (CLI). Šablony Azure Resource Manager nasazují a nastavují prostředky pro vaši aplikaci v jediné koordinované akci.
 

@@ -304,6 +304,8 @@
               href: azure-stack-app-service-add-worker-roles.md
             - name: Konfigurace zdrojů nasazení
               href: azure-stack-app-service-configure-deployment-sources.md
+            - name: Otočení App Service tajných klíčů a certifikátů
+              href: app-service-rotate-certificates.md
             - name: Zálohování App Service
               href: app-service-back-up.md
             - name: Obnovit App Service

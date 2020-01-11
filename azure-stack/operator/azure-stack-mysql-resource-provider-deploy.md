@@ -15,12 +15,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/18/2019
-ms.openlocfilehash: 09b4dc1f436621737521abfb60e500f6208402b0
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 84c9854276fbffdcdc4b9c893aacc248780f4d2e
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75811222"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882245"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack-hub"></a>Nasazení poskytovatele prostředků MySQL do centra Azure Stack
 
@@ -34,7 +34,7 @@ Pomocí poskytovatele prostředků serveru MySQL můžete zveřejnit databáze M
 Aby bylo možné nasadit poskytovatele prostředků MySQL Azure Stack hub, je nutné, aby bylo provedeno několik požadavků. Abyste splnili tyto požadavky, proveďte kroky v tomto článku v počítači, který má přístup k VIRTUÁLNÍmu počítači s privilegovaným koncovým bodem.
 
 * Pokud jste to ještě neudělali, [zaregistrujte Azure Stack centrum](./azure-stack-registration.md) s Azure, abyste si mohli stáhnout Azure Marketplace položky.
-* Do systému, kde budete spouštět tuto instalaci, nainstalujte moduly PowerShellu služby Azure a centra Azure Stack. Tento systém musí být bitová kopie systému Windows 10 nebo Windows Server 2016 s nejnovější verzí modulu .NET Runtime. Přečtěte si téma [instalace PowerShellu pro Azure Stack hub](./azure-stack-powershell-install.md).
+
 * Přidejte požadovaný virtuální počítač s Windows serverem do centra Azure Stack hub tak, že stáhnete hlavní bitovou kopii **Windows serveru 2016 Datacenter-Server** .
 
 * Stáhněte si binární soubor poskytovatele prostředků MySQL a potom spusťte samočinného extrahování a extrahujte obsah do dočasného adresáře.
@@ -63,6 +63,40 @@ Aby bylo možné nasadit poskytovatele prostředků MySQL Azure Stack hub, je nu
     |Příchozí porty pro poskytovatele prostředků jsou otevřené.|[Integrace Datacenter centra Azure Stack – publikování koncových bodů](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|
     |Subjekt certifikátu PKI a síť SAN jsou nastavené správně.|[Nasazení centra Azure Stack povinné infrastruktury PKI požadavky](azure-stack-pki-certs.md#mandatory-certificates)[Azure Stack nasazení centra PaaS požadavky na certifikát](azure-stack-pki-certs.md#optional-paas-certificates)|
     |     |     |
+
+V odpojeném scénáři proveďte následující kroky a stáhněte požadované moduly PowerShellu a zaregistrujte úložiště ručně.
+
+1. Přihlaste se k počítači s připojením k Internetu a pomocí následujících skriptů si stáhněte moduly PowerShellu.
+
+```powershell
+Import-Module -Name PowerShellGet -ErrorAction Stop
+Import-Module -Name PackageManagement -ErrorAction Stop
+
+# path to save the packages, c:\temp\azs1.6.0 as an example here
+$Path = "c:\temp\azs1.6.0"
+Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.3.0
+Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.6.0
+```
+
+2. Stažené balíčky pak zkopírujete do zařízení USB.
+
+3. Přihlaste se k odpojené pracovní stanici a zkopírujte balíčky ze zařízení USB do umístění v pracovní stanici.
+
+4. Zaregistrujte toto umístění jako místní úložiště.
+
+```powershell
+# requires -Version 5
+# requires -RunAsAdministrator
+# requires -Module PowerShellGet
+# requires -Module PackageManagement
+
+$SourceLocation = "C:\temp\azs1.6.0"
+$RepoName = "azs1.6.0"
+
+Register-PSRepository -Name $RepoName -SourceLocation $SourceLocation -InstallationPolicy Trusted
+
+New-Item -Path $env:ProgramFiles -name "SqlMySqlPsh" -ItemType "Directory" 
+```
 
 ### <a name="certificates"></a>Certifikáty
 
@@ -110,7 +144,7 @@ Tyto parametry můžete zadat z příkazového řádku. Pokud ne, nebo pokud se 
 
 ## <a name="deploy-the-mysql-resource-provider-using-a-custom-script"></a>Nasazení poskytovatele prostředků MySQL pomocí vlastního skriptu
 
-Pokud nasazujete poskytovatele prostředků MySQL verze 1.1.33.0 nebo předchozí verze, budete muset v PowerShellu nainstalovat konkrétní verze modulů AzureRm. zaváděcího nástroje a Azure Stack hub. Pokud nasazujete poskytovatele prostředků MySQL verze 1.1.47.0, tento krok se dá přeskočit.
+Pokud nasazujete poskytovatele prostředků MySQL verze 1.1.33.0 nebo předchozí verze, budete muset v PowerShellu nainstalovat konkrétní verze modulů AzureRm. zaváděcího nástroje a Azure Stack hub. Pokud nasazujete poskytovatele prostředků MySQL verze 1.1.47.0, skript nasazení bude automaticky stahovat a instalovat potřebné moduly PowerShellu pro vás do cesty C:\Program Files\SqlMySqlPsh.
 
 ```powershell
 # Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module
@@ -119,6 +153,9 @@ Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
 Install-Module -Name AzureStack -RequiredVersion 1.6.0
 ```
+
+> [!NOTE]
+> V odpojeném scénáři je nutné stáhnout požadované moduly prostředí PowerShell a zaregistrovat úložiště ručně v rámci požadavků.
 
 Chcete-li při nasazování poskytovatele prostředků eliminovat jakoukoli ruční konfiguraci, můžete přizpůsobit následující skript. Podle potřeby změňte výchozí informace o účtu a hesla pro nasazení centra Azure Stack.
 
@@ -151,6 +188,11 @@ $CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domai
 # Change the following as appropriate.
 $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
+# For version 1.1.47.0, the PowerShell modules used by the RP deployment are placed in C:\Program Files\SqlMySqlPsh,
+# The deployment script adds this path to the system $env:PSModulePath to ensure correct modules are used.
+$rpModulePath = Join-Path -Path $env:ProgramFiles -ChildPath 'SqlMySqlPsh'
+$env:PSModulePath = $env:PSModulePath + ";" + $rpModulePath
+
 # Change to the directory folder where you extracted the installation files. Don't provide a certificate on ASDK!
 . $tempDir\DeployMySQLProvider.ps1 `
     -AzCredential $AdminCreds `
@@ -164,7 +206,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
 ```
 
-Po dokončení instalačního skriptu poskytovatele prostředků aktualizujte prohlížeč, abyste se ujistili, že se vám zobrazí nejnovější aktualizace.
+Po dokončení instalačního skriptu poskytovatele prostředků aktualizujte prohlížeč, abyste se ujistili, že vidíte nejnovější aktualizace a zavřete aktuální relaci PowerShellu.
 
 ## <a name="verify-the-deployment-by-using-the-azure-stack-hub-portal"></a>Ověření nasazení pomocí portálu Azure Stack hub
 

@@ -15,16 +15,14 @@ ms.date: 08/23/2019
 ms.author: mabrigg
 ms.lastreviewed: 08/23/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 91d5d0e7c63be8a192113d26818380983c668aa7
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 5f4f469c6652bdb492d9c7365fb128b0461093a4
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75813568"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882840"
 ---
 # <a name="monitor-updates-in-azure-stack-hub-using-powershell"></a>Monitorování aktualizací v centru Azure Stack pomocí PowerShellu
-
-*Platí pro: Azure Stack integrovaných systémů centra*
 
 Pomocí koncových bodů správy centra Azure Stack můžete monitorovat a spravovat vaše aktualizace. Jsou přístupné pomocí PowerShellu. Pokyny k nastavení prostředí PowerShell v centru Azure Stack najdete v tématu [instalace PowerShellu pro Azure Stack hub](azure-stack-powershell-install.md).
 

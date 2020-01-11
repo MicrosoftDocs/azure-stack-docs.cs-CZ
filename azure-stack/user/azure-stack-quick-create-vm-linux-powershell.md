@@ -15,16 +15,14 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.custom: mvc
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 4d846734c609485532da4534231a7b94c0514f21
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 77075e5fa481773e2ed2a2e5fa31fb24774bb0ef
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75816016"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75878556"
 ---
 # <a name="quickstart-create-a-linux-server-vm-by-using-powershell-in-azure-stack-hub"></a>Rychlý Start: Vytvoření virtuálního počítače s Linux serverem pomocí prostředí PowerShell v centru Azure Stack
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 Virtuální počítač s Ubuntu serverem 16,04 LTS můžete vytvořit pomocí centra prostředí PowerShell pro Azure Stack. V tomto článku vytvoříte a použijete virtuální počítač. Tento článek také ukazuje, jak:
 
@@ -44,7 +42,7 @@ Virtuální počítač s Ubuntu serverem 16,04 LTS můžete vytvořit pomocí ce
 
 ## <a name="create-a-resource-group"></a>Vytvoření skupiny prostředků
 
-Skupina prostředků je logický kontejner, ve kterém můžete nasazovat a spravovat prostředky centra Azure Stack. Pokud chcete vytvořit skupinu prostředků, z Azure Stack Development Kit (ASDK) nebo z integrovaného systému centra Azure Stack spusťte následující blok kódu: 
+Skupina prostředků je logický kontejner, ve kterém můžete nasazovat a spravovat prostředky centra Azure Stack. Chcete-li vytvořit skupinu prostředků, spusťte následující blok kódu: 
 
 > [!NOTE]
 > V následujících příkladech kódu jsme přiřadili hodnoty pro všechny proměnné. Můžete ale přiřadit vlastní hodnoty.

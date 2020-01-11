@@ -14,16 +14,14 @@ ms.date: 01/06/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 07/24/2019
-ms.openlocfilehash: 0eeba90b11e571f5ea9be9ae9d5f9b32f3b7d584
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 21686d1f7e61013c22d37b974111e0d6a57f1b88
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75815506"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883163"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack-hub"></a>Správa profilů verzí rozhraní API v centru Azure Stack
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 Profily rozhraní API zadejte poskytovatel prostředků Azure a verze rozhraní API pro koncové body Azure REST. Pomocí profilů rozhraní API můžete vytvářet vlastní klienty v různých jazycích. Každý klient používá profil rozhraní API ke kontaktování správného poskytovatele prostředků a verze rozhraní API pro centrum Azure Stack.
 

@@ -15,16 +15,14 @@ ms.date: 09/10/2019
 ms.author: mabrigg
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: b01c9dd9449ac7a67dc338a4385884cbcdf05001
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 5b2af5e18eb4f616055ff1adc4b40f7ff29c9ea1
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75813449"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882687"
 ---
 # <a name="prepare-an-azure-stack-hub-update-package"></a>Příprava balíčku aktualizace centra Azure Stack
-
-*Platí pro: Azure Stack integrovaných systémů centra*
 
 Tento článek poskytuje přehled o přípravě balíčků aktualizací centra Azure Stack, aby je bylo možné použít k aktualizaci prostředí centra Azure Stack. Tento proces se skládá z těchto součástí:
 

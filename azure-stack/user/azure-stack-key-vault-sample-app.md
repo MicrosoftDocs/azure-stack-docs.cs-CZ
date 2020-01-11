@@ -15,16 +15,14 @@ ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: sethm
 ms.lastreviewed: 04/08/2019
-ms.openlocfilehash: 17adeec31617bebfe9e1189af48d2c50cbf77802
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: f73af34f3069b0fe550c8266253dce32efcb6b90
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75820283"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883622"
 ---
 # <a name="allow-apps-to-access-azure-stack-hub-key-vault-secrets"></a>Dovolit aplikacím přístup k tajným klíčům centra Azure Stack Key Vault
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 Postupujte podle kroků v tomto článku a spusťte ukázkovou aplikaci **HelloKeyVault** , která načte klíče a tajné kódy z trezoru klíčů v centru Azure Stack.
 

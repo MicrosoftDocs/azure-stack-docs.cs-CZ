@@ -9,16 +9,14 @@ ms.date: 10/03/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: eb11ca672be20b59275974074b4ff17f36f446c8
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: e970dc46a4afdcc67e16c0239dc712da111c47a6
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75819722"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75879117"
 ---
 # <a name="setup-vpn-gateway-for-azure-stack-hub-using-fortigate-nva"></a>Nastavení brány VPN pro centrum Azure Stack s využitím FortiGate síťové virtuální zařízení
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 Tento článek popisuje, jak vytvořit připojení VPN k rozbočovači Azure Stack. Brána sítě VPN je typem brány virtuální sítě, která odesílá šifrovaný provoz mezi vaší virtuální sítí v centru Azure Stack a vzdálenou bránou VPN. Níže uvedený postup nasazuje jednu virtuální síť s FortiGate síťové virtuální zařízení, síťovým virtuálním zařízením v rámci skupiny prostředků. Poskytuje taky postup pro nastavení sítě VPN s protokolem IPSec na FortiGate síťové virtuální zařízení.
 

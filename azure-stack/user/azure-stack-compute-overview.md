@@ -10,16 +10,14 @@ ms.date: 10/02/2019
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: 83c45caf8e1006cc55195f30f6ad62da8c63932d
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 7b072b95cae7148080ee0c9b1195960a3df041fc
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75820844"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883792"
 ---
 # <a name="introduction-to-azure-stack-hub-vms"></a>Úvod k virtuálním počítačům centra Azure Stack
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 Centrum Azure Stack nabízí virtuálním počítačům (VM) jako typ škálovatelných výpočetních prostředků na vyžádání. Pokud potřebujete větší kontrolu nad výpočetním prostředím, můžete vybrat virtuální počítač. Tento článek poskytuje podrobné informace před vytvořením prvního virtuálního počítače.
 

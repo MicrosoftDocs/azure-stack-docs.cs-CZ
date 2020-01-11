@@ -14,16 +14,14 @@ ms.date: 11/06/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: f93fdcae55ca4407e7caec2cf0d403a25d2a3bf3
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 90d57d01ec718772af45c0de3a15bac5995f5051
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75818940"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883231"
 ---
 # <a name="use-data-transfer-tools-in-azure-stack-hub-storage"></a>Použití nástrojů pro přenos dat v Azure Stack centrum úložiště
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 Centrum Azure Stack poskytuje sadu služeb úložiště pro disky, objekty blob, tabulky, fronty a funkce správy účtů. Některé nástroje Azure Storage jsou k dispozici, pokud chcete spravovat nebo přesouvat data do úložiště centra Azure Stack nebo z něj. Tento článek poskytuje přehled dostupných nástrojů.
 

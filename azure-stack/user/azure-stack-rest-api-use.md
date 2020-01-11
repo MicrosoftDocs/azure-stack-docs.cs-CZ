@@ -14,18 +14,16 @@ ms.date: 10/01/2019
 ms.author: sethm
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 8ee6cfbae5557a2f90c25effe57891b1541867d2
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 3defbf731a2b4b89fce8f9815513456104f80ea6
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75815829"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883265"
 ---
 <!--  cblackuk and charliejllewellyn. This is a community contribution by cblackuk-->
 
 # <a name="make-api-requests-to-azure-stack-hub"></a>Vydávat požadavky rozhraní API na centrum Azure Stack
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 Rozhraní REST API služby Azure Stack Hub můžete použít k automatizaci operací, jako je přidání virtuálního počítače do cloudu centra Azure Stack.
 

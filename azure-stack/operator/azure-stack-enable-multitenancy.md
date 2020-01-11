@@ -15,16 +15,14 @@ ms.date: 06/10/2019
 ms.author: patricka
 ms.reviewer: bryanr
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: abd194fee2e855e0170cdc5c7fa2ac8814af9424
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 09265b0b84a18d6df5f03127489a4d38f46a216e
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75804856"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882449"
 ---
 # <a name="configure-multi-tenancy-in-azure-stack-hub"></a>Konfigurace víceklientské architektury v centru Azure Stack
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 Centrum Azure Stack můžete nakonfigurovat tak, aby podporovalo uživatele z více tenantů Azure Active Directory (Azure AD), což jim umožňuje používat služby v centru Azure Stack. Představte si třeba následující scénář:
 

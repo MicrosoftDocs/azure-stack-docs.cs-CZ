@@ -17,12 +17,12 @@ ms.date: 10/30/2019
 ms.author: sethm
 ms.reviewer: harik
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 58e7b4ab6904fa93374dadd6b8e4a55eb44789af
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: d27dcc7314b89ed5d5a88eafac125cb72e33e170
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75814843"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881922"
 ---
 # <a name="azure-stack-hub-servicing-policy"></a>Zásady obsluhy centra Azure Stack
 
@@ -60,8 +60,6 @@ Informace o konkrétní aktualizaci, včetně toho, jak ji stáhnout, najdete v 
 - [Aktualizace centra Azure Stack 1906](/azure-stack/operator/release-notes?view=azs-1906)
 
 ## <a name="hotfixes"></a>Opravy hotfix
-
-*Platí pro: Azure Stack integrovaných systémů centra*
 
 V některých případech společnost Microsoft poskytuje opravy pro Azure Stack centrum, které řeší konkrétní problém, který je často preventivní nebo časově citlivý. Každá oprava hotfix je vydána spolu s odpovídajícím článkem znalostní báze Microsoft Knowledge Base, který podrobně popisuje problém, příčinu a řešení.
 

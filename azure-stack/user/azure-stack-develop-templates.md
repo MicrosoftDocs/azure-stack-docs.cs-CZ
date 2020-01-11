@@ -16,16 +16,14 @@ ms.date: 10/01/2019
 ms.author: mabrigg
 ms.reviewer: unknown
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: 8591bf95bd60060de76f7a9da99ed9af9fc1bdf6
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 65df51ea6420d751238309ece9c134a9e7aa7374
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75820470"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75879219"
 ---
 # <a name="develop-templates-for-azure-stack-hub-with-azure-resource-manager"></a>Vývoj šablon pro centra Azure Stack s využitím Azure Resource Manager
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 Při vývoji aplikace je důležité mít přenositelnost šablon mezi Azure a Azure Stack hub. Tento článek poskytuje pokyny pro vývoj [Azure Resource Manager šablon](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf). Pomocí těchto šablon můžete vytvářet prototypy aplikace a testovat nasazení v Azure bez přístupu k prostředí centra Azure Stack.
 

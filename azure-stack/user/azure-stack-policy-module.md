@@ -14,16 +14,14 @@ ms.topic: article
 ms.date: 01/07/2020
 ms.author: sethm
 ms.lastreviewed: 03/26/2019
-ms.openlocfilehash: b1ca1d8f6f92cc3e90ed5972dd34bc42086fa7a1
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: aedc2915f3e2be473b74766c4274197112ecf6fe
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75819587"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75878743"
 ---
 # <a name="manage-azure-policy-using-the-azure-stack-hub-policy-module"></a>Správa zásad Azure pomocí modulu zásad služby Azure Stack hub
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 Modul zásad centra Azure Stack umožňuje nakonfigurovat předplatné Azure se stejnou verzí a dostupností služeb jako centrum Azure Stack. Modul používá rutinu [**New-AzureRmPolicyDefinition**](/powershell/module/azurerm.resources/new-azurermpolicydefinition) prostředí PowerShell k vytvoření zásady Azure, která omezuje typy prostředků a služby, které jsou v předplatném k dispozici. Pak vytvoříte přiřazení zásady v rámci příslušného oboru pomocí rutiny [**New-AzureRmPolicyAssignment**](/powershell/module/azurerm.resources/new-azurermpolicyassignment) . Po nakonfigurování zásady můžete použít předplatné Azure k vývoji aplikací, které jsou cílené pro centrum Azure Stack.
 

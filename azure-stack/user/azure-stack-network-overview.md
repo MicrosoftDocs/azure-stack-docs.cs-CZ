@@ -10,16 +10,14 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: scottnap
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 0def34d0eb7209cdeb7d13e0e84529862a0ae71d
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 0682a698dadf79feb2e22eaa683b723e7ae23717
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75816033"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883350"
 ---
 # <a name="introduction-to-azure-stack-hub-networking"></a>Úvod do sítě Azure Stack hub
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 Centrum Azure Stack nabízí různé druhy síťových schopností, které se dají použít společně nebo samostatně:
 

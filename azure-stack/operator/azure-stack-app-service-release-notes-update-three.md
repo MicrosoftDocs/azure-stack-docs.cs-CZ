@@ -16,16 +16,14 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 08/20/2018
-ms.openlocfilehash: a21f5377e1138ab48e2478880b26ba75e939667f
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: b8c888ba0c4821cfd6ff621d565c61359edc757f
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75804924"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75880154"
 ---
 # <a name="app-service-on-azure-stack-hub-update-3-release-notes"></a>Zpráva k vydání verze App Service v centru Azure Stack Center Update 3
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 Tyto poznámky k verzi popisují vylepšení, opravy a známé problémy v Azure App Service v centru Azure Stack s aktualizací Update 3. Známé problémy jsou rozdělené na tři části: problémy přímo související s nasazením, problémy s procesem aktualizace a problémy se sestavením (po instalaci).
 

@@ -15,16 +15,14 @@ ms.date: 10/01/2019
 ms.author: mabrigg
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: c8deaaca94270b5904f7d1f25d640086639373d9
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 9fff0249c2a1c43d7742236f64492173c501eeec
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75813160"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881718"
 ---
 # <a name="manage-updates-in-azure-stack-hub-overview"></a>Přehled správy aktualizací v centru Azure Stack
-
-*Platí pro: Azure Stack integrovaných systémů centra*
 
 Úplné a expresní aktualizace, opravy hotfix, stejně jako aktualizace ovladačů a firmwaru od výrobce OEM (Original Equipment Manufacturer), udržují Azure Stack centra aktuální. Tento článek popisuje různé typy aktualizací, kdy očekávat jejich vydání a kde najdete další informace o aktuální verzi.
 

@@ -8,16 +8,14 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 88355951ea5cffc147ef9644a6e35b78bb80a02c
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: 26895aeaf55c466d5800e52c7c482d4516f3f244
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73638439"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881633"
 ---
 # <a name="configure-hybrid-cloud-connectivity-using-azure-and-azure-stack-hub"></a>Konfigurace hybridního cloudového připojení pomocí Azure a centra Azure Stack
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack centrum pro vývoj*
 
 K prostředkům se zabezpečením v globálním Azure a službě Azure Stack Hub můžete přistupovat pomocí vzoru hybridního připojení.
 
@@ -28,13 +26,13 @@ V tomto řešení sestavíte ukázkové prostředí pro:
 > - Udržování starší verze systému při použití nasazení a prostředků aplikací v cloudu, které jsou v globálním Azure.
 
 > [!Tip]  
-> ![Hybrid-Pillars. png](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
+> ![hybridní pillars.png](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
 > Centrum Microsoft Azure Stack je rozšířením Azure. Centrum Azure Stack přináší flexibilitu a inovace cloud computingu do místního prostředí. tím se umožní jenom hybridní cloud, který umožňuje vytvářet a nasazovat hybridní aplikace odkudkoli.  
 > 
 > Požadavky na [Návrh pro hybridní aplikace](overview-app-design-considerations.md) kontrolují pilíře kvality softwaru (umístění, škálovatelnost, dostupnost, odolnost, možnosti správy a zabezpečení) pro navrhování, nasazování a provozování hybridních aplikací. Pokyny k návrhu pomáhají při optimalizaci návrhu hybridní aplikace a minimalizaci výzev v produkčních prostředích.
 
 
-## <a name="prerequisites"></a>Předpoklady
+## <a name="prerequisites"></a>Požadavky
 
 K vytvoření hybridního nasazení připojení je potřeba pár součástí. U některých z těchto komponent se připravuje čas, proto proveďte odpovídající plán.
 
@@ -48,7 +46,7 @@ Operátor centra Azure Stack musí nasadit App Service, vytvořit plány a nabí
 
 V tomto příkladu řešení se předpokládá, že máte základní znalosti Azure a centra Azure Stack. Pokud se chcete dozvědět víc, než začnete s řešením, přečtěte si následující články:
 
- - [Seznámení s Azure](https://azure.microsoft.com/overview/what-is-azure/)
+ - [Úvod do Azure](https://azure.microsoft.com/overview/what-is-azure/)
  - [Klíčové koncepty centra Azure Stack](../operator/azure-stack-overview.md)
 
 ### <a name="azure"></a>Azure
@@ -56,7 +54,7 @@ V tomto příkladu řešení se předpokládá, že máte základní znalosti Az
  - Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) před tím, než začnete.
  - Vytvořte [webovou aplikaci](https://docs.microsoft.com/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp?view=vsts&tabs=vsts) v Azure. Poznamenejte si adresu URL webové aplikace, protože ji budete potřebovat v řešení.
 
-### <a name="azure-stack-hub"></a>Centrum Azure Stack
+### <a name="azure-stack-hub"></a>Azure Stack Hub
 
  - Použijte své produkční centrum Azure Stack nebo nasaďte Azure Stack centrum pro vývoj z https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1.
    >[!Note]
@@ -73,7 +71,7 @@ Před zahájením konfigurace připojení hybridního cloudu ověřte, že splň
  - Pro vaše zařízení VPN budete potřebovat externě veřejnou IPv4 adresu. Tato IP adresa se nedá najít za překladem adres (NAT) (překladu síťových adres).
  - Všechny prostředky jsou nasazeny ve stejné oblasti nebo umístění.
 
-#### <a name="solution-example-values"></a>příklady hodnot řešení
+#### <a name="solution-example-values"></a>Příklady hodnot řešení
 
 Příklady v tomto řešení používají následující hodnoty. Tyto hodnoty můžete použít k vytvoření testovacího prostředí nebo k lepšímu porozumění příkladům, které se na ně vztahují. Další informace o nastaveních služby VPN Gateway najdete v tématu [informace o nastaveních VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings).
 
@@ -98,8 +96,8 @@ IP adresa sítě a podsítě:
 |  |  | GatewaySubnet <br>10.100101.0/24 |  |
 | Brána Azure Virtual Network | Azure – brána |  |  |
 | Virtual Network bránu centra Azure Stack | AzureStack – brána |  |  |
-| Veřejná IP adresa Azure | Azure – GatewayPublicIP |  | Určeno při vytvoření |
-| Veřejná IP adresa centra Azure Stack | AzureStack – GatewayPublicIP |  | Určeno při vytvoření |
+| Veřejná IP adresa Azure | Azure-GatewayPublicIP |  | Určeno při vytvoření |
+| Veřejná IP adresa centra Azure Stack | AzureStack-GatewayPublicIP |  | Určeno při vytvoření |
 | Brána místní sítě Azure | AzureStack – S2SGateway<br>   10.100.100.0/23 |  | Hodnota veřejné IP adresy centra Azure Stack |
 | Brána místní sítě centra Azure Stack | Azure – S2SGateway<br>10.100.102.0/23 |  | Hodnota veřejné IP adresy Azure |
 
@@ -133,7 +131,7 @@ V [Azure Portal](https://portal.azure.com/)přejděte do Správce prostředků v
 
     ![Přidat podsíť brány](media/solution-deployment-guide-connectivity/image4.png)
 
-4. **Název** podsítě se automaticky vyplní hodnotou ' GatewaySubnet '. Tato hodnota se vyžaduje v případě, že Azure rozpozná podsíť jako podsíť brány.
+4. **Název** podsítě se automaticky vyplní hodnotou ' GatewaySubnet '. Tato hodnota je vyžadována pro Azure podsíť rozpoznala jako podsíť brány.
 5. Změňte hodnoty **rozsahu adres** , které jsou k dispozici, aby odpovídaly vašim požadavkům na konfiguraci, a pak vyberte **OK**.
 
 ## <a name="create-a-virtual-network-gateway-in-azure-and-azure-stack"></a>Vytvoření Virtual Network brány v Azure a Azure Stack
@@ -218,4 +216,4 @@ Připojení můžete zobrazit na stránce **připojení** brány virtuální sí
 
 ## <a name="next-steps"></a>Další kroky
 
-- Další informace o vzorech cloudu Azure najdete v tématu [vzory návrhu cloudu](https://docs.microsoft.com/azure/architecture/patterns).
+- Další informace o vzorech cloudu Azure, najdete v článku [vzory návrhu v cloudu](https://docs.microsoft.com/azure/architecture/patterns).

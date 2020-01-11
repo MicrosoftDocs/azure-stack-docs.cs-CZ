@@ -16,16 +16,14 @@ ms.date: 12/10/2019
 ms.author: sethm
 ms.reviewer: ppacent
 ms.lastreviewed: 12/10/2019
-ms.openlocfilehash: a626b50a742d3219d7934e4cc3f77cd890ea1b93
-ms.sourcegitcommit: c3be6b2e962c5905eb3c54f9555e13095f6b4d40
+ms.openlocfilehash: 8fe3a2ac7685eeb3e9bb116cdb5754cc7b567e28
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/20/2019
-ms.locfileid: "75303727"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75880239"
 ---
 # <a name="azure-stack-hub-update-activity-checklist"></a>Kontrolní seznam aktivity aktualizace centra Azure Stack
-
-*Platí pro: Azure Stack integrovaných systémů centra*
 
 Zkontrolujte Tento kontrolní seznam, aby bylo možné připravit Azure Stack aktualizace centra. Tento článek obsahuje kontrolní seznam aktivit souvisejících s aktualizací pro operátory centra Azure Stack.
 

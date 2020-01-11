@@ -15,16 +15,14 @@ ms.date: 10/15/2019
 ms.author: mabrigg
 ms.lastreviewed: 08/15/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 00edf73d49db990987737bbde1d63735d7d7cf66
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 21d91b9cb14fa46fbd92e033c59f7b78fbc64354
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75813415"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882789"
 ---
 # <a name="apply-azure-stack-hub-original-equipment-manufacturer-oem-updates"></a>Použití aktualizací pro výrobce OEM (Original Equipment Manufacturer) od centra Azure Stack
-
-*Platí pro: Azure Stack integrovaných systémů centra*
 
 Můžete použít aktualizace OEM (Original Equipment Manufacturer) k hardwarovým komponentám centra Azure Stack pro příjem vylepšení ovladačů a firmwaru a také opravy zabezpečení při minimalizaci dopadu na uživatele. V tomto článku se dozvíte o aktualizacích OEM, kontaktní údaje výrobce OEM a o tom, jak použít aktualizaci OEM.
 

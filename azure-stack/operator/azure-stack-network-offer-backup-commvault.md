@@ -15,16 +15,14 @@ ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: 76a4a64c5077447adb4a1283dcb6042c3c1fedef
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 9338a8d8b088f17c9f150e21959f78306108303f
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75810916"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882160"
 ---
 # <a name="add-commvault-to-the-azure-stack-hub-marketplace"></a>Přidání CommVault do tržiště centra Azure Stack
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 Tento článek vás seznámí s nabídkou CommVault Live Sync k aktualizaci virtuálního počítače pro obnovení, který se nachází na samostatné jednotce škálování centra Azure Stack. Můžete si stáhnout a nabídnout CommVault jako řešení zálohování a replikace pro vaše uživatele. 
 

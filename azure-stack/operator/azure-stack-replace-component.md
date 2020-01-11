@@ -15,16 +15,14 @@ ms.topic: article
 ms.date: 07/18/2019
 ms.author: thoroet
 ms.lastreviewed: 07/18/2019
-ms.openlocfilehash: 819f25af457cd48a9342852e189908073df7af8f
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 17155ab45678158fc669a77d63074748c867e7f3
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75808426"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882007"
 ---
 # <a name="replace-a-hardware-component-on-an-azure-stack-hub-scale-unit-node"></a>Výměna hardwarové součásti na uzlu jednotky škálování centra Azure Stack
-
-*Platí pro: Azure Stack integrovaných systémů centra*
 
 Tento článek popisuje obecný proces nahrazení hardwarových komponent, které nejsou Hot-swaped. Skutečné kroky náhrady se liší v závislosti na dodavateli hardwaru OEM (Original Equipment Manufacturer). Podrobné pokyny, které jsou specifické pro váš integrovaný systém Azure Stack hub, najdete v dokumentaci k umístění jednotky v poli dodavatele.
 

@@ -15,16 +15,14 @@ ms.date: 08/27/2019
 ms.author: mabrigg
 ms.lastreviewed: 03/11/2019
 ms.reviewer: jiahan
-ms.openlocfilehash: 2fc96f1c5749ddd28ece1a8eefd476556ab557a1
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 947fe93117909b3f258b4d6a6fb7272b0835fad9
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75814163"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882942"
 ---
 # <a name="manage-storage-infrastructure-for-azure-stack-hub"></a>Správa infrastruktury úložiště pro centrum Azure Stack
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 Tento článek popisuje stav a provozní stav prostředků infrastruktury úložiště služby Azure Stack hub. Mezi tyto prostředky patří jednotky a svazky úložiště. Informace v tomto tématu můžou být nedůležité, pokud se snažíte řešit různé problémy, jako je například jednotka, kterou nelze do fondu přidat.
 

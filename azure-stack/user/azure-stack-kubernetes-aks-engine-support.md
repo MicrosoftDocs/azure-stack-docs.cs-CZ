@@ -15,16 +15,14 @@ ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 89563c8703ce987fa8621e6c971d8f658f582d50
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 2fda9a71a06e22625778a66a2c553d83e17d8ec2
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75820096"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883588"
 ---
 # <a name="support-policies-for-aks-engine-on-azure-stack-hub"></a>Zásady podpory pro modul AKS v centru Azure Stack
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 Tento článek poskytuje podrobné informace o zásadách a omezeních technické podpory pro modul AKS v centru Azure Stack. Článek také podrobně popisuje Kubernetes položku Marketplace, komponenty Open-Source třetích stran a zabezpečení nebo správu oprav. 
 

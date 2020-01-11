@@ -9,16 +9,14 @@ ms.date: 10/19/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/19/2019
-ms.openlocfilehash: ae128588b095d23f0c6e99c61946f6ea62a327fe
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 52337b06cc28706b895a2fd19812859b3dc43fa2
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75819705"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75878675"
 ---
 # <a name="back-up-your-storage-accounts-on-azure-stack-hub"></a>Zálohování účtů úložiště v centru Azure Stack
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 Tento článek se zabývá ochranou a obnovením účtů úložiště v rámci účtů Azure Storage v centru Azure Stack.
 

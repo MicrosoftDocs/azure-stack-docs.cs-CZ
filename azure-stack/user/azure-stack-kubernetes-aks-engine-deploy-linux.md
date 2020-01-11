@@ -11,20 +11,18 @@ ms.workload: na
 pms.tgt_pltfrm: na (Kubernetes)
 ms.devlang: nav
 ms.topic: article
-ms.date: 11/21/2019
+ms.date: 01/10/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: bdefabc59cc6d9d3e4ed52bebe64219230b88e80
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: d9f56d8d40d4f4420e073516678017c4904dd7d1
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75820215"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75878947"
 ---
 # <a name="install-the-aks-engine-on-linux-in-azure-stack-hub"></a>Instalace modulu AKS v systému Linux v centru Azure Stack
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 Pomocí počítače se systémem Linux v centru Azure Stack můžete hostovat modul AKS, aby bylo možné nasadit a spravovat cluster Kubernetes. V tomto článku se podíváme na přípravu klientského virtuálního počítače pro správu clusteru pro připojení i odpojení Azure Stackch instancí, Projděte si instalaci a nastavte virtuální počítač klienta na ASDK.
 
@@ -83,9 +81,16 @@ Po nastavení klientského virtuálního počítače ověřte, že máte nainsta
 1. Připojte se k VIRTUÁLNÍmu počítači klienta.
 2. Spusťte následující příkaz:
 
-    ```bash  
-    aks-engine version
-    ```
+   ```bash  
+   aks-engine version
+   ```
+
+3. Pokud Azure Resource Manager koncový bod používá certifikát podepsaný svým držitelem, je nutné explicitně přidat kořenový certifikát do důvěryhodného úložiště certifikátů daného počítače. Kořenový certifikát najdete na virtuálním počítači v tomto adresáři:/var/lib/waagent/Certificates.pem. Zkopírujte soubor certifikátu pomocí následujícího příkazu: 
+
+   ```bash
+   sudo cp /var/lib/waagent/Certificates.pem /usr/local/share/ca-certificates/azurestackca.crt 
+   sudo update-ca-certificates
+   ```
 
 Pokud se nemůžete ověřit, jestli máte na VIRTUÁLNÍm počítači klienta nainstalovaný modul AKS, přečtěte si téma [řešení potíží s instalací modulu AKS](azure-stack-kubernetes-aks-engine-troubleshoot.md) .
 

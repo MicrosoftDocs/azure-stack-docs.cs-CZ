@@ -16,16 +16,14 @@ ms.date: 06/10/2019
 ms.author: patricka
 ms.reviewer: rtiberiu
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: d678332e10f219d4e37783668154098da2c2a8b5
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: dff7f2dd043a7df3749ec3cdc4b7560e6cd7bd06
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75809806"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882024"
 ---
 # <a name="create-a-custom-role-for-azure-stack-hub-registration"></a>Vytvoření vlastní role pro registraci centra Azure Stack
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack Development Kit*
 
 > [!WARNING]
 > Nejedná se o funkci stav zabezpečení. Použijte ho v situacích, kdy chcete, aby omezení zabránila náhodným změnám v předplatném Azure. Když má uživatel delegovaná práva k této vlastní roli, má uživatel práva k úpravám oprávnění a oprávnění ke zvýšení oprávnění. Přiřaďte pouze uživatele, kterým důvěřujete, k vlastní roli.

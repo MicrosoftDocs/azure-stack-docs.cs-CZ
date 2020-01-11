@@ -9,12 +9,12 @@ ms.date: 10/03/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 3750088fbf29611c97db1e3ba504997914706587
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: e692d44f94aefdb28c447c9cff15f88af0d1827a
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75819671"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75878773"
 ---
 # <a name="how-to-connect-two-vnets-through-peering"></a>Postup propojení dvou virtuální sítě prostřednictvím partnerského vztahu
 
@@ -22,7 +22,7 @@ Tento článek popisuje, jak vytvořit připojení mezi dvěma virtuálními sí
 
 ## <a name="prerequisites"></a>Požadavky
 
--   Přístup k integrovanému systému Azure Stack hub nebo ASDK s dostupnou kapacitou k nasazení požadovaných výpočetních, síťových a prostředků potřebných pro toto řešení.
+-   Přístup k systému s dostupnou kapacitou k nasazení požadovaných výpočetních, síťových a prostředků potřebných pro toto řešení.
 
 -  Řešení síťového virtuálního zařízení (síťové virtuální zařízení) se stáhlo a publikovalo na tržišti centra Azure Stack. SÍŤOVÉ virtuální zařízení řídí tok síťového provozu z hraniční sítě do jiných sítí nebo podsítí. Tento postup využívá [řešení Fortinet FortiGate Next-Generation brány firewall s jedním virtuálním počítačem](https://azuremarketplace.microsoft.com/marketplace/apps/fortinet.fortinet-FortiGate-singlevm).
 

@@ -2,21 +2,21 @@
 title: Integrace centra Azure Stack s řešeními monitorování pomocí předávání syslog | Microsoft Docs
 description: Naučte se integrovat Azure Stack hub s řešeními monitorování pomocí předávání syslog.
 services: azure-stack
-author: PatAltimore
+author: justinha
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 04/23/2019
-ms.author: patricka
+ms.date: 01/10/2020
+ms.author: justinha
 ms.reviewer: fiseraci
-ms.lastreviewed: 04/23/2019
+ms.lastreviewed: 01/10/2020
 keywords: ''
-ms.openlocfilehash: 0462d2cac78109ad76cf8c2b8c58958fc32e5d07
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: bc484919227fe08293db9ac987bee4d18313d802
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75817359"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882415"
 ---
 # <a name="integrate-azure-stack-hub-with-monitoring-solutions-using-syslog-forwarding"></a>Integrace centra Azure Stack s řešeními monitorování pomocí předávání syslog
 
@@ -51,7 +51,7 @@ Konfigurace předávání syslog vyžaduje přístup k privilegovanému koncové
 ```powershell
 ### cmdlet to pass the syslog server information to the client and to configure the transport protocol, the encryption and the authentication between the client and the server
 
-Set-SyslogServer [-ServerName <String>] [-ServerPort <String>] [-NoEncryption] [-SkipCertificateCheck] [-SkipCNCheck] [-UseUDP] [-Remove]
+Set-SyslogServer [-ServerName <String>] [-ServerPort <UInt16>] [-NoEncryption] [-SkipCertificateCheck] [-SkipCNCheck] [-UseUDP] [-Remove]
 
 ### cmdlet to configure the certificate for the syslog client to authenticate with the server
 
@@ -64,7 +64,7 @@ Parametry pro rutinu *set-SyslogServer* :
 | Parametr | Popis | Typ | Požaduje se |
 |---------|---------|---------|---------|
 |*ServerName* | Plně kvalifikovaný název domény nebo IP adresa serveru syslog | Řetězec | ano|
-|*ServerPort* | Číslo portu, na kterém naslouchá Server syslog. | Řetězec | ano|
+|*ServerPort* | Číslo portu, na kterém naslouchá Server syslog. | UInt16 | ano|
 |*Šifrování*| Vynutit, aby klient odesílal zprávy syslog ve formátu prostého textu. | flag | ne|
 |*SkipCertificateCheck*| Při počátečním ověřování TLS vynechejte ověření certifikátu poskytnutého serverem syslog. | flag | ne|
 |*SkipCNCheck*| Při počátečním ověřování TLS vynechejte vynechání hodnoty pro běžný název certifikátu poskytnutého serverem syslog. | flag | ne|
@@ -75,7 +75,7 @@ Parametry pro rutinu *set-SyslogClient* :
 
 | Parametr | Popis | Typ |
 |---------|---------| ---------|
-| *pfxBinary* | soubor PFX obsahující certifikát, který má klient používat jako identitu k ověřování na serveru syslog.  | Byte[] |
+| *pfxBinary* | Obsah souboru PFX předaných na Byte [] obsahující certifikát, který má klient používat jako identitu k ověřování na serveru syslog.  | Byte[] |
 | *CertPassword* |  Heslo pro import privátního klíče, který je přidružen k souboru PFX. | SecureString |
 |*RemoveCertificate* | Odeberte certifikát z klienta. | flag|
 | *OutputSeverity* | Úroveň protokolování výstupu. Hodnoty jsou **výchozí** nebo **podrobné**. Výchozí hodnota zahrnuje úrovně závažnosti: upozornění, kritická nebo chyba. Verbose obsahuje všechny úrovně závažnosti: Verbose, informativní, Warning, kritická nebo chyba.  | Řetězec |

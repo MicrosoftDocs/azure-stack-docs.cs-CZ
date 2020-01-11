@@ -14,16 +14,14 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: 0ae83367559c51a415253e13b68df2409c107789
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: b2faf490b54fc7096c43b58864009bdee6117fe6
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75817019"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882262"
 ---
 # <a name="monitor-updates-in-azure-stack-hub-using-the-privileged-endpoint"></a>Monitorování aktualizací v centru Azure Stack pomocí privilegovaného koncového bodu
-
-*Platí pro: Azure Stack integrovaných systémů centra*
 
 Pomocí [privilegovaného koncového bodu](azure-stack-privileged-endpoint.md) můžete monitorovat průběh spuštění aktualizace centra Azure Stack. Pomocí privilegovaného koncového bodu můžete také pokračovat v neúspěšném spuštění aktualizace z posledního úspěšného kroku, protože portál Azure Stack hub nebude k dispozici. Použití portálu centra Azure Stack je doporučená metoda pro správu aktualizací v centru Azure Stack.
 
