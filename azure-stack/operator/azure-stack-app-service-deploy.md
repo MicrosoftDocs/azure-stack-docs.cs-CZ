@@ -12,23 +12,25 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2019
+ms.date: 01/13/2020
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 1099d605949b8ce05b2a2c5d4c8b1b233a5ac940
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.lastreviewed: 01/13/2020
+ms.openlocfilehash: eb38d3f237b872e552bd135cbe6b93c905115e30
+ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75880766"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75924254"
 ---
 # <a name="deploy-app-service-in-azure-stack-hub"></a>Nasazení App Service v centru Azure Stack
+
+*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack centrum pro vývoj*
 
 Tento článek popisuje, jak nasadit App Service v centru Azure Stack.
 
 > [!IMPORTANT]
-> Před nasazením Azure App Service 1,7 použijte aktualizaci 1907 pro integrovaný systém Azure Stack hub nebo nasaďte nejnovější Azure Stack Development Kit (ASDK).
+> Než nasadíte Azure App Service 1,8, použijte aktualizaci 1910 pro integrovaný systém Azure Stack hub nebo nasaďte nejnovější Azure Stack ASDK (hub Development Kit).
 
 Uživatelům můžete dát možnost vytvářet webové aplikace a aplikace API. Pokud chcete umožnit uživatelům vytvářet tyto aplikace, musíte:
 
@@ -36,7 +38,7 @@ Uživatelům můžete dát možnost vytvářet webové aplikace a aplikace API. 
 - Až nainstalujete poskytovatele prostředků App Service, můžete ho zahrnout do nabídek a plánů. Uživatelé se pak můžou přihlásit k odběru služby a začít vytvářet aplikace.
 
 > [!IMPORTANT]
-> Před spuštěním instalačního programu poskytovatele prostředků se ujistěte, že jste postupovali podle pokynů v tématu, [než](azure-stack-app-service-before-you-get-started.md) začnete, a přečtěte si [poznámky k verzi](azure-stack-app-service-release-notes-update-seven.md) , které doprovází verzi 1,7. Čtení tohoto obsahu vám pomůže seznámit se s novými funkcemi, opravami a všemi známými problémy, které by mohly mít vliv na nasazení.
+> Před spuštěním instalačního programu poskytovatele prostředků se ujistěte, že jste postupovali podle pokynů v tématu, [než](azure-stack-app-service-before-you-get-started.md) začnete, a přečtěte si [poznámky k verzi](azure-stack-app-service-release-notes-update-eight.md) , které doprovází verzi 1,8. Čtení tohoto obsahu vám pomůže seznámit se s novými funkcemi, opravami a všemi známými problémy, které by mohly mít vliv na nasazení.
 
 ## <a name="run-the-app-service-resource-provider-installer"></a>Spuštění instalačního programu poskytovatele prostředků App Service
 
@@ -65,19 +67,21 @@ Pokud chcete nasadit poskytovatele prostředků App Service, postupujte takto:
 
    ![Instalační služba App Service][2]
 
-6. Na další stránce Instalační služby App Service proveďte následující kroky:
+6. Na další stránce instalačního programu App Service se připojíte ke svému centru Azure Stack:
 
-    a. Vyberte **připojit** se vedle **předplatných centra Azure Stack**.
+    1. Vyberte metodu připojení, kterou chcete použít – **Credential** nebo **instanční objekt** .
+ 
+        - **Přihlašovací údaje**
+            - Pokud používáte Azure Active Directory (Azure AD), zadejte účet správce Azure AD a heslo, které jste zadali při nasazení centra Azure Stack. Vyberte **Connect** (Připojit).
+            - Pokud používáte Active Directory Federation Services (AD FS) (AD FS), zadejte účet správce. Například, cloudadmin@azurestack.local. Zadejte heslo a pak vyberte **připojit**.
 
-   - Pokud používáte Azure Active Directory (Azure AD), zadejte účet správce Azure AD a heslo, které jste zadali při nasazení centra Azure Stack. Vyberte **Přihlásit se**.
-   - Pokud používáte Active Directory Federation Services (AD FS) (AD FS), zadejte účet správce. Například, cloudadmin@azurestack.local. Zadejte heslo a pak vyberte **Přihlásit**se.
+        - **Instanční objekt**
+            - Instanční objekt, který použijete, **musí** mít práva **vlastníka** na **předplatném výchozího poskytovatele** .
+            - Zadejte **ID objektu služby**, **soubor certifikátu** a **heslo** a pak vyberte **připojit**.
 
-   b. V části **předplatná centra Azure Stack**vyberte **výchozí předplatné poskytovatele**.
+    1. V části **předplatná centra Azure Stack**vyberte **výchozí předplatné poskytovatele**.  Azure App Service v centru Azure Stack **musí** být nasazené v **předplatném výchozího poskytovatele**.
 
-     > [!IMPORTANT]
-     > App Service **musí** být nasazené do **předplatného výchozího poskytovatele**.
-
-   c. V **umístění centra Azure Stack**vyberte umístění, které odpovídá oblasti, do které nasazujete. Pokud například nasazujete na ASDK, vyberte **místní** .
+    1. V **umístění centra Azure Stack**vyberte umístění, které odpovídá oblasti, do které nasazujete. Pokud například nasazujete na ASDK, vyberte **místní** .
 
     ![Instalační služba App Service][3]
 
@@ -173,7 +177,7 @@ Pokud chcete nasadit poskytovatele prostředků App Service, postupujte takto:
 
 16. Na další stránce Instalační služby App Service proveďte následující kroky:
 
-    a. Sledujte průběh instalace. Nasazení App Service v centru Azure Stack trvá přibližně 60 minut, než se nasadí na základě výchozích výběrů.
+    a. Sledujte průběh instalace. Nasazení App Service v centru Azure Stack může trvat až 240 minut, než se nasadí na základě výchozích výběrů a stáří základní image Windows 2016 Datacenter.
 
     b. Po úspěšném dokončení instalačního programu vyberte možnost **ukončit**.
 

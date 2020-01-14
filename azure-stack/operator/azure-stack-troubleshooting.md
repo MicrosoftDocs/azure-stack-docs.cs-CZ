@@ -1,6 +1,7 @@
 ---
-title: Řešení potíží s Microsoft Azure Stack centra | Microsoft Docs
-description: Poradce při potížích s Azure Stack centra
+title: Řešení potíží s Azure Stack hub
+titleSuffix: Azure Stack
+description: Naučte se řešit potíže s centrem Azure Stack, včetně problémů s virtuálními počítači, úložištěm a App Service.
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,16 +17,16 @@ ms.date: 11/05/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: b8b4bc6a608ee6cae373f2ab3cb83dd3e9f544df
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 72f5643f58e369ab341628bebc7195f2056cd8b8
+ms.sourcegitcommit: c4368652f0dd68c432aa1dabddbabf161a4a6399
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75813670"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75914661"
 ---
-# <a name="microsoft-azure-stack-hub-troubleshooting"></a>Poradce při potížích centra Microsoft Azure Stack
+# <a name="troubleshoot-issues-in-azure-stack-hub"></a>Řešení potíží v centru Azure Stack
 
-Tento dokument poskytuje informace pro řešení potíží s integrovanými prostředími centra Azure Stack. Nápovědu k Azure Stack Development Kit najdete v tématu [řešení potíží s ASDK](../asdk/asdk-troubleshooting.md) nebo Získejte pomoc od expertů ve [fóru Azure Stack centra MSDN](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). 
+Tento dokument poskytuje informace pro řešení potíží s integrovanými prostředími centra Azure Stack. Nápovědu k Azure Stack Development Kit najdete v tématu [řešení potíží s ASDK](../asdk/asdk-troubleshooting.md) nebo Získejte pomoc od expertů ve [fóru Azure Stack centra MSDN](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack).
 
 ## <a name="frequently-asked-questions"></a>Nejčastější dotazy
 
@@ -59,7 +60,7 @@ Pokud chcete zvýšit celkovou dostupnou kapacitu paměti pro centrum Azure Stac
 
 #### <a name="retention-period"></a>Doba uchování
 
-Nastavení doby uchovávání umožňuje operátorovi cloudu nastavit časové období ve dnech (od 0 do 9 999 dnů), během kterého je potenciálně možné obnovit jakýkoli odstraněný účet. Výchozí doba uchování je nastavená na **0** dní. Nastavení hodnoty na **0** znamená, že libovolný odstraněný účet je ihned neuchováván a označený pro periodické uvolňování paměti.
+Nastavení Doba uchování umožňuje operátorovi cloudu zadat časové období ve dnech (mezi 0 a 9999 dny), během kterého může být kterýkoli odstraněný účet potenciálně obnoven. Výchozí doba uchování je nastavená na **0** dní. Nastavení hodnoty na **0** znamená, že libovolný odstraněný účet je ihned neuchováván a označený pro periodické uvolňování paměti.
 
 * [Nastavení doby uchovávání](azure-stack-manage-storage-accounts.md#set-the-retention-period)
 
@@ -87,42 +88,45 @@ Vyberte typ účtu sdílených služeb, který používáte pro Azure Stack hub.
 
 ### <a name="get-scale-unit-metrics"></a>Získat metriky jednotek škálování
 
-Pomocí prostředí PowerShell můžete získat informace o využití razítka bez nutnosti pomáhat z šablon stylů CSS. Získání využití razítka: 
+Pomocí prostředí PowerShell můžete získat informace o využití razítka bez nutnosti pomáhat z šablon stylů CSS. Získání využití razítka:
 
-1. Vytvoření relace PEP
-2. Spuštění rutiny Test-azurestack
-3. Ukončit relaci PEP
-4. Spuštění rutiny Get-azurestacklog-filterbyrole s použitím volání Invoke-Command
-5. Extrahujte soubor seedring. zip a můžete získat zprávu o ověření ze složky ERCS, ve které jste spustili test-azurestack
+1. Vytvořte relaci PEP.
+2. Spusťte `test-azurestack`.
+3. Ukončete relaci PEP.
+4. Spusťte `get-azurestacklog -filterbyrole seedring` pomocí volání vyvolání příkazu.
+5. Extrahujte soubor seedring. zip. Sestavu ověření můžete získat ze složky ERCS, ve které jste spustili `test-azurestack`.
 
 Další informace najdete v tématu [Diagnostika centra Azure Stack](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs).
 
-## <a name="troubleshoot-virtual-machines"></a>Řešení potíží s virtuálními počítači
+## <a name="troubleshoot-virtual-machines-vms"></a>Řešení potíží s virtuálními počítači
+
 ### <a name="default-image-and-gallery-item"></a>Výchozí položka obrázku a galerie
+
 Před nasazením virtuálních počítačů do centra Azure Stack je třeba přidat položku galerie a image Windows serveru.
 
+### <a name="ive-deleted-some-vms-but-still-see-the-vhd-files-on-disk"></a>Odstranili jsme některé virtuální počítače, ale pořád se na disku zobrazují soubory VHD
 
-### <a name="i-have-deleted-some-virtual-machines-but-still-see-the-vhd-files-on-disk"></a>Odstranil (a) jsem některé virtuální počítače, ale pořád zobrazuje soubory VHD na disku
 Toto chování je záměrné:
 
 * Při odstranění virtuálního počítače se virtuální pevné disky neodstraňují. Disky jsou samostatné prostředky ve skupině prostředků.
-* Když se účet úložiště odstraní, odstraní se hned po Azure Resource Manager, ale disky, které můžou obsahovat, se pořád uchovávají v úložišti, až do doby, než se spustí shromažďování paměti.
+* Když se účet úložiště odstraní, odstraní se hned po Azure Resource Manager. Disky, které mohou obsahovat, jsou však nadále uchovávány v úložišti, dokud nebude spuštěno uvolňování paměti.
 
-Pokud se zobrazí "osamocené" disky VHD, je důležité znát, jestli jsou součástí složky pro účet úložiště, který se odstranil. Pokud se účet úložiště neodstranil, je normální, ale pořád tam.
+Pokud se zobrazí "osamocené" disky VHD, je důležité znát, jestli jsou součástí složky pro účet úložiště, který se odstranil. Pokud se účet úložiště neodstranil, je normální, že tam pořád máte.
 
 Další informace o konfiguraci prahové hodnoty pro uchování a opětovného získávání na vyžádání najdete v tématu [Správa účtů úložiště](azure-stack-manage-storage-accounts.md).
 
 ## <a name="troubleshoot-storage"></a>Řešení potíží s úložištěm
-### <a name="storage-reclamation"></a>Recyklace úložiště
-Může trvat až 14 hodin, než se kapacita uvolní, aby se na portálu zobrazovala. Recyklace místa závisí na různých faktorech, včetně procentuálního využití vnitřních souborů kontejneru v úložišti objektů blob bloku. V závislosti na tom, kolik dat je odstraněno, však není zaručeno množství místa, které by mohlo být uvolněno při spuštění systému uvolňování paměti.
 
-### <a name="azure-storage-explorer-not-working-with-azure-stack-hub"></a>Průzkumník služby Azure Storage nepracuje se službou Azure Stack hub 
- 
-Pokud používáte integrovaný systém v odpojeném scénáři, doporučuje se používat certifikační autoritu (CA) organizace. Exportujte kořenový certifikát ve formátu Base-64 a pak ho importujte do Průzkumník služby Azure Storage. Nezapomeňte odebrat koncové lomítko ('/') z koncového bodu ARM. Další informace najdete v tématu [Příprava na připojení k centru Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-connect-se#prepare-for-connecting-to-azure-stack).
- 
+### <a name="storage-reclamation"></a>Recyklace úložiště
+
+Může trvat až 14 hodin, než se kapacita uvolní, aby se na portálu zobrazovala. Recyklace místa závisí na různých faktorech, včetně procentuálního využití vnitřních souborů kontejneru v úložišti objektů blob bloku. V závislosti na tom, kolik dat je odstraněno, však není nijak zaručeno množství místa, které by mohlo být uvolněno při spuštění systému uvolňování paměti.
+
+### <a name="azure-storage-explorer-not-working-with-azure-stack-hub"></a>Průzkumník služby Azure Storage nepracuje se službou Azure Stack hub
+
+Pokud používáte integrovaný systém v odpojeném scénáři, doporučuje se používat certifikační autoritu (CA) organizace. Exportujte kořenový certifikát ve formátu Base-64 a pak ho importujte do Průzkumník služby Azure Storage. Nezapomeňte odebrat koncové lomítko (`/`) z Správce prostředkůho koncového bodu. Další informace najdete v tématu [Příprava na připojení k centru Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-connect-se#prepare-for-connecting-to-azure-stack).
 
 ## <a name="troubleshooting-app-service"></a>Řešení potíží s App Service
+
 ### <a name="create-aadidentityappps1-script-fails"></a>Skript Create-AADIdentityApp. ps1 se nezdařil
 
-Pokud skript Create-AADIdentityApp. ps1, který je vyžadován pro App Service, neproběhne úspěšně, nezapomeňte při spuštění skriptu zahrnout parametr Required-AzureStackAdminCredential. Další informace najdete v tématu [předpoklady pro nasazení App Service v centru Azure Stack](azure-stack-app-service-before-you-get-started.md#create-an-azure-active-directory-app).
-
+Pokud skript Create-AADIdentityApp. ps1, který je vyžadován pro App Service, neproběhne úspěšně, nezapomeňte při spuštění skriptu zahrnout požadovaný parametr `-AzureStackAdminCredential`. Další informace najdete v tématu [předpoklady pro nasazení App Service v centru Azure Stack](azure-stack-app-service-before-you-get-started.md#create-an-azure-active-directory-app).

@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 01/06/2020
 ms.author: sethm
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 2e44c0e70e44d628d32fdf8d15e9d60b78a4ce14
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 82b1826831ffd9c5d28f56dab25c6f02b49edca8
+ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883809"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75924012"
 ---
 # <a name="differences-between-azure-stack-hub-and-azure-when-using-services-and-building-apps"></a>Rozdíly mezi centrem Azure Stack a Azure při používání služeb a sestavování aplikací
 
@@ -65,7 +65,7 @@ Microsoft poskytuje nástroje a pokyny, které vám pomůžou při vývoji centr
 | -------- | ------------- |
 | Nainstalujte do pracovní stanice pro vývojáře správné nástroje. | - [instalaci PowerShellu](../operator/azure-stack-powershell-install.md)<br>[Nástroje pro stažení](../operator/azure-stack-powershell-download.md) - <br>- [Konfigurace prostředí PowerShell](azure-stack-powershell-configure-user.md)<br>- [instalaci sady Visual Studio](azure-stack-install-visual-studio.md)
 | Zkontrolujte informace o následujících položkách:<br>– Pokyny pro šablonu Azure Resource Manager.<br>– Jak najít šablony pro rychlý Start.<br>– Použijte modul zásad, který vám umožní využít Azure k vývoji pro centra Azure Stack. | [Vývoj pro centrum Azure Stack](azure-stack-developer.md) |
-| Projděte si osvědčené postupy pro šablony a použijte je. | [Šablony pro rychlý Start Správce prostředků](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md)
+| Projděte si osvědčené postupy pro šablony a použijte je. | [Šablony pro rychlý Start Správce prostředků](https://aka.ms/aa6yz42)
 | | |
 
 ## <a name="version-requirements"></a>Požadavky na verzi

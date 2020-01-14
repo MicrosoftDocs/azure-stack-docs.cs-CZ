@@ -6,17 +6,16 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: quickstart
-ms.date: 10/02/2019
+ms.date: 1/10/2020
 ms.author: mabrigg
-ms.custom: mvc
 ms.reviewer: kivenkat
-ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 53e33ed9da57209c1f937cbf72eb2c3882dfd1cd
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.lastreviewed: 1/10/2020
+ms.openlocfilehash: 1b7ea35da7234fde1517b59101205a92075b9016
+ms.sourcegitcommit: c4368652f0dd68c432aa1dabddbabf161a4a6399
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75878573"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75914932"
 ---
 # <a name="quickstart-create-a-windows-server-vm-with-the-azure-stack-hub-portal"></a>Rychlý Start: Vytvoření virtuálního počítače s Windows serverem pomocí portálu Azure Stack hub
 
@@ -35,35 +34,38 @@ Přihlaste se k portálu centra Azure Stack. Adresa portálu centra Azure Stack 
 
 ## <a name="create-a-vm"></a>Vytvoření virtuálního počítače
 
-1. Klikněte na **+ vytvořit prostředek** > **COMPUTE** > **Windows Server 2016 Datacenter –** s průběžnými platbami – pomocí > **vytvořit**. <br> Pokud nevidíte položku **Windows server 2016 Datacenter – průběžné platby** , obraťte se na svého operátora centra Azure Stack a požádejte ho, aby ho přidal na web Marketplace, jak je vysvětleno v článku [Přidání image virtuálního počítače s Windows serverem 2016 do webu služby Azure Stack hub Marketplace](../operator/azure-stack-create-and-publish-marketplace-item.md) .
+1. Vyberte **vytvořit prostředek** > **COMPUTE**. Vyhledejte` Windows Server 2016 Datacenter – Pay as you use`.
+    Pokud nevidíte položku **Windows Server 2016 Datacenter – průběžné platby** , obraťte se na svého operátora cloudu centra Azure Stack a požádejte ho o přidání image do tržiště centra Azure Stack. Pokyny, které může váš operátor cloudu použít k [Vytvoření a publikování vlastní položky na webu Marketplace centra Azure Stack](../operator/azure-stack-create-and-publish-marketplace-item.md).
 
-    ![Postup vytvoření virtuálního počítače s Windows na portálu](media/azure-stack-quick-windows-portal/image01.png)
+    ![Windows Server 2016 Datacenter – Plaťte při používání](./media/azure-stack-quick-windows-portal/image1.png)
 
-2. V části **základy**zadejte **název**, **uživatelské jméno**a **heslo**. Vyberte **předplatné**. Vytvořte **skupinu prostředků**nebo vyberte některou z existujících, vyberte **umístění**a klikněte na **OK**.
+1. Vyberte **Vytvořit**.
 
-    ![Konfigurace základního nastavení](media/azure-stack-quick-windows-portal/image02.png)
+    ![Vytvoření prostředku](./media/azure-stack-quick-windows-portal/image2.png)
 
-3. V části **Velikost**vyberte **D1 Standard**a pak klikněte na **Vybrat**.  
+1. V části **základy**zadejte **název**, **typ disku**, **uživatelské jméno**a **heslo** . Vyberte **předplatné**. Vytvořte **skupinu prostředků**nebo vyberte některou z existujících, vyberte **umístění**a pak vyberte **OK**.
 
-    ![Volba velikosti virtuálního počítače](media/azure-stack-quick-windows-portal/image03.png)
+    ![Vytvoření základních informací o virtuálním počítači](./media/azure-stack-quick-windows-portal/image3.png)
 
-4. Na stránce **Nastavení** proveďte požadované změny ve výchozích hodnotách.
-   - Od centra Azure Stack verze 1808 můžete nakonfigurovat **úložiště** , kde se můžete rozhodnout používat *spravované disky*. Ve verzích před 1808 lze použít pouze nespravované disky.  
+1. V části **Velikost**vyberte **D1_v2** a pak zvolte **Vybrat**.
 
-   ![Konfigurace nastavení virtuálního počítače](media/azure-stack-quick-windows-portal/image04.png)  
+    ![Vytvoření velikosti virtuálního počítače](./media/azure-stack-quick-windows-portal/image4.png)
 
-   Až budou vaše konfigurace připravené, pokračujte výběrem **OK** .
+1. Na stránce **Nastavení** proveďte požadované změny ve výchozích hodnotách. Požadované veřejné příchozí porty musíte nakonfigurovat z příslušného rozevíracího seznamu. Po dokončení vyberte **OK**.
 
-5. V části **Souhrn**klikněte na **OK** a vytvořte virtuální počítač.
-    ![zobrazení souhrnu a vytvoření virtuálního počítače](media/azure-stack-quick-windows-portal/image05.png)
+    ![Vytvoření virtuálního počítače – nastavení](./media/azure-stack-quick-windows-portal/image5.png)
 
-6. Pokud chcete nový virtuální počítač zobrazit, klikněte na **všechny prostředky**, vyhledejte název virtuálního počítače a potom ho vyberte ve výsledcích hledání.
+1. V části **Souhrn** vyberte **OK** a vytvořte virtuální počítač.
 
-    ![Viz virtuální počítač](media/azure-stack-quick-windows-portal/image06.png)
+    ![Vytvoření virtuálního počítače – souhrn](./media/azure-stack-quick-windows-portal/image6.png)
+
+1. Vyberte **Virtual Machines** pro kontrolu nového virtuálního počítače. Vyhledejte název virtuálního počítače a potom ve výsledcích hledání vyberte virtuální počítač.
+
+![Vytvoření virtuálního počítače – vyhledání virtuálního počítače](./media/azure-stack-quick-windows-portal/image7.png)
 
 ## <a name="clean-up-resources"></a>Vyčištění prostředků
 
-Po dokončení používání virtuálního počítače odstraňte virtuální počítač a jeho prostředky. Provedete to tak, že na stránce VM vyberete skupinu prostředků a kliknete na **Odstranit**.
+Po dokončení používání virtuálního počítače odstraňte virtuální počítač a jeho prostředky. Provedete to tak, že vyberete skupinu prostředků na stránce virtuální počítač a vyberete **Odstranit**.
 
 ## <a name="next-steps"></a>Další kroky
 

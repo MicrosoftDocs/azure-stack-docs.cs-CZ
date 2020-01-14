@@ -10,12 +10,12 @@ ms.date: 10/02/2019
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: 7b072b95cae7148080ee0c9b1195960a3df041fc
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 7a7da17dd3b9be99c797b2241ae38bd2d4e6c0d2
+ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883792"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75923984"
 ---
 # <a name="introduction-to-azure-stack-hub-vms"></a>Úvod k virtuálním počítačům centra Azure Stack
 
@@ -103,7 +103,7 @@ Máte několik možností, jak vytvořit virtuální počítač. Vaše volba zá
 |Metoda|Článek|
 |---------|---------|
 |Portál centra Azure Stack|Vytvoření virtuálního počítače s Windows pomocí portálu Azure Stack hub<br>[Vytvoření virtuálního počítače se systémem Linux pomocí portálu Azure Stack hub](azure-stack-quick-linux-portal.md)|
-|Šablony|Šablony pro rychlý Start centra Azure Stack najdete na adrese:<br> [https://github.com/Azure/AzureStack-QuickStart-Templates](https://github.com/Azure/AzureStack-QuickStarvirtualt-Templates)|
+|Šablony|Šablony pro rychlý Start centra Azure Stack najdete na adrese:<br> [https://github.com/Azure/AzureStack-QuickStart-Templates](https://aka.ms/aa6z60s)|
 |PowerShell|[Vytvoření virtuálního počítače s Windows pomocí PowerShellu v Azure Stackovém centru](azure-stack-quick-create-vm-windows-powershell.md)<br>[Vytvoření virtuálního počítače se systémem Linux pomocí prostředí PowerShell v Azure Stackovém centru](azure-stack-quick-create-vm-linux-powershell.md)|
 |Rozhraní příkazového řádku|[Vytvoření virtuálního počítače s Windows pomocí rozhraní příkazového řádku v Azure Stackovém centru](azure-stack-quick-create-vm-windows-cli.md)<br>[Vytvoření virtuálního počítače se systémem Linux pomocí rozhraní příkazového řádku v Azure Stack hub](azure-stack-quick-create-vm-linux-cli.md)|
 

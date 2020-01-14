@@ -9,12 +9,12 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 62e334ca62d4fddcd14357f45f00d309e8440103
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 1898b4415519dd8b1e6bf901c69cf67d6a607308
+ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75820521"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75923864"
 ---
 # <a name="connect-to-azure-stack-hub-using-azure-account-extension-in-visual-studio-code"></a>Připojení k centru Azure Stack pomocí rozšíření účtu Azure v Visual Studio Code
 
@@ -38,7 +38,7 @@ VS Code je zjednodušený editor pro sestavování a ladění webových a cloudo
 
     - Před spuštěním skriptu budete muset mít nainstalovaný a nakonfigurovaný PowerShell pro vaše prostředí. Pokyny najdete v tématu [instalace PowerShellu pro Azure Stack hub](../operator/azure-stack-powershell-install.md).
 
-    - Pokyny a skripty pro **identitu** najdete v tématu [AzureStack-Tools/identity](https://github.com/Azure/AzureStack-Tools/tree/master/Identity).
+    - Pokyny a skripty pro **identitu** najdete v tématu [AzureStack-Tools/identity](https://aka.ms/aa6z611).
 
     - Ve stejné relaci spusťte:
 

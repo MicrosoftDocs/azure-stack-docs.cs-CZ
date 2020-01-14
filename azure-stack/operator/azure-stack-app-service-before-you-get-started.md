@@ -1,6 +1,6 @@
 ---
-title: Předpoklady pro nasazení App Service v centru Azure Stack | Microsoft Docs
-description: Před nasazením App Service v centru Azure Stack se naučíte splnění požadovaných kroků.
+title: Předpoklady pro nasazení Azure App Service v centru Azure Stack | Microsoft Docs
+description: Před nasazením Azure App Service v centru Azure Stack se naučíte splnění požadovaných kroků.
 services: azure-stack
 documentationcenter: ''
 author: BryanLa
@@ -12,23 +12,25 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2019
+ms.date: 01/13/2020
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 01/08/2020
-ms.openlocfilehash: 7f0c928cfaf01296b15986e3eb768f48cab54554
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.lastreviewed: 01/13/2020
+ms.openlocfilehash: e5dffbfd82ab8c23aa3862763f02ae759cf4de08
+ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75880664"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75924214"
 ---
 # <a name="prerequisites-for-deploying-app-service-on-azure-stack-hub"></a>Předpoklady pro nasazení App Service v centru Azure Stack
+
+*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack centrum pro vývoj*
 
 Před nasazením Azure App Service v centru Azure Stack je nutné provést požadované kroky v tomto článku.
 
 > [!IMPORTANT]
-> Před nasazením Azure App Service 1,6 použijte aktualizaci 1904 pro integrovaný systém Azure Stack hub nebo nasaďte nejnovější Azure Stack Development Kit (ASDK).
+> Než nasadíte Azure App Service 1,8, použijte aktualizaci 1910 pro integrovaný systém Azure Stack hub nebo nasaďte nejnovější Azure Stack ASDK (hub Development Kit).
 
 ## <a name="download-the-installer-and-helper-scripts"></a>Stažení instalačních a pomocných skriptů
 
@@ -150,7 +152,7 @@ Certifikát pro identitu musí obsahovat předmět, který odpovídá následuj�
 
 ### <a name="validate-certificates"></a>Ověřit certifikáty
 
-Než nasadíte poskytovatele prostředků App Service, měli byste [ověřit certifikáty, které se mají použít](azure-stack-validate-pki-certs.md#using-validated-certificates) , pomocí nástroje pro kontrolu připravenosti centra Azure Stack dostupného z [Galerie prostředí PowerShell](https://aka.ms/AzsReadinessChecker). Nástroj pro kontrolu připravenosti centra Azure Stack ověří, že vygenerované certifikáty PKI jsou vhodné pro App Service nasazení.
+Než nasadíte poskytovatele prostředků App Service, měli byste [ověřit certifikáty, které se mají použít](azure-stack-validate-pki-certs.md) , pomocí nástroje pro kontrolu připravenosti centra Azure Stack dostupného z [Galerie prostředí PowerShell](https://aka.ms/AzsReadinessChecker). Nástroj pro kontrolu připravenosti centra Azure Stack ověří, že vygenerované certifikáty PKI jsou vhodné pro App Service nasazení.
 
 V rámci osvědčeného postupu se při práci s některým z nezbytných [certifikátů PKI centra Azure Stack](azure-stack-pki-certs.md)v případě potřeby měli naplánovat dostatek času na testování a vystavování certifikátů.
 

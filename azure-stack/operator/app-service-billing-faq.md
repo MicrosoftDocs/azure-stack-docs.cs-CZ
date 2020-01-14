@@ -16,12 +16,12 @@ ms.date: 06/10/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: 6b2383ada3a4de1d5c33db07d847b5ca2c5c5948
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 6c409577c73389bb53008ae03cbaf938c61d363f
+ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75881344"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75924136"
 ---
 # <a name="azure-app-service-on-azure-stack-hub-billing-overview-and-faq"></a>Přehled a nejčastější dotazy týkající se fakturace centra Azure Stack Azure App Service
 
@@ -85,13 +85,13 @@ Pak můžete zvolit vytvoření kvóty pro použití v plánu, který nabízí j
 
 ## <a name="sample-scripts-to-assist-with-billing"></a>Ukázkové skripty, které vám pomůžou s fakturací
 
-Tým Azure App Service vytvořil ukázkové skripty PowerShellu, které vám pomůžou s dotazování služby využití centra Azure Stack. Operátoři cloudu můžou tyto ukázkové skripty použít k přípravě jejich fakturace pro své klienty. Ukázkové skripty jsou v [úložišti nástrojů centra Azure Stack](https://github.com/Azure/AzureStack-tools) v GitHubu. Skripty App Service jsou ve [složce AppService v části použití](https://github.com/Azure/AzureStack-Tools/tree/master/Usage/AppService).
+Tým Azure App Service vytvořil ukázkové skripty PowerShellu, které vám pomůžou s dotazování služby využití centra Azure Stack. Operátoři cloudu můžou tyto ukázkové skripty použít k přípravě jejich fakturace pro své klienty. Ukázkové skripty jsou v [úložišti nástrojů centra Azure Stack](https://github.com/Azure/AzureStack-tools) v GitHubu. Skripty App Service jsou ve [složce AppService v části použití](https://aka.ms/aa6zku8).
 
 K dispozici jsou tyto ukázkové skripty:
 
-- [Get-AppServiceBillingRecords](https://github.com/Azure/AzureStack-Tools/blob/master/Usage/AppService/Get-AppServiceBillingRecords.ps1): Tato ukázka NAČTE z rozhraní API Azure Stack využití centra Azure Stack Azure App Service záznamy fakturace na rozbočovači.
-- [Get-AppServiceSubscriptionUsage](https://github.com/Azure/AzureStack-Tools/blob/master/Usage/AppService/Get-AppServiceSubscriptionUsage.ps1): Tato ukázka vypočítá Azure App Service v Azure Stack využití centra na základě předplatného. Tento skript vypočítá množství využití na základě dat z rozhraní API využití a cen zadaných za měřič cloudového operátora.
-- [Suspend-UserSubscriptions](https://github.com/Azure/AzureStack-Tools/blob/master/Usage/AppService/Suspend-UserSubscriptions.ps1): Tato ukázka pozastaví nebo povolí odběry na základě omezení využití určeného operátorem cloudu.
+- [Get-AppServiceBillingRecords](https://aka.ms/aa6zku2): Tato ukázka NAČTE z rozhraní API Azure Stack využití centra Azure Stack Azure App Service záznamy fakturace na rozbočovači.
+- [Get-AppServiceSubscriptionUsage](https://aka.ms/aa6zku6): Tato ukázka vypočítá Azure App Service v Azure Stack využití centra na základě předplatného. Tento skript vypočítá množství využití na základě dat z rozhraní API využití a cen zadaných za měřič cloudového operátora.
+- [Suspend-UserSubscriptions](https://aka.ms/aa6zku7): Tato ukázka pozastaví nebo povolí odběry na základě omezení využití určeného operátorem cloudu.
 
 ## <a name="next-steps"></a>Další kroky
 

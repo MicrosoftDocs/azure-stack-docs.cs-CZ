@@ -1,6 +1,6 @@
 ---
 title: Přidání pracovníků a infrastruktury v App Service v centru Azure Stack | Microsoft Docs
-description: Podrobné pokyny pro škálování centra Azure Stack App Services
+description: Podrobné pokyny pro škálování Azure App Service v centru Azure Stack
 services: azure-stack
 documentationcenter: ''
 author: bryanla
@@ -12,27 +12,29 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 01/13/2020
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 06/08/2018
-ms.openlocfilehash: a972606825822f40a39138b6af6839bf2e0b7559
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.lastreviewed: 01/13/2020
+ms.openlocfilehash: b07d90f17d1c4380f65c43029215bf8946d209e2
+ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75880834"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75924207"
 ---
-# <a name="add-workers-and-infrastructure-in-app-service-on-azure-stack-hub"></a>Přidání pracovníků a infrastruktury v App Service v centru Azure Stack
+# <a name="add-workers-and-infrastructure-in-azure-app-service-on-azure-stack-hub"></a>Přidání pracovníků a infrastruktury v Azure App Service v centru Azure Stack
 
-Tento dokument poskytuje pokyny, jak škálovat infrastrukturu a role pracovních procesů v App Service v centru Azure Stack. Pokryjeme všechny kroky potřebné k vytvoření dalších rolí pracovního procesu pro podporu aplikací libovolné velikosti.
+*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack centrum pro vývoj*  
+
+Tento dokument poskytuje pokyny, jak škálovat infrastrukturu a role pracovních procesů v Azure App Service v centru Azure Stack. Pokryjeme všechny kroky potřebné k vytvoření dalších rolí pracovního procesu pro podporu aplikací libovolné velikosti.
 
 > [!NOTE]
 > Pokud vaše prostředí Azure Stack hub nemá více než 96 GB paměti RAM, může docházet k potížím při přidávání další kapacity.
 
-App Service v centru Azure Stack podporuje ve výchozím nastavení bezplatné a sdílené úrovně pracovních procesů. Chcete-li přidat další vrstvy pracovního procesu, je nutné přidat další role pracovního procesu.
+Azure App Service v centru Azure Stack podporuje ve výchozím nastavení bezplatné a sdílené úrovně pracovních procesů. Chcete-li přidat další vrstvy pracovního procesu, je nutné přidat další role pracovního procesu.
 
-Pokud si nejste jistí, co bylo nasazeno s výchozím App Service v Azure Stack instalaci centra, můžete si přečíst další informace v části [App Service v článku Přehled centra pro Azure Stack](azure-stack-app-service-overview.md).
+Pokud si nejste jistí, co bylo nasazeno s výchozím Azure App Service v Azure Stack instalaci centra, můžete si přečíst další informace v části [App Service v článku Přehled centra pro Azure Stack](azure-stack-app-service-overview.md).
 
 Azure App Service v centru Azure Stack nasadí všechny role pomocí Virtual Machine Scale Sets a díky tomu využívají možnosti škálování této úlohy. Proto se veškeré škálování vrstev pracovních procesů provádí prostřednictvím Správce App Service.
 
@@ -91,7 +93,7 @@ Azure App Service v centru Azure Stack nasadí všechny role pomocí Virtual Mac
 
     ![Nastavení instancí, které se mají škálovat v App Service rolích v portálu Azure Stack správce centra](media/azure-stack-app-service-add-worker-roles/image03.png)
 
-6. App Service v centru Azure Stack nyní přidá další virtuální počítače, nakonfiguruje je, nainstaluje požadovaný software a po dokončení tohoto procesu ho označí jako připravený. Tento proces může trvat přibližně 80 minut.
+6. Azure App Service v centru Azure Stack nyní přidá další virtuální počítače, nakonfiguruje je, nainstaluje požadovaný software a po dokončení tohoto procesu ho označí jako připravený. Tento proces může trvat přibližně 80 minut.
 
 7. Průběh připravenosti nových rolí můžete sledovat v okně role v okně **role** .
 

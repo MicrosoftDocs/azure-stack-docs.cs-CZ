@@ -16,12 +16,12 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: bd89514de08c55cb95424f465f03ffb95d365b1d
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 216fbc924852d2ab81b76980f49e437f55b08ed2
+ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75815319"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75924357"
 ---
 # <a name="vm-update-and-management-automation-in-azure-stack-hub"></a>Automatizace aktualizací a správy virtuálních počítačů v centru Azure Stack
 Ke správě virtuálních počítačů s Windows a Linux, které se nasazují pomocí centra Azure Stack, použijte následující Azure Automation řešení:
@@ -134,7 +134,7 @@ Zobrazení zjištěných součástí aplikace na virtuálních počítačích s 
 V případě, že vám [Azure monitor pro virtuální počítače](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-overview) nezobrazuje žádná data o výkonu, musíte povolit shromažďování údajů o výkonu pro Windows a Linux v rozšířeném nastavení [LogAnalytics pracovního prostoru](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-performance-counters) .
 
 ## <a name="enable-update-management-using-a-resource-manager-template"></a>Povolení Update Management pomocí šablony Správce prostředků
-Pokud máte velký počet Azure Stackch virtuálních počítačů centra, můžete [tuto šablonu Azure Resource Manager](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win) použít k jednoduššímu nasazení řešení na virtuální počítače. Šablona nasadí rozšíření Microsoft Monitoring Agent na existující virtuální počítač centra Azure Stack a přidá ho do existujícího pracovního prostoru Azure LogAnalytics.
+Pokud máte velký počet Azure Stackch virtuálních počítačů centra, můžete [tuto šablonu Azure Resource Manager](https://aka.ms/aa6zdzy) použít k jednoduššímu nasazení řešení na virtuální počítače. Šablona nasadí rozšíření Microsoft Monitoring Agent na existující virtuální počítač centra Azure Stack a přidá ho do existujícího pracovního prostoru Azure LogAnalytics.
  
 ## <a name="next-steps"></a>Další kroky
 [Optimalizace výkonu SQL Server virtuálních počítačů](azure-stack-sql-server-vm-considerations.md)

@@ -17,12 +17,12 @@ ms.date: 10/03/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/13/2018
-ms.openlocfilehash: 3efa4da68a5149f78c21c9bd3e8416371f03eb77
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: dcf506ec301ed9e912ef07ee43f211c748d8e936
+ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75820810"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75924169"
 ---
 # <a name="tutorial-create-a-vm-using-a-community-template"></a>Kurz: Vytvoření virtuálního počítače pomocí šablony komunity
 
@@ -44,7 +44,7 @@ V průběhu času se k úložišti přispělo spousta uživatelů GitHubu, což 
 >[!IMPORTANT]
 > Některé z těchto šablon vytváří členové komunity a ne společnost Microsoft. Každá šablona je licencovaná v rámci licenční smlouvy od jejího vlastníka, nikoli od společnosti Microsoft. Společnost Microsoft není zodpovědná za tyto šablony a není na obrazovce pro zabezpečení, kompatibilitu nebo výkon. Šablony komunity nejsou podporované v rámci žádného programu nebo služby podpory společnosti Microsoft a jsou dostupné "tak, jak jsou", bez záruky jakéhokoli druhu.
 
-Pokud chcete přispívat Azure Resource Manager šablon do GitHubu, udělejte svůj příspěvek do úložiště [šablon AzureStack-Starter](https://github.com/Azure/AzureStack-QuickStart-Templates) . Další informace o tomto úložišti a o tom, jak na něj přispívat, najdete v [souboru Readme](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/README.md).
+Pokud chcete přispívat Azure Resource Manager šablon do GitHubu, udělejte svůj příspěvek do úložiště [šablon AzureStack-Starter](https://github.com/Azure/AzureStack-QuickStart-Templates) . Další informace o tomto úložišti a o tom, jak na něj přispívat, najdete v [souboru Readme](https://aka.ms/aa6zktg).
 
 ## <a name="create-a-vm-using-a-custom-github-template"></a>Vytvoření virtuálního počítače pomocí vlastní šablony GitHubu
 

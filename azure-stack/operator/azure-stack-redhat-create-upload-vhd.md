@@ -18,12 +18,12 @@ ms.date: 12/11/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 12/11/2019
-ms.openlocfilehash: 4a3b79a8b1b58ad3da4abf9d5a59d750aaeae0ec
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 381cc82bcade8196f6e65a9c82bfef9b9093724d
+ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75809759"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75924402"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack-hub"></a>Příprava virtuálního počítače založeného na Red Hat pro Azure Stack hub
 
@@ -434,7 +434,7 @@ V této části se předpokládá, že už máte soubor ISO z webu Red Hat a má
 
 ## <a name="prepare-a-red-hat-based-vm-from-vmware"></a>Příprava virtuálního počítače založeného na Red Hat z VMware
 
-V této části se předpokládá, že jste už nainstalovali virtuální počítač s RHEL ve VMware. Podrobnosti o tom, jak nainstalovat operační systém ve VMware, najdete v tématu [Instalační příručka k hostovanému operačnímu systému VMware](https://partnerweb.vmware.com/GOSIG/home.html).
+V této části se předpokládá, že jste už nainstalovali virtuální počítač s RHEL ve VMware. Podrobnosti o tom, jak nainstalovat operační systém ve VMware, najdete v tématu [Instalační příručka k hostovanému operačnímu systému VMware](https://aka.ms/aa6z600).
 
 * Při instalaci operačního systému Linux doporučujeme místo LVM použít standardní oddíly, což je často výchozí nastavení pro mnoho instalací. Tato metoda zabrání konfliktu LVM názvů s klonovanými virtuálními počítači, zejména pokud je potřeba disk s operačním systémem připojit k jinému virtuálnímu počítači pro řešení potíží. LVM nebo RAID se dá použít na datových discích, pokud jsou preferované.
 * Nekonfigurujte odkládací oddíl na disku s operačním systémem. Agenta pro Linux můžete nakonfigurovat tak, aby na dočasném disku prostředků vytvořil odkládací soubor. Další informace o této konfiguraci najdete v následujících krocích.

@@ -328,6 +328,8 @@
                   href: azure-stack-app-service-release-notes-update-six.md
                 - name: Zpráva k vydání verze pro Azure Stack centra aktualizace 7 App Service
                   href: azure-stack-app-service-release-notes-update-seven.md
+                - name: Zpráva k vydání verze Azure Stack aktualizace 8 App Service
+                  href: azure-stack-app-service-release-notes-update-eight.md
         - name: MySQL v centru Azure Stack
           items:
             - name: Přehled

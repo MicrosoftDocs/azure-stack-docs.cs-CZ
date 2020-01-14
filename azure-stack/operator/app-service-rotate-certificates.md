@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/03/2020
+ms.date: 01/10/2020
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 01/03/2020
-ms.openlocfilehash: 00db45d05f92b946fa1b493911363142f0dc32e1
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.lastreviewed: 01/10/2020
+ms.openlocfilehash: 079be062ee45e012abf3ec1bc869409ec4ee03a5
+ms.sourcegitcommit: c4368652f0dd68c432aa1dabddbabf161a4a6399
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75886197"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75914570"
 ---
 # <a name="rotate-app-service-on-azure-stack-hub-secrets-and-certificates"></a>Otočení App Service v tajných klíčích a certifikátech centra Azure Stack
 
@@ -39,7 +39,7 @@ Tento dokument obsahuje postup pro otočení následujících tajných kódů:
 
 ## <a name="rotate-encryption-keys"></a>Otočení šifrovacích klíčů
 
-K otočení šifrovacích klíčů používaných v Azure App Service v centru Azure Stack proveďte následující kroky:
+Pokud chcete otočit šifrovací klíče používané v Azure App Service v centru Azure Stack, proveďte následující kroky:
 
 1. Na portálu Azure Stack centra pro správu přejdete na prostředí pro správu App Service.
 
@@ -65,7 +65,7 @@ Chcete-li aktualizovat přihlašovací údaje pro připojovací řetězec datab�
 
 1. Přihlašovací údaje se otočí v rámci Azure App Service instancí rolí. Operátory mohou sledovat stav procedury pomocí tlačítka **stav** .
 
-## <a name="rotate-certificates"></a>Otočení certifikátů
+## <a name="rotate-certificates"></a>Rotace certifikátů
 
 K otočení certifikátů používaných v Azure App Service v centru Azure Stack proveďte následující kroky:
 
@@ -81,7 +81,7 @@ K otočení certifikátů používaných v Azure App Service v centru Azure Stac
 
 ## <a name="rotate-system-credentials"></a>Otočit systémová pověření
 
-K otočení systémových přihlašovacích údajů používaných v Azure App Service v centru Azure Stack provedete následující kroky:
+K otočení systémových přihlašovacích údajů používaných v Azure App Service v centru Azure Stack proveďte následující kroky:
 
 1. Na portálu Azure Stack centra pro správu přejdete na prostředí pro správu App Service.
 

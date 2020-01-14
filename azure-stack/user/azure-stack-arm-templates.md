@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.author: mabrigg
 ms.reviewer: justini
 ms.lastreviewed: 11/14/2018
-ms.openlocfilehash: 734a77692f8f505e84090ee882eaa570ccd897ec
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 130a4f31f608368df99ec3f98fc2e2763a0fbd1a
+ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75879253"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75924004"
 ---
 # <a name="use-azure-resource-manager-templates-in-azure-stack-hub"></a>Použití šablon Azure Resource Manager v centru Azure Stack
 
@@ -71,7 +71,7 @@ Pomocí rozšíření PowerShell DSC nakonfigurujte existující místní Config
 
 ## <a name="basic-virtual-machine"></a>Základní virtuální počítač
 
-[Nasaďte virtuální počítač s Windows](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-simple-windows-vm) , který obsahuje virtuální síť (s DNS), veřejnou IP adresu a síťové rozhraní.
+[Nasaďte virtuální počítač s Windows](https://aka.ms/aa6zdzx) , který obsahuje virtuální síť (s DNS), veřejnou IP adresu a síťové rozhraní.
 
 ## <a name="cancel-a-running-template-deployment"></a>Zrušení běžícího nasazení šablony
 

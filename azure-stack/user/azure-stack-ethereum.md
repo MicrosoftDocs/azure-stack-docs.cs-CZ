@@ -12,12 +12,12 @@ ms.reviewer: seyadava
 ms.custom: mvc
 manager: femila
 ms.lastreviewed: 06/03/2019
-ms.openlocfilehash: e09e11ef8e5b454fbc6bffe4a9d8e4753b263ec4
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 86e9f6fb78275678f8072573f83696d3ea79184f
+ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75820402"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75924148"
 ---
 # <a name="deploy-an-ethereum-blockchain-network-on-azure-stack-hub"></a>Nasazení sítě Ethereem blockchain v centru Azure Stack
 
@@ -62,7 +62,7 @@ Tato šablona řešení může nasadit jednu nebo více Ethereemch sítí konsor
 
 Šablona vedoucího nadřízeného nakonfiguruje v síti své nároky na prvního člena. 
 
-1. Stáhněte si [šablonu vedoucí služby z GitHubu](https://raw.githubusercontent.com/Azure/AzureStack-QuickStart-Templates/master/ethereum-consortium-blockchain/marketplace/ConsortiumLeader/mainTemplate.json).
+1. Stáhněte si [šablonu vedoucí služby z GitHubu](https://aka.ms/aa6z619).
 2. Na portálu tenanta centra Azure Stack vyberte **+ vytvořit prostředek > Template Deployment** k nasazení z vlastní šablony.
 3. Vyberte **Upravit šablonu** a upravte novou vlastní šablonu.
 4. V podokně úpravy na pravé straně zkopírujte a vložte šablonu JSON šablony, kterou jste stáhli dříve.
@@ -117,7 +117,7 @@ Pokud chcete ověřit nasazení vedoucího vedoucího, navštivte web správce v
 
 ### <a name="joining-consortium-member-deployment"></a>Spojování nasazení členů konsorcia
 
-1. Stáhněte si [šablonu člena konsorcia z GitHubu](https://raw.githubusercontent.com/Azure/AzureStack-QuickStart-Templates/master/ethereum-consortium-blockchain/marketplace/JoiningMember/mainTemplate.json).
+1. Stáhněte si [šablonu člena konsorcia z GitHubu](https://aka.ms/aa6zkua).
 2. Na portálu tenanta centra Azure Stack vyberte **+ vytvořit prostředek > Template Deployment** k nasazení z vlastní šablony.
 3. Vyberte **Upravit šablonu** a upravte novou vlastní šablonu.
 4. V podokně úpravy na pravé straně zkopírujte a vložte JSON šablony, kterou jste si stáhli dříve.
@@ -169,7 +169,7 @@ Jak je znázorněno na obrázku, stav uzlů členů není **spuštěno**. Tento 
 
 Tato šablona vytvoří připojení od vedoucího ke vzdálenému členovi. 
 
-1. Stáhněte si [člen a šablonu vedoucího člena z GitHubu](https://raw.githubusercontent.com/Azure/AzureStack-QuickStart-Templates/master/ethereum-consortium-blockchain/marketplace/Connection/mainTemplate.json).
+1. Stáhněte si [člen a šablonu vedoucího člena z GitHubu](https://aka.ms/aa6zdyt).
 2. Na portálu tenanta centra Azure Stack vyberte **+ vytvořit prostředek > Template Deployment** k nasazení z vlastní šablony.
 3. Vyberte **Upravit šablonu** a upravte novou vlastní šablonu.
 4. V podokně úpravy na pravé straně zkopírujte a vložte JSON šablony, kterou jste si stáhli dříve.

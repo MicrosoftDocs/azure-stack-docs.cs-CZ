@@ -16,12 +16,12 @@ ms.date: 04/02/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: e68293f3d1ef64e10eb0eeff74cbd7b6f170f77c
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 8cd440c67f8f192cb6ed1d0010ddc3f83fbdc281
+ms.sourcegitcommit: c4368652f0dd68c432aa1dabddbabf161a4a6399
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75819110"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75914843"
 ---
 # <a name="sql-server-best-practices-to-optimize-performance-in-azure-stack-hub"></a>Osvědčené postupy pro SQL Server k optimalizaci výkonu v centru Azure Stack
 
@@ -31,6 +31,8 @@ Při vytváření SQL Server imagí [zvažte zřízení virtuálních počítač
 
 > [!NOTE]  
 > V tomto článku se dozvíte, jak zřídit SQL Server virtuální počítač s využitím globálního Azure Portal, ale pokyny platí i pro Azure Stack centra s následujícími rozdíly: jednotka SSD není pro disk s operačním systémem k dispozici a v úložišti jsou drobné rozdíly. rozšířeného.
+
+V imagí virtuálních počítačů můžete pro SQL Server použít jenom vlastní licenci (BYOL). Pro Windows Server je výchozím licenčním modelem průběžné platby (PAYG). Podrobné informace o modelu licencí Windows serveru ve virtuálním počítači najdete v článku [Nejčastější dotazy k Windows serveru na webu Azure Stack hub](https://docs.microsoft.com/azure-stack/operator/azure-stack-windows-server-faq#what-about-other-vms-that-use-windows-server-such-as-sql-or-machine-learning-server).  
 
 V tomto článku se zaměřujete na *nejlepší* výkon pro SQL Server v Azure Stackch virtuálních počítačích centra. Pokud je vaše úloha méně náročná, možná nebudete potřebovat při každé doporučené optimalizaci. Při hodnocení těchto doporučení Vezměte v úvahu potřeby výkonu a vzory úloh.
 

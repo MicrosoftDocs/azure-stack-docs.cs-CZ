@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/18/2019
 ms.author: thoroet
 ms.lastreviewed: 07/18/2019
-ms.openlocfilehash: 17155ab45678158fc669a77d63074748c867e7f3
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 715bd2b3bb5797ff43272a7b721edd03bb2c1b4c
+ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882007"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75924396"
 ---
 # <a name="replace-a-hardware-component-on-an-azure-stack-hub-scale-unit-node"></a>Výměna hardwarové součásti na uzlu jednotky škálování centra Azure Stack
 
@@ -38,7 +38,7 @@ Tento článek popisuje obecný proces nahrazení hardwarových komponent, kter�
 |  | EU | [Fujitsu MySupport (vyžaduje se účet a přihlášení)](https://support.ts.fujitsu.com/IndexMySupport.asp) |
 | HPE | Všechno | [HPE pro Centrum Microsoft Azure Stack](http://www.hpe.com/info/MASupdates) |
 | Lenovo | Všechno | [Nejlepší recepty ThinkAgile SXM](https://datacentersupport.lenovo.com/us/en/solutions/ht505122)
-| Wortmann |  | [Balíček OEM/firmware](https://drive.terracloud.de/dl/fiTdTb66mwDAJWgUXUW8KNsd/OEM)<br>[dokumentace centra Terra Azure Stack (včetně jednotky FRU)](https://drive.terracloud.de/dl/fiWGZwCySZSQyNdykXCFiVCR/TerraAzSDokumentation)
+| Wortmann |  | [Balíček OEM/firmware](https://aka.ms/AA6z600)<br>[dokumentace centra Terra Azure Stack (včetně jednotky FRU)](https://aka.ms/aa6zktc)
 
 Mezi součásti, které nejsou Hot-swapem, patří tyto položky:
 
