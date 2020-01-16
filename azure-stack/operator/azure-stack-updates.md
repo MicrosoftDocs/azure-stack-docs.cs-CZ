@@ -15,12 +15,12 @@ ms.date: 10/01/2019
 ms.author: mabrigg
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 9fff0249c2a1c43d7742236f64492173c501eeec
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: e7f1b45a561d49ffbefd9376308473b225b99fad
+ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75881718"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76022476"
 ---
 # <a name="manage-updates-in-azure-stack-hub-overview"></a>Přehled správy aktualizací v centru Azure Stack
 
@@ -79,7 +79,7 @@ Jakmile víte, že máte aktualizaci, použijte ji pomocí následujících krok
 
 1. **Naplánujte aktualizaci**.
 
-    Připraví centrum Azure Stack, aby se proces aktualizace co nejrychleji provedl, takže uživatelé mají minimální dopad na uživatele. Informujte uživatele o případném výpadku služeb a pak postupujte podle pokynů pro přípravu instance pro aktualizaci. Další kroky k naplánování aktualizace najdete v tématu [Kontrolní seznam aktivity aktualizace centra Azure Stack](release-notes-checklist.md).
+    Připraví centrum Azure Stack, aby se proces aktualizace co nejrychleji provedl, takže uživatelé mají minimální dopad na uživatele. Informujte uživatele o případném výpadku služeb a pak postupujte podle pokynů pro přípravu instance pro aktualizaci. Měli byste se ujistit, že jste provedli **všechny** kroky v části [Kontrolní seznam před aktualizací centra Azure Stack](release-notes-checklist.md) , abyste měli jistotu, že jste dokončili požadované kroky pro použití aktualizace a naplánovali jste příslušné okno údržby pro použitý typ aktualizace.
 
 2. **Nahrání a příprava balíčku aktualizace**.
 

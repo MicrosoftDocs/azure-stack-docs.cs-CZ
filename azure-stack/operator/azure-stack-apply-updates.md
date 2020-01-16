@@ -15,12 +15,12 @@ ms.date: 09/10/2019
 ms.author: mabrigg
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 337f5bfccc7deccf7214d452546c1e0ba3296555
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 2686b761ccf92af4ea643dd3e3c7d3fad5dcf2b5
+ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882891"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76022982"
 ---
 # <a name="install-azure-stack-hub-updates"></a>Nainstalovat aktualizace centra Azure Stack
 
@@ -46,6 +46,9 @@ Aktuální verzi centra Azure Stack můžete zobrazit v okně **aktualizace** . 
     Například v tomto obrázku je verze 1.1903.0.35.
 
 ## <a name="install-updates-and-monitor-progress"></a>Instalace aktualizací a sledování průběhu
+
+> [!Important]
+> Před použitím aktualizací v centru Azure Stack se ujistěte, že jste dokončili **všechny** kroky v [kontrolním seznamu před aktualizací](release-notes-checklist.md) a naplánovali jste příslušné okno údržby pro typ aktualizace, který použijete.
 
 1. Otevřete portál Azure Stack centrum pro správu.
 

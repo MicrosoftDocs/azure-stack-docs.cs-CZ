@@ -24,7 +24,7 @@ sections:
         style: ordered
         items:
           - html: <a href="/azure-stack/asdk/asdk-install">Nasazení rozhraní ASDK</a>
-          - html: <a href="/azure-stack/operator/azure-stack-create-and-publish-marketplace-item">Přidat Azure Stack položku Marketplace</a>
+          - html: <a href="/azure-stack/operator/azure-stack-create-and-publish-marketplace-item">Přidat položku webu Marketplace centra Azure Stack</a>
           - html: <a href="/azure-stack/operator/azure-stack-tutorial-tenant-vm">Nabídka služeb IaaS</a>
           - html: <a href="/azure-stack/user/azure-stack-subscribe-services">Přihlášení k odběru nabídky</a>
           - html: <a href="/azure-stack/operator/create-add-on-plan">Aktualizace nabídek a plánů</a>

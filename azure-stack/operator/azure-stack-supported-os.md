@@ -16,12 +16,12 @@ ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/06/2019
-ms.openlocfilehash: 72b49bfec350c5216c1856096489705dc0adb486
-ms.sourcegitcommit: c4368652f0dd68c432aa1dabddbabf161a4a6399
+ms.openlocfilehash: 8d437425db15fa078c00c973fe50824d0ada58bd
+ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75914739"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76023312"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack-hub"></a>Hostované operační systémy podporované v centru Azure Stack
 
@@ -29,7 +29,7 @@ ms.locfileid: "75914739"
 
 Centrum Azure Stack podporuje hostované operační systémy Windows, které jsou uvedené v následující tabulce:
 
-| Operační systém | Popis | K dispozici v Azure Stack Marketplace |
+| Operační systém | Popis | K dispozici v tržišti Azure Stack hub |
 | --- | --- | --- |
 | Windows Server, verze 1709 | 64 bitů | Jádro s kontejnery |
 | Windows Server 2019 | 64 bitů |  Datacenter, Datacenter Core, Datacenter s kontejnery |
@@ -45,18 +45,18 @@ Centrum Azure Stack podporuje hostované operační systémy Windows, které jso
 
 K dispozici jsou image Marketplace pro licencování s průběžnými platbami nebo BYOL (EA/SPLA). Použití obou v rámci jedné instance centra Azure Stack se nepodporuje. Při nasazení Azure Stack centrum vloží do image vhodnou verzi agenta hosta.
 
-Edice Datacenter jsou k dispozici na webu Azure Stack Marketplace pro stahování; zákazníci můžou přenášet vlastní serverové image, včetně jiných edicí. Image klientů Windows nejsou k dispozici v Azure Stack Marketplace.
+Edice Datacenter jsou k dispozici na webu centra Azure Stack pro stahování. zákazníci můžou přenášet vlastní serverové image, včetně jiných edicí. Image klientů Windows nejsou k dispozici v tržišti Azure Stack hub.
 
 ## <a name="linux"></a>Linux
 
-Distribuce systému Linux, které jsou k dispozici na webu Azure Stack Marketplace, zahrnují potřebného agenta Windows Azure Linux (WALA). Pokud přenesete vlastní image Azure Stack, postupujte podle pokynů v části [Přidání imagí pro Linux do Azure Stack](azure-stack-linux.md).
+Distribuce systému Linux uvedené jako dostupné na webu centra Azure Stack zahrnují potřebného agenta Windows Azure Linux (WALA). Pokud přenesete vlastní image Azure Stack, postupujte podle pokynů v části [Přidání imagí pro Linux do Azure Stack](azure-stack-linux.md).
 
 > [!NOTE]
 > Vlastní image by se měly sestavovat pomocí nejnovější veřejné verze WALA (na buildu centra 1903 Azure Stack a vyšší nebo s opravou hotfix 1901/1902) nebo s verzí 2.2.20. Verze před 2.2.20 a mezi 2.2.21 a 2.2.34 (včetně) nemusí v Azure Stackovém centru správně fungovat. V centru Azure Stack 1910 a novějších pracují všechny verze agenta Azure WALA s centrem Azure Stack.
 >
 > [Cloud-init](https://cloud-init.io/) se podporuje v Azure Stack hub 1910 a vyšší.
 
-| Distribuce | Popis | Vydavatel | Marketplace služby Azure Stack |
+| Distribuce | Popis | Vydavatel | Tržiště centra Azure Stack |
 | --- | --- | --- | --- |
 | CentOS-based 6,9 | 64 bitů | Neautorizovaný Wave | Ano |
 | CentOS-based 7,5 | 64 bitů | Neautorizovaný Wave | Ano |
@@ -77,7 +77,7 @@ Informace o podpoře Red Hat Enterprise Linux najdete v tématu [Red Hat a Azure
 
 ## <a name="next-steps"></a>Další kroky
 
-Další informace o Azure Stack Marketplace najdete v následujících článcích:
+Další informace o službě Azure Stack hub Marketplace najdete v následujících článcích:
 
 - [Stažení položek z Marketplace](azure-stack-download-azure-marketplace-item.md)  
 - [Vytvoření a publikování položky Marketplace](azure-stack-create-and-publish-marketplace-item.md)
