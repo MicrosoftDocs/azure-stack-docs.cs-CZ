@@ -17,18 +17,18 @@ ms.author: justinha
 ms.reviewer: unknown
 ms.custom: ''
 ms.lastreviewed: 03/29/2019
-ms.openlocfilehash: a3930a0259ba71d4fabce99a3cc1168d44d139bd
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 2d350bedd88ba5c3d04b29f833a17bdd19705f05
+ms.sourcegitcommit: 320eddb281a36d066ec80d67b103efad7d4f33c8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75812599"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76145848"
 ---
-# <a name="differences-between-global-azure-azure-stack-hub-and-azure-stack-hub-hci"></a>Rozdíly mezi globálním úložištěm Azure, centra Azure Stack a Azure Stackm v rámci centra HCI
+# <a name="differences-between-global-azure-azure-stack-hub-and-azure-stack-hci"></a>Rozdíly mezi globálním Azure, Azure Stack hub a Azure Stack HCI
 
 Microsoft poskytuje Azure a Azure Stackovou rodinu centra pro služby v jednom ekosystému Azure. Používejte stejný aplikační model, samoobslužné portály a rozhraní API s Azure Resource Manager k poskytování cloudových funkcí, ať už vaše firma používá globální Azure nebo místní prostředky.
 
-Tento článek popisuje globální možnosti služby Azure, centra Azure Stack hub a Azure Stack hub pro prostředí HCI a poskytuje běžná doporučení pro scénáře, která vám pomůžou vydávat nejlepší možnosti pro doručování cloudových služeb Microsoftu pro vaši organizaci.
+Tento článek popisuje globální možnosti služby Azure, centra Azure Stack a Azure Stack HCI a poskytuje běžná doporučení pro scénáře, která vám pomůžou vydávat nejlepší možnosti pro doručování cloudových služeb Microsoftu pro vaši organizaci.
 
 ![Přehled ekosystému Azure](./media/compare-azure-azure-stack/azure-family.png)
 
@@ -75,19 +75,19 @@ Kromě poskytovatelů prostředků popsaných výše jsou k dispozici další sl
 
 Přečtěte si další informace o centru Azure Stack v [centru Azure Stack](azure-stack-overview.md).
 
-## <a name="azure-stack-hub-hci"></a>Azure Stack centra HCI
+## <a name="azure-stack-hci"></a>HCI služby Azure Stack
 
-Řešení [HCI centra Azure Stack](azure-stack-hci-overview.md) umožňují spouštět virtuální počítače místně a snadno se připojovat k Azure pomocí řešení s více sblíženými infrastrukturami (HCI). Sestavujte a spouštějte cloudové aplikace s využitím konzistentních služeb Azure v místním prostředí a zajistěte splnění legislativních a technických požadavků. Kromě spouštění virtualizovaných aplikací v místním prostředí Azure Stack rozbočovač HCI umožňuje nahradit a sjednotit infrastrukturu serveru pro stárnutí a připojit se k Azure pro Cloud Services pomocí centra pro správu systému Windows.
+[Azure Stack řešení HCI](azure-stack-hci-overview.md) vám umožní spustit virtuální počítače místně a snadno se připojit k Azure pomocí řešení konvergované infrastruktury (HCI). Sestavujte a spouštějte cloudové aplikace s využitím konzistentních služeb Azure v místním prostředí a zajistěte splnění legislativních a technických požadavků. Kromě spouštění virtualizovaných aplikací v místním prostředí Azure Stack HCL umožňuje nahradit a konsolidovat infrastrukturu serveru pro stárnutí a připojit se k Azure pro Cloud Services pomocí centra pro správu systému Windows.
 
-Služba Azure Stack hub HCI poskytuje ověřená řešení HCI založená na technologii Hyper-V a Prostory úložiště s přímým přístupem s Windows serverem 2019 Software-Defined Datacenter (SDDC). Centrum pro správu Windows se používá ke správě a integrovanému přístupu ke službám Azure, jako jsou:
+Azure Stack HCI poskytují ověřená řešení HCI založená na technologii Hyper-V a Prostory úložiště s přímým přístupem s Windows serverem 2019 Software-Defined Datacenter (SDDC). Centrum pro správu Windows se používá ke správě a integrovanému přístupu ke službám Azure, jako jsou:
 
 - Azure Backup
 - Azure Site Recovery
 - Azure Monitor a aktualizace
 
-Aktualizovaný seznam služeb Azure, ke kterým se můžete připojit Azure Stack hub pro Azure Hybrid Services, najdete v tématu [propojení Windows serveru](https://docs.microsoft.com/windows-server/azure-hybrid-services/index).
+Aktualizovaný seznam služeb Azure, ke kterým se můžete připojit Azure Stack HCL, najdete v tématu [připojení Windows serveru k Azure Hybrid Services](https://docs.microsoft.com/windows-server/azure-hybrid-services/index).
 
-### <a name="example-use-cases-for-azure-stack-hub-hci"></a>Příklady případů použití pro Azure Stack centra HCI
+### <a name="example-use-cases-for-azure-stack-hci"></a>Příklady případů použití pro Azure Stack HCI
 - Systémy vzdálené sady nebo pobočky
 - Konsolidace Datacenter
 - Infrastruktura virtuálních klientských počítačů
@@ -96,7 +96,7 @@ Aktualizovaný seznam služeb Azure, ke kterým se můžete připojit Azure Stac
 - Vysoká dostupnost a zotavení po havárii v cloudu
 - Podnikové aplikace, jako je SQL Server
 
-Navštivte [web Azure Stack hub HCI](https://azure.microsoft.com/overview/azure-stack/hci/) , kde můžete zobrazit 70 + Azure Stack centra pro řešení HCI, která jsou aktuálně dostupná od partnerů Microsoftu.
+Navštivte [web Azure Stack HCL](https://azure.microsoft.com/overview/azure-stack/hci/) pro zobrazení 70 + Azure Stack HCL aktuálně dostupných od partnerů Microsoftu.
 
 ## <a name="next-steps"></a>Další kroky
 

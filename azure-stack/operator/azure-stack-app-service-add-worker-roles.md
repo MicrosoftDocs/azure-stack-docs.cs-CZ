@@ -16,16 +16,14 @@ ms.date: 01/13/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2020
-ms.openlocfilehash: b07d90f17d1c4380f65c43029215bf8946d209e2
-ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
+ms.openlocfilehash: cb46029fabb81c224716e5e1c5eb8f65cd0cd34e
+ms.sourcegitcommit: e47dc5fe9e59010ea3dbb9cb31abe15cfb821262
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75924207"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76124782"
 ---
 # <a name="add-workers-and-infrastructure-in-azure-app-service-on-azure-stack-hub"></a>Přidání pracovníků a infrastruktury v Azure App Service v centru Azure Stack
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack centrum pro vývoj*  
 
 Tento dokument poskytuje pokyny, jak škálovat infrastrukturu a role pracovních procesů v Azure App Service v centru Azure Stack. Pokryjeme všechny kroky potřebné k vytvoření dalších rolí pracovního procesu pro podporu aplikací libovolné velikosti.
 

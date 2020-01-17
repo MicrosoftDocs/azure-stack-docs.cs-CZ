@@ -15,16 +15,14 @@ ms.date: 01/13/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2019
-ms.openlocfilehash: cf161a3c756042d60a112a7ca2c794e3bb72b297
-ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
+ms.openlocfilehash: 4289009ee20f5e031ae1104b0507faa189e4d1aa
+ms.sourcegitcommit: e47dc5fe9e59010ea3dbb9cb31abe15cfb821262
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75924316"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76124799"
 ---
 # <a name="update-azure-app-service-on-azure-stack-hub"></a>Aktualizace Azure App Service v centru Azure Stack
-
-*Platí pro: Azure Stack integrovaných systémů a Azure Stack centrum pro vývoj*
 
 > [!IMPORTANT]
 > Před nasazením Azure App Service 1,8 použijte aktualizaci 1910 pro integrovaný systém vašeho centra Azure Stack nebo nasaďte nejnovější verzi sady Azure Stack hub Development Kit (ASDK).

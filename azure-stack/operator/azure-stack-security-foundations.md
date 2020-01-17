@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 06/10/2019
 ms.author: justinha
 ms.reviewer: fiseraci
-ms.lastreviewed: 12/29/2019
-ms.openlocfilehash: 0d136fdb1a72a6c52a3e441470713b77974d1fa3
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.lastreviewed: 1/16/2020
+ms.openlocfilehash: f61e7340c766f50f71bc41db7afa5bc079c53c7d
+ms.sourcegitcommit: 320eddb281a36d066ec80d67b103efad7d4f33c8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882874"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76145797"
 ---
 # <a name="azure-stack-hub-infrastructure-security-controls"></a>Ovládací prvky zabezpečení infrastruktury centra Azure Stack
 
@@ -105,7 +105,7 @@ Seznamy ACL sítě se vysazují ve třech vrstvách:
 
 ## <a name="regulatory-compliance"></a>Dodržování právních předpisů
 
-Centrum Azure Stack prošlo formálním posouzením interního auditu nezávislého na třetích stran. V důsledku toho je k dispozici dokumentace k tomu, jak infrastruktura centra Azure Stack splňuje příslušné ovládací prvky z několika hlavních standardů dodržování předpisů. Tato dokumentace není certifikací centra Azure Stack, protože standardy zahrnují několik ovládacích prvků souvisejících s pracovníky a procesy. Zákazníci můžou místo toho použít tuto dokumentaci k tomu, abyste mohli začít se svým certifikačním procesem.
+Centrum Azure Stack prošlo formálním posouzením schopností, které nezávisle na třetí straně auditně nezávisle na sobě. V důsledku toho je k dispozici dokumentace k tomu, jak infrastruktura centra Azure Stack splňuje příslušné ovládací prvky z několika hlavních standardů dodržování předpisů. Tato dokumentace není certifikací centra Azure Stack, protože standardy zahrnují několik ovládacích prvků souvisejících s pracovníky a procesy. Zákazníci můžou místo toho použít tuto dokumentaci k tomu, abyste mohli začít se svým certifikačním procesem.
 
 Posouzení zahrnuje následující standardy:
 

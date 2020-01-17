@@ -16,16 +16,14 @@ ms.date: 01/13/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2020
-ms.openlocfilehash: 2902b3ab06c3fb85d3b535d3ae241f66db352658
-ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
+ms.openlocfilehash: 147759d9c885d796195a3c581953f8b115587eb1
+ms.sourcegitcommit: e47dc5fe9e59010ea3dbb9cb31abe15cfb821262
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75924194"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76124850"
 ---
 # <a name="deploy-azure-app-service-in-an-offline-environment-in-azure-stack-hub"></a>Nasazení Azure App Service v offline prostředí v centru Azure Stack
-
-*Platí pro: Azure Stack integrovaných systémů centra a Azure Stack centrum pro vývoj*
 
 > [!IMPORTANT]
 > Než nasadíte Azure App Service 1,8, použijte aktualizaci 1910 pro integrovaný systém Azure Stack hub nebo nasaďte nejnovější Azure Stack ASDK (hub Development Kit).

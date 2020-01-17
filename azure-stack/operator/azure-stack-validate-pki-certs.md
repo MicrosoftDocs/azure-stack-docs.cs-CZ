@@ -15,12 +15,12 @@ ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: 23225b21d1dc3074c69cefa2af23a99b634a7a73
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 94acfbeb0c08bc79ad6d9bfa0282313a39c0eae6
+ms.sourcegitcommit: e47dc5fe9e59010ea3dbb9cb31abe15cfb821262
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75812854"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76124714"
 ---
 # <a name="validate-azure-stack-hub-pki-certificates"></a>Ověření certifikátů PKI Azure Stack hub
 
@@ -83,13 +83,13 @@ Pomocí těchto kroků Připravte a ověřte certifikáty PKI centra Azure Stack
     ```
     
     > [!Note]  
-    > AD FS a Graph jsou požadovány, pokud používáte AD FS jako systém identity. Příklad:
+    > AD FS a Graph jsou požadovány, pokud používáte AD FS jako systém identity. Například:
     >
     > ```powershell  
     > $directories = 'ACSBlob', 'ACSQueue', 'ACSTable', 'ADFS', 'Admin Extension Host', 'Admin Portal', 'ARM Admin', 'ARM Public', 'Graph', 'KeyVault', 'KeyVaultInternal', 'Public Extension Host', 'Public Portal'
     > ```
     
-     - Své certifikáty umístěte do příslušných adresářů, které jste vytvořili v předchozím kroku. Příklad:  
+     - Své certifikáty umístěte do příslušných adresářů, které jste vytvořili v předchozím kroku. Například:  
         - `C:\Certificates\Deployment\ACSBlob\CustomerCertificate.pfx`
         - `C:\Certificates\Deployment\Admin Portal\CustomerCertificate.pfx`
         - `C:\Certificates\Deployment\ARM Admin\CustomerCertificate.pfx`
@@ -101,7 +101,7 @@ Pomocí těchto kroků Připravte a ověřte certifikáty PKI centra Azure Stack
     Invoke-AzsCertificateValidation -CertificateType Deployment -CertificatePath C:\Certificates\Deployment -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD  
     ```
 
-4. Ověřte výstup a všechny certifikáty předejte všechny testy. Příklad:
+4. Ověřte výstup a všechny certifikáty předejte všechny testy. Například:
 
     ```powershell
     Invoke-AzsCertificateValidation v1.1912.1082.37 started.
@@ -148,7 +148,7 @@ Pomocí těchto kroků Připravte a ověřte certifikáty PKI centra Azure Stack
     Invoke-AzsCertificateValidation Completed
     ```
 
-    Pokud chcete ověřit certifikáty pro jiné služby Azure Stack centra, změňte hodnotu ```-CertificateType```. Příklad:
+    Pokud chcete ověřit certifikáty pro jiné služby Azure Stack centra, změňte hodnotu ```-CertificateType```. Například:
 
     ```powershell  
     # App Services
@@ -157,8 +157,8 @@ Pomocí těchto kroků Připravte a ověřte certifikáty PKI centra Azure Stack
     # DBAdapter
     Invoke-AzsCertificateValidation -CertificateType DBAdapter -CertificatePath C:\Certificates\DBAdapter -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com
 
-    # EventHub
-    Invoke-AzsCertificateValidation -CertificateType EventHubs -CertificatePath C:\Certificates\EventHub -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com
+    # EventHubs
+    Invoke-AzsCertificateValidation -CertificateType EventHubs -CertificatePath C:\Certificates\EventHubs -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com
 
     # IoTHub
     Invoke-AzsCertificateValidation -CertificateType IoTHub -CertificatePath C:\Certificates\IoTHub -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com
@@ -200,9 +200,9 @@ Každá složka by měla obsahovat jeden soubor PFX pro daný typ certifikátu, 
                 |   \---Public Portal
                 |           portal.pfx
                 |
-                +---EventHub            # Invoke-AzsCertificateValidation `
-                |       eventhub.pfx    #   -CertificateType EventHub `
-                |                       #   -CertificatePath C:\Certificates\EventHub
+                +---EventHubs           # Invoke-AzsCertificateValidation `
+                |       eventhubs.pfx   #   -CertificateType EventHubs `
+                |                       #   -CertificatePath C:\Certificates\EventHubs
                 |
                 \---IoTHub              # Invoke-AzsCertificateValidation `
                         iothub.pfx      #   -CertificateType IoTHub `
@@ -230,7 +230,6 @@ Každá složka by měla obsahovat jeden soubor PFX pro daný typ certifikátu, 
     Details:
     The certificate records '*.east.azurestack.contoso.com' do not contain a record that is valid for '*.blob.east.azurestack.contoso.com'. Please refer to the documentation for how to create the required certificate file.
     The Other Certificates check was skipped because Cert Chain and/or DNS Names failed. Follow the guidance to remediate those issues and recheck. 
-    Detailed log can be found C:\AzsReadinessChecker\CertificateValidation\CertChecker.log
 
     Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
     Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json

@@ -15,19 +15,19 @@ ms.date: 09/23/2019
 ms.author: mabrigg
 ms.lastreviewed: 09/23/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: f2bbcf10feb47ba42bb6133bd4ab4320e120b283
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 94c6b6882c3b2f88c9815ab535fbef8b23811007
+ms.sourcegitcommit: 320eddb281a36d066ec80d67b103efad7d4f33c8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75813313"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76145763"
 ---
 # <a name="best-practices-for-troubleshooting-azure-stack-hub-patch-and-update-issues"></a>Osvědčené postupy pro řešení potíží s problémy s aktualizacemi a aktualizacemi centra Azure Stack
 
 Tento článek poskytuje přehled osvědčených postupů pro řešení potíží s aktualizacemi centra Azure Stack a problémy s aktualizací, jakož i opravy běžných problémů s aktualizacemi a aktualizacemi.
 
 
-Proces aktualizace a aktualizace centra Azure Stack slouží k tomu, aby operátoři mohli instalovat balíčky aktualizací konzistentním a efektivnějším způsobem. V neobvyklém případě mohou nastat problémy při opravách a aktualizacích. V následujících krocích se doporučuje, abyste při procesu aktualizace a aktualizace nastavili problém:
+Proces aktualizace a aktualizace centra Azure Stack slouží k tomu, aby operátoři mohli instalovat balíčky aktualizací konzistentním a efektivnějším způsobem. V neobvyklém případě mohou nastat problémy během procesu aktualizace a aktualizace. V následujících krocích se doporučuje, abyste při procesu aktualizace a aktualizace nastavili problém:
 
 0. **Požadavky**: Ujistěte se, že jste postupovali podle [kontrolního seznamu aktivity aktualizace](release-notes-checklist.md) a máte [nakonfigurované automatické shromažďování protokolů](azure-stack-configure-automatic-diagnostic-log-collection.md).
 1. Postupujte podle kroků pro nápravu v upozornění na selhání vytvořeného při selhání aktualizace.

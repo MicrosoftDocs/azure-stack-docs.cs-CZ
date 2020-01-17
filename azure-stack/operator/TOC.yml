@@ -161,7 +161,11 @@
                 - name: Použít aktualizace OEM
                   href: azure-stack-update-oem.md
             - name: Monitorování stavu aktualizace
-              href: azure-stack-update-monitor.md
+              items:
+                - name: Použití PowerShellu
+                  href: azure-stack-update-monitor.md
+                - name: Použití privilegovaného koncového bodu
+                  href: azure-stack-monitor-update.md
             - name: Řešení potíží s aktualizacemi
               href: azure-stack-updates-troubleshoot.md
         - name: Monitorování stavu a výstrah

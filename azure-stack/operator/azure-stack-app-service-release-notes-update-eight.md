@@ -15,16 +15,14 @@ ms.topic: article
 ms.date: 01/13/2020
 ms.author: anwestg
 ms.reviewer: ''
-ms.openlocfilehash: e7826cd220c8174f8e97b821d69bcc295c682e79
-ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
+ms.openlocfilehash: 5da3ec3d838deabebbe70b04ad66d58241a42b5d
+ms.sourcegitcommit: e47dc5fe9e59010ea3dbb9cb31abe15cfb821262
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75926939"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76124697"
 ---
 # <a name="app-service-on-azure-stack-hub-update-8-release-notes"></a>Zpráva k vydání verze pro Azure Stack centra aktualizace 8 App Service
-
-*Platí pro: Azure Stack integrované systémy a Azure Stack Development Kit*
 
 Tyto poznámky k verzi popisují vylepšení a opravy v Azure App Service v centru Azure Stack aktualizace 8 a všech známých problémech. Známé problémy jsou rozděleny do potíží přímo souvisejících s nasazením, procesem aktualizace a problémy se sestavením (po instalaci).
 

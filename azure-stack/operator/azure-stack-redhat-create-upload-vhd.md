@@ -18,12 +18,12 @@ ms.date: 12/11/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 12/11/2019
-ms.openlocfilehash: 381cc82bcade8196f6e65a9c82bfef9b9093724d
-ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
+ms.openlocfilehash: 2ac894211b1ccd8d1537453100879ad695507268
+ms.sourcegitcommit: 320eddb281a36d066ec80d67b103efad7d4f33c8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75924402"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76145814"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack-hub"></a>Příprava virtuálního počítače založeného na Red Hat pro Azure Stack hub
 
@@ -84,7 +84,7 @@ V této části se předpokládá, že už máte soubor ISO z webu Red Hat a má
     sudo subscription-manager register --auto-attach --username=XXX --password=XXX
     ```
 
-1. Upravte spouštěcí řádek jádra v konfiguraci GRUB tak, aby zahrnoval další parametry jádra pro Azure. Chcete-li provést tuto úpravu, otevřete `/etc/default/grub` v textovém editoru a upravte parametr `GRUB_CMDLINE_LINUX`. Příklad:
+1. Upravte spouštěcí řádek jádra v konfiguraci GRUB tak, aby zahrnoval další parametry jádra pro Azure. Chcete-li provést tuto úpravu, otevřete `/etc/default/grub` v textovém editoru a upravte parametr `GRUB_CMDLINE_LINUX`. Například:
 
     ```sh
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
@@ -118,58 +118,58 @@ V této části se předpokládá, že už máte soubor ISO z webu Red Hat a má
     ```
 
 1. Při vytváření vlastního virtuálního pevného disku pro Azure Stack hub mějte na paměti, že WALinuxAgent verze mezi 2.2.20 a 2.2.35 (obojí) nefungují v prostředích Azure Stack hub před vydáním verze 1910. K přípravě image můžete použít verze 2.2.20/2.2.35. Pokud chcete pro přípravu vlastní image použít verze vyšší než 2.2.35, aktualizujte Azure Stack centra na verzi 1903 nebo použijte opravu hotfix 1901/1902.
-
+    
     [Před 1910 verzí] Pro stažení kompatibilního WALinuxAgent postupujte podle těchto pokynů:
-
+    
     1. Stáhněte si setuptools.
-
-    ```bash
-    wget https://pypi.python.org/packages/source/s/setuptools/setuptools-7.0.tar.gz --no-check-certificate
-    tar xzf setuptools-7.0.tar.gz
-    cd setuptools-7.0
-    ```
-
+        
+        ```bash
+        wget https://pypi.python.org/packages/source/s/setuptools/setuptools-7.0.tar.gz --no-check-certificate
+        tar xzf setuptools-7.0.tar.gz
+        cd setuptools-7.0
+        ```
+    
     1. Stáhněte si a rozbalte verzi 2.2.20 agenta z našeho GitHubu.
 
-    ```bash
-    wget https://github.com/Azure/WALinuxAgent/archive/v2.2.20.zip
-    unzip v2.2.20.zip
-    cd WALinuxAgent-2.2.20
-    ```
+        ```bash
+        wget https://github.com/Azure/WALinuxAgent/archive/v2.2.20.zip
+        unzip v2.2.20.zip
+        cd WALinuxAgent-2.2.20
+        ```
 
     1. Nainstalujte setup.py.
 
-    ```bash
-    sudo python setup.py install
-    ```
+        ```bash
+        sudo python setup.py install
+        ```
 
     1. Restartujte waagent.
-
-    ```bash
-    sudo systemctl restart waagent
-    ```
+    
+        ```bash
+        sudo systemctl restart waagent
+        ```
 
     1. Otestujte, jestli verze agenta odpovídá vašemu, který jste stáhli. V tomto příkladu by měl být 2.2.20.
 
-    ```bash
-    waagent -version
-    ```
-    
+        ```bash
+        waagent -version
+        ```
+
     [Po 1910 vydání] Pro stažení kompatibilního WALinuxAgent postupujte podle těchto pokynů:
     
     1. Balíček WALinuxAgent, `WALinuxAgent-<version>`, byl vložen do úložiště Red Hat Extras. Povolte úložiště Extras spuštěním následujícího příkazu:
 
-    ```bash
-    subscription-manager repos --enable=rhel-7-server-extras-rpms
-    ```
+        ```bash
+        subscription-manager repos --enable=rhel-7-server-extras-rpms
+        ```
 
     1. Nainstalujte agenta Azure Linux spuštěním následujícího příkazu:
 
-    ```bash
-    sudo yum install WALinuxAgent
-    sudo systemctl enable waagent.service
-    ```
-
+        ```bash
+        sudo yum install WALinuxAgent
+        sudo systemctl enable waagent.service
+        ```
+    
 
 1. Nevytvářejte odkládací místo na disku s operačním systémem.
 
@@ -262,7 +262,7 @@ V této části se předpokládá, že už máte soubor ISO z webu Red Hat a má
     subscription-manager register --auto-attach --username=XXX --password=XXX
     ```
 
-1. Upravte spouštěcí řádek jádra v konfiguraci GRUB tak, aby zahrnoval další parametry jádra pro Azure. Tuto konfiguraci provedete tak, že v textovém editoru otevřete `/etc/default/grub` a upravíte parametr `GRUB_CMDLINE_LINUX`. Příklad:
+1. Upravte spouštěcí řádek jádra v konfiguraci GRUB tak, aby zahrnoval další parametry jádra pro Azure. Tuto konfiguraci provedete tak, že v textovém editoru otevřete `/etc/default/grub` a upravíte parametr `GRUB_CMDLINE_LINUX`. Například:
 
     ```sh
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
@@ -321,53 +321,53 @@ V této části se předpokládá, že už máte soubor ISO z webu Red Hat a má
     [Před 1910 verzí] Pro stažení kompatibilního WALinuxAgent postupujte podle těchto pokynů:
 
     1. Stáhněte si setuptools.
-
-    ```bash
-    wget https://pypi.python.org/packages/source/s/setuptools/setuptools-7.0.tar.gz --no-check-certificate
-    tar xzf setuptools-7.0.tar.gz
-    cd setuptools-7.0
-    ```
-
+        
+        ```bash
+        wget https://pypi.python.org/packages/source/s/setuptools/setuptools-7.0.tar.gz --no-check-certificate
+        tar xzf setuptools-7.0.tar.gz
+        cd setuptools-7.0
+        ```
+        
     1. Stáhněte si a rozbalte verzi 2.2.20 agenta z našeho GitHubu.
-
-    ```bash
-    wget https://github.com/Azure/WALinuxAgent/archive/v2.2.20.zip
-    unzip v2.2.20.zip
-    cd WALinuxAgent-2.2.20
-    ```
-
+        
+        ```bash
+        wget https://github.com/Azure/WALinuxAgent/archive/v2.2.20.zip
+        unzip v2.2.20.zip
+        cd WALinuxAgent-2.2.20
+        ```
+        
     1. Nainstalujte setup.py.
-
-    ```bash
-    sudo python setup.py install
-    ```
-
+        
+        ```bash
+        sudo python setup.py install
+        ```
+        
     1. Restartujte waagent.
-
-    ```bash
-    sudo systemctl restart waagent
-    ```
-
+        
+        ```bash
+        sudo systemctl restart waagent
+        ```
+        
     1. Otestujte, jestli verze agenta odpovídá vašemu, který jste stáhli. V tomto příkladu by měl být 2.2.20.
-
-    ```bash
-    waagent -version
-    ```
-    
+        
+        ```bash
+        waagent -version
+        ```
+        
     [Po 1910 vydání] Pro stažení kompatibilního WALinuxAgent postupujte podle těchto pokynů:
     
     1. Balíček WALinuxAgent, `WALinuxAgent-<version>`, byl vložen do úložiště Red Hat Extras. Povolte úložiště Extras spuštěním následujícího příkazu:
 
-    ```bash
-    subscription-manager repos --enable=rhel-7-server-extras-rpms
-    ```
+        ```bash
+        subscription-manager repos --enable=rhel-7-server-extras-rpms
+        ```
 
-    1. Nainstalujte agenta Azure Linux spuštěním následujícího příkazu:
+        1. Nainstalujte agenta Azure Linux spuštěním následujícího příkazu:
 
-    ```bash
-    sudo yum install WALinuxAgent
-    sudo systemctl enable waagent.service
-    ```
+            ```bash
+            sudo yum install WALinuxAgent
+            sudo systemctl enable waagent.service
+            ```
 
 1. Nevytvářejte odkládací místo na disku s operačním systémem.
 
@@ -474,7 +474,7 @@ V této části se předpokládá, že jste už nainstalovali virtuální počí
     sudo subscription-manager register --auto-attach --username=XXX --password=XXX
     ```
 
-1. Upravte spouštěcí řádek jádra v konfiguraci GRUB tak, aby zahrnoval další parametry jádra pro Azure. Chcete-li provést tuto úpravu, otevřete `/etc/default/grub` v textovém editoru a upravte parametr `GRUB_CMDLINE_LINUX`. Příklad:
+1. Upravte spouštěcí řádek jádra v konfiguraci GRUB tak, aby zahrnoval další parametry jádra pro Azure. Chcete-li provést tuto úpravu, otevřete `/etc/default/grub` v textovém editoru a upravte parametr `GRUB_CMDLINE_LINUX`. Například:
 
     ```sh
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
@@ -526,39 +526,39 @@ V této části se předpokládá, že jste už nainstalovali virtuální počí
     [Před 1910 verzí] Pro stažení kompatibilního WALinuxAgent postupujte podle těchto pokynů:
 
     1. Stáhněte si setuptools.
-
-    ```bash
-    wget https://pypi.python.org/packages/source/s/setuptools/setuptools-7.0.tar.gz --no-check-certificate
-    tar xzf setuptools-7.0.tar.gz
-    cd setuptools-7.0
-    ```
-
-    1. Stáhněte si a rozbalte verzi 2.2.20 agenta z našeho GitHubu.
-
-    ```bash
-    wget https://github.com/Azure/WALinuxAgent/archive/v2.2.20.zip
-    unzip v2.2.20.zip
-    cd WALinuxAgent-2.2.20
-    ```
-
-    1. Nainstalujte setup.py.
-
-    ```bash
-    sudo python setup.py install
-    ```
-
-    1. Restartujte waagent.
-
-    ```bash
-    sudo systemctl restart waagent
-    ```
-
-    1. Otestujte, jestli verze agenta odpovídá vašemu, který jste stáhli. V tomto příkladu by měl být 2.2.20.
-
-    ```bash
-    waagent -version
-    ```
     
+        ```bash
+        wget https://pypi.python.org/packages/source/s/setuptools/setuptools-7.0.tar.gz --no-check-certificate
+        tar xzf setuptools-7.0.tar.gz
+        cd setuptools-7.0
+        ```
+        
+    1. Stáhněte si a rozbalte verzi 2.2.20 agenta z našeho GitHubu.
+        
+        ```bash
+        wget https://github.com/Azure/WALinuxAgent/archive/v2.2.20.zip
+        unzip v2.2.20.zip
+        cd WALinuxAgent-2.2.20
+        ```
+        
+    1. Nainstalujte setup.py.
+        
+        ```bash
+        sudo python setup.py install
+        ```
+        
+    1. Restartujte waagent.
+        
+        ```bash
+        sudo systemctl restart waagent
+        ```
+        
+    1. Otestujte, jestli verze agenta odpovídá vašemu, který jste stáhli. V tomto příkladu by měl být 2.2.20.
+        
+        ```bash
+        waagent -version
+        ```
+        
     [Po 1910 vydání] Pro stažení kompatibilního WALinuxAgent postupujte podle těchto pokynů:
     
     1. Balíček WALinuxAgent, `WALinuxAgent-<version>`, byl vložen do úložiště Red Hat Extras. Povolte úložiště Extras spuštěním následujícího příkazu:
@@ -568,12 +568,12 @@ V této části se předpokládá, že jste už nainstalovali virtuální počí
     ```
 
     1. Nainstalujte agenta Azure Linux spuštěním následujícího příkazu:
-
-    ```bash
-    sudo yum install WALinuxAgent
-    sudo systemctl enable waagent.service
-    ```
-
+        
+        ```bash
+        sudo yum install WALinuxAgent
+        sudo systemctl enable waagent.service
+        ```
+        
 1. Nevytvářejte odkládací místo na disku s operačním systémem.
 
     Agent Azure Linux může automaticky nakonfigurovat odkládací prostor pomocí disku místního prostředku, který je připojený k virtuálnímu počítači po zřízení virtuálního počítače v Azure. Všimněte si, že místní disk prostředků je dočasný disk a při zrušení zřízení virtuálního počítače může dojít k jeho vyprázdnění. Po instalaci agenta Azure Linux v předchozím kroku upravte následující parametry v `/etc/waagent.conf` odpovídajícím způsobem:
