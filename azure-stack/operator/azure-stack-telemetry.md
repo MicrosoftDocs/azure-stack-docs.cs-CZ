@@ -13,16 +13,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 1/16/2020
 ms.author: mabrigg
 ms.reviewer: comartin
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: f83380b7eb3f35c5887911f40336bf4286759f53
-ms.sourcegitcommit: c4368652f0dd68c432aa1dabddbabf161a4a6399
+ms.openlocfilehash: c16987ac19b47eb4d0fedb147522703b98c8792e
+ms.sourcegitcommit: ba2fd47e74adebe1fcbb489d059a2c27d59b179c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75914750"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76256355"
 ---
 # <a name="configure-azure-stack-hub-telemetry"></a>Konfigurace telemetrie centra Azure Stack
 
@@ -36,7 +36,7 @@ V případě operátoru centra Azure Stack může telemetrie poskytovat cenné p
 Telemetrie centra Azure Stack je založená na komponentě Windows Server 2016 s připojeným uživatelským prostředím a telemetrie. Tato součást používá technologii [trasování událostí pro Windows (ETW)](https://msdn.microsoft.com/library/dn904632(v=vs.85).aspx) TraceLogging k shromažďování a ukládání událostí a dat. Azure Stack komponenty používají stejnou technologii pro publikování událostí a dat shromážděných pomocí protokolu událostí veřejného operačního systému a rozhraní API pro trasování. Mezi tyto součásti Azure Stack centra patří například tito poskytovatelé: síťový prostředek, prostředek úložiště, monitorovací prostředek a prostředek aktualizace. Rozhraní připojené uživatele a komponenta telemetrie šifrují data pomocí protokolu SSL a pomocí připnutí certifikátů odesílá data přes HTTPS službě Microsoft Správa dat Service.
 
 > [!IMPORTANT]
-> Aby bylo možné tok dat telemetrie povolit, musí být ve vaší síti otevřený port 443 (HTTPS). Komponenta s připojeným uživatelským prostředím a telemetrie se připojí ke službě Microsoft Správa dat na https://v10.vortex-win.data.microsoft.com. Prostředí připojené uživatele a komponenta telemetrie se také připojí k https://settings-win.data.microsoft.com ke stažení informací o konfiguraci.
+> Aby bylo možné tok dat telemetrie povolit, musí být ve vaší síti otevřený port 443 (HTTPS). Komponenta s připojeným uživatelským prostředím a telemetrie se připojí ke službě Microsoft Správa dat na `https://v10.events.data.microsoft.com`. Prostředí připojené uživatele a komponenta telemetrie se také připojí k `https://settings-win.data.microsoft.com` ke stažení informací o konfiguraci. Další služby diagnostických dat se připojí `https://watson.telemetry.microsoft.com` pro zasílání zpráv o chybách.
 
 ## <a name="privacy-considerations"></a>Aspekty ochrany osobních údajů
 

@@ -15,12 +15,12 @@ ms.date: 10/15/2019
 ms.author: mabrigg
 ms.lastreviewed: 08/15/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 3ca1d375e5d819e93813c9f6d0fa9baf5619f563
-ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
+ms.openlocfilehash: c21e2a1335b76da2bcd1f4ce88274685d962a299
+ms.sourcegitcommit: 7dd685fddf2f5d7a0c0a20fb8830ca5a061ed031
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75924378"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76259915"
 ---
 # <a name="apply-azure-stack-hub-original-equipment-manufacturer-oem-updates"></a>Použití aktualizací pro výrobce OEM (Original Equipment Manufacturer) od centra Azure Stack
 
@@ -42,7 +42,7 @@ Tato část obsahuje kontaktní informace OEM a odkazy na referenční materiál
 
 | Hardwarový partner | Region (Oblast) | Adresa URL |
 |------------------|--------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Cisco | Všechno | [Příručka k provoznímu systému Cisco Integrated System for Microsoft Azure Stack hub](https://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/azure-stack/b_Azure_Stack_Operations_Guide_4-0/b_Azure_Stack_Operations_Guide_4-0_chapter_01000.html)<br><br>[UCS řady UCS – připojit serverový software spravovaný přes UCS](https://software.cisco.com/download/home/283862063/type/286320368/release/2.0(0)) |
+| Cisco | Všechno | [Příručka k provoznímu systému Cisco Integrated System for Microsoft Azure Stack hub](https://aka.ms/aa708e2)<br><br>[UCS řady UCS – připojit serverový software spravovaný přes UCS](https://aka.ms/aa700rq) |
 | Dell EMC | Všechno | [Cloud pro Microsoft Azure Stack hub 14G (účet a přihlášení je povinné)](https://support.emc.com/downloads/44615_Cloud-for-Microsoft-Azure-Stack-14G)<br><br>[Cloud pro Microsoft Azure Stack hub 13G (účet a přihlášení je povinné)](https://support.emc.com/downloads/42238_Cloud-for-Microsoft-Azure-Stack-13G) |
 | Fujitsu | Japonsko | [Oddělení podpory spravované služby Fujitsu (vyžaduje se účet a přihlášení)](https://eservice.fujitsu.com/supportdesk-web/) |
 |  | & v oblasti EMEA | [Společnosti Fujitsu podporují IT produkty a systémy](https://support.ts.fujitsu.com/IndexContact.asp?lng=COM&ln=no&LC=del) |
@@ -54,10 +54,13 @@ Tato část obsahuje kontaktní informace OEM a odkazy na referenční materiál
 
 Použijte balíčky OEM pomocí následujících kroků:
 
+> [!IMPORTANT]
+> Před použitím aktualizací v centru Azure Stack se ujistěte, že jste dokončili **všechny** kroky v [kontrolním seznamu před aktualizací](release-notes-checklist.md) a naplánovali jste příslušné okno údržby pro typ aktualizace, který použijete.
+
 1. Budete se muset obrátit na výrobce OEM, aby:
       - Zjistěte aktuální verzi balíčku OEM.  
       - Najděte nejlepší metodu pro stažení balíčku OEM.  
-2. Předtím, než použijete aktualizaci balíčku OEM, byste měli vždy použít nejnovější opravu hotfix centra Azure Stack dostupnou v aktuální verzi centra Azure Stack systému. Další informace o opravách hotfix najdete v tématu [Azure Stack oprav hotfix centra](https://docs.microsoft.com/azure-stack/operator/azure-stack-servicing-policy).
+2. Předtím, než použijete aktualizaci balíčku OEM, byste měli vždy použít nejnovější opravu hotfix centra Azure Stack dostupnou v aktuální verzi centra Azure Stack systému. Další informace o opravách hotfix najdete v tématu [Azure Stack oprav hotfix centra](azure-stack-servicing-policy.md).
 3. Připravte si balíček OEM s postupem popsaným v části [stažení balíčků aktualizací pro integrované systémy](azure-stack-servicing-policy.md).
 4. Použijte aktualizace podle kroků uvedených v části [použití aktualizací v centru Azure Stack](azure-stack-apply-updates.md).
 

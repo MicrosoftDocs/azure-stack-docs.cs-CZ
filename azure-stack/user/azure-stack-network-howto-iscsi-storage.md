@@ -9,14 +9,14 @@ ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: 5616284e7632f89ba31c89febb5a26158ad81bd7
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 909c138e17a25b06f7ed135c74aefaf63ce69aff
+ms.sourcegitcommit: 7dd685fddf2f5d7a0c0a20fb8830ca5a061ed031
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75879033"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76259779"
 ---
-# <a name="how-to-connect-to-iscsi-storage-with-azure-stack-hub"></a>Jak se připojit k úložišti iSCSI pomocí centra Azure Stack
+# <a name="connect-to-iscsi-storage-with-azure-stack-hub"></a>Připojení k úložišti iSCSI pomocí centra Azure Stack
 
 Pomocí šablony v tomto článku můžete připojit virtuální počítač centra Azure Stack k místnímu cíli iSCSI a nastavit virtuální počítač tak, aby používal úložiště hostované mimo naše Azure Stack centra a kdekoli ve vašem datovém centru. Tento článek se zabývá tím, že se jako cíl iSCSI používá počítač se systémem Windows.
 

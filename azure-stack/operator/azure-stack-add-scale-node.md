@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2019
+ms.date: 1/16/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: 7f9ab8b1ee8988689d2ac52dc355b85bfe9bfae6
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 50ff1bf63cbd7aaa36bb16e84f4c57db9c5a607d
+ms.sourcegitcommit: ba2fd47e74adebe1fcbb489d059a2c27d59b179c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75805060"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76256372"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack-hub"></a>Přidání dalších uzlů jednotek škálování do centra Azure Stack
 
@@ -34,7 +34,7 @@ Následující vývojový diagram znázorňuje obecný proces přidání uzlu je
 ![přidat tok jednotek škálování](media/azure-stack-add-scale-node/add-node-flow.png)
 <br> *Bez ohledu na to, jestli dodavatel hardwaru OEM dokládá umístění racku fyzického serveru a aktualizuje firmware, se liší podle vaší smlouvy o podpoře.*
 
-Dokončení operace přidání nového uzlu může trvat několik hodin nebo dní.
+Dokončení operace přidání nového uzlu může trvat několik hodin nebo dní. V systému není žádný vliv na spuštěné úlohy, zatímco je přidaný další uzel jednotky škálování.
 
 > [!Note]  
 > Neprovádějte žádnou z následujících operací, pokud již probíhá operace přidání uzlu jednotky škálování:

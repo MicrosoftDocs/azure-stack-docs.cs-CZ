@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2019
+ms.date: 01/16/2020
 ms.author: justinha
 ms.reviewer: shisab
-ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: f30791ec7514a68a6137d2b5d2db3441cf217f58
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.lastreviewed: 01/16/2020
+ms.openlocfilehash: bb7fc0488ea264a83cc93e071b044e6443e97630
+ms.sourcegitcommit: ba2fd47e74adebe1fcbb489d059a2c27d59b179c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883078"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76256338"
 ---
 # <a name="collect-azure-stack-hub-diagnostic-logs-on-demand"></a>Shromažďovat diagnostické protokoly centra Azure Stack na vyžádání
 
@@ -108,13 +108,13 @@ Pomocí těchto kroků spustíte `Get-AzureStackLog` v hostitelském počítači
   Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
   ```
 
-* Shromažďovat protokoly z nasazení klientů, na kterých běží samoobslužně spravované služby Azure Kubernetes (AKS) na rozbočovači Azure Stack. Protokoly AKS by se měly ukládat do účtu úložiště tenanta ve formátu, který umožní, aby se na ně používal časový rozsah shromažďování dat. 
+* Shromažďovat protokoly z nasazení klientů, Azure Stack na kterých běží samoobslužně spravované clustery Kubernetes (AKS Engine) Protokoly Kubernetes by se měly ukládat do účtu úložiště tenanta ve formátu, který umožní, aby se na ně používal časový rozsah shromažďování dat. 
 
   ```powershell
   Get-AzureStackLog -OutputPath <Path> -InputSasUri "<Blob Service Sas URI>" -FromDate "<Beginning of the time range>" -ToDate "<End of the time range>"
   ```
 
-  Příklad:
+  Například:
 
   ```powershell
   Get-AzureStackLog -OutputPath C:\KubernetesLogs -InputSasUri "https://<storageAccountName>.blob.core.windows.net/<ContainerName><SAS token>" -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2) 
@@ -126,7 +126,7 @@ Pomocí těchto kroků spustíte `Get-AzureStackLog` v hostitelském počítači
   Get-AzureStackLog -OutputSasUri "<Blob service SAS Uri>"
   ```
 
-  Příklad:
+  Například:
 
   ```powershell
   Get-AzureStackLog -OutputSasUri "https://<storageAccountName>.blob.core.windows.net/<ContainerName><SAS token>"
@@ -150,7 +150,7 @@ Pomocí těchto kroků spustíte `Get-AzureStackLog` v hostitelském počítači
   6. Klikněte pravým tlačítkem na nový kontejner a pak klikněte na **získat sdílený přístupový podpis**.
   7. V závislosti na vašich požadavcích Vyberte platný **čas spuštění** a **čas ukončení**.
   8. Pro požadovaná oprávnění vyberte **čtení**, **zápis**a **seznam**.
-  9. Vyberte **Vytvořit**.
+  9. Vyberte **Create** (Vytvořit).
   10. Získáte sdílený přístupový podpis. Zkopírujte část adresy URL a zadejte ji do parametru `-OutputSasUri`.
 
 ### <a name="parameter-considerations-for-both-asdk-and-integrated-systems"></a>Hlediska parametrů pro ASDK i integrované systémy
@@ -159,13 +159,13 @@ Pomocí těchto kroků spustíte `Get-AzureStackLog` v hostitelském počítači
 
 * Parametry **FromDate** a na více dní lze použít ke shromažďování protokolů pro konkrétní časové období. Nejsou-li tyto parametry zadány, budou ve výchozím nastavení shromažďovány protokoly za poslední čtyři hodiny.
 
-* Pomocí parametru **FilterByNode** můžete filtrovat protokoly podle názvu počítače. Příklad:
+* Pomocí parametru **FilterByNode** můžete filtrovat protokoly podle názvu počítače. Například:
 
     ```powershell
     Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -FilterByNode azs-xrp01
     ```
 
-* Pomocí parametru **FilterByLogType** můžete filtrovat protokoly podle typu. Můžete zvolit filtrování podle souboru, sdílení nebo WindowsEvent. Příklad:
+* Pomocí parametru **FilterByLogType** můžete filtrovat protokoly podle typu. Můžete zvolit filtrování podle souboru, sdílení nebo WindowsEvent. Například:
 
     ```powershell
     Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -FilterByLogType File

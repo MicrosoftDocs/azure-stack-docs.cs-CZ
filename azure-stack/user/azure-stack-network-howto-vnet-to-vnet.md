@@ -9,14 +9,14 @@ ms.date: 10/03/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: e692d44f94aefdb28c447c9cff15f88af0d1827a
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: b37677b10aaddb92b0f840900ac846b1a6478bc5
+ms.sourcegitcommit: 7dd685fddf2f5d7a0c0a20fb8830ca5a061ed031
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75878773"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76259853"
 ---
-# <a name="how-to-connect-two-vnets-through-peering"></a>Postup propojení dvou virtuální sítě prostřednictvím partnerského vztahu
+# <a name="connect-two-vnets-through-peering"></a>Propojení dvou virtuální sítě prostřednictvím partnerského vztahu
 
 Tento článek popisuje, jak vytvořit připojení mezi dvěma virtuálními sítěmi ve stejném prostředí. Při nastavování připojení se dozvíte, jak fungují brány VPN ve službě Azure Stack hub. Připojení dvou virtuální sítě ve stejném prostředí centra Azure Stack pomocí Fortinet FortiGate. Tento postup nasadí dvě virtuální sítě pomocí FortiGate síťové virtuální zařízení, síťového virtuálního zařízení v každé virtuální síti v rámci samostatné skupiny prostředků. Také podrobně popisuje změny potřebné k nastavení sítě VPN IPSec mezi dvěma virtuální sítě. Opakujte kroky v tomto článku pro každé nasazení virtuální sítě.
 
@@ -104,7 +104,7 @@ Následující tabulka shrnuje parametry, které se v těchto nasazeních použ�
 
 9.  Vyberte **OK**. A pak vyberte **OK**.
 
-10.  Vyberte **Vytvořit**.
+10.  Vyberte **Create** (Vytvořit).
 
 Nasazení bude trvat přibližně 10 minut.
 
@@ -140,7 +140,7 @@ Proveďte tyto kroky pro obě nasazení, forti1-RG1 a forti2-RG1.
 
     ![Typ dalšího segmentu](./media/azure-stack-network-howto-vnet-to-onprem/image12.png)
 
-10. Vyberte **Uložit**.
+10. Vyberte **Save** (Uložit).
 
 K aktivaci každého FortiGate síťové virtuální zařízení budete potřebovat platný soubor s licencí od Fortinet. Síťová virtuální zařízení **nebude fungovat,** dokud neaktivujete jednotlivé síťové virtuální zařízení. Další informace o tom, jak získat soubor s licencí a postup aktivace síťové virtuální zařízení, najdete v článku knihovna dokumentů Fortinet [registrace a stažení vaší licence](https://docs2.fortinet.com/vm/azure/FortiGate/6.2/azure-cookbook/6.2.0/19071/registering-and-downloading-your-license).
 

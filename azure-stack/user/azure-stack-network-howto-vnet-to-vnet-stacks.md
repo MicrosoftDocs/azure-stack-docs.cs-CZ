@@ -9,14 +9,14 @@ ms.date: 10/03/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 27feb4689380d0e1c70f66e38d144056d4c72d13
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: a6ca83e68fa7e682fa9fdca4ba38ade91ff78b0f
+ms.sourcegitcommit: 7dd685fddf2f5d7a0c0a20fb8830ca5a061ed031
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883418"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76259881"
 ---
-# <a name="how-to-establish-a-vnet-to-vnet-connection-in-azure-stack-hub-with-fortinet-fortigate-nva"></a>Jak navázat připojení VNET-to-VNET v Azure Stack hub pomocí Fortinet FortiGate síťové virtuální zařízení
+# <a name="establish-a-vnet-to-vnet-connection-in-azure-stack-hub-with-fortinet-fortigate-nva"></a>Navázání připojení VNET-to-VNET v Azure Stack hub pomocí Fortinet FortiGate síťové virtuální zařízení
 
 V tomto článku připojíte virtuální síť v jednom Azure Stackovém centru k virtuální síti v jiném centru Azure Stack pomocí Fortinet FortiGate síťové virtuální zařízení, síťového virtuálního zařízení.
 
@@ -112,7 +112,7 @@ Opakujte tyto kroky pro prostředí Azure Stack hub.
 
 8. Vyberte **OK** a pak vyberte **OK**.
 
-9. Vyberte **Vytvořit**.
+9. Vyberte **Create** (Vytvořit).
 
 Nasazení bude trvat přibližně 10 minut. Nyní můžete opakováním kroků vytvořit další nasazení FortiGate síťové virtuální zařízení a VNET v jiném prostředí centra Azure Stack.
 
@@ -154,7 +154,7 @@ Proveďte tyto kroky pro obě nasazení, forti1-RG1 a forti2-RG1.
 
     ![](./media/azure-stack-network-howto-vnet-to-vnet-stacks/image12.png)
 
-10. Vyberte **Uložit**.
+10. Vyberte **Save** (Uložit).
 
 Opakujte postup pro každou skupinu prostředků v každé trase **InsideSubnet** .
 

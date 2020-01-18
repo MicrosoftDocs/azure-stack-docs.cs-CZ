@@ -9,14 +9,14 @@ ms.date: 10/03/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: e970dc46a4afdcc67e16c0239dc712da111c47a6
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 8b15be476153f2cc3fa01788814801bb751c9a9c
+ms.sourcegitcommit: 7dd685fddf2f5d7a0c0a20fb8830ca5a061ed031
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75879117"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76259849"
 ---
-# <a name="setup-vpn-gateway-for-azure-stack-hub-using-fortigate-nva"></a>Nastavení brány VPN pro centrum Azure Stack s využitím FortiGate síťové virtuální zařízení
+# <a name="set-up-vpn-gateway-for-azure-stack-hub-using-fortigate-nva"></a>Nastavení brány sítě VPN pro centrum Azure Stack s využitím FortiGate síťové virtuální zařízení
 
 Tento článek popisuje, jak vytvořit připojení VPN k rozbočovači Azure Stack. Brána sítě VPN je typem brány virtuální sítě, která odesílá šifrovaný provoz mezi vaší virtuální sítí v centru Azure Stack a vzdálenou bránou VPN. Níže uvedený postup nasazuje jednu virtuální síť s FortiGate síťové virtuální zařízení, síťovým virtuálním zařízením v rámci skupiny prostředků. Poskytuje taky postup pro nastavení sítě VPN s protokolem IPSec na FortiGate síťové virtuální zařízení.
 
@@ -94,7 +94,7 @@ Následující tabulka shrnuje parametry, které jsou v těchto nasazeních pou�
 
 5. Vyberte **OK**. A pak vyberte **OK**.
 
-6. Vyberte **Vytvořit**.
+6. Vyberte **Create** (Vytvořit).
 
     Nasazení bude trvat přibližně 10 minut.
 
@@ -128,7 +128,7 @@ Následující tabulka shrnuje parametry, které jsou v těchto nasazeních pou�
 
     ![](./media/azure-stack-network-howto-vnet-to-onprem/image12.png)
 
-10. Vyberte **Uložit**.
+10. Vyberte **Save** (Uložit).
 
 ## <a name="activate-the-fortigate-nva"></a>Aktivace síťové virtuální ZAŘÍZENÍu FortiGate
 

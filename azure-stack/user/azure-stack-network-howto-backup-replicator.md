@@ -9,14 +9,14 @@ ms.date: 11/07/2019
 ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: ef492c0e5bf63e73e3b8f59befa642d6d6b854bf
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 411dafa86d0ec61ff431cfea217f3721862b69f4
+ms.sourcegitcommit: 7dd685fddf2f5d7a0c0a20fb8830ca5a061ed031
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75816118"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76259796"
 ---
-# <a name="how-to-replicate-resources-using-the-azure-stack-hub-subscription-replicator"></a>Postup replikace prostředků pomocí replikátoru předplatného centra Azure Stack
+# <a name="replicate-resources-using-the-azure-stack-hub-subscription-replicator"></a>Replikace prostředků pomocí replikátoru předplatného centra Azure Stack
 
 Pomocí skriptu PowerShellu pro replikátor předplatného centra Azure Stack můžete kopírovat prostředky mezi odběry centra Azure Stack, Azure Stack přes časová razítka centra nebo mezi Azure Stack a Azure. Skript replikátoru načte a znovu sestaví Azure Resource Manager prostředky z různých předplatných Azure a centra Azure Stack. Tento článek se zabývá tím, jak skript funguje, jak můžete použít skript, a poskytuje referenční informace pro operace se skripty.
 

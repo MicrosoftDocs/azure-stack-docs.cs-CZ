@@ -16,12 +16,12 @@ ms.date: 06/10/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: 6c409577c73389bb53008ae03cbaf938c61d363f
-ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
+ms.openlocfilehash: f45cda455f0c13fd2e6c5cb431fb3c60d54dce03
+ms.sourcegitcommit: ba2fd47e74adebe1fcbb489d059a2c27d59b179c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75924136"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76256321"
 ---
 # <a name="azure-app-service-on-azure-stack-hub-billing-overview-and-faq"></a>Přehled a nejčastější dotazy týkající se fakturace centra Azure Stack Azure App Service
 
@@ -38,7 +38,7 @@ Role infrastruktury se neúčtují, protože jsou nutné pro základní provozn�
 - Vydavatelé
 - Front-endy
 
-Vrstvy pracovního procesu se skládají ze dvou hlavních typů: Shared a vyhrazené. Využití pracovního procesu se fakturuje operátorovi cloudu podle následujících kritérií.
+Vrstvy pracovního procesu se skládají ze dvou hlavních typů: Shared a vyhrazené. Využití pracovního procesu se fakturuje jako výchozí předplatné poskytovatele cloudu, a to podle následujících kritérií.
 
 ## <a name="shared-workers"></a>Sdílené pracovní procesy
 

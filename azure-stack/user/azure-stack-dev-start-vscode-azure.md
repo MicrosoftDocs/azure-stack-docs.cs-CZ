@@ -9,12 +9,12 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 1898b4415519dd8b1e6bf901c69cf67d6a607308
-ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
+ms.openlocfilehash: 5ef1fe95f91c0ceb343bb796c4c31cdefad65e36
+ms.sourcegitcommit: ba2fd47e74adebe1fcbb489d059a2c27d59b179c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75923864"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76256219"
 ---
 # <a name="connect-to-azure-stack-hub-using-azure-account-extension-in-visual-studio-code"></a>Připojení k centru Azure Stack pomocí rozšíření účtu Azure v Visual Studio Code
 
@@ -65,7 +65,7 @@ VS Code je zjednodušený editor pro sestavování a ladění webových a cloudo
     
     Microsoft Azure Správce prostředků je rozhraní pro správu, které umožňuje nasazovat, spravovat a monitorovat prostředky Azure.
     - Správce prostředků adresa URL pro Azure Stack Development Kit (ASDK) je: `https://management.local.azurestack.external/` 
-    - Adresa URL Správce prostředků pro integrovaný systém je: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`
+    - Adresa URL Správce prostředků pro integrovaný systém je: `https://management.region.<fqdn>/`, kde `<fqdn>` je váš plně kvalifikovaný název domény.
     - Přidejte do adresy URL následující text pro přístup k metadatům: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
 
     Například adresa URL pro načtení metadat pro váš koncový bod Azure Resource Manager může vypadat přibližně takto: `https://management.local.azurestack.external/metadata/endpoints?api-version=1.0`

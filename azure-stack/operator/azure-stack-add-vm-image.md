@@ -15,12 +15,12 @@ ms.date: 10/16/2019
 ms.author: Justinha
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/08/2018
-ms.openlocfilehash: 738c9aad910e558f883e3474b248a8271beb30a3
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: f0d0b268445d3de95e8f4dcaa0d44cb8d553111c
+ms.sourcegitcommit: 7dd685fddf2f5d7a0c0a20fb8830ca5a061ed031
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75880885"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76259813"
 ---
 # <a name="add-a-custom-vm-image-to-azure-stack-hub"></a>Přidání vlastní image virtuálního počítače do centra Azure Stack
 
@@ -30,13 +30,22 @@ V centru Azure Stack můžete přidat vlastní image virtuálního počítače (
 
 ### <a name="windows"></a>Windows
 
-Vytvořte vlastní zobecněný virtuální pevný disk. Pokud je virtuální pevný disk z vnějšku mimo Azure, postupujte podle kroků v části [nahrání generalizace virtuálního pevného disku a jeho použití k vytvoření nových virtuálních počítačů v Azure](/azure/virtual-machines/windows/upload-generalized-managed) , aby byl váš virtuální pevný disk správně **Sysprep** a bylo možné ho zobecnit.
+Vytvořte vlastní zobecněný virtuální pevný disk. 
 
-Pokud virtuální pevný disk pochází z Azure, postupujte podle pokynů v [tomto dokumentu](/azure/virtual-machines/windows/download-vhd) , abyste před jeho přenosem do centra Azure Stack správně generalizaci a stažení stáhli.
+**Pokud je virtuální pevný disk z vnějšku mimo Azure**, postupujte podle kroků v části [nahrání generalizace virtuálního pevného disku a jeho použití k vytvoření nových virtuálních počítačů v Azure](/azure/virtual-machines/windows/upload-generalized-managed) , aby byl váš virtuální pevný disk správně **Sysprep** a bylo možné ho zobecnit.
+
+**Pokud se virtuální pevný disk nachází z Azure**, před ZOBECNĚNÍM virtuálního počítače se ujistěte, že máte následující:
+1) Při zřizování virtuálního počítače v Azure použijte PowerShell a zřiďte ho bez příznaku `-ProvisionVMAgent`. 
+2) Před zobecněním virtuálního počítače v Azure odeberte všechna rozšíření virtuálních počítačů pomocí rutiny **Remove-AzureRmVMExtension** z virtuálního počítače. Rozšíření virtuálních počítačů, která se instalují, můžete zjistit tak, že ve Windows kliknete na Windows (C:). > WindowsAzure > protokoly > moduly plug-in.
+
+```Powershell
+Remove-AzureRmVMExtension -ResourceGroupName winvmrg1 -VMName windowsvm -Name "CustomScriptExtension"
+```                       
+Výše uvedeným pokynům v [tomto dokumentu](/azure/virtual-machines/windows/download-vhd) proveďte správnou generalizaci a stažení virtuálního pevného disku, abyste ho mohli přenést do centra Azure Stack.
 
 ### <a name="linux"></a>Linux
 
-Pokud je virtuální pevný disk mimo Azure, postupujte podle příslušných pokynů k generalizaci VHD:
+**Pokud je virtuální pevný disk mimo Azure**, postupujte podle příslušných pokynů k generalizaci VHD:
 
 - [Distribuce založené na CentOS](/azure/virtual-machines/linux/create-upload-centos?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Debian Linux](/azure/virtual-machines/linux/debian-create-upload-vhd?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -44,7 +53,7 @@ Pokud je virtuální pevný disk mimo Azure, postupujte podle příslušných po
 - [SLES nebo openSUSE](/azure/virtual-machines/linux/suse-create-upload-vhd?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Ubuntu Server](/azure/virtual-machines/linux/create-upload-ubuntu?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-Pokud virtuální pevný disk pochází z Azure, postupujte podle těchto pokynů a proveďte generalizaci a stažení virtuálního pevného disku:
+**Pokud virtuální pevný disk pochází z Azure**, postupujte podle těchto pokynů a proveďte generalizaci a stažení virtuálního pevného disku:
 
 1. Zastavte službu **waagent** :
 

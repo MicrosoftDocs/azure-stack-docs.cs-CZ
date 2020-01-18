@@ -14,14 +14,14 @@ ms.topic: article
 ms.date: 11/11/2019
 ms.author: mabrigg
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 066a179df94d9a61b89e5f6679968db7e4dea314
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: e7b7b26afa4cb9a367ea48ef50308568a61db320
+ms.sourcegitcommit: 7dd685fddf2f5d7a0c0a20fb8830ca5a061ed031
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883537"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76259745"
 ---
-# <a name="how-to-consume-monitoring-data-from-azure-stack-hub"></a>Jak spotřebovávat data monitorování z centra Azure Stack
+# <a name="consume-monitoring-data-from-azure-stack-hub"></a>Využití dat monitorování z centra Azure Stack
 
 Data monitorování se nacházejí v jednom umístění s kanálem Azure Monitor, stejně jako Azure Monitor v globálním Azure. Ale ne všechna data monitorování, která najdete v globálním Azure, jsou k dispozici v Azure Stack hub. V tomto článku poskytujeme přehled různých způsobů využívání dat monitorování v centru Azure Stack.
  

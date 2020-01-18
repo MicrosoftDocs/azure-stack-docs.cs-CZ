@@ -1,6 +1,6 @@
 ---
 title: Připojení Průzkumník služby Storage k předplatnému centra Azure Stack nebo účtu úložiště | Microsoft Docs
-description: Naučte se připojit Průzkumníka služby Storage k předplatnému centra Azure Stack.
+description: Informace o tom, jak připojit Průzkumník služby Storage k předplatnému centra Azure Stack
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,14 +14,14 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 010722e7152af7e51747870ae5bf26229ad339d6
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 7c01e509dc77e2a036ad640ee5376ffda37f903f
+ms.sourcegitcommit: 7dd685fddf2f5d7a0c0a20fb8830ca5a061ed031
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75878403"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76259830"
 ---
-# <a name="connect-storage-explorer-to-an-azure-stack-hub-subscription-or-a-storage-account"></a>Připojení Průzkumníka služby Storage k předplatnému centra Azure Stack nebo účtu úložiště
+# <a name="connect-storage-explorer-to-an-azure-stack-hub-subscription-or-a-storage-account"></a>Připojení Průzkumník služby Storage k předplatnému centra Azure Stack nebo účtu úložiště
 
 V tomto článku se dozvíte, jak se připojit k předplatným centra Azure Stack a účtům úložiště pomocí [Průzkumník služby Azure Storage](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer). Průzkumník služby Storage je samostatná aplikace, která umožňuje snadnou práci s daty úložiště Azure Stack hub v systémech Windows, macOS a Linux.
 
@@ -65,7 +65,7 @@ Exportujte a pak importujte certifikát centra Azure Stack pro odpojené integro
 
     Po importu certifikátu budete vyzváni k restartování Průzkumník služby Storage.
 
-    ![Import certifikátu do Průzkumníka služby Storage](./media/azure-stack-storage-connect-se/import-azure-stack-cert-storage-explorer.png)
+    ![Importujte certifikát do Průzkumník služby Storage](./media/azure-stack-storage-connect-se/import-azure-stack-cert-storage-explorer.png)
 
 8. Po Průzkumník služby Storage restartování vyberte nabídku **Upravit** a zkontrolujte, jestli je vybraná možnost **cílové Azure Stack centra rozhraní API** . Pokud není, vyberte **cíl Azure Stack centrum**a pak Průzkumník služby Storage restartujte, aby se změna projevila. Tato konfigurace je nutná pro kompatibilitu s vaším prostředím Azure Stack hub.
 
@@ -159,6 +159,6 @@ Můžete se také připojit k účtu úložiště Azure Stack hub pomocí názvu
 
 ## <a name="next-steps"></a>Další kroky
 
-* [Začínáme s Průzkumníkem služby Storage](/azure/vs-azure-tools-storage-manage-with-storage-explorer)
+* [Začínáme s Průzkumník služby Storage](/azure/vs-azure-tools-storage-manage-with-storage-explorer)
 * [Úložiště centra Azure Stack: rozdíly a požadavky](azure-stack-acs-differences.md)
 * Další informace o službě Azure Storage najdete v tématu [Úvod do služby Microsoft Azure Storage](/azure/storage/common/storage-introduction) .
