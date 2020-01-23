@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: nav
 ms.topic: article
-ms.date: 10/10/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 5bef03b0cb89a44cf6453bea9dbe4deeeb771430
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: b02f4f0deddd7a7eae493d4af02315f636e594c9
+ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883299"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76535956"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-hub-using-active-directory-federated-services"></a>Nasazení Kubernetes do centra Azure Stack pomocí federovaných služeb Active Directory
 
@@ -65,7 +65,7 @@ Abyste mohli nastavit instanční objekt při použití AD FS jako řešení ide
 
 1. Otevřete [portál centra Azure Stack](https://portal.local.azurestack.external).
 
-1. Vyberte **+ vytvořit prostředek** > Cluster **COMPUTE** > **Kubernetes**. Vyberte **Vytvořit**.
+1. Vyberte **+ vytvořit prostředek** > Cluster **COMPUTE** > **Kubernetes**. Vyberte **Create** (Vytvořit).
 
     ![Nasadit šablonu řešení](media/azure-stack-solution-template-kubernetes-deploy/01_kub_market_item.png)
 

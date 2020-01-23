@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2020
+ms.date: 01/21/2020
 ms.author: sethm
 ms.reviewer: ihcherie
-ms.lastreviewed: 01/02/2020
-ms.openlocfilehash: 6cb2421deef1ea0b3c741c1c068e9452bfb2af5f
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.lastreviewed: 01/21/2020
+ms.openlocfilehash: 7a8fb4c500f749bfe58e1adcb7e5a9ce854bb9d0
+ms.sourcegitcommit: 10520f4481c0e3891c9dcd46fb21249ad2a33717
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882721"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76516758"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack-hub"></a>Azure Marketplace dostupné položky pro centrum Azure Stack
 
@@ -259,6 +259,7 @@ Centrum Microsoft Azure Stack podporuje následující Azure Marketplace virtuá
 | ![Rychlé obnovení pro Quest](media/azure-stack-marketplace-azure-items/quest.png) | [Jádro funkce Quest Rapid Recovery](https://azuremarketplace.microsoft.com/marketplace/apps/quest.rapid-recovery-core-vm) | Rozšířená ochrana dat pro rychlé obnovení sjednocuje zálohování, replikaci a obnovení v jednom snadno použitelném softwarovém řešení. | Software Quest |
 | ![S clusterem DataKeeper Edition](media/azure-stack-marketplace-azure-items/sioslogo.png) | [S clusterem DataKeeper Edition](https://azuremarketplace.microsoft.com/marketplace/apps/sios_datakeeper.sios-datakeeper-8) | S DataKeeper poskytuje vysokou dostupnost (HA) a zotavení po havárii (DR) v centru Azure Stack. Stačí přidat k prostředí služby Windows Server Failover Clustering (WSFC) ve Azure Stackm nasazením centra s datakeepací software, abyste vyloučili potřebu sdíleného úložiště. | Technologie Corp. |
 | ![SUSE Manager 3,1 proxy (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE Manager 3,1 proxy (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/suse.suse-manager-proxy-byos) | Nejlepší správa infrastruktury open source v úrovni třídy. | SUSE |
+| ![Software pro Teradici Cloud Access](media/azure-stack-marketplace-azure-items/teradici.png) | [Software pro Teradici Cloud Access](https://azuremarketplace.microsoft.com/marketplace/apps/teradici.teradici_cas_azure_stack) | Software pro Cloud Access, který využívá technologii PCoIP®, zajišťuje vzdálené plochy a pracovní stanice z Azure Stack do libovolného zařízení, kdekoli. Konsolidujte úložiště dat, Vylepšete spolupráci, zabezpečte data, Zjednodušte správu stolních počítačů a další funkce. | Teradici |
 | ![CipherTrust Cloud Key Manager](media/azure-stack-marketplace-azure-items/cckm.png) | [CipherTrust Cloud Key Manager](https://azuremarketplace.microsoft.com/marketplace/apps/thales-vormetric.ciphertrust-ckm) | Správce cloudových klíčů CipherTrust, který využívá Microsoft Azure a jiné rozhraní API BYOK (Cloud Provider Bring Your Own Key), snižuje složitost správy klíčů a provozní náklady tím, že poskytuje cloudové řízení životního cyklu šifrovacích klíčů s centralizovaným Správa a viditelnost. | Thales eSecurity |
 | ![Replikace Veeam Backup &](media/azure-stack-marketplace-azure-items/veeam.png) | [Replikace Veeam Backup &](https://azuremarketplace.microsoft.com/marketplace/apps/veeam.veeam-backup-replication?tab=Overview) | Veeam® Backup & replikace™ pomáhá firmám dosáhnout komplexní ochrany dat pro všechny úlohy – Virtual, fyzický a cloudový. Pomocí jediné konzoly můžete dosáhnout rychlého, flexibilního a spolehlivého zálohování, obnovení a replikace všech aplikací a dat. | Veeam software |
 | ![ZeroDown software BCaaS](media/azure-stack-marketplace-azure-items/zerodown.png) | [ZeroDown softwarová kontinuita jako služba](https://azuremarketplace.microsoft.com/marketplace/apps/zerodown_software.bcaasforazure) | ZeroDown® softwarová technologie poskytuje firmám nepřetržitý přístup k podnikovým datům prostřednictvím architektury BCaaS (Business kontinuity jako služby)™, ochrany aplikací a transakcí, pokud dojde k přerušení sítě, která by normálně Cripple společnosti. | ZeroDown software |

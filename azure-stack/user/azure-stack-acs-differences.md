@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/2/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviwer: xiaofmao
 ms.lastreviewed: 01/30/2019
-ms.openlocfilehash: 9b945f4cbb5e955c38b18c4bacd18726bbcb5e89
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: dc50320941ab12fbd3f8b6b43f44e5ef9ddc7c45
+ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883860"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76535803"
 ---
 # <a name="azure-stack-hub-storage-differences-and-considerations"></a>Úložiště centra Azure Stack: rozdíly a požadavky
 
@@ -42,7 +42,7 @@ Tento článek shrnuje známé rozdíly v úložištích Azure Stack centra od s
 |Maximální velikost objektu blob bloku|4,75 TB (100 MB X 50 000 bloků)|4,75 TB (100 MB x 50 000 bloků) pro aktualizaci 1802 nebo novější verzi. 50 000 X 4 MB (přibližně 195 GB) pro předchozí verze.
 |Kopie snímku objektu blob stránky|Zálohování disků nespravovaných virtuálních počítačů Azure připojených k běžícímu virtuálnímu počítači|Zatím se nepodporuje.
 |Kopie přírůstkového snímku objektu blob stránky|Podporované objekty blob stránky Azure úrovně Premium a Standard|Zatím se nepodporuje.
-|Fakturace objektu blob stránky|Poplatky se účtují pro jedinečné stránky, ať už jsou v objektu blob, nebo ve snímku. Neúčtují se další poplatky za snímky přidružené k objektu blob, dokud se neaktualizuje základní objekt BLOB.|Účtují se poplatky za základní objekty BLOB a assiociated snímky. Za každý jednotlivý snímek se účtují další poplatky.
+|Fakturace objektu blob stránky|Poplatky se účtují pro jedinečné stránky, ať už jsou v objektu blob, nebo ve snímku. Neúčtují se další poplatky za snímky přidružené k objektu blob, dokud se neaktualizuje základní objekt BLOB.|Účtují se poplatky za základní objekt BLOB a přidružené snímky. Za každý jednotlivý snímek se účtují další poplatky.
 |Vrstvy úložiště pro Blob Storage|Horké, studené a archivní úrovně úložiště.|Zatím se nepodporuje.
 |Obnovitelné odstranění pro úložiště objektů BLOB|Obecné dostupné|Zatím se nepodporuje.
 |Maximální velikost objektu blob stránky|8 TB|1 TB

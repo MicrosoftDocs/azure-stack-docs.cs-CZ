@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/16/2019
+ms.date: 01/22/2020
 ms.author: justinha
-ms.reviewer: tbd
-ms.lastreviewed: 09/12/2018
+ms.reviewer: misainat
+ms.lastreviewed: 01/22/2020
 ROBOTS: NOINDEX
-ms.openlocfilehash: 81e6e51c602909421e40b4c1e1d5e6ec796f7839
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 0dc4786e575fac736ec4664d2b8fdd3dcc467466
+ms.sourcegitcommit: 10520f4481c0e3891c9dcd46fb21249ad2a33717
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75817903"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76516721"
 ---
 # <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-asdk-environments"></a>Vytvoření připojení VPN typu Site-to-site mezi dvěma virtuálními sítěmi v různých prostředích ASDK
 
@@ -75,21 +75,13 @@ Následující tabulka shrnuje konfiguraci sítě pro prostředí ASDK. Použijt
 ### <a name="get-the-ip-address-of-the-external-adapter-of-the-nat-vm"></a>Získání IP adresy externího adaptéru virtuálního počítače pro překlad adres
 
 1. Přihlaste se k fyzickému počítači centra Azure Stack pro POC1.
-2. Upravte následující kód prostředí PowerShell a přidejte heslo správce a potom spusťte kód na hostiteli pro ověření koncepce:
+2. Otevřete PowerShell jako správce a spusťte následující rutinu:
 
    ```powershell
-   cd \AzureStack-Tools-master\connect
-   Import-Module .\AzureStack.Connect.psm1
-   $Password = ConvertTo-SecureString "<your administrator password>" `
-    -AsPlainText `
-    -Force
-   Get-AzureStackNatServerAddress `
-    -HostComputer "AzS-bgpnat01" `
-    -Password $Password
+   Get-NetNatExternalAddress
    ```
 
 3. Přidejte IP adresu do tabulky konfigurace sítě, která se zobrazí v předchozí části.
-
 4. Tento postup opakujte na POC2.
 
 ## <a name="create-the-network-resources-in-poc1"></a>Vytvoření síťových prostředků v POC1
@@ -113,7 +105,7 @@ Správce služeb se může přihlásit jako tenant, aby otestoval plány, nabíd
 7. V případě **skupiny prostředků**můžete buď vytvořit skupinu prostředků, nebo pokud ji už máte, vyberte **použít existující**.
 8. Ověřte výchozí umístění.
 9. Zaškrtněte **Připnout na řídicí panel**.
-10. Vyberte **Vytvořit**.
+10. Vyberte **Create** (Vytvořit).
 
 ### <a name="create-the-gateway-subnet"></a>Vytvoření podsítě brány
 
@@ -137,7 +129,7 @@ Správce služeb se může přihlásit jako tenant, aby otestoval plány, nabíd
 6. Vyberte položku nabídky **veřejné IP adresy** . Po otevření okna **zvolit veřejnou IP adresu** vyberte **vytvořit novou**.
 7. Do **název**zadejte **gw1-PIP**a pak vyberte **OK**.
 8. Ve výchozím nastavení je vybrána možnost **typ sítě VPN**, který je **založený na trasách** . Zachovejte typ sítě VPN **založený na trasách** .
-9. Ověřte, že nastavení **Předplatné** a **Umístění** jsou správná. Prostředek můžete připnout na řídicí panel. Vyberte **Vytvořit**.
+9. Ověřte, že nastavení **Předplatné** a **Umístění** jsou správná. Prostředek můžete připnout na řídicí panel. Vyberte **Create** (Vytvořit).
 
 ### <a name="create-the-local-network-gateway"></a>Vytvoření brány místní sítě
 
@@ -204,7 +196,7 @@ Správce služeb se může přihlásit jako tenant, aby otestoval plány, nabíd
 7. V případě **skupiny prostředků**vytvořte novou skupinu prostředků, nebo pokud ji už máte, vyberte **použít existující**.
 8. Ověřte výchozí **umístění**.
 9. Zaškrtněte **Připnout na řídicí panel**.
-10. Vyberte **Vytvořit**.
+10. Vyberte **Create** (Vytvořit).
 
 ### <a name="create-gateway-subnet"></a>Vytvořit podsíť brány
 
@@ -225,7 +217,7 @@ Správce služeb se může přihlásit jako tenant, aby otestoval plány, nabíd
 6. Vyberte **Veřejná IP adresa**. Když se otevře okno **zvolit veřejnou IP adresu** , vyberte **vytvořit nové**.
 7. Do **název**zadejte **GW2-PIP**a pak vyberte **OK**.
 8. Ve výchozím nastavení je pro **typ sítě VPN**vybraná možnost **Směrování** . Zachovejte typ sítě VPN **založený na trasách** .
-9. Ověřte, že nastavení **Předplatné** a **Umístění** jsou správná. Prostředek můžete připnout na řídicí panel. Vyberte **Vytvořit**.
+9. Ověřte, že nastavení **Předplatné** a **Umístění** jsou správná. Prostředek můžete připnout na řídicí panel. Vyberte **Create** (Vytvořit).
 
 ### <a name="create-local-network-gateway-resource"></a>Vytvoření prostředku brány místní sítě
 

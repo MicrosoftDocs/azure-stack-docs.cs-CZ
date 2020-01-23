@@ -5,16 +5,16 @@ services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: overview
-ms.date: 10/02/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 75633b7e695db3c6b1e48b7e5f98e9145b6b1fc9
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 7d5ed74f3b62f3cdb926fcf321a7502840e5f453
+ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75820623"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76536245"
 ---
 # <a name="deploy-a-java-web-app-to-a-vm-in-azure-stack-hub"></a>Nasazení webové aplikace v jazyce Java do virtuálního počítače v Azure Stackovém centru
 
@@ -286,7 +286,7 @@ Pokyny k vývoji aplikací v jazyce Java v Azure najdete v tématu [sestavován�
 
     b. Přidejte svůj WAR do *TOMCAT_HOME/webapps* (například */opt/Tomcat/webapps/* ).
 
-1.  Tomcat automaticky rozbalí a nasadí aplikaci. Můžete ji zobrazit pomocí názvu DNS, který jste vytvořili dříve. Příklad:
+1.  Tomcat automaticky rozbalí a nasadí aplikaci. Můžete ji zobrazit pomocí názvu DNS, který jste vytvořili dříve. Například:
 
     ```HTTP  
        http://yourmachine.local.cloudapp.azurestack.external:8080/sample

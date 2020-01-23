@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/02/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: e36235af4dea72ae6d8016085ee18aec819ae4dd
-ms.sourcegitcommit: 20d1c0ab3892e9c4c71d5b039457f1e15b1c84c7
+ms.openlocfilehash: b187194dd63e95fa922000b68dbb701914d10465
+ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73618245"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76535905"
 ---
 # <a name="tutorial-set-up-resources-for-validation-as-a-service"></a>Kurz: nastavení prostředků pro ověřování jako služby
 
@@ -56,7 +56,7 @@ Vytvořte tenanta, který bude vaše organizace používat pro přístup ke slu�
 
     Přiřazení rolí v aplikaci **Azure Stack Validation Service** :
 
-   1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
+   1. Přihlaste se k [Portálu Azure](https://portal.azure.com).
    2. V části **Identita** vyberte **všechny služby** > **Azure Active Directory** .
    3. Vyberte **podnikové aplikace** > aplikaci **služby ověřování Azure Stack** .
    4. Vyberte **Uživatelé a skupiny**. Okno **Azure Stack služby ověřování – uživatelé a skupiny** zobrazí seznam uživatelů s oprávněním k používání aplikace.
@@ -98,7 +98,7 @@ Během provádění testu VaaS výstupy pro diagnostické protokoly na účet Az
 
 2. Vyberte předplatné, ve kterém chcete vytvořit účet úložiště.
 
-3. V části **Skupina prostředků**vyberte **vytvořit novou**. Zadejte název nové skupiny prostředků.
+3. V části **Skupina prostředků** vyberte **Vytvořit novou**. Zadejte název nové skupiny prostředků.
 
 4. Přečtěte si [zásady vytváření názvů](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#storage) pro účty Azure Storage. Zadejte název účtu úložiště.
 
