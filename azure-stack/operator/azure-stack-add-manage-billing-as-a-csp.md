@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2019
+ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 7fcd34efefa9c82085274837829f989908f751ba
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 4e696f3e50f3f61f4b4f73387cf6e62b6ae88e6c
+ms.sourcegitcommit: ecb541f53255c6a4433724ad2d20fb93c4720ce1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75881089"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76706554"
 ---
 # <a name="manage-usage-and-billing-for-azure-stack-hub-as-a-cloud-solution-provider"></a>Správa využití a fakturace pro centra Azure Stack jako poskytovatele Cloud Solution Provider
 
@@ -55,7 +55,7 @@ Předplatná CSP jsou upřednostňovanou volbou pro registraci v případě, že
 
 ## <a name="register-azure-stack-hub"></a>Registrace centra Azure Stack
 
-Použijte předplatné APSS vytvořené pomocí informací uvedených v předchozí části k registraci centra Azure Stack s Azure. Další informace najdete v tématu [registrace centra Azure Stack s vaším předplatným Azure](azure-stack-registration.md).
+Pomocí předplatného APSS vytvořeného pomocí informací v předchozí části zaregistrujete Azure Stack centrum s Azure. Další informace najdete v tématu [registrace centra Azure Stack s vaším předplatným Azure](azure-stack-registration.md).
 
 ## <a name="add-end-customer"></a>Přidat koncového zákazníka
 
@@ -67,7 +67,7 @@ Centrum Azure Stack používá funkci nazvanou *registrace*. Registrace je objek
 
 Pomocí registrace Azure Stack centrum může:
 
-- Dopředné Azure Stack údaje o využití centra do Azure Commerce a vyúčtování předplatného Azure.
+- Dopředné [Azure Stack údaje o využití centra](azure-stack-billing-and-chargeback.md) do Azure Commerce a vyúčtování předplatného Azure.
 - Nahlásit využití každého zákazníka v jiném předplatném pomocí nasazení Azure Stackho centra pro více tenantů. Víceklientská architektura umožňuje Azure Stack rozbočovači podporovat různé organizace ve stejné instanci centra Azure Stack.
 
 Pro každé centrum Azure Stack existuje jedno výchozí předplatné a mnoho předplatných tenantů. Výchozím předplatným je předplatné Azure, které se účtuje, pokud není k dispozici žádný odběr konkrétního tenanta. Musí se jednat o první předplatné, které se má zaregistrovat. Aby vytváření sestav využití více tenantů fungovalo, musí být předplatné CSP nebo APSS.

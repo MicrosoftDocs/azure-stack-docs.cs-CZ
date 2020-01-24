@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2019
+ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 10/01/2019
-ms.openlocfilehash: 3dbd177f080067283ba22d661e08d54c23e642ff
-ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
+ms.openlocfilehash: a487d8d333ec46f552cefa4c39bda9951f02deb9
+ms.sourcegitcommit: ecb541f53255c6a4433724ad2d20fb93c4720ce1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76022782"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76706673"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Změny v tržišti centra Azure Stack
 
@@ -31,51 +31,33 @@ Tento článek popisuje poslední přidání, aktualizace, změny a odebrání [
 ## <a name="new-marketplace-items"></a>Nové položky Marketplace
 
 - 06/27/2019: s, edice clusteru DataKeeper
-
 - 06/27/2019: replikace Veeam Backup &
-
 - 06/27/2019: Windows Server 2019 Datacenter Server Core s kontejnery s průběžnými platbami
-
 - 06/27/2019: Windows Server 2019 Datacenter Server Core s kontejnery BYOL
-
 - 06/27/2019: průběžné platby Windows serveru 2019 Datacenter
-
 - 06/27/2019: Windows Server 2019 Datacenter BYOL
-
 - 06/27/2019: Windows Server 2019 Datacenter Server Core s průběžnými platbami
-
 - 06/27/2019: Windows Server 2019 Datacenter Server Core BYOL
-
 - 06/27/2019: Windows Server 2019 Datacenter s kontejnery s průběžnými platbami
-
 - 06/27/2019: Windows Server 2019 Datacenter s kontejnery BYOL
-
 - 08/05/2019: Bitnami Drupal
-
 - 08/05/2019: Bitnami etcd
-
 - 08/05/2019: Bitnami Grafana
-
 - 08/05/2019: Bitnami Neo4j
-
 - 08/05/2019: Server analýzy Bitnami
-
 - 08/05/2019: Bitnami WordPress ve více lokalitách
-
 - 08/05/2019: Bitnami ZooKeeper
-
 - 08/05/2019: Bitnami TensorFlow obsluhující
-
 - 08/05/2019: Bitnami NAT
-
 - 08/05/2019: Bitnamiá deska pro kontrolu
-
 - 08/05/2019: Bitnami sestavitel
-
 - 08/09/2019: Oracle Linux
-
 - 08/19/2019: platforma pro datové vědy Iguazio
-
+- 10/16/2019: s, edice clusteru DataKeeper
+- 12/26/2019: CloudGuard IaaS High Availability
+- 12/26/2019: Check Point CloudGuard IaaS Security Management
+- 12/26/2019: Check Point CloudGuard IaaS Single Gateway
+- 01/21/2020: Teradici software pro přístup k cloudu
 
 ## <a name="deprecated-marketplace-items"></a>Zastaralé položky Marketplace
 
@@ -84,7 +66,7 @@ Tento článek popisuje poslední přidání, aktualizace, změny a odebrání [
 - Bitnami SugarCRM
 - Cluster s vysokou dostupností Bitnami Node. js
 - A10 vThunder: L4 – kontroler doručení aplikace L7, globální vyrovnávání zatížení serveru (GSLB), přehled SSL
-
+- Správa zabezpečení Check Point vSEC
 
 ## <a name="updated-marketplace-items"></a>Aktualizované položky Marketplace
 

@@ -15,12 +15,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/18/2019
-ms.openlocfilehash: aecc96bc9e96c39ad1df1111b57bf17ca0d9b59a
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: ab90c149094fe62452199cc346ebe1c260ff260f
+ms.sourcegitcommit: ecb541f53255c6a4433724ad2d20fb93c4720ce1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 01/23/2020
-ms.locfileid: "76534953"
+ms.locfileid: "76706758"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack-hub"></a>Nasazení poskytovatele prostředků MySQL do centra Azure Stack
 
@@ -104,7 +104,7 @@ _Pouze pro instalace integrovaných systémů_. Musíte zadat certifikát PKI SQ
 
 ## <a name="deploy-the-resource-provider"></a>Nasazení poskytovatele prostředků
 
-Po instalaci všech požadovaných součástí můžete spustit skript **DeployMySqlProvider. ps1** pro nasazení poskytovatele prostředků MySQL. Skript DeployMySqlProvider. ps1 se extrahuje jako součást instalačních souborů poskytovatele prostředků MySQL, které jste stáhli pro vaši verzi centra Azure Stack.
+Po instalaci všech požadovaných součástí můžete spustit skript **DeployMySqlProvider. ps1** z počítače, který má Azure Stack přístup ke koncovému bodu správy prostředků Azure Resource admin i k privilegovanému koncovému bodu pro nasazení poskytovatele prostředků MySQL. Skript DeployMySqlProvider. ps1 se extrahuje jako součást instalačních souborů poskytovatele prostředků MySQL, které jste stáhli pro vaši verzi centra Azure Stack.
 
  > [!IMPORTANT]
  > Před nasazením poskytovatele prostředků si přečtěte poznámky k verzi, kde najdete informace o nových funkcích, opravách a známých problémech, které by mohly mít vliv na nasazení.
@@ -121,7 +121,7 @@ Spusťte skript **DeployMySqlProvider. ps1** , který dokončí následující �
 * Zaregistruje poskytovatele prostředků s místní Azure Resource Manager pro účet operátora.
 
 > [!NOTE]
-> Po spuštění nasazení poskytovatele prostředků MySQL se vytvoří skupina prostředků **System. Local. mysqladapter** . Dokončení nasazení potřebných pro tuto skupinu prostředků může trvat až 75 minut.
+> Po spuštění nasazení poskytovatele prostředků MySQL se vytvoří skupina prostředků **System. Local. mysqladapter** . Dokončení nasazení potřebných pro tuto skupinu prostředků může trvat až 75 minut. Neměli byste umístit žádné další prostředky do skupiny prostředků **System. Local. mysqladapter** .
 
 ### <a name="deploymysqlproviderps1-parameters"></a>DeployMySqlProvider. ps1 – parametry
 

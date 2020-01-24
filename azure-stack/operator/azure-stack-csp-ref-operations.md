@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/14/2019
+ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/14/2019
-ms.openlocfilehash: 981a80692e087cfcb733e73ec43d70fe67516e69
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: c77a9a02a49672a120a0b1099784098e38fb515a
+ms.sourcegitcommit: ecb541f53255c6a4433724ad2d20fb93c4720ce1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882568"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76706690"
 ---
 # <a name="register-tenants-for-usage-tracking-in-azure-stack-hub"></a>Registrace tenantů pro sledování využití v centru Azure Stack
 
@@ -33,7 +33,7 @@ Tento článek obsahuje podrobnosti o operacích registrace. Tyto operace může
 
 Tuto operaci můžete použít, pokud chcete přidat nového tenanta k registraci. Využití tenanta se hlásí v rámci předplatného Azure připojeného k tenantovi Azure Active Directory (Azure AD).
 
-Tuto operaci můžete také použít ke změně předplatného přidruženého k tenantovi. Volání metody PUT nebo **New-AzureRMResource** přepíše předchozí mapování.
+Tuto operaci můžete také použít ke změně předplatného přidruženého k tenantovi. Pokud chcete přepsat předchozí mapování, volejte metodu PUT nebo rutinu **New-AzureRMResource** prostředí PowerShell.
 
 K tenantovi můžete přidružit jedno předplatné Azure. Pokud se pokusíte přidat druhé předplatné do stávajícího klienta, první předplatné se přepíše.
 

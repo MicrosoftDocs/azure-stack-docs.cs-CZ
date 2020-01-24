@@ -7,21 +7,20 @@ manager: femila
 editor: ''
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/04/2019
+ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: 4794704678d5b344ea9d0bae9bf89f134e6bff52
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: dcd4f1d6ff9eaae4dce629ce576495e3304403aa
+ms.sourcegitcommit: ecb541f53255c6a4433724ad2d20fb93c4720ce1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883010"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76706843"
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack-hub"></a>Zpřístupnění sady škálování virtuálních počítačů v centru Azure Stack
 
- 
-Služby Virtual Machine Scale Sets jsou výpočetním prostředkem Azure Stack hub. Můžete je použít k nasazení a správě sady identických virtuálních počítačů (VM). U všech virtuálních počítačů nakonfigurovaných stejným způsobem sady škálování nevyžadují předběžné zřizování virtuálních počítačů. Sestavování rozsáhlých služeb, které cílí na Big COMPUTE, velké objemy dat a kontejnerové úlohy, je snazší.
+Služby Virtual Machine Scale Sets jsou výpočetním prostředkem Azure Stack hub. Sady škálování můžete použít k nasazení a správě sady identických virtuálních počítačů (VM). U všech virtuálních počítačů nakonfigurovaných stejným způsobem sady škálování nevyžadují předběžné zřizování virtuálních počítačů. Sestavování rozsáhlých služeb, které cílí na Big COMPUTE, velké objemy dat a kontejnerové úlohy, je snazší.
 
 Tento článek vás provede procesem vytváření sad škálování v tržišti Azure Stack hub. Po dokončení tohoto postupu můžou uživatelé přidat ke svým předplatným sadu škálování virtuálních počítačů.
 
@@ -34,13 +33,13 @@ V Azure Stackovém centru nepodporuje Virtual Machine Scale Sets automatické š
 
 ## <a name="prerequisites"></a>Požadavky
 
-* **Tržiště centra Azure Stack:** Pokud chcete povolit dostupnost položek v tržišti centra Azure Stack, zaregistrujte Azure Stack centrum s globálním Azure. Postupujte podle pokynů v části [registrace centra Azure Stack s Azure](azure-stack-registration.md).
+* **Tržiště centra Azure Stack:** Pokud chcete povolit dostupnost položek na webu centra Azure Stack, zaregistrujte Azure Stack hub s globálním Azure. Postupujte podle pokynů v části [registrace centra Azure Stack s Azure](azure-stack-registration.md).
 * **Bitová kopie operačního systému:** Než začnete vytvářet škálu virtuálních počítačů, musíte si stáhnout image virtuálních počítačů pro použití v sadě škálování z [webu centra Azure Stack](azure-stack-download-azure-marketplace-item.md). Předtím, než může uživatel vytvořit novou sadu škálování, již musí být image přítomné.
 
 ## <a name="use-the-azure-stack-hub-portal"></a>Použití portálu centra Azure Stack
 
 >[!IMPORTANT]  
-> Informace v této části se vztahují na použití centra Azure Stack verze 1808 nebo novější. 
+> Informace v této části se vztahují na použití centra Azure Stack verze 1808 nebo novější.
 
 1. Přihlaste se k portálu centra Azure Stack. Pak klikněte na **všechny služby**, pak na **Virtual Machine Scale Sets**a potom v části **COMPUTE**vyberte **Virtual Machine Scale Sets**.
    ![vybrat Virtual Machine Scale Sets](media/azure-stack-compute-add-scalesets/all-services.png)

@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/04/2019
+ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: scottnap
 ms.lastreviewed: 10/24/2018
-ms.openlocfilehash: 210890ce5ae82142906fb8f98d874c2f90ea3713
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 75d6143d3ae1ce0eaf114bd537e0a4983f99e53c
+ms.sourcegitcommit: ecb541f53255c6a4433724ad2d20fb93c4720ce1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883826"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76706894"
 ---
 # <a name="connect-azure-stack-hub-to-azure-using-vpn"></a>Připojení centra Azure Stack k Azure pomocí sítě VPN
 
@@ -67,7 +67,7 @@ Nejdřív vytvořte síťové prostředky pro Azure. Následující pokyny ukazu
 6. V případě **skupiny prostředků**vytvořte novou skupinu prostředků, nebo pokud ji už máte, vyberte **použít existující**.
 7. Vyberte **umístění** vaší virtuální sítě.  Pokud používáte ukázkové hodnoty, vyberte **východní USA** nebo použijte jiné umístění.
 8. Zaškrtněte **Připnout na řídicí panel**.
-9. Vyberte **Vytvořit**.
+9. Vyberte **Create** (Vytvořit).
 
 ### <a name="create-the-gateway-subnet"></a>Vytvoření podsítě brány
 
@@ -92,7 +92,7 @@ Nejdřív vytvořte síťové prostředky pro Azure. Následující pokyny ukazu
 5. Chcete-li zvolit virtuální síť, vyberte možnost **virtuální síť**. Pak ze seznamu vyberte **AzureVnet** .
 6. Vyberte **Veřejná IP adresa**. Po otevření oddílu **zvolit veřejnou IP adresu** vyberte **vytvořit novou**.
 7. Do pole **název** zadejte **Azure-GS-PIP**a pak vyberte **OK**.
-8. Ověřte, že nastavení **Předplatné** a **Umístění** jsou správná. Prostředek můžete připnout na řídicí panel. Vyberte **Vytvořit**.
+8. Ověřte, že nastavení **Předplatné** a **Umístění** jsou správná. Prostředek můžete připnout na řídicí panel. Vyberte **Create** (Vytvořit).
 
 ### <a name="create-the-local-network-gateway-resource"></a>Vytvoření prostředku brány místní sítě
 
@@ -164,7 +164,7 @@ Správce služeb se může přihlásit jako uživatel, aby otestoval plány, nab
 7. V případě **skupiny prostředků**můžete buď vytvořit skupinu prostředků, nebo pokud ji už máte, vyberte **použít existující**.
 8. Ověřte výchozí umístění.
 9. Zaškrtněte **Připnout na řídicí panel**.
-10. Vyberte **Vytvořit**.
+10. Vyberte **Create** (Vytvořit).
 
 ### <a name="create-the-gateway-subnet"></a>Vytvoření podsítě brány
 
@@ -189,7 +189,7 @@ Správce služeb se může přihlásit jako uživatel, aby otestoval plány, nab
 7. Do **název**zadejte **AZS-GS-PIP**a pak vyberte **OK**.
 8. Ve výchozím nastavení je pro **typ sítě VPN**vybraná možnost **Směrování** . Zachovejte typ sítě VPN **založený na trasách** .
 
-9. Ověřte, že nastavení **Předplatné** a **Umístění** jsou správná. Prostředek můžete připnout na řídicí panel. Vyberte **Vytvořit**.
+9. Ověřte, že nastavení **Předplatné** a **Umístění** jsou správná. Prostředek můžete připnout na řídicí panel. Vyberte **Create** (Vytvořit).
 
 ### <a name="create-the-local-network-gateway"></a>Vytvoření brány místní sítě
 

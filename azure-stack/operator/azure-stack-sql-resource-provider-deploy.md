@@ -16,12 +16,12 @@ ms.date: 10/02/2019
 ms.lastreviewed: 03/18/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: a8978c5ceb9e54577ff2347671568122751f4715
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: c84649853d77b2f56fc1192d0bb302996deb8a60
+ms.sourcegitcommit: ecb541f53255c6a4433724ad2d20fb93c4720ce1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75881837"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76706724"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack-hub"></a>Nasazení poskytovatele prostředků SQL Server v centru Azure Stack
 
@@ -100,7 +100,7 @@ _Pouze pro instalace integrovaných systémů_. Musíte zadat certifikát PKI SQ
 
 ## <a name="deploy-the-sql-resource-provider"></a>Nasazení poskytovatele prostředků SQL
 
-Po instalaci všech požadovaných součástí spusťte skript **DeploySqlProvider. ps1** , který nasadí poskytovatele prostředků SQL. Skript DeploySqlProvider. ps1 je extrahován jako součást binárního souboru poskytovatele prostředků SQL, který jste stáhli pro vaši verzi centra Azure Stack.
+Po dokončení instalace všech požadovaných součástí spusťte skript **DeploySqlProvider. ps1** z počítače, který má Azure Stack přístup ke koncovému bodu správy prostředků Azure Resource admin a s privilegovaným koncovým bodem pro nasazení poskytovatele prostředků SQL. Skript DeploySqlProvider. ps1 je extrahován jako součást binárního souboru poskytovatele prostředků SQL, který jste stáhli pro vaši verzi centra Azure Stack.
 
  > [!IMPORTANT]
  > Před nasazením poskytovatele prostředků si přečtěte poznámky k verzi, kde najdete informace o nových funkcích, opravách a známých problémech, které by mohly mít vliv na nasazení.
@@ -117,7 +117,7 @@ Spusťte skript DeploySqlProvider. ps1, který dokončí následující úlohy:
 - Zaregistruje poskytovatele prostředků s místní Azure Resource Manager pro účet operátora.
 
 > [!NOTE]
-> Po spuštění nasazení poskytovatele prostředků SQL se vytvoří skupina prostředků **System. Local. sqladapter** . Dokončení požadovaných nasazení do této skupiny prostředků může trvat až 75 minut.
+> Po spuštění nasazení poskytovatele prostředků SQL se vytvoří skupina prostředků **System. Local. sqladapter** . Dokončení požadovaných nasazení do této skupiny prostředků může trvat až 75 minut. Neměli byste umístit žádné další prostředky do skupiny prostředků **System. Local. sqladapter** .
 
 ### <a name="deploysqlproviderps1-parameters"></a>DeploySqlProvider. ps1 – parametry
 

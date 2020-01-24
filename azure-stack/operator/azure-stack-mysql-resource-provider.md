@@ -15,19 +15,19 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 9351ce5b2dde1fc7e2dfeddc2d3520a4f5d1fe2b
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: 39ab41c9852dce6508adf3f3d18e06f8bcc6e228
+ms.sourcegitcommit: ecb541f53255c6a4433724ad2d20fb93c4720ce1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 01/23/2020
-ms.locfileid: "76534613"
+ms.locfileid: "76706622"
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack-hub"></a>Použití databází MySQL v centru Microsoft Azure Stack
 
-Pomocí poskytovatele prostředků MySQL poskytněte databázovou službu MySQL v [centru Azure Stack](azure-stack-overview.md). Po nasazení poskytovatele prostředků a jeho propojení s jednou nebo více instancemi serveru MySQL můžete:
+Pomocí poskytovatele prostředků MySQL můžete nabízet databáze MySQL v [centru Azure Stack](azure-stack-overview.md). Po nasazení poskytovatele prostředků a jeho propojení s jednou nebo více instancemi serveru MySQL můžete vytvořit:
 
-* Vytvářejte databáze MySQL pomocí Azure Resource Manager šablon nasazení.
-* Poskytněte databáze MySQL jako službu.  
+* Databáze MySQL pro nativní aplikace v cloudu
+* Databáze MySQL pro webové aplikace.  
 
 Před instalací poskytovatele prostředků MySQL je potřeba zvážit několik omezení:
 

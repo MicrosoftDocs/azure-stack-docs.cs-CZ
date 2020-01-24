@@ -16,20 +16,19 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 58aa2bc05625c031fe78c3b4e5aeeec8d6001c8a
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 7a88b68df43bb71c24a3d066f67bd8281765c60f
+ms.sourcegitcommit: ecb541f53255c6a4433724ad2d20fb93c4720ce1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75881769"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76706588"
 ---
 # <a name="use-sql-databases-on-azure-stack-hub"></a>Použití databází SQL v centru Azure Stack
 
-Použijte poskytovatele prostředků SQL k poskytování databází SQL jako služby v [centru Azure Stack](azure-stack-overview.md). Po instalaci poskytovatele prostředků a jeho připojení k jedné nebo několika instancím SQL Serveru můžete vy i vaši uživatelé vytvářet:
+Pomocí poskytovatele prostředků SQL můžete nabízet databáze SQL na [rozbočovači Azure Stack](azure-stack-overview.md). Po instalaci poskytovatele prostředků a jeho připojení k jedné nebo několika instancím SQL Serveru můžete vy i vaši uživatelé vytvářet:
 
-- Databáze pro nativní aplikace v cloudu
-- Weby, které používají SQL.
-- Úlohy, které používají SQL.
+- Databáze SQL pro nativní aplikace v cloudu
+- Databáze SQL pro webové aplikace.
 
 Před instalací poskytovatele prostředků SQL je potřeba zvážit několik omezení:
 
@@ -37,6 +36,8 @@ Před instalací poskytovatele prostředků SQL je potřeba zvážit několik om
 - Váš operátor centra Azure Stack zodpovídá za nasazení, aktualizaci, zabezpečení, konfiguraci a údržbu serverů a hostitelů služby SQL Database. Služba RP neposkytuje žádné funkce správy instance hostitele a databázového serveru. 
 - Databáze od různých uživatelů v různých předplatných můžou být umístěné ve stejné instanci databázového serveru. RP neposkytuje žádný mechanismus pro izolaci databází na různých hostitelích nebo instancích databázového serveru.
 - RP neposkytuje žádné sestavy o využití databáze pro tenanta.
+
+Pro tradiční SQL Server úlohy v místním prostředí se doporučuje SQL Server virtuální počítač v Azure Stack hub.
 
 ## <a name="sql-resource-provider-adapter-architecture"></a>Architektura adaptéru poskytovatele prostředků SQL
 

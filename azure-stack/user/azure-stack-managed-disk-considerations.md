@@ -12,20 +12,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2019
+ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 2e09f10fc61454cf1b32797e75b5a57fc3f90f8f
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 9497fb4404b9328929e1b4639bfd1e2fa9ed20fe
+ms.sourcegitcommit: ecb541f53255c6a4433724ad2d20fb93c4720ce1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75819875"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76706860"
 ---
 # <a name="azure-stack-hub-managed-disks-differences-and-considerations"></a>Azure Stack spravované disky centra: rozdíly a požadavky
 
-Tento článek shrnuje rozdíly mezi [spravovanými disky v centru Azure Stack](azure-stack-manage-vm-disks.md) a [spravovaných discích v Azure](/azure/virtual-machines/windows/managed-disks-overview). Další informace o hlavních rozdílech mezi Azure Stack hub a Azure najdete v článku [klíčové důležité informace](azure-stack-considerations.md) .
+Tento článek shrnuje rozdíly mezi [ *spravovanými disky* v centru Azure Stack](azure-stack-manage-vm-disks.md) a [spravovaných discích v Azure](/azure/virtual-machines/windows/managed-disks-overview). Další informace o hlavních rozdílech mezi Azure Stack hub a Azure najdete v článku [klíčové důležité informace](azure-stack-considerations.md) .
 
 Spravované disky zjednodušují správu disků pro virtuální počítače s IaaS pomocí správy [účtů úložiště](../operator/azure-stack-manage-storage-accounts.md) přidružených k DISKŮM virtuálních počítačů.
 
@@ -147,7 +147,7 @@ Centrum Azure Stack podporuje *spravované image*, které vám umožní vytvoři
 V případě systému Windows postupujte podle části [generalizace virtuálního počítače s Windows pomocí nástroje Sysprep](/azure/virtual-machines/windows/capture-image-resource#generalize-the-windows-vm-using-sysprep) . V případě systému Linux postupujte podle [pokynů v kroku 1.](/azure/virtual-machines/linux/capture-image#step-1-deprovision-the-vm)
 
 > [!NOTE]
-> Nezapomeňte zobecnit virtuální počítač. Vytvoření virtuálního počítače z image, která se správně zobecněna, povede k chybě **VMProvisioningTimeout** .
+> Nezapomeňte zobecnit virtuální počítač. Vytvoření virtuálního počítače z image, která nebyla správně zobecněna, může způsobit chybu **VMProvisioningTimeout** .
 
 ### <a name="step-2-create-the-managed-image"></a>Krok 2: vytvoření spravované image
 
@@ -232,4 +232,4 @@ Po použití aktualizace 1808 nebo novější je nutné před použitím spravov
 
 ## <a name="next-steps"></a>Další kroky
 
-- [Další informace o virtuálních počítačích s Azure Stack hub](azure-stack-compute-overview.md)
+- Přečtěte si o [virtuálních počítačích s Azure Stack hub](azure-stack-compute-overview.md).

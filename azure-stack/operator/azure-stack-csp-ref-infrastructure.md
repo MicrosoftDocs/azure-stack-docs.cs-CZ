@@ -11,20 +11,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2019
+ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 574d6bcd7b86f026a6c7f078e06fa92a3e0d4581
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 6dfb744b4e8a91036a16c4461ccbe584305af384
+ms.sourcegitcommit: ecb541f53255c6a4433724ad2d20fb93c4720ce1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75809708"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76706809"
 ---
 # <a name="usage-reporting-infrastructure-for-cloud-solution-providers"></a>Využití infrastruktury vytváření sestav pro poskytovatele cloudových řešení
 
-Centrum Azure Stack zahrnuje infrastrukturu potřebnou ke sledování využití při jejich výskytu a předá ji do Azure. V Azure Azure Commerce zpracovává data o využití a účtuje náklady na příslušné předplatné Azure. Tento proces funguje stejným způsobem jako sledování využití v globálním cloudu Azure.
+Centrum Azure Stack zahrnuje infrastrukturu potřebnou ke sledování využití při jejich výskytu a předá ji do Azure. V Azure Azure Commerce zpracovává data o [využití a účtuje náklady](azure-stack-billing-and-chargeback.md) na příslušné předplatné Azure. Tento proces funguje stejným způsobem jako sledování využití v globálním cloudu Azure.
 
 Některé koncepce jsou v rámci globálního centra Azure a Azure Stack konzistentní. Centrum Azure Stack má místní předplatná, která splňují podobné role k předplatnému Azure. Místní odběry jsou platné pouze místně. Místní předplatná jsou namapována na předplatná Azure, když se využití předává do Azure.
 
@@ -34,7 +34,7 @@ Existují některé rozdíly mezi tím, jak se účtují služby Azure Stack hub
 
 Můžete získat informace o měřičích centra Azure Stack používaných při obchodování a jejich cenách v partnerském centru. Tento proces je stejný jako u služeb Azure:
 
-1. V partnerském centru přejděte do **nabídky řídicí panel**, vyberte **prodávat**a pak vyberte **ceny a nabídky**.
+1. V partnerském centru přejděte do nabídky **řídicí panel** , vyberte **prodávat**a pak vyberte **ceny a nabídky**.
 2. V části **služby založené na používání**vyberte **aktuální**.
 3. Otevřete tabulku **Azure v globálním seznamu ceníků CSP** .
 4. Filtr v **oblasti = Azure Stack hub**.
