@@ -1,6 +1,6 @@
 ---
 title: Přidání imagí pro Linux do webu centra Azure Stack Marketplace | Microsoft Docs
-description: Naučte se přidávat image Linux do tržiště centra Azure Stack.
+description: Naučte se přidávat image Linux do Marketplace centra Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -11,18 +11,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2019
+ms.date: 01/23/2020
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/16/2018
-ms.openlocfilehash: d8714901bc8ac8f8c20b9b2649527f8e6f6627fc
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 93b69057d70d12dda92186819731ee707032601a
+ms.sourcegitcommit: ea90ddcae07857ee4f77670891ac7814da8bdc17
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882398"
+ms.lasthandoff: 01/25/2020
+ms.locfileid: "76750469"
 ---
-# <a name="add-linux-images-to-azure-stack-hub-marketplace"></a>Přidání imagí pro Linux do webu centra Azure Stack Marketplace
+# <a name="add-linux-images-to-the-azure-stack-hub-marketplace"></a>Přidání imagí pro Linux do webu centra Azure Stack Marketplace
 
 Virtuální počítače se systémem Linux můžete do centra Azure Stack nasadit přidáním image založené na systému Linux do webu centra Azure Stack hub. Nejjednodušší způsob, jak přidat image pro Linux do centra Azure Stack, je prostřednictvím správy Marketplace. Tyto Image byly připraveny a testovány kvůli kompatibilitě s Azure Stackm centrem.
 
@@ -38,7 +38,7 @@ Kdykoli je to možné, stáhněte si image dostupné prostřednictvím Správy M
 
 ### <a name="azure-linux-agent"></a>Agent Azure Linux
 
-Je vyžadován agent Azure Linux (obvykle označovaný jako **WALinuxAgent** nebo **WALinuxAgent**) a ne všechny verze agenta fungují v centru Azure Stack. Verze mezi 2.2.21 a 2.2.34 (včetně) nejsou podporované v Azure Stack hub. Pokud chcete použít nejnovější verze agenta výše než 2.2.35, použijte opravu hotfix 1901 hotfix/1902 nebo aktualizujte centrum Azure Stack na verzi 1903 (nebo vyšší). Všimněte si, že [Cloud-init](https://cloud-init.io/) se podporuje v Azure Stackch vydáních centra nad rámec 1910.
+Je vyžadován agent Azure Linux (obvykle označovaný jako **WALinuxAgent** nebo **WALinuxAgent**) a ne všechny verze agenta fungují v centru Azure Stack. Verze mezi 2.2.21 a 2.2.34 (včetně) se v Azure Stackovém centru nepodporují. Pokud chcete použít nejnovější verze agenta výše než 2.2.35, použijte opravu hotfix 1901 hotfix/1902 nebo aktualizujte centrum Azure Stack na verzi 1903 (nebo vyšší). Všimněte si, že [Cloud-init](https://cloud-init.io/) se podporuje v Azure Stackch vydáních centra nad rámec 1910.
 
 | Sestavování centra Azure Stack | Sestavení agenta Azure Linux |
 | ------------- | ------------- |
@@ -61,7 +61,7 @@ Vlastní image pro Linux můžete připravit pomocí následujících pokynů:
 
 ## <a name="cloud-init"></a>Cloud-init
 
-[Cloud-init](https://cloud-init.io/) se podporuje v Azure Stackch vydáních centra nad 1910. Pokud chcete použít Cloud-init k přizpůsobení virtuálního počítače se systémem Linux, můžete použít následující pokyny pro PowerShell: 
+[Cloud-init](https://cloud-init.io/) se podporuje v Azure Stackch vydáních centra nad 1910. Pokud chcete použít Cloud-init k přizpůsobení virtuálního počítače se systémem Linux, můžete použít následující pokyny prostředí PowerShell.
 
 ### <a name="step-1-create-a-cloud-inittxt-file-with-your-cloud-config"></a>Krok 1: vytvoření souboru Cloud-init. txt pomocí cloudové konfigurace
 

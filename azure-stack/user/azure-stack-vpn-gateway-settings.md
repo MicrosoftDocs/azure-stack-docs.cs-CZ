@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.date: 01/23/2020
 ms.author: sethm
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: ff7667c94b345cbb666232e869ab8871bd081f5c
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 20ebbe3a33a18a6ec4f847ef722203bc37885685
+ms.sourcegitcommit: ea90ddcae07857ee4f77670891ac7814da8bdc17
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883129"
+ms.lasthandoff: 01/25/2020
+ms.locfileid: "76750384"
 ---
 # <a name="configure-vpn-gateway-settings-for-azure-stack-hub"></a>Konfigurace nastavení služby VPN Gateway pro centrum Azure Stack
 
@@ -32,7 +32,7 @@ Připojení brány VPN se spoléhá na konfiguraci více prostředků, z nichž 
 
 ### <a name="gateway-types"></a>Typy bran
 
-Každá virtuální síť centra Azure Stack podporuje jedinou bránu virtuální sítě, která musí být typu **VPN**.  Tato podpora se liší od Azure, která podporuje další typy.
+Každá virtuální síť centra Azure Stack podporuje jedinou bránu virtuální sítě, která musí být typu **VPN**. Tato podpora se liší od Azure, která podporuje další typy.
 
 Když vytvoříte bránu virtuální sítě, musíte se ujistit, že je typ brány správný pro vaši konfiguraci. Brána sítě VPN vyžaduje příznak `-GatewayType Vpn`; například:
 

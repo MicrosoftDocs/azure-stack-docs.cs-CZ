@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.date: 01/23/2020
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: 014ff5a0b4791ac7b939ac3e61a79c89f531aa8d
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: d9947738cbe86d0483d20204e9c0e346656fd583
+ms.sourcegitcommit: ea90ddcae07857ee4f77670891ac7814da8bdc17
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75877553"
+ms.lasthandoff: 01/25/2020
+ms.locfileid: "76750520"
 ---
 # <a name="connect-azure-stack-hub-to-azure-using-azure-expressroute"></a>Připojení centra Azure Stack k Azure pomocí Azure ExpressRoute
 
@@ -81,7 +81,7 @@ Chcete-li nastavit prostředí centra Azure Stack pro prvního klienta, použijt
 
 Než začnete s konfigurací centra Azure Stack, budete potřebovat:
 
-* Nasazení centra Azure Stack. 
+* Nasazení centra Azure Stack.
 * Nabídka centra Azure Stack, ke které se uživatelé můžou přihlásit Další informace najdete v tématu [Přehled služeb, plánů, nabídek a předplatných](service-plan-offer-subscription-overview.md).
 
 ### <a name="create-network-resources-in-azure-stack-hub"></a>Vytváření síťových prostředků v centru Azure Stack
@@ -177,7 +177,7 @@ Po vytvoření brány virtuální sítě můžete získat veřejnou IP adresu br
 1. V části **Brána virtuální sítě**vyberte **Přehled** ze seznamu prostředků. Případně můžete vybrat **vlastnosti**.
 1. IP adresa, kterou chcete zaznamenat, je uvedena v části **Veřejná IP adresa**. Pro příklad konfigurace je tato adresa 192.68.102.1.
 
-#### <a name="create-a-virtual-machine-vm"></a>Vytvořit virtuální počítač
+#### <a name="create-a-virtual-machine-vm"></a>Vytvoření virtuálního počítače (VM)
 
 K otestování přenosů dat přes připojení VPN potřebujete virtuální počítače pro posílání a přijímání dat ve virtuální síti centra Azure Stack. Vytvořte virtuální počítač a nasaďte ho do podsítě virtuálních počítačů pro virtuální síť.
 

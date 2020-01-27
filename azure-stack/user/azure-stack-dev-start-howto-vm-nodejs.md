@@ -9,12 +9,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: c5d254351fab0bb89023dad8928ac32958f63404
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: 9361b2db39a667da71d125cac496a47386726bb0
+ms.sourcegitcommit: ea90ddcae07857ee4f77670891ac7814da8bdc17
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76536211"
+ms.lasthandoff: 01/25/2020
+ms.locfileid: "76750452"
 ---
 # <a name="deploy-a-nodejs-web-app-to-a-vm-in-azure-stack-hub"></a>Nasazení webové aplikace v Node. js do virtuálního počítače v Azure Stackovém centru
 
@@ -47,7 +47,7 @@ Můžete vytvořit virtuální počítač, který bude hostovat webovou aplikaci
 2. [Nainstalujte npm](https://www.npmjs.com/), správce balíčků pro balíčky Node. js nebo moduly. K VIRTUÁLNÍmu počítači se v relaci SSH pořád připojíte zadáním následujícího příkazu:
 
     ```bash  
-       go version
+       node --version
     ```
 
 3. [Nainstalujte Git](https://git-scm.com), široce distribuovanou správu verzí a systém správy zdrojového kódu (SCM). I když jste stále připojeni k VIRTUÁLNÍmu počítači v relaci SSH, zadejte následující příkaz:

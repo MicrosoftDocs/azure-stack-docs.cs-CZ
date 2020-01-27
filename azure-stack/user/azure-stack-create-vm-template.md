@@ -13,16 +13,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/03/2019
+ms.date: 01/23/2020
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/13/2018
-ms.openlocfilehash: b709d51a430530c50cf9a6e06896d405c435383e
-ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
+ms.openlocfilehash: 962751cbe933963c6bed1be861897f618f841e34
+ms.sourcegitcommit: ea90ddcae07857ee4f77670891ac7814da8bdc17
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76023243"
+ms.lasthandoff: 01/25/2020
+ms.locfileid: "76750537"
 ---
 # <a name="tutorial-create-a-vm-using-a-community-template"></a>Kurz: Vytvoření virtuálního počítače pomocí šablony komunity
 
@@ -81,7 +81,7 @@ Tato šablona nainstaluje následující součásti:
 
 4. V rozevíracím seznamu **Vyberte šablonu** vyberte **101-VM-Linux-minikube** z dostupných šablon a pak klikněte na **OK**.
 
-    ![Vyberte šablonu](media/azure-stack-create-vm-template/4.PNG)
+    ![Vybrat šablonu](media/azure-stack-create-vm-template/4.PNG)
 
 5. Pokud chcete provést úpravy JSON šablony, můžete to udělat. Pokud ne, nebo po dokončení vyberte **Uložit** a zavřete dialogové okno **Upravit šablonu** .
 
