@@ -2,26 +2,18 @@
 title: Použití databází SQL
 titleSuffix: Azure Stack Hub
 description: Naučte se používat poskytovatele prostředků SQL Server k poskytování databází SQL jako služby v centru Azure Stack.
-services: azure-stack
-documentationCenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 7a88b68df43bb71c24a3d066f67bd8281765c60f
-ms.sourcegitcommit: ecb541f53255c6a4433724ad2d20fb93c4720ce1
+ms.openlocfilehash: 30ca5673bb337342eba57d127acf2f3e657bb8df
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76706588"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882773"
 ---
 # <a name="use-sql-databases-on-azure-stack-hub"></a>Použití databází SQL v centru Azure Stack
 
@@ -30,11 +22,11 @@ Pomocí poskytovatele prostředků SQL můžete nabízet databáze SQL na [rozbo
 - Databáze SQL pro nativní aplikace v cloudu
 - Databáze SQL pro webové aplikace.
 
-Před instalací poskytovatele prostředků SQL je potřeba zvážit několik omezení:
+Omezení, která je třeba zvážit před instalací poskytovatele prostředků SQL:
 
 - Uživatelé mohou vytvářet a spravovat pouze jednotlivé databáze. Instance databázového serveru není pro koncové uživatele přístupná. To může omezit kompatibilitu s místními databázovými aplikacemi, které potřebují přístup k hlavní, dočasné databázi nebo k dynamické správě databází.
-- Váš operátor centra Azure Stack zodpovídá za nasazení, aktualizaci, zabezpečení, konfiguraci a údržbu serverů a hostitelů služby SQL Database. Služba RP neposkytuje žádné funkce správy instance hostitele a databázového serveru. 
-- Databáze od různých uživatelů v různých předplatných můžou být umístěné ve stejné instanci databázového serveru. RP neposkytuje žádný mechanismus pro izolaci databází na různých hostitelích nebo instancích databázového serveru.
+- Váš operátor centra Azure Stack zodpovídá za nasazení, aktualizaci, zabezpečení, konfiguraci a údržbu serverů a hostitelů služby SQL Database. Služba RP neposkytuje žádné funkce správy instancí hostitele a databázového serveru.
+- Databáze od různých uživatelů v různých předplatných můžou být umístěné ve stejné instanci databázového serveru. RP neposkytuje žádný mechanismus pro izolaci databází na různých hostitelích nebo instancích databázových serverů.
 - RP neposkytuje žádné sestavy o využití databáze pro tenanta.
 
 Pro tradiční SQL Server úlohy v místním prostředí se doporučuje SQL Server virtuální počítač v Azure Stack hub.

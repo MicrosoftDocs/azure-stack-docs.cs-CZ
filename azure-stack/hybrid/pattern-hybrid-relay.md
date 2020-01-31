@@ -2,18 +2,17 @@
 title: Vzor pro implementaci řešení hybridního přenosu pomocí Azure a centra Azure Stack.
 description: Naučte se používat služby Azure a Azure Stack hub pro připojení k hraničním prostředkům nebo zařízením chráněným branami firewall.
 author: BryanLa
-ms.service: azure-stack
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 9b9defd4a6aec6dab3511425089e7395649d8087
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: 7315013253c04ebbb231a0915dba610e459848e7
+ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73638582"
+ms.lasthandoff: 01/30/2020
+ms.locfileid: "76890064"
 ---
 # <a name="hybrid-relay-pattern"></a>Vzor hybridního přenosu
 
@@ -40,12 +39,12 @@ Jak řešení funguje:
 
 Toto řešení používá následující komponenty:
 
-| Vrstvení | Součást | Popis |
+| Vrstva | Součást | Popis |
 |----------|-----------|-------------|
 | Azure | Virtuální počítač Azure | Virtuální počítač Azure poskytuje veřejně přístupný koncový bod pro místní prostředek. |
 | | Azure Service Bus Relay | [Azure Service Bus Relay](/azure/service-bus-relay/) poskytuje infrastrukturu pro zachovávání tunelu a připojení mezi virtuálním počítačem Azure a virtuálním počítačem centra Azure Stack.|
-| Centrum Azure Stack | Služby Compute | Virtuální počítač centra Azure Stack poskytuje na straně serveru tunelové propojení hybridního přenosu. |
-| | Úložiště | Cluster modulu AKS nasazený do centra Azure Stack poskytuje škálovatelný a odolný modul pro spuštění kontejneru Face API.|
+| Azure Stack Hub | Služby Compute | Virtuální počítač centra Azure Stack poskytuje na straně serveru tunelové propojení hybridního přenosu. |
+| | Storage | Cluster modulu AKS nasazený do centra Azure Stack poskytuje škálovatelný a odolný modul pro spuštění kontejneru Face API.|
 
 ## <a name="issues-and-considerations"></a>Problémy a důležité informace
 

@@ -1,27 +1,18 @@
 ---
-title: Azure Stack spravované disky centra; rozdíly a požadavky | Microsoft Docs
+title: Azure Stack spravované disky centra; rozdíly a požadavky
 description: Přečtěte si o rozdílech a ohledech při práci se spravovanými disky a spravovanými imagemi v centru Azure Stack.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 9497fb4404b9328929e1b4639bfd1e2fa9ed20fe
-ms.sourcegitcommit: ecb541f53255c6a4433724ad2d20fb93c4720ce1
+ms.openlocfilehash: c1369ada357e8439e39fed4642996af86925522c
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76706860"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883448"
 ---
 # <a name="azure-stack-hub-managed-disks-differences-and-considerations"></a>Azure Stack spravované disky centra: rozdíly a požadavky
 

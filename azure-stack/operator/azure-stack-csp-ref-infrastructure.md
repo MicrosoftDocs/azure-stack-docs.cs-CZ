@@ -1,26 +1,18 @@
 ---
-title: Využití infrastruktury vytváření sestav pro poskytovatele cloudových řešení pro centrum Azure Stack | Microsoft Docs
+title: Využití infrastruktury vytváření sestav pro poskytovatele Cloud Solution Providers pro Azure Stack hub
 description: Seznamte se s infrastrukturou vytváření sestav využití, která se používá ke sledování využití pro klienty používané poskytovatelem Cloud Solution Provider (CSP).
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 6dfb744b4e8a91036a16c4461ccbe584305af384
-ms.sourcegitcommit: ecb541f53255c6a4433724ad2d20fb93c4720ce1
+ms.openlocfilehash: fdd08b3b689c069b4bc8c842e252c3b0c51c5580
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76706809"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882539"
 ---
 # <a name="usage-reporting-infrastructure-for-cloud-solution-providers"></a>Využití infrastruktury vytváření sestav pro poskytovatele cloudových řešení
 

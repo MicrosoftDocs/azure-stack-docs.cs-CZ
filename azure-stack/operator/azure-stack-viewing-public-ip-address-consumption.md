@@ -1,26 +1,18 @@
 ---
-title: Správa síťových prostředků v centru Azure Stack | Microsoft Docs
+title: Správa síťových prostředků v centru Azure Stack
 description: Správci mohou spravovat síťové prostředky, včetně fondu adres MAC a spotřeby veřejných IP adres v oblasti.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: scottnap
 ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: 6e68ede1c384c0b1689740f7178c1308aadb0b7a
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: 949c00edfbe7e5daff8c1cd17c20681c3a7d9265
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76535514"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76880209"
 ---
 # <a name="manage-network-resources"></a>Správa síťových prostředků
 

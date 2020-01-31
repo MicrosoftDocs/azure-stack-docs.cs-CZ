@@ -1,26 +1,18 @@
 ---
-title: Přidání vlastní image virtuálního počítače do centra Azure Stack | Microsoft Docs
+title: Přidání vlastní image virtuálního počítače do centra Azure Stack
 description: Přečtěte si, jak přidat nebo odebrat vlastní image virtuálního počítače do centra Azure Stack.
-services: azure-stack
-documentationcenter: ''
-author: Justinha
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: PowerShell
+author: sethmanheim
 ms.topic: conceptual
 ms.date: 10/16/2019
-ms.author: Justinha
+ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/08/2018
-ms.openlocfilehash: f0d0b268445d3de95e8f4dcaa0d44cb8d553111c
-ms.sourcegitcommit: 7dd685fddf2f5d7a0c0a20fb8830ca5a061ed031
+ms.openlocfilehash: 359adfbe9083bd21368934426a54c887af2f9f2a
+ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76259813"
+ms.lasthandoff: 01/30/2020
+ms.locfileid: "76889962"
 ---
 # <a name="add-a-custom-vm-image-to-azure-stack-hub"></a>Přidání vlastní image virtuálního počítače do centra Azure Stack
 
@@ -163,7 +155,7 @@ Než obrázek nahrajete, je důležité vzít v úvahu následující:
    - **sku**  
      Příklad: `14.04.3-LTS`  
      Segment názvu **SKU** image virtuálního počítače, který uživatelé používají při nasazování image virtuálního počítače. Do tohoto pole nezahrnujte mezeru ani jiné speciální znaky.  
-   - **version**  
+   - **znění**  
      Příklad: `1.0.0`  
      Verze image virtuálního počítače, kterou uživatelé používají při nasazování image virtuálního počítače Tato verze je ve formátu *\#.\#.\#* . Do tohoto pole nezahrnujte mezeru ani jiné speciální znaky.  
    - **osType**  
@@ -215,7 +207,7 @@ Pokud už bitovou kopii virtuálního počítače, kterou jste nahráli, nepotř
    - **sku**  
      Příklad: `14.04.3-LTS`  
      Segment názvu **SKU** image virtuálního počítače, který uživatelé používají při nasazování image virtuálního počítače. Do tohoto pole nezahrnujte mezeru ani jiné speciální znaky.  
-   - **version**  
+   - **znění**  
      Příklad: `1.0.0`  
      Verze image virtuálního počítače, kterou uživatelé používají při nasazování image virtuálního počítače Tato verze je ve formátu *\#.\#.\#* . Do tohoto pole nezahrnujte mezeru ani jiné speciální znaky.  
 

@@ -1,25 +1,18 @@
 ---
-title: Správa profilů verzí rozhraní API v centru Azure Stacke | Microsoft Docs
+title: Správa profilů verzí rozhraní API v centru Azure Stack
 description: Přečtěte si o profilech verzí rozhraní API v centru Azure Stack.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 07/24/2019
-ms.openlocfilehash: 21686d1f7e61013c22d37b974111e0d6a57f1b88
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 65f28a4de02bf8d52a15e19a1e5ea6a28ad7dce3
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883163"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884187"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack-hub"></a>Správa profilů verzí rozhraní API v centru Azure Stack
 
@@ -27,7 +20,7 @@ Profily rozhraní API zadejte poskytovatel prostředků Azure a verze rozhraní 
 
 Můžete vytvořit aplikaci, která bude spolupracovat s poskytovateli prostředků Azure, aniž byste museli přesně seřadit, která verze rozhraní API poskytovatele prostředků je kompatibilní s Azure Stack hub. Stačí sjednotit aplikaci na profil a sada SDK se vrátí na správnou verzi rozhraní API.
 
-Toto téma vám pomůže s těmito aktivitami:
+Toto téma vám pomůže:
 
 - Pochopte profily rozhraní API pro centrum Azure Stack.
 - Přečtěte si, jak můžete pomocí profilů rozhraní API vyvíjet vaše řešení.

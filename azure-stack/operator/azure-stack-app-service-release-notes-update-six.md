@@ -1,26 +1,18 @@
 ---
-title: App Service ve Azure Stack centra aktualizace 6 – zpráva k vydání verze | Microsoft Docs
+title: App Service zpráva k vydání verze Azure Stack centra pro aktualizaci 6
 description: Přečtěte si, co je v aktualizaci šest pro App Service v centru Azure Stack, známých problémech a na tom, kde si tuto aktualizaci stáhli.
-services: azure-stack
-documentationcenter: ''
 author: apwestgarth
 manager: stefsch
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/24/2019
 ms.author: anwestg
 ms.reviewer: ''
-ms.openlocfilehash: 2c96d45aa433fdbae490ed5c1c304b1c000e8c02
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 418e27424f91d4c676565acc27bcde77962d76ec
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75880103"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76875891"
 ---
 # <a name="app-service-on-azure-stack-hub-update-6-release-notes"></a>App Service zpráva k vydání verze Azure Stack centra pro aktualizaci 6
 

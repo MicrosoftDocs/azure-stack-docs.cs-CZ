@@ -234,7 +234,7 @@
                       href: azure-stack-solution-template-kubernetes-trouble.md
             - name: Nasazení Cognitive Services
               href: azure-stack-solution-template-cognitive-services.md
-    - name: Nasazování aplikací
+    - name: Nasazení aplikací
       items:
         - name: 'Nasazení C# webové aplikace na virtuální počítač s Windows'
           href: azure-stack-dev-start-howto-vm-dotnet.md

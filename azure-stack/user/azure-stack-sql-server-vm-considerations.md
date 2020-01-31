@@ -1,27 +1,18 @@
 ---
-title: SQL Server osvědčené postupy pro optimalizaci výkonu v centru Azure Stack. | Dokumentace Microsoftu
+title: SQL Server osvědčené postupy pro optimalizaci výkonu v centru Azure Stack.
 description: Tento článek popisuje osvědčené postupy pro SQL Server, které vám pomůžou zvýšit výkon a optimalizovat SQL Server v Azure Stackch virtuálních počítačích centra.
-services: azure-stack
-documentationcenter: ''
 author: bryanla
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 63fbc121aea2fe83b2ffda860f505fe069a4a5f1
-ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
+ms.openlocfilehash: b764054e08af89ce20c123c7d3dd9659560e1297
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76023078"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884357"
 ---
 # <a name="sql-server-best-practices-to-optimize-performance-in-azure-stack-hub"></a>Osvědčené postupy pro SQL Server k optimalizaci výkonu v centru Azure Stack
 
@@ -49,7 +40,7 @@ Následující kontrolní seznam slouží k zajištění optimálního výkonu S
 |Velikost virtuálního počítače |[DS3](azure-stack-vm-sizes.md) nebo vyšší pro edici SQL Server Enterprise.<br><br>[DS2](azure-stack-vm-sizes.md) nebo vyšší pro edice SQL Server Standard a Web Edition.|
 |Storage |Použijte rodinu virtuálních počítačů, která podporuje [Premium Storage](azure-stack-acs-differences.md).|
 |Disky |Použijte minimálně dva datové disky (jeden pro soubory protokolů a jeden pro datový soubor a databázi TempDB) a podle potřeb kapacity vyberte velikost disku. Nastavte výchozí umístění datových souborů na tyto disky během instalace SQL Server.<br><br>Nepoužívejte operační systém ani dočasné disky pro ukládání a protokolování databáze.<br>Proložením několika datových disků Azure získáte vyšší propustnost vstupně-výstupních operací pomocí prostorů úložiště.<br><br>Formát s dokumentovanými velikostmi přidělení|
-|V/V|Povolí okamžitou inicializaci souborů pro datové soubory.<br><br>Omezte autogrow v databázích s přiměřenými malými pevnými přírůstky (64 MB – 256 MB).<br><br>Zakáže v databázi automaticky zmenšení.<br><br>Nastavte výchozí zálohu a umístění souborů databáze na datových discích, nikoli na disku operačního systému.<br><br>Povolit uzamčené stránky.<br><br>Použijte SQL Server Service Pack a kumulativní aktualizace.|
+|I/O|Povolí okamžitou inicializaci souborů pro datové soubory.<br><br>Omezte autogrow v databázích s přiměřenými malými pevnými přírůstky (64 MB – 256 MB).<br><br>Zakáže v databázi automaticky zmenšení.<br><br>Nastavte výchozí zálohu a umístění souborů databáze na datových discích, nikoli na disku operačního systému.<br><br>Povolit uzamčené stránky.<br><br>Použijte SQL Server Service Pack a kumulativní aktualizace.|
 |Specifické pro jednotlivé funkce|Zálohujte se přímo do úložiště objektů BLOB (pokud to podporuje SQL Server používané verze).|
 |||
 
@@ -105,7 +96,7 @@ Databázi TempDB doporučujeme uložit na datový disk, protože každý datový
 > [!NOTE]  
 > Když zřizujete SQL Server virtuální počítač na portálu, máte možnost upravit si konfiguraci úložiště. V závislosti na konfiguraci Azure Stack hub nakonfiguruje jeden nebo více disků. Více disků je sloučeno do jednoho fondu úložiště. Data i soubory protokolů se v této konfiguraci nacházejí společně.
 
-- **Diskové svazky:** Pro zvýšení propustnosti můžete přidat další datové disky a používat diskové svazky. Pokud chcete zjistit počet potřebných datových disků, analyzujte počet IOPS potřebných pro soubory protokolů a pro vaše data a soubory TempDB. Všimněte si, že omezení IOPS jsou na datový disk založená na rodině řad virtuálních počítačů, a ne na základě velikosti virtuálního počítače. Omezení šířky pásma sítě jsou však založena na velikosti virtuálního počítače. Další podrobnosti najdete v tabulkách o [velikostech virtuálních počítačů v centru Azure Stack](azure-stack-vm-sizes.md) . Postupujte takto:
+- **Diskové svazky:** Pro zvýšení propustnosti můžete přidat další datové disky a používat diskové svazky. Pokud chcete zjistit počet potřebných datových disků, analyzujte počet IOPS potřebných pro soubory protokolů a pro vaše data a soubory TempDB. Všimněte si, že omezení IOPS jsou na datový disk založená na rodině řad virtuálních počítačů, a ne na základě velikosti virtuálního počítače. Omezení šířky pásma sítě jsou však založena na velikosti virtuálního počítače. Další podrobnosti najdete v tabulkách o [velikostech virtuálních počítačů v centru Azure Stack](azure-stack-vm-sizes.md) . Použijte následující pokyny:
 
   - Pro Windows Server 2012 nebo novější použijte [prostory úložiště](https://technet.microsoft.com/library/hh831739.aspx) s následujícími pokyny:
 

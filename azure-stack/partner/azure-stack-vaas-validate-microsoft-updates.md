@@ -1,26 +1,19 @@
 ---
-title: Ověřit aktualizace softwaru od Microsoftu v Azure Stack ověřování jako služba | Microsoft Docs
+title: Ověřit aktualizace softwaru od Microsoftu v Azure Stack ověřování jako služba
 description: Zjistěte, jak ověřit aktualizace softwaru od Microsoftu pomocí ověřování jako služby.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/29/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/29/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3399288b801114f076afe3b68d3f9790bfe2af29
-ms.sourcegitcommit: 08d2938006b743b76fba42778db79202d7c3e1c4
+ms.openlocfilehash: 5e4438f0c3a95b2254422a428741a28b685cb9f5
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74954481"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884007"
 ---
 # <a name="validate-software-updates-from-microsoft"></a>Ověřit aktualizace softwaru od Microsoftu
 
@@ -30,7 +23,7 @@ Společnost Microsoft bude pravidelně vydávat aktualizace Azure Stack softwaru
 
 Aktualizace softwaru společnosti Microsoft pro Azure Stack jsou určeny pomocí konvence pojmenování, například 1803, což znamená, že je aktualizace určena pro 2018. března. Informace Azure Stack o tempo a poznámkách k verzi najdete v tématu [zásady služby Azure Stack Servicing](../operator/azure-stack-servicing-policy.md).
 
-## <a name="prerequisites"></a>Předpoklady
+## <a name="prerequisites"></a>Požadavky
 
 Před uplatněním měsíčního procesu aktualizace v VaaS byste měli být obeznámeni s následujícími položkami:
 

@@ -1,25 +1,18 @@
 ---
-title: Použití profilů verzí rozhraní API s Pythonem v centru Azure Stack | Microsoft Docs
+title: Použití profilů verzí rozhraní API s Pythonem v Azure Stackovém centru
 description: Naučte se používat profily verzí rozhraní API s Pythonem v Azure Stack hub.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 99446d0968c07155578cabc47e08cf5fac677dd2
-ms.sourcegitcommit: ea90ddcae07857ee4f77670891ac7814da8bdc17
+ms.openlocfilehash: 48df6dab5d93e4e9875dc422f90f3f823a4b2ee9
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/25/2020
-ms.locfileid: "76750402"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884224"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack-hub"></a>Použití profilů verzí rozhraní API s Pythonem v Azure Stackovém centru
 

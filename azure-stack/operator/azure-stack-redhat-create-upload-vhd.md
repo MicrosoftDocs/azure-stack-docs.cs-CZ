@@ -1,29 +1,19 @@
 ---
-title: Příprava virtuálního počítače založeného na Red Hat pro centrum Azure Stack | Microsoft Docs
+title: Příprava virtuálního počítače založeného na Red Hat pro Azure Stack hub
 titleSuffix: Azure Stack Hub
 description: Naučte se vytvořit a nahrát virtuální pevný disk Azure (VHD), který obsahuje operační systém Red Hat Linux.
-services: azure-stack
-documentationcenter: ''
-author: mattbriggs
-manager: femila
-editor: ''
-tags: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: sethmanheim
 ms.topic: article
 ms.date: 12/11/2019
-ms.author: mabrigg
+ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 12/11/2019
-ms.openlocfilehash: 2ac894211b1ccd8d1537453100879ad695507268
-ms.sourcegitcommit: 320eddb281a36d066ec80d67b103efad7d4f33c8
+ms.openlocfilehash: 8d6a94214d45fcf9d008f93d1ce726d7af536d77
+ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76145814"
+ms.lasthandoff: 01/30/2020
+ms.locfileid: "76890234"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack-hub"></a>Příprava virtuálního počítače založeného na Red Hat pro Azure Stack hub
 
@@ -84,7 +74,7 @@ V této části se předpokládá, že už máte soubor ISO z webu Red Hat a má
     sudo subscription-manager register --auto-attach --username=XXX --password=XXX
     ```
 
-1. Upravte spouštěcí řádek jádra v konfiguraci GRUB tak, aby zahrnoval další parametry jádra pro Azure. Chcete-li provést tuto úpravu, otevřete `/etc/default/grub` v textovém editoru a upravte parametr `GRUB_CMDLINE_LINUX`. Například:
+1. Upravte spouštěcí řádek jádra v konfiguraci GRUB tak, aby zahrnoval další parametry jádra pro Azure. Chcete-li provést tuto úpravu, otevřete `/etc/default/grub` v textovém editoru a upravte parametr `GRUB_CMDLINE_LINUX`. Příklad:
 
     ```sh
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
@@ -262,7 +252,7 @@ V této části se předpokládá, že už máte soubor ISO z webu Red Hat a má
     subscription-manager register --auto-attach --username=XXX --password=XXX
     ```
 
-1. Upravte spouštěcí řádek jádra v konfiguraci GRUB tak, aby zahrnoval další parametry jádra pro Azure. Tuto konfiguraci provedete tak, že v textovém editoru otevřete `/etc/default/grub` a upravíte parametr `GRUB_CMDLINE_LINUX`. Například:
+1. Upravte spouštěcí řádek jádra v konfiguraci GRUB tak, aby zahrnoval další parametry jádra pro Azure. Tuto konfiguraci provedete tak, že v textovém editoru otevřete `/etc/default/grub` a upravíte parametr `GRUB_CMDLINE_LINUX`. Příklad:
 
     ```sh
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
@@ -474,7 +464,7 @@ V této části se předpokládá, že jste už nainstalovali virtuální počí
     sudo subscription-manager register --auto-attach --username=XXX --password=XXX
     ```
 
-1. Upravte spouštěcí řádek jádra v konfiguraci GRUB tak, aby zahrnoval další parametry jádra pro Azure. Chcete-li provést tuto úpravu, otevřete `/etc/default/grub` v textovém editoru a upravte parametr `GRUB_CMDLINE_LINUX`. Například:
+1. Upravte spouštěcí řádek jádra v konfiguraci GRUB tak, aby zahrnoval další parametry jádra pro Azure. Chcete-li provést tuto úpravu, otevřete `/etc/default/grub` v textovém editoru a upravte parametr `GRUB_CMDLINE_LINUX`. Příklad:
 
     ```sh
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"

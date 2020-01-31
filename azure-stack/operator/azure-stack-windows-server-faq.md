@@ -1,26 +1,18 @@
 ---
-title: Nejčastější dotazy týkající se Azure Stack centra pro Windows Server | Microsoft Docs
+title: Nejčastější dotazy týkající se Azure Stack centra pro Windows Server
 description: Seznam nejčastějších dotazů k webu centra Azure Stack pro Windows Server
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/27/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 08/29/2019
-ms.openlocfilehash: ae3a1d602347a4cb4dcb6199075cd1e3dce9cb29
-ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
+ms.openlocfilehash: 5a0c02737610a663448286b16afbf1504102a8a6
+ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76023223"
+ms.lasthandoff: 01/30/2020
+ms.locfileid: "76890132"
 ---
 # <a name="windows-server-in-azure-stack-hub-marketplace-faq"></a>Nejčastější dotazy k Windows serveru na webu centra Azure Stack
 
@@ -96,7 +88,7 @@ Pokud chcete aktivovat virtuální počítač s Windows serverem na rozbočovač
 
 ### <a name="how-can-i-verify-that-my-virtual-machine-is-activated"></a>Jak se dá ověřit, jestli je můj virtuální počítač aktivovaný?
 
-Z příkazového řádku s oprávněním vyšší úrovně spusťte následující příkaz:
+Z příkazového řádku se zvýšenými oprávněními spusťte následující příkaz:
 
 ```shell
 slmgr /dlv
@@ -106,7 +98,7 @@ Pokud je tato možnost aktivována správně, zobrazí se tato jasně uvedená a
 
 ### <a name="my-vm-is-not-set-up-to-use-avma-how-can-i-fix-it"></a>Můj virtuální počítač není nastavený tak, aby používal AVMA, jak ho můžu opravit?
 
-Z příkazového řádku s oprávněním vyšší úrovně spusťte následující příkaz:
+Z příkazového řádku se zvýšenými oprávněními spusťte následující příkaz:
 
 ```shell
 slmgr /ipk <AVMA key>

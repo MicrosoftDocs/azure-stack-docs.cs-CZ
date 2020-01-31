@@ -1,26 +1,18 @@
 ---
-title: Ověření certifikátů infrastruktury veřejných klíčů Azure Stack hub pro nasazení integrovaných systémů Azure Stack hub | Microsoft Docs
+title: Ověření certifikátů infrastruktury veřejných klíčů Azure Stack hub pro nasazení integrovaných systémů centra Azure Stack
 description: Popisuje, jak ověřit certifikáty PKI centra Azure Stack pro integrované systémy služby Azure Stack hub. Zahrnuje použití nástroje pro kontrolu certifikátů ve službě Azure Stack hub.
-services: azure-stack
-documentationcenter: ''
-author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
+author: ihenkel
 ms.topic: article
 ms.date: 07/23/2019
-ms.author: mabrigg
+ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: 94acfbeb0c08bc79ad6d9bfa0282313a39c0eae6
-ms.sourcegitcommit: e47dc5fe9e59010ea3dbb9cb31abe15cfb821262
+ms.openlocfilehash: 8ade18f01f9d0636e3a5903307ee9513c44470f7
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76124714"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882591"
 ---
 # <a name="validate-azure-stack-hub-pki-certificates"></a>Ověření certifikátů PKI Azure Stack hub
 
@@ -83,13 +75,13 @@ Pomocí těchto kroků Připravte a ověřte certifikáty PKI centra Azure Stack
     ```
     
     > [!Note]  
-    > AD FS a Graph jsou požadovány, pokud používáte AD FS jako systém identity. Například:
+    > AD FS a Graph jsou požadovány, pokud používáte AD FS jako systém identity. Příklad:
     >
     > ```powershell  
     > $directories = 'ACSBlob', 'ACSQueue', 'ACSTable', 'ADFS', 'Admin Extension Host', 'Admin Portal', 'ARM Admin', 'ARM Public', 'Graph', 'KeyVault', 'KeyVaultInternal', 'Public Extension Host', 'Public Portal'
     > ```
     
-     - Své certifikáty umístěte do příslušných adresářů, které jste vytvořili v předchozím kroku. Například:  
+     - Své certifikáty umístěte do příslušných adresářů, které jste vytvořili v předchozím kroku. Příklad:  
         - `C:\Certificates\Deployment\ACSBlob\CustomerCertificate.pfx`
         - `C:\Certificates\Deployment\Admin Portal\CustomerCertificate.pfx`
         - `C:\Certificates\Deployment\ARM Admin\CustomerCertificate.pfx`
@@ -101,7 +93,7 @@ Pomocí těchto kroků Připravte a ověřte certifikáty PKI centra Azure Stack
     Invoke-AzsCertificateValidation -CertificateType Deployment -CertificatePath C:\Certificates\Deployment -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD  
     ```
 
-4. Ověřte výstup a všechny certifikáty předejte všechny testy. Například:
+4. Ověřte výstup a všechny certifikáty předejte všechny testy. Příklad:
 
     ```powershell
     Invoke-AzsCertificateValidation v1.1912.1082.37 started.
@@ -148,7 +140,7 @@ Pomocí těchto kroků Připravte a ověřte certifikáty PKI centra Azure Stack
     Invoke-AzsCertificateValidation Completed
     ```
 
-    Pokud chcete ověřit certifikáty pro jiné služby Azure Stack centra, změňte hodnotu ```-CertificateType```. Například:
+    Pokud chcete ověřit certifikáty pro jiné služby Azure Stack centra, změňte hodnotu ```-CertificateType```. Příklad:
 
     ```powershell  
     # App Services
