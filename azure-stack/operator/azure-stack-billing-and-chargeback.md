@@ -1,26 +1,18 @@
 ---
-title: Fakturace a vrácení peněz zákazníka v centru Azure Stack | Microsoft Docs
+title: Fakturace a vrácení peněz zákazníka v centru Azure Stack
 description: Přečtěte si, jak se uživatelům centra Azure Stack fakturovat za využití prostředků a jak se k fakturačním informacím dostanete pro účely analýzy a vrácení peněz.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 03/21/2019
-ms.openlocfilehash: 6d3f9c6965154873fefb88255c60bb03c6790bea
-ms.sourcegitcommit: ecb541f53255c6a4433724ad2d20fb93c4720ce1
+ms.openlocfilehash: fbf5894c8d15bfb23d8bbdceeadfe857e291864c
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76706605"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76878492"
 ---
 # <a name="usage-and-billing-in-azure-stack-hub"></a>Využití a fakturace v centru Azure Stack
 

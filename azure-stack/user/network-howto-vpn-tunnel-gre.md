@@ -1,20 +1,18 @@
 ---
-title: Postup vytvoření tunelu VPN pomocí protokolu GRE v centru pro Azure Stack | Microsoft Docs
+title: Postup vytvoření tunelu VPN pomocí protokolu GRE v Azure Stackovém centru
 description: Naučte se vytvořit tunel VPN pomocí protokolu GRE v Azure Stack hub.
-services: azure-stack
 author: mattbriggs
-ms.service: azure-stack
 ms.topic: how-to
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: 88f3d1ab53ace7a666aab8dcae640f2cef3b77fa
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: 623d2825c74d486b0500d5aa17e98d28234f0086
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76536551"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882990"
 ---
 # <a name="how-to-create-a-vpn-tunnel-using-gre-in-azure-stack-hub"></a>Postup vytvoření tunelu VPN pomocí protokolu GRE v Azure Stackovém centru
 

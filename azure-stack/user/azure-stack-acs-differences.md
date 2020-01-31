@@ -1,26 +1,18 @@
 ---
-title: Rozdíly a požadavky na úložiště centra Azure Stack | Microsoft Docs
+title: Rozdíly a požadavky na úložiště centra Azure Stack
 description: Seznamte se s rozdíly mezi Azure Stack úložiště centra a Azure Storage společně s Azure Stackmi požadavky na nasazení centra.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviwer: xiaofmao
 ms.lastreviewed: 01/30/2019
-ms.openlocfilehash: dc50320941ab12fbd3f8b6b43f44e5ef9ddc7c45
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: 6e5171c105bd806895a04880e0bec0af5fab8855
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76535803"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883975"
 ---
 # <a name="azure-stack-hub-storage-differences-and-considerations"></a>Úložiště centra Azure Stack: rozdíly a požadavky
 
@@ -46,7 +38,7 @@ Tento článek shrnuje známé rozdíly v úložištích Azure Stack centra od s
 |Vrstvy úložiště pro Blob Storage|Horké, studené a archivní úrovně úložiště.|Zatím se nepodporuje.
 |Obnovitelné odstranění pro úložiště objektů BLOB|Obecné dostupné|Zatím se nepodporuje.
 |Maximální velikost objektu blob stránky|8 TB|1 TB
-|Velikost stránky objektu blob stránky|512 bajtů|4 kB
+|Velikost stránky objektu blob stránky|512 bajtů|4 KB
 |Klíč oddílu tabulky a velikost klíče řádku|1 024 znaků (2 048 bajtů)|400 znaků (800 bajtů)
 |Snímek objektu BLOB|Maximální počet snímků jednoho objektu BLOB není omezený.|Maximální počet snímků jednoho objektu BLOB je 1 000.
 |Ověřování Azure AD pro úložiště|Ve verzi Preview|Zatím se nepodporuje.

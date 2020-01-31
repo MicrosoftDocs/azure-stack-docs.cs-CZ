@@ -1,33 +1,24 @@
 ---
-title: Přehled pomoci a podpory centra Microsoft Azure Stack | Microsoft Docs
+title: Přehled pomoci a podpory centra Microsoft Azure Stack
 description: Získejte podporu pro Centrum Microsoft Azure Stack.
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: a20bea32-3705-45e8-9168-f198cfac51af
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 07/24/2019
-ms.openlocfilehash: 65e4879be05141540e8f2e20e2a5a156f6368629
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 621c0abb4f2e50c72e5a024cc3c1e634e73fe0c2
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75818158"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882232"
 ---
 # <a name="microsoft-azure-stack-hub-help-and-support"></a>Pomoc a podpora centra Microsoft Azure Stack
 
 **Nápověda a podpora** na portálu Azure Stack hub obsahuje zdroje, které vám pomůžou získat další informace o Azure Stack centru, zjistit možnosti podpory a získat odbornou pomoc. Od verze 1907 mohou operátoři shromažďovat diagnostické protokoly pro řešení potíží také pomocí programu Help + support.  
 
-## <a name="help-resources"></a>Zdroje nápovědy 
+## <a name="help-resources"></a>Prostředky pro usnadnění 
 
 Pomocí operátorů Support **+ support** můžete také získat další informace o centru Azure Stack, zjistit možnosti podpory a získat odbornou pomoc. 
 

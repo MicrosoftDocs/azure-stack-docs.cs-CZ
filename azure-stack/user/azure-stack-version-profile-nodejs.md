@@ -1,25 +1,18 @@
 ---
-title: Používání profilů verzí rozhraní API s Node. js v centru Azure Stack | Microsoft Docs
+title: Používání profilů verzí rozhraní API s Node. js v Azure Stackovém centru
 description: Přečtěte si o používání profilů verzí rozhraní API pomocí Node. js v centru Azure Stack.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: d235a128e9fc7bb0bdabec58f33ff6de76c50a5e
-ms.sourcegitcommit: ba2fd47e74adebe1fcbb489d059a2c27d59b179c
+ms.openlocfilehash: b397ee97c5b1e7ea9cc1a47e60f24d21ae8d6f29
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76256270"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884283"
 ---
 # <a name="use-api-version-profiles-with-nodejs-software-development-kit-sdk-in-azure-stack-hub"></a>Použití profilů verzí rozhraní API s Node. js Software Development Kit (SDK) v centru Azure Stack
 
@@ -234,7 +227,7 @@ Následující ukázky můžete použít jako referenci pro vytváření řešen
     - ID tenanta
     - ID klienta
     - Tajný klíč klienta
-    - Azure Subscription ID
+    - ID předplatného Azure
     - Koncový bod Správce prostředků centra Azure Stack
 
 4.  Nastavte následující proměnné prostředí pomocí informace, které jste získali z instanční objekt že vytvoříte pomocí příkazového řádku:

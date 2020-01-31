@@ -1,27 +1,18 @@
 ---
-title: Požadavky na plánování integrace Datacenter pro integrované systémy centra Azure Stack | Microsoft Docs
+title: Požadavky na plánování integrace Datacenter pro integrované systémy centra Azure Stack
 description: Naučte se plánovat a připravit integraci Datacenter pomocí integrovaných systémů Azure Stack hub.
-services: azure-stack
-documentationcenter: ''
-author: mattbriggs
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
+author: ihenkel
 ms.topic: article
 ms.date: 1/22/2020
-ms.author: mabrigg
+ms.author: inhenkel
 ms.reviewer: wfayed
 ms.lastreviewed: 09/12/2018
-ms.openlocfilehash: 07ec33de275d46dbdcab3d54c9baa69be8a1e3f2
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: b4809454f6bec18fbfd2ffdc3f1aa866786199c5
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76535480"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882483"
 ---
 # <a name="datacenter-integration-planning-considerations-for-azure-stack-hub-integrated-systems"></a>Požadavky na plánování integrace Datacenter pro integrované systémy centra Azure Stack
 
@@ -92,7 +83,7 @@ Následující tabulka shrnuje tato rozhodnutí o pojmenovávání domén.
 | Privátní (interní) název domény | Název domény (a interní zóny DNS) vytvořený na Azure Stack hub pro správu infrastruktury
 | | |
 
-## <a name="certificate-requirements"></a>Požadavky na certifikáty
+## <a name="certificate-requirements"></a>Požadavky na certifikát
 
 Pro nasazení budete muset zadat SSL (Secure Sockets Layer) (SSL) certifikátů pro veřejné koncové body. Na vysoké úrovni mají certifikáty tyto požadavky:
 
@@ -106,7 +97,7 @@ Další informace o tom, jaké certifikáty PKI jsou potřeba k nasazení centra
 > Poskytnuté informace o certifikátu PKI by se měly používat jako obecné pokyny. Než získáte všechny certifikáty PKI pro centrum Azure Stack, pracujte s vaším hardwarovým partnerem OEM. Poskytnou podrobnější pokyny k certifikátu a požadavky.
 
 
-## <a name="time-synchronization"></a>Čas synchronizace
+## <a name="time-synchronization"></a>Synchronizace času
 Musíte zvolit konkrétní časový server, který se používá k synchronizaci centra Azure Stack. Synchronizace času je důležitá pro Azure Stack centra a jeho rolí infrastruktury, protože se používá ke generování lístků protokolu Kerberos. Lístky protokolu Kerberos slouží k ověřování vnitřních služeb navzájem.
 
 Je nutné zadat IP adresu serveru pro synchronizaci času. I když většina komponent v infrastruktuře dokáže vyřešit adresu URL, některá podporují jenom IP adresy. Pokud používáte možnost odpojeného nasazení, musíte zadat časový server ve vaší podnikové síti, na kterém jste si jisti, že se můžete dostat ze sítě infrastruktury v centru Azure Stack.
@@ -136,9 +127,9 @@ Následující tabulka shrnuje scénáře hybridního připojení s případy pr
 | Scénář | Metoda připojení | V oblasti IT | Nevýhody | Vhodné pro |
 | -- | -- | --| -- | --|
 | Centrum Azure Stack pro jednoho tenanta, nasazení v intranetu | Odchozí NAT | Lepší šířka pásma pro rychlejší přenos. Jednoduchá implementace; nevyžadují se žádné brány. | Provoz není šifrovaný; žádná izolace ani šifrování mimo zásobník. | Podniková nasazení, kde jsou všichni klienti stejně důvěryhodní.<br><br>Podniky, které mají okruh Azure ExpressRoute do Azure. |
-| Centrum Azure Stack pro více tenantů, nasazení v intranetu | Site-to-Site VPN | Provoz z virtuální sítě VNet do cíle je zabezpečený. | Šířka pásma je omezená tunelovým propojením VPN typu Site-to-site.<br><br>Vyžaduje bránu ve virtuální síti a v zařízení VPN v cílové síti. | Podniková nasazení, kde musí být určitý klientský provoz zabezpečený z jiných tenantů. |
+| Centrum Azure Stack pro více tenantů, nasazení v intranetu | Síť VPN typu Site-to-site | Provoz z virtuální sítě VNet do cíle je zabezpečený. | Šířka pásma je omezená tunelovým propojením VPN typu Site-to-site.<br><br>Vyžaduje bránu ve virtuální síti a v zařízení VPN v cílové síti. | Podniková nasazení, kde musí být určitý klientský provoz zabezpečený z jiných tenantů. |
 | Centrum Azure Stack s jedním klientem, nasazení Internetu | Odchozí NAT | Lepší šířka pásma pro rychlejší přenos. | Provoz není šifrovaný; žádná izolace ani šifrování mimo zásobník. | Hostování scénářů, kde tenant získá vlastní nasazení centra Azure Stack a vyhrazený okruh do prostředí Azure Stack hub. Například ExpressRoute a přepínání mezi protokoly (MPLS).
-| Víceklientské centrum Azure Stack, internetové nasazení | Site-to-Site VPN | Provoz z virtuální sítě VNet do cíle je zabezpečený. | Šířka pásma je omezená tunelovým propojením VPN typu Site-to-site.<br><br>Vyžaduje bránu ve virtuální síti a v zařízení VPN v cílové síti. | Hostování scénářů, ve kterých poskytovatel chce nabídnout víceklientské Cloud, kde se vzájemně nevztahují jiní klienti a provoz musí být zašifrovaný.
+| Víceklientské centrum Azure Stack, internetové nasazení | Síť VPN typu Site-to-site | Provoz z virtuální sítě VNet do cíle je zabezpečený. | Šířka pásma je omezená tunelovým propojením VPN typu Site-to-site.<br><br>Vyžaduje bránu ve virtuální síti a v zařízení VPN v cílové síti. | Hostování scénářů, ve kterých poskytovatel chce nabídnout víceklientské Cloud, kde se vzájemně nevztahují jiní klienti a provoz musí být zašifrovaný.
 |  |  |  |  |  |
 
 ### <a name="using-expressroute"></a>Použití ExpressRoute

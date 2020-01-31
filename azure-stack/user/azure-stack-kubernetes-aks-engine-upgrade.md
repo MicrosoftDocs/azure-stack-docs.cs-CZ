@@ -1,26 +1,18 @@
 ---
-title: Upgrade clusteru Kubernetes v centru Azure Stack | Microsoft Docs
+title: Upgrade clusteru Kubernetes na rozbočovači Azure Stack
 description: Naučte se upgradovat cluster Kubernetes na rozbočovači Azure Stack.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na (Kubernetes)
-ms.devlang: nav
 ms.topic: article
 ms.date: 01/02/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/02/2020
-ms.openlocfilehash: de2774a9cdbdbc8461b05db5dbf1f80b0854fbc7
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 9a1a9f4d5edcd7446d980489cfd475db51ed5d07
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883605"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883464"
 ---
 # <a name="upgrade-a-kubernetes-cluster-on-azure-stack-hub"></a>Upgrade clusteru Kubernetes na rozbočovači Azure Stack
 

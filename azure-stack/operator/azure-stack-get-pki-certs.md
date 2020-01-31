@@ -1,25 +1,18 @@
 ---
-title: Vygenerovat žádosti o podepsání certifikátu pro centrum Azure Stack | Microsoft Docs
+title: Vygenerovat žádosti o podepsání certifikátu pro centrum Azure Stack
 description: Naučte se generovat žádosti o podepsání certifikátu pro Azure Stack centrálních certifikátů PKI v integrovaných systémech centra Azure Stack.
-services: azure-stack
-documentationcenter: ''
-author: justinha
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
+author: ihenkel
 ms.topic: article
 ms.date: 09/10/2019
-ms.author: justinha
+ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 09/10/2019
-ms.openlocfilehash: 4b966ac4faec51dac06e39fab8804e295a9a40b1
-ms.sourcegitcommit: 320eddb281a36d066ec80d67b103efad7d4f33c8
+ms.openlocfilehash: baee1a439129f83013e191db683927cd15cb1d65
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76145831"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882259"
 ---
 # <a name="generate-certificate-signing-requests-for-azure-stack-hub"></a>Vygenerovat žádosti o podepsání certifikátu pro centrum Azure Stack
 
@@ -54,7 +47,7 @@ Pomocí těchto kroků můžete připravit a ověřit certifikáty PKI Azure Sta
         Install-Module Microsoft.AzureStack.ReadinessChecker
     ```
 
-2. Deklarovat **Předmět** Například:
+2. Deklarovat **Předmět** Příklad:
 
     ```powershell  
     $subject = "C=US,ST=Washington,L=Redmond,O=Microsoft,OU=Azure Stack Hub"
@@ -63,7 +56,7 @@ Pomocí těchto kroků můžete připravit a ověřit certifikáty PKI Azure Sta
     > [!NOTE]  
     > Pokud je zadán běžný název (CN), bude nakonfigurován na každou žádost o certifikát. Pokud je parametr CN vynechán, bude na žádost o certifikát nakonfigurován první název DNS služby Azure Stack hub.
 
-3. Deklarujete výstupní adresář, který již existuje. Například:
+3. Deklarujete výstupní adresář, který již existuje. Příklad:
 
     ```powershell  
     $outputDirectory = "$ENV:USERPROFILE\Documents\AzureStackCSR"
@@ -101,7 +94,7 @@ Pomocí těchto kroků můžete připravit a ověřit certifikáty PKI Azure Sta
     New-AzsCertificateSigningRequest -certificateType Deployment -RegionName $regionName -FQDN $externalFQDN -subject $subject -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
     ```
 
-    Chcete-li generovat žádosti o certifikát pro jiné služby Azure Stack centra, změňte hodnotu `-CertificateType`. Například:
+    Chcete-li generovat žádosti o certifikát pro jiné služby Azure Stack centra, změňte hodnotu `-CertificateType`. Příklad:
 
     ```powershell  
     # App Services

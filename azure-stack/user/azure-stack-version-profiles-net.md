@@ -1,27 +1,18 @@
 ---
-title: Použití profilů verzí rozhraní API s rozhraním .NET v centru Azure Stack | Microsoft Docs
+title: Použití profilů verzí rozhraní API s .NET v Azure Stackovém centru
 description: Naučte se používat profily verzí rozhraní API s .NET SDK v Azure Stack hub.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2019
+ms.date: 01/27/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 3af8a06f10322df67d80c489e1d19a7805dd8b2c
-ms.sourcegitcommit: ba2fd47e74adebe1fcbb489d059a2c27d59b179c
+ms.openlocfilehash: 6f8220f9a8683569c23460acf2890c9aa8407f30
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76256389"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883083"
 ---
 # <a name="use-api-version-profiles-with-net-in-azure-stack-hub"></a>Použití profilů verzí rozhraní API s .NET v Azure Stackovém centru
 
@@ -34,7 +25,7 @@ Profil rozhraní API je kombinací poskytovatelů prostředků a verze rozhraní
 - Chcete-li použít nejnovější verzí všech služeb, použijte **nejnovější** profilu balíčků. Tento profil je součástí **Microsoft.Azure.Management** balíček NuGet.
 
 - Pokud chcete používat služby kompatibilní s Azure Stack hub, použijte jeden z následujících balíčků:
-  - **Microsoft. Azure. Management. Profiles. Hybrid\_2019\_03\_01. <*ResourceProvider*>. 0.9.0-Preview. nupkg** 
+  - **Microsoft. Azure. Management. Profiles. Hybrid\_2019\_03\_01. <*ResourceProvider*>. 0.9.0-Preview. nupkg**
   - **Microsoft. Azure. Management. Profiles. Hybrid\_2018\_03\_01. <*ResourceProvider*>. 0.9.0-Preview. nupkg**
 
   Ujistěte se, že **ResourceProvider** část výše uvedených balíčků NuGet se změní na poskytovateli správné.
@@ -53,9 +44,9 @@ Můžete zkombinovat všechny možnosti ve stejné aplikaci.
 
 - Balíčky, které je potřeba nainstalovat, závisí na verzi profilu, kterou chcete použít. Názvy balíčků pro verze profilu jsou:
 
-   - **Microsoft. Azure. Management. Profiles. Hybrid\_2019\_03\_01. <*ResourceProvider*>. 0.9.0-Preview. nupkg**
+  - **Microsoft. Azure. Management. Profiles. Hybrid\_2019\_03\_01. <*ResourceProvider*>. 0.9.0-Preview. nupkg**
 
-   - **Microsoft. Azure. Management. Profiles. Hybrid\_2018\_03\_01. <*ResourceProvider*>. 0.9.0-Preview. nupkg**
+  - **Microsoft. Azure. Management. Profiles. Hybrid\_2018\_03\_01. <*ResourceProvider*>. 0.9.0-Preview. nupkg**
 
 - K instalaci správné balíčky NuGet pro Visual Studio Code, viz následující odkaz ke stažení [Pokyny pro správce balíčků NuGet][].
 
@@ -85,7 +76,7 @@ Pokud chcete najít ID tenanta pro centrum Azure Stack, postupujte podle pokynů
 Chcete-li nastavit proměnné prostředí v příkazovém řádku Windows, použijte následující formát:
 
 ```shell
-Set Azure_Tenant_ID=Your_Tenant_ID
+set Azure_Tenant_ID=Your_Tenant_ID
 ```
 
 ### <a name="macos-linux-and-unix-based-systems"></a>macOS, Linux a systémů založených na systému Unix
@@ -93,7 +84,7 @@ Set Azure_Tenant_ID=Your_Tenant_ID
 V systémech UNIX použijte následující příkaz:
 
 ```shell
-Export Azure_Tenant_ID=Your_Tenant_ID
+export Azure_Tenant_ID=Your_Tenant_ID
 ```
 
 ### <a name="the-azure-stack-hub-resource-manager-endpoint"></a>Koncový bod Správce prostředků centra Azure Stack

@@ -1,26 +1,19 @@
 ---
-title: Společné parametry pracovního postupu v Azure Stack ověřování jako služba | Microsoft Docs
+title: Společné parametry pracovního postupu v Azure Stack ověřování jako služba
 description: Společné parametry pracovního postupu pro ověřování Azure Stack jako služby
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 567b6a98c6ee407871b53fe6ecb8ddb3762c2119
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: ee72aca1cbba27c75d2811dac96d4b0a78a87617
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76535826"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76885039"
 ---
 # <a name="workflow-common-parameters-for-azure-stack-validation-as-a-service"></a>Společné parametry pracovního postupu pro ověřování Azure Stack jako služby
 

@@ -1,20 +1,18 @@
 ---
-title: Nastavení brány VPN pro centrum Azure Stack | Microsoft Docs
+title: Nastavte bránu VPN pro centrum Azure Stack.
 description: Přečtěte si, jak nastavit bránu VPN pro centrum Azure Stack.
-services: azure-stack
 author: mattbriggs
-ms.service: azure-stack
 ms.topic: how-to
 ms.date: 10/03/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 8b15be476153f2cc3fa01788814801bb751c9a9c
-ms.sourcegitcommit: 7dd685fddf2f5d7a0c0a20fb8830ca5a061ed031
+ms.openlocfilehash: 19056b0ad37511e75d462c201190c8e2f3a606e0
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76259849"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883371"
 ---
 # <a name="set-up-vpn-gateway-for-azure-stack-hub-using-fortigate-nva"></a>Nastavení brány sítě VPN pro centrum Azure Stack s využitím FortiGate síťové virtuální zařízení
 
@@ -94,7 +92,7 @@ Následující tabulka shrnuje parametry, které jsou v těchto nasazeních pou�
 
 5. Vyberte **OK**. A pak vyberte **OK**.
 
-6. Vyberte **Create** (Vytvořit).
+6. Vyberte **Vytvořit**.
 
     Nasazení bude trvat přibližně 10 minut.
 
@@ -128,7 +126,7 @@ Následující tabulka shrnuje parametry, které jsou v těchto nasazeních pou�
 
     ![](./media/azure-stack-network-howto-vnet-to-onprem/image12.png)
 
-10. Vyberte **Save** (Uložit).
+10. Vyberte **Uložit**.
 
 ## <a name="activate-the-fortigate-nva"></a>Aktivace síťové virtuální ZAŘÍZENÍu FortiGate
 

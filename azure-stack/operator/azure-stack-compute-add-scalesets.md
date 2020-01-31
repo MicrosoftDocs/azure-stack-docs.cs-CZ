@@ -1,22 +1,18 @@
 ---
-title: Zpřístupnění sady škálování virtuálních počítačů v centru Azure Stack | Microsoft Docs
+title: Zpřístupnění sady škálování virtuálních počítačů v centru Azure Stack
 description: Přečtěte si, jak operátor cloudu může přidat sady škálování virtuálních počítačů do webu Azure Stack hub Marketplace.
-services: azure-stack
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
 ms.topic: article
 ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: dcd4f1d6ff9eaae4dce629ce576495e3304403aa
-ms.sourcegitcommit: ecb541f53255c6a4433724ad2d20fb93c4720ce1
+ms.openlocfilehash: 7474b18a1d50c6ab8ed91be64f8f943a215ff7fd
+ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76706843"
+ms.lasthandoff: 01/30/2020
+ms.locfileid: "76889741"
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack-hub"></a>Zpřístupnění sady škálování virtuálních počítačů v centru Azure Stack
 

@@ -1,26 +1,18 @@
 ---
-title: Nasazení clusteru Kubernetes s modulem AKS v centru Azure Stack | Microsoft Docs
+title: Nasazení clusteru Kubernetes s modulem AKS v centru Azure Stack
 description: Postup nasazení clusteru Kubernetes na rozbočovači Azure Stack z virtuálního počítače klienta, na kterém běží modul AKS.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na (Kubernetes)
-ms.devlang: nav
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 34fc30c13cf365560fbd30234a60af4cc4f9a594
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: bc56a45bc1312488d00570e4a44436bcdfe14834
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883558"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884799"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>Nasazení clusteru Kubernetes s modulem AKS v centru Azure Stack
 
@@ -158,7 +150,7 @@ Pokračujte v nasazení clusteru:
 
 ## <a name="verify-your-cluster"></a>Ověření clusteru
 
-Ověřte cluster tak, že nasadíte MySQL s Helm a zkontrolujete cluster.
+Ověřte cluster tak, že nasadíte MySql s Helm a zkontrolujete cluster.
 
 1. Získejte veřejnou IP adresu jednoho z vašich hlavních uzlů pomocí portálu Azure Stack hub.
 
@@ -166,31 +158,71 @@ Ověřte cluster tak, že nasadíte MySQL s Helm a zkontrolujete cluster.
 
 3. Pro uživatelské jméno SSH použijete "azureuser" a soubor privátního klíče páru klíčů, který jste zadali pro nasazení clusteru.
 
-4.  Spusťte následující příkazy:
+4. Spuštěním následujících příkazů vytvořte ukázkové nasazení Redis hlavního serveru (jenom pro připojená razítka):
+
+   ```bash
+   kubectl apply -f https://k8s.io/examples/application/guestbook/redis-master-deployment.yaml
+   ```
+
+    1. Dotaz na seznam lusků:
+
+       ```bash
+       kubectl get pods
+       ```
+
+    2. Odpověď by měla vypadat nějak takto:
+
+       ```shell
+       NAME                            READY     STATUS    RESTARTS   AGE
+       redis-master-1068406935-3lswp   1/1       Running   0          28s
+       ```
+
+    3. Zobrazit protokoly nasazení:
+
+       ```shell
+       kubectl logs -f <pod name>
+       ```
+
+    Kompletní nasazení ukázkové aplikace PHP, která zahrnuje hlavní server Redis, najdete podle [pokynů uvedených tady](https://kubernetes.io/docs/tutorials/stateless-application/guestbook/).
+
+5. V případě odpojeného razítka by měly být dostatečné následující příkazy:
+
+    1. Nejdřív ověřte, že jsou spuštěné koncové body clusteru:
+
+       ```bash
+       kubectl cluster-info
+       ```
+
+       Výstup by měl vypadat nějak takto:
+
+       ```shell
+       Kubernetes master is running at https://democluster01.location.domain.com
+       CoreDNS is running at https://democluster01.location.domain.com/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
+       kubernetes-dashboard is running at https://democluster01.location.domain.com/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy
+       Metrics-server is running at https://democluster01.location.domain.com/api/v1/namespaces/kube-system/services/https:metrics-server:/proxy
+       ```
+
+    2. Pak zkontrolujte stavy uzlů:
+
+       ```bash
+       kubectl get nodes
+       ```
+
+       Výstup by měl vypadat přibližně takto:
+
+       ```shell
+       k8s-linuxpool-29969128-0   Ready      agent    9d    v1.15.5
+       k8s-linuxpool-29969128-1   Ready      agent    9d    v1.15.5
+       k8s-linuxpool-29969128-2   Ready      agent    9d    v1.15.5
+       k8s-master-29969128-0      Ready      master   9d    v1.15.5
+       k8s-master-29969128-1      Ready      master   9d    v1.15.5
+       k8s-master-29969128-2      Ready      master   9d    v1.15.5
+       ```
+
+6. Chcete-li vyčistit Redis POD nasazením z předchozího kroku, spusťte následující příkaz:
 
     ```bash
-    sudo snap install helm --classic
-    kubectl -n kube-system create serviceaccount tiller
-    kubectl create clusterrolebinding tiller --clusterrole cluster-admin --serviceaccount=kube-system:tiller
-    helm init --service-account=tiller
-    helm repo update
-    helm install stable/mysql
-    ```
-
-5.  Chcete-li vyčistit test, vyhledejte název používaný pro nasazení MySQL. V následujícím příkladu je název `wintering-rodent`. Pak ho odstraňte. 
-
-    Spusťte následující příkazy:
-
-    ```bash
-    helm ls
-    NAME REVISION UPDATED STATUS CHART APP VERSION NAMESPACE
-    wintering-rodent 1 Thu Oct 18 15:06:58 2018 DEPLOYED mysql-0.10.1 5.7.14 default
-    helm delete wintering-rodent
-    ```
-
-    Zobrazí se rozhraní příkazového řádku:
-    ```bash
-    release "wintering-rodent" deleted
+    kubectl delete deployment -l app=redis
     ```
 
 ## <a name="next-steps"></a>Další kroky

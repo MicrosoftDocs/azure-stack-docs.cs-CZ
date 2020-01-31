@@ -2,18 +2,17 @@
 title: Vzor pro vytváření aplikací, které škálují různé cloudy pomocí Prem dat, v Azure a centra Azure Stack.
 description: Naučte se používat Azure a centrum Azure Stack k vytvoření škálovatelné aplikace pro více cloudů, které používají data Prem.
 author: BryanLa
-ms.service: azure-stack
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: fbf25d49539ebe244b44681ca3207badf744b99b
-ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
+ms.openlocfilehash: 51224171848b6109a7cd3d8eb2d5fa1fdcb70973
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75718279"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76875772"
 ---
 # <a name="cross-cloud-scaling-on-premises-data-pattern"></a>Škálování mezi cloudy (místní data) – vzor
 

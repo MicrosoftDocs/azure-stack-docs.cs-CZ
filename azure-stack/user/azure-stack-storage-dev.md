@@ -1,21 +1,18 @@
 ---
-title: Začínáme s nástroji pro vývoj pro úložiště Azure Stack hub | Microsoft Docs
+title: Začínáme s nástroji pro vývoj pro úložiště Azure Stack hub
 description: Pokyny, jak začít s používáním nástrojů pro vývoj úložiště Azure Stack hub
-services: azure-stack
 author: mattbriggs
 ms.author: mabrigg
 ms.date: 1/22/2020
 ms.topic: conceptual
-ms.service: azure-stack
-manager: femila
 ms.reviewer: xiaofmao
 ms.lastreviewed: 02/27/2019
-ms.openlocfilehash: 043b3ca7105b526e2c0c79ca7573375b2a8cfcae
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: eed80065694512b0f180a4bc28be54d0cace12e7
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76535922"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883156"
 ---
 # <a name="get-started-with-azure-stack-hub-storage-development-tools"></a>Začínáme s nástroji pro vývoj pro úložiště Azure Stack hub
 
@@ -40,7 +37,7 @@ Pro klientské knihovny pro úložiště si pamatujte na verzi, která je kompat
 | Node.js | 2.8.3 | Odkaz na NPM:<br><https://www.npmjs.com/package/azure-storage><br>(Spustit: `npm install azure-storage@2.8.3`)<br> <br>Verze GitHubu:<br><https://github.com/Azure/azure-storage-node/releases/tag/v2.8.3> | Deklarace instance služby |
 | C++ | 5.2.0 | Balíček NuGet:<br><https://www.nuget.org/packages/Microsoft.Azure.Storage.CPP.v140/5.2.0><br> <br>Verze GitHubu:<br><https://github.com/Azure/azure-storage-cpp/releases/tag/v5.2.0> | Nastavení připojovacího řetězce |
 | PHP | 1.2.0 | Verze GitHubu:<br>Běžné: <https://github.com/Azure/azure-storage-php/releases/tag/v1.2.0-common><br>Objekt BLOB: <https://github.com/Azure/azure-storage-php/releases/tag/v1.2.0-blob><br>Provedených<br><https://github.com/Azure/azure-storage-php/releases/tag/v1.1.1-queue><br>Tabulka: <https://github.com/Azure/azure-storage-php/releases/tag/v1.1.0-table><br> <br>Instalovat přes skladatele (Další informace [najdete v podrobnostech níže](#install-php-client-via-composer---current)) | Nastavení připojovacího řetězce |
-| Python | 1.1.0 | Verze GitHubu:<br>Obecný<br><https://github.com/Azure/azure-storage-python/releases/tag/v1.1.0-common><br>Objekt blob:<br><https://github.com/Azure/azure-storage-python/releases/tag/v1.1.0-blob><br>Provedených<br><https://github.com/Azure/azure-storage-python/releases/tag/v1.1.0-queue> | Deklarace instance služby |
+| Python | 1.1.0 | Verze GitHubu:<br>Obecný<br><https://github.com/Azure/azure-storage-python/releases/tag/v1.1.0-common><br>Příznaky<br><https://github.com/Azure/azure-storage-python/releases/tag/v1.1.0-blob><br>Provedených<br><https://github.com/Azure/azure-storage-python/releases/tag/v1.1.0-queue> | Deklarace instance služby |
 | Ruby | 1.0.1 | Balíček RubyGems:<br>Obecný<br><https://rubygems.org/gems/azure-storage-common/versions/1.0.1><br>Objekt BLOB: <https://rubygems.org/gems/azure-storage-blob/versions/1.0.1><br>Fronta: <https://rubygems.org/gems/azure-storage-queue/versions/1.0.1><br>Tabulka: <https://rubygems.org/gems/azure-storage-table/versions/1.0.1><br> <br>Verze GitHubu:<br>Běžné: <https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-common><br>Objekt BLOB: <https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-blob><br>Fronta: <https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-queue><br>Tabulka: <https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-table> | Nastavení připojovacího řetězce |
 
 #### <a name="install-php-client-via-composer---current"></a>Instalovat klienta PHP prostřednictvím skladatele – aktuální
@@ -58,7 +55,7 @@ Instalace prostřednictvím skladatele: (jako příklad Vezměte objekt BLOB).
     ```
 
 2. Stáhněte [skladatele. phar](https://getcomposer.org/composer.phar) do kořenového adresáře projektu.
-3. Spusťte `php composer.phar install`.
+3. Spusťte: `php composer.phar install`.
 ::: moniker-end
 
 ::: moniker range=">=azs-1802 <=azs-1809"
@@ -71,7 +68,7 @@ Instalace prostřednictvím skladatele: (jako příklad Vezměte objekt BLOB).
 | Node.js | 2.7.0 | Odkaz na NPM:<br><https://www.npmjs.com/package/azure-storage><br>(Spustit: `npm install azure-storage@2.7.0`)<br> <br>Verze GitHubu:<br><https://github.com/Azure/azure-storage-node/releases/tag/v2.7.0> | Deklarace instance služby |
 | C++ | 3.1.0 | Balíček NuGet:<br><https://www.nuget.org/packages/wastorage.v140/3.1.0><br> <br>Verze GitHubu:<br><https://github.com/Azure/azure-storage-cpp/releases/tag/v3.1.0> | Nastavení připojovacího řetězce |
 | PHP | 1.0.0 | Verze GitHubu:<br>Běžné: <https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-common><br>Objekt BLOB: <https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-blob><br>Provedených<br><https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-queue><br>Tabulka: <https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-table><br> <br>Nainstalujte přes skladatele (viz podrobnosti níže).) | Nastavení připojovacího řetězce |
-| Python | 1.0.0 | Verze GitHubu:<br>Obecný<br><https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-common><br>Objekt blob:<br><https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-blob><br>Provedených<br><https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-queue> | Deklarace instance služby |
+| Python | 1.0.0 | Verze GitHubu:<br>Obecný<br><https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-common><br>Příznaky<br><https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-blob><br>Provedených<br><https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-queue> | Deklarace instance služby |
 | Ruby | 1.0.1 | Balíček RubyGems:<br>Obecný<br><https://rubygems.org/gems/azure-storage-common/versions/1.0.1><br>Objekt BLOB: <https://rubygems.org/gems/azure-storage-blob/versions/1.0.1><br>Fronta: <https://rubygems.org/gems/azure-storage-queue/versions/1.0.1><br>Tabulka: <https://rubygems.org/gems/azure-storage-table/versions/1.0.1><br> <br>Verze GitHubu:<br>Běžné: <https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-common><br>Objekt BLOB: <https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-blob><br>Fronta: <https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-queue><br>Tabulka: <https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-table> | Nastavení připojovacího řetězce |
 
 #### <a name="install-php-client-via-composer---previous"></a>Instalovat klienta PHP prostřednictvím skladatele – předchozí
@@ -89,7 +86,7 @@ Instalace prostřednictvím skladatele: (jako příklad Vezměte objekt BLOB jak
    ```
 
 2. Stáhněte [skladatele. phar](https://getcomposer.org/composer.phar) do kořenového adresáře projektu.
-3. Spusťte `php composer.phar install`.
+3. Spusťte: `php composer.phar install`.
 :::moniker-end
 
 ## <a name="endpoint-declaration"></a>Deklarace koncového bodu

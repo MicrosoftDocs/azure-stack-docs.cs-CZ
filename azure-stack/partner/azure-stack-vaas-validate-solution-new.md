@@ -1,26 +1,19 @@
 ---
-title: Ověřit nové řešení Azure Stack | Microsoft Docs
+title: Ověřit nové řešení Azure Stack
 description: Naučte se, jak ověřit nové řešení Azure Stack pomocí ověřování jako služby.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: a29b003dca06ed1b886229f031e90c50fbc8dccb
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.openlocfilehash: b3e62141988f99706c652124943da0fbabf44439
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955791"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884021"
 ---
 # <a name="validate-a-new-azure-stack-solution"></a>Ověřit nové řešení Azure Stack
 

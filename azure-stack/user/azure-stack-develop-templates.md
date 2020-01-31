@@ -1,27 +1,18 @@
 ---
-title: Vývoj šablon pro centrum Azure Stack | Microsoft Docs
+title: Vývoj šablon pro centrum Azure Stack
 description: Naučte se vyvíjet šablony Azure Resource Manager pro přenositelnost aplikací mezi Azure a centrum Azure Stack.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.assetid: 8a5bc713-6f51-49c8-aeed-6ced0145e07b
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: unknown
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: 9cb0d229b076fef849d36a61ed43602e65d0a720
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: 97cf7e77aa2a352d5b297b13fca0959722401530
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76536109"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884897"
 ---
 # <a name="develop-templates-for-azure-stack-hub-with-azure-resource-manager"></a>Vývoj šablon pro centra Azure Stack s využitím Azure Resource Manager
 
@@ -64,7 +55,7 @@ Verze služeb Azure se můžou v centru Azure a Azure Stack lišit. Každý pros
 Tyto funkce nejsou k dispozici v centru Azure Stack:
 
 * Přeskočit
-* Take
+* nezbytná
 
 ## <a name="resource-location"></a>Umístění prostředku
 

@@ -1,20 +1,18 @@
 ---
-title: Připojení k centru Azure Stack pomocí rozšíření účtu Azure v Visual Studio Code | Microsoft Docs
+title: Připojení k centru Azure Stack pomocí rozšíření účtu Azure v Visual Studio Code
 description: Jako vývojář se můžete připojit k centru Azure Stack pomocí rozšíření účtu Azure v Visual Studio Code
-services: azure-stack
 author: mattbriggs
-ms.service: azure-stack
 ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 5ef1fe95f91c0ceb343bb796c4c31cdefad65e36
-ms.sourcegitcommit: ba2fd47e74adebe1fcbb489d059a2c27d59b179c
+ms.openlocfilehash: cbcb238e644295e1a66f4eb061d1327fdba3fd13
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76256219"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884867"
 ---
 # <a name="connect-to-azure-stack-hub-using-azure-account-extension-in-visual-studio-code"></a>Připojení k centru Azure Stack pomocí rozšíření účtu Azure v Visual Studio Code
 

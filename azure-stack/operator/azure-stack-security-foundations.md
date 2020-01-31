@@ -2,26 +2,18 @@
 title: Azure Stack ovládací prvky zabezpečení centra
 titleSuffix: Azure Stack Hub
 description: Seznamte se s stav a ovládacími prvky zabezpečení použitými pro centrum Azure Stack.
-services: azure-stack
-documentationcenter: ''
 author: JustinHall
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/10/2019
 ms.author: justinha
 ms.reviewer: fiseraci
 ms.lastreviewed: 1/16/2020
-ms.openlocfilehash: f61e7340c766f50f71bc41db7afa5bc079c53c7d
-ms.sourcegitcommit: 320eddb281a36d066ec80d67b103efad7d4f33c8
+ms.openlocfilehash: 396db14d269ee9443d38f8220e5dd0384d04a479
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76145797"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76881295"
 ---
 # <a name="azure-stack-hub-infrastructure-security-controls"></a>Ovládací prvky zabezpečení infrastruktury centra Azure Stack
 
@@ -62,7 +54,7 @@ Zbývající tajné kódy, které nejsou gMSA, je možné ručně otočit pomoc�
 
 Infrastruktura centra Azure Stack používá pro všechny své interní certifikáty 4096 klíčů RSA. Pro externí koncové body lze také použít stejné certifikáty klíčů. Další informace o tajných klíčích a rotaci certifikátů najdete [v tématu otočení tajných kódů v centru Azure Stack](azure-stack-rotate-secrets.md).
 
-## <a name="windows-defender-application-control"></a>Řízení aplikací programu Windows Defender
+## <a name="windows-defender-application-control"></a>Řízení aplikací v programu Windows Defender
 
 Centrum Azure Stack využívá nejnovější funkce zabezpečení Windows serveru. Jedním z nich je řízení aplikací v programu Windows Defender (WDAC dřív označované jako integrita kódu), které poskytuje seznam povolených spustitelných souborů a zajišťuje, že v infrastruktuře centra Azure Stack běží jenom ověřený kód.
 

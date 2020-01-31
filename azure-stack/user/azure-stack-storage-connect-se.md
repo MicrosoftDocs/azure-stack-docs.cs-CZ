@@ -1,25 +1,18 @@
 ---
-title: Připojení Průzkumník služby Storage k předplatnému centra Azure Stack nebo účtu úložiště | Microsoft Docs
+title: Připojení Průzkumník služby Storage k předplatnému centra Azure Stack nebo účtu úložiště
 description: Informace o tom, jak připojit Průzkumník služby Storage k předplatnému centra Azure Stack
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 7c01e509dc77e2a036ad640ee5376ffda37f903f
-ms.sourcegitcommit: 7dd685fddf2f5d7a0c0a20fb8830ca5a061ed031
+ms.openlocfilehash: 2776443fac5e30b14154e96618a49bd89d16a7c0
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76259830"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884394"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-hub-subscription-or-a-storage-account"></a>Připojení Průzkumník služby Storage k předplatnému centra Azure Stack nebo účtu úložiště
 

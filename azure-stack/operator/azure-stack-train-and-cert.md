@@ -2,21 +2,18 @@
 title: Školení a certifikace
 titleSuffix: Azure Stack
 description: Přečtěte si o možnostech certifikace školení centra Azure Stack.
-services: azure-stack
 author: mattbriggs
-manager: femila
-ms.service: azure-stack
 ms.topic: article
 ms.date: 11/11/2019
 ms.author: mabrigg
 ms.lastreviewed: 11/11/2019
 ms.reviewer: efemmano
-ms.openlocfilehash: 3fdba0792ffb00d7685089a6629a563a6687502e
-ms.sourcegitcommit: c4368652f0dd68c432aa1dabddbabf161a4a6399
+ms.openlocfilehash: c3b028477cac6c39eec157a69b56ade9ea59f63b
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75914663"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882753"
 ---
 # <a name="azure-stack-hub-training-and-certification"></a>Školení a certifikace centra Azure Stack
 

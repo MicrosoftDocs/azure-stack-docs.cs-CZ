@@ -1,27 +1,18 @@
 ---
 title: Ověřit integraci AD FS pro centrum Azure Stack
 description: Pomocí nástroje pro kontrolu připravenosti centra Azure Stack ověřte integraci AD FS pro Azure Stack hub.
-services: azure-stack
-documentationcenter: ''
-author: PatAltimore
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: ihenkel
 ms.topic: article
 ms.date: 06/10/2019
-ms.author: patricka
+ms.author: inhenkel
 ms.reviewer: jerskine
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: 311e676785461eee27bd82911cf9fef3bc408c4b
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: a98a5384b8590f494e6e9d6acdeb05e90fce3a20
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75812956"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76880647"
 ---
 # <a name="validate-ad-fs-integration-for-azure-stack-hub"></a>Ověřit integraci AD FS pro centrum Azure Stack
 

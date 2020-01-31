@@ -1,25 +1,18 @@
 ---
-title: Použití ověřování jako služby pro Azure Stackho portálu k naplánování prvního testu | Microsoft Docs
+title: Použití ověřování jako služby pro Azure Stackho portálu k naplánování prvního testu
 description: K naplánování prvního testu použijte ověřování jako službu Azure Stackového portálu.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 8843b6791876b4e0362d7aee3aa738453a8c3b88
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.openlocfilehash: 166a75da9f6571e80cdfe213fe0ea32c58279dac
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955929"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76885122"
 ---
 # <a name="scheduling-a-test"></a>Plánování testu
 
@@ -31,7 +24,7 @@ Chcete-li zkontrolovat řešení, vytvořte pracovní postup pro test. Pracovní
 
 I když lze pracovní postup testovacího průchodu použít ke spuštění libovolného testu, který poskytuje VaaS, včetně testů z pracovních postupů ověření, nejsou výsledky z pracovního postupu test Pass považovány za *oficiální*. Informace o oficiálních ověřovacích pracovních postupech najdete v tématu [pracovní postupy](azure-stack-vaas-key-concepts.md#workflows).
 
-## <a name="prerequisites"></a>Předpoklady
+## <a name="prerequisites"></a>Požadavky
 
 Než budete postupovat podle tohoto rychlého startu, měli byste dokončit následující položky:
 

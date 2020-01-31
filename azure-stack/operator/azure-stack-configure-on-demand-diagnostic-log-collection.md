@@ -1,27 +1,18 @@
 ---
-title: Shromažďovat diagnostické protokoly centra Azure Stack na vyžádání | Microsoft Docs
+title: Shromažďovat diagnostické protokoly centra Azure Stack na vyžádání
 description: Naučte se shromažďovat diagnostické protokoly na vyžádání v centru Azure Stack s využitím pomoci a podpory nebo privilegovaného koncového bodu (PEP).
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: a20bea32-3705-45e8-9168-f198cfac51af
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2020
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 01/16/2020
-ms.openlocfilehash: bb7fc0488ea264a83cc93e071b044e6443e97630
-ms.sourcegitcommit: ba2fd47e74adebe1fcbb489d059a2c27d59b179c
+ms.openlocfilehash: 759edb6cf4f106e59a1b847cb4dcafd4450665da
+ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76256338"
+ms.lasthandoff: 01/30/2020
+ms.locfileid: "76890081"
 ---
 # <a name="collect-azure-stack-hub-diagnostic-logs-on-demand"></a>Shromažďovat diagnostické protokoly centra Azure Stack na vyžádání
 
@@ -114,7 +105,7 @@ Pomocí těchto kroků spustíte `Get-AzureStackLog` v hostitelském počítači
   Get-AzureStackLog -OutputPath <Path> -InputSasUri "<Blob Service Sas URI>" -FromDate "<Beginning of the time range>" -ToDate "<End of the time range>"
   ```
 
-  Například:
+  Příklad:
 
   ```powershell
   Get-AzureStackLog -OutputPath C:\KubernetesLogs -InputSasUri "https://<storageAccountName>.blob.core.windows.net/<ContainerName><SAS token>" -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2) 
@@ -126,7 +117,7 @@ Pomocí těchto kroků spustíte `Get-AzureStackLog` v hostitelském počítači
   Get-AzureStackLog -OutputSasUri "<Blob service SAS Uri>"
   ```
 
-  Například:
+  Příklad:
 
   ```powershell
   Get-AzureStackLog -OutputSasUri "https://<storageAccountName>.blob.core.windows.net/<ContainerName><SAS token>"
@@ -150,7 +141,7 @@ Pomocí těchto kroků spustíte `Get-AzureStackLog` v hostitelském počítači
   6. Klikněte pravým tlačítkem na nový kontejner a pak klikněte na **získat sdílený přístupový podpis**.
   7. V závislosti na vašich požadavcích Vyberte platný **čas spuštění** a **čas ukončení**.
   8. Pro požadovaná oprávnění vyberte **čtení**, **zápis**a **seznam**.
-  9. Vyberte **Create** (Vytvořit).
+  9. Vyberte **Vytvořit**.
   10. Získáte sdílený přístupový podpis. Zkopírujte část adresy URL a zadejte ji do parametru `-OutputSasUri`.
 
 ### <a name="parameter-considerations-for-both-asdk-and-integrated-systems"></a>Hlediska parametrů pro ASDK i integrované systémy
@@ -159,13 +150,13 @@ Pomocí těchto kroků spustíte `Get-AzureStackLog` v hostitelském počítači
 
 * Parametry **FromDate** a na více dní lze použít ke shromažďování protokolů pro konkrétní časové období. Nejsou-li tyto parametry zadány, budou ve výchozím nastavení shromažďovány protokoly za poslední čtyři hodiny.
 
-* Pomocí parametru **FilterByNode** můžete filtrovat protokoly podle názvu počítače. Například:
+* Pomocí parametru **FilterByNode** můžete filtrovat protokoly podle názvu počítače. Příklad:
 
     ```powershell
     Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -FilterByNode azs-xrp01
     ```
 
-* Pomocí parametru **FilterByLogType** můžete filtrovat protokoly podle typu. Můžete zvolit filtrování podle souboru, sdílení nebo WindowsEvent. Například:
+* Pomocí parametru **FilterByLogType** můžete filtrovat protokoly podle typu. Můžete zvolit filtrování podle souboru, sdílení nebo WindowsEvent. Příklad:
 
     ```powershell
     Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -FilterByLogType File
@@ -178,16 +169,16 @@ Pomocí těchto kroků spustíte `Get-AzureStackLog` v hostitelském počítači
   |   |   |   |    |     |
   | - | - | - | -  |  -  |
   |ACS                   |CA                             |HRP                            |OboService                |VirtualMachines|
-  |ACSBlob               |CacheService                   |IBC                            |OEM                       |WAS            |
+  |ACSBlob               |CacheService                   |IBC                            |OEM                       |VYTVOŘEN            |
   |ACSDownloadService    |Služby Compute                        |InfraServiceController         |OnboardRP                 |WASPUBLIC|
-  |ACSFabric             |CPI                            |KeyVaultAdminResourceProvider  |PXE                       |         |
+  |ACSFabric             |CPI                            |KeyVaultAdminResourceProvider  |PROTOKOLU                       |         |
   |ACSFrontEnd           |CRP                            |KeyVaultControlPlane           |QueryServiceCoordinator   |         | 
   |ACSMetrics            |DeploymentMachine              |KeyVaultDataPlane              |QueryServiceWorker        |         |
   |ACSMigrationService   |DiskRP                         |KeyVaultInternalControlPlane   |SeedRing                  |         |
   |ACSMonitoringService  |Domain (Doména)                         |KeyVaultInternalDataPlane      |SeedRingServices          |         |
   |ACSSettingsService    |OSN                            |KeyVaultNamingService          |SLB                       |         |
   |ACSTableMaster        |EventAdminRP                   |MDM                            |SQL                       |         |
-  |ACSTableServer        |EventRP                        |MetricsAdminRP                 |SRP                       |         |
+  |ACSTableServer        |EventRP                        |MetricsAdminRP                 |OBSAŽEN                       |         |
   |ACSWac                |ExternalDNS                    |MetricsRP                      |Storage                   |         |
   |ADFS                  |FabricRing                     |MetricsServer                  |StorageController         |         |
   |ApplicationController |FabricRingServices             |MetricsStoreService            |URP                       |         |

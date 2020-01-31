@@ -1,27 +1,18 @@
 ---
-title: Osvědčené postupy pro automatické shromažďování protokolů Azure Stack centra | Microsoft Docs
+title: Osvědčené postupy pro automatické shromažďování protokolů Azure Stack hub
 description: Osvědčené postupy pro automatické shromažďování protokolů v centru Azure Stack nápovědu a podpora
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: a20bea32-3705-45e8-9168-f198cfac51af
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 07/25/2019
-ms.openlocfilehash: 7baa7440fec1c29ee43c5d3f80282bd6a58a3242
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 56af62717b4cd32d7a5130d1d324bd40bf61adb9
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883027"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76878424"
 ---
 # <a name="best-practices-for-automatic-azure-stack-hub-log-collection"></a>Osvědčené postupy pro automatické shromažďování protokolů Azure Stack hub 
 
@@ -31,7 +22,7 @@ Toto téma popisuje osvědčené postupy pro správu automatického shromažďov
 
 Nastavte jeden kontejner objektů BLOB pro každou jednotku škálování centra Azure Stack, ze které chcete shromažďovat protokoly. Další informace o konfiguraci kontejneru objektů BLOB najdete v tématu [Konfigurace automatického shromažďování protokolů diagnostiky Azure Stack hub](azure-stack-configure-automatic-diagnostic-log-collection.md). Osvědčeným postupem je ukládat jenom diagnostické protokoly ze stejné jednotky škálování centra Azure Stack v jednom kontejneru objektů BLOB. 
 
-## <a name="retention-policy"></a>Zásady uchovávání
+## <a name="retention-policy"></a>Zásady uchovávání informací
 
 Vytvořte [pravidlo správy životního cyklu](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts) Azure Blob Storage pro správu zásad uchovávání protokolů. Doporučujeme uchovávat protokoly diagnostiky po dobu 30 dnů. Pokud chcete vytvořit pravidlo správy životního cyklu ve službě Azure Storage, přihlaste se k Azure Portal, klikněte na **účty úložiště**, klikněte na kontejner objektů BLOB a v části **BLOB Service**klikněte na **Správa životního cyklu**.
 

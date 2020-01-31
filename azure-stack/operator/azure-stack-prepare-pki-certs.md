@@ -1,27 +1,19 @@
 ---
-title: Příprava certifikátů PKI Azure Stack hub pro nasazení nebo otočení | Microsoft Docs
+title: Příprava certifikátů PKI Azure Stack hub pro nasazení nebo otočení
 titleSuffix: Azure Stack Hub
 description: Naučte se, jak připravit certifikáty PKI pro nasazení integrovaných systémů centra Azure Stack nebo pro střídání tajných kódů v existujícím prostředí centra Azure Stack.
-services: azure-stack
-documentationcenter: ''
-author: justinha
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
+author: ihenkel
 ms.topic: article
 ms.date: 09/16/2019
-ms.author: justinha
+ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 09/16/2019
-ms.openlocfilehash: 9031f81909a5bfe44882aabce47488ba6ca40edf
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 3111d59a685425210bd8e63fbafcd4bb68c4a3a2
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75810346"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76881590"
 ---
 # <a name="prepare-azure-stack-hub-pki-certificates-for-deployment-or-rotation"></a>Příprava certifikátů PKI Azure Stack hub pro nasazení nebo otočení
 
@@ -56,7 +48,7 @@ Pomocí následujících kroků můžete připravit a ověřit certifikáty PKI 
 > [!NOTE]
 > Po importu certifikátu pro centrum Azure Stack se privátní klíč certifikátu uloží jako soubor PKCS 12 (PFX) do clusterovaného úložiště.
 
-### <a name="export-the-certificate"></a>Export certifikátu
+### <a name="export-the-certificate"></a>Exportujte certifikát.
 
 Otevřete konzolu MMC Správce certifikátů a připojte se k úložišti certifikátů místního počítače.
 

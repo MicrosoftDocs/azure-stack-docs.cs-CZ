@@ -2,27 +2,18 @@
 title: Registrace centra Azure Stack s Azure
 titleSuffix: Azure Stack Hub
 description: Naučte se registrovat integrované systémy Azure Stack hub pomocí Azure, abyste si mohli stáhnout Azure Marketplace položky a nastavit vytváření sestav dat.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: 115c3180044b7163887cc388d291e298f7c33bbe
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: 81b899104b162e92f74204f9b70c67fc280d7c31
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76535786"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76881405"
 ---
 # <a name="register-azure-stack-hub-with-azure"></a>Registrace centra Azure Stack s Azure
 

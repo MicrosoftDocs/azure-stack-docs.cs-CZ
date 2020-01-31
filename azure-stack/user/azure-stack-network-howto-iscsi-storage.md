@@ -1,20 +1,18 @@
 ---
-title: Jak se připojit k úložišti iSCSI pomocí centra Azure Stack | Microsoft Docs
+title: Jak se připojit k úložišti iSCSI pomocí centra Azure Stack
 description: Přečtěte si, jak se připojit k úložišti iSCSI pomocí centra Azure Stack.
-services: azure-stack
 author: mattbriggs
-ms.service: azure-stack
 ms.topic: how-to
 ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: 909c138e17a25b06f7ed135c74aefaf63ce69aff
-ms.sourcegitcommit: 7dd685fddf2f5d7a0c0a20fb8830ca5a061ed031
+ms.openlocfilehash: 0e5f87b0cb6920a32021795042a31b740c52adcf
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76259779"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883358"
 ---
 # <a name="connect-to-iscsi-storage-with-azure-stack-hub"></a>Připojení k úložišti iSCSI pomocí centra Azure Stack
 
@@ -63,7 +61,7 @@ Diagram zobrazuje prostředky nasazené ze šablony za účelem vytvoření klie
 
 ### <a name="the-deployment-process"></a>Proces nasazení
 
-Šablona skupiny prostředků vygeneruje výstup, který je určen jako vstup pro další krok. Primárně se zaměřuje na název serveru a veřejnou IP adresu centra Azure Stack, kde provoz iSCSI pochází. Pro tento příklad:
+Šablona skupiny prostředků vygeneruje výstup, který je určen jako vstup pro další krok. Primárně se zaměřuje na název serveru a veřejnou IP adresu centra Azure Stack, kde provoz iSCSI pochází. V tomto příkladu:
 
 1. Nasaďte šablonu infrastruktury.
 2. Nasaďte virtuální počítač centra Azure Stack do virtuálního počítače hostovaného jinde ve vašem datovém centru. 
@@ -74,7 +72,7 @@ Diagram zobrazuje prostředky nasazené ze šablony za účelem vytvoření klie
 
 ### <a name="inputs-for-azuredeployjson"></a>Vstupy pro azuredeploy. JSON
 
-|**Parametry**|**default**|**název**|
+|**Parametry**|**výchozí**|**název**|
 |------------------|---------------|------------------------------|
 |WindowsImageSKU         |2019 – Datacenter   |Vyberte prosím základní image virtuálního počítače s Windows.
 |VMSize                  |Standard_D2_v2    |Zadejte prosím velikost virtuálního počítače.
@@ -116,7 +114,7 @@ Po instalaci těchto požadavků je důležité restartovat systém. Zásady vyr
 
 Skript `Create-iSCSITarget.ps1 `musí být spuštěný v systému, který obsluhuje úložiště. Můžete vytvořit více disků a cílů omezených iniciátory. Tento skript můžete spustit vícekrát, abyste mohli vytvořit mnoho virtuálních disků, které můžete připojit k různým cílům. Můžete připojit více disků k jednomu cíli. 
 
-|**Input** (Vstup)|**default**|**název**|
+|**Input** (Vstup)|**výchozí**|**název**|
 |------------------|---------------|------------------------------|
 |Vzdálený_server         |Souborového serveru               |Název serveru připojujícího se k cíli iSCSI
 |RemoteServerIPs      |1.1.1.1                  |IP adresa, ze které bude přenosy iSCSI přijít
@@ -131,7 +129,7 @@ Skript `Create-iSCSITarget.ps1 `musí být spuštěný v systému, který obsluh
 
 `Connect-toiSCSITarget.ps1` je finální skript, který se spouští na klientovi iSCSI a připojuje disk prezentovaný cílem iSCSI k klientovi iSCSI.
 
-|**Input** (Vstup)|**default**|**název**|
+|**Input** (Vstup)|**výchozí**|**název**|
 |------------------|---------------|------------------------------|
 |TargetiSCSIAddresses   |"2.2.2.2","2.2.2.3"    |IP adresy cíle iSCSI
 |LocalIPAddresses       |"10.10.1.4"            |Jedná se o interní IP adresu, ze které budou přenosy iSCSI přijít.

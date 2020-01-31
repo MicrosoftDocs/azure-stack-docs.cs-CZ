@@ -1,26 +1,18 @@
 ---
-title: Nasazení zabezpečeného clusteru Service Fabric v centru Azure Stack | Microsoft Docs
+title: Nasazení zabezpečeného clusteru Service Fabric v centru Azure Stack
 description: Naučte se, jak nasadit zabezpečený Cluster Service Fabric v centru Azure Stack
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: shnatara
 ms.lastreviewed: 09/25/2019
-ms.openlocfilehash: 11a80f5ae4c256cd49724f6b508d160bf9145a06
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: fadc0adbd8cad2ff92b3849d6c79c933a1bf3bfb
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76536500"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884428"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack-hub"></a>Nasazení clusteru Service Fabric v centru Azure Stack
 
@@ -196,7 +188,7 @@ Ke clusteru Service Fabric můžete přistupovat pomocí Service Fabric Explorer
 
 1. Pokud chcete najít adresu URL pro Service Fabric Explorer a koncový bod připojení klienta, Projděte si výsledky Template deployment.
 
-1. V prohlížeči přejděte na <https://*FQDN*:19080>. V kroku 2 nahraďte *plně kvalifikovaný název* domény plně kvalifikovaným názvem domény vašeho clusteru Service Fabric.   
+1. V prohlížeči přejdete na <https://*FQDN*:19080>. V kroku 2 nahraďte *plně kvalifikovaný název* domény plně kvalifikovaným názvem domény vašeho clusteru Service Fabric.   
    Pokud jste použili certifikát podepsaný svým držitelem, zobrazí se upozornění, že připojení není zabezpečené. Chcete-li pokračovat na web, vyberte **Další informace**a potom **přejděte na webovou stránku**. 
 
 1. Chcete-li provést ověření v lokalitě, je nutné vybrat certifikát, který chcete použít. Vyberte **Další možnosti**, vyberte příslušný certifikát a potom se kliknutím na tlačítko **OK** připojte k Service Fabric Explorer. 

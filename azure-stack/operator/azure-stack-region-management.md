@@ -1,28 +1,19 @@
 ---
-title: Správa oblastí v centru Azure Stack | Microsoft Docs
+title: Správa oblastí v centru Azure Stack
 titleSuffix: Azure Stack Hub
 description: Přehled správy oblastí v centru Azure Stack.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.assetid: e94775d5-d473-4c03-9f4e-ae2eada67c6c
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 08/13/2019
+ms.date: 01/27/2020
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 11/27/2018
-ms.openlocfilehash: 56fb993f7c4059ba468100904d10baabac38cd7d
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 930909dd82b67dbeff5dbf656635855b6d34d92b
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882041"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76881454"
 ---
 # <a name="region-management-in-azure-stack-hub"></a>Správa oblastí v centru Azure Stack
 
@@ -36,7 +27,7 @@ Centrum Azure Stack má na dlaždici **Správa oblastí** k dispozici sadu možn
 
 ![Dlaždice správy oblastí na portálu správce centra Azure Stack](media/azure-stack-region-management/image1.png)
 
-Pokud kliknete na oblast v dlaždici **Správa oblastí** , můžete získat přístup k následujícím informacím:
+Pokud vyberete oblast na dlaždici **Správa oblastí** , můžete získat přístup k následujícím informacím:
 
 [![Popis podoken v okně Správa oblastí na portálu pro správu centra Azure Stack](media/azure-stack-region-management/regionssm.png "Okno Správa oblastí na portálu pro správu centra Azure Stack")](media/azure-stack-region-management/regions.png#lightbox)
 

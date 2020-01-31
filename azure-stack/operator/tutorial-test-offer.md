@@ -3,17 +3,16 @@ title: Otestujte nabídku služby Azure Stack hub.
 description: Naučte se testovat nabídku služeb vytvořením předplatného a nasazením prostředků.
 author: BryanLa
 ms.author: bryanla
-ms.service: azure-stack
 ms.topic: tutorial
 ms.date: 10/13/2019
 ms.reviewer: shriramnat
 ms.lastreviewed: 10/06/2019
-ms.openlocfilehash: fd14a6099c9906a0b37c8227164b213235dcfee3
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: c44f5b06c034a65a79ddd8098b9abc8e220ea5b9
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75820929"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76885085"
 ---
 # <a name="tutorial-test-a-service-offering"></a>Kurz: testování nabídky služeb
 
@@ -80,7 +79,7 @@ Z portálu User Portal zřídíte virtuální počítač pomocí předplatného,
 1. Vyberte **+ vytvořit prostředek** > **COMPUTE** > **\<image – název\>** , kde "image-Name" je název virtuálního počítače, který jste si stáhli v požadavcích.
 1. V části **vytvořit virtuální počítač** / **základy**zadejte následující informace:
   
-   - Zadejte **Název** virtuálního počítače.
+   - Zadejte **název** virtuálního počítače.
    - Zadejte **uživatelské jméno** pro účet správce.
    - Pro virtuální počítače se systémem Linux vyberte možnost heslo pro **typ ověřování**.
    - Pro účet správce zadejte **heslo** , které se bude shodovat s **heslem pro potvrzení**.

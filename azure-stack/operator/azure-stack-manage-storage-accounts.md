@@ -1,26 +1,18 @@
 ---
-title: Správa účtů úložiště Azure Stack hub | Microsoft Docs
+title: Správa účtů úložiště Azure Stack hub
 description: Přečtěte si, jak najít, spravovat, obnovit a získat Azure Stack účty úložiště centra.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: PowerShell
 ms.topic: conceptual
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: 69b02e95e7819ed6caea19721cbd8b09da1a802d
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: e3817639d379811b79387cb46064fbaff02b2f33
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76535293"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882026"
 ---
 # <a name="manage-azure-stack-hub-storage-accounts"></a>Správa účtů úložiště Azure Stack hub
 

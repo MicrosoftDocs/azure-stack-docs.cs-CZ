@@ -1,26 +1,18 @@
 ---
-title: Nasazení modulu AKS ve Windows v centru Azure Stack | Microsoft Docs
+title: Nasazení modulu AKS ve Windows v centru Azure Stack
 description: Naučte se, jak pomocí počítače s Windows v centru Azure Stack hostovat modul AKS za účelem nasazení a správy clusteru Kubernetes.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na (Kubernetes)
-ms.devlang: nav
 ms.topic: article
 ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 280ecbe7c02d3eb9bdc14ba29cfb0b6642a7144c
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 52ecd6131e28c588c14fa923f1c931caae9411ac
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883520"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884788"
 ---
 # <a name="install-the-aks-engine-on-windows-in-azure-stack-hub"></a>Instalace stroje AKS ve Windows do centra Azure Stack
 

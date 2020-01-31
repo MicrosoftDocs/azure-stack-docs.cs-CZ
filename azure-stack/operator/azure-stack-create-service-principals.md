@@ -3,16 +3,15 @@ title: Použití identity aplikace pro přístup k prostředkům
 description: Naučte se spravovat instanční objekt služby Azure Stack hub. Instanční objekt se dá použít s řízením přístupu na základě role pro přihlášení a přístup k prostředkům.
 author: BryanLa
 ms.author: bryanla
-ms.service: azure-stack
 ms.topic: how-to
 ms.date: 11/11/2019
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 73eec3724aa37976809af6d1a4aa1b4b4c7baef5
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: e53758880f8cc6bd4b365d5d752a960d623795e6
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883095"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76879852"
 ---
 # <a name="use-an-app-identity-to-access-azure-stack-hub-resources"></a>Použití identity aplikace pro přístup k prostředkům Azure Stack hub
 
@@ -35,8 +34,8 @@ Spuštění aplikace pod identitou instančního objektu je vhodnější pro jeh
 
 Začnete vytvořením nové registrace aplikace ve vašem adresáři, která vytvoří přidružený [objekt instančního objektu](/azure/active-directory/develop/developer-glossary#service-principal-object) , který bude představovat identitu aplikace v adresáři. Tento dokument popisuje proces vytváření a správy instančního objektu v závislosti na adresáři, který jste zvolili pro vaši instanci služby Azure Stack hub:
 
-- Azure Active Directory (Azure AD). Azure AD je cloudová adresářová služba a služba pro správu identit pro více tenantů. Azure AD můžete použít s připojenou instancí centra Azure Stack.
-- Active Directory Federation Services (AD FS) AD FS poskytuje zjednodušenou, zabezpečenou federaci identit a možnosti jednotného přihlašování k webu (SSO). AD FS můžete použít s připojenými i odpojenými Azure Stack instancemi hub.
+- Azure Active Directory (Azure AD). Azure AD je víceklientské cloudové adresáře a služba pro správu identit. Azure AD můžete použít s připojenou instancí centra Azure Stack.
+- Active Directory Federation Services (AD FS) (AD FS). AD FS poskytuje zjednodušenou, zabezpečenou federaci identit a možnosti jednotného přihlašování k webu (SSO). AD FS můžete použít s připojenými i odpojenými Azure Stack instancemi hub.
 
 Nejprve se dozvíte, jak spravovat instanční objekt, a pak přiřazení instančního objektu k roli a omezení jeho přístupu k prostředkům.
 
@@ -48,7 +47,7 @@ Pokud jste nasadili Azure Stack centrum s Azure AD jako službu pro správu iden
 
 V této části zaregistrujete aplikaci pomocí Azure Portal, která vytvoří objekt instančního objektu ve vašem tenantovi služby Azure AD. V tomto příkladu se instanční objekt vytvoří s přihlašovacími údaji klienta, ale portál podporuje také pověření x509 založené na certifikátu.
 
-1. Přihlaste se k webu [Azure Portal](https://portal.azure.com) pomocí svého účtu Azure.
+1. Přihlaste se k [Azure Portal](https://portal.azure.com) pomocí svého účtu Azure.
 2. Vyberte **Azure Active Directory** > **Registrace aplikací** > **nové registrace**.
 3. Zadejte **název** aplikace.
 4. Vyberte příslušné **podporované typy účtů**.

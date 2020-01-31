@@ -1,23 +1,18 @@
 ---
-title: Vytvoření virtuálního počítače se systémem Linux pomocí centra Azure Stack | Microsoft Docs
+title: Vytvoření virtuálního počítače se systémem Linux pomocí centra Azure Stack
 description: Vytvořte virtuální počítač s Linux serverem pomocí centra Azure Stack.
-services: azure-stack
-cloud: azure-stack
 author: mattbriggs
-manager: femila
-ms.service: azure-stack
 ms.topic: quickstart
 ms.date: 1/10/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.custom: mvc
 ms.lastreviewed: 1/10/2020
-ms.openlocfilehash: ff42069837e13a1d4065a5b3f8d829f70ae09725
-ms.sourcegitcommit: c4368652f0dd68c432aa1dabddbabf161a4a6399
+ms.openlocfilehash: 4e4f9eb8d9a1bf0966d75c2d4e47b94a998675f0
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75915084"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884459"
 ---
 # <a name="quickstart-create-a-linux-server-vm-by-using-the-azure-stack-hub-portal"></a>Rychlý Start: Vytvoření virtuálního počítače s Linux serverem pomocí portálu Azure Stack hub
 

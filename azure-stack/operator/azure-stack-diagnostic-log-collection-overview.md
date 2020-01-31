@@ -1,27 +1,18 @@
 ---
-title: Přehled shromažďování protokolů diagnostiky centra Azure Stack | Microsoft Docs
+title: Přehled shromažďování protokolů diagnostiky centra Azure Stack
 description: Vysvětluje shromažďování diagnostických protokolů v centru Azure Stack Help a podpora, včetně kolekce na vyžádání a automatického shromažďování protokolů.
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: a20bea32-3705-45e8-9168-f198cfac51af
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: cd74be55195975238e9c8454badeab26593811b5
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: facbff4bdddc284c4f547c4bf5941678d2c8bcd7
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882466"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882369"
 ---
 # <a name="overview-of-azure-stack-hub-diagnostic-log-collection"></a>Přehled shromažďování protokolů diagnostiky centra Azure Stack 
 

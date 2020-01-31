@@ -2,26 +2,18 @@
 title: Přidání hostitelských serverů pro poskytovatele prostředků SQL
 titleSuffix: Azure Stack Hub
 description: Naučte se, jak přidat hostitelské servery pro zřizování prostřednictvím adaptéru poskytovatele prostředků SQL.
-services: azure-stack
-documentationCenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 7bdbe25e204ca00b31f1932c16aab6cdb815d5e1
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: c7b3d1ef979e69a72904e03b49cb5ee4b75c182e
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75814554"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882817"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Přidání hostitelských serverů pro poskytovatele prostředků SQL
 

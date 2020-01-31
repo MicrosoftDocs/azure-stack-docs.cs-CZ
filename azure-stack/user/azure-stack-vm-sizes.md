@@ -1,25 +1,18 @@
 ---
-title: Podporované velikosti virtuálních počítačů v centru Azure Stack | Microsoft Docs
+title: Podporované velikosti virtuálních počítačů v centru Azure Stack
 description: Referenční informace o podporovaných velikostech virtuálních počítačů v centru Azure Stack.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: reference
 ms.date: 12/3/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 12/3/2019
-ms.openlocfilehash: c7f09296b68df31892952675bac8086c8b483f6d
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: e172e6fe0143e0d7808ad84f9de5c38cf03bde0e
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883146"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884205"
 ---
 # <a name="vm-sizes-supported-in-azure-stack-hub"></a>Podporované velikosti virtuálních počítačů v centru Azure Stack
 

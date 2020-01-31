@@ -1,20 +1,18 @@
 ---
-title: Nastavení vývojového prostředí v centru Azure Stack | Microsoft Docs
+title: Nastavení vývojového prostředí v centru Azure Stack
 description: Začněte vyvíjet aplikace pro centrum Azure Stack.
-services: azure-stack
 author: mattbriggs
-ms.service: azure-stack
 ms.topic: overview
 ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 147d0d1bc5912d08da61b6c8b04577465da37c96
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 31df74f7c5f3db5c7651747601010109620e82cd
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75820504"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883734"
 ---
 # <a name="set-up-a-development-environment-in-azure-stack-hub"></a>Nastavení vývojového prostředí v centru Azure Stack 
 

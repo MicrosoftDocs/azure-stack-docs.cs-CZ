@@ -1,27 +1,18 @@
 ---
-title: Použití nástroje pro ověření šablony v Azure Stack hub | Microsoft Docs
+title: Použití nástroje pro ověření šablony v Azure Stack hub
 description: Pomocí nástroje pro ověření šablony vyhledejte šablony pro nasazení do centra Azure Stack.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.assetid: d9e6aee1-4cba-4df5-b5a3-6f38da9627a3
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2019
+ms.date: 01/24/2020
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: e3fff62f204ca3903a08ebb8ff0450e2fa4fe7d5
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 1690e191e2aa610e69b1e204b9e685e5d8e90187
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883214"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884287"
 ---
 # <a name="use-the-template-validation-tool-in-azure-stack-hub"></a>Použití nástroje pro ověření šablony v Azure Stack hub
 

@@ -1,27 +1,18 @@
 ---
-title: 1\.1.47.0 zpráva k vydání verze poskytovatele prostředků SQL centra pro Azure Stack | Microsoft Docs
+title: 1\.1.47.0 zpráva k vydání verze poskytovatele prostředků SQL centra pro Azure Stack
 description: Přečtěte si, co je v nejnovější aktualizaci poskytovatele prostředků SQL centra Azure Stack, včetně všech známých problémů a místa, kde ho stáhnout.
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/26/2019
 ms.author: justinha
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/26/2019
-ms.openlocfilehash: 758390e9190e75125bad5701b810af08456f2efc
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 1210b537d36d4be5c31f596bde589afa9b3cadfa
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75881871"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882845"
 ---
 # <a name="sql-resource-provider-11470-release-notes"></a>1\.1.47.0 poznámky k verzi poskytovatele prostředků SQL
 

@@ -1,26 +1,18 @@
 ---
-title: Připojení k centru Azure Stack pomocí PowerShellu | Microsoft Docs
+title: Připojení k centru Azure Stack pomocí PowerShellu
 description: Přečtěte si, jak se připojit k centru Azure Stack pomocí PowerShellu.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: PowerShell
 ms.topic: article
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: fb229a3959341feb1a1c1fb35d2bda86b3879680
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: 1c894dbb431d1f171457ac0300d214cc2e2b7c0f
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76534596"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76881606"
 ---
 # <a name="connect-to-azure-stack-hub-with-powershell"></a>Připojení k centru Azure Stack pomocí PowerShellu
 

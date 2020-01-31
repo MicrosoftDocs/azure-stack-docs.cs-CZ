@@ -1,20 +1,18 @@
 ---
-title: Jak navázat připojení VNET-to-VNET v Azure Stack hub pomocí Fortinet FortiGate síťové virtuální zařízení | Microsoft Docs
+title: Jak navázat připojení VNET-to-VNET v Azure Stack hub pomocí Fortinet FortiGate síťové virtuální zařízení
 description: Naučte se navázat připojení VNET-to-VNET v Azure Stack hub pomocí Fortinet FortiGate síťové virtuální zařízení
-services: azure-stack
 author: mattbriggs
-ms.service: azure-stack
 ms.topic: how-to
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 51fd6ffa23cff44967c31e5d66716bd5634861e0
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: c39285cec673a7274304cb2dbe1179e5478ddc7d
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76536092"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884601"
 ---
 # <a name="establish-a-vnet-to-vnet-connection-in-azure-stack-hub-with-fortinet-fortigate-nva"></a>Navázání připojení VNET-to-VNET v Azure Stack hub pomocí Fortinet FortiGate síťové virtuální zařízení
 
@@ -112,7 +110,7 @@ Opakujte tyto kroky pro prostředí Azure Stack hub.
 
 8. Vyberte **OK** a pak vyberte **OK**.
 
-9. Vyberte **Create** (Vytvořit).
+9. Vyberte **Vytvořit**.
 
 Nasazení bude trvat přibližně 10 minut. Nyní můžete opakováním kroků vytvořit další nasazení FortiGate síťové virtuální zařízení a VNET v jiném prostředí centra Azure Stack.
 
@@ -140,7 +138,7 @@ Proveďte tyto kroky pro obě nasazení, forti1-RG1 a forti2-RG1.
 
 7. Pojmenujte `to-forti1` **trasy** nebo `to-forti2`. Rozsah IP adres použijte v případě, že používáte jiný rozsah IP adres.
 
-8. Zadejte:
+8. Napište
     - forti1: `172.17.0.0/16`  
     - forti2: `172.16.0.0/16`  
 
@@ -154,7 +152,7 @@ Proveďte tyto kroky pro obě nasazení, forti1-RG1 a forti2-RG1.
 
     ![](./media/azure-stack-network-howto-vnet-to-vnet-stacks/image12.png)
 
-10. Vyberte **Save** (Uložit).
+10. Vyberte **Uložit**.
 
 Opakujte postup pro každou skupinu prostředků v každé trase **InsideSubnet** .
 

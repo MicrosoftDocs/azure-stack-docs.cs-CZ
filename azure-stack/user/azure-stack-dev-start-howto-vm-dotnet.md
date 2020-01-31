@@ -1,20 +1,18 @@
 ---
-title: Nasazení webové C# aplikace v ASP.NET do virtuálního počítače v centru pro Azure Stack | Microsoft Docs
+title: Nasazení webové C# aplikace v ASP.NET do virtuálního počítače v centru Azure Stack
 description: Nasaďte C# webovou aplikaci v ASP.NET do virtuálního počítače v centru Azure Stack.
-services: azure-stack
 author: mattbriggs
-ms.service: azure-stack
 ms.topic: overview
 ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 070a168b28296e03dfa5e559eb68c40d84afb939
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 8222d102b22b05a3d5d1fd1a7530aeae62cc276d
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75816135"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884929"
 ---
 # <a name="deploy-a-c-aspnet-web-app-to-a-vm-in-azure-stack-hub"></a>Nasazení webové C# aplikace v ASP.NET do virtuálního počítače v centru Azure Stack
 
@@ -49,7 +47,7 @@ V tomto článku se C# používá aplikace 6,0, která používá ASP.NET Core 2
 
     b. Vyhledejte svůj virtuální počítač. Je možné, že jste virtuální počítač připnuli k řídicímu panelu, nebo ho můžete vyhledat v poli **Hledat prostředky** .
 
-    c. Vyberte **Sítě**.
+    c. Vyberte **sítě**.
 
     d. V části virtuální počítač vyberte **Přidat pravidlo portu pro příchozí spojení** .
 

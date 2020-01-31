@@ -1,26 +1,19 @@
 ---
-title: Kurz – nastavení prostředků pro ověřování jako služby | Microsoft Docs
+title: Kurz – nastavení prostředků pro ověřování jako služby
 description: V tomto kurzu se dozvíte, jak nastavit prostředky pro ověřování jako službu.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: b187194dd63e95fa922000b68dbb701914d10465
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: e04a4fa7384d56a88938e87a83a33bb86829eca3
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76535905"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884051"
 ---
 # <a name="tutorial-set-up-resources-for-validation-as-a-service"></a>Kurz: nastavení prostředků pro ověřování jako služby
 
@@ -56,7 +49,7 @@ Vytvořte tenanta, který bude vaše organizace používat pro přístup ke slu�
 
     Přiřazení rolí v aplikaci **Azure Stack Validation Service** :
 
-   1. Přihlaste se k [Portálu Azure](https://portal.azure.com).
+   1. Přihlaste se na web [Azure Portal](https://portal.azure.com).
    2. V části **Identita** vyberte **všechny služby** > **Azure Active Directory** .
    3. Vyberte **podnikové aplikace** > aplikaci **služby ověřování Azure Stack** .
    4. Vyberte **Uživatelé a skupiny**. Okno **Azure Stack služby ověřování – uživatelé a skupiny** zobrazí seznam uživatelů s oprávněním k používání aplikace.
@@ -98,7 +91,7 @@ Během provádění testu VaaS výstupy pro diagnostické protokoly na účet Az
 
 2. Vyberte předplatné, ve kterém chcete vytvořit účet úložiště.
 
-3. V části **Skupina prostředků** vyberte **Vytvořit novou**. Zadejte název nové skupiny prostředků.
+3. V části **Skupina prostředků**vyberte **vytvořit novou**. Zadejte název nové skupiny prostředků.
 
 4. Přečtěte si [zásady vytváření názvů](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#storage) pro účty Azure Storage. Zadejte název účtu úložiště.
 

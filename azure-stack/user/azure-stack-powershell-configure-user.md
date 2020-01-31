@@ -1,26 +1,18 @@
 ---
-title: Připojení k Azure Stack centra pomocí PowerShellu jako uživatel | Microsoft Docs
+title: Připojení k Azure Stack centra pomocí PowerShellu jako uživatel
 description: Přečtěte si, jak se připojit k centru Azure Stack pomocí PowerShellu.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 98b5cad057ae8a231569cfa7348cb9df16591ff4
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: d7667ed91cb3ebde2b74d05b655e3ff880685d98
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76536024"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884531"
 ---
 # <a name="connect-to-azure-stack-hub-with-powershell-as-a-user"></a>Připojení k Azure Stack centra pomocí PowerShellu jako uživatel
 

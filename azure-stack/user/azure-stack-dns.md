@@ -1,25 +1,17 @@
 ---
-title: DNS v centru Azure Stack | Microsoft Docs
+title: DNS v centru Azure Stack
 description: Přečtěte si o DNS v centru Azure Stack a vytváření a správě zón DNS.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2019
+ms.date: 01/24/2020
 ms.author: sethm
 ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: caf251ad55e10ac1e763c75d61c52de4353eaf9f
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: dd2b00ced084f4a069626f56d37eec1cdae238d6
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75879202"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884832"
 ---
 # <a name="use-dns-in-azure-stack-hub"></a>Použití DNS v centru Azure Stack
 
@@ -41,7 +33,7 @@ Další informace o překladu názvů najdete v článku věnovaném [překladu 
 
 Následující snímek obrazovky ukazuje dialog **vytvořit veřejnou IP adresu** pro vytvoření veřejné IP adresy pomocí portálu:
 
-![Vytvořit veřejnou IP adresu](media/azure-stack-dns/image01.png)
+![Vytvoření veřejné IP adresy](media/azure-stack-dns/image01.png)
 
 ### <a name="example-scenario"></a>Příklad scénáře
 

@@ -1,26 +1,19 @@
 ---
-title: Přehled ověřování jako služby pro centrum Azure Stack | Microsoft Docs
+title: Přehled ověřování jako služby pro centrum Azure Stack
 description: Přehled Azure Stack ověřování centra jako služby.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: dee0be0817c8b614c9961d39330b64f4bd11f85f
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.openlocfilehash: 95cee26239a4549b87360e62c61a34449f6a0774
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955865"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884079"
 ---
 # <a name="what-is-validation-as-a-service-for-azure-stack-hub"></a>Co je ověřování jako služba pro centrum Azure Stack?
 

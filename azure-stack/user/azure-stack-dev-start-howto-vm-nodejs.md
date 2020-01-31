@@ -1,20 +1,18 @@
 ---
-title: Nasazení aplikace Node. js na virtuální počítač v centru Azure Stack | Microsoft Docs
+title: Nasazení aplikace Node. js na virtuální počítač v Azure Stackovém centru
 description: Nasaďte aplikaci Node. js do centra Azure Stack.
-services: azure-stack
 author: mattbriggs
-ms.service: azure-stack
 ms.topic: overview
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 9361b2db39a667da71d125cac496a47386726bb0
-ms.sourcegitcommit: ea90ddcae07857ee4f77670891ac7814da8bdc17
+ms.openlocfilehash: ab6d3e378c4a6f40e597367f06d9e5c4e31eb0c3
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/25/2020
-ms.locfileid: "76750452"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883760"
 ---
 # <a name="deploy-a-nodejs-web-app-to-a-vm-in-azure-stack-hub"></a>Nasazení webové aplikace v Node. js do virtuálního počítače v Azure Stackovém centru
 

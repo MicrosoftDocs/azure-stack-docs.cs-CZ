@@ -1,27 +1,18 @@
 ---
-title: Požadavky na certifikát infrastruktury veřejných klíčů centra Azure Stack | Microsoft Docs
+title: Požadavky na certifikát infrastruktury veřejných klíčů centra Azure Stack
 description: Seznamte se s požadavky na nasazení certifikátů PKI centra Azure Stack pro integrované systémy Azure Stack hub.
-services: azure-stack
-documentationcenter: ''
-author: justinha
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
+author: ihenkel
 ms.topic: article
 ms.date: 12/16/2019
-ms.author: justinha
+ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 12/16/2019
-ms.openlocfilehash: 124f59d043a940ebcd48131f1012551777a17a6d
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 464e47b204c782f5ebac5a3588d0aff5eaf98d49
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75810448"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76881640"
 ---
 # <a name="azure-stack-hub-public-key-infrastructure-certificate-requirements"></a>Požadavky na certifikát infrastruktury veřejných klíčů centra Azure Stack
 
@@ -34,7 +25,7 @@ Centrum Azure Stack má síť s veřejnou infrastrukturou, která používá ext
 > [!NOTE]
 > Azure Stack centrum ve výchozím nastavení používá k ověřování mezi uzly certifikáty vydané interní certifikační autoritou (CA) integrovaná se službou Active Directory. Aby bylo možné certifikát ověřit, všechny počítače infrastruktury centra Azure Stack důvěřují kořenovému certifikátu interní certifikační autority přidáním tohoto certifikátu do místního úložiště certifikátů. V centru Azure Stack není žádné připnutí ani seznam povolených certifikátů. SÍŤ SAN každého certifikátu serveru je ověřena vůči plně kvalifikovanému názvu domény cíle. Také se ověří celý řetěz důvěryhodnosti spolu s datem vypršení platnosti certifikátu (standardní ověřování serveru TLS bez připnutí certifikátu).
 
-## <a name="certificate-requirements"></a>Požadavky na certifikáty
+## <a name="certificate-requirements"></a>Požadavky na certifikát
 Následující seznam popisuje požadavky na certifikáty, které jsou potřeba k nasazení centra Azure Stack:
 
 - Certifikáty se musí vydávat buď z interní certifikační autority, nebo z veřejné certifikační autority. Pokud se používá Veřejná certifikační autorita, musí být součástí základní image operačního systému v rámci programu Microsoft Trusted root Authority. Úplný seznam najdete v tématu [program důvěryhodných kořenových certifikátů společnosti Microsoft: účastníci](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
@@ -113,7 +104,7 @@ Následující tabulka obsahuje popis koncových bodů a certifikátů vyžadova
 |Aplikační služba|Výchozí certifikát SSL pro webový provoz|&#42;.appservice. *&lt;region>.&lt;fqdn>*<br>&#42;.scm.appservice. *&lt;region>.&lt;fqdn>*<br>&#42;.sso.appservice. *&lt;region>.&lt;fqdn>*<br>(Certifikát SSL s více doménovými znaky<sup>1</sup>)|appservice. *&lt;region>.&lt;fqdn>*<br>scm.appservice. *&lt;region>.&lt;fqdn>*|
 |Aplikační služba|API|api.appservice. *&lt;region>.&lt;fqdn>*<br>(Certifikát SSL<sup>2</sup>)|appservice. *&lt;region>.&lt;fqdn>*<br>scm.appservice. *&lt;region>.&lt;fqdn>*|
 |Aplikační služba|FTP|ftp.appservice. *&lt;region>.&lt;fqdn>*<br>(Certifikát SSL<sup>2</sup>)|appservice. *&lt;region>.&lt;fqdn>*<br>scm.appservice. *&lt;region>.&lt;fqdn>*|
-|Aplikační služba|Jednotné přihlašování|sso.appservice. *&lt;region>.&lt;fqdn>*<br>(Certifikát SSL<sup>2</sup>)|appservice. *&lt;region>.&lt;fqdn>*<br>scm.appservice. *&lt;region>.&lt;fqdn>*|
+|Aplikační služba|JEDNOTNÉ|sso.appservice. *&lt;region>.&lt;fqdn>*<br>(Certifikát SSL<sup>2</sup>)|appservice. *&lt;region>.&lt;fqdn>*<br>scm.appservice. *&lt;region>.&lt;fqdn>*|
 
 <sup>1</sup> vyžaduje jeden certifikát s více alternativními názvy subjektu zástupného znaku. Všechny veřejné certifikační autority nemusí podporovat více než jeden zástupný znak sítě SAN na jednom certifikátu.
 

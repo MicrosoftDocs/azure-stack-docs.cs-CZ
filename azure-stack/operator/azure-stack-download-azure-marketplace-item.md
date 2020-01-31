@@ -1,26 +1,18 @@
 ---
-title: Stažení položek z webu Marketplace z Azure a publikování do centra Azure Stack | Microsoft Docs
+title: Stažení položek z webu Marketplace z Azure a publikování do centra Azure Stack
 description: Přečtěte si, jak stáhnout položky z webu Marketplace z Azure a publikovat do centra Azure Stack.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/23/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 12/23/2018
-ms.openlocfilehash: 80cf9d192be07f951ee959c7a83419bb16bd2bbb
-ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
+ms.openlocfilehash: 0df8b4e85aea2a194061da523e66385389b38bb1
+ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76022949"
+ms.lasthandoff: 01/30/2020
+ms.locfileid: "76890319"
 ---
 # <a name="download-marketplace-items-to-azure-stack-hub"></a>Stažení položek z Marketplace do centra Azure Stack 
 

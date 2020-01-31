@@ -1,27 +1,18 @@
 ---
-title: Nasazení šablony pomocí portálu ve službě Azure Stack hub | Microsoft Docs
+title: Nasazení šablony pomocí portálu v Azure Stackovém centru
 description: Naučte se používat portál centra Azure Stack k nasazení šablony.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.assetid: eafa60f2-16c9-4ef1-b724-47709e9ea29e
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 6feca120c01704aaf999899c660c64ecfecd3d97
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: 904a15c59cf2e9418d3615d25c11303fede04762
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76536381"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76885025"
 ---
 # <a name="deploy-a-template-using-the-portal-in-azure-stack-hub"></a>Nasazení šablony pomocí portálu v Azure Stackovém centru
 
@@ -37,7 +28,7 @@ Portál můžete použít k nasazení Azure Resource Manager šablon do centra A
 
    ![Nasazení šablony na portálu centra Azure Stack](media/azure-stack-deploy-template-portal/template-deploy2.png)
 
-1. Vyberte **Upravit šablonu**a vložte kód šablony JSON do okna Code (kód). Vyberte **Save** (Uložit).
+1. Vyberte **Upravit šablonu**a vložte kód šablony JSON do okna Code (kód). Vyberte **Uložit**.
 
    ![Upravit šablonu na portálu centra Azure Stack](media/azure-stack-deploy-template-portal/template-deploy3.png)
 
@@ -53,7 +44,7 @@ Portál můžete použít k nasazení Azure Resource Manager šablon do centra A
 
    ![Vybrat skupinu prostředků na portálu Azure Stack hub](media/azure-stack-deploy-template-portal/template-deploy6.png)
 
-1. Vyberte **Create** (Vytvořit). Nová dlaždice na řídicím panelu sleduje průběh nasazení šablony.
+1. Vyberte **Vytvořit**. Nová dlaždice na řídicím panelu sleduje průběh nasazení šablony.
 
    ![Vytvořit šablonu na portálu Azure Stack hub](media/azure-stack-deploy-template-portal/template-deploy7.png)
 

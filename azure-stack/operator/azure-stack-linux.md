@@ -1,26 +1,18 @@
 ---
-title: Přidání imagí pro Linux do webu centra Azure Stack Marketplace | Microsoft Docs
+title: Přidání imagí pro Linux do webu centra Azure Stack Marketplace
 description: Naučte se přidávat image Linux do Marketplace centra Azure Stack.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2020
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/16/2018
-ms.openlocfilehash: 93b69057d70d12dda92186819731ee707032601a
-ms.sourcegitcommit: ea90ddcae07857ee4f77670891ac7814da8bdc17
+ms.openlocfilehash: b5e15568b2943d34dd5456f924db59cfcf48cb7f
+ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/25/2020
-ms.locfileid: "76750469"
+ms.lasthandoff: 01/30/2020
+ms.locfileid: "76890251"
 ---
 # <a name="add-linux-images-to-the-azure-stack-hub-marketplace"></a>Přidání imagí pro Linux do webu centra Azure Stack Marketplace
 

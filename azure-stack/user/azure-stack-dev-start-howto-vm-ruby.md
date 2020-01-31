@@ -1,20 +1,18 @@
 ---
-title: Nasazení aplikace v Ruby do virtuálního počítače v centru Azure Stacke | Microsoft Docs
+title: Nasazení aplikace v Ruby do virtuálního počítače v Azure Stackovém centru
 description: Nasaďte aplikaci Ruby do virtuálního počítače v Azure Stackovém centru.
-services: azure-stack
 author: mattbriggs
-ms.service: azure-stack
 ms.topic: overview
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: d815cbcd434bab4176afa3fc853b1c1fbfaf571a
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: f2fed0978ee2f5f6cee35f2ef3ffe75e51dc6758
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76536177"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883712"
 ---
 # <a name="deploy-a-ruby-web-app-to-a-vm-in-azure-stack-hub"></a>Nasazení webové aplikace v Ruby do virtuálního počítače v Azure Stackovém centru
 

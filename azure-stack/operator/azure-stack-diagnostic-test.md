@@ -1,25 +1,18 @@
 ---
-title: Použijte nástroj pro ověření centra Azure Stack k ověření stavu systému | Microsoft Docs
+title: Použití nástroje pro ověření centra Azure Stack k ověření stavu systému
 description: Naučte se používat nástroj pro ověření centra Azure Stack k ověření stavu systému.
-services: azure-stack
 author: justinha
-manager: femila
-cloud: azure-stack
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: PowerShell
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: justinha
 ms.reviewer: adshar
 ms.lastreviewed: 01/10/2020
-ms.openlocfilehash: 778f38f0ed3d1b1801b162624daa365ed6d1f09c
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 79ce9557ecfa8ba3b80d463ca7e203be42c7df55
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882500"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882358"
 ---
 # <a name="validate-azure-stack-hub-system-state"></a>Ověřit stav systému centra Azure Stack
 

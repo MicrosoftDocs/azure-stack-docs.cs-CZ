@@ -1,23 +1,18 @@
 ---
-title: Azure Stack služby centra, plánů, nabídek, přehled předplatných | Microsoft Docs
+title: Přehled služeb Azure Stack hub, plánů, nabídek a předplatných
 description: Přehled služeb Azure Stack hub, plánů, nabídek a předplatných.
-services: azure-stack
-documentationcenter: ''
 author: BryanLa
-manager: femila
-editor: ''
-ms.service: azure-stack
 ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 10/01/2019
-ms.openlocfilehash: 4f7cb6bf451ad04a8c6365e5c39a714902f3d0b4
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: c67d880308bd946c2f73f0993bbd3a19be0342aa
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75880001"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76885166"
 ---
 # <a name="azure-stack-hub-services-plans-offers-subscriptions-overview"></a>Přehled služeb Azure Stack hub, plánů, nabídek a předplatných
 

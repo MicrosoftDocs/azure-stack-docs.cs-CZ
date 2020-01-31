@@ -1,26 +1,18 @@
 ---
-title: Vytvoření a publikování položky Marketplace v centru Azure Stack | Microsoft Docs
+title: Vytvoření a publikování položky Marketplace v centru Azure Stack
 description: Naučte se vytvářet a publikovat položku na webu Marketplace centra Azure Stack.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: aa308690caa875d2ab22ca0b987634c2d29795fa
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: fdb31f29faa5fa1890be0fa12050a1cd8b1c56a8
+ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882755"
+ms.lasthandoff: 01/30/2020
+ms.locfileid: "76890115"
 ---
 # <a name="create-and-publish-a-custom-azure-stack-hub-marketplace-item"></a>Vytvoření a publikování položky Marketplace pro vlastní Azure Stack centra
 
@@ -241,7 +233,7 @@ Tržiště používá následující ikony:
 | Velké |115 px |115 px |Vždy vyžadováno |
 | Střední |90 px |90 px |Vždy vyžadováno |
 | Malé |40 px |40 px |Vždy vyžadováno |
-| Snímek obrazovky |533 px |324 px |Vždy vyžadováno |
+| – |533 px |324 px |Vždy vyžadováno |
 
 ### <a name="categories"></a>Kategorie
 

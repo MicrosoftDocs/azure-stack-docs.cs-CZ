@@ -1,26 +1,18 @@
 ---
-title: Nasazení poskytovatele prostředků MySQL v centru Azure Stack | Microsoft Docs
+title: Nasazení poskytovatele prostředků MySQL v centru Azure Stack
 description: Naučte se nasadit adaptér poskytovatele prostředků MySQL a databáze MySQL jako službu na centra Azure Stack.
-services: azure-stack
-documentationCenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/18/2019
-ms.openlocfilehash: ab90c149094fe62452199cc346ebe1c260ff260f
-ms.sourcegitcommit: ecb541f53255c6a4433724ad2d20fb93c4720ce1
+ms.openlocfilehash: 52ee1953098f861cca572e08269dff56da31f3aa
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76706758"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76881822"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack-hub"></a>Nasazení poskytovatele prostředků MySQL do centra Azure Stack
 
@@ -211,7 +203,7 @@ Po dokončení instalačního skriptu poskytovatele prostředků aktualizujte pr
 ## <a name="verify-the-deployment-by-using-the-azure-stack-hub-portal"></a>Ověření nasazení pomocí portálu Azure Stack hub
 
 1. Přihlaste se k portálu pro správu jako správce služby.
-2. Vyberte **Skupiny prostředků**.
+2. Vyberte **skupiny prostředků**.
 3. Vyberte **umístění System.\<\>** skupinu prostředků. mysqladapter.
 4. Na stránce Souhrn pro skupinu prostředků by se neměla nasazovat žádná neúspěšná nasazení.
 5. Nakonec vyberte **virtuální počítače** na portálu pro správu, abyste ověřili, jestli se virtuální počítač poskytovatele prostředků MySQL úspěšně vytvořil a běží.

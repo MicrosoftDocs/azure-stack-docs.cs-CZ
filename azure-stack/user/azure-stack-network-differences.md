@@ -1,22 +1,18 @@
 ---
-title: Rozdíly v sítích centra Azure Stack | Microsoft Docs
+title: Rozdíly v sítích centra Azure Stack
 description: Přečtěte si o rozdílech a ohledech při práci se sítěmi v centru Azure Stack.
-services: azure-stack
-keywords: ''
 author: mattbriggs
-manager: femila
 ms.date: 1/22/2020
 ms.topic: article
-ms.service: azure-stack
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 07/10/2019
-ms.openlocfilehash: 2d40e774ce3ef57694ae765e0774d6fc6610d553
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: 4cb075b429fa2a52d6bf0b12216716dd451fe444
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76536058"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883406"
 ---
 # <a name="differences-and-considerations-for-azure-stack-hub-networking"></a>Rozdíly a požadavky pro sítě Azure Stack hub
 
@@ -35,7 +31,7 @@ Tento článek obsahuje přehled jedinečných důležitých informací o sítí
 |  | Názvové servery pro delegování zóny | Azure poskytuje čtyři názvové servery pro každou vytvořenou zónu uživatele (tenanta). | Centrum Azure Stack poskytuje dva názvové servery pro každou vytvořenou zónu uživatele (tenanta). |
 | Azure Firewall | Služba zabezpečení sítě | Azure Firewall je spravovaná cloudová služba síťového zabezpečení, která chrání vaše prostředky ve virtuálních sítích Azure. | Zatím se nepodporuje. |
 | Virtual Network | Partnerský vztah virtuální sítě | Propojit dvě virtuální sítě ve stejné oblasti prostřednictvím páteřní sítě Azure. | Zatím nepodporováno |
-|  | Adresy IPv6 | Adresu IPv6 můžete přiřadit jako součást [Konfigurace síťového rozhraní](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface-addresses#ip-address-versions). | Podporovaný je jenom protokol IPv4. |
+|  | IPv6 adresy | Adresu IPv6 můžete přiřadit jako součást [Konfigurace síťového rozhraní](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface-addresses#ip-address-versions). | Podporovaný je jenom protokol IPv4. |
 |  | Plán DDoS Protection | Podporováno | Zatím se nepodporuje. |
 |  | Konfigurace IP adres sady škálování | Podporováno | Zatím se nepodporuje. |
 |  | Služba privátního přístupu (podsíť) | Podporováno | Zatím se nepodporuje. |
@@ -48,7 +44,7 @@ Tento článek obsahuje přehled jedinečných důležitých informací o sítí
 | Brány virtuálních sítí | Point-to-Site VPN Gateway | Podporováno | Zatím se nepodporuje. |
 |  | Brána VNet-to-VNet | Podporováno | Zatím se nepodporuje. |
 |  | Typ Virtual Network brány | Azure podporuje VPN<br> ExpressRoute <br> Síť Hyper. | Rozbočovač Azure Stack aktuálně podporuje pouze typ sítě VPN. |
-|  | Skladové položky VPN Gateway | Podpora pro Basic, GW1, GW2, GW3, standard High Performance a vysoce vysoký výkon. | Podpora pro základní, standardní a vysoce výkonné skladové jednotky. |
+|  | VPN Gateway SKU | Podpora pro Basic, GW1, GW2, GW3, standard High Performance a vysoce vysoký výkon. | Podpora pro základní, standardní a vysoce výkonné skladové jednotky. |
 |  | Typ sítě VPN | Azure podporuje jak založené na zásadách, tak i směrování. | Centrum Azure Stack podporuje pouze směrování. |
 |  | Nastavení protokolu BGP | Azure podporuje konfiguraci partnerských adres protokolu BGP a váhy partnerského vztahu. | Adresa partnerského vztahu protokolu BGP a váha partnerského vztahu se automaticky konfigurují v Azure Stack hub. Neexistuje žádný způsob, jak by uživatel mohl konfigurovat tato nastavení s vlastními hodnotami. |
 |  | Výchozí lokalita brány | Azure podporuje konfiguraci výchozího webu pro vynucené tunelování. | Zatím se nepodporuje. |
@@ -81,7 +77,7 @@ Sítě centra Azure Stack podporují následující verze rozhraní API:
 
 - 2018-11-01
 - 2018-10-01
-- 1\. 8. 2018
+- 2018-08-01
 - 2018-07-01
 - 2018-06-01
 - 2018-05-01

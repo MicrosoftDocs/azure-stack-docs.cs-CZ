@@ -1,27 +1,18 @@
 ---
-title: Automatizace aktualizací a správy virtuálních počítačů v centru Azure Stack | Microsoft Docs
+title: Automatizace aktualizací a správy virtuálních počítačů v centru Azure Stack
 description: Naučte se používat řešení Azure Monitor pro virtuální počítače, Update Management, Change Tracking a inventarizace v Azure Automation ke správě virtuálních počítačů s Windows a Linux nasazených v Azure Stackm centru.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 580e1e724a1d03183091ce4e59b779fc30cfb92c
-ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
+ms.openlocfilehash: e3595179c4efc5503f8e4315fbe5a419049b2db4
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76023122"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76885230"
 ---
 # <a name="vm-update-and-management-automation-in-azure-stack-hub"></a>Automatizace aktualizací a správy virtuálních počítačů v centru Azure Stack
 Ke správě virtuálních počítačů s Windows a Linux, které se nasazují pomocí centra Azure Stack, použijte následující Azure Automation řešení:
@@ -40,7 +31,7 @@ Ke správě virtuálních počítačů s Windows a Linux, které se nasazují po
 ## <a name="prerequisites"></a>Požadavky
 Před použitím těchto funkcí k aktualizaci a správě virtuálních počítačů centra Azure Stack musí být splněno několik požadavků. Patří sem kroky, které je třeba provést v Azure Portal a také na portálu pro správu centra Azure Stack.
 
-### <a name="in-the-azure-portal"></a>Na webu Azure Portal
+### <a name="in-the-azure-portal"></a>V Azure Portal
 Pokud chcete používat funkce Azure Monitor pro virtuální počítače, inventáře, Change Tracking a Update Management Azure Automation pro virtuální počítače centra Azure Stack, musíte tato řešení v Azure nejdřív povolit.
 
 > [!TIP]
@@ -112,7 +103,7 @@ Po prohledání virtuálních počítačů se tyto virtuální počítače zobra
    [![](media/vm-update-management/6-sm.PNG "Azure Automation account in Update Management")](media/vm-update-management/6-lg.PNG#lightbox) 
 
 > [!IMPORTANT]
-> Zobrazení aktuálních dat o spravovaných počítačích může trvat 30 minut až 6 hodin.
+> Může trvat 30 minut a 6 hodin, než se na řídicím panelu zobrazí aktualizovaná data ze spravovaných počítačů.
 
 Virtuální počítače centra Azure Stack se teď dají zahrnout do plánovaných nasazení aktualizací společně s virtuálními počítači Azure.
 

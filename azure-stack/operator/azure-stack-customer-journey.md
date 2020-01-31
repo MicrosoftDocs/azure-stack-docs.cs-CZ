@@ -1,27 +1,18 @@
 ---
-title: Názorný Průvodce integrací datacentra Azure Stack | Microsoft Docs
+title: Názorný postup pro integraci centra Azure Stack hub
 description: Přečtěte si, co očekávat úspěšné nasazení centra Azure Stack v rámci lokality ve vašem datovém centru, od plánování po nasazení.
-services: azure-stack
-documentationcenter: ''
-author: mattbriggs
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
+author: ihenkel
 ms.topic: article
 ms.date: 11/07/2019
-ms.author: mabrigg
+ms.author: inhenkel
 ms.reviewer: asganesh
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: e5175c11887d3a9afec2c7887f56b605b159f84f
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 6711483384ba9985ced7396d19e025e0ed3240c6
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75818430"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882508"
 ---
 # <a name="azure-stack-hub-datacenter-integration-walkthrough"></a>Názorný postup pro integraci centra Azure Stack hub
 
@@ -77,7 +68,7 @@ Microsoft nebo partner řešení Azure Stack hub vám pomůže vyhodnotit vaše 
 
 [Capacity Planner centra Azure Stack](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) slouží k prozkoumání a analýze nejlepší hardwarové kapacity a konfigurace podle vašich potřeb. 
 
-## <a name="ordering"></a>Řazení
+## <a name="ordering"></a>Třídění
 Vaše organizace se zavazuje k zakoupení centra Azure Stack, zaznamenání smluv a nákupních objednávek a poskytuje požadavky na integraci do poskytovatele řešení.
 
 ## <a name="pre-deployment"></a>Před nasazením

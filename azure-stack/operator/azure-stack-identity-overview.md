@@ -1,27 +1,18 @@
 ---
-title: Přehled zprostředkovatelů identity pro centrum Azure Stack | Microsoft Docs
+title: Přehled zprostředkovatelů identity pro centrum Azure Stack
 description: Přečtěte si o poskytovatelích identity, které můžete použít s Azure Stack hub.
-services: azure-stack
-documentationcenter: ''
-author: PatAltimore
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: ihenkel
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.author: patricka
+ms.author: inhenkel
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: f8c5fdaa638c7ab5fa0669ffee57611e89c192ff
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: b6db553b2c129b1179adde2f53b98dc705077294
+ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882551"
+ms.lasthandoff: 01/30/2020
+ms.locfileid: "76890285"
 ---
 # <a name="overview-of-identity-providers-for-azure-stack-hub"></a>Přehled zprostředkovatelů identity pro centrum Azure Stack
 
@@ -67,7 +58,7 @@ V Azure Stackovém centru jsou uživatelské účty:
 
 Když se přihlásíte k portálu User Portal vaší organizace, použijete adresu URL *https:\//Portal.Local.azurestack.external* . Při přihlašování k portálu centra Azure Stack z jiných domén, než je ta, která se používá k registraci Azure Stackho centra, musí být název domény, který se používá k registraci centra Azure Stack, připojený k adrese URL portálu. Pokud jste například Azure Stack centrum zaregistrovali v fabrikam.onmicrosoft.com a přihlašování k uživatelskému účtu je admin@contoso.com, adresa URL, která se má použít pro přihlášení k portálu User Portal, bude: https:\//Portal.Local.azurestack.external/Fabrikam.onmicrosoft.com.
 
-### <a name="guest-users"></a>Uživatelé typu host
+### <a name="guest-users"></a>Uživatelé typu Host
 
 Uživatelé typu Host jsou uživatelské účty z jiných tenantů adresářů, kterým byl udělen přístup k prostředkům ve vašem adresáři. Pokud chcete zajistit podporu pro uživatele typu Host, použijte službu Azure AD a povolte podporu pro víceklientské architektury. Pokud je povolená podpora, můžete pozvat uživatele typu Host, aby měli přístup k prostředkům ve vašem tenantovi adresáře, což zase umožní spolupráci s externími organizacemi.
 

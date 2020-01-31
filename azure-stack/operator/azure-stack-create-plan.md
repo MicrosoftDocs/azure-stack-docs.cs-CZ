@@ -1,27 +1,18 @@
 ---
-title: Vytvoření plánu v centru Azure Stack | Microsoft Docs
+title: Vytvoření plánu v centru Azure Stack
 description: Naučte se, jak vytvořit plán v centru Azure Stack, který umožňuje předplatitelům zřizovat virtuální počítače.
-services: azure-stack
-documentationcenter: ''
 author: bryanla
-manager: femila
-editor: ''
-ms.assetid: 3dc92e5c-c004-49db-9a94-783f1f798b98
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/11/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 06/11/2019
-ms.openlocfilehash: 5fa55edd4c9e089b023cef8b8d0a2adec1606098
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 29eddba3dbe89229e57773af79dd88dfee746674
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882976"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76879988"
 ---
 # <a name="create-a-plan-in-azure-stack-hub"></a>Vytvoření plánu v centru Azure Stack
 

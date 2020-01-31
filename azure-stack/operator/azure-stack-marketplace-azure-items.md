@@ -1,27 +1,18 @@
 ---
-title: Azure Marketplace položky k dispozici pro Azure Stack centra | Microsoft Docs
+title: Azure Marketplace dostupné položky pro centrum Azure Stack
 description: Zjistěte, které Azure Marketplace položky lze použít v centru Azure Stack.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/21/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 01/21/2020
-ms.openlocfilehash: 7a8fb4c500f749bfe58e1adcb7e5a9ce854bb9d0
-ms.sourcegitcommit: 10520f4481c0e3891c9dcd46fb21249ad2a33717
+ms.openlocfilehash: 64618cb3f1840db5472023902c58fc3fa771e6a5
+ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76516758"
+ms.lasthandoff: 01/30/2020
+ms.locfileid: "76890387"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack-hub"></a>Azure Marketplace dostupné položky pro centrum Azure Stack
 
@@ -59,7 +50,7 @@ Centrum Microsoft Azure Stack podporuje následující Azure Marketplace virtuá
 | ![Bezplatná licence: vývojář SQL Server 2016 SP1 v systému Windows Server 2016](media/azure-stack-marketplace-azure-items/sql.png) | [Bezplatná licence: vývojář SQL Server 2016 SP1 v systému Windows Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2016sp1-ws2016) | Bezplatná verze vývojáře SQL Server 2016 SP1 pro transakční, datové sklady, business intelligence a analytické úlohy. **Požadované stažení:** IaaS rozšíření SQL. | Microsoft |
 | ![Bezplatná licence: SQL Server 2016 SP1 Express v systému Windows Server 2016](media/azure-stack-marketplace-azure-items/sql.png) | [Bezplatná licence: SQL Server 2016 SP1 Express v systému Windows Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2016sp1-ws2016) | Verze Express verze SQL Server 2016 SP1 je zdarma. **Požadované stažení:** IaaS rozšíření SQL. | Microsoft |
 | ![Verze Standard SQL Server 2016 SP1 v systému Windows Server 2016](media/azure-stack-marketplace-azure-items/sql.png) | [Verze Standard SQL Server 2016 SP1 v systému Windows Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2016sp1-ws2016) | Databázová platforma pro inteligentní a klíčové aplikace. **Požadované stažení:** IaaS rozšíření SQL. | Microsoft |
-| ![SQL Server 2016 SP1 Enterprise na Windows Serveru 2016](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2016 SP1 Enterprise v systému Windows Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2016sp1-ws2016) | Databázová platforma pro inteligentní a klíčové aplikace. **Požadované stažení:** IaaS rozšíření SQL. | Microsoft |
+| ![SQL Server 2016 SP1 Enterprise v systému Windows Server 2016](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2016 SP1 Enterprise v systému Windows Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2016sp1-ws2016) | Databázová platforma pro inteligentní a klíčové aplikace. **Požadované stažení:** IaaS rozšíření SQL. | Microsoft |
 | ![Bezplatná licence: vývojář SQL Server 2016 SP2 v systému Windows Server 2016](media/azure-stack-marketplace-azure-items/sql.png) | [Bezplatná licence: vývojář SQL Server 2016 SP2 v systému Windows Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2016sp2-ws2016) | Bezplatná verze vývojáře SQL Server 2016 SP2 pro transakční, datové sklady, business intelligence a analytické úlohy. **Požadované stažení:** IaaS rozšíření SQL. | Microsoft |
 | ![Bezplatná licence: SQL Server 2016 SP2 Express v systému Windows Server 2016](media/azure-stack-marketplace-azure-items/sql.png) | [Bezplatná licence: SQL Server 2016 SP2 Express v systému Windows Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2016sp2-ws2016) | Verze Express SQL Server 2016 SP2 zdarma **Požadované stažení:** IaaS rozšíření SQL. | Microsoft |
 | ![SQL Server 2016 SP2 Standard v systému Windows Server 2016](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2016 SP2 Standard v systému Windows Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2016sp2-ws2016) | Databázová platforma pro inteligentní a klíčové aplikace. **Požadované stažení:** IaaS rozšíření SQL. | Microsoft |
@@ -78,11 +69,11 @@ Centrum Microsoft Azure Stack podporuje následující Azure Marketplace virtuá
 | ![Microsoft Machine Learning Server 9.3.0 na Ubuntu 16,04](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Machine Learning Server 9.3.0 na Ubuntu 16,04](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer930onUbuntu1604) | Microsoft Machine Learning Server 9.3.0 na Ubuntu 16,04. | Microsoft + kanonické |
 | ![Microsoft Machine Learning Server 9.3.0 na CentOS Linux 7,2](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Machine Learning Server 9.3.0 na CentOS Linux 7,2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer930onCentOSLinux72) | Microsoft Machine Learning Server 9.3.0 na CentOS Linux 7,2. | Microsoft + neautorizovaný Wave |
 
-## <a name="linux-distributions"></a>Linuxové distribuce
+## <a name="linux-distributions"></a>Distribuce systému Linux
 
 |  | Název položky | Popis | Vydavatel |
 | --- | --- | --- | --- |
-| ![Clear Linux OS](media/azure-stack-marketplace-azure-items/clearlinux.png) | [Vymazat operační systém Linux](https://azuremarketplace.microsoft.com/marketplace/apps/clear-linux-project.clear-linux-os) | Referenční distribuce systému Linux optimalizovaná pro architekturu Intel. | Clear Linux Project |
+| ![Vymazat operační systém Linux](media/azure-stack-marketplace-azure-items/clearlinux.png) | [Vymazat operační systém Linux](https://azuremarketplace.microsoft.com/marketplace/apps/clear-linux-project.clear-linux-os) | Referenční distribuce systému Linux optimalizovaná pro architekturu Intel. | Vymazat projekt pro Linux |
 | ![CoreOS Linux (stabilní)](media/azure-stack-marketplace-azure-items/coreos.png) | [CoreOS Linux (stabilní)](https://azuremarketplace.microsoft.com/marketplace/apps/CoreOS.CoreOS) | CoreOS je moderní a minimální distribuce systému Linux, která poskytuje snadný způsob, jak spouštět kontejnery, spravovat clustery a plynule aktualizovat servery – všechny komponenty, které umožňují výpočetní prostředky ve skladu. | CoreOS |
 | ![Ubuntu Server](media/azure-stack-marketplace-azure-items/ubuntu.png) | [Ubuntu Server](https://azuremarketplace.microsoft.com/marketplace/apps/Canonical.UbuntuServer) | Ubuntu Server je nejoblíbenější Linux pro cloudová prostředí na světě. | Canonical |
 | ![Debian 8 "Jessie"](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.Debian) | Debian GNU/Linux je jednou z nejoblíbenějších distribucí systému Linux. | credativ |
@@ -222,7 +213,7 @@ Centrum Microsoft Azure Stack podporuje následující Azure Marketplace virtuá
 | ![SuiteCRM](media/azure-stack-marketplace-azure-items/suitecrm.png) | [SuiteCRM](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.suitecrm) | Oblíbená aplikace CRM na podnikové úrovni | Bitnami |
 | ![Obsluha TensorFlow](media/azure-stack-marketplace-azure-items/tensorflow.png) | [TensorFlow obsluhující](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.tensorflowserving) | TensorFlow obsluhující je systém pro poskytování modelů strojového učení. V tomto zásobníku se nachází verze 3 s školenými daty pro rozpoznávání imagí, ale dá se rozšířit o další modely. | Bitnami |
 | ![TestLink](media/azure-stack-marketplace-azure-items/testlink.png) | [TestLink](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.testlink) | Software pro správu testů usnadňuje zajištění kvality. | Bitnami |
-| ![Groupware Tiki Wiki CMS](media/azure-stack-marketplace-azure-items/tikiwikicmsgroupware.png) | [Groupware pro Tiki wiki CMS](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.tikiwikicmsgroupware) | Plně vybavená wiki platformou. | Bitnami |
+| ![Groupware pro Tiki wiki CMS](media/azure-stack-marketplace-azure-items/tikiwikicmsgroupware.png) | [Groupware pro Tiki wiki CMS](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.tikiwikicmsgroupware) | Plně vybavená wiki platformou. | Bitnami |
 | ![Malý malý kanál RSS](media/azure-stack-marketplace-azure-items/tinytinyrss.png) | [Malý malý kanál RSS](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.tinytinyrss) | Flexibilní Open Source webové informační kanály a agregátory. | Bitnami |
 | ![Tomcat](media/azure-stack-marketplace-azure-items/tomcat.png) | [Tomcat](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.tom-cat) | Oblíbená platforma implementující specifikace od komunity Java. | Bitnami |
 | ![Polož](media/azure-stack-marketplace-azure-items/trac.png) | [Polož](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.trac) | Vylepšený systém pro sledování problémů a wikiwebu. | Bitnami |

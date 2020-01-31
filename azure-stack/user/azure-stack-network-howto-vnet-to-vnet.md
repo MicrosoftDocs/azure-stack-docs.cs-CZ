@@ -1,20 +1,18 @@
 ---
-title: Jak propojit dvě centra Azure Stack prostřednictvím partnerského vztahu virtuálních sítí | Microsoft Docs
+title: Jak propojit dvě centra Azure Stack prostřednictvím partnerského vztahu virtuální sítě
 description: Přečtěte si, jak propojit dvě centra Azure Stack prostřednictvím partnerského vztahu virtuální sítě.
-services: azure-stack
 author: mattbriggs
-ms.service: azure-stack
 ms.topic: how-to
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: af60e71ef9143e1ca5b51fa07aeed100369faa45
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: 83d52af03f33a01ccdf1b065ea1f59d7842f4cda
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76536568"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883400"
 ---
 # <a name="connect-two-vnets-through-peering"></a>Propojení dvou virtuální sítě prostřednictvím partnerského vztahu
 
@@ -104,7 +102,7 @@ Následující tabulka shrnuje parametry, které se v těchto nasazeních použ�
 
 9.  Vyberte **OK**. A pak vyberte **OK**.
 
-10.  Vyberte **Create** (Vytvořit).
+10.  Vyberte **Vytvořit**.
 
 Nasazení bude trvat přibližně 10 minut.
 
@@ -140,7 +138,7 @@ Proveďte tyto kroky pro obě nasazení, forti1-RG1 a forti2-RG1.
 
     ![Typ dalšího segmentu](./media/azure-stack-network-howto-vnet-to-onprem/image12.png)
 
-10. Vyberte **Save** (Uložit).
+10. Vyberte **Uložit**.
 
 K aktivaci každého FortiGate síťové virtuální zařízení budete potřebovat platný soubor s licencí od Fortinet. Síťová virtuální zařízení **nebude fungovat,** dokud neaktivujete jednotlivé síťové virtuální zařízení. Další informace o tom, jak získat soubor s licencí a postup aktivace síťové virtuální zařízení, najdete v článku knihovna dokumentů Fortinet [registrace a stažení vaší licence](https://docs2.fortinet.com/vm/azure/FortiGate/6.2/azure-cookbook/6.2.0/19071/registering-and-downloading-your-license).
 

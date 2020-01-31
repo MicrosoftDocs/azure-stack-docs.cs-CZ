@@ -1,25 +1,18 @@
 ---
-title: Verze rozhraní API poskytovatele prostředků podporované profily v centru Azure Stack | Microsoft Docs
+title: Verze rozhraní API poskytovatele prostředků podporované profily v centru Azure Stack
 description: Přečtěte si o verzích rozhraní API Azure Resource Manager podporovaných profily v centru Azure Stack.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/08/2019
-ms.openlocfilehash: ca8b1dc5fd3b8f7f029498145a692b7a8414c053
-ms.sourcegitcommit: b9d520f3b7bc441d43d489e3e32f9b89601051e6
+ms.openlocfilehash: 03ec8b455991a85515793d1098df0f72497299b9
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75727492"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883305"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack-hub"></a>Verze rozhraní API poskytovatele prostředků podporované profily v centru Azure Stack
 
@@ -56,7 +49,7 @@ Seznam verzí pro každý typ prostředku pro zprostředkovatele v profilu rozhr
 
 ### <a name="microsoftauthorization"></a>Microsoft.Authorization
 
-Řízení přístupu na základě rolí umožňuje spravovat akce, které můžou uživatelé ve vaší organizaci provádět na svých prostředcích. Můžete definovat role, přiřazovat role uživatelům nebo skupinám a získávat informace o oprávněních. Další informace najdete v sekci [Autorizace](/rest/api/authorization/).
+Řízení přístupu na základě rolí umožňuje spravovat akce, které můžou uživatelé ve vaší organizaci provádět na svých prostředcích. Můžete definovat role, přiřazovat role uživatelům nebo skupinám a získávat informace o oprávněních. Další informace najdete v tématu [autorizace](/rest/api/authorization/).
 
 | Typy prostředků | Verze rozhraní API |
 |---------------------|--------------------|
@@ -82,7 +75,7 @@ Seznam verzí pro každý typ prostředku pro zprostředkovatele v profilu rozhr
 
 ### <a name="microsoftcompute"></a>Microsoft.Compute
 
-Rozhraní API Azure Compute poskytují programový přístup k virtuálním počítačům a jejich podpůrným prostředkům. Další informace najdete v tématu [výpočetní prostředí Azure](/rest/api/compute/).
+Rozhraní API služby Azure COMPUTE poskytují programový přístup k virtuálním počítačům a jejich podpůrným prostředkům. Další informace najdete v tématu [výpočetní prostředí Azure](/rest/api/compute/).
 
 | Typ prostředku | Verze rozhraní API |
 |---------------------------------------------------------------|-------------|
@@ -182,7 +175,7 @@ Azure Resource Manager vám umožní nasadit a spravovat infrastrukturu pro vaš
 | Předplatná/prostředky | 2018-05-01 |
 | Předplatná/tagNames | 2018-05-01 |
 | Předplatná/tagNames/tagValues | 2018-05-01 |
-| Klienti | 2016-06-01 |
+| tenantů | 2016-06-01 |
 
 ### <a name="microsoftstorage"></a>Microsoft.Storage
 

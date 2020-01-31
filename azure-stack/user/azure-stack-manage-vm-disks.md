@@ -1,26 +1,18 @@
 ---
-title: Vytvoření úložiště disku virtuálního počítače v centru Azure Stack | Microsoft Docs
+title: Vytvoření úložiště disku virtuálního počítače v centru Azure Stack
 description: Vytvořte disky pro virtuální počítače v centru Azure Stack.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: 66147be9158726ab9ba01d011ba0fa2fd8f141bc
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: a6f728e69eacab25941ef0640a35243d390fa4c7
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883503"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883472"
 ---
 # <a name="create-vm-disk-storage-in-azure-stack-hub"></a>Vytvoření úložiště disku virtuálního počítače v centru Azure Stack
 

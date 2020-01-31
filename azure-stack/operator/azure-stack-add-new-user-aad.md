@@ -1,20 +1,18 @@
 ---
 title: Přidání nového uživatelského účtu centra Azure Stack v Azure Active Directory
 description: Naučte se, jak vytvořit uživatelský účet v Azure Active Directory, abyste mohli prozkoumat portál User Portal.
-author: PatAltimore
-manager: femila
-ms.service: azure-stack
+author: JustinHall
 ms.topic: article
 ms.date: 05/20/2019
-ms.author: patricka
+ms.author: justinha
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: 3f0ef1b6a61d271541ee894f854639b13e24d699
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: b7bfcf97df22f5ca0d1dcaa7c9687079656af840
+ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75880987"
+ms.lasthandoff: 01/30/2020
+ms.locfileid: "76890149"
 ---
 # <a name="add-a-new-azure-stack-hub-user-account-in-azure-active-directory-azure-ad"></a>Přidání nového uživatelského účtu centra Azure Stack v Azure Active Directory (Azure AD)
 
