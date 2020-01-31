@@ -1,28 +1,18 @@
 ---
-title: Nasazení ASDK z příkazového řádku pomocí PowerShellu | Microsoft Docs
+title: Nasazení ASDK z příkazového řádku pomocí PowerShellu
 description: Přečtěte si, jak nasadit ASDK z příkazového řádku pomocí PowerShellu.
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.custom: ''
 ms.date: 05/06/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 0bced4d75b70b05eea42de763066f1d5b05e1976
-ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
+ms.openlocfilehash: b31792ce210cfc7fc5c2d1ee4ba1b496b2d340f6
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76022910"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76873800"
 ---
 # <a name="deploy-asdk-from-the-command-line-using-powershell"></a>Nasazení ASDK z příkazového řádku pomocí PowerShellu
 
@@ -141,7 +131,7 @@ Pokud vaše prostředí nemá protokol DHCP povolený, musíte do jedné z výš
 
 ### <a name="asdk-installazurestackpocps1-optional-parameters"></a>ASDK InstallAzureStackPOC. ps1 – nepovinné parametry
 
-|Parametr|Povinné/nepovinné|Popis|
+|Parametr|Požadováno/volitelné|Popis|
 |-----|-----|-----|
 |AdminPassword|Požaduje se|Nastaví účet místního správce a všechny ostatní uživatelské účty na všech virtuálních počítačích vytvořených jako součást nasazení ASDK. Toto heslo se musí shodovat s aktuálním místním heslem správce na hostiteli.|
 |InfraAzureDirectoryTenantName|Požaduje se|Nastaví adresář tenanta. Pomocí tohoto parametru můžete zadat konkrétní adresář, ve kterém má účet Azure AD oprávnění ke správě více adresářů. Úplný název tenanta Azure AD ve formátu. onmicrosoft.com nebo název vlastní domény ověřený službou Azure AD.|

@@ -1,26 +1,18 @@
 ---
-title: Základy pro správce ASDK | Microsoft Docs
+title: Základy správy ASDK
 description: Přečtěte si, jak provádět základní úlohy správy pro Azure Stack Development Kit (ASDK).
-services: azure-stack
-documentationcenter: ''
 author: justinha
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/19/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 785b787702f173fe3f30b53f29f8770f9f039b1b
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 772fef1539eccfb69fd7d240314ff8f80af1965c
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75881616"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76874174"
 ---
 # <a name="asdk-admin-basics"></a>Základy správy ASDK
 Pokud s Azure Stack Development Kit (ASDK) nebudete mít jistotu, budete potřebovat několik věcí. Tento návod poskytuje přehled vaší role jako operátor Azure Stack ve zkušebním prostředí. Familiarizing se s těmito informacemi, zajistíte, aby vaši testovací uživatelé byli co nejrychleji produktivní.

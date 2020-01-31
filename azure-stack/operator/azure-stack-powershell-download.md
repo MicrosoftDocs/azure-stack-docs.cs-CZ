@@ -1,26 +1,18 @@
 ---
-title: Stažení nástrojů centra Azure Stack z GitHubu | Microsoft Docs
+title: Stažení nástrojů centra Azure Stack z GitHubu
 description: Naučte se stahovat nástroje potřebné pro práci s Azure Stack hub.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: PowerShell
 ms.topic: article
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: 4f60d3dc3ae22dd1265b9bd2b0ce86145720042c
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: 301704daa5369fe290227b540d96bdc91c0c64b7
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76534528"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76881582"
 ---
 # <a name="download-azure-stack-hub-tools-from-github"></a>Stažení nástrojů centra Azure Stack z GitHubu
 

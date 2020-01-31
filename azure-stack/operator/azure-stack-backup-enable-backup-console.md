@@ -1,27 +1,18 @@
 ---
-title: Povolit zálohování centra Azure Stack z portálu pro správu | Microsoft Docs
+title: Povolení zálohování centra Azure Stack z portálu pro správu
 description: Naučte se, jak povolit službu Infrastructure Backup z portálu pro správu, aby bylo možné v případě selhání obnovit centrum Azure Stack.
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: 56C948E7-4523-43B9-A236-1EF906A0304F
-ms.service: azure-stack
-ms.workload: naS
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 08/21/2019
-ms.openlocfilehash: b554c40ec18efce37cc409771a9bed5b1ca6908d
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 0aa5fca80cfc408088f34923a607d4200ece15cb
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75816764"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76878203"
 ---
 # <a name="enable-backup-for-azure-stack-hub-from-the-administrator-portal"></a>Povolení zálohování centra Azure Stack z portálu pro správu
 

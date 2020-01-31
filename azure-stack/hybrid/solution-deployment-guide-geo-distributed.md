@@ -2,18 +2,17 @@
 title: Přímý provoz s geograficky distribuovanými aplikacemi pomocí Azure a centra Azure Stack
 description: Naučte se vytvářet geograficky distribuované aplikace pomocí Azure a centra Azure Stack, který směruje provoz do konkrétních koncových bodů.
 author: BryanLa
-ms.service: azure-stack
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: c18e510d32773905b59cd756ed49daf59a0d03e9
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 3353977eb36701575a725f2e74f2275dac73bddd
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75881854"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76877642"
 ---
 # <a name="create-a-geo-distributed-app-solution-to-direct-traffic-with-azure-and-azure-stack-hub"></a>Vytvoření geograficky distribuované aplikace pro směrování provozu pomocí Azure a centra Azure Stack
 
@@ -484,7 +483,7 @@ Když se k vygenerování žádosti o certifikát použije služba IIS nebo **Ce
 
 Až App Service dokončí nahrávání certifikátu, zobrazí se na stránce **Nastavení SSL** .
 
-![Nastavení protokolu SSL](media/solution-deployment-guide-geo-distributed/image39.png)
+![Nastavení SSL](media/solution-deployment-guide-geo-distributed/image39.png)
 
 #### <a name="bind-your-ssl-certificate"></a>Vytvoření vazby certifikátu SSL
 

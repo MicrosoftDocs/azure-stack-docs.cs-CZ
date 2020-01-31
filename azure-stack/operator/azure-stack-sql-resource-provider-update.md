@@ -2,26 +2,18 @@
 title: Aktualizace poskytovatele prostředků SQL centra Azure Stack
 titleSuffix: Azure Stack Hub
 description: Naučte se aktualizovat poskytovatele prostředků SQL centra Azure Stack.
-services: azure-stack
-documentationCenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 5ae8a125521689a1e07e1207e03df4d981b74704
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 07f372f1974780d2310b12cc8d874808e010ac3c
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75881803"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76881266"
 ---
 # <a name="update-the-sql-resource-provider"></a>Aktualizovat poskytovatele prostředků SQL
 

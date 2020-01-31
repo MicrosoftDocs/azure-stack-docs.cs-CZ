@@ -1,26 +1,18 @@
 ---
-title: Instalace modulu AKS v systému Linux v centru Azure Stack | Microsoft Docs
+title: Instalace modulu AKS v systému Linux v centru Azure Stack
 description: Naučte se, jak pomocí počítače se systémem Linux v centru Azure Stack hostovat modul AKS, aby bylo možné nasadit a spravovat cluster Kubernetes.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na (Kubernetes)
-ms.devlang: nav
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 01/28/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: d9f56d8d40d4f4420e073516678017c4904dd7d1
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.lastreviewed: 01/28/2020
+ms.openlocfilehash: 66e340df1d687e9a0c19f43c05c4fcb92e6940c2
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75878947"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883545"
 ---
 # <a name="install-the-aks-engine-on-linux-in-azure-stack-hub"></a>Instalace modulu AKS v systému Linux v centru Azure Stack
 
@@ -41,7 +33,7 @@ Můžete nainstalovat klientský virtuální počítač pro správu clusteru Kub
 
 1. Vytvořte virtuální počítač se systémem Linux v centru Azure Stack. Pokyny najdete v tématu [rychlý Start: Vytvoření virtuálního počítače s Linux serverem pomocí portálu Azure Stack hub](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-linux-portal).
 2. Připojte se k VIRTUÁLNÍmu počítači.
-3. Vyhledá verzi AKS Engine v tabulce [podporovaných verzí Kubernetes](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions) . V tržišti centra Azure Stack musí být dostupný základní modul AKS. Při spuštění příkazu je nutné zadat `--version v0.43.0`verze. Pokud nezadáte verzi, příkaz nainstaluje nejnovější verzi, která může potřebovat image VHD, která není na vašem webu Marketplace k dispozici.
+3. Vyhledá verzi AKS Engine v tabulce [podporovaných verzí Kubernetes](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions) . V tržišti centra Azure Stack musí být dostupná základní image AKS. Při spuštění příkazu je nutné zadat `--version v0.43.0`verze. Pokud nezadáte verzi, příkaz nainstaluje nejnovější verzi, která může potřebovat image VHD, která není na vašem webu Marketplace k dispozici.
 4. Spusťte následující příkaz:
 
     ```bash  

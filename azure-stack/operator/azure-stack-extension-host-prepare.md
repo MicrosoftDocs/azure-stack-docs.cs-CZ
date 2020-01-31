@@ -1,28 +1,24 @@
 ---
-title: Příprava pro hostitele rozšíření v centru Azure Stack | Microsoft Docs
+title: Příprava pro hostitele rozšíření v centru Azure Stack
 description: Přečtěte si, jak připravit hostitele rozšíření v centru Azure Stack, který se automaticky povolí prostřednictvím balíčku aktualizace centra Azure Stack po verzi 1808.
-services: azure-stack
-keywords: ''
-author: mattbriggs
-ms.author: mabrigg
+author: ihenkel
+ms.author: inhenkel
 ms.date: 1/22/2020
 ms.topic: article
-ms.service: azure-stack
 ms.reviewer: thoroet
-manager: femila
 ms.lastreviewed: 03/07/2019
-ms.openlocfilehash: 070e7bd8a933b3d04185b40f322931ea60f3bbae
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: c28f47930ea7fa9913ae339ea379562477694492
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76535463"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882266"
 ---
 # <a name="prepare-for-extension-host-in-azure-stack-hub"></a>Příprava pro hostitele rozšíření v centru Azure Stack
 
 Hostitel rozšíření zabezpečuje Azure Stack centra tím, že snižuje počet požadovaných portů TCP/IP. Tento článek se zabývá přípravou centra Azure Stack pro hostitele rozšíření, který se automaticky povolí prostřednictvím balíčku aktualizace centra Azure Stack po aktualizaci 1808. Tento článek se týká Azure Stack centra aktualizací 1808, 1809 a 1811.
 
-## <a name="certificate-requirements"></a>Požadavky na certifikáty
+## <a name="certificate-requirements"></a>Požadavky na certifikát
 
 Hostitel rozšíření implementuje dva nové obory názvů domény pro zaručení jedinečných hostitelských záznamů pro každé rozšíření portálu. Nové obory názvů domény vyžadují pro zajištění zabezpečené komunikace dva další certifikáty se zástupnými znaky.
 
@@ -171,7 +167,7 @@ Else {
 Remove-PSSession -Session $PEPSession
 ```
 
-#### <a name="sample-output"></a>Vzorový výstup
+#### <a name="sample-output"></a>Ukázkový výstup
 
 ```powershell
 Can access AZS DNS

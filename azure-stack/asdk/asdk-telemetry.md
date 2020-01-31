@@ -1,27 +1,18 @@
 ---
-title: Telemetrie Azure Stack | Microsoft Docs
+title: Telemetrie Azure Stack
 description: Přečtěte si, jak nakonfigurovat Azure Stack nastavení telemetrie pomocí prostředí PowerShell.
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: c904f77834e9195ab942f13028fe5ef2fc7a5366
-ms.sourcegitcommit: 7968f9f0946138867323793be9966ee2ef99dcf4
+ms.openlocfilehash: 4ab0323b38d538e1c064bc998a84a26eae267a52
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70025829"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76873443"
 ---
 # <a name="azure-stack-telemetry"></a>Telemetrie Azure Stack
 
@@ -35,7 +26,7 @@ Jako operátor Azure Stack může telemetrie poskytovat cenné přehledy o podni
 Telemetrie Azure Stack je založená na komponentě *Windows serveru 2016 s připojeným uživatelským prostředím a Telemetr*y, která využívá technologii protokolování trasování [událostí pro Windows (ETW)](https://msdn.microsoft.com/library/dn904632(v=vs.85).aspx) ke shromažďování a ukládání událostí a dat telemetrie. Azure Stack komponenty používají stejnou protokolovací technologii k publikování událostí a dat, která se shromažďují pomocí rozhraní API pro veřejné protokolování událostí operačního systému a trasování. Mezi příklady součástí Azure Stack patří poskytovatel síťových prostředků, poskytovatel prostředků úložiště, poskytovatel prostředků monitorování a poskytovatel prostředků aktualizací. Rozhraní připojené uživatele a komponenta telemetrie šifrují data pomocí protokolu SSL a pomocí připnutí certifikátů přenáší data telemetrie přes HTTPS do služby Microsoft Správa dat.
 
 > [!NOTE]
-> Aby bylo možné podporovat tok dat telemetrie, musí být ve vaší síti otevřený port 443 (HTTPS). Rozhraní připojené uživatele a komponenta telemetrie se připojí ke službě https://v10.vortex-win.data.microsoft.com Microsoft Správa dat a https://settings-win.data.microsoft.com také ke stažení informací o konfiguraci.
+> Aby bylo možné podporovat tok dat telemetrie, musí být ve vaší síti otevřený port 443 (HTTPS). Komponenta prostředí připojeného uživatele a telemetrie se připojí ke službě Microsoft Správa dat na https://v10.vortex-win.data.microsoft.com a také https://settings-win.data.microsoft.com ke stažení informací o konfiguraci.
 
 ## <a name="privacy-considerations"></a>Požadavky na ochranu osobních údajů
 Služba ETW směruje data ze telemetrie zpátky do chráněného cloudového úložiště. Princip nejnižších privilegovaných průvodců přistupuje k datům telemetrie. Přístup k datům telemetrie mají povolený jenom personál Microsoftu s platným obchodním potřebou. Microsoft nesdílí osobní údaje vašeho zákazníka s třetími stranami, s výjimkou rozhodnutí zákazníka nebo omezeného účelu popsaného v [Azure Stack prohlášení o zásadách ochrany osobních údajů](https://privacy.microsoft.com/PrivacyStatement). Obchodní sestavy sdílíme s výrobci OEM a partnery, kteří zahrnují agregované informace o propracované telemetrii. Rozhodnutí o sdílení dat provádí interní tým Microsoftu, včetně zúčastněných stran ochrany osobních údajů, právních předpisů a správy dat.
@@ -81,9 +72,9 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies
 
 Úrovně telemetrie jsou kumulativní a kategorizované na čtyři úrovně (0-3):
 
-**0 (zabezpečení)** : Pouze data zabezpečení. Informace, které jsou potřebné k zajištění zabezpečení operačního systému, včetně údajů o nastaveních a prostředích souvisejících s připojeným uživatelem a komponentami telemetrie a programu Windows Defender. Na této úrovni se nevysílá žádná telemetrie Azure Stack žádná konkrétní.
+**0 (zabezpečení)** : pouze data zabezpečení. Informace, které jsou potřebné k zajištění zabezpečení operačního systému, včetně údajů o nastaveních a prostředích souvisejících s připojeným uživatelem a komponentami telemetrie a programu Windows Defender. Na této úrovni se nevysílá žádná telemetrie Azure Stack žádná konkrétní.
 
-**1 (základní)** : Data zabezpečení a základní data o stavu a kvalitě. Základní informace o zařízení, včetně dat týkajících se kvality, kompatibility aplikací, dat o využití aplikací a dat z úrovně zabezpečení. Nastavení úrovně telemetrie na Basic umožní telemetrii Azure Stack. Data shromážděná na této úrovni zahrnují:
+**1 (základní)** : data zabezpečení a základní data o stavu a kvalitě. Základní informace o zařízení, včetně dat týkajících se kvality, kompatibility aplikací, dat o využití aplikací a dat z úrovně zabezpečení. Nastavení úrovně telemetrie na Basic umožní telemetrii Azure Stack. Data shromážděná na této úrovni zahrnují:
 
 - **Základní informace o zařízení** , které pomáhají zajistit porozumění typům a konfiguracím nativních a virtualizovaných instancí Windows serveru 2016 v ekosystému, včetně těchto:
   - Atributy počítače, jako je například výrobce OEM a model.
@@ -94,9 +85,9 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies
 - **Informace související s kvalitou** , které pomáhají Microsoftu vyvíjet základní znalosti o tom, jak probíhá Azure Stack. Příkladem je počet kritických výstrah pro konkrétní hardwarovou konfiguraci.
 - **Data kompatibility**, která pomáhají získat informace o tom, které poskytovatele prostředků se instalují do systému a virtuálního počítače a které identifikují potenciální problémy s kompatibilitou.
 
-**2 (rozšířené)** : Další přehledy, včetně toho, jak se používají operační systém a další Azure Stack služby, jak provádějí, pokročilá data o spolehlivosti a data z úrovní Basic a zabezpečení.
+**2 (rozšířené)** : Další přehledy, včetně toho, jak se používají operační systém a další Azure Stack služby, jak provádějí, pokročilá data o spolehlivosti a data ze základní úrovně a úrovně zabezpečení.
 
-**3 (plná)** : Veškerá data potřebná pro identifikaci a pomoc při řešení problémů a data ze zabezpečení, úrovně Basic a vylepšené úrovně.
+**3 (úplné)** : všechna data potřebná pro identifikaci a pomoc při řešení problémů a data z úrovní zabezpečení, základní a rozšířené úrovně.
 
 > [!NOTE]
 > Výchozí hodnota úrovně telemetrie je 2 (rozšířené).
@@ -109,8 +100,8 @@ Vypnutí telemetrie Windows a Azure Stack vypíná telemetrie SQL. Další infor
 ### <a name="enable-or-disable-telemetry-after-deployment"></a>Povolení nebo zakázání telemetrie po nasazení
 
 Pokud chcete povolit nebo zakázat telemetrii po nasazení, musíte mít přístup k privilegovanému koncovému bodu (PEP), který je vystavený na virtuálních počítačích ERCS.
-1.  Povolení:`Set-Telemetry -Enable`
-2.  Chcete-li zakázat:`Set-Telemetry -Disable`
+1.  Povolení: `Set-Telemetry -Enable`
+2.  Zakázání: `Set-Telemetry -Disable`
 
 Podrobnosti parametru:
 > . PARAMETR enable-zapnout nahrávání dat telemetrie

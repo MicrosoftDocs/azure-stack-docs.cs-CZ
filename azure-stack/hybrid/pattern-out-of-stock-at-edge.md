@@ -2,18 +2,17 @@
 title: Vzor pro implementaci detekce neaktivních zásob na hraničních zařízeních s využitím Azure a Azure Stack Edge.
 description: Naučte se používat Azure a Azure Stack Edge Services k implementaci detekce z provozu.
 author: BryanLa
-ms.service: azure-stack
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: fb4eb410eefb8a34bd869543a191a1b044a42f72
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: 2fac02fc6bae0d8bfedebcbb059e376d616a5b87
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73638527"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76875534"
 ---
 # <a name="out-of-stock-detection-at-the-edge-pattern"></a>Zjišťování z hranice hraničního modelu z neaktivního zásobníku
 
@@ -44,7 +43,7 @@ Jak řešení funguje:
 
 Toto řešení používá následující komponenty:
 
-| Vrstvení | Součást | Popis |
+| Vrstva | Součást | Popis |
 |----------|-----------|-------------|
 | Místní hardware | Síťová kamera | Je vyžadován síťový fotoaparát s kanálem HTTP nebo RTSP pro poskytování imagí pro odvození. |
 | Azure | Azure IoT Hub | [Azure IoT Hub](/azure/iot-hub/) zpracovává zřizování zařízení a zasílání zpráv pro hraniční zařízení. |

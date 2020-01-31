@@ -1,27 +1,19 @@
 ---
-title: App Service na Azure Stack centra aktualizace 1 – zpráva k vydání verze | Microsoft Docs
+title: Zpráva k vydání verze Azure Stack centra aktualizace 1 App Service
 description: Přečtěte si o vylepšeních, opravách a známých problémech v aktualizaci 1 pro App Service v centru Azure Stack.
-services: azure-stack
-documentationcenter: ''
 author: bryanla
 manager: stefsch
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/20/2018
-ms.openlocfilehash: f36a94bbc442913826571fdacd1303b010212d4c
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: d81c0387e26a72865b74a88062c5b7b7588b3281
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75880358"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76875959"
 ---
 # <a name="app-service-on-azure-stack-hub-update-1-release-notes"></a>Zpráva k vydání verze Azure Stack centra aktualizace 1 App Service
 

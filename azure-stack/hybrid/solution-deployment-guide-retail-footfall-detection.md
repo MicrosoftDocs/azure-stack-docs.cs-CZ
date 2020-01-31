@@ -2,18 +2,17 @@
 title: Nasazení řešení pro detekci Footfall založené na AI pomocí Azure a centra Azure Stack
 description: Naučte se, jak nasadit řešení pro detekci Footfall pomocí Azure a centra Azure Stack. Toto řešení se používá k analýze provozu návštěvníků v prodejních.
 author: BryanLa
-ms.service: azure-stack
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: c2e043630e601098e0b2abbb1bacbffe44808495
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: d81fdf315e9bc834c46161d901d6ac10d736f7ab
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75881446"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76875296"
 ---
 # <a name="deploy-an-ai-based-footfall-detection-solution-using-azure-and-azure-stack-hub"></a>Nasazení řešení pro detekci Footfall založené na AI pomocí Azure a centra Azure Stack
 

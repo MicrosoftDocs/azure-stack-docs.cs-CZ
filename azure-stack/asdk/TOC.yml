@@ -1,4 +1,4 @@
-- name: Dokumentace k vývojové sadě Azure Stack hub
+- name: Dokumentace k Azure Stack Development Kit
   href: index.yml
 - name: Přehled
   expanded: true
@@ -59,11 +59,11 @@
       href: /azure-stack/user/
 - name: Materiály
   items:
-    - name: Azure Stack plán
+    - name: Plán služby Azure Stack
       href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'
-    - name: Azure Stack Fórum MSDN
+    - name: Fóru pro Azure Stack MSDN
       href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack'
-    - name: Váš názor na dokumentaci Azure Stack
+    - name: Váš názor na Azure Stack dokumentace
       href: 'https://feedback.azure.com/forums/344565-azure-stack?category_id=160275'
     - name: Informace o cenách
       href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'

@@ -1,27 +1,18 @@
 ---
-title: Předpoklady pro nasazení Azure App Service v centru Azure Stack | Microsoft Docs
+title: Předpoklady pro nasazení Azure App Service v centru Azure Stack
 description: Před nasazením Azure App Service v centru Azure Stack se naučíte splnění požadovaných kroků.
-services: azure-stack
-documentationcenter: ''
 author: BryanLa
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: app-service
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2020
-ms.openlocfilehash: a1cd98973bede3382790430dd59e434e135701de
-ms.sourcegitcommit: e47dc5fe9e59010ea3dbb9cb31abe15cfb821262
+ms.openlocfilehash: eb2b3431fa7c9e9aada4e4df3f43715d48d1d72e
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76124731"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76874752"
 ---
 # <a name="prerequisites-for-deploying-app-service-on-azure-stack-hub"></a>Předpoklady pro nasazení App Service v centru Azure Stack
 

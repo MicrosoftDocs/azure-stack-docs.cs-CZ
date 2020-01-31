@@ -2,26 +2,18 @@
 title: Vytvoření vlastní role pro registraci centra Azure Stack
 titleSuffix: Azure Stack Hub
 description: Naučte se vytvořit vlastní roli, abyste se vyhnuli použití globálního správce pro registraci centra Azure Stack.
-services: azure-stack
-documentationcenter: ''
-author: PatAltimore
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: ihenkel
 ms.topic: article
 ms.date: 06/10/2019
-ms.author: patricka
+ms.author: inhenkel
 ms.reviewer: rtiberiu
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: dff7f2dd043a7df3749ec3cdc4b7560e6cd7bd06
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: fb4f9c117dd7f7e9ff0e2121706aecebc188de2a
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882024"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76881422"
 ---
 # <a name="create-a-custom-role-for-azure-stack-hub-registration"></a>Vytvoření vlastní role pro registraci centra Azure Stack
 

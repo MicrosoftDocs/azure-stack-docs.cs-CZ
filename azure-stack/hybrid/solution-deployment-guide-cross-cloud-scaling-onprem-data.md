@@ -2,18 +2,17 @@
 title: Nasaďte aplikaci, která používá místní data, a škálujte mezi cloudy pomocí Azure a centra Azure Stack.
 description: Naučte se, jak nasadit aplikaci, která používá místní data, a škálujte mezi cloudy pomocí Azure a centra Azure Stack.
 author: BryanLa
-ms.service: azure-stack
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 1b21766561c39cf795665e8229eb1763acb89465
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: e1042852535648edae61f24f1634ecbf9b6779af
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75881786"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76877506"
 ---
 # <a name="deploy-an-app-that-uses-on-premises-data-and-scales-cross-cloud-using-azure-and-azure-stack-hub"></a>Nasaďte aplikaci, která používá místní data, a škálujte mezi cloudy pomocí Azure a centra Azure Stack.
 
@@ -374,10 +373,10 @@ Při snížení provozu může webová aplikace Azure automaticky snížit poče
 
 Vytvořte v Azure profil Traffic Manager a pak nakonfigurujte koncové body, aby se povolilo škálování mezi cloudy.
 
-### <a name="create-traffic-manager-profile"></a>Vytvořit profil Traffic Manageru
+### <a name="create-traffic-manager-profile"></a>Vytvořit profil Traffic Manager
 
 1. Vyberte **vytvořit prostředek**.
-2. Vyberte **Sítě**.
+2. Vyberte **sítě**.
 3. Vyberte **profil Traffic Manager** a nakonfigurujte následující nastavení:
 
    - Do **název**zadejte název profilu. Tento název **musí** být v zóně trafficmanager.NET jedinečný a používá se k vytvoření nového názvu DNS (například northwindstore.trafficmanager.NET).
@@ -388,7 +387,7 @@ Vytvořte v Azure profil Traffic Manager a pak nakonfigurujte koncové body, aby
 
 4. Vyberte **Vytvořit**.
 
-    ![Vytvořit profil Traffic Manageru](media/solution-deployment-guide-hybrid/image19.png)
+    ![Vytvořit profil Traffic Manager](media/solution-deployment-guide-hybrid/image19.png)
 
    Po dokončení globálního nasazení profilu Traffic Manager se zobrazí v seznamu prostředků pro skupinu prostředků, ve které jste ji vytvořili.
 

@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Dokumentace k vývojové sadě Azure Stack hub
+title: Dokumentace k Azure Stack Development Kit
 metadata:
-  title: 'Dokumentace k vývojové sadě Azure Stack hub – kurzy, Reference k rozhraní API'
-  description: 'Naučte se, jak nasadit a používat vývojové sady Azure Stack hub.'
+  title: 'Dokumentace k Azure Stack Development Kit – kurzy, Reference k rozhraní API'
+  description: 'Naučte se, jak nasadit a používat Azure Stack Development Kit.'
   services: azure-stack
   author: mattbriggs
   manager: femila
@@ -14,7 +14,7 @@ metadata:
   ms.date: 04/13/2018
   ms.author: mabrigg
 abstract:
-  description: 'Azure Stack hub Development Kit (ASDK) je nasazení Azure Stack s jedním uzlem, které můžete zdarma stáhnout a používat. ASDK má poskytovat prostředí, ve kterém můžete vyhodnotit Azure Stack a vyvíjet moderní aplikace pomocí rozhraní API a nástrojů konzistentních s Azure v neprodukčním prostředí. <br/><br/>Pokud jste Azure Stack operátor, který spravuje infrastrukturu integrovaných systémů a nabízí služby, přečtěte si naši <a href="/azure-stack/operator">dokumentaci k operátorovi</a>.<br/><br/>Pokud jste Azure Stack uživatel, který používá služby nebo sestavování aplikace pro Azure Stack, přečtěte si naši <a href="/azure-stack/user">dokumentaci pro uživatele</a>.'
+  description: 'Azure Stack Development Kit (ASDK) je nasazení Azure Stack s jedním uzlem, které můžete zdarma stáhnout a používat. ASDK má poskytovat prostředí, ve kterém můžete vyhodnotit Azure Stack a vyvíjet moderní aplikace pomocí rozhraní API a nástrojů konzistentních s Azure v neprodukčním prostředí. <br/><br/>Pokud jste Azure Stack operátor, který spravuje infrastrukturu integrovaných systémů a nabízí služby, přečtěte si naši <a href="/azure-stack/operator">dokumentaci k operátorovi</a>.<br/><br/>Pokud jste Azure Stack uživatel, který používá služby nebo sestavování aplikace pro Azure Stack, přečtěte si naši <a href="/azure-stack/user">dokumentaci pro uživatele</a>.'
 sections:
   - title: Podrobné kurzy
     items:

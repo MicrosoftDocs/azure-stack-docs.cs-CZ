@@ -1,26 +1,18 @@
 ---
-title: Registrace ASDK s Azure | Microsoft Docs
+title: Registrace ASDKu s využitím Azure
 description: Naučte se, jak zaregistrovat Azure Stack Development Kit (ASDK) s Azure a povolit syndikaci a vytváření sestav o využití na webu Marketplace.
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 06/14/2019
-ms.openlocfilehash: c12882ea5f26589c18abaf016ba09b17d02bdcab
-ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
+ms.openlocfilehash: 66fb60c8fbb19bf125ff143393308b9f755119b6
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76022938"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76873545"
 ---
 # <a name="register-the-asdk-with-azure"></a>Registrace ASDKu s využitím Azure
 

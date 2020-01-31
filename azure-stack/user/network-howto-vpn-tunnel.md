@@ -1,20 +1,18 @@
 ---
-title: Jak nastavit několik tunelových propojení VPN typu Site-to-site v centru Azure Stack | Microsoft Docs
+title: Jak nastavit několik tunelových propojení VPN typu Site-to-site v centru Azure Stack
 description: Přečtěte si, jak nastavit několik tunelových propojení VPN typu Site-to-site v centru Azure Stack.
-services: azure-stack
 author: mattbriggs
-ms.service: azure-stack
 ms.topic: how-to
 ms.date: 09/19/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: 4593898a1ea70b2001c252f885b12db2f16e922e
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 42ed5facf2b88aee8eb5fefd514ee31df8722ecc
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883044"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883013"
 ---
 # <a name="how-to-set-up-a-multiple-site-to-site-vpn-tunnel-in-azure-stack-hub"></a>Jak nastavit několik tunelových propojení VPN typu Site-to-site v centru Azure Stack
 
@@ -78,7 +76,7 @@ Stejný postup můžete použít jako **Webvrstva** , ale jiné parametry, jak j
 
 ### <a name="review-the-deployments-for-web-tier-and-app-tier-and-capture-outputs"></a>Projděte si nasazení pro webovou vrstvu a vrstvu aplikace a zaznamenejte výstupy.
 
-1.  Zkontrolujte, jestli se nasazení úspěšně dokončilo. Vyberte **Výstupy**.
+1.  Zkontrolujte, jestli se nasazení úspěšně dokončilo. Vyberte **výstupy**.
 
     ![](./media/azure-stack-network-howto-vpn-tunnel/image7.png)
 

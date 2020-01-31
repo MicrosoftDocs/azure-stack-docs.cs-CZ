@@ -1,27 +1,18 @@
 ---
-title: Nasazení App Service v centru Azure Stack | Microsoft Docs
+title: Nasazení App Service v centru Azure Stack
 description: Přečtěte si, jak nasadit App Service v centru Azure Stack.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: app-service
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2020
-ms.openlocfilehash: 783bed2b6f90a88b815e534da17a953b3c309af2
-ms.sourcegitcommit: e47dc5fe9e59010ea3dbb9cb31abe15cfb821262
+ms.openlocfilehash: 55d42471f56b17fe2016c7a7ac05f0b688773128
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76124833"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76874854"
 ---
 # <a name="deploy-app-service-in-azure-stack-hub"></a>Nasazení App Service v centru Azure Stack
 
@@ -140,7 +131,7 @@ Pokud chcete nasadit poskytovatele prostředků App Service, postupujte takto:
 
     | Role | Minimální instance | Minimální SKU | Poznámky |
     | --- | --- | --- | --- |
-    | Správce | 1\. místo | Standard_A2 – (2 vCPU, 3584 MB) | Spravuje a udržuje stav cloudu App Service. |
+    | Kontrolér | 1\. místo | Standard_A2 – (2 vCPU, 3584 MB) | Spravuje a udržuje stav cloudu App Service. |
     | Správa | 1\. místo | Standard_A2 – (2 vCPU, 3584 MB) | Spravuje App Service Azure Resource Manager a koncové body rozhraní API, rozšíření portálu (správce, tenant, funkce portálu) a datovou službu. Pro zajištění podpory převzetí služeb při selhání se zvýšily Doporučené instance na 2. |
     | Vydavatel | 1\. místo | Standard_A1 – (1 vCPU, 1792 MB) | Publikuje obsah prostřednictvím FTP a nasazení webu. |
     | FrontEnd | 1\. místo | Standard_A1 – (1 vCPU, 1792 MB) | Směruje požadavky na aplikace App Service. |

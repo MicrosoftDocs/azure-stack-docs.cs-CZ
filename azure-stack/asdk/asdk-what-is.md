@@ -1,30 +1,20 @@
 ---
-title: Co je centrum ASDK (Azure Stack Center Development Kit)? | Microsoft Docs
-description: Přečtěte si o vývojové sadě Azure Stack hub a o tom, jak se používá k vyhodnocení centra Azure Stack.
-services: azure-stack
-documentationcenter: ''
+title: Co je Azure Stack Development Kit (ASDK)? | Dokumentace Microsoftu
+description: Přečtěte si o Azure Stack Development Kit a o tom, jak se používá k vyhodnocení centra Azure Stack.
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
-ms.custom: mvc
 ms.date: 11/27/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 11/27/2019
-ms.openlocfilehash: fb9dab302e20d436be7f3cf9a76de913bbfe22e3
-ms.sourcegitcommit: 7817d61fa34ac4f6410ce6f8ac11d292e1ad807c
+ms.openlocfilehash: 7d3b4115ea34a185c5535c77cecdddf060ed84eb
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74689831"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76873290"
 ---
-# <a name="what-is-the-azure-stack-hub-development-kit-asdk"></a>Co je centrum ASDK (Azure Stack Center Development Kit)?
+# <a name="what-is-the-azure-stack-development-kit-asdk"></a>Co je Azure Stack Development Kit (ASDK)?
 Rozsah [integrovaných systémů centra Microsoft Azure Stack](../operator/azure-stack-overview.md) je velikost z uzlů 4-16 a jsou společně podporovány hardwarovým partnerem a společností Microsoft. Pomocí integrovaných systémů Azure Stack Hub můžete pro vaše produkční úlohy povolit nové scénáře. Pokud jste operátor centra Azure Stack, který spravuje infrastrukturu integrovaných systémů a nabízí služby, přečtěte si naši [dokumentaci k operátorovi](/azure-stack/operator).
 
 ASDK je nasazení centra Azure Stack s jedním uzlem, které můžete **zdarma**stáhnout a používat. Všechny součásti ASDK jsou nainstalovány na virtuálních počítačích běžících na jednom hostitelském počítači, který musí splňovat nebo překročit [minimální požadavky na hardware](asdk-deploy-considerations.md#hardware). ASDK má poskytovat prostředí, ve kterém můžete vyhodnotit Azure Stack hub a vyvíjet moderní aplikace pomocí rozhraní API a nástrojů konzistentních s Azure v *neprodukčním* prostředí. 
@@ -50,7 +40,7 @@ Nasazení ASDK s jedním uzlem se liší od nasazení na více uzlech Azure Stac
 |-----|-----|-----|
 |**Škálování**|Všechny komponenty jsou nainstalovány v počítači serveru s jedním uzlem.|Velikost může být v rozsahu od 4-16 uzlů.|
 |**Odolnost**|Konfigurace s jedním uzlem neposkytuje vysokou dostupnost.|Podporují se možnosti vysoké dostupnosti.|
-|**Networking**|Hostitel ASDK směruje všechny síťové přenosy ASDK. Neexistují žádné další požadavky na přepínač.|Složitější [infrastruktura síťového směrování](../operator/azure-stack-network.md#network-infrastructure) v nasazeních s více uzly je nezbytná, včetně přepínačů "rozvaděče", řadiče pro správu základní desky (BMC) a hraniční sítě (síť datacenter).|
+|**Sítě**|Hostitel ASDK směruje všechny síťové přenosy ASDK. Neexistují žádné další požadavky na přepínač.|Složitější [infrastruktura síťového směrování](../operator/azure-stack-network.md#network-infrastructure) v nasazeních s více uzly je nezbytná, včetně přepínačů "rozvaděče", řadiče pro správu základní desky (BMC) a hraniční sítě (síť datacenter).|
 |**Proces opravy a aktualizace**|Chcete-li přejít na novou verzi nástroje ASDK, je nutné znovu nasadit ASDK na hostitelském počítači ASDK.|Proces [opravy a aktualizace](../operator/azure-stack-updates.md) , který se používá k aktualizaci nainstalované verze centra Azure Stack.|
 |**Podpora**|Fórum MSDN Azure Stack. Podpora zákaznických služeb a podpory společnosti Microsoft (CSS) *není dostupná pro* neprodukční prostředí.|[MSDN Azure Stack Fórum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack) a plná podpora šablon stylů CSS.|
 | | |
@@ -61,7 +51,7 @@ Jako operátor centra Azure Stack potřebujete znát, které služby můžete u�
 ### <a name="foundational-services"></a>Základní služby
 Ve výchozím nastavení zahrnuje Azure Stack hub při nasazení rozhraní ASDK následující "základní služby":
 - Služby Compute
-- Úložiště
+- Storage
 - Sítě
 - Key Vault
 

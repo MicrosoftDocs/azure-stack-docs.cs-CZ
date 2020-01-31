@@ -1,26 +1,18 @@
 ---
-title: Delegování nabídek v centru Azure Stack | Microsoft Docs
+title: Delegování nabídek v centru Azure Stack
 description: Naučte se delegovat úlohy, jako je vytváření nabídek a registrace uživatelů.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 08/12/2019
+ms.date: 01/27/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 8e9ad6917a6f8db571fc41b88fb9ef29e25d247c
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 6fbc58a8c56361441394a2d4648b4eea5d817a40
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882636"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882435"
 ---
 # <a name="delegate-offers-in-azure-stack-hub"></a>Delegování nabídek v centru Azure Stack
 

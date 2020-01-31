@@ -1,26 +1,18 @@
 ---
-title: Odebrání poskytovatele prostředků MySQL v centru Azure Stack | Microsoft Docs
+title: Odebrání poskytovatele prostředků MySQL v centru Azure Stack
 description: Naučte se odebrat poskytovatele prostředků MySQL z nasazení centra Azure Stack.
-services: azure-stack
-documentationCenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/20/2018
-ms.openlocfilehash: 0f616bced206bf32da0ace8c1f3cb836c66962e6
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: 89d0a55797b6182b7490778db10914a09977e105
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76534732"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76881776"
 ---
 # <a name="remove-the-mysql-resource-provider-in-azure-stack-hub"></a>Odebrání poskytovatele prostředků MySQL v centru Azure Stack
 

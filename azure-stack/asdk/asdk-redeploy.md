@@ -1,28 +1,18 @@
 ---
-title: Znovu nasaďte ASDK | Microsoft Docs
+title: Znovu nasadit ASDK
 description: Přečtěte si, jak Azure Stack Development Kit (ASDK) znovu nasadit.
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.custom: ''
 ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: 5ff77bbe915a506803a1c06f68579c199439ea73
-ms.sourcegitcommit: 7968f9f0946138867323793be9966ee2ef99dcf4
+ms.openlocfilehash: d0fc4539b581474c9db2a2dbb05495c9b1bce695
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70025899"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76873511"
 ---
 # <a name="redeploy-the-asdk"></a>Znovu nasadit ASDK
 V tomto článku se dozvíte, jak znovu nasadit Azure Stack Development Kit (ASDK) v neprodukčním prostředí. Vzhledem k tomu, že upgrade ASDK se nepodporuje, je potřeba ho kompletně znovu nasadit a přejít na novější verzi. ASDK můžete také znovu nasadit, kdykoli budete chtít začít od začátku.
@@ -74,7 +64,7 @@ Z vašeho předplatného Azure by se teď mělo úspěšně odregistrovat Azure 
 Pokud chcete Azure Stack znovu nasadit, musíte začít od začátku, jak je popsáno níže. Postup se liší v závislosti na tom, zda jste k instalaci ASDK použili skript instalačního programu Azure Stack (asdk-Installer. ps1).
 
 ### <a name="redeploy-the-asdk-using-the-installer-script"></a>Znovu nasaďte ASDK pomocí skriptu instalačního programu
-1. Otevřete na počítači s ASDK konzolu PowerShellu se zvýšenými oprávněními a přejděte do složky asdk-Installer. ps1 v adresáři **AzureStack_Installer** , který se nachází na nesystémové jednotce. Spusťte skript a klikněte na **restartovat**.
+1. Otevřete na počítači s ASDK konzolu PowerShellu se zvýšenými oprávněními a přejděte do složky asdk-Installer. ps1 v adresáři **AzureStack_Installer** umístěném na jiné než systémové jednotce. Spusťte skript a klikněte na **restartovat**.
 
    ![Spuštění skriptu asdk-Installer. ps1](media/asdk-redeploy/1.png)
 

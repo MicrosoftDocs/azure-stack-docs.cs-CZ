@@ -1,27 +1,18 @@
 ---
-title: Řešení potíží s ASDK | Microsoft Docs
+title: Řešení potíží s ASDK
 description: Naučte se řešit potíže s Azure Stack Development Kit (ASDK).
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: c8db19ff7bf8d7ccdb406617cbcf75dce3770522
-ms.sourcegitcommit: c583f19d15d81baa25dd49738d53d8fc01463bef
+ms.openlocfilehash: d02b500fce65464ecc27e8fbbd6edbbf7c6882b3
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73659225"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76873307"
 ---
 # <a name="troubleshoot-the-asdk"></a>Řešení potíží s ASDK
 Tento článek poskytuje běžné informace pro řešení potíží s Azure Stack Development Kit (ASDK). Nápovědu k Azure Stack integrovaným systémům najdete v tématu [řešení potíží s Microsoft Azure Stack](../operator/azure-stack-troubleshooting.md). 
@@ -31,7 +22,7 @@ Vzhledem k tomu, že ASDK je zkušební prostředí, Microsoft Customer Support 
 
 ## <a name="deployment"></a>Nasazení
 ### <a name="deployment-failure"></a>Selhání nasazení
-Pokud při instalaci dojde k chybě, můžete restartovat nasazení z neúspěšného kroku pomocí možnosti-znovu spustit ve skriptu nasazení. Například:
+Pokud při instalaci dojde k chybě, můžete restartovat nasazení z neúspěšného kroku pomocí možnosti-znovu spustit ve skriptu nasazení. Příklad:
 
   ```powershell
   cd C:\CloudDeployment\Setup
@@ -98,7 +89,7 @@ Pokud se zobrazí "osamocené" disky VHD, je důležité znát, jestli jsou sou�
 
 Další informace o konfiguraci prahové hodnoty pro uchování a opětovného získávání na vyžádání najdete v tématu [Správa účtů úložiště](../operator/azure-stack-manage-storage-accounts.md).
 
-## <a name="storage"></a>Úložiště
+## <a name="storage"></a>Storage
 ### <a name="storage-reclamation"></a>Recyklace úložiště
 Může trvat až 14 hodin, než se kapacita uvolní, aby se na portálu zobrazovala. Recyklace místa závisí na různých faktorech, včetně procentuálního využití vnitřních souborů kontejneru v úložišti objektů blob bloku. V závislosti na tom, kolik dat je odstraněno, však není nijak zaručeno množství místa, které by mohlo být uvolněno při spuštění systému uvolňování paměti.
 

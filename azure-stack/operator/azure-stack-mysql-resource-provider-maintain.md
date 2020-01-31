@@ -1,26 +1,18 @@
 ---
-title: Operace údržby poskytovatele prostředků MySQL v centru Azure Stack | Microsoft Docs
+title: Operace údržby poskytovatele prostředků MySQL v centru Azure Stack
 description: Naučte se udržovat službu poskytovatele prostředků MySQL v Azure Stack hub.
-services: azure-stack
-documentationCenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 26f064f0fd364252d57deca8f60da7a3e8d50c06
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: a39ecec1cce85582a53e0fb64979726adb15115d
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76534783"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76881787"
 ---
 # <a name="mysql-resource-provider-maintenance-operations-in-azure-stack-hub"></a>Operace údržby poskytovatele prostředků MySQL v centru Azure Stack
 
@@ -169,7 +161,7 @@ Pokud používáte poskytovatele prostředků SQL a MySQL s integrovanými syst�
 **Problém**:<br>
 Protokoly pro rotaci tajných klíčů nejsou automaticky shromažďovány, pokud při spuštění dojde k chybě skriptu pro otočení tajného klíče.
 
-**Alternativní řešení:**<br>
+**Odstraníte**<br>
 Pomocí rutiny Get-AzsDBAdapterLogs Shromážděte všechny protokoly poskytovatele prostředků, včetně AzureStack. DatabaseAdapter. SecretRotation. ps1_ *. log, uložené v C:\Logs.
 
 ## <a name="collect-diagnostic-logs"></a>Shromažďovat diagnostické protokoly

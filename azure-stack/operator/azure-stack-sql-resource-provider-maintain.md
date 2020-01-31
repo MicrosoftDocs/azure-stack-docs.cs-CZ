@@ -2,26 +2,18 @@
 title: Operace údržby poskytovatele prostředků SQL
 titleSuffix: Azure Stack Hub
 description: Přečtěte si o operacích údržby poskytovatele prostředků SQL na rozbočovači Azure Stack.
-services: azure-stack
-documentationCenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 609d0d77af4f11630616567d36fd5ffc35a24a8d
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 0d6551f7db2ef8b7266d45223c9b20587610b169
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75814469"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76881254"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>Operace údržby poskytovatele prostředků SQL
 
@@ -117,7 +109,7 @@ Pokud používáte poskytovatele prostředků SQL a MySQL s integrovanými syst�
 **Problém:**<br>
 Protokoly rotace tajných kódů. Protokoly pro rotaci tajných kódů nejsou shromažďovány automaticky, pokud se vlastní skript pro střídání tajných klíčů při spuštění nezdařil.
 
-**Alternativní řešení:**<br>
+**Alternativní řešení**:<br>
 Pomocí rutiny Get-AzsDBAdapterLogs Shromážděte všechny protokoly poskytovatele prostředků, včetně AzureStack. DatabaseAdapter. SecretRotation. ps1_ *. log, uložené v C:\Logs.
 
 ## <a name="update-the-vm-operating-system"></a>Aktualizace operačního systému virtuálního počítače

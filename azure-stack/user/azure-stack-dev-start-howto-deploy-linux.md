@@ -1,20 +1,18 @@
 ---
-title: Nasazení virtuálního počítače se systémem Linux do centra Azure Stack | Microsoft Docs
+title: Nasazení virtuálního počítače se systémem Linux do centra Azure Stack
 description: Nasaďte aplikaci do centra Azure Stack.
-services: azure-stack
 author: mattbriggs
-ms.service: azure-stack
 ms.topic: overview
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 65bff945a9a55452632e14436381a14b9b29dbff
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: b887e4e3eba0a3f109d8f338d4de3bcca4908512
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76536296"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884934"
 ---
 # <a name="deploy-a-linux-vm-to-host-a-web-app-in-azure-stack-hub"></a>Nasazení virtuálního počítače se systémem Linux pro hostování webové aplikace v centru Azure Stack
 

@@ -1,23 +1,18 @@
 ---
-title: Nasazení sítě Ethereem blockchain v centru Azure Stack | Microsoft Docs
+title: Nasazení sítě Ethereem blockchain v centru Azure Stack
 description: Kurz použití vlastních šablon řešení k nasazení a konfiguraci sítě konsorcia Ethereem blockchain v Azure Stackovém centru
-services: azure-stack
-keywords: ''
 author: PatAltimore
 ms.author: patricka
 ms.date: 06/03/2019
 ms.topic: tutorial
-ms.service: azure-stack
 ms.reviewer: seyadava
-ms.custom: mvc
-manager: femila
 ms.lastreviewed: 06/03/2019
-ms.openlocfilehash: 86e9f6fb78275678f8072573f83696d3ea79184f
-ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
+ms.openlocfilehash: c981fb453389c4e088db94474dd757f7881dfc6b
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75924148"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883698"
 ---
 # <a name="deploy-an-ethereum-blockchain-network-on-azure-stack-hub"></a>Nasazení sítě Ethereem blockchain v centru Azure Stack
 
@@ -189,7 +184,7 @@ Tato šablona vytvoří připojení od vedoucího ke vzdálenému členovi.
     CONNECTIONSHAREDKEY | Předem zavedený tajný klíč mezi členy konsorcia sítě, která vytváří připojení.  | |
     REMOTEMEMBERNVAPUBLICIP | SÍŤOVÉ virtuální zařízení IP adresu člena. Tuto hodnotu lze najít ve výstupu nasazení člena. | |
     MEMBERNVAPRIVATEIP | Privátní IP adresa vedoucího síťové virtuální zařízení Tuto hodnotu najdete ve výstupu nasazení vedoucího procesu. | |
-    UMÍSTĚNÍ | Umístění vašeho prostředí centra Azure Stack. | | místní
+    OBLASTI | Umístění vašeho prostředí centra Azure Stack. | | místní
     BASEURL | Základní adresa URL šablony | Pokud nechcete přizpůsobit šablony nasazení, použijte výchozí hodnotu. | 
 
 7. Vyberte **OK**.

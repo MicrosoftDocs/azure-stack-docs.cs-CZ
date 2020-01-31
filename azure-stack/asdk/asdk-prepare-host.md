@@ -1,27 +1,18 @@
 ---
-title: Příprava hostitelského počítače ASDK | Microsoft Docs
+title: Příprava hostitelského počítače s ASDK
 description: Přečtěte si, jak připravit hostitelský počítač Azure Stack Development Kit (ASDK) pro instalaci ASDK.
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 08/28/2019
-ms.openlocfilehash: cf15aebac3ad4d099892270bb2e334d32f82f580
-ms.sourcegitcommit: 5efa09034a56eb2f3dc0c9da238fe60cff0c67ac
+ms.openlocfilehash: 81e8e8f470988d84441d238ef677950df2d2334b
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70144019"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76873613"
 ---
 # <a name="prepare-the-asdk-host-computer"></a>Příprava hostitelského počítače s ASDK
 Než budete moct na hostitelský počítač nainstalovat Azure Stack Development Kit (ASDK), musí být hostitel ASDK připravený k instalaci. Po přípravě hostitele se spustí z pevného disku virtuálního počítače CloudBuilder. vhdx, který zahájí ASDK nasazení.
@@ -31,7 +22,7 @@ Než budete moct nainstalovat ASDK na hostitelský počítač, musí být připr
 
 1. Přihlaste se jako místní správce k hostitelskému počítači ASDK.
 2. Zajistěte, aby byl soubor CloudBuilder. vhdx přesunut do kořenového adresáře C:\. jednotka (`C:\CloudBuilder.vhdx`).
-3. Spusťte následující skript pro stažení instalačního souboru ASDK (asdk-Installer. ps1) [Azure Stack z úložiště nástrojů GitHub Tools](https://github.com/Azure/AzureStack-Tools) do složky **C:\AzureStack_Installer** na hostitelském počítači s ASDK:
+3. Spusťte následující skript pro stažení instalačního souboru ASDK (asdk-Installer. ps1) [Azure Stack z úložiště nástrojů GitHubu](https://github.com/Azure/AzureStack-Tools) do složky **AzureStack_Installer** na hostitelském počítači s ASDK:
 
    > [!IMPORTANT]
    > Nezapomeňte si stáhnout soubor asdk-Installer. ps1 pokaždé, když nainstalujete ASDK. V tomto skriptu jsou k disASDK časté změny a nejaktuálnější verze by se měly používat pro každé nasazení. Starší verze skriptu nemusí fungovat s nejaktuálnější verzí.
@@ -48,7 +39,7 @@ Než budete moct nainstalovat ASDK na hostitelský počítač, musí být připr
    Invoke-WebRequest $uri -OutFile ($LocalPath + '\' + 'asdk-installer.ps1')
    ```
 
-4. Z konzoly PowerShellu se zvýšenými oprávněními spusťte skript **C:\AzureStack_Installer\asdk-Installer.ps1** a potom klikněte na **připravit prostředí**.
+4. Z konzoly PowerShellu se zvýšenými oprávněními spusťte skript **c:\ AzureStack_Installer \asdk-Installer.ps1** a pak klikněte na **připravit prostředí**.
 
     ![Příprava prostředí v ASDK](media/asdk-prepare-host/1.PNG) 
 
@@ -63,7 +54,7 @@ Než budete moct nainstalovat ASDK na hostitelský počítač, musí být připr
    ![Volitelná nastavení v ASDK – zadejte informace o účtu místního správce.](media/asdk-prepare-host/3.PNG)
 
     Můžete také zadat hodnoty pro následující volitelná nastavení:
-    - **Název počítače**: Tato možnost nastaví název hostitele ASDK. Název musí splňovat požadavky na plně kvalifikovaný název domény a musí být delší než 15 znaků. Výchozím nastavením je náhodný název počítače generovaný systémem Windows.
+    - **Názevpočítače**: Tato možnost nastaví název hostitele ASDK. Název musí splňovat požadavky na plně kvalifikovaný název domény a musí být delší než 15 znaků. Výchozím nastavením je náhodný název počítače generovaný systémem Windows.
 
         - Vyberte síťový adaptér. Před kliknutím na tlačítko **Další**se ujistěte, že se můžete připojit k adaptéru.
 
@@ -77,7 +68,7 @@ Než budete moct nainstalovat ASDK na hostitelský počítač, musí být připr
             ![Snímek obrazovky s nastavením konfigurace protokolu IP](media/asdk-prepare-host/step-five-host-ip-config.png)
 
 7. Kliknutím na tlačítko **Další** zahájíte proces přípravy.
-8. Až se příprava zobrazíjako dokončená, klikněte na **Další**.
+8. Až se příprava zobrazí jako **Dokončená**, klikněte na **Další**.
 
     ![Příprava prostředí v ASDK](media/asdk-prepare-host/4.PNG)
 
@@ -86,5 +77,5 @@ Než budete moct nainstalovat ASDK na hostitelský počítač, musí být připr
     ![Restartujte ASDK](media/asdk-prepare-host/5.PNG)
 
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 [Instalace ASDK](asdk-install.md)

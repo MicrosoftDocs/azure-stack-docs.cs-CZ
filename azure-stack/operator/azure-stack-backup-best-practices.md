@@ -1,27 +1,18 @@
 ---
-title: Osvědčené postupy Infrastructure Backup služby pro centrum Azure Stack | Microsoft Docs
+title: Osvědčené postupy Infrastructure Backup služby pro centrum Azure Stack
 description: Při nasazení a správě centra Azure Stack použijte tyto osvědčené postupy, které vám pomůžou snížit riziko ztráty dat v případě závažného selhání.
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: 221FDE40-3EF8-4F54-A075-0C4D66EECE1A
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 4f25f1a2d78be5aafdfb6ef379353b148cf3b418
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 880c5dfb72d0f70cc8748f2528a3c36562bebe93
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882908"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76878050"
 ---
 # <a name="infrastructure-backup-service-best-practices"></a>Osvědčené postupy pro Infrastructure Backup služby
 
@@ -57,7 +48,7 @@ Klíč musí být uložený v zabezpečeném umístění (například globální
 
 ![Klíč byl uložen do zabezpečeného umístění.](media/azure-stack-backup/azure-stack-backup-encryption2.png)
 
-## <a name="operational-best-practices"></a>Osvědčené provozní postupy
+## <a name="operational-best-practices"></a>Provozní osvědčené postupy
 
 ### <a name="backups"></a>Zálohování
 

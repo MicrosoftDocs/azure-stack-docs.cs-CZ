@@ -1,27 +1,18 @@
 ---
-title: Nasazení App Service centra Azure Stack v konfiguraci s vysokou dostupností | Microsoft Docs
+title: Nasazení App Service centra Azure Stack v konfiguraci s vysokou dostupností
 description: Přečtěte si, jak nasadit App Service v centru Azure Stack pomocí vysoce dostupné konfigurace.
-services: azure-stack
-documentationcenter: ''
 author: BryanLa
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/02/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/02/2020
-ms.openlocfilehash: 0d1912a753ae29eb7a4c0ee8b583c34821962f60
-ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
+ms.openlocfilehash: 1b72a2d71c2ff5e467486fa9672607cca78a38e9
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76023032"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76876897"
 ---
 # <a name="deploy-app-service-in-a-highly-available-configuration"></a>Nasazení App Service v konfiguraci s vysokou dostupností
 
@@ -162,7 +153,7 @@ Pokud chcete nasadit poskytovatele prostředků App Service, použijte následuj
 
     ![Výběr virtuální sítě na App Service](media/app-service-deploy-ha/06.png)
 
-8. Poskytněte dříve zaznamenané informace o výstupech šablony pro cestu ke sdílené složce a parametry vlastníka sdílené složky. Jakmile budete hotovi, klikněte na tlačítko **Další**.
+8. Poskytněte dříve zaznamenané informace o výstupech šablony pro cestu ke sdílené složce a parametry vlastníka sdílené složky. Po dokončení klikněte na tlačítko **Další**.
 
     ![Informace o výstupu sdílení souborů v App Service](media/app-service-deploy-ha/07.png)
 

@@ -1,25 +1,18 @@
 ---
-title: Použití profilů verzí rozhraní API s nástrojem přejít v Azure Stack hub | Microsoft Docs
+title: Použití profilů verzí rozhraní API s nástrojem přejít v Azure Stack hub
 description: Naučte se používat profily verzí rozhraní API s nástrojem přejít v Azure Stack hub.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/26/2019
-ms.openlocfilehash: 6e4cd8fcd5020e94f011188cc6a4e4f61744402d
-ms.sourcegitcommit: ea90ddcae07857ee4f77670891ac7814da8bdc17
+ms.openlocfilehash: 0e6ff55da7a7d66152765a5058b7d281632fb5eb
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/25/2020
-ms.locfileid: "76750410"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883063"
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack-hub"></a>Použití profilů verzí rozhraní API s nástrojem přejít v Azure Stack hub
 

@@ -1,26 +1,17 @@
 ---
-title: Aktualizovat Azure App Service offline | Microsoft Docs
+title: 'Aktualizovat Azure App Service offline '
 description: Podrobné pokyny pro aktualizaci Azure App Service v centru Azure Stack offline
-services: azure-stack
-documentationcenter: ''
 author: bryanla
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: app-service
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.openlocfilehash: d0cfc906030355dac78da3561da2b746a9a0dc92
-ms.sourcegitcommit: e47dc5fe9e59010ea3dbb9cb31abe15cfb821262
+ms.openlocfilehash: a617483b849b02576f1349e3b79620c47c7a5705
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76124816"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76874429"
 ---
 # <a name="offline-update-of-azure-app-service-on-azure-stack-hub"></a>Offline aktualizace Azure App Service v centru Azure Stack
 

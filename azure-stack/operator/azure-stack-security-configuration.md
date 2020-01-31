@@ -1,20 +1,18 @@
 ---
 title: Konfigurace ovládacích prvků zabezpečení centra Azure Stack
 description: Naučte se konfigurovat řízení zabezpečení v centru Azure Stack.
-services: azure-stack
-author: PatAltimore
-ms.service: azure-stack
+author: ihenkel
 ms.topic: article
 ms.date: 06/17/2019
-ms.author: patricka
+ms.author: inhenkel
 ms.reviewer: fiseraci
 ms.lastreviewed: 06/17/2019
-ms.openlocfilehash: 8fe0019dfee098a7ed022ecb20b6443a4be43f53
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: dae9f8822924f37ae9a46d2be71b7525d8bf3982
+ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75881956"
+ms.lasthandoff: 01/30/2020
+ms.locfileid: "76890183"
 ---
 # <a name="configure-azure-stack-hub-security-controls"></a>Konfigurace ovládacích prvků zabezpečení centra Azure Stack
 

@@ -1,25 +1,17 @@
 ---
-title: Úvod do úložiště centra Azure Stack | Microsoft Docs
+title: Úvod do úložiště centra Azure Stack
 description: Přečtěte si o Azure Stack služby úložiště hub.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-ms.assetid: 092aba28-04bc-44c0-90e1-e79d82f4ff42
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: cb58b2edc8a7a9ec96317a902ad79b8bacce89ec
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: 288dfd077d7f41bf5bb82a122c11a747c7054f91
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76536415"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884351"
 ---
 # <a name="introduction-to-azure-stack-hub-storage"></a>Úvod do úložiště centra Azure Stack
 
@@ -66,7 +58,7 @@ Každý objekt blob se organizuje do kontejneru. Kontejnery také nabízejí pra
 
     Objekty blob bloku jsou optimalizované pro streamování a ukládání objektů cloudu. Jsou dobrou volbou pro ukládání dokumentů, mediálních souborů, záloh a dalších podobných souborů.
 
-- **Doplňovací objekty blob**
+- **Připojit objekty blob**
 
     Doplňovací objekty blob jsou podobné objektům blob bloku, ale jsou optimalizované pro doplňovací operace. Doplňovací objekt blob se může aktualizovat jen přidáním nového bloku na konec. Doplňovací objekty blob jsou dobrou volbou pro takové scénáře, jako je například protokolování, kde se nová data potřebují zapisovat jen na konec objektu blob.
 

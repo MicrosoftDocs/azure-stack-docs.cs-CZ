@@ -1,27 +1,18 @@
 ---
-title: Konfigurovat automatické shromažďování protokolů Azure Stack centra | Microsoft Docs
+title: Konfigurovat automatické shromažďování protokolů centra Azure Stack
 description: Jak nakonfigurovat automatické shromažďování protokolů v centru Azure Stack Help a podpora.
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: a20bea32-3705-45e8-9168-f198cfac51af
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2019
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 10/08/2019
-ms.openlocfilehash: 63ee429c37d5ec7bf9258e3e940d9dbfa3786907
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 3dede51916863a79f720f463af2a031e597f844f
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882585"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76878186"
 ---
 # <a name="configure-automatic-azure-stack-hub-diagnostic-log-collection"></a>Konfigurace automatického shromáždění protokolů diagnostiky Azure Stack centra
 
@@ -53,7 +44,7 @@ Osvědčené postupy při volbě parametrů pro účet úložiště automatické
 
    ![Snímek obrazovky zobrazující vlastnosti kontejneru objektů BLOB](media/azure-stack-automatic-log-collection/azure-stack-log-collection-create-storage-account.png)
 
-1. Klikněte na **Zkontrolovat + vytvořit** a pak klikněte na **Vytvořit**.  
+1. Klikněte na tlačítko **zkontrolovat + vytvořit** a potom klikněte na tlačítko **vytvořit**.  
 
 ### <a name="create-a-blob-container"></a>Vytvoření kontejneru objektů blob 
 
@@ -123,7 +114,7 @@ Například **Chyba aktualizace** je výstraha, která spustí automatické shro
 |Název výstrahy  | FaultIdType|    
 |-------------|------------|
 |Nejde se připojit ke vzdálené službě |  UsageBridge.NetworkError|
-|Aktualizace se nepovedla. |    Urp.UpdateFailure   |          
+|Aktualizace se nezdařila |    Urp.UpdateFailure   |          
 |Infrastruktura nebo závislosti poskytovatele prostředků úložiště nejsou k dispozici. |  StorageResourceProviderDependencyUnavailable     |     
 |Uzel není připojený k řadiči.|  ServerHostNotConnectedToController   |     
 |Selhání publikování trasy |    SlbMuxRoutePublicationFailure | 

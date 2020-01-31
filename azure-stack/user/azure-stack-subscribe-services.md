@@ -1,28 +1,18 @@
 ---
-title: Vytvoření předplatného s nabídkou v Azure Stack hub | Microsoft Docs
+title: Vytvoření předplatného pomocí nabídky centra Azure Stack
 description: Naučte se vytvářet nové předplatné s nabídkou v Azure Stack hub a potom nabídku otestovat pomocí testovacího virtuálního počítače.
-services: azure-stack
-documentationcenter: ''
 author: bryanla
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.custom: mvc
 ms.date: 06/04/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 11/13/2018
-ms.openlocfilehash: 216fe342bcda090d69452e8623f34f6c43cf70b9
-ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
+ms.openlocfilehash: ea0bf7287fd0463aa7b57a24386a30f7f3a1b754
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76023183"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884323"
 ---
 # <a name="tutorial-create-and-test-a-subscription-in-azure-stack-hub"></a>Kurz: vytvoření a otestování předplatného v centru Azure Stack
 

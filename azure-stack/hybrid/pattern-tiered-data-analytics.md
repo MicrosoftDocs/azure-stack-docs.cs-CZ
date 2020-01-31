@@ -2,18 +2,17 @@
 title: Vzor pro implementaci vrstvených dat pro analytické řešení pomocí Azure a centra Azure Stack.
 description: Naučte se používat služby Azure a Azure Stack hub k implementaci řešení vrstvených dat napříč hybridním cloudem.
 author: BryanLa
-ms.service: azure-stack
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: ac2c573e9ee1a2dad3afcdf86c9a6c273fb0f4e5
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: 91f23e7362ec0a1a733417dad1f48dc04b80d19f
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73638307"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76875517"
 ---
 # <a name="tiered-data-for-analytics-pattern"></a>Model vrstvené dat pro analýzu
 
@@ -46,10 +45,10 @@ Používání místních i veřejných cloudových prostředí splňuje požadav
 
 Toto řešení používá následující komponenty:
 
-| Vrstvení | Součást | Popis |
+| Vrstva | Součást | Popis |
 |----------|-----------|-------------|
-| Azure | Úložiště | Účet [Azure Storage](/azure/storage/) poskytuje sterilní koncový bod pro datovou spotřebu. Azure Storage je řešení cloudového úložiště Microsoftu pro scénáře moderního datového úložiště. Azure Storage nabízí rozsáhle škálovatelné úložiště objektů pro datové objekty a službu systému souborů pro Cloud. Poskytuje taky úložiště pro zasílání zpráv pro spolehlivé zasílání zpráv a NoSQL úložiště. |
-| Centrum Azure Stack | Úložiště | Účet [úložiště centra Azure Stack](/azure-stack/user/azure-stack-storage-overview) se používá pro více služeb:<br>**úložiště objektů Blob** - pro úložiště nezpracovaných dat. Úložiště objektů BLOB může obsahovat jakýkoli typ textu nebo binárních dat, jako je dokument, soubor médií nebo instalační program aplikace. Každý objekt BLOB je uspořádaný do kontejneru. Kontejnery poskytují užitečný způsob, jak přiřadit zásady zabezpečení skupinám objektů. Účet úložiště může obsahovat libovolný počet kontejnerů a kontejner může obsahovat libovolný počet objektů blob, až do limitu kapacity 500 TB účtu úložiště.<br>**úložiště objektů Blob** - pro archiv dat. K dispozici jsou výhody pro vynechání archivů dat s nízkými náklady na úložiště. Příklady studených dat zahrnují zálohy, mediální obsah, vědecká data, dodržování předpisů a Archivovaná data. Obecně platí, že všechna data, ke kterým se běžně přistupovalo, se považují za studená úložiště. vrstvení dat na základě atributů, jako je četnost přístupu a doba uchování. K zákaznickým datům se nepoužívá často, ale vyžaduje podobnou latenci a výkon pro aktivní data.<br>Služba - **Queue Storage** pro zpracovaná úložiště dat. Queue Storage poskytuje cloudové zprávy mezi součástmi aplikace. V návrhu aplikací pro škálování jsou součásti aplikace často odděleny, takže je lze škálovat nezávisle. Queue Storage zajišťuje asynchronní zasílání zpráv pro komunikaci mezi součástmi aplikace.  Bez ohledu na to, jestli běží v cloudu, v desktopovém prostředí, na místním serveru nebo na mobilním zařízení. Queue Storage také podporuje správu asynchronních úloh a pracovní postupy procesů sestavování buildů. |
+| Azure | Storage | Účet [Azure Storage](/azure/storage/) poskytuje sterilní koncový bod pro datovou spotřebu. Azure Storage je řešení cloudového úložiště Microsoftu pro scénáře moderního datového úložiště. Azure Storage nabízí rozsáhle škálovatelné úložiště objektů pro datové objekty a službu systému souborů pro Cloud. Poskytuje taky úložiště pro zasílání zpráv pro spolehlivé zasílání zpráv a NoSQL úložiště. |
+| Azure Stack Hub | Storage | Účet [úložiště centra Azure Stack](/azure-stack/user/azure-stack-storage-overview) se používá pro více služeb:<br>**úložiště objektů Blob** - pro úložiště nezpracovaných dat. Úložiště objektů BLOB může obsahovat jakýkoli typ textu nebo binárních dat, jako je dokument, soubor médií nebo instalační program aplikace. Každý objekt BLOB je uspořádaný do kontejneru. Kontejnery poskytují užitečný způsob, jak přiřadit zásady zabezpečení skupinám objektů. Účet úložiště může obsahovat libovolný počet kontejnerů a kontejner může obsahovat libovolný počet objektů blob, až do limitu kapacity 500 TB účtu úložiště.<br>**úložiště objektů Blob** - pro archiv dat. K dispozici jsou výhody pro vynechání archivů dat s nízkými náklady na úložiště. Příklady studených dat zahrnují zálohy, mediální obsah, vědecká data, dodržování předpisů a Archivovaná data. Obecně platí, že všechna data, ke kterým se běžně přistupovalo, se považují za studená úložiště. vrstvení dat na základě atributů, jako je četnost přístupu a doba uchování. K zákaznickým datům se nepoužívá často, ale vyžaduje podobnou latenci a výkon pro aktivní data.<br>Služba - **Queue Storage** pro zpracovaná úložiště dat. Queue Storage poskytuje cloudové zprávy mezi součástmi aplikace. V návrhu aplikací pro škálování jsou součásti aplikace často odděleny, takže je lze škálovat nezávisle. Queue Storage zajišťuje asynchronní zasílání zpráv pro komunikaci mezi součástmi aplikace.  Bez ohledu na to, jestli běží v cloudu, v desktopovém prostředí, na místním serveru nebo na mobilním zařízení. Queue Storage také podporuje správu asynchronních úloh a pracovní postupy procesů sestavování buildů. |
 | | Funkce Azure | Službu [Azure Functions](/azure/azure-functions/) poskytuje [Azure App Service v Azure Stack](/azure-stack/operator/azure-stack-app-service-overview) poskytovatel prostředků centra. Azure Functions umožňuje spuštění kódu v jednoduchém prostředí bez serveru, ke spouštění skriptu nebo kódu v reakci na nejrůznější události. Azure Functions škálování pro splnění požadavků bez nutnosti vytvořit virtuální počítač nebo publikovat webovou aplikaci pomocí vámi zvoleného programovacího jazyka. Řešení používají funkce pro:<br>- **příjem dat**<br>- **sterilizaci dat.** Ručně aktivované funkce můžou provádět naplánované zpracování dat, vyčištění a archivaci. Příklady mohou zahrnovat noční a měsíční zpracování sestav zákazníků.|
 
 ## <a name="issues-and-considerations"></a>Problémy a důležité informace

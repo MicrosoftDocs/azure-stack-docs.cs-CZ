@@ -1,26 +1,18 @@
 ---
-title: Nasazení Kubernetes do centra Azure Stack pomocí služby Active Directory federované služby (AD FS) | Microsoft Docs
+title: Nasazení Kubernetes do centra Azure Stack pomocí služby Active Directory federované služby (AD FS)
 description: Naučte se, jak nasadit Kubernetes do centra Azure Stack pomocí služby Active Directory federované služby (AD FS).
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: nav
 ms.topic: article
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: b02f4f0deddd7a7eae493d4af02315f636e594c9
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: 78abed9225a2a7516db65f9163aac5d0db24ad04
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76535956"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884439"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-hub-using-active-directory-federated-services"></a>Nasazení Kubernetes do centra Azure Stack pomocí federovaných služeb Active Directory
 
@@ -65,7 +57,7 @@ Abyste mohli nastavit instanční objekt při použití AD FS jako řešení ide
 
 1. Otevřete [portál centra Azure Stack](https://portal.local.azurestack.external).
 
-1. Vyberte **+ vytvořit prostředek** > Cluster **COMPUTE** > **Kubernetes**. Vyberte **Create** (Vytvořit).
+1. Vyberte **+ vytvořit prostředek** > Cluster **COMPUTE** > **Kubernetes**. Vyberte **Vytvořit**.
 
     ![Nasadit šablonu řešení](media/azure-stack-solution-template-kubernetes-deploy/01_kub_market_item.png)
 

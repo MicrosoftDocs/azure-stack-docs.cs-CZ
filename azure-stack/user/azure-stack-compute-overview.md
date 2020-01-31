@@ -1,21 +1,18 @@
 ---
-title: Úvod k virtuálním počítačům centra Azure Stack | Microsoft Docs
+title: Úvod k virtuálním počítačům centra Azure Stack
 description: Přečtěte si o Azure Stackch virtuálních počítačích centra.
-services: azure-stack
 author: sethmanheim
-manager: femila
-ms.service: azure-stack
 ms.topic: conceptual
 ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: f14972ed2c34ff88dedbf3adb2b9751b33576268
-ms.sourcegitcommit: ecb541f53255c6a4433724ad2d20fb93c4720ce1
+ms.openlocfilehash: c961716a64d3ccc4efcbf2eb36091e611db39be9
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76706877"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883941"
 ---
 # <a name="introduction-to-azure-stack-hub-vms"></a>Úvod k virtuálním počítačům centra Azure Stack
 
@@ -23,7 +20,7 @@ Centrum Azure Stack nabízí virtuálním počítačům (VM) jako typ škálovat
 
 Virtuální počítač centra Azure Stack poskytuje flexibilitu virtualizace bez nutnosti spravovat clustery nebo jednotlivé počítače. Přesto ale budete muset virtuální počítač udržovat i tak, že provádíte úlohy, jako je konfigurace, opravy a aktualizace, a instalace softwaru, který na něm běží.
 
-Virtuální počítače centra Azure Stack můžete použít několika způsoby. Například:
+Virtuální počítače centra Azure Stack můžete použít několika způsoby. Příklad:
 
 - **Vývoj a testování**: virtuální počítače centra Azure Stack umožňují vytvořit počítač s konkrétní konfigurací, která je nutná k vytváření kódu a testování aplikace.
 

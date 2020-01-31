@@ -1,34 +1,25 @@
 ---
-title: Připojte se k ASDK | Microsoft Docs
+title: Připojení k ASDK
 description: Přečtěte si, jak se připojit k Azure Stack Development Kit (ASDK).
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: 3cebbfa6-819a-41e3-9f1b-14ca0a2aaba3
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/06/2019
 ms.author: justinha
 ms.reviewer: knithinc
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 8a9fae5324e20ecd808df1f73dc90555b4802da5
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.openlocfilehash: df4b6c770ef1dd93cddbeb748c0845f391305173
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70974605"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76874021"
 ---
 # <a name="connect-to-the-asdk"></a>Připojení k ASDK
 
 Pokud chcete spravovat prostředky, musíte se nejdřív připojit k Azure Stack Development Kit (ASDK). V tomto článku popisujeme kroky, pomocí kterých se můžete připojit k ASDK, a to pomocí následujících možností připojení:
 
-* [Připojení ke vzdálené ploše (RDP)](#connect-with-rdp): Když se připojíte pomocí Připojení ke vzdálené ploše, může se jeden uživatel rychle připojit k ASDK.
-* [Virtuální privátní síť (VPN)](#connect-with-vpn): Když se připojujete pomocí sítě VPN, může se souběžně připojit k Azure Stack portálům z klientů mimo Azure Stack infrastrukturu. Připojení k síti VPN vyžaduje některé nastavení.
+* [Připojení ke vzdálené ploše (RDP)](#connect-with-rdp): když se připojíte pomocí připojení ke vzdálené ploše, může se jeden uživatel rychle připojit k ASDK.
+* [Virtuální privátní síť (VPN)](#connect-with-vpn): když se připojujete pomocí sítě VPN, více uživatelů se může souběžně připojit k Azure Stack portálům z klientů mimo infrastrukturu Azure Stack. Připojení k síti VPN vyžaduje některé nastavení.
 
 <a name="connect-with-rdp"></a>
 ## <a name="connect-to-azure-stack-using-rdp"></a>Připojení k Azure Stack pomocí protokolu RDP
@@ -57,7 +48,7 @@ Pro přístup k Azure Stack portálům a místně nainstalovaným nástrojům, j
 Připojení VPN se podporuje pro nasazení Azure AD i Active Directory Federation Services (AD FS) (AD FS).
 
 > [!NOTE]
-> Připojení VPN neposkytuje připojení k Azure Stack virtuálním počítačům. Při připojení přes VPN nebudete moct do Azure Stack virtuálních počítačů připojit protokol RDP.
+> *Připojení VPN neposkytuje připojení k* Azure Stack virtuálním počítačům. Při připojení přes VPN nebudete moct do Azure Stack virtuálních počítačů připojit protokol RDP.
 
 ### <a name="prerequisites"></a>Požadavky
 Před nastavením připojení VPN k ASDK se ujistěte, že jste splnili následující požadavky:
@@ -105,18 +96,18 @@ Pokud je instalace úspěšná, **Azure Stack** se zobrazí v seznamu připojen�
 
 ![Síťová připojení](media/asdk-connect/vpn.png)  
 
-### <a name="connect-to-azure-stack"></a>Připojení ke službě Azure Stack
+### <a name="connect-to-azure-stack"></a>Připojení k Azure Stack
 
   Připojte se k instanci Azure Stack pomocí jedné z následujících metod:  
 
-  * `Connect-AzsVpn` Použijte příkaz:
+  * Použijte příkaz `Connect-AzsVpn`:
       
     ```powershell
     Connect-AzsVpn `
       -Password $Password
     ```
 
-  * V místním počítači vyberte **Nastavení** > sítě**VPN** > **Azure Stack** > **připojit**. Do příkazového řádku pro přihlášení zadejte uživatelské jméno (**AzureStack\AzureStackAdmin**) a heslo.
+  * V místním počítači vyberte **nastavení sítě** > **VPN** > **Azure Stack** > **připojit**. Do příkazového řádku pro přihlášení zadejte uživatelské jméno (**AzureStack\AzureStackAdmin**) a heslo.
 
 Při prvním připojení budete vyzváni k instalaci Azure Stack kořenového certifikátu z **AzureStackCertificateAuthority** do úložiště certifikátů v místním počítači. Tento krok přidá ASDK certifikační autoritu (CA) do seznamu důvěryhodných hostitelů. Certifikát nainstalujete kliknutím na **Ano** .
 
@@ -127,10 +118,10 @@ Při prvním připojení budete vyzváni k instalaci Azure Stack kořenového ce
 
 ### <a name="test-vpn-connectivity"></a>Testovat připojení VPN
 
-Chcete-li otestovat připojení k portálu, otevřete prohlížeč a pak klikněte na portál User Portal (https://portal.local.azurestack.external/) nebo na https://adminportal.local.azurestack.external/) portál pro správu portálu.
+Chcete-li otestovat připojení k portálu, otevřete prohlížeč a pak klikněte na portál User Portal (https://portal.local.azurestack.external/) nebo portál pro správu (https://adminportal.local.azurestack.external/).
 
 Přihlaste se pomocí příslušných přihlašovacích údajů předplatného pro vytváření a správu prostředků.  
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
-[Odstraňování potíží](asdk-troubleshooting.md)
+[Řešení potíží](asdk-troubleshooting.md)

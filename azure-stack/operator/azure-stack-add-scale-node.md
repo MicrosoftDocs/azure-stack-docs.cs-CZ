@@ -1,27 +1,18 @@
 ---
-title: Přidání uzlů jednotek škálování do centra Azure Stack | Microsoft Docs
+title: Přidání uzlů jednotek škálování do centra Azure Stack
 description: Naučte se přidávat uzly jednotek škálování do jednotek škálování v Azure Stackovém centru.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 1/16/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: 50ff1bf63cbd7aaa36bb16e84f4c57db9c5a607d
-ms.sourcegitcommit: ba2fd47e74adebe1fcbb489d059a2c27d59b179c
+ms.openlocfilehash: d138fe5c4203cc28cedfb44964d7b99d9fc72931
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76256372"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76876588"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack-hub"></a>Přidání dalších uzlů jednotek škálování do centra Azure Stack
 
@@ -121,7 +112,7 @@ Stav jednotky škálování a uzly jednotek škálování se dají načíst pomo
 |Spuštěno               |Uzel je aktivně zapojen do jednotky škálování.|
 |Zastaveno               |Uzel není k dispozici.|
 |Přidávání                |Uzel se aktivně přidávají do jednotky škálování.|
-|Oprava             |Uzel je aktivně opravován.|
+|Opravíte             |Uzel je aktivně opravován.|
 |Údržba           |Uzel je pozastaven a není spuštěna žádná úloha aktivního uživatele. |
 |Vyžaduje nápravu  |Zjistila se chyba, která vyžaduje, aby byl uzel opravený.|
 

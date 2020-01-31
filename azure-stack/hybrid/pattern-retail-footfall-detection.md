@@ -2,18 +2,17 @@
 title: Hybridní vzor pro implementaci rozpoznávání Footfall založeného na AI pomocí centra Azure a centra Azure Stack.
 description: Naučte se používat služby Azure a Azure Stack hub k implementaci řešení pro detekci Footfall založeného na AI pro analýzu provozu v maloobchodním obchodě.
 author: BryanLa
-ms.service: azure-stack
 ms.topic: article
 ms.date: 10/31/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 10/31/2019
-ms.openlocfilehash: d165381b6f8f3138d434b8d62376feb8879a21b3
-ms.sourcegitcommit: f3d40c9fe73cf0a32fc643832085de887edf7cf3
+ms.openlocfilehash: 27fb31a29313543c3eec2b973cdf8e8ce32940fd
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2019
-ms.locfileid: "75187276"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76877319"
 ---
 # <a name="footfall-detection-pattern"></a>Model detekce Footfall
 

@@ -1,26 +1,18 @@
 ---
-title: App Service ve Azure Stack centra aktualizace 7 – poznámky k verzi | Microsoft Docs
+title: Zpráva k vydání verze pro Azure Stack centra aktualizace 7 App Service
 description: Seznamte se s novinkami Update 7 pro App Service v centru Azure Stack, známých problémech a na tom, kde si tuto aktualizaci stáhli.
-services: azure-stack
-documentationcenter: ''
 author: apwestgarth
 manager: stefsch
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2019
 ms.author: anwestg
 ms.reviewer: ''
-ms.openlocfilehash: 87a2fae4c2020b9c37a2907b42299871b0c85095
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: d4ddc7d0b6190c7f855b222079f8d13cb5d6e14e
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75880256"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76874361"
 ---
 # <a name="app-service-on-azure-stack-hub-update-7-release-notes"></a>Zpráva k vydání verze pro Azure Stack centra aktualizace 7 App Service
 

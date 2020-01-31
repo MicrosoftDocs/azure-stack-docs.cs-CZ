@@ -1,27 +1,18 @@
 ---
-title: Nasazení Azure App Service v offline prostředí v centru Azure Stack | Microsoft Docs
+title: Nasazení Azure App Service v offline prostředí v centru Azure Stack
 description: Naučte se, jak nasadit Azure App Service v prostředí offline Azure Stack centra zabezpečeném AD FS.
-services: azure-stack
-documentationcenter: ''
 author: BryanLa
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: app-service
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2020
-ms.openlocfilehash: 147759d9c885d796195a3c581953f8b115587eb1
-ms.sourcegitcommit: e47dc5fe9e59010ea3dbb9cb31abe15cfb821262
+ms.openlocfilehash: fe20a682041e3e23e2a67957ecdce85f922fbf20
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76124850"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76876367"
 ---
 # <a name="deploy-azure-app-service-in-an-offline-environment-in-azure-stack-hub"></a>Nasazení Azure App Service v offline prostředí v centru Azure Stack
 
@@ -159,7 +150,7 @@ Pokud chcete nasadit Azure App Service v offline prostředí, nejdřív vytvořt
 
     | Role | Minimální instance | Minimální SKU | Poznámky |
     | --- | --- | --- | --- |
-    | Správce | 1\. místo | Standard_A2 – (2 vCPU, 3584 MB) | Spravuje a udržuje stav cloudu Azure App Service. |
+    | Kontrolér | 1\. místo | Standard_A2 – (2 vCPU, 3584 MB) | Spravuje a udržuje stav cloudu Azure App Service. |
     | Správa | 1\. místo | Standard_A2 – (2 vCPU, 3584 MB) | Spravuje Azure App Service Azure Resource Manager a koncové body rozhraní API, rozšíření portálu (správce, tenant, funkce portálu) a datovou službu. Pokud chcete převzetí služeb při selhání podporovat, zvyšte Doporučené instance na 2. |
     | Vydavatel | 1\. místo | Standard_A1 – (1 vCPU, 1792 MB) | Publikuje obsah prostřednictvím FTP a nasazení webu. |
     | FrontEnd | 1\. místo | Standard_A1 – (1 vCPU, 1792 MB) | Směruje požadavky na aplikace Azure App Service. |

@@ -2,18 +2,17 @@
 title: Požadavky na návrh hybridní aplikace při sestavování v Azure a Azure Stack
 description: Co je třeba zvážit při vytváření hybridní aplikace pro inteligentní Cloud a inteligentní hraniční zařízení.
 author: BryanLa
-ms.service: azure-stack
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: a5d282a45f340461b62acb3462cfb84822e0c2be
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: 10035700de713910d33114e06fab11321e96e5b1
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73638813"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76877438"
 ---
 # <a name="hybrid-application-design-considerations"></a>Požadavky na návrh hybridní aplikace 
 
@@ -57,8 +56,8 @@ Společné součásti aplikace, které se mají zahrnout do inventáře, jsou uv
 | **Komponenta** | **Doprovodné materiály k hybridní aplikaci** |
 | ---- | ---- |
 | Připojení klientů | Vaše aplikace (na jakémkoli zařízení) má přístup k uživatelům různými způsoby, od jediného vstupního bodu, včetně následujících:<br>– Model klient-server, který vyžaduje, aby uživatel měl nainstalovaného klienta nástroje pro práci s aplikací. Serverová aplikace, ke které se přistupoval z webového prohlížeče.<br>-Klientská připojení můžou zahrnovat oznámení v případě, že dojde k přerušení připojení nebo upozornění, když můžou platit poplatky za roaming. |
-| Authentication  | Ověřování může být vyžadováno pro uživatele, který se připojuje k aplikaci, nebo z jedné součásti, která se připojuje k jiné. |
-| API  | Vývojářům můžete poskytnout programový přístup k vaší aplikaci pomocí sad rozhraní API a knihoven tříd a poskytovat rozhraní připojení na základě standardů sítě Internet. Rozhraní API můžete použít také k rozloží aplikace na nezávisle provozní logické jednotky. |
+| Ověření  | Ověřování může být vyžadováno pro uživatele, který se připojuje k aplikaci, nebo z jedné součásti, která se připojuje k jiné. |
+| Rozhraní API  | Vývojářům můžete poskytnout programový přístup k vaší aplikaci pomocí sad rozhraní API a knihoven tříd a poskytovat rozhraní připojení na základě standardů sítě Internet. Rozhraní API můžete použít také k rozloží aplikace na nezávisle provozní logické jednotky. |
 | Služby  | Pro poskytování funkcí aplikace můžete využívat stručné služby. Služba může být modul, na kterém je aplikace spuštěná. |
 | Fronty | Fronty můžete použít k uspořádání stavu životního cyklu a stavů komponent aplikace. Tyto fronty můžou poskytovat možnosti zasílání zpráv, oznámení a ukládání do vyrovnávací paměti pro odběr stran. |
 | Úložiště dat | Aplikace může být Bezstavová nebo stavová. Stavové aplikace potřebují úložiště dat, které může být splněno řadou formátů a svazků. |
@@ -235,7 +234,7 @@ Může se zdát jako časově náročná úloha předem, ale pokud aplikaci navr
 
 ## <a name="next-steps"></a>Další kroky
 
-Další informace naleznete v následujících materiálech:
+Další informace najdete v následujících materiálech:
 
 -   [Hybridní cloud](https://azure.microsoft.com/overview/hybrid-cloud/)
 -   [Hybridní cloudové aplikace](https://azure.microsoft.com/solutions/hybrid-cloud-app/)

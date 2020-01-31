@@ -2,26 +2,18 @@
 title: Správa infrastruktury úložiště pro centrum Azure Stack
 titleSuffix: Azure Stack
 description: Naučte se spravovat infrastrukturu úložiště pro centrum Azure Stack.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: ''
 ms.topic: article
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.lastreviewed: 03/11/2019
 ms.reviewer: jiahan
-ms.openlocfilehash: dfc073c87b1e6c8b1696b4d052e89c4ef786bc4d
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: 045bab05645c5186069d787645efe56ea5b4effa
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76535735"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882759"
 ---
 # <a name="manage-storage-infrastructure-for-azure-stack-hub"></a>Správa infrastruktury úložiště pro centrum Azure Stack
 
@@ -29,13 +21,13 @@ Tento článek popisuje stav a provozní stav prostředků infrastruktury úlož
 
 ## <a name="understand-drives-and-volumes"></a>Principy jednotek a svazků
 
-### <a name="drives"></a>Jednotky
+### <a name="drives"></a>Spar
 
 Služba Azure Stack hub využívá software Windows serveru a umožňuje kombinovat možnosti úložiště s kombinací Prostory úložiště s přímým přístupem (S2D) a clusteringu s podporou převzetí služeb při selhání Windows serveru. Tato kombinace poskytuje výkonné, škálovatelné a odolné služby úložiště.
 
 Azure Stack partneři integrovaných systémů pro rozbočovače nabízejí řadu variant řešení, včetně široké škály flexibility úložiště. V současné době můžete vybrat kombinaci tří typů jednotek: NVMe (Non Volatile Memory Express), SATA/SAS SSD (SSD-State Drive), HDD (pevný disk).
 
-Prostory úložiště s přímým přístupem poskytuje mezipaměť pro maximalizaci výkonu úložiště. V zařízení centra Azure Stack s jedním nebo několika typy jednotek Prostory úložiště s přímým přístupem automaticky použít všechny jednotky typu "nejrychlejší" (NVMe &gt; SSD &gt; HDD) pro ukládání do mezipaměti. Zbývající jednotky se využívají k ukládání dat. Jednotky mohou být seskupeny do nasazení "all-Flash" nebo "hybrid":
+Prostory úložiště s přímým přístupem poskytuje mezipaměť pro maximalizaci výkonu úložiště. V zařízení centra Azure Stack s jedním nebo několika typy jednotek Prostory úložiště s přímým přístupem automaticky použít všechny jednotky typu "nejrychlejší" (NVMe &gt; SSD &gt; HDD) pro ukládání do mezipaměti. Zbývající jednotky se použijí pro kapacitu. Jednotky mohou být seskupeny do nasazení "all-Flash" nebo "hybrid":
 
 ![Azure Stack infrastruktura úložiště centra](media/azure-stack-storage-infrastructure-overview/image1.png)
 
@@ -45,7 +37,7 @@ Nasazení all-Flash se zaměřuje na maximalizaci výkonu úložiště a nezahrn
 
 Hybridní nasazení mají za cíl vyvážit výkon a kapacitu nebo maximalizovat kapacitu a zahrnout rotační Hddy.
 
-Chování mezipaměti se určuje automaticky podle typů jednotek, pro které se mezipaměť používá. Při ukládání do mezipaměti pro SSD (například ukládání do mezipaměti NVMe pro SSD) se do mezipaměti ukládají pouze zápisy. Tím se snižuje kapacita jednotek kapacity, což snižuje počet kumulovaných přenosů na kapacitní jednotky a prodlouží jejich dobu života. Do té doby se čtení neukládá do mezipaměti. Nejsou ukládány do mezipaměti, protože čtení nemají významně vliv na životnost blesku a protože SSD univerzálně nabízí nízkou latenci čtení. Při ukládání do mezipaměti pro HDD (jako je například ukládání do mezipaměti SSD pro HDD) jsou čtení i zápisy ukládány do mezipaměti, aby se zajistila latence s podobným rozhraním Flash (často/~ 10x) pro obojí.
+Chování mezipaměti je určeno automaticky na základě typů jednotek, které jsou ukládány do mezipaměti pro. Při ukládání do mezipaměti pro SSD (například ukládání do mezipaměti NVMe pro SSD) se do mezipaměti ukládají pouze zápisy. Tím se snižuje kapacita jednotek kapacity, což snižuje počet kumulovaných přenosů na kapacitní jednotky a prodlouží jejich dobu života. Do té doby se čtení neukládá do mezipaměti. Nejsou ukládány do mezipaměti, protože čtení nemají významně vliv na životnost blesku a protože SSD univerzálně nabízí nízkou latenci čtení. Při ukládání do mezipaměti pro HDD (jako je například ukládání do mezipaměti SSD pro HDD) jsou čtení i zápisy ukládány do mezipaměti, aby se zajistila latence s podobným rozhraním Flash (často/~ 10x) pro obojí.
 
 ![Azure Stack infrastruktura úložiště centra](media/azure-stack-storage-infrastructure-overview/image3.png)
 
@@ -82,7 +74,7 @@ Svazky v Prostory úložiště s přímým přístupem poskytují odolnost proti
 
 ![Azure Stack infrastruktura úložiště centra](media/azure-stack-storage-infrastructure-overview/image5.png)
 
-Zrcadlení poskytuje odolnost proti chybám tím, že uchovává několik kopií všech dat. Způsob, jakým jsou data rozložená a umístěná, jsou netriviální, ale mají pravdu, že všechna data uložená pomocí zrcadlení se napíší několikrát. Každá kopie se zapisuje na jiný fyzický hardware (jiné jednotky na různých serverech), u kterého se předpokládá, že selže nezávisle na sobě. Třícestný zrcadlení může bezpečně tolerovat alespoň dva problémy s hardwarem (na disku nebo na serveru). Pokud například restartujete jeden server a najednou selže jiná jednotka nebo server, všechna data zůstanou v bezpečí a nepřetržitě přístupná.
+Zrcadlení zajišťuje odolnost proti chybám tím, že udržuje více kopií všech dat. Způsob, jakým jsou data rozložená a umístěná, jsou netriviální, ale mají pravdu, že všechna data uložená pomocí zrcadlení se napíší několikrát. Každá kopie je zapsána na jiný fyzický hardware (různé jednotky na různých serverech), u kterých se předpokládá nezávisle na selhání. Třícestný zrcadlení může bezpečně tolerovat alespoň dva problémy s hardwarem (na disku nebo na serveru). Pokud například restartujete jeden server, když dojde k výpadku jiné jednotky nebo serveru, všechna data zůstanou bezpečná a nepřetržitě dostupná.
 
 ## <a name="volume-states"></a>Stavy svazku
 
@@ -98,7 +90,7 @@ Get-AzsVolume -ScaleUnit $scaleunit_name -StorageSubSystem $subsystem_name | Sel
 
 Tady je příklad výstupu ukazující odpojený svazek a degradované/nedokončený svazek:
 
-| VolumeLabel | HealthStatus | OperationalStatus |
+| VolumeLabel | HealthStatus | Provozním |
 |-------------|--------------|------------------------|
 | ObjStore_1 | Není známo | Odpojit |
 | ObjStore_2 | Upozornění | {Degradované, neúplné} |
@@ -119,7 +111,7 @@ Pokud je svazek ve stavu varování, znamená to, že jedna nebo více kopií va
 | Provozní stav | Popis |
 |---|---|
 | V provozu | Centrum Azure Stack opravuje svazek, například po přidání nebo odebrání jednotky. Po dokončení opravy by se svazek měl vrátit do stavu OK.<br> <br>**Akce:** Počkejte, než centrum Azure Stack dokončí opravu svazku, a potom stav ověřte. |
-| Neúplné | Odolnost svazku se snížila, protože jedna nebo více jednotek selhala nebo chybí. Chybějící jednotky ale obsahují aktuální kopie vašich dat.<br> <br>**Akce:** Znovu připojte všechny chybějící jednotky, nahraďte všechny jednotky, které selhaly, a přepněte do režimu online všechny servery, které jsou offline. |
+| Dokončena | Odolnost svazku se snížila, protože jedna nebo více jednotek selhala nebo chybí. Chybějící jednotky ale obsahují aktuální kopie vašich dat.<br> <br>**Akce:** Znovu připojte všechny chybějící jednotky, nahraďte všechny jednotky, které selhaly, a přepněte do režimu online všechny servery, které jsou offline. |
 | Snížený výkon | Odolnost svazku se snížila z důvodu jedné nebo více chybných nebo chybějících jednotek a také zastaralých kopií dat na jednotkách.<br> <br>**Akce:** Znovu připojte všechny chybějící jednotky, nahraďte všechny jednotky, které selhaly, a přepněte do režimu online všechny servery, které jsou offline. |
 
 ### <a name="volume-health-state-unhealthy"></a>Stav svazku: není v pořádku
@@ -187,7 +179,7 @@ Jednotka v nesprávném stavu se momentálně nedá zapisovat do nebo k ní nelz
 | Nerozpoznaná metadata | Na disku byla nalezena nerozpoznaná metadata, což obvykle znamená, že má jednotka metadata z jiného fondu.<br> <br>**Akce:** Nahraďte jednotku novým diskem. Pokud musíte použít tento disk, vyjměte disk ze systému, zajistěte, aby na disku neexistovala žádná užitečná data, disk smažete a pak disk znovu vložte. |
 | Neúspěšné médium | Jednotka se nezdařila a prostory úložiště už nepoužívají.<br> <br>**Akce:** Pokud chcete zajistit plnou odolnost, nahraďte jednotku co nejdříve. |
 | Selhání hardwaru zařízení | V této jednotce došlo k chybě hardwaru. <br> <br>**Akce:** Pokud chcete zajistit plnou odolnost, nahraďte jednotku co nejdříve. |
-| aktualizace firmwaru; | Centrum Azure Stack aktualizuje firmware na jednotce. Tento stav je dočasný a obvykle trvá méně než minutu a během této doby všechny ostatní jednotky ve fondu zpracovávají všechny operace čtení a zápisu.<br> <br>**Akce:** Počkejte, než centrum Azure Stack dokončí aktualizaci, a potom stav ověřte. |
+| Aktualizuje se firmware | Centrum Azure Stack aktualizuje firmware na jednotce. Tento stav je dočasný a obvykle trvá méně než minutu a během této doby všechny ostatní jednotky ve fondu zpracovávají všechny operace čtení a zápisu.<br> <br>**Akce:** Počkejte, než centrum Azure Stack dokončí aktualizaci, a potom stav ověřte. |
 | Spouštění | Jednotka je připravena k operaci. Tento stav by měl být dočasný – po dokončení by jednotka měla přejít na jiný provozní stav.<br> <br>**Akce:** Počkejte, než centrum Azure Stack operaci dokončí, a poté stav ověřte. |
 
 ## <a name="reasons-a-drive-cant-be-pooled"></a>Důvody, proč se jednotka nedá zařadit do fondu

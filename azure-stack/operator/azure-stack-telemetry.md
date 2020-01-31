@@ -2,27 +2,18 @@
 title: Konfigurace telemetrie centra Azure Stack
 titleSuffix: Azure Stack
 description: Přečtěte si o telemetrie centra Azure Stack a o tom, jak nakonfigurovat nastavení telemetrie pomocí PowerShellu.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 1/16/2020
 ms.author: mabrigg
 ms.reviewer: comartin
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: c16987ac19b47eb4d0fedb147522703b98c8792e
-ms.sourcegitcommit: ba2fd47e74adebe1fcbb489d059a2c27d59b179c
+ms.openlocfilehash: cc4122424f990fd0c218899956e9ea32a695fe99
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76256355"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76880947"
 ---
 # <a name="configure-azure-stack-hub-telemetry"></a>Konfigurace telemetrie centra Azure Stack
 
@@ -38,7 +29,7 @@ Telemetrie centra Azure Stack je založená na komponentě Windows Server 2016 s
 > [!IMPORTANT]
 > Aby bylo možné tok dat telemetrie povolit, musí být ve vaší síti otevřený port 443 (HTTPS). Komponenta s připojeným uživatelským prostředím a telemetrie se připojí ke službě Microsoft Správa dat na `https://v10.events.data.microsoft.com`. Prostředí připojené uživatele a komponenta telemetrie se také připojí k `https://settings-win.data.microsoft.com` ke stažení informací o konfiguraci. Další služby diagnostických dat se připojí `https://watson.telemetry.microsoft.com` pro zasílání zpráv o chybách.
 
-## <a name="privacy-considerations"></a>Aspekty ochrany osobních údajů
+## <a name="privacy-considerations"></a>Požadavky na ochranu osobních údajů
 
 Služba ETW směruje data telemetrie zpátky do chráněného cloudového úložiště. Objekt zabezpečení nejnižších průvodců oprávnění přistupuje k datům telemetrie. Přístup k datům telemetrie mají jenom pracovníci Microsoftu s platnými obchodními potřebami. Společnost Microsoft nesdílí osobní údaje o zákaznících s třetími stranami s výjimkou rozhodnutí zákazníka nebo omezeného účelu popsaného v [prohlášení společnosti Microsoft o zásadách ochrany osobních údajů](https://privacy.microsoft.com/PrivacyStatement). Obchodní sestavy, které jsou sdíleny s výrobci OEM a partnery, zahrnují agregovaná, anonymitná data. Rozhodnutí o sdílení dat provádí interní tým Microsoftu, včetně zúčastněných stran ochrany osobních údajů, právních předpisů a správy dat.
 
@@ -75,10 +66,10 @@ Před změnou nastavení telemetrie byste měli pochopit úrovně telemetrie a s
 Nastavení telemetrie se seskupují na čtyři úrovně (0-3), které jsou kumulativní a kategorizované následujícím způsobem:
 
 **0 (zabezpečení)**</br>
-Pouze data o zabezpečení Informace, které jsou potřebné k zajištění zabezpečení operačního systému. To zahrnuje data o nastavení komponenty prostředí pro připojené uživatele a telemetrie a o programu Windows Defender. Na této úrovni se nevysílá žádná telemetrie specifická pro Azure Stack hub.
+Pouze data zabezpečení. Informace, které jsou potřebné k zajištění zabezpečení operačního systému. To zahrnuje data o nastavení komponenty prostředí pro připojené uživatele a telemetrie a o programu Windows Defender. Na této úrovni se nevysílá žádná telemetrie specifická pro Azure Stack hub.
 
 **1 (základní)**</br>
-Data zabezpečení a základní data o stavu a kvalitě. Základní informace o zařízení, včetně dat týkajících se kvality, kompatibility aplikací, dat o využití aplikací a dat z úrovně **zabezpečení** . Nastavení úrovně telemetrie na Basic umožňuje telemetrii centra Azure Stack. Data shromažďovaná na této úrovni zahrnují:
+Data zabezpečení a základní data o stavu a kvalitě. Základní informace o zařízení, včetně dat týkajících se kvality, kompatibility aplikací, dat o využití aplikací a dat z úrovně **zabezpečení** . Nastavení úrovně telemetrie na Basic umožňuje telemetrii centra Azure Stack. Data shromážděná na této úrovni zahrnují:
 
 - *Základní informace o zařízení* , které poskytují porozumění typům a konfiguracím nativních a virtuálních instancí Windows Server 2016 v ekosystému To zahrnuje:
 
@@ -98,7 +89,7 @@ Další přehledy, včetně: jak se používají služby operačního systému a
 > Toto je výchozí nastavení telemetrie.
 
 **3 (plná)**</br>
-Veškerá data nezbytná pro identifikaci a pomoc při řešení problémů a data z úrovní **Zabezpečení**, **Základní**, a **Rozšířená**.
+Veškerá data potřebná pro identifikaci a pomoc při řešení problémů a data ze **zabezpečení**, úrovně **Basic**a **vylepšené** úrovně.
 
 > [!IMPORTANT]
 > Tyto úrovně telemetrie se vztahují jenom na komponenty centra Microsoft Azure Stack. Softwarové komponenty a služby od jiných výrobců než od Microsoftu, které jsou spuštěné v rámci životního cyklu hardwarových partnerů od Azure Stack hub mohou komunikovat s Cloud Services mimo tyto úrovně telemetrie. Měli byste pracovat s vaším poskytovatelem hardwarových řešení Azure Stack, abyste pochopili jejich zásady telemetrie a jak se můžete rozhodnout nebo odhlásit.

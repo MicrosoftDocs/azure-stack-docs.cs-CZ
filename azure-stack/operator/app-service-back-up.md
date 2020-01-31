@@ -1,27 +1,18 @@
 ---
-title: Zálohování App Service v centru Azure Stack | Microsoft Docs
+title: Zálohování App Service v centru Azure Stack
 description: Naučte se, jak zálohovat App Services v centru Azure Stack.
-services: azure-stack
-documentationcenter: ''
 author: bryanla
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: app-service
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/21/2019
-ms.openlocfilehash: ba9bff9b63454be8e9f1222d8b63425ad3192724
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 8e28461f730275b27b9fc252714cdfbfc7be5dc4
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75881361"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76876639"
 ---
 # <a name="back-up-app-service-on-azure-stack-hub"></a>Zálohování App Service v centru Azure Stack
 

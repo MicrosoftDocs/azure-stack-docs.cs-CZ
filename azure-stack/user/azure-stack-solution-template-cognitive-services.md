@@ -1,26 +1,18 @@
 ---
-title: Nasazení služby Azure Cognitive Services pro Azure Stack centra | Microsoft Docs
+title: Nasazení služby Azure Cognitive Services do centra Azure Stack
 description: Přečtěte si, jak nasadit Azure Cognitive Services do centra Azure Stack.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: guanghu
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: d9e98e4d6f8bd1ba2bc2450f91d510da9bfe7d36
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: bc8a6745b9c3e4323e37bc3b4a46291955d227a1
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75878437"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883186"
 ---
 # <a name="deploy-azure-cognitive-services-to-azure-stack-hub"></a>Nasazení služby Azure Cognitive Services do centra Azure Stack
 

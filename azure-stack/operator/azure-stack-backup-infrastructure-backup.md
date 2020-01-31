@@ -1,25 +1,18 @@
 ---
-title: Obnovení dat v Azure Stack centru pomocí služby Infrastructure Backup | Microsoft Docs
+title: Obnovení dat v Azure Stack centru pomocí služby Infrastructure Backup
 description: Naučte se zálohovat a obnovovat data konfigurace a služby v Azure Stack hub pomocí služby Infrastructure Backup.
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 101b463f10684e40be5d4e3864c235290713c518
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: a9ebb725bed0472eaacc80e821840746966104dd
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882772"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76874327"
 ---
 # <a name="recover-data-in-azure-stack-hub-with-the-infrastructure-backup-service"></a>Obnovení dat v Azure Stack centru pomocí služby Infrastructure Backup
 

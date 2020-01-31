@@ -1,27 +1,18 @@
 ---
-title: Provoz síťového provozu nasazení centra Azure Stack | Microsoft Docs
+title: Síťový provoz nasazení centra Azure Stack
 description: Tento článek popisuje, co můžete očekávat od Azure Stack síťové procesy nasazení centra.
-services: azure-stack
-documentationcenter: ''
-author: mattbriggs
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
+author: ihenkel
 ms.topic: article
 ms.date: 12/05/2019
-ms.author: mabrigg
+ms.author: inhenkel
 ms.reviewer: wamota
 ms.lastreviewed: 12/05/2019
-ms.openlocfilehash: 8b29f3e768e7af241afb5479e5051969f6f41b24
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: bf7504ce1004fdc3c2a00d1b831e6f135218eb0a
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75812446"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76879903"
 ---
 # <a name="about-deployment-network-traffic"></a>O provozu sítě nasazení
 Porozumění síťovému provozu během nasazování centra Azure Stack pomůže nasazení provést úspěšně. Tento článek vás provede průběhem provozu sítě během procesu nasazení, abyste věděli, co očekávat.

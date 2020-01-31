@@ -1,26 +1,18 @@
 ---
-title: Škálování akcí uzlu jednotky v centru Azure Stack | Microsoft Docs
+title: Škálování akcí uzlu jednotky v centru Azure Stack
 description: Seznamte se s akcemi uzlu jednotky škálování, včetně zapnutí, vypnutí, zakázání, obnovení a zobrazení stavu uzlu v integrovaných systémech Azure Stack hub.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: PowerShell
 ms.topic: article
 ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: de0ec0d68b3d63cc0661fe7c4684304d83878a45
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: c9a82059d1b4d8dee853394160997a1366ee8597
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882347"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76881683"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack-hub"></a>Škálování akcí uzlu jednotky v centru Azure Stack
 
@@ -59,7 +51,7 @@ Zobrazení stavu jednotky škálování:
 | Spuštěno | Uzel je aktivně zapojen do jednotky škálování. |
 | Zastaveno | Uzel není k dispozici. |
 | Přidávání | Uzel se aktivně přidávají do jednotky škálování. |
-| Oprava | Uzel je aktivně opravován. |
+| Opravíte | Uzel je aktivně opravován. |
 | Údržba | Uzel je pozastaven a není spuštěna žádná úloha aktivního uživatele. |
 | Vyžaduje nápravu | Zjistila se chyba, která vyžaduje, aby byl uzel opravený. |
 
@@ -135,7 +127,7 @@ Pokud chcete spustit akci obnovení, otevřete příkazový řádek prostředí 
 
 Další informace najdete v tématu [Enable-AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/enable-azsscaleunitnode).
 
-## <a name="repair"></a>Opravit
+## <a name="repair"></a>Opravdu
 
 > [!CAUTION]  
 > Úroveň firmwaru je zásadní pro úspěch operace popsané v tomto článku. Chybějící tento krok může vést k nestabilitě systému, k poklesu výkonu, vláknům zabezpečení nebo selhání, když automatizace služby Azure Stack hub nasadí operační systém. Při nahrazování hardwaru vždy projděte dokumentaci k vašemu hardwarovému partnerovi, aby se zajistilo, že aplikovaný firmware odpovídá verzi OEM zobrazené na [portálu pro správu centra Azure Stack](azure-stack-updates.md).<br><br>

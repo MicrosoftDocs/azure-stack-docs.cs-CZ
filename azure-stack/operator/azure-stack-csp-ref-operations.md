@@ -1,26 +1,18 @@
 ---
-title: Registrace tenantů pro sledování využití v centru Azure Stack | Microsoft Docs
+title: Registrace tenantů pro sledování využití v centru Azure Stack
 description: Naučte se, jak registrovat klienty a jak je využití tenanta sledováno v Azure Stack hub.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/14/2019
-ms.openlocfilehash: c77a9a02a49672a120a0b1099784098e38fb515a
-ms.sourcegitcommit: ecb541f53255c6a4433724ad2d20fb93c4720ce1
+ms.openlocfilehash: 1f5f3011c1546970a1b94773b171e6419757c461
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76706690"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882485"
 ---
 # <a name="register-tenants-for-usage-tracking-in-azure-stack-hub"></a>Registrace tenantů pro sledování využití v centru Azure Stack
 

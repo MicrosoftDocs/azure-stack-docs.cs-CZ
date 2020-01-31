@@ -1,27 +1,18 @@
 ---
 title: Známé problémy centra Azure Stack
 description: Přečtěte si o známých problémech v Azure Stackch vydáních centra.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/27/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 951840c6382506404e514bfd27d69af399b5a120
-ms.sourcegitcommit: 10520f4481c0e3891c9dcd46fb21249ad2a33717
+ms.openlocfilehash: 631a086b86fd7855780aa1cb6dba11dbfa799759
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76516738"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76879818"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Známé problémy centra Azure Stack
 
@@ -157,7 +148,7 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 - Náprava: pomocí procesu aktualizace poskytovatele prostředků použijte opravu hotfix poskytovatele prostředků SQL 1.1.47.0 po upgradu centra Azure Stack na aktualizaci 1910 ([SQL RP verze 1.1.47.0](https://aka.ms/azurestacksqlrp11470)). U poskytovatele prostředků MySQL doporučujeme, abyste po upgradu centra Azure Stack na verzi 1910 Update ([MySQL RP verze 1.1.47.0](https://aka.ms/azurestackmysqlrp11470)) použili opravu hotfix poskytovatele prostředků MySQL 1.1.47.0.
 - Výskyt: běžné
 
-### <a name="access-control-iam"></a>Řízení přístupu (IAM)
+### <a name="access-control-iam"></a>Access Control (IAM)
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
 - Příčina: rozšíření IAM není aktuální. Portál Ibiza, který se dodává s centrem Azure Stack, zavádí nové chování, které způsobí selhání rozšíření RBAC, pokud uživatel otevírá okno **Access Control (IAM)** pro předplatné, které není vybrané v nástroji pro výběr globálního předplatného (**adresář + předplatné** na portálu User Portal). V okně se zobrazí **načítání** ve smyčce a uživatel nemůže do předplatného přidat nové role. Okno **Přidat** také zobrazuje **načítání** ve smyčce.
@@ -317,7 +308,7 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 - Příčina: na portálu User Portal zobrazuje okno **Konfigurace** účtu úložiště možnost změny **typu přenosu zabezpečení**. Tato funkce v současnosti není v centru Azure Stack podporována.
 - Výskyt: běžné
 
-### <a name="upload-blob"></a>Nahrát objekt blob
+### <a name="upload-blob"></a>Nahrát objekt BLOB
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
 - Příčina: při pokusu o nahrání objektu BLOB pomocí možnosti **OAuth (Preview)** na portálu User Portal se úloha nezdařila s chybovou zprávou.
@@ -487,7 +478,7 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 - Příčina: na portálu User Portal zobrazuje okno **Konfigurace** účtu úložiště možnost změny **typu přenosu zabezpečení**. Tato funkce v současnosti není v centru Azure Stack podporována.
 - Výskyt: běžné
 
-### <a name="upload-blob"></a>Nahrát objekt blob
+### <a name="upload-blob"></a>Nahrát objekt BLOB
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
 - Příčina: při pokusu o nahrání objektu BLOB pomocí možnosti **OAuth (Preview)** na portálu User Portal se úloha nezdařila s chybovou zprávou.
@@ -550,7 +541,7 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 - Příčina: na portálu User Portal zobrazuje okno **připojení** funkci **s názvem Poradce při potížích s VPN**. Tato funkce se v současnosti v centru Azure Stack nepodporuje.
 - Výskyt: běžné
 
-### <a name="network-connection-type"></a>Typ připojení
+### <a name="network-connection-type"></a>Typ síťového připojení
 
 - Platí: Tento problém se týká jakéhokoli prostředí 1906 nebo 1907. 
 - Příčina: na portálu User Portal zobrazuje okno **AddConnection** možnost použít **VNet-to-VNet**. Tato funkce se v současnosti v centru Azure Stack nepodporuje. 
@@ -663,7 +654,7 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 - Příčina: na portálu User Portal zobrazuje okno **Konfigurace** účtu úložiště možnost změny **typu přenosu zabezpečení**. Tato funkce v současnosti není v centru Azure Stack podporována.
 - Výskyt: běžné
 
-### <a name="upload-blob"></a>Nahrát objekt blob
+### <a name="upload-blob"></a>Nahrát objekt BLOB
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
 - Příčina: při pokusu o nahrání objektu BLOB pomocí možnosti **OAuth (Preview)** na portálu User Portal se úloha nezdařila s chybovou zprávou.
@@ -725,7 +716,7 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 
 ### <a name="load-balancer"></a>Nástroj pro vyrovnávání zatížení
 
-#### <a name="add-backend-pool"></a>Přidat back-endový fond
+#### <a name="add-backend-pool"></a>Přidat back-end fond
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
 - Příčina: když se na portálu User Portal pokusíte přidat **back-end fond** do **Load Balancer**, operace se nezdaří a chybová zpráva **se nepovedlo aktualizovat Load Balancer...** .

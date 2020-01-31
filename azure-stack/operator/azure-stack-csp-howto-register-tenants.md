@@ -1,26 +1,18 @@
 ---
-title: Přidání tenantů pro použití a fakturaci do centra Azure Stack | Microsoft Docs
+title: Přidání tenantů pro použití a fakturaci do centra Azure Stack
 description: Naučte se, jak přidat tenanta pro využití a fakturace do centra Azure Stack.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2019
+ms.date: 01/24/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: 9bf0e51deb8e30bfeab978e3bdec1f4c4343561d
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: e5bdfa5a190b639ef0537c96f4b0e049817fba21
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882602"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882568"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack-hub"></a>Přidat tenanta pro využití a fakturace do centra Azure Stack
 
@@ -51,7 +43,7 @@ Jakmile vytvoříte záznam o zákazníkovi v partnerském centru, můžete si h
 
 ### <a name="create-a-guest-user-in-the-end-customer-directory"></a>Vytvoření uživatele typu Host v adresáři koncového zákazníka
 
-Ve výchozím nastavení vám jako CSP nebude mít přístup k předplatnému centra Azure Stack pro koncové zákazníky. Pokud ale zákazník chce spravovat svoje prostředky, může přidat svůj účet jako vlastníka nebo přispěvatele do svého předplatného centra Azure Stack. Aby to bylo možné, bude nutné přidat účet jako uživatel typu Host do svého tenanta služby Azure AD. Doporučujeme použít jiný účet z vašeho účtu Azure CSP ke správě předplatného centra Azure Stack zákazníka, abyste se ujistili, že nepřijdete o přístup k předplatnému Azure vašeho zákazníka.
+Ve výchozím nastavení jste jako CSP nemuseli mít přístup k předplatnému centra Azure Stack pro koncové zákazníky. Pokud ale zákazník chce spravovat svoje prostředky, může přidat svůj účet jako vlastníka nebo přispěvatele do svého předplatného centra Azure Stack. Aby to bylo možné, musí přidat váš účet jako uživatel typu Host do svého tenanta služby Azure AD. Doporučujeme použít jiný účet z vašeho účtu Azure CSP ke správě předplatného centra Azure Stack zákazníka, abyste se ujistili, že nepřijdete o přístup k předplatnému Azure vašeho zákazníka.
 
 ### <a name="update-the-registration-with-the-end-customer-subscription"></a>Aktualizace registrace pomocí předplatného koncového zákazníka
 

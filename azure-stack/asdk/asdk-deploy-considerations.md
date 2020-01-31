@@ -1,27 +1,18 @@
 ---
-title: Požadavky a doporučení pro ASDK | Microsoft Docs
+title: Požadavky a předpoklady pro ASDK
 description: Seznamte se s požadavky na hardware, software a prostředí pro Azure Stack Development Kit (ASDK).
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/13/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 05/13/2019
-ms.openlocfilehash: 0e5a4e41e4650de8e3cebe7d33b9638890d5bd99
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.openlocfilehash: 9d466060f46f924441a8226c2f53ff3889b37429
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70974571"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76873886"
 ---
 # <a name="asdk-requirements-and-considerations"></a>Požadavky a předpoklady pro ASDK
 
@@ -29,17 +20,17 @@ Před nasazením Azure Stack Development Kit (ASDK) se ujistěte, že váš host
 
 ## <a name="hardware"></a>Hardware
 
-| Komponenta | Minimální | Doporučené |
+| Součást | Minimální | Doporučené |
 | --- | --- | --- |
 | Diskové jednotky: Operační systém |1 disk s operačním systémem s minimálně 200 GB, který je k dispozici pro systémový oddíl (SSD nebo HDD). |1 disk s operačním systémem, který má minimálně 200 GB, je k dispozici pro systémový oddíl (SSD nebo HDD). |
-| Diskové jednotky: Data pro obecné vývojové sady<sup>*</sup>  |Čtyři disky. Každý disk poskytuje minimálně 240 GB kapacity (SSD nebo HDD). Používají se všechny dostupné disky. |Čtyři disky. Každý disk poskytuje minimálně 400 GB kapacity (SSD nebo HDD). Používají se všechny dostupné disky. |
-| Výpočetní Procesor |Duální soket: 16 fyzických jader (celkem). |Duální soket: 20 fyzických jader (celkem). |
-| Výpočetní Memory (Paměť) |192 – GB RAM. |256 – GB RAM. |
-| Výpočetní SYSTÉMU BIOS |Je zapnutá technologie Hyper-V (s podporou SLAT). |Je zapnutá technologie Hyper-V (s podporou SLAT). |
-| Sítě NIC |Certifikace systému Windows Server 2012 R2. Nejsou vyžadovány žádné specializované funkce. | Certifikace systému Windows Server 2012 R2. Nejsou vyžadovány žádné specializované funkce. |
+| Diskové jednotky:<sup>*</sup> dat pro obecné vývojové sady  |Čtyři disky. Každý disk poskytuje minimálně 240 GB kapacity (SSD nebo HDD). Používají se všechny dostupné disky. |Čtyři disky. Každý disk poskytuje minimálně 400 GB kapacity (SSD nebo HDD). Používají se všechny dostupné disky. |
+| Výpočetní služby: Procesor |Duální soket: 16 fyzických jader (celkem). |Duální soket: 20 fyzických jader (celkem). |
+| Výpočetní služby: Paměť |192 – GB RAM. |256 – GB RAM. |
+| Výpočetní služby: BIOS |Je zapnutá technologie Hyper-V (s podporou SLAT). |Je zapnutá technologie Hyper-V (s podporou SLAT). |
+| Síť: NIC |Certifikace systému Windows Server 2012 R2. Nejsou vyžadovány žádné specializované funkce. | Certifikace systému Windows Server 2012 R2. Nejsou vyžadovány žádné specializované funkce. |
 | Hardwarová certifikace loga |[Certifikováno pro Windows Server 2012 R2](https://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0). |[Certifikováno pro Windows Server 2016](https://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0). |
 
-<sup>*</sup>Pokud plánujete přidat spoustu [položek z webu Marketplace](../operator/azure-stack-create-and-publish-marketplace-item.md) z Azure, budete potřebovat víc než tuto doporučenou kapacitu.
+<sup>*</sup> Pokud plánujete přidat spoustu [položek z webu Marketplace](../operator/azure-stack-create-and-publish-marketplace-item.md) z Azure, budete potřebovat víc než tuto doporučenou kapacitu.
 
 ### <a name="hardware-notes"></a>Poznámky k hardwaru
 
@@ -56,14 +47,14 @@ Před nasazením Azure Stack Development Kit (ASDK) se ujistěte, že váš host
 * Pevný disk SATA
 * Pevný disk SAS
 * Pevný disk RAID
-* RAID SSD (Pokud je typ média Neurčen/neznámý<sup>*</sup>)
+* RAID SSD (Pokud je typ média neurčený nebo neznámý<sup>*</sup>)
 * SATA SSD + pevný disk SATA
 * SAS SSD + pevný disk SAS
 * NVMe
 
-<sup>*</sup>Řadiče RAID bez průchozí funkce nerozpoznají typ média. Tato řadiče označují pevný disk i SSD jako neurčený. V takovém případě se jednotka SSD používá jako trvalé úložiště namísto ukládání zařízení do mezipaměti. Proto můžete ASDK nasadit na tyto SSD.
+<sup>*</sup> Řadiče RAID bez průchozí funkce nerozpoznají typ média. Tato řadiče označují pevný disk i SSD jako neurčený. V takovém případě se jednotka SSD používá jako trvalé úložiště namísto ukládání zařízení do mezipaměti. Proto můžete ASDK nasadit na tyto SSD.
 
-**Příklad adaptérů HBA**: Adaptér LSI 9207-8i, LSI-9300-8i nebo LSI-9265-8i v předávacím režimu.
+**Příklad HBA**: LSI 9207-8i, LSI-9300-8i nebo LSI-9265-8i v předávacím režimu.
 
 Dostupné jsou ukázkové OEM konfigurace.
 
@@ -102,7 +93,7 @@ Pokud vaše prostředí není připojené k Internetu, nebo nechcete používat 
 ### <a name="azure-active-directory-accounts"></a>Účty Azure Active Directory
 Pokud chcete nasadit Azure Stack pomocí účtu Azure AD, musíte před spuštěním skriptu PowerShellu pro nasazení připravit účet Azure AD. Tento účet se stal globálním správcem pro tenanta Azure AD. Slouží ke zřízení a delegování aplikací a instančních objektů pro všechny Azure Stack služby, které komunikují se službou Azure AD a Graph API. Používá se také jako vlastník předplatného výchozího poskytovatele (který můžete později změnit). Pomocí tohoto účtu se můžete přihlásit k portálu správce systému Azure Stack.
 
-1. Vytvořte účet Azure AD, který je správcem adresáře pro aspoň jednu službu Azure AD. Pokud už účet máte, můžete ho použít. V opačném případě můžete vytvořit zdarma na [https://azure.microsoft.com/free/](https://azure.microsoft.com/free/) <https://go.microsoft.com/fwlink/?LinkID=717821> místo (v Číně). Pokud plánujete pozdější [registraci Azure Stack v Azure](asdk-register.md), musíte mít také předplatné v tomto nově vytvořeném účtu.
+1. Vytvořte účet Azure AD, který je správcem adresáře pro aspoň jednu službu Azure AD. Pokud už účet máte, můžete ho použít. V opačném případě můžete vytvořit zdarma na [https://azure.microsoft.com/free/](https://azure.microsoft.com/free/) (v Číně místo toho <https://go.microsoft.com/fwlink/?LinkID=717821> ). Pokud plánujete pozdější [registraci Azure Stack v Azure](asdk-register.md), musíte mít také předplatné v tomto nově vytvořeném účtu.
    
     Uložte tyto přihlašovací údaje pro použití jako správce služby. Tento účet může konfigurovat a spravovat cloudy prostředků, uživatelské účty, plány tenantů, kvóty a ceny. Na portálu můžou vytvářet cloudy webů, privátní cloudy virtuálních počítačů, vytvářet plány a spravovat předplatná uživatelů.
 1. Ve službě Azure AD vytvořte aspoň jeden testovací uživatelský účet, abyste se mohli k ASDK přihlašovat jako tenant.
@@ -116,13 +107,13 @@ Pokud chcete nasadit Azure Stack pomocí účtu Azure AD, musíte před spuště
 
 Po nasazení se oprávnění globálního správce služby Azure AD nevyžadují. Některé operace ale můžou vyžadovat přihlašovací údaje globálního správce. Příklady takových operací zahrnují skript instalačního programu poskytovatele prostředků nebo novou funkci, která vyžaduje udělení oprávnění. Můžete buď dočasně obnovit oprávnění globálního správce účtu, nebo použít samostatný účet globálního správce, který je vlastníkem *výchozího předplatného poskytovatele*.
 
-## <a name="network"></a>Síť
+## <a name="network"></a>Network (Síť)
 ### <a name="switch"></a>Přepínač
 Jeden dostupný port na přepínači pro ASDK počítač.  
 
 Počítač ASDK podporuje připojení k portu pro přístup k přepínači nebo k portu kmene. Přepínač nevyžaduje žádné specializované funkce. Pokud používáte port kmene nebo pokud potřebujete nakonfigurovat ID sítě VLAN, musíte zadat ID sítě VLAN jako parametr nasazení.
 
-### <a name="subnet"></a>Subnet
+### <a name="subnet"></a>Podsíť
 Nepřipojujte počítač ASDK k těmto podsítím:
 
 * 192.168.200.0/24

@@ -1,27 +1,18 @@
 ---
-title: 1\.1.30.0 zpráva k vydání verze poskytovatele prostředků MySQL centra pro Azure Stack | Microsoft Docs
+title: 1\.1.30.0 zpráva k vydání verze poskytovatele prostředků MySQL centra pro Azure Stack
 description: Podívejte se na poznámky k verzi a zjistěte, co je nového ve 1.1.30.0 aktualizace poskytovatele prostředků MySQL centra pro Azure Stack.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: 21fdc832203e276960168e2ac15b4e552439090a
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: 3598fe210f951e33905bc369b73fd29f9d2a9d5b
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76535004"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76881906"
 ---
 # <a name="mysql-resource-provider-11300-release-notes"></a>Poznámky k verzi poskytovatele 1.1.30.0 prostředků MySQL
 
@@ -55,7 +46,7 @@ Tato verze poskytovatele prostředků centra Azure Stacku MySQL zahrnuje násled
 
 - **SKU MySQL můžou trvat až hodinu,** než se na portálu zobrazí. Může trvat až hodinu, než se nově vytvořené skladové položky zobrazí pro použití při vytváření nových databází MySQL.
 
-    **Řešení**: Žádné
+    **Alternativní řešení**: žádné.
 
 - **Znovu se využívala přihlášení MySQL**. Při pokusu o vytvoření nového přihlášení MySQL se stejným uživatelským jménem, jako je existující přihlášení v rámci stejného předplatného, bude použito stejné přihlašovací jméno a stávající heslo.
 

@@ -1,27 +1,18 @@
 ---
-title: Konfigurace zdrojů nasazení pro App Services v centru Azure Stack | Microsoft Docs
+title: Konfigurace zdrojů nasazení pro App Services v centru Azure Stack
 description: Naučte se konfigurovat zdroje nasazení (Git, GitHub, BitBucket, DropBox a OneDrive) pro App Services v centru Azure Stack.
-services: azure-stack
-documentationcenter: ''
 author: bryanla
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: app-service
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 0115e726e8922b94eae437cb76e23f4e77199d97
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 30e7ced54a4c2bc69cb5249b58b4844cd9a0b332
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75880902"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76874769"
 ---
 # <a name="configure-deployment-sources-for-app-services-on-azure-stack-hub"></a>Konfigurace zdrojů nasazení pro App Services v centru Azure Stack
 
@@ -32,7 +23,7 @@ Kromě místního Gitu jsou podporovány následující poskytovatelé správy z
 * GitHubu
 * BitBucket
 * OneDrive
-* DropBox
+* KLÁDACÍ
 
 ## <a name="view-deployment-sources-in-app-service-administration"></a>Zobrazení zdrojů nasazení v App Service správě
 
@@ -96,7 +87,7 @@ Aplikace ![OneDrive][10]
 3. Zadejte **název** nové registrace aplikace: zadejte **App Service v centru Azure Stack**a pak klikněte na **vytvořit aplikaci**.
 4. Další obrazovka obsahuje seznam vlastností vaší nové aplikace. Uložte **ID aplikace** do nějakého dočasného umístění.
 ![vlastnosti aplikace OneDrive][11]
-5. V části **Tajné kódy aplikací** klikněte na **Generovat nové heslo**. Zaznamenejte si **nové vygenerované heslo**. Toto heslo je tajný kód vaší aplikace a po kliknutí na tlačítko **OK**se nedá získat.
+5. V části **tajné kódy aplikací**klikněte na **Generovat nové heslo**. Zaznamenejte si **nové vygenerované heslo**. Toto heslo je tajný kód vaší aplikace a po kliknutí na tlačítko **OK**se nedá získat.
 6. V části **platformy**klikněte na **Přidat platformu**a pak vyberte **Web**.
 7. Zadejte **identifikátor URI přesměrování**. Ve výchozím nasazení centra Azure Stack je identifikátor URI přesměrování ve formě https://portal.local.azurestack.external/TokenAuthorize. Pokud pracujete v jiné doméně, přepněte název domény pro azurestack. Local.
 ![aplikace OneDrive – přidat webovou platformu][12]

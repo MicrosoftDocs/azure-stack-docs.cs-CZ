@@ -2,26 +2,18 @@
 title: Nasazení poskytovatele prostředků SQL Server
 titleSuffix: Azure Stack Hub
 description: Naučte se, jak nasadit poskytovatele prostředků SQL Server v centru Azure Stack.
-services: azure-stack
-documentationCenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/02/2019
 ms.lastreviewed: 03/18/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: c84649853d77b2f56fc1192d0bb302996deb8a60
-ms.sourcegitcommit: ecb541f53255c6a4433724ad2d20fb93c4720ce1
+ms.openlocfilehash: f365886119e343fd550e00e606840172fed7fa21
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76706724"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76881235"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack-hub"></a>Nasazení poskytovatele prostředků SQL Server v centru Azure Stack
 
@@ -207,7 +199,7 @@ Po dokončení instalačního skriptu poskytovatele prostředků aktualizujte pr
 Pomocí následujících kroků můžete ověřit, jestli je poskytovatel prostředků SQL úspěšně nasazený.
 
 1. Přihlaste se k portálu pro správu jako správce služby.
-2. Vyberte **Skupiny prostředků**.
+2. Vyberte **skupiny prostředků**.
 3. Vyberte **umístění System.\<\>** skupinu prostředků. sqladapter.
 4. Na stránce Souhrn pro skupinu prostředků by se neměla nasazovat žádná neúspěšná nasazení.
 
