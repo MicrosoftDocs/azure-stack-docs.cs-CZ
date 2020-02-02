@@ -7,16 +7,16 @@ ms.date: 10/23/2019
 ms.author: inhenkel
 ms.reviewer: wamota
 ms.lastreviewed: 06/04/2019
-ms.openlocfilehash: 42529e5757100ed2ad1334b62bf4e58e1266f561
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: cd1e5e66b5cdb893591fc4116b335ff399ace736
+ms.sourcegitcommit: bcd2c6cd08526723f4b770b149c5e9a4fd5ef0ee
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881698"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76922641"
 ---
 # <a name="network-integration-planning-for-azure-stack-hub"></a>Plánování integrace sítě pro centrum Azure Stack
 
-Tento článek poskytuje Azure Stack informace o infrastruktuře sítě centra, které vám pomůžou rozhodnout, jak nejlépe integrovat Azure Stack hub do stávajícího síťového prostředí. 
+Tento článek poskytuje Azure Stack informace o infrastruktuře sítě centra, které vám pomůžou rozhodnout, jak nejlépe integrovat Azure Stack hub do stávajícího síťového prostředí.
 
 > [!NOTE]
 > K překladu externích názvů DNS z centra Azure Stack (například www\.bing.com) je potřeba poskytnout servery DNS pro přeposílání požadavků DNS. Další informace o požadavcích na službu DNS centra Azure Stack najdete v tématu [integrace služby Azure Stack hub Datacenter – DNS](azure-stack-integrate-dns.md).
