@@ -1,5 +1,6 @@
 ---
-title: Ověření identity Azure pro centrum Azure Stack
+title: Ověřit identitu Azure
+titleSuffix: Azure Stack Hub
 description: K ověření identity Azure použijte kontrolu připravenosti centra Azure Stack.
 author: ihenkel
 ms.topic: conceptual
@@ -7,12 +8,12 @@ ms.date: 06/24/2019
 ms.author: inhenkel
 ms.reviewer: unknown
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: a6646f6c96faa15dd8ddd2ada24ef1eafe4d94f5
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 5c20e951e2a34c800611c8417d3b8504ed84c346
+ms.sourcegitcommit: 5f53810d3c5917a3a7b816bffd1729a1c6b16d7f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882608"
+ms.lasthandoff: 02/03/2020
+ms.locfileid: "76972473"
 ---
 # <a name="validate-azure-identity"></a>Ověření identit Azure
 
@@ -20,8 +21,8 @@ Pomocí nástroje pro kontrolu připravenosti centra Azure Stack (**AzsReadiness
 
 Kontrola připravenosti ověřuje:
 
-- Azure Active Directory (Azure AD) jako poskytovatel identity pro centrum Azure Stack.
-- Účet Azure AD, který se chystáte použít, se může přihlásit jako globální správce Azure Active Directory.
+- Azure AD jako zprostředkovatel identity pro centrum Azure Stack.
+- Účet Azure AD, který chcete použít, se může přihlásit jako globální správce služby Azure AD.
 
 Ověření zajišťuje, aby vaše prostředí bylo připravené Azure Stack centra pro ukládání informací o uživatelích, aplikacích, skupinách a instančních objektech z centra Azure Stack ve službě Azure AD.
 
@@ -37,18 +38,16 @@ Vyžadují se tyto požadavky:
 
 - Windows 10 nebo Windows Server 2016 s připojením k Internetu.
 - PowerShell 5,1 nebo novější. Pokud chcete zkontrolovat verzi, spusťte následující příkaz PowerShellu a pak zkontrolujte **Hlavní** verzi a **dílčí** verze:  
-
   ```powershell
   $PSVersionTable.PSVersion
   ```
-
 - [PowerShell nakonfigurovaný pro centrum Azure Stack](azure-stack-powershell-install.md).
 - Nejnovější verze nástroje pro [kontrolu připravenosti centra Microsoft Azure Stack](https://aka.ms/AzsReadinessChecker) .
 
-**Azure Active Directory prostředí:**
+**Prostředí Azure AD:**
 
-- Identifikujte účet Azure AD, který se má použít pro centrum Azure Stack, a ujistěte se, že se jedná o Azure Active Directory globálního správce.
-- Identifikujte název tenanta Azure AD. Název tenanta musí být primární název domény pro váš Azure Active Directory. například **contoso.onmicrosoft.com**.
+- Identifikujte účet Azure AD, který se má používat pro Azure Stack hub, a ujistěte se, že se jedná o globálního správce Azure AD.
+- Identifikujte název tenanta Azure AD. Název tenanta musí být primární název domény pro Azure AD. Například **contoso.onmicrosoft.com**.
 - Identifikujte prostředí Azure, které budete používat. Podporované hodnoty parametru název prostředí jsou **AzureCloud**, **AzureChinaCloud**nebo **AzureUSGovernment**v závislosti na předplatném Azure, které používáte.
 
 ## <a name="steps-to-validate-azure-identity"></a>Postup ověření identity Azure
@@ -59,7 +58,7 @@ Vyžadují se tyto požadavky:
    Install-Module Microsoft.AzureStack.ReadinessChecker -Force
    ```
 
-2. Z příkazového řádku PowerShellu spusťte následující příkaz, který nastaví **$serviceAdminCredential** jako správce služby pro vašeho TENANTA Azure AD.  Nahraďte **serviceadmin\@contoso.onmicrosoft.com** názvem vašeho účtu a tenanta:
+2. Z příkazového řádku PowerShellu spusťte následující příkaz, který nastaví `$serviceAdminCredential` jako správce služby pro vašeho tenanta Azure AD.  Nahraďte `serviceadmin\@contoso.onmicrosoft.com` účtem a názvem tenanta:
 
    ```powershell
    $serviceAdminCredential = Get-Credential serviceadmin@contoso.onmicrosoft.com -Message "Enter credentials for service administrator of Azure Active Directory tenant"
@@ -68,13 +67,13 @@ Vyžadují se tyto požadavky:
 3. Z příkazového řádku PowerShellu spusťte následující příkaz, který spustí ověřování vaší služby Azure AD:
 
    - Zadejte hodnotu názvu prostředí pro **AzureEnvironment**. Podporované hodnoty parametru název prostředí jsou **AzureCloud**, **AzureChinaCloud**nebo **AzureUSGovernment**v závislosti na předplatném Azure, které používáte.
-   - Nahraďte **contoso.onmicrosoft.com** názvem vašeho tenanta Azure Active Directory.
+   - Nahraďte `contoso.onmicrosoft.com` názvem tenanta Azure AD.
 
    ```powershell
    Invoke-AzsAzureIdentityValidation -AADServiceAdministrator $serviceAdminCredential -AzureEnvironment <environment name> -AADDirectoryTenantName contoso.onmicrosoft.com
    ```
 
-4. Po spuštění nástroje si Projděte výstup. Pro požadavky na instalaci potvrďte, že stav je **OK** . Úspěšné ověření vypadá jako na následujícím obrázku:
+4. Po spuštění nástroje si Projděte výstup. Pro požadavky na instalaci potvrďte, že stav je **OK** . Úspěšné ověření vypadá jako v následujícím příkladu:
 
    ```powershell
    Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
@@ -95,10 +94,10 @@ Pokaždé, když se ověřování spustí, protokoluje výsledky do **AzsReadine
 
 Tyto soubory vám můžou přispět ke sdílení stavu ověření před nasazením centra Azure Stack nebo prozkoumání problémů s ověřováním. Oba soubory uchovávají výsledky každé následné kontroly ověření. Sestava poskytne vašemu týmu nasazení potvrzení konfigurace identity. Soubor protokolu může pomoci týmu nasazení nebo podpory prozkoumat problémy s ověřením.
 
-Ve výchozím nastavení jsou oba soubory zapisovány do **C:\Users\<username > \AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.JSON**.  
+Ve výchozím nastavení jsou oba soubory zapisovány do `C:\Users\<username>\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json`.  
 
-- K určení jiného umístění sestavy použijte parametr **-OutputPath** ***&lt;Path&gt;*** na konci příkazového řádku run.
-- Pomocí parametru **-CleanReport** na konci příkazu Run můžete vymazat informace o předchozích spuštěních nástroje ze **AzsReadinessCheckerReport. JSON**.
+- Na konci příkazového řádku Run použijte parametr `-OutputPath <path>` k určení jiného umístění sestavy.
+- Pomocí parametru `-CleanReport` na konci příkazu Run můžete vymazat informace o předchozích spuštěních nástroje z **AzsReadinessCheckerReport. JSON**.
 
 Další informace najdete v tématu [Sestava ověřování centra Azure Stack](azure-stack-validation-report.md).
 
@@ -126,15 +125,15 @@ Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadines
 Invoke-AzsAzureIdentityValidation Completed
 ```
 
-**Příčina** : účet se nemůže přihlásit, protože vypršela platnost hesla nebo je dočasná.
+**Příčina** – účet se nemůže přihlásit, protože heslo vypršelo nebo je dočasné.
 
-**Řešení** – v PowerShellu spusťte následující příkaz a pak postupujte podle pokynů pro resetování hesla:
+**Řešení** – v PowerShellu spusťte následující příkaz a potom postupujte podle pokynů pro resetování hesla:
 
 ```powershell
 Login-AzureRMAccount
 ```
 
-Případně se přihlaste k [Azure Portal](https://portal.azure.com) jako vlastník účtu a uživatel bude nucen měnit heslo.
+Dalším způsobem je přihlašovat se k [Azure Portal](https://portal.azure.com) jako vlastník účtu a uživatel bude nucen měnit heslo.
 
 ### <a name="unknown-user-type"></a>Neznámý typ uživatele 
  
@@ -154,7 +153,7 @@ Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadines
 Invoke-AzsAzureIdentityValidation Completed
 ```
 
-**Příčina** : účet se nemůže přihlásit k určenému Azure Active Directory (**AADDirectoryTenantName**). V tomto příkladu je **AzureChinaCloud** zadáno jako **AzureEnvironment**.
+**Příčina** : účet se nemůže přihlásit k zadané službě Azure AD (**AADDirectoryTenantName**). V tomto příkladu je **AzureChinaCloud** zadáno jako **AzureEnvironment**.
 
 **Řešení** – potvrďte, že je účet platný pro zadané prostředí Azure. Spuštěním následujícího příkazu v PowerShellu ověřte, že je účet platný pro konkrétní prostředí:
 
@@ -180,9 +179,9 @@ Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadines
 Invoke-AzsAzureIdentityValidation Completed
 ```
 
-**Příčina** – i když se účet může úspěšně přihlásit, účet není správce Azure Active Directory (**AADDirectoryTenantName**).  
+**Příčina** – i když se účet může úspěšně přihlásit, účet není správcem Azure AD (**AADDirectoryTenantName**).  
 
-**Řešení** – Přihlaste se k [Azure Portal](https://portal.azure.com) jako vlastník účtu, klikněte na **Azure Active Directory**, pak na **Uživatelé**a pak **Vyberte uživatel**, **role adresáře**a pak ověřte, že je uživatel **globálním správcem**. Pokud je účet **uživatel**, vyhledejte **Azure Active Directory** > **vlastní názvy domén**a potvrďte, že název, který jste zadali pro **AADDirectoryTenantName** , je označený jako primární název domény pro tento adresář. V tomto příkladu, který je **contoso.onmicrosoft.com**.
+**Řešení** – Přihlaste se k [Azure Portal](https://portal.azure.com) jako vlastník účtu, pokračujte na **Azure Active Directory**a pak na **Uživatelé**a pak **Vyberte uživatele**. Pak vyberte **role adresáře** a ujistěte se, že je uživatel **globálním správcem**. Pokud je účet **uživatel**, vyhledejte **Azure Active Directory** > **vlastní názvy domén** a potvrďte, že název, který jste zadali pro **AADDirectoryTenantName** , je označený jako primární název domény pro tento adresář. V tomto příkladu je to **contoso.onmicrosoft.com**.
 
 Azure Stack hub vyžaduje, aby byl název domény primárním názvem domény.
 

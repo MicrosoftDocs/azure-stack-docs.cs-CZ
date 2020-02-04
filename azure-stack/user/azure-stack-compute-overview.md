@@ -3,16 +3,16 @@ title: Úvod k virtuálním počítačům centra Azure Stack
 description: Přečtěte si o Azure Stackch virtuálních počítačích centra.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 01/22/2020
+ms.date: 02/03/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: c961716a64d3ccc4efcbf2eb36091e611db39be9
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: abb5e6d50b9ec99366578fd84e2d720fb52722a3
+ms.sourcegitcommit: 4178443d84cf6d3fbaba11425beff703568c1a2c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883941"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76977899"
 ---
 # <a name="introduction-to-azure-stack-hub-vms"></a>Úvod k virtuálním počítačům centra Azure Stack
 
@@ -57,7 +57,7 @@ Vaše předplatné má nastavené výchozí limity kvót, které mohou mít vliv
 
 ### <a name="operating-system-disks-and-images"></a>Disky a image operačních systémů
 
-Virtuální počítače používají virtuální pevné disky (VHD) k ukládání jejich operačního systému (OS) a dat. Virtuální pevné disky se používají také pro image, ze kterých si zvolíte, a nainstalujte operační systém. Centrum Azure Stack poskytuje Marketplace pro použití s různými verzemi a typy operačních systémů. Image z Marketplace se identifikují jako vydavatel obrázku, nabídka, SKU a verze (obvykle se jedná o nejnovější verzi, která je určená jako **nejnovější**).
+Virtuální počítače v centru Azure Stack jsou omezené na jeden formát virtuálního pevného disku (VHD/VHDX). Virtuální pevné disky se dají použít k uložení operačního systému počítače (OS) a dat. Virtuální pevné disky se používají také pro image, ze kterých si zvolíte, a nainstalujte operační systém. Centrum Azure Stack poskytuje Marketplace pro použití s různými verzemi a typy operačních systémů. Image z Marketplace se identifikují jako vydavatel obrázku, nabídka, SKU a verze (obvykle se jedná o nejnovější verzi, která je určená jako **nejnovější**).
 
 Následující tabulka ukazuje, jak najít informace pro obrázek:
 

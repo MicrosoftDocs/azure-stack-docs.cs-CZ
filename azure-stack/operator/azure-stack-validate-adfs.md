@@ -1,18 +1,21 @@
 ---
-title: Ověřit integraci AD FS pro centrum Azure Stack
-description: Pomocí nástroje pro kontrolu připravenosti centra Azure Stack ověřte integraci AD FS pro Azure Stack hub.
+title: Ověřit integraci AD FS
+titleSuffix: Azure Stack Hub
+description: Naučte se používat kontrolu připravenosti centra Azure Stack k ověření AD FS Integration pro Azure Stack hub.
+services: azure-stack
+documentationcenter: ''
 author: ihenkel
 ms.topic: article
 ms.date: 06/10/2019
 ms.author: inhenkel
 ms.reviewer: jerskine
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: a98a5384b8590f494e6e9d6acdeb05e90fce3a20
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 786ee290aba91c855211d3f470f439c3e9b2c01a
+ms.sourcegitcommit: 5f53810d3c5917a3a7b816bffd1729a1c6b16d7f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76880647"
+ms.lasthandoff: 02/03/2020
+ms.locfileid: "76972598"
 ---
 # <a name="validate-ad-fs-integration-for-azure-stack-hub"></a>Ověřit integraci AD FS pro centrum Azure Stack
 
@@ -21,7 +24,7 @@ Pomocí nástroje pro kontrolu připravenosti centra Azure Stack (AzsReadinessCh
 Kontrola připravenosti ověřuje:
 
 * *Federační metadata* obsahují platné elementy XML pro federaci.
-* Můžete načíst *certifikát AD FS SSL* a vytvořit řetěz důvěryhodnosti. AD FS razítka musí důvěřovat řetězu certifikátů SSL. Certifikát musí být podepsaný stejnou *certifikační autoritou* , která se používá pro certifikáty nasazení Azure Stack hub nebo partnera důvěryhodné kořenové autority. Úplný seznam partnerů důvěryhodných kořenových autorit najdete na [webu TechNet](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
+* Je možné načíst *certifikát AD FS SSL* a vytvořit řetěz důvěryhodnosti. V případě razítka musí AD FS důvěřovat řetězu certifikátů SSL. Certifikát musí být podepsaný stejnou *certifikační autoritou* , která se používá pro certifikáty nasazení Azure Stack hub nebo partnera důvěryhodné kořenové autority. Úplný seznam partnerů důvěryhodných kořenových autorit najdete na [webu TechNet](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
 * *Podpisový certifikát AD FS* je důvěryhodný a nemá blízko vypršení platnosti.
 
 Další informace o integraci centrálního centra Azure Stack najdete v tématu věnovaném [integraci služby Azure Stack hub Datacenter-identity](azure-stack-integrate-identity.md).
@@ -36,31 +39,37 @@ Je nutné, aby byly splněny následující požadavky.
 
 **Počítač, ve kterém se nástroj spouští:**
 
-* Windows 10 nebo Windows Server 2016 s připojením k doméně.
+* Windows 10 nebo Windows Server 2016 s připojením k doméně
 * PowerShell 5,1 nebo novější. Pokud chcete zkontrolovat verzi, spusťte následující příkaz PowerShellu a pak zkontrolujte *Hlavní* verzi a *dílčí* verze:  
-   > `$PSVersionTable.PSVersion`
+    ```powershell
+    $PSVersionTable.PSVersion
+    ```
 * Nejnovější verzi nástroje pro [kontrolu připravenosti centra Microsoft Azure Stack](https://aka.ms/AzsReadinessChecker) .
 
 **Active Directory Federation Services (AD FS) prostředí:**
 
 Potřebujete alespoň jednu z následujících forem metadat:
 
-* Adresa URL AD FS federačních metadat. Příklad: `https://adfs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`.
-* Soubor XML s federačními metadaty. Příkladem je FederationMetadata. XML.
+- Adresa URL AD FS federačních metadat. Například: `https://adfs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`.
+* Soubor XML s federačními metadaty. Příklad: FederationMetadata. XML.
 
 ## <a name="validate-ad-fs-integration"></a>Ověřit integraci AD FS
 
 1. V počítači, který splňuje požadavky, otevřete příkazový řádek PowerShell pro správu a spusťte následující příkaz pro instalaci AzsReadinessChecker:
 
-     `Install-Module Microsoft.AzureStack.ReadinessChecker -Force`
+    ```powershell
+    Install-Module Microsoft.AzureStack.ReadinessChecker -Force
+    ```
 
 1. Z příkazového řádku PowerShellu spusťte následující příkaz, který spustí ověřování. Jako identifikátor URI pro federační metadata zadejte hodnotu **CustomADFSFederationMetadataEndpointUri** .
 
-     `Invoke-AzsADFSValidation -CustomADFSFederationMetadataEndpointUri https://adfs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`
+     ```powershell
+     Invoke-AzsADFSValidation -CustomADFSFederationMetadataEndpointUri https://adfs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml
+     ```
 
 1. Po spuštění nástroje si Projděte výstup. Potvrďte, že stav je OK pro AD FS požadavky na integraci. Úspěšné ověření je podobné jako v následujícím příkladu:
 
-    ```
+    ```powershell
     Invoke-AzsADFSValidation v1.1809.1001.1 started.
 
     Testing ADFS Endpoint https://sts.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml
@@ -93,8 +102,8 @@ Ve výchozím nastavení jsou oba soubory zapisovány do `C:\Users\<username>\Ap
 
 Použije
 
-* **-OutputPath**: parametr *path* na konci příkazu Run pro určení jiného umístění sestavy.
-* **-CleanReport**: parametr na konci příkazu Run, který vymaže AzsReadinessCheckerReport. JSON předchozí informace sestavy. Další informace najdete v tématu [Sestava ověřování centra Azure Stack](azure-stack-validation-report.md).
+* `-OutputPath`: parametr *path* na konci příkazu Run určuje jiné umístění sestavy.
+* `-CleanReport`: parametr na konci příkazu Run vymaže AzsReadinessCheckerReport. JSON předchozí informace sestavy. Další informace najdete v tématu [Sestava ověřování centra Azure Stack](azure-stack-validation-report.md).
 
 ## <a name="validation-failures"></a>Selhání ověřování
 
@@ -104,13 +113,17 @@ V následujících příkladech jsou uvedeny pokyny k běžným chybám ověřen
 
 ### <a name="command-not-found"></a>Příkaz nenalezen
 
-`Invoke-AzsADFSValidation : The term 'Invoke-AzsADFSValidation' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.`
+```powershell
+Invoke-AzsADFSValidation : The term 'Invoke-AzsADFSValidation' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+```
 
 **Příčina**: prostředí PowerShell AUTOLOAD se nepodařilo správně načíst modul pro kontrolu připravenosti.
 
-**Řešení**: explicitně importujte modul pro kontrolu připravenosti. Zkopírujte a vložte následující kód do PowerShellu a aktualizujte \<verze\> číslem aktuálně nainstalované verze.
+**Řešení**: explicitně importujte modul pro kontrolu připravenosti. Zkopírujte a vložte následující kód do PowerShellu a aktualizujte `<version>` číslem aktuálně nainstalované verze.
 
-`Import-Module "c:\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.ReadinessChecker\<version>\Microsoft.AzureStack.ReadinessChecker.psd1" -Force`
+```powershell
+Import-Module "c:\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.ReadinessChecker\<version>\Microsoft.AzureStack.ReadinessChecker.psd1" -Force
+```
 
 ## <a name="next-steps"></a>Další kroky
 

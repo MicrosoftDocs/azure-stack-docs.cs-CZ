@@ -1,5 +1,6 @@
 ---
-title: Ověřit integraci Azure graphu pro Azure Stack hub
+title: Ověřit integraci Azure graphu
+titleSuffix: Azure Stack Hub
 description: Pomocí nástroje pro kontrolu připravenosti centra Azure Stack ověřte integraci grafů pro Azure Stack centrum.
 author: ihenkel
 ms.topic: article
@@ -7,12 +8,12 @@ ms.date: 06/10/2019
 ms.author: inhenkel
 ms.reviewer: jerskine
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: 29cc035e66039d09e761410808098d57f0b1927f
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: ff9763edbd96dda39f3de8e8a764ce4f4acd7200
+ms.sourcegitcommit: 5f53810d3c5917a3a7b816bffd1729a1c6b16d7f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882621"
+ms.lasthandoff: 02/03/2020
+ms.locfileid: "76972489"
 ---
 # <a name="validate-graph-integration-for-azure-stack-hub"></a>Ověřit integraci grafu pro Azure Stack hub
 
@@ -37,9 +38,11 @@ Je nutné, aby byly splněny následující požadavky.
 
 **Počítač, ve kterém se nástroj spouští:**
 
-* Windows 10 nebo Windows Server 2016 s připojením k doméně.
-* PowerShell 5,1 nebo novější. Pokud chcete zkontrolovat verzi, spusťte následující příkaz PowerShellu a pak zkontrolujte *Hlavní* verzi a *dílčí* verze:  
-   > `$PSVersionTable.PSVersion`
+* Windows 10 nebo Windows Server 2016 s připojením k doméně
+* PowerShell 5,1 nebo novější. Pokud chcete zkontrolovat verzi, spusťte následující příkaz PowerShellu a pak zkontrolujte *Hlavní* verzi a *dílčí* verze:
+    ```powershell
+    $PSVersionTable.PSVersion
+    ```
 * Modul PowerShellu služby Active Directory.
 * Nejnovější verzi nástroje pro [kontrolu připravenosti centra Microsoft Azure Stack](https://aka.ms/AzsReadinessChecker) .
 
@@ -52,19 +55,25 @@ Je nutné, aby byly splněny následující požadavky.
 
 1. V počítači, který splňuje požadavky, otevřete příkazový řádek PowerShell pro správu a spusťte následující příkaz, kterým nainstalujete AzsReadinessChecker:
 
-     `Install-Module Microsoft.AzureStack.ReadinessChecker -Force`
+    ```powershell
+    Install-Module Microsoft.AzureStack.ReadinessChecker -Force
+    ```
 
 1. Z příkazového řádku PowerShellu spusťte následující příkaz, který nastaví proměnnou *$graphCredential* na účet grafu. Nahraďte `contoso\graphservice` účtem pomocí formátu `domain\username`.
 
-    `$graphCredential = Get-Credential contoso\graphservice -Message "Enter Credentials for the Graph Service Account"`
+    ```powershell
+    $graphCredential = Get-Credential contoso\graphservice -Message "Enter Credentials for the Graph Service Account"
+    ```
 
-1. Z příkazového řádku PowerShellu spusťte následující příkaz, který spustí ověřování pro službu Graph Service. Jako plně kvalifikovaný název domény pro kořen doménové struktury zadejte hodnotu **ForestFQDN** .
+1. Z příkazového řádku PowerShellu spusťte následující příkaz, který spustí ověřování pro službu Graph Service. Zadejte hodnotu pro `-ForestFQDN` jako plně kvalifikovaný název domény pro kořen doménové struktury.
 
-     `Invoke-AzsGraphValidation -ForestFQDN contoso.com -Credential $graphCredential`
+    ```powershell
+    Invoke-AzsGraphValidation -ForestFQDN contoso.com -Credential $graphCredential
+    ```
 
 1. Po spuštění nástroje si Projděte výstup. Ověřte, že stav je OK pro požadavky na integraci grafu. Úspěšné ověření je podobné jako v následujícím příkladu:
 
-    ```
+    ```powershell
     Testing Graph Integration (v1.0)
             Test Forest Root:            OK
             Test Graph Credential:       OK
@@ -98,8 +107,8 @@ Ve výchozím nastavení jsou oba soubory zapisovány do `C:\Users\<username>\Ap
 
 Použije
 
-* **-OutputPath**: parametr *path* na konci příkazu Run pro určení jiného umístění sestavy.
-* **-CleanReport**: parametr na konci příkazu Run, který vymaže *AzsReadinessCheckerReport. JSON* předchozí informace sestavy. Další informace najdete v tématu [Sestava ověřování centra Azure Stack](azure-stack-validation-report.md).
+* `-OutputPath`: parametr *path* na konci příkazu Run určuje jiné umístění sestavy.
+* `-CleanReport`: parametr na konci příkazu Run vymaže *AzsReadinessCheckerReport. JSON* předchozí informace sestavy. Další informace najdete v tématu [Sestava ověřování centra Azure Stack](azure-stack-validation-report.md).
 
 ## <a name="validation-failures"></a>Selhání ověřování
 

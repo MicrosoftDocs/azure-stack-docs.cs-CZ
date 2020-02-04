@@ -1,29 +1,32 @@
 ---
-title: Ověření certifikátů infrastruktury veřejných klíčů Azure Stack hub pro nasazení integrovaných systémů centra Azure Stack
-description: Popisuje, jak ověřit certifikáty PKI centra Azure Stack pro integrované systémy služby Azure Stack hub. Zahrnuje použití nástroje pro kontrolu certifikátů ve službě Azure Stack hub.
+title: Ověření certifikátů PKI Azure Stack hub
+titleSuffix: Azure Stack Hub
+description: Zjistěte, jak ověřit certifikáty PKI pro integrované systémy Azure Stack centra pomocí nástroje pro kontrolu připravenosti centra Azure Stack.
+services: azure-stack
+documentationcenter: ''
 author: ihenkel
 ms.topic: article
 ms.date: 07/23/2019
 ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: 8ade18f01f9d0636e3a5903307ee9513c44470f7
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 4ec3732df372e0b768b3f52c082cae5db932a36c
+ms.sourcegitcommit: 5f53810d3c5917a3a7b816bffd1729a1c6b16d7f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882591"
+ms.lasthandoff: 02/03/2020
+ms.locfileid: "76972545"
 ---
 # <a name="validate-azure-stack-hub-pki-certificates"></a>Ověření certifikátů PKI Azure Stack hub
 
-Nástroj pro kontrolu připravenosti centra Azure Stack popsaný v tomto článku je k dispozici v [Galerie prostředí PowerShell](https://aka.ms/AzsReadinessChecker). Pomocí tohoto nástroje můžete ověřit, jestli jsou [vygenerované certifikáty PKI](azure-stack-get-pki-certs.md) vhodné k předběžnému nasazení. Ověřte certifikáty tím, že necháte dostatek času na testování a vystavování certifikátů v případě potřeby.
+Nástroj pro kontrolu připravenosti centra Azure Stack popsaný v tomto článku je k dispozici v [Galerie prostředí PowerShell](https://aka.ms/AzsReadinessChecker). Pomocí tohoto nástroje ověřte, jestli jsou [vygenerované certifikáty infrastruktury veřejných klíčů (PKI)](azure-stack-get-pki-certs.md) vhodné k předběžnému nasazení. Ověřte certifikáty tím, že necháte dostatek času na testování a vystavování certifikátů v případě potřeby.
 
 Nástroj pro kontrolu připravenosti provádí následující ověření certifikátu:
 
 - **Analyzovat PFX**  
-    Kontroluje platný soubor PFX, správné heslo a informace o tom, jestli jsou veřejné informace chráněné heslem. 
+    Kontroluje platný soubor PFX, správné heslo a informace o tom, jestli jsou veřejné informace chráněné heslem.
 - **Datum vypršení platnosti**  
-    Kontroluje minimální platnost 7 dní. 
+    Kontroluje minimální platnost sedmi dní.
 - **Algoritmus podpisu**  
     Kontroluje, zda algoritmus signatury není SHA1.
 - **Privátní klíč**  
@@ -31,9 +34,9 @@ Nástroj pro kontrolu připravenosti provádí následující ověření certifi
 - **Řetěz certifikátů**  
     Kontroluje, zda řetěz certifikátů není v pořádku, včetně kontroly certifikátů podepsaných svým držitelem.
 - **Názvy DNS**  
-    Kontroluje, jestli síť SAN obsahuje relevantní názvy DNS pro každý koncový bod, nebo pokud je k dispozici podpůrný zástupný znak.
+    Kontroluje, jestli síť SAN obsahuje relevantní názvy DNS pro každý koncový bod nebo zda je k dispozici podpůrný zástupný znak.
 - **Použití klíče**  
-    Kontroluje, zda použití klíče obsahuje digitální podpis a šifrování klíče a rozšířené použití klíče obsahuje ověření serveru a ověřování klientů.
+    Kontroluje, zda použití klíče obsahuje digitální podpis a zakódování klíče, a kontroluje, zda použití rozšířeného klíče obsahuje ověření serveru a ověření klienta.
 - **Velikost klíče**  
     Kontroluje, zda je velikost klíče 2048 nebo větší.
 - **Pořadí řetězců**  
@@ -48,16 +51,16 @@ Nástroj pro kontrolu připravenosti provádí následující ověření certifi
 
 Před ověřením certifikátů PKI pro nasazení centra Azure Stack musí systém splňovat následující požadavky:
 
-- Kontrola připravenosti centra Microsoft Azure Stack
-- Certifikáty SSL se vyexportují podle [pokynů pro přípravu](azure-stack-prepare-pki-certs.md) .
-- DeploymentData.json
-- Windows 10 nebo Windows Server 2016
+- Kontrola připravenosti centra Microsoft Azure Stack.
+- Certifikáty SSL se vyexportují podle [pokynů pro přípravu](azure-stack-prepare-pki-certs.md).
+- DeploymentData. JSON.
+- Windows 10 nebo Windows Server 2016.
 
 ## <a name="perform-core-services-certificate-validation"></a>Provést ověření certifikátu základní služby
 
 Pomocí těchto kroků Připravte a ověřte certifikáty PKI centra Azure Stack pro nasazení a rotaci tajných kódů:
 
-1. Nainstalujte **AzsReadinessChecker** z příkazového řádku PowerShellu (5,1 nebo vyšší) spuštěním následující rutiny:
+1. Spuštěním následující rutiny nainstalujte **AzsReadinessChecker** z příkazového řádku PowerShellu (5,1 nebo vyšší):
 
     ```powershell  
         Install-Module Microsoft.AzureStack.ReadinessChecker -force 
@@ -86,14 +89,14 @@ Pomocí těchto kroků Připravte a ověřte certifikáty PKI centra Azure Stack
         - `C:\Certificates\Deployment\Admin Portal\CustomerCertificate.pfx`
         - `C:\Certificates\Deployment\ARM Admin\CustomerCertificate.pfx`
 
-3. V okně PowerShellu změňte hodnoty **RegionName** a **plně kvalifikovaný název domény** , které jsou vhodné pro prostředí centra Azure Stack hub, a spusťte následující příkaz:
+3. V okně PowerShellu změňte hodnoty `RegionName` a `FQDN` vhodné pro prostředí Azure Stack hub a spusťte následující rutinu:
 
     ```powershell  
     $pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString 
     Invoke-AzsCertificateValidation -CertificateType Deployment -CertificatePath C:\Certificates\Deployment -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD  
     ```
 
-4. Ověřte výstup a všechny certifikáty předejte všechny testy. Příklad:
+4. Zkontrolujte výstup a zajistěte, aby všechny certifikáty vyhověly všem testům. Příklad:
 
     ```powershell
     Invoke-AzsCertificateValidation v1.1912.1082.37 started.
@@ -140,7 +143,7 @@ Pomocí těchto kroků Připravte a ověřte certifikáty PKI centra Azure Stack
     Invoke-AzsCertificateValidation Completed
     ```
 
-    Pokud chcete ověřit certifikáty pro jiné služby Azure Stack centra, změňte hodnotu ```-CertificateType```. Příklad:
+    Pokud chcete ověřit certifikáty pro další Azure Stack služby centra, změňte hodnotu ```-CertificateType```. Příklad:
 
     ```powershell  
     # App Services
@@ -155,7 +158,7 @@ Pomocí těchto kroků Připravte a ověřte certifikáty PKI centra Azure Stack
     # IoTHub
     Invoke-AzsCertificateValidation -CertificateType IoTHub -CertificatePath C:\Certificates\IoTHub -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com
     ```
-Každá složka by měla obsahovat jeden soubor PFX pro daný typ certifikátu, pokud má typ certifikátu pro každý jednotlivý certifikát požadavky na více certifikátů, jsou očekávány i citlivé názvy.  Následující kód ukazuje příklad struktury složky/certifikátu pro všechny typy certifikátů a odpovídající hodnotu pro ```-CertificateType``` a ```-CertificatePath```.
+    Každá složka by měla obsahovat jeden soubor PFX pro daný typ certifikátu. Pokud má typ certifikátu požadavky na více certifikátů, jsou pro každý jednotlivý certifikát očekávány vnořené složky a rozlišující názvy. Následující kód ukazuje příklad struktury složky/certifikátu pro všechny typy certifikátů a odpovídající hodnotu pro ```-CertificateType``` a ```-CertificatePath```.
     
     ```powershell  
     C:\>tree c:\SecretStore /A /F
@@ -167,16 +170,16 @@ Každá složka by měla obsahovat jeden soubor PFX pro daný typ certifikátu, 
             \---Certificates
                 +---AppServices         # Invoke-AzsCertificateValidation `
                 |   +---API             #     -CertificateType AppServices `
-                |   |       API. pfx # – CertificatePath C:\Certificates\AppServices
+                |   |       api.pfx     #     -CertificatePath C:\Certificates\AppServices
                 |   |
                 |   +---DefaultDomain
-                |   |       wappsvc. pfx
+                |   |       wappsvc.pfx
                 |   |
-                |   A---identity
-                |   |       SSO. pfx
+                |   +---Identity
+                |   |       sso.pfx
                 |   |
-                |   \-– publikování
-                |           FTP. pfx
+                |   \---Publishing
+                |           ftp.pfx
                 |
                 +---DBAdapter           # Invoke-AzsCertificateValidation `
                 |       dbadapter.pfx   #   -CertificateType DBAdapter `
@@ -184,10 +187,10 @@ Každá složka by měla obsahovat jeden soubor PFX pro daný typ certifikátu, 
                 |
                 +---Deployment          # Invoke-AzsCertificateValidation `
                 |   +---ACSBlob         #   -CertificateType Deployment `
-                |   |       acsblob. pfx # – CertificatePath C:\Certificates\Deployment
+                |   |       acsblob.pfx #   -CertificatePath C:\Certificates\Deployment
                 |   |
                 |   +---ACSQueue
-                |   |       acsqueue. pfx
+                |   |       acsqueue.pfx
                ./. ./. ./. ./. ./. ./. ./.    <- Deployment certificate tree trimmed.
                 |   \---Public Portal
                 |           portal.pfx
@@ -200,6 +203,7 @@ Každá složka by měla obsahovat jeden soubor PFX pro daný typ certifikátu, 
                         iothub.pfx      #   -CertificateType IoTHub `
                                         #   -CertificatePath C:\Certificates\IoTHub
     ```
+
 ### <a name="known-issues"></a>Známé problémy
 
 **Příznak**: testy se přeskočí.
@@ -234,21 +238,21 @@ Každá složka by měla obsahovat jeden soubor PFX pro daný typ certifikátu, 
 
 | Adresář | Certifikát |
 | ---    | ----        |
-| acsBlob | wildcard_blob_\<oblasti > _\<externalFQDN > |
-| ACSQueue  |  wildcard_queue_\<region>_\<externalFQDN> |
-| ACSTable  |  wildcard_table_\<region>_\<externalFQDN> |
-| Hostitel rozšíření Správce  |  wildcard_adminhosting_\<region>_\<externalFQDN> |
-| Portál pro správu  |  adminportal_\<region>_\<externalFQDN> |
-| Správce ARM  |  adminmanagement_\<region>_\<externalFQDN> |
-| Veřejné ARM  |  management_\<region>_\<externalFQDN> |
-| KeyVault  |  wildcard_vault_\<oblasti > _\<externalFQDN > |
-| KeyVaultInternal  |  wildcard_adminvault_\<oblasti > _\<externalFQDN > |
-| Hostitel veřejného rozšíření  |  wildcard_hosting_\<region>_\<externalFQDN> |
-| Veřejný portál  |  portal_\<region>_\<externalFQDN> |
+| acsBlob | `wildcard_blob_<region>_<externalFQDN>` |
+| ACSQueue  |  `wildcard_queue_<region>_<externalFQDN>` |
+| ACSTable  |  `wildcard_table_<region>_<externalFQDN>` |
+| Hostitel rozšíření Správce  |  `wildcard_adminhosting_<region>_<externalFQDN>` |
+| Portál pro správu  |  `adminportal_<region>_<externalFQDN>` |
+| Správce ARM  |  `adminmanagement_<region>_<externalFQDN>` |
+| Veřejné ARM  |  `management_<region>_<externalFQDN>` |
+| KeyVault  |  `wildcard_vault_<region>_<externalFQDN>` |
+| KeyVaultInternal  |  `wildcard_adminvault_<region>_<externalFQDN>` |
+| Hostitel veřejného rozšíření  |  `wildcard_hosting_<region>_<externalFQDN>` |
+| Veřejný portál  |  `portal_<region>_<externalFQDN>` |
 
 ## <a name="using-validated-certificates"></a>Použití ověřených certifikátů
 
-Po ověření vašich certifikátů nástrojem AzsReadinessChecker jste připraveni je použít ve svém nasazení centra Azure Stack nebo pro otočení tajného kódu centra Azure Stack. 
+Až AzsReadinessChecker vaše certifikáty ověří, budete připraveni je použít ve svém nasazení centra Azure Stack nebo pro otočení tajného kódu centra Azure Stack.
 
  - Pro nasazení proveďte zabezpečený přenos vašich certifikátů do nástroje pro vývoj nasazení, aby je bylo možné zkopírovat do hostitele nasazení, jak je uvedeno v [dokumentaci k požadavkům PKI centra Azure Stack](azure-stack-pki-certs.md).
  - Pro rotaci tajných klíčů můžete použít certifikáty k aktualizaci starých certifikátů pro koncové body veřejné infrastruktury Azure Stack centra, a to podle pokynů v [dokumentaci pro střídání tajných kódů centra Azure Stack](azure-stack-rotate-secrets.md).

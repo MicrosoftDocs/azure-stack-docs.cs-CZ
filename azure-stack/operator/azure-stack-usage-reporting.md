@@ -1,18 +1,21 @@
 ---
 title: Sestava Azure Stack data o využití centra do Azure
-description: Naučte se, jak nastavit vytváření sestav dat o využití v centru Azure Stack.
+titleSuffix: Azure Stack Hub
+description: Naučte se, jak ohlásit data o využití centra Azure Stack do Azure.
+services: azure-stack
+documentationcenter: ''
 author: sethmanheim
 ms.topic: article
 ms.date: 01/27/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 195491ebd67f1e7741a793278b316bab028c4471
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: ed0bcd873d6bd33017172eb3accad227e2073668
+ms.sourcegitcommit: 5f53810d3c5917a3a7b816bffd1729a1c6b16d7f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882667"
+ms.lasthandoff: 02/03/2020
+ms.locfileid: "76972647"
 ---
 # <a name="report-azure-stack-hub-usage-data-to-azure"></a>Sestava Azure Stack data o využití centra do Azure
 
@@ -25,20 +28,20 @@ Systémy s více uzly centra Azure Stack, které používají model fakturace za
 
 Vytváření sestav dat o využití je vyžadováno pro uživatele s více uzly centra Azure Stack, kteří používají licenci v rámci modelu průběžných plateb. Je volitelný pro zákazníky, kteří mají licenci v rámci kapacity modelu (viz stránka [Jak koupit](https://azure.microsoft.com/overview/azure-stack/how-to-buy/) ). Pro uživatele Azure Stack Development Kit (ASDK) mohou operátoři služby Azure Stack hub nahlásit data o využití a otestovat funkci. Uživatelům se ale nebude účtovat žádné využití, které tyto náklady účtují.
 
-![tok fakturace](media/azure-stack-usage-reporting/billing-flow.png)
+![Postup účtování pro data o využití v centru Azure Stack](media/azure-stack-usage-reporting/billing-flow.png)
 
 Data o využití se odesílají z centra Azure Stack do Azure prostřednictvím Azure Bridge. V Azure systém obchodu zpracovává data o využití a vygeneruje vyúčtování. Po vygenerování faktury ho vlastník předplatného Azure může zobrazit a stáhnout z [centrum účtů Azure](https://account.windowsazure.com/subscriptions). Další informace o tom, jak je centrum Azure Stack licencováno, najdete v tématu [Azure Stack centra a dokumentu s cenami](https://go.microsoft.com/fwlink/?LinkId=842847).
 
 ## <a name="set-up-usage-data-reporting"></a>Nastavení generování sestav dat využití
 
-Pokud chcete nastavit vytváření sestav dat o využití, musíte [svou instanci služby Azure Stack hub zaregistrovat v Azure](azure-stack-registration.md). V rámci procesu registrace je Azure Bridge komponentou centra Azure Stack, která připojuje Azure Stack rozbočovač k Azure a odesílá data o využití, je nakonfigurovaná. Následující data o využití se odesílají z centra Azure Stack do Azure:
+Pokud chcete nastavit vytváření sestav dat o využití, musíte [svou instanci služby Azure Stack hub zaregistrovat v Azure](azure-stack-registration.md). V rámci procesu registrace je nakonfigurované Azure Bridge komponenta centra Azure Stack. Tato součást Azure Bridge připojuje Azure Stack centrum k Azure. Následující data o využití se odesílají z centra Azure Stack do Azure:
 
 - **ID měřiče** – jedinečné ID spotřebovaného prostředku.
 - **Množství** využití prostředků.
 - **Umístění** – umístění, kde je nasazený aktuální prostředek centra Azure Stack.
 - **Identifikátor URI prostředku** – plně kvalifikovaný identifikátor URI prostředku, pro který se vykazuje využití.
 - **ID předplatného** – ID předplatného uživatele centra Azure Stack, což je místní předplatné (Azure Stack hub).
-- **Čas – počáteční** a koncový čas dat o využití. Mezi časem, kdy se tyto prostředky spotřebují v Azure Stackovém centru, a když se data o využití hlásí do obchodu, dojde k prodlevě. Centrum Azure Stack agreguje data o využití po dobu 24 hodin a vykazování údajů o využití do kanálu Commerce v Azure trvá několik minut. Proto se může v Azure během následujícího dne objevit využití, ke kterému dojde krátce před půlnocí.
+- **Čas – počáteční** a koncový čas dat o využití. Mezi časem využívání těchto prostředků v Azure Stackovém centru a v případě, že se data o využití hlásí do obchodu, dojde k prodlevě. Centrum Azure Stack agreguje data o využití po dobu 24 hodin a vykazování údajů o využití do kanálu Commerce v Azure trvá několik minut. Proto se může v Azure během následujícího dne objevit využití, ke kterému dochází krátce před půlnocí.
 
 ## <a name="generate-usage-data-reporting"></a>Generování sestav dat využití
 
@@ -48,9 +51,9 @@ Pokud chcete nastavit vytváření sestav dat o využití, musíte [svou instanc
 
 ## <a name="view-usage---csp-subscriptions"></a>Zobrazení využití – předplatná CSP
 
-Pokud jste zaregistrovali Azure Stackového centra pomocí předplatného CSP, můžete si prohlédnout využití a poplatky stejným způsobem jako při zobrazení využití Azure. Využití centra Azure Stack je zahrnuté ve vaší faktuře a v souboru pro odsouhlasení, který je k dispozici prostřednictvím [partnerského centra](https://partnercenter.microsoft.com/partner/home). Soubor pro odsouhlasení se aktualizuje měsíčně. Pokud potřebujete přístup k nejnovějším informacím o použití centra Azure Stack, můžete použít rozhraní API partnerského centra.
+Pokud jste zaregistrovali Azure Stackového centra pomocí předplatného CSP, můžete si prohlédnout využití a poplatky stejným způsobem jako při prohlížení využití Azure. Použití centra Azure Stack je zahrnuté ve vaší faktuře a v souboru pro odsouhlasení, který je k dispozici prostřednictvím [partnerského centra](https://partnercenter.microsoft.com/partner/home). Soubor pro odsouhlasení se aktualizuje měsíčně. Pokud potřebujete přístup k nejnovějším informacím o použití centra Azure Stack, můžete použít rozhraní API partnerského centra.
 
-![Partnerské centrum](media/azure-stack-usage-reporting/partner-center.png)
+![Zobrazení údajů o fakturaci a využití centra Azure Stack v partnerském centru Microsoftu](media/azure-stack-usage-reporting/partner-center.png)
 
 ## <a name="view-usage---enterprise-agreement-subscriptions"></a>Zobrazení předplatných smlouva Enterprise využití
 
@@ -58,15 +61,15 @@ Pokud jste své centrum Azure Stack zaregistrovali pomocí smlouva Enterprise p�
 
 ## <a name="view-usage---other-subscriptions"></a>Zobrazit využití – ostatní předplatná
 
-Pokud jste své centrum Azure Stack zaregistrovali pomocí jiného typu předplatného; například předplatné s průběžnými platbami vám umožní zobrazit využití a poplatky v Centrum účtů Azure. Přihlaste se k [centrum účtů Azure](https://account.windowsazure.com/subscriptions) jako správce účtu Azure a vyberte předplatné Azure, které jste použili k registraci centra Azure Stack. Data o využití centra Azure Stack můžete zobrazit, a to za každý z používaných prostředků, jak je znázorněno na následujícím obrázku:
+Pokud jste své centrum Azure Stack zaregistrovali pomocí jiného typu předplatného (například předplatné s průběžnými platbami), můžete zobrazit využití a poplatky v Centrum účtů Azure. Přihlaste se k [centrum účtů Azure](https://account.windowsazure.com/subscriptions) jako správce účtu Azure a vyberte předplatné Azure, které jste použili k registraci centra Azure Stack. Můžete zobrazit data o využití centra Azure Stack a částku účtovanou za jednotlivé využité prostředky, jak je znázorněno na následujícím obrázku:
 
-![tok fakturace](media/azure-stack-usage-reporting/pricing-details.png)
+![Zobrazení fakturace a toku využití v Centrum účtů Azure](media/azure-stack-usage-reporting/pricing-details.png)
 
 V případě ASDK se prostředky centra Azure Stack neúčtují, takže zobrazená cena je $0,00.
 
 ## <a name="which-azure-stack-hub-deployments-are-charged"></a>Která nasazení centra Azure Stack se účtují?
 
-Využití prostředků je pro ASDK zdarma. Azure Stack systémy s více uzly, virtuální počítače pro úlohy, služby úložiště a App Services se účtují.
+Využití prostředků je pro ASDK zdarma. Azure Stack systémy s více uzly, virtuální počítače úloh, služby úložiště a App Services se účtují.
 
 ## <a name="are-users-charged-for-the-infrastructure-vms"></a>Účtují se uživatelé za virtuální počítače infrastruktury?
 
@@ -76,23 +79,23 @@ Uživatelům se účtují jenom virtuální počítače, které běží v předp
 
 ## <a name="i-have-a-windows-server-license-i-want-to-use-on-azure-stack-hub-how-do-i-do-it"></a>Mám licenci na Windows Server, kterou chci použít v centru Azure Stack, jak to mám udělat?
 
-Používání stávajících licencí zabraňuje vygenerování měřičů využití. Existující licence k Windows serveru se dají použít v centru Azure Stack, jak je popsáno v části použití existujícího softwaru s centrem Azure Stack v [Průvodci licencováním centra Azure Stack](https://go.microsoft.com/fwlink/?LinkId=851536). Aby mohli zákazníci používat své stávající licence, musí nasadit své virtuální počítače s Windows serverem, jak je popsáno v tématu [hybridní zvýhodněná licence pro Windows Server](/azure/virtual-machines/windows/hybrid-use-benefit-licensing).
+Používání stávajících licencí zabraňuje vygenerování měřičů využití. Existující licence k Windows serveru se dají používat v Azure Stack hub. Tento postup je popsaný v části použití existujícího softwaru s centrem Azure Stack v [Průvodci licencováním centra Azure Stack](https://go.microsoft.com/fwlink/?LinkId=851536). Aby mohli zákazníci používat své stávající licence, musí nasadit své virtuální počítače s Windows serverem, jak je popsáno v tématu [hybridní zvýhodněná licence pro Windows Server](/azure/virtual-machines/windows/hybrid-use-benefit-licensing).
 
 ## <a name="which-subscription-is-charged-for-the-resources-consumed"></a>Které předplatné se účtuje za spotřebované prostředky?
 
-Účtuje se předplatné, které je k dispozici při [registraci centra Azure Stack s Azure](azure-stack-registration.md) .
+Účtuje se předplatné poskytnuté při [registraci centra Azure Stack s Azure](azure-stack-registration.md) .
 
 ## <a name="what-types-of-subscriptions-are-supported-for-usage-data-reporting"></a>Jaké typy předplatných se podporují pro vytváření sestav dat o využití?
 
-Pro Azure Stack je podporováno více uzlů smlouva Enterprise (EA) a odběry CSP. Pro Azure Stack Development Kit, smlouva Enterprise (EA), platby s průběžnými platbami, CSP a předplatnými MSDN podpora pro generování sestav dat využití.
+Pro Azure Stack je podporováno více uzlů smlouva Enterprise (EA) a odběry CSP. Pro ASDK, smlouva Enterprise (EA), platby s průběžnými platbami a předplatnými MSDN podpora pro vytváření sestav dat využití.
 
 ## <a name="does-usage-data-reporting-work-in-sovereign-clouds"></a>Funguje vytváření sestav údajů o využití v cloudech z svrchovaného díla?
 
-V Azure Stack Development Kit vytváření sestav dat o využití vyžaduje předplatná, která jsou vytvořená v globálním systému Azure. Předplatná vytvořená v jednom z těchto cloudů z svrchovaného cloudu (Azure Government, Azure Německo a Azure Čína 21Vianet cloudy) nejde registrovat v Azure, takže nepodporují generování sestav dat o využití.
+V ASDK se vytváření sestav dat o využití vyžaduje u předplatných, která jsou vytvořená v globálním systému Azure. Předplatná vytvořená v jednom z těchto cloudů z svrchovaného systému (cloudy Azure Government, Azure Německo a Azure Čína 21Vianet) nejde registrovat v Azure, takže nepodporují generování sestav dat o využití.
 
 ## <a name="why-doesnt-the-usage-reported-in-azure-stack-hub-match-the-report-generated-from-azure-account-center"></a>Proč se použití nahlášené v centru Azure Stack neshoduje se sestavou vygenerovanou Centrum účtů Azure?
 
-Mezi daty o využití hlášených rozhraními API využití centra Azure Stack a údaji o využití uvedeným v Centrum účtů Azure vždy dojde k prodlevě. Toto zpoždění je čas potřebný k odeslání údajů o využití z centra Azure Stack do Azure Commerce. V rámci této prodlevy se může v Azure zobrazit následující den použití, ke kterému dojde krátce před půlnocí. Pokud používáte [rozhraní API využití centra Azure Stack](azure-stack-provider-resource-api.md)a porovnáte výsledky s využitím uvedeným na fakturačním portálu Azure, uvidíte rozdíl.
+Vždy se jedná o zpoždění mezi daty o využití hlášených rozhraními API využití centra Azure Stack a daty o využití, která jsou uvedena v Centrum účtů Azure. Toto zpoždění je čas potřebný k odeslání údajů o využití z centra Azure Stack do Azure Commerce. Z důvodu této prodlevy se může v Azure během následujícího dne objevit použití, ke kterému dojde krátce před půlnocí. Pokud používáte [rozhraní API využití centra Azure Stack](azure-stack-provider-resource-api.md) a porovnáte výsledky s využitím uvedeným na fakturačním portálu Azure, uvidíte rozdíl.
 
 ## <a name="next-steps"></a>Další kroky
 

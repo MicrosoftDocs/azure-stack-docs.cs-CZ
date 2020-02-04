@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Naučte se registrovat integrované systémy Azure Stack hub pomocí Azure, abyste si mohli stáhnout Azure Marketplace položky a nastavit vytváření sestav dat.
 author: mattbriggs
 ms.topic: article
-ms.date: 1/22/2020
+ms.date: 2/02/2020
 ms.author: mabrigg
 ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: 81b899104b162e92f74204f9b70c67fc280d7c31
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 568bcc7b04da397dff343662a8e80b86e27d2618
+ms.sourcegitcommit: 5f53810d3c5917a3a7b816bffd1729a1c6b16d7f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881405"
+ms.lasthandoff: 02/03/2020
+ms.locfileid: "76972570"
 ---
 # <a name="register-azure-stack-hub-with-azure"></a>Registrace centra Azure Stack s Azure
 
@@ -478,7 +478,7 @@ Set-AzsRegistration [-PrivilegedEndpointCredential] <PSCredential> [-PrivilegedE
 | BillingModel | Řetězec | Model fakturace, který používá vaše předplatné. Povolené hodnoty pro tento parametr jsou: Capacity, PayAsYouUse a vývoj. |
 | MarketplaceSyndicationEnabled | True nebo False | Určuje, jestli je na portálu dostupná funkce správy Marketplace. Nastavte na hodnotu true, pokud se registruje s připojením k Internetu. Nastavte na hodnotu false, pokud se registruje v odpojených prostředích. U odpojených registrací se dá [Nástroj pro offline syndikaci](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario) použít ke stažení položek Marketplace. |
 | UsageReportingEnabled | True nebo False | Služba Azure Stack hub hlásí metriky využití ve výchozím nastavení. Obsluha použití kapacity, která využívá nebo podporuje odpojené prostředí, musí vypnout vytváření sestav využití. Povolené hodnoty pro tento parametr jsou: true, false. |
-| AgreementNumber | Řetězec |  |
+| AgreementNumber | Řetězec | Číslo smlouvy EA, pod kterou byla objednána SKU kapacity pro tento Azure Stack. |
 | Registrace | Řetězec | Pokud spouštíte registrační skript ve více než jedné instanci centra Azure Stack s použitím stejného ID předplatného Azure, nastavte pro registraci jedinečný název. Parametr má výchozí hodnotu **AzureStackRegistration**. Pokud však použijete stejný název na více než jedné instanci centra Azure Stack, skript se nezdařil. |
 
 ### <a name="get-azsregistrationtoken"></a>Get-AzsRegistrationToken

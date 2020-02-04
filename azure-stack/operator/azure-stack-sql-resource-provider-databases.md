@@ -8,12 +8,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 6a0135d643ebb87fb99ba12bec4741c67faa1111
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 4269cce339ee606fd8efb4cb08677079c0f2e477
+ms.sourcegitcommit: 5f53810d3c5917a3a7b816bffd1729a1c6b16d7f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882836"
+ms.lasthandoff: 02/03/2020
+ms.locfileid: "76972675"
 ---
 # <a name="create-sql-databases"></a>Vytvoření databáze SQL
 
@@ -26,7 +26,7 @@ Samoobslužné databáze můžete vytvářet a spravovat na portálu User Portal
 3. V části **vytvořit databázi**zadejte požadované informace, například **název databáze** a **maximální velikost v MB**.
 
    >[!NOTE]
-   >Velikost databáze musí být minimálně 64 MB, což se dá po nasazení databáze zvětšit.
+   >Velikost databáze musí být minimálně 64 MB, což se dá po nasazení databáze zvýšit.
 
    Nakonfigurujte další nastavení podle požadavků vašeho prostředí.
 
@@ -66,7 +66,7 @@ Následující snímek obrazovky ukazuje, jak můžete použít SQL Server Manag
 
 Databáze Always On by se měly zobrazovat jako **synchronizované** a dostupné ve všech instancích SQL a zobrazují se ve **skupinách dostupnosti**. V předchozím snímku obrazovky je příklad databáze newdb1 a jeho stav je **newdb1 (synchronizovaný)** .
 
-### <a name="delete-an-alwayson-database"></a>Odstranění databáze AlwaysOn
+### <a name="delete-an-always-on-database"></a>Odstranění databáze Always On
 
 Když odstraníte databázi SQL Always On z poskytovatele prostředků, SQL databázi odstraní z **primární** repliky a ze skupiny dostupnosti.
 
