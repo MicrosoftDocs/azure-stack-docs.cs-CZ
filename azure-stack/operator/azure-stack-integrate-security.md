@@ -7,12 +7,12 @@ ms.date: 01/10/2020
 ms.author: inhenkel
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/10/2020
-ms.openlocfilehash: 2b8a6b06b0eca680a42d7c15bfe7fbb43afec29a
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 43398b4ef745c9ad0d72274a9a3ef400c4669053
+ms.sourcegitcommit: 3974fc544986a5eccfac0ba7c4441b05279ae226
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882081"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "77001606"
 ---
 # <a name="integrate-azure-stack-hub-with-monitoring-solutions-using-syslog-forwarding"></a>Integrace centra Azure Stack s řešeními monitorování pomocí předávání syslog
 
@@ -23,7 +23,7 @@ Počínaje aktualizací 1809 Azure Stack hub má integrovaného klienta syslog, 
 Následující diagram popisuje integraci Azure Stackho centra s externím SIEM. Existují dva způsoby integrace, které je potřeba vzít v úvahu: první z nich (modrý) je infrastruktura centra Azure Stack, která zahrnuje virtuální počítače infrastruktury a uzly Hyper-V. Všechny audity, protokoly zabezpečení a výstrahy z těchto komponent jsou centrálně shromažďovány a zpřístupněny prostřednictvím protokolu syslog s CEF datovou částí. Tento vzor integrace je popsán na této stránce dokumentu.
 Druhým modelem integrace je ten, který je znázorněný oranžová a pokrývá řadiče pro správu základní desky (BMC), hostitele životního cyklu hardwaru (HLH), virtuální počítače a virtuální zařízení, na kterých běží software pro monitorování a správu s hardwarovým partnerem. a přepínače pro začátek racku. Vzhledem k tomu, že jsou tyto součásti závislé na hardwaru, obraťte se na svého hardwarového partnera, který vám poskytne dokumentaci, jak je integrovat s externím SIEM.
 
-![Diagram předávání syslog](media/azure-stack-integrate-security/syslog-forwarding.png)
+![Diagram předávání syslog](media/azure-stack-integrate-security/azure-stack-hub-syslog-forwarding-diagram_bg.svg)
 
 ## <a name="configuring-syslog-forwarding"></a>Konfigurace předávání syslog
 

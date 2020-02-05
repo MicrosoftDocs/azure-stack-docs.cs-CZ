@@ -3,16 +3,16 @@ title: Stažení položek z webu Marketplace z Azure a publikování do centra A
 description: Přečtěte si, jak stáhnout položky z webu Marketplace z Azure a publikovat do centra Azure Stack.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 12/23/2019
+ms.date: 02/04/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 12/23/2018
-ms.openlocfilehash: 0df8b4e85aea2a194061da523e66385389b38bb1
-ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
+ms.openlocfilehash: 5fee671c0d31f78d92e84733cc1ebf1f7626a50f
+ms.sourcegitcommit: b5541815abfab3f8750fa419fdd1f93a8844731a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/30/2020
-ms.locfileid: "76890319"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "77012908"
 ---
 # <a name="download-marketplace-items-to-azure-stack-hub"></a>Stažení položek z Marketplace do centra Azure Stack 
 
@@ -71,7 +71,7 @@ Nástroj syndikace na webu Marketplace se dá použít taky v připojeném scén
 Tento scénář obsahuje dvě části:
 
 - **Část 1**: stažení z položek Marketplace. V počítači s přístupem k Internetu konfigurujete PowerShell, stáhnete nástroj syndikace a pak stáhnete položky z Azure Marketplace.
-- **Část 2**: nahrání a publikování na tržišti Azure Stack hub. Soubory, které jste stáhli do prostředí Azure Stack hub, přesouváte, naimportujete do centra Azure Stack a pak je publikujete do služby Azure Stack hub Marketplace.
+- **Část 2**: nahrání a publikování na tržišti Azure Stack hub. Soubory, které jste stáhli do prostředí centra Azure Stack, přesunete a pak je publikujete na webu služby Azure Stack hub Marketplace.
 
 ### <a name="prerequisites"></a>Požadavky
 
@@ -87,26 +87,28 @@ Tento scénář obsahuje dvě části:
 
   - Aby bylo možné povolit import stažené položky Marketplace, je nutné nakonfigurovat [prostředí PowerShell pro operátor centra Azure Stack](azure-stack-powershell-configure-admin.md) .
 
-  - Naklonujte [nástroje Azure Stack Hub](https://github.com/Azure/AzureStack-Tools) úložiště GitHub.
+- Stáhněte modul AZS. Syndication. admin z Galerie prostředí PowerShell pomocí příkazu níže.
+  ```
+  Install-Module -Name Azs.Syndication.Admin
+  ```
 
-- Musíte mít [účet úložiště](azure-stack-manage-storage-accounts.md) v centru Azure Stack s veřejně přístupným kontejnerem (což je objekt BLOB úložiště). Kontejner se používá jako dočasné úložiště pro soubory galerie položek Marketplace. Pokud nejste obeznámeni s účty úložiště a kontejnery, přečtěte si téma [práce s objekty blob – Azure Portal](/azure/storage/blobs/storage-quickstart-blobs-portal) v dokumentaci k Azure.
-
-- Nástroj pro syndikaci na webu Marketplace se stáhne během prvního postupu.
-
--  [AzCopy](/azure/storage/common/storage-use-azcopy) můžete nainstalovat pro optimální výkon stahování, ale není to nutné.
-
-Po registraci můžete ignorovat následující zprávu, která se zobrazí v okně správy Marketplace, protože to není relevantní pro případ odpojeného použití:
+Po registraci Azure Stack můžete ignorovat následující zprávu, která se zobrazí v okně správy Marketplace, protože není relevantní pro případ odpojeného použití:
 
 ![Správa Marketplace](media/azure-stack-download-azure-marketplace-item/toolsmsg.png)
 
 ### <a name="use-the-marketplace-syndication-tool-to-download-marketplace-items"></a>Stažení položek z Marketplace pomocí nástroje pro syndikaci na webu Marketplace
 
 > [!IMPORTANT]
-> Nezapomeňte si stáhnout nástroj syndikace webu Marketplace při každém stažení položek Marketplace v odpojeném scénáři. V tomto skriptu jsou k disopakující se změny a nejaktuálnější verze by se měly používat pro každé stažení.
+> Nezapomeňte si stáhnout nástroj syndikace webu Marketplace při každém stažení položek Marketplace v odpojeném scénáři. V tomto nástroji jsou k disopakující se změny a nejaktuálnější verze by se měla použít pro každé stažení.
 
 1. V počítači s připojením k Internetu otevřete konzolu PowerShellu jako správce.
 
-2. Přidejte účet Azure, který jste použili k registraci centra Azure Stack. Pokud chcete účet přidat, v PowerShellu spusťte rutinu **Add-AzureRmAccount** bez parametrů. Zobrazí se výzva k zadání přihlašovacích údajů k účtu Azure a možná budete muset použít dvojúrovňové ověřování v závislosti na konfiguraci vašeho účtu.
+2. Přihlaste se ke příslušnému klientovi Azure Cloud a AzureAD Directory pomocí účtu Azure, který jste použili k registraci centra Azure Stack. Pokud chcete účet přidat, v PowerShellu spusťte **Add-AzureRmAccount**. 
+
+   ```powershell  
+   Login-AzureRmAccount -Environment AzureCloud -Tenant '<mydirectory>.onmicrosoft.com'
+   ```
+   Zobrazí se výzva k zadání přihlašovacích údajů k účtu Azure a možná budete muset použít dvojúrovňové ověřování v závislosti na konfiguraci vašeho účtu.
 
    > [!NOTE]
    > Pokud vaše relace vyprší, vaše heslo se změnilo nebo chcete jednoduše přepnout účty, spusťte následující rutinu ještě před přihlášením pomocí rutiny **Add-AzureRmAccount**: **Remove-AzureRmAccount-Scope Process**.
@@ -115,81 +117,58 @@ Po registraci můžete ignorovat následující zprávu, která se zobrazí v ok
 
    ```powershell  
    Get-AzureRmSubscription -SubscriptionID 'Your Azure Subscription GUID' | Select-AzureRmSubscription
-   $AzureContext = Get-AzureRmContext
    ```
 
-4. Stáhněte si nejnovější verzi nástroje syndikace webu Marketplace pomocí následujícího skriptu:
+4. Pokud jste to ještě neudělali v kroku požadavky, Stáhněte si nejnovější verzi nástroje syndikace webu Marketplace:
 
    ```powershell
-   # Download the tools archive.
-   [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-   invoke-webrequest https://github.com/Azure/AzureStack-Tools/archive/master.zip `
-     -OutFile master.zip
-
-   # Expand the downloaded files.
-   expand-archive master.zip `
-     -DestinationPath `
-     -Force
-
-   # Change to the tools directory.
-   cd .\AzureStack-Tools-master
+   Install-Module -Name Azs.Syndication.Admin
    ```
 
-5. Importujte modul syndikace a potom spusťte nástroj spuštěním následujícího příkazu:
-
-   ```powershell  
-   Import-Module .\Syndication\AzureStack.MarketplaceSyndication.psm1
-   ```
-
-6. Pokud chcete exportovat položky Marketplace, jako jsou image virtuálních počítačů, rozšíření nebo šablony řešení, spusťte následující příkaz. Nahraďte cestu k cílové složce umístěním pro uložení souborů, které stáhnete z Azure Marketplace:
+5. Pokud chcete vybrat položky Marketplace, jako jsou image virtuálních počítačů, rozšíření nebo šablony řešení, které se mají stáhnout, spusťte následující příkaz. 
 
    ```powershell
-   Export-AzSOfflineMarketplaceItem -Destination "Destination folder path in quotes" -azCopyDownloadThreads "[optional - AzCopy threads number]" -azureContext $AzureContext
+   $products = Select-AzsMarketplaceItem
    ```
 
-   Pokud chcete exportovat poskytovatele prostředků nebo služby PaaS, spusťte následující příkaz:
+   Tím se zobrazí tabulka se seznamem všech registrací Azure Stack dostupných ve vybraném předplatném. Zvolte registraci, která odpovídá Azure Stack prostředí, pro které stahujete položky Marketplace, a vyberte **OK**.
 
-   ```powershell
-   Export-AzSOfflineResourceProvider -destination "Destination folder path" -azCopyDownloadThreads "AzCopy threads number" -azureContext $AzureContext
-   ```
+     ![Vybrat registrace Azure Stack](media/azure-stack-download-azure-marketplace-item/select-registration.png)
 
-   Parametr `-azCopyDownloadThreads` je nepovinný. Měla by se používat jenom v případě, že máte síť s malou šířkou pásma a používáte ke stažení prémii. Tato možnost určuje počet souběžných operací v AzCopy. Pokud používáte síť s nízkou šířkou pásma, můžete zadat nižší číslo, aby nedocházelo k selhání způsobenému konkurencí prostředků. Další podrobnosti najdete v [tomto článku Azure](/previous-versions/azure/storage/storage-use-azcopy#specify-the-number-of-concurrent-operations-to-start).
+   Nyní by se měla zobrazit druhá tabulka se seznamem všech položek Marketplace, které jsou k dispozici ke stažení. Vyberte položku, kterou chcete stáhnout, a poznamenejte si **verzi**. Pokud chcete vybrat více imagí, můžete podržet klávesu **Ctrl** .
+     ![vybrat registrace Azure Stack](media/azure-stack-download-azure-marketplace-item/select-products.png)
+  
+   Seznam imagí můžete filtrovat také pomocí možnosti **Přidat kritéria** .
+   ![vybrat registrace Azure Stack](media/azure-stack-download-azure-marketplace-item/select-products-with-filter.png)
 
-   Parametr `-azureContext` je také volitelný. Pokud nezadáte kontext Azure, rutina použije výchozí kontext Azure.
+   Po provedení výběru vyberte OK.
 
-7. Při spuštění nástroje by se měla zobrazit obrazovka podobná následujícímu obrázku se seznamem dostupných Azure Marketplacech položek:
+6. ID položek Marketplace, které jste vybrali ke stažení, se uloží do proměnné `$products`. Pomocí následujícího příkazu začněte stahovat vybrané položky. Nahraďte cestu k cílové složce umístěním pro uložení souborů, které stáhnete z Azure Marketplace:
 
-   ![Položky Marketplace](media/azure-stack-download-azure-marketplace-item/tool1.png)
+    ```powershell
+    $products | Export-AzsMarketplaceItem  -RepositoryDir "Destination folder path in quotes"
+    ```
 
-8. Pokud je k dispozici více než jedna verze položky Marketplace, zobrazí se ve sloupci **verze**  **více verzí**. Pokud je verze položky zobrazená jako **více verzí**, můžete tuto položku vybrat a pak z okna pro výběr výsledné verze zvolit konkrétní verzi.
+7. Doba, kterou stahování trvá, závisí na velikosti položky. Po dokončení stahování bude položka k dispozici ve složce, kterou jste zadali ve skriptu. Ke stažení patří soubor VHD (pro virtuální počítače) nebo soubor. zip (pro rozšíření virtuálních počítačů a poskytovatele prostředků). Může také zahrnovat balíček Galerie ve formátu *. azpkg* , což je soubor. zip.
 
-9. Vyberte položku, kterou chcete stáhnout, a poznamenejte si **verzi**. Pokud chcete vybrat více imagí, můžete podržet klávesu **Ctrl** . Odkazujete na  *verze* při importu položky v dalším postupu.
+8. Pokud se stahování nepovede, můžete to zkusit znovu spuštěním následující rutiny PowerShellu:
 
-    Seznam imagí můžete filtrovat také pomocí možnosti **Přidat kritéria** .
+    ```powershell
+    $products | Export-AzsMarketplaceItem  -RepositoryDir "Destination folder path in quotes"
+    ```
 
-10. Pokud jste nenainstalovali nástroje Azure Storage, zobrazí se následující zpráva. Aby bylo možné nainstalovat tyto nástroje, je třeba stáhnout [AzCopy](/azure/storage/common/storage-use-azcopy#download-azcopy):
+9. Měli byste také exportovat modul **AZS. Syndication. admin** místně, abyste ho mohli zkopírovat do počítače, ze kterého importujete položky Marketplace do centra Azure Stack.
 
-    ![Nástroje úložiště](media/azure-stack-download-azure-marketplace-item/vmnew1.png)
+   > [!NOTE]
+   > Cílová složka pro export tohoto modulu by se měla lišit od umístění, do kterého jste exportovali položky Marketplace.
 
-11. Vyberte **OK**a pak si přečtěte a přijměte právní podmínky.
-
-12. Doba, kterou stahování trvá, závisí na velikosti položky. Po dokončení stahování bude položka k dispozici ve složce, kterou jste zadali ve skriptu. Ke stažení patří soubor VHD (pro virtuální počítače) nebo soubor. zip (pro rozšíření virtuálních počítačů a poskytovatele prostředků). Může taky zahrnovat balíček Galerie ve formátu *. azpkg* , který je jednoduše souborem. zip.
-
-13. Pokud se stahování nepovede, můžete to zkusit znovu spuštěním následující rutiny PowerShellu:
-
-   ```powershell
-   # for Marketplace items
-   Export-AzSOfflineMarketplaceItem -Destination "Destination folder path in quotes"
-
-   # for Resource providers
-   Export-AzSOfflineResourceProvider -Destination "Destination folder path in quotes"
-   ```
-
-   Před opakováním pokusu odeberte složku produktu, ve které se stahování nepovedlo. Například pokud se při stahování do **D:\downloadFolder\microsoft.CustomScriptExtension-ARM-1.9.1**nepovede skript ke stažení, odeberte složku **D:\downloadFolder\microsoft.CustomScriptExtension-ARM-1.9.1** a pak znovu spusťte rutinu.
+    ```powershell
+    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name Azs.Syndication.Admin -Path "Destination folder path in quotes" -Force
+    ```
 
 ### <a name="import-the-download-and-publish-to-azure-stack-hub-marketplace-using-powershell"></a>Import stažení a publikování do webu Azure Stack hub Marketplace pomocí prostředí PowerShell
 
-1. Soubory, které jste stáhli [již dříve](#use-the-marketplace-syndication-tool-to-download-marketplace-items) , je nutné přesunout místně, aby byly dostupné pro vaše prostředí Azure Stack hub. Nástroj pro syndikaci na webu Marketplace musí být také dostupný pro prostředí Azure Stack hub, protože k provedení operace importu je nutné použít nástroj.
+1. Soubory, které jste [už dříve stáhli](#use-the-marketplace-syndication-tool-to-download-marketplace-items) , je nutné přesunout do počítače, který má připojení k vašemu prostředí služby Azure Stack hub. Nástroj pro syndikaci na webu Marketplace musí být také dostupný pro prostředí Azure Stack hub, protože k provedení operace importu je nutné použít nástroj.
 
    Následující obrázek ukazuje příklad struktury složek.  **D:\downloadfolder** obsahuje všechny stažené položky Marketplace. Každá podsložka je položkou Marketplace (například **Microsoft. Custom-Script-Linux-ARM-2.0.3**) s názvem ID produktu. V každé podsložce je stažený obsah položky webu Marketplace.
 
@@ -197,18 +176,12 @@ Po registraci můžete ignorovat následující zprávu, která se zobrazí v ok
 
 2. Postupujte podle pokynů v [tomto článku](azure-stack-powershell-configure-admin.md) a nakonfigurujte relaci PowerShellu operátora centra Azure Stack.
 
-3. Importujte modul syndikace a potom spusťte nástroj syndikace webu Marketplace spuštěním následujícího skriptu:
+3. Přihlaste se k centru Azure Stack pomocí identity, která má přístup vlastníka k předplatnému default Provider.
 
-   ```powershell
-   $credential = Get-Credential -Message "Enter the Azure Stack Hub operator credential:"
-   Import-AzSOfflineMarketplaceItem -origin "marketplace content folder" -AzsCredential $credential
-   ```
+4. Importujte modul syndikace a potom spusťte nástroj syndikace webu Marketplace spuštěním následujícího skriptu:
 
-   Parametr `-origin` Určuje složku na nejvyšší úrovni, která obsahuje všechny stažené produkty. například `"D:\downloadfolder"`.
+    ```powershell
+    Import-AzsMarketplaceItem -RepositoryDir "Source folder path in quotes"
+    ```
 
-   Parametr `-AzsCredential` je nepovinný. Používá se k obnovení přístupového tokenu, pokud vypršela jeho platnost. Pokud není zadán parametr `-AzsCredential` a vyprší platnost tokenu, zobrazí se výzva k zadání přihlašovacích údajů operátora.
-
-   > [!NOTE]
-   > AD FS podporuje pouze interaktivní ověřování s identitami uživatele. Pokud je vyžadován objekt přihlašovacích údajů, je nutné použít instanční objekt (SPN). Další informace o nastavení instančního objektu pomocí centra Azure Stack a AD FS jako služby správy identit najdete v tématu [Správa služby AD FS instančního objektu](azure-stack-create-service-principals.md#manage-an-ad-fs-service-principal).
-
-4. Po úspěšném dokončení skriptu by měla být položka k dispozici v tržišti Azure Stack hub.
+5. Po úspěšném dokončení skriptu by měly být položky Marketplace dostupné v tržišti Azure Stack hub.

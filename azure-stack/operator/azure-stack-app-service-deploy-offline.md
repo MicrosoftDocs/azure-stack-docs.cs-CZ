@@ -7,12 +7,12 @@ ms.date: 01/13/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2020
-ms.openlocfilehash: fe20a682041e3e23e2a67957ecdce85f922fbf20
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: bf9ce157e927b2fc43b64746d53d74e8cb82524c
+ms.sourcegitcommit: b5541815abfab3f8750fa419fdd1f93a8844731a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76876367"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "77012882"
 ---
 # <a name="deploy-azure-app-service-in-an-offline-environment-in-azure-stack-hub"></a>Nasazení Azure App Service v offline prostředí v centru Azure Stack
 
@@ -37,9 +37,9 @@ Chcete-li přidat poskytovatele prostředků Azure App Service do nasazení Azur
 
 Pokud chcete nasadit Azure App Service v offline prostředí, nejdřív vytvořte instalační balíček offline na počítači, který je připojený k Internetu.
 
-1. Spusťte instalační program AppService. exe na počítači, který je připojený k Internetu.
+1. Spusťte instalační program AppService. exe na počítači, který je připojený k Internetu. 
 
-2. Vyberte **upřesnit** > **vytvořit instalační balíček offline**.
+2. Vyberte **upřesnit** > **vytvořit instalační balíček offline**. Dokončení tohoto kroku bude trvat několik minut.
 
     ![Vytvoření offline balíčku v instalačním programu Azure App Service][1]
 
@@ -158,10 +158,17 @@ Pokud chcete nasadit Azure App Service v offline prostředí, nejdřív vytvořt
 
     ![Nastavení úrovní rolí a možností skladové položky v instalačním programu Azure App Service][14]
 
+1. V poli **bitová kopie platformy** zvolte nasazení image virtuálního počítače s Windows serverem 2016 z imagí dostupných na poskytovateli výpočetních prostředků pro cloud Azure App Service. Vyberte **Next** (Další).
+
     > [!NOTE]
     > Windows Server 2016 *Core není* podporovaná image platformy pro použití s Azure App Service v centru Azure Stack.  Nepoužívejte zkušební image pro produkční nasazení. Azure App Service v centru Azure Stack je nutné, aby bylo na imagi používané k nasazení aktivováno rozhraní Microsoft .NET 3.5.1 SP1. Marketplace – pro bitové kopie systému Windows Server 2016 není tato funkce povolená. Proto musíte vytvořit a použít bitovou kopii systému Windows Server 2016 s touto funkcí, která je předem povolena.
-
-1. V poli **bitová kopie platformy** zvolte nasazení image virtuálního počítače s Windows serverem 2016 z imagí dostupných na poskytovateli výpočetních prostředků pro cloud Azure App Service. Vyberte **Next** (Další).
+    >
+    > Podrobnosti o vytvoření vlastní image a přidání do Marketplace najdete v tématu [Přidání vlastní image virtuálního počítače do centra Azure Stack](azure-stack-add-vm-image.md) . Při přidávání image do Marketplace Nezapomeňte zadat následující:
+    >
+    >- Vydavatel = MicrosoftWindowsServer
+    >- Nabídka = WindowsServer
+    >- SKU = 2016 – Datacenter
+    >- Verze = zadejte nejnovější verzi
 
 1. Na další stránce:
      1. Zadejte uživatelské jméno a heslo správce virtuálního počítače role pracovního procesu.
