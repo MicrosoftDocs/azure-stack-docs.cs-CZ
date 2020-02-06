@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: 2d7db8ade21580af67c0a1b3f3783f694544f5e0
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 7453e8e454d6af39d86be0eaff49bef6e4538fac
+ms.sourcegitcommit: 74ce7c12a93d47315d70427b02bcacbd3b44f854
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881999"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77037280"
 ---
 # <a name="manage-storage-capacity-for-azure-stack-hub"></a>Správa kapacity úložiště pro centrum Azure Stack
 
@@ -43,10 +43,10 @@ Sdílené složky na svazcích uchovávají data tenanta. Data tenanta zahrnují
 
 Když je u sdílené složky nedostatek volného místa a [akce pro uvolnění](#reclaim-capacity) místa není úspěšná nebo nedostupná, může operátor cloudu Azure Stackového centra migrovat kontejnery objektů BLOB z jedné sdílené složky do jiné.
 
-- Informace o tom, jak uživatelé klienta pracují s úložištěm objektů BLOB v Azure Stackovém centru, najdete v tématu [služby úložiště Azure Stack hub](/azure-stack/user/azure-stack-storage-overview#azure-stack-storage-services).
+- Informace o tom, jak uživatelé klienta pracují s úložištěm objektů BLOB v Azure Stackovém centru, najdete v tématu [služby úložiště Azure Stack hub](/azure-stack/user/azure-stack-storage-overview).
 
 
-### <a name="containers"></a>Kontejnery
+### <a name="containers"></a>Containers
 Uživatelé tenanta vytvářejí kontejnery, které se pak používají k ukládání dat objektů BLOB. I když se uživatel rozhodne, do kterého kontejneru umístit objekty blob, služba úložiště pomocí algoritmu určí, který svazek se má vložit do kontejneru. Algoritmus obvykle zvolí svazek s největším množstvím dostupného místa.  
 
 Po umístění objektu blob do kontejneru může tento objekt BLOB zvětšit použití více místa. Při zvětšení nových objektů BLOB a zmenšení stávajících objektů BLOB se zmenší dostupné místo ve svazku, který tento kontejner obsahuje.  
@@ -69,7 +69,7 @@ Možnosti uvolnění místa na připojeném kontejneru [jsou omezené](#move-vm-
 ## <a name="monitor-shares"></a>Monitorovat sdílené složky
 Pomocí PowerShellu nebo portálu pro správu monitorujte sdílené složky, abyste mohli pochopit, kdy je volné místo omezené. Když použijete portál, dostanete výstrahy o sdílených složkách, které mají nedostatek místa.
 
-### <a name="use-powershell"></a>Použití PowerShellu
+### <a name="use-powershell"></a>Použití prostředí PowerShell
 Jako operátor cloudu můžete sledovat kapacitu úložiště sdílené složky pomocí rutiny PowerShellu **Get-AzsStorageShare** . Rutina Get-AzsStorageShare vrátí celkovou, přidělenou a volnou velikost v bajtech na každé sdílené složky.
 
 ![Příklad: vrácení volného místa pro sdílené složky](media/azure-stack-manage-storage-shares/free-space.png)

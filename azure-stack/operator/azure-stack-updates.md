@@ -7,12 +7,12 @@ ms.date: 10/01/2019
 ms.author: mabrigg
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 43369cc1b06bfd3601353238656e611b84e24c54
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 7894d59d3129b151f6110cbac4606cbfecad8889
+ms.sourcegitcommit: 74ce7c12a93d47315d70427b02bcacbd3b44f854
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76880694"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77037246"
 ---
 # <a name="manage-updates-in-azure-stack-hub"></a>Správa aktualizací v centru Azure Stack
 
@@ -57,7 +57,7 @@ Oznámení aktualizací se liší v několika faktorech, například připojení
 
     V okně **aktualizace** pro Azure Stack, které jsou připojené k Internetu, se zobrazí upozornění aktualizace pro aktualizace softwaru společnosti Microsoft a opravy hotfix. Pokud se okno **aktualizace** nezobrazí, restartujte virtuální počítač řadiče pro správu infrastruktury.
 
-    Pokud vaše instance není připojená a chcete být upozorněni na každou verzi opravy hotfix, přihlaste se k odběru informačního kanálu [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/32d322a8-acae-202d-e9a9-7371dccf381b/rss) nebo [Atom](https://support.microsoft.com/app/content/api/content/feeds/sap/32d322a8-acae-202d-e9a9-7371dccf381b/atom) .
+    Pokud vaše instance není připojená a chcete být upozorněni na každou verzi opravy hotfix, přihlaste se k odběru informačního kanálu [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss) nebo [Atom](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom) .
 
 - **Výrobce OEM – aktualizace poskytované dodavatelem**
 

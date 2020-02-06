@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 10035700de713910d33114e06fab11321e96e5b1
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 72a0fd215363911457271f65d636be37e3388c83
+ms.sourcegitcommit: 74ce7c12a93d47315d70427b02bcacbd3b44f854
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76877438"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77037161"
 ---
 # <a name="hybrid-application-design-considerations"></a>Požadavky na návrh hybridní aplikace 
 
@@ -56,7 +56,7 @@ Společné součásti aplikace, které se mají zahrnout do inventáře, jsou uv
 | **Komponenta** | **Doprovodné materiály k hybridní aplikaci** |
 | ---- | ---- |
 | Připojení klientů | Vaše aplikace (na jakémkoli zařízení) má přístup k uživatelům různými způsoby, od jediného vstupního bodu, včetně následujících:<br>– Model klient-server, který vyžaduje, aby uživatel měl nainstalovaného klienta nástroje pro práci s aplikací. Serverová aplikace, ke které se přistupoval z webového prohlížeče.<br>-Klientská připojení můžou zahrnovat oznámení v případě, že dojde k přerušení připojení nebo upozornění, když můžou platit poplatky za roaming. |
-| Ověření  | Ověřování může být vyžadováno pro uživatele, který se připojuje k aplikaci, nebo z jedné součásti, která se připojuje k jiné. |
+| Ověřování  | Ověřování může být vyžadováno pro uživatele, který se připojuje k aplikaci, nebo z jedné součásti, která se připojuje k jiné. |
 | Rozhraní API  | Vývojářům můžete poskytnout programový přístup k vaší aplikaci pomocí sad rozhraní API a knihoven tříd a poskytovat rozhraní připojení na základě standardů sítě Internet. Rozhraní API můžete použít také k rozloží aplikace na nezávisle provozní logické jednotky. |
 | Služby  | Pro poskytování funkcí aplikace můžete využívat stručné služby. Služba může být modul, na kterém je aplikace spuštěná. |
 | Fronty | Fronty můžete použít k uspořádání stavu životního cyklu a stavů komponent aplikace. Tyto fronty můžou poskytovat možnosti zasílání zpráv, oznámení a ukládání do vyrovnávací paměti pro odběr stran. |
@@ -71,7 +71,7 @@ Pro každou komponentu vyhodnoťte své charakteristiky pro každý pilíř. Kdy
 
 ### <a name="table-2-pillars"></a>Tabulka 2. Pilíře
 
-| **Pillar** | **Popis** |
+| **Pilíř** | **Popis** |
 | ----------- | --------------------------------------------------------- |
 | umístění  | Strategické umístění komponent v hybridních aplikacích. |
 | Škálovatelnost  | Schopnost systému zvládnout zvýšenou zátěž |
@@ -142,7 +142,7 @@ Další prostředky lze přidat do jiného umístění pro distribuci zatížen�
 
 Dostupnost je čas, kdy je systém funkční a funguje. Dostupnost se měří jako procento doby provozu. Dostupnost mohou snížit chyby aplikace, problémy s infrastrukturou nebo zátěž systému.
 
-Základní diskusi k tomuto pilíři najdete v tématu [*dostupnost*](https://docs.microsoft.com/azure/architecture/guide/pillars#availability) v pilířích kvality softwaru.
+Základní diskusi k tomuto pilíři najdete v tématu [*dostupnost*](/azure/architecture/framework/) v pilířích kvality softwaru.
 
 ### <a name="availability-checklist"></a>Kontrolní seznam k dostupnosti
 
@@ -186,7 +186,7 @@ Základní diskusi k tomuto pilíři najdete v tématu [*odolnost*](https://docs
 
 Důležité informace týkající se správy hybridních aplikací jsou důležité při návrhu vaší architektury. Dobře spravovaná hybridní aplikace poskytuje infrastrukturu jako kód, který umožňuje integraci konzistentního kódu aplikace ve společném vývojovém kanálu. Implementací konzistentního systému a individuálního testování změn infrastruktury můžete zajistit integrované nasazení, pokud změny projde testy, což umožňuje jejich sloučení do zdrojového kódu.
 
-Základní diskusi k tomuto pilíři najdete v tématu [*Správa a DevOps*](https://docs.microsoft.com/azure/architecture/guide/pillars#management-and-devops) v pilířích kvality softwaru.
+Základní diskusi k tomuto pilíři najdete v tématu [*DevOps*](/azure/architecture/framework/#devops) v pilířích kvality softwaru.
 
 ### <a name="manageability-checklist"></a>Kontrolní seznam spravovatelnosti
 
@@ -234,7 +234,7 @@ Může se zdát jako časově náročná úloha předem, ale pokud aplikaci navr
 
 ## <a name="next-steps"></a>Další kroky
 
-Další informace najdete v následujících materiálech:
+Další informace najdete v následujících zdrojích:
 
 -   [Hybridní cloud](https://azure.microsoft.com/overview/hybrid-cloud/)
 -   [Hybridní cloudové aplikace](https://azure.microsoft.com/solutions/hybrid-cloud-app/)

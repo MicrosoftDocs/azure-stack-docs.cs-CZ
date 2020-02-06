@@ -7,12 +7,12 @@ ms.date: 09/23/2019
 ms.author: mabrigg
 ms.lastreviewed: 09/23/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: b944e598080df3551764c7978ab205a9fffd666b
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 927877867b0ec8cb2601b50e7f084f86964a5342
+ms.sourcegitcommit: 74ce7c12a93d47315d70427b02bcacbd3b44f854
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882641"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77037212"
 ---
 # <a name="best-practices-for-troubleshooting-azure-stack-hub-patch-and-update-issues"></a>Osvědčené postupy pro řešení potíží s problémy s aktualizacemi a aktualizacemi centra Azure Stack
 
@@ -23,7 +23,7 @@ Proces aktualizace a aktualizace centra Azure Stack slouží k tomu, aby operát
 
 0. **Požadavky**: Ujistěte se, že jste postupovali podle [kontrolního seznamu aktivity aktualizace](release-notes-checklist.md) a máte [nakonfigurované automatické shromažďování protokolů](azure-stack-configure-automatic-diagnostic-log-collection.md).
 1. Postupujte podle kroků pro nápravu v upozornění na selhání vytvořeného při selhání aktualizace.
-2. Přečtěte si [Nejčastější aktualizace centra Azure Stack a aktualizujte problémy](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates-troubleshoot#Common-azure-stack-hub-patch-and-update-issues) a podle uvedeného problému proveďte doporučené akce.
+2. Přečtěte si [Nejčastější aktualizace centra Azure Stack a aktualizujte problémy](#common-azure-stack-hub-patch-and-update-issues) a podle uvedeného problému proveďte doporučené akce.
 3. Pokud jste nedokázali problém vyřešit pomocí výše uvedeného postupu, vytvořte [lístek podpory centra Azure Stack](azure-stack-help-and-support-overview.md). Ujistěte se, že máte [shromážděné protokoly](https://docs.microsoft.com/azure-stack/operator/azure-stack-configure-on-demand-diagnostic-log-collection) pro časový interval, ke kterému došlo k problému.
 
 ## <a name="common-azure-stack-hub-patch-and-update-issues"></a>Běžné problémy s opravou a aktualizacemi centra Azure Stack

@@ -7,12 +7,12 @@ ms.date: 11/01/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: f2a981b3eb7b9d233d656daea4d0bcb4bbd21039
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: b866b99cca9e4db7fa522bd605512f0aeea632db
+ms.sourcegitcommit: 74ce7c12a93d47315d70427b02bcacbd3b44f854
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76885273"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77037229"
 ---
 # <a name="windows-n-tier-application-on-azure-stack-hub-with-sql-server"></a>N-vrstvá aplikace Windows v centru Azure Stack s SQL Server
 
@@ -48,7 +48,7 @@ Tato architektura se skládá z následujících součástí.
 
 -   **Servery služby Active Directory Domain Services (AD DS)** . Objekty počítače pro cluster převzetí služeb při selhání a přidružené Clusterové role se vytvoří ve službě Active Directory Domain Services (AD DS). Nastavení služba AD DS serverů na virtuálních počítačích ve stejné virtuální síti jsou upřednostňovanou metodou pro připojení jiných virtuálních počítačů k služba AD DS. Virtuální počítače můžete připojit taky k existujícím podnikovým služba AD DS připojením k podnikové síti pomocí připojení VPN. V obou případech je potřeba změnit DNS virtuální sítě na váš služba AD DS server DNS (ve virtuální síti nebo ve stávající podnikové síti) a vyřešit služba AD DS plně kvalifikovaný název domény.
 
--   **Cloud s kopií clusteru**. Cluster převzetí služeb při selhání vyžaduje více než polovina jeho uzly ke spuštění, které se označuje jako s kvora. Pokud cluster má jenom dva uzly, síťového oddílu může způsobit, že každému uzlu myslíte, že je hlavní uzel. V takovém případě je nutné *určující sdílené složky* vazby a stanovit kvorum. Určujícího je prostředek, jako je sdílený disk, který může sloužit jako zkrácené stanovit kvorum. Disk s kopií cloudu je typ určující sdílené složky, která využívá úložiště objektů Blob Azure. Další informace o konceptu kvora najdete v tématu [kvora clusteru a fond Principy](https://docs.microsoft.com/windows-server/storage/storage-spaces/understand-quorum). Další informace o disk s kopií cloudu najdete v tématu [nasazení cloudové kopie clusteru pro převzetí služeb při selhání clusteru](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness). V Azure Stack hub se koncový bod cloudu s kopií cloudu liší od globálního Azure. 
+-   **Disk s kopií cloudu** Cluster převzetí služeb při selhání vyžaduje více než polovina jeho uzly ke spuštění, které se označuje jako s kvora. Pokud cluster má jenom dva uzly, síťového oddílu může způsobit, že každému uzlu myslíte, že je hlavní uzel. V takovém případě potřebujete *určující* , aby bylo možné rušit vazby a vytvořit kvorum. Určujícího je prostředek, jako je sdílený disk, který může sloužit jako zkrácené stanovit kvorum. Disk s kopií cloudu je typ určující sdílené složky, která využívá úložiště objektů Blob Azure. Další informace o konceptu kvora najdete v tématu [Principy kvora clusteru a fondu](https://docs.microsoft.com/windows-server/storage/storage-spaces/understand-quorum). Další informace o určujícím cloudu najdete v tématu [nasazení určujícího cloudu pro cluster s podporou převzetí služeb při selhání](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness). V Azure Stack hub se koncový bod cloudu s kopií cloudu liší od globálního Azure. 
 
 Může vypadat takto:
 
@@ -64,7 +64,7 @@ Může vypadat takto:
 
 Vaše požadavky se mohou od popsané architektury lišit. Použijte tato doporučení jako výchozí bod.
 
-### <a name="virtual-machines"></a>Virtuální počítače
+### <a name="virtual-machines"></a>Virtual Machines
 
 Doporučení týkající se konfigurace virtuálních počítačů najdete v tématu [spuštění virtuálního počítače s Windows v centru Azure Stack](iaas-architecture-vm-windows.md).
 
@@ -80,7 +80,7 @@ Při navrhování podsítí myslete na požadované funkce a požadavky na zabez
 
 Nevystavujte virtuální počítače přímo k Internetu, ale místo toho dejte každému virtuálnímu počítači privátní IP adresu. Klienti se připojují pomocí veřejné IP adresy přidružené k Load Balancer vrstvy 7.
 
-Definujte pravidla nástroje pro vyrovnávání zatížení, aby síťový provoz směroval na virtuální počítače. Například pokud chcete povolit provoz protokolu HTTP, namapujte port 80 z front-endové konfigurace k portu 80 ve fondu back endových adres. Když klient odešle požadavek HTTP na port 80, nástroj pro vyrovnávání zatížení vybere back-end IP adresu pomocí [algoritmu hash](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#load-balancer-concepts) , který zahrnuje zdrojovou IP adresu. Požadavky klientů distribuovány mezi všechny virtuální počítače ve fondu back endových adres.
+Definujte pravidla nástroje pro vyrovnávání zatížení, aby síťový provoz směroval na virtuální počítače. Například pokud chcete povolit provoz protokolu HTTP, namapujte port 80 z front-endové konfigurace k portu 80 ve fondu back endových adres. Když klient odešle požadavek HTTP na port 80, nástroj pro vyrovnávání zatížení vybere back-end IP adresu pomocí [algoritmu hash](/azure/load-balancer/concepts-limitations#load-balancer-concepts) , který zahrnuje zdrojovou IP adresu. Požadavky klientů distribuovány mezi všechny virtuální počítače ve fondu back endových adres.
 
 ### <a name="network-security-groups"></a>Skupiny zabezpečení sítě
 
@@ -161,7 +161,7 @@ Další informace najdete v tématu věnovaném [hlediskům návrhu pro sady šk
 
 Každé předplatné tenanta Azure Stackho centra má nastavené výchozí limity, včetně maximálního počtu virtuálních počítačů na oblast nakonfigurované pomocí operátoru centra Azure Stack. Další informace najdete v tématu [Azure Stack služby centra, plány, nabídky a předplatné přehled](https://docs.microsoft.com/azure-stack/operator/service-plan-offer-subscription-overview). Také se můžete podívat na [typy kvót v centru Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-quota-types).
 
-## <a name="security-considerations"></a>Informace o zabezpečení
+## <a name="security-considerations"></a>Aspekty zabezpečení
 
 Virtuální sítě jsou hranicí izolace provozu v Azure. Virtuální počítače v jedné virtuální síti ve výchozím nastavení nemůžou komunikovat přímo s virtuálními počítači v jiné virtuální síti.
 
@@ -173,4 +173,4 @@ Virtuální sítě jsou hranicí izolace provozu v Azure. Virtuální počítač
 
 ## <a name="next-steps"></a>Další kroky
 
-- Další informace o vzorech cloudu Azure, najdete v článku [vzory návrhu v cloudu](https://docs.microsoft.com/azure/architecture/patterns).
+- Další informace o vzorech cloudu Azure najdete v tématu [vzory návrhu cloudu](https://docs.microsoft.com/azure/architecture/patterns).
