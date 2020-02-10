@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: sethm
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: b230c78811e79e7a04114b77a2fcacd1b2a2fc9c
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 2f0b520b4c615e56fea7575422b306c226188eb0
+ms.sourcegitcommit: 23861d659c89c2d36390085fe9532b2bcba2100d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884116"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77075212"
 ---
 # <a name="configure-vpn-gateway-settings-for-azure-stack-hub"></a>Konfigurace nastavení služby VPN Gateway pro centrum Azure Stack
 
@@ -42,7 +42,7 @@ Centrum Azure Stack nabízí SKU brány VPN uvedené v následující tabulce:
 | | Propustnost brány VPN Gateway |Maximální počet tunelových propojení IPsec brány VPN Gateway |
 |-------|-------|-------|
 |**Základní SKU**  | 100 Mb/s  | 20    |
-|**Standardní SKU**   | 100 Mb/s  | 20 |
+|**SKU Standard**   | 100 Mb/s  | 20 |
 |**SKU s vysokým výkonem** | 200 Mb/s | 10 |
 
 ### <a name="resizing-gateway-skus"></a>Změna velikosti SKU brány
@@ -93,7 +93,7 @@ Když vytvoříte bránu virtuální sítě pro konfiguraci brány sítě VPN, m
   >[!NOTE]
   >**PolicyBased** se podporuje v Azure, ale ne v centru Azure Stack.
 
-* **RouteBased**: sítě VPN založené na směrování používají trasy, které jsou nakonfigurované v tabulce předávání IP nebo směrovací tabulky, k přímému směrování paketů na odpovídající rozhraní tunelového propojení. Rozhraní tunelového propojení potom šifrují nebo dešifrují pakety směřující do tunelových propojení nebo z nich. Zásady nebo selektor provozu pro sítě VPN **RouteBased** jsou nakonfigurovány jako libovolné (nebo používají zástupné karty). Ve výchozím nastavení se nedají změnit. Hodnota pro typ VPN **RouteBased** je **RouteBased**.
+* **RouteBased**: sítě VPN založené na směrování používají trasy, které jsou nakonfigurované v tabulce předávání IP nebo směrovací tabulky, k přímému směrování paketů na odpovídající rozhraní tunelového propojení. Rozhraní tunelového propojení potom zašifruje nebo dešifruje pakety směřující do tunelových propojení nebo z nich. Zásady nebo selektor provozu pro sítě VPN **RouteBased** jsou nakonfigurovány jako libovolné (nebo používají zástupné karty). Ve výchozím nastavení se nedají změnit. Hodnota pro typ VPN **RouteBased** je **RouteBased**.
 
 Následující příklad prostředí PowerShell určuje `-VpnType` jako **RouteBased**. Když vytváříte bránu, musíte zajistit, aby byla `-VpnType` správná pro vaši konfiguraci.
 
@@ -112,7 +112,7 @@ V následující tabulce jsou uvedeny požadavky na brány VPN.
 | **Připojení Site-to-Site (připojení S2S)** | Nepodporuje se | Konfigurace sítě VPN založené na trasách | Konfigurace sítě VPN založené na trasách | Konfigurace sítě VPN založené na trasách |
 | **Metoda ověřování**  | Nepodporuje se | Předsdílený klíč pro připojení S2S  | Předsdílený klíč pro připojení S2S  | Předsdílený klíč pro připojení S2S  |
 | **Maximální počet připojení S2S**  | Nepodporuje se | 20 | 20| 10|
-|**Podpora aktivních směrování (BGP)** | Nepodporováno | Nepodporováno | Podporováno | Podporováno |
+|**Podpora aktivních směrování (BGP)** | Nepodporuje se | Nepodporuje se | Podporuje se | Podporuje se |
 
 ### <a name="gateway-subnet"></a>Podsíť brány
 
@@ -160,9 +160,9 @@ Na rozdíl od Azure, který podporuje více nabídek jako iniciátor i respondé
 | Vlastnost              | Hodnota|
 |-|-|
 | Verze IKE           | IKEv2 |
-|Skupina Diffie-Hellman   | ECP384 |
+|Skupina Diffie-Hellman *   | ECP384 |
 | Metoda ověřování | Předsdílený klíč |
-|Algoritmy šifrování a hash | AES256, SHA384 |
+|Algoritmy hash & šifrování * | AES256, SHA384 |
 |Životnost SA (čas)     | 28 800 sekund|
 
 ### <a name="ike-phase-2-quick-mode-parameters"></a>Parametry protokolu IKE fáze 2 (rychlý režim)
@@ -174,8 +174,19 @@ Na rozdíl od Azure, který podporuje více nabídek jako iniciátor i respondé
 |Šifrování šifrovacích & algoritmů hash (ověřování) | GCMAES256|
 |Životnost SA (čas)  | 27 000 sekund  |
 |Životnost SA (kilobajty) | 33 553 408     |
-|Metoda Perfect Forward Secrecy (PFS) | ECP384 |
-|Detekce mrtvých partnerských zařízení | Podporováno|  
+|PFS (Perfect Forward Secrecy) * | ECP384 |
+|Detekce mrtvých partnerských zařízení | Podporuje se| 
+
+>[!NOTE]
+>Pro sestavení 1910 a vyšší se změnily výchozí hodnoty pro skupinu Diffie-Hellman, algoritmus hash a Perfect Forward Secrecy. Pokud je vaše centrum Azure Stack na verzi buildu nižší než 1910, použijte následující hodnoty pro výše uvedené parametry:
+
+>| Vlastnost| Hodnota|
+>|-|-|
+>|Skupina Diffie-Hellman   | DHGroup2 |
+>|Algoritmy hash | SHA256 |
+>|Metoda Perfect Forward Secrecy (PFS) | Žádná |
+
+\* nový nebo změněný parametr.
 
 ## <a name="next-steps"></a>Další kroky
 

@@ -8,12 +8,12 @@ ms.date: 06/10/2019
 ms.author: justinha
 ms.reviewer: fiseraci
 ms.lastreviewed: 1/16/2020
-ms.openlocfilehash: 396db14d269ee9443d38f8220e5dd0384d04a479
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 7b83fa18f8a550a718023c97ccab8d46b5b86564
+ms.sourcegitcommit: 23861d659c89c2d36390085fe9532b2bcba2100d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881295"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77075195"
 ---
 # <a name="azure-stack-hub-infrastructure-security-controls"></a>Ovládací prvky zabezpečení infrastruktury centra Azure Stack
 
@@ -67,7 +67,7 @@ Další informace o WDAC najdete v tématu [řízení aplikací v programu Windo
 
 Další funkcí zabezpečení Windows serveru v centru Azure Stack je ochrana Credential Guard v programu Windows Defender, která se používá k ochraně přihlašovacích údajů infrastruktury centra Azure Stack z útoků pass-the-hash a Pass-The-Ticket.
 
-## <a name="antimalware"></a>Antimalware
+## <a name="antimalware"></a>Antimalwarové programy
 
 Každá součást centra Azure Stack (hostitelé Hyper-V a virtuální počítače) je chráněná pomocí antivirové ochrany v programu Windows Defender.
 
@@ -95,7 +95,7 @@ Seznamy ACL sítě se vysazují ve třech vrstvách:
 - Vrstva 2: softwarově definovaná síť
 - Vrstva 3: brány firewall pro operační systémy hostitele a virtuálního počítače
 
-## <a name="regulatory-compliance"></a>Dodržování právních předpisů
+## <a name="regulatory-compliance"></a>Dodržování legislativní předpisů
 
 Centrum Azure Stack prošlo formálním posouzením schopností, které nezávisle na třetí straně auditně nezávisle na sobě. V důsledku toho je k dispozici dokumentace k tomu, jak infrastruktura centra Azure Stack splňuje příslušné ovládací prvky z několika hlavních standardů dodržování předpisů. Tato dokumentace není certifikací centra Azure Stack, protože standardy zahrnují několik ovládacích prvků souvisejících s pracovníky a procesy. Zákazníci můžou místo toho použít tuto dokumentaci k tomu, abyste mohli začít se svým certifikačním procesem.
 
@@ -105,7 +105,7 @@ Posouzení zahrnuje následující standardy:
 - Aplikace [CSA Cloud Control Matrix](https://cloudsecurityalliance.org/group/cloud-controls-matrix/#_overview) je komplexní mapování mezi několika standardy, včetně FedRAMP střední, ISO27001, HIPAA, HiTRUST, ITAR, NIST SP800-53 a dalších.
 - [FedRAMP vysoká](https://www.fedramp.gov/fedramp-releases-high-baseline/) pro zákazníky ze státní správy.
 
-Dokumentaci k dodržování předpisů najdete na [portálu Microsoft Trust Service](https://servicetrust.microsoft.com/ViewPage/Blueprint). Příručky dodržování předpisů jsou chráněné prostředky a vyžadují, abyste se přihlásili pomocí svých přihlašovacích údajů ke cloudové službě Azure.
+Dokumentaci k dodržování předpisů najdete na [portálu Microsoft Trust Service](https://servicetrust.microsoft.com/ViewPage/AzureStack). Příručky dodržování předpisů jsou chráněné prostředky a vyžadují, abyste se přihlásili pomocí svých přihlašovacích údajů ke cloudové službě Azure.
 
 ## <a name="next-steps"></a>Další kroky
 
