@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 5955dcf6c211f9f431d84227548496af7782a0d7
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 23c823fcbfa76d34a471ac404b18dab13b737315
+ms.sourcegitcommit: b7b86e875cf04cb0fd9d48a2b830588d3ff99b6d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881844"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77125755"
 ---
 # <a name="create-mysql-databases-in-azure-stack-hub"></a>Vytváření databází MySQL v centru Azure Stack
 Uživatel centra Azure Stack, který se přihlásí k odběru nabídky, která obsahuje databázovou službu MySQL, může vytvořit a spravovat samoobslužné databáze MySQL na portálu User Portal.
@@ -23,7 +23,7 @@ Uživatel centra Azure Stack, který se přihlásí k odběru nabídky, která o
 2. Vyberte **+ vytvořit prostředek** > **Data + úložiště** > **MySQL Database** > **Přidat**.
 3. V části **vytvořit databázi MySQL**zadejte název databáze a nakonfigurujte další nastavení podle požadavků vašeho prostředí.
 
-    ![Vytvoření testovací databáze MySQL](./media/azure-stack-mysql-rp-deploy/mysql-create-db.png)
+    ![Vytvoření testovací databáze MySQL](./media/azure-stack-mysql-rp-deploy/mysql-create-db-a.png)
 
 4. V části **vytvořit databázi**vyberte **SKU**. V části **Vybrat SKU MySQL**vyberte SKU pro vaši databázi.
 
@@ -44,7 +44,7 @@ Uživatel centra Azure Stack, který se přihlásí k odběru nabídky, která o
 
 Po nasazení databáze si poznamenejte **připojovací řetězec** v části **základy**. Tento řetězec můžete použít v libovolné aplikaci, která potřebuje přístup k databázi MySQL.
 
-![Získání připojovacího řetězce pro databázi MySQL](./media/azure-stack-mysql-rp-deploy/mysql-db-created.png)
+![Získání připojovacího řetězce pro databázi MySQL](./media/azure-stack-mysql-rp-deploy/mysql-db-created-a.png)
 
 ## <a name="update-the-administrative-password"></a>Aktualizace hesla pro správu
 

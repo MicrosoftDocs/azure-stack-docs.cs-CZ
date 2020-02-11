@@ -8,12 +8,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: c7b3d1ef979e69a72904e03b49cb5ee4b75c182e
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: d46837540e8b4bd22fb114062266a5be86862921
+ms.sourcegitcommit: b7b86e875cf04cb0fd9d48a2b830588d3ff99b6d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882817"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77125667"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Přidání hostitelských serverů pro poskytovatele prostředků SQL
 
@@ -84,11 +84,11 @@ Chcete-li přidat samostatný hostitelský server, který je již nastaven, post
 
    V části **hostitelské servery SQL**můžete poskytovatele prostředků SQL připojit k instancím SQL Server, které budou sloužit jako back-end poskytovatele prostředků.
 
-   ![Řídicí panel adaptéru SQL na portálu pro správu centra Azure Stack](./media/azure-stack-sql-rp-deploy/sqlrp-hostingserver.png)
+   ![Řídicí panel adaptéru SQL na portálu pro správu centra Azure Stack](./media/azure-stack-sql-rp-deploy/sql-rp-hosting-server.png)
 
 3. Klikněte na **Přidat** a zadejte podrobnosti o připojení pro vaši instanci SQL Server v okně **Přidat hostitelský server SQL** .
 
-   ![Přidání hostitelského serveru SQL na portále správce centra Azure Stack](./media/azure-stack-sql-rp-deploy/sqlrp-newhostingserver.png)
+   ![Přidání hostitelského serveru SQL na portále správce centra Azure Stack](./media/azure-stack-sql-rp-deploy/sql-rp-new-hosting-server.png)
 
     Volitelně můžete zadat název instance a zadat číslo portu, pokud není instance přiřazena k výchozímu portu 1433.
 
@@ -100,11 +100,11 @@ Chcete-li přidat samostatný hostitelský server, který je již nastaven, post
    * Pokud chcete použít existující SKU, zvolte dostupnou SKU a pak vyberte **vytvořit**.
    * Pokud chcete vytvořit SKU, vyberte **+ vytvořit novou skladovou**položku. V části **vytvořit SKU**zadejte požadované informace a pak vyberte **OK**.
 
-     ![Vytvoření SKU na portálu pro správu centra Azure Stack](./media/azure-stack-sql-rp-deploy/sqlrp-newsku.png)
+     ![Vytvoření SKU na portálu pro správu centra Azure Stack](./media/azure-stack-sql-rp-deploy/sqlrp-new-sku.png)
 
 ## <a name="provide-high-availability-using-sql-always-on-availability-groups"></a>Zajištění vysoké dostupnosti pomocí skupin dostupnosti Always On SQL serveru
 
-Konfigurace instancí SQL Always On vyžaduje další kroky a vyžaduje tři virtuální počítače (nebo fyzické počítače). V tomto článku se předpokládá, že už máte plnou znalost skupin dostupnosti Always On. Další informace najdete v těchto článcích:
+Konfigurace instancí SQL Always On vyžaduje další kroky a vyžaduje tři virtuální počítače (nebo fyzické počítače). V tomto článku se předpokládá, že už máte plnou znalost skupin dostupnosti Always On. Další informace najdete v následujících článcích:
 
 * [Představujeme SQL Server skupiny dostupnosti Always On na virtuálních počítačích Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview)
 * [Skupiny dostupnosti Always On (SQL Server)](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-2017)

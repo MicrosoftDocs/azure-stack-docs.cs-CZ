@@ -8,12 +8,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 0d6551f7db2ef8b7266d45223c9b20587610b169
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: ed76e3611fe0b7b57386a7b688f08ddbdc3c36d7
+ms.sourcegitcommit: b7b86e875cf04cb0fd9d48a2b830588d3ff99b6d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881254"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77125803"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>Operace údržby poskytovatele prostředků SQL
 
@@ -33,7 +33,7 @@ Zodpovídáte za vytváření a udržování účtů sysadmin na vašich SQL ser
 
 Pokud chcete nastavení upravit, vyberte **procházet** &gt; **prostředky pro správu** &gt; **hostitelskými servery SQL** &gt; **přihlašovacími údaji SQL** a vyberte uživatelské jméno. Tato změna se musí provést nejdříve v instanci SQL (a v případě potřeby všechny repliky). V části **Nastavení**vyberte **heslo**.
 
-![Aktualizace hesla správce SQL](./media/azure-stack-sql-rp-deploy/sqlrp-update-password.PNG)
+![Aktualizace hesla správce SQL](./media/azure-stack-sql-rp-deploy/sql-rp-update-password.png)
 
 ## <a name="secrets-rotation"></a>Rotace tajných kódů
 

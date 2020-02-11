@@ -8,12 +8,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 4269cce339ee606fd8efb4cb08677079c0f2e477
-ms.sourcegitcommit: 5f53810d3c5917a3a7b816bffd1729a1c6b16d7f
+ms.openlocfilehash: b0ea11c3245d8a3ddbf9eeaf85481f830c67dc7f
+ms.sourcegitcommit: b7b86e875cf04cb0fd9d48a2b830588d3ff99b6d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/03/2020
-ms.locfileid: "76972675"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77125574"
 ---
 # <a name="create-sql-databases"></a>Vytvoření databáze SQL
 
@@ -32,7 +32,7 @@ Samoobslužné databáze můžete vytvářet a spravovat na portálu User Portal
 
 4. V části **vytvořit databázi**vyberte **SKU**. V části **Vybrat SKU**vyberte SKU pro vaši databázi.
 
-   ![Vytvořte databázi na portálu User Portal pro Azure Stack hub.](./media/azure-stack-sql-rp-deploy/newsqldb.png)
+   ![Vytvořte databázi na portálu User Portal pro Azure Stack hub.](./media/azure-stack-sql-rp-deploy/newsqldba.png)
 
    >[!NOTE]
    >Jelikož se hostitelské servery přidávají do centra Azure Stack, přiřadí se mu SKU. Databáze se vytvářejí ve fondu hostitelských serverů v SKU.
@@ -46,13 +46,13 @@ Samoobslužné databáze můžete vytvářet a spravovat na portálu User Portal
    >[!NOTE]
    >Tato nastavení jsou přihlašovací údaje pro ověřování SQL, které jsou vytvořené pro váš přístup jenom k této databázi. Přihlašovací uživatelské jméno musí být globálně jedinečné. Můžete znovu použít nastavení přihlášení pro další databáze, které používají stejnou SKU.
 
-   ![Vytvoření nového přihlášení k databázi na portálu Azure Stack User Portal](./media/azure-stack-sql-rp-deploy/create-new-login.png)
+   ![Vytvoření nového přihlášení k databázi na portálu Azure Stack User Portal](./media/azure-stack-sql-rp-deploy/create-new-login-a.png)
 
 8. Kliknutím na **OK** dokončete nasazení databáze.
 
 V části **Essentials**, která se zobrazí po nasazení databáze, si poznamenejte **připojovací řetězec**. Tento řetězec můžete použít v libovolné aplikaci, která potřebuje přístup k databázi SQL Server.
 
-![Načtení připojovacího řetězce pro databázi SQL Server](./media/azure-stack-sql-rp-deploy/sql-db-settings.png)
+![Načtení připojovacího řetězce pro databázi SQL Server](./media/azure-stack-sql-rp-deploy/sql-db-settings-a.png)
 
 ## <a name="sql-always-on-databases"></a>Databáze SQL Always On
 
@@ -62,7 +62,7 @@ V databázích, které jsou vždy zpracovávány, jsou databáze vždy zpracová
 
 Následující snímek obrazovky ukazuje, jak můžete použít SQL Server Management Studio k zobrazení stavu databáze v SQL Always On.
 
-![Stav databáze AlwaysOn v SQL Server Management Studio](./media/azure-stack-sql-rp-deploy/verifyalwayson.png)
+![Stav databáze AlwaysOn v SQL Server Management Studio](./media/azure-stack-sql-rp-deploy/verify-always-on.png)
 
 Databáze Always On by se měly zobrazovat jako **synchronizované** a dostupné ve všech instancích SQL a zobrazují se ve **skupinách dostupnosti**. V předchozím snímku obrazovky je příklad databáze newdb1 a jeho stav je **newdb1 (synchronizovaný)** .
 
