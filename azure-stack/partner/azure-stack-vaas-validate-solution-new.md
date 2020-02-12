@@ -1,6 +1,6 @@
 ---
-title: Ověřit nové řešení Azure Stack
-description: Naučte se, jak ověřit nové řešení Azure Stack pomocí ověřování jako služby.
+title: Ověřit nové řešení centra Azure Stack
+description: Naučte se, jak ověřit nové řešení centra Azure Stack s ověřováním jako službou.
 author: mattbriggs
 ms.topic: quickstart
 ms.date: 11/11/2019
@@ -8,20 +8,20 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: b3e62141988f99706c652124943da0fbabf44439
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: b5380b644aeece0e12e692ebb578fe2b6d0c8792
+ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884021"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77143962"
 ---
-# <a name="validate-a-new-azure-stack-solution"></a>Ověřit nové řešení Azure Stack
+# <a name="validate-a-new-azure-stack-hub-solution"></a>Ověřit nové řešení centra Azure Stack
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Naučte se používat pracovní postup **ověření řešení** k certifikaci nových Azure Stack řešení.
+Naučte se používat pracovní postup **ověření řešení** k certifikaci nových řešení centra Azure Stack.
 
-Azure Stack řešení je hardwarový soupis materiálu (BoM), který se společně dohodl mezi společností Microsoft a partnerem po splnění požadavků certifikace loga Windows serveru. Řešení musí být znovu certifikováno, pokud došlo ke změně hardwarového kusovníku. Pokud chcete získat další otázky týkající se recertifikace řešení, obraťte se na tým na [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com).
+Řešení centra Azure Stack je hardwarový soupis materiálu (BoM), který se společně dohodl mezi společností Microsoft a partnerem po splnění požadavků certifikace loga Windows serveru. Řešení musí být znovu certifikováno, pokud došlo ke změně hardwarového kusovníku. Pokud chcete získat další otázky týkající se recertifikace řešení, obraťte se na tým na [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com).
 
 Chcete-li certifikovat vaše řešení, spusťte pracovní postup ověření řešení dvakrát. Spusťte ji jednou pro *minimální* podporovanou konfiguraci. Spusťte ji podruhé pro *maximální* podporovanou konfiguraci. Společnost Microsoft toto řešení osvědčí, pokud obě konfigurace projde všemi testy.
 
@@ -57,7 +57,7 @@ Chcete-li certifikovat vaše řešení, spusťte pracovní postup ověření ře
 
 Na stránce **Souhrn testů ověřování řešení** se zobrazí seznam testů požadovaných k dokončení ověření.
 
-**Plánování** testu v pracovních postupech ověřování používá společné parametry na úrovni pracovního postupu, které jste zadali během vytváření pracovního postupu (viz [společné parametry pracovních postupů pro Azure Stack ověřování jako služby](azure-stack-vaas-parameters.md)). Pokud se některá z hodnot parametrů testu stane neplatných, musíte je znovu zadat podle pokynů v části [Úprava parametrů pracovního postupu](azure-stack-vaas-monitor-test.md#change-workflow-parameters).
+**Plánování** testu v pracovních postupech ověřování používá společné parametry na úrovni pracovního postupu, které jste zadali během vytváření pracovního postupu (viz [společné parametry pracovních postupů pro ověřování centra Azure Stack jako služba](azure-stack-vaas-parameters.md)). Pokud se některá z hodnot parametrů testu stane neplatných, musíte je znovu zadat podle pokynů v části [Úprava parametrů pracovního postupu](azure-stack-vaas-monitor-test.md#change-workflow-parameters).
 
 > [!NOTE]
 > Plánování ověřovacího testu přes existující instanci vytvoří na portálu novou instanci místo staré instance. Protokoly pro starou instanci budou zachovány, ale nebudou přístupné z portálu.  

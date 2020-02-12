@@ -1,6 +1,6 @@
 ---
-title: Řešení potíží s ověřováním Azure Stack jako služby
-description: Řešení potíží s ověřováním jako služby pro Azure Stack.
+title: Řešení potíží s ověřováním centra Azure Stack jako služby
+description: Řešení potíží s ověřováním jako služby pro centrum Azure Stack.
 author: mattbriggs
 ms.topic: article
 ms.date: 11/11/2019
@@ -8,12 +8,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1525ed6ce9005fd8a64acefb44c730e2f172bcdc
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 1adadf1df42873d37e45a9c25a4876ee79612cf6
+ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884981"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77143616"
 ---
 # <a name="troubleshoot-validation-as-a-service"></a>Řešení potíží s ověřováním jako službou
 
@@ -101,7 +101,7 @@ Pokud je prostředí v pořádku, ručně nahrajte 5 imagí virtuálních počí
     | Vydavatel | MicrosoftWindowsServer |
     | Nabídka | WindowsServer |
     | OS Type | Windows |
-    | Skladová položka | 2012-R2-Datacenter |
+    | Skladová jednotka (SKU) | 2012-R2-Datacenter |
     | Verze | 1.0.0 |
     | Identifikátor URI objektu BLOB disku s operačním systémem | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/WindowsServer2012R2DatacenterBYOL.vhd |
 
@@ -110,7 +110,7 @@ Pokud je prostředí v pořádku, ručně nahrajte 5 imagí virtuálních počí
 
 Vlastnosti všech 5 imagí virtuálních počítačů jsou následující:
 
-| Vydavatel  | Nabídka  | OS Type | Skladová položka | Verze | Identifikátor URI objektu BLOB disku s operačním systémem |
+| Vydavatel  | Nabídka  | OS Type | Skladová jednotka (SKU) | Verze | Identifikátor URI objektu BLOB disku s operačním systémem |
 |---------|---------|---------|---------|---------|---------|
 | MicrosoftWindowsServer| WindowsServer | Windows | 2012-R2-Datacenter | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/WindowsServer2012R2DatacenterBYOL.vhd |
 | MicrosoftWindowsServer | WindowsServer | Windows | 2016 – Datacenter | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Server2016DatacenterFullBYOL.vhd |

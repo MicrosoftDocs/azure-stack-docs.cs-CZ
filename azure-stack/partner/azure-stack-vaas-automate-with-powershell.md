@@ -1,6 +1,7 @@
 ---
 title: Automatizace Azure Stack ověřování pomocí PowerShellu
-description: Můžete automatizovat Azure Stack ověřování pomocí prostředí PowerShell.
+titleSuffix: Azure Stack Hub
+description: Naučte se automatizovat Azure Stack ověřování pomocí PowerShellu.
 author: mattbriggs
 ms.topic: tutorial
 ms.date: 11/26/2019
@@ -8,14 +9,14 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: d37c1f9027017446c31b0877496c28928d22f92a
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: a85f43096cffa900bfefb801bdd28b26358e6219
+ms.sourcegitcommit: 0a3c8b0bf9c116a5caaeca453a2bbc6e7f7cbfb9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884988"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77147753"
 ---
-# <a name="automate-azure-stack-validation-with-powershell"></a>Automatizace Azure Stack ověřování pomocí PowerShellu
+# <a name="automate-azure-stack-hub-validation-with-powershell"></a>Automatizace ověřování centra Azure Stack pomocí PowerShellu
 
 Ověřování jako služba (VaaS) poskytuje možnost automatizovat spouštění testů pomocí skriptu **RunVaaSAutomation. ps1** .
 
@@ -29,7 +30,7 @@ Tento skript se dá použít k těmto akcím:
 
 Následující odkazy obsahují informace o tom, jak spouštět testy prostřednictvím portálu VaaS. Před použitím skriptu byste měli získat informace o požadovaných parametrech a jejich hodnotách:
 
-* Pracovní postup SolutionValidation: [ověření nového řešení Azure Stack](azure-stack-vaas-validate-solution-new.md)
+* Pracovní postup SolutionValidation: [ověření nového řešení centra Azure Stack](azure-stack-vaas-validate-solution-new.md)
 * Pracovní postup PackageValidation: [ověření balíčků OEM](azure-stack-vaas-validate-oem-package.md)
 * Pracovní postup TestPass: [Plánování testu](azure-stack-vaas-schedule-test-pass.md)
 
@@ -258,8 +259,8 @@ Další informace najdete v tématu [společné parametry pracovních postupů](
 | VaaSAccountUserName | Vaše uživatelské jméno VaaS pro portál VaaS. |
 | VaaSAccountPassword | Vaše VaaS heslo pro portál VaaS. |
 | VaaSAccountTenantId | Identifikátor GUID vašeho tenanta VaaS |
-| ServiceAdminUserName | Váš účet správce služby Azure Stack.  |
-| ServiceAdminPassword | Vaše heslo služby Azure Stack.  |
+| ServiceAdminUserName | Váš účet správce služby Azure Stack hub.  |
+| ServiceAdminPassword | Vaše heslo služby centra Azure Stack.  |
 | TenantAdminUserName | Správce primárního klienta.  |
 | TenantAdminPassword | Heslo pro primárního klienta.  |
 | CloudAdminUserName | Uživatelské jméno správce cloudu.  |
@@ -276,6 +277,6 @@ Další možnosti najdete v tématu [monitorování a Správa testů na portálu
 
 ## <a name="next-steps"></a>Další kroky
 
-Další informace o PowerShellu v Azure Stack najdete v nejnovějších modulech.
+Pokud se chcete dozvědět víc o PowerShellu v centru Azure Stack, přečtěte si nejnovější moduly.
 
-- [Modul Azure Stack](/powershell/azure/azure-stack/overview?view=azurestackps-1.6.0)
+- [Modul Azure Stack hub](/powershell/azure/azure-stack/overview?view=azurestackps-1.6.0)

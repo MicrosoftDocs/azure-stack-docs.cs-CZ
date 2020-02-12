@@ -48,13 +48,13 @@
       href: /azure-stack/operator
     - name: Azure Active Directory
       href: /azure/active-directory/
-- name: Materiály
+- name: Zdroje a prostředky
   items:
-    - name: Azure Stack plán
+    - name: Plán centra Azure Stack
       href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'
-    - name: Azure Stack Fórum MSDN
+    - name: Fórum MSDN centra Azure Stack
       href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureStack'
-    - name: Váš názor na dokumentaci Azure Stack
+    - name: Názory na dokumentaci centra Azure Stack
       href: 'https://feedback.azure.com/forums/344565-azure-stack?category_id=160275'
     - name: Informace o cenách
       href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'

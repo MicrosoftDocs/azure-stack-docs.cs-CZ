@@ -8,12 +8,12 @@ ms.date: 10/07/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: b8ad46128d3b0228fdc2e6ecc0c3ca507b4ec697
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 0a15f4256349b9080f73d976f4e4a9782fd5b665
+ms.sourcegitcommit: 0a3c8b0bf9c116a5caaeca453a2bbc6e7f7cbfb9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882735"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77147893"
 ---
 # <a name="create-highly-available-mysql-databases"></a>Vytváření vysoce dostupných databází MySQL
 
@@ -53,7 +53,7 @@ Pomocí kroků v této části můžete nasadit cluster serveru MySQL pomocí po
 
 - Virtuální síť
 - Skupina zabezpečení sítě
-- účet úložiště
+- Účet úložiště
 - Skupina dostupnosti
 - Tři síťová rozhraní (jedna pro každý výchozí virtuální počítač)
 - Veřejná IP adresa (pro primární virtuální počítač clusteru MySQL)
@@ -78,7 +78,7 @@ Pomocí kroků v této části můžete nasadit cluster serveru MySQL pomocí po
    - Vyberte skupinu prostředků, kterou chcete použít, nebo vytvořte novou.
    - Vyberte umístění (výchozí nastavení je místní pro ASDK).
 
-   ![Základy nasazení – vytvoření MySQL s replikací](media/azure-stack-tutorial-mysqlrp/2-sm.PNG)] (Media/Azure-Stack-tutorial-mysqlrp/2-LG. PNG # Lightbox)
+   [Základy nasazení ![– vytvoření MySQL s replikací](media/azure-stack-tutorial-mysqlrp/2-sm.PNG)](media/azure-stack-tutorial-mysqlrp/2-lg.PNG#lightbox)
 
 4. Na stránce **Konfigurace prostředí** zadejte následující informace a pak vyberte **OK**:
 
@@ -86,11 +86,11 @@ Pomocí kroků v této části můžete nasadit cluster serveru MySQL pomocí po
    - Velikost virtuálního počítače (výchozí nastavení je Standard D1 v2 VM).
    - Velikost datového disku v GB
 
-   ![Konfigurace prostředí – vytvoření MySQL s replikací](media/azure-stack-tutorial-mysqlrp/3-sm.PNG)] (Media/Azure-Stack-tutorial-mysqlrp/3-LG. PNG # Lightbox)
+   [Konfigurace prostředí ![– vytvoření MySQL s replikací](media/azure-stack-tutorial-mysqlrp/3-sm.PNG)](media/azure-stack-tutorial-mysqlrp/3-lg.PNG#lightbox)
 
 5. Projděte si **Souhrn**nasazení. Volitelně si můžete stáhnout vlastní šablonu a parametry a pak vybrat **OK**.
 
-   ![Shrnutí – vytvoření MySQL s replikací](media/azure-stack-tutorial-mysqlrp/4-sm.PNG)] (Media/Azure-Stack-tutorial-mysqlrp/4-LG. PNG # Lightbox)
+   [Shrnutí ![– vytvoření MySQL s replikací](media/azure-stack-tutorial-mysqlrp/4-sm.PNG)](media/azure-stack-tutorial-mysqlrp/4-lg.PNG#lightbox)
 
 6. Vyberte **vytvořit** na stránce **koupit** a spusťte nasazení.
 

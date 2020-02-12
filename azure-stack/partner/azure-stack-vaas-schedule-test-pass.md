@@ -1,30 +1,30 @@
 ---
-title: Použití ověřování jako služby pro Azure Stackho portálu k naplánování prvního testu
-description: K naplánování prvního testu použijte ověřování jako službu Azure Stackového portálu.
+title: Použití ověřování jako služby pro portál centra Azure Stack k naplánování prvního testu
+description: Použijte ověřování jako službu pro Azure Stack portál centra k naplánování prvního testu.
 author: mattbriggs
 ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 166a75da9f6571e80cdfe213fe0ea32c58279dac
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: f69629fea796d43e756ccf5436635d282a07b17e
+ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76885122"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77143703"
 ---
 # <a name="scheduling-a-test"></a>Plánování testu
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Naplánujte test na portálu ověřování jako služby (VaaS) pro vaše řešení Azure Stack. Řešení VaaS představuje řešení Azure Stack s konkrétním hardwarovým materiálem (BoM). Můžete naplánovat test, který zkontroluje, že váš hardware může běžet Azure Stack.
+Naplánujte test na portálu ověřování jako služby (VaaS) pro vaše řešení centra Azure Stack. Řešení VaaS představuje řešení centra Azure Stack s konkrétním hardwarovým materiálem (BoM). Můžete naplánovat test, který zkontroluje, že váš hardware může spustit Azure Stack hub.
 
-Chcete-li zkontrolovat řešení, vytvořte pracovní postup pro test. Pracovní postup VaaS funguje v kontextu řešení VaaS. Představuje sadu testovacích sad, které vykonávají funkce Azure Stackho nasazení na vašem hardwaru. Přidejte parametry prostředí vašeho řešení a vyberte jeden nebo více testů, které chcete spustit ve vašem řešení.
+Chcete-li zkontrolovat řešení, vytvořte pracovní postup pro test. Pracovní postup VaaS funguje v kontextu řešení VaaS. Představuje sadu testovacích sad, které vykonávají funkce nasazení centra Azure Stack na vašem hardwaru. Přidejte parametry prostředí vašeho řešení a vyberte jeden nebo více testů, které chcete spustit ve vašem řešení.
 
 I když lze pracovní postup testovacího průchodu použít ke spuštění libovolného testu, který poskytuje VaaS, včetně testů z pracovních postupů ověření, nejsou výsledky z pracovního postupu test Pass považovány za *oficiální*. Informace o oficiálních ověřovacích pracovních postupech najdete v tématu [pracovní postupy](azure-stack-vaas-key-concepts.md#workflows).
 
-## <a name="prerequisites"></a>Požadavky
+## <a name="prerequisites"></a>Předpoklady
 
 Než budete postupovat podle tohoto rychlého startu, měli byste dokončit následující položky:
 

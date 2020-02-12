@@ -1,25 +1,25 @@
 ---
-title: Správa síťových prostředků v centru Azure Stack
-description: Správci mohou spravovat síťové prostředky, včetně fondu adres MAC a spotřeby veřejných IP adres v oblasti.
+title: Správa síťových prostředků
+titleSuffix: Azure Stack Hub
+description: Naučte se spravovat síťové prostředky, včetně fondu adres MAC a spotřeby veřejných IP adres v oblasti.
 author: mattbriggs
 ms.topic: conceptual
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: scottnap
 ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: 949c00edfbe7e5daff8c1cd17c20681c3a7d9265
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 3542706d71ed6800cd246cbc0d59a5443ed3edbc
+ms.sourcegitcommit: 0a3c8b0bf9c116a5caaeca453a2bbc6e7f7cbfb9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76880209"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77147827"
 ---
-# <a name="manage-network-resources"></a>Správa síťových prostředků
+# <a name="manage-network-resources-in-azure-stack-hub"></a>Správa síťových prostředků v centru Azure Stack
 
 ## <a name="mac-address-pool"></a>Fond adres MAC
 
-Azure Stack hub používá ke automatickému vygenerování a přiřazování adres MAC k virtuálním počítačům statický fond adres MAC.
-Tento fond adres MAC je automaticky vygenerován během nasazování a používá následující rozsah:
+Azure Stack hub používá ke automatickému vygenerování a přiřazování adres MAC k virtuálním počítačům statický fond adres MAC. Tento fond adres MAC je automaticky vygenerován během nasazování a používá následující rozsah:
 
 - StartMacAddress: 00-1D-D8-B7-00-00
 - EndMacAddress: 00-1D-D8-F4-FF-FF
@@ -40,9 +40,9 @@ Jako správce cloudu můžete zobrazit:
 
 Na dlaždici **využití fondů veřejné IP** adresy se zobrazuje počet veřejných IP adres spotřebovaných napříč fondy veřejných IP adres. Pro každou IP adresu dlaždice zobrazuje využití pro instance virtuálních počítačů IaaS tenanta, služby infrastruktury prostředků infrastruktury a prostředky veřejné IP adresy, které byly explicitně vytvořeny klienty.
 
-Účelem dlaždice je poskytnout operátorům Azure Stackového rozbočovače smysl počtu veřejných IP adres, které se používají v tomto umístění. Toto číslo pomáhá správcům určit, jestli mají na tomto prostředku nedostatek provozu.
+Účelem dlaždice je poskytnout operátorům Azure Stackového rozbočovače smysl počtu veřejných IP adres, které se používají v tomto umístění. Číslo pomáhá správcům určit, jestli mají nedostatek na tomto prostředku.
 
-Položka nabídky **veřejné IP adresy** v části **prostředky tenanta** uvádí jenom veřejné IP adresy, které byly *explicitně vytvořené klienty*. Položku nabídky můžete najít v podokně **poskytovatelé prostředků**, **síť** . Počet **použitých** veřejných IP adres na dlaždici **využití fondů veřejné IP** adresy se vždycky liší od (větší než) čísla na dlaždici **veřejné IP adresy** v části **prostředky tenanta**.
+Položka nabídky **veřejné IP adresy** v části **prostředky tenanta** uvádí jenom veřejné IP adresy, které byly *explicitně vytvořené klienty*. Položku nabídky najdete v podokně **poskytovatelé prostředků** -> **sítě** . Počet **použitých** veřejných IP adres na dlaždici **využití fondů veřejné IP** adresy se vždycky liší od (větší než) čísla na dlaždici **veřejné IP adresy** v části **prostředky tenanta**.
 
 ### <a name="view-the-public-ip-address-usage-information"></a>Zobrazit informace o využití veřejné IP adresy
 
@@ -51,7 +51,7 @@ Zobrazení celkového počtu veřejných IP adres, které byly spotřebovány v 
 1. Na portálu Azure Stack správce centra vyberte **všechny služby**. Pak v kategorii **Správa** vyberte **síť**.
 1. V podokně **síť** se zobrazí dlaždice **využití fondů veřejných IP adres** v části **Přehled** .
 
-    ![Podokno poskytovatele síťových prostředků](media/azure-stack-viewing-public-ip-address-consumption/ip-address-consumption-01.png)
+    ![Podokno poskytovatele síťových prostředků na portálu pro správu centra Azure Stack](media/azure-stack-viewing-public-ip-address-consumption/ip-address-consumption-01.png)
 
 **Použité** číslo představuje počet přiřazených veřejných IP adres z fondů veřejných IP adres. **Bezplatné** číslo představuje počet veřejných IP adres z fondů veřejných IP adres, které nebyly přiřazeny a jsou stále k dispozici. **Použité číslo%** představuje počet využitých nebo přiřazených adres jako procento celkového počtu veřejných IP adres ve fondech veřejných IP adres v tomto umístění.
 
@@ -59,11 +59,11 @@ Zobrazení celkového počtu veřejných IP adres, které byly spotřebovány v 
 
 V části **prostředky tenanta**vyberte **veřejné IP adresy** . Projděte si seznam veřejných IP adres, které jsou explicitně vytvořeny pomocí odběrů klientů v konkrétní oblasti.
 
-![Veřejné IP adresy klientů](media/azure-stack-viewing-public-ip-address-consumption/ip-address-consumption-02.png)
+![Veřejné IP adresy tenanta na portálu pro správu centra Azure Stack](media/azure-stack-viewing-public-ip-address-consumption/ip-address-consumption-02.png)
 
 Můžete si všimnout, že některé veřejné IP adresy, které byly dynamicky přiděleny, se zobrazí v seznamu. Adresa ale ještě není přidružená. Prostředek adresy byl vytvořen v poskytovateli síťových prostředků, ale ještě není v síťovém adaptéru.
 
-Síťový adaptér nepřiřazuje prostředku adresu, dokud se neváže k rozhraní, síťové kartě (NIC), nástroji pro vyrovnávání zatížení nebo bráně virtuální sítě. Když se veřejná IP adresa váže k rozhraní, síťový adaptér přidělí IP adresu. Adresa se zobrazí v poli **adresa** .
+Síťový adaptér nepřiřazuje k prostředku adresu, dokud se neváže k rozhraní, síťové kartě (NIC), nástroji pro vyrovnávání zatížení nebo bráně virtuální sítě. Když se veřejná IP adresa váže k rozhraní, síťový adaptér přidělí IP adresu. Adresa se zobrazí v poli **adresa** .
 
 ### <a name="view-the-public-ip-address-information-summary-table"></a>Zobrazit tabulku souhrnu informací o veřejné IP adrese
 

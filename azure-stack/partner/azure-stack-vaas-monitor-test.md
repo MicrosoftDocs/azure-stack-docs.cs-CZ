@@ -1,6 +1,6 @@
 ---
-title: Monitorování a Správa testů na portálu Azure Stack VaaS
-description: Sledujte a spravujte testy na portálu Azure Stack VaaS.
+title: Monitorování a Správa testů na portálu Azure Stack hub VaaS
+description: Sledujte a spravujte testy na portálu Azure Stack hub VaaS.
 author: mattbriggs
 ms.topic: tutorial
 ms.date: 11/11/2019
@@ -8,18 +8,18 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: b2a6f2b1e40ddfad9edbf64c92f29e93786fc6f9
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 494fffff04cd092afc4a4df3fbf0be59ca894278
+ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76885078"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77143783"
 ---
 # <a name="monitor-and-manage-tests-in-the-vaas-portal"></a>Monitorování a Správa testů na portálu VaaS
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Po plánování testů proti vašemu Azure Stack řešení začne služba ověřování jako služby (VaaS) začínat stav spuštění testu. Tyto informace jsou k dispozici na portálu VaaS spolu s akcemi jako přeplánování a rušení testů.
+Po naplánování testů proti vašemu řešení centra Azure Stack začne služba ověřování jako služby (VaaS) stav spuštění testu vytváření sestav. Tyto informace jsou k dispozici na portálu VaaS spolu s akcemi jako přeplánování a rušení testů.
 
 ## <a name="navigate-to-the-workflow-tests-summary-page"></a>Přejít na stránku souhrn testů pracovního postupu
 
@@ -37,7 +37,7 @@ Můžete upravit [parametry testu](azure-stack-vaas-parameters.md#test-parameter
 
 1. Na stránce s přehledem testů vyberte tlačítko **Upravit** .
 
-1. Zadejte nové hodnoty podle [společných parametrů pracovního postupu pro Azure Stack ověřování jako služby](azure-stack-vaas-parameters.md).
+1. Zadejte nové hodnoty podle [společných parametrů pracovního postupu pro Azure Stack ověřování centra jako služby](azure-stack-vaas-parameters.md).
 
 1. Vyberte **Odeslat** a uložte hodnoty.
 
@@ -53,22 +53,22 @@ V pracovních postupech **test Pass** umožňují obě tlačítka **Přidat test
 
 ## <a name="managing-test-instances"></a>Správa instancí testu
 
-Pro neoficiální spuštění (to znamená pracovní postup **testovacího průchodu** ) obsahuje stránka Souhrn testů seznam testů naplánovaných na řešení Azure Stack.
+Pro neoficiální spuštění (to znamená pracovní postup **testovacího průchodu** ) obsahuje stránka Souhrn testů seznam testů plánovaných k řešení Azure Stack hub.
 
-V případě oficiálních spuštění (tj. **ověřovací** pracovní postupy) obsahuje stránka Souhrn testů seznam testů požadovaných k dokončení ověření Azure Stack řešení. Ověřovací testy jsou plánovány na této stránce.
+V případě oficiálních spuštění (tj. **ověřovací** pracovní postupy) obsahuje stránka Souhrn testů seznam testů požadovaných k dokončení ověřování řešení Azure Stack hub. Ověřovací testy jsou plánovány na této stránce.
 
 Každá plánovaná instance testu zobrazuje následující informace:
 
-| Column | Popis |
+| Sloupec | Popis |
 | --- | --- |
 | Název testu | Název a verze testu. |
 | Kategorie | Účel testu. |
 | Vytvořeno | Čas, kdy byl test naplánován. |
-| Začínáme | Čas spuštění testu. |
-| Délka | Doba, po kterou byl test spuštěn. |
-| Stav | Stav nebo výsledek testu. Předběžné spuštění nebo průběžné stavy jsou: `Pending`, `Running`. Stavy terminálu jsou: `Cancelled`, `Failed`, `Aborted``Succeeded`. |
+| Spuštěno | Čas spuštění testu. |
+| Doba trvání | Doba, po kterou byl test spuštěn. |
+| Status | Stav nebo výsledek testu. Předběžné spuštění nebo průběžné stavy jsou: `Pending`, `Running`. Stavy terminálu jsou: `Cancelled`, `Failed`, `Aborted``Succeeded`. |
 | Název agenta | Název agenta, který test spustil. |
-| Celkový počet operací | Celkový počet operací, které se během testu pokoušely. |
+| Celkem operací | Celkový počet operací, které se během testu pokoušely. |
 | Úspěšné operace | Počet operací, které byly během testu úspěšné. |
 |  Neúspěšné operace | Počet operací, které během testu selhaly. |
 
@@ -86,7 +86,7 @@ Chcete-li zobrazit obecné informace o definici testu, vyberte možnost **Zobraz
 | Testovací verze | Verze testu. |
 | Vydavatel | Vydavatel testu. |
 | Kategorie |  Účel testu. |
-| Cílové služby | Testované služby Azure Stack. |
+| Cílové služby | Testované služby centra Azure Stack. |
 | Popis | Popis testu |
 | Odhadovaná doba trvání (minuty) | Očekávaný modul runtime testu. |
 | Odkazy | Jakékoli relevantní informace o testu nebo kontaktních bodech. |

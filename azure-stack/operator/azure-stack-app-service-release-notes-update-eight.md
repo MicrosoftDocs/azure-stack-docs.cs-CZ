@@ -4,15 +4,15 @@ description: Seznamte se s novinkami Update 8 pro App Service v centru Azure Sta
 author: apwestgarth
 manager: stefsch
 ms.topic: article
-ms.date: 01/13/2020
+ms.date: 02/10/2020
 ms.author: anwestg
 ms.reviewer: ''
-ms.openlocfilehash: 639c9267a9d42b20a15bc30ab6b72706816bf7ee
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: daa4cb85ca58a6e638d6d8a1f14ad5e9232f3d72
+ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76874480"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77143671"
 ---
 # <a name="app-service-on-azure-stack-hub-update-8-release-notes"></a>Zpráva k vydání verze pro Azure Stack centra aktualizace 8 App Service
 
@@ -21,12 +21,11 @@ Tyto poznámky k verzi popisují vylepšení a opravy v Azure App Service v cent
 > [!IMPORTANT]
 > Před nasazením Azure App Service 1,8 použijte aktualizaci 1910 pro váš Azure Stack integrovaný systém nebo nasaďte nejnovější Azure Stack vývojovou sadu.
 
-
 ## <a name="build-reference"></a>Referenční informace o buildu
 
 App Service číslo buildu Azure Stack centra aktualizace 8 je **86.0.2.13**
 
-### <a name="prerequisites"></a>Požadavky
+### <a name="prerequisites"></a>Předpoklady
 
 Než začnete s nasazením, přečtěte si [dokumentaci před](azure-stack-app-service-before-you-get-started.md) začátkem.
 
@@ -82,6 +81,20 @@ Všechna nová nasazení Azure App Service v centru Azure Stack využije spravov
 
 Od této aktualizace se bude protokol **TLS 1,2** vymáhat pro všechny aplikace.
 
+### <a name="known-issues-upgrade"></a>Známé problémy (upgrade)
+
+- Upgrade se nepovede, pokud se při převzetí služeb při selhání na sekundární uzel v clusteru SQL Server Always On.
+
+Během upgradu proběhne volání pro kontrolu existence databáze pomocí hlavního připojovacího řetězce, který selže, protože přihlášení bylo na předchozím hlavním uzlu.
+
+Proveďte jednu z následujících akcí a v instalačním programu klikněte na opakovat.
+
+- Zkopírujte appservice_hostingAdmin přihlašovací jméno z již sekundárního uzlu SQL.
+
+**ANI**
+
+- Převzetí služeb při selhání clusterem SQL na předchozí aktivní uzel.
+
 ### <a name="post-deployment-steps"></a>Kroky po nasazení
 
 > [!IMPORTANT]
@@ -91,16 +104,159 @@ Od této aktualizace se bude protokol **TLS 1,2** vymáhat pro všechny aplikace
 
 - Pokud je App Service nasazená ve stávající virtuální síti a souborový server je k dispozici pouze v privátní síti, je k dispozici pracovní proces, který se nemůže připojit k souborovému serveru, jak je uvedeno v dokumentaci k nasazení Azure Stack Azure App Service.
 
-Pokud se rozhodnete nasadit do existující virtuální sítě a interní IP adresu pro připojení k souborovému serveru, musíte přidat odchozí pravidlo zabezpečení, které povoluje provoz SMB mezi podsítí pracovních procesů a souborovým serverem. Na portálu pro správu přejdete na WorkersNsg a přidáte odchozí pravidlo zabezpečení s následujícími vlastnostmi:
- * Zdroj: Any
- * Rozsah zdrojových portů: *
- * Cíl: IP adresy
- * Rozsah cílových IP adres: rozsah IP adres pro souborový server
- * Rozsah cílových portů: 445
- * Protocol: TCP
- * Akce: povolení
- * Priorita: 700
- * Název: Outbound_Allow_SMB445
+  Pokud se rozhodnete nasadit do existující virtuální sítě a interní IP adresu pro připojení k souborovému serveru, musíte přidat odchozí pravidlo zabezpečení, které povoluje provoz SMB mezi podsítí pracovních procesů a souborovým serverem. Na portálu pro správu přejdete na WorkersNsg a přidáte odchozí pravidlo zabezpečení s následujícími vlastnostmi:
+  - Zdroj: Any
+  - Rozsah zdrojových portů: *
+  - Cíl: IP adresy
+  - Rozsah cílových IP adres: rozsah IP adres pro souborový server
+  - Rozsah cílových portů: 445
+  - Protocol: TCP
+  - Akce: povolení
+  - Priorita: 700
+  - Název: Outbound_Allow_SMB445
+
+- Nová nasazení Azure App Service v centru Azure Stack hub 1,8 vyžadují, aby se databáze převedly na databáze s omezením.
+
+Z důvodu regrese v této verzi je nutné při **nově** nasazených databázích App Service i databáze (appservice_hosting a appservice_metering) převést na databáze s omezením.  To **nemá** vliv na **upgradovaná** nasazení.
+
+> [!IMPORTANT]
+> Tento postup trvá přibližně 5-10 minut. Tento postup zahrnuje ukončení stávajících přihlašovacích relací databáze. Plánování výpadků migrace a ověření Azure App Service v příspěvku Azure Stack centra po migraci
+>
+>
+
+1. Přidejte [databáze AppService (appservice_hosting a appservice_metering) do skupiny dostupnosti](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database).
+
+1. Povoluje databázi s omezením.
+
+    ```sql
+
+        sp_configure 'contained database authentication', 1;
+        GO
+        RECONFIGURE;
+            GO
+    ```
+
+1. Převod databáze na částečně obsaženou. V tomto kroku dojde k výpadku, protože je potřeba ukončit všechny aktivní relace.
+
+    ```sql
+        /******** [appservice_metering] Migration Start********/
+            USE [master];
+
+            -- kill all active sessions
+            DECLARE @kill varchar(8000) = '';  
+            SELECT @kill = @kill + 'kill ' + CONVERT(varchar(5), session_id) + ';'  
+            FROM sys.dm_exec_sessions
+            WHERE database_id  = db_id('appservice_metering')
+
+            EXEC(@kill);
+
+            USE [master]  
+            GO  
+            ALTER DATABASE [appservice_metering] SET CONTAINMENT = PARTIAL  
+            GO  
+
+        /********[appservice_metering] Migration End********/
+
+        /********[appservice_hosting] Migration Start********/
+
+            -- kill all active sessions
+            USE [master];
+
+            DECLARE @kill varchar(8000) = '';  
+            SELECT @kill = @kill + 'kill ' + CONVERT(varchar(5), session_id) + ';'  
+            FROM sys.dm_exec_sessions
+            WHERE database_id  = db_id('appservice_hosting')
+
+            EXEC(@kill);
+
+            -- Convert database to contained
+            USE [master]  
+            GO  
+            ALTER DATABASE [appservice_hosting] SET CONTAINMENT = PARTIAL  
+            GO  
+
+            /********[appservice_hosting] Migration End********/
+    '''
+
+1. Migrate logins to contained database users.
+
+    ```sql
+        IF EXISTS(SELECT * FROM sys.databases WHERE Name=DB_NAME() AND containment = 1)
+        BEGIN
+        DECLARE @username sysname ;  
+        DECLARE user_cursor CURSOR  
+        FOR
+            SELECT dp.name
+            FROM sys.database_principals AS dp  
+            JOIN sys.server_principals AS sp
+                ON dp.sid = sp.sid  
+                WHERE dp.authentication_type = 1 AND dp.name NOT IN ('dbo','sys','guest','INFORMATION_SCHEMA');
+            OPEN user_cursor  
+            FETCH NEXT FROM user_cursor INTO @username  
+                WHILE @@FETCH_STATUS = 0  
+                BEGIN  
+                    EXECUTE sp_migrate_user_to_contained
+                    @username = @username,  
+                    @rename = N'copy_login_name',  
+                    @disablelogin = N'do_not_disable_login';  
+                FETCH NEXT FROM user_cursor INTO @username  
+            END  
+            CLOSE user_cursor ;  
+            DEALLOCATE user_cursor ;
+            END
+        GO
+    ```
+
+    **Oproti**
+
+1. Zkontroluje, jestli SQL Server má povolené omezení.
+
+    ```sql
+        sp_configure  @configname='contained database authentication'
+    ```
+
+1. Zkontroluje existující obsažené chování.
+
+    ```sql
+        SELECT containment FROM sys.databases WHERE NAME LIKE (SELECT DB_NAME())
+    ```
+
+- Nepovedlo se škálovat pracovní procesy
+
+  Noví pracovníci nedokázali získat požadovaný připojovací řetězec databáze.  Pokud chcete tuto situaci napravit, připojte se k jedné z instancí řadiče, například CN0-VM a spusťte následující skript prostředí PowerShell:
+
+  ```powershell
+ 
+    [System.Reflection.Assembly]::LoadWithPartialName("Microsoft.Web.Hosting")
+    $siteManager = New-Object Microsoft.Web.Hosting.SiteManager
+    $builder = New-Object System.Data.SqlClient.SqlConnectionStringBuilder -ArgumentList (Get-AppServiceConnectionString -Type Hosting)
+    $conn = New-Object System.Data.SqlClient.SqlConnection -ArgumentList $builder.ToString()
+
+    $siteManager.Workers | ForEach-Object {
+        $worker = $_
+        $dbUserName = "WebWorker_" + $worker.Name
+
+        if (!$siteManager.ConnectionContexts[$dbUserName]) {
+            $dbUserPassword = [Microsoft.Web.Hosting.Common.Security.PasswordHelper]::GenerateDatabasePassword()
+            $conn.Open()
+            $command = $conn.CreateCommand()
+            $command.CommandText = "CREATE USER [$dbUserName] WITH PASSWORD = '$dbUserPassword'"
+            $command.ExecuteNonQuery()
+            $conn.Close()
+            $conn.Open()
+
+            $command = $conn.CreateCommand()
+            $command.CommandText = "ALTER ROLE [WebWorkerRole] ADD MEMBER [$dbUserName]"
+            $command.ExecuteNonQuery()
+            $conn.Close()
+
+            $builder.Password = $dbUserPassword
+            $builder["User ID"] = $dbUserName
+            $siteManager.ConnectionContexts.Add($dbUserName, $builder.ToString())
+        }
+    }
+    $siteManager.CommitChanges()
+    ```
 
 ### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Známé problémy pro cloudové správce pracující Azure App Service v Azure Stack
 

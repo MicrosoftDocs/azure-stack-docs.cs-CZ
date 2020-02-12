@@ -1,5 +1,5 @@
 ---
-title: Ověření balíčků OEM (Original Equipment Manufacturer) v Azure Stack ověřování jako služby
+title: Ověření balíčků OEM (Original Equipment Manufacturer) v Azure Stack ověřování centra jako služba
 description: Naučte se, jak ověřit balíčky OEM (Original Equipment Manufacturer) pomocí ověřování jako služby.
 author: mattbriggs
 ms.topic: tutorial
@@ -8,12 +8,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: ed6d3055e3e5cab0def090d31f907e0fd1deea50
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 8bb39f3aae4031402e38023f92ebdb91feb9bf92
+ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76885114"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77143747"
 ---
 # <a name="validate-oem-packages"></a>Ověřit balíčky OEM
 
@@ -55,7 +55,7 @@ Vytvořte kontejner v účtu úložiště pro objekty blob balíčku. Tento kont
 
 ### <a name="generate-package-blob-url-for-vaas"></a>Generovat adresu URL objektu BLOB balíčku pro VaaS
 
-Při vytváření pracovního postupu **ověření balíčku** na portálu VaaS budete muset zadat adresu URL objektu blob Azure Storage, který obsahuje váš balíček. Některé *interaktivní* testy, včetně **měsíčního ověření aktualizací AzureStack** a **ověření balíčku rozšíření OEM**, vyžadují také adresu URL pro balíčky objektů BLOB.
+Při vytváření pracovního postupu **ověření balíčku** na portálu VaaS budete muset zadat adresu URL objektu blob Azure Storage, který obsahuje váš balíček. Některé *interaktivní* testy, včetně **měsíčního ověření aktualizace centra Azure Stack** a **ověření balíčku rozšíření OEM**, vyžadují také adresu URL pro balíčky objektů BLOB.
 
 #### <a name="handling-container-access-level"></a>Zpracování úrovně přístupu kontejneru
 
@@ -65,7 +65,7 @@ V případě úrovní přístupu **Private** a **BLOB** musíte dočasně uděli
 
 |Úroveň přístupu | Požadavek pracovního postupu | Požadavek testu |
 |---|---------|---------|
-|Privátní | Vygenerujte adresu URL SAS na jeden objekt BLOB balíčku ([možnost 1](#option-1-generate-a-blob-sas-url)). | Vygenerujte adresu URL SAS na úrovni účtu a ručně přidejte název objektu BLOB balíčku ([možnost 2](#option-2-construct-a-container-sas-url)). |
+|Private | Vygenerujte adresu URL SAS na jeden objekt BLOB balíčku ([možnost 1](#option-1-generate-a-blob-sas-url)). | Vygenerujte adresu URL SAS na úrovni účtu a ručně přidejte název objektu BLOB balíčku ([možnost 2](#option-2-construct-a-container-sas-url)). |
 |Objekt blob | Zadejte vlastnost URL objektu BLOB ([možnost 3](#option-3-grant-public-read-access)). | Vygenerujte adresu URL SAS na úrovni účtu a ručně přidejte název objektu BLOB balíčku ([možnost 2](#option-2-construct-a-container-sas-url)). |
 |Kontejner | Zadejte vlastnost URL objektu BLOB ([možnost 3](#option-3-grant-public-read-access)). | Zadejte vlastnost URL objektu BLOB ([možnost 3](#option-3-grant-public-read-access)).
 
@@ -86,7 +86,7 @@ Tuto možnost použijte, pokud je úroveň přístupu kontejneru úložiště na
 
 4. Nastavte **čas zahájení** na aktuální čas a **čas ukončení** na nejméně 48 hodin od **počátečního času**. Pokud budete vytvářet jiné pracovní postupy se stejným balíčkem, zvažte zvýšení **času ukončení** pro délku testování.
 
-5. Vyberte **vygenerujte token SAS objektů blob a adresa URL**.
+5. Vyberte **Generovat token SAS objektu BLOB a adresu URL**.
 
 Při poskytování adres URL objektů BLOB balíčku na portál použijte **adresu URL SAS objektu BLOB** .
 
@@ -141,14 +141,14 @@ Tuto možnost použijte, pokud je přijatelné, aby povolovaly neověřené klie
 
 5. Zadejte adresu URL objektu blob Azure Storage k testovanému balíčku OEM s podpisem, který vyžaduje podpis od Microsoftu. Pokyny najdete v tématu [generování adresy URL objektu BLOB balíčku pro VaaS](#generate-package-blob-url-for-vaas).
 
-6. Zkopírujte složku balíčku aktualizace AzureStack do místního adresáře na DVM. Zadejte cestu ke **složce, která obsahuje soubor zip balíčku a soubor metadat** pro cestu ke složce balíčku aktualizace AzureStack.
+6. Zkopírujte složku balíčku aktualizace centra Azure Stack do místního adresáře na DVM. Zadejte cestu ke **složce, která obsahuje soubor zip balíčku a soubor metadat** pro cestu ke složce balíčku aktualizace AzureStack.
 
 7. Zkopírujte složku balíčku OEM vytvořenou výše do místního adresáře na DVM. Zadejte cestu ke **složce, která obsahuje soubor zip balíčku a soubor metadat** pro cestu ke složce balíčku pro aktualizaci OEM.
 
     > [!NOTE]
-    > Zkopírujte aktualizaci AzureStack a OEM Update na **2 samostatné** adresáře.
+    > Zkopírujte aktualizace centra Azure Stack a aktualizaci OEM na **2 samostatné** adresáře.
 
-8. ' RequireDigitalSignature ' – Pokud potřebujete, aby byl balíček podepsaný společností Microsoft (spouští se ověřovací pracovní postup výrobce OEM), zadejte **hodnotu true** . Pokud ověřujete balíček podepsaný Microsoftem na nejnovější aktualizaci AzureStack, zadejte tuto hodnotu jako NEPRAVDA (spouští se měsíční ověření aktualizace AzureStack).
+8. ' RequireDigitalSignature ' – Pokud potřebujete, aby byl balíček podepsaný společností Microsoft (spouští se ověřovací pracovní postup výrobce OEM), zadejte **hodnotu true** . Pokud ověřujete balíček podepsaný společností Microsoft v nejnovější aktualizaci centra Azure Stack, zadejte tuto hodnotu jako NEPRAVDA (spouští se Azure Stack měsíční ověření aktualizace centra).
 
 9. [!INCLUDE [azure-stack-vaas-workflow-step_test-params](includes/azure-stack-vaas-workflow-step_test-params.md)]
 
@@ -170,7 +170,7 @@ Pro ověření balíčku OEM se musí spustit následující testy:
 
 1. Na stránce **Souhrn testů pro ověření balíčku** spustíte podmnožinu uvedených testů, které jsou vhodné pro váš scénář.
 
-    **Plánování** testu v pracovních postupech ověřování používá společné parametry na úrovni pracovního postupu, které jste zadali během vytváření pracovního postupu (viz [společné parametry pracovních postupů pro Azure Stack ověřování jako služby](azure-stack-vaas-parameters.md)). Pokud se některá z hodnot parametrů testu stane neplatných, musíte je znovu zadat podle pokynů v části [Úprava parametrů pracovního postupu](azure-stack-vaas-monitor-test.md#change-workflow-parameters).
+    **Plánování** testu v pracovních postupech ověřování používá společné parametry na úrovni pracovního postupu, které jste zadali během vytváření pracovního postupu (viz [společné parametry pracovních postupů pro ověřování centra Azure Stack jako služba](azure-stack-vaas-parameters.md)). Pokud se některá z hodnot parametrů testu stane neplatných, musíte je znovu zadat podle pokynů v části [Úprava parametrů pracovního postupu](azure-stack-vaas-monitor-test.md#change-workflow-parameters).
 
     > [!NOTE]
     > Plánování ověřovacího testu přes existující instanci vytvoří na portálu novou instanci místo staré instance. Protokoly pro starou instanci budou zachovány, ale nebudou přístupné z portálu.  

@@ -3,7 +3,7 @@ documentType: LandingData
 title: Dokumentace k partnerovi centra Azure Stack
 metadata:
   title: 'D\documentation Partner centra pro Azure Stack – kurzy, API R\reference'
-  description: 'Zjistěte, jak ověřit hardware pro hostování Azure Stack. Ověřování jako služba je nativní služba Azure určená pro partnery řešení, kteří jsou spolustrojírenství Azure Stack nabídky centra s Microsoftem.'
+  description: 'Naučte se, jak ověřit hardware pro hostování centra Azure Stack. Ověřování jako služba je nativní služba Azure určená pro partnery řešení, kteří jsou spolustrojírenství Azure Stack nabídky centra s Microsoftem.'
   services: azure-stack
   author: mattbriggs
   manager: femila
@@ -15,7 +15,7 @@ metadata:
   ms.author: mabrigg
   ms.reviewer: johnhas
 abstract:
-  description: 'Ověřování jako službu můžete použít ke kontrole hardwaru pro použití s Azure Stack. Tato služba je nativní službou Azure určenou pro použití partnery pro řešení, kteří jsou spolustrojírenství v Azure Stack centra pro spolupráci s Microsoftem.'
+  description: 'Ověřování jako službu můžete použít ke kontrole hardwaru pro použití s Azure Stack hub. Tato služba je nativní službou Azure určenou pro použití partnery pro řešení, kteří jsou spolustrojírenství v Azure Stack centra pro spolupráci s Microsoftem.'
 sections:
   - title: Zprovoznění během 5 minut
     items:

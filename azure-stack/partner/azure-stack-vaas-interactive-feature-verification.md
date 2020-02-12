@@ -1,6 +1,6 @@
 ---
-title: Testování ověřování interaktivních funkcí v Azure Stack ověřování jako služba
-description: Naučte se vytvářet interaktivní testy pro ověřování funkcí pro Azure Stack s ověřováním jako službou.
+title: Testování ověřování interaktivních funkcí v Azure Stack ověřování centra jako služba
+description: Naučte se vytvářet interaktivní testy pro ověřování funkcí pro Azure Stack centra s ověřováním jako službou.
 author: mattbriggs
 ms.topic: tutorial
 ms.date: 10/28/2019
@@ -8,12 +8,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: c957d076fb4d90dc9a19d5b8fbaaddbdb55c789d
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 15cd1b2adb4ef1b0e5738b89078beb57d6b7b346
+ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884140"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77143843"
 ---
 # <a name="interactive-feature-verification-testing"></a>Testování ověřování interaktivních funkcí  
 
@@ -21,7 +21,7 @@ ms.locfileid: "76884140"
 
 K vyžádání testů pro váš systém můžete použít architekturu testování interaktivních funkcí. Když vyžádáte test, společnost Microsoft použije rozhraní k přípravě testů, které vyžadují ruční interaktivní kroky. Společnost Microsoft může použít rozhraní k zřetězení několika samostatných automatizovaných testů.
 
-Tento článek popisuje jednoduchý ruční scénář. Test kontroluje nahrazení disku v Azure Stack. Rozhraní shromažďuje protokoly diagnostiky v každém kroku. Problémy můžete ladit při jejich hledání. Rozhraní také umožňuje sdílení protokolů vytvořených jinými nástroji nebo procesy a umožňuje vám poskytnout zpětnou vazbu k tomuto scénáři.
+Tento článek popisuje jednoduchý ruční scénář. Test kontroluje nahrazení disku v Azure Stackovém centru. Rozhraní shromažďuje protokoly diagnostiky v každém kroku. Problémy můžete ladit při jejich hledání. Rozhraní také umožňuje sdílení protokolů vytvořených jinými nástroji nebo procesy a umožňuje vám poskytnout zpětnou vazbu k tomuto scénáři.
 
 > [!Important]  
 > Tento článek odkazuje na kroky k provedení identifikace disku. Toto je pouze ukázka, protože jakékoli výsledky shromážděné z pracovního postupu test Pass nelze použít pro nové ověřování řešení.
@@ -67,7 +67,7 @@ Pokud nemáte k dispozici existující testovací průchod, postupujte prosím p
 
     ![Alternativní text](media/azure-stack-vaas-interactive-feature-verification/image9.png)
 
-1. Vyberte **Next** (Další).
+1. Vyberte **Další**.
 
     ![Alternativní text](media/azure-stack-vaas-interactive-feature-verification/image10.png)
 

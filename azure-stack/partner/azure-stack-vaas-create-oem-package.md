@@ -1,5 +1,5 @@
 ---
-title: Osvědčené postupy pro ověřování Azure Stack
+title: Osvědčené postupy ověřování centra Azure Stack
 description: Tento článek popisuje osvědčené postupy pro používání ověřování jako služby.
 author: mattbriggs
 ms.topic: article
@@ -8,18 +8,18 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 19446113fc2e167d83b578fbad15964b21001ef4
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 647e724b179d994819032859c325bf711cb9d2ee
+ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76885067"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77143831"
 ---
 # <a name="create-an-oem-package"></a>Vytvoření balíčku OEM
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Balíček rozšíření Azure Stack OEM je mechanismus, podle kterého se do infrastruktury Azure Stack přidá konkrétní obsah OEM, který se použije v nasazení, a také provozní procesy, jako je aktualizace, rozšíření a náhrada polí.
+Balíček rozšíření OEM Azure Stack hub je mechanismus, podle kterého se přidá konkrétní obsah OEM do infrastruktury centra Azure Stack, který se použije v nasazení, a také provozní procesy, jako je aktualizace, rozšíření a náhrada polí.
 
 ## <a name="creating-the-package"></a>Vytváření balíčku
 

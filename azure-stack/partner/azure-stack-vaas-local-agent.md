@@ -1,6 +1,6 @@
 ---
 title: Nasazení místního agenta
-description: Nasadit místního agenta pro ověřování Azure Stack jako služby.
+description: Nasaďte místního agenta pro Azure Stack ověřování centra jako služby.
 author: mattbriggs
 ms.topic: quickstart
 ms.date: 11/11/2019
@@ -8,12 +8,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: a84f2495b0e2195ac143dc8fd9ac4ea4668392b4
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: a5090b60c5aa3c947fbbf1fc887b4fb25900ae98
+ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884084"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77143985"
 ---
 # <a name="deploy-the-local-agent"></a>Nasazení místního agenta
 
@@ -32,13 +32,13 @@ Nasazení místního agenta:
 
 ## <a name="download-and-start-the-local-agent"></a>Stažení a spuštění místního agenta
 
-Stáhněte si agenta do počítače, který splňuje požadavky ve vašem datovém centru a má přístup ke všem koncovým bodům Azure Stack. Tento počítač by neměl být součástí Azure Stackho systému nebo hostovat v cloudu Azure Stack.
+Stáhněte si agenta do počítače, který splňuje požadavky ve vašem datovém centru, a má přístup ke všem koncovým bodům centra Azure Stack. Tento počítač by neměl být součástí systému Azure Stack hub nebo hostovat v cloudu centra Azure Stack.
 
 ### <a name="machine-prerequisites"></a>Požadavky na počítač
 
 Ověřte, že váš počítač splňuje následující kritéria:
 
-- Přístup ke všem koncovým bodům Azure Stack
+- Přístup ke všem koncovým bodům centra Azure Stack
 - Nainstalovaná rozhraní .NET 4,6 a PowerShell 5,0
 - Aspoň 8 GB paměti RAM
 - Minimálně 8 základních procesorů
@@ -48,7 +48,7 @@ Ověřte, že váš počítač splňuje následující kritéria:
 ### <a name="download-and-install-the-local-agent"></a>Stažení a instalace místního agenta
 
 1. Otevřete prostředí Windows PowerShell v příkazovém řádku se zvýšenými oprávněními na počítači, který použijete ke spuštění testů.
-2. Spusťte následující příkaz ke stažení a instalaci závislostí místního agenta a zkopírování imagí úložiště veřejných imagí (PIR) (VHD) do prostředí Azure Stack.
+2. Spusťte následující příkaz ke stažení a instalaci závislostí místního agenta a zkopírování imagí úložiště veřejných imagí (PIR) (VHD) do prostředí centra Azure Stack.
 
     ```powershell
     # Review and update the following five parameters
@@ -93,7 +93,7 @@ Ověřte, že váš počítač splňuje následující kritéria:
 
 ## <a name="perform-sanity-checks-before-starting-the-tests"></a>Před zahájením testů provést kontrolu správnosti
 
-Testy spouštějí vzdálené operace. Počítač, který spouští testy, musí mít přístup k koncovým bodům Azure Stack, jinak testy nebudou fungovat. Pokud používáte místního agenta VaaS, použijte počítač, na kterém se Agent spustí. Spuštěním následujících kontrol můžete zkontrolovat, jestli má počítač přístup k koncovým bodům Azure Stack:
+Testy spouštějí vzdálené operace. Počítač, který spouští testy, musí mít přístup k koncovým bodům centra Azure Stack, jinak testy nebudou fungovat. Pokud používáte místního agenta VaaS, použijte počítač, na kterém se Agent spustí. Spuštěním následujících kontrol můžete zkontrolovat, jestli má počítač přístup k koncovým bodům centra Azure Stack:
 
 1. Ověřte, zda je možné dosáhnout základního identifikátoru URI. Otevřete příkazový řádek nebo prostředí bash a spusťte následující příkaz a nahraďte `<EXTERNALFQDN>` externím plně kvalifikovaným názvem domény vašeho prostředí:
 
@@ -105,7 +105,7 @@ Testy spouštějí vzdálené operace. Počítač, který spouští testy, musí
 
 3. Přihlaste se pomocí hodnoty jméno a heslo správce služby Azure AD, které jste zadali při vytváření testovacího průchodu.
 
-4. Zkontrolujte stav systému spuštěním rutiny PowerShellu **test-AzureStack** , jak je popsáno v tématu [spuštění ověřovacího testu pro Azure Stack](../operator/azure-stack-diagnostic-test.md). Před spuštěním testů opravte všechna upozornění a chyby.
+4. Zkontrolujte stav systému spuštěním rutiny **test-AzureStack** prostředí PowerShell, jak je popsáno v tématu [spuštění ověřovacího testu pro centrum Azure Stack](../operator/azure-stack-diagnostic-test.md). Před spuštěním testů opravte všechna upozornění a chyby.
 
 ## <a name="run-the-local-agent"></a>Spustit místního agenta
 
