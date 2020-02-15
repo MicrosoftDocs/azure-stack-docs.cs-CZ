@@ -4,7 +4,7 @@
   items:
     - name: Klíčové aspekty
       href: azure-stack-considerations.md
-- name: Rychlé starty
+- name: Šablony Rychlý start
   expanded: true
   items:
     - name: Vytvoření virtuálního počítače s Windows – portál
@@ -59,7 +59,7 @@
               href: azure-stack-version-profiles-azurecli2.md
             - name: Použití editoru Visual Studio Code
               href: azure-stack-dev-start-vscode-azure.md
-            - name: Použití Visual Studia
+            - name: Použití sady Visual Studio
               href: azure-stack-install-visual-studio.md
             - name: Použít Secure Shell
               href: azure-stack-dev-start-howto-ssh-public-key.md
@@ -75,17 +75,17 @@
               href: azure-stack-developer.md
             - name: Kontrola šablon
               href: azure-stack-validate-templates.md
-            - name: Šablony nasazení
+            - name: Nasazení šablon
               items:
                 - name: Nasazení s využitím portálu
                   href: azure-stack-deploy-template-portal.md
-                - name: Nasazení s PowerShellem
+                - name: Nasazení s využitím PowerShellu
                   href: azure-stack-deploy-template-powershell.md
                 - name: Nasazení pomocí rozhraní příkazového řádku
                   href: azure-stack-deploy-template-command-line.md
                 - name: Nasazení pomocí Visual Studio Code
                   href: azure-stack-resource-manager-deploy-template-vscode.md
-                - name: Nasazení pomocí sady Visual Studio
+                - name: Nasazení s využitím sady Visual Studio
                   href: azure-stack-deploy-template-visual-studio.md
         - name: Použití profilů verzí rozhraní API
           items:
@@ -95,7 +95,7 @@
               href: azure-stack-version-profiles-net.md
             - name: Java
               href: azure-stack-version-profiles-java.md
-            - name: Go
+            - name: Přejít
               href: azure-stack-version-profiles-go.md
             - name: Ruby
               href: azure-stack-version-profiles-ruby.md
@@ -115,13 +115,13 @@
               href: /azure-stack/operator/azure-stack-create-service-principals?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
         - name: Použití služeb
           items:
-            - name: Služby Compute
+            - name: Compute
               items:
                 - name: Přehled
                   href: azure-stack-compute-overview.md
                 - name: Aspekty virtuálních počítačů
                   href: azure-stack-vm-considerations.md
-                - name: Velikosti virtuálních počítačů
+                - name: Velikost virtuálních počítačů
                   href: azure-stack-vm-sizes.md
                 - name: Správa disků virtuálních počítačů
                   href: azure-stack-manage-vm-disks.md
@@ -133,7 +133,7 @@
                   href: vm-update-management.md
                 - name: Důležité informace o virtuální počítač s SQL serverem
                   href: azure-stack-sql-server-vm-considerations.md
-            - name: Storage
+            - name: Úložiště
               items:
                 - name: Přehled
                   href: azure-stack-storage-overview.md
@@ -145,13 +145,13 @@
                   href: azure-stack-storage-transfer.md
                 - name: Připojení průzkumníka úložišť
                   href: azure-stack-storage-connect-se.md
-            - name: Network (Síť)
+            - name: Síť
               items:
                 - name: Přehled
                   href: azure-stack-network-overview.md
                 - name: Aspekty sítí
                   href: azure-stack-network-differences.md
-                - name: Brány VPN Gateway
+                - name: VPN Gateway
                   items:
                     - name: Připojení pomocí VPN
                       href: azure-stack-connect-vpn.md
@@ -253,6 +253,7 @@
             - name: Nasazení webové aplikace v NodeJS
               href: azure-stack-dev-start-howto-vm-nodejs.md
     - name: Nasazení základních vzorů
+      href: deploy-foundational-patterns.md
       items:
         - name: Modely sítě
           items:
@@ -282,7 +283,6 @@
               href: azure-stack-network-howto-iscsi-storage.md
             - name: Rozšiřování datacentra
               href: azure-stack-network-howto-extend-datacenter.md
-        - name: Partnerský vztah virtuální sítě
         - name: Zálohování a obnovení
           items:
             - name: Zálohování virtuálního počítače v Azure Stack hub pomocí CommVault
@@ -295,7 +295,7 @@
   items:
     - name: IaaS architektury
       items:
-        - name: Virtuální počítač s Linuxem
+        - name: Virtuální počítači s Linuxem
           href: iaas-architecture-vm-linux.md
         - name: Virtuální počítač s Windows
           href: iaas-architecture-vm-windows.md
@@ -319,7 +319,7 @@
       href: /azure-stack/operator/
     - name: Dokumentace ke službě ASDK
       href: /azure-stack/asdk/
-- name: Materiály
+- name: Zdroje a prostředky
   items:
     - name: Plán centra Azure Stack
       href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'
