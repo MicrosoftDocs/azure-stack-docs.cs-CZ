@@ -3,16 +3,16 @@ title: Kontrolní seznam aktivity aktualizace centra Azure Stack
 description: Kontrolní seznam pro přípravu systému na nejnovější aktualizaci centra Azure Stack.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/14/2020
+ms.date: 02/20/2020
 ms.author: sethm
 ms.reviewer: ppacent
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: 7ee8a4bc80b211b8e6aa8fd77d29ae5cf4c524e1
-ms.sourcegitcommit: 74ce7c12a93d47315d70427b02bcacbd3b44f854
+ms.openlocfilehash: e1260cec62c2b1906f76004f04010e0f0857664e
+ms.sourcegitcommit: b501f9dc931bb0a1648b768f7ea47116b4dfda33
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77037178"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77213659"
 ---
 # <a name="azure-stack-hub-update-activity-checklist"></a>Kontrolní seznam aktivity aktualizace centra Azure Stack
 
@@ -31,7 +31,7 @@ Zkontrolujte Tento kontrolní seznam, aby bylo možné připravit Azure Stack ak
 | Spuštění rutiny **test-AzureStack** | Pro identifikaci provozních problémů spusťte `Test-AzureStack -Group UpdateReadiness`. Rutina je přístupná prostřednictvím relace privilegovaného koncového bodu (PEP). Další informace najdete v tématu [ověření stavu systému centra Azure Stack](azure-stack-diagnostic-test.md). |
 | Vyřešit problémy | Vyřešte všechny provozní problémy identifikované `Test-AzureStack`. |
 | Dostupná aktualizace | V případě propojených scénářů Azure Stack nasazení centra pravidelně kontroluje zabezpečený koncový bod a automaticky vás upozorní, jestli je pro Cloud k dispozici aktualizace. Odpojení zákazníci mohou stáhnout a importovat nové balíčky pomocí [popsaného postupu](azure-stack-apply-updates.md). |
-| Naplánování časového období údržby a informování uživatelů | Měli byste informovat uživatele o všech operacích údržby a v případě potřeby naplánovat normální časová období údržby v nepracovních hodinách. Operace údržby můžou ovlivnit existující úlohy tenanta a způsobit, že nové operace klientů (například vytváření, překonfigurování nebo odstraňování virtuálních počítačů) selže, ať už je operace iniciovaná z portálu nebo programově z Azure Resource Manager. API. V případě centra Azure Stack Express a úplné aktualizace si můžete prohlédnout [poznámky k verzi](release-notes.md) , které vám pomůžou odhadnout, jak dlouho se má aktualizace očekávat pro verzi, kterou aplikujete. |
+| Naplánování časového období údržby a informování uživatelů | Měli byste informovat uživatele o všech operacích údržby a v případě potřeby naplánovat normální časová období údržby v nepracovních hodinách. Operace údržby můžou ovlivnit existující úlohy tenanta a způsobit, že nové operace klientů (například vytváření, překonfigurování nebo odstraňování virtuálních počítačů) selže, ať už je operace iniciovaná z portálu nebo programově z Azure Resource Manager. API. Jiné operace, jako je zálohování, mohou být také nedostupné, dokud se aktualizace nedokončí. V případě centra Azure Stack Express a úplné aktualizace si můžete prohlédnout [poznámky k verzi](release-notes.md) , které vám pomůžou odhadnout, jak dlouho se má aktualizace očekávat pro verzi, kterou aplikujete. |
 
 ## <a name="during-azure-stack-hub-update"></a>Během aktualizace centra Azure Stack
 
