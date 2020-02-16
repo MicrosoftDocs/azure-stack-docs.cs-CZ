@@ -8,12 +8,12 @@ ms.date: 10/07/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: 0a15f4256349b9080f73d976f4e4a9782fd5b665
-ms.sourcegitcommit: 0a3c8b0bf9c116a5caaeca453a2bbc6e7f7cbfb9
+ms.openlocfilehash: 7201ad85961ecf08d1162d97aa684625e0782d35
+ms.sourcegitcommit: 381e4e47851dd2526bbf04d6b06af90fb1fb6a49
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77147893"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77363164"
 ---
 # <a name="create-highly-available-mysql-databases"></a>Vytváření vysoce dostupných databází MySQL
 
@@ -60,13 +60,15 @@ Pomocí kroků v této části můžete nasadit cluster serveru MySQL pomocí po
 - Tři virtuální počítače se systémem Linux pro hostování clusteru MySQL
 
 1. 
-   [!INCLUDE [azs-admin-portal](../includes/azs-admin-portal.md)]
+   [!INCLUDE [azs-admin-portal](../includes/azs-user-portal.md)]
 
-2. Vyberte **\+** **vytvořit prostředek** > **COMPUTE**a pak **MySQL s replikací**.
+2. Pokud ještě nebyla přiřazena žádná předplatná, vyberte z řídicího panelu **získat odběr** . V okně zadejte název předplatného a potom vyberte nabídku. Doporučuje se, abyste zachovali nasazení clusteru MySQL ve vlastním předplatném, abyste zabránili nechtěnému odebrání.
 
-   ![Nasazení vlastních šablon v centru Azure Stack](media/azure-stack-tutorial-mysqlrp/1.png)
+3. Vyberte **\+** **vytvořit prostředek** > **COMPUTE**a pak **MySQL s replikací**.
 
-3. Poskytněte základní informace o nasazení na stránce **základy** . Zkontrolujte výchozí hodnoty a podle potřeby změňte nastavení a vyberte **OK**.
+   ![Nasazení vlastních šablon v centru Azure Stack](media/azure-stack-tutorial-mysqlrp/img1.png)
+
+4. Poskytněte základní informace o nasazení na stránce **základy** . Zkontrolujte výchozí hodnoty a podle potřeby změňte nastavení a vyberte **OK**.
 
     Minimálně zadejte následující informace:
 
@@ -78,28 +80,28 @@ Pomocí kroků v této části můžete nasadit cluster serveru MySQL pomocí po
    - Vyberte skupinu prostředků, kterou chcete použít, nebo vytvořte novou.
    - Vyberte umístění (výchozí nastavení je místní pro ASDK).
 
-   [Základy nasazení ![– vytvoření MySQL s replikací](media/azure-stack-tutorial-mysqlrp/2-sm.PNG)](media/azure-stack-tutorial-mysqlrp/2-lg.PNG#lightbox)
+     ![Základy nasazení – vytvoření MySQL s replikací](media/azure-stack-tutorial-mysqlrp/img2.png)
 
-4. Na stránce **Konfigurace prostředí** zadejte následující informace a pak vyberte **OK**:
+5. Na stránce **Konfigurace prostředí** zadejte následující informace a pak vyberte **OK**:
 
    - Heslo nebo veřejný klíč SSH pro ověřování pomocí protokolu Secure Shell (SSH). Pokud použijete heslo, musí obsahovat písmena, číslice a **může** obsahovat speciální znaky.
    - Velikost virtuálního počítače (výchozí nastavení je Standard D1 v2 VM).
    - Velikost datového disku v GB
 
-   [Konfigurace prostředí ![– vytvoření MySQL s replikací](media/azure-stack-tutorial-mysqlrp/3-sm.PNG)](media/azure-stack-tutorial-mysqlrp/3-lg.PNG#lightbox)
+     ![Konfigurace prostředí – vytvoření MySQL s replikací](media/azure-stack-tutorial-mysqlrp/img3.png)
 
-5. Projděte si **Souhrn**nasazení. Volitelně si můžete stáhnout vlastní šablonu a parametry a pak vybrat **OK**.
+6. Projděte si **Souhrn**nasazení. Volitelně si můžete stáhnout vlastní šablonu a parametry a pak vybrat **OK**.
 
-   [Shrnutí ![– vytvoření MySQL s replikací](media/azure-stack-tutorial-mysqlrp/4-sm.PNG)](media/azure-stack-tutorial-mysqlrp/4-lg.PNG#lightbox)
+   ![Shrnutí – vytvoření MySQL s replikací](media/azure-stack-tutorial-mysqlrp/img4.png)
 
-6. Vyberte **vytvořit** na stránce **koupit** a spusťte nasazení.
+7. Vyberte **vytvořit** na stránce **koupit** a spusťte nasazení.
 
-   ![Koupit stránku – vytvoření MySQL s replikací](media/azure-stack-tutorial-mysqlrp/5.png)
+   ![Koupit stránku – vytvoření MySQL s replikací](media/azure-stack-tutorial-mysqlrp/img5.png)
 
     > [!NOTE]
     > Nasazení bude trvat přibližně hodinu. Než budete pokračovat, ujistěte se, že nasazení bylo dokončeno a cluster MySQL byl zcela nakonfigurován.
 
-7. Po úspěšném dokončení všech nasazení zkontrolujte položky skupiny prostředků a vyberte položku veřejné IP adresy **mysqlip** . Poznamenejte si veřejnou IP adresu a celý plně kvalifikovaný název domény veřejné IP adresy clusteru.
+8. Po úspěšném dokončení všech nasazení zkontrolujte položky skupiny prostředků a vyberte položku veřejné IP adresy **mysqlip** . Poznamenejte si veřejnou IP adresu a celý plně kvalifikovaný název domény veřejné IP adresy clusteru.
 
     Tuto IP adresu budete muset zadat do operátoru centra Azure Stack, aby mohli vytvořit hostitelský server MySQL s využitím tohoto clusteru MySQL.
 
@@ -109,13 +111,13 @@ Ve výchozím nastavení není pro MySQL na hostitelském virtuálním počíta�
 
 1. Na portálu pro správu přejdete do skupiny prostředků vytvořené při nasazení clusteru MySQL a vybráním skupiny zabezpečení sítě (**výchozí-podsíť-SG**):
 
-   ![Vybrat skupinu zabezpečení sítě na portálu pro správu centra Azure Stack](media/azure-stack-tutorial-mysqlrp/6.png)
+   ![Vybrat skupinu zabezpečení sítě na portálu pro správu centra Azure Stack](media/azure-stack-tutorial-mysqlrp/img6.png)
 
 2. Vyberte **příchozí pravidla zabezpečení** a pak vyberte **Přidat**.
 
     Do pole název **cílového portu** zadejte **3306** a v poli **název** a **Popis** volitelně zadejte popis.
 
-   ![open (otevírá)](media/azure-stack-tutorial-mysqlrp/7.png)
+   ![open (otevírá)](media/azure-stack-tutorial-mysqlrp/img7.png)
 
 3. Výběrem **Přidat** zavřete dialog příchozí pravidlo zabezpečení.
 

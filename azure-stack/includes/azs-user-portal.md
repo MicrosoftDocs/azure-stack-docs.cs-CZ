@@ -3,14 +3,14 @@ author: mattbriggs
 ms.topic: include
 ms.date: 1/22/2020
 ms.author: mabrigg
-ms.openlocfilehash: b4f964f7c888d1a06572328432ff6ef20127b70c
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: f8ca5bc9ed6054e489af84f5df189e3aa11959d4
+ms.sourcegitcommit: 381e4e47851dd2526bbf04d6b06af90fb1fb6a49
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881089"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77363123"
 ---
 Přihlaste se k portálu User Portal: 
 
-* U integrovaného nasazení systému se adresa portálu bude lišit v závislosti na oblasti vašeho řešení a názvu externí domény. Bude mít formát `https://adminportal.<region>.<FQDN>`.
-* Pokud používáte Azure Stack Development Kit (ASDK), adresa portálu se [https://portal.local.azurestack.external](https://portal.local.azurestack.external).
+* U integrovaného nasazení systému se adresa portálu bude lišit v závislosti na oblasti vašeho řešení a názvu externí domény. Bude mít formát `https://portal.<region>.<FQDN>`.
+* Pro Azure Stack Development Kit (ASDK) je adresa portálu [https://portal.local.azurestack.external](https://portal.local.azurestack.external).
