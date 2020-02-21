@@ -1,0 +1,28 @@
+- name: Dokumentace k Azure Stack HCI
+  href: overview.md
+- name: Přehled
+  items:
+    - name: Co je Azure Stack HCI?
+      href: overview.md
+- name: Referenční informace
+  items:
+    - name: Příkazy prostředí PowerShell technologie Hyper-V
+      href: /powershell/module/hyper-v
+    - name: Příkazy prostředí PowerShell pro úložiště
+      href: /powershell/module/storage
+- name: Související
+  items:
+    - name: Řada Azure Stack
+      href: ../index.yml
+    - name: Centrum pro správu systému Windows
+      href: /windows-server/manage/windows-admin-center/understand/windows-admin-center
+    - name: Služba Azure Hybrid Services
+      href: /windows-server/manage/windows-admin-center/azure
+    - name: Prostory úložiště s přímým přístupem
+      href: /windows-server/storage/storage-spaces/storage-spaces-direct-overview
+    - name: Clusteringu s podporou převzetí služeb při selhání
+      href: /windows-server/failover-clustering/failover-clustering-overview
+    - name: Hyper-V
+      href: /windows-server/virtualization/hyper-v/hyper-v-on-windows-server
+    - name: Softwarově definované sítě
+      href: /windows-server/networking/sdn

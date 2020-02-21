@@ -4,8 +4,6 @@
   items:
     - name: Co je centrum Azure Stack?
       href: azure-stack-overview.md
-    - name: Co je Azure Stack HCI?
-      href: azure-stack-hci-overview.md
     - name: Porovnání ekosystému Azure
       href: compare-azure-azure-stack.md
     - name: "Poznámky k\_verzi"
@@ -16,7 +14,7 @@
           href: release-notes.md
         - name: Známé problémy
           href: known-issues.md
-- name: Rychlé starty
+- name: Šablony Rychlý start
   expanded: true
   items:
     - name: Použití portálu pro správu
@@ -33,9 +31,9 @@
       items:
         - name: Přehled
           href: azure-stack-capacity-planning-overview.md
-        - name: Služby Compute
+        - name: Výpočty
           href: azure-stack-capacity-planning-compute.md
-        - name: Storage
+        - name: Úložiště
           href: azure-stack-capacity-planning-storage.md
         - name: Capacity Planner centra Azure Stack
           href: azure-stack-capacity-planner.md
@@ -43,7 +41,7 @@
       items:
         - name: Názorný postup
           href: azure-stack-customer-journey.md
-        - name: Obecné aspekty
+        - name: Obecné požadavky
           href: azure-stack-datacenter-integration.md
         - name: Modely připojení
           href: azure-stack-connection-models.md
@@ -72,7 +70,7 @@
                   href: azure-stack-integrate-endpoints.md
                 - name: Hostitel rozšíření
                   href: azure-stack-extension-host-prepare.md
-        - name: List nasazení
+        - name: Sešit nasazení
           href: azure-stack-deployment-worksheet.md
         - name: Integrace identit
           items:
@@ -97,7 +95,7 @@
               href: azure-stack-validate-pki-certs.md
             - name: Napravit certifikáty PKI
               href: azure-stack-remediate-certs.md
-        - name: Zdroje nasazení
+        - name: Materiály pro nasazení
           items:
             - name: Informace o nasazení sítě
               href: deployment-networking.md
@@ -162,7 +160,7 @@
                   href: azure-stack-update-oem.md
             - name: Monitorování stavu aktualizace
               items:
-                - name: Použití PowerShellu
+                - name: Použití prostředí PowerShell
                   href: azure-stack-update-monitor.md
                 - name: Použití privilegovaného koncového bodu
                   href: azure-stack-monitor-update.md
@@ -454,7 +452,7 @@
                   href: azure-stack-configure-on-demand-diagnostic-log-collection.md
         - name: Ověřování centra Azure Stack
           href: azure-stack-diagnostic-test.md
-        - name: Řešení potíží
+        - name: Odstraňování potíží
           href: azure-stack-troubleshooting.md
 - name: Referenční informace
   items:
@@ -466,7 +464,7 @@
       href: /azure-stack/user/
     - name: Dokumentace k sadě ASDK
       href: /azure-stack/asdk/
-- name: Materiály
+- name: Prostředky
   items:
     - name: Školení a certifikace
       href: azure-stack-train-and-cert.md

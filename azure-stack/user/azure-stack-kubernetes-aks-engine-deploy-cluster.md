@@ -7,12 +7,12 @@ ms.date: 01/10/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: bc56a45bc1312488d00570e4a44436bcdfe14834
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: f7d9b735a3b4936a5bb97e60e4c84f4b35b29baa
+ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884799"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77492287"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>Nasazení clusteru Kubernetes s modulem AKS v centru Azure Stack
 
@@ -50,7 +50,7 @@ V této části se podíváme na vytvoření modelu rozhraní API pro váš clus
     aks-engine get-versions
     ```
 
-4.  Vyhledejte `customCloudProfile` a zadejte adresu URL portálu tenanta. Například, `https://portal.local.azurestack.external`. 
+4.  Vyhledejte `customCloudProfile` a zadejte adresu URL portálu tenanta. například `https://portal.local.azurestack.external`. 
 
 5. Pokud používáte AD FS, přidejte `"identitySystem":"adfs"`. Například:
 
@@ -62,9 +62,9 @@ V této části se podíváme na vytvoření modelu rozhraní API pro váš clus
     ```
 
     > [!Note]  
-    > Pokud pro svůj systém identit používáte Azure AD, nemusíte přidat pole **identitySystem** .
+    > Pokud pro svůj systém identit používáte Azure AD, nemusíte přidávat pole **identitySystem** .
 
-6. Vyhledejte `portalURL` a zadejte adresu URL portálu tenanta. Například, `https://portal.local.azurestack.external`.
+6. Vyhledejte `portalURL` a zadejte adresu URL portálu tenanta. například `https://portal.local.azurestack.external`.
 
 7.  V poli `masterProfile`pole nastavte následující pole:
 
@@ -111,11 +111,11 @@ Pokračujte v nasazení clusteru:
 
 1.  Přečtěte si dostupné parametry pro modul AKS v části Azure Stack centra [CLI](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#cli-flags).
 
-    | Parametr | Příklad: | Popis |
+    | Parametr | Příklad | Popis |
     | --- | --- | --- |
     | Azure – ENV | AzureStackCloud | K indikaci AKS Engine, který je vaší cílovou platformou `AzureStackCloud`Azure Stack centra použít. |
-    | Identita – systém | službou | Nepovinný parametr. Pokud používáte federované služby Active Directory (AD FS), zadejte svoje řešení pro správu identit. |
-    | location | místní | Název oblasti centra Azure Stack. Pro ASDK je oblast nastavená na `local`. |
+    | Identita – systém | službou | Volitelné. Pokud používáte federované služby Active Directory (AD FS), zadejte svoje řešení pro správu identit. |
+    | umístění | místní | Název oblasti centra Azure Stack. Pro ASDK je oblast nastavená na `local`. |
     | resource-group | Kube – RG | Zadejte název nové skupiny prostředků nebo vyberte existující skupinu prostředků. Název prostředku musí být alfanumerické znaky a malá písmena. |
     | rozhraní API – model | ./kubernetes-azurestack.json | Cesta ke konfiguračnímu souboru clusteru nebo modelu rozhraní API. |
     | výstupní adresář | Kube – RG | Zadejte název adresáře, který bude obsahovat výstupní soubor `apimodel.json` i jiné generované soubory. |
@@ -123,7 +123,7 @@ Pokračujte v nasazení clusteru:
     | client-secret | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Zadejte tajný klíč objektu služby. Toto je tajný kód klienta, který jste nastavili při vytváření služby. |
     | ID předplatného | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Zadejte ID předplatného. Další informace najdete v tématu [přihlášení k odběru nabídky](https://docs.microsoft.com/azure-stack/user/azure-stack-subscribe-services#subscribe-to-an-offer) . |
 
-    Zde naleznete příklad:
+    Tady je příklad:
 
     ```bash  
     aks-engine deploy \

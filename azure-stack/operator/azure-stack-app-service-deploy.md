@@ -1,18 +1,18 @@
 ---
 title: Nasazení App Service v centru Azure Stack
 description: Přečtěte si, jak nasadit App Service v centru Azure Stack.
-author: mattbriggs
+author: bryanla
 ms.topic: article
 ms.date: 01/13/2020
-ms.author: anwestg
+ms.author: bryanla
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2020
-ms.openlocfilehash: 55d42471f56b17fe2016c7a7ac05f0b688773128
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 1d11e9572decd7bd135fe62806c284e43657febf
+ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76874854"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77491165"
 ---
 # <a name="deploy-app-service-in-azure-stack-hub"></a>Nasazení App Service v centru Azure Stack
 
@@ -60,9 +60,9 @@ Pokud chcete nasadit poskytovatele prostředků App Service, postupujte takto:
 
     1. Vyberte metodu připojení, kterou chcete použít – **Credential** nebo **instanční objekt** .
  
-        - **Přihlašovací údaje**
+        - **Pověřovací**
             - Pokud používáte Azure Active Directory (Azure AD), zadejte účet správce Azure AD a heslo, které jste zadali při nasazení centra Azure Stack. Vyberte **Connect** (Připojit).
-            - Pokud používáte Active Directory Federation Services (AD FS) (AD FS), zadejte účet správce. Například, cloudadmin@azurestack.local. Zadejte heslo a pak vyberte **připojit**.
+            - Pokud používáte Active Directory Federation Services (AD FS) (AD FS), zadejte účet správce. například cloudadmin@azurestack.local. Zadejte heslo a pak vyberte **připojit**.
 
         - **Instanční objekt**
             - Instanční objekt, který použijete, **musí** mít práva **vlastníka** na **předplatném výchozího poskytovatele** .
@@ -83,7 +83,7 @@ Pokud chcete nasadit poskytovatele prostředků App Service, postupujte takto:
      - Vyberte **skupinu prostředků** , která obsahuje vaši virtuální síť.
      - Vyberte název **Virtual Network** , do kterého chcete nasadit.
      - Vyberte správné hodnoty **podsítí** pro každou z požadovaných podsítí rolí.
-     - Vyberte **Next** (Další).
+     - Vyberte **Další**.
 
    ![Instalační služba App Service][4]
 
@@ -104,7 +104,7 @@ Pokud chcete nasadit poskytovatele prostředků App Service, postupujte takto:
 
    d. Do pole **Azure Resource Manager kořenový certifikát souboru** zadejte (nebo vyhledejte) umístění souboru certifikátu.
 
-   e. Vyberte **Next** (Další).
+   e. Vyberte **Další**.
 
    ![Instalační služba App Service][9]
 
@@ -112,7 +112,7 @@ Pokud chcete nasadit poskytovatele prostředků App Service, postupujte takto:
 
     | Box | Příklad názvu souboru certifikátu |
     | --- | --- |
-    | **App Service výchozí soubor certifikátu SSL** | \_.appservice.local.AzureStack.external.pfx |
+    | **App Service výchozí soubor certifikátu SSL** | \_. AppService. Local. AzureStack. external. pfx |
     | **Soubor certifikátu SSL pro App Service rozhraní API** | api.appservice.local.AzureStack.external.pfx |
     | **Soubor certifikátu SSL App Service vydavatele** | ftp.appservice.local.AzureStack.external.pfx |
 
@@ -129,20 +129,20 @@ Pokud chcete nasadit poskytovatele prostředků App Service, postupujte takto:
     >[!NOTE]
     >Při nasazení v produkčním prostředí postupujte podle pokynů v části [plánování kapacity pro Azure App Service role serveru v centru Azure Stack](azure-stack-app-service-capacity-planning.md).
 
-    | Role | Minimální instance | Minimální SKU | Poznámky |
+    | Role | Minimální instance | Minimální SKU | Poznámky: |
     | --- | --- | --- | --- |
-    | Kontrolér | 1\. místo | Standard_A2 – (2 vCPU, 3584 MB) | Spravuje a udržuje stav cloudu App Service. |
-    | Správa | 1\. místo | Standard_A2 – (2 vCPU, 3584 MB) | Spravuje App Service Azure Resource Manager a koncové body rozhraní API, rozšíření portálu (správce, tenant, funkce portálu) a datovou službu. Pro zajištění podpory převzetí služeb při selhání se zvýšily Doporučené instance na 2. |
-    | Vydavatel | 1\. místo | Standard_A1 – (1 vCPU, 1792 MB) | Publikuje obsah prostřednictvím FTP a nasazení webu. |
-    | FrontEnd | 1\. místo | Standard_A1 – (1 vCPU, 1792 MB) | Směruje požadavky na aplikace App Service. |
-    | Sdílený pracovní proces | 1\. místo | Standard_A1 – (1 vCPU, 1792 MB) | Hostuje webové aplikace nebo aplikace API a aplikace Azure Functions. Možná budete chtít přidat další instance. Jako operátor můžete definovat svou nabídku a zvolit libovolnou úroveň SKU. Vrstvy musí mít minimálně jeden vCPU. |
+    | Kontrolér | 1 | Standard_A2 – (2 vCPU, 3584 MB) | Spravuje a udržuje stav cloudu App Service. |
+    | Správa | 1 | Standard_A2 – (2 vCPU, 3584 MB) | Spravuje App Service Azure Resource Manager a koncové body rozhraní API, rozšíření portálu (správce, tenant, funkce portálu) a datovou službu. Pro zajištění podpory převzetí služeb při selhání se zvýšily Doporučené instance na 2. |
+    | Vydavatel | 1 | Standard_A1 – (1 vCPU, 1792 MB) | Publikuje obsah prostřednictvím FTP a nasazení webu. |
+    | FrontEnd | 1 | Standard_A1 – (1 vCPU, 1792 MB) | Směruje požadavky na aplikace App Service. |
+    | Sdílený pracovní proces | 1 | Standard_A1 – (1 vCPU, 1792 MB) | Hostuje webové aplikace nebo aplikace API a aplikace Azure Functions. Možná budete chtít přidat další instance. Jako operátor můžete definovat svou nabídku a zvolit libovolnou úroveň SKU. Vrstvy musí mít minimálně jeden vCPU. |
 
     ![Instalační služba App Service][13]
 
     >[!NOTE]
     >**Windows Server 2016 Core není podporovaná image platformy pro použití s Azure App Service v centru Azure Stack.  Nepoužívejte zkušební image pro produkční nasazení.**
 
-13. V poli **Image platformy vyberte** nasazení virtuálního počítače s Windows serverem 2016 z imagí dostupných v poskytovateli výpočetních prostředků pro Cloud App Service. Vyberte **Next** (Další).
+13. V poli **Image platformy vyberte** nasazení virtuálního počítače s Windows serverem 2016 z imagí dostupných v poskytovateli výpočetních prostředků pro Cloud App Service. Vyberte **Další**.
 
 14. Na další stránce Instalační služby App Service proveďte následující kroky:
 
@@ -150,7 +150,7 @@ Pokud chcete nasadit poskytovatele prostředků App Service, postupujte takto:
 
      b. Zadejte uživatelské jméno a heslo správce virtuálního počítače jiné role.
 
-     c. Vyberte **Next** (Další).
+     c. Vyberte **Další**.
 
     ![Instalační služba App Service][15]
 

@@ -1,17 +1,17 @@
 ---
 title: Monitorování stavu a výstrah v centru Azure Stack
 description: Naučte se monitorovat stav a výstrahy v centru Azure Stack.
-author: mattbriggs
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 1/22/2020
-ms.author: mabrigg
+ms.author: inhenkel
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: bfe250a6285ddf69308e56246d5d4bd6eefadd50
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: f70f3d35267ab1bf484a76c870dedf0182fe43a9
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881960"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77508102"
 ---
 # <a name="monitor-health-and-alerts-in-azure-stack-hub"></a>Monitorování stavu a výstrah v centru Azure Stack
 
@@ -48,7 +48,7 @@ Kliknutím na poskytovatel prostředků nebo na roli infrastruktury zobrazíte p
 > Pokud kliknete na roli infrastruktury a pak na instanci role, existují možnosti **spuštění**, **restartování**nebo **vypnutí**. Tyto akce nepoužívejte při použití aktualizací pro integrovaný systém. Nepoužívejte také tyto možnosti v prostředí Azure Stack Development Kit (ASDK). Tyto možnosti jsou určené jenom pro prostředí s integrovanými systémy, kde je na jednu roli infrastruktury víc instancí role. Restartování instance role (obzvláště AzS-Xrp01) v ASDK způsobuje nestabilitu systému. Pokud potřebujete pomoc s řešením potíží, vystavte svůj problém do [fóra centra Azure Stack](https://aka.ms/azurestackforum).
 >
 
-## <a name="view-alerts"></a>Zobrazení upozornění
+## <a name="view-alerts"></a>Zobrazit výstrahy
 
 Seznam aktivních výstrah pro každou oblast centra Azure Stack je k dispozici přímo v okně **Správa oblastí** . První dlaždice ve výchozí konfiguraci je dlaždice **výstrahy** , která zobrazuje souhrn kritických výstrah a upozornění pro oblast. Dlaždici výstrahy můžete připnout jako jakoukoli jinou dlaždici v tomto okně na řídicí panel pro rychlý přístup.
 

@@ -1,18 +1,18 @@
 ---
 title: Požadavky na certifikát infrastruktury veřejných klíčů centra Azure Stack
 description: Seznamte se s požadavky na nasazení certifikátů PKI centra Azure Stack pro integrované systémy Azure Stack hub.
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 12/16/2019
 ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 12/16/2019
-ms.openlocfilehash: 464e47b204c782f5ebac5a3588d0aff5eaf98d49
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 5ed0a7fa6091ee62a7de5e1938bd0094d7765512
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881640"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509700"
 ---
 # <a name="azure-stack-hub-public-key-infrastructure-certificate-requirements"></a>Požadavky na certifikát infrastruktury veřejných klíčů centra Azure Stack
 
@@ -58,7 +58,7 @@ Tabulka v této části popisuje certifikáty PKI veřejného koncového bodu ce
 
 Vyžadují se certifikáty s příslušnými názvy DNS pro každý koncový bod veřejné infrastruktury centra Azure Stack. Název DNS každého koncového bodu je vyjádřen ve formátu: *&lt;> předpony.&lt;oblast >.&lt;plně kvalifikovaný název domény >* .
 
-Pro vaše nasazení musí hodnoty [region] a [externalfqdn] odpovídat oblasti a názvům externích domén, které jste zvolili pro váš systém Azure Stack hub. Příklad: Pokud byl název oblasti *Redmond* a externí název domény byl *contoso.com*, názvy DNS budou mít formát *&lt;předponu >. Redmond. contoso. com*. Hodnota *předpony&lt;* je předdefinována společností Microsoft, aby popsala koncový bod zabezpečený certifikátem. Kromě toho *prefix&lt;* hodnoty externích koncových bodů infrastruktury závisí na službě centra Azure Stack, která používá konkrétní koncový bod.
+Pro vaše nasazení musí hodnoty [region] a [externalfqdn] odpovídat oblasti a názvům externích domén, které jste zvolili pro váš systém Azure Stack hub. Příklad: Pokud byl název oblasti *Redmond* a externí název domény byl *contoso.com*, názvy DNS budou mít formát *&lt;předponu >. Redmond. contoso. com*. Hodnota *předpony&lt;>* je předdefinována společností Microsoft, aby popsala koncový bod zabezpečený certifikátem. Kromě toho *prefix&lt;>* hodnoty externích koncových bodů infrastruktury závisí na službě centra Azure Stack, která používá konkrétní koncový bod.
 
 Pro produkční prostředí doporučujeme pro každý koncový bod vygenerovat jednotlivé certifikáty a zkopírovat je do odpovídajícího adresáře. Pro vývojová prostředí se certifikáty dají zadat jako jeden certifikát se zástupnými znaky, který pokrývá všechny obory názvů v polích předmět a alternativní název předmětu (SAN) zkopírované do všech adresářů. Jeden certifikát, který pokrývá všechny koncové body a služby, je nezabezpečený stav, a proto jenom pro vývoj. Pamatujte si, že obě možnosti vyžadují, abyste použili certifikáty se zástupnými znaky pro koncové body, jako je **ACS** , a Key Vault tam, kde jsou
 
@@ -67,24 +67,24 @@ Pro produkční prostředí doporučujeme pro každý koncový bod vygenerovat j
 
 | Složka pro nasazení | Požadovaný předmět certifikátu a alternativní názvy subjektu (SAN) | Rozsah (na oblast) | Obor názvů subdomény |
 |-------------------------------|------------------------------------------------------------------|----------------------------------|-----------------------------|
-| Veřejný portál | bran. >&lt;oblasti.&lt;plně kvalifikovaný název domény > | Portals | > &lt;oblasti.&lt;plně kvalifikovaný název domény > |
-| Portál pro správu | adminportal. >&lt;oblasti.&lt;plně kvalifikovaný název domény > | Portals | > &lt;oblasti.&lt;plně kvalifikovaný název domény > |
+| Veřejný portál | bran. >&lt;oblasti.&lt;plně kvalifikovaný název domény > | Portály | > &lt;oblasti.&lt;plně kvalifikovaný název domény > |
+| Portál pro správu | adminportal. >&lt;oblasti.&lt;plně kvalifikovaný název domény > | Portály | > &lt;oblasti.&lt;plně kvalifikovaný název domény > |
 | Azure Resource Manager veřejné | správu. >&lt;oblasti.&lt;plně kvalifikovaný název domény > | Azure Resource Manager | > &lt;oblasti.&lt;plně kvalifikovaný název domény > |
-| Správce Azure Resource Manager | adminmanagement.&lt;region>.&lt;fqdn> | Azure Resource Manager | > &lt;oblasti.&lt;plně kvalifikovaný název domény > |
-| ACSBlob | *.blob.&lt;region>.&lt;fqdn><br>(Zástupný certifikát SSL) | Blob Storage | příznaky. >&lt;oblasti.&lt;plně kvalifikovaný název domény > |
+| Správce Azure Resource Manager | adminmanagement. >&lt;oblasti.&lt;plně kvalifikovaný název domény > | Azure Resource Manager | > &lt;oblasti.&lt;plně kvalifikovaný název domény > |
+| ACSBlob | *. blob. >&lt;oblasti.&lt;plně kvalifikovaný název domény ><br>(Zástupný certifikát SSL) | Blob Storage | příznaky. >&lt;oblasti.&lt;plně kvalifikovaný název domény > |
 | ACSTable | *. Table. >&lt;oblasti.&lt;plně kvalifikovaný název domény ><br>(Zástupný certifikát SSL) | Table Storage | stolní. >&lt;oblasti.&lt;plně kvalifikovaný název domény > |
 | ACSQueue | *. Queue. >&lt;oblasti.&lt;plně kvalifikovaný název domény ><br>(Zástupný certifikát SSL) | Queue Storage | provedených. >&lt;oblasti.&lt;plně kvalifikovaný název domény > |
 | KeyVault | *. trezor. >&lt;oblasti.&lt;plně kvalifikovaný název domény ><br>(Zástupný certifikát SSL) | Key Vault | hesel. >&lt;oblasti.&lt;plně kvalifikovaný název domény > |
 | KeyVaultInternal | *.adminvault. >&lt;oblasti.&lt;plně kvalifikovaný název domény ><br>(Zástupný certifikát SSL) |  Interní Trezor klíčů |  adminvault. >&lt;oblasti.&lt;plně kvalifikovaný název domény > |
-| Hostitel rozšíření Správce | *.adminhosting. >\<oblasti.\<plně kvalifikovaný název domény > (zástupné certifikáty SSL) | Hostitel rozšíření Správce | adminhosting.\<region>.\<fqdn> |
+| Hostitel rozšíření Správce | *.adminhosting. >\<oblasti.\<plně kvalifikovaný název domény > (zástupné certifikáty SSL) | Hostitel rozšíření Správce | adminhosting. >\<oblasti.\<plně kvalifikovaný název domény > |
 | Hostitel veřejného rozšíření | *. Hosting. >\<oblasti.\<plně kvalifikovaný název domény > (zástupné certifikáty SSL) | Hostitel veřejného rozšíření | který. >\<oblasti.\<plně kvalifikovaný název domény > |
 
 Pokud nasadíte Azure Stack centrum pomocí režimu nasazení služby Azure AD, stačí, když vyžádáte certifikáty uvedené v předchozí tabulce. Pokud ale Azure Stack centrum nasazujete pomocí režimu nasazení AD FS, musíte si taky vyžádat certifikáty popsané v následující tabulce:
 
 |Složka pro nasazení|Požadovaný předmět certifikátu a alternativní názvy subjektu (SAN)|Rozsah (na oblast)|Obor názvů subdomény|
 |-----|-----|-----|-----|
-|ADFS|adfs. *&lt;region>.&lt;fqdn>*<br>(Certifikát SSL)|ADFS|*> &lt;oblasti.&lt;plně kvalifikovaný název domény >*|
-|Grafová databáze|zapisovací. *&lt;oblasti.&lt;plně kvalifikovaný název domény >*<br>(Certifikát SSL)|Grafová databáze|*> &lt;oblasti.&lt;plně kvalifikovaný název domény >*|
+|ADFS|službou. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*<br>(Certifikát SSL)|ADFS|*> &lt;oblasti.&lt;plně kvalifikovaný název domény >*|
+|Graf|zapisovací. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*<br>(Certifikát SSL)|Graf|*> &lt;oblasti.&lt;plně kvalifikovaný název domény >*|
 |
 
 > [!IMPORTANT]
@@ -100,11 +100,11 @@ Následující tabulka obsahuje popis koncových bodů a certifikátů vyžadova
 
 |Rozsah (na oblast)|Certifikát|Požadovaný předmět certifikátu a alternativní názvy subjektu (San)|Obor názvů subdomény|
 |-----|-----|-----|-----|
-|SQL, MySQL|SQL a MySQL|&#42;.dbadapter. *&lt;oblasti.&lt;plně kvalifikovaný název domény >*<br>(Zástupný certifikát SSL)|dbadapter. *&lt;oblasti.&lt;plně kvalifikovaný název domény >*|
-|Aplikační služba|Výchozí certifikát SSL pro webový provoz|&#42;.appservice. *&lt;region>.&lt;fqdn>*<br>&#42;.scm.appservice. *&lt;region>.&lt;fqdn>*<br>&#42;.sso.appservice. *&lt;region>.&lt;fqdn>*<br>(Certifikát SSL s více doménovými znaky<sup>1</sup>)|appservice. *&lt;region>.&lt;fqdn>*<br>scm.appservice. *&lt;region>.&lt;fqdn>*|
-|Aplikační služba|API|api.appservice. *&lt;region>.&lt;fqdn>*<br>(Certifikát SSL<sup>2</sup>)|appservice. *&lt;region>.&lt;fqdn>*<br>scm.appservice. *&lt;region>.&lt;fqdn>*|
-|Aplikační služba|FTP|ftp.appservice. *&lt;region>.&lt;fqdn>*<br>(Certifikát SSL<sup>2</sup>)|appservice. *&lt;region>.&lt;fqdn>*<br>scm.appservice. *&lt;region>.&lt;fqdn>*|
-|Aplikační služba|JEDNOTNÉ|sso.appservice. *&lt;region>.&lt;fqdn>*<br>(Certifikát SSL<sup>2</sup>)|appservice. *&lt;region>.&lt;fqdn>*<br>scm.appservice. *&lt;region>.&lt;fqdn>*|
+|SQL, MySQL|SQL a MySQL|&#42;.dbadapter. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*<br>(Zástupný certifikát SSL)|dbadapter. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*|
+|App Service|Výchozí certifikát SSL pro webový provoz|&#42;AppService. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*<br>&#42;. SCM. AppService. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*<br>&#42;. SSO. AppService. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*<br>(Certifikát SSL s více doménovými znaky<sup>1</sup>)|AppService. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*<br>SCM. AppService. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*|
+|App Service|API|API. AppService. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*<br>(Certifikát SSL<sup>2</sup>)|AppService. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*<br>SCM. AppService. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*|
+|App Service|FTP|FTP. AppService. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*<br>(Certifikát SSL<sup>2</sup>)|AppService. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*<br>SCM. AppService. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*|
+|App Service|JEDNOTNÉ|SSO. AppService. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*<br>(Certifikát SSL<sup>2</sup>)|AppService. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*<br>SCM. AppService. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*|
 
 <sup>1</sup> vyžaduje jeden certifikát s více alternativními názvy subjektu zástupného znaku. Všechny veřejné certifikační autority nemusí podporovat více než jeden zástupný znak sítě SAN na jednom certifikátu.
 

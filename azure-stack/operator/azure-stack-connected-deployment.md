@@ -1,18 +1,18 @@
 ---
 title: Rozhodnutí o nasazení připojená k Azure pro integrované systémy Azure Stack hub
 description: Rozhodnutí o plánování nasazení pro nasazení integrovaných systémů Azure Stack hub připojená k Azure, včetně fakturace a identity, najdete v části nasazení.
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 1/22/2020
 ms.author: inhenkel
 ms.reviewer: wfayed
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: 82fad799b4c2b24ac3899c376e53bfd07c6d3d07
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: a4ab00ff732bcffd66d984757a279a3ad030b33d
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76879325"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77510125"
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-hub-integrated-systems"></a>Rozhodnutí týkající se plánování nasazení spojené s Azure pro integrované systémy centra Azure Stack
 Až se rozhodnete, [jak budete Azure Stack hub integrovat do svého hybridního cloudového prostředí](azure-stack-connection-models.md), můžete dokončit rozhodnutí o nasazení Azure Stack centra.
@@ -52,7 +52,7 @@ Pokud se chystáte použít předplatné CSP, Projděte si následující tabulk
 
 |Scénář|Možnosti domény a předplatného|
 |-----|-----|
-|Jste přímý poskytovatel **CSP** nebo **nepřímo zprostředkovatel CSP**a budete pracovat s centrem Azure Stack.|Použijte předplatné CSL (Common Service Layer).<br>     – nebo –<br>Vytvořte tenanta Azure AD s popisným názvem v partnerském centru. Například &lt;vaší organizaci > CSPAdmin s předplatným CSP Azure, které jsou k němu přidružené.|
+|Jste přímý poskytovatel **CSP** nebo **nepřímo zprostředkovatel CSP**a budete pracovat s centrem Azure Stack.|Použijte předplatné CSL (Common Service Layer).<br>     nebo<br>Vytvořte tenanta Azure AD s popisným názvem v partnerském centru. Například &lt;vaší organizaci > CSPAdmin s předplatným CSP Azure, které jsou k němu přidružené.|
 |Jste **nepřímým prodejcem CSP**a budete pracovat s centrem Azure Stack.|Požádejte svého nepřímý poskytovatel CSP, aby vytvořil tenanta Azure AD pro vaši organizaci s předplatným CSP Azure, které je k němu přidruženo pomocí partnerského centra.|
 
 ### <a name="capacity-based-billing"></a>Fakturace na základě kapacity

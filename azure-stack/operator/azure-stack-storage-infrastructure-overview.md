@@ -2,18 +2,18 @@
 title: Správa infrastruktury úložiště pro centrum Azure Stack
 titleSuffix: Azure Stack
 description: Naučte se spravovat infrastrukturu úložiště pro centrum Azure Stack.
-author: mattbriggs
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 1/22/2020
-ms.author: mabrigg
+ms.author: inhenkel
 ms.lastreviewed: 03/11/2019
 ms.reviewer: jiahan
-ms.openlocfilehash: 045bab05645c5186069d787645efe56ea5b4effa
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: a50b39c84a31e0266db437bfe29fd57370881644
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882759"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509530"
 ---
 # <a name="manage-storage-infrastructure-for-azure-stack-hub"></a>Správa infrastruktury úložiště pro centrum Azure Stack
 
@@ -92,7 +92,7 @@ Tady je příklad výstupu ukazující odpojený svazek a degradované/nedokonč
 
 | VolumeLabel | HealthStatus | Provozním |
 |-------------|--------------|------------------------|
-| ObjStore_1 | Není známo | Odpojit |
+| ObjStore_1 | Neznámé | Odpojit |
 | ObjStore_2 | Upozornění | {Degradované, neúplné} |
 
 V následujících částech jsou uvedeny stav a provozní stavy:
@@ -111,7 +111,7 @@ Pokud je svazek ve stavu varování, znamená to, že jedna nebo více kopií va
 | Provozní stav | Popis |
 |---|---|
 | V provozu | Centrum Azure Stack opravuje svazek, například po přidání nebo odebrání jednotky. Po dokončení opravy by se svazek měl vrátit do stavu OK.<br> <br>**Akce:** Počkejte, než centrum Azure Stack dokončí opravu svazku, a potom stav ověřte. |
-| Dokončena | Odolnost svazku se snížila, protože jedna nebo více jednotek selhala nebo chybí. Chybějící jednotky ale obsahují aktuální kopie vašich dat.<br> <br>**Akce:** Znovu připojte všechny chybějící jednotky, nahraďte všechny jednotky, které selhaly, a přepněte do režimu online všechny servery, které jsou offline. |
+| Neúplné | Odolnost svazku se snížila, protože jedna nebo více jednotek selhala nebo chybí. Chybějící jednotky ale obsahují aktuální kopie vašich dat.<br> <br>**Akce:** Znovu připojte všechny chybějící jednotky, nahraďte všechny jednotky, které selhaly, a přepněte do režimu online všechny servery, které jsou offline. |
 | Snížený výkon | Odolnost svazku se snížila z důvodu jedné nebo více chybných nebo chybějících jednotek a také zastaralých kopií dat na jednotkách.<br> <br>**Akce:** Znovu připojte všechny chybějící jednotky, nahraďte všechny jednotky, které selhaly, a přepněte do režimu online všechny servery, které jsou offline. |
 
 ### <a name="volume-health-state-unhealthy"></a>Stav svazku: není v pořádku
@@ -173,7 +173,7 @@ Jednotka v nesprávném stavu se momentálně nedá zapisovat do nebo k ní nelz
 
 | Provozní stav | Popis |
 |---|---|
-| Rozdělení | Jednotka se od fondu oddělí.<br> <br>**Akce:** Nahraďte jednotku novým diskem. Pokud musíte použít tento disk, vyjměte disk ze systému, zajistěte, aby na disku neexistovala žádná užitečná data, disk smažete a pak disk znovu vložte. |
+| Rozdělit | Jednotka se od fondu oddělí.<br> <br>**Akce:** Nahraďte jednotku novým diskem. Pokud musíte použít tento disk, vyjměte disk ze systému, zajistěte, aby na disku neexistovala žádná užitečná data, disk smažete a pak disk znovu vložte. |
 | Nelze použít | Fyzický disk je v karanténě, protože není podporován vaším dodavatelem řešení. Podporují se jenom disky, které jsou schválené pro řešení a mají správný firmware disku.<br> <br>**Akce:** Nahraďte jednotku diskem, který má schválený výrobce a číslo modelu pro dané řešení. |
 | Zastaralá metadata | Náhradní disk byl dříve použit a může obsahovat data z neznámého systému úložiště. Disk je v karanténě. <br> <br>**Akce:** Nahraďte jednotku novým diskem. Pokud musíte použít tento disk, vyjměte disk ze systému, zajistěte, aby na disku neexistovala žádná užitečná data, disk smažete a pak disk znovu vložte. |
 | Nerozpoznaná metadata | Na disku byla nalezena nerozpoznaná metadata, což obvykle znamená, že má jednotka metadata z jiného fondu.<br> <br>**Akce:** Nahraďte jednotku novým diskem. Pokud musíte použít tento disk, vyjměte disk ze systému, zajistěte, aby na disku neexistovala žádná užitečná data, disk smažete a pak disk znovu vložte. |

@@ -2,18 +2,18 @@
 title: Odebrat poskytovatele prostředků SQL
 titleSuffix: Azure Stack Hub
 description: Naučte se, jak odebrat poskytovatele prostředků SQL z nasazení centra Azure Stack.
-author: mattbriggs
+author: bryanla
 ms.topic: article
 ms.date: 10/02/2019
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/20/2018
-ms.openlocfilehash: 5d8335e69c35c209e444d88f41ce76a3fae94bb0
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: f8b9ed17aa19a2d0ed9403ace3876f4c8f3a25bf
+ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882792"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77491777"
 ---
 # <a name="remove-the-sql-resource-provider"></a>Odebrat poskytovatele prostředků SQL
 
@@ -22,16 +22,7 @@ Před odebráním poskytovatele prostředků SQL je nutné odebrat všechny záv
 > [!NOTE]
 > Odkazy ke stažení pro instalační programy poskytovatele prostředků najdete v části [nasazení požadavků poskytovatele prostředků](./azure-stack-sql-resource-provider-deploy.md#prerequisites).
 
-Odebrání poskytovatele prostředků SQL neodstraní databáze tenantů z hostitelských serverů.
-
-## <a name="dependency-cleanup"></a>Vyčištění závislosti
-
-Před spuštěním skriptu DeploySqlProvider. ps1 pro odebrání poskytovatele prostředků je třeba provést několik úloh čištění.
-
-Operátor centra Azure Stack zodpovídá za následující úlohy čištění:
-
-* Odstraňte všechny plány, které odkazují na adaptér SQL.
-* Odstraňte všechny kvóty, které jsou spojeny s adaptérem SQL.
+Při odebrání poskytovatele prostředků SQL se odstraní přidružené plány a kvóty spravované operátorem. Neodstraňují ale databáze tenantů z hostitelských serverů.
 
 ## <a name="to-remove-the-sql-resource-provider"></a>Odebrání poskytovatele prostředků SQL
 

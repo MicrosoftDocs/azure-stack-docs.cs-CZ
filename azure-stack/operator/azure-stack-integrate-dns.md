@@ -1,18 +1,18 @@
 ---
 title: Integrace služby DNS centra Azure Stack
 description: Přečtěte si, jak integrovat službu DNS centra Azure Stack k vašemu serveru DNS vašeho datového centra.
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 1/22/2020
 ms.author: inhenkel
 ms.reviewer: wfayed
 ms.lastreviewed: 08/21/2019
-ms.openlocfilehash: 3d92504080e754db08d76cf7ec2a2c7e010ee394
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 50553f15d394b5640bb63cb2e675da9a9684469d
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882174"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509887"
 ---
 # <a name="azure-stack-hub-datacenter-dns-integration"></a>Integrace služby DNS centra Azure Stack
 
@@ -23,9 +23,9 @@ Aby bylo možné získat přístup k koncovým bodům centra Azure Stack, jako j
 Pokud nasazujete Azure Stack centrum, budete muset poskytnout nějaké důležité informace týkající se DNS.
 
 
-|Pole  |Popis  |Příklad:|
+|Pole  |Popis  |Příklad|
 |---------|---------|---------|
-|Region (Oblast)|Geografické umístění vašeho nasazení centra Azure Stack.|`east`|
+|Oblast|Geografické umístění vašeho nasazení centra Azure Stack.|`east`|
 |Název externí domény|Název zóny, kterou chcete použít pro nasazení centra Azure Stack.|`cloud.fabrikam.com`|
 |Internal Domain Name|Název interní zóny, která se používá pro služby infrastruktury v centru Azure Stack. Je to integrovaná a soukromá adresářová služba (není dostupná z vnějšku nasazení Azure Stack hub).|`azurestack.local`|
 |Servery DNS pro přeposílání|Servery DNS, které se používají k přeposílání dotazů DNS, zón DNS a záznamů hostovaných mimo centrum Azure Stack, buď na podnikovém intranetu nebo na veřejném Internetu. Po nasazení můžete hodnotu služby DNS resílat upravit pomocí [rutiny **set-AzSDnsForwarder** ](#editing-dns-forwarder-ips) . 

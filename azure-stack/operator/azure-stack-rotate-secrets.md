@@ -2,19 +2,19 @@
 title: Otočit tajných kódů
 titleSuffix: Azure Stack Hub
 description: Naučte se, jak tyto tajné klíče otočit z centra Azure Stack.
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 12/13/2019
 ms.reviewer: ppacent
 ms.author: inhenkel
 ms.lastreviewed: 12/13/2019
 monikerRange: '>=azs-1802'
-ms.openlocfilehash: 38e517aef0dcdd60e691d655004a9a807c2789d3
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 22be9075f6c1d8b25c6ce241ad24ed8e10630261
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881331"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509564"
 ---
 # <a name="rotate-secrets-in-azure-stack-hub"></a>Otočení tajných kódů v centru Azure Stack
 
@@ -70,17 +70,17 @@ Aby bylo možné zachovat integritu infrastruktury centra Azure Stack, operáto�
 
 Centrum Azure Stack podporuje v následujících kontextech i střídání tajných kódů pomocí externích certifikátů z nové certifikační autority (CA):
 
-|Nainstalovala se certifikační autorita.|CA pro otočení|Podporováno|Podporované verze centra Azure Stack|
+|Nainstalovala se certifikační autorita.|CA pro otočení|Podporuje se|Podporované verze centra Azure Stack|
 |-----|-----|-----|-----|
-|Od sebe podepsané svým držitelem|Do Enterprise|Podporováno|1903 & později|
+|Od sebe podepsané svým držitelem|Do Enterprise|Podporuje se|1903 & později|
 |Od sebe podepsané svým držitelem|Na podepsaný svým držitelem|Nepodporuje se||
-|Od sebe podepsané svým držitelem|Na veřejné<sup>*</sup>|Podporováno|1803 & později|
+|Od sebe podepsané svým držitelem|Na veřejné<sup>*</sup>|Podporuje se|1803 & později|
 |Z Enterprise|Do Enterprise|Podporuje se. Od 1803-1903: podporované, pokud zákazníci používají stejnou certifikační autoritu organizace jako při nasazení.|1803 & později|
 |Z Enterprise|Na podepsaný svým držitelem|Nepodporuje se||
-|Z Enterprise|Na veřejné<sup>*</sup>|Podporováno|1803 & později|
-|Z veřejných<sup>*</sup>|Do Enterprise|Podporováno|1903 & později|
+|Z Enterprise|Na veřejné<sup>*</sup>|Podporuje se|1803 & později|
+|Z veřejných<sup>*</sup>|Do Enterprise|Podporuje se|1903 & později|
 |Z veřejných<sup>*</sup>|Na podepsaný svým držitelem|Nepodporuje se||
-|Z veřejných<sup>*</sup>|Na veřejné<sup>*</sup>|Podporováno|1803 & později|
+|Z veřejných<sup>*</sup>|Na veřejné<sup>*</sup>|Podporuje se|1803 & později|
 
 <sup>*</sup> Označuje, že veřejné certifikační autority jsou ty, které jsou součástí důvěryhodného kořenového programu systému Windows. Úplný seznam najdete v článku [program důvěryhodných kořenových certifikátů společnosti Microsoft: účastníci (od 27. června 2017)](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
 
@@ -301,11 +301,11 @@ Rutina **Start-SecretRotation** otočí tajné klíče infrastruktury Azure Stac
 
 ### <a name="parameters"></a>Parametry
 
-| Parametr | Typ | Požaduje se | Pozice | Výchozí | Popis |
+| Parametr | Typ | Požadováno | Pozice | Výchozí | Popis |
 | -- | -- | -- | -- | -- | -- |
-| `PfxFilesPath` | Řetězec  | Nepravda  | Jmenovanou  | Žádné  | Cesta ke sdílené složce adresáře **\Certificates** obsahující všechny certifikáty koncového bodu externí sítě. Vyžaduje se pouze při otáčení externích tajných klíčů. Koncový adresář musí být **\Certificates**. |
+| `PfxFilesPath` | String  | Nepravda  | Jmenovanou  | Žádné  | Cesta ke sdílené složce adresáře **\Certificates** obsahující všechny certifikáty koncového bodu externí sítě. Vyžaduje se pouze při otáčení externích tajných klíčů. Koncový adresář musí být **\Certificates**. |
 | `CertificatePassword` | SecureString | Nepravda  | Jmenovanou  | Žádné  | Heslo pro všechny certifikáty, které jsou k dispozici v-PfXFilesPath. Požadovaná hodnota, pokud je k dispozici PfxFilesPath při otočení externích tajných klíčů. |
-| `Internal` | Řetězec | Nepravda | Jmenovanou | Žádné | Vnitřní příznak musí být použit v případě, že operátor centra Azure Stack chce otočit tajné tajné klíče interní infrastruktury. |
+| `Internal` | String | Nepravda | Jmenovanou | Žádné | Vnitřní příznak musí být použit v případě, že operátor centra Azure Stack chce otočit tajné tajné klíče interní infrastruktury. |
 | `PathAccessCredential` | PSCredential | Nepravda  | Jmenovanou  | Žádné  | Přihlašovací údaje PowerShellu pro sdílenou složku adresáře **\Certificates** obsahující všechny certifikáty koncového bodu externí sítě. Vyžaduje se pouze při otáčení externích tajných klíčů.  |
 | `ReRun` | Přepínací parametr | Nepravda  | Jmenovanou  | Žádné  | Po neúspěšném pokusu je třeba znovu spustit opětovné otočení tajného klíče. |
 
@@ -379,7 +379,7 @@ Tento příkaz otočí všechny tajné klíče infrastruktury vystavené pro Azu
 
    **Verze 1910 a novější**: již není nutné, abyste nejprve aktualizovali přihlašovací údaje řadiče pro správu základní desky na fyzických serverech centra Azure Stack podle pokynů výrobce OEM. Uživatelské jméno a heslo pro každý řadič pro správu základní desky ve vašem prostředí musí být stejné. Uživatelská jména řadiče pro správu základní desky nesmí být delší než 16 znaků.
 
-    | Parametr | Popis | Stav |
+    | Parametr | Popis | Stát |
     | --- | --- | --- |
     | BypassBMCUpdate | Když použijete parametr, přihlašovací údaje v řadiči pro správu základní desky se neaktualizují. Aktualizuje se jenom interní úložiště dat centra Azure Stack. | Volitelné |
 

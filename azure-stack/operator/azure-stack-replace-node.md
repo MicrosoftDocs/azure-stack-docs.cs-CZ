@@ -2,18 +2,18 @@
 title: Nahrazení uzlu jednotky škálování v integrovaném systému služby Azure Stack hub
 titleSuffix: Azure Stack Hub
 description: Přečtěte si, jak nahradit uzel fyzické jednotky škálování v integrovaném systému Azure Stack hub.
-author: mattbriggs
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 11/11/2019
-ms.author: mabrigg
+ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 9f0a1e21367ee345a004e875594ad6472b3e6a49
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: e2e084c23ba6f6fce520011f5b48b21550b33ab1
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882960"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509581"
 ---
 # <a name="replace-a-scale-unit-node-on-an-azure-stack-hub-integrated-system"></a>Nahrazení uzlu jednotky škálování v integrovaném systému služby Azure Stack hub
 

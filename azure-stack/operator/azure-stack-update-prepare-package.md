@@ -1,18 +1,18 @@
 ---
 title: Příprava balíčku aktualizace centra Azure Stack
 description: Naučte se připravit balíček aktualizace centra Azure Stack.
-author: mattbriggs
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 1/22/2020
-ms.author: mabrigg
+ms.author: inhenkel
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: af8877b9b1c282854a18eb3a1138b70e760cfa91
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 5532345fe383b19bb96ea2f240634e15004a22b4
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882714"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509020"
 ---
 # <a name="prepare-an-azure-stack-hub-update-package"></a>Příprava balíčku aktualizace centra Azure Stack
 

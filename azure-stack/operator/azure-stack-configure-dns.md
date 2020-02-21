@@ -1,18 +1,18 @@
 ---
 title: Aktualizace služby DNS pro přeposílání v centru Azure Stack
 description: Naučte se aktualizovat službu DNS pro přeposílání v centru Azure Stack.
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: e0220a9ce7a16e5aa49f336e52d2abef535e71cf
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 773ee77c1fcad3fa355e453355aa08e5887da974
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76879172"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509156"
 ---
 # <a name="update-the-dns-forwarder-in-azure-stack-hub"></a>Aktualizace služby DNS pro přeposílání v centru Azure Stack
 

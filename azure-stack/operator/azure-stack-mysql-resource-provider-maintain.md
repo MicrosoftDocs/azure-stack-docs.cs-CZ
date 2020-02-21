@@ -1,18 +1,18 @@
 ---
 title: Operace údržby poskytovatele prostředků MySQL v centru Azure Stack
 description: Naučte se udržovat službu poskytovatele prostředků MySQL v Azure Stack hub.
-author: mattbriggs
+author: bryanla
 ms.topic: article
 ms.date: 1/22/2020
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: a39ecec1cce85582a53e0fb64979726adb15115d
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: f3153de76385a74f7742dd72a1c12038acc2513e
+ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881787"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77492066"
 ---
 # <a name="mysql-resource-provider-maintenance-operations-in-azure-stack-hub"></a>Operace údržby poskytovatele prostředků MySQL v centru Azure Stack
 

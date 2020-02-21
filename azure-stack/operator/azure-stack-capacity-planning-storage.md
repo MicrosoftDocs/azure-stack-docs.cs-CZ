@@ -1,18 +1,18 @@
 ---
 title: Azure Stack plánování kapacity úložiště centra
 description: Přečtěte si o plánování kapacity úložiště pro Azure Stack nasazení centra.
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: inhenkel
 ms.reviewer: prchint
 ms.lastreviewed: 05/31/2019
-ms.openlocfilehash: 8aa3bbb2c3b859ff98c8dd68fe4d24036ec18a4a
-ms.sourcegitcommit: 0a3c8b0bf9c116a5caaeca453a2bbc6e7f7cbfb9
+ms.openlocfilehash: 532617955020af0038f09f59b94bb3cfedde7094
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77147679"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77510108"
 ---
 # <a name="azure-stack-hub-storage-capacity-planning"></a>Azure Stack plánování kapacity úložiště centra
 

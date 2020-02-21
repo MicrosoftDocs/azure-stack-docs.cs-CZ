@@ -4,18 +4,18 @@ titleSuffix: Azure Stack Hub
 description: Zjistěte, jak ověřit certifikáty PKI pro integrované systémy Azure Stack centra pomocí nástroje pro kontrolu připravenosti centra Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 07/23/2019
 ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: 4ec3732df372e0b768b3f52c082cae5db932a36c
-ms.sourcegitcommit: 5f53810d3c5917a3a7b816bffd1729a1c6b16d7f
+ms.openlocfilehash: 40539890c6adc431ffba95358855db0e7d9f17d8
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/03/2020
-ms.locfileid: "76972545"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77508085"
 ---
 # <a name="validate-azure-stack-hub-pki-certificates"></a>Ověření certifikátů PKI Azure Stack hub
 
@@ -93,7 +93,7 @@ Pomocí těchto kroků Připravte a ověřte certifikáty PKI centra Azure Stack
 
     ```powershell  
     $pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString 
-    Invoke-AzsCertificateValidation -CertificateType Deployment -CertificatePath C:\Certificates\Deployment -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD  
+    Invoke-AzsCertificateValidation -CertificateType Deployment -CertificatePath C:\Certificates\Deployment -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com  
     ```
 
 4. Zkontrolujte výstup a zajistěte, aby všechny certifikáty vyhověly všem testům. Příklad:
@@ -238,7 +238,7 @@ Pomocí těchto kroků Připravte a ověřte certifikáty PKI centra Azure Stack
 
 | Adresář | Certifikát |
 | ---    | ----        |
-| acsBlob | `wildcard_blob_<region>_<externalFQDN>` |
+| ACSBlob | `wildcard_blob_<region>_<externalFQDN>` |
 | ACSQueue  |  `wildcard_queue_<region>_<externalFQDN>` |
 | ACSTable  |  `wildcard_table_<region>_<externalFQDN>` |
 | Hostitel rozšíření Správce  |  `wildcard_adminhosting_<region>_<externalFQDN>` |

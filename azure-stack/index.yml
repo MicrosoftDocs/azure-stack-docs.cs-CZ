@@ -10,12 +10,12 @@ metadata:
   author: BryanLa
   ms.author: bryanla
   ms.date: 11/04/2019
-  ms.openlocfilehash: 96ea6293fb0436f57fc619625222062e0955ef44
-  ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+  ms.openlocfilehash: 11ba5e777f26cbfca0cae2b4dc1b0b91f6ce77c6
+  ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
   ms.translationtype: MT
   ms.contentlocale: cs-CZ
-  ms.lasthandoff: 11/06/2019
-  ms.locfileid: "73636825"
+  ms.lasthandoff: 02/20/2020
+  ms.locfileid: "77509122"
 highlightedContent:
   items:
   - title: Oznámení o Azure Stack rodině
@@ -36,10 +36,10 @@ productDirectory:
     links:
     - url: /azure/databox-online/data-box-edge-overview
       text: Co je Azure Stack Edge?
-  - title: HCI služby Azure Stack
+  - title: Azure Stack HCI
     imageSrc: media/index/azure-stack-hci.svg
     links:
-    - url: /azure-stack/operator/azure-stack-hci-overview
+    - url: /azure-stack/hci/overview
       text: Přehled Azure Stack HCI
 conceptualContent:
   title: Hybridní vzory a příklady řešení
@@ -115,7 +115,7 @@ additionalContent:
         text: Příprava hostitelského počítače s ASDK
   - title: Azure Stack Edge
     items:
-    - title: Nasazení
+    - title: Nasadit
       links:
       - url: /azure/databox-online/data-box-edge-system-requirements
         text: Kontrola požadavků na systém
@@ -124,14 +124,14 @@ additionalContent:
       - url: /azure/databox-online/data-box-edge-deploy-prep
         text: Příprava nasazení
       - url: /azure/databox-online/data-box-edge-deploy-install
-        text: Instalace
-    - title: Vyvíjejte
+        text: Nainstalovat
+    - title: Vyvinout
       links:
       - url: /azure/databox-online/data-box-edge-create-iot-edge-module
         text: Vývoj modulu IoT Edge (C#)
       - url: /samples/azure-samples/data-box-edge-csharp-modules/data-box-edge-csharp-modules
         text: Ukázky modulu IoT Edge (C#)
-  - title: HCI služby Azure Stack
+  - title: Azure Stack HCI
     items:
     - title: Řešení
       links:
@@ -139,10 +139,10 @@ additionalContent:
         text: Přehled řešení Azure Stack HCI
       - url: https://www.microsoft.com/cloud-platform/azure-stack-hci-catalog
         text: Azure Stack katalogu HCI
-    - title: Spravujte
+    - title: Spravovat
       links:
       - url: /windows-server/manage/windows-admin-center/understand/windows-admin-center
-        text: Windows Admin Center
+        text: Centrum pro správu systému Windows
       - url: /windows-server/manage/windows-admin-center/azure
         text: Služba Azure Hybrid Services
     - title: Základní technologie
@@ -150,7 +150,7 @@ additionalContent:
       - url: /windows-server/virtualization/hyper-v/hyper-v-on-windows-server
         text: Hyper-V
       - url: /windows-server/storage/storage-spaces/storage-spaces-direct-overview
-        text: Prostory úložiště s přímým přístupem
+        text: Prostory úložiště s přímým přístupem
       - url: /windows-server/networking/sdn
         text: Softwarově definované sítě
       - url: /windows-server/failover-clustering/failover-clustering-overview

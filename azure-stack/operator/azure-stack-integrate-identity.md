@@ -1,18 +1,18 @@
 ---
 title: Integrace AD FS identity s vaším datacenterm centra Azure Stack
 description: Naučte se integrovat Azure Stack hub AD FS poskytovatele identity ke svému datovému centru AD FS.
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 05/10/2019
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: 1e55ae573d67775389e1e8e8ebac1b9ba094e5a7
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: b4f48c8fe4138b74b735615777b16630c0fe7060
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882139"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509836"
 ---
 # <a name="integrate-ad-fs-identity-with-your-azure-stack-hub-datacenter"></a>Integrace AD FS identity s vaším datacenterm centra Azure Stack
 
@@ -41,9 +41,9 @@ Pro poslední krok je pro výchozí předplatné zprostředkovatele nakonfigurov
 
 Požadavky:
 
-|Součást|Požadavek|
+|Komponenta|Požadavek|
 |---------|---------|
-|Grafová databáze|Microsoft Active Directory 2012/2012 R2/2016|
+|Graf|Microsoft Active Directory 2012/2012 R2/2016|
 |AD FS|Windows Server 2012/2012 R2/2016|
 
 ## <a name="setting-up-graph-integration"></a>Nastavení integrace grafu
@@ -52,7 +52,7 @@ Graf podporuje pouze integraci s jednou doménovou strukturou služby Active Dir
 
 Jako vstupy pro parametry automatizace se vyžadují tyto informace:
 
-|Parametr|Parametr listu nasazení|Popis|Příklad:|
+|Parametr|Parametr listu nasazení|Popis|Příklad|
 |---------|---------|---------|---------|
 |`CustomADGlobalCatalog`|AD FS plně kvalifikovaný název domény doménové struktury|Plně kvalifikovaný název domény cílové doménové struktury služby Active Directory, se kterou chcete integrovat|Contoso.com|
 |`CustomADAdminCredentials`| |Uživatel s oprávněním ke čtení protokolu LDAP|YOURDOMAIN\graphservice|
@@ -113,7 +113,7 @@ Služba Graph Service v centru Azure Stack používá následující protokoly a
 
 Služba Graph Service v centru Azure Stack používá ke komunikaci s cílovou službou Active Directory následující protokoly a porty:
 
-|Typ|Port|Protocol (Protokol)|
+|Typ|Port|Protokol|
 |---------|---------|---------|
 |LDAP|389|TCP & UDP|
 |LDAP SSL|636|TCP|
@@ -124,11 +124,11 @@ Služba Graph Service v centru Azure Stack používá ke komunikaci s cílovou s
 
 Pro parametry automatizace se jako vstup vyžadují tyto informace:
 
-|Parametr|Parametr listu nasazení|Popis|Příklad:|
+|Parametr|Parametr listu nasazení|Popis|Příklad|
 |---------|---------|---------|---------|
 |CustomAdfsName|Název poskytovatele AD FS|Název zprostředkovatele deklarací identity.<br>Toto zobrazení se zobrazí na AD FS cílové stránce.|Contoso|
 |CustomAD<br>FSFederationMetadataEndpointUri|Identifikátor URI AD FS metadat|Odkaz federačních metadat| https:\//ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml |
-|SigningCertificateRevocationCheck|není k dispozici|Volitelný parametr pro přeskočení kontroly CRL|Žádné|
+|SigningCertificateRevocationCheck|Není k dispozici|Volitelný parametr pro přeskočení kontroly CRL|Žádné|
 
 
 ### <a name="trigger-automation-to-configure-claims-provider-trust-in-azure-stack-hub"></a>Aktivace automatizace pro konfiguraci vztahu důvěryhodnosti zprostředkovatele deklarací v centru Azure Stack
@@ -164,7 +164,7 @@ Počínaje verzí 1807 použijte tuto metodu, pokud jsou splněné některé z n
 Pro parametry automatizace se jako vstup vyžadují tyto informace:
 
 
-|Parametr|Popis|Příklad:|
+|Parametr|Popis|Příklad|
 |---------|---------|---------|
 |CustomAdfsName|Název zprostředkovatele deklarací identity. Toto zobrazení se zobrazí na AD FS cílové stránce.|Contoso|
 |CustomADFSFederationMetadataFileContent|Obsah metadat|$using:federationMetadataFileContent|
@@ -304,7 +304,7 @@ Existuje mnoho scénářů, které vyžadují použití hlavního názvu služby
 Další informace o vytváření hlavního názvu služby (SPN) najdete v tématu [Vytvoření instančního objektu pro AD FS](azure-stack-create-service-principals.md).
 
 
-## <a name="troubleshooting"></a>Řešení potíží
+## <a name="troubleshooting"></a>Odstraňování potíží
 
 ### <a name="configuration-rollback"></a>Vrácení změn konfigurace
 

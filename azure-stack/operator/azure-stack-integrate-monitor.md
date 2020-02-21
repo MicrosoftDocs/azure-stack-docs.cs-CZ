@@ -1,18 +1,18 @@
 ---
 title: Integrace řešení pro externí monitorování pomocí centra Azure Stack
 description: Naučte se integrovat Azure Stack hub s externím řešením monitorování ve vašem datovém centru.
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 06/05/2019
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: 3e50471201c7207aa68b725daf202d323b836a99
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: a38c6f8aca4ad8203b576550dd01873cdeb9b7a8
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882111"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509853"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack-hub"></a>Integrace řešení pro externí monitorování pomocí centra Azure Stack
 
@@ -114,7 +114,7 @@ Následující parametry jsou k dispozici pro konfiguraci v souboru azurestack. 
 
 Další informace o tom, jak vytvořit hlavní název služby (SPN), najdete v tématu [použití identity aplikace pro přístup k prostředkům](azure-stack-create-service-principals.md).
 
-| Parametr | Popis | Ověření |
+| Parametr | Popis | Ověřování |
 | --- | --- | --- |
 | **External_domain_fqdn ** | Plně kvalifikovaný název domény externí domény |    |
 | **region: ** | Název oblasti |    |
@@ -186,7 +186,7 @@ Výstrahu můžete také uzavřít pomocí terminálu s následujícím příkaz
 /usr/local/nagios/libexec/azurestack_plugin.py --config-file /usr/local/nagios/etc/objects/azurestack.cfg --action Close --alert-id <ALERT_GUID>
 ```
 
-### <a name="troubleshooting"></a>Řešení potíží
+### <a name="troubleshooting"></a>Odstraňování potíží
 
 Řešení potíží s modulem plug-in je prováděno ručním voláním modulu plug-in v terminálu. Použijte následující metodu:
 
@@ -198,7 +198,7 @@ Výstrahu můžete také uzavřít pomocí terminálu s následujícím příkaz
 
 Pokud nepoužíváte Operations Manager, Nagios nebo řešení založené na Nagios, můžete pomocí PowerShellu povolit širokou škálu řešení monitorování pro integraci se službou Azure Stack hub.
 
-1. Pokud chcete používat PowerShell, ujistěte se, že máte [nainstalovaný PowerShell a nakonfigurovat](azure-stack-powershell-install.md) ho pro prostředí operátora centra Azure Stack. Instalace prostředí PowerShell na místní počítač, který můžete dosáhnout koncového bodu Resource Manager (správce) (https://adminmanagement. [ Oblast]. [External_FQDN]).
+1. Pokud chcete používat PowerShell, ujistěte se, že máte [nainstalovaný PowerShell a nakonfigurovat](azure-stack-powershell-install.md) ho pro prostředí operátora centra Azure Stack. Nainstalujte PowerShell do místního počítače, který se může připojit ke koncovému bodu Správce prostředků (správce) (https://adminmanagement. [ oblast]. [External_FQDN]).
 
 2. Spusťte následující příkazy, které se připojí k prostředí Azure Stack hub jako operátor centra Azure Stack:
 

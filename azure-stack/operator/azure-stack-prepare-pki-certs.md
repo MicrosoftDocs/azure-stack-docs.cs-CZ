@@ -2,18 +2,18 @@
 title: Příprava certifikátů PKI Azure Stack hub pro nasazení nebo otočení
 titleSuffix: Azure Stack Hub
 description: Naučte se, jak připravit certifikáty PKI pro nasazení integrovaných systémů centra Azure Stack nebo pro střídání tajných kódů v existujícím prostředí centra Azure Stack.
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 09/16/2019
-ms.openlocfilehash: 3111d59a685425210bd8e63fbafcd4bb68c4a3a2
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 321ceff84ec24997866366c533eb31939acde2dd
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881590"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509717"
 ---
 # <a name="prepare-azure-stack-hub-pki-certificates-for-deployment-or-rotation"></a>Příprava certifikátů PKI Azure Stack hub pro nasazení nebo otočení
 
@@ -31,7 +31,7 @@ Pomocí následujících kroků můžete připravit a ověřit certifikáty PKI 
 
 1. Pravým tlačítkem myši klikněte na certifikát a vyberte **instalovat certifikát** nebo **nainstalovat PFX**v závislosti na tom, jak byl certifikát dodán z vaší certifikační autority.
 
-1. V **Průvodci importem certifikátu**vyberte jako umístění importu možnost **místní počítač** . Vyberte **Next** (Další). Na následující obrazovce znovu vyberte Další.
+1. V **Průvodci importem certifikátu**vyberte jako umístění importu možnost **místní počítač** . Vyberte **Další**. Na následující obrazovce znovu vyberte Další.
 
     ![Umístění importu místního počítače pro certifikát](./media/prepare-pki-certs/1.png)
 
@@ -39,7 +39,7 @@ Pomocí následujících kroků můžete připravit a ověřit certifikáty PKI 
 
    ![Konfigurace úložiště certifikátů pro import certifikátu](./media/prepare-pki-certs/3.png)
 
-   a. Při importu PFX se zobrazí další dialog. Na stránce **ochrana privátního klíče** zadejte heslo pro soubory certifikátů a potom povolte možnost **Označit tento klíč jako exportovatelný. Díky tomu můžete klíče zálohovat nebo přenést později** . Vyberte **Next** (Další).
+   a. Při importu PFX se zobrazí další dialog. Na stránce **ochrana privátního klíče** zadejte heslo pro soubory certifikátů a potom povolte možnost **Označit tento klíč jako exportovatelný. Díky tomu můžete klíče zálohovat nebo přenést později** . Vyberte **Další**.
 
    ![Označit klíč jako exportovatelný](./media/prepare-pki-certs/2.png)
 
@@ -64,7 +64,7 @@ Otevřete konzolu MMC Správce certifikátů a připojte se k úložišti certif
 
 4. Přejděte na **certifikáty** > **podnikové důvěryhodnosti** > **umístění certifikátu**. Ověřte, že na pravé straně vidíte svůj certifikát.
 
-5. Z hlavního panelu konzoly Správce certifikátů vyberte **akce** > **všechny úlohy** > **exportovat**. Vyberte **Next** (Další).
+5. Z hlavního panelu konzoly Správce certifikátů vyberte **akce** > **všechny úlohy** > **exportovat**. Vyberte **Další**.
 
    > [!NOTE]
    > V závislosti na tom, kolik certifikátů centra Azure Stack máte, možná budete muset tento proces dokončit více než jednou.
@@ -76,7 +76,7 @@ Otevřete konzolu MMC Správce certifikátů a připojte se k úložišti certif
    - **Pokud je to možné, vyberte zahrnout všechny certifikáty do certifikátu**.  
    - Vyberte **exportovat všechny rozšířené vlastnosti**.  
    - Vyberte možnost **Povolit ochranu osobních údajů certifikátu**.  
-   - Klikněte na **Další**.  
+   - Klikněte na **Další**.  
     
      ![Průvodce exportem certifikátu s vybranými možnostmi](./media/prepare-pki-certs/azure-stack-save-cert.png)
 
@@ -87,9 +87,9 @@ Otevřete konzolu MMC Správce certifikátů a připojte se k úložišti certif
 
     Poznamenejte si toto heslo. Použijete ho jako parametr nasazení.
 
-9. Vyberte **Next** (Další).
+9. Vyberte **Další**.
 
-10. Vyberte název souboru a umístění souboru PFX, který chcete exportovat. Vyberte **Next** (Další).
+10. Vyberte název souboru a umístění souboru PFX, který chcete exportovat. Vyberte **Další**.
 
 11. Vyberte **Finish** (Dokončit).
 

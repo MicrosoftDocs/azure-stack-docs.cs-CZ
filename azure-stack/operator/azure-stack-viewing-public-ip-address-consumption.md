@@ -2,18 +2,18 @@
 title: Správa síťových prostředků
 titleSuffix: Azure Stack Hub
 description: Naučte se spravovat síťové prostředky, včetně fondu adres MAC a spotřeby veřejných IP adres v oblasti.
-author: mattbriggs
+author: IngridAtMicrosoft
 ms.topic: conceptual
 ms.date: 1/22/2020
-ms.author: mabrigg
+ms.author: inhenkel
 ms.reviewer: scottnap
 ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: 3542706d71ed6800cd246cbc0d59a5443ed3edbc
-ms.sourcegitcommit: 0a3c8b0bf9c116a5caaeca453a2bbc6e7f7cbfb9
+ms.openlocfilehash: 8f52158e53bbb48b25b9b3a898c0ece33ab3c1be
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77147827"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77508017"
 ---
 # <a name="manage-network-resources-in-azure-stack-hub"></a>Správa síťových prostředků v centru Azure Stack
 

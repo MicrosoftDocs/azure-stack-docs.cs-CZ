@@ -1,18 +1,18 @@
 ---
 title: Reference k rutině Start-AzsReadinessChecker
 description: Nápovědu k rutinám PowerShellu pro modul kontroly připravenosti centra Azure Stack
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.author: inhenkel
 ms.reviewer: unknown
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: e4794df9c66f1d060b6701d782c0486ddb914b02
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 067164db905e6649def7ecd06b0e15d166d286b9
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76877761"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509377"
 ---
 # <a name="start-azsreadinesschecker-cmdlet-reference"></a>Reference k rutině Start-AzsReadinessChecker
 
@@ -293,7 +293,7 @@ Určuje název oblasti nasazení centra Azure Stack.
 
 |  |  |
 |----------------------------|--------------|
-|Typ:                       |Řetězec        |
+|Typ:                       |String        |
 |Poziční                   |Jmenovanou         |
 |Výchozí hodnota:              |Žádné          |
 |Přijmout vstup kanálu:      |Nepravda         |
@@ -305,7 +305,7 @@ Určuje externí plně kvalifikovaný název domény pro nasazení centra Azure 
 
 |  |  |
 |----------------------------|--------------|
-|Typ:                       |Řetězec        |
+|Typ:                       |String        |
 |Poziční                   |Jmenovanou         |
 |Výchozí hodnota:              |ExternalFQDN, ExternalDomainName |
 |Přijmout vstup kanálu:      |Nepravda         |
@@ -317,7 +317,7 @@ Určuje Azure Stack platné hodnoty, AAD nebo ADFS v rámci nasazení centra pro
 
 |  |  |
 |----------------------------|--------------|
-|Typ:                       |Řetězec        |
+|Typ:                       |String        |
 |Poziční                   |Jmenovanou         |
 |Výchozí hodnota:              |Žádné          |
 |Platné hodnoty:               |AAD, ADFS  |
@@ -354,7 +354,7 @@ Určuje konfigurační soubor JSON Azure Stackch dat nasazení centra. Tento sou
 
 |  |  |
 |----------------------------|---------|
-|Typ:                       |Řetězec   |
+|Typ:                       |String   |
 |Poziční                   |Jmenovanou    |
 |Výchozí hodnota:              |Žádné     |
 |Přijmout vstup kanálu:      |Nepravda    |
@@ -366,7 +366,7 @@ Určuje cestu k problematickému certifikátu, který vyžaduje, aby se opravila
 
 |  |  |
 |----------------------------|---------|
-|Typ:                       |Řetězec   |
+|Typ:                       |String   |
 |Poziční                   |Jmenovanou    |
 |Výchozí hodnota:              |Žádné     |
 |Přijmout vstup kanálu:      |Nepravda    |
@@ -378,7 +378,7 @@ Určuje cílovou cestu pro výsledný soubor PFX z rutiny Import/export.
 
 |  |  |
 |----------------------------|---------|
-|Typ:                       |Řetězec   |
+|Typ:                       |String   |
 |Poziční                   |Jmenovanou    |
 |Výchozí hodnota:              |Žádné     |
 |Přijmout vstup kanálu:      |Nepravda    |
@@ -405,7 +405,7 @@ Určuje typ sítě SAN žádosti o certifikát. Platné hodnoty jsou **MultipleC
 
 |  |  |
 |----------------------------|---------|
-|Typ:                       |Řetězec   |
+|Typ:                       |String   |
 |Poziční                   |Jmenovanou    |
 |Výchozí hodnota:              |Žádné     |
 |Platné hodnoty:               |'MultipleCSR','SingleCSR' |
@@ -418,7 +418,7 @@ Určuje cílovou cestu pro soubory žádostí o certifikát. Adresář již mus�
 
 |  |  |
 |----------------------------|---------|
-|Typ:                       |Řetězec   |
+|Typ:                       |String   |
 |Poziční                   |Jmenovanou    |
 |Výchozí hodnota:              |Žádné     |
 |Přijmout vstup kanálu:      |Nepravda    |
@@ -442,7 +442,7 @@ Určuje název služby Azure AD, který se má použít pro nasazení centra Azu
 
 |  |  |
 |----------------------------|---------|
-|Typ:                       |Řetězec   |
+|Typ:                       |String   |
 |Poziční                   |Jmenovanou    |
 |Výchozí hodnota:              |Žádné     |
 |Přijmout vstup kanálu:      |Nepravda    |
@@ -454,7 +454,7 @@ Určuje instanci služeb Azure, které obsahují účty, adresáře a odběry, k
 
 |  |  |
 |----------------------------|---------|
-|Typ:                       |Řetězec   |
+|Typ:                       |String   |
 |Poziční                   |Jmenovanou    |
 |Výchozí hodnota:              |Žádné     |
 |Platné hodnoty:               |'AzureCloud','AzureChinaCloud','AzureUSGovernment' |
@@ -467,7 +467,7 @@ Určuje registrační účet, který se má použít pro registraci centra Azure
 
 |  |  |
 |----------------------------|---------|
-|Typ:                       |Řetězec   |
+|Typ:                       |String   |
 |Poziční                   |Jmenovanou    |
 |Výchozí hodnota:              |Žádné     |
 |Přijmout vstup kanálu:      |Nepravda    |
@@ -479,7 +479,7 @@ Určuje ID předplatného registrace, které se má použít pro registraci cent
 
 |  |  |
 |----------------------------|---------|
-|Typ:                       |Guid     |
+|Typ:                       |identifikátor GUID     |
 |Poziční                   |Jmenovanou    |
 |Výchozí hodnota:              |Žádné     |
 |Přijmout vstup kanálu:      |Nepravda    |
@@ -491,9 +491,9 @@ Určuje cestu k sestavě připravenosti, výchozí hodnota je aktuální adresá
 
 |  |  |
 |----------------------------|---------|
-|Typ:                       |Řetězec   |
+|Typ:                       |String   |
 |Poziční                   |Jmenovanou    |
-|Výchozí hodnota:              |Všechno      |
+|Výchozí hodnota:              |Všechny      |
 |Přijmout vstup kanálu:      |Nepravda    |
 |Přijmout zástupné znaky: |Nepravda    |
 
@@ -513,7 +513,7 @@ Požadované složky pro nasazení centra Azure Stack se systémem Active Direct
 
 |  |  |
 |----------------------------|---------|
-|Typ:                       |Řetězec   |
+|Typ:                       |String   |
 |Poziční                   |Jmenovanou    |
 |Výchozí hodnota:              |.\Certificates |
 |Přijmout vstup kanálu:      |Nepravda    |
@@ -537,9 +537,9 @@ Určuje, jestli se má zobrazit jenom souhrn sestavy, vynechává se podrobnosti
 
 |  |  |
 |----------------------------|---------|
-|Typ:                       |Řetězec   |
+|Typ:                       |String   |
 |Poziční                   |Jmenovanou    |
-|Výchozí hodnota:              |Všechno      |
+|Výchozí hodnota:              |Všechny      |
 |Platné hodnoty:               |"Certificate", "AzureRegistration", "AzureIdentity", "Jobs", "All" |
 |Přijmout vstup kanálu:      |Nepravda    |
 |Přijmout zástupné znaky: |Nepravda    |
@@ -575,7 +575,7 @@ Určuje vlastní cestu k uložení sestavy JSON připravenosti a podrobného sou
 
 |  |  |
 |----------------------------|------------------|
-|Typ:                       |Řetězec            |
+|Typ:                       |String            |
 |Poziční                   |Jmenovanou             |
 |Výchozí hodnota:              |$ENV: TEMP\AzsReadinessChecker  |
 |Přijmout vstup kanálu:      |Nepravda             |

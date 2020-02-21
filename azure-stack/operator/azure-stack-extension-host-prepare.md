@@ -1,18 +1,18 @@
 ---
 title: Příprava pro hostitele rozšíření v centru Azure Stack
 description: Přečtěte si, jak připravit hostitele rozšíření v centru Azure Stack, který se automaticky povolí prostřednictvím balíčku aktualizace centra Azure Stack po verzi 1808.
-author: ihenkel
+author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.date: 1/22/2020
 ms.topic: article
 ms.reviewer: thoroet
 ms.lastreviewed: 03/07/2019
-ms.openlocfilehash: c28f47930ea7fa9913ae339ea379562477694492
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 1d6b32173b8b2fba921e7e15fc5f0073456e6031
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882266"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509955"
 ---
 # <a name="prepare-for-extension-host-in-azure-stack-hub"></a>Příprava pro hostitele rozšíření v centru Azure Stack
 
@@ -26,7 +26,7 @@ V tabulce jsou uvedeny nové obory názvů a přidružené certifikáty:
 
 | Složka pro nasazení | Požadovaný předmět certifikátu a alternativní názvy subjektu (SAN) | Rozsah (na oblast) | Obor názvů subdomény |
 |-----------------------|------------------------------------------------------------------|-----------------------|------------------------------|
-| Hostitel rozšíření Správce | *.adminhosting. >\<oblasti.\<plně kvalifikovaný název domény > (zástupné certifikáty SSL) | Hostitel rozšíření Správce | adminhosting.\<region>.\<fqdn> |
+| Hostitel rozšíření Správce | *.adminhosting. >\<oblasti.\<plně kvalifikovaný název domény > (zástupné certifikáty SSL) | Hostitel rozšíření Správce | adminhosting. >\<oblasti.\<plně kvalifikovaný název domény > |
 | Hostitel veřejného rozšíření | *. Hosting. >\<oblasti.\<plně kvalifikovaný název domény > (zástupné certifikáty SSL) | Hostitel veřejného rozšíření | který. >\<oblasti.\<plně kvalifikovaný název domény > |
 
 Podrobné požadavky na certifikáty najdete v tématu [požadavky na certifikát infrastruktury veřejných klíčů služby Azure Stack hub](azure-stack-pki-certs.md).
@@ -125,8 +125,8 @@ Pokud jsou u jednotlivých hostitelů nakonfigurované záznamy pro publikován�
 
 | IP | Název hostitele | Typ |
 |----|------------------------------|------|
-| \<IP> | *. Adminhosting. >\<oblasti.\<plně kvalifikovaný název domény > | A |
-| \<IP> | *. Který. >\<oblasti.\<plně kvalifikovaný název domény > | A |
+| \<IP > | *. Adminhosting. >\<oblasti.\<plně kvalifikovaný název domény > | A |
+| \<IP > | *. Který. >\<oblasti.\<plně kvalifikovaný název domény > | A |
 
 Přidělené IP adresy se dají načíst pomocí privilegovaného koncového bodu spuštěním rutiny **Get-AzureStackStampInformation**.
 
@@ -167,7 +167,7 @@ Else {
 Remove-PSSession -Session $PEPSession
 ```
 
-#### <a name="sample-output"></a>Ukázkový výstup
+#### <a name="sample-output"></a>Vzorový výstup
 
 ```powershell
 Can access AZS DNS
@@ -180,10 +180,10 @@ The Record to be added in the DNS zone: Type A, Name: *.hosting.\<region>.\<fqdn
 > [!Note]  
 > Tuto změnu udělejte před tím, než povolíte hostitele rozšíření. To umožňuje, aby byly portály centra Azure Stack nepřetržitě přístupné.
 
-| Koncový bod (VIP) | Protocol (Protokol) | Porty |
+| Koncový bod (VIP) | Protokol | Porty |
 |----------------|----------|-------|
 | Hostování správců | HTTPS | 443 |
-| Hostování | HTTPS | 443 |
+| Hosting | HTTPS | 443 |
 
 ### <a name="update-existing-publishing-rules-post-enablement-of-extension-host"></a>Aktualizovat existující pravidla publikování (povolení hostitele rozšíření)
 
@@ -195,7 +195,7 @@ Následující existující porty koncového bodu musí být uzavřeny ve stáva
 > [!Note]  
 > Po úspěšném ověření se tyto porty doporučuje zavřít.
 
-| Koncový bod (VIP) | Protocol (Protokol) | Porty |
+| Koncový bod (VIP) | Protokol | Porty |
 |----------------------------------------|----------|-------------------------------------------------------------------------------------------------------------------------------------|
 | Portál (správce) | HTTPS | 12495<br>12499<br>12646<br>12647<br>12648<br>12649<br>12650<br>13001<br>13003<br>13010<br>13011<br>13012<br>13020<br>13021<br>13026<br>30015 |
 | Portál (uživatel) | HTTPS | 12495<br>12649<br>13001<br>13010<br>13011<br>13012<br>13020<br>13021<br>30015<br>13003 |

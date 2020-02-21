@@ -1,18 +1,18 @@
 ---
 title: Správa účtů úložiště Azure Stack hub
 description: Přečtěte si, jak najít, spravovat, obnovit a získat Azure Stack účty úložiště centra.
-author: mattbriggs
+author: IngridAtMicrosoft
 ms.topic: conceptual
 ms.date: 1/22/2020
-ms.author: mabrigg
+ms.author: inhenkel
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: e3817639d379811b79387cb46064fbaff02b2f33
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 77505a2d91ff4aac4174395a170ba040fb4e9ec7
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882026"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509819"
 ---
 # <a name="manage-azure-stack-hub-storage-accounts"></a>Správa účtů úložiště Azure Stack hub
 
@@ -65,7 +65,7 @@ V centru Azure Stack existuje jednoduchý způsob, jak to provést:
 3. Ověřte *stav* účtu. Měl by se jednat o **odstranění**.
 4. Vyberte účet, který otevře podokno Podrobnosti o účtu.
 5. V horní části tohoto podokna najděte tlačítko **obnovit** a vyberte ho.
-6. Výběrem **Ano** potvrďte.
+6. Odstranění potvrďte výběrem **Ano**.
 
    ![Potvrzení obnovení účtu úložiště](media/azure-stack-manage-storage-accounts/image8.png)
 

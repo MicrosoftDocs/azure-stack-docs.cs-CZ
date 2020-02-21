@@ -2,18 +2,18 @@
 title: Sestava ověření centra Azure Stack
 titleSuffix: Azure Stack Hub
 description: K vygenerování sestavy ověření použijte nástroj pro kontrolu připravenosti centra Azure Stack.
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.author: inhenkel
 ms.reviewer: unknown
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: a2264608c295a29fecc5335ce4970499dd10c895
-ms.sourcegitcommit: 0a3c8b0bf9c116a5caaeca453a2bbc6e7f7cbfb9
+ms.openlocfilehash: c64c9b4b5a6f73f5dd8f5e323ff16a44589173cc
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77147729"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77508152"
 ---
 # <a name="azure-stack-hub-validation-report"></a>Sestava ověření centra Azure Stack
 
@@ -88,7 +88,7 @@ PSBoundParameters :
 
 ## <a name="view-the-report-summary"></a>Zobrazit souhrn sestavy
 
-Chcete-li zobrazit souhrn sestavy, můžete na konec příkazu prostředí PowerShell přidat parametr `-summary`. Například:
+Chcete-li zobrazit souhrn sestavy, můžete na konec příkazu prostředí PowerShell přidat parametr `-summary`. Příklad:
 
 ```powershell
 Read-AzsReadinessReport -ReportPath .\Contoso-AzsReadinessReport.json -summary
@@ -127,7 +127,7 @@ Chcete-li zobrazit sestavu, která je filtrována podle jednoho typu ověřován
 - Certifikát
 - AzureRegistration
 - AzureIdentity
-- Graph
+- Graf
 - ADFS
 - Úlohy
 - Všechny  

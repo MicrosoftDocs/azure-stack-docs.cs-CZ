@@ -1,24 +1,24 @@
 ---
 title: Názorný postup pro integraci centra Azure Stack hub
 description: Přečtěte si, co očekávat úspěšné nasazení centra Azure Stack v rámci lokality ve vašem datovém centru, od plánování po nasazení.
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 11/07/2019
 ms.author: inhenkel
 ms.reviewer: asganesh
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: 6711483384ba9985ced7396d19e025e0ed3240c6
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: ba68a3045876e8dd6e23f430cd23edc429cb4e31
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882508"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77510057"
 ---
 # <a name="azure-stack-hub-datacenter-integration-walkthrough"></a>Názorný postup pro integraci centra Azure Stack hub
 
 Tento článek popisuje kompletní proces integrace centra Azure Stack pro integraci z nákupu až po nasazení. Integrací je projekt pro spolupráci mezi zákazníkem, poskytovatelem řešení a Microsoftem. Kliknutím na následující karty zobrazíte konkrétní kroky pro každého člena projektu a v dalších částech najdete souhrn různých fází pro časovou osu projektu. 
 
-# <a name="customertabcustomer"></a>[Zákazníka](#tab/customer)
+# <a name="customer"></a>[Zákazník](#tab/customer)
 
 1. Popište případy použití a požadavky
 1. Určení modelu fakturace
@@ -29,7 +29,7 @@ Tento článek popisuje kompletní proces integrace centra Azure Stack pro integ
 1. Zadání informací o předplatném během nasazení
 1. Vyřešit všechny dotazy týkající se poskytnutých dat
 
-# <a name="partnertabpartner"></a>[Partner](#tab/partner)
+# <a name="partner"></a>[Instituc](#tab/partner)
 
 1. Doporučené možnosti řešení na základě požadavků zákazníků
 1. Navrhnout testování konceptu (pro ověření koncepce) 
@@ -48,7 +48,7 @@ Tento článek popisuje kompletní proces integrace centra Azure Stack pro integ
 1. Nasazení centra Azure Stack
 1. Předání zákazníkovi
 
-# <a name="microsofttabmicro"></a>[Microsoft](#tab/micro)
+# <a name="microsoft"></a>[Microsoft](#tab/micro)
 
 1. Zapojení partnera pro předprodejní podporu
 2. Příprava licencování softwaru a smluv

@@ -1,18 +1,18 @@
 ---
 title: Řešení potíží s aktualizacemi v centru Azure Stack
 description: Jako operátor centra Azure Stack se naučíte řešit problémy s aktualizací, aby se Azure Stack centrum mohl co nejrychleji vrátit do produkčního prostředí.
-author: mattbriggs
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 09/23/2019
-ms.author: mabrigg
+ms.author: inhenkel
 ms.lastreviewed: 09/23/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 927877867b0ec8cb2601b50e7f084f86964a5342
-ms.sourcegitcommit: 74ce7c12a93d47315d70427b02bcacbd3b44f854
+ms.openlocfilehash: 1c481538183098b6a1a88143dac339a919a248f3
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77037212"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77508680"
 ---
 # <a name="best-practices-for-troubleshooting-azure-stack-hub-patch-and-update-issues"></a>Osvědčené postupy pro řešení potíží s problémy s aktualizacemi a aktualizacemi centra Azure Stack
 

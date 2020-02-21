@@ -1,18 +1,18 @@
 ---
 title: Integrace centra Azure Stack s řešeními monitorování pomocí předávání syslog
 description: Naučte se integrovat Azure Stack hub s řešeními monitorování pomocí předávání syslog.
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: inhenkel
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/10/2020
-ms.openlocfilehash: 43398b4ef745c9ad0d72274a9a3ef400c4669053
-ms.sourcegitcommit: 3974fc544986a5eccfac0ba7c4441b05279ae226
+ms.openlocfilehash: 21a4d50c4ebb191e32c8c5a853359880bcdb1392
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "77001606"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509785"
 ---
 # <a name="integrate-azure-stack-hub-with-monitoring-solutions-using-syslog-forwarding"></a>Integrace centra Azure Stack s řešeními monitorování pomocí předávání syslog
 
@@ -57,15 +57,15 @@ Set-SyslogClient [-pfxBinary <Byte[]>] [-CertPassword <SecureString>] [-RemoveCe
 
 Parametry pro rutinu *set-SyslogServer* :
 
-| Parametr | Popis | Typ | Požaduje se |
+| Parametr | Popis | Typ | Požadováno |
 |---------|---------|---------|---------|
-|*ServerName* | Plně kvalifikovaný název domény nebo IP adresa serveru syslog | Řetězec | ano|
+|*ServerName* | Plně kvalifikovaný název domény nebo IP adresa serveru syslog | String | ano|
 |*ServerPort* | Číslo portu, na kterém naslouchá Server syslog. | UInt16 | ano|
 |*Šifrování*| Vynutit, aby klient odesílal zprávy syslog ve formátu prostého textu. | příznaků | ne|
 |*SkipCertificateCheck*| Při počátečním ověřování TLS vynechejte ověření certifikátu poskytnutého serverem syslog. | příznaků | ne|
 |*SkipCNCheck*| Při počátečním ověřování TLS vynechejte vynechání hodnoty pro běžný název certifikátu poskytnutého serverem syslog. | příznaků | ne|
 |*UseUDP*| Použijte protokol syslog se UDP jako transportní protokol. |příznaků | ne|
-|*odebrat*| Odeberte konfiguraci serveru z klienta a Zastavte předávání syslog.| příznaků | ne|
+|*Odebrány*| Odeberte konfiguraci serveru z klienta a Zastavte předávání syslog.| příznaků | ne|
 
 Parametry pro rutinu *set-SyslogClient* :
 
@@ -74,7 +74,7 @@ Parametry pro rutinu *set-SyslogClient* :
 | *pfxBinary* | Obsah souboru PFX předaných na Byte [] obsahující certifikát, který má klient používat jako identitu k ověřování na serveru syslog.  | Byte[] |
 | *CertPassword* |  Heslo pro import privátního klíče, který je přidružen k souboru PFX. | SecureString |
 |*RemoveCertificate* | Odeberte certifikát z klienta. | příznaků|
-| *OutputSeverity* | Úroveň protokolování výstupu. Hodnoty jsou **výchozí** nebo **podrobné**. Výchozí hodnota zahrnuje úrovně závažnosti: upozornění, kritická nebo chyba. Verbose obsahuje všechny úrovně závažnosti: Verbose, informativní, Warning, kritická nebo chyba.  | Řetězec |
+| *OutputSeverity* | Úroveň protokolování výstupu. Hodnoty jsou **výchozí** nebo **podrobné**. Výchozí hodnota zahrnuje úrovně závažnosti: upozornění, kritická nebo chyba. Verbose obsahuje všechny úrovně závažnosti: Verbose, informativní, Warning, kritická nebo chyba.  | String |
 ### <a name="configuring-syslog-forwarding-with-tcp-mutual-authentication-and-tls-12-encryption"></a>Konfigurace předávání syslogu pomocí protokolu TCP, vzájemného ověřování a šifrování TLS 1,2
 
 V této konfiguraci klient syslog v Azure Stack centrum přepošle zprávy na server syslog přes protokol TCP s šifrováním TLS 1,2. Při počáteční signalizaci klient ověří, že server poskytuje platný důvěryhodný certifikát. Klient také poskytuje certifikát serveru jako důkaz své identity. Tato konfigurace je nejbezpečnější, protože poskytuje úplné ověření identity klienta i serveru a odesílá zprávy přes zašifrovaný kanál.
@@ -240,7 +240,7 @@ Tabulka událostí pro privilegovaný koncový bod:
 
 | Událost | ID události PEP | Název úlohy PEP | Závažnost |
 |-------|--------------| --------------|----------|
-|PrivilegedEndpointAccessed|1 000|PrivilegedEndpointAccessedEvent|5|
+|PrivilegedEndpointAccessed|1 000|PrivilegedEndpointAccessedEvent|5|
 |SupportSessionTokenRequested |1001|SupportSessionTokenRequestedEvent|5|
 |SupportSessionDevelopmentTokenRequested |1002|SupportSessionDevelopmentTokenRequestedEvent|5|
 |SupportSessionUnlocked |1003|SupportSessionUnlockedEvent|10|
@@ -258,7 +258,7 @@ Tabulka PEP závažnosti:
 | Závažnost | Úroveň | Číselná hodnota |
 |----------|-------| ----------------|
 |0|Nedefinováno|Hodnota: 0. Indikuje protokoly na všech úrovních.|
-|10|Kritické|Hodnota: 1. Označuje protokoly pro kritickou výstrahu.|
+|10|Kritická|Hodnota: 1. Označuje protokoly pro kritickou výstrahu.|
 |8|Chyba| Hodnota: 2. Označuje protokoly pro chybu.|
 |5|Upozornění|Hodnota: 3. Indikuje protokoly pro upozornění.|
 |2|Informace|Hodnota: 4. Označuje protokoly pro informační zprávu.|
@@ -289,7 +289,7 @@ Tabulka závažnosti zástupce:
 | Závažnost | Úroveň | Číselná hodnota |
 |----------|-------| ----------------|
 |0|Nedefinováno|Hodnota: 0. Indikuje protokoly na všech úrovních.|
-|10|Kritické|Hodnota: 1. Označuje protokoly pro kritickou výstrahu.|
+|10|Kritická|Hodnota: 1. Označuje protokoly pro kritickou výstrahu.|
 |8|Chyba| Hodnota: 2. Označuje protokoly pro chybu.|
 |5|Upozornění|Hodnota: 3. Indikuje protokoly pro upozornění.|
 |2|Informace|Hodnota: 4. Označuje protokoly pro informační zprávu.|
@@ -309,7 +309,7 @@ Tabulka závažnosti pro události systému Windows:
 | Hodnota závažnosti CEF | Úroveň události Windows | Číselná hodnota |
 |--------------------|---------------------| ----------------|
 |0|Nedefinováno|Hodnota: 0. Indikuje protokoly na všech úrovních.|
-|10|Kritické|Hodnota: 1. Označuje protokoly pro kritickou výstrahu.|
+|10|Kritická|Hodnota: 1. Označuje protokoly pro kritickou výstrahu.|
 |8|Chyba| Hodnota: 2. Označuje protokoly pro chybu.|
 |5|Upozornění|Hodnota: 3. Indikuje protokoly pro upozornění.|
 |2|Informace|Hodnota: 4. Označuje protokoly pro informační zprávu.|
@@ -332,12 +332,12 @@ Vlastní tabulka rozšíření pro události Windows v centru Azure Stack:
 |MasKeywords |0x8000000000000000|
 |MasKeywordName |Úspěšný audit|
 |MasLevel |4|
-|MasOpcode |1\. místo|
+|MasOpcode |1|
 |MasOpcodeName |info|
 |MasProviderEventSourceName ||
 |MasProviderGuid |AEA1B4FA-97D1-45F2-A64C-4D69FFFD92C9|
 |MasProviderName |Microsoft-Windows-GroupPolicy|
-|MasSecurityUserId |\<Windows SID\> |
+|MasSecurityUserId |\<\> SID Windows |
 |MasTask |0|
 |MasTaskCategory| Vytváření procesů|
 |MasUserData|KB4093112!!5112!!Installed!!0x0!!WindowsUpdateAgent Xpath: /Event/UserData/*|
@@ -357,12 +357,12 @@ Tabulka Závažnost výstrahy:
 | Závažnost | Úroveň |
 |----------|-------|
 |0|Nedefinováno|
-|10|Kritické|
+|10|Kritická|
 |5|Upozornění|
 
 Vlastní tabulka rozšíření pro výstrahy vytvořené v centru Azure Stack:
 
-| Název vlastního rozšíření | Příklad: | 
+| Název vlastního rozšíření | Příklad | 
 |-----------------------|---------|
 |MasEventDescription|Popis: byl vytvořen uživatelský účet \<TestUser\> pro \<TestDomain\>. Jde o potenciální bezpečnostní riziko. --NÁPRAVa: obraťte se na podporu. K vyřešení tohoto problému se vyžaduje zákaznická podpora. Nepokoušejte se tento problém vyřešit bez pomoci. Než otevřete žádost o podporu, spusťte proces shromažďování souborů protokolu pomocí pokynů z https://aka.ms/azurestacklogfiles.
 

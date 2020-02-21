@@ -1,18 +1,18 @@
 ---
 title: Integrace brány firewall centra Azure Stack pro integrované systémy centra Azure Stack
 description: Přečtěte si o integraci brány firewall centra Azure Stack pro integrované systémy Azure Stack hub.
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 11/15/2019
-ms.openlocfilehash: 752fd1f7887b8de6e9d7808e5c887200da8d6b10
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: f0074bedfbcd0e55bea84080e33e14738fccb896
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882310"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509972"
 ---
 # <a name="azure-stack-hub-firewall-integration"></a>Integrace brány firewall centra Azure Stack
 Pro lepší zabezpečení Azure Stackového centra doporučujeme použít zařízení brány firewall. Brány firewall můžou přispět k obraně proti akcím, jako jsou například distribuované útoky s cílem odepření služeb (DDOS), zjišťování vniknutí a kontrola obsahu. Můžou se ale taky stát kritickými body pro služby Azure Storage, jako jsou objekty blob, tabulky a fronty.
@@ -23,7 +23,7 @@ Koncové body pro Azure Resource Manager (správce), portál pro správu a Key V
 
 V případě podnikových organizací může být externí síť stávající podnikovou sítí. V tomto scénáři je nutné publikovat koncové body, aby bylo možné provozovat centrum Azure Stack z podnikové sítě.
 
-### <a name="network-address-translation"></a>Překlad síťových adres
+### <a name="network-address-translation"></a>Překlad síťových adres (NAT)
 Překlad adres (NAT) je doporučená metoda, která umožňuje virtuálnímu počítači pro nasazení (DVM) získat přístup k externím prostředkům a Internetu během nasazení a také k virtuálním počítačům ERCS (Emergency Recovery Console) nebo privilegovanému koncovému bodu (PEP) během registrace a odstraňování potíží.
 
 Překlad adres (NAT) může být také alternativou k veřejným IP adresám na externí nebo veřejné VIP. To se ale nedoporučuje, protože to omezuje činnost koncového uživatele tenanta a zvyšuje složitost. Jednou z možností je jeden pro překlad adres (NAT), který stále vyžaduje jednu veřejnou IP adresu pro uživatele ve fondu. Další možností je celá řada pro překlad adres (NAT), která vyžaduje pravidlo překladu adres (NAT) na uživatelskou VIP pro všechny porty, které uživatel může použít.

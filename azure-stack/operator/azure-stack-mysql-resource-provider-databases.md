@@ -1,18 +1,18 @@
 ---
 title: Vytváření databází MySQL v centru Azure Stack
 description: Naučte se vytvářet a spravovat databáze MySQL zřízené pomocí poskytovatele prostředků adaptéru MySQL v Azure Stack hub.
-author: mattbriggs
+author: bryanla
 ms.topic: article
 ms.date: 1/22/2020
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 23c823fcbfa76d34a471ac404b18dab13b737315
-ms.sourcegitcommit: b7b86e875cf04cb0fd9d48a2b830588d3ff99b6d
+ms.openlocfilehash: afe2a9fe46a5abae9f94347422153480536c37bc
+ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77125755"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77492117"
 ---
 # <a name="create-mysql-databases-in-azure-stack-hub"></a>Vytváření databází MySQL v centru Azure Stack
 Uživatel centra Azure Stack, který se přihlásí k odběru nabídky, která obsahuje databázovou službu MySQL, může vytvořit a spravovat samoobslužné databáze MySQL na portálu User Portal.

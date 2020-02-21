@@ -2,18 +2,18 @@
 title: Řešení běžných problémů s certifikáty PKI
 titleSuffix: Azure Stack Hub
 description: Řešení běžných problémů s Azure Stackmi certifikáty PKI centra pomocí nástroje pro kontrolu připravenosti centra Azure Stack
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: inhenkel
 ms.reviewer: unknown
 ms.lastreviewed: 11/19/2018
-ms.openlocfilehash: 942a5f4145fbee0d7a012350d88601554b44834c
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 1adf2bdef69549393717fd5705858376447cd710
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881393"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509632"
 ---
 # <a name="fix-common-issues-with-azure-stack-hub-pki-certificates"></a>Řešení běžných problémů s certifikáty PKI Azure Stack hub
 
@@ -41,7 +41,7 @@ Algoritmus **problém** -signatura je SHA1.
 
 **Oprava** – pomocí postupu v Azure Stack centrum certifikátů Podepisování požadavků vygenerujte žádost o podepsání certifikátu (CSR) pomocí algoritmu podpisu SHA256. Poté znovu odešlete CSR k certifikační autoritě, aby se certifikát mohl znovu vystavit.
 
-## <a name="private-key"></a>privátní klíč
+## <a name="private-key"></a>Privátní klíč
 
 **Problém** – privátní klíč chybí nebo neobsahuje atribut místního počítače.  
 

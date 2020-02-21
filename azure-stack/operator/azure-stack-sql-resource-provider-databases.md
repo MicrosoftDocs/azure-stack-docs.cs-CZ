@@ -2,18 +2,18 @@
 title: Vytvoření databáze SQL
 titleSuffix: Azure Stack Hub
 description: Naučte se vytvářet a spravovat databáze SQL zřízené pomocí adaptéru poskytovatele prostředků SQL.
-author: mattbriggs
+author: bryanla
 ms.topic: article
 ms.date: 1/22/2020
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: b0ea11c3245d8a3ddbf9eeaf85481f830c67dc7f
-ms.sourcegitcommit: b7b86e875cf04cb0fd9d48a2b830588d3ff99b6d
+ms.openlocfilehash: 673fd958d257a04d8c8d6f45350143c3c9d181ab
+ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77125574"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77491845"
 ---
 # <a name="create-sql-databases"></a>Vytvoření databáze SQL
 

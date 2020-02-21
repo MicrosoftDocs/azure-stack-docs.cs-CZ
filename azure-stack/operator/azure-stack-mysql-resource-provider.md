@@ -1,18 +1,18 @@
 ---
 title: Použití databází MySQL jako PaaS v centru Azure Stack
 description: Naučte se nasadit poskytovatele prostředků MySQL a poskytovat databáze MySQL jako službu na Azure Stack hub.
-author: mattbriggs
+author: bryanla
 ms.topic: article
 ms.date: 1/22/2020
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: f7ff0e3b3ea21dc6545a6c69b1a9cdbf8dbed607
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: f221fdd6436201df2f68b87c5b9b365d0add5fee
+ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881741"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77491981"
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack-hub"></a>Použití databází MySQL v centru Microsoft Azure Stack
 

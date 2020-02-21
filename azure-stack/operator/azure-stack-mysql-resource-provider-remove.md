@@ -1,18 +1,18 @@
 ---
 title: Odebrání poskytovatele prostředků MySQL v centru Azure Stack
 description: Naučte se odebrat poskytovatele prostředků MySQL z nasazení centra Azure Stack.
-author: mattbriggs
+author: bryanla
 ms.topic: article
 ms.date: 1/22/2020
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/20/2018
-ms.openlocfilehash: 89d0a55797b6182b7490778db10914a09977e105
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: e432e0a37dbcea7bf441594ba6669ee15578b3e4
+ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881776"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77492049"
 ---
 # <a name="remove-the-mysql-resource-provider-in-azure-stack-hub"></a>Odebrání poskytovatele prostředků MySQL v centru Azure Stack
 
@@ -21,16 +21,7 @@ Než odeberete poskytovatele prostředků MySQL, je nutné odebrat všechny záv
 > [!NOTE]
 > Odkazy ke stažení pro instalační programy poskytovatele prostředků najdete v části [nasazení požadavků poskytovatele prostředků](./azure-stack-mysql-resource-provider-deploy.md#prerequisites).
 
-Odebrání poskytovatele prostředků MySQL neodstraní databáze tenantů z hostitelských serverů.
-
-## <a name="dependency-cleanup"></a>Vyčištění závislosti
-
-Před spuštěním skriptu DeployMySqlProvider. ps1 pro odebrání poskytovatele prostředků je třeba provést několik úloh čištění.
-
-Operátor centra Azure Stack zodpovídá za následující úlohy čištění:
-
-* Odstraňte všechny plány, které odkazují na adaptér MySQL.
-* Odstraňte všechny kvóty, které jsou přidruženy k adaptéru MySQL.
+Při odebrání poskytovatele prostředků MySQL se odstraní přidružené plány a kvóty spravované operátorem. Neodstraňují ale databáze tenantů z hostitelských serverů.
 
 ## <a name="to-remove-the-mysql-resource-provider"></a>Odebrání poskytovatele prostředků MySQL
 
