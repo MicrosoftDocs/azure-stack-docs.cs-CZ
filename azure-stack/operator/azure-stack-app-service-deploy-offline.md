@@ -7,17 +7,17 @@ ms.date: 01/13/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2020
-ms.openlocfilehash: bf9ce157e927b2fc43b64746d53d74e8cb82524c
-ms.sourcegitcommit: b5541815abfab3f8750fa419fdd1f93a8844731a
+ms.openlocfilehash: 7fa4ac0f63b3f5243a6473c921012614bb01bfb2
+ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "77012882"
+ms.lasthandoff: 02/24/2020
+ms.locfileid: "77568618"
 ---
 # <a name="deploy-azure-app-service-in-an-offline-environment-in-azure-stack-hub"></a>Nasazení Azure App Service v offline prostředí v centru Azure Stack
 
 > [!IMPORTANT]
-> Než nasadíte Azure App Service 1,8, použijte aktualizaci 1910 pro integrovaný systém Azure Stack hub nebo nasaďte nejnovější Azure Stack ASDK (hub Development Kit).
+> Před nasazením Azure App Service 1,8 použijte aktualizaci 1910 pro integrovaný systém Azure Stack hub nebo nasaďte nejnovější Azure Stack Development Kit (ASDK).
 
 Podle pokynů v tomto článku můžete nasadit [poskytovatele prostředků Azure App Service](azure-stack-app-service-overview.md) do prostředí Azure Stack hub:
 - Nepřipojeno k Internetu
@@ -73,9 +73,9 @@ Pokud chcete nasadit Azure App Service v offline prostředí, nejdřív vytvořt
 1. Na další stránce instalačního programu App Service se připojíte ke svému centru Azure Stack:
 
     1. Vyberte metodu připojení, kterou chcete použít – **Credential** nebo **instanční objekt** .
-        - **Přihlašovací údaje**
+        - **Pověřovací**
             - Pokud používáte Azure Active Directory (Azure AD), zadejte účet správce Azure AD a heslo, které jste zadali při nasazení centra Azure Stack. Vyberte **Connect** (Připojit).
-            - Pokud používáte Active Directory Federation Services (AD FS) (AD FS), zadejte účet správce. Například, cloudadmin@azurestack.local. Zadejte heslo a pak vyberte **připojit**.
+            - Pokud používáte Active Directory Federation Services (AD FS) (AD FS), zadejte účet správce. například cloudadmin@azurestack.local. Zadejte heslo a pak vyberte **připojit**.
         - **Instanční objekt**
             - Instanční objekt, který použijete, **musí** mít práva **vlastníka** na **předplatném výchozího poskytovatele** .
             - Zadejte **ID objektu služby**, **soubor certifikátu** a **heslo** a pak vyberte **připojit**.
@@ -90,7 +90,7 @@ Pokud chcete nasadit Azure App Service v offline prostředí, nejdřív vytvořt
        1. Vyberte možnost **skupiny prostředků** , která obsahuje vaši virtuální síť.
        2. Vyberte název **Virtual Network** , do kterého chcete nasadit.
        3. Vyberte správné hodnoty **podsítí** pro každou z požadovaných podsítí rolí.
-       4. Vyberte **Next** (Další).
+       4. Vyberte **Další**.
 
       ![Informace o virtuální síti a podsíti v Instalační službě Azure App Service][5]
 
@@ -106,7 +106,7 @@ Pokud chcete nasadit Azure App Service v offline prostředí, nejdřív vytvořt
     1. Do pole **soubor certifikátu aplikace identity** zadejte (nebo vyhledejte) umístění souboru certifikátu.
     1. Do pole **heslo aplikace identity** zadejte heslo certifikátu. Toto heslo je ten, který jste si poznamenali, když jste použili skript k vytvoření certifikátů.
     1. Do pole **Azure Resource Manager kořenový certifikát souboru** zadejte (nebo vyhledejte) umístění souboru certifikátu.
-    1. Vyberte **Next** (Další).
+    1. Vyberte **Další**.
 
     ![Zadejte informace o ID aplikace a certifikátu v Instalační službě Azure App Service.][10]
 
@@ -114,7 +114,7 @@ Pokud chcete nasadit Azure App Service v offline prostředí, nejdřív vytvořt
 
     | Box | Příklad názvu souboru certifikátu |
     | --- | --- |
-    | **App Service výchozí soubor certifikátu SSL** | \_.appservice.local.AzureStack.external.pfx |
+    | **App Service výchozí soubor certifikátu SSL** | \_. AppService. Local. AzureStack. external. pfx |
     | **Soubor certifikátu SSL pro App Service rozhraní API** | api.appservice.local.AzureStack.external.pfx |
     | **Soubor certifikátu SSL App Service vydavatele** | ftp.appservice.local.AzureStack.external.pfx |
 
@@ -148,17 +148,17 @@ Pokud chcete nasadit Azure App Service v offline prostředí, nejdřív vytvořt
      >
      >
 
-    | Role | Minimální instance | Minimální SKU | Poznámky |
+    | Role | Minimální instance | Minimální SKU | Poznámky: |
     | --- | --- | --- | --- |
-    | Kontrolér | 1\. místo | Standard_A2 – (2 vCPU, 3584 MB) | Spravuje a udržuje stav cloudu Azure App Service. |
-    | Správa | 1\. místo | Standard_A2 – (2 vCPU, 3584 MB) | Spravuje Azure App Service Azure Resource Manager a koncové body rozhraní API, rozšíření portálu (správce, tenant, funkce portálu) a datovou službu. Pokud chcete převzetí služeb při selhání podporovat, zvyšte Doporučené instance na 2. |
-    | Vydavatel | 1\. místo | Standard_A1 – (1 vCPU, 1792 MB) | Publikuje obsah prostřednictvím FTP a nasazení webu. |
-    | FrontEnd | 1\. místo | Standard_A1 – (1 vCPU, 1792 MB) | Směruje požadavky na aplikace Azure App Service. |
-    | Sdílený pracovní proces | 1\. místo | Standard_A1 – (1 vCPU, 1792 MB) | Hostuje webové aplikace nebo aplikace API a aplikace Azure Functions. Možná budete chtít přidat další instance. Jako operátor můžete definovat svou nabídku a zvolit libovolnou úroveň SKU. Vrstvy musí mít minimálně jeden vCPU. |
+    | Kontrolér | 1 | Standard_A2 – (2 vCPU, 3584 MB) | Spravuje a udržuje stav cloudu Azure App Service. |
+    | Správa | 1 | Standard_A2 – (2 vCPU, 3584 MB) | Spravuje Azure App Service Azure Resource Manager a koncové body rozhraní API, rozšíření portálu (správce, tenant, funkce portálu) a datovou službu. Pokud chcete převzetí služeb při selhání podporovat, zvyšte Doporučené instance na 2. |
+    | Vydavatel | 1 | Standard_A1 – (1 vCPU, 1792 MB) | Publikuje obsah prostřednictvím FTP a nasazení webu. |
+    | FrontEnd | 1 | Standard_A1 – (1 vCPU, 1792 MB) | Směruje požadavky na aplikace Azure App Service. |
+    | Sdílený pracovní proces | 1 | Standard_A1 – (1 vCPU, 1792 MB) | Hostuje webové aplikace nebo aplikace API a aplikace Azure Functions. Možná budete chtít přidat další instance. Jako operátor můžete definovat svou nabídku a zvolit libovolnou úroveň SKU. Vrstvy musí mít minimálně jeden vCPU. |
 
     ![Nastavení úrovní rolí a možností skladové položky v instalačním programu Azure App Service][14]
 
-1. V poli **bitová kopie platformy** zvolte nasazení image virtuálního počítače s Windows serverem 2016 z imagí dostupných na poskytovateli výpočetních prostředků pro cloud Azure App Service. Vyberte **Next** (Další).
+1. V poli **bitová kopie platformy** zvolte nasazení image virtuálního počítače s Windows serverem 2016 z imagí dostupných na poskytovateli výpočetních prostředků pro cloud Azure App Service. Vyberte **Další**.
 
     > [!NOTE]
     > Windows Server 2016 *Core není* podporovaná image platformy pro použití s Azure App Service v centru Azure Stack.  Nepoužívejte zkušební image pro produkční nasazení. Azure App Service v centru Azure Stack je nutné, aby bylo na imagi používané k nasazení aktivováno rozhraní Microsoft .NET 3.5.1 SP1. Marketplace – pro bitové kopie systému Windows Server 2016 není tato funkce povolená. Proto musíte vytvořit a použít bitovou kopii systému Windows Server 2016 s touto funkcí, která je předem povolena.
@@ -173,7 +173,7 @@ Pokud chcete nasadit Azure App Service v offline prostředí, nejdřív vytvořt
 1. Na další stránce:
      1. Zadejte uživatelské jméno a heslo správce virtuálního počítače role pracovního procesu.
      2. Zadejte uživatelské jméno a heslo správce virtuálního počítače jiné role.
-     3. Vyberte **Next** (Další).
+     3. Vyberte **Další**.
 
     ![Zadání role VM VM Admins v instalačním programu Azure App Service][16]
 

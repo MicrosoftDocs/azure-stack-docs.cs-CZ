@@ -6,22 +6,22 @@ ms.topic: article
 ms.date: 01/13/2020
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.openlocfilehash: a617483b849b02576f1349e3b79620c47c7a5705
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: c259504e1c4b70ccc5e6be6fc9b88f5e683bc5c9
+ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76874429"
+ms.lasthandoff: 02/24/2020
+ms.locfileid: "77568550"
 ---
 # <a name="offline-update-of-azure-app-service-on-azure-stack-hub"></a>Offline aktualizace Azure App Service v centru Azure Stack
 
 > [!IMPORTANT]
-> Před nasazením Azure App Service 1,8 nainstalujte do integrovaného systému Azure Stack hub nebo novější verzi Azure Stack centra pro vývoj, použijte aktualizaci 1910.
+> Před nasazením Azure App Service 1,8 použijte pro integrovaný systém centra Azure Stack nebo novější Azure Stack Development Kit verzi aktualizace 1910 nebo novější.
 
 Podle pokynů v tomto článku můžete upgradovat [poskytovatele Azure App Serviceho prostředku](azure-stack-app-service-overview.md) nasazeného v prostředí Azure Stack hub:
 
 * Nepřipojeno k Internetu
-* Zabezpečeno pomocí Active Directory Federation Services (AD FS) (AD FS).
+* zabezpečeno pomocí Active Directory Federation Services (AD FS) (AD FS).
 
 > [!IMPORTANT]
 > Před spuštěním upgradu se ujistěte, že jste už dokončili [nasazení Azure App Service v poskytovateli prostředků služby Azure Stack hub](azure-stack-app-service-deploy-offline.md) a že jste si přečetli poznámky k [verzi](azure-stack-app-service-release-notes-update-eight.md), ke které doprovází vydání 1,8, abyste se seznámili s novými funkcemi, opravami a všemi známými problémy, které by mohly mít vliv na nasazení.
@@ -77,16 +77,16 @@ Chcete-li upgradovat App Service v odpojeném prostředí, musíte nejprve vytvo
 
 5. Přečtěte si a přijměte licenční podmínky třetí strany a klikněte na **Další**.
 
-6. Ujistěte se, že jsou správné informace o klientovi služby Azure Stack centrum Azure Resource Manager a službě Active Directory. Pokud jste při nasazení Azure Stack hub Development Kit použili výchozí nastavení, můžete tady přijmout výchozí hodnoty. Pokud jste však přizpůsobili možnosti při nasazení centra Azure Stack, je nutné upravit hodnoty v tomto okně. Pokud například použijete příponu domény *MyCloud.com*, Azure Resource Manager koncový bod centra Azure Stack se musí změnit na *Management.region.MyCloud.com*. Po potvrzení vašich informací klikněte na tlačítko **Další**.
+6. Ujistěte se, že jsou správné informace o klientovi služby Azure Stack centrum Azure Resource Manager a službě Active Directory. Pokud jste během nasazení Azure Stack Development Kit použili výchozí nastavení, můžete zde přijmout výchozí hodnoty. Pokud jste však přizpůsobili možnosti při nasazení centra Azure Stack, je nutné upravit hodnoty v tomto okně. Pokud například použijete příponu domény *MyCloud.com*, Azure Resource Manager koncový bod centra Azure Stack se musí změnit na *Management.region.MyCloud.com*. Po potvrzení vašich informací klikněte na tlačítko **Další**.
 
     ![Informace o cloudu centra Azure Stack][3]
 
 7. Na další stránce:
 
    1. Vyberte metodu připojení, kterou chcete použít – **Credential** nebo **instanční objekt** .
-        - **Přihlašovací údaje**
+        - **Pověřovací**
             - Pokud používáte Azure Active Directory (Azure AD), zadejte účet správce Azure AD a heslo, které jste zadali při nasazení centra Azure Stack. Vyberte **Connect** (Připojit).
-            - Pokud používáte Active Directory Federation Services (AD FS) (AD FS), zadejte účet správce. Například, cloudadmin@azurestack.local. Zadejte heslo a pak vyberte **připojit**.
+            - Pokud používáte Active Directory Federation Services (AD FS) (AD FS), zadejte účet správce. například cloudadmin@azurestack.local. Zadejte heslo a pak vyberte **připojit**.
         - **Instanční objekt**
             - Instanční objekt, který použijete, **musí** mít práva **vlastníka** na **předplatném výchozího poskytovatele** .
             - Zadejte **ID objektu služby**, **soubor certifikátu** a **heslo** a pak vyberte **připojit**.

@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: e1042852535648edae61f24f1634ecbf9b6779af
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: abaa1405db1e3837c02cbc67e00cd3a593e9b98b
+ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76877506"
+ms.lasthandoff: 02/24/2020
+ms.locfileid: "77568567"
 ---
 # <a name="deploy-an-app-that-uses-on-premises-data-and-scales-cross-cloud-using-azure-and-azure-stack-hub"></a>Nasaďte aplikaci, která používá místní data, a škálujte mezi cloudy pomocí Azure a centra Azure Stack.
 
@@ -37,7 +37,7 @@ Tento kurz se zabývá následujícími úkony:
 > - Nakonfigurujte automatické přepínání provozu mezi globálním centrem Azure a Azure Stack.
 
 > [!Tip]  
-> ![hybridní pillars.png](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
+> ![Hybrid-Pillars. png](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
 > Centrum Microsoft Azure Stack je rozšířením Azure. Centrum Azure Stack přináší flexibilitu a inovace cloud computingu do místního prostředí. tím se umožní jenom hybridní cloud, který umožňuje vytvářet a nasazovat hybridní aplikace odkudkoli.  
 > 
 > Požadavky na [Návrh pro hybridní aplikace](overview-app-design-considerations.md) kontrolují pilíře kvality softwaru (umístění, škálovatelnost, dostupnost, odolnost, možnosti správy a zabezpečení) pro navrhování, nasazování a provozování hybridních aplikací. Pokyny k návrhu pomáhají při optimalizaci návrhu hybridní aplikace a minimalizaci výzev v produkčních prostředích.
@@ -46,16 +46,16 @@ Tento kurz se zabývá následujícími úkony:
 
 V tomto kurzu se předpokládá, že máte základní znalosti globálního centra Azure a centra Azure Stack. Pokud se chcete dozvědět víc, než začnete s kurzem, přečtěte si tyto články:
 
- - [Úvod do Azure](https://azure.microsoft.com/overview/what-is-azure/)
+ - [Seznámení s Azure](https://azure.microsoft.com/overview/what-is-azure/)
  - [Klíčové koncepty centra Azure Stack](../operator/azure-stack-overview.md)
 
 V tomto kurzu se taky předpokládá, že máte předplatné Azure. Pokud předplatné nemáte, můžete si [vytvořit bezplatný účet](https://azure.microsoft.com/free/) před tím, než začnete.
 
-## <a name="prerequisites"></a>Požadavky
+## <a name="prerequisites"></a>Předpoklady
 
 Než začnete s tímto řešením, ujistěte se, že splňujete následující požadavky:
 
-- Azure Stack ASDK (hub Development Kit) nebo předplatné v integrovaném systému Azure Stack hub. Pokud chcete nasadit Azure Stack hub Development Kit, postupujte podle pokynů v tématu [nasazení ASDK pomocí instalačního programu](../asdk/asdk-install.md).
+- Azure Stack Development Kit (ASDK) nebo předplatné v integrovaném systému Azure Stack hub. Pokud chcete nasadit Azure Stack Development Kit, postupujte podle pokynů v tématu [nasazení ASDK pomocí instalačního programu](../asdk/asdk-install.md).
 - Vaše instalace centra Azure Stack by měla mít nainstalované následující:
   - Azure App Service. K nasazení a konfiguraci Azure App Service ve vašem prostředí můžete použít operátor centra Azure Stack. Tento kurz vyžaduje, aby v App Service bylo aspoň jedna (1) dostupná vyhrazená role pracovního procesu.
   - Bitová kopie systému Windows Server 2016.
@@ -260,7 +260,7 @@ Nakonfigurujete kód aplikace pro ohlášení telemetrie do správné instance A
 Každá instance webové aplikace bude používat pro připojení k databázi SQL jinou metodu. Aplikace v Azure používá privátní IP adresu SQL Server virtuálního počítače a aplikace v centru Azure Stack používá veřejnou IP adresu SQL Server virtuálního počítače.
 
 > [!Note]  
-> V integrovaném systému Azure Stack hub by veřejná IP adresa neměla být směrovatelný z Internetu. V Azure Stack hub Development Kit (ASDK) není veřejná IP adresa směrovatelný, a to mimo ASDK.
+> V integrovaném systému Azure Stack hub by veřejná IP adresa neměla být směrovatelný z Internetu. Na Azure Stack Development Kit (ASDK) není veřejná IP adresa směrovatelný, a to mimo ASDK.
 
 Proměnné prostředí App Service můžete použít k předání jiného připojovacího řetězce do každé instance aplikace.
 
@@ -373,7 +373,7 @@ Při snížení provozu může webová aplikace Azure automaticky snížit poče
 
 Vytvořte v Azure profil Traffic Manager a pak nakonfigurujte koncové body, aby se povolilo škálování mezi cloudy.
 
-### <a name="create-traffic-manager-profile"></a>Vytvořit profil Traffic Manager
+### <a name="create-traffic-manager-profile"></a>Vytvořit profil Traffic Manageru
 
 1. Vyberte **vytvořit prostředek**.
 2. Vyberte **sítě**.
@@ -387,7 +387,7 @@ Vytvořte v Azure profil Traffic Manager a pak nakonfigurujte koncové body, aby
 
 4. Vyberte **Vytvořit**.
 
-    ![Vytvořit profil Traffic Manager](media/solution-deployment-guide-hybrid/image19.png)
+    ![Vytvořit profil Traffic Manageru](media/solution-deployment-guide-hybrid/image19.png)
 
    Po dokončení globálního nasazení profilu Traffic Manager se zobrazí v seznamu prostředků pro skupinu prostředků, ve které jste ji vytvořili.
 
@@ -542,4 +542,4 @@ Pomocí následujících kroků můžete nakonfigurovat automatické přepínán
 
 ## <a name="next-steps"></a>Další kroky
 
-- Další informace o vzorech cloudu Azure, najdete v článku [vzory návrhu v cloudu](https://docs.microsoft.com/azure/architecture/patterns).
+- Další informace o vzorech cloudu Azure najdete v tématu [vzory návrhu cloudu](https://docs.microsoft.com/azure/architecture/patterns).

@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 4b65ce6d03ee345b308cd5c5dd594e4dcf56cfec
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 5ed6869b4c03c9e360cd12a98e206941a3842bfc
+ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76875500"
+ms.lasthandoff: 02/24/2020
+ms.locfileid: "77568482"
 ---
 # <a name="configure-hybrid-cloud-connectivity-using-azure-and-azure-stack-hub"></a>Konfigurace hybridního cloudového připojení pomocí Azure a centra Azure Stack
 
@@ -25,19 +25,19 @@ V tomto řešení sestavíte ukázkové prostředí pro:
 > - Udržování starší verze systému při použití nasazení a prostředků aplikací v cloudu, které jsou v globálním Azure.
 
 > [!Tip]  
-> ![hybridní pillars.png](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
+> ![Hybrid-Pillars. png](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
 > Centrum Microsoft Azure Stack je rozšířením Azure. Centrum Azure Stack přináší flexibilitu a inovace cloud computingu do místního prostředí. tím se umožní jenom hybridní cloud, který umožňuje vytvářet a nasazovat hybridní aplikace odkudkoli.  
 > 
 > Požadavky na [Návrh pro hybridní aplikace](overview-app-design-considerations.md) kontrolují pilíře kvality softwaru (umístění, škálovatelnost, dostupnost, odolnost, možnosti správy a zabezpečení) pro navrhování, nasazování a provozování hybridních aplikací. Pokyny k návrhu pomáhají při optimalizaci návrhu hybridní aplikace a minimalizaci výzev v produkčních prostředích.
 
 
-## <a name="prerequisites"></a>Požadavky
+## <a name="prerequisites"></a>Předpoklady
 
 K vytvoření hybridního nasazení připojení je potřeba pár součástí. U některých z těchto komponent se připravuje čas, proto proveďte odpovídající plán.
 
 **Centrum Azure Stack**
 
-Partner Azure pro výrobce OEM/hardware může nasadit produkční Azure Stack centrum a všichni uživatelé můžou nasadit Azure Stack hub Development Kit (ASDK).
+Partner Azure pro výrobce OEM/hardware může nasadit produkční Azure Stack centrum a všichni uživatelé můžou nasadit Azure Stack Development Kit (ASDK).
 
 **Komponenty centra Azure Stack**
 
@@ -45,7 +45,7 @@ Operátor centra Azure Stack musí nasadit App Service, vytvořit plány a nabí
 
 V tomto příkladu řešení se předpokládá, že máte základní znalosti Azure a centra Azure Stack. Pokud se chcete dozvědět víc, než začnete s řešením, přečtěte si následující články:
 
- - [Úvod do Azure](https://azure.microsoft.com/overview/what-is-azure/)
+ - [Seznámení s Azure](https://azure.microsoft.com/overview/what-is-azure/)
  - [Klíčové koncepty centra Azure Stack](../operator/azure-stack-overview.md)
 
 ### <a name="azure"></a>Azure
@@ -53,9 +53,9 @@ V tomto příkladu řešení se předpokládá, že máte základní znalosti Az
  - Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) před tím, než začnete.
  - Vytvořte [webovou aplikaci](https://docs.microsoft.com/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp?view=vsts&tabs=vsts) v Azure. Poznamenejte si adresu URL webové aplikace, protože ji budete potřebovat v řešení.
 
-### <a name="azure-stack-hub"></a>Azure Stack Hub
+### <a name="azure-stack-hub"></a>Centrum Azure Stack
 
- - Použijte své produkční centrum Azure Stack nebo nasaďte Azure Stack centrum pro vývoj z https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1.
+ - Použijte své produkční centrum Azure Stack nebo nasaďte Azure Stack Development Kit z https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1.
    >[!Note]
    >Nasazení ASDK může trvat až 7 hodin, takže by to mělo mít odpovídající plán.
 
@@ -87,7 +87,7 @@ Specifikace připojení:
 
 IP adresa sítě a podsítě:
 
-| Připojení k rozbočovači Azure/Azure Stack | Name (Název) | Podsíť | IP adresa |
+| Připojení k rozbočovači Azure/Azure Stack | Název | Podsíť | IP adresa |
 |-------------------------------------|---------------------------------------------|---------------------------------------|-----------------------------|
 | Virtuální síť Azure | ApplicationvNet<br>10.100.102.9/23 | ApplicationSubnet<br>10.100.102.0/24 |  |
 |  |  | GatewaySubnet<br>10.100.103.0/24 |  |
@@ -215,4 +215,4 @@ Připojení můžete zobrazit na stránce **připojení** brány virtuální sí
 
 ## <a name="next-steps"></a>Další kroky
 
-- Další informace o vzorech cloudu Azure, najdete v článku [vzory návrhu v cloudu](https://docs.microsoft.com/azure/architecture/patterns).
+- Další informace o vzorech cloudu Azure najdete v tématu [vzory návrhu cloudu](https://docs.microsoft.com/azure/architecture/patterns).

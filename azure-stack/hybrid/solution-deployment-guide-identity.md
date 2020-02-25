@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: a0e9c00aeca18b8f5ed435d39bfb5cf9d4e56067
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: dc3096888138400007c4091ec9f7f40e289340ed
+ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76875483"
+ms.lasthandoff: 02/24/2020
+ms.locfileid: "77568414"
 ---
 # <a name="configure-hybrid-cloud-identity-for-azure-and-azure-stack-hub-applications"></a>Konfigurace hybridní cloudové identity pro Azure a Azure Stack aplikace centra
 
@@ -34,7 +34,7 @@ V tomto řešení sestavíte ukázkové prostředí pro:
 Pro kroky v tomto řešení musíte mít oprávnění operátora centra Azure Stack.
 
 > [!Tip]  
-> ![hybridní pillars.png](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
+> ![Hybrid-Pillars. png](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
 > Centrum Microsoft Azure Stack je rozšířením Azure. Centrum Azure Stack přináší flexibilitu a inovace cloud computingu do místního prostředí. tím se umožní jenom hybridní cloud, který umožňuje vytvářet a nasazovat hybridní aplikace odkudkoli.  
 > 
 > Požadavky na [Návrh pro hybridní aplikace](overview-app-design-considerations.md) kontrolují pilíře kvality softwaru (umístění, škálovatelnost, dostupnost, odolnost, možnosti správy a zabezpečení) pro navrhování, nasazování a provozování hybridních aplikací. Pokyny k návrhu pomáhají při optimalizaci návrhu hybridní aplikace a minimalizaci výzev v produkčních prostředích.
@@ -56,9 +56,9 @@ Pokud jste nasadili Azure Stack centrum s AD FS, můžete k vytvoření instanč
 
 Rychlý Start, [který vám umožní začít pracovat s PowerShellem v centru Azure Stack](../operator/azure-stack-powershell-install.md) , vás provede kroky potřebnými k instalaci Azure PowerShell a připojení k instalaci centra Azure Stack.
 
-### <a name="prerequisites"></a>Požadavky
+### <a name="prerequisites"></a>Předpoklady
 
-Potřebujete, aby byla instalace centra Azure Stack připojená k Azure Active Directory s předplatným, ke kterému máte přístup. Pokud nemáte instalaci centra Azure Stack, můžete tyto pokyny použít k nastavení [vývojové sady Azure Stack hub](../asdk/asdk-install.md).
+Potřebujete, aby byla instalace centra Azure Stack připojená k Azure Active Directory s předplatným, ke kterému máte přístup. Pokud nemáte instalaci centra Azure Stack, můžete k nastavení [Azure Stack Development Kit](../asdk/asdk-install.md)použít tyto pokyny.
 
 #### <a name="connect-to-azure-stack-hub-using-code"></a>Připojení k Azure Stack centru pomocí kódu
 
@@ -70,4 +70,4 @@ Pokud se chcete připojit k Azure Stack centru pomocí kódu, použijte rozhran�
 ## <a name="next-steps"></a>Další kroky
 
  - Další informace o tom, jak se identita zpracovává v centru Azure Stack, najdete v tématu [Architektura identity pro centrum Azure Stack](../operator/azure-stack-identity-architecture.md).
- - Další informace o vzorech cloudu Azure, najdete v článku [vzory návrhu v cloudu](https://docs.microsoft.com/azure/architecture/patterns).
+ - Další informace o vzorech cloudu Azure najdete v tématu [vzory návrhu cloudu](https://docs.microsoft.com/azure/architecture/patterns).

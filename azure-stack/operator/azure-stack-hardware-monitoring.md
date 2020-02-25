@@ -3,26 +3,26 @@ title: Monitorovat stav hardwaru centra Azure Stack
 description: Naučte se monitorovat stav hardwarových komponent centra Azure Stack.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 02/24/2020
 ms.author: sethm
 ms.reviewer: thoroet
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: dba47774205b4c0631f33de336e0efbfb73db9cf
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 4fe942e6a4230d9807780507de8b658a6e0ed4c3
+ms.sourcegitcommit: c653efe7cd5177bf61c1a321ba7f38c0cdf90346
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882221"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77575139"
 ---
 # <a name="monitor-azure-stack-hub-hardware-components"></a>Monitorovat hardwarové součásti centra Azure Stack
 
-Systém stavu a monitorování centra Azure Stack už sleduje stav subsystému úložiště a v případě potřeby vyvolává výstrahy. V rámci 1910 vydání centra Azure Stack může systém stavů a monitorování nyní také vyvolat výstrahy pro následující hardwarové komponenty:
+Systém Azure Stackho centra stavů a monitorování sleduje stav subsystému úložiště a v případě potřeby vyvolává výstrahy. Systém stavu a monitorování může také vyvolat výstrahy pro následující hardwarové komponenty:
 
 - Systémové ventilátory
 - Systémová teplota
 - Zdroj napájení
 - Procesory
-- Paměť
+- Memory (Paměť)
 - Spouštěcí jednotky
 
 > [!NOTE]

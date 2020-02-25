@@ -7,19 +7,19 @@ ms.date: 01/13/2020
 ms.author: bryanla
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2020
-ms.openlocfilehash: 1d11e9572decd7bd135fe62806c284e43657febf
-ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
+ms.openlocfilehash: 9f27013f36b3542e10640b6526eb396aa556e946
+ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77491165"
+ms.lasthandoff: 02/24/2020
+ms.locfileid: "77568669"
 ---
 # <a name="deploy-app-service-in-azure-stack-hub"></a>Nasazení App Service v centru Azure Stack
 
 Tento článek popisuje, jak nasadit App Service v centru Azure Stack.
 
 > [!IMPORTANT]
-> Než nasadíte Azure App Service 1,8, použijte aktualizaci 1910 pro integrovaný systém Azure Stack hub nebo nasaďte nejnovější Azure Stack ASDK (hub Development Kit).
+> Před nasazením Azure App Service 1,8 použijte aktualizaci 1910 pro integrovaný systém Azure Stack hub nebo nasaďte nejnovější Azure Stack Development Kit (ASDK).
 
 Uživatelům můžete dát možnost vytvářet webové aplikace a aplikace API. Pokud chcete umožnit uživatelům vytvářet tyto aplikace, musíte:
 

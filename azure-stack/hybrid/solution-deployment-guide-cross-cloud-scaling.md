@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: dc615786a23295468e173c3ce13b46cb308b8215
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 10ad85a306b225241822cb2b8531515dc9bb1719
+ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76875619"
+ms.lasthandoff: 02/24/2020
+ms.locfileid: "77568584"
 ---
 # <a name="deploy-an-app-that-scales-cross-cloud-using-azure-and-azure-stack-hub"></a>Nasazení aplikace, která škáluje více cloudů pomocí Azure a centra Azure Stack
 
@@ -30,17 +30,17 @@ V tomto řešení sestavíte ukázkové prostředí pro:
 > - Naučte se monitorovat a sledovat vaše nasazení.
 
 > [!Tip]  
-> ![hybridní pillars.png](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
+> ![Hybrid-Pillars. png](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
 > Centrum Microsoft Azure Stack je rozšířením Azure. Centrum Azure Stack přináší flexibilitu a inovace cloud computingu do místního prostředí. tím se umožní jenom hybridní cloud, který umožňuje vytvářet a nasazovat hybridní aplikace odkudkoli.  
 > 
 > Požadavky na [Návrh pro hybridní aplikace](overview-app-design-considerations.md) kontrolují pilíře kvality softwaru (umístění, škálovatelnost, dostupnost, odolnost, možnosti správy a zabezpečení) pro navrhování, nasazování a provozování hybridních aplikací. Pokyny k návrhu pomáhají při optimalizaci návrhu hybridní aplikace a minimalizaci výzev v produkčních prostředích.
 
-## <a name="prerequisites"></a>Požadavky
+## <a name="prerequisites"></a>Předpoklady
 
 -   Předplatné Azure. V případě potřeby vytvořte si [bezplatný účet](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) před tím, než začnete.
 
-- Azure Stack integrovaným systémem nebo nasazením centra Azure Stack hub Development Kit.
-    - Pokyny k instalaci centra Azure Stack najdete v tématu [instalace vývojové sady Azure Stack hub](../asdk/asdk-install.md).
+- Integrovaný systém nebo nasazení Azure Stack Development Kit na rozbočovači Azure Stack.
+    - Pokyny k instalaci centra Azure Stack najdete v tématu [instalace Azure Stack Development Kit](../asdk/asdk-install.md).
     - Skript pro automatizaci ASDK po nasazení najdete tady: [https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1) 
     - Dokončení této instalace může trvat několik hodin.
 
@@ -239,7 +239,7 @@ Vytvořením koncových bodů může sestavení Visual Studio Online (VSTO) nasa
 
 5.  V části **Přidat uživatele a skupiny**zadejte uživatelské jméno a vyberte tohoto uživatele ze seznamu uživatelů.
 
-6.  Vyberte **uložit změny**.
+6.  Vyberte **Uložit změny**.
 
 7.  V seznamu **skupiny VSTS** vyberte možnost **Správci koncových bodů**.
 
@@ -247,7 +247,7 @@ Vytvořením koncových bodů může sestavení Visual Studio Online (VSTO) nasa
 
 9.  V části **Přidat uživatele a skupiny**zadejte uživatelské jméno a vyberte tohoto uživatele ze seznamu uživatelů.
 
-10. Vyberte **uložit změny**.
+10. Vyberte **Uložit změny**.
 
 Teď, když existují informace o koncovém bodu, je Azure Pipelines připojení k rozbočovači Azure Stack připraveno k použití. Agent sestavení v centru Azure Stack získá pokyny od Azure Pipelines a potom agent přenáší informace koncového bodu pro komunikaci s centrem Azure Stack.
 
@@ -372,4 +372,4 @@ Vytvoření definice verze je posledním krokem v procesu sestavování aplikace
 Flexibilní a robustní cloudová služba poskytuje zabezpečení dat, zálohování a redundanci, konzistentní a rychlé dostupnosti, škálovatelné úložiště a distribuci a směrování vyhovující geografickým požadavkům. Tento ručně aktivovaný proces zajišťuje spolehlivé a efektivní přepínání zatížení mezi hostovanými webovými aplikacemi a okamžitou dostupností důležitých dat.
 
 ## <a name="next-steps"></a>Další kroky
-- Další informace o vzorech cloudu Azure, najdete v článku [vzory návrhu v cloudu](https://docs.microsoft.com/azure/architecture/patterns).
+- Další informace o vzorech cloudu Azure najdete v tématu [vzory návrhu cloudu](https://docs.microsoft.com/azure/architecture/patterns).

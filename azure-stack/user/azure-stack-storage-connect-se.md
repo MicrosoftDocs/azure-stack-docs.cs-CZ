@@ -7,12 +7,12 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 2776443fac5e30b14154e96618a49bd89d16a7c0
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: c9940e110d86ca1ebeb4739a6beb375381786be2
+ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884394"
+ms.lasthandoff: 02/24/2020
+ms.locfileid: "77568707"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-hub-subscription-or-a-storage-account"></a>Připojení Průzkumník služby Storage k předplatnému centra Azure Stack nebo účtu úložiště
 
@@ -62,7 +62,7 @@ Exportujte a pak importujte certifikát centra Azure Stack pro odpojené integro
 
 8. Po Průzkumník služby Storage restartování vyberte nabídku **Upravit** a zkontrolujte, jestli je vybraná možnost **cílové Azure Stack centra rozhraní API** . Pokud není, vyberte **cíl Azure Stack centrum**a pak Průzkumník služby Storage restartujte, aby se změna projevila. Tato konfigurace je nutná pro kompatibilitu s vaším prostředím Azure Stack hub.
 
-    ![Ujistěte se, že je vybraná možnost cílové centrum Azure Stack.](./media/azure-stack-storage-connect-se/target-azure-stack.png)
+    ![Ujistěte se, že je vybraná možnost cílové centrum Azure Stack.](./media/azure-stack-storage-connect-se/target-azure-stack-new.png)
 
 ## <a name="connect-to-an-azure-stack-hub-subscription-with-azure-ad"></a>Připojení k předplatnému centra Azure Stack pomocí Azure AD
 
@@ -98,13 +98,13 @@ Pomocí následujících kroků se připojte Průzkumník služby Storage k pře
 
     ![Přidat účet – Průzkumník služby Storage](media/azure-stack-storage-connect-se/add-an-account.png)
 
-3. Vyberte **Next** (Další). V dialogovém okně připojit k Azure Storage v části **prostředí Azure**vyberte **použít vlastní prostředí**a pak klikněte na **Další**.
+3. Vyberte **Další**. V dialogovém okně připojit k Azure Storage v části **prostředí Azure**vyberte **použít vlastní prostředí**a pak klikněte na **Další**.
 
     ![Připojení k Azure Storage](media/azure-stack-storage-connect-se/connect-to-azure-storage.png)
 
 4. Zadejte požadované informace o vlastním prostředí Azure Stack centra. 
 
-    | Pole | Poznámky |
+    | Pole | Poznámky: |
     | ---   | ---   |
     | Název prostředí | Pole lze přizpůsobit uživatelem. |
     | Azure Resource Manager koncový bod | Ukázky Azure Resource Manager koncových bodů prostředků Azure Stack Development Kit.<br>Pro operátory: https://adminmanagement.local.azurestack.external <br> Pro uživatele: https://management.local.azurestack.external |

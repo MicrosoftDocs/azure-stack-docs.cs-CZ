@@ -10,12 +10,12 @@ metadata:
   author: BryanLa
   ms.author: bryanla
   ms.date: 11/04/2019
-  ms.openlocfilehash: 11ba5e777f26cbfca0cae2b4dc1b0b91f6ce77c6
-  ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
+  ms.openlocfilehash: 9a0a1b733882ca77cdce2d6ccc0395ce31c891f1
+  ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
   ms.translationtype: MT
   ms.contentlocale: cs-CZ
-  ms.lasthandoff: 02/20/2020
-  ms.locfileid: "77509122"
+  ms.lasthandoff: 02/24/2020
+  ms.locfileid: "77568358"
 highlightedContent:
   items:
   - title: Oznámení o Azure Stack rodině
@@ -105,7 +105,7 @@ additionalContent:
         text: Klíčové důležité požadavky pro sestavování aplikací
       - url: /azure-stack/user/azure-stack-key-vault-manage-portal
         text: Vytvoření a Správa Key Vault
-    - title: Vývojová sada Azure Stack hub (ASDK)
+    - title: Azure Stack Development Kit (ASDK)
       links:
       - url: /azure-stack/asdk/asdk-deploy-considerations
         text: Požadavky a předpoklady pro ASDK
@@ -115,7 +115,7 @@ additionalContent:
         text: Příprava hostitelského počítače s ASDK
   - title: Azure Stack Edge
     items:
-    - title: Nasadit
+    - title: Nasazení
       links:
       - url: /azure/databox-online/data-box-edge-system-requirements
         text: Kontrola požadavků na systém
@@ -124,8 +124,8 @@ additionalContent:
       - url: /azure/databox-online/data-box-edge-deploy-prep
         text: Příprava nasazení
       - url: /azure/databox-online/data-box-edge-deploy-install
-        text: Nainstalovat
-    - title: Vyvinout
+        text: Instalace
+    - title: Vývoj
       links:
       - url: /azure/databox-online/data-box-edge-create-iot-edge-module
         text: Vývoj modulu IoT Edge (C#)
@@ -139,7 +139,7 @@ additionalContent:
         text: Přehled řešení Azure Stack HCI
       - url: https://www.microsoft.com/cloud-platform/azure-stack-hci-catalog
         text: Azure Stack katalogu HCI
-    - title: Spravovat
+    - title: Správa
       links:
       - url: /windows-server/manage/windows-admin-center/understand/windows-admin-center
         text: Centrum pro správu systému Windows

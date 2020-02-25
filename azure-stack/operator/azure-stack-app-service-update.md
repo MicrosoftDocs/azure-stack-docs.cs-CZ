@@ -7,17 +7,17 @@ ms.date: 01/13/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2019
-ms.openlocfilehash: ec0b241fd1568fb6851e3ae4fad6c79a8dfeb201
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 07cf0762a87fbf0cea490d246e6e31e003fd7275
+ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76877591"
+ms.lasthandoff: 02/24/2020
+ms.locfileid: "77568601"
 ---
 # <a name="update-azure-app-service-on-azure-stack-hub"></a>Aktualizace Azure App Service v centru Azure Stack
 
 > [!IMPORTANT]
-> Před nasazením Azure App Service 1,8 použijte aktualizaci 1910 pro integrovaný systém vašeho centra Azure Stack nebo nasaďte nejnovější verzi sady Azure Stack hub Development Kit (ASDK).
+> Před nasazením Azure App Service 1,8 použijte aktualizaci 1910 pro integrovaný systém Azure Stack hub nebo nasaďte nejnovější Azure Stack Development Kit (ASDK).
 
 V tomto článku se dozvíte, jak upgradovat [poskytovatele prostředků Azure App Service](azure-stack-app-service-overview.md) nasazeného v prostředí centra Azure Stack připojené k Internetu.
 
@@ -59,9 +59,9 @@ Chcete-li upgradovat nasazení Azure App Service v centru Azure Stack proveďte 
 7. Na další stránce:
 
     1. Vyberte metodu připojení, kterou chcete použít – **Credential** nebo **instanční objekt** .
-        - **Přihlašovací údaje**
+        - **Pověřovací**
             - Pokud používáte Azure Active Directory (Azure AD), zadejte účet správce Azure AD a heslo, které jste zadali při nasazení centra Azure Stack. Vyberte **Connect** (Připojit).
-            - Pokud používáte Active Directory Federation Services (AD FS) (AD FS), zadejte účet správce. Například, cloudadmin@azurestack.local. Zadejte heslo a pak vyberte **připojit**.
+            - Pokud používáte Active Directory Federation Services (AD FS) (AD FS), zadejte účet správce. například cloudadmin@azurestack.local. Zadejte heslo a pak vyberte **připojit**.
         - **Instanční objekt**
             - Instanční objekt, který použijete, **musí** mít práva **vlastníka** na **předplatném výchozího poskytovatele** .
             - Zadejte **ID objektu služby**, **soubor certifikátu** a **heslo** a pak vyberte **připojit**.

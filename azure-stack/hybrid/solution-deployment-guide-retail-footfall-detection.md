@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: d81fdf315e9bc834c46161d901d6ac10d736f7ab
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 66f6e316c83e25651dc0e0b1be95d6a8467f7f47
+ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76875296"
+ms.lasthandoff: 02/24/2020
+ms.locfileid: "77568380"
 ---
 # <a name="deploy-an-ai-based-footfall-detection-solution-using-azure-and-azure-stack-hub"></a>Nasazení řešení pro detekci Footfall založené na AI pomocí Azure a centra Azure Stack
 
@@ -26,17 +26,17 @@ V tomto řešení se dozvíte, jak:
 > - Pro odvození na hranici použijte Custom Vision AI dev Kit.
 
 > [!Tip]  
-> ![hybridní pillars.png](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
+> ![Hybrid-Pillars. png](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
 > Centrum Microsoft Azure Stack je rozšířením Azure. Centrum Azure Stack přináší flexibilitu a inovace cloud computingu do místního prostředí. tím se umožní jenom hybridní cloud, který umožňuje vytvářet a nasazovat hybridní aplikace odkudkoli.  
 > 
 > Požadavky na [Návrh pro hybridní aplikace](overview-app-design-considerations.md) kontrolují pilíře kvality softwaru (umístění, škálovatelnost, dostupnost, odolnost, možnosti správy a zabezpečení) pro navrhování, nasazování a provozování hybridních aplikací. Pokyny k návrhu pomáhají při optimalizaci návrhu hybridní aplikace a minimalizaci výzev v produkčních prostředích.
 
-## <a name="prerequisites"></a>Požadavky 
+## <a name="prerequisites"></a>Předpoklady 
 
 Než začnete s tímto průvodcem nasazením, nezapomeňte:
 
 - Přečtěte si [Přehled řešení Footfall Detection](pattern-retail-footfall-detection.md) . 
-- Získejte přístup uživatelů ke službě Azure Stack ASDK (hub Development Kit) nebo instanci integrovaného systému služby Azure Stack hub pomocí:
+- Získejte přístup uživatele k Azure Stack Development Kit (ASDK) nebo k instanci integrovaného systému centra Azure Stack pomocí:
   - Azure App Service nainstalovaného [poskytovatele prostředků centra Azure Stack](../operator/azure-stack-app-service-overview.md) . K vaší instanci centra Azure Stack potřebujete přistupovat pomocí operátoru, nebo pokud chcete nainstalovat správce, spolupracujte se správcem.
   - Předplatné nabídky, které poskytuje App Service a kvótu úložiště. Chcete-li vytvořit nabídku, potřebujete přístup k operátoru.
 - Získání přístupu k předplatnému Azure

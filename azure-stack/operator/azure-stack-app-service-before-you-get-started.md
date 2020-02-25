@@ -7,19 +7,19 @@ ms.date: 01/13/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2020
-ms.openlocfilehash: eb2b3431fa7c9e9aada4e4df3f43715d48d1d72e
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 8d995550ead87f31a9024cc9c87ba45f0800a78d
+ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76874752"
+ms.lasthandoff: 02/24/2020
+ms.locfileid: "77568448"
 ---
 # <a name="prerequisites-for-deploying-app-service-on-azure-stack-hub"></a>Předpoklady pro nasazení App Service v centru Azure Stack
 
 Před nasazením Azure App Service v centru Azure Stack je nutné provést požadované kroky v tomto článku.
 
 > [!IMPORTANT]
-> Než nasadíte Azure App Service 1,8, použijte aktualizaci 1910 pro integrovaný systém Azure Stack hub nebo nasaďte nejnovější Azure Stack ASDK (hub Development Kit).
+> Před nasazením Azure App Service 1,8 použijte aktualizaci 1910 pro integrovaný systém Azure Stack hub nebo nasaďte nejnovější Azure Stack Development Kit (ASDK).
 
 ## <a name="download-the-installer-and-helper-scripts"></a>Stažení instalačních a pomocných skriptů
 
@@ -104,7 +104,7 @@ Výchozí certifikát domény je umístěn na front-end roli. Uživatelské apli
 
 Certifikát musí být ve formátu. pfx a měl by se jednat o certifikát zástupných znaků se třemi tématy. Tento požadavek umožňuje jednomu certifikátu pokrýt jak výchozí doménu, tak koncový bod SCM pro operace správy zdrojových kódů.
 
-| Formát | Příklad: |
+| Formát | Příklad |
 | --- | --- |
 | `*.appservice.<region>.<DomainName>.<extension>` | `*.appservice.redmond.azurestack.external` |
 | `*.scm.appservice.<region>.<DomainName>.<extension>` | `*.scm.appservice.redmond.azurestack.external` |
@@ -114,17 +114,17 @@ Certifikát musí být ve formátu. pfx a měl by se jednat o certifikát zástu
 
 Certifikát rozhraní API se umístí do role správy. Poskytovatel prostředků ho používá k zajištění zabezpečení volání rozhraní API. Certifikát pro publikování musí obsahovat předmět, který odpovídá položce DNS rozhraní API.
 
-| Formát | Příklad: |
+| Formát | Příklad |
 | --- | --- |
-| api.appservice.\<region\>.\<DomainName\>.\<extension\> | api.appservice.redmond.azurestack.external |
+| rozhraní API. AppService.\<oblasti\>.\<domainname\>. rozšíření\<\> | api.appservice.redmond.azurestack.external |
 
 #### <a name="publishing-certificate"></a>Publikování certifikátu
 
 Certifikát pro roli vydavatele zabezpečuje přenos FTPS pro vlastníky aplikací při nahrávání obsahu. Certifikát pro publikování musí obsahovat předmět, který odpovídá položce DNS FTPS.
 
-| Formát | Příklad: |
+| Formát | Příklad |
 | --- | --- |
-| ftp.appservice.\<region\>.\<DomainName\>.\<extension\> | ftp.appservice.redmond.azurestack.external |
+| FTP. AppService.\<oblasti\>.\<domainname\>. rozšíření\<\> | ftp.appservice.redmond.azurestack.external |
 
 #### <a name="identity-certificate"></a>Certifikát identity
 
@@ -135,9 +135,9 @@ Certifikát pro aplikaci identity umožňuje:
 
 Certifikát pro identitu musí obsahovat předmět, který odpovídá následujícímu formátu.
 
-| Formát | Příklad: |
+| Formát | Příklad |
 | --- | --- |
-| sso.appservice.\<region\>.\<DomainName\>.\<extension\> | sso.appservice.redmond.azurestack.external |
+| SSO. AppService.\<oblasti\>.\<domainname\>. rozšíření\<\> | sso.appservice.redmond.azurestack.external |
 
 ### <a name="validate-certificates"></a>Ověřit certifikáty
 
@@ -264,7 +264,7 @@ net share %WEBSITES_SHARE%=%WEBSITES_FOLDER% /grant:Everyone,full
 
 Spusťte následující příkazy na příkazovém řádku se zvýšenými oprávněními na souborovém serveru nebo na uzlu clusteru s podporou převzetí služeb při selhání, který je aktuálním vlastníkem prostředku clusteru. Nahraďte hodnoty kurzívou hodnotami, které jsou specifické pro vaše prostředí.
 
-#### <a name="active-directory"></a>Adresář služby Active Directory
+#### <a name="active-directory"></a>Active Directory
 
 ```DOS
 set DOMAIN=<DOMAIN>
@@ -363,7 +363,7 @@ Pomocí těchto kroků vytvořte instanční objekt v tenantovi služby Azure AD
 | AzureStackAdminCredential | Požaduje se | Null | Přihlašovací údaje správce služby Azure AD. |
 | CertificateFilePath | Požaduje se | Null | **Úplná cesta** k souboru certifikátu aplikace identity vygenerovaného dříve. |
 | CertificatePassword | Požaduje se | Null | Heslo, které pomáhá chránit privátní klíč certifikátu. |
-| Prostředí | Volitelné | AzureCloud | Název podporovaného cloudového prostředí, ve kterém je dostupná cílová služba Azure Active Directory Graph.  Povolené hodnoty: "AzureCloud", "AzureChinaCloud", "AzureUSGovernment", "AzureGermanCloud".|
+| Prostředí | Nepovinné | AzureCloud | Název podporovaného cloudového prostředí, ve kterém je dostupná cílová služba Azure Active Directory Graph.  Povolené hodnoty: "AzureCloud", "AzureChinaCloud", "AzureUSGovernment", "AzureGermanCloud".|
 
 ## <a name="create-an-active-directory-federation-services-app"></a>Vytvoření aplikace Active Directory Federation Services (AD FS)
 
