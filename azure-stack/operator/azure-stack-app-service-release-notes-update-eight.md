@@ -4,15 +4,15 @@ description: Seznamte se s novinkami Update 8 pro App Service v centru Azure Sta
 author: apwestgarth
 manager: stefsch
 ms.topic: article
-ms.date: 02/10/2020
+ms.date: 02/25/2020
 ms.author: anwestg
 ms.reviewer: ''
-ms.openlocfilehash: daa4cb85ca58a6e638d6d8a1f14ad5e9232f3d72
-ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
+ms.openlocfilehash: b8f6e8868723685eb00d6cfa8424905642697c5a
+ms.sourcegitcommit: 7f185ce838756c879b28e380875be97c62b9a707
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77143671"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77600297"
 ---
 # <a name="app-service-on-azure-stack-hub-update-8-release-notes"></a>Zpráva k vydání verze pro Azure Stack centra aktualizace 8 App Service
 
@@ -232,7 +232,7 @@ Z důvodu regrese v této verzi je nutné při **nově** nasazených databázíc
     $builder = New-Object System.Data.SqlClient.SqlConnectionStringBuilder -ArgumentList (Get-AppServiceConnectionString -Type Hosting)
     $conn = New-Object System.Data.SqlClient.SqlConnection -ArgumentList $builder.ToString()
 
-    $siteManager.Workers | ForEach-Object {
+    $siteManager.RoleServers | Where-Object {$_.IsWorker} | ForEach-Object {
         $worker = $_
         $dbUserName = "WebWorker_" + $worker.Name
 
