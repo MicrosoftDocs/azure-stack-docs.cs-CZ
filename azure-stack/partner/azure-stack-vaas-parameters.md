@@ -1,6 +1,7 @@
 ---
-title: Společné parametry pracovního postupu v Azure Stack ověřování centra jako služba
-description: Společné parametry pracovního postupu pro ověřování centra Azure Stack jako služba
+title: Běžné parametry pracovního postupu v VaaS
+titleSuffix: Azure Stack Hub
+description: Přečtěte si o běžných parametrech pracovního postupu pro Azure Stack ověřování centra jako služby.
 author: mattbriggs
 ms.topic: article
 ms.date: 1/22/2020
@@ -8,14 +9,14 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: cc237792576ffa3a5bb3ad0a003da4284c9cc56f
-ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
+ms.openlocfilehash: 9a53f489ac1fdf92afdf8ba841b1cbb4a030680b
+ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77143691"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77625386"
 ---
-# <a name="workflow-common-parameters-for-azure-stack-hub-validation-as-a-service"></a>Společné parametry pracovního postupu pro ověřování centra Azure Stack jako služba
+# <a name="common-workflow-parameters-in-validation-as-a-service"></a>Společné parametry pracovního postupu při ověřování jako služba
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
@@ -29,7 +30,7 @@ Mezi běžné parametry patří hodnoty, jako jsou proměnné prostředí a při
 Parametry prostředí popisují Azure Stack centrálního prostředí v rámci testu. Tyto hodnoty musí být k dispozici generováním a nahráním souboru s informacemi o razítku centra Azure Stack pro konkrétní instanci, kterou testujete.
 
 > [!NOTE]
-> V oficiálních ověřovacích pracovních postupech nelze parametry prostředí upravovat po vytvoření pracovního postupu.
+> V oficiálních ověřovacích pracovních postupech se parametry prostředí po vytvoření pracovního postupu nedají změnit.
 
 ### <a name="generate-the-stamp-information-file"></a>Vygenerovat soubor s informacemi o razítku
 
@@ -50,13 +51,13 @@ Hodnoty parametrů prostředí se taky dají ručně umístit do **konfiguračn�
 
 ## <a name="test-parameters"></a>Parametry testu
 
-Mezi běžné parametry testu patří citlivé informace, které nelze uložit v konfiguračních souborech. Ty je nutné zadat ručně.
+Mezi běžné parametry testu patří citlivé informace, které nelze uložit v konfiguračních souborech. Tyto parametry je nutné zadat ručně.
 
 Parametr    | Popis
 -------------|-----------------
-Správce klienta uživatel                            | Azure Active Directory Správce klienta zřízené správcem služby v adresáři AAD. Tento uživatel provádí akce na úrovni tenanta, jako je nasazení šablon, k nastavení prostředků (virtuálních počítačů, účtů úložiště atd.) a provádění úloh. Podrobnosti o zřízení účtu tenanta najdete v tématu [Přidání nového tenanta centra Azure Stack](../operator/azure-stack-add-new-user-aad.md).
-Uživatel správce služeb             | Azure Active Directory správce tenanta služby Azure AD, kterého jste zadali během nasazování centra Azure Stack. Vyhledejte `AADTenant` v konfiguračním souboru EHK a vyberte hodnotu v prvku `UniqueName`.
-Uživatel s oprávněním správce cloudu               | Účet správce domény Azure Stack hub (například `contoso\cloudadmin`). Vyhledejte `User Role="CloudAdmin"` v konfiguračním souboru EHK a vyberte hodnotu v prvku `UserName`.
+Správce klienta uživatel                            | Správce tenanta Azure Active Directory (Azure AD), který byl zřízen správcem služby v adresáři AAD. Tento uživatel provádí akce na úrovni tenanta, jako je nasazení šablon, k nastavení prostředků (virtuálních počítačů, účtů úložiště atd.) a provádění úloh. Podrobnosti o zřízení účtu tenanta najdete v tématu [Přidání nového tenanta centra Azure Stack](../operator/azure-stack-add-new-user-aad.md).
+Uživatel správce služeb             | Správce Azure AD pro tenanta adresáře Azure AD zadaný během nasazování centra Azure Stack. Vyhledejte `AADTenant` v konfiguračním souboru EHK a vyberte hodnotu v prvku `UniqueName`.
+Uživatel s oprávněním správce cloudu               | Azure Stack účet správce domény centra správy (například `contoso\cloudadmin`). Vyhledejte `User Role="CloudAdmin"` v konfiguračním souboru EHK a vyberte hodnotu v prvku `UserName`.
 Připojovací řetězec diagnostiky          | Adresa URL SAS na účet Azure Storage, do kterého budou při spuštění testu kopírovány diagnostické protokoly. Pokyny k vygenerování adresy URL SAS najdete v tématu [generování připojovacího řetězce pro diagnostiku](#generate-the-diagnostics-connection-string). |
 
 > [!IMPORTANT]
@@ -79,8 +80,7 @@ Připojovací řetězec diagnostiky je vyžadován pro ukládání diagnostický
 1. [!INCLUDE [azure-stack-vaas-sas-step_generate](includes/azure-stack-vaas-sas-step_generate.md)]
 
 > [!NOTE]  
-> Adresa URL SAS vyprší v době ukončení zadanou při vygenerování adresy URL.  
-Při plánování testů zajistěte, aby byla adresa URL platná nejméně 30 dní, a čas potřebný k provedení testu (navrhované tři měsíce).
+> Adresa URL SAS vyprší v době ukončení zadanou při vygenerování adresy URL. Při plánování testů zajistěte, aby byla adresa URL platná nejméně 30 dní, a čas potřebný k provedení testu (navrhované tři měsíce).
 
 ## <a name="next-steps"></a>Další kroky
 

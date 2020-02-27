@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Naučte se registrovat integrované systémy Azure Stack hub pomocí Azure, abyste si mohli stáhnout Azure Marketplace položky a nastavit vytváření sestav dat.
 author: IngridAtMicrosoft
 ms.topic: article
-ms.date: 2/02/2020
+ms.date: 02/25/2020
 ms.author: inhenkel
 ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: c842a762ace6bd51f55240c292c434fc7bc96c92
-ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
+ms.openlocfilehash: 3f8570f765b87736975a15c49b1a2a5ff4bdf55d
+ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77509649"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77625318"
 ---
 # <a name="register-azure-stack-hub-with-azure"></a>Registrace centra Azure Stack s Azure
 
@@ -24,7 +24,7 @@ Informace v tomto článku popisují registraci Azure Stack integrovaných syst�
 > [!IMPORTANT]  
 > K podpoře kompletních funkcí centra Azure Stack, včetně položek nabídky na webu Marketplace, se vyžaduje registrace. Pokud se nezaregistrujete při použití modelu fakturace s průběžnými platbami, budete mít porušení licenčních podmínek centra Azure Stack. Další informace o modelech licencování centra Azure Stack najdete na [stránce Jak koupit](https://azure.microsoft.com/overview/azure-stack/how-to-buy/).
 
-## <a name="prerequisites"></a>Požadavky
+## <a name="prerequisites"></a>Předpoklady
 
 Před registrací musíte splnit následující předpoklady:
 
@@ -471,15 +471,15 @@ Set-AzsRegistration [-PrivilegedEndpointCredential] <PSCredential> [-PrivilegedE
 | Parametr | Typ | Popis |
 |-------------------------------|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | PrivilegedEndpointCredential | PSCredential | Přihlašovací údaje použité pro [přístup k privilegovanému koncovému bodu](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). Uživatelské jméno má formát **AzureStackDomain\CloudAdmin**. |
-| PrivilegedEndpoint | String | Předem nakonfigurovaná Vzdálená konzola PowerShellu, která poskytuje možnosti, jako je shromažďování protokolů a další úkoly po nasazení. Další informace najdete v článku [použití privilegovaného koncového bodu](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) . |
+| PrivilegedEndpoint | Řetězec | Předem nakonfigurovaná Vzdálená konzola PowerShellu, která poskytuje možnosti, jako je shromažďování protokolů a další úkoly po nasazení. Další informace najdete v článku [použití privilegovaného koncového bodu](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) . |
 | AzureContext | PSObject |  |
-| ResourceGroupName | String |  |
-| ResourceGroupLocation | String |  |
-| BillingModel | String | Model fakturace, který používá vaše předplatné. Povolené hodnoty pro tento parametr jsou: Capacity, PayAsYouUse a vývoj. |
+| ResourceGroupName | Řetězec |  |
+| ResourceGroupLocation | Řetězec |  |
+| BillingModel | Řetězec | Model fakturace, který používá vaše předplatné. Povolené hodnoty pro tento parametr jsou: Capacity, PayAsYouUse a vývoj. |
 | MarketplaceSyndicationEnabled | True nebo False | Určuje, jestli je na portálu dostupná funkce správy Marketplace. Nastavte na hodnotu true, pokud se registruje s připojením k Internetu. Nastavte na hodnotu false, pokud se registruje v odpojených prostředích. U odpojených registrací se dá [Nástroj pro offline syndikaci](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario) použít ke stažení položek Marketplace. |
 | UsageReportingEnabled | True nebo False | Služba Azure Stack hub hlásí metriky využití ve výchozím nastavení. Obsluha použití kapacity, která využívá nebo podporuje odpojené prostředí, musí vypnout vytváření sestav využití. Povolené hodnoty pro tento parametr jsou: true, false. |
-| AgreementNumber | String | Číslo smlouvy EA, pod kterou byla objednána SKU kapacity pro tento Azure Stack. |
-| Registrace | String | Pokud spouštíte registrační skript ve více než jedné instanci centra Azure Stack s použitím stejného ID předplatného Azure, nastavte pro registraci jedinečný název. Parametr má výchozí hodnotu **AzureStackRegistration**. Pokud však použijete stejný název na více než jedné instanci centra Azure Stack, skript se nezdařil. |
+| AgreementNumber | Řetězec | Číslo smlouvy EA, pod kterou byla objednána SKU kapacity pro tento Azure Stack. |
+| Registrace | Řetězec | Pokud spouštíte registrační skript ve více než jedné instanci centra Azure Stack s použitím stejného ID předplatného Azure, nastavte pro registraci jedinečný název. Parametr má výchozí hodnotu **AzureStackRegistration**. Pokud však použijete stejný název na více než jedné instanci centra Azure Stack, skript se nezdařil. |
 
 ### <a name="get-azsregistrationtoken"></a>Get-AzsRegistrationToken
 
@@ -493,30 +493,36 @@ Get-AzsRegistrationToken [-PrivilegedEndpointCredential] <PSCredential> [-Privil
 | Parametr | Typ | Popis |
 |-------------------------------|--------------|-------------|
 | PrivilegedEndpointCredential | PSCredential | Přihlašovací údaje použité pro [přístup k privilegovanému koncovému bodu](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). Uživatelské jméno má formát **AzureStackDomain\CloudAdmin**. |
-| PrivilegedEndpoint | String |  Předem nakonfigurovaná Vzdálená konzola PowerShellu, která poskytuje možnosti, jako je shromažďování protokolů a další úkoly po nasazení. Další informace najdete v článku [použití privilegovaného koncového bodu](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) . |
+| PrivilegedEndpoint | Řetězec |  Předem nakonfigurovaná Vzdálená konzola PowerShellu, která poskytuje možnosti, jako je shromažďování protokolů a další úkoly po nasazení. Další informace najdete v článku [použití privilegovaného koncového bodu](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) . |
 | AzureContext | PSObject |  |
-| ResourceGroupName | String |  |
-| ResourceGroupLocation | String |  |
-| BillingModel | String | Model fakturace, který používá vaše předplatné. Povolené hodnoty pro tento parametr jsou: Capacity, PayAsYouUse a vývoj. |
+| ResourceGroupName | Řetězec |  |
+| ResourceGroupLocation | Řetězec |  |
+| BillingModel | Řetězec | Model fakturace, který používá vaše předplatné. Povolené hodnoty pro tento parametr jsou: Capacity, PayAsYouUse a vývoj. |
 | MarketplaceSyndicationEnabled | True nebo False |  |
 | UsageReportingEnabled | True nebo False | Služba Azure Stack hub hlásí metriky využití ve výchozím nastavení. Obsluha použití kapacity, která využívá nebo podporuje odpojené prostředí, musí vypnout vytváření sestav využití. Povolené hodnoty pro tento parametr jsou: true, false. |
-| AgreementNumber | String |  |
+| AgreementNumber | Řetězec |  |
 
 ## <a name="registration-failures"></a>Selhání registrace
 
 Při pokusu o registraci centra Azure Stack se může zobrazit jedna z následujících chyb:
 
-- Nepovedlo se načíst povinné informace o hardwaru pro $hostName. Zkontrolujte fyzického hostitele a připojení a pak zkuste znovu spustit registraci.
+- Nepovedlo se načíst povinné informace o hardwaru pro `$hostName`. Zkontrolujte fyzického hostitele a připojení a pak zkuste znovu spustit registraci.
 
-- Nejde se připojit k $hostName získat informace o hardwaru – zkontrolujte prosím fyzického hostitele a připojení a zkuste znovu spustit registraci.
+- Nejde se připojit k `$hostName`, aby se získaly informace o hardwaru. Zkontrolujte fyzického hostitele a připojení a pak zkuste znovu spustit registraci.
 
-> Příčina: obvykle se snažíme z hostitelů získat podrobnosti o hardwaru, jako je UUID, BIOS a CPU, aby se pokusily o aktivaci a nebylo možné se připojit k fyzickému hostiteli.
+   Příčina: obvykle se snažíme z hostitelů získat podrobnosti o hardwaru, jako je UUID, BIOS a CPU, aby se pokusily o aktivaci a nebylo možné se připojit k fyzickému hostiteli.
 
-Při pokusu o přístup ke správě Marketplace dojde k chybě při pokusu o zasyndikátování produktů. 
-> Příčina: k tomu obvykle dochází, když Azure Stack hub nemůže získat přístup k registračnímu prostředku. Jedním z běžných důvodů je, že když se tenant adresáře pro předplatné Azure změní, resetuje registraci. Pokud jste změnili tenanta adresáře pro předplatné, nemůžete získat přístup k webu centra Azure Stack nebo k využití sestav. Chcete-li tento problém vyřešit, je nutné provést novou registraci.
+- Identifikátor cloudu [`GUID`] je již zaregistrován. Použití identifikátorů cloudu se znovu nepovoluje.
 
-Správa na webu Marketplace stále žádá o registraci a aktivaci centra Azure Stack, a to i v případě, že jste už zaregistrovali své razítko pomocí odpojeného procesu.
-> Příčina: Jedná se o známý problém pro odpojená prostředí. Stav registrace můžete ověřit pomocí následujících [kroků](azure-stack-registration.md#verify-azure-stack-hub-registration). Aby bylo možné používat správu Marketplace, je nutné použít [offline nástroj](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario).
+   Příčina: k tomu dochází, pokud je vaše prostředí Azure Stack už zaregistrované. Pokud chcete své prostředí znovu zaregistrovat k jinému předplatnému nebo modelu fakturace, postupujte podle [těchto pokynů](#change-the-subscription-you-use).
+
+- Při pokusu o přístup ke správě Marketplace dojde k chybě při pokusu o zasyndikátování produktů.
+
+   Příčina: k tomu obvykle dochází, když Azure Stack hub nemůže získat přístup k registračnímu prostředku. Jedním z běžných důvodů je, že když se tenant adresáře pro předplatné Azure změní, resetuje registraci. Pokud jste změnili tenanta adresáře pro předplatné, nemůžete získat přístup k webu centra Azure Stack nebo k využití sestav. Chcete-li tento problém vyřešit, je nutné provést novou registraci.
+
+- Správa na webu Marketplace stále žádá o registraci a aktivaci centra Azure Stack, a to i v případě, že jste už zaregistrovali své razítko pomocí odpojeného procesu.
+
+   Příčina: Jedná se o známý problém pro odpojená prostředí. Stav registrace můžete ověřit pomocí [následujících kroků](azure-stack-registration.md#verify-azure-stack-hub-registration). Pro použití správy Marketplace použijte [Nástroj offline](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario).
 
 ## <a name="next-steps"></a>Další kroky
 

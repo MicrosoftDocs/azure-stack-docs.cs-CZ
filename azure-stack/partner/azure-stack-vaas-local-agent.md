@@ -1,6 +1,7 @@
 ---
 title: Nasazení místního agenta
-description: Nasaďte místního agenta pro Azure Stack ověřování centra jako služby.
+titleSuffix: Azure Stack Hub
+description: Naučte se nasadit místního agenta pro Azure Stack ověřování centra jako služby.
 author: mattbriggs
 ms.topic: quickstart
 ms.date: 11/11/2019
@@ -8,12 +9,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: a5090b60c5aa3c947fbbf1fc887b4fb25900ae98
-ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
+ms.openlocfilehash: 83ecc620238593f8d01cdc9855305a86b34990a8
+ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77143985"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77625267"
 ---
 # <a name="deploy-the-local-agent"></a>Nasazení místního agenta
 
@@ -32,18 +33,18 @@ Nasazení místního agenta:
 
 ## <a name="download-and-start-the-local-agent"></a>Stažení a spuštění místního agenta
 
-Stáhněte si agenta do počítače, který splňuje požadavky ve vašem datovém centru, a má přístup ke všem koncovým bodům centra Azure Stack. Tento počítač by neměl být součástí systému Azure Stack hub nebo hostovat v cloudu centra Azure Stack.
+Stáhněte si agenta do počítače, který splňuje požadavky ve vašem datovém centru, a má přístup ke všem koncovým bodům centra Azure Stack. Tento počítač by neměl být součástí systému Azure Stack hub nebo hostovaný v cloudu centra Azure Stack.
 
 ### <a name="machine-prerequisites"></a>Požadavky na počítač
 
 Ověřte, že váš počítač splňuje následující kritéria:
 
-- Přístup ke všem koncovým bodům centra Azure Stack
-- Nainstalovaná rozhraní .NET 4,6 a PowerShell 5,0
-- Aspoň 8 GB paměti RAM
-- Minimálně 8 základních procesorů
-- Minimálně 200 GB místa na disku
-- Stálé síťové připojení k Internetu
+- Přístup ke všem koncovým bodům centra Azure Stack.
+- Rozhraní .NET 4,6 a PowerShell 5,0 jsou nainstalovány.
+- Aspoň 8 GB paměti RAM.
+- Minimálně 8 základních procesorů.
+- Minimálně 200 GB místa na disku.
+- Síťové připojení k Internetu je stabilní.
 
 ### <a name="download-and-install-the-local-agent"></a>Stažení a instalace místního agenta
 
@@ -78,30 +79,30 @@ Ověřte, že váš počítač splňuje následující kritéria:
     ```
 
 > [!Note]  
-> Rutina Install-VaaSPrerequisites stahuje velké soubory imagí virtuálních počítačů. Pokud máte pomalou rychlost sítě, můžete si stáhnout soubory na místní souborový server a ručně přidat image virtuálních počítačů do testovacího environemntu. Další informace najdete v tématu [zpracování pomalého síťového připojení](azure-stack-vaas-troubleshoot.md#handle-slow-network-connectivity) .
+> rutina `Install-VaaSPrerequisites` stahuje velké soubory imagí virtuálních počítačů. Pokud máte pomalou rychlost sítě, můžete si stáhnout soubory na místní souborový server a ručně přidat image virtuálních počítačů do testovacího environemntu. Další informace najdete v tématu [zpracování pomalých síťových připojení](azure-stack-vaas-troubleshoot.md#handle-slow-network-connectivity).
 
 **Parametry**
 
 | Parametr | Popis |
 | --- | --- |
-| AadServiceAdminUser | Uživatel globálního správce pro vašeho tenanta Azure AD. Může to být například vaasadmin@contoso.onmicrosoft.com. |
-| AadServiceAdminPassword | Heslo pro uživatele globálního správce |
-| CloudAdminUserName | Uživatel s oprávněním správce cloudu, který má přístup k povoleným příkazům v rámci privilegovaného koncového bodu Například může být, AzusreStack\CloudAdmin. Další informace najdete [tady](azure-stack-vaas-parameters.md) . |
-| CloudAdminPassword | Heslo pro účet správce cloudu.|
+| `AadServiceAdminUser` | Uživatel globálního správce pro vašeho tenanta Azure AD. Například: vaasadmin@contoso.onmicrosoft.com. |
+| `AadServiceAdminPassword` | Heslo pro uživatele globálního správce |
+| `CloudAdminUserName` | Uživatel s oprávněním správce cloudu, který má přístup k povoleným příkazům v rámci privilegovaného koncového bodu Příklad: AzusreStack\CloudAdmin. Další informace najdete v tématu [společné parametry pracovních postupů pro VaaS](azure-stack-vaas-parameters.md). |
+| `CloudAdminPassword` | Heslo pro účet správce cloudu.|
 
-![Stáhnout požadavky](media/installing-prereqs.png)
+![Stáhnout požadavky pro místního agenta](media/installing-prereqs.png)
 
 ## <a name="perform-sanity-checks-before-starting-the-tests"></a>Před zahájením testů provést kontrolu správnosti
 
 Testy spouštějí vzdálené operace. Počítač, který spouští testy, musí mít přístup k koncovým bodům centra Azure Stack, jinak testy nebudou fungovat. Pokud používáte místního agenta VaaS, použijte počítač, na kterém se Agent spustí. Spuštěním následujících kontrol můžete zkontrolovat, jestli má počítač přístup k koncovým bodům centra Azure Stack:
 
-1. Ověřte, zda je možné dosáhnout základního identifikátoru URI. Otevřete příkazový řádek nebo prostředí bash a spusťte následující příkaz a nahraďte `<EXTERNALFQDN>` externím plně kvalifikovaným názvem domény vašeho prostředí:
+1. Ověřte, zda je možné dosáhnout základního identifikátoru URI. Otevřete příkazový řádek nebo prostředí bash a spusťte následující příkaz a nahraďte `<EXTERNALFQDN>` externím plně kvalifikovaným názvem domény (FQDN) vašeho prostředí:
 
     ```bash
     nslookup adminmanagement.<EXTERNALFQDN>
     ```
 
-2. Otevřete webový prohlížeč a pokračujte na `https://adminportal.<EXTERNALFQDN>`, abyste zkontrolovali, že je možné získat přístup k portálu MAS.
+2. Otevřete prohlížeč a pokračujte na `https://adminportal.<EXTERNALFQDN>`, abyste zkontrolovali, že je možné získat přístup k portálu MAS.
 
 3. Přihlaste se pomocí hodnoty jméno a heslo správce služby Azure AD, které jste zadali při vytváření testovacího průchodu.
 
@@ -129,10 +130,10 @@ Testy spouštějí vzdálené operace. Počítač, který spouští testy, musí
 
     | Parametr | Popis |
     | --- | --- |
-    | CloudAdminUserName | Uživatel s oprávněním správce cloudu, který má přístup k povoleným příkazům v rámci privilegovaného koncového bodu Například může být, AzusreStack\CloudAdmin. Další informace najdete [tady](azure-stack-vaas-parameters.md) . |
-    | CloudAdminPassword | Heslo pro účet správce cloudu.|
-    | VaaSUserId | ID uživatele, které se používá k přihlášení na portál VaaS (například UserName\@Contoso.com) |
-    | VaaSTenantId | ID tenanta Azure AD pro účet Azure zaregistrovaný k ověřování jako služba |
+    | `CloudAdminUserName` | Uživatel s oprávněním správce cloudu, který má přístup k povoleným příkazům v rámci privilegovaného koncového bodu Příklad: AzusreStack\CloudAdmin. Další informace najdete v tématu [společné parametry pracovních postupů pro VaaS](azure-stack-vaas-parameters.md) . |
+    | `CloudAdminPassword` | Heslo pro účet správce cloudu.|
+    | `VaaSUserId` | ID uživatele, které se používá pro přihlášení na portál pro ověřování centra Azure Stack. Příklad: UserName\@Contoso.com). |
+    | `VaaSTenantId` | ID tenanta Azure AD pro účet Azure zaregistrovaný k ověřování jako služba |
 
     > [!Note]  
     > Když spustíte agenta, aktuální pracovní adresář musí být umístěním spustitelného souboru hostitele modulu úloh, **Microsoft. VaaSOnPrem. TaskEngineHost. exe.**
@@ -143,10 +144,10 @@ Pokud se nezobrazí žádné chyby, místní Agent byl úspěšný. Následujíc
 
 ![Spuštěný Agent](media/started-agent.png)
 
-Agent je jednoznačně identifikovaný podle názvu. Ve výchozím nastavení používá plně kvalifikovaný název domény (FQDN) počítače, ze kterého byl spuštěn. Okno je nutné minimalizovat, aby nedocházelo k náhodnému výběru v okně, protože změna fokusu pozastaví všechny ostatní akce.
+Agent je jednoznačně identifikovaný podle názvu. Ve výchozím nastavení používá název FQDN počítače, ze kterého byl spuštěn. Okno je nutné minimalizovat, aby nedocházelo k náhodnému výběru v okně, protože změna fokusu pozastaví všechny ostatní akce.
 
 ## <a name="next-steps"></a>Další kroky
 
 - [Řešení potíží s ověřováním jako službou](azure-stack-vaas-troubleshoot.md)
 - [Koncepce ověřování jako klíč služby](azure-stack-vaas-key-concepts.md)
-- [Rychlý Start: použití ověřování jako portálu služby k naplánování prvního testu](azure-stack-vaas-schedule-test-pass.md)
+- [Rychlý Start: použití portálu pro ověřování centra Azure Stack k naplánování prvního testu](azure-stack-vaas-schedule-test-pass.md)

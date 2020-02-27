@@ -3,16 +3,16 @@ title: Poznámky k verzi centra Azure Stack
 description: Poznámky k verzi pro integrované systémy Azure Stack hub, včetně aktualizací a oprav chyb.
 author: sethmanheim
 ms.topic: article
-ms.date: 02/03/2020
+ms.date: 02/25/2020
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 11/22/2019
-ms.openlocfilehash: 40c727c97035b0f843ce84b0eafad47c77560938
-ms.sourcegitcommit: 3974fc544986a5eccfac0ba7c4441b05279ae226
+ms.openlocfilehash: 3225dce7a767dd973be62844c219dea5135bd91d
+ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "77001637"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77625216"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Poznámky k verzi centra Azure Stack
 
@@ -61,7 +61,7 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 
 <!-- The current theme (if any) of this release. -->
 
-### <a name="whats-new"></a>Novinky
+### <a name="whats-new"></a>Co je nového
 
 <!-- What's new, also net new experiences and features. -->
 
@@ -132,7 +132,7 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
    |Životnost SA (čas)  | 27 000 sekund  |
    |Životnost SA (kilobajty) | 33 553 408     |
    |Metoda Perfect Forward Secrecy (PFS) | ECP384 |
-   |Detekce mrtvých partnerských zařízení | Podporováno|
+   |Detekce mrtvých partnerských zařízení | Podporuje se|
 
    Tyto změny se projeví také ve výchozí dokumentaci k [návrhu protokolu IPSec/IKE](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters) .
 
@@ -200,14 +200,14 @@ Opravy hotfix centra Azure Stack se vztahují pouze na integrované systémy Azu
 Verze 1910 centra Azure Stack se musí použít ve verzi 1908 s následujícími opravami hotfix:
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [1.1908.14.53 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4537661)
+- [1.1908.19.62 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4541349)
 
 ### <a name="after-successfully-applying-the-1910-update"></a>Po úspěšné instalaci aktualizace 1910
 
 Po instalaci této aktualizace nainstalujte všechny příslušné opravy hotfix. Další informace najdete v našich [zásadách obsluhy](azure-stack-servicing-policy.md).
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [1.1910.17.95 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4537833)
+- [1.1910.24.108 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4541350)
 ::: moniker-end
 
 ::: moniker range="azs-1908"
@@ -231,7 +231,7 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 
 <!-- The current theme (if any) of this release. -->
 
-### <a name="whats-new"></a>Novinky
+### <a name="whats-new"></a>Co je nového
 
 <!-- What's new, also net new experiences and features. -->
 
@@ -275,7 +275,7 @@ Opravy hotfix centra Azure Stack se vztahují pouze na integrované systémy Azu
 Verze 1908 centra Azure Stack se musí použít ve verzi 1907 s následujícími opravami hotfix:
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [1.1907.18.56 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4528552)
+- [1.1907.26.70 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4541348)
 
 Aktualizace centra Azure Stack 1908 vyžaduje od poskytovatele hardwaru vašeho systému **Azure Stack centra OEM verze 2,1 nebo novější** . Aktualizace OEM zahrnují aktualizace ovladačů a firmwaru do vašeho systémového hardwaru Azure Stack hub. Další informace o použití aktualizací OEM naleznete v tématu [apply Azure Stack Center Original Equipment Update Manufacturer Updates](azure-stack-update-oem.md) .
 
@@ -284,7 +284,7 @@ Aktualizace centra Azure Stack 1908 vyžaduje od poskytovatele hardwaru vašeho 
 Po instalaci této aktualizace nainstalujte všechny příslušné opravy hotfix. Další informace najdete v našich [zásadách obsluhy](azure-stack-servicing-policy.md).
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [1.1908.14.53 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4537661)
+- [1.1908.19.62 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4541349)
 ::: moniker-end
 
 ::: moniker range="azs-1907"
@@ -304,7 +304,7 @@ Typ sestavení aktualizace centra Azure Stack 1907 je **Express**. Další infor
 
 <!-- The current theme (if any) of this release. -->
 
-### <a name="whats-new"></a>Novinky
+### <a name="whats-new"></a>Co je nového
 
 <!-- What's new, also net new experiences and features. -->
 
@@ -408,7 +408,7 @@ Verze 1907 centra Azure Stack se musí použít ve verzi 1906 s následujícími
 Po instalaci této aktualizace nainstalujte všechny příslušné opravy hotfix. Další informace najdete v našich [zásadách obsluhy](azure-stack-servicing-policy.md).
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [1.1907.18.56 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4528552)
+- [1.1907.26.70 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4541348)
 ::: moniker-end
 
 ::: moniker range="azs-1906"
@@ -539,7 +539,7 @@ Systémy, které mají přístup k Internetu ze sítě infrastruktury, uvidí na
 > [!TIP]  
 > Přihlaste se k odběru následujících informačních kanálů *RSS* nebo *Atom* , abyste zachovali Azure Stack opravy hotfix centra:
 >
-> - [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss)
+> - [OBSAH](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss)
 > - [Počtu](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom)
 
 ## <a name="archive"></a>Archiv

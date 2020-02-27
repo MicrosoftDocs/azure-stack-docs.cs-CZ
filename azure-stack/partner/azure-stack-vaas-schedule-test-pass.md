@@ -1,36 +1,37 @@
 ---
-title: Použití ověřování jako služby pro portál centra Azure Stack k naplánování prvního testu
-description: Použijte ověřování jako službu pro Azure Stack portál centra k naplánování prvního testu.
+title: Naplánování testu na portálu pro ověřování centra Azure Stack
+titleSuffix: Azure Stack Hub
+description: Naučte se naplánovat test na portálu pro ověřování centra Azure Stack.
 author: mattbriggs
 ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: f69629fea796d43e756ccf5436635d282a07b17e
-ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
+ms.openlocfilehash: ccaae2e6d7625687f7739cba4fa77eda3ab91520
+ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77143703"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77625454"
 ---
-# <a name="scheduling-a-test"></a>Plánování testu
+# <a name="schedule-a-test-in-azure-stack-validation-portal"></a>Naplánování testu na portálu pro ověřování Azure Stack
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Naplánujte test na portálu ověřování jako služby (VaaS) pro vaše řešení centra Azure Stack. Řešení VaaS představuje řešení centra Azure Stack s konkrétním hardwarovým materiálem (BoM). Můžete naplánovat test, který zkontroluje, že váš hardware může spustit Azure Stack hub.
+Naplánujte test na portálu pro ověřování Microsoft Azure Stack pro vaše řešení centra Azure Stack. Řešení ověřování jako služby (VaaS) představuje řešení centra Azure Stack s konkrétními hardwarovými kusovníky (BoM). Můžete naplánovat test, který zkontroluje, že váš hardware může spustit Azure Stack hub.
 
 Chcete-li zkontrolovat řešení, vytvořte pracovní postup pro test. Pracovní postup VaaS funguje v kontextu řešení VaaS. Představuje sadu testovacích sad, které vykonávají funkce nasazení centra Azure Stack na vašem hardwaru. Přidejte parametry prostředí vašeho řešení a vyberte jeden nebo více testů, které chcete spustit ve vašem řešení.
 
-I když lze pracovní postup testovacího průchodu použít ke spuštění libovolného testu, který poskytuje VaaS, včetně testů z pracovních postupů ověření, nejsou výsledky z pracovního postupu test Pass považovány za *oficiální*. Informace o oficiálních ověřovacích pracovních postupech najdete v tématu [pracovní postupy](azure-stack-vaas-key-concepts.md#workflows).
+I když se pracovní postup testovacího průchodu dá použít ke spuštění libovolného testu, který poskytuje VaaS, včetně testů z pracovních postupů ověření, nejsou výsledky z pracovního postupu test Pass považovány za *úřední*. Informace o oficiálních ověřovacích pracovních postupech najdete v tématu [pracovní postupy](azure-stack-vaas-key-concepts.md#workflows).
 
 ## <a name="prerequisites"></a>Předpoklady
 
-Než budete postupovat podle tohoto rychlého startu, měli byste dokončit následující položky:
+Než budete postupovat podle tohoto rychlého startu, dokončete následující úlohy:
 
-- [Nastavení ověřování jako prostředků služby](azure-stack-vaas-set-up-resources.md)
-- [Nasadit místního agenta](azure-stack-vaas-local-agent.md) (povinné)
-- [Ověření jako klíčové koncepty služby](azure-stack-vaas-key-concepts.md) (povinné)
+- [Nastavte ověřování jako prostředky služby](azure-stack-vaas-set-up-resources.md).
+- [Nasaďte místního agenta](azure-stack-vaas-local-agent.md) (povinné).
+- [Ověření jako klíčové koncepty služby](azure-stack-vaas-key-concepts.md) (povinné).
 
 ## <a name="start-a-workflow"></a>Spustit pracovní postup
 
@@ -39,12 +40,12 @@ Než budete postupovat podle tohoto rychlého startu, měli byste dokončit nás
 Přihlaste se k portálu, vyberte nebo vytvořte řešení a pak vyberte řešení.
 
 1. Přihlaste se k [portálu VaaS](https://azurestackvalidation.com).
-2. Zadejte název existujícího řešení nebo vyberte **nové řešení** a vytvořte nové řešení. Pokyny najdete v tématu [vytvoření řešení na portálu VaaS](azure-stack-vaas-key-concepts.md#create-a-solution-in-the-vaas-portal).
+2. Zadejte název existujícího řešení nebo vyberte **nové řešení** a vytvořte nové řešení. Pokyny najdete v tématu [vytvoření řešení na portálu VaaS](azure-stack-vaas-key-concepts.md#create-a-solution-in-the-azure-stack-hub-validation-portal).
 3. Na dlaždici **test Passes** (spustit) vyberte **začít** .
 
 ## <a name="specify-parameters"></a>Zadat parametry
 
-![Alternativní text](media/vaas_test_pass_parameters.png)
+![Zadání parametrů na portálu VaaS](media/vaas_test_pass_parameters.png)
 
 Zadejte parametry, které se vztahují na všechny testy v rámci pracovního postupu.
 
@@ -60,7 +61,7 @@ Vybrané testy budou naplánovány po vytvoření pracovního postupu.
 
 1. Vyberte testy, které chcete spustit ve vašem pracovním postupu.
 
-    Pokud chcete přepsat společné parametry (tj. parametry uvedené v předchozí části) pro libovolný test, vyberte v odkazu **Upravit** vedle zadat nové hodnoty.
+    Pokud chcete přepsat společné parametry (parametry uvedené v předchozí části) pro libovolný test, vyberte odkaz **Upravit** vedle položky zadat nové hodnoty.
 
 1. [!INCLUDE [azure-stack-vaas-workflow-step_select-agent](includes/azure-stack-vaas-workflow-step_select-agent.md)]
 

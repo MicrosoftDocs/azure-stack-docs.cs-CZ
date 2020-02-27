@@ -7,12 +7,12 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: e3595179c4efc5503f8e4315fbe5a419049b2db4
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 0a105730f36aa9ce14e967bcdcefdb93ece0f26b
+ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76885230"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77636280"
 ---
 # <a name="vm-update-and-management-automation-in-azure-stack-hub"></a>Automatizace aktualizací a správy virtuálních počítačů v centru Azure Stack
 Ke správě virtuálních počítačů s Windows a Linux, které se nasazují pomocí centra Azure Stack, použijte následující Azure Automation řešení:
@@ -28,7 +28,7 @@ Ke správě virtuálních počítačů s Windows a Linux, které se nasazují po
 > [!IMPORTANT]
 > Tato řešení jsou stejná jako ta, která slouží ke správě virtuálních počítačů Azure. Virtuální počítače s rozbočovačem Azure i Azure Stack se spravují stejným způsobem, ze stejného rozhraní, pomocí stejných nástrojů. Virtuální počítače centra Azure Stack se také účtují stejně jako virtuální počítače Azure při použití řešení Update Management, Change Tracking, inventarizace a Azure Monitor pro virtuální počítače s centrem Azure Stack.
 
-## <a name="prerequisites"></a>Požadavky
+## <a name="prerequisites"></a>Předpoklady
 Před použitím těchto funkcí k aktualizaci a správě virtuálních počítačů centra Azure Stack musí být splněno několik požadavků. Patří sem kroky, které je třeba provést v Azure Portal a také na portálu pro správu centra Azure Stack.
 
 ### <a name="in-the-azure-portal"></a>V Azure Portal
@@ -111,7 +111,7 @@ Virtuální počítače centra Azure Stack se teď dají zahrnout do plánovaný
 Jakmile má virtuální počítač **Azure monitor, správu aktualizací a konfigurací**a nainstalují se rozšíření **Azure monitor Dependency agent** , začnou v řešení [Azure monitor pro virtuální počítače](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-overview) začít vytvářet data. 
 
 > [!TIP]
-> Rozšíření **Azure Monitor Dependency agent** nevyžaduje žádné parametry. Azure Monitor pro agenta závislostí mapování virtuálních počítačů nebude přenášet vlastní data a nevyžaduje žádné změny brány firewall nebo porty. Mapy dat je vždy přenášených v rámci agenta Log Analytics ve službě Azure Monitor, buď přímo nebo prostřednictvím [bránu OMS](https://docs.microsoft.com/azure/azure-monitor/platform/gateway) Pokud zásady zabezpečení IT neumožňují počítače v síti pro připojení k Internetu.
+> Rozšíření **Azure Monitor Dependency agent** nevyžaduje žádné parametry. Azure Monitor pro agenta závislostí mapování virtuálních počítačů nebude přenášet vlastní data a nevyžaduje žádné změny brány firewall nebo porty. Data mapy jsou vždy přenášena agentem Log Analytics do služby Azure Monitor, a to buď přímo, nebo prostřednictvím [brány OMS](https://docs.microsoft.com/azure/azure-monitor/platform/gateway) , pokud zásady zabezpečení IT nedovolují počítačům v síti připojení k Internetu.
 
 Azure Monitor pro virtuální počítače obsahuje sadu grafů výkonu, které cílí na několik klíčových ukazatelů výkonu (KPI), které vám pomůžou určit, jak dobře funguje virtuální počítač. Grafy ukazují použití prostředků v časovém intervalu, takže můžete identifikovat slabá místa a anomálie. Můžete také přepnout na seznam perspektiv v každém počítači a zobrazit tak použití prostředků na základě vybrané metriky. I když existuje mnoho prvků, které je potřeba vzít v úvahu při práci s výkonem, Azure Monitor pro virtuální počítače sleduje klíčové ukazatele výkonu operačního systému týkající se procesoru, paměti, síťového adaptéru a využití disku. Grafy výkonu doplňují funkci monitorování stavu a umožňují vystavovat problémy, které indikují chybu při selhání součásti systému. Azure Monitor pro virtuální počítače podporuje taky plánování kapacity a optimalizaci a optimalizaci, abyste dosáhli efektivity.
 

@@ -7,12 +7,12 @@ ms.date: 11/06/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: 87c924ff78e4209b300bc7fd68e7cc5b59640026
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: f3b564bc667376361e1bfc57df0ec50e32522401
+ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76885329"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77636314"
 ---
 # <a name="how-to-deploy-f5-across-two-azure-stack-hub-instances"></a>Postup nasazení F5 v rámci dvou instancí centra Azure Stack
 
@@ -140,7 +140,7 @@ Po instalaci nástroje je potřeba nakonfigurovat skupin zabezpečení sítě ce
     
     | Klíč | Hodnota |
     | --- | --- |
-    | Name (Název) | NGINX_Pool |
+    | Název | NGINX_Pool |
     | Monitor stavu | HTTPS |
     | Název uzlu | NGINX |
     | Adresa | \<privátní IP adresu NGINX > |
@@ -160,7 +160,7 @@ Po instalaci nástroje je potřeba nakonfigurovat skupin zabezpečení sítě ce
 
     | Klíč | Hodnota |
     | --- | --- |
-    |Name (Název) | NGINX |
+    |Název | NGINX |
     |Cílová adresa | \<IP adresu > pro velké IP adresy |
     |Port služby | 443 |
     |Profil SSL (klient) | clientssl |

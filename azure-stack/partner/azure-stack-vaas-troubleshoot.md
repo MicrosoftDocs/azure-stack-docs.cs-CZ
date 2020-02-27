@@ -1,5 +1,6 @@
 ---
-title: Řešení potíží s ověřováním centra Azure Stack jako služby
+title: Řešení potíží s ověřováním jako službou
+titleSuffix: Azure Stack Hub
 description: Řešení potíží s ověřováním jako služby pro centrum Azure Stack.
 author: mattbriggs
 ms.topic: article
@@ -8,12 +9,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1adadf1df42873d37e45a9c25a4876ee79612cf6
-ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
+ms.openlocfilehash: 6c25ceebdf82c7fe0e32259346d3d59558fdabc7
+ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77143616"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77625369"
 ---
 # <a name="troubleshoot-validation-as-a-service"></a>Řešení potíží s ověřováním jako službou
 
@@ -25,14 +26,14 @@ Níže jsou uvedené běžné problémy, které nesouvisí s verzemi softwaru a 
 
 ### <a name="the-portal-shows-local-agent-in-debug-mode"></a>Na portálu se v režimu ladění zobrazuje místní agent.
 
-Je to pravděpodobně proto, že Agent nemůže odesílat prezenční signály do služby z důvodu nestabilního síťového připojení. Prezenční signál se pošle každých pět minut. Pokud služba neobdrží prezenční signál po dobu 15 minut, služba nepovažuje agenta za neaktivní a testy se na něj už nebudou naplánovat. V souboru *Agenthost. log* , který se nachází v adresáři, ve kterém byl spuštěn Agent, se podívejte na chybovou zprávu.
+Tento problém je pravděpodobně způsoben tím, že Agent nemůže odesílat prezenční signály do služby z důvodu nestabilního síťového připojení. Prezenční signál se pošle každých pět minut. Pokud služba neobdrží prezenční signál po dobu 15 minut, služba nepovažuje agenta za neaktivní a testy se na něj už nebudou naplánovat. V souboru *Agenthost. log* , který se nachází v adresáři, ve kterém byl spuštěn Agent, se podívejte na chybovou zprávu.
 
 > [!Note]
-> Všechny testy, které jsou již spuštěny v agentovi, budou nadále spuštěny, ale pokud není prezenční signál obnoven před ukončením testu, Agent nebude moci aktualizovat stav testu nebo Odeslat protokoly. Test se vždycky zobrazí jako **spuštěný** a bude potřeba ho zrušit.
+> Všechny testy, které jsou již spuštěny v agentovi, budou nadále spuštěny, ale pokud se prezenční signál neobnoví před ukončením testu, Agent nebude moci aktualizovat stav testu nebo Odeslat protokoly. Test se vždycky zobrazí jako **spuštěný** a bude potřeba ho zrušit.
 
 ### <a name="agent-process-on-machine-was-shut-down-while-executing-test-what-to-expect"></a>Proces agenta v počítači se při provádění testu vypnul. Co očekávat?
 
-Pokud je proces agenta vypnutý bez řádného vypnutí, například restartování počítače, zastavení procesu (CTRL + C v okně Agent se považuje za řádné vypnutí), pak se test, který na něm běžel, bude dál zobrazovat jako **spuštěný**. Pokud je agent restartován, Agent aktualizuje stav testu na **zrušeno**. Pokud agent nerestartujete, test se zobrazí jako **spuštěný** a Vy musíte test ručně zrušit.
+Pokud je proces agenta nekorektně vypnutý, bude se test, který na něm běžel, dál zobrazovat jako **spuštěný**. Příkladem nedarovaného vypnutí je restartování počítače a proces byl ukončen (CTRL + C v okně Agent se považuje za řádné vypnutí). Pokud je agent restartován, Agent aktualizuje stav testu na **zrušeno**. Pokud se agent nerestartuje, test se zobrazí jako **spuštěný** a Vy musíte test ručně zrušit.
 
 > [!Note]
 > Testy v rámci pracovního postupu mají naplánované spuštění postupně. **Probíhající** testy se nespustí, dokud testy ve **spuštěném** stavu ve stejném pracovním postupu dokončí.
@@ -47,9 +48,9 @@ Image PIR si můžete stáhnout do sdílené složky v místním datovém centru
 
 #### <a name="download-pir-image-to-local-share-in-case-of-slow-network-traffic"></a>Stáhnout image PIR do místního sdílení v případě pomalého síťového provozu
 
-1. Stáhnout AzCopy z: [vaasexternaldependencies (AzCopy)](https://vaasexternaldependencies.blob.core.windows.net/prereqcomponents/AzCopy.zip)
+1. Stáhněte si AzCopy z: [vaasexternaldependencies (AzCopy)](https://vaasexternaldependencies.blob.core.windows.net/prereqcomponents/AzCopy.zip).
 
-2. Extrahujte soubor AzCopy. zip a přejděte do adresáře obsahujícího AzCopy. exe.
+2. Extrahujte soubor AzCopy. zip a přejděte do adresáře, který obsahuje `AzCopy.exe`.
 
 3. Otevřete Windows PowerShell z příkazového řádku se zvýšenými oprávněními. Spusťte následující příkazy:
 
@@ -80,16 +81,16 @@ Pomocí rutiny **Get-HashFile** můžete získat hodnotu hash pro stažené soub
 | OpenLogic-CentOS-69-20180105. VHD | C8B874FE042E33B488110D9311AF1A5C7DC3B08E6796610BF18FDD6728C7913C |
 | Debian8_latest. VHD | 06F8C11531E195D0C90FC01DFF5DC396BB1DD73A54F8252291ED366CACD996C1 |
 
-### <a name="failure-occurs-when-uploading-vm-image-in-the-vaasprereq-script"></a>Při nahrávání image virtuálního počítače do skriptu `VaaSPreReq` dojde k chybě.
+### <a name="failure-happens-when-uploading-vm-image-in-the-vaasprereq-script"></a>K selhání dojde při nahrávání image virtuálního počítače ve skriptu `VaaSPreReq`.
 
 Nejdřív ověřte, že je prostředí v pořádku:
 
-1. V poli DVM/skočit ověřte, že se můžete úspěšně přihlásit k portálu pro správu pomocí přihlašovacích údajů správce.
+1. V poli DVM/skočit ověřte, že se můžete úspěšně přihlásit k portálu správce pomocí přihlašovacích údajů správce.
 1. Potvrďte, že nejsou k dispozici žádná upozornění nebo upozornění.
 
-Pokud je prostředí v pořádku, ručně nahrajte 5 imagí virtuálních počítačů, které jsou potřeba pro testovací běhy VaaS:
+Pokud je prostředí v pořádku, ručně nahrajte pět imagí virtuálních počítačů potřebných pro testovací běhy VaaS:
 
-1. Přihlaste se jako správce služby na portál pro správu. Adresu URL portálu pro správu najdete na webu EHK Store nebo v souboru s informacemi o razítku. Pokyny najdete v tématu [parametry prostředí](azure-stack-vaas-parameters.md#environment-parameters).
+1. Přihlaste se jako správce služby na portál správce. Adresu URL portálu pro správu najdete na webu EHK Store nebo v souboru s informacemi o razítku. Pokyny najdete v tématu [parametry prostředí](azure-stack-vaas-parameters.md#environment-parameters).
 1. Vyberte **Další služby** > **poskytovatelé prostředků** > **výpočetních** > **imagí virtuálních počítačů**.
 1. V horní části okna **image virtuálních počítačů** vyberte tlačítko **+ Přidat** .
 1. Upravte nebo ověřte hodnoty následujících polí pro první bitovou kopii virtuálního počítače:
@@ -108,7 +109,7 @@ Pokud je prostředí v pořádku, ručně nahrajte 5 imagí virtuálních počí
 1. Vyberte tlačítko **Vytvořit**.
 1. Opakujte pro zbývající image virtuálních počítačů.
 
-Vlastnosti všech 5 imagí virtuálních počítačů jsou následující:
+Vlastnosti všech pěti imagí virtuálních počítačů jsou následující:
 
 | Vydavatel  | Nabídka  | OS Type | Skladová jednotka (SKU) | Verze | Identifikátor URI objektu BLOB disku s operačním systémem |
 |---------|---------|---------|---------|---------|---------|
