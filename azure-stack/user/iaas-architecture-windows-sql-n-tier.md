@@ -7,12 +7,12 @@ ms.date: 11/01/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: b866b99cca9e4db7fa522bd605512f0aeea632db
-ms.sourcegitcommit: 74ce7c12a93d47315d70427b02bcacbd3b44f854
+ms.openlocfilehash: a44c4cee7948fe9f2cf4a55e7ed337c3932fd95c
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77037229"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77704943"
 ---
 # <a name="windows-n-tier-application-on-azure-stack-hub-with-sql-server"></a>N-vrstvá aplikace Windows v centru Azure Stack s SQL Server
 
@@ -64,7 +64,7 @@ Může vypadat takto:
 
 Vaše požadavky se mohou od popsané architektury lišit. Použijte tato doporučení jako výchozí bod.
 
-### <a name="virtual-machines"></a>Virtual Machines
+### <a name="virtual-machines"></a>Virtuální počítače
 
 Doporučení týkající se konfigurace virtuálních počítačů najdete v tématu [spuštění virtuálního počítače s Windows v centru Azure Stack](iaas-architecture-vm-windows.md).
 
@@ -76,7 +76,7 @@ Vyberte rozsah adres, který se nepřekrývá s vaší místní sítí, pro př�
 
 Při navrhování podsítí myslete na požadované funkce a požadavky na zabezpečení. Všechny virtuální počítače ve stejné vrstvě nebo roli by měly patřit do stejné podsítě, která může být hranicí zabezpečení. Další informace o návrhu virtuálních sítí a podsítí najdete v tématu [plánování a návrh Azure Virtual Networks](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm).
 
-### <a name="load-balancers"></a>Nástroje pro vyrovnávání zatížení
+### <a name="load-balancers"></a>Služby vyrovnávání zatížení
 
 Nevystavujte virtuální počítače přímo k Internetu, ale místo toho dejte každému virtuálnímu počítači privátní IP adresu. Klienti se připojují pomocí veřejné IP adresy přidružené k Load Balancer vrstvy 7.
 

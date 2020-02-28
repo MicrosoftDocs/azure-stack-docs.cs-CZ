@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 6a696417b296da978b2d077c6f2c01b94a106d2e
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 7ab1370ef77a246b1ccda4ab525040edf9cb596a
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884904"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77704144"
 ---
 # <a name="deploy-a-java-web-app-to-a-vm-in-azure-stack-hub"></a>Nasazení webové aplikace v jazyce Java do virtuálního počítače v Azure Stackovém centru
 
@@ -24,12 +24,12 @@ Můžete vytvořit virtuální počítač, který bude hostovat webovou aplikaci
 
 2. V podokně síť virtuálních počítačů se ujistěte, že jsou dostupné tyto porty:
 
-    | Port | Protocol (Protokol) | Popis |
+    | Port | Protokol | Popis |
     | --- | --- | --- |
     | 80 | HTTP | HTTP (Hypertext Transfer Protocol) je protokol, který se používá k doručování webových stránek ze serverů. Klienti se připojují přes protokol HTTP s názvem DNS nebo IP adresou. |
     | 443 | HTTPS | Protokol HTTPS (Hypertext Transfer Protocol Secure) je zabezpečená verze protokolu HTTP, která vyžaduje certifikát zabezpečení a umožňuje šifrovaný přenos informací. |
     | 22 | SSH | Secure Shell (SSH) je zašifrovaný síťový protokol pro zabezpečenou komunikaci. Pomocí tohoto připojení s klientem SSH nakonfigurujete virtuální počítač a nasadíte aplikaci. |
-    | 3389 | Protokol RDP | Nepovinný parametr. Protokol RDP (Remote Desktop Protocol) (RDP) umožňuje připojení ke vzdálené ploše pro použití grafického uživatelského rozhraní na vašem počítači.   |
+    | 3389 | RDP | Volitelné. Protokol RDP (Remote Desktop Protocol) (RDP) umožňuje připojení ke vzdálené ploše pro použití grafického uživatelského rozhraní na vašem počítači.   |
     | 8080 | Vlastní | Výchozí port pro službu Apache Tomcat V případě provozního serveru směrujete provoz mezi 80 a 443. |
 
 ## <a name="install-java"></a>Nainstalovat Java

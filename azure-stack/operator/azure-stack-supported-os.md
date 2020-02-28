@@ -8,12 +8,12 @@ ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/06/2019
-ms.openlocfilehash: c590aed504df1549e3c4a43ae282a304e579195a
-ms.sourcegitcommit: 74ce7c12a93d47315d70427b02bcacbd3b44f854
+ms.openlocfilehash: a731c7c72f38fee0fb37fc8b82e55799d5b80d3b
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77037195"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77696936"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack-hub"></a>Hostované operační systémy podporované v centru Azure Stack
 
@@ -26,9 +26,9 @@ Centrum Azure Stack podporuje hostované operační systémy Windows, které jso
 | Windows Server verze 1709 | 64bitový | Jádro s kontejnery |
 | Windows Server 2019 | 64bitový |  Datacenter, Datacenter Core, Datacenter s kontejnery |
 | Windows Server 2016 | 64bitový |  Datacenter, Datacenter Core, Datacenter s kontejnery |
-| Windows Server 2012 R2 | 64bitový |  Datové centrum |
-| Windows Server 2012 | 64bitový |  Datové centrum |
-| Windows Server 2008 R2 SP1 | 64bitový |  Datové centrum |
+| Windows Server 2012 R2 | 64bitový |  Datacenter |
+| Windows Server 2012 | 64bitový |  Datacenter |
+| Windows Server 2008 R2 SP1 | 64bitový |  Datacenter |
 | Windows Server 2008 SP2 | 64bitový |  Přineste si vlastní image |
 | Windows 10 *(viz poznámka 1)* | 64-bit, pro a Enterprise | Přineste si vlastní image |
 

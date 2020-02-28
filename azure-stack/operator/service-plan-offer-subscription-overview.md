@@ -7,12 +7,12 @@ ms.date: 12/18/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 10/01/2019
-ms.openlocfilehash: c67d880308bd946c2f73f0993bbd3a19be0342aa
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 0e5d71335fb5b7086341c7c06ec503aae1a8e728
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76885166"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77704773"
 ---
 # <a name="azure-stack-hub-services-plans-offers-subscriptions-overview"></a>Přehled služeb Azure Stack hub, plánů, nabídek a předplatných
 
@@ -52,7 +52,7 @@ Můžete také nasazovat služby PaaS ( [Platform as a Service](https://azure.mi
 
 Můžete také kombinovat služby pro integraci a vytváření složitých řešení pro různé uživatele.
 
-### <a name="quotas"></a>Kvóty
+### <a name="quotas"></a>kvóty,
 
 Pro lepší správu kapacity cloudu můžete použít předem nakonfigurované *kvóty*nebo vytvořit novou kvótu pro každou službu v plánu. Kvóty definují horní omezení prostředků, které může předplatné uživatele zřizovat nebo využívat. Kvóta například může uživateli umožnit vytvoření až pěti virtuálních počítačů.
 
@@ -78,7 +78,7 @@ Při vytváření nabídky může správce služby zahrnovat základní plán. T
 
 Plány doplňku jsou volitelné plány, které do nabídky přidáte. V předplatném nejsou ve výchozím nastavení zahrnuty plány doplňku. Doplňkové plány jsou další plány (s kvótami) dostupné v nabídce, kterou může předplatitel přidat ke svým předplatným. Můžete například nabídnout základní plán s omezenými prostředky pro zkušební verzi a plán doplňku s většími prostředky pro zákazníky, kteří se rozhodnou tuto službu přijmout.
 
-## <a name="offers"></a>Nabídky
+## <a name="offers"></a>Rozsah
 
 Nabídky jsou skupiny jednoho nebo více plánů, které vytvoříte, aby se uživatelé mohli přihlásit k jejich odběru. Například: nabídka alfa může obsahovat plán A, který poskytuje sadu výpočetních služeb a plán B, který poskytuje sadu úložišť a síťových služeb.
 

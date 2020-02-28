@@ -7,12 +7,12 @@ ms.date: 11/01/2019
 ms.author: inhenkel
 ms.reviewer: wfayed
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: b03d00d4f90a16bbb1a299902097e23607e488b8
-ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
+ms.openlocfilehash: 4b2cdd9f663f95ddd1fc3b3a23f7fce06da2c2c9
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77510006"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77699979"
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-hub-integrated-systems"></a>Rozhodnutí týkající se plánování nasazení na odpojení Azure pro integrované systémy centra Azure Stack
 Až se rozhodnete, [jak budete integrovat Azure Stack hub do svého hybridního cloudového prostředí](azure-stack-connection-models.md), můžete dokončit rozhodnutí o nasazení Azure Stack centra.

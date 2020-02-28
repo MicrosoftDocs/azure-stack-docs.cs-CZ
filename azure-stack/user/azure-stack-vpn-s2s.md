@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 01/07/2020
 ms.author: sethm
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 262d0714c8a0d5979a1313dcff48947f676109ce
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: a44af909dc3f3309c51f748b0f3b3f0275843c80
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883007"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77705062"
 ---
 # <a name="configure-ipsecike-policy-for-site-to-site-vpn-connections"></a>Konfigurace zásad IPsec/IKE pro připojení VPN typu Site-to-site
 
@@ -96,7 +96,7 @@ V následující tabulce jsou uvedeny odpovídající skupiny Diffie-Hellman pod
 
 | Skupina Diffie-Hellman | DHGroup   | PFSGroup      | Délka klíče    |
 |----------------------|-----------|---------------|---------------|
-| 1\. místo                    | DHGroup1  | PFS1          | 768bitová skupina MODP  |
+| 1                    | DHGroup1  | PFS1          | 768bitová skupina MODP  |
 | 2                    | DHGroup2  | PFS2          | 1024bitová skupina MODP |
 | 14                   | DHGroup14<br/>DHGroup2048 | PFS2048       | 2048bitová skupina MODP |
 | 19                   | ECP256    | ECP256        | 256bitová skupina ECP   |

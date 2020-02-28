@@ -9,12 +9,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6c25ceebdf82c7fe0e32259346d3d59558fdabc7
-ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
+ms.openlocfilehash: daef2c9685bd844ba99cadfa4f9f095fadc028be
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77625369"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77704501"
 ---
 # <a name="troubleshoot-validation-as-a-service"></a>Řešení potíží s ověřováním jako službou
 
@@ -101,9 +101,9 @@ Pokud je prostředí v pořádku, ručně nahrajte pět imagí virtuálních po�
     |---------|---------|
     | Vydavatel | MicrosoftWindowsServer |
     | Nabídka | WindowsServer |
-    | OS Type | Windows |
-    | Skladová jednotka (SKU) | 2012-R2-Datacenter |
-    | Verze | 1.0.0 |
+    | Typ operačního systému | Windows |
+    | Skladová položka | 2012-R2-Datacenter |
+    | Version | 1.0.0 |
     | Identifikátor URI objektu BLOB disku s operačním systémem | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/WindowsServer2012R2DatacenterBYOL.vhd |
 
 1. Vyberte tlačítko **Vytvořit**.
@@ -111,7 +111,7 @@ Pokud je prostředí v pořádku, ručně nahrajte pět imagí virtuálních po�
 
 Vlastnosti všech pěti imagí virtuálních počítačů jsou následující:
 
-| Vydavatel  | Nabídka  | OS Type | Skladová jednotka (SKU) | Verze | Identifikátor URI objektu BLOB disku s operačním systémem |
+| Vydavatel  | Nabídka  | Typ operačního systému | Skladová položka | Version | Identifikátor URI objektu BLOB disku s operačním systémem |
 |---------|---------|---------|---------|---------|---------|
 | MicrosoftWindowsServer| WindowsServer | Windows | 2012-R2-Datacenter | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/WindowsServer2012R2DatacenterBYOL.vhd |
 | MicrosoftWindowsServer | WindowsServer | Windows | 2016 – Datacenter | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Server2016DatacenterFullBYOL.vhd |

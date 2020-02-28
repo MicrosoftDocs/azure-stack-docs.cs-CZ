@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: misainat
-ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 5ad405deed93155871afb4793a1d800268ae7d22
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 10/16/2019
+ms.openlocfilehash: 2c4a83ea024f83c0181cfe77c598519746deaeed
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76874157"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77695355"
 ---
 # <a name="advanced-asdk-evaluation-tasks"></a>Pokročilé úlohy hodnocení ASDK
 Po zjištění zkušeností s funkcemi a možnostmi služby Basic Azure Stack Development Kit (ASDK) můžete své porozumění Azure Stack dále prohloubit otestováním pokročilejších scénářů. Tyto pokročilejší úkoly hodnocení jsou plně dokumentovány v dokumentaci k operátoru Azure Stack.

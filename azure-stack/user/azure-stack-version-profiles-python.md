@@ -7,12 +7,12 @@ ms.date: 01/23/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 48df6dab5d93e4e9875dc422f90f3f823a4b2ee9
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: db66156cfa1b4b5a2c97b5d17559ae2c48760ce0
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884224"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77705181"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack-hub"></a>Použití profilů verzí rozhraní API s Pythonem v Azure Stackovém centru
 
@@ -26,11 +26,11 @@ Python SDK podporuje následující profily rozhraní API:
 
 - **nejnovější**  
     Tento profil cílí na nejnovější verze rozhraní API pro všechny poskytovatele služeb na platformě Azure.
-- **2019-03-01-hybrid**  
+- **2019-03-01 – Hybrid**  
     Tento profil cílí na nejnovější verze rozhraní API pro všechny poskytovatele prostředků na platformě centra Azure Stack pro verze 1904 nebo novější.
-- **2018-03-01-hybrid**  
+- **2018-03-01 – Hybrid**  
     Tento profil cílí na nejvíce kompatibilní verze rozhraní API pro všechny poskytovatele prostředků na platformě Azure Stack hub.
-- **2017-03-09-profile**  
+- **2017-03-09 – profil**  
     Tento profil cílí na nejvíce kompatibilní verze rozhraní API zprostředkovatelů prostředků, které podporuje Azure Stack hub.
 
    Další informace o profilech rozhraní API a centru Azure Stack najdete v tématu [Správa profilů verzí rozhraní API v centru Azure Stack](azure-stack-version-profiles.md).

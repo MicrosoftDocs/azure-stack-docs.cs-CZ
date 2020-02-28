@@ -7,12 +7,12 @@ ms.date: 01/23/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: da85abeff55d09684c561679bdc0f85e28440ed7
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 6dc30839ba08a793ead0e857f17e97a90222f7a5
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884240"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77705215"
 ---
 # <a name="use-api-version-profiles-with-java-in-azure-stack-hub"></a>Použití profilů verzí rozhraní API pomocí Java v centru Azure Stack
 
@@ -68,8 +68,8 @@ Pomocí těchto kroků nainstalujete Java SDK:
 
 4. Sada balíčků, které je třeba nainstalovat, závisí na verzi profilu, kterou chcete použít. Názvy balíčků pro verze profilu jsou:
 
-   - **com.microsoft.azure.profile\_2019\_03\_01\_hybrid**
-   - **com.microsoft.azure**
+   - **com. Microsoft. Azure. Profile\_2019\_03\_01\_Hybrid**
+   - **com. Microsoft. Azure**
      - **nejnovější**
 
 5. Pokud není k dispozici, vytvořte odběr a uložte si ID předplatného pro pozdější použití. Pokyny k vytvoření předplatného najdete [v tématu Vytvoření předplatných nabídek v centru Azure Stack](../operator/azure-stack-subscribe-plan-provision-vm.md).
@@ -264,7 +264,7 @@ Následující ukázky GitHubu použijte jako referenční materiály k vytvář
    git clone https://github.com/Azure-Samples/Hybrid-resources-java-manage-resource-group.git`
    ```
 
-2. Vytvoření instančního objektu Azure a přiřazení role přístupu k předplatnému. Pokyny k vytvoření instančního objektu najdete v tématu [pomocí prostředí Azure PowerShell k vytvoření instančního objektu s certifikátem](../operator/azure-stack-create-service-principals.md).
+2. Vytvoření instančního objektu Azure a přiřazení role přístupu k předplatnému. Pokyny k vytvoření instančního objektu najdete v tématu [použití Azure PowerShell k vytvoření instančního objektu s certifikátem](../operator/azure-stack-create-service-principals.md).
 
 3. Načtěte následující požadované proměnné prostředí:
 
@@ -284,7 +284,7 @@ Následující ukázky GitHubu použijte jako referenční materiály k vytvář
    - `export ARM_ENDPOINT={your Azure Stack Hub Resource Manager URL}`
    - `export RESOURCE_LOCATION={location of Azure Stack Hub}`
 
-   Ve Windows, použijte **nastavit** místo **exportovat**.
+   V systému Windows použijte místo **exportu**příkaz **set** .
 
 5. Pro načtení Azure Resource Manager koncových bodů metadat použijte funkci `getActiveDirectorySettings`.
 
@@ -314,4 +314,4 @@ Následující ukázky GitHubu použijte jako referenční materiály k vytvář
 Další informace o profilech rozhraní API najdete v tématu:
 
 - [Profily verzí v centru Azure Stack](azure-stack-version-profiles.md)
-- [Podporuje profily verze rozhraní API poskytovatele prostředků](azure-stack-profiles-azure-resource-manager-versions.md)
+- [Verze rozhraní API poskytovatele prostředků podporované profily](azure-stack-profiles-azure-resource-manager-versions.md)

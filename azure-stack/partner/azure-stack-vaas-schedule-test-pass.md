@@ -8,14 +8,15 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: ccaae2e6d7625687f7739cba4fa77eda3ab91520
-ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
+ROBOTS: NOINDEX
+ms.openlocfilehash: e41fe02946b3f08d34cdb0a6d81c08885ef9d71b
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77625454"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77704603"
 ---
-# <a name="schedule-a-test-in-azure-stack-validation-portal"></a>Naplánování testu na portálu pro ověřování Azure Stack
+# <a name="scheduling-a-test"></a>Plánování testu
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
@@ -25,7 +26,7 @@ Chcete-li zkontrolovat řešení, vytvořte pracovní postup pro test. Pracovní
 
 I když se pracovní postup testovacího průchodu dá použít ke spuštění libovolného testu, který poskytuje VaaS, včetně testů z pracovních postupů ověření, nejsou výsledky z pracovního postupu test Pass považovány za *úřední*. Informace o oficiálních ověřovacích pracovních postupech najdete v tématu [pracovní postupy](azure-stack-vaas-key-concepts.md#workflows).
 
-## <a name="prerequisites"></a>Předpoklady
+## <a name="prerequisites"></a>Požadavky
 
 Než budete postupovat podle tohoto rychlého startu, dokončete následující úlohy:
 

@@ -8,12 +8,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 8bb39f3aae4031402e38023f92ebdb91feb9bf92
-ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
+ms.openlocfilehash: 621bed34b4d5f633b1a104c03c0bca341ec21bdd
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77143747"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77704569"
 ---
 # <a name="validate-oem-packages"></a>Ověřit balíčky OEM
 
@@ -65,8 +65,8 @@ V případě úrovní přístupu **Private** a **BLOB** musíte dočasně uděli
 
 |Úroveň přístupu | Požadavek pracovního postupu | Požadavek testu |
 |---|---------|---------|
-|Private | Vygenerujte adresu URL SAS na jeden objekt BLOB balíčku ([možnost 1](#option-1-generate-a-blob-sas-url)). | Vygenerujte adresu URL SAS na úrovni účtu a ručně přidejte název objektu BLOB balíčku ([možnost 2](#option-2-construct-a-container-sas-url)). |
-|Objekt blob | Zadejte vlastnost URL objektu BLOB ([možnost 3](#option-3-grant-public-read-access)). | Vygenerujte adresu URL SAS na úrovni účtu a ručně přidejte název objektu BLOB balíčku ([možnost 2](#option-2-construct-a-container-sas-url)). |
+|Privátní | Vygenerujte adresu URL SAS na jeden objekt BLOB balíčku ([možnost 1](#option-1-generate-a-blob-sas-url)). | Vygenerujte adresu URL SAS na úrovni účtu a ručně přidejte název objektu BLOB balíčku ([možnost 2](#option-2-construct-a-container-sas-url)). |
+|Blob | Zadejte vlastnost URL objektu BLOB ([možnost 3](#option-3-grant-public-read-access)). | Vygenerujte adresu URL SAS na úrovni účtu a ručně přidejte název objektu BLOB balíčku ([možnost 2](#option-2-construct-a-container-sas-url)). |
 |Kontejner | Zadejte vlastnost URL objektu BLOB ([možnost 3](#option-3-grant-public-read-access)). | Zadejte vlastnost URL objektu BLOB ([možnost 3](#option-3-grant-public-read-access)).
 
 Možnosti pro udělení přístupu k vašim balíčkům jsou seřazené z minimálního přístupu k největšímu přístupu.

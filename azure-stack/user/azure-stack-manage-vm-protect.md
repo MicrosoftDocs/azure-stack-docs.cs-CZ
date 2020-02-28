@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: hectorl
-ms.lastreviewed: 3/19/2018
-ms.openlocfilehash: fdcae656e142f8981a41875daada938b5ce360ab
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 3/19/2019
+ms.openlocfilehash: 824352a27ae91b2bf0a351b9dc280c83bfb9d19a
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884721"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703957"
 ---
 # <a name="protect-vms-deployed-on-azure-stack-hub"></a>Ochrana virtuálních počítačů nasazených v centru Azure Stack
 
@@ -147,7 +147,7 @@ Důležité informace pro nasazení centra Azure Stack:
 | Replikace virtuálních počítačů nebo jejich převzetí služeb při selhání do samostatné instance centra Azure Stack | Doporučené | V případě převzetí služeb při selhání je potřeba mít druhý Cloud centra Azure Stack plně funkční, takže se můžete vyhnout výpadkům rozšířené aplikace. |
 | Replikace a převzetí služeb při selhání virtuálního počítače přímo do Azure nebo do poskytovatele důvěryhodné služby | Doporučené | Pokud můžete splnit požadavky na ochranu osobních údajů a legislativu vašich dat, můžete replikovat data do globálního Azure nebo do poskytovatele důvěryhodné služby. V ideálním případě poskytovatel služeb také používá Azure Stack hub, takže po převzetí služeb při selhání získáte konzistenci v provozním prostředí. |
 | Nasazení cíle zálohování do stejného cloudu centra Azure Stack s daty aplikace | Nedoporučuje se | Neukládejte zálohy do stejného cloudu centra Azure Stack. Neplánované výpadky cloudu vám můžou zachovávat vaše primární data a zálohovaná data. Pokud se rozhodnete nasadit cíl zálohování jako virtuální zařízení (pro účely optimalizace zálohování a obnovení), musíte zajistit, aby se všechna data průběžně zkopírovala do externího záložního umístění. |
-| Nasazení fyzického zálohovacího zařízení do stejného racku, kde je nainstalované řešení centra Azure Stack | Nepodporováno | V současné době nemůžete připojit žádná další zařízení k hornímu počtu přepínačů stojanu, které nejsou součástí původního řešení. |
+| Nasazení fyzického zálohovacího zařízení do stejného racku, kde je nainstalované řešení centra Azure Stack | Nepodporuje se | V současné době nemůžete připojit žádná další zařízení k hornímu počtu přepínačů stojanu, které nejsou součástí původního řešení. |
 
 ## <a name="next-steps"></a>Další kroky
 
@@ -155,7 +155,7 @@ V tomto článku najdete obecné pokyny pro ochranu virtuálních počítačů, 
 
 - [Důležité informace týkající se provozní kontinuity a zotavení po havárii](https://aka.ms/azurestackbcdrconsiderationswp)
 
-### <a name="azure-backup-server"></a>Azure Backup Server
+### <a name="azure-backup-server"></a>Server Azure Backup
  - [Použití Azure Backup k zálohování souborů a aplikací v centru Azure Stack](https://docs.microsoft.com/azure/backup/backup-mabs-files-applications-azure-stack)
  - [Azure Backup Server podpora centra Azure Stack](https://docs.microsoft.com/azure/backup/ ) 
  

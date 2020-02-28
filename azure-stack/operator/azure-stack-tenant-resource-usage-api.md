@@ -8,12 +8,12 @@ ms.date: 01/24/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 458dc41cd587ca78b979270611cb94ba109d7035
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 842291fc47d76ad40b9933bb6295efaa4446fe41
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76880900"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77696878"
 ---
 # <a name="tenant-resource-usage-api-reference"></a>Referenční informace k rozhraní API využití prostředků tenanta
 
@@ -33,7 +33,7 @@ Požadavek získá podrobnosti o spotřebě pro požadovaná předplatná a pro 
 
 ### <a name="parameters"></a>Parametry
 
-| **Parametr** | **Popis** |
+| **Ukazatele** | **Popis** |
 | --- | --- |
 | Armendpoint |Azure Resource Manager koncový bod vašeho prostředí centra Azure Stack. Azure Stack konvence centra je název Azure Resource Manager koncového bodu ve formátu `https://management.{domain-name}`. Například pro vývojovou sadu je název domény Local. azurestack. external a pak `https://management.local.azurestack.external`koncový bod Správce prostředků. |
 | subId |ID předplatného uživatele, který provádí volání. Toto rozhraní API můžete použít jenom k dotazování na použití jednoho předplatného. Poskytovatelé můžou použít rozhraní API využití prostředků poskytovatele k dotazování na využití pro všechny klienty. |
@@ -76,16 +76,16 @@ GET
 
 ### <a name="response-details"></a>Podrobnosti odpovědi
 
-| **Parametr** | **Popis** |
+| **Ukazatele** | **Popis** |
 | --- | --- |
 | id |Jedinečné ID agregace využití |
-| jméno |Název agregace použití |
-| type |Definice prostředků. |
+| name |Název agregace použití |
+| typ |Definice prostředků. |
 | subscriptionId |Identifikátor předplatného uživatele Azure |
 | usageStartTime |Čas spuštění v čase UTC sady, do které patří agregace tohoto využití. |
 | usageEndTime |Čas ukončení UTC intervalu použití, do kterého patří agregace tohoto využití. |
 | instanceData |Páry klíč-hodnota podrobností instance (v novém formátu):<br>  *resourceUri*: plně kvalifikované ID prostředku, včetně skupin prostředků a názvu instance. <br>  *umístění*: oblast, ve které byla tato služba spuštěna. <br>  *značky*: značky prostředků, které uživatel zadá. <br>  *AdditionalInfo*: Další podrobnosti o spotřebovaném prostředku. Například verze operačního systému nebo typ bitové kopie. |
-| množství |Množství spotřeby prostředků, ke kterým došlo v tomto časovém rámci. |
+| quantity |Množství spotřeby prostředků, ke kterým došlo v tomto časovém rámci. |
 | meterId |Jedinečné ID prostředku, který byl spotřebován (označovaný také jako **ResourceID**). |
 
 ## <a name="next-steps"></a>Další kroky

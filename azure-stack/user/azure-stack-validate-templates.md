@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: sethm
 ms.reviewer: unknown
-ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 1690e191e2aa610e69b1e204b9e685e5d8e90187
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 12/27/2019
+ms.openlocfilehash: 4c545c60c0890f87c87108101a3e30ab4c87d16d
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884287"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77705283"
 ---
 # <a name="use-the-template-validation-tool-in-azure-stack-hub"></a>Použití nástroje pro ověření šablony v Azure Stack hub
 
@@ -72,7 +72,7 @@ V konzole PowerShellu se zobrazují upozornění a chyby ověřování šablony 
 
 Rutina pro validátor šablon podporuje následující parametry.
 
-| Parametr | Popis | Požaduje se |
+| Parametr | Popis | Požadováno |
 | ----- | -----| ----- |
 | `TemplatePath` | Určuje cestu k rekurzivnímu nalezení Azure Resource Manager šablon. | Ano |
 | `TemplatePattern` | Určuje názvy souborů šablon, které se mají spárovat. | Ne |

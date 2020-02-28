@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 01/24/2020
 ms.author: sethm
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: 11f27fd12b546a217cd65e65ce21dacc78abbb70
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 35e17b6527b39bc12ad8f140b98a27fa6f4b69ac
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883046"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77705113"
 ---
 # <a name="create-vpn-gateways-for-azure-stack-hub"></a>Vytváření bran sítě VPN pro centrum Azure Stack
 
@@ -78,9 +78,9 @@ Připojení k *více lokalitám* je varianta připojení typu Site-to-site. Z br
 
 Když vytváříte bránu virtuální sítě pro centrum Azure Stack, zadáte SKU brány, kterou chcete použít. Podporují se tyto skladové položky brány sítě VPN:
 
-* Úroveň Basic
-* Úroveň Standard
-* Vysoký výkon
+* Basic
+* Standardní
+* High Performance
 
 Když vyberete vyšší SKU brány, jako je například Standard over Basic nebo vysoký výkon oproti standardu nebo základní, bude bráně přiděleno více procesorů a šířky pásma sítě. V důsledku toho může brána podporovat vyšší propustnost sítě k virtuální síti.
 
@@ -96,7 +96,7 @@ Při výběru SKU Vezměte v úvahu následující:
 
 Scénáře s vysokou dostupností je možné nakonfigurovat jenom na SKU pro připojení **brány s vysokým výkonem** . Na rozdíl od Azure, který poskytuje dostupnost prostřednictvím konfigurace aktivních/aktivních i aktivních/pasivních konfigurací, služba Azure Stack hub podporuje jenom konfiguraci typu aktivní/pasivní.
 
-### <a name="failover"></a>Převzetí služeb při selhání
+### <a name="failover"></a>Při selhání
 
 V Azure Stackovém centru existují tři virtuální počítače infrastruktury s více klienty. Dva z těchto virtuálních počítačů jsou v aktivním režimu a třetí je v redundantním režimu. Aktivní virtuální počítače umožňují vytváření připojení k síti VPN a redundantní virtuální počítač akceptuje připojení VPN jenom v případě, že dojde k převzetí služeb při selhání. Pokud virtuální počítač aktivní brány přestane být dostupný, připojení VPN se po krátké době (několik sekund) převezme k redundantnímu virtuálnímu počítači po krátkou dobu (několik sekund) ztráty připojení.
 
@@ -107,7 +107,7 @@ Následující tabulka ukazuje typy brány a odhadovanou agregovanou propustnost
 || Propustnost brány sítě VPN (1) | Maximální počet tunelových propojení IPsec brány sítě VPN (2) |
 |-------|-------|-------|
 |**Základní SKU** **(3)** | 100 Mb/s | 20 |
-|**Standardní SKU** | 100 Mb/s | 20 |
+|**SKU Standard** | 100 Mb/s | 20 |
 |**SKU s vysokým výkonem** | 200 Mb/s | 10 |
 
 ### <a name="table-notes"></a>Poznámky tabulky

@@ -7,12 +7,12 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: b397ee97c5b1e7ea9cc1a47e60f24d21ae8d6f29
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: acdacb826d75a2df1aca49c9029a0ef02e6744ea
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884283"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77705266"
 ---
 # <a name="use-api-version-profiles-with-nodejs-software-development-kit-sdk-in-azure-stack-hub"></a>Použití profilů verzí rozhraní API s Node. js Software Development Kit (SDK) v centru Azure Stack
 
@@ -28,7 +28,7 @@ Sada SDK pro Node. js poskytuje Azure Stack nástroje Správce prostředků hub.
 
 Profil rozhraní API je kombinací poskytovatelů prostředků a verze rozhraní API. Profil rozhraní API můžete použít k získání nejnovější, většina stabilní verzi každého typu prostředku v balíčku poskytovatele prostředků.
 
-  -   Chcete-li použít nejnovější verzí všech služeb, použijte **nejnovější** profilu balíčků.
+  -   Chcete-li používat nejnovější verze všech služeb, použijte **nejnovější** profil balíčků.
 
   -   Pokud chcete používat služby kompatibilní s Azure Stack hub, použijte **\@Azure/ARM-Resources-Profiles-Hybrid-2019-03-01** nebo **\@Azure/ARM-Storage-Profile-2019-03 -01-Hybrid**
 
@@ -48,7 +48,7 @@ Můžete najít tyto balíčky:
 | [Compute](https://www.npmjs.com/package/@azure/arm-compute-profile-2019-03-01-hybrid) | @azure/arm-compute-profile-2019-03-01-hybrid |
 | [Storage](https://www.npmjs.com/package/@azure/arm-storage-profile-2019-03-01-hybrid) | @azure/arm-storage-profile-2019-03-01-hybrid |
 | [Síť](https://www.npmjs.com/package/@azure/arm-network-profile-2019-03-01-hybrid) | @azure/arm-network-profile-2019-03-01-hybrid |
-| [Materiály](https://www.npmjs.com/package/@azure/arm-resources-profile-hybrid-2019-03-01) | @azure/arm-resources-profile-hybrid-2019-03-01 |
+| [Prostředky](https://www.npmjs.com/package/@azure/arm-resources-profile-hybrid-2019-03-01) | @azure/arm-resources-profile-hybrid-2019-03-01 |
  | [Keyvault](https://www.npmjs.com/package/@azure/arm-keyvault-profile-2019-03-01-hybrid) | @azure/arm-keyvault-profile-2019-03-01-hybrid |
 
 Chcete-li použít nejnovější verzi služby API-Version, použijte **nejnovější** profil konkrétní klientské knihovny. Pokud například chcete použít nejnovější verzi služby Resources rozhraní API, použijte profil `azure-arm-resource` **klientské knihovny pro správu prostředků.** balíček.
@@ -60,7 +60,7 @@ Použijte konkrétní verze rozhraní API definované v balíčku pro konkrétn�
 
 ## <a name="install-the-nodejs-sdk"></a>Instalace sady Node. js SDK
 
-1. Instalace Gitu. Pokyny najdete v tématu [Začínáme - instalaci Gitu](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
+1. Instalace Gitu. Pokyny najdete v tématu [Začínáme – instalace Gitu](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 
 2. Nainstalujte nebo upgradujte na aktuální verzi [Node. js](https://nodejs.org/en/download/). Node. js obsahuje také správce balíčků [npm](https://www.npmjs.com/) JavaScript.
 
@@ -245,7 +245,7 @@ Následující ukázky můžete použít jako referenci pro vytváření řešen
 
 5.  Otevřete soubor `index.js` ukázkové aplikace.
 
-6.  Nastavte proměnnou umístění na umístění centra Azure Stack. Například, `LOCAL = "local"`.
+6.  Nastavte proměnnou umístění na umístění centra Azure Stack. například `LOCAL = "local"`.
 
 7.  Nastavte přihlašovací údaje, které vám umožní ověřit Azure Stack centra. Tato část kódu je v této ukázce obsažena v souboru index. js.
 
@@ -402,4 +402,4 @@ return resourceClient.resourceGroups.deleteMethod(resourceGroupName, callback);
 Další informace o profilech rozhraní API najdete v tématu:
 
 - [Správa profilů verzí rozhraní API v centru Azure Stack](azure-stack-version-profiles.md)
-- [Podporuje profily verze rozhraní API poskytovatele prostředků](azure-stack-profiles-azure-resource-manager-versions.md)
+- [Verze rozhraní API poskytovatele prostředků podporované profily](azure-stack-profiles-azure-resource-manager-versions.md)

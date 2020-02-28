@@ -6,13 +6,14 @@ manager: stefsch
 ms.topic: article
 ms.date: 06/24/2019
 ms.author: anwestg
-ms.reviewer: ''
-ms.openlocfilehash: 418e27424f91d4c676565acc27bcde77962d76ec
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.reviewer: anwestg
+ms.lastreviewed: 08/20/2019
+ms.openlocfilehash: d41455823c6905a947a703412664fc52ff45e1a8
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76875891"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77701118"
 ---
 # <a name="app-service-on-azure-stack-hub-update-6-release-notes"></a>App Service zpráva k vydání verze Azure Stack centra pro aktualizaci 6
 
@@ -101,7 +102,7 @@ Klienti zatím nevyužívají centrum nasazení, což je funkce, která byla vyd
 
 - Možnosti nasazení (Classic) uživatelské prostředí a možnosti portálu přihlašovací údaje nasazení nejsou k dispozici.
 
-Aby bylo možné dosáhnout možností nasazení a přihlašovacích údajů pro nasazení uživatele v nasazení centra Azure Stack, mají klienti přístup k portálu pomocí tohoto formátu adresy URL – https://portal.&lt ;&gt;*oblasti*&lt;*plně kvalifikovaný název domény*&gt; /? websitesExtension_oldvsts = true – ASDK by se [https://portal.local.azurestack.external/?websitesExtension_oldvsts=true](https://portal.local.azurestack.external/?websitesExtension_oldvsts=true) a pak na své aplikace normálně přejít.
+Aby bylo možné dosáhnout možností nasazení a přihlašovacích údajů pro nasazení uživatele v nasazení centra Azure Stack, mají klienti přístup k portálu pomocí tohoto formátu adresy URL – https://portal.&lt;&gt;*oblasti*&lt;*plně kvalifikovaný název domény*&gt;/? websitesExtension_oldvsts = true – ASDK by se [https://portal.local.azurestack.external/?websitesExtension_oldvsts=true](https://portal.local.azurestack.external/?websitesExtension_oldvsts=true) a pak na své aplikace normálně přejít.
 
 - Azure Function monitor průběžně zobrazuje "načítání" na portálu.
 

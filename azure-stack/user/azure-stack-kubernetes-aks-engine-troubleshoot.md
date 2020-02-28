@@ -7,12 +7,12 @@ ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: de9bceea3cd8fb7003afff8e5b654146aff8883b
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 202a6269dfc978747b3d1c4dc754b19490911046
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884732"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77702427"
 ---
 # <a name="troubleshoot-the-aks-engine-on-azure-stack-hub"></a>Řešení potíží s modulem AKS v centru Azure Stack
 
@@ -118,13 +118,13 @@ Požadavky:
 
 2. Vyhledejte parametry vyžadované skriptem `getkuberneteslogs.sh`. Skript bude používat následující parametry:
 
-    | Parametr | Popis | Požaduje se | Příklad: |
+    | Parametr | Popis | Požadováno | Příklad |
     | --- | --- | --- | --- |
     | -h,--help | Použití příkazu tisku. | ne | 
     -u,--uživatel | Uživatelské jméno správce pro virtuální počítače clusteru | ano | azureuser<br>(výchozí hodnota) |
     | -i,--identity-File | Privátní klíč RSA vázaný k veřejnému klíči, který se používá k vytvoření clusteru Kubernetes (někdy s názvem "id_rsa")  | ano | `./rsa.pem` (výstupu)<br>`~/.ssh/id_rsa` (SSH) |
     |   -g,--Resource-Group    | Skupina prostředků clusteru Kubernetes | ano | k8sresourcegroup |
-    |   -n,--User-Namespace               | Shromažďovat protokoly z kontejnerů v zadaných oborech názvů (Kube – systémové protokoly se vždycky shromažďují) | ne |   sledovaný |
+    |   -n,--User-Namespace               | Shromažďovat protokoly z kontejnerů v zadaných oborech názvů (Kube – systémové protokoly se vždycky shromažďují) | ne |   sledování |
     |       --API-model                    | Uchovává soubor apimodel. JSON v účtu úložiště centra Azure Stack. Nahrání souboru apimodel. JSON do účtu úložiště se stane, když je k dispozici i parametr--upload-Logs. | ne | `./apimodel.json` |
     | --všechny – obory názvů               | Shromažďování protokolů z kontejnerů ve všech oborech názvů. Přepisuje nastavení--User-Namespace. | ne | |
     | --upload-logs                  | Uchovává načtené protokoly v účtu úložiště Azure Stack hub. Protokoly najdete ve skupině prostředků KubernetesLogs. | ne | |

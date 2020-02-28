@@ -7,12 +7,12 @@ ms.date: 12/27/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 631a086b86fd7855780aa1cb6dba11dbfa799759
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 05b4fb4a3fedd1431e7850473a720fd4cc1bdf3d
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76879818"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77696035"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Známé problémy centra Azure Stack
 
@@ -148,7 +148,7 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 - Náprava: pomocí procesu aktualizace poskytovatele prostředků použijte opravu hotfix poskytovatele prostředků SQL 1.1.47.0 po upgradu centra Azure Stack na aktualizaci 1910 ([SQL RP verze 1.1.47.0](https://aka.ms/azurestacksqlrp11470)). U poskytovatele prostředků MySQL doporučujeme, abyste po upgradu centra Azure Stack na verzi 1910 Update ([MySQL RP verze 1.1.47.0](https://aka.ms/azurestackmysqlrp11470)) použili opravu hotfix poskytovatele prostředků MySQL 1.1.47.0.
 - Výskyt: běžné
 
-### <a name="access-control-iam"></a>Access Control (IAM)
+### <a name="access-control-iam"></a>Řízení přístupu (IAM)
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
 - Příčina: rozšíření IAM není aktuální. Portál Ibiza, který se dodává s centrem Azure Stack, zavádí nové chování, které způsobí selhání rozšíření RBAC, pokud uživatel otevírá okno **Access Control (IAM)** pro předplatné, které není vybrané v nástroji pro výběr globálního předplatného (**adresář + předplatné** na portálu User Portal). V okně se zobrazí **načítání** ve smyčce a uživatel nemůže do předplatného přidat nové role. Okno **Přidat** také zobrazuje **načítání** ve smyčce.
@@ -162,19 +162,19 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 
 ## <a name="networking"></a>Sítě
 
-### <a name="load-balancer"></a>Nástroj pro vyrovnávání zatížení
+### <a name="load-balancer"></a>Load Balancer
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
 - Příčina: Když přidáváte virtuální počítače skupiny dostupnosti do back-endu fondu nástroje pro vyrovnávání zatížení, na portálu se zobrazí chybová zpráva s oznámením, že **se nepodařilo uložit fond back-endu nástroje pro**vyrovnávání zatížení. Jedná se o problém s kosmetickým rozhraním na portálu. funkce jsou pořád na místě a virtuální počítače se úspěšně přidávají do back-endu fondu.
 - Výskyt: běžné
 
-### <a name="network-security-groups"></a>Skupiny zabezpečení sítě
+### <a name="network-security-groups"></a>Network Security Groups (Skupiny zabezpečení sítě)
 
 - Platí: Tento problém se vztahuje na všechny podporované verze. 
 - Příčina: explicitní pravidlo **DenyAllOutbound** nejde vytvořit v NSG, protože to zabrání v dokončení veškeré interní komunikace s infrastrukturou, která je potřebná pro nasazení virtuálního počítače.
 - Výskyt: běžné
 
-### <a name="service-endpoints"></a>Koncové body služby
+### <a name="service-endpoints"></a>Koncové body služeb
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
 - Příčina: na portálu User Portal zobrazuje okno **Virtual Network** možnost používat **koncové body služby**. Tato funkce se v současnosti v centru Azure Stack nepodporuje.
@@ -226,7 +226,7 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
   - [Okruhy ExpressRoute](azure-stack-connect-expressroute.md)
   - [Zadat vlastní zásady IPsec/IKE](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
 
-## <a name="compute"></a>Služby Compute
+## <a name="compute"></a>Výpočty
 
 ### <a name="vm-boot-diagnostics"></a>Diagnostika spouštění virtuálních počítačů
 
@@ -308,7 +308,7 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 - Příčina: na portálu User Portal zobrazuje okno **Konfigurace** účtu úložiště možnost změny **typu přenosu zabezpečení**. Tato funkce v současnosti není v centru Azure Stack podporována.
 - Výskyt: běžné
 
-### <a name="upload-blob"></a>Nahrát objekt BLOB
+### <a name="upload-blob"></a>Nahrát objekt blob
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
 - Příčina: při pokusu o nahrání objektu BLOB pomocí možnosti **OAuth (Preview)** na portálu User Portal se úloha nezdařila s chybovou zprávou.
@@ -329,13 +329,13 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 - Příčina: Když přidáváte virtuální počítače dostupnost sady do back-endu Load Balancer, na portálu se zobrazí chybová zpráva s oznámením, že **se nepovedlo Uložit fond back-endu nástroje pro vyrovnávání zatížení**. Jedná se o problém na portálu, ale funkce jsou pořád na místě a virtuální počítače se úspěšně přidají do fondu back-endu. 
 - Výskyt: běžné
 
-### <a name="network-security-groups"></a>Skupiny zabezpečení sítě
+### <a name="network-security-groups"></a>Network Security Groups (Skupiny zabezpečení sítě)
 
 - Platí: Tento problém se vztahuje na všechny podporované verze. 
 - Příčina: explicitní pravidlo **DenyAllOutbound** nejde vytvořit v NSG, protože to zabrání v dokončení veškeré interní komunikace s infrastrukturou, která je potřebná pro nasazení virtuálního počítače.
 - Výskyt: běžné
 
-### <a name="service-endpoints"></a>Koncové body služby
+### <a name="service-endpoints"></a>Koncové body služeb
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
 - Příčina: na portálu User Portal zobrazuje okno **Virtual Network** možnost používat **koncové body služby**. Tato funkce se v současnosti v centru Azure Stack nepodporuje.
@@ -388,7 +388,7 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
   - [Okruhy ExpressRoute](azure-stack-connect-expressroute.md)
   - [Zadat vlastní zásady IPsec/IKE](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
 
-## <a name="compute"></a>Služby Compute
+## <a name="compute"></a>Výpočty
 
 ### <a name="vm-boot-diagnostics"></a>Diagnostika spouštění virtuálních počítačů
 
@@ -478,7 +478,7 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 - Příčina: na portálu User Portal zobrazuje okno **Konfigurace** účtu úložiště možnost změny **typu přenosu zabezpečení**. Tato funkce v současnosti není v centru Azure Stack podporována.
 - Výskyt: běžné
 
-### <a name="upload-blob"></a>Nahrát objekt BLOB
+### <a name="upload-blob"></a>Nahrát objekt blob
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
 - Příčina: při pokusu o nahrání objektu BLOB pomocí možnosti **OAuth (Preview)** na portálu User Portal se úloha nezdařila s chybovou zprávou.
@@ -493,13 +493,13 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 - Příčina: Když přidáváte virtuální počítače dostupnost sady do back-endu Load Balancer, na portálu se zobrazí chybová zpráva s oznámením, že **se nepovedlo Uložit fond back-endu nástroje pro vyrovnávání zatížení**. Jedná se o problém na portálu, ale funkce jsou pořád na místě a virtuální počítače se úspěšně přidají do fondu back-endu. 
 - Výskyt: běžné
 
-### <a name="network-security-groups"></a>Skupiny zabezpečení sítě
+### <a name="network-security-groups"></a>Network Security Groups (Skupiny zabezpečení sítě)
 
 - Platí: Tento problém se vztahuje na všechny podporované verze. 
 - Příčina: explicitní pravidlo **DenyAllOutbound** nejde vytvořit v NSG, protože to zabrání v dokončení veškeré interní komunikace s infrastrukturou, která je potřebná pro nasazení virtuálního počítače.
 - Výskyt: běžné
 
-### <a name="service-endpoints"></a>Koncové body služby
+### <a name="service-endpoints"></a>Koncové body služeb
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
 - Příčina: na portálu User Portal zobrazuje okno **Virtual Network** možnost používat **koncové body služby**. Tato funkce se v současnosti v centru Azure Stack nepodporuje.
@@ -541,7 +541,7 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 - Příčina: na portálu User Portal zobrazuje okno **připojení** funkci **s názvem Poradce při potížích s VPN**. Tato funkce se v současnosti v centru Azure Stack nepodporuje.
 - Výskyt: běžné
 
-### <a name="network-connection-type"></a>Typ síťového připojení
+### <a name="network-connection-type"></a>Typ připojení
 
 - Platí: Tento problém se týká jakéhokoli prostředí 1906 nebo 1907. 
 - Příčina: na portálu User Portal zobrazuje okno **AddConnection** možnost použít **VNet-to-VNet**. Tato funkce se v současnosti v centru Azure Stack nepodporuje. 
@@ -558,7 +558,7 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
   - [Okruhy ExpressRoute](azure-stack-connect-expressroute.md)
   - [Zadat vlastní zásady IPsec/IKE](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
 
-## <a name="compute"></a>Služby Compute
+## <a name="compute"></a>Výpočty
 
 ### <a name="vm-boot-diagnostics"></a>Diagnostika spouštění virtuálních počítačů
 
@@ -654,7 +654,7 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 - Příčina: na portálu User Portal zobrazuje okno **Konfigurace** účtu úložiště možnost změny **typu přenosu zabezpečení**. Tato funkce v současnosti není v centru Azure Stack podporována.
 - Výskyt: běžné
 
-### <a name="upload-blob"></a>Nahrát objekt BLOB
+### <a name="upload-blob"></a>Nahrát objekt blob
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
 - Příčina: při pokusu o nahrání objektu BLOB pomocí možnosti **OAuth (Preview)** na portálu User Portal se úloha nezdařila s chybovou zprávou.
@@ -670,7 +670,7 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 
 ## <a name="networking"></a>Sítě
 
-### <a name="service-endpoints"></a>Koncové body služby
+### <a name="service-endpoints"></a>Koncové body služeb
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
 - Příčina: na portálu User Portal zobrazuje okno **Virtual Network** možnost používat **koncové body služby**. Tato funkce se v současnosti v centru Azure Stack nepodporuje.
@@ -714,9 +714,9 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
   - [Okruhy ExpressRoute](azure-stack-connect-expressroute.md)
   - [Zadat vlastní zásady IPsec/IKE](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
 
-### <a name="load-balancer"></a>Nástroj pro vyrovnávání zatížení
+### <a name="load-balancer"></a>Load Balancer
 
-#### <a name="add-backend-pool"></a>Přidat back-end fond
+#### <a name="add-backend-pool"></a>Přidat back-endový fond
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
 - Příčina: když se na portálu User Portal pokusíte přidat **back-end fond** do **Load Balancer**, operace se nezdaří a chybová zpráva **se nepovedlo aktualizovat Load Balancer...** .
@@ -730,7 +730,7 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 - Náprava: pomocí PowerShellu, CLI nebo šablony Správce prostředků přidružte fond back-end k prostředku nástroje pro vyrovnávání zatížení.
 - Výskyt: běžné
 
-## <a name="compute"></a>Služby Compute
+## <a name="compute"></a>Výpočty
 
 ### <a name="vm-boot-diagnostics"></a>Diagnostika spouštění virtuálních počítačů
 

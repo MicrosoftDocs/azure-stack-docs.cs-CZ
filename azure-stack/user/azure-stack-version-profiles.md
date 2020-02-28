@@ -7,12 +7,12 @@ ms.date: 01/06/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 07/24/2019
-ms.openlocfilehash: 65f28a4de02bf8d52a15e19a1e5ea6a28ad7dce3
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 2e229c8add5b850384c7b46d05373c4ee19fd266
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884187"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77705147"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack-hub"></a>Správa profilů verzí rozhraní API v centru Azure Stack
 
@@ -34,9 +34,9 @@ Toto téma vám pomůže:
 - Používají se tři konvence pojmenování profilů:
   - **nejnovější**  
         Obsahuje nejnovější verze rozhraní API vydané v globálním Azure.
-  - **yyyy-mm-dd-hybrid**  
+  - **RRRR-MM-DD – Hybrid**  
     Tato verze se zaměřuje na rok v rámci každoročního vydání a konzistence v různých cloudech. Tento profil cílí na optimální kompatibilitu centra Azure Stack.
-  - **yyyy-mm-dd-profile** <br>
+  - **RRRR-MM-DD – profil** <br>
     Vyrovnává optimální stabilitu a nejnovější funkce.
 
 ## <a name="azure-api-profiles-and-azure-stack-hub-compatibility"></a>Azure API Profiles a kompatibilita centra Azure Stack
@@ -46,10 +46,10 @@ Nejnovější profily rozhraní Azure API nejsou kompatibilní s Azure Stack hub
 **Nejnovější**  
 Tento profil obsahuje nejaktuálnější verze rozhraní API, které najdete v globálním Azure, které nefungují v Azure Stack hub. **Nejnovější** má největší počet přerušujících změn. Tento profil přináší nestabilitu a kompatibilitu s jinými cloudy. Pokud se snažíte použít nejaktuálnější verze rozhraní API, **nejnovější** je profil, který byste měli použít.
 
-**Yyyy-mm-dd-hybrid**  
+**RRRR-MM-DD – Hybrid**  
 Tento profil je vydaný v březnu a v září každý rok. Má optimální stabilitu a kompatibilitu s různými cloudy a je navržená pro cílení na globální Azure a centrum Azure Stack. Verze rozhraní API Azure uvedené v tomto profilu budou stejné jako ty, které jsou uvedené v Azure Stack hub. Tento profil slouží k vývoji kódu pro hybridní cloudová řešení.
 
-**yyyy-mm-dd-profile**  
+**RRRR-MM-DD – profil**  
 Tento profil je vydaný pro globální Azure v červnu a prosinci. Nefunguje s rozbočovačem Azure Stack a obvykle se jedná o mnoho konců změn. I když vyvažuje optimální stabilitu a nejnovější funkce, rozdíl mezi **nejnovějším** a tímto profilem je, že **nejnovější** verze rozhraní API se vždycky skládají z nejnovějších verzí rozhraní API bez ohledu na to, kdy rozhraní API uvolníte. Pokud je například pro výpočetní rozhraní API vytvořena nová verze rozhraní API, verze rozhraní API je uvedena v **nejnovějším**, ale ne v profilu **RRRR-MM-DD-profil** , protože tento profil již existuje. **RRRR-MM-DD – profil** pokrývá nejaktuálnější verze vydané před červenou nebo před prosinec.
 
 ## <a name="azure-resource-manager-api-profiles"></a>Azure Resource Manager profily rozhraní API

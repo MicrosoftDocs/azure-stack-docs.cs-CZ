@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: abaa1405db1e3837c02cbc67e00cd3a593e9b98b
-ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
+ms.openlocfilehash: b376be7855300dab0177bbbe735d6a5bf34d6bb9
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/24/2020
-ms.locfileid: "77568567"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77701067"
 ---
 # <a name="deploy-an-app-that-uses-on-premises-data-and-scales-cross-cloud-using-azure-and-azure-stack-hub"></a>Nasaďte aplikaci, která používá místní data, a škálujte mezi cloudy pomocí Azure a centra Azure Stack.
 
@@ -51,7 +51,7 @@ V tomto kurzu se předpokládá, že máte základní znalosti globálního cent
 
 V tomto kurzu se taky předpokládá, že máte předplatné Azure. Pokud předplatné nemáte, můžete si [vytvořit bezplatný účet](https://azure.microsoft.com/free/) před tím, než začnete.
 
-## <a name="prerequisites"></a>Předpoklady
+## <a name="prerequisites"></a>Požadavky
 
 Než začnete s tímto řešením, ujistěte se, že splňujete následující požadavky:
 
@@ -301,7 +301,7 @@ Při vytváření webové aplikace v prostředí App Service se spustí s jednou
 
 1. V Azure Najděte App Service plán pro lokality, pro které chcete škálovat kapacitu, a pak vyberte škálování na více instancí **(App Service plán)** .
 
-    ![Horizontální navýšení kapacity](media/solution-deployment-guide-hybrid/image16.png)
+    ![Horizontálně navýšit kapacitu](media/solution-deployment-guide-hybrid/image16.png)
 
 2. Vyberte **Povolit automatické škálování**.
 
@@ -487,7 +487,7 @@ Toto zobrazení použijete k vytvoření upozornění na horizontální navýše
 
 Následující snímek obrazovky znázorňuje výstrahy pro horizontální navýšení kapacity a škálování.
 
-   ![Upozornění (Classic)](media/solution-deployment-guide-hybrid/image22.png)
+   ![Upozornění (klasická)](media/solution-deployment-guide-hybrid/image22.png)
 
 ## <a name="redirect-traffic-between-azure-and-azure-stack-hub"></a>Přesměrování provozu mezi Azure a centra Azure Stack
 

@@ -7,12 +7,12 @@ ms.author: mabrigg
 ms.date: 11/14/2019
 ms.reviewer: waltero
 ms.lastreviewed: 11/14/2019
-ms.openlocfilehash: 5e98ed511fab30e7ece3ebca282c79ef6a5bed97
-ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
+ms.openlocfilehash: 80222728bca3aa65fd211ccc5ef5700d0a15f397
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/30/2020
-ms.locfileid: "76889537"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703617"
 ---
 # <a name="troubleshoot-kubernetes-deployment-to-azure-stack-hub"></a>Řešení potíží s nasazením Kubernetes do centra Azure Stack
 
@@ -107,7 +107,7 @@ Když nasadíte cluster Kubernetes, můžete zkontrolovat stav nasazení a zkont
     | Typ | Poskytovatel prostředků a typ prostředku. |
     | Stav | Stav položky |
     | Časové razítko | Časové razítko UTC v čase. |
-    | Podrobnosti o operaci | Podrobnosti o operaci, jako je například poskytovatel prostředků, který byl součástí operace, koncový bod prostředku a název prostředku. |
+    | Podrobnosti operace | Podrobnosti o operaci, jako je například poskytovatel prostředků, který byl součástí operace, koncový bod prostředku a název prostředku. |
 
     Každá položka má ikonu stavu zelenou nebo červenou.
 
@@ -136,7 +136,7 @@ Pomocí těchto kroků můžete shromáždit a stáhnout protokoly clusteru:
 
 3. Vyhledejte informace požadované skriptem a spusťte ho:
 
-    | Parametr           | Popis                                                                                                      | Příklad:                                                                       |
+    | Parametr           | Popis                                                                                                      | Příklad                                                                       |
     |---------------------|------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
     | -d, --vmd-host      | Veřejná IP adresa nebo plně kvalifikovaný název domény (FQDN) pro DVM. Název virtuálního počítače začíná na `vmd-`. | IP ADRESA: 192.168.102.38<br>DNS: VMD-myk8s. Local. cloudapp. azurestack. external |
     | -h,--help  | Použití příkazu tisku. | |

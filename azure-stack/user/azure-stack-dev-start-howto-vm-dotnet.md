@@ -7,12 +7,12 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 8222d102b22b05a3d5d1fd1a7530aeae62cc276d
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 505d00c6255ef7b8b919f1af0229bd207bbe032f
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884929"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77704178"
 ---
 # <a name="deploy-a-c-aspnet-web-app-to-a-vm-in-azure-stack-hub"></a>Nasazení webové C# aplikace v ASP.NET do virtuálního počítače v centru Azure Stack
 
@@ -53,12 +53,12 @@ V tomto článku se C# používá aplikace 6,0, která používá ASP.NET Core 2
 
     e. Přidejte příchozí pravidlo zabezpečení pro následující porty:
 
-    | Port | Protocol (Protokol) | Popis |
+    | Port | Protokol | Popis |
     | --- | --- | --- |
     | 80 | HTTP | HTTP (Hypertext Transfer Protocol) je protokol používaný k doručování webových stránek ze serverů. Klienti se připojují přes protokol HTTP s názvem DNS nebo IP adresou. |
     | 443 | HTTPS | Protokol HTTPS (Hypertext Transfer Protocol Secure) je zabezpečená verze protokolu HTTP, která vyžaduje certifikát zabezpečení a umožňuje šifrovaný přenos informací.  |
     | 22 | SSH | Secure Shell (SSH) je zašifrovaný síťový protokol pro zabezpečenou komunikaci. K nakonfigurování virtuálního počítače a nasazení aplikace použijete toto připojení k klientovi SSH. |
-    | 3389 | Protokol RDP | Nepovinný parametr. Protokol RDP (Remote Desktop Protocol) umožňuje připojení ke vzdálené ploše pro použití grafického uživatelského rozhraní vašeho počítače.   |
+    | 3389 | RDP | Volitelné. Protokol RDP (Remote Desktop Protocol) umožňuje připojení ke vzdálené ploše pro použití grafického uživatelského rozhraní vašeho počítače.   |
     | 8172 | Vlastní | Port používaný nástrojem WebDeploy. |
 
     Pro každý port:
@@ -124,7 +124,7 @@ Vytvořte cíl publikování na VIRTUÁLNÍm počítači v centru Azure Stack.
 1. Nastavte **konfiguraci** jako **verzi**.
 1. Nastavte **cílové rozhraní .NET Framework** jako **netcoreapp 2.2**.
 1. Nastavte **cílový modul runtime** jako **přenosný**.
-1. Vyberte **Uložit**.
+1. Vyberte **Save** (Uložit).
 1. Vyberte **Publikovat**.
 1. Přejít na nový server. Měla by se zobrazit vaše spuštěná webová aplikace.
 

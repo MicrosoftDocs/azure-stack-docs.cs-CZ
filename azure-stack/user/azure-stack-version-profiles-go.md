@@ -7,12 +7,12 @@ ms.date: 01/23/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/26/2019
-ms.openlocfilehash: 0e6ff55da7a7d66152765a5058b7d281632fb5eb
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: d008a30991e41be6abc3f21f888acfbc8d46d69e
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883063"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77705232"
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack-hub"></a>Použití profilů verzí rozhraní API s nástrojem přejít v Azure Stack hub
 
@@ -31,7 +31,7 @@ import "github.com/Azure/azure-sdk-for-go/profiles/2019-03-01/compute/mgmt/compu
 
 ## <a name="install-the-azure-sdk-for-go"></a>Instalace Azure SDK for Go
 
-1. Instalace Gitu. Pokyny najdete v tématu [Začínáme - instalaci Gitu](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
+1. Instalace Gitu. Pokyny najdete v tématu [Začínáme – instalace Gitu](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 2. Nainstalujte [jazyk programovacího jazyka](https://golang.org/dl). Profily rozhraní API pro Azure vyžadují verzi verze 1,9 nebo novější.
 3. Nainstalujte sadu Azure SDK a její závislosti spuštěním následujícího příkazu bash:
 
@@ -58,7 +58,7 @@ Chcete-li spustit ukázku kódu jazyka přejít v Azure Stackovém centru, postu
 2. Získat informace o metadatech z Správce prostředkůho koncového bodu. Koncový bod vrátí soubor JSON s informacemi potřebnými ke spuštění kódu vašeho přechodu.
 
    > [!NOTE]  
-   > **ResourceManagerUrl** je v Azure Stack Development Kit (ASDK): `https://management.local.azurestack.external/`  
+   > **ResourceManagerUrl** v Azure Stack Development Kit (ASDK) je: `https://management.local.azurestack.external/`  
    > **ResourceManagerUrl** v integrovaných systémech je: `https://management.<region>.<fqdn>/`  
    > Načtení požadovaných metadat: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
   
@@ -117,7 +117,7 @@ Chcete-li spustit ukázku kódu jazyka přejít v Azure Stackovém centru, postu
 
 Úplný příklad vytvoření virtuální sítě v centru Azure Stack s využitím profilu sady SDK na cestách najdete v [příkladu](#example).
 
-## <a name="authentication"></a>Ověření
+## <a name="authentication"></a>Ověřování
 
 Chcete-li získat vlastnost **autorizovat** z Azure Active Directory pomocí sady SDK, nainstalujte moduly automatického **REST** . Tyto moduly by měly být již nainstalovány s instalací sady SDK "Přejít na sadu SDK". Pokud ne, nainstalujte [ověřovací balíček z GitHubu](https://github.com/Azure/go-autorest/tree/master/autorest/adal).
 
@@ -169,7 +169,7 @@ Pro klienta prostředků musí být povolený autorizačníer. Existují různé
     Nastavte `<clientID>` na ID aplikace instančního objektu uložené při vytvoření instančního objektu v předchozí části tohoto článku.
     Nastavte `<clientSecret>` na tajný kód aplikace instančního objektu uložený při vytvoření instančního objektu v předchozí části tohoto článku.
 
-## <a name="example"></a>Příklad:
+## <a name="example"></a>Příklad
 
 Tento příklad ukazuje ukázku kódu pro přechod, který vytváří virtuální síť v centru Azure Stack. Kompletní příklady sady SDK pro sadu SDK najdete v části [úložiště ukázek pro Azure přejděte na Azure](https://github.com/Azure-Samples/azure-sdk-for-go-samples). Ukázky centra Azure Stack jsou k dispozici v rámci hybridní cesty v rámci složek služby úložiště.
 

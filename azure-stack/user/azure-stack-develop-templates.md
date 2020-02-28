@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: unknown
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: 97cf7e77aa2a352d5b297b13fca0959722401530
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: ce9ee8a982ade764947af3c6e2fb2f880cefc217
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884897"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77702971"
 ---
 # <a name="develop-templates-for-azure-stack-hub-with-azure-resource-manager"></a>Vývoj šablon pro centra Azure Stack s využitím Azure Resource Manager
 
@@ -38,11 +38,11 @@ Verze služeb Azure se můžou v centru Azure a Azure Stack lišit. Každý pros
 
 | Poskytovatel prostředků | apiVersion |
 | --- | --- |
-| Služby Compute |**2015-06-15** |
-| Network (Síť) |**2015-06-15**, **2015-05-01-preview** |
-| Storage |**2016-01-01**, **2015-06-15**, **2015-05-01-preview** |
+| Výpočty |**2015-06-15** |
+| Síť |**2015-06-15**, **2015-05-01 – Preview** |
+| Úložiště |**2016-01-01**, **2015-06-15**, **2015-05-01 – Preview** |
 | KeyVault | **2015-06-01** |
-| Aplikační služba |**2015-08-01** |
+| App Service |**2015-08-01** |
 
 ## <a name="template-functions"></a>Funkce šablon
 

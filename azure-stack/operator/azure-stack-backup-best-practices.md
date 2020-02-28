@@ -7,12 +7,12 @@ ms.date: 02/08/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 880c5dfb72d0f70cc8748f2528a3c36562bebe93
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: a141beed4df6b34175f37d9e1e60e694f3ab71f2
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76878050"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77700506"
 ---
 # <a name="infrastructure-backup-service-best-practices"></a>Osvědčené postupy pro Infrastructure Backup služby
 
@@ -50,7 +50,7 @@ Klíč musí být uložený v zabezpečeném umístění (například globální
 
 ## <a name="operational-best-practices"></a>Provozní osvědčené postupy
 
-### <a name="backups"></a>Zálohování
+### <a name="backups"></a>Zálohy
 
  - Úlohy zálohování se spustí, když je systém spuštěný, takže nedochází k výpadkům v prostředí pro správu nebo k uživatelským aplikacím. Očekává se, že úlohy zálohování budou trvat 20-40 minut pro řešení, které je pod rozumnou zátěží.
  - Pomocí uvedených pokynů výrobce OEM, ručně zálohovaných síťových přepínačů a hostitele životního cyklu (HLH) by měly být uloženy ve stejné sdílené složce zálohy, kde řadič Infrastructure Backup ukládá data zálohy roviny ovládacího prvku. Zvažte ukládání konfigurací přepínačů a HLH do složky region (oblast). Pokud máte ve stejné oblasti více instancí centra Azure Stack, zvažte použití identifikátoru pro každou konfiguraci, která patří do jednotky škálování.
@@ -80,11 +80,11 @@ Výrobci OEM doporučujeme ukládat data záloh pro své komponenty do složky r
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\DeploymentData
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\Registration
 
-### <a name="monitoring"></a>Sledování
+### <a name="monitoring"></a>Monitorování
 
 Systém podporuje následující výstrahy:
 
-| Upozornění                                                   | Popis                                                                                     | Náprava                                                                                                                                |
+| Výstraha                                                   | Popis                                                                                     | Náprava                                                                                                                                |
 |---------------------------------------------------------|-------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
 | Zálohování se nezdařilo, protože sdílená složka je mimo kapacitu. | Sdílená složka nemá kapacitu a řadič zálohování nemůže exportovat záložní soubory do umístění. | Přidejte větší kapacitu úložiště a zkuste zálohování zopakovat. Odstraňte stávající zálohy (od nejstarší prvního) a uvolněte místo.                    |
 | Zálohování se nepovedlo kvůli problémům s připojením.             | V síti mezi Azure Stackovým centrem a sdíleným souborem dochází k problémům.                          | Vyřešte problém se sítí a zkuste zálohování znovu.                                                                                            |

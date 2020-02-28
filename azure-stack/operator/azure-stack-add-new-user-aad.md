@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 05/20/2019
 ms.author: justinha
 ms.reviewer: thoroet
-ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: b7bfcf97df22f5ca0d1dcaa7c9687079656af840
-ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
+ms.lastreviewed: 09/17/2019
+ms.openlocfilehash: 435b2bfdd2de9a232379190a0fe3db0dca642def
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/30/2020
-ms.locfileid: "76890149"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77700557"
 ---
 # <a name="add-a-new-azure-stack-hub-user-account-in-azure-active-directory-azure-ad"></a>Přidání nového uživatelského účtu centra Azure Stack v Azure Active Directory (Azure AD)
 
@@ -33,8 +33,8 @@ Abyste mohli Azure Portal používat, musíte mít předplatné Azure.
     ![Přidání nového uživatele, uživatel stránka s informace o uživateli](media/azure-stack-add-new-user-aad/new-user-user.png)
 
    - **Název (povinné)** : jméno a příjmení nového uživatele. Například Mary Parker.
-   - **Uživatelské jméno (povinné)** : uživatelské jméno nového uživatele. Například, mary@contoso.com.
-       Součást domény uživatelské jméno musí používat buď počáteční výchozí název domény, <_názevvašídomény_>. onmicrosoft.com, nebo vlastní název domény, třeba contoso.com. Další informace o tom, jak vytvořit vlastní název domény, najdete v tématu [Postup přidání vlastního názvu domény do Azure AD](/azure/active-directory/fundamentals/add-custom-domain).
+   - **Uživatelské jméno (povinné)** : uživatelské jméno nového uživatele. například mary@contoso.com.
+       Část domény uživatelského jména musí používat počáteční výchozí název domény, <_názevvašídomény_>. Microsoft. com, nebo vlastní název domény, jako je například contoso.com. Další informace o tom, jak vytvořit vlastní název domény, najdete v tématu [Postup přidání vlastního názvu domény do Azure AD](/azure/active-directory/fundamentals/add-custom-domain).
    - **Profil**: Volitelně můžete přidat další informace o uživateli. Později můžete také přidat informace o uživateli. Další informace o přidání informací o uživateli najdete v tématu [jak přidat nebo změnit informace o profilu uživatele](/azure/active-directory/fundamentals/active-directory-users-profile-azure-portal).
    - **Role adresáře**: vyberte možnost **uživatel**.
 

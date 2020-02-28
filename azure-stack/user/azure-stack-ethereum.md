@@ -7,12 +7,12 @@ ms.date: 06/03/2019
 ms.topic: tutorial
 ms.reviewer: seyadava
 ms.lastreviewed: 06/03/2019
-ms.openlocfilehash: c981fb453389c4e088db94474dd757f7881dfc6b
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: a0a13af01fc539788d76377f357ca28db9b05234
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883698"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703073"
 ---
 # <a name="deploy-an-ethereum-blockchain-network-on-azure-stack-hub"></a>Nasazení sítě Ethereem blockchain v centru Azure Stack
 
@@ -38,11 +38,11 @@ Stáhněte si nejnovější položky [z webu Marketplace](../operator/azure-stac
 - Ubuntu Server 16.04 LTS
 - Windows Server 2016
 - Vlastní skript pro Linux 2,0
-- Rozšíření vlastních skriptů pro Windows
+- Rozšíření vlastních skriptů pro virtuální počítače
 
 Další informace o blockchainch scénářích najdete v tématu [Šablona řešení ethereem pro ověření úřadu](/azure/blockchain/templates/ethereum-poa-deployment).
 
-## <a name="deployment-architecture"></a>architektura nasazení
+## <a name="deployment-architecture"></a>Architektura nasazení
 
 Tato šablona řešení může nasadit jednu nebo více Ethereemch sítí konsorcia pro více členů. Virtuální síť je připojená k topologii řetězení pomocí síťového virtuálního zařízení a prostředků připojení.
 
@@ -64,7 +64,7 @@ Tato šablona řešení může nasadit jednu nebo více Ethereemch sítí konsor
     
     ![Upravit šablonu vedoucího procesu](./media/azure-stack-ethereum/edit-leader-template.png)
 
-5. Vyberte **Uložit**.
+5. Vyberte **Save** (Uložit).
 6. Vyberte **Upravit parametry** a dokončete parametry šablony pro vaše nasazení.
     
     ![Upravit parametry šablony vedoucího procesu](./media/azure-stack-ethereum/edit-leader-parameters.png)
@@ -84,7 +84,7 @@ Tato šablona řešení může nasadit jednu nebo více Ethereemch sítí konsor
     NUMMININGNODES | Počet uzlů dolování. | Mezi 2 a 15. | 2
     MNNODEVMSIZE | Velikost virtuálního počítače pro uzly dolování. | | Standard_A1
     MNSTORAGEACCOUNTTYPE | Výkon úložiště pro uzly dolování. | | Standard_LRS
-    NUMTXNODES | Počet uzlů transakce. | Mezi 1 a 5. | 1\. místo
+    NUMTXNODES | Počet uzlů transakce. | Mezi 1 a 5. | 1
     TXNODEVMSIZE | Velikost virtuálního počítače v uzlech transakcí. | | Standard_A1
     TXSTORAGEACCOUNTTYPE | Výkon úložiště v uzlech transakce. | | Standard_LRS
     BASEURL | Základní adresa URL, ze které se mají získat šablony nasazení | Pokud nechcete přizpůsobit šablony nasazení, použijte výchozí hodnotu. | 
@@ -116,7 +116,7 @@ Pokud chcete ověřit nasazení vedoucího vedoucího, navštivte web správce v
 2. Na portálu tenanta centra Azure Stack vyberte **+ vytvořit prostředek > Template Deployment** k nasazení z vlastní šablony.
 3. Vyberte **Upravit šablonu** a upravte novou vlastní šablonu.
 4. V podokně úpravy na pravé straně zkopírujte a vložte JSON šablony, kterou jste si stáhli dříve.
-5. Vyberte **Uložit**.
+5. Vyberte **Save** (Uložit).
 6. Vyberte **Upravit parametry** a dokončete parametry šablony pro vaše nasazení.
 
     Název parametru | Popis | Povolené hodnoty | Ukázková hodnota
@@ -130,7 +130,7 @@ Pokud chcete ověřit nasazení vedoucího vedoucího, navštivte web správce v
     NUMMININGNODES | Počet uzlů dolování. | Mezi 2 a 15. | 2
     MNNODEVMSIZE | Velikost virtuálního počítače pro uzly dolování. | | Standard_A1
     MNSTORAGEACCOUNTTYPE | Výkon úložiště pro uzly dolování. | | Standard_LRS
-    NUMTXNODES | Počet uzlů transakce. | Mezi 1 a 5. | 1\. místo
+    NUMTXNODES | Počet uzlů transakce. | Mezi 1 a 5. | 1
     TXNODEVMSIZE | Velikost virtuálního počítače v uzlech transakcí. | | Standard_A1
     TXSTORAGEACCOUNTTYPE | Výkon úložiště v uzlech transakce. | | Standard_LRS
     CONSORTIUMDATA | Adresa URL odkazující na relevantní konfigurační data konsorcia poskytnutá nasazením jiného člena. Tuto hodnotu najdete ve výstupu nasazení vedoucího procesu. | |
@@ -171,7 +171,7 @@ Tato šablona vytvoří připojení od vedoucího ke vzdálenému členovi.
     
     ![Upravit šablonu připojení](./media/azure-stack-ethereum/edit-connect-template.png)
 
-5. Vyberte **Uložit**.
+5. Vyberte **Save** (Uložit).
 6. Vyberte **Upravit parametry** a dokončete parametry šablony pro vaše nasazení.
     
     ![Upravit parametry šablony připojení](./media/azure-stack-ethereum/edit-connect-parameters.png)
@@ -184,7 +184,7 @@ Tato šablona vytvoří připojení od vedoucího ke vzdálenému členovi.
     CONNECTIONSHAREDKEY | Předem zavedený tajný klíč mezi členy konsorcia sítě, která vytváří připojení.  | |
     REMOTEMEMBERNVAPUBLICIP | SÍŤOVÉ virtuální zařízení IP adresu člena. Tuto hodnotu lze najít ve výstupu nasazení člena. | |
     MEMBERNVAPRIVATEIP | Privátní IP adresa vedoucího síťové virtuální zařízení Tuto hodnotu najdete ve výstupu nasazení vedoucího procesu. | |
-    OBLASTI | Umístění vašeho prostředí centra Azure Stack. | | místní
+    UMÍSTĚNÍ | Umístění vašeho prostředí centra Azure Stack. | | místní
     BASEURL | Základní adresa URL šablony | Pokud nechcete přizpůsobit šablony nasazení, použijte výchozí hodnotu. | 
 
 7. Vyberte **OK**.

@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 01/02/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 01/02/2020
-ms.openlocfilehash: 9a1a9f4d5edcd7446d980489cfd475db51ed5d07
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 01/02/2019
+ms.openlocfilehash: 0b8b4babeba269f84d5c63deccdb9cb9fbe2978b
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883464"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77702359"
 ---
 # <a name="upgrade-a-kubernetes-cluster-on-azure-stack-hub"></a>Upgrade clusteru Kubernetes na rozbočovači Azure Stack
 
@@ -74,16 +74,16 @@ Následující pokyny používají minimální postup k provedení upgradu. Poku
 
 2. Shromážděte informace, které budete potřebovat ke spuštění příkazu `upgrade`. Upgrade používá následující parametry:
 
-    | Parametr | Příklad: | Popis |
+    | Parametr | Příklad | Popis |
     | --- | --- | --- |
     | Azure – ENV | AzureStackCloud | K indikaci AKS Engine, který je vaší cílovou platformou `AzureStackCloud`Azure Stack centra použít. |
-    | location | místní | Název oblasti centra Azure Stack. Pro ASDK je oblast nastavená na `local`. |
+    | umístění | místní | Název oblasti centra Azure Stack. Pro ASDK je oblast nastavená na `local`. |
     | resource-group | Kube – RG | Zadejte název nové skupiny prostředků nebo vyberte existující skupinu prostředků. Název prostředku musí být alfanumerické znaky a malá písmena. |
     | ID předplatného | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Zadejte ID předplatného. Další informace najdete v tématu [přihlášení k odběru nabídky](https://docs.microsoft.com/azure-stack/user/azure-stack-subscribe-services#subscribe-to-an-offer) . |
     | rozhraní API – model | ./kubernetes-azurestack.json | Cesta ke konfiguračnímu souboru clusteru nebo modelu rozhraní API. |
     | ID klienta | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Zadejte identifikátor GUID instančního objektu služby. ID klienta identifikované jako ID aplikace, když správce centra Azure Stack vytvořil instanční objekt. |
     | client-secret | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Zadejte tajný klíč objektu služby. Toto je tajný kód klienta, který jste nastavili při vytváření služby. |
-    | Identita – systém | službou | Nepovinný parametr. Pokud používáte federované služby Active Directory (AD FS), zadejte svoje řešení pro správu identit. |
+    | Identita – systém | službou | Volitelné. Pokud používáte federované služby Active Directory (AD FS), zadejte svoje řešení pro správu identit. |
 
 3. Po zadání vašich hodnot spusťte následující příkaz:
 

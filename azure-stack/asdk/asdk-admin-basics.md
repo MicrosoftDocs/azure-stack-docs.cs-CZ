@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 02/19/2019
 ms.author: justinha
 ms.reviewer: misainat
-ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 772fef1539eccfb69fd7d240314ff8f80af1965c
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 10/15/2019
+ms.openlocfilehash: ab0f54d94b96a7bdd75d13f04fd9146146d42740
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76874174"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77695457"
 ---
 # <a name="asdk-admin-basics"></a>Základy správy ASDK
 Pokud s Azure Stack Development Kit (ASDK) nebudete mít jistotu, budete potřebovat několik věcí. Tento návod poskytuje přehled vaší role jako operátor Azure Stack ve zkušebním prostředí. Familiarizing se s těmito informacemi, zajistíte, aby vaši testovací uživatelé byli co nejrychleji produktivní.
@@ -29,7 +29,7 @@ K dispozici je několik důležitých informací o účtech, které byste měli 
 |Místní správce (.\Administrator)|Správce hostitele ASDK|Správce hostitele ASDK|
 |AzureStack\AzureStackAdmin|Správce hostitele ASDK<br><br>Dá se použít k přihlášení na portál správce Azure Stack.<br><br>Přístup k zobrazení a správě Service Fabricch okruhů|Správce hostitele ASDK<br><br>Žádný přístup k portálu pro správu Azure Stack<br><br>Přístup k zobrazení a správě Service Fabricch okruhů<br><br>Už není vlastníkem předplatného výchozího poskytovatele (DPS).|
 |AzureStack\CloudAdmin|Umožňuje přístup k povoleným příkazům v rámci privilegovaného koncového bodu a jejich spouštění.|Umožňuje přístup k povoleným příkazům v rámci privilegovaného koncového bodu a jejich spouštění.<br><br>Nejde se přihlásit k hostiteli ASDK<br><br>Vlastník předplatného výchozího poskytovatele (DPS)|
-|Globální správce Azure AD|Používá se během instalace.<br><br>Vlastník předplatného výchozího poskytovatele (DPS)|Nevztahuje se|
+|Globální správce Azure AD|Používá se během instalace.<br><br>Vlastník předplatného výchozího poskytovatele (DPS)|Neuvedeno|
 |
 
 ## <a name="what-tools-do-i-use-to-manage"></a>Jaké nástroje se používají ke správě?

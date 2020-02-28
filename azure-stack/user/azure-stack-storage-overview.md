@@ -5,13 +5,13 @@ author: mattbriggs
 ms.topic: conceptual
 ms.date: 1/22/2020
 ms.author: mabrigg
-ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 288dfd077d7f41bf5bb82a122c11a747c7054f91
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 01/14/2020
+ms.openlocfilehash: ee08259248a49eef08ce0012d60be2705cc4f877
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884351"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77704909"
 ---
 # <a name="introduction-to-azure-stack-hub-storage"></a>Úvod do úložiště centra Azure Stack
 
@@ -39,7 +39,7 @@ ms.locfileid: "76884351"
 
 ![Přehled úložiště centra Azure Stack](media/azure-stack-storage-overview/AzureStackStorageOverview.png)
 
-### <a name="blob-storage"></a>Úložiště blobů
+### <a name="blob-storage"></a>Blob Storage
 
 Pro uživatele s velkým množstvím nestrukturovaných dat objektů, které se mají uložit v cloudu, nabízí úložiště objektů BLOB efektivní a škálovatelné řešení. Úložiště objektů blob můžete použít k ukládání obsahu, jako je například:
 
@@ -66,7 +66,7 @@ Každý objekt blob se organizuje do kontejneru. Kontejnery také nabízejí pra
 
     Objekty blob stránky jsou optimalizované tak, aby představovaly disky IaaS a podporovaly náhodné zápisy o velikosti až 1 TB. IaaS disk, který je připojen k virtuálnímu počítači centra Azure Stack, je VHD uložený jako objekt blob stránky.
 
-### <a name="table-storage"></a>Úložiště tabulek
+### <a name="table-storage"></a>Table Storage
 
 Moderní aplikace často vyžadují úložiště dat s větší škálovatelností a flexibilitou než předchozí generace softwaru. Table Storage nabízí vysoce dostupné, široce škálovatelné úložiště, aby se vaše aplikace mohla automaticky škálovat tak, aby splňovala požadavky uživatelů. Table Storage je úložiště NoSQLch klíčů a atributů od Microsoftu – má návrh bez schématu, takže se liší od tradičních relačních databází. S úložištěm dat bez schématu je snadné přizpůsobit data podle potřeb vaší aplikace. Úložiště tabulek je snadno použitelné, takže vývojáři můžou rychle vytvářet aplikace.
 
@@ -76,7 +76,7 @@ Tabulkové úložiště můžete použít k ukládání flexibilních datových 
 
 Účet úložiště může obsahovat libovolný počet tabulek a tabulka může obsahovat libovolný počet entit až do limitu kapacity účtu úložiště.
 
-### <a name="queue-storage"></a>Úložiště front
+### <a name="queue-storage"></a>Queue Storage
 
 Při navrhování aplikací pro škálování se součásti aplikací často odpojí, aby se mohly škálovat nezávisle. Queue Storage poskytuje spolehlivé řešení zasílání zpráv pro asynchronní komunikaci mezi součástmi aplikací, ať už běží v cloudu, na ploše, na místním serveru nebo na mobilním zařízení. Queue Storage také podporuje správu asynchronních úloh a pracovní postupy procesů sestavování buildů.
 

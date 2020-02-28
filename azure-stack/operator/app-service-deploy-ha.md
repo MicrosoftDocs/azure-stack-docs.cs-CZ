@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 01/02/2020
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 01/02/2020
-ms.openlocfilehash: 1b72a2d71c2ff5e467486fa9672607cca78a38e9
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 01/02/2019
+ms.openlocfilehash: ec4f3dc2a17e362038d11ec988d19ffa9edd6a6e
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76876897"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77701849"
 ---
 # <a name="deploy-app-service-in-a-highly-available-configuration"></a>Nasazení App Service v konfiguraci s vysokou dostupností
 
@@ -77,7 +77,7 @@ Po úspěšném dokončení nasazení šablony zaznamenejte výstupy nasazení �
 
 Ujistěte se, že jste zaznamenali všechny tyto výstupní hodnoty:
 - FileSharePath
-- FileShareOwner
+- Vlastník sdílené složky
 - FileShareUser
 - SQLserver
 - SQLuser
@@ -189,7 +189,7 @@ Pokud chcete nasadit poskytovatele prostředků App Service, použijte následuj
 
     ![SQL Server informace o připojení App Service](media/app-service-deploy-ha/10.png)
 
-13. Vzhledem k tomu, že počítač použitý k instalaci App Service není umístěný ve stejné virtuální síti jako SQL Server, který se používá k hostování App Servicech databází, nemůžete tento název přeložit.  **Toto chování je očekávané**.<br><br>Ověřte, zda jsou zadané informace pro SQL Server název a účty správné, a stisknutím klávesy **Ano** pokračujte v instalaci App Service. Klikněte na **Další**.
+13. Vzhledem k tomu, že počítač použitý k instalaci App Service není umístěný ve stejné virtuální síti jako SQL Server, který se používá k hostování App Servicech databází, nemůžete tento název přeložit.  **Toto chování je očekávané**.<br><br>Ověřte, zda jsou zadané informace pro SQL Server název a účty správné, a stisknutím klávesy **Ano** pokračujte v instalaci App Service. Klikněte na **Další**.
 
     ![SQL Server informace o připojení App Service](media/app-service-deploy-ha/11.png)
 
@@ -198,10 +198,10 @@ Pokud chcete nasadit poskytovatele prostředků App Service, použijte následuj
     |Role|Výchozí|Doporučení s vysokou dostupností|
     |-----|-----|-----|
     |Role kontroleru|2|2|
-    |Role správy|1\. místo|3|
-    |Role vydavatele|1\. místo|3|
-    |Role front-endu|1\. místo|3|
-    |Role sdíleného pracovního procesu|1\. místo|2|
+    |Role správy|1|3|
+    |Role vydavatele|1|3|
+    |Role front-endu|1|3|
+    |Role sdíleného pracovního procesu|1|2|
     |     |     |     |
 
     ![Hodnoty instance role infrastruktury na App Service](media/app-service-deploy-ha/12.png)

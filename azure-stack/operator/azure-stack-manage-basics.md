@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 05/29/2019
 ms.author: justinha
 ms.lastreviewed: 05/29/2019
-ms.openlocfilehash: 53515145d4cbc1ad49ca25261ab65ac8bafdfbb5
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 2b422b35b0e709ce7c400d4093b4fdd86093620f
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882045"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77699299"
 ---
 # <a name="azure-stack-hub-administration-basics"></a>Základy správy centra Azure Stack
 
@@ -37,8 +37,8 @@ Budete potřebovat povědomí o tom, které služby můžete uživatelům zpří
 
 Ve výchozím nastavení zahrnuje Azure Stack hub při nasazení centra Azure Stack následující "základní služby":
 
-- Služby Compute
-- Storage
+- Výpočty
+- Úložiště
 - Sítě
 - Key Vault
 
@@ -48,8 +48,8 @@ S těmito základními službami můžete uživatelům s minimální konfigurac�
 
 V současné době podporujeme následující další služby PaaS (Platform as a Service):
 
-- Aplikační služba
-- Funkce Azure
+- App Service
+- Azure Functions
 - Databáze SQL a MySQL
 - Kubernetes (ve verzi Preview)
 
@@ -68,7 +68,7 @@ Při správě centra Azure Stack je potřeba vědět o několika ohledech. Hlavn
 |Místní správce (.\Administrator)|Správce hostitele ASDK|Správce hostitele ASDK|
 |AzureStack\AzureStackAdmin|Správce hostitele ASDK<br><br>Dá se použít k přihlášení k portálu správce Azure Stackového centra.<br><br>Přístup k zobrazení a správě Service Fabricch okruhů.|Správce hostitele ASDK<br><br>K portálu správce centra Azure Stack nemáte přístup.<br><br>Přístup k zobrazení a správě Service Fabricch okruhů.<br><br>Již není vlastníkem předplatného výchozího poskytovatele (DPS).|
 |AzureStack\CloudAdmin|Umožňuje přístup k povoleným příkazům v rámci privilegovaného koncového bodu a jejich spouštění.|Umožňuje přístup k povoleným příkazům v rámci privilegovaného koncového bodu a jejich spouštění.<br><br>Nejde se přihlásit k hostiteli ASDK.<br><br>Vlastník předplatného výchozího poskytovatele (DPS).|
-|Globální správce Azure AD|Používá se během instalace.<br><br>Vlastník předplatného výchozího poskytovatele (DPS).|Není k dispozici.|
+|Globální správce Azure AD|Používá se během instalace.<br><br>Vlastník předplatného výchozího poskytovatele (DPS).|Neužívá se.|
 |
 
 ## <a name="what-tools-do-i-use-to-manage"></a>Jaké nástroje se používají ke správě?

@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 1/22/2020
 ms.author: inhenkel
 ms.reviewer: wfayed
-ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: a4ab00ff732bcffd66d984757a279a3ad030b33d
-ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
+ms.lastreviewed: 11/05/2019
+ms.openlocfilehash: 7e00adbf4c0e83094b7425ed650126e8bb072b3d
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77510125"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77701594"
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-hub-integrated-systems"></a>Rozhodnutí týkající se plánování nasazení spojené s Azure pro integrované systémy centra Azure Stack
 Až se rozhodnete, [jak budete Azure Stack hub integrovat do svého hybridního cloudového prostředí](azure-stack-connection-models.md), můžete dokončit rozhodnutí o nasazení Azure Stack centra.

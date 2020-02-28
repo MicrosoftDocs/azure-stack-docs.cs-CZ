@@ -7,12 +7,12 @@ ms.date: 12/03/2019
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: a6f728e69eacab25941ef0640a35243d390fa4c7
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 5bcfcb8a5e2af29b0d7b60774853fa35392d9f23
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883472"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77702478"
 ---
 # <a name="create-vm-disk-storage-in-azure-stack-hub"></a>Vytvoření úložiště disku virtuálního počítače v centru Azure Stack
 
@@ -82,7 +82,7 @@ Každý nespravovaný disk, který přidáte, by měl být umístěn v samostatn
    * Vyberte **typ účtu**.
       ![příklad: Připojte k virtuálnímu počítači nový disk](media/azure-stack-manage-vm-disks/create-manage-disk.png)
 
-      **Premium SSD**  
+      **SSD úrovně Premium**  
       Disky úrovně Premium (SSD) jsou založené na jednotkách Solid-State a nabízejí konzistentní výkon s nízkou latencí. Poskytují nejlepší rovnováhu mezi cenou a výkonem a jsou ideální pro aplikace náročné na vstupně-výstupní operace a produkční úlohy.
 
       **HDD úrovně Standard**  

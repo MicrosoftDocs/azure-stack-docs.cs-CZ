@@ -7,12 +7,12 @@ ms.date: 10/03/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 19056b0ad37511e75d462c201190c8e2f3a606e0
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 1b3854ab04792ade8ca0b66cc63f1fdc2c0e60e9
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883371"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703889"
 ---
 # <a name="set-up-vpn-gateway-for-azure-stack-hub-using-fortigate-nva"></a>Nastavení brány sítě VPN pro centrum Azure Stack s využitím FortiGate síťové virtuální zařízení
 
@@ -56,7 +56,7 @@ Následující tabulka shrnuje parametry, které jsou v těchto nasazeních pou�
 | Předpona podsítě virtuální sítě | 172.16.1.0/24 * |
 | Velikost virtuálního počítače pro FortiGate síťové virtuální zařízení | Standardní F2s_v2 |
 | Název veřejné IP adresy | forti1-publicip1 |
-| Typ veřejné IP adresy | Statický |
+| Typ veřejné IP adresy | Statické |
 
 > [!Note]
 > \* zvolit jiný adresní prostor a předpony podsítě, pokud se `172.16.0.0/16` překrývají s místní sítí nebo s fondem IP adres centra Azure Stack.
@@ -126,7 +126,7 @@ Následující tabulka shrnuje parametry, které jsou v těchto nasazeních pou�
 
     ![](./media/azure-stack-network-howto-vnet-to-onprem/image12.png)
 
-10. Vyberte **Uložit**.
+10. Vyberte **Save** (Uložit).
 
 ## <a name="activate-the-fortigate-nva"></a>Aktivace síťové virtuální ZAŘÍZENÍu FortiGate
 
@@ -168,7 +168,7 @@ Po aktivaci služby síťová virtuální zařízení vytvořte tunel sítě VPN
 
     ![](./media/azure-stack-network-howto-vnet-to-onprem/image16.png)
 
-13. Vyberte **Next** (Další).
+13. Vyberte **Další**.
 
 14. Zadejte vzdálenou IP adresu místního zařízení VPN, ke kterému se budete připojovat.
 
@@ -181,7 +181,7 @@ Po aktivaci služby síťová virtuální zařízení vytvořte tunel sítě VPN
 
     ![](./media/azure-stack-network-howto-vnet-to-onprem/image17.png)
 
-17. Vyberte **Next** (Další).
+17. Vyberte **Další**.
 
 18. Jako **místní rozhraní**vyberte **PORT2** .
 
@@ -216,7 +216,7 @@ Místní zařízení VPN musí být nakonfigurované tak, aby vytvořilo tunelov
 | IP adresa vzdálené brány | Veřejná IP adresa přiřazená k forti1 – viz [aktivovat FORTIGATE síťové virtuální zařízení](#activate-the-fortigate-nva). |
 | Vzdálená síť IP | 172.16.0.0/16 (Pokud používáte rozsah IP adres v těchto pokynech pro virtuální síť). |
 | Auth. Method = předsdílený klíč (PSK) | Z kroku 16.
-| Verze IKE | 1\. místo |
+| Verze IKE | 1 |
 | Režim IKE | Hlavní (ID ochrany) |
 | Algoritmy návrhů 1. fáze | AES128-SHA256, AES256-SHA256, AES128-SHA1, AES256-SHA1 |
 | Skupiny Diffie-Hellman | 14.5. |

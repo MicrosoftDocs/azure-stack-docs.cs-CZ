@@ -7,12 +7,12 @@ ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 7320389f5b8a74b4a8964216c06c9495fe3581b4
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 50474e9c05f55abc1bfb8213d051393714a9b5cc
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883507"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77702495"
 ---
 # <a name="support-policies-for-aks-engine-on-azure-stack-hub"></a>Zásady podpory pro modul AKS v centru Azure Stack
 
@@ -94,7 +94,7 @@ Pokud se chyba zabezpečení nachází v jedné nebo více součástech modulu A
 
 Uživatelé si můžou stáhnout položku Kubernetes Marketplace, která umožňuje uživatelům nasadit clustery Kubernetes pomocí modulu AKS nepřímo prostřednictvím šablony na portálu User Portal centra Azure Stack, což zjednodušuje použití stroje AKS. Tento nástroj je užitečný pro rychlé nastavení clusterů pro ukázky, testování a vývoj. Není určená pro produkční prostředí, protože není součástí sady položek podporovaných Microsoftem.
 
-## <a name="preview-features"></a>Funkce verze Preview
+## <a name="preview-features"></a>Funkce Preview
 
 Pro funkce a funkce, které vyžadují rozšířené testování a zpětnou vazbu od uživatelů, vydává společnost Microsoft nové funkce nebo funkce verze Preview za příznakem funkce. Tyto funkce zvažte jako předprodejní nebo beta funkce. Funkce verze Preview nebo funkce příznaku funkcí nejsou určeny pro produkční prostředí. Průběžné změny funkčnosti a chování, opravy chyb a další změny můžou vést k nestabilním clusterům a výpadkům. Microsoft nepodporuje tyto funkce.
 

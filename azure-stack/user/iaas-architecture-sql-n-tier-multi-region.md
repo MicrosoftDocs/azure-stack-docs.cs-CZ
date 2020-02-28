@@ -7,12 +7,12 @@ ms.date: 11/01/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: d249cbdfa205cceb3c0ef1aad7dccbb0c9daaeeb
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: e7cef7bf2545a8e256d9e09fbbef338aab230e17
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76885263"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77705011"
 ---
 # <a name="run-an-n-tier-application-in-multiple-azure-stack-hub-regions-for-high-availability"></a>Spuštění N-vrstvé aplikace v několika oblastech centra Azure Stack pro zajištění vysoké dostupnosti
 
@@ -23,7 +23,7 @@ Tato referenční architektura ukazuje sadu osvědčených postupů pro spuště
 
 ## <a name="architecture"></a>Architektura
 
-Tato architektura vychází z článku [N-vrstvá aplikace s SQL serverem](iaas-architecture-windows-sql-n-tier.md).
+Tato architektura sestaví na takovém obrázku, který je zobrazený v [N-vrstvé aplikaci s SQL Server](iaas-architecture-windows-sql-n-tier.md).
 
 ![Vysoce dostupná síťová architektura pro N-vrstvé aplikace Azure](./media/iaas-architecturesql-n-tier-multi-region/image1.png)
 
@@ -171,4 +171,4 @@ Změřte dobu zotavení a ověřte, zda splňuje vaše obchodní požadavky. Ote
 
 ## <a name="next-steps"></a>Další kroky
 
-- Další informace o vzorech cloudu Azure, najdete v článku [vzory návrhu v cloudu](https://docs.microsoft.com/azure/architecture/patterns).
+- Další informace o vzorech cloudu Azure najdete v tématu [vzory návrhu cloudu](https://docs.microsoft.com/azure/architecture/patterns).

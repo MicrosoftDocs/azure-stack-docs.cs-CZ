@@ -7,12 +7,12 @@ ms.date: 01/27/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 6f8220f9a8683569c23460acf2890c9aa8407f30
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 37ffe5bd8325e309f8d9381cf058cfd07ac48480
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883083"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77705198"
 ---
 # <a name="use-api-version-profiles-with-net-in-azure-stack-hub"></a>Použití profilů verzí rozhraní API s .NET v Azure Stackovém centru
 
@@ -22,15 +22,15 @@ Sada .NET SDK pro Správce prostředků centra Azure Stack poskytuje nástroje, 
 
 Profil rozhraní API je kombinací poskytovatelů prostředků a verze rozhraní API. Použijte profil rozhraní API k získání nejnovější a nejvýznamnější verze každého typu prostředku v balíčku poskytovatele prostředků.
 
-- Chcete-li použít nejnovější verzí všech služeb, použijte **nejnovější** profilu balíčků. Tento profil je součástí **Microsoft.Azure.Management** balíček NuGet.
+- Chcete-li používat nejnovější verze všech služeb, použijte **nejnovější** profil balíčků. Tento profil je součástí balíčku NuGet **Microsoft. Azure. Management** .
 
 - Pokud chcete používat služby kompatibilní s Azure Stack hub, použijte jeden z následujících balíčků:
   - **Microsoft. Azure. Management. Profiles. Hybrid\_2019\_03\_01. <*ResourceProvider*>. 0.9.0-Preview. nupkg**
   - **Microsoft. Azure. Management. Profiles. Hybrid\_2018\_03\_01. <*ResourceProvider*>. 0.9.0-Preview. nupkg**
 
-  Ujistěte se, že **ResourceProvider** část výše uvedených balíčků NuGet se změní na poskytovateli správné.
+  Zajistěte, aby se část **ResourceProvider** výše uvedeného balíčku NuGet změnila na správného poskytovatele.
 
-- Chcete-li použít nejnovější verzi rozhraní API služby, použijte **nejnovější** profil konkrétního balíčku NuGet. Pokud například chcete použít **nejnovější verzi rozhraní COMPUTE API** služby COMPUTE, použijte **nejnovější** profil balíčku **COMPUTE** . **Nejnovější** profilu je součástí **Microsoft.Azure.Management** balíček NuGet.
+- Chcete-li použít nejnovější verzi rozhraní API služby, použijte **nejnovější** profil konkrétního balíčku NuGet. Pokud například chcete použít **nejnovější verzi rozhraní COMPUTE API** služby COMPUTE, použijte **nejnovější** profil balíčku **COMPUTE** . **Nejnovější** profil je součástí balíčku NuGet **Microsoft. Azure. Management** .
 
 - Pokud chcete použít konkrétní verze rozhraní API pro typ prostředku v konkrétním poskytovateli prostředků, použijte konkrétní verze rozhraní API definované v balíčku.
 
@@ -38,9 +38,9 @@ Můžete zkombinovat všechny možnosti ve stejné aplikaci.
 
 ## <a name="install-the-azure-net-sdk"></a>Instalace sady Azure .NET SDK
 
-- Instalace Gitu. Pokyny najdete v tématu [Začínáme – instalace Git][].
+- Instalace Gitu. Pokyny najdete v tématu [Začínáme – instalace Gitu][].
 
-- K instalaci správné balíčky NuGet, naleznete v tématu [Vyhledání a instalace balíčku][].
+- Chcete-li nainstalovat správné balíčky NuGet, přečtěte si téma [Hledání a instalace balíčku][].
 
 - Balíčky, které je potřeba nainstalovat, závisí na verzi profilu, kterou chcete použít. Názvy balíčků pro verze profilu jsou:
 
@@ -48,7 +48,7 @@ Můžete zkombinovat všechny možnosti ve stejné aplikaci.
 
   - **Microsoft. Azure. Management. Profiles. Hybrid\_2018\_03\_01. <*ResourceProvider*>. 0.9.0-Preview. nupkg**
 
-- K instalaci správné balíčky NuGet pro Visual Studio Code, viz následující odkaz ke stažení [Pokyny pro správce balíčků NuGet][].
+- Chcete-li nainstalovat správné balíčky NuGet pro Visual Studio Code, přečtěte si následující odkaz a Stáhněte si [Pokyny pro správce balíčků NuGet][].
 
 - Pokud není k dispozici, vytvořte předplatné a uložte ID předplatného pro pozdější použití. Informace o tom, jak vytvořit předplatné, najdete [Vytváření předplatných nabídek v centru Azure Stack][].
 
@@ -121,9 +121,9 @@ Ukázkový soubor JSON:
 
 - **Microsoft. Azure. Management. Profiles. hybrid\_2018\_03\_01. <*ResourceProvider*>. 0.9.0-Preview. nupkg**: použijte tento profil pro služby, aby byly kompatibilní s Azure Stack centrem pro verze 1808 nebo novější.
 
-- **Nejnovější**: profil, který se skládá z nejnovější verze všech služeb. Použijte nejnovější verze všech služeb. Tento profil je součástí **Microsoft.Azure.Management** balíček NuGet.
+- **Nejnovější**: Profil skládající se z nejnovějších verzí všech služeb. Použijte nejnovější verze všech služeb. Tento profil je součástí balíčku NuGet **Microsoft. Azure. Management** .
 
-Další informace o centru Azure Stack a profilech rozhraní API najdete v tématu [Přehled rozhraní API profily][].
+Další informace o centru Azure Stack a profilech rozhraní API najdete v tématu [Shrnutí profilů rozhraní API][].
 
 ## <a name="azure-net-sdk-api-profile-usage"></a>Použití profilu rozhraní API pro Azure .NET SDK
 
@@ -193,17 +193,17 @@ Následující ukázky můžete použít jako referenci pro vytváření řešen
 Další informace o profilech rozhraní API:
 
 - [Správa profilů verzí rozhraní API v centru Azure Stack](azure-stack-version-profiles.md)
-- [Podporuje profily verze rozhraní API poskytovatele prostředků](azure-stack-profiles-azure-resource-manager-versions.md)
+- [Verze rozhraní API poskytovatele prostředků podporované profily](azure-stack-profiles-azure-resource-manager-versions.md)
 
-  [Začínáme – instalace Git]: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
-  [Vyhledání a instalace balíčku]: /nuget/tools/package-manager-ui
+  [Začínáme – instalace Gitu]: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
+  [Hledání a instalace balíčku]: /nuget/tools/package-manager-ui
   [Pokyny pro správce balíčků NuGet]: https://marketplace.visualstudio.com/items?itemName=jmrog.vscode-nuget-package-manager
   [Vytváření předplatných nabídek v centru Azure Stack]: ../operator/azure-stack-subscribe-plan-provision-vm.md
   [Poskytnutí přístupu k aplikacím Azure Stack hub]: ../operator/azure-stack-create-service-principals.md
-  [* tenant ID *]: ../operator/azure-stack-identity-overview.md
-  [* předplatné ID *]: ../operator/service-plan-offer-subscription-overview.md#subscriptions
+  [* ID tenanta *]: ../operator/azure-stack-identity-overview.md
+  [* ID předplatného *]: ../operator/service-plan-offer-subscription-overview.md#subscriptions
   [* Azure Stack centra Správce prostředků koncový bod *]: ../user/azure-stack-version-profiles-ruby.md#the-azure-stack-hub-resource-manager-endpoint
-  [Přehled rozhraní API profily]: ../user/azure-stack-version-profiles.md#summary-of-api-profiles
+  [Shrnutí profilů rozhraní API]: ../user/azure-stack-version-profiles.md#summary-of-api-profiles
   [Test Project to Virtual Machine, vNet, resource groups, and storage account]: https://github.com/seyadava/azure-sdk-for-net-samples/tree/master/TestProject
   [Use Azure PowerShell to create a service principal with a certificate]: ../operator/azure-stack-create-service-principals.md
   [Run unit tests with Test Explorer.]: /visualstudio/test/run-unit-tests-with-test-explorer?view=vs-2017

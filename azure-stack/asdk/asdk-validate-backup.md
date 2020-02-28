@@ -7,12 +7,12 @@ ms.date: 07/31/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 07/31/2019
-ms.openlocfilehash: 2ff4ec010243b27406a2ebb3149bc123aa01947d
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: ee86c3200cbef75f63de0b1aa8f7ac614e1878cc
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76873494"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77690918"
 ---
 # <a name="use-the-asdk-to-validate-an-azure-stack-backup"></a>Použití ASDK k ověření zálohy Azure Stack
 Po nasazení Azure Stack a zřízení prostředků uživatelů (například nabídek, plánů, kvót a předplatných) byste měli [povolit Azure Stack zálohování infrastruktury](../operator/azure-stack-backup-enable-backup-console.md). Plánování a spouštění pravidelných záloh infrastruktury zajistí, že data správy infrastruktury nebudou ztracena v případě závažného selhání hardwaru nebo služby.
@@ -67,8 +67,8 @@ Než začnete s nasazením cloudového obnovení ASDK, ujistěte se, že máte n
 |ID zálohy, která se má obnovit|ID zálohy v alfanumerickém tvaru "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", který identifikuje zálohu, která má být obnovena během obnovování cloudu.|
 |IP adresa časového serveru|Pro nasazení Azure Stack se vyžaduje platná časová IP adresa serveru, například 132.163.97.2.|
 |Heslo k externímu certifikátu|Heslo pro externí certifikát, který používá Azure Stack. Záloha certifikační autority obsahuje externí certifikáty, které je potřeba obnovit pomocí tohoto hesla.|
-|Heslo certifikátu dešifrování|Nepovinný parametr. Požadováno jenom v případě, že je záloha zašifrovaná pomocí certifikátu. Heslo je pro certifikát podepsaný svým držitelem (. pfx), který obsahuje privátní klíč nezbytný k dešifrování zálohovaných dat.|
-|Záložní šifrovací klíč|Nepovinný parametr. Vyžaduje se, pokud jsou nastavení zálohování pořád nakonfigurovaná pomocí šifrovacího klíče. Instalační program bude podporovat šifrovací klíč v režimu zpětné kompatibility pro nejméně 3 verze. Po aktualizaci nastavení zálohování pro použití certifikátu je nutné zadat heslo pro dešifrovací certifikát.|
+|Heslo certifikátu dešifrování|Volitelné. Požadováno jenom v případě, že je záloha zašifrovaná pomocí certifikátu. Heslo je pro certifikát podepsaný svým držitelem (. pfx), který obsahuje privátní klíč nezbytný k dešifrování zálohovaných dat.|
+|Záložní šifrovací klíč|Volitelné. Vyžaduje se, pokud jsou nastavení zálohování pořád nakonfigurovaná pomocí šifrovacího klíče. Instalační program bude podporovat šifrovací klíč v režimu zpětné kompatibility pro nejméně 3 verze. Po aktualizaci nastavení zálohování pro použití certifikátu je nutné zadat heslo pro dešifrovací certifikát.|
 |     |     | 
 
 ## <a name="prepare-the-host-computer"></a>Příprava hostitelského počítače 
@@ -109,7 +109,7 @@ Kroky v této části ukazují, jak nasadit ASDK pomocí grafického uživatelsk
 
     ![Skript instalačního programu ASDK](media/asdk-validate-backup/1.PNG) 
 
-3. Zadejte informace o adresáři služby Azure AD (volitelné) a heslo místního správce pro hostitelský počítač ASDK na stránce zprostředkovatel identity a přihlašovací údaje. Klikněte na **Další**.
+3. Zadejte informace o adresáři služby Azure AD (volitelné) a heslo místního správce pro hostitelský počítač ASDK na stránce zprostředkovatel identity a přihlašovací údaje. Klikněte na **Další**.
 
     ![ASDK identita a přihlašovací stránka](media/asdk-validate-backup/2.PNG) 
 
@@ -117,7 +117,7 @@ Kroky v této části ukazují, jak nasadit ASDK pomocí grafického uživatelsk
 
     ![Rozhraní síťového adaptéru ASDK](media/asdk-validate-backup/3.PNG) 
 
-5. Na stránce konfigurace sítě zadejte platné IP adresy časového serveru a serveru DNS pro přeposílání. Klikněte na **Další**.
+5. Na stránce konfigurace sítě zadejte platné IP adresy časového serveru a serveru DNS pro přeposílání. Klikněte na **Další**.
 
     ![Stránka konfigurace sítě ASDK](media/asdk-validate-backup/4.PNG) 
 

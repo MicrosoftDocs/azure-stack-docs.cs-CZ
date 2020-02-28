@@ -7,12 +7,12 @@ ms.date: 2/3/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/09/2019
-ms.openlocfilehash: 76ecac957ab7680032c31cd46db4b717a2f029e5
-ms.sourcegitcommit: 4178443d84cf6d3fbaba11425beff703568c1a2c
+ms.openlocfilehash: ba6e4483475b97b6803781f5b7c5d29d94cbe896
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76977882"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77705130"
 ---
 # <a name="azure-stack-hub-vm-features"></a>Funkce virtuálního počítače centra Azure Stack
 
@@ -20,7 +20,7 @@ Virtuální počítače centra Azure Stack poskytují škálovatelné výpočetn
 
 ## <a name="vm-differences"></a>Rozdíly virtuálních počítačů
 
-| Funkce | Azure (Global) | Azure Stack Hub |
+| Funkce | Azure (Global) | Centrum Azure Stack |
 | --- | --- | --- |
 | Image virtuálních počítačů | Azure Marketplace obsahuje obrázky, které můžete použít k vytvoření virtuálního počítače. Pokud chcete zobrazit seznam imagí, které jsou k dispozici v Azure Marketplace, zobrazte stránku [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/compute?subcategories=virtual-machine-images&page=1) . | Ve výchozím nastavení nejsou k dispozici žádné image v tržišti Azure Stack hub. Aby ho uživatelé mohli používat, musí správce cloudu Azure Stack publikovat nebo stahovat image na webu Centrum Azure Stack. |
 | Generování VHD | Generace dvou virtuálních počítačů podporuje klíčové funkce, které nejsou podporované v generaci jednoho virtuálního počítače. Mezi tyto funkce patří zvýšené množství paměti, rozšíření Intel software Guard (Intel SGX) a virtualizovaná trvalá paměť (vPMEM). Generace dvou virtuálních počítačů spuštěných v místním prostředí obsahuje některé funkce, které ještě nejsou v Azure podporované. Další informace najdete v tématu [Podpora virtuálních počítačů 2. generace v Azure](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2) .  | Centrum Azure Stack podporuje jenom jednu generaci virtuálních počítačů. Generaci jednoho virtuálního počítače můžete převést z VHDX na formát souboru VHD a z dynamického rozšiřování na disk s pevnou velikostí. Nemůžete změnit generaci virtuálního počítače. Další informace najdete v tématu [Podpora pro virtuální počítače 2. generace v Azure](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2). |
@@ -37,7 +37,7 @@ Virtuální počítače centra Azure Stack poskytují škálovatelné výpočetn
 | Disk s kopií cloudu | Vyberte koncové body z vlastností účtu úložiště, které jsou k dispozici v Azure Stack hub. | [Určující Cloud](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness) je typ určujícího disku kvora clusteru s podporou převzetí služeb při selhání, který používá Microsoft Azure k poskytnutí hlasu kvora clusteru.<br>Koncové body v globálním Azure v porovnání s Azure Stack hub můžou vypadat takto:<br>Pro globální Azure:<br>`https://mywitness.blob.core.windows.net/`<br>Pro centrum Azure Stack:<br>`https://mywitness.blob.<region>.<FQDN>/`|
 | Diagnostika virtuálního počítače | Diagnostika virtuálního počítače se systémem Linux je podporována. | Diagnostika virtuálního počítače se systémem Linux není v centru Azure Stack podporována. Při nasazení virtuálního počítače s Linuxem s povolenou diagnostikou virtuálního počítače, nasazení se nezdaří. Nasazení se také nezdaří, pokud povolíte základní metriky virtuálního počítače s Linuxem prostřednictvím nastavení diagnostiky. |
 
-## <a name="vm-sizes"></a>Velikosti virtuálních počítačů
+## <a name="vm-sizes"></a>Velikost virtuálních počítačů
 
 Rozbočovač Azure Stack ukládá omezení prostředků, aby nedocházelo k využití prostředků (místní server a úroveň služeb). Tato omezení zlepšují prostředí tenanta tím, že snižují vliv spotřeby prostředků na ostatní klienty.
 
@@ -49,24 +49,24 @@ V následující tabulce jsou uvedené virtuální počítače, které jsou podp
 
 | Typ            | Velikost          | Rozsah podporovaných velikostí |
 | ----------------| ------------- | ------------------------ |
-|Obecné použití  |Basic A        |[A0 – A4](azure-stack-vm-sizes.md#basic-a)                   |
-|Obecné použití  |Standardní A     |[A0 – A7](azure-stack-vm-sizes.md#standard-a)              |
-|Obecné použití  |Av2-series     |[A1_v2 – A8m_v2](azure-stack-vm-sizes.md#av2-series)     |
-|Obecné použití  |D-series       |[D1 – D4](azure-stack-vm-sizes.md#d-series)              |
-|Obecné použití  |Řada Dv2     |[D1_v2 - D5_v2](azure-stack-vm-sizes.md#ds-series)        |
-|Obecné použití  |Řada DS      |[DS1 - DS4](azure-stack-vm-sizes.md#dv2-series)            |
-|Obecné použití  |Řada DSv2    |[DS1_v2 - DS5_v2](azure-stack-vm-sizes.md#dsv2-series)      |
-|Paměťově optimalizované |D-series       |[D11 - D14](azure-stack-vm-sizes.md#mo-d)            |
-|Paměťově optimalizované |Řada DS      |[DS11 - DS14](azure-stack-vm-sizes.md#mo-ds)|
-|Paměťově optimalizované |Řada Dv2     |[D11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dv2)     |
-|Paměťově optimalizované |Řada DSv2    |[DS11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dsv2)    |
-|Výpočtově optimalizované|Řada F       |[F1 – F16 ÚROVNĚ](azure-stack-vm-sizes.md#f-series)    |
-|Výpočtově optimalizované|Řada Fs      |[F1s úrovně – F16s úrovně](azure-stack-vm-sizes.md#fs-series)    |
-|Výpočtově optimalizované|Fsv2-series    |[F2s_v2 – F64s_v2](azure-stack-vm-sizes.md#fsv2-series)    |
+|Pro obecné účely  |Basic A        |[A0 – A4](azure-stack-vm-sizes.md#basic-a)                   |
+|Pro obecné účely  |Standardní A     |[A0 – A7](azure-stack-vm-sizes.md#standard-a)              |
+|Pro obecné účely  |Av2-series     |[A1_v2 – A8m_v2](azure-stack-vm-sizes.md#av2-series)     |
+|Pro obecné účely  |D-series       |[D1 – D4](azure-stack-vm-sizes.md#d-series)              |
+|Pro obecné účely  |Dv2-series     |[D1_v2 – D5_v2](azure-stack-vm-sizes.md#ds-series)        |
+|Pro obecné účely  |DS-series      |[DS1 – DS4](azure-stack-vm-sizes.md#dv2-series)            |
+|Pro obecné účely  |DSv2-series    |[DS1_v2 – DS5_v2](azure-stack-vm-sizes.md#dsv2-series)      |
+|Optimalizované z hlediska paměti |D-series       |[D11 – D14](azure-stack-vm-sizes.md#mo-d)            |
+|Optimalizované z hlediska paměti |DS-series      |[DS11 – DS14](azure-stack-vm-sizes.md#mo-ds)|
+|Optimalizované z hlediska paměti |Dv2-series     |[D11_v2 – DS14_v2](azure-stack-vm-sizes.md#mo-dv2)     |
+|Optimalizované z hlediska paměti |DSv2-series    |[DS11_v2 – DS14_v2](azure-stack-vm-sizes.md#mo-dsv2)    |
+|Optimalizované z hlediska výpočetních služeb|F-series       |[F1 – F16 ÚROVNĚ](azure-stack-vm-sizes.md#f-series)    |
+|Optimalizované z hlediska výpočetních služeb|Řada FS      |[F1s úrovně – F16s úrovně](azure-stack-vm-sizes.md#fs-series)    |
+|Optimalizované z hlediska výpočetních služeb|Řada Fsv2    |[F2s_v2 – F64s_v2](azure-stack-vm-sizes.md#fsv2-series)    |
 
 Velikosti virtuálních počítačů a jejich přidružených prostředků jsou konzistentní mezi Azure Stackm rozbočovačem a Azure. Tato konzistence zahrnuje množství paměti, počet jader a počet a velikost datových disků, které lze vytvořit. Výkon virtuálních počítačů se stejnou velikostí ale závisí na základních charakteristikách konkrétního prostředí centra Azure Stack.
 
-## <a name="vm-extensions"></a>Rozšíření virtuálního počítače
+## <a name="vm-extensions"></a>Rozšíření virtuálních počítačů
 
 Centrum Azure Stack zahrnuje malou sadu rozšíření. Aktualizace a další rozšíření jsou k dispozici prostřednictvím syndikace webu Marketplace.
 

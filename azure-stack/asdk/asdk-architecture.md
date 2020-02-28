@@ -7,12 +7,12 @@ ms.date: 06/28/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 06/28/2019
-ms.openlocfilehash: 842dab690d8239ca0c4db7622fe7a0bb18347a0c
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 207b99b9a3cbb6c030a6e79137d036820b3b3f60
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76874140"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77695440"
 ---
 # <a name="asdk-architecture"></a>Architektura ASDK
 Azure Stack Development Kit (ASDK) je nasazení Azure Stack v jednom uzlu, které běží na jednom hostitelském počítači. Komponenty směrování Edge jsou nainstalované na hostitelském počítači pro poskytování funkcí NAT a sítě VPN pro Azure Stack. Role Azure Stack infrastruktury se spouštějí ve vrstvě Hyper-V fyzického hostitelského počítače.
@@ -21,7 +21,7 @@ Azure Stack Development Kit (ASDK) je nasazení Azure Stack v jednom uzlu, kter�
 ## <a name="virtual-machine-roles"></a>Role virtuálních počítačů
 ASDK nabízí služby, které používají následující virtuální počítače hostované v hostitelském počítači vývojové sady:
 
-| Name (Název) | Popis |
+| Název | Popis |
 | ----- | ----- |
 | **AzS-ACS01** | Služba Azure Stack Storage.|
 | **AzS-ADFS01** | Active Directory Federation Services (AD FS) (ADFS).  |

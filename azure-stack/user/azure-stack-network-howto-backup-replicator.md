@@ -7,12 +7,12 @@ ms.date: 11/07/2019
 ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: 095de73dea95a4ed3dec04d43e70c1a0554906ca
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: b8e955075553480b4178223a5475b44e3debd106
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884613"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77702342"
 ---
 # <a name="replicate-resources-using-the-azure-stack-hub-subscription-replicator"></a>Replikace prostředků pomocí replikátoru předplatného centra Azure Stack
 
@@ -85,7 +85,7 @@ Po dokončení spuštění skriptu budou k dispozici tři nové složky, **Deplo
 
 Deployment_Files budou obsahovat dva soubory **DeployResourceGroups. ps1** a **DeployResources. ps1**. Spouštěním DeployResourceGroups. ps1 se nasadí skupiny prostředků. Spuštění DeployResources. ps1 nasadí všechny prostředky, které se zpracovaly. V případě, že se nástroj spustil se **všemi** nebo **Microsoft. COMPUTE/virtualMachines** jako typ prostředku, DeployResources. ps1 vyzve uživatele, aby zadal heslo správce virtuálního počítače, které se použije k vytvoření všech virtuálních počítačů.
 
-### <a name="example"></a>Příklad:
+### <a name="example"></a>Příklad
 
 1.  Spusťte skript.
 

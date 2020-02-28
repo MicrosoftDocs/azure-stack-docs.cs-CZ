@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: e1444688d529b2bce148e96dff745b0a86e37a18
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 49b2a950b523ca76143f50784efb048880d1ac93
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884523"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77701934"
 ---
 # <a name="quickstart-create-a-linux-server-vm-by-using-the-azure-cli-in-azure-stack-hub"></a>Rychlý Start: Vytvoření virtuálního počítače s Linux serverem pomocí rozhraní příkazového řádku Azure v centru Azure Stack
 
@@ -31,7 +31,7 @@ Virtuální počítač s Ubuntu serverem 16,04 LTS můžete vytvořit pomocí ro
 
 * Klíč veřejného Secure Shell (SSH) s názvem *id_rsa. pub* uložený v adresáři *. ssh* uživatelského profilu Windows. Podrobné informace o vytváření klíčů SSH najdete v tématu [použití veřejného klíče SSH](azure-stack-dev-start-howto-ssh-public-key.md).
 
-## <a name="create-a-resource-group"></a>Vytvoření skupiny prostředků
+## <a name="create-a-resource-group"></a>Vytvořit skupinu prostředků
 
 Skupina prostředků je logický kontejner, ve kterém můžete nasazovat a spravovat prostředky centra Azure Stack. Z vývojové sady nebo integrovaného systému centra Azure Stack vytvořte skupinu prostředků spuštěním příkazu [AZ Group Create](/cli/azure/group#az-group-create) .
 
@@ -44,7 +44,7 @@ Následující příklad vytvoří skupinu prostředků s názvem myResourceGrou
 az group create --name myResourceGroup --location local
 ```
 
-## <a name="create-a-virtual-machine"></a>Vytvoření virtuálního počítače
+## <a name="create-a-virtual-machine"></a>Vytvořit virtuální počítač
 
 Pomocí příkazu [AZ VM Create](/cli/azure/vm#az-vm-create) vytvořte virtuální počítač. Následující příklad vytvoří virtuální počítač s názvem myVM. V příkladu se jako uživatelské jméno správce používá *myš* a jako heslo správce *Demouser@123* . Změňte tyto hodnoty na něco, co je vhodné pro vaše prostředí.
 
