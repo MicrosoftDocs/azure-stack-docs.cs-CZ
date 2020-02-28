@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 3353977eb36701575a725f2e74f2275dac73bddd
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 2dbff36dba8739661b88b58ef27eec49597646bc
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76877642"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77700999"
 ---
 # <a name="create-a-geo-distributed-app-solution-to-direct-traffic-with-azure-and-azure-stack-hub"></a>Vytvoření geograficky distribuované aplikace pro směrování provozu pomocí Azure a centra Azure Stack
 
@@ -61,7 +61,7 @@ Před vytvořením kapacity distribuovaných aplikací vám pomůže tyto věci:
 -   **Konvence pojmenování pro aplikace:** Vzhledem k tomu, že bude nasazeno několik instancí aplikace, je pro každou instanci nasazené aplikace nutné zadat název. V prostředí App Service se stejný název aplikace dá použít v několika prostředích. Vzhledem k tomu, že každý App Service Environment má jedinečnou příponu domény, můžou si vývojáři zvolit, že budou v každém prostředí znovu používat přesný název aplikace. Například vývojář může mít aplikace, které jsou pojmenovány takto: *MyApp.foo1.p.azurewebsites.NET*, *MyApp.foo2.p.azurewebsites.NET*, *MyApp.foo3.p.azurewebsites.NET*a tak dále. Pro aplikaci, která se tady používá, má každá instance aplikace jedinečný název. Používané názvy instancí aplikace jsou *webfrontend1*, *webfrontend2*a *webfrontend3*.
 
 > [!Tip]  
-> ![hybridní pillars.png](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
+> ![Hybrid-Pillars. png](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
 > Centrum Microsoft Azure Stack je rozšířením Azure. Centrum Azure Stack přináší flexibilitu a inovace cloud computingu do místního prostředí. tím se umožní jenom hybridní cloud, který umožňuje vytvářet a nasazovat hybridní aplikace odkudkoli.  
 > 
 > Požadavky na [Návrh pro hybridní aplikace](overview-app-design-considerations.md) kontrolují pilíře kvality softwaru (umístění, škálovatelnost, dostupnost, odolnost, možnosti správy a zabezpečení) pro navrhování, nasazování a provozování hybridních aplikací. Pokyny k návrhu pomáhají při optimalizaci návrhu hybridní aplikace a minimalizaci výzev v produkčních prostředích.
@@ -410,7 +410,7 @@ Vlastní protokol SSL není podporován na úrovni **Free** nebo **Shared** . Po
 
 1.  Vyberte některou z úrovní **Basic**, **Standard** nebo **Premium**.
 
-2.  Vyberte **vyberte**.
+2.  Vyberte **Vybrat**.
 
 ![Výběr cenové úrovně](media/solution-deployment-guide-geo-distributed/image36.png)
 
@@ -628,4 +628,4 @@ Přímý přenos dat prostřednictvím Azure Traffic Manager a koncových bodů 
 
 ## <a name="next-steps"></a>Další kroky
 
-- Další informace o vzorech cloudu Azure, najdete v článku [vzory návrhu v cloudu](https://docs.microsoft.com/azure/architecture/patterns).
+- Další informace o vzorech cloudu Azure najdete v tématu [vzory návrhu cloudu](https://docs.microsoft.com/azure/architecture/patterns).

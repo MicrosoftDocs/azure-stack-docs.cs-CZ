@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 30e7ced54a4c2bc69cb5249b58b4844cd9a0b332
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 10/15/2019
+ms.openlocfilehash: a3ca9d760969974d9ba6fd35f0907472d2271c61
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76874769"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703498"
 ---
 # <a name="configure-deployment-sources-for-app-services-on-azure-stack-hub"></a>Konfigurace zdrojů nasazení pro App Services v centru Azure Stack
 
@@ -20,9 +20,9 @@ App Service v centru Azure Stack podporuje nasazení na vyžádání od více po
 
 Kromě místního Gitu jsou podporovány následující poskytovatelé správy zdrojů:
 
-* GitHubu
+* GitHub
 * BitBucket
-* OneDrive
+* OneDrivu
 * KLÁDACÍ
 
 ## <a name="view-deployment-sources-in-app-service-administration"></a>Zobrazení zdrojů nasazení v App Service správě
@@ -37,13 +37,13 @@ Kromě místního Gitu jsou podporovány následující poskytovatelé správy z
 
 K dokončení této úlohy musíte mít účet GitHub. Místo osobního účtu možná budete chtít použít účet pro vaši organizaci.
 
-1. Přihlaste se k GitHubu, přejděte na https://www.github.com/settings/developers a pak klikněte na **zaregistrovat novou aplikaci**.
+1. Přihlaste se k GitHubu, přejděte na https://www.github.com/settings/developersa pak klikněte na **zaregistrovat novou aplikaci**.
     ![GitHub – registrace nové aplikace][3]
 2. Zadejte **název aplikace**. Například **App Service v centru Azure Stack**.
-3. Zadejte **adresu URL domovské stránky**. Adresa URL domovské stránky musí být adresa portálu Azure Stack hub. Například, https://portal.local.azurestack.external.
+3. Zadejte **adresu URL domovské stránky**. Adresa URL domovské stránky musí být adresa portálu Azure Stack hub. například https://portal.local.azurestack.external.
 4. Zadejte **Popis aplikace**.
 5. Zadejte **adresu URL zpětného volání autorizace**. Ve výchozím nasazení centra Azure Stack je adresa URL ve formě https://portal.local.azurestack.external/TokenAuthorize. Pokud pracujete v jiné doméně, přepněte název domény pro místní. azurestack. external.
-6. Klikněte na tlačítko **zaregistrovat aplikaci**. Zobrazí se stránka s výpisem **ID klienta** a **tajného kódu klienta** pro aplikaci.
+6. Klikněte na **Registrovat aplikaci**. Zobrazí se stránka s výpisem **ID klienta** a **tajného kódu klienta** pro aplikaci.
     ![registraci aplikace dokončené na GitHubu][5]
 7. Na nové kartě nebo okně prohlížeče se přihlaste k portálu pro správu centra Azure Stack (https://adminportal.local.azurestack.external) jako správce služby.
 8. Přejděte do části **poskytovatelé prostředků**a vyberte **správce poskytovatele prostředků App Service**.
@@ -62,7 +62,7 @@ K dokončení této úlohy musíte mít účet BitBucket. Místo osobního účt
 3. Zadejte **jméno** příjemce. Například **App Service v centru Azure Stack**.
 4. Zadejte **Popis** aplikace.
 5. Zadejte **adresu URL zpětného volání**. Ve výchozím nasazení centra Azure Stack je adresa URL zpětného volání ve tvaru https://portal.local.azurestack.external/TokenAuthorize. Pokud pracujete v jiné doméně, nahraďte název domény pro azurestack. Local. Aby byla integrace BitBucket úspěšná, musí adresa URL následovat po velkých písmenech, které jsou tady uvedené.
-6. Zadejte **adresu URL**. Tato adresa URL by měla být adresa URL portálu Azure Stack hub. Například, https://portal.local.azurestack.external.
+6. Zadejte **adresu URL**. Tato adresa URL by měla být adresa URL portálu Azure Stack hub. například https://portal.local.azurestack.external.
 7. Vyberte požadovaná **oprávnění** :
     - **Úložiště**: *číst*
     - **Webhooky**: *čtení a zápis*
@@ -92,7 +92,7 @@ Aplikace ![OneDrive][10]
 7. Zadejte **identifikátor URI přesměrování**. Ve výchozím nasazení centra Azure Stack je identifikátor URI přesměrování ve formě https://portal.local.azurestack.external/TokenAuthorize. Pokud pracujete v jiné doméně, přepněte název domény pro azurestack. Local.
 ![aplikace OneDrive – přidat webovou platformu][12]
 8. Přidejte **Microsoft Graph oprávnění** - **delegovaná oprávnění**.
-    - **Files.ReadWrite.AppFolder**
+    - **Soubory. AppFolder.**
     - **Uživatelský. Oprávnění**  
       ![oprávnění pro grafy aplikace OneDrive][13]
 9. Klikněte na možnost **Uložit**.

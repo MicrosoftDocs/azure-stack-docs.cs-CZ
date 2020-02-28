@@ -7,12 +7,12 @@ ms.date: 07/31/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 07/31/2019
-ms.openlocfilehash: f9a1a6779a0864f49197536c2fe0758f3c59d599
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 8c0cd14dbeda4e2b7844aefaf10f4a8cf685d60d
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76873579"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77700591"
 ---
 # <a name="post-deployment-configurations-for-asdk"></a>Konfigurace po nasazení pro ASDK
 
@@ -104,8 +104,8 @@ Pokud chcete mít jistotu, že vaše nasazení ASDK bylo úspěšné, použijte 
 
 1. Přihlaste se jako AzureStack\AzureStackAdmin na hostitelském počítači ASDK.
 2. Otevřete PowerShell jako správce (ne PowerShell ISE).
-3. Spusťte: `Enter-PSSession -ComputerName AzS-ERCS01 -ConfigurationName PrivilegedEndpoint`
-4. Spusťte: `Test-AzureStack`
+3. Spustit: `Enter-PSSession -ComputerName AzS-ERCS01 -ConfigurationName PrivilegedEndpoint`
+4. Spustit: `Test-AzureStack`
 
 Dokončení testů trvá několik minut. Pokud byla instalace úspěšná, výstup vypadá nějak takto:
 

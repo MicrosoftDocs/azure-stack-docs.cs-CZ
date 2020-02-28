@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 72a0fd215363911457271f65d636be37e3388c83
-ms.sourcegitcommit: 74ce7c12a93d47315d70427b02bcacbd3b44f854
+ms.openlocfilehash: adc185b290d0006ed3a32584a7e3d8473ba2aa6c
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77037161"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77689915"
 ---
 # <a name="hybrid-application-design-considerations"></a>Požadavky na návrh hybridní aplikace 
 
@@ -62,7 +62,7 @@ Společné součásti aplikace, které se mají zahrnout do inventáře, jsou uv
 | Fronty | Fronty můžete použít k uspořádání stavu životního cyklu a stavů komponent aplikace. Tyto fronty můžou poskytovat možnosti zasílání zpráv, oznámení a ukládání do vyrovnávací paměti pro odběr stran. |
 | Úložiště dat | Aplikace může být Bezstavová nebo stavová. Stavové aplikace potřebují úložiště dat, které může být splněno řadou formátů a svazků. |
 | Ukládání dat do mezipaměti  | Komponenta pro ukládání dat do mezipaměti v návrhu může navrhovat problémy s latencí při řešení potíží a hrát roli při aktivaci shlukování cloudu. |
-| Přijímání dat | Data je možné odeslat do aplikace mnoha různými způsoby, od uživatelem zaslaných hodnot ve webovém formuláři až po nepřetržitý tok dat s velkým objemem. |
+| Příjem dat | Data je možné odeslat do aplikace mnoha různými způsoby, od uživatelem zaslaných hodnot ve webovém formuláři až po nepřetržitý tok dat s velkým objemem. |
 | Zpracování dat | Vaše úlohy zpracování dat (například sestavy, analýzy, dávkové exporty a transformace dat) je možné zpracovat buď ve zdroji, nebo v samostatné komponentě pomocí kopie dat. |
 
 ## <a name="assess-app-components-for-pillars"></a>Posouzení součástí aplikace pro pilíře
@@ -234,7 +234,7 @@ Může se zdát jako časově náročná úloha předem, ale pokud aplikaci navr
 
 ## <a name="next-steps"></a>Další kroky
 
-Další informace najdete v následujících zdrojích:
+Další informace naleznete v následujících zdrojích:
 
 -   [Hybridní cloud](https://azure.microsoft.com/overview/hybrid-cloud/)
 -   [Hybridní cloudové aplikace](https://azure.microsoft.com/solutions/hybrid-cloud-app/)

@@ -7,12 +7,12 @@ ms.date: 08/21/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 08/21/2019
-ms.openlocfilehash: 0aa5fca80cfc408088f34923a607d4200ece15cb
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: ce401b20d6baa66807e6ee5f7ee1e94503b653af
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76878203"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703158"
 ---
 # <a name="enable-backup-for-azure-stack-hub-from-the-administrator-portal"></a>Povolení zálohování centra Azure Stack z portálu pro správu
 
@@ -41,7 +41,7 @@ Správci a uživatelé zodpovídají za zálohování a obnovování prostředk�
     > [!Note]  
     > Pokud vaše prostředí podporuje rozlišení názvů z sítě infrastruktury centra Azure Stack do vašeho podnikového prostředí, můžete místo IP adresy použít plně kvalifikovaný název domény (FQDN).
 
-4. Zadejte **uživatelské jméno** s použitím domény a uživatelského jména s dostatečným přístupem ke čtení a zápisu souborů. Například, `Contoso\backupshareuser`.
+4. Zadejte **uživatelské jméno** s použitím domény a uživatelského jména s dostatečným přístupem ke čtení a zápisu souborů. například `Contoso\backupshareuser`.
 5. Zadejte **heslo** pro uživatele.
 6. Zadejte heslo znovu a **potvrďte heslo**.
 7. **Frekvence v hodinách** určuje, jak často se vytvářejí zálohy. Výchozí hodnota je 12. Scheduler podporuje maximálně 12 a minimálně 4. 

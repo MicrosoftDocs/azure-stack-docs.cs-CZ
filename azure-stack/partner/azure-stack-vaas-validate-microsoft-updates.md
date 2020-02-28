@@ -9,12 +9,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/29/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: a8e0b3ee678fc56a94a947ab6d390d9e99296977
-ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
+ms.openlocfilehash: 7eade045461052b9d978910fdbcf06bd895e5b09
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77625352"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77704518"
 ---
 # <a name="validate-software-updates-from-microsoft"></a>Ověřit aktualizace softwaru od Microsoftu
 
@@ -24,7 +24,7 @@ Společnost Microsoft bude pravidelně vydávat aktualizace softwaru centra Azur
 
 Aktualizace softwaru od Microsoftu do centra Azure Stack se označují pomocí zásad vytváření názvů. Například název 1803 označuje aktualizaci na březen 2018. Informace o zásadách údržby centra Azure Stack a poznámkách k verzi najdete v tématu [zásady obsluhy centra Azure Stack](../operator/azure-stack-servicing-policy.md).
 
-## <a name="prerequisites"></a>Předpoklady
+## <a name="prerequisites"></a>Požadavky
 
 Před uplatněním měsíčního procesu aktualizace v rámci ověřování jako služby (VaaS) byste měli být obeznámeni s následujícími položkami:
 

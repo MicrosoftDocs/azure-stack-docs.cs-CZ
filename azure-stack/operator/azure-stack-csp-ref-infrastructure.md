@@ -7,12 +7,12 @@ ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: fdd08b3b689c069b4bc8c842e252c3b0c51c5580
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 548bcef83794230a196b8afc9d6db11767678df5
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882539"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77700370"
 ---
 # <a name="usage-reporting-infrastructure-for-cloud-solution-providers"></a>Využití infrastruktury vytváření sestav pro poskytovatele cloudových řešení
 
@@ -35,7 +35,7 @@ Můžete získat informace o měřičích centra Azure Stack používaných při
 
 Pro účely využití a fakturace v centru Azure Stack se používají následující pojmy a koncepty:
 
-| Doba účinnosti | Definice |
+| Období | Definice |
 | --- | --- |
 | Přímý poskytovatel CSP | Přímý poskytovatel CSP obdrží fakturu přímo od Microsoftu k Azure a využití centra Azure Stack a účtuje zákazníky přímo. |
 | Nepřímý CSP | Nepřímí prodejci pracují s nepřímým poskytovatelem (také označovaným jako distributor). Prodejci přikupují koncové zákazníky; nepřímý poskytovatel obsahuje fakturační vztah s Microsoftem, spravuje fakturaci zákazníků a poskytuje další služby, jako je podpora produktů. |

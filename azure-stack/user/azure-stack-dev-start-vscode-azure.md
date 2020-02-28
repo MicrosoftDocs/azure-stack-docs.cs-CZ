@@ -7,12 +7,12 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: cbcb238e644295e1a66f4eb061d1327fdba3fd13
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 934aa01fa02d763ce170df219dfee3770d502d22
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884867"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703039"
 ---
 # <a name="connect-to-azure-stack-hub-using-azure-account-extension-in-visual-studio-code"></a>Připojení k centru Azure Stack pomocí rozšíření účtu Azure v Visual Studio Code
 
@@ -103,7 +103,7 @@ VS Code je zjednodušený editor pro sestavování a ladění webových a cloudo
 
 ## <a name="commands"></a>Příkazy
 
-| Azure: přihlásit se | Přihlaste se ke svému předplatnému Azure. |
+| Azure: přihlásit se | Přihlaste se ke svému předplatnému Azure |
 | --- | --- |
 | Azure: přihlášení pomocí kódu zařízení | Přihlaste se ke svému předplatnému Azure pomocí kódu zařízení. V instalačních sestavách použijte kód zařízení, kde příkaz Sign in nefunguje. |
 | Azure: Přihlaste se ke cloudu Azure. | Přihlaste se k předplatnému Azure v jednom z cloudů z svrchovaného prostředí. |

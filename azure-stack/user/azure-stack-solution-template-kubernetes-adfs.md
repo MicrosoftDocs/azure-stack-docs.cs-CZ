@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 78abed9225a2a7516db65f9163aac5d0db24ad04
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 06/18/20192
+ms.openlocfilehash: 5a1b36f7640f3259a4b18f087ebf4bad49f3c4ed
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884439"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703668"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-hub-using-active-directory-federated-services"></a>Nasazení Kubernetes do centra Azure Stack pomocí federovaných služeb Active Directory
 
@@ -81,9 +81,9 @@ Abyste mohli nastavit instanční objekt při použití AD FS jako řešení ide
 
 1. Zadejte **uživatelské jméno správce virtuálního počítače se systémem Linux**. Uživatelské jméno pro virtuální počítače Linux, které jsou součástí clusteru Kubernetes a DVM.
 
-1. Zadejte **veřejný klíč SSH** se používají pro autorizaci pro všechny počítače s Linuxem vytvořili jako součást clusteru Kubernetes a DVM.
+1. Zadejte **veřejný klíč SSH** , který se používá pro autorizaci pro všechny počítače se systémem Linux vytvořené jako součást clusteru KUBERNETES a DVM.
 
-1. Zadejte **předpony DNS profilu hlavní** , které je jedinečné pro danou oblast. Musí se jednat o jedinečný název oblasti, například `k8s-12345`. Zkuste zvolit stejný jako název skupiny prostředků jako osvědčený postup.
+1. Zadejte **předponu DNS hlavního profilu** , která je pro oblast jedinečná. Musí se jednat o jedinečný název oblasti, například `k8s-12345`. Zkuste zvolit stejný jako název skupiny prostředků jako osvědčený postup.
 
     > [!Note]  
     > Pro každý cluster použijte předponu DNS nových a jedinečných hlavní profilu.

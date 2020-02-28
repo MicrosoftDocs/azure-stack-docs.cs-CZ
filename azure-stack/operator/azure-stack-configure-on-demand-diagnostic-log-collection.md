@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 01/16/2020
 ms.author: justinha
 ms.reviewer: shisab
-ms.lastreviewed: 01/16/2020
-ms.openlocfilehash: 759edb6cf4f106e59a1b847cb4dcafd4450665da
-ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
+ms.lastreviewed: 01/16/2019
+ms.openlocfilehash: a0f905a0f6238a0303cacb71e5864ac05b223595
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/30/2020
-ms.locfileid: "76890081"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77701543"
 ---
 # <a name="collect-azure-stack-hub-diagnostic-logs-on-demand"></a>Shromažďovat diagnostické protokoly centra Azure Stack na vyžádání
 
@@ -168,23 +168,23 @@ Pomocí těchto kroků spustíte `Get-AzureStackLog` v hostitelském počítači
 
   |   |   |   |    |     |
   | - | - | - | -  |  -  |
-  |ACS                   |CA                             |HRP                            |OboService                |VirtualMachines|
-  |ACSBlob               |CacheService                   |IBC                            |OEM                       |VYTVOŘEN            |
-  |ACSDownloadService    |Služby Compute                        |InfraServiceController         |OnboardRP                 |WASPUBLIC|
+  |ACS                   |CERTIFIKAČNÍ ÚŘAD                             |HRP                            |OboService                |VirtualMachines|
+  |ACSBlob               |CacheService                   |IBC                            |OEM                       |WAS            |
+  |ACSDownloadService    |Výpočty                        |InfraServiceController         |OnboardRP                 |WASPUBLIC|
   |ACSFabric             |CPI                            |KeyVaultAdminResourceProvider  |PROTOKOLU                       |         |
   |ACSFrontEnd           |CRP                            |KeyVaultControlPlane           |QueryServiceCoordinator   |         | 
   |ACSMetrics            |DeploymentMachine              |KeyVaultDataPlane              |QueryServiceWorker        |         |
   |ACSMigrationService   |DiskRP                         |KeyVaultInternalControlPlane   |SeedRing                  |         |
-  |ACSMonitoringService  |Domain (Doména)                         |KeyVaultInternalDataPlane      |SeedRingServices          |         |
+  |ACSMonitoringService  |Doména                         |KeyVaultInternalDataPlane      |SeedRingServices          |         |
   |ACSSettingsService    |OSN                            |KeyVaultNamingService          |SLB                       |         |
   |ACSTableMaster        |EventAdminRP                   |MDM                            |SQL                       |         |
-  |ACSTableServer        |EventRP                        |MetricsAdminRP                 |OBSAŽEN                       |         |
-  |ACSWac                |ExternalDNS                    |MetricsRP                      |Storage                   |         |
+  |ACSTableServer        |EventRP                        |MetricsAdminRP                 |SRP                       |         |
+  |ACSWac                |ExternalDNS                    |MetricsRP                      |Úložiště                   |         |
   |ADFS                  |FabricRing                     |MetricsServer                  |StorageController         |         |
   |ApplicationController |FabricRingServices             |MetricsStoreService            |URP                       |         |
   |ASAppGateway          |FirstTierAggregationService    |MonAdminRP                     |SupportBridgeController   |         |
   |AzureBridge           |FRP                            |MonRP                          |SupportRing               |         |
-  |AzureMonitor          |brána                        |NC                             |SupportRingServices       |         |
+  |AzureMonitor          |Brána                        |NC                             |SupportRingServices       |         |
   |BareMetal             |HealthMonitoring               |NonPrivilegedAppGateway        |SupportBridgeRP           |         |
   |BRP                   |HintingServiceV2               |NRP                            |UsageBridge               |         |
   |   |   |   |    |     | 
@@ -214,7 +214,7 @@ V současné době můžete pomocí parametru `-FilterByRole` filtrovat shromaž
 * OEM
 * NC
 * SLB
-* brána
+* Brána
 
 #### <a name="example-of-collecting-on-demand-diagnostic-logs"></a>Příklad shromažďování diagnostických protokolů na vyžádání
 

@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 5ed6869b4c03c9e360cd12a98e206941a3842bfc
-ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
+ms.openlocfilehash: 4c12cd6eb262aa953637ae6928051e7aa444ef91
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/24/2020
-ms.locfileid: "77568482"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77695423"
 ---
 # <a name="configure-hybrid-cloud-connectivity-using-azure-and-azure-stack-hub"></a>Konfigurace hybridního cloudového připojení pomocí Azure a centra Azure Stack
 
@@ -31,7 +31,7 @@ V tomto řešení sestavíte ukázkové prostředí pro:
 > Požadavky na [Návrh pro hybridní aplikace](overview-app-design-considerations.md) kontrolují pilíře kvality softwaru (umístění, škálovatelnost, dostupnost, odolnost, možnosti správy a zabezpečení) pro navrhování, nasazování a provozování hybridních aplikací. Pokyny k návrhu pomáhají při optimalizaci návrhu hybridní aplikace a minimalizaci výzev v produkčních prostředích.
 
 
-## <a name="prerequisites"></a>Předpoklady
+## <a name="prerequisites"></a>Požadavky
 
 K vytvoření hybridního nasazení připojení je potřeba pár součástí. U některých z těchto komponent se připravuje čas, proto proveďte odpovídající plán.
 

@@ -7,12 +7,12 @@ ms.date: 10/08/2019
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 10/08/2019
-ms.openlocfilehash: 3dede51916863a79f720f463af2a031e597f844f
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 19482e235690cae10411dde72587b0e4b95518f3
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76878186"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77695219"
 ---
 # <a name="configure-automatic-azure-stack-hub-diagnostic-log-collection"></a>Konfigurace automatického shromáždění protokolů diagnostiky Azure Stack centra
 
@@ -30,7 +30,7 @@ Osvědčené postupy při volbě parametrů pro účet úložiště automatické
 
 ### <a name="create-a-blob-storage-account"></a>Vytvoření účtu úložiště BLOB
  
-1. Přihlaste se na web [Azure Portal](https://portal.azure.com).
+1. Přihlaste se na web [Azure Portal ](https://portal.azure.com).
 1. Klikněte na **účty úložiště** > **Přidat**. 
 1. Vytvořte kontejner objektů BLOB s těmito nastaveními:
    - **Předplatné**: volba předplatného Azure
@@ -66,7 +66,7 @@ Osvědčené postupy při volbě parametrů pro účet úložiště automatické
 
    ![Snímek obrazovky se zobrazením vlastností sdíleného přístupového podpisu](media/azure-stack-automatic-log-collection/sas-properties.png) 
 
-1. Klikněte na **Vytvořit**.  
+1. Klikněte na možnost **Vytvořit**.  
 
 Zkopírujte adresu URL a zadejte ji při [konfiguraci automatického shromažďování protokolů](azure-stack-configure-automatic-diagnostic-log-collection.md). Další informace o adresách URL SAS najdete v tématu [použití sdílených přístupových podpisů (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1). 
 
@@ -138,7 +138,7 @@ Například **Chyba aktualizace** je výstraha, která spustí automatické shro
 |Naplánované zálohování bylo přeskočeno z důvodu konfliktu s neúspěšnými operacemi.  | AzureStack. BackupController. BackupSkippedWithFailedOperationFault |   
 
 
-## <a name="see-also"></a>Další informace najdete v tématech
+## <a name="see-also"></a>Viz také
 
 [Azure Stack zpracování dat protokolů a zákazníků centra](https://docs.microsoft.com/azure-stack/operator/azure-stack-data-collection)
 

@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 01/13/2020
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 01/13/2020
-ms.openlocfilehash: 7fa4ac0f63b3f5243a6473c921012614bb01bfb2
-ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
+ms.lastreviewed: 01/13/2019
+ms.openlocfilehash: 7bfd1ec2ebf20abb3b6881fffe1588260fc4476e
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/24/2020
-ms.locfileid: "77568618"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703549"
 ---
 # <a name="deploy-azure-app-service-in-an-offline-environment-in-azure-stack-hub"></a>Nasazení Azure App Service v offline prostředí v centru Azure Stack
 
@@ -21,7 +21,7 @@ ms.locfileid: "77568618"
 
 Podle pokynů v tomto článku můžete nasadit [poskytovatele prostředků Azure App Service](azure-stack-app-service-overview.md) do prostředí Azure Stack hub:
 - Nepřipojeno k Internetu
-- Zabezpečeno pomocí Active Directory Federation Services (AD FS) (AD FS).
+- zabezpečeno pomocí Active Directory Federation Services (AD FS) (AD FS).
 
 > [!IMPORTANT]
 > Před spuštěním instalačního programu poskytovatele prostředků se ujistěte, že jste dokončili kroky v části [požadavky na nasazení Azure App Service v centru Azure Stack](azure-stack-app-service-before-you-get-started.md). Měli byste si také přečíst [poznámky k verzi](azure-stack-app-service-release-notes-update-eight.md) , které doprovází vydání 1,8, abyste se seznámili s novými funkcemi, opravami a všemi známými problémy, které by mohly mít vliv na nasazení.

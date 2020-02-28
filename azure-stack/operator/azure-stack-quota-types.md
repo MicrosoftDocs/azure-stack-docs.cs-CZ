@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: xiaofmao
-ms.lastreviewed: 12/07/2018
-ms.openlocfilehash: 1994f35a2865de75655c3b82d9ec1ee1618b7cee
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 12/07/2019
+ms.openlocfilehash: 5af024f2b3d31e115e80d1e20883b0457037532e
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881486"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77698126"
 ---
 # <a name="quota-types-in-azure-stack-hub"></a>Typy kvót v centru Azure Stack
 
@@ -51,7 +51,7 @@ ms.locfileid: "76881486"
 | **Položka** | **Výchozí hodnota** | **Popis** |
 | --- | --- | --- |
 | Maximální počet virtuálních sítí |50 |Maximální počet virtuálních sítí, které může vytvořit předplatné v tomto umístění. |
-| Maximální počet bran virtuální sítě |1\. místo |Maximální počet bran virtuální sítě (bran sítě VPN), které může vytvořit předplatné v tomto umístění. |
+| Maximální počet bran virtuální sítě |1 |Maximální počet bran virtuální sítě (bran sítě VPN), které může vytvořit předplatné v tomto umístění. |
 | Maximální počet síťových připojení |2 |Maximální počet síťových připojení (Point-to-Point nebo site-to-site), které může předplatné vytvořit v rámci všech bran virtuální sítě v tomto umístění. |
 | Maximální počet veřejných IP adres |50 |Maximální počet veřejných IP adres, které může vytvořit předplatné v tomto umístění. |
 | Maximální počet síťových karet |100 |Maximální počet síťových rozhraní, která může vytvořit předplatné v tomto umístění. |

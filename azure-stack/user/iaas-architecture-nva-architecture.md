@@ -7,12 +7,12 @@ ms.date: 11/01/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: cdcf4eca724e4b8b215b0fcb32e2b81969ef10d0
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 69516e7d50cb0635854d2b9168cb6bc308b229d8
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884166"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77705028"
 ---
 # <a name="deploy-highly-available-network-virtual-appliances-on-azure-stack-hub"></a>Nasazení vysoce dostupných síťových virtuálních zařízení v centru Azure Stack
 
@@ -84,4 +84,4 @@ V příchozím přenosu s architekturou vrstvy 7 Síťová virtuální zařízen
 ## <a name="next-steps"></a>Další kroky
 
 - Další informace o virtuálních počítačích centra Azure Stack najdete v tématu [funkce virtuálních počítačů centra Azure Stack](azure-stack-vm-considerations.md).  
-- Další informace o vzorech cloudu Azure, najdete v článku [vzory návrhu v cloudu](https://docs.microsoft.com/azure/architecture/patterns).
+- Další informace o vzorech cloudu Azure najdete v tématu [vzory návrhu cloudu](https://docs.microsoft.com/azure/architecture/patterns).

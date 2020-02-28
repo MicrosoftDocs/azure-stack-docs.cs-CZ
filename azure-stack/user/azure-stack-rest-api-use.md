@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 01/23/2020
 ms.author: sethm
 ms.reviewer: thoroet
-ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 45dd07337aef61a1fcfecb855e0c113315b15271
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 01/14/2020
+ms.openlocfilehash: 3d7c4e7481b3054eaf44394e9b80f1e07bc75fa9
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883206"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703719"
 ---
 <!--  cblackuk and charliejllewellyn. This is a community contribution by cblackuk-->
 
@@ -32,7 +32,7 @@ Tento článek nezkoumá všechny možnosti, které jsou k dispozici pro načít
 
 Vytvořte text požadavku formátovaný pomocí typu obsahu `x-www-form-urlencoded` k získání přístupového tokenu. ODEŠLEte požadavek do koncového bodu ověřování Azure REST a přihlášení.
 
-### <a name="uri"></a>Identifikátor URI
+### <a name="uri"></a>URI
 
 ```bash  
 POST https://login.microsoftonline.com/{tenant id}/oauth2/token
@@ -92,7 +92,7 @@ Pro každou hodnotu:
   }
   ```
 
-### <a name="example"></a>Příklad:
+### <a name="example"></a>Příklad
 
   ```bash
   https://contoso.onmicrosoft.com/4de154de-f8a8-4017-af41-df619da68155
@@ -116,7 +116,7 @@ Pro každou hodnotu:
   | VisualStudio | 872cd9fa-d31f-45e0-9eab-6e460a02d1f1 |
   | AzureCLI | 04b07795-8ddb-461a-bbee-02f9e1bf7b46 |
 
-- **uživatelské jméno**
+- **jmen**
 
   Například účet služby Azure AD Azure Stack hub:
 
@@ -124,11 +124,11 @@ Pro každou hodnotu:
   azurestackadmin@fabrikam.onmicrosoft.com
   ```
 
-- **Heslo**
+- **zadáno**
 
   Azure Stack centrum pro správu Azure AD.
 
-### <a name="example"></a>Příklad:
+### <a name="example"></a>Příklad
 
 Požadavek:
 

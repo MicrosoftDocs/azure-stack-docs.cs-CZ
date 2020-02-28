@@ -5,13 +5,13 @@ author: sethmanheim
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: sethm
-ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: dd2b00ced084f4a069626f56d37eec1cdae238d6
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 01/05/2020
+ms.openlocfilehash: b9afba6322b80d487f4ba7d4324adcd42a8fd85a
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884832"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703005"
 ---
 # <a name="use-dns-in-azure-stack-hub"></a>Použití DNS v centru Azure Stack
 
@@ -33,7 +33,7 @@ Další informace o překladu názvů najdete v článku věnovaném [překladu 
 
 Následující snímek obrazovky ukazuje dialog **vytvořit veřejnou IP adresu** pro vytvoření veřejné IP adresy pomocí portálu:
 
-![Vytvoření veřejné IP adresy](media/azure-stack-dns/image01.png)
+![Vytvořit veřejnou IP adresu](media/azure-stack-dns/image01.png)
 
 ### <a name="example-scenario"></a>Příklad scénáře
 

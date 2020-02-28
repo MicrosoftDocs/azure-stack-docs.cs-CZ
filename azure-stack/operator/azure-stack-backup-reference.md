@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: hectorl
-ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: ee18141d01805b498a5f9fa1856d226b6738691c
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 10/25/2019
+ms.openlocfilehash: cdbe5150b72a720fa527d3bb1b1e32f5a66a6955
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76878322"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703600"
 ---
 # <a name="infrastructure-backup-service-reference"></a>Odkaz na službu Infrastructure Backup
 
@@ -69,7 +69,7 @@ Mezi tyto požadavky patří:
 
 #### <a name="supported-smb-versions"></a>Podporované verze protokolu SMB
 
-| SMB | Verze |
+| SMB | Version |
 |-----|---------|
 | SMB | 3.x     |
 
@@ -96,14 +96,14 @@ Doporučujeme, abyste se v poslední době provedli zálohování v posledních 
 | Škálování prostředí | Předpokládané velikosti zálohy | Celková velikost požadovaných míst |
 |-------------------|--------------------------|--------------------------------|
 | uzly 4-16        | 20 GB                    | 280 GB                        |
-| ASDK              | 10 GB                    | 140 GB                        |
+| ASDK              | 10 GB                    | 140 GB                        |
 
 **Před 1907**
 
 | Škálování prostředí | Předpokládané velikosti zálohy | Celková velikost požadovaných míst |
 |-------------------|--------------------------|--------------------------------|
 | uzly 4-16        | 20 GB                    | 280 GB                        |
-| ASDK              | 10 GB                    | 140 GB                        |
+| ASDK              | 10 GB                    | 140 GB                        |
 
 ### <a name="network-requirements"></a>Síťové požadavky
 
@@ -143,14 +143,14 @@ Při plánování, nasazování a provozování instancí centra Microsoft Azure
 
 ### <a name="infrastructure-backup-limits"></a>Omezení Infrastructure Backup
 
-| Identifikátor omezení                                                 | škálování        | Komentáře                                                                                                                                    |
+| Identifikátor omezení                                                 | Omezení        | Komentáře                                                                                                                                    |
 |------------------------------------------------------------------|--------------|---------------------------------------------------------------------------------------------------------------------------------------------|
 | Typ zálohování                                                      | Pouze úplné    | Řadič Infrastructure Backup podporuje pouze úplné zálohování. Přírůstkové zálohování se nepodporuje.                                          |
 | Naplánovaná zálohování                                                | Naplánováno a ruční  | Řadič zálohování podporuje plánované zálohy a zálohování na vyžádání.                                                                                 |
-| Maximální počet souběžných úloh zálohování                                   | 1\. místo            | Pro každou instanci řadiče zálohování je podporována pouze jedna aktivní úloha zálohování.                                                                  |
+| Maximální počet souběžných úloh zálohování                                   | 1            | Pro každou instanci řadiče zálohování je podporována pouze jedna aktivní úloha zálohování.                                                                  |
 | Konfigurace síťového přepínače                                     | Není v oboru | Správce musí zálohovat konfiguraci síťového přepínače pomocí nástrojů OEM. Informace najdete v dokumentaci pro centrum Azure Stack od každého dodavatele OEM. |
 | Hostitel životního cyklu hardwaru                                          | Není v oboru | Správce musí zálohovat hostitele životního cyklu hardwaru pomocí nástrojů OEM. Informace najdete v dokumentaci pro centrum Azure Stack od každého dodavatele OEM.      |
-| Maximální počet sdílených složek                                    | 1\. místo            | K ukládání zálohovaných dat lze použít pouze jednu sdílenou složku.                                                                                        |
+| Maximální počet sdílených složek                                    | 1            | K ukládání zálohovaných dat lze použít pouze jednu sdílenou složku.                                                                                        |
 | Data poskytovatele prostředků pro zálohování App Services, funkce, SQL, MySQL | Není v oboru | Informace najdete v pokynech publikovaných pro nasazení a správu hodnot – přidat RPs vytvořené Microsoftem.                                                  |
 | Zálohování poskytovatelů prostředků třetích stran                              | Není v oboru | Informace najdete v pokynech publikovaných pro nasazení a správu hodnot – přidat RPs vytvořené dodavateli třetích stran.                                          |
 

@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 10ad85a306b225241822cb2b8531515dc9bb1719
-ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
+ms.openlocfilehash: 9788c875e5d2f40f2ed6e644537f4d13ffa80f5a
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/24/2020
-ms.locfileid: "77568584"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77701152"
 ---
 # <a name="deploy-an-app-that-scales-cross-cloud-using-azure-and-azure-stack-hub"></a>Nasazení aplikace, která škáluje více cloudů pomocí Azure a centra Azure Stack
 
@@ -35,7 +35,7 @@ V tomto řešení sestavíte ukázkové prostředí pro:
 > 
 > Požadavky na [Návrh pro hybridní aplikace](overview-app-design-considerations.md) kontrolují pilíře kvality softwaru (umístění, škálovatelnost, dostupnost, odolnost, možnosti správy a zabezpečení) pro navrhování, nasazování a provozování hybridních aplikací. Pokyny k návrhu pomáhají při optimalizaci návrhu hybridní aplikace a minimalizaci výzev v produkčních prostředích.
 
-## <a name="prerequisites"></a>Předpoklady
+## <a name="prerequisites"></a>Požadavky
 
 -   Předplatné Azure. V případě potřeby vytvořte si [bezplatný účet](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) před tím, než začnete.
 

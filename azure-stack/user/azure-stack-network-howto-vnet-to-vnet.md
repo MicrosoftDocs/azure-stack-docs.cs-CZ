@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 83d52af03f33a01ccdf1b065ea1f59d7842f4cda
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: b1d60037dd86a6de1aac73ff5a607605ceda1614
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883400"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703872"
 ---
 # <a name="connect-two-vnets-through-peering"></a>Propojení dvou virtuální sítě prostřednictvím partnerského vztahu
 
@@ -49,7 +49,7 @@ Následující tabulka shrnuje parametry, které se v těchto nasazeních použ�
 | Předpona podsítě virtuální sítě | 172.16.1.0/24 * |
 | Velikost virtuálního počítače pro FortiGate síťové virtuální zařízení | Standardní F2s_v2 |
 | Název veřejné IP adresy | forti1-publicip1 |
-| Typ veřejné IP adresy | Statický |
+| Typ veřejné IP adresy | Statické |
 
 ### <a name="deployment-two-forti2"></a>Nasazení dvě: Forti2
 
@@ -66,7 +66,7 @@ Následující tabulka shrnuje parametry, které se v těchto nasazeních použ�
 | Předpona podsítě virtuální sítě | 172.17.1.0/24 * |
 | Velikost virtuálního počítače pro FortiGate síťové virtuální zařízení | Standardní F2s_v2 |
 | Název veřejné IP adresy | Forti2-publicip1 |
-| Typ veřejné IP adresy | Statický |
+| Typ veřejné IP adresy | Statické |
 
 > [!Note]
 > \* zvolit jinou sadu adresních prostorů a prefixů podsítě, pokud se výše překrývají jakýmkoli způsobem pomocí místního síťového prostředí, včetně fondu VIP buď z centra Azure Stack. Také se ujistěte, že se rozsahy adres nepřesahují mezi sebou.
@@ -138,7 +138,7 @@ Proveďte tyto kroky pro obě nasazení, forti1-RG1 a forti2-RG1.
 
     ![Typ dalšího segmentu](./media/azure-stack-network-howto-vnet-to-onprem/image12.png)
 
-10. Vyberte **Uložit**.
+10. Vyberte **Save** (Uložit).
 
 K aktivaci každého FortiGate síťové virtuální zařízení budete potřebovat platný soubor s licencí od Fortinet. Síťová virtuální zařízení **nebude fungovat,** dokud neaktivujete jednotlivé síťové virtuální zařízení. Další informace o tom, jak získat soubor s licencí a postup aktivace síťové virtuální zařízení, najdete v článku knihovna dokumentů Fortinet [registrace a stažení vaší licence](https://docs2.fortinet.com/vm/azure/FortiGate/6.2/azure-cookbook/6.2.0/19071/registering-and-downloading-your-license).
 
@@ -178,7 +178,7 @@ Následující kroky proveďte jak pro forti1 síťové virtuální zařízení,
 
     ![](./media/azure-stack-network-howto-vnet-to-vnet/image16.png)
 
-13. Vyberte **Next** (Další).
+13. Vyberte **Další**.
 
 14. Zadejte vzdálenou IP adresu místního zařízení VPN, ke kterému se budete připojovat.
 
@@ -191,7 +191,7 @@ Následující kroky proveďte jak pro forti1 síťové virtuální zařízení,
 
     ![](./media/azure-stack-network-howto-vnet-to-vnet/image17.png)
 
-17. Vyberte **Next** (Další).
+17. Vyberte **Další**.
 
 18. Jako **místní rozhraní**vyberte **PORT2** .
 

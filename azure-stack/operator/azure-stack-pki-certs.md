@@ -7,12 +7,12 @@ ms.date: 12/16/2019
 ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 12/16/2019
-ms.openlocfilehash: 5ed0a7fa6091ee62a7de5e1938bd0094d7765512
-ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
+ms.openlocfilehash: 99bec3441d7b6671024f5e1689c6f8504a2f57c1
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77509700"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77698381"
 ---
 # <a name="azure-stack-hub-public-key-infrastructure-certificate-requirements"></a>Požadavky na certifikát infrastruktury veřejných klíčů centra Azure Stack
 
@@ -29,7 +29,7 @@ Centrum Azure Stack má síť s veřejnou infrastrukturou, která používá ext
 Následující seznam popisuje požadavky na certifikáty, které jsou potřeba k nasazení centra Azure Stack:
 
 - Certifikáty se musí vydávat buď z interní certifikační autority, nebo z veřejné certifikační autority. Pokud se používá Veřejná certifikační autorita, musí být součástí základní image operačního systému v rámci programu Microsoft Trusted root Authority. Úplný seznam najdete v tématu [program důvěryhodných kořenových certifikátů společnosti Microsoft: účastníci](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
-- Vaše infrastruktura centra Azure Stack musí mít síťový přístup k umístění seznamu odvolaných certifikátů (CRL) certifikační autority publikovaného v certifikátu. Tento seznam odvolaných certifikátů musí být koncovým bodem http.
+- Vaše infrastruktura centra Azure Stack musí mít síťový přístup k umístění seznamu odvolaných certifikátů (CRL) certifikační autority publikovaného v certifikátu. Tento seznam odvolaných certifikátů musí být koncovým bodem HTTP.
 - Při střídání certifikátů v předběžně 1903 sestaveních musí být certifikáty vystavené ze stejné interní certifikační autority, která se používá k podepisování certifikátů poskytovaných při nasazení nebo kterékoli veřejné certifikační autority. V 1903 a novějších verzích je možné certifikáty vystavovat v rámci certifikační autority nebo veřejné certifikační autority.
 - Použití certifikátů podepsaných svým držitelem není podporováno.
 - Pro nasazení a rotaci můžete buď použít jeden certifikát, který pokrývá všechny obory názvů v poli název předmětu a alternativní název předmětu (SAN) certifikátu, nebo můžete použít jednotlivé certifikáty pro každý z oborů názvů, které jsou pod ním Azure Stack hub. služby, které hodláte využít. Oba přístupy vyžadují použití zástupných karet pro koncové body, kde jsou povinné, jako je třeba **trezor** klíčů a **KeyVaultInternal**.

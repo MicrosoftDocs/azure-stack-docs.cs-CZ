@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: dc3096888138400007c4091ec9f7f40e289340ed
-ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
+ms.openlocfilehash: 69d4d3d6617bf57f9af82b3f7093f094be142c39
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/24/2020
-ms.locfileid: "77568414"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77701016"
 ---
 # <a name="configure-hybrid-cloud-identity-for-azure-and-azure-stack-hub-applications"></a>Konfigurace hybridní cloudové identity pro Azure a Azure Stack aplikace centra
 
@@ -56,7 +56,7 @@ Pokud jste nasadili Azure Stack centrum s AD FS, můžete k vytvoření instanč
 
 Rychlý Start, [který vám umožní začít pracovat s PowerShellem v centru Azure Stack](../operator/azure-stack-powershell-install.md) , vás provede kroky potřebnými k instalaci Azure PowerShell a připojení k instalaci centra Azure Stack.
 
-### <a name="prerequisites"></a>Předpoklady
+### <a name="prerequisites"></a>Požadavky
 
 Potřebujete, aby byla instalace centra Azure Stack připojená k Azure Active Directory s předplatným, ke kterému máte přístup. Pokud nemáte instalaci centra Azure Stack, můžete k nastavení [Azure Stack Development Kit](../asdk/asdk-install.md)použít tyto pokyny.
 

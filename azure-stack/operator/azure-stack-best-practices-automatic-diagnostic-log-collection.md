@@ -7,12 +7,12 @@ ms.date: 07/25/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 07/25/2019
-ms.openlocfilehash: 56af62717b4cd32d7a5130d1d324bd40bf61adb9
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: c14c2cf0d65c29ea7b2968558e89a20b504d8f53
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76878424"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77700472"
 ---
 # <a name="best-practices-for-automatic-azure-stack-hub-log-collection"></a>Osvědčené postupy pro automatické shromažďování protokolů Azure Stack hub 
 
@@ -62,7 +62,7 @@ Následující tabulka může pomáhat prostředím s omezenými nebo měřeným
 
 Osvědčeným postupem je vytvořit [zásadu správy životního cyklu](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts) Azure Blob Storage, která minimalizuje průběžné náklady na úložiště. Další informace o tom, jak nastavit účet úložiště, najdete v tématu [Konfigurace automatického shromažďování protokolů diagnostiky Azure Stack hub](azure-stack-configure-automatic-diagnostic-log-collection.md) .
 
-## <a name="see-also"></a>Další informace najdete v tématech
+## <a name="see-also"></a>Viz také
 
 [Konfigurovat automatické shromažďování protokolů centra Azure Stack](azure-stack-best-practices-automatic-diagnostic-log-collection.md)
 

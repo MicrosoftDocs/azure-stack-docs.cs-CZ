@@ -7,12 +7,12 @@ ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: c1369ada357e8439e39fed4642996af86925522c
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 3d1f22bf65f088c9aa651498cd02c7669ba4abfb
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883448"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703940"
 ---
 # <a name="azure-stack-hub-managed-disks-differences-and-considerations"></a>Azure Stack spravované disky centra: rozdíly a požadavky
 
@@ -25,10 +25,10 @@ Spravované disky zjednodušují správu disků pro virtuální počítače s Ia
   
 ## <a name="cheat-sheet-managed-disk-differences"></a>List tahák: rozdíly spravovaného disku
 
-| Funkce | Azure (Global) | Azure Stack Hub |
+| Funkce | Azure (Global) | Centrum Azure Stack |
 | --- | --- | --- |
 |Šifrování pro neaktivní uložená data |Šifrování služby Azure Storage (SSE), Azure Disk Encryption (ADE).     |BitLocker 128-bitové šifrování AES      |
-|Obrázek          | Spravovaná vlastní image |Podporováno|
+|Obrázek          | Spravovaná vlastní image |Podporuje se|
 |Možnosti zálohování | Služba Azure Backup |Zatím nepodporováno |
 |Možnosti zotavení po havárii | Azure Site Recovery |Zatím nepodporováno|
 |Typy disků     |SSD úrovně Premium, SSD úrovně Standard a HDD úrovně Standard. |SSD úrovně Premium HDD úrovně Standard |
@@ -217,7 +217,7 @@ Portál můžete použít také k vytvoření virtuálního počítače ze sprav
 Po použití aktualizace 1808 nebo novější je nutné před použitím spravovaných disků provést následující změnu konfigurace:
 
 - Pokud bylo předplatné vytvořeno před aktualizací 1808, postupujte podle následujících kroků a aktualizujte předplatné. V opačném případě může nasazení virtuálních počítačů v tomto předplatném selhat s chybovou zprávou "vnitřní chyba ve Správci disků".
-   1. V uživatelském portálu centra Azure Stack klikněte na **předplatná** a vyhledejte předplatné. Klikněte na tlačítko **poskytovatelů prostředků**, klikněte na **Microsoft.Compute**a potom klikněte na tlačítko **přeregistrovat**.
+   1. V uživatelském portálu centra Azure Stack klikněte na **předplatná** a vyhledejte předplatné. Klikněte na **poskytovatelé prostředků**, potom klikněte na **Microsoft. COMPUTE**a pak klikněte na **znovu registrovat**.
    2. V rámci stejného předplatného, přejít na **Access Control (IAM)** a ověřte, že je v seznamu uveden **Azure Stack disk spravovaný** centrem.
 - Pokud používáte víceklientské prostředí, požádejte svého operátora cloudu (který může být ve vaší organizaci nebo od poskytovatele služeb) a překonfigurujte každý adresář hosta podle kroků v [tomto článku](../operator/azure-stack-enable-multitenancy.md#registering-azure-stack-hub-with-the-guest-directory). V opačném případě může dojít k selhání nasazení virtuálních počítačů v rámci předplatného přidružených k tomuto adresáři hosta s chybovou zprávou "vnitřní chyba ve Správci disků".
 

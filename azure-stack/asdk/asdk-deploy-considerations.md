@@ -7,12 +7,12 @@ ms.date: 05/13/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 05/13/2019
-ms.openlocfilehash: 9d466060f46f924441a8226c2f53ff3889b37429
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 889180858826685150fadb7ad3bef0ffb789b8ec
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76873886"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77695712"
 ---
 # <a name="asdk-requirements-and-considerations"></a>Požadavky a předpoklady pro ASDK
 
@@ -20,7 +20,7 @@ Před nasazením Azure Stack Development Kit (ASDK) se ujistěte, že váš host
 
 ## <a name="hardware"></a>Hardware
 
-| Součást | Minimální | Doporučené |
+| Komponenta | Minimální | Doporučené |
 | --- | --- | --- |
 | Diskové jednotky: Operační systém |1 disk s operačním systémem s minimálně 200 GB, který je k dispozici pro systémový oddíl (SSD nebo HDD). |1 disk s operačním systémem, který má minimálně 200 GB, je k dispozici pro systémový oddíl (SSD nebo HDD). |
 | Diskové jednotky:<sup>*</sup> dat pro obecné vývojové sady  |Čtyři disky. Každý disk poskytuje minimálně 240 GB kapacity (SSD nebo HDD). Používají se všechny dostupné disky. |Čtyři disky. Každý disk poskytuje minimálně 400 GB kapacity (SSD nebo HDD). Používají se všechny dostupné disky. |
@@ -93,7 +93,7 @@ Pokud vaše prostředí není připojené k Internetu, nebo nechcete používat 
 ### <a name="azure-active-directory-accounts"></a>Účty Azure Active Directory
 Pokud chcete nasadit Azure Stack pomocí účtu Azure AD, musíte před spuštěním skriptu PowerShellu pro nasazení připravit účet Azure AD. Tento účet se stal globálním správcem pro tenanta Azure AD. Slouží ke zřízení a delegování aplikací a instančních objektů pro všechny Azure Stack služby, které komunikují se službou Azure AD a Graph API. Používá se také jako vlastník předplatného výchozího poskytovatele (který můžete později změnit). Pomocí tohoto účtu se můžete přihlásit k portálu správce systému Azure Stack.
 
-1. Vytvořte účet Azure AD, který je správcem adresáře pro aspoň jednu službu Azure AD. Pokud už účet máte, můžete ho použít. V opačném případě můžete vytvořit zdarma na [https://azure.microsoft.com/free/](https://azure.microsoft.com/free/) (v Číně místo toho <https://go.microsoft.com/fwlink/?LinkID=717821> ). Pokud plánujete pozdější [registraci Azure Stack v Azure](asdk-register.md), musíte mít také předplatné v tomto nově vytvořeném účtu.
+1. Vytvořte účet Azure AD, který je správcem adresáře pro aspoň jednu službu Azure AD. Pokud už účet máte, můžete ho použít. V opačném případě můžete vytvořit zdarma na [https://azure.microsoft.com/free/](https://azure.microsoft.com/free/) (v Číně místo toho <https://go.microsoft.com/fwlink/?LinkID=717821>). Pokud plánujete pozdější [registraci Azure Stack v Azure](asdk-register.md), musíte mít také předplatné v tomto nově vytvořeném účtu.
    
     Uložte tyto přihlašovací údaje pro použití jako správce služby. Tento účet může konfigurovat a spravovat cloudy prostředků, uživatelské účty, plány tenantů, kvóty a ceny. Na portálu můžou vytvářet cloudy webů, privátní cloudy virtuálních počítačů, vytvářet plány a spravovat předplatná uživatelů.
 1. Ve službě Azure AD vytvořte aspoň jeden testovací uživatelský účet, abyste se mohli k ASDK přihlašovat jako tenant.
@@ -107,7 +107,7 @@ Pokud chcete nasadit Azure Stack pomocí účtu Azure AD, musíte před spuště
 
 Po nasazení se oprávnění globálního správce služby Azure AD nevyžadují. Některé operace ale můžou vyžadovat přihlašovací údaje globálního správce. Příklady takových operací zahrnují skript instalačního programu poskytovatele prostředků nebo novou funkci, která vyžaduje udělení oprávnění. Můžete buď dočasně obnovit oprávnění globálního správce účtu, nebo použít samostatný účet globálního správce, který je vlastníkem *výchozího předplatného poskytovatele*.
 
-## <a name="network"></a>Network (Síť)
+## <a name="network"></a>Síť
 ### <a name="switch"></a>Přepínač
 Jeden dostupný port na přepínači pro ASDK počítač.  
 

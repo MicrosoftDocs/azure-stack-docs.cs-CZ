@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/16/2019
 ms.reviewer: shriramnat
 ms.lastreviewed: 10/16/2019
-ms.openlocfilehash: 9aa6104e3f6a93d55db82d4bd9ae21ef54601bf2
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 3d05ff70909508701db2f4770ecb3efb9d860a6d
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884174"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77694539"
 ---
 # <a name="create-a-service-offering-for-users-in-azure-stack-hub"></a>Vytvoření nabídky služeb pro uživatele v centru Azure Stack
 
@@ -58,7 +58,7 @@ Základní služby jsou podporovány následujícími poskytovateli prostředků
 >[!NOTE]
 > Aby bylo možné nabídnout službu pro přidávání hodnot, musí být nejprve na webu služby Azure Stack hub Marketplace nainstalován odpovídající poskytovatel prostředků. Po nainstalování se prostředky uživatelům nabídnou stejným způsobem jako základní služby. V části s návody pro aktuální sadu poskytovatelů prostředků, které podporují nabídky služby Value-Add, se podívejte na část s **návody k průvodcům** v obsahu.
 
-Poskytovatelé prostředků, kteří jsou nainstalováni po nasazení centra Azure Stack, podporují služby Value-Add. Patří mezi ně například:
+Poskytovatelé prostředků, kteří jsou nainstalováni po nasazení centra Azure Stack, podporují služby Value-Add. Příklady obsahují:
 
 | Poskytovatel prostředků | Příklady prostředků |
 | ----------------- | ------------------------- |

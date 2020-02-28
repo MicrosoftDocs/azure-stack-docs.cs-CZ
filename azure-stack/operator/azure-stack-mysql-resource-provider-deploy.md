@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/18/2019
-ms.openlocfilehash: 68111eb8179ac3c000c668407c266a7916761bb6
-ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
+ms.openlocfilehash: 976d602cea47131bef68b38add07e0bcaeeb9617
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/24/2020
-ms.locfileid: "77568652"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77698789"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack-hub"></a>Nasazení poskytovatele prostředků MySQL do centra Azure Stack
 
@@ -21,7 +21,7 @@ Pomocí poskytovatele prostředků serveru MySQL můžete zveřejnit databáze M
 > [!IMPORTANT]
 > Pouze poskytovatel prostředků je podporován k vytváření položek na serverech, které jsou hostiteli SQL nebo MySQL. Položky vytvořené na hostitelském serveru, které nejsou vytvořené poskytovatelem prostředků, můžou vést k neshodě stavu.
 
-## <a name="prerequisites"></a>Předpoklady
+## <a name="prerequisites"></a>Požadavky
 
 Aby bylo možné nasadit poskytovatele prostředků MySQL Azure Stack hub, je nutné, aby bylo provedeno několik požadavků. Abyste splnili tyto požadavky, proveďte kroky v tomto článku v počítači, který má přístup k VIRTUÁLNÍmu počítači s privilegovaným koncovým bodem.
 

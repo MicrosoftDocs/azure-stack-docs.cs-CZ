@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 05/06/2019
 ms.author: justinha
 ms.reviewer: knithinc
-ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: df4b6c770ef1dd93cddbeb748c0845f391305173
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 10/25/2019
+ms.openlocfilehash: 1b562d2a72f3da4d4ac9ef7045f5cbd5408f4afa
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76874021"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77695406"
 ---
 # <a name="connect-to-the-asdk"></a>Připojení k ASDK
 
@@ -54,7 +54,7 @@ Připojení VPN se podporuje pro nasazení Azure AD i Active Directory Federatio
 Před nastavením připojení VPN k ASDK se ujistěte, že jste splnili následující požadavky:
 
 - Instalace [Azure PowerShell kompatibilního s Azure Stack](asdk-post-deploy.md#install-azure-stack-powershell) na místním počítači.  
-- Ve službě [Azure Stack development Kit by měl být blobEndpoint](asdk-post-deploy.md#download-the-azure-stack-tools) .
+- Stáhněte si [nástroje potřebné pro práci s Azure Stack](asdk-post-deploy.md#download-the-azure-stack-tools).
 
 ### <a name="set-up-vpn-connectivity"></a>Nastavení připojení VPN
 
@@ -96,7 +96,7 @@ Pokud je instalace úspěšná, **Azure Stack** se zobrazí v seznamu připojen�
 
 ![Síťová připojení](media/asdk-connect/vpn.png)  
 
-### <a name="connect-to-azure-stack"></a>Připojení k Azure Stack
+### <a name="connect-to-azure-stack"></a>Připojení ke službě Azure Stack
 
   Připojte se k instanci Azure Stack pomocí jedné z následujících metod:  
 

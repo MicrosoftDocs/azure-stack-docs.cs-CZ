@@ -7,12 +7,12 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: guanghu
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: bc8a6745b9c3e4323e37bc3b4a46291955d227a1
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: d5cfb45be74122ec07a7632f9f6c7ef04b6f8c4a
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883186"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77701815"
 ---
 # <a name="deploy-azure-cognitive-services-to-azure-stack-hub"></a>Nasazení služby Azure Cognitive Services do centra Azure Stack
 
@@ -57,7 +57,7 @@ Než začnete, budete potřebovat:
 
 Vytvořte v Azure prostředek služby pro rozpoznávání, ve kterém můžete zobrazit Rozpoznávání textu LUIS kontejnery. K vytvoření instance kontejnerů služby pro rozpoznávání bude nutné použít klíč předplatného a adresu URL koncového bodu z prostředku.
 
-1. Vytvoření prostředku Azure na webu Azure Portal. Pokud chcete zobrazit náhled kontejnerů obličeje, musíte nejprve vytvořit odpovídající prostředek Face v Azure Portal. Další informace najdete v tématu [rychlý start: vytvoření účtu služeb Cognitive Services na webu Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
+1. Vytvoření prostředku Azure na webu Azure Portal. Pokud chcete zobrazit náhled kontejnerů obličeje, musíte nejprve vytvořit odpovídající prostředek Face v Azure Portal. Další informace najdete v tématu [rychlý Start: vytvoření účtu Cognitive Services v Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
 
    > [!Note]
    >  Prostředek Face nebo Počítačové zpracování obrazu musí používat cenovou úroveň F0.
@@ -128,7 +128,7 @@ V této YAML konfiguraci souboru použijte tajný klíč, který jste použili k
 
 Podrobnosti o klíčových polích:
 
-| Pole | Poznámky |
+| Pole | Poznámky: |
 | --- | --- |
 | replicaNumber | Definuje počáteční repliky instancí, které se mají vytvořit. Můžete ho škálovat později po nasazení. |
 | ImageLocation | Označuje umístění konkrétního obrazu kontejneru služby rozpoznávání v ACR. Například služba obličeje: `aicpppe.azurecr.io/microsoft/cognitive-services-face` |

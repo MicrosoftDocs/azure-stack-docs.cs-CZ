@@ -7,12 +7,12 @@ ms.date: 10/31/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 10/31/2019
-ms.openlocfilehash: 27fb31a29313543c3eec2b973cdf8e8ce32940fd
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: a644de92672305cdae82490b6a972620ea77924c
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76877319"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77688741"
 ---
 # <a name="footfall-detection-pattern"></a>Model detekce Footfall
 
@@ -44,17 +44,17 @@ Tady je přehled toho, jak řešení funguje:
 
 Toto řešení používá následující komponenty:
 
-| Vrstva | Součást | Popis |
+| Vrstva | Komponenta | Popis |
 |----------|-----------|-------------|
 | Hardware v obchodě | [Custom Vision AI dev Kit](https://azure.github.io/Vision-AI-DevKit-Pages/) | Poskytuje filtrování in-Store pomocí místního modelu ML, který zachycuje jenom obrázky lidí pro účely analýzy. Bezpečně zřízené a aktualizované prostřednictvím IoT Hub.<br><br>|
 | Azure | [Azure Event Hubs](/azure/event-hubs/) | Azure Event Hubs poskytuje škálovatelnou platformu pro ingestování anonymních dat, která se v Azure Stream Analytics integrují s využitím. |
 |  | [Azure Stream Analytics](/azure/stream-analytics/) | Úloha Azure Stream Analytics agreguje data a seskupuje je do 15 sekund Windows pro vizualizaci. |
-|  | [Microsoft Power BI](https://powerbi.microsoft.com/) | Power BI poskytuje snadno použitelné rozhraní řídicího panelu pro zobrazení výstupu z Azure Stream Analytics. |
-| Azure Stack Hub | [App Service](../operator/azure-stack-app-service-overview.md) | Poskytovatel prostředků App Service (RP) poskytuje základ pro komponenty Edge. Včetně funkcí hostování a správy pro webové aplikace/rozhraní API a funkce. |
+|  | [Power BI Microsoftu](https://powerbi.microsoft.com/) | Power BI poskytuje snadno použitelné rozhraní řídicího panelu pro zobrazení výstupu z Azure Stream Analytics. |
+| Centrum Azure Stack | [App Service](../operator/azure-stack-app-service-overview.md) | Poskytovatel prostředků App Service (RP) poskytuje základ pro komponenty Edge. Včetně funkcí hostování a správy pro webové aplikace/rozhraní API a funkce. |
 | | Cluster [modulu AKS (](https://github.com/Azure/aks-engine) Azure Kubernetes Service) | AKS RP s clusterem AKS nasazeným do centra Azure Stack přináší škálovatelný a odolný modul pro spuštění kontejneru Face API. |
 | | [Kontejnery Face API](/azure/cognitive-services/face/face-how-to-install-containers) Azure Cognitive Services| Azure Cognitive Services RP s Face API Containers poskytuje demografické, emoce a jedinečné zjišťování návštěvníků v privátní síti společnosti Contoso. |
 | | Blob Storage | Image zachycené ze sady AI dev Kit se nahrají do úložiště objektů BLOB v centru Azure Stack. |
-| | Funkce Azure | Funkce Azure spuštěná v centru Azure Stack přijímá vstup z úložiště objektů BLOB a spravuje interakce s Face API. Emituje data do clusteru Event Hubs umístěného v Azure.<br><br>|
+| | Azure Functions | Funkce Azure spuštěná v centru Azure Stack přijímá vstup z úložiště objektů BLOB a spravuje interakce s Face API. Emituje data do clusteru Event Hubs umístěného v Azure.<br><br>|
 
 ## <a name="issues-and-considerations"></a>Problémy a důležité informace
 

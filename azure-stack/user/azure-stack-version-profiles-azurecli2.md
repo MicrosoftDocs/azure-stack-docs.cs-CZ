@@ -7,12 +7,12 @@ ms.date: 12/10/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/10/2019
-ms.openlocfilehash: 72f0e04d03a4304c4ed74f54dcd96f16e247f2a3
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: d7972047787ed9ae7a5c6525c8da7dc67717c502
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884259"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77705249"
 ---
 # <a name="manage-and-deploy-resources-to-azure-stack-hub-with-azure-cli"></a>Správa a nasazení prostředků do centra Azure Stack pomocí Azure CLI
 
@@ -117,7 +117,7 @@ Pokud chcete důvěřovat kořenovému certifikátu certifikační autority cent
     .\python -c "import certifi; print(certifi.where())"
     ```
 
-    Poznamenejte si umístění certifikátu. Například, `C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\lib\site-packages\certifi\cacert.pem`. Vaše konkrétní cesta závisí na vašem operačním systému a na instalaci rozhraní příkazového řádku.
+    Poznamenejte si umístění certifikátu. například `C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\lib\site-packages\certifi\cacert.pem`. Vaše konkrétní cesta závisí na vašem operačním systému a na instalaci rozhraní příkazového řádku.
 
 2. Důvěřování kořenovému certifikátu certifikační autority centra Azure Stack tak, že ho připojíte k existujícímu certifikátu Pythonu.
 
@@ -156,7 +156,7 @@ Pokud chcete důvěřovat kořenovému certifikátu certifikační autority cent
 
 2. Zaregistrujte své prostředí. Při spuštění `az cloud register`použijte následující parametry:
 
-    | Hodnota | Příklad: | Popis |
+    | Hodnota | Příklad | Popis |
     | --- | --- | --- |
     | Název prostředí | AzureStackUser | Pro uživatelské prostředí použijte `AzureStackUser`. Pokud jste operátor, zadejte `AzureStackAdmin`. |
     | Koncový bod Resource Manageru | https://management.local.azurestack.external | **ResourceManagerUrl** v ASDK je: `https://management.local.azurestack.external/` **ResourceManagerUrl** v integrovaných systémech je: `https://management.<region>.<fqdn>/` Pokud máte dotaz týkající se integrovaného systémového koncového bodu, obraťte se na svého operátora cloudu. |
@@ -230,7 +230,7 @@ Pokud používáte ASDK, musíte na svém vzdáleném počítači důvěřovat k
       python -c "import certifi; print(certifi.where())"
     ```
 
-    Poznamenejte si umístění certifikátu. Například, `~/lib/python3.5/site-packages/certifi/cacert.pem`. Vaše konkrétní cesta závisí na vašem operačním systému a verzi Pythonu, kterou jste nainstalovali.
+    Poznamenejte si umístění certifikátu. například `~/lib/python3.5/site-packages/certifi/cacert.pem`. Vaše konkrétní cesta závisí na vašem operačním systému a verzi Pythonu, kterou jste nainstalovali.
 
 2. Důvěřování kořenovému certifikátu certifikační autority centra Azure Stack tak, že ho připojíte k existujícímu certifikátu Pythonu.
 
@@ -269,7 +269,7 @@ Pokud používáte ASDK, musíte na svém vzdáleném počítači důvěřovat k
 
 2. Zaregistrujte své prostředí. Při spuštění `az cloud register`použijte následující parametry:
 
-    | Hodnota | Příklad: | Popis |
+    | Hodnota | Příklad | Popis |
     | --- | --- | --- |
     | Název prostředí | AzureStackUser | Pro uživatelské prostředí použijte `AzureStackUser`. Pokud jste operátor, zadejte `AzureStackAdmin`. |
     | Koncový bod Resource Manageru | https://management.local.azurestack.external | **ResourceManagerUrl** v ASDK je: `https://management.local.azurestack.external/` **ResourceManagerUrl** v integrovaných systémech je: `https://management.<region>.<fqdn>/` Pokud máte dotaz týkající se integrovaného systémového koncového bodu, obraťte se na svého operátora cloudu. |
@@ -356,7 +356,7 @@ Důvěřování kořenovému certifikátu certifikační autority centra Azure S
     az --version
     ```
 
-    Poznamenejte si umístění certifikátu. Například, `~/lib/python3.5/site-packages/certifi/cacert.pem`. Vaše konkrétní cesta závisí na vašem operačním systému a verzi Pythonu, kterou jste nainstalovali.
+    Poznamenejte si umístění certifikátu. například `~/lib/python3.5/site-packages/certifi/cacert.pem`. Vaše konkrétní cesta závisí na vašem operačním systému a verzi Pythonu, kterou jste nainstalovali.
 
 2. Spusťte následující příkaz bash s cestou k vašemu certifikátu.
 
@@ -380,7 +380,7 @@ Pomocí následujících kroků se připojte k centru Azure Stack:
 
 2. Zaregistrujte své prostředí. Při spuštění `az cloud register`použijte následující parametry:
 
-    | Hodnota | Příklad: | Popis |
+    | Hodnota | Příklad | Popis |
     | --- | --- | --- |
     | Název prostředí | AzureStackUser | Pro uživatelské prostředí použijte `AzureStackUser`. Pokud jste operátor, zadejte `AzureStackAdmin`. |
     | Koncový bod Resource Manageru | https://management.local.azurestack.external | **ResourceManagerUrl** v ASDK je: `https://management.local.azurestack.external/` **ResourceManagerUrl** v integrovaných systémech je: `https://management.<region>.<fqdn>/` Pokud máte dotaz týkající se integrovaného systémového koncového bodu, obraťte se na svého operátora cloudu. |
@@ -462,7 +462,7 @@ Důvěřování kořenovému certifikátu certifikační autority centra Azure S
     az --version 
     ```
 
-    Poznamenejte si umístění certifikátu. Například, `~/lib/python3.5/site-packages/certifi/cacert.pem`. Vaše konkrétní cesta závisí na vašem operačním systému a verzi Pythonu, kterou jste nainstalovali.
+    Poznamenejte si umístění certifikátu. například `~/lib/python3.5/site-packages/certifi/cacert.pem`. Vaše konkrétní cesta závisí na vašem operačním systému a verzi Pythonu, kterou jste nainstalovali.
 
 2. Spusťte následující příkaz bash s cestou k vašemu certifikátu.
 
@@ -486,7 +486,7 @@ Pomocí následujících kroků se připojte k centru Azure Stack:
 
 2. Zaregistrujte své prostředí. Při spuštění `az cloud register`použijte následující parametry.
 
-    | Hodnota | Příklad: | Popis |
+    | Hodnota | Příklad | Popis |
     | --- | --- | --- |
     | Název prostředí | AzureStackUser | Pro uživatelské prostředí použijte `AzureStackUser`. Pokud jste operátor, zadejte `AzureStackAdmin`. |
     | Koncový bod Resource Manageru | https://management.local.azurestack.external | **ResourceManagerUrl** v ASDK je: `https://management.local.azurestack.external/` **ResourceManagerUrl** v integrovaných systémech je: `https://management.<region>.<fqdn>/` Pokud máte dotaz týkající se integrovaného systémového koncového bodu, obraťte se na svého operátora cloudu. |

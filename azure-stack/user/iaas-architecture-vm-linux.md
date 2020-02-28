@@ -7,12 +7,12 @@ ms.date: 11/01/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: 97f1b58fc1d36a9cd3f26875625c2ae7ea67abdc
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: f969435900f290aaae10942e223ade15cacf4769
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76885320"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77704960"
 ---
 # <a name="run-a-linux-virtual-machine-on-azure-stack-hub"></a>Spuštění virtuálního počítače se systémem Linux v centru Azure Stack
 
@@ -60,7 +60,7 @@ Když přidáte datový disk, přiřadí se mu ID logické jednotky (LUN). Volit
 
 Virtuální počítač se vytvoří s dočasným diskem. Tento disk je uložený na dočasném svazku Azure Stack infrastruktury úložiště centra. Může se odstranit během restartování a dalších událostí životního cyklu virtuálního počítače. Tento disk používejte jenom pro dočasná data, jako jsou stránkovací nebo odkládací soubory. Pro virtuální počítače se systémem Linux je dočasný disk adresář/dev/sdb1 a je připojen k/mnt/Resource nebo/mnt.
 
-## <a name="network"></a>Network (Síť)
+## <a name="network"></a>Síť
 
 Síťové komponenty zahrnují následující prostředky:
 
@@ -76,7 +76,7 @@ Síťové komponenty zahrnují následující prostředky:
 
 Všechny skupin zabezpečení sítě obsahují sadu [výchozích pravidel](https://docs.microsoft.com/azure/virtual-network/security-overview#default-security-rules), včetně pravidla, které blokuje veškerý příchozí internetový provoz. Výchozí pravidla nejde odstranit, ale ostatní pravidla je mohou potlačit. Pokud chcete povolit internetovou komunikaci, vytvořte pravidla, která povolí příchozí provoz na konkrétní porty, například port 80 pro protokol HTTP. Pokud chcete povolit SSH, přidejte pravidlo NSG, které povoluje příchozí přenosy na port TCP 22.
 
-## <a name="operations"></a>Operations
+## <a name="operations"></a>Operace
 
 **SSH:** Než vytvoříte virtuální počítač s Linuxem, vygenerujte pár klíčů (veřejný a privátní) pomocí 2048bitového algoritmu RSA. Soubor veřejného klíče potom použijte při vytváření virtuálního počítače. Další informace najdete v tématu [Použití SSH se systémem Linux v Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys).
 
@@ -90,13 +90,13 @@ Všechny skupin zabezpečení sítě obsahují sadu [výchozích pravidel](https
 
 **Odstraňuje se virtuální počítač**. Pokud odstraníte virtuální počítač, disky virtuálních počítačů se neodstraní. To znamená, že virtuální počítač můžete bezpečně odstranit bez obav ze ztráty dat. Bude se vám ale účtovat poplatek za úložiště. Disk virtuálního počítače odstraníte tak, že odstraníte objekt spravovaného disku. Aby nedocházelo k nechtěnému odstranění, použijte [Zámek prostředků](https://docs.microsoft.com/azure/resource-group-lock-resources) k uzamčení celé skupiny prostředků nebo zamčení jednotlivých prostředků, jako je třeba virtuální počítač.
 
-## <a name="security-considerations"></a>Informace o zabezpečení
+## <a name="security-considerations"></a>Aspekty zabezpečení
 
 Připojte virtuální počítače k [Azure Security Center](https://docs.microsoft.com/azure/security-center/quick-onboard-azure-stack) , abyste získali centrální pohled na stav zabezpečení vašich prostředků Azure. Security Center monitoruje potenciální potíže se zabezpečením a poskytuje ucelený přehled o stavu zabezpečení vašeho nasazení. Služba Security Center se konfiguruje na základě předplatného Azure. Povolte shromažďování dat zabezpečení, jak je popsáno v tématu připojení [předplatného Azure k Security Center Standard](https://docs.microsoft.com/azure/security-center/security-center-get-started). Když je povolené shromažďování dat, Security Center automaticky prohledává všechny virtuální počítače vytvořené v rámci příslušného předplatného.
 
 **Správa oprav**. Informace o konfiguraci správy oprav na VIRTUÁLNÍm počítači najdete v [tomto](https://docs.microsoft.com/azure-stack/user/vm-update-management) článku. Pokud je povolené centrum Security Center, kontroluje, jestli nechybí žádné aktualizace zabezpečení a důležité aktualizace. Pomocí [nastavení zásady skupiny](https://docs.microsoft.com/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates) na virtuálním počítači Povolte automatické aktualizace systému.
 
-**Antimalware**. Pokud je povolené centrum Security Center, kontroluje, jestli je nainstalovaný software ochrany před malwarem. Security Center můžete použít také k instalaci antimalwarového softwaru z portálu Azure Portal.
+**Antimalwarový software**. Pokud je povolené centrum Security Center, kontroluje, jestli je nainstalovaný software ochrany před malwarem. Security Center můžete použít také k instalaci antimalwarového softwaru z portálu Azure Portal.
 
 **Řízení přístupu**. K řízení přístupu k prostředkům Azure použijte [řízení přístupu na základě role (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is) . RBAC umožňuje přiřazovat autorizační role jednotlivým členům vaše týmu DevOps. Třeba role čtenáře může zobrazovat prostředky Azure, ale nemůže je vytvářet, spravovat ani odstraňovat. Některá oprávnění jsou specifická pro typ prostředku Azure. Třeba role Přispěvatel virtuálních počítačů může restartovat nebo zrušit přidělení virtuálního počítače, resetovat heslo správce, vytvořit nový virtuální počítač a tak dále. Mezi další [předdefinované role RBAC](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) , které mohou být užitečné pro tuto architekturu, patří [uživatel DevTest Labs](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#devtest-labs-user) a [Přispěvatel sítě](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#network-contributor).
 
@@ -110,4 +110,4 @@ Připojte virtuální počítače k [Azure Security Center](https://docs.microso
 ## <a name="next-steps"></a>Další kroky
 
 - Další informace o virtuálních počítačích centra Azure Stack najdete v tématu [funkce virtuálních počítačů centra Azure Stack](azure-stack-vm-considerations.md).  
-- Další informace o vzorech cloudu Azure, najdete v článku [vzory návrhu v cloudu](https://docs.microsoft.com/azure/architecture/patterns).
+- Další informace o vzorech cloudu Azure najdete v tématu [vzory návrhu cloudu](https://docs.microsoft.com/azure/architecture/patterns).

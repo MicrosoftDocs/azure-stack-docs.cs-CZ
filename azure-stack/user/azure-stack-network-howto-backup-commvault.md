@@ -7,12 +7,12 @@ ms.date: 10/30/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/30/2019
-ms.openlocfilehash: aa4e5d10534f2ffe4c9b6cc948fcb7968213aab0
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: ec02ccd45773c97df71369b1e325120452ce7da1
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884657"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77702461"
 ---
 # <a name="back-up-your-vm-on-azure-stack-hub-with-commvault"></a>Zálohování virtuálního počítače v Azure Stack hub pomocí CommVault
 
@@ -109,7 +109,7 @@ Topologie tohoto přístupu bude vypadat jako v následujícím diagramu:
 
 Budete potřebovat zjistit, jestli je váš správce identit Azure AD nebo AD DFS. Následující tabulka obsahuje informace, které budete potřebovat k nastavení CommVault v centru Azure Stack.
 
-| Element | Popis | Zdroj |
+| Prvek | Popis | Zdroj |
 |--------------------------|--------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
 | Adresa URL Azure Resource Manager | Koncový bod Správce prostředků centra Azure Stack. | https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles-ruby?view=azs-1908#the-azure-stack-hub-resource-manager-endpoint |
 | Název aplikace |  |  |
@@ -133,7 +133,7 @@ Budete potřebovat zjistit, jestli je váš správce identit Azure AD nebo AD DF
 
 4. Nakonfigurujte úložiště záloh tak, aby používalo úložiště externě v konzole služby Azure Stack v konzole CommVault Commcell. V prohlížeči CommCell vyberte prostředky úložiště > fondy úložišť. Klikněte pravým tlačítkem a vyberte **Přidat fond úložiště.** Vyberte **Cloud**.
 
-5. Přidejte název fondu úložiště. Vyberte **Next** (Další).
+5. Přidejte název fondu úložiště. Vyberte **Další**.
 
 6. Vyberte **vytvořit** > **cloudové úložiště**.
 

@@ -5,13 +5,13 @@ author: mattbriggs
 ms.topic: quickstart
 ms.date: 1/22/2020
 ms.author: mabrigg
-ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: f3a895b2ec8245e95ed8482b84433f900e07dfab
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 01/14/2020
+ms.openlocfilehash: 5e5827cd0667a46d30147b0b6283f2a94d67158f
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884476"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77701951"
 ---
 # <a name="quickstart-create-a-windows-server-virtual-machine-using-azure-cli-in-azure-stack-hub"></a>Rychlý Start: Vytvoření virtuálního počítače s Windows serverem pomocí rozhraní příkazového řádku Azure v centru Azure Stack
 
@@ -27,7 +27,7 @@ Virtuální počítač s Windows serverem 2016 můžete vytvořit pomocí rozhra
 
 * Aby bylo možné vytvořit a spravovat prostředky, Azure Stack centrum vyžaduje specifickou verzi rozhraní příkazového řádku Azure CLI. Pokud nemáte rozhraní příkazového řádku Azure nakonfigurované pro centrum Azure Stack, postupujte podle pokynů k [instalaci a konfiguraci rozhraní příkazového řádku Azure CLI](azure-stack-version-profiles-azurecli2.md).
 
-## <a name="create-a-resource-group"></a>Vytvoření skupiny prostředků
+## <a name="create-a-resource-group"></a>Vytvořit skupinu prostředků
 
 Skupina prostředků je logický kontejner, ve kterém můžete nasazovat a spravovat prostředky centra Azure Stack. V prostředí Azure Stack hub spuštěním příkazu [AZ Group Create](/cli/azure/group#az-group-create) vytvořte skupinu prostředků.
 
@@ -40,7 +40,7 @@ Následující příklad vytvoří skupinu prostředků s názvem myResourceGrou
 az group create --name myResourceGroup --location local
 ```
 
-## <a name="create-a-virtual-machine"></a>Vytvoření virtuálního počítače
+## <a name="create-a-virtual-machine"></a>Vytvořit virtuální počítač
 
 Pomocí příkazu [AZ VM Create](/cli/azure/vm#az-vm-create) vytvořte virtuální počítač (VM). Následující příklad vytvoří virtuální počítač s názvem myVM. V tomto příkladu se používá myš pro uživatelské jméno správce a Demouser@123 jako heslo správce. Změňte tyto hodnoty na něco, co je vhodné pro vaše prostředí.
 

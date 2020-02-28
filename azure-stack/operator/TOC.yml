@@ -457,9 +457,7 @@
 - name: Referenční informace
   items:
     - name: Prostředí PowerShell centra Azure Stack
-      href: /powershell/azure/azure-stack/overview
-- name: Související
-  items:
+      href: 'https://docs.microsoft.com/powershell/azure/azure-stack/overview'
     - name: Dokumentace pro uživatele centra Azure Stack
       href: /azure-stack/user/
     - name: Dokumentace k sadě ASDK

@@ -7,18 +7,18 @@ ms.date: 01/24/2020
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: cddce90bf8675aa619175fca2e8c97468b1edebe
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 3404e0d0e5bbf2c8293d70a7cf816b9e4923261f
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883675"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77704076"
 ---
 # <a name="develop-for-azure-stack-hub"></a>Vývoj pro centrum Azure Stack
 
 Můžete začít vyvíjet aplikace ještě dnes i v případě, že nemáte přístup k prostředí Azure Stack hub. Azure Stack centrum zajišťuje Microsoft Azure služby, které běží ve vašem datovém centru, což znamená, že můžete použít stejné nástroje a procesy Azure pro vývoj v Azure Stack hub.
 
-## <a name="development-considerations"></a>Aspekty vývoje
+## <a name="development-considerations"></a>Pokyny pro vývoj
 
 S určitou přípravou a používáním pokynů v následujících tématech můžete pomocí Azure emulovat prostředí Azure Stack hub.
 

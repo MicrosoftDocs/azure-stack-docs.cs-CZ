@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 2238b399c6c7de6e37a7059a395a0024d3e71a98
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: cf9d17bda49c1fe5d401481d79b61b18442ee7ef
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883332"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703804"
 ---
 # <a name="get-started-with-powershell-in-azure-stack-hub"></a>Začínáme s PowerShellem v centru Azure Stack
 
@@ -20,7 +20,7 @@ PowerShell je určený pro správu a správu prostředků z příkazového řád
 
 Tento článek vám pomůže orientovat v různých modulech PowerShellu, které se používají v Azure Stack hub. Když v Azure Stackovém centru použijete PowerShell, můžete pracovat s kteroukoli ze čtyř sad rozhraní API, jak je znázorněno v následující tabulce:
 
-| API | Reference k PowerShellu | Odkaz REST |
+| API | PowerShell – reference | Odkaz REST |
 | --- | --- | --- |
 | Globální Azure Resource Manager | [Moduly Azure PowerShell](https://github.com/Azure/azure-powershell/blob/master/documentation/azure-powershell-modules.md) | [Prohlížeč REST API](https://docs.microsoft.com/rest/api/) |
 | Správce prostředků centra Azure Stack | [Správa profilů verzí rozhraní API v centru Azure Stack](azure-stack-version-profiles.md) | [Správa profilů verzí rozhraní API v centru Azure Stack](azure-stack-version-profiles.md) |

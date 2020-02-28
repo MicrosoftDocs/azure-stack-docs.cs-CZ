@@ -7,12 +7,12 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 091a14961c82dcf43a2b64b946a7c96ec5ee1164
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 14192029c2bbac427b6609abfc62b06e0ef937cb
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883251"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703736"
 ---
 # <a name="quickstart-create-a-windows-server-vm-by-using-powershell-in-azure-stack-hub"></a>Rychlý Start: Vytvoření virtuálního počítače s Windows serverem pomocí PowerShellu v Azure Stackovém centru
 
@@ -33,7 +33,7 @@ Virtuální počítač s Windows serverem 2016 můžete vytvořit pomocí centra
 
 * S nastavením prostředí PowerShell centra Azure Stack se budete muset připojit k prostředí centra Azure Stack. Pokyny najdete v tématu [připojení k Azure Stack hub pomocí PowerShellu jako uživatel](azure-stack-powershell-configure-user.md).
 
-## <a name="create-a-resource-group"></a>Vytvoření skupiny prostředků
+## <a name="create-a-resource-group"></a>Vytvořit skupinu prostředků
 
 Skupina prostředků je logický kontejner, ve kterém se nasazují a spravují prostředky centra Azure Stack. Z vývojové sady nebo integrovaného systému centra Azure Stack spusťte následující blok kódu, který vytvoří skupinu prostředků. 
 

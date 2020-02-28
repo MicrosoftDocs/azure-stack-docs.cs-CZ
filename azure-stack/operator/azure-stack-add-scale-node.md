@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 1/16/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: d138fe5c4203cc28cedfb44964d7b99d9fc72931
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 09/17/2019
+ms.openlocfilehash: 8aa33cda9a657d3e0bcec9525f86bd792c855e65
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76876588"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77688759"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack-hub"></a>Přidání dalších uzlů jednotek škálování do centra Azure Stack
 
@@ -60,7 +60,7 @@ K přidání nových uzlů můžete použít portál pro správu nebo PowerShell
    ![přidat podrobnosti uzlu](media/azure-stack-add-scale-node/select-node2.png)
  
 
-### <a name="use-powershell"></a>Použití PowerShellu
+### <a name="use-powershell"></a>Použití prostředí PowerShell
 
 K přidání uzlu použijte rutinu **New-AzsScaleUnitNodeObject** .  
 
@@ -83,7 +83,7 @@ K získání stavu operace přidání uzlu použijte portál pro správu nebo Po
 ### <a name="use-the-administrator-portal"></a>Použití portálu pro správu 
 Chcete-li monitorovat přidání nového uzlu, Projděte si část jednotka škálování nebo objekty uzlu jednotky škálování na portálu pro správu. Provedete to tak, že přejdete do **oblasti správa** > **jednotky škálování**. V dalším kroku vyberte jednotku škálování nebo uzel jednotky škálování, který chcete zkontrolovat. 
 
-### <a name="use-powershell"></a>Použití PowerShellu
+### <a name="use-powershell"></a>Použití prostředí PowerShell
 Stav jednotky škálování a uzly jednotek škálování se dají načíst pomocí PowerShellu následujícím způsobem:
   ```powershell
   #Retrieve Status for the Scale Unit
@@ -112,12 +112,12 @@ Stav jednotky škálování a uzly jednotek škálování se dají načíst pomo
 |Spuštěno               |Uzel je aktivně zapojen do jednotky škálování.|
 |Zastaveno               |Uzel není k dispozici.|
 |Přidávání                |Uzel se aktivně přidávají do jednotky škálování.|
-|Opravíte             |Uzel je aktivně opravován.|
+|Oprava             |Uzel je aktivně opravován.|
 |Údržba           |Uzel je pozastaven a není spuštěna žádná úloha aktivního uživatele. |
 |Vyžaduje nápravu  |Zjistila se chyba, která vyžaduje, aby byl uzel opravený.|
 
 
-## <a name="troubleshooting"></a>Řešení potíží
+## <a name="troubleshooting"></a>Odstraňování potíží
 Níže jsou uvedeny běžné problémy, které se zobrazují při přidávání uzlu. 
 
 **Scénář 1:**  Operace přidání uzlu jednotky škálování se nezdařila, ale jeden nebo více uzlů je uveden stavem zastaveno.  

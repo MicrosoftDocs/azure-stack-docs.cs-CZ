@@ -3,16 +3,16 @@ title: Nastavení požadavků pro modul AKS v centru Azure Stack
 description: Stanovte požadavky na spuštění stroje dotazů v centru Azure Stack.
 author: mattbriggs
 ms.topic: article
-ms.date: 1/10/2020
+ms.date: 2/27/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 1/10/2020
-ms.openlocfilehash: 340b0e9b2b6f4ece2629968128b872282e88c2c0
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 2/27/2020
+ms.openlocfilehash: 1f307a554eca0b9b1bc2af9d8e64a8ec585da078
+ms.sourcegitcommit: bbc4023c9a673c146de4a9e242311d429f7781eb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884758"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77782817"
 ---
 # <a name="set-up-the-prerequisites-for-the-aks-engine-on-azure-stack-hub"></a>Nastavení požadavků pro modul AKS v centru Azure Stack
 
@@ -28,20 +28,21 @@ Chcete-li použít modul AKS, musíte mít k dispozici následující prostředk
 
 Váš operátor cloudu bude potřebovat, aby byly zavedeny následující položky.
 
-| Požadavek | Popis | Požaduje se | Pokyny |
+| Požadavek | Popis | Požadováno | Pokyny |
 | --- | --- | --- | --- | --- |
-| Rozšíření vlastních skriptů pro Linux | Rozšíření vlastních skriptů pro Linux 2,0<br>Nabídka: vlastní skript pro Linux 2,0<br>Verze: 2.0.6 (nebo nejnovější verze)<br>Vydavatel: Microsoft Corp | Požaduje se | Pokud ve svém předplatném nemáte tuto položku, obraťte se na svého operátora cloudu. |
-| AKS Base Ubuntu image | Základní obrázek AKS<br>Nabídka: AKS<br> 2019.10.24 (nebo novější verze)<br>Vydavatel: Microsoft-AKS<br>SKU: AKS-Ubuntu-1604-201910 | Požaduje se | Pokud ve svém předplatném nemáte tuto položku, obraťte se na svého operátora cloudu. Podívejte se na Další informace o závislostech verze, viz [shodný modul se základní verzí image](#matching-engine-to-base-image-version).<br> Pokud jste operátor cloudu pro Azure Stack centrum a chcete nabízet modul AKS, postupujte podle pokynů v části [Přidání modulu AKS na tržišti centra Azure Stack](../operator/azure-stack-aks-engine.md). |
-| Identita objektu služby (SPN) |  Aplikace, která potřebuje nasadit nebo nakonfigurovat prostředky prostřednictvím Azure Resource Manager, musí být reprezentována instančním objektem. | Požaduje se | Pro tuto položku možná budete muset kontaktovat svého operátora centra Azure Stack.  Pokyny najdete v tématu [použití identity aplikace pro přístup k prostředkům](https://docs.microsoft.com/azure-stack/operator/azure-stack-create-service-principals) . |
-| (SPN) přiřazená role **přispěvatele** | Aby mohla aplikace přistupovat k prostředkům ve vašem předplatném pomocí instančního objektu, musíte instančnímu objektu přiřadit roli pro konkrétní prostředek. | Požaduje se | Pokyny najdete v tématu [přiřazení role](https://docs.microsoft.com/azure-stack/operator/azure-stack-create-service-principals#assign-a-role) . |
+| Azure Stack centra 1910 nebo vyšší | Modul AKS vyžaduje Azure Stack hub 1910 nebo vyšší. | Požadováno | Pokud si nejste jistí, jakou verzi centra Azure Stack máte, obraťte se na svého operátora cloudu. |
+| Rozšíření vlastních skriptů pro Linux | Rozšíření vlastních skriptů pro Linux 2,0<br>Nabídka: vlastní skript pro Linux 2,0<br>Verze: 2.0.6 (nebo nejnovější verze)<br>Vydavatel: Microsoft Corp | Požadováno | Pokud ve svém předplatném nemáte tuto položku, obraťte se na svého operátora cloudu. |
+| AKS Base Ubuntu image | Základní obrázek AKS<br>Nabídka: AKS<br> 2019.10.24 (nebo novější verze)<br>Vydavatel: Microsoft-AKS<br>SKU: AKS-Ubuntu-1604-201910 | Požadováno | Pokud ve svém předplatném nemáte tuto položku, obraťte se na svého operátora cloudu. Podívejte se na Další informace o závislostech verze, viz [shodný modul se základní verzí image](#matching-engine-to-base-image-version).<br> Pokud jste operátor cloudu pro Azure Stack centrum a chcete nabízet modul AKS, postupujte podle pokynů v části [Přidání modulu AKS na tržišti centra Azure Stack](../operator/azure-stack-aks-engine.md). |
+| Identita objektu služby (SPN) |  Aplikace, která potřebuje nasadit nebo nakonfigurovat prostředky prostřednictvím Azure Resource Manager, musí být reprezentována instančním objektem. | Požadováno | Pro tuto položku možná budete muset kontaktovat svého operátora centra Azure Stack.  Pokyny najdete v tématu [použití identity aplikace pro přístup k prostředkům](https://docs.microsoft.com/azure-stack/operator/azure-stack-create-service-principals) . |
+| (SPN) přiřazená role **přispěvatele** | Aby mohla aplikace přistupovat k prostředkům ve vašem předplatném pomocí instančního objektu, musíte instančnímu objektu přiřadit roli pro konkrétní prostředek. | Požadováno | Pokyny najdete v tématu [přiřazení role](https://docs.microsoft.com/azure-stack/operator/azure-stack-create-service-principals#assign-a-role) . |
 
 Můžete nastavit následující položky.
 
-| Požadavek | Popis | Požaduje se | Pokyny |
+| Požadavek | Popis | Požadováno | Pokyny |
 | --- | --- | --- | --- |
-| Předplatné centra Azure Stack | Přistupujete k nabídkám centra Azure Stack v rámci předplatných. Nabídka obsahuje služby, které máte k dispozici. | Požaduje se | Aby bylo možné v centru Azure Stack nasazovat jakékoli úlohy klientů, musíte nejdřív získat [předplatné služby Azure Stack hub](https://docs.microsoft.com/azure-stack/user/azure-stack-subscribe-services). |
-| Skupina prostředků | Skupina prostředků je kontejner, který obsahuje související prostředky pro řešení Azure. Pokud nezadáte žádnou existující skupinu prostředků, nástroj si ji pro vás vytvoří. | Volitelné | [Správa Azure Resource Manager skupin prostředků pomocí Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-portal) |
-| Privátní veřejný klíč | Pokud chcete použít otevřené připojení SSH z vývojového počítače k VIRTUÁLNÍmu počítači serveru ve vaší instanci centra Azure Stack, který je hostitelem vaší webové aplikace, je potřeba vytvořit dvojici veřejného a privátního klíče Secure Shell (SSH). | Požaduje se | Pokyny k vygenerování klíče najdete v tématu [generování klíče SSH](https://docs.microsoft.com/azure-stack/user/azure-stack-dev-start-howto-ssh-public-key).|
+| Předplatné centra Azure Stack | Přistupujete k nabídkám centra Azure Stack v rámci předplatných. Nabídka obsahuje služby, které máte k dispozici. | Požadováno | Aby bylo možné v centru Azure Stack nasazovat jakékoli úlohy klientů, musíte nejdřív získat [předplatné služby Azure Stack hub](https://docs.microsoft.com/azure-stack/user/azure-stack-subscribe-services). |
+| Skupina prostředků | Skupina prostředků je kontejner, který uchovává související prostředky pro řešení Azure. Pokud nezadáte žádnou existující skupinu prostředků, nástroj si ji pro vás vytvoří. | Volitelné | [Správa Azure Resource Manager skupin prostředků pomocí Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-portal) |
+| Privátní veřejný klíč | Pokud chcete použít otevřené připojení SSH z vývojového počítače k VIRTUÁLNÍmu počítači serveru ve vaší instanci centra Azure Stack, který je hostitelem vaší webové aplikace, je potřeba vytvořit dvojici veřejného a privátního klíče Secure Shell (SSH). | Požadováno | Pokyny k vygenerování klíče najdete v tématu [generování klíče SSH](https://docs.microsoft.com/azure-stack/user/azure-stack-dev-start-howto-ssh-public-key).|
 
 
 > [!Note]  

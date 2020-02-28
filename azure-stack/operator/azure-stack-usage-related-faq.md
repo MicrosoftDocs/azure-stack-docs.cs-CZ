@@ -10,12 +10,12 @@ ms.date: 01/27/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 02/26/2019
-ms.openlocfilehash: 1e5b2198bc830ea91babadab7a0a33ed5dc09f38
-ms.sourcegitcommit: 5f53810d3c5917a3a7b816bffd1729a1c6b16d7f
+ms.openlocfilehash: 9f7fbb8657ec13aa6c7768e1db4d62f36fbb46cb
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/03/2020
-ms.locfileid: "76972528"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77696443"
 ---
 # <a name="frequently-asked-questions-about-azure-stack-hub-usage"></a>Nejčastější dotazy týkající se využití centra Azure Stack
 
@@ -25,7 +25,7 @@ Tento článek obsahuje odpovědi na některé nejčastější dotazy týkajíc�
 
 Použití je hlášeno pro následující poskytovatele prostředků:
 
-### <a name="network"></a>Network (Síť)
+### <a name="network"></a>Síť
   
 **ID měřiče**: F271A8A388C44D93956A063E1D2FA80B  
 **Název měřiče**: využití statických IP adres  
@@ -37,7 +37,7 @@ Použití je hlášeno pro následující poskytovatele prostředků:
 **Jednotka**: IP adresy  
 **Poznámky**: počet využitých IP adres. Pokud voláte rozhraní API s využitím každodenní členitosti, měřič vrátí IP adresu vynásobenou počtem hodin.  
   
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Úložiště
   
 **ID měřiče**: B4438D5D-453B-4EE1-B42A-DC72E377F1E4  
 **Název měřiče**: TableCapacity  
@@ -104,7 +104,7 @@ Použití je hlášeno pro následující poskytovatele prostředků:
 **Jednotka**: odchozí data v GB  
 **Poznámky**: Služba front výstup dat v GB.
 
-### <a name="compute"></a>Služby Compute
+### <a name="compute"></a>Výpočty
   
 **ID měřiče**: FAB6EB84-500B-4A09-A8CA-7358F8BBAEA5  
 **Název měřiče**: počet hodin základního virtuálního počítače  
@@ -271,10 +271,10 @@ Použití je hlášeno pro následující poskytovatele prostředků:
 **ID měřiče**: 264ACB47-AD38-47F8-Add3-47F01DC4F473  
 **Název měřiče**: sni SSL  
 **Jednotka**: vazba na sni SSL  
-**Poznámky**: App Service podporuje dva typy připojení SSL: připojení SSL indikace názvu serveru (SNI) a IP adresa připojení SSL. Připojení SSL typu SNI funguje v moderních prohlížečích, připojení SSL na základě IP adresy lze pak použít ve všech.  
+**Poznámky**: App Service podporuje dva typy připojení SSL: připojení SSL indikace názvu serveru (SNI) a IP adresa připojení SSL. SSL založená na SNI funguje v moderních prohlížečích a protokol SSL založený na protokolu IP funguje ve všech prohlížečích.  
   
 **ID měřiče**: 60B42D72-DC1C-472C-9895-6C516277EDB4  
-**Název měřiče**: IP SSL **jednotka**: na základě IP adres **vazeb SSL**založených na protokolu IP: App Service podporuje dva typy připojení SSL: indikace názvu serveru (SNI) připojení SSL a IP adresa připojení SSL. Připojení SSL typu SNI funguje v moderních prohlížečích, připojení SSL na základě IP adresy lze pak použít ve všech.  
+**Název měřiče**: IP SSL **jednotka**: na základě IP adres **vazeb SSL**založených na protokolu IP: App Service podporuje dva typy připojení SSL: indikace názvu serveru (SNI) připojení SSL a IP adresa připojení SSL. SSL založená na SNI funguje v moderních prohlížečích a protokol SSL založený na protokolu IP funguje ve všech prohlížečích.  
   
 **ID měřiče**: 73215A6C-FA54-4284-B9C1-7E8EC871CC5B  
 **Název měřiče**: **jednotka**webového procesu:  
@@ -285,7 +285,7 @@ Použití je hlášeno pro následující poskytovatele prostředků:
 **Jednotka**: GB  
 **Poznámky**: celkový počet bajtů příchozích požadavků na odpověď a celkový počet odeslaných bajtů požadavků a celkový počet příchozích odpovědí na požadavek FTP (celkem bajtů požadavků na nasazení webu).  
   
-## <a name="how-do-the-azure-stack-hub-usage-apis-compare-to-the-azure-usage-apihttpsdocsmicrosoftcomazurebillingbilling-usage-rate-card-overviewazure-resource-usage-api-preview-currently-in-public-preview"></a>Jak se rozhraní API využití centra Azure Stack porovnávají s [rozhraním API využití Azure](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview#azure-resource-usage-api-preview) (aktuálně ve verzi Public Preview)?
+## <a name="how-do-the-azure-stack-hub-usage-apis-compare-to-the-azure-usage-api-currently-in-public-preview"></a>Jak se rozhraní API využití centra Azure Stack porovnávají s [rozhraním API využití Azure](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview#azure-resource-usage-api-preview) (aktuálně ve verzi Public Preview)?
 
 * Rozhraní API využití tenanta je konzistentní s rozhraním API Azure s jednou výjimkou: příznak *showDetails* se v tuto chvíli nepodporuje v centru Azure Stack.
 * Rozhraní API využití zprostředkovatele se vztahuje pouze na centrum Azure Stack.
@@ -304,7 +304,7 @@ V současné době se můžete dotazovat pouze podle **nahlášeného času**.
 
 ## <a name="what-do-these-usage-api-error-codes-mean"></a>Co znamenají tyto chybové kódy rozhraní API pro využití?
 
-| **Stavový kód HTTP** | **Kód chyby:** | **Popis** |
+| **Stavový kód HTTP** | **Kód chyby** | **Popis** |
 | --- | --- | --- |
 | 400/Chybný požadavek |*NoApiVersion* |Chybí parametr dotazu *API-Version* . |
 | 400/Chybný požadavek |*InvalidProperty* |Vlastnost chybí nebo má neplatnou hodnotu. Zpráva v kódu chyby v těle odpovědi identifikuje chybějící vlastnost. |

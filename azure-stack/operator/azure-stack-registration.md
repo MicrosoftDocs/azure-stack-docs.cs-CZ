@@ -8,12 +8,12 @@ ms.date: 02/25/2020
 ms.author: inhenkel
 ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: 3f8570f765b87736975a15c49b1a2a5ff4bdf55d
-ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
+ms.openlocfilehash: 6af18b519f32975643dea10d81dfa9ed1f0588c5
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77625318"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77697871"
 ---
 # <a name="register-azure-stack-hub-with-azure"></a>Registrace centra Azure Stack s Azure
 
@@ -24,7 +24,7 @@ Informace v tomto článku popisují registraci Azure Stack integrovaných syst�
 > [!IMPORTANT]  
 > K podpoře kompletních funkcí centra Azure Stack, včetně položek nabídky na webu Marketplace, se vyžaduje registrace. Pokud se nezaregistrujete při použití modelu fakturace s průběžnými platbami, budete mít porušení licenčních podmínek centra Azure Stack. Další informace o modelech licencování centra Azure Stack najdete na [stránce Jak koupit](https://azure.microsoft.com/overview/azure-stack/how-to-buy/).
 
-## <a name="prerequisites"></a>Předpoklady
+## <a name="prerequisites"></a>Požadavky
 
 Před registrací musíte splnit následující předpoklady:
 
@@ -471,15 +471,15 @@ Set-AzsRegistration [-PrivilegedEndpointCredential] <PSCredential> [-PrivilegedE
 | Parametr | Typ | Popis |
 |-------------------------------|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | PrivilegedEndpointCredential | PSCredential | Přihlašovací údaje použité pro [přístup k privilegovanému koncovému bodu](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). Uživatelské jméno má formát **AzureStackDomain\CloudAdmin**. |
-| PrivilegedEndpoint | Řetězec | Předem nakonfigurovaná Vzdálená konzola PowerShellu, která poskytuje možnosti, jako je shromažďování protokolů a další úkoly po nasazení. Další informace najdete v článku [použití privilegovaného koncového bodu](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) . |
+| PrivilegedEndpoint | String | Předem nakonfigurovaná Vzdálená konzola PowerShellu, která poskytuje možnosti, jako je shromažďování protokolů a další úkoly po nasazení. Další informace najdete v článku [použití privilegovaného koncového bodu](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) . |
 | AzureContext | PSObject |  |
-| ResourceGroupName | Řetězec |  |
-| ResourceGroupLocation | Řetězec |  |
-| BillingModel | Řetězec | Model fakturace, který používá vaše předplatné. Povolené hodnoty pro tento parametr jsou: Capacity, PayAsYouUse a vývoj. |
+| ResourceGroupName | String |  |
+| ResourceGroupLocation | String |  |
+| BillingModel | String | Model fakturace, který používá vaše předplatné. Povolené hodnoty pro tento parametr jsou: Capacity, PayAsYouUse a vývoj. |
 | MarketplaceSyndicationEnabled | True nebo False | Určuje, jestli je na portálu dostupná funkce správy Marketplace. Nastavte na hodnotu true, pokud se registruje s připojením k Internetu. Nastavte na hodnotu false, pokud se registruje v odpojených prostředích. U odpojených registrací se dá [Nástroj pro offline syndikaci](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario) použít ke stažení položek Marketplace. |
 | UsageReportingEnabled | True nebo False | Služba Azure Stack hub hlásí metriky využití ve výchozím nastavení. Obsluha použití kapacity, která využívá nebo podporuje odpojené prostředí, musí vypnout vytváření sestav využití. Povolené hodnoty pro tento parametr jsou: true, false. |
-| AgreementNumber | Řetězec | Číslo smlouvy EA, pod kterou byla objednána SKU kapacity pro tento Azure Stack. |
-| Registrace | Řetězec | Pokud spouštíte registrační skript ve více než jedné instanci centra Azure Stack s použitím stejného ID předplatného Azure, nastavte pro registraci jedinečný název. Parametr má výchozí hodnotu **AzureStackRegistration**. Pokud však použijete stejný název na více než jedné instanci centra Azure Stack, skript se nezdařil. |
+| AgreementNumber | String | Číslo smlouvy EA, pod kterou byla objednána SKU kapacity pro tento Azure Stack. |
+| Registrace | String | Pokud spouštíte registrační skript ve více než jedné instanci centra Azure Stack s použitím stejného ID předplatného Azure, nastavte pro registraci jedinečný název. Parametr má výchozí hodnotu **AzureStackRegistration**. Pokud však použijete stejný název na více než jedné instanci centra Azure Stack, skript se nezdařil. |
 
 ### <a name="get-azsregistrationtoken"></a>Get-AzsRegistrationToken
 
@@ -493,14 +493,14 @@ Get-AzsRegistrationToken [-PrivilegedEndpointCredential] <PSCredential> [-Privil
 | Parametr | Typ | Popis |
 |-------------------------------|--------------|-------------|
 | PrivilegedEndpointCredential | PSCredential | Přihlašovací údaje použité pro [přístup k privilegovanému koncovému bodu](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). Uživatelské jméno má formát **AzureStackDomain\CloudAdmin**. |
-| PrivilegedEndpoint | Řetězec |  Předem nakonfigurovaná Vzdálená konzola PowerShellu, která poskytuje možnosti, jako je shromažďování protokolů a další úkoly po nasazení. Další informace najdete v článku [použití privilegovaného koncového bodu](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) . |
+| PrivilegedEndpoint | String |  Předem nakonfigurovaná Vzdálená konzola PowerShellu, která poskytuje možnosti, jako je shromažďování protokolů a další úkoly po nasazení. Další informace najdete v článku [použití privilegovaného koncového bodu](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) . |
 | AzureContext | PSObject |  |
-| ResourceGroupName | Řetězec |  |
-| ResourceGroupLocation | Řetězec |  |
-| BillingModel | Řetězec | Model fakturace, který používá vaše předplatné. Povolené hodnoty pro tento parametr jsou: Capacity, PayAsYouUse a vývoj. |
+| ResourceGroupName | String |  |
+| ResourceGroupLocation | String |  |
+| BillingModel | String | Model fakturace, který používá vaše předplatné. Povolené hodnoty pro tento parametr jsou: Capacity, PayAsYouUse a vývoj. |
 | MarketplaceSyndicationEnabled | True nebo False |  |
 | UsageReportingEnabled | True nebo False | Služba Azure Stack hub hlásí metriky využití ve výchozím nastavení. Obsluha použití kapacity, která využívá nebo podporuje odpojené prostředí, musí vypnout vytváření sestav využití. Povolené hodnoty pro tento parametr jsou: true, false. |
-| AgreementNumber | Řetězec |  |
+| AgreementNumber | String |  |
 
 ## <a name="registration-failures"></a>Selhání registrace
 

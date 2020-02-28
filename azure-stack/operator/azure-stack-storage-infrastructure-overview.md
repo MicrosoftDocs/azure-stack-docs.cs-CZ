@@ -7,13 +7,13 @@ ms.topic: article
 ms.date: 1/22/2020
 ms.author: inhenkel
 ms.lastreviewed: 03/11/2019
-ms.reviewer: jiahan
-ms.openlocfilehash: 4db040483ff841801081ef4f2acf60d9a9e3d4a0
-ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
+ms.reviewer: jiaha
+ms.openlocfilehash: 6bfdca8487a5725417f88b5fcf0fb1acce26635a
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/24/2020
-ms.locfileid: "77568635"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77697089"
 ---
 # <a name="manage-storage-infrastructure-for-azure-stack-hub"></a>Správa infrastruktury úložiště pro centrum Azure Stack
 
@@ -92,7 +92,7 @@ Tady je příklad výstupu ukazující odpojený svazek a degradované/nedokonč
 
 | VolumeLabel | HealthStatus | Provozním |
 |-------------|--------------|------------------------|
-| ObjStore_1 | Není známo | Odpojit |
+| ObjStore_1 | Neznámé | Odpojit |
 | ObjStore_2 | Upozornění | {Degradované, neúplné} |
 
 V následujících částech jsou uvedeny stav a provozní stavy:
@@ -173,7 +173,7 @@ Jednotka v nesprávném stavu se momentálně nedá zapisovat do nebo k ní nelz
 
 | Provozní stav | Popis |
 |---|---|
-| Rozdělení | Jednotka se od fondu oddělí.<br> <br>**Akce:** Nahraďte jednotku novým diskem. Pokud musíte použít tento disk, vyjměte disk ze systému, zajistěte, aby na disku neexistovala žádná užitečná data, disk smažete a pak disk znovu vložte. |
+| Rozdělit | Jednotka se od fondu oddělí.<br> <br>**Akce:** Nahraďte jednotku novým diskem. Pokud musíte použít tento disk, vyjměte disk ze systému, zajistěte, aby na disku neexistovala žádná užitečná data, disk smažete a pak disk znovu vložte. |
 | Nelze použít | Fyzický disk je v karanténě, protože není podporován vaším dodavatelem řešení. Podporují se jenom disky, které jsou schválené pro řešení a mají správný firmware disku.<br> <br>**Akce:** Nahraďte jednotku diskem, který má schválený výrobce a číslo modelu pro dané řešení. |
 | Zastaralá metadata | Náhradní disk byl dříve použit a může obsahovat data z neznámého systému úložiště. Disk je v karanténě. <br> <br>**Akce:** Nahraďte jednotku novým diskem. Pokud musíte použít tento disk, vyjměte disk ze systému, zajistěte, aby na disku neexistovala žádná užitečná data, disk smažete a pak disk znovu vložte. |
 | Nerozpoznaná metadata | Na disku byla nalezena nerozpoznaná metadata, což obvykle znamená, že má jednotka metadata z jiného fondu.<br> <br>**Akce:** Nahraďte jednotku novým diskem. Pokud musíte použít tento disk, vyjměte disk ze systému, zajistěte, aby na disku neexistovala žádná užitečná data, disk smažete a pak disk znovu vložte. |
@@ -196,7 +196,7 @@ Některé jednotky teď nejsou připravené na Azure Stack ve fondu úložiště
 | Nedostatečná kapacita | K dispozici jsou oddíly, které zabírají volné místo na jednotce.<br> <br>**Akce:** Nahraďte jednotku novým diskem. Pokud musíte použít tento disk, vyjměte disk ze systému, zajistěte, aby na disku neexistovala žádná užitečná data, disk smažete a pak disk znovu vložte. |
 | Probíhá ověřování. | Health Service kontroluje, jestli je jednotka nebo firmware na jednotce schválený k použití.<br> <br>**Akce:** Počkejte, než centrum Azure Stack proces dokončí, a poté stav ověřte. |
 | Ověření se nezdařilo | Health Service se nepovedlo ověřit, jestli je jednotka nebo firmware na jednotce schválený k použití.<br> <br>**Akce:** Obraťte se na podporu. Než to uděláte, spusťte proces shromažďování souborů protokolu pomocí pokynů z https://aka.ms/azurestacklogfiles. |
-| V režimu offline | Jednotka je offline. <br> <br>**Akce:** Obraťte se na podporu. Než to uděláte, spusťte proces shromažďování souborů protokolu pomocí pokynů z https://aka.ms/azurestacklogfiles. |
+| Offline | Jednotka je offline. <br> <br>**Akce:** Obraťte se na podporu. Než to uděláte, spusťte proces shromažďování souborů protokolu pomocí pokynů z https://aka.ms/azurestacklogfiles. |
 
 ## <a name="next-step"></a>Další krok
 

@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: sethm
 ms.reviewer: unknown
-ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: f857fc92c5fec814ebd44aeb8bb12449f777586f
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 10/22/2019
+ms.openlocfilehash: 59fa339cfa58fa2c5c6b0e1b727cf2adee79b7e2
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76879427"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77701492"
 ---
 # <a name="connect-azure-stack-hub-to-azure-using-azure-expressroute"></a>Připojení centra Azure Stack k Azure pomocí Azure ExpressRoute
 
@@ -95,7 +95,7 @@ Pro vytvoření požadovaných síťových prostředků v centru Azure Stack pro
 
    |Pole  |Hodnota  |
    |---------|---------|
-   |Name (Název)     |Tenant1VNet1         |
+   |Název     |Tenant1VNet1         |
    |Adresní prostor     |10.1.0.0/16|
    |Název podsítě     |Tenant1-Sub1|
    |Rozsah adres podsítě     |10.1.1.0/24|
@@ -104,7 +104,7 @@ Pro vytvoření požadovaných síťových prostředků v centru Azure Stack pro
 
     * V části **Skupina prostředků**vyberte **vytvořit novou** , pokud chcete vytvořit novou skupinu prostředků, nebo pokud ji už máte, vyberte **použít existující**.
     * Ověřte výchozí **umístění**.
-    * Klikněte na **Vytvořit**.
+    * Klikněte na možnost **Vytvořit**.
     * Volitelné Klikněte na **Připnout na řídicí panel**.
 
 #### <a name="create-the-gateway-subnet"></a>Vytvoření podsítě brány
@@ -127,7 +127,7 @@ Pro vytvoření požadovaných síťových prostředků v centru Azure Stack pro
 1. Vyberte **Veřejná IP adresa**, pak **Zvolte veřejná IP adresa**a pak klikněte na **vytvořit novou**.
 1. Do pole **název** zadejte **gw1-PIP**a pak klikněte na **OK**.
 1. Jako **Typ VPN** by ve výchozím nastavení měla být vybraná možnost **Založená na trasách**. Toto nastavení zachovejte.
-1. Ověřte, že nastavení **Předplatné** a **Umístění** jsou správná. Klikněte na **Vytvořit**.
+1. Ověřte, že nastavení **Předplatné** a **Umístění** jsou správná. Klikněte na možnost **Vytvořit**.
 
 #### <a name="create-the-local-network-gateway"></a>Vytvoření brány místní sítě
 
@@ -154,7 +154,7 @@ Prostředek brány místní sítě identifikuje vzdálenou bránu na druhém kon
 1. V části **Azure Marketplace**vyberte **sítě**.
 1. V seznamu prostředků vyberte **Připojení**.
 1. V části **základy**vyberte **Typ připojení** **site-to-Site (IPSec)** .
-1. Vyberte **předplatné**, **skupinu prostředků**a **umístění**. Klikněte na **OK**.
+1. Vyberte **předplatné**, **skupinu prostředků**a **umístění**. Klikněte na tlačítko **OK**.
 1. V části **Nastavení**vyberte **Brána virtuální sítě**a pak vyberte **gw1**.
 1. Vyberte **Brána místní sítě**a pak vyberte **ER router GS**.
 1. Do pole **název připojení** zadejte **ConnectToAzure**.
@@ -318,7 +318,7 @@ Navázat na střed a paprsk virtuální sítě pomocí kroků v části [vytvoř
 * Z centra až po paprsek **Povolte přenos brány**.
 * Z paprsku do centra **použijte vzdálenou bránu**.
 
-### <a name="create-a-virtual-machine"></a>Vytvoření virtuálního počítače
+### <a name="create-a-virtual-machine"></a>Vytvořit virtuální počítač
 
 Nasaďte virtuální počítače pro úlohy do virtuální sítě rozbočovače.
 

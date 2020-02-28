@@ -1,5 +1,5 @@
 ---
-title: Co je Azure Stack Development Kit (ASDK)? | Dokumentace Microsoftu
+title: Co je Azure Stack Development Kit (ASDK)? | Dokumenty Microsoft
 description: Přečtěte si o Azure Stack Development Kit a o tom, jak se používá k vyhodnocení centra Azure Stack.
 author: justinha
 ms.topic: overview
@@ -7,12 +7,12 @@ ms.date: 11/27/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 11/27/2019
-ms.openlocfilehash: 7d3b4115ea34a185c5535c77cecdddf060ed84eb
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: a37547a7c2e5a737685e370307a1ae8f37d5d363
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76873290"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77690544"
 ---
 # <a name="what-is-the-azure-stack-development-kit-asdk"></a>Co je Azure Stack Development Kit (ASDK)?
 Rozsah [integrovaných systémů centra Microsoft Azure Stack](../operator/azure-stack-overview.md) je velikost z uzlů 4-16 a jsou společně podporovány hardwarovým partnerem a společností Microsoft. Pomocí integrovaných systémů Azure Stack Hub můžete pro vaše produkční úlohy povolit nové scénáře. Pokud jste operátor centra Azure Stack, který spravuje infrastrukturu integrovaných systémů a nabízí služby, přečtěte si naši [dokumentaci k operátorovi](/azure-stack/operator).
@@ -40,7 +40,7 @@ Nasazení ASDK s jedním uzlem se liší od nasazení na více uzlech Azure Stac
 |-----|-----|-----|
 |**Škálování**|Všechny komponenty jsou nainstalovány v počítači serveru s jedním uzlem.|Velikost může být v rozsahu od 4-16 uzlů.|
 |**Odolnost**|Konfigurace s jedním uzlem neposkytuje vysokou dostupnost.|Podporují se možnosti vysoké dostupnosti.|
-|**Sítě**|Hostitel ASDK směruje všechny síťové přenosy ASDK. Neexistují žádné další požadavky na přepínač.|Složitější [infrastruktura síťového směrování](../operator/azure-stack-network.md#network-infrastructure) v nasazeních s více uzly je nezbytná, včetně přepínačů "rozvaděče", řadiče pro správu základní desky (BMC) a hraniční sítě (síť datacenter).|
+|**Networking**|Hostitel ASDK směruje všechny síťové přenosy ASDK. Neexistují žádné další požadavky na přepínač.|Složitější [infrastruktura síťového směrování](../operator/azure-stack-network.md#network-infrastructure) v nasazeních s více uzly je nezbytná, včetně přepínačů "rozvaděče", řadiče pro správu základní desky (BMC) a hraniční sítě (síť datacenter).|
 |**Proces opravy a aktualizace**|Chcete-li přejít na novou verzi nástroje ASDK, je nutné znovu nasadit ASDK na hostitelském počítači ASDK.|Proces [opravy a aktualizace](../operator/azure-stack-updates.md) , který se používá k aktualizaci nainstalované verze centra Azure Stack.|
 |**Podpora**|Fórum MSDN Azure Stack. Podpora zákaznických služeb a podpory společnosti Microsoft (CSS) *není dostupná pro* neprodukční prostředí.|[MSDN Azure Stack Fórum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack) a plná podpora šablon stylů CSS.|
 | | |
@@ -50,8 +50,8 @@ Jako operátor centra Azure Stack potřebujete znát, které služby můžete u�
 
 ### <a name="foundational-services"></a>Základní služby
 Ve výchozím nastavení zahrnuje Azure Stack hub při nasazení rozhraní ASDK následující "základní služby":
-- Služby Compute
-- Storage
+- Výpočty
+- Úložiště
 - Sítě
 - Key Vault
 
@@ -59,8 +59,8 @@ S těmito základními službami můžete uživatelům s minimální konfigurac�
 
 ### <a name="additional-services"></a>Další služby
 V současné době jsou podporovány následující další služby platformy jako služby (PaaS):
-- Aplikační služba
-- Funkce Azure
+- App Service
+- Azure Functions
 - Databáze SQL a MySQL
 
 > [!NOTE]

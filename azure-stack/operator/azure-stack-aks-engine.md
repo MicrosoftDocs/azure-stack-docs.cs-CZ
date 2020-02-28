@@ -3,20 +3,20 @@ title: Přidání požadavků modulu Azure Kubernetes Services (AKS) do tržišt
 description: Přečtěte si, jak přidat požadavky na modul AKS do tržiště centra Azure Stack.
 author: mattbriggs
 ms.topic: article
-ms.date: 11/21/2019
+ms.date: 2/27/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 59f49e3d59fa077f4308a62b567ee3dd147ba4f4
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 9c728b17913379edb13683ed4b5f1615d391b922
+ms.sourcegitcommit: bbc4023c9a673c146de4a9e242311d429f7781eb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76874786"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77782745"
 ---
 # <a name="add-the-azure-kubernetes-services-aks-engine-prerequisites-to-the-azure-stack-hub-marketplace"></a>Přidání požadavků modulu Azure Kubernetes Services (AKS) do tržiště centra Azure Stack
 
-Přidáním položek popsaných v tomto článku do centra Azure Stack můžete uživatelům povolit, aby si nastavili modul Azure Kubernetes Services (AKS). Uživatelé pak mohou nasadit cluster Kubernetes v rámci jediné koordinované operace. Tento článek vás provede kroky potřebnými k tomu, aby byl modul AKS k dispozici pro vaše uživatele v připojených i odpojených prostředích. Modul AKS závisí na identitě služby a na webu Marketplace, ve vlastním rozšíření skriptu a na základní imagi AKS.
+Přidáním položek popsaných v tomto článku do centra Azure Stack můžete uživatelům povolit, aby si nastavili modul Azure Kubernetes Services (AKS). Uživatelé pak mohou nasadit cluster Kubernetes v rámci jediné koordinované operace. Tento článek vás provede kroky potřebnými k tomu, aby byl modul AKS k dispozici pro vaše uživatele v připojených i odpojených prostředích. Modul AKS závisí na identitě služby a na webu Marketplace, ve vlastním rozšíření skriptu a na základní imagi AKS. Modul AKS vyžaduje, abyste spustili [Azure Stack Hub 1910](release-notes.md?view=azs-1910) nebo vyšší.
 
 ## <a name="check-your-users-service-offering"></a>Ověření nabídky služeb uživatele
 
@@ -42,7 +42,7 @@ Základní image AKS můžete na Marketplace přidat tak, že získáte položku
 
 Do Marketplace přidejte následující položku:
 
-1. Přihlaste se k [portál pro správu](https://adminportal.local.azurestack.external).
+1. Přihlaste se k [portálu pro správu](https://adminportal.local.azurestack.external).
 
 1. Vyberte **všechny služby**a potom v kategorii **Správa** vyberte **Správa Marketplace**.
 

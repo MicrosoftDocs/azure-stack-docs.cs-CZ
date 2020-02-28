@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 2fac02fc6bae0d8bfedebcbb059e376d616a5b87
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 144163b415a5d5aaa914b2c36ab036b587acd999
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76875534"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77688810"
 ---
 # <a name="out-of-stock-detection-at-the-edge-pattern"></a>Zjišťování z hranice hraničního modelu z neaktivního zásobníku
 
@@ -43,7 +43,7 @@ Jak řešení funguje:
 
 Toto řešení používá následující komponenty:
 
-| Vrstva | Součást | Popis |
+| Vrstva | Komponenta | Popis |
 |----------|-----------|-------------|
 | Místní hardware | Síťová kamera | Je vyžadován síťový fotoaparát s kanálem HTTP nebo RTSP pro poskytování imagí pro odvození. |
 | Azure | Azure IoT Hub | [Azure IoT Hub](/azure/iot-hub/) zpracovává zřizování zařízení a zasílání zpráv pro hraniční zařízení. |

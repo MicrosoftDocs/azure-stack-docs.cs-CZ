@@ -7,12 +7,12 @@ ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/08/2019
-ms.openlocfilehash: 03ec8b455991a85515793d1098df0f72497299b9
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: dea5064e03fe5710dbd1d734e425a3592dc062cf
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883305"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703787"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack-hub"></a>Verze rozhraní API poskytovatele prostředků podporované profily v centru Azure Stack
 
@@ -21,8 +21,8 @@ Pro každý profil rozhraní API používaný službou Azure Stack hub v tomto �
 Profil rozhraní API používá tři konvence pojmenování:
 
 - **nejnovější**
-- **yyyy-mm-dd-hybrid**
-- **yyyy-mm-dd-profile**
+- **RRRR-MM-DD – Hybrid**
+- **RRRR-MM-DD – profil**
 
 Vysvětlení profilů rozhraní API a verze tempo pro centra Azure Stack najdete v tématu [Správa profilů verzí rozhraní API v centru Azure Stack](azure-stack-version-profiles.md).
 
@@ -39,9 +39,9 @@ Vysvětlení profilů rozhraní API a verze tempo pro centra Azure Stack najdete
 | Microsoft. Storage (řídicí plocha) | 2017-10-01 |
 | Microsoft.Web | 2018-02-01 |
 | Microsoft.KeyVault | 2016-10-01 (nemění se) |
-| Microsoft. Resources (Azure Resource Manager sám sebe) | 2016-06-01 |
-| Microsoft. Authorization (operace zásad) | 2016-09-01 |
-| Microsoft.Insights | 2018-01-01 |
+| Microsoft. Resources (Azure Resource Manager sám sebe) | 1\. 6. 2016 |
+| Microsoft. Authorization (operace zásad) | 1\. 9. 2016 |
+| Microsoft.Insights | 1\. 1. 2018 |
 
 Seznam verzí pro každý typ prostředku pro zprostředkovatele v profilu rozhraní API najdete v [podrobnostech pro 2019-03-01 – hybridní profil](#details-for-the-2019-03-01-hybrid-profile).
 
@@ -53,10 +53,10 @@ Seznam verzí pro každý typ prostředku pro zprostředkovatele v profilu rozhr
 
 | Typy prostředků | Verze rozhraní API |
 |---------------------|--------------------|
-| Zámky | 2016-09-01 |
-| Operations | 2015-07-01 |
+| Zámky | 1\. 9. 2016 |
+| Operace | 2015-07-01 |
 | Oprávnění | 2015-07-01 |
-| Přiřazení zásad | 2016-12-01 |
+| Policy Assignments (Přiřazení zásad) | 2016-12-01 |
 | Definice zásad | 2016-12-01 |
 | Operace poskytovatele | 2015-07-01 |
 | Přiřazení rolí | 2015-07-01 |
@@ -69,7 +69,7 @@ Seznam verzí pro každý typ prostředku pro zprostředkovatele v profilu rozhr
 | Delegovaná předplatná zprostředkovatele | 2015-06-01 – Preview |
 | Agregace delegovaného použití | 2015-06-01 – Preview |
 | Odhad útraty prostředků | 2015-06-01 – Preview |
-| Operations | 2015-06-01 – Preview |
+| Operace | 2015-06-01 – Preview |
 | Agregace využití předplatitele | 2015-06-01 – Preview |
 | Agregace využití | 2015-06-01 – Preview |
 
@@ -85,10 +85,10 @@ Rozhraní API služby Azure COMPUTE poskytují programový přístup k virtuáln
 | Umístění/vydavatelé | 2017-12-01 |
 | Umístění/použití | 2017-12-01 |
 | Umístění/povolených velikostí | 2017-12-01 |
-| Operations | 2017-12-01 |
-| Služba Virtual Machines | 2017-12-01 |
+| Operace | 2017-12-01 |
+| Virtuální počítače | 2017-12-01 |
 | Virtual Machines/rozšíření | 2017-12-01 |
-| Škálovací sady virtuálních počítačů | 2017-12-01 |
+| Virtual Machine Scale Sets | 2017-12-01 |
 | Virtual Machine Scale Sets/rozšíření | 2017-12-01 |
 | Virtual Machine Scale Sets/síťová rozhraní | 2017-12-01 |
 | Virtual Machine Scale Sets/Virtual Machines | 2017-12-01|
@@ -102,7 +102,7 @@ Rozhraní API služby Azure COMPUTE poskytují programový přístup k virtuáln
 | Obsah pro léčební | 2015-04-01 |
 | Extrakce pro získávání | 2015-04-01 |
 | Položky Galerie | 2015-04-01 |
-| Operations | 2015-04-01 |
+| Operace | 2015-04-01 |
 | Portál | 2015-04-01 |
 | Hledat | 2015-04-01 |
 | Navrhovat | 2015-04-01 |
@@ -111,11 +111,11 @@ Rozhraní API služby Azure COMPUTE poskytují programový přístup k virtuáln
 
 | Typy prostředků | Verze rozhraní API |
 |--------------------|--------------------|
-| Operations | 2015-04-01 |
+| Operace | 2015-04-01 |
 | Typy událostí | 2015-04-01 |
 | Kategorie událostí | 2015-04-01 |
-| Definice metriky | 2018-01-01 |
-| Metriky | 2018-01-01 |
+| Definice metriky | 1\. 1. 2018 |
+| Metriky | 1\. 1. 2018 |
 | Nastavení diagnostiky | 2017-05-01-preview |
 | Kategorie nastavení diagnostiky | 2017-05-01-preview |
 
@@ -125,7 +125,7 @@ Spravujte své Key Vault a také klíče, tajné klíče a certifikáty v rámci
 
 | Typy prostředků | Verze rozhraní API |
 |-------------------------|--------------|
-| Operations | 2016-10-01 |
+| Operace | 2016-10-01 |
 | Trezory | 2016-10-01 |
 | Trezory/zásady přístupu | 2016-10-01 |
 | Trezory/tajné klíče | 2016-10-01 |
@@ -138,19 +138,19 @@ Výsledkem volání operací je reprezentace seznamu dostupných síťových clo
 |---------------------------|--------------|
 | Připojení | 2017-10-01 |
 | Zóny DNS | 2016-04-01 |
-| Nástroje pro vyrovnávání zatížení | 2017-10-01 |
+| Vyrovnávání zátěže | 2017-10-01 |
 | Brána místní sítě | 2017-10-01 |
 | Umístění | 2017-10-01|
 | Umístění/operationResults | 2017-10-01 |
 | Umístění/operace | 2017-10-01 |
 | Umístění/použití |2017-10-01 |
 | Síťová rozhraní | 2017-10-01 |
-| Skupiny zabezpečení sítě | 2017-10-01 |
-| Operations | 2017-10-01 |
+| Network Security Groups (Skupiny zabezpečení sítě) | 2017-10-01 |
+| Operace | 2017-10-01 |
 | Veřejná IP adresa | 2017-10-01 |
 | Směrovací tabulky | 2017-10-01 |
 | Brána virtuální sítě | 2017-10-01 |
-| Služby Virtual Networks | 2017-10-01 |
+| Virtuální sítě | 2017-10-01 |
 
 ### <a name="microsoftresources"></a>Microsoft. Resources
 
@@ -162,12 +162,12 @@ Azure Resource Manager vám umožní nasadit a spravovat infrastrukturu pro vaš
 | Nasazení/operace | 2018-05-01 |
 | Odkazy | 2018-05-01 |
 | Umístění | 2018-05-01 |
-| Operations | 2018-05-01 |
+| Operace | 2018-05-01 |
 | Poskytovatelé | 2018-05-01 |
 | SkupinyProstředků| 2018-05-01 |
-| Materiály | 2018-05-01/ |
+| Prostředky | 2018-05-01/ |
 | Předplatná | 2018-05-01 |
-| Předplatná/umístění | 2016-06-01 |
+| Předplatná/umístění | 1\. 6. 2016 |
 | Předplatná/operationresults | 2018-05-01 |
 | Předplatná/poskytovatelé | 2018-05-01 |
 | Předplatná/ResourceGroups | 2018-05-01 |
@@ -175,7 +175,7 @@ Azure Resource Manager vám umožní nasadit a spravovat infrastrukturu pro vaš
 | Předplatná/prostředky | 2018-05-01 |
 | Předplatná/tagNames | 2018-05-01 |
 | Předplatná/tagNames/tagValues | 2018-05-01 |
-| tenantů | 2016-06-01 |
+| Klienti | 1\. 6. 2016 |
 
 ### <a name="microsoftstorage"></a>Microsoft.Storage
 
@@ -186,7 +186,7 @@ Zprostředkovatel prostředků úložiště (SRP) umožňuje programově spravov
 | CheckNameAvailability | 2017-10-01 |
 | Umístění | 2017-10-01 |
 | Umístění/kvóty | 2017-10-01 |
-| Operations | 2017-10-01 |
+| Operace | 2017-10-01 |
 | storageAccounts | 2017-10-01 |
 | použití | 2017-10-01 |
 

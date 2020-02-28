@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.date: 11/11/2019
 ms.author: mabrigg
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 2404ad1cb352690ab2cb7c9077ee562cf0fdfb94
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: fef79314cbea08b6ea04ed91416a9bc753278747
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883279"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703770"
 ---
 # <a name="quickstart-create-a-linux-server-vm-by-using-powershell-in-azure-stack-hub"></a>Rychlý Start: Vytvoření virtuálního počítače s Linux serverem pomocí prostředí PowerShell v centru Azure Stack
 
@@ -31,7 +31,7 @@ Virtuální počítač s Ubuntu serverem 16,04 LTS můžete vytvořit pomocí ce
 
 * Klíč veřejného Secure Shell (SSH) s názvem *id_rsa. pub* uložený v adresáři *. ssh* uživatelského profilu Windows. Podrobné informace o vytváření klíčů SSH najdete v tématu [použití veřejného klíče SSH](azure-stack-dev-start-howto-ssh-public-key.md).
 
-## <a name="create-a-resource-group"></a>Vytvoření skupiny prostředků
+## <a name="create-a-resource-group"></a>Vytvořit skupinu prostředků
 
 Skupina prostředků je logický kontejner, ve kterém můžete nasazovat a spravovat prostředky centra Azure Stack. Chcete-li vytvořit skupinu prostředků, spusťte následující blok kódu: 
 

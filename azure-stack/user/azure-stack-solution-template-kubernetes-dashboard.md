@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: af3b8b9b0049782aa401c4ce7c6e872b4e07e852
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: e2b6598137774a5bf654aef1f9a75827da4f108a
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884385"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703634"
 ---
 # <a name="access-the-kubernetes-dashboard-in-azure-stack-hub"></a>Přístup k řídicímu panelu Kubernetes v centru Azure Stack 
 
@@ -61,7 +61,7 @@ Adresu URL řídicího panelu můžete načíst z hlavního uzlu v clusteru.
     ```Bash   
     kubectl cluster-info 
     ``` 
-    Vyhledejte adresu URL řídicího panelu. Například: `https://k8-1258.local.cloudapp.azurestack.external/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy`
+    Vyhledejte adresu URL řídicího panelu. Příklad: `https://k8-1258.local.cloudapp.azurestack.external/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy`
 
 6.  Extrahujte certifikát podepsaný svým držitelem a převeďte ho do formátu PFX. Spusťte následující příkaz:
 

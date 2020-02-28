@@ -7,12 +7,12 @@ ms.date: 01/23/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 1236e501ce09b5e81124f8bc87821d1b5f11cfaa
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 5b79c676b922f0e76ed75e3ad043f53c1fb9d6a5
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883099"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77705164"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack-hub"></a>Použití profilů verzí rozhraní API s Ruby v Azure Stack hub
 
@@ -233,7 +233,7 @@ Pokud chcete ukázku spustit, ujistěte se, že máte nainstalovanou Ruby. Pokud
 
 3. Vytvořte instanční objekt Azure pomocí PowerShellu a načtěte potřebné hodnoty.
 
-   Pokyny k vytvoření instančního objektu najdete v tématu [pomocí prostředí Azure PowerShell k vytvoření instančního objektu s certifikátem](../operator/azure-stack-create-service-principals.md).
+   Pokyny k vytvoření instančního objektu najdete v tématu [použití Azure PowerShell k vytvoření instančního objektu s certifikátem](../operator/azure-stack-create-service-principals.md).
 
    Požadované hodnoty:
 

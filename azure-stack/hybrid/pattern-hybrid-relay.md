@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 7315013253c04ebbb231a0915dba610e459848e7
-ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
+ms.openlocfilehash: 945aaf9fa9d422418718c87545c238239220bc06
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/30/2020
-ms.locfileid: "76890064"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77688776"
 ---
 # <a name="hybrid-relay-pattern"></a>Vzor hybridního přenosu
 
@@ -39,12 +39,12 @@ Jak řešení funguje:
 
 Toto řešení používá následující komponenty:
 
-| Vrstva | Součást | Popis |
+| Vrstva | Komponenta | Popis |
 |----------|-----------|-------------|
 | Azure | Virtuální počítač Azure | Virtuální počítač Azure poskytuje veřejně přístupný koncový bod pro místní prostředek. |
 | | Azure Service Bus Relay | [Azure Service Bus Relay](/azure/service-bus-relay/) poskytuje infrastrukturu pro zachovávání tunelu a připojení mezi virtuálním počítačem Azure a virtuálním počítačem centra Azure Stack.|
-| Azure Stack Hub | Služby Compute | Virtuální počítač centra Azure Stack poskytuje na straně serveru tunelové propojení hybridního přenosu. |
-| | Storage | Cluster modulu AKS nasazený do centra Azure Stack poskytuje škálovatelný a odolný modul pro spuštění kontejneru Face API.|
+| Centrum Azure Stack | Výpočty | Virtuální počítač centra Azure Stack poskytuje na straně serveru tunelové propojení hybridního přenosu. |
+| | Úložiště | Cluster modulu AKS nasazený do centra Azure Stack poskytuje škálovatelný a odolný modul pro spuštění kontejneru Face API.|
 
 ## <a name="issues-and-considerations"></a>Problémy a důležité informace
 

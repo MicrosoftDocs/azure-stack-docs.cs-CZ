@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 51224171848b6109a7cd3d8eb2d5fa1fdcb70973
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: f492eba4cd2fae28162eb47b990737a8f5b21c53
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76875772"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77689524"
 ---
 # <a name="cross-cloud-scaling-on-premises-data-pattern"></a>Škálování mezi cloudy (místní data) – vzor
 
@@ -34,18 +34,18 @@ Průvodce nasazením řešení umožňuje nasadit identickou webovou aplikaci do
 
 Toto řešení používá následující komponenty:
 
-| Vrstva | Součást | Popis |
+| Vrstva | Komponenta | Popis |
 |----------|-----------|-------------|
 | Azure | Azure App Service | [Azure App Service](/azure/app-service/) umožňuje sestavovat a hostovat webové aplikace, aplikace API RESTful a Azure Functions. Vše v programovacím jazyce podle vašeho výběru bez správy infrastruktury. |
 | | Azure Virtual Network| [Azure Virtual Network (VNET)](/azure/virtual-network/virtual-networks-overview) je základní stavební blok pro privátní sítě v Azure. Virtuální síť umožňuje více typů prostředků Azure, například Virtual Machines (VM), aby bylo možné zabezpečeně komunikovat mezi sebou, internetem a místními sítěmi. Řešení také ukazuje použití dalších síťových součástí:<br>– podsítě aplikací a brány<br>– místní brána místní sítě<br>– Brána virtuální sítě, která funguje jako připojení brány VPN typu Site-to-site.<br>– Veřejná IP adresa<br>– připojení VPN typu Point-to-site<br>– Azure DNS pro hostování domén DNS a poskytování překladu názvů |
 | | Azure Traffic Manager | [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview) je nástroj pro vyrovnávání zatížení pro provoz založený na DNS. Umožňuje řídit distribuci provozu uživatelů pro koncové body služby v různých datových centrech. |
 | | Azure Application Insights | [Application Insights](/azure/azure-monitor/app/app-insights-overview) je rozšiřitelná služba pro správu výkonu aplikací, která vývojářům umožňuje vytvářet a spravovat aplikace na různých platformách.|
-| | Funkce Azure | [Azure Functions](/azure/azure-functions/) vám umožní spustit kód v prostředí bez serveru, aniž byste nejdřív museli vytvořit virtuální počítač nebo publikovat webovou aplikaci. |
-| | Automatické škálování v Azure | [Automatické škálování](/azure/azure-monitor/platform/autoscale-overview) je integrovaná funkce Cloud Services, Virtual Machines a webových aplikací. Tato funkce umožňuje aplikacím provádět své nejlepší změny při změnách na vyžádání. Aplikace se upraví pro špičky provozu a upozorní vás, až se metriky změní, a podle potřeby Škálujte. |
-| Azure Stack Hub | IaaS COMPUTE | Centrum Azure Stack umožňuje používat stejný aplikační model, Samoobslužný portál a rozhraní API, které podporuje Azure. Azure Stack centra IaaS umožňuje širokou škálu Open Source technologií pro konzistentní nasazení hybridních cloudů. Příklad řešení používá virtuální počítač s Windows serverem, který SQL Server například.|
+| | Azure Functions | [Azure Functions](/azure/azure-functions/) vám umožní spustit kód v prostředí bez serveru, aniž byste nejdřív museli vytvořit virtuální počítač nebo publikovat webovou aplikaci. |
+| | Automatické škálování Azure | [Automatické škálování](/azure/azure-monitor/platform/autoscale-overview) je integrovaná funkce Cloud Services, Virtual Machines a webových aplikací. Tato funkce umožňuje aplikacím provádět své nejlepší změny při změnách na vyžádání. Aplikace se upraví pro špičky provozu a upozorní vás, až se metriky změní, a podle potřeby Škálujte. |
+| Centrum Azure Stack | IaaS COMPUTE | Centrum Azure Stack umožňuje používat stejný aplikační model, Samoobslužný portál a rozhraní API, které podporuje Azure. Azure Stack centra IaaS umožňuje širokou škálu Open Source technologií pro konzistentní nasazení hybridních cloudů. Příklad řešení používá virtuální počítač s Windows serverem, který SQL Server například.|
 | | Azure App Service | Stejně jako u webové aplikace Azure používá řešení [Azure App Service v centru Azure Stack](/azure-stack/operator/azure-stack-app-service-overview) k hostování webové aplikace. |
 | | Sítě | Virtual Network centra Azure Stack funguje stejně jako Azure Virtual Network. Používá mnoho ze stejných síťových součástí, včetně vlastních názvů hostitelů. 
-| Azure DevOps Services | Zaregistrovat | Rychle nastavte průběžnou integraci pro sestavení, testování a nasazení. Další informace najdete v tématu [registrace, přihlášení do Azure DevOps](/azure/devops/user-guide/sign-up-invite-teammates?view=azure-devops). |
+| Azure DevOps Services | Registrace | Rychle nastavte průběžnou integraci pro sestavení, testování a nasazení. Další informace najdete v tématu [registrace, přihlášení do Azure DevOps](/azure/devops/user-guide/sign-up-invite-teammates?view=azure-devops). |
 | | Azure Pipelines | Použijte [Azure Pipelines](/azure/devops/pipelines/agents/agents?view=azure-devops) pro průběžnou integraci/průběžné doručování. Azure Pipelines umožňuje spravovat hostované agenty sestavení a vydání a definice. |
 | | Úložiště kódu | Využijte více úložišť kódu pro zjednodušení vašeho vývojového kanálu. Používejte existující úložiště kódu na GitHubu, BitBucket, Dropboxu, OneDrivu a Azure Repos. |
 
