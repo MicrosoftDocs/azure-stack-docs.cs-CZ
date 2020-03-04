@@ -7,12 +7,12 @@ ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/08/2019
-ms.openlocfilehash: dea5064e03fe5710dbd1d734e425a3592dc062cf
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 3b3ea77dcbb59f2a0471225000aa48624bcb1a15
+ms.sourcegitcommit: 390eac7abc94cea1405178e8d6a9358f6488f5d9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77703787"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231668"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack-hub"></a>Verze rozhraní API poskytovatele prostředků podporované profily v centru Azure Stack
 
@@ -39,9 +39,9 @@ Vysvětlení profilů rozhraní API a verze tempo pro centra Azure Stack najdete
 | Microsoft. Storage (řídicí plocha) | 2017-10-01 |
 | Microsoft.Web | 2018-02-01 |
 | Microsoft.KeyVault | 2016-10-01 (nemění se) |
-| Microsoft. Resources (Azure Resource Manager sám sebe) | 1\. 6. 2016 |
-| Microsoft. Authorization (operace zásad) | 1\. 9. 2016 |
-| Microsoft.Insights | 1\. 1. 2018 |
+| Microsoft. Resources (Azure Resource Manager sám sebe) | 2016-06-01 |
+| Microsoft. Authorization (operace zásad) | 2016-09-01 |
+| Microsoft.Insights | 2018-01-01 |
 
 Seznam verzí pro každý typ prostředku pro zprostředkovatele v profilu rozhraní API najdete v [podrobnostech pro 2019-03-01 – hybridní profil](#details-for-the-2019-03-01-hybrid-profile).
 
@@ -53,10 +53,10 @@ Seznam verzí pro každý typ prostředku pro zprostředkovatele v profilu rozhr
 
 | Typy prostředků | Verze rozhraní API |
 |---------------------|--------------------|
-| Zámky | 1\. 9. 2016 |
+| Zámky | 2016-09-01 |
 | Operace | 2015-07-01 |
 | Oprávnění | 2015-07-01 |
-| Policy Assignments (Přiřazení zásad) | 2016-12-01 |
+| Přiřazení zásad | 2016-12-01 |
 | Definice zásad | 2016-12-01 |
 | Operace poskytovatele | 2015-07-01 |
 | Přiřazení rolí | 2015-07-01 |
@@ -104,7 +104,7 @@ Rozhraní API služby Azure COMPUTE poskytují programový přístup k virtuáln
 | Položky Galerie | 2015-04-01 |
 | Operace | 2015-04-01 |
 | Portál | 2015-04-01 |
-| Hledat | 2015-04-01 |
+| Hledání | 2015-04-01 |
 | Navrhovat | 2015-04-01 |
 
 ### <a name="microsoftinsights"></a>Microsoft.Insights
@@ -114,8 +114,8 @@ Rozhraní API služby Azure COMPUTE poskytují programový přístup k virtuáln
 | Operace | 2015-04-01 |
 | Typy událostí | 2015-04-01 |
 | Kategorie událostí | 2015-04-01 |
-| Definice metriky | 1\. 1. 2018 |
-| Metriky | 1\. 1. 2018 |
+| Definice metriky | 2018-01-01 |
+| Metriky | 2018-01-01 |
 | Nastavení diagnostiky | 2017-05-01-preview |
 | Kategorie nastavení diagnostiky | 2017-05-01-preview |
 
@@ -138,7 +138,7 @@ Výsledkem volání operací je reprezentace seznamu dostupných síťových clo
 |---------------------------|--------------|
 | Připojení | 2017-10-01 |
 | Zóny DNS | 2016-04-01 |
-| Vyrovnávání zátěže | 2017-10-01 |
+| Nástroje pro vyrovnávání zatížení | 2017-10-01 |
 | Brána místní sítě | 2017-10-01 |
 | Umístění | 2017-10-01|
 | Umístění/operationResults | 2017-10-01 |
@@ -165,9 +165,9 @@ Azure Resource Manager vám umožní nasadit a spravovat infrastrukturu pro vaš
 | Operace | 2018-05-01 |
 | Poskytovatelé | 2018-05-01 |
 | SkupinyProstředků| 2018-05-01 |
-| Prostředky | 2018-05-01/ |
+| Zdroje | 2018-05-01/ |
 | Předplatná | 2018-05-01 |
-| Předplatná/umístění | 1\. 6. 2016 |
+| Předplatná/umístění | 2016-06-01 |
 | Předplatná/operationresults | 2018-05-01 |
 | Předplatná/poskytovatelé | 2018-05-01 |
 | Předplatná/ResourceGroups | 2018-05-01 |
@@ -175,7 +175,7 @@ Azure Resource Manager vám umožní nasadit a spravovat infrastrukturu pro vaš
 | Předplatná/prostředky | 2018-05-01 |
 | Předplatná/tagNames | 2018-05-01 |
 | Předplatná/tagNames/tagValues | 2018-05-01 |
-| Klienti | 1\. 6. 2016 |
+| Klienti | 2016-06-01 |
 
 ### <a name="microsoftstorage"></a>Microsoft.Storage
 

@@ -7,12 +7,12 @@ ms.date: 01/23/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 6dc30839ba08a793ead0e857f17e97a90222f7a5
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: c0be80757eb12daac9d452f79ed7c0f5b7326120
+ms.sourcegitcommit: 390eac7abc94cea1405178e8d6a9358f6488f5d9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77705215"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231634"
 ---
 # <a name="use-api-version-profiles-with-java-in-azure-stack-hub"></a>Použití profilů verzí rozhraní API pomocí Java v centru Azure Stack
 
@@ -40,7 +40,7 @@ Profil rozhraní API je kombinací poskytovatelů prostředků a verze rozhraní
      <dependency>
      <groupId>com.microsoft.azure.profile_2019_03_01_hybrid</groupId>
      <artifactId>azure</artifactId>
-     <version>1.0.0-beta</version>
+     <version>1.0.0-beta-1</version>
      </dependency>
      ```
 
@@ -62,7 +62,7 @@ Pomocí těchto kroků nainstalujete Java SDK:
    <dependency>
    <groupId>com.microsoft.azure.profile_2019_03_01_hybrid</groupId>
    <artifactId>azure</artifactId>
-   <version>1.0.0-beta</version>
+   <version>1.0.0-beta-1</version>
    </dependency>
    ```
 
@@ -78,7 +78,7 @@ Pomocí těchto kroků nainstalujete Java SDK:
 
 7. Ujistěte se, že má instančního objektu služby roli Přispěvatel nebo vlastník v rámci předplatného. Pokyny k přiřazení role k instančnímu objektu najdete v tématu [poskytnutí přístupu aplikací k rozbočovači Azure Stack](../operator/azure-stack-create-service-principals.md).
 
-## <a name="prerequisites"></a>Požadavky
+## <a name="prerequisites"></a>Předpoklady
 
 Pokud chcete používat sadu Azure Java SDK s Azure Stack hub, musíte zadat následující hodnoty a potom nastavit hodnoty pomocí proměnných prostředí. Chcete-li nastavit proměnné prostředí, přečtěte si pokyny pod tabulkou pro váš operační systém.
 
@@ -295,13 +295,13 @@ Následující ukázky GitHubu použijte jako referenční materiály k vytvář
 
 6. V souboru **pom. XML** přidejte následující závislost pro použití **2019-03-01-Hybrid** profile pro centrum Azure Stack. Tato závislost instaluje moduly přidružené k tomuto profilu pro poskytovatele prostředků COMPUTE, sítě, úložiště, Key Vault a App Services:
 
-   ```xml
-   <dependency>
-   <groupId>com.microsoft.azure.profile_2019_03_01_hybrid</groupId>
-   <artifactId>azure</artifactId>
-   <vers1s.0.0-beta</version>
-   </dependency>
-   ```
+    ```xml
+    <dependency>
+      <groupId>com.microsoft.azure.profile_2019_03_01_hybrid</groupId>
+      <artifactId>azure</artifactId>
+      <version>1.0.0-beta-1</version>
+    </dependency>
+    ```
 
 7. Do příkazového řádku, který se otevřel pro nastavení proměnných prostředí, zadejte následující příkaz:
 

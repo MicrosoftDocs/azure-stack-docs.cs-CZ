@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.date: 11/11/2019
 ms.author: mabrigg
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: fef79314cbea08b6ea04ed91416a9bc753278747
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 5e0fb0ec59451874ce641006a626d8de82392f94
+ms.sourcegitcommit: 390eac7abc94cea1405178e8d6a9358f6488f5d9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77703770"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231617"
 ---
 # <a name="quickstart-create-a-linux-server-vm-by-using-powershell-in-azure-stack-hub"></a>Rychlý Start: Vytvoření virtuálního počítače s Linux serverem pomocí prostředí PowerShell v centru Azure Stack
 
@@ -21,7 +21,7 @@ Virtuální počítač s Ubuntu serverem 16,04 LTS můžete vytvořit pomocí ce
 * Nainstalujte webový server NGINX a zobrazte výchozí domovskou stránku.
 * Vyčistit nepoužívané prostředky.
 
-## <a name="prerequisites"></a>Požadavky
+## <a name="prerequisites"></a>Předpoklady
 
 * Image Linux na tržišti Azure Stack hub. Tržiště centra Azure Stack ve výchozím nastavení nemá image Linux. Použijte operátor centra Azure Stack, který obsahuje bitovou kopii Ubuntu serveru 16,04 LTS, kterou potřebujete. Operátor může použít pokyny v tématu [stažení položek Marketplace z Azure do centra Azure Stack](../operator/azure-stack-download-azure-marketplace-item.md).
 
@@ -31,7 +31,7 @@ Virtuální počítač s Ubuntu serverem 16,04 LTS můžete vytvořit pomocí ce
 
 * Klíč veřejného Secure Shell (SSH) s názvem *id_rsa. pub* uložený v adresáři *. ssh* uživatelského profilu Windows. Podrobné informace o vytváření klíčů SSH najdete v tématu [použití veřejného klíče SSH](azure-stack-dev-start-howto-ssh-public-key.md).
 
-## <a name="create-a-resource-group"></a>Vytvořit skupinu prostředků
+## <a name="create-a-resource-group"></a>Vytvoření skupiny prostředků
 
 Skupina prostředků je logický kontejner, ve kterém můžete nasazovat a spravovat prostředky centra Azure Stack. Chcete-li vytvořit skupinu prostředků, spusťte následující blok kódu: 
 

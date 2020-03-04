@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: 5e5827cd0667a46d30147b0b6283f2a94d67158f
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 0d8e3ec61eb5acfbe98efcae1ec0318cb15f661f
+ms.sourcegitcommit: 390eac7abc94cea1405178e8d6a9358f6488f5d9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77701951"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231651"
 ---
 # <a name="quickstart-create-a-windows-server-virtual-machine-using-azure-cli-in-azure-stack-hub"></a>Rychlý Start: Vytvoření virtuálního počítače s Windows serverem pomocí rozhraní příkazového řádku Azure v centru Azure Stack
 
@@ -21,13 +21,13 @@ Virtuální počítač s Windows serverem 2016 můžete vytvořit pomocí rozhra
 * Nainstalujte webový server služby IIS a zobrazte výchozí domovskou stránku.
 * Vyčistěte prostředky.
 
-## <a name="prerequisites"></a>Požadavky
+## <a name="prerequisites"></a>Předpoklady
 
 * Ujistěte se, že váš operátor centra Azure Stack přidal do tržiště centra Azure Stack image **Windows serveru 2016** .
 
 * Aby bylo možné vytvořit a spravovat prostředky, Azure Stack centrum vyžaduje specifickou verzi rozhraní příkazového řádku Azure CLI. Pokud nemáte rozhraní příkazového řádku Azure nakonfigurované pro centrum Azure Stack, postupujte podle pokynů k [instalaci a konfiguraci rozhraní příkazového řádku Azure CLI](azure-stack-version-profiles-azurecli2.md).
 
-## <a name="create-a-resource-group"></a>Vytvořit skupinu prostředků
+## <a name="create-a-resource-group"></a>Vytvoření skupiny prostředků
 
 Skupina prostředků je logický kontejner, ve kterém můžete nasazovat a spravovat prostředky centra Azure Stack. V prostředí Azure Stack hub spuštěním příkazu [AZ Group Create](/cli/azure/group#az-group-create) vytvořte skupinu prostředků.
 
@@ -40,7 +40,7 @@ Následující příklad vytvoří skupinu prostředků s názvem myResourceGrou
 az group create --name myResourceGroup --location local
 ```
 
-## <a name="create-a-virtual-machine"></a>Vytvořit virtuální počítač
+## <a name="create-a-virtual-machine"></a>Vytvoření virtuálního počítače
 
 Pomocí příkazu [AZ VM Create](/cli/azure/vm#az-vm-create) vytvořte virtuální počítač (VM). Následující příklad vytvoří virtuální počítač s názvem myVM. V tomto příkladu se používá myš pro uživatelské jméno správce a Demouser@123 jako heslo správce. Změňte tyto hodnoty na něco, co je vhodné pro vaše prostředí.
 
