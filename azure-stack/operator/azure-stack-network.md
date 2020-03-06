@@ -2,17 +2,17 @@
 title: Plánování integrace sítě pro centrum Azure Stack
 description: Naučte se plánovat integraci sítě Datacenter pomocí integrovaných systémů centra Azure Stack.
 author: IngridAtMicrosoft
-ms.topic: article
-ms.date: 02/18/2020
+ms.topic: conceptual
+ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: wamota
 ms.lastreviewed: 06/04/2019
-ms.openlocfilehash: c783a22ea284413d7db79ab4925db6d8c58858ea
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 3c7a68376ddb57d9e7fad1f936c8990243203b9c
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77698483"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78366537"
 ---
 # <a name="network-integration-planning-for-azure-stack"></a>Plánování integrace sítě pro Azure Stack
 
