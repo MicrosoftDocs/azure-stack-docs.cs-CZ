@@ -8,12 +8,12 @@ ms.date: 05/03/2019
 ms.author: justinha
 ms.reviewer: unknown
 ms.lastreviewed: 03/29/2019
-ms.openlocfilehash: b6186a836ac38d94c3b15aa7de45ebc80a8accd1
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: df143d08f3d5e4445020f4932a47de657805fa7c
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77696188"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78366411"
 ---
 # <a name="differences-between-global-azure-azure-stack-hub-and-azure-stack-hci"></a>Rozdíly mezi globálním Azure, Azure Stack hub a Azure Stack HCI
 
@@ -29,7 +29,7 @@ Microsoft Azure je neustále se rozšiřující sada cloudových služeb, která
 
 Globální Azure nabízí více než 100 služeb dostupných v 54 oblastech po celém světě. Aktuální seznam globálních služeb Azure najdete v tématu [*Dostupné produkty v jednotlivých oblastech*](https://azure.microsoft.com/regions/services). Služby dostupné v Azure jsou uvedené podle kategorie a také podle toho, jestli jsou všeobecně dostupné nebo dostupné ve verzi Preview.
 
-Další informace o globálních službách Azure najdete v tématu [Začínáme s Azure](https://docs.microsoft.com/azure/#pivot=get-started&panel=get-started1).
+Další informace o globálních službách Azure najdete v tématu [Začínáme s Azure](https://docs.microsoft.com/azure/?pivot=get-started&panel=get-started1).
 
 ## <a name="azure-stack-hub"></a>Centrum Azure Stack
 
@@ -40,7 +40,7 @@ Centrum Azure Stack je rozšířením Azure, které přináší flexibilitu a in
 - Azure Key Vault
 - Azure Resource Manager
 - Azure Marketplace
-- Kontejnery
+- Containers
 - Nástroje pro správu (plány, nabídky, RBAC atd.)
 
 Možnosti PaaSy centra Azure Stack jsou volitelné, protože Azure Stack hub neprovozuje Microsoft, je provozuje naši zákazníci. To znamená, že pokud jste připraveni k abstrakci základní infrastruktury a procesů od koncového uživatele, můžete nabízet libovolné služby PaaS, které chcete koncovým uživatelům nabídnout. Azure Stack centrum ale obsahuje několik volitelných poskytovatelů služeb PaaS, včetně databází App Service, SQL Database a MySQL. Ty se doručují jako poskytovatelé prostředků, takže jsou připravené pro více tenantů, které se aktualizují v čase se standardními aktualizacemi centra Azure Stack, viditelné na portálu Azure Stack hub a dobře integrované do centra Azure Stack.

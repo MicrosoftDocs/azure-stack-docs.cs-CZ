@@ -3,17 +3,17 @@ title: Ověřit identitu Azure
 titleSuffix: Azure Stack Hub
 description: K ověření identity Azure použijte kontrolu připravenosti centra Azure Stack.
 author: IngridAtMicrosoft
-ms.topic: conceptual
-ms.date: 06/24/2019
+ms.topic: how-to
+ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: unknown
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 80c799091678f4bd063527078f1bcf0d4cb90f34
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 3c2eb6b0efc0bc6f0111ed342ef16e19223f0a85
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77696307"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78366513"
 ---
 # <a name="validate-azure-identity"></a>Ověření identit Azure
 
@@ -30,7 +30,7 @@ Ověření zajišťuje, aby vaše prostředí bylo připravené Azure Stack cent
 
 Z [Galerie prostředí PowerShell](https://aka.ms/AzsReadinessChecker)si stáhněte nejnovější verzi nástroje pro kontrolu připravenosti centra Azure Stack (AzsReadinessChecker).  
 
-## <a name="prerequisites"></a>Požadavky
+## <a name="prerequisites"></a>Předpoklady
 
 Vyžadují se tyto požadavky:
 

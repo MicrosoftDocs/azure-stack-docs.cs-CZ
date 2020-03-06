@@ -2,17 +2,17 @@
 title: Reference k rutině Start-AzsReadinessChecker
 description: Nápovědu k rutinám PowerShellu pro modul kontroly připravenosti centra Azure Stack
 author: IngridAtMicrosoft
-ms.topic: conceptual
-ms.date: 01/07/2020
+ms.topic: reference
+ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: unknown
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 588808f93ae23af3aaed37686474490bc402c566
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 0b81915cd7a95bede1edcbfa0f84ea8a5f38513d
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77695474"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78366056"
 ---
 # <a name="start-azsreadinesschecker-cmdlet-reference"></a>Reference k rutině Start-AzsReadinessChecker
 
@@ -293,11 +293,11 @@ Určuje název oblasti nasazení centra Azure Stack.
 
 |  |  |
 |----------------------------|--------------|
-|Typ:                       |String        |
+|Zadejte:                       |Řetězec        |
 |Poziční                   |Jmenovanou         |
-|Výchozí hodnota:              |Žádné          |
-|Přijmout vstup kanálu:      |Nepravda         |
-|Přijmout zástupné znaky: |Nepravda         |
+|Výchozí hodnota:              |Žádná          |
+|Přijmout vstup kanálu:      |False         |
+|Přijmout zástupné znaky: |False         |
 
 ### <a name="-fqdn"></a>-FQDN
 
@@ -305,11 +305,11 @@ Určuje externí plně kvalifikovaný název domény pro nasazení centra Azure 
 
 |  |  |
 |----------------------------|--------------|
-|Typ:                       |String        |
+|Zadejte:                       |Řetězec        |
 |Poziční                   |Jmenovanou         |
 |Výchozí hodnota:              |ExternalFQDN, ExternalDomainName |
-|Přijmout vstup kanálu:      |Nepravda         |
-|Přijmout zástupné znaky: |Nepravda         |
+|Přijmout vstup kanálu:      |False         |
+|Přijmout zástupné znaky: |False         |
 
 ### <a name="-identitysystem"></a>-IdentitySystem
 
@@ -317,12 +317,12 @@ Určuje Azure Stack platné hodnoty, AAD nebo ADFS v rámci nasazení centra pro
 
 |  |  |
 |----------------------------|--------------|
-|Typ:                       |String        |
+|Zadejte:                       |Řetězec        |
 |Poziční                   |Jmenovanou         |
-|Výchozí hodnota:              |Žádné          |
+|Výchozí hodnota:              |Žádná          |
 |Platné hodnoty:               |AAD, ADFS  |
-|Přijmout vstup kanálu:      |Nepravda         |
-|Přijmout zástupné znaky: |Nepravda         |
+|Přijmout vstup kanálu:      |False         |
+|Přijmout zástupné znaky: |False         |
 
 ### <a name="-pfxpassword"></a>-PfxPassword
 
@@ -330,11 +330,11 @@ Určuje heslo přidružené k souborům certifikátů PFX.
 
 |  |  |
 |----------------------------|---------|
-|Typ:                       |SecureString |
+|Zadejte:                       |SecureString |
 |Poziční                   |Jmenovanou    |
-|Výchozí hodnota:              |Žádné     |
-|Přijmout vstup kanálu:      |Nepravda    |
-|Přijmout zástupné znaky: |Nepravda    |
+|Výchozí hodnota:              |Žádná     |
+|Přijmout vstup kanálu:      |False    |
+|Přijmout zástupné znaky: |False    |
 
 ### <a name="-paascertificates"></a>-PaaSCertificates
 
@@ -342,11 +342,11 @@ Určuje tabulku hash obsahující cesty a hesla pro PaaS certifikátů.
 
 |  |  |
 |----------------------------|---------|
-|Typ:                       |Hashtable |
+|Zadejte:                       |Hashtable |
 |Poziční                   |Jmenovanou    |
-|Výchozí hodnota:              |Žádné     |
-|Přijmout vstup kanálu:      |Nepravda    |
-|Přijmout zástupné znaky: |Nepravda    |
+|Výchozí hodnota:              |Žádná     |
+|Přijmout vstup kanálu:      |False    |
+|Přijmout zástupné znaky: |False    |
 
 ### <a name="-deploymentdatajsonpath"></a>-DeploymentDataJSONPath
 
@@ -354,11 +354,11 @@ Určuje konfigurační soubor JSON Azure Stackch dat nasazení centra. Tento sou
 
 |  |  |
 |----------------------------|---------|
-|Typ:                       |String   |
+|Zadejte:                       |Řetězec   |
 |Poziční                   |Jmenovanou    |
-|Výchozí hodnota:              |Žádné     |
-|Přijmout vstup kanálu:      |Nepravda    |
-|Přijmout zástupné znaky: |Nepravda    |
+|Výchozí hodnota:              |Žádná     |
+|Přijmout vstup kanálu:      |False    |
+|Přijmout zástupné znaky: |False    |
 
 ### <a name="-pfxpath"></a>-PfxPath
 
@@ -366,11 +366,11 @@ Určuje cestu k problematickému certifikátu, který vyžaduje, aby se opravila
 
 |  |  |
 |----------------------------|---------|
-|Typ:                       |String   |
+|Zadejte:                       |Řetězec   |
 |Poziční                   |Jmenovanou    |
-|Výchozí hodnota:              |Žádné     |
-|Přijmout vstup kanálu:      |Nepravda    |
-|Přijmout zástupné znaky: |Nepravda    |
+|Výchozí hodnota:              |Žádná     |
+|Přijmout vstup kanálu:      |False    |
+|Přijmout zástupné znaky: |False    |
 
 ### <a name="-exportpfxpath"></a>-ExportPFXPath  
 
@@ -378,11 +378,11 @@ Určuje cílovou cestu pro výsledný soubor PFX z rutiny Import/export.
 
 |  |  |
 |----------------------------|---------|
-|Typ:                       |String   |
+|Zadejte:                       |Řetězec   |
 |Poziční                   |Jmenovanou    |
-|Výchozí hodnota:              |Žádné     |
-|Přijmout vstup kanálu:      |Nepravda    |
-|Přijmout zástupné znaky: |Nepravda    |
+|Výchozí hodnota:              |Žádná     |
+|Přijmout vstup kanálu:      |False    |
+|Přijmout zástupné znaky: |False    |
 
 ### <a name="-subject"></a>– Předmět
 
@@ -390,11 +390,11 @@ Určuje seřazený slovník předmětu pro generování žádosti o certifikát.
 
 |  |  |
 |----------------------------|---------|
-|Typ:                       |Kolekce OrderedDictionary   |
+|Zadejte:                       |Kolekce OrderedDictionary   |
 |Poziční                   |Jmenovanou    |
-|Výchozí hodnota:              |Žádné     |
-|Přijmout vstup kanálu:      |Nepravda    |
-|Přijmout zástupné znaky: |Nepravda    |
+|Výchozí hodnota:              |Žádná     |
+|Přijmout vstup kanálu:      |False    |
+|Přijmout zástupné znaky: |False    |
 
 ### <a name="-requesttype"></a>– RequestType
 
@@ -405,12 +405,12 @@ Určuje typ sítě SAN žádosti o certifikát. Platné hodnoty jsou **MultipleC
 
 |  |  |
 |----------------------------|---------|
-|Typ:                       |String   |
+|Zadejte:                       |Řetězec   |
 |Poziční                   |Jmenovanou    |
-|Výchozí hodnota:              |Žádné     |
+|Výchozí hodnota:              |Žádná     |
 |Platné hodnoty:               |'MultipleCSR','SingleCSR' |
-|Přijmout vstup kanálu:      |Nepravda    |
-|Přijmout zástupné znaky: |Nepravda    |
+|Přijmout vstup kanálu:      |False    |
+|Přijmout zástupné znaky: |False    |
 
 ### <a name="-outputrequestpath"></a>-OutputRequestPath
 
@@ -418,11 +418,11 @@ Určuje cílovou cestu pro soubory žádostí o certifikát. Adresář již mus�
 
 |  |  |
 |----------------------------|---------|
-|Typ:                       |String   |
+|Zadejte:                       |Řetězec   |
 |Poziční                   |Jmenovanou    |
-|Výchozí hodnota:              |Žádné     |
-|Přijmout vstup kanálu:      |Nepravda    |
-|Přijmout zástupné znaky: |Nepravda    |
+|Výchozí hodnota:              |Žádná     |
+|Přijmout vstup kanálu:      |False    |
+|Přijmout zástupné znaky: |False    |
 
 ### <a name="-aadserviceadministrator"></a>-AADServiceAdministrator
 
@@ -430,11 +430,11 @@ Určuje správce služby Azure AD, který se má použít pro nasazení centra A
 
 |  |  |
 |----------------------------|---------|
-|Typ:                       |PSCredential   |
+|Zadejte:                       |PSCredential   |
 |Poziční                   |Jmenovanou    |
-|Výchozí hodnota:              |Žádné     |
-|Přijmout vstup kanálu:      |Nepravda    |
-|Přijmout zástupné znaky: |Nepravda    |
+|Výchozí hodnota:              |Žádná     |
+|Přijmout vstup kanálu:      |False    |
+|Přijmout zástupné znaky: |False    |
 
 ### <a name="-aaddirectorytenantname"></a>-AADDirectoryTenantName
 
@@ -442,11 +442,11 @@ Určuje název služby Azure AD, který se má použít pro nasazení centra Azu
 
 |  |  |
 |----------------------------|---------|
-|Typ:                       |String   |
+|Zadejte:                       |Řetězec   |
 |Poziční                   |Jmenovanou    |
-|Výchozí hodnota:              |Žádné     |
-|Přijmout vstup kanálu:      |Nepravda    |
-|Přijmout zástupné znaky: |Nepravda    |
+|Výchozí hodnota:              |Žádná     |
+|Přijmout vstup kanálu:      |False    |
+|Přijmout zástupné znaky: |False    |
 
 ### <a name="-azureenvironment"></a>– AzureEnvironment
 
@@ -454,12 +454,12 @@ Určuje instanci služeb Azure, které obsahují účty, adresáře a odběry, k
 
 |  |  |
 |----------------------------|---------|
-|Typ:                       |String   |
+|Zadejte:                       |Řetězec   |
 |Poziční                   |Jmenovanou    |
-|Výchozí hodnota:              |Žádné     |
+|Výchozí hodnota:              |Žádná     |
 |Platné hodnoty:               |'AzureCloud','AzureChinaCloud','AzureUSGovernment' |
-|Přijmout vstup kanálu:      |Nepravda    |
-|Přijmout zástupné znaky: |Nepravda    |
+|Přijmout vstup kanálu:      |False    |
+|Přijmout zástupné znaky: |False    |
 
 ### <a name="-registrationaccount"></a>-RegistrationAccount
 
@@ -467,11 +467,11 @@ Určuje registrační účet, který se má použít pro registraci centra Azure
 
 |  |  |
 |----------------------------|---------|
-|Typ:                       |String   |
+|Zadejte:                       |Řetězec   |
 |Poziční                   |Jmenovanou    |
-|Výchozí hodnota:              |Žádné     |
-|Přijmout vstup kanálu:      |Nepravda    |
-|Přijmout zástupné znaky: |Nepravda    |
+|Výchozí hodnota:              |Žádná     |
+|Přijmout vstup kanálu:      |False    |
+|Přijmout zástupné znaky: |False    |
 
 ### <a name="-registrationsubscriptionid"></a>-RegistrationSubscriptionID
 
@@ -479,11 +479,11 @@ Určuje ID předplatného registrace, které se má použít pro registraci cent
 
 |  |  |
 |----------------------------|---------|
-|Typ:                       |identifikátor GUID     |
+|Zadejte:                       |identifikátor GUID     |
 |Poziční                   |Jmenovanou    |
-|Výchozí hodnota:              |Žádné     |
-|Přijmout vstup kanálu:      |Nepravda    |
-|Přijmout zástupné znaky: |Nepravda    |
+|Výchozí hodnota:              |Žádná     |
+|Přijmout vstup kanálu:      |False    |
+|Přijmout zástupné znaky: |False    |
 
 ### <a name="-reportpath"></a>-ReportPath
 
@@ -491,11 +491,11 @@ Určuje cestu k sestavě připravenosti, výchozí hodnota je aktuální adresá
 
 |  |  |
 |----------------------------|---------|
-|Typ:                       |String   |
+|Zadejte:                       |Řetězec   |
 |Poziční                   |Jmenovanou    |
-|Výchozí hodnota:              |Všechny      |
-|Přijmout vstup kanálu:      |Nepravda    |
-|Přijmout zástupné znaky: |Nepravda    |
+|Výchozí hodnota:              |Vše      |
+|Přijmout vstup kanálu:      |False    |
+|Přijmout zástupné znaky: |False    |
 
 ## <a name="optional-parameters"></a>Volitelné parametry
 
@@ -513,11 +513,11 @@ Požadované složky pro nasazení centra Azure Stack se systémem Active Direct
 
 |  |  |
 |----------------------------|---------|
-|Typ:                       |String   |
+|Zadejte:                       |Řetězec   |
 |Poziční                   |Jmenovanou    |
 |Výchozí hodnota:              |.\Certificates |
-|Přijmout vstup kanálu:      |Nepravda    |
-|Přijmout zástupné znaky: |Nepravda    |
+|Přijmout vstup kanálu:      |False    |
+|Přijmout zástupné znaky: |False    |
 
 ### <a name="-includepaas"></a>-IncludePaaS  
 
@@ -525,11 +525,11 @@ Určuje, jestli se mají do žádostí o certifikát přidat PaaS služby nebo n
 
 |  |  |
 |----------------------------|------------------|
-|Typ:                       |Přepínací parametr   |
+|Zadejte:                       |Přepínací parametr   |
 |Poziční                   |Jmenovanou             |
-|Výchozí hodnota:              |Nepravda             |
-|Přijmout vstup kanálu:      |Nepravda             |
-|Přijmout zástupné znaky: |Nepravda             |
+|Výchozí hodnota:              |False             |
+|Přijmout vstup kanálu:      |False             |
+|Přijmout zástupné znaky: |False             |
 
 ### <a name="-reportsections"></a>-ReportSections
 
@@ -537,12 +537,12 @@ Určuje, jestli se má zobrazit jenom souhrn sestavy, vynechává se podrobnosti
 
 |  |  |
 |----------------------------|---------|
-|Typ:                       |String   |
+|Zadejte:                       |Řetězec   |
 |Poziční                   |Jmenovanou    |
-|Výchozí hodnota:              |Všechny      |
+|Výchozí hodnota:              |Vše      |
 |Platné hodnoty:               |"Certificate", "AzureRegistration", "AzureIdentity", "Jobs", "All" |
-|Přijmout vstup kanálu:      |Nepravda    |
-|Přijmout zástupné znaky: |Nepravda    |
+|Přijmout vstup kanálu:      |False    |
+|Přijmout zástupné znaky: |False    |
 
 ### <a name="-summary"></a>-Summary
 
@@ -550,11 +550,11 @@ Určuje, jestli se má zobrazit jenom souhrn sestavy, vynechává se podrobnosti
 
 |  |  |
 |----------------------------|------------------|
-|Typ:                       |Přepínací parametr   |
+|Zadejte:                       |Přepínací parametr   |
 |Poziční                   |Jmenovanou             |
-|Výchozí hodnota:              |Nepravda             |
-|Přijmout vstup kanálu:      |Nepravda             |
-|Přijmout zástupné znaky: |Nepravda             |
+|Výchozí hodnota:              |False             |
+|Přijmout vstup kanálu:      |False             |
+|Přijmout zástupné znaky: |False             |
 
 ### <a name="-cleanreport"></a>-CleanReport
 
@@ -562,12 +562,12 @@ Odebere předchozí spuštění a historii ověření a zapíše ověření do n
 
 |  |  |
 |----------------------------|------------------|
-|Typ:                       |Přepínací parametr   |
+|Zadejte:                       |Přepínací parametr   |
 |Hromad                    |CF                |
 |Poziční                   |Jmenovanou             |
-|Výchozí hodnota:              |Nepravda             |
-|Přijmout vstup kanálu:      |Nepravda             |
-|Přijmout zástupné znaky: |Nepravda             |
+|Výchozí hodnota:              |False             |
+|Přijmout vstup kanálu:      |False             |
+|Přijmout zástupné znaky: |False             |
 
 ### <a name="-outputpath"></a>– OutputPath
 
@@ -575,11 +575,11 @@ Určuje vlastní cestu k uložení sestavy JSON připravenosti a podrobného sou
 
 |  |  |
 |----------------------------|------------------|
-|Typ:                       |String            |
+|Zadejte:                       |Řetězec            |
 |Poziční                   |Jmenovanou             |
 |Výchozí hodnota:              |$ENV: TEMP\AzsReadinessChecker  |
-|Přijmout vstup kanálu:      |Nepravda             |
-|Přijmout zástupné znaky: |Nepravda             |
+|Přijmout vstup kanálu:      |False             |
+|Přijmout zástupné znaky: |False             |
 
 ### <a name="-confirm"></a>– Potvrzení
 
@@ -587,12 +587,12 @@ Před spuštěním rutiny zobrazí výzvu k potvrzení.
 
 |  |  |
 |----------------------------|------------------|
-|Typ:                       |Přepínací parametr   |
+|Zadejte:                       |Přepínací parametr   |
 |Hromad                    |CF                |
 |Poziční                   |Jmenovanou             |
-|Výchozí hodnota:              |Nepravda             |
-|Přijmout vstup kanálu:      |Nepravda             |
-|Přijmout zástupné znaky: |Nepravda             |
+|Výchozí hodnota:              |False             |
+|Přijmout vstup kanálu:      |False             |
+|Přijmout zástupné znaky: |False             |
 
 ### <a name="-whatif"></a>-WhatIf
 
@@ -600,9 +600,9 @@ Ukazuje, co se stane, když se rutina spustí. Rutina není spuštěná.
 
 |  |  |
 |----------------------------|------------------|
-|Typ:                       |Přepínací parametr   |
+|Zadejte:                       |Přepínací parametr   |
 |Hromad                    |Wi                |
 |Poziční                   |Jmenovanou             |
-|Výchozí hodnota:              |Nepravda             |
-|Přijmout vstup kanálu:      |Nepravda             |
-|Přijmout zástupné znaky: |Nepravda             |
+|Výchozí hodnota:              |False             |
+|Přijmout vstup kanálu:      |False             |
+|Přijmout zástupné znaky: |False             |

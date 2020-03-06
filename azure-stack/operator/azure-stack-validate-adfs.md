@@ -5,17 +5,17 @@ description: Naučte se používat kontrolu připravenosti centra Azure Stack k 
 services: azure-stack
 documentationcenter: ''
 author: IngridAtMicrosoft
-ms.topic: article
-ms.date: 06/10/2019
+ms.topic: how-to
+ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: jerskine
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: a60a1c1f33ef17aa8ec2991c23b07cd1b23afef4
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 6c4ed64f3d7327004d3f508c54f98913c97af5fa
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77696358"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78366651"
 ---
 # <a name="validate-ad-fs-integration-for-azure-stack-hub"></a>Ověřit integraci AD FS pro centrum Azure Stack
 
@@ -33,7 +33,7 @@ Další informace o integraci centrálního centra Azure Stack najdete v tématu
 
 Z [Galerie prostředí PowerShell](https://aka.ms/AzsReadinessChecker)si stáhněte nejnovější verzi nástroje pro kontrolu připravenosti centra Azure Stack (AzsReadinessChecker).  
 
-## <a name="prerequisites"></a>Požadavky
+## <a name="prerequisites"></a>Předpoklady
 
 Je nutné, aby byly splněny následující požadavky.
 

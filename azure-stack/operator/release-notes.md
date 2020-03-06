@@ -3,16 +3,16 @@ title: Poznámky k verzi centra Azure Stack
 description: Poznámky k verzi pro integrované systémy Azure Stack hub, včetně aktualizací a oprav chyb.
 author: sethmanheim
 ms.topic: article
-ms.date: 02/25/2020
+ms.date: 03/05/2020
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 11/22/2019
-ms.openlocfilehash: 81cf8806b5aa24d7da78a6243d2806b732160314
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: d2d1eec85faaedaf35ba6461867c58670e917298
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77694454"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78366538"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Poznámky k verzi centra Azure Stack
 
@@ -192,6 +192,9 @@ Balíček aktualizace centra Azure Stack 1910 můžete stáhnout ze [stránky pr
 ## <a name="hotfixes"></a>Opravy hotfix
 
 Azure Stack centrum pravidelně vydává opravy hotfix. Před aktualizací centra Azure Stack na 1910 se ujistěte, že jste nainstalovali nejnovější opravu hotfix centra Azure Stack pro 1908.
+
+> [!NOTE]
+> Verze oprav hotfix centra Azure Stack jsou kumulativní; potřebujete jenom nainstalovat nejnovější opravu hotfix, abyste získali všechny opravy, které jsou součástí všech předchozích verzí oprav hotfix pro danou verzi.
 
 Opravy hotfix centra Azure Stack se vztahují pouze na integrované systémy Azure Stack hub. Nepokoušejte se instalovat opravy hotfix na ASDK.
 

@@ -2,17 +2,17 @@
 title: Rozhodnutí o nasazení připojená k Azure pro integrované systémy Azure Stack hub
 description: Rozhodnutí o plánování nasazení pro nasazení integrovaných systémů Azure Stack hub připojená k Azure, včetně fakturace a identity, najdete v části nasazení.
 author: IngridAtMicrosoft
-ms.topic: article
-ms.date: 1/22/2020
+ms.topic: conceptual
+ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: wfayed
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 7e00adbf4c0e83094b7425ed650126e8bb072b3d
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: b8f8dfe95e50b81c7032e2e2348c2d4e6a6d888d
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77701594"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78364764"
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-hub-integrated-systems"></a>Rozhodnutí týkající se plánování nasazení spojené s Azure pro integrované systémy centra Azure Stack
 Až se rozhodnete, [jak budete Azure Stack hub integrovat do svého hybridního cloudového prostředí](azure-stack-connection-models.md), můžete dokončit rozhodnutí o nasazení Azure Stack centra.

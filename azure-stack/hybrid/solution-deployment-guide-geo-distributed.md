@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 2dbff36dba8739661b88b58ef27eec49597646bc
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: cc17789485bc4c1d0676d54751f4d5bc820c3a5e
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77700999"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78366275"
 ---
 # <a name="create-a-geo-distributed-app-solution-to-direct-traffic-with-azure-and-azure-stack-hub"></a>Vytvoření geograficky distribuované aplikace pro směrování provozu pomocí Azure a centra Azure Stack
 
@@ -76,7 +76,7 @@ V této části vytvoříte webovou aplikaci.
 > - Najeďte na sestavení aplikace na více cloudových cílů.
 > - Správa a konfigurace procesu CD
 
-### <a name="prerequisites"></a>Požadavky
+### <a name="prerequisites"></a>Předpoklady
 
 Vyžaduje se instalace předplatného Azure a centra Azure Stack.
 
@@ -113,7 +113,7 @@ Nastavte hybridní průběžnou integraci/průběžné doručování (CI/CD), ab
 
 ### <a name="create-web-app-deployment-in-both-clouds"></a>Vytvoření nasazení webové aplikace v obou cloudech
 
-1.  Upravte soubor **WebApplication. csproj** : vyberte `Runtimeidentifier` a přidejte `win10-x64`. (Viz dokumentace k [samoobslužnému nasazení](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) .)
+1.  Upravte soubor **WebApplication. csproj** : vyberte `Runtimeidentifier` a přidejte `win10-x64`. (Viz dokumentace k [samoobslužnému nasazení](https://docs.microsoft.com/dotnet/core/deploying/deploy-with-vs#simpleSelf) .)
 
     ![Upravit soubor projektu webové aplikace v aplikaci Visual Studio](media/solution-deployment-guide-geo-distributed/image3.png)
 
@@ -129,7 +129,7 @@ Nastavte hybridní průběžnou integraci/průběžné doručování (CI/CD), ab
 
     ![Přidat kód do definice sestavení](media/solution-deployment-guide-geo-distributed/image4.png)
 
-3. **Spusťte sestavení**. Proces [sestavení samostatného nasazení](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) bude publikovat artefakty, které se dají spouštět v Azure a centra Azure Stack.
+3. **Spusťte sestavení**. Proces [sestavení samostatného nasazení](https://docs.microsoft.com/dotnet/core/deploying/deploy-with-vs#simpleSelf) bude publikovat artefakty, které se dají spouštět v Azure a centra Azure Stack.
 
 **Použití hostovaného agenta Azure**
 
@@ -248,7 +248,7 @@ Azure DevOps Services poskytují vysoce konfigurovatelný a spravovatelný kaná
 
 Pokud chcete do služby App Service migrovat živý web a jeho název domény DNS, přečtěte si téma [Migrace aktivního názvu DNS do služby Azure App Service](https://docs.microsoft.com/azure/app-service/manage-custom-dns-migrate-domain).
 
-### <a name="prerequisites"></a>Požadavky
+### <a name="prerequisites"></a>Předpoklady
 
 Dokončení tohoto řešení:
 
@@ -359,7 +359,7 @@ V této části budeme:
 > [!Note]  
 > V případě potřeby Získejte certifikát SSL zákazníka v Azure Portal a navažte ho k webové aplikaci. Další informace najdete v [kurzu App Servicech certifikátů](https://docs.microsoft.com/azure/app-service/web-sites-purchase-ssl-web-site).
 
-### <a name="prerequisites"></a>Požadavky
+### <a name="prerequisites"></a>Předpoklady
 
 Dokončení tohoto řešení:
 

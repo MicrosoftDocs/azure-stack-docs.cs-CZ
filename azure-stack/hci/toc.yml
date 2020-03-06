@@ -4,6 +4,10 @@
   items:
     - name: Co je Azure Stack HCI?
       href: overview.md
+- name: Správa
+  items:
+    - name: Vytváření svazků
+      href: manage/create-volumes.md
 - name: Referenční informace
   items:
     - name: Příkazy prostředí PowerShell technologie Hyper-V

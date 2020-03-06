@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 9788c875e5d2f40f2ed6e644537f4d13ffa80f5a
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 41c6b4e5adf7b659bf9db30eb8a3906c257f5473
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77701152"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78366241"
 ---
 # <a name="deploy-an-app-that-scales-cross-cloud-using-azure-and-azure-stack-hub"></a>Nasazení aplikace, která škáluje více cloudů pomocí Azure a centra Azure Stack
 
@@ -35,7 +35,7 @@ V tomto řešení sestavíte ukázkové prostředí pro:
 > 
 > Požadavky na [Návrh pro hybridní aplikace](overview-app-design-considerations.md) kontrolují pilíře kvality softwaru (umístění, škálovatelnost, dostupnost, odolnost, možnosti správy a zabezpečení) pro navrhování, nasazování a provozování hybridních aplikací. Pokyny k návrhu pomáhají při optimalizaci návrhu hybridní aplikace a minimalizaci výzev v produkčních prostředích.
 
-## <a name="prerequisites"></a>Požadavky
+## <a name="prerequisites"></a>Předpoklady
 
 -   Předplatné Azure. V případě potřeby vytvořte si [bezplatný účet](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) před tím, než začnete.
 
@@ -107,7 +107,7 @@ Azure Repos
 
 ### <a name="create-self-contained-web-app-deployment-for-app-services-in-both-clouds"></a>Vytvoření samoobslužného nasazení webové aplikace pro App Services v obou cloudech
 
-1.  Upravte soubor **WebApplication. csproj** . Vyberte `Runtimeidentifier` a přidejte `win10-x64`. (Viz dokumentace k [samoobslužnému nasazení](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) .) 
+1.  Upravte soubor **WebApplication. csproj** . Vyberte `Runtimeidentifier` a přidejte `win10-x64`. (Viz dokumentace k [samoobslužnému nasazení](https://docs.microsoft.com/dotnet/core/deploying/deploy-with-vs#simpleSelf) .) 
 
     ![Upravit soubor projektu webové aplikace](media/solution-deployment-guide-cross-cloud-scaling/image3.png)
 
@@ -123,7 +123,7 @@ Azure Repos
 
     ![Přidání kódu do webové aplikace](media/solution-deployment-guide-cross-cloud-scaling/image4.png)
 
-3. Spusťte sestavení. Proces [sestavení samostatného nasazení](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) bude publikovat artefakty, které běží v Azure a centra Azure Stack.
+3. Spusťte sestavení. Proces [sestavení samostatného nasazení](https://docs.microsoft.com/dotnet/core/deploying/deploy-with-vs#simpleSelf) bude publikovat artefakty, které běží v Azure a centra Azure Stack.
 
 ## <a name="use-an-azure-hosted-agent"></a>Použití hostovaného agenta Azure
 
@@ -266,7 +266,7 @@ K nasazení do obou cloudů použijte [Azure Resource Manager šablony](https://
 
 #### <a name="create-self-contained-web-app-deployment-for-app-services-in-both-clouds"></a>Vytvoření samoobslužného nasazení webové aplikace pro App Services v obou cloudech
 
-1.  Upravte soubor **WebApplication. csproj** : vyberte `Runtimeidentifier` a pak přidejte `win10-x64`. Další informace najdete v dokumentaci k [samoobslužnému nasazení](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) .
+1.  Upravte soubor **WebApplication. csproj** : vyberte `Runtimeidentifier` a pak přidejte `win10-x64`. Další informace najdete v dokumentaci k [samoobslužnému nasazení](https://docs.microsoft.com/dotnet/core/deploying/deploy-with-vs#simpleSelf) .
 
 2.  Použijte Team Explorer ke kontrole kódu do Azure Repos.
 
@@ -280,7 +280,7 @@ K nasazení do obou cloudů použijte [Azure Resource Manager šablony](https://
 
 3.  V **argumentech**přidejte kód **-r Win10-x64** . Tento dodatek je nutný k aktivaci samostatného nasazení pomocí .NET Core.
 
-4.  Spusťte sestavení. Proces [sestavení samostatného nasazení](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) bude publikovat artefakty, které se dají spouštět v Azure a centra Azure Stack.
+4.  Spusťte sestavení. Proces [sestavení samostatného nasazení](https://docs.microsoft.com/dotnet/core/deploying/deploy-with-vs#simpleSelf) bude publikovat artefakty, které se dají spouštět v Azure a centra Azure Stack.
 
 #### <a name="use-an-azure-hosted-build-agent"></a>Použití hostovaného agenta sestavení Azure
 

@@ -3,17 +3,17 @@ title: Provoz sítě nasazení
 titleSuffix: Azure Stack Hub
 description: Přečtěte si informace o toku provozu v síti při nasazení centra Azure Stack.
 author: IngridAtMicrosoft
-ms.topic: article
-ms.date: 12/05/2019
+ms.topic: conceptual
+ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: wamota
 ms.lastreviewed: 12/05/2019
-ms.openlocfilehash: 50d098253204e5643eb322264ea3a5331f815b72
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: b2acff92365cfd9904a033c381bf85ea843d6b30
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77696086"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78366394"
 ---
 # <a name="deployment-network-traffic"></a>Provoz sítě nasazení
 

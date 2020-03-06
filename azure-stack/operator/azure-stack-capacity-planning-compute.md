@@ -2,17 +2,17 @@
 title: Kapacita výpočetní kapacity centra Azure Stack
 description: Přečtěte si o plánování kapacity pro Azure Stack nasazení centra.
 author: IngridAtMicrosoft
-ms.topic: article
-ms.date: 07/16/2019
+ms.topic: conceptual
+ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: prchint
 ms.lastreviewed: 06/13/2019
-ms.openlocfilehash: fd67c1bc02c16bc15eb569418bcb5d4914eca222
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 3ec8b0b3ac6f4687fd782dfc692f1c705c5ed733
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77688657"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78366343"
 ---
 # <a name="azure-stack-hub-compute-capacity"></a>Kapacita výpočetní kapacity centra Azure Stack
 
@@ -76,10 +76,10 @@ Dostupná paměť pro umístění virtuálního počítače = celková paměť h
 Rezerva odolnosti = H + R * (N-1) * H) + V * (N-2)
 
 > Kde:
-> - H = velikost paměti s jedním serverem
+> -    H = velikost paměti s jedním serverem
 > - N = velikost jednotky škálování (počet serverů)
-> - R = rezerva operačního systému pro režijní náklady na operační systém, který je .15 v tomto vzorci<sup>2</sup>
-> - V = největší virtuální počítač v jednotce škálování
+> -    R = rezerva operačního systému pro režijní náklady na operační systém, který je .15 v tomto vzorci<sup>2</sup>
+> -    V = největší virtuální počítač v jednotce škálování
 
 <sup>1</sup> Azure Stack režie infrastruktury centra = 242 GB + (4 GB x # uzlů). K hostování infrastruktury centra Azure Stack se používá přibližně 31 virtuálních počítačů a v celkovém počtu se spotřebují přibližně 242 GB + (4 GB x # z uzlů) paměti a 146 virtuálních jader. Pro tento počet virtuálních počítačů je nutné, aby splňovaly potřebné oddělení služeb pro splnění požadavků na zabezpečení, škálovatelnost, údržbu a opravy. Tato interní struktura služby umožňuje budoucí zavádění nových služeb infrastruktury, když se vyvíjí.
 
