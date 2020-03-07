@@ -9,11 +9,11 @@ ms.author: inhenkel
 ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
 ms.openlocfilehash: 6af18b519f32975643dea10d81dfa9ed1f0588c5
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77697871"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78367016"
 ---
 # <a name="register-azure-stack-hub-with-azure"></a>Registrace centra Azure Stack s Azure
 
