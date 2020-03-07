@@ -2,17 +2,17 @@
 title: Integrace brány firewall centra Azure Stack pro integrované systémy centra Azure Stack
 description: Přečtěte si o integraci brány firewall centra Azure Stack pro integrované systémy Azure Stack hub.
 author: IngridAtMicrosoft
-ms.topic: article
-ms.date: 11/15/2019
+ms.topic: conceptual
+ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 11/15/2019
-ms.openlocfilehash: f27d314e8537cabb9c1625d3496751eba0feb264
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: d0929edd5db0ba45593d5d061f5d831df50f3d35
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77699877"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78366210"
 ---
 # <a name="azure-stack-hub-firewall-integration"></a>Integrace brány firewall centra Azure Stack
 Pro lepší zabezpečení Azure Stackového centra doporučujeme použít zařízení brány firewall. Brány firewall můžou přispět k obraně proti akcím, jako jsou například distribuované útoky s cílem odepření služeb (DDOS), zjišťování vniknutí a kontrola obsahu. Můžou se ale taky stát kritickými body pro služby Azure Storage, jako jsou objekty blob, tabulky a fronty.
