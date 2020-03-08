@@ -2,17 +2,17 @@
 title: Požadavky na plánování integrace Datacenter pro integrované systémy centra Azure Stack
 description: Naučte se plánovat a připravit integraci Datacenter pomocí integrovaných systémů Azure Stack hub.
 author: IngridAtMicrosoft
-ms.topic: article
-ms.date: 1/22/2020
+ms.topic: conceptual
+ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: wfayed
 ms.lastreviewed: 09/12/2019
-ms.openlocfilehash: 76b1469da122e707bd2748929ce3d5013c6c7f9f
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: c8ea0ea53574132d144ad7e205f78c5bebc41226
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77700217"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78368204"
 ---
 # <a name="datacenter-integration-planning-considerations-for-azure-stack-hub-integrated-systems"></a>Požadavky na plánování integrace Datacenter pro integrované systémy centra Azure Stack
 
@@ -151,7 +151,7 @@ V rámci řešení centra Azure Stack je hostitel životního cyklu hardwaru po�
 
 Následující tabulka shrnuje seznam aktuálně dostupných možností.
 
-| Plošný | Řešení externích monitorování |
+| Oblast | Řešení externích monitorování |
 | -- | -- |
 | Software centra Azure Stack | [Sada Management Pack centra Azure Stack pro Operations Manager](https://azure.microsoft.com/blog/management-pack-for-microsoft-azure-stack-now-available/)<br>[Modul plug-in Nagios](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details)<br>Volání rozhraní API založených na REST | 
 | Fyzické servery (BMC přes IPMI) | Hardware výrobce OEM Operations Manager Management Pack dodavatele<br>Řešení poskytované dodavatelem hardwaru OEM<br>Moduly plug-in Nagios dodavatele hardwaru.<br>Řešení monitorování podporované partnerem OEM (zahrnuté) | 

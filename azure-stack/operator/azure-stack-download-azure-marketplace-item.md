@@ -8,11 +8,11 @@ ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 12/23/2019
 ms.openlocfilehash: a4882ca540b2a72d77195ee12a5d5ae0be87931d
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77700013"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78368825"
 ---
 # <a name="download-marketplace-items-to-azure-stack-hub"></a>Stažení položek z Marketplace do centra Azure Stack 
 
@@ -32,7 +32,7 @@ Existují dva scénáře stažení produktů z webu Marketplace:
 
 Pokud se centrum Azure Stack připojuje k Internetu, můžete k stažení položek z Marketplace použít portál pro správu.
 
-### <a name="prerequisites"></a>Požadavky
+### <a name="prerequisites"></a>Předpoklady
 
 Vaše nasazení centra Azure Stack musí mít připojení k Internetu a musí být zaregistrované v Azure.
 
@@ -73,7 +73,7 @@ Tento scénář obsahuje dvě části:
 - **Část 1**: stažení z položek Marketplace. V počítači s přístupem k Internetu konfigurujete PowerShell, stáhnete nástroj syndikace a pak stáhnete položky z Azure Marketplace.
 - **Část 2**: nahrání a publikování na tržišti Azure Stack hub. Soubory, které jste stáhli do prostředí centra Azure Stack, přesunete a pak je publikujete na webu služby Azure Stack hub Marketplace.
 
-### <a name="prerequisites"></a>Požadavky
+### <a name="prerequisites"></a>Předpoklady
 
 - Připojené prostředí (nemusí být Azure Stack hub). Potřebujete připojení, abyste získali seznam produktů z Azure s jejich podrobnostmi a stáhli všechno místně. Až to uděláte, zbývající část postupu nevyžaduje připojení k Internetu. Vytvoří katalog položek, které jste předtím stáhli, abyste je mohli použít v odpojeném prostředí.
 

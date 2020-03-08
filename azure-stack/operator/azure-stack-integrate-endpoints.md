@@ -8,11 +8,11 @@ ms.author: inhenkel
 ms.reviewer: wamota
 ms.lastreviewed: 12/11/2019
 ms.openlocfilehash: cf72ecf8d5c5e7bfbf4e640b6193319f9e16d511
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77699571"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78366539"
 ---
 # <a name="publish-azure-stack-hub-services-in-your-datacenter"></a>Publikování služby Azure Stack hub ve vašem datovém centru 
 
@@ -41,7 +41,7 @@ Interní virtuální IP adresy infrastruktury nejsou uvedené, protože nejsou n
 
 Po přidání [hostitele rozšíření](azure-stack-extension-host-prepare.md)nejsou porty v rozsahu 12495-30015 vyžadovány.
 
-|Koncový bod (VIP)|DNS host A record|Protokol|Porty|
+|Koncový bod (VIP)|DNS host A record|Protocol (Protokol)|Porty|
 |---------|---------|---------|---------|
 |AD FS|službou. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*|HTTPS|443|
 |Portál (správce)|Adminportal. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*|HTTPS|443|
@@ -49,10 +49,10 @@ Po přidání [hostitele rozšíření](azure-stack-extension-host-prepare.md)ne
 |Azure Resource Manager (správce)|Adminmanagement. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*|HTTPS|443|
 |Portál (uživatel)|Bran. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*|HTTPS|443|
 |Azure Resource Manager (uživatel)|Správu. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*|HTTPS|443|
-|Graf|zapisovací. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*|HTTPS|443|
+|Graph|zapisovací. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*|HTTPS|443|
 |Seznam odvolaných certifikátů|Seznam CRL. *&lt;oblast >.&lt;plně kvalifikovaný název domény >*|HTTP|80|
 |DNS|&#42;. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*|TCP & UDP|53|
-|Hosting | *. Hosting. >\<oblasti.\<plně kvalifikovaný název domény > | HTTPS | 443 |
+|Hostování | *. Hosting. >\<oblasti.\<plně kvalifikovaný název domény > | HTTPS | 443 |
 |Key Vault (uživatel)|&#42;hesel. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*|HTTPS|443|
 |Key Vault (správce)|&#42;.adminvault. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*|HTTPS|443|
 |Fronta úložiště|&#42;provedených. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*|HTTP<br>HTTPS|80<br>443|
@@ -76,7 +76,7 @@ Zachycení provozu SSL není [podporované](azure-stack-firewall.md#ssl-intercep
 > [!Note]  
 > Centrum Azure Stack nepodporuje použití ExpressRoute pro přístup ke službám Azure uvedeným v následující tabulce, protože ExpressRoute nemusí být schopná směrovat provoz do všech koncových bodů.
 
-|Účel|Cílová adresa URL|Protokol|Porty|Zdrojová síť|
+|Účel|Cílová adresa URL|Protocol (Protokol)|Porty|Zdrojová síť|
 |---------|---------|---------|---------|---------|
 |Identita|**Azure**<br>login.windows.net<br>login.microsoftonline.com<br>graph.windows.net<br>https:\//secure.aadcdn.microsoftonline-p.com<br>www.office.com<br>ManagementServiceUri = https:\//management.core.windows.net<br>ARMUri = https:\//management.azure.com<br>https:\//\*. msftauth.net<br>https:\//\*. msauth.net<br>https:\//\*. msocdn.com<br>**Azure Government**<br>https:\//login.microsoftonline.us/<br>https:\//graph.windows.net/<br>**Azure Čína 21Vianet**<br>https:\//login.chinacloudapi.cn/<br>https:\//graph.chinacloudapi.cn/<br>**Azure (Německo)**<br>https:\//login.microsoftonline.de/<br>https:\//graph.cloudapi.de/|HTTP<br>HTTPS|80<br>443|Veřejná VIP-/27<br>Síť veřejné infrastruktury|
 |Syndikace Marketplace|**Azure**<br>https:\//management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://&#42;.azureedge.net<br>**Azure Government**<br>https:\//management.usgovcloudapi.net/<br>https://&#42;. blob.Core.usgovcloudapi.NET/<br>**Azure Čína 21Vianet**<br>https:\//management.chinacloudapi.cn/<br>http://&#42;. blob.Core.chinacloudapi.cn|HTTPS|443|Veřejná VIP-/27|
