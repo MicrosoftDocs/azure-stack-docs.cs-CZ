@@ -8,11 +8,11 @@ ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 01/22/2020
 ms.openlocfilehash: fcfd453cf6ccbbbc8f5e65b9db475ab4fdad33b0
-ms.sourcegitcommit: 390eac7abc94cea1405178e8d6a9358f6488f5d9
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78231600"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78366300"
 ---
 # <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-asdk-environments"></a>Vytvoření připojení VPN typu Site-to-site mezi dvěma virtuálními sítěmi v různých prostředích ASDK
 
@@ -153,7 +153,7 @@ K této obecnější úvahě se můžete představit tak, že prostředek brány
 9. Do **sdíleného klíče (PSK)** zadejte **12345**a pak vyberte **OK**.
 10. V okně **Souhrn** vyberte **OK**.
 
-### <a name="create-a-virtual-machine"></a>Vytvoření virtuálního počítače
+### <a name="create-a-virtual-machine"></a>Vytvořit virtuální počítač
 
 K ověření dat, která se posílají prostřednictvím připojení VPN, potřebujete virtuální počítače pro posílání a přijímání dat v jednotlivých ASDK. Vytvořte virtuální počítač v POC1 nyní a potom ve své virtuální síti ho umístěte do podsítě virtuálních počítačů:
 
@@ -232,7 +232,7 @@ Správce služeb se může přihlásit jako tenant, aby otestoval plány, nabíd
 9. Do **sdíleného klíče (PSK)** zadejte **12345**. Pokud zvolíte jinou hodnotu, zapamatujte si, že se musí shodovat s hodnotou pro sdílený klíč, který jste vytvořili v POC1. Vyberte **OK**.
 10. Zkontrolujte okno **Souhrn** a pak vyberte **OK**.
 
-## <a name="create-a-virtual-machine"></a>Vytvoření virtuálního počítače
+## <a name="create-a-virtual-machine"></a>Vytvořit virtuální počítač
 
 Nyní vytvořte virtuální počítač v POC2 a umístěte ho do podsítě virtuálních počítačů ve vaší virtuální síti:
 

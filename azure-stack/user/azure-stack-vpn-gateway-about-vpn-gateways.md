@@ -7,11 +7,11 @@ ms.date: 01/24/2020
 ms.author: sethm
 ms.lastreviewed: 05/21/2019
 ms.openlocfilehash: 35e17b6527b39bc12ad8f140b98a27fa6f4b69ac
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77705113"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78366432"
 ---
 # <a name="create-vpn-gateways-for-azure-stack-hub"></a>Vytváření bran sítě VPN pro centrum Azure Stack
 
@@ -79,7 +79,7 @@ Připojení k *více lokalitám* je varianta připojení typu Site-to-site. Z br
 Když vytváříte bránu virtuální sítě pro centrum Azure Stack, zadáte SKU brány, kterou chcete použít. Podporují se tyto skladové položky brány sítě VPN:
 
 * Basic
-* Standardní
+* Standard
 * High Performance
 
 Když vyberete vyšší SKU brány, jako je například Standard over Basic nebo vysoký výkon oproti standardu nebo základní, bude bráně přiděleno více procesorů a šířky pásma sítě. V důsledku toho může brána podporovat vyšší propustnost sítě k virtuální síti.
@@ -96,7 +96,7 @@ Při výběru SKU Vezměte v úvahu následující:
 
 Scénáře s vysokou dostupností je možné nakonfigurovat jenom na SKU pro připojení **brány s vysokým výkonem** . Na rozdíl od Azure, který poskytuje dostupnost prostřednictvím konfigurace aktivních/aktivních i aktivních/pasivních konfigurací, služba Azure Stack hub podporuje jenom konfiguraci typu aktivní/pasivní.
 
-### <a name="failover"></a>Při selhání
+### <a name="failover"></a>Převzetí služeb při selhání
 
 V Azure Stackovém centru existují tři virtuální počítače infrastruktury s více klienty. Dva z těchto virtuálních počítačů jsou v aktivním režimu a třetí je v redundantním režimu. Aktivní virtuální počítače umožňují vytváření připojení k síti VPN a redundantní virtuální počítač akceptuje připojení VPN jenom v případě, že dojde k převzetí služeb při selhání. Pokud virtuální počítač aktivní brány přestane být dostupný, připojení VPN se po krátké době (několik sekund) převezme k redundantnímu virtuálnímu počítači po krátkou dobu (několik sekund) ztráty připojení.
 
