@@ -9,11 +9,11 @@ ms.lastreviewed: 03/18/2019
 ms.author: bryanla
 ms.reviewer: xiao
 ms.openlocfilehash: ff351dcef91491e6d52aa61ff25f282968c963fe
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77697344"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78367572"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack-hub"></a>Nasazení poskytovatele prostředků SQL Server v centru Azure Stack
 
@@ -22,7 +22,7 @@ Použijte poskytovatele prostředků SQL Server centra Azure Stack k vystavován
 > [!IMPORTANT]
 > Pouze poskytovatel prostředků je podporován k vytváření položek na serverech, které jsou hostiteli SQL nebo MySQL. Položky vytvořené na hostitelském serveru, které nejsou vytvořené poskytovatelem prostředků, můžou vést k neshodě stavu.
 
-## <a name="prerequisites"></a>Požadavky
+## <a name="prerequisites"></a>Předpoklady
 
 Aby bylo možné nasadit poskytovatele prostředků SQL centra Azure Stack, je nutné, aby bylo k dispozici několik požadavků. Pokud chcete tyto požadavky splnit, proveďte v počítači, který má přístup k VIRTUÁLNÍmu počítači privilegovaného koncového bodu, následující kroky:
 
