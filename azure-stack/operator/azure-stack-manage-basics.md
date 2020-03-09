@@ -9,11 +9,11 @@ ms.author: v-nialba
 ms.reviewer: ''
 ms.lastreviewed: ''
 ms.openlocfilehash: 8f56dafbcc27e3ff4de9adcfbf5de27dea115bb3
-ms.sourcegitcommit: 92bc1957aad9d9fbf7dd896cf77beb9c212099fb
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 03/05/2020
-ms.locfileid: "78289018"
+ms.locfileid: "78368103"
 ---
 # <a name="azure-stack-hub-administration-basics"></a>Základy správy centra Azure Stack
 
