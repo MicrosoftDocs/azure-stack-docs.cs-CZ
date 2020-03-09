@@ -3,18 +3,18 @@ title: Otočit tajných kódů
 titleSuffix: Azure Stack Hub
 description: Naučte se, jak tyto tajné klíče otočit z centra Azure Stack.
 author: IngridAtMicrosoft
-ms.topic: article
-ms.date: 12/13/2019
+ms.topic: how-to
+ms.date: 03/04/2020
 ms.reviewer: ppacent
 ms.author: inhenkel
 ms.lastreviewed: 12/13/2019
 monikerRange: '>=azs-1802'
-ms.openlocfilehash: 9eaa0ecdf3b8d544e916f5f94e106bc76dbe0e55
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: d7179d8b87ee8e543fc7f8b78d1a8113e0e2746b
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77697718"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78367722"
 ---
 # <a name="rotate-secrets-in-azure-stack-hub"></a>Otočení tajných kódů v centru Azure Stack
 
@@ -301,13 +301,13 @@ Rutina **Start-SecretRotation** otočí tajné klíče infrastruktury Azure Stac
 
 ### <a name="parameters"></a>Parametry
 
-| Parametr | Typ | Požadováno | Pozice | Výchozí | Popis |
+| Parametr | Typ | Požaduje se | Pozice | Výchozí | Popis |
 | -- | -- | -- | -- | -- | -- |
-| `PfxFilesPath` | String  | Nepravda  | Jmenovanou  | Žádné  | Cesta ke sdílené složce adresáře **\Certificates** obsahující všechny certifikáty koncového bodu externí sítě. Vyžaduje se pouze při otáčení externích tajných klíčů. Koncový adresář musí být **\Certificates**. |
-| `CertificatePassword` | SecureString | Nepravda  | Jmenovanou  | Žádné  | Heslo pro všechny certifikáty, které jsou k dispozici v-PfXFilesPath. Požadovaná hodnota, pokud je k dispozici PfxFilesPath při otočení externích tajných klíčů. |
-| `Internal` | String | Nepravda | Jmenovanou | Žádné | Vnitřní příznak musí být použit v případě, že operátor centra Azure Stack chce otočit tajné tajné klíče interní infrastruktury. |
-| `PathAccessCredential` | PSCredential | Nepravda  | Jmenovanou  | Žádné  | Přihlašovací údaje PowerShellu pro sdílenou složku adresáře **\Certificates** obsahující všechny certifikáty koncového bodu externí sítě. Vyžaduje se pouze při otáčení externích tajných klíčů.  |
-| `ReRun` | Přepínací parametr | Nepravda  | Jmenovanou  | Žádné  | Po neúspěšném pokusu je třeba znovu spustit opětovné otočení tajného klíče. |
+| `PfxFilesPath` | Řetězec  | False  | Jmenovanou  | Žádná  | Cesta ke sdílené složce adresáře **\Certificates** obsahující všechny certifikáty koncového bodu externí sítě. Vyžaduje se pouze při otáčení externích tajných klíčů. Koncový adresář musí být **\Certificates**. |
+| `CertificatePassword` | SecureString | False  | Jmenovanou  | Žádná  | Heslo pro všechny certifikáty, které jsou k dispozici v-PfXFilesPath. Požadovaná hodnota, pokud je k dispozici PfxFilesPath při otočení externích tajných klíčů. |
+| `Internal` | Řetězec | False | Jmenovanou | Žádná | Vnitřní příznak musí být použit v případě, že operátor centra Azure Stack chce otočit tajné tajné klíče interní infrastruktury. |
+| `PathAccessCredential` | PSCredential | False  | Jmenovanou  | Žádná  | Přihlašovací údaje PowerShellu pro sdílenou složku adresáře **\Certificates** obsahující všechny certifikáty koncového bodu externí sítě. Vyžaduje se pouze při otáčení externích tajných klíčů.  |
+| `ReRun` | Přepínací parametr | False  | Jmenovanou  | Žádná  | Po neúspěšném pokusu je třeba znovu spustit opětovné otočení tajného klíče. |
 
 ### <a name="examples"></a>Příklady
 
@@ -379,9 +379,9 @@ Tento příkaz otočí všechny tajné klíče infrastruktury vystavené pro Azu
 
    **Verze 1910 a novější**: již není nutné, abyste nejprve aktualizovali přihlašovací údaje řadiče pro správu základní desky na fyzických serverech centra Azure Stack podle pokynů výrobce OEM. Uživatelské jméno a heslo pro každý řadič pro správu základní desky ve vašem prostředí musí být stejné. Uživatelská jména řadiče pro správu základní desky nesmí být delší než 16 znaků.
 
-    | Parametr | Popis | Stát |
+    | Parametr | Popis | Stav |
     | --- | --- | --- |
-    | BypassBMCUpdate | Když použijete parametr, přihlašovací údaje v řadiči pro správu základní desky se neaktualizují. Aktualizuje se jenom interní úložiště dat centra Azure Stack. | Volitelné |
+    | BypassBMCUpdate | Když použijete parametr, přihlašovací údaje v řadiči pro správu základní desky se neaktualizují. Aktualizuje se jenom interní úložiště dat centra Azure Stack. | Nepovinné |
 
 2. Otevřete privilegovaný koncový bod v Azure Stack relace centra. Pokyny najdete v tématu [použití privilegovaného koncového bodu v centru Azure Stack](azure-stack-privileged-endpoint.md).
 

@@ -3,17 +3,17 @@ title: Spustit a zastavit
 titleSuffix: Azure Stack Hub
 description: Naučte se spouštět a zastavovat centrum Azure Stack.
 author: IngridAtMicrosoft
-ms.topic: article
-ms.date: 10/02/2019
+ms.topic: how-to
+ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: 70e58880ec8ffa1776d507ff71d909d2385731f6
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: d6742ad75625eaed8f7e8c1ebec725fa1b62d53c
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77697106"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78367518"
 ---
 # <a name="start-and-stop-azure-stack-hub"></a>Spuštění a zastavení centra Azure Stack
 
@@ -66,7 +66,7 @@ Následující kroky proveďte v případě, že se infrastruktura a služby ten
 
 1. Otevřete privilegovanou relaci koncového bodu z počítače se síťovým přístupem k ERCSm virtuálním počítačům centra Azure Stack.
 
-2. Spustit:
+2. Spuštěním příkazu
 
     ```powershell
       Test-AzureStack
@@ -74,7 +74,7 @@ Následující kroky proveďte v případě, že se infrastruktura a služby ten
 
 3. Zkontrolujte výstup a vyřešte všechny chyby stavu. Další informace najdete v tématu [spuštění ověřovacího testu centra Azure Stack](azure-stack-diagnostic-test.md).
 
-4. Spustit:
+4. Spuštěním příkazu
 
     ```powershell
       Start-AzureStack

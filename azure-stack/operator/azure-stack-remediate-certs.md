@@ -3,17 +3,17 @@ title: Řešení běžných problémů s certifikáty PKI
 titleSuffix: Azure Stack Hub
 description: Řešení běžných problémů s Azure Stackmi certifikáty PKI centra pomocí nástroje pro kontrolu připravenosti centra Azure Stack
 author: IngridAtMicrosoft
-ms.topic: conceptual
-ms.date: 10/03/2019
+ms.topic: how-to
+ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: unknown
 ms.lastreviewed: 11/19/2019
-ms.openlocfilehash: a41bbb7551409b5767f975fc55834192342c82c5
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 079bec68836af5491d9f39bcf24e68001ffcfe2b
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77697854"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78367790"
 ---
 # <a name="fix-common-issues-with-azure-stack-hub-pki-certificates"></a>Řešení běžných problémů s certifikáty PKI Azure Stack hub
 
@@ -94,7 +94,7 @@ Nástroj **AzsReadinessChecker** obsahuje pomocnou rutinu nazvanou **Repair-AzsP
 
 **Oprava – AzsPfxCertificate** nemůže pomáhat, pokud potřebujete vygenerovat nového CSR a znovu vystavit certifikát.
 
-### <a name="prerequisites"></a>Požadavky
+### <a name="prerequisites"></a>Předpoklady
 
 Na počítači, na kterém je nástroj spuštěný, musí být nahlášené tyto požadavky:
 
