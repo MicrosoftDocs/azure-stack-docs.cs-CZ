@@ -7,12 +7,12 @@ ms.date: 01/21/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 01/21/2019
-ms.openlocfilehash: 875aafa4602e9db34bfe98eb80a658c36b3d0041
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 00bd12eedab3afd24a29279998b03fb963d634e2
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77700540"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78368222"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack-hub"></a>Azure Marketplace dostupné položky pro centrum Azure Stack
 
@@ -20,7 +20,7 @@ ms.locfileid: "77700540"
 
 Pokaždé, když jsou k dispozici aktualizace rozšíření virtuálních počítačů (VM), měli byste je stáhnout. Rozšíření dodaná v produktu se v normálním procesu opravy a aktualizace neaktualizují, takže aktualizace se často kontrolují. Další rozšíření jsou dostupná jenom prostřednictvím správy Marketplace.
 
-|  | Název položky | Popis | Vydavatel | Typ operačního systému |
+|  | Název položky | Popis | Vydavatel | OS Type |
 | --- | --- | --- | --- | --- |
 |![Rozšíření SQL IaaS (SqlIaasExtension)](media/azure-stack-marketplace-azure-items/cse.png) | [Rozšíření SQL IaaS (SqlIaasExtension)](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| **Stažení tohoto rozšíření pro nasazení SQL Server v položce Windows Marketplace – toto rozšíření je povinné.** | Microsoft | Windows |
 |![Rozšíření vlastních skriptů](media/azure-stack-marketplace-azure-items/cse.png) | [Rozšíření vlastních skriptů](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-customscript)| **Stáhněte si tuto aktualizaci do integrované verze rozšíření vlastních skriptů pro Windows.** | Microsoft | Windows |
@@ -45,7 +45,7 @@ Centrum Microsoft Azure Stack podporuje následující Azure Marketplace virtuá
 | --- | --- | --- | --- |
 | ![Windows Server](media/azure-stack-marketplace-azure-items/windowsserver.png) | [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/MicrosoftWindowsServer.WindowsServer) | Řešení na podnikové úrovni, která jsou snadno nasazená, nákladově efektivní, zaměřená na aplikace a uživatele. Tyto image se pravidelně aktualizují s nejnovějšími opravami. **Důležité informace: image stažené do 18. ledna 2018 musí být odstraněny a nahrazeny nejnovějšími verzemi.** | Microsoft |
 | ![Zkušební verze serveru SharePoint Server 2013](media/azure-stack-marketplace-azure-items/sharepoint.png) | [Zkušební verze serveru SharePoint Server 2013](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsharepoint.microsoftsharepointserver) | Microsoft SharePoint Server 2013 – zkušební verze v systému Windows Server 2012 Datacenter a Visual Studio 2019 Community Edition. | Microsoft |
-| ![Zkušební verze serveru SharePoint Server 2016](media/azure-stack-marketplace-azure-items/sharepoint.png) | [Zkušební verze serveru SharePoint Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2016Trial) | Zkušební verze Microsoft SharePoint serveru 2016 na Windows serveru 2016 Datacenter. | Microsoft |
+| ![Zkušební verze serveru SharePoint Server 2016](media/azure-stack-marketplace-azure-items/sharepoint.png) | [Zkušební verze serveru SharePoint Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsharepoint.microsoftsharepointserver) | Zkušební verze Microsoft SharePoint serveru 2016 na Windows serveru 2016 Datacenter. | Microsoft |
 | ![SQL Server 2014 SP3 v systému Windows Server 2012 R2](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2014 SP3 v systému Windows Server 2012 R2](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2014sp3-ws2012r2) | SQL Server 2014 Service Pack 2. **Požadované stažení:** IaaS rozšíření SQL. | Microsoft |
 | ![Bezplatná licence: vývojář SQL Server 2016 SP1 v systému Windows Server 2016](media/azure-stack-marketplace-azure-items/sql.png) | [Bezplatná licence: vývojář SQL Server 2016 SP1 v systému Windows Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2016sp1-ws2016) | Bezplatná verze vývojáře SQL Server 2016 SP1 pro transakční, datové sklady, business intelligence a analytické úlohy. **Požadované stažení:** IaaS rozšíření SQL. | Microsoft |
 | ![Bezplatná licence: SQL Server 2016 SP1 Express v systému Windows Server 2016](media/azure-stack-marketplace-azure-items/sql.png) | [Bezplatná licence: SQL Server 2016 SP1 Express v systému Windows Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2016sp1-ws2016) | Verze Express verze SQL Server 2016 SP1 je zdarma. **Požadované stažení:** IaaS rozšíření SQL. | Microsoft |
@@ -246,7 +246,7 @@ Centrum Microsoft Azure Stack podporuje následující Azure Marketplace virtuá
 | ![NetFoundry Gateway pro MultiPoint, nulové důvěryhodnosti Azure Stack rozbočovače připojení](media/azure-stack-marketplace-azure-items/netfoundry.png) | [NetFoundry Gateway pro MultiPoint, nulové důvěryhodnosti Azure Stack rozbočovače připojení](https://azuremarketplace.microsoft.com/marketplace/apps/netfoundryinc.centos) | Jenom software, Multi-Point konektivita mezi Azure Stack hub a kdekoli, přes jakékoli síťové připojení, s využitím špičkového zabezpečení trustu, pětinásobné propustnost sítě VPN a neomezené souběžné uživatele. | NetFoundry |
 | ![Firewall nové generace Palo Alto VM-Series](media/azure-stack-marketplace-azure-items/paloalto.png) | [Firewall nové generace Palo Alto VM-Series](https://azuremarketplace.microsoft.com/marketplace/apps/paloaltonetworks.vmseries-ngfw) | Firewall nové generace řady virtuálních počítačů umožňuje zákazníkům bezpečně migrovat aplikace a data do centra Azure Stack a chránit je před známými a neznámými hrozbami pomocí seznamu povolených aplikací a zásad ochrany před hrozbami. **Tato bitová kopie vyžaduje šablonu pro nasazení. důležité informace najdete v tomto [článku](https://www.paloaltonetworks.com/documentation/81/virtualization/virtualization/set-up-the-vm-series-firewall-on-azure/deploy-the-vm-series-firewalls-on-azure-stack) .**| Palo Alto Networks, Inc. |
 | ![PT Application firewall](media/azure-stack-marketplace-azure-items/pt.png) | [PT Application firewall](https://azuremarketplace.microsoft.com/marketplace/apps/ptsecurity.ptaf) | PT Application firewall detekuje známá & neznámá ohrožení zabezpečení a zabraňuje útokům na webové aplikace. **Stáhněte si položky na webu PT Marketplace.** | Pozitivní technologie |
-| ![Puppet Enterprise](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2) | Puppet Enterprise umožňuje automatizovat celý životní cyklus infrastruktury centra Azure Stack. **Stáhněte si obě položky Puppet Marketplace.** | Puppet |
+| ![Puppet Enterprise](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-201818) | Puppet Enterprise umožňuje automatizovat celý životní cyklus infrastruktury centra Azure Stack. **Stáhněte si obě položky Puppet Marketplace.** | Puppet |
 | ![Rychlé obnovení pro Quest](media/azure-stack-marketplace-azure-items/quest.png) | [Jádro funkce Quest Rapid Recovery](https://azuremarketplace.microsoft.com/marketplace/apps/quest.rapid-recovery-core-vm) | Rozšířená ochrana dat pro rychlé obnovení sjednocuje zálohování, replikaci a obnovení v jednom snadno použitelném softwarovém řešení. | Software Quest |
 | ![S clusterem DataKeeper Edition](media/azure-stack-marketplace-azure-items/sioslogo.png) | [S clusterem DataKeeper Edition](https://azuremarketplace.microsoft.com/marketplace/apps/sios_datakeeper.sios-datakeeper-8) | S DataKeeper poskytuje vysokou dostupnost (HA) a zotavení po havárii (DR) v centru Azure Stack. Stačí přidat k prostředí služby Windows Server Failover Clustering (WSFC) ve Azure Stackm nasazením centra s datakeepací software, abyste vyloučili potřebu sdíleného úložiště. | Technologie Corp. |
 | ![SUSE Manager 3,1 proxy (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE Manager 3,1 proxy (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/suse.suse-manager-proxy-byos) | Nejlepší správa infrastruktury open source v úrovni třídy. | SUSE |

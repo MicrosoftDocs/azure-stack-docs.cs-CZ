@@ -2,17 +2,17 @@
 title: Použití aktualizace výrobce OEM (Original Equipment Manufacturer) pro Azure Stack hub
 description: Naučte se, jak použít aktualizaci výrobce OEM (Original Equipment Manufacturer) na Azure Stack hub.
 author: IngridAtMicrosoft
-ms.topic: article
+ms.topic: how-to
 ms.date: 10/15/2019
 ms.author: inhenkel
-ms.lastreviewed: 08/15/2019
+ms.lastreviewed: 03/04/2020
 ms.reviewer: ppacent
-ms.openlocfilehash: 8b8334b4a835952c9122e71ac764c3f1c52d99c6
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 982c62ad37d2d19dd3273c7ece3f20ff725ce6b6
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77696698"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78367246"
 ---
 # <a name="apply-azure-stack-hub-original-equipment-manufacturer-oem-updates"></a>Použití aktualizací pro výrobce OEM (Original Equipment Manufacturer) od centra Azure Stack
 
@@ -32,14 +32,14 @@ Někteří dodavatelé hardwaru můžou vyžadovat *virtuální počítač dodav
 
 Tato část obsahuje kontaktní informace OEM a odkazy na referenční materiály pro výrobce OEM Azure Stack.
 
-| Hardwarový partner | Oblast | URL |
+| Hardwarový partner | Oblast | zprostředkovatele identity |
 |------------------|--------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Cisco | Všechny | [Příručka k provoznímu systému Cisco Integrated System for Microsoft Azure Stack hub](https://aka.ms/aa708e2)<br><br>[UCS řady UCS – připojit serverový software spravovaný přes UCS](https://aka.ms/aa700rq) |
-| Dell EMC | Všechny | [Cloud pro Microsoft Azure Stack hub 14G (účet a přihlášení je povinné)](https://support.emc.com/downloads/44615_Cloud-for-Microsoft-Azure-Stack-14G)<br><br>[Cloud pro Microsoft Azure Stack hub 13G (účet a přihlášení je povinné)](https://support.emc.com/downloads/42238_Cloud-for-Microsoft-Azure-Stack-13G) |
+| Cisco | Vše | [Příručka k provoznímu systému Cisco Integrated System for Microsoft Azure Stack hub](https://aka.ms/aa708e2)<br><br>[UCS řady UCS – připojit serverový software spravovaný přes UCS](https://aka.ms/aa700rq) |
+| Dell EMC | Vše | [Cloud pro Microsoft Azure Stack hub 14G (účet a přihlášení je povinné)](https://support.emc.com/downloads/44615_Cloud-for-Microsoft-Azure-Stack-14G)<br><br>[Cloud pro Microsoft Azure Stack hub 13G (účet a přihlášení je povinné)](https://support.emc.com/downloads/42238_Cloud-for-Microsoft-Azure-Stack-13G) |
 | Fujitsu | Japonsko | [Oddělení podpory spravované služby Fujitsu (vyžaduje se účet a přihlášení)](https://eservice.fujitsu.com/supportdesk-web/) |
 |  | & v oblasti EMEA | [Společnosti Fujitsu podporují IT produkty a systémy](https://support.ts.fujitsu.com/IndexContact.asp?lng=COM&ln=no&LC=del) |
-| HPE | Všechny | [HPE pro Centrum Microsoft Azure Stack](http://www.hpe.com/info/MASupdates) |
-| Lenovo | Všechny | [Nejlepší recepty ThinkAgile SXM](https://datacentersupport.lenovo.com/us/en/solutions/ht505122)
+| HPE | Vše | [HPE pro Centrum Microsoft Azure Stack](http://www.hpe.com/info/MASupdates) |
+| Lenovo | Vše | [Nejlepší recepty ThinkAgile SXM](https://datacentersupport.lenovo.com/us/en/solutions/ht505122)
 | Wortmann |  | [Balíček OEM/firmware](https://aka.ms/AA6z600)<br>[dokumentace centra Terra Azure Stack (včetně jednotky FRU)](https://aka.ms/aa6zktc)
 
 ## <a name="apply-oem-updates"></a>Použít aktualizace OEM

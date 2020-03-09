@@ -2,17 +2,17 @@
 title: Modely připojení integrovaných systémů Azure Stack hub
 description: Zjistěte modely připojení a další rozhodnutí plánování nasazení pro integrované systémy Azure Stack hub.
 author: IngridAtMicrosoft
-ms.topic: article
-ms.date: 1/22/2020
+ms.topic: conceptual
+ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: wfayed
 ms.lastreviewed: 02/21/2019
-ms.openlocfilehash: 620e88bcf20f9744ab91d2450da2a8570369cc14
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 4e0fb77bc6f6f174d474a123611dbf529e814b0a
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77695185"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78364040"
 ---
 # <a name="azure-stack-hub-integrated-systems-connection-models"></a>Modely připojení integrovaných systémů Azure Stack hub
 Pokud vás zajímá nákup Azure Stack integrovaného systému centra, je potřeba pochopit [několik důležitých informací o integraci Datacenter](azure-stack-datacenter-integration.md) pro Azure Stack nasazení centra, abyste zjistili, jak se systém vejde do vašeho datacentra. Kromě toho se musíte rozhodnout, jak budete integrovat Azure Stack hub do svého hybridního cloudového prostředí. Tento článek obsahuje přehled těchto hlavních rozhodnutí, včetně modelů připojení Azure, možností úložiště identit a možností modelu fakturace.
@@ -35,8 +35,8 @@ Můžete zvolit nasazení centra Azure Stack buď připojeného k Internetu (a d
 |Fakturace na základě spotřeby|![Podporuje se](media/azure-stack-connection-models/check.png)| |
 |Fakturace na základě kapacity|![Podporuje se](media/azure-stack-connection-models/check.png)|![Podporuje se](media/azure-stack-connection-models/check.png)|
 |Licencování| Poskytovatel řešení smlouva Enterprise nebo cloudu | Smlouva Enterprise |
-|Oprava a aktualizace|Balíček aktualizace se dá stáhnout přímo z Internetu do centra Azure Stack. |  Požadováno<br><br>Vyžaduje taky vyměnitelné médium.<br> a samostatné připojené zařízení |
-| Registrace | Automatickou | Požadováno<br><br>Vyžaduje taky vyměnitelné médium.<br> a samostatné připojené zařízení |
+|Oprava a aktualizace|Balíček aktualizace se dá stáhnout přímo z Internetu do centra Azure Stack. |  Požaduje se<br><br>Vyžaduje taky vyměnitelné médium.<br> a samostatné připojené zařízení |
+| Registrace | Automatickou | Požaduje se<br><br>Vyžaduje taky vyměnitelné médium.<br> a samostatné připojené zařízení |
 
 Až se rozhodnete, že se model připojení Azure bude používat pro nasazení centra Azure Stack, je nutné provést další rozhodnutí závislá na připojení pro úložiště identit a metodu fakturace.
 

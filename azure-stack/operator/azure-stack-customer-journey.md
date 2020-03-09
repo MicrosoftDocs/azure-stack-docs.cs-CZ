@@ -2,17 +2,17 @@
 title: Názorný postup pro integraci centra Azure Stack hub
 description: Přečtěte si, co očekávat úspěšné nasazení centra Azure Stack v rámci lokality ve vašem datovém centru, od plánování po nasazení.
 author: IngridAtMicrosoft
-ms.topic: article
-ms.date: 11/07/2019
+ms.topic: conceptual
+ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: asganesh
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: 4ac479607aae5921f322942452de48840662bfc7
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: d55176266fc169b344e7bb43389a46657174b88e
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77700319"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78368822"
 ---
 # <a name="azure-stack-hub-datacenter-integration-walkthrough"></a>Názorný postup pro integraci centra Azure Stack hub
 

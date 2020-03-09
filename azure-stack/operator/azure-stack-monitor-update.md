@@ -2,17 +2,17 @@
 title: Monitorování aktualizací v centru Azure Stack pomocí privilegovaného koncového bodu
 description: Přečtěte si, jak pomocí privilegovaného koncového bodu monitorovat stav aktualizací pro integrované systémy centra Azure Stack.
 author: IngridAtMicrosoft
-ms.topic: article
-ms.date: 1/22/2020
+ms.topic: how-to
+ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: fiseraci
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 14df72fda88f505e564b16519f583c8b6875ade7
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 943f391d709f772ec3ed5aa0c99bd738f5de679a
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77698976"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78368120"
 ---
 # <a name="monitor-updates-in-azure-stack-hub-using-the-privileged-endpoint"></a>Monitorování aktualizací v centru Azure Stack pomocí privilegovaného koncového bodu
 
@@ -101,7 +101,7 @@ Možné hodnoty:
 
 - Spuštěno
 - Dokončeno
-- Neúspěšné 
+- Neúspěch 
 - Zrušeno
 
 Chcete-li zobrazit nejaktuálnější stav, můžete spustit tyto příkazy opakovaně. Nemusíte znovu navázat připojení pro kontrolu.
@@ -157,7 +157,7 @@ Pokud se aktualizace nepovede, můžete pokračovat ve spuštění aktualizace, 
 Invoke-Command -Session $pepSession -ScriptBlock { Resume-AzureStackUpdate } 
 ```
 
-## <a name="troubleshoot"></a>Řešení problémů
+## <a name="troubleshoot"></a>Řešení potíží
 
 Privilegovaný koncový bod je k dispozici na všech virtuálních počítačích s ERCS v prostředí centra Azure Stack. Vzhledem k tomu, že připojení není navázáno na koncový bod s vysokou dostupností, může docházet k příležitostnému přerušení, varování nebo chybovým zprávám. Tyto zprávy mohou znamenat, že relace byla odpojena nebo došlo k chybě při komunikaci se službou EHK. Jde o očekávané chování. Operaci můžete opakovat za několik minut nebo vytvořit novou relaci privilegovaného koncového bodu na jednom z dalších virtuálních počítačů ERCS.
 
