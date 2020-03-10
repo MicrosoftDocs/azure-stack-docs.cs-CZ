@@ -7,12 +7,12 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 00eba2158fcb4e5a2e18f88d0493e1bb2e7c3b3d
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 245951e86128fb71e6820f3b57bdf2723506d4bc
+ms.sourcegitcommit: 8198753ebafd69d0dbfc6b3548defbd70f4c79c1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77703583"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78935058"
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>Obnovit ze ztráty dat
 
@@ -28,7 +28,7 @@ Tento scénář řeší celou instalaci, pokud dojde k selhání a opětovnému 
 
 ## <a name="workflows"></a>Pracovní postupy
 
-Cesta k ochraně Azure Start začíná zálohováním infrastruktury a dat aplikace/tenanta samostatně. Tento dokument popisuje, jak chránit infrastrukturu. 
+Cesta k ochraně centra Azure Stack začíná zálohováním infrastruktury a dat aplikace/tenanta samostatně. Tento dokument popisuje, jak chránit infrastrukturu. 
 
 ![Pracovní postup obnovení dat centra Azure Stack – nasazení](media/azure-stack-backup/azure-stack-backup-workflow1.png)
 
