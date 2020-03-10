@@ -8,11 +8,11 @@ ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 01/16/2019
 ms.openlocfilehash: a0f905a0f6238a0303cacb71e5864ac05b223595
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77701543"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78364108"
 ---
 # <a name="collect-azure-stack-hub-diagnostic-logs-on-demand"></a>Shromažďovat diagnostické protokoly centra Azure Stack na vyžádání
 
@@ -168,14 +168,14 @@ Pomocí těchto kroků spustíte `Get-AzureStackLog` v hostitelském počítači
 
   |   |   |   |    |     |
   | - | - | - | -  |  -  |
-  |ACS                   |CERTIFIKAČNÍ ÚŘAD                             |HRP                            |OboService                |VirtualMachines|
+  |ACS                   |CA                             |HRP                            |OboService                |VirtualMachines|
   |ACSBlob               |CacheService                   |IBC                            |OEM                       |WAS            |
-  |ACSDownloadService    |Výpočty                        |InfraServiceController         |OnboardRP                 |WASPUBLIC|
+  |ACSDownloadService    |Compute                        |InfraServiceController         |OnboardRP                 |WASPUBLIC|
   |ACSFabric             |CPI                            |KeyVaultAdminResourceProvider  |PROTOKOLU                       |         |
   |ACSFrontEnd           |CRP                            |KeyVaultControlPlane           |QueryServiceCoordinator   |         | 
   |ACSMetrics            |DeploymentMachine              |KeyVaultDataPlane              |QueryServiceWorker        |         |
   |ACSMigrationService   |DiskRP                         |KeyVaultInternalControlPlane   |SeedRing                  |         |
-  |ACSMonitoringService  |Doména                         |KeyVaultInternalDataPlane      |SeedRingServices          |         |
+  |ACSMonitoringService  |Domain (Doména)                         |KeyVaultInternalDataPlane      |SeedRingServices          |         |
   |ACSSettingsService    |OSN                            |KeyVaultNamingService          |SLB                       |         |
   |ACSTableMaster        |EventAdminRP                   |MDM                            |SQL                       |         |
   |ACSTableServer        |EventRP                        |MetricsAdminRP                 |SRP                       |         |

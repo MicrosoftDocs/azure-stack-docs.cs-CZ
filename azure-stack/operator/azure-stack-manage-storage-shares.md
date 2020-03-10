@@ -8,11 +8,11 @@ ms.author: inhenkel
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
 ms.openlocfilehash: 212f68be85bfe4b129e84057cc63472e5259a41c
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77699197"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78368824"
 ---
 # <a name="manage-storage-capacity-for-azure-stack-hub"></a>Správa kapacity úložiště pro centrum Azure Stack
 
@@ -45,7 +45,7 @@ Pokud je u sdílené složky nedostatek volného místa a [akce pro uvolnění](
 
 Informace o tom, jak uživatelé klienta pracují s úložištěm objektů BLOB v Azure Stackovém centru, najdete v tématu [služby úložiště Azure Stack hub](/azure-stack/user/azure-stack-storage-overview).
 
-### <a name="containers"></a>Kontejnery
+### <a name="containers"></a>Containers
 Uživatelé tenanta vytvářejí kontejnery, které se pak používají k ukládání dat objektů BLOB. I když se uživatelé rozhodují, ve kterém kontejneru umístit objekty blob, služba úložiště pomocí algoritmu určuje, který svazek se má vložit do kontejneru. Algoritmus obvykle zvolí svazek s největším množstvím dostupného místa.  
 
 Po umístění objektu blob do kontejneru může objekt BLOB zvětšit použití více místa. Při zvětšení nových objektů BLOB a zmenšení stávajících objektů BLOB se zmenší dostupné místo ve svazku, který obsahuje kontejner.  

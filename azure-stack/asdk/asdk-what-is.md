@@ -8,11 +8,11 @@ ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 11/27/2019
 ms.openlocfilehash: a37547a7c2e5a737685e370307a1ae8f37d5d363
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77690544"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78935084"
 ---
 # <a name="what-is-the-azure-stack-development-kit-asdk"></a>Co je Azure Stack Development Kit (ASDK)?
 Rozsah [integrovaných systémů centra Microsoft Azure Stack](../operator/azure-stack-overview.md) je velikost z uzlů 4-16 a jsou společně podporovány hardwarovým partnerem a společností Microsoft. Pomocí integrovaných systémů Azure Stack Hub můžete pro vaše produkční úlohy povolit nové scénáře. Pokud jste operátor centra Azure Stack, který spravuje infrastrukturu integrovaných systémů a nabízí služby, přečtěte si naši [dokumentaci k operátorovi](/azure-stack/operator).
@@ -50,7 +50,7 @@ Jako operátor centra Azure Stack potřebujete znát, které služby můžete u�
 
 ### <a name="foundational-services"></a>Základní služby
 Ve výchozím nastavení zahrnuje Azure Stack hub při nasazení rozhraní ASDK následující "základní služby":
-- Výpočty
+- Compute
 - Úložiště
 - Sítě
 - Key Vault
