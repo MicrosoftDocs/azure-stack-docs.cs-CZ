@@ -7,12 +7,12 @@ ms.date: 11/06/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: a0b0e654ac2698c1b9611924cca853bd1ff525de
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.openlocfilehash: b02ea9e241faea3aeaad76b85dbde9616e1edea5
+ms.sourcegitcommit: 900332596d0bb473d82b1d1a28c3fe3aa6522add
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78367433"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79128899"
 ---
 # <a name="add-mysql-hosting-servers-in-azure-stack-hub"></a>Přidání hostitelských serverů MySQL do centra Azure Stack
 
@@ -21,7 +21,7 @@ Instanci hostitelského serveru MySQL můžete hostovat na virtuálním počíta
 > [!NOTE]
 > Poskytovatel prostředků MySQL by se měl vytvořit v předplatném výchozího poskytovatele, zatímco hostitelské servery MySQL by se měly vytvářet v fakturovatelných předplatných uživatele. Server poskytovatele prostředků by neměl být používán k hostování uživatelských databází.
 
-Pro hostitelské servery lze použít verze MySQL 5,6, 5,7 a 8,0. MySQL RP nepodporuje caching_sha2_password ověřování; které budou přidány v další verzi. Servery MySQL 8,0 musí být nakonfigurovány tak, aby používaly mysql_native_password. MariaDB je také podporováno.
+Pro hostitelské servery lze použít verze MySQL 5,6, 5,7 a 8,0. MySQL RP nepodporuje caching_sha2_password ověřování. Servery MySQL 8,0 musí být nakonfigurovány tak, aby používaly mysql_native_password.
 
 ## <a name="configure-external-access-to-the-mysql-hosting-server"></a>Konfigurace externího přístupu k hostitelskému serveru MySQL
 

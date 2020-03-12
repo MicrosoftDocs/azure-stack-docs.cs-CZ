@@ -10,12 +10,12 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: 638a4b4d38088c725b417d3f9ee4a92b8c4e396d
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.openlocfilehash: e8114d060e596f581cd23ec80b0b5f455567dc1f
+ms.sourcegitcommit: a77dea675af6500bdad529106f5782d86bec6a34
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78366462"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79025245"
 ---
 # <a name="validate-azure-stack-hub-pki-certificates"></a>Ověření certifikátů PKI Azure Stack hub
 
@@ -89,11 +89,11 @@ Pomocí těchto kroků Připravte a ověřte certifikáty PKI centra Azure Stack
         - `C:\Certificates\Deployment\Admin Portal\CustomerCertificate.pfx`
         - `C:\Certificates\Deployment\ARM Admin\CustomerCertificate.pfx`
 
-3. V okně PowerShellu změňte hodnoty `RegionName` a `FQDN` vhodné pro prostředí Azure Stack hub a spusťte následující rutinu:
+3. V okně PowerShellu změňte hodnoty `RegionName`, `FQDN` a `IdentitySystem` vhodné pro prostředí Azure Stack hub a spusťte následující rutinu:
 
     ```powershell  
     $pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString 
-    Invoke-AzsCertificateValidation -CertificateType Deployment -CertificatePath C:\Certificates\Deployment -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com  
+    Invoke-AzsCertificateValidation -CertificateType Deployment -CertificatePath C:\Certificates\Deployment -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD  
     ```
 
 4. Zkontrolujte výstup a zajistěte, aby všechny certifikáty vyhověly všem testům. Příklad:

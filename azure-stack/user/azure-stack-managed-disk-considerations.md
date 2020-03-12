@@ -7,12 +7,12 @@ ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 3d1f22bf65f088c9aa651498cd02c7669ba4abfb
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 3d4230a29c184b8bb60821796f5fc5b7905ed5a2
+ms.sourcegitcommit: 900332596d0bb473d82b1d1a28c3fe3aa6522add
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77703940"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79089329"
 ---
 # <a name="azure-stack-hub-managed-disks-differences-and-considerations"></a>Azure Stack spravované disky centra: rozdíly a požadavky
 
@@ -28,7 +28,7 @@ Spravované disky zjednodušují správu disků pro virtuální počítače s Ia
 | Funkce | Azure (Global) | Centrum Azure Stack |
 | --- | --- | --- |
 |Šifrování pro neaktivní uložená data |Šifrování služby Azure Storage (SSE), Azure Disk Encryption (ADE).     |BitLocker 128-bitové šifrování AES      |
-|Obrázek          | Spravovaná vlastní image |Podporuje se|
+|Image          | Spravovaná vlastní image |Podporuje se|
 |Možnosti zálohování | Služba Azure Backup |Zatím nepodporováno |
 |Možnosti zotavení po havárii | Azure Site Recovery |Zatím nepodporováno|
 |Typy disků     |SSD úrovně Premium, SSD úrovně Standard a HDD úrovně Standard. |SSD úrovně Premium HDD úrovně Standard |
@@ -55,7 +55,6 @@ Existují také rozdíly v metrikách úložiště:
 Spravované disky centra Azure Stack podporují následující verze rozhraní API:
 
 - 2017-03-30
-- 2017-12-01
 
 ## <a name="convert-to-managed-disks"></a>Převést na spravované disky
 

@@ -8,6 +8,24 @@
   items:
     - name: Vytváření svazků
       href: manage/create-volumes.md
+    - name: Rozšiřování svazků
+      href: manage/extend-volumes.md
+    - name: Odstranit svazky
+      href: manage/delete-volumes.md
+    - name: Nahradit jednotky
+      href: manage/replace-drives.md
+- name: Koncepty
+  items:
+    - name: Zvolit jednotky
+      href: concepts/choose-drives.md
+    - name: Plánování svazků
+      href: concepts/plan-volumes.md
+    - name: Pochopení mezipaměti
+      href: concepts/cache.md
+    - name: Odolnost proti chybám a efektivita úložiště
+      href: concepts/fault-tolerance.md
+    - name: Kvorum clusteru a fondu úložiště
+      href: concepts/quorum.md
 - name: Referenční informace
   items:
     - name: Příkazy prostředí PowerShell technologie Hyper-V

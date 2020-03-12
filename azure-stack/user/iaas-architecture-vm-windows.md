@@ -3,16 +3,16 @@ title: Spuštění virtuálního počítače s Windows na rozbočovači Azure St
 description: Přečtěte si, jak spustit virtuální počítač s Windows na rozbočovači Azure Stack.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 11/11/2019
+ms.date: 3/9/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: 1bd438802c00a1c00b10f81920c1756d22f83606
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.lastreviewed: 3/9/2020
+ms.openlocfilehash: b3619d0096b7c14ec6f15aaf37f9bee774213e6a
+ms.sourcegitcommit: a77dea675af6500bdad529106f5782d86bec6a34
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77704977"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79025224"
 ---
 # <a name="run-a-windows-virtual-machine-on-azure-stack-hub"></a>Spuštění virtuálního počítače s Windows na rozbočovači Azure Stack
 
@@ -75,7 +75,7 @@ I když je infrastruktura centra Azure Stack už odolná vůči selháním, pak 
 | **Domény selhání** | Virtuální počítače, které jsou umístěné ve skupině dostupnosti, se fyzicky izolují tak, že je rozšíříte tak, jak je to možné, do více domén selhání (Azure Stack uzly centra). Pokud dojde k selhání hardwaru, virtuální počítače z neúspěšné domény selhání se restartují v jiných doménách selhání. Budou se uchovávat v samostatných doménách selhání z ostatních virtuálních počítačů, ale ve stejné skupině dostupnosti, pokud je to možné. Když se hardware vrátí zpátky do online režimu, virtuální počítače se znovu vyrovnávají, aby se zachovala vysoká dostupnost. |
 | **Aktualizovat domény**| Aktualizační domény představují jiný způsob, jakým Azure poskytuje vysokou dostupnost ve skupinách dostupnosti. Aktualizační doména je logická skupina základního hardwaru, která může prostoupit v rámci údržby. Virtuální počítače umístěné ve stejné aktualizační doméně se při plánované údržbě restartují společně. Když klienti vytvářejí virtuální počítače v rámci skupiny dostupnosti, platforma Azure automaticky distribuuje virtuální počítače napříč těmito aktualizačními doménami. <br>V Azure Stackovém centru jsou virtuální počítače za provozu přenášeny v jiných online hostitelích v clusteru před tím, než se aktualizuje jejich podkladový hostitel. Vzhledem k tomu, že během aktualizace hostitele nedochází k výpadku tenanta, funkce aktualizační doména v centru Azure Stack existuje pouze pro kompatibilitu šablon s Azure. Virtuální počítače ve skupině dostupnosti budou na portálu zobrazeny jako číslo aktualizační domény. |
 
-**Zálohy** Doporučení k ochraně virtuálních počítačů IaaS ve službě Azure Stack hub najdete v tomto článku.
+**Zálohy** Doporučení k ochraně virtuálních počítačů IaaS ve službě Azure Stack hub najdete [v referenční ochraně virtuálních počítačů nasazených v centru Azure Stack](azure-stack-manage-vm-protect.md).
 
 **Zastavuje se virtuální počítač**. Azure rozlišuje mezi tím, když je virtuální počítač zastavený a když má zrušené přidělení. Když se virtuální počítač v zastaveném stavu, fakturuje se vám, ale když má zrušené přidělení, tak ne. Na portálu Azure Stack hub zruší přidělení virtuálního počítače tlačítkem **zastavit** . Pokud virtuální počítač vypnete pomocí operačního systému, když jste přihlášení, zastaví se, ale **neuvolní**, takže se vám bude nadále účtovat.
 

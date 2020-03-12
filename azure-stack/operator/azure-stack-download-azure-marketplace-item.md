@@ -7,12 +7,12 @@ ms.date: 02/04/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 12/23/2019
-ms.openlocfilehash: a4882ca540b2a72d77195ee12a5d5ae0be87931d
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.openlocfilehash: 38e0f6deea5cfeb86ba3c42c8590004ee5dc99bc
+ms.sourcegitcommit: 900332596d0bb473d82b1d1a28c3fe3aa6522add
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78368825"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79128534"
 ---
 # <a name="download-marketplace-items-to-azure-stack-hub"></a>Stažení položek z Marketplace do centra Azure Stack 
 
@@ -91,6 +91,8 @@ Tento scénář obsahuje dvě části:
   ```
   Install-Module -Name Azs.Syndication.Admin
   ```
+  
+- .NET Framework 4,7 nebo novější verze
 
 Po registraci Azure Stack můžete ignorovat následující zprávu, která se zobrazí v okně správy Marketplace, protože není relevantní pro případ odpojeného použití:
 
