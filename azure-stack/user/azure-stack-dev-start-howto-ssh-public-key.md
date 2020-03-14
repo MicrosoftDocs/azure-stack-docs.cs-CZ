@@ -8,11 +8,11 @@ ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
 ms.openlocfilehash: 5f65b0ff096fbf84b140406b7cb98fdbdf5b0b11
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78364645"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79294151"
 ---
 # <a name="use-an-ssh-public-key"></a>Použití veřejného klíče SSH
 

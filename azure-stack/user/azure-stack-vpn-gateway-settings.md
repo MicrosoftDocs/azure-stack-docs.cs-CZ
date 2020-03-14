@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: sethm
 ms.lastreviewed: 12/27/2019
-ms.openlocfilehash: b762dfa9897ac732df7c09858ef3a5d25357f1d7
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.openlocfilehash: b8f7be7885bd4565a13983d858c1f10b30df20b3
+ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78366431"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79294943"
 ---
 # <a name="configure-vpn-gateway-settings-for-azure-stack-hub"></a>Konfigurace nastavení služby VPN Gateway pro centrum Azure Stack
 
@@ -154,6 +154,10 @@ Někdy je potřeba upravit nastavení místní síťové brány; například kdy
 Když nastavíte připojení k síti VPN v Azure Stackovém centru, musíte nakonfigurovat připojení na obou koncích. Pokud konfigurujete připojení VPN mezi Azure Stack hub a hardwarovým zařízením, jako je například přepínač nebo směrovač, který funguje jako brána sítě VPN, může se toto zařízení zeptat na další nastavení.
 
 Na rozdíl od Azure, který podporuje více nabídek jako iniciátor i respondér, služba Azure Stack hub podporuje ve výchozím nastavení jenom jednu nabídku. Pokud pro práci se zařízením VPN potřebujete použít jiné nastavení protokolu IPSec/IKE, máte k dispozici více nastavení pro ruční konfiguraci připojení. Další informace najdete v tématu [Konfigurace zásad IPSec/IKE pro připojení VPN typu Site-to-site](azure-stack-vpn-s2s.md).
+
+> [!IMPORTANT] 
+> Při použití tunelového propojení S2S jsou pakety dále zapouzdřeny s dalšími hlavičkami, které zvyšují celkovou velikost paketu. V těchto scénářích je potřeba, abyste v **1350**zasvorki TCP **MSS** . Pokud vaše zařízení nepodporuje uchycení MSS, můžete místo toho nastavit **MTU** na rozhraní tunelu na **1400** bajtů. Další informace najdete v tématu [ladění výkonu protokolu virtuální sítě TCPIP] (virtual-network-tcpip-performance-tuning.md). 
+>
 
 ### <a name="ike-phase-1-main-mode-parameters"></a>Parametry protokolu IKE fáze 1 (hlavní režim)
 

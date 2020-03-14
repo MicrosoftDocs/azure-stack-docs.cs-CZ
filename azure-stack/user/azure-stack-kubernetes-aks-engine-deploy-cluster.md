@@ -7,12 +7,12 @@ ms.date: 01/10/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: b8826fc929c571e39d36139bf724861ae9cc7fbd
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: fc53a0b1e4273436e9e06e10feccbe577ea2e488
+ms.sourcegitcommit: 4301e8dee16b4db32b392f5979dfec01ab6566c9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77702699"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79312951"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>Nasazení clusteru Kubernetes s modulem AKS v centru Azure Stack
 
@@ -35,7 +35,7 @@ V této části se podíváme na vytvoření modelu rozhraní API pro váš clus
     > [!Note]  
     > Pokud se odpojíte, můžete soubor stáhnout a ručně ho zkopírovat do odpojeného počítače, kde ho chcete upravit. Soubor můžete zkopírovat do počítače se systémem Linux pomocí nástrojů, jako jsou například výstupy [nebo WinSCP](https://www.suse.com/documentation/opensuse103/opensuse103_startup/data/sec_filetrans_winssh.html).
 
-2.  Pokud chcete otevřít v editoru, můžete použít nano:
+2.  K otevření modelu rozhraní API v editoru můžete použít nano:
 
     ```bash
     nano ./kubernetes-azurestack.json
@@ -88,9 +88,9 @@ V této části se podíváme na vytvoření modelu rozhraní API pro váš clus
     | Pole | Popis |
     | --- | --- |
     | adminUsername | Zadejte uživatelské jméno správce virtuálního počítače. |
-    | SSH | Zadejte veřejný klíč, který se bude používat pro ověřování SSH s virtuálními počítači. Pokud používáte výstupy, otevřete generátor klíčů pro výstup, který načte soukromý klíč pro výstup a veřejný klíč, který začíná SSH-RSA, jako v následujícím příkladu. Můžete použít klíč generovaný při vytváření klienta pro Linux, ale musíte **zkopírovat veřejný klíč, aby se jedná o jednořádkový text, jak je znázorněno v příkladu**.|
+    | SSH | Zadejte veřejný klíč, který se bude používat pro ověřování SSH s virtuálními počítači. Použijte `ssh-rsa` a pak klíč. Pokyny k vytvoření veřejného klíče najdete v tématu [vytvoření klíče SSH pro Linux](create-ssh-key-on-windows.md). |
 
-    ![Generátor klíčů pro výstupu](media/azure-stack-kubernetes-aks-engine-deploy-cluster/putty-key-generator.png)
+    Pokud nasazujete do vlastní virtuální sítě, najdete pokyny k vyhledání a přidání požadovaných klíčů a hodnot do příslušných polí v modelu rozhraní API v tématu [nasazení clusteru Kubernetes do vlastní virtuální sítě](kubernetes-aks-engine-custom-vnet.md).
 
 ### <a name="more-information-about-the-api-model"></a>Další informace o modelu rozhraní API
 
@@ -115,15 +115,15 @@ Pokračujte v nasazení clusteru:
     | --- | --- | --- |
     | Azure – ENV | AzureStackCloud | K indikaci AKS Engine, který je vaší cílovou platformou `AzureStackCloud`Azure Stack centra použít. |
     | Identita – systém | službou | Volitelné. Pokud používáte federované služby Active Directory (AD FS), zadejte svoje řešení pro správu identit. |
-    | umístění | místní | Název oblasti centra Azure Stack. Pro ASDK je oblast nastavená na `local`. |
+    | location | místní | Název oblasti centra Azure Stack. Pro ASDK je oblast nastavená na `local`. |
     | resource-group | Kube – RG | Zadejte název nové skupiny prostředků nebo vyberte existující skupinu prostředků. Název prostředku musí být alfanumerické znaky a malá písmena. |
     | rozhraní API – model | ./kubernetes-azurestack.json | Cesta ke konfiguračnímu souboru clusteru nebo modelu rozhraní API. |
     | výstupní adresář | Kube – RG | Zadejte název adresáře, který bude obsahovat výstupní soubor `apimodel.json` i jiné generované soubory. |
     | ID klienta | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Zadejte identifikátor GUID instančního objektu služby. ID klienta identifikované jako ID aplikace, když správce centra Azure Stack vytvořil instanční objekt. |
-    | client-secret | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Zadejte tajný klíč objektu služby. Toto je tajný kód klienta, který jste nastavili při vytváření služby. |
+    | client-secret | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Zadejte tajný klíč objektu služby. Při vytváření služby nastavíte tajný klíč klienta. |
     | ID předplatného | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Zadejte ID předplatného. Další informace najdete v tématu [přihlášení k odběru nabídky](https://docs.microsoft.com/azure-stack/user/azure-stack-subscribe-services#subscribe-to-an-offer) . |
 
-    Tady je příklad:
+    Zde naleznete příklad:
 
     ```bash  
     aks-engine deploy \

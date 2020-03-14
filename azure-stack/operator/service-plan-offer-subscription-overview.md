@@ -8,11 +8,11 @@ ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 10/01/2019
 ms.openlocfilehash: 0e5d71335fb5b7086341c7c06ec503aae1a8e728
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77704773"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79294382"
 ---
 # <a name="azure-stack-hub-services-plans-offers-subscriptions-overview"></a>Přehled služeb Azure Stack hub, plánů, nabídek a předplatných
 
@@ -52,7 +52,7 @@ Můžete také nasazovat služby PaaS ( [Platform as a Service](https://azure.mi
 
 Můžete také kombinovat služby pro integraci a vytváření složitých řešení pro různé uživatele.
 
-### <a name="quotas"></a>kvóty,
+### <a name="quotas"></a>Kvóty
 
 Pro lepší správu kapacity cloudu můžete použít předem nakonfigurované *kvóty*nebo vytvořit novou kvótu pro každou službu v plánu. Kvóty definují horní omezení prostředků, které může předplatné uživatele zřizovat nebo využívat. Kvóta například může uživateli umožnit vytvoření až pěti virtuálních počítačů.
 

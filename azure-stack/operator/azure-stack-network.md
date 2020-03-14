@@ -8,11 +8,11 @@ ms.author: inhenkel
 ms.reviewer: wamota
 ms.lastreviewed: 06/04/2019
 ms.openlocfilehash: 3c7a68376ddb57d9e7fad1f936c8990243203b9c
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78366537"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79294767"
 ---
 # <a name="network-integration-planning-for-azure-stack"></a>Plánování integrace sítě pro Azure Stack
 
@@ -39,7 +39,7 @@ Následující tabulka uvádí logické sítě a přidružené rozsahy podsítí
 | Veřejná virtuální IP adresa | Azure Stack používá celkem 31 adres z této sítě. Osm veřejných IP adres se používá pro malou sadu Azure Stack služeb a zbývající jsou používány virtuálními počítači klienta. Pokud plánujete použít App Service a poskytovatele prostředků SQL, použijí se 7 dalších adres. Zbývajících 15 IP adres se rezervuje pro budoucí služby Azure. | /26 (62 hostitelů)-/22 (1022 hostitelů)<br><br>Doporučené =/24 (254 hostitelů) | 
 | Přepnout infrastrukturu | IP adresy Point-to-Point pro účely směrování, rozhraní pro správu vyhrazených přepínačů a adresy zpětné smyčky přiřazené přepínači. | /26 | 
 | Infrastruktura | Slouží k Azure Stack interní součásti pro komunikaci. | /24 |
-| Privátní | Používá se pro síť úložiště, privátní virtuální IP adresy, kontejnery infrastruktury a další interní funkce. Od 1910 se velikost této podsítě mění na/20. Další podrobnosti najdete v části [privátní síť](#private-network) v tomto článku. | /20 | 
+| Private | Používá se pro síť úložiště, privátní virtuální IP adresy, kontejnery infrastruktury a další interní funkce. Od 1910 se velikost této podsítě mění na/20. Další podrobnosti najdete v části [privátní síť](#private-network) v tomto článku. | /20 | 
 | BMC | Slouží ke komunikaci s BMC na fyzických hostitelích. | /26 | 
 | | | |
 

@@ -3,16 +3,16 @@ title: Nasazení webové aplikace v Pythonu na virtuální počítač v centru A
 description: Nasaďte webovou aplikaci v Pythonu na virtuální počítač v Azure Stackovém centru.
 author: mattbriggs
 ms.topic: overview
-ms.date: 1/22/2020
+ms.date: 3/12/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 3a5eb2667c290eba41a347209608db96c9ce5598
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.lastreviewed: 3/12/2020
+ms.openlocfilehash: 700589e985aa651a1a7ae4a5ffbc020b8e6a2d3f
+ms.sourcegitcommit: 4301e8dee16b4db32b392f5979dfec01ab6566c9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77704127"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79313004"
 ---
 # <a name="deploy-a-python-web-app-to-a-vm-in-azure-stack-hub"></a>Nasazení webové aplikace v Pythonu do virtuálního počítače v Azure Stackovém centru
 
@@ -26,12 +26,12 @@ V tomto článku se používá Python 3. x, ve kterém je ve virtuálním prost�
 
 2. V podokně síť virtuálních počítačů se ujistěte, že jsou dostupné tyto porty:
 
-    | Port | Protokol | Popis |
+    | Port | Protocol (Protokol) | Popis |
     | --- | --- | --- |
     | 80 | HTTP | HTTP (Hypertext Transfer Protocol) je protokol, který se používá k doručování webových stránek ze serverů. Klienti se připojují přes protokol HTTP s názvem DNS nebo IP adresou. |
     | 443 | HTTPS | Protokol HTTPS (Hypertext Transfer Protocol Secure) je zabezpečená verze protokolu HTTP, která vyžaduje certifikát zabezpečení a umožňuje šifrovaný přenos informací. |
     | 22 | SSH | Secure Shell (SSH) je zašifrovaný síťový protokol pro zabezpečenou komunikaci. Pomocí tohoto připojení s klientem SSH nakonfigurujete virtuální počítač a nasadíte aplikaci. |
-    | 3389 | RDP | Volitelné. Protokol RDP (Remote Desktop Protocol) (RDP) umožňuje připojení ke vzdálené ploše pro použití grafického uživatelského rozhraní na vašem počítači.   |
+    | 3389 | Protokol RDP | Volitelné. Protokol RDP (Remote Desktop Protocol) (RDP) umožňuje připojení ke vzdálené ploše pro použití grafického uživatelského rozhraní na vašem počítači.   |
     | 5000, 8000 | Vlastní | Porty používané webovým rozhraním v baňce pro vývoj. V případě provozního serveru směrujete provoz mezi 80 a 443. |
 
 ## <a name="install-python"></a>Instalace Pythonu
@@ -66,9 +66,9 @@ V tomto článku se používá Python 3. x, ve kterém je ve virtuálním prost�
 1. Nastavte úložiště Git na VIRTUÁLNÍm počítači. I když jste stále připojeni k VIRTUÁLNÍmu počítači v relaci SSH, zadejte následující příkazy:
 
     ```bash  
-       git clone https://github.com/mattbriggs/flask-hello-world.git
+       git clone https://github.com/Azure-Samples/azure-stack-hub-flask-hello-world.git
     
-       cd flask-hello-world
+       cd azure-stack-hub-flask-hello-world
     ```
 
 2. Vytvořte virtuální prostředí a naplňte ho všemi závislostmi balíčku. I když jste stále připojeni k VIRTUÁLNÍmu počítači v relaci SSH, zadejte následující příkazy:

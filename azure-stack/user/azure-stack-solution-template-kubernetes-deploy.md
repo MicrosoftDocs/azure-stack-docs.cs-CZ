@@ -8,11 +8,11 @@ ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
 ms.openlocfilehash: 5fa9c506b2e030adbf521191a623579f56f1ae0f
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78364356"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79294250"
 ---
 # <a name="deploy-kubernetes-to-use-containers-with-azure-stack-hub"></a>Nasazení Kubernetes pro použití kontejnerů pomocí centra Azure Stack
 

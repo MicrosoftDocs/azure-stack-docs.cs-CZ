@@ -3,16 +3,16 @@ title: Nasazení Kubernetes do centra Azure Stack pomocí služby Active Directo
 description: Naučte se, jak nasadit Kubernetes do centra Azure Stack pomocí služby Active Directory federované služby (AD FS).
 author: mattbriggs
 ms.topic: article
-ms.date: 1/22/2020
+ms.date: 3/12/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 06/18/20192
-ms.openlocfilehash: 5a1b36f7640f3259a4b18f087ebf4bad49f3c4ed
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.lastreviewed: 3/12/2020
+ms.openlocfilehash: adca3be6659d140dcf05776d04696ff7302a9ab3
+ms.sourcegitcommit: 4301e8dee16b4db32b392f5979dfec01ab6566c9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77703668"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79313136"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-hub-using-active-directory-federated-services"></a>Nasazení Kubernetes do centra Azure Stack pomocí federovaných služeb Active Directory
 
@@ -21,7 +21,7 @@ ms.locfileid: "77703668"
 
 Pro nasazení a nastavení prostředků pro Kubernetes můžete postupovat podle kroků v tomto článku. Tyto kroky použijte, když je služba Active Directory federované služby (AD FS) vaší službou správy identit.
 
-## <a name="prerequisites"></a>Požadavky 
+## <a name="prerequisites"></a>Předpoklady 
 
 Pokud chcete začít, ujistěte se, že máte správná oprávnění a že je vaše centrum Azure Stack připravené.
 

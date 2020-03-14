@@ -8,11 +8,11 @@ ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/05/2020
 ms.openlocfilehash: 576580732440cabd8ae1c140d13130b81b212d16
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78366377"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79294954"
 ---
 # <a name="introduction-to-azure-stack-hub-vms"></a>Úvod k virtuálním počítačům centra Azure Stack
 
@@ -84,7 +84,7 @@ Pomocí rozšíření můžete provádět tyto běžné úlohy:
 
 Prostředky v následující tabulce používá virtuální počítač, musí existovat nebo se vytvořit při vytvoření virtuálního počítače:
 
-|Prostředek|Požadováno|Popis|
+|Prostředek|Požaduje se|Popis|
 |---------|---------|---------|
 |Skupina prostředků|Ano|Virtuální počítač musí být součástí skupiny prostředků.|
 |Účet úložiště|Ne|Virtuální počítač nepotřebuje účet úložiště k ukládání virtuálních pevných disků, pokud se používá služba Managed disks. <br>Virtuální počítač potřebuje účet úložiště pro ukládání virtuálních pevných disků, pokud používají nespravované disky.|
@@ -102,7 +102,7 @@ Máte několik možností, jak vytvořit virtuální počítač. Vaše volba zá
 |Portál centra Azure Stack|Vytvoření virtuálního počítače s Windows pomocí portálu Azure Stack hub<br>[Vytvoření virtuálního počítače se systémem Linux pomocí portálu Azure Stack hub](azure-stack-quick-linux-portal.md)|
 |Šablony|Šablony pro rychlý Start centra Azure Stack najdete na adrese:<br> [https://github.com/Azure/AzureStack-QuickStart-Templates](https://aka.ms/aa6z60s)|
 |PowerShell|[Vytvoření virtuálního počítače s Windows pomocí PowerShellu v Azure Stackovém centru](azure-stack-quick-create-vm-windows-powershell.md)<br>[Vytvoření virtuálního počítače se systémem Linux pomocí prostředí PowerShell v Azure Stackovém centru](azure-stack-quick-create-vm-linux-powershell.md)|
-|CLI|[Vytvoření virtuálního počítače s Windows pomocí rozhraní příkazového řádku v Azure Stackovém centru](azure-stack-quick-create-vm-windows-cli.md)<br>[Vytvoření virtuálního počítače se systémem Linux pomocí rozhraní příkazového řádku v Azure Stack hub](azure-stack-quick-create-vm-linux-cli.md)|
+|Rozhraní příkazového řádku|[Vytvoření virtuálního počítače s Windows pomocí rozhraní příkazového řádku v Azure Stackovém centru](azure-stack-quick-create-vm-windows-cli.md)<br>[Vytvoření virtuálního počítače se systémem Linux pomocí rozhraní příkazového řádku v Azure Stack hub](azure-stack-quick-create-vm-linux-cli.md)|
 
 ## <a name="manage-your-vm"></a>Správa virtuálního počítače
 
@@ -120,7 +120,7 @@ Následující tabulka uvádí některé způsoby, jak můžete získat informac
 |Metoda|Popis|
 |---------|---------|
 |Portál centra Azure Stack|V nabídce centra klikněte na **Virtual Machines** a ze seznamu vyberte virtuální počítač. Na stránce pro virtuální počítač máte přístup k informacím o přehledu, nastavení hodnot a metrikách monitorování.|
-|Azure PowerShell|Správa virtuálních počítačů je v Azure a centru Azure Stack podobná. Další informace o používání PowerShellu najdete v následujícím tématu Azure:<br>[Vytvoření a správa virtuálních počítačů s Windows pomocí modulu Azure PowerShell](/azure/virtual-machines/windows/tutorial-manage-vm#understand-vm-sizes)|
+|Azure Powershell|Správa virtuálních počítačů je v Azure a centru Azure Stack podobná. Další informace o používání PowerShellu najdete v následujícím tématu Azure:<br>[Vytvoření a správa virtuálních počítačů s Windows pomocí modulu Azure PowerShell](/azure/virtual-machines/windows/tutorial-manage-vm#understand-vm-sizes)|
 |Klientské sady SDK|Použití C# ke správě virtuálních počítačů je podobné jako u Azure a centra Azure Stack. Další informace najdete v následujícím tématu Azure:<br>[Vytváření a správa virtuálních počítačů s Windows v Azure pomocíC#](/azure/virtual-machines/windows/csharp)|
 
 ### <a name="connect-to-your-vm"></a>Připojení k virtuálnímu počítači

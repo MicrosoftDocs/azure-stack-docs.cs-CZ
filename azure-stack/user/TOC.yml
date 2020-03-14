@@ -63,6 +63,8 @@
               href: azure-stack-install-visual-studio.md
             - name: Použít Secure Shell
               href: azure-stack-dev-start-howto-ssh-public-key.md
+            - name: Vytvoření klíče pomocí ssh-keygen
+              href: create-ssh-key-on-windows.md
             - name: Použití klienta REST s rozhraním API
               href: azure-stack-rest-api-use.md
         - name: Použití šablon Správce prostředků centra Azure Stack
@@ -115,7 +117,7 @@
               href: /azure-stack/operator/azure-stack-create-service-principals?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
         - name: Použití služeb
           items:
-            - name: Výpočty
+            - name: Compute
               items:
                 - name: Přehled
                   href: azure-stack-compute-overview.md
@@ -210,6 +212,8 @@
                       href: azure-stack-kubernetes-aks-engine-deploy-windows.md
                     - name: Nasazení clusteru
                       href: azure-stack-kubernetes-aks-engine-deploy-cluster.md
+                    - name: Nasazení do vlastní virtuální sítě
+                      href: kubernetes-aks-engine-custom-vnet.md
                     - name: Škálování clusteru
                       href: azure-stack-kubernetes-aks-engine-scale.md
                     - name: Upgrade clusteru
@@ -319,7 +323,7 @@
       href: /azure-stack/operator/
     - name: Dokumentace ke službě ASDK
       href: /azure-stack/asdk/
-- name: Prostředky
+- name: Zdroje
   items:
     - name: Plán centra Azure Stack
       href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'

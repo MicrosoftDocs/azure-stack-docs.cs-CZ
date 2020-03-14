@@ -8,11 +8,11 @@ ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 10/25/2019
 ms.openlocfilehash: cdbe5150b72a720fa527d3bb1b1e32f5a66a6955
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78366326"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79294932"
 ---
 # <a name="infrastructure-backup-service-reference"></a>Odkaz na službu Infrastructure Backup
 

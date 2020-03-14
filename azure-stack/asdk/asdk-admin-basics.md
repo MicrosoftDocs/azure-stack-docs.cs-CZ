@@ -8,11 +8,11 @@ ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2019
 ms.openlocfilehash: ab0f54d94b96a7bdd75d13f04fd9146146d42740
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78364326"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79294272"
 ---
 # <a name="asdk-admin-basics"></a>Základy správy ASDK
 Pokud s Azure Stack Development Kit (ASDK) nebudete mít jistotu, budete potřebovat několik věcí. Tento návod poskytuje přehled vaší role jako operátor Azure Stack ve zkušebním prostředí. Familiarizing se s těmito informacemi, zajistíte, aby vaši testovací uživatelé byli co nejrychleji produktivní.

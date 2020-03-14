@@ -8,11 +8,11 @@ ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 06/28/2019
 ms.openlocfilehash: 207b99b9a3cbb6c030a6e79137d036820b3b3f60
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78364077"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79294206"
 ---
 # <a name="asdk-architecture"></a>Architektura ASDK
 Azure Stack Development Kit (ASDK) je nasazení Azure Stack v jednom uzlu, které běží na jednom hostitelském počítači. Komponenty směrování Edge jsou nainstalované na hostitelském počítači pro poskytování funkcí NAT a sítě VPN pro Azure Stack. Role Azure Stack infrastruktury se spouštějí ve vrstvě Hyper-V fyzického hostitelského počítače.

@@ -2,17 +2,17 @@
 title: Požadavky na certifikát infrastruktury veřejných klíčů centra Azure Stack
 description: Seznamte se s požadavky na nasazení certifikátů PKI centra Azure Stack pro integrované systémy Azure Stack hub.
 author: IngridAtMicrosoft
-ms.topic: article
-ms.date: 12/16/2019
+ms.topic: conceptual
+ms.date: 3/04/2020
 ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 12/16/2019
-ms.openlocfilehash: 99bec3441d7b6671024f5e1689c6f8504a2f57c1
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: a63fcbb13defc0d7e679c0be7fb931c0e2570b37
+ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77698381"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79294228"
 ---
 # <a name="azure-stack-hub-public-key-infrastructure-certificate-requirements"></a>Požadavky na certifikát infrastruktury veřejných klíčů centra Azure Stack
 
@@ -84,7 +84,7 @@ Pokud nasadíte Azure Stack centrum pomocí režimu nasazení služby Azure AD, 
 |Složka pro nasazení|Požadovaný předmět certifikátu a alternativní názvy subjektu (SAN)|Rozsah (na oblast)|Obor názvů subdomény|
 |-----|-----|-----|-----|
 |ADFS|službou. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*<br>(Certifikát SSL)|ADFS|*> &lt;oblasti.&lt;plně kvalifikovaný název domény >*|
-|Graf|zapisovací. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*<br>(Certifikát SSL)|Graf|*> &lt;oblasti.&lt;plně kvalifikovaný název domény >*|
+|Graph|zapisovací. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*<br>(Certifikát SSL)|Graph|*> &lt;oblasti.&lt;plně kvalifikovaný název domény >*|
 |
 
 > [!IMPORTANT]
@@ -102,7 +102,7 @@ Následující tabulka obsahuje popis koncových bodů a certifikátů vyžadova
 |-----|-----|-----|-----|
 |SQL, MySQL|SQL a MySQL|&#42;.dbadapter. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*<br>(Zástupný certifikát SSL)|dbadapter. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*|
 |App Service|Výchozí certifikát SSL pro webový provoz|&#42;AppService. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*<br>&#42;. SCM. AppService. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*<br>&#42;. SSO. AppService. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*<br>(Certifikát SSL s více doménovými znaky<sup>1</sup>)|AppService. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*<br>SCM. AppService. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*|
-|App Service|API|API. AppService. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*<br>(Certifikát SSL<sup>2</sup>)|AppService. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*<br>SCM. AppService. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*|
+|App Service|Rozhraní API|API. AppService. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*<br>(Certifikát SSL<sup>2</sup>)|AppService. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*<br>SCM. AppService. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*|
 |App Service|FTP|FTP. AppService. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*<br>(Certifikát SSL<sup>2</sup>)|AppService. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*<br>SCM. AppService. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*|
 |App Service|JEDNOTNÉ|SSO. AppService. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*<br>(Certifikát SSL<sup>2</sup>)|AppService. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*<br>SCM. AppService. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*|
 

@@ -7,12 +7,12 @@ ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 202a6269dfc978747b3d1c4dc754b19490911046
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: aa41ddde0986716e49073d571e967a050ef660f6
+ms.sourcegitcommit: 4301e8dee16b4db32b392f5979dfec01ab6566c9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77702427"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79313009"
 ---
 # <a name="troubleshoot-the-aks-engine-on-azure-stack-hub"></a>Řešení potíží s modulem AKS v centru Azure Stack
 
@@ -84,7 +84,7 @@ Můžete získat přístup k informacím o kontrole, které vytvořil modul AKS.
 
 ## <a name="collect-kubernetes-logs"></a>Shromažďovat protokoly Kubernetes
 
-Kromě protokolů modulu AKS generují komponenty Kubernetes stav a chybové zprávy. Tyto protokoly můžete shromažďovat pomocí skriptu bash [getkuberneteslogs.sh](https://aka.ms/aa6z613).
+Kromě protokolů modulu AKS generují komponenty Kubernetes stav a chybové zprávy. Tyto protokoly můžete shromažďovat pomocí skriptu bash [getkuberneteslogs.sh](https://github.com/msazurestackworkloads/azurestack-gallery/releases/tag/diagnosis-v0.1.3).
 
 Tento skript automatizuje proces shromažďování následujících protokolů: 
 
@@ -118,7 +118,7 @@ Požadavky:
 
 2. Vyhledejte parametry vyžadované skriptem `getkuberneteslogs.sh`. Skript bude používat následující parametry:
 
-    | Parametr | Popis | Požadováno | Příklad |
+    | Parametr | Popis | Požaduje se | Příklad |
     | --- | --- | --- | --- |
     | -h,--help | Použití příkazu tisku. | ne | 
     -u,--uživatel | Uživatelské jméno správce pro virtuální počítače clusteru | ano | azureuser<br>(výchozí hodnota) |

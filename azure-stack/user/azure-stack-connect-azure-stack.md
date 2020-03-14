@@ -8,11 +8,11 @@ ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2020
 ms.openlocfilehash: 0a3dfcc7d12baa6616f57908e87d24afaf1e927e
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78364373"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79294602"
 ---
 # <a name="connect-to-azure-stack-hub"></a>Připojení k centru Azure Stack
 
@@ -38,7 +38,7 @@ K Azure Stack Development Kit můžete vytvořit připojení VPN typu dělené t
 > [!NOTE] 
 > Toto připojení VPN neposkytuje připojení k virtuálním počítačům infrastruktury služby Azure Stack hub. 
 
-### <a name="prerequisites"></a>Požadavky
+### <a name="prerequisites"></a>Předpoklady
 
 * Nainstalujte [Azure PowerShell centra Azure Stack kompatibilní](../operator/azure-stack-powershell-install.md) na místním počítači.  
 * Stáhněte si [nástroje, které jsou potřeba pro práci s rozbočovačem Azure Stack](../operator/azure-stack-powershell-download.md). 

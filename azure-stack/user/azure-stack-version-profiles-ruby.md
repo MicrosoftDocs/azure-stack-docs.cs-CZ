@@ -8,11 +8,11 @@ ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
 ms.openlocfilehash: 5b79c676b922f0e76ed75e3ad043f53c1fb9d6a5
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78364133"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79294800"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack-hub"></a>Použití profilů verzí rozhraní API s Ruby v Azure Stack hub
 
@@ -78,7 +78,7 @@ Gem kumulativního azure_sdk můžete nainstalovat pomocí následujícího př�
 gem install 'azure_sdk'
 ```
 
-## <a name="prerequisites"></a>Požadavky
+## <a name="prerequisites"></a>Předpoklady
 
 Pokud chcete použít sadu Ruby Azure SDK s Azure Stack hub, musíte zadat následující hodnoty a pak hodnoty nastavit pomocí proměnných prostředí. Chcete-li nastavit proměnné prostředí, přečtěte si pokyny uvedené v tabulce pro konkrétní operační systém.
 

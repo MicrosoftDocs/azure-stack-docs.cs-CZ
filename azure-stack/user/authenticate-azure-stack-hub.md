@@ -7,12 +7,12 @@ ms.date: 12/13/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/13/2019
-ms.openlocfilehash: 21cd92626a5ddb4e86e5f0dd7568dc1a875bd3c1
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 845be919279107e88a922dfd180e3fc8794e1a89
+ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77687440"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79293887"
 ---
 # <a name="get-authentication-information-for-azure-stack-hub"></a>Získat informace o ověřování pro centrum Azure Stack
 
@@ -68,7 +68,7 @@ Získání ID tenanta:
 
 Azure Resource Manager koncový bod je koncový bod metadat pro službu nasazení a správu pro centrum Azure Stack. Poskytuje vrstvu pro správu, která umožňuje vytvářet, aktualizovat a odstraňovat prostředky v předplatném Azure.
 
-Pro integrovaný systém je adresa URL pro Azure Resource Manager koncový bod:<br>`https://management.<location>.<fqdn>.com`
+Pro integrovaný systém je adresa URL pro Azure Resource Manager koncový bod:<br>`https://management.<location>.<fqdn>`
 
 Pro získání koncového bodu metadat, který odkazuje na vlastnosti, jako je koncový bod galerie, koncový bod grafu, koncový bod portálu, koncový bod přihlášení a cílové skupiny, je adresa URL: `<ResourceManager>/metadata/endpoints?api-version=1.0`
 

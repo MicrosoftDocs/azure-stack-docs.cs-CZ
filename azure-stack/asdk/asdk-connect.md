@@ -8,11 +8,11 @@ ms.author: justinha
 ms.reviewer: knithinc
 ms.lastreviewed: 10/25/2019
 ms.openlocfilehash: 1b562d2a72f3da4d4ac9ef7045f5cbd5408f4afa
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78364325"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79294426"
 ---
 # <a name="connect-to-the-asdk"></a>Připojení k ASDK
 
@@ -50,7 +50,7 @@ Připojení VPN se podporuje pro nasazení Azure AD i Active Directory Federatio
 > [!NOTE]
 > *Připojení VPN neposkytuje připojení k* Azure Stack virtuálním počítačům. Při připojení přes VPN nebudete moct do Azure Stack virtuálních počítačů připojit protokol RDP.
 
-### <a name="prerequisites"></a>Požadavky
+### <a name="prerequisites"></a>Předpoklady
 Před nastavením připojení VPN k ASDK se ujistěte, že jste splnili následující požadavky:
 
 - Instalace [Azure PowerShell kompatibilního s Azure Stack](asdk-post-deploy.md#install-azure-stack-powershell) na místním počítači.  

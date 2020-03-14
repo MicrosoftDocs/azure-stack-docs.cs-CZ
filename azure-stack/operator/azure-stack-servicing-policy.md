@@ -9,11 +9,11 @@ ms.author: sethm
 ms.reviewer: harik
 ms.lastreviewed: 01/11/2020
 ms.openlocfilehash: f81ca3e48387f806e591deea08c4b0c9c518cebd
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78367636"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79294591"
 ---
 # <a name="azure-stack-hub-servicing-policy"></a>Zásady obsluhy centra Azure Stack
 
