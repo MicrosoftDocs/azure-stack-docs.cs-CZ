@@ -8,12 +8,12 @@ ms.date: 11/05/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: ef90476685a786549ed239429a222fbd561f6d15
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: fec8ac1797ef3fb6ce17b7173d813aff74ba3712
+ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77696749"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79512328"
 ---
 # <a name="troubleshoot-issues-in-azure-stack-hub"></a>Řešení potíží v centru Azure Stack
 
@@ -45,7 +45,7 @@ Tyto části obsahují odkazy na dokumenty, které pokrývají běžné otázky 
 
 ### <a name="manage-capacity"></a>Správa kapacity
 
-#### <a name="memory"></a>Paměť
+#### <a name="memory"></a>Memory (Paměť)
 
 Pokud chcete zvýšit celkovou dostupnou kapacitu paměti pro centrum Azure Stack, můžete přidat další paměť. V Azure Stackovém centru se váš fyzický server označuje také jako uzel jednotky škálování. Všechny uzly jednotek škálování, které jsou členy jedné jednotky škálování, musí mít [stejnou velikost paměti](azure-stack-manage-storage-physical-memory-capacity.md).
 
@@ -87,7 +87,7 @@ Pomocí prostředí PowerShell můžete získat informace o využití razítka b
 4. Spusťte `get-azurestacklog -filterbyrole seedring` pomocí volání vyvolání příkazu.
 5. Extrahujte soubor seedring. zip. Sestavu ověření můžete získat ze složky ERCS, ve které jste spustili `test-azurestack`.
 
-Další informace najdete v tématu [Diagnostika centra Azure Stack](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs).
+Další informace najdete v tématu [Diagnostika centra Azure Stack](azure-stack-get-azurestacklog.md).
 
 ## <a name="troubleshoot-virtual-machines-vms"></a>Řešení potíží s virtuálními počítači
 

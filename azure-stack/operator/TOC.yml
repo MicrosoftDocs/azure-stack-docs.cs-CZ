@@ -31,7 +31,7 @@
       items:
         - name: Přehled
           href: azure-stack-capacity-planning-overview.md
-        - name: Výpočty
+        - name: Compute
           href: azure-stack-capacity-planning-compute.md
         - name: Úložiště
           href: azure-stack-capacity-planning-storage.md
@@ -134,8 +134,12 @@
           href: azure-stack-cli-admin.md
         - name: Nastavení prostředí pro správu
           items:
-            - name: Nainstalovat Azure Stack centra PowerShell
+            - name: Instalace prostředí PowerShell RM
               href: azure-stack-powershell-install.md
+            - name: Instalace PowerShellu AZ
+              href: powershell-install-az-module.md
+            - name: Migrace prostředí PowerShell AzureRM na az
+              href: migrate-azurerm-az.md
             - name: Stažení nástrojů
               href: azure-stack-powershell-download.md
             - name: Připojení přes PowerShell
@@ -437,22 +441,26 @@
         - name: Portál podpory & pro pomoc
           items:
             - name: Přehled
-              href: azure-stack-help-and-support-overview.md
+              href: azure-stack-help-and-support-overview-tzl.md
+            - name: Najít ID cloudu
+              href: azure-stack-find-cloud-id.md
             - name: Shromažďování protokolů diagnostiky
               items:
                 - name: Přehled
-                  href: azure-stack-diagnostic-log-collection-overview.md
-                - name: Automatická kolekce
+                  href: azure-stack-diagnostic-log-collection-overview-tzl.md
+                - name: Proaktivní odesílání protokolů
+                  href: azure-stack-configure-automatic-diagnostic-log-collection-tzl.md
+                - name: Poslat protokoly hned
                   items:
-                    - name: Konfigurace automatické kolekce
-                      href: azure-stack-configure-automatic-diagnostic-log-collection.md
-                    - name: Osvědčené postupy
-                      href: azure-stack-best-practices-automatic-diagnostic-log-collection.md
-                - name: Kolekce na vyžádání
-                  href: azure-stack-configure-on-demand-diagnostic-log-collection.md
+                    - name: Použití portálu pro správu
+                      href: azure-stack-configure-on-demand-diagnostic-log-collection-portal-tzl.md
+                    - name: Použití prostředí PowerShell
+                      href: azure-stack-configure-on-demand-diagnostic-log-collection-powershell-tzl.md
+                - name: Get-AzureStackLog (PEP)
+                  href: azure-stack-get-azurestacklog.md
         - name: Ověřování centra Azure Stack
           href: azure-stack-diagnostic-test.md
-        - name: Odstraňování potíží
+        - name: Řešení potíží
           href: azure-stack-troubleshooting.md
 - name: Referenční informace
   items:
@@ -462,7 +470,7 @@
       href: /azure-stack/user/
     - name: Dokumentace k sadě ASDK
       href: /azure-stack/asdk/
-- name: Prostředky
+- name: Zdroje
   items:
     - name: Školení a certifikace
       href: azure-stack-train-and-cert.md

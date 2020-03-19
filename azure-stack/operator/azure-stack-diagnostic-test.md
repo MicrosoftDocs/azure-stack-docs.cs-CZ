@@ -7,12 +7,12 @@ ms.date: 01/10/2020
 ms.author: justinha
 ms.reviewer: adshar
 ms.lastreviewed: 01/10/2020
-ms.openlocfilehash: 1cfae74381121534fea8a49dca4d048e749bc1e6
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 9b082876dca1e39f99ac0b98a7e438aa1231b3c2
+ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77699996"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79512537"
 ---
 # <a name="validate-azure-stack-hub-system-state"></a>Ověřit stav systému centra Azure Stack
 
@@ -47,7 +47,7 @@ Jak je uvedeno výše, nástroj pro ověření se spouští přes PEP. Každý t
 
    Další informace najdete v tématu věnovaném [parametrům](azure-stack-diagnostic-test.md#parameter-considerations) a [příkladům případu použití](azure-stack-diagnostic-test.md#use-case-examples).
 
-1. Pokud dojde k **selhání**jakékoli testy, spusťte `Get-AzureStackLog`. Pokyny k integrovanému systému najdete v tématu [spuštění rutiny Get-AzureStackLog v systémech integrovaných v centru Azure Stack](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)nebo na ASDK v tématu spuštění rutiny [Get-AZURESTACKLOG v systému ASDK](azure-stack-configure-on-demand-diagnostic-log-collection.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system).
+1. Pokud dojde k **selhání**jakékoli testy, spusťte `Get-AzureStackLog`. Pokyny k integrovanému systému najdete v tématu spuštění rutiny [Get-AzureStackLog v systémech integrovaných v centru Azure Stack](azure-stack-get-azurestacklog.md).
 
    Rutina shromáždí protokoly generované rutinou test-AzureStack. Doporučujeme, abyste neshromáždili protokoly a místo toho kontaktovali šablony stylů CSS, pokud testy **upozorňují**na zprávu.
 
@@ -234,6 +234,6 @@ Test-AzureStack -Include AzsNetworkInfra -Debug
 
 ## <a name="next-steps"></a>Další kroky
 
-Další informace o nástrojích pro diagnostiku centra Azure Stack a protokolování problémů najdete v tématu [Nástroje pro diagnostiku Azure Stack centra](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs).
+Další informace o nástrojích pro diagnostiku centra Azure Stack a protokolování problémů najdete v tématu [Nástroje pro diagnostiku Azure Stack centra](azure-stack-diagnostic-log-collection-overview-tzl.md).
 
 Další informace o řešení potíží najdete v tématu [řešení potíží s centrem Microsoft Azure Stack](azure-stack-troubleshooting.md).

@@ -1,49 +1,26 @@
 ---
-title: Shromažďovat diagnostické protokoly centra Azure Stack na vyžádání
-description: Naučte se shromažďovat diagnostické protokoly na vyžádání v centru Azure Stack s využitím pomoci a podpory nebo privilegovaného koncového bodu (PEP).
+title: Shromažďování diagnostických protokolů pomocí privilegovaného koncového bodu (PEP)
+description: Naučte se shromažďovat diagnostické protokoly na vyžádání v centru Azure Stack pomocí portálu pro správu nebo skriptu PowerShellu.
 author: justinha
 ms.topic: article
-ms.date: 01/16/2020
+ms.date: 03/05/2020
 ms.author: justinha
 ms.reviewer: shisab
-ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: f17f835c88851d03d7ef1905cbac96b9f6701d8e
+ms.lastreviewed: 03/05/2020
+ms.openlocfilehash: df5a98e8526181a84d8b214fbdf82eb1dba00088
 ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 03/18/2020
-ms.locfileid: "79512214"
+ms.locfileid: "79520460"
 ---
-# <a name="collect-azure-stack-hub-diagnostic-logs-on-demand"></a>Shromažďovat diagnostické protokoly centra Azure Stack na vyžádání
-
-V rámci řešení potíží můžou služby Microsoft Customer Support Services (CSS) potřebovat analyzovat diagnostické protokoly. Od verze 1907 mohou operátoři centra Azure Stack nahrávat diagnostické protokoly do kontejneru objektů BLOB v Azure pomocí nástroje **Help and Support**. Použití **pomoci a podpory** se doporučuje nad předchozí metodou použití prostředí PowerShell, protože je jednodušší. Pokud však portál není k dispozici, operátory mohou nadále shromažďovat protokoly pomocí **Get-AzureStackLog** prostřednictvím privilegovaného koncového bodu (PEP) jako v předchozích verzích. Toto téma popisuje jak shromažďovat diagnostické protokoly na vyžádání.
-
->[!Note]
->Jako alternativu ke shromažďování protokolů na vyžádání můžete zjednodušit proces řešení potíží tím, že povolíte [automatické shromažďování diagnostických protokolů](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md). Pokud je potřeba prozkoumat stav systému, protokoly se nahrají automaticky pro účely analýzy šablonou CSS. 
-
-## <a name="use-help-and-support-to-collect-diagnostic-logs-on-demand"></a>Použití pomoci a podpory ke shromažďování diagnostických protokolů na vyžádání
-
-V případě řešení problému může CSS požádat o operátora centra Azure Stack ke shromáždění diagnostických protokolů na vyžádání pro konkrétní časové období z předchozího týdne. V takovém případě vám CSS poskytne operátor s adresou URL SAS pro nahrání kolekce. Pomocí následujících kroků proveďte konfiguraci shromažďování protokolů na vyžádání pomocí adresy URL SAS z šablony stylů CSS:
-
-1. Otevřete okno **pomoc a podpora – přehled** a hned klikněte na **shromáždit protokoly**. 
-1. Vyberte okno posunuté z 1-4 hodin za posledních sedm dní. 
-1. Vyberte místní časové pásmo.
-1. Zadejte adresu URL SAS, kterou poskytuje CSS.
-
-   ![Snímek obrazovky shromažďování protokolů na vyžádání](media/azure-stack-automatic-log-collection/collect-logs-now.png)
-
->[!NOTE]
->Pokud je povolená funkce automatického shromažďování protokolů diagnostiky, zobrazí se v **nápovědě a podpoře** , když probíhá shromažďování protokolů. Pokud kliknete na **shromažďovat protokoly** a shromažďovat protokoly z konkrétního okamžiku, když probíhá automatické shromažďování protokolů, začne shromažďování na vyžádání po dokončení automatického shromažďování protokolů. 
-
-## <a name="use-the-privileged-endpoint-pep-to-collect-diagnostic-logs"></a>Shromažďování diagnostických protokolů pomocí privilegovaného koncového bodu (PEP)
+# <a name="send-azure-stack-hub-diagnostic-logs-by-using-the-privileged-endpoint-pep"></a>Odesílání diagnostických protokolů centra Azure Stack pomocí privilegovaného koncového bodu (PEP)
 
 <!--how do you look up the PEP IP address. You look up the azurestackstampinfo.json--->
 
 
+Ke spuštění rutiny Get-AzureStackLog v integrovaném systému je potřeba mít přístup k privilegovanému koncovému bodu (PEP). Tady je ukázkový skript, který můžete spustit pomocí PEP a shromažďovat protokoly. Pokud rušíte spuštěnou kolekci protokolů, abyste spustili novou, počkejte prosím 5 minut, než začnete novou kolekci protokolů, a zadejte `Remove-PSSession -Session $session`.
 
-### <a name="run-get-azurestacklog-on-azure-stack-hub-integrated-systems"></a>Spuštění rutiny Get-AzureStackLog v integrovaných systémech centra Azure Stack
-
-Ke spuštění rutiny Get-AzureStackLog v integrovaném systému je potřeba mít přístup k privilegovanému koncovému bodu (PEP). Tady je ukázkový skript, který můžete spustit pomocí PEP a shromažďovat protokoly v integrovaném systému:
 
 ```powershell
 $ipAddress = "<IP ADDRESS OF THE PEP VM>" # You can also use the machine name instead of IP here.
@@ -58,22 +35,14 @@ $session = New-PSSession -ComputerName $ipAddress -ConfigurationName PrivilegedE
 $fromDate = (Get-Date).AddHours(-8)
 $toDate = (Get-Date).AddHours(-2) # Provide the time that includes the period for your issue
 
-Invoke-Command -Session $session { Get-AzureStackLog -OutputSharePath "<EXTERNAL SHARE ADDRESS>" -OutputShareCredential $using:shareCred  -FilterByRole Storage -FromDate $using:fromDate -ToDate $using:toDate}
+Invoke-Command -Session $session { Get-AzureStackLog -OutputSharePath "<EXTERNAL SHARE ADDRESS>" -OutputShareCredential $using:shareCred -FilterByRole Storage -FromDate $using:fromDate -ToDate $using:toDate}
 
 if ($session) {
     Remove-PSSession -Session $session
 }
 ```
 
-### <a name="run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system"></a>Spuštění rutiny Get-AzureStackLog v systému Azure Stack Development Kit (ASDK)
-
-Pomocí těchto kroků spustíte `Get-AzureStackLog` v hostitelském počítači s ASDK.
-
-1. Přihlaste se jako **AzureStack\CloudAdmin** na hostitelském počítači ASDK.
-2. Otevřete nové okno PowerShellu jako správce.
-3. Spusťte rutinu PowerShellu **Get-AzureStackLog** .
-
-#### <a name="examples"></a>Příklady
+### <a name="examples"></a>Příklady
 
 * Shromažďovat všechny protokoly pro všechny role:
 
@@ -111,6 +80,30 @@ Pomocí těchto kroků spustíte `Get-AzureStackLog` v hostitelském počítači
   Get-AzureStackLog -OutputPath C:\KubernetesLogs -InputSasUri "https://<storageAccountName>.blob.core.windows.net/<ContainerName><SAS token>" -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2) 
   ```
 
+* Shromáždí protokoly pro hodnotu Add RPs. Obecná syntaxe je:
+ 
+  ```powershell
+  Get-AzureStackLogs -FilterByResourceProvider <<value-add RP name>>
+  ```
+ 
+  Postup shromáždění protokolů pro IoT Hub: 
+
+  ```powershell
+  Get-AzureStackLogs -FilterByResourceProvider IotHub
+  ```
+ 
+  Postup shromáždění protokolů pro Event Hubs:
+
+  ```powershell
+  Get-AzureStackLogs -FilterByResourceProvider eventhub
+  ```
+ 
+  Postup shromáždění protokolů pro Azure Stack Edge:
+
+  ```powershell
+  Get-AzureStackLogs -FilterByResourceProvide databoxedge
+  ```
+
 * Shromáždí protokoly a uloží je v zadaném Azure Storage kontejneru objektů BLOB. Obecná syntaxe pro tuto operaci je následující:
 
   ```powershell
@@ -144,7 +137,7 @@ Pomocí těchto kroků spustíte `Get-AzureStackLog` v hostitelském počítači
   9. Vyberte **Vytvořit**.
   10. Získáte sdílený přístupový podpis. Zkopírujte část adresy URL a zadejte ji do parametru `-OutputSasUri`.
 
-### <a name="parameter-considerations-for-both-asdk-and-integrated-systems"></a>Hlediska parametrů pro ASDK i integrované systémy
+### <a name="parameter-considerations"></a>Požadavky na parametry 
 
 * Parametry **OutputSharePath** a **OutputShareCredential** se používají k ukládání protokolů v umístění zadaném uživatelem.
 
@@ -269,5 +262,4 @@ Níže jsou uvedeny příklady typů protokolů, které jsou shromažďovány:
 * **Protokoly ETW**
 
 Tyto soubory se shromažďují a ukládají do sdílené složky pomocí Kolektor trasování. Příkaz Get-AzureStackLog je pak možné použít k jejich shromáždění v případě potřeby.
-
 

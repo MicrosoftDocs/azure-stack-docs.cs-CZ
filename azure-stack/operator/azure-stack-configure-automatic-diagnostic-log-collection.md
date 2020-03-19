@@ -7,12 +7,12 @@ ms.date: 10/08/2019
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 10/08/2019
-ms.openlocfilehash: 19482e235690cae10411dde72587b0e4b95518f3
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 3464738aef30a44b6c50c05b06116641235ab96e
+ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77695219"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79512265"
 ---
 # <a name="configure-automatic-azure-stack-hub-diagnostic-log-collection"></a>Konfigurace automatického shromáždění protokolů diagnostiky Azure Stack centra
 
@@ -22,7 +22,7 @@ Pro zjednodušení shromažďování protokolů a možnosti zákaznické podpory
 
 Než budete moct nakonfigurovat automatické shromažďování protokolů, budete muset pro kontejner objektů BLOB získat sdílený přístupový podpis (SAS). SAS umožňuje udělit přístup k prostředkům v účtu úložiště bez sdílení klíčů účtu. Soubory protokolu centra Azure Stack můžete ukládat do kontejneru objektů BLOB v Azure a pak zadat adresu URL SAS, kde může CSS shromažďovat protokoly. 
 
-### <a name="prerequisites"></a>Požadavky
+### <a name="prerequisites"></a>Předpoklady
 
 V Azure můžete použít nový nebo existující kontejner objektů BLOB. Pokud chcete vytvořit kontejner objektů BLOB v Azure, potřebujete aspoň [roli Přispěvatel objektů BLOB úložiště](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) nebo [konkrétní oprávnění](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). Globální správci mají také potřebná oprávnění. 
 
@@ -30,7 +30,7 @@ Osvědčené postupy při volbě parametrů pro účet úložiště automatické
 
 ### <a name="create-a-blob-storage-account"></a>Vytvoření účtu úložiště BLOB
  
-1. Přihlaste se na web [Azure Portal ](https://portal.azure.com).
+1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
 1. Klikněte na **účty úložiště** > **Přidat**. 
 1. Vytvořte kontejner objektů BLOB s těmito nastaveními:
    - **Předplatné**: volba předplatného Azure
@@ -68,7 +68,7 @@ Osvědčené postupy při volbě parametrů pro účet úložiště automatické
 
 1. Klikněte na možnost **Vytvořit**.  
 
-Zkopírujte adresu URL a zadejte ji při [konfiguraci automatického shromažďování protokolů](azure-stack-configure-automatic-diagnostic-log-collection.md). Další informace o adresách URL SAS najdete v tématu [použití sdílených přístupových podpisů (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1). 
+Zkopírujte adresu URL a zadejte ji při [konfiguraci automatického shromažďování protokolů](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md). Další informace o adresách URL SAS najdete v tématu [použití sdílených přístupových podpisů (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1). 
 
 
 ## <a name="steps-to-configure-automatic-log-collection"></a>Postup konfigurace automatického shromažďování protokolů

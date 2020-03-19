@@ -3,137 +3,91 @@ title: Ochrana virtuálních počítačů nasazených v centru Azure Stack
 description: Naučte se, jak vytvořit plán obnovení pro ochranu virtuálních počítačů nasazených v Azure Stack hub před ztrátou dat a neplánovanými výpadky.
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 1/22/2020
+ms.date: 02/18/2020
 ms.author: mabrigg
 ms.reviewer: hectorl
-ms.lastreviewed: 3/19/2019
-ms.openlocfilehash: 824352a27ae91b2bf0a351b9dc280c83bfb9d19a
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.lastreviewed: 3/5/2020
+ms.openlocfilehash: 913d0eeed1ba2cfce0b062385a4f544919889f43
+ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77703957"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79512605"
 ---
 # <a name="protect-vms-deployed-on-azure-stack-hub"></a>Ochrana virtuálních počítačů nasazených v centru Azure Stack
 
-Tento článek slouží jako vodítko pro vývoj plánu ochrany virtuálních počítačů, které uživatelé nasazují v Azure Stack hub.
+Tento článek vám pomůže s vývojem strategie ochrany dat a zotavení po havárii pro uživatelsky nasazené virtuální počítače IaaS nasazené v centru Azure Stack.
+
+Chcete-li chránit před ztrátou dat a prodlouženým výpadkem, implementujte plán zálohování nebo zotavení po havárii pro uživatelské aplikace a jejich data. Každá aplikace musí být vyhodnocena jako součást komplexní strategie pro provozní kontinuitu a zotavení po havárii (BC/DR) vaší organizace. Dobrým výchozím bodem je [Azure Stack centrum: požadavky na provozní kontinuitu a zotavení po havárii](https://aka.ms/azurestackbcdrconsiderationswp).
+
+## <a name="considerations-for-protecting-iaas-vms"></a>Požadavky na ochranu virtuálních počítačů s IaaS
+
+### <a name="roles-and-responsibilities"></a>Role a odpovědnosti
+
+Nejprve se ujistěte, že existuje jasné porozumění rolím a odpovědnostem souvisejícím s vlastníky a operátory aplikace v souvislosti s ochranou a obnovením.
+
+Uživatelé zodpovídají za ochranu virtuálních počítačů. Obsluha zodpovídá za udržení online a dobré služby Azure Stack hub. Centrum Azure Stack zahrnuje službu, která zálohuje interní data služby ze služeb **infrastruktury a neobsahuje** žádná uživatelská data, včetně uživatelem vytvořených virtuálních počítačů, účtů úložiště s daty uživatele nebo aplikace nebo uživatelských databází.
 
 
-Chcete-li chránit před ztrátou dat a neplánovanými výpadky, je nutné implementovat plán zálohování nebo zotavení po havárii pro uživatelské aplikace a jejich data. Tento plán může být pro každou aplikaci jedinečný, ale dodržuje rámec vytvořený v komplexní strategii pro provozní kontinuitu a zotavení po havárii (BC/DR) vaší organizace. Dobrým výchozím bodem je [Azure Stack centrum: požadavky na provozní kontinuitu a zotavení po havárii](https://aka.ms/azurestackbcdrconsiderationswp).
-
-## <a name="azure-stack-hub-infrastructure-recovery"></a>Obnovení infrastruktury centra Azure Stack
-
-Uživatelé zodpovídají za ochranu svých virtuálních počítačů nezávisle na službách infrastruktury centra Azure Stack.
-
-Plán obnovení pro služby infrastruktury centra Azure Stack **nezahrnuje obnovení** virtuálních počítačů uživatele, účtů úložiště nebo databází. Jako vlastník aplikace zodpovídáte za implementaci plánu obnovení pro vaše aplikace a data.
-
-Pokud je Cloud centra Azure Stack v režimu offline delší dobu nebo trvale neobnovitelné, je nutné mít k dispozici plán obnovení, který:
-
-* Zajišťuje minimální prostoje.
-* Udržuje důležité virtuální počítače, například databázové servery, které jsou spuštěny.
-* Umožňuje aplikacím zachovat požadavky uživatelů na údržbu.
-
-Operátor cloudu centra Azure Stack zodpovídá za vytvoření plánu obnovení pro základní infrastrukturu a služby centra Azure Stack. Další informace najdete v tématu [obnovení z závažné ztráty dat](../operator/azure-stack-backup-recover-data.md).
-
-## <a name="considerations-for-iaas-vms"></a>Předpoklady pro virtuální počítače s IaaS
-Operační systém nainstalovaný na virtuálním počítači IaaS omezuje produkty, které můžete použít k ochraně dat, která obsahuje. Pro virtuální počítače s IaaS založené na Windows můžete k ochraně dat použít Microsoft a partnerské produkty. U virtuálních počítačů s IaaS se systémem Linux je jedinou možností použití partnerských produktů. [Všechny partnery BC/Dr s ověřenými produkty pro centrum Azure Stack najdete v tomto datovém listu](https://aka.ms/azurestackbcdrpartners).
+| Vlastník/architekt aplikace   | Operátor centra Azure Stack  |
+|---    |---    |
+| <ul><li>Pomocí principů návrhu cloudu zarovnejte aplikační architekturu.</li></br><li>Modernizovat tradiční aplikace podle potřeby, abyste je připravili pro cloudové prostředí.</li></br><li>Definujte přijatelné RTO a RPO pro aplikaci.</li></br><li>Identifikujte prostředky aplikace a úložiště dat, která je potřeba chránit.</li></br><li>Implementujte metodu obnovení dat a aplikací, která nejlépe odpovídá architektuře aplikací a požadavkům zákazníků.</li></ul>     | <ul><li>Identifikujte cíle pro provozní kontinuitu a zotavení po havárii organizace.</li></br><li>Nasaďte dostatek Azure Stackch instancí centra, aby splňovaly cíle BC/DR organizace.</li></br><li>Navrhněte a provozujte infrastrukturu aplikace/Data Protection.</li></br><li>Poskytněte spravovaná řešení nebo Samoobslužný přístup ke službám ochrany.</li></br><li>Práce s vlastníky a architekty aplikací pro pochopení návrhu aplikace a doporučení strategie ochrany.</li></br><li>Povolte zálohu infrastruktury pro službu retušovací a cloudovou obnovu.</li></ul>    |
 
 ## <a name="sourcetarget-combinations"></a>Kombinace zdroje a cíle
 
-Každý Cloud centra Azure Stack je nasazený v jednom datovém centru. K obnovení vašich aplikací se vyžaduje samostatné prostředí. Prostředí pro obnovení může být jiný Cloud centra Azure Stack v jiném datovém centru nebo ve veřejném cloudu Azure. Vaše požadavky na svrchovanost a ochranu dat určují prostředí pro obnovení vaší aplikace. Při povolování ochrany pro každou aplikaci máte flexibilitu při výběru konkrétní možnosti obnovení pro každé z nich. Můžete mít aplikace v jednom předplatném, které zálohují data do jiného datového centra. V jiném předplatném můžete replikovat data do veřejného cloudu Azure.
+Uživatelé, kteří potřebují chránit před výpadkem datového centra nebo lokality, můžou pomocí jiného centra Azure Stack nebo Azure poskytovat vysokou dostupnost nebo rychlé obnovení. V případě primárního a sekundárního umístění mohou uživatelé v rámci dvou prostředí nasazovat aplikace v konfiguraci aktivní/aktivní nebo aktivní/pasivní. Pro méně důležité úlohy můžou uživatelé použít kapacitu v sekundárním umístění k provádění obnovení aplikací na vyžádání ze zálohy.
 
-Naplánujte strategii zálohování a obnovení po havárii pro každou aplikaci a určete cíl pro každou aplikaci. Plán obnovení pomáhá vaší organizaci správně nastavit kapacitu úložiště povinnou pro místní a využití projektů ve veřejném cloudu.
+Jeden nebo více cloudů centra Azure Stack lze nasadit do datového centra. Nasazení aspoň jednoho cloudového centra Azure Stack v jiném datovém centru, aby se zajistila závažná havárie, zajistí, že budete moct úlohy s podporou převzetí služeb při selhání a minimalizovat neplánovaný výpadek. Pokud máte jenom jedno centrum Azure Stack, měli byste zvážit použití veřejného cloudu Azure jako cloudu pro obnovení. Určení místa, kde se vaše aplikace může spustit, bude určeno předpisy pro státní správu, podnikové zásady a přísné požadavky na latenci. Máte flexibilitu při určení vhodného umístění pro obnovení na aplikaci. Například můžete mít aplikace v jednom předplatném, které zálohují data do jiného datového centra a v jiném předplatném, a replikují data do veřejného cloudu Azure.
 
-|  | Globální Azure | Azure Stack centrum nasazené do Datacenter CSP a provozovaný CSP | Azure Stack centrum nasazené do Datacenter zákazníka a provozovaný zákazníkem |
-|------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
-| **Azure Stack centrum nasazené do Datacenter CSP a provozovaný CSP** | Virtuální počítače uživatele se nasazují do centra Azure Stack ovládaného CSP.<br><br>Virtuální počítače uživatelů se obnovily ze zálohy nebo převzaly služby při selhání přímo do Azure. | CSP pracuje s primárními a sekundárními instancemi centra Azure Stack ve vlastních datacentrech.<br><br>Virtuální počítače uživatele jsou obnoveny nebo převzetí služeb při selhání mezi těmito dvěma instancemi centra Azure Stack. | CSP funguje Azure Stack hub v primární lokalitě.<br><br>Datacenter zákazníka je cíl obnovení nebo převzetí služeb při selhání. |
-| **Azure Stack centrum nasazené do Datacenter zákazníka a provozovaný zákazníkem** | Virtuální počítače uživatele se nasazují do centra Azure Stack ovládaného zákazníkem.<br><br>Virtuální počítače uživatelů se obnovily ze zálohy nebo převzaly služby při selhání přímo do Azure. | Zákazník provozuje Azure Stack centrum v primární lokalitě.<br><br>Datacentrum CSP je cíl obnovení nebo převzetí služeb při selhání. | Zákazník provozuje primární a sekundární instance centra Azure Stack ve vlastních datacentrech.<br><br>Virtuální počítače uživatele jsou obnoveny nebo převzetí služeb při selhání mezi těmito dvěma instancemi centra Azure Stack. |
+## <a name="application-recovery-objectives"></a>Cíle obnovení aplikace
 
-![Kombinace zdroje a cíle](media/azure-stack-manage-vm-backup/vm_backupdataflow_01.png)
-
-## <a name="app-recovery-objectives"></a>Cíle obnovení aplikace
-
-Určete množství výpadku a ztráty dat, které vaše organizace může tolerovat pro každou aplikaci. Díky kvantitativnímu výpadku a ztrátě dat můžete vytvořit plán obnovení, který minimalizuje dopad havárie ve vaší organizaci. Pro každou aplikaci zvažte následující:
+Vlastníci aplikací jsou primárně odpovědni za určení množství výpadku a ztráty dat, které může aplikace a organizace tolerovat. Vynásobením přijatelného výpadku a přijatelné ztráty dat můžete vytvořit plán obnovení, který minimalizuje dopad havárie ve vaší organizaci. Pro každou aplikaci Vezměte v úvahu následující skutečnosti:
 
  - **Cíl doby obnovení (RTO)**  
 RTO je maximální přijatelná doba, po kterou může být aplikace po incidentu nedostupná. Například RTO 90 minut znamená, že musíte být schopni obnovit aplikaci do běžícího stavu během 90 minut od začátku havárie. Pokud máte malou RTO, můžete zachovat druhé nasazení nepřetržitě běžící na pohotovostním režimu pro ochranu před oblastním výpadkem.
  - **Cíl bodu obnovení (RPO)**  
 RPO je maximální doba ztráty dat, která je během havárie přijatelná. Pokud například ukládáte data do jediné databáze, která se zálohuje každou hodinu a nemá žádnou replikaci do jiných databází, můžete přijít o hodinu dat.
 
-Plánovaná doba obnovení a cíl bodu obnovení jsou obchodní požadavky. Vyhodnocením rizika můžete definovat RTO a RPO aplikace.
+Další metrikou je *Střední doba obnovení* (MTTR), což je průměrná doba potřebná k obnovení aplikace po selhání. MTTR je empirická hodnota pro systém. Pokud MTTR překročí RTO, pak selhání v systému způsobí nepřijatelné přerušení v podniku, protože nebude možné obnovit systém v definovaném RTO.
 
-Další metrikou je průměrná **Doba obnovení** (MTTR), což je průměrný čas potřebný k obnovení aplikace po selhání. MTTR je empirická hodnota pro systém. Pokud MTTR překročí RTO, pak selhání v systému způsobí nepřijatelné přerušení v podniku, protože nebude možné obnovit systém v rámci definovaného RTO.
+## <a name="protection-options"></a>Možnosti ochrany 
 
 ### <a name="backup-restore"></a>Zálohování – obnovení
 
-Nejběžnějším schématem ochrany pro aplikace založené na virtuálním počítači je použití zálohovacího softwaru. Zálohování virtuálního počítače obvykle zahrnuje operační systém, konfiguraci operačního systému, binární soubory aplikace a data aplikací. Zálohy se vytvoří pomocí snímku svazků, disků nebo celého virtuálního počítače. S centrem Azure Stack máte flexibilitu při zálohování z kontextu hostovaného operačního systému nebo z rozhraní API pro úložiště Azure Stack centra a výpočetní prostředí. Centrum Azure Stack nepodporuje přebírání záloh na úrovni hypervisoru.
- 
-![Backup – ReSTOR](media/azure-stack-manage-vm-backup/vm_backupdataflow_03.png)
+Zálohování aplikací a datových sad vám umožní rychle se zotavit z výpadků kvůli poškození dat, náhodnému odstranění nebo katastrofám. Pro aplikace založené na virtuálním počítači s IaaS můžete použít agenta hosta k ochraně dat aplikací, konfigurace operačního systému a dat uložených na svazcích. 
 
-Obnovení aplikace vyžaduje obnovení jednoho nebo více virtuálních počítačů do stejného cloudu nebo do nového cloudu. Můžete cílit na Cloud ve vašem datovém centru nebo ve veřejném cloudu. Zvolený Cloud je zcela v rámci vašeho ovládacího prvku a je založen na požadavcích na ochranu osobních údajů a suverenity dat.
+#### <a name="backup-using-in-guest-agent"></a>Zálohování pomocí agenta hostovaného v hostovi
 
- - RTO: výpadek měřený v hodinách
- - RPO: proměnlivá ztráta dat (v závislosti na četnosti zálohování)
- - Topologie nasazení: aktivní/pasivní
+Zálohování virtuálního počítače pomocí agenta hostovaného operačního systému obvykle zahrnuje zachytávání konfigurace operačního systému, souborů, složek, disků, binárních souborů aplikace nebo dat aplikací. 
 
-#### <a name="planning-your-backup-strategy"></a>Plánování strategie zálohování
+Obnovování aplikace od agenta vyžaduje ruční opětovné vytvoření virtuálního počítače, instalaci operačního systému a instalaci agenta hosta. V tomto okamžiku je možné data obnovit do hostovaného operačního systému nebo přímo do aplikace.
 
-Plánování strategie zálohování a definování požadavků na škálování začíná vystanovením počtu instancí virtuálních počítačů, které je potřeba chránit. Zálohování všech virtuálních počítačů napříč všemi servery v prostředí je běžná strategie. U Azure Stackového centra ale existuje několik virtuálních počítačů, které je potřeba zálohovat. Například virtuální počítače v rámci škálované sady se považují za dočasné prostředky, které můžou pocházet a jít, někdy bez upozornění. Veškerá trvalá data, která je třeba chránit, se ukládají do samostatného úložiště, jako je databáze nebo úložiště objektů.
+#### <a name="backup-using-disk-snapshot-for-stopped-vms"></a>Zálohování pomocí snímku disku pro zastavené virtuální počítače
 
-Důležité informace pro zálohování virtuálních počítačů v centru Azure Stack:
+Záložní produkty můžou chránit konfiguraci virtuálních počítačů IaaS a disky připojené k zastavenému virtuálnímu počítači. Záložní produkty, které se integrují s rozhraními API centra Azure Stack pro zachycení konfigurace virtuálních počítačů a vytváření snímků disku. Pokud je možné naplánovat výpadky aplikace, před spuštěním pracovního postupu zálohování se ujistěte, že je virtuální počítač v zastaveném stavu.  
 
- - **Kategorizaci**
-    - Vezměte v úvahu model, ve kterém se uživatelé přihlašují k zálohování virtuálních počítačů.
-    - Definujte smlouvu o úrovni služeb (SLA) pro obnovení na základě priority aplikací nebo dopadu na firmu.
- - **Škálování**
-    - Při připojování k velkému počtu nových virtuálních počítačů (Pokud se vyžaduje zálohování) zvažte možnost rozložit zálohy.
-    - Vyhodnoťte zálohovací produkty, které můžou efektivně zachytit a přenést data záloh, aby se minimalizoval obsah prostředků v řešení.
-    - Vyhodnoťte záložní produkty, které efektivně ukládají zálohovaná data pomocí přírůstkových nebo rozdílových záloh, abyste minimalizovali potřebu úplných záloh napříč všemi virtuálními počítači v prostředí.
- - **Obnovení**
-    - Záložní produkty můžou obnovit virtuální disky, data aplikací v existujícím virtuálním počítači nebo celý prostředek virtuálního počítače a přidružené virtuální disky. Schéma obnovení, které potřebujete, závisí na tom, jak plánujete aplikaci obnovit. Může být například snazší znovu nasadit systém SQL Server ze šablony a pak obnovit databáze namísto obnovení celého virtuálního počítače nebo sady virtuálních počítačů.
+#### <a name="backup-using-disk-snapshot-snapshot-for-running-vms"></a>Zálohování pomocí snímku snímku disku pro běžící virtuální počítače
+
+> [!Important]  
+> Použití snímků disku v současnosti není pro virtuální počítač v běžícím stavu podporováno. Vytvoření snímku disku připojeného k běžícímu virtuálnímu počítači může snížit výkon nebo ovlivnit dostupnost operačního systému nebo aplikace ve virtuálním počítači. Doporučujeme použít agenta hosta k ochraně aplikace v případě, že plánované výpadky nepatří mezi možnosti. 
+
+### <a name="vms-in-a-scale-set-or-availability-group"></a>Virtuální počítače v rámci sady škálování nebo skupiny dostupnosti
+
+Virtuální počítače v sadě škálování nebo skupině dostupnosti považované za dočasné prostředky by se neměly zálohovat na úrovni virtuálního počítače, zejména pokud je aplikace Bezstavová. U stavových aplikací nasazených ve skupině škálování nebo skupiny dostupnosti Zvažte ochranu aplikačních dat (například databáze nebo svazku ve fondu úložiště). 
 
 ### <a name="replicationmanual-failover"></a>Replikace/ruční převzetí služeb při selhání
 
-Alternativním přístupem k podpoře vysoké dostupnosti je replikace virtuálních počítačů vaší aplikace do jiného cloudu a spoléhá na ruční převzetí služeb při selhání. Replikace operačního systému, binárních souborů aplikace a dat aplikace se dá provést na úrovni virtuálního počítače nebo hostovaného operačního systému. Převzetí služeb při selhání se spravuje pomocí dalšího softwaru, který není součástí aplikace.
+Pro aplikace, které vyžadují minimální ztrátu dat nebo minimální prostoje, je možné replikaci dat povolit na úrovni hostovaného operačního systému nebo aplikace a replikovat data do jiného umístění. Některé aplikace, například Microsoft SQL Server, nativně podporují replikaci. Pokud aplikace nepodporuje replikaci, můžete použít software v hostovaném operačním systému k replikaci disků nebo partnerského řešení, které se nainstaluje jako agent v hostovaném operačním systému.
 
-S tímto přístupem se aplikace nasadí v jednom cloudu a její virtuální počítač se replikuje do jiného cloudu. Pokud se aktivuje převzetí služeb při selhání, musí se sekundární virtuální počítače zapnout v druhém cloudu. V některých scénářích převzetí služeb při selhání vytvoří virtuální počítače a připojí k nim disky. Dokončení tohoto procesu může trvat dlouhou dobu, zejména u vícevrstvé aplikace, která vyžaduje konkrétní úvodní sekvenci. Může existovat také postup, který je třeba spustit, aby bylo možné spustit požadavky na údržbu.
-
-![Replikace – ruční převzetí služeb při selhání](media/azure-stack-manage-vm-backup/vm_backupdataflow_02.png)
-
- - RTO: výpadek měřený v minutách
- - RPO: proměnlivá ztráta dat (v závislosti na frekvenci replikace)
- - Topologie nasazení: aktivní/pasivní – úsporný režim
+S tímto přístupem se aplikace nasadí v jednom cloudu a data se replikují do jiného cloudu místně nebo do Azure. Když se aktivuje převzetí služeb při selhání, musí být aplikace v cíli spuštěná a připojená k replikovaným datům, aby mohla spustit požadavky na údržbu.
  
 ### <a name="high-availabilityautomatic-failover"></a>Vysoká dostupnost/automatické převzetí služeb při selhání
 
-U aplikací, kde může vaše firma tolerovat jenom pár sekund nebo minut výpadku a minimální ztrátu dat, zvažte konfiguraci s vysokou dostupností. Vysoce dostupné aplikace jsou navržené tak, aby se rychle a automaticky obnovily z chyb. U místních hardwarových chyb implementuje infrastruktura centra Azure Stack vysoké dostupnosti ve fyzické síti pomocí dvou horních přepínačů stojanu. V případě chyb na úrovni výpočetní služby používá rozbočovač Azure Stack více uzlů v jednotce škálování. Na úrovni virtuálního počítače můžete použít sady škálování v kombinaci s doménami selhání k zajištění, že selhání uzlu nevezmou aplikaci.
-
-V kombinaci se sadami škálování bude vaše aplikace muset podporovat vysokou dostupnost nativně nebo podporovat používání softwaru clusteringu. Microsoft SQL Server například podporuje vysokou dostupnost nativně pro databáze pomocí režimu synchronního potvrzování. Pokud však můžete podporovat pouze asynchronní replikaci, dojde ke ztrátě dat. Aplikace je také možné nasadit do clusteru s podporou převzetí služeb při selhání, ve kterém software clusteringu zpracovává automatické převzetí služeb při selhání aplikace.
-
-Při použití tohoto přístupu je aplikace aktivní jenom v jednom cloudu, ale software se nasadí do několika cloudů. Ostatní cloudy jsou v úsporném režimu připravené ke spuštění aplikace při aktivaci převzetí služeb při selhání.
-
- - RTO: výpadek měřený v sekundách
- - RPO: minimální ztráta dat
- - Topologie nasazení: aktivní/aktivní – úsporný režim
-
-### <a name="fault-tolerance"></a>Odolnost proti chybám
-
-Dostupnost fyzické redundance a dostupnosti služby infrastruktury Azure Stack k dispozici pouze proti chybám a selháním na úrovni hardwaru, jako je například disk, zdroj napájení, síťový port nebo uzel. Pokud ale vaše aplikace musí být vždycky k dispozici a nemůže nikdy ztratit žádná data, je třeba v aplikaci implementovat odolnost proti chybám nativně nebo použít další software k povolení odolnosti proti chybám.
-
-Nejdřív je potřeba zajistit, aby virtuální počítače aplikace byly nasazeny pomocí sad škálování pro ochranu proti selháním na úrovni uzlu. Aby bylo možné chránit před cloudem offline, je nutné, aby byla stejná aplikace nasazena do jiného cloudu, aby mohla i nadále obsluhovat požadavky bez přerušení. Tento model se obvykle označuje jako nasazení typu aktivní-aktivní.
-
-Mějte na paměti, že každý Cloud centra Azure Stack je nezávisle na sobě navzájem závislý, takže se cloudy vždy považují za aktivní z hlediska infrastruktury. V takovém případě se několik aktivních instancí aplikace nasadí do jednoho nebo víc aktivních cloudů.
-
- - RTO: žádné výpadky
- - RPO: žádná ztráta dat
- - Topologie nasazení: aktivní/aktivní
+U bezstavových aplikací, které můžou tolerovat jenom pár sekund nebo minut výpadků, zvažte konfiguraci s vysokou dostupností. Aplikace s vysokou dostupností jsou navržené tak, aby se nasadily na více místech aktivní/aktivní topologie, kde můžou všechny instance považovat požadavky. U místních hardwarových chyb implementuje infrastruktura centra Azure Stack vysoké dostupnosti ve fyzické síti pomocí dvou horních přepínačů stojanu. V případě chyb na úrovni výpočtů používá Azure Stack hub více uzlů v jednotce škálování. Na úrovni virtuálního počítače můžete použít sady škálování v kombinaci s doménami selhání k zajištění, že selhání uzlu nevezmou aplikaci. Stejná aplikace by se musela nasadit do sekundárního umístění ve stejné konfiguraci. Aby byla aplikace aktivní/aktivní, můžete k přímému nasměrování požadavků na všechny dostupné instance použít nástroj pro vyrovnávání zatížení nebo DNS.
 
 ### <a name="no-recovery"></a>Bez obnovení
 
-Některé aplikace ve vašem prostředí nemusí mít ochranu před neplánovanými výpadky nebo ztrátou dat. Například virtuální počítače používané pro vývoj a testování obvykle není nutné obnovovat. Je vaše rozhodnutí dělat bez ochrany pro aplikaci nebo konkrétní virtuální počítač. Centrum Azure Stack nenabízí zálohování nebo replikaci virtuálních počítačů z základní infrastruktury. Podobně jako v Azure, musíte se k ochraně každého virtuálního počítače v každém z vašich předplatných přihlásit.
-
- - RTO: neobnovitelné
- - RPO: úplná ztráta dat
+Některé aplikace ve vašem prostředí nemusí mít ochranu před neplánovanými výpadky nebo ztrátou dat. Například virtuální počítače používané pro vývoj a testování obvykle není nutné obnovovat. Pro aplikaci nebo datovou sadu je vaše rozhodnutí bez ochrany.
 
 ## <a name="recommended-topologies"></a>Doporučené topologie
 
@@ -146,13 +100,14 @@ Důležité informace pro nasazení centra Azure Stack:
 | Zálohování a obnovení virtuálních počítačů přímo do globálního Azure nebo do poskytovatele důvěryhodné služby | Doporučené | Pokud budete vyhovovat vašim požadavkům na ochranu osobních údajů a zákonné požadavky, můžete zálohy ukládat v globálním Azure nebo v případě poskytovatele důvěryhodné služby. V ideálním případě poskytovatel služeb také používá Azure Stack hub, abyste při obnovení mohli zajistit konzistenci v provozním prostředí. |
 | Replikace virtuálních počítačů nebo jejich převzetí služeb při selhání do samostatné instance centra Azure Stack | Doporučené | V případě převzetí služeb při selhání je potřeba mít druhý Cloud centra Azure Stack plně funkční, takže se můžete vyhnout výpadkům rozšířené aplikace. |
 | Replikace a převzetí služeb při selhání virtuálního počítače přímo do Azure nebo do poskytovatele důvěryhodné služby | Doporučené | Pokud můžete splnit požadavky na ochranu osobních údajů a legislativu vašich dat, můžete replikovat data do globálního Azure nebo do poskytovatele důvěryhodné služby. V ideálním případě poskytovatel služeb také používá Azure Stack hub, takže po převzetí služeb při selhání získáte konzistenci v provozním prostředí. |
-| Nasazení cíle zálohování do stejného cloudu centra Azure Stack s daty aplikace | Nedoporučuje se | Neukládejte zálohy do stejného cloudu centra Azure Stack. Neplánované výpadky cloudu vám můžou zachovávat vaše primární data a zálohovaná data. Pokud se rozhodnete nasadit cíl zálohování jako virtuální zařízení (pro účely optimalizace zálohování a obnovení), musíte zajistit, aby se všechna data průběžně zkopírovala do externího záložního umístění. |
+| Nasaďte cíl zálohování na stejném Azure Stackovém centru, které taky hostují všechny aplikace chráněné stejným cílem zálohování. | Samostatný cíl: nedoporučuje se </br> Cíl, který replikuje data zálohování externě: doporučeno | Pokud se rozhodnete nasadit zálohovací zařízení do centra Azure Stack (pro účely optimalizace provozu obnovení), musíte zajistit, aby se všechna data průběžně zkopírovala do externího umístění zálohy. |
 | Nasazení fyzického zálohovacího zařízení do stejného racku, kde je nainstalované řešení centra Azure Stack | Nepodporuje se | V současné době nemůžete připojit žádná další zařízení k hornímu počtu přepínačů stojanu, které nejsou součástí původního řešení. |
 
 ## <a name="next-steps"></a>Další kroky
 
 V tomto článku najdete obecné pokyny pro ochranu virtuálních počítačů, které jsou nasazené v centru Azure Stack. Informace o použití služeb Azure k ochraně virtuálních počítačů uživatele najdete v tématu:
 
+- [Azure Stack IaaS – část 4 – Ochrana vašich věcí](https://azure.microsoft.com/blog/azure-stack-iaas-part-four/)
 - [Důležité informace týkající se provozní kontinuity a zotavení po havárii](https://aka.ms/azurestackbcdrconsiderationswp)
 
 ### <a name="azure-backup-server"></a>Server Azure Backup
@@ -164,5 +119,3 @@ V tomto článku najdete obecné pokyny pro ochranu virtuálních počítačů, 
  
  ### <a name="partner-products"></a>Partnerské produkty
  - [Datový list ekosystému partnerského serveru pro integraci Datacenter centra Azure Stack](https://aka.ms/azurestackbcdrpartners)
-
-Pokud se chcete dozvědět víc o partnerských produktech, které nabízejí ochranu virtuálních počítačů v Azure Stackovém centru, přečtěte si téma [Ochrana aplikací a dat v centru Azure Stack](https://azure.microsoft.com/blog/protecting-applications-and-data-on-azure-stack/).

@@ -7,12 +7,12 @@ ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 06/27/2019
-ms.openlocfilehash: 55609ca3ca8dc0dbb0d557422a9a5b4223450fc3
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 4a847578e73c5c9b518669a46340590242513686
+ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77696460"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79512345"
 ---
 # <a name="usage-connectivity-errors"></a>Chyby připojení využití
 
@@ -47,7 +47,7 @@ Tato část popisuje kódy chyb využití.
 | Neautorizováno               | Azure Bridge nemůže odeslat data do služby využití v Azure, protože služba Azure nemůže ověřit most centra Azure Stack. | Ověřte, jestli se prostředek registrace změnil, a pokud ano, znovu zaregistrujte Azure Stack centrum. <br><br> V některých případech může tato chyba způsobit problémy s synchronizací mezi Azure Stack hub a Azure AD. V takovém případě je nutné zajistit, aby se časy v XRPch virtuálních počítačích v centru Azure Stack synchronizovaná se službou Azure AD. |
 |                            |                                                                                                                                                   |                                                                                                                                                                                                                                                                                                    |
 
-Kromě toho může být nutné zadat soubory protokolu pro součásti Azure Bridge, WAS a WASPublic pomocí následujících [kroků](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs).
+Kromě toho může být nutné poskytnout soubory protokolu pro součásti Azure Bridge, WAS a WASPublic.
 
 ## <a name="next-steps"></a>Další kroky
 

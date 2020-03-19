@@ -7,12 +7,12 @@ ms.date: 07/18/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 07/18/2019
-ms.openlocfilehash: 1801174977ef0370e8433e6c41e2d8c13b497ae8
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 6798481e7645c4a1a49c6370b00b1851c32ff478
+ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77694029"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79511976"
 ---
 # <a name="start-and-stop-the-asdk"></a>Spuštění a zastavení ASDK
 Nedoporučuje se jednoduše restartovat hostitelský počítač ASDK. Místo toho postupujte podle pokynů v tomto článku, abyste správně vypnuli a restartovali ASDK služby.
@@ -81,4 +81,4 @@ Postupujte podle těchto kroků, pokud se Azure Stack služby nespustí do dvou 
 Pokud při spuštění **Start-AzureStack** dojde k chybě, navštivte [fórum podpory Azure Stack](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurestack) , kde můžete získat podporu pro řešení potíží s ASDK. 
 
 ## <a name="next-steps"></a>Další kroky 
-Další informace o nástroji pro diagnostiku Azure Stack a o protokolování problémů najdete v tématu [Azure Stack diagnostické nástroje](../operator/azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs).
+Další informace o nástroji pro diagnostiku Azure Stack a o protokolování problémů najdete v tématu [Azure Stack diagnostické nástroje](../operator/azure-stack-get-azurestacklog.md).

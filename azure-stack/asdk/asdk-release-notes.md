@@ -3,22 +3,36 @@ title: Poznámky k verzi ASDK
 description: Vylepšení, opravy a známé problémy pro Azure Stack Development Kit (ASDK).
 author: sethmanheim
 ms.topic: article
-ms.date: 11/21/2019
+ms.date: 03/18/2020
 ms.author: sethm
 ms.reviewer: misainat
-ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: c73e7bc20b1eb1e2538f211d2aaa84dafbfa103b
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.lastreviewed: 03/18/2020
+ms.openlocfilehash: 6f7bec082564c9f7cb3a0c70cec7e8e7e48fbd35
+ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77694114"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79511806"
 ---
 # <a name="asdk-release-notes"></a>Poznámky k verzi ASDK
 
 Tento článek obsahuje informace o změnách, opravách a známých problémech v Azure Stack Development Kit (ASDK). Pokud si nejste jisti, jakou verzi používáte, [použijte portál ke kontrole](../operator/azure-stack-updates.md).
 
 Seznamte se s novinkami v ASDK tak, že se přihlásíte k odběru informačního [kanálu rss](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) [![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) .
+
+::: moniker range="azs-2002"
+## <a name="build-12002035"></a>1\.2002.0.35 sestavení
+
+### <a name="new-features"></a>Nové funkce
+
+- Seznam opravených problémů, změn a nových funkcí v této verzi najdete v příslušných oddílech v [poznámkách k verzi Azure Stack](../operator/release-notes.md).
+
+### <a name="fixed-and-known-issues"></a>Opravené a známé problémy
+
+- Heslo certifikátu dešifrování je nová možnost pro zadání hesla pro certifikát podepsaný svým držitelem (. pfx), který obsahuje privátní klíč potřebný k dešifrování zálohovaných dat. Toto heslo se vyžaduje jenom v případě, že je záloha zašifrovaná pomocí certifikátu.
+- Seznam Azure Stack známých problémů v této verzi najdete v článku o [známých problémech](../operator/known-issues.md) .
+- Všimněte si, že dostupné opravy hotfix Azure Stack neplatí pro ASDK.
+::: moniker-end
 
 ::: moniker range="azs-1910"
 ## <a name="build-11910058"></a>1\.1910.0.58 sestavení
@@ -72,23 +86,4 @@ Seznamte se s novinkami v ASDK tak, že se přihlásíte k odběru informačníh
 - Seznam problémů s Azure Stack opravených v této verzi najdete v [této části](/azure-stack/operator/release-notes?view=azs-1907#fixes-2) poznámky k verzi Azure Stack.
 - Seznam známých problémů najdete v [tomto článku](/azure-stack/operator/known-issues?view=azs-1907).
 - Upozorňujeme, že [k dispozici Azure Stack opravy hotfix](/azure-stack/operator/release-notes?view=azs-1907#hotfixes-2) se nevztahují na Azure Stack ASDK.
-::: moniker-end
-
-::: moniker range="azs-1906"
-## <a name="build-11906030"></a>1\.1906.0.30 sestavení
-
-### <a name="new-features"></a>Nové funkce
-
-- Seznam nových funkcí v této verzi najdete v [této části](/azure-stack/operator/release-notes?view=azs-1906#whats-in-this-update-1) poznámky k verzi Azure Stack.
-
-### <a name="changes"></a>Změny
-
-- Přidala se služba **AzS-SRNG01** Ring Host pro službu shromažďování protokolů pro Azure Stack. Další informace najdete v tématu [Role virtuálních počítačů](asdk-architecture.md).
-
-### <a name="fixed-and-known-issues"></a>Opravené a známé problémy
-
-- Při vytváření prostředků virtuálních počítačů pomocí některých imagí Marketplace možná nebudete moci dokončit nasazení. Jako alternativní řešení můžete kliknout na odkaz **Stáhnout šablonu a parametry** na stránce **Souhrn** a kliknout na tlačítko **nasadit** v okně **Šablona** .
-- Seznam problémů s Azure Stack opravených v této verzi najdete v [této části](/azure-stack/operator/release-notes?view=azs-1906#fixes-3) poznámky k verzi Azure Stack.
-- Seznam známých problémů najdete v [tomto článku](/azure-stack/operator/known-issues?view=azs-1906).
-- Upozorňujeme, že [k dispozici Azure Stack opravy hotfix](/azure-stack/operator/release-notes?view=azs-1906#hotfixes-3) se nevztahují na Azure Stack ASDK.
 ::: moniker-end

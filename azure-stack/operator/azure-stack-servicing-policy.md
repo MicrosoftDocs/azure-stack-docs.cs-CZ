@@ -7,13 +7,13 @@ ms.topic: article
 ms.date: 02/07/2020
 ms.author: sethm
 ms.reviewer: harik
-ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: f81ca3e48387f806e591deea08c4b0c9c518cebd
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.lastreviewed: 03/18/2020
+ms.openlocfilehash: 9b1459fbb5e484e3fc0588e8c9717f8e09b6e309
+ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79294591"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79512397"
 ---
 # <a name="azure-stack-hub-servicing-policy"></a>Zásady obsluhy centra Azure Stack
 
@@ -45,10 +45,10 @@ Najděte si dokumentaci, jak naplánovat a spravovat aktualizace a jak zjistit a
 
 Informace o konkrétní aktualizaci, včetně toho, jak ji stáhnout, najdete v poznámkách k verzi této aktualizace:
 
+- [Aktualizace centra Azure Stack 2002](/azure-stack/operator/release-notes?view=azs-2002)
 - [Aktualizace centra Azure Stack 1910](/azure-stack/operator/release-notes?view=azs-1910)
 - [Aktualizace centra Azure Stack 1908](/azure-stack/operator/release-notes?view=azs-1908)
 - [Aktualizace centra Azure Stack 1907](/azure-stack/operator/release-notes?view=azs-1907)
-- [Aktualizace centra Azure Stack 1906](/azure-stack/operator/release-notes?view=azs-1906)
 
 ## <a name="hotfixes"></a>Opravy hotfix
 
@@ -58,12 +58,19 @@ Opravy hotfix se stáhnou a nainstalují stejně jako běžné úplné balíčky
 
 Informace o aktuálně dostupných opravách hotfix naleznete v poznámkách k verzi této aktualizace:
 
-- [1910 oprava hotfix centra Azure Stack](/azure-stack/operator/release-notes?view=azs-1910#hotfixes)
-- [1908 oprava hotfix centra Azure Stack](/azure-stack/operator/release-notes?view=azs-1908#hotfixes-1)
-- [1907 oprava hotfix centra Azure Stack](/azure-stack/operator/release-notes?view=azs-1907#hotfixes-2)
-- [1906 oprava hotfix centra Azure Stack](/azure-stack/operator/release-notes?view=azs-1906#hotfixes-3)
+- [2002 oprava hotfix centra Azure Stack](/azure-stack/operator/release-notes?view=azs-2002#hotfixes)
+- [1910 oprava hotfix centra Azure Stack](/azure-stack/operator/release-notes?view=azs-1910#hotfixes-1)
+- [1908 oprava hotfix centra Azure Stack](/azure-stack/operator/release-notes?view=azs-1908#hotfixes-2)
+- [1907 oprava hotfix centra Azure Stack](/azure-stack/operator/release-notes?view=azs-1907#hotfixes-3)
 
 ## <a name="keep-your-system-under-support"></a>Zachování systému v rámci podpory
+
+::: moniker range="azs-2002"
+
+> [!IMPORTANT]  
+> V rámci aktualizace centra Azure Stack 2002 společnost Microsoft dočasně rozšiřuje naše příkazy zásad podpory centra Azure Stack. Spolupracujeme se zákazníky po celém světě, kteří reagují na COVID-19 a kteří můžou dělat důležitá rozhodnutí o svých Azure Stackch systémech, jak se aktualizují a spravují, a v důsledku toho zajistí, aby se jejich obchodní operace v datovém centru pokračovaly normálně fungovat. V rámci podpory našich zákazníků nabízí Microsoft dočasnou příponu pro změnu zásad, která zahrnuje tři předchozí verze aktualizací. V důsledku toho bude podporována nově vydaná aktualizace 2002 a kterákoli ze tří předchozích verzí aktualizace (například 1910, 1908 a 1907).
+
+::: moniker-end
 
 Aby vaše instance centra Azure Stack zůstala v podporovaném stavu, musí instance běžet z poslední vydané verze aktualizace nebo spustit jednu z těchto dvou předchozích verzí aktualizace.
 

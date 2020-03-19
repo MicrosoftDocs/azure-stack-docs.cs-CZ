@@ -7,12 +7,12 @@ ms.date: 1/8/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 1/8/2020
-ms.openlocfilehash: 7dc570ede3f953b4886971ea827fe69b881b5b89
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 335afce7423872156c84c655d9c94ed59a9592d2
+ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77698143"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79512435"
 ---
 # <a name="use-the-privileged-endpoint-in-azure-stack-hub"></a>Použití privilegovaného koncového bodu v centru Azure Stack
 
@@ -20,7 +20,7 @@ Jako operátor centra Azure Stack byste pro většinu každodenních úloh sprá
 
 K provedení těchto úloh můžete použít PEP:
 
-- Úlohy nízké úrovně, jako je například [shromažďování diagnostických protokolů](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs).
+- Úlohy nízké úrovně, jako je například [shromažďování diagnostických protokolů](azure-stack-get-azurestacklog.md).
 - Mnoho úloh integrace Datacenter po nasazení pro integrované systémy, jako je přidání služby pro odesílání DNS (Domain Name System) po nasazení, nastavení integrace Microsoft Graph integrace, Active Directory Federation Services (AD FS) (AD FS), certifikát rotace atd.
 - Pro práci s podporou pro získání dočasného přístupu s vysokou úrovní pro důkladné řešení potíží s integrovaným systémem.
 
@@ -183,9 +183,9 @@ Ukončení relace koncového bodu:
 
    Rutina používá parametry v následující tabulce:
 
-   | Parametr | Popis | Typ | Požadováno |
+   | Parametr | Popis | Typ | Požaduje se |
    |---------|---------|---------|---------|
-   | *TranscriptsPathDestination* | Cesta k externímu sdílení souborů definovaná jako "fileshareIP\sharefoldername" | String | Ano|
+   | *TranscriptsPathDestination* | Cesta k externímu sdílení souborů definovaná jako "fileshareIP\sharefoldername" | Řetězec | Ano|
    | *Pověřovací* | Přihlašovací údaje pro přístup ke sdílené složce souborů | SecureString |   Ano |
 
 
@@ -197,4 +197,4 @@ Po úspěšném přenosu souborů protokolu přepisu do sdílené složky se aut
 
 ## <a name="next-steps"></a>Další kroky
 
-[Diagnostické nástroje centra Azure Stack](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)
+[Diagnostické nástroje centra Azure Stack](azure-stack-diagnostic-log-collection-overview-tzl.md)

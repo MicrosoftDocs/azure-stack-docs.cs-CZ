@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviwer: xiaofmao
 ms.lastreviewed: 01/30/2020
-ms.openlocfilehash: f852aa2165f51c0a57f09ea94b872de015535923
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: eeca00875a13b8f67ccaeab38f124d17979d1a7c
+ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77687389"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79511993"
 ---
 # <a name="azure-stack-hub-storage-differences-and-considerations"></a>Úložiště centra Azure Stack: rozdíly a požadavky
 
@@ -24,15 +24,17 @@ Tento článek shrnuje známé rozdíly v úložištích Azure Stack centra od s
 
 | Funkce | Azure (Global) | Centrum Azure Stack |
 | --- | --- | --- |
-|Ukládání souborů|Podporované cloudové sdílené složky SMB|Zatím nepodporováno
+|File Storage|Podporované cloudové sdílené složky SMB|Zatím nepodporováno
 |Šifrování služby Azure Storage pro neaktivní neaktivní data|256 šifrování AES. Podpora šifrování pomocí klíčů spravovaných zákazníkem v Key Vault.|BitLocker 128-bit AES Encryption. Šifrování pomocí klíčů spravovaných zákazníkem se nepodporuje.
 |Typ účtu úložiště|Účty úložiště pro obecné účely V1, v2 a BLOB|Jenom pro obecné účely v1.
 |Možnosti replikace|Místně redundantní úložiště, geograficky redundantní úložiště, geograficky redundantní úložiště s přístupem pro čtení a úložiště redundantní v zóně|Místně redundantní úložiště.
 |Premium Storage|Poskytněte úložiště s vysokým výkonem a nízkou latencí. Podporují se jenom objekty blob stránky v účtech Premium Storage.|Dá se zřídit, ale bez omezení výkonu ani záruky. Neblokuje použití objektů blob bloku, doplňovacích objektů blob, tabulek a front v účtech Premium Storage.
 |Spravované disky|Podporovaná verze Premium a Standard|Podporováno při použití verze 1808 nebo novější.
+|Snímky spravovaných disků|Obecné dostupné|Podporuje se.
+|Přírůstkové snímky spravovaného disku|Obecné dostupné|Zatím se nepodporuje.
 |Název objektu blob|1 024 znaků (2 048 bajtů)|880 znaků (1 760 bajtů)
 |Maximální velikost objektu blob bloku|4,75 TB (100 MB X 50 000 bloků)|4,75 TB (100 MB x 50 000 bloků) pro aktualizaci 1802 nebo novější verzi. 50 000 X 4 MB (přibližně 195 GB) pro předchozí verze.
-|Kopie snímku objektu blob stránky|Zálohování disků nespravovaných virtuálních počítačů Azure připojených k běžícímu virtuálnímu počítači|Zatím se nepodporuje.
+|Kopie snímku objektu blob stránky|Zálohování disků nespravovaných virtuálních počítačů Azure připojených k běžícímu virtuálnímu počítači|Podporováno v [rozhraní API jako asynchronní operace](azure-stack-acs-differences.md).
 |Kopie přírůstkového snímku objektu blob stránky|Podporované objekty blob stránky Azure úrovně Premium a Standard|Zatím se nepodporuje.
 |Fakturace objektu blob stránky|Poplatky se účtují pro jedinečné stránky, ať už jsou v objektu blob, nebo ve snímku. Neúčtují se další poplatky za snímky přidružené k objektu blob, dokud se neaktualizuje základní objekt BLOB.|Účtují se poplatky za základní objekt BLOB a přidružené snímky. Za každý jednotlivý snímek se účtují další poplatky.
 |Vrstvy úložiště pro Blob Storage|Horké, studené a archivní úrovně úložiště.|Zatím se nepodporuje.

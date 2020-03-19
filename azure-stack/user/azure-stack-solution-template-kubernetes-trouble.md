@@ -7,12 +7,12 @@ ms.author: mabrigg
 ms.date: 11/14/2019
 ms.reviewer: waltero
 ms.lastreviewed: 11/14/2019
-ms.openlocfilehash: 80222728bca3aa65fd211ccc5ef5700d0a15f397
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 0d9e1512cab3ad33bba5cfa2d4f57128edf51cf2
+ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77703617"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79512588"
 ---
 # <a name="troubleshoot-kubernetes-deployment-to-azure-stack-hub"></a>Řešení potíží s nasazením Kubernetes do centra Azure Stack
 
@@ -85,7 +85,7 @@ Na virtuálních počítačích, které podporují cluster Kubernetes, můžete 
     - Ujistěte se, že plně kvalifikovaný název domény (FQDN) pro virtuální počítač začíná duplicitní předponou.
 5.  Pokud je virtuální počítač v **pořádku**, vyhodnoťte DVM. Pokud má DVM chybovou zprávu:
     - Veřejný klíč může být neplatný. Zkontrolujte klíč, který jste vytvořili.  
-    - Obraťte se na správce centra Azure Stack a načtěte protokoly pro Azure Stack centra pomocí privilegovaných koncových bodů. Další informace najdete v tématu [Nástroje pro diagnostiku centra Azure Stack](../operator/azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs).
+    - Obraťte se na správce centra Azure Stack a načtěte protokoly pro Azure Stack centra pomocí privilegovaných koncových bodů. Další informace najdete v tématu [Nástroje pro diagnostiku centra Azure Stack](../operator/azure-stack-get-azurestacklog.md).
 5. Pokud máte dotaz týkající se nasazení, můžete ho publikovat, nebo zjistit, jestli už někdo na dotaz na [fóru centra Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)odpověděl. 
 
 
@@ -105,9 +105,9 @@ Když nasadíte cluster Kubernetes, můžete zkontrolovat stav nasazení a zkont
     | ----     | ----        |
     | Prostředek | Název prostředku. |
     | Typ | Poskytovatel prostředků a typ prostředku. |
-    | Stav | Stav položky |
+    | Status | Stav položky |
     | Časové razítko | Časové razítko UTC v čase. |
-    | Podrobnosti operace | Podrobnosti o operaci, jako je například poskytovatel prostředků, který byl součástí operace, koncový bod prostředku a název prostředku. |
+    | Podrobnosti o operaci | Podrobnosti o operaci, jako je například poskytovatel prostředků, který byl součástí operace, koncový bod prostředku a název prostředku. |
 
     Každá položka má ikonu stavu zelenou nebo červenou.
 
@@ -115,7 +115,7 @@ Když nasadíte cluster Kubernetes, můžete zkontrolovat stav nasazení a zkont
 
 Pokud portál centra Azure Stack neposkytuje dostatek informací, abyste mohli řešit problémy nebo překonat selhání nasazení, je dalším krokem dig do protokolů clusteru. Pokud chcete protokoly nasazení načíst ručně, musíte se obvykle připojit k jednomu z hlavních virtuálních počítačů v clusteru. Jednodušší alternativní přístup by byl stáhnout a spustit následující [skript bash](https://aka.ms/AzsK8sLogCollectorScript) poskytnutý týmem centra Azure Stack. Tento skript se připojuje k virtuálním počítačům DVM a clusteru, shromažďuje relevantní protokoly systému a clusteru a stáhne je zpátky do pracovní stanice.
 
-### <a name="prerequisites"></a>Požadavky
+### <a name="prerequisites"></a>Předpoklady
 
 K počítači, který použijete ke správě centra Azure Stack, budete potřebovat výzvu k bash. Na počítači s Windows můžete získat výzvu bash instalací [Gitu pro Windows](https://git-scm.com/downloads). Po instalaci vyhledejte _Git bash_ v nabídce Start.
 
