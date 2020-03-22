@@ -31,7 +31,7 @@
       items:
         - name: Přehled
           href: azure-stack-capacity-planning-overview.md
-        - name: Compute
+        - name: Výpočty
           href: azure-stack-capacity-planning-compute.md
         - name: Úložiště
           href: azure-stack-capacity-planning-storage.md
@@ -136,10 +136,6 @@
           items:
             - name: Instalace prostředí PowerShell RM
               href: azure-stack-powershell-install.md
-            - name: Instalace PowerShellu AZ
-              href: powershell-install-az-module.md
-            - name: Migrace prostředí PowerShell AzureRM na az
-              href: migrate-azurerm-az.md
             - name: Stažení nástrojů
               href: azure-stack-powershell-download.md
             - name: Připojení přes PowerShell
@@ -252,7 +248,7 @@
           href: azure-stack-supported-os.md
         - name: Nabízejí škálovací sadu virtuálních počítačů
           href: azure-stack-compute-add-scalesets.md
-        - name: Windows Server na nejčastější dotazy k Marketplace
+        - name: Nejčastější dotazy k webu Azure Stack hub Marketplace
           href: azure-stack-windows-server-faq.md
         - name: Nabízejí virtuální počítače s Linuxem
           href: azure-stack-linux.md
@@ -460,7 +456,7 @@
                   href: azure-stack-get-azurestacklog.md
         - name: Ověřování centra Azure Stack
           href: azure-stack-diagnostic-test.md
-        - name: Řešení potíží
+        - name: Odstraňování potíží
           href: azure-stack-troubleshooting.md
 - name: Referenční informace
   items:
@@ -470,7 +466,7 @@
       href: /azure-stack/user/
     - name: Dokumentace k sadě ASDK
       href: /azure-stack/asdk/
-- name: Zdroje
+- name: Prostředky
   items:
     - name: Školení a certifikace
       href: azure-stack-train-and-cert.md

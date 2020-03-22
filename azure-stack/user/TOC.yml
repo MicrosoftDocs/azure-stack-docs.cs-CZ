@@ -2,6 +2,8 @@
   href: index.yml
 - name: Přehled
   items:
+    - name: Co je centrum Azure Stack?
+      href: user-overview.md
     - name: Klíčové aspekty
       href: azure-stack-considerations.md
 - name: Šablony Rychlý start
@@ -117,7 +119,7 @@
               href: /azure-stack/operator/azure-stack-create-service-principals?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
         - name: Použití služeb
           items:
-            - name: Compute
+            - name: Výpočty
               items:
                 - name: Přehled
                   href: azure-stack-compute-overview.md
@@ -323,7 +325,7 @@
       href: /azure-stack/operator/
     - name: Dokumentace ke službě ASDK
       href: /azure-stack/asdk/
-- name: Zdroje
+- name: Prostředky
   items:
     - name: Plán centra Azure Stack
       href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'

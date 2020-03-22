@@ -1,25 +1,29 @@
 ---
-title: Nejčastější dotazy k Windows serveru na webu centra Azure Stack
+title: Nejčastější dotazy k webu Azure Stack hub Marketplace
 titleSuffix: Azure Stack Hub
 description: Seznam nejčastějších dotazů k webu centra Azure Stack pro Windows Server.
 author: sethmanheim
 ms.topic: article
-ms.date: 12/27/2019
+ms.date: 03/19/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 08/29/2019
-ms.openlocfilehash: 72b21675e97a436499f53f00e4c7d25dfc1beb54
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 95719c6b0651932ab41cef5321db06b77eb4fc63
+ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77696069"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80069445"
 ---
-# <a name="windows-server-in-azure-stack-hub-marketplace-faq"></a>Nejčastější dotazy k Windows serveru na webu centra Azure Stack
+# <a name="azure-stack-hub-marketplace-faq"></a>Nejčastější dotazy k webu Azure Stack hub Marketplace
 
-Tento článek obsahuje odpovědi na některé nejčastější dotazy týkající se imagí Windows serveru v [tržišti Azure Stack hub](azure-stack-marketplace.md).
+Tento článek obsahuje odpovědi na některé nejčastější dotazy týkající se položek Marketplace na [webu centrum Azure Stack](azure-stack-marketplace.md).
 
 ## <a name="marketplace-items"></a>Položky Marketplace
+
+### <a name="who-should-i-contact-for-support-issues-with-azure-stack-hub-marketplace-items"></a>Koho se mám obrátit na problémy podpory s položkami Azure Stack centra Marketplace?
+
+Pokyny k podpoře Azure Marketplace se týkají také položek centra pro Azure Stack na webu Marketplace. Vydavatelé zodpovídají za poskytování technické podpory svých produktů na webu centra Azure Stack. Další informace o pokynech k podpoře pro Azure Marketplace položky najdete v [části věnované podpoře](/azure/marketplace/marketplace-faq-publisher-guide#customer-support) v článku Azure Marketplace Nejčastější dotazy.
 
 ### <a name="how-do-i-update-to-a-newer-windows-image"></a>Návody aktualizaci na novější bitovou kopii Windows?
 

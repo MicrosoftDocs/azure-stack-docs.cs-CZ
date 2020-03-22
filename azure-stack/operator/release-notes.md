@@ -3,16 +3,16 @@ title: Poznámky k verzi centra Azure Stack
 description: Poznámky k verzi pro integrované systémy Azure Stack hub, včetně aktualizací a oprav chyb.
 author: sethmanheim
 ms.topic: article
-ms.date: 03/18/2020
+ms.date: 03/20/2020
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: ce8c4843bc8316a744e1cf3d4f13e744269a9183
-ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
+ms.openlocfilehash: a819dedd695175d6b4ff28e72965c53969a2f9b2
+ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/18/2020
-ms.locfileid: "79512095"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80069402"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Poznámky k verzi centra Azure Stack
 
@@ -45,7 +45,7 @@ Nápovědu k řešení potíží s aktualizacemi a procesu aktualizace najdete v
 ::: moniker range="azs-2002"
 ## <a name="2002-build-reference"></a>2002 – odkaz na sestavení
 
-Číslo buildu aktualizace centra Azure Stack 2002 je **1.2002.0.35**.
+Číslo buildu aktualizace centra Azure Stack 2002 je **1.2002.12.59**.
 
 > [!IMPORTANT]  
 > V rámci aktualizace centra Azure Stack 2002 společnost Microsoft dočasně rozšiřuje naše [příkazy zásad podpory centra Azure Stack](azure-stack-servicing-policy.md).  Spolupracujeme se zákazníky po celém světě, kteří reagují na COVID-19 a kteří můžou dělat důležitá rozhodnutí o svých Azure Stackch systémech, jak se aktualizují a spravují, a v důsledku toho zajistí, aby se jejich obchodní operace v datovém centru pokračovaly normálně fungovat. V rámci podpory našich zákazníků nabízí Microsoft dočasnou příponu pro změnu zásad, která zahrnuje tři předchozí verze aktualizací.  V důsledku toho bude podporována nově vydaná aktualizace 2002 a kterákoli ze tří předchozích verzí aktualizace (například 1910, 1908 a 1907).
@@ -67,7 +67,6 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 <!-- What's new, also net new experiences and features. -->
 
 - K dispozici je nová verze (1.8.1) Azure Stack moduly PowerShellu pro správce centra založené na AzureRM.
-- Do 16. března 2020 se vydají nové verze modulů AZ. * Azure PowerShell tenanta pro Azure Stack. Aktuálně používané Azure Stack moduly správce prostředků tenanta budou fungovat i nadále, ale po sestavení 2002 už se neaktualizují.
 - Přidání nového upozornění na portál správce centra Azure Stack k hlášení problémů s připojením s nakonfigurovaným serverem syslog. Název výstrahy: **u klienta syslog došlo při odesílání zprávy syslog k potížím se sítí**.
 - Přidání nového upozornění na portál správce centra Azure Stack k hlášení problémů s připojením k serveru NTP (Network Time Protocol). Název výstrahy je **neplatný čas zdroje na [název uzlu]** .
 - [Sada Java SDK](https://azure.microsoft.com/develop/java/) vydala nové balíčky z důvodu zásadní změny v 2002 v souvislosti s omezeními TLS. Je nutné nainstalovat novou závislost sady Java SDK. Pokyny najdete v tématu [profily verze Java a rozhraní API](../user/azure-stack-version-profiles-java.md?view=azs-1910#java-and-api-version-profiles).
@@ -80,6 +79,7 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 - Tato aktualizace obsahuje změny v procesu aktualizace, které významně zlepšují výkon budoucích úplných aktualizací. Tyto změny se projeví až po vydání 2002 a konkrétně mají za cíl zlepšit výkon fáze plné aktualizace, ve které jsou operační systémy hostitele aktualizovány. Zlepšení výkonu aktualizací hostitelských operačních systémů významně snižuje časový interval, během kterého jsou úlohy tenanta ovlivněny během úplných aktualizací.
 - Nástroj pro kontrolu připravenosti centra Azure Stack nyní ověřuje integraci služby AD Graph pomocí všech portů IP protokolu TCP přidělených ke službě AD Graph.
 - Nástroj pro syndikaci offline byl aktualizován o vylepšení spolehlivosti. Nástroj už není dostupný na GitHubu a [přesunul se do galerie prostředí PowerShell](https://www.powershellgallery.com/packages/Azs.Syndication.Admin/). Další informace najdete v tématu [stažení položek Marketplace do centra Azure Stack](azure-stack-download-azure-marketplace-item.md).
+- Zavádí se nová funkce monitorování. Upozornění na nedostatek místa na disku pro fyzické hostitele a virtuální počítače infrastruktury bude automaticky opraveno platformou a jenom v případě, že tato akce selže, výstraha se zobrazí na portálu pro správu centra Azure Stack, aby mohl obsluhu provést akci.
 - Vylepšení [shromažďování protokolů diagnostiky](azure-stack-diagnostic-log-collection-overview-tzl.md). Nové prostředí zjednodušuje a zjednodušuje shromažďování protokolů diagnostiky tím, že v předem odebere nutnost konfigurace účtu BLOB Storage. Prostředí úložiště je předem nakonfigurované tak, aby bylo možné odesílat protokoly před otevřením případu podpory a strávíte méně času při volání podpory.
 - Čas potřebný pro [proaktivní shromažďování protokolů i shromažďování protokolů na vyžádání](azure-stack-diagnostic-log-collection-overview-tzl.md) byl snížen o 80%. Doba shromažďování protokolů může trvat déle než tato očekávaná hodnota, ale nevyžaduje akci Azure Stack operátory centra, pokud není shromažďování protokolů úspěšné.
 - Průběh stahování balíčku aktualizace centra Azure Stack je teď v okně aktualizace po zahájení aktualizace viditelný. To platí jenom pro připojené systémy centra Azure Stack, které se rozhodnou [připravit balíčky aktualizací prostřednictvím automatického stažení](azure-stack-update-prepare-package.md#automatic-download-and-preparation-for-update-packages).
@@ -95,7 +95,7 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 
 - Následující rozhraní API pro správce jsou zastaralá:
 
-  | Poskytovatel prostředků       | Prostředek              | Verze            |
+  | Poskytovatel prostředků       | Prostředek              | Version            |
   |-------------------------|-----------------------|--------------------|
   | Microsoft. Storage. admin | Fare                 | 2015-12-01 – Preview |
   | Microsoft. Storage. admin | farmy a akvizice    | 2015-12-01 – Preview |
@@ -104,11 +104,11 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 
 - Následující rozhraní API pro správu byla nahrazena novější verzí (2018-09-01):
 
-  | Poskytovatel prostředků      | Prostředek              | Verze    |
+  | Poskytovatel prostředků      | Prostředek              | Version    |
   |------------------------|-----------------------|------------|
   | Microsoft. Backup. admin | backupLocation         | 2016-05-01 |
   | Microsoft. Backup. admin | zálohy                | 2016-05-01 |
-  | Microsoft. Backup. admin | Operace             | 2016-05-01 |
+  | Microsoft. Backup. admin | operace             | 2016-05-01 |
   
 ### <a name="fixes"></a>Opravy
 
@@ -390,7 +390,7 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 
 Informace o aktualizacích zabezpečení v této aktualizaci centra Azure Stack najdete v tématu [aktualizace zabezpečení centra Azure Stack](release-notes-security-updates.md).
 
-## <a name="download-the-update-1908"></a>Stáhnout aktualizaci
+## <a name="download-the-update"></a><a name="download-the-update-1908"></a>Stáhnout aktualizaci
 
 Balíček aktualizace centra Azure Stack 1908 můžete stáhnout ze [stránky pro stažení centra Azure Stack](https://aka.ms/azurestackupdatedownload).
 

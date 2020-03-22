@@ -3,16 +3,16 @@ title: Řešení potíží s modulem AKS v centru Azure Stack
 description: Tento článek obsahuje postup řešení potíží pro modul AKS v centru Azure Stack.
 author: mattbriggs
 ms.topic: article
-ms.date: 11/21/2019
+ms.date: 3/19/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: aa41ddde0986716e49073d571e967a050ef660f6
-ms.sourcegitcommit: 4301e8dee16b4db32b392f5979dfec01ab6566c9
+ms.lastreviewed: 3/19/2020
+ms.openlocfilehash: d362eb0bf418cf292953afc50fe993dc4867253c
+ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79313009"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80069300"
 ---
 # <a name="troubleshoot-the-aks-engine-on-azure-stack-hub"></a>Řešení potíží s modulem AKS v centru Azure Stack
 
@@ -118,7 +118,7 @@ Požadavky:
 
 2. Vyhledejte parametry vyžadované skriptem `getkuberneteslogs.sh`. Skript bude používat následující parametry:
 
-    | Parametr | Popis | Požaduje se | Příklad |
+    | Parametr | Popis | Požadováno | Příklad |
     | --- | --- | --- | --- |
     | -h,--help | Použití příkazu tisku. | ne | 
     -u,--uživatel | Uživatelské jméno správce pro virtuální počítače clusteru | ano | azureuser<br>(výchozí hodnota) |

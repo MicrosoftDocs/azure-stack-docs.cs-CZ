@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviwer: xiaofmao
 ms.lastreviewed: 01/30/2020
-ms.openlocfilehash: eeca00875a13b8f67ccaeab38f124d17979d1a7c
-ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
+ms.openlocfilehash: 864421f543e02da39dcbd3bf2972fe3a0782676f
+ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/18/2020
-ms.locfileid: "79511993"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80069388"
 ---
 # <a name="azure-stack-hub-storage-differences-and-considerations"></a>Úložiště centra Azure Stack: rozdíly a požadavky
 
@@ -24,7 +24,7 @@ Tento článek shrnuje známé rozdíly v úložištích Azure Stack centra od s
 
 | Funkce | Azure (Global) | Centrum Azure Stack |
 | --- | --- | --- |
-|File Storage|Podporované cloudové sdílené složky SMB|Zatím nepodporováno
+|Ukládání souborů|Podporované cloudové sdílené složky SMB|Zatím nepodporováno
 |Šifrování služby Azure Storage pro neaktivní neaktivní data|256 šifrování AES. Podpora šifrování pomocí klíčů spravovaných zákazníkem v Key Vault.|BitLocker 128-bit AES Encryption. Šifrování pomocí klíčů spravovaných zákazníkem se nepodporuje.
 |Typ účtu úložiště|Účty úložiště pro obecné účely V1, v2 a BLOB|Jenom pro obecné účely v1.
 |Možnosti replikace|Místně redundantní úložiště, geograficky redundantní úložiště, geograficky redundantní úložiště s přístupem pro čtení a úložiště redundantní v zóně|Místně redundantní úložiště.
@@ -32,6 +32,7 @@ Tento článek shrnuje známé rozdíly v úložištích Azure Stack centra od s
 |Spravované disky|Podporovaná verze Premium a Standard|Podporováno při použití verze 1808 nebo novější.
 |Snímky spravovaných disků|Obecné dostupné|Podporuje se.
 |Přírůstkové snímky spravovaného disku|Obecné dostupné|Zatím se nepodporuje.
+|Spravované snímky disků pro virtuální počítač ve spuštěném stavu|Obecné dostupné|Zatím se nepodporuje.
 |Název objektu blob|1 024 znaků (2 048 bajtů)|880 znaků (1 760 bajtů)
 |Maximální velikost objektu blob bloku|4,75 TB (100 MB X 50 000 bloků)|4,75 TB (100 MB x 50 000 bloků) pro aktualizaci 1802 nebo novější verzi. 50 000 X 4 MB (přibližně 195 GB) pro předchozí verze.
 |Kopie snímku objektu blob stránky|Zálohování disků nespravovaných virtuálních počítačů Azure připojených k běžícímu virtuálnímu počítači|Podporováno v [rozhraní API jako asynchronní operace](azure-stack-acs-differences.md).

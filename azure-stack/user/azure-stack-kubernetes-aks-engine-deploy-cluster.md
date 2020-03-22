@@ -3,16 +3,16 @@ title: Nasazení clusteru Kubernetes s modulem AKS v centru Azure Stack
 description: Postup nasazení clusteru Kubernetes na rozbočovači Azure Stack z virtuálního počítače klienta, na kterém běží modul AKS.
 author: mattbriggs
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 3/19/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: fc53a0b1e4273436e9e06e10feccbe577ea2e488
-ms.sourcegitcommit: 4301e8dee16b4db32b392f5979dfec01ab6566c9
+ms.lastreviewed: 3/19/2020
+ms.openlocfilehash: 01befca97f7ab1be67d11e2e710f20932af10923
+ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79312951"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80069273"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>Nasazení clusteru Kubernetes s modulem AKS v centru Azure Stack
 
@@ -66,7 +66,7 @@ V této části se podíváme na vytvoření modelu rozhraní API pro váš clus
 
 6. Vyhledejte `portalURL` a zadejte adresu URL portálu tenanta. například `https://portal.local.azurestack.external`.
 
-7.  V poli `masterProfile`pole nastavte následující pole:
+7.  V `masterProfile`nastavte následující pole:
 
     | Pole | Popis |
     | --- | --- |
@@ -75,7 +75,7 @@ V této části se podíváme na vytvoření modelu rozhraní API pro váš clus
     | vmSize |  Zadejte [velikost podporovanou centrem Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes), například `Standard_D2_v2`. |
     | distribuce | Zadejte `aks-ubuntu-16.04`. |
 
-8.  V poli `agentPoolProfiles` aktualizace:
+8.  V `agentPoolProfiles` aktualizace:
 
     | Pole | Popis |
     | --- | --- |
@@ -83,7 +83,7 @@ V této části se podíváme na vytvoření modelu rozhraní API pro váš clus
     | vmSize | Zadejte [velikost podporovanou centrem Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes), například `Standard_D2_v2`. |
     | distribuce | Zadejte `aks-ubuntu-16.04`. |
 
-9.  V poli `linuxProfile` aktualizace:
+9.  V `linuxProfile` aktualizace:
 
     | Pole | Popis |
     | --- | --- |
@@ -115,7 +115,7 @@ Pokračujte v nasazení clusteru:
     | --- | --- | --- |
     | Azure – ENV | AzureStackCloud | K indikaci AKS Engine, který je vaší cílovou platformou `AzureStackCloud`Azure Stack centra použít. |
     | Identita – systém | službou | Volitelné. Pokud používáte federované služby Active Directory (AD FS), zadejte svoje řešení pro správu identit. |
-    | location | místní | Název oblasti centra Azure Stack. Pro ASDK je oblast nastavená na `local`. |
+    | umístění | místní | Název oblasti centra Azure Stack. Pro ASDK je oblast nastavená na `local`. |
     | resource-group | Kube – RG | Zadejte název nové skupiny prostředků nebo vyberte existující skupinu prostředků. Název prostředku musí být alfanumerické znaky a malá písmena. |
     | rozhraní API – model | ./kubernetes-azurestack.json | Cesta ke konfiguračnímu souboru clusteru nebo modelu rozhraní API. |
     | výstupní adresář | Kube – RG | Zadejte název adresáře, který bude obsahovat výstupní soubor `apimodel.json` i jiné generované soubory. |
@@ -123,7 +123,7 @@ Pokračujte v nasazení clusteru:
     | client-secret | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Zadejte tajný klíč objektu služby. Při vytváření služby nastavíte tajný klíč klienta. |
     | ID předplatného | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Zadejte ID předplatného. Další informace najdete v tématu [přihlášení k odběru nabídky](https://docs.microsoft.com/azure-stack/user/azure-stack-subscribe-services#subscribe-to-an-offer) . |
 
-    Zde naleznete příklad:
+    Tady je příklad:
 
     ```bash  
     aks-engine deploy \

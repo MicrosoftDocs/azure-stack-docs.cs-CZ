@@ -7,12 +7,12 @@ ms.date: 03/18/2020
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: a2f86835a9b1008417e427bc62229e94d6b00595
-ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
+ms.openlocfilehash: c8cf31eb645653e99a2968201810e064f5ed3f9f
+ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/18/2020
-ms.locfileid: "79512231"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80069477"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Známé problémy centra Azure Stack
 
@@ -34,7 +34,7 @@ Chcete-li získat přístup ke známým problémům pro jinou verzi, použijte r
 <!---------------------------------------------------------->
 
 ::: moniker range="azs-2002"
-## <a name="update"></a>Aktualizace
+## <a name="update"></a>Aktualizovat
 
 Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešení potíží s aktualizacemi v centru Azure Stack](azure-stack-updates-troubleshoot.md).
 
@@ -65,6 +65,12 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 - Platí: Tento problém se týká verze 2002.
 - Příčina: při vytváření snímku spravovaného disku na portálu User Portal je pole **typ účtu** prázdné. Když vyberete tlačítko **vytvořit** s prázdným typem účtu, vytvoření snímku se nezdařilo.
 - Náprava: Vyberte typ účtu v rozevíracím seznamu **typ účtu** a pak vytvořte snímek.
+- Výskyt: běžné
+
+### <a name="alert-for-network-interface-disconnected"></a>Výstraha pro síťové rozhraní odpojena
+
+- Platí: Tento problém se týká 1908 a novějších.
+- Příčina: když je kabel odpojený od síťového adaptéru, výstraha se na portálu pro správu nezobrazí. Příčinou této chyby je, že tato chyba je ve výchozím nastavení ve Windows serveru 2019 zakázaná.
 - Výskyt: běžné
 
 ## <a name="networking"></a>Sítě
@@ -103,7 +109,13 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
   - [Okruhy ExpressRoute](azure-stack-connect-expressroute.md)
   - [Zadat vlastní zásady IPsec/IKE](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
 
-## <a name="compute"></a>Compute
+## <a name="compute"></a>Výpočty
+
+### <a name="nvv4-vm-size-on-portal"></a>Velikost virtuálního počítače NVv4 na portálu
+
+- Platí: Tento problém se vztahuje na 2002 a novější.
+- Příčina: při přechodu přes prostředí pro vytváření virtuálních počítačů se zobrazí velikost virtuálního počítače: NV4as_v4. Zákazníci, kteří mají k dispozici hardware, který je pro procesory GPU Azure Stack založený na AMD Mi25, budou moci mít úspěšné nasazení virtuálního počítače. U všech ostatních zákazníků dojde k neúspěšnému nasazení virtuálního počítače pomocí této velikosti virtuálního počítače.
+- Náprava: návrh při přípravě na rozhraní Azure Stack hub GPU ve verzi Preview.
 
 ### <a name="vm-boot-diagnostics"></a>Diagnostika spouštění virtuálních počítačů
 
@@ -150,7 +162,7 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 ::: moniker-end
 
 ::: moniker range="azs-1910"
-## <a name="update"></a>Aktualizace
+## <a name="update"></a>Aktualizovat
 
 Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešení potíží s aktualizacemi v centru Azure Stack](azure-stack-updates-troubleshoot.md).
 
@@ -274,7 +286,7 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 
 ## <a name="networking"></a>Sítě
 
-### <a name="load-balancer"></a>Nástroj pro vyrovnávání zatížení
+### <a name="load-balancer"></a>Load Balancer
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
 - Příčina: Když přidáváte virtuální počítače skupiny dostupnosti do back-endu fondu nástroje pro vyrovnávání zatížení, na portálu se zobrazí chybová zpráva s oznámením, že **se nepodařilo uložit fond back-endu nástroje pro**vyrovnávání zatížení. Jedná se o problém s kosmetickým rozhraním na portálu. funkce jsou pořád na místě a virtuální počítače se úspěšně přidávají do back-endu fondu.
@@ -286,7 +298,7 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 - Příčina: explicitní pravidlo **DenyAllOutbound** nejde vytvořit v NSG, protože to zabrání v dokončení veškeré interní komunikace s infrastrukturou, která je potřebná pro nasazení virtuálního počítače.
 - Výskyt: běžné
 
-### <a name="service-endpoints"></a>Koncové body služby
+### <a name="service-endpoints"></a>Koncové body služeb
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
 - Příčina: na portálu User Portal zobrazuje okno **Virtual Network** možnost používat **koncové body služby**. Tato funkce se v současnosti v centru Azure Stack nepodporuje.
@@ -338,7 +350,7 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
   - [Okruhy ExpressRoute](azure-stack-connect-expressroute.md)
   - [Zadat vlastní zásady IPsec/IKE](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
 
-## <a name="compute"></a>Compute
+## <a name="compute"></a>Výpočty
 
 ### <a name="vm-boot-diagnostics"></a>Diagnostika spouštění virtuálních počítačů
 
@@ -447,7 +459,7 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 - Příčina: explicitní pravidlo **DenyAllOutbound** nejde vytvořit v NSG, protože to zabrání v dokončení veškeré interní komunikace s infrastrukturou, která je potřebná pro nasazení virtuálního počítače.
 - Výskyt: běžné
 
-### <a name="service-endpoints"></a>Koncové body služby
+### <a name="service-endpoints"></a>Koncové body služeb
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
 - Příčina: na portálu User Portal zobrazuje okno **Virtual Network** možnost používat **koncové body služby**. Tato funkce se v současnosti v centru Azure Stack nepodporuje.
@@ -500,7 +512,7 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
   - [Okruhy ExpressRoute](azure-stack-connect-expressroute.md)
   - [Zadat vlastní zásady IPsec/IKE](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
 
-## <a name="compute"></a>Compute
+## <a name="compute"></a>Výpočty
 
 ### <a name="vm-boot-diagnostics"></a>Diagnostika spouštění virtuálních počítačů
 
@@ -611,7 +623,7 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 - Příčina: explicitní pravidlo **DenyAllOutbound** nejde vytvořit v NSG, protože to zabrání v dokončení veškeré interní komunikace s infrastrukturou, která je potřebná pro nasazení virtuálního počítače.
 - Výskyt: běžné
 
-### <a name="service-endpoints"></a>Koncové body služby
+### <a name="service-endpoints"></a>Koncové body služeb
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
 - Příčina: na portálu User Portal zobrazuje okno **Virtual Network** možnost používat **koncové body služby**. Tato funkce se v současnosti v centru Azure Stack nepodporuje.
@@ -670,7 +682,7 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
   - [Okruhy ExpressRoute](azure-stack-connect-expressroute.md)
   - [Zadat vlastní zásady IPsec/IKE](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
 
-## <a name="compute"></a>Compute
+## <a name="compute"></a>Výpočty
 
 ### <a name="vm-boot-diagnostics"></a>Diagnostika spouštění virtuálních počítačů
 

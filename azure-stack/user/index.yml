@@ -1,47 +1,80 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Dokumentace pro uživatele centra Azure Stack
+summary: Centrum Azure Stack je hybridní cloudová platforma, která umožňuje používat služby Azure z datového centra vaší společnosti nebo poskytovatele služeb.
 metadata:
-  title: 'Dokumentace centra Azure Stack – kurzy, Reference k rozhraní API'
-  meta.description: azure-stack
-  services: azure-stack
-  author: mattbriggs
-  manager: femila
-  layout: LandingPage
-  ms.assetid: cbf798da-6f1a-7d4d-7707-5d5e02589e22
+  title: Dokumentace centra Azure Stack – kurzy, Reference k rozhraní API
+  description: Centrum Azure Stack je hybridní cloudová platforma, která umožňuje používat služby Azure z datového centra vaší společnosti nebo poskytovatele služeb.
   ms.service: azure-stack
-  ms.tgt_pltfrm: from-team
-  ms.devlang: from-team
   ms.topic: landing-page
-  ms.date: 07/11/2019
+  author: mattbriggs
   ms.author: mabrigg
-abstract:
-  description: 'Centrum Azure Stack je hybridní cloudová platforma, která umožňuje používat služby Azure z datového centra vaší společnosti nebo poskytovatele služeb. Jako vývojář můžete vytvářet aplikace v centru Azure Stack. Pak je můžete nasadit do centra Azure Stack, do Azure nebo můžete vytvářet skutečně hybridní aplikace, které využívají možnosti připojení mezi cloudem Azure Stack hub a Azure. Prostřednictvím našich šablon Rychlý start a kurzů se naučíte, jak vytvářet prostředky a nasazovat aplikace.<br/><br/>Pokud jste operátor centra Azure Stack, který spravuje infrastrukturu a nabízí služby, přečtěte si naši <a href="../operator/">dokumentaci k operátorovi</a>.<br/><br/>Pokud jste uživatelem centra Azure Stack zajímáte Azure Stack Development Kit (ASDK), nasazení v jednom uzlu Azure Stackho centra, které si můžete stáhnout a používat zdarma, přečtěte si naši <a href="../asdk">dokumentaci k ASDK</a>.'
-sections:
-  - title: Začínáme se službou Azure Stack hub
-    items:
-      - type: list
-        style: cards
-        className: cardsA
-        items:
-          - html: '<a href="/azure-stack/user/azure-stack-dev-start"><img height="48" width="48" src="https://docs.microsoft.com/media/common/i_code-edit.svg" alt=""> <br><b>Vývoj řešení pomocí centra Azure Stack</b></a> <p>Vývoj aplikací pro centra Azure Stack s využitím pracovní stanice s Windows 10, Linux nebo macOS.</p>'
-          - html: '<a href="https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-install?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fbreadcrumb%2Ftoc.json"><img height="48" width="48" src="https://docs.microsoft.com/media/logos/logo_powershell.svg" alt=""> <br><b>Azure Stack centra PowerShell</b></a> <p>Z PowerShellu můžete snadno spravovat prostředky centra Azure Stack.</p>'
-          - html: '<a href="/azure-stack/user/azure-stack-version-profiles-azurecli2"><img height="48" width="48" src="https://docs.microsoft.com/media/common/i_cligeneric.svg" alt=""> <br><b>Rozhraní příkazového řádku Azure (CLI)</b></a> <p>Prostředí příkazového řádku pro správu prostředků centra Azure Stack.</p>'
-  - title: Infrastruktura jako služba (IaaS) v centru Azure Stack
-    items:
-      - type: list
-        style: cards
-        className: cardsA
-        items:
-          - html: '<a href="/azure-stack/user/azure-stack-create-vm-template"><img height="48" width="48" src="https://docs.microsoft.com/media/common/i_package.svg" alt=""> <br><b>Nasaďte virtuální počítač v IaaS pomocí šablony.</b></a> <p>Vytvoření virtuálního počítače pomocí šablon Správce prostředků centra Azure Stack</p>'
-          - html: '<a href="/azure-stack/user/azure-stack-quick-linux-portal"><img height="48" width="48" src="https://docs.microsoft.com/media/common/i_vmm-cloud.svg" alt=""> <br><b>Rychlý Start – vytvoření</a> virtuálního počítače</b> <p>Vytvořte virtuální počítač, který bude hostovat vaši aplikaci.</p>'
-          - html: '<a href="/azure-stack/user/azure-stack-dev-start-deploy-app"><img height="48" width="48" src="https://docs.microsoft.com/media/common/i_web-color.svg" alt=""> <br><b>Hostování aplikací napsaných ve vašem kódu.</b></a> <p>Nastavte virtuální počítač v centru Azure Stack a nasaďte aplikaci pomocí C#jazyků Java, Python, přejít, Ruby nebo NodeJS.</p>'
-  - title: Platforma jako služba (PaaS) na rozbočovači Azure Stack
-    items:
-      - type: list
-        style: cards
-        className: cardsA
-        items:
-          - html: <a href="/azure-stack/user/azure-stack-solution-template-service-fabric-cluster"><img height="48" width="48" src="/azure-stack/user/media/index/service-fabric-cluster.png" alt=""> <br><b>Nasazení clusteru Service Fabric</b></a> <p>Nasaďte zabezpečený Service Fabric cluster do centra Azure Stack.</p>
-          - html: <a href="/azure-stack/user/azure-stack-solution-template-kubernetes-deploy"><img height="48" width="48" src="/azure-stack/user/media/index/kubernetes.png" alt=""> <br><b>Nasazení</a> clusteru Kubernetes</b> <p>Nasaďte a nastavte prostředky pro Kubernetes v rámci jediné koordinované operace.</p>
-          - html: '<a href="/azure-stack/user/azure-stack-solution-template-cognitive-services"><img height="48" width="48" src="/azure-stack/user/media/index/icon-cognitive-services.svg" alt=""> <br><b>Nasazení služby Azure Cognitive Services</b></a> <p>Podpora kontejnerů v Azure Cognitive Services umožňuje používat stejná rozhraní API, která jsou k dispozici v Azure.</p>'
+  ms.date: 03/19/2020
+  ms.openlocfilehash: a72fa2f57da84c18ee236c017fdd31a659946143
+  ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
+  ms.translationtype: MT
+  ms.contentlocale: cs-CZ
+  ms.lasthandoff: 03/21/2020
+  ms.locfileid: "80069218"
+landingContent:
+- title: O centru Azure Stack
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Co je centrum Azure Stack?
+      url: user-overview.md
+    - text: Rozdíly mezi Azure a centra Azure Stack
+      url: azure-stack-considerations.md
+- title: Začínáme
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Vytvoření virtuálního počítače s Windows
+      url: azure-stack-quick-windows-portal.md
+    - text: Vytvoření virtuálního počítače s Linuxem
+      url: azure-stack-quick-linux-portal.md
+  - linkListType: tutorial
+    links:
+    - text: Vytvoření virtuálního počítače ze šablony
+      url: azure-stack-create-vm-template.md
+    - text: Nasazení C# webové aplikace na virtuální počítač s Windows
+      url: azure-stack-dev-start-howto-vm-dotnet.md
+    - text: Nasazení webové aplikace v jazyce Java
+      url: azure-stack-dev-start-howto-vm-java.md
+    - text: Nasazení webové aplikace v Pythonu
+      url: azure-stack-dev-start-howto-vm-python.md
+- title: Konfigurace klienta
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Nainstalovat Azure Stack centra PowerShell
+      url: https://docs.microsoft.com/en-us/azure-stack/operator/azure-stack-powershell-install?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fuser%2Ftoc.json%3Fview%3Dazs-2002&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fbreadcrumb%2Ftoc.json%3Fview%3Dazs-2002&view=azs-2002
+    - text: Instalace rozhraní příkazového řádku pro Azure Stack hub
+      url: azure-stack-version-profiles-azurecli2.md
+  - linkListType: sample
+    links:
+    - text: Použití Docker ke spuštění PowerShellu
+      url: azure-stack-powershell-user-docker.md
+    - text: Použití editoru Visual Studio Code
+      url: azure-stack-dev-start-vscode-azure.md
+- title: Infrastruktura jako služba (IaaS) v centru Azure Stack
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Nasazení virtuálního počítače v IaaS se šablonou
+      url: azure-stack-create-vm-template.md
+    - text: Konfigurace virtuální sítě
+      url: deploy-foundational-patterns.md
+    - text: Rychlý Start – vytvoření virtuálního počítače
+      url: azure-stack-quick-linux-portal.md
+    - text: Hostování aplikací napsaných ve vašem kódu
+      url: azure-stack-dev-start-deploy-app.md
+- title: Platforma jako služba (PaaS) na rozbočovači Azure Stack
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Nasazení clusteru Service Fabric
+      url: azure-stack-solution-template-service-fabric-cluster.md
+    - text: Nasazení clusteru Kubernetes
+      url: azure-stack-kubernetes-aks-engine-overview.md
+    - text: Nasazení Azure Cognitive Services
+      url: azure-stack-solution-template-cognitive-services.md
