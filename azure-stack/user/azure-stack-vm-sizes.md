@@ -3,22 +3,24 @@ title: Podporované velikosti virtuálních počítačů v centru Azure Stack
 description: Referenční informace o podporovaných velikostech virtuálních počítačů v centru Azure Stack.
 author: mattbriggs
 ms.topic: reference
-ms.date: 12/3/2019
+ms.date: 03/23/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.lastreviewed: 12/3/2019
-ms.openlocfilehash: eaa7fd667dfba1a9963c1bebfe292b8b6ba9a355
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.lastreviewed: 03/23/2020
+ms.openlocfilehash: cce150e9e7698ea98035dc4f9104595100686cb7
+ms.sourcegitcommit: 961e3b1fae32d7f9567359fa3f7cb13cdc37e28e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77705096"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80152186"
 ---
 # <a name="vm-sizes-supported-in-azure-stack-hub"></a>Podporované velikosti virtuálních počítačů v centru Azure Stack
 
 V tomto článku jsou uvedeny velikosti virtuálních počítačů, které jsou k dispozici v Azure Stack hub. Tento článek vám může pomoci zajistit, aby váš výběr virtuálního počítače podporoval vaše řešení centra Azure Stack.
 
 Disk IOPS (vstupně-výstupní operace za sekundu) na rozbočovači Azure Stack je funkce velikosti virtuálního počítače místo typu disku. To znamená, že pro virtuální počítač s Standard_Fs Series bez ohledu na to, jestli pro daný typ disku zvolíte SSD nebo HDD, je limit IOPS pro jeden další datový disk 2300 IOPS. Stanovená omezení IOPS je limit (maximální možný), aby se zabránilo sousedním sousedům. Nejedná se o záruku za IOPS, kterou získáte na konkrétní velikosti virtuálního počítače.
+
+VCPU virtuálního počítače závisí na počtu jader na uzel. Například systémy s jádry nebo s logickým procesorem menším než 64 nebudou podporovat Standard_F64s_v2 velikosti virtuálních počítačů.
 
 ## <a name="vm-general-purpose"></a>Obecné účely virtuálního počítače
 
@@ -65,7 +67,7 @@ Velikosti virtuálních počítačů pro obecné účely představují vyvážen
 ### <a name="d-series"></a>D-series
 |Velikost     |Virtuální procesory     |Paměť (GiB) | Dočasné úložiště (GiB)  | Maximální propustnost disku s operačním systémem (IOPS) | Maximální propustnost dočasného úložiště (IOPS) | Maximální počet datových disků/propustnost (IOPS) | Maximální počet síťových karet |
 |----------------|----|----|-----|----|------|------------|---------|
-|**Standard_D1** |1   |3,5 |50   |500 |3000  |4 / 4×500   |2 |
+|**Standard_D1** |1   |3,5 |50   |500 |3 000  |4 / 4×500   |2 |
 |**Standard_D2** |2   |7   |100  |500 |6000  |8 / 8×500   |2 |
 |**Standard_D3** |4   |14  |200  |500 |12000 |16 / 16×500 |4 |
 |**Standard_D4** |8   |28  |400  |500 |24000 |32 / 32×500 |8 |
@@ -82,7 +84,7 @@ Velikosti virtuálních počítačů pro obecné účely představují vyvážen
 ### <a name="dv2-series"></a>Dv2-series
 |Velikost     |Virtuální procesory     |Paměť (GiB) | Dočasné úložiště (GiB)  | Maximální propustnost disku s operačním systémem (IOPS) | Maximální propustnost dočasného úložiště (IOPS) | Maximální počet datových disků/propustnost (IOPS) | Maximální počet síťových karet |
 |-------------------|----|----|-----|----|------|------------|---------|
-|**Standard_D1_v2** |1   |3,5 |50   |500 |3000  |4 / 4×500   |2 |
+|**Standard_D1_v2** |1   |3,5 |50   |500 |3 000  |4 / 4×500   |2 |
 |**Standard_D2_v2** |2   |7   |100  |500 |6000  |8 / 8×500   |2 |
 |**Standard_D3_v2** |4   |14  |200  |500 |12000 |16 / 16×500 |4 |
 |**Standard_D4_v2** |8   |28  |400  |500 |24000 |32 / 32×500 |8 |
@@ -104,7 +106,7 @@ Velikosti virtuálních počítačů pro obecné účely představují vyvážen
 
 |Velikost     |Virtuální procesory     |Paměť (GiB) | Dočasné úložiště (GiB)  | Maximální propustnost disku s operačním systémem (IOPS) | Maximální propustnost dočasného úložiště (IOPS) | Maximální počet datových disků/propustnost (IOPS) | Maximální počet síťových karet |
 |-----------------|----|----|-----|----|------|------------|---------|
-|**Standard_F1**  |1   |2   |16   |500 |3000  |4 / 4×500   |2 |
+|**Standard_F1**  |1   |2   |16   |500 |3 000  |4 / 4×500   |2 |
 |**Standard_F2**  |2   |4   |32   |500 |6000  |8 / 8×500   |2 |
 |**Standard_F4**  |4   |8   |64   |500 |12000 |16 / 16×500 |4 |
 |**Standard_F8**  |8   |16  |128  |500 |24000 |32 / 32×500 |8 |
@@ -140,7 +142,7 @@ Velikosti virtuálních počítačů pro obecné účely představují vyvážen
 
 Paměťově optimalizované velikosti virtuálních počítačů poskytují vysoký poměr paměti k procesoru, který je určený pro servery relačních databází, střední až velké mezipaměti a analýzu v paměti.
 
-### <a name="mo-d"></a>Řady D-Series
+### <a name="d-series"></a><a name="mo-d"></a>Řady D-Series
 |Velikost     |Virtuální procesory     |Paměť (GiB) | Dočasné úložiště (GiB)  | Maximální propustnost disku s operačním systémem (IOPS) | Maximální propustnost dočasného úložiště (IOPS) | Maximální počet datových disků/propustnost (IOPS) | Maximální počet síťových karet |
 |------------------|---|----|----|--------|------|------------|---------|
 |**Standard_D11**  |2  |14  |100 |500     |6000  |8 / 8×500   |2 |
@@ -148,7 +150,7 @@ Paměťově optimalizované velikosti virtuálních počítačů poskytují vyso
 |**Standard_D13**  |8  |56  |400 |500     |24000 |32 / 32×500 |8 |
 |**Standard_D14**  |16 |112 |800 |500     |48000 |64/64x500 |8 |
 
-### <a name="mo-ds"></a>Řada DS
+### <a name="ds-series"></a><a name="mo-ds"></a>Řada DS
 |Velikost     |Virtuální procesory     |Paměť (GiB) | Dočasné úložiště (GiB)  | Maximální propustnost disku s operačním systémem (IOPS) | Maximální propustnost dočasného úložiště (IOPS) | Maximální počet datových disků/propustnost (IOPS) | Maximální počet síťových karet |
 |-------------------|---|----|----|--------|------|-------------|---------|
 |**Standard_DS11**  |2  |14  |28  |1 000    |8000  |8/8x2300   |2 |
@@ -156,7 +158,7 @@ Paměťově optimalizované velikosti virtuálních počítačů poskytují vyso
 |**Standard_DS13**  |8  |56  |112 |1 000    |32000 |32 / 32x2300 |8 |
 |**Standard_DS14**  |16 |112 |224 |1 000    |64000 |64 / 64x2300 |8 |
 
-### <a name="mo-dv2"></a>Dv2-Series
+### <a name="dv2-series"></a><a name="mo-dv2"></a>Dv2-Series
 |Velikost     |Virtuální procesory     |Paměť (GiB) | Dočasné úložiště (GiB)  | Maximální propustnost disku s operačním systémem (IOPS) | Maximální propustnost dočasného úložiště (IOPS) | Maximální počet datových disků/propustnost (IOPS) | Maximální počet síťových karet |
 |--------------------|----|----|-----|----|-------|-------------|---------|
 |**Standard_D11_v2** |2   |14  |100  |500 |6000   |8 / 8×500    |2 |
@@ -165,7 +167,7 @@ Paměťově optimalizované velikosti virtuálních počítačů poskytují vyso
 |**Standard_D14_v2** |16  |112 |800  |500 |48000  |64/64x500  |8 |
 
 
-### <a name="mo-dsv2"></a>DSv2-Series
+### <a name="dsv2-series"></a><a name="mo-dsv2"></a>DSv2-Series
 |Velikost     |Virtuální procesory     |Paměť (GiB) | Dočasné úložiště (GiB)  | Maximální propustnost disku s operačním systémem (IOPS) | Maximální propustnost dočasného úložiště (IOPS) | Maximální počet datových disků/propustnost (IOPS) | Maximální počet síťových karet |
 |---------------------|----|----|-----|-----|-------|--------------|---------|
 |**Standard_DS11_v2** |2   |14  |28   |1 000 |8000   |4 / 4x2300    |2 |

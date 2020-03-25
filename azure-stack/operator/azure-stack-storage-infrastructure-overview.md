@@ -8,12 +8,12 @@ ms.date: 1/22/2020
 ms.author: inhenkel
 ms.lastreviewed: 03/11/2019
 ms.reviewer: jiaha
-ms.openlocfilehash: 6bfdca8487a5725417f88b5fcf0fb1acce26635a
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 4ac1d0de3775c22c0c982d79713847e7cd171f41
+ms.sourcegitcommit: 961e3b1fae32d7f9567359fa3f7cb13cdc37e28e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77697089"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80152243"
 ---
 # <a name="manage-storage-infrastructure-for-azure-stack-hub"></a>Správa infrastruktury úložiště pro centrum Azure Stack
 
@@ -25,9 +25,9 @@ Tento článek popisuje stav a provozní stav prostředků infrastruktury úlož
 
 Služba Azure Stack hub využívá software Windows serveru a umožňuje kombinovat možnosti úložiště s kombinací Prostory úložiště s přímým přístupem (S2D) a clusteringu s podporou převzetí služeb při selhání Windows serveru. Tato kombinace poskytuje výkonné, škálovatelné a odolné služby úložiště.
 
-Azure Stack partneři integrovaných systémů pro rozbočovače nabízejí řadu variant řešení, včetně široké škály flexibility úložiště. V současné době můžete vybrat kombinaci tří typů jednotek: NVMe (Non Volatile Memory Express), SATA/SAS SSD (SSD-State Drive), HDD (pevný disk).
+Azure Stack partneři integrovaných systémů pro rozbočovače nabízejí řadu variant řešení, včetně široké škály flexibility úložiště. V současné době můžete vybrat až dva typy jednotek ze tří podporovaných typů jednotek: NVMe (Non Volatile Memory Express), SATA/SAS SSD (Solid-State Drive), HDD (pevný disk). 
 
-Prostory úložiště s přímým přístupem poskytuje mezipaměť pro maximalizaci výkonu úložiště. V zařízení centra Azure Stack s jedním nebo několika typy jednotek Prostory úložiště s přímým přístupem automaticky použít všechny jednotky typu "nejrychlejší" (NVMe &gt; SSD &gt; HDD) pro ukládání do mezipaměti. Zbývající jednotky se použijí pro kapacitu. Jednotky mohou být seskupeny do nasazení "all-Flash" nebo "hybrid":
+Prostory úložiště s přímým přístupem poskytuje mezipaměť pro maximalizaci výkonu úložiště. V zařízení centra Azure Stack s jedním typem jednotky (tj. NVMe nebo SSD) se pro kapacitu používají všechny jednotky. Pokud existují dva typy jednotek, Prostory úložiště s přímým přístupem pro ukládání do mezipaměti automaticky použít všechny jednotky typu "nejrychlejší" (NVMe &gt; SSD &gt; HDD). Zbývající jednotky se použijí pro kapacitu. Jednotky mohou být seskupeny do nasazení "all-Flash" nebo "hybrid":
 
 ![Azure Stack infrastruktura úložiště centra](media/azure-stack-storage-infrastructure-overview/image1.png)
 

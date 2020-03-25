@@ -7,12 +7,12 @@ ms.date: 05/10/2019
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: cf0e3f35c6aec650f07d926157c2b73cef965126
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 288ece49e873da5820f6cb7dab70643418636704
+ms.sourcegitcommit: 961e3b1fae32d7f9567359fa3f7cb13cdc37e28e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77699554"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80152305"
 ---
 # <a name="integrate-ad-fs-identity-with-your-azure-stack-hub-datacenter"></a>Integrace AD FS identity s vaším datacenterm centra Azure Stack
 
@@ -43,8 +43,8 @@ Požadavky:
 
 |Komponenta|Požadavek|
 |---------|---------|
-|Graf|Microsoft Active Directory 2012/2012 R2/2016|
-|AD FS|Windows Server 2012/2012 R2/2016|
+|Graf|Microsoft Active Directory 2012/2012 R2/2016 2019|
+|AD FS|Windows Server 2012/2012 R2/2016 2019|
 
 ## <a name="setting-up-graph-integration"></a>Nastavení integrace grafu
 
@@ -264,7 +264,7 @@ Pokud se rozhodnete tyto příkazy spustit ručně, postupujte následovně:
 
 3. Chcete-li přidat vztah důvěryhodnosti předávající strany, spusťte následující příkaz prostředí Windows PowerShell na instanci AD FS nebo členu farmy. Nezapomeňte aktualizovat koncový bod AD FS a Ukázat na soubor vytvořený v kroku 1.
 
-   **Pro AD FS 2016**
+   **Pro AD FS 2016/2019**
 
    ```powershell  
    Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true -AccessControlPolicyName "Permit everyone" -TokenLifeTime 1440

@@ -8,12 +8,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6a743a27b836ad4e82d75f8a4c6b156340c354ad
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: f52b4f20e0cf21201836e19894a7ea15159363f1
+ms.sourcegitcommit: fec2b21e80c8049a823baeaf2b642802ccdcfb67
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77704535"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80229570"
 ---
 # <a name="validate-a-new-azure-stack-hub-solution"></a>Ověřit nové řešení centra Azure Stack
 
@@ -67,12 +67,7 @@ Po úspěšném dokončení testu se akce **plánu** zakáže.
 
 2. Vyberte následující testy:
     - Modul pro simulaci cloudu
-    - Sada COMPUTE SDK Operational Suite
     - Test identifikace disku
-    - Operační sada sady SDK rozšíření trezoru klíčů
-    - Sada SDK pro Trezor klíčů – operační sada
-    - Operační sada sady SDK sítě
-    - Sada SDK pro účet úložiště – operační sada
 
 3. V místní nabídce vyberte **plán** a otevřete tak výzvu pro plánování testovací instance.
 

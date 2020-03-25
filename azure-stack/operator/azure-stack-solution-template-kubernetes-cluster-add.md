@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Naučte se, jak přidat Kubernetes do Marketplace centra Azure Stack.
 author: mattbriggs
 ms.topic: article
-ms.date: 10/28/2019
+ms.date: 03/24/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: aef1ce4167c2b95651dde1f4bd41de629b2d5b5c
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.lastreviewed: 03/24/2020v
+ms.openlocfilehash: bd8867b4bd7fae79f82752a0f4cdbd1457efc0ef
+ms.sourcegitcommit: fec2b21e80c8049a823baeaf2b642802ccdcfb67
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77697463"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80229530"
 ---
 # <a name="add-kubernetes-to-azure-stack-hub-marketplace"></a>Přidání Kubernetes do tržiště centra Azure Stack
 

@@ -7,12 +7,12 @@ ms.date: 3/19/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 3/19/2020
-ms.openlocfilehash: 01befca97f7ab1be67d11e2e710f20932af10923
-ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
+ms.openlocfilehash: 3186d3976f5d4ca533a89644b3abc16fdf824c7c
+ms.sourcegitcommit: 961e3b1fae32d7f9567359fa3f7cb13cdc37e28e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "80069273"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80152169"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>Nasazení clusteru Kubernetes s modulem AKS v centru Azure Stack
 
@@ -79,9 +79,12 @@ V této části se podíváme na vytvoření modelu rozhraní API pro váš clus
 
     | Pole | Popis |
     | --- | --- |
-    | count | Zadejte počet agentů, které chcete pro nasazení. |
+    | count | Zadejte počet agentů, které chcete pro nasazení. Maximální počet uzlů, které se mají použít na předplatné, je 50. Pokud nasazujete více než jeden cluster na předplatné, zajistěte, aby celkový počet agentů nepřesahuje 50. Ujistěte se, že jste používali položky konfigurace zadané v [ukázkovém souboru JSON modelu rozhraní API](https://github.com/Azure/aks-engine/blob/master/examples/azure-stack/kubernetes-azurestack.json).  |
     | vmSize | Zadejte [velikost podporovanou centrem Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes), například `Standard_D2_v2`. |
     | distribuce | Zadejte `aks-ubuntu-16.04`. |
+
+
+
 
 9.  V `linuxProfile` aktualizace:
 

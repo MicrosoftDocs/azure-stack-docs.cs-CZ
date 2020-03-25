@@ -7,12 +7,12 @@ ms.date: 03/20/2020
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: a819dedd695175d6b4ff28e72965c53969a2f9b2
-ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
+ms.openlocfilehash: cd8569e5ea0f3537aa915207b7d52141d9444afa
+ms.sourcegitcommit: fec2b21e80c8049a823baeaf2b642802ccdcfb67
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "80069402"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80229539"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Poznámky k verzi centra Azure Stack
 
@@ -45,7 +45,7 @@ Nápovědu k řešení potíží s aktualizacemi a procesu aktualizace najdete v
 ::: moniker range="azs-2002"
 ## <a name="2002-build-reference"></a>2002 – odkaz na sestavení
 
-Číslo buildu aktualizace centra Azure Stack 2002 je **1.2002.12.59**.
+Číslo buildu aktualizace centra Azure Stack 2002 je **1.2002.0.35**.
 
 > [!IMPORTANT]  
 > V rámci aktualizace centra Azure Stack 2002 společnost Microsoft dočasně rozšiřuje naše [příkazy zásad podpory centra Azure Stack](azure-stack-servicing-policy.md).  Spolupracujeme se zákazníky po celém světě, kteří reagují na COVID-19 a kteří můžou dělat důležitá rozhodnutí o svých Azure Stackch systémech, jak se aktualizují a spravují, a v důsledku toho zajistí, aby se jejich obchodní operace v datovém centru pokračovaly normálně fungovat. V rámci podpory našich zákazníků nabízí Microsoft dočasnou příponu pro změnu zásad, která zahrnuje tři předchozí verze aktualizací.  V důsledku toho bude podporována nově vydaná aktualizace 2002 a kterákoli ze tří předchozích verzí aktualizace (například 1910, 1908 a 1907).
@@ -69,7 +69,7 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 - K dispozici je nová verze (1.8.1) Azure Stack moduly PowerShellu pro správce centra založené na AzureRM.
 - Přidání nového upozornění na portál správce centra Azure Stack k hlášení problémů s připojením s nakonfigurovaným serverem syslog. Název výstrahy: **u klienta syslog došlo při odesílání zprávy syslog k potížím se sítí**.
 - Přidání nového upozornění na portál správce centra Azure Stack k hlášení problémů s připojením k serveru NTP (Network Time Protocol). Název výstrahy je **neplatný čas zdroje na [název uzlu]** .
-- [Sada Java SDK](https://azure.microsoft.com/develop/java/) vydala nové balíčky z důvodu zásadní změny v 2002 v souvislosti s omezeními TLS. Je nutné nainstalovat novou závislost sady Java SDK. Pokyny najdete v tématu [profily verze Java a rozhraní API](../user/azure-stack-version-profiles-java.md?view=azs-1910#java-and-api-version-profiles).
+- [Sada Java SDK](https://azure.microsoft.com/develop/java/) vydala nové balíčky z důvodu zásadní změny v 2002 v souvislosti s omezeními TLS. Je nutné nainstalovat novou závislost sady Java SDK. Pokyny najdete v tématu [profily verze Java a rozhraní API](../user/azure-stack-version-profiles-java.md?view=azs-2002#java-and-api-version-profiles).
 - K dispozici je nová verze (1.0.5.10) sady MP centra System Center Operations Manager-Azure Stack, která se vyžaduje pro všechny systémy se systémem 2002 z důvodu porušení změn rozhraní API. Změny rozhraní API mají vliv na řídicí panely pro zálohování a úložiště a před aktualizací MP doporučujeme nejprve aktualizovat všechny systémy na 2002.
 
 ### <a name="improvements"></a>Vylepšen
@@ -279,12 +279,12 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 
 - Služba infrastruktura zálohování přidá službu identit do datové části zálohy pro nasazení AAD.  
 
-- Modul PowerShellu centra Azure Stack se aktualizoval na verzi 1.8.0 pro verzi 1910.<br>Změny zahrnují:
-   - **Nový modul Správce DRP**: poskytovatel prostředků nasazení (DRP) umožňuje Orchestrované nasazení poskytovatelů prostředků do centra Azure Stack. Tyto příkazy komunikují s Azure Resource Managerou vrstvou a komunikují s DRP.
+- Modul PowerShellu centra Azure Stack se aktualizoval na verzi 1.8.0 pro verzi 1910.<br>Zahrnuté změny:
+   - **Nový modul Správce DRP**: poskytovatel prostředků nasazení (DRP) umožňuje Orchestrované nasazení poskytovatelů prostředků do centra Azure Stack. Tyto příkazy komunikují s úrovní Azure Resource Manageru pro interakci s DRP.
    - **BRP**: <br />
            – Podporuje obnovení jedné role pro zálohování infrastruktury Azure Stack. <br />
            – Přidejte parametr `RoleName` do `Restore-AzsBackup`rutiny.
-   - **FRP**: zásadní změny prostředků **jednotky** a **svazku** pomocí rozhraní API verze `2019-05-01`. Funkce jsou podporovány centrem Azure Stack 1910 a novějším: <br />
+   - **FRP**: zásadní změny prostředků **jednotky** a **svazku** pomocí rozhraní API verze `2019-05-01`. Tyto funkce podporuje Azure Stack Hub 1910 a novější: <br />
             -Byla změněna hodnota `ID`, `Name`, `HealthStatus`a `OperationalStatus`. <br />
             – Podporované nové vlastnosti `FirmwareVersion`, `IsIndicationEnabled`, `Manufacturer`a `StoragePool` pro prostředky **jednotky** . <br />
             -Vlastnosti `CanPool` a `CannotPoolReason` prostředků **jednotky** jsou zastaralé; místo toho použijte `OperationalStatus`.

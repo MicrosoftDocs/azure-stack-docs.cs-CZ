@@ -3,16 +3,16 @@ title: Známé problémy centra Azure Stack
 description: Přečtěte si o známých problémech v Azure Stackch vydáních centra.
 author: sethmanheim
 ms.topic: article
-ms.date: 03/18/2020
+ms.date: 03/20/2020
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: c8cf31eb645653e99a2968201810e064f5ed3f9f
-ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
+ms.openlocfilehash: d06514242069e20957e15e1503b513ece366fba1
+ms.sourcegitcommit: 961e3b1fae32d7f9567359fa3f7cb13cdc37e28e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "80069477"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80152145"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Známé problémy centra Azure Stack
 
@@ -113,8 +113,8 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 
 ### <a name="nvv4-vm-size-on-portal"></a>Velikost virtuálního počítače NVv4 na portálu
 
-- Platí: Tento problém se vztahuje na 2002 a novější.
-- Příčina: při přechodu přes prostředí pro vytváření virtuálních počítačů se zobrazí velikost virtuálního počítače: NV4as_v4. Zákazníci, kteří mají k dispozici hardware, který je pro procesory GPU Azure Stack založený na AMD Mi25, budou moci mít úspěšné nasazení virtuálního počítače. U všech ostatních zákazníků dojde k neúspěšnému nasazení virtuálního počítače pomocí této velikosti virtuálního počítače.
+- Platí: Tento problém se týká 2002 a novějších verzí.
+- Příčina: při přechodu přes prostředí pro vytváření virtuálních počítačů se zobrazí velikost virtuálního počítače: NV4as_v4. Zákazníci, kteří mají k dispozici hardware potřebný pro procesory GPU Azure Stack v systému AMD ve verzi Preview, mohou mít úspěšné nasazení virtuálního počítače. U všech ostatních zákazníků dojde k neúspěšnému nasazení virtuálního počítače pomocí této velikosti virtuálního počítače.
 - Náprava: návrh při přípravě na rozhraní Azure Stack hub GPU ve verzi Preview.
 
 ### <a name="vm-boot-diagnostics"></a>Diagnostika spouštění virtuálních počítačů

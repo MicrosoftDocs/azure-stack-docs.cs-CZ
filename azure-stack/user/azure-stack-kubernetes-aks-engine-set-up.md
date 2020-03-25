@@ -3,20 +3,20 @@ title: Nastavení požadavků pro modul AKS v centru Azure Stack
 description: Stanovte požadavky na spuštění stroje dotazů v centru Azure Stack.
 author: mattbriggs
 ms.topic: article
-ms.date: 3/19/2020
+ms.date: 03/23/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 3/19/2020
-ms.openlocfilehash: 7e4fccc805698fcbf66eb4e868a87cfe808eb7f9
-ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
+ms.lastreviewed: 03/23/2020
+ms.openlocfilehash: f89dd7e1036f3c45df184b498c309fe128fe03ba
+ms.sourcegitcommit: 961e3b1fae32d7f9567359fa3f7cb13cdc37e28e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "80069351"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80152203"
 ---
 # <a name="set-up-the-prerequisites-for-the-aks-engine-on-azure-stack-hub"></a>Nastavení požadavků pro modul AKS v centru Azure Stack
 
-Modul AKS můžete nainstalovat na virtuální počítač ve vašem prostředí nebo na kterýkoli klientský počítač s přístupem ke svému Správce prostředkůmu koncovému bodu centra Azure Stack. Před spuštěním tohoto modulu budete potřebovat následující věci: AKS Base Ubuntu Server a rozšíření vlastních skriptů pro Linux, které jsou k dispozici ve vašem předplatném, identitu instančního objektu přiřazenou roli přispěvatele a dvojici privátních a veřejných klíčů pro přístup SSH k vašemu serveru Ubuntu. Navíc platí, že pokud používáte Azure Stack Development Kit, bude nutné, aby počítač důvěřoval odpovídajícím certifikátům.
+Modul AKS můžete nainstalovat ve svém prostředí do virtuálních počítačů (VM) nebo libovolného klientského počítače s přístupem k Správce prostředkůmu koncovému bodu centra Azure Stack. Před spuštěním tohoto modulu budete potřebovat následující věci: AKS Base Ubuntu Server a rozšíření vlastních skriptů pro Linux, které jsou k dispozici ve vašem předplatném, identitu instančního objektu přiřazenou roli přispěvatele a dvojici privátních a veřejných klíčů pro přístup SSH k vašemu serveru Ubuntu. Navíc platí, že pokud používáte Azure Stack Development Kit, bude nutné, aby počítač důvěřoval odpovídajícím certifikátům.
 
 Pokud máte vaše požadavky, můžete začít s [definováním clusteru](azure-stack-kubernetes-aks-engine-deploy-cluster.md).
 
@@ -33,8 +33,13 @@ Váš operátor cloudu bude potřebovat, aby byly zavedeny následující polož
 | Azure Stack centra 1910 nebo vyšší | Modul AKS vyžaduje Azure Stack hub 1910 nebo vyšší. | Požadováno | Pokud si nejste jistí, jakou verzi centra Azure Stack máte, obraťte se na svého operátora cloudu. |
 | Rozšíření vlastních skriptů pro Linux | Rozšíření vlastních skriptů pro Linux 2,0<br>Nabídka: vlastní skript pro Linux 2,0<br>Verze: 2.0.6 (nebo nejnovější verze)<br>Vydavatel: Microsoft Corp | Požadováno | Pokud ve svém předplatném nemáte tuto položku, obraťte se na svého operátora cloudu. |
 | AKS Base Ubuntu image | Základní obrázek AKS<br>Nabídka: AKS<br> 2019.10.24 (nebo novější verze)<br>Vydavatel: Microsoft-AKS<br>SKU: AKS-Ubuntu-1604-201910 | Požadováno | Pokud ve svém předplatném nemáte tuto položku, obraťte se na svého operátora cloudu. Podívejte se na Další informace o závislostech verze, viz [shodný modul se základní verzí image](#matching-engine-to-base-image-version).<br> Pokud jste operátor cloudu pro Azure Stack centrum a chcete nabízet modul AKS, postupujte podle pokynů v části [Přidání modulu AKS na tržišti centra Azure Stack](../operator/azure-stack-aks-engine.md). |
-| Identita objektu služby (SPN) |  Aplikace, která potřebuje nasadit nebo nakonfigurovat prostředky prostřednictvím Azure Resource Manager, musí být reprezentována instančním objektem. | Požadováno | Pro tuto položku možná budete muset kontaktovat svého operátora centra Azure Stack.  Pokyny najdete v tématu [použití identity aplikace pro přístup k prostředkům](https://docs.microsoft.com/azure-stack/operator/azure-stack-create-service-principals) . |
+| Identita objektu služby (SPN) |  Aplikace, která potřebuje nasadit nebo nakonfigurovat prostředky prostřednictvím Azure Resource Manager, musí být reprezentována instančním objektem. | Požadováno | Pro tuto položku možná budete muset kontaktovat svého operátora centra Azure Stack.<br>Pokud se používá identita instančního objektu Azure Active Directory (AAD), bude se z virtuálních počítačů v clusteru Kubernetes vyžadovat přístup k Internetu, aby se instanční objekt mohl ověřit pomocí AAD. Pokud není k dispozici přístup k Internetu, cluster Kubernetes nebude funkční.<br>Pokyny najdete v tématu [použití identity aplikace pro přístup k prostředkům](https://docs.microsoft.com/azure-stack/operator/azure-stack-create-service-principals) . |
 | (SPN) přiřazená role **přispěvatele** | Aby mohla aplikace přistupovat k prostředkům ve vašem předplatném pomocí instančního objektu, musíte instančnímu objektu přiřadit roli pro konkrétní prostředek. | Požadováno | Pokyny najdete v tématu [přiřazení role](https://docs.microsoft.com/azure-stack/operator/azure-stack-create-service-principals#assign-a-role) . |
+
+
+Přidejte následující text do pole "instanční objekt" Popis požadavku: ""
+
+
 
 Můžete nastavit následující položky.
 
