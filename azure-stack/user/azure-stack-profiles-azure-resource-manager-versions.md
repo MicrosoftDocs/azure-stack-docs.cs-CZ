@@ -7,12 +7,12 @@ ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/08/2019
-ms.openlocfilehash: 3b3ea77dcbb59f2a0471225000aa48624bcb1a15
-ms.sourcegitcommit: 390eac7abc94cea1405178e8d6a9358f6488f5d9
+ms.openlocfilehash: 883a39ac7c0d3f11d3f9242a7efaa8549e41f4cf
+ms.sourcegitcommit: 1969a13d378cc3b8c58fea11dca8cf8c06136acd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78231668"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80302801"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack-hub"></a>Verze rozhraní API poskytovatele prostředků podporované profily v centru Azure Stack
 
@@ -39,9 +39,9 @@ Vysvětlení profilů rozhraní API a verze tempo pro centra Azure Stack najdete
 | Microsoft. Storage (řídicí plocha) | 2017-10-01 |
 | Microsoft.Web | 2018-02-01 |
 | Microsoft.KeyVault | 2016-10-01 (nemění se) |
-| Microsoft. Resources (Azure Resource Manager sám sebe) | 2016-06-01 |
-| Microsoft. Authorization (operace zásad) | 2016-09-01 |
-| Microsoft.Insights | 2018-01-01 |
+| Microsoft. Resources (Azure Resource Manager sám sebe) | 1\. 6. 2016 |
+| Microsoft. Authorization (operace zásad) | 1\. 9. 2016 |
+| Microsoft.Insights | 1\. 1. 2018 |
 
 Seznam verzí pro každý typ prostředku pro zprostředkovatele v profilu rozhraní API najdete v [podrobnostech pro 2019-03-01 – hybridní profil](#details-for-the-2019-03-01-hybrid-profile).
 
@@ -53,7 +53,7 @@ Seznam verzí pro každý typ prostředku pro zprostředkovatele v profilu rozhr
 
 | Typy prostředků | Verze rozhraní API |
 |---------------------|--------------------|
-| Zámky | 2016-09-01 |
+| Zámky | 1\. 9. 2016 |
 | Operace | 2015-07-01 |
 | Oprávnění | 2015-07-01 |
 | Přiřazení zásad | 2016-12-01 |
@@ -114,8 +114,8 @@ Rozhraní API služby Azure COMPUTE poskytují programový přístup k virtuáln
 | Operace | 2015-04-01 |
 | Typy událostí | 2015-04-01 |
 | Kategorie událostí | 2015-04-01 |
-| Definice metriky | 2018-01-01 |
-| Metriky | 2018-01-01 |
+| Definice metriky | 1\. 1. 2018 |
+| Metriky | 1\. 1. 2018 |
 | Nastavení diagnostiky | 2017-05-01-preview |
 | Kategorie nastavení diagnostiky | 2017-05-01-preview |
 
@@ -165,9 +165,9 @@ Azure Resource Manager vám umožní nasadit a spravovat infrastrukturu pro vaš
 | Operace | 2018-05-01 |
 | Poskytovatelé | 2018-05-01 |
 | SkupinyProstředků| 2018-05-01 |
-| Zdroje | 2018-05-01/ |
+| Zdroje a prostředky | 2018-05-01 |
 | Předplatná | 2018-05-01 |
-| Předplatná/umístění | 2016-06-01 |
+| Předplatná/umístění | 1\. 6. 2016 |
 | Předplatná/operationresults | 2018-05-01 |
 | Předplatná/poskytovatelé | 2018-05-01 |
 | Předplatná/ResourceGroups | 2018-05-01 |
@@ -175,7 +175,7 @@ Azure Resource Manager vám umožní nasadit a spravovat infrastrukturu pro vaš
 | Předplatná/prostředky | 2018-05-01 |
 | Předplatná/tagNames | 2018-05-01 |
 | Předplatná/tagNames/tagValues | 2018-05-01 |
-| Klienti | 2016-06-01 |
+| Klienti | 1\. 6. 2016 |
 
 ### <a name="microsoftstorage"></a>Microsoft.Storage
 
@@ -187,8 +187,8 @@ Zprostředkovatel prostředků úložiště (SRP) umožňuje programově spravov
 | Umístění | 2017-10-01 |
 | Umístění/kvóty | 2017-10-01 |
 | Operace | 2017-10-01 |
-| storageAccounts | 2017-10-01 |
-| použití | 2017-10-01 |
+| StorageAccounts | 2017-10-01 |
+| Použití | 2017-10-01 |
 
 ## <a name="next-steps"></a>Další kroky
 

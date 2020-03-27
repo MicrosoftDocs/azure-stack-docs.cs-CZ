@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/20/2
-ms.openlocfilehash: 78dbba26d13914fe54111b315a0f01c48d53a26a
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 60f8ab926bb868517c7b9feeb1c5c4325212607c
+ms.sourcegitcommit: 1969a13d378cc3b8c58fea11dca8cf8c06136acd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77698670"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80302823"
 ---
 # <a name="remove-the-mysql-resource-provider-in-azure-stack-hub"></a>Odebrání poskytovatele prostředků MySQL v centru Azure Stack
 
@@ -37,7 +37,6 @@ Při odebrání poskytovatele prostředků MySQL se odstraní přidružené plá
     - **PrivilegedEndpoint**: IP adresa nebo název DNS privilegovaného koncového bodu.
     - **AzureEnvironment**: prostředí Azure používané pro nasazení centra Azure Stack. Vyžaduje se jenom pro nasazení Azure AD.
     - **CloudAdminCredential**: pověření pro správce cloudu, které je nutné pro přístup k privilegovanému koncovému bodu.
-    - **DirectoryTenantID**
     - **AzCredential**: přihlašovací údaje pro účet správce služby Azure Stack hub. Použijte stejné přihlašovací údaje, které jste použili k nasazení centra Azure Stack.
 
 ## <a name="next-steps"></a>Další kroky
