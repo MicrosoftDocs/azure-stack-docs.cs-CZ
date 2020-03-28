@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 01/07/2020
 ms.author: sethm
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: a44af909dc3f3309c51f748b0f3b3f0275843c80
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 36a4ea0532eda0593de2beb9191d6e0911e58276
+ms.sourcegitcommit: da91962d8133b985169b236fb4c84f4ef564efc8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77705062"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80367795"
 ---
 # <a name="configure-ipsecike-policy-for-site-to-site-vpn-connections"></a>Konfigurace zásad IPsec/IKE pro připojení VPN typu Site-to-site
 
@@ -64,9 +64,9 @@ Následující tabulka uvádí podporované kryptografické algoritmy a síly kl
 |------------------------------------------------------|--------------------------------------------------------------------------|
 | Šifrování protokolem IKEv2                                     | AES256, AES192, AES128, DES3, DES                                        |
 | Integrita protokolu IKEv2                                      | SHA384, SHA256, SHA1, MD5                                                |
-| Skupina DH                                             | ECP384, ECP256, DHGroup14, DHGroup2048, DHGroup2, DHGroup1, None         |
+| Skupina DH                                             | ECP384, ECP256, DHGroup14, DHGroup2, DHGroup1, None                      |
 | Šifrování protokolem IPsec                                     | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, Žádné |
-| Integrita protokolu IPsec                                      | GCMASE256, GCMAES192, GCMAES128, SHA256, SHA1, MD5                       |
+| Integrita protokolu IPsec                                      | GCMASE256, GCMAES192, GCMAES128                                          |
 | Skupina PFS                                            | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, Žádná                         |
 | Doba života přidružení zabezpečení v rychlém režimu                                       | (Volitelné: použijí se výchozí hodnoty, pokud není zadaný)<br />                         Sekundy (Integer; min. 300/výchozí 27000 sekund)<br />                         Kilobajty (Integer; min. 1024/výchozí 102400000 KB) |
 | Selektor provozu                                     | Selektory přenosu na základě zásad nejsou v Azure Stackovém centru podporovány.         |
@@ -113,7 +113,7 @@ V této části se seznámíte s postupem vytvoření připojení VPN typu Site-
 
 Podrobnější pokyny pro vytvoření připojení VPN typu Site-to-site najdete v tématu [vytvoření připojení VPN typu Site-to-site](/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell).
 
-### <a name="prerequisites"></a>Požadavky
+### <a name="prerequisites"></a>Předpoklady
 
 Než začnete, ujistěte se, že máte následující požadavky:
 

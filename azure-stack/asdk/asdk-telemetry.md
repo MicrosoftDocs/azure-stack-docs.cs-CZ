@@ -7,12 +7,12 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: 59fe407c24e10c94d2a0d354c98a1dd13301c7a1
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.openlocfilehash: df742ed6c0a2b082aaddd4498c313474a47c6227
+ms.sourcegitcommit: 19e9b6d6ce24d74ff396a5dc48208671aeda432a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79294184"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80362183"
 ---
 # <a name="azure-stack-telemetry"></a>Telemetrie Azure Stack
 
@@ -26,7 +26,7 @@ Jako operátor Azure Stack může telemetrie poskytovat cenné přehledy o podni
 Telemetrie Azure Stack je založená na komponentě *Windows serveru 2016 s připojeným uživatelským prostředím a Telemetr*y, která využívá technologii protokolování trasování [událostí pro Windows (ETW)](https://msdn.microsoft.com/library/dn904632(v=vs.85).aspx) ke shromažďování a ukládání událostí a dat telemetrie. Azure Stack komponenty používají stejnou protokolovací technologii k publikování událostí a dat, která se shromažďují pomocí rozhraní API pro veřejné protokolování událostí operačního systému a trasování. Mezi příklady součástí Azure Stack patří poskytovatel síťových prostředků, poskytovatel prostředků úložiště, poskytovatel prostředků monitorování a poskytovatel prostředků aktualizací. Rozhraní připojené uživatele a komponenta telemetrie šifrují data pomocí protokolu SSL a pomocí připnutí certifikátů přenáší data telemetrie přes HTTPS do služby Microsoft Správa dat.
 
 > [!NOTE]
-> Aby bylo možné podporovat tok dat telemetrie, musí být ve vaší síti otevřený port 443 (HTTPS). Komponenta prostředí připojeného uživatele a telemetrie se připojí ke službě Microsoft Správa dat na https://v10.vortex-win.data.microsoft.com a také https://settings-win.data.microsoft.com ke stažení informací o konfiguraci.
+> Aby bylo možné podporovat tok dat telemetrie, musí být ve vaší síti otevřený port 443 (HTTPS). Komponenta prostředí připojeného uživatele a telemetrie se připojí ke službě Microsoft Správa dat na `https://v10.vortex-win.data.microsoft.com` a také `https://settings-win.data.microsoft.com` ke stažení informací o konfiguraci.
 
 ## <a name="privacy-considerations"></a>Požadavky na ochranu osobních údajů
 Služba ETW směruje data ze telemetrie zpátky do chráněného cloudového úložiště. Princip nejnižších privilegovaných průvodců přistupuje k datům telemetrie. Přístup k datům telemetrie mají povolený jenom personál Microsoftu s platným obchodním potřebou. Microsoft nesdílí osobní údaje vašeho zákazníka s třetími stranami, s výjimkou rozhodnutí zákazníka nebo omezeného účelu popsaného v [Azure Stack prohlášení o zásadách ochrany osobních údajů](https://privacy.microsoft.com/PrivacyStatement). Obchodní sestavy sdílíme s výrobci OEM a partnery, kteří zahrnují agregované informace o propracované telemetrii. Rozhodnutí o sdílení dat provádí interní tým Microsoftu, včetně zúčastněných stran ochrany osobních údajů, právních předpisů a správy dat.

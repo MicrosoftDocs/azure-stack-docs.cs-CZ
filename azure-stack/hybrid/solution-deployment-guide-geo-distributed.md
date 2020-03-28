@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: cc17789485bc4c1d0676d54751f4d5bc820c3a5e
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.openlocfilehash: 22919a17f58cf83857dc24d154fcfd1ab3760e59
+ms.sourcegitcommit: 19e9b6d6ce24d74ff396a5dc48208671aeda432a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78366275"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80362209"
 ---
 # <a name="create-a-geo-distributed-app-solution-to-direct-traffic-with-azure-and-azure-stack-hub"></a>Vytvoření geograficky distribuované aplikace pro směrování provozu pomocí Azure a centra Azure Stack
 
@@ -535,10 +535,10 @@ Na stránce webová aplikace vyberte **Nastavení SL**. Pak v části **Pouze HT
 
 ![Vynucení HTTPS](media/solution-deployment-guide-geo-distributed/image43.png)
 
-Po dokončení operace přejděte na libovolnou adresu URL protokolu HTTP, která odkazuje na aplikaci. Příklad:
+Po dokončení operace přejděte na libovolnou adresu URL protokolu HTTP, která odkazuje na aplikaci. Například:
 
 -   https://< app_name >. azurewebsites. NET
--   https://northwindcloud.com
+-   `https://northwindcloud.com`
 -   <https://www.northwindcloud.com>
 
 #### <a name="enforce-tls-1112"></a>Vynucení protokolu TLS 1.1/1.2
@@ -567,7 +567,7 @@ Aplikace ve výchozím nastavení povolí protokol [TLS](https://wikipedia.org/w
 
     5.  V poli **Umístění skupiny prostředků** vyberte umístění skupiny prostředků. Toto nastavení odkazuje na umístění skupiny prostředků a nemá žádný vliv na globálně nasazený profil Traffic Manager.
 
-    6.  Vyberte **Vytvořit**.
+    6.  Vyberte **Create** (Vytvořit).
 
     7.  Po dokončení globálního nasazení profilu Traffic Manager se v příslušné skupině prostředků zobrazí jako jeden z prostředků.
 

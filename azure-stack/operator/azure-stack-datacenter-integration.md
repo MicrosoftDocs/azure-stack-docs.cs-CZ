@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: wfayed
 ms.lastreviewed: 09/12/2019
-ms.openlocfilehash: c8ea0ea53574132d144ad7e205f78c5bebc41226
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.openlocfilehash: 9ea880003492768e67c71f948a71d693e5a90c9b
+ms.sourcegitcommit: 19e9b6d6ce24d74ff396a5dc48208671aeda432a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79294492"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80362162"
 ---
 # <a name="datacenter-integration-planning-considerations-for-azure-stack-hub-integrated-systems"></a>Požadavky na plánování integrace Datacenter pro integrované systémy centra Azure Stack
 
@@ -42,7 +42,7 @@ Kontaktujte podpora Microsoftu, když potřebujete vyšší úroveň přístupu 
 ## <a name="identity-considerations"></a>Požadavky na identitu
 
 ### <a name="choose-identity-provider"></a>Zvolit poskytovatele identity
-Musíte zvážit, který poskytovatel identity chcete použít pro Azure Stack nasazení centra, a to buď Azure AD, nebo AD FS. Po nasazení nemůžete přepínat zprostředkovatele identity bez úplného opětovného nasazení systému. Pokud účet Azure AD nevlastníte a používáte účet, který vám poskytl poskytovatel cloudového řešení, a pokud se rozhodnete přepnout poskytovatele a použít jiný účet Azure AD, budete se muset obrátit na poskytovatele řešení a znovu nasadit řešení za vás. formě.
+Musíte zvážit, který poskytovatel identity chcete použít pro Azure Stack nasazení centra, a to buď Azure AD, nebo AD FS. Po nasazení nemůžete přepínat zprostředkovatele identity bez úplného opětovného nasazení systému. Pokud účet Azure AD nevlastníte a používáte účet, který vám poskytl poskytovatel cloudového řešení, a pokud se rozhodnete přepnout poskytovatele a použít jiný účet Azure AD, budete se muset obrátit na poskytovatele řešení a znovu nasadit řešení pro vás. ze.
 
 Vaše volba poskytovatele identity nemá žádný vliv na virtuální počítače (VM), systém identity, účty, které používají, nebo na to, jestli se můžou připojit k doméně služby Active Directory a tak dále. Tyto věci jsou oddělené.
 
@@ -68,8 +68,8 @@ Další informace o licenčních modelech najdete v tématu [centra Microsoft Az
 
 Musíte si představit, jak chcete naplánovat obor názvů centra Azure Stack, zejména název oblasti a název externí domény. Externí plně kvalifikovaný název domény (FQDN) vašeho nasazení centra Azure Stack pro veřejné koncové body je kombinací těchto dvou názvů: &lt;*region*&gt;.&lt;*plně kvalifikovaný název domény*&gt;. Například *East.Cloud.fabrikam.com*. V tomto příkladu budou portály Azure Stack hub k dispozici na následujících adresách URL:
 
-- https://portal.east.cloud.fabrikam.com
-- https://adminportal.east.cloud.fabrikam.com
+- `https://portal.east.cloud.fabrikam.com`
+- `https://adminportal.east.cloud.fabrikam.com`
 
 > [!IMPORTANT]
 > Název oblasti, který zvolíte pro nasazení centra Azure Stack, musí být jedinečný a zobrazí se na adrese portálu. 

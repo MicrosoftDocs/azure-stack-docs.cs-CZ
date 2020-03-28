@@ -7,12 +7,12 @@ ms.date: 05/10/2019
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: 288ece49e873da5820f6cb7dab70643418636704
-ms.sourcegitcommit: 961e3b1fae32d7f9567359fa3f7cb13cdc37e28e
+ms.openlocfilehash: 999c1b2983342189ca86805a4139e3c7f77b5ceb
+ms.sourcegitcommit: da91962d8133b985169b236fb4c84f4ef564efc8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80152305"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80367821"
 ---
 # <a name="integrate-ad-fs-identity-with-your-azure-stack-hub-datacenter"></a>Integrace AD FS identity s vaším datacenterm centra Azure Stack
 
@@ -43,7 +43,7 @@ Požadavky:
 
 |Komponenta|Požadavek|
 |---------|---------|
-|Graf|Microsoft Active Directory 2012/2012 R2/2016 2019|
+|Graph|Microsoft Active Directory 2012/2012 R2/2016 2019|
 |AD FS|Windows Server 2012/2012 R2/2016 2019|
 
 ## <a name="setting-up-graph-integration"></a>Nastavení integrace grafu
@@ -113,7 +113,7 @@ Služba Graph Service v centru Azure Stack používá následující protokoly a
 
 Služba Graph Service v centru Azure Stack používá ke komunikaci s cílovou službou Active Directory následující protokoly a porty:
 
-|Typ|Port|Protokol|
+|Typ|Port|Protocol (Protokol)|
 |---------|---------|---------|
 |LDAP|389|TCP & UDP|
 |LDAP SSL|636|TCP|
@@ -128,7 +128,7 @@ Pro parametry automatizace se jako vstup vyžadují tyto informace:
 |---------|---------|---------|---------|
 |CustomAdfsName|Název poskytovatele AD FS|Název zprostředkovatele deklarací identity.<br>Toto zobrazení se zobrazí na AD FS cílové stránce.|Contoso|
 |CustomAD<br>FSFederationMetadataEndpointUri|Identifikátor URI AD FS metadat|Odkaz federačních metadat| https:\//ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml |
-|SigningCertificateRevocationCheck|Není k dispozici|Volitelný parametr pro přeskočení kontroly CRL|Žádné|
+|SigningCertificateRevocationCheck|Není k dispozici|Volitelný parametr pro přeskočení kontroly CRL|Žádná|
 
 
 ### <a name="trigger-automation-to-configure-claims-provider-trust-in-azure-stack-hub"></a>Aktivace automatizace pro konfiguraci vztahu důvěryhodnosti zprostředkovatele deklarací v centru Azure Stack
@@ -288,6 +288,13 @@ Pokud se rozhodnete tyto příkazy spustit ručně, postupujte následovně:
    Set-AdfsProperties -IgnoreTokenBinding $true
    ```
 
+   **Pro AD FS 2002 a vyšší**
+
+   > [!NOTE]
+   > Při provádění `Add-ADFSRelyingPartyTrust` na hostiteli nebo farmě služby AD FS vlastněné zákazníkem musíte nejdřív zajistit, aby se na hostiteli nebo farmě služby AD FS vynutila TLS 1.2. v důsledku toho se zobrazí tato chybová zpráva:
+
+`Add-ADFSRelyingPartyTrust : The underlying connection was closed: An unexpected error occurred on a send.`
+
 ## <a name="spn-creation"></a>Vytváření SPN
 
 Existuje mnoho scénářů, které vyžadují použití hlavního názvu služby (SPN) pro ověřování. Následuje několik příkladů:
@@ -304,7 +311,7 @@ Existuje mnoho scénářů, které vyžadují použití hlavního názvu služby
 Další informace o vytváření hlavního názvu služby (SPN) najdete v tématu [Vytvoření instančního objektu pro AD FS](azure-stack-create-service-principals.md).
 
 
-## <a name="troubleshooting"></a>Odstraňování potíží
+## <a name="troubleshooting"></a>Řešení potíží
 
 ### <a name="configuration-rollback"></a>Vrácení změn konfigurace
 

@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 01/06/2020
 ms.author: sethm
 ms.lastreviewed: 12/27/2019
-ms.openlocfilehash: 7b3f8fe96ddd33550f28860c0eaa77fa8cfa8c84
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 9d60c9300d2a717f280ab16a7f6c55d67a13f28c
+ms.sourcegitcommit: 19e9b6d6ce24d74ff396a5dc48208671aeda432a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77704348"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80362152"
 ---
 # <a name="differences-between-azure-stack-hub-and-azure-when-using-services-and-building-apps"></a>Rozdíly mezi centrem Azure Stack a Azure při používání služeb a sestavování aplikací
 
@@ -34,12 +34,12 @@ Váš operátor centra Azure Stack oznamuje, které služby jsou k dispozici pro
 
 Následující tabulka popisuje rozdíly vysoké úrovně mezi Azure Stack hub a Azure. Mějte na paměti, že při vývoji centra pro Azure Stack nebo používání služby Azure Stack hub máte tyto rozdíly:
 
-| Plošný | Azure (Global) | Centrum Azure Stack |
+| Oblast | Azure (Global) | Centrum Azure Stack |
 | -------- | ------------- | ----------|
 | Kdo to funguje? | Microsoft | Vaše organizace nebo poskytovatel služeb.|
 | Koho se obrátíte na podporu? | Microsoft | V případě integrovaného systému kontaktujte operátor centra Azure Stack (ve vaší organizaci nebo poskytovateli služeb) pro podporu.<br><br>Podporu Azure Stack Development Kit (ASDK) najdete na [fórech Microsoftu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack). Vzhledem k tomu, že vývojová sada je zkušební prostředí, není oficiální podpora nabídnuta prostřednictvím služeb Microsoft Customer Support Services (CSS).
 | Dostupné služby | Podívejte se na seznam [produktů Azure](https://azure.microsoft.com/services/?b=17.04b). Dostupné služby se liší podle oblasti Azure. | Centrum Azure Stack podporuje podmnožinu služeb Azure. Skutečné služby se budou lišit v závislosti na tom, co vaše organizace nebo poskytovatel služeb zvolí jako nabídky.
-| Azure Resource Manager koncový bod * | https://management.azure.com | Pro integrovaný systém Azure Stack hub použijte koncový bod, který poskytuje váš operátor centra Azure Stack.<br><br>Pro vývojovou sadu použijte: https://management.local.azurestack.external.
+| Azure Resource Manager koncový bod * | `https://management.azure.com` | Pro integrovaný systém Azure Stack hub použijte koncový bod, který poskytuje váš operátor centra Azure Stack.<br><br>Pro vývojovou sadu použijte: https://management.local.azurestack.external.
 | Adresa URL portálu * | [https://portal.azure.com](https://portal.azure.com) | Pro integrovaný systém Azure Stack hub použijte adresu URL, kterou poskytuje operátor centra Azure Stack.<br><br>Pro vývojovou sadu použijte: https://portal.local.azurestack.external.
 | Oblast | Můžete vybrat, do které oblasti chcete nasazení nasadit. | Pro integrovaný systém Azure Stack hub použijte oblast, která je k dispozici ve vašem systému.<br><br>U Azure Stack Development Kit (ASDK) bude oblast vždycky **místní**.
 | Skupiny prostředků | Skupina prostředků může zahrnovat oblasti. | V případě integrovaných systémů i vývojové sady existuje pouze jedna oblast.
@@ -52,7 +52,7 @@ Následující tabulka popisuje rozdíly vysoké úrovně mezi Azure Stack hub a
 
 Microsoft poskytuje nástroje a pokyny, které vám pomůžou při vývoji centra Azure Stack.
 
-| Doporučení | Reference |
+| Doporučení | Odkazy |
 | -------- | ------------- |
 | Nainstalujte do pracovní stanice pro vývojáře správné nástroje. | - [instalaci PowerShellu](../operator/azure-stack-powershell-install.md)<br>[Nástroje pro stažení](../operator/azure-stack-powershell-download.md) - <br>- [Konfigurace prostředí PowerShell](azure-stack-powershell-configure-user.md)<br>- [instalaci sady Visual Studio](azure-stack-install-visual-studio.md)
 | Zkontrolujte informace o následujících položkách:<br>– Pokyny pro šablonu Azure Resource Manager.<br>– Jak najít šablony pro rychlý Start.<br>– Použijte modul zásad, který vám umožní využít Azure k vývoji pro centra Azure Stack. | [Vývoj pro centrum Azure Stack](azure-stack-developer.md) |
