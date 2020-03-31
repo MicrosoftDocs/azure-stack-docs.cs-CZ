@@ -3,20 +3,20 @@ title: Odeslat protokoly diagnostiky centra Azure Stack hned
 description: Naučte se shromažďovat diagnostické protokoly na vyžádání v centru Azure Stack pomocí portálu pro správu nebo skriptu PowerShellu.
 author: justinha
 ms.topic: article
-ms.date: 02/26/2020
+ms.date: 03/30/2020
 ms.author: justinha
 ms.reviewer: shisab
-ms.lastreviewed: 02/26/2020
-ms.openlocfilehash: fb79a6378d2dec69804019b3ab0648ce874bf99d
-ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
+ms.lastreviewed: 03/30/2020
+ms.openlocfilehash: 2a46c031be648eedf42e204496ed2a123c926dd9
+ms.sourcegitcommit: b65952127f39c263b162aad990e4d5b265570a7f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/18/2020
-ms.locfileid: "79520306"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80402725"
 ---
 # <a name="send-azure-stack-hub-diagnostic-logs-now"></a>Odeslat protokoly diagnostiky centra Azure Stack hned
 
-Operátoři Azure Stack můžou odesílat diagnostické protokoly na vyžádání do služeb Microsoft Customer Support Services (CSS) před vyžádáním podpory pomocí portálu pro správu nebo PowerShellu. Pokud je centrum Azure Stack připojené k Azure, doporučuje se možnost **Odeslat protokoly nyní** na portálu pro správu, protože se jedná o nejjednodušší způsob, jak odesílat protokoly přímo do Microsoftu. Pokud portál není dostupný, operátory by místo toho měli [odesílat protokoly pomocí PowerShellu](azure-stack-configure-on-demand-diagnostic-log-collection-powershell-tzl.md). 
+Operátoři Azure Stack můžou odesílat diagnostické protokoly na vyžádání do služeb Microsoft Customer Support Services (CSS) před vyžádáním podpory pomocí portálu pro správu nebo PowerShellu. Pokud je centrum Azure Stack připojené k Azure, doporučuje se možnost **Odeslat protokoly nyní** na portálu pro správu, protože se jedná o nejjednodušší způsob, jak odesílat protokoly přímo do Microsoftu. Pokud portál není dostupný, operátory by místo toho měli [odesílat protokoly pomocí Send-AzureStackDiagnosticLog](azure-stack-configure-on-demand-diagnostic-log-collection-powershell-tzl.md). 
 
 Pokud jste odpojeni z Internetu nebo chcete ukládat pouze místní protokoly, použijte k odeslání protokolů metodu [Get-AzureStackLog](azure-stack-get-azurestacklog.md) . Následující vývojový diagram znázorňuje, kterou možnost použít pro odesílání diagnostických protokolů v každém případě. 
 
@@ -31,4 +31,4 @@ Zadejte čas spuštění a čas ukončení shromažďování protokolů a klikn�
 
 ## <a name="next-steps"></a>Další kroky
 
-[Použití privilegovaného koncového bodu (PEP) k odesílání diagnostických protokolů centra Azure Stack](azure-stack-get-azurestacklog.md)
+[Použití privilegovaného koncového bodu (PEP) k odesílání diagnostických protokolů centra Azure Stack](azure-stack-configure-on-demand-diagnostic-log-collection-powershell-tzl.md)

@@ -4,7 +4,7 @@
   items:
     - name: Co je Azure Stack HCI?
       href: overview.md
-- name: Správa
+- name: Spravovat
   items:
     - name: Vytváření svazků
       href: manage/create-volumes.md
@@ -14,6 +14,8 @@
       href: manage/delete-volumes.md
     - name: Nahradit jednotky
       href: manage/replace-drives.md
+    - name: Připojení GPU k virtuálnímu počítači se systémem Linux
+      href: manage/attach-gpu-to-linux-vm.md
 - name: Koncepty
   items:
     - name: Zvolit jednotky
@@ -32,10 +34,22 @@
       href: /powershell/module/hyper-v
     - name: Příkazy prostředí PowerShell pro úložiště
       href: /powershell/module/storage
+    - name: Příkazy prostředí PowerShell pro ClusterAwareUpdating
+      href: /powershell/module/clusterawareupdating
+    - name: Příkazy prostředí PowerShell pro FailoverClusters
+      href: /powershell/module/failoverclusters
+    - name: Příkazy prostředí PowerShell pro StorageReplica
+      href: /powershell/module/storagereplica
 - name: Související
   items:
     - name: Řada Azure Stack
       href: ../index.yml
+    - name: Centrum Azure Stack
+      href: /azure-stack/operator/azure-stack-overview?view=azs-2002
+    - name: Azure Stack Edge
+      href: /azure/databox-online/data-box-edge-overview
+    - name: Windows Server
+      href: /windows-server/
     - name: Centrum pro správu systému Windows
       href: /windows-server/manage/windows-admin-center/understand/windows-admin-center
     - name: Služba Azure Hybrid Services
@@ -48,3 +62,5 @@
       href: /windows-server/virtualization/hyper-v/hyper-v-on-windows-server
     - name: Softwarově definované sítě
       href: /windows-server/networking/sdn
+    - name: System Center
+      href: /system-center/

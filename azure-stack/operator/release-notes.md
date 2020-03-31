@@ -7,12 +7,12 @@ ms.date: 03/20/2020
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: cd8569e5ea0f3537aa915207b7d52141d9444afa
-ms.sourcegitcommit: fec2b21e80c8049a823baeaf2b642802ccdcfb67
+ms.openlocfilehash: 33c620624feca5b2d416ff1173741209b99011cb
+ms.sourcegitcommit: b65952127f39c263b162aad990e4d5b265570a7f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80229539"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80402824"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Poznámky k verzi centra Azure Stack
 
@@ -269,11 +269,7 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 
 - Při stahování položek z webu Marketplace z Azure do centra Azure Stack je k dispozici nové uživatelské rozhraní, které umožňuje zadat verzi položky, pokud existuje více verzí. Nové uživatelské rozhraní je k dispozici v rámci připojených i odpojených scénářů. Další informace najdete v tématu [stažení položek Marketplace z Azure do centra Azure Stack](azure-stack-download-azure-marketplace-item.md).  
 
-- Počínaje verzí 1910 **vyžaduje** systém Azure Stack hub další/20 privátní interní IP místo. Tato síť je soukromá pro systém Azure Stack hub a je možné ji znovu použít na více systémech centra Azure Stack v rámci vašeho datového centra. I když je síť soukromá pro Azure Stack hub, nesmí se překrývat se sítí ve vašem datovém centru. Privátní IP adresa/20 je rozdělená do několika sítí, které umožňují provozování infrastruktury centra Azure Stack v kontejnerech (jak je uvedeno výše v [poznámkách k verzi 1905](release-notes.md?view=azs-1905)). Cílem provozování infrastruktury centra Azure Stack v kontejnerech je optimalizace využití a zvýšení výkonu. Kromě toho privátní IP místo/20 slouží také k povolení průběžného úsilí, které před nasazením omezí požadovaný adresní prostor IP adres.
-
-  - Upozorňujeme, že vstup/20 slouží jako předpoklad pro příští aktualizaci centra Azure Stack po 1910. Když se další aktualizace centra Azure Stack po 1910 vydání a pokusíte se ji nainstalovat, aktualizace se nezdaří, pokud jste nedokončili vstup/20, jak je popsáno v následujících krocích oprav. V portálu pro správu bude k dispozici výstraha, dokud výše uvedené kroky nápravy nejsou dokončeny. V článku věnovaném [integraci sítě Datacenter](azure-stack-network.md#private-network) se dozvíte, jak bude tento nový privátní prostor použit.
-
-  - Postup nápravy: Pokud chcete problém vyřešit, postupujte podle pokynů a [otevřete relaci PEP](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). Připravte velikost [privátního interního rozsahu IP adres](azure-stack-network.md#logical-networks) /20 a v relaci PEP spusťte následující rutinu (k dispozici pouze počínaje 1910) pomocí následujícího příkladu: `Set-AzsPrivateNetwork -UserSubnet 100.87.0.0/20`. Pokud se operace provede úspěšně, obdržíte do **Konfigurace přidaný rozsah interní sítě AZS**. Po úspěšném dokončení se výstraha zavře na portálu pro správu. Systém centra Azure Stack se teď může aktualizovat na další verzi.
+- Počínaje verzí 1910 **vyžaduje** systém Azure Stack hub další/20 privátní interní IP místo.  Další informace najdete v tématu (plánování integrace sítě pro Azure Stack) [Azure-Stack-network.md].
   
 - Služba zálohování infrastruktury odstraní částečně nahraná zálohovaná data v případě, že umístění externího úložiště během procesu nahrávání vyčerpá kapacitu.  
 
