@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviwer: xiaofmao
 ms.lastreviewed: 01/30/2020
-ms.openlocfilehash: 864421f543e02da39dcbd3bf2972fe3a0782676f
-ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
+ms.openlocfilehash: 04a89e89be033cb0372395580f2cf618d7857fb7
+ms.sourcegitcommit: 8e480803ee0672eea328e4f14a8b75be94c8fc7f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "80069388"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80391468"
 ---
 # <a name="azure-stack-hub-storage-differences-and-considerations"></a>Úložiště centra Azure Stack: rozdíly a požadavky
 
@@ -24,7 +24,7 @@ Tento článek shrnuje známé rozdíly v úložištích Azure Stack centra od s
 
 | Funkce | Azure (Global) | Centrum Azure Stack |
 | --- | --- | --- |
-|Ukládání souborů|Podporované cloudové sdílené složky SMB|Zatím nepodporováno
+|File Storage|Podporované cloudové sdílené složky SMB|Zatím nepodporováno
 |Šifrování služby Azure Storage pro neaktivní neaktivní data|256 šifrování AES. Podpora šifrování pomocí klíčů spravovaných zákazníkem v Key Vault.|BitLocker 128-bit AES Encryption. Šifrování pomocí klíčů spravovaných zákazníkem se nepodporuje.
 |Typ účtu úložiště|Účty úložiště pro obecné účely V1, v2 a BLOB|Jenom pro obecné účely v1.
 |Možnosti replikace|Místně redundantní úložiště, geograficky redundantní úložiště, geograficky redundantní úložiště s přístupem pro čtení a úložiště redundantní v zóně|Místně redundantní úložiště.
@@ -44,9 +44,15 @@ Tento článek shrnuje známé rozdíly v úložištích Azure Stack centra od s
 |Velikost stránky objektu blob stránky|512 bajtů|4 KB
 |Klíč oddílu tabulky a velikost klíče řádku|1 024 znaků (2 048 bajtů)|400 znaků (800 bajtů)
 |Snímek objektu BLOB|Maximální počet snímků jednoho objektu BLOB není omezený.|Maximální počet snímků jednoho objektu BLOB je 1 000.
-|Ověřování Azure AD pro úložiště|Ve verzi Preview|Zatím se nepodporuje.
+|Ověřování Azure AD pro úložiště|Obecné dostupné|Zatím se nepodporuje.
 |Neměnné objekty blob|Obecné dostupné|Zatím se nepodporuje.
 |Pravidla brány firewall a virtuální sítě pro úložiště|Obecné dostupné|Zatím se nepodporuje.|
+|Mapování vlastní domény na Blob Storage koncový bod|Obecné dostupné|Zatím se nepodporuje.|
+|Hostování statických webů v BLOB Storage|Obecné dostupné|Zatím se nepodporuje.|
+|Šifrování neaktivních dat úložiště pomocí klíčů spravovaných zákazníkem|Obecné dostupné|Zatím se nepodporuje.|
+|Ověření integrity transakčních dat pomocí CRC64 hash|Obecné dostupné|Zatím se nepodporuje.|
+|Synchronní kopie dat na straně serveru z adresy URL|Obecné dostupné|Zatím se nepodporuje.|
+|Rozhraní API služby Batch pro Blob Storage|Obecné dostupné|Zatím se nepodporuje.|
 
 Existují také rozdíly v metrikách úložiště:
 
@@ -59,8 +65,11 @@ Azure Stack úložiště centra podporuje následující verze:
 
 Rozhraní API služby Azure Storage Services:
 
-1811 aktualizace nebo novější verze:
+2002 aktualizace nebo novější verze:
 
+- [2019-02-02](https://docs.microsoft.com/rest/api/storageservices/version-2019-02-02)
+- [2018-11-09](https://docs.microsoft.com/rest/api/storageservices/version-2018-11-09)
+- [2018-03-28](https://docs.microsoft.com/rest/api/storageservices/version-2018-03-28)
 - [2017-11-09](https://docs.microsoft.com/rest/api/storageservices/version-2017-11-09)
 - [2017-07-29](https://docs.microsoft.com/rest/api/storageservices/version-2017-07-29)
 - [2017-04-17](https://docs.microsoft.com/rest/api/storageservices/version-2017-04-17)
@@ -71,6 +80,8 @@ Rozhraní API služby Azure Storage Services:
 
 Předchozí verze:
 
+- [2017-11-09](https://docs.microsoft.com/rest/api/storageservices/version-2017-11-09)
+- [2017-07-29](https://docs.microsoft.com/rest/api/storageservices/version-2017-07-29)
 - [2017-04-17](https://docs.microsoft.com/rest/api/storageservices/version-2017-04-17)
 - [2016-05-31](https://docs.microsoft.com/rest/api/storageservices/version-2016-05-31)
 - [2015-12-11](https://docs.microsoft.com/rest/api/storageservices/version-2015-12-11)
@@ -79,18 +90,10 @@ Předchozí verze:
 
 Rozhraní API pro správu služby Azure Storage Services:
 
-1811 aktualizace nebo novější verze:
-
 - [2017-10-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
 - [2017-06-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
 - [2016-12-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
 - [2016-05-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
-- [2016-01-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
-- [2015-06-15](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
-- [2015-05-01 – Preview](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
-
-Předchozí verze:
-
 - [2016-01-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
 - [2015-06-15](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
 - [2015-05-01 – Preview](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
