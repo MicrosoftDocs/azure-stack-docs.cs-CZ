@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: e2b6598137774a5bf654aef1f9a75827da4f108a
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 04d7935ca88c578c2019703855e79278211127d1
+ms.sourcegitcommit: b824c7b9af9ba415ca4fe8d15673b521362f0abb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77703634"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80479311"
 ---
 # <a name="access-the-kubernetes-dashboard-in-azure-stack-hub"></a>Přístup k řídicímu panelu Kubernetes v centru Azure Stack 
 
@@ -121,6 +121,14 @@ Adresu URL řídicího panelu můžete načíst z hlavního uzlu v clusteru.
 Řídicí panel můžete použít. Další informace o řídicím panelu Kubernetes najdete v tématu [řídicí panel webového uživatelského rozhraní Kubernetes](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/) . 
 
 ![Řídicí panel Kubernetes centra Azure Stack](media/azure-stack-solution-template-kubernetes-dashboard/azure-stack-kub-dashboard.png)
+
+## <a name="troubleshooting"></a>Odstraňování potíží
+
+### <a name="custom-virtual-networks"></a>Vlastní virtuální sítě
+
+Pokud čelíte problémům s připojením k řídicímu panelu Kubernetes po nasazení Kubernetes do [vlastní virtuální sítě](https://docs.microsoft.com/azure-stack/user/kubernetes-aks-engine-custom-vnet), zajistěte, aby se cílové podsítě propojili s tabulkami směrování a skupinami zabezpečení sítě, které vytvořil modul AKS.
+
+Ujistěte se, že pravidla skupiny zabezpečení sítě umožňují komunikaci mezi hlavními uzly a řídicím panelem Kubernetes pod IP adresou. To lze ověřit pomocí příkazu příkazu pro odeslání z hlavního uzlu.
 
 ## <a name="next-steps"></a>Další kroky 
 

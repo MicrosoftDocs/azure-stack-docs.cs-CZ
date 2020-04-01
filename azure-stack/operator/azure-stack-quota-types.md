@@ -7,12 +7,12 @@ ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2019
-ms.openlocfilehash: 5af024f2b3d31e115e80d1e20883b0457037532e
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.openlocfilehash: bc36b4fe7326596f4ef993ceb087818270cf1b5a
+ms.sourcegitcommit: dd53af1b0fc2390de162d41e3d59545d1baad1a7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79293931"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80423865"
 ---
 # <a name="quota-types-in-azure-stack-hub"></a>Typy kvót v centru Azure Stack
 
@@ -57,6 +57,12 @@ ms.locfileid: "79293931"
 | Maximální počet síťových karet |100 |Maximální počet síťových rozhraní, která může vytvořit předplatné v tomto umístění. |
 | Maximální počet nástrojů pro vyrovnávání zatížení |50 |Maximální počet nástrojů pro vyrovnávání zatížení, které může vytvořit předplatné v tomto umístění. |
 | Maximální počet skupin zabezpečení sítě |50 |Maximální počet skupin zabezpečení sítě, které může vytvořit předplatné v tomto umístění. |
+
+## <a name="event-hubs-quota-types"></a>Event Hubs typy kvót
+
+| **Typ** | **Výchozí hodnota** | **Popis** |
+| --- | --- | --- |
+| Maximální počet jader virtuálních počítačů | 10 | Maximální počet jader, které může vytvořit předplatné v tomto umístění (například virtuální počítač a3 má čtyři jádra). |
 
 ## <a name="view-an-existing-quota"></a>Zobrazit existující kvótu
 

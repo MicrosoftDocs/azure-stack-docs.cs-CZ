@@ -332,6 +332,34 @@
                   href: azure-stack-app-service-release-notes-update-seven.md
                 - name: Zpráva k vydání verze pro Azure Stack centra aktualizace 8 App Service
                   href: azure-stack-app-service-release-notes-update-eight.md
+        - name: Event Hubs v centru Azure Stack
+          items:
+            - name: Přehled
+              href: event-hubs-rp-overview.md
+            - name: Plánování kapacity
+              href: event-hubs-rp-capacity-planning.md
+            - name: Požadavky
+              href: event-hubs-rp-prerequisites.md
+            - name: Nainstalovat
+              href: event-hubs-rp-install.md
+            - name: Správa životního cyklu
+              items:
+                - name: Instalace aktualizací
+                  href: resource-provider-apply-updates.md
+                - name: Zálohování & obnovení
+                  href: azure-stack-backup-infrastructure-backup.md
+                - name: Shromažďování protokolů
+                  href: azure-stack-diagnostic-log-collection-overview.md
+                - name: Výstrahy & stavu
+                  href: azure-stack-monitor-health.md
+                - name: Spravovat
+                  href: event-hubs-rp-manage.md
+                - name: Otočit tajných kódů
+                  href: azure-stack-rotate-secrets.md
+                - name: Oznámení o aktualizacích služby
+                  href: 'https://techcommunity.microsoft.com/t5/Event-Hubs-Blog/bg-p/EventHubs'
+            - name: Odebrat
+              href: event-hubs-rp-remove.md
         - name: MySQL v centru Azure Stack
           items:
             - name: Přehled

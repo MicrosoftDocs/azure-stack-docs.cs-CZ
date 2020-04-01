@@ -7,12 +7,12 @@ ms.date: 12/18/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 10/01/2019
-ms.openlocfilehash: 0e5d71335fb5b7086341c7c06ec503aae1a8e728
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.openlocfilehash: a5776189c1792844b6d9bf2ec229ec02936f82c1
+ms.sourcegitcommit: dd53af1b0fc2390de162d41e3d59545d1baad1a7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79294382"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80423885"
 ---
 # <a name="azure-stack-hub-services-plans-offers-subscriptions-overview"></a>Přehled služeb Azure Stack hub, plánů, nabídek a předplatných
 
@@ -31,7 +31,7 @@ Chcete-li doručovat službu, postupujte podle následujících kroků vysoké �
 1. Plánování nabídky služeb pomocí:
 
    - Základní služby, jako jsou výpočetní prostředky, úložiště, sítě nebo Key Vault.
-   - Value – přidejte služby, jako je App Service, SQL Server nebo MySQL server.
+   - Value – přidejte služby, například Event Hubs, App Service, SQL Server nebo MySQL server.
 
 2. Vytvořte plán, který se skládá z jedné nebo více služeb. Při vytváření plánu vyberte nebo vytvořte kvóty, které definují omezení prostředků u každé služby v plánu.
 3. Vytvořte nabídku, která má jeden nebo více plánů. Nabídka může zahrnovat základní plány a volitelné plány doplňku.
@@ -44,15 +44,16 @@ Po vytvoření nabídky se uživatelé můžou přihlásit k odběru služeb a n
 
 Můžete nabízet služby [infrastruktury jako služby](https://azure.microsoft.com/overview/what-is-iaas/) (IaaS), které uživatelům umožňují vytvářet výpočetní infrastrukturu na vyžádání, zřídit a spravovat z portálu Azure Stack User Portal.
 
-Můžete také nasazovat služby PaaS ( [Platform as a Service](https://azure.microsoft.com/overview/what-is-paas/) ) pro Azure Stack hub od Microsoftu a jiných poskytovatelů třetích stran. Mezi služby PaaS, které můžete poskytovat, patří mimo jiné:
+Můžete taky nasadit služby PaaS ( [Platform as a Service](https://azure.microsoft.com/overview/what-is-paas/) ) pro Azure Stack hub od Microsoftu a jiných poskytovatelů. Mezi služby PaaS, které můžete nasadit, patří mimo jiné tyto:
 
+- [Event Hubs](event-hubs-rp-overview.md)
 - [App Service](azure-stack-app-service-overview.md)
 - [SQL Server](azure-stack-sql-resource-provider-deploy.md)
 - [Server MySQL](azure-stack-mysql-resource-provider-deploy.md)
 
 Můžete také kombinovat služby pro integraci a vytváření složitých řešení pro různé uživatele.
 
-### <a name="quotas"></a>Kvóty
+### <a name="quotas"></a>kvóty,
 
 Pro lepší správu kapacity cloudu můžete použít předem nakonfigurované *kvóty*nebo vytvořit novou kvótu pro každou službu v plánu. Kvóty definují horní omezení prostředků, které může předplatné uživatele zřizovat nebo využívat. Kvóta například může uživateli umožnit vytvoření až pěti virtuálních počítačů.
 

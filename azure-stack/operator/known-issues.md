@@ -7,12 +7,12 @@ ms.date: 03/20/2020
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: d06514242069e20957e15e1503b513ece366fba1
-ms.sourcegitcommit: 961e3b1fae32d7f9567359fa3f7cb13cdc37e28e
+ms.openlocfilehash: ca29dd169523872b2dcc21b323bc489de5caf9b3
+ms.sourcegitcommit: b824c7b9af9ba415ca4fe8d15673b521362f0abb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80152145"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80479235"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Známé problémy centra Azure Stack
 
@@ -111,6 +111,12 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 
 ## <a name="compute"></a>Výpočty
 
+### <a name="vm-overview-blade-does-not-show-correct-computer-name"></a>Okno s přehledem virtuálních počítačů nezobrazuje správný název počítače
+
+- Platí: Tento problém se týká 2002 a novějších verzí.
+- Příčina: při zobrazení podrobností o VIRTUÁLNÍm počítači v okně Přehled se zobrazí název počítače **(není k dispozici)** .
+- Náprava: v části **Nastavení**zobrazte okno **vlastnosti** .
+
 ### <a name="nvv4-vm-size-on-portal"></a>Velikost virtuálního počítače NVv4 na portálu
 
 - Platí: Tento problém se týká 2002 a novějších verzí.
@@ -138,6 +144,11 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 - Platí: Tento problém se vztahuje na všechny podporované verze.
 - Příčina: vytváření virtuálních počítačů ve skupině dostupnosti 3 domén selhání a vytvoření instance sady škálování virtuálního počítače selže s chybou **FabricVmPlacementErrorUnsupportedFaultDomainSize** během procesu aktualizace v prostředí centra Azure Stack se 4 uzly.
 - Náprava: můžete vytvořit jeden virtuální počítač ve skupině dostupnosti se dvěma doménami selhání úspěšně. Vytvoření instance sady škálování však není během procesu aktualizace ve 4 Azure Stackovém nasazení centra stále k dispozici.
+
+### <a name="sql-vm-provision-will-be-failed-in-asdk"></a>Zřizování virtuálního počítače SQL se v ASDK nezdaří.
+- Platí: Tento problém se týká jenom ASDK 2002. 
+- Příčina: při vytváření nového virtuálního počítače SQL v ASDK 2002 se může zobrazit chybová zpráva **přípona s vydavatelem Microsoft. SqlServer. Management, Type SqlIaaSAgent a verze obslužné rutiny typu 2,0 se v úložišti rozšíření** nepovedlo najít. V Azure Stackovém centru není žádná "SqlIaaSAgent" 2,0. 
+
 
 ## <a name="resource-providers"></a>Poskytovatelé prostředků
 

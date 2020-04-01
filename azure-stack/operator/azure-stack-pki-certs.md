@@ -7,14 +7,14 @@ ms.date: 3/04/2020
 ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 12/16/2019
-ms.openlocfilehash: a63fcbb13defc0d7e679c0be7fb931c0e2570b37
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.openlocfilehash: c4565ce33faf1f76a4774736d9195c9d7256b6da
+ms.sourcegitcommit: dd53af1b0fc2390de162d41e3d59545d1baad1a7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79294228"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80423829"
 ---
-# <a name="azure-stack-hub-public-key-infrastructure-certificate-requirements"></a>Požadavky na certifikát infrastruktury veřejných klíčů centra Azure Stack
+# <a name="azure-stack-hub-public-key-infrastructure-pki-certificate-requirements"></a>Požadavky na certifikát infrastruktury veřejných klíčů (PKI) Azure Stack hub
 
 Centrum Azure Stack má síť s veřejnou infrastrukturou, která používá externě přístupné veřejné IP adresy, které jsou přiřazené k malé sadě služeb Azure Stack hub a případně tenantů virtuálních počítačů. Certifikáty PKI s příslušnými názvy DNS pro tyto koncové body veřejné infrastruktury centra Azure Stack se při nasazení centra Azure Stack vyžadují. Tento článek poskytuje informace o:
 
@@ -60,7 +60,7 @@ Vyžadují se certifikáty s příslušnými názvy DNS pro každý koncový bod
 
 Pro vaše nasazení musí hodnoty [region] a [externalfqdn] odpovídat oblasti a názvům externích domén, které jste zvolili pro váš systém Azure Stack hub. Příklad: Pokud byl název oblasti *Redmond* a externí název domény byl *contoso.com*, názvy DNS budou mít formát *&lt;předponu >. Redmond. contoso. com*. Hodnota *předpony&lt;>* je předdefinována společností Microsoft, aby popsala koncový bod zabezpečený certifikátem. Kromě toho *prefix&lt;>* hodnoty externích koncových bodů infrastruktury závisí na službě centra Azure Stack, která používá konkrétní koncový bod.
 
-Pro produkční prostředí doporučujeme pro každý koncový bod vygenerovat jednotlivé certifikáty a zkopírovat je do odpovídajícího adresáře. Pro vývojová prostředí se certifikáty dají zadat jako jeden certifikát se zástupnými znaky, který pokrývá všechny obory názvů v polích předmět a alternativní název předmětu (SAN) zkopírované do všech adresářů. Jeden certifikát, který pokrývá všechny koncové body a služby, je nezabezpečený stav, a proto jenom pro vývoj. Pamatujte si, že obě možnosti vyžadují, abyste použili certifikáty se zástupnými znaky pro koncové body, jako je **ACS** , a Key Vault tam, kde jsou
+Pro produkční prostředí doporučujeme pro každý koncový bod vygenerovat jednotlivé certifikáty a zkopírovat je do odpovídajícího adresáře. Pro vývojová prostředí je možné certifikáty zadat jako jeden certifikát se zástupným znakem, který pokrývá všechny obory názvů v polích předmět a alternativní název předmětu (SAN) zkopírované do všech adresářů. Jeden certifikát, který pokrývá všechny koncové body a služby, je nezabezpečený stav, a proto jenom pro vývoj. Pamatujte si, že obě možnosti vyžadují, abyste použili certifikáty se zástupnými znaky pro koncové body, jako je **ACS** , a Key Vault tam, kde jsou
 
 > [!Note]  
 > Během nasazování musíte zkopírovat certifikáty do složky pro nasazení, která odpovídá zprostředkovateli identity, na který nasazujete (Azure AD nebo AD FS). Pokud používáte jeden certifikát pro všechny koncové body, musíte tento soubor certifikátu zkopírovat do každé složky pro nasazení, jak je uvedeno v následujících tabulkách. Struktura složky je předem vytvořená ve virtuálním počítači pro nasazení a je možné ji najít na adrese: C:\CloudDeployment\Setup\Certificates.
@@ -84,31 +84,32 @@ Pokud nasadíte Azure Stack centrum pomocí režimu nasazení služby Azure AD, 
 |Složka pro nasazení|Požadovaný předmět certifikátu a alternativní názvy subjektu (SAN)|Rozsah (na oblast)|Obor názvů subdomény|
 |-----|-----|-----|-----|
 |ADFS|službou. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*<br>(Certifikát SSL)|ADFS|*> &lt;oblasti.&lt;plně kvalifikovaný název domény >*|
-|Graph|zapisovací. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*<br>(Certifikát SSL)|Graph|*> &lt;oblasti.&lt;plně kvalifikovaný název domény >*|
+|Graf|zapisovací. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*<br>(Certifikát SSL)|Graf|*> &lt;oblasti.&lt;plně kvalifikovaný název domény >*|
 |
 
 > [!IMPORTANT]
 > Všechny certifikáty uvedené v této části musí mít stejné heslo.
 
 ## <a name="optional-paas-certificates"></a>Volitelné certifikáty PaaS
-Pokud plánujete nasadit další Azure Stack služby centra PaaS (SQL, MySQL a App Service) po nasazení a konfiguraci centra Azure Stack, musíte požádat o další certifikáty, abyste pokryli koncové body služeb PaaS.
+Pokud plánujete nasadit další služby centra Azure Stack PaaS (jako je SQL, MySQL, App Service nebo Event Hubs) po nasazení a konfiguraci centra Azure Stack, musíte požádat o další certifikáty, abyste pokryli koncové body služeb PaaS.
 
 > [!IMPORTANT]
-> Certifikáty, které používáte pro poskytovatele prostředků App Service, SQL a MySQL, musí mít stejnou kořenovou autoritu jako ta, která se používá pro globální koncové body centra Azure Stack.
+> Certifikáty, které používáte pro poskytovatele prostředků, musí mít stejnou kořenovou autoritu jako ty, které se používají pro koncové body globálního centra Azure Stack.
 
-Následující tabulka obsahuje popis koncových bodů a certifikátů vyžadovaných pro adaptéry SQL a MySQL a pro App Service. Tyto certifikáty nemusíte kopírovat do složky pro nasazení centra Azure Stack. Místo toho tyto certifikáty poskytnete při instalaci dalších poskytovatelů prostředků.
+Následující tabulka obsahuje popis koncových bodů a certifikátů vyžadovaných pro poskytovatele prostředků. Tyto certifikáty nemusíte kopírovat do složky pro nasazení centra Azure Stack. Místo toho tyto certifikáty zadáte během instalace poskytovatele prostředků.
 
 |Rozsah (na oblast)|Certifikát|Požadovaný předmět certifikátu a alternativní názvy subjektu (San)|Obor názvů subdomény|
 |-----|-----|-----|-----|
 |SQL, MySQL|SQL a MySQL|&#42;.dbadapter. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*<br>(Zástupný certifikát SSL)|dbadapter. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*|
 |App Service|Výchozí certifikát SSL pro webový provoz|&#42;AppService. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*<br>&#42;. SCM. AppService. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*<br>&#42;. SSO. AppService. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*<br>(Certifikát SSL s více doménovými znaky<sup>1</sup>)|AppService. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*<br>SCM. AppService. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*|
-|App Service|Rozhraní API|API. AppService. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*<br>(Certifikát SSL<sup>2</sup>)|AppService. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*<br>SCM. AppService. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*|
+|App Service|API|API. AppService. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*<br>(Certifikát SSL<sup>2</sup>)|AppService. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*<br>SCM. AppService. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*|
 |App Service|FTP|FTP. AppService. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*<br>(Certifikát SSL<sup>2</sup>)|AppService. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*<br>SCM. AppService. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*|
 |App Service|JEDNOTNÉ|SSO. AppService. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*<br>(Certifikát SSL<sup>2</sup>)|AppService. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*<br>SCM. AppService. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*|
+|Event Hubs|Event Hubs|&#42;eventhub. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >* (San)| eventhub. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >* |
 
 <sup>1</sup> vyžaduje jeden certifikát s více alternativními názvy subjektu zástupného znaku. Všechny veřejné certifikační autority nemusí podporovat více než jeden zástupný znak sítě SAN na jednom certifikátu.
 
-<sup>2</sup> A &#42;. AppService. *&lt;oblast >.&lt;plně kvalifikovaný název domény >* certifikát se zástupnými kartami nejde použít místo těchto tří certifikátů (API. AppService.&lt; *oblast >.&lt;plně kvalifikovaný název domény >* , FTP. appservice.&lt; *oblast >.&lt;plně kvalifikovaný název domény >* a sso. AppService. *&lt;oblast >.&lt;plně kvalifikovaný název domény >* . AppService explicitně vyžaduje použití samostatných certifikátů pro tyto koncové body.
+<sup>2</sup> A &#42;. AppService. *&lt;oblast >.&lt;plně kvalifikovaný název domény >* certifikát se zástupnými znaky nejde použít místo těchto tří certifikátů (API. AppService.&lt; *oblast >.&lt;plně kvalifikovaný název domény >* , FTP. appservice.&lt; *oblast >.&lt;plně kvalifikovaný název domény >* a sso. AppService. *&lt;oblast >.&lt;plně kvalifikovaný název domény >* . AppService explicitně vyžaduje použití samostatných certifikátů pro tyto koncové body.
 
 ## <a name="learn-more"></a>Další informace
 Naučte se [generovat certifikáty PKI pro nasazení centra Azure Stack](azure-stack-get-pki-certs.md).

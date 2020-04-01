@@ -21,6 +21,8 @@
       href: azure-stack-quick-create-vm-linux-powershell.md
     - name: Vytvoření virtuálního počítače s Linuxem – rozhraní příkazového řádku
       href: azure-stack-quick-create-vm-linux-cli.md
+    - name: Vytvoření clusteru Event Hubs – portál
+      href: event-hubs-quickstart-cluster-portal.md
 - name: Kurzy
   items:
     - name: Přihlášení k odběru nabídky
@@ -185,6 +187,10 @@
                   href: azure-stack-key-vault-store-credentials.md
                 - name: Ukázková aplikace služby KeyVault
                   href: azure-stack-key-vault-sample-app.md
+            - name: Event Hubs
+              items:
+                - name: Přehled
+                  href: event-hubs-overview.md
             - name: Azure Monitor
               href: azure-stack-metrics-azure-data.md
               items:
@@ -265,11 +271,11 @@
           items:
             - name: Partnerský vztah virtuální sítě s virtuálními počítači
               href: azure-stack-network-howto-vnet-peering.md
-            - name: Použití síťová virtuální zařízení třetí strany (Fortinet FortiGate síťové virtuální zařízení)
+            - name: Použití síťová virtuální zařízení třetích stran (Fortinet FortiGate síťové virtuální zařízení)
               items:
                 - name: VNet peering s FortiGate
                   href: azure-stack-network-howto-vnet-to-vnet.md
-                - name: Nastavit VPN na Prem
+                - name: Nastavení sítě VPN na Prem
                   href: azure-stack-network-howto-vnet-to-onprem.md
                 - name: Připojení virtuální sítě k virtuální síti
                   href: azure-stack-network-howto-vnet-to-vnet-stacks.md

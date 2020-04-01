@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.topic: conceptual
 ms.reviewer: xiaofmao
 ms.lastreviewed: 02/27/2019
-ms.openlocfilehash: dc89de51c730bdd50000d004555b47d82ab08be6
-ms.sourcegitcommit: 8e480803ee0672eea328e4f14a8b75be94c8fc7f
+ms.openlocfilehash: 57ca779f776e51d8f491c8c9fe3e6a59a37b42ec
+ms.sourcegitcommit: dd53af1b0fc2390de162d41e3d59545d1baad1a7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80391482"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80423810"
 ---
 # <a name="get-started-with-azure-stack-hub-storage-development-tools"></a>Začínáme s nástroji pro vývoj pro úložiště Azure Stack hub
 
@@ -28,7 +28,7 @@ Tento článek vám pomůže začít používat vývojové nástroje pro úloži
 Pro klientské knihovny pro úložiště si pamatujte na verzi, která je kompatibilní s REST API. Ve svém kódu musíte taky zadat koncový bod centra Azure Stack.
 
 
-::: moniker range=">azs-2002"
+::: moniker range=">=azs-2002"
 ### <a name="2002-update-or-newer-versions"></a>2002 aktualizace nebo novější verze
 
 | Klientská knihovna | Verze podporovaného centra Azure Stack | Odkaz | Specifikace koncového bodu |
@@ -228,7 +228,7 @@ Následující kurzy k Azure Queue Storage se vztahují na centra Azure Stack. P
 * [Používání úložiště Queue z Pythonu](/azure/storage/queues/storage-python-how-to-use-queue-storage)
 * [Používání úložiště Queue z Ruby](/azure/storage/queues/storage-ruby-how-to-use-queue-storage)
 
-## <a name="table-storage"></a>Úložiště Table
+## <a name="table-storage"></a>Table Storage
 
 Následující kurzy k Azure Table Storage se vztahují na centra Azure Stack. Poznamenejte si konkrétní požadavek na příponu koncového bodu pro Azure Stack hub popsaný v části předchozí [Příklady](#examples) .
 

@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 10/13/2019
 ms.reviewer: shriramnat
 ms.lastreviewed: 10/06/2019
-ms.openlocfilehash: 4d8f727178b4bbe6da6377f965a4863acf322abc
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 2aae33b324be4828b514ffbd019992aae989f50b
+ms.sourcegitcommit: dd53af1b0fc2390de162d41e3d59545d1baad1a7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77704756"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80423849"
 ---
 # <a name="tutorial-test-a-service-offering"></a>Kurz: testování nabídky služeb
 
@@ -143,3 +143,4 @@ V dalším kroku se dozvíte, jak nasadit poskytovatele prostředků pro služby
 - [Nabídka SQL v centru Azure Stack](azure-stack-sql-resource-provider.md)
 - [Nabídka MySQL v centru Azure Stack](azure-stack-mysql-resource-provider.md)
 - [Nabídka App Service v centru Azure Stack](azure-stack-app-service-overview.md)
+- [Nabídka Event Hubs v centru Azure Stack](event-hubs-rp-overview.md)
