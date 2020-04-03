@@ -7,12 +7,12 @@ ms.date: 12/11/2019
 ms.author: inhenkel
 ms.reviewer: wamota
 ms.lastreviewed: 12/11/2019
-ms.openlocfilehash: cf72ecf8d5c5e7bfbf4e640b6193319f9e16d511
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.openlocfilehash: c43cddeca1067d1bbbe2ef0ec8a62ad3c041a50b
+ms.sourcegitcommit: 48e493256b0b8bd6cea931cd68a9bd932ca77090
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79293942"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80614497"
 ---
 # <a name="publish-azure-stack-hub-services-in-your-datacenter"></a>Publikování služby Azure Stack hub ve vašem datovém centru 
 
@@ -41,7 +41,7 @@ Interní virtuální IP adresy infrastruktury nejsou uvedené, protože nejsou n
 
 Po přidání [hostitele rozšíření](azure-stack-extension-host-prepare.md)nejsou porty v rozsahu 12495-30015 vyžadovány.
 
-|Koncový bod (VIP)|DNS host A record|Protocol (Protokol)|Porty|
+|Koncový bod (VIP)|DNS host A record|Protokol|Porty|
 |---------|---------|---------|---------|
 |AD FS|službou. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*|HTTPS|443|
 |Portál (správce)|Adminportal. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*|HTTPS|443|
@@ -49,10 +49,10 @@ Po přidání [hostitele rozšíření](azure-stack-extension-host-prepare.md)ne
 |Azure Resource Manager (správce)|Adminmanagement. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*|HTTPS|443|
 |Portál (uživatel)|Bran. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*|HTTPS|443|
 |Azure Resource Manager (uživatel)|Správu. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*|HTTPS|443|
-|Graph|zapisovací. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*|HTTPS|443|
+|Graf|zapisovací. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*|HTTPS|443|
 |Seznam odvolaných certifikátů|Seznam CRL. *&lt;oblast >.&lt;plně kvalifikovaný název domény >*|HTTP|80|
 |DNS|&#42;. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*|TCP & UDP|53|
-|Hostování | *. Hosting. >\<oblasti.\<plně kvalifikovaný název domény > | HTTPS | 443 |
+|Hosting | *. Hosting. >\<oblasti.\<plně kvalifikovaný název domény > | HTTPS | 443 |
 |Key Vault (uživatel)|&#42;hesel. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*|HTTPS|443|
 |Key Vault (správce)|&#42;.adminvault. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*|HTTPS|443|
 |Fronta úložiště|&#42;provedených. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*|HTTP<br>HTTPS|80<br>443|
@@ -76,7 +76,7 @@ Zachycení provozu SSL není [podporované](azure-stack-firewall.md#ssl-intercep
 > [!Note]  
 > Centrum Azure Stack nepodporuje použití ExpressRoute pro přístup ke službám Azure uvedeným v následující tabulce, protože ExpressRoute nemusí být schopná směrovat provoz do všech koncových bodů.
 
-|Účel|Cílová adresa URL|Protocol (Protokol)|Porty|Zdrojová síť|
+|Účel|Cílová adresa URL|Protokol|Porty|Zdrojová síť|
 |---------|---------|---------|---------|---------|
 |Identita|**Azure**<br>login.windows.net<br>login.microsoftonline.com<br>graph.windows.net<br>https:\//secure.aadcdn.microsoftonline-p.com<br>www.office.com<br>ManagementServiceUri = https:\//management.core.windows.net<br>ARMUri = https:\//management.azure.com<br>https:\//\*. msftauth.net<br>https:\//\*. msauth.net<br>https:\//\*. msocdn.com<br>**Azure Government**<br>https:\//login.microsoftonline.us/<br>https:\//graph.windows.net/<br>**Azure Čína 21Vianet**<br>https:\//login.chinacloudapi.cn/<br>https:\//graph.chinacloudapi.cn/<br>**Azure (Německo)**<br>https:\//login.microsoftonline.de/<br>https:\//graph.cloudapi.de/|HTTP<br>HTTPS|80<br>443|Veřejná VIP-/27<br>Síť veřejné infrastruktury|
 |Syndikace Marketplace|**Azure**<br>https:\//management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://&#42;.azureedge.net<br>**Azure Government**<br>https:\//management.usgovcloudapi.net/<br>https://&#42;. blob.Core.usgovcloudapi.NET/<br>**Azure Čína 21Vianet**<br>https:\//management.chinacloudapi.cn/<br>http://&#42;. blob.Core.chinacloudapi.cn|HTTPS|443|Veřejná VIP-/27|
@@ -86,6 +86,7 @@ Zachycení provozu SSL není [podporované](azure-stack-firewall.md#ssl-intercep
 |Windows Defender|&#42;. wdcp.microsoft.com<br>&#42;. wdcpalt.microsoft.com<br>&#42;. wd.microsoft.com<br>&#42;. update.microsoft.com<br>&#42;. download.microsoft.com<br>https:\//www.microsoft.com/pkiops/crl<br>https:\//www.microsoft.com/pkiops/certs<br>https:\//crl.microsoft.com/pki/crl/products<br>https:\//www.microsoft.com/pki/certs<br>https:\//secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|Veřejná VIP-/27<br>Síť veřejné infrastruktury|
 |NTP|(IP adresa serveru NTP, který je k dispozici pro nasazení)|UDP|123|Veřejná VIP-/27|
 |DNS|(IP adresa serveru DNS poskytnutá pro nasazení)|TCP<br>UDP|53|Veřejná VIP-/27|
+|SYSLOG|(IP adresa serveru SYSLOG poskytnutého pro nasazení)|TCP<br>UDP|6514<br>514|Veřejná VIP-/27|
 |VOLANÝ|(Adresa URL v rámci distribučních bodů seznamu CRL na vašem certifikátu)|HTTP|80|Veřejná VIP-/27|
 |LDAP|Doménová struktura služby Active Directory poskytnutá pro integraci grafu|TCP<br>UDP|389|Veřejná VIP-/27|
 |LDAP SSL|Doménová struktura služby Active Directory poskytnutá pro integraci grafu|TCP|636|Veřejná VIP-/27|

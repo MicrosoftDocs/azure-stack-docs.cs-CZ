@@ -3,16 +3,16 @@ title: Poznámky k verzi centra Azure Stack
 description: Poznámky k verzi pro integrované systémy Azure Stack hub, včetně aktualizací a oprav chyb.
 author: sethmanheim
 ms.topic: article
-ms.date: 03/20/2020
+ms.date: 03/31/2020
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 33c620624feca5b2d416ff1173741209b99011cb
-ms.sourcegitcommit: b65952127f39c263b162aad990e4d5b265570a7f
+ms.openlocfilehash: de68806451d432cc4fd11ec289933e9c48444755
+ms.sourcegitcommit: 48e493256b0b8bd6cea931cd68a9bd932ca77090
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80402824"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80614480"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Poznámky k verzi centra Azure Stack
 
@@ -401,7 +401,7 @@ Opravy hotfix centra Azure Stack se vztahují pouze na integrované systémy Azu
 Verze 1908 centra Azure Stack se musí použít ve verzi 1907 s následujícími opravami hotfix:
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [1.1907.26.70 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4541348)
+- [1.1907.29.80 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4555650)
 
 Aktualizace centra Azure Stack 1908 vyžaduje od poskytovatele hardwaru vašeho systému **Azure Stack centra OEM verze 2,1 nebo novější** . Aktualizace OEM zahrnují aktualizace ovladačů a firmwaru do vašeho systémového hardwaru Azure Stack hub. Další informace o použití aktualizací OEM naleznete v tématu [apply Azure Stack Center Original Equipment Update Manufacturer Updates](azure-stack-update-oem.md) .
 
@@ -534,7 +534,7 @@ Verze 1907 centra Azure Stack se musí použít ve verzi 1906 s následujícími
 Po instalaci této aktualizace nainstalujte všechny příslušné opravy hotfix. Další informace najdete v našich [zásadách obsluhy](azure-stack-servicing-policy.md).
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [1.1907.26.70 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4541348)
+- [1.1907.29.80 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4555650)
 ::: moniker-end
 
 ::: moniker range=">=azs-1907"

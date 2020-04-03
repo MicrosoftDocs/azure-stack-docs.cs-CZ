@@ -8,18 +8,35 @@ ms.topic: how-to
 ms.date: 11/27/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 11/27/2019
-ms.openlocfilehash: b0a4e18afdc8ce68ffa212bcc7bc78506420c235
-ms.sourcegitcommit: dd53af1b0fc2390de162d41e3d59545d1baad1a7
+ms.openlocfilehash: c7c1d11d2ef432ddc8b750fde5cb6970c4076db4
+ms.sourcegitcommit: 48e493256b0b8bd6cea931cd68a9bd932ca77090
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80424243"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80614374"
 ---
 # <a name="event-hubs-on-azure-stack-hub-overview"></a>Přehled Event Hubs v centru Azure Stack
 
 [!INCLUDE [preview-banner](../includes/event-hubs-preview.md)]
 
 Event Hubs v centru Azure Stack vám umožní realizovat hybridní cloudové scénáře. Podpora streamování a řešení založeného na událostech je podporovaná pro místní i cloudové zpracování Azure. Bez ohledu na to, jestli je váš scénář hybridní (připojený) nebo odpojený, může vaše řešení podporovat zpracování událostí nebo datových proudů ve velkém měřítku. Váš scénář je vázaný jenom na velikost clusteru Event Hubs, kterou můžete zřídit podle svých potřeb. 
+
+## <a name="run-event-processing-tasks-and-build-event-driven-applications-on-site"></a>Spuštění úloh zpracování událostí a sestavování aplikací řízených událostmi v lokalitě
+
+Pomocí Event Hubs v centru Azure Stack můžete implementovat obchodní scénáře, jako například:
+
+- Úlohy AI a Machine Learning, kde Event Hubs je modul streamování událostí.
+- Implementujte architektury založené na událostech ve vašich vlastních lokalitách mimo datová centra Azure.
+- Navštívených Analytics pro vaše webové aplikace nasazené místně.
+- Analýza telemetrie zařízení.
+- Zpracování datových proudů pomocí Open Source rozhraní, které používá Apache Kafka, jako jsou například Apache Spark, Flink, Samza, a.
+- Využijte [výpočetní metriky a události operačního systému v hostovaném](azure-stack-metrics-monitor.md)prostředí.
+
+## <a name="build-hybrid-solutions"></a>Sestavování hybridních řešení
+
+Sestavujte hybridní řešení, která ingestují a zpracovávají data Edge místně v centru Azure Stack. Odešlete agregovaná data do Azure pro další zpracování, vizualizaci a úložiště. V případě potřeby Využijte výpočetní prostředí bez serveru v Azure.
+
+[Diagram ![hybridních řešení](media/event-hubs-overview/hybrid-architecture-ehoash.png)](media/event-hubs-overview/hybrid-architecture-ehoash.png#lightbox)
 
 ## <a name="features"></a>Funkce 
 
@@ -36,7 +53,7 @@ Edice Event Hubs (v centru Azure Stack a v Azure) nabízejí vysoký stupeň par
 | Azure Monitor | ✔ | ✔ |
 | Funkce Automatické deflace | ✘ | ✔ |
 
-Kromě toho je možné provádět operace správy prostředků Azure pomocí Azure Resource Manager šablon, [PowerShellu](/powershell/module/azurerm.eventhub/)a rozhraní příkazového [řádku Azure CLI](/cli/azure/eventhubs/eventhub/). V současné době není v PowerShellu a v Azure CLI dostupná podpora pro operace správy operátorů.
+Operace správy prostředků Azure je možné provádět taky pomocí Azure Resource Manager šablon, [PowerShellu](/powershell/module/azurerm.eventhub/)a rozhraní příkazového [řádku Azure CLI](/cli/azure/eventhubs/eventhub/). V současné době není v PowerShellu a v Azure CLI dostupná podpora pro operace správy operátorů.
 
 ## <a name="feature-documentation"></a>Dokumentace k funkcím
 
