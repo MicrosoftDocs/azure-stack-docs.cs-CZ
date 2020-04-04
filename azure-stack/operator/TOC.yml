@@ -31,7 +31,7 @@
       items:
         - name: Přehled
           href: azure-stack-capacity-planning-overview.md
-        - name: Výpočty
+        - name: Compute
           href: azure-stack-capacity-planning-compute.md
         - name: Úložiště
           href: azure-stack-capacity-planning-storage.md
@@ -338,9 +338,9 @@
               href: event-hubs-rp-overview.md
             - name: Plánování kapacity
               href: event-hubs-rp-capacity-planning.md
-            - name: Požadavky
+            - name: Předpoklady
               href: event-hubs-rp-prerequisites.md
-            - name: Nainstalovat
+            - name: Instalace
               href: event-hubs-rp-install.md
             - name: Správa životního cyklu
               items:
@@ -349,10 +349,10 @@
                 - name: Zálohování & obnovení
                   href: azure-stack-backup-infrastructure-backup.md
                 - name: Shromažďování protokolů
-                  href: azure-stack-diagnostic-log-collection-overview.md
+                  href: azure-stack-diagnostic-log-collection-overview-tzl.md
                 - name: Výstrahy & stavu
                   href: azure-stack-monitor-health.md
-                - name: Spravovat
+                - name: Správa
                   href: event-hubs-rp-manage.md
                 - name: Otočit tajných kódů
                   href: azure-stack-rotate-secrets.md
@@ -484,7 +484,7 @@
                   href: azure-stack-get-azurestacklog.md
         - name: Ověřování centra Azure Stack
           href: azure-stack-diagnostic-test.md
-        - name: Odstraňování potíží
+        - name: Řešení potíží
           href: azure-stack-troubleshooting.md
 - name: Referenční informace
   items:
@@ -494,7 +494,7 @@
       href: /azure-stack/user/
     - name: Dokumentace k sadě ASDK
       href: /azure-stack/asdk/
-- name: Prostředky
+- name: Zdroje
   items:
     - name: Školení a certifikace
       href: azure-stack-train-and-cert.md

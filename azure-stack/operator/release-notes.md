@@ -3,16 +3,16 @@ title: Poznámky k verzi centra Azure Stack
 description: Poznámky k verzi pro integrované systémy Azure Stack hub, včetně aktualizací a oprav chyb.
 author: sethmanheim
 ms.topic: article
-ms.date: 03/31/2020
+ms.date: 04/02/2020
 ms.author: sethm
-ms.reviewer: prchint
+ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: de68806451d432cc4fd11ec289933e9c48444755
-ms.sourcegitcommit: 48e493256b0b8bd6cea931cd68a9bd932ca77090
+ms.openlocfilehash: 681e0bd2a19a2e8284510fbe53470795dd84f69c
+ms.sourcegitcommit: dd4801cb2da0549cc01e7e5cd6a53690c53d80cc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80614480"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80638283"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Poznámky k verzi centra Azure Stack
 
@@ -95,7 +95,7 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 
 - Následující rozhraní API pro správce jsou zastaralá:
 
-  | Poskytovatel prostředků       | Prostředek              | Version            |
+  | Poskytovatel prostředků       | Prostředek              | Verze            |
   |-------------------------|-----------------------|--------------------|
   | Microsoft. Storage. admin | Fare                 | 2015-12-01 – Preview |
   | Microsoft. Storage. admin | farmy a akvizice    | 2015-12-01 – Preview |
@@ -104,12 +104,22 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 
 - Následující rozhraní API pro správu byla nahrazena novější verzí (2018-09-01):
 
-  | Poskytovatel prostředků      | Prostředek              | Version    |
+  | Poskytovatel prostředků      | Prostředek              | Verze    |
   |------------------------|-----------------------|------------|
   | Microsoft. Backup. admin | backupLocation         | 2016-05-01 |
   | Microsoft. Backup. admin | zálohy                | 2016-05-01 |
-  | Microsoft. Backup. admin | operace             | 2016-05-01 |
-  
+  | Microsoft. Backup. admin | Operace             | 2016-05-01 |
+
+- Když vytváříte virtuální počítač s Windows pomocí PowerShellu, nezapomeňte přidat příznak `provisionvmagent`, pokud chcete, aby virtuální počítač nasadil rozšíření. Bez tohoto příznaku se virtuální počítač vytvoří bez agenta hosta, který odebere možnost nasazení rozšíření virtuálních počítačů:
+
+   ```powershell
+   $VirtualMachine = Set-AzureRmVMOperatingSystem `
+     -VM $VirtualMachine `
+     -Windows `
+     -ComputerName "MainComputer" `
+     -Credential $Credential -ProvisionVMAgent
+  ```
+
 ### <a name="fixes"></a>Opravy
 
 <!-- Product fixes that came up from customer deployments worth highlighting, especially if there is an SR/ICM associated to it. -->

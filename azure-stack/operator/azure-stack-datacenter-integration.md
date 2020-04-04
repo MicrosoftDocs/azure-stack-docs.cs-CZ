@@ -3,16 +3,16 @@ title: Požadavky na plánování integrace Datacenter pro integrované systémy
 description: Naučte se plánovat a připravit integraci Datacenter pomocí integrovaných systémů Azure Stack hub.
 author: IngridAtMicrosoft
 ms.topic: conceptual
-ms.date: 03/04/2020
+ms.date: 04/02/2020
 ms.author: inhenkel
 ms.reviewer: wfayed
 ms.lastreviewed: 09/12/2019
-ms.openlocfilehash: 9ea880003492768e67c71f948a71d693e5a90c9b
-ms.sourcegitcommit: 19e9b6d6ce24d74ff396a5dc48208671aeda432a
+ms.openlocfilehash: fbcca6d24f37162fa62729f38d50a6ceb0f0374c
+ms.sourcegitcommit: dd4801cb2da0549cc01e7e5cd6a53690c53d80cc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80362162"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80638205"
 ---
 # <a name="datacenter-integration-planning-considerations-for-azure-stack-hub-integrated-systems"></a>Požadavky na plánování integrace Datacenter pro integrované systémy centra Azure Stack
 
@@ -26,6 +26,7 @@ Aby bylo možné nasadit centrum Azure Stack, je třeba před zahájením nasaze
 Při vyhledávání a shromažďování požadovaných informací možná budete muset provést některé změny konfigurace před nasazením v síťovém prostředí. Tyto změny můžou zahrnovat rezervaci IP adres pro řešení centra Azure Stack a také konfiguraci směrovačů, přepínačů a bran firewall pro přípravu připojení k novým přepínačům řešení Azure Stack hub. Ujistěte se, že máte odborník na oblast předmětu, který vám bude pomáhat s vaším plánováním.
 
 ## <a name="capacity-planning-considerations"></a>Požadavky na plánování kapacity
+
 Když vyhodnocujete řešení centra Azure Stack pro akvizici, provedete volby konfigurace hardwaru, které mají přímý vliv na celkovou kapacitu řešení Azure Stack hub. Mezi ně patří možnosti klasického využití procesoru, hustoty paměti, konfigurace úložiště a celková škála řešení (například počet serverů). Na rozdíl od tradičního řešení virtualizace neplatí jednoduché aritmetické operace s určením použitelné kapacity. Prvním důvodem je, že Azure Stack hub je navržený tak, aby se v rámci samotného řešení hostoval jako infrastruktura nebo součásti pro správu. Druhým důvodem je, že část kapacity řešení je vyhrazena pro podporu odolnosti tím, že aktualizuje software řešení způsobem, který minimalizuje narušení zatížení klientů.
 
 [Tabulka plánovače kapacity centra Azure Stack](https://aka.ms/azstackcapacityplanner) vám pomůže se všemi způsoby plánování kapacity. První je výběr nabídky hardwaru a pokus o přizpůsobení kombinace prostředků. Druhým je definování zatížení, které Azure Stack hub má spustit k zobrazení dostupných hardwarových skladových položek, které je můžou podporovat. Tabulka je nakonec určena jako vodítko, které vám pomůže při rozhodování týkajícím se plánování a konfigurace centra Azure Stack.
@@ -33,6 +34,7 @@ Když vyhodnocujete řešení centra Azure Stack pro akvizici, provedete volby k
 Tabulka nemá za cíl sloužit jako náhrada za vaše vlastní šetření a analýzu. Společnost Microsoft neposkytuje žádné reprezentace ani záruky, vyjádřené ani odvozené, s ohledem na informace uvedené v tabulce.
 
 ## <a name="management-considerations"></a>Aspekty správy
+
 Azure Stack hub je zapečetěný systém, ve kterém je infrastruktura uzamčená z hlediska oprávnění a sítě. Seznamy řízení přístupu (ACL) sítě se používají k blokování všech neautorizovaných příchozích přenosů a všech zbytečných komunikací mezi součástmi infrastruktury. Tento systém ztěžuje neautorizovaným uživatelům přístup k systému.
 
 Pro každodenní správu a provoz není k infrastruktuře k dispozici žádný neomezený přístup správce. Operátoři centra Azure Stack musí spravovat systém prostřednictvím portálu pro správu nebo prostřednictvím Azure Resource Manager (prostřednictvím PowerShellu nebo REST API). Jiným nástrojům pro správu, jako je Správce technologie Hyper-V nebo Správce clusteru s podporou převzetí služeb při selhání, neexistuje žádný přístup k systému. V zájmu ochrany systému není možné instalovat software jiných výrobců (například agenty) do součástí infrastruktury centra Azure Stack. Interoperabilita s externím řízením a zabezpečením softwaru probíhá prostřednictvím PowerShellu nebo REST API.
@@ -42,6 +44,7 @@ Kontaktujte podpora Microsoftu, když potřebujete vyšší úroveň přístupu 
 ## <a name="identity-considerations"></a>Požadavky na identitu
 
 ### <a name="choose-identity-provider"></a>Zvolit poskytovatele identity
+
 Musíte zvážit, který poskytovatel identity chcete použít pro Azure Stack nasazení centra, a to buď Azure AD, nebo AD FS. Po nasazení nemůžete přepínat zprostředkovatele identity bez úplného opětovného nasazení systému. Pokud účet Azure AD nevlastníte a používáte účet, který vám poskytl poskytovatel cloudového řešení, a pokud se rozhodnete přepnout poskytovatele a použít jiný účet Azure AD, budete se muset obrátit na poskytovatele řešení a znovu nasadit řešení pro vás. ze.
 
 Vaše volba poskytovatele identity nemá žádný vliv na virtuální počítače (VM), systém identity, účty, které používají, nebo na to, jestli se můžou připojit k doméně služby Active Directory a tak dále. Tyto věci jsou oddělené.
@@ -49,15 +52,18 @@ Vaše volba poskytovatele identity nemá žádný vliv na virtuální počítač
 Další informace o výběru poskytovatele identity najdete v [článku modely připojení integrovaných systémů Azure Stack hub](./azure-stack-connection-models.md).
 
 ### <a name="ad-fs-and-graph-integration"></a>Integrace AD FS a grafů
+
 Pokud se rozhodnete nasadit Azure Stack hub pomocí AD FS jako poskytovatele identity, musíte integrovat instanci AD FS v Azure Stackovém centru s existující instancí AD FS prostřednictvím vztahu důvěryhodnosti federace. Tato integrace umožňuje identitám v existující doménové struktuře služby Active Directory ověřování pomocí prostředků v centru Azure Stack.
 
 Službu Graph Service můžete také integrovat do centra Azure Stack s existující službou Active Directory. Tato integrace vám umožní spravovat Access Control na základě rolí (RBAC) v centru Azure Stack. Když je delegovaný přístup k prostředku, komponenta grafu vyhledá uživatelský účet v existující doménové struktuře služby Active Directory pomocí protokolu LDAP.
 
-Následující diagram znázorňuje integrovaný tok provozu AD FS a grafů.
-Diagram ![znázorňující](media/azure-stack-datacenter-integration/ADFSIntegration.PNG) toku provozu AD FS a grafu
+Následující diagram znázorňuje integrovaný tok provozu AD FS a grafů.<br/><br/>
+Diagram ![znázorňující](media/azure-stack-datacenter-integration/ADFSIntegration.svg) toku provozu AD FS a grafu
 
 ## <a name="licensing-model"></a>Model licencování
+
 Musíte se rozhodnout, který model licencování chcete použít. Dostupné možnosti závisí na tom, jestli nasazujete Azure Stack hub připojená k Internetu:
+
 - V případě [připojeného nasazení](azure-stack-connected-deployment.md)můžete zvolit licencování s průběžnými platbami nebo na základě kapacity. Průběžné platby vyžadují připojení k Azure za účelem hlášení využití, které se pak účtuje prostřednictvím Azure Commerce. 
 - Pokud [nasazujete odpojení](azure-stack-disconnected-deployment.md) od Internetu, podporují se jenom licencování na základě kapacity. 
 
@@ -76,8 +82,8 @@ Musíte si představit, jak chcete naplánovat obor názvů centra Azure Stack, 
 
 Následující tabulka shrnuje tato rozhodnutí o pojmenovávání domén.
 
-| Název | Popis | 
-| -------- | ------------- | 
+| Název | Popis |
+| -------- | ------------- |
 |Název oblasti | Název první oblasti centra Azure Stack. Tento název se používá jako součást plně kvalifikovaného názvu domény pro veřejné virtuální IP adresy (VIP), které Azure Stack hub spravuje. Obvykle by název oblasti představoval identifikátor fyzického umístění, jako je například umístění datového centra.<br><br>Název oblasti se musí skládat jenom z písmen a číslic mezi 0-9. Nejsou povoleny žádné speciální znaky (například `-`, `#`atd.).| 
 | Název externí domény | Název zóny DNS (Domain Name System) pro koncové body s externími VIP adresami. Používá se v plně kvalifikovaném názvu domény pro tyto veřejné virtuální IP adresy. | 
 | Privátní (interní) název domény | Název domény (a interní zóny DNS) vytvořený na Azure Stack hub pro správu infrastruktury
@@ -92,12 +98,11 @@ Pro nasazení budete muset zadat SSL (Secure Sockets Layer) (SSL) certifikátů 
 
 Další informace o tom, jaké certifikáty PKI jsou potřeba k nasazení centra Azure Stack a jak je získat, najdete v článku [požadavky na certifikát infrastruktury veřejných klíčů centra Azure Stack](azure-stack-pki-certs.md).  
 
-
 > [!IMPORTANT]
 > Poskytnuté informace o certifikátu PKI by se měly používat jako obecné pokyny. Než získáte všechny certifikáty PKI pro centrum Azure Stack, pracujte s vaším hardwarovým partnerem OEM. Poskytnou podrobnější pokyny k certifikátu a požadavky.
 
-
 ## <a name="time-synchronization"></a>Synchronizace času
+
 Musíte zvolit konkrétní časový server, který se používá k synchronizaci centra Azure Stack. Synchronizace času je důležitá pro Azure Stack centra a jeho rolí infrastruktury, protože se používá ke generování lístků protokolu Kerberos. Lístky protokolu Kerberos slouží k ověřování vnitřních služeb navzájem.
 
 Je nutné zadat IP adresu serveru pro synchronizaci času. I když většina komponent v infrastruktuře dokáže vyřešit adresu URL, některá podporují jenom IP adresy. Pokud používáte možnost odpojeného nasazení, musíte zadat časový server ve vaší podnikové síti, na kterém jste si jisti, že se můžete dostat ze sítě infrastruktury v centru Azure Stack.
@@ -117,11 +122,11 @@ V případě hybridního připojení je důležité zvážit, jaký typ nasazen�
 - **Centrum Azure Stack pro jednoho tenanta**: nasazení Azure Stackho centra, které vypadá aspoň z perspektivy sítě, jako by to byl jeden tenant. Může existovat mnoho předplatných tenantů, ale stejně jako u libovolné intranetové služby, veškerý provoz se v rámci stejných sítí prochází. Síťový provoz z jednoho předplatného prochází přes stejné síťové připojení jako jiné předplatné a nemusí být izolovaný prostřednictvím šifrovaného tunelu.
 
 - **Centrum Azure Stack pro více tenantů**: nasazení Azure Stackho centra, ve kterém jsou přenosy každého předplatného klienta, které jsou vázané na sítě, které jsou externí pro Azure Stack centra, izolované od ostatních síťových přenosů tenantů.
- 
+
 - **Nasazení v intranetu**: nasazení centra Azure Stack, které je umístěné na podnikovém intranetu, obvykle na privátním adresním prostoru IP adres a za jednou nebo více bran firewall. Veřejné IP adresy nejsou skutečně veřejné, protože není možné je směrovat přímo přes veřejný Internet.
 
 - **Internetové nasazení**: nasazení centra Azure Stack, které je připojené k veřejnému Internetu a používá veřejné IP adresy, které se používají pro rozsah veřejných virtuálních IP adres. Nasazení může být pořád za bránou firewall, ale rozsah veřejných virtuálních IP adres je přímo dosažitelný z veřejného Internetu a Azure.
- 
+
 Následující tabulka shrnuje scénáře hybridního připojení s případy pro profesionály, nevýhody a použití.
 
 | Scénář | Metoda připojení | V oblasti IT | Nevýhody | Vhodné pro |
@@ -138,11 +143,11 @@ Rozbočovač služby Azure Stack můžete připojit k Azure prostřednictvím [E
 
 Následující diagram znázorňuje ExpressRoute scénář pro jeden tenant (kde "připojení zákazníka" je okruh ExpressRoute).
 
-![Diagram znázorňující scénář ExpressRoute pro jednoho tenanta](media/azure-stack-datacenter-integration/ExpressRouteSingleTenant.PNG)
+![Diagram znázorňující scénář ExpressRoute pro jednoho tenanta](media/azure-stack-datacenter-integration/ExpressRouteSingleTenant.svg)
 
-Následující diagram znázorňuje ExpressRoute scénář pro více tenantů.
+Následující diagram znázorňuje ExpressRoute scénář pro více tenantů.<br/><br/>
 
-![Diagram znázorňující ExpressRoute scénář pro více tenantů](media/azure-stack-datacenter-integration/ExpressRouteMultiTenant.PNG)
+![Diagram znázorňující ExpressRoute scénář pro více tenantů](media/azure-stack-datacenter-integration/ExpressRouteMultiTenant.svg)
 
 ## <a name="external-monitoring"></a>Externí monitorování
 Pokud chcete získat jediné zobrazení všech výstrah z nasazení a zařízení centra Azure Stack a začlenit výstrahy do stávajících pracovních postupů pro vytváření lístků v oddělení IT, můžete [Azure Stack centrum integrovat s externími řešeními monitorování datových center](azure-stack-integrate-monitor.md).
@@ -157,10 +162,11 @@ Následující tabulka shrnuje seznam aktuálně dostupných možností.
 | Fyzické servery (BMC přes IPMI) | Hardware výrobce OEM Operations Manager Management Pack dodavatele<br>Řešení poskytované dodavatelem hardwaru OEM<br>Moduly plug-in Nagios dodavatele hardwaru.<br>Řešení monitorování podporované partnerem OEM (zahrnuté) | 
 | Síťová zařízení (SNMP) | Zjišťování Operations Manager síťových zařízení<br>Řešení poskytované dodavatelem hardwaru OEM<br>Modul plug-in přepínače Nagios |
 | Monitorování stavu předplatného tenanta | [Sada Management Pack nástroje System Center pro Windows Azure](https://www.microsoft.com/download/details.aspx?id=50013) | 
-|  |  | 
+|  |  |
 
 Vezměte na vědomí následující požadavky:
-- Řešení, které použijete, musí být bez agenta. Do komponent centra Azure Stack nemůžete instalovat agenty třetích stran. 
+
+- Řešení, které použijete, musí být bez agenta. Do komponent centra Azure Stack nemůžete instalovat agenty třetích stran.
 - Pokud chcete použít System Center Operations Manager, je nutné Operations Manager 2012 R2 nebo Operations Manager 2016.
 
 ## <a name="backup-and-disaster-recovery"></a>Zálohování a zotavení po havárii
