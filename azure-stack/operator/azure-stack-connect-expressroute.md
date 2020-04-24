@@ -3,16 +3,16 @@ title: Připojení centra Azure Stack k Azure pomocí ExpressRoute
 description: Naučte se, jak propojit virtuální sítě v Azure Stack hub k virtuálním sítím v Azure pomocí ExpressRoute.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 01/23/2020
+ms.date: 04/20/2020
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2019
-ms.openlocfilehash: 59fa339cfa58fa2c5c6b0e1b727cf2adee79b7e2
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 1b68435317136afdbfcc5d1ade16b18a2210baad
+ms.sourcegitcommit: a3ae6dd8670f8fb24224880df7eee256ebbcc4ef
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77701492"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81772699"
 ---
 # <a name="connect-azure-stack-hub-to-azure-using-azure-expressroute"></a>Připojení centra Azure Stack k Azure pomocí Azure ExpressRoute
 
@@ -51,7 +51,7 @@ Pokud chcete připojit Azure Stack hub a Azure pomocí ExpressRoute, musíte spl
 
 Následující obrázek ukazuje centrum Azure Stack a prostředí Azure po dokončení nastavení ExpressRoute pomocí příkladů v tomto článku:
 
-![ExpressRoute síť](media/azure-stack-connect-expressroute/Conceptual.png)
+![ExpressRoute síť](media/azure-stack-connect-expressroute/conceptual.svg)
 
 Následující obrázek ukazuje, jak se více klientů připojuje z infrastruktury centra Azure Stack k Azure prostřednictvím směrovače ExpressRoute:
 
@@ -68,9 +68,9 @@ Chcete-li nastavit prostředí centra Azure Stack pro prvního klienta, použijt
 >[!NOTE]
 >Tyto kroky ukazují, jak vytvořit prostředky pomocí portálu centra Azure Stack, ale můžete také použít PowerShell.
 
-![Nastavení sítě centra Azure Stack](media/azure-stack-connect-expressroute/image2.png)
+![Nastavení sítě centra Azure Stack](media/azure-stack-connect-expressroute/azure-stack-connect-expressrouteimage-image2.svg)
 
-### <a name="before-you-begin"></a>Než začnete
+### <a name="before-you-begin"></a>Před zahájením
 
 Než začnete s konfigurací centra Azure Stack, budete potřebovat:
 
@@ -104,7 +104,7 @@ Pro vytvoření požadovaných síťových prostředků v centru Azure Stack pro
 
     * V části **Skupina prostředků**vyberte **vytvořit novou** , pokud chcete vytvořit novou skupinu prostředků, nebo pokud ji už máte, vyberte **použít existující**.
     * Ověřte výchozí **umístění**.
-    * Klikněte na možnost **Vytvořit**.
+    * Klikněte na **Vytvořit**.
     * Volitelné Klikněte na **Připnout na řídicí panel**.
 
 #### <a name="create-the-gateway-subnet"></a>Vytvoření podsítě brány
@@ -122,12 +122,12 @@ Pro vytvoření požadovaných síťových prostředků v centru Azure Stack pro
 1. V části **Azure Marketplace**vyberte **sítě**.
 1. V seznamu síťových prostředků vyberte **bránu virtuální sítě**.
 1. Do pole **název** zadejte **gw1**.
-1. Vyberte **Virtuální síť**.
+1. Vyberte **virtuální síť**.
 1. V rozevíracím seznamu vyberte **Tenant1VNet1** .
 1. Vyberte **Veřejná IP adresa**, pak **Zvolte veřejná IP adresa**a pak klikněte na **vytvořit novou**.
 1. Do pole **název** zadejte **gw1-PIP**a pak klikněte na **OK**.
 1. Jako **Typ VPN** by ve výchozím nastavení měla být vybraná možnost **Založená na trasách**. Toto nastavení zachovejte.
-1. Ověřte, že nastavení **Předplatné** a **Umístění** jsou správná. Klikněte na možnost **Vytvořit**.
+1. Ověřte, že nastavení **Předplatné** a **Umístění** jsou správná. Klikněte na **Vytvořit**.
 
 #### <a name="create-the-local-network-gateway"></a>Vytvoření brány místní sítě
 
@@ -146,7 +146,7 @@ Prostředek brány místní sítě identifikuje vzdálenou bránu na druhém kon
    > [!IMPORTANT]
    > V tomto příkladu se předpokládá, že používáte statické trasy pro připojení VPN typu Site-to-site mezi bránou centra Azure Stack a směrovačem ExpressRoute.
 
-1. Ověřte, jestli je vaše **předplatné**, **Skupina prostředků**a **umístění** správné. Potom vyberte **Vytvořit**.
+1. Ověřte, jestli je vaše **předplatné**, **Skupina prostředků**a **umístění** správné. Pak vyberte **vytvořit**.
 
 #### <a name="create-the-connection"></a>Vytvoření připojení
 
@@ -170,7 +170,7 @@ Po vytvoření brány virtuální sítě můžete získat veřejnou IP adresu br
 1. V části **Brána virtuální sítě**vyberte **Přehled** ze seznamu prostředků. Případně můžete vybrat **vlastnosti**.
 1. IP adresa, kterou chcete zaznamenat, je uvedena v části **Veřejná IP adresa**. Pro příklad konfigurace je tato adresa 192.68.102.1.
 
-#### <a name="create-a-virtual-machine-vm"></a>Vytvoření virtuálního počítače (VM)
+#### <a name="create-a-virtual-machine-vm"></a>Vytvořit virtuální počítač
 
 K otestování přenosů dat přes připojení VPN potřebujete virtuální počítače pro posílání a přijímání dat ve virtuální síti centra Azure Stack. Vytvořte virtuální počítač a nasaďte ho do podsítě virtuálních počítačů pro virtuální síť.
 
@@ -223,7 +223,7 @@ Směrovač je ASDK hostitel, na kterém běží role služby Směrování a vzd�
    Get-NetNatExternalAddress
    ```
 
-1. Pokud chcete nakonfigurovat překlad adres (NAT), zkopírujte a upravte následující skript PowerShellu. Upravte skript tak, aby nahradil `External BGPNAT address` a `Internal IP address` pomocí následujících ukázkových hodnot:
+1. Pokud chcete nakonfigurovat překlad adres (NAT), zkopírujte a upravte následující skript PowerShellu. Upravte skript tak, aby nahradil `External BGPNAT address` hodnoty `Internal IP address` a pomocí následujících ukázkových hodnot:
 
    * Pro *externí adresu BGPNAT* použijte 10.10.0.62.
    * Pro *interní IP adresu* použijte 192.168.102.1
@@ -267,7 +267,7 @@ Směrovač je ASDK hostitel, na kterém běží role služby Směrování a vzd�
 
 Po dokončení konfigurace centra Azure Stack můžete nasadit prostředky Azure. Následující obrázek ukazuje příklad virtuální sítě tenanta v Azure. Pro virtuální síť v Azure můžete použít jakékoli schéma názvů a adresování. Rozsah adres virtuální sítě v Azure a centru Azure Stack ale musí být jedinečný a nesmí se překrývat:
 
-![Virtuální sítě Azure](media/azure-stack-connect-expressroute/AzureArchitecture.png)
+![Virtuální sítě Azure](media/azure-stack-connect-expressroute/azurearchitecture.svg)
 
 Prostředky, které nasadíte v Azure, se podobají prostředkům, které jste nasadili v Azure Stack hub. Nasadíte následující komponenty:
 
@@ -318,7 +318,7 @@ Navázat na střed a paprsk virtuální sítě pomocí kroků v části [vytvoř
 * Z centra až po paprsek **Povolte přenos brány**.
 * Z paprsku do centra **použijte vzdálenou bránu**.
 
-### <a name="create-a-virtual-machine"></a>Vytvořit virtuální počítač
+### <a name="create-a-virtual-machine"></a>Vytvoření virtuálního počítače
 
 Nasaďte virtuální počítače pro úlohy do virtuální sítě rozbočovače.
 
@@ -595,7 +595,7 @@ Pokud chcete zjistit, kolik přenosů prochází přes vaše připojení, najdet
 1. Přihlaste se k portálu User Portal centra Azure Stack a vyberte **všechny prostředky**.
 1. Přejděte do skupiny prostředků pro vaši VPN Gateway a vyberte typ objektu **připojení** .
 1. Vyberte připojení **ConnectToAzure** ze seznamu.
-1. V části **připojení** > **Přehled**uvidíte statistiku pro **data v** nástroji a **data odchozí**. Měly by se zobrazit některé nenulové hodnoty.
+1. V části**Přehled** **připojení** > vidíte statistiku pro **data v** nástroji a **data odchozí**. Měly by se zobrazit některé nenulové hodnoty.
 
    ![Data a odchozí data](media/azure-stack-connect-expressroute/DataInDataOut.png)
 

@@ -3,17 +3,17 @@ title: Osvědčené postupy pro ověřování Azure Stack
 description: Seznamte se s osvědčenými postupy ověřování jako služby.
 author: mattbriggs
 ms.topic: article
-ms.date: 10/28/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: b3d911a07c7a234ce2284055ff67a7ca46f567a2
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.openlocfilehash: cfb2e4d71f821c23dd076842a0b4f3963a5599cc
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79294470"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81661256"
 ---
 # <a name="azure-stack-validation-best-practices"></a>Osvědčené postupy pro ověřování Azure Stack
 

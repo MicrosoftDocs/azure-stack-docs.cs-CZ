@@ -3,16 +3,16 @@ title: Poznámky k verzi centra Azure Stack
 description: Poznámky k verzi pro integrované systémy Azure Stack hub, včetně aktualizací a oprav chyb.
 author: sethmanheim
 ms.topic: article
-ms.date: 04/02/2020
+ms.date: 04/22/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 681e0bd2a19a2e8284510fbe53470795dd84f69c
-ms.sourcegitcommit: dd4801cb2da0549cc01e7e5cd6a53690c53d80cc
+ms.openlocfilehash: b57b58e9b245c912d7717cc05a3d8d4c20034f76
+ms.sourcegitcommit: a82a80eb6a110ca0c463add6131ad73cf51b06d3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80638283"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82070149"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Poznámky k verzi centra Azure Stack
 
@@ -39,6 +39,10 @@ Před použitím této aktualizace se ujistěte, že si provedete následující
 
 Nápovědu k řešení potíží s aktualizacemi a procesu aktualizace najdete v tématu řešení potíží se [opravami a aktualizacemi pro centrum Azure Stack](azure-stack-updates-troubleshoot.md).
 
+## <a name="download-the-update"></a>Stáhnout aktualizaci
+
+Balíček aktualizace centra Azure Stack můžete stáhnout ze [stránky pro stažení centra Azure Stack](https://aka.ms/azurestackupdatedownload).
+
 <!---------------------------------------------------------->
 <!------------------- SUPPORTED VERSIONS ------------------->
 <!---------------------------------------------------------->
@@ -48,7 +52,7 @@ Nápovědu k řešení potíží s aktualizacemi a procesu aktualizace najdete v
 Číslo buildu aktualizace centra Azure Stack 2002 je **1.2002.0.35**.
 
 > [!IMPORTANT]  
-> V rámci aktualizace centra Azure Stack 2002 společnost Microsoft dočasně rozšiřuje naše [příkazy zásad podpory centra Azure Stack](azure-stack-servicing-policy.md).  Spolupracujeme se zákazníky po celém světě, kteří reagují na COVID-19 a kteří můžou dělat důležitá rozhodnutí o svých Azure Stackch systémech, jak se aktualizují a spravují, a v důsledku toho zajistí, aby se jejich obchodní operace v datovém centru pokračovaly normálně fungovat. V rámci podpory našich zákazníků nabízí Microsoft dočasnou příponu pro změnu zásad, která zahrnuje tři předchozí verze aktualizací.  V důsledku toho bude podporována nově vydaná aktualizace 2002 a kterákoli ze tří předchozích verzí aktualizace (například 1910, 1908 a 1907).
+> V rámci aktualizace centra Azure Stack 2002 společnost Microsoft dočasně rozšiřuje naše [příkazy zásad podpory centra Azure Stack](azure-stack-servicing-policy.md).  Spolupracujeme se zákazníky po celém světě, kteří reagují na COVID-19 a kteří můžou dělat důležitá rozhodnutí o svých Azure Stackch systémech, jak se aktualizují a spravují, a výsledkem je, že obchodní operace datového centra budou fungovat normálně. V rámci podpory našich zákazníků nabízí Microsoft dočasnou příponu pro změnu zásad, která zahrnuje tři předchozí verze aktualizací.  V důsledku toho bude podporována nově vydaná aktualizace 2002 a kterákoli ze tří předchozích verzí aktualizace (například 1910, 1908 a 1907).
 
 ### <a name="update-type"></a>Typ aktualizace
 
@@ -67,8 +71,9 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 <!-- What's new, also net new experiences and features. -->
 
 - K dispozici je nová verze (1.8.1) Azure Stack moduly PowerShellu pro správce centra založené na AzureRM.
+- Noví Azure PowerShell moduly tenanta budou vydány pro Azure Stack centra 15. dubna 2020. Aktuálně používané moduly Azure RM budou fungovat i nadále, ale po sestavení 2002 už se neaktualizují.
 - Přidání nového upozornění na portál správce centra Azure Stack k hlášení problémů s připojením s nakonfigurovaným serverem syslog. Název výstrahy: **u klienta syslog došlo při odesílání zprávy syslog k potížím se sítí**.
-- Přidání nového upozornění na portál správce centra Azure Stack k hlášení problémů s připojením k serveru NTP (Network Time Protocol). Název výstrahy je **neplatný čas zdroje na [název uzlu]** .
+- Přidání nového upozornění na portál správce centra Azure Stack k hlášení problémů s připojením k serveru NTP (Network Time Protocol). Název výstrahy je **neplatný čas zdroje na [název uzlu]**.
 - [Sada Java SDK](https://azure.microsoft.com/develop/java/) vydala nové balíčky z důvodu zásadní změny v 2002 v souvislosti s omezeními TLS. Je nutné nainstalovat novou závislost sady Java SDK. Pokyny najdete v tématu [profily verze Java a rozhraní API](../user/azure-stack-version-profiles-java.md?view=azs-2002#java-and-api-version-profiles).
 - K dispozici je nová verze (1.0.5.10) sady MP centra System Center Operations Manager-Azure Stack, která se vyžaduje pro všechny systémy se systémem 2002 z důvodu porušení změn rozhraní API. Změny rozhraní API mají vliv na řídicí panely pro zálohování a úložiště a před aktualizací MP doporučujeme nejprve aktualizovat všechny systémy na 2002.
 
@@ -81,13 +86,13 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 - Nástroj pro syndikaci offline byl aktualizován o vylepšení spolehlivosti. Nástroj už není dostupný na GitHubu a [přesunul se do galerie prostředí PowerShell](https://www.powershellgallery.com/packages/Azs.Syndication.Admin/). Další informace najdete v tématu [stažení položek Marketplace do centra Azure Stack](azure-stack-download-azure-marketplace-item.md).
 - Zavádí se nová funkce monitorování. Upozornění na nedostatek místa na disku pro fyzické hostitele a virtuální počítače infrastruktury bude automaticky opraveno platformou a jenom v případě, že tato akce selže, výstraha se zobrazí na portálu pro správu centra Azure Stack, aby mohl obsluhu provést akci.
 - Vylepšení [shromažďování protokolů diagnostiky](azure-stack-diagnostic-log-collection-overview-tzl.md). Nové prostředí zjednodušuje a zjednodušuje shromažďování protokolů diagnostiky tím, že v předem odebere nutnost konfigurace účtu BLOB Storage. Prostředí úložiště je předem nakonfigurované tak, aby bylo možné odesílat protokoly před otevřením případu podpory a strávíte méně času při volání podpory.
-- Čas potřebný pro [proaktivní shromažďování protokolů i shromažďování protokolů na vyžádání](azure-stack-diagnostic-log-collection-overview-tzl.md) byl snížen o 80%. Doba shromažďování protokolů může trvat déle než tato očekávaná hodnota, ale nevyžaduje akci Azure Stack operátory centra, pokud není shromažďování protokolů úspěšné.
+- Čas potřebný pro  [proaktivní shromažďování protokolů i pro shromažďování protokolů na vyžádání](azure-stack-diagnostic-log-collection-overview-tzl.md)byl snížen o 80%. Doba shromažďování protokolů může trvat déle než tato očekávaná hodnota, ale nevyžaduje akci Azure Stack operátory centra, pokud není shromažďování protokolů úspěšné.
 - Průběh stahování balíčku aktualizace centra Azure Stack je teď v okně aktualizace po zahájení aktualizace viditelný. To platí jenom pro připojené systémy centra Azure Stack, které se rozhodnou [připravit balíčky aktualizací prostřednictvím automatického stažení](azure-stack-update-prepare-package.md#automatic-download-and-preparation-for-update-packages).
 - Vylepšení spolehlivosti agenta hostitele síťového adaptéru.
 - Představili jsme novou mikroslužbu nazvanou DNS Orchestrator, která během opravy a aktualizace vylepšuje logiku pro interní služby DNS.
 - Přidání nového ověření žádosti za účelem selhání neplatných identifikátorů URI objektu BLOB pro parametr účtu úložiště diagnostiky spouštění při vytváření virtuálních počítačů.
 - Přidání automatických oprav a vylepšení protokolování pro Rdagent a hostitelského agenta – dvě služby na hostiteli, které usnadňují operace CRUD virtuálních počítačů.
-- Do správy Marketplace jsme přidali novou funkci, která umožňuje zablokovat správcům stažení produktů z Marketplace, které nejsou kompatibilní s jejich Azure Stack, z důvodu různých atributů, jako je například Azure Stack verze nebo model fakturace.
+- Do správy Marketplace jsme přidali novou funkci, která umožňuje Microsoftu přidávat atributy, které správcům zablokují stažení produktů z Marketplace, které nejsou kompatibilní s jejich Azure Stack, z důvodu různých vlastností, jako je například Azure Stack verze nebo model fakturace. Tyto atributy může přidat jenom společnost Microsoft. Další informace najdete v tématu [použití portálu ke stažení položek Marketplace](azure-stack-download-azure-marketplace-item.md#use-the-portal-to-download-marketplace-items).
 
 ### <a name="changes"></a>Změny
 
@@ -95,7 +100,7 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 
 - Následující rozhraní API pro správce jsou zastaralá:
 
-  | Poskytovatel prostředků       | Prostředek              | Verze            |
+  | Poskytovatel prostředků       | Prostředek              | Version            |
   |-------------------------|-----------------------|--------------------|
   | Microsoft. Storage. admin | Fare                 | 2015-12-01 – Preview |
   | Microsoft. Storage. admin | farmy a akvizice    | 2015-12-01 – Preview |
@@ -104,13 +109,13 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 
 - Následující rozhraní API pro správu byla nahrazena novější verzí (2018-09-01):
 
-  | Poskytovatel prostředků      | Prostředek              | Verze    |
+  | Poskytovatel prostředků      | Prostředek              | Version    |
   |------------------------|-----------------------|------------|
   | Microsoft. Backup. admin | backupLocation         | 2016-05-01 |
-  | Microsoft. Backup. admin | zálohy                | 2016-05-01 |
+  | Microsoft. Backup. admin | vytvářet                | 2016-05-01 |
   | Microsoft. Backup. admin | Operace             | 2016-05-01 |
 
-- Když vytváříte virtuální počítač s Windows pomocí PowerShellu, nezapomeňte přidat příznak `provisionvmagent`, pokud chcete, aby virtuální počítač nasadil rozšíření. Bez tohoto příznaku se virtuální počítač vytvoří bez agenta hosta, který odebere možnost nasazení rozšíření virtuálních počítačů:
+- Když vytváříte virtuální počítač s Windows pomocí PowerShellu, nezapomeňte přidat `provisionvmagent` příznak, pokud chcete, aby virtuální počítač nasadil rozšíření. Bez tohoto příznaku se virtuální počítač vytvoří bez agenta hosta, který odebere možnost nasazení rozšíření virtuálních počítačů:
 
    ```powershell
    $VirtualMachine = Set-AzureRmVMOperatingSystem `
@@ -143,18 +148,6 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 
 Informace o aktualizacích zabezpečení v této aktualizaci centra Azure Stack najdete v tématu [aktualizace zabezpečení centra Azure Stack](release-notes-security-updates.md).
 
-## <a name="update-planning"></a>Plánování aktualizací
-
-Před použitím této aktualizace se ujistěte, že si provedete následující informace:
-
-- [Známé problémy](known-issues.md)
-- [Aktualizace zabezpečení](release-notes-security-updates.md)
-- [Kontrolní seznam aktivit před a po instalaci aktualizace](release-notes-checklist.md)
-
-## <a name="download-the-update"></a>Stáhnout aktualizaci.
-
-Balíček aktualizace centra Azure Stack 2002 můžete stáhnout ze [stránky pro stažení centra Azure Stack](https://aka.ms/azurestackupdatedownload).
-
 ## <a name="hotfixes"></a>Opravy hotfix
 
 Azure Stack centrum pravidelně vydává opravy hotfix. Před aktualizací centra Azure Stack na 2002 se ujistěte, že jste nainstalovali nejnovější opravu hotfix centra Azure Stack pro 1910.
@@ -169,14 +162,14 @@ Opravy hotfix centra Azure Stack se vztahují pouze na integrované systémy Azu
 Verze 2002 centra Azure Stack se musí použít ve verzi 1910 s následujícími opravami hotfix:
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [1.1910.24.108 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4541350)
+- [1.1910.37.132 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4550133)
 
 ### <a name="after-successfully-applying-the-2002-update"></a>Po úspěšné instalaci aktualizace 2002
 
 Po instalaci této aktualizace nainstalujte všechny příslušné opravy hotfix. Další informace najdete v našich [zásadách obsluhy](azure-stack-servicing-policy.md).
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- Není dostupná žádná oprava hotfix centra Azure Stack pro 2002.
+- [1.2002.19.73 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4557355)
 ::: moniker-end
 
 ::: moniker range="azs-1910"
@@ -206,7 +199,7 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 
 - Pokud dojde k chybě, může teď systém monitorování stavu a monitorování centra Azure Stack vyvolat výstrahy pro různé hardwarové součásti. Tyto výstrahy vyžadují další konfiguraci. Další informace najdete v tématu [monitorování hardwarových komponent centra Azure Stack](azure-stack-hardware-monitoring.md).
 
-- [Podpora Cloud-init pro Azure Stack hub](/azure/virtual-machines/linux/using-cloud-init): Cloud-init je široce používaný přístup k přizpůsobení virtuálního počítače se systémem Linux při prvním spuštění. Pomocí cloud-init můžete instalovat balíčky a zapisovat soubory nebo konfigurovat uživatele a zabezpečení. Protože cloud-init je volána v průběhu procesu prvotního spuštění, nejsou žádné další kroky ani agenty vyžaduje použití vaší konfigurace. Image Ubuntu na webu Marketplace byly aktualizovány tak, aby podporovaly Cloud-init pro zřizování.
+- [Podpora Cloud-init pro Azure Stack hub](/azure/virtual-machines/linux/using-cloud-init): Cloud-init je široce používaný přístup k přizpůsobení virtuálního počítače se systémem Linux při prvním spuštění. Pomocí cloud-init můžete instalovat balíčky a zapisovat soubory nebo konfigurovat uživatele a zabezpečení. Vzhledem k tomu, že se během procesu prvotního spuštění volá Cloud-init, neexistují žádné další kroky ani nepotřebné agenti pro použití konfigurace. Image Ubuntu na webu Marketplace byly aktualizovány tak, aby podporovaly Cloud-init pro zřizování.
 
 - Centrum Azure Stack nyní podporuje všechny verze agenta Windows Azure Linux jako Azure.
 
@@ -245,7 +238,7 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 
 - Rozbočovač Azure Stack se přesouvá do 4096 klíčů RSA pro vnitřní certifikáty. Spuštění interního rotace tajných klíčů nahradí staré 2048 certifikátů pomocí 4096 bitů dlouhých certifikátů. Další informace o rotaci tajných kódů v centru Azure Stack najdete v tématu [otočení tajných kódů v centru Azure Stack](azure-stack-rotate-secrets.md).
 
-- Upgrady na složitost kryptografických algoritmů a složitosti klíčů pro několik interních součástí, aby byly v rozporu s výborem pro národní systémy zabezpečení – zásady 15 (CNSSP-15), které poskytují osvědčené postupy pro používání veřejných standardů pro zabezpečení sdílení informací. Mezi vylepšeními je AES256 ověřování protokolem Kerberos a SHA384 pro šifrování pomocí sítě VPN. Další informace o CNSSP-15 najdete na stránce věnované [národním bezpečnostním systémům a zásadám](http://www.cnss.gov/CNSS/issuances/Policies.cfm).
+- Provede upgrade na složitost kryptografických algoritmů a složitosti klíčů pro několik interních součástí, aby splňovala předpisy výboru pro národní systémy zabezpečení – zásady 15 (CNSSP-15), které poskytují osvědčené postupy pro používání veřejných standardů pro bezpečné sdílení informací. Mezi vylepšeními je AES256 ověřování protokolem Kerberos a SHA384 pro šifrování pomocí sítě VPN. Další informace o CNSSP-15 najdete na stránce věnované [národním bezpečnostním systémům a zásadám](http://www.cnss.gov/CNSS/issuances/Policies.cfm).
 
 - Z důvodu výše uvedeného upgradu Azure Stack hub teď má nové výchozí hodnoty pro konfigurace protokolu IPsec/IKEv2. Nové výchozí hodnoty, které se používají na straně centra Azure Stack, jsou následující:
 
@@ -285,15 +278,15 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 
 - Služba infrastruktura zálohování přidá službu identit do datové části zálohy pro nasazení AAD.  
 
-- Modul PowerShellu centra Azure Stack se aktualizoval na verzi 1.8.0 pro verzi 1910.<br>Zahrnuté změny:
-   - **Nový modul Správce DRP**: poskytovatel prostředků nasazení (DRP) umožňuje Orchestrované nasazení poskytovatelů prostředků do centra Azure Stack. Tyto příkazy komunikují s úrovní Azure Resource Manageru pro interakci s DRP.
+- Modul PowerShellu centra Azure Stack se aktualizoval na verzi 1.8.0 pro verzi 1910.<br>Změny zahrnují:
+   - **Nový modul Správce DRP**: poskytovatel prostředků nasazení (DRP) umožňuje Orchestrované nasazení poskytovatelů prostředků do centra Azure Stack. Tyto příkazy komunikují s Azure Resource Managerou vrstvou a komunikují s DRP.
    - **BRP**: <br />
            – Podporuje obnovení jedné role pro zálohování infrastruktury Azure Stack. <br />
-           – Přidejte parametr `RoleName` do `Restore-AzsBackup`rutiny.
-   - **FRP**: zásadní změny prostředků **jednotky** a **svazku** pomocí rozhraní API verze `2019-05-01`. Tyto funkce podporuje Azure Stack Hub 1910 a novější: <br />
-            -Byla změněna hodnota `ID`, `Name`, `HealthStatus`a `OperationalStatus`. <br />
-            – Podporované nové vlastnosti `FirmwareVersion`, `IsIndicationEnabled`, `Manufacturer`a `StoragePool` pro prostředky **jednotky** . <br />
-            -Vlastnosti `CanPool` a `CannotPoolReason` prostředků **jednotky** jsou zastaralé; místo toho použijte `OperationalStatus`.
+           – Přidejte parametr `RoleName` do rutiny `Restore-AzsBackup`.
+   - **FRP**: zásadní změny prostředků **jednotky** a **svazku** pomocí verze `2019-05-01`rozhraní API. Funkce jsou podporovány centrem Azure Stack 1910 a novějším: <br />
+            – Hodnota `ID`, `Name` `HealthStatus`, a `OperationalStatus` byla změněna. <br />
+            – Podporované nové vlastnosti `FirmwareVersion`, `IsIndicationEnabled` `Manufacturer`, a `StoragePool` pro prostředky **jednotky** . <br />
+            – Vlastnosti `CanPool` a `CannotPoolReason` prostředky **jednotky** jsou zastaralé; místo `OperationalStatus` toho použijte.
 
 ### <a name="fixes"></a>Opravy
 
@@ -310,17 +303,7 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 
 Informace o aktualizacích zabezpečení v této aktualizaci centra Azure Stack najdete v tématu [aktualizace zabezpečení centra Azure Stack](release-notes-security-updates.md).
 
-## <a name="update-planning"></a>Plánování aktualizací
-
-Před použitím této aktualizace se ujistěte, že si provedete následující informace:
-
-- [Známé problémy](known-issues.md)
-- [Aktualizace zabezpečení](release-notes-security-updates.md)
-- [Kontrolní seznam aktivit před a po instalaci aktualizace](release-notes-checklist.md)
-
-## <a name="download-the-update"></a>Stáhnout aktualizaci.
-
-Balíček aktualizace centra Azure Stack 1910 můžete stáhnout ze [stránky pro stažení centra Azure Stack](https://aka.ms/azurestackupdatedownload).
+Zprávu o ohrožení zabezpečení Qualys pro tuto verzi je možné stáhnout z [webu Qualys](https://www.qualys.com/azure-stack/).
 
 ## <a name="hotfixes"></a>Opravy hotfix
 
@@ -336,14 +319,14 @@ Opravy hotfix centra Azure Stack se vztahují pouze na integrované systémy Azu
 Verze 1910 centra Azure Stack se musí použít ve verzi 1908 s následujícími opravami hotfix:
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [1.1908.19.62 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4541349)
+- [1.1908.25.78 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4552361)
 
 ### <a name="after-successfully-applying-the-1910-update"></a>Po úspěšné instalaci aktualizace 1910
 
 Po instalaci této aktualizace nainstalujte všechny příslušné opravy hotfix. Další informace najdete v našich [zásadách obsluhy](azure-stack-servicing-policy.md).
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [1.1910.24.108 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4541350)
+- [1.1910.37.132 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4550133)
 ::: moniker-end
 
 ::: moniker range="azs-1908"
@@ -355,7 +338,7 @@ Po instalaci této aktualizace nainstalujte všechny příslušné opravy hotfix
 
 V 1908 se základní operační systém, na kterém Azure Stack centra spouští, aktualizoval na Windows Server 2019. Tato aktualizace umožňuje základní základní vylepšení a možnost přinášet další možnosti do centra Azure Stack.
 
-Typ sestavení aktualizace centra Azure Stack 1908 je **plný**. V důsledku toho má aktualizace 1908 delší dobu běhu než expresní aktualizace jako 1906 a 1907. Přesné moduly runtime pro úplné aktualizace obvykle závisí na počtu uzlů, které vaše instance centra Azure Stack obsahuje, na kapacitě používané v systému podle úloh klientů, na síťovém připojení vašeho systému (Pokud je připojené k Internetu) a na vašem systémovém hardwaru. rozšířeného. Aktualizace 1908 měla během interního testování následující očekávané moduly runtime: 4 uzly-42 hodiny, 8 uzlů – 50 hodin, 12 uzlů – 60 hodiny, 16 uzlů – 70 hodin. Aktualizační moduly, které trvají déle než tyto očekávané hodnoty, nejsou Neběžné a nevyžadují akci Azure Stack operátory centra, pokud se aktualizace nezdařila.
+Typ sestavení aktualizace centra Azure Stack 1908 je **plný**. V důsledku toho má aktualizace 1908 delší dobu běhu než expresní aktualizace jako 1906 a 1907. Přesné moduly runtime pro úplné aktualizace obvykle závisí na počtu uzlů, které vaše instance centra Azure Stack obsahuje, na kapacitě používané v systému podle úloh klientů, na síťovém připojení vašeho systému (Pokud je připojené k Internetu) a na hardwarové konfiguraci systému. Aktualizace 1908 měla během interního testování následující očekávané moduly runtime: 4 uzly-42 hodiny, 8 uzlů – 50 hodin, 12 uzlů – 60 hodiny, 16 uzlů – 70 hodin. Aktualizační moduly, které trvají déle než tyto očekávané hodnoty, nejsou Neběžné a nevyžadují akci Azure Stack operátory centra, pokud se aktualizace nezdařila.
 
 Další informace o typech sestavení aktualizací najdete v tématu [Správa aktualizací v centru Azure Stack](azure-stack-updates.md).
 
@@ -396,7 +379,9 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 
 Informace o aktualizacích zabezpečení v této aktualizaci centra Azure Stack najdete v tématu [aktualizace zabezpečení centra Azure Stack](release-notes-security-updates.md).
 
-## <a name="download-the-update"></a><a name="download-the-update-1908"></a>Stáhnout aktualizaci
+Zprávu o ohrožení zabezpečení Qualys pro tuto verzi je možné stáhnout z [webu Qualys](https://www.qualys.com/azure-stack/).
+
+## <a name="download-the-update"></a>Stáhnout aktualizaci
 
 Balíček aktualizace centra Azure Stack 1908 můžete stáhnout ze [stránky pro stažení centra Azure Stack](https://aka.ms/azurestackupdatedownload).
 
@@ -420,7 +405,7 @@ Aktualizace centra Azure Stack 1908 vyžaduje od poskytovatele hardwaru vašeho 
 Po instalaci této aktualizace nainstalujte všechny příslušné opravy hotfix. Další informace najdete v našich [zásadách obsluhy](azure-stack-servicing-policy.md).
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [1.1908.19.62 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4541349)
+- [1.1908.25.78 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4552361)
 ::: moniker-end
 
 ::: moniker range="azs-1907"
@@ -514,6 +499,8 @@ Typ sestavení aktualizace centra Azure Stack 1907 je **Express**. Další infor
 
 Informace o aktualizacích zabezpečení v této aktualizaci centra Azure Stack najdete v tématu [aktualizace zabezpečení centra Azure Stack](release-notes-security-updates.md).
 
+Zprávu o ohrožení zabezpečení Qualys pro tuto verzi je možné stáhnout z [webu Qualys](https://www.qualys.com/azure-stack/).
+
 ## <a name="update-planning"></a>Plánování aktualizací
 
 Před použitím této aktualizace se ujistěte, že si provedete následující informace:
@@ -522,7 +509,7 @@ Před použitím této aktualizace se ujistěte, že si provedete následující
 - [Aktualizace zabezpečení](release-notes-security-updates.md)
 - [Kontrolní seznam aktivit před a po instalaci aktualizace](release-notes-checklist.md)
 
-## <a name="download-the-update"></a>Stáhnout aktualizaci.
+## <a name="download-the-update"></a>Stáhnout aktualizaci
 
 Balíček aktualizace centra Azure Stack 1907 můžete stáhnout ze [stránky pro stažení centra Azure Stack](https://aka.ms/azurestackupdatedownload).
 
@@ -555,8 +542,8 @@ Systémy, které mají přístup k Internetu ze sítě infrastruktury, uvidí na
 > [!TIP]  
 > Přihlaste se k odběru následujících informačních kanálů *RSS* nebo *Atom* , abyste zachovali Azure Stack opravy hotfix centra:
 >
-> - [OBSAH](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss)
-> - [Počtu](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom)
+> - [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss)
+> - [Atom](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom)
 
 ## <a name="archive"></a>Archiv
 

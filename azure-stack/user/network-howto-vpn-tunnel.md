@@ -3,16 +3,16 @@ title: Jak nastavit několik tunelových propojení VPN typu Site-to-site v cent
 description: Přečtěte si, jak nastavit několik tunelových propojení VPN typu Site-to-site v centru Azure Stack.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 09/19/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: c1b48e551a1c94456174cbe5725da72d76f78219
-ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
+ms.openlocfilehash: ccfab1377a21c9de1df46c9695d10e4afab84dea
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77636331"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81661503"
 ---
 # <a name="how-to-set-up-a-multiple-site-to-site-vpn-tunnel-in-azure-stack-hub"></a>Jak nastavit několik tunelových propojení VPN typu Site-to-site v centru Azure Stack
 
@@ -76,7 +76,7 @@ Stejný postup můžete použít jako **Webvrstva** , ale jiné parametry, jak j
 
 ### <a name="review-the-deployments-for-web-tier-and-app-tier-and-capture-outputs"></a>Projděte si nasazení pro webovou vrstvu a vrstvu aplikace a zaznamenejte výstupy.
 
-1.  Zkontrolujte, jestli se nasazení úspěšně dokončilo. Vyberte **výstupy**.
+1.  Zkontrolujte, jestli se nasazení úspěšně dokončilo. Vyberte **Výstupy**.
 
     ![](./media/azure-stack-network-howto-vpn-tunnel/image7.png)
 
@@ -130,7 +130,7 @@ Pokud zobrazíte výstup z rozšíření vlastních skriptů, uvidíte, že se v
 
 2.  Připojte se k systému pomocí klienta vzdálené plochy (DRP) s přihlašovacími údaji, které jste nastavili během nasazování.
 
-3.  Otevřete PowerShell s výzvou se zvýšenými oprávněními a spusťte `get-VPNS2SInterface`.
+3.  Otevřete PowerShell s výzvou se zvýšenými oprávněními a `get-VPNS2SInterface`spusťte příkaz.
 
     ![](./media/azure-stack-network-howto-vpn-tunnel/image16.png)
 
@@ -142,7 +142,7 @@ Pokud zobrazíte výstup z rozšíření vlastních skriptů, uvidíte, že se v
 
 1.  Cílem je bitová kopie systému Windows 2016.
 
-2.  Pokud zkopírujete skript `Add-Site2SiteIKE.ps1` z úložiště a spustíte ho místně, skript nainstaluje **WindowsFeature** a **RemoteAccess**.
+2.  Pokud zkopírujete `Add-Site2SiteIKE.ps1` skript z úložiště a spustíte ho místně, skript nainstaluje **WindowsFeature** a **RemoteAccess**.
 
     > [!Note]
     > V závislosti na vašem prostředí možná budete muset restartovat systém.
@@ -183,7 +183,7 @@ Pokud zobrazíte výstup z rozšíření vlastních skriptů, uvidíte, že se v
 
     ![](./media/azure-stack-network-howto-vpn-tunnel/image21.png)
 
-5.  Pokud povolíte RDP a přihlásíte se, otevřete PowerShell pomocí a spusťte `get-vpns2sinterface`a můžete vidět, že je připojení tunelu.
+5.  Pokud povolíte protokol RDP a přihlásíte se, otevřete PowerShell `get-vpns2sinterface`pomocí a spusťte příkaz, abyste viděli, že je tunel připojený.
 
     **DBTier**
 

@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: Naučte se automatizovat Azure Stack ověřování pomocí PowerShellu.
 author: mattbriggs
 ms.topic: tutorial
-ms.date: 11/26/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: c9372aed013c8af089e8e07a0474d6d0321ef53a
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: a3b7919f920dc173a3378328bbfff427b9820d48
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77704739"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81661434"
 ---
 # <a name="automate-azure-stack-hub-validation-with-powershell"></a>Automatizace ověřování centra Azure Stack pomocí PowerShellu
 
@@ -265,7 +265,7 @@ Další informace najdete v tématu [společné parametry pracovních postupů](
 | TenantAdminPassword | Heslo pro primárního klienta.  |
 | CloudAdminUserName | Uživatelské jméno správce cloudu.  |
 | CloudAdminPassword | Heslo pro správce cloudu.  |
-| Název řešení | Název řešení VaaS |
+| SolutionName | Název řešení VaaS |
 | ProjectName | Název pracovního postupu VaaS. |
 | DiagnosticsStorageConnection | Adresa URL SAS na účet Azure Storage, do kterého budou při spuštění testu kopírovány diagnostické protokoly. Pokyny k vygenerování adresy URL SAS najdete v tématu [generování připojovacího řetězce pro diagnostiku](azure-stack-vaas-parameters.md). |
 

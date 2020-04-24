@@ -3,16 +3,16 @@ title: Postup nasazení F5 v rámci dvou instancí centra Azure Stack
 description: Naučte se nasazovat F5 v rámci dvou Azure Stackch instancí centra.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 11/06/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: f3b564bc667376361e1bfc57df0ec50e32522401
-ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
+ms.openlocfilehash: cfbd828923c7653da0f0bfd86ee74703897996c7
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77636314"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81661448"
 ---
 # <a name="how-to-deploy-f5-across-two-azure-stack-hub-instances"></a>Postup nasazení F5 v rámci dvou instancí centra Azure Stack
 
@@ -42,9 +42,9 @@ Nasaďte do Azure Stack a instance centra a instanci B.
 
 2. Vyberte **+ vytvořit prostředek**.
 
-3. Na webu Marketplace zadejte `F5`.
+3. Vyhledejte na webu Marketplace zadáním `F5`.
 
-4. Vyberte **F5 Big-IP ve – All (BYOL, 2 spouštěcí umístění)** .
+4. Vyberte **F5 Big-IP ve – All (BYOL, 2 spouštěcí umístění)**.
 
     ![](./media/network-howto-f5/image1.png)
 
@@ -79,10 +79,10 @@ Postupujte podle těchto kroků pro Azure Stack hub a i B.
 
 
 4. Ověří převzetí služeb při selhání zařízení se BIG-IP. V testovacím systému nakonfigurujte servery DNS tak, aby používaly následující:
-    - Instance centra Azure Stack A = `f5stack1-ext` veřejné IP adresy
-    - Azure Stack hub instance B = `f5stack1-ext` veřejnou IP adresou
+    - Instance centra Azure Stack A = `f5stack1-ext` veřejná IP adresa
+    - Azure Stack hub instance B = `f5stack1-ext` veřejná IP adresa
 
-5. Přejděte do `www.contoso.com` a v prohlížeči se načte výchozí stránka NGINX.
+5. Přejděte do `www.contoso.com` okna a v prohlížeči se načte výchozí stránka Nginx.
 
 ## <a name="create-a-dns-sync-group"></a>Vytvoření skupiny synchronizace DNS
 
@@ -134,7 +134,7 @@ Po instalaci nástroje je potřeba nakonfigurovat skupin zabezpečení sítě ce
 
     ![](./media/network-howto-f5/image10.png)
 
-10. V konzole BIG-IP otevřete **> fondy místních přenosů > fond** a vyberte **+** . Nakonfigurujte fond pomocí hodnot v tabulce. Ponechte všechna ostatní pole na výchozí hodnoty.
+10. V konzole BIG-IP vyberte **místní přenosy > fondy > seznam fondů** a vyberte **+**. Nakonfigurujte fond pomocí hodnot v tabulce. Ponechte všechna ostatní pole na výchozí hodnoty.
 
     ![](./media/network-howto-f5/image11.png)
     
@@ -143,7 +143,7 @@ Po instalaci nástroje je potřeba nakonfigurovat skupin zabezpečení sítě ce
     | Název | NGINX_Pool |
     | Monitor stavu | HTTPS |
     | Název uzlu | NGINX |
-    | Adresa | \<privátní IP adresu NGINX > |
+    | Adresa | \<privátní IP adresa NGINX> |
     | Port služby | 443 |
 
 11. Vyberte **dokončeno**. Pokud je stav fondu správně nakonfigurovaný, je zelený.
@@ -156,12 +156,12 @@ Po instalaci nástroje je potřeba nakonfigurovat skupin zabezpečení sítě ce
 
     ![](./media/network-howto-f5/image13.png)
 
-13. Vytvořte virtuální server tak, že na **místní provoz** přesunete > **virtuální servery** > **seznam virtuálních serverů** a vyberete **+** . Nakonfigurujte fond pomocí hodnot v tabulce. Ponechte všechna ostatní pole na výchozí hodnoty.
+13. Vytvořte virtuální server tak, že v**seznamu** přesunete virtuální server virtuální**servery** >  **místní provoz** > a vyberete. **+** Nakonfigurujte fond pomocí hodnot v tabulce. Ponechte všechna ostatní pole na výchozí hodnoty.
 
     | Klíč | Hodnota |
     | --- | --- |
     |Název | NGINX |
-    |Cílová adresa | \<IP adresu > pro velké IP adresy |
+    |Cílová adresa | \<Samostatná IP adresa> pro velký objem IP adres |
     |Port služby | 443 |
     |Profil SSL (klient) | clientssl |
     |Překlad zdrojového adres | Automatická mapa |
@@ -172,7 +172,7 @@ Po instalaci nástroje je potřeba nakonfigurovat skupin zabezpečení sítě ce
 
 14. Právě jste dokončili konfiguraci BIG-IP pro aplikaci NGINX. Chcete-li ověřit správné fungování, přejděte na lokalitu a ověřte statistiku F5.
 
-15. Otevřete prohlížeč `https://<F5-public-VIP-IP>` a ujistěte se, že se zobrazí vaše výchozí stránka NGINX.
+15. Otevřete prohlížeč `https://<F5-public-VIP-IP>` a ujistěte se, že se zobrazuje vaše výchozí stránka Nginx.
 
     ![](./media/network-howto-f5/image16.png)
 

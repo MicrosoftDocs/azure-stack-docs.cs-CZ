@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: Přehled Azure Stack ověřování centra jako služby.
 author: mattbriggs
 ms.topic: article
-ms.date: 11/11/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4f6255ee26eb686b78640f95b44ee5286693d081
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 7c42c9029e1e1292865f0da239d3dafcb78e5543
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77704637"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81661213"
 ---
 # <a name="what-is-validation-as-a-service-for-azure-stack-hub"></a>Co je ověřování jako služba pro centrum Azure Stack?
 
@@ -37,13 +37,13 @@ Další informace najdete v tématu [ověření nového řešení centra Azure S
 
 ## <a name="validate-changes-to-the-azure-stack-hub-software"></a>Ověřit změny softwaru centra Azure Stack
 
-Partneři používají pracovní postup **ověření balíčku** ke kontrole, že jejich řešení funguje s nejnovějšími aktualizacemi softwaru centra Azure Stack. Pracovní postup ověření balíčku se musí spustit v hardwarovém prostředí, které se doporučuje od Microsoftu, kde se aktualizace použila pro opravu a aktualizaci (P & U). Doporučuje se také spustit pracovní postup na směrném buildu.
+Partneři používají pracovní postup **ověření balíčku** ke kontrole, že jejich řešení funguje s nejnovějšími aktualizacemi softwaru centra Azure Stack. Pracovní postup ověření balíčku se musí spustit v hardwarovém prostředí, které se doporučuje od Microsoftu, kde se aktualizace použila pro opravu a aktualizaci (P&U). Doporučuje se také spustit pracovní postup na směrném buildu.
 
 Další informace najdete v tématu [ověření aktualizací softwaru od Microsoftu](azure-stack-vaas-validate-microsoft-updates.md).
 
 ## <a name="get-digitally-signed-solution-partner-packages"></a>Získat digitálně podepsané balíčky partnerů řešení
 
-Kromě ověřování Azure Stackch aktualizací centra partneři pomocí pracovního postupu **ověření balíčku** ověří aktualizace balíčků pro přizpůsobení OEM. Tyto aktualizace zahrnují ovladače, firmware a další software, který se používá při nasazování softwaru Azure Stack hub, do centra Azure Stack. Nasaďte balíček, který ověřujete v aktuální verzi softwaru Azure Stack hub, pomocí aspoň řešení s minimální velikostí, které se bude podporovat. Balíček se před provedením testů odešle do VaaS. Pokud jsou testy úspěšné, upozorněte [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com) , že balíček dokončil testování a měl by být digitálně podepsaný pomocí digitálního podpisu centra Azure Stack. Microsoft podepíše balíček a oznámí partnerovi centra Azure Stack, že balíček je dostupný ke stažení na portálu pro ověřování centra Azure Stack.
+Kromě ověřování Azure Stackch aktualizací centra partneři pomocí pracovního postupu **ověření balíčku** ověří aktualizace balíčků pro přizpůsobení OEM. Tyto aktualizace zahrnují ovladače, firmware a další software, který se používá při nasazování softwaru Azure Stack hub, do centra Azure Stack. Nasaďte balíček, který ověřujete v aktuální verzi softwaru Azure Stack hub, pomocí aspoň řešení s minimální velikostí, které se bude podporovat. Balíček se před provedením testů odešle do VaaS. Pokud jsou testy úspěšné, upozorněte [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com) na to, že balíček dokončil testování a měl by být digitálně podepsaný pomocí digitálního podpisu centra Azure Stack. Microsoft podepíše balíček a oznámí partnerovi centra Azure Stack, že balíček je dostupný ke stažení na portálu pro ověřování centra Azure Stack.
 
 Další informace najdete v tématu [ověření balíčků OEM](azure-stack-vaas-validate-oem-package.md).
 

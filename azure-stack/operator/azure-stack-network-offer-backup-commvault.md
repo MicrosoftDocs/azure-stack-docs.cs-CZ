@@ -3,16 +3,16 @@ title: Přidání CommVault do tržiště centra Azure Stack
 description: Naučte se, jak přidat CommVault do Marketplace centra Azure Stack.
 author: mattbriggs
 ms.topic: article
-ms.date: 10/28/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: 8d2b9181c6db101113d1f60ef3ab5ab3a0929ed3
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: d79137c5a00b4762cf1f7729000f8912f13ba066
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77698551"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81661356"
 ---
 # <a name="add-commvault-to-the-azure-stack-hub-marketplace"></a>Přidání CommVault do tržiště centra Azure Stack
 
@@ -32,7 +32,7 @@ Tento článek vás seznámí s nabídkou CommVault Live Sync k aktualizaci virt
 ## <a name="get-commvault-for-your-marketplace"></a>Získání CommVault pro Marketplace
 
 1. Otevřete portál pro správu centra Azure Stack.
-2. Vyberte **správu Marketplace** > **Přidat z Azure**.
+2. Vyberte **Správa** > Marketplace**Přidat z Azure**.
 
     ![CommVault pro centrum Azure Stack](./media/azure-stack-network-offer-backup-commvault/get-commvault-for-marketplace.png)
 

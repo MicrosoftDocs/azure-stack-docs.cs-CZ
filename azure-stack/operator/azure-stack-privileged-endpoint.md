@@ -3,16 +3,16 @@ title: Použití privilegovaného koncového bodu v centru Azure Stack
 description: Naučte se používat privilegovaný koncový bod (PEP) v centru Azure Stack jako operátor.
 author: mattbriggs
 ms.topic: article
-ms.date: 1/8/2020
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 1/8/2020
-ms.openlocfilehash: 335afce7423872156c84c655d9c94ed59a9592d2
-ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
+ms.openlocfilehash: b82a776f67648ec882837dc44d51fe95b24aba4f
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/18/2020
-ms.locfileid: "79512435"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81661314"
 ---
 # <a name="use-the-privileged-endpoint-in-azure-stack-hub"></a>Použití privilegovaného koncového bodu v centru Azure Stack
 
@@ -21,7 +21,7 @@ Jako operátor centra Azure Stack byste pro většinu každodenních úloh sprá
 K provedení těchto úloh můžete použít PEP:
 
 - Úlohy nízké úrovně, jako je například [shromažďování diagnostických protokolů](azure-stack-get-azurestacklog.md).
-- Mnoho úloh integrace Datacenter po nasazení pro integrované systémy, jako je přidání služby pro odesílání DNS (Domain Name System) po nasazení, nastavení integrace Microsoft Graph integrace, Active Directory Federation Services (AD FS) (AD FS), certifikát rotace atd.
+- Mnoho úloh integrace Datacenter po nasazení u integrovaných systémů, jako je například přidání serverů pro přeposílání DNS (Domain Name System) po nasazení, nastavení integrace Microsoft Graph, integrace Active Directory Federation Services (AD FS) (AD FS), rozšíření certifikátu atd.
 - Pro práci s podporou pro získání dočasného přístupu s vysokou úrovní pro důkladné řešení potíží s integrovaným systémem.
 
 PEP zaznamená všechny akce (a odpovídající výstupy), které v relaci PowerShellu provedete. To zajišťuje úplnou transparentnost a kompletní auditování operací. Tyto soubory protokolu můžete zachovat pro budoucí audity.
@@ -35,9 +35,9 @@ K PEP přistupujete prostřednictvím vzdálené relace PowerShellu na virtuáln
 
 Než zahájíte tento postup pro integrovaný systém, ujistěte se, že máte přístup k PEP buď podle IP adresy, nebo prostřednictvím DNS. Po počátečním nasazení centra Azure Stack můžete k PEP přistupovat jenom pomocí IP adresy, protože integrace DNS zatím není nastavená. Dodavatel hardwaru OEM vám poskytne soubor JSON s názvem **AzureStackStampDeploymentInfo** , který obsahuje IP adresy PEP.
 
-IP adresu můžete najít také na portálu pro správu centra Azure Stack. Otevřete portál, například `https://adminportal.local.azurestack.external`. Vyberte > **vlastnosti** **oblasti Správa oblastí** .
+IP adresu můžete najít také na portálu pro správu centra Azure Stack. Otevřete portál, například `https://adminportal.local.azurestack.external`. Vyberte > **vlastnosti** **správy oblastí**.
 
-Při spuštění privilegovaného koncového bodu budete potřebovat nastavit aktuální nastavení jazykové verze na `en-US`, jinak rutiny jako test-AzureStack nebo Get-AzureStackLog nebudou fungovat podle očekávání.
+`en-US` Při spuštění privilegovaného koncového bodu budete potřebovat nastavit aktuální nastavení jazykové verze, jinak rutiny jako test-AzureStack nebo Get-AzureStackLog nebudou fungovat podle očekávání.
 
 > [!NOTE]
 > Z bezpečnostních důvodů vyžadujeme, abyste se připojili ke službě PEP jenom z posíleného virtuálního počítače, který běží na hostiteli životního cyklu hardwaru, nebo z vyhrazeného a zabezpečeného počítače, jako je například [pracovní stanice privilegovaného přístupu](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations). Původní konfigurace hostitele životního cyklu hardwaru nesmí být upravena z původní konfigurace (včetně instalace nového softwaru) nebo používaná pro připojení k PEP.
@@ -63,7 +63,7 @@ Při spuštění privilegovaného koncového bodu budete potřebovat nastavit ak
     Enter-PSSession $pep
     ```
     
-    Parametr `ComputerName` může být buď IP adresa, nebo název DNS jednoho z virtuálních počítačů, které hostují PEP.
+    `ComputerName` Parametr může být buď IP adresa, nebo název DNS jednoho z virtuálních počítačů, které hostují PEP.
 
     > [!NOTE]  
     >Azure Stack centrum neprovádí vzdálené volání při ověřování přihlašovacích údajů PEP. K tomu se spoléhá na místně uložený veřejný klíč RSA.
@@ -79,25 +79,25 @@ Při spuštění privilegovaného koncového bodu budete potřebovat nastavit ak
     
    - Po zobrazení výzvy použijte následující přihlašovací údaje:
    
-       - **Uživatelské jméno**: zadejte účet CloudAdmin ve formátu **&lt;*Azure Stack doméně centra*&gt;\cloudadmin**. (Pro ASDK se uživatelské jméno **azurestack\cloudadmin**.)
+       - **Uživatelské jméno**: zadejte účet CloudAdmin ve formátu ** &lt; *Azure Stack centrum doména*&gt;\cloudadmin**. (Pro ASDK se uživatelské jméno **azurestack\cloudadmin**.)
   
         - **Heslo**: zadejte stejné heslo, které bylo zadáno během instalace pro účet správce domény AzureStackAdmin.
 
       > [!NOTE]
       > Pokud se nemůžete připojit ke koncovému bodu ERCS, opakujte kroky jedna a dvě s jinou IP adresou virtuálního počítače ERCS.
 
-3. Po připojení se výzva změní na **[*IP adresa nebo název virtuálního počítače ERCS*]: PS >** nebo na **[AZS-ercs01]: PS >** , v závislosti na prostředí. Z tohoto místa spusťte `Get-Command` pro zobrazení seznamu dostupných rutin.
+3. Po připojení se výzva změní na **[*IP adresa nebo název virtuálního počítače ERCS*]: PS>** nebo na **[AZS-ercs01]: PS>**, v závislosti na prostředí. Z tohoto místa spusťte `Get-Command` příkaz pro zobrazení seznamu dostupných rutin.
 
    Mnohé z těchto rutin jsou určené jenom pro integrovaná systémová prostředí (například rutiny související s integrací Datacenter). V ASDK byly ověřeny následující rutiny:
 
    - Vymazat – hostitel
    - Zavřít – PrivilegedEndpoint
-   - Exit-PSSession
+   - Konec – PSSession
    - Get-AzureStackLog
    - Get-AzureStackStampInformation
    - Get-Command
    - Get-FormatData
-   - Get-Help
+   - Získat nápovědu
    - Get-ThirdPartyNotices
    - Measure – objekt
    - New-CloudAdminUser
@@ -106,7 +106,7 @@ Při spuštění privilegovaného koncového bodu budete potřebovat nastavit ak
    - Select-Object
    - Set-CloudAdminUserPassword
    - Test-AzureStack
-   - Stop-AzureStack
+   - Stop – AzureStack
    - Get-ClusterLog
 
 ## <a name="tips-for-using-the-privileged-endpoint"></a>Tipy pro použití privilegovaného koncového bodu 
@@ -144,7 +144,7 @@ Pokud chcete importovat relaci PEP na místním počítači, proveďte následuj
           -ConfigurationName PrivilegedEndpoint -Credential $cred
       ```
     
-      Parametr `ComputerName` může být buď IP adresa, nebo název DNS jednoho z virtuálních počítačů, které hostují PEP.
+      `ComputerName` Parametr může být buď IP adresa, nebo název DNS jednoho z virtuálních počítačů, které hostují PEP.
 
     - Pokud používáte ASDK:
      
@@ -157,7 +157,7 @@ Pokud chcete importovat relaci PEP na místním počítači, proveďte následuj
 
      Po zobrazení výzvy použijte následující přihlašovací údaje:
 
-     - **Uživatelské jméno**: zadejte účet CloudAdmin ve formátu **&lt;*Azure Stack doméně centra*&gt;\cloudadmin**. (Pro ASDK se uživatelské jméno **azurestack\cloudadmin**.)
+     - **Uživatelské jméno**: zadejte účet CloudAdmin ve formátu ** &lt; *Azure Stack centrum doména*&gt;\cloudadmin**. (Pro ASDK se uživatelské jméno **azurestack\cloudadmin**.)
      - **Heslo**: zadejte stejné heslo, které bylo zadáno během instalace pro účet správce domény AzureStackAdmin.
 
 3. Importujte relaci PEP do místního počítače:
@@ -170,7 +170,7 @@ Pokud chcete importovat relaci PEP na místním počítači, proveďte následuj
 
 ## <a name="close-the-privileged-endpoint-session"></a>Zavřít privilegovanou relaci koncového bodu
 
- Jak bylo zmíněno dříve, PEP protokoluje každou akci (a odpovídající výstup), kterou provedete v relaci PowerShellu. Relaci je nutné zavřít pomocí rutiny `Close-PrivilegedEndpoint`. Tato rutina správně ukončí koncový bod a přenáší soubory protokolu do externí sdílené složky pro uchování.
+ Jak bylo zmíněno dříve, PEP protokoluje každou akci (a odpovídající výstup), kterou provedete v relaci PowerShellu. Relaci musíte uzavřít pomocí `Close-PrivilegedEndpoint` rutiny. Tato rutina správně ukončí koncový bod a přenáší soubory protokolu do externí sdílené složky pro uchování.
 
 Ukončení relace koncového bodu:
 
@@ -186,13 +186,13 @@ Ukončení relace koncového bodu:
    | Parametr | Popis | Typ | Požaduje se |
    |---------|---------|---------|---------|
    | *TranscriptsPathDestination* | Cesta k externímu sdílení souborů definovaná jako "fileshareIP\sharefoldername" | Řetězec | Ano|
-   | *Pověřovací* | Přihlašovací údaje pro přístup ke sdílené složce souborů | SecureString |   Ano |
+   | *Přihlašovací údaj* | Přihlašovací údaje pro přístup ke sdílené složce souborů | SecureString |   Ano |
 
 
 Po úspěšném přenosu souborů protokolu přepisu do sdílené složky se automaticky odstraní z PEP. 
 
 > [!NOTE]
-> Pokud zavřete relaci PEP pomocí rutin `Exit-PSSession` nebo `Exit`, nebo jenom zavřete konzolu PowerShellu, protokoly přepisu se nepřenášejí do sdílené složky. Zůstávají v PEP. Při příštím spuštění `Close-PrivilegedEndpoint` a zahrnutí sdílené složky se také přenesou protokoly přepisu z předchozích relací. Nepoužívejte `Exit-PSSession` ani `Exit` k uzavření relace PEP; místo toho použijte `Close-PrivilegedEndpoint`.
+> Pokud zavřete relaci PEP pomocí rutin `Exit-PSSession` nebo `Exit`nebo pouze zavřete konzolu PowerShellu, protokoly přepisu se nepřenášejí do sdílené složky. Zůstávají v PEP. Při příštím spuštění `Close-PrivilegedEndpoint` a zahrnutí sdílené složky se také přenesou protokoly přepisu z předchozích relací. Nepoužívejte `Exit-PSSession` nebo `Exit` k zavření relace PEP; místo `Close-PrivilegedEndpoint` toho použijte.
 
 
 ## <a name="next-steps"></a>Další kroky

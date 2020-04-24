@@ -8,12 +8,12 @@ ms.date: 05/03/2019
 ms.author: justinha
 ms.reviewer: unknown
 ms.lastreviewed: 03/29/2019
-ms.openlocfilehash: df143d08f3d5e4445020f4932a47de657805fa7c
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.openlocfilehash: f71367c86dcb360297fed7250e3a5dfb4bd6beda
+ms.sourcegitcommit: a3ae6dd8670f8fb24224880df7eee256ebbcc4ef
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78366411"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81772422"
 ---
 # <a name="differences-between-global-azure-azure-stack-hub-and-azure-stack-hci"></a>Rozdíly mezi globálním Azure, Azure Stack hub a Azure Stack HCI
 
@@ -21,7 +21,7 @@ Microsoft poskytuje Azure a Azure Stackovou rodinu centra pro služby v jednom e
 
 Tento článek popisuje rozdíly mezi globálními funkcemi Azure, Azure Stack hub a Azure Stack HCI. Poskytuje běžná doporučení pro scénáře, která vám pomůžou vydávat nejlepší možnosti pro doručování cloudových služeb Microsoftu pro vaši organizaci.
 
-![Přehled ekosystému Azure](./media/compare-azure-azure-stack/azure-family.png)
+![Přehled ekosystému Azure](./media/compare-azure-azure-stack/azure-family.svg)
 
 ## <a name="global-azure"></a>Globální Azure
 
@@ -52,7 +52,7 @@ Kromě poskytovatelů prostředků popsaných výše jsou k dispozici další sl
 - Ethereum Blockchain
 - Cloud Foundry
 
-### <a name="example-use-cases-for-azure-stack-hub"></a>Příklady případů použití pro centrum Azure Stack:
+### <a name="example-use-cases-for-azure-stack-hub"></a>Příklady případů použití pro centrum Azure Stack
 
 - Finanční modelování
 - Data o klinických a deklaracích

@@ -6,16 +6,16 @@ services: azure-stack
 documentationcenter: ''
 author: sethmanheim
 ms.topic: article
-ms.date: 01/27/2020
+ms.date: 04/20/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 294fec646462d154c8d8f2e1d22c31d2d88220d4
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: d0d11295d9425e07e34dc59eb2fcc83c6b020582
+ms.sourcegitcommit: a3ae6dd8670f8fb24224880df7eee256ebbcc4ef
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77696375"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81772561"
 ---
 # <a name="report-azure-stack-hub-usage-data-to-azure"></a>Sestava Azure Stack data o využití centra do Azure
 
@@ -28,7 +28,7 @@ Systémy s více uzly centra Azure Stack, které používají model fakturace za
 
 Vytváření sestav dat o využití je vyžadováno pro uživatele s více uzly centra Azure Stack, kteří používají licenci v rámci modelu průběžných plateb. Je volitelný pro zákazníky, kteří mají licenci v rámci kapacity modelu (viz stránka [Jak koupit](https://azure.microsoft.com/overview/azure-stack/how-to-buy/) ). Pro uživatele Azure Stack Development Kit (ASDK) mohou operátoři služby Azure Stack hub nahlásit data o využití a otestovat funkci. Uživatelům se ale nebude účtovat žádné využití, které tyto náklady účtují.
 
-![Postup účtování pro data o využití v centru Azure Stack](media/azure-stack-usage-reporting/billing-flow.png)
+![Postup účtování pro data o využití v centru Azure Stack](media/azure-stack-usage-reporting/billing-flow.svg)
 
 Data o využití se odesílají z centra Azure Stack do Azure prostřednictvím Azure Bridge. V Azure systém obchodu zpracovává data o využití a vygeneruje vyúčtování. Po vygenerování faktury ho vlastník předplatného Azure může zobrazit a stáhnout z [centrum účtů Azure](https://account.windowsazure.com/subscriptions). Další informace o tom, jak je centrum Azure Stack licencováno, najdete v tématu [Azure Stack centra a dokumentu s cenami](https://go.microsoft.com/fwlink/?LinkId=842847).
 

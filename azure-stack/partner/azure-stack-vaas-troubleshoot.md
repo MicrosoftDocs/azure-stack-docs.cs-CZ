@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: Řešení potíží s ověřováním jako služby pro centrum Azure Stack.
 author: mattbriggs
 ms.topic: article
-ms.date: 11/11/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: daef2c9685bd844ba99cadfa4f9f095fadc028be
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 1bcca404c451190ccf1d0b82e93aea655e069044
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77704501"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81661392"
 ---
 # <a name="troubleshoot-validation-as-a-service"></a>Řešení potíží s ověřováním jako službou
 
@@ -50,7 +50,7 @@ Image PIR si můžete stáhnout do sdílené složky v místním datovém centru
 
 1. Stáhněte si AzCopy z: [vaasexternaldependencies (AzCopy)](https://vaasexternaldependencies.blob.core.windows.net/prereqcomponents/AzCopy.zip).
 
-2. Extrahujte soubor AzCopy. zip a přejděte do adresáře, který obsahuje `AzCopy.exe`.
+2. Extrahujte soubor AzCopy. zip a přejděte do adresáře `AzCopy.exe`obsahujícího.
 
 3. Otevřete Windows PowerShell z příkazového řádku se zvýšenými oprávněními. Spusťte následující příkazy:
 
@@ -73,15 +73,15 @@ Pomocí rutiny **Get-HashFile** můžete získat hodnotu hash pro stažené soub
 
 | Název souboru | SHA256 |
 |---------------------------------------|------------------------------------------------------------------|
-| Server2016DatacenterFullBYOL.vhd | 6ED58DCA666D530811A1EA563BA509BF9C29182B902D18FCA03C7E0868F733E9 |
-| WindowsServer2012R2DatacenterBYOL.vhd | 9792CBF742870B1730B9B16EA814C683A8415EFD7601DDB6D5A76D0964767028 |
-| Server2016DatacenterCoreBYOL.vhd | 5E80E1A6721A48A10655E6154C1B90E320DF5558487D6A0D7BFC7DCD32C4D9A5 |
-| Ubuntu1404LTS.vhd | B24CDD12352AAEBC612A4558AB9E80F031A2190E46DCB459AF736072742E20E0 |
-| Ubuntu1604-20170619.1.vhd | C481B88B60A01CBD5119A3F56632A2203EE5795678D3F3B9B764FFCA885E26CB |
+| Server2016DatacenterFullBYOL. VHD | 6ED58DCA666D530811A1EA563BA509BF9C29182B902D18FCA03C7E0868F733E9 |
+| WindowsServer2012R2DatacenterBYOL. VHD | 9792CBF742870B1730B9B16EA814C683A8415EFD7601DDB6D5A76D0964767028 |
+| Server2016DatacenterCoreBYOL. VHD | 5E80E1A6721A48A10655E6154C1B90E320DF5558487D6A0D7BFC7DCD32C4D9A5 |
+| Ubuntu1404LTS. VHD | B24CDD12352AAEBC612A4558AB9E80F031A2190E46DCB459AF736072742E20E0 |
+| Ubuntu1604-20170619.1. VHD | C481B88B60A01CBD5119A3F56632A2203EE5795678D3F3B9B764FFCA885E26CB |
 | OpenLogic-CentOS-69-20180105. VHD | C8B874FE042E33B488110D9311AF1A5C7DC3B08E6796610BF18FDD6728C7913C |
 | Debian8_latest. VHD | 06F8C11531E195D0C90FC01DFF5DC396BB1DD73A54F8252291ED366CACD996C1 |
 
-### <a name="failure-happens-when-uploading-vm-image-in-the-vaasprereq-script"></a>K selhání dojde při nahrávání image virtuálního počítače ve skriptu `VaaSPreReq`.
+### <a name="failure-happens-when-uploading-vm-image-in-the-vaasprereq-script"></a>K selhání dojde při nahrávání image virtuálního počítače `VaaSPreReq` ve skriptu.
 
 Nejdřív ověřte, že je prostředí v pořádku:
 
@@ -91,7 +91,7 @@ Nejdřív ověřte, že je prostředí v pořádku:
 Pokud je prostředí v pořádku, ručně nahrajte pět imagí virtuálních počítačů potřebných pro testovací běhy VaaS:
 
 1. Přihlaste se jako správce služby na portál správce. Adresu URL portálu pro správu najdete na webu EHK Store nebo v souboru s informacemi o razítku. Pokyny najdete v tématu [parametry prostředí](azure-stack-vaas-parameters.md#environment-parameters).
-1. Vyberte **Další služby** > **poskytovatelé prostředků** > **výpočetních** > **imagí virtuálních počítačů**.
+1. Vyberte **Další služby** > **poskytovatelé** > prostředků**výpočetních** > **imagí virtuálních počítačů**.
 1. V horní části okna **image virtuálních počítačů** vyberte tlačítko **+ Přidat** .
 1. Upravte nebo ověřte hodnoty následujících polí pro první bitovou kopii virtuálního počítače:
     > [!IMPORTANT]
@@ -101,8 +101,8 @@ Pokud je prostředí v pořádku, ručně nahrajte pět imagí virtuálních po�
     |---------|---------|
     | Vydavatel | MicrosoftWindowsServer |
     | Nabídka | WindowsServer |
-    | Typ operačního systému | Windows |
-    | Skladová položka | 2012-R2-Datacenter |
+    | OS Type | Windows |
+    | Skladová jednotka (SKU) | 2012-R2-Datacenter |
     | Version | 1.0.0 |
     | Identifikátor URI objektu BLOB disku s operačním systémem | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/WindowsServer2012R2DatacenterBYOL.vhd |
 
@@ -111,12 +111,12 @@ Pokud je prostředí v pořádku, ručně nahrajte pět imagí virtuálních po�
 
 Vlastnosti všech pěti imagí virtuálních počítačů jsou následující:
 
-| Vydavatel  | Nabídka  | Typ operačního systému | Skladová položka | Version | Identifikátor URI objektu BLOB disku s operačním systémem |
+| Vydavatel  | Nabídka  | OS Type | Skladová jednotka (SKU) | Version | Identifikátor URI objektu BLOB disku s operačním systémem |
 |---------|---------|---------|---------|---------|---------|
 | MicrosoftWindowsServer| WindowsServer | Windows | 2012-R2-Datacenter | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/WindowsServer2012R2DatacenterBYOL.vhd |
 | MicrosoftWindowsServer | WindowsServer | Windows | 2016 – Datacenter | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Server2016DatacenterFullBYOL.vhd |
-| MicrosoftWindowsServer | WindowsServer | Windows | 2016-Datacenter-Server-Core | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Server2016DatacenterCoreBYOL.vhd |
-| Canonical | UbuntuServer | Linux | 14.04.3-LTS | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Ubuntu1404LTS.vhd |
+| MicrosoftWindowsServer | WindowsServer | Windows | 2016 – Datacenter – Server – jádro | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Server2016DatacenterCoreBYOL.vhd |
+| Canonical | UbuntuServer | Linux | 14.04.3 – LTS | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Ubuntu1404LTS.vhd |
 | Canonical | UbuntuServer | Linux | 16.04-LTS | 16.04.20170811 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Ubuntu1604-20170619.1.vhd |
 | OpenLogic | CentOS | Linux | 6.9 | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/OpenLogic-CentOS-69-20180105.vhd |
 | credativ | Debian | Linux | 8 | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Debian8_latest.vhd |

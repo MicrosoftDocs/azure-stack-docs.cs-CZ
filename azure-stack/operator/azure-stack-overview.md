@@ -3,16 +3,16 @@ title: Přehled centra Azure Stack
 description: Přehled toho, co je centrum Azure Stack a jak vám umožňuje spouštět služby Azure ve vašem datovém centru.
 author: justinha
 ms.topic: overview
-ms.date: 11/08/2019
+ms.date: 04/20/2020
 ms.author: justinha
 ms.reviewer: unknown
 ms.lastreviewed: 11/08/2019
-ms.openlocfilehash: afa7f02f451192640172665e18213d125e24b574
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: dc5fa60f0ab1460a98ec21a0501c3cdcec6a6637
+ms.sourcegitcommit: a3ae6dd8670f8fb24224880df7eee256ebbcc4ef
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77698449"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81772641"
 ---
 # <a name="azure-stack-hub-overview"></a>Přehled centra Azure Stack
 
@@ -40,11 +40,11 @@ Architektura centra Azure Stack umožňuje poskytovat služby Azure na hraničn�
 
 ## <a name="deployment-options"></a>Možnosti nasazení
 
-Integrované systémy Azure Stack hub jsou nabízeny prostřednictvím partnerství s Microsoftem a hardwarovými partnery a vytvářejí řešení, které nabízí cloudové inovace a jednoduchost správy computingu. Vzhledem k tomu, že centrum Azure Stack se nabízí jako integrovaný hardware a softwarový systém, máte flexibilitu a kontrolu, které potřebujete, a také schopnost inovovat z cloudu. 
+Integrované systémy Azure Stack hub jsou nabízeny prostřednictvím partnerství s Microsoftem a hardwarovými partnery a vytvářejí řešení, které nabízí cloudové inovace a jednoduchost správy computingu. Vzhledem k tomu, že centrum Azure Stack se nabízí jako integrovaný hardware a softwarový systém, máte flexibilitu a kontrolu, které potřebujete, a také schopnost inovovat z cloudu.
 
 Integrovaný systém Azure Stackového centra může mít velikost v rozsahu od 4-16 serverů, které se nazývají *jednotka škálování*. Integrované systémy jsou společně podporovány hardwarovým partnerem a společností Microsoft. V následujícím diagramu vidíte příklad jednotky škálování. 
 
-![Diagram znázorňující integrovaný systém Azure Stack hub](./media/azure-stack-overview/azure-stack-integrated-system.png). 
+![Diagram znázorňující integrovaný systém Azure Stack hub](./media/azure-stack-overview/azure-stack-integrated-system.svg). 
 
 <!---add info and image on regions, etc--->
 
@@ -54,7 +54,7 @@ Můžete zvolit nasazení centra Azure Stack **připojeného** k Internetu (a do
 
 > Další informace najdete v tématu požadavky na [připojené](azure-stack-connected-deployment.md) a [odpojené](azure-stack-disconnected-deployment.md) modely nasazení.
 
-### <a name="identity-provider"></a>Zprostředkovatel identity 
+### <a name="identity-provider"></a>Zprostředkovatel identit 
 
 Azure Stack hub používá buď Azure Active Directory (Azure AD) nebo Active Directory Federation Services (AD FS) (AD FS). Azure AD je cloudový zprostředkovatel identity pro více tenantů od Microsoftu. Většina hybridních scénářů s nasazeními připojenými k Internetu používá jako úložiště identit službu Azure AD.
 

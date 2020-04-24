@@ -3,16 +3,16 @@ title: Fakturace a vrácení peněz zákazníka v centru Azure Stack
 description: Přečtěte si, jak se uživatelům centra Azure Stack fakturovat za využití prostředků a jak se k fakturačním informacím dostanete pro účely analýzy a vrácení peněz.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/22/2020
+ms.date: 04/20/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 03/21/2019
-ms.openlocfilehash: b5de9aa3723d16ab4c80510ab5e18d0300ebde04
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 9606f5ec17826e4fc339ebad5b4439829bd828cc
+ms.sourcegitcommit: a3ae6dd8670f8fb24224880df7eee256ebbcc4ef
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77695389"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81772539"
 ---
 # <a name="usage-and-billing-in-azure-stack-hub"></a>Využití a fakturace v centru Azure Stack
 
@@ -30,7 +30,7 @@ Pokud jste [zaregistrovali instanci centra Azure Stack s Azure](azure-stack-regi
 
 Následující obrázek ukazuje klíčové komponenty v kanálu použití:
 
-![Kanál využití](media/azure-stack-billing-and-chargeback/usagepipeline.png)
+![Kanál využití](media/azure-stack-billing-and-chargeback/usagepipeline.svg)
 
 ## <a name="what-usage-information-can-i-find-and-how"></a>Jaké informace o využití můžu najít a jak?
 

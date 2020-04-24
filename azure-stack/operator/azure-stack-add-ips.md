@@ -3,18 +3,18 @@ title: Přidat veřejné IP adresy do centra Azure Stack
 description: Naučte se přidávat veřejné IP adresy do centra Azure Stack.
 author: justinha
 ms.topic: article
-ms.date: 09/10/2019
+ms.date: 04/20/2020
 ms.author: justinha
 ms.reviewer: scottnap
 ms.lastreviewed: 09/10/2019
-ms.openlocfilehash: f17ef9fad4dd595d4a8d1e51b4efc3c0dd029bef
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: efa240fbec361657362b936594ccee4c79f70afe
+ms.sourcegitcommit: a3ae6dd8670f8fb24224880df7eee256ebbcc4ef
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77703362"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81772478"
 ---
-# <a name="add-public-ip-addresses"></a>Přidání veřejné IP adresy
+# <a name="add-public-ip-addresses"></a>Přidat veřejné IP adresy
 
 V tomto článku odkazujeme na externí adresy jako veřejné IP adresy. V kontextu centra Azure Stack je veřejná IP adresa IP adresou, která je přístupná mimo centrum Azure Stack. Jestli je tato externí síť veřejná internetovou směrovatelný nebo je v intranetu a používá pro účely tohoto článku privátní adresní prostor, jsou tyto kroky stejné.
 
@@ -26,7 +26,7 @@ Veřejné IP adresy můžete přidat do systému Azure Stack hub kdykoli po poč
 
 Proces přidání nového bloku veřejných IP adres do centra Azure Stack na nejvyšší úrovni vypadá takto:
 
- ![Přidat tok IP](media/azure-stack-add-ips/flow.PNG)
+ ![Přidat tok IP](media/azure-stack-add-ips/flow.svg)
 
 ## <a name="obtain-the-address-block-from-your-provider"></a>Získání bloku adres od poskytovatele
 První věc, kterou je potřeba udělat, je získání bloku adres, který chcete přidat do centra Azure Stack. V závislosti na tom, kde získáte blok adresy z, zvažte, co je doba realizace, a spravujte ji na základě sazby, na které používáte veřejné IP adresy v centru Azure Stack.
@@ -36,7 +36,7 @@ První věc, kterou je potřeba udělat, je získání bloku adres, který chcet
 
 ## <a name="add-the-ip-address-range-to-azure-stack-hub"></a>Přidat rozsah IP adres do centra Azure Stack
 
-1. V prohlížeči přejdete na řídicí panel portálu pro správu. V tomto příkladu použijeme https://adminportal.local.azurestack.external.
+1. V prohlížeči přejdete na řídicí panel portálu pro správu. V tomto příkladu budeme používat https://adminportal.local.azurestack.external.
 2. Přihlaste se k portálu správce Azure Stackového centra jako operátor cloudu.
 3. Na výchozím řídicím panelu najděte seznam Správa oblastí a vyberte oblast, kterou chcete spravovat. V tomto příkladu používáme místní.
 4. Vyhledejte dlaždici poskytovatelé prostředků a klikněte na poskytovatele síťových prostředků.

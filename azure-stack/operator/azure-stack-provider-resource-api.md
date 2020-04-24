@@ -3,16 +3,16 @@ title: Rozhraní API pro využití prostředků poskytovatele centra Azure Stack
 description: Referenční informace k rozhraní API pro využití prostředků, které načítá informace o využití centra Azure Stack.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/07/2020
+ms.date: 04/20/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 0dff4901d24f759404b69184506d1219273d90c5
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: c360123e5393b328e8e5e800ddac283739f89b7b
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77698109"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81661322"
 ---
 # <a name="provider-resource-usage-api"></a>Rozhraní API využití prostředků poskytovatele
 
@@ -38,11 +38,11 @@ Toto rozhraní API pro použití je poskytovatele API, takže volajícímu musí
 | --- | --- |
 | `armendpoint` |Azure Resource Manager koncový bod vašeho prostředí centra Azure Stack. Azure Stack konvence centra je název koncového bodu Azure Resource Manager ve formátu `https://adminmanagement.{domain-name}`. Například pro Azure Stack Development Kit (ASDK), pokud je název domény *Local. azurestack. external*, pak je `https://adminmanagement.local.azurestack.external`koncový bod správce prostředků. |
 | `subId` |ID předplatného uživatele, který provádí volání. |
-| `reportedStartTime` |Počáteční čas dotazu. Hodnota `DateTime` by měla být v koordinovaném univerzálním čase (UTC) a na začátku hodiny. například 13:00. U denní agregace nastavte tuto hodnotu na půlnoc UTC. Formát je řídicí. ISO 8601; například `2015-06-16T18%3a53%3a11%2b00%3a00Z`, kde je dvojtečka uvozena `%3a` a znak plus je uvozen na `%2b`, aby byl popisný identifikátor URI. |
-| `reportedEndTime` |Koncový čas dotazu. Omezení, která platí pro `reportedStartTime`, se vztahují i na tento argument. Hodnota pro `reportedEndTime` nemůže být v budoucnosti nebo v aktuálním datu. Pokud je, výsledek je nastaven na "zpracování není dokončeno". |
+| `reportedStartTime` |Počáteční čas dotazu. Hodnota pro `DateTime` by měla být v koordinovaném univerzálním čase (UTC) a na začátku hodiny. například 13:00. U denní agregace nastavte tuto hodnotu na půlnoc UTC. Formát je řídicí. ISO 8601; například `2015-06-16T18%3a53%3a11%2b00%3a00Z`, v případě, že dvojtečka je uvozena `%3a` na a znaménkem plus je uvozena tak, aby byla PŘIčtena k `%2b` identifikátoru URI. |
+| `reportedEndTime` |Koncový čas dotazu. U tohoto argumentu platí `reportedStartTime` i omezení, která platí pro. Hodnota pro `reportedEndTime` nemůže být v budoucnosti nebo aktuální datum. Pokud je, výsledek je nastaven na "zpracování není dokončeno". |
 | `aggregationGranularity` |Volitelný parametr, který má dvě diskrétní možné hodnoty: **denně** a **každou hodinu**. Vzhledem k tomu, že hodnoty naznačují, vrátí jedna data v denní členitosti a druhá je hodinové řešení. Možnost **denní** je výchozí hodnota. |
 | `subscriberId` |ID předplatného. Aby bylo možné získat filtrovaná data, je požadováno ID předplatného přímého tenanta poskytovatele. Pokud není zadán parametr ID předplatného, volání vrátí data o využití pro všechny přímé klienty poskytovatele. |
-| `api-version` |Verze protokolu, který se používá k provedení tohoto požadavku. Tato hodnota je nastavená na `2015-06-01-preview`. |
+| `api-version` |Verze protokolu, který se používá k provedení tohoto požadavku. Tato hodnota je nastavena na `2015-06-01-preview`. |
 | `continuationToken` |Token načtený z posledního volání poskytovatele rozhraní API využití Tento token je nutný, pokud je odpověď větší než 1 000 řádků. Slouží jako záložka pro průběh. Pokud token není k dispozici, data se načítají od začátku dne nebo hodiny na základě předané členitosti. |
 
 ### <a name="response"></a>Odpověď
@@ -88,9 +88,9 @@ meterID1",
 |`subscriptionId` |Identifikátor předplatného uživatele centra Azure Stack. |
 |`usageStartTime`|Čas spuštění v čase UTC sady, do které patří agregace tohoto využití.|
 |`usageEndTime`|Čas ukončení UTC intervalu použití, do kterého patří agregace tohoto využití. |
-|`instanceData` |Páry klíč-hodnota podrobností instance (v novém formátu):<br> `resourceUri`: plně kvalifikované ID prostředku, které zahrnuje skupiny prostředků a název instance. <br> `location`: oblast, ve které byla tato služba spuštěna. <br> `tags`: značky prostředků, které jsou určeny uživatelem. <br> `additionalInfo`: Další podrobnosti o spotřebovaném prostředku; například verze operačního systému nebo typ obrázku. |
+|`instanceData` |Páry klíč-hodnota podrobností instance (v novém formátu):<br> `resourceUri`: Plně kvalifikované ID prostředku, které zahrnuje skupiny prostředků a název instance. <br> `location`: Oblast, ve které byla tato služba spuštěna. <br> `tags`: Značky prostředků, které jsou určeny uživatelem. <br> `additionalInfo`: Další podrobnosti o spotřebovaném prostředku; například verze operačního systému nebo typ obrázku. |
 |`quantity`|Množství spotřeby prostředků, ke kterým došlo v tomto časovém rámci. |
-|`meterId` |Jedinečné ID spotřebovaného prostředku (označuje se také jako `ResourceID`). |
+|`meterId` |Jedinečné ID prostředku, který byl spotřebován (označovaný také `ResourceID`jako). |
 
 ## <a name="retrieve-usage-information"></a>Načíst informace o použití
 

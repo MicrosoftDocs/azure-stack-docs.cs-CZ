@@ -3,16 +3,16 @@ title: Jak získat ověřovací informace pro centrum Azure Stack
 description: Informace o tom, jak získat ověřovací informace pro centrum Azure Stack
 author: mattbriggs
 ms.topic: how-to
-ms.date: 12/13/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/13/2019
-ms.openlocfilehash: 845be919279107e88a922dfd180e3fc8794e1a89
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.openlocfilehash: ba55e6b5a6025d93f4e630d17fa9af731460105b
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79293887"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81661096"
 ---
 # <a name="get-authentication-information-for-azure-stack-hub"></a>Získat informace o ověřování pro centrum Azure Stack
 
@@ -36,7 +36,7 @@ Potřebujete tyto informace:
 
 -   **Koncový bod Správce prostředků centra Azure Stack**
 
-    Microsoft Azure Správce prostředků je rozhraní pro správu, které správcům umožňuje nasazovat, spravovat a monitorovat prostředky Azure. Azure Resource Manageru dokáže zpracovat tyto úkoly, jako se skupinou, nikoli samostatně, v rámci jedné operace.
+    Microsoft Azure Správce prostředků je rozhraní pro správu, které správcům umožňuje nasazovat, spravovat a monitorovat prostředky Azure. Azure Resource Manager může tyto úlohy v jedné operaci zpracovat jako skupinu, nikoli jednotlivě.
 
 ## <a name="get-the-subscription-id"></a>Získat ID předplatného
 
@@ -70,7 +70,7 @@ Azure Resource Manager koncový bod je koncový bod metadat pro službu nasazen�
 
 Pro integrovaný systém je adresa URL pro Azure Resource Manager koncový bod:<br>`https://management.<location>.<fqdn>`
 
-Pro získání koncového bodu metadat, který odkazuje na vlastnosti, jako je koncový bod galerie, koncový bod grafu, koncový bod portálu, koncový bod přihlášení a cílové skupiny, je adresa URL: `<ResourceManager>/metadata/endpoints?api-version=1.0`
+Pokud chcete získat koncový bod metadat, který odkazuje na vlastnosti, jako je koncový bod galerie, koncový bod grafu, koncový bod portálu, přihlašovací koncový bod a cílové skupiny, adresa URL:`<ResourceManager>/metadata/endpoints?api-version=1.0`
 
 ## <a name="next-steps"></a>Další kroky
 

@@ -3,16 +3,16 @@ title: Známé problémy centra Azure Stack
 description: Přečtěte si o známých problémech v Azure Stackch vydáních centra.
 author: sethmanheim
 ms.topic: article
-ms.date: 03/20/2020
+ms.date: 04/22/2020
 ms.author: sethm
-ms.reviewer: prchint
+ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: e5ffa0f8aab00ed26bb025958b95872eb11d1b76
-ms.sourcegitcommit: 821c05cac0db56d208f573369363e376180e2e84
+ms.openlocfilehash: 566ffc4f09906f703b19f16365eb721f6c595c6c
+ms.sourcegitcommit: 98f62c33469ba963ba266bd88e206e9144258ea3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80646314"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82032820"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Známé problémy centra Azure Stack
 
@@ -81,6 +81,10 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 - Příčina: explicitní pravidlo **DenyAllOutbound** nejde vytvořit v NSG, protože to zabrání v dokončení veškeré interní komunikace s infrastrukturou, která je potřebná pro nasazení virtuálního počítače.
 - Výskyt: běžné
 
+- Platí: Tento problém se vztahuje na všechny podporované verze. 
+- Příčina: při vytváření příchozího nebo odchozího pravidla zabezpečení sítě zobrazí možnost **protokol možnost protokolu** **ICMP** . V tuto chvíli se v Azure Stackovém centru nepodporuje. Tento problém je opravený a v příští verzi Azure Stack centra se nezobrazí.
+- Výskyt: běžné
+
 ### <a name="network-interface"></a>Síťové rozhraní
 
 #### <a name="addingremoving-network-interface"></a>Přidávání/odebírání síťového rozhraní
@@ -94,6 +98,13 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
 - Příčina: primární síťová karta virtuálního počítače se nedá změnit. Při odstraňování nebo odpojování primární síťové karty dojde k problémům při spouštění virtuálního počítače.
+- Výskyt: běžné
+
+### <a name="public-ip"></a>Veřejná IP adresa
+
+- Platí: Tento problém se vztahuje na všechny podporované verze.
+- Příčina: hodnota **IdleTimeoutInMinutes** pro veřejnou IP adresu, která je přidružená k nástroji pro vyrovnávání zatížení, se nedá změnit. Tato operace umístí veřejnou IP adresu do stavu selhání.
+- Náprava: Chcete-li přenést veřejnou IP adresu do úspěšného stavu, změňte hodnotu **IdleTimeoutInMinutes** u pravidla vyrovnávání zatížení, které odkazuje na veřejnou IP adresu zpět na původní hodnotu (výchozí hodnota je 4 minuty).
 - Výskyt: běžné
 
 ### <a name="virtual-network-gateway"></a>Brána virtuální sítě
@@ -113,8 +124,8 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 
 ### <a name="vm-overview-blade-does-not-show-correct-computer-name"></a>Okno s přehledem virtuálních počítačů nezobrazuje správný název počítače
 
-- Platí: Tento problém se týká 2002 a novějších verzí.
-- Příčina: při zobrazení podrobností o VIRTUÁLNÍm počítači v okně Přehled se zobrazí název počítače **(není k dispozici)** .
+- Platí: Tento problém se vztahuje na všechny verze.
+- Příčina: při zobrazení podrobností o VIRTUÁLNÍm počítači v okně Přehled se zobrazí název počítače **(není k dispozici)**. Jedná se o návrh pro virtuální počítače vytvořené z specializovaných disků nebo snímků disků.
 - Náprava: v části **Nastavení**zobrazte okno **vlastnosti** .
 
 ### <a name="nvv4-vm-size-on-portal"></a>Velikost virtuálního počítače NVv4 na portálu
@@ -151,10 +162,19 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 - Příčina: vytváření virtuálních počítačů ve skupině dostupnosti 3 domén selhání a vytvoření instance sady škálování virtuálního počítače selže s chybou **FabricVmPlacementErrorUnsupportedFaultDomainSize** během procesu aktualizace v prostředí centra Azure Stack se 4 uzly.
 - Náprava: můžete vytvořit jeden virtuální počítač ve skupině dostupnosti se dvěma doménami selhání úspěšně. Vytvoření instance sady škálování však není během procesu aktualizace ve 4 Azure Stackovém nasazení centra stále k dispozici.
 
-### <a name="sql-vm-provision-will-be-failed-in-asdk"></a>Zřizování virtuálního počítače SQL se v ASDK nezdaří.
-- Platí: Tento problém se týká jenom ASDK 2002. 
-- Příčina: při vytváření nového virtuálního počítače SQL v ASDK 2002 se může zobrazit chybová zpráva **přípona s vydavatelem Microsoft. SqlServer. Management, Type SqlIaaSAgent a verze obslužné rutiny typu 2,0 se v úložišti rozšíření** nepovedlo najít. V Azure Stackovém centru není žádná "SqlIaaSAgent" 2,0. 
+### <a name="sql-vm"></a>Virtuální počítač SQL
 
+#### <a name="storage-account-creating-failure-when-configuring-auto-backup"></a>Při konfiguraci automatického zálohování se nepovedlo vytvořit účet úložiště.
+
+- Platí: Tento problém se týká 2002.
+- Příčina: když konfigurujete automatizované zálohování virtuálních počítačů SQL pomocí nového účtu úložiště, dojde k selhání při **ověřování šablony nasazení chyba. Parametr šablony pro ' SqlAutobackupStorageAccountKind ' nebyl nalezen.**
+- Náprava: použijte nejnovější opravu hotfix 2002.
+
+#### <a name="auto-backup-cannot-be-configured-with-tls-12-enabled"></a>Automatické zálohování nejde nakonfigurovat s povoleným TLS 1,2.
+
+- Platí: Tento problém se týká nových instalací 2002 a novějších verzí nebo jakékoli předchozí verze s povoleným protokolem TLS 1,2.
+- Příčina: při konfiguraci automatizované zálohy virtuálních počítačů SQL s existujícím účtem úložiště dojde k selhání s chybou **SQL Server agenta IaaS: základní připojení bylo ukončeno: došlo k neočekávané chybě při odeslání.**
+- Výskyt: běžné
 
 ## <a name="resource-providers"></a>Poskytovatelé prostředků
 
@@ -192,7 +212,7 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 - Náprava: Pokud máte na těchto dvou předplatných prostředky, znovu je vytvořte v předplatných uživatele.
 - Výskyt: běžné
 
-### <a name="subscriptions-lock-blade"></a>Okno zámku předplatných
+### <a name="duplicate-subscription-button-in-lock-blade"></a>Tlačítko Duplikovat předplatné v okně zámku
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
 - Příčina: na portálu pro správu má okno **zámku** pro předplatné uživatele dvě tlačítka, která říká **předplatné**.
@@ -283,7 +303,7 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 - Náprava: pomocí procesu aktualizace poskytovatele prostředků použijte opravu hotfix poskytovatele prostředků SQL 1.1.47.0 po upgradu centra Azure Stack na aktualizaci 1910 ([SQL RP verze 1.1.47.0](https://aka.ms/azurestacksqlrp11470)). U poskytovatele prostředků MySQL doporučujeme, abyste po upgradu centra Azure Stack na verzi 1910 Update ([MySQL RP verze 1.1.47.0](https://aka.ms/azurestackmysqlrp11470)) použili opravu hotfix poskytovatele prostředků MySQL 1.1.47.0.
 - Výskyt: běžné
 
-### <a name="access-control-iam"></a>Řízení přístupu (IAM)
+### <a name="access-control-iam"></a>Access Control (IAM)
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
 - Příčina: rozšíření IAM není aktuální. Portál Ibiza, který se dodává s centrem Azure Stack, zavádí nové chování, které způsobí selhání rozšíření RBAC, pokud uživatel otevírá okno **Access Control (IAM)** pro předplatné, které není vybrané v nástroji pro výběr globálního předplatného (**adresář + předplatné** na portálu User Portal). V okně se zobrazí **načítání** ve smyčce a uživatel nemůže do předplatného přidat nové role. Okno **Přidat** také zobrazuje **načítání** ve smyčce.
@@ -387,7 +407,7 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 
 - Platí: Tento problém se týká 1910 a starších verzí.
 - Příčina: k privilegovanému koncovému bodu (virtuálním počítačům s ERC) se nejde připojit z počítače, na kterém běží jiná než anglická verze Windows.
-- Náprava: Jedná se o známý problém, který byl vyřešen v vydáních později než 1910. Jako alternativní řešení můžete spustit rutiny prostředí PowerShell **New-PSSession** a **Enter-PSSession** pomocí jazykové verze **en-US** . v příkladech nastavte jazykovou verzi pomocí tohoto skriptu: https://resources.oreilly.com/examples/9780596528492/blob/master/Use-Culture.ps1.
+- Náprava: Jedná se o známý problém, který byl vyřešen v vydáních později než 1910. Jako alternativní řešení můžete spustit rutiny prostředí PowerShell **New-PSSession** a **Enter-PSSession** pomocí jazykové verze **en-US** . v příkladech nastavte jazykovou verzi pomocí tohoto skriptu https://resources.oreilly.com/examples/9780596528492/blob/master/Use-Culture.ps1:.
 - Výskyt: vzácná
 
 ### <a name="virtual-machine-scale-set"></a>Škálovací sada virtuálních počítačů
@@ -430,7 +450,7 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 - Náprava: tyto vlastnosti předplatného můžete zobrazit v podokně **základy** v okně s **přehledem předplatných** .
 - Výskyt: běžné
 
-### <a name="subscriptions-lock-blade"></a>Okno zámku předplatných
+### <a name="duplicate-subscription-button-in-lock-blade"></a>Tlačítko Duplikovat předplatné v okně zámku
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
 - Příčina: na portálu pro správu má okno **zámku** pro předplatné uživatele dvě tlačítka označená **předplatným**.
@@ -449,7 +469,7 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 - Příčina: na portálu User Portal zobrazuje okno **Konfigurace** účtu úložiště možnost změny **typu přenosu zabezpečení**. Tato funkce v současnosti není v centru Azure Stack podporována.
 - Výskyt: běžné
 
-### <a name="upload-blob"></a>Nahrát objekt blob
+### <a name="upload-blob"></a>Nahrát objekt BLOB
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
 - Příčina: při pokusu o nahrání objektu BLOB pomocí možnosti **OAuth (Preview)** na portálu User Portal se úloha nezdařila s chybovou zprávou.
@@ -619,7 +639,7 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 - Příčina: na portálu User Portal zobrazuje okno **Konfigurace** účtu úložiště možnost změny **typu přenosu zabezpečení**. Tato funkce v současnosti není v centru Azure Stack podporována.
 - Výskyt: běžné
 
-### <a name="upload-blob"></a>Nahrát objekt blob
+### <a name="upload-blob"></a>Nahrát objekt BLOB
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
 - Příčina: při pokusu o nahrání objektu BLOB pomocí možnosti **OAuth (Preview)** na portálu User Portal se úloha nezdařila s chybovou zprávou.
@@ -682,7 +702,7 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 - Příčina: na portálu User Portal zobrazuje okno **připojení** funkci **s názvem Poradce při potížích s VPN**. Tato funkce se v současnosti v centru Azure Stack nepodporuje.
 - Výskyt: běžné
 
-### <a name="network-connection-type"></a>Typ připojení
+### <a name="network-connection-type"></a>Typ síťového připojení
 
 - Platí: Tento problém se týká jakéhokoli prostředí 1906 nebo 1907. 
 - Příčina: na portálu User Portal zobrazuje okno **AddConnection** možnost použít **VNet-to-VNet**. Tato funkce se v současnosti v centru Azure Stack nepodporuje. 

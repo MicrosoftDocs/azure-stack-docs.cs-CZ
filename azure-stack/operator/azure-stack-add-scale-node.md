@@ -3,16 +3,16 @@ title: Přidání uzlů jednotek škálování do centra Azure Stack
 description: Naučte se přidávat uzly jednotek škálování do jednotek škálování v Azure Stackovém centru.
 author: mattbriggs
 ms.topic: article
-ms.date: 1/16/2020
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: 8aa33cda9a657d3e0bcec9525f86bd792c855e65
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: c264e0abc0fdc5a382b83a23158f860a56aea260
+ms.sourcegitcommit: a3ae6dd8670f8fb24224880df7eee256ebbcc4ef
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77688759"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81772605"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack-hub"></a>Přidání dalších uzlů jednotek škálování do centra Azure Stack
 
@@ -22,7 +22,7 @@ Chcete-li přidat uzel jednotky škálování, budete pracovat v Azure Stack hub
 
 Následující vývojový diagram znázorňuje obecný proces přidání uzlu jednotky škálování:
 
-![přidat tok jednotek škálování](media/azure-stack-add-scale-node/add-node-flow.png)
+![Přidat tok jednotek škálování](media/azure-stack-add-scale-node/add-node-flow.svg)
 <br> *Bez ohledu na to, jestli dodavatel hardwaru OEM dokládá umístění racku fyzického serveru a aktualizuje firmware, se liší podle vaší smlouvy o podpoře.*
 
 Dokončení operace přidání nového uzlu může trvat několik hodin nebo dní. V systému není žádný vliv na spuštěné úlohy, zatímco je přidaný další uzel jednotky škálování.
@@ -36,7 +36,7 @@ Dokončení operace přidání nového uzlu může trvat několik hodin nebo dn�
 >  - Opravit uzel jednotky škálování
 
 
-## <a name="add-scale-unit-nodes"></a>Přidání uzlů jednotky škálování
+## <a name="add-scale-unit-nodes"></a>Přidat uzly jednotek škálování
 
 Následující kroky jsou nejdůležitějším přehledem o tom, jak přidat uzel. Tyto kroky neprovádějte, aniž byste nejdřív odkazovali na dokumentaci k rozšíření kapacity poskytované výrobcem OEM.
 
@@ -54,10 +54,10 @@ K přidání nových uzlů můžete použít portál pro správu nebo PowerShell
 ### <a name="use-the-administrator-portal"></a>Použití portálu pro správu
 
 1. Přihlaste se k portálu Azure Stackového centra pro správu jako operátor služby Azure Stack.
-2. Přejděte na **+ vytvořit prostředek** > **kapacity** > **uzel jednotky škálování**.
-   uzel jednotky škálování ![](media/azure-stack-add-scale-node/select-node1.png)
+2. Přejděte na **+ vytvořit** > **Capacity** > **uzel jednotka škálování**kapacity prostředku.
+   ![Uzel jednotky škálování](media/azure-stack-add-scale-node/select-node1.png)
 3. V podokně **přidat uzel** vyberte *oblast*a potom vyberte *jednotku škálování* , do které chcete uzel přidat. Zadejte také *IP adresu řadiče pro správu základní desky* pro uzel jednotky škálování, který přidáváte. Najednou můžete přidat jenom jeden uzel.
-   ![přidat podrobnosti uzlu](media/azure-stack-add-scale-node/select-node2.png)
+   ![Přidat podrobnosti uzlu](media/azure-stack-add-scale-node/select-node2.png)
  
 
 ### <a name="use-powershell"></a>Použití prostředí PowerShell
@@ -67,7 +67,7 @@ K přidání uzlu použijte rutinu **New-AzsScaleUnitNodeObject** .
 Před použitím některého z následujících ukázkových skriptů PowerShellu nahraďte *názvy uzlů* a *IP adresy* hodnotami z vašeho prostředí Azure Stack hub.
 
   > [!Note]  
-  > Při pojmenovávání uzlu musíte zachovat název kratší než 15 znaků. Nemůžete také použít název, který obsahuje mezeru, nebo obsahuje některý z následujících znaků: `\`, `/`, `:`, `*`, `?`, `"`, `<`, `>`, `|`, `\`, `~`, `!`, `@`, `#`, `$`, `%`, `^`, `&`, `(`, `)`, `{``}``_`.
+  > Při pojmenovávání uzlu musíte zachovat název kratší než 15 znaků. Nemůžete také `\`použít název, který obsahuje mezery nebo obsahuje některý z následujících znaků:, `/`, `:`, `*`, `?`, `"`, `<`, `>`, `|`, `\`, `~`,, `!`, `@`, `#`, `$`, `%`, `^`, `&`, `(`, `)`, `{`, `}`, `_`,,,,,,,,,,,.
 
 **Přidat uzel:**
   ```powershell
@@ -81,7 +81,7 @@ Před použitím některého z následujících ukázkových skriptů PowerShell
 K získání stavu operace přidání uzlu použijte portál pro správu nebo PowerShell. Dokončení operací přidání uzlu může trvat několik hodin.
 
 ### <a name="use-the-administrator-portal"></a>Použití portálu pro správu 
-Chcete-li monitorovat přidání nového uzlu, Projděte si část jednotka škálování nebo objekty uzlu jednotky škálování na portálu pro správu. Provedete to tak, že přejdete do **oblasti správa** > **jednotky škálování**. V dalším kroku vyberte jednotku škálování nebo uzel jednotky škálování, který chcete zkontrolovat. 
+Chcete-li monitorovat přidání nového uzlu, Projděte si část jednotka škálování nebo objekty uzlu jednotky škálování na portálu pro správu. Provedete to tak, že přejdete na > **jednotky škálování** **správy oblastí**. V dalším kroku vyberte jednotku škálování nebo uzel jednotky škálování, který chcete zkontrolovat. 
 
 ### <a name="use-powershell"></a>Použití prostředí PowerShell
 Stav jednotky škálování a uzly jednotek škálování se dají načíst pomocí PowerShellu následujícím způsobem:
@@ -96,7 +96,7 @@ Stav jednotky škálování a uzly jednotek škálování se dají načíst pomo
 ### <a name="status-for-the-add-node-operation"></a>Stav operace přidat uzel 
 **Pro jednotku škálování:**
 
-|Stav               |Popis  |
+|Status               |Popis  |
 |---------------------|---------|
 |Spuštěno              |Všechny uzly se aktivně podílejí na jednotce škálování.|
 |Zastaveno              |Uzel jednotka škálování je buď nedostupný, nebo nedosažitelný.|
@@ -107,17 +107,17 @@ Stav jednotky škálování a uzly jednotek škálování se dají načíst pomo
 
 **Pro uzel jednotky škálování:**
 
-|Stav                |Popis  |
+|Status                |Popis  |
 |----------------------|---------|
 |Spuštěno               |Uzel je aktivně zapojen do jednotky škálování.|
 |Zastaveno               |Uzel není k dispozici.|
 |Přidávání                |Uzel se aktivně přidávají do jednotky škálování.|
-|Oprava             |Uzel je aktivně opravován.|
+|Opravíte             |Uzel je aktivně opravován.|
 |Údržba           |Uzel je pozastaven a není spuštěna žádná úloha aktivního uživatele. |
 |Vyžaduje nápravu  |Zjistila se chyba, která vyžaduje, aby byl uzel opravený.|
 
 
-## <a name="troubleshooting"></a>Odstraňování potíží
+## <a name="troubleshooting"></a>Řešení potíží
 Níže jsou uvedeny běžné problémy, které se zobrazují při přidávání uzlu. 
 
 **Scénář 1:**  Operace přidání uzlu jednotky škálování se nezdařila, ale jeden nebo více uzlů je uveden stavem zastaveno.  

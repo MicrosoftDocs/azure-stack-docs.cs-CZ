@@ -7,23 +7,23 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: wamota
 ms.lastreviewed: 06/04/2019
-ms.openlocfilehash: 121bbc5ff081a6a7773d69294175f979b89bcfc5
-ms.sourcegitcommit: b65952127f39c263b162aad990e4d5b265570a7f
+ms.openlocfilehash: f447f4969e9cb9bcb4d56ea5961473e1028e44f3
+ms.sourcegitcommit: 7b8e067cb449e67ca9c2935580684d78840ad495
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80402841"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82106903"
 ---
 # <a name="network-integration-planning-for-azure-stack"></a>Plánování integrace sítě pro Azure Stack
 
 Tento článek poskytuje Azure Stack informace o infrastruktuře sítě, které vám pomůžou rozhodnout, jak nejlépe integrovat Azure Stack do stávajícího síťového prostředí. 
 
 > [!NOTE]
-> K překladu externích názvů DNS z Azure Stack (například www\.bing.com) je potřeba poskytnout servery DNS pro přeposílání požadavků DNS. Další informace o Azure Stack požadavcích DNS najdete v tématu věnovaném [integraci Azure Stack Datacenter – DNS](azure-stack-integrate-dns.md).
+> Chcete-li přeložit externí názvy DNS z Azure Stack (například\.Bing.com), je nutné poskytnout servery DNS pro přeposílání požadavků DNS. Další informace o Azure Stack požadavcích DNS najdete v tématu věnovaném [integraci Azure Stack Datacenter – DNS](azure-stack-integrate-dns.md).
 
 ## <a name="physical-network-design"></a>Návrh fyzické sítě
 
-Řešení Azure Stack pro zajištění podpory svého provozu a služeb vyžaduje odolnou a vysoce dostupnou fyzickou infrastrukturu. Aby bylo možné integrovat Azure Stack do sítě, vyžaduje odchozí připojení od přepínačů Top-of-rack (rozhraní) k nejbližšímu přepínači nebo směrovači, který je v této dokumentaci označován jako ohraničení. Tory může být odchozí připojení k jedné nebo druhé dvojici ohraničení. Modul pro automatizaci je předem nakonfigurovaný pomocí našeho nástroje pro automatizaci, očekává se minimálně jedno spojení mezi systémem a hranicí při použití směrování protokolu BGP a minimálně dvou připojení (jedna za službu) mezi systémem a hranicí při použití statického směrování, s maximálně čtyřmi připojeními. buď možnosti směrování. Tato připojení jsou omezená na více než SFP28 média a na jednu GB, 10 GB nebo rychlosti 25 GB. Obraťte se na dodavatele hardwaru OEM (Original Equipment Manufacturer) pro dostupnost. Následující diagram znázorňuje doporučený návrh:
+Řešení Azure Stack pro zajištění podpory svého provozu a služeb vyžaduje odolnou a vysoce dostupnou fyzickou infrastrukturu. Aby bylo možné integrovat Azure Stack do sítě, vyžaduje odchozí připojení od přepínačů Top-of-rack (rozhraní) k nejbližšímu přepínači nebo směrovači, který je v této dokumentaci označován jako ohraničení. Tory může být odchozí připojení k jedné nebo druhé dvojici ohraničení. Modul pro automatizaci je předem nakonfigurovaný pomocí našeho nástroje pro automatizaci, očekává se minimálně jedno spojení mezi systémem a hranicí při použití směrování protokolu BGP a minimálně dvou připojení (jedna za službu) mezi systémem a hranicí při použití statického směrování s maximálním počtem čtyř připojení na obou možnostech směrování. Tato připojení jsou omezená na více než SFP28 média a na jednu GB, 10 GB nebo rychlosti 25 GB. Obraťte se na dodavatele hardwaru OEM (Original Equipment Manufacturer) pro dostupnost. Následující diagram znázorňuje doporučený návrh:
 
 ![Doporučený Azure Stack návrh sítě](media/azure-stack-network/physical-network.svg)
 
@@ -34,13 +34,13 @@ Logické sítě představuje abstrakci základní fyzické síťové infrastrukt
 
 Následující tabulka uvádí logické sítě a přidružené rozsahy podsítí IPv4, které je nutné naplánovat:
 
-| Logické sítě | Popis | Velikost | 
+| Logická síť | Popis | Velikost | 
 | -------- | ------------- | ------------ | 
 | Veřejná virtuální IP adresa | Azure Stack používá celkem 31 adres z této sítě. Osm veřejných IP adres se používá pro malou sadu Azure Stack služeb a zbývající jsou používány virtuálními počítači klienta. Pokud plánujete použít App Service a poskytovatele prostředků SQL, použijí se 7 dalších adres. Zbývajících 15 IP adres se rezervuje pro budoucí služby Azure. | /26 (62 hostitelů)-/22 (1022 hostitelů)<br><br>Doporučené =/24 (254 hostitelů) | 
-| Přepnout infrastrukturu | IP adresy Point-to-Point pro účely směrování, rozhraní pro správu vyhrazených přepínačů a adresy zpětné smyčky přiřazené přepínači. | /26 | 
-| Infrastruktura | Slouží k Azure Stack interní součásti pro komunikaci. | /24 |
-| Privátní | Používá se pro síť úložiště, privátní virtuální IP adresy, kontejnery infrastruktury a další interní funkce. Od 1910 se velikost této podsítě mění na/20. Další podrobnosti najdete v části [privátní síť](#private-network) v tomto článku. | /20 | 
-| BMC | Slouží ke komunikaci s BMC na fyzických hostitelích. | /26 | 
+| Přepnout infrastrukturu | IP adresy Point-to-Point pro účely směrování, rozhraní pro správu vyhrazených přepínačů a adresy zpětné smyčky přiřazené přepínači. | za 26 | 
+| Infrastruktura | Slouží k Azure Stack interní součásti pro komunikaci. | za 24 |
+| Private | Používá se pro síť úložiště, privátní virtuální IP adresy, kontejnery infrastruktury a další interní funkce. Od 1910 se velikost této podsítě mění na/20. Další podrobnosti najdete v části [privátní síť](#private-network) v tomto článku. | /20 | 
+| Řadič BMC | Slouží ke komunikaci s BMC na fyzických hostitelích. | za 26 | 
 | | | |
 
 > [!NOTE]
@@ -73,7 +73,7 @@ Pro systémy nasazené před 1910 bude tato/20 podsíť další síť, která se
 > [!NOTE]
 > Vstup/20 slouží jako předpoklad pro příští aktualizaci centra Azure Stack po 1910. Když se další aktualizace centra Azure Stack po 1910 vydání a pokusíte se ji nainstalovat, aktualizace se nezdaří, pokud jste nedokončili vstup/20, jak je popsáno v následujících krocích oprav. V portálu pro správu bude k dispozici výstraha, dokud výše uvedené kroky nápravy nejsou dokončeny. V článku věnovaném [integraci sítě Datacenter](azure-stack-network.md#private-network) se dozvíte, jak bude tento nový privátní prostor použit.
 
-**Postup nápravy**: Pokud chcete problém vyřešit, postupujte podle pokynů a [otevřete relaci PEP](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). Připravte velikost [privátního interního rozsahu IP adres](azure-stack-network.md#logical-networks) /20 a v relaci PEP spusťte následující rutinu (k dispozici pouze počínaje 1910) pomocí následujícího příkladu: `Set-AzsPrivateNetwork -UserSubnet 100.87.0.0/20`. Pokud se operace provede úspěšně, obdržíte do **Konfigurace přidaný rozsah interní sítě AZS**. Po úspěšném dokončení se výstraha zavře na portálu pro správu. Systém centra Azure Stack se teď může aktualizovat na další verzi.
+**Postup nápravy**: Pokud chcete problém vyřešit, postupujte podle pokynů a [otevřete relaci PEP](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). Připravte velikost [privátního interního rozsahu IP adres](azure-stack-network.md#logical-networks) /20 a v relaci PEP spusťte následující rutinu (k dispozici pouze počínaje 1910) pomocí následujícího příkladu: `Set-AzsPrivateNetwork -UserSubnet 10.87.0.0/20`. Pokud se operace provede úspěšně, obdržíte do **Konfigurace přidaný rozsah interní sítě AZS**. Po úspěšném dokončení se výstraha zavře na portálu pro správu. Systém centra Azure Stack se teď může aktualizovat na další verzi.
 
 ### <a name="azure-stack-infrastructure-network"></a>Síť Azure Stack infrastruktury
 Tato síť/24 je vyhrazená pro interní Azure Stack komponenty, aby mohly komunikovat a vyměňovat data mezi sebou. Tuto podsíť je možné směrovat externě Azure Stack řešení do vašeho datového centra, ale nedoporučujeme používat v této podsíti veřejné nebo internetové IP adresy směrování. Tato síť se inzeruje na hranici, ale většina IP adres je chráněná pomocí seznamů Access Control (ACL). IP adresy povolené pro přístup jsou v malém rozsahu, který je ekvivalentní velikosti až/27 sítě a hostitelských služeb, jako je například [privilegovaný koncový bod (PEP)](azure-stack-privileged-endpoint.md) a [Zálohování Azure Stack](azure-stack-backup-reference.md).
@@ -92,7 +92,7 @@ Tato síť/29 (šest hostitelských IP adres) je vyhrazená pro připojení port
 
 ## <a name="permitted-networks"></a>Povolené sítě
 
-Od 1910 bude mít list nasazení toto nové pole, které umožňuje operátorovi změnit některý seznam řízení přístupu (ACL) s tím, aby povoloval přístup k rozhraním pro správu síťových zařízení a k hostiteli životního cyklu hardwaru (HLH) z rozsahu důvěryhodné sítě Datacenter. . Se změnou seznamu řízení přístupu může operátor dovolit, aby JumpBox virtuální počítače pro správu v rámci určitého rozsahu sítě pro přístup k rozhraní pro správu přepínačů, HLH operačním systému a HLH BMC. Operátor může do tohoto seznamu zadat jednu nebo více podsítí, pokud pole necháte prázdné, bude ve výchozím nastavení odepřen přístup. Tato nová funkce nahrazuje ruční zásah po nasazení, který se používá k popisu na základě [nastavení změnit konkrétní v konfiguraci přepínače Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-customer-defined#access-control-list-updates).
+Od 1910 bude mít list nasazení toto nové pole, které umožňuje operátorovi změnit některý seznam řízení přístupu (ACL) s tím, aby povoloval přístup k rozhraním pro správu síťových zařízení a k hostiteli životního cyklu hardwaru (HLH) z rozsahu důvěryhodné sítě Datacenter. Se změnou seznamu řízení přístupu může operátor dovolit, aby JumpBox virtuální počítače pro správu v rámci určitého rozsahu sítě pro přístup k rozhraní pro správu přepínačů, HLH operačním systému a HLH BMC. Operátor může do tohoto seznamu zadat jednu nebo více podsítí, pokud pole necháte prázdné, bude ve výchozím nastavení odepřen přístup. Tato nová funkce nahrazuje ruční zásah po nasazení, který se používá k popisu na základě [nastavení změnit konkrétní v konfiguraci přepínače Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-customer-defined#access-control-list-updates).
 
 ## <a name="next-steps"></a>Další kroky
 

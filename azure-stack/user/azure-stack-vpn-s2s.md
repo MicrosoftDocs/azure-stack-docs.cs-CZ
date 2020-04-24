@@ -6,14 +6,14 @@ ms.topic: article
 ms.date: 01/07/2020
 ms.author: sethm
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 36a4ea0532eda0593de2beb9191d6e0911e58276
-ms.sourcegitcommit: da91962d8133b985169b236fb4c84f4ef564efc8
+ms.openlocfilehash: 144dcd2ca714a1654bd7add2b415c0ce35126d9b
+ms.sourcegitcommit: 98f62c33469ba963ba266bd88e206e9144258ea3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80367795"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82032769"
 ---
-# <a name="configure-ipsecike-policy-for-site-to-site-vpn-connections"></a>Konfigurace zásad IPsec/IKE pro připojení VPN typu Site-to-site
+# <a name="configure-ipsecike-policy-for-site-to-site-vpn-connections"></a>Konfigurace zásad IPsec/IKE pro připojení site-to-site VPN
 
 Tento článek vás provede jednotlivými kroky konfigurace zásad IPsec/IKE pro připojení VPN typu Site-to-Site (S2S) v centru Azure Stack.
 
@@ -32,7 +32,7 @@ Při používání těchto zásad Vezměte v vědomí následující důležité
 
 - Zásady IPsec/IKE fungují jenom na SKU brány *Standard* a *HighPerformance* (na základě tras).
 
-- Pro dané připojení můžete zadat jenom jednu kombinaci zásad.
+- Pro jedno připojení můžete zadat pouze jednu kombinaci zásad.
 
 - Je nutné zadat všechny algoritmy a parametry pro protokol IKE (hlavní režim) i pro protokol IPsec (rychlý režim). Zadání částečných zásad není povoleno.
 
@@ -64,11 +64,11 @@ Následující tabulka uvádí podporované kryptografické algoritmy a síly kl
 |------------------------------------------------------|--------------------------------------------------------------------------|
 | Šifrování protokolem IKEv2                                     | AES256, AES192, AES128, DES3, DES                                        |
 | Integrita protokolu IKEv2                                      | SHA384, SHA256, SHA1, MD5                                                |
-| Skupina DH                                             | ECP384, ECP256, DHGroup14, DHGroup2, DHGroup1, None                      |
+| Skupina DH                                             | ECP384, ECP256, DHGroup24, DHGroup14, DHGroup2, DHGroup1                 |
 | Šifrování protokolem IPsec                                     | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, Žádné |
 | Integrita protokolu IPsec                                      | GCMASE256, GCMAES192, GCMAES128                                          |
-| Skupina PFS                                            | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, Žádná                         |
-| Doba života přidružení zabezpečení v rychlém režimu                                       | (Volitelné: použijí se výchozí hodnoty, pokud není zadaný)<br />                         Sekundy (Integer; min. 300/výchozí 27000 sekund)<br />                         Kilobajty (Integer; min. 1024/výchozí 102400000 KB) |
+| Skupina PFS                                            | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, PFSMM, None                  |
+| Doba života přidružení zabezpečení v rychlém režimu                                       | (Volitelné: použijí se výchozí hodnoty, pokud není zadaný)<br />                         Sekundy (integer; min. 300 / výchozí hodnota 27 000 sekund)<br />                         Kilobajty (integer; min. 1024 / výchozí hodnota 102 400 000 kilobajtů) |
 | Selektor provozu                                     | Selektory přenosu na základě zásad nejsou v Azure Stackovém centru podporovány.         |
 
 - Konfigurace vašeho místního zařízení VPN musí odpovídat zásadám brány Azure VPN Gateway nebo musí obsahovat následující algoritmy a parametry, které zadáte v zásadách IPsec/IKE Azure:
@@ -83,7 +83,7 @@ Následující tabulka uvádí podporované kryptografické algoritmy a síly kl
 
 - Pokud se pro šifrovací algoritmus IPsec používá GCMAES, musíte vybrat stejný algoritmus GCMAES a délku klíče pro integritu protokolu IPsec. Například: použití GCMAES128 pro obojí.
 
-- V předchozí tabulce:
+- V tabulce:
 
   - IKEv2 odpovídá hlavnímu režimu nebo fázi 1.
   - Protokol IPsec odpovídá rychlému režimu nebo fázi 2.
@@ -113,7 +113,7 @@ V této části se seznámíte s postupem vytvoření připojení VPN typu Site-
 
 Podrobnější pokyny pro vytvoření připojení VPN typu Site-to-site najdete v tématu [vytvoření připojení VPN typu Site-to-site](/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell).
 
-### <a name="prerequisites"></a>Předpoklady
+### <a name="prerequisites"></a>Požadavky
 
 Než začnete, ujistěte se, že máte následující požadavky:
 
@@ -257,7 +257,7 @@ DhGroup : DHGroup14
 PfsGroup : None
 ```
 
-Pokud nejsou nakonfigurované žádné zásady IPsec/IKE, příkaz `$connection6.policy` vrátí prázdný návrat. Neznamená to, že protokol IPsec/IKE není pro připojení nakonfigurovaný. znamená to, že nejsou k dispozici žádné vlastní zásady IPsec/IKE. Skutečné připojení používá výchozí zásady sjednané mezi místním zařízením VPN a službou Azure VPN Gateway.
+Pokud nejsou nakonfigurované žádné zásady IPsec/IKE, příkaz `$connection6.policy` vrátí prázdnou hodnotu Return. Neznamená to, že protokol IPsec/IKE není pro připojení nakonfigurovaný. znamená to, že nejsou k dispozici žádné vlastní zásady IPsec/IKE. Skutečné připojení používá výchozí zásady sjednané mezi místním zařízením VPN a službou Azure VPN Gateway.
 
 ### <a name="2-add-or-update-an-ipsecike-policy-for-a-connection"></a>2. Přidání nebo aktualizace zásad IPsec/IKE pro připojení
 

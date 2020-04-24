@@ -1,24 +1,24 @@
 ---
-title: Nasazení webové C# aplikace v ASP.NET do virtuálního počítače v centru Azure Stack
-description: Nasaďte C# webovou aplikaci v ASP.NET do virtuálního počítače v centru Azure Stack.
+title: Nasazení webové aplikace v C# ASP.NET do virtuálního počítače v centru Azure Stack
+description: Nasaďte webovou aplikaci v C# ASP.NET do virtuálního počítače v Azure Stackovém centru.
 author: mattbriggs
 ms.topic: overview
-ms.date: 11/11/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 505d00c6255ef7b8b919f1af0229bd207bbe032f
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 1f986c1d09397fae9d765f2a64a7fda267f4ac98
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77704178"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81661078"
 ---
-# <a name="deploy-a-c-aspnet-web-app-to-a-vm-in-azure-stack-hub"></a>Nasazení webové C# aplikace v ASP.NET do virtuálního počítače v centru Azure Stack
+# <a name="deploy-a-c-aspnet-web-app-to-a-vm-in-azure-stack-hub"></a>Nasazení webové aplikace v C# ASP.NET do virtuálního počítače v centru Azure Stack
 
-Můžete vytvořit virtuální počítač pro hostování webové aplikace v C# ASP.NET v centru Azure Stack. Tento článek popisuje pokyny, které je třeba provést při nastavování serveru, jeho konfiguraci pro hostování C# webové aplikace v ASP.NET a následné nasazení aplikace přímo ze sady Visual Studio.
+Můžete vytvořit virtuální počítač, který bude hostovat vaši webovou aplikaci v C# ASP.NET v centru Azure Stack. Tento článek popisuje pokyny, které je třeba provést při nastavování serveru, jeho konfiguraci pro hostování webové aplikace v C# ASP.NET a následné nasazení aplikace přímo ze sady Visual Studio.
 
-V tomto článku se C# používá aplikace 6,0, která používá ASP.NET Core 2,2 spuštěnou na serveru Windows 2016.
+Tento článek používá aplikaci C# 6,0, která používá ASP.NET Core 2,2 spuštěnou na serveru Windows 2016.
 
 ## <a name="create-a-vm"></a>Vytvoření virtuálního počítače
 
@@ -47,25 +47,25 @@ V tomto článku se C# používá aplikace 6,0, která používá ASP.NET Core 2
 
     b. Vyhledejte svůj virtuální počítač. Je možné, že jste virtuální počítač připnuli k řídicímu panelu, nebo ho můžete vyhledat v poli **Hledat prostředky** .
 
-    c. Vyberte **sítě**.
+    c. Vyberte **Sítě**.
 
     d. V části virtuální počítač vyberte **Přidat pravidlo portu pro příchozí spojení** .
 
     e. Přidejte příchozí pravidlo zabezpečení pro následující porty:
 
-    | Port | Protokol | Popis |
+    | Port | Protocol (Protokol) | Popis |
     | --- | --- | --- |
     | 80 | HTTP | HTTP (Hypertext Transfer Protocol) je protokol používaný k doručování webových stránek ze serverů. Klienti se připojují přes protokol HTTP s názvem DNS nebo IP adresou. |
     | 443 | HTTPS | Protokol HTTPS (Hypertext Transfer Protocol Secure) je zabezpečená verze protokolu HTTP, která vyžaduje certifikát zabezpečení a umožňuje šifrovaný přenos informací.  |
     | 22 | SSH | Secure Shell (SSH) je zašifrovaný síťový protokol pro zabezpečenou komunikaci. K nakonfigurování virtuálního počítače a nasazení aplikace použijete toto připojení k klientovi SSH. |
-    | 3389 | RDP | Volitelné. Protokol RDP (Remote Desktop Protocol) umožňuje připojení ke vzdálené ploše pro použití grafického uživatelského rozhraní vašeho počítače.   |
+    | 3389 | Protokol RDP | Nepovinný parametr. Protokol RDP (Remote Desktop Protocol) umožňuje připojení ke vzdálené ploše pro použití grafického uživatelského rozhraní vašeho počítače.   |
     | 8172 | Vlastní | Port používaný nástrojem WebDeploy. |
 
     Pro každý port:
 
     a. Jako **zdroj**vyberte **libovolný**.
 
-    b. Jako **rozsah zdrojového portu**zadejte hvězdičku ( **\*** ).
+    b. Jako **rozsah zdrojového portu**zadejte hvězdičku (**\***).
 
     c. Jako **cíl**vyberte **libovolný**.
 
@@ -124,7 +124,7 @@ Vytvořte cíl publikování na VIRTUÁLNÍm počítači v centru Azure Stack.
 1. Nastavte **konfiguraci** jako **verzi**.
 1. Nastavte **cílové rozhraní .NET Framework** jako **netcoreapp 2.2**.
 1. Nastavte **cílový modul runtime** jako **přenosný**.
-1. Vyberte **Save** (Uložit).
+1. Vyberte **Uložit**.
 1. Vyberte **Publikovat**.
 1. Přejít na nový server. Měla by se zobrazit vaše spuštěná webová aplikace.
 
@@ -136,4 +136,4 @@ Vytvořte cíl publikování na VIRTUÁLNÍm počítači v centru Azure Stack.
 
 - Přečtěte si, jak [nastavit vývojové prostředí v Azure Stack hub](azure-stack-dev-start.md).
 - Přečtěte si o [běžných nasazeních centra Azure Stack jako IaaS](azure-stack-dev-start-deploy-app.md).
-- Informace o C# programovacím jazyce a hledání dalších prostředků pro C#najdete v [ C# průvodci](https://docs.microsoft.com/dotnet/csharp/) .
+- Informace o programovacím jazyce C# a hledání dalších prostředků pro C# najdete v [Průvodci c#](https://docs.microsoft.com/dotnet/csharp/) .

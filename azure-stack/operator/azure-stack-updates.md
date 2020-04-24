@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 70079b0959f0e5dc5072ef83c68c8887cd006089
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.openlocfilehash: 48bc8e2df857b2e1c352ffaa55ef900672d4f78b
+ms.sourcegitcommit: a3ae6dd8670f8fb24224880df7eee256ebbcc4ef
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79294646"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81772497"
 ---
 # <a name="manage-updates-in-azure-stack-hub"></a>Správa aktualizací v centru Azure Stack
 
@@ -67,7 +67,7 @@ Oznámení aktualizací se liší v několika faktorech, například připojení
 
 Jakmile víte, že máte aktualizaci, použijte ji pomocí následujících kroků.
 
-![Proces aktualizace centra Azure Stack](./media/azure-stack-updates/azure-stack-update-process.png)
+![Proces aktualizace centra Azure Stack](./media/azure-stack-updates/azure-stack-update-process.svg)
 
 1. **Naplánujte aktualizaci**.
 

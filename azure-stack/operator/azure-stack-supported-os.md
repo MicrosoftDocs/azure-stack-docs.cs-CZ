@@ -4,16 +4,16 @@ titleSuffix: Azure Stack
 description: Seznamte se s hostovanými operačními systémy, které se dají použít v Azure Stack hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/07/2020
+ms.date: 04/20/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/06/2019
-ms.openlocfilehash: a731c7c72f38fee0fb37fc8b82e55799d5b80d3b
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 17af4430f84f744a6ff4c8994ff453939fadb747
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77696936"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81661248"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack-hub"></a>Hostované operační systémy podporované v centru Azure Stack
 
@@ -23,13 +23,13 @@ Centrum Azure Stack podporuje hostované operační systémy Windows, které jso
 
 | Operační systém | Popis | K dispozici v tržišti Azure Stack hub |
 | --- | --- | --- |
-| Windows Server verze 1709 | 64bitový | Jádro s kontejnery |
-| Windows Server 2019 | 64bitový |  Datacenter, Datacenter Core, Datacenter s kontejnery |
-| Windows Server 2016 | 64bitový |  Datacenter, Datacenter Core, Datacenter s kontejnery |
-| Windows Server 2012 R2 | 64bitový |  Datacenter |
-| Windows Server 2012 | 64bitový |  Datacenter |
-| Windows Server 2008 R2 SP1 | 64bitový |  Datacenter |
-| Windows Server 2008 SP2 | 64bitový |  Přineste si vlastní image |
+| Windows Server verze 1709 | 64bitová | Jádro s kontejnery |
+| Windows Server 2019 | 64bitová |  Datacenter, Datacenter Core, Datacenter s kontejnery |
+| Windows Server 2016 | 64bitová |  Datacenter, Datacenter Core, Datacenter s kontejnery |
+| Windows Server 2012 R2 | 64bitová |  Datové centrum |
+| Windows Server 2012 | 64bitová |  Datové centrum |
+| Windows Server 2008 R2 SP1 | 64bitová |  Datové centrum |
+| Windows Server 2008 SP2 | 64bitová |  Přineste si vlastní image |
 | Windows 10 *(viz poznámka 1)* | 64-bit, pro a Enterprise | Přineste si vlastní image |
 
 > [!NOTE]
@@ -50,20 +50,20 @@ Distribuce systému Linux uvedené jako dostupné na webu centra Azure Stack zah
 
 | Distribuce | Popis | Vydavatel | Tržiště centra Azure Stack |
 | --- | --- | --- | --- |
-| CentOS-based 6,9 | 64bitový | Neautorizovaný Wave | Ano |
-| CentOS-based 7,5 | 64bitový | Neautorizovaný Wave | Ano |
-| Distribuce založené na CentOS 7.3 | 64bitový | Neautorizovaný Wave | Ano |
-| ClearLinux | 64bitový | ClearLinux.org | Ano |
-| CoreOS Linux (stabilní) |  64bitový | CoreOS | Ano |
-| Debian 8 "Jessie" | 64bitový | credativ |  Ano |
-| Debian 9 "Stretch" | 64bitový | credativ | Ano |
-| Oracle Linux | 64bitový | Oracle | Ano |
-| Red Hat Enterprise Linux 7,1 (a novější) | 64bitový | Red Hat | Přineste si vlastní image |
-| SLES 11SP4 | 64bitový | SUSE | Ano |
-| SLES 12SP3 | 64bitový | SUSE | Ano |
-| Ubuntu 14,04 – LTS | 64bitový | Canonical | Ano |
-| Ubuntu 16,04 – LTS | 64bitový | Canonical | Ano |
-| Ubuntu 18,04 – LTS | 64bitový | Canonical | Ano |
+| CentOS-based 6,9 | 64bitová | Neautorizovaný Wave | Ano |
+| CentOS-based 7,5 | 64bitová | Neautorizovaný Wave | Ano |
+| Distribuce založené na CentOS 7.3 | 64bitová | Neautorizovaný Wave | Ano |
+| ClearLinux | 64bitová | ClearLinux.org | Ano |
+| CoreOS Linux (stabilní) |  64bitová | CoreOS | Ano |
+| Debian 8 "Jessie" | 64bitová | credativ |  Ano |
+| Debian 9 "Stretch" | 64bitová | credativ | Ano |
+| Oracle Linux | 64bitová | Oracle | Ano |
+| Red Hat Enterprise Linux 7,1 (a novější) | 64bitová | Red Hat | Přineste si vlastní image |
+| SLES 11SP4 | 64bitová | SUSE | Ano |
+| SLES 12SP3 | 64bitová | SUSE | Ano |
+| Ubuntu 14,04 – LTS | 64bitová | Canonical | Ano |
+| Ubuntu 16,04 – LTS | 64bitová | Canonical | Ano |
+| Ubuntu 18,04 – LTS | 64bitová | Canonical | Ano |
 
 Informace o podpoře Red Hat Enterprise Linux najdete v tématu [Red Hat a Azure Stack hub: nejčastější dotazy](https://access.redhat.com/articles/3413531).
 

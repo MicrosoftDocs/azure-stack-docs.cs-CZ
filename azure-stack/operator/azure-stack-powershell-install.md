@@ -3,16 +3,16 @@ title: Nainstalovat modul PowerShellu AzureRM pro centrum Azure Stack
 description: Přečtěte si, jak nainstalovat PowerShell pro centrum Azure Stack.
 author: mattbriggs
 ms.topic: article
-ms.date: 1/22/2020
+ms.date: 04/14/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: b362ab1e4c555ae4de5be0feecd19d8cc8e6654a
-ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
+ms.lastreviewed: 04/14/2020
+ms.openlocfilehash: d2c40307daa37b8f522fde9010a3d285eebff0fc
+ms.sourcegitcommit: 7b8e067cb449e67ca9c2935580684d78840ad495
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "80069444"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82106937"
 ---
 # <a name="install-powershell-azurerm-module-for-azure-stack-hub"></a>Nainstalovat modul PowerShellu AzureRM pro centrum Azure Stack
 
@@ -49,7 +49,7 @@ Ověří, jestli je PSGallery zaregistrovaný jako úložiště.
 Otevřete příkazový řádek prostředí PowerShell se zvýšenými oprávněními a spusťte následující rutiny:
 
 ```powershell
-Install-module -Name PowerShellGet -Force 
+Install-module -Name PowerShellGet -Force
 Import-Module -Name PackageManagement -ErrorAction Stop
 Get-PSRepository -Name "PSGallery"
 ```
@@ -65,16 +65,17 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 
 Před instalací požadované verze se ujistěte, že jste odinstalovali všechny dříve nainstalované moduly AzureRM prostředí PowerShell pro Azure Stack hub. Moduly odinstalujte pomocí jedné z následujících dvou metod:
 
-1. Pokud chcete odinstalovat stávající moduly PowerShellu AzureRM, zavřete všechny aktivní relace PowerShellu a spusťte následující rutiny:
+1. Pokud chcete odinstalovat stávající moduly AzureRM a AZ PowerShell, zavřete všechny aktivní relace PowerShellu a spusťte následující rutiny:
 
     ```powershell
-    Get-Module -Name Azs.* -ListAvailable | Uninstall-Module -Force -Verbose
-    Get-Module -Name Azure* -ListAvailable | Uninstall-Module -Force -Verbose
+    Get-Module -Name Azure* -ListAvailable | Uninstall-Module -Force -Verbose -ErrorAction Continue
+    Get-Module -Name Azs.* -ListAvailable | Uninstall-Module -Force -Verbose -ErrorAction Continue
+    Get-Module -Name Az.* -ListAvailable | Uninstall-Module -Force -Verbose -ErrorAction Continue
     ```
 
     Pokud se zobrazí chyba, například modul se už používá, zavřete relace PowerShellu, které moduly používají, a znovu spusťte výše uvedený skript.
 
-2. Odstraní všechny složky, které začínají na `Azure` nebo `Azs.` z `C:\Program Files\WindowsPowerShell\Modules` a složky `C:\Users\{yourusername}\Documents\WindowsPowerShell\Modules`. Odstranění těchto složek odebere všechny existující moduly prostředí PowerShell.
+2. Odstraňte všechny složky `Azure`, které začínají na, `Az` nebo `Azs.` ze složky `C:\Program Files\WindowsPowerShell\Modules` a `C:\Users\{yourusername}\Documents\WindowsPowerShell\Modules` . Odstranění těchto složek odebere všechny existující moduly prostředí PowerShell.
 
 ## <a name="4-connected-install-powershell-for-azure-stack-hub-with-internet-connectivity"></a>4. připojeno: instalace PowerShellu pro centrum Azure Stack s připojením k Internetu
 
@@ -86,6 +87,10 @@ Spusťte následující skript PowerShellu, který nainstaluje tyto moduly na sv
 
 ::: moniker range=">=azs-2002"
 Pro Azure Stack hub 2002 nebo novější:
+
+Mohli jste buď moduly AzureRm uživatele, nebo AZ Preview Module. Použití modulů AZ modules vyžaduje Azure Stack hub 2002 a nejnovější opravu hotfix.
+
+Pokud chcete použít moduly AZ Preview, postupujte podle pokynů v tématu [instalace PowerShellu AZ Module](powershell-install-az-module.md).
 
 ```powershell  
 # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
@@ -110,7 +115,7 @@ Install-Module -Name AzureStack -RequiredVersion 1.8.0
 ```
 
 > [!Note]  
-> - 1\.8.0 centra verze je zásadní verze změny. Azure Stack Podrobnosti najdete v [poznámkách k verzi](release-notes.md) .
+> - 1.8.0 centra verze je zásadní verze změny. Azure Stack Podrobnosti najdete v [poznámkách k verzi](release-notes.md) .
 
 ::: moniker-end
 ::: moniker range="<=azs-1908"
@@ -126,7 +131,7 @@ Install-Module -Name AzureStack -RequiredVersion 1.7.2
 ```
 
 > [!Note]  
-> 1\.7.2 modul centra Azure Stack pro správu verze je zásadní verzí změny. Pokud chcete provést migraci z centra Azure Stack 1.6.0, přečtěte si [příručku k migraci](https://aka.ms/azspshmigration171).
+> 1.7.2 modul centra Azure Stack pro správu verze je zásadní verzí změny. Pokud chcete provést migraci z centra Azure Stack 1.6.0, přečtěte si [příručku k migraci](https://aka.ms/azspshmigration171).
 
 ::: moniker-end
 
@@ -139,7 +144,7 @@ Get-Module -Name "Azure*" -ListAvailable
 Get-Module -Name "Azs*" -ListAvailable
 ```
 
-Pokud je instalace úspěšná, zobrazí se ve výstupu moduly `AzureAz` a `AzureStack`.
+Pokud je instalace úspěšná, zobrazí se `AzureRm` ve `AzureStack` výstupu moduly a.
 
 ## <a name="5-disconnected-install-powershell-without-an-internet-connection"></a>5. odpojeno: instalace PowerShellu bez připojení k Internetu
 
@@ -159,6 +164,8 @@ Instalace má pět kroků:
 
 ::: moniker range=">=azs-2002"
 Azure Stack hub 2002 nebo novější.
+
+Můžete buď použít AzureRM nebo AZ Preview Module. Informace o AZ modules najdete v tématu pokyny v tématu [install PowerShell AZ Module](powershell-install-az-module.md).
 
 ```powershell
 
@@ -184,7 +191,7 @@ Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v
 ```
 
 > [!NOTE]  
-> 1\.8.0 centra verze je zásadní verze změny. Azure Stack Podrobnosti najdete v [poznámkách k verzi](release-notes.md) .
+> 1.8.0 centra verze je zásadní verze změny. Azure Stack Podrobnosti najdete v [poznámkách k verzi](release-notes.md) .
 
 ::: moniker-end
 ::: moniker range="<=azs-1908"
@@ -200,7 +207,7 @@ Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v
 ```
 
 > [!NOTE]  
-> 1\.7.1 modul centra Azure Stack je zásadní změnou. Pokud chcete provést migraci z centra Azure Stack 1.6.0, přečtěte si [příručku k migraci](https://github.com/Azure/azure-powershell/tree/AzureRM/documentation/migration-guides/Stack).
+> 1.7.1 modul centra Azure Stack je zásadní změnou. Pokud chcete provést migraci z centra Azure Stack 1.6.0, přečtěte si [příručku k migraci](https://github.com/Azure/azure-powershell/tree/AzureRM/documentation/migration-guides/Stack).
 
 ::: moniker-end
 
@@ -218,7 +225,7 @@ Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v
 
 3. Ručně nabootstrap zprostředkovatele NuGet na odpojené pracovní stanici. Pokyny najdete v tématu [Ruční zavedení zprostředkovatele NuGet na počítači, který není připojený k Internetu](https://docs.microsoft.com/powershell/scripting/gallery/how-to/getting-support/bootstrapping-nuget#manually-bootstrapping-the-nuget-provider-on-a-machine-that-is-not-connected-to-the-internet).
 
-4. Zaregistrujte toto umístění jako výchozí úložiště a nainstalujte moduly AzureRM a `AzureStack` z tohoto úložiště:
+4. Zaregistrujte toto umístění jako výchozí úložiště a nainstalujte AzureRM a `AzureStack` moduly z tohoto úložiště:
 
    ```powershell
    # requires -Version 5
