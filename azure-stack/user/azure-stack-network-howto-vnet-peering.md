@@ -8,17 +8,17 @@ ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
 ms.openlocfilehash: 03ead55141ff6a7b8aa9451b814d399b607ebb47
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77702172"
 ---
 # <a name="vnet-peering-in-azure-stack-hub-with-vms"></a>VNET Peering v centru Azure Stack s virtuálními počítači
 
 Můžete propojit dvě Azure Stack centra virtuální sítě mezi sebou v rámci stejného Azure Stack centra. V současné době není možné připojit Azure Stack centra virtuální sítě pomocí integrované [Virtual Network brány](https://docs.microsoft.com/azure-stack/user/azure-stack-network-differences). K vytvoření tunelu VPN mezi dvěma Azure Stack centra virtuální sítě musíte použít zařízení síťové virtuální zařízení. V odkazech na šablony v tomto článku se nasadí dva virtuální počítače s Windows serverem 2016 s nainstalovaným serverem RRAS. Dva servery RRAS jsou nakonfigurovány k implementaci tunelu S2SVPN IKEv2 mezi dvěma virtuální sítě. Vytvoří se odpovídající pravidla NSG a UDR umožňující směrování mezi podsítěmi v každé virtuální síti, která je označena jako **interní**. 
 
-Tento vzor nasazení je základem, který umožní vytvořit tunely sítě VPN nejen v rámci instance centra Azure Stack, ale také mezi Azure Stack instancemi centra a dalšími prostředky, jako jsou místní sítě s použitím tunelových propojení VPN S2S sítě Windows RRAS. . 
+Tento vzor nasazení je základem, který umožní vytvořit tunely sítě VPN nejen v rámci instance centra Azure Stack, ale také mezi instancemi centra Azure Stack a dalšími prostředky, jako jsou místní sítě s použitím tunelových propojení S2S VPN v rámci služby Windows RRAS. 
 
 Šablony najdete v úložišti [GitHub ve vzorcích Azure Intelligent Edge](https://github.com/Azure-Samples/azure-intelligent-edge-patterns
 ) . Šablona se nachází ve složce **S2SVPNTunnel** .

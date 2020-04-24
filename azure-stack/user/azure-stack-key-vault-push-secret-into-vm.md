@@ -7,10 +7,10 @@ ms.date: 01/24/2020
 ms.author: sethm
 ms.lastreviewed: 12/27/2019
 ms.openlocfilehash: f808d3dca853ef114d215be08f3e6ae3f6737fb5
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77702784"
 ---
 # <a name="deploy-a-vm-with-a-securely-stored-certificate-on-azure-stack-hub"></a>Nasazení virtuálního počítače s zabezpečeným uloženým certifikátem v centru Azure Stack
@@ -47,7 +47,7 @@ Následující kroky popisují proces vyžadovaný k odeslání certifikátu do 
 Následující skript vytvoří certifikát ve formátu. pfx, vytvoří Trezor klíčů a uloží certifikát do trezoru klíčů jako tajný kód.
 
 > [!IMPORTANT]
-> Při vytváření trezoru klíčů je nutné použít parametr `-EnabledForDeployment`. Tento parametr zajišťuje, aby se Trezor klíčů mohl odkazovat z Azure Resource Manager šablon.
+> Při vytváření trezoru `-EnabledForDeployment` klíčů musíte použít parametr. Tento parametr zajišťuje, aby se Trezor klíčů mohl odkazovat z Azure Resource Manager šablon.
 
 ```powershell
 # Create a certificate in the .pfx format
@@ -114,7 +114,7 @@ Upravte soubor **azuredeploy. Parameters. JSON** podle hodnot vašich prostřed�
 
 ## <a name="update-the-azuredeployparametersjson-file"></a>Aktualizace souboru azuredeploy. Parameters. JSON
 
-Aktualizujte soubor **azuredeploy. Parameters. JSON** pomocí `vaultName`, TAJNÉho identifikátoru URI, `VmName`a dalších parametrů v rámci vašeho prostředí. Následující soubor JSON ukazuje příklad souboru parametrů šablony:
+Aktualizujte soubor **azuredeploy. Parameters. JSON** pomocí identifikátoru URI `vaultName` `VmName`, tajného klíče, a dalších parametrů dle vašeho prostředí. Následující soubor JSON ukazuje příklad souboru parametrů šablony:
 
 ```json
 {
@@ -173,9 +173,9 @@ Centrum Azure Stack během nasazování vloží certifikát do virtuálního po�
 
 ## <a name="retire-certificates"></a>Vyřazení certifikátů
 
-Vyřazení certifikátů je součástí procesu správy certifikátů. Starší verzi certifikátu nelze odstranit, ale můžete ji zakázat pomocí rutiny `Set-AzureKeyVaultSecretAttribute`.
+Vyřazení certifikátů je součástí procesu správy certifikátů. Starší verzi certifikátu nelze odstranit, ale můžete ji zakázat pomocí `Set-AzureKeyVaultSecretAttribute` rutiny.
 
-Následující příklad ukazuje, jak zakázat certifikát. Použijte vlastní hodnoty pro parametry `VaultName`, `Name`a `Version`.
+Následující příklad ukazuje, jak zakázat certifikát. Použijte vlastní hodnoty pro parametry `VaultName`, `Name`a. `Version`
 
 ```powershell
 Set-AzureKeyVaultSecretAttribute -VaultName contosovault -Name servicecert -Version e3391a126b65414f93f6f9806743a1f7 -Enable 0

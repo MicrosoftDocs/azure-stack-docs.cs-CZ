@@ -8,10 +8,10 @@ ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2019
 ms.openlocfilehash: 095b10039c9df4bf10b3a4bdcfc454416885f5ac
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77688827"
 ---
 # <a name="update-azure-app-service-on-azure-stack-hub"></a>Aktualizace Azure App Service v centru Azure Stack
@@ -30,7 +30,7 @@ Během tohoto procesu bude upgrade:
 
 * Detekuje předchozí nasazení Azure App Service.
 * Připravte všechny balíčky aktualizací a nové verze všech knihoven OSS, které mají být nasazeny.
-* Nahrajte do úložiště.
+* Nahrání do úložiště.
 * Upgradujte všechny role Azure App Service (řadiče, Správa, front-end, Vydavatel a role pracovního procesu).
 * Aktualizujte definice sady škálování Azure App Service.
 * Aktualizuje manifest poskytovatele Azure App Service prostředků.
@@ -59,9 +59,9 @@ Chcete-li upgradovat nasazení Azure App Service v centru Azure Stack proveďte 
 7. Na další stránce:
 
     1. Vyberte metodu připojení, kterou chcete použít – **Credential** nebo **instanční objekt** .
-        - **Pověřovací**
+        - **Přihlašovací údaj**
             - Pokud používáte Azure Active Directory (Azure AD), zadejte účet správce Azure AD a heslo, které jste zadali při nasazení centra Azure Stack. Vyberte **Connect** (Připojit).
-            - Pokud používáte Active Directory Federation Services (AD FS) (AD FS), zadejte účet správce. například cloudadmin@azurestack.local. Zadejte heslo a pak vyberte **připojit**.
+            - Pokud používáte Active Directory Federation Services (AD FS) (AD FS), zadejte účet správce. Například, cloudadmin@azurestack.local. Zadejte heslo a pak vyberte **připojit**.
         - **Instanční objekt**
             - Instanční objekt, který použijete, **musí** mít práva **vlastníka** na **předplatném výchozího poskytovatele** .
             - Zadejte **ID objektu služby**, **soubor certifikátu** a **heslo** a pak vyberte **připojit**.

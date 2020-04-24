@@ -8,10 +8,10 @@ ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2019
 ms.openlocfilehash: 2da344a5699357d008fcc4494992cfcc67047971
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77698874"
 ---
 # <a name="create-mysql-databases-in-azure-stack-hub"></a>Vytváření databází MySQL v centru Azure Stack
@@ -20,7 +20,7 @@ Uživatel centra Azure Stack, který se přihlásí k odběru nabídky, která o
 ## <a name="create-a-mysql-database"></a>Vytvoření databáze MySQL
 
 1. Přihlaste se k portálu pro uživatele centra Azure Stack.
-2. Vyberte **+ vytvořit prostředek** > **Data + úložiště** > **MySQL Database** > **Přidat**.
+2. Vyberte **+ vytvořit prostředek** > **data + úložiště** > **MySQL databáze** > **Přidat**.
 3. V části **vytvořit databázi MySQL**zadejte název databáze a nakonfigurujte další nastavení podle požadavků vašeho prostředí.
 
     ![Vytvoření testovací databáze MySQL](./media/azure-stack-mysql-rp-deploy/mysql-create-db-a.png)
@@ -50,7 +50,7 @@ Po nasazení databáze si poznamenejte **připojovací řetězec** v části **z
 
 Heslo můžete upravit tak, že ho změníte v instanci serveru MySQL.
 
-1. Vyberte **prostředky pro správu** > **hostitelských serverech MySQL**. Vyberte hostitelský server.
+1.  > Vyberte **prostředky pro správu****servery MySQL hosting**. Vyberte hostitelský server.
 2. V části **Nastavení**vyberte **heslo**.
 3. V části **heslo**zadejte nové heslo a pak vyberte **Uložit**.
 

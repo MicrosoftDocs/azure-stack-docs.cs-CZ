@@ -17,13 +17,13 @@
       href: asdk-admin-basics.md
     - name: Úlohy pokročilého vyhodnocení
       href: asdk-advanced-eval.md
-- name: Postupy
+- name: Postup
   items:
     - name: Nastavení ASDK
       items:
         - name: Stažení a extrakce vývojové sady
           href: asdk-download.md
-        - name: Příprava hostitelského počítače s ASDK
+        - name: Připravte hostitelský počítač sady ASDK.
           href: asdk-prepare-host.md
         - name: Nasazení ASDK – instalační program
           href: asdk-install.md
@@ -57,13 +57,13 @@
       href: /azure-stack/operator
     - name: Dokumentace pro uživatele centra Azure Stack
       href: /azure-stack/user/
-- name: Materiály
+- name: Zdroje a prostředky
   items:
-    - name: Plán služby Azure Stack
+    - name: Azure Stack plán
       href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'
-    - name: Fóru pro Azure Stack MSDN
+    - name: Azure Stack Fórum MSDN
       href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack'
-    - name: Váš názor na Azure Stack dokumentace
+    - name: Váš názor na dokumentaci Azure Stack
       href: 'https://feedback.azure.com/forums/344565-azure-stack?category_id=160275'
     - name: Informace o cenách
       href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'

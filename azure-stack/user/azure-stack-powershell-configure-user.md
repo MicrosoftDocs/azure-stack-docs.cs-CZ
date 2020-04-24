@@ -8,10 +8,10 @@ ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 10/02/2019
 ms.openlocfilehash: 3656a5a6a992788ca8d4d975ac819f69793edb02
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77702036"
 ---
 # <a name="connect-to-azure-stack-hub-with-powershell-as-a-user"></a>Připojení k Azure Stack centra pomocí PowerShellu jako uživatel
@@ -20,9 +20,9 @@ Ke správě prostředků Azure Stack centra se můžete připojit ke službě Az
 
 Postup získání instalačního programu:
   - Ujistěte se, že máte požadavky.
-  - Spojte se s Azure Active Directory (Azure AD) nebo služby Active Directory Federation Services (AD FS). 
-  - Zaregistrujte poskytovatele prostředků.
-  - Test připojení.
+  - Připojte se pomocí Azure Active Directory (Azure AD) nebo Active Directory Federation Services (AD FS) (AD FS). 
+  - Registrovat poskytovatele prostředků
+  - Otestujte připojení.
 
 ## <a name="prerequisites-to-connecting-with-powershell"></a>Požadavky na připojení pomocí PowerShellu
 
@@ -62,9 +62,9 @@ Ujistěte se, že jste nahradili následující proměnné skriptu hodnotami z v
   Login-AzureRmAccount -EnvironmentName "AzureStackUser"
   ```
 
-## <a name="register-resource-providers"></a>Zaregistrovat poskytovatele prostředků
+## <a name="register-resource-providers"></a>Registrovat poskytovatele prostředků
 
-Poskytovatelé prostředků nejsou automaticky registrováni pro nové odběry uživatelů, kteří nemají žádné prostředky nasazené prostřednictvím portálu. Můžete explicitně zaregistrovat poskytovatele prostředků spuštěním následujícího skriptu:
+Poskytovatelé prostředků nejsou automaticky registrováni pro nové odběry uživatelů, kteří nemají žádné prostředky nasazené prostřednictvím portálu. Poskytovatele prostředků můžete explicitně zaregistrovat spuštěním následujícího skriptu:
 
 ```powershell  
 foreach($s in (Get-AzureRmSubscription)) {
@@ -74,7 +74,7 @@ Get-AzureRmResourceProvider -ListAvailable | Register-AzureRmResourceProvider
     }
 ```
 
-## <a name="test-the-connectivity"></a>Otestovat připojení
+## <a name="test-the-connectivity"></a>Testování připojení
 
 Když máte všechno, co máte nastavené, otestujte připojení pomocí PowerShellu k vytváření prostředků v Azure Stack hub. Jako test vytvořte skupinu prostředků pro aplikaci a přidejte virtuální počítač. Spuštěním následujícího příkazu vytvořte skupinu prostředků s názvem "MyResourceGroup":
 

@@ -8,17 +8,17 @@ ms.topic: article
 ms.reviewer: thoroet
 ms.lastreviewed: 03/07/2019
 ms.openlocfilehash: 69c7d14bef07e3664299c7e78ed1e8bf555f19dd
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77699894"
 ---
 # <a name="prepare-for-extension-host-in-azure-stack-hub"></a>Příprava pro hostitele rozšíření v centru Azure Stack
 
 Hostitel rozšíření zabezpečuje Azure Stack centra tím, že snižuje počet požadovaných portů TCP/IP. Tento článek se zabývá přípravou centra Azure Stack pro hostitele rozšíření, který se automaticky povolí prostřednictvím balíčku aktualizace centra Azure Stack po aktualizaci 1808. Tento článek se týká Azure Stack centra aktualizací 1808, 1809 a 1811.
 
-## <a name="certificate-requirements"></a>Požadavky na certifikát
+## <a name="certificate-requirements"></a>Požadavky na certifikáty
 
 Hostitel rozšíření implementuje dva nové obory názvů domény pro zaručení jedinečných hostitelských záznamů pro každé rozšíření portálu. Nové obory názvů domény vyžadují pro zajištění zabezpečené komunikace dva další certifikáty se zástupnými znaky.
 
@@ -26,8 +26,8 @@ V tabulce jsou uvedeny nové obory názvů a přidružené certifikáty:
 
 | Složka pro nasazení | Požadovaný předmět certifikátu a alternativní názvy subjektu (SAN) | Rozsah (na oblast) | Obor názvů subdomény |
 |-----------------------|------------------------------------------------------------------|-----------------------|------------------------------|
-| Hostitel rozšíření Správce | *.adminhosting. >\<oblasti.\<plně kvalifikovaný název domény > (zástupné certifikáty SSL) | Hostitel rozšíření Správce | adminhosting. >\<oblasti.\<plně kvalifikovaný název domény > |
-| Hostitel veřejného rozšíření | *. Hosting. >\<oblasti.\<plně kvalifikovaný název domény > (zástupné certifikáty SSL) | Hostitel veřejného rozšíření | který. >\<oblasti.\<plně kvalifikovaný název domény > |
+| Hostitel rozšíření Správce | *.adminhosting. \<> oblasti \<plně kvalifikovaný název domény> (zástupné certifikáty SSL) | Hostitel rozšíření Správce | adminhosting. \<> oblasti \<plně kvalifikovaný název domény> |
+| Hostitel veřejného rozšíření | *. Hosting. \<> oblasti \<plně kvalifikovaný název domény> (zástupné certifikáty SSL) | Hostitel veřejného rozšíření | který. \<> oblasti \<plně kvalifikovaný název domény> |
 
 Podrobné požadavky na certifikáty najdete v tématu [požadavky na certifikát infrastruktury veřejných klíčů služby Azure Stack hub](azure-stack-pki-certs.md).
 
@@ -60,9 +60,9 @@ Nástroj pro kontrolu připravenosti centra Azure Stack umožňuje vytvořit ž�
     ```
 
     > [!Note]  
-    > Pokud nasazujete s Azure Active Directory federované služby (AD FS), musí se do **$Directories** ve skriptu přidat tyto adresáře: `ADFS``Graph`.
+    > Pokud nasazujete s Azure Active Directory federované služby (AD FS), musí se do **$Directories** ve skriptu přidat tyto adresáře: `ADFS`, `Graph`.
 
-4. V příslušných adresářích umístěte existující certifikáty, které aktuálně používáte, do centra Azure Stack. Zadejte například certifikát **ARM správce** do složky `Arm Admin`. A potom umístěte nově vytvořené hostitelské certifikáty do adresářů `Admin extension host` a `Public extension host`.
+4. V příslušných adresářích umístěte existující certifikáty, které aktuálně používáte, do centra Azure Stack. Zadejte například certifikát **ARM správce** do `Arm Admin` složky. A potom umístěte nově vytvořené hostitelské certifikáty do adresářů `Admin extension host` a. `Public extension host`
 5. Spuštěním následující rutiny spusťte kontrolu certifikátu:
 
     ```powershell  
@@ -123,10 +123,10 @@ Pro další kroky použijte počítač, který se může připojit k privilegova
 > Tento krok není nutný, pokud jste použili delegování zóny DNS pro integraci DNS.
 Pokud jsou u jednotlivých hostitelů nakonfigurované záznamy pro publikování koncových bodů centra Azure Stack, je potřeba vytvořit dva další záznamy hostitele A:
 
-| IP | Název hostitele | Typ |
+| IP adresa | Název hostitele | Typ |
 |----|------------------------------|------|
-| \<IP > | *. Adminhosting. >\<oblasti.\<plně kvalifikovaný název domény > | A |
-| \<IP > | *. Který. >\<oblasti.\<plně kvalifikovaný název domény > | A |
+| \<> IP | *. Adminhosting. \<> oblasti \<Plně kvalifikovaný název domény> | A |
+| \<> IP | *. Který. \<> oblasti \<Plně kvalifikovaný název domény> | A |
 
 Přidělené IP adresy se dají načíst pomocí privilegovaného koncového bodu spuštěním rutiny **Get-AzureStackStampInformation**.
 
@@ -180,10 +180,10 @@ The Record to be added in the DNS zone: Type A, Name: *.hosting.\<region>.\<fqdn
 > [!Note]  
 > Tuto změnu udělejte před tím, než povolíte hostitele rozšíření. To umožňuje, aby byly portály centra Azure Stack nepřetržitě přístupné.
 
-| Koncový bod (VIP) | Protokol | Porty |
+| Koncový bod (VIP) | Protocol (Protokol) | Porty |
 |----------------|----------|-------|
 | Hostování správců | HTTPS | 443 |
-| Hosting | HTTPS | 443 |
+| Hostování | HTTPS | 443 |
 
 ### <a name="update-existing-publishing-rules-post-enablement-of-extension-host"></a>Aktualizovat existující pravidla publikování (povolení hostitele rozšíření)
 
@@ -195,7 +195,7 @@ Následující existující porty koncového bodu musí být uzavřeny ve stáva
 > [!Note]  
 > Po úspěšném ověření se tyto porty doporučuje zavřít.
 
-| Koncový bod (VIP) | Protokol | Porty |
+| Koncový bod (VIP) | Protocol (Protokol) | Porty |
 |----------------------------------------|----------|-------------------------------------------------------------------------------------------------------------------------------------|
 | Portál (správce) | HTTPS | 12495<br>12499<br>12646<br>12647<br>12648<br>12649<br>12650<br>13001<br>13003<br>13010<br>13011<br>13012<br>13020<br>13021<br>13026<br>30015 |
 | Portál (uživatel) | HTTPS | 12495<br>12649<br>13001<br>13010<br>13011<br>13012<br>13020<br>13021<br>30015<br>13003 |

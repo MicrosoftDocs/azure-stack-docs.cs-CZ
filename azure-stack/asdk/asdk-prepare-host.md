@@ -1,5 +1,5 @@
 ---
-title: Příprava hostitelského počítače s ASDK
+title: Připravte hostitelský počítač sady ASDK.
 description: Přečtěte si, jak připravit hostitelský počítač Azure Stack Development Kit (ASDK) pro instalaci ASDK.
 author: justinha
 ms.topic: article
@@ -8,13 +8,13 @@ ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 08/28/2019
 ms.openlocfilehash: ba64a3bfbef9601d9cc8d8a28176a84a9403326a
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77696018"
 ---
-# <a name="prepare-the-asdk-host-computer"></a>Příprava hostitelského počítače s ASDK
+# <a name="prepare-the-asdk-host-computer"></a>Připravte hostitelský počítač sady ASDK.
 Než budete moct na hostitelský počítač nainstalovat Azure Stack Development Kit (ASDK), musí být hostitel ASDK připravený k instalaci. Po přípravě hostitele se spustí z pevného disku virtuálního počítače CloudBuilder. vhdx, který zahájí ASDK nasazení.
 
 ## <a name="prepare-the-development-kit-host-computer"></a>Příprava hostitelského počítače pro vývojovou sadu
@@ -43,7 +43,7 @@ Než budete moct nainstalovat ASDK na hostitelský počítač, musí být připr
 
     ![Příprava prostředí v ASDK](media/asdk-prepare-host/1.PNG) 
 
-5. Na stránce **Vyberte Cloudbuilder VHDX** instalačního programu vyhledejte a vyberte soubor **Cloudbuilder. vhdx** , který jste stáhli a extrahovali v [předchozích krocích](asdk-download.md). Na této stránce můžete také povolit zaškrtávací políčko **Přidat ovladače** , pokud potřebujete přidat další ovladače do hostitelského počítače sady ASDK Kit. Klikněte na **Další**.  
+5. Na stránce **Vyberte Cloudbuilder VHDX** instalačního programu vyhledejte a vyberte soubor **Cloudbuilder. vhdx** , který jste stáhli a extrahovali v [předchozích krocích](asdk-download.md). Na této stránce můžete také povolit zaškrtávací políčko **Přidat ovladače** , pokud potřebujete přidat další ovladače do hostitelského počítače sady ASDK Kit. Klikněte na **Další**.  
 
     ![Vyberte cloudbuilder. vhdx a přidejte do ASDK ovladače.](media/asdk-prepare-host/2.PNG)
 

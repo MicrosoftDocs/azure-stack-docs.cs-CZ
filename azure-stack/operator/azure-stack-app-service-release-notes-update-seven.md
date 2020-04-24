@@ -9,10 +9,10 @@ ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 08/20/2019
 ms.openlocfilehash: ecbfa13b9e40a62aa013747c7f877617e29e8f10
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77703175"
 ---
 # <a name="app-service-on-azure-stack-hub-update-7-release-notes"></a>Zpráva k vydání verze pro Azure Stack centra aktualizace 7 App Service
@@ -23,7 +23,7 @@ Tyto poznámky k verzi popisují vylepšení a opravy v Azure App Service ve slu
 > Před nasazením Azure App Service 1,7 použijte aktualizaci 1907 pro integrovaný systém Azure Stack hub nebo nasaďte nejnovější Azure Stack vývojovou sadu.
 
 
-## <a name="build-reference"></a>Referenční informace o buildu
+## <a name="build-reference"></a>Odkaz na sestavení
 
 App Service číslo buildu Azure Stack centra aktualizace 7 je **84.0.2.10**
 
@@ -38,7 +38,7 @@ Než začnete s upgradem Azure App Service v centru Azure Stack na 1,7:
 - Zálohování App Service a hlavních databází:
   - AppService_Hosting;
   - AppService_Metering;
-  - Master
+  - Hlavní
 
 - Zálohování sdílené složky obsahu aplikace tenanta
 
@@ -72,7 +72,7 @@ Azure App Service v centru Azure Stack s aktualizací Update 7 obsahuje následu
 - **Na portálu User Portal jsou nyní povolena omezení přístupu**:
   - Od tohoto vydání můžou uživatelé nakonfigurovat omezení přístupu pro své aplikace Web/API/Functions podle dokumentace publikované v dokumentaci – [Azure App Service omezení přístupu](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions), **Poznámka**: Azure App Service v centru pro Azure Stack nepodporuje koncové body služby.
 
-- **Obnovena funkčnost možností nasazení (Classic)** :
+- **Obnovena funkčnost možností nasazení (Classic)**:
   - Uživatelé můžou znovu použít možnosti nasazení (Classic) ke konfiguraci nasazení svých aplikací z GitHubu, BitBucket, Dropboxu, OneDrivu, místních i externích úložišť a k nastavení přihlašovacích údajů nasazení pro své aplikace.
 
 - **Monitorování funkcí Azure** je správně nakonfigurované.
@@ -102,8 +102,8 @@ Pokud se rozhodnete nasadit do existující virtuální sítě a interní IP adr
  * Cíl: IP adresy
  * Rozsah cílových IP adres: rozsah IP adres pro souborový server
  * Rozsah cílových portů: 445
- * Protocol: TCP
- * Akce: povolení
+ * Protokol. TCP
+ * Akce: Povolit
  * Priorita: 700
  * Název: Outbound_Allow_SMB445
 

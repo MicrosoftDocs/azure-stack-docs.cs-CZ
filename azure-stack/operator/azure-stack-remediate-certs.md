@@ -9,10 +9,10 @@ ms.author: inhenkel
 ms.reviewer: unknown
 ms.lastreviewed: 11/19/2019
 ms.openlocfilehash: 079bec68836af5491d9f39bcf24e68001ffcfe2b
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "78367790"
 ---
 # <a name="fix-common-issues-with-azure-stack-hub-pki-certificates"></a>Řešení běžných problémů s certifikáty PKI Azure Stack hub
@@ -23,7 +23,7 @@ Informace v tomto článku vám pomůžou pochopit a vyřešit běžné problém
 
 **Problém** – šifrování PFX není TRIPLEDES-SHA1.
 
-**Oprava** – EXPORTUJTE soubory PFX pomocí šifrování **TripleDES-SHA1** . Toto je výchozí šifrování pro všechny klienty Windows 10 při exportu z modulu snap-in certifikátu nebo pomocí `Export-PFXCertificate`.
+**Oprava** – EXPORTUJTE soubory PFX pomocí šifrování **TripleDES-SHA1** . Toto je výchozí šifrování pro všechny klienty Windows 10 při exportu z modulu snap-in certifikáty nebo pomocí `Export-PFXCertificate`nástroje.
 
 ## <a name="read-pfx"></a>Přečíst PFX
 
@@ -55,7 +55,7 @@ Algoritmus **problém** -signatura je SHA1.
 
 ## <a name="dns-names"></a>Názvy DNS
 
-**Problém** – **DNSNameList** na certifikátu neobsahuje název koncového bodu služby centra Azure Stack ani platnou shodu se zástupnými znaky. Zástupné shody jsou platné pouze pro levý krajní obor názvů názvu DNS. Například `*.region.domain.com` je platný pouze pro `portal.region.domain.com`, nikoli `*.table.region.domain.com`.
+**Problém** – **DNSNameList** na certifikátu neobsahuje název koncového bodu služby centra Azure Stack ani platnou shodu se zástupnými znaky. Zástupné shody jsou platné pouze pro levý krajní obor názvů názvu DNS. Například `*.region.domain.com` je platná pouze pro `portal.region.domain.com`, nikoli. `*.table.region.domain.com`
 
 **Oprava** – pomocí kroků v Azure Stack centrum certifikátů Podepisování žádosti o podepsání znovu vygenerujte CSR se správnými názvy DNS pro podporu koncových bodů centra Azure Stack. Odešlete CSR do certifikační autority. Pak postupujte podle kroků v části [Příprava certifikátů PKI Azure Stack hub pro nasazení](azure-stack-prepare-pki-certs.md#prepare-certificates-for-deployment) a exportujte certifikát z počítače, který vygeneroval CSR.  
 
@@ -94,7 +94,7 @@ Nástroj **AzsReadinessChecker** obsahuje pomocnou rutinu nazvanou **Repair-AzsP
 
 **Oprava – AzsPfxCertificate** nemůže pomáhat, pokud potřebujete vygenerovat nového CSR a znovu vystavit certifikát.
 
-### <a name="prerequisites"></a>Předpoklady
+### <a name="prerequisites"></a>Požadavky
 
 Na počítači, na kterém je nástroj spuštěný, musí být nahlášené tyto požadavky:
 
@@ -124,8 +124,8 @@ Na počítači, na kterém je nástroj spuštěný, musí být nahlášené tyto
 
 3. Z příkazového řádku PowerShellu spusťte následující příkaz pro export nového souboru PFX:
 
-   - Pro `-PfxPath`zadejte cestu k souboru PFX, se kterým pracujete. V následujícím příkladu je cesta `.\certificates\ssl.pfx`.
-   - Pro `-ExportPFXPath`zadejte umístění a název souboru PFX pro export. V následujícím příkladu je cesta `.\certificates\ssl_new.pfx`:
+   - `-PfxPath`V poli zadejte cestu k souboru PFX, se kterým pracujete. V následujícím příkladu je `.\certificates\ssl.pfx`cesta.
+   - Pro `-ExportPFXPath`zadejte umístění a název souboru PFX pro export. V následujícím příkladu je `.\certificates\ssl_new.pfx`cesta:
 
    ```powershell
    Repair-AzsPfxCertificate -PfxPassword $password -PfxPath .\certificates\ssl.pfx -ExportPFXPath .\certificates\ssl_new.pfx

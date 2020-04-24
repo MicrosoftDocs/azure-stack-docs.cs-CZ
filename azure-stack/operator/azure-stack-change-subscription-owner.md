@@ -8,10 +8,10 @@ ms.author: justinha
 ms.reviewer: shnatara
 ms.lastreviewed: 10/19/2019
 ms.openlocfilehash: b02795cf0058a9d63947c6143b0721c544ff9811
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77701577"
 ---
 # <a name="change-the-billing-owner-for-an-azure-stack-hub-user-subscription"></a>Změna majitele fakturace pro předplatné uživatele centra Azure Stack
@@ -40,7 +40,7 @@ Před spuštěním ve skriptu nahraďte následující hodnoty:
 - **$ArmEndpoint**: koncový bod správce prostředků pro vaše prostředí.
 - **$TenantId**: ID tenanta.
 - **$SubscriptionId**: ID vašeho předplatného.
-- **$OwnerUpn**: účet, například **uživatel\@example.com**, se má přidat jako nový vlastník fakturace.
+- **$OwnerUpn**: účet, například **Uživatel\@example.com**, se má přidat jako nový vlastník fakturace.
 
 ```powershell
 # Set up Azure Stack Hub admin environment

@@ -8,10 +8,10 @@ ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2020
 ms.openlocfilehash: 0a3dfcc7d12baa6616f57908e87d24afaf1e927e
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79294602"
 ---
 # <a name="connect-to-azure-stack-hub"></a>Připojení k centru Azure Stack
@@ -28,7 +28,7 @@ S Připojení ke vzdálené ploše může jeden souběžný uživatel pracovat s
 
 2. V počítači vývojové sady otevřete Správce serveru, klikněte na **místní server**, vypněte rozšířené zabezpečení aplikace Internet Explorer a potom zavřete Správce serveru.
 
-3. Portál otevřete tak, že přejdete na adresu (https://portal.local.azurestack.external/) a přihlásíte se pomocí přihlašovacích údajů uživatele).
+3. Portál otevřete tak, že přejdete nahttps://portal.local.azurestack.external/) adresu (a přihlásíte se pomocí přihlašovacích údajů uživatele).
 
 
 ## <a name="connect-to-azure-stack-hub-with-vpn"></a>Připojení k centru Azure Stack pomocí sítě VPN
@@ -38,7 +38,7 @@ K Azure Stack Development Kit můžete vytvořit připojení VPN typu dělené t
 > [!NOTE] 
 > Toto připojení VPN neposkytuje připojení k virtuálním počítačům infrastruktury služby Azure Stack hub. 
 
-### <a name="prerequisites"></a>Předpoklady
+### <a name="prerequisites"></a>Požadavky
 
 * Nainstalujte [Azure PowerShell centra Azure Stack kompatibilní](../operator/azure-stack-powershell-install.md) na místním počítači.  
 * Stáhněte si [nástroje, které jsou potřeba pro práci s rozbočovačem Azure Stack](../operator/azure-stack-powershell-download.md). 
@@ -76,7 +76,7 @@ Add-AzsVpnConnection `
 
 ```
 
-Pokud je nastavení úspěšné, zobrazí se `azurestack` v seznamu připojení VPN.
+Pokud je nastavení úspěšné, zobrazí `azurestack` se v seznamu připojení VPN.
 
 ![Síťová připojení](media/azure-stack-connect-azure-stack/image3.png)  
 
@@ -84,7 +84,7 @@ Pokud je nastavení úspěšné, zobrazí se `azurestack` v seznamu připojení 
 
 Připojte se k instanci centra Azure Stack pomocí některé z následujících dvou metod:  
 
-* Pomocí příkazu `Connect-AzsVpn`: 
+* Pomocí `Connect-AzsVpn` příkazu: 
     
   ```powershell
   Connect-AzsVpn `
@@ -93,7 +93,7 @@ Připojte se k instanci centra Azure Stack pomocí některé z následujících 
 
   Po zobrazení výzvy Důvěřujte hostiteli centra Azure Stack a nainstalujte certifikát z **AzureStackCertificateAuthority** do úložiště certifikátů místního počítače. Výzva se může zobrazit za oknem relace PowerShellu. 
 
-* V místním počítači přejít na **nastavení sítě** > **VPN** > vyberte `azurestack` > **připojit**. Do příkazového řádku pro přihlášení zadejte uživatelské jméno (AzureStack\AzureStackAdmin) a heslo.
+* V místním počítači, přejít na **Nastavení** > sítě**VPN** > vyberte `azurestack`  >  **připojit**. Do příkazového řádku pro přihlášení zadejte uživatelské jméno (AzureStack\AzureStackAdmin) a heslo.
 
 ### <a name="test-the-vpn-connectivity"></a>Testování připojení VPN
 

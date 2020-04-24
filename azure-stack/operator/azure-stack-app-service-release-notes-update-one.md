@@ -9,10 +9,10 @@ ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 08/20/2019
 ms.openlocfilehash: 44baf18b4e7b1acb39125a4ccdeb4228557de4d4
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77703515"
 ---
 # <a name="app-service-on-azure-stack-hub-update-1-release-notes"></a>Zpráva k vydání verze Azure Stack centra aktualizace 1 App Service
@@ -22,14 +22,14 @@ Tyto poznámky k verzi popisují vylepšení, opravy a známé problémy v Azure
 > [!IMPORTANT]
 > Před nasazením Azure App Service použijte aktualizaci 1802 pro integrovaný systém Azure Stack hub nebo nasaďte nejnovější Azure Stack Development Kit (ASDK).
 
-## <a name="build-reference"></a>Referenční informace o buildu
+## <a name="build-reference"></a>Odkaz na sestavení
 
 App Service číslo buildu Azure Stack centra aktualizace 1 se **69.0.13698.9**.
 
 ### <a name="prerequisites"></a>Požadavky
 
 > [!IMPORTANT]
-> Nová nasazení Azure App Service v centru Azure Stack nyní vyžadují [certifikát se zástupným znakem tři subjektu](azure-stack-app-service-before-you-get-started.md#get-certificates) z důvodu vylepšení způsobu, jakým se v Azure App Service zpracovává jednotné přihlašování pro Kudu. Nový předmět je **\*. SSO. AppService.\<region\>.\<domainname\>.\<rozšíření\>**
+> Nová nasazení Azure App Service v centru Azure Stack nyní vyžadují [certifikát se zástupným znakem tři subjektu](azure-stack-app-service-before-you-get-started.md#get-certificates) z důvodu vylepšení způsobu, jakým se v Azure App Service zpracovává jednotné přihlašování pro Kudu. Nový předmět je ** \*. SSO. AppService.\< oblast\>. \<název_domény\>. \<rozšíření\>**
 
 Než začnete s nasazením, přečtěte si [požadavky pro nasazení App Service v centru Azure Stack](azure-stack-app-service-before-you-get-started.md) .
 
@@ -101,7 +101,7 @@ Azure App Service v centru Azure Stack aktualizace 1 obsahuje následující vyl
 
     Chyba v Get-AzureStackRootCert. ps1 způsobila, že zákazníci při spouštění skriptu na počítači, ve kterém není nainstalován kořenový certifikát, nepodaří načíst kořenový certifikát centra Azure Stack. Nyní byl skript znovu vydán, což vyřeší tento problém. [Aktualizované pomocné skripty si můžete stáhnout tady](https://aka.ms/appsvconmashelpers). Pokud budete pokračovat v práci s načtením kořenového certifikátu s aktualizovaným skriptem, obraťte se na podporu.
 
-### <a name="known-issues-with-the-update-process"></a>Známé problémy s proces aktualizace
+### <a name="known-issues-with-the-update-process"></a>Známé problémy s procesem aktualizace
 
 - Neexistují žádné známé problémy pro aktualizaci Azure App Service v centru Azure Stack Update 1.
 
@@ -196,8 +196,8 @@ Pokud se rozhodnete nasadit do existující virtuální sítě a interní IP adr
 - Cíl: IP adresy
 - Rozsah cílových IP adres: rozsah IP adres pro souborový server
 - Rozsah cílových portů: 445
-- Protocol: TCP
-- Akce: povolení
+- Protokol. TCP
+- Akce: Povolit
 - Priorita: 700
 - Název: Outbound_Allow_SMB445
 

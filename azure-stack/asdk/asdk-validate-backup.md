@@ -8,10 +8,10 @@ ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 03/11/2020
 ms.openlocfilehash: 268bef58cb4176909ec6a13029324b18de75b52d
-ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/18/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79512010"
 ---
 # <a name="use-the-asdk-to-validate-an-azure-stack-backup"></a>Použití ASDK k ověření zálohy Azure Stack
@@ -41,7 +41,7 @@ Následující scénář **není** podporován při ověřování záloh na ASDK
 ## <a name="cloud-recovery-deployment"></a>Nasazení Cloud Recovery
 Zálohy infrastruktury z nasazení integrovaných systémů se dají ověřit pomocí nasazení cloudového obnovení ASDK. V tomto typu nasazení se po instalaci ASDK na hostitelský počítač obnoví konkrétní data služby ze zálohy.
 
-### <a name="prereqs"></a>Požadavky na Cloud Recovery
+### <a name="cloud-recovery-prerequisites"></a><a name="prereqs"></a>Požadavky na Cloud Recovery
 Než začnete s nasazením cloudového obnovení ASDK, ujistěte se, že máte následující informace:
 
 **Požadavky na instalační program uživatelského rozhraní**
@@ -52,7 +52,7 @@ Než začnete s nasazením cloudového obnovení ASDK, ujistěte se, že máte n
 |ID zálohy, která se má obnovit|ID zálohy v alfanumerickém tvaru "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", který identifikuje zálohu, která má být obnovena během obnovování cloudu.|
 |IP adresa časového serveru|Pro nasazení Azure Stack se vyžaduje platná časová IP adresa serveru, například 132.163.97.2.|
 |Heslo k externímu certifikátu|Heslo pro externí certifikát, který používá Azure Stack. Záloha certifikační autority obsahuje externí certifikáty, které je potřeba obnovit pomocí tohoto hesla.|
-|Heslo certifikátu dešifrování|Volitelné. Požadováno jenom v případě, že je záloha zašifrovaná pomocí certifikátu. Heslo je pro certifikát podepsaný svým držitelem (. pfx), který obsahuje privátní klíč nezbytný k dešifrování zálohovaných dat.|
+|Heslo certifikátu dešifrování|Nepovinný parametr. Požadováno jenom v případě, že je záloha zašifrovaná pomocí certifikátu. Heslo je pro certifikát podepsaný svým držitelem (. pfx), který obsahuje privátní klíč nezbytný k dešifrování zálohovaných dat.|
 |     |     | 
 
 **Požadavky na instalační program prostředí PowerShell**
@@ -79,9 +79,9 @@ $azsbackupshare = New-Item -Path $shares.FullName -Name "AzSBackups" -ItemType "
 New-SmbShare -Path $azsbackupshare.FullName -FullAccess ($env:computername + "\Administrator")  -Name "AzSBackups"
 ```
 
-Potom zkopírujte nejnovější Azure Stack záložní soubory do nově vytvořené sdílené složky. Ujistěte se, že jste zkopírovali nadřazenou složku `<BackupID>` složky, což je časové razítko při pořízení zálohy. Struktura složek v rámci sdílené složky by měla být: `\\<ComputerName>\AzSBackups\MASBackup\<TimeStamp>\<BackupID>\`. 
+Potom zkopírujte nejnovější Azure Stack záložní soubory do nově vytvořené sdílené složky. Nezapomeňte zkopírovat nadřazenou složku `<BackupID>` složky, což je časové razítko při pořízení zálohy. Struktura složek v rámci sdílené složky by měla být `\\<ComputerName>\AzSBackups\MASBackup\<TimeStamp>\<BackupID>\`:. 
 
-Nakonec zkopírujte dešifrovací certifikát (. pfx) do adresáře certifikátů: `C:\CloudDeployment\Setup\BackupDecryptionCert\` a přejmenujte soubor na `BackupDecryptionCert.pfx`.
+Nakonec zkopírujte dešifrovací certifikát (. pfx) do adresáře certifikátu: `C:\CloudDeployment\Setup\BackupDecryptionCert\` a přejmenujte ho na. `BackupDecryptionCert.pfx`
 
 ## <a name="deploy-the-asdk-in-cloud-recovery-mode"></a>Nasazení ASDK v režimu Cloud Recovery
 
@@ -100,7 +100,7 @@ Kroky v této části ukazují, jak nasadit ASDK pomocí grafického uživatelsk
 > Aktuální uživatelské rozhraní instalačního programu podporuje jenom šifrovací klíč.
 
 1. Po úspěšném spuštění hostitelského počítače do image CloudBuilder. vhdx se přihlaste pomocí přihlašovacích údajů správce zadaných při [přípravě hostitelského počítače ASDK](asdk-prepare-host.md) pro instalaci ASDK. Tyto přihlašovací údaje by měly být stejné jako přihlašovací údaje místního správce hostitele ASDK.
-2. Otevřete konzolu nástroje PowerShell se zvýšenými oprávněními a spusťte **&lt;písmeno jednotky > \ AzureStack_Installer \asdk-Installer.ps1** skriptu PowerShellu. Skript se teď může nacházet na jiné jednotce než C:\. v imagi CloudBuilder. vhdx. Klikněte na tlačítko **obnovit**.
+2. Otevřete konzolu nástroje PowerShell se zvýšenými oprávněními a spusťte ** &lt;písmeno jednotky> \ AzureStack_Installer \asdk-Installer.ps1** skriptu PowerShellu. Skript se teď může nacházet na jiné jednotce než C:\. v imagi CloudBuilder. vhdx. Klikněte na tlačítko **obnovit**.
 
     ![Skript instalačního programu ASDK](media/asdk-validate-backup/1.PNG) 
 

@@ -7,10 +7,10 @@ ms.date: 01/07/2020
 ms.author: sethm
 ms.lastreviewed: 05/09/2019
 ms.openlocfilehash: 0c7dc4bffba85c60213df4e57c3fc95f756259df
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77704059"
 ---
 # <a name="manage-key-vault-in-azure-stack-hub-using-powershell"></a>Správa Key Vault v centru Azure Stack pomocí PowerShellu
@@ -74,7 +74,7 @@ New-AzureRmKeyVault -VaultName "Vault01" -ResourceGroupName "VaultRG" -Location 
 
 ![Nový trezor klíčů vygenerovaný v PowerShellu](media/azure-stack-key-vault-manage-powershell/image4.png)
 
-Výstup tohoto příkazu zobrazuje vlastnosti trezoru klíčů, který jste vytvořili. Když aplikace přistupuje k tomuto trezoru, musí použít vlastnost **identifikátor URI trezoru** , která je v tomto příkladu `https://vault01.vault.local.azurestack.external`.
+Výstup tohoto příkazu zobrazuje vlastnosti trezoru klíčů, který jste vytvořili. Když aplikace přistupuje k tomuto trezoru, musí použít vlastnost **identifikátor URI trezoru** , která je `https://vault01.vault.local.azurestack.external` v tomto příkladu.
 
 ### <a name="active-directory-federation-services-ad-fs-deployment"></a>Nasazení Active Directory Federation Services (AD FS) (AD FS)
 
@@ -101,14 +101,14 @@ Pomocí rutiny **Add-AzureKeyVaultKey** vytvořte nebo importujte klíč chrán�
 Add-AzureKeyVaultKey -VaultName "Vault01" -Name "Key01" -verbose -Destination Software
 ```
 
-Parametr `-Destination` slouží k určení, zda je klíč chráněný softwarem. Po úspěšném vytvoření klíče vypíše příkaz Podrobnosti vytvořeného klíče.
+`-Destination` Parametr se používá k určení, zda je klíč chráněný softwarem. Po úspěšném vytvoření klíče vypíše příkaz Podrobnosti vytvořeného klíče.
 
 ![Nový klíč trezoru klíčů vygenerovaný v PowerShellu](media/azure-stack-key-vault-manage-powershell/image5.png)
 
 Nyní můžete odkazovat na vytvořený klíč pomocí jeho identifikátoru URI. Pokud vytvoříte nebo importujete klíč, který má stejný název jako existující klíč, původní klíč se aktualizuje s hodnotami zadanými v novém klíči. K předchozí verzi můžete přistupovat pomocí identifikátoru URI, který je specifický pro danou verzi klíče. Příklad:
 
-* K získání aktuální verze vždycky použijte `https://vault10.vault.local.azurestack.external:443/keys/key01`.
-* K získání této konkrétní verze použijte `https://vault010.vault.local.azurestack.external:443/keys/key01/d0b36ee2e3d14e9f967b8b6b1d38938a`.
+* K `https://vault10.vault.local.azurestack.external:443/keys/key01` získání aktuální verze vždycky použijte.
+* Použijte `https://vault010.vault.local.azurestack.external:443/keys/key01/d0b36ee2e3d14e9f967b8b6b1d38938a` k získání této konkrétní verze.
 
 ### <a name="get-a-key"></a>Získat klíč
 

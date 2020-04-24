@@ -8,10 +8,10 @@ ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/27/2019
 ms.openlocfilehash: 4c545c60c0890f87c87108101a3e30ab4c87d16d
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77705283"
 ---
 # <a name="use-the-template-validation-tool-in-azure-stack-hub"></a>Použití nástroje pro ověření šablony v Azure Stack hub
@@ -39,7 +39,7 @@ Než použijete validátor šablon, spusťte modul PowerShellu **AzureRM. CloudC
     Import-Module .\CloudCapabilities\AzureRM.CloudCapabilities.psm1
     ```
 
-3. Pomocí rutiny **Get-CloudCapabilities** načtěte verze služby a vytvořte soubor JSON cloudové možnosti. Pokud neurčíte `-OutputPath`, v aktuálním adresáři se vytvoří soubor **AzureCloudCapabilities. JSON** . Použijte své skutečné umístění v Azure:
+3. Pomocí rutiny **Get-CloudCapabilities** načtěte verze služby a vytvořte soubor JSON cloudové možnosti. Pokud nezadáte `-OutputPath`, v aktuálním adresáři se vytvoří soubor **AzureCloudCapabilities. JSON** . Použijte své skutečné umístění v Azure:
 
     ```powershell
     Get-AzureRMCloudCapability -Location <your location> -Verbose
@@ -72,7 +72,7 @@ V konzole PowerShellu se zobrazují upozornění a chyby ověřování šablony 
 
 Rutina pro validátor šablon podporuje následující parametry.
 
-| Parametr | Popis | Požadováno |
+| Parametr | Popis | Požaduje se |
 | ----- | -----| ----- |
 | `TemplatePath` | Určuje cestu k rekurzivnímu nalezení Azure Resource Manager šablon. | Ano |
 | `TemplatePattern` | Určuje názvy souborů šablon, které se mají spárovat. | Ne |

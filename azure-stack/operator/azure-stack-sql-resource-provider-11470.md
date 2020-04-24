@@ -1,5 +1,5 @@
 ---
-title: 1\.1.47.0 zpráva k vydání verze poskytovatele prostředků SQL centra pro Azure Stack
+title: 1.1.47.0 zpráva k vydání verze poskytovatele prostředků SQL centra pro Azure Stack
 description: Přečtěte si, co je v nejnovější aktualizaci poskytovatele prostředků SQL centra Azure Stack, včetně všech známých problémů a místa, kde ho stáhnout.
 author: justinha
 ms.topic: article
@@ -8,17 +8,17 @@ ms.author: justinha
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/26/2019
 ms.openlocfilehash: 9303a9d60fad754a5ba644d4b6e1c5cd3d331497
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77697412"
 ---
-# <a name="sql-resource-provider-11470-release-notes"></a>1\.1.47.0 poznámky k verzi poskytovatele prostředků SQL
+# <a name="sql-resource-provider-11470-release-notes"></a>1.1.47.0 poznámky k verzi poskytovatele prostředků SQL
 
 Tyto poznámky k verzi popisují vylepšení a známé problémy ve verzi 1.1.47.0 poskytovatele prostředků SQL.
 
-## <a name="build-reference"></a>Referenční informace o buildu
+## <a name="build-reference"></a>Odkaz na sestavení
 Stáhněte si binární soubor poskytovatele prostředků SQL a potom spusťte samočinný extrahování a extrahujte obsah do dočasného adresáře. Poskytovatel prostředků má minimálně odpovídající sestavení centra Azure Stack. Minimální verze Azure Stack centra pro vydání, která je vyžadována pro instalaci této verze poskytovatele prostředků SQL, je uvedena níže:
 
 > |Minimální verze centra Azure Stack|Verze zprostředkovatele prostředků SQL|

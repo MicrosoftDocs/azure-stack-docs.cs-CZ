@@ -8,10 +8,10 @@ ms.author: inhenkel
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
 ms.openlocfilehash: 1911a07c1a22cbb58b7b7794addadb9cf01f0993
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "78367331"
 ---
 # <a name="prepare-an-azure-stack-hub-update-package"></a>Příprava balíčku aktualizace centra Azure Stack
@@ -39,11 +39,11 @@ Balíček aktualizace pro Azure Stack aktualizace centra a opravy hotfix jsou k 
 
 Zkontrolujte obsah balíčku. Balíček aktualizace se obvykle skládá z následujících souborů:
 
--   **Samorozbalovací soubor \<>. zip**. Tento soubor obsahuje datovou část pro aktualizaci.
+-   **Samorozbalovací soubor>. zip \<s balíčkem**. Tento soubor obsahuje datovou část pro aktualizaci.
 - **Soubor metadata. XML**. Tento soubor obsahuje základní informace o aktualizaci, například o vydavateli, názvu, požadavku, velikosti a adrese URL cesty pro podporu.
 
-### <a name="automatic-download-and-preparation-for-update-packages"></a>Automatické stažení a příprava pro balíčky aktualizací
-Aktualizace softwaru centra Azure Stack a opravy hotfix se automaticky připravují pro systémy s připojením k **koncovým bodům automatických aktualizací centra Azure Stack**: https://*. azureedge. net a https://aka.ms/azurestackautomaticupdate. Další informace o nastavení připojení k **koncovým bodům automatických aktualizací centra Azure Stack**najdete v tématu **opravy a aktualizace** koncových bodů popsaných v tématu [Integrace brány firewall centra Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-integrate-endpoints#ports-and-urls-outbound) .
+### <a name="automatic-download-and-preparation-for-update-packages"></a>Automatické stahování aktualizací a příprava na aktualizace
+Pro systémy s připojením k **koncovým bodům automatické aktualizace centra Azure Stack**se automaticky připravují aktualizace softwaru centra Azure Stack a opravy hotfix: https://*. azureedge https://aka.ms/azurestackautomaticupdate. NET a. Další informace o nastavení připojení k **koncovým bodům automatických aktualizací centra Azure Stack**najdete v tématu **opravy a aktualizace** koncových bodů popsaných v tématu [Integrace brány firewall centra Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-integrate-endpoints#ports-and-urls-outbound) .
 
 ### <a name="where-to-download-azure-stack-hub-update-packages"></a>Kde stahovat balíčky aktualizací Azure Stack centra
 

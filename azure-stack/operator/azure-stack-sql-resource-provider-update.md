@@ -9,13 +9,13 @@ ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
 ms.openlocfilehash: 43099dfb4bfb2ffe50e6c8ccdfc05633ff4f3a6e
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77697157"
 ---
-# <a name="update-the-sql-resource-provider"></a>Aktualizovat poskytovatele prostředků SQL
+# <a name="update-the-sql-resource-provider"></a>Aktualizace poskytovatele prostředků SQL
 
 Nový poskytovatel prostředků SQL může být vydaný, když se Azure Stack centrum aktualizuje na nové sestavení. I když stávající poskytovatel prostředků i nadále funguje, doporučujeme aktualizovat na nejnovější sestavení co nejdříve.
 
@@ -45,13 +45,13 @@ Když spustíte skript prostředí PowerShell **UpdateSQLProvider. ps1** , můž
 
 | Název parametru | Popis | Komentář nebo výchozí hodnota |
 | --- | --- | --- |
-| **CloudAdminCredential** | Přihlašovací údaje pro správce cloudu, které jsou nezbytné pro přístup k privilegovanému koncovému bodu. | _Požadovanou_ |
-| **AzCredential** | Přihlašovací údaje pro účet správce služby Azure Stack hub. Použijte stejné přihlašovací údaje, které jste použili k nasazení centra Azure Stack. | _Požadovanou_ |
-| **VMLocalCredential** | Přihlašovací údaje pro účet místního správce virtuálního počítače poskytovatele prostředků SQL. | _Požadovanou_ |
-| **PrivilegedEndpoint** | IP adresa nebo název DNS privilegovaného koncového bodu. |  _Požadovanou_ |
+| **CloudAdminCredential** | Přihlašovací údaje pro správce cloudu, které jsou nezbytné pro přístup k privilegovanému koncovému bodu. | _Požadováno_ |
+| **AzCredential** | Přihlašovací údaje pro účet správce služby Azure Stack hub. Použijte stejné přihlašovací údaje, které jste použili k nasazení centra Azure Stack. | _Požadováno_ |
+| **VMLocalCredential** | Přihlašovací údaje pro účet místního správce virtuálního počítače poskytovatele prostředků SQL. | _Požadováno_ |
+| **PrivilegedEndpoint** | IP adresa nebo název DNS privilegovaného koncového bodu. |  _Požadováno_ |
 | **AzureEnvironment** | Prostředí Azure účtu správce služby, které jste použili k nasazení centra Azure Stack. Vyžaduje se jenom pro nasazení Azure AD. Podporované názvy prostředí jsou **AzureCloud**, **AzureUSGovernment**nebo, pokud používáte Čína Azure AD **AzureChinaCloud**. | AzureCloud |
 | **DependencyFilesLocalPath** | Do tohoto adresáře musíte taky vložit soubor Certificate. pfx. | _Volitelné pro jeden uzel, ale je povinný pro více uzlů_ |
-| **DefaultSSLCertificatePassword** | Heslo pro certifikát. pfx. | _Požadovanou_ |
+| **DefaultSSLCertificatePassword** | Heslo pro certifikát. pfx. | _Požadováno_ |
 | **MaxRetryCount** | Počet pokusů o opakování všech operací, pokud dojde k selhání.| 2 |
 | **RetryDuration** |Interval časového limitu mezi opakovanými pokusy (v sekundách). | 120 |
 | **Odinstalace** | Odebere poskytovatele prostředků a všechny přidružené prostředky. | Ne |
@@ -61,7 +61,7 @@ Když spustíte skript prostředí PowerShell **UpdateSQLProvider. ps1** , můž
 > [!NOTE]
 > Tento proces aktualizace platí jenom pro integrované systémy Azure Stack hub.
 
-Pokud aktualizujete verzi poskytovatele prostředků SQL na 1.1.33.0 nebo předchozí verze, budete muset v PowerShellu nainstalovat konkrétní verze modulů AzureRm. zaváděcího nástroje a Azure Stack hub. Pokud aktualizujete na poskytovatele prostředků SQL verze 1.1.47.0, skript nasazení automaticky stáhne a nainstaluje potřebné moduly PowerShellu pro vás do cesty C:\Program Files\SqlMySqlPsh.
+Pokud aktualizujete verzi poskytovatele prostředků SQL na 1.1.33.0 nebo předchozí verze, budete muset v PowerShellu nainstalovat konkrétní verze modulů AzureRm. zaváděcího nástroje a Azure Stack hub. Pokud aktualizujete na poskytovatele prostředků SQL verze 1.1.47.0, skript nasazení automaticky stáhne a nainstaluje potřebné moduly PowerShellu pro vás do cesty C:\Program Files\SqlMySqlPsh..
 
 ```powershell
 # Install the AzureRM.Bootstrapper module, set the profile, and install the AzureStack module.

@@ -8,10 +8,10 @@ ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
 ms.openlocfilehash: b376be7855300dab0177bbbe735d6a5bf34d6bb9
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77701067"
 ---
 # <a name="deploy-an-app-that-uses-on-premises-data-and-scales-cross-cloud-using-azure-and-azure-stack-hub"></a>Nasaďte aplikaci, která používá místní data, a škálujte mezi cloudy pomocí Azure a centra Azure Stack.
@@ -105,7 +105,7 @@ Než začnete s tímto řešením, ujistěte se, že splňujete následující p
      ![Konfigurace volitelných funkcí](media/solution-deployment-guide-hybrid/image4.png)
 
 8. V části **nastavení SQL Server**nakonfigurujte následující nastavení:
-   - V případě **připojení SQL**vyberte možnost **veřejné (Internet)** .
+   - V případě **připojení SQL**vyberte možnost **veřejné (Internet)**.
    - V poli **port**ponechte výchozí hodnotu **1433**.
    - Pro **ověřování SQL**vyberte **Povolit**.
 
@@ -286,7 +286,7 @@ Proměnné prostředí App Service můžete použít k předání jiného připo
 
 1. Vytvořte připojovací řetězce pro Azure a centrum Azure Stack. Řetězce by měly být stejné, s výjimkou používaných IP adres.
 
-2. V Azure a centra Azure Stack přidejte příslušný připojovací řetězec [jako nastavení aplikace](https://docs.microsoft.com/azure/app-service/web-sites-configure) ve webové aplikaci, a to pomocí `SQLCONNSTR\_` jako předponu v názvu.
+2. V Azure a centra Azure Stack přidejte příslušný připojovací řetězec [jako nastavení aplikace](https://docs.microsoft.com/azure/app-service/web-sites-configure) ve webové aplikaci, a to pomocí `SQLCONNSTR\_` předpony v názvu.
 
 3. **Uložte** nastavení webové aplikace a restartujte aplikaci.
 
@@ -299,9 +299,9 @@ Při vytváření webové aplikace v prostředí App Service se spustí s jednou
 
 ### <a name="enable-automatic-scale-out"></a>Povolit automatické horizontální navýšení kapacity
 
-1. V Azure Najděte App Service plán pro lokality, pro které chcete škálovat kapacitu, a pak vyberte škálování na více instancí **(App Service plán)** .
+1. V Azure Najděte App Service plán pro lokality, pro které chcete škálovat kapacitu, a pak vyberte škálování na více instancí **(App Service plán)**.
 
-    ![Horizontálně navýšit kapacitu](media/solution-deployment-guide-hybrid/image16.png)
+    ![Horizontální navýšení kapacity](media/solution-deployment-guide-hybrid/image16.png)
 
 2. Vyberte **Povolit automatické škálování**.
 
@@ -373,10 +373,10 @@ Při snížení provozu může webová aplikace Azure automaticky snížit poče
 
 Vytvořte v Azure profil Traffic Manager a pak nakonfigurujte koncové body, aby se povolilo škálování mezi cloudy.
 
-### <a name="create-traffic-manager-profile"></a>Vytvořit profil Traffic Manageru
+### <a name="create-traffic-manager-profile"></a>Vytvořit profil Traffic Manager
 
-1. Vyberte **vytvořit prostředek**.
-2. Vyberte **sítě**.
+1. Vyberte **Vytvořit prostředek**.
+2. Vyberte **Sítě**.
 3. Vyberte **profil Traffic Manager** a nakonfigurujte následující nastavení:
 
    - Do **název**zadejte název profilu. Tento název **musí** být v zóně trafficmanager.NET jedinečný a používá se k vytvoření nového názvu DNS (například northwindstore.trafficmanager.NET).
@@ -387,7 +387,7 @@ Vytvořte v Azure profil Traffic Manager a pak nakonfigurujte koncové body, aby
 
 4. Vyberte **Vytvořit**.
 
-    ![Vytvořit profil Traffic Manageru](media/solution-deployment-guide-hybrid/image19.png)
+    ![Vytvořit profil Traffic Manager](media/solution-deployment-guide-hybrid/image19.png)
 
    Po dokončení globálního nasazení profilu Traffic Manager se zobrazí v seznamu prostředků pro skupinu prostředků, ve které jste ji vytvořili.
 
@@ -445,13 +445,13 @@ Toto zobrazení použijete k vytvoření upozornění na horizontální navýše
 
 ### <a name="create-the-scale-out-alert"></a>Vytvoření upozornění na horizontální navýšení kapacity
 
-1. V části **Konfigurovat**vyberte **výstrahy (klasické)** .
-2. Vyberte **Přidat upozornění na metriku (Classic)** .
+1. V části **Konfigurovat**vyberte **výstrahy (klasické)**.
+2. Vyberte **Přidat upozornění na metriku (Classic)**.
 3. V části **Přidat pravidlo**nakonfigurujte následující nastavení:
 
    - Jako **název**zadejte **nárůst do cloudu Azure**.
    - **Popis** je volitelný.
-   - V části **zdrojová** > **Upozornění na**vyberte **metriky**.
+   - V části**Výstraha** **zdrojového kódu** > vyberte **metriky**.
    - V části **kritéria**vyberte své předplatné, skupinu prostředků pro profil Traffic Manager a název profilu Traffic Manager pro daný prostředek.
 
 4. Jako **metrika**vyberte **rychlost požadavků**.
@@ -466,13 +466,13 @@ Toto zobrazení použijete k vytvoření upozornění na horizontální navýše
 
 ### <a name="create-the-scale-in-alert"></a>Vytvoření měřítka v upozornění
 
-1. V části **Konfigurovat**vyberte **výstrahy (klasické)** .
-2. Vyberte **Přidat upozornění na metriku (Classic)** .
+1. V části **Konfigurovat**vyberte **výstrahy (klasické)**.
+2. Vyberte **Přidat upozornění na metriku (Classic)**.
 3. V části **Přidat pravidlo**nakonfigurujte následující nastavení:
 
    - Jako **název**zadejte horizontální navýšení **kapacity zpátky do centra Azure Stack**.
    - **Popis** je volitelný.
-   - V části **zdrojová** > **Upozornění na**vyberte **metriky**.
+   - V části**Výstraha** **zdrojového kódu** > vyberte **metriky**.
    - V části **kritéria**vyberte své předplatné, skupinu prostředků pro profil Traffic Manager a název profilu Traffic Manager pro daný prostředek.
 
 4. Jako **metrika**vyberte **rychlost požadavků**.
@@ -487,7 +487,7 @@ Toto zobrazení použijete k vytvoření upozornění na horizontální navýše
 
 Následující snímek obrazovky znázorňuje výstrahy pro horizontální navýšení kapacity a škálování.
 
-   ![Upozornění (klasická)](media/solution-deployment-guide-hybrid/image22.png)
+   ![Upozornění (Classic)](media/solution-deployment-guide-hybrid/image22.png)
 
 ## <a name="redirect-traffic-between-azure-and-azure-stack-hub"></a>Přesměrování provozu mezi Azure a centra Azure Stack
 

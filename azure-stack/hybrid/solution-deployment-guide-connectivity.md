@@ -8,10 +8,10 @@ ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
 ms.openlocfilehash: 4c12cd6eb262aa953637ae6928051e7aa444ef91
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77695423"
 ---
 # <a name="configure-hybrid-cloud-connectivity-using-azure-and-azure-stack-hub"></a>Konfigurace hybridního cloudového připojení pomocí Azure a centra Azure Stack
@@ -63,7 +63,7 @@ V tomto příkladu řešení se předpokládá, že máte základní znalosti Az
  - [Vytvářejte plány a nabídky](../operator/service-plan-offer-subscription-overview.md) v prostředí Azure Stack hub.
  - [Vytvořte předplatné tenanta](../operator/azure-stack-subscribe-plan-provision-vm.md) v prostředí Azure Stack hub.
 
-### <a name="before-you-begin"></a>Než začnete
+### <a name="before-you-begin"></a>Před zahájením
 
 Před zahájením konfigurace připojení hybridního cloudu ověřte, že splňujete následující kritéria:
 
@@ -95,8 +95,8 @@ IP adresa sítě a podsítě:
 |  |  | GatewaySubnet <br>10.100101.0/24 |  |
 | Brána Azure Virtual Network | Azure – brána |  |  |
 | Virtual Network bránu centra Azure Stack | AzureStack – brána |  |  |
-| Veřejná IP adresa Azure | Azure-GatewayPublicIP |  | Určeno při vytvoření |
-| Veřejná IP adresa centra Azure Stack | AzureStack-GatewayPublicIP |  | Určeno při vytvoření |
+| Veřejná IP adresa Azure | Azure – GatewayPublicIP |  | Určeno při vytvoření |
+| Veřejná IP adresa centra Azure Stack | AzureStack – GatewayPublicIP |  | Určeno při vytvoření |
 | Brána místní sítě Azure | AzureStack – S2SGateway<br>   10.100.100.0/23 |  | Hodnota veřejné IP adresy centra Azure Stack |
 | Brána místní sítě centra Azure Stack | Azure – S2SGateway<br>10.100.102.0/23 |  | Hodnota veřejné IP adresy Azure |
 
@@ -110,7 +110,7 @@ Pomocí následujících kroků můžete vytvořit virtuální síť pomocí por
 Vytvoření virtuální sítě v Azure:
 
 1. Pomocí prohlížeče se připojte k [Azure Portal](https://portal.azure.com/) a přihlaste se pomocí svého účtu Azure.
-2. Vyberte **vytvořit prostředek**. Do pole **Hledat na Marketplace** zadejte ' virtuální síť '. Z výsledků vyberte **virtuální síť** .
+2. Vyberte **Vytvořit prostředek**. Do pole **Hledat na Marketplace** zadejte ' virtuální síť '. Z výsledků vyberte **virtuální síť** .
 3. V seznamu **Vybrat model nasazení** vyberte možnost **Správce prostředků**a pak vyberte **vytvořit**.
 4. V části **vytvořit virtuální síť**nakonfigurujte nastavení virtuální sítě. Názvy požadovaných polí mají předponu s červenou hvězdičkou.  Když zadáte platnou hodnotu, hvězdička se změní na zelenou značku zaškrtnutí.
 
@@ -130,7 +130,7 @@ V [Azure Portal](https://portal.azure.com/)přejděte do Správce prostředků v
 
     ![Přidat podsíť brány](media/solution-deployment-guide-connectivity/image4.png)
 
-4. **Název** podsítě se automaticky vyplní hodnotou ' GatewaySubnet '. Tato hodnota je vyžadována pro Azure podsíť rozpoznala jako podsíť brány.
+4. **Název** podsítě se automaticky vyplní hodnotou ' GatewaySubnet '. Tato hodnota se vyžaduje v případě, že Azure rozpozná podsíť jako podsíť brány.
 5. Změňte hodnoty **rozsahu adres** , které jsou k dispozici, aby odpovídaly vašim požadavkům na konfiguraci, a pak vyberte **OK**.
 
 ## <a name="create-a-virtual-network-gateway-in-azure-and-azure-stack"></a>Vytvoření Virtual Network brány v Azure a Azure Stack

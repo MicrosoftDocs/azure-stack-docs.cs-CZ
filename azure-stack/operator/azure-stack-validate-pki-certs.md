@@ -11,10 +11,10 @@ ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 01/08/2019
 ms.openlocfilehash: e8114d060e596f581cd23ec80b0b5f455567dc1f
-ms.sourcegitcommit: a77dea675af6500bdad529106f5782d86bec6a34
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79025245"
 ---
 # <a name="validate-azure-stack-hub-pki-certificates"></a>Ověření certifikátů PKI Azure Stack hub
@@ -47,7 +47,7 @@ Nástroj pro kontrolu připravenosti provádí následující ověření certifi
 > [!IMPORTANT]  
 > Certifikát PKI je soubor PFX a heslo by mělo být považováno za citlivé informace.
 
-## <a name="prerequisites"></a>Předpoklady
+## <a name="prerequisites"></a>Požadavky
 
 Před ověřením certifikátů PKI pro nasazení centra Azure Stack musí systém splňovat následující požadavky:
 
@@ -56,7 +56,7 @@ Před ověřením certifikátů PKI pro nasazení centra Azure Stack musí syst�
 - DeploymentData. JSON.
 - Windows 10 nebo Windows Server 2016.
 
-## <a name="perform-core-services-certificate-validation"></a>Provést ověření certifikátu základní služby
+## <a name="perform-core-services-certificate-validation"></a>Ověřování certifikátů základních služeb
 
 Pomocí těchto kroků Připravte a ověřte certifikáty PKI centra Azure Stack pro nasazení a rotaci tajných kódů:
 
@@ -66,7 +66,7 @@ Pomocí těchto kroků Připravte a ověřte certifikáty PKI centra Azure Stack
         Install-Module Microsoft.AzureStack.ReadinessChecker -force 
     ```
 
-2. Vytvořte strukturu adresářů certifikátů. V následujícím příkladu můžete `<C:\Certificates\Deployment>` změnit na novou cestu k adresáři podle vašeho výběru.
+2. Vytvořte strukturu adresářů certifikátů. V následujícím příkladu se můžete změnit `<C:\Certificates\Deployment>` na cestu k novému adresáři podle vašeho výběru.
     ```powershell  
     New-Item C:\Certificates\Deployment -ItemType Directory
     
@@ -89,7 +89,7 @@ Pomocí těchto kroků Připravte a ověřte certifikáty PKI centra Azure Stack
         - `C:\Certificates\Deployment\Admin Portal\CustomerCertificate.pfx`
         - `C:\Certificates\Deployment\ARM Admin\CustomerCertificate.pfx`
 
-3. V okně PowerShellu změňte hodnoty `RegionName`, `FQDN` a `IdentitySystem` vhodné pro prostředí Azure Stack hub a spusťte následující rutinu:
+3. V okně PowerShellu změňte hodnoty `RegionName` `FQDN` a `IdentitySystem` odpovídající prostředí Azure Stack hub a spusťte následující rutinu:
 
     ```powershell  
     $pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString 
@@ -143,7 +143,7 @@ Pomocí těchto kroků Připravte a ověřte certifikáty PKI centra Azure Stack
     Invoke-AzsCertificateValidation Completed
     ```
 
-    Pokud chcete ověřit certifikáty pro další Azure Stack služby centra, změňte hodnotu ```-CertificateType```. Příklad:
+    Pokud chcete ověřit certifikáty pro jiné služby Azure Stack centra, změňte hodnotu pro ```-CertificateType```. Příklad:
 
     ```powershell  
     # App Services
@@ -158,7 +158,7 @@ Pomocí těchto kroků Připravte a ověřte certifikáty PKI centra Azure Stack
     # IoTHub
     Invoke-AzsCertificateValidation -CertificateType IoTHub -CertificatePath C:\Certificates\IoTHub -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com
     ```
-    Každá složka by měla obsahovat jeden soubor PFX pro daný typ certifikátu. Pokud má typ certifikátu požadavky na více certifikátů, jsou pro každý jednotlivý certifikát očekávány vnořené složky a rozlišující názvy. Následující kód ukazuje příklad struktury složky/certifikátu pro všechny typy certifikátů a odpovídající hodnotu pro ```-CertificateType``` a ```-CertificatePath```.
+    Každá složka by měla obsahovat jeden soubor PFX pro daný typ certifikátu. Pokud má typ certifikátu požadavky na více certifikátů, jsou pro každý jednotlivý certifikát očekávány vnořené složky a rozlišující názvy. Následující kód ukazuje příklad struktury složky/certifikátu pro všechny typy certifikátů a odpovídající hodnotu pro ```-CertificateType``` a. ```-CertificatePath```
     
     ```powershell  
     C:\>tree c:\SecretStore /A /F

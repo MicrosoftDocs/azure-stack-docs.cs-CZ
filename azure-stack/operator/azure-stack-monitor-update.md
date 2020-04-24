@@ -8,10 +8,10 @@ ms.author: inhenkel
 ms.reviewer: fiseraci
 ms.lastreviewed: 11/05/2019
 ms.openlocfilehash: 943f391d709f772ec3ed5aa0c99bd738f5de679a
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "78368120"
 ---
 # <a name="monitor-updates-in-azure-stack-hub-using-the-privileged-endpoint"></a>Monitorování aktualizací v centru Azure Stack pomocí privilegovaného koncového bodu
@@ -38,7 +38,7 @@ Můžete také zjistit, jestli jsou rutiny k dispozici programově pomocí dotaz
 
    $pepSession = New-PSSession -ComputerName <Prefix>-ercs01 -Credential $cred -ConfigurationName PrivilegedEndpoint 
    ```
-   Po zobrazení výzvy k zadání přihlašovacích údajů použijte účet služby &lt;*Azure Stack&gt;doméně* nebo účet, který je členem skupiny CloudAdmins. Pro účet CloudAdmin zadejte stejné heslo, které bylo zadáno během instalace pro účet správce domény AzureStackAdmin.
+   Po zobrazení výzvy k zadání přihlašovacích &lt;údajů použijte účet služby *Azure Stack hub Domain*&gt;\cloudadmin nebo účet, který je členem skupiny CloudAdmins. Pro účet CloudAdmin zadejte stejné heslo, které bylo zadáno během instalace pro účet správce domény AzureStackAdmin.
 
 2. Získejte úplný seznam příkazů, které jsou k dispozici v privilegovaném koncovém bodu.
 
@@ -85,7 +85,7 @@ $cred = Get-Credential
 
 $pepSession = New-PSSession -ComputerName <Prefix>-ercs01 -Credential $cred -ConfigurationName PrivilegedEndpoint 
 ```
- Po zobrazení výzvy k zadání přihlašovacích údajů použijte účet služby &lt;*Azure Stack&gt;doméně* nebo účet, který je členem skupiny CloudAdmins. Pro účet CloudAdmin zadejte stejné heslo, které bylo zadáno během instalace pro účet správce domény AzureStackAdmin.
+ Po zobrazení výzvy k zadání přihlašovacích &lt;údajů použijte účet služby *Azure Stack hub Domain*&gt;\cloudadmin nebo účet, který je členem skupiny CloudAdmins. Pro účet CloudAdmin zadejte stejné heslo, které bylo zadáno během instalace pro účet správce domény AzureStackAdmin.
 
 ### <a name="get-high-level-status-of-the-current-update-run"></a>Získá stav vysoké úrovně pro aktuální běh aktualizace.
 
@@ -97,11 +97,11 @@ $statusString = Invoke-Command -Session $pepSession -ScriptBlock { Get-AzureStac
 $statusString.Value 
 ```
 
-Možné hodnoty:
+Mezi možné hodnoty patří:
 
 - Spuštěno
 - Dokončeno
-- Neúspěch 
+- Failed 
 - Zrušeno
 
 Chcete-li zobrazit nejaktuálnější stav, můžete spustit tyto příkazy opakovaně. Nemusíte znovu navázat připojení pro kontrolu.

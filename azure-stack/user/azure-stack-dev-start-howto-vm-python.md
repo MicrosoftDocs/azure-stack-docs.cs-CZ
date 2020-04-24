@@ -8,10 +8,10 @@ ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 3/12/2020
 ms.openlocfilehash: 700589e985aa651a1a7ae4a5ffbc020b8e6a2d3f
-ms.sourcegitcommit: 4301e8dee16b4db32b392f5979dfec01ab6566c9
+ms.sourcegitcommit: 4138a2a15f78e7db38b3a29acc963a71937146fd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 04/15/2020
 ms.locfileid: "79313004"
 ---
 # <a name="deploy-a-python-web-app-to-a-vm-in-azure-stack-hub"></a>Nasazení webové aplikace v Pythonu do virtuálního počítače v Azure Stackovém centru
@@ -31,7 +31,7 @@ V tomto článku se používá Python 3. x, ve kterém je ve virtuálním prost�
     | 80 | HTTP | HTTP (Hypertext Transfer Protocol) je protokol, který se používá k doručování webových stránek ze serverů. Klienti se připojují přes protokol HTTP s názvem DNS nebo IP adresou. |
     | 443 | HTTPS | Protokol HTTPS (Hypertext Transfer Protocol Secure) je zabezpečená verze protokolu HTTP, která vyžaduje certifikát zabezpečení a umožňuje šifrovaný přenos informací. |
     | 22 | SSH | Secure Shell (SSH) je zašifrovaný síťový protokol pro zabezpečenou komunikaci. Pomocí tohoto připojení s klientem SSH nakonfigurujete virtuální počítač a nasadíte aplikaci. |
-    | 3389 | Protokol RDP | Volitelné. Protokol RDP (Remote Desktop Protocol) (RDP) umožňuje připojení ke vzdálené ploše pro použití grafického uživatelského rozhraní na vašem počítači.   |
+    | 3389 | Protokol RDP | Nepovinný parametr. Protokol RDP (Remote Desktop Protocol) (RDP) umožňuje připojení ke vzdálené ploše pro použití grafického uživatelského rozhraní na vašem počítači.   |
     | 5000, 8000 | Vlastní | Porty používané webovým rozhraním v baňce pro vývoj. V případě provozního serveru směrujete provoz mezi 80 a 443. |
 
 ## <a name="install-python"></a>Instalace Pythonu

@@ -8,10 +8,10 @@ ms.author: sethm
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2020
 ms.openlocfilehash: 3d7c4e7481b3054eaf44394e9b80f1e07bc75fa9
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77703719"
 ---
 <!--  cblackuk and charliejllewellyn. This is a community contribution by cblackuk-->
@@ -30,9 +30,9 @@ Tento článek nezkoumá všechny možnosti, které jsou k dispozici pro načít
 
 ## <a name="get-a-token-from-azure"></a>Získání tokenu z Azure
 
-Vytvořte text požadavku formátovaný pomocí typu obsahu `x-www-form-urlencoded` k získání přístupového tokenu. ODEŠLEte požadavek do koncového bodu ověřování Azure REST a přihlášení.
+Vytvořte text požadavku formátovaný pomocí typu `x-www-form-urlencoded` obsahu pro získání přístupového tokenu. ODEŠLEte požadavek do koncového bodu ověřování Azure REST a přihlášení.
 
-### <a name="uri"></a>URI
+### <a name="uri"></a>Identifikátor URI
 
 ```bash  
 POST https://login.microsoftonline.com/{tenant id}/oauth2/token
@@ -40,9 +40,9 @@ POST https://login.microsoftonline.com/{tenant id}/oauth2/token
 
 **ID tenanta** je buď:
 
-- Vaše doména tenanta, například `fabrikam.onmicrosoft.com`
-- Vaše ID tenanta, například `8eaed023-2b34-4da1-9baa-8bc8c9d6a491`
-- Výchozí hodnota pro klíče nezávislé na tenantovi: `common`
+- Vaše doména tenanta, například`fabrikam.onmicrosoft.com`
+- Vaše ID tenanta, například`8eaed023-2b34-4da1-9baa-8bc8c9d6a491`
+- Výchozí hodnota pro klíče nezávislé na tenantovi:`common`
 
 ### <a name="post-body"></a>Tělo příspěvku
 
@@ -58,7 +58,7 @@ grant_type=password
 Pro každou hodnotu:
 
 - **grant_type**:  
-   Typ schématu ověřování, který budete používat. V tomto příkladu je hodnota `password`.
+   Typ schématu ověřování, který budete používat. V tomto příkladu je `password`hodnota.
 
 - **prostředek**:  
    Prostředek, ke kterému token přistupuje. Prostředek můžete najít dotazem na koncový bod metadat správy centra Azure Stack. Podívejte se na část **cílové skupiny** .
@@ -110,11 +110,11 @@ Pro každou hodnotu:
 
   | Aplikace | ApplicationID |
   | --------------------------------------- |:-------------------------------------------------------------:|
-  | LegacyPowerShell | 0a7bdc5c-7b57-40be-9939-d4c5fc7cd417 |
+  | LegacyPowerShell | 0a7bdc5c-7b57-40BE-9939-d4c5fc7cd417 |
   | PowerShell | 1950a258-227b-4e31-a9cf-717495945fc2 |
-  | WindowsAzureActiveDirectory | 00000002-0000-0000-c000-000000000000 |
+  | WindowsAzureActiveDirectory | 00000002-0000-0000 – C000 – 000000000000 |
   | VisualStudio | 872cd9fa-d31f-45e0-9eab-6e460a02d1f1 |
-  | AzureCLI | 04b07795-8ddb-461a-bbee-02f9e1bf7b46 |
+  | Azure CLI | 04b07795-8ddb-461a-bbee-02f9e1bf7b46 |
 
 - **jmen**
 
@@ -124,7 +124,7 @@ Pro každou hodnotu:
   azurestackadmin@fabrikam.onmicrosoft.com
   ```
 
-- **zadáno**
+- **heslo**
 
   Azure Stack centrum pro správu Azure AD.
 
@@ -181,12 +181,12 @@ subscriptionPolicies : @{locationPlacementId=AzureStack}
 
 ### <a name="url-structure-and-query-syntax"></a>Struktura adres URL a syntaxe dotazů
 
-Identifikátor URI obecné žádosti se skládá z těchto: `{URI-scheme} :// {URI-host} / {resource-path} ? {query-string}`
+Identifikátor URI obecné žádosti se skládá z těchto:`{URI-scheme} :// {URI-host} / {resource-path} ? {query-string}`
 
 - **Schéma identifikátoru URI**:  
-Identifikátor URI označuje protokol použitý k odeslání požadavku. Například `http` nebo `https`.
+Identifikátor URI označuje protokol použitý k odeslání požadavku. Příkladem je `http` nebo `https`.
 - **Hostitel identifikátoru URI**:  
-Hostitel Určuje název domény nebo IP adresu serveru, na kterém je hostovaný koncový bod služby REST, například `graph.microsoft.com` nebo `adminmanagement.local.azurestack.external`.
+Hostitel Určuje název domény nebo IP adresu serveru, na kterém je hostovaný koncový bod služby REST, například `graph.microsoft.com` nebo. `adminmanagement.local.azurestack.external`
 - **Cesta prostředku**:  
 Cesta Určuje prostředek nebo kolekci prostředků, které mohou zahrnovat více segmentů používaných službou při určování výběru těchto prostředků. Například: `beta/applications/00003f25-7e1f-4278-9488-efc7bac53c4a/owners` lze použít k dotazování seznamu na konkrétní vlastníky aplikace v rámci kolekce aplikací.
 - **Řetězec dotazu**:  

@@ -6,10 +6,10 @@ ms.author: v-kedow
 ms.topic: article
 ms.date: 03/06/2020
 ms.openlocfilehash: c6410e4f0d60138ce773f7f0abfae1a5c1850bd2
-ms.sourcegitcommit: 900332596d0bb473d82b1d1a28c3fe3aa6522add
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79095012"
 ---
 # <a name="planning-volumes-in-storage-spaces-direct"></a>Plánování svazků v Prostory úložiště s přímým přístupem
@@ -27,7 +27,7 @@ Na svazcích se ukládají soubory, které vaše úlohy potřebují, například
 
 ![Co jsou svazky](media/plan-volumes/what-are-volumes.png)
 
-Všechny svazky jsou přístupné pro všechny servery v clusteru ve stejnou dobu. Po vytvoření se zobrazí na **C:\ClusterStorage\\** na všech serverech.
+Všechny svazky jsou přístupné pro všechny servery v clusteru ve stejnou dobu. Po vytvoření se zobrazí v **C:\ClusterStorage\\ ** na všech serverech.
 
 ![CSV – složka – snímek obrazovky](media/plan-volumes/csv-folder-screenshot.png)
 
@@ -81,7 +81,7 @@ Duální parita poskytuje stejnou odolnost proti chybám jako trojrozměrné zrc
 
 Typ odolnosti, který se použije, závisí na potřebách vaší úlohy. Tady je tabulka, která shrnuje, které úlohy jsou vhodné pro každý typ odolnosti, a také efektivitu výkonu a úložiště každého typu odolnosti.
 
-| Typ odolnosti | Efektivita kapacity | Rychlost | Úlohy |
+| Typ odolnosti | Efektivita kapacity | Rychlost | Úkoly |
 | ------------------- | ----------------------  | --------- | ------------- |
 | **Zrcadlení**         | ![Efektivita úložiště zobrazující 33%](media/plan-volumes/3-way-mirror-storage-efficiency.png)<br>Třícestný zrcadlový svazek: 33% <br>Dvoucestné zrcadlení: 50%     |![Výkon ukazující 100%](media/plan-volumes/three-way-mirror-perf.png)<br> Nejvyšší výkon  | Virtualizované úlohy<br> Databáze<br>Další úlohy s vysokým výkonem |
 | **Zrcadlení – urychlené parity** |![Efektivita úložiště znázorňující přibližně 50%](media/plan-volumes/mirror-accelerated-parity-storage-efficiency.png)<br> Závisí na poměru zrcadlení a parity. | ![Výkon znázorňující přibližně 20%](media/plan-volumes/mirror-accelerated-parity-perf.png)<br>Mnohem pomalejší než Zrcadlová, ale až dvakrát jako rychlá jako duální parita<br> Nejlepší pro velké sekvenční zápisy a čtení | Archivace a zálohování<br> Infrastruktura virtualizovaných ploch     |
@@ -176,7 +176,7 @@ Nepotřebujeme, aby měly všechny svazky stejnou velikost, ale pro jednoduchost
 
 Čtyři svazky přesně vyhovují kapacitě fyzického úložiště, která je k dispozici ve vašem fondu. Ideální!
 
-![Příklad](media/plan-volumes/example.png)
+![příklad](media/plan-volumes/example.png)
 
    >[!TIP]
    > Nemusíte vytvářet všechny svazky hned. Svazky můžete kdykoli roztáhnout nebo vytvořit nové svazky později.

@@ -8,10 +8,10 @@ ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2019
 ms.openlocfilehash: 3a0a62fe74b3420ccc321f79539cdce16aac6934
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79294668"
 ---
 # <a name="prerequisites-for-deploying-app-service-on-azure-stack-hub"></a>Předpoklady pro nasazení App Service v centru Azure Stack
@@ -28,13 +28,13 @@ Před nasazením Azure App Service v centru Azure Stack je nutné provést poža
 3. Extrahujte soubory ze souboru pomocných skriptů. zip. Extrahovány jsou následující soubory a složky:
 
    - Common. ps1
-   - Create-AADIdentityApp.ps1
-   - Create-ADFSIdentityApp.ps1
-   - Create-AppServiceCerts.ps1
-   - Get-AzureStackRootCert.ps1
-   - Remove-AppService.ps1
+   - Create-AADIdentityApp. ps1
+   - Create-ADFSIdentityApp. ps1
+   - Create-AppServiceCerts. ps1
+   - Get-AzureStackRootCert. ps1
+   - Remove-AppService. ps1
    - Složka modulů
-     - GraphAPI.psm1
+     - GraphAPI. psm1
 
 ## <a name="download-items-from-the-azure-marketplace"></a>Stáhnout položky z Azure Marketplace
 
@@ -51,7 +51,7 @@ Otevřete relaci PowerShellu se zvýšenými oprávněními na počítači, kter
 
 Spusťte skript *Get-AzureStackRootCert. ps1* ze složky, do které jste extrahovali pomocné skripty. Skript vytvoří kořenový certifikát ve stejné složce, jako je skript, který App Service potřebuje k vytváření certifikátů.
 
-Když spustíte následující příkaz PowerShellu, musíte zadat privilegovaný koncový bod a přihlašovací údaje pro AzureStack\CloudAdmin.
+Když spustíte následující příkaz PowerShellu, musíte zadat privilegovaný koncový bod a přihlašovací údaje pro AzureStack\CloudAdmin..
 
 ```powershell
     Get-AzureStackRootCert.ps1
@@ -70,10 +70,10 @@ Skript *Create-AppServiceCerts. ps1* spolupracuje s certifikační autoritou cen
 
 | Název souboru | Použití |
 | --- | --- |
-| _.appservice.local.azurestack.external.pfx | App Service výchozí certifikát SSL |
-| api.appservice.local.azurestack.external.pfx | Certifikát SSL pro App Service rozhraní API |
-| ftp.appservice.local.azurestack.external.pfx | App Service certifikát SSL vydavatele |
-| sso.appservice.local.azurestack.external.pfx | Certifikát aplikace App Service identity |
+| _. AppService. Local. azurestack. external. pfx | App Service výchozí certifikát SSL |
+| API. AppService. Local. azurestack. external. pfx | Certifikát SSL pro App Service rozhraní API |
+| FTP. AppService. Local. azurestack. external. pfx | App Service certifikát SSL vydavatele |
+| SSO. AppService. Local. azurestack. external. pfx | Certifikát aplikace App Service identity |
 
 K vytvoření certifikátů použijte následující postup:
 
@@ -87,7 +87,7 @@ K vytvoření certifikátů použijte následující postup:
 | Parametr | Požadované nebo volitelné | Výchozí hodnota | Popis |
 | --- | --- | --- | --- |
 | pfxPassword | Požaduje se | Null | Heslo, které pomáhá chránit privátní klíč certifikátu |
-| DomainName | Požaduje se | local.azurestack.external | Oblast centra Azure Stack a přípona domény |
+| DomainName | Požaduje se | Local. azurestack. external | Oblast centra Azure Stack a přípona domény |
 
 ### <a name="certificates-required-for-azure-stack-hub-production-deployment-of-azure-app-service"></a>Certifikáty vyžadované pro nasazení Azure Stackho centra v produkčním prostředí Azure App Service
 
@@ -116,7 +116,7 @@ Certifikát rozhraní API se umístí do role správy. Poskytovatel prostředků
 
 | Formát | Příklad |
 | --- | --- |
-| rozhraní API. AppService.\<oblasti\>.\<domainname\>. rozšíření\<\> | api.appservice.redmond.azurestack.external |
+| API. AppService. \<oblast\>. \<Název_domény\>. \<rozšíření\> | API. AppService. Redmond. azurestack. external |
 
 #### <a name="publishing-certificate"></a>Publikování certifikátu
 
@@ -124,7 +124,7 @@ Certifikát pro roli vydavatele zabezpečuje přenos FTPS pro vlastníky aplikac
 
 | Formát | Příklad |
 | --- | --- |
-| FTP. AppService.\<oblasti\>.\<domainname\>. rozšíření\<\> | ftp.appservice.redmond.azurestack.external |
+| FTP. AppService. \<oblast\>. \<Název_domény\>. \<rozšíření\> | FTP. AppService. Redmond. azurestack. external |
 
 #### <a name="identity-certificate"></a>Certifikát identity
 
@@ -137,7 +137,7 @@ Certifikát pro identitu musí obsahovat předmět, který odpovídá následuj�
 
 | Formát | Příklad |
 | --- | --- |
-| SSO. AppService.\<oblasti\>.\<domainname\>. rozšíření\<\> | sso.appservice.redmond.azurestack.external |
+| SSO. AppService. \<oblast\>. \<Název_domény\>. \<rozšíření\> | SSO. AppService. Redmond. azurestack. external |
 
 ### <a name="validate-certificates"></a>Ověřit certifikáty
 
@@ -157,16 +157,16 @@ Virtuální síť-/16
 Podsítě
 
 - ControllersSubnet/24
-- ManagementServersSubnet /24
+- ManagementServersSubnet/24
 - FrontEndsSubnet/24
-- PublishersSubnet /24
+- PublishersSubnet/24
 - WorkersSubnet/21
 
 ## <a name="licensing-concerns-for-required-file-server-and-sql-server"></a>Aspekty licencování pro požadovaný souborový server a SQL Server
 
 Azure App Service v centru Azure Stack vyžaduje souborový server a SQL Server k provozu.  Nebudete používat už existující prostředky nacházející se mimo vaše nasazení centra Azure Stack nebo nasazovat prostředky v rámci předplatného výchozího poskytovatele služby Azure Stack hub.
 
-Pokud se rozhodnete nasadit prostředky v rámci předplatného výchozího poskytovatele služby Azure Stack hub, jsou licence pro tyto prostředky (licence na Windows Server a licence SQL Server) zahrnuté do nákladů na Azure App Service v Azure Stackovém centru v souladu s následující omezení:
+Pokud se rozhodnete nasadit prostředky v rámci předplatného výchozího poskytovatele centra Azure Stack, jsou licence pro tyto prostředky (licence na Windows Server a licence SQL Server) zahrnuté do nákladů na Azure App Service v Azure Stackovém centru v závislosti na následujících omezeních:
 
 - infrastruktura se nasadí do **výchozího předplatného poskytovatele**;
 - infrastruktura se používá výhradně Azure App Service v poskytovateli prostředků Azure Stack hub.  Tuto infrastrukturu můžou používat i žádné jiné úlohy, administrativní (jiní poskytovatelé prostředků, například: SQL-RP) nebo tenant (například klientské aplikace, které vyžadují databázi).
@@ -200,8 +200,8 @@ Nyní je k dispozici [Šablona pro rychlý Start referenční architektury](http
 
 2. Vytvořte následující účty služby Active Directory jako účty služeb:
 
-   - FileShareOwner
-   - FileShareUser
+   - Přihlašovací
+   - Přihlašovací
 
    Z hlediska zabezpečení by měl být uživatel pro tyto účty (a pro všechny webové role) jedinečný a musí mít silné uživatelské jméno a hesla. Nastavte hesla pomocí následujících podmínek:
 
@@ -250,7 +250,7 @@ Sdílená složka obsahuje obsah webu tenanta. Postup zřízení sdílené slož
 
 #### <a name="provision-the-content-share-on-a-single-file-server-active-directory-or-workgroup"></a>Zřízení sdílené složky obsahu na jednom souborovém serveru (ve službě Active Directory nebo v pracovní skupině)
 
-Na jediném souborovém serveru spusťte na příkazovém řádku se zvýšenými oprávněními následující příkazy. Hodnotu pro `C:\WebSites` nahraďte odpovídajícími cestami ve vašem prostředí.
+Na jediném souborovém serveru spusťte na příkazovém řádku se zvýšenými oprávněními následující příkazy. Nahraďte hodnotu pro `C:\WebSites` odpovídajícími cestami ve vašem prostředí.
 
 ```DOS
 set WEBSITES_SHARE=WebSites
@@ -277,7 +277,7 @@ icacls %WEBSITES_FOLDER% /grant %DOMAIN%\FileShareUsers:(CI)(S,X,RA)
 icacls %WEBSITES_FOLDER% /grant *S-1-1-0:(OI)(CI)(IO)(RA,REA,RD)
 ```
 
-#### <a name="workgroup"></a>Pracovní skupiny
+#### <a name="workgroup"></a>Pracovní skupina
 
 ```DOS
 set WEBSITES_FOLDER=C:\WebSites
@@ -349,7 +349,7 @@ Pomocí těchto kroků vytvořte instanční objekt v tenantovi služby Azure AD
 11. Vyhledejte ID aplikace, které jste si poznamenali v kroku 7. 
 12. V seznamu vyberte App Service registraci aplikace.
 13. V levém podokně vyberte **oprávnění rozhraní API** .
-14. Vyberte **udělit souhlas správce pro klienta \<\>** , kde \<tenant\> je název vašeho TENANTA Azure AD. Kliknutím na **Ano**potvrďte udělení souhlasu.
+14. Vyberte **udělit souhlas správce pro \<tenanta\>**, kde \<tenant\> je název vašeho tenanta Azure AD. Kliknutím na **Ano**potvrďte udělení souhlasu.
 
 ```powershell
     Create-AADIdentityApp.ps1

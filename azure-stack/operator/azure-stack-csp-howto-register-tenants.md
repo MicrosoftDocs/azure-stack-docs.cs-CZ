@@ -8,10 +8,10 @@ ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 09/17/2019
 ms.openlocfilehash: eb9cc45f3c8de162550cb7f882060a9506831d23
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77704824"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack-hub"></a>Přidat tenanta pro využití a fakturace do centra Azure Stack
@@ -27,7 +27,7 @@ Následující obrázek znázorňuje kroky, které zprostředkovatel CSP potřeb
 
 ## <a name="add-an-end-customer"></a>Přidat koncového zákazníka
 
-Před přidáním koncového zákazníka musíte povolit u registrace více tenantů. Aby bylo možné povolit účtování více tenantů, odešlete ID předplatného registrace, název skupiny prostředků a název registrace, aby bylo možné `azstcsp@microsoft.com`. K povolení víceklientské architektury obvykle trvá 1-2 pracovních dnů.
+Před přidáním koncového zákazníka musíte povolit u registrace více tenantů. Aby bylo možné povolit účtování více tenantů, odešlete ID předplatného registrace, název skupiny prostředků a název registrace do `azstcsp@microsoft.com`. K povolení víceklientské architektury obvykle trvá 1-2 pracovních dnů.
 
 Chcete-li přidat koncového zákazníka, jak je znázorněno na následujícím obrázku, proveďte následující kroky:
 
@@ -56,7 +56,7 @@ Aktualizujte svou registraci pomocí nového zákaznického předplatného. Azur
    ```
 
    >[!Note]
-   > Pokud vaše relace vyprší, vaše heslo se změnilo nebo chcete jednoduše přepnout účty, spusťte následující rutinu ještě před přihlášením pomocí rutiny Add-AzureRmAccount: `Remove-AzureRmAccount-Scope Process`
+   > Pokud vaše relace vyprší, vaše heslo se změnilo nebo chcete jednoduše přepnout účty, spusťte následující rutinu ještě před přihlášením pomocí rutiny Add-AzureRmAccount:`Remove-AzureRmAccount-Scope Process`
 
 2. Zadejte svoje přihlašovací údaje Azure.
 3. V relaci PowerShellu spusťte příkaz:
@@ -74,7 +74,7 @@ V následující části jsou popsány parametry pro rutinu **New-AzureRmResourc
 |registrationSubscriptionID | Předplatné Azure, které se použilo při prvotní registraci centra Azure Stack.|
 | customerSubscriptionID | Předplatné Azure (ne Azure Stack centrum) patřící zákazníkovi, který se má zaregistrovat Musí být vytvořen v nabídce CSP. V praxi to znamená prostřednictvím partnerského centra. Pokud má zákazník více než jednoho klienta Azure Active Directory, musí být toto předplatné vytvořeno v tenantovi, které se bude používat k přihlášení do centra Azure Stack. ID předplatného zákazníka musí používat malá písmena. |
 | resourceGroup | Skupina prostředků v Azure, ve které je uložená vaše registrace. |
-| registrationName | Název registrace centra Azure Stack. Je to objekt uložený v Azure. 
+| registrace | Název registrace centra Azure Stack. Je to objekt uložený v Azure. 
 
 > [!NOTE]  
 > Klienti musí být zaregistrované u každého Azure Stackho centra, které používají. Pokud máte dvě nasazení centra Azure Stack a klient používá oba z nich, je nutné aktualizovat počáteční registraci každého nasazení u předplatného tenanta.

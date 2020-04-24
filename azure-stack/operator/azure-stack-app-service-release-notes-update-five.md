@@ -9,10 +9,10 @@ ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/25/2019
 ms.openlocfilehash: 42a87396caeb4392b14e88dd122f78396efb8ead
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77695491"
 ---
 # <a name="app-service-on-azure-stack-hub-update-5-release-notes"></a>Zpráva k vydání verze v App Service Azure Stack centra aktualizace 5
@@ -22,7 +22,7 @@ Tyto poznámky k verzi popisují vylepšení, opravy a známé problémy v Azure
 > [!IMPORTANT]
 > Před nasazením Azure App Service 1,5 použijte aktualizaci 1901 pro integrovaný systém Azure Stack hub nebo nasaďte nejnovější Azure Stack Development Kit (ASDK).
 
-## <a name="build-reference"></a>Referenční informace o buildu
+## <a name="build-reference"></a>Odkaz na sestavení
 
 App Service číslo buildu Azure Stack centra aktualizace 5 je **80.0.2.15**.
 
@@ -37,7 +37,7 @@ Než začnete s upgradem Azure App Service v centru Azure Stack na 1,5:
 - Zálohování App Service a hlavních databází:
   - AppService_Hosting;
   - AppService_Metering;
-  - Master
+  - Hlavní
 
 - Zálohujte sdílenou složku obsahu aplikace tenanta.
 
@@ -69,7 +69,7 @@ Azure App Service v centru Azure Stack s aktualizací Update 5 zahrnuje následu
 > [!IMPORTANT]  
 > Pokud jste poskytli App Service poskytovatele prostředků s instancí SQL Always On, je *nutné* [přidat databáze appservice_hosting a appservice_metering do skupiny dostupnosti](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) a synchronizovat databáze, aby nedošlo ke ztrátě služeb v případě převzetí služeb při selhání databáze.
 
-### <a name="post-update-steps"></a>Postup po aktualizaci
+### <a name="post-update-steps"></a>Kroky po aktualizaci
 
 Pro zákazníky, kteří chtějí migrovat na databázi s omezením na existující Azure App Service v nasazeních centra Azure Stack, proveďte tyto kroky po dokončení Azure App Service aktualizace Azure Stack centra 1,5:
 
@@ -158,7 +158,7 @@ Pro zákazníky, kteří chtějí migrovat na databázi s omezením na existují
         GO
     ```
 
-**Oproti**
+**Ověření**
 
 1. Zkontroluje, jestli SQL Server má povolené omezení.
 
@@ -182,8 +182,8 @@ Pokud se rozhodnete nasadit do existující virtuální sítě a interní IP adr
  * Cíl: IP adresy
  * Rozsah cílových IP adres: rozsah IP adres pro souborový server
  * Rozsah cílových portů: 445
- * Protocol: TCP
- * Akce: povolení
+ * Protokol. TCP
+ * Akce: Povolit
  * Priorita: 700
  * Název: Outbound_Allow_SMB445
 

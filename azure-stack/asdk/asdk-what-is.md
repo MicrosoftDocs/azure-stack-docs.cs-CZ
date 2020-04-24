@@ -1,5 +1,5 @@
 ---
-title: Co je Azure Stack Development Kit (ASDK)? | Dokumenty Microsoft
+title: Co je Azure Stack Development Kit (ASDK)? | Dokumentace Microsoftu
 description: Přečtěte si o Azure Stack Development Kit a o tom, jak se používá k vyhodnocení centra Azure Stack.
 author: justinha
 ms.topic: overview
@@ -8,10 +8,10 @@ ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 11/27/2019
 ms.openlocfilehash: a37547a7c2e5a737685e370307a1ae8f37d5d363
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.sourcegitcommit: 4138a2a15f78e7db38b3a29acc963a71937146fd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 04/15/2020
 ms.locfileid: "79294173"
 ---
 # <a name="what-is-the-azure-stack-development-kit-asdk"></a>Co je Azure Stack Development Kit (ASDK)?
@@ -38,9 +38,9 @@ Nasazení ASDK s jedním uzlem se liší od nasazení na více uzlech Azure Stac
 
 |Popis|ASDK|Rozbočovač Azure Stack s více uzly|
 |-----|-----|-----|
-|**Škálování**|Všechny komponenty jsou nainstalovány v počítači serveru s jedním uzlem.|Velikost může být v rozsahu od 4-16 uzlů.|
+|**Měřítko**|Všechny komponenty jsou nainstalovány v počítači serveru s jedním uzlem.|Velikost může být v rozsahu od 4-16 uzlů.|
 |**Odolnost**|Konfigurace s jedním uzlem neposkytuje vysokou dostupnost.|Podporují se možnosti vysoké dostupnosti.|
-|**Networking**|Hostitel ASDK směruje všechny síťové přenosy ASDK. Neexistují žádné další požadavky na přepínač.|Složitější [infrastruktura síťového směrování](../operator/azure-stack-network.md#network-infrastructure) v nasazeních s více uzly je nezbytná, včetně přepínačů "rozvaděče", řadiče pro správu základní desky (BMC) a hraniční sítě (síť datacenter).|
+|**Sítě**|Hostitel ASDK směruje všechny síťové přenosy ASDK. Neexistují žádné další požadavky na přepínač.|Složitější [infrastruktura síťového směrování](../operator/azure-stack-network.md#network-infrastructure) v nasazeních s více uzly je nezbytná, včetně přepínačů "rozvaděče", řadiče pro správu základní desky (BMC) a hraniční sítě (síť datacenter).|
 |**Proces opravy a aktualizace**|Chcete-li přejít na novou verzi nástroje ASDK, je nutné znovu nasadit ASDK na hostitelském počítači ASDK.|Proces [opravy a aktualizace](../operator/azure-stack-updates.md) , který se používá k aktualizaci nainstalované verze centra Azure Stack.|
 |**Podpora**|Fórum MSDN Azure Stack. Podpora zákaznických služeb a podpory společnosti Microsoft (CSS) *není dostupná pro* neprodukční prostředí.|[MSDN Azure Stack Fórum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack) a plná podpora šablon stylů CSS.|
 | | |
@@ -51,7 +51,7 @@ Jako operátor centra Azure Stack potřebujete znát, které služby můžete u�
 ### <a name="foundational-services"></a>Základní služby
 Ve výchozím nastavení zahrnuje Azure Stack hub při nasazení rozhraní ASDK následující "základní služby":
 - Compute
-- Úložiště
+- Storage
 - Sítě
 - Key Vault
 

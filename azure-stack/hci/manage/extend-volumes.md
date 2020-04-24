@@ -6,10 +6,10 @@ ms.author: v-kedow
 ms.topic: article
 ms.date: 03/10/2020
 ms.openlocfilehash: 703931b0dccb533b2b924847eb3302f0efa46d1a
-ms.sourcegitcommit: 900332596d0bb473d82b1d1a28c3fe3aa6522add
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79089289"
 ---
 # <a name="extending-volumes-in-storage-spaces-direct"></a>Rozšíření svazků v Prostory úložiště s přímým přístupem
@@ -111,7 +111,7 @@ Get-StorageTier <FriendlyName> | Resize-StorageTier -Size <Size>
 
 Když změníte velikost **StorageTier**(y), **VirtualDisk** a **disk** se dodrží automaticky a změní se také velikost.
 
-![Změna velikosti – StorageTier](media/extend-volumes/Resize-StorageTier.gif)
+![Resize-StorageTier](media/extend-volumes/Resize-StorageTier.gif)
 
 ### <a name="step-2--resize-the-partition"></a>Krok 2 – Změna velikosti oddílu
 

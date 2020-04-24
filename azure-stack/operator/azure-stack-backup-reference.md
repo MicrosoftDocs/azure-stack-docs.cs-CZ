@@ -8,10 +8,10 @@ ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 10/25/2019
 ms.openlocfilehash: cdbe5150b72a720fa527d3bb1b1e32f5a66a6955
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79294932"
 ---
 # <a name="infrastructure-backup-service-reference"></a>Odkaz na službu Infrastructure Backup
@@ -69,7 +69,7 @@ Mezi tyto požadavky patří:
 
 #### <a name="supported-smb-versions"></a>Podporované verze protokolu SMB
 
-| SMB | Verze |
+| SMB | Version |
 |-----|---------|
 | SMB | 3.x     |
 
@@ -137,7 +137,7 @@ Certifikát použitý při obnovení cloudu s privátním klíčem (. PFX) není
  * Aktualizace z šifrovacího klíče na certifikát je jednosměrná operace.  
  * Všechny existující zálohy zůstanou šifrované pomocí šifrovacího klíče. Nové zálohy použijí certifikát. 
 
-## <a name="infrastructure-backup-limits"></a>Omezení Infrastructure Backup
+## <a name="infrastructure-backup-limits"></a>Omezení služby Infrastructure Backup
 
 Při plánování, nasazování a provozování instancí centra Microsoft Azure Stack Vezměte v úvahu tato omezení. Následující tabulka popisuje tato omezení.
 

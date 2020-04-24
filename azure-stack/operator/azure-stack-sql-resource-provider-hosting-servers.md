@@ -1,5 +1,5 @@
 ---
-title: Přidání hostitelských serverů pro poskytovatele prostředků SQL
+title: Přidání hostujících serverů pro poskytovatele prostředků SQL
 titleSuffix: Azure Stack Hub
 description: Naučte se, jak přidat hostitelské servery pro zřizování prostřednictvím adaptéru poskytovatele prostředků SQL.
 author: bryanla
@@ -9,13 +9,13 @@ ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2019
 ms.openlocfilehash: a30c3a4f745e46a5e7b58d4355f1c193d8702e28
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79294679"
 ---
-# <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Přidání hostitelských serverů pro poskytovatele prostředků SQL
+# <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Přidání hostujících serverů pro poskytovatele prostředků SQL
 
 Můžete vytvořit SQL Server hostitelské servery databáze na virtuálním počítači (VM) v [centru Azure Stack](azure-stack-overview.md)nebo na virtuálním počítači mimo prostředí centra Azure Stack, pokud se poskytovatel prostředků SQL může připojit k instanci.
 
@@ -58,7 +58,7 @@ Můžete vytvořit uživatele s oprávněním správce s nižšími oprávnění
 * Databáze: vytvořit, změnit s omezením (jenom pro Always On), vyřadit, zálohovat
 * Skupina dostupnosti: změnit, připojit, přidat nebo odebrat databázi
 * Přihlášení: vytvořit, vybrat, změnit, zrušit, odvolat
-* Vyberte operace: \[hlavní\].\]\[sys.\[availability_group_listeners\] (AlwaysOn), sys. availability_replicas (AlwaysOn), sys. databases, \[Master\].\]\[sys.\[dm_os_sys_memory\], SERVERPROPERTY, \[hlavní\].\]\[sys.\[availability_groups\] (AlwaysOn), sys. master_files
+* Vyberte operace: \[hlavní\]Server. \[sys\]. \[availability_group_listeners\] (AlwaysOn), sys. availability_replicas (AlwaysOn), sys. \[databases\], Master. \[sys\]. \[dm_os_sys_memory\], ServerProperty, \[hlavní\]. \[sys\]. \[availability_groups\] (AlwaysOn), sys. master_files
 
 ### <a name="additional-security-information"></a>Další informace o zabezpečení
 
@@ -78,7 +78,7 @@ Chcete-li přidat samostatný hostitelský server, který je již nastaven, post
 
 1. Přihlaste se k portálu správce Azure Stackového centra jako správce služby.
 
-2. Vyberte **všechny služby** &gt; **prostředky pro správu** &gt; **hostitelských serverech SQL**.
+2. Vyberte **všechny služby** &gt; **Správa prostředky** &gt; **servery SQL hosting**.
 
    ![Hostitelské servery SQL na portálu pro správu centra Azure Stack](./media/azure-stack-sql-rp-deploy/sqlhostingservers.png)
 
@@ -104,7 +104,7 @@ Chcete-li přidat samostatný hostitelský server, který je již nastaven, post
 
 ## <a name="provide-high-availability-using-sql-always-on-availability-groups"></a>Zajištění vysoké dostupnosti pomocí skupin dostupnosti Always On SQL serveru
 
-Konfigurace instancí SQL Always On vyžaduje další kroky a vyžaduje tři virtuální počítače (nebo fyzické počítače). V tomto článku se předpokládá, že už máte plnou znalost skupin dostupnosti Always On. Další informace najdete v následujících článcích:
+Konfigurace instancí SQL Always On vyžaduje další kroky a vyžaduje tři virtuální počítače (nebo fyzické počítače). V tomto článku se předpokládá, že už máte plnou znalost skupin dostupnosti Always On. Další informace najdete v těchto článcích:
 
 * [Představujeme SQL Server skupiny dostupnosti Always On na virtuálních počítačích Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview)
 * [Skupiny dostupnosti Always On (SQL Server)](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-2017)
@@ -151,7 +151,7 @@ Pomocí těchto příkazů nastavte u každé instance možnost Server pro ově�
 
 1. Přihlaste se k portálu správce Azure Stackového centra jako správce služby.
 
-2. Vyberte **procházet** &gt; **prostředky pro správu** &gt; **hostitelských serverech SQL** &gt; **+ Přidat**.
+2. Vyberte **Procházet** &gt; **prostředky** &gt; pro správu **hostitelské servery** &gt; SQL **a přidat**.
 
    V části **hostitelské servery SQL**můžete poskytovatele prostředků SQL Server připojit k skutečným instancím SQL Server, které slouží jako back-end poskytovatele prostředků.
 
@@ -179,9 +179,9 @@ SKU nelze přiřadit konkrétním uživatelům nebo skupinám.
 
 SKU může trvat až hodinu, než se na portálu zobrazí. Uživatelé nemůžou vytvořit databázi, dokud se SKU nevytvoří úplně.
 
-Chcete-li upravit SKLADOVOU položku, klikněte na **všechny služby** > **SQL Adapter** > **SKU**. Vyberte SKLADOVOU položku, kterou chcete upravit, proveďte potřebné změny a uložte změny kliknutím na **Uložit** . 
+Chcete-li upravit SKU, klikněte na položku **všechny služby** >  > **SKU****adaptéru SQL**. Vyberte SKLADOVOU položku, kterou chcete upravit, proveďte potřebné změny a uložte změny kliknutím na **Uložit** . 
 
-Pokud chcete odstranit SKU, které už nepotřebujete, přečtěte si **všechny služby** > **SQL Adapter** > **SKU**. Klikněte pravým tlačítkem na název SKU a vyberte **Odstranit** a odstraňte ho.
+Pokud chcete odstranit SKU, které už nepotřebujete, přečtěte si **všechny** >  > **skladové**položky**adaptéru SQL**. Klikněte pravým tlačítkem na název SKU a vyberte **Odstranit** a odstraňte ho.
 
 > [!IMPORTANT]
 > Může trvat až hodinu, než se nové SKU zpřístupní na portálu User Portal.
@@ -195,4 +195,4 @@ Vytvořte plány a nabídky, které uživatelům zpřístupní databáze SQL. P�
 
 ## <a name="next-steps"></a>Další kroky
 
-[Přidat databáze](azure-stack-sql-resource-provider-databases.md)
+[Přidání databází](azure-stack-sql-resource-provider-databases.md)

@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.reviewer: seyadava
 ms.lastreviewed: 06/03/2019
 ms.openlocfilehash: a0a13af01fc539788d76377f357ca28db9b05234
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: bdd4d529bd3e115a9f76eece62b1613448d5d020
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/14/2020
 ms.locfileid: "77703073"
 ---
 # <a name="deploy-an-ethereum-blockchain-network-on-azure-stack-hub"></a>Nasazení sítě Ethereem blockchain v centru Azure Stack
@@ -35,7 +35,7 @@ Nastavení:
 
 Stáhněte si nejnovější položky [z webu Marketplace](../operator/azure-stack-download-azure-marketplace-item.md):
 
-- Ubuntu Server 16.04 LTS
+- Ubuntu Server 16,04 LTS
 - Windows Server 2016
 - Vlastní skript pro Linux 2,0
 - Rozšíření vlastních skriptů pro virtuální počítače
@@ -64,7 +64,7 @@ Tato šablona řešení může nasadit jednu nebo více Ethereemch sítí konsor
     
     ![Upravit šablonu vedoucího procesu](./media/azure-stack-ethereum/edit-leader-template.png)
 
-5. Vyberte **Save** (Uložit).
+5. Vyberte **Uložit**.
 6. Vyberte **Upravit parametry** a dokončete parametry šablony pro vaše nasazení.
     
     ![Upravit parametry šablony vedoucího procesu](./media/azure-stack-ethereum/edit-leader-parameters.png)
@@ -98,7 +98,7 @@ Tato šablona řešení může nasadit jednu nebo více Ethereemch sítí konsor
     ---------------|-------------|----------------|-------------
     Předplatné | Předplatné, ke kterému se má nasadit síť konsorcia | | Předplatné spotřeby
     Skupina prostředků | Skupina prostředků, do které se má nasadit síť konsorcia | | EthereumResources
-    Umístění | Oblast Azure pro skupinu prostředků. | | místní
+    Umístění | Oblast Azure pro skupinu prostředků. | | local
 
 8. Vyberte **Vytvořit**.
 
@@ -116,7 +116,7 @@ Pokud chcete ověřit nasazení vedoucího vedoucího, navštivte web správce v
 2. Na portálu tenanta centra Azure Stack vyberte **+ vytvořit prostředek > Template Deployment** k nasazení z vlastní šablony.
 3. Vyberte **Upravit šablonu** a upravte novou vlastní šablonu.
 4. V podokně úpravy na pravé straně zkopírujte a vložte JSON šablony, kterou jste si stáhli dříve.
-5. Vyberte **Save** (Uložit).
+5. Vyberte **Uložit**.
 6. Vyberte **Upravit parametry** a dokončete parametry šablony pro vaše nasazení.
 
     Název parametru | Popis | Povolené hodnoty | Ukázková hodnota
@@ -146,7 +146,7 @@ Pokud chcete ověřit nasazení vedoucího vedoucího, navštivte web správce v
     ---------------|-------------|----------------|-------------
     Předplatné | Předplatné, ke kterému se má nasadit síť konsorcia | | Předplatné spotřeby
     Skupina prostředků | Skupina prostředků, do které se má nasadit síť konsorcia | | MemberResources
-    Umístění | Oblast Azure pro skupinu prostředků. | | místní
+    Umístění | Oblast Azure pro skupinu prostředků. | | local
 
 8. Vyberte **Vytvořit**.
 
@@ -171,7 +171,7 @@ Tato šablona vytvoří připojení od vedoucího ke vzdálenému členovi.
     
     ![Upravit šablonu připojení](./media/azure-stack-ethereum/edit-connect-template.png)
 
-5. Vyberte **Save** (Uložit).
+5. Vyberte **Uložit**.
 6. Vyberte **Upravit parametry** a dokončete parametry šablony pro vaše nasazení.
     
     ![Upravit parametry šablony připojení](./media/azure-stack-ethereum/edit-connect-parameters.png)
@@ -184,7 +184,7 @@ Tato šablona vytvoří připojení od vedoucího ke vzdálenému členovi.
     CONNECTIONSHAREDKEY | Předem zavedený tajný klíč mezi členy konsorcia sítě, která vytváří připojení.  | |
     REMOTEMEMBERNVAPUBLICIP | SÍŤOVÉ virtuální zařízení IP adresu člena. Tuto hodnotu lze najít ve výstupu nasazení člena. | |
     MEMBERNVAPRIVATEIP | Privátní IP adresa vedoucího síťové virtuální zařízení Tuto hodnotu najdete ve výstupu nasazení vedoucího procesu. | |
-    UMÍSTĚNÍ | Umístění vašeho prostředí centra Azure Stack. | | místní
+    UMÍSTĚNÍ | Umístění vašeho prostředí centra Azure Stack. | | local
     BASEURL | Základní adresa URL šablony | Pokud nechcete přizpůsobit šablony nasazení, použijte výchozí hodnotu. | 
 
 7. Vyberte **OK**.
@@ -196,7 +196,7 @@ Tato šablona vytvoří připojení od vedoucího ke vzdálenému členovi.
     ---------------|-------------|----------------|-------------
     Předplatné | Předplatné vedoucího. | | Předplatné spotřeby
     Skupina prostředků | Skupina prostředků vedoucího procesu. | | EthereumResources
-    Umístění | Oblast Azure pro skupinu prostředků. | | místní
+    Umístění | Oblast Azure pro skupinu prostředků. | | local
 
 8. Vyberte **Vytvořit**.
 

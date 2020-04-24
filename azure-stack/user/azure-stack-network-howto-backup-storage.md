@@ -8,10 +8,10 @@ ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/19/2019
 ms.openlocfilehash: a945800e999ce825c11d5300d02baa58bbfba9b8
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77703855"
 ---
 # <a name="back-up-your-storage-accounts-on-azure-stack-hub"></a>Zálohování účtů úložiště v centru Azure Stack
@@ -107,7 +107,7 @@ Po nastavení Windows serveru budete muset nainstalovat [Azure Stack centrum Pow
     | /SC | Použijte minutový plán. |
     | /MO | Interval v *XX* minutách. |
     | /TN | Název úlohy |
-    | /TR | Cesta k souboru `script.bat`. |
+    | /TR | Cesta k `script.bat` souboru |
 
 
     - Pro Windows Server:
@@ -117,9 +117,9 @@ Po nastavení Windows serveru budete muset nainstalovat [Azure Stack centrum Pow
 
 ## <a name="use-your-storage-account-in-a-disaster"></a>Použití účtu úložiště při havárii
 
-Každý účet úložiště centra Azure Stack má jedinečný název DNS odvozený od názvu samotné oblasti centra Azure Stack, například `https://krsource.blob.east.asicdc.com/`. Aby se aplikace zapisující do a četly z tohoto názvu DNS, bude muset přizpůsobit změnu názvu DNS účtu úložiště, když cílový účet, například `https://krtarget.blob.west.asicdc.com/`, musí být použit během havárie.
+Každý účet úložiště centra Azure Stack má jedinečný název DNS odvozený od názvu samotné oblasti centra Azure Stack, například `https://krsource.blob.east.asicdc.com/`. Pokud je potřeba, aby se při havárii používal cílový účet, budou se aplikace zapisovat do a číst z tohoto názvu DNS, `https://krtarget.blob.west.asicdc.com/` aby se změnila Změna názvu DNS účtu úložiště.
 
-Připojovací řetězce aplikací lze upravit po havárii, která je deklarována pro přemístění objektů, nebo pokud se používá záznam CNAME před front-end zdrojového a cílového účtu úložiště pro vyrovnávání zatížení, lze nakonfigurovat nástroj pro vyrovnávání zatížení. pomocí ručního algoritmu převzetí služeb při selhání, který umožní správci deklarovat cíl
+Připojovací řetězce aplikací lze upravit po havárii, která je deklarována pro přemístění objektů, nebo pokud se používá záznam CNAME před front-end zdrojového a cílového účtu úložiště pro vyrovnávání zatížení, může být Nástroj pro vyrovnávání zatížení nakonfigurován pomocí ručního algoritmu převzetí služeb při selhání, který umožní správci deklarovat cíl.
 
 Pokud aplikace místo AAD nebo AD FS používá SAS, výše uvedená metoda nebude fungovat a řetězce připojení aplikace bude nutné aktualizovat pomocí adresy URL cílového účtu úložiště a klíčů SAS generovaných pro cílový účet úložiště.
 

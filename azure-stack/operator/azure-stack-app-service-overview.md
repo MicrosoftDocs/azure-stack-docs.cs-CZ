@@ -8,10 +8,10 @@ ms.author: BryanLa
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2019
 ms.openlocfilehash: ac9c6707e0b6e179fdae3dac0b4ec94bad11e6d7
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77688878"
 ---
 # <a name="azure-app-service-and-azure-functions-on-azure-stack-hub-overview"></a>Přehled Azure App Service a Azure Functions v Azure Stackovém centru
@@ -24,13 +24,13 @@ Azure App Service umožňuje automatizovat obchodní procesy a hostovat cloudov�
 
 Tady jsou některé klíčové funkce a funkce Azure App Service:
 
-- **Více jazyků a platforem**: Azure App Service má prvotřídní podporu pro ASP.NET, Node. js, Java, php a Python. V App Service virtuálních počítačích můžete také spouštět prostředí Windows PowerShell a další skripty nebo spustitelné soubory.
+- **Více jazyků a platforem**: Azure App Service má prvotřídní podporu pro ASP.NET, Node. js, Java, php a Python. Na virtuálních počítačích App Service můžete také spouštět Windows PowerShell a další skripty nebo spustitelné soubory.
 - **Optimalizace DevOps**: nastavení průběžné integrace a nasazování pomocí GitHubu, místního Gitu nebo Bitbucket. Pomocí Azure PowerShell nebo rozhraní příkazového řádku (CLI) pro více platforem vám pomůžou propagovat aktualizace prostřednictvím testovacích a přípravných prostředí a spravovat aplikace v App Service.
 - **Integrace sady Visual Studio**: vyhrazené nástroje v nástroji Visual Studio zjednodušují práci při vytváření a nasazování aplikací.
 
 ## <a name="app-types-in-app-service"></a>Typy aplikací v App Service
 
-App Service nabízí několik typů aplikací, z nichž každá je určena k hostování konkrétního zatížení:
+App Service nabízí několik typů aplikací, z nichž každá je určena k hostování konkrétního typu úlohy:
 
 - [Web Apps](/azure/app-service/overview) hostování webů a webových aplikací.
 - [API Apps](/azure/app-service/overview) pro hostování rozhraní REST API.
@@ -45,7 +45,7 @@ Vaše aplikace se může skládat z více App Service aplikací různých druhů
 
    [![Přehled App Service s daty monitorování](media/azure-stack-app-service-overview/image01.png "Přehled App Service s daty monitorování")](media/azure-stack-app-service-overview/image01.png#lightbox)
 
-## <a name="what-is-an-app-service-plan"></a>Co je plán App Service?
+## <a name="what-is-an-app-service-plan"></a>Co je plán služby App Service?
 
 Poskytovatel prostředků App Service používá stejný kód, jaký Azure App Service používá, a proto sdílí některé běžné koncepty. V App Service se v kontejneru pro aplikace označuje jako *App Service plán*. Představuje sadu vyhrazených virtuálních počítačů používaných k ukládání vašich aplikací. V rámci daného předplatného můžete mít několik plánů App Service.
 

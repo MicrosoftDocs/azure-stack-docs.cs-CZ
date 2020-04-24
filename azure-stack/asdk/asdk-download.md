@@ -8,10 +8,10 @@ ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 08/10/2019
 ms.openlocfilehash: f582f6061ebc2bbce7a3605ed7795b9ab5562738
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77695899"
 ---
 # <a name="download-and-extract-the-asdk"></a>Stažení a extrahování ASDK
@@ -36,7 +36,7 @@ Až ověříte, že váš hostitelský počítač pro vývojovou sadu splňuje z
 3. Přečtěte si informace v prohlášení o zásadách ochrany osobních údajů, které se zobrazují na stránce **důležité oznámení** průvodce pro samoobslužné extrakce, a potom klikněte na **Další**.
 4. Na stránce **Vyberte cílové umístění** v průvodci pro samoobslužné extrakce vyberte umístění Azure Stack pro soubory instalačního programu, které se mají extrahovat, a pak klikněte na **Další**. Výchozím umístěním je *aktuální složka*\Azure Stack Development Kit. 
 5. Zkontrolujte souhrn cílového umístění na stránce **připraveno k extrakci** průvodce pro samoobslužné extrakce a potom kliknutím na **extrahovat** rozbalte soubory CloudBuilder. vhdx (přibližně 28GB) a ThirdPartyLicenses. RTF. Dokončení tohoto procesu trvá nějakou dobu.
-6. Kopírování nebo přesun souboru CloudBuilder. vhdx do kořenového adresáře C:\ jednotka (`C:\CloudBuilder.vhdx`) na hostitelském počítači s ASDK.
+6. Kopírování nebo přesun souboru CloudBuilder. vhdx do kořenového adresáře C:\ Drive (`C:\CloudBuilder.vhdx`) na hostitelském počítači s ASDK.
 
 > [!NOTE]
 > Po extrahování souborů můžete odstranit. EXE a. Soubory BIN pro obnovení místa na pevném disku. Nebo můžete tyto soubory zálohovat, aby nemuseli soubory stahovat znovu, pokud potřebujete znovu nasadit ASDK.

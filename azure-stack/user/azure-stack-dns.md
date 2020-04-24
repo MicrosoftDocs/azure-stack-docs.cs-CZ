@@ -7,10 +7,10 @@ ms.date: 01/24/2020
 ms.author: sethm
 ms.lastreviewed: 01/05/2020
 ms.openlocfilehash: b9afba6322b80d487f4ba7d4324adcd42a8fd85a
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77703005"
 ---
 # <a name="use-dns-in-azure-stack-hub"></a>Použití DNS v centru Azure Stack
@@ -33,9 +33,9 @@ Další informace o překladu názvů najdete v článku věnovaném [překladu 
 
 Následující snímek obrazovky ukazuje dialog **vytvořit veřejnou IP adresu** pro vytvoření veřejné IP adresy pomocí portálu:
 
-![Vytvořit veřejnou IP adresu](media/azure-stack-dns/image01.png)
+![Vytvoření veřejné IP adresy](media/azure-stack-dns/image01.png)
 
-### <a name="example-scenario"></a>Příklad scénáře
+### <a name="example-scenario"></a>Ukázkový scénář
 
 Máte k dispozici nástroj pro vyrovnávání zatížení, který zpracovává požadavky z webové aplikace. Za nástrojem pro vyrovnávání zatížení je web, který běží na jednom nebo několika virtuálních počítačích. K webu s vyrovnáváním zatížení můžete přistupovat pomocí názvu DNS místo IP adresy.
 
@@ -73,13 +73,13 @@ Předpokládejme, že se dva lidé nebo dva procesy pokusí změnit záznam DNS 
 
 Služba DNS centra Azure Stack používá *značky ETag* k bezpečnému zpracování souběžných změn stejného prostředku. Značky ETag se liší od Azure Resource Manager *značek*. K každému prostředku DNS (zóně nebo sadě záznamů) je přidružená značka ETag. Při načtení prostředku je načtena také značka ETag. Když provedete aktualizaci prostředku, můžete se rozhodnout, že se má převrátit značka ETag, aby služba DNS centra Azure Stack mohla ověřit, jestli se na serveru shodují. Vzhledem k tomu, že každá aktualizace prostředku má za následek opětovné vygenerování značky ETag, neshoda značek ETag indikuje, že došlo k souběžné změně. Značky ETag lze také použít při vytváření nového prostředku, abyste zajistili, že prostředek ještě neexistuje.
 
-Ve výchozím nastavení používají rutiny prostředí PowerShell služby DNS centra Azure Stack k blokování souběžných změn zón a sad záznamů pomocí značek ETag. Pro potlačení kontrol značek ETag můžete použít volitelný `-Overwrite` přepínač. Bez kontrol ETag nejsou všechny souběžné změny, ke kterým došlo, přepsány.
+Ve výchozím nastavení používají rutiny prostředí PowerShell služby DNS centra Azure Stack k blokování souběžných změn zón a sad záznamů pomocí značek ETag. Můžete použít volitelný `-Overwrite` přepínač pro potlačení kontrol značek ETag. Bez kontrol ETag nejsou všechny souběžné změny, ke kterým došlo, přepsány.
 
 Na úrovni REST API DNS centra Azure Stack jsou značky ETag zadány pomocí hlaviček protokolu HTTP. Jejich chování je popsané v následující tabulce:
 
 | Hlavička | Chování|
 |--------|---------|
-| Žádné   | VLOŽENÍ vždy proběhne úspěšně (žádné kontroly ETag).|
+| Žádná   | VLOŽENÍ vždy proběhne úspěšně (žádné kontroly ETag).|
 | If-Match| VLOŽENÍ se zdaří pouze v případě, že prostředek existuje a odpovídá ETag.|
 | If-Match *| Pokud prostředek existuje, operace PUT se podaří.|
 | If-None-Match *| Pokud prostředek neexistuje, operace PUT se podaří.|

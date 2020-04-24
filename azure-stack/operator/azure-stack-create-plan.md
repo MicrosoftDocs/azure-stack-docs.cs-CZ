@@ -8,10 +8,10 @@ ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 06/11/2019
 ms.openlocfilehash: 20ee0c2b59f3a8038afc443f9b3c1b12d606d95d
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77700829"
 ---
 # <a name="create-a-plan-in-azure-stack-hub"></a>Vytvoření plánu v centru Azure Stack
@@ -95,7 +95,7 @@ ms.locfileid: "77700829"
   
    ![Přiřaďte kvótu pro nový plán v centru Azure Stack.](media/azure-stack-create-plan/assign-quota1901.png)
 
-8. Opakováním kroků 6 a 7 vytvořte a přiřaďte kvóty pro **Microsoft. Network (Local)** a **Microsoft. COMPUTE (místní)** . Pokud mají všechny tři služby přiřazené kvóty, budou vypadat podobně jako v následujícím příkladu.
+8. Opakováním kroků 6 a 7 vytvořte a přiřaďte kvóty pro **Microsoft. Network (Local)** a **Microsoft. COMPUTE (místní)**. Pokud mají všechny tři služby přiřazené kvóty, budou vypadat podobně jako v následujícím příkladu.
 
    ![Dokončete přiřazení kvót pro nový plán v centru Azure Stack.](media/azure-stack-create-plan/all-quotas-assigned1901.png)
 

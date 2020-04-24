@@ -8,10 +8,10 @@ ms.author: justinha
 ms.reviewer: efemmano
 ms.lastreviewed: 06/07/2019
 ms.openlocfilehash: 358837da19ad34f82f81a94da0c89b165574ea49
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: 4138a2a15f78e7db38b3a29acc963a71937146fd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/15/2020
 ms.locfileid: "77699248"
 ---
 # <a name="use-the-administrator-portal-in-azure-stack-hub"></a>Použití portálu pro správu v centru Azure Stack
@@ -25,7 +25,7 @@ Pokud chcete získat přístup k portálu pro správu, přejděte na adresu URL 
 | Prostředí | Adresa URL portálu pro správu |   
 | -- | -- | 
 | ASDK| https://adminportal.local.azurestack.external  |
-| Integrované systémy | https://adminportal.&lt;&gt;*oblasti*&lt;*plně kvalifikovaný název domény*&gt; | 
+| Integrované systémy | https://adminportal.&lt; *oblast*&gt;. &lt; *Plně kvalifikovaný název domény*&gt; | 
 | | |
 
 > [!TIP]
@@ -40,7 +40,7 @@ Na portálu pro správu můžete provádět například tyto akce:
 * [Registrace centra Azure Stack s Azure](azure-stack-registration.md)
 * [Naplnění Marketplace](azure-stack-download-azure-marketplace-item.md)
 * [Vytváření plánů, nabídek a předplatných pro uživatele](service-plan-offer-subscription-overview.md)
-* [Monitorování stavu a upozornění](azure-stack-monitor-health.md)
+* [Monitorování stavu a výstrah](azure-stack-monitor-health.md)
 * [Spravovat aktualizace centra Azure Stack](azure-stack-updates.md)
 
 Dlaždice **kurzu rychlý Start** obsahuje odkazy na online dokumentaci pro nejběžnější úlohy.
@@ -63,7 +63,7 @@ Správce a uživatelské portály jsou zajištěny oddělenými instancemi Azure
 
 ## <a name="administrator-portal-tips"></a>Tipy pro správu portálu
 
-### <a name="customize-the-dashboard"></a>Přizpůsobení řídicího panelu
+### <a name="customize-the-dashboard"></a>Přizpůsobit řídicí panel
 
 Řídicí panel obsahuje sadu výchozích dlaždic. Můžete vybrat **Upravit řídicí panel** pro úpravu výchozího řídicího panelu, nebo výběrem **nového řídicího** panelu Přidat vlastní řídicí panel. Do řídicího panelu můžete přidat také dlaždice. Vyberte například **+ vytvořit prostředek**, klikněte pravým tlačítkem **nabídky nabídky + plány**a pak vyberte **Připnout na řídicí panel**.
 

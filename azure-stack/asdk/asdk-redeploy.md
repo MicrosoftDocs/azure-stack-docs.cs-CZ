@@ -8,10 +8,10 @@ ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 11/05/2019
 ms.openlocfilehash: 7e4c6668253e79a2fc04a6c4b0cf37c9025ccd3c
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77695967"
 ---
 # <a name="redeploy-the-asdk"></a>Znovu nasadit ASDK
@@ -79,7 +79,7 @@ Pokud chcete Azure Stack znovu nasadit, musíte začít od začátku, jak je pop
 ### <a name="redeploy-the-asdk-without-using-the-installer"></a>Opětovné nasazení ASDK bez použití instalačního programu
 Pokud jste nepoužili skript asdk-Installer. ps1 k instalaci ASDK, musíte před opětovným nasazením ASDK ručně nakonfigurovat hostitelský počítač ASDK.
 
-1. Spusťte nástroj pro konfiguraci systému spuštěním programu **msconfig. exe** na počítači s ASDK. Na kartě **spuštění** vyberte operační systém hostitelského počítače (ne Azure Stack), klikněte na **nastavit jako výchozí**a pak klikněte na **OK**. Po zobrazení výzvy klikněte na **restartovat** .
+1. Spusťte nástroj pro konfiguraci systému spuštěním programu **msconfig. exe** na počítači s ASDK. Na kartě **spuštění** vyberte operační systém hostitelského počítače (ne Azure Stack), klikněte na **nastavit jako výchozí**a pak klikněte na **OK**. Po zobrazení výzvy klikněte na **Restartovat**.
 
       ![Nastavení konfigurace spouštění](media/asdk-redeploy/4.png)
 

@@ -8,10 +8,10 @@ ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/06/2019
 ms.openlocfilehash: b02ea9e241faea3aeaad76b85dbde9616e1edea5
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79294899"
 ---
 # <a name="add-mysql-hosting-servers-in-azure-stack-hub"></a>Přidání hostitelských serverů MySQL do centra Azure Stack
@@ -41,7 +41,7 @@ Než bude možné server MySQL přidat jako hostitele serveru MySQL Azure Stack 
 
 3. Vytvořte uživatelský účet vzdáleného přístupu, který má hostitelský server služby Azure Stack hub MySQL používat pro připojení k MySQL, a pak ukončete klienta SSH.
 
-    Spusťte následující příkazy, abyste se přihlásili do MySQL jako kořenový adresář pomocí dříve vytvořeného kořenového hesla. Vytvořte nového uživatele správce a nahraďte *\<username\>* a *\<hesla\>* třeba pro vaše prostředí. V tomto příkladu je vytvořeným uživatelem název **sqlsa** a používá se silné heslo:
+    Spusťte následující příkazy, abyste se přihlásili do MySQL jako kořenový adresář pomocí dříve vytvořeného kořenového hesla. Vytvořte nového uživatele s oprávněními správce a nahraďte * \<uživatelské jméno\> * a * \<heslo\> * podle požadavků vašeho prostředí. V tomto příkladu je vytvořeným uživatelem název **sqlsa** a používá se silné heslo:
 
    ```mysql
    mysql -u root -p
@@ -67,7 +67,7 @@ Chcete-li přidat hostitelský server, postupujte podle následujících kroků:
 
 1. Přihlaste se k portálu správce Azure Stackového centra jako správce služby.
 2. Vyberte **Všechny služby**.
-3. V kategorii **prostředky pro správu** vyberte možnost **MySQL hostingové servery** >  **+ Přidat**. Otevře se dialogové okno **Přidat hostitelský server MySQL** , které se zobrazí na následujícím snímku obrazovky.
+3. V kategorii **prostředky pro správu** vyberte možnost **MySQL hostingové servery** > **+ Přidat**. Otevře se dialogové okno **Přidat hostitelský server MySQL** , které se zobrazí na následujícím snímku obrazovky.
 
    ![Konfigurace hostitelského serveru MySQL](./media/azure-stack-mysql-rp-deploy/mysql-add-hosting-server-2.png)
 
@@ -120,9 +120,9 @@ Osvědčeným postupem je, že všechny hostitelské servery v SKU by měly mít
 
 SKU nelze přiřadit konkrétním uživatelům nebo skupinám.
 
-Pokud chcete upravit SKU, otevřete **všechny služby** > **adaptér MySQL** > **SKU**. Vyberte SKLADOVOU položku, kterou chcete upravit, proveďte potřebné změny a uložte změny kliknutím na **Uložit** . 
+Pokud chcete upravit SKU, otevřete **všechny služby** > **SKU****adaptéru** > MySQL. Vyberte SKLADOVOU položku, kterou chcete upravit, proveďte potřebné změny a uložte změny kliknutím na **Uložit** . 
 
-Pokud chcete odstranit SKU, které už nepotřebujete, přečtěte si **všechny služby** > **adaptéru MySQL** > **SKU**. Klikněte pravým tlačítkem na název SKU a vyberte **Odstranit** a odstraňte ho.
+Pokud chcete odstranit SKU, které už nepotřebujete, přečtěte si **všechny služby** >  > **SKU****adaptéru MySQL**. Klikněte pravým tlačítkem na název SKU a vyberte **Odstranit** a odstraňte ho.
 
 > [!IMPORTANT]
 > Může trvat až hodinu, než se nové SKU zpřístupní na portálu User Portal.

@@ -8,10 +8,10 @@ ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/25/2019
 ms.openlocfilehash: 73c916a193492662cdbb3ba20031c58932721053
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77698585"
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack-hub"></a>Použití databází MySQL v centru Microsoft Azure Stack
@@ -32,7 +32,7 @@ Před instalací poskytovatele prostředků MySQL je potřeba zvážit několik 
 
 Poskytovatel prostředků má následující součásti:
 
-* **Virtuální počítač adaptéru poskytovatele prostředků MySQL (VM)** , což je virtuální počítač s Windows serverem, na kterém běží služby poskytovatele.
+* **Virtuální počítač adaptéru poskytovatele prostředků MySQL (VM)**, což je virtuální počítač s Windows serverem, na kterém běží služby poskytovatele.
 * **Poskytovatel prostředků**, který zpracovává požadavky a přistupuje k databázovým prostředkům.
 * **Servery, které hostují Server MySQL**poskytující kapacitu pro databáze nazývané hostitelské servery. Instance MySQL můžete vytvořit sami nebo můžete poskytnout přístup k externím instancím MySQL. [Galerie pro rychlý Start centra Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/mysql-standalone-server-windows) obsahuje ukázkovou šablonu, kterou můžete použít k těmto akcím:
 

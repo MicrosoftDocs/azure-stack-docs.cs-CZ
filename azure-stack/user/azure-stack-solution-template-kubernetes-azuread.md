@@ -8,10 +8,10 @@ ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 3/12/2020
 ms.openlocfilehash: e85df91b08c51ce8255e2b35c9d7ba31505b3d00
-ms.sourcegitcommit: 4301e8dee16b4db32b392f5979dfec01ab6566c9
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79313209"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-hub-using-azure-active-directory"></a>Nasazení Kubernetes do centra Azure Stack pomocí Azure Active Directory
@@ -21,7 +21,7 @@ ms.locfileid: "79313209"
 
 Postup v tomto článku můžete použít k nasazení a nastavení prostředků pro Kubernetes, při použití Azure Active Directory (Azure AD) jako služby správy identit, v jediné koordinované operaci.
 
-## <a name="prerequisites"></a>Předpoklady
+## <a name="prerequisites"></a>Požadavky
 
 Pokud chcete začít, ujistěte se, že máte správná oprávnění a že je vaše centrum Azure Stack připravené.
 
@@ -52,28 +52,28 @@ Nastavte instanční objekt v Azure. Instanční objekt poskytuje aplikaci pří
 1. Vytvořte aplikaci Azure AD.
 
     a. Přihlaste se ke svému účtu Azure prostřednictvím [Azure Portal](https://portal.azure.com).  
-    b. Vyberte **Azure Active Directory** > **Registrace aplikací** > **nové registrace**.  
+    b. Vyberte **Azure Active Directory** > **Registrace aplikací** > **novou registraci**.  
     c. Zadejte název a URL aplikace.  
     d. Vyberte **podporované typy účtů**.  
     e.  Přidejte `http://localhost` pro identifikátor URI pro aplikaci. Vyberte **Web** pro typ aplikace, kterou chcete vytvořit. Po nastavení hodnot vyberte **Registrovat**.
 
 1. Poznamenejte si **ID aplikace**. Při vytváření clusteru budete potřebovat ID. ID je odkazováno jako **ID klienta instančního objektu**.
 
-1. V okně pro princip služby vyberte **nový tajný klíč klienta**. **Nastavení** > **klíčů**. Pro princip služby musíte vygenerovat ověřovací klíč.
+1. V okně pro princip služby vyberte **nový tajný klíč klienta**. **Settings** > **Klíče**nastavení. Pro princip služby musíte vygenerovat ověřovací klíč.
 
     a. Zadejte **Popis**.
 
     b. Pro **vypršení platnosti**vyberte možnost **nikdy nevyprší platnost** .
 
-    c. Vyberte **Přidat**. Ujistěte se, poznamenejte si řetězec klíče. Při vytváření clusteru budete potřebovat řetězec klíče. Na klíč se odkazuje jako na **tajný klíč klienta instančního objektu**.
+    c. Vyberte **Přidat**. Poznamenejte si řetězec klíče. Při vytváření clusteru budete potřebovat řetězec klíče. Na klíč se odkazuje jako na **tajný klíč klienta instančního objektu**.
 
-## <a name="give-the-service-principal-access"></a>Poskytnout přístup instančního objektu služby
+## <a name="give-the-service-principal-access"></a>Poskytnutí přístupu k instančnímu objektu
 
 Udělte instančnímu objektu přístup k vašemu předplatnému, aby objekt zabezpečení mohl vytvářet prostředky.
 
 1.  Přihlaste se k [portálu centra Azure Stack](https://portal.local.azurestack.external/).
 
-1. Vyberte **všechny služby** > **odběry**.
+1. Vyberte **všechny** > **odběry**služeb.
 
 1. Vyberte předplatné vytvořené vaším operátorem pro použití clusteru Kubernetes.
 
@@ -89,7 +89,7 @@ Udělte instančnímu objektu přístup k vašemu předplatnému, aby objekt zab
 
 1. Otevřete [portál centra Azure Stack](https://portal.local.azurestack.external).
 
-1. Vyberte **+ vytvořit prostředek** > Cluster **COMPUTE** > **Kubernetes**. Klikněte na možnost **Vytvořit**.
+1. Vyberte **+ vytvořit prostředek** > **COMPUTE** > **Kubernetes cluster**. Klikněte na **Vytvořit**.
 
     ![Nasadit šablonu řešení](media/azure-stack-solution-template-kubernetes-deploy/01_kub_market_item.png)
 
@@ -101,7 +101,7 @@ Udělte instančnímu objektu přístup k vašemu předplatnému, aby objekt zab
 
 1. Vyberte ID vašeho **předplatného** .
 
-1. Zadejte název nové skupiny prostředků nebo vyberte existující skupinu prostředků. Název prostředku musí být alfanumerické znaky a malá písmena.
+1. Zadejte název nové skupiny prostředků nebo vyberte existující skupinu prostředků. Název prostředku musí být alfanumerický a malý.
 
 1. Vyberte **umístění** skupiny prostředků. Toto je oblast, kterou zvolíte pro instalaci centra Azure Stack.
 
@@ -111,14 +111,14 @@ Udělte instančnímu objektu přístup k vašemu předplatnému, aby objekt zab
 
     ![Nasadit šablonu řešení](media/azure-stack-solution-template-kubernetes-deploy/03_kub_config_settings-aad.png)
 
-1. Zadejte **uživatelské jméno správce virtuálního počítače se systémem Linux**. Uživatelské jméno pro virtuální počítače Linux, které jsou součástí clusteru Kubernetes a DVM.
+1. Zadejte **uživatelské jméno správce virtuálního počítače se systémem Linux**. Uživatelské jméno pro Linux Virtual Machines, které jsou součástí clusteru Kubernetes a DVM.
 
 1. Zadejte **veřejný klíč SSH** , který se používá pro autorizaci pro všechny počítače se systémem Linux vytvořené jako součást clusteru KUBERNETES a DVM.
 
 1. Zadejte **předponu DNS hlavního profilu** , která je pro oblast jedinečná. Musí se jednat o jedinečný název oblasti, například `k8s-12345`. Zkuste zvolit stejný jako název skupiny prostředků jako osvědčený postup.
 
     > [!Note]  
-    > Pro každý cluster použijte předponu DNS nových a jedinečných hlavní profilu.
+    > Pro každý cluster použijte novou a jedinečnou předponu DNS hlavního profilu.
 
 1. Vyberte **počet profilů hlavního fondu Kubernetes**. Počet obsahuje počet uzlů v hlavním fondu. Může být od 1 do 7. Tato hodnota by měla být lichá číslice.
 
@@ -134,7 +134,7 @@ Udělte instančnímu objektu přístup k vašemu předplatnému, aby objekt zab
 
 1. Zadejte **tajný klíč klienta instančního objektu**. Toto je tajný kód klienta, který jste nastavili při vytváření služby.
 
-1. Zadejte **verzi Kubernetes**. Toto je verze zprostředkovatele služby Kubernetes Azure. Azure Stack centrum uvolní vlastní Kubernetes sestavení pro každou verzi centra Azure Stack.
+1. Zadejte **verzi Kubernetes**. Toto je verze poskytovatele Azure Kubernetes. Azure Stack centrum uvolní vlastní Kubernetes sestavení pro každou verzi centra Azure Stack.
 
 ### <a name="3-summary"></a>3. souhrn
 

@@ -8,10 +8,10 @@ ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
 ms.openlocfilehash: e6556ee12644140ace4553c4e613441440e00d14
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: 4138a2a15f78e7db38b3a29acc963a71937146fd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/15/2020
 ms.locfileid: "77704161"
 ---
 # <a name="deploy-a-go-web-app-to-a-vm-in-azure-stack-hub"></a>Nasazení webové aplikace v cestách do virtuálního počítače v Azure Stackovém centru
@@ -24,12 +24,12 @@ Můžete vytvořit virtuální počítač, který bude hostovat webovou aplikaci
 
 2. V podokně síť virtuálních počítačů se ujistěte, že jsou dostupné tyto porty:
 
-    | Port | Protokol | Popis |
+    | Port | Protocol (Protokol) | Popis |
     | --- | --- | --- |
     | 80 | HTTP | HTTP (Hypertext Transfer Protocol) je protokol, který se používá k doručování webových stránek ze serverů. Klienti se připojují přes protokol HTTP s názvem DNS nebo IP adresou. |
     | 443 | HTTPS | Protokol HTTPS (Hypertext Transfer Protocol Secure) je zabezpečená verze protokolu HTTP, která vyžaduje certifikát zabezpečení a umožňuje šifrovaný přenos informací. |
     | 22 | SSH | Secure Shell (SSH) je zašifrovaný síťový protokol pro zabezpečenou komunikaci. Pomocí tohoto připojení s klientem SSH nakonfigurujete virtuální počítač a nasadíte aplikaci. |
-    | 3389 | RDP | Volitelné. Protokol RDP (Remote Desktop Protocol) (RDP) umožňuje připojení ke vzdálené ploše pro použití grafického uživatelského rozhraní na vašem počítači.   |
+    | 3389 | Protokol RDP | Nepovinný parametr. Protokol RDP (Remote Desktop Protocol) (RDP) umožňuje připojení ke vzdálené ploše pro použití grafického uživatelského rozhraní na vašem počítači.   |
     | 3000 | Vlastní | Port 3000 používá webová architektura jít ve vývoji. V případě provozního serveru směrujete provoz mezi 80 a 443. |
 
 ## <a name="install-go"></a>Instalace – přejít

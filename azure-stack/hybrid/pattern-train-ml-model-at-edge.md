@@ -8,10 +8,10 @@ ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
 ms.openlocfilehash: 4df466a3b1b1e89be704302153e9e835f504445e
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77688861"
 ---
 # <a name="train-machine-learning-ml-model-at-the-edge-pattern"></a>Postup analýzy Machine Learning (ML) na hraničním modelu
@@ -30,7 +30,7 @@ Některá data jsou ale příliš velká pro posílání do cloudu nebo se nedaj
 
 Jakmile je model vyškolený, zaregistruje se s Azure ML a přidá se do Azure Container Registry pro nasazení. Pro tuto iteraci vzoru musí být virtuální počítač pro školení centra Azure Stack dosažitelný přes veřejný Internet. 
 
-[![modelu vlak ml na hraniční architektuře](media/pattern-train-ml-model-at-edge/solution-architecture.png)](media/pattern-train-ml-model-at-edge/solution-architecture.png)
+[![model vlakové ml na hraniční architektuře](media/pattern-train-ml-model-at-edge/solution-architecture.png)](media/pattern-train-ml-model-at-edge/solution-architecture.png)
 
 Jak řešení funguje: 
 
@@ -43,13 +43,13 @@ Jak řešení funguje:
 
 Toto řešení používá následující komponenty:
 
-| Vrstva | Komponenta | Popis |
+| Vrstva | Součást | Popis |
 |----------|-----------|-------------|
 | Azure | Azure Machine Learning | [Azure Machine Learning](/azure/machine-learning/) orchestruje školení modelu ml. |
 | | Azure Container Registry | Azure ML zabalí model do kontejneru a uloží ho do [Azure Container Registry](/azure/container-registry/) pro nasazení.|
 | Centrum Azure Stack | App Service | [Azure Stack centrum s App Service](/azure-stack/operator/azure-stack-app-service-overview) poskytuje základ pro komponenty na hraničních zařízeních. |
-| | Výpočty | Pro výuku modelu ML se používá virtuální počítač centra Azure Stack se systémem Ubuntu s Docker. |
-| | Úložiště | Soukromá data můžou být hostovaná v úložišti objektů BLOB centra Azure Stack. |
+| | Compute | Pro výuku modelu ML se používá virtuální počítač centra Azure Stack se systémem Ubuntu s Docker. |
+| | Storage | Soukromá data můžou být hostovaná v úložišti objektů BLOB centra Azure Stack. |
 
 ## <a name="issues-and-considerations"></a>Problémy a důležité informace
 

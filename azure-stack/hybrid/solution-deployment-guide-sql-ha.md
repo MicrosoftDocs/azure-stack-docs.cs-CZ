@@ -8,10 +8,10 @@ ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
 ms.openlocfilehash: 90eb2c2c6dac0c4a1dde16b05192b9188b63c709
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77700659"
 ---
 # <a name="deploy-a-sql-server-2016-availability-group-to-azure-and-azure-stack-hub"></a>Nasazení skupiny dostupnosti SQL Server 2016 do Azure a centra Azure Stack
@@ -89,7 +89,7 @@ Image Docker pro každé nasazení eliminují problémy závislosti mezi různý
       -AzureStackSubscriptionId_DR "drSubscriptionId"
       ```
 
-4.  Zadejte `Y`, aby se mohl nainstalovat poskytovatel NuGet. tím se zahájí instalace modulů rozhraní API "2018-03-01-hybrid".
+4.  Zadejte `Y` , pokud chcete, aby se nainstaloval poskytovatel NuGet, který se aktivuje z profilu rozhraní API "2018-03-01-hybrid" modulů, které se mají nainstalovat.
 
 5.  Počkejte, až se nasazení prostředků dokončí.
 

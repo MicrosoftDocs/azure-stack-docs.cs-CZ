@@ -8,10 +8,10 @@ ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
 ms.openlocfilehash: cf9d17bda49c1fe5d401481d79b61b18442ee7ef
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77703804"
 ---
 # <a name="get-started-with-powershell-in-azure-stack-hub"></a>Začínáme s PowerShellem v centru Azure Stack
@@ -20,9 +20,9 @@ PowerShell je určený pro správu a správu prostředků z příkazového řád
 
 Tento článek vám pomůže orientovat v různých modulech PowerShellu, které se používají v Azure Stack hub. Když v Azure Stackovém centru použijete PowerShell, můžete pracovat s kteroukoli ze čtyř sad rozhraní API, jak je znázorněno v následující tabulce:
 
-| API | PowerShell – reference | Odkaz REST |
+| Rozhraní API | PowerShell – reference | Referenční materiály k rozhraní REST |
 | --- | --- | --- |
-| Globální Azure Resource Manager | [Moduly Azure PowerShell](https://github.com/Azure/azure-powershell/blob/master/documentation/azure-powershell-modules.md) | [Prohlížeč REST API](https://docs.microsoft.com/rest/api/) |
+| Globální Azure Resource Manager | [Moduly Azure PowerShellu](https://github.com/Azure/azure-powershell/blob/master/documentation/azure-powershell-modules.md) | [Prohlížeč REST API](https://docs.microsoft.com/rest/api/) |
 | Správce prostředků centra Azure Stack | [Správa profilů verzí rozhraní API v centru Azure Stack](azure-stack-version-profiles.md) | [Správa profilů verzí rozhraní API v centru Azure Stack](azure-stack-version-profiles.md) |
 | Koncové body Správce centra Azure Stack | [Modul Správce centra Azure Stack](https://docs.microsoft.com/powershell/azure/azure-stack/overview) | [REST API prohlížeč – centrum Azure Stack](https://docs.microsoft.com/rest/api/?term=Azure%20Azure%20Stack%20Admin) |
 | Privilegovaný koncový bod centra Azure Stack | [Použití privilegovaného koncového bodu v centru Azure Stack](../operator/azure-stack-privileged-endpoint.md) | |

@@ -11,10 +11,10 @@ ms.author: inhenkel
 ms.reviewer: jerskine
 ms.lastreviewed: 06/10/2019
 ms.openlocfilehash: 6c4ed64f3d7327004d3f508c54f98913c97af5fa
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "78366651"
 ---
 # <a name="validate-ad-fs-integration-for-azure-stack-hub"></a>Ověřit integraci AD FS pro centrum Azure Stack
@@ -33,7 +33,7 @@ Další informace o integraci centrálního centra Azure Stack najdete v tématu
 
 Z [Galerie prostředí PowerShell](https://aka.ms/AzsReadinessChecker)si stáhněte nejnovější verzi nástroje pro kontrolu připravenosti centra Azure Stack (AzsReadinessChecker).  
 
-## <a name="prerequisites"></a>Předpoklady
+## <a name="prerequisites"></a>Požadavky
 
 Je nutné, aby byly splněny následující požadavky.
 
@@ -98,12 +98,12 @@ Pokaždé, když se ověřování spustí, protokoluje výsledky do **AzsReadine
 
 Soubory ověření vám můžou přispět ke sdílení stavu před nasazením centra Azure Stack nebo prozkoumání problémů s ověřováním. Oba soubory uchovávají výsledky každé následné kontroly ověření. Tato sestava poskytne vašemu týmu nasazení potvrzení konfigurace identity. Soubor protokolu může pomoci týmu nasazení nebo podpory prozkoumat problémy s ověřením.
 
-Ve výchozím nastavení jsou oba soubory zapisovány do `C:\Users\<username>\AppData\Local\Temp\AzsReadinessChecker\`.
+Ve výchozím nastavení jsou oba soubory zapisovány `C:\Users\<username>\AppData\Local\Temp\AzsReadinessChecker\`do.
 
 Použije
 
-* `-OutputPath`: parametr *path* na konci příkazu Run určuje jiné umístění sestavy.
-* `-CleanReport`: parametr na konci příkazu Run vymaže AzsReadinessCheckerReport. JSON předchozí informace sestavy. Další informace najdete v tématu [Sestava ověřování centra Azure Stack](azure-stack-validation-report.md).
+* `-OutputPath`: Parametr *path* na konci příkazu Run pro určení jiného umístění sestavy.
+* `-CleanReport`: Parametr na konci příkazu Run vymaže AzsReadinessCheckerReport. JSON předchozí informace sestavy. Další informace najdete v tématu [Sestava ověřování centra Azure Stack](azure-stack-validation-report.md).
 
 ## <a name="validation-failures"></a>Selhání ověřování
 
@@ -119,7 +119,7 @@ Invoke-AzsADFSValidation : The term 'Invoke-AzsADFSValidation' is not recognized
 
 **Příčina**: prostředí PowerShell AUTOLOAD se nepodařilo správně načíst modul pro kontrolu připravenosti.
 
-**Řešení**: explicitně importujte modul pro kontrolu připravenosti. Zkopírujte a vložte následující kód do PowerShellu a aktualizujte `<version>` číslem aktuálně nainstalované verze.
+**Řešení**: explicitně importujte modul pro kontrolu připravenosti. Zkopírujte a vložte následující kód do PowerShellu a aktualizujte `<version>` ho číslem aktuálně nainstalované verze.
 
 ```powershell
 Import-Module "c:\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.ReadinessChecker\<version>\Microsoft.AzureStack.ReadinessChecker.psd1" -Force

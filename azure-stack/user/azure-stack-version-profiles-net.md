@@ -8,25 +8,25 @@ ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
 ms.openlocfilehash: 37ffe5bd8325e309f8d9381cf058cfd07ac48480
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77705198"
 ---
 # <a name="use-api-version-profiles-with-net-in-azure-stack-hub"></a>Použití profilů verzí rozhraní API s .NET v Azure Stackovém centru
 
-Sada .NET SDK pro Správce prostředků centra Azure Stack poskytuje nástroje, které vám pomůžou při sestavování a správě vaší infrastruktury. Poskytovatelé prostředků v sadě SDK zahrnují výpočetní prostředky, sítě, úložiště, App Services a [Key Vault](/azure/key-vault/key-vault-whatis). Sada .NET SDK obsahuje 14 balíčků NuGet. Tyto balíčky je nutné stáhnout do řešení při každém kompilování projektu. Můžete si však stáhnout konkrétního poskytovatele prostředků, který budete používat pro **2019-03-01-Hybrid** nebo **2018-03-01-hybrids** pro optimalizaci paměti aplikace. Každý balíček se skládá z poskytovatele prostředků, příslušné verze rozhraní API a rozhraní API profil, ke kterému patří. Profily rozhraní API v sadě .NET SDK umožňují vývoj hybridního cloudu tím, že vám pomůžou přepínat mezi globálním prostředky a prostředky Azure v centru Azure Stack.
+Sada .NET SDK pro Správce prostředků centra Azure Stack poskytuje nástroje, které vám pomůžou při sestavování a správě vaší infrastruktury. Poskytovatelé prostředků v sadě SDK zahrnují výpočetní prostředky, sítě, úložiště, App Services a [Key Vault](/azure/key-vault/key-vault-whatis). Sada .NET SDK obsahuje 14 balíčků NuGet. Tyto balíčky je nutné stáhnout do řešení při každém kompilování projektu. Můžete si však stáhnout konkrétního poskytovatele prostředků, který budete používat pro **2019-03-01-Hybrid** nebo **2018-03-01-hybrids** pro optimalizaci paměti aplikace. Každý balíček obsahuje poskytovatele prostředků, příslušnou verzi rozhraní API a profil rozhraní API, ke kterému patří. Profily rozhraní API v sadě .NET SDK umožňují vývoj hybridního cloudu tím, že vám pomůžou přepínat mezi globálním prostředky a prostředky Azure v centru Azure Stack.
 
-## <a name="net-and-api-version-profiles"></a>Profilů verzí rozhraní .NET a rozhraní API
+## <a name="net-and-api-version-profiles"></a>Profily verzí rozhraní .NET a rozhraní API
 
-Profil rozhraní API je kombinací poskytovatelů prostředků a verze rozhraní API. Použijte profil rozhraní API k získání nejnovější a nejvýznamnější verze každého typu prostředku v balíčku poskytovatele prostředků.
+Profil rozhraní API je kombinací poskytovatelů prostředků a verzí rozhraní API. Použijte profil rozhraní API k získání nejnovější a nejvýznamnější verze každého typu prostředku v balíčku poskytovatele prostředků.
 
 - Chcete-li používat nejnovější verze všech služeb, použijte **nejnovější** profil balíčků. Tento profil je součástí balíčku NuGet **Microsoft. Azure. Management** .
 
 - Pokud chcete používat služby kompatibilní s Azure Stack hub, použijte jeden z následujících balíčků:
-  - **Microsoft. Azure. Management. Profiles. Hybrid\_2019\_03\_01. <*ResourceProvider*>. 0.9.0-Preview. nupkg**
-  - **Microsoft. Azure. Management. Profiles. Hybrid\_2018\_03\_01. <*ResourceProvider*>. 0.9.0-Preview. nupkg**
+  - **Microsoft. Azure. Management. Profiles.\_Hybrid\_2019\_03 01. <*ResourceProvider*>.0.9.0-Preview. nupkg**
+  - **Microsoft. Azure. Management. Profiles.\_Hybrid\_2018\_03 01. <*ResourceProvider*>.0.9.0-Preview. nupkg**
 
   Zajistěte, aby se část **ResourceProvider** výše uvedeného balíčku NuGet změnila na správného poskytovatele.
 
@@ -38,23 +38,23 @@ Můžete zkombinovat všechny možnosti ve stejné aplikaci.
 
 ## <a name="install-the-azure-net-sdk"></a>Instalace sady Azure .NET SDK
 
-- Instalace Gitu. Pokyny najdete v tématu [Začínáme – instalace Gitu][].
+- Nainstalujte Git. Pokyny najdete v tématu [Začínáme – instalace Gitu][].
 
-- Chcete-li nainstalovat správné balíčky NuGet, přečtěte si téma [Hledání a instalace balíčku][].
+- Chcete-li nainstalovat správné balíčky NuGet, přečtěte si téma [vyhledání a instalace balíčku][].
 
 - Balíčky, které je potřeba nainstalovat, závisí na verzi profilu, kterou chcete použít. Názvy balíčků pro verze profilu jsou:
 
-  - **Microsoft. Azure. Management. Profiles. Hybrid\_2019\_03\_01. <*ResourceProvider*>. 0.9.0-Preview. nupkg**
+  - **Microsoft. Azure. Management. Profiles.\_Hybrid\_2019\_03 01. <*ResourceProvider*>.0.9.0-Preview. nupkg**
 
-  - **Microsoft. Azure. Management. Profiles. Hybrid\_2018\_03\_01. <*ResourceProvider*>. 0.9.0-Preview. nupkg**
+  - **Microsoft. Azure. Management. Profiles.\_Hybrid\_2018\_03 01. <*ResourceProvider*>.0.9.0-Preview. nupkg**
 
-- Chcete-li nainstalovat správné balíčky NuGet pro Visual Studio Code, přečtěte si následující odkaz a Stáhněte si [Pokyny pro správce balíčků NuGet][].
+- Chcete-li nainstalovat správné balíčky NuGet pro Visual Studio Code, přečtěte si následující odkaz a Stáhněte si [pokyny správce balíčků NuGet][].
 
-- Pokud není k dispozici, vytvořte předplatné a uložte ID předplatného pro pozdější použití. Informace o tom, jak vytvořit předplatné, najdete [Vytváření předplatných nabídek v centru Azure Stack][].
+- Pokud není k dispozici, vytvořte odběr a uložte ID předplatného, které chcete použít později. Informace o tom, jak vytvořit předplatné, najdete [v tématu Vytvoření předplatných nabídek v centru Azure Stack][].
 
-- Vytvořte instanční objekt a uložte ID klienta a tajný klíč klienta. Informace o tom, jak vytvořit instanční objekt pro centrum Azure Stack, najdete v tématu [Poskytnutí přístupu k aplikacím Azure Stack hub][]. ID klienta se také označuje jako ID aplikace při vytváření instančního objektu.
+- Vytvořte instanční objekt a uložte ID klienta a tajný klíč klienta. Informace o tom, jak vytvořit instanční objekt pro centrum Azure Stack, najdete v tématu [poskytnutí přístupu aplikací k centru Azure Stack][]. ID klienta se také označuje jako ID aplikace při vytváření instančního objektu.
 
-- Ujistěte se, že má instančního objektu služby roli Přispěvatel nebo vlastník v rámci předplatného. Informace o tom, jak přiřadit roli k instančnímu objektu, najdete v tématu [Poskytnutí přístupu k aplikacím Azure Stack hub][].
+- Ujistěte se, že váš instanční objekt má v předplatném roli Přispěvatel/vlastník. Informace o tom, jak přiřadit roli k instančnímu objektu, najdete v tématu [poskytnutí přístupu aplikací k rozbočovači služby Azure Stack][].
 
 ## <a name="prerequisites"></a>Požadavky
 
@@ -65,21 +65,21 @@ Pokud chcete použít sadu .NET Azure SDK s Azure Stack hub, musíte zadat násl
 | ID tenanta                 | `AZURE_TENANT_ID `      | Hodnota [*ID tenanta*][]centra Azure Stack.                                                                          |
 | ID klienta                 | `AZURE_CLIENT_ID `      | ID aplikace instančního objektu se uložilo při vytvoření instančního objektu v předchozí části tohoto článku. |
 | ID předplatného           | `AZURE_SUBSCRIPTION_ID` | [*ID předplatného*][] je způsob, jakým přistupujete k nabídkám centra Azure Stack.                                                      |
-| Tajný kód klienta             | `AZURE_CLIENT_SECRET`   | Tajný kód aplikace instančního objektu se uložil při vytvoření objektu služby.                                      |
-| Koncový bod Resource Manageru | `ARM_ENDPOINT`          | Viz [*koncový bod správce prostředků centra Azure Stack*][].                                                                    |
+| Tajný klíč klienta             | `AZURE_CLIENT_SECRET`   | Tajný kód aplikace instančního objektu se uložil při vytvoření objektu služby.                                      |
+| Správce prostředků koncový bod | `ARM_ENDPOINT`          | Viz [*koncový bod správce prostředků centra Azure Stack*][].                                                                    |
 | Umístění                  | `RESOURCE_LOCATION`     | Umístění centra Azure Stack.
 
-Pokud chcete najít ID tenanta pro centrum Azure Stack, postupujte podle pokynů [v tomto článku](../operator/azure-stack-csp-ref-operations.md). Chcete-li nastavit proměnné prostředí, postupujte takto:
+Pokud chcete najít ID tenanta pro centrum Azure Stack, postupujte podle pokynů [v tomto článku](../operator/azure-stack-csp-ref-operations.md). Chcete-li nastavit proměnné prostředí, postupujte následovně:
 
 ### <a name="windows"></a>Windows
 
-Chcete-li nastavit proměnné prostředí v příkazovém řádku Windows, použijte následující formát:
+Chcete-li nastavit proměnné prostředí v příkazovém řádku systému Windows, použijte následující formát:
 
 ```shell
 set Azure_Tenant_ID=Your_Tenant_ID
 ```
 
-### <a name="macos-linux-and-unix-based-systems"></a>macOS, Linux a systémů založených na systému Unix
+### <a name="macos-linux-and-unix-based-systems"></a>Systémy MacOS, Linux a UNIX
 
 V systémech UNIX použijte následující příkaz:
 
@@ -89,11 +89,11 @@ export Azure_Tenant_ID=Your_Tenant_ID
 
 ### <a name="the-azure-stack-hub-resource-manager-endpoint"></a>Koncový bod Správce prostředků centra Azure Stack
 
-Azure Resource Manager je rozhraní pro správu, které správcům umožňuje nasazovat, spravovat a monitorovat prostředky Azure. Azure Resource Manageru dokáže zpracovat tyto úkoly, jako se skupinou, nikoli samostatně, v rámci jedné operace.
+Azure Resource Manager je rozhraní pro správu, které správcům umožňuje nasazovat, spravovat a monitorovat prostředky Azure. Azure Resource Manager může tyto úlohy v jedné operaci zpracovat jako skupinu, nikoli jednotlivě.
 
 Informace o metadatech můžete získat z Správce prostředkůho koncového bodu. Koncový bod vrátí soubor JSON s informacemi potřebnými ke spuštění vašeho kódu.
 
-Mějte na paměti následující aspekty:
+Vezměte na vědomí následující skutečnosti:
 
 - **ResourceManagerUrl** v Azure Stack Development Kit (ASDK) je: https://management.local.azurestack.external/.
 
@@ -117,13 +117,13 @@ Ukázkový soubor JSON:
 
 ## <a name="existing-api-profiles"></a>Existující profily rozhraní API
 
-- **Microsoft. Azure. Management. Profiles. hybrid\_2019\_03\_01. <*ResourceProvider*>. 0.9.0-Preview. nupkg**: nejnovější profil sestavený pro Azure Stack hub. Tento profil se používá pro služby, které jsou nejvíce kompatibilní s Azure Stack hub, pokud používáte verzi 1904 nebo novější.
+- **Microsoft. Azure. Management. Profiles.\_Hybrid\_2019\_03 01. *<ResourceProvider*>.0.9.0-preview. nupkg**: nejnovější profil sestavený pro Azure Stack hub. Tento profil se používá pro služby, které jsou nejvíce kompatibilní s Azure Stack hub, pokud používáte verzi 1904 nebo novější.
 
-- **Microsoft. Azure. Management. Profiles. hybrid\_2018\_03\_01. <*ResourceProvider*>. 0.9.0-Preview. nupkg**: použijte tento profil pro služby, aby byly kompatibilní s Azure Stack centrem pro verze 1808 nebo novější.
+- **Microsoft. Azure. Management. Profiles.\_Hybrid\_2018\_03 01. *<ResourceProvider*>.0.9.0-Preview. nupkg**: použijte tento profil pro služby, aby byly kompatibilní s Azure Stack hub pro verze 1808 nebo novější.
 
 - **Nejnovější**: Profil skládající se z nejnovějších verzí všech služeb. Použijte nejnovější verze všech služeb. Tento profil je součástí balíčku NuGet **Microsoft. Azure. Management** .
 
-Další informace o centru Azure Stack a profilech rozhraní API najdete v tématu [Shrnutí profilů rozhraní API][].
+Další informace o centru Azure Stack a profilech rozhraní API najdete v tématu [Přehled profilů rozhraní API][].
 
 ## <a name="azure-net-sdk-api-profile-usage"></a>Použití profilu rozhraní API pro Azure .NET SDK
 
@@ -136,14 +136,14 @@ var client = new ResourceManagementClient(armEndpoint, credentials)
 };
 ```
 
-Pro vytvoření instance klienta je vyžadován parametr `credentials` v tomto kódu. Následující kód vygeneruje ověřovací token podle ID tenanta a instančního objektu:
+Aby `credentials` bylo možné vytvořit instanci klienta, je nutné zadat parametr v tomto kódu. Následující kód vygeneruje ověřovací token podle ID tenanta a instančního objektu:
 
 ```csharp
 var azureStackSettings = getActiveDirectoryServiceSettings(armEndpoint);
 var credentials = ApplicationTokenProvider.LoginSilentAsync(tenantId, servicePrincipalId, servicePrincipalSecret, azureStackSettings).GetAwaiter().GetResult();
 ```
 
-`getActiveDirectoryServiceSettings` volání v kódu načte koncové body centra Azure Stack z koncového bodu metadat. Uvádí proměnné prostředí z vytvořeného volání:
+`getActiveDirectoryServiceSettings` Volání v kódu načte z koncového bodu metadat koncové body centra Azure Stack. Uvádí proměnné prostředí z vytvořeného volání:
 
 ```csharp
 public static ActiveDirectoryServiceSettings getActiveDirectoryServiceSettings(string armEndpoint)
@@ -180,7 +180,7 @@ public static ActiveDirectoryServiceSettings getActiveDirectoryServiceSettings(s
 
 Tyto kroky umožňují použít balíčky NuGet profilu rozhraní API k úspěšnému nasazení vaší aplikace do centra Azure Stack.
 
-## <a name="samples-using-api-profiles"></a>Ukázky použití profilů rozhraní API
+## <a name="samples-using-api-profiles"></a>Ukázky pomocí profilů rozhraní API
 
 Následující ukázky můžete použít jako referenci pro vytváření řešení s využitím profilů rozhraní API .NET a Azure Stack hub:
 

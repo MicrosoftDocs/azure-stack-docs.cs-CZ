@@ -8,10 +8,10 @@ ms.author: mabrigg
 ms.reviewer: justini
 ms.lastreviewed: 11/14/2019
 ms.openlocfilehash: c41989d662122dafb5d535c356aeb7d7e48ed4aa
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77704416"
 ---
 # <a name="use-azure-resource-manager-templates-in-azure-stack-hub"></a>Použití šablon Azure Resource Manager v centru Azure Stack
@@ -52,7 +52,7 @@ Použijte rozšíření PowerShell DSC k vytvoření samostatného [serveru SQL 
 * Jeden virtuální počítač (VM) nakonfigurovaný jako řadič domény pro novou doménovou strukturu s jednou doménou
 * Jeden virtuální počítač nakonfigurovaný jako samostatný server SQL Server 2014
 
-## <a name="vm-dsc-extension-azure-automation-pull-server"></a>VM-DSC-Extension-Azure-Automation-Pull-Server
+## <a name="vm-dsc-extension-azure-automation-pull-server"></a>VM-DSC-rozšíření-Azure-Automation-Pull-Server
 
 Pomocí rozšíření PowerShell DSC nakonfigurujte existující místní Configuration Manager virtuálního počítače (LCM) a zaregistrujte ho na serveru vyžádané replikace DSC Azure Automation účtu.
 
@@ -73,4 +73,4 @@ Pokud chcete zrušit nasazení spuštěné šablony, použijte [rutinu](/powersh
 * [Nasazení šablon pomocí portálu](azure-stack-deploy-template-portal.md)
 * [Nasazení šablon pomocí PowerShellu](azure-stack-deploy-template-powershell.md)
 * [Nasazení šablon pomocí sady Visual Studio](azure-stack-deploy-template-visual-studio.md)
-* [Přehled Azure Resource Manageru](/azure/azure-resource-manager/resource-group-overview)
+* [Přehled Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview)

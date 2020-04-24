@@ -8,10 +8,10 @@ ms.author: mabrigg
 ms.reviewer: unknown
 ms.lastreviewed: 05/09/2019
 ms.openlocfilehash: fc01d7ebab8855580470a7d4e29ab86851b88280
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77704280"
 ---
 # <a name="deploy-a-template-with-the-command-line-in-azure-stack-hub"></a>Nasazení šablony pomocí příkazového řádku v centru Azure Stack
@@ -20,10 +20,10 @@ K nasazení Azure Resource Manager šablon v centru Azure Stack můžete použí
 
 ## <a name="deploy-template"></a>Nasazení šablony
 
-1. Projděte si [úložiště AzureStack-Start-Templates](https://aka.ms/AzureStackGitHub) a vyhledejte šablonu **101-Create-Storage-Account** . Uložte šablonu (`azuredeploy.json`) a soubory parametrů `(azuredeploy.parameters.json`) do umístění na místním disku, například `C:\templates\`
+1. Projděte si [úložiště AzureStack-Start-Templates](https://aka.ms/AzureStackGitHub) a vyhledejte šablonu **101-Create-Storage-Account** . Uložte šablonu (`azuredeploy.json`) a soubory `(azuredeploy.parameters.json`parametrů do umístění na místním disku, například`C:\templates\`
 2. Přejděte do složky, do které jste stáhli soubory. 
 3. [Instalace a připojení](azure-stack-version-profiles-azurecli2.md) k centru Azure Stack pomocí Azure CLI.
-4. Aktualizujte oblast a umístění v následujícím příkazu. Pokud používáte ASDK, použijte `local` pro parametr Location. Nasazení šablony:
+4. Aktualizujte oblast a umístění v následujícím příkazu. Použijte `local` pro parametr Location, pokud používáte ASDK. Nasazení šablony:
     ```azurecli
     az group create --name testDeploy --location local
     az group deployment create --resource-group testDeploy --template-file ./azuredeploy.json --parameters ./azuredeploy.parameters.json

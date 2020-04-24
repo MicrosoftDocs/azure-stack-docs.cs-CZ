@@ -8,10 +8,10 @@ ms.author: inhenkel
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppace
 ms.openlocfilehash: 402450c9a0abc8096456450e1e81f92a68d65114
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "78367263"
 ---
 # <a name="azure-stack-hub-servicing-policy"></a>Zásady obsluhy centra Azure Stack
@@ -30,7 +30,7 @@ Pokud je například poslední dostupná verze aktualizace 1904 a předchozí dv
 
 Balíčky aktualizací softwaru společnosti Microsoft jsou nekumulativní a vyžadují jako součást předchozí balíček aktualizace nebo opravu hotfix. Pokud se rozhodnete jednu nebo více aktualizací odložit, zvažte celkový modul runtime, pokud chcete získat nejnovější verzi.
 
-## <a name="get-support"></a>Získat podporu
+## <a name="get-support"></a>Získání podpory
 
 Centrum Azure Stack se řídí stejným procesem podpory jako Azure. Podnikoví zákazníci mohou postupovat podle postupu popsaného v tématu [Postup vytvoření žádosti o podporu Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Pokud jste zákazníkem poskytovatele Cloud Solution Provider (CSP), požádejte o podporu svého CSP. Další informace najdete v nejčastějších dotazech k [podpoře Azure](https://azure.microsoft.com/support/faq/).
 

@@ -9,10 +9,10 @@ ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/25/2019
 ms.openlocfilehash: 15eaf26162b0d3f647d65dfab66e3d9327b2f357
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77697140"
 ---
 # <a name="use-sql-databases-on-azure-stack-hub"></a>Použití databází SQL v centru Azure Stack
@@ -35,7 +35,7 @@ Pro tradiční SQL Server úlohy v místním prostředí se doporučuje SQL Serv
 
 Poskytovatel prostředků se skládá z následujících součástí:
 
-- **Virtuální počítač adaptéru poskytovatele prostředků SQL (VM)** , což je virtuální počítač s Windows serverem, na kterém běží služby poskytovatele.
+- **Virtuální počítač adaptéru poskytovatele prostředků SQL (VM)**, což je virtuální počítač s Windows serverem, na kterém běží služby poskytovatele.
 - **Poskytovatel prostředků**, který zpracovává požadavky a přistupuje k databázovým prostředkům.
 - **Servery, které hostují SQL Server**, které poskytují kapacitu pro databáze nazývané hostitelské servery.
 

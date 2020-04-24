@@ -8,10 +8,10 @@ ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/13/20192
 ms.openlocfilehash: 9e9447baf9f5676cac8555513682bab8da750bb2
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77701169"
 ---
 # <a name="capacity-planning-for-app-service-server-roles-in-azure-stack-hub"></a>Plánování kapacity pro role App Service serveru v centru Azure Stack
@@ -98,7 +98,7 @@ Pro roli souborového serveru můžete použít samostatný souborový server pr
 
 V produkčních prostředích používá role souborového serveru náročné vstupně-výstupní operace disku. Vzhledem k tomu, že jsou všechny soubory obsahu a aplikace pro uživatelské weby, měli byste pro tuto roli předem nakonfigurovat jeden z následujících prostředků:
 
-- Souborový server systému Windows
+- Souborový server Windows
 - Cluster souborových serverů systému Windows
 - Souborový server jiný než Windows
 - Cluster souborových serverů s jiným systémem než Windows

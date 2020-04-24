@@ -8,10 +8,10 @@ ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 11/13/2019
 ms.openlocfilehash: 244d5e214e2d1d42e5697a5aafd51c17d97465f6
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: bdd4d529bd3e115a9f76eece62b1613448d5d020
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/14/2020
 ms.locfileid: "77704892"
 ---
 # <a name="tutorial-create-and-test-a-subscription-in-azure-stack-hub"></a>Kurz: vytvoření a otestování předplatného v centru Azure Stack
@@ -37,7 +37,7 @@ Pokud se chcete přihlásit k odběru nabídky jako uživatel, přihlaste se k p
 
    ![Získat předplatné](media/azure-stack-subscribe-services/get-subscription.png)
 
-2. Do pole **Zobrazovaný název** zadejte název předplatného. Pak vyberte **nabídku** a zvolte jednu z dostupných nabídek v části **vybrat nabídku** . Potom vyberte **Vytvořit**.
+2. Do pole **Zobrazovaný název** zadejte název předplatného. Pak vyberte **nabídku** a zvolte jednu z dostupných nabídek v části **vybrat nabídku** . Pak vyberte **vytvořit**.
 
    ![Vytvoření nabídky](media/azure-stack-subscribe-services/create-subscription.png)
 

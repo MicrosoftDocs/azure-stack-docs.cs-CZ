@@ -8,10 +8,10 @@ ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 11/05/2019
 ms.openlocfilehash: 73e769358d0b6007a7849edd1cebaac0ade78d04
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77691343"
 ---
 # <a name="troubleshoot-the-asdk"></a>Řešení potíží s ASDK
@@ -89,7 +89,7 @@ Pokud se zobrazí "osamocené" disky VHD, je důležité znát, jestli jsou sou�
 
 Další informace o konfiguraci prahové hodnoty pro uchování a opětovného získávání na vyžádání najdete v tématu [Správa účtů úložiště](../operator/azure-stack-manage-storage-accounts.md).
 
-## <a name="storage"></a>Úložiště
+## <a name="storage"></a>Storage
 ### <a name="storage-reclamation"></a>Recyklace úložiště
 Může trvat až 14 hodin, než se kapacita uvolní, aby se na portálu zobrazovala. Recyklace místa závisí na různých faktorech, včetně procentuálního využití vnitřních souborů kontejneru v úložišti objektů blob bloku. V závislosti na tom, kolik dat je odstraněno, však není nijak zaručeno množství místa, které by mohlo být uvolněno při spuštění systému uvolňování paměti.
 

@@ -7,10 +7,10 @@ ms.date: 01/24/2020
 ms.author: sethm
 ms.lastreviewed: 05/21/2019
 ms.openlocfilehash: 09db1c2e8daa34b566512ca6daee2480a86527df
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77704042"
 ---
 # <a name="introduction-to-key-vault-in-azure-stack-hub"></a>Úvod do Key Vault v centru Azure Stack
@@ -27,7 +27,7 @@ Key Vault v centru Azure Stack pomáhá chránit kryptografické klíče a tajn�
 * Ověřovací klíče
 * Klíče účtu úložiště
 * Šifrovací klíče dat
-* soubory .pfx
+* soubory. pfx
 * Hesla
 
 Key Vault zjednodušuje proces správy klíčů a zajišťuje vám kontrolu nad klíči, které se používají k přístupu a šifrování dat. Vývojáři můžou během pár minut vytvořit klíče pro vývoj a testování a potom je bez problémů migrovat na produkční klíče. Správci zabezpečení můžou k klíčům udělit oprávnění (a odvolat jim) podle potřeby.

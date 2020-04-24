@@ -9,10 +9,10 @@ ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/25/2019
 ms.openlocfilehash: 82f43028253638f92866bb679a5ccb5478a5a56e
-ms.sourcegitcommit: 8198753ebafd69d0dbfc6b3548defbd70f4c79c1
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "78935065"
 ---
 # <a name="app-service-on-azure-stack-hub-update-8-release-notes"></a>Zpráva k vydání verze pro Azure Stack centra aktualizace 8 App Service
@@ -22,11 +22,11 @@ Tyto poznámky k verzi popisují vylepšení a opravy v Azure App Service v cent
 > [!IMPORTANT]
 > Před nasazením Azure App Service 1,8 použijte aktualizaci 1910 pro váš Azure Stack integrovaný systém nebo nasaďte nejnovější Azure Stack vývojovou sadu.
 
-## <a name="build-reference"></a>Referenční informace o buildu
+## <a name="build-reference"></a>Odkaz na sestavení
 
 App Service číslo buildu Azure Stack centra aktualizace 8 je **86.0.2.13**
 
-### <a name="prerequisites"></a>Předpoklady
+### <a name="prerequisites"></a>Požadavky
 
 Než začnete s nasazením, přečtěte si [dokumentaci před](azure-stack-app-service-before-you-get-started.md) začátkem.
 
@@ -37,7 +37,7 @@ Než začnete s upgradem Azure App Service v Azure Stack na 1,8:
 - Zálohování App Service a hlavních databází:
   - AppService_Hosting;
   - AppService_Metering;
-  - Master
+  - Hlavní
 
 - Zálohování sdílené složky obsahu aplikace tenanta
 
@@ -66,7 +66,7 @@ Azure App Service na Azure Stack Update 8 obsahuje následující vylepšení a 
   - PHP 7.2.22
   - PHP 7.3.9
   - Aktualizace Kudu na 85.11024.4154
-  - 3\.5.80916.15 MSDeploy
+  - 3.5.80916.15 MSDeploy
   - NodeJS 10.16.3
   - NPM 6.9.0
   - Git pro Windows 2.19.1.0
@@ -111,8 +111,8 @@ Proveďte jednu z následujících akcí a v instalačním programu klikněte na
   - Cíl: IP adresy
   - Rozsah cílových IP adres: rozsah IP adres pro souborový server
   - Rozsah cílových portů: 445
-  - Protocol: TCP
-  - Akce: povolení
+  - Protokol. TCP
+  - Akce: Povolit
   - Priorita: 700
   - Název: Outbound_Allow_SMB445
 
@@ -208,7 +208,7 @@ Z důvodu regrese v této verzi je nutné při **nově** nasazených databázíc
         GO
     ```
 
-    **Oproti**
+    **Ověření**
 
 1. Zkontroluje, jestli SQL Server má povolené omezení.
 

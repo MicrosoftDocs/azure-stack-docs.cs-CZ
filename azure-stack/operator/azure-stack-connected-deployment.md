@@ -8,10 +8,10 @@ ms.author: inhenkel
 ms.reviewer: wfayed
 ms.lastreviewed: 11/05/2019
 ms.openlocfilehash: b8f8dfe95e50b81c7032e2e2348c2d4e6a6d888d
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "78364764"
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-hub-integrated-systems"></a>Rozhodnutí týkající se plánování nasazení spojené s Azure pro integrované systémy centra Azure Stack
@@ -52,7 +52,7 @@ Pokud se chystáte použít předplatné CSP, Projděte si následující tabulk
 
 |Scénář|Možnosti domény a předplatného|
 |-----|-----|
-|Jste přímý poskytovatel **CSP** nebo **nepřímo zprostředkovatel CSP**a budete pracovat s centrem Azure Stack.|Použijte předplatné CSL (Common Service Layer).<br>     nebo<br>Vytvořte tenanta Azure AD s popisným názvem v partnerském centru. Například &lt;vaší organizaci > CSPAdmin s předplatným CSP Azure, které jsou k němu přidružené.|
+|Jste přímý poskytovatel **CSP** nebo **nepřímo zprostředkovatel CSP**a budete pracovat s centrem Azure Stack.|Použijte předplatné CSL (Common Service Layer).<br>     – nebo –<br>Vytvořte tenanta Azure AD s popisným názvem v partnerském centru. &lt;Vaše organizace například>CSPAdmin s předplatným CSP Azure, které je k němu přidružené.|
 |Jste **nepřímým prodejcem CSP**a budete pracovat s centrem Azure Stack.|Požádejte svého nepřímý poskytovatel CSP, aby vytvořil tenanta Azure AD pro vaši organizaci s předplatným CSP Azure, které je k němu přidruženo pomocí partnerského centra.|
 
 ### <a name="capacity-based-billing"></a>Fakturace na základě kapacity

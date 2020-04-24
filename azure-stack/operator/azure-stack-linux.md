@@ -8,10 +8,10 @@ ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/16/2019
 ms.openlocfilehash: 532f61b2b306dab833c35dab403226e70950d43a
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79294019"
 ---
 # <a name="add-linux-images-to-the-azure-stack-hub-marketplace"></a>Přidání imagí pro Linux do webu centra Azure Stack Marketplace
@@ -106,7 +106,7 @@ runcmd:
 Nahrajte soubor do účtu služby Azure Storage, Azure Stack účtu úložiště centra nebo úložiště GitHub dosažitelného pomocí virtuálního počítače Azure Stack hub Linux.
 V současné době se použití Cloud-init pro nasazení virtuálního počítače podporuje jenom na REST, PowerShellu a CLI a nemá přidružené uživatelské rozhraní portálu na Azure Stack hub.
 
-Podle [těchto](../user/azure-stack-quick-create-vm-linux-powershell.md) pokynů můžete vytvořit virtuální počítač Linux pomocí prostředí PowerShell, ale nezapomeňte odkazovat na Cloud-init. txt jako součást příznaku `-CustomData`:
+Podle [těchto](../user/azure-stack-quick-create-vm-linux-powershell.md) pokynů můžete vytvořit virtuální počítač Linux pomocí prostředí PowerShell, ale nezapomeňte odkazovat na Cloud-init. txt jako součást `-CustomData` příznaku:
 
 ```powershell
 $VirtualMachine =Set-AzureRmVMOperatingSystem -VM $VirtualMachine `
@@ -117,7 +117,7 @@ $VirtualMachine =Set-AzureRmVMOperatingSystem -VM $VirtualMachine `
 
 ## <a name="add-your-image-to-marketplace"></a>Přidání image do Marketplace
 
-Postupujte podle pokynů [Přidat obrázek na Marketplace](azure-stack-add-vm-image.md). Ujistěte se, že parametr `OSType` je nastaven na hodnotu `Linux`.
+Postupujte podle pokynů [Přidat obrázek na Marketplace](azure-stack-add-vm-image.md). Ujistěte se, že `OSType` je parametr nastaven na `Linux`hodnotu.
 
 Po přidání image na Marketplace se vytvoří položka Marketplace a uživatelé můžou nasadit virtuální počítač se systémem Linux.
 

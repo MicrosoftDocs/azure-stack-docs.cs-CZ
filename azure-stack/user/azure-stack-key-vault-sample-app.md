@@ -7,10 +7,10 @@ ms.date: 02/19/2020
 ms.author: sethm
 ms.lastreviewed: 04/08/2019
 ms.openlocfilehash: 16973c1c381cfecb611370f940f92a7695f9434f
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77702767"
 ---
 # <a name="allow-apps-to-access-azure-stack-hub-key-vault-secrets"></a>Dovolit aplikacím přístup k tajným klíčům centra Azure Stack Key Vault
@@ -36,7 +36,7 @@ Pro přípravu ukázkové aplikace použijte Azure Portal nebo PowerShell.
 > [!NOTE]
 > Ve výchozím nastavení vytvoří skript prostředí PowerShell novou aplikaci ve službě Active Directory. Můžete ale zaregistrovat jednu ze stávajících aplikací.
 
-Před spuštěním následujícího skriptu se ujistěte, že zadáváte hodnoty pro proměnné `aadTenantName` a `applicationPassword`. Pokud nezadáte hodnotu pro `applicationPassword`, tento skript vygeneruje náhodné heslo.
+Před spuštěním následujícího skriptu se ujistěte, že zadáváte hodnoty pro `aadTenantName` proměnné `applicationPassword` a. Pokud nezadáte hodnotu pro `applicationPassword`, tento skript vygeneruje náhodné heslo.
 
 ```powershell
 $vaultName           = 'myVault'
@@ -134,15 +134,15 @@ Stáhněte si ukázku trezoru klíčů ze stránky [ukázek klientů Azure Key V
 
 Načtení ukázky **HelloKeyVault** :
 
-1. Přejděte do složky **Microsoft. Azure. webtrezor. samples** > **Samples** > **HelloKeyVault** .
+1. Přejděte do složky **Microsoft. Azure. webtrezor.** > Samples. Samples**Samples** > **HelloKeyVault** .
 2. Otevřete aplikaci **HelloKeyVault** v aplikaci Visual Studio.
 
 ### <a name="configure-the-sample-application"></a>Konfigurace ukázkové aplikace
 
-V sadě Visual Studio:
+V aplikaci Visual Studio:
 
-1. Otevřete soubor HelloKeyVault\App.config a vyhledejte prvek `<appSettings>`.
-2. Aktualizujte klíče **VaultUrl**, **AuthClientId**a **AuthCertThumbprint** hodnotami vracenými při vytváření trezoru klíčů. Ve výchozím nastavení má soubor App. config zástupný symbol pro `AuthCertThumbprint`. Nahraďte tento zástupný text `AuthClientSecret`.
+1. Otevřete soubor HelloKeyVault\App.config a vyhledejte `<appSettings>` element.
+2. Aktualizujte klíče **VaultUrl**, **AuthClientId**a **AuthCertThumbprint** hodnotami vracenými při vytváření trezoru klíčů. Ve výchozím nastavení má soubor App. config zástupný symbol pro `AuthCertThumbprint`. Nahraďte tento zástupný `AuthClientSecret`symbol pomocí.
 
    ```xml
    <appSettings>
@@ -156,14 +156,14 @@ V sadě Visual Studio:
 
 3. Znovu sestavte řešení.
 
-## <a name="run-the-app"></a>Spusťte aplikaci
+## <a name="run-the-app"></a>Spuštění aplikace
 
-Když spustíte **HelloKeyVault**, aplikace se přihlásí do služby Azure AD a potom pomocí tokenu `AuthClientSecret` ověří pro Trezor klíčů v centru Azure Stack.
+Když spustíte **HelloKeyVault**, aplikace se přihlásí do služby Azure AD a potom pomocí `AuthClientSecret` tokenu ověří na trezor klíčů v centru Azure Stack.
 
 Ukázku **HelloKeyVault** můžete použít k těmto akcím:
 
 * Pomocí klíčů a tajných kódů provádějte základní operace, jako je vytváření, šifrování, zalamování a odstranění.
-* Předání parametrů, jako jsou `encrypt` a `decrypt`, do **HelloKeyVault**a použití zadaných změn v trezoru klíčů.
+* Předejte parametry jako `encrypt` a `decrypt` na **HelloKeyVault**a aplikujte zadané změny do trezoru klíčů.
 
 ## <a name="next-steps"></a>Další kroky
 

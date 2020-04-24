@@ -9,10 +9,10 @@ ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 09/16/2019
 ms.openlocfilehash: 3ad54cfdda10e5674b4f42edefdeda832a44aa5f
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "78367950"
 ---
 # <a name="prepare-azure-stack-hub-pki-certificates-for-deployment-or-rotation"></a>Příprava certifikátů PKI Azure Stack hub pro nasazení nebo otočení
@@ -48,13 +48,13 @@ Pomocí následujících kroků můžete připravit a ověřit certifikáty PKI 
 > [!NOTE]
 > Po importu certifikátu pro centrum Azure Stack se privátní klíč certifikátu uloží jako soubor PKCS 12 (PFX) do clusterovaného úložiště.
 
-### <a name="export-the-certificate"></a>Exportujte certifikát.
+### <a name="export-the-certificate"></a>Export certifikátu
 
 Otevřete konzolu MMC Správce certifikátů a připojte se k úložišti certifikátů místního počítače.
 
 1. Otevřete konzolu Microsoft Management Console. Chcete-li otevřít konzolu nástroje ve Windows 10, klikněte pravým tlačítkem myši na **nabídku Start**, vyberte příkaz **Spustit**a zadejte příkaz **MMC** a stiskněte klávesu ENTER.
 
-2. Vyberte **soubor** > **Přidat nebo odebrat modul snap-in**, pak vyberte **certifikáty** a vyberte **Přidat**.
+2. Vyberte **soubor** > **Přidat/odebrat modul snap-in**, pak vyberte **certifikáty** a vyberte **Přidat**.
 
     ![Přidat modul snap-in Certifikáty v konzole Microsoft Management Console](./media/prepare-pki-certs/mmc-2.png)
 
@@ -62,9 +62,9 @@ Otevřete konzolu MMC Správce certifikátů a připojte se k úložišti certif
 
     ![Vybrat účet pro modul snap-in Certifikáty v konzole Microsoft Management Console](./media/prepare-pki-certs/mmc-3.png)
 
-4. Přejděte na **certifikáty** > **podnikové důvěryhodnosti** > **umístění certifikátu**. Ověřte, že na pravé straně vidíte svůj certifikát.
+4. Přejděte na **certifikáty** > **důvěřovat** > **umístění certifikátu**organizace. Ověřte, že na pravé straně vidíte svůj certifikát.
 
-5. Z hlavního panelu konzoly Správce certifikátů vyberte **akce** > **všechny úlohy** > **exportovat**. Vyberte **Další**.
+5. Z hlavního panelu konzoly Správce certifikátů vyberte **Akce** > **všechny úkoly** > **exportovat**. Vyberte **Další**.
 
    > [!NOTE]
    > V závislosti na tom, kolik certifikátů centra Azure Stack máte, možná budete muset tento proces dokončit více než jednou.

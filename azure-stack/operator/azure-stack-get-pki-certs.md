@@ -8,10 +8,10 @@ ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 09/10/2019
 ms.openlocfilehash: d197a8b4464af8f331a11af2ba642ad053273bf9
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77699707"
 ---
 # <a name="generate-certificate-signing-requests-for-azure-stack-hub"></a>Vygenerovat žádosti o podepsání certifikátu pro centrum Azure Stack
@@ -31,7 +31,7 @@ Před generováním jakýchkoli zástupců pro certifikáty PKI pro nasazení Az
 - Atributy certifikátu:
   - Název oblasti
   - Externí plně kvalifikovaný název domény (FQDN)
-  - Předmět
+  - Subjekt
 - Windows 10 nebo Windows Server 2016 nebo novější
 
   > [!NOTE]  
@@ -86,7 +86,7 @@ Pomocí těchto kroků můžete připravit a ověřit certifikáty PKI Azure Sta
     ```
 
     > [!NOTE]  
-    > `<regionName>.<externalFQDN>` tvoří základ, na kterém jsou vytvořeny všechny názvy externích DNS v centru Azure Stack. V tomto příkladu by byl portál `portal.east.azurestack.contoso.com`.  
+    > `<regionName>.<externalFQDN>`vychází z nich, na základě kterých jsou vytvořeny všechny názvy externích DNS v centru Azure Stack. V tomto příkladu by byl portál `portal.east.azurestack.contoso.com`.  
 
 6. Generování žádostí o podepsání certifikátu pro nasazení:
 
@@ -94,7 +94,7 @@ Pomocí těchto kroků můžete připravit a ověřit certifikáty PKI Azure Sta
     New-AzsCertificateSigningRequest -certificateType Deployment -RegionName $regionName -FQDN $externalFQDN -subject $subject -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
     ```
 
-    Chcete-li generovat žádosti o certifikát pro jiné služby Azure Stack centra, změňte hodnotu `-CertificateType`. Příklad:
+    Chcete-li generovat žádosti o certifikát pro jiné služby Azure Stack centra, změňte `-CertificateType`hodnotu pro. Příklad:
 
     ```powershell  
     # App Services

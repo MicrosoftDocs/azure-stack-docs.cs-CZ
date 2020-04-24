@@ -8,10 +8,10 @@ ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2019
 ms.openlocfilehash: b468ed4c41c259a0017969615681abcd007d96c7
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77695321"
 ---
 # <a name="add-workers-and-infrastructure-in-azure-app-service-on-azure-stack-hub"></a>Přidání pracovníků a infrastruktury v Azure App Service v centru Azure Stack
@@ -72,7 +72,7 @@ Azure App Service v centru Azure Stack nasadí všechny role pomocí Virtual Mac
 
     ![App Service na portálu Azure Stack správce centra](media/azure-stack-app-service-add-worker-roles/image01.png)
 
-3. Klikněte na **Role**. Tady vidíte rozpis všech nasazených rolí App Service.
+3. Klikněte na **role**. Tady vidíte rozpis všech nasazených rolí App Service.
 
 4. Klikněte pravým tlačítkem na řádek typu, který chcete škálovat, a pak klikněte na **škálovací sady**.
 

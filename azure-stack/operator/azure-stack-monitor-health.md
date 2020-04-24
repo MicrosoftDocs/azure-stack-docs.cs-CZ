@@ -7,10 +7,10 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.lastreviewed: 01/18/2019
 ms.openlocfilehash: f2b827510087a40ae011e506b5d1f467153e3fdb
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "78368086"
 ---
 # <a name="monitor-health-and-alerts-in-azure-stack-hub"></a>Monitorování stavu a výstrah v centru Azure Stack
@@ -30,7 +30,7 @@ Centrum Azure Stack vyvolává výstrahy jenom se dvěma závažnostmi: **Upozor
 - **Upozornění**  
   Operátor může výstražné upozornění naplánovaným způsobem vyřešit. Výstraha obvykle nemá vliv na uživatelské úlohy.
 
-- **Kritické**  
+- **Kritická**  
   Operátor by měl vyřešit kritickou výstrahu s naléhavostí. Tyto výstrahy označují problémy, které aktuálně ovlivňují nebo brzy ovlivní Azure Stack uživatelů centra.
 
 
@@ -45,10 +45,10 @@ Chcete-li zobrazit stav na portálu, klikněte na oblast, kterou chcete zobrazit
 Kliknutím na poskytovatel prostředků nebo na roli infrastruktury zobrazíte podrobnější informace.
 
 > [!WARNING]  
-> Pokud kliknete na roli infrastruktury a pak na instanci role, existují možnosti **spuštění**, **restartování**nebo **vypnutí**. Tyto akce nepoužívejte při použití aktualizací pro integrovaný systém. Nepoužívejte také tyto možnosti v prostředí Azure Stack Development Kit (ASDK). Tyto možnosti jsou určené jenom pro prostředí s integrovanými systémy, kde je na jednu roli infrastruktury víc instancí role. Restartování instance role (obzvláště AzS-Xrp01) v ASDK způsobuje nestabilitu systému. Pokud potřebujete pomoc s řešením potíží, vystavte svůj problém do [fóra centra Azure Stack](https://aka.ms/azurestackforum).
+> Pokud kliknete na roli infrastruktury a pak na instanci role, existují možnosti **spuštění**, **restartování**nebo **vypnutí**. Tyto akce nepoužívejte při použití aktualizací pro integrovaný systém. Nepoužívejte také **not** tyto možnosti v prostředí Azure Stack Development Kit (ASDK). Tyto možnosti jsou určené jenom pro prostředí s integrovanými systémy, kde je na jednu roli infrastruktury víc instancí role. Restartování instance role (obzvláště AzS-Xrp01) v ASDK způsobuje nestabilitu systému. Pokud potřebujete pomoc s řešením potíží, vystavte svůj problém do [fóra centra Azure Stack](https://aka.ms/azurestackforum).
 >
 
-## <a name="view-alerts"></a>Zobrazení výstrah
+## <a name="view-alerts"></a>Zobrazení upozornění
 
 Seznam aktivních výstrah pro každou oblast centra Azure Stack je k dispozici přímo v okně **Správa oblastí** . První dlaždice ve výchozí konfiguraci je dlaždice **výstrahy** , která zobrazuje souhrn kritických výstrah a upozornění pro oblast. Dlaždici výstrahy můžete připnout jako jakoukoli jinou dlaždici v tomto okně na řídicí panel pro rychlý přístup.
 

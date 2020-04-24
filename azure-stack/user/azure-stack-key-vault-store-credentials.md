@@ -7,10 +7,10 @@ ms.date: 01/24/2020
 ms.author: sethm
 ms.lastreviewed: 01/16/2020
 ms.openlocfilehash: 66d69fa3397fa748dfbc67377c3e52c47f35904c
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77702716"
 ---
 # <a name="store-service-principal-credentials-in-azure-stack-hub-key-vault"></a>Ukládat přihlašovací údaje instančního objektu ve službě Azure Stack hub Key Vault
@@ -66,7 +66,7 @@ K vytvoření trezoru klíčů použijte tento postup:
 
 7. Zadejte popis a dobu trvání klíče.
 
-8. Vyberte **Save** (Uložit).
+8. Vyberte **Uložit**.
 
 9. Zkopírujte **klíč** , který bude k dispozici po kliknutí na **Uložit**.
 

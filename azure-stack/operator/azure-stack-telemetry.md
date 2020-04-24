@@ -9,10 +9,10 @@ ms.author: inhenkel
 ms.reviewer: comartin
 ms.lastreviewed: 10/15/2019
 ms.openlocfilehash: 6bc12104ef8ce325fe9b1773373ef235a33919e5
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77696953"
 ---
 # <a name="configure-azure-stack-hub-telemetry"></a>Konfigurace telemetrie centra Azure Stack
@@ -27,9 +27,9 @@ V případě operátoru centra Azure Stack může telemetrie poskytovat cenné p
 Telemetrie centra Azure Stack je založená na komponentě Windows Server 2016 s připojeným uživatelským prostředím a telemetrie. Tato součást používá technologii [trasování událostí pro Windows (ETW)](https://msdn.microsoft.com/library/dn904632(v=vs.85).aspx) TraceLogging k shromažďování a ukládání událostí a dat. Azure Stack komponenty používají stejnou technologii pro publikování událostí a dat shromážděných pomocí protokolu událostí veřejného operačního systému a rozhraní API pro trasování. Mezi tyto součásti Azure Stack centra patří například tito poskytovatelé: síťový prostředek, prostředek úložiště, monitorovací prostředek a prostředek aktualizace. Rozhraní připojené uživatele a komponenta telemetrie šifrují data pomocí protokolu SSL a pomocí připnutí certifikátů odesílá data přes HTTPS službě Microsoft Správa dat Service.
 
 > [!IMPORTANT]
-> Aby bylo možné tok dat telemetrie povolit, musí být ve vaší síti otevřený port 443 (HTTPS). Komponenta s připojeným uživatelským prostředím a telemetrie se připojí ke službě Microsoft Správa dat na `https://v10.events.data.microsoft.com`. Prostředí připojené uživatele a komponenta telemetrie se také připojí k `https://settings-win.data.microsoft.com` ke stažení informací o konfiguraci. Další služby diagnostických dat se připojí `https://watson.telemetry.microsoft.com` pro zasílání zpráv o chybách.
+> Aby bylo možné tok dat telemetrie povolit, musí být ve vaší síti otevřený port 443 (HTTPS). Komponenta s připojeným uživatelským prostředím a telemetrie se připojí ke službě `https://v10.events.data.microsoft.com`Microsoft Správa dat na adrese. Prostředí připojené uživatele a komponenta telemetrie se také připojí `https://settings-win.data.microsoft.com` ke stažení informací o konfiguraci. Další služby diagnostických dat `https://watson.telemetry.microsoft.com` se připojují pro zasílání zpráv o chybách.
 
-## <a name="privacy-considerations"></a>Požadavky na ochranu osobních údajů
+## <a name="privacy-considerations"></a>Aspekty ochrany osobních údajů
 
 Služba ETW směruje data telemetrie zpátky do chráněného cloudového úložiště. Objekt zabezpečení nejnižších průvodců oprávnění přistupuje k datům telemetrie. Přístup k datům telemetrie mají jenom pracovníci Microsoftu s platnými obchodními potřebami. Společnost Microsoft nesdílí osobní údaje o zákaznících s třetími stranami s výjimkou rozhodnutí zákazníka nebo omezeného účelu popsaného v [prohlášení společnosti Microsoft o zásadách ochrany osobních údajů](https://privacy.microsoft.com/PrivacyStatement). Obchodní sestavy, které jsou sdíleny s výrobci OEM a partnery, zahrnují agregovaná, anonymitná data. Rozhodnutí o sdílení dat provádí interní tým Microsoftu, včetně zúčastněných stran ochrany osobních údajů, právních předpisů a správy dat.
 
@@ -117,12 +117,12 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies
 
 Pokud chcete povolit nebo zakázat telemetrii po nasazení, potřebujete přístup k privilegovanému koncovému bodu (PEP), který je vystavený na virtuálních počítačích ERCS.
 
-- Povolení: `Set-Telemetry -Enable`
-- Zakázání: `Set-Telemetry -Disable`
+- Povolení:`Set-Telemetry -Enable`
+- Chcete-li zakázat:`Set-Telemetry -Disable`
 
 Podrobnosti parametru:
-- `.PARAMETER Enable` – zapnutí nahrávání dat telemetrie
-- `.PARAMETER Disable` – vypnutí nahrávání dat telemetrie  
+- `.PARAMETER Enable`-Zapnout nahrávání dat telemetrie
+- `.PARAMETER Disable`-Vypnout nahrávání dat telemetrie  
 
 **Skript pro povolení telemetrie:**
 

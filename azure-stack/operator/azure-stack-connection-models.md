@@ -8,10 +8,10 @@ ms.author: inhenkel
 ms.reviewer: wfayed
 ms.lastreviewed: 02/21/2019
 ms.openlocfilehash: 4e0fb77bc6f6f174d474a123611dbf529e814b0a
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "78364040"
 ---
 # <a name="azure-stack-hub-integrated-systems-connection-models"></a>Modely připojení integrovaných systémů Azure Stack hub
@@ -36,7 +36,7 @@ Můžete zvolit nasazení centra Azure Stack buď připojeného k Internetu (a d
 |Fakturace na základě kapacity|![Podporuje se](media/azure-stack-connection-models/check.png)|![Podporuje se](media/azure-stack-connection-models/check.png)|
 |Licencování| Poskytovatel řešení smlouva Enterprise nebo cloudu | Smlouva Enterprise |
 |Oprava a aktualizace|Balíček aktualizace se dá stáhnout přímo z Internetu do centra Azure Stack. |  Požaduje se<br><br>Vyžaduje taky vyměnitelné médium.<br> a samostatné připojené zařízení |
-| Registrace | Automatickou | Požaduje se<br><br>Vyžaduje taky vyměnitelné médium.<br> a samostatné připojené zařízení |
+| Registrace | Automatizovaná | Požaduje se<br><br>Vyžaduje taky vyměnitelné médium.<br> a samostatné připojené zařízení |
 
 Až se rozhodnete, že se model připojení Azure bude používat pro nasazení centra Azure Stack, je nutné provést další rozhodnutí závislá na připojení pro úložiště identit a metodu fakturace.
 

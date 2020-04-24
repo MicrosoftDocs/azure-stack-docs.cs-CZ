@@ -8,10 +8,10 @@ ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
 ms.openlocfilehash: 63fffbf1a9dcc5048286f93b18b20eb72174b8cd
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: 4138a2a15f78e7db38b3a29acc963a71937146fd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/15/2020
 ms.locfileid: "77704195"
 ---
 # <a name="deploy-a-linux-vm-to-host-a-web-app-in-azure-stack-hub"></a>Nasazení virtuálního počítače se systémem Linux pro hostování webové aplikace v centru Azure Stack
@@ -85,7 +85,7 @@ Pokud chcete nasadit virtuální počítač, postupujte podle pokynů v následu
 
     a. V případě **vysoké dostupnosti** vyberte skupinu dostupnosti. Pokud chcete zajistit redundanci pro vaši aplikaci, seskupte dva nebo více virtuálních počítačů ve skupině dostupnosti. Tato konfigurace zajišťuje, že během plánované nebo neplánované události údržby bude k dispozici alespoň jeden virtuální počítač, který bude splňovat 99,95% Smlouvy o úrovni služeb Azure (SLA). Po vytvoření se skupina dostupnosti virtuálního počítače nedá změnit.
 
-    b. V případě **úložiště**vyberte **disky úrovně Premium (SSD)** nebo **standardní disky (HDD)** . Disky úrovně Premium (SSD) jsou založené na jednotkách Solid-State a nabízejí konzistentní výkon s nízkou latencí. Poskytují nejlepší rovnováhu mezi cenou a výkonem a jsou ideální pro aplikace náročné na vstupně-výstupní operace a produkční úlohy. Standardní disky jsou zajištěny pomocí magnetických jednotek a jsou vhodnější pro aplikace, ve kterých se k datům přistupovalo zřídka. Redundantní disky v zóně jsou založené na zóně redundantního úložiště (ZRS), které replikují vaše data napříč několika zónami a jsou k dispozici i v případě, že je jedna zóna mimo provoz. 
+    b. V případě **úložiště**vyberte **disky úrovně Premium (SSD)** nebo **standardní disky (HDD)**. Disky úrovně Premium (SSD) jsou založené na jednotkách Solid-State a nabízejí konzistentní výkon s nízkou latencí. Poskytují nejlepší rovnováhu mezi cenou a výkonem a jsou ideální pro aplikace náročné na vstupně-výstupní operace a produkční úlohy. Standardní disky jsou zajištěny pomocí magnetických jednotek a jsou vhodnější pro aplikace, ve kterých se k datům přistupovalo zřídka. Redundantní disky v zóně jsou založené na zóně redundantního úložiště (ZRS), které replikují vaše data napříč několika zónami a jsou k dispozici i v případě, že je jedna zóna mimo provoz. 
 
     c. Vyberte **použít spravované disky**. Když tuto funkci povolíte, Azure automaticky spravuje dostupnost disků. Výhodou je redundance dat a odolnost proti chybám, aniž byste museli vytvářet a spravovat účty úložiště sami. Spravované disky nemusí být k dispozici ve všech oblastech. Další informace najdete v tématu [Úvod do služby Azure Managed disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview).
 

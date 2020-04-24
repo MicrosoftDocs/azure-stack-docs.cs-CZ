@@ -9,10 +9,10 @@ ms.author: inhenkel
 ms.reviewer: unknown
 ms.lastreviewed: 10/23/2019
 ms.openlocfilehash: 5cc3f24c62fc9c91637744cf031da39c6c7279fb
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "78366496"
 ---
 # <a name="azure-stack-hub-validation-report"></a>Sestava ověření centra Azure Stack
@@ -27,10 +27,10 @@ Když se nástroj spustí, protokoluje výsledky do **AzsReadinessCheckerReport.
 
 Oba soubory uchovávají Výsledky následných ověřovacích kontrol při spuštění ve stejném počítači. Například můžete spustit nástroj pro ověření certifikátů, znovu spustit pro ověření identity Azure a pak třetí čas ověřit registraci. Výsledky všech tří ověření jsou k dispozici ve výsledné sestavě. JSON.  
 
-Ve výchozím nastavení jsou oba soubory zapisovány do `C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json`.  
+Ve výchozím nastavení jsou oba soubory zapisovány `C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json`do.  
 
-- K určení jiného umístění sestavy použijte parametr `-OutputPath <path>` na konci příkazového řádku.
-- Použijte parametr `-CleanReport` na konci příkazového řádku, chcete-li vymazat informace o předchozích spuštěních nástroje z **AzsReadinessCheckerReport. JSON**.
+- Použijte `-OutputPath <path>` parametr na konci příkazového řádku a zadejte jiné umístění sestavy.
+- Použijte `-CleanReport` parametr na konci příkazového řádku, chcete-li vymazat informace o předchozích spuštěních nástroje z **AzsReadinessCheckerReport. JSON**.
 
 ## <a name="view-the-report"></a>Zobrazení sestavy
 
@@ -88,7 +88,7 @@ PSBoundParameters :
 
 ## <a name="view-the-report-summary"></a>Zobrazit souhrn sestavy
 
-Chcete-li zobrazit souhrn sestavy, můžete na konec příkazu prostředí PowerShell přidat parametr `-summary`. Příklad:
+Chcete-li zobrazit souhrn sestavy, můžete přidat `-summary` parametr na konec příkazu prostředí PowerShell. Příklad:
 
 ```powershell
 Read-AzsReadinessReport -ReportPath .\Contoso-AzsReadinessReport.json -summary
@@ -122,7 +122,7 @@ Azure Stack Hub ADFS Validation results not available.
 
 ## <a name="view-a-filtered-report"></a>Zobrazit filtrovanou sestavu
 
-Chcete-li zobrazit sestavu, která je filtrována podle jednoho typu ověřování, použijte parametr `-ReportSections` s jednou z následujících hodnot:
+Chcete-li zobrazit sestavu, která je filtrována podle jednoho typu ověřování, použijte `-ReportSections` parametr s jednou z následujících hodnot:
 
 - Certifikát
 - AzureRegistration
@@ -130,7 +130,7 @@ Chcete-li zobrazit sestavu, která je filtrována podle jednoho typu ověřován
 - Graph
 - ADFS
 - Úlohy
-- Vše  
+- Všechny  
 
 Chcete-li například zobrazit souhrn sestavy pouze pro certifikáty, použijte následující příkazový řádek prostředí PowerShell:
 

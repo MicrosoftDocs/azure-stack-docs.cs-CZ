@@ -8,10 +8,10 @@ ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/11/2020
 ms.openlocfilehash: a617efab5516fb2f6bad96e36c99f1b84852237c
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77698636"
 ---
 # <a name="update-the-mysql-resource-provider-in-azure-stack-hub"></a>Aktualizace poskytovatele prostředků MySQL v Azure Stack hub
@@ -40,13 +40,13 @@ Když spustíte skript prostředí PowerShell **UpdateMySQLProvider. ps1** , zad
 
 | Název parametru | Popis | Komentář nebo výchozí hodnota | 
 | --- | --- | --- | 
-| **CloudAdminCredential** | Přihlašovací údaje pro správce cloudu, které jsou nezbytné pro přístup k privilegovanému koncovému bodu. | _Požadovanou_ | 
-| **AzCredential** | Přihlašovací údaje pro účet správce služby Azure Stack hub. Použijte stejné přihlašovací údaje jako při nasazení centra Azure Stack. | _Požadovanou_ | 
-| **VMLocalCredential** |Přihlašovací údaje pro účet místního správce virtuálního počítače poskytovatele prostředků SQL. | _Požadovanou_ | 
-| **PrivilegedEndpoint** | IP adresa nebo název DNS privilegovaného koncového bodu. |  _Požadovanou_ | 
+| **CloudAdminCredential** | Přihlašovací údaje pro správce cloudu, které jsou nezbytné pro přístup k privilegovanému koncovému bodu. | _Požadováno_ | 
+| **AzCredential** | Přihlašovací údaje pro účet správce služby Azure Stack hub. Použijte stejné přihlašovací údaje jako při nasazení centra Azure Stack. | _Požadováno_ | 
+| **VMLocalCredential** |Přihlašovací údaje pro účet místního správce virtuálního počítače poskytovatele prostředků SQL. | _Požadováno_ | 
+| **PrivilegedEndpoint** | IP adresa nebo název DNS privilegovaného koncového bodu. |  _Požadováno_ | 
 | **AzureEnvironment** | Prostředí Azure účtu správce služby používaného pro nasazení centra Azure Stack. Vyžaduje se jenom pro nasazení Azure AD. Podporované názvy prostředí jsou **AzureCloud**, **AzureUSGovernment**nebo, pokud používáte Čína Azure AD **AzureChinaCloud**. | AzureCloud |
 | **DependencyFilesLocalPath** | Soubor certifikátu. pfx musí být umístěný i v tomto adresáři. | _Volitelné_ (_povinné_ pro více uzlů) | 
-| **DefaultSSLCertificatePassword** | Heslo pro certifikát. pfx. | _Požadovanou_ | 
+| **DefaultSSLCertificatePassword** | Heslo pro certifikát. pfx. | _Požadováno_ | 
 | **MaxRetryCount** | Počet pokusů o opakování všech operací, pokud dojde k selhání.| 2 | 
 | **RetryDuration** | Interval časového limitu mezi opakovanými pokusy (v sekundách). | 120 | 
 | **Odinstalace** | Odebrání poskytovatele prostředků a všech přidružených prostředků (viz následující poznámky). | Ne | 
@@ -58,7 +58,7 @@ Když spustíte skript prostředí PowerShell **UpdateMySQLProvider. ps1** , zad
 > [!NOTE] 
 > Proces aktualizace platí jenom pro integrované systémy.
 
-Pokud aktualizujete verzi poskytovatele prostředků MySQL na 1.1.33.0 nebo předchozí verze, budete muset v PowerShellu nainstalovat konkrétní verze modulů AzureRm. zaváděcího nástroje a Azure Stack hub. Pokud aktualizujete poskytovatele prostředků MySQL na verzi 1.1.47.0, skript nasazení bude automaticky stahovat a instalovat potřebné moduly PowerShellu pro vás do cesty C:\Program Files\SqlMySqlPsh.
+Pokud aktualizujete verzi poskytovatele prostředků MySQL na 1.1.33.0 nebo předchozí verze, budete muset v PowerShellu nainstalovat konkrétní verze modulů AzureRm. zaváděcího nástroje a Azure Stack hub. Pokud aktualizujete poskytovatele prostředků MySQL na verzi 1.1.47.0, skript nasazení bude automaticky stahovat a instalovat potřebné moduly PowerShellu pro vás do cesty C:\Program Files\SqlMySqlPsh..
 
 ```powershell 
 # Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module

@@ -8,10 +8,10 @@ ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/08/2019
 ms.openlocfilehash: 4d2f76e1af47800331aac44715b5b8630baceae1
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77701424"
 ---
 # <a name="add-a-custom-vm-image-to-azure-stack-hub"></a>Přidání vlastní image virtuálního počítače do centra Azure Stack
@@ -28,8 +28,8 @@ Vytvořte vlastní zobecněný virtuální pevný disk.
 
 **Pokud virtuální pevný disk pochází z Azure**, před ZOBECNĚNÍM virtuálního počítače se ujistěte, že máte následující:
 
-- Při zřizování virtuálního počítače v Azure použijte PowerShell a zřiďte ho bez příznaku `-ProvisionVMAgent`.
-- Před zobecněním virtuálního počítače v Azure odeberte všechna rozšíření virtuálních počítačů pomocí rutiny **Remove-AzureRmVMExtension** z virtuálního počítače. Rozšíření virtuálních počítačů, která se instalují, můžete zjistit tak, že na `Windows (C:) > WindowsAzure > Logs > Plugins`.
+- Při zřizování virtuálního počítače v Azure použijte PowerShell a zřiďte ho bez `-ProvisionVMAgent` příznaku.
+- Před zobecněním virtuálního počítače v Azure odeberte všechna rozšíření virtuálních počítačů pomocí rutiny **Remove-AzureRmVMExtension** z virtuálního počítače. Rozšíření virtuálních počítačů, která se instalují, můžete zjistit tak `Windows (C:) > WindowsAzure > Logs > Plugins`, že na.
 
 ```powershell
 Remove-AzureRmVMExtension -ResourceGroupName winvmrg1 -VMName windowsvm -Name "CustomScriptExtension"
@@ -105,7 +105,7 @@ Než obrázek nahrajete, je důležité vzít v úvahu následující:
      Add-AzureRmVhd -Destination "https://bash.blob.redmond.azurestack.com/sample/vhdtestingmgd.vhd" -LocalFilePath "C:\vhd\vhdtestingmgd.vhd"
      ```
 
-4. Poznamenejte si identifikátor URI úložiště objektů blob, do kterého nahráváte obrázek. Identifikátor URI úložiště objektů BLOB má následující formát: *&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;* . VHD.
+4. Poznamenejte si identifikátor URI úložiště objektů blob, do kterého nahráváte obrázek. Identifikátor URI úložiště objektů BLOB má následující formát: * &lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;*. VHD.
 
 5. Pokud chcete objekt BLOB anonymně zpřístupnit, přečtěte si kontejner objektů BLOB účtu úložiště, ve kterém se nahrál virtuální pevný disk image virtuálního počítače. Vyberte **objekt BLOB**a potom vyberte **zásady přístupu**. Volitelně můžete pro kontejner vygenerovat sdílený přístupový podpis a zahrnout ho jako součást identifikátoru URI objektu BLOB. Tento krok zajistí, že je objekt BLOB dostupný pro použití. Pokud objekt BLOB není anonymně přístupný, vytvoří se image virtuálního počítače ve stavu selhání.
 
@@ -117,7 +117,7 @@ Než obrázek nahrajete, je důležité vzít v úvahu následující:
 
 ## <a name="step-3-option-1-add-the-vm-image-as-an-azure-stack-hub-operator-using-the-portal"></a>Krok 3, možnost 1: Přidání image virtuálního počítače jako operátora Azure Stackového centra pomocí portálu
 
-1. Přihlaste se k Azure Stack centrum jako operátor. V nabídce vyberte **všechny služby** > **COMPUTE** v části **image virtuálních počítačů** > **Přidat**.
+1. Přihlaste se k Azure Stack centrum jako operátor. V nabídce vyberte **všechny služby** > **COMPUTE** v > části **image virtuálních počítačů****Přidat**.
 
    ![Vlastní uživatelské rozhraní pro zkušební načtení image](./media/azure-stack-add-vm-image/tca4.png)
 
@@ -158,13 +158,13 @@ Než obrázek nahrajete, je důležité vzít v úvahu následující:
      Segment názvu **SKU** image virtuálního počítače, který uživatelé používají při nasazování image virtuálního počítače. Do tohoto pole nezahrnujte mezeru ani jiné speciální znaky.  
    - **znění**  
      Příklad: `1.0.0`  
-     Verze image virtuálního počítače, kterou uživatelé používají při nasazování image virtuálního počítače Tato verze je ve formátu *\#.\#.\#* . Do tohoto pole nezahrnujte mezeru ani jiné speciální znaky.  
+     Verze image virtuálního počítače, kterou uživatelé používají při nasazování image virtuálního počítače Tato verze je ve formátu * \#\#... \#*. Do tohoto pole nezahrnujte mezeru ani jiné speciální znaky.  
    - **osType**  
      Příklad: `Linux`  
      **OsType** obrázku musí být buď **Windows** , nebo **Linux**.  
    - **OSUri**  
      Příklad: `https://storageaccount.blob.core.windows.net/vhds/Ubuntu1404.vhd`  
-     Pro `osDisk`můžete zadat identifikátor URI úložiště objektů BLOB.  
+     Pro můžete zadat identifikátor URI úložiště objektů BLOB `osDisk`.  
 
      Další informace najdete v referenčních informacích k prostředí PowerShell pro rutinu [Add-AzsPlatformimage](/powershell/module/azs.compute.admin/add-azsplatformimage) .
 
@@ -176,7 +176,7 @@ Než obrázek nahrajete, je důležité vzít v úvahu následující:
 
 2. Pokud má image virtuálního počítače přidruženou položku Marketplace, vyberte **Správa Marketplace**a pak vyberte položku virtuálního počítače, kterou chcete odstranit.
 
-3. Pokud image virtuálního počítače nemá přidruženou položku Marketplace, přejděte do části **všechny služby > compute > image virtuálních počítačů**a potom vyberte tři tečky ( **...** ) vedle image virtuálního počítače.
+3. Pokud image virtuálního počítače nemá přidruženou položku Marketplace, přejděte do části **všechny služby > compute > image virtuálních počítačů**a potom vyberte tři tečky (**...**) vedle image virtuálního počítače.
 
 4. Vyberte **Odstranit**.
 
@@ -210,7 +210,7 @@ Pokud už bitovou kopii virtuálního počítače, kterou jste nahráli, nepotř
      Segment názvu **SKU** image virtuálního počítače, který uživatelé používají při nasazování image virtuálního počítače. Do tohoto pole nezahrnujte mezeru ani jiné speciální znaky.  
    - **znění**  
      Příklad: `1.0.0`  
-     Verze image virtuálního počítače, kterou uživatelé používají při nasazování image virtuálního počítače Tato verze je ve formátu *\#.\#.\#* . Do tohoto pole nezahrnujte mezeru ani jiné speciální znaky.  
+     Verze image virtuálního počítače, kterou uživatelé používají při nasazování image virtuálního počítače Tato verze je ve formátu * \#\#... \#*. Do tohoto pole nezahrnujte mezeru ani jiné speciální znaky.  
 
      Další informace o rutině **Remove-AzsPlatformImage** najdete v [dokumentaci k modulu operátora centra Azure Stack](/powershell/module/)Microsoft PowerShellu.
 

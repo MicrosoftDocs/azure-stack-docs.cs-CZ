@@ -8,10 +8,10 @@ ms.author: inhenkel
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/10/2019
 ms.openlocfilehash: a02458ba7790fdf48d8b506abfea0e771b8a179e
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77699418"
 ---
 # <a name="integrate-azure-stack-hub-with-monitoring-solutions-using-syslog-forwarding"></a>Integrace centra Azure Stack s řešeními monitorování pomocí předávání syslog
@@ -21,7 +21,7 @@ V tomto článku se dozvíte, jak pomocí protokolu syslog integrovat Azure Stac
 Počínaje aktualizací 1809 Azure Stack hub má integrovaného klienta syslog, který po nakonfigurování generuje zprávy syslog s datovou částí ve formátu Common Event Format (CEF).
 
 Následující diagram popisuje integraci Azure Stackho centra s externím SIEM. Existují dva způsoby integrace, které je potřeba vzít v úvahu: první z nich (modrý) je infrastruktura centra Azure Stack, která zahrnuje virtuální počítače infrastruktury a uzly Hyper-V. Všechny audity, protokoly zabezpečení a výstrahy z těchto komponent jsou centrálně shromažďovány a zpřístupněny prostřednictvím protokolu syslog s CEF datovou částí. Tento vzor integrace je popsán na této stránce dokumentu.
-Druhým modelem integrace je ten, který je znázorněný oranžová a pokrývá řadiče pro správu základní desky (BMC), hostitele životního cyklu hardwaru (HLH), virtuální počítače a virtuální zařízení, na kterých běží software pro monitorování a správu s hardwarovým partnerem. a přepínače pro začátek racku. Vzhledem k tomu, že jsou tyto součásti závislé na hardwaru, obraťte se na svého hardwarového partnera, který vám poskytne dokumentaci, jak je integrovat s externím SIEM.
+Druhým vzorem integrace je ten, který je znázorněný oranžová a popisuje řadiče pro správu základní desky (BMC), hostitele životního cyklu hardwaru (HLH), virtuální počítače a virtuální zařízení, na kterých běží software pro monitorování a správu s hardwarovým partnerem, a přepínače pro začátek racku. Vzhledem k tomu, že jsou tyto součásti závislé na hardwaru, obraťte se na svého hardwarového partnera, který vám poskytne dokumentaci, jak je integrovat s externím SIEM.
 
 ![Diagram předávání syslog](media/azure-stack-integrate-security/azure-stack-hub-syslog-forwarding-diagram_bg.svg)
 
@@ -57,24 +57,24 @@ Set-SyslogClient [-pfxBinary <Byte[]>] [-CertPassword <SecureString>] [-RemoveCe
 
 Parametry pro rutinu *set-SyslogServer* :
 
-| Parametr | Popis | Typ | Požadováno |
+| Parametr | Popis | Typ | Požaduje se |
 |---------|---------|---------|---------|
-|*ServerName* | Plně kvalifikovaný název domény nebo IP adresa serveru syslog | String | ano|
+|*ServerName* | Plně kvalifikovaný název domény nebo IP adresa serveru syslog | Řetězec | ano|
 |*ServerPort* | Číslo portu, na kterém naslouchá Server syslog. | UInt16 | ano|
-|*Šifrování*| Vynutit, aby klient odesílal zprávy syslog ve formátu prostého textu. | příznaků | ne|
-|*SkipCertificateCheck*| Při počátečním ověřování TLS vynechejte ověření certifikátu poskytnutého serverem syslog. | příznaků | ne|
-|*SkipCNCheck*| Při počátečním ověřování TLS vynechejte vynechání hodnoty pro běžný název certifikátu poskytnutého serverem syslog. | příznaků | ne|
-|*UseUDP*| Použijte protokol syslog se UDP jako transportní protokol. |příznaků | ne|
-|*Odebrány*| Odeberte konfiguraci serveru z klienta a Zastavte předávání syslog.| příznaků | ne|
+|*Šifrování*| Vynutit, aby klient odesílal zprávy syslog ve formátu prostého textu. | flag | ne|
+|*SkipCertificateCheck*| Při počátečním ověřování TLS vynechejte ověření certifikátu poskytnutého serverem syslog. | flag | ne|
+|*SkipCNCheck*| Při počátečním ověřování TLS vynechejte vynechání hodnoty pro běžný název certifikátu poskytnutého serverem syslog. | flag | ne|
+|*UseUDP*| Použijte protokol syslog se UDP jako transportní protokol. |flag | ne|
+|*Odebrat*| Odeberte konfiguraci serveru z klienta a Zastavte předávání syslog.| flag | ne|
 
 Parametry pro rutinu *set-SyslogClient* :
 
 | Parametr | Popis | Typ |
 |---------|---------| ---------|
-| *pfxBinary* | Obsah souboru PFX předaných na Byte [] obsahující certifikát, který má klient používat jako identitu k ověřování na serveru syslog.  | Byte[] |
+| *pfxBinary* | Obsah souboru PFX předaných na Byte [] obsahující certifikát, který má klient používat jako identitu k ověřování na serveru syslog.  | Byte [] |
 | *CertPassword* |  Heslo pro import privátního klíče, který je přidružen k souboru PFX. | SecureString |
-|*RemoveCertificate* | Odeberte certifikát z klienta. | příznaků|
-| *OutputSeverity* | Úroveň protokolování výstupu. Hodnoty jsou **výchozí** nebo **podrobné**. Výchozí hodnota zahrnuje úrovně závažnosti: upozornění, kritická nebo chyba. Verbose obsahuje všechny úrovně závažnosti: Verbose, informativní, Warning, kritická nebo chyba.  | String |
+|*RemoveCertificate* | Odeberte certifikát z klienta. | flag|
+| *OutputSeverity* | Úroveň protokolování výstupu. Hodnoty jsou **výchozí** nebo **podrobné**. Výchozí hodnota zahrnuje úrovně závažnosti: upozornění, kritická nebo chyba. Verbose obsahuje všechny úrovně závažnosti: Verbose, informativní, Warning, kritická nebo chyba.  | Řetězec |
 ### <a name="configuring-syslog-forwarding-with-tcp-mutual-authentication-and-tls-12-encryption"></a>Konfigurace předávání syslogu pomocí protokolu TCP, vzájemného ověřování a šifrování TLS 1,2
 
 V této konfiguraci klient syslog v Azure Stack centrum přepošle zprávy na server syslog přes protokol TCP s šifrováním TLS 1,2. Při počáteční signalizaci klient ověří, že server poskytuje platný důvěryhodný certifikát. Klient také poskytuje certifikát serveru jako důkaz své identity. Tato konfigurace je nejbezpečnější, protože poskytuje úplné ověření identity klienta i serveru a odesílá zprávy přes zašifrovaný kanál.
@@ -238,9 +238,9 @@ Prefix fields
 
 Tabulka událostí pro privilegovaný koncový bod:
 
-| Událost | ID události PEP | Název úlohy PEP | Závažnost |
+| Událost | ID události PEP | Název úlohy PEP | Severity |
 |-------|--------------| --------------|----------|
-|PrivilegedEndpointAccessed|1 000|PrivilegedEndpointAccessedEvent|5|
+|PrivilegedEndpointAccessed|1000|PrivilegedEndpointAccessedEvent|5|
 |SupportSessionTokenRequested |1001|SupportSessionTokenRequestedEvent|5|
 |SupportSessionDevelopmentTokenRequested |1002|SupportSessionDevelopmentTokenRequestedEvent|5|
 |SupportSessionUnlocked |1003|SupportSessionUnlockedEvent|10|
@@ -255,14 +255,14 @@ Tabulka událostí pro privilegovaný koncový bod:
 
 Tabulka PEP závažnosti:
 
-| Závažnost | Úroveň | Číselná hodnota |
+| Severity | Úroveň | Číselná hodnota |
 |----------|-------| ----------------|
-|0|Nedefinováno|Hodnota: 0. Indikuje protokoly na všech úrovních.|
+|0|Nedefinované|Hodnota: 0. Indikuje protokoly na všech úrovních.|
 |10|Kritická|Hodnota: 1. Označuje protokoly pro kritickou výstrahu.|
 |8|Chyba| Hodnota: 2. Označuje protokoly pro chybu.|
 |5|Upozornění|Hodnota: 3. Indikuje protokoly pro upozornění.|
 |2|Informace|Hodnota: 4. Označuje protokoly pro informační zprávu.|
-|0|Podrobnosti|Hodnota: 5. Indikuje protokoly na všech úrovních.|
+|0|Verbose|Hodnota: 5. Indikuje protokoly na všech úrovních.|
 
 ### <a name="cef-mapping-for-recovery-endpoint-events"></a>Mapování CEF pro události koncového bodu obnovení
 
@@ -275,7 +275,7 @@ Prefix fields
 
 Tabulka událostí pro koncový bod obnovení:
 
-| Událost | ID události zástupce | Název úlohy zástupce | Závažnost |
+| Událost | ID události zástupce | Název úlohy zástupce | Severity |
 |-------|--------------| --------------|----------|
 |RecoveryEndpointAccessed |1011|RecoveryEndpointAccessedEvent|5|
 |RecoverySessionTokenRequested |1012|RecoverySessionTokenRequestedEvent |5|
@@ -286,14 +286,14 @@ Tabulka událostí pro koncový bod obnovení:
 
 Tabulka závažnosti zástupce:
 
-| Závažnost | Úroveň | Číselná hodnota |
+| Severity | Úroveň | Číselná hodnota |
 |----------|-------| ----------------|
-|0|Nedefinováno|Hodnota: 0. Indikuje protokoly na všech úrovních.|
+|0|Nedefinované|Hodnota: 0. Indikuje protokoly na všech úrovních.|
 |10|Kritická|Hodnota: 1. Označuje protokoly pro kritickou výstrahu.|
 |8|Chyba| Hodnota: 2. Označuje protokoly pro chybu.|
 |5|Upozornění|Hodnota: 3. Indikuje protokoly pro upozornění.|
 |2|Informace|Hodnota: 4. Označuje protokoly pro informační zprávu.|
-|0|Podrobnosti|Hodnota: 5. Indikuje protokoly na všech úrovních.|
+|0|Verbose|Hodnota: 5. Indikuje protokoly na všech úrovních.|
 
 ### <a name="cef-mapping-for-windows-events"></a>Mapování CEF pro události Windows
 
@@ -308,12 +308,12 @@ Tabulka závažnosti pro události systému Windows:
 
 | Hodnota závažnosti CEF | Úroveň události Windows | Číselná hodnota |
 |--------------------|---------------------| ----------------|
-|0|Nedefinováno|Hodnota: 0. Indikuje protokoly na všech úrovních.|
+|0|Nedefinované|Hodnota: 0. Indikuje protokoly na všech úrovních.|
 |10|Kritická|Hodnota: 1. Označuje protokoly pro kritickou výstrahu.|
 |8|Chyba| Hodnota: 2. Označuje protokoly pro chybu.|
 |5|Upozornění|Hodnota: 3. Indikuje protokoly pro upozornění.|
 |2|Informace|Hodnota: 4. Označuje protokoly pro informační zprávu.|
-|0|Podrobnosti|Hodnota: 5. Indikuje protokoly na všech úrovních.|
+|0|Verbose|Hodnota: 5. Indikuje protokoly na všech úrovních.|
 
 Vlastní tabulka rozšíření pro události Windows v centru Azure Stack:
 
@@ -323,7 +323,7 @@ Vlastní tabulka rozšíření pro události Windows v centru Azure Stack:
 |MasComputer | test.azurestack.contoso.com|
 |MasCorrelationActivityID| C8F40D7C-3764-423B-A4FA-C994442238AF|
 |MasCorrelationRelatedActivityID| C8F40D7C-3764-423B-A4FA-C994442238AF|
-|MasEventData| svchost!!4132,G,0!!!!EseDiskFlushConsistency!!ESENT!!0x800000|
+|MasEventData| proces Svchost! 4132, G, 0!!!! EseDiskFlushConsistency!! ESENT! 0x800000|
 |MasEventDescription| Nastavení Zásady skupiny pro uživatele se úspěšně zpracovalo. Od posledního úspěšného zpracování Zásady skupiny se nezjistily žádné změny.|
 |MasEventID|1501|
 |MasEventRecordID|26637|
@@ -333,14 +333,14 @@ Vlastní tabulka rozšíření pro události Windows v centru Azure Stack:
 |MasKeywordName |Úspěšný audit|
 |MasLevel |4|
 |MasOpcode |1|
-|MasOpcodeName |info|
+|MasOpcodeName |příjemce|
 |MasProviderEventSourceName ||
 |MasProviderGuid |AEA1B4FA-97D1-45F2-A64C-4D69FFFD92C9|
 |MasProviderName |Microsoft-Windows-GroupPolicy|
-|MasSecurityUserId |\<\> SID Windows |
+|MasSecurityUserId |\<Identifikátor SID systému Windows\> |
 |MasTask |0|
 |MasTaskCategory| Vytváření procesů|
-|MasUserData|KB4093112!!5112!!Installed!!0x0!!WindowsUpdateAgent Xpath: /Event/UserData/*|
+|MasUserData|KB4093112!! 5112! Nainstalováno! 0x0!! WindowsUpdateAgent XPath:/Event/UserData/*|
 |MasVersion|0|
 
 ### <a name="cef-mapping-for-alerts-created"></a>Mapování CEF pro vytvořené výstrahy
@@ -354,9 +354,9 @@ Vlastní tabulka rozšíření pro události Windows v centru Azure Stack:
 
 Tabulka Závažnost výstrahy:
 
-| Závažnost | Úroveň |
+| Severity | Úroveň |
 |----------|-------|
-|0|Nedefinováno|
+|0|Nedefinované|
 |10|Kritická|
 |5|Upozornění|
 
@@ -364,7 +364,7 @@ Vlastní tabulka rozšíření pro výstrahy vytvořené v centru Azure Stack:
 
 | Název vlastního rozšíření | Příklad | 
 |-----------------------|---------|
-|MasEventDescription|Popis: byl vytvořen uživatelský účet \<TestUser\> pro \<TestDomain\>. Jde o potenciální bezpečnostní riziko. --NÁPRAVa: obraťte se na podporu. K vyřešení tohoto problému se vyžaduje zákaznická podpora. Nepokoušejte se tento problém vyřešit bez pomoci. Než otevřete žádost o podporu, spusťte proces shromažďování souborů protokolu pomocí pokynů z https://aka.ms/azurestacklogfiles.
+|MasEventDescription|Popis: byl vytvořen účet \<testuser\> uživatelského účtu pro \<TestDomain\>. Jde o potenciální bezpečnostní riziko. --NÁPRAVa: obraťte se na podporu. K vyřešení tohoto problému se vyžaduje zákaznická podpora. Nepokoušejte se tento problém vyřešit bez pomoci. Než otevřete žádost o podporu, spusťte proces shromažďování souborů protokolu pomocí pokynů v https://aka.ms/azurestacklogfilesčásti.
 
 ### <a name="cef-mapping-for-alerts-closed"></a>Mapování CEF pro uzavřené výstrahy
 
@@ -381,4 +381,4 @@ Následující příklad ukazuje zprávu syslog s datovou částí CEF:
 
 ## <a name="next-steps"></a>Další kroky
 
-[Zásady údržby](azure-stack-servicing-policy.md)
+[Zásady obsluhy](azure-stack-servicing-policy.md)

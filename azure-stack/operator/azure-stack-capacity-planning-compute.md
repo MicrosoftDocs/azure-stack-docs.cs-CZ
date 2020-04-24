@@ -8,10 +8,10 @@ ms.author: inhenkel
 ms.reviewer: prchint
 ms.lastreviewed: 06/13/2019
 ms.openlocfilehash: 3ec8b0b3ac6f4687fd782dfc692f1c705c5ed733
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "78366343"
 ---
 # <a name="azure-stack-hub-compute-capacity"></a>Kapacita výpočetní kapacity centra Azure Stack
@@ -29,7 +29,7 @@ Azure Stack centrum používá při umísťování virtuálních počítačů dv
 
 Aby se dosáhlo vysoké dostupnosti produkčního prostředí s více virtuálními počítači v centru Azure Stack, virtuální počítače se umístí do skupiny dostupnosti, která je rozšíří napříč více doménami selhání. Doména selhání ve skupině dostupnosti je definována jako jeden uzel v jednotce škálování. Centrum Azure Stack podporuje skupinu dostupnosti s maximálním počtem tří domén selhání pro zajištění konzistence s Azure. Virtuální počítače, které jsou umístěné ve skupině dostupnosti, se fyzicky izolují od sebe navzájem, jak je rozšíříte tak, jak je to možné, do více domén selhání (Azure Stack hostitelů centra). Pokud dojde k selhání hardwaru, virtuální počítače z neúspěšné domény selhání se restartují v jiných doménách selhání. Pokud je to možné, budou se uchovávat v samostatných doménách selhání z ostatních virtuálních počítačů ve stejné skupině dostupnosti. Když se hostitel vrátí zpátky do online režimu, virtuální počítače se znovu vyrovnávají, aby se zachovala vysoká dostupnost.  
 
-Virtual Machine Scale Sets používá v back-endu skupiny dostupnosti a zajišťují, aby se všechny instance sady škálování virtuálních počítačů nastavily v jiné doméně selhání. To znamená, že používají samostatné uzly infrastruktury centra Azure Stack. Například v systému centra Azure Stack se čtyřmi uzly může nastat situace, kdy sada virtuálních počítačů se třemi instancemi selže při vytváření z důvodu nedostatku kapacity čtyř uzlů k umístění tří instancí sady škálování virtuálních počítačů na tři samostatné služby Azure. Uzly centra Stack. Před vyzkoušením umístění se navíc dají uzly centra Azure Stack vyplnit na různých úrovních.
+Virtual Machine Scale Sets používá v back-endu skupiny dostupnosti a zajišťují, aby se všechny instance sady škálování virtuálních počítačů nastavily v jiné doméně selhání. To znamená, že používají samostatné uzly infrastruktury centra Azure Stack. Například v systému centra Azure Stack se čtyřmi uzly může nastat situace, kdy sada virtuálních počítačů se třemi instancemi selže při vytváření z důvodu nedostatku kapacity čtyř uzlů k umístění tří instancí sady škálování virtuálních počítačů na tři samostatné uzly centra Azure Stack. Před vyzkoušením umístění se navíc dají uzly centra Azure Stack vyplnit na různých úrovních.
 
 Centrum Azure Stack neprovádí přepisování paměti. Je však povoleno přepisování počtu fyzických jader.
 
@@ -39,7 +39,7 @@ Vzhledem k tomu, že algoritmy umístění nevypadají na stávajícím poměru 
 
 Existují nové aspekty pro přesné plánování Azure Stack kapacity centra. S aktualizací 1901 (a všemi aktualizacemi, které budou dál), je teď limit celkového počtu virtuálních počítačů, které se dají vytvořit. Tento limit má být dočasný, aby nedošlo k nestabilitě řešení. Zdroj problému se stabilitou na vyšších číslech virtuálních počítačů se řeší, ale konkrétní časová osa pro nápravu se nezjistila. Teď je limit počtu 60 virtuálních počítačů na jeden server s celkovým limitem řešení 700. Například limit počtu virtuálních počítačů na osm Server Azure Stack centra by byl 480 (8 × 60). Pro řešení centra Azure Stack od 12 do 16 serverů by se mělo omezit na 700. Toto omezení se vytvořilo, takže se na razítko zachovávají všechny požadavky na výpočetní kapacitu, jako je třeba rezerva odolnosti a poměr mezi virtuálními a fyzickými PROCESORy. Další informace najdete v nové verzi plánovače kapacity.
 
-Pokud je dosaženo limitu škálování virtuálního počítače, vrátí se následující chybové kódy jako výsledek: `VMsPerScaleUnitLimitExceeded`, `VMsPerScaleUnitNodeLimitExceeded`.
+Pokud je dosaženo limitu škálování virtuálního počítače, vrátí se následující chybové kódy jako výsledek: `VMsPerScaleUnitLimitExceeded`,. `VMsPerScaleUnitNodeLimitExceeded`
 
 ## <a name="considerations-for-deallocation"></a>Požadavky na zrušení přidělení
 

@@ -8,10 +8,10 @@ ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 06/14/2019
 ms.openlocfilehash: 2f0af3bd550b31e70f7c1e722ab79149c57c1a2f
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77700642"
 ---
 # <a name="register-the-asdk-with-azure"></a>Registrace ASDKu s využitím Azure
@@ -77,7 +77,7 @@ Pomocí těchto kroků zaregistrujete ASDK s Azure.
 
 ## <a name="register-in-disconnected-environments"></a>Registrovat v odpojených prostředích
 
-Pokud zaregistrujete Azure Stack v odpojeném prostředí (bez připojení k Internetu), musíte získat registrační token z prostředí Azure Stack a pak tento token použít na počítači, který se může připojit k Azure a zaregistrovat a vytvořit aktivaci. prostředek pro prostředí ASDK
+Pokud zaregistrujete Azure Stack v odpojeném prostředí (bez připojení k Internetu), musíte získat registrační token z prostředí Azure Stack a pak tento token použít na počítači, který se může připojit k Azure a zaregistrovat a vytvořit prostředek aktivace pro prostředí ASDK.
 
  > [!IMPORTANT]
  > Než použijete tyto pokyny k registraci Azure Stack, ujistěte se, že jste nainstalovali PowerShell pro Azure Stack a stáhli Azure Stack nástroje, jak je popsáno v článku o [konfiguraci po nasazení](asdk-post-deploy.md) na hostitelském počítači ASDK i v počítači s přístupem k Internetu, který se používá pro připojení k Azure a registraci.
@@ -102,7 +102,7 @@ Na hostitelském počítači ASDK spusťte PowerShell jako správce a přejděte
    -TokenOutputFilePath $FilePathForRegistrationToken
    ```
 
-Uložte tento registrační token pro použití na počítači připojeném k Internetu. Můžete zkopírovat soubor nebo text ze souboru vytvořeného parametrem `$FilePathForRegistrationToken`.
+Uložte tento registrační token pro použití na počítači připojeném k Internetu. Můžete zkopírovat soubor nebo text ze souboru vytvořeného `$FilePathForRegistrationToken` parametrem.
 
 ### <a name="connect-to-azure-and-register"></a>Připojení k Azure a registrace
 

@@ -8,10 +8,10 @@ ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/14/2020
 ms.openlocfilehash: 7c68c2b5ecc5a56449e67dd0ffa403b3363cfab9
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77702886"
 ---
 # <a name="deploy-an-azure-stack-hub-vm-using-a-password-stored-in-key-vault"></a>Nasazení virtuálního počítače centra Azure Stack pomocí hesla uloženého v Key Vault
@@ -34,7 +34,7 @@ Do trezoru klíčů centra Azure Stack můžete ukládat hodnoty, jako je např�
 Následující kroky popisují proces potřebný k vytvoření virtuálního počítače načtením hesla uloženého v Key Vault:
 
 1. Vytvořte Key Vault tajný klíč.
-2. Aktualizujte soubor `azuredeploy.parameters.json`.
+2. Aktualizujte `azuredeploy.parameters.json` soubor.
 3. Nasaďte šablonu.
 
 > [!NOTE]  
@@ -42,7 +42,7 @@ Následující kroky popisují proces potřebný k vytvoření virtuálního po�
 
 ## <a name="create-a-key-vault-secret"></a>Vytvoření tajného klíče Key Vault
 
-Následující skript vytvoří Trezor klíčů a uloží heslo do trezoru klíčů jako tajný kód. Při vytváření trezoru klíčů použijte parametr `-EnabledForDeployment`. Tento parametr zajišťuje, že se Trezor klíčů může odkazovat z Azure Resource Manager šablon.
+Následující skript vytvoří Trezor klíčů a uloží heslo do trezoru klíčů jako tajný kód. Při vytváření `-EnabledForDeployment` trezoru klíčů použijte parametr. Tento parametr zajišťuje, že se Trezor klíčů může odkazovat z Azure Resource Manager šablon.
 
 ```powershell
 
@@ -70,13 +70,13 @@ Set-AzureKeyVaultSecret `
 
 ```
 
-Po spuštění předchozího skriptu obsahuje výstup identifikátor URI tajného kódu (Uniform Resource Identifier). Poznamenejte si tento identifikátor URI. Je nutné, abyste na něj odkazovali v rámci [nasazení virtuálního počítače s Windows pomocí hesla v šabloně trezoru klíčů](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-windows-create-passwordfromkv) . Stáhněte složku [101-VM-Secure-Password](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-windows-create-passwordfromkv) do vývojového počítače. Tato složka obsahuje soubory `azuredeploy.json` a `azuredeploy.parameters.json`, které budete potřebovat v dalších krocích.
+Po spuštění předchozího skriptu obsahuje výstup identifikátor URI tajného kódu (Uniform Resource Identifier). Poznamenejte si tento identifikátor URI. Je nutné, abyste na něj odkazovali v rámci [nasazení virtuálního počítače s Windows pomocí hesla v šabloně trezoru klíčů](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-windows-create-passwordfromkv) . Stáhněte složku [101-VM-Secure-Password](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-windows-create-passwordfromkv) do vývojového počítače. Tato složka obsahuje soubory `azuredeploy.json` a `azuredeploy.parameters.json` , které budete potřebovat v dalších krocích.
 
-Upravte soubor `azuredeploy.parameters.json` podle hodnot vašich prostředí. Parametry zvláštního zájmu jsou název trezoru, skupina prostředků trezoru a identifikátor URI tajného kódu (jak je vygenerován předchozí skript). Níže uvedený soubor je příkladem souboru parametrů.
+Upravte `azuredeploy.parameters.json` soubor podle hodnot vašich prostředí. Parametry zvláštního zájmu jsou název trezoru, skupina prostředků trezoru a identifikátor URI tajného kódu (jak je vygenerován předchozí skript). Níže uvedený soubor je příkladem souboru parametrů.
 
 ## <a name="update-the-azuredeployparametersjson-file"></a>Aktualizace souboru azuredeploy. Parameters. JSON
 
-Aktualizujte soubor `azuredeploy.parameters.json` pomocí identifikátoru URI trezoru klíčů, tajného klíče adminUsername hodnot virtuálních počítačů na základě vašeho prostředí. Následující soubor JSON ukazuje příklad souboru parametrů šablony:
+Aktualizujte `azuredeploy.parameters.json` soubor pomocí identifikátoru URI trezoru klíčů, tajného klíče, adminUsername hodnot virtuálních počítačů na základě vašeho prostředí. Následující soubor JSON ukazuje příklad souboru parametrů šablony:
 
 ```json
 {
@@ -105,7 +105,7 @@ Aktualizujte soubor `azuredeploy.parameters.json` pomocí identifikátoru URI tr
 
 ```
 
-## <a name="template-deployment"></a>Nasazení šablony
+## <a name="template-deployment"></a>Nasazení šablon
 
 Nyní šablonu nasaďte pomocí následujícího skriptu prostředí PowerShell:
 

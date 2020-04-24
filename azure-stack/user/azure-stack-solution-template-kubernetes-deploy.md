@@ -8,10 +8,10 @@ ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
 ms.openlocfilehash: 5fa9c506b2e030adbf521191a623579f56f1ae0f
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79294250"
 ---
 # <a name="deploy-kubernetes-to-use-containers-with-azure-stack-hub"></a>Nasazení Kubernetes pro použití kontejnerů pomocí centra Azure Stack
@@ -27,7 +27,7 @@ Kubernetes můžete nainstalovat pomocí šablon Azure Resource Manager generova
 
 Kubernetes můžete použít k těmto akcím:
 
-- Vývoj široce škálovatelné upgradovatelných, aplikací, které je možné nasadit v řádu sekund. 
+- Můžete vyvíjet široce škálovatelné, škálovatelné aplikace, které se dají nasadit během několika sekund. 
 - Zjednodušte návrh aplikace a zvyšte jejich spolehlivost různými Helm aplikacemi. [Helm](https://github.com/kubernetes/helm) je open source nástroj pro balení, který vám pomůže s instalací a správou životního cyklu aplikací Kubernetes.
 - Snadné monitorování a Diagnostika stavu aplikací.
 
@@ -45,7 +45,7 @@ Pokyny k instalaci clusteru při použití AD FS najdete v tématu [nasazení Ku
 
 ## <a name="connect-to-your-cluster"></a>Připojení ke clusteru
 
-Nyní jste připraveni připojit se ke clusteru. Hlavní stránku najdete ve vaší skupině prostředků clusteru a má název `k8s-master-<sequence-of-numbers>`. Použijte klienta SSH pro připojení k hlavnímu serveru. V hlavní části můžete ke správě clusteru použít **kubectl**a klienta příkazového řádku Kubernetes. Pokyny najdete v tématu [Kubernetes.IO](https://kubernetes.io/docs/reference/kubectl/overview).
+Nyní jste připraveni připojit se ke clusteru. Hlavní stránku najdete ve vaší skupině prostředků clusteru a jmenuje `k8s-master-<sequence-of-numbers>`se. Použijte klienta SSH pro připojení k hlavnímu serveru. V hlavní části můžete ke správě clusteru použít **kubectl**a klienta příkazového řádku Kubernetes. Pokyny najdete v tématu [Kubernetes.IO](https://kubernetes.io/docs/reference/kubectl/overview).
 
 Můžete také najít správce balíčků **Helm** , který je užitečný pro instalaci a nasazení aplikací do clusteru. Pokyny k instalaci a používání Helm s clusterem najdete v tématu [Helm.sh](https://helm.sh/).
 

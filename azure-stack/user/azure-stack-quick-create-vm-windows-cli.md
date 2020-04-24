@@ -7,10 +7,10 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.lastreviewed: 01/14/2020
 ms.openlocfilehash: 0d8e3ec61eb5acfbe98efcae1ec0318cb15f661f
-ms.sourcegitcommit: 390eac7abc94cea1405178e8d6a9358f6488f5d9
+ms.sourcegitcommit: 4138a2a15f78e7db38b3a29acc963a71937146fd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/02/2020
+ms.lasthandoff: 04/15/2020
 ms.locfileid: "78231651"
 ---
 # <a name="quickstart-create-a-windows-server-virtual-machine-using-azure-cli-in-azure-stack-hub"></a>Rychlý Start: Vytvoření virtuálního počítače s Windows serverem pomocí rozhraní příkazového řádku Azure v centru Azure Stack
@@ -21,7 +21,7 @@ Virtuální počítač s Windows serverem 2016 můžete vytvořit pomocí rozhra
 * Nainstalujte webový server služby IIS a zobrazte výchozí domovskou stránku.
 * Vyčistěte prostředky.
 
-## <a name="prerequisites"></a>Předpoklady
+## <a name="prerequisites"></a>Požadavky
 
 * Ujistěte se, že váš operátor centra Azure Stack přidal do tržiště centra Azure Stack image **Windows serveru 2016** .
 

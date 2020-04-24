@@ -8,10 +8,10 @@ ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
 ms.openlocfilehash: 5b79c676b922f0e76ed75e3ad043f53c1fb9d6a5
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79294800"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack-hub"></a>Použití profilů verzí rozhraní API s Ruby v Azure Stack hub
@@ -42,7 +42,7 @@ Profil rozhraní API je kombinací poskytovatelů prostředků a verzí služby.
        Gem install bundler
        ```
 
-- Pokud není k dispozici, vytvořte předplatné a uložte ID předplatného pro pozdější použití. Pokyny k vytvoření předplatného najdete v článku o [Vytvoření předplatných pro nabídky v Azure Stackovém centru](../operator/azure-stack-subscribe-plan-provision-vm.md) .
+- Pokud není k dispozici, vytvořte odběr a uložte ID předplatného, které chcete použít později. Pokyny k vytvoření předplatného najdete v článku o [Vytvoření předplatných pro nabídky v Azure Stackovém centru](../operator/azure-stack-subscribe-plan-provision-vm.md) .
 - Vytvořte instanční objekt a uložte jeho ID a tajný klíč. Pokyny k vytvoření instančního objektu pro centrum Azure Stack jsou v článku [použití identity aplikace k přístupu k prostředkům](../operator/azure-stack-create-service-principals.md) .
 - Ujistěte se, že váš instanční objekt má přiřazenou roli Přispěvatel/vlastník v rámci vašeho předplatného. Pokyny k přiřazení role k instančnímu objektu jsou v tématu [použití identity aplikace pro přístup k prostředkům](../operator/azure-stack-create-service-principals.md).
 
@@ -70,7 +70,7 @@ Sada Azure Resource Manager Ruby SDK je ve verzi Preview a pravděpodobně bude 
 
 ## <a name="use-the-azure_sdk-gem"></a>Použití azure_sdk Gem
 
-**Azure_sdk** Gem je souhrn všech podporovaných Gems v sadě Ruby SDK. Tento Gem se skládá z **nejnovějšího** profilu , který podporuje nejnovější verzi všech služeb. Zahrnuje profily se správou verzí **V2017_03_09** a **V2019_03_01_Hybrid**, které jsou sestavené pro Azure Stack hub.
+**Azure_sdk** Gem je souhrn všech podporovaných Gems v sadě Ruby SDK. Tento Gem se skládá z **nejnovějšího** profilu, který podporuje nejnovější verzi všech služeb. Zahrnuje profily se správou verzí **V2017_03_09** a **V2019_03_01_Hybrid**, které jsou sestavené pro Azure Stack hub.
 
 Gem kumulativního azure_sdk můžete nainstalovat pomocí následujícího příkazu:  
 
@@ -78,7 +78,7 @@ Gem kumulativního azure_sdk můžete nainstalovat pomocí následujícího př�
 gem install 'azure_sdk'
 ```
 
-## <a name="prerequisites"></a>Předpoklady
+## <a name="prerequisites"></a>Požadavky
 
 Pokud chcete použít sadu Ruby Azure SDK s Azure Stack hub, musíte zadat následující hodnoty a pak hodnoty nastavit pomocí proměnných prostředí. Chcete-li nastavit proměnné prostředí, přečtěte si pokyny uvedené v tabulce pro konkrétní operační systém.
 
@@ -87,18 +87,18 @@ Pokud chcete použít sadu Ruby Azure SDK s Azure Stack hub, musíte zadat násl
 | ID tenanta | `AZURE_TENANT_ID` | Vaše [ID tenanta](../operator/azure-stack-identity-overview.md)centra Azure Stack. |
 | ID klienta | `AZURE_CLIENT_ID` | ID aplikace instančního objektu se uložilo při vytvoření instančního objektu v předchozí části tohoto článku.  |
 | ID předplatného | `AZURE_SUBSCRIPTION_ID` | [ID předplatného](../operator/service-plan-offer-subscription-overview.md#subscriptions) se používá pro přístup k nabídkám v centru Azure Stack. |
-| Tajný kód klienta | `AZURE_CLIENT_SECRET` | Tajný kód aplikace instančního objektu se uložil při vytvoření objektu služby. |
-| Koncový bod Resource Manageru | `ARM_ENDPOINT` | Viz [koncový bod správce prostředků centra Azure Stack](#the-azure-stack-hub-resource-manager-endpoint).  |
+| Tajný klíč klienta | `AZURE_CLIENT_SECRET` | Tajný kód aplikace instančního objektu se uložil při vytvoření objektu služby. |
+| Správce prostředků koncový bod | `ARM_ENDPOINT` | Viz [koncový bod správce prostředků centra Azure Stack](#the-azure-stack-hub-resource-manager-endpoint).  |
 
 ### <a name="the-azure-stack-hub-resource-manager-endpoint"></a>Koncový bod Správce prostředků centra Azure Stack
 
-Microsoft Azure Správce prostředků je rozhraní pro správu, které správcům umožňuje nasazovat, spravovat a monitorovat prostředky Azure. Azure Resource Manageru dokáže zpracovat tyto úkoly, jako se skupinou, nikoli samostatně, v rámci jedné operace.
+Microsoft Azure Správce prostředků je rozhraní pro správu, které správcům umožňuje nasazovat, spravovat a monitorovat prostředky Azure. Azure Resource Manager může tyto úlohy v jedné operaci zpracovat jako skupinu, nikoli jednotlivě.
 
 Informace o metadatech můžete získat z Správce prostředkůho koncového bodu. Koncový bod vrátí soubor JSON s informacemi potřebnými ke spuštění vašeho kódu.
 
  > [!NOTE]  
- > **ResourceManagerUrl** v Azure Stack Development Kit (ASDK) je: `https://management.local.azurestack.external/` **ResourceManagerUrl** v integrovaných systémech je: `https://management.region.<fqdn>/`, kde `<fqdn>` je váš plně kvalifikovaný název domény.  
- > Načtení požadovaných metadat: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
+ > **ResourceManagerUrl** v Azure Stack Development Kit (ASDK) `https://management.local.azurestack.external/` je: **ResourceManagerUrl** v integrovaných systémech je: `https://management.region.<fqdn>/`, kde `<fqdn>` je váš plně kvalifikovaný název domény.  
+ > Načtení požadovaných metadat:`<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
   
  Ukázkový soubor JSON:
 
@@ -144,7 +144,7 @@ Další informace o centru Azure Stack a profilech rozhraní API najdete v téma
 
 ## <a name="azure-ruby-sdk-api-profile-usage"></a>Použití profilu rozhraní API pro Azure Ruby SDK
 
-Pomocí následujícího kódu vytvořte instanci klienta profilu. Tento parametr je vyžadován pouze pro Azure Stack rozbočovač nebo jiné privátní cloudy. Global Azure už má tato nastavení ve výchozím nastavení.
+Pomocí následujícího kódu vytvořte instanci klienta profilu. Tento parametr je vyžadován pouze pro Azure Stack rozbočovač nebo jiné privátní cloudy. Globální Azure už má tato nastavení ve výchozím nastavení.
 
 ```Ruby  
 active_directory_settings = get_active_directory_settings(ENV['ARM_ENDPOINT'])
@@ -241,7 +241,7 @@ Pokud chcete ukázku spustit, ujistěte se, že máte nainstalovanou Ruby. Pokud
    - ID klienta
    - Tajný klíč klienta
    - ID předplatného
-   - Koncový bod Resource Manageru
+   - Správce prostředků koncový bod
 
    Nastavte následující proměnné prostředí pomocí informací získaných z vytvořeného objektu služby:
 
@@ -252,7 +252,7 @@ Pokud chcete ukázku spustit, ujistěte se, že máte nainstalovanou Ruby. Pokud
    - `export ARM_ENDPOINT={your Azure Stack Hub Resource Manager URL}`
 
    > [!NOTE]  
-   > Ve Windows použijte místo `export``set`.
+   > Ve Windows použijte `set` místo `export`.
 
 4. Zajistěte, aby byla proměnná umístění nastavena na umístění centra Azure Stack. například `LOCAL="local"`.
 
@@ -262,7 +262,7 @@ Pokud chcete ukázku spustit, ujistěte se, že máte nainstalovanou Ruby. Pokud
    active_directory_settings = get_active_directory_settings(ENV['ARM_ENDPOINT'])
    ```
 
-6. V proměnné `options` přidejte nastavení služby Active Directory a základní adresu URL pro práci se službou Azure Stack hub:
+6. V `options` proměnné přidejte nastavení služby Active Directory a základní adresu URL pro práci s Azure Stack hub:
 
    ```ruby  
    options = {
@@ -279,7 +279,7 @@ Pokud chcete ukázku spustit, ujistěte se, že máte nainstalovanou Ruby. Pokud
    client = Azure::Resources::Profiles::V2019_03_01_Hybrid::Mgmt::Client.new(options)
    ```
 
-8. Chcete-li ověřit instanční objekt pomocí centra Azure Stack, koncové body by měly být definovány pomocí **get_active_directory_settings ()** . Tato metoda používá proměnnou prostředí **ARM_Endpoint** , kterou jste nastavili dříve:
+8. Chcete-li ověřit instanční objekt pomocí centra Azure Stack, koncové body by měly být definovány pomocí **get_active_directory_settings ()**. Tato metoda používá proměnnou prostředí **ARM_Endpoint** , kterou jste nastavili dříve:
 
    ```ruby  
    def get_active_directory_settings(armEndpoint)

@@ -8,10 +8,10 @@ ms.author: inhenkel
 ms.reviewer: wamota
 ms.lastreviewed: 04/19/2019
 ms.openlocfilehash: 8c13121f5d591abca8a6c83771848d97cc9106db
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77700064"
 ---
 # <a name="deployment-worksheet-for-azure-stack-hub-integrated-systems"></a>Sešit nasazení pro integrované systémy centra Azure Stack
@@ -62,7 +62,7 @@ Pokud chcete spustit sešit nasazení a použít ho na počítači, na kterém m
    Start-DeploymentWorksheet
    ```
 
-List nasazení se skládá ze samostatných karet pro shromažďování nastavení prostředí, jako je **nastavení zákazníka**, **nastavení sítě**a **škálování jednotky #** . Než bude možné vygenerovat jakékoli soubory konfiguračních dat, je nutné zadat všechny hodnoty (kromě těch, které jsou označeny jako **volitelné**) na všech kartách. Po zadání všech požadovaných hodnot do nástroje můžete pomocí nabídky **Akce** **importovat**, **exportovat**a **Generovat**. Soubory JSON vyžadované pro nasazení jsou následující:
+List nasazení se skládá ze samostatných karet pro shromažďování nastavení prostředí, jako je **nastavení zákazníka**, **nastavení sítě**a **škálování jednotky #**. Než bude možné vygenerovat jakékoli soubory konfiguračních dat, je nutné zadat všechny hodnoty (kromě těch, které jsou označeny jako **volitelné**) na všech kartách. Po zadání všech požadovaných hodnot do nástroje můžete pomocí nabídky **Akce** **importovat**, **exportovat**a **Generovat**. Soubory JSON vyžadované pro nasazení jsou následující:
 
 **Import**: umožňuje importovat soubor dat konfigurace centra Azure Stack (ConfigurationData. JSON), který byl vygenerován pomocí tohoto nástroje, nebo ty, které byly vytvořeny v předchozí verzi listu nasazení. Při provádění importu se resetují formuláře a odstraní se všechna dříve zadaná nastavení nebo generovaná data.
 
@@ -72,7 +72,7 @@ List nasazení se skládá ze samostatných karet pro shromažďování nastaven
 
 **Clear All**: vymaže všechna aktuálně zadaná data ve formulářích a vrátí je do výchozích hodnot.
 
-**Uložte nebo otevřete svůj nedokončený průběh**: můžete uložit a otevřít částečně zadaná data, když na ní pracujete, a to pomocí **souborů > Save** a **soubor-> otevřít** nabídky. To se liší od funkcí **importu** a **exportu** , protože to vyžaduje, aby byla všechna data zadávána a ověřena. Otevření nebo uložení neověřuje a nevyžaduje, aby byla zadávána všechna pole, aby bylo možné svou nedokončenou práci uložit.
+**Uložte nebo otevřete svůj nedokončený průběh**: můžete uložit a otevřít částečně zadaná data, když na ní pracujete, a to pomocí **souborů >Save** a **soubor->otevřít** nabídky. To se liší od funkcí **importu** a **exportu** , protože to vyžaduje, aby byla všechna data zadávána a ověřena. Otevření nebo uložení neověřuje a nevyžaduje, aby byla zadávána všechna pole, aby bylo možné svou nedokončenou práci uložit.
 
 **Protokolovací zprávy a upozornění**: při použití formuláře se v okně PowerShellu můžou zobrazit nekritické zprávy s upozorněním. Kritické chyby se zobrazují jako místní zpráva. Volitelné podrobné protokolování, včetně protokolu zapsaného na disk, může být umožněno pro pomoc při řešení problémů.
 

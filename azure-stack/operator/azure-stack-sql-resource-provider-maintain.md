@@ -9,15 +9,15 @@ ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2020
 ms.openlocfilehash: 134839230eef3bb76c8df82cb2bd79b5127dfed9
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77697259"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>Operace údržby poskytovatele prostředků SQL
 
-Poskytovatel prostředků SQL běží na uzamčeném virtuálním počítači (VM). Chcete-li povolit operace údržby, je nutné aktualizovat zabezpečení virtuálního počítače. Pokud to chcete provést pomocí objektu s nejnižšími oprávněními, použijte [prostředí PowerShell, které stačí pro správu DBAdapterMaintenance (JEA)](https://docs.microsoft.com/powershell/scripting/learn/remoting/jea/overview) koncového bodu. Instalační balíček poskytovatele prostředků obsahuje skript pro tuto akci.
+Poskytovatel prostředků SQL běží na uzamčeném virtuálním počítači (VM). Chcete-li povolit operace údržby, je nutné aktualizovat zabezpečení virtuálního počítače. Pokud to chcete provést pomocí objektu s nejnižšími oprávněními, použijte [prostředí PowerShell, které stačí pro správu DBAdapterMaintenance (JEA)](https://docs.microsoft.com/powershell/scripting/learn/remoting/jea/overview) koncového bodu. *DBAdapterMaintenance* Instalační balíček poskytovatele prostředků obsahuje skript pro tuto akci.
 
 ## <a name="patching-and-updating"></a>Oprava a aktualizace
 
@@ -31,7 +31,7 @@ Vzhledem k tomu, že poskytovatel prostředků běží na *uživatelském* virtu
 
 Zodpovídáte za vytváření a udržování účtů sysadmin na vašich SQL serverech. Poskytovatel prostředků potřebuje účet s těmito oprávněními ke správě databází pro uživatele, ale nepotřebuje přístup k datům uživatelů. Pokud potřebujete aktualizovat hesla sysadmin na serverech SQL, můžete použít rozhraní Správce poskytovatele prostředků ke změně uloženého hesla. Tato hesla se ukládají v Key Vault vaší instance centra Azure Stack.
 
-Pokud chcete nastavení upravit, vyberte **procházet** &gt; **prostředky pro správu** &gt; **hostitelskými servery SQL** &gt; **přihlašovacími údaji SQL** a vyberte uživatelské jméno. Tato změna se musí provést nejdříve v instanci SQL (a v případě potřeby všechny repliky). V části **Nastavení**vyberte **heslo**.
+Chcete-li upravit nastavení, vyberte **Procházet** &gt; **prostředky** &gt; pro správu **přihlašovacích** **serverů SQL hostující servery** &gt; a vyberte uživatelské jméno. Tato změna se musí provést nejdříve v instanci SQL (a v případě potřeby všechny repliky). V části **Nastavení**vyberte **heslo**.
 
 ![Aktualizace hesla správce SQL](./media/azure-stack-sql-rp-deploy/sql-rp-update-password.png)
 
@@ -110,7 +110,7 @@ Pokud používáte poskytovatele prostředků SQL a MySQL s integrovanými syst�
 Protokoly rotace tajných kódů. Protokoly pro rotaci tajných kódů nejsou shromažďovány automaticky, pokud se vlastní skript pro střídání tajných klíčů při spuštění nezdařil.
 
 **Alternativní řešení**:<br>
-Pomocí rutiny Get-AzsDBAdapterLogs Shromážděte všechny protokoly poskytovatele prostředků, včetně AzureStack. DatabaseAdapter. SecretRotation. ps1_ *. log, uložené v C:\Logs.
+Pomocí rutiny Get-AzsDBAdapterLogs Shromážděte všechny protokoly poskytovatele prostředků, včetně AzureStack. DatabaseAdapter. SecretRotation. ps1_ *. log, uložené v C:\Logs..
 
 ## <a name="update-the-vm-operating-system"></a>Aktualizace operačního systému virtuálního počítače
 
@@ -231,13 +231,13 @@ Ve výchozím nastavení je na virtuálním počítači adaptéru poskytovatele 
 2. V levém podokně vyberte **virtuální počítače** , vyhledejte virtuální počítač adaptéru poskytovatele prostředků SQL a vyberte virtuální počítač.
 
 3. V **nastavení diagnostiky** virtuálního počítače otevřete kartu **protokoly** a výběrem možnosti **vlastní** Přizpůsobte shromážděné protokoly událostí.
-![přejít na nastavení diagnostiky](media/azure-stack-sql-resource-provider-maintain/sqlrp-diagnostics-settings.png)
+![Přejít na nastavení diagnostiky](media/azure-stack-sql-resource-provider-maintain/sqlrp-diagnostics-settings.png)
 
-4. Přidejte **Microsoft-AzureStack-DatabaseAdapter/Operational!\*** ke shromáždění protokolů provozních událostí poskytovatele prostředků SQL.
-![přidat protokoly událostí](media/azure-stack-sql-resource-provider-maintain/sqlrp-event-logs.png)
+4. Přidejte **Microsoft-AzureStack-DatabaseAdapter/Operational\* !** pro shromažďování protokolů provozních událostí poskytovatele prostředků SQL.
+![Přidat protokoly událostí](media/azure-stack-sql-resource-provider-maintain/sqlrp-event-logs.png)
 
 5. Chcete-li povolit shromažďování protokolů služby IIS, zaškrtněte **protokoly služby IIS** a **protokoly neúspěšných požadavků**.
-![přidání protokolů IIS](media/azure-stack-sql-resource-provider-maintain/sqlrp-iis-logs.png)
+![Přidat protokoly IIS](media/azure-stack-sql-resource-provider-maintain/sqlrp-iis-logs.png)
 
 6. Nakonec výběrem možnosti **Uložit** uložte všechna nastavení diagnostiky.
 

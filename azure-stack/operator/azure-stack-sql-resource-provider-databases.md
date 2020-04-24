@@ -1,5 +1,5 @@
 ---
-title: Vytvoření databáze SQL
+title: Vytvoření databází SQL
 titleSuffix: Azure Stack Hub
 description: Naučte se vytvářet a spravovat databáze SQL zřízené pomocí adaptéru poskytovatele prostředků SQL.
 author: bryanla
@@ -9,19 +9,19 @@ ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2019
 ms.openlocfilehash: 0d1e58fffc7bc5fcc6a2c54ad409752314d1d36b
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77697395"
 ---
-# <a name="create-sql-databases"></a>Vytvoření databáze SQL
+# <a name="create-sql-databases"></a>Vytvoření databází SQL
 
 Samoobslužné databáze můžete vytvářet a spravovat na portálu User Portal. Uživatel centra Azure Stack potřebuje předplatné s nabídkou, která zahrnuje službu SQL Database.
 
 1. Přihlaste se k portálu pro uživatele [centra Azure Stack](azure-stack-overview.md) .
 
-2. Vyberte **+ nový** &gt;**Data + úložiště** &gt; **SQL Server Database** &gt; **Přidat**.
+2. Vyberte **+ Nový** &gt; **data + úložiště** &gt; **SQL Server databáze** &gt; **Přidat**.
 
 3. V části **vytvořit databázi**zadejte požadované informace, například **název databáze** a **maximální velikost v MB**.
 
@@ -64,7 +64,7 @@ Následující snímek obrazovky ukazuje, jak můžete použít SQL Server Manag
 
 ![Stav databáze AlwaysOn v SQL Server Management Studio](./media/azure-stack-sql-rp-deploy/verify-always-on.png)
 
-Databáze Always On by se měly zobrazovat jako **synchronizované** a dostupné ve všech instancích SQL a zobrazují se ve **skupinách dostupnosti**. V předchozím snímku obrazovky je příklad databáze newdb1 a jeho stav je **newdb1 (synchronizovaný)** .
+Databáze Always On by se měly zobrazovat jako **synchronizované** a dostupné ve všech instancích SQL a zobrazují se ve **skupinách dostupnosti**. V předchozím snímku obrazovky je příklad databáze newdb1 a jeho stav je **newdb1 (synchronizovaný)**.
 
 ### <a name="delete-an-always-on-database"></a>Odstranění databáze Always On
 

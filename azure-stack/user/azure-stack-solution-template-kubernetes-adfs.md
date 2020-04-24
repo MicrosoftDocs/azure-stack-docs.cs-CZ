@@ -8,20 +8,20 @@ ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 3/12/2020
 ms.openlocfilehash: adca3be6659d140dcf05776d04696ff7302a9ab3
-ms.sourcegitcommit: 4301e8dee16b4db32b392f5979dfec01ab6566c9
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79313136"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-hub-using-active-directory-federated-services"></a>Nasazení Kubernetes do centra Azure Stack pomocí federovaných služeb Active Directory
 
 > [!Note]  
-> K nasazení clusterů jako zkušebního konceptu použijte jenom položku Kubernetes Azure Stack Marketplace. Pro podporované Kubernetes clustery v Azure Stack použijte [modul AKS](azure-stack-kubernetes-aks-engine-overview.md).
+> K nasazení clusterů jako zkušebního konceptu použijte jenom položku Kubernetes Azure Stack Marketplace.Pro podporované Kubernetes clustery v Azure Stack použijte [modul AKS](azure-stack-kubernetes-aks-engine-overview.md).
 
 Pro nasazení a nastavení prostředků pro Kubernetes můžete postupovat podle kroků v tomto článku. Tyto kroky použijte, když je služba Active Directory federované služby (AD FS) vaší službou správy identit.
 
-## <a name="prerequisites"></a>Předpoklady 
+## <a name="prerequisites"></a>Požadavky 
 
 Pokud chcete začít, ujistěte se, že máte správná oprávnění a že je vaše centrum Azure Stack připravené.
 
@@ -57,7 +57,7 @@ Abyste mohli nastavit instanční objekt při použití AD FS jako řešení ide
 
 1. Otevřete [portál centra Azure Stack](https://portal.local.azurestack.external).
 
-1. Vyberte **+ vytvořit prostředek** > Cluster **COMPUTE** > **Kubernetes**. Vyberte **Vytvořit**.
+1. Vyberte **+ vytvořit prostředek** > **COMPUTE** > **Kubernetes cluster**. Vyberte **Vytvořit**.
 
     ![Nasadit šablonu řešení](media/azure-stack-solution-template-kubernetes-deploy/01_kub_market_item.png)
 
@@ -69,7 +69,7 @@ Abyste mohli nastavit instanční objekt při použití AD FS jako řešení ide
 
 1. Vyberte ID vašeho **předplatného** .
 
-1. Zadejte název nové skupiny prostředků nebo vyberte existující skupinu prostředků. Název prostředku musí být alfanumerické znaky a malá písmena.
+1. Zadejte název nové skupiny prostředků nebo vyberte existující skupinu prostředků. Název prostředku musí být alfanumerický a malý.
 
 1. Vyberte **umístění** skupiny prostředků. Toto je oblast, kterou zvolíte pro instalaci centra Azure Stack.
 
@@ -79,14 +79,14 @@ Abyste mohli nastavit instanční objekt při použití AD FS jako řešení ide
 
     ![Nasadit šablonu řešení](media/azure-stack-solution-template-kubernetes-deploy/03_kub_config_settings-adfs.png)
 
-1. Zadejte **uživatelské jméno správce virtuálního počítače se systémem Linux**. Uživatelské jméno pro virtuální počítače Linux, které jsou součástí clusteru Kubernetes a DVM.
+1. Zadejte **uživatelské jméno správce virtuálního počítače se systémem Linux**. Uživatelské jméno pro Linux Virtual Machines, které jsou součástí clusteru Kubernetes a DVM.
 
 1. Zadejte **veřejný klíč SSH** , který se používá pro autorizaci pro všechny počítače se systémem Linux vytvořené jako součást clusteru KUBERNETES a DVM.
 
 1. Zadejte **předponu DNS hlavního profilu** , která je pro oblast jedinečná. Musí se jednat o jedinečný název oblasti, například `k8s-12345`. Zkuste zvolit stejný jako název skupiny prostředků jako osvědčený postup.
 
     > [!Note]  
-    > Pro každý cluster použijte předponu DNS nových a jedinečných hlavní profilu.
+    > Pro každý cluster použijte novou a jedinečnou předponu DNS hlavního profilu.
 
 1. Vyberte **počet profilů hlavního fondu Kubernetes**. Počet obsahuje počet uzlů v hlavním fondu. Může být od 1 do 7. Tato hodnota by měla být lichá číslice.
 
@@ -102,7 +102,7 @@ Abyste mohli nastavit instanční objekt při použití AD FS jako řešení ide
 
 1. Zadejte **tajný klíč klienta instančního objektu**. Toto je tajný kód klienta, který jste získali pro váš princip AD FS služby od správce centra Azure Stack.
 
-1. Zadejte **verzi Kubernetes**. Toto je verze zprostředkovatele služby Kubernetes Azure. Azure Stack centrum uvolní vlastní Kubernetes sestavení pro každou verzi centra Azure Stack.
+1. Zadejte **verzi Kubernetes**. Toto je verze poskytovatele Azure Kubernetes. Azure Stack centrum uvolní vlastní Kubernetes sestavení pro každou verzi centra Azure Stack.
 
 ### <a name="3-summary"></a>3. souhrn
 

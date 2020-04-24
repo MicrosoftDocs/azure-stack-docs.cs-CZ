@@ -9,10 +9,10 @@ ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 01/14/2019
 ms.openlocfilehash: 842291fc47d76ad40b9933bb6295efaa4446fe41
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77696878"
 ---
 # <a name="tenant-resource-usage-api-reference"></a>Referenční informace k rozhraní API využití prostředků tenanta
@@ -29,18 +29,18 @@ Požadavek získá podrobnosti o spotřebě pro požadovaná předplatná a pro 
 
 | **Metoda** | **Identifikátor URI žádosti** |
 | --- | --- |
-| GET |https://{armendpoint}/Subscriptions/{subId}/Providers/Microsoft. obchod/usageAggregates? reportedStartTime = {reportedStartTime} & reportedEndTime = {reportedEndTime} & aggregationGranularity = {členitost} & API-Version = 2015-06 -01-Preview & token continuationtoken = {token-Value} |
+| GET |https://{armendpoint}/Subscriptions/{subId}/Providers/Microsoft. obchod/usageAggregates? reportedStartTime = {reportedStartTime} &reportedEndTime = {reportedEndTime} &aggregationGranularity = {členitost} &API-Version = 2015-06 -01-Preview&token continuationtoken = {token-Value} |
 
 ### <a name="parameters"></a>Parametry
 
 | **Ukazatele** | **Popis** |
 | --- | --- |
-| Armendpoint |Azure Resource Manager koncový bod vašeho prostředí centra Azure Stack. Azure Stack konvence centra je název Azure Resource Manager koncového bodu ve formátu `https://management.{domain-name}`. Například pro vývojovou sadu je název domény Local. azurestack. external a pak `https://management.local.azurestack.external`koncový bod Správce prostředků. |
+| Armendpoint |Azure Resource Manager koncový bod vašeho prostředí centra Azure Stack. Azure Stack konvence centra je název Azure Resource Manager koncového bodu ve formátu `https://management.{domain-name}`. Například pro vývojovou sadu je název domény Local. azurestack. external a pak je `https://management.local.azurestack.external`koncový bod správce prostředků. |
 | subId |ID předplatného uživatele, který provádí volání. Toto rozhraní API můžete použít jenom k dotazování na použití jednoho předplatného. Poskytovatelé můžou použít rozhraní API využití prostředků poskytovatele k dotazování na využití pro všechny klienty. |
 | reportedStartTime |Počáteční čas dotazu. Hodnota pro *DateTime* by měla být v UTC a na začátku hodiny; například 13:00. U denní agregace nastavte tuto hodnotu na půlnoc UTC. Formát je řídicí. ISO 8601; Příklad **: 2015-06-16T18% 3A53% 3a11% 2b00% 3a00Z**, kde dvojtečka je uvozená na% 3a a plus je uvozena na% 2b, aby bylo uživatelsky přívětivé URI. |
 | reportedEndTime |Koncový čas dotazu. Omezení vztahující se na **reportedStartTime** platí také pro tento parametr. Hodnota pro **reportedEndTime** nemůže být v budoucnu. |
 | aggregationGranularity |Volitelný parametr, který má dvě diskrétní možné hodnoty: **denně** a **každou hodinu**. Vzhledem k tomu, že hodnoty naznačují, vrátí jedna data v denní členitosti a druhá je hodinové řešení. Možnost **denní** je výchozí hodnota. |
-| api-version |Verze protokolu, který se používá k provedení tohoto požadavku. Je nutné použít **verzi 2015-06-01-Preview**. |
+| verze-api |Verze protokolu, který se používá k provedení tohoto požadavku. Je nutné použít **verzi 2015-06-01-Preview**. |
 | Token continuationtoken |Token načtený z posledního volání poskytovatele rozhraní API využití Tento token je nutný, pokud je odpověď větší než 1 000 řádků. Funguje jako záložka pro průběh. Pokud není k dispozici, data se načítají od začátku dne nebo hodiny na základě předané členitosti. |
 
 ### <a name="response"></a>Odpověď
@@ -79,8 +79,8 @@ GET
 | **Ukazatele** | **Popis** |
 | --- | --- |
 | id |Jedinečné ID agregace využití |
-| name |Název agregace použití |
-| typ |Definice prostředků. |
+| jméno |Název agregace použití |
+| type |Definice prostředků. |
 | subscriptionId |Identifikátor předplatného uživatele Azure |
 | usageStartTime |Čas spuštění v čase UTC sady, do které patří agregace tohoto využití. |
 | usageEndTime |Čas ukončení UTC intervalu použití, do kterého patří agregace tohoto využití. |

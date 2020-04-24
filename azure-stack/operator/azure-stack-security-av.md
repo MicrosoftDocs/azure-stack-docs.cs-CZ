@@ -9,10 +9,10 @@ ms.author: justinha
 ms.reviewer: fiseraci
 ms.lastreviewed: 12/04/2019
 ms.openlocfilehash: 8f0ad292f8d9772c53c332d2cad7af8bd606594a
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77697735"
 ---
 # <a name="update-windows-defender-antivirus-on-azure-stack-hub"></a>Aktualizace antivirové ochrany v programu Windows Defender v centru Azure Stack
@@ -31,7 +31,7 @@ U těchto Azure Stackch nasazení centra, která nejsou připojená k veřejném
 
 Chcete-li aktualizace použít pro řešení centra Azure Stack, je nutné je nejprve stáhnout z webu společnosti Microsoft (odkazy níže) a následně je importovat do kontejneru objektů BLOB úložiště v rámci *updateadminaccount*. Naplánovaná úloha prohledává kontejner objektů BLOB každých 30 minut a v případě, že se najde nové definice a aktualizace modulu Defenderu, aplikují se na infrastrukturu centra Azure Stack. 
 
-U těch odpojených nasazení, která ještě nejsou v 1910 nebo novějších nebo které nemají možnost stahovat definice Defenderu a aktualizace motoru každý den, zahrnuje měsíční aktualizace centra Azure Stack definice antivirové ochrany v programu Windows Defender, modul a aktualizace platformy v měsíci. 
+U těch odpojených nasazení, která ještě nejsou v 1910 nebo novějších nebo které nemají možnost stahovat definice a aktualizace modulu Defenderu každý den, měsíční aktualizace centra Azure Stack zahrnuje definice antivirové ochrany v programu Windows Defender, modul a aktualizace platforem pro daný měsíc. 
 
 
 ### <a name="set-up-windows-defender-for-manual-updates"></a>Nastavení programu Windows Defender pro ruční aktualizace 
@@ -59,8 +59,8 @@ Následující postup ukazuje, jak nastavit ruční aktualizaci v programu Windo
 
 2. Stáhněte si dva balíčky aktualizací v programu Windows Defender a uložte je do umístění, které je dostupné na portálu pro správu centra Azure Stack.  
 
-   * Mpam-FE. exe z [https://go.microsoft.com/fwlink/?LinkId=121721&arch=x64](https://go.microsoft.com/fwlink/?LinkId=121721&arch=x64) 
-   * nis_full. exe z [https://go.microsoft.com/fwlink/?LinkId=197094](https://go.microsoft.com/fwlink/?LinkId=197094) 
+   * Mpam-FE. exe z[https://go.microsoft.com/fwlink/?LinkId=121721&arch=x64](https://go.microsoft.com/fwlink/?LinkId=121721&arch=x64) 
+   * nis_full. exe z[https://go.microsoft.com/fwlink/?LinkId=197094](https://go.microsoft.com/fwlink/?LinkId=197094) 
 
    > [!NOTE] 
    > Tyto dva soubory budete muset stáhnout **pokaždé** , když chcete aktualizovat signatury Defenderu. 

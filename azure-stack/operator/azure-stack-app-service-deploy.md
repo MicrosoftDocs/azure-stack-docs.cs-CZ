@@ -8,10 +8,10 @@ ms.author: bryanla
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2019
 ms.openlocfilehash: a1939049c3eb8c4440e37e58b6acfafa91881406
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77688963"
 ---
 # <a name="deploy-app-service-in-azure-stack-hub"></a>Nasazení App Service v centru Azure Stack
@@ -52,7 +52,7 @@ Pokud chcete nasadit poskytovatele prostředků App Service, postupujte takto:
 
 5. Ujistěte se, že jsou informace o konfiguraci cloudu App Service správné. Pokud jste během nasazení ASDK použili výchozí nastavení, můžete přijmout výchozí hodnoty. Pokud jste ale přizpůsobili možnosti, když jste nasadili ASDK nebo nasazujete v integrovaném systému Azure Stack hub, musíte upravit hodnoty v tomto okně, aby odrážely rozdíly.
 
-   Pokud například použijete příponu domény mycloud.com, Azure Resource Manager koncový bod klienta centra Azure Stack musí změnit na správu. oblast&lt;&gt;. mycloud.com. Zkontrolujte tato nastavení a kliknutím na tlačítko **Další** uložte nastavení.
+   Pokud například použijete příponu domény mycloud.com, Azure Resource Manager koncový bod klienta centra Azure Stack musí změnit na správu. &lt;region&gt;. MyCloud.com. Zkontrolujte tato nastavení a kliknutím na tlačítko **Další** uložte nastavení.
 
    ![Instalační služba App Service][2]
 
@@ -60,9 +60,9 @@ Pokud chcete nasadit poskytovatele prostředků App Service, postupujte takto:
 
     1. Vyberte metodu připojení, kterou chcete použít – **Credential** nebo **instanční objekt** .
  
-        - **Pověřovací**
+        - **Přihlašovací údaj**
             - Pokud používáte Azure Active Directory (Azure AD), zadejte účet správce Azure AD a heslo, které jste zadali při nasazení centra Azure Stack. Vyberte **Connect** (Připojit).
-            - Pokud používáte Active Directory Federation Services (AD FS) (AD FS), zadejte účet správce. například cloudadmin@azurestack.local. Zadejte heslo a pak vyberte **připojit**.
+            - Pokud používáte Active Directory Federation Services (AD FS) (AD FS), zadejte účet správce. Například, cloudadmin@azurestack.local. Zadejte heslo a pak vyberte **připojit**.
 
         - **Instanční objekt**
             - Instanční objekt, který použijete, **musí** mít práva **vlastníka** na **předplatném výchozího poskytovatele** .
@@ -113,8 +113,8 @@ Pokud chcete nasadit poskytovatele prostředků App Service, postupujte takto:
     | Box | Příklad názvu souboru certifikátu |
     | --- | --- |
     | **App Service výchozí soubor certifikátu SSL** | \_. AppService. Local. AzureStack. external. pfx |
-    | **Soubor certifikátu SSL pro App Service rozhraní API** | api.appservice.local.AzureStack.external.pfx |
-    | **Soubor certifikátu SSL App Service vydavatele** | ftp.appservice.local.AzureStack.external.pfx |
+    | **Soubor certifikátu SSL pro App Service rozhraní API** | API. AppService. Local. AzureStack. external. pfx |
+    | **Soubor certifikátu SSL App Service vydavatele** | FTP. AppService. Local. AzureStack. external. pfx |
 
     Pokud jste při vytváření certifikátů použili jinou příponu domény, názvy souborů certifikátu nepoužívají *místní. AzureStack. external*. Místo toho použijte vlastní informace o doméně.
 
@@ -129,7 +129,7 @@ Pokud chcete nasadit poskytovatele prostředků App Service, postupujte takto:
     >[!NOTE]
     >Při nasazení v produkčním prostředí postupujte podle pokynů v části [plánování kapacity pro Azure App Service role serveru v centru Azure Stack](azure-stack-app-service-capacity-planning.md).
 
-    | Role | Minimální instance | Minimální SKU | Poznámky: |
+    | Role | Minimální instance | Minimální SKU | Poznámky |
     | --- | --- | --- | --- |
     | Kontrolér | 1 | Standard_A2 – (2 vCPU, 3584 MB) | Spravuje a udržuje stav cloudu App Service. |
     | Správa | 1 | Standard_A2 – (2 vCPU, 3584 MB) | Spravuje App Service Azure Resource Manager a koncové body rozhraní API, rozšíření portálu (správce, tenant, funkce portálu) a datovou službu. Pro zajištění podpory převzetí služeb při selhání se zvýšily Doporučené instance na 2. |
@@ -184,8 +184,8 @@ Pokud nasazujete do existující virtuální sítě a pomocí interní IP adresy
 - Cíl: IP adresy
 - Rozsah cílových IP adres: rozsah IP adres pro souborový server
 - Rozsah cílových portů: 445
-- Protocol: TCP
-- Akce: povolení
+- Protokol. TCP
+- Akce: Povolit
 - Priorita: 700
 - Název: Outbound_Allow_SMB445
 
@@ -211,7 +211,7 @@ Až nasadíte a zaregistrujete poskytovatele prostředků App Service, otestujte
 
 Chcete-li vytvořit testovací webovou aplikaci, postupujte podle následujících kroků:
 
-1. Na portálu Azure Stack User Portal vyberte **+ vytvořit prostředek** > **web a mobilní zařízení** > **Webová aplikace**.
+1. V uživatelském portálu Azure Stack hub vyberte **+ vytvořit prostředek** > **web a mobilní zařízení** > **webovou aplikaci**.
 
 2. V části **Webová aplikace**zadejte název do **webové aplikace**.
 
@@ -221,7 +221,7 @@ Chcete-li vytvořit testovací webovou aplikaci, postupujte podle následující
 
 5. V části **plán App Service**zadejte název **App Serviceho plánu**.
 
-6. Vyberte **cenovou úroveň** > **volno Shared** nebo **shared-Shared** > **Vyberte** > **OK** > **vytvořit**.
+6. Vyberte **cenovou úroveň** > **Free-Shared** nebo **Shared-Shared** > **a vyberte** > **OK** > **vytvořit**.
 
 7. Na řídicím panelu se zobrazí dlaždice nové webové aplikace. Vyberte dlaždici.
 
@@ -229,9 +229,9 @@ Chcete-li vytvořit testovací webovou aplikaci, postupujte podle následující
 
 ## <a name="deploy-a-wordpress-dnn-or-django-website-optional"></a>Nasazení webu WordPress, DNN nebo Django (volitelné)
 
-1. Na portálu Azure Stack hub User Portal vyberte **+** , přejít na Azure Marketplace, nasaďte web Django a potom počkejte na dokončení nasazení. Webová platforma Django používá databázi založenou na systému souborů. Nevyžaduje žádné další poskytovatele prostředků, jako je SQL nebo MySQL.
+1. Na portálu Azure Stack User Portal vyberte **+**, přejít na Azure Marketplace, nasaďte web Django a potom počkejte na dokončení nasazení. Webová platforma Django používá databázi založenou na systému souborů. Nevyžaduje žádné další poskytovatele prostředků, jako je SQL nebo MySQL.
 
-2. Pokud jste nasadili také poskytovatele prostředků MySQL, můžete web WordPress nasadit z webu Marketplace. Po zobrazení výzvy k zadání parametrů databáze zadejte uživatelské jméno jako *uživatel1\@Server1*s uživatelským jménem a zvoleným názvem serveru.
+2. Pokud jste nasadili také poskytovatele prostředků MySQL, můžete web WordPress nasadit z webu Marketplace. Po zobrazení výzvy k zadání parametrů databáze zadejte uživatelské jméno jako *Uživatel1\@Server1*s uživatelským jménem a názvem serveru podle vašeho výběru.
 
 3. Pokud jste nasadili také poskytovatele prostředků SQL Server, můžete web DNN nasadit z webu Marketplace. Po zobrazení výzvy k zadání parametrů databáze vyberte databázi v počítači se systémem SQL Server připojeném k poskytovateli prostředků.
 

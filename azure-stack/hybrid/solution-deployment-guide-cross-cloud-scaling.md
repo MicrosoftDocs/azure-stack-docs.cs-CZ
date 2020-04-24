@@ -8,10 +8,10 @@ ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
 ms.openlocfilehash: 41c6b4e5adf7b659bf9db30eb8a3906c257f5473
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "78366241"
 ---
 # <a name="deploy-an-app-that-scales-cross-cloud-using-azure-and-azure-stack-hub"></a>Nasazení aplikace, která škáluje více cloudů pomocí Azure a centra Azure Stack
@@ -35,13 +35,13 @@ V tomto řešení sestavíte ukázkové prostředí pro:
 > 
 > Požadavky na [Návrh pro hybridní aplikace](overview-app-design-considerations.md) kontrolují pilíře kvality softwaru (umístění, škálovatelnost, dostupnost, odolnost, možnosti správy a zabezpečení) pro navrhování, nasazování a provozování hybridních aplikací. Pokyny k návrhu pomáhají při optimalizaci návrhu hybridní aplikace a minimalizaci výzev v produkčních prostředích.
 
-## <a name="prerequisites"></a>Předpoklady
+## <a name="prerequisites"></a>Požadavky
 
 -   Předplatné Azure. V případě potřeby vytvořte si [bezplatný účet](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) před tím, než začnete.
 
 - Integrovaný systém nebo nasazení Azure Stack Development Kit na rozbočovači Azure Stack.
     - Pokyny k instalaci centra Azure Stack najdete v tématu [instalace Azure Stack Development Kit](../asdk/asdk-install.md).
-    - Skript pro automatizaci ASDK po nasazení najdete tady: [https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1) 
+    - ASDK skript pro automatizaci po nasazení najdete tady:[https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1) 
     - Dokončení této instalace může trvat několik hodin.
 
 -   Nasaďte [App Service](../operator/azure-stack-app-service-deploy.md) služby PaaS do centra Azure Stack.
@@ -115,7 +115,7 @@ Azure Repos
 
 3.  Ověřte, že je kód aplikace zkontrolovaný Azure Repos.
 
-## <a name="create-the-build-definition"></a>Vytvořte definici sestavení
+## <a name="create-the-build-definition"></a>Vytvoření definice sestavení
 
 1. Přihlaste se k Azure Pipelines a potvrďte možnost vytvářet definice sestavení.
 
@@ -208,7 +208,7 @@ Azure Pipelines a Azure DevOps Services poskytují vysoce konfigurovatelný a sp
 
     ![Vyberte složku pro nasazení Azure App Service](media/solution-deployment-guide-cross-cloud-scaling/image23.png)
 
-18. V části karta proměnné přidejte proměnnou s názvem `VSTS\_ARM\_REST\_IGNORE\_SSL\_ERRORS`, nastavte její hodnotu na **true**a rozsah Azure Stack.
+18. V části karta proměnné přidejte proměnnou s `VSTS\_ARM\_REST\_IGNORE\_SSL\_ERRORS`názvem, nastavte její hodnotu na **true**a rozsah na Azure Stack.
     
     ![Přidat proměnnou do nasazení aplikace Azure](media/solution-deployment-guide-cross-cloud-scaling/image24.png)
 
@@ -272,7 +272,7 @@ K nasazení do obou cloudů použijte [Azure Resource Manager šablony](https://
 
 3.  Potvrďte, že kód aplikace byl zkontrolován Azure Repos.
 
-### <a name="create-the-build-definition"></a>Vytvořte definici sestavení
+### <a name="create-the-build-definition"></a>Vytvoření definice sestavení
 
 1.  Přihlaste se k Azure Pipelines pomocí účtu, který může vytvořit definici sestavení.
 
@@ -306,7 +306,7 @@ Vytvoření definice verze je posledním krokem v procesu sestavování aplikace
 
 6.  Na kartě **úlohy** zadejte Azure jako **Název prostředí** a vyberte AzureCloud Traders – web EP ze seznamu **předplatných Azure** .
 
-7.  Do následujícího snímku obrazovky zadejte **název služby Azure App Service**, který je `northwindtraders`.
+7.  Zadejte **název služby Azure App Service**, který je `northwindtraders` na následujícím snímku obrazovky.
 
 8.  V případě fáze agenta vyberte možnost **hostované VS2017** ze seznamu **fronta agenta** .
 
@@ -320,7 +320,7 @@ Vytvoření definice verze je posledním krokem v procesu sestavování aplikace
 
 13. V nabídce **Vybrat šablonu**přidejte další prostředí. Vyberte **nasazení Azure App Service** a pak vyberte **použít**.
 
-14. Jako **Název prostředí**zadejte `Azure Stack Hub`.
+14. Jako `Azure Stack Hub` **Název prostředí**zadejte.
 
 15. Na kartě **úlohy** vyhledejte a vyberte centrum Azure Stack.
 

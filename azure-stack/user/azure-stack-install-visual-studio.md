@@ -8,17 +8,17 @@ ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/04/2020
 ms.openlocfilehash: 9fb0cf281fb97bc5cf255fb39507869b106d0a1b
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77702954"
 ---
 # <a name="install-visual-studio-and-connect-to-azure-stack-hub"></a>Instalace sady Visual Studio a připojení k centru Azure Stack
 
 Pomocí sady Visual Studio můžete zapisovat a nasazovat [šablony](azure-stack-arm-templates.md) Azure Resource Manager do centra Azure Stack. Postup v tomto článku popisuje, jak nainstalovat Visual Studio do [centra Azure Stack](../asdk/asdk-connect.md#connect-to-azure-stack-using-rdp) nebo na externí počítač, pokud plánujete používat centrum Azure Stack prostřednictvím [sítě VPN](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn).
 
-## <a name="install-visual-studio"></a>Install Visual Studio
+## <a name="install-visual-studio"></a>Instalace sady Visual Studio
 
 1. Stáhněte a spusťte [instalační program webové platformy](https://www.microsoft.com/web/downloads/platform.aspx).  
 
@@ -36,7 +36,7 @@ Pomocí sady Visual Studio můžete zapisovat a nasazovat [šablony](azure-stack
 
 ## <a name="connect-to-azure-stack-hub-with-azure-ad"></a>Připojení k centru Azure Stack pomocí Azure AD
 
-1. Spusťte sadu Visual Studio.
+1. Spusťte Visual Studio.
 
 2. V nabídce **zobrazení** vyberte **Průzkumník cloudu**.
 
@@ -48,13 +48,13 @@ Po přihlášení můžete [nasadit šablony](azure-stack-deploy-template-visual
 
 ## <a name="connect-to-azure-stack-hub-with-ad-fs"></a>Připojení k centru Azure Stack pomocí AD FS
 
-1. Spusťte sadu Visual Studio.
+1. Spusťte Visual Studio.
 
 2. V **nabídce nástroje**vyberte **možnost možnosti**.
 
 3. V **navigačním podokně** rozbalte **prostředí** a vyberte **účty**.
 
-4. Vyberte **Přidat**a zadejte koncový bod uživatele Azure Resource Manageru. Pro Azure Stack Development Kit (ASDK) je adresa URL: `https://management.local.azurestack/external`.  V případě integrovaných systémů Azure Stack hub je adresa URL: `https://management.[Region}.[External FQDN]`.
+4. Vyberte **Přidat**a zadejte koncový bod uživatele Azure Resource Manageru. Pro Azure Stack Development Kit (ASDK) je adresa URL: `https://management.local.azurestack/external`.  V případě integrovaných systémů centra Azure Stack je adresa URL `https://management.[Region}.[External FQDN]`:.
 
     ![Přidat nový koncový bod Azure Cloud Discovery](./media/azure-stack-install-visual-studio/image5.png)
 

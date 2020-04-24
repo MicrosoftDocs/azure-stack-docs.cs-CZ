@@ -6,10 +6,10 @@ ms.author: v-kedow
 ms.topic: article
 ms.date: 02/28/2020
 ms.openlocfilehash: 70f10bd8c2c2e5eb639229ba743090ba5e5ac79c
-ms.sourcegitcommit: a77dea675af6500bdad529106f5782d86bec6a34
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79025675"
 ---
 # <a name="understanding-cluster-and-pool-quorum-on-azure-stack-hci"></a>Principy kvora clusteru a fondu v Azure Stack HCI
@@ -38,14 +38,14 @@ Následující tabulka obsahuje přehled výsledků kvora clusteru na jeden scé
 | 3            | Ano                                 | 50/50                                             | Ne                                                 |
 | 3 + určující kopie  | Ano                                 | Ano                                               | Ne                                                 |
 | 4            | Ano                                 | Ano                                               | 50/50                                              |
-| 4\. disk s kopií clusteru  | Ano                                 | Ano                                               | Ano                                                |
+| 4. disk s kopií clusteru  | Ano                                 | Ano                                               | Ano                                                |
 | 5 a vyšší  | Ano                                 | Ano                                               | Ano                                                |
 
 ### <a name="cluster-quorum-recommendations"></a>Doporučení kvora clusteru
 
 - Pokud máte dva uzly, **vyžaduje**se určující kopie.
 - Pokud máte tři nebo čtyři uzly, **důrazně doporučujeme**umístění určující.
-- Pokud máte přístup k Internetu, použijte  **[disk s kopií cloudu](/windows-server/failover-clustering/deploy-cloud-witness)**
+- Pokud máte přístup k Internetu, použijte ** [disk s kopií cloudu](/windows-server/failover-clustering/deploy-cloud-witness)**
 - Pokud používáte IT prostředí s dalšími počítači a sdílenými složkami, použijte určující sdílenou složku.
 
 ## <a name="how-cluster-quorum-works"></a>Princip kvora clusteru
@@ -93,7 +93,7 @@ Hlas jednoho uzlu je nulový, takže *většina* hlasů je určena celkem **1 hl
 
 ![Vysvětlené kvorum v případě se dvěma uzly bez určujícího disku](media/quorum/2-node-no-witness.png)
 
-- Může zachována jedna selhání serveru: **50%** .
+- Může zachována jedna selhání serveru: **50%**.
 - Může zachována jedna selhání serveru a pak jiný: **ne**.
 - Může zamezit dvěma selháními serveru najednou: **ne**.
 
@@ -174,7 +174,7 @@ Následující tabulka obsahuje přehled výsledků kvora fondu na jeden scéná
 | 3            | Ano                                 | Ne                                                | Ne                                                 |
 | 3 + určující kopie  | Ano                                 | Ne                                                | Ne                                                 |
 | 4            | Ano                                 | Ne                                                | Ne                                                 |
-| 4\. disk s kopií clusteru  | Ano                                 | Ano                                               | Ano                                                |
+| 4. disk s kopií clusteru  | Ano                                 | Ano                                               | Ano                                                |
 | 5 a vyšší  | Ano                                 | Ano                                               | Ano                                                |
 
 ## <a name="how-pool-quorum-works"></a>Jak funguje kvorum fondu
@@ -224,7 +224,7 @@ Každá z těchto 24 jednotek má jeden hlas a druhý uzel má také jeden hlas 
 
 ## <a name="next-steps"></a>Další kroky
 
-Další informace najdete v následujících tématech:
+Další informace najdete v následujících článcích:
 
 - [Konfigurace a Správa kvora](/windows-server/failover-clustering/manage-cluster-quorum)
 - [Nasazení sdílené složky v cloudu](/windows-server/failover-clustering/deploy-cloud-witness)

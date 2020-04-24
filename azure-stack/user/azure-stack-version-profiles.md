@@ -8,19 +8,19 @@ ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 07/24/2019
 ms.openlocfilehash: 2e229c8add5b850384c7b46d05373c4ee19fd266
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79294888"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack-hub"></a>Správa profilů verzí rozhraní API v centru Azure Stack
 
-Profily rozhraní API zadejte poskytovatel prostředků Azure a verze rozhraní API pro koncové body Azure REST. Pomocí profilů rozhraní API můžete vytvářet vlastní klienty v různých jazycích. Každý klient používá profil rozhraní API ke kontaktování správného poskytovatele prostředků a verze rozhraní API pro centrum Azure Stack.
+Profily rozhraní API určují poskytovatele prostředků Azure a verzi rozhraní API pro koncové body Azure REST. Pomocí profilů rozhraní API můžete vytvářet vlastní klienty v různých jazycích. Každý klient používá profil rozhraní API ke kontaktování správného poskytovatele prostředků a verze rozhraní API pro centrum Azure Stack.
 
 Můžete vytvořit aplikaci, která bude spolupracovat s poskytovateli prostředků Azure, aniž byste museli přesně seřadit, která verze rozhraní API poskytovatele prostředků je kompatibilní s Azure Stack hub. Stačí sjednotit aplikaci na profil a sada SDK se vrátí na správnou verzi rozhraní API.
 
-Toto téma vám pomůže:
+Toto téma vám pomůže s těmito aktivitami:
 
 - Pochopte profily rozhraní API pro centrum Azure Stack.
 - Přečtěte si, jak můžete pomocí profilů rozhraní API vyvíjet vaše řešení.
@@ -56,7 +56,7 @@ Tento profil je vydaný pro globální Azure v červnu a prosinci. Nefunguje s r
 
 Centrum Azure Stack nepoužívá nejnovější verzi rozhraní API, které najdete v globálním Azure. Když vytváříte řešení, musíte najít verzi rozhraní API pro každého poskytovatele prostředků Azure, který je kompatibilní s Azure Stack hub.
 
-Místo výzkumu každého poskytovatele prostředků a konkrétní verze, kterou podporuje centrum Azure Stack, můžete použít profil rozhraní API. Profil určuje sadu poskytovatelů prostředků a verze rozhraní API. Sada SDK nebo nástroj vytvořený v sadě SDK se vrátí k cílovému `api-version` určenému v profilu. Pomocí profilů rozhraní API můžete zadat verzi profilu, která se vztahuje na celou šablonu. V době běhu vybírá Azure Resource Manager správnou verzi prostředku.
+Místo výzkumu každého poskytovatele prostředků a konkrétní verze, kterou podporuje centrum Azure Stack, můžete použít profil rozhraní API. Profil určuje sadu poskytovatelů prostředků a verze rozhraní API. Sada SDK nebo nástroj vytvořený v sadě SDK se vrátí k cíli `api-version` určenému v profilu. Pomocí profilů rozhraní API můžete zadat verzi profilu, která se vztahuje na celou šablonu. V době běhu vybírá Azure Resource Manager správnou verzi prostředku.
 
 Profily rozhraní API fungují s nástroji, které používají Azure Resource Manager, jako je PowerShell, Azure CLI, kód poskytovaný v sadě SDK a Microsoft Visual Studio. Nástroje a sady SDK můžou používat profily ke čtení, které verze modulů a knihoven se mají zahrnout při sestavování aplikace.
 
@@ -76,7 +76,7 @@ Použijte profil rozhraní .NET API k získání nejnovější a nejspolehlivěj
 Pomocí modulu **AzureRM. zaváděcího nástroje** , který je k dispozici prostřednictvím Galerie prostředí PowerShell, získáte rutiny prostředí PowerShell vyžadované pro práci s profily verze rozhraní API. Informace najdete v tématu [použití profilů verzí rozhraní API pro PowerShell](azure-stack-version-profiles-powershell.md).
 - **Azure CLI**  
 Aktualizujte konfiguraci prostředí tak, aby používala profil konkrétní verze rozhraní API centra Azure Stack. Informace najdete v tématu [použití profilů verzí rozhraní API pro Azure CLI](azure-stack-version-profiles-azurecli2.md).
-- **Go**  
+- **Přejít**  
 V sadě SDK sady SDK je profil kombinací různých typů prostředků s různými verzemi z různých služeb. Profily jsou k dispozici v profilech/cestách s jejich verzí ve formátu **RRRR-MM-DD** . Informace najdete v tématu [použití profilů verzí rozhraní API pro přejít](azure-stack-version-profiles-go.md).
 - **Ruby**  
 Sada Ruby SDK pro centrum Azure Stack Správce prostředků poskytuje nástroje, které vám pomůžou sestavovat a spravovat infrastrukturu. Poskytovatelé prostředků v sadě SDK zahrnují výpočetní prostředky, virtuální sítě a úložiště s využitím jazyka Ruby. Informace najdete v tématu [použití profilů verzí rozhraní API s Ruby](azure-stack-version-profiles-ruby.md).

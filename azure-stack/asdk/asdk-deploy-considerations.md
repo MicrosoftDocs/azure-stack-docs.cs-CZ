@@ -8,10 +8,10 @@ ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 05/13/2019
 ms.openlocfilehash: 889180858826685150fadb7ad3bef0ffb789b8ec
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79294415"
 ---
 # <a name="asdk-requirements-and-considerations"></a>Požadavky a předpoklady pro ASDK
@@ -20,17 +20,17 @@ Před nasazením Azure Stack Development Kit (ASDK) se ujistěte, že váš host
 
 ## <a name="hardware"></a>Hardware
 
-| Komponenta | Minimální | Doporučené |
+| Součást | Minimální | Doporučené |
 | --- | --- | --- |
 | Diskové jednotky: Operační systém |1 disk s operačním systémem s minimálně 200 GB, který je k dispozici pro systémový oddíl (SSD nebo HDD). |1 disk s operačním systémem, který má minimálně 200 GB, je k dispozici pro systémový oddíl (SSD nebo HDD). |
-| Diskové jednotky:<sup>*</sup> dat pro obecné vývojové sady  |Čtyři disky. Každý disk poskytuje minimálně 240 GB kapacity (SSD nebo HDD). Používají se všechny dostupné disky. |Čtyři disky. Každý disk poskytuje minimálně 400 GB kapacity (SSD nebo HDD). Používají se všechny dostupné disky. |
+| Diskové jednotky: data pro obecné vývojové sady<sup>*</sup>  |Čtyři disky. Každý disk poskytuje minimálně 240 GB kapacity (SSD nebo HDD). Používají se všechny dostupné disky. |Čtyři disky. Každý disk poskytuje minimálně 400 GB kapacity (SSD nebo HDD). Používají se všechny dostupné disky. |
 | Výpočetní služby: Procesor |Duální soket: 16 fyzických jader (celkem). |Duální soket: 20 fyzických jader (celkem). |
 | Výpočetní služby: Paměť |192 – GB RAM. |256 – GB RAM. |
 | Výpočetní služby: BIOS |Je zapnutá technologie Hyper-V (s podporou SLAT). |Je zapnutá technologie Hyper-V (s podporou SLAT). |
 | Síť: NIC |Certifikace systému Windows Server 2012 R2. Nejsou vyžadovány žádné specializované funkce. | Certifikace systému Windows Server 2012 R2. Nejsou vyžadovány žádné specializované funkce. |
 | Hardwarová certifikace loga |[Certifikováno pro Windows Server 2012 R2](https://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0). |[Certifikováno pro Windows Server 2016](https://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0). |
 
-<sup>*</sup> Pokud plánujete přidat spoustu [položek z webu Marketplace](../operator/azure-stack-create-and-publish-marketplace-item.md) z Azure, budete potřebovat víc než tuto doporučenou kapacitu.
+<sup>*</sup>Pokud plánujete přidat spoustu [položek z webu Marketplace](../operator/azure-stack-create-and-publish-marketplace-item.md) z Azure, budete potřebovat víc než tuto doporučenou kapacitu.
 
 ### <a name="hardware-notes"></a>Poznámky k hardwaru
 
@@ -42,17 +42,17 @@ Před nasazením Azure Stack Development Kit (ASDK) se ujistěte, že váš host
 * V režimu "průchozího" musí být nakonfigurován adaptér HBA RAID.
 * Jednotky HBA RAID – disky by měly být nakonfigurované jako jednotky RAID-0 na jednom disku.
 
-**Podporované kombinace typu sběrnice a média**
+**Podporované kombinace sběrnice a typů médií**
 
 * Pevný disk SATA
 * Pevný disk SAS
 * Pevný disk RAID
-* RAID SSD (Pokud je typ média neurčený nebo neznámý<sup>*</sup>)
+* RAID SSD (Pokud je typ média Neurčen/neznámý<sup>*</sup>)
 * SATA SSD + pevný disk SATA
 * SAS SSD + pevný disk SAS
 * NVMe
 
-<sup>*</sup> Řadiče RAID bez průchozí funkce nerozpoznají typ média. Tato řadiče označují pevný disk i SSD jako neurčený. V takovém případě se jednotka SSD používá jako trvalé úložiště namísto ukládání zařízení do mezipaměti. Proto můžete ASDK nasadit na tyto SSD.
+<sup>*</sup>Řadiče RAID bez průchozí funkce nerozpoznají typ média. Tato řadiče označují pevný disk i SSD jako neurčený. V takovém případě se jednotka SSD používá jako trvalé úložiště namísto ukládání zařízení do mezipaměti. Proto můžete ASDK nasadit na tyto SSD.
 
 **Příklad HBA**: LSI 9207-8i, LSI-9300-8i nebo LSI-9265-8i v předávacím režimu.
 
@@ -77,7 +77,7 @@ Příklad konfigurace se dvěma způsoby zrcadlení:
 ## <a name="operating-system"></a>Operační systém
 |  | **Požadavky** |
 | --- | --- |
-| **Verze operačního systému** |Windows Server 2016 nebo novější. Verze operačního systému není před zahájením nasazení kritická, protože se hostitelský počítač spouští do virtuálního pevného disku, který je součástí instalace Azure Stack. Operační systém a všechny požadované opravy jsou již do bitové kopie integrovány. Nepoužívejte žádné klíče k aktivaci žádné instance Windows serveru používané v ASDK. |
+| **Verze operačního systému** |Windows Server 2016 nebo novější Verze operačního systému není před zahájením nasazení kritická, protože se hostitelský počítač spouští do virtuálního pevného disku, který je součástí instalace Azure Stack. Operační systém a všechny požadované opravy jsou již do bitové kopie integrovány. Nepoužívejte žádné klíče k aktivaci žádné instance Windows serveru používané v ASDK. |
 
 > [!TIP]
 > Po instalaci operačního systému můžete pomocí [Nástroje pro kontrolu nasazení Azure Stack](https://gallery.technet.microsoft.com/Deployment-Checker-for-50e0f51b) ověřit, že hardware splňuje všechny požadavky.
@@ -93,7 +93,7 @@ Pokud vaše prostředí není připojené k Internetu, nebo nechcete používat 
 ### <a name="azure-active-directory-accounts"></a>Účty Azure Active Directory
 Pokud chcete nasadit Azure Stack pomocí účtu Azure AD, musíte před spuštěním skriptu PowerShellu pro nasazení připravit účet Azure AD. Tento účet se stal globálním správcem pro tenanta Azure AD. Slouží ke zřízení a delegování aplikací a instančních objektů pro všechny Azure Stack služby, které komunikují se službou Azure AD a Graph API. Používá se také jako vlastník předplatného výchozího poskytovatele (který můžete později změnit). Pomocí tohoto účtu se můžete přihlásit k portálu správce systému Azure Stack.
 
-1. Vytvořte účet Azure AD, který je správcem adresáře pro aspoň jednu službu Azure AD. Pokud už účet máte, můžete ho použít. V opačném případě můžete vytvořit zdarma na [https://azure.microsoft.com/free/](https://azure.microsoft.com/free/) (v Číně místo toho <https://go.microsoft.com/fwlink/?LinkID=717821>). Pokud plánujete pozdější [registraci Azure Stack v Azure](asdk-register.md), musíte mít také předplatné v tomto nově vytvořeném účtu.
+1. Vytvořte účet Azure AD, který je správcem adresáře pro aspoň jednu službu Azure AD. Pokud už účet máte, můžete ho použít. V opačném případě můžete vytvořit zdarma na [https://azure.microsoft.com/free/](https://azure.microsoft.com/free/) <https://go.microsoft.com/fwlink/?LinkID=717821> místo (v Číně). Pokud plánujete pozdější [registraci Azure Stack v Azure](asdk-register.md), musíte mít také předplatné v tomto nově vytvořeném účtu.
    
     Uložte tyto přihlašovací údaje pro použití jako správce služby. Tento účet může konfigurovat a spravovat cloudy prostředků, uživatelské účty, plány tenantů, kvóty a ceny. Na portálu můžou vytvářet cloudy webů, privátní cloudy virtuálních počítačů, vytvářet plány a spravovat předplatná uživatelů.
 1. Ve službě Azure AD vytvořte aspoň jeden testovací uživatelský účet, abyste se mohli k ASDK přihlašovat jako tenant.

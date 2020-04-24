@@ -8,10 +8,10 @@ ms.author: inhenkel
 ms.reviewer: wfayed
 ms.lastreviewed: 11/01/2019
 ms.openlocfilehash: 9f7ca860de1dd801ae35134683583a4ce8053dde
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "78368698"
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-hub-integrated-systems"></a>Rozhodnutí týkající se plánování nasazení na odpojení Azure pro integrované systémy centra Azure Stack
@@ -44,7 +44,7 @@ Služba Azure Stack hub byla navržena tak, aby fungovala nejlépe při připoje
 |Rozhraní příkazového řádku (CLI)|Postižené – rozhraní příkazového řádku má omezenou funkčnost pro ověřování a zřizování instančních objektů.|
 |Visual Studio – Cloud Discovery|Nespárované-Cloud Discovery budou buď zjišťovat různé cloudy, nebo nebudou fungovat vůbec.|
 |Visual Studio – AD FS|Nespárované – Visual Studio Enterprise a Visual Studio Code podporují ověřování AD FS.
-Telemetrická data|Nedostupná data telemetrie pro Azure Stack hub a jakékoli balíčky Galerie třetích stran, které jsou závislé na datech telemetrie.|
+Telemetrie|Nedostupná data telemetrie pro Azure Stack hub a jakékoli balíčky Galerie třetích stran, které jsou závislé na datech telemetrie.|
 |Certifikáty|Nedostupné – vyžaduje se připojení k Internetu pro služby seznam odvolaných certifikátů (CRL) a OSCP (Online Certificate Status Protocol) v kontextu protokolu HTTPS.|
 |Key Vault|Nespárované – běžný případ použití pro Key Vault je, že za běhu mají číst tajné kódy aplikace. V případě tohoto případu použití aplikace potřebuje instanční objekt v adresáři. Ve výchozím nastavení ve službě Azure AD mají standardní uživatelé (ne správci) standardně povolené přidávání instančních objektů. V Azure AD (pomocí AD FS) nejsou. Toto poškození vede mezní hodnoty do koncového prostředí, protože jedna z nich musí vždy projít správcem adresáře a přidat tak libovolnou aplikaci.
 

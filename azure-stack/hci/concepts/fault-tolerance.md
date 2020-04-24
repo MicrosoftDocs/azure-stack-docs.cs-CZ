@@ -6,10 +6,10 @@ ms.author: v-kedow
 ms.topic: article
 ms.date: 02/28/2020
 ms.openlocfilehash: 9ace3960b4c54461a4153c4997694e6d17ee4fd1
-ms.sourcegitcommit: a77dea675af6500bdad529106f5782d86bec6a34
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79025697"
 ---
 # <a name="fault-tolerance-and-storage-efficiency-in-azure-stack-hci"></a>Odolnost proti chybám a efektivita úložiště v Azure Stack HCI
@@ -97,7 +97,7 @@ Efektivita úložiště parity podporující zrcadlení je mezi tím, co byste s
 > [!IMPORTANT]
 > Pro většinu úloh citlivých na výkon doporučujeme použití zrcadlení. Další informace o tom, jak vyrovnávat výkon a kapacitu v závislosti na vašich úlohách, najdete v tématu [plánování svazků](/windows-server/storage/storage-spaces/plan-volumes#choosing-the-resiliency-type).
 
-## <a name="summary"></a>Shrnutí
+## <a name="summary"></a><a name="summary"></a>Souhrn
 
 Tato část shrnuje typy odolnosti dostupné v Prostory úložiště s přímým přístupem, minimální požadavky na škálování pro použití každého typu, počet chyb, které každý typ může tolerovat, a odpovídající efektivitu úložiště.
 
@@ -106,9 +106,9 @@ Tato část shrnuje typy odolnosti dostupné v Prostory úložiště s přímým
 |    Odolnost          |    Odolnost proti chybám       |    Efektivita úložiště      |
 |------------------------|----------------------------|----------------------------|
 |    Dvoucestný zrcadlový svazek      |    1                       |    50,0%                   |
-|    Třícestný zrcadlový svazek    |    2                       |    33,3 %                   |
+|    Třícestný zrcadlový svazek    |    2                       |    33,3%                   |
 |    Duální parita         |    2                       |    50,0%-80,0%           |
-|    Smíšený               |    2                       |    33,3%-80,0%           |
+|    Smíšené               |    2                       |    33,3%-80,0%           |
 
 ### <a name="minimum-scale-requirements"></a>Minimální požadavky na škálování
 
@@ -117,7 +117,7 @@ Tato část shrnuje typy odolnosti dostupné v Prostory úložiště s přímým
 |    Dvoucestný zrcadlový svazek      |    2                                |
 |    Třícestný zrcadlový svazek    |    3                                |
 |    Duální parita         |    4                                |
-|    Smíšený               |    4                                |
+|    Smíšené               |    4                                |
 
    >[!TIP]
    > Pokud nepoužíváte odolnost [skříně nebo stojanu](/windows-server/failover-clustering/fault-domains), počet domén selhání odkazuje na počet serverů. Počet jednotek na každém serveru nemá vliv na typy odolné proti chybám, které můžete použít, pokud splňujete minimální požadavky na Prostory úložiště s přímým přístupem.
@@ -126,7 +126,7 @@ Tato část shrnuje typy odolnosti dostupné v Prostory úložiště s přímým
 
 Tato tabulka ukazuje efektivitu úložiště pro duální paritu a kódy místní rekonstrukce v každé škále pro hybridní nasazení, které obsahují jak jednotky pevného disku (HDD), tak jednotky SSD (Solid-State Drive).
 
-|    Domény selhání      |    Rozložení           |    Výkon   |
+|    Domény selhání      |    Rozložení           |    Efektivita   |
 |-----------------------|---------------------|-----------------|
 |    2                  |    –                |    –            |
 |    3                  |    –                |    –            |
@@ -148,7 +148,7 @@ Tato tabulka ukazuje efektivitu úložiště pro duální paritu a kódy místn�
 
 Tato tabulka ukazuje efektivitu úložiště pro duální paritu a kódy místní rekonstrukce v každé škále pro všechna nasazení v rámci technologie Flash, která obsahují pouze jednotky SSD (Solid-State Drive). Rozložení parity může používat větší velikosti skupin a dosáhnout lepší efektivity úložiště v konfiguraci all-Flash.
 
-|    Domény selhání      |    Rozložení           |    Výkon   |
+|    Domény selhání      |    Rozložení           |    Efektivita   |
 |-----------------------|---------------------|-----------------|
 |    2                  |    –                |    –            |
 |    3                  |    –                |    –            |
@@ -166,7 +166,7 @@ Tato tabulka ukazuje efektivitu úložiště pro duální paritu a kódy místn�
 |    15                 |    RS 6 + 2           |    75,0%        |
 |    16                 |    LRC (12, 2, 1)   |    80,0%        |
 
-## <a name="examples"></a>4.6
+## <a name="examples"></a><a name="examples"></a>Příklady
 
 Pokud nemáte pouze dva servery, doporučujeme používat trojrozměrné zrcadlení a/nebo duální paritu, protože nabízejí lepší odolnost proti chybám. Konkrétně zajistí, aby všechna data zůstala bezpečná a nepřetržitě přístupná i v případě, že dvě domény selhání – s Prostory úložiště s přímým přístupem, což znamená dva servery, které jsou ovlivněné souběžnými chybami.
 

@@ -8,10 +8,10 @@ ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/23/2019
 ms.openlocfilehash: 9081464e05825cbd211f043818e841276a840303
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77704263"
 ---
 # <a name="deploy-a-template-using-powershell-in-azure-stack-hub"></a>Nasazení šablony pomocí PowerShellu v Azure Stackovém centru
@@ -27,7 +27,7 @@ Tento příklad používá rutiny prostředí PowerShell **AzureRM** a šablonu 
 
 1. Projděte si [úložiště AzureStack-Starter Templates](https://aka.ms/AzureStackGitHub) a vyhledejte šablonu **101-Simple-Windows-VM** . Uložte šablonu do tohoto umístění: `C:\templates\azuredeploy-101-simple-windows-vm.json`.
 2. Otevřete příkazový řádek PowerShellu se zvýšenými oprávněními.
-3. Pomocí uživatelského jména a hesla nahraďte `username` a `password` v následujícím skriptu a spusťte tento skript:
+3. Pomocí `username` uživatelského `password` jména a hesla nahraďte a v následujícím skriptu spusťte skript:
 
     ```powershell
     # Set deployment variables
@@ -48,7 +48,7 @@ Tento příklad používá rutiny prostředí PowerShell **AzureRM** a šablonu 
     ```
 
     >[!IMPORTANT]
-    > Pokaždé, když tento skript spustíte, zvyšte hodnotu parametru `$myNum`, aby se zabránilo přepsání nasazení.
+    > Pokaždé, když tento skript spustíte, zvyšte hodnotu `$myNum` parametru, aby nedošlo k přepsání nasazení.
 
 4. Otevřete portál centra Azure Stack, vyberte **Procházet**a pak vyberte **virtuální počítače** , abyste našli nový virtuální počítač (**myDeployment001**).
 

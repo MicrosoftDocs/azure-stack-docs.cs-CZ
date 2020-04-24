@@ -6,10 +6,10 @@ ms.author: v-kedow
 ms.topic: article
 ms.date: 02/28/2020
 ms.openlocfilehash: b195a55314935282f43f99bf02bda1d2bc298b54
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "78370406"
 ---
 # <a name="creating-volumes-in-azure-stack-hci"></a>Vytváření svazků v Azure Stack HCI
@@ -143,7 +143,7 @@ Pokud chcete vytvořit vrstvené svazky, odkazujte na tyto šablony vrstev pomoc
 New-Volume -FriendlyName "Volume4" -FileSystem CSVFS_ReFS -StoragePoolFriendlyName S2D* -StorageTierFriendlyNames Performance, Capacity -StorageTierSizes 300GB, 700GB
 ```
 
-Už jste hotovi! Pokud chcete vytvořit více než jeden svazek, opakujte postup podle potřeby.
+A je to hotové! Pokud chcete vytvořit více než jeden svazek, opakujte postup podle potřeby.
 
 ## <a name="next-steps"></a>Další kroky
 

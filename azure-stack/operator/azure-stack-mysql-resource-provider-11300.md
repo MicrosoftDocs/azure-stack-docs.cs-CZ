@@ -1,5 +1,5 @@
 ---
-title: 1\.1.30.0 zpráva k vydání verze poskytovatele prostředků MySQL centra pro Azure Stack
+title: 1.1.30.0 zpráva k vydání verze poskytovatele prostředků MySQL centra pro Azure Stack
 description: Podívejte se na poznámky k verzi a zjistěte, co je nového ve 1.1.30.0 aktualizace poskytovatele prostředků MySQL centra pro Azure Stack.
 author: bryanla
 ms.topic: article
@@ -8,17 +8,17 @@ ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 12/10/2019
 ms.openlocfilehash: 710b5d48e4ce906eb357c5e17cff4132bcd747ba
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77698925"
 ---
-# <a name="mysql-resource-provider-11300-release-notes"></a>Poznámky k verzi poskytovatele 1.1.30.0 prostředků MySQL
+# <a name="mysql-resource-provider-11300-release-notes"></a>Poznámky k verzi pro poskytovatele prostředků MySQL 1.1.30.0
 
 Tyto poznámky k verzi popisují vylepšení a známé problémy ve verzi poskytovatele prostředků MySQL verze 1.1.30.0.
 
-## <a name="build-reference"></a>Referenční informace o buildu
+## <a name="build-reference"></a>Odkaz na sestavení
 Stáhněte si binární soubor poskytovatele prostředků MySQL a potom spusťte samočinného extrahování a extrahujte obsah do dočasného adresáře. Poskytovatel prostředků má minimálně odpovídající sestavení centra Azure Stack. Minimální verze Azure Stack centra pro vydání, která je vyžadována pro instalaci této verze poskytovatele prostředků MySQL, je uvedena níže:
 
 > |Minimální verze centra Azure Stack|Verze poskytovatele prostředků MySQL|

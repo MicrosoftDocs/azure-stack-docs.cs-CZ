@@ -8,10 +8,10 @@ ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2020
 ms.openlocfilehash: 219689721c66bcf97bb776874a1b33e84fcfa6d0
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77698721"
 ---
 # <a name="mysql-resource-provider-maintenance-operations-in-azure-stack-hub"></a>Operace údržby poskytovatele prostředků MySQL v centru Azure Stack
@@ -158,11 +158,11 @@ Pokud používáte poskytovatele prostředků SQL a MySQL s integrovanými syst�
 
 ### <a name="known-issues"></a>Známé problémy
 
-**Problém**:<br>
+**Chybu**<br>
 Protokoly pro rotaci tajných klíčů nejsou automaticky shromažďovány, pokud při spuštění dojde k chybě skriptu pro otočení tajného klíče.
 
-**Odstraníte**<br>
-Pomocí rutiny Get-AzsDBAdapterLogs Shromážděte všechny protokoly poskytovatele prostředků, včetně AzureStack. DatabaseAdapter. SecretRotation. ps1_ *. log, uložené v C:\Logs.
+**Alternativní řešení:**<br>
+Pomocí rutiny Get-AzsDBAdapterLogs Shromážděte všechny protokoly poskytovatele prostředků, včetně AzureStack. DatabaseAdapter. SecretRotation. ps1_ *. log, uložené v C:\Logs..
 
 ## <a name="collect-diagnostic-logs"></a>Shromažďovat diagnostické protokoly
 
@@ -230,7 +230,7 @@ Ve výchozím nastavení je na virtuálním počítači adaptéru poskytovatele 
    
    ![Přejít na nastavení diagnostiky](media/azure-stack-mysql-resource-provider-maintain/mysqlrp-diagnostics-settings.png)
 
-4. Přidejte **Microsoft-AzureStack-DatabaseAdapter/Operational!\*** pro shromáždění protokolů provozních událostí poskytovatele prostředků MySQL.
+4. Přidejte **Microsoft-AzureStack-DatabaseAdapter/Operational\* !** pro shromáždění protokolů provozních událostí poskytovatele prostředků MySQL.
 
    ![Přidat protokoly událostí](media/azure-stack-mysql-resource-provider-maintain/mysqlrp-event-logs.png)
 

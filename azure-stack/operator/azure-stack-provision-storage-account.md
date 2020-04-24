@@ -8,17 +8,17 @@ ms.date: 1/22/2020
 ms.author: inhenkel
 ms.lastreviewed: 01/18/2019
 ms.openlocfilehash: 2d4085605fc37e95c3f68db074d4a517f5296a7a
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "78367909"
 ---
 # <a name="create-storage-accounts-in-azure-stack-hub"></a>Vytvoření účtů úložiště v centru Azure Stack
 
 Účty úložiště v centru Azure Stack zahrnují služby BLOB a Table a jedinečný obor názvů pro datové objekty úložiště. Ve výchozím nastavení jsou data ve vašem účtu dostupná pouze pro vás, vlastníka účtu úložiště.
 
-1. V počítači Azure Stackového centra pro ověření, přihlaste se k `https://adminportal.local.azurestack.external` jako [správce](../asdk/asdk-connect.md)a pak klikněte na **+ vytvořit prostředek** > **data + úložiště** > **účet úložiště**.
+1. V počítači Azure Stackového centra ověření, přihlaste `https://adminportal.local.azurestack.external` se k účtu jako [správce](../asdk/asdk-connect.md)a pak klikněte na **+ vytvořit prostředek** > **data + úložiště** > **účet**úložiště.
 
    ![Vytvoření účtu úložiště na portálu pro správu centra Azure Stack](media/azure-stack-provision-storage-account/image01.png)
 
@@ -33,5 +33,5 @@ ms.locfileid: "78367909"
 ### <a name="next-steps"></a>Další kroky
 
 - [Použití šablon Azure Resource Manageru](../user/azure-stack-arm-templates.md)
-- [Další informace o účtech Azure Storage](/azure/storage/common/storage-create-storage-account)
+- [Informace o účtech Azure Storage](/azure/storage/common/storage-create-storage-account)
 - [Stažení průvodce pro ověřování úložiště konzistentního s Azure Stack centra Azure](https://aka.ms/azurestacktp1doc)

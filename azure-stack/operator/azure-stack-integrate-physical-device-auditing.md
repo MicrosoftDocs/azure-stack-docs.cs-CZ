@@ -8,10 +8,10 @@ ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 06/10/2019
 ms.openlocfilehash: 99b195618841640b77a00b9d1bbab01d18b0e19e
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "78368052"
 ---
 # <a name="integrate-physical-device-auditing-with-your-azure-stack-hub-datacenter"></a>Integrace fyzického auditu zařízení s vaším centrem Azure Stackho centra
@@ -34,4 +34,4 @@ Cílová adresa syslog je volitelný parametr, který se shromažďuje pro nasaz
 
 ## <a name="next-steps"></a>Další kroky
 
-[Zásady údržby](azure-stack-servicing-policy.md)
+[Zásady obsluhy](azure-stack-servicing-policy.md)

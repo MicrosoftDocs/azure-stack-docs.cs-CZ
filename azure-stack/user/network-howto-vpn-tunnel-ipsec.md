@@ -8,10 +8,10 @@ ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/19/2019
 ms.openlocfilehash: 37083997e7b204002bf9451e8cfd72018e981fa1
-ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77636263"
 ---
 # <a name="how-to-create-a-vpn-tunnel-using-ipsec--in-azure-stack-hub"></a>Postup vytvoření tunelu VPN pomocí protokolu IPSEC v centru Azure Stack

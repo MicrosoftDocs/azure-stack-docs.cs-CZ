@@ -8,10 +8,10 @@ ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
 ms.openlocfilehash: 3c9c4fca443af34422d76bd30af4efe5de685936
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77695661"
 ---
 # <a name="deploy-asdk-from-the-command-line-using-powershell"></a>Nasazení ASDK z příkazového řádku pomocí PowerShellu
@@ -24,7 +24,7 @@ Připravte hostitelský počítač ASDK. Naplánujte svůj hardware, software a 
 
 Před nasazením ASDK zajistěte, aby konfigurace hardwaru, operačního systému, účtu a sítě hostitelského počítače ASDK splňovaly minimální požadavky pro instalaci ASDK.
 
-**[Projděte si požadavky a předpoklady pro nasazení ASDK](asdk-deploy-considerations.md)** .
+**[Projděte si požadavky a předpoklady pro nasazení ASDK](asdk-deploy-considerations.md)**.
 
 > [!TIP]
 > Po instalaci operačního systému můžete použít [Nástroj pro kontrolu požadavků na nasazení Azure Stack](https://gallery.technet.microsoft.com/Deployment-Checker-for-50e0f51b) , abyste ověřili, že hardware splňuje všechny požadavky.
@@ -36,7 +36,7 @@ Balíček pro nasazení si můžete stáhnout do hostitele ASDK nebo do jiného 
 
 **[Stažení a extrakce Azure Stack Development Kit (ASDK)](asdk-download.md)**
 
-## <a name="prepare-the-asdk-host-computer"></a>Příprava hostitelského počítače s ASDK
+## <a name="prepare-the-asdk-host-computer"></a>Připravte hostitelský počítač sady ASDK.
 Než budete moct nainstalovat ASDK na hostitelský počítač, musí být prostředí připravené a systém nakonfigurovaný tak, aby se spouštěl z VHD. Po provedení tohoto kroku se hostitel ASDK spustí do souboru Cloudbuilder. vhdx (virtuální pevný disk, který obsahuje spouštěcí operační systém a instalační soubory Azure Stack).
 
 Pomocí PowerShellu nakonfigurujte hostitelský počítač ASDK, který se má spustit z CloudBuilder. vhdx. Tyto příkazy konfigurují hostitelský počítač s ASDK pro spouštění ze stažených a extrahovaných Azure Stack Virtual doporučené (CloudBuilder. vhdx). Po dokončení těchto kroků restartujte hostitelský počítač ASDK.
@@ -45,13 +45,13 @@ Konfigurace hostitelského počítače ASDK pro spouštění z CloudBuilder. vhd
 
   1. Spusťte příkazový řádek jako správce.
   2. Spusťte `bcdedit /copy {current} /d "Azure Stack"`.
-  3. Kopírovat (CTRL + C) vrácenou hodnotu CLSID, včetně požadované složené závorky (`{}`). Tato hodnota se označuje jako `{CLSID}` a je potřeba ji vložit (CTRL + V nebo kliknout pravým tlačítkem) ve zbývajících krocích.
+  3. Kopírovat (CTRL + C) vrácenou hodnotu CLSID, včetně požadované složené závorky (`{}`). Tato hodnota se označuje jako `{CLSID}` a musí být vložena do (CTRL + V nebo na pravé straně) ve zbývajících krocích.
   4. Spusťte `bcdedit /set {CLSID} device vhd=[C:]\CloudBuilder.vhdx`.
   5. Spusťte `bcdedit /set {CLSID} osdevice vhd=[C:]\CloudBuilder.vhdx`.
   6. Spusťte `bcdedit /set {CLSID} detecthal on`.
   7. Spusťte `bcdedit /default {CLSID}`.
-  8. Pokud chcete ověřit nastavení spouštění, spusťte `bcdedit`.
-  9. Zajistěte, aby byl soubor CloudBuilder. vhdx přesunut do kořenového adresáře C:\. jednotka (`C:\CloudBuilder.vhdx`) a restartujte hostitelský počítač ASDK. Po restartování počítače hostitele ASDK by se měl spustit z pevného disku virtuálního počítače CloudBuilder. vhdx a zahájit ASDK nasazení.
+  8. Chcete-li ověřit nastavení spouštění `bcdedit`, spusťte příkaz.
+  9. Zajistěte, aby byl soubor CloudBuilder. vhdx přesunut do kořenového adresáře C:\. Drive (`C:\CloudBuilder.vhdx`) a restartujte hostitelský počítač ASDK. Po restartování počítače hostitele ASDK by se měl spustit z pevného disku virtuálního počítače CloudBuilder. vhdx a zahájit ASDK nasazení.
 
 > [!IMPORTANT]
 > Před restartováním počítače zajistěte, aby byl k hostitelskému počítači s ASDK přímý přístup fyzický nebo KVM. Po prvním spuštění virtuálního počítače se zobrazí výzva k dokončení instalačního programu systému Windows Server. Zadejte stejné přihlašovací údaje správce, které jste použili k přihlášení do hostitelského počítače ASDK.
@@ -96,12 +96,12 @@ Pokud chcete nasadit ASDK **pomocí AD FS jako poskytovatele identity**, spusťt
   .\InstallAzureStackPOC.ps1 -AdminPassword $adminpass.Password -UseADFS
   ```
 
-V AD FS nasazení se jako zprostředkovatel identity používá výchozí adresářová služba razítek. Výchozí účet, pomocí kterého se přihlašujete, je azurestackadmin@azurestack.locala heslo je nastavené na to, co jste zadali jako součást příkazů pro instalaci PowerShellu.
+V AD FS nasazení se jako zprostředkovatel identity používá výchozí adresářová služba razítek. Výchozí účet pro přihlášení je azurestackadmin@azurestack.locala heslo je nastavené na to, co jste zadali jako součást příkazů pro instalaci PowerShellu.
 
 Proces nasazení může trvat několik hodin, během kterých se systém automaticky restartuje. Po úspěšném nasazení se v konzole PowerShellu zobrazí: **dokončeno: akce nasazení**. Pokud se nasazení nepovede, zkuste skript znovu spustit pomocí parametru-rerunning. Nebo můžete [znovu nasadit ASDK](asdk-redeploy.md) od začátku.
 
 > [!IMPORTANT]
-> Pokud chcete monitorovat průběh nasazení po restartování hostitele ASDK, musíte se přihlásit jako AzureStack\AzureStackAdmin. Pokud se přihlásíte jako místní správce po restartování hostitelského počítače (a připojíte se k azurestack. místní doméně), neuvidíte průběh nasazení. Neprovádějte znovu nasazení, místo toho se přihlaste jako AzureStack\AzureStackAdmin se stejným heslem jako místní správce, aby se ověřilo, že je instalace spuštěná.
+> Pokud chcete monitorovat průběh nasazení po restartování hostitele ASDK, musíte se přihlásit jako AzureStack\AzureStackAdmin.. Pokud se přihlásíte jako místní správce po restartování hostitelského počítače (a připojíte se k azurestack. místní doméně), neuvidíte průběh nasazení. Neprovádějte znovu nasazení, místo toho se přihlaste jako AzureStack\AzureStackAdmin se stejným heslem jako místní správce, aby se ověřilo, že je instalace spuštěná.
 
 
 #### <a name="azure-ad-deployment-script-examples"></a>Příklady skriptu nasazení služby Azure AD
@@ -133,13 +133,13 @@ Pokud vaše prostředí nemá protokol DHCP povolený, musíte do jedné z výš
 
 |Parametr|Požadováno/volitelné|Popis|
 |-----|-----|-----|
-|AdminPassword|Požadováno|Nastaví účet místního správce a všechny ostatní uživatelské účty na všech virtuálních počítačích vytvořených jako součást nasazení ASDK. Toto heslo se musí shodovat s aktuálním místním heslem správce na hostiteli.|
-|InfraAzureDirectoryTenantName|Požadováno|Nastaví adresář tenanta. Pomocí tohoto parametru můžete zadat konkrétní adresář, ve kterém má účet Azure AD oprávnění ke správě více adresářů. Úplný název tenanta Azure AD ve formátu. onmicrosoft.com nebo název vlastní domény ověřený službou Azure AD.|
-|TimeServer|Požadováno|Pomocí tohoto parametru můžete zadat konkrétní časový server. Tento parametr se musí zadat jako platná časová IP adresa serveru. Názvy serverů nejsou podporované.|
-|InfraAzureDirectoryTenantAdminCredential|Volitelné|Nastaví Azure Active Directory uživatelské jméno a heslo. Tyto přihlašovací údaje Azure musí být ID organizace.|
-|InfraAzureEnvironment|Volitelné|Vyberte prostředí Azure, ve kterém chcete zaregistrovat toto Azure Stack nasazení. Mezi možnosti patří globální Azure, Azure-Čína, Azure-US státní správa.|
-|DNSForwarder|Volitelné|Server DNS se vytvoří jako součást nasazení Azure Stack. Pokud chcete počítačům v řešení umožnit překlad názvů mimo razítko, zadejte svůj stávající server DNS infrastruktury. Server DNS v rámci razítka přepošle neznámé požadavky na překlad názvů na tento server.|
-|Opětovné spuštění|Volitelné|Pomocí tohoto příznaku znovu spusťte nasazení. Použije se veškerý předchozí vstup. Opětovné zadání dříve zadaných dat není podporováno, protože je generováno několik jedinečných hodnot a použito pro nasazení.|
+|AdminPassword|Požaduje se|Nastaví účet místního správce a všechny ostatní uživatelské účty na všech virtuálních počítačích vytvořených jako součást nasazení ASDK. Toto heslo se musí shodovat s aktuálním místním heslem správce na hostiteli.|
+|InfraAzureDirectoryTenantName|Požaduje se|Nastaví adresář tenanta. Pomocí tohoto parametru můžete zadat konkrétní adresář, ve kterém má účet Azure AD oprávnění ke správě více adresářů. Úplný název tenanta Azure AD ve formátu. onmicrosoft.com nebo název vlastní domény ověřený službou Azure AD.|
+|TimeServer|Požaduje se|Pomocí tohoto parametru můžete zadat konkrétní časový server. Tento parametr se musí zadat jako platná časová IP adresa serveru. Názvy serverů nejsou podporované.|
+|InfraAzureDirectoryTenantAdminCredential|Nepovinné|Nastaví Azure Active Directory uživatelské jméno a heslo. Tyto přihlašovací údaje Azure musí být ID organizace.|
+|InfraAzureEnvironment|Nepovinné|Vyberte prostředí Azure, ve kterém chcete zaregistrovat toto Azure Stack nasazení. Mezi možnosti patří globální Azure, Azure-Čína, Azure-US státní správa.|
+|DNSForwarder|Nepovinné|Server DNS se vytvoří jako součást nasazení Azure Stack. Pokud chcete počítačům v řešení umožnit překlad názvů mimo razítko, zadejte svůj stávající server DNS infrastruktury. Server DNS v rámci razítka přepošle neznámé požadavky na překlad názvů na tento server.|
+|Znovu spustit|Nepovinné|Pomocí tohoto příznaku znovu spusťte nasazení. Použije se veškerý předchozí vstup. Opětovné zadání dříve zadaných dat není podporováno, protože je generováno několik jedinečných hodnot a použito pro nasazení.|
 
 
 ## <a name="perform-post-deployment-configurations"></a>Provedení konfigurací po nasazení

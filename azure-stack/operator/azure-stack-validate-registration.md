@@ -1,5 +1,5 @@
 ---
-title: Ověření registrace služby Azure
+title: Ověření registrace v Azure
 titleSuffix: Azure Stack Hub
 description: Přečtěte si, jak ověřit registraci Azure pomocí nástroje pro kontrolu připravenosti centra Azure Stack.
 author: IngridAtMicrosoft
@@ -9,13 +9,13 @@ ms.author: inhenkel
 ms.reviewer: unknown
 ms.lastreviewed: 03/23/2019
 ms.openlocfilehash: 131e4b186078e566c81a2b4aac3e34f3898213bc
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "78366479"
 ---
-# <a name="validate-azure-registration"></a>Ověření registrace služby Azure
+# <a name="validate-azure-registration"></a>Ověření registrace v Azure
 
 Pomocí nástroje pro kontrolu připravenosti centra Azure Stack (**AzsReadinessChecker**) ověřte, že vaše předplatné Azure je připravené k použití s centrem Azure Stack, než začnete s nasazením centra Azure Stack. Kontrola připravenosti ověřuje tyto údaje:
 
@@ -28,7 +28,7 @@ Další informace o registraci centra Azure Stack najdete v tématu [registrace 
 
 Stáhněte si nejnovější verzi **AzsReadinessChecker** z [Galerie prostředí PowerShell](https://aka.ms/AzsReadinessChecker).  
 
-## <a name="prerequisites"></a>Předpoklady
+## <a name="prerequisites"></a>Požadavky
 
 Vyžadují se tyto požadavky:
 
@@ -56,16 +56,16 @@ Vyžadují se tyto požadavky:
    Install-Module Microsoft.AzureStack.ReadinessChecker -Force
    ```
 
-2. Z příkazového řádku PowerShellu spusťte následující příkaz a nastavte `$registrationCredential` jako účet, který je vlastníkem předplatného. Nahraďte `subscriptionowner@contoso.onmicrosoft.com` účtem a názvem tenanta:
+2. Z příkazového řádku PowerShellu spusťte následující příkaz, který `$registrationCredential` nastavíte jako účet, který je vlastníkem předplatného. Nahraďte `subscriptionowner@contoso.onmicrosoft.com` názvem vašeho účtu a tenanta:
 
    ```powershell
    $registrationCredential = Get-Credential subscriptionowner@contoso.onmicrosoft.com -Message "Enter Credentials for Subscription Owner"
    ```
 
    > [!NOTE]
-   > Při použití sdílených služeb nebo předplatného IUR musíte jako CSP zadat přihlašovací údaje uživatele z příslušné služby Azure AD. Obvykle se bude podobat `subscriptionowner@iurcontoso.onmicrosoft.com`. Tento uživatel musí mít příslušné přihlašovací údaje, jak je popsáno v předchozím kroku.
+   > Při použití sdílených služeb nebo předplatného IUR musíte jako CSP zadat přihlašovací údaje uživatele z příslušné služby Azure AD. Obvykle se jedná o `subscriptionowner@iurcontoso.onmicrosoft.com`podobné. Tento uživatel musí mít příslušné přihlašovací údaje, jak je popsáno v předchozím kroku.
 
-3. Z příkazového řádku PowerShellu spusťte následující příkaz, který nastaví `$subscriptionID` jako předplatné Azure, které se má použít. Nahraďte `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` vlastním ID předplatného:
+3. Z příkazového řádku PowerShellu spusťte následující příkaz, který `$subscriptionID` nastavíte jako předplatné Azure, které se má použít. Nahraďte `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` vlastním ID předplatného:
 
    ```powershell
    $subscriptionID = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -73,7 +73,7 @@ Vyžadují se tyto požadavky:
 
 4. Z příkazového řádku PowerShellu spusťte následující příkaz, který spustí ověření předplatného:
 
-   - Zadejte hodnotu pro `AzureEnvironment` jako **AzureCloud**, **AzureGermanCloud**nebo **AzureChinaCloud**.  
+   - `AzureEnvironment` Zadejte hodnotu jako **AzureCloud**, **AzureGermanCloud**nebo **AzureChinaCloud**.  
    - Zadejte svého správce Azure AD a název tenanta Azure AD.
       ```powershell
       Invoke-AzsRegistrationValidation -RegistrationAccount $registrationCredential -AzureEnvironment AzureCloud -RegistrationSubscriptionID $subscriptionID
@@ -95,10 +95,10 @@ Pokaždé, když se ověřování spustí, protokoluje výsledky do **AzsReadine
 
 Tyto soubory vám můžou přispět ke sdílení stavu ověření před nasazením centra Azure Stack nebo prozkoumání problémů s ověřováním. Oba soubory uchovávají výsledky každé následné kontroly ověření. Sestava poskytne vašemu týmu nasazení potvrzení konfigurace identity. Soubor protokolu může pomoci týmu nasazení nebo podpory prozkoumat problémy s ověřením.
 
-Ve výchozím nastavení jsou oba soubory zapisovány do `C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json`.  
+Ve výchozím nastavení jsou oba soubory zapisovány `C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json`do.  
 
-- Na konci příkazového řádku Run použijte parametr `-OutputPath <path>` k určení jiného umístění sestavy.
-- Pomocí parametru `-CleanReport` na konci příkazu Run můžete vymazat informace o předchozích spuštěních nástroje z **AzsReadinessCheckerReport. JSON**.
+- Použijte `-OutputPath <path>` parametr na konci příkazového řádku pro spuštění k určení jiného umístění sestavy.
+- Pomocí `-CleanReport` parametru na konci příkazu Run můžete vymazat informace o předchozích spuštěních nástroje z **AzsReadinessCheckerReport. JSON**.
 
 Další informace najdete v tématu [Sestava ověřování centra Azure Stack](azure-stack-validation-report.md).
 

@@ -8,10 +8,10 @@ ms.author: inhenkel
 ms.reviewer: asganesh
 ms.lastreviewed: 11/07/2019
 ms.openlocfilehash: d55176266fc169b344e7bb43389a46657174b88e
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "78368822"
 ---
 # <a name="azure-stack-hub-datacenter-integration-walkthrough"></a>Názorný postup pro integraci centra Azure Stack hub
@@ -29,7 +29,7 @@ Tento článek popisuje kompletní proces integrace centra Azure Stack pro integ
 1. Zadání informací o předplatném během nasazení
 1. Vyřešit všechny dotazy týkající se poskytnutých dat
 
-# <a name="partner"></a>[Instituc](#tab/partner)
+# <a name="partner"></a>[Partner](#tab/partner)
 
 1. Doporučené možnosti řešení na základě požadavků zákazníků
 1. Navrhnout testování konceptu (pro ověření koncepce) 
@@ -68,7 +68,7 @@ Microsoft nebo partner řešení Azure Stack hub vám pomůže vyhodnotit vaše 
 
 [Capacity Planner centra Azure Stack](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) slouží k prozkoumání a analýze nejlepší hardwarové kapacity a konfigurace podle vašich potřeb. 
 
-## <a name="ordering"></a>Třídění
+## <a name="ordering"></a>Řazení
 Vaše organizace se zavazuje k zakoupení centra Azure Stack, zaznamenání smluv a nákupních objednávek a poskytuje požadavky na integraci do poskytovatele řešení.
 
 ## <a name="pre-deployment"></a>Před nasazením

@@ -8,10 +8,10 @@ ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/30/2019
 ms.openlocfilehash: 11104bc3cfd52b6e725420ad5fd71416c12a70a8
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77698534"
 ---
 # <a name="offer-a-network-solution-in-azure-stack-hub-with-fortinet-fortigate"></a>Nabídka síťového řešení v centru Azure Stack s FortiGate Fortinet
@@ -26,7 +26,7 @@ Další informace o FortiGate v Azure Marketplace najdete v tématu [Fortinet Fo
 
 2.  Vyberte **Správa Marketplace** a vyberte **Přidat z Azure**.
 
-3. Do vyhledávacího pole zadejte `Forti` a dvakrát klikněte > vyberte **Stáhnout** , abyste získali nejnovější dostupné verze těchto položek: 
+3. Do `Forti` vyhledávacího pole zadejte a dvakrát klikněte > vyberte **Stáhnout** a získejte nejnovější dostupné verze těchto položek: 
     - Fortinet FortiGate – virtuální počítač pro Azure BYOL
     - FortiGate NGFW – nasazení s jedním virtuálním počítačem (BYOL)
 

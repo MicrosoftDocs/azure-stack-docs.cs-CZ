@@ -8,10 +8,10 @@ ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/30/2019
 ms.openlocfilehash: d70c44b35612ffb7642a0ee79b5820dba7b66532
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77701883"
 ---
 # <a name="deploy-with-visual-studio-code-to-azure-stack-hub"></a>Nasazení pomocí Visual Studio Code pro Azure Stack centra
@@ -44,8 +44,8 @@ Schéma nasazení centra Azure Stack podporuje hybridní profily prostřednictv�
 Chcete-li nainstalovat rozšíření Správce prostředků Tools, použijte následující postup:
 
 1. Otevřete Visual Studio Code.
-2. Stisknutím kombinace kláves CTRL + SHIFT + X otevřete podokno rozšíření.
-3. Vyhledejte `Azure Resource Manager Tools`a pak vyberte **nainstalovat**.
+2. Stisknutím CTRL+SHIFT+X otevřete podokno Rozšíření.
+3. `Azure Resource Manager Tools`Vyhledejte a pak vyberte **nainstalovat**.
 4. Instalaci rozšíření dokončíte výběrem **Znovu načíst**.
 
 ## <a name="get-a-template"></a>Získat šablonu
@@ -64,9 +64,9 @@ Místo vytvoření zcela nové šablony otevřete šablonu z AzureStack-Start-Te
     ```bash  
     CD AzureStack-QuickStart-Templates
     ```
-5. Výběrem **otevřít** otevřete soubor v `/101-vm-windows-create/azuredeploy.json` v úložišti.
+5. Výběrem **otevřít** otevřete soubor `/101-vm-windows-create/azuredeploy.json` v úložišti.
 6. Uložte soubor do vlastního pracovního prostoru, nebo pokud jste vytvořili větev úložiště, můžete pracovat na místě.
-7. Když je soubor stále otevřený, změňte pole `$Schema` na `https://schema.management.azure.com/schemas/2019-03-01-hybrid/deploymentTemplate.json#`.
+7. Když je soubor stále otevřený, změňte `$Schema` pole na. `https://schema.management.azure.com/schemas/2019-03-01-hybrid/deploymentTemplate.json#`
 8. Můžete ověřit, zda schéma nasazení funguje tak, že vymažete hodnotu pole apiProfile.
     ```JSON  
     "apiProfile": ""

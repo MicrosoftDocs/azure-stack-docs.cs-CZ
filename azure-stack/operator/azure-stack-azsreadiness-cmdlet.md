@@ -1,5 +1,5 @@
 ---
-title: Reference k rutině Start-AzsReadinessChecker
+title: Referenční informace k rutině Start-AzsReadinessChecker
 description: Nápovědu k rutinám PowerShellu pro modul kontroly připravenosti centra Azure Stack
 author: IngridAtMicrosoft
 ms.topic: reference
@@ -8,13 +8,13 @@ ms.author: inhenkel
 ms.reviewer: unknown
 ms.lastreviewed: 05/09/2019
 ms.openlocfilehash: 0b81915cd7a95bede1edcbfa0f84ea8a5f38513d
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "78366056"
 ---
-# <a name="start-azsreadinesschecker-cmdlet-reference"></a>Reference k rutině Start-AzsReadinessChecker
+# <a name="start-azsreadinesschecker-cmdlet-reference"></a>Referenční informace k rutině Start-AzsReadinessChecker
 
 Modul: **Microsoft. AzureStack. ReadinessChecker**
 
@@ -170,7 +170,7 @@ $subjectHash = [ordered]@{"OU"="AzureStack";"O"="Microsoft";"L"="Redmond";"ST"="
 Start-AzsReadinessChecker -regionName $regionName -externalFQDN $externalFQDN -subject $subjectHash -IdentitySystem ADFS -requestType MultipleCSR
 ```
 
-V tomto příkladu `Start-AzsReadinessChecker` vygeneruje více žádostí o podepsání certifikátů, které jsou vhodné pro AD FS Azure Stack nasazení centra s názvem oblasti **východ** a externím plně kvalifikovaným názvem domény **azurestack.contoso.com**.
+V tomto příkladu vygeneruje více žádostí o podepsání certifikátů, které jsou vhodné pro AD FS Azure Stack centra pro nasazení, `Start-AzsReadinessChecker` s názvem oblasti **východ** a s externím plně kvalifikovaným názvem domény **azurestack.contoso.com**.
 
 ### <a name="example-validate-certificates"></a>Příklad: ověření certifikátů
 
@@ -179,7 +179,7 @@ $password = Read-Host -Prompt "Enter PFX Password" -AsSecureString
 Start-AzsReadinessChecker -CertificatePath .\Certificates\ -PfxPassword $password -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD
 ```
 
-V tomto příkladu je vyžadováno heslo PFX pro zabezpečení a `Start-AzsReadinessChecker` kontroluje **certifikáty** relativních složek pro certifikáty platné pro nasazení Azure AD s názvem oblasti **východ** a s externím plně kvalifikovaným názvem domény **azurestack.contoso.com**.
+V tomto příkladu je vyžadováno heslo PFX pro zabezpečení `Start-AzsReadinessChecker` a kontroluje **certifikáty** relativních složek pro certifikáty platné pro nasazení Azure AD s názvem oblasti **východ** a externím plně kvalifikovaným názvem domény **azurestack.contoso.com**.
 
 ### <a name="example-validate-certificates-with-deployment-data-deployment-and-support"></a>Příklad: ověření certifikátů s daty nasazení (nasazení a podpora)
 
@@ -188,7 +188,7 @@ $password = Read-Host -Prompt "Enter PFX Password" -AsSecureString
 Start-AzsReadinessChecker -CertificatePath .\Certificates\ -PfxPassword $password -DeploymentDataJSONPath .\deploymentdata.json
 ```
 
-V tomto příkladu nasazení a podpory se vyžaduje heslo PFX pro zabezpečení a `Start-AzsReadinessChecker` kontroluje **certifikáty** relativní složky pro certifikáty platné pro nasazení, kde se identita, oblast a externí plně kvalifikovaný název domény čtou ze souboru JSON dat nasazení vygenerovaného pro nasazení.
+V tomto příkladu nasazení a podpory se vyžaduje heslo PFX pro zabezpečení a `Start-AzsReadinessChecker` kontroluje **certifikáty** relativních složek pro certifikáty platné pro nasazení, kde se identita, oblast a externí plně kvalifikovaný název domény čtou ze souboru JSON dat nasazení vygenerovaného pro nasazení.
 
 ### <a name="example-validate-paas-certificates"></a>Příklad: ověření certifikátů PaaS
 
@@ -203,7 +203,7 @@ $PaaSCertificates = @{
 Start-AzsReadinessChecker -PaaSCertificates $PaaSCertificates -RegionName east -FQDN azurestack.contoso.com
 ```
 
-V tomto příkladu je zatřiďovací tabulka vytvořená s cestami a hesly pro každý PaaS certifikát. Certifikáty je možné vynechat. `Start-AzsReadinessChecker` kontroluje, zda všechny cesty PFX existují a ověřují je pomocí oblasti **východ** a externího plně kvalifikovaného názvu domény **azurestack.contoso.com**.
+V tomto příkladu je zatřiďovací tabulka vytvořená s cestami a hesly pro každý PaaS certifikát. Certifikáty je možné vynechat. `Start-AzsReadinessChecker`kontroluje, zda všechny cesty PFX existují, a ověřuje je pomocí oblasti **východ** a externího plně kvalifikovaného názvu domény **azurestack.contoso.com**.
 
 ### <a name="example-validate-paas-certificates-with-deployment-data"></a>Příklad: ověření certifikátů PaaS pomocí dat nasazení
 
@@ -218,7 +218,7 @@ $PaaSCertificates = @{
 Start-AzsReadinessChecker -PaaSCertificates $PaaSCertificates -DeploymentDataJSONPath .\deploymentdata.json
 ```
 
-V tomto příkladu je zatřiďovací tabulka vytvořená s cestami a hesly pro každý PaaS certifikát. Certifikáty je možné vynechat. `Start-AzsReadinessChecker` kontroluje, zda všechny cesty PFX existují, a ověří je pomocí oblasti a externího plně kvalifikovaného názvu domény načteného ze souboru JSON dat nasazení vygenerovaného pro nasazení.
+V tomto příkladu je zatřiďovací tabulka vytvořená s cestami a hesly pro každý PaaS certifikát. Certifikáty je možné vynechat. `Start-AzsReadinessChecker`kontroluje, zda všechny cesty PFX existují, a ověřuje je pomocí oblasti a externího plně kvalifikovaného názvu domény načtené ze souboru JSON dat nasazení vygenerovaného pro nasazení.
 
 ### <a name="example-validate-azure-identity"></a>Příklad: ověření identity Azure
 
@@ -228,7 +228,7 @@ $serviceAdminCredential = Get-Credential -Message "Enter Credentials for Service
 Start-AzsReadinessChecker -AADServiceAdministrator $serviceAdminCredential -AzureEnvironment "<environment name>" -AzureDirectoryTenantName azurestack.contoso.com
 ```
 
-V tomto příkladu jsou pro zabezpečení vyžadovány přihlašovací údaje účtu správce služby a `Start-AzsReadinessChecker` kontroluje, že účet Azure a Azure AD jsou platné pro nasazení služby Azure AD s názvem adresáře klienta **azurestack.contoso.com**.
+V tomto příkladu jsou pro zabezpečení vyžadovány přihlašovací údaje účtu správce služby a `Start-AzsReadinessChecker` kontroluje, že účet Azure a Azure AD platí pro nasazení Azure AD s názvem adresáře klienta **azurestack.contoso.com**.
 
 ### <a name="example-validate-azure-identity-with-deployment-data-deployment-support"></a>Příklad: ověření identity Azure pomocí dat nasazení (podpora nasazení)
 
@@ -237,7 +237,7 @@ $serviceAdminCredential = Get-Credential -Message "Enter Credentials for Service
 Start-AzsReadinessChecker -AADServiceAdministrator $serviceAdminCredential -DeploymentDataJSONPath .\contoso-deploymentdata.json
 ```
 
-V tomto příkladu jsou pro zabezpečení vyžadovány přihlašovací údaje účtu správce služby a `Start-AzsReadinessChecker` kontroluje, zda je účet Azure a služba Azure AD platné pro nasazení služby Azure AD, kde **AzureCloud** a **tenant** jsou čteny ze souboru JSON dat nasazení vygenerovaného pro nasazení.
+V tomto příkladu jsou pro zabezpečení vyžadovány přihlašovací údaje účtu správce služby a `Start-AzsReadinessChecker` kontroluje, že účet Azure a Azure AD platí pro nasazení služby Azure AD, kde **AzureCloud** a **tenant** jsou čteny ze souboru JSON dat nasazení vygenerovaného pro nasazení.
 
 ### <a name="example-validate-azure-registration"></a>Příklad: Ověření registrace Azure
 
@@ -248,7 +248,7 @@ $subscriptionID = "<subscription ID"
 Start-AzsReadinessChecker -RegistrationAccount $registrationCredential -RegistrationSubscriptionID $subscriptionID -AzureEnvironment "<environment name>"
 ```
 
-V tomto příkladu jsou pro zabezpečení vyžadovány přihlašovací údaje vlastníka předplatného a `Start-AzsReadinessChecker` potom provádí ověřování proti danému účtu a předplatnému, aby bylo zajištěno, že je možné ho použít pro registraci centra Azure Stack.
+V tomto příkladu jsou pro zabezpečení vyžadovány přihlašovací údaje vlastníka předplatného `Start-AzsReadinessChecker` a potom provádí ověřování proti danému účtu a předplatnému, aby bylo možné je použít k registraci centra Azure Stack.
 
 ### <a name="example-validate-azure-registration-with-deployment-data-deployment-team"></a>Příklad: Ověření registrace Azure pomocí dat nasazení (tým nasazení)
 
@@ -258,7 +258,7 @@ $subscriptionID = "<subscription ID>"
 Start-AzsReadinessChecker -RegistrationAccount $registrationCredential -RegistrationSubscriptionID $subscriptionID -DeploymentDataJSONPath .\contoso-deploymentdata.json
 ```
 
-V tomto příkladu jsou pro zabezpečení vyžadovány přihlašovací údaje vlastníka předplatného a `Start-AzsReadinessChecker` potom provádí ověřování proti danému účtu a předplatnému, aby bylo zajištěno, že je možné ho použít pro registraci Azure Stack centra, kde jsou další podrobnosti čteny ze souboru JSON dat nasazení vygenerovaného pro nasazení.
+V tomto příkladu jsou pro zabezpečení vyžadovány přihlašovací údaje vlastníka předplatného `Start-AzsReadinessChecker` a potom provádí ověřování proti danému účtu a předplatnému, aby bylo možné je použít k registraci centra Azure Stack, kde jsou další podrobnosti čteny ze souboru JSON dat nasazení vygenerovaného pro nasazení.
 
 ### <a name="example-importexport-pfx-package"></a>Příklad: import/export balíčku PFX
 
@@ -275,7 +275,7 @@ V tomto příkladu je pro zabezpečení vyžadováno heslo PFX. Soubor SSL. pfx 
 Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json
 ```
 
-V tomto příkladu tým nasazení nebo podpory obdrží sestavu připravenosti od zákazníka (Contoso) a pomocí `Start-AzsReadinessChecker` zobrazí stav provedených ověřování contoso.
+V tomto příkladu tým nasazení nebo podpory obdrží sestavu připravenosti od zákazníka (Contoso) a použije `Start-AzsReadinessChecker` se k zobrazení stavu provedených ověření, které provádí společnost Contoso.
 
 ### <a name="example-view-validation-report-summary-for-certificate-validation-only-deployment-and-support"></a>Příklad: zobrazení souhrnu sestavy ověření pouze pro ověření certifikátu (nasazení a podpora)
 
@@ -283,7 +283,7 @@ V tomto příkladu tým nasazení nebo podpory obdrží sestavu připravenosti o
 Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSections Certificate -Summary
 ```
 
-V tomto příkladu tým nasazení nebo podpory obdrží zprávu připravenost od zákazníka (Contoso) a používá `Start-AzsReadinessChecker` k zobrazení souhrnného stavu provedených provedení ověření certifikátu contoso.
+V tomto příkladu tým nasazení nebo podpory obdrží zprávu o připravenosti od zákazníka (Contoso) a používá `Start-AzsReadinessChecker` nástroj k zobrazení souhrnného stavu provedených provedení ověření certifikátu contoso.
 
 ## <a name="required-parameters"></a>Požadované parametry
 
@@ -299,7 +299,7 @@ Určuje název oblasti nasazení centra Azure Stack.
 |Přijmout vstup kanálu:      |False         |
 |Přijmout zástupné znaky: |False         |
 
-### <a name="-fqdn"></a>-FQDN
+### <a name="-fqdn"></a>– Plně kvalifikovaný název domény
 
 Určuje externí plně kvalifikovaný název domény pro nasazení centra Azure Stack a také aliasy jako **ExternalFQDN** a **ExternalDomainName**.
 
@@ -457,7 +457,7 @@ Určuje instanci služeb Azure, které obsahují účty, adresáře a odběry, k
 |Zadejte:                       |Řetězec   |
 |Poziční                   |Jmenovanou    |
 |Výchozí hodnota:              |Žádná     |
-|Platné hodnoty:               |'AzureCloud','AzureChinaCloud','AzureUSGovernment' |
+|Platné hodnoty:               |"AzureCloud", "AzureChinaCloud", "AzureUSGovernment" |
 |Přijmout vstup kanálu:      |False    |
 |Přijmout zástupné znaky: |False    |
 
@@ -479,7 +479,7 @@ Určuje ID předplatného registrace, které se má použít pro registraci cent
 
 |  |  |
 |----------------------------|---------|
-|Zadejte:                       |identifikátor GUID     |
+|Zadejte:                       |Identifikátor GUID     |
 |Poziční                   |Jmenovanou    |
 |Výchozí hodnota:              |Žádná     |
 |Přijmout vstup kanálu:      |False    |
@@ -493,7 +493,7 @@ Určuje cestu k sestavě připravenosti, výchozí hodnota je aktuální adresá
 |----------------------------|---------|
 |Zadejte:                       |Řetězec   |
 |Poziční                   |Jmenovanou    |
-|Výchozí hodnota:              |Vše      |
+|Výchozí hodnota:              |Všechny      |
 |Přijmout vstup kanálu:      |False    |
 |Přijmout zástupné znaky: |False    |
 
@@ -539,7 +539,7 @@ Určuje, jestli se má zobrazit jenom souhrn sestavy, vynechává se podrobnosti
 |----------------------------|---------|
 |Zadejte:                       |Řetězec   |
 |Poziční                   |Jmenovanou    |
-|Výchozí hodnota:              |Vše      |
+|Výchozí hodnota:              |Všechny      |
 |Platné hodnoty:               |"Certificate", "AzureRegistration", "AzureIdentity", "Jobs", "All" |
 |Přijmout vstup kanálu:      |False    |
 |Přijmout zástupné znaky: |False    |
@@ -581,7 +581,7 @@ Určuje vlastní cestu k uložení sestavy JSON připravenosti a podrobného sou
 |Přijmout vstup kanálu:      |False             |
 |Přijmout zástupné znaky: |False             |
 
-### <a name="-confirm"></a>– Potvrzení
+### <a name="-confirm"></a>-Confirm
 
 Před spuštěním rutiny zobrazí výzvu k potvrzení.
 
@@ -596,7 +596,7 @@ Před spuštěním rutiny zobrazí výzvu k potvrzení.
 
 ### <a name="-whatif"></a>-WhatIf
 
-Ukazuje, co se stane, když se rutina spustí. Rutina není spuštěná.
+Zobrazuje, co by se stalo při spuštění rutiny. Rutina není spuštěná.
 
 |  |  |
 |----------------------------|------------------|

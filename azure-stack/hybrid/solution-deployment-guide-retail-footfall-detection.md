@@ -8,10 +8,10 @@ ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
 ms.openlocfilehash: 3820d5483a0a7051ea51cc4ce7489d2cfe9f2d42
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77687491"
 ---
 # <a name="deploy-an-ai-based-footfall-detection-solution-using-azure-and-azure-stack-hub"></a>Nasazení řešení pro detekci Footfall založené na AI pomocí Azure a centra Azure Stack
@@ -53,7 +53,7 @@ Než začnete s tímto průvodcem nasazením, nezapomeňte:
 - Klíč předplatného služby Azure Cognitive Services Face API a adresa URL koncového bodu. Můžete získat [Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api) bezplatnou zkušební verzi. Případně postupujte podle pokynů v části [Vytvoření účtu Cognitive Services](/azure/cognitive-services/cognitive-services-apis-create-account).
 - Nainstalujte následující prostředky pro vývoj:
   - [Azure CLI 2.0](../user/azure-stack-version-profiles-azurecli2.md)
-  - [Docker CE](https://hub.docker.com/search/?type=edition&offering=community).
+  - [Docker CE](https://hub.docker.com/search/?type=edition&offering=community)
   - [Porter](https://porter.sh/). Pomocí Porter můžete nasazovat cloudové aplikace s využitím manifestů CNAB sad, které jsou pro vás k dispozici.
   - [Visual Studio Code](https://code.visualstudio.com/)
   - [Nástroje Azure IoT pro Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
@@ -64,7 +64,7 @@ Než začnete s tímto průvodcem nasazením, nezapomeňte:
 
 Nejprve pomocí rozhraní příkazového řádku Porter vygenerujte sadu přihlašovacích údajů a potom nasaďte cloudovou aplikaci.  
 
-1. Naklonujte nebo Stáhněte vzorový kód řešení z https://github.com/azure-samples/azure-intelligent-edge-patterns. 
+1. Naklonujte nebo Stáhněte ukázkový kód řešení https://github.com/azure-samples/azure-intelligent-edge-patternsz. 
 
 1. Porter vygeneruje sadu přihlašovacích údajů, které budou automatizovat nasazení aplikace. Před spuštěním příkazu pro generování přihlašovacích údajů se ujistěte, že máte k dispozici následující:
 
@@ -83,7 +83,7 @@ Nejprve pomocí rozhraní příkazového řádku Porter vygenerujte sadu přihla
 1. Porter také vyžaduje, aby bylo možné spustit sadu parametrů. Vytvořte textový soubor parametrů a zadejte následující páry název/hodnota. Pokud potřebujete pomoc s kteroukoli z požadovaných hodnot, požádejte správce centra Azure Stack.
 
    > [!NOTE] 
-   > Hodnota `resource suffix` se používá k zajištění, že prostředky nasazení mají v rámci Azure jedinečné názvy. Musí se jednat o jedinečný řetězec písmen a číslic, který nesmí být delší než 8 znaků.
+   > `resource suffix` Hodnota se používá k zajištění, že prostředky nasazení mají v rámci Azure jedinečné názvy. Musí se jednat o jedinečný řetězec písmen a číslic, který nesmí být delší než 8 znaků.
 
     ```
     azure_stack_tenant_arm="Your Azure Stack Hub tenant endpoint"
@@ -131,7 +131,7 @@ Pomocí rozhraní příkazového řádku Porter vygenerujte sadu přihlašovací
 1. Porter také vyžaduje, aby bylo možné spustit sadu parametrů. Vytvořte textový soubor parametrů a zadejte následující text. Pokud neznáte některé z požadovaných hodnot, požádejte správce centra Azure Stack.
 
     > [!NOTE]
-    > Hodnota `deployment suffix` se používá k zajištění, že prostředky nasazení mají v rámci Azure jedinečné názvy. Musí se jednat o jedinečný řetězec písmen a číslic, který nesmí být delší než 8 znaků.
+    > `deployment suffix` Hodnota se používá k zajištění, že prostředky nasazení mají v rámci Azure jedinečné názvy. Musí se jednat o jedinečný řetězec písmen a číslic, který nesmí být delší než 8 znaků.
 
     ```
     iot_hub_name="Name of the IoT Hub deployed"
@@ -146,13 +146,13 @@ Pomocí rozhraní příkazového řádku Porter vygenerujte sadu přihlašovací
     porter install footfall-camera –tag intelligentedge/footfall-camera-deployment:0.1.0 –creds footfall-camera-deployment –param-file "path-to-camera-parameters-file.txt"
     ```
 
-5. Ověřte, že se nasazení kamery dokončilo, zobrazením informačního kanálu kamery na `https://<camera-ip>:3000/`, kde `<camara-ip>` je IP adresa kamery. Tento krok může trvat až 10 minut.
+5. Ověřte, že se nasazení kamery dokončilo, zobrazením informačního kanálu `https://<camera-ip>:3000/`kamery v `<camara-ip>` umístění, kde se nachází IP adresa kamery. Tento krok může trvat až 10 minut.
 
 ## <a name="configure-azure-stream-analytics"></a>Konfigurace Azure Stream Analytics
 
 Teď, když data přecházejí z kamery Azure Stream Analytics, musíme je ručně autorizovat, aby komunikovala s Power BI.
 
-1.  Z Azure Portal otevřít **všechny prostředky**a úlohu *proces-footfall\[yoursuffix\]* .
+1.  Z Azure Portal otevřít **všechny prostředky**a úlohu *proces\[-Footfall yoursuffix\] * .
 
 2.  V podokně úlohy Stream Analytics v části **Topologie úlohy** vyberte možnost **Výstupy**.
 

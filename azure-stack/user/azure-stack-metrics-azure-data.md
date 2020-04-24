@@ -7,10 +7,10 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.lastreviewed: 12/01/2019
 ms.openlocfilehash: 9abcc23505279f417e53f896e58e76dd9205691f
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77702325"
 ---
 # <a name="use-azure-monitor-on-azure-stack-hub"></a>Použití Azure Monitor v centru Azure Stack
@@ -53,7 +53,7 @@ Poskytovatel prostředků **Microsoft. COMPUTE** v Azure Stack hub zahrnuje:
 Aplikace můžou běžet v operačním systému virtuálního počítače, který běží s poskytovatelem prostředků **Microsoft. COMPUTE** . Tyto aplikace a virtuální počítače emitují svoji vlastní sadu protokolů a metrik. Azure Monitor pro shromažďování většiny metrik a protokolů na úrovni aplikace spoléhá na rozšíření Azure Diagnostics (Windows nebo Linux).
 
 Mezi typy měr patří:
- - Čítače výkonnosti
+ - Čítače výkonu
  - Protokoly aplikací
  - Protokoly událostí Windows
  - Zdroj události .NET
@@ -88,7 +88,7 @@ Protokol aktivit je stejný pro výpočetní prostředky.
 
 ### <a name="uses-for-monitoring-data"></a>Používá se pro monitorování dat.
 
-**Ukládání a archivace**  
+**Uchovávání a archivace**  
 
 Některá data monitorování se už v Azure Monitoru uchovávají a jsou po určitou dobu dostupná. 
  - Metriky se uchovávají po dobu 90 dnů. 

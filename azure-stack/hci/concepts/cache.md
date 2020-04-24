@@ -6,10 +6,10 @@ ms.author: v-kedow
 ms.topic: article
 ms.date: 02/28/2020
 ms.openlocfilehash: f1fc40a6475b8e51a063491cc120e2c4236cbeea
-ms.sourcegitcommit: a77dea675af6500bdad529106f5782d86bec6a34
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79025664"
 ---
 # <a name="understanding-the-cache-in-azure-stack-hci"></a>Princip mezipaměti v Azure Stack HCI
@@ -71,7 +71,7 @@ Hybridní nasazení mají za cíl vyvážit výkon a kapacitu nebo maximalizovat
 
 ## <a name="cache-drives-are-selected-automatically"></a>Automaticky se vyberou jednotky mezipaměti.
 
-V nasazení s více typy jednotek Prostory úložiště s přímým přístupem automaticky používá všechny jednotky "nejrychlejší" typ pro ukládání do mezipaměti. Zbývající jednotky se použijí pro kapacitu.
+V nasazení s více typy jednotek Prostory úložiště s přímým přístupem automaticky používá všechny jednotky "nejrychlejší" typ pro ukládání do mezipaměti. Zbývající jednotky se použijí k ukládání.
 
 Typ "nejrychlejší" je určen podle následující hierarchie.
 
@@ -99,7 +99,7 @@ Chování mezipaměti je určeno automaticky na základě typů jednotek, které
 
 Při ukládání do mezipaměti pro jednotky SSD (NVMe nebo SSD) se do mezipaměti ukládají pouze zápisy. Tím se snižuje kapacita jednotek kapacit, protože mnoho zápisů a opakovaných zápisů se může v mezipaměti považovat za nepotřebnou dobu, čímž se zkrátí kumulativní provoz na kapacitní jednotky a prodlouží se jejich životnost. Z tohoto důvodu doporučujeme pro mezipaměť vybrat [vyšší životnost a jednotky optimalizované pro zápis](http://whatis.techtarget.com/definition/DWPD-device-drive-writes-per-day) . Kapacitní jednotky mohou rozumně snížit životnost zápisu.
 
-Vzhledem k tomu, že čtení nijak významně neovlivňuje životnost blesku a protože jednotky SSD (Solid-State Drive Universal) nabízejí nízkou latenci čtení, čtení nejsou uloženy v mezipaměti: jsou obsluhovány přímo z kapacitních jednotek (s výjimkou případů, kdy byla data zapsána v poslední době). zatím byl rozstupný. Díky tomu může být mezipaměť výhradně vyhrazena pro zápis a maximalizace jejich efektivity.
+Vzhledem k tomu, že čtení nijak významně neovlivňuje životnost blesku a protože jednotky SSD (Solid-State Drive) všeobecně nabízejí nízkou latenci čtení, čtení nejsou uloženy v mezipaměti: jsou obsluhovány přímo z kapacitních jednotek (s výjimkou případů, kdy byla data dříve vytvořena). Díky tomu může být mezipaměť výhradně vyhrazena pro zápis a maximalizace jejich efektivity.
 
 Výsledkem je, že se vlastnosti zápisu, jako je latence zápisu, načtou jednotkami mezipaměti, zatímco charakteristiky čtení jsou vydávány jednotkami kapacity. Obě jsou konzistentní, předvídatelné a uniformní.
 
@@ -122,8 +122,8 @@ Tato tabulka shrnuje, které jednotky se používají pro ukládání do mezipam
 | Všechny NVMe         | Žádné (volitelné: ruční konfigurace) | NVMe            | Pouze pro zápis (Pokud je nakonfigurován)  |
 | Všechny jednotky SSD          | Žádné (volitelné: ruční konfigurace) | SSD             | Pouze pro zápis (Pokud je nakonfigurován)  |
 | NVMe + SSD       | NVMe                                | SSD             | Jen pro zápis                  |
-| NVMe + HDD       | NVMe                                | HDD             | Čtení a zápis                |
-| SSD + HDD        | SSD                                 | HDD             | Čtení a zápis                |
+| NVMe + HDD       | NVMe                                | HDD             | Čtení + zápis                |
+| SSD + HDD        | SSD                                 | HDD             | Čtení + zápis                |
 | NVMe + SSD + HDD | NVMe                                | SSD + HDD       | Čtení + zápis pro pevný disk, pouze pro zápis pro SSD  |
 
 ## <a name="server-side-architecture"></a>Architektura na straně serveru
@@ -207,7 +207,7 @@ Potom zadejte následující příkaz, který určuje model zařízení mezipam�
 Enable-ClusterS2D -CacheDeviceModel "FABRIKAM NVME-1710"
 ```
 
-Můžete ověřit, jestli se jednotky, které jste chtěli použít pro ukládání do mezipaměti, spuštěním příkazu **Get-fyzický disk** v PowerShellu a ověřením, že jeho vlastnost **použití** říká **"Deník"** .
+Můžete ověřit, jestli se jednotky, které jste chtěli použít pro ukládání do mezipaměti, spuštěním příkazu **Get-fyzický disk** v PowerShellu a ověřením, že jeho vlastnost **použití** říká **"Deník"**.
 
 ### <a name="manual-deployment-possibilities"></a>Možnosti ručního nasazení
 
@@ -238,7 +238,7 @@ CacheModeHDD : ReadWrite
 CacheModeSSD : WriteOnly
 ```
 
-Pak postupujte takto:
+Pak proveďte tyto akce:
 
 ```PowerShell
 Set-ClusterStorageSpacesDirect -CacheModeSSD ReadWrite

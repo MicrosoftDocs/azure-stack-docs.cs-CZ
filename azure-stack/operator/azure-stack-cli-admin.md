@@ -7,10 +7,10 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.lastreviewed: 05/16/2019
 ms.openlocfilehash: 8ecb1fde96c4d53bd94c57199635af21d7cf7196
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77700863"
 ---
 # <a name="enable-azure-cli-for-azure-stack-hub-users"></a>Povolení Azure CLI pro uživatele centra Azure Stack
@@ -50,7 +50,7 @@ certutil -encode root.cer root.pem
 
 Operátoři centra Azure Stack by měli nastavit veřejně přístupný koncový bod, který hostuje soubor s aliasem virtuálního počítače. Soubor aliasu virtuálního počítače je soubor JSON, který poskytuje běžný název pro obrázek. Název použijete při nasazení virtuálního počítače jako parametru Azure CLI.  
 
-Před přidáním položky do souboru s aliasem se ujistěte, že jste [stáhli obrázky z Azure Marketplace](azure-stack-download-azure-marketplace-item.md) nebo jste [publikovali vlastní image](azure-stack-add-vm-image.md). Pokud publikujete vlastní image, poznamenejte si informace o vydavateli, nabídce, SKU a verzi, které jste zadali během publikování. Pokud se jedná o image z webu Marketplace, můžete zobrazit informace pomocí rutiny `Get-AzureVMImage`.  
+Před přidáním položky do souboru s aliasem se ujistěte, že jste [stáhli obrázky z Azure Marketplace](azure-stack-download-azure-marketplace-item.md) nebo jste [publikovali vlastní image](azure-stack-add-vm-image.md). Pokud publikujete vlastní image, poznamenejte si informace o vydavateli, nabídce, SKU a verzi, které jste zadali během publikování. Pokud se jedná o image z webu Marketplace, můžete si informace zobrazit pomocí `Get-AzureVMImage` rutiny.  
 
 K dispozici je [ukázkový soubor aliasu](https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json) s mnoha běžnými aliasy obrázků. Můžete ho použít jako výchozí bod. Tento soubor hostovat v prostoru, kde se k němu klienti rozhraní příkazového řádku můžou připojit. Jedním ze způsobů je hostovat soubor v účtu BLOB Storage a sdílet adresu URL s uživateli:
 

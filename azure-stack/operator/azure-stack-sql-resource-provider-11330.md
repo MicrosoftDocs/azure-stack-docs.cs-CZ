@@ -1,5 +1,5 @@
 ---
-title: 1\.1.33.0 zpráva k vydání verze poskytovatele prostředků SQL centra pro Azure Stack
+title: 1.1.33.0 zpráva k vydání verze poskytovatele prostředků SQL centra pro Azure Stack
 titleSuffix: Azure Stack Hub
 description: Prohlédněte si poznámky k vydání pro poskytovatele prostředků SQL centra Azure Stack 1.1.33.0 Update.
 author: bryanla
@@ -9,17 +9,17 @@ ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/09/2020
 ms.openlocfilehash: 4aefe4e01950c7891bedb43eb1245f10608d1709
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77697429"
 ---
-# <a name="sql-resource-provider-11330-release-notes"></a>1\.1.33.0 poznámky k verzi poskytovatele prostředků SQL
+# <a name="sql-resource-provider-11330-release-notes"></a>1.1.33.0 poznámky k verzi poskytovatele prostředků SQL
 
 Tyto poznámky k verzi popisují vylepšení a známé problémy ve verzi 1.1.33.0 poskytovatele prostředků SQL.
 
-## <a name="build-reference"></a>Referenční informace o buildu
+## <a name="build-reference"></a>Odkaz na sestavení
 Stáhněte si binární soubor poskytovatele prostředků SQL a potom spusťte samočinný extrahování a extrahujte obsah do dočasného adresáře. Poskytovatel prostředků má minimálně odpovídající sestavení centra Azure Stack. Minimální verze Azure Stack centra pro vydání, která je vyžadována pro instalaci této verze poskytovatele prostředků SQL, je uvedena níže:
 
 > |Minimální verze centra Azure Stack|Verze zprostředkovatele prostředků SQL|
@@ -41,7 +41,7 @@ Tato verze poskytovatele prostředků SQL centra Azure Stack zahrnuje následuj�
 
 - **Předchozí nasazení poskytovatele prostředků SQL (1.1.30.0) by mohlo selhat, pokud není povolený protokol TLS 1,2**. Aktualizovaný poskytovatel prostředků SQL 1.1.33.0, aby povoloval TLS 1,2 při nasazování poskytovatele prostředků, aktualizaci poskytovatele prostředků nebo střídání tajných klíčů.
 
-- **Rotace tajného kódu poskytovatele prostředků SQL se nezdařila**. Při střídání tajných klíčů došlo k problému, který má za následek následující kód chyby: `New-AzureRmResourceGroupDeployment - Error: Code=InvalidDeploymentParameterValue; Message=The value of deployment parameter 'StorageAccountBlobUri' is null.`
+- **Rotace tajného kódu poskytovatele prostředků SQL se nezdařila**. Při střídání tajných klíčů došlo k problému, který má za následek následující kód chyby:`New-AzureRmResourceGroupDeployment - Error: Code=InvalidDeploymentParameterValue; Message=The value of deployment parameter 'StorageAccountBlobUri' is null.`
 
 ## <a name="known-issues"></a>Známé problémy
 

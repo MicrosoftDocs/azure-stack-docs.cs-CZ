@@ -8,10 +8,10 @@ ms.author: inhenkel
 ms.reviewer: unknown
 ms.lastreviewed: 06/03/2019
 ms.openlocfilehash: 79380d40282757e704f9dc0ef3bdaf977253ba14
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77703345"
 ---
 # <a name="add-a-new-azure-stack-hub-user-account-in-active-directory-federation-services-ad-fs"></a>Přidání nového uživatelského účtu centra Azure Stack v Active Directory Federation Services (AD FS) (AD FS)
@@ -26,8 +26,8 @@ Modul snap-in **Uživatelé a počítače služby Active Directory** můžete po
    > [!TIP]
    > Položku *adresář-Domain* nahraďte doménou, která odpovídá vašemu adresáři. 
 
-3. Vyberte **Uživatelé a počítače služby Active Directory** > *Directory-Domain* > **Users**.
-4. Vyberte **akci** > **Nový** > **uživatel**.
+3.  > Vyberte adresář **Uživatelé a počítače služby Active Directory***– Domain* > **Users**.
+4. Vyberte **Akce** > **Nový** > **uživatel**.
 5. V novém objektu – uživatel zadejte podrobnosti o uživateli. Vyberte **Další**.
 6. Zadejte a potvrďte heslo.
 7. Kliknutím na tlačítko **Další** dokončete hodnoty. Kliknutím na tlačítko **Dokončit** vytvořte uživatele.

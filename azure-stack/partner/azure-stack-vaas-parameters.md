@@ -10,10 +10,10 @@ ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: a9fce93fb66793ec933d2a8182811bd0577a2588
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79293997"
 ---
 # <a name="workflow-common-parameters-for-azure-stack-hub-validation-as-a-service"></a>Společné parametry pracovního postupu pro ověřování centra Azure Stack jako služba
@@ -47,7 +47,7 @@ Parametry prostředí popisují Azure Stack centrálního prostředí v rámci t
 
 ### <a name="locate-values-in-the-ece-configuration-file"></a>Vyhledat hodnoty v konfiguračním souboru EHK
 
-Hodnoty parametrů prostředí se taky dají ručně umístit do **konfiguračního souboru EHK** , který najdete na adrese `C:\EceStore\403314e1-d945-9558-fad2-42ba21985248\80e0921f-56b5-17d3-29f5-cd41bf862787` DVM.
+Hodnoty parametrů prostředí se taky dají ručně umístit do **konfiguračního souboru EHK** , který najdete `C:\EceStore\403314e1-d945-9558-fad2-42ba21985248\80e0921f-56b5-17d3-29f5-cd41bf862787` na DVM.
 
 ## <a name="test-parameters"></a>Parametry testu
 
@@ -56,8 +56,8 @@ Mezi běžné parametry testu patří citlivé informace, které nelze uložit v
 Parametr    | Popis
 -------------|-----------------
 Správce klienta uživatel                            | Správce tenanta Azure Active Directory (Azure AD), který byl zřízen správcem služby v adresáři AAD. Tento uživatel provádí akce na úrovni tenanta, jako je nasazení šablon, k nastavení prostředků (virtuálních počítačů, účtů úložiště atd.) a provádění úloh. Podrobnosti o zřízení účtu tenanta najdete v tématu [Přidání nového tenanta centra Azure Stack](../operator/azure-stack-add-new-user-aad.md).
-Uživatel správce služeb             | Správce Azure AD pro tenanta adresáře Azure AD zadaný během nasazování centra Azure Stack. Vyhledejte `AADTenant` v konfiguračním souboru EHK a vyberte hodnotu v prvku `UniqueName`.
-Uživatel s oprávněním správce cloudu               | Azure Stack účet správce domény centra správy (například `contoso\cloudadmin`). Vyhledejte `User Role="CloudAdmin"` v konfiguračním souboru EHK a vyberte hodnotu v prvku `UserName`.
+Uživatel správce služeb             | Správce Azure AD pro tenanta adresáře Azure AD zadaný během nasazování centra Azure Stack. `AADTenant` V KONFIGURAČNÍM souboru EHK vyhledejte a vyberte hodnotu v `UniqueName` elementu.
+Uživatel s oprávněním správce cloudu               | Azure Stack účet správce domény centra (například `contoso\cloudadmin`). `User Role="CloudAdmin"` V KONFIGURAČNÍM souboru EHK vyhledejte a vyberte hodnotu v `UserName` elementu.
 Připojovací řetězec diagnostiky          | Adresa URL SAS na účet Azure Storage, do kterého budou při spuštění testu kopírovány diagnostické protokoly. Pokyny k vygenerování adresy URL SAS najdete v tématu [generování připojovacího řetězce pro diagnostiku](#generate-the-diagnostics-connection-string). |
 
 > [!IMPORTANT]

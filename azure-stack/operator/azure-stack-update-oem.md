@@ -8,10 +8,10 @@ ms.author: inhenkel
 ms.lastreviewed: 03/04/2020
 ms.reviewer: ppacent
 ms.openlocfilehash: 982c62ad37d2d19dd3273c7ece3f20ff725ce6b6
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "78367246"
 ---
 # <a name="apply-azure-stack-hub-original-equipment-manufacturer-oem-updates"></a>Použití aktualizací pro výrobce OEM (Original Equipment Manufacturer) od centra Azure Stack
@@ -34,12 +34,12 @@ Tato část obsahuje kontaktní informace OEM a odkazy na referenční materiál
 
 | Hardwarový partner | Oblast | zprostředkovatele identity |
 |------------------|--------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Cisco | Vše | [Příručka k provoznímu systému Cisco Integrated System for Microsoft Azure Stack hub](https://aka.ms/aa708e2)<br><br>[UCS řady UCS – připojit serverový software spravovaný přes UCS](https://aka.ms/aa700rq) |
-| Dell EMC | Vše | [Cloud pro Microsoft Azure Stack hub 14G (účet a přihlášení je povinné)](https://support.emc.com/downloads/44615_Cloud-for-Microsoft-Azure-Stack-14G)<br><br>[Cloud pro Microsoft Azure Stack hub 13G (účet a přihlášení je povinné)](https://support.emc.com/downloads/42238_Cloud-for-Microsoft-Azure-Stack-13G) |
+| Cisco | Všechny | [Příručka k provoznímu systému Cisco Integrated System for Microsoft Azure Stack hub](https://aka.ms/aa708e2)<br><br>[UCS řady UCS – připojit serverový software spravovaný přes UCS](https://aka.ms/aa700rq) |
+| Dell EMC | Všechny | [Cloud pro Microsoft Azure Stack hub 14G (účet a přihlášení je povinné)](https://support.emc.com/downloads/44615_Cloud-for-Microsoft-Azure-Stack-14G)<br><br>[Cloud pro Microsoft Azure Stack hub 13G (účet a přihlášení je povinné)](https://support.emc.com/downloads/42238_Cloud-for-Microsoft-Azure-Stack-13G) |
 | Fujitsu | Japonsko | [Oddělení podpory spravované služby Fujitsu (vyžaduje se účet a přihlášení)](https://eservice.fujitsu.com/supportdesk-web/) |
-|  | & v oblasti EMEA | [Společnosti Fujitsu podporují IT produkty a systémy](https://support.ts.fujitsu.com/IndexContact.asp?lng=COM&ln=no&LC=del) |
-| HPE | Vše | [HPE pro Centrum Microsoft Azure Stack](http://www.hpe.com/info/MASupdates) |
-| Lenovo | Vše | [Nejlepší recepty ThinkAgile SXM](https://datacentersupport.lenovo.com/us/en/solutions/ht505122)
+|  | & V OBLASTI EMEA | [Společnosti Fujitsu podporují IT produkty a systémy](https://support.ts.fujitsu.com/IndexContact.asp?lng=COM&ln=no&LC=del) |
+| HPE | Všechny | [HPE pro Centrum Microsoft Azure Stack](http://www.hpe.com/info/MASupdates) |
+| Lenovo | Všechny | [Nejlepší recepty ThinkAgile SXM](https://datacentersupport.lenovo.com/us/en/solutions/ht505122)
 | Wortmann |  | [Balíček OEM/firmware](https://aka.ms/AA6z600)<br>[dokumentace centra Terra Azure Stack (včetně jednotky FRU)](https://aka.ms/aa6zktc)
 
 ## <a name="apply-oem-updates"></a>Použít aktualizace OEM
@@ -58,7 +58,7 @@ Použijte balíčky OEM pomocí následujících kroků:
 
 ## <a name="configure-hardware-vendor-vm"></a>Konfigurace virtuálního počítače dodavatele hardwaru
 
-Někteří dodavatelé hardwaru můžou vyžadovat, aby virtuální počítač mohl pomáhat s procesem aktualizace OEM. Váš dodavatel hardwaru bude zodpovědný za vytváření těchto virtuálních počítačů a dokumentování, pokud při spuštění rutiny **set-OEMExternalVM** vyžadujete `ProxyVM` nebo `HardwareManager` **VMType** , a také to, které přihlašovací údaje by se měly používat pro **přihlašovací údaje**. Po vytvoření virtuálních počítačů je nakonfigurujte pomocí **set-OEMExternalVM** z privilegovaného koncového bodu.
+Někteří dodavatelé hardwaru můžou vyžadovat, aby virtuální počítač mohl pomáhat s procesem aktualizace OEM. Dodavatel hardwaru bude zodpovědný za vytváření těchto virtuálních počítačů a dokumentování, pokud při spuštění `ProxyVM` `HardwareManager` rutiny **set-OEMExternalVM** vyžadujete nebo **VMType** , a také to, které přihlašovací údaje se mají použít pro **přihlašovací údaje**. Po vytvoření virtuálních počítačů je nakonfigurujte pomocí **set-OEMExternalVM** z privilegovaného koncového bodu.
 
 Další informace o privilegovaném koncovém bodu v centru Azure Stack najdete v tématu [použití privilegovaného koncového bodu v centru Azure Stack](azure-stack-privileged-endpoint.md).
 
@@ -70,7 +70,7 @@ Další informace o privilegovaném koncovém bodu v centru Azure Stack najdete 
     -ConfigurationName PrivilegedEndpoint -Credential $cred
     ```
 
-2. Nakonfigurujte virtuální počítač dodavatele hardwaru pomocí rutiny **set-OEMExternalVM** . Rutina ověří IP adresu a přihlašovací údaje pro **VMType** `ProxyVM`. **VMType** `HardwareManager` rutinu neprovede ověření vstupu. Parametr **-Credential** zadaný pro **set-OEMExternalVM** je ten, který bude jasně zdokumentován v dokumentaci výrobce hardwaru.  Nejedná se o CloudAdmin přihlašovací údaje, které se používají s privilegovaným koncovým bodem, nebo s jakýmkoli jiným existujícím přihlašovacím údaji centra Azure Stack.
+2. Nakonfigurujte virtuální počítač dodavatele hardwaru pomocí rutiny **set-OEMExternalVM** . Rutina ověří IP adresu a přihlašovací údaje pro **– VMType** `ProxyVM`. Rutina **-VMType** `HardwareManager` neprovede ověření vstupu. Parametr **-Credential** zadaný pro **set-OEMExternalVM** je ten, který bude jasně zdokumentován v dokumentaci výrobce hardwaru.  Nejedná se o CloudAdmin přihlašovací údaje, které se používají s privilegovaným koncovým bodem, nebo s jakýmkoli jiným existujícím přihlašovacím údaji centra Azure Stack.
 
     ```powershell  
     $VmCred = Get-Credential

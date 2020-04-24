@@ -8,10 +8,10 @@ ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/13/2019
 ms.openlocfilehash: 9e8df158444b0cbb2b6efaea6f99766f36b26241
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: bdd4d529bd3e115a9f76eece62b1613448d5d020
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/14/2020
 ms.locfileid: "77704331"
 ---
 # <a name="tutorial-create-a-vm-using-a-community-template"></a>Kurz: Vytvoření virtuálního počítače pomocí šablony komunity
@@ -59,7 +59,7 @@ Tato šablona nainstaluje následující součásti:
 
 1. Vyberte **+ vytvořit prostředek**, pak **vlastní**a pak **template Deployment**.
 
-    ![Umožňuje vytvořit šablonu.](media/azure-stack-create-vm-template/1.PNG)
+    ![Vytvoření šablony](media/azure-stack-create-vm-template/1.PNG)
 
 2. Vyberte **Upravit šablonu**.
 
@@ -67,7 +67,7 @@ Tato šablona nainstaluje následující součásti:
 
 3. Vyberte **šablonu pro rychlý Start**.
 
-    ![Šablona Rychlé zprovoznění](media/azure-stack-create-vm-template/3.PNG)
+    ![Šablona pro rychlý start](media/azure-stack-create-vm-template/3.PNG)
 
 4. V rozevíracím seznamu **Vyberte šablonu** vyberte **101-VM-Linux-minikube** z dostupných šablon a pak klikněte na **OK**.
 
@@ -87,7 +87,7 @@ Tato šablona nainstaluje následující součásti:
 
 8. Nasazení skupiny prostředků trvá několik minut, než se vytvoří vlastní virtuální počítač založený na šablonách. Stav instalace můžete monitorovat prostřednictvím oznámení a z vlastností skupiny prostředků.
 
-    ![Nasadit](media/azure-stack-create-vm-template/8.PNG)
+    ![Nasazení](media/azure-stack-create-vm-template/8.PNG)
 
     >[!NOTE]
     > Po dokončení nasazení se virtuální počítač spustí.
@@ -102,7 +102,7 @@ Teď, když byl virtuální počítač se systémem Linux úspěšně vytvořen,
 
 2. Z příkazového řádku se zvýšenými oprávněními spusťte příkaz **mstsc. exe** a otevřete připojení ke vzdálené ploše a připojte se k veřejné IP adrese virtuálního počítače se systémem Linux zjištěné v předchozím kroku. Po zobrazení výzvy k přihlášení k xRDP použijte přihlašovací údaje, které jste zadali při vytváření virtuálního počítače.
 
-    ![Vzdálený](media/azure-stack-create-vm-template/10.PNG)
+    ![Remote](media/azure-stack-create-vm-template/10.PNG)
 
 3. Otevřete emulátor terminálu a zadáním následujících příkazů spusťte Minikube:
 

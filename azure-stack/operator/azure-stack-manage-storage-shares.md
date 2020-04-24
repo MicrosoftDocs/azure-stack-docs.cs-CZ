@@ -8,10 +8,10 @@ ms.author: inhenkel
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
 ms.openlocfilehash: 212f68be85bfe4b129e84057cc63472e5259a41c
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79293986"
 ---
 # <a name="manage-storage-capacity-for-azure-stack-hub"></a>Správa kapacity úložiště pro centrum Azure Stack
@@ -69,7 +69,7 @@ Možnosti uvolnění místa na připojeném kontejneru jsou omezené. Další in
 Pomocí Azure PowerShell nebo portálu pro správu monitorujte sdílené složky, abyste mohli pochopit, kdy je volné místo omezené. Když použijete portál, dostanete výstrahy o sdílených složkách, které mají nedostatek místa.
 
 ### <a name="use-powershell"></a>Použití prostředí PowerShell
-Jako operátor cloudu můžete sledovat kapacitu úložiště sdílené složky pomocí rutiny PowerShellu `Get-AzsStorageShare`. Rutina vrátí celkové, přidělené a volné místo v bajtech na každé sdílené složky.
+Jako operátor cloudu můžete sledovat kapacitu úložiště sdílené složky pomocí rutiny prostředí PowerShell `Get-AzsStorageShare` . Rutina vrátí celkové, přidělené a volné místo v bajtech na každé sdílené složky.
 
 ![Příklad: vrácení volného místa pro sdílené složky](media/azure-stack-manage-storage-shares/free-space.png)
 
@@ -105,7 +105,7 @@ Když použijete portál pro správu, zobrazí se upozornění na sdílené slo�
 
   ![Příklad: zobrazení podrobností o výstrahách na portálu pro správu centra Azure Stack](media/azure-stack-manage-storage-shares/alert-details.png)
 
-## <a name="manage-available-space"></a>Spravovat dostupné místo
+## <a name="manage-available-space"></a>Správa dostupného místa
 Pokud je nutné uvolnit místo ve sdílené složce, použijte nejprve nejméně invazivní metody. Například zkuste uvolnit místo před tím, než se rozhodnete migrovat kontejner.  
 
 ### <a name="reclaim-capacity"></a>Uvolnit kapacitu
@@ -126,7 +126,7 @@ Migrace slučuje všechny objekty blob kontejneru v nové sdílené složce.
 
 - Pokud kontejner přešel do režimu přetečení a umístil objekty blob na další svazky, musí mít Nová sdílená složka dostatečnou kapacitu pro uložení všech objektů BLOB pro kontejner, který migrujete. To zahrnuje objekty blob, které se nacházejí v dalších sdílených složkách.
 
-- Rutina prostředí PowerShell `Get-AzsStorageContainer` identifikuje pouze používané místo na počátečním svazku pro kontejner. Rutina neidentifikuje prostor, který používají objekty blob, které jsou umístěny na dalších svazcích. Proto nemusí být úplná velikost kontejneru zřejmá. Je možné, že konsolidace kontejneru v nové sdílené složce může poslat tuto novou sdílenou složku do podmínky přetečení, kde data umístí do dalších sdílených složek. V důsledku toho může být nutné znovu vyvážit sdílené složky.
+- Rutina `Get-AzsStorageContainer` PowerShellu identifikuje jenom používané místo na počátečním svazku pro kontejner. Rutina neidentifikuje prostor, který používají objekty blob, které jsou umístěny na dalších svazcích. Proto nemusí být úplná velikost kontejneru zřejmá. Je možné, že konsolidace kontejneru v nové sdílené složce může poslat tuto novou sdílenou složku do podmínky přetečení, kde data umístí do dalších sdílených složek. V důsledku toho může být nutné znovu vyvážit sdílené složky.
 
 - Pokud nemáte oprávnění k určitým skupinám prostředků a nemůžete použít PowerShell k dotazování dalších svazků na data přetečení, pracujte s vlastníkem těchto skupin prostředků a kontejnerů, abyste porozuměli celkovému množství dat, která se mají migrovat, než je migrujete.  
 
@@ -135,7 +135,7 @@ Migrace slučuje všechny objekty blob kontejneru v nové sdílené složce.
 
 #### <a name="migrate-containers-by-using-powershell"></a>Migrace kontejnerů pomocí PowerShellu
 1. Potvrďte, že máte [nainstalovanou a nakonfigurovanou Azure PowerShell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/). Další informace najdete v tématu [Správa prostředků Azure pomocí Azure PowerShell](https://go.microsoft.com/fwlink/?LinkId=394767).
-2. Projděte si kontejner, abyste pochopili, jaká data jsou ve sdílené složce, kterou plánujete migrovat. Pokud chcete identifikovat nejlepší kandidáty pro migraci ve svazku, použijte rutinu `Get-AzsStorageContainer`:
+2. Projděte si kontejner, abyste pochopili, jaká data jsou ve sdílené složce, kterou plánujete migrovat. K určení nejlepšího kontejneru kandidátů pro migraci ve svazku použijte `Get-AzsStorageContainer` rutinu:
 
    ```powershell  
    $farm_name = (Get-AzsStorageFarm)[0].name

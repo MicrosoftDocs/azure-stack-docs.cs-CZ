@@ -8,13 +8,13 @@ ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 11/05/2019
 ms.openlocfilehash: 245951e86128fb71e6820f3b57bdf2723506d4bc
-ms.sourcegitcommit: 8198753ebafd69d0dbfc6b3548defbd70f4c79c1
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "78935058"
 ---
-# <a name="recover-from-catastrophic-data-loss"></a>Obnovit ze ztráty dat
+# <a name="recover-from-catastrophic-data-loss"></a>Obnovení z katastrofické ztráty dat
 
 Služba Azure Stack hub spouští služby Azure ve vašem datovém centru a může běžet v prostředích jako malá, protože čtyři uzly nainstalované v jednom stojanu. Naproti tomu Azure běží ve více než 40 oblastech v několika datových centrech a v každé oblasti je víc zón. Prostředky uživatelů mohou zahrnovat několik serverů, stojanů, datových center a oblastí. Pomocí centra Azure Stack máte momentálně možnost nasadit celý Cloud do jednoho racku. Toto omezení zpřístupňuje Cloud riziku závažných událostí v datovém centru nebo selhání kvůli důležitým chybám produktu. Když dojde k výpadku, instance centra Azure Stack přejde do režimu offline. Všechna data mohou být neobnovitelné.
 

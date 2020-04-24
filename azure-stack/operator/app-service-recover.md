@@ -8,10 +8,10 @@ ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/21/2019
 ms.openlocfilehash: e04fa2f3e9d03f1982ef67d4d19549b7b73a1f1a
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77701679"
 ---
 # <a name="app-service-recovery-on-azure-stack-hub"></a>App Service obnovení v centru Azure Stack
@@ -60,7 +60,7 @@ Po obnovení databází App Service a obsahu sdílené složky souborů je dál 
 1. Přihlaste se k řadiči App Service **CN0-VM** VM jako **roleadmin** pomocí hesla, které jste zadali během instalace App Service. 
     > [!TIP]
     > Aby bylo možné připojení RDP, je nutné upravit skupinu zabezpečení sítě virtuálního počítače. 
-2. Zkopírujte soubor **SystemSecrets. JSON** místně do virtuálního počítače kontroleru. V dalším kroku musíte zadat cestu k tomuto souboru jako parametr `$pathToExportedSecretFile`.
+2. Zkopírujte soubor **SystemSecrets. JSON** místně do virtuálního počítače kontroleru. V dalším kroku musíte zadat cestu k tomuto souboru jako `$pathToExportedSecretFile` parametr.
 3. Pomocí následujících příkazů v okně konzoly PowerShellu se zvýšenými oprávněními obnovte App Service role a služby:
 
     ```powershell

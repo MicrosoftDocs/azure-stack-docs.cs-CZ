@@ -8,10 +8,10 @@ ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/02/2019
 ms.openlocfilehash: ec4f3dc2a17e362038d11ec988d19ffa9edd6a6e
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77701849"
 ---
 # <a name="deploy-app-service-in-a-highly-available-configuration"></a>Nasazení App Service v konfiguraci s vysokou dostupností
@@ -47,16 +47,16 @@ Pomocí kroků v této části vytvoříte vlastní nasazení pomocí šablony p
 
 1. [!INCLUDE [azs-admin-portal](../includes/azs-admin-portal.md)]
 
-2. Vyberte **\+** **vytvořit prostředek** > **vlastní**a potom **template Deployment**.
+2. Vyberte **\+** **vytvořit prostředek** > **vlastní**a pak **template Deployment**.
 
    ![Nasazení vlastní šablony](media/app-service-deploy-ha/1.png)
 
 
-3. V okně **vlastní nasazení** vyberte **Upravit šablonu** > šablonu pro **rychlý Start** a pak pomocí rozevíracího seznamu dostupných vlastních šablon vyberte šablonu **AppService-\ Share-SQLServer-ha** . Klikněte na **OK**a pak na **Uložit**.
+3. V okně **vlastní nasazení** vyberte Upravit šablonu **Edit template** > **rychlý Start** šablony a potom pomocí rozevíracího seznamu dostupných vlastních šablon vyberte šablonu **AppService-\ Share-SQLServer-ha** . Klikněte na **OK**a pak na **Uložit**.
 
    ![Vyberte šablonu AppService-\ Share-SQLServer-ha.](media/app-service-deploy-ha/2.png)
 
-4. V okně **vlastní nasazení** vyberte **Upravit parametry** a posuňte se dolů a zkontrolujte výchozí hodnoty šablon. Upravte tyto hodnoty podle potřeby, abyste zadali všechny požadované informace o parametrech, a pak klikněte na **OK**.<br><br> Pro `ADMINPASSWORD`, `FILESHAREOWNERPASSWORD`, `FILESHAREUSERPASSWORD`, `SQLSERVERSERVICEACCOUNTPASSWORD`a `SQLLOGINPASSWORD` parametrů zadejte minimálně složitá hesla.
+4. V okně **vlastní nasazení** vyberte **Upravit parametry** a posuňte se dolů a zkontrolujte výchozí hodnoty šablon. Upravte tyto hodnoty podle potřeby, abyste zadali všechny požadované informace o parametrech, a pak klikněte na **OK**.<br><br> `ADMINPASSWORD`Pro parametry, `FILESHAREOWNERPASSWORD`, `FILESHAREUSERPASSWORD`, `SQLSERVERSERVICEACCOUNTPASSWORD`a `SQLLOGINPASSWORD` zadejte alespoň složitá hesla.
     
    ![Upravit parametry vlastního nasazení](media/app-service-deploy-ha/3.png)
 
@@ -77,9 +77,9 @@ Po úspěšném dokončení nasazení šablony zaznamenejte výstupy nasazení �
 
 Ujistěte se, že jste zaznamenali všechny tyto výstupní hodnoty:
 - FileSharePath
-- Vlastník sdílené složky
-- FileShareUser
-- SQLserver
+- Přihlašovací
+- Přihlašovací
+- Hostitel
 - SQLuser
 
 Pomocí těchto kroků zjistíte výstupní hodnoty šablony:
@@ -153,7 +153,7 @@ Pokud chcete nasadit poskytovatele prostředků App Service, použijte následuj
 
     ![Výběr virtuální sítě na App Service](media/app-service-deploy-ha/06.png)
 
-8. Poskytněte dříve zaznamenané informace o výstupech šablony pro cestu ke sdílené složce a parametry vlastníka sdílené složky. Po dokončení klikněte na tlačítko **Další**.
+8. Poskytněte dříve zaznamenané informace o výstupech šablony pro cestu ke sdílené složce a parametry vlastníka sdílené složky. Jakmile budete hotovi, klikněte na tlačítko **Další**.
 
     ![Informace o výstupu sdílení souborů v App Service](media/app-service-deploy-ha/07.png)
 
@@ -167,8 +167,8 @@ Pokud chcete nasadit poskytovatele prostředků App Service, použijte následuj
     - Cíl: IP adresy
     - Rozsah cílových IP adres: rozsah IP adres pro souborový server
     - Rozsah cílových portů: 445
-    - Protocol: TCP
-    - Akce: povolení
+    - Protokol. TCP
+    - Akce: Povolit
     - Priorita: 700
     - Název: Outbound_Allow_SMB445
 
@@ -189,7 +189,7 @@ Pokud chcete nasadit poskytovatele prostředků App Service, použijte následuj
 
     ![SQL Server informace o připojení App Service](media/app-service-deploy-ha/10.png)
 
-13. Vzhledem k tomu, že počítač použitý k instalaci App Service není umístěný ve stejné virtuální síti jako SQL Server, který se používá k hostování App Servicech databází, nemůžete tento název přeložit.  **Toto chování je očekávané**.<br><br>Ověřte, zda jsou zadané informace pro SQL Server název a účty správné, a stisknutím klávesy **Ano** pokračujte v instalaci App Service. Klikněte na **Další**.
+13. Vzhledem k tomu, že počítač použitý k instalaci App Service není umístěný ve stejné virtuální síti jako SQL Server, který se používá k hostování App Servicech databází, nemůžete tento název přeložit.  **Toto chování je očekávané**.<br><br>Ověřte, zda jsou zadané informace pro SQL Server název a účty správné, a stisknutím klávesy **Ano** pokračujte v instalaci App Service. Klikněte na **Další**.
 
     ![SQL Server informace o připojení App Service](media/app-service-deploy-ha/11.png)
 

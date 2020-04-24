@@ -8,10 +8,10 @@ ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/26/2019
 ms.openlocfilehash: d008a30991e41be6abc3f21f888acfbc8d46d69e
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77705232"
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack-hub"></a>Použití profilů verzí rozhraní API s nástrojem přejít v Azure Stack hub
@@ -31,7 +31,7 @@ import "github.com/Azure/azure-sdk-for-go/profiles/2019-03-01/compute/mgmt/compu
 
 ## <a name="install-the-azure-sdk-for-go"></a>Instalace Azure SDK for Go
 
-1. Instalace Gitu. Pokyny najdete v tématu [Začínáme – instalace Gitu](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
+1. Nainstalujte Git. Pokyny najdete v tématu [Začínáme – instalace Gitu](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 2. Nainstalujte [jazyk programovacího jazyka](https://golang.org/dl). Profily rozhraní API pro Azure vyžadují verzi verze 1,9 nebo novější.
 3. Nainstalujte sadu Azure SDK a její závislosti spuštěním následujícího příkazu bash:
 
@@ -58,9 +58,9 @@ Chcete-li spustit ukázku kódu jazyka přejít v Azure Stackovém centru, postu
 2. Získat informace o metadatech z Správce prostředkůho koncového bodu. Koncový bod vrátí soubor JSON s informacemi potřebnými ke spuštění kódu vašeho přechodu.
 
    > [!NOTE]  
-   > **ResourceManagerUrl** v Azure Stack Development Kit (ASDK) je: `https://management.local.azurestack.external/`  
-   > **ResourceManagerUrl** v integrovaných systémech je: `https://management.<region>.<fqdn>/`  
-   > Načtení požadovaných metadat: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
+   > **ResourceManagerUrl** v Azure Stack Development Kit (ASDK) je:`https://management.local.azurestack.external/`  
+   > **ResourceManagerUrl** v integrovaných systémech je:`https://management.<region>.<fqdn>/`  
+   > Načtení požadovaných metadat:`<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
   
    Ukázkový soubor JSON:
 
@@ -75,7 +75,7 @@ Chcete-li spustit ukázku kódu jazyka přejít v Azure Stackovém centru, postu
    }
    ```
 
-3. Pokud není k dispozici, vytvořte předplatné a uložte ID předplatného pro pozdější použití. Informace o vytváření předplatného najdete [v tématu Vytvoření předplatných nabídek v centru Azure Stack](../operator/azure-stack-subscribe-plan-provision-vm.md).
+3. Pokud není k dispozici, vytvořte odběr a uložte ID předplatného, které chcete použít později. Informace o vytváření předplatného najdete [v tématu Vytvoření předplatných nabídek v centru Azure Stack](../operator/azure-stack-subscribe-plan-provision-vm.md).
 
 4. Vytvořte instanční objekt, který používá tajný klíč klienta, s oborem **předplatného** a rolí **vlastníka** . Uložte ID objektu služby a tajný klíč. Informace o vytváření instančního objektu pro centrum Azure Stack najdete v tématu [použití identity aplikace pro přístup k prostředkům](../operator/azure-stack-create-service-principals.md). Vaše prostředí centra Azure Stack je teď nastavené.
 
@@ -98,7 +98,7 @@ Chcete-li spustit ukázku kódu jazyka přejít v Azure Stackovém centru, postu
       vnetClient.Authorizer = autorest.NewBearerAuthorizer(token)
    ```
 
-   Nastavte `<baseURI>` na hodnotu **ResourceManagerUrl** použitou v kroku 2. Nastavte `<subscriptionID>` na hodnotu **SubscriptionId** uloženou v kroku 3.
+   Nastavte `<baseURI>` na hodnotu **ResourceManagerUrl** použitou v kroku 2. Nastavte `<subscriptionID>` na **SubscriptionId** hodnotu uloženou z kroku 3.
 
    Chcete-li vytvořit token, přečtěte si další část.  
 
@@ -145,9 +145,9 @@ Pro klienta prostředků musí být povolený autorizačníer. Existují různé
    }
    ```
 
-   Nastavte `<activeDirectoryEndpoint>` na hodnotu vlastnosti `loginEndpoint` z `ResourceManagerUrl` metadat načtených v předchozí části tohoto dokumentu. Nastavte `<tenantID>` hodnotu na ID tenanta centra Azure Stack.
+   Nastavte `<activeDirectoryEndpoint>` na hodnotu `loginEndpoint` vlastnosti z `ResourceManagerUrl` metadat načtených v předchozí části tohoto dokumentu. Nastavte `<tenantID>` hodnotu na ID tenanta centra Azure Stack.
 
-4. Nakonec vytvořte token objektu služby pomocí metody `NewServicePrincipalToken` z modulu **ADAL** :
+4. Nakonec vytvořte token objektu služby pomocí `NewServicePrincipalToken` metody z modulu **ADAL** :
 
    ```go
    package main
@@ -166,8 +166,8 @@ Pro klienta prostředků musí být povolený autorizačníer. Existují různé
    ```
 
     Nastavte `<activeDirectoryResourceID>` na jednu z hodnot v seznamu "cílová" z metadat **ResourceManagerUrl** získaných v předchozí části tohoto článku.
-    Nastavte `<clientID>` na ID aplikace instančního objektu uložené při vytvoření instančního objektu v předchozí části tohoto článku.
-    Nastavte `<clientSecret>` na tajný kód aplikace instančního objektu uložený při vytvoření instančního objektu v předchozí části tohoto článku.
+    Nastaví `<clientID>` se na ID aplikace instančního objektu uložené při vytvoření instančního objektu v předchozí části tohoto článku.
+    Nastaví `<clientSecret>` se na tajný klíč aplikace instančního objektu uložený při vytvoření instančního objektu v předchozí části tohoto článku.
 
 ## <a name="example"></a>Příklad
 
@@ -222,7 +222,7 @@ Tento příklad ukazuje ukázku kódu pro přechod, který vytváří virtuáln�
    }
    ```
 
-4. Přidejte metodu `main`. Metoda `main` nejprve získá token pomocí metody, která je definována v předchozím kroku. Pak vytvoří klienta pomocí síťového modulu z profilu. Nakonec vytvoří virtuální síť.
+4. Přidejte `main` metodu. `main` Metoda nejprve získá token pomocí metody, která je definována v předchozím kroku. Pak vytvoří klienta pomocí síťového modulu z profilu. Nakonec vytvoří virtuální síť.
 
    ```go
    package main

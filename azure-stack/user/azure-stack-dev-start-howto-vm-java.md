@@ -8,10 +8,10 @@ ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
 ms.openlocfilehash: 7ab1370ef77a246b1ccda4ab525040edf9cb596a
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: 4138a2a15f78e7db38b3a29acc963a71937146fd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/15/2020
 ms.locfileid: "77704144"
 ---
 # <a name="deploy-a-java-web-app-to-a-vm-in-azure-stack-hub"></a>Nasazení webové aplikace v jazyce Java do virtuálního počítače v Azure Stackovém centru
@@ -24,12 +24,12 @@ Můžete vytvořit virtuální počítač, který bude hostovat webovou aplikaci
 
 2. V podokně síť virtuálních počítačů se ujistěte, že jsou dostupné tyto porty:
 
-    | Port | Protokol | Popis |
+    | Port | Protocol (Protokol) | Popis |
     | --- | --- | --- |
     | 80 | HTTP | HTTP (Hypertext Transfer Protocol) je protokol, který se používá k doručování webových stránek ze serverů. Klienti se připojují přes protokol HTTP s názvem DNS nebo IP adresou. |
     | 443 | HTTPS | Protokol HTTPS (Hypertext Transfer Protocol Secure) je zabezpečená verze protokolu HTTP, která vyžaduje certifikát zabezpečení a umožňuje šifrovaný přenos informací. |
     | 22 | SSH | Secure Shell (SSH) je zašifrovaný síťový protokol pro zabezpečenou komunikaci. Pomocí tohoto připojení s klientem SSH nakonfigurujete virtuální počítač a nasadíte aplikaci. |
-    | 3389 | RDP | Volitelné. Protokol RDP (Remote Desktop Protocol) (RDP) umožňuje připojení ke vzdálené ploše pro použití grafického uživatelského rozhraní na vašem počítači.   |
+    | 3389 | Protokol RDP | Nepovinný parametr. Protokol RDP (Remote Desktop Protocol) (RDP) umožňuje připojení ke vzdálené ploše pro použití grafického uživatelského rozhraní na vašem počítači.   |
     | 8080 | Vlastní | Výchozí port pro službu Apache Tomcat V případě provozního serveru směrujete provoz mezi 80 a 443. |
 
 ## <a name="install-java"></a>Nainstalovat Java
@@ -188,13 +188,13 @@ Můžete vytvořit virtuální počítač, který bude hostovat webovou aplikaci
 
 1. Pokud chcete umožnění přístupu k rozhraní webové správy, nakonfigurujte server Tomcat. 
 
-   a. Upravte soubor *Tomcat-Users. XML* a definujte roli a uživatele, abyste se mohli přihlásit. Zadejte uživatele pro přístup k `manager-gui` a `admin-gui`.
+   a. Upravte soubor *Tomcat-Users. XML* a definujte roli a uživatele, abyste se mohli přihlásit. Zadejte uživatele pro přístup k `manager-gui` a. `admin-gui`
 
     ```bash  
         sudo nano /opt/tomcat/conf/tomcat-users.xml
     ```
 
-   b. Do části `<tomcat-users>` přidejte následující prvky:
+   b. Do `<tomcat-users>` oddílu přidejte následující prvky:
 
     ```XML  
         <role rolename="tomcat"/>
@@ -282,7 +282,7 @@ Pokyny k vývoji aplikací v jazyce Java v Azure najdete v tématu [sestavován�
 
     a. Zrušte zaškrtnutí *TOMCAT_HOME/webapps*.
 
-    b. Přidejte svůj WAR do *TOMCAT_HOME/webapps* (například */opt/Tomcat/webapps/* ).
+    b. Přidejte svůj WAR do *TOMCAT_HOME/webapps* (například */opt/Tomcat/webapps/*).
 
 1.  Tomcat automaticky rozbalí a nasadí aplikaci. Můžete ji zobrazit pomocí názvu DNS, který jste vytvořili dříve. Příklad:
 

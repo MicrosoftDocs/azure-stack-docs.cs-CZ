@@ -8,10 +8,10 @@ ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
 ms.openlocfilehash: db66156cfa1b4b5a2c97b5d17559ae2c48760ce0
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77705181"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack-hub"></a>Použití profilů verzí rozhraní API s Pythonem v Azure Stackovém centru
@@ -41,7 +41,7 @@ Python SDK podporuje následující profily rozhraní API:
 2. Pokyny k instalaci sady Python SDK najdete v tématu [Azure pro vývojáře v Pythonu](/python/azure/python-sdk-azure-install?view=azure-python).
 3. Pokud není k dispozici, vytvořte odběr a uložte ID předplatného, které chcete později použít. Pokyny k vytvoření předplatného najdete [v tématu Vytvoření předplatných nabídek v centru Azure Stack](../operator/azure-stack-subscribe-plan-provision-vm.md).
 4. Vytvořte instanční objekt a uložte jeho ID a tajný klíč. Pokyny k vytvoření instančního objektu pro centrum Azure Stack najdete v tématu [poskytnutí přístupu aplikací k centru Azure Stack](../operator/azure-stack-create-service-principals.md).
-5. Ujistěte se, že má instančního objektu služby roli Přispěvatel nebo vlastník v rámci předplatného. Pokyny k přiřazení role k instančnímu objektu najdete v tématu [poskytnutí přístupu aplikací k rozbočovači Azure Stack](../operator/azure-stack-create-service-principals.md).
+5. Ujistěte se, že váš instanční objekt má v předplatném roli Přispěvatel/vlastník. Pokyny k přiřazení role k instančnímu objektu najdete v tématu [poskytnutí přístupu aplikací k rozbočovači Azure Stack](../operator/azure-stack-create-service-principals.md).
 
 ## <a name="prerequisites"></a>Požadavky
 
@@ -53,7 +53,7 @@ Pokud chcete použít sadu Python Azure SDK s Azure Stack hub, musíte zadat ná
 | ID klienta | `AZURE_CLIENT_ID` | ID aplikace instančního objektu se uložilo při vytvoření instančního objektu v předchozí části tohoto článku. |
 | ID předplatného | `AZURE_SUBSCRIPTION_ID` | [ID předplatného](../operator/service-plan-offer-subscription-overview.md#subscriptions) se používá pro přístup k nabídkám v centru Azure Stack. |
 | Tajný klíč klienta | `AZURE_CLIENT_SECRET` | Tajný kód aplikace instančního objektu se uložil při vytvoření objektu služby. |
-| Koncový bod Resource Manageru | `ARM_ENDPOINT` | Viz článek [koncový bod správce prostředků centra Azure Stack](azure-stack-version-profiles-ruby.md#the-azure-stack-hub-resource-manager-endpoint) . |
+| Správce prostředků koncový bod | `ARM_ENDPOINT` | Viz článek [koncový bod správce prostředků centra Azure Stack](azure-stack-version-profiles-ruby.md#the-azure-stack-hub-resource-manager-endpoint) . |
 | Umístění prostředku | `AZURE_RESOURCE_LOCATION` | Umístění prostředku vašeho prostředí centra Azure Stack.
 
 ### <a name="trust-the-azure-stack-hub-ca-root-certificate"></a>Důvěřovat kořenovému certifikátu certifikační autority centra Azure Stack

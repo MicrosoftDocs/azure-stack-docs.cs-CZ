@@ -8,10 +8,10 @@ ms.date: 10/05/2019
 ms.author: bryanla
 ms.lastreviewed: 05/10/2019
 ms.openlocfilehash: 5225772f94e5a28d03872d1764681e56f14a2cf4
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79294635"
 ---
 # <a name="create-subscriptions-to-offers-in-azure-stack-hub"></a>Vytváření předplatných nabídek v centru Azure Stack
@@ -21,7 +21,7 @@ Když [vytvoříte nabídku](azure-stack-create-offer.md), uživatelé potřebuj
 - Jako operátor cloudu můžete pro uživatele vytvořit předplatné na portálu pro správu. Můžete vytvářet předplatná veřejných i privátních nabídek.
 - Jako uživatel tenanta si můžete vytvořit předplatné veřejné nabídky na portálu User Portal.  
 
-## <a name="create-a-subscription-as-a-cloud-operator"></a>Vytvoření předplatného jako operátora cloudu
+## <a name="create-a-subscription-as-a-cloud-operator"></a>Vytvoření předplatného jako operátor cloudu
 
 Operátoři cloudu používají portál pro správu k vytvoření odběru nabídky pro uživatele. Odběry je možné vytvořit pro členy vašeho vlastního tenanta adresáře. Pokud je povolená [víceklientská](azure-stack-enable-multitenancy.md) architektura, můžete také vytvořit odběry pro uživatele v dalších adresářových klientech.
 
@@ -37,9 +37,9 @@ Po vytvoření předplatného pro uživatele se mohou přihlásit k portálu Use
    - **Zobrazovaný název** – popisný název pro identifikaci předplatného, které se zobrazí jako *název předplatného uživatele*.
    - **Uživatel** – zadejte uživatele z dostupného tenanta adresáře pro toto předplatné. Uživatelské jméno se zobrazí jako *vlastník*.  Formát uživatelského jména závisí na vašem řešení identity. Příklad:
 
-     - **Azure AD:** `<user1>@<contoso.onmicrosoft.com>`
+     - **Azure AD:**`<user1>@<contoso.onmicrosoft.com>`
 
-     - **AD FS:** `<user1>@<azurestack.local>`
+     - **AD FS:**`<user1>@<azurestack.local>`
 
    - **Tenant adresáře** – vyberte tenanta adresáře, do kterého patří uživatelský účet. Pokud jste nepovolili víceklientské prostředí, je k dispozici pouze váš tenant místního adresáře.
 

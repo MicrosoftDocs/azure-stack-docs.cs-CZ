@@ -8,17 +8,17 @@ ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/19/2019
 ms.openlocfilehash: 50a5a9498939f47cc8a688f1171d8b1a0cc4ca8a
-ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77636297"
 ---
 # <a name="how-to-create-a-vpn-tunnel-using-gre-in-azure-stack-hub"></a>Postup vytvoření tunelu VPN pomocí protokolu GRE v Azure Stackovém centru
 
 Pomocí šablony Správce prostředků centra Azure Stack v tomto řešení můžete propojit dvě Azure Stack centra virtuální sítě ve stejném prostředí Azure Stack hub. [Nemůžete připojit Azure Stack centra virtuální sítě](https://docs.microsoft.com/azure-stack/user/azure-stack-network-differences) pomocí integrované Virtual Network brány. Prozatím musíte použít síťová virtuální zařízení (síťové virtuální zařízení) s k vytvoření tunelu VPN mezi dvěma Azure Stack centra virtuální sítě. Šablona řešení nasadí dva virtuální počítače se systémem Windows Server 2016 s nainstalovanou službou RRAS. Řešení nakonfiguruje dva servery RRAS tak, aby používaly tunel S2SVPN IKEv2 mezi dvěma virtuální sítě. Vytvoří se odpovídající pravidla NSG a UDR, která umožní směrování mezi podsítěmi v každé virtuální síti určené jako **interní** . 
 
-Tento vzor nasazení je základem, který vám umožní vytvářet tunely VPN nejen v rámci vaší instance centra Azure Stack, ale také mezi instancemi centra Azure Stack a dalšími prostředky, jako jsou vaše místní sítě s použitím S2S Windows RRAS. Tunely VPN.
+Tento vzor nasazení je základem, který vám umožní vytvářet tunely sítě VPN nejen v rámci vaší instance centra Azure Stack, ale také mezi instancemi centra Azure Stack a dalšími prostředky, jako jsou vaše místní sítě s použitím tunelů S2S sítě VPN v síti Windows RRAS.
 
 Šablony najdete v úložišti GitHub ve [vzorcích Azure Intelligent Edge](https://github.com/Azure-Samples/azure-intelligent-edge-patterns) . Šablona se nachází ve složce **RRAS-GRE-VNet-VNet** . 
 

@@ -8,10 +8,10 @@ ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
 ms.openlocfilehash: d9a0447938c44eec90d1d5cb2898e950cddbd7bf
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77701373"
 ---
 # <a name="deploy-a-highly-available-mongodb-solution-to-azure-and-azure-stack-hub"></a>Nasazení vysoce dostupného řešení MongoDB do Azure a centra Azure Stack
@@ -89,7 +89,7 @@ docker pull intelligentedge/mongodb-hadr:1.0.0
     -AzureStackSubscriptionId_DR "drSubscriptionId"
     ```
 
-4.  Zadejte `Y`, aby se mohl nainstalovat poskytovatel NuGet. tím se zahájí instalace modulů rozhraní API "2018-03-01-hybrid".
+4.  Zadejte `Y` , pokud chcete, aby se nainstaloval poskytovatel NuGet, který se aktivuje z profilu rozhraní API "2018-03-01-hybrid" modulů, které se mají nainstalovat.
 
 5.  Nejprve se nasadí prostředky HA. Monitorujte nasazení a počkejte, než se dokončí. Jakmile se zobrazí zpráva s oznámením, že nasazení HA bylo dokončeno, můžete na portálu HA Azure Stack centra ověřit, jestli jsou nasazené prostředky. 
 

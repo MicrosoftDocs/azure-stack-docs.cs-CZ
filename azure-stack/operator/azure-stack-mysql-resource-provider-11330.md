@@ -1,5 +1,5 @@
 ---
-title: 1\.1.33.0 zpráva k vydání verze poskytovatele prostředků MySQL centra pro Azure Stack
+title: 1.1.33.0 zpráva k vydání verze poskytovatele prostředků MySQL centra pro Azure Stack
 description: Podívejte se na poznámky k verzi a zjistěte, co je nového ve 1.1.33.0 aktualizace poskytovatele prostředků MySQL centra pro Azure Stack.
 author: bryanla
 ms.topic: article
@@ -8,17 +8,17 @@ ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/09/2019
 ms.openlocfilehash: 4cab915bc4b824c1a178d94aaa571ca71c9c948b
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77698908"
 ---
 # <a name="mysql-resource-provider-11330--release-notes"></a>Poznámky k verzi pro poskytovatele prostředků MySQL 1.1.33.0
 
 Tyto poznámky k verzi popisují vylepšení a známé problémy ve verzi poskytovatele prostředků MySQL verze 1.1.33.0.
 
-## <a name="build-reference"></a>Referenční informace o buildu
+## <a name="build-reference"></a>Odkaz na sestavení
 Stáhněte si binární soubor poskytovatele prostředků MySQL a potom spusťte samočinného extrahování a extrahujte obsah do dočasného adresáře. Poskytovatel prostředků má minimálně odpovídající sestavení centra Azure Stack. Minimální verze Azure Stack centra pro vydání, která je vyžadována pro instalaci této verze poskytovatele prostředků MySQL, je uvedena níže:
 
 > |Minimální verze centra Azure Stack|Verze poskytovatele prostředků MySQL|
@@ -40,7 +40,7 @@ Tato verze poskytovatele prostředků centra Azure Stacku MySQL zahrnuje násled
 
 - **Předchozí nasazení poskytovatele prostředků MySQL (1.1.30.0) by mohlo selhat, pokud není povolený protokol TLS 1,2**. Aktualizovali jsme poskytovatele prostředků MySQL 1.1.33.0, aby při nasazování poskytovatele prostředků, aktualizaci poskytovatele prostředků nebo střídání tajných klíčů povolil protokol TLS 1,2.
 
-- **Rotace tajného kódu poskytovatele prostředků MySQL se nezdařila**. Opravili jsme problém, který při střídání tajných klíčů vyplývají z následujícího kódu chyby: `New-AzureRmResourceGroupDeployment - Error: Code=InvalidDeploymentParameterValue; Message=The value of deployment parameter 'StorageAccountBlobUri' is null.`
+- **Rotace tajného kódu poskytovatele prostředků MySQL se nezdařila**. Opravili jsme problém, který při střídání tajných kódů vrátil následující chybový kód:`New-AzureRmResourceGroupDeployment - Error: Code=InvalidDeploymentParameterValue; Message=The value of deployment parameter 'StorageAccountBlobUri' is null.`
 
 ## <a name="known-issues"></a>Známé problémy
 

@@ -8,10 +8,10 @@ ms.author: inhenkel
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
 ms.openlocfilehash: 995342f471ed7300d2fb9dd95a6623588a13d1a9
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79294503"
 ---
 # <a name="manage-azure-stack-hub-storage-accounts"></a>Správa účtů úložiště Azure Stack hub
@@ -65,7 +65,7 @@ V centru Azure Stack existuje jednoduchý způsob, jak to provést:
 3. Ověřte *stav* účtu. Měl by se jednat o **odstranění**.
 4. Vyberte účet, který otevře podokno Podrobnosti o účtu.
 5. V horní části tohoto podokna najděte tlačítko **obnovit** a vyberte ho.
-6. Odstranění potvrďte výběrem **Ano**.
+6. Výběrem **Ano** potvrďte.
 
    ![Potvrzení obnovení účtu úložiště](media/azure-stack-manage-storage-accounts/image8.png)
 
@@ -84,14 +84,14 @@ V centru Azure Stack existuje jednoduchý způsob, jak to provést:
   
   Účet se v seznamu účtů nemusí zobrazovat, pokud byl odstraněný účet už uvolněný z paměti. V takovém případě ho nelze obnovit. Další informace najdete v tématu [nárok na kapacitu](#reclaim) v tomto článku.
 
-## <a name="set-the-retention-period"></a>Nastavit dobu uchování
+## <a name="set-the-retention-period"></a>Nastavení doby uchovávání
 Nastavení doby uchovávání umožňuje operátorovi cloudu nastavit časové období ve dnech (od 0 do 9 999 dnů), během kterého je potenciálně možné obnovit jakýkoli odstraněný účet. Výchozí doba uchovávání je nastavená na 0 dnů. Nastavení na hodnotu 0 znamená, že se všechny odstraněné účty okamžitě vyjmou z uchovávání a označí se pro pravidelné uvolňování paměti.
 
 **Postup změny doby uchování:**
 
 1. Přihlaste se k [portálu pro správu](https://adminportal.local.azurestack.external).
-2. V části **Správa**vyberte **všechny služby** > **oblasti Správa** .
-3. Vyberte možnost **poskytovatelé prostředků** > **Nastavení** > **úložiště** . Vaše cesta je domovská > *oblast* – poskytovatelé prostředků > úložiště.
+2. V části **Správa**vyberte **všechny služby** > **Správa oblastí** .
+3. Vyberte **prostředky** > **Storage** > **Nastavení**úložiště poskytovatelé. Vaše cesta je domovská > *oblast* – poskytovatelé prostředků > úložiště.
 4. Vyberte **Konfigurace** a pak upravte hodnotu Doba uchování.
 
    Nastavte počet dnů a pak ho uložte.
@@ -100,7 +100,7 @@ Nastavení doby uchovávání umožňuje operátorovi cloudu nastavit časové o
 
    ![Upravit dobu uchování na portálu pro správu](media/azure-stack-manage-storage-accounts/image10.png)
 
-## <a name="reclaim"></a>Uvolnit kapacitu
+## <a name="reclaim-capacity"></a><a name="reclaim"></a>Uvolnit kapacitu
 Jedním z vedlejších účinků, které mají dobu uchování, je to, že odstraněný účet bude nadále spotřebovávat kapacitu, dokud nepřijde do doby uchování. Jako operátor cloudu budete možná potřebovat způsob, jak uvolnit odstraněné místo na účtu, i když doba uchování ještě nevypršela.
 
 Kapacitu můžete uvolnit buď pomocí portálu, nebo pomocí PowerShellu.

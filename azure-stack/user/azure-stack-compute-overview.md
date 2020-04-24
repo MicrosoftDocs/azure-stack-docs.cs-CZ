@@ -8,10 +8,10 @@ ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/05/2020
 ms.openlocfilehash: 576580732440cabd8ae1c140d13130b81b212d16
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79294954"
 ---
 # <a name="introduction-to-azure-stack-hub-vms"></a>Úvod k virtuálním počítačům centra Azure Stack
@@ -49,7 +49,7 @@ Pokud k vytvoření disku operačního systému použijete centrum Azure Stack, 
 
 ### <a name="vm-size"></a>Velikost virtuálního počítače
 
-Velikost virtuálního počítače, který použijete, je určená úlohou, kterou chcete spustit. Velikost, kterou vyberete, pak určuje další faktory, jako například výpočetní výkon, paměť a kapacitu úložiště. Centrum Azure Stack nabízí různé druhy velikostí, které podporují mnoho typů použití.
+Velikost virtuálního počítače, který použijete, se určuje podle úlohy, kterou chcete spustit. Velikost, kterou vyberete, pak určuje další faktory, jako například výpočetní výkon, paměť a kapacitu úložiště. Centrum Azure Stack nabízí různé druhy velikostí, které podporují mnoho typů použití.
 
 ### <a name="vm-limits"></a>Omezení virtuálních počítačů
 
@@ -71,7 +71,7 @@ Můžete zvolit nahrávání a používání vlastní image. V takovém případ
 
 ### <a name="extensions"></a>Rozšíření
 
-Rozšíření virtuálních počítačů poskytují vašim VIRTUÁLNÍm počítačům další možnosti prostřednictvím konfigurace po nasazení a automatizovaných úloh.
+Rozšíření virtuálního počítače poskytují vašemu virtuálnímu počítači další schopnosti prostřednictvím konfigurace po nasazení a automatizovaných úloh.
 Pomocí rozšíření můžete provádět tyto běžné úlohy:
 
 - **Spustit vlastní skripty**: rozšíření vlastních skriptů vám pomůže nakonfigurovat úlohy na virtuálním počítači spuštěním skriptu, když se zřídí virtuální počítač.
@@ -120,8 +120,8 @@ Následující tabulka uvádí některé způsoby, jak můžete získat informac
 |Metoda|Popis|
 |---------|---------|
 |Portál centra Azure Stack|V nabídce centra klikněte na **Virtual Machines** a ze seznamu vyberte virtuální počítač. Na stránce pro virtuální počítač máte přístup k informacím o přehledu, nastavení hodnot a metrikách monitorování.|
-|Azure Powershell|Správa virtuálních počítačů je v Azure a centru Azure Stack podobná. Další informace o používání PowerShellu najdete v následujícím tématu Azure:<br>[Vytvoření a správa virtuálních počítačů s Windows pomocí modulu Azure PowerShell](/azure/virtual-machines/windows/tutorial-manage-vm#understand-vm-sizes)|
-|Klientské sady SDK|Použití C# ke správě virtuálních počítačů je podobné jako u Azure a centra Azure Stack. Další informace najdete v následujícím tématu Azure:<br>[Vytváření a správa virtuálních počítačů s Windows v Azure pomocíC#](/azure/virtual-machines/windows/csharp)|
+|Azure PowerShell|Správa virtuálních počítačů je v Azure a centru Azure Stack podobná. Další informace o používání PowerShellu najdete v následujícím tématu Azure:<br>[Vytváření a správa virtuálních počítačů s Windows pomocí modulu Azure PowerShell](/azure/virtual-machines/windows/tutorial-manage-vm#understand-vm-sizes)|
+|Klientské sady SDK|Použití jazyka C# ke správě virtuálních počítačů je v Azure a centru Azure Stack podobné. Další informace najdete v následujícím tématu Azure:<br>[Vytvoření a správa virtuálních počítačů s Windows v Azure pomocí jazyka C #](/azure/virtual-machines/windows/csharp)|
 
 ### <a name="connect-to-your-vm"></a>Připojení k virtuálnímu počítači
 

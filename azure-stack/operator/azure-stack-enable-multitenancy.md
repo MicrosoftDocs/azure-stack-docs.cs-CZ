@@ -8,15 +8,15 @@ ms.author: inhenkel
 ms.reviewer: bryanr
 ms.lastreviewed: 06/10/2019
 ms.openlocfilehash: ba5c757a08b63c80ce86a9f8890f82fa696066a5
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79294690"
 ---
 # <a name="configure-multi-tenancy-in-azure-stack-hub"></a>Konfigurace víceklientské architektury v centru Azure Stack
 
-Centrum Azure Stack můžete nakonfigurovat tak, aby podporovalo uživatele z více tenantů Azure Active Directory (Azure AD), což jim umožňuje používat služby v centru Azure Stack. Zvažte například následující scénář:
+Centrum Azure Stack můžete nakonfigurovat tak, aby podporovalo uživatele z více tenantů Azure Active Directory (Azure AD), což jim umožňuje používat služby v centru Azure Stack. Představte si třeba následující scénář:
 
 - Jste správcem služby contoso.onmicrosoft.com, kde je nainstalovaný Azure Stack hub.
 - Marie je správcem adresáře fabrikam.onmicrosoft.com, kde se nacházejí uživatelé typu Host.
@@ -104,7 +104,7 @@ Register-AzSWithMyDirectoryTenant `
 
 Teď, když jste vy a Marie dokončili kroky k zařazení adresáře Marie, může uživatel s názvem Marie nasměrovat uživatele společnosti Fabrikam, aby se přihlásili. Uživatelé společnosti Fabrikam (uživatelé s příponou fabrikam.onmicrosoft.com) se přihlásí návštěvou https\://Portal.Local.azurestack.external.
 
-Marie bude směrovat jakékoli [cizí objekty zabezpečení](/azure/role-based-access-control/rbac-and-directory-admin-roles) v adresáři Fabrikam (uživatelé v adresáři Fabrikam bez přípony Fabrikam.onmicrosoft.com), aby se přihlásili pomocí protokolu HTTPS\://Portal.Local.azurestack.external/Fabrikam.onmicrosoft.com. Pokud tuto adresu URL nepoužívají, odešlou se jejich výchozímu adresáři (Fabrikam) a zobrazí se chyba oznamující, že správce nesouhlasí.
+Marie bude směrovat jakékoli [cizí objekty zabezpečení](/azure/role-based-access-control/rbac-and-directory-admin-roles) v adresáři Fabrikam (uživatelé v adresáři Fabrikam bez přípony Fabrikam.onmicrosoft.com), aby se mohli přihlásit pomocí protokolu HTTPS\://Portal.Local.azurestack.external/Fabrikam.onmicrosoft.com. Pokud tuto adresu URL nepoužívají, odešlou se jejich výchozímu adresáři (Fabrikam) a zobrazí se chyba oznamující, že správce nesouhlasí.
 
 ## <a name="disable-multi-tenancy"></a>Zakázat víceklientské architektury
 
