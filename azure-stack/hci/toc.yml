@@ -1,9 +1,13 @@
 - name: Dokumentace k Azure Stack HCI
-  href: overview.md
+  href: index.yml
 - name: Přehled
   items:
     - name: Co je Azure Stack HCI?
       href: overview.md
+- name: Začínáme
+  items:
+    - name: Použití Azure Stack HCL s centrem pro správu Windows
+      href: get-started.md
 - name: Spravovat
   items:
     - name: Vytváření svazků
@@ -14,6 +18,8 @@
       href: manage/delete-volumes.md
     - name: Nahradit jednotky
       href: manage/replace-drives.md
+    - name: Monitorování pomocí služby Azure Monitor
+      href: manage/azure-monitor.md
     - name: Připojení GPU k virtuálnímu počítači se systémem Linux
       href: manage/attach-gpu-to-linux-vm.md
 - name: Koncepty
@@ -40,6 +46,12 @@
       href: /powershell/module/failoverclusters
     - name: Příkazy prostředí PowerShell pro StorageReplica
       href: /powershell/module/storagereplica
+    - name: Příkazy prostředí PowerShell pro NetAdapter
+      href: /powershell/module/netadapter
+    - name: Příkazy prostředí PowerShell pro NetQoS
+      href: /powershell/module/netqos
+    - name: Příkazy prostředí PowerShell pro DcbQoS
+      href: /powershell/module/dcbqos
 - name: Související
   items:
     - name: Řada Azure Stack
@@ -54,9 +66,9 @@
       href: /windows-server/manage/windows-admin-center/understand/windows-admin-center
     - name: Služba Azure Hybrid Services
       href: /windows-server/manage/windows-admin-center/azure
-    - name: Prostory úložiště s přímým přístupem
+    - name: Prostory úložiště – přímé
       href: /windows-server/storage/storage-spaces/storage-spaces-direct-overview
-    - name: Clusteringu s podporou převzetí služeb při selhání
+    - name: Clustering s podporou převzetí služeb při selhání
       href: /windows-server/failover-clustering/failover-clustering-overview
     - name: Hyper-V
       href: /windows-server/virtualization/hyper-v/hyper-v-on-windows-server

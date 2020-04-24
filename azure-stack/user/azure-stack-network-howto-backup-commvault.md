@@ -3,16 +3,16 @@ title: Jak zálohovat virtuální počítač v Azure Stack hub pomocí CommVault
 description: Naučte se, jak zálohovat virtuální počítač v Azure Stack hub pomocí CommVault.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 10/30/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/30/2019
-ms.openlocfilehash: ec02ccd45773c97df71369b1e325120452ce7da1
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 61ea70c9a59442547a9b4b73d4a3f9e676cf89c7
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77702461"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81661042"
 ---
 # <a name="back-up-your-vm-on-azure-stack-hub-with-commvault"></a>Zálohování virtuálního počítače v Azure Stack hub pomocí CommVault
 
@@ -61,7 +61,7 @@ Topologie tohoto přístupu bude vypadat jako v následujícím diagramu:
     
     d. Zadejte **heslo**.
     
-    e. Potvrďte heslo.
+    e. Potvrďte své heslo.
     
     f. Vyberte **předplatné** pro zálohu.
     
@@ -120,14 +120,14 @@ Budete potřebovat zjistit, jestli je váš správce identit Azure AD nebo AD DF
 
 ## <a name="configure-backup-using-the-commvault-console"></a>Konfigurace zálohování pomocí konzoly CommVault
 
-1. Otevřete svého klienta RDP a připojte se k virtuálnímu počítači s Commavult v centru Azure Stack. Zadejte své přihlašovací údaje.
+1. Otevřete svého klienta RDP a připojte se k virtuálnímu počítači s Commavult v centru Azure Stack. Zadejte svoje přihlašovací údaje.
 
 2. Nainstalujte Azure Stack centra PowerShell a nástroje centra Azure Stack na virtuálním počítači s CommVault.
 
     a. Pokyny k instalaci prostředí PowerShell centra Azure Stack najdete v tématu [instalace PowerShellu pro centrum Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-install?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fbreadcrumb%2Ftoc.json).  
     b. Pokyny k instalaci nástrojů centra Azure Stack najdete v tématu [Stažení nástrojů centra Azure Stack z GitHubu](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-download?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fuser%2FTOC.json%3Fview%3Dazs-1908&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fbreadcrumb%2Ftoc.json%3Fview%3Dazs-1908&view=azs-1908).
 
-3. Po instalaci nástroje CommVault na VIRTUÁLNÍm počítači s CommVault otevřete konzolu Commcell. V nabídce Start vyberte **Commvault** > **CommVault Commcell Console**.
+3. Po instalaci nástroje CommVault na VIRTUÁLNÍm počítači s CommVault otevřete konzolu Commcell. V nabídce Start vyberte **CommVault** > **CommVault Commcell Console**.
 
     ![](./media/azure-stack-network-howto-backup-commvault/commcell-console.png)
 
@@ -145,7 +145,7 @@ Budete potřebovat zjistit, jestli je váš správce identit Azure AD nebo AD DF
 
 9. Zadejte informace o přístupu pro svůj účet úložiště. Pokyny k nastavení Azure Storage účtu najdete tady. Přístup k informacím:
 
-    -  **Hostitel služby**: Získá název adresy URL z vlastností kontejneru objektů BLOB ve vašem prostředku. Například moje adresa URL byla https:\//backuptest.blob.westus.stackpoc.com/mybackups a používá se blob.westus.stackpoc.com v hostiteli služby.
+    -  **Hostitel služby**: Získá název adresy URL z vlastností kontejneru objektů BLOB ve vašem prostředku. Například moje adresa URL byla https:\//backuptest.blob.westus.stackpoc.com/mybackups a používá se BLOB.westus.stackpoc.com v hostiteli služby.
     
     -   **Název účtu**: použijte název účtu úložiště. Najdete ho v okně přístupové klíče v prostředku úložiště.
     
@@ -198,7 +198,7 @@ CommVault Live Sync umožňuje převzetí služeb při selhání z jednoho centr
 
 ![](./media/azure-stack-network-howto-backup-commvault/back-up-live-sync-panel.png)
 
-Vyberte virtuální počítače, u kterých chcete převzít služby při selhání pro obnovení Azure Stack hub, a zvolte plánované nebo neplánované převzetí služeb při selhání. Plánované převzetí služeb při selhání je vhodné v případě, že je čas na bezproblémové vypnutí provozního prostředí před obnovením operací v lokalitě pro obnovení. Při plánovaném převzetí služeb při selhání dojde k vypnutí produkčních virtuálních počítačů, replikují se poslední změny lokality pro obnovení a přinášejí virtuální počítače pro obnovení do online režimu s nejnovějšími daty a uplatní velikost virtuálního počítače a konfiguraci sítě zadanou během konfigurace živé synchronizace. Neplánované převzetí služeb při selhání se pokusí vypnout provozní virtuální počítače, ale bude pokračovat, pokud je provozní prostředí nedostupné a jednoduše přepnete virtuální počítače pro obnovení do režimu online s poslední obdrženou replikační datovou sadou, která se používá pro virtuální počítač a velikost a síť. dříve zvolená konfigurace. Následující obrázky znázorňují neplánované převzetí služeb při selhání, kdy se virtuální počítače pro obnovení dostaly do online režimu CommVault Live Sync.
+Vyberte virtuální počítače, u kterých chcete převzít služby při selhání pro obnovení Azure Stack hub, a zvolte plánované nebo neplánované převzetí služeb při selhání. Plánované převzetí služeb při selhání je vhodné v případě, že je čas na bezproblémové vypnutí provozního prostředí před obnovením operací v lokalitě pro obnovení. Při plánovaném převzetí služeb při selhání dojde k vypnutí produkčních virtuálních počítačů, replikují se poslední změny lokality pro obnovení a přinášejí virtuální počítače pro obnovení do online režimu s nejnovějšími daty a uplatní velikost virtuálního počítače a konfiguraci sítě zadanou během konfigurace živé synchronizace. Neplánované převzetí služeb při selhání se pokusí vypnout provozní virtuální počítače, ale bude pokračovat, pokud je provozní prostředí nedostupné a jednoduše přepnete virtuální počítače pro obnovení do režimu online s poslední obdrženou replikační datovou sadou, která se použila pro virtuální počítač, a výše vybranou velikost a konfiguraci sítě. Následující obrázky znázorňují neplánované převzetí služeb při selhání, kdy se virtuální počítače pro obnovení dostaly do online režimu CommVault Live Sync.
 
 ![](./media/azure-stack-network-howto-backup-commvault/unplanned-failover.png)
 

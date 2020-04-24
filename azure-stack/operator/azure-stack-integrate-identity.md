@@ -3,16 +3,16 @@ title: Integrace AD FS identity s vaším datacenterm centra Azure Stack
 description: Naučte se integrovat Azure Stack hub AD FS poskytovatele identity ke svému datovému centru AD FS.
 author: IngridAtMicrosoft
 ms.topic: article
-ms.date: 05/10/2019
+ms.date: 04/10/2020
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: 999c1b2983342189ca86805a4139e3c7f77b5ceb
-ms.sourcegitcommit: da91962d8133b985169b236fb4c84f4ef564efc8
+ms.openlocfilehash: 31ef13db3d0a195d0d9505dec2fabf4124448a0f
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80367821"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81243797"
 ---
 # <a name="integrate-ad-fs-identity-with-your-azure-stack-hub-datacenter"></a>Integrace AD FS identity s vaším datacenterm centra Azure Stack
 
@@ -27,11 +27,11 @@ Nasazení pomocí AD FS umožňuje identitám v existující doménové struktu�
 
 Ověřování je jedna část identity. Pokud chcete spravovat řízení přístupu na základě role (RBAC) v centru Azure Stack, musí být nakonfigurovaná komponenta grafu. Když je delegovaný přístup k prostředku, komponenta grafu vyhledá uživatelský účet v existující doménové struktuře služby Active Directory pomocí protokolu LDAP.
 
-![Architektura AD FS centra Azure Stack](media/azure-stack-integrate-identity/Azure-Stack-ADFS-architecture.png)
+![Architektura AD FS centra Azure Stack](media/azure-stack-integrate-identity/azure-stack-adfs-architecture.svg)
 
 Stávající AD FS je služba tokenů zabezpečení (STS) účtu, která odesílá deklarace do centra Azure Stack AD FS (prostředek STS). V centru Azure Stack Automation vytvoří vztah důvěryhodnosti zprostředkovatele deklarací identity s koncovým bodem metadat pro existující AD FS.
 
-U stávajících AD FS je nutné nakonfigurovat vztah důvěryhodnosti předávající strany. Tento krok není proveden automatizací a musí být nakonfigurován pomocí operátoru. Koncový bod VIP Azure Stack centra pro AD FS se dá vytvořit pomocí `https://adfs.<Region>.<ExternalFQDN>/`vzoru.
+U stávajících AD FS je nutné nakonfigurovat vztah důvěryhodnosti předávající strany. Tento krok není proveden automatizací a musí být nakonfigurován pomocí operátoru. Koncový bod VIP Azure Stack centra pro AD FS se dá vytvořit pomocí vzoru `https://adfs.<Region>.<ExternalFQDN>/`.
 
 Konfigurace vztahu důvěryhodnosti předávající strany také vyžaduje, abyste nakonfigurovali pravidla transformace deklarace identity, která poskytuje Microsoft.
 
@@ -41,7 +41,7 @@ Pro poslední krok je pro výchozí předplatné zprostředkovatele nakonfigurov
 
 Požadavky:
 
-|Komponenta|Požadavek|
+|Součást|Požadavek|
 |---------|---------|
 |Graph|Microsoft Active Directory 2012/2012 R2/2016 2019|
 |AD FS|Windows Server 2012/2012 R2/2016 2019|
@@ -116,9 +116,9 @@ Služba Graph Service v centru Azure Stack používá ke komunikaci s cílovou s
 |Typ|Port|Protocol (Protokol)|
 |---------|---------|---------|
 |LDAP|389|TCP & UDP|
-|LDAP SSL|636|TCP|
+|PROTOKOL LDAP SSL|636|TCP|
 |GC PROTOKOLU LDAP|3268|TCP|
-|LDAP GC SSL|3269|TCP|
+|PROTOKOL SSL GC PROTOKOLU LDAP|3269|TCP|
 
 ## <a name="setting-up-ad-fs-integration-by-downloading-federation-metadata"></a>Nastavení integrace AD FS stažením federačních metadat
 
@@ -127,7 +127,7 @@ Pro parametry automatizace se jako vstup vyžadují tyto informace:
 |Parametr|Parametr listu nasazení|Popis|Příklad|
 |---------|---------|---------|---------|
 |CustomAdfsName|Název poskytovatele AD FS|Název zprostředkovatele deklarací identity.<br>Toto zobrazení se zobrazí na AD FS cílové stránce.|Contoso|
-|CustomAD<br>FSFederationMetadataEndpointUri|Identifikátor URI AD FS metadat|Odkaz federačních metadat| https:\//ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml |
+|CustomAD<br>FSFederationMetadataEndpointUri|Identifikátor URI AD FS metadat|Odkaz federačních metadat| https:\//AD01.contoso.com/federationmetadata/2007-06/federationmetadata.XML |
 |SigningCertificateRevocationCheck|Není k dispozici|Volitelný parametr pro přeskočení kontroly CRL|Žádná|
 
 
@@ -163,11 +163,10 @@ Počínaje verzí 1807 použijte tuto metodu, pokud jsou splněné některé z n
 
 Pro parametry automatizace se jako vstup vyžadují tyto informace:
 
-
 |Parametr|Popis|Příklad|
 |---------|---------|---------|
 |CustomAdfsName|Název zprostředkovatele deklarací identity. Toto zobrazení se zobrazí na AD FS cílové stránce.|Contoso|
-|CustomADFSFederationMetadataFileContent|Obsah metadat|$using:federationMetadataFileContent|
+|CustomADFSFederationMetadataFileContent|Obsah metadat|$using: federationMetadataFileContent|
 
 ### <a name="create-federation-metadata-file"></a>Vytvořit soubor federačních metadat
 
@@ -291,7 +290,7 @@ Pokud se rozhodnete tyto příkazy spustit ručně, postupujte následovně:
    **Pro AD FS 2002 a vyšší**
 
    > [!NOTE]
-   > Při provádění `Add-ADFSRelyingPartyTrust` na hostiteli nebo farmě služby AD FS vlastněné zákazníkem musíte nejdřív zajistit, aby se na hostiteli nebo farmě služby AD FS vynutila TLS 1.2. v důsledku toho se zobrazí tato chybová zpráva:
+   > Při provádění `Add-ADFSRelyingPartyTrust` na hostiteli nebo farmě služby AD FS vlastněné zákazníkem je potřeba nejdřív zajistit, aby na hostiteli nebo farmě služby AD FS bylo vynutilo použití protokolu TLS 1.2. v opačném případě bude výsledkem tato chybová zpráva:
 
 `Add-ADFSRelyingPartyTrust : The underlying connection was closed: An unexpected error occurred on a send.`
 
@@ -341,7 +340,7 @@ Pokud dojde k chybě, která opustí prostředí ve stavu, ve kterém již nelze
 
 ### <a name="collecting-additional-logs"></a>Shromažďování dalších protokolů
 
-Pokud selže kterákoli z rutin, můžete shromažďovat další protokoly pomocí rutiny `Get-Azurestacklogs`.
+Pokud selže kterákoli z rutin, můžete shromažďovat další protokoly pomocí `Get-Azurestacklogs` rutiny.
 
 1. Otevřete relaci Windows PowerShellu se zvýšenými oprávněními a spusťte následující příkazy:
 

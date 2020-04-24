@@ -8,10 +8,10 @@ ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
 ms.openlocfilehash: 22919a17f58cf83857dc24d154fcfd1ab3760e59
-ms.sourcegitcommit: 19e9b6d6ce24d74ff396a5dc48208671aeda432a
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "80362209"
 ---
 # <a name="create-a-geo-distributed-app-solution-to-direct-traffic-with-azure-and-azure-stack-hub"></a>Vytvoření geograficky distribuované aplikace pro směrování provozu pomocí Azure a centra Azure Stack
@@ -50,7 +50,7 @@ Stejně jako v případě, že se jedná o požadavky na škálovatelnost, toto 
 
 Před vytvořením kapacity distribuovaných aplikací vám pomůže tyto věci:
 
--   **Vlastní doména pro aplikaci:** Jaký je vlastní název domény, který budou zákazníci používat pro přístup k aplikaci? Pro ukázkovou aplikaci je vlastní název domény *www\.scalableasedemo.com.*
+-   **Vlastní doména pro aplikaci:** Jaký je vlastní název domény, který budou zákazníci používat pro přístup k aplikaci? Pro ukázkovou aplikaci je vlastní název domény *\.www scalableasedemo.com.*
 
 -   **Doména Traffic Manager:** Při vytváření [profilu Traffic Manager Azure](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-manage-profiles)se vybere název domény. Tento název se používá v kombinaci s příponou *trafficmanager.NET* k registraci položky domény spravované pomocí Traffic Manager. Pro ukázkovou aplikaci je zvolený název *škálovatelný-pomocný-demo*. Výsledkem je, že úplný název domény, který je spravovaný nástrojem Traffic Manager, je *Scalable-ASE-demo.trafficmanager.NET*.
 
@@ -76,7 +76,7 @@ V této části vytvoříte webovou aplikaci.
 > - Najeďte na sestavení aplikace na více cloudových cílů.
 > - Správa a konfigurace procesu CD
 
-### <a name="prerequisites"></a>Předpoklady
+### <a name="prerequisites"></a>Požadavky
 
 Vyžaduje se instalace předplatného Azure a centra Azure Stack.
 
@@ -121,11 +121,11 @@ Nastavte hybridní průběžnou integraci/průběžné doručování (CI/CD), ab
 
 2.  Potvrďte, že **kód aplikace** byl zkontrolován do Azure Repos.
 
-### <a name="create-the-build-definition"></a>Vytvořte definici sestavení
+### <a name="create-the-build-definition"></a>Vytvoření definice sestavení
 
 1. **Přihlaste se k Azure Pipelines** a potvrďte schopnost vytvářet definice sestavení.
 
-2. Přidejte kód `-r win10-x64`. Tento dodatek je nezbytný pro aktivaci samostatného nasazení pomocí .NET Core.
+2. Přidejte `-r win10-x64` kód. Tento dodatek je nezbytný pro aktivaci samostatného nasazení pomocí .NET Core.
 
     ![Přidat kód do definice sestavení](media/solution-deployment-guide-geo-distributed/image4.png)
 
@@ -214,7 +214,7 @@ Azure DevOps Services poskytují vysoce konfigurovatelný a spravovatelný kaná
 
     ![Vyberte složku pro nasazení Azure App Service](media/solution-deployment-guide-geo-distributed/image23.png)
 
-18. V části karta proměnné přidejte proměnnou s názvem `VSTS\_ARM\_REST\_IGNORE\_SSL\_ERRORS`, nastavte její hodnotu na **true**a obor na Azure Stack hub.
+18. V části karta proměnné přidejte proměnnou s `VSTS\_ARM\_REST\_IGNORE\_SSL\_ERRORS`názvem, nastavte její hodnotu na **true**a obor na Azure Stack hub.
     
     ![Přidat proměnnou do nasazení aplikace Azure](media/solution-deployment-guide-geo-distributed/image24.png)
 
@@ -248,7 +248,7 @@ Azure DevOps Services poskytují vysoce konfigurovatelný a spravovatelný kaná
 
 Pokud chcete do služby App Service migrovat živý web a jeho název domény DNS, přečtěte si téma [Migrace aktivního názvu DNS do služby Azure App Service](https://docs.microsoft.com/azure/app-service/manage-custom-dns-migrate-domain).
 
-### <a name="prerequisites"></a>Předpoklady
+### <a name="prerequisites"></a>Požadavky
 
 Dokončení tohoto řešení:
 
@@ -264,7 +264,7 @@ Aktualizujte soubor zóny DNS pro doménu. Azure AD ověří vlastnictví vlastn
 
 -   Aktualizujte soubor zóny DNS pro doménu tak, že přidáte položku DNS, kterou poskytuje Azure AD.
 
-Pokud například chcete přidat položky DNS pro northwindcloud.com a www\.northwindcloud.com, nakonfigurujte nastavení DNS pro kořenovou doménu northwindcloud.com.
+Pokud například chcete přidat položky DNS pro northwindcloud.com a webové\.northwindcloud.com, NAKONFIGURUJTE nastavení DNS pro kořenovou doménu northwindcloud.com.
 
 > [!Note]  
 >  Název domény může být zakoupen pomocí [Azure Portal](https://docs.microsoft.com/azure/app-service/manage-custom-dns-buy-domain). Abyste mohli mapovat vlastní název DNS na webovou aplikaci, [plán služby App Service](https://azure.microsoft.com/pricing/details/app-service/) příslušné webové aplikace musí být na placené úrovni (**Shared**, **Basic**, **Standard** nebo **Premium**).
@@ -292,7 +292,7 @@ Následující snímek obrazovky obsahuje příklad stránky záznamů DNS:
 
 2. Přidejte záznam CNAME pro mapování subdomény na výchozí název hostitele aplikace.
 
-   V příkladech northwindcloud.com domény www\.přidejte záznam CNAME, který mapuje název na název < aplikace\_název >. azurewebsites. NET.
+   V příkladech\.domény northwindcloud.com www přidejte záznam CNAME, který mapuje název na <název aplikace\_>. azurewebsites.NET.
 
 Po přidání CNAME bude stránka záznamů DNS vypadat jako v následujícím příkladu:
 
@@ -308,17 +308,17 @@ Po přidání CNAME bude stránka záznamů DNS vypadat jako v následujícím p
 
 4. V levém navigačním panelu na stránce aplikace na webu Azure Portal vyberte **Vlastní domény**.
 
-5. Vyberte ikonu **+** vedle možnosti **Přidat název hostitele**.
+5. Vyberte **+** ikonu vedle **Přidat název hostitele**.
 
 6. Zadejte plně kvalifikovaný název domény, například `www.northwindcloud.com`.
 
 7. Vyberte **Ověřit**.
 
-8. Pokud je uvedeno jinak, přidejte další záznamy jiných typů (`A` nebo `TXT`) do záznamů DNS registrátora názvu domény. Azure nabídne hodnoty a typy těchto záznamů:
+8. Pokud je uvedeno jinak, přidejte další záznamy jiných typů`A` ( `TXT`nebo) do záznamů DNS registrátora názvu domény. Azure nabídne hodnoty a typy těchto záznamů:
 
    a.  Záznam **A** pro mapování na IP adresu aplikace.
 
-   b.  Záznam **txt** pro mapování na výchozí název hostitele aplikace < APP_NAME >. azurewebsites. NET. App Service používá tento záznam pouze v době konfigurace k ověření vlastního vlastnictví domény. Po ověření odstraňte záznam TXT.
+   b.  Záznam **txt** pro mapování na výchozí název hostitele aplikace <APP_NAME>. azurewebsites.NET. App Service používá tento záznam pouze v době konfigurace k ověření vlastního vlastnictví domény. Po ověření odstraňte záznam TXT.
 
 9. Dokončete tuto úlohu na kartě registrátor domény a znovu ověřte, dokud není aktivováno tlačítko **Přidat název hostitele** .
 
@@ -341,7 +341,7 @@ Po přidání CNAME bude stránka záznamů DNS vypadat jako v následujícím p
     Pokud dojde k chybě, zobrazí se v dolní části stránky oznámení o chybě ověření. ![Chyba ověření](media/solution-deployment-guide-geo-distributed/image32.png)
 
 > [!Note]  
->  Výše uvedené kroky se můžou opakovat, aby se namapovala doména se zástupnými znaky (\*. northwindcloud.com). To umožňuje přidání jakýchkoli dalších subdomén do této služby App Service, aniž by bylo nutné pro každé z nich vytvořit samostatný záznam CNAME. Nakonfigurujte toto nastavení podle pokynů registrátora.
+>  Výše uvedené kroky se můžou opakovat, aby se namapovala\*doména se zástupnými znaky (. northwindcloud.com). To umožňuje přidání jakýchkoli dalších subdomén do této služby App Service, aniž by bylo nutné pro každé z nich vytvořit samostatný záznam CNAME. Nakonfigurujte toto nastavení podle pokynů registrátora.
 
 #### <a name="test-in-a-browser"></a>Testování v prohlížeči
 
@@ -359,7 +359,7 @@ V této části budeme:
 > [!Note]  
 > V případě potřeby Získejte certifikát SSL zákazníka v Azure Portal a navažte ho k webové aplikaci. Další informace najdete v [kurzu App Servicech certifikátů](https://docs.microsoft.com/azure/app-service/web-sites-purchase-ssl-web-site).
 
-### <a name="prerequisites"></a>Předpoklady
+### <a name="prerequisites"></a>Požadavky
 
 Dokončení tohoto řešení:
 
@@ -396,7 +396,7 @@ Aby bylo možné vytvořit navázání vlastního certifikátu SSL k webové apl
 
 #### <a name="check-the-pricing-tier"></a>Kontrola cenové úrovně
 
-1.  V levé navigační části stránky webové aplikace se posuňte do části **Nastavení** a vyberte **škálovat nahoru (App Service plán)** .
+1.  V levé navigační části stránky webové aplikace se posuňte do části **Nastavení** a vyberte **škálovat nahoru (App Service plán)**.
 
     ![Nabídka Vertikálně navýšit kapacitu](media/solution-deployment-guide-geo-distributed/image34.png)
 
@@ -457,7 +457,7 @@ Sloučí více certifikátů v řetězu.
 
 Exportujte sloučený certifikát SSL s privátním klíčem vygenerovaným certifikátem.
 
-Soubor privátního klíče se vytvoří prostřednictvím OpenSSL. Pokud chcete certifikát exportovat do souboru PFX, spusťte následující příkaz a nahraďte zástupné symboly *\<Private-Key-file >* a *\<sloučeného-certificate-File >* s cestou k privátním klíčem a souborem sloučeného certifikátu:
+Soubor privátního klíče se vytvoří prostřednictvím OpenSSL. Pokud chcete certifikát exportovat do PFX, spusťte následující příkaz a nahraďte zástupné symboly * \<Private-Key-File>* a * \<Merge-Certificate-File>* s cestou k privátním klíčem a sloučeným souborem certifikátu:
 
 ```powershell
 openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-certificate-file>
@@ -477,13 +477,13 @@ Když se k vygenerování žádosti o certifikát použije služba IIS nebo **Ce
 
 4. Do pole **heslo certifikátu**zadejte heslo vytvořené při exportování souboru PFX.
 
-5. Vyberte **Nahrát**.
+5. Vyberte **nahrát**.
 
 ![Nahrání certifikátu](media/solution-deployment-guide-geo-distributed/image38.png)
 
 Až App Service dokončí nahrávání certifikátu, zobrazí se na stránce **Nastavení SSL** .
 
-![Nastavení SSL](media/solution-deployment-guide-geo-distributed/image39.png)
+![Nastavení protokolu SSL](media/solution-deployment-guide-geo-distributed/image39.png)
 
 #### <a name="bind-your-ssl-certificate"></a>Vytvoření vazby certifikátu SSL
 
@@ -494,7 +494,7 @@ Až App Service dokončí nahrávání certifikátu, zobrazí se na stránce **N
 
 1.  Na stránce **Přidat vazbu SSL** vyberte pomocí rozevíracích seznamu název domény, kterou chcete zabezpečit, a certifikát, který chcete použít.
 
-1.  V části **Typ SSL** vyberte, jestli se má použít SSL na základě [**Indikace názvu serveru (SNI)** ](https://en.wikipedia.org/wiki/Server_Name_Indication) nebo IP adresy.
+1.  V části **Typ SSL** vyberte, jestli se má použít SSL na základě [**Indikace názvu serveru (SNI)**](https://en.wikipedia.org/wiki/Server_Name_Indication) nebo IP adresy.
 
     - **SSL založené na sni**: přidat se dá víc vazeb SSL založených na sni. Tato možnost umožňuje zabezpečení několika domén na stejné IP adrese pomocí několika certifikátů SSL. Většina moderních prohlížečů (včetně prohlížečů Internet Explorer, Chrome, Firefox a Opera) podporuje SNI (ucelenější informace o podpoře prohlížečů najdete v článku o [Indikaci názvu serveru](https://wikipedia.org/wiki/Server_Name_Indication)).
 
@@ -520,24 +520,24 @@ Stránka **vlastní doména** je aktualizována novou vyhrazenou IP adresou. Zko
 
 #### <a name="test-https"></a>Test HTTPS
 
-V různých prohlížečích přejděte na https://< Your. Custom. Domain >, abyste zajistili, že se webová aplikace doručí.
+V různých prohlížečích přejděte k https://<vaší. Custom.>domény, abyste zajistili, že se webová aplikace doručí.
 
 ![Přejít k webové aplikaci](media/solution-deployment-guide-geo-distributed/image42.png)
 
 > [!Note]  
 > Pokud dojde k chybám ověření certifikátu, může to být způsobeno certifikátem podepsaným svým držitelem nebo při exportu do souboru PFX byly pozměněny zprostředkující certifikáty.
 
-#### <a name="enforce-https"></a>Vynucení HTTPS
+#### <a name="enforce-https"></a>Vynucení protokolu HTTPS
 
 Ve výchozím nastavení má kdokoli přístup k webové aplikaci přes HTTP. Je možné přesměrovat všechny požadavky HTTP na port HTTPS.
 
 Na stránce webová aplikace vyberte **Nastavení SL**. Pak v části **Pouze HTTPS** vyberte **Zapnuto**.
 
-![Vynucení HTTPS](media/solution-deployment-guide-geo-distributed/image43.png)
+![Vynucení protokolu HTTPS](media/solution-deployment-guide-geo-distributed/image43.png)
 
-Po dokončení operace přejděte na libovolnou adresu URL protokolu HTTP, která odkazuje na aplikaci. Například:
+Po dokončení operace přejděte na libovolnou adresu URL protokolu HTTP, která odkazuje na aplikaci. Příklad:
 
--   https://< app_name >. azurewebsites. NET
+-   https://<app_name>. azurewebsites.net
 -   `https://northwindcloud.com`
 -   <https://www.northwindcloud.com>
 
@@ -553,7 +553,7 @@ Aplikace ve výchozím nastavení povolí protokol [TLS](https://wikipedia.org/w
 
 ### <a name="create-a-traffic-manager-profile"></a>Vytvoření profilu Traffic Manageru
 
-1.  Vyberte **vytvořit prostředek** > **síťové** > **Traffic Manager profil** > **vytvořit**.
+1.  Vyberte **vytvořit prostředek** > **sítě** > **Traffic Manager profil** > **vytvořit**.
 
 2.  Část **Vytvořit profil služby Traffic Manager** vyplňte následovně:
 
@@ -567,7 +567,7 @@ Aplikace ve výchozím nastavení povolí protokol [TLS](https://wikipedia.org/w
 
     5.  V poli **Umístění skupiny prostředků** vyberte umístění skupiny prostředků. Toto nastavení odkazuje na umístění skupiny prostředků a nemá žádný vliv na globálně nasazený profil Traffic Manager.
 
-    6.  Vyberte **Create** (Vytvořit).
+    6.  Vyberte **Vytvořit**.
 
     7.  Po dokončení globálního nasazení profilu Traffic Manager se v příslušné skupině prostředků zobrazí jako jeden z prostředků.
 

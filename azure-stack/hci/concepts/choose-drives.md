@@ -5,12 +5,12 @@ author: khdownie
 ms.author: v-kedow
 ms.topic: article
 ms.date: 03/06/2020
-ms.openlocfilehash: 42fb0703ed1e4947a1f35cc14a8708c8372f220e
-ms.sourcegitcommit: 900332596d0bb473d82b1d1a28c3fe3aa6522add
+ms.openlocfilehash: ee51dc973c26335cfb6c75de991508a6063e0993
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79094979"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "80806680"
 ---
 # <a name="choosing-drives-for-azure-stack-hci"></a>Výběr jednotek pro Azure Stack HCI
 
@@ -30,7 +30,7 @@ Prostory úložiště s přímým přístupem aktuálně funguje se třemi typy 
 
 ## <a name="built-in-cache"></a>Integrovaná mezipaměť
 
-Prostory úložiště s přímým přístupem funkce obsahuje integrovanou mezipaměť na straně serveru. Je to velká, Trvalá mezipaměť pro čtení a zápis v reálném čase. V nasazeních s více typy jednotek je automaticky nakonfigurováno pro použití všech jednotek typu "nejrychlejší". Zbývající jednotky se použijí pro kapacitu.
+Prostory úložiště s přímým přístupem funkce obsahuje integrovanou mezipaměť na straně serveru. Je to velká, Trvalá mezipaměť pro čtení a zápis v reálném čase. V nasazeních s více typy jednotek je automaticky nakonfigurováno pro použití všech jednotek typu "nejrychlejší". Zbývající jednotky se použijí k ukládání.
 
 Další informace najdete [v části Principy mezipaměti v prostory úložiště s přímým přístupem](/windows-server/storage/storage-spaces/understand-the-cache).
 
@@ -46,7 +46,7 @@ Existují v současné době tři způsoby, jak to provést:
 
 2. **NVMe + SSD.** Při použití NVMe spolu s SSD bude NVMe automaticky zapisovat zápisy do mezipaměti SSD. To umožňuje zápisy do mezipamětí a jejich vyřazení z více fází, jak je potřeba, abyste snížili opotřebení SSD. Tato funkce poskytuje NVMe jako vlastnosti zápisu, zatímco čtení se zpracovává přímo z Ssdy také.
 
-3. **Všechny jednotky SSD.** Stejně jako u All-NVMe neexistuje mezipaměť, pokud jsou všechny vaše jednotky stejný model. Pokud kombinujete modely s vyšší životností a nižší dlouhodobé nároky, můžete nakonfigurovat původní pro zápis do mezipaměti pro druhý ([vyžaduje nastavení](/windows-server/storage/storage-spaces/understand-the-cache.md#manual-configuration)).
+3. **Všechny jednotky SSD.** Stejně jako u All-NVMe neexistuje mezipaměť, pokud jsou všechny vaše jednotky stejný model. Pokud kombinujete modely s vyšší životností a nižší dlouhodobé nároky, můžete nakonfigurovat původní pro zápis do mezipaměti pro druhý ([vyžaduje nastavení](/windows-server/storage/storage-spaces/understand-the-cache#manual-configuration)).
 
    >[!NOTE]
    > Výhodou použití All-NVMe nebo All-SSD bez mezipaměti je to, že získáte použitelnou kapacitu úložiště z každé jednotky. Při ukládání do mezipaměti není vydaná žádná kapacita, což může být v menším měřítku opravné.
@@ -79,7 +79,7 @@ Pro úlohy, které vyžadují rozsáhlou kapacitu a zápis, jako je archivace, c
 >[!IMPORTANT]
 >Konfigurace pouze s HDD není podporována. Nedoporučuje se SSD ukládání do mezipaměti s vysokou životností do nízké životnosti SSD.
 
-## <a name="sizing-considerations"></a>Požadavky na změnu velikosti
+## <a name="sizing-considerations"></a>Důležité informace o velikosti
 
 ### <a name="cache"></a>Mezipaměť
 

@@ -3,16 +3,16 @@ title: Vytvoření a publikování položky Marketplace v centru Azure Stack
 description: Naučte se vytvářet a publikovat položku na webu Marketplace centra Azure Stack.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/03/2020
+ms.date: 04/20/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: bb407a03b2a5887b75b8b5d729fa5cc2cc636755
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 45eb02425b0c90e95bb2b0c1c5278b9408fa1f27
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77704450"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81660715"
 ---
 # <a name="create-and-publish-a-custom-azure-stack-hub-marketplace-item"></a>Vytvoření a publikování položky Marketplace pro vlastní Azure Stack centra
 
@@ -131,7 +131,7 @@ Pokud chcete vytvořit vlastní položku Marketplace, udělejte toto:
     }
     ```
 
-    ![](media/azure-stack-create-and-publish-marketplace-item/pkg1.png) zobrazení balíčku ![](media/azure-stack-create-and-publish-marketplace-item/pkg2.png)
+    ![Zobrazení balíčku](media/azure-stack-create-and-publish-marketplace-item/pkg1.png) ![zobrazení balíčku](media/azure-stack-create-and-publish-marketplace-item/pkg2.png)
 
 6. Chcete-li zajistit, aby bylo možné prostředek nasadit úspěšně, otestujte šablonu pomocí [rozhraní API centra Azure Stack](../user/azure-stack-profiles-azure-resource-manager-versions.md).
 
@@ -153,7 +153,7 @@ Pokud chcete vytvořit vlastní položku Marketplace, udělejte toto:
     ```
 
     > [!NOTE]
-    > Výstupní cesta může být libovolná cesta, kterou si zvolíte, a nemusí být v jednotce C:. Nicméně musí existovat úplná cesta k souboru manifest. JSON i výstupní balíček. Pokud je například výstupní cesta `C:\<path>\galleryPackageName.azpkg`, musí existovat `C:\<path>` složky.
+    > Výstupní cesta může být libovolná cesta, kterou si zvolíte, a nemusí být v jednotce C:. Nicméně musí existovat úplná cesta k souboru manifest. JSON i výstupní balíček. Například pokud výstupní cesta je `C:\<path>\galleryPackageName.azpkg`, složka `C:\<path>` musí existovat.
     >
     >
 
@@ -178,7 +178,7 @@ Pokud chcete vytvořit vlastní položku Marketplace, udělejte toto:
     https://sample.blob.core.windows.net/<temporary blob name>/<offerName.publisherName.version>.azpkg –Verbose
     ```
 
-5. Ověřte, že máte platný účet úložiště, který je k dispozici pro uložení vaší položky. Hodnotu `GalleryItemURI` můžete získat z portálu Azure Stack správce centra. Vyberte **účet úložiště-> vlastnosti objektu BLOB – > URL**s příponou. azpkg. Účet úložiště se používá jenom pro dočasné použití, aby se daly publikovat na webu Marketplace.
+5. Ověřte, že máte platný účet úložiště, který je k dispozici pro uložení vaší položky. Tuto `GalleryItemURI` hodnotu můžete získat z portálu pro správu centra Azure Stack. Vyberte **účet úložiště-> vlastnosti objektu BLOB – > URL**s příponou. azpkg. Účet úložiště se používá jenom pro dočasné použití, aby se daly publikovat na webu Marketplace.
 
    Po dokončení balíčku galerie a jeho nahrání pomocí **Add-AzsGalleryItem**by se teď měl váš vlastní virtuální počítač zobrazit na webu Marketplace i v zobrazení **vytvořit prostředek** . Všimněte si, že ve **správě Marketplace**není balíček vlastní Galerie viditelný.
 
@@ -206,34 +206,34 @@ Pokud chcete vytvořit vlastní položku Marketplace, udělejte toto:
 
 ### <a name="identity-information"></a>Informace o identitě
 
-| Název | Požadováno | Typ | Omezení | Popis |
+| Název | Požaduje se | Typ | Omezení | Popis |
 | --- | --- | --- | --- | --- |
-| Název |X |String |[A-Za-z0-9]+ | |
-| Vydavatel |X |String |[A-Za-z0-9]+ | |
-| Version |X |String |[SemVer v2](https://semver.org/) | |
+| Název |× |Řetězec |[A-za-Z0-9] + | |
+| Vydavatel |× |Řetězec |[A-za-Z0-9] + | |
+| Version |× |Řetězec |[SemVer v2](https://semver.org/) | |
 
 ### <a name="metadata"></a>Metadata
 
-| Název | Požadováno | Typ | Omezení | Popis |
+| Název | Požaduje se | Typ | Omezení | Popis |
 | --- | --- | --- | --- | --- |
-| DisplayName |X |String |Doporučení 80 znaků |Portál nemusí správně zobrazit název položky, pokud je delší než 80 znaků. |
-| PublisherDisplayName |X |String |Doporučení 30 znaků |Portál nemusí správně zobrazit název vašeho vydavatele, pokud je delší než 30 znaků. |
-| PublisherLegalName |X |String |Maximálně 256 znaků | |
-| Souhrn |X |String |60 až 100 znaků | |
-| LongSummary |X |String |140 až 256 znaků |Ještě neplatí v Azure Stack hub. |
-| Popis |X |[HTML](https://github.com/Azure/portaldocs/blob/master/gallery-sdk/generated/index-gallery.md#gallery-item-metadata-html-sanitization) |500 až 5 000 znaků | |
+| DisplayName |× |Řetězec |Doporučení 80 znaků |Portál nemusí správně zobrazit název položky, pokud je delší než 80 znaků. |
+| PublisherDisplayName |× |Řetězec |Doporučení 30 znaků |Portál nemusí správně zobrazit název vašeho vydavatele, pokud je delší než 30 znaků. |
+| PublisherLegalName |× |Řetězec |Maximálně 256 znaků | |
+| Souhrn |× |Řetězec |60 až 100 znaků | |
+| LongSummary |× |Řetězec |140 až 256 znaků |Ještě neplatí v Azure Stack hub. |
+| Popis |× |[HTML](https://github.com/Azure/portaldocs/blob/master/gallery-sdk/generated/index-gallery.md#gallery-item-metadata-html-sanitization) |500 až 5 000 znaků | |
 
-### <a name="images"></a>Image
+### <a name="images"></a>Obrázky
 
 Tržiště používá následující ikony:
 
-| Název | Šířka | Výška | Poznámky: |
+| Název | impulzu | Vlastnost Height | Poznámky |
 | --- | --- | --- | --- |
 | Rozlehlý |255 px |115 px |Vždy vyžadováno |
 | Dlouhodobé používání |115 px |115 px |Vždy vyžadováno |
-| Střední |90 px |90 px |Vždy vyžadováno |
+| Střednědobé používání |90 px |90 px |Vždy vyžadováno |
 | Krátkodobé používání |40 px |40 px |Vždy vyžadováno |
-| – |533 px |324 px |Vždy vyžadováno |
+| Snímek obrazovky |533 px |324 px |Vždy vyžadováno |
 
 ### <a name="categories"></a>Kategorie
 
@@ -243,19 +243,19 @@ Každá položka Marketplace by měla být označena kategorií, která identifi
 
 Každá položka na webu Marketplace může obsahovat různé odkazy na další obsah. Odkazy jsou zadány jako seznam názvů a identifikátorů URI:
 
-| Název | Požadováno | Typ | Omezení | Popis |
+| Název | Požaduje se | Typ | Omezení | Popis |
 | --- | --- | --- | --- | --- |
-| DisplayName |X |String |Maximálně 64 znaků. | |
-| Uri |X |URI | | |
+| DisplayName |× |Řetězec |Maximálně 64 znaků. | |
+| Identifikátor URI |× |Identifikátor URI | | |
 
 ### <a name="additional-properties"></a>Další vlastnosti
 
 Kromě předchozích metadat mohou autoři na webu Marketplace poskytovat vlastní data párů klíč/hodnota v následujícím tvaru:
 
-| Název | Požadováno | Typ | Omezení | Popis |
+| Název | Požaduje se | Typ | Omezení | Popis |
 | --- | --- | --- | --- | --- |
-| DisplayName |X |String |Maximálně 25 znaků. | |
-| Hodnota |X |String |Maximálně 30 znaků. | |
+| DisplayName |× |Řetězec |Maximálně 25 znaků. | |
+| Hodnota |× |Řetězec |Maximálně 30 znaků. | |
 
 ### <a name="html-sanitization"></a>Upravení HTML
 

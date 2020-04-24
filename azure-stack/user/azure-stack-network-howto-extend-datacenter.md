@@ -3,16 +3,16 @@ title: Postup rozšiřování datacentra v centru Azure Stack
 description: Naučte se, jak centrálně roztáhnout datacentrum do centra Azure Stack.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 12/13/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/13/2019
-ms.openlocfilehash: d3884f877511c3a0d285b62ecf3136673e24a116
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: d6f93b5aa35a6475472df4ff213d98f684a4f7bb
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77702444"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81661107"
 ---
 # <a name="extending-storage-to-azure-stack-hub"></a>Rozšíření úložiště do centra Azure Stack
 
@@ -60,13 +60,13 @@ V tomto scénáři nasadíme a nakonfigurujeme virtuální počítač s Windows 
 
     b.  **Uživatelské jméno**: localadmin
 
-    c.  **Heslo** a **potvrzení hesla**: \<hesla podle svého výběru >
+    c.  **Heslo** a **potvrzení hesla**: \<heslo podle svého výběru>
 
-    d.  **Předplatné**: \<předplatné podle vašeho výběru s >mi výpočetními prostředky, úložištěm a síťovými prostředky.
+    d.  **Předplatné**: \<předplatné podle vašeho výběru, které se> výpočetním, úložným a síťovým prostředkům.
 
     e.  **Skupina prostředků**: storagetesting (vytvořit nový)
 
-    f.  Vyberte **OK**.
+    f.  Vybrat **OK**
 
 6.  V okně **Zvolte velikost** vyberte **Standard_F8s_v2** a vyberte **Vybrat**.
 
@@ -74,7 +74,7 @@ V tomto scénáři nasadíme a nakonfigurujeme virtuální počítač s Windows 
 
 8.  Vyberte **veřejnou IP adresu**a v okně **vytvořit veřejnou IP adresu** vyberte **statický** přepínač.
 
-9.  V rozevíracím seznamu **Vybrat veřejné příchozí porty** vyberte **RDP (3389)** .
+9.  V rozevíracím seznamu **Vybrat veřejné příchozí porty** vyberte **RDP (3389)**.
 
 10. Ponechte ostatní výchozí nastavení a vyberte **OK**.
 
@@ -94,7 +94,7 @@ V tomto scénáři nasadíme a nakonfigurujeme virtuální počítač s Windows 
 
     a.  **Název**: podsíť subnet2
 
-    b.  **Rozsah adres (blok CIDR)** : 10.10.11.0/24
+    b.  **Rozsah adres (blok CIDR)**: 10.10.11.0/24
 
     c.  **Skupina zabezpečení sítě**: žádné
 
@@ -146,13 +146,13 @@ Ve výchozím nastavení Azure Stack centrum přiřadí výchozí bránu k prvn�
 
     ![](./media/azure-stack-network-howto-extend-datacenter/image6.png)
 
-4.  Chcete-li směrovat veškerý provoz určený pro adresy mimo podsíť sekundárního síťového rozhraní do brány pro podsíť, spusťte následující příkaz z **příkazu cmd:** .
+4.  Chcete-li směrovat veškerý provoz určený pro adresy mimo podsíť sekundárního síťového rozhraní do brány pro podsíť, spusťte následující příkaz z **příkazu cmd:**.
 
     ```CMD  
     route add -p 0.0.0.0 MASK 0.0.0.0 <ipaddress> METRIC 5015 IF <interface>
     ```
 
-    `<ipaddress>` je adresa výskytu aktuální podsítě a `<interface>` je číslo rozhraní.
+    `<ipaddress>` Je adresa výskytu aktuální podsítě a `<interface>` je číslo rozhraní.
 
     ![](./media/azure-stack-network-howto-extend-datacenter/image7.png)
 
@@ -162,7 +162,7 @@ Ve výchozím nastavení Azure Stack centrum přiřadí výchozí bránu k prvn�
 
 6.  Můžete také ověřit odchozí komunikaci spuštěním příkazu příkazu testovat:  
     `ping 8.8.8.8 -S 10.10.11.4`  
-    Příznak `-S` umožňuje zadat zdrojovou adresu. v tomto případě je 10.10.11.4 IP adresa síťového adaptéru, který má nyní výchozí bránu.
+    `-S` Příznak umožňuje zadat zdrojovou adresu, v tomto případě je 10.10.11.4 IP adresa síťového adaptéru, který má nyní výchozí bránu.
 
 7.  Ukončete program **cmd**.
 
@@ -172,7 +172,7 @@ Pro účely tohoto scénáře budete ověřovat konfiguraci, kde je cílovým se
 
 ![](./media/azure-stack-network-howto-extend-datacenter/image9.png)
 
-Pro váš cílový server iSCSI může to být Windows Server 2016 nebo 2019, fyzický nebo virtuální, spuštěný v Hyper-V, VMware nebo jiné zařízení podle vašeho výběru, jako je vyhrazená fyzická síť SAN iSCSI. Klíč se tady zaměřuje, je připojení k systému Azure Stack hub a je z něj k dispozici, ale existuje několik cest mezi zdrojem a cílem, protože poskytuje další redundanci a umožňuje vyšší využití pokročilých funkcí. výkon, například MPIO.
+Pro váš cílový server iSCSI může to být Windows Server 2016 nebo 2019, fyzický nebo virtuální, spuštěný v Hyper-V, VMware nebo jiné zařízení podle vašeho výběru, jako je vyhrazená fyzická síť SAN iSCSI. Klíč se tady zaměřuje, je připojení k systému Azure Stack hub a je z něj možné, ale existuje několik cest mezi zdrojem a cílem, protože poskytuje další redundanci a umožňuje využívání pokročilejších funkcí k zajištění vyššího výkonu, jako je třeba MPIO.
 
 Doporučuje se aktualizovat cíl iSCSI Windows serveru 2019 s nejnovějšími kumulativními aktualizacemi a opravami, a to v případě potřeby restartováním, než budete pokračovat v konfiguraci sdílených složek.
 
@@ -194,7 +194,7 @@ Po aktualizaci a restartu teď můžete tento server nakonfigurovat jako cíl iS
 
 6.  Vyberte **iSCSI** a vyberte "Pokud**chcete vytvořit virtuální disk iSCSI, spusťte**v pravém podokně odkaz Průvodce vytvořením virtuálního disku iSCSI. vyberte ji. Průvodce se zobrazí v průvodci.
 
-7.  Na stránce **Vybrat umístění virtuálního disku iSCSI** vyberte přepínač pro **zadání vlastní cesty** a přejděte k jednotce **C:\\iSCSI** a vyberte **Další**.
+7.  Na stránce **Vybrat umístění virtuálního disku iSCSI** vyberte přepínač pro **zadání vlastní cesty** a přejděte k **jednotce C:\\iSCSI** a vyberte **Další**.
 
 8.  Dejte virtuálnímu disku iSCSI název **iSCSIdisk1** a volitelně také popis a pak vyberte **Další**.
 
@@ -208,7 +208,7 @@ Po aktualizaci a restartu teď můžete tento server nakonfigurovat jako cíl iS
 
 12) Na stránce **zadat přístupové servery** vyberte **Přidat**. Tím se otevře dialogové okno, kde můžete zadat konkrétní **iniciátory** , které budou mít autorizaci připojit se k cíli iSCSI.
 
-13) V **okně Přidat ID iniciátoru**vyberte **zadat hodnotu pro vybraný typ** a v části **typ** ověřte, že je v rozevírací nabídce vybraná možnost IQN. Zadejte název **IQN. 1991-05. com. Microsoft:\<názevpočítače >** kde \<ComputerName > je **název počítače** **VM001** a pak vyberte **Další**.
+13) V **okně Přidat ID iniciátoru**vyberte **zadat hodnotu pro vybraný typ** a v části **typ** ověřte, že je v rozevírací nabídce vybraná možnost IQN. Zadejte název **IQN. 1991-05. com. Microsoft\<: ComputerName>** kde \<ComputerName> je **název počítače** **VM001** a pak vyberte **Další**.
 
     ![](./media/azure-stack-network-howto-extend-datacenter/image12.png)
 
@@ -264,7 +264,7 @@ Chcete-li nastavit iniciátor iSCSI, nejprve se přihlaste k **portálu pro uži
 
 15. Opakujte tento postup s následujícím:
 
-    a. \* * IP adresa * *: vaše druhá cílová IP adresa iSCSI.
+    a. * * IP adresa * *: vaše druhá cílová IP adresa iSCSI.
 
     b.  **Místní adaptér**: iniciátor iSCSI společnosti Microsoft.
 
@@ -286,17 +286,17 @@ Chcete-li nastavit iniciátor iSCSI, nejprve se přihlaste k **portálu pro uži
 
     b.  **IP adresa iniciátoru**: 10.10.10.4.
 
-    c.  **IP adresa cílového portálu**: \<vaše první IP adresa cíle iSCSI/> 3260.
+    c.  **IP adresa cílového portálu**: \<vaše první IP adresa cíle iSCSI/3260>.
 
 ![](./media/azure-stack-network-howto-extend-datacenter/image20.png)
 
 1.  Opakujte tento postup pro druhou kombinaci iniciátor/cíl.
 
-    a. \* * Místní adaptér * *: iniciátor iSCSI společnosti Microsoft.
+    a. * * Místní adaptér * *: iniciátor iSCSI společnosti Microsoft.
 
     b.  **IP adresa iniciátoru**: 10.10.11.4.
 
-    c.  **IP adresa cílového portálu**: \<vaše druhá > cíle iSCSI IP/3260.
+    c.  **IP adresa cílového portálu**: \<vaše druhá cílová IP adresa iSCSI/3260>.
 
         ![](./media/azure-stack-network-howto-extend-datacenter/image21.png)
 
@@ -351,7 +351,7 @@ Pokud chcete ověřit komunikaci a spustit test kopírování souborů základn�
 
     ![](./media/azure-stack-network-howto-extend-datacenter/image28.png)
 
-    4. Zavřete okno příkazového řádku a vraťte se do ISE a potom v okně skriptu zadejte následující příkaz. Nahraďte F:\\ písmenem cílové jednotky iSCSI použitým dříve.
+    4. Zavřete okno příkazového řádku a vraťte se do ISE a potom v okně skriptu zadejte následující příkaz. Nahraďte F\\ : písmenem cílové jednotky iSCSI použitým dříve.
 
     5. `Copy-Item "C:\\test.vhd" -Destination "F:\\"`
 
@@ -361,7 +361,7 @@ Pokud chcete ověřit komunikaci a spustit test kopírování souborů základn�
 
     ![](./media/azure-stack-network-howto-extend-datacenter/image29.png)
 
-Tento scénář byl navržený tak, aby zdůrazněn připojení mezi úlohami běžícími v Azure Stackovém centru a externím polem úložiště v tomto případě do cíle iSCSI založeného na Windows serveru. Nevedlo se k tomu, aby se jednalo o test výkonnosti, ani se nereflektují kroky, které byste měli provést, pokud jste používali alternativní zařízení založené na standardu iSCSI, ale vysvětlete některé základní důležité požadavky, které byste provedli při nasazování úloh do centra Azure Stack. a jejich propojením s úložnými systémy mimo prostředí Azure Stack hub.
+Tento scénář byl navržený tak, aby zdůrazněn připojení mezi úlohami běžícími v Azure Stackovém centru a externím polem úložiště v tomto případě do cíle iSCSI založeného na Windows serveru. To není navržené tak, aby se jednalo o test výkonu, ani se nereflektují kroky, které byste měli provést, pokud jste používali alternativní zařízení založené na standardu iSCSI, ale vysvětlete některé základní důležité požadavky, které byste měli udělat při nasazování úloh do centra Azure Stack, a připojení k systémům úložiště mimo prostředí služby Azure Stack hub.
 
 ## <a name="next-steps"></a>Další kroky
 

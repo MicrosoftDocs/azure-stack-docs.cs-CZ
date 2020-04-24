@@ -9,10 +9,10 @@ ms.author: inhenkel
 ms.reviewer: rtiberiu
 ms.lastreviewed: 06/10/2019
 ms.openlocfilehash: 599191a33334e8d38989abb4e293c7361855acfa
-ms.sourcegitcommit: da91962d8133b985169b236fb4c84f4ef564efc8
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "80367782"
 ---
 # <a name="create-a-custom-role-for-azure-stack-hub-registration"></a>Vytvoření vlastní role pro registraci centra Azure Stack
@@ -32,7 +32,7 @@ Místo použití účtu, který má oprávnění vlastníka v předplatném Azur
 
 ## <a name="create-a-custom-role-using-powershell"></a>Vytvoření vlastní role pomocí prostředí PowerShell
 
-Pokud chcete vytvořit vlastní roli, musíte mít oprávnění `Microsoft.Authorization/roleDefinitions/write` pro všechny `AssignableScopes`, jako je například [vlastník](/azure/role-based-access-control/built-in-roles#owner) nebo [Správce přístupu uživatelů](/azure/role-based-access-control/built-in-roles#user-access-administrator). K zjednodušení vytvoření vlastní role použijte následující šablonu JSON. Šablona vytvoří vlastní roli, která umožňuje požadovaný přístup pro čtení a zápis pro registraci centra Azure Stack.
+Pokud chcete `Microsoft.Authorization/roleDefinitions/write` vytvořit vlastní roli, musíte mít oprávnění pro všechny `AssignableScopes`, jako je [vlastník](/azure/role-based-access-control/built-in-roles#owner) nebo [Správce přístupu uživatelů](/azure/role-based-access-control/built-in-roles#user-access-administrator). K zjednodušení vytvoření vlastní role použijte následující šablonu JSON. Šablona vytvoří vlastní roli, která umožňuje požadovaný přístup pro čtení a zápis pro registraci centra Azure Stack.
 
 1. Vytvořte soubor JSON. Například `C:\CustomRoles\registrationrole.json`.
 2. Přidejte do souboru následující kód JSON. `<SubscriptionID>` nahraďte ID vašeho předplatného Azure.

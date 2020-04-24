@@ -1,5 +1,5 @@
 ---
-title: Vzor pro implementaci detekce neaktivních zásob na hraničních zařízeních s využitím Azure a Azure Stack Edge.
+title: Neuložené zjišťování pomocí Azure a Azure Stack Edge
 description: Naučte se používat Azure a Azure Stack Edge Services k implementaci detekce z provozu.
 author: BryanLa
 ms.topic: article
@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 144163b415a5d5aaa914b2c36ab036b587acd999
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 865f63bc4234e50ed169aa29cefdb1886750594c
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77688810"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "80891106"
 ---
 # <a name="out-of-stock-detection-at-the-edge-pattern"></a>Zjišťování z hranice hraničního modelu z neaktivního zásobníku
 
@@ -20,15 +20,16 @@ Tento model znázorňuje, jak zjistit, jestli jsou položky police mimo skladov�
 
 ## <a name="context-and-problem"></a>Kontext a problém
 
-Fyzické maloobchodní obchody ztratí prodej, protože když zákazníci hledají položku, neexistují na police. Položka však může být na zadní straně úložiště a nemusela být přeuložená. Obchody by chtěli využívat své zaměstnance efektivněji a automaticky dostávat oznámení, když je potřeba přezásobovat položky.
+Fyzické maloobchodní obchody ztratí prodej, protože když zákazníci hledají položku, neexistují na police. Položka však může být na zadní straně úložiště a nebyla přeuložená. Úložiště by chtěla používat své zaměstnance efektivněji a automaticky dostávat oznámení, když je potřeba přezásobovat položky.
 
 ## <a name="solution"></a>Řešení
 
-Příklad řešení používá hraniční zařízení, jako je například Azure Stack Edge v každém obchodě, což efektivně zpracovává data z fotoaparátů ve Storu. Tento optimalizovaný návrh umožňuje úložištím odesílat do cloudu pouze relevantní události a obrázky. Návrh šetří šířku pásma, prostor úložiště a zajišťuje ochranu osobních údajů zákazníků. Když jsou snímky čteny z jednotlivých kamer, model ML zpracuje obrázek a vrátí z oblasti akcií. Obrázek a mimo oblast zásob se zobrazí v místní webové aplikaci. Tato data se dají odeslat do prostředí Time Series Insight, kde se zobrazí přehledy o Power BI.
+Příklad řešení používá hraniční zařízení, například Azure Stack Edge v každém obchodě, což efektivně zpracovává data z fotoaparátů v úložišti. Tento optimalizovaný návrh umožňuje úložištím odesílat do cloudu pouze relevantní události a obrázky. Návrh šetří šířku pásma, prostor úložiště a zajišťuje ochranu osobních údajů zákazníků. Když jsou snímky čteny z jednotlivých kamer, model ML zpracuje obrázek a vrátí z oblasti akcií. Obrázek a mimo oblast zásob se zobrazí v místní webové aplikaci. Tato data se dají odeslat do prostředí Time Series Insight, kde se zobrazí přehledy o Power BI.
 
-![neuložený v architektuře hraničních řešení](media/pattern-out-of-stock-at-edge/solution-architecture.png)
+![Neuložený v architektuře hraničních řešení](media/pattern-out-of-stock-at-edge/solution-architecture.png)
 
 Jak řešení funguje:
+
 1. Image se zaznamenávají ze síťové kamery přes protokol HTTP nebo RTSP.
 2. Velikost bitové kopie se změní a pošle se do ovladače odvození, který komunikuje s modelem ML a určí, jestli jsou dostupné žádné z uložených imagí.
 3. Model ML vrátí jakékoli z burzovních oblastí.
@@ -43,7 +44,7 @@ Jak řešení funguje:
 
 Toto řešení používá následující komponenty:
 
-| Vrstva | Komponenta | Popis |
+| Vrstva | Součást | Popis |
 |----------|-----------|-------------|
 | Místní hardware | Síťová kamera | Je vyžadován síťový fotoaparát s kanálem HTTP nebo RTSP pro poskytování imagí pro odvození. |
 | Azure | Azure IoT Hub | [Azure IoT Hub](/azure/iot-hub/) zpracovává zřizování zařízení a zasílání zpráv pro hraniční zařízení. |
@@ -56,9 +57,9 @@ Toto řešení používá následující komponenty:
 
 Při rozhodování, jak implementovat toto řešení, vezměte v úvahu následující body:
 
-### <a name="scalability"></a>Škálovatelnost 
+### <a name="scalability"></a>Škálovatelnost
 
-Většina modelů strojového učení se dá spustit jenom na určitém počtu snímků za sekundu v závislosti na zadaném hardwaru. Určete optimální vzorkovací frekvenci z fotoaparátů, aby se zajistilo, že kanál ML nebude zálohován. Různé typy hardwaru budou pracovat s různými počty fotoaparátů a snímků.
+Většina modelů strojového učení se dá spustit jenom na určitém počtu snímků za sekundu v závislosti na zadaném hardwaru. Určete optimální vzorkovací frekvenci z fotoaparátů, aby se zajistilo, že kanál ML nezálohuje. Různé typy hardwaru budou pracovat s různými počty fotoaparátů a snímků.
 
 ### <a name="availability"></a>Dostupnost
 
@@ -70,14 +71,14 @@ Toto řešení může zahrnovat mnoho zařízení a umístění, což by mohlo m
 
 ### <a name="security"></a>Zabezpečení
 
-Tento model zpracovává potenciálně citlivá data. Ujistěte se, že jsou klíče pravidelně otočené a že jsou správně nastavená oprávnění pro účet Azure Storage a místní sdílené složky. 
+Tento model zpracovává potenciálně citlivá data. Ujistěte se, že jsou klíče pravidelně otočené a že jsou správně nastavená oprávnění pro účet Azure Storage a místní sdílené složky.
 
 ## <a name="next-steps"></a>Další kroky
 
 Další informace o tématech zavedených v tomto článku:
 - V tomto vzoru se používá několik služeb souvisejících s IoT, včetně [Azure IoT Edge](/azure/iot-edge/), [Azure IoT Hub](/azure/iot-hub/)a [Azure Time Series Insights](/azure/time-series-insights/).
 - Další informace o Microsoft Project Brainwave najdete [v oznámení na blogu](https://blogs.microsoft.com/ai/build-2018-project-brainwave/) a s využitím [Projectu Brainwave video k rezervaci Azure akcelerovaných Machine Learning](https://www.youtube.com/watch?v=DJfMobMjCX0).
-- Další informace o osvědčených postupech najdete v tématu [aspekty návrhu hybridní aplikace](overview-app-design-considerations.md) a odpovědi na další otázky.
-- Podívejte se na [Azure Stack rodinu produktů a řešení](/azure-stack), abyste se dozvěděli víc o celém portfoliu produktů a řešení.
+- Další informace o osvědčených postupech a odpovědi na další otázky najdete v tématu [aspekty návrhu hybridní aplikace](overview-app-design-considerations.md) .
+- Další informace o celém portfoliu produktů a řešení najdete v [Azure Stack rodině produktů a řešení](/azure-stack) .
 
 Až budete připraveni otestovat příklad řešení, pokračujte v [Průvodci nasazením vrstvených dat pro analytické řešení](https://aka.ms/edgeinferencingdeploy). Průvodce nasazením poskytuje podrobné pokyny pro nasazení a testování jeho komponent.

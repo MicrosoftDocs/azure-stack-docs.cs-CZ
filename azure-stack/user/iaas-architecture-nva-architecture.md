@@ -3,16 +3,16 @@ title: Nasazení vysoce dostupných síťových virtuálních zařízení v cent
 description: Naučte se nasadit virtuální síťová zařízení s vysokou dostupností na Azure Stack hub.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 11/01/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: 69516e7d50cb0635854d2b9168cb6bc308b229d8
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 916e12061961b22c518d0048e8bc8c191f8542a1
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77705028"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81660067"
 ---
 # <a name="deploy-highly-available-network-virtual-appliances-on-azure-stack-hub"></a>Nasazení vysoce dostupných síťových virtuálních zařízení v centru Azure Stack
 
@@ -28,7 +28,7 @@ Tato architektura se skládá z následujících součástí.
 
 -   **Load Balancer vrstvy 7.** Protože Application Gateway ještě není v centru Azure Stack k dispozici, jsou k dispozici alternativy na [trhu centra Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-marketplace-azure-items) , jako je: [kemp LoadMaster Load Balancer ADC Content Switch](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure)/ [F5 Big-IP Virtual Edition](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-big-ip-best) nebo [A10 vThunder ADC](https://azuremarketplace.microsoft.com/marketplace/apps/a10networks.vthunder-414-gr1)
 
--   **Nástroje pro vyrovnávání zatížení.** Použijte [Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)k distribuci síťového provozu z webové vrstvy do obchodní vrstvy a z obchodní vrstvy na SQL Server.
+-   Nástroje pro **Vyrovnávání zatížení**. Použijte [Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)k distribuci síťového provozu z webové vrstvy do obchodní vrstvy a z obchodní vrstvy na SQL Server.
 
 -   **Skupiny zabezpečení sítě** (skupin zabezpečení sítě). Použijte skupin zabezpečení sítě k omezení síťového provozu v rámci virtuální sítě. Například v níže uvedené architektuře architektury nepřijímá databázová vrstva přenos z webového front-endu, a to pouze z obchodní vrstvy a z podsítě pro správu.
 
@@ -38,7 +38,7 @@ Tento článek předpokládá základní znalost sítě Azure Stack hub.
 
 ## <a name="architecture-diagrams"></a>Diagramy architektury
 
-SÍŤOVÉ virtuální zařízení se dá nasadit do hraniční sítě v mnoha různých architekturách. Následující obrázek například znázorňuje použití jediného síťové virtuální zařízení pro příchozí přenos dat.
+SÍŤOVÉ virtuální zařízení se dá nasadit do hraniční sítě v mnoha různých architekturách. Následující obrázek například znázorňuje použití samotného síťového virtuálního zařízení pro příchozí přenos dat.
 
 ![Snímek obrazovky s popisem příspěvku na sociálních médiích, který se automaticky vygeneroval](./media/iaas-architecture-nva-architecture/image1.png)
 
@@ -52,7 +52,7 @@ Následující architektury popisují nezbytné prostředky a konfiguraci pro vy
 | --- | --- | --- |
 | Příchozí přenos dat se síťovými virtuálními zařízeními vrstvy 7 | Všechny uzly síťové virtuální zařízení jsou aktivní. | Vyžaduje síťové virtuální zařízení, který může ukončit připojení a použít SNAT.<br>Vyžaduje samostatnou sadu síťová virtuální zařízení pro provoz pocházející z podnikové sítě nebo z Internetu a z centra Azure Stack.<br>Dá se použít jenom pro přenosy pocházející mimo Azure Stack hub.  |
 | Výchozí přenos dat se síťovými virtuálními zařízeními vrstvy 7 | Všechny uzly síťové virtuální zařízení jsou aktivní. | Vyžaduje síťové virtuální zařízení, který může ukončit připojení a implementuje překlad adresy zdrojového v síti (SNAT). |
-| Příchozí přenos dat s vrstvou 7 Síťová virtuální zařízení | Všechny uzly jsou aktivní.<br>Schopnost zpracovat provoz pocházející z centra Azure Stack. | Vyžaduje síťové virtuální zařízení, který může ukončit připojení a použít SNAT.<br>Vyžaduje samostatnou sadu síťová virtuální zařízení pro provoz pocházející z podnikové sítě nebo z Internetu a z centra Azure Stack. |
+| Příchozí a výchozí přenos dat se síťovými virtuálními zařízeními vrstvy 7 | Všechny uzly jsou aktivní.<br>Schopnost zpracovat provoz pocházející z centra Azure Stack. | Vyžaduje síťové virtuální zařízení, který může ukončit připojení a použít SNAT.<br>Vyžaduje samostatnou sadu síťová virtuální zařízení pro provoz pocházející z podnikové sítě nebo z Internetu a z centra Azure Stack. |
 
 ## <a name="ingress-with-layer-7-nvas"></a>Příchozí přenos dat se síťovými virtuálními zařízeními vrstvy 7
 

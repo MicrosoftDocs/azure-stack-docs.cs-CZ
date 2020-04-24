@@ -1,18 +1,18 @@
 ---
-title: Vzor DevOps pro inteligentní Edge pomocí Azure a centra Azure Stack.
-description: Přečtěte si o modelu DevOps pro inteligentní Edge pomocí Azure a centra Azure Stack.
+title: Vzor DevOps v centru Azure Stack
+description: Přečtěte si o vzorech DevOps, abyste mohli zajistit konzistenci napříč nasazeními v Azure a centra Azure Stack.
 author: BryanLa
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: ebd9925b471d46dc67df29557f677b43d0221a1d
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 306cc9604a8e919724f9f76b7e5122d534d2d1ae
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77689541"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "80812283"
 ---
 # <a name="devops-pattern"></a>Vzor DevOps
 
@@ -22,7 +22,7 @@ Kód z jednoho umístění a nasazení na více cílů ve vývojových, testovac
 
 Kontinuita nasazení aplikace, zabezpečení a spolehlivost jsou zásadní pro organizace a kritické pro vývojové týmy.
 
-Aplikace často vyžadují refaktoring kódu ke spuštění v každém cílovém prostředí. To znamená, že aplikace není zcela přenosná. Je nutné ho aktualizovat, otestovat a ověřit při pohybu přes každé prostředí. Například kód napsaný ve vývojovém prostředí musí být přepsán, aby fungoval v testovacím prostředí, a přepsat, když je nakonec v produkčním prostředí. Kromě toho je tento kód konkrétně svázán s hostitelem. Tím se zvýší náklady a složitost údržby aplikace. Každá verze aplikace je vázaná na každé prostředí. Zvýšení složitosti a duplicit zvyšuje riziko zabezpečení a kvality kódu. Kromě toho kód nejde snadno znovu nasadit, když odeberete rutiny obnovit neúspěšné hostitele nebo nasadíte další hostitele, aby se podařilo zvýšit nároky na poptávku.
+Aplikace často vyžadují refaktoring kódu ke spuštění v každém cílovém prostředí. To znamená, že aplikace není zcela přenosná. Je nutné ho aktualizovat, otestovat a ověřit při pohybu přes každé prostředí. Například kód napsaný ve vývojovém prostředí musí být přepsán pro práci v testovacím prostředí a přepsán, pokud je nakonec v produkčním prostředí. Kromě toho je tento kód konkrétně svázán s hostitelem. Tím se zvýší náklady a složitost údržby aplikace. Každá verze aplikace je vázaná na každé prostředí. Zvýšení složitosti a duplicit zvyšuje riziko zabezpečení a kvality kódu. Kromě toho se kód nedá snadno znovu nasadit, když odeberete rutiny obnovit neúspěšné hostitele nebo nasadíte další hostitele, aby se podařilo zvýšit nároky na poptávku.
 
 ## <a name="solution"></a>Řešení
 
@@ -40,7 +40,7 @@ Použití kanálu pro vydávání verzí DevOps vám pomůže:
 
 ## <a name="issues-and-considerations"></a>Problémy a důležité informace
 
-Vzor DevOps je určený k zajištění konzistence napříč nasazeními bez ohledu na cílové prostředí. Možnosti se ale liší v cloudových i místních prostředích. Zvažte použití těchto zdrojů:
+Vzor DevOps je určený k zajištění konzistence napříč nasazeními bez ohledu na cílové prostředí. Možnosti se ale liší v cloudových i místních prostředích. Vezměte v úvahu následující body:
 
 - Jsou funkce, koncové body, služby a další prostředky v nasazení dostupné v cílových umístěních nasazení?
 - Jsou artefakty konfigurace uložené v umístěních, která jsou přístupná napříč cloudy?
@@ -59,11 +59,11 @@ Systémy automatizace nasazení jsou klíčovým řídicím bodem ve vzorech Dev
 
 Dostupnost v kontextu DevPattern znamená, že je možné obnovit všechny informace o stavu přidružené k vašemu pracovnímu postupu, jako jsou například výsledky testů, závislosti kódu nebo jiné artefakty. Při vyhodnocování požadavků na dostupnost vezměte v úvahu dvě běžné metriky:
 
--   Plánovaná doba obnovení (RTO) určuje, jak dlouho můžete bez systému přejít.
+- Plánovaná doba obnovení (RTO) určuje, jak dlouho můžete bez systému přejít.
 
--   Cíl bodu obnovení (RPO) indikuje, kolik dat se může hodit, pokud má dopad na systém vliv přerušení služby.
+- Cíl bodu obnovení (RPO) indikuje, kolik dat se může hodit, pokud má dopad na systém vliv přerušení služby.
 
-V praxi RTO a RPO implikuje redundanci a zálohování. V globálním cloudu Azure není dostupnost v otázce obnovení hardwaru, která je součástí Azure – ale ale zajišťuje, abyste si zachovali stav svých DevOps systémů. V centru Azure Stack se může zvážit obnovení hardwaru.
+V praxi RTO a RPO implikuje redundanci a zálohování. V globálním cloudu Azure se dostupnost nedotazuje na obnovení hardwaru – to je součástí Azure – ale ale zajišťuje, abyste zachovali stav DevOps systémů. V centru Azure Stack se může zvážit obnovení hardwaru.
 
 Dalším důležitým aspektem při navrhování systému používaného pro automatizaci nasazení je řízení přístupu a správná Správa práv potřebných k nasazení služeb do cloudových prostředí. Jaká práva jsou nutná k vytváření, odstraňování a úpravám nasazení? Například jedna sada práv je obvykle nutná k vytvoření skupiny prostředků v Azure a další pro nasazení služeb ve skupině prostředků.
 
@@ -78,17 +78,18 @@ Nasaďte produkční prostředí a vývojové a testovací prostředí do samost
 Tento model použijte v těchto případech:
 
 - Můžete vyvíjet kód v jednom prostředí, které vyhovuje potřebám vašich vývojářů, a nasazovat do prostředí specifického pro vaše řešení, kde může být obtížné vyvíjet nový kód.
-- Můžete použít kód a nástroje, které budou vývojáři chtít, pokud budou moci postupovat podle procesu průběžné integrace a průběžného doručování ve vzoru DevOps.
+- Můžete použít kód a nástroje, které vaše vývojáři budou chtít, pokud budou moci postupovat podle procesu kontinuální integrace a průběžného doručování ve vzoru DevOps.
 
 Tento model se nedoporučuje:
 
 - Pokud nemůžete automatizovat infrastrukturu, zřizování prostředků, konfigurace, identity a zabezpečení úloh.
-- Pokud týmy nemají přístup k hybridním cloudovým prostředkům a implementují přístup pro průběžnou integraci/dopředné vývojové prostředí (CI/CD).
+- Pokud týmy nemají přístup k hybridním cloudovým prostředkům a implementují přístup k průběžným Integracim a průběžnému vývoji (CI/CD).
 
 ## <a name="next-steps"></a>Další kroky
 
 Další informace o tématech zavedených v tomto článku:
+
 - Další informace o Azure DevOps a souvisejících nástrojích, včetně Azure Repos a Azure Pipelines, najdete v [dokumentaci ke službě Azure DevOps](/azure/devops) .
-- Podívejte se na [Azure Stack rodinu produktů a řešení](/azure-stack), abyste se dozvěděli víc o celém portfoliu produktů a řešení.
+- Další informace o celém portfoliu produktů a řešení najdete v [Azure Stack rodině produktů a řešení](/azure-stack) .
 
 Až budete připraveni otestovat příklad řešení, pokračujte pomocí [Průvodce nasazením hybridní CI/CD řešení DevOps](https://aka.ms/hybriddevopsdeploy). Průvodce nasazením poskytuje podrobné pokyny pro nasazení a testování jeho komponent. Naučíte se, jak nasadit aplikaci do Azure a Azure Stack centra pomocí kanálu hybridního průběžné integrace nebo průběžného doručování (CI/CD).

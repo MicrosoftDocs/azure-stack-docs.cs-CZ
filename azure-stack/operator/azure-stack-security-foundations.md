@@ -7,13 +7,13 @@ ms.topic: article
 ms.date: 06/10/2019
 ms.author: justinha
 ms.reviewer: fiseraci
-ms.lastreviewed: 1/16/2019
-ms.openlocfilehash: 63d50749d3877209dd81ca7a59a38e634b2d46e7
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.lastreviewed: 04/07/2020
+ms.openlocfilehash: 2d1b97bc17543e4fbdc1a1f79c39a01f188332df
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77697548"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "80891075"
 ---
 # <a name="azure-stack-hub-infrastructure-security-controls"></a>Ovládací prvky zabezpečení infrastruktury centra Azure Stack
 
@@ -54,7 +54,7 @@ Zbývající tajné kódy, které nejsou gMSA, je možné ručně otočit pomoc�
 
 Infrastruktura centra Azure Stack používá pro všechny své interní certifikáty 4096 klíčů RSA. Pro externí koncové body lze také použít stejné certifikáty klíčů. Další informace o tajných klíčích a rotaci certifikátů najdete [v tématu otočení tajných kódů v centru Azure Stack](azure-stack-rotate-secrets.md).
 
-## <a name="windows-defender-application-control"></a>Řízení aplikací v programu Windows Defender
+## <a name="windows-defender-application-control"></a>Řízení aplikací programu Windows Defender
 
 Centrum Azure Stack využívá nejnovější funkce zabezpečení Windows serveru. Jedním z nich je řízení aplikací v programu Windows Defender (WDAC dřív označované jako integrita kódu), které poskytuje seznam povolených spustitelných souborů a zajišťuje, že v infrastruktuře centra Azure Stack běží jenom ověřený kód.
 
@@ -63,11 +63,11 @@ Autorizovaný kód je podepsaný Microsoftem nebo partnerem OEM. Podepsaný auto
 Zásady WDAC také zabrání spuštění agentů nebo softwaru třetích stran v infrastruktuře centra Azure Stack.
 Další informace o WDAC najdete v tématu [řízení aplikací v programu Windows Defender a ochrana integrity kódu na základě virtualizace](https://docs.microsoft.com/windows/security/threat-protection/device-guard/introduction-to-device-guard-virtualization-based-security-and-windows-defender-application-control).
 
-## <a name="credential-guard"></a>Credential Guard
+## <a name="credential-guard"></a>Ochrana přihlašovacích údajů Credential Guard
 
 Další funkcí zabezpečení Windows serveru v centru Azure Stack je ochrana Credential Guard v programu Windows Defender, která se používá k ochraně přihlašovacích údajů infrastruktury centra Azure Stack z útoků pass-the-hash a Pass-The-Ticket.
 
-## <a name="antimalware"></a>Antimalwarové programy
+## <a name="antimalware"></a>Antimalware
 
 Každá součást centra Azure Stack (hostitelé Hyper-V a virtuální počítače) je chráněná pomocí antivirové ochrany v programu Windows Defender.
 
@@ -85,7 +85,7 @@ Správa v centru Azure Stack se řídí třemi vstupními body, z nichž každý
 - Azure Resource Manager zveřejňuje všechny operace správy portálu pro správu prostřednictvím REST API používaného prostředím PowerShell a Azure CLI.
 - Pro konkrétní operace nízké úrovně (například scénáře integrace Datacenter nebo podpory) zpřístupňuje služba Azure Stack hub koncový bod PowerShellu s názvem [privilegovaného koncového bodu](azure-stack-privileged-endpoint.md). Tento koncový bod zpřístupňuje jenom seznam povolených rutin a je silně auditovaný.
 
-## <a name="network-controls"></a>Ovládací prvky sítě
+## <a name="network-controls"></a>Správa sítě
 
 Infrastruktura centra Azure Stack přichází s více vrstvami seznam Access Control sítě (ACL). Seznamy řízení přístupu brání neoprávněnému přístupu k součástem infrastruktury a omezují komunikaci infrastruktury jenom na cesty, které jsou pro její fungování nutné.
 
@@ -105,11 +105,10 @@ Posouzení zahrnuje následující standardy:
 - Aplikace [CSA Cloud Control Matrix](https://cloudsecurityalliance.org/group/cloud-controls-matrix/#_overview) je komplexní mapování mezi několika standardy, včetně FedRAMP střední, ISO27001, HIPAA, HiTRUST, ITAR, NIST SP800-53 a dalších.
 - [FedRAMP vysoká](https://www.fedramp.gov/fedramp-releases-high-baseline/) pro zákazníky ze státní správy.
 
-Dokumentaci k dodržování předpisů najdete na [portálu Microsoft Trust Service](https://servicetrust.microsoft.com/ViewPage/AzureStack). Příručky dodržování předpisů jsou chráněné prostředky a vyžadují, abyste se přihlásili pomocí svých přihlašovacích údajů ke cloudové službě Azure.
+Dokumentaci k dodržování předpisů najdete na [portálu Microsoft Trust Service](https://aka.ms/azurestackcompliance). Příručky dodržování předpisů jsou chráněné prostředky a vyžadují, abyste se přihlásili pomocí svých přihlašovacích údajů ke cloudové službě Azure.
 
 ## <a name="next-steps"></a>Další kroky
 
 - [Konfigurace ovládacích prvků zabezpečení centra Azure Stack](azure-stack-security-configuration.md)
 - [Naučte se, jak tyto tajné klíče otočit v centru Azure Stack.](azure-stack-rotate-secrets.md)
-- [Dokumenty PCI-DSS a CSA-CCM pro Azure Stack hub](https://servicetrust.microsoft.com/ViewPage/TrustDocuments)
-- [Dokumenty DoD a NIST pro centrum Azure Stack](https://servicetrust.microsoft.com/ViewPage/Blueprint)
+- [Dokumenty PCI-DSS a CSA-CCM pro Azure Stack hub](https://aka.ms/azurestackcompliance)

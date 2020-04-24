@@ -2,18 +2,18 @@
 title: Základy správy centra Azure Stack
 titleSuffix: Azure Stack Hub
 description: Seznamte se se základy správy centra Azure Stack.
-author: nicoalba
+author: justinha
 ms.topic: article
-ms.date: 03/02/2020
-ms.author: v-nialba
-ms.reviewer: ''
-ms.lastreviewed: ''
-ms.openlocfilehash: 8f56dafbcc27e3ff4de9adcfbf5de27dea115bb3
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.date: 04/03/2020
+ms.author: justinha
+ms.reviewer: thoroet
+ms.lastreviewed: 04/03/2020
+ms.openlocfilehash: 66fbcf3b94ae89f5f0946ee34582d69cea4ea97e
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79293953"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "80979354"
 ---
 # <a name="azure-stack-hub-administration-basics"></a>Základy správy centra Azure Stack
 
@@ -21,7 +21,7 @@ Pokud s Azure Stack správy centra začínáte, je potřeba znát několik věc�
 
 ## <a name="understand-the-builds"></a>Pochopení sestavení
 
-Pokud používáte integrovaný systém Azure Stack hub, aktualizované verze centra Azure Stack se distribuují prostřednictvím aktualizačních balíčků. Tyto balíčky můžete importovat a použít je na dlaždici **aktualizace** na portálu pro správu.
+Pokud používáte integrovaný systém Azure Stack hub, aktualizované verze centra Azure Stack se distribuují prostřednictvím aktualizačních balíčků. Tyto balíčky můžete importovat a použít pomocí dlaždice **aktualizace** na portálu pro správu.
 
 ## <a name="learn-about-available-services"></a>Další informace o dostupných službách
 
@@ -32,7 +32,7 @@ Mějte na paměti, které služby můžete uživatelům zpřístupnit. Centrum A
 Ve výchozím nastavení zahrnuje Azure Stack hub při nasazení Azure Stack hub následující základní služby:
 
 - Compute
-- Úložiště
+- Storage
 - Sítě
 - Key Vault
 
@@ -49,11 +49,11 @@ Podporujeme následující další služby PaaS (Platform as a Service):
 - IoT Hub
 - Centrum událostí
 
-Tyto služby vyžadují další konfiguraci, abyste je mohli zpřístupnit uživatelům. Další informace najdete v tématech **kurzy** a **návody** > **nabídky služby** v [dokumentaci k operátorovi centra Azure Stack](https://docs.microsoft.com/azure-stack/operator/).
+Tyto služby vyžadují další konfiguraci, abyste je mohli zpřístupnit uživatelům. Další informace najdete v tématech **kurzy** a návody, **které** > **nabízí služby** v [dokumentaci k operátorovi centra Azure Stack](https://docs.microsoft.com/azure-stack/operator/).
 
 ### <a name="service-roadmap"></a>Plán služby
 
-Centrum Azure Stack bude dál přidávat podporu pro služby Azure. Plánovaný plán najdete v tématu [centrum Azure Stack: rozšíření Azure](https://go.microsoft.com/fwlink/?LinkId=842846&clcid=0x409) dokumentu White Paper. Můžete také monitorovat [příspěvky na blogu centra Azure Stack](https://azure.microsoft.com/blog/tag/azure-stack-technical-preview) pro nová oznámení.
+Centrum Azure Stack bude dál přidávat podporu pro služby Azure. Plánovaný plán najdete v tématu [centrum Azure Stack: rozšíření Azure](https://go.microsoft.com/fwlink/?LinkId=842846&clcid=0x409) White Paper. Můžete také monitorovat [příspěvky na blogu centra Azure Stack](https://azure.microsoft.com/blog/tag/azure-stack-technical-preview) pro nová oznámení.
 
 ## <a name="what-account-should-i-use"></a>Jaký účet mám použít?
 
@@ -68,37 +68,37 @@ Při správě centra Azure Stack je potřeba vědět o několika ohledech. To pl
 
 ## <a name="what-tools-do-i-use-to-manage"></a>Jaké nástroje se používají ke správě?
 
-Ke správě centra Azure Stack můžete použít nebo PowerShell [portálu](https://review.docs.microsoft.com/en-us/azure-stack/operator/azure-stack-manage-portals?view=azs-2002) pro správu. Nejjednodušší způsob, jak se naučit základní koncepty, je prostřednictvím portálu. Pokud chcete používat PowerShell, existují přípravné kroky. Než začnete, můžete se seznámit s tím, jak se prostředí PowerShell používá v Azure Stackovém centru. Další informace najdete v tématu [Začínáme s PowerShellem v centru Azure Stack](https://review.docs.microsoft.com/en-us/azure-stack/user/azure-stack-powershell-overview?view=azs-2002).
+Ke správě centra Azure Stack můžete použít [portál pro správu](https://docs.microsoft.com/azure-stack/operator/azure-stack-manage-portals) nebo PowerShell. Nejjednodušší způsob, jak se naučit základní koncepty, je prostřednictvím portálu. Pokud chcete používat PowerShell, existují přípravné kroky. Než začnete, můžete se seznámit s tím, jak se prostředí PowerShell používá v Azure Stackovém centru. Další informace najdete v tématu [Začínáme s PowerShellem v centru Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-powershell-overview).
 
-Azure Stack centrum používá Azure Resource Manager jako základní mechanismus nasazení, správy a organizace. Pokud se chystáte spravovat centra Azure Stack a pomáhat uživatelům, měli byste se dozvědět víc o Správce prostředků. Podívejte se na [Začínáme s Azure Resource Managerem](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf) dokumentu White Paper.
+Azure Stack centrum používá Azure Resource Manager jako základní mechanismus nasazení, správy a organizace. Pokud se chystáte spravovat centra Azure Stack a pomáhat uživatelům, měli byste se dozvědět víc o Správce prostředků. Další informace najdete v [Začínáme Azure Resource Manager](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf) dokumentu White Paper.
 
 ## <a name="your-typical-responsibilities"></a>Vaše typické povinnosti
 
-Vaši uživatelé chtějí používat služby. Z perspektivy je hlavním úkolem, aby jim byly dostupné tyto služby. Rozhodněte, které služby nabízet a zpřístupněte tyto služby vytvořením plánů, nabídek a kvót. Další informace najdete v tématu [Přehled nabízených služeb v centru Azure Stack](https://review.docs.microsoft.com/en-us/azure-stack/operator/service-plan-offer-subscription-overview?view=azs-2002).
+Vaši uživatelé chtějí používat služby. Z perspektivy je hlavním úkolem, aby jim byly dostupné tyto služby. Rozhodněte, které služby nabízet a zpřístupněte tyto služby vytvořením plánů, nabídek a kvót. Další informace najdete v tématu [Přehled nabízených služeb v centru Azure Stack](https://docs.microsoft.com/azure-stack/operator/service-plan-offer-subscription-overview).
 
-Také budete muset přidat položky do [webu Azure Stack hub Marketplace](https://review.docs.microsoft.com/en-us/azure-stack/operator/azure-stack-marketplace?view=azs-2002). Nejjednodušším způsobem je [stáhnout z Azure položky Marketplace do centra Azure Stack](https://review.docs.microsoft.com/en-us/azure-stack/operator/azure-stack-download-azure-marketplace-item?view=azs-2002).
+Také budete muset přidat položky do [webu Azure Stack hub Marketplace](https://docs.microsoft.com/azure-stack/operator/azure-stack-marketplace). Nejjednodušším způsobem je [stáhnout z Azure položky Marketplace do centra Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-download-azure-marketplace-item).
 
-Pokud chcete testovat vaše plány, nabídky a služby, můžete použít [portál User Portal](https://review.docs.microsoft.com/en-us/azure-stack/operator/azure-stack-manage-portals?view=azs-2002). Nejedná se o portál pro správu.
+Pokud chcete testovat vaše plány, nabídky a služby, můžete použít [portál User Portal](https://docs.microsoft.com/azure-stack/operator/azure-stack-manage-portals). Nejedná se o portál pro správu.
 
 Kromě poskytování služeb je třeba provést běžné povinnosti operátora, aby bylo udržování služby Azure Stack hub v provozu. Mezi tyto funkce patří následující úlohy:
 
-- Přidejte uživatelské účty pro nasazení [služby Azure AD](https://review.docs.microsoft.com/en-us/azure-stack/operator/azure-stack-add-new-user-aad?view=azs-2002) .
-- [Nastavte přístupová oprávnění pomocí řízení přístupu na základě rolí](https://review.docs.microsoft.com/en-us/azure-stack/operator/azure-stack-manage-permissions?view=azs-2002). (Tato úloha není omezena na správce.)
-- [Monitorování stavu infrastruktury](https://review.docs.microsoft.com/en-us/azure-stack/operator/azure-stack-monitor-health?view=azs-2002)
-- Správa [síťových](https://review.docs.microsoft.com/en-us/azure-stack/operator/azure-stack-viewing-public-ip-address-consumption?view=azs-2002) a prostředků  [úložiště](https://review.docs.microsoft.com/en-us/azure-stack/operator/azure-stack-manage-storage-accounts?view=azs-2002)
-- [Spusťte a zastavte centrum Azure Stack](https://review.docs.microsoft.com/en-us/azure-stack/operator/azure-stack-start-and-stop?view=azs-2002&branch=release-tzl).
-- [Provoz rozšířeného úložiště](https://review.docs.microsoft.com/en-us/azure-stack/tdc/extended-storage-operator-guide?view=azs-2002&branch=release-tzl).
-- [Spravovat IoT Hub](https://review.docs.microsoft.com/en-us/azure-stack/operator/iot-hub-rp-overview?toc=%2Fazure-stack%2Ftdc%2Ftoc.json&.bc=%2Fazure-stack%2Fbreadcrumb%2Ftoc.json&view=azs-2002&branch=release-tzl).
-- [Správa centra událostí](https://review.docs.microsoft.com/en-us/azure-stack/operator/event-hubs-rp-overview?toc=%2Fazure-stack%2Ftdc%2Ftoc.json&bc=%2Fazure-stack%2Fbreadcrumb%2Ftoc.json&view=azs-2002&branch=release-tzl).
-- [Spravovat App Service](https://review.docs.microsoft.com/en-us/azure-stack/operator/azure-stack-app-service-overview?toc=%2Fazure-stack%2Ftdc%2Ftoc.json&bc=%2Fazure-stack%2Fbreadcrumb%2Ftoc.json&view=azs-2002&branch=release-tzl).
-- Nahraďte špatný hardware. Tady je seznam [nahraditelných částí](https://review.docs.microsoft.com/en-us/azure-stack/tdc/cru-replaceable-parts?view=azs-2002&branch=release-tzl).
-- [Získejte podporu](https://review.docs.microsoft.com/en-us/azure-stack/operator/azure-stack-help-and-support-overview?toc=%2Fazure-stack%2Ftdc%2Ftoc.json&bc=%2Fazure-stack%2Fbreadcrumb%2Ftoc.json&view=azs-2002&branch=release-tzl).
+- Přidejte uživatelské účty pro nasazení [služby Azure AD](https://docs.microsoft.com/azure-stack/operator/azure-stack-add-new-user-aad) .
+- [Nastavte přístupová oprávnění pomocí řízení přístupu na základě rolí](https://docs.microsoft.com/azure-stack/operator/azure-stack-manage-permissions). (Tato úloha není omezena na správce.)
+- [Monitorování stavu infrastruktury](https://docs.microsoft.com/azure-stack/operator/azure-stack-monitor-health)
+- Správa prostředků [sítě](https://docs.microsoft.com/azure-stack/operator/azure-stack-viewing-public-ip-address-consumption) a [úložiště](https://docs.microsoft.com/azure-stack/operator/azure-stack-manage-storage-accounts)
+- [Spusťte a zastavte centrum Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-start-and-stop&branch=release-tzl).
+- [Provoz rozšířeného úložiště](https://docs.microsoft.com/azure-stack/tdc/extended-storage-operator-guide&branch=release-tzl).
+- [Spravovat IoT Hub](https://docs.microsoft.com/azure-stack/operator/iot-hub-rp-overview?toc=%2Fazure-stack%2Ftdc%2Ftoc.json&.bc=%2Fazure-stack%2Fbreadcrumb%2Ftoc.json&view=azs-2002&branch=release-tzl).
+- [Správa centra událostí](https://docs.microsoft.com/azure-stack/operator/event-hubs-rp-overview?toc=%2Fazure-stack%2Ftdc%2Ftoc.json&bc=%2Fazure-stack%2Fbreadcrumb%2Ftoc.json&view=azs-2002&branch=release-tzl).
+- [Spravovat App Service](https://docs.microsoft.com/azure-stack/operator/azure-stack-app-service-overview?toc=%2Fazure-stack%2Ftdc%2Ftoc.json&bc=%2Fazure-stack%2Fbreadcrumb%2Ftoc.json&view=azs-2002&branch=release-tzl).
+- Nahraďte špatný hardware. Tady je seznam [nahraditelných částí](https://docs.microsoft.com/azure-stack/tdc/cru-replaceable-parts&branch=release-tzl).
+- [Získejte podporu](https://docs.microsoft.com/azure-stack/operator/azure-stack-help-and-support-overview?toc=%2Fazure-stack%2Ftdc%2Ftoc.json&bc=%2Fazure-stack%2Fbreadcrumb%2Ftoc.json&view=azs-2002&branch=release-tzl).
 
 ## <a name="operator-tasks"></a>Úkoly operátora
 
 Tady je seznam každodenních, týdenních a měsíčních úloh pro operátor:
 
-# <a name="daily"></a>[Dostupnost](#tab/daily)
+# <a name="daily"></a>[denně](#tab/daily)
 
 1. Kontrolovat výstrahy.
 2. Ověřte stav zálohování.
@@ -106,10 +106,10 @@ Tady je seznam každodenních, týdenních a měsíčních úloh pro operátor:
 4. Zkontroluje stav systému Isilon a události v OneFS.
 5. Ověřte Isilonou kapacitu.
 
-# <a name="weekly"></a>[Délka](#tab/weekly)
+# <a name="weekly"></a>[týdně](#tab/weekly)
 
 1. Podívejte se na kapacitu.
-2. Spusťte `isi status –verbose` v připojení Avocent.
+2. Spusťte `isi status –verbose` v Avocent připojení.
 
 # <a name="monthly"></a>[Nadpis](#tab/monthly)
 
@@ -126,7 +126,7 @@ Tady je seznam každodenních, týdenních a měsíčních úloh pro operátor:
 3. Použijte balíčky oprav hotfix.
 4. Použijte balíčky oprav hotfix.
 5. Rozšířit kapacitu (uzly & IPSpace).
-6. Spusťte `isi status –verbose` v připojení Avocent.
+6. Spusťte `isi status –verbose` v Avocent připojení.
 7. Obnovte účty úložiště.
 8. Zastavte systém.
 9. Shromažďování protokolů diagnostiky.
@@ -135,35 +135,35 @@ Tady je seznam každodenních, týdenních a měsíčních úloh pro operátor:
 
 ## <a name="what-to-tell-your-users"></a>Co říct uživatelům
 
-Budete muset uživatelům sdělit, jak pracovat se službami v centru Azure Stack, jak se připojit k prostředí a jak se přihlásit k odběru nabídek. Kromě jakékoli vlastní dokumentace, kterou byste mohli chtít poskytnout uživatelům, můžete uživatele nasměrovat na [Azure Stack dokumentaci pro uživatele centra](https://review.docs.microsoft.com/en-us/azure-stack/user/).
+Budete muset uživatelům sdělit, jak pracovat se službami v centru Azure Stack, jak se připojit k prostředí a jak se přihlásit k odběru nabídek. Kromě jakékoli vlastní dokumentace, kterou byste mohli chtít poskytnout uživatelům, můžete uživatele nasměrovat na [Azure Stack dokumentaci pro uživatele centra](https://docs.microsoft.com/azure-stack/user/).
 
 ### <a name="understand-how-to-work-with-services-in-azure-stack-hub"></a>Informace o tom, jak pracovat se službami v centru Azure Stack
 
 Než uživatelé použijí služby a sestavují aplikace v centru Azure Stack, musí si uvědomit informace. Například existují konkrétní požadavky na PowerShell a verzi rozhraní API. Mezi službou v Azure a ekvivalentní službou ve službě Azure Stack hub jsou taky některé rozdíly ve funkcích. Ujistěte se, že uživatelé si přečtěte následující články:
 
-- [Rozdíly mezi centrem Azure Stack a Azure při používání služeb a sestavování aplikací](https://review.docs.microsoft.com/en-us/azure-stack/user/azure-stack-considerations?view=azs-2002)
-- [Funkce virtuálního počítače centra Azure Stack](https://review.docs.microsoft.com/en-us/azure-stack/user/azure-stack-vm-considerations?view=azs-2002)
-- [Úložiště centra Azure Stack: rozdíly a požadavky](https://review.docs.microsoft.com/en-us/azure-stack/user/azure-stack-acs-differences?view=azs-2002)
+- [Rozdíly mezi centrem Azure Stack a Azure při používání služeb a sestavování aplikací](https://docs.microsoft.com/azure-stack/user/azure-stack-considerations)
+- [Funkce virtuálního počítače centra Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-considerations)
+- [Úložiště centra Azure Stack: rozdíly a požadavky](https://docs.microsoft.com/azure-stack/user/azure-stack-acs-differences)
 
 Informace v těchto článcích shrnuje rozdíly mezi službou v Azure a centra Azure Stack. Doplňuje informace, které jsou k dispozici pro službu Azure v globální dokumentaci k Azure.
 
 ### <a name="connect-to-azure-stack-hub-as-a-user"></a>Připojení k Azure Stack centrum jako uživatel
 
-Uživatelé budou chtít, abyste věděli, jak [získat přístup k portálu User portal](https://review.docs.microsoft.com/en-us/azure-stack/user/azure-stack-use-portal?view=azs-2002) nebo jak se připojit prostřednictvím PowerShellu. V prostředí integrovaných systémů se adresa uživatelského portálu liší podle nasazení. Musíte uživatelům poskytnout správnou adresu URL.
+Uživatelé budou chtít, abyste věděli, jak [získat přístup k portálu User Portal](https://docs.microsoft.com/azure-stack/user/azure-stack-use-portal) nebo jak se připojit prostřednictvím PowerShellu. V prostředí integrovaných systémů se adresa uživatelského portálu liší podle nasazení. Musíte uživatelům poskytnout správnou adresu URL.
 
-Pokud používáte PowerShell, uživatelé budou muset registrovat poskytovatele prostředků předtím, než budou moci používat služby. Poskytovatel prostředků spravuje službu. Poskytovatel síťových prostředků například spravuje prostředky, jako jsou virtuální sítě, síťová rozhraní a nástroje pro vyrovnávání zatížení. Musí si [nainstalovat](https://review.docs.microsoft.com/en-us/azure-stack/operator/azure-stack-powershell-install?view=azs-2002) PowerShell, [Stáhnout](https://review.docs.microsoft.com/en-us/azure-stack/operator/azure-stack-powershell-download?view=azs-2002) další moduly a [nakonfigurovat](https://review.docs.microsoft.com/en-us/azure-stack/user/azure-stack-powershell-configure-user?view=azs-2002) PowerShellu (včetně registrace poskytovatele prostředků).
+Pokud používáte PowerShell, uživatelé budou muset registrovat poskytovatele prostředků předtím, než budou moci používat služby. Poskytovatel prostředků spravuje službu. Poskytovatel síťových prostředků například spravuje prostředky, jako jsou virtuální sítě, síťová rozhraní a nástroje pro vyrovnávání zatížení. Musí si [nainstalovat](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-install) PowerShell, [Stáhnout](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-download) další moduly a [nakonfigurovat](https://docs.microsoft.com/azure-stack/user/azure-stack-powershell-configure-user) PowerShell (který zahrnuje registraci poskytovatele prostředků).
 
 ### <a name="subscribe-to-an-offer"></a>Přihlášení k odběru nabídky
 
-Předtím, než může uživatel použít služby, se musí [přihlásit k odběru nabídky](https://review.docs.microsoft.com/en-us/azure-stack/operator/azure-stack-subscribe-plan-provision-vm?view=azs-2002) , kterou jste vytvořili jako operátor.
+Předtím, než může uživatel použít služby, se musí [přihlásit k odběru nabídky](https://docs.microsoft.com/azure-stack/operator/azure-stack-subscribe-plan-provision-vm) , kterou jste vytvořili jako operátor.
 
 ## <a name="where-to-get-support"></a>Kde získat podporu
 
-Informace o podpoře pro starší verze centra Azure Stack (pre-1905) najdete v článku [zásady obsluhy centra Azure Stack](https://review.docs.microsoft.com/en-us/azure-stack/operator/azure-stack-servicing-policy?view=azs-2002).
+Informace o podpoře pro starší verze centra Azure Stack (pre-1905) najdete v článku [zásady obsluhy centra Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-servicing-policy).
 
 Pro integrovaný systém existuje koordinovaný proces eskalace a rozlišení mezi společností Microsoft a našimi hardwarovými partnery OEM (Original Equipment Manufacturer).
 
-Pokud dojde k problému s cloudovou službou, podpora je poskytována prostřednictvím služby Microsoft Customer Support Services (CSS). Chcete-li otevřít žádost o podporu, vyberte v pravém horním rohu portálu pro správu ikonu Nápověda a podpora (otazník). Pak v části  **podpory** vyberte **help + podpora** a pak **novou žádost o podporu** .
+Pokud dojde k problému s cloudovou službou, podpora je poskytována prostřednictvím služby Microsoft Customer Support Services (CSS). Chcete-li otevřít žádost o podporu, vyberte v pravém horním rohu portálu pro správu ikonu Nápověda a podpora (otazník). Pak v části **Podpora** vyberte **help + podpora** a pak **novou žádost o podporu** .
 
 Pokud dojde k potížím s nasazením, opravou a aktualizací, hardwarem (včetně nahraditelných jednotek v poli) nebo jakýmkoli softwarem v hardwarovém prostředí, jako je například software spuštěný na hostiteli životního cyklu hardwaru, obraťte se nejprve na dodavatele hardwaru výrobce OEM.
 
@@ -171,4 +171,4 @@ U cokoli jiného kontaktujte Microsoft CSS.
 
 ## <a name="next-steps"></a>Další kroky
 
-- [Správa oblastí v centru Azure Stack](https://review.docs.microsoft.com/en-us/azure-stack/operator/azure-stack-region-management?view=azs-2002)
+- [Správa oblastí v centru Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-region-management)

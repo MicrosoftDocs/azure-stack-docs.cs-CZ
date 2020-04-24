@@ -8,10 +8,10 @@ ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 3/19/2020
 ms.openlocfilehash: 50f63cee7776bd9093d986746ed613b38164b171
-ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/21/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "80069248"
 ---
 # <a name="upgrade-a-kubernetes-cluster-on-azure-stack-hub"></a>Upgrade clusteru Kubernetes na rozbočovači Azure Stack
@@ -20,7 +20,7 @@ ms.locfileid: "80069248"
 
 Modul AKS umožňuje upgradovat cluster, který byl původně nasazen pomocí nástroje. Clustery můžete udržovat pomocí modulu AKS. Vaše úlohy údržby jsou podobné jakémukoli IaaS systému. Měli byste si uvědomit o dostupnosti nových aktualizací a použít modul AKS k jejich použití.
 
-Příkaz pro upgrade aktualizuje verzi Kubernetes a základní image operačního systému. Pokaždé, když spustíte příkaz pro upgrade pro každý uzel clusteru, vytvoří modul AKS nový virtuální počítač pomocí základní image AKS přidružené k používané verzi **AKS modulu** . Pomocí příkazu `aks-engine upgrade` můžete v clusteru zachovat měnu všech hlavních uzlů a uzlů agentů. 
+Příkaz pro upgrade aktualizuje verzi Kubernetes a základní image operačního systému. Pokaždé, když spustíte příkaz pro upgrade pro každý uzel clusteru, vytvoří modul AKS nový virtuální počítač pomocí základní image AKS přidružené k používané verzi **AKS modulu** . Pomocí `aks-engine upgrade` příkazu můžete zachovat měnu všech hlavních uzlů a uzlů agentů v clusteru. 
 
 Microsoft váš cluster nespravuje. Společnost Microsoft ale poskytuje nástroj a image virtuálních počítačů, které můžete použít ke správě clusteru. 
 
@@ -70,20 +70,20 @@ Následující pokyny používají minimální postup k provedení upgradu. Poku
     1.6.9   1.9.10, 1.9.11
     ```
 
-    Například v závislosti na výstupu příkazu `get-versions`, pokud je vaše aktuální verze Kubernetes "1.13.5", můžete upgradovat na "1.13.7, 1.14.1, 1.14.3".
+    Například na základě výstupu `get-versions` příkazu platí, že pokud vaše aktuální verze Kubernetes je "1.13.5", můžete upgradovat na "1.13.7, 1.14.1, 1.14.3".
 
-2. Shromážděte informace, které budete potřebovat ke spuštění příkazu `upgrade`. Upgrade používá následující parametry:
+2. Shromážděte informace, které budete potřebovat ke spuštění `upgrade` příkazu. Upgrade používá následující parametry:
 
     | Parametr | Příklad | Popis |
     | --- | --- | --- |
-    | Azure – ENV | AzureStackCloud | K indikaci AKS Engine, který je vaší cílovou platformou `AzureStackCloud`Azure Stack centra použít. |
-    | umístění | místní | Název oblasti centra Azure Stack. Pro ASDK je oblast nastavená na `local`. |
-    | resource-group | Kube – RG | Zadejte název nové skupiny prostředků nebo vyberte existující skupinu prostředků. Název prostředku musí být alfanumerické znaky a malá písmena. |
+    | Azure – ENV | AzureStackCloud | K indikaci AKS Engine, že vaše cílová platforma je Azure Stack použití `AzureStackCloud`centra. |
+    | location | local | Název oblasti centra Azure Stack. Pro ASDK je oblast nastavena na `local`. |
+    | resource-group | Kube – RG | Zadejte název nové skupiny prostředků nebo vyberte existující skupinu prostředků. Název prostředku musí být alfanumerický a malý. |
     | ID předplatného | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Zadejte ID předplatného. Další informace najdete v tématu [přihlášení k odběru nabídky](https://docs.microsoft.com/azure-stack/user/azure-stack-subscribe-services#subscribe-to-an-offer) . |
     | rozhraní API – model | ./kubernetes-azurestack.json | Cesta ke konfiguračnímu souboru clusteru nebo modelu rozhraní API. |
     | ID klienta | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Zadejte identifikátor GUID instančního objektu služby. ID klienta identifikované jako ID aplikace, když správce centra Azure Stack vytvořil instanční objekt. |
-    | client-secret | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Zadejte tajný klíč objektu služby. Toto je tajný kód klienta, který jste nastavili při vytváření služby. |
-    | Identita – systém | službou | Volitelné. Pokud používáte federované služby Active Directory (AD FS), zadejte svoje řešení pro správu identit. |
+    | tajný kód klienta | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Zadejte tajný klíč objektu služby. Toto je tajný kód klienta, který jste nastavili při vytváření služby. |
+    | Identita – systém | službou | Nepovinný parametr. Pokud používáte federované služby Active Directory (AD FS), zadejte svoje řešení pro správu identit. |
 
 3. Po zadání vašich hodnot spusťte následující příkaz:
 
@@ -104,10 +104,10 @@ Následující pokyny používají minimální postup k provedení upgradu. Poku
 
 ## <a name="steps-to-only-upgrade-the-os-image"></a>Postup upgradu image operačního systému
 
-1. Projděte si [tabulku Supported-Kubernetes-Versions](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions) a určete, jestli máte naou verzi AKS a image AKS Base, kterou plánujete upgradovat. Chcete-li zobrazit verzi modulu AKS Run: `aks-engine version`.
-2. Upgradujte modul AKS odpovídajícím způsobem v počítači, do kterého jste nainstalovali AKS modul runtime: `./get-akse.sh --version vx.xx.x` nahraďte **x. xx. x** cílovou verzí.
+1. Projděte si [tabulku Supported-Kubernetes-Versions](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions) a určete, jestli máte naou verzi AKS a image AKS Base, kterou plánujete upgradovat. Chcete-li zobrazit verzi modulu AKS Runtime: `aks-engine version`.
+2. Upgradujte modul AKS odpovídajícím způsobem na počítači, kde jste nainstalovali AKS modul runtime: `./get-akse.sh --version vx.xx.x` nahraďte **x. xx. x** cílovou verzí.
 3. Požádejte svého operátora centra Azure Stack, aby přidal verzi AKS základního obrázku, kterou potřebujete na webu centra Azure Stack, který chcete použít.
-4. Spusťte příkaz `aks-engine upgrade` pomocí stejné verze Kubernetes, kterou jste již používali, ale přidejte `--force`. V takovém případě se můžete podívat na příklad [vynucení upgradu](#forcing-an-upgrade).
+4. Spusťte `aks-engine upgrade` příkaz pomocí stejné verze Kubernetes, kterou jste již používali, ale přidejte `--force`. V takovém případě se můžete podívat na příklad [vynucení upgradu](#forcing-an-upgrade).
 
 
 ## <a name="forcing-an-upgrade"></a>Vynucení upgradu

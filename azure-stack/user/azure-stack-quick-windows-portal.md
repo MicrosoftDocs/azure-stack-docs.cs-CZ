@@ -3,16 +3,16 @@ title: Vytvoření virtuálního počítače s Windows pomocí portálu Azure St
 description: Naučte se vytvořit virtuální počítač s Windows serverem 2016 pomocí portálu Azure Stack hub.
 author: mattbriggs
 ms.topic: quickstart
-ms.date: 1/10/2020
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 1/10/2020
-ms.openlocfilehash: c9b2309e5c640d9f2cab79f93dc8a13b1344cea2
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: b32ce924aae800360229ca1e309b568fdc6f5353
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77703753"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81660251"
 ---
 # <a name="quickstart-create-a-windows-server-vm-with-the-azure-stack-hub-portal"></a>Rychlý Start: Vytvoření virtuálního počítače s Windows serverem pomocí portálu Azure Stack hub
 
@@ -31,7 +31,7 @@ Přihlaste se k portálu centra Azure Stack. Adresa portálu centra Azure Stack 
 
 ## <a name="create-a-vm"></a>Vytvoření virtuálního počítače
 
-1. Vyberte **vytvořit prostředek** > **COMPUTE**. Vyhledejte` Windows Server 2016 Datacenter – Pay as you use`.
+1. Vyberte **vytvořit prostředek** > **COMPUTE**. Hledat` Windows Server 2016 Datacenter – Pay as you use`.
     Pokud nevidíte položku **Windows Server 2016 Datacenter – průběžné platby** , obraťte se na svého operátora cloudu centra Azure Stack a požádejte ho o přidání image do tržiště centra Azure Stack. Pokyny, které může váš operátor cloudu použít k [Vytvoření a publikování vlastní položky na webu Marketplace centra Azure Stack](../operator/azure-stack-create-and-publish-marketplace-item.md).
 
     ![Windows Server 2016 Datacenter – Plaťte při používání](./media/azure-stack-quick-windows-portal/image1.png)

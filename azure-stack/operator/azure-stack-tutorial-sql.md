@@ -8,12 +8,12 @@ ms.date: 10/07/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/23/2019
-ms.openlocfilehash: bd62be6a7a2990a7a405dd5c5e1ff44e64007b6f
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 0c61abfab5615d265377341f6fb96fe5b4a18b29
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77696791"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81478863"
 ---
 # <a name="create-highly-available-sql-databases-with-azure-stack-hub"></a>Vytváření vysoce dostupných databází SQL pomocí centra Azure Stack
 
@@ -37,7 +37,7 @@ Než začnete, ujistěte se, že [poskytovatel prostředků SQL Server](azure-st
 
 - Image na webu [Windows Server 2016 Datacenter](https://azuremarketplace.microsoft.com/marketplace/apps/MicrosoftWindowsServer.WindowsServer)
 - SQL Server 2016 SP1 nebo SP2 (Enterprise, Standard nebo Developer) na obrázku serveru Windows Server 2016. Tento článek používá bitovou kopii [SQL Server 2016 SP2 Enterprise v systému Windows Server 2016 na](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoftsqlserver.sql2016sp2-ws2016) webu Marketplace.
-- [SQL Server rozšíření IaaS](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension) verze 1.2.30 nebo vyšší. Rozšíření SQL IaaS nainstaluje nezbytné komponenty, které jsou vyžadovány na webu Marketplace SQL Server pro všechny verze systému Windows. Umožňuje konfiguraci nastavení specifického pro SQL na virtuálních počítačích SQL (virtuálních počítačů). Pokud rozšíření není nainstalované na místním webu Marketplace, zřizování SQL se nezdaří.
+- [SQL Server rozšíření IaaS](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension) verze 1.3.20180 nebo vyšší. Rozšíření SQL IaaS nainstaluje nezbytné komponenty, které jsou vyžadovány na webu Marketplace SQL Server pro všechny verze systému Windows. Umožňuje konfiguraci nastavení specifického pro SQL na virtuálních počítačích SQL (virtuálních počítačů). Pokud rozšíření není nainstalované na místním webu Marketplace, zřizování SQL se nezdaří.
 - [Rozšíření vlastních skriptů pro Windows](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.CustomScriptExtension) verze 1.9.1 nebo novější. Rozšíření vlastních skriptů je nástroj, který se dá použít k automatickému spuštění úloh přizpůsobení virtuálních počítačů po nasazení.
 - [Konfigurace požadovaného stavu PowerShellu (DSC)](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.DSC-arm) verze 2.76.0.0 nebo vyšší. DSC je platforma pro správu v prostředí Windows PowerShell, která umožňuje nasazovat a spravovat konfigurační data pro softwarové služby. Platforma také spravuje prostředí, ve kterém se tyto služby spouštějí.
 
@@ -58,15 +58,15 @@ Pomocí kroků v této části nasaďte SQL Server skupinu dostupnosti AlwaysOn 
 - Jedna skupina dostupnosti, která obsahuje virtuální počítače s kopií clusteru a sdílené složky pro SQL.
 
 1. 
-   [!INCLUDE [azs-admin-portal](../includes/azs-admin-portal.md)]
+   [!INCLUDE [azs-user-portal](../includes/azs-user-portal.md)]
 
-2. Vyberte **\+** **vytvořit prostředek** > **vlastní**a potom **template Deployment**.
+2. Vyberte **\+** **vytvořit prostředek** > **vlastní**a pak **template Deployment**.
 
-   ![Nasazení vlastních šablon na portálu Azure Stack hub správce](media/azure-stack-tutorial-sqlrp/1.png)
+   ![Nasazení vlastních šablon na portálu Azure Stack hub správce](media/azure-stack-tutorial-sqlrp/aoag-template-deployment-1.png)
 
-3. V okně **vlastní nasazení** vyberte **Upravit šablonu** > šablonu pro **rychlý Start** a pak pomocí rozevíracího seznamu dostupných vlastních šablon vyberte šablonu **SQL-2016-AlwaysOn** . Vyberte **OK**a pak **Uložit**.
+3. V okně **vlastní nasazení** vyberte Upravit šablonu **Edit template** > **rychlý Start** šablony a potom pomocí rozevíracího seznamu dostupných vlastních šablon vyberte šablonu **SQL-2016-AlwaysOn** . Vyberte **OK** a pak **Uložit**.
 
-   [![Upravit šablonu na portálu pro správu centra Azure Stack](media/azure-stack-tutorial-sqlrp/2-sm.PNG "Vybrat šablonu pro rychlý Start")](media/azure-stack-tutorial-sqlrp/2-lg.PNG#lightbox)
+   [![Upravit šablonu na portálu pro správu centra Azure Stack](media/azure-stack-tutorial-sqlrp/aoag-template-deployment-2.png "Vybrat šablonu pro rychlý Start")](media/azure-stack-tutorial-sqlrp/aoag-template-deployment-2.png#lightbox)
 
 4. V okně **vlastní nasazení** vyberte **Upravit parametry** a zkontrolujte výchozí hodnoty. Upravte hodnoty podle potřeby tak, aby poskytovaly všechny požadované informace o parametrech, a pak vyberte **OK**.
 
@@ -74,22 +74,20 @@ Pomocí kroků v této části nasaďte SQL Server skupinu dostupnosti AlwaysOn 
     - Zadejte složitá hesla pro parametry ADMINPASSWORD, SQLSERVERSERVICEACCOUNTPASSWORD a SQLAUTHPASSWORD.
     - Zadejte příponu DNS pro zpětné vyhledávání u všech malých písmen pro parametr DNSSUFFIX (**azurestack. external** pro instalace ASDK).
     
-   [![Upravit parametry na portálu pro správu centra Azure Stack](media/azure-stack-tutorial-sqlrp/3-sm.PNG "Upravit parametry vlastního nasazení")](media/azure-stack-tutorial-sqlrp/3-lg.PNG#lightbox)
+   [![Upravit parametry na portálu pro správu centra Azure Stack](media/azure-stack-tutorial-sqlrp/aoag-template-deployment-3.png "Upravit parametry vlastního nasazení")](media/azure-stack-tutorial-sqlrp/aoag-template-deployment-3.png#lightbox)
 
 5. V okně **vlastní nasazení** zvolte předplatné, které chcete použít, a vytvořte novou skupinu prostředků nebo vyberte existující skupinu prostředků pro vlastní nasazení.
 
     V dalším kroku vyberte umístění skupiny prostředků (**místní** pro instalace ASDK) a potom klikněte na **vytvořit**. Vlastní nastavení nasazení se ověří a pak se nasazení spustí.
 
-    [![Výběr předplatného na portálu pro správu centra Azure Stack](media/azure-stack-tutorial-sqlrp/4-sm.PNG "Vytvořit vlastní nasazení")](media/azure-stack-tutorial-sqlrp/4-lg.PNG#lightbox)
+    [![Výběr předplatného na portálu pro správu centra Azure Stack](media/azure-stack-tutorial-sqlrp/aoag-template-deployment-4.png "Vytvořit vlastní nasazení")](media/azure-stack-tutorial-sqlrp/aoag-template-deployment-4.png#lightbox)
 
-6. Na portálu pro správu vyberte **skupiny prostředků** a potom název skupiny prostředků, kterou jste vytvořili pro vlastní nasazení (**Skupina prostředků** pro tento příklad). Zobrazte stav nasazení, aby se zajistilo, že se všechna nasazení úspěšně dokončila.
+6. Na portálu User Portal vyberte **skupiny prostředků** a potom název skupiny prostředků, kterou jste vytvořili pro vlastní nasazení (**Skupina prostředků** pro tento příklad). Zobrazte stav nasazení, aby se zajistilo, že se všechna nasazení úspěšně dokončila.
     
-    V dalším kroku zkontrolujte položky skupiny prostředků a vyberte **SQLPIPsql\<název skupiny prostředků\>** položka veřejné IP adresy. Poznamenejte si veřejnou IP adresu a celý plně kvalifikovaný název domény veřejné IP adresy nástroje pro vyrovnávání zatížení. Tuto možnost musíte poskytnout operátorovi centra Azure Stack, aby mohli vytvořit hostitelský server SQL, který využívá tuto skupinu dostupnosti SQL AlwaysOn.
+    Dále zkontrolujte položky skupiny prostředků a vyberte položku veřejné IP **adresy\<SQLPIPsql název\> skupiny prostředků** . Poznamenejte si veřejnou IP adresu a celý plně kvalifikovaný název domény veřejné IP adresy nástroje pro vyrovnávání zatížení. Tuto možnost musíte poskytnout operátorovi centra Azure Stack, aby mohli vytvořit hostitelský server SQL, který využívá tuto skupinu dostupnosti SQL AlwaysOn.
 
    > [!NOTE]
    > Dokončení nasazení šablony bude trvat několik hodin.
-
-   ![Vlastní nasazení bylo dokončeno na portálu pro správu centra Azure Stack](./media/azure-stack-tutorial-sqlrp/5.png)
 
 ### <a name="enable-automatic-seeding"></a>Povolit automatické osazení
 
@@ -97,7 +95,7 @@ Po úspěšném nasazení šablony a konfiguraci skupiny dostupnosti AlwaysON se
 
 Když vytvoříte skupinu dostupnosti s automatickým osazením, SQL Server automaticky vytvoří sekundární repliky pro každou databázi ve skupině bez nutnosti jakéhokoli jiného ručního zásahu. Tato míra zajišťuje vysokou dostupnost databází AlwaysOn.
 
-Pomocí těchto příkazů SQL nakonfigurujte automatické osazení pro skupinu dostupnosti AlwaysOn. V případě potřeby nahraďte `<InstanceName>` primární instancí SQL Server název a `<availability_group_name>` s názvem skupiny dostupnosti AlwaysOn.
+Pomocí těchto příkazů SQL nakonfigurujte automatické osazení pro skupinu dostupnosti AlwaysOn. V `<InstanceName>` případě potřeby nahraďte primární instancí SQL Server `<availability_group_name>` názvem a s názvem skupiny dostupnosti AlwaysOn.
 
 Na primární instanci SQL:
 
@@ -138,7 +136,7 @@ Pomocí těchto příkazů nastavte možnost Server pro ověřování databáze 
 
 Po vytvoření a správné konfiguraci skupiny dostupnosti SQL Server AlwayOn je potřeba, aby operátor centra Azure Stack vytvořil hostitelský server SQL pro Azure Stack hub. Hostitelský server SQL zpřístupňuje uživatelům další kapacitu k vytváření databází.
 
-Nezapomeňte použít veřejnou IP adresu nebo plně kvalifikovaný název domény pro veřejnou IP adresu služby SQL Load Balancer zaznamenanou dříve, když se vytvořila skupina prostředků skupiny dostupnosti SQL AlwaysOn (**SQLPIPsql\<název skupiny prostředků\>** ). Kromě toho potřebujete znát SQL Server přihlašovací údaje pro ověřování používané pro přístup k instancím SQL ve skupině dostupnosti AlwaysOn.
+Nezapomeňte použít veřejnou IP adresu nebo plně kvalifikovaný název domény pro veřejnou IP adresu služby SQL Load Balancer zaznamenanou dříve, když se vytvořila skupina prostředků skupiny dostupnosti SQL AlwaysOn (**SQLPIPsql\<název\>skupiny prostředků**). Kromě toho potřebujete znát SQL Server přihlašovací údaje pro ověřování používané pro přístup k instancím SQL ve skupině dostupnosti AlwaysOn.
 
 > [!NOTE]
 > Tento krok je potřeba spustit z portálu pro správu centra Azure Stack pomocí operátoru centra Azure Stack.
@@ -152,7 +150,7 @@ Také se ujistěte, že jste vytvořili plány a nabídky pro uživatele, kteř�
 
 ## <a name="create-a-highly-available-sql-database"></a>Vytvoření vysoce dostupné databáze SQL
 
-Po vytvoření, nakonfigurování a přidání skupiny dostupnosti SQL AlwaysOn Azure Stack jako hostitelského serveru SQL hub pomocí operátoru centra Azure Stack může uživatel s předplatným, včetně SQL Serverch funkcí databáze, vytvářet databáze SQL. Podpora funkcí AlwaysOn. Tyto databáze mohou vytvořit podle kroků v této části.
+Po vytvoření, nakonfigurování a přidání skupiny dostupnosti SQL AlwaysOn Azure Stack jako hostitelského serveru SQL hub pomocí operátoru centra Azure Stack může uživatel s předplatným, včetně SQL Serverch funkcí databáze, vytvořit databáze SQL podporující funkce AlwaysOn. Tyto databáze mohou vytvořit podle kroků v této části.
 
 > [!NOTE]
 > Tyto kroky spusťte na portálu Azure Stack User Portal jako uživatel tenanta s předplatným, které poskytuje funkce služby SQL Server (Microsoft. SQLAdapter).
@@ -160,7 +158,7 @@ Po vytvoření, nakonfigurování a přidání skupiny dostupnosti SQL AlwaysOn 
 1. 
    [!INCLUDE [azs-user-portal](../includes/azs-user-portal.md)]
 
-2. Vyberte **\+** **vytvořit prostředek** > **úložiště \+ data**a pak **SQL Database**.
+2. Vyberte **\+** **vytvořit prostředek** > **úložiště dat \+ **a pak **SQL Database**.
 
     Zadejte požadované informace o vlastnosti databáze. Tyto informace zahrnují název, kolaci, maximální velikost a předplatné, skupinu prostředků a umístění, které se má pro nasazení použít.
 
@@ -170,7 +168,7 @@ Po vytvoření, nakonfigurování a přidání skupiny dostupnosti SQL AlwaysOn 
 
    ![Vybrat SKU na portálu Azure Stack User Portal](./media/azure-stack-tutorial-sqlrp/createdb2.png)
 
-4. Vyberte **přihlašovací** > **vytvořit nové přihlášení** a pak zadat přihlašovací údaje pro ověřování SQL, které se mají použít pro novou databázi. Po dokončení vyberte **OK** a pak **vytvořte** a zahajte proces nasazení databáze.
+4. Vyberte **přihlášení** > **vytvořit nové přihlášení** a potom zadejte přihlašovací údaje pro ověřování SQL, které se mají použít pro novou databázi. Po dokončení vyberte **OK** a pak **vytvořte** a zahajte proces nasazení databáze.
 
    ![Vytvoření přihlašovacích údajů v uživatelském portálu Azure Stack hub](./media/azure-stack-tutorial-sqlrp/createdb3.png)
 

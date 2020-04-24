@@ -9,10 +9,10 @@ ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 11/05/2019
 ms.openlocfilehash: fec8ac1797ef3fb6ce17b7173d813aff74ba3712
-ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/18/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79512328"
 ---
 # <a name="troubleshoot-issues-in-azure-stack-hub"></a>Řešení potíží v centru Azure Stack
@@ -74,7 +74,7 @@ Pokud předdefinované role pro prostředky Azure nesplňují konkrétní požad
 
 Vyberte typ účtu sdílených služeb, který používáte pro Azure Stack hub. Typy předplatných, které se dají použít k registraci Azure Stackho centra pro více tenantů, jsou:
 
-* Cloud Solution Provider
+* Program Cloud Solution Provider
 * Předplatné Partner Shared Services
 
 ### <a name="get-scale-unit-metrics"></a>Získat metriky jednotek škálování
@@ -114,10 +114,10 @@ Může trvat až 14 hodin, než se kapacita uvolní, aby se na portálu zobrazov
 
 ### <a name="azure-storage-explorer-not-working-with-azure-stack-hub"></a>Průzkumník služby Azure Storage nepracuje se službou Azure Stack hub
 
-Pokud používáte integrovaný systém v odpojeném scénáři, doporučuje se používat certifikační autoritu (CA) organizace. Exportujte kořenový certifikát ve formátu Base-64 a pak ho importujte do Průzkumník služby Azure Storage. Nezapomeňte odebrat koncové lomítko (`/`) z Správce prostředkůho koncového bodu. Další informace najdete v tématu [Příprava na připojení k centru Azure Stack](/azure-stack/user/azure-stack-storage-connect-se).
+Pokud používáte integrovaný systém v odpojeném scénáři, doporučuje se používat certifikační autoritu (CA) organizace. Exportujte kořenový certifikát ve formátu Base-64 a pak ho importujte do Průzkumník služby Azure Storage. Nezapomeňte odebrat koncové lomítko (`/`) z správce prostředkůho koncového bodu. Další informace najdete v tématu [Příprava na připojení k centru Azure Stack](/azure-stack/user/azure-stack-storage-connect-se).
 
 ## <a name="troubleshooting-app-service"></a>Řešení potíží s App Service
 
 ### <a name="create-aadidentityappps1-script-fails"></a>Skript Create-AADIdentityApp. ps1 se nezdařil
 
-Pokud skript Create-AADIdentityApp. ps1, který je vyžadován pro App Service, neproběhne úspěšně, nezapomeňte při spuštění skriptu zahrnout požadovaný parametr `-AzureStackAdminCredential`. Další informace najdete v tématu [předpoklady pro nasazení App Service v centru Azure Stack](azure-stack-app-service-before-you-get-started.md#create-an-azure-active-directory-app).
+Pokud skript Create-AADIdentityApp. ps1 vyžadovaný pro App Service selhává, nezapomeňte při spuštění skriptu zahrnout požadovaný `-AzureStackAdminCredential` parametr. Další informace najdete v tématu [předpoklady pro nasazení App Service v centru Azure Stack](azure-stack-app-service-before-you-get-started.md#create-an-azure-active-directory-app).

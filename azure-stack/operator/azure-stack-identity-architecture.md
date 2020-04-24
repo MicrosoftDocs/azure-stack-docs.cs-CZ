@@ -3,16 +3,16 @@ title: Architektura identity pro centrum Azure Stack
 description: Seznamte se s architekturou identity pro centrum Azure Stack a rozdíly mezi Azure AD a AD FS.
 author: IngridAtMicrosoft
 ms.topic: conceptual
-ms.date: 05/09/2019
+ms.date: 04/10/2020
 ms.author: inhenkel
 ms.reviewer: fiseraci
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 42badc226bfd8339c497c752ee4b547c48a1250c
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: ae5cc821ffe621d4e14ef37b426ff36202ed37ed
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77699673"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81244007"
 ---
 # <a name="identity-architecture-for-azure-stack-hub"></a>Architektura identity pro centrum Azure Stack
 
@@ -24,7 +24,7 @@ Vámi zvolený poskytovatel identity může omezit vaše možnosti, včetně pod
 
 |Funkce nebo scénář        |Azure AD  |AD FS  |
 |------------------------------|----------|-------|
-|Připojeno k Internetu     |Ano       |Volitelné|
+|Připojeno k Internetu     |Ano       |Nepovinné|
 |Podpora víceklientské architektury     |Ano       |Ne      |
 |Nabídky položek na webu Marketplace |Ano       |Ano (vyžaduje použití nástroje pro [syndikaci offline Marketplace](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario) )|
 |Podpora pro Active Directory Authentication Library (ADAL) |Ano |Ano|
@@ -47,7 +47,7 @@ Topologie jednoho tenanta je užitečná v těchto případech:
 - Všichni uživatelé jsou součástí stejného tenanta.
 - Poskytovatel služeb je hostitelem instance centra Azure Stack pro organizaci.
 
-![Topologie Single-tenant centra Azure Stack s Azure AD](media/azure-stack-identity-architecture/single-tenant.png)
+![Topologie Single-tenant centra Azure Stack s Azure AD](media/azure-stack-identity-architecture/single-tenant.svg)
 
 Tato topologie obsahuje následující vlastnosti:
 
@@ -64,7 +64,7 @@ Topologie s více klienty je užitečná v těchto případech:
 
 - Poskytovatel služeb chce uživatelům z více organizací dovolit přístup k centru Azure Stack.
 
-![Topologie víceklientské architektury centra Azure Stack s Azure AD](media/azure-stack-identity-architecture/multi-tenant.png)
+![Topologie víceklientské architektury centra Azure Stack s Azure AD](media/azure-stack-identity-architecture/multi-tenant.svg)
 
 Tato topologie obsahuje následující vlastnosti:
 
@@ -79,7 +79,7 @@ AD FS topologie je vyžadována, pokud je splněna jedna z následujících podm
 - Centrum Azure Stack se nepřipojuje k Internetu.
 - Centrum Azure Stack se může připojit k Internetu, ale vy se rozhodnete používat AD FS pro poskytovatele identity.
   
-![Azure Stack topologie centra pomocí AD FS](media/azure-stack-identity-architecture/adfs.png)
+![Azure Stack topologie centra pomocí AD FS](media/azure-stack-identity-architecture/adfs.svg)
 
 Tato topologie obsahuje následující vlastnosti:
 

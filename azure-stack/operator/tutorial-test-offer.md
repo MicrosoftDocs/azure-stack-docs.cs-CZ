@@ -8,10 +8,10 @@ ms.date: 10/13/2019
 ms.reviewer: shriramnat
 ms.lastreviewed: 10/06/2019
 ms.openlocfilehash: 2aae33b324be4828b514ffbd019992aae989f50b
-ms.sourcegitcommit: dd53af1b0fc2390de162d41e3d59545d1baad1a7
+ms.sourcegitcommit: bdd4d529bd3e115a9f76eece62b1613448d5d020
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/14/2020
 ms.locfileid: "80423849"
 ---
 # <a name="tutorial-test-a-service-offering"></a>Kurz: testování nabídky služeb
@@ -21,7 +21,7 @@ V předchozím kurzu jste vytvořili nabídku pro uživatele. V tomto kurzu se d
 V tomto kurzu se naučíte:
 
 > [!div class="checklist"]
-> * Umožňuje vytvořit odběr.
+> * Vytvoření odběru
 > * Vytváření a nasazování prostředků
 
 ## <a name="prerequisites"></a>Požadavky
@@ -36,8 +36,8 @@ Před zahájením tohoto kurzu musíte splnit následující předpoklady:
 
 1. Přihlaste se k portálu User Portal pomocí uživatelského účtu. 
 
-   - V případě integrovaného systému se adresa URL liší v závislosti na oblasti vašeho operátoru a názvu externí domény pomocí formátu https://portal.&lt;&gt;*oblasti*&lt;*plně kvalifikovaný název domény*&gt;.
-   - Pokud používáte Azure Stack Development Kit, adresa portálu se https://portal.local.azurestack.external.
+   - V případě integrovaného systému se adresa URL liší v závislosti na oblasti vašeho operátoru a názvu externí domény ve formátu https://portal.&lt. *oblast*&gt;. &lt; *Plně kvalifikovaný název domény*&gt;.
+   - Pokud používáte Azure Stack Development Kit, adresa portálu je https://portal.local.azurestack.external.
 
 1. Vyberte dlaždici **získat předplatné** .
 
@@ -59,7 +59,7 @@ Z portálu User Portal zřídíte účet úložiště pomocí předplatného, kt
 
 1. Přihlaste se k portálu User Portal pomocí uživatelského účtu.
 
-1. Vyberte **+ vytvořit prostředek** > **Data + úložiště** > **účet úložiště – objekt blob, soubor, tabulka, fronta**.
+1. Vyberte **+ vytvořit prostředek** > **data + úložiště** > **účet úložiště – objekt blob, soubor, tabulka, fronta**.
 
 1. V části **vytvořit účet úložiště**zadejte následující informace:
   
@@ -76,10 +76,10 @@ Z portálu User Portal zřídíte virtuální počítač pomocí předplatného,
 
 1. Přihlaste se k portálu User Portal pomocí uživatelského účtu.
 
-1. Vyberte **+ vytvořit prostředek** > **COMPUTE** > **\<image – název\>** , kde "image-Name" je název virtuálního počítače, který jste si stáhli v požadavcích.
-1. V části **vytvořit virtuální počítač** / **základy**zadejte následující informace:
+1. Vyberte **+ vytvořit prostředek** > **COMPUTE** > ** \<image – název\>**, kde "image-Name" je název virtuálního počítače, který jste si stáhli v požadavcích.
+1. V části vytvoření **základních**informací o **virtuálním počítači** / zadejte tyto informace:
   
-   - Zadejte **název** virtuálního počítače.
+   - Zadejte **Název** virtuálního počítače.
    - Zadejte **uživatelské jméno** pro účet správce.
    - Pro virtuální počítače se systémem Linux vyberte možnost heslo pro **typ ověřování**.
    - Pro účet správce zadejte **heslo** , které se bude shodovat s **heslem pro potvrzení**.
@@ -135,7 +135,7 @@ Z portálu User Portal zřizujete virtuální počítač pomocí nového předpl
 V tomto kurzu jste se naučili:
 
 > [!div class="checklist"]
-> * Umožňuje vytvořit odběr.
+> * Vytvoření odběru
 > * Vytváření a nasazování prostředků 
 
 V dalším kroku se dozvíte, jak nasadit poskytovatele prostředků pro služby s přidáním hodnoty. Umožňují nabízet uživatelům ještě více služeb ve vašich plánech:

@@ -3,16 +3,16 @@ title: Integrace brány firewall centra Azure Stack pro integrované systémy ce
 description: Přečtěte si o integraci brány firewall centra Azure Stack pro integrované systémy Azure Stack hub.
 author: IngridAtMicrosoft
 ms.topic: conceptual
-ms.date: 03/04/2020
+ms.date: 04/10/2020
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 11/15/2019
-ms.openlocfilehash: d0929edd5db0ba45593d5d061f5d831df50f3d35
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.openlocfilehash: c33c2dbcdb662f23072ef7aca83364643c3cdf0c
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79294514"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81244191"
 ---
 # <a name="azure-stack-hub-firewall-integration"></a>Integrace brány firewall centra Azure Stack
 Pro lepší zabezpečení Azure Stackového centra doporučujeme použít zařízení brány firewall. Brány firewall můžou přispět k obraně proti akcím, jako jsou například distribuované útoky s cílem odepření služeb (DDOS), zjišťování vniknutí a kontrola obsahu. Můžou se ale taky stát kritickými body pro služby Azure Storage, jako jsou objekty blob, tabulky a fronty.
@@ -37,11 +37,11 @@ K downsides používání protokolu NAT pro veřejné virtuální IP adresy pat�
 V současné době doporučujeme zakázat jakékoli zachycení SSL (například snižování zátěže) u všech přenosů Azure Stack hub. Pokud je podpora v budoucích aktualizacích podporovaná, poskytnou se pokyny, jak povolit zachycení protokolu SSL pro centrum Azure Stack.
 
 ## <a name="edge-firewall-scenario"></a>Scénář brány firewall na hraničních zařízeních
-V nasazení Edge se Azure Stack hub nasazuje přímo za hraničním směrovačem nebo bránou firewall. V těchto scénářích se podporuje, aby brána firewall byla nad hranicí (scénář 1), kde podporuje konfigurace brány firewall aktivní-aktivní i aktivní – pasivní, nebo funguje jako hraniční zařízení (scénář 2), kde podporuje jenom bránu firewall aktivní-aktivní. konfigurace se spoléhá na ECMP (EQUAL-cost multi-Path) s protokolem BGP nebo statickým směrováním pro převzetí služeb při selhání.
+V nasazení Edge se Azure Stack hub nasazuje přímo za hraničním směrovačem nebo bránou firewall. V těchto scénářích se podporuje, aby brána firewall byla nad hranicí (scénář 1), kde podporuje konfigurace brány firewall aktivní-aktivní i aktivní – pasivní, nebo funguje jako hraniční zařízení (scénář 2), kde podporuje jenom konfiguraci brány firewall aktivní – aktivní na stejné cestě (ECMP) s protokolem BGP nebo statickým směrováním pro převzetí služeb při selhání.
 
 Veřejné IP adresy určené pro veřejný fond VIP z externí sítě v době nasazení. V hraničním scénáři se pro účely zabezpečení nedoporučuje používat veřejné IP adresy směrování v žádné jiné síti. Tento scénář umožňuje uživateli vyzkoušet si plně řízené cloudové prostředí jako ve veřejném cloudu, jako je Azure.  
 
-![Příklad brány firewall na hraničních zařízeních centra Azure Stack](./media/azure-stack-firewall/firewallScenarios.png)
+![Příklad brány firewall na hraničních zařízeních centra Azure Stack](./media/azure-stack-firewall/firewallScenarios.svg)
 
 ## <a name="enterprise-intranet-or-perimeter-network-firewall-scenario"></a>Scénář pro bránu firewall Enterprise intranet nebo hraniční sítě
 V podnikovém intranetu nebo hraničním nasazení se Azure Stack hub nasazuje v bráně firewall s více zónami nebo mezi hraniční bránou firewall a interní bránou firewall pro podnikovou síť. Provoz se pak distribuuje mezi zabezpečenou, hraniční sítí (nebo DMZ) a nezabezpečenými zónami, jak je popsáno níže:
@@ -50,7 +50,7 @@ V podnikovém intranetu nebo hraničním nasazení se Azure Stack hub nasazuje v
 - **Hraniční zóna**. Hraniční síť je obvykle nasazení externích nebo internetových aplikací, jako jsou webové servery. Je obvykle monitorovaná branou firewall, aby se předešlo útokům, jako je DDoS a vniknutí (hacker), a zároveň umožňuje zadaný příchozí provoz z Internetu. V zóně DMZ by se měl nacházet jenom Azure Stack fond adres veřejných VIP pro externí síť.
 - **Nezabezpečená zóna**. Toto je externí síť, Internet. Nedoporučuje **se** nasazovat Azure Stack hub v nezabezpečené zóně.
 
-![Příklad hraniční sítě centra Azure Stack](./media/azure-stack-firewall/perimeter-network-scenario.png)
+![Příklad hraniční sítě centra Azure Stack](./media/azure-stack-firewall/perimeter-network-scenario.svg)
 
 ## <a name="learn-more"></a>Další informace
 Přečtěte si další informace o [portech a protokolech používaných Azure Stackmi koncovými body centra](azure-stack-integrate-endpoints.md).

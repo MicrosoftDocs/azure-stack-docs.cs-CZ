@@ -3,16 +3,16 @@ title: Připojení Průzkumník služby Storage k předplatnému centra Azure St
 description: Informace o tom, jak připojit Průzkumník služby Storage k předplatnému centra Azure Stack
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 11/11/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: ecf05c089ca193cca3554fc6a8e52e406dce3da2
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 701b2a0c6bae3fa4f246877f49f73aca8482b0de
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77704989"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81660382"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-hub-subscription-or-a-storage-account"></a>Připojení Průzkumník služby Storage k předplatnému centra Azure Stack nebo účtu úložiště
 
@@ -38,7 +38,7 @@ V případě integrovaných systémů, které jsou odpojené a pro ASDK, doporu�
 
 Exportujte a pak importujte certifikát centra Azure Stack pro odpojené integrované systémy a pro ASDK. U připojených integrovaných systémů je certifikát veřejně podepsaný a tento krok není nezbytný.
 
-1. Otevřete `mmc.exe` na hostitelském počítači centra Azure Stack nebo na místním počítači s připojením VPN k Azure Stack hub. 
+1. Otevřete `mmc.exe` na hostitelském počítači centra Azure Stack nebo místní počítač s připojením VPN k centru Azure Stack. 
 
 2. V **souboru**vyberte **Přidat nebo odebrat modul snap-in**. V okně dostupné moduly snap-in vyberte **certifikáty** . 
 
@@ -48,7 +48,7 @@ Exportujte a pak importujte certifikát centra Azure Stack pro odpojené integro
 
     ![Načtení kořenového certifikátu centra Azure Stack prostřednictvím konzoly MMC. exe](./media/azure-stack-storage-connect-se/add-certificate-azure-stack.png)
 
-5. Pravým tlačítkem myši klikněte na certifikát, vyberte **všechny úlohy** > **exportovat**a pak postupujte podle pokynů k exportu certifikátu se **zakódovaným znakem X. 509 s kódováním Base-64 (. CER)** .
+5. Klikněte pravým tlačítkem na certifikát, vyberte **všechny úlohy** > **exportovat**a pak podle pokynů exportujte certifikát se **zakódovaným X. 509 s kódováním Base-64 (. CER)**.
 
     Vyexportovaný certifikát se použije v dalším kroku.
 
@@ -100,14 +100,14 @@ Pomocí následujících kroků se připojte Průzkumník služby Storage k pře
 
 3. Vyberte **Další**. V dialogovém okně připojit k Azure Storage v části **prostředí Azure**vyberte **použít vlastní prostředí**a pak klikněte na **Další**.
 
-    ![Připojení k Azure Storage](media/azure-stack-storage-connect-se/connect-to-azure-storage.png)
+    ![Připojení ke službě Azure Storage](media/azure-stack-storage-connect-se/connect-to-azure-storage.png)
 
 4. Zadejte požadované informace o vlastním prostředí Azure Stack centra. 
 
-    | Pole | Poznámky: |
+    | Pole | Poznámky |
     | ---   | ---   |
     | Název prostředí | Pole lze přizpůsobit uživatelem. |
-    | Azure Resource Manager koncový bod | Ukázky Azure Resource Manager koncových bodů prostředků Azure Stack Development Kit.<br>Pro operátory: https://adminmanagement.local.azurestack.external <br> Pro uživatele: https://management.local.azurestack.external |
+    | Azure Resource Manager koncový bod | Ukázky Azure Resource Manager koncových bodů prostředků Azure Stack Development Kit.<br>Pro operátory:https://adminmanagement.local.azurestack.external <br> Pro uživatele:https://management.local.azurestack.external |
 
     Pokud pracujete na Azure Stack integrovaném systému centra a neznáte koncový bod správy, obraťte se na svého operátora.
 
@@ -152,6 +152,6 @@ Můžete se také připojit k účtu úložiště Azure Stack hub pomocí názvu
 
 ## <a name="next-steps"></a>Další kroky
 
-* [Začínáme s Průzkumník služby Storage](/azure/vs-azure-tools-storage-manage-with-storage-explorer)
+* [Začínáme s Průzkumníkem služby Storage](/azure/vs-azure-tools-storage-manage-with-storage-explorer)
 * [Úložiště centra Azure Stack: rozdíly a požadavky](azure-stack-acs-differences.md)
 * Další informace o službě Azure Storage najdete v tématu [Úvod do služby Microsoft Azure Storage](/azure/storage/common/storage-introduction) .

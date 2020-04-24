@@ -3,16 +3,16 @@ title: Integrace řešení pro externí monitorování pomocí centra Azure Stac
 description: Naučte se integrovat Azure Stack hub s externím řešením monitorování ve vašem datovém centru.
 author: IngridAtMicrosoft
 ms.topic: article
-ms.date: 06/05/2019
+ms.date: 04/10/2020
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: 37cef4cbeb1aa471fcd4a1d63cf2933a113a1762
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 0bc19bf584f482d2ec67758368afa11c91ae456e
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77699520"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81243856"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack-hub"></a>Integrace řešení pro externí monitorování pomocí centra Azure Stack
 
@@ -29,7 +29,7 @@ Každé řešení centra Azure Stack se dodává s hostitelem životního cyklu 
 
 Následující diagram znázorňuje tok provozu mezi integrovaným systémem centra Azure Stack, hostitelem životního cyklu hardwaru, externím řešením monitorování a externím systémem pro sběr lístků a dat.
 
-![Diagram znázorňující provoz mezi Azure Stackm centrem, monitorováním a řešením lístků.](media/azure-stack-integrate-monitor/MonitoringIntegration.png)  
+![Diagram znázorňující provoz mezi Azure Stackm centrem, monitorováním a řešením lístků.](media/azure-stack-integrate-monitor/monitoringintegration.svg)  
 
 > [!NOTE]
 > Integrace externích monitorování na fyzických serverech není povolená a aktivně blokovaná pomocí seznamů Access Control (ACL). Externí integrace monitorování je podporovaná přímo s fyzickými síťovými zařízeními. Pokud chcete tuto funkci povolit, obraťte se na svého poskytovatele OEM.
@@ -46,7 +46,7 @@ Management Pack pro centrum Azure Stack nabízí následující možnosti:
 - Podporuje se Azure Active Directory (Azure AD) a Active Directory Federation Services (AD FS) (AD FS).
 - Výstrahy můžete načíst a zavřít.
 - Existuje řídicí panel pro stav a kapacitu.
-- Zahrnuje detekci režimu automatické údržby pro dobu, kdy probíhá oprava a aktualizace (P & U).
+- Zahrnuje detekci režimu automatické údržby pro dobu, kdy probíhá oprava a aktualizace (P&U).
 - Zahrnuje vynucené úlohy aktualizace pro nasazení a oblast.
 - Do oblasti můžete přidat vlastní informace.
 - Podporuje oznamování a vytváření sestav.
@@ -57,7 +57,7 @@ Pro řešení lístků můžete Operations Manager integrovat s System Center Se
 
 Následující diagram znázorňuje integraci Azure Stackho centra s existujícím nasazením nástroje System Center. Pomocí nástroje System Center Orchestrator nebo Service Management Automation (SMA) můžete automatizovat Service Manager a spouštět operace v centru Azure Stack.
 
-![Diagram znázorňující integraci s OM, Service Manager a SMA](media/azure-stack-integrate-monitor/SystemCenterIntegration.png)
+![Diagram znázorňující integraci s OM, Service Manager a SMA](media/azure-stack-integrate-monitor/systemcenterintegration.svg)
 
 ## <a name="integrate-with-nagios"></a>Integrace s Nagios
 
@@ -97,7 +97,7 @@ samples/etc/azurestack_hosts.cfg
 samples/etc/azurestack_services.cfg
 ```
 
-1. Zkopírujte modul plug-in `azurestack_plugin.py` do následujícího adresáře: `/usr/local/nagios/libexec`.
+1. Zkopírujte modul plug `azurestack_plugin.py` -in do následujícího adresáře `/usr/local/nagios/libexec`:.
 
 2. Zkopírujte obslužnou rutinu `azurestack_handler.sh` do následujícího adresáře: `/usr/local/nagios/libexec/eventhandlers`.
 
@@ -116,17 +116,17 @@ Další informace o tom, jak vytvořit hlavní název služby (SPN), najdete v t
 
 | Parametr | Popis | Ověřování |
 | --- | --- | --- |
-| **External_domain_fqdn ** | Plně kvalifikovaný název domény externí domény |    |
-| **region: ** | Název oblasti |    |
-| \* * tenant_id: * * | ID tenanta\* |    |
+| * * External_domain_fqdn * * | Plně kvalifikovaný název domény externí domény |    |
+| * * oblast: * * | Název oblasti |    |
+| * * tenant_id: * * | ID tenanta\* |    |
 | client_id: | ID klienta | SPN s tajným klíčem |
 | client_secret: | Heslo klienta | SPN s tajným klíčem |
 | client_cert\*\*: | Cesta k certifikátu | Hlavní název služby s certifikátem |
 | client_cert_thumbprint\*\*: | Kryptografický otisk certifikátu | Hlavní název služby s certifikátem |
 
-\*ID tenanta se nevyžaduje pro nasazení Azure Stack centra pomocí AD FS.
+\*ID tenanta se nevyžaduje pro Azure Stack nasazení centra pomocí AD FS.
 
-\*\* klientský tajný klíč a certifikát klienta se vzájemně vylučují.
+\*\*Tajný klíč klienta a klientský certifikát se vzájemně vylučují.
 
 Ostatní konfigurační soubory obsahují volitelná nastavení konfigurace, která je možné nakonfigurovat i v Nagios.
 
@@ -135,12 +135,12 @@ Ostatní konfigurační soubory obsahují volitelná nastavení konfigurace, kte
 
 | Konfigurace | Popis |
 | --- | --- |
-| azurestack_commands.cfg | Konfigurace obslužné rutiny beze změn – požadavek |
-| azurestack_contacts.cfg | Nastavení oznámení |
-| azurestack_hosts.cfg | Azure Stack pojmenovávání nasazení centra |
-| azurestack_services.cfg | Konfigurace služby |
+| azurestack_commands. cfg | Konfigurace obslužné rutiny beze změn – požadavek |
+| azurestack_contacts. cfg | Nastavení oznámení |
+| azurestack_hosts. cfg | Azure Stack pojmenovávání nasazení centra |
+| azurestack_services. cfg | Konfigurace služby |
 
-### <a name="setup-steps"></a>Kroky pro instalaci
+### <a name="setup-steps"></a>Postup nastavení
 
 1. Upravte konfigurační soubor.
 
@@ -186,7 +186,7 @@ Výstrahu můžete také uzavřít pomocí terminálu s následujícím příkaz
 /usr/local/nagios/libexec/azurestack_plugin.py --config-file /usr/local/nagios/etc/objects/azurestack.cfg --action Close --alert-id <ALERT_GUID>
 ```
 
-### <a name="troubleshooting"></a>Odstraňování potíží
+### <a name="troubleshooting"></a>Řešení potíží
 
 Řešení potíží s modulem plug-in je prováděno ručním voláním modulu plug-in v terminálu. Použijte následující metodu:
 
@@ -198,7 +198,7 @@ Výstrahu můžete také uzavřít pomocí terminálu s následujícím příkaz
 
 Pokud nepoužíváte Operations Manager, Nagios nebo řešení založené na Nagios, můžete pomocí PowerShellu povolit širokou škálu řešení monitorování pro integraci se službou Azure Stack hub.
 
-1. Pokud chcete používat PowerShell, ujistěte se, že máte [nainstalovaný PowerShell a nakonfigurovat](azure-stack-powershell-install.md) ho pro prostředí operátora centra Azure Stack. Nainstalujte PowerShell do místního počítače, který se může připojit ke koncovému bodu Správce prostředků (správce) (https://adminmanagement. [ oblast]. [External_FQDN]).
+1. Pokud chcete používat PowerShell, ujistěte se, že máte [nainstalovaný PowerShell a nakonfigurovat](azure-stack-powershell-install.md) ho pro prostředí operátora centra Azure Stack. Nainstalujte PowerShell do místního počítače, který se může připojit ke koncovému bodu Správce prostředků (https://adminmanagementsprávce) (. [ oblast]. [External_FQDN]).
 
 2. Spusťte následující příkazy, které se připojí k prostředí Azure Stack hub jako operátor centra Azure Stack:
 

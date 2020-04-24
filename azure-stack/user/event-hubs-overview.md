@@ -9,10 +9,10 @@ ms.date: 11/27/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 11/27/2019
 ms.openlocfilehash: c7c1d11d2ef432ddc8b750fde5cb6970c4076db4
-ms.sourcegitcommit: 48e493256b0b8bd6cea931cd68a9bd932ca77090
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "80614374"
 ---
 # <a name="event-hubs-on-azure-stack-hub-overview"></a>Přehled Event Hubs v centru Azure Stack
@@ -36,7 +36,7 @@ Pomocí Event Hubs v centru Azure Stack můžete implementovat obchodní scéná
 
 Sestavujte hybridní řešení, která ingestují a zpracovávají data Edge místně v centru Azure Stack. Odešlete agregovaná data do Azure pro další zpracování, vizualizaci a úložiště. V případě potřeby Využijte výpočetní prostředí bez serveru v Azure.
 
-[Diagram ![hybridních řešení](media/event-hubs-overview/hybrid-architecture-ehoash.png)](media/event-hubs-overview/hybrid-architecture-ehoash.png#lightbox)
+[![Diagram hybridních řešení](media/event-hubs-overview/hybrid-architecture-ehoash.png)](media/event-hubs-overview/hybrid-architecture-ehoash.png#lightbox)
 
 ## <a name="features"></a>Funkce 
 

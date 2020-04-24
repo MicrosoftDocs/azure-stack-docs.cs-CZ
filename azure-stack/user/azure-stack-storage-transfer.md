@@ -3,16 +3,16 @@ title: Použití nástrojů pro přenos dat v Azure Stack centrum úložiště
 description: Přečtěte si o nástrojích pro přenos dat úložiště Azure Stack hub.
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 11/06/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: 6b0a31c0eea7f2973563c3f1e481cd2e830c41f8
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: d61ce13c46e53f5eb2b9ed8fa544096db6ca8590
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77704875"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81660158"
 ---
 # <a name="use-data-transfer-tools-in-azure-stack-hub-storage"></a>Použití nástrojů pro přenos dat v Azure Stack centrum úložiště
 
@@ -59,11 +59,11 @@ AzCopy je nástroj příkazového řádku určený ke kopírování dat z Micros
 ### <a name="azcopy-101-configuration-and-limits"></a>Konfigurace a omezení AzCopy 10,1
 
 AzCopy 10,1 je teď možné nakonfigurovat tak, aby používala starší verze rozhraní API. Tato možnost povoluje (omezená) podporu centra Azure Stack.
-Pokud chcete nakonfigurovat verzi rozhraní API pro AzCopy tak, aby podporovala centrum Azure Stack, nastavte proměnnou prostředí `AZCOPY_DEFAULT_SERVICE_API_VERSION` na `2017-11-09`.
+Pokud chcete nakonfigurovat verzi rozhraní API pro AzCopy tak, aby podporovala centrum `AZCOPY_DEFAULT_SERVICE_API_VERSION` Azure Stack, nastavte `2017-11-09`proměnnou prostředí na.
 
 | Operační systém | Příkaz  |
 |--------|-----------|
-| **Windows** | V příkazovém řádku použijte: `set AZCOPY_DEFAULT_SERVICE_API_VERSION=2017-11-09`<br> V prostředí PowerShell použijte: `$env:AZCOPY_DEFAULT_SERVICE_API_VERSION="2017-11-09"`|
+| **Windows** | V příkazovém řádku použijte:`set AZCOPY_DEFAULT_SERVICE_API_VERSION=2017-11-09`<br> V prostředí PowerShell použijte:`$env:AZCOPY_DEFAULT_SERVICE_API_VERSION="2017-11-09"`|
 | **Linux** | `export AZCOPY_DEFAULT_SERVICE_API_VERSION=2017-11-09` |
 | **MacOS** | `export AZCOPY_DEFAULT_SERVICE_API_VERSION=2017-11-09` |
 
@@ -101,7 +101,7 @@ azcopy cp "/path/to/file.txt" "https://[account].blob.core.windows.net/[containe
 ### <a name="azcopy-known-issues"></a>AzCopy známé problémy
 
  - Žádná operace AzCopy v úložišti souborů není k dispozici, protože úložiště souborů ještě není k dispozici v centru Azure Stack.
- - Pokud chcete přenášet data mezi dvěma umístěními objektů BLOB centra Azure Stack, nebo mezi centrem Azure Stack a Azure Storage pomocí AzCopy 10.1, musíte nejdřív stáhnout data do místního umístění a pak je znovu nahrát do cílového adresáře v Azure Stackovém centru nebo Azure Storage . Případně můžete použít AzCopy 7,1 a zadat přenos s možností **/SyncCopy** pro kopírování dat.  
+ - Pokud chcete přenášet data mezi Azure Stack dvěma umístěními objektů BLOB centra, nebo mezi centrem Azure Stack a Azure Storage pomocí AzCopy 10.1, musíte nejdřív stáhnout data do místního umístění a pak je znovu nahrát do cílového adresáře v Azure Stackovém centru nebo Azure Storage. Případně můžete použít AzCopy 7,1 a zadat přenos s možností **/SyncCopy** pro kopírování dat.  
  - Verze systému Linux AzCopy podporuje pouze aktualizaci 1802 nebo novější, a nepodporuje Table service.
  - Pokud chcete kopírovat data do služby Azure Table Storage a z ní, [nainstalujte AzCopy verze 7.3.0](https://aka.ms/azcopyforazurestack20171109) .
  
@@ -119,7 +119,7 @@ Tato ukázka předpokládá, že jste úspěšně [nainstalovali PowerShell pro 
 
 1. Nainstalujte [Azure PowerShell moduly, které jsou kompatibilní s rozbočovačem Azure Stack](../operator/azure-stack-powershell-install.md).
 2. Stáhněte si [nástroje, které jsou potřeba pro práci s rozbočovačem Azure Stack](../operator/azure-stack-powershell-download.md).
-3. Otevřete **Integrované skriptovací prostředí (ISE) v prostředí Windows PowerShell** a **Spusťte jako správce**a potom kliknutím na **soubor** > **Nový** vytvořte nový soubor skriptu.
+3. Otevřete **Integrované skriptovací prostředí (ISE) v prostředí Windows PowerShell** a **Spusťte jako správce**a pak kliknutím na **soubor** > **Nový** vytvořte nový soubor skriptu.
 4. Zkopírujte skript níže a vložte ho do nového souboru skriptu.
 5. Aktualizujte proměnné skriptu na základě nastavení konfigurace.
    > [!NOTE]
@@ -229,8 +229,8 @@ Před spuštěním tohoto skriptu se ujistěte, že se můžete úspěšně při
 1. Otevřete oblíbený textový editor a potom zkopírujte a vložte předchozí skript do editoru.
 2. Aktualizujte proměnné skriptu tak, aby odrážely nastavení konfigurace.
 3. Po aktualizaci nezbytných proměnných uložte skript a ukončete Editor. V dalších krocích se předpokládá, že máte název skriptu **my_storage_sample. sh**.
-4. Označte skript jako spustitelný soubor, pokud je to nutné: `chmod +x my_storage_sample.sh`
-5. Spusťte skript. Například v bash: `./my_storage_sample.sh`
+4. Označte skript jako spustitelný soubor, pokud je to nutné:`chmod +x my_storage_sample.sh`
+5. Spusťte skript. Například v bash:`./my_storage_sample.sh`
 
 ```azurecli
 #!/bin/bash
@@ -265,7 +265,7 @@ az storage blob download --container-name $AZURESTACK_STORAGE_CONTAINER_NAME --a
 echo "Done"
 ```
 
-## <a name="microsoft-azure-storage-explorer"></a>Průzkumník služby Microsoft Azure Storage
+## <a name="microsoft-azure-storage-explorer"></a>Microsoft Azure Storage Explorer
 
 Průzkumník služby Azure Storage je samostatná aplikace od Microsoftu. Umožňuje snadno pracovat s daty úložiště Azure Storage a Azure Stack na počítačích s Windows, macOS a Linux. Pokud potřebujete snadný způsob, jak spravovat data úložiště centra Azure Stack, zvažte použití Průzkumník služby Microsoft Azure Storage.
 
@@ -274,13 +274,13 @@ Průzkumník služby Azure Storage je samostatná aplikace od Microsoftu. Umož�
 
 ## <a name="blobfuse"></a>Blobfuse 
 
-[Blobfuse](https://github.com/Azure/azure-storage-fuse) je ovladač virtuálního systému souborů pro Azure Blob Storage, který umožňuje přístup k existujícím datům objektů blob bloku v účtu úložiště prostřednictvím systému souborů Linux. Azure Blob Storage je služba úložiště objektů, a proto nemá hierarchický obor názvů. Blobfuse poskytuje tento obor názvů pomocí schématu virtuálního adresáře s použitím lomítka `/` jako oddělovače. Blobfuse funguje na rozbočovači Azure i Azure Stack. 
+[Blobfuse](https://github.com/Azure/azure-storage-fuse) je ovladač virtuálního systému souborů pro Azure Blob Storage, který umožňuje přístup k existujícím datům objektů blob bloku v účtu úložiště prostřednictvím systému souborů Linux. Azure Blob Storage je služba úložiště objektů, a proto nemá hierarchický obor názvů. Blobfuse poskytuje tento obor názvů pomocí schématu virtuálního adresáře s použitím lomítka-lomítka `/` jako oddělovače. Blobfuse funguje na rozbočovači Azure i Azure Stack. 
 
 Další informace o připojení úložiště objektů BLOB jako systému souborů s Blobfuse v systému Linux najdete v tématu [Postup připojení úložiště objektů BLOB jako systému souborů s Blobfuse](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-mount-container-linux). 
 
 Pro Azure Stack hub je potřeba zadat *blobEndpoint* při konfiguraci přihlašovacích údajů k účtu úložiště společně s parametrem Account, AccountKey/sasToken a ContainerName.
 
-V Azure Stack Development Kit (ASDK) by měl být *blobEndpoint* `myaccount.blob.local.azurestack.external`. Pokud si nejste jisti vaším koncovým bodem, obraťte se na správce cloudu v Azure Stack integrovaném systému centra.
+V Azure Stack Development Kit (ASDK) by měl `myaccount.blob.local.azurestack.external`být *blobEndpoint* . Pokud si nejste jisti vaším koncovým bodem, obraťte se na správce cloudu v Azure Stack integrovaném systému centra.
 
 *accountKey* a *sasToken* lze nakonfigurovat pouze jednou. Když je zadaný klíč účtu úložiště, konfigurační soubor přihlašovacích údajů má tento formát:
 

@@ -4,16 +4,17 @@ titleSuffix: Azure Stack Hub
 description: Naučte se registrovat integrované systémy Azure Stack hub pomocí Azure, abyste si mohli stáhnout Azure Marketplace položky a nastavit vytváření sestav dat.
 author: IngridAtMicrosoft
 ms.topic: article
-ms.date: 02/25/2020
+ms.date: 04/06/2020
 ms.author: inhenkel
 ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: 6af18b519f32975643dea10d81dfa9ed1f0588c5
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+zone_pivot_groups: state-connected-disconnected
+ms.openlocfilehash: 3f9741019a28548e9f20308312d62ea68e757795
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79294833"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81308242"
 ---
 # <a name="register-azure-stack-hub-with-azure"></a>Registrace centra Azure Stack s Azure
 
@@ -24,15 +25,16 @@ Informace v tomto článku popisují registraci Azure Stack integrovaných syst�
 > [!IMPORTANT]  
 > K podpoře kompletních funkcí centra Azure Stack, včetně položek nabídky na webu Marketplace, se vyžaduje registrace. Pokud se nezaregistrujete při použití modelu fakturace s průběžnými platbami, budete mít porušení licenčních podmínek centra Azure Stack. Další informace o modelech licencování centra Azure Stack najdete na [stránce Jak koupit](https://azure.microsoft.com/overview/azure-stack/how-to-buy/).
 
-## <a name="prerequisites"></a>Předpoklady
+## <a name="prerequisites"></a>Požadavky
 
-Před registrací musíte splnit následující předpoklady:
+Před registrací proveďte následující předpoklady:
 
 - Ověřte přihlašovací údaje.
 - Nastavte režim jazyka PowerShell.
 - Nainstalujte PowerShell pro centrum Azure Stack.
 - Stáhněte si nástroje Azure Stack hub.
-- Určete svůj scénář registrace.
+- Určete model fakturace.
+- Určete jedinečný název registrace.
 
 ### <a name="verify-your-credentials"></a>Ověření přihlašovacích údajů
 
@@ -58,7 +60,7 @@ Pokud nemáte předplatné Azure, které tyto požadavky splňuje, můžete si [
 > [!NOTE]
 > Pokud máte více než jedno centrum Azure Stack, je osvědčeným postupem, jak každé centrum Azure Stack registrovat ke svému vlastnímu předplatnému. Díky tomu je snazší sledovat využití.
 
-### <a name="powershell-language-mode"></a>Režim jazyka PowerShell
+### <a name="set-the-powershell-language-mode"></a>Nastavení režimu jazyka PowerShell
 
 Pro úspěšné registraci centra Azure Stack musí být režim jazyka PowerShell nastavený na **FullLanguageMode**.  Pokud chcete ověřit, jestli je aktuální jazykový režim nastavený na Full, otevřete okno PowerShellu se zvýšenými oprávněními a spusťte následující rutiny PowerShellu:
 
@@ -80,25 +82,21 @@ Pokud není nejnovější verze ještě nainstalovaná, přečtěte si téma [in
 
 Abyste měli jistotu, že používáte nejnovější verzi, odstraňte všechny existující verze nástrojů centra Azure Stack a Stáhněte si [nejnovější verzi z GitHubu](azure-stack-powershell-download.md) před registrací v Azure.
 
-### <a name="determine-your-registration-scenario"></a>Určení scénáře registrace
+### <a name="determine-your-billing-model"></a>Určení modelu fakturace
+::: zone pivot="state-connected"
+ Připojené nasazení umožňuje rozbočovači Azure Stack připojit se k Internetu a k Azure. Jako úložiště identit můžete také použít službu Azure AD nebo Active Directory Federation Services (AD FS) (AD FS) a vybírat ze dvou modelů fakturace: průběžné platby nebo využití kapacity. Účtovací model se určí později při spuštění registračního skriptu.
+::: zone-end
 
-Vaše nasazení centra Azure Stack se může *připojit* nebo *Odpojit*.
+::: zone pivot="state-disconnected"
+ Odpojené nasazení umožňuje používat centrum Azure Stack bez připojení k Internetu. V případě odpojeného nasazení budete omezeni na AD FS úložiště identit a fakturační model založený na kapacitě. Účtovací model se určí později při spuštění registračního skriptu.
+::: zone-end
 
-- **Připojen**  
- Připojeno znamená, že jste nasadili Azure Stack hub, aby se mohl připojit k Internetu a k Azure. Pro úložiště identity máte buď službu Azure AD, nebo Active Directory Federation Services (AD FS) (AD FS). V případě připojeného nasazení si můžete vybrat ze dvou modelů fakturace: průběžné platby nebo na základě kapacity.
-  - [Pomocí modelu fakturace s průběžnými **platbami můžete** registrovat připojené Azure Stack centrum s Azure](#register-connected-with-pay-as-you-go-billing).
-  - [Pomocí modelu fakturace **kapacity** zaregistrujete připojené Azure Stack centrum s Azure](#register-connected-with-capacity-billing).
+### <a name="determine-your-unique-registration-name"></a>Určení jedinečného názvu registrace
 
-- **Propojení**  
- Když máte možnost nasazení odpojenou od Azure, můžete nasazení a používání centra Azure Stack bez připojení k Internetu. V případě odpojeného nasazení ale budete omezeni na AD FS úložiště identit a model fakturace na základě kapacity.
-  - [Zaregistrujte odpojeného Azure Stackového centra pomocí modelu fakturace **kapacity** ](#register-disconnected-with-capacity-billing).
-
-### <a name="determine-a-unique-registration-name-to-use"></a>Určení jedinečného názvu registrace, který se má použít
-
-Když zaregistrujete Azure Stack centrum s Azure, musíte zadat jedinečný název registrace. Snadný způsob, jak přidružit předplatné centra Azure Stack k registraci Azure, je použití **ID cloudu**Azure Stack hub.
+Po spuštění registračního skriptu je nutné zadat jedinečný název registrace. Snadný způsob, jak přidružit předplatné centra Azure Stack k registraci Azure, je použití **ID cloudu**Azure Stack hub.
 
 > [!NOTE]
-> Registrace centra Azure Stack pomocí fakturačního modelu založeného na kapacitě bude muset změnit jedinečný název při opětovné registraci po vypršení platnosti tohoto ročního předplatného, pokud [neodstraníte registraci s vypršenou platností](azure-stack-registration.md#change-the-subscription-you-use) a znovu zaregistrujete do Azure.
+> Registrace centra Azure Stack pomocí fakturačního modelu založeného na kapacitě bude muset změnit jedinečný název při opětovné registraci po vypršení platnosti tohoto ročního předplatného, pokud [neodstraníte registraci s vypršenou platností](#renew-or-change-registration) a znovu zaregistrujete do Azure.
 
 Pokud chcete zjistit ID cloudu pro nasazení centra Azure Stack, otevřete PowerShell jako správce v počítači, který má přístup k privilegovanému koncovému bodu, spusťte následující příkazy a pak zaznamenejte hodnotu **CloudID** :
 
@@ -107,7 +105,8 @@ Run: Enter-PSSession -ComputerName <privileged endpoint computer name> -Configur
 Run: Get-AzureStackStampInformation
 ```
 
-## <a name="register-connected-with-pay-as-you-go-billing"></a>Zaregistrujte se k platbám s průběžnými platbami
+::: zone pivot="state-connected"
+## <a name="register-with-pay-as-you-use-billing"></a>Registrace pomocí fakturace s průběžnými platbami
 
 Pomocí těchto kroků zaregistrujete Azure Stack centrum s Azure s využitím modelu fakturace s průběžnými platbami podle aktuálního využití.
 
@@ -129,7 +128,7 @@ Připojená prostředí mají přístup k Internetu a k Azure. V těchto prostř
    | EnvironmentName | Název prostředí Azure Cloud Subscription. Podporované názvy prostředí jsou **AzureCloud**, **AzureUSGovernment**, nebo pokud používáte čínské předplatné Azure **AzureChinaCloud**.  |
 
    >[!Note]
-   > Pokud vaše relace vyprší, vaše heslo se změnilo nebo chcete jednoduše přepnout účty, spusťte následující rutinu ještě před přihlášením pomocí rutiny Add-AzureRmAccount: `Remove-AzureRmAccount-Scope Process`
+   > Pokud vaše relace vyprší, vaše heslo se změnilo nebo chcete jednoduše přepnout účty, spusťte následující rutinu ještě před přihlášením pomocí rutiny Add-AzureRmAccount:`Remove-AzureRmAccount-Scope Process`
 
 3. Máte-li více předplatných, spusťte následující příkaz a vyberte ten, který chcete použít:  
 
@@ -174,9 +173,9 @@ Připojená prostředí mají přístup k Internetu a k Azure. V těchto prostř
 
    Proces trvá od 10 do 15 minut. Až se příkaz dokončí, zobrazí se zpráva **"vaše prostředí je teď zaregistrované a aktivované pomocí zadaných parametrů."**
 
-## <a name="register-connected-with-capacity-billing"></a>Zaregistrovat se k fakturaci kapacity
+## <a name="register-with-capacity-billing"></a>Registrace s fakturací kapacity
 
-Pomocí těchto kroků zaregistrujete Azure Stack centrum s Azure s využitím modelu fakturace s průběžnými platbami podle aktuálního využití.
+Pomocí těchto kroků zaregistrujete Azure Stack centrum s Azure pomocí modelu fakturace kapacity.
 
 > [!Note]  
 > Všechny tyto kroky je nutné spustit z počítače, který má přístup k privilegovanému koncovému bodu (PEP). Podrobnosti o PEP najdete v tématu [použití privilegovaného koncového bodu v centru Azure Stack](azure-stack-privileged-endpoint.md).
@@ -223,8 +222,10 @@ Připojená prostředí mají přístup k Internetu a k Azure. V těchto prostř
    > Pomocí parametru UsageReportingEnabled pro rutinu **set-AzsRegistration** můžete zakázat funkci generování sestav využití nastavením parametru na hodnotu false. 
    
    Další informace o rutině Set-AzsRegistration najdete v [referenčních](#registration-reference)informacích k registraci.
+::: zone-end
 
-## <a name="register-disconnected-with-capacity-billing"></a>Registrovat odpojeno pomocí fakturace kapacity
+::: zone pivot="state-disconnected"
+## <a name="register-with-capacity-billing"></a>Registrace s fakturací kapacity
 
 Pokud registrujete Azure Stack hub v odpojeném prostředí (bez připojení k Internetu), musíte získat registrační token z prostředí služby Azure Stack hub. Pak použijte tento token na počítači, který se může připojit k Azure a má nainstalovaný PowerShell pro Azure Stack hub.  
 
@@ -319,6 +320,7 @@ Volitelně můžete pomocí rutiny Get-Content odkazovat na soubor, který obsah
   $ActivationKey = Get-Content -Path '<Path>\<Activation Key File>'
   New-AzsActivationResource -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -ActivationKey $ActivationKey
   ```
+::: zone-end
 
 ## <a name="verify-azure-stack-hub-registration"></a>Ověřit registraci centra Azure Stack
 
@@ -348,15 +350,14 @@ Případně můžete pomocí funkce správy Marketplace ověřit, jestli byla re
 
 ## <a name="renew-or-change-registration"></a>Obnovit nebo změnit registraci
 
-### <a name="renew-or-change-registration-in-connected-environments"></a>Obnovení nebo změna registrace v připojených prostředích
-
+::: zone pivot="state-connected"
 Registraci je potřeba aktualizovat nebo obnovit v následujících případech:
 
 - Po obnovení ročního předplatného založeného na kapacitě.
 - Když změníte model fakturace.
 - Při škálování změn (přidávání nebo odebírání uzlů) pro účely fakturace na základě kapacity.
 
-#### <a name="change-the-subscription-you-use"></a>Změna předplatného, které používáte
+### <a name="change-the-subscription-you-use"></a>Změna předplatného, které používáte
 
 Pokud chcete změnit předplatné, které používáte, musíte nejdřív spustit rutinu **Remove-AzsRegistration** a pak se ujistit, že jste přihlášeni ke správnému kontextu Azure PowerShell. Pak spusťte rutinu **set-AzsRegistration** se všemi změněnými parametry, včetně `<billing model>`:
 
@@ -366,23 +367,23 @@ Pokud chcete změnit předplatné, které používáte, musíte nejdřív spusti
   Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel <billing model> -RegistrationName $RegistrationName
   ```
 
-#### <a name="change-the-billing-model-or-how-to-offer-features"></a>Změna modelu fakturace nebo nabízení funkcí
+### <a name="change-the-billing-model-or-how-to-offer-features"></a>Změna modelu fakturace nebo nabízení funkcí
 
 Pokud chcete změnit model fakturace nebo jak nabízet funkce pro vaši instalaci, můžete zavolat funkci registrace a nastavit nové hodnoty. Nemusíte nejdřív odebrat aktuální registraci:
 
   ```powershell  
   Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel <billing model> -RegistrationName $RegistrationName
   ```
+::: zone-end
 
-### <a name="renew-or-change-registration-in-disconnected-environments"></a>Obnovení nebo změna registrace v odpojených prostředích
-
+::: zone pivot="state-disconnected"
 Registraci je potřeba aktualizovat nebo obnovit v následujících případech:
 
 - Po obnovení ročního předplatného založeného na kapacitě.
 - Když změníte model fakturace.
 - Při škálování změn (přidávání nebo odebírání uzlů) pro účely fakturace na základě kapacity.
 
-#### <a name="remove-the-activation-resource-from-azure-stack-hub"></a>Odebrat prostředek aktivace z centra Azure Stack
+### <a name="remove-the-activation-resource-from-azure-stack-hub"></a>Odebrat prostředek aktivace z centra Azure Stack
 
 Nejdřív je potřeba odebrat prostředek aktivace z centra Azure Stack a pak prostředek registrace v Azure.  
 
@@ -408,15 +409,24 @@ Můžete také použít název registrace:
   Unregister-AzsEnvironment -RegistrationName $RegistrationName
   ```
 
+### <a name="re-register-using-connected-steps"></a>Znovu zaregistrovat pomocí připojených kroků
+
+Pokud změníte fakturační model z kapacity fakturace v odpojeném stavu na vyúčtování spotřeby v připojeném stavu, znovu se zaregistrujete podle [kroků připojeného modelu](azure-stack-registration.md?pivots=state-connected#change-the-billing-model-or-how-to-offer-features). 
+
+>[!Note] 
+>Nemění se tím model vaší identity, jenom účetní mechanizmus a službu AD FS budete používat jako zdroj identity.
+
 ### <a name="re-register-using-disconnected-steps"></a>Znovu zaregistrovat pomocí odpojených kroků
 
 Nyní jste zcela zrušili registraci v odpojeném scénáři a kroky pro registraci Azure Stackho centra prostředí v odpojeném scénáři se musí zopakovat.
+::: zone-end
 
 ### <a name="disable-or-enable-usage-reporting"></a>Zakázat nebo povolit vytváření sestav využití
 
 U prostředí Azure Stack hub, která používají model fakturace kapacity, vypněte vytváření sestav využití pomocí parametru **UsageReportingEnabled** pomocí rutiny **set-AzsRegistration** nebo **Get-AzsRegistrationToken** . Služba Azure Stack hub hlásí metriky využití ve výchozím nastavení. Obsluha použití kapacity, která využívá nebo podporuje odpojené prostředí, musí vypnout vytváření sestav využití.
 
-#### <a name="with-a-connected-azure-stack-hub"></a>Pomocí připojeného centra Azure Stack
+::: zone pivot="state-connected"
+Spusťte následující rutiny PowerShellu:
 
    ```powershell  
    $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
@@ -427,9 +437,8 @@ U prostředí Azure Stack hub, která používají model fakturace kapacity, vyp
       -BillingModel Capacity
       -RegistrationName $RegistrationName
    ```
-
-#### <a name="with-a-disconnected-azure-stack-hub"></a>S odpojeným rozbočovačem Azure Stack
-
+::: zone-end
+::: zone pivot="state-disconnected"
 1. Pokud chcete změnit registrační token, spusťte následující rutiny PowerShellu:  
 
    ```Powershell
@@ -442,6 +451,7 @@ U prostředí Azure Stack hub, která používají model fakturace kapacity, vyp
    > Registrační token je uložený v souboru určeném pro *$FilePathForRegistrationToken*. Můžete změnit cestu k souboru FilePath nebo filename podle vašeho uvážení.
 
 2. Uložte tento registrační token, který se použije na počítači připojeném k Azure. Můžete zkopírovat soubor nebo text z *$FilePathForRegistrationToken*.
+::: zone-end
 
 ## <a name="move-a-registration-resource"></a>Přesunutí prostředku registrace
 
@@ -476,8 +486,8 @@ Set-AzsRegistration [-PrivilegedEndpointCredential] <PSCredential> [-PrivilegedE
 | ResourceGroupName | Řetězec |  |
 | ResourceGroupLocation | Řetězec |  |
 | BillingModel | Řetězec | Model fakturace, který používá vaše předplatné. Povolené hodnoty pro tento parametr jsou: Capacity, PayAsYouUse a vývoj. |
-| MarketplaceSyndicationEnabled | True nebo False | Určuje, jestli je na portálu dostupná funkce správy Marketplace. Nastavte na hodnotu true, pokud se registruje s připojením k Internetu. Nastavte na hodnotu false, pokud se registruje v odpojených prostředích. U odpojených registrací se dá [Nástroj pro offline syndikaci](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario) použít ke stažení položek Marketplace. |
-| UsageReportingEnabled | True nebo False | Služba Azure Stack hub hlásí metriky využití ve výchozím nastavení. Obsluha použití kapacity, která využívá nebo podporuje odpojené prostředí, musí vypnout vytváření sestav využití. Povolené hodnoty pro tento parametr jsou: true, false. |
+| MarketplaceSyndicationEnabled | Pravda/nepravda | Určuje, jestli je na portálu dostupná funkce správy Marketplace. Nastavte na hodnotu true, pokud se registruje s připojením k Internetu. Nastavte na hodnotu false, pokud se registruje v odpojených prostředích. U odpojených registrací se dá [Nástroj pro offline syndikaci](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario) použít ke stažení položek Marketplace. |
+| UsageReportingEnabled | Pravda/nepravda | Služba Azure Stack hub hlásí metriky využití ve výchozím nastavení. Obsluha použití kapacity, která využívá nebo podporuje odpojené prostředí, musí vypnout vytváření sestav využití. Povolené hodnoty pro tento parametr jsou: true, false. |
 | AgreementNumber | Řetězec | Číslo smlouvy EA, pod kterou byla objednána SKU kapacity pro tento Azure Stack. |
 | Registrace | Řetězec | Pokud spouštíte registrační skript ve více než jedné instanci centra Azure Stack s použitím stejného ID předplatného Azure, nastavte pro registraci jedinečný název. Parametr má výchozí hodnotu **AzureStackRegistration**. Pokud však použijete stejný název na více než jedné instanci centra Azure Stack, skript se nezdařil. |
 
@@ -498,31 +508,32 @@ Get-AzsRegistrationToken [-PrivilegedEndpointCredential] <PSCredential> [-Privil
 | ResourceGroupName | Řetězec |  |
 | ResourceGroupLocation | Řetězec |  |
 | BillingModel | Řetězec | Model fakturace, který používá vaše předplatné. Povolené hodnoty pro tento parametr jsou: Capacity, PayAsYouUse a vývoj. |
-| MarketplaceSyndicationEnabled | True nebo False |  |
-| UsageReportingEnabled | True nebo False | Služba Azure Stack hub hlásí metriky využití ve výchozím nastavení. Obsluha použití kapacity, která využívá nebo podporuje odpojené prostředí, musí vypnout vytváření sestav využití. Povolené hodnoty pro tento parametr jsou: true, false. |
+| MarketplaceSyndicationEnabled | Pravda/nepravda |  |
+| UsageReportingEnabled | Pravda/nepravda | Služba Azure Stack hub hlásí metriky využití ve výchozím nastavení. Obsluha použití kapacity, která využívá nebo podporuje odpojené prostředí, musí vypnout vytváření sestav využití. Povolené hodnoty pro tento parametr jsou: true, false. |
 | AgreementNumber | Řetězec |  |
 
 ## <a name="registration-failures"></a>Selhání registrace
 
 Při pokusu o registraci centra Azure Stack se může zobrazit jedna z následujících chyb:
 
-- Nepovedlo se načíst povinné informace o hardwaru pro `$hostName`. Zkontrolujte fyzického hostitele a připojení a pak zkuste znovu spustit registraci.
+- Nepovedlo se načíst povinné informace `$hostName`o hardwaru pro. Zkontrolujte fyzického hostitele a připojení a pak zkuste znovu spustit registraci.
 
-- Nejde se připojit k `$hostName`, aby se získaly informace o hardwaru. Zkontrolujte fyzického hostitele a připojení a pak zkuste znovu spustit registraci.
+- Nelze se připojit `$hostName` k a získat informace o hardwaru. Zkontrolujte fyzického hostitele a připojení a pak zkuste znovu spustit registraci.
 
    Příčina: obvykle se snažíme z hostitelů získat podrobnosti o hardwaru, jako je UUID, BIOS a CPU, aby se pokusily o aktivaci a nebylo možné se připojit k fyzickému hostiteli.
 
-- Identifikátor cloudu [`GUID`] je již zaregistrován. Použití identifikátorů cloudu se znovu nepovoluje.
+- Identifikátor cloudu`GUID`[] je již zaregistrován. Použití identifikátorů cloudu se znovu nepovoluje.
 
-   Příčina: k tomu dochází, pokud je vaše prostředí Azure Stack už zaregistrované. Pokud chcete své prostředí znovu zaregistrovat k jinému předplatnému nebo modelu fakturace, postupujte podle [těchto pokynů](#change-the-subscription-you-use).
+   Příčina: k tomu dochází, pokud je vaše prostředí Azure Stack už zaregistrované. Pokud chcete své prostředí znovu zaregistrovat k jinému předplatnému nebo modelu fakturace, postupujte podle kroků pro [obnovení nebo změnu registrace](#renew-or-change-registration).
 
 - Při pokusu o přístup ke správě Marketplace dojde k chybě při pokusu o zasyndikátování produktů.
 
    Příčina: k tomu obvykle dochází, když Azure Stack hub nemůže získat přístup k registračnímu prostředku. Jedním z běžných důvodů je, že když se tenant adresáře pro předplatné Azure změní, resetuje registraci. Pokud jste změnili tenanta adresáře pro předplatné, nemůžete získat přístup k webu centra Azure Stack nebo k využití sestav. Chcete-li tento problém vyřešit, je nutné provést novou registraci.
-
+::: zone pivot="state-disconnected"
 - Správa na webu Marketplace stále žádá o registraci a aktivaci centra Azure Stack, a to i v případě, že jste už zaregistrovali své razítko pomocí odpojeného procesu.
 
-   Příčina: Jedná se o známý problém pro odpojená prostředí. Stav registrace můžete ověřit pomocí [následujících kroků](azure-stack-registration.md#verify-azure-stack-hub-registration). Pro použití správy Marketplace použijte [Nástroj offline](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario).
+   Příčina: Jedná se o známý problém pro odpojená prostředí a vyžaduje, abyste [ověřili stav registrace](#verify-azure-stack-hub-registration). Pro použití správy Marketplace použijte [Nástroj offline](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario).
+::: zone-end
 
 ## <a name="next-steps"></a>Další kroky
 

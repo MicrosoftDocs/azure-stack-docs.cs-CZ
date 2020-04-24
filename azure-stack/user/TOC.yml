@@ -6,7 +6,7 @@
       href: user-overview.md
     - name: Klíčové aspekty
       href: azure-stack-considerations.md
-- name: Šablony Rychlý start
+- name: Rychlé starty
   expanded: true
   items:
     - name: Vytvoření virtuálního počítače s Windows – portál
@@ -75,7 +75,7 @@
           items:
             - name: Přehled šablon
               href: azure-stack-arm-templates.md
-            - name: Aspekty šablon
+            - name: Pokyny pro šablonu
               href: azure-stack-develop-templates.md
             - name: Vývoj šablon v Azure
               href: azure-stack-developer.md
@@ -93,7 +93,7 @@
                   href: azure-stack-resource-manager-deploy-template-vscode.md
                 - name: Nasazení s využitím sady Visual Studio
                   href: azure-stack-deploy-template-visual-studio.md
-        - name: Použití profilů verzí rozhraní API
+        - name: Používání profilů verzí rozhraní API
           items:
             - name: Přehled
               href: azure-stack-version-profiles.md
@@ -109,7 +109,7 @@
               href: azure-stack-version-profiles-python.md
             - name: NodeJS
               href: azure-stack-version-profile-nodejs.md
-            - name: Poskytovatel prostředků rozhraní API podporuje profily
+            - name: Rozhraní API pro poskytovatele prostředků podporovaná profily
               href: azure-stack-profiles-azure-resource-manager-versions.md
     - name: Použití poskytovatelů prostředků
       items:
@@ -121,7 +121,7 @@
               href: /azure-stack/operator/azure-stack-create-service-principals?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
         - name: Použití služeb
           items:
-            - name: Výpočty
+            - name: Compute
               items:
                 - name: Přehled
                   href: azure-stack-compute-overview.md
@@ -131,15 +131,15 @@
                   href: azure-stack-vm-sizes.md
                 - name: Správa disků virtuálních počítačů
                   href: azure-stack-manage-vm-disks.md
-                - name: Důležité informace o spravovaných discích
+                - name: Požadavky na Managed disks
                   href: azure-stack-managed-disk-considerations.md
                 - name: Ochrana virtuálních počítačů
                   href: azure-stack-manage-vm-protect.md
-                - name: Aktualizace virtuálního počítače a správy
+                - name: Aktualizace a správa virtuálních počítačů
                   href: vm-update-management.md
-                - name: Důležité informace o virtuální počítač s SQL serverem
+                - name: Požadavky na SQL Server VM
                   href: azure-stack-sql-server-vm-considerations.md
-            - name: Úložiště
+            - name: Storage
               items:
                 - name: Přehled
                   href: azure-stack-storage-overview.md
@@ -161,11 +161,11 @@
                   items:
                     - name: Připojení pomocí VPN
                       href: azure-stack-connect-vpn.md
-                    - name: Informace o službě VPN gateway
+                    - name: Informace o službě VPN Gateway
                       href: azure-stack-vpn-gateway-about-vpn-gateways.md
                     - name: Konfigurace zásad připojení IPSec/IKE
                       href: azure-stack-vpn-s2s.md
-                    - name: Nastavení služby VPN gateway
+                    - name: Nastavení služby VPN Gateway
                       href: azure-stack-vpn-gateway-settings.md
                 - name: IDN pro centrum Azure Stack
                   href: azure-stack-understanding-dns.md
@@ -200,7 +200,7 @@
                   href: azure-stack-metrics-monitor.md
         - name: Nasazení doplňkových služeb
           items:
-            - name: Ethereum během nasazení
+            - name: Nasazení Ethereem
               href: azure-stack-ethereum.md
             - name: Nasazení clusteru Service Fabric
               href: azure-stack-solution-template-service-fabric-cluster.md
@@ -246,9 +246,9 @@
                       href: azure-stack-solution-template-kubernetes-trouble.md
             - name: Nasazení Cognitive Services
               href: azure-stack-solution-template-cognitive-services.md
-    - name: Nasazení aplikací
+    - name: Nasazování aplikací
       items:
-        - name: 'Nasazení C# webové aplikace na virtuální počítač s Windows'
+        - name: 'Nasazení webové aplikace v jazyce C# na virtuální počítač s Windows'
           href: azure-stack-dev-start-howto-vm-dotnet.md
         - name: Nasazení webové aplikace do virtuálního počítače se systémem Linux
           items:
@@ -329,9 +329,9 @@
   items:
     - name: Dokumentace k operátorovi centra Azure Stack
       href: /azure-stack/operator/
-    - name: Dokumentace ke službě ASDK
+    - name: Dokumentace k ASDK
       href: /azure-stack/asdk/
-- name: Prostředky
+- name: Zdroje a prostředky
   items:
     - name: Plán centra Azure Stack
       href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'

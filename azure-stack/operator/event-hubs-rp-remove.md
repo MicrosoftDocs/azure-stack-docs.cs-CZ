@@ -9,10 +9,10 @@ ms.date: 12/09/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 12/09/2019
 ms.openlocfilehash: 2a1525f4b91998479d368714aa3a88df6ecfcef9
-ms.sourcegitcommit: dd53af1b0fc2390de162d41e3d59545d1baad1a7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "80423957"
 ---
 # <a name="how-to-remove-event-hubs-on-azure-stack-hub"></a>Postup odebrání Event Hubs v centru Azure Stack
@@ -34,19 +34,19 @@ Chcete-li odebrat Event Hubs a všechny související prostředky vytvořené u�
 3. Vyberte **Poskytovatelé prostředků**.
 4. V seznamu poskytovatelů prostředků vyberte **Event Hubs** . Seznam můžete chtít filtrovat zadáním příkazu "Event Hubs" do zadaného textového pole hledání.
 
-   [![odebrat centra událostí 1](media/event-hubs-rp-remove/1-uninstall.png)](media/event-hubs-rp-remove/1-uninstall.png#lightbox)
+   [![Odebrat centra událostí 1](media/event-hubs-rp-remove/1-uninstall.png)](media/event-hubs-rp-remove/1-uninstall.png#lightbox)
 
 5. Z možností uvedených v horní části stránky vyberte **odinstalovat** .
 
-   [![odebrat centra událostí 2](media/event-hubs-rp-remove/2-uninstall.png)](media/event-hubs-rp-remove/2-uninstall.png#lightbox)
+   [![Odebrat centra událostí 2](media/event-hubs-rp-remove/2-uninstall.png)](media/event-hubs-rp-remove/2-uninstall.png#lightbox)
 
 6. Zadejte název poskytovatele prostředků a pak vyberte **odinstalovat**. Tato akce potvrdí, že vaše přání k odinstalaci:
    - Poskytovatel prostředků Event Hubs
    - Všechny uživatelem vytvořené clustery, obory názvů, centra událostí a data událostí.
 
-   [![odebrat centra událostí 3](media/event-hubs-rp-remove/3-uninstall.png)](media/event-hubs-rp-remove/3-uninstall.png#lightbox)
+   [![Odebrat centra událostí 3](media/event-hubs-rp-remove/3-uninstall.png)](media/event-hubs-rp-remove/3-uninstall.png#lightbox)
 
-   [![odebírání Center událostí 4](media/event-hubs-rp-remove/4-uninstall.png)](media/event-hubs-rp-remove/4-uninstall.png#lightbox)
+   [![Odebírají se centra událostí 4.](media/event-hubs-rp-remove/4-uninstall.png)](media/event-hubs-rp-remove/4-uninstall.png#lightbox)
 
    > [!IMPORTANT]
    > Před opětovnou instalací Event Hubs je nutné počkat alespoň 10 minut, než se Event Hubs úspěšně odebrala. Důvodem je skutečnost, že stále můžou běžet aktivity vyčištění, což může být v konfliktu s jakoukoli novou instalací.

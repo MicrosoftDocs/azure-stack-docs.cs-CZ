@@ -9,10 +9,10 @@ ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 08/29/2019
 ms.openlocfilehash: 95719c6b0651932ab41cef5321db06b77eb4fc63
-ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/21/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "80069445"
 ---
 # <a name="azure-stack-hub-marketplace-faq"></a>Nejčastější dotazy k webu Azure Stack hub Marketplace
@@ -35,9 +35,9 @@ Pokud navíc některé sady škálování virtuálních počítačů odkazují n
 
 Microsoft nabízí dvě verze imagí Windows serveru prostřednictvím tržiště centra Azure Stack. V prostředí Azure Stack hub se dá použít jenom jedna verze této image.  
 
-- **Průběžné platby dle aktuálního využití (PAYG)** : tyto image spouštějí celé ceny Windows měřičů.
+- **Průběžné platby dle aktuálního využití (PAYG)**: tyto image spouštějí celé ceny Windows měřičů.
    Kdo má použít tuto možnost: zákazníci smlouva Enterprise (EA), kteří používají *Model fakturace spotřeby*; CSP, kteří nechtějí používat licencování SPLA
-- **Přineste si vlastní licenci (BYOL)** : tyto image spouštějí základní měřiče.
+- **Přineste si vlastní licenci (BYOL)**: tyto image spouštějí základní měřiče.
    Kdo má použít tuto možnost: zákazníci se smlouvou EA s licencí k Windows serveru; CSP, kteří používají licencování SPLA.
 
 Zvýhodněné hybridní využití Azure (AHUB) se u centra Azure Stack nepodporuje. Zákazníci, kteří mají licenci prostřednictvím modelu "Capacity", musí používat Image BYOL. Pokud testujete pomocí Azure Stack Development Kit (ASDK), můžete použít kteroukoli z těchto možností.
@@ -93,17 +93,17 @@ Pokud chcete aktivovat virtuální počítač s Windows serverem na rozbočovač
 
 ### <a name="how-can-i-verify-that-my-vm-is-activated"></a>Jak můžu ověřit, jestli je můj virtuální počítač aktivovaný?
 
-Z příkazového řádku se zvýšenými oprávněními spusťte následující příkaz:
+Z příkazového řádku s oprávněním vyšší úrovně spusťte následující příkaz:
 
 ```shell
 slmgr /dlv
 ```
 
-Pokud je tato možnost aktivována správně, zobrazí se tato jasně a název hostitele zobrazený ve výstupu `slmgr`. Nezáleží na vodoznakech na zobrazení, protože nemusí být aktuální nebo se zobrazují z jiného virtuálního počítače na pozadí.
+Pokud je tato možnost aktivována správně, zobrazí se tato jasně zpráva a název hostitele zobrazený ve `slmgr` výstupu. Nezáleží na vodoznakech na zobrazení, protože nemusí být aktuální nebo se zobrazují z jiného virtuálního počítače na pozadí.
 
 ### <a name="my-vm-isnt-set-up-to-use-avma-how-can-i-fix-it"></a>Můj virtuální počítač není nastavený tak, aby používal AVMA, jak ho můžu opravit?
 
-Z příkazového řádku se zvýšenými oprávněními spusťte následující příkaz:
+Z příkazového řádku s oprávněním vyšší úrovně spusťte následující příkaz:
 
 ```shell
 slmgr /ipk <AVMA key>
@@ -113,7 +113,7 @@ Klíče, které se mají použít pro vaši image, najdete v článku věnované
 
 ### <a name="i-create-my-own-windows-server-images-how-can-i-make-sure-they-use-avma"></a>Můžu vytvořit vlastní image Windows serveru, jak se dá zajistit, aby používali AVMA?
 
-Před spuštěním příkazu `sysprep` se doporučuje spustit příkazový řádek `slmgr /ipk` s příslušným klíčem. Případně zahrňte klíč AVMA do libovolného instalačního souboru Unattend. exe.
+Před spuštěním `slmgr /ipk` `sysprep` příkazu doporučujeme spustit příkazový řádek s příslušným klíčem. Případně zahrňte klíč AVMA do libovolného instalačního souboru Unattend. exe.
 
 ### <a name="i-am-trying-to-use-my-windows-server-2016-image-created-on-azure-and-its-not-activating-or-using-kms-activation"></a>Snažím se použít bitovou kopii Windows serveru 2016 vytvořenou v Azure a aktivace pomocí služby správy klíčů se neaktivuje.
 
@@ -129,7 +129,7 @@ Obraťte se na dodavatele hardwaru a ověřte, zda byly nainstalovány správné
 
 ## <a name="next-steps"></a>Další kroky
 
-Další informace najdete v následujících článcích:
+Další informace najdete v těchto článcích:
 
 - [Přehled centra Azure Stack Marketplace](azure-stack-marketplace.md)
 - [Stažení položek z webu Marketplace z Azure do centra Azure Stack](azure-stack-download-azure-marketplace-item.md)

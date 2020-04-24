@@ -9,10 +9,10 @@ ms.date: 12/09/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 12/09/2019
 ms.openlocfilehash: e07d311c8edbe140834a020af489ae49d8380d86
-ms.sourcegitcommit: dd53af1b0fc2390de162d41e3d59545d1baad1a7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "80423968"
 ---
 # <a name="how-to-install-event-hubs-on-azure-stack-hub"></a>Postup instalace Event Hubs v centru Azure Stack
@@ -44,12 +44,12 @@ Pokud vaše Azure Stack rozbočovač má připojení k Internetu, postupujte pod
 5. Vyhledejte "Event Hubs" pomocí panelu hledání.
 6. Ve výsledcích hledání vyberte řádek Event Hubs. 
 7. Na stránce pro stažení Event Hubs vyberte verzi Event Hubs, kterou chcete nainstalovat, a potom v dolní části stránky vyberte **Stáhnout** . 
-   [balíčky pro správu Marketplace ![](media/event-hubs-rp-install/1-marketplace-management-download.png)](media/event-hubs-rp-install/1-marketplace-management-download.png#lightbox)
+   [![Balíčky správy Marketplace](media/event-hubs-rp-install/1-marketplace-management-download.png)](media/event-hubs-rp-install/1-marketplace-management-download.png#lightbox)
 
 Všimněte si, že další balíčky softwaru se stáhnou spolu s Event Hubs, včetně těchto:
 
 - POUZE interní doplněk Microsoft Azure Stack hub RP Windows serveru
-- Prostředí PowerShell Desired State Configuration
+- Konfigurace požadovaného stavu prostředí PowerShell
 
 Po dokončení procesu stahování přejděte na [oddíl instalovat předpoklady](#install-prerequisites).
 
@@ -66,15 +66,15 @@ Nejdřív si balíčky stáhnete do svého místního počítače a pak je naimp
 1. Pokud jste to ještě neudělali, přihlaste se na portál pro správu centra Azure Stack.
 2. Na levé straně vyberte **Správa Marketplace** a pak vyberte **poskytovatelé prostředků**.
 3. Po stažení Event Hubs a dalšího požadovaného softwaru by měla **Správa Marketplace** zobrazovat balíčky "Event Hubs" se stavem "Nenainstalováno". Mohou existovat další balíčky, které zobrazují stav "staženo". Vyberte řádek Event Hubs, který chcete nainstalovat.
-   [stažené balíčky správy Marketplace ![](media/event-hubs-rp-install/2-marketplace-management-downloaded.png)](media/event-hubs-rp-install/2-marketplace-management-downloaded.png#lightbox)
+   [![Stažené balíčky správy Marketplace](media/event-hubs-rp-install/2-marketplace-management-downloaded.png)](media/event-hubs-rp-install/2-marketplace-management-downloaded.png#lightbox)
  
 4. Na stránce Event Hubs instalace balíčku by se měl zobrazit modrý banner v horní části. Vyberte banner a spusťte instalaci Event Hubs.
-   [centra událostí správy ![Marketplace – spustit instalaci](media/event-hubs-rp-install/3-marketplace-management-install-ready.png)](media/event-hubs-rp-install/3-marketplace-management-install-ready.png#lightbox)
+   [![Centra událostí správy Marketplace – spustit instalaci](media/event-hubs-rp-install/3-marketplace-management-install-ready.png)](media/event-hubs-rp-install/3-marketplace-management-install-ready.png#lightbox)
 
 ### <a name="install-prerequisites"></a>Požadavky na instalaci
 
 1. Dál jste přenesli na stránku instalace. Kliknutím na **instalovat požadavky** zahajte proces instalace.
-   ![centra událostí správy Marketplace – požadavky](media/event-hubs-rp-install/4-marketplace-management-install-prereqs-start.png)
+   ![Centra událostí správy Marketplace – požadavky](media/event-hubs-rp-install/4-marketplace-management-install-prereqs-start.png)
  
 2. Počkejte, dokud nebude instalace požadovaných součástí úspěšná. Před pokračováním na další krok by se měla zobrazit zelená značka zaškrtnutí vedle políčka **nainstalovat požadavky** .
 
@@ -83,27 +83,27 @@ Nejdřív si balíčky stáhnete do svého místního počítače a pak je naimp
 ### <a name="prepare-secrets"></a>Příprava tajných kódů 
 
 1. V části **2. Připravte krok tajné klíče** , vyberte **Přidat certifikát**a zobrazí se panel **Přidat certifikát** .
-   centra událostí správy ![Marketplace – Příprava tajných klíčů](media/event-hubs-rp-install/6-marketplace-management-install-prepare-secrets.png)
+   ![Centra událostí správy Marketplace – Příprava tajných klíčů](media/event-hubs-rp-install/6-marketplace-management-install-prepare-secrets.png)
 
 2. V části **Přidat certifikát**klikněte na tlačítko Procházet, a to těsně napravo od pole název souboru certifikátu.
 3. Vyberte soubor certifikátu. pfx, který jste si vybrali při dokončování požadavků. Další informace najdete v tématu [předpoklady pro instalaci](event-hubs-rp-prerequisites.md). 
 
 4. Zadejte heslo, které jste zadali, abyste vytvořili zabezpečený řetězec pro Event Hubs certifikát SSL. Pak vyberte **Přidat**.
-   ![centra událostí správy Marketplace – přidat certifikát](media/event-hubs-rp-install/7-marketplace-management-install-prepare-secrets-add-cert.png)
+   ![Centra událostí správy Marketplace – přidat certifikát](media/event-hubs-rp-install/7-marketplace-management-install-prepare-secrets-add-cert.png)
 
 ### <a name="install-resource-provider"></a>Nainstalovat poskytovatele prostředků
 
 1. Po úspěšném dokončení instalace certifikátu se zobrazí zelená značka zaškrtnutí vedle **Příprava tajných** kódů, než budete pokračovat k dalšímu kroku. Nyní vyberte tlačítko **instalovat** vedle **3 instalace poskytovatele prostředků**.
-   centra událostí správy ![Marketplace – spuštění instalace](media/event-hubs-rp-install/8-marketplace-management-install-start.png)
+   ![Centra událostí správy Marketplace – spustit instalaci](media/event-hubs-rp-install/8-marketplace-management-install-start.png)
  
 2. V dalším kroku se zobrazí následující stránka, která indikuje, že se instaluje Event Hubs poskytovatel prostředků.
-   [centra událostí správy ![Marketplace – instalace](media/event-hubs-rp-install/9-marketplace-management-install-inprogress.png)](media/event-hubs-rp-install/9-marketplace-management-install-inprogress.png#lightbox)
+   [![Centra událostí správy Marketplace – instalace](media/event-hubs-rp-install/9-marketplace-management-install-inprogress.png)](media/event-hubs-rp-install/9-marketplace-management-install-inprogress.png#lightbox)
  
 3. Počkejte, až se dokončí oznámení instalace. Tento proces obvykle trvá jednu nebo více hodin v závislosti na typu centra Azure Stack. 
-   [centra událostí správy ![Marketplace – instalace dokončena](media/event-hubs-rp-install/10-marketplace-management-install-complete.png)](media/event-hubs-rp-install/10-marketplace-management-install-complete.png#lightbox)
+   [![Centra událostí správy Marketplace – instalace dokončena](media/event-hubs-rp-install/10-marketplace-management-install-complete.png)](media/event-hubs-rp-install/10-marketplace-management-install-complete.png#lightbox)
 
 4. Vraťte se na stránku **správy Marketplace**, **Ověřte, že** instalace Event Hubs proběhla úspěšně. Stav Event Hubs by měl obsahovat "nainstalované".
-   ![dostupná centra událostí správy Marketplace](media/event-hubs-rp-install/11-marketplace-management-rps-installed.png)
+   ![Dostupná centra událostí správy Marketplace](media/event-hubs-rp-install/11-marketplace-management-rps-installed.png)
 
 ## <a name="register-event-hubs"></a>Registrovat Event Hubs
 
@@ -118,14 +118,14 @@ Teď je potřeba zaregistrovat poskytovatele prostředků Event Hubs. Registrace
 5. V poli **filtrovat podle názvu** v horní části vyhledejte řetězec "EventHub".
 6. Podívejte se na sloupec **stav** v řádcích poskytovatele prostředků Microsoft. Eventhub a Microsoft. Eventhub. admin.
 7. Pokud má některý z nich stav "nezaregistrován", vyberte jednotlivé poskytovatele a pak vyberte **Registrovat**. 
-   ![neregistrovaných poskytovatelů prostředků](media/event-hubs-rp-install/12-default-subscription-rps-unregistered.png)
+   ![Neregistrovaní poskytovatelé prostředků](media/event-hubs-rp-install/12-default-subscription-rps-unregistered.png)
 8. Po několika sekundách vyberte **aktualizovat**. Nyní byste měli vidět poskytovatele prostředků se stavem Registrováno. 
 9. Nyní byste měli vidět Microsoft. EventHub a Microsoft. EventHub. admin s stavem "registrováno".
-   poskytovatelé registrovaných prostředků ![](media/event-hubs-rp-install/13-default-subscription-rps-registered.png)
+   ![Registrovaní poskytovatelé prostředků](media/event-hubs-rp-install/13-default-subscription-rps-registered.png)
 
 10. Vraťte se na stránku **všechny služby** .
 11. Vyhledejte "Event Hubs". Nyní byste měli vidět "Event Hubs", což je váš vstupní bod pro Event Hubs stránku pro správu. 
-   dostupná služba ![Services – centra událostí](media/event-hubs-rp-install/14-all-service-event-hubs.png)
+   ![Dostupné služby – centra událostí](media/event-hubs-rp-install/14-all-service-event-hubs.png)
  
 ## <a name="next-steps"></a>Další kroky
 

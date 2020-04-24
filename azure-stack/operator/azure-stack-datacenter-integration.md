@@ -8,10 +8,10 @@ ms.author: inhenkel
 ms.reviewer: wfayed
 ms.lastreviewed: 09/12/2019
 ms.openlocfilehash: fbcca6d24f37162fa62729f38d50a6ceb0f0374c
-ms.sourcegitcommit: dd4801cb2da0549cc01e7e5cd6a53690c53d80cc
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "80638205"
 ---
 # <a name="datacenter-integration-planning-considerations-for-azure-stack-hub-integrated-systems"></a>Požadavky na plánování integrace Datacenter pro integrované systémy centra Azure Stack
@@ -45,7 +45,7 @@ Kontaktujte podpora Microsoftu, když potřebujete vyšší úroveň přístupu 
 
 ### <a name="choose-identity-provider"></a>Zvolit poskytovatele identity
 
-Musíte zvážit, který poskytovatel identity chcete použít pro Azure Stack nasazení centra, a to buď Azure AD, nebo AD FS. Po nasazení nemůžete přepínat zprostředkovatele identity bez úplného opětovného nasazení systému. Pokud účet Azure AD nevlastníte a používáte účet, který vám poskytl poskytovatel cloudového řešení, a pokud se rozhodnete přepnout poskytovatele a použít jiný účet Azure AD, budete se muset obrátit na poskytovatele řešení a znovu nasadit řešení pro vás. ze.
+Musíte zvážit, který poskytovatel identity chcete použít pro Azure Stack nasazení centra, a to buď Azure AD, nebo AD FS. Po nasazení nemůžete přepínat zprostředkovatele identity bez úplného opětovného nasazení systému. Pokud účet Azure AD nevlastníte a používáte účet, který vám poskytl poskytovatel cloudového řešení, a pokud se rozhodnete přepnout poskytovatele a použít jiný účet Azure AD, budete se muset obrátit na svého poskytovatele řešení a znovu nasadit řešení za vás.
 
 Vaše volba poskytovatele identity nemá žádný vliv na virtuální počítače (VM), systém identity, účty, které používají, nebo na to, jestli se můžou připojit k doméně služby Active Directory a tak dále. Tyto věci jsou oddělené.
 
@@ -58,7 +58,7 @@ Pokud se rozhodnete nasadit Azure Stack hub pomocí AD FS jako poskytovatele ide
 Službu Graph Service můžete také integrovat do centra Azure Stack s existující službou Active Directory. Tato integrace vám umožní spravovat Access Control na základě rolí (RBAC) v centru Azure Stack. Když je delegovaný přístup k prostředku, komponenta grafu vyhledá uživatelský účet v existující doménové struktuře služby Active Directory pomocí protokolu LDAP.
 
 Následující diagram znázorňuje integrovaný tok provozu AD FS a grafů.<br/><br/>
-Diagram ![znázorňující](media/azure-stack-datacenter-integration/ADFSIntegration.svg) toku provozu AD FS a grafu
+![Diagram znázorňující tok provozu AD FS a grafu](media/azure-stack-datacenter-integration/ADFSIntegration.svg)
 
 ## <a name="licensing-model"></a>Model licencování
 
@@ -72,7 +72,7 @@ Další informace o licenčních modelech najdete v tématu [centra Microsoft Az
 
 ## <a name="naming-decisions"></a>Rozhodnutí o pojmenování
 
-Musíte si představit, jak chcete naplánovat obor názvů centra Azure Stack, zejména název oblasti a název externí domény. Externí plně kvalifikovaný název domény (FQDN) vašeho nasazení centra Azure Stack pro veřejné koncové body je kombinací těchto dvou názvů: &lt;*region*&gt;.&lt;*plně kvalifikovaný název domény*&gt;. Například *East.Cloud.fabrikam.com*. V tomto příkladu budou portály Azure Stack hub k dispozici na následujících adresách URL:
+Musíte si představit, jak chcete naplánovat obor názvů centra Azure Stack, zejména název oblasti a název externí domény. Externí plně kvalifikovaný název domény (FQDN) vašeho nasazení centra Azure Stack pro veřejné koncové body je kombinací těchto dvou názvů: &lt; *region*&gt;. &lt; *plně kvalifikovaný název domény*&gt;. Například *East.Cloud.fabrikam.com*. V tomto příkladu budou portály Azure Stack hub k dispozici na následujících adresách URL:
 
 - `https://portal.east.cloud.fabrikam.com`
 - `https://adminportal.east.cloud.fabrikam.com`
@@ -84,12 +84,12 @@ Následující tabulka shrnuje tato rozhodnutí o pojmenovávání domén.
 
 | Název | Popis |
 | -------- | ------------- |
-|Název oblasti | Název první oblasti centra Azure Stack. Tento název se používá jako součást plně kvalifikovaného názvu domény pro veřejné virtuální IP adresy (VIP), které Azure Stack hub spravuje. Obvykle by název oblasti představoval identifikátor fyzického umístění, jako je například umístění datového centra.<br><br>Název oblasti se musí skládat jenom z písmen a číslic mezi 0-9. Nejsou povoleny žádné speciální znaky (například `-`, `#`atd.).| 
+|Název oblasti | Název první oblasti centra Azure Stack. Tento název se používá jako součást plně kvalifikovaného názvu domény pro veřejné virtuální IP adresy (VIP), které Azure Stack hub spravuje. Obvykle by název oblasti představoval identifikátor fyzického umístění, jako je například umístění datového centra.<br><br>Název oblasti se musí skládat jenom z písmen a číslic mezi 0-9. Nejsou povoleny žádné speciální znaky `-`( `#`například, atd.).| 
 | Název externí domény | Název zóny DNS (Domain Name System) pro koncové body s externími VIP adresami. Používá se v plně kvalifikovaném názvu domény pro tyto veřejné virtuální IP adresy. | 
 | Privátní (interní) název domény | Název domény (a interní zóny DNS) vytvořený na Azure Stack hub pro správu infrastruktury
 | | |
 
-## <a name="certificate-requirements"></a>Požadavky na certifikát
+## <a name="certificate-requirements"></a>Požadavky na certifikáty
 
 Pro nasazení budete muset zadat SSL (Secure Sockets Layer) (SSL) certifikátů pro veřejné koncové body. Na vysoké úrovni mají certifikáty tyto požadavky:
 
@@ -101,7 +101,7 @@ Další informace o tom, jaké certifikáty PKI jsou potřeba k nasazení centra
 > [!IMPORTANT]
 > Poskytnuté informace o certifikátu PKI by se měly používat jako obecné pokyny. Než získáte všechny certifikáty PKI pro centrum Azure Stack, pracujte s vaším hardwarovým partnerem OEM. Poskytnou podrobnější pokyny k certifikátu a požadavky.
 
-## <a name="time-synchronization"></a>Synchronizace času
+## <a name="time-synchronization"></a>Čas synchronizace
 
 Musíte zvolit konkrétní časový server, který se používá k synchronizaci centra Azure Stack. Synchronizace času je důležitá pro Azure Stack centra a jeho rolí infrastruktury, protože se používá ke generování lístků protokolu Kerberos. Lístky protokolu Kerberos slouží k ověřování vnitřních služeb navzájem.
 
@@ -129,12 +129,12 @@ V případě hybridního připojení je důležité zvážit, jaký typ nasazen�
 
 Následující tabulka shrnuje scénáře hybridního připojení s případy pro profesionály, nevýhody a použití.
 
-| Scénář | Metoda připojení | V oblasti IT | Nevýhody | Vhodné pro |
+| Scénář | Metoda připojení | Výhody | Nevýhody | Vhodné pro |
 | -- | -- | --| -- | --|
 | Centrum Azure Stack pro jednoho tenanta, nasazení v intranetu | Odchozí NAT | Lepší šířka pásma pro rychlejší přenos. Jednoduchá implementace; nevyžadují se žádné brány. | Provoz není šifrovaný; žádná izolace ani šifrování mimo zásobník. | Podniková nasazení, kde jsou všichni klienti stejně důvěryhodní.<br><br>Podniky, které mají okruh Azure ExpressRoute do Azure. |
-| Centrum Azure Stack pro více tenantů, nasazení v intranetu | Site-to-Site VPN | Provoz z virtuální sítě VNet do cíle je zabezpečený. | Šířka pásma je omezená tunelovým propojením VPN typu Site-to-site.<br><br>Vyžaduje bránu ve virtuální síti a v zařízení VPN v cílové síti. | Podniková nasazení, kde musí být určitý klientský provoz zabezpečený z jiných tenantů. |
+| Centrum Azure Stack pro více tenantů, nasazení v intranetu | Site-to-site VPN | Provoz z virtuální sítě VNet do cíle je zabezpečený. | Šířka pásma je omezená tunelovým propojením VPN typu Site-to-site.<br><br>Vyžaduje bránu ve virtuální síti a v zařízení VPN v cílové síti. | Podniková nasazení, kde musí být určitý klientský provoz zabezpečený z jiných tenantů. |
 | Centrum Azure Stack s jedním klientem, nasazení Internetu | Odchozí NAT | Lepší šířka pásma pro rychlejší přenos. | Provoz není šifrovaný; žádná izolace ani šifrování mimo zásobník. | Hostování scénářů, kde tenant získá vlastní nasazení centra Azure Stack a vyhrazený okruh do prostředí Azure Stack hub. Například ExpressRoute a přepínání mezi protokoly (MPLS).
-| Víceklientské centrum Azure Stack, internetové nasazení | Site-to-Site VPN | Provoz z virtuální sítě VNet do cíle je zabezpečený. | Šířka pásma je omezená tunelovým propojením VPN typu Site-to-site.<br><br>Vyžaduje bránu ve virtuální síti a v zařízení VPN v cílové síti. | Hostování scénářů, ve kterých poskytovatel chce nabídnout víceklientské Cloud, kde se vzájemně nevztahují jiní klienti a provoz musí být zašifrovaný.
+| Víceklientské centrum Azure Stack, internetové nasazení | Site-to-site VPN | Provoz z virtuální sítě VNet do cíle je zabezpečený. | Šířka pásma je omezená tunelovým propojením VPN typu Site-to-site.<br><br>Vyžaduje bránu ve virtuální síti a v zařízení VPN v cílové síti. | Hostování scénářů, ve kterých poskytovatel chce nabídnout víceklientské Cloud, kde se vzájemně nevztahují jiní klienti a provoz musí být zašifrovaný.
 |  |  |  |  |  |
 
 ### <a name="using-expressroute"></a>Použití ExpressRoute
@@ -173,7 +173,7 @@ Vezměte na vědomí následující požadavky:
 
 Plánování zálohování a zotavení po havárii zahrnuje plánování pro základní infrastrukturu centra Azure Stack, která je hostitelem virtuálních počítačů s IaaS a PaaS služeb, a pro klientské aplikace a data. Naplánujte tyto věci samostatně.
 
-### <a name="protect-infrastructure-components"></a>Chránit součásti infrastruktury
+### <a name="protect-infrastructure-components"></a>Ochrana komponent infrastruktury
 
 Můžete zálohovat součásti infrastruktury [centra Azure Stack](azure-stack-backup-back-up-azure-stack.md) do sdílené složky SMB, kterou zadáte:
 
@@ -183,7 +183,7 @@ Můžete zálohovat součásti infrastruktury [centra Azure Stack](azure-stack-b
 Pokud dojde k závažné ztrátě dat, můžete použít zálohu infrastruktury k opětovnému nasazování dat nasazení, jako například: 
 
 - Vstupy a identifikátory nasazení
-- Účty služeb
+- Service Accounts
 - Kořenový certifikát certifikační autority
 - prostředky fFederated (v odpojených nasazeních)
 - Plány, nabídky, předplatné a kvóty

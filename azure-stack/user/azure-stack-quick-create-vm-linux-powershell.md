@@ -3,15 +3,15 @@ title: Vytvoření virtuálního počítače se systémem Linux pomocí prostře
 description: Vytvořte virtuální počítač se systémem Linux pomocí prostředí PowerShell v centru Azure Stack.
 author: mattbriggs
 ms.topic: quickstart
-ms.date: 11/11/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 5e0fb0ec59451874ce641006a626d8de82392f94
-ms.sourcegitcommit: 390eac7abc94cea1405178e8d6a9358f6488f5d9
+ms.openlocfilehash: 2b66bee551c9f562b10fe0690e0387217b6d67ea
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78231617"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81660498"
 ---
 # <a name="quickstart-create-a-linux-server-vm-by-using-powershell-in-azure-stack-hub"></a>Rychlý Start: Vytvoření virtuálního počítače s Linux serverem pomocí prostředí PowerShell v centru Azure Stack
 
@@ -21,7 +21,7 @@ Virtuální počítač s Ubuntu serverem 16,04 LTS můžete vytvořit pomocí ce
 * Nainstalujte webový server NGINX a zobrazte výchozí domovskou stránku.
 * Vyčistit nepoužívané prostředky.
 
-## <a name="prerequisites"></a>Předpoklady
+## <a name="prerequisites"></a>Požadavky
 
 * Image Linux na tržišti Azure Stack hub. Tržiště centra Azure Stack ve výchozím nastavení nemá image Linux. Použijte operátor centra Azure Stack, který obsahuje bitovou kopii Ubuntu serveru 16,04 LTS, kterou potřebujete. Operátor může použít pokyny v tématu [stažení položek Marketplace z Azure do centra Azure Stack](../operator/azure-stack-download-azure-marketplace-item.md).
 
@@ -393,7 +393,7 @@ apt-get -y install nginx
 
 ## <a name="view-the-nginx-welcome-page"></a>Zobrazení úvodní stránky serveru NGINX
 
-S nainstalovaným webovým serverem NGINX a na vašem VIRTUÁLNÍm počítači se otevře port 80. k webovému serveru se můžete dostat pomocí veřejné IP adresy virtuálního počítače. Otevřete webový prohlížeč a přejdete na ```http://<public IP address>```.
+S nainstalovaným webovým serverem NGINX a na vašem VIRTUÁLNÍm počítači se otevře port 80. k webovému serveru se můžete dostat pomocí veřejné IP adresy virtuálního počítače. Otevřete webový prohlížeč a pokračujte na ```http://<public IP address>```.
 
 ![Úvodní stránka webového serveru NGINX](./media/azure-stack-quick-create-vm-linux-cli/nginx.png)
 

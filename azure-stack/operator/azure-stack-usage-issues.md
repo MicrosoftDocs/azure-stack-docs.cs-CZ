@@ -8,10 +8,10 @@ ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 06/27/2019
 ms.openlocfilehash: 4a847578e73c5c9b518669a46340590242513686
-ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/18/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79512345"
 ---
 # <a name="usage-connectivity-errors"></a>Chyby připojení využití
@@ -30,7 +30,7 @@ Pokud chcete tento problém zmírnit, vyzkoušejte následující kroky:
 
 - Ověřte, že konfigurace sítě umožňuje Azure Bridge připojit se ke vzdálené službě.
 
-- Pokud chcete najít ID předplatného Azure, které se používá pro registraci, skupinu prostředků a název prostředku registrace, otevřete okno [ **vlastnosti** > **správy oblastí** ](azure-stack-registration.md#verify-azure-stack-hub-registration) . Ověřte, že prostředek registrace existuje pod správným ID předplatného Azure v Azure Portal. Provedete to tak, že přejdete na **všechny prostředky** vytvořené v rámci ID předplatného Azure a zaškrtnete políčko **Zobrazit skryté typy** . Pokud nemůžete najít registrační prostředek, postupujte podle kroků v části [obnovení nebo změna registrace](azure-stack-registration.md#renew-or-change-registration) pro opětovné zaregistrování centra Azure Stack.
+- V okně vlastnosti [ **správy** > oblastí](azure-stack-registration.md#verify-azure-stack-hub-registration) Najděte ID předplatného Azure, které se používá pro registraci, skupinu prostředků a název prostředku registrace. Ověřte, že prostředek registrace existuje pod správným ID předplatného Azure v Azure Portal. Provedete to tak, že přejdete na **všechny prostředky** vytvořené v rámci ID předplatného Azure a zaškrtnete políčko **Zobrazit skryté typy** . Pokud nemůžete najít registrační prostředek, postupujte podle kroků v části [obnovení nebo změna registrace](azure-stack-registration.md#renew-or-change-registration) pro opětovné zaregistrování centra Azure Stack.
 
   ![Portál](media/azure-stack-usage-issues/stackres.png)
 
@@ -38,7 +38,7 @@ Pokud chcete tento problém zmírnit, vyzkoušejte následující kroky:
 
 Tato část popisuje kódy chyb využití.
 
-| Kód chyby                 | Problém                                                                                                                                             | Náprava                                                                                                                                                                                                                                                                                        |
+| Kód chyby                 | Problém                                                                                                                                             | Odstranění rizika                                                                                                                                                                                                                                                                                        |
 |----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | NetworkError               | Most centra Azure Stack nemůže odeslat žádost o použití koncového bodu služby v Azure.                                                            | Zkontroluje, jestli proxy server blokuje nebo zachytává přístup k koncovému bodu služby Usage.                                                                                                                                                                                                             |
 | RequestTimedOut            | Požadavek byl odeslán z Azure Bridge, ale služba využití v Azure nedokázala odpovědět v časovém limitu.                             | Zkontroluje, jestli proxy server blokuje nebo zachytává přístup k koncovému bodu služby Usage.                                                                                                                                                                                                                        |

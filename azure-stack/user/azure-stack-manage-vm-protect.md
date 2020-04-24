@@ -8,10 +8,10 @@ ms.author: mabrigg
 ms.reviewer: hectorl
 ms.lastreviewed: 3/5/2020
 ms.openlocfilehash: 913d0eeed1ba2cfce0b062385a4f544919889f43
-ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/18/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79512605"
 ---
 # <a name="protect-vms-deployed-on-azure-stack-hub"></a>Ochrana virtuálních počítačů nasazených v centru Azure Stack
@@ -43,10 +43,10 @@ Jeden nebo více cloudů centra Azure Stack lze nasadit do datového centra. Nas
 
 Vlastníci aplikací jsou primárně odpovědni za určení množství výpadku a ztráty dat, které může aplikace a organizace tolerovat. Vynásobením přijatelného výpadku a přijatelné ztráty dat můžete vytvořit plán obnovení, který minimalizuje dopad havárie ve vaší organizaci. Pro každou aplikaci Vezměte v úvahu následující skutečnosti:
 
- - **Cíl doby obnovení (RTO)**  
+ - **Plánovaná doba obnovení (RTO)**  
 RTO je maximální přijatelná doba, po kterou může být aplikace po incidentu nedostupná. Například RTO 90 minut znamená, že musíte být schopni obnovit aplikaci do běžícího stavu během 90 minut od začátku havárie. Pokud máte malou RTO, můžete zachovat druhé nasazení nepřetržitě běžící na pohotovostním režimu pro ochranu před oblastním výpadkem.
  - **Cíl bodu obnovení (RPO)**  
-RPO je maximální doba ztráty dat, která je během havárie přijatelná. Pokud například ukládáte data do jediné databáze, která se zálohuje každou hodinu a nemá žádnou replikaci do jiných databází, můžete přijít o hodinu dat.
+Cíl bodu obnovení (RPO) je maximální období ztráty dat, které je při havárii přijatelné. Pokud například ukládáte data do jediné databáze, která se zálohuje každou hodinu a nemá žádnou replikaci do jiných databází, můžete přijít o hodinu dat.
 
 Další metrikou je *Střední doba obnovení* (MTTR), což je průměrná doba potřebná k obnovení aplikace po selhání. MTTR je empirická hodnota pro systém. Pokud MTTR překročí RTO, pak selhání v systému způsobí nepřijatelné přerušení v podniku, protože nebude možné obnovit systém v definovaném RTO.
 

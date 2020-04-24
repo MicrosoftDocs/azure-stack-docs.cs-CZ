@@ -6,10 +6,10 @@ ms.author: v-kedow
 ms.topic: article
 ms.date: 03/24/2020
 ms.openlocfilehash: c1f1ddbfb9f362261a8e55d32a0d8c28b7b64629
-ms.sourcegitcommit: b65952127f39c263b162aad990e4d5b265570a7f
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/30/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "80402865"
 ---
 # <a name="attaching-a-gpu-to-an-ubuntu-linux-vm-on-azure-stack-hci"></a>Připojení GPU k virtuálnímu počítači s Ubuntu Linux v Azure Stack HCI
@@ -28,7 +28,7 @@ V tomto dokumentu se předpokládá, že máte nasazený cluster Azure Stack HCI
 5. Kliknutím pravým tlačítkem myši na 3D video Controller zobrazte stránku **vlastností** . Klikněte na tlačítko **Podrobnosti**. V rozevíracím seznamu pod položkou **vlastnost**vyberte možnost cesty umístění.
 6. Všimněte si hodnoty pomocí řetězce PCIRoot, jak je zvýrazněno na snímku obrazovky níže. Klikněte pravým tlačítkem na **hodnotu** a zkopírujte nebo uložte.
     :::image type="content" source="media/attach-gpu-to-linux-vm/pciroot.png" alt-text="Snímek cesty k umístění":::
-7. Otevřete prostředí Windows PowerShell se zvýšenými oprávněními a spuštěním rutiny `Dismount-VMHostAssignableDevice` odpojte zařízení GPU pro položku DDA do virtuálního počítače. Hodnotu *LocationPath* nahraďte hodnotou svého zařízení získaného v kroku 6.
+7. Otevřete prostředí Windows PowerShell se zvýšenými oprávněními a `Dismount-VMHostAssignableDevice` spusťte rutinu, která odpojí zařízení GPU pro položku DDA s virtuálním počítačem. Hodnotu *LocationPath* nahraďte hodnotou svého zařízení získaného v kroku 6.
     ```PowerShell
     Dismount-VMHostAssignableDevice -LocationPath "PCIROOT(16)#PCI(0000)#PCI(0000)" -force
     ```
@@ -91,7 +91,7 @@ V tomto dokumentu se předpokládá, že máte nasazený cluster Azure Stack HCI
     > [!IMPORTANT]
     > Pokud se grafický procesor NVIDIA nezobrazuje jako "prostorový kontroler", nepokračujte dále. Než budete pokračovat, ujistěte se, že výše uvedené kroky jsou následovány.
 
-11. V rámci virtuálního počítače vyhledejte a otevřete **aktualizace softwaru &** . Přejděte na **Další ovladače**a pak zvolte nejnovější ovladače NVIDIA GPU uvedené v seznamu. Dokončete instalaci ovladače kliknutím na tlačítko **použít změny** .
+11. V rámci virtuálního počítače vyhledejte a otevřete **aktualizace softwaru &**. Přejděte na **Další ovladače**a pak zvolte nejnovější ovladače NVIDIA GPU uvedené v seznamu. Dokončete instalaci ovladače kliknutím na tlačítko **použít změny** .
     :::image type="content" source="media/attach-gpu-to-linux-vm/driver-install.png" alt-text="Snímek instalace ovladače":::
 
 12. Po dokončení instalace ovladače restartujte virtuální počítač Ubuntu. Jakmile se virtuální počítač spustí, připojte se přes klienta SSH a vydejte příkaz **NVIDIA-SMI** , který ověří, jestli se instalace ovladače NVIDIA GPU úspěšně dokončila. Výstup by měl vypadat podobně jako na následujícím snímku obrazovky: :::image type="content" source="media/attach-gpu-to-linux-vm/nvidia-smi.png" alt-text="NVIDIA-SMI screenshot":::
@@ -519,7 +519,7 @@ Pro přípravu této konfigurace si přečtěte nejčastější dotazy, které n
 
 21. Pomocí příkazu **ifconfig** potvrďte adresu TCP/IP pro virtuální počítač s Ubuntu a vyhledejte adresu TCP/IP vedle rozhraní **eth0** .
 
-22. Nainstalujte do pracovní stanice VLC Player. V VLC Playeru klikněte na **Multimédia – > otevřít síťový Stream**a zadejte adresu v tomto formátu:
+22. Nainstalujte do pracovní stanice VLC Player. V VLC Playeru klikněte na **multimédia – > otevřít síťový Stream**a zadejte adresu v tomto formátu:
 
     rtsp://ipaddress:8554/ds-test
 

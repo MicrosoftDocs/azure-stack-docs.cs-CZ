@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 12/09/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 12/09/2019
-ms.openlocfilehash: 7eb9dce19bb25367181b17d3f13ada5ed12eff5d
-ms.sourcegitcommit: dd53af1b0fc2390de162d41e3d59545d1baad1a7
+ms.openlocfilehash: 4cd946bf306761533f7c8d6dcba8af75a5001400
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80424001"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "80806717"
 ---
 # <a name="how-to-do-capacity-planning-for-event-hubs-on-azure-stack-hub"></a>Postup plánování kapacity pro Event Hubs v centru Azure Stack
 
@@ -29,7 +29,7 @@ Uživatelé budou muset vytvářet Event Hubs clustery s kapacitní jednotky, kt
 - Celkový počet jader používaných clusterem 1 CU Event Hubs.
 - Přibližná kapacita požadovaná pro spotřebu dalších prostředků, včetně úložiště virtuálních počítačů, paměti a účtů úložiště.
 
-| | Typ virtuálního počítače | Uzly clusteru | Jader na virtuální počítač/uzel | Celkový počet jader | Úložiště virtuálního počítače | Paměť | Účty úložiště |
+| | Typ virtuálního počítače | Uzly clusteru | Jader na virtuální počítač/uzel | Celkový počet jader | Úložiště virtuálního počítače | Memory (Paměť) | Účty úložiště |
 |-|---------|-------|-------------------|-------------|------------|--------|------------------|
 | **1 CU Event Hubs cluster** | [D11_V2](../user/azure-stack-vm-sizes.md#mo-dv2) | 5 | 2 | 10 | 500 GiB | 70 GiB | 4 |
 
@@ -40,9 +40,9 @@ Všechny clustery Event Hubs používají pro své uzly typ virtuálního počí
 
 ## <a name="resource-provider-resource-consumption"></a>Spotřeba prostředků poskytovatele prostředků  
 
-Spotřeba prostředků poskytovatelem prostředků Event Hubs je konstantní a nezávisle na počtu nebo velikosti clusterů vytvořených uživateli. Následující tabulka ukazuje základní využití poskytovatele prostředků Event Hubs v centru Azure Stack a přibližnou spotřebu prostředků jinými prostředky. Poskytovatel prostředků Event Hubs používá pro své nasazení [D2_V2](/user/azure-stack-vm-sizes#dv2-series) typ virtuálního počítače.
+Spotřeba prostředků poskytovatelem prostředků Event Hubs je konstantní a nezávisle na počtu nebo velikosti clusterů vytvořených uživateli. Následující tabulka ukazuje základní využití poskytovatele prostředků Event Hubs v centru Azure Stack a přibližnou spotřebu prostředků jinými prostředky. Poskytovatel prostředků Event Hubs používá pro své nasazení [D2_V2](/azure-stack/user/azure-stack-vm-sizes#dv2-series) typ virtuálního počítače.
 
-|                                  | Typ virtuálního počítače | Uzly clusteru | Jádra | Úložiště virtuálního počítače | Paměť | Účty úložiště |
+|                                  | Typ virtuálního počítače | Uzly clusteru | Cores | Úložiště virtuálního počítače | Memory (Paměť) | Účty úložiště |
 |----------------------------------|---------|-------|-------|------------|--------|------------------|
 | **Poskytovatel prostředků Event Hubs** | D2_V2   | 3     | 6     | 300 GiB    | 21 GiB | 2                |
 
@@ -55,13 +55,13 @@ Celková kapacita spotřebovaná službou Event Hubs zahrnuje spotřebu prostře
 
 Následující tabulka ukazuje celkovou spotřebu Event Hubs v různých konfiguracích bez ohledu na to, jestli jsou spravovaná kvótou. Tato čísla jsou založená na poskytovateli prostředků a Event Hubsch využitích clusteru uvedených výše. V těchto příkladech můžete snadno vypočítat celkové využití centra Azure Stack pro jiné velikosti nasazení.
 
-|                                      | Jádra | Úložiště virtuálního počítače | Paměť  | Účty úložiště | Celková velikost úložiště |
+|                                      | Cores | Úložiště virtuálního počítače | Memory (Paměť)  | Účty úložiště | Celkové úložiště |
 |--------------------------------------|-------|------------|---------|------------------|---------------|
-| **1. CU poskytovatel prostředků clusteru** | 16    | 800 GiB    | 91 GiB  | 6                | \* proměnných    |
-| **2 – CU poskytovatel prostředků clusteru** | 26    | 1,3 TB     | 161 GiB | 10               | \* proměnných    |
-| **4 – CU poskytovatel prostředků clusteru** | 46    | 2,3 TB     | 301 GiB | 18               | \* proměnných    |
+| **1. CU poskytovatel prostředků clusteru** | 16    | 800 GiB    | 91 GiB  | 6                | variabilní\*    |
+| **2 – CU poskytovatel prostředků clusteru** | 26    | 1,3 TB     | 161 GiB | 10               | variabilní\*    |
+| **4 – CU poskytovatel prostředků clusteru** | 46    | 2,3 TB     | 301 GiB | 18               | variabilní\*    |
 
-\* přenosového bloku dat (zpráva/událost) a uchovávání zpráv jsou dva důležité faktory, které přispívají k úložišti používanému Event Hubs clustery. Pokud je například uchovávání zpráv nastaveno na 7 dní při vytváření centra událostí a zprávy se ingestují rychlostí 1 MB/s, přibližné využité úložiště je 604 GB (1 MB × 60 sekund × 60 minut × 24 hodin × 7 dnů). Pokud se zprávy odesílají rychlostí 20MB/s s uchováním 7 dní, je přibližná spotřeba úložiště 12 TB pokryje. Nezapomeňte vzít v úvahu rychlost příchozího přenosu dat a dobu uchování, abyste plně pochopili spotřebu kapacity úložiště.
+\*Přenosová rychlost příchozího přenosu dat (zpráva/událost) a uchovávání zpráv jsou dva důležité faktory, které přispívají k úložišti používanému Event Hubs clustery. Pokud je například uchovávání zpráv nastaveno na 7 dní při vytváření centra událostí a zprávy se ingestují rychlostí 1 MB/s, přibližné využité úložiště je 604 GB (1 MB × 60 sekund × 60 minut × 24 hodin × 7 dnů). Pokud se zprávy odesílají rychlostí 20MB/s s uchováním 7 dní, je přibližná spotřeba úložiště 12 TB pokryje. Nezapomeňte vzít v úvahu rychlost příchozího přenosu dat a dobu uchování, abyste plně pochopili spotřebu kapacity úložiště.
 
 ## <a name="next-steps"></a>Další kroky
 

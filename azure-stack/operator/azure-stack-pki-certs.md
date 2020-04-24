@@ -8,10 +8,10 @@ ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 12/16/2019
 ms.openlocfilehash: c4565ce33faf1f76a4774736d9195c9d7256b6da
-ms.sourcegitcommit: dd53af1b0fc2390de162d41e3d59545d1baad1a7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "80423829"
 ---
 # <a name="azure-stack-hub-public-key-infrastructure-pki-certificate-requirements"></a>Požadavky na certifikát infrastruktury veřejných klíčů (PKI) Azure Stack hub
@@ -25,14 +25,14 @@ Centrum Azure Stack má síť s veřejnou infrastrukturou, která používá ext
 > [!NOTE]
 > Azure Stack centrum ve výchozím nastavení používá k ověřování mezi uzly certifikáty vydané interní certifikační autoritou (CA) integrovaná se službou Active Directory. Aby bylo možné certifikát ověřit, všechny počítače infrastruktury centra Azure Stack důvěřují kořenovému certifikátu interní certifikační autority přidáním tohoto certifikátu do místního úložiště certifikátů. V centru Azure Stack není žádné připnutí ani seznam povolených certifikátů. SÍŤ SAN každého certifikátu serveru je ověřena vůči plně kvalifikovanému názvu domény cíle. Také se ověří celý řetěz důvěryhodnosti spolu s datem vypršení platnosti certifikátu (standardní ověřování serveru TLS bez připnutí certifikátu).
 
-## <a name="certificate-requirements"></a>Požadavky na certifikát
+## <a name="certificate-requirements"></a>Požadavky na certifikáty
 Následující seznam popisuje požadavky na certifikáty, které jsou potřeba k nasazení centra Azure Stack:
 
 - Certifikáty se musí vydávat buď z interní certifikační autority, nebo z veřejné certifikační autority. Pokud se používá Veřejná certifikační autorita, musí být součástí základní image operačního systému v rámci programu Microsoft Trusted root Authority. Úplný seznam najdete v tématu [program důvěryhodných kořenových certifikátů společnosti Microsoft: účastníci](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
 - Vaše infrastruktura centra Azure Stack musí mít síťový přístup k umístění seznamu odvolaných certifikátů (CRL) certifikační autority publikovaného v certifikátu. Tento seznam odvolaných certifikátů musí být koncovým bodem HTTP.
 - Při střídání certifikátů v předběžně 1903 sestaveních musí být certifikáty vystavené ze stejné interní certifikační autority, která se používá k podepisování certifikátů poskytovaných při nasazení nebo kterékoli veřejné certifikační autority. V 1903 a novějších verzích je možné certifikáty vystavovat v rámci certifikační autority nebo veřejné certifikační autority.
 - Použití certifikátů podepsaných svým držitelem není podporováno.
-- Pro nasazení a rotaci můžete buď použít jeden certifikát, který pokrývá všechny obory názvů v poli název předmětu a alternativní název předmětu (SAN) certifikátu, nebo můžete použít jednotlivé certifikáty pro každý z oborů názvů, které jsou pod ním Azure Stack hub. služby, které hodláte využít. Oba přístupy vyžadují použití zástupných karet pro koncové body, kde jsou povinné, jako je třeba **trezor** klíčů a **KeyVaultInternal**.
+- Pro nasazení a rotaci můžete buď použít jeden certifikát, který pokrývá všechny obory názvů v poli název předmětu a alternativní název předmětu (SAN) certifikátu, nebo můžete použít jednotlivé certifikáty pro každý obor názvů pod tím, že služby Azure Stack hub, které hodláte využívat, vyžadují. Oba přístupy vyžadují použití zástupných karet pro koncové body, kde jsou povinné, jako je třeba **trezor** klíčů a **KeyVaultInternal**.
 - Šifrování PFX certifikátu by mělo být 3DES.
 - Algoritmus podpisu certifikátu by neměl být SHA1.
 - Formát certifikátu musí být PFX, protože veřejné i privátní klíče se vyžadují pro Azure Stack instalaci centra. Privátní klíč musí mít nastaven atribut klíč místního počítače.
@@ -56,35 +56,35 @@ Následující seznam popisuje požadavky na certifikáty, které jsou potřeba 
 ## <a name="mandatory-certificates"></a>Povinné certifikáty
 Tabulka v této části popisuje certifikáty PKI veřejného koncového bodu centra Azure Stack, které jsou vyžadovány pro nasazení služby Azure AD a AD FS Azure Stack hub. Požadavky na certifikát jsou seskupené podle oblasti a také jako používané obory názvů a certifikáty, které jsou požadovány pro každý obor názvů. Tabulka také popisuje složku, ve které poskytovatel řešení kopíruje různé certifikáty na veřejný koncový bod.
 
-Vyžadují se certifikáty s příslušnými názvy DNS pro každý koncový bod veřejné infrastruktury centra Azure Stack. Název DNS každého koncového bodu je vyjádřen ve formátu: *&lt;> předpony.&lt;oblast >.&lt;plně kvalifikovaný název domény >* .
+Vyžadují se certifikáty s příslušnými názvy DNS pro každý koncový bod veřejné infrastruktury centra Azure Stack. Název DNS každého koncového bodu je vyjádřen ve formátu: * &lt;prefix>.&lt;> oblasti plně &lt;kvalifikovaný název domény>*.
 
-Pro vaše nasazení musí hodnoty [region] a [externalfqdn] odpovídat oblasti a názvům externích domén, které jste zvolili pro váš systém Azure Stack hub. Příklad: Pokud byl název oblasti *Redmond* a externí název domény byl *contoso.com*, názvy DNS budou mít formát *&lt;předponu >. Redmond. contoso. com*. Hodnota *předpony&lt;>* je předdefinována společností Microsoft, aby popsala koncový bod zabezpečený certifikátem. Kromě toho *prefix&lt;>* hodnoty externích koncových bodů infrastruktury závisí na službě centra Azure Stack, která používá konkrétní koncový bod.
+Pro vaše nasazení musí hodnoty [region] a [externalfqdn] odpovídat oblasti a názvům externích domén, které jste zvolili pro váš systém Azure Stack hub. Příklad: Pokud byl název oblasti *Redmond* a externí název domény byl *contoso.com*, názvy DNS budou mít * &lt;předponu formátu>. Redmond.contoso.com*. Předpona>hodnoty jsou předdefinována společností Microsoft, aby popsala koncový bod zabezpečený certifikátem. * &lt;* Kromě toho je * &lt;prefix>* hodnoty externích koncových bodů infrastruktury závislý na službě Azure Stack hub, která používá konkrétní koncový bod.
 
 Pro produkční prostředí doporučujeme pro každý koncový bod vygenerovat jednotlivé certifikáty a zkopírovat je do odpovídajícího adresáře. Pro vývojová prostředí je možné certifikáty zadat jako jeden certifikát se zástupným znakem, který pokrývá všechny obory názvů v polích předmět a alternativní název předmětu (SAN) zkopírované do všech adresářů. Jeden certifikát, který pokrývá všechny koncové body a služby, je nezabezpečený stav, a proto jenom pro vývoj. Pamatujte si, že obě možnosti vyžadují, abyste použili certifikáty se zástupnými znaky pro koncové body, jako je **ACS** , a Key Vault tam, kde jsou
 
 > [!Note]  
-> Během nasazování musíte zkopírovat certifikáty do složky pro nasazení, která odpovídá zprostředkovateli identity, na který nasazujete (Azure AD nebo AD FS). Pokud používáte jeden certifikát pro všechny koncové body, musíte tento soubor certifikátu zkopírovat do každé složky pro nasazení, jak je uvedeno v následujících tabulkách. Struktura složky je předem vytvořená ve virtuálním počítači pro nasazení a je možné ji najít na adrese: C:\CloudDeployment\Setup\Certificates.
+> Během nasazování musíte zkopírovat certifikáty do složky pro nasazení, která odpovídá zprostředkovateli identity, na který nasazujete (Azure AD nebo AD FS). Pokud používáte jeden certifikát pro všechny koncové body, musíte tento soubor certifikátu zkopírovat do každé složky pro nasazení, jak je uvedeno v následujících tabulkách.Struktura složky je předem vytvořená ve virtuálním počítači pro nasazení a je možné ji najít na adrese: C:\CloudDeployment\Setup\Certificates.
 
 | Složka pro nasazení | Požadovaný předmět certifikátu a alternativní názvy subjektu (SAN) | Rozsah (na oblast) | Obor názvů subdomény |
 |-------------------------------|------------------------------------------------------------------|----------------------------------|-----------------------------|
-| Veřejný portál | bran. >&lt;oblasti.&lt;plně kvalifikovaný název domény > | Portály | > &lt;oblasti.&lt;plně kvalifikovaný název domény > |
-| Portál pro správu | adminportal. >&lt;oblasti.&lt;plně kvalifikovaný název domény > | Portály | > &lt;oblasti.&lt;plně kvalifikovaný název domény > |
-| Azure Resource Manager veřejné | správu. >&lt;oblasti.&lt;plně kvalifikovaný název domény > | Azure Resource Manager | > &lt;oblasti.&lt;plně kvalifikovaný název domény > |
-| Správce Azure Resource Manager | adminmanagement. >&lt;oblasti.&lt;plně kvalifikovaný název domény > | Azure Resource Manager | > &lt;oblasti.&lt;plně kvalifikovaný název domény > |
-| ACSBlob | *. blob. >&lt;oblasti.&lt;plně kvalifikovaný název domény ><br>(Zástupný certifikát SSL) | Blob Storage | příznaky. >&lt;oblasti.&lt;plně kvalifikovaný název domény > |
-| ACSTable | *. Table. >&lt;oblasti.&lt;plně kvalifikovaný název domény ><br>(Zástupný certifikát SSL) | Table Storage | stolní. >&lt;oblasti.&lt;plně kvalifikovaný název domény > |
-| ACSQueue | *. Queue. >&lt;oblasti.&lt;plně kvalifikovaný název domény ><br>(Zástupný certifikát SSL) | Queue Storage | provedených. >&lt;oblasti.&lt;plně kvalifikovaný název domény > |
-| KeyVault | *. trezor. >&lt;oblasti.&lt;plně kvalifikovaný název domény ><br>(Zástupný certifikát SSL) | Key Vault | hesel. >&lt;oblasti.&lt;plně kvalifikovaný název domény > |
-| KeyVaultInternal | *.adminvault. >&lt;oblasti.&lt;plně kvalifikovaný název domény ><br>(Zástupný certifikát SSL) |  Interní Trezor klíčů |  adminvault. >&lt;oblasti.&lt;plně kvalifikovaný název domény > |
-| Hostitel rozšíření Správce | *.adminhosting. >\<oblasti.\<plně kvalifikovaný název domény > (zástupné certifikáty SSL) | Hostitel rozšíření Správce | adminhosting. >\<oblasti.\<plně kvalifikovaný název domény > |
-| Hostitel veřejného rozšíření | *. Hosting. >\<oblasti.\<plně kvalifikovaný název domény > (zástupné certifikáty SSL) | Hostitel veřejného rozšíření | který. >\<oblasti.\<plně kvalifikovaný název domény > |
+| Veřejný portál | bran. &lt;> oblasti &lt;plně kvalifikovaný název domény> | Portals | &lt;> oblasti &lt;plně kvalifikovaný název domény> |
+| Portál pro správu | adminportal. &lt;> oblasti &lt;plně kvalifikovaný název domény> | Portals | &lt;> oblasti &lt;plně kvalifikovaný název domény> |
+| Azure Resource Manager veřejné | správu. &lt;> oblasti &lt;plně kvalifikovaný název domény> | Azure Resource Manager | &lt;> oblasti &lt;plně kvalifikovaný název domény> |
+| Správce Azure Resource Manager | adminmanagement. &lt;> oblasti &lt;plně kvalifikovaný název domény> | Azure Resource Manager | &lt;> oblasti &lt;plně kvalifikovaný název domény> |
+| ACSBlob | *. blob. &lt;> oblasti &lt;plně kvalifikovaný název domény><br>(Zástupný certifikát SSL) | Blob Storage | příznaky. &lt;> oblasti &lt;plně kvalifikovaný název domény> |
+| ACSTable | *. Table. &lt;> oblasti &lt;plně kvalifikovaný název domény><br>(Zástupný certifikát SSL) | Table Storage | stolní. &lt;> oblasti &lt;plně kvalifikovaný název domény> |
+| ACSQueue | *. Queue. &lt;> oblasti &lt;plně kvalifikovaný název domény><br>(Zástupný certifikát SSL) | Queue Storage | provedených. &lt;> oblasti &lt;plně kvalifikovaný název domény> |
+| KeyVault | *. trezor. &lt;> oblasti &lt;plně kvalifikovaný název domény><br>(Zástupný certifikát SSL) | Key Vault | hesel. &lt;> oblasti &lt;plně kvalifikovaný název domény> |
+| KeyVaultInternal | *.adminvault. &lt;> oblasti &lt;plně kvalifikovaný název domény><br>(Zástupný certifikát SSL) |  Interní Trezor klíčů |  adminvault. &lt;> oblasti &lt;plně kvalifikovaný název domény> |
+| Hostitel rozšíření Správce | *.adminhosting. \<> oblasti \<plně kvalifikovaný název domény> (zástupné certifikáty SSL) | Hostitel rozšíření Správce | adminhosting. \<> oblasti \<plně kvalifikovaný název domény> |
+| Hostitel veřejného rozšíření | *. Hosting. \<> oblasti \<plně kvalifikovaný název domény> (zástupné certifikáty SSL) | Hostitel veřejného rozšíření | který. \<> oblasti \<plně kvalifikovaný název domény> |
 
 Pokud nasadíte Azure Stack centrum pomocí režimu nasazení služby Azure AD, stačí, když vyžádáte certifikáty uvedené v předchozí tabulce. Pokud ale Azure Stack centrum nasazujete pomocí režimu nasazení AD FS, musíte si taky vyžádat certifikáty popsané v následující tabulce:
 
 |Složka pro nasazení|Požadovaný předmět certifikátu a alternativní názvy subjektu (SAN)|Rozsah (na oblast)|Obor názvů subdomény|
 |-----|-----|-----|-----|
-|ADFS|službou. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*<br>(Certifikát SSL)|ADFS|*> &lt;oblasti.&lt;plně kvalifikovaný název domény >*|
-|Graf|zapisovací. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*<br>(Certifikát SSL)|Graf|*> &lt;oblasti.&lt;plně kvalifikovaný název domény >*|
+|ADFS|službou. * &lt;> oblasti &lt;plně kvalifikovaný název domény>*<br>(Certifikát SSL)|ADFS|*&lt;> oblasti &lt;plně kvalifikovaný název domény>*|
+|Graph|zapisovací. * &lt;> oblasti &lt;plně kvalifikovaný název domény>*<br>(Certifikát SSL)|Graph|*&lt;> oblasti &lt;plně kvalifikovaný název domény>*|
 |
 
 > [!IMPORTANT]
@@ -100,16 +100,16 @@ Následující tabulka obsahuje popis koncových bodů a certifikátů vyžadova
 
 |Rozsah (na oblast)|Certifikát|Požadovaný předmět certifikátu a alternativní názvy subjektu (San)|Obor názvů subdomény|
 |-----|-----|-----|-----|
-|SQL, MySQL|SQL a MySQL|&#42;.dbadapter. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*<br>(Zástupný certifikát SSL)|dbadapter. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*|
-|App Service|Výchozí certifikát SSL pro webový provoz|&#42;AppService. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*<br>&#42;. SCM. AppService. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*<br>&#42;. SSO. AppService. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*<br>(Certifikát SSL s více doménovými znaky<sup>1</sup>)|AppService. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*<br>SCM. AppService. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*|
-|App Service|API|API. AppService. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*<br>(Certifikát SSL<sup>2</sup>)|AppService. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*<br>SCM. AppService. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*|
-|App Service|FTP|FTP. AppService. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*<br>(Certifikát SSL<sup>2</sup>)|AppService. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*<br>SCM. AppService. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*|
-|App Service|JEDNOTNÉ|SSO. AppService. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*<br>(Certifikát SSL<sup>2</sup>)|AppService. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*<br>SCM. AppService. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >*|
-|Event Hubs|Event Hubs|&#42;eventhub. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >* (San)| eventhub. *>&lt;oblasti.&lt;plně kvalifikovaný název domény >* |
+|SQL, MySQL|SQL a MySQL|&#42;. dbadapter. * &lt;> oblasti &lt;plně kvalifikovaný název domény>*<br>(Zástupný certifikát SSL)|dbadapter. * &lt;> oblasti &lt;plně kvalifikovaný název domény>*|
+|App Service|Výchozí certifikát SSL pro webový provoz|&#42;. AppService. * &lt;> oblasti &lt;plně kvalifikovaný název domény>*<br>&#42;. SCM. AppService. * &lt;> oblasti &lt;plně kvalifikovaný název domény>*<br>&#42;. SSO. AppService. * &lt;> oblasti &lt;plně kvalifikovaný název domény>*<br>(Certifikát SSL s více doménovými znaky<sup>1</sup>)|AppService. * &lt;> oblasti &lt;plně kvalifikovaný název domény>*<br>SCM. AppService. * &lt;> oblasti &lt;plně kvalifikovaný název domény>*|
+|App Service|Rozhraní API|API. AppService. * &lt;> oblasti &lt;plně kvalifikovaný název domény>*<br>(Certifikát SSL<sup>2</sup>)|AppService. * &lt;> oblasti &lt;plně kvalifikovaný název domény>*<br>SCM. AppService. * &lt;> oblasti &lt;plně kvalifikovaný název domény>*|
+|App Service|FTP|FTP. AppService. * &lt;> oblasti &lt;plně kvalifikovaný název domény>*<br>(Certifikát SSL<sup>2</sup>)|AppService. * &lt;> oblasti &lt;plně kvalifikovaný název domény>*<br>SCM. AppService. * &lt;> oblasti &lt;plně kvalifikovaný název domény>*|
+|App Service|Jednotné přihlašování|SSO. AppService. * &lt;> oblasti &lt;plně kvalifikovaný název domény>*<br>(Certifikát SSL<sup>2</sup>)|AppService. * &lt;> oblasti &lt;plně kvalifikovaný název domény>*<br>SCM. AppService. * &lt;> oblasti &lt;plně kvalifikovaný název domény>*|
+|Event Hubs|Event Hubs|&#42;. eventhub. * &lt;> oblasti plně &lt;kvalifikovaný název domény>* (San)| eventhub. * &lt;> oblasti &lt;plně kvalifikovaný název domény>* |
 
 <sup>1</sup> vyžaduje jeden certifikát s více alternativními názvy subjektu zástupného znaku. Všechny veřejné certifikační autority nemusí podporovat více než jeden zástupný znak sítě SAN na jednom certifikátu.
 
-<sup>2</sup> A &#42;. AppService. *&lt;oblast >.&lt;plně kvalifikovaný název domény >* certifikát se zástupnými znaky nejde použít místo těchto tří certifikátů (API. AppService.&lt; *oblast >.&lt;plně kvalifikovaný název domény >* , FTP. appservice.&lt; *oblast >.&lt;plně kvalifikovaný název domény >* a sso. AppService. *&lt;oblast >.&lt;plně kvalifikovaný název domény >* . AppService explicitně vyžaduje použití samostatných certifikátů pro tyto koncové body.
+<sup>2</sup> &#42;. AppService. * &lt;> oblasti plně &lt;kvalifikovaný název domény>* zástupný certifikát se nedá použít místo těchto tří certifikátů (API. AppService.* &lt;> oblasti plně &lt;kvalifikovaný název domény>*, FTP. AppService. * &lt;> oblasti plně &lt;kvalifikovaný název domény>* a SSO. AppService. * &lt;> oblasti plně &lt;kvalifikovaný název domény>*. AppService explicitně vyžaduje použití samostatných certifikátů pro tyto koncové body.
 
 ## <a name="learn-more"></a>Další informace
 Naučte se [generovat certifikáty PKI pro nasazení centra Azure Stack](azure-stack-get-pki-certs.md).

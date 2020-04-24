@@ -3,15 +3,15 @@ title: Využití dat monitorování z centra Azure Stack
 description: Seznamte se s možnostmi pro využívání dat monitorování z centra Azure Stack.
 author: mattbriggs
 ms.topic: article
-ms.date: 11/11/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 9bbe39f63a4b59446f5c8d6444381afc9ea89cc8
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 933d05e17098ed7ef27a21d5ed846a420ff2f48a
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77703923"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81660508"
 ---
 # <a name="consume-monitoring-data-from-azure-stack-hub"></a>Využití dat monitorování z centra Azure Stack
 
@@ -19,7 +19,7 @@ Data monitorování se nacházejí v jednom umístění s kanálem Azure Monitor
  
 ## <a name="options-for-data-consumption"></a>Možnosti pro spotřebu dat
 
-| Typ dat | Kategorie | Podporované služby | Metody přístupu |
+| Datový typ | Kategorie | Podporované služby | Metody přístupu |
 |-------------------------------------------------------------|----------|------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|
 | Azure Monitor metriky na úrovni platformy | Metriky | [Podporované metriky s Azure Monitor v centru Azure Stack](azure-stack-metrics-supported.md) | REST API |
 | Metriky pro operační systémy služby COMPUTE pro výpočty (například čítač výkonu) | Metriky | Virtuální počítače se systémem Windows a Linux | Tabulka nebo objekt BLOB úložiště:<br>Azure Diagnostics systému Windows nebo Linux <br>Centrum událostí:<br>Diagnostika Azure pro Windows |

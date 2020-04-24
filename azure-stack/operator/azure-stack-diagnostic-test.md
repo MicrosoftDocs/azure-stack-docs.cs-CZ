@@ -8,10 +8,10 @@ ms.author: justinha
 ms.reviewer: adshar
 ms.lastreviewed: 01/10/2020
 ms.openlocfilehash: 9b082876dca1e39f99ac0b98a7e438aa1231b3c2
-ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/18/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79512537"
 ---
 # <a name="validate-azure-stack-hub-system-state"></a>Ověřit stav systému centra Azure Stack
@@ -47,7 +47,7 @@ Jak je uvedeno výše, nástroj pro ověření se spouští přes PEP. Každý t
 
    Další informace najdete v tématu věnovaném [parametrům](azure-stack-diagnostic-test.md#parameter-considerations) a [příkladům případu použití](azure-stack-diagnostic-test.md#use-case-examples).
 
-1. Pokud dojde k **selhání**jakékoli testy, spusťte `Get-AzureStackLog`. Pokyny k integrovanému systému najdete v tématu spuštění rutiny [Get-AzureStackLog v systémech integrovaných v centru Azure Stack](azure-stack-get-azurestacklog.md).
+1. Pokud dojde k **selhání**jakékoli testy, `Get-AzureStackLog`spusťte příkaz. Pokyny k integrovanému systému najdete v tématu spuštění rutiny [Get-AzureStackLog v systémech integrovaných v centru Azure Stack](azure-stack-get-azurestacklog.md).
 
    Rutina shromáždí protokoly generované rutinou test-AzureStack. Doporučujeme, abyste neshromáždili protokoly a místo toho kontaktovali šablony stylů CSS, pokud testy **upozorňují**na zprávu.
 
@@ -159,7 +159,7 @@ Enter-PSSession -ComputerName "<ERCS VM-name/IP address>" -ConfigurationName Pri
 Test-AzureStack -ServiceAdminCredential "<Cloud administrator user name>" -Include AzsScenarios   
 ```
 
-Uživatelské jméno správce cloudu musí být zadané ve formátu UPN: serviceadmin@contoso.onmicrosoft.com (Azure AD). Po zobrazení výzvy zadejte heslo k účtu správce cloudu.
+Uživatelské jméno správce cloudu musí být zadané ve formátu hlavního názvu uživatele serviceadmin@contoso.onmicrosoft.com (UPN): (Azure AD). Po zobrazení výzvy zadejte heslo k účtu správce cloudu.
 
 ### <a name="groups"></a>Skupiny
 

@@ -3,16 +3,16 @@ title: Postup replikace prostředků napříč několika předplatnými centra A
 description: Naučte se replikovat prostředky pomocí sady Azure Stack Replikátor předplatných rozbočovače.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 11/07/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: 5ecb5bc2dace6b79d742a61c0c2cdf5f20ee305f
-ms.sourcegitcommit: 48e493256b0b8bd6cea931cd68a9bd932ca77090
+ms.openlocfilehash: e7997669d6a8ffa5809fdb0ccd852f4abcb08284
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80614453"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81660532"
 ---
 # <a name="replicate-resources-using-the-azure-stack-hub-subscription-replicator"></a>Replikace prostředků pomocí replikátoru předplatného centra Azure Stack
 
@@ -48,11 +48,11 @@ Základní procesor se skládá z následujících tří skriptů:
 
 Tři skripty řídí tok informací standardním způsobem, který umožňuje větší flexibilitu. Přidání podpory pro další zdroje například nevyžaduje, abyste změnili žádný kód v jádru procesoru.
 
-Přizpůsobené procesory, které byly zmíněny výše, jsou `ps1` soubory, které určují, jak by měl být zpracován konkrétní typ prostředku. Název přizpůsobeného procesoru je vždy pojmenován pomocí dat typu v prostředku. Předpokládejme například, že `$vm` drží objekt virtuálního počítače se spuštěnou `$vm`. Typ by vrátil `Microsoft.Compute/virtualMachines`. To znamená, že procesor pro virtuální počítač bude pojmenován `virtualMachines_processor.ps1`, musí být přesně tak, jak se zobrazuje v metadatech prostředků, protože to je způsob, jakým základní procesor určí, který vlastní procesor se má použít.
+Přizpůsobené procesory, které jsme uvedli výše `ps1` , jsou soubory, které určují, jak se má určitý typ prostředku zpracovat. Název přizpůsobeného procesoru je vždy pojmenován pomocí dat typu v prostředku. Předpokládejme `$vm` například, že obsahuje objekt virtuálního počítače, na kterém `$vm`běží. Typ by měl `Microsoft.Compute/virtualMachines`vracet. To znamená, že procesor pro virtuální počítač bude pojmenován `virtualMachines_processor.ps1`, název musí být přesně tak, jak se zobrazuje v metadatech prostředků, protože to je způsob, jakým základní procesor určí, který vlastní procesor se má použít.
 
 Přizpůsobený procesor určuje, jak se má prostředek replikovat, určením informací, které jsou důležité a které určují, jak mají být tyto informace z metadat prostředků vydány. Přizpůsobený procesor potom převezme všechna extrahovaná data a použije je k vygenerování souboru parametrů, který se použije ve spojení se šablonou Azure Resource Manager k nasazení prostředku do cílového předplatného. Tento soubor parametrů je uložen v **Parameter_Files** po jeho následném zpracování pomocí post_process. ps1.
 
-Ve struktuře souborů replikátoru je složka s názvem **Standardized_ARM_Templates**. V závislosti na zdrojovém prostředí budou nasazení používat jednu z těchto standardizovaných šablon Azure Resource Manager, jinak bude nutné vygenerovat vlastní šablonu Azure Resource Manager. V takovém případě musí přizpůsobený procesor volat generátor šablon Azure Resource Manager. V předchozím příkladu byl název generátoru šablon Azure Resource Manager pro virtuální počítače pojmenovaný **virtualMachines_ARM_Template_Generator. ps1**. Generátor šablon Azure Resource Manager zodpovídá za vytvoření vlastní šablony Azure Resource Manager na základě toho, jaké informace jsou v metadatech prostředku. Pokud má například prostředek virtuálního počítače metadata, která určují, že je členem skupiny dostupnosti, vytvoří generátor šablon Azure Resource Manager Azure Resource Manager šablonu s kódem, který určuje ID skupiny dostupnosti. virtuální počítač je součástí. Tímto způsobem, když se virtuální počítač nasadí do nového předplatného, automaticky se přidá do skupiny dostupnosti při nasazení. Tyto přizpůsobené šablony Azure Resource Manager se ukládají do složky **Custom_ARM_Templates** nacházející se ve složce **Standardized_ARM_Templates** . Post_processor. ps1 zodpovídá za rozhodnutí, jestli nasazení má používat standardizovanou Azure Resource Manager šablonu nebo přizpůsobenou šablonu a generuje odpovídající kód nasazení.
+Ve struktuře souborů replikátoru je složka s názvem **Standardized_ARM_Templates**. V závislosti na zdrojovém prostředí budou nasazení používat jednu z těchto standardizovaných šablon Azure Resource Manager, jinak bude nutné vygenerovat vlastní šablonu Azure Resource Manager. V takovém případě musí přizpůsobený procesor volat generátor šablon Azure Resource Manager. V předchozím příkladu byl název generátoru šablon Azure Resource Manager pro virtuální počítače pojmenovaný **virtualMachines_ARM_Template_Generator. ps1**. Generátor šablon Azure Resource Manager zodpovídá za vytvoření vlastní šablony Azure Resource Manager na základě toho, jaké informace jsou v metadatech prostředku. Pokud má například prostředek virtuálního počítače metadata, která určují, že je členem skupiny dostupnosti, vytvoří generátor šablon Azure Resource Manager Azure Resource Manager šablonu s kódem, který určuje ID skupiny dostupnosti, do které je virtuální počítač součástí. Tímto způsobem, když se virtuální počítač nasadí do nového předplatného, automaticky se přidá do skupiny dostupnosti při nasazení. Tyto přizpůsobené šablony Azure Resource Manager se ukládají do složky **Custom_ARM_Templates** nacházející se ve složce **Standardized_ARM_Templates** . Post_processor. ps1 zodpovídá za rozhodnutí, jestli nasazení má používat standardizovanou Azure Resource Manager šablonu nebo přizpůsobenou šablonu a generuje odpovídající kód nasazení.
 
 Skript **post-Process. ps1** zodpovídá za vyčištění souborů parametrů a vytváření skriptů, které bude uživatel používat k nasazení nových prostředků. Ve fázi čištění nahradí skript všechny odkazy na ID zdrojového předplatného, ID tenanta a umístění s odpovídajícími cílovými hodnotami. Pak výstup souboru parametrů do složky **Parameter_Files** . Pak určí, zda zpracovávaný prostředek používá vlastní šablonu Azure Resource Manager nebo ne, a vygeneruje odpovídající kód nasazení, který využívá rutinu **New-AzureRmResourceGroupDeployment** . Kód nasazení se pak přidá do souboru s názvem **DeployResources. ps1** , který je uložený ve složce **Deployment_Files** . Nakonec skript určí skupinu prostředků, do které prostředek patří, a zkontroluje skript **DeployResourceGroups. ps1** , aby zjistil, zda již existuje kód nasazení k nasazení této skupiny prostředků. Pokud tomu tak není, přidá do tohoto skriptu kód pro nasazení skupiny prostředků, pokud pak neprovede žádnou akci.
 
@@ -102,7 +102,7 @@ Deployment_Files budou obsahovat dva soubory **DeployResourceGroups. ps1** a **D
 
     ![Konfigurace a spuštění nasazení](./media/azure-stack-network-howto-backup-replicator/image6.png)
 
-4.  Ke kontrole stavu spusťte `Get-Job`. Get-Job | Receive – úloha vrátí výsledky.
+4.  Spusťte `Get-Job` pro kontrolu stavu. Get-Job | Receive – úloha vrátí výsledky.
 
 ## <a name="clean-up"></a>Vyčištění
 
@@ -116,39 +116,39 @@ Replikátor předplatných Azure (V3) nyní může replikovat následující typ
 
 - Microsoft.Compute/virtualMachines
 
-- Microsoft.Network/loadBalancers
+- Microsoft. Network/loadBalancers
 
-- Microsoft.Network/networkSecurityGroups
+- Microsoft. Network/networkSecurityGroups
 
-- Microsoft.Network/publicIPAddresses
+- Microsoft. Network/publicIPAddresses
 
 - Microsoft. Network/routeTables
 
-- Microsoft.Network/virtualNetworks
+- Microsoft. Network/virtualNetworks
 
-- Microsoft.Network/virtualNetworkGateways
+- Microsoft. Network/virtualNetworkGateways
 
-- Microsoft.Storage/storageAccounts
+- Microsoft. Storage/storageAccounts
 
 Při spuštění nástroje se **všemi** typy prostředků se při replikaci a nasazení použijí následující pořadí (v níže uvedeném případě všechny prostředky mají replikovanou konfiguraci, tj. SKU, nabídky atd.):
 
-- Microsoft.Network/virtualNetworks
+- Microsoft. Network/virtualNetworks
 
     - Replikuje: – všechny adresní prostory – všechny podsítě
 
-- Microsoft.Network/virtualNetworkGateways
+- Microsoft. Network/virtualNetworkGateways
 
     - Replikace:-Konfigurace veřejné IP adresy-konfigurace podsítě-typ sítě VPN – typ brány
 
 - Microsoft. Network/routeTables
 
-- Microsoft.Network/networkSecurityGroups
+- Microsoft. Network/networkSecurityGroups
 
     - Replikuje:-všechna pravidla zabezpečení příchozí a odchozí
 
-- Microsoft.Network/publicIPAddresses
+- Microsoft. Network/publicIPAddresses
 
-- Microsoft.Network/loadBalancers
+- Microsoft. Network/loadBalancers
 
     - Replikuje: – privátní IP adresy – konfigurace veřejné IP adresy – konfigurace podsítě
     
@@ -156,7 +156,7 @@ Při spuštění nástroje se **všemi** typy prostředků se při replikaci a n
 
     - Replikuje:-počet domén selhání – počet aktualizačních domén
 
-- Microsoft.Storage/storageAccounts
+- Microsoft. Storage/storageAccounts
 
 - Microsoft.Compute/virtualMachines
     - Replikuje  

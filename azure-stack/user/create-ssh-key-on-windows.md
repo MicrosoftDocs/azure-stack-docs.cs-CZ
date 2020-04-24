@@ -7,16 +7,16 @@ ms.date: 2/28/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 2/28/2020
-ms.openlocfilehash: e82ddb48b3858acdf25163976854f538400da54b
-ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
+ms.openlocfilehash: b8bc4c1a9e56f363fa604e8df7a1fa0dbe37fcb0
+ms.sourcegitcommit: 355e21dd9b8c3f44e14abaae0b4f176443cf7495
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "80069205"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81624975"
 ---
 # <a name="create-an-ssh-key-for-linux-on-azure-stack-hub"></a>Vytvoření klíče SSH pro Linux v centru Azure Stack
 
-Můžete vytvořit klíč SSH (Secure Shell) pro počítač se systémem Linux na počítači s Windows. Použijte veřejný klíč vygenerovaný kroky v tomto článku pro ověřování SSH pomocí virtuálních počítačů. Pokud používáte Windows Machine Ubuntu v systému Windows k získání terminálu s nástroji, jako jsou bash, SSH, Git a Ubuntu ve Windows. Vytvořte klíč spuštěním **ssh-keygen** .
+Můžete vytvořit klíč SSH (Secure Shell) pro počítač se systémem Linux na počítači s Windows. Použijte veřejný klíč vygenerovaný kroky v tomto článku pro ověřování SSH pomocí virtuálních počítačů. Pokud používáte Windows Machine Ubuntu ve Windows k získání terminálu s nástroji, jako je bash, SSH, Git, apt a spousta dalších. Vytvořte klíč spuštěním **ssh-keygen** .
 
 ## <a name="open-bash-on-windows"></a>Otevřít bash ve Windows
 
@@ -84,11 +84,11 @@ Můžete vytvořit klíč SSH (Secure Shell) pro počítač se systémem Linux n
     aignia880qOtQrvNEvyhgZOM5oDhgE3IJ username@machine
     ```
 
-4. Zkopírujte text `ssh-rsa [...]` až do `username@machinename`. Ujistěte se, že text neobsahuje žádné návratové znaky. Tento text můžete použít při vytváření virtuálního počítače nebo clusteru Kubernetes pomocí modulu AKS.
+4. Zkopírujte text `ssh-rsa [...]` do `username@machinename`. Ujistěte se, že text neobsahuje žádné návratové znaky. Tento text můžete použít při vytváření virtuálního počítače nebo clusteru Kubernetes pomocí modulu AKS.
 
-5. Pokud jste na počítači s Windows, můžete získat přístup k souborům Linux pomocí **\\\\WSL $** .
+5. Pokud jste na počítači s Windows, můžete získat přístup k souborům Linux pomocí ** \\ \\WSL $**.
 
-    1. Do panelu nástrojů zadejte `\\wsl$`. Výchozí okno, ve kterém je vaše distribuce otevřená
+    1. Zadejte `\\wsl$` na panelu nástrojů. Výchozí okno, ve kterém je vaše distribuce otevřená
 
     2. Přejděte na: `\\wsl$\Ubuntu\home\<username>` a vyhledejte veřejný a privátní klíč a uložte je do zabezpečeného umístění.
 

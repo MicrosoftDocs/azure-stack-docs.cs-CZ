@@ -3,16 +3,16 @@ title: Vytvoření virtuálního počítače se systémem Linux pomocí centra A
 description: Vytvořte virtuální počítač s Linux serverem pomocí centra Azure Stack.
 author: mattbriggs
 ms.topic: quickstart
-ms.date: 1/10/2020
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 1/10/2020
-ms.openlocfilehash: 5b08cbf0ec316c8a5a2726800942f0d12a458db5
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 75056bbadb3ab5792bd51ed3dcb348ef3d42aa3e
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77702087"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81660426"
 ---
 # <a name="quickstart-create-a-linux-server-vm-by-using-the-azure-stack-hub-portal"></a>Rychlý Start: Vytvoření virtuálního počítače s Linux serverem pomocí portálu Azure Stack hub
 
@@ -63,11 +63,11 @@ Vytvoření páru klíčů SSH:
 
 Adresa portálu centra Azure Stack závisí na tom, k jakému produktu Azure Stack centra se připojujete:
 
-* V případě ASDK přejít na https://portal.local.azurestack.external.
+* Pro ASDK použijte https://portal.local.azurestack.external.
 
 * V případě integrovaného systému služby Azure Stack hub přejít na adresu URL, kterou poskytl váš operátor centra Azure Stack.
 
-## <a name="create-the-vm"></a>Vytvořit virtuální počítač
+## <a name="create-the-vm"></a>Vytvořte virtuální počítač.
 
 1. Vyberte **vytvořit prostředek** > **COMPUTE**. Vyhledejte `Ubuntu Server 16.04 LTS`. Vyberte název.
 
@@ -108,7 +108,7 @@ Adresa portálu centra Azure Stack závisí na tom, k jakému produktu Azure Sta
 
 1. V podokně **kategorie** se posuňte nahoru a vyberte možnost **relace**.
 
-1. Do pole **název hostitele (nebo IP adresa)** vložte připojovací řetězec, který je zobrazený na portálu centra Azure Stack. V tomto příkladu je řetězec *asadmin@192.168.102.34* .
+1. Do pole **název hostitele (nebo IP adresa)** vložte připojovací řetězec, který je zobrazený na portálu centra Azure Stack. V tomto příkladu je *asadmin@192.168.102.34*řetězec.
 
 1. Výběrem **otevřít** otevřete relaci pro virtuální počítač.
 
@@ -152,7 +152,7 @@ Skupina zabezpečení sítě (NSG) zabezpečuje příchozí a odchozí provoz. K
 
 Když jste nainstalovali NGINX a na VIRTUÁLNÍm počítači jste otevřeli port 80, můžete k webovému serveru přistupovat pomocí veřejné IP adresy virtuálního počítače. (Veřejná IP adresa se zobrazí na stránce **Přehled** virtuálního počítače.)
 
-Otevřete webový prohlížeč a na *> http://\<veřejné IP adresy*.
+Otevřete webový prohlížeč a v *>veřejné IP adresy\<http:// *.
 
 ![Úvodní stránka webového serveru NGINX](media/azure-stack-quick-linux-portal/linux-05a.png)
 

@@ -3,16 +3,16 @@ title: Stažení položek z webu Marketplace z Azure a publikování do centra A
 description: Přečtěte si, jak stáhnout položky z webu Marketplace z Azure a publikovat do centra Azure Stack.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 02/04/2020
+ms.date: 04/08/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 12/23/2019
-ms.openlocfilehash: 38e0f6deea5cfeb86ba3c42c8590004ee5dc99bc
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.openlocfilehash: a37f8b14a1a21caa8f710afe54868f308971e422
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79294239"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "80979411"
 ---
 # <a name="download-marketplace-items-to-azure-stack-hub"></a>Stažení položek z Marketplace do centra Azure Stack 
 
@@ -32,7 +32,7 @@ Existují dva scénáře stažení produktů z webu Marketplace:
 
 Pokud se centrum Azure Stack připojuje k Internetu, můžete k stažení položek z Marketplace použít portál pro správu.
 
-### <a name="prerequisites"></a>Předpoklady
+### <a name="prerequisites"></a>Požadavky
 
 Vaše nasazení centra Azure Stack musí mít připojení k Internetu a musí být zaregistrované v Azure.
 
@@ -42,7 +42,7 @@ Vaše nasazení centra Azure Stack musí mít připojení k Internetu a musí b�
 
 2. Před stažením položek z webu Marketplace zkontrolujte dostupný prostor úložiště. Později můžete po výběru položek ke stažení porovnat velikost stahovaných zařízení s dostupnou kapacitou úložiště. Pokud je kapacita omezená, zvažte možnosti [správy dostupného místa](azure-stack-manage-storage-shares.md#manage-available-space).
 
-   Chcete-li zkontrolovat dostupné místo: v **oblasti Správa oblastí**vyberte oblast, kterou chcete prozkoumat, a poté vyhledejte **poskytovatele prostředků** > **úložiště**:
+   Chcete-li zkontrolovat dostupné místo: v **oblasti Správa oblastí**vyberte oblast, kterou chcete prozkoumat, a pak klikněte na > **úložiště** **poskytovatelé prostředků**:
 
    ![Kontrola prostoru úložiště na portálu pro správu centra Azure Stack](media/azure-stack-download-azure-marketplace-item/storage.png)
 
@@ -54,9 +54,9 @@ Vaše nasazení centra Azure Stack musí mít připojení k Internetu a musí b�
 
    ![Přidat z Azure](media/azure-stack-download-azure-marketplace-item/add-from-azure1.png)
 
-5. Pokud je verze položky zobrazená jako **více**, můžete tuto položku vybrat a pak vybrat konkrétní verzi z rozevíracího seznamu výsledná verze – výběr:
+5. Pokud je verze položky zobrazená jako **více**, můžete tuto položku vybrat a pak vybrat konkrétní verzi z rozevíracího seznamu výsledné verze výběr. Všimněte si, že Microsoft teď má možnost přidat atributy, které blokují správcům stažení produktů z Marketplace, které nejsou kompatibilní s jejich Azure Stack, z důvodu různých vlastností, jako je například Azure Stack verze nebo model fakturace. Pouze společnost Microsoft může přidat tyto atributy:
 
-   ![Přidat z Azure](media/azure-stack-download-azure-marketplace-item/add-from-azure3.png)
+   [![Přidat z Azure](media/azure-stack-download-azure-marketplace-item/add-from-azure3sm.png "Více verzí")](media/azure-stack-download-azure-marketplace-item/add-from-azure3.png#lightbox)
 
 6. Vyberte položku, kterou chcete, a pak vyberte **Stáhnout**. Doba stahování se liší a závisí na připojení k síti. Po dokončení stahování můžete novou položku Marketplace nasadit jako operátor centra Azure Stack nebo uživatele.
 
@@ -73,7 +73,7 @@ Tento scénář obsahuje dvě části:
 - **Část 1**: stažení z položek Marketplace. V počítači s přístupem k Internetu konfigurujete PowerShell, stáhnete nástroj syndikace a pak stáhnete položky z Azure Marketplace.
 - **Část 2**: nahrání a publikování na tržišti Azure Stack hub. Soubory, které jste stáhli do prostředí centra Azure Stack, přesunete a pak je publikujete na webu služby Azure Stack hub Marketplace.
 
-### <a name="prerequisites"></a>Předpoklady
+### <a name="prerequisites"></a>Požadavky
 
 - Připojené prostředí (nemusí být Azure Stack hub). Potřebujete připojení, abyste získali seznam produktů z Azure s jejich podrobnostmi a stáhli všechno místně. Až to uděláte, zbývající část postupu nevyžaduje připojení k Internetu. Vytvoří katalog položek, které jste předtím stáhli, abyste je mohli použít v odpojeném prostředí.
 
@@ -138,14 +138,14 @@ Po registraci Azure Stack můžete ignorovat následující zprávu, která se z
      ![Vybrat registrace Azure Stack](media/azure-stack-download-azure-marketplace-item/select-registration.png)
 
    Nyní by se měla zobrazit druhá tabulka se seznamem všech položek Marketplace, které jsou k dispozici ke stažení. Vyberte položku, kterou chcete stáhnout, a poznamenejte si **verzi**. Můžete podržet klávesu **CTRL** a vybrat více obrázků.
-     ![vybrat registrace Azure Stack](media/azure-stack-download-azure-marketplace-item/select-products.png)
+     ![Vybrat registrace Azure Stack](media/azure-stack-download-azure-marketplace-item/select-products.png)
   
    Seznam imagí můžete filtrovat také pomocí možnosti **Přidat kritéria** .
-   ![vybrat registrace Azure Stack](media/azure-stack-download-azure-marketplace-item/select-products-with-filter.png)
+   ![Vybrat registrace Azure Stack](media/azure-stack-download-azure-marketplace-item/select-products-with-filter.png)
 
    Po provedení výběru vyberte OK.
 
-6. ID položek Marketplace, které jste vybrali ke stažení, se uloží do proměnné `$products`. Pomocí následujícího příkazu začněte stahovat vybrané položky. Nahraďte cestu k cílové složce umístěním pro uložení souborů, které stáhnete z Azure Marketplace:
+6. ID položek Marketplace, které jste vybrali ke stažení, se uloží do `$products` proměnné. Pomocí následujícího příkazu začněte stahovat vybrané položky. Nahraďte cestu k cílové složce umístěním pro uložení souborů, které stáhnete z Azure Marketplace:
 
     ```powershell
     $products | Export-AzsMarketplaceItem  -RepositoryDir "Destination folder path in quotes"

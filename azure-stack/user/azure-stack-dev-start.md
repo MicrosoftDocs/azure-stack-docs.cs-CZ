@@ -3,16 +3,16 @@ title: Nastavení vývojového prostředí v centru Azure Stack
 description: Začněte vyvíjet aplikace pro centrum Azure Stack.
 author: mattbriggs
 ms.topic: overview
-ms.date: 11/11/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: ab9ff25591b46df26fa68c33bcea237e57356667
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: d86797e7239b32e779567942b2c53c1ae58d94c8
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77704093"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81661006"
 ---
 # <a name="set-up-a-development-environment-in-azure-stack-hub"></a>Nastavení vývojového prostředí v centru Azure Stack 
 
@@ -53,9 +53,9 @@ Tři výše zmíněné režimy, stejně jako PaaS nebo IaaS, jsou povoleny ve ve
 
 Azure Stack hub používá Azure Stack centra verze Azure Resource Manager. Abychom vám pomohli pracovat s Azure Stack centra Správce prostředků pomocí vlastního kódu, poskytujeme řadu sad SDK, včetně: 
 
-- [PohybyC#](azure-stack-version-profiles-net.md)
+- [.NET/C #](azure-stack-version-profiles-net.md)
 - [Java](azure-stack-version-profiles-java.md)
-- [Go](azure-stack-version-profiles-go.md)
+- [Přejít](azure-stack-version-profiles-go.md)
 - [Ruby](azure-stack-version-profiles-ruby.md)
 - [Python](azure-stack-version-profiles-python.md)
 - [Node.js](azure-stack-version-profile-nodejs.md)
@@ -96,9 +96,9 @@ Pokud používáte počítač s Windows 10, můžete pracovat s PowerShellem 5,0
 
 2. Nainstalujte sadu SDK pro váš kód: 
 
-     - [PohybyC#](azure-stack-version-profiles-net.md) 
+     - [.NET/C #](azure-stack-version-profiles-net.md) 
      - [Java](azure-stack-version-profiles-java.md) 
-     - [Go](azure-stack-version-profiles-go.md) 
+     - [Přejít](azure-stack-version-profiles-go.md) 
      - [Ruby](azure-stack-version-profiles-python.md) 
      - [Python](azure-stack-version-profiles-python.md) 
 
@@ -125,9 +125,9 @@ Pokud používáte počítač se systémem Linux, můžete pracovat s rozhraním
 
 2. Nainstalujte sadu SDK pro váš kód: 
 
-     - [PohybyC#](azure-stack-version-profiles-net.md) 
+     - [.NET/C #](azure-stack-version-profiles-net.md) 
      - [Java](azure-stack-version-profiles-java.md) 
-     - [Go](azure-stack-version-profiles-go.md) 
+     - [Přejít](azure-stack-version-profiles-go.md) 
      - [Ruby](azure-stack-version-profiles-python.md) 
      - [Python](azure-stack-version-profiles-python.md) 
 
@@ -154,9 +154,9 @@ MacOS počítač vám umožní pracovat s Azure CLI a Visual Studio Code nebo vl
 
 2. Nainstalujte sadu SDK pro váš kód: 
 
-     - [PohybyC#](azure-stack-version-profiles-net.md) 
+     - [.NET/C #](azure-stack-version-profiles-net.md) 
      - [Java](azure-stack-version-profiles-java.md) 
-     - [Go](azure-stack-version-profiles-go.md)
+     - [Přejít](azure-stack-version-profiles-go.md)
      - [Ruby](azure-stack-version-profiles-python.md) 
      - [Python](azure-stack-version-profiles-python.md) 
 

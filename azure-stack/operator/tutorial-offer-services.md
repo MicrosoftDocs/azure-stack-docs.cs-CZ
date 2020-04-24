@@ -9,10 +9,10 @@ ms.date: 10/16/2019
 ms.reviewer: shriramnat
 ms.lastreviewed: 10/16/2019
 ms.openlocfilehash: 772871cffa3d5394d1d8b939fa22ae91bc90d4ac
-ms.sourcegitcommit: dd53af1b0fc2390de162d41e3d59545d1baad1a7
+ms.sourcegitcommit: bdd4d529bd3e115a9f76eece62b1613448d5d020
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/14/2020
 ms.locfileid: "80423891"
 ---
 # <a name="create-a-service-offering-for-users-in-azure-stack-hub"></a>Vytvoření nabídky služeb pro uživatele v centru Azure Stack
@@ -49,7 +49,7 @@ Základní služby jsou podporovány následujícími poskytovateli prostředků
 | Poskytovatel prostředků | Příklady prostředků |
 | ----------------- | ------------------|
 | Microsoft.Compute | Virtuální počítače, disky a sady škálování virtuálních počítačů |
-| Microsoft.KeyVault | Trezory klíčů, tajné kódy |
+| Trezor Microsoft. | Trezory klíčů, tajné kódy |
 | Microsoft.Network | Virtuální sítě, veřejné IP adresy, nástroje pro vyrovnávání zatížení |
 | Microsoft.Storage | Účty úložiště, objekty blob, fronty, tabulky |
 
@@ -62,10 +62,10 @@ Poskytovatelé prostředků, kteří jsou nainstalováni po nasazení centra Azu
 
 | Poskytovatel prostředků | Příklady prostředků |
 | ----------------- | ------------------------- |
-| Microsoft.Web | App Service aplikace Function App, webové aplikace a API Apps | 
+| Microsoft. Web | App Service aplikace Function App, webové aplikace a API Apps | 
 | Microsoft. MySqlAdapter | Hostující Server MySQL, databáze MySQL | 
 | Microsoft. SqlAdapter | SQL Server hostitelský server, SQL Server databáze |
-| Microsoft.EventHub | Event Hubs |
+| Microsoft. EventHub | Event Hubs |
 
 ::: moniker range=">=azs-1902"
 
@@ -75,7 +75,7 @@ Během procesu vytváření nabídky vytvoříte nabídku i plán. Plán se pou�
 
 1. Přihlaste se k portálu pro správu pomocí účtu správce cloudu.
 
-    - V případě integrovaného systému se adresa URL liší v závislosti na oblasti a názvu externí domény vašeho operátora. Adresa URL používá `https://adminportal.<region>.<FQDN>`formátu.
+    - V případě integrovaného systému se adresa URL liší v závislosti na oblasti a názvu externí domény vašeho operátora. Adresa URL používá formát `https://adminportal.<region>.<FQDN>`.
     - Pokud používáte Azure Stack Development Kit, adresa URL je `https://adminportal.local.azurestack.external`.
 
     Pak vyberte **+ vytvořit prostředek** > **nabídky + plány** > **nabídky**.

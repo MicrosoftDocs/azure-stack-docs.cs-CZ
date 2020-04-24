@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Přečtěte si informace o toku provozu v síti při nasazení centra Azure Stack.
 author: IngridAtMicrosoft
 ms.topic: conceptual
-ms.date: 03/04/2020
+ms.date: 04/10/2020
 ms.author: inhenkel
 ms.reviewer: wamota
 ms.lastreviewed: 12/05/2019
-ms.openlocfilehash: b2acff92365cfd9904a033c381bf85ea843d6b30
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.openlocfilehash: a663544b21fee671e57483e13030639c7b5edd3b
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78366394"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81243763"
 ---
 # <a name="deployment-network-traffic"></a>Provoz sítě nasazení
 
@@ -21,7 +21,7 @@ Porozumění síťovému provozu během nasazování centra Azure Stack pomůže
 
 Na tomto obrázku jsou zobrazeny všechny komponenty a připojení, která se podílejí na procesu nasazení:
 
-![Topologie sítě nasazení centra Azure Stack](media/deployment-networking/figure1.png)
+![Topologie sítě nasazení centra Azure Stack](media/deployment-networking/figure1.svg)
 
 > [!NOTE]
 > Tento článek popisuje požadavky na připojené nasazení. Další informace o dalších metodách nasazení najdete v tématu [modely připojení nasazení Azure Stack hub](azure-stack-connection-models.md).
@@ -32,7 +32,7 @@ Na tomto obrázku jsou zobrazeny všechny komponenty a připojení, která se po
 
 Poskytovatelé řešení Azure Stack hub můžou zřídit další virtuální počítače pro správu. Před provedením jakýchkoli změn virtuálních počítačů pro správu od poskytovatele řešení potvrďte u poskytovatele řešení.
 
-## <a name="deployment-requirements"></a>Požadavky na nasazení
+## <a name="deployment-requirements"></a>Požadavky nasazení
 
 Před zahájením nasazení existují některé minimální požadavky, které může váš výrobce OEM ověřit, aby bylo zajištěno úspěšné dokončení nasazení:
 
@@ -45,7 +45,7 @@ Před zahájením nasazení existují některé minimální požadavky, které m
 > [!NOTE]
 > Tento článek se zaměřuje na poslední tři požadavky. Další informace o prvních dvou najdete na odkazech uvedených výše.
 
-## <a name="about-deployment-network-traffic"></a>O provozu sítě nasazení
+## <a name="about-deployment-network-traffic"></a>Informace o provozu sítě při nasazení
 
 DVM je nakonfigurovaný s IP adresou ze sítě řadiče pro správu základní desky a vyžaduje síťový přístup k Internetu. I když ne všechny síťové komponenty řadiče pro správu základní desky vyžadují externí směrování nebo přístup k Internetu, může to vyžadovat i některé součásti specifické pro výrobce OEM, které používají IP adresy z této sítě.
 

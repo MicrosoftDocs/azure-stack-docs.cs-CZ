@@ -3,22 +3,22 @@ title: Připojení centra Azure Stack k Azure pomocí sítě VPN
 description: Postup připojení virtuálních sítí ve službě Azure Stack hub k virtuálním sítím v Azure pomocí sítě VPN.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 01/22/2020
+ms.date: 04/07/2020
 ms.author: sethm
 ms.reviewer: scottnap
 ms.lastreviewed: 10/24/2019
-ms.openlocfilehash: 13ac78c3f0a665e4319db4d3bf70b0274b5b8dd5
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: c745325c720ed37f93b12fee844a6ebc0b829cca
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77704365"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "80812437"
 ---
 # <a name="connect-azure-stack-hub-to-azure-using-vpn"></a>Připojení centra Azure Stack k Azure pomocí sítě VPN
 
 Tento článek popisuje, jak vytvořit síť VPN typu Site-to-site pro připojení virtuální sítě v Azure Stackovém centru k virtuální síti v Azure.
 
-## <a name="before-you-begin"></a>Než začnete
+## <a name="before-you-begin"></a>Před zahájením
 
 Pokud chcete dokončit konfiguraci připojení, ujistěte se, že máte následující položky, než začnete:
 
@@ -37,7 +37,7 @@ Tabulka příklady konfigurace sítě obsahuje hodnoty, které se používají v
 
 |   |Centrum Azure Stack|Azure|
 |---------|---------|---------|
-|Název virtuální sítě     |Azs-VNet|AzureVNet |
+|Název virtuální sítě     |AZS – VNet|AzureVNet |
 |Adresní prostor virtuální sítě |10.1.0.0/16|10.100.0.0/16|
 |Název podsítě     |FrontEnd|FrontEnd|
 |Rozsah adres podsítě|10.1.0.0/24 |10.100.0.0/24 |
@@ -53,7 +53,7 @@ Nejdřív vytvořte síťové prostředky pro Azure. Následující pokyny ukazu
 
 2. Na portálu User Portal vyberte **+ vytvořit prostředek**.
 3. Otevřete **web Marketplace**a pak vyberte **sítě**.
-4. Vyberte **Virtuální síť**.
+4. Vyberte **virtuální síť**.
 5. Pomocí informací z tabulky konfigurace sítě Identifikujte hodnoty pro **název**Azure, **adresní prostor**, **název podsítě**a **Rozsah adres podsítě**.
 6. V případě **skupiny prostředků**vytvořte novou skupinu prostředků, nebo pokud ji už máte, vyberte **použít existující**.
 7. Vyberte **umístění** vaší virtuální sítě.  Pokud používáte ukázkové hodnoty, vyberte **východní USA** nebo použijte jiné umístění.
@@ -75,7 +75,7 @@ Nejdřív vytvořte síťové prostředky pro Azure. Následující pokyny ukazu
 
 ### <a name="create-the-virtual-network-gateway"></a>Vytvoření brány virtuální sítě
 
-1. V Azure Portal vyberte **+ vytvořit prostředek**.
+1. Na webu Azure Portal vyberte **+Vytvořit prostředek**.
 
 2. Otevřete **web Marketplace**a pak vyberte **sítě**.
 3. V seznamu síťových prostředků vyberte možnost **Brána virtuální sítě**.
@@ -87,7 +87,7 @@ Nejdřív vytvořte síťové prostředky pro Azure. Následující pokyny ukazu
 
 ### <a name="create-the-local-network-gateway-resource"></a>Vytvoření prostředku brány místní sítě
 
-1. V Azure Portal vyberte **+ vytvořit prostředek**.
+1. Na webu Azure Portal vyberte **+Vytvořit prostředek**.
 
 2. Otevřete **web Marketplace**a pak vyberte **sítě**.
 3. V seznamu prostředků vyberte **Brána místní sítě**.
@@ -101,7 +101,7 @@ Nejdřív vytvořte síťové prostředky pro Azure. Následující pokyny ukazu
 1. Na portálu User Portal vyberte **+ vytvořit prostředek**.
 2. Otevřete **web Marketplace**a pak vyberte **sítě**.
 3. V seznamu prostředků vyberte možnost **připojení**.
-4. V části **základní** nastavení pro **Typ připojení**vyberte možnost **site-to-Site (IPSec)** .
+4. V části **základní** nastavení pro **Typ připojení**vyberte možnost **site-to-Site (IPSec)**.
 5. Vyberte **předplatné**, **skupinu prostředků**a **umístění**a pak vyberte **OK**.
 6. V části **Nastavení** vyberte **Brána virtuální sítě**a potom vyberte **Azure-GS**.
 7. Vyberte **Brána místní sítě**a pak vyberte **AZS-GS**.
@@ -113,11 +113,30 @@ Nejdřív vytvořte síťové prostředky pro Azure. Následující pokyny ukazu
 
 10. Projděte si část **Souhrn** a pak vyberte **OK**.
 
+## <a name="create-a-custom-ipsec-policy"></a>Vytvoření vlastní zásady protokolu IPSec
+
+Vzhledem k tomu, že se u [sestavení 1910 a novějších](azure-stack-vpn-gateway-settings.md#ipsecike-parameters)změnily výchozí parametry centra Azure Stack pro zásady IPSec, je potřeba, aby Azure odpovídal centru Azure Stack.
+
+1. Vytvoření vlastní zásady:
+
+   ```powershell
+     $IPSecPolicy = New-AzIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup ECP384  `
+     -IpsecEncryption GCMAES256 -IpsecIntegrity GCMAES256 -PfsGroup ECP384 -SALifeTimeSeconds 27000 `
+     -SADataSizeKilobytes 102400000 
+   ```
+
+2. Použít zásady na připojení:
+
+   ```powershell
+   $Connection = Get-AzVirtualNetworkGatewayConnection -Name myTunnel -ResourceGroupName myRG
+   Set-AzVirtualNetworkGatewayConnection -IpsecPolicies $IPSecPolicy -VirtualNetworkGatewayConnection $Connection
+   ```
+
 ## <a name="create-a-vm"></a>Vytvoření virtuálního počítače
 
 Nyní vytvořte virtuální počítač v Azure a umístěte ho do podsítě virtuálních počítačů ve vaší virtuální síti.
 
-1. V Azure Portal vyberte **+ vytvořit prostředek**.
+1. Na webu Azure Portal vyberte **+Vytvořit prostředek**.
 2. Přejít na **web Marketplace**a pak vybrat **COMPUTE**.
 3. V seznamu imagí virtuálních počítačů vyberte Image **Windows Server 2016 Datacenter Eval** .
 4. V části **základy** zadejte do pole **název** **AzureVM**.
@@ -149,7 +168,7 @@ Správce služeb se může přihlásit jako uživatel, aby otestoval plány, nab
     ![Vytvořit novou virtuální síť](media/azure-stack-connect-vpn/image3.png)
 
 3. Otevřete **web Marketplace**a pak vyberte **sítě**.
-4. Vyberte **Virtuální síť**.
+4. Vyberte **virtuální síť**.
 5. V poli **název**, **adresní prostor**, **název podsítě**a **Rozsah adres podsítě**použijte hodnoty z tabulky konfigurace sítě.
 6. V **předplatném**se zobrazí předplatné, které jste vytvořili dříve.
 7. V případě **skupiny prostředků**můžete buď vytvořit skupinu prostředků, nebo pokud ji už máte, vyberte **použít existující**.
@@ -207,7 +226,7 @@ Obecnější popis je, že prostředek brány místní sítě vždycky na druhé
 1. Na portálu User Portal vyberte **+ vytvořit prostředek**.
 2. Otevřete **web Marketplace**a pak vyberte **sítě**.
 3. V seznamu prostředků vyberte možnost **připojení**.
-4. V části **základní** nastavení pro **Typ připojení**vyberte **site-to-Site (IPSec)** .
+4. V části **základní** nastavení pro **Typ připojení**vyberte **site-to-Site (IPSec)**.
 5. Vyberte **předplatné**, **skupinu prostředků**a **umístění**a pak vyberte **OK**.
 6. V části **Nastavení** vyberte **Brána virtuální sítě**a pak vyberte **AZS-GS**.
 7. Vyberte **Brána místní sítě**a pak vyberte **Azure-GS**.
@@ -220,7 +239,7 @@ Obecnější popis je, že prostředek brány místní sítě vždycky na druhé
 
 Pokud chcete ověřit připojení k síti VPN, vytvořte dva virtuální počítače: jeden v Azure a druhý v Azure Stack hub. Po vytvoření těchto virtuálních počítačů je můžete použít k posílání a přijímání dat prostřednictvím tunelového připojení VPN.
 
-1. V Azure Portal vyberte **+ vytvořit prostředek**.
+1. Na webu Azure Portal vyberte **+Vytvořit prostředek**.
 2. Přejít na **web Marketplace**a pak vybrat **COMPUTE**.
 3. V seznamu imagí virtuálních počítačů vyberte Image **Windows Server 2016 Datacenter Eval** .
 4. V části **základy** do pole **název**zadejte **AZS-VM**.
@@ -248,7 +267,7 @@ Po navázání připojení Site-to-site byste měli ověřit, že můžete v obo
 3. V seznamu virtuálních počítačů Najděte **AZS-VM** , který jste vytvořili dříve, a pak ho vyberte.
 4. V části pro virtuální počítač vyberte **připojit**a pak otevřete soubor AZS-VM. RDP.
 
-     ![Tlačítko připojit](media/azure-stack-connect-vpn/image17.png)
+     ![Tlačítko Připojit](media/azure-stack-connect-vpn/image17.png)
 
 5. Přihlaste se pomocí účtu, který jste nakonfigurovali při vytváření virtuálního počítače.
 6. Otevřete příkazový řádek Windows PowerShellu se zvýšenými oprávněními.

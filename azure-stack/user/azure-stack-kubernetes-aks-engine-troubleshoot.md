@@ -3,16 +3,16 @@ title: Řešení potíží s modulem AKS v centru Azure Stack
 description: Tento článek obsahuje postup řešení potíží pro modul AKS v centru Azure Stack.
 author: mattbriggs
 ms.topic: article
-ms.date: 3/19/2020
+ms.date: 4/17/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 3/19/2020
-ms.openlocfilehash: d362eb0bf418cf292953afc50fe993dc4867253c
-ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
+ms.lastreviewed: 4/17/2020
+ms.openlocfilehash: 8768628e246c439c86bba80f4faac2ff9ae1973d
+ms.sourcegitcommit: 355e21dd9b8c3f44e14abaae0b4f176443cf7495
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "80069300"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81624974"
 ---
 # <a name="troubleshoot-the-aks-engine-on-azure-stack-hub"></a>Řešení potíží s modulem AKS v centru Azure Stack
 
@@ -116,15 +116,15 @@ Požadavky:
     tar xvf diagnosis-v0.1.1.tar.gz -C ./
     ```
 
-2. Vyhledejte parametry vyžadované skriptem `getkuberneteslogs.sh`. Skript bude používat následující parametry:
+2. Vyhledejte parametry vyžadované `getkuberneteslogs.sh` skriptem. Skript bude používat následující parametry:
 
-    | Parametr | Popis | Požadováno | Příklad |
+    | Parametr | Popis | Požaduje se | Příklad |
     | --- | --- | --- | --- |
     | -h,--help | Použití příkazu tisku. | ne | 
     -u,--uživatel | Uživatelské jméno správce pro virtuální počítače clusteru | ano | azureuser<br>(výchozí hodnota) |
-    | -i,--identity-File | Privátní klíč RSA vázaný k veřejnému klíči, který se používá k vytvoření clusteru Kubernetes (někdy s názvem "id_rsa")  | ano | `./rsa.pem` (výstupu)<br>`~/.ssh/id_rsa` (SSH) |
+    | -i,--identity-File | Privátní klíč RSA vázaný k veřejnému klíči, který se používá k vytvoření clusteru Kubernetes (někdy s názvem "id_rsa")  | ano | `./rsa.pem`PuTTY<br>`~/.ssh/id_rsa`PROTOKOLY |
     |   -g,--Resource-Group    | Skupina prostředků clusteru Kubernetes | ano | k8sresourcegroup |
-    |   -n,--User-Namespace               | Shromažďovat protokoly z kontejnerů v zadaných oborech názvů (Kube – systémové protokoly se vždycky shromažďují) | ne |   sledování |
+    |   -n,--User-Namespace               | Shromažďovat protokoly z kontejnerů v zadaných oborech názvů (Kube – systémové protokoly se vždycky shromažďují) | ne |   sledovaný |
     |       --API-model                    | Uchovává soubor apimodel. JSON v účtu úložiště centra Azure Stack. Nahrání souboru apimodel. JSON do účtu úložiště se stane, když je k dispozici i parametr--upload-Logs. | ne | `./apimodel.json` |
     | --všechny – obory názvů               | Shromažďování protokolů z kontejnerů ve všech oborech názvů. Přepisuje nastavení--User-Namespace. | ne | |
     | --upload-logs                  | Uchovává načtené protokoly v účtu úložiště Azure Stack hub. Protokoly najdete ve skupině prostředků KubernetesLogs. | ne | |
@@ -142,15 +142,15 @@ Požadavky:
 
 ## <a name="review-custom-script-extension-error-codes"></a>Kontrola kódů chyb rozšíření vlastních skriptů
 
-Můžete se obrátit na seznam kódů chyb vytvořených pomocí rozšíření vlastních skriptů (CSE) ve spuštěném clusteru. Chyba rozšíření může být užitečná při diagnostikování hlavní příčiny problému. Rozšíření Ubuntu serveru používaného v clusteru Kubernetes podporuje mnoho operací modulu AKS. Další informace o ukončovacích kódech rozšíření naleznete v tématu [cse_helpers. sh](https://github.com/Azure/aks-engine/blob/master/parts/k8s/cloud-init/artifacts/cse_helpers.sh).
+Můžete se obrátit na seznam kódů chyb vytvořených pomocí rozšíření vlastních skriptů (CSE) ve spuštěném clusteru. Chyba rozšíření může být užitečná při diagnostikování hlavní příčiny problému. Rozšíření Ubuntu serveru používaného v clusteru Kubernetes podporuje mnoho operací modulu AKS. Další informace o ukončovacích kódech rozšíření naleznete v tématu [cse_helpers. sh](https://github.com/Azure/aks-engine/blob/master/pkg/engine/cse.go).
 
 ### <a name="providing-kubernetes-logs-to-a-microsoft-support-engineer"></a>Poskytování protokolů Kubernetes technickému pracovníkovi podpory Microsoftu
 
-Pokud po shromáždění a prozkoumání protokolů stále nemůžete problém vyřešit, můžete chtít zahájit proces vytváření lístku podpory a poskytnout protokoly, které jste shromáždili spuštěním `getkuberneteslogs.sh` s `--upload-logs` sadou parametrů. 
+Pokud po shromáždění a prozkoumání protokolů stále nemůžete problém vyřešit, možná budete chtít zahájit proces vytváření lístku podpory a poskytnout protokoly, které jste shromáždili spuštěním `getkuberneteslogs.sh` příkazu se sadou `--upload-logs` parametrů. 
 
 Obraťte se na svého operátora centra Azure Stack. Váš operátor používá informace od vašich protokolů k vytvoření případu podpory.
 
-Během procesu řešení potíží s podporou může pracovník podpory Microsoftu požádat, aby váš operátor centra Azure Stack shromažďovat protokoly systému Azure Stack hub. K informacím o účtu úložiště, do kterého jste nahráli protokoly Kubernetes spuštěním `getkuberneteslogs.sh`, budete možná muset zadat operátora.
+Během procesu řešení potíží s podporou může pracovník podpory Microsoftu požádat, aby váš operátor centra Azure Stack shromažďovat protokoly systému Azure Stack hub. Je možné, že budete muset poskytnout operátor s informacemi o účtu úložiště, kam jste nahráli protokoly `getkuberneteslogs.sh`Kubernetes spuštěním.
 
 Operátor může spustit PowerShell rutiny **Get-AzureStackLog** . Tento příkaz používá parametr (`-InputSaSUri`), který určuje účet úložiště, kam jste uložili protokoly Kubernetes.
 
@@ -164,9 +164,9 @@ Pokud nemůžete vyřešit chybu nasazení, můžete otevřít problém GitHubu.
 2. Přidejte název pomocí následujícího formátu: C`SE error: exit code <INSERT_YOUR_EXIT_CODE>`.
 3. Do tohoto problému zahrňte tyto informace:
 
-    - Konfigurační soubor clusteru, `apimodel json`používaný k nasazení clusteru. Před odesláním na GitHubu odeberte všechny tajné klíče a klíče.  
-     - Výstup následujícího příkazu **kubectl** `get nodes`.  
-     - Obsah `/var/log/azure/cluster-provision.log` a `/var/log/cloud-init-output.log`
+    - Konfigurační soubor clusteru, `apimodel json`který se používá k nasazení clusteru. Před odesláním na GitHubu odeberte všechny tajné klíče a klíče.  
+     - Výstup následujícího příkazu **kubectl** `get nodes`  
+     - Obsah `/var/log/azure/cluster-provision.log` a`/var/log/cloud-init-output.log`
 
 ## <a name="next-steps"></a>Další kroky
 

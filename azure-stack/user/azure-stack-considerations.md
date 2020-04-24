@@ -7,10 +7,10 @@ ms.date: 01/06/2020
 ms.author: sethm
 ms.lastreviewed: 12/27/2019
 ms.openlocfilehash: 9d60c9300d2a717f280ab16a7f6c55d67a13f28c
-ms.sourcegitcommit: 19e9b6d6ce24d74ff396a5dc48208671aeda432a
+ms.sourcegitcommit: 4138a2a15f78e7db38b3a29acc963a71937146fd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/15/2020
 ms.locfileid: "80362152"
 ---
 # <a name="differences-between-azure-stack-hub-and-azure-when-using-services-and-building-apps"></a>Rozdíly mezi centrem Azure Stack a Azure při používání služeb a sestavování aplikací
@@ -46,7 +46,7 @@ Následující tabulka popisuje rozdíly vysoké úrovně mezi Azure Stack hub a
 |Podporované obory názvů, typy prostředků a verze API | Nejnovější (nebo starší verze, které ještě nejsou zastaralé). | Centrum Azure Stack podporuje konkrétní verze. Viz část [požadavky na verzi](#version-requirements) v tomto článku.
 | | |
 
-\* Pokud jste operátor centra Azure Stack, přečtěte si téma [používání portálu](../operator/azure-stack-manage-portals.md) pro [správu a základní](../operator/azure-stack-manage-basics.md) informace o správě.
+* Pokud jste operátor centra Azure Stack, přečtěte si téma [používání portálu](../operator/azure-stack-manage-portals.md) pro [správu a základní](../operator/azure-stack-manage-basics.md) informace o správě.
 
 ## <a name="helpful-tools-and-best-practices"></a>Užitečné nástroje a osvědčené postupy
 
@@ -54,7 +54,7 @@ Microsoft poskytuje nástroje a pokyny, které vám pomůžou při vývoji centr
 
 | Doporučení | Odkazy |
 | -------- | ------------- |
-| Nainstalujte do pracovní stanice pro vývojáře správné nástroje. | - [instalaci PowerShellu](../operator/azure-stack-powershell-install.md)<br>[Nástroje pro stažení](../operator/azure-stack-powershell-download.md) - <br>- [Konfigurace prostředí PowerShell](azure-stack-powershell-configure-user.md)<br>- [instalaci sady Visual Studio](azure-stack-install-visual-studio.md)
+| Nainstalujte do pracovní stanice pro vývojáře správné nástroje. | - [Instalace PowerShellu](../operator/azure-stack-powershell-install.md)<br>- [Nástroje ke stažení](../operator/azure-stack-powershell-download.md)<br>- [Konfigurace PowerShellu](azure-stack-powershell-configure-user.md)<br>- [Nainstalovat Visual Studio](azure-stack-install-visual-studio.md)
 | Zkontrolujte informace o následujících položkách:<br>– Pokyny pro šablonu Azure Resource Manager.<br>– Jak najít šablony pro rychlý Start.<br>– Použijte modul zásad, který vám umožní využít Azure k vývoji pro centra Azure Stack. | [Vývoj pro centrum Azure Stack](azure-stack-developer.md) |
 | Projděte si osvědčené postupy pro šablony a použijte je. | [Šablony pro rychlý Start Správce prostředků](https://aka.ms/aa6yz42)
 | | |

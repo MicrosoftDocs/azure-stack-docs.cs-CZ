@@ -9,10 +9,10 @@ ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 03/24/2020v
 ms.openlocfilehash: bd8867b4bd7fae79f82752a0f4cdbd1457efc0ef
-ms.sourcegitcommit: fec2b21e80c8049a823baeaf2b642802ccdcfb67
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "80229530"
 ---
 # <a name="add-kubernetes-to-azure-stack-hub-marketplace"></a>Přidání Kubernetes do tržiště centra Azure Stack
@@ -40,7 +40,7 @@ Vytvořte plán, nabídku a předplatné pro položku Kubernetes Marketplace. M�
 
 1. Vyberte **změnit stav**. Vyberte možnost **veřejné**.
 
-1. Vyberte **+ vytvořit prostředek** > **nabídky a plány** > **předplatné** k vytvoření předplatného.
+1. Vyberte **+ vytvořit prostředek** > **nabídky a plány** > **předplatné** , abyste mohli vytvořit předplatné.
 
     a. Zadejte **Zobrazovaný název**.
 
@@ -131,7 +131,7 @@ Odebrání položky Kubernetes:
     Get-AzsGalleryItem | Select Name
     ```
     
-3. Název aktuální položky, například `Microsoft.AzureStackKubernetesCluster.0.3.0`.
+3. Název aktuální položky, jako třeba `Microsoft.AzureStackKubernetesCluster.0.3.0`.
 
 4. Odeberte položku pomocí následující rutiny prostředí PowerShell:
 

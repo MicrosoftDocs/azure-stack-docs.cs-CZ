@@ -1,0 +1,57 @@
+### YamlMime:Landing
+title: Dokumentace k Azure Stack HCI
+summary: Azure Stack HCI je vysoce sblížený cluster s Windows serverem 2019, který používá ověřený hardware ke spouštění virtualizovaných úloh v místním prostředí, což zákazníkům usnadňuje konsolidaci infrastruktury a připojení k Azure pro cloudové služby.
+metadata:
+  title: Dokumentace k Azure Stack HCI
+  description: Azure Stack HCI je vysoce sblížený cluster s Windows serverem 2019, který používá ověřený hardware ke spouštění virtualizovaných úloh místně.
+  ms.topic: landing-page
+  author: khdownie
+  ms.author: v-kedow
+  ms.date: 04/17/2020
+  ms.openlocfilehash: f277947b8de05c0a038c01bf9ab994510aa95b4f
+  ms.sourcegitcommit: 355e21dd9b8c3f44e14abaae0b4f176443cf7495
+  ms.translationtype: MT
+  ms.contentlocale: cs-CZ
+  ms.lasthandoff: 04/17/2020
+  ms.locfileid: "81624954"
+landingContent:
+- title: Informace o Azure Stack HCL
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Co je Azure Stack HCI?
+      url: overview.md
+  - linkListType: get-started
+    links:
+    - text: Použití Azure Stack HCL s centrem pro správu Windows
+      url: get-started.md
+- title: Spravovat Azure Stack HCI
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Vytváření svazků
+      url: manage/create-volumes.md
+    - text: Rozšiřování svazků
+      url: manage/extend-volumes.md
+    - text: Odstranit svazky
+      url: manage/delete-volumes.md
+    - text: Nahradit jednotky
+      url: manage/replace-drives.md
+    - text: Monitorování pomocí služby Azure Monitor
+      url: manage/azure-monitor.md
+    - text: Připojení GPU k virtuálnímu počítači se systémem Linux
+      url: manage/attach-gpu-to-linux-vm.md
+- title: Azure Stack koncepty HCI
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Zvolit jednotky
+      url: concepts/choose-drives.md
+    - text: Plánování svazků
+      url: concepts/plan-volumes.md
+    - text: Pochopení mezipaměti
+      url: concepts/cache.md
+    - text: Odolnost proti chybám a efektivita úložiště
+      url: concepts/fault-tolerance.md
+    - text: Kvorum clusteru a fondu úložiště
+      url: concepts/quorum.md

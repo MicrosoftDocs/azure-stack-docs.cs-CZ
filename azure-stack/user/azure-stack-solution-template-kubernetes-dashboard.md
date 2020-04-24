@@ -8,10 +8,10 @@ ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
 ms.openlocfilehash: 04d7935ca88c578c2019703855e79278211127d1
-ms.sourcegitcommit: b824c7b9af9ba415ca4fe8d15673b521362f0abb
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "80479311"
 ---
 # <a name="access-the-kubernetes-dashboard-in-azure-stack-hub"></a>Přístup k řídicímu panelu Kubernetes v centru Azure Stack 
@@ -48,7 +48,7 @@ Adresu URL řídicího panelu můžete načíst z hlavního uzlu v clusteru.
 1. Z řídicího panelu centra Azure Stack Získejte veřejnou IP adresu a uživatelské jméno pro hlavní server vašeho clusteru. Získat tyto informace:
 
     - Přihlášení k [portálu centra Azure Stack](https://portal.local.azurestack.external/)
-    - Vyberte **všechny služby** > **všech prostředcích**. Ve vaší skupině prostředků clusteru Najděte hlavní server. Hlavní název je pojmenován `k8s-master-<sequence-of-numbers>`. 
+    - Vyberte **všechny služby** > **všechny prostředky**. Ve vaší skupině prostředků clusteru Najděte hlavní server. Hlavní název je pojmenován `k8s-master-<sequence-of-numbers>`. 
 
 2. Otevřete hlavní uzel na portálu. Zkopírujte **veřejnou IP** adresu. Kliknutím na **připojit** získáte své uživatelské jméno v poli **přihlášení pomocí místního účtu virtuálního počítače** . Toto je stejné uživatelské jméno, které jste nastavili při vytváření clusteru. Místo soukromé IP adresy uvedené v okně připojit použijte veřejnou IP adresu.
 
@@ -61,7 +61,7 @@ Adresu URL řídicího panelu můžete načíst z hlavního uzlu v clusteru.
     ```Bash   
     kubectl cluster-info 
     ``` 
-    Vyhledejte adresu URL řídicího panelu. Příklad: `https://k8-1258.local.cloudapp.azurestack.external/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy`
+    Vyhledejte adresu URL řídicího panelu. Například:`https://k8-1258.local.cloudapp.azurestack.external/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy`
 
 6.  Extrahujte certifikát podepsaný svým držitelem a převeďte ho do formátu PFX. Spusťte následující příkaz:
 
@@ -76,9 +76,9 @@ Adresu URL řídicího panelu můžete načíst z hlavního uzlu v clusteru.
     kubectl -n kube-system get secrets
     ```
 
-    Poznamenejte si hodnotu Kubernetes-Dashboard-token-\<XXXXX > XXXXX. 
+    Poznamenejte si hodnotu Kubernetes-Dashboard-token-\<xxxxx> Value. 
 
-8.  Získejte token a uložte ho. Aktualizujte `kubernetes-dashboard-token-<####>` s použitím tajné hodnoty z předchozího kroku.
+8.  Získejte token a uložte ho. Aktualizujte `kubernetes-dashboard-token-<####>` hodnotu s tajnou hodnotou z předchozího kroku.
 
     ```Bash  
     kubectl -n kube-system describe secret kubernetes-dashboard-token-<####>| awk '$1=="token:"{print $2}' 
@@ -93,7 +93,7 @@ Adresu URL řídicího panelu můžete načíst z hlavního uzlu v clusteru.
     - privátní tajný klíč
     - Použití protokolu **SFTP-SSH Protokol FTP (File Transfer Protocol)**
 
-2. Zkopírujte `/etc/kubernetes/certs/client.pfx` a `/etc/kubernetes/certs/ca.crt` na počítač pro správu centra Azure Stack.
+2. Zkopírujte `/etc/kubernetes/certs/client.pfx` a `/etc/kubernetes/certs/ca.crt` do počítače správy centra Azure Stack.
 
 3. Poznamenejte si umístění souborů. Aktualizujte skript pomocí umístění a pak otevřete PowerShell s výzvou se zvýšenými oprávněními. Spusťte aktualizovaný skript:  
 
@@ -122,7 +122,7 @@ Adresu URL řídicího panelu můžete načíst z hlavního uzlu v clusteru.
 
 ![Řídicí panel Kubernetes centra Azure Stack](media/azure-stack-solution-template-kubernetes-dashboard/azure-stack-kub-dashboard.png)
 
-## <a name="troubleshooting"></a>Odstraňování potíží
+## <a name="troubleshooting"></a>Řešení potíží
 
 ### <a name="custom-virtual-networks"></a>Vlastní virtuální sítě
 

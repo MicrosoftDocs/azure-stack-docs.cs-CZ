@@ -6,7 +6,7 @@
       href: overview-patterns-solution-examples.md
 - name: Vzory
   items:
-    - name: Jednoduchá
+    - name: Single
       items:
         - name: Škálování mezi různými cloudy
           href: pattern-cross-cloud-scale.md
@@ -20,9 +20,9 @@
           href: pattern-tiered-data-analytics.md
         - name: Model vlakového ML na hranici
           href: pattern-train-ml-model-at-edge.md
-    - name: Vícelinkové
+    - name: Multi
       items:
-        - name: Škálování mezi různými cloudy (místní data)
+        - name: Škálování mezi cloudy (místní data)
           href: pattern-cross-cloud-scale-onprem-data.md
         - name: Detekce Footfall (maloobchodní)
           href: pattern-retail-footfall-detection.md
@@ -76,7 +76,7 @@
       href: /azure-stack/operator/
     - name: Dokumentace k sadě ASDK
       href: /azure-stack/asdk/
-- name: Materiály
+- name: Zdroje a prostředky
   items:
     - name: Azure Stack aktualizace centra
       href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'

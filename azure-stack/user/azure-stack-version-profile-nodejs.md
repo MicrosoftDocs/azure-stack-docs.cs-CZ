@@ -3,16 +3,16 @@ title: Používání profilů verzí rozhraní API s Node. js v Azure Stackovém
 description: Přečtěte si o používání profilů verzí rozhraní API pomocí Node. js v centru Azure Stack.
 author: mattbriggs
 ms.topic: article
-ms.date: 11/11/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: acdacb826d75a2df1aca49c9029a0ef02e6744ea
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 639c532d4ac105e434557fe18ef8070b656c0849
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77705266"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81660128"
 ---
 # <a name="use-api-version-profiles-with-nodejs-software-development-kit-sdk-in-azure-stack-hub"></a>Použití profilů verzí rozhraní API s Node. js Software Development Kit (SDK) v centru Azure Stack
 
@@ -20,17 +20,17 @@ ms.locfileid: "77705266"
 
 K vytvoření a správě infrastruktury pro aplikace můžete použít sadu SDK pro Node. js. Profily rozhraní API v sadě SDK pro Node. js vám pomůžou s vašimi hybridními cloudy, a to díky tomu, že vám umožní přepínat mezi globálním prostředky Azure a Azure Stack Můžete kódovat jednou a potom cílit na globální centrum Azure i Azure Stack. 
 
-V tomto článku můžete jako vývojářský nástroj použít [Visual Studio Code](https://code.visualstudio.com/) . Visual Studio Code může ladit sadu Node. js SDK a umožňuje aplikaci spustit a aplikaci nasdílet do své instance služby Azure Stack hub. Můžete ladit z Visual Studio Code nebo prostřednictvím okna terminálu, na kterém běží příkaz `node <nodefile.js>`.
+V tomto článku můžete jako vývojářský nástroj použít [Visual Studio Code](https://code.visualstudio.com/) . Visual Studio Code může ladit sadu Node. js SDK a umožňuje aplikaci spustit a aplikaci nasdílet do své instance služby Azure Stack hub. Můžete ladit z Visual Studio Code nebo prostřednictvím okna terminálu, který spouští příkaz `node <nodefile.js>`.
 
 ## <a name="the-nodejs-sdk"></a>Sada Node. js SDK
 
 Sada SDK pro Node. js poskytuje Azure Stack nástroje Správce prostředků hub. Poskytovatelé prostředků v sadě SDK zahrnují výpočetní prostředky, sítě, úložiště, služby App Service a trezor klíčů. Existuje 10 klientských knihoven poskytovatele prostředků, které lze nainstalovat do aplikace Node. js. Můžete si také stáhnout, který poskytovatel prostředků použijete pro **2018-03-01-Hybrid** nebo **2019-03-01-profil** , aby se optimalizoval paměť pro vaši aplikaci. Každý modul obsahuje poskytovatele prostředků, příslušnou verzi rozhraní API a profil rozhraní API. 
 
-Profil rozhraní API je kombinací poskytovatelů prostředků a verze rozhraní API. Profil rozhraní API můžete použít k získání nejnovější, většina stabilní verzi každého typu prostředku v balíčku poskytovatele prostředků.
+Profil rozhraní API je kombinací poskytovatelů prostředků a verzí rozhraní API. Profil rozhraní API můžete použít k získání nejnovější a nejstabilní verze každého typu prostředku v balíčku poskytovatele prostředků.
 
   -   Chcete-li používat nejnovější verze všech služeb, použijte **nejnovější** profil balíčků.
 
-  -   Pokud chcete používat služby kompatibilní s Azure Stack hub, použijte **\@Azure/ARM-Resources-Profiles-Hybrid-2019-03-01** nebo **\@Azure/ARM-Storage-Profile-2019-03 -01-Hybrid**
+  -   Pokud chcete používat služby kompatibilní s Azure Stack hub, použijte ** \@Azure/ARM-Resources-Profile-Hybrid-2019-03-01** nebo ** \@Azure/ARM-Storage-Profile-2019-03 -01-Hybrid**
 
 ### <a name="packages-in-npm"></a>Balíčky v npm
 
@@ -48,10 +48,10 @@ Můžete najít tyto balíčky:
 | [Compute](https://www.npmjs.com/package/@azure/arm-compute-profile-2019-03-01-hybrid) | @azure/arm-compute-profile-2019-03-01-hybrid |
 | [Storage](https://www.npmjs.com/package/@azure/arm-storage-profile-2019-03-01-hybrid) | @azure/arm-storage-profile-2019-03-01-hybrid |
 | [Síť](https://www.npmjs.com/package/@azure/arm-network-profile-2019-03-01-hybrid) | @azure/arm-network-profile-2019-03-01-hybrid |
-| [Prostředky](https://www.npmjs.com/package/@azure/arm-resources-profile-hybrid-2019-03-01) | @azure/arm-resources-profile-hybrid-2019-03-01 |
+| [Materiály](https://www.npmjs.com/package/@azure/arm-resources-profile-hybrid-2019-03-01) | @azure/arm-resources-profile-hybrid-2019-03-01 |
  | [Keyvault](https://www.npmjs.com/package/@azure/arm-keyvault-profile-2019-03-01-hybrid) | @azure/arm-keyvault-profile-2019-03-01-hybrid |
 
-Chcete-li použít nejnovější verzi služby API-Version, použijte **nejnovější** profil konkrétní klientské knihovny. Pokud například chcete použít nejnovější verzi služby Resources rozhraní API, použijte profil `azure-arm-resource` **klientské knihovny pro správu prostředků.** balíček.
+Chcete-li použít nejnovější verzi služby API-Version, použijte **nejnovější** profil konkrétní klientské knihovny. Pokud například chcete použít nejnovější verzi služby Resources-API, použijte `azure-arm-resource` profil **klientské knihovny správy prostředků.** balíček.
 
 Použijte konkrétní verze rozhraní API definované v balíčku pro konkrétní verze rozhraní API pro poskytovatele prostředků.
 
@@ -60,7 +60,7 @@ Použijte konkrétní verze rozhraní API definované v balíčku pro konkrétn�
 
 ## <a name="install-the-nodejs-sdk"></a>Instalace sady Node. js SDK
 
-1. Instalace Gitu. Pokyny najdete v tématu [Začínáme – instalace Gitu](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
+1. Nainstalujte Git. Pokyny najdete v tématu [Začínáme – instalace Gitu](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 
 2. Nainstalujte nebo upgradujte na aktuální verzi [Node. js](https://nodejs.org/en/download/). Node. js obsahuje také správce balíčků [npm](https://www.npmjs.com/) JavaScript.
 
@@ -68,9 +68,9 @@ Použijte konkrétní verze rozhraní API definované v balíčku pro konkrétn�
 
 2.  Nainstalujte klientské balíčky pro správce prostředků centra Azure Stack. Další informace najdete v tématu [instalace klientských knihoven](https://www.npmjs.com/package/@azure/arm-keyvault-profile-2019-03-01-hybrid).
 
-3.  Balíčky, které je potřeba nainstalovat závisí na verzi profilu, který chcete použít. Seznam poskytovatelů prostředků najdete v části [balíčky v npm](#packages-in-npm) .
+3.  Balíčky, které je potřeba nainstalovat, závisí na verzi profilu, kterou chcete použít. Seznam poskytovatelů prostředků najdete v části [balíčky v npm](#packages-in-npm) .
 
-4. Nainstalujte klientskou knihovnu poskytovatele prostředků pomocí npm. Z příkazového řádku spusťte: `npm install <package-name>`. Můžete například spustit `npm install @azure/arm-authorization-profile-2019-03-01-hybrid` pro instalaci knihovny poskytovatele prostředků autorizace.
+4. Nainstalujte klientskou knihovnu poskytovatele prostředků pomocí npm. Z příkazového řádku spusťte příkaz: `npm install <package-name>`. Například můžete spustit `npm install @azure/arm-authorization-profile-2019-03-01-hybrid` pro instalaci knihovny zprostředkovatele prostředků autorizace.
 
 5.  Vytvořte si předplatné a poznamenejte si ID předplatného, když použijete sadu SDK. Pokyny najdete v tématu [Vytvoření předplatných nabídek v centru Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm).
 
@@ -80,15 +80,15 @@ Použijte konkrétní verze rozhraní API definované v balíčku pro konkrétn�
 
 ### <a name="nodejs-prerequisites"></a>Předpoklady pro Node. js 
 
-Chcete-li použít sadu SDK pro Node. js Azure s Azure Stackm centrem, je nutné zadat následující hodnoty a potom nastavit hodnoty pomocí proměnných prostředí. Chcete-li nastavit proměnné prostředí, přečtěte si pokyny pod tabulkou pro váš operační systém.
+Chcete-li použít sadu SDK pro Node. js Azure s Azure Stackm centrem, je nutné zadat následující hodnoty a potom nastavit hodnoty pomocí proměnných prostředí. Chcete-li nastavit proměnné prostředí, přečtěte si pokyny uvedené v tabulce pro váš operační systém.
 
 | Hodnota | Proměnné prostředí | Popis |
 | --- | --- | --- |
-| ID tenanta | ID\_TENANTA | Hodnota [ID tenanta](https://docs.microsoft.com/azure/azure-stack/azure-stack-identity-overview)centra Azure Stack. |
+| ID tenanta | ID\_tenanta | Hodnota [ID tenanta](https://docs.microsoft.com/azure/azure-stack/azure-stack-identity-overview)centra Azure Stack. |
 | ID klienta | ID\_klienta | ID aplikace instančního objektu se uložilo při vytvoření instančního objektu v předchozí části tohoto dokumentu.  |
-| ID předplatného | PŘEDPLATNÉ AZURE\_\_ID [předplatného](/azure-stack/operator/service-plan-offer-subscription-overview#subscriptions) je způsob, jakým přistupujete k nabídkám v centru Azure Stack.  |
-| Tajný kód klienta | \_tajný kód aplikace | Tajný kód aplikace instančního objektu uložený při vytvoření instančního objektu |
-| Koncový bod Resource Manageru | \_koncový bod ARM | Viz [koncový bod správce prostředků centra Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-version-profiles-ruby#the-azure-stack-hub-resource-manager-endpoint). |
+| ID předplatného | ID\_předplatného\_Azure [ID předplatného](/azure-stack/operator/service-plan-offer-subscription-overview#subscriptions) je způsob, jakým přistupujete k nabídkám centra Azure Stack.  |
+| Tajný klíč klienta | tajný\_klíč aplikace | Tajný kód aplikace instančního objektu uložený při vytvoření instančního objektu |
+| Správce prostředků koncový bod | koncový\_bod ARM | Viz [koncový bod správce prostředků centra Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-version-profiles-ruby#the-azure-stack-hub-resource-manager-endpoint). |
 
 #### <a name="set-your-environmental-variables-for-nodejs"></a>Nastavení proměnných prostředí pro Node. js
 
@@ -108,13 +108,13 @@ Nastavení proměnných prostředí:
 
 **Koncový bod Správce prostředků centra Azure Stack**
 
-Microsoft Azure Resource Manageru je systém správy, který vám umožňuje správcům nasadit, spravovat a monitorovat prostředky Azure. Azure Resource Manageru dokáže zpracovat tyto úkoly, jako se skupinou, nikoli samostatně, v rámci jedné operace.
+Microsoft Azure Správce prostředků je rozhraní pro správu, které správcům umožňuje nasazovat, spravovat a monitorovat prostředky Azure. Azure Resource Manager může tyto úlohy v jedné operaci zpracovat jako skupinu, nikoli jednotlivě.
 
-Z koncového bodu Resource Manageru můžete získat informace o metadatech. Koncový bod vrátí soubor JSON s informacemi potřebnými pro spouštění vašeho kódu.
+Informace o metadatech můžete získat z Správce prostředkůho koncového bodu. Koncový bod vrátí soubor JSON s informacemi potřebnými ke spuštění vašeho kódu.
 
 > [!Note]  
-> **ResourceManagerUrl** v Azure Stack Development Kit (ASDK) je: `https://management.local.azurestack.external` **ResourceManagerUrl** v integrovaných systémech je: `https://management.region.<fqdn>/`, kde `<fqdn>` je váš plně kvalifikovaný název domény.
-Načtení požadovaných metadat: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
+> **ResourceManagerUrl** v Azure Stack Development Kit (ASDK) `https://management.local.azurestack.external` je: **ResourceManagerUrl** v integrovaných systémech je: `https://management.region.<fqdn>/`, kde `<fqdn>` je váš plně kvalifikovaný název domény.
+Načtení požadovaných metadat:`<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
 
 Ukázkový soubor JSON:
 
@@ -139,11 +139,11 @@ Ukázkový soubor JSON:
 
 ### <a name="existing-api-profiles"></a>Existující profily rozhraní API
 
--  **\@Azure/ARM – resourceprovider-Profile-2019-03 -01 – Hybrid**
+-  **\@Azure/ARM-resourceprovider-Profile-2019-03 -01 – Hybrid**
 
     Nejnovější profil sestavený pro centrum Azure Stack. Tento profil se používá pro služby, které jsou kompatibilní s Azure Stackm rozbočovačem, pokud jste na 1808 razítko nebo dál.
 
--  **\@Azure-ARM-Resource**
+-  **\@Azure – ARM – prostředek**
 
     Profil se skládá z nejnovějších verzí všech služeb. Použijte nejnovější verze všech služeb v Azure.
 
@@ -151,7 +151,7 @@ Další informace o centru Azure Stack a profilech rozhraní API najdete v téma
 
 ### <a name="azure-nodejs-sdk-api-profile-usage"></a>Použití profilu rozhraní API pro Node. js sady SDK pro Azure
 
-K vytvoření instance klienta profilu by se měly použít následující řádky. Tento parametr je vyžadován pouze pro Azure Stack rozbočovač nebo jiné privátní cloudy. Globální Azure už ve výchozím nastavení má @azure-arm-resource nebo @azure-arm-storage.
+K vytvoření instance klienta profilu by se měly použít následující řádky. Tento parametr je vyžadován pouze pro Azure Stack rozbočovač nebo jiné privátní cloudy. Globální Azure už má ve výchozím nastavení tato nastavení @azure-arm-resource s @azure-arm-storagenebo.
 
 ```Node.js  
 var ResourceManagementClient = require('@azure/arm-resources-profile-hybrid-2019-03-01').ResourceManagementClient;
@@ -221,16 +221,16 @@ Následující ukázky můžete použít jako referenci pro vytváření řešen
     git clone https://github.com/sijuman/storage-node-resource-provider-getting-started.git
     ```
 
-2.  Vytvoření instančního objektu Azure a přiřazení role přístupu k předplatnému. Pokyny najdete v tématu [použití Azure PowerShell k vytvoření instančního objektu s certifikátem](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals).
+2.  Vytvořte instanční objekt Azure a přiřaďte roli pro přístup k předplatnému. Pokyny najdete v tématu [použití Azure PowerShell k vytvoření instančního objektu s certifikátem](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals).
 
-3.  Načte následující požadované hodnoty:
+3.  Načíst následující požadované hodnoty:
     - ID tenanta
     - ID klienta
     - Tajný klíč klienta
-    - ID předplatného Azure
+    - Azure Subscription ID
     - Koncový bod Správce prostředků centra Azure Stack
 
-4.  Nastavte následující proměnné prostředí pomocí informace, které jste získali z instanční objekt že vytvoříte pomocí příkazového řádku:
+4.  Nastavte následující proměnné prostředí pomocí informací, které jste získali z instančního objektu, který jste vytvořili pomocí příkazového řádku:
 
     ```bash  
     export TENANT_ID=<your tenant id>
@@ -243,9 +243,9 @@ Následující ukázky můžete použít jako referenci pro vytváření řešen
     > [!Note]  
     > Ve Windows použijte místo **exportu** **sadu set** .
 
-5.  Otevřete soubor `index.js` ukázkové aplikace.
+5.  Otevřete `index.js` soubor ukázkové aplikace.
 
-6.  Nastavte proměnnou umístění na umístění centra Azure Stack. například `LOCAL = "local"`.
+6.  Nastavte proměnnou umístění na umístění centra Azure Stack. Například, `LOCAL = "local"`.
 
 7.  Nastavte přihlašovací údaje, které vám umožní ověřit Azure Stack centra. Tato část kódu je v této ukázce obsažena v souboru index. js.
 
@@ -267,7 +267,7 @@ Následující ukázky můžete použít jako referenci pro vytváření řešen
 
 9.  Pomocí [npm modulů hledání](https://www.npmjs.com/package/@azure/arm-keyvault-profile-2019-03-01-hybrid)vyhledejte **2019-03-01 – Hybrid** a nainstalujte balíčky přidružené k tomuto profilu pro poskytovatele prostředků COMPUTE, sítě, úložiště, trezoru klíčů a App Services.
 
-    To se dá udělat tak, že otevřete příkazový řádek, přesměrujete ho do kořenové složky úložiště a spustíte `npm install @azure/arm-keyvault-profile-2019-03-01-hybrid` pro každého používaného poskytovatele prostředků.
+    To se dá udělat tak, že otevřete příkazový řádek, přesměrujete ho na kořenovou složku úložiště a spustíte `npm install @azure/arm-keyvault-profile-2019-03-01-hybrid` pro každého poskytovatele prostředků.
 
 10.  Na příkazovém řádku spusťte příkaz `npm install` pro instalaci všech modulů Node. js.
 
@@ -287,7 +287,7 @@ Následující ukázky můžete použít jako referenci pro vytváření řešen
 
 ### <a name="what-does-indexjs-do"></a>Co dělá index. js?
 
-Ukázka vytvoří nový účet úložiště, vypíše účty úložiště v předplatném nebo skupině prostředků, vypíše klíče účtu úložiště, znovu vygeneruje klíče účtu úložiště, získá vlastnosti účtu úložiště, aktualizuje SKU účtu úložiště a zkontroluje. dostupnost názvu účtu úložiště.
+Ukázka vytvoří nový účet úložiště, vypíše účty úložiště v předplatném nebo skupině prostředků, vypíše klíče účtu úložiště, znovu vygeneruje klíče účtu úložiště, získá vlastnosti účtu úložiště, aktualizuje SKLADOVOU položku účtu úložiště a ověří dostupnost názvu účtu úložiště.
 
 Ukázka se spustí přihlášením pomocí instančního objektu a vytvořením **ResourceManagementClient** a **StorageManagementClient** objektů pomocí vašich PŘIHLAŠOVACÍch údajů a ID předplatného.
 
@@ -399,7 +399,7 @@ return resourceClient.resourceGroups.deleteMethod(resourceGroupName, callback);
 
 ## <a name="next-steps"></a>Další kroky
 
-Další informace o profilech rozhraní API najdete v tématu:
+Další informace o profilech rozhraní API najdete v těchto tématech:
 
 - [Správa profilů verzí rozhraní API v centru Azure Stack](azure-stack-version-profiles.md)
 - [Verze rozhraní API poskytovatele prostředků podporované profily](azure-stack-profiles-azure-resource-manager-versions.md)
