@@ -7,12 +7,12 @@ ms.date: 02/18/2020
 ms.author: mabrigg
 ms.reviewer: hectorl
 ms.lastreviewed: 3/5/2020
-ms.openlocfilehash: 913d0eeed1ba2cfce0b062385a4f544919889f43
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: b5618fb39e9fc24fc8a086c99a7e1dd71f6b7a65
+ms.sourcegitcommit: b185ab34c4c799892948536dd6d1d1b2fc31174e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79512605"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82150234"
 ---
 # <a name="protect-vms-deployed-on-azure-stack-hub"></a>Ochrana virtuálních počítačů nasazených v centru Azure Stack
 
@@ -64,7 +64,7 @@ Obnovování aplikace od agenta vyžaduje ruční opětovné vytvoření virtuá
 
 #### <a name="backup-using-disk-snapshot-for-stopped-vms"></a>Zálohování pomocí snímku disku pro zastavené virtuální počítače
 
-Záložní produkty můžou chránit konfiguraci virtuálních počítačů IaaS a disky připojené k zastavenému virtuálnímu počítači. Záložní produkty, které se integrují s rozhraními API centra Azure Stack pro zachycení konfigurace virtuálních počítačů a vytváření snímků disku. Pokud je možné naplánovat výpadky aplikace, před spuštěním pracovního postupu zálohování se ujistěte, že je virtuální počítač v zastaveném stavu.  
+Záložní produkty můžou chránit konfiguraci virtuálních počítačů IaaS a disky připojené k zastavenému virtuálnímu počítači. Používejte záložní produkty, které se integrují s rozhraními API centra Azure Stack k zaznamenání konfigurace virtuálních počítačů a vytváření snímků disku. Pokud je možné naplánovat výpadky aplikace, před spuštěním pracovního postupu zálohování se ujistěte, že je virtuální počítač v zastaveném stavu.  
 
 #### <a name="backup-using-disk-snapshot-snapshot-for-running-vms"></a>Zálohování pomocí snímku snímku disku pro běžící virtuální počítače
 

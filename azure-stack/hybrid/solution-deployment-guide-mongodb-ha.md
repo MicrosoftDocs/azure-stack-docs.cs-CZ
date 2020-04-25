@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: d9a0447938c44eec90d1d5cb2898e950cddbd7bf
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 1d73f4099c1bf5923f646cfee74f332d1492d771
+ms.sourcegitcommit: b185ab34c4c799892948536dd6d1d1b2fc31174e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77701373"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82150290"
 ---
 # <a name="deploy-a-highly-available-mongodb-solution-to-azure-and-azure-stack-hub"></a>Nasazení vysoce dostupného řešení MongoDB do Azure a centra Azure Stack
 
@@ -21,57 +21,56 @@ Tento článek vás provede automatizovaným nasazením clusteru MongoDB s vysok
 V tomto řešení vytvoříte ukázkové prostředí pro:
 
 > [!div class="checklist"]
-> - Orchestrace nasazení v rámci dvou Azure Stack Center
-> - Minimalizace problémů se závislostmi pomocí profilů rozhraní Azure API pomocí Docker
-> - Nasazení základního vysoce dostupného clusteru MongoDB s lokalitou pro zotavení po havárii
-
+> - Orchestrujte nasazení v rámci dvou Azure Stackch Center.
+> - K minimalizaci problémů s závislostmi s profily rozhraní API Azure použijte Docker.
+> - Nasaďte základní vysoce dostupný cluster MongoDB s lokalitou pro zotavení po havárii.
 
 > [!Tip]  
 > ![Hybrid-Pillars. png](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
 > Centrum Microsoft Azure Stack je rozšířením Azure. Centrum Azure Stack přináší flexibilitu a inovace cloud computingu do místního prostředí. tím se umožní jenom hybridní cloud, který umožňuje vytvářet a nasazovat hybridní aplikace odkudkoli.  
 > 
-> Požadavky na [Návrh pro hybridní aplikace](overview-app-design-considerations.md) kontrolují pilíře kvality softwaru (umístění, škálovatelnost, dostupnost, odolnost, možnosti správy a zabezpečení) pro navrhování, nasazování a provozování hybridních aplikací. Pokyny k návrhu pomáhají při optimalizaci návrhu hybridní aplikace a minimalizaci výzev v produkčních prostředích.
-
-
+> Články [týkající se návrhu hybridní aplikace](overview-app-design-considerations.md) prověří pilíře kvality softwaru (umístění, škálovatelnost, dostupnost, odolnost, možnosti správy a zabezpečení) pro navrhování, nasazování a provozování hybridních aplikací. Pokyny k návrhu pomáhají při optimalizaci návrhu hybridní aplikace a minimalizaci výzev v produkčních prostředích.
 
 ## <a name="architecture-for-mongodb-with-azure-stack-hub"></a>Architektura pro MongoDB s rozbočovačem Azure Stack
 
-![vysoce dostupné MongoDB v centru Azure Stack](media/solution-deployment-guide-mongodb-ha/image1.png)
+![vysoce dostupná architektura MongoDB v centru Azure Stack](media/solution-deployment-guide-mongodb-ha/image1.png)
 
 ## <a name="prerequisites-for-mongodb-with-azure-stack-hub"></a>Předpoklady pro MongoDB s rozbočovačem Azure Stack
 
-  - Dva připojené systémy integrovaných Azure Stack hub (centrum Azure Stack) Toto nasazení nefunguje v sadách Azure Stack Development Kit (ASDKs). Další informace o centru Azure Stack najdete v tématu [co je Azure Stack hub?](https://azure.microsoft.com/overview/azure-stack/)
-      - Předplatné tenanta v každém centru Azure Stack.    
-      - **Poznamenejte si každé ID předplatného a Azure Resource Manager koncový bod pro každé centrum Azure Stack.**
-  - Instanční objekt služby Azure Active Directory (Azure AD), který má oprávnění k předplatnému tenanta pro každé centrum Azure Stack. Pokud jsou centra Azure Stack nasazená v různých klientech služby Azure AD, možná budete muset vytvořit dva instanční objekty. Informace o tom, jak vytvořit instanční objekt pro centrum Azure Stack, najdete v tématu [Vytvoření instančních objektů a udělení přístupu aplikacím k prostředkům služby Azure Stack hub](https://docs.microsoft.com/azure-stack/user/azure-stack-create-service-principals).    
-      - **Poznamenejte si ID aplikace, tajný klíč klienta a název tenanta (xxxxx.onmicrosoft.com) daného instančního objektu.**
-  - Ubuntu 16,04 se zaAzure Stack do každého tržiště centra. Další informace o syndikaci služby Marketplace najdete v tématu [stažení položek Marketplace z Azure do centra Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-download-azure-marketplace-item).
-  - [Docker for Windows](https://docs.docker.com/docker-for-windows/) nainstalované na místním počítači.
+- Dva připojené systémy integrovaných Azure Stack hub (centrum Azure Stack). Toto nasazení nefunguje na Azure Stack Development Kit (ASDK). Další informace o centru Azure Stack najdete v tématu [co je Azure Stack hub?](https://azure.microsoft.com/products/azure-stack/hub/)
+  - Předplatné tenanta v každém centru Azure Stack. 
+  - **Poznamenejte si každé ID předplatného a Azure Resource Manager koncový bod pro každé centrum Azure Stack.**
+- Instanční objekt služby Azure Active Directory (Azure AD), který má oprávnění k předplatnému tenanta pro každé centrum Azure Stack. Pokud jsou centra Azure Stack nasazená v různých klientech služby Azure AD, možná budete muset vytvořit dva instanční objekty. Informace o tom, jak vytvořit instanční objekt pro centrum Azure Stack, najdete v tématu [použití identity aplikace pro přístup k prostředkům Azure Stack hub](https://docs.microsoft.com/azure-stack/user/azure-stack-create-service-principals).
+  - **Poznamenejte si ID aplikace, tajný klíč klienta a název tenanta (xxxxx.onmicrosoft.com) daného instančního objektu.**
+- Ubuntu 16,04 se zaAzure Stack do každého tržiště centra. Další informace o syndikaci na webu Marketplace najdete v tématu [stažení položek Marketplace do centra Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-download-azure-marketplace-item).
+- [Docker for Windows](https://docs.docker.com/docker-for-windows/) nainstalované na místním počítači.
 
 ## <a name="get-the-docker-image"></a>Získat image Docker
 
 Image Docker pro každé nasazení eliminují problémy závislosti mezi různými verzemi Azure PowerShell.
-1.  Ujistěte se, že Docker for Windows používá kontejnery Windows.
-2.  Spuštěním následujícího příkazu na příkazovém řádku se zvýšenými oprávněními Získejte kontejner Docker se skripty nasazení.
-```powershell  
-docker pull intelligentedge/mongodb-hadr:1.0.0
-```
+
+1. Ujistěte se, že Docker for Windows používá kontejnery Windows.
+2. Spuštěním následujícího příkazu na příkazovém řádku se zvýšenými oprávněními Získejte kontejner Docker se skripty nasazení.
+
+    ```powershell  
+    docker pull intelligentedge/mongodb-hadr:1.0.0
+    ```
 
 ## <a name="deploy-the-clusters"></a>Nasazení clusterů
 
-1.  Po úspěšném dokončení image kontejneru spusťte image. \
+1. Po úspěšném dokončení image kontejneru spusťte image.
 
     ```powershell  
     docker run -it intelligentedge/mongodb-hadr:1.0.0 powershell
     ```
 
-2.  Po spuštění kontejneru se v kontejneru udělí terminál PowerShellu se zvýšenými oprávněními. Změňte adresáře tak, aby se získaly do skriptu nasazení.
+2. Po spuštění kontejneru se v kontejneru udělí terminál PowerShellu se zvýšenými oprávněními. Změňte adresáře tak, aby se získaly do skriptu nasazení.
 
     ```powershell  
     cd .\MongoHADRDemo\
     ```
 
-3.  Spusťte nasazení. Zadejte přihlašovací údaje a názvy prostředků tam, kde je to potřeba. HA odkazuje na centrum Azure Stack, ve kterém se cluster HA nasadí, a DR do centra Azure Stack, kde se nasadí cluster DR.
+3. Spusťte nasazení. Zadejte přihlašovací údaje a názvy prostředků tam, kde je to potřeba. HA odkazuje na centrum Azure Stack, ve kterém se cluster HA nasadí. Nástroj DR odkazuje na centrum Azure Stack, do kterého bude nasazen cluster DR.
 
     ```powershell
     .\Deploy-AzureResourceGroup.ps1 `
@@ -89,15 +88,15 @@ docker pull intelligentedge/mongodb-hadr:1.0.0
     -AzureStackSubscriptionId_DR "drSubscriptionId"
     ```
 
-4.  Zadejte `Y` , pokud chcete, aby se nainstaloval poskytovatel NuGet, který se aktivuje z profilu rozhraní API "2018-03-01-hybrid" modulů, které se mají nainstalovat.
+4. Zadejte `Y` , pokud chcete, aby se nainstaloval poskytovatel NuGet, který se aktivuje z profilu rozhraní API "2018-03-01-hybrid" modulů, které se mají nainstalovat.
 
-5.  Nejprve se nasadí prostředky HA. Monitorujte nasazení a počkejte, než se dokončí. Jakmile se zobrazí zpráva s oznámením, že nasazení HA bylo dokončeno, můžete na portálu HA Azure Stack centra ověřit, jestli jsou nasazené prostředky. 
+5. Nejprve se nasadí prostředky HA. Monitorujte nasazení a počkejte na jeho dokončení. Jakmile se zobrazí zpráva s oznámením, že nasazení HA bylo dokončeno, můžete na portálu HA Azure Stack centra ověřit, jestli jsou nasazené prostředky.
 
-6.  Pokračujte v nasazení prostředků zotavení po havárii a rozhodněte se, jestli chcete povolit pole pro skok v Azure Stackovém centru DR pro interakci s clusterem.
+6. Pokračujte v nasazení prostředků zotavení po havárii a rozhodněte se, jestli chcete povolit pole pro skok v Azure Stackovém centru DR pro interakci s clusterem.
 
-7.  Počkejte, než se dokončí nasazení prostředků DR.
+7. Počkejte, než se dokončí nasazení prostředků DR.
 
-8.  Po dokončení nasazení prostředků DR se kontejner ukončí.
+8. Po dokončení nasazení prostředků DR se kontejner ukončí.
 
   ```powershell
   exit
@@ -105,8 +104,6 @@ docker pull intelligentedge/mongodb-hadr:1.0.0
 
 ## <a name="next-steps"></a>Další kroky
 
-  - Pokud jste v Azure Stackovém centru pro zotavení po havárii povolili virtuální počítač se seznamem odkazů, můžete se připojit přes SSH a komunikovat s clusterem MongoDB instalací rozhraní příkazového řádku Mongo. Další informace o interakci s MongoDB najdete v tématu [prostředí Mongo](https://docs.mongodb.com/manual/mongo/).
-
-  - Další informace o hybridních cloudových aplikacích najdete v tématu [hybridní cloudová řešení.](https://aka.ms/azsdevtutorials)
-
-  - Upravte kód na tuto ukázku na [GitHubu](https://github.com/Azure-Samples/azure-intelligent-edge-patterns).
+- Pokud jste v Azure Stackovém centru pro zotavení po havárii povolili virtuální počítač se seznamem odkazů, můžete se připojit přes SSH a komunikovat s clusterem MongoDB instalací rozhraní příkazového řádku Mongo. Další informace o interakci s MongoDB najdete v tématu [prostředí Mongo](https://docs.mongodb.com/manual/mongo/).
+- Další informace o hybridních cloudových aplikacích najdete v tématu [hybridní cloudová řešení.](https://aka.ms/azsdevtutorials)
+- Upravte kód na tuto ukázku na [GitHubu](https://github.com/Azure-Samples/azure-intelligent-edge-patterns).

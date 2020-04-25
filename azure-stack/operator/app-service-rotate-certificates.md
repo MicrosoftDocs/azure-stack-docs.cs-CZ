@@ -1,31 +1,31 @@
 ---
 title: Otočení App Service v tajných klíčích a certifikátech centra Azure Stack
-description: Naučte se otáčet tajné klíče a certifikáty používané Azure App Service v centru Azure Stack
+description: Naučte se, jak pomocí Azure App Service v centru Azure Stack otáčet tajné klíče a certifikáty, které používá.
 author: apwestgarth
 ms.topic: article
 ms.date: 04/09/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 04/09/2020
-ms.openlocfilehash: edbc0a0e9d0382f53503dddf4362a371b6369ebc
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 39431c7e217410f7bae78fe114595ec6c90399b5
+ms.sourcegitcommit: b185ab34c4c799892948536dd6d1d1b2fc31174e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81005395"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82150248"
 ---
 # <a name="rotate-app-service-on-azure-stack-hub-secrets-and-certificates"></a>Otočení App Service v tajných klíčích a certifikátech centra Azure Stack
 
-Tyto pokyny platí pouze pro Azure App Service v centru Azure Stack.  V centralizovaném postupu pro rotaci tajných klíčů pro Azure Stack centrum není zahrnutá rotace Azure App Service v tajných klíčích centra Azure Stack.  Operátoři můžou monitorovat platnost tajných kódů v rámci systému, datum, kdy se data naposledy aktualizovala, a zbývající čas do vypršení platnosti tajných klíčů.
+Tyto pokyny platí pouze pro Azure App Service v centru Azure Stack. V centralizovaném postupu pro rotaci tajných klíčů pro Azure Stack centrum není zahrnutá rotace Azure App Service v tajných klíčích centra Azure Stack. Operátoři můžou monitorovat platnost tajných kódů v rámci systému, datum, kdy se data naposledy aktualizovala, a zbývající čas do vypršení platnosti tajných klíčů.
 
 > [!Important]
-> Operátoři nebudou dostávat upozornění na vypršení platnosti tajného kódu na řídicím panelu centra Azure Stack, protože Azure App Service na Azure Stack hub není integrovaný do služby upozorňování centra Azure Stack.  Operátoři musí pravidelně monitorovat své tajné klíče pomocí Azure App Service v Azure Stack prostředí pro správu centra na portálu Azure Stack hub Administrators.
+> Operátoři neobdrží výstrahy pro vypršení platnosti tajného kódu na řídicím panelu centra Azure Stack, protože Azure App Service v Azure Stack hub není integrován do služby upozorňování centra Azure Stack. Obsluha musí pravidelně monitorovat své tajné klíče pomocí Azure App Service v Azure Stack prostředí pro správu centra na portálu Azure Stack správce centra.
 
 Tento dokument obsahuje postup pro otočení následujících tajných kódů:
 
-* Šifrovací klíče používané v rámci Azure App Service v centru Azure Stack;
-* Přihlašovací údaje pro připojení k databázi, které používá Azure App Service v centru Azure Stack k interakci s databázemi hostování a měření;
-* Certifikáty, které používá Azure App Service v centru Azure Stack k zabezpečení koncových bodů a rotace certifikátu aplikace identity v Azure Active Directory (Azure AD) nebo Active Directory Federation Services (AD FS) (AD FS)
+* Šifrovací klíče používané v rámci Azure App Service v centru Azure Stack.
+* Přihlašovací údaje pro připojení k databázi, které používá Azure App Service v centru Azure Stack k interakci s databázemi hostování a měření.
+* Certifikáty, které používá Azure App Service v centru Azure Stack k zabezpečení koncových bodů a rotace certifikátů aplikací identity v Azure Active Directory (Azure AD) nebo Active Directory Federation Services (AD FS) (AD FS).
 * Přihlašovací údaje systému pro Azure App Service v rolích infrastruktury centra Azure Stack
 
 ## <a name="rotate-encryption-keys"></a>Otočení šifrovacích klíčů
@@ -36,11 +36,11 @@ Pokud chcete otočit šifrovací klíče používané v Azure App Service v cent
 
 1. Přejděte do možnosti nabídky **tajných klíčů** .
 
-1. V části šifrovací klíče klikněte na tlačítko **otočit** .
+1. V části šifrovací klíče vyberte tlačítko **otočit** .
 
-1. Kliknutím na tlačítko **OK** spusťte postup otáčení.
+1. Výběrem **OK** spusťte postup otočení.
 
-1. Šifrovací klíče se otočí a všechny instance rolí se aktualizují. Operátory mohou sledovat stav procedury pomocí tlačítka **stav** .
+1. Šifrovací klíče se otočí a všechny instance rolí se aktualizují. Operátory mohou kontrolovat stav procedury pomocí tlačítka **stav** .
 
 ## <a name="rotate-connection-strings"></a>Otočení připojovacích řetězců
 
@@ -50,80 +50,80 @@ Chcete-li aktualizovat přihlašovací údaje pro připojovací řetězec datab�
 
 1. Přejděte do možnosti nabídky **tajných klíčů** .
 
-1. Klikněte na tlačítko **otočit** v oddílu připojovací řetězce.
+1. V části připojovací řetězce vyberte tlačítko **otočit** .
 
-1. Zadejte uživatelské jméno a **heslo** **SA SQL** a kliknutím na **OK** spusťte postup otočení. 
+1. Zadejte uživatelské jméno a **heslo** **SA SQL** a výběrem **OK** spusťte postup otočení.
 
-1. Přihlašovací údaje se otočí v rámci Azure App Service instancí rolí. Operátory mohou sledovat stav procedury pomocí tlačítka **stav** .
+1. Přihlašovací údaje se otočí v rámci Azure App Service instancí rolí. Operátory mohou kontrolovat stav procedury pomocí tlačítka **stav** .
 
 ## <a name="rotate-certificates"></a>Rotace certifikátů
 
-K otočení certifikátů používaných v Azure App Service v centru Azure Stack proveďte následující kroky:
+Pokud chcete otočit certifikáty používané v Azure App Service v centru Azure Stack, proveďte následující kroky:
 
 1. Na portálu Azure Stack centra pro správu přejdete na prostředí pro správu App Service.
 
 1. Přejděte do možnosti nabídky **tajných klíčů** .
 
-1. Klikněte na tlačítko **otočit** v části certifikáty.
+1. V části certifikáty vyberte tlačítko **otočit** .
 
-1. Zadejte **soubor certifikátu** a příslušné **heslo** pro certifikáty, které chcete otočit, a klikněte na tlačítko **OK**.
+1. Zadejte **soubor certifikátu** a příslušné **heslo** pro certifikáty, které chcete otočit, a vyberte **OK**.
 
-1. Certifikáty se v rámci Azure App Service v Azure Stack instancích rolí centra otočí podle potřeby.  Operátory mohou sledovat stav procedury pomocí tlačítka **stav** .
+1. Certifikáty se v Azure App Service v instancích rolí centra Azure Stack otáčejí podle požadavků. Operátory mohou kontrolovat stav procedury pomocí tlačítka **stav** .
 
-Když se certifikát aplikace identity otočí odpovídající aplikací v AAD nebo ADFS, musí se aktualizovat taky pomocí nového certifikátu.
+Když se certifikát aplikace identity otočí, musí se taky aktualizovat odpovídající aplikace ve službě Azure AD nebo AD FS s novým certifikátem.
 
 > [!IMPORTANT]
-> Po rotaci se nepovedlo aktualizovat aplikaci identity pomocí nového certifikátu. po otočení dojde k přerušení prostředí uživatelského portálu pro Azure Functions, zabráníte uživatelům v používání nástrojů KUDU Developer Tools a zabráníte správcům spravovat sady škálování na úrovni pracovního procesu z App Service možností správy.
+> Po rotaci se nepovedlo aktualizovat aplikaci identity pomocí nového certifikátu, aby se pro Azure Functions přerušilo prostředí uživatelského portálu, aby uživatelé nemohli používat nástroje pro vývojáře v KUDU a aby správci nemohli spravovat sady škálování na úrovni pracovního procesu z prostředí App Service správy.
 
-### <a name="rotate-credential-for-the-azure-ad-identity-application"></a>Otočit přihlašovací údaje pro aplikaci identit Azure AD 
+### <a name="rotate-credential-for-the-azure-ad-identity-application"></a>Otočit přihlašovací údaje pro aplikaci identit Azure AD
 
-Aplikace identity se vytvoří pomocí operátoru před nasazením Azure App Service v centru Azure Stack.  Pokud je ID aplikace neznámé, můžete ji zjistit pomocí těchto kroků:
+Aplikace identity se vytvoří pomocí operátoru před nasazením Azure App Service v centru Azure Stack. Pokud je ID aplikace neznámé, můžete ji zjistit pomocí těchto kroků:
 
-1. Přejít na **portál pro správu centra Azure Stack**
+1. Přejít na **portál pro správu centra Azure Stack**.
 
-1. Přejít na **předplatná** a vybrat **předplatné s výchozím poskytovatelem**
+1. Přejdete na **předplatná** a vyberte **výchozí předplatné poskytovatele**.
 
 1. Vyberte **Access Control (IAM)** a vyberte **App Service** aplikace.
 
-1. Poznamenejte si **ID aplikace**, tato hodnota je ID aplikace identity, která se musí aktualizovat v Azure Active Directory.
+1. Poznamenejte si **ID aplikace**, tato hodnota je ID aplikace identity, která se musí v Azure AD aktualizovat.
 
-Pokud chcete certifikát pro aplikaci ve službě Active Directory otočit, postupujte takto:
+Pokud chcete otočit certifikát pro aplikaci ve službě Azure AD, postupujte podle těchto kroků:
 
-1. Přejít na **Azure Portal** a přihlásit se pomocí globálního správce, který se používá k nasazení centra Azure Stack
+1. Přejít na **Azure Portal** a přihlaste se pomocí globálního správce, který se používá k nasazení centra Azure Stack.
 
-1. Přejděte na **Azure Active Directory** a přejděte na **Registrace aplikací** .
+1. Přejděte na **Azure Active Directory** a přejděte na **Registrace aplikací**.
 
-1. Vyhledejte **ID aplikace**, zadejte ID aplikace identity.
+1. Vyhledejte **ID aplikace**a pak zadejte ID aplikace identity.
 
-1. Vyberte aplikaci a pak přejít na **certifikáty & tajných** kódů
+1. Vyberte aplikaci a potom vyhledejte **certifikáty & tajných**kódů.
 
-1. Klikněte na **nahrát certifikát** a nahrajte nový certifikát pro aplikaci identity s jedním z následujících typů souborů:. CER,. pem,. CRT.
+1. Vyberte **Odeslat certifikát** a nahrajte nový certifikát pro aplikaci identity pomocí jednoho z následujících typů souborů:. CER,. pem,. CRT.
 
-1. Potvrďte shodu **kryptografických otisků** , které jsou uvedené na webu App Service možnosti správy na portálu Azure Stack centra pro správu.
+1. Ověřte shodu **otisku prstu** , která je uvedená v možnosti správy App Service na portálu Azure Stack centrum pro správu.
 
-1. Odstranit starý certifikát
+1. Odstraňte starý certifikát.
 
-### <a name="rotate-certificate-for-adfs-identity-application"></a>Otočit certifikát pro aplikaci identity ADFS
+### <a name="rotate-certificate-for-ad-fs-identity-application"></a>Otočit certifikát pro aplikaci AD FS identity
 
-Aplikace identity se vytvoří pomocí operátoru před nasazením Azure App Service v centru Azure Stack.  Pokud je ID objektu aplikace neznámé, použijte k jeho zjištění následující postup:
+Aplikace identity se vytvoří pomocí operátoru před nasazením Azure App Service v centru Azure Stack. Pokud je ID objektu aplikace neznámé, použijte k jeho zjištění následující postup:
 
-1. Přejít na **portál pro správu centra Azure Stack**
+1. Přejít na **portál pro správu centra Azure Stack**.
 
-1. Přejít na **předplatná** a vybrat **předplatné s výchozím poskytovatelem**
+1. Přejdete na **předplatná** a vyberte **výchozí předplatné poskytovatele**.
 
-1. Vyberte **Access Control (IAM)** a vyberte **AzureStack-AppService-<guid> ** Application.
+1. Vyberte možnost **Access Control (IAM)** a vyberte **AzureStack-AppService-<guid> ** Application.
 
-1. Poznamenejte si **ID objektu**. Tato hodnota je ID instančního objektu, který se musí v AD FS aktualizovat.
+1. Poznamenejte si **ID objektu**, tato hodnota je ID instančního objektu, který se musí aktualizovat v AD FS.
 
-K otočení certifikátu pro aplikaci v AD FS budete potřebovat přístup k privilegovanému koncovému bodu (PEP) a pak aktualizovat přihlašovací údaje certifikátu pomocí PowerShellu a nahradit vlastní hodnoty následujícími zástupnými symboly:
+K otočení certifikátu aplikace v AD FS musíte mít přístup k privilegovanému koncovému bodu (PEP). Pak aktualizujete přihlašovací údaje certifikátu pomocí PowerShellu a nahradíte vlastní hodnoty pro následující zástupné symboly:
 
 | Zástupný symbol | Popis | Příklad |
 | ----------- | ----------- | ------- |
-| \<PepVM\> | Název virtuálního počítače privilegovaného koncového bodu na instanci centra Azure Stack. | "AzS-ERCS01" |
-| \<CertificateFileLocation\> | Umístění certifikátu x509 na disku | "d:\certs\sso.cer" |
-| \<ApplicationObjectId\> | Identifikátor přiřazený k aplikaci identity | "S-1-5-21-401916501-2345862468-1451220656-1451" |
+| `<PepVM>` | Název virtuálního počítače privilegovaného koncového bodu na instanci centra Azure Stack. | "AzS-ERCS01" |
+| `<CertificateFileLocation>` | Umístění certifikátu x509 na disku | "d:\certs\sso.cer" |
+| `<ApplicationObjectId>` | Identifikátor přiřazený k aplikaci identity | "S-1-5-21-401916501-2345862468-1451220656-1451" |
 
- 1. Otevřete relaci Windows PowerShellu se zvýšenými oprávněními a spusťte následující skript.
+1. Otevřete relaci Windows PowerShellu se zvýšenými oprávněními a spusťte následující skript:
 
     ```powershell
     # Sign in to PowerShell interactively, using credentials that have access to the VM running the Privileged Endpoint
@@ -156,7 +156,6 @@ K otočení certifikátu pro aplikaci v AD FS budete potřebovat přístup k pri
     RunspaceId            : cb471c79-a0d3-40ec-90ba-89087d104510
     ```
 
-
 ## <a name="rotate-system-credentials"></a>Otočit systémová pověření
 
 K otočení systémových přihlašovacích údajů používaných v Azure App Service v centru Azure Stack proveďte následující kroky:
@@ -165,13 +164,10 @@ K otočení systémových přihlašovacích údajů používaných v Azure App S
 
 1. Přejděte do možnosti nabídky **tajných klíčů** .
 
-1. V části přihlašovací údaje systému klikněte na tlačítko **otočit** .
+1. V části systémové přihlašovací údaje vyberte tlačítko **otočit** .
 
-1. Vyberte **Rozsah** přihlašovacích údajů systému, které chcete otočit.  Operátory se můžou rozhodnout pro otočení systémových přihlašovacích údajů pro všechny role nebo jednotlivé role.
+1. Vyberte **Rozsah** systémových přihlašovacích údajů, které se chystáte otočit. Operátory se můžou rozhodnout pro otočení systémových přihlašovacích údajů pro všechny role nebo jednotlivé role.
 
-1. Zadejte **nové uživatelské jméno místního správce**, nové **heslo** a potvrďte **heslo** a klikněte na **OK** .
+1. Zadejte **nové uživatelské jméno místního správce** a nové **heslo**. Pak potvrďte **heslo** a vyberte **OK**.
 
-1. Přihlašovací údaje se budou otáčet podle požadavků v rámci odpovídajících Azure App Service v instanci role centra Azure Stack.  Operátory mohou sledovat stav procedury pomocí tlačítka **stav** .
-
-
-
+1. Přihlašovací údaje se v rámci odpovídajících Azure App Service v instanci role centra Azure Stack otáčejí podle požadavků. Operátory mohou kontrolovat stav procedury pomocí tlačítka **stav** .
