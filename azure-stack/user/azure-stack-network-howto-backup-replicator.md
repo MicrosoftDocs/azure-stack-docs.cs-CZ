@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: e7997669d6a8ffa5809fdb0ccd852f4abcb08284
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: a20979ff0bb60f058658e9a0f9f540b2c0cb434e
+ms.sourcegitcommit: d930d52e27073829b8bf8ac2d581ec2accfa37e3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81660532"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82173909"
 ---
 # <a name="replicate-resources-using-the-azure-stack-hub-subscription-replicator"></a>Replikace prostředků pomocí replikátoru předplatného centra Azure Stack
 
@@ -72,7 +72,7 @@ Nástroj vyžaduje parametr pojmenovaný **Parallel**. Tento parametr přebírá
 
 ## <a name="add-additional-resource-types"></a>Přidat další typy prostředků
 
-Přidávání nových typů prostředků je jednoduché. Vývojář musí vytvořit přizpůsobený procesor a buď šablonu Azure Resource Manager, nebo generátor šablon Azure Resource Manager. Po dokončení tohoto nástroje musí vývojář přidat typ prostředku do ValidateSet pro parametr **$ResourceType** a pole **$resourceTypes** v resource_retriever. ps1. Když přidáte typ prostředku do pole * * $resourceTypes * *, je nutné ho přidat ve správném pořadí. Pořadí pole určuje pořadí, v jakém budou prostředky nasazeny, takže mějte na paměti, že jsou zachovány závislosti. A konečně, pokud vlastní procesor používá generátor šablon Azure Resource Manager, musí přidat název typu prostředku do pole **$customTypes** v **post_process. ps1**.
+Přidávání nových typů prostředků je jednoduché. Vývojář musí vytvořit přizpůsobený procesor a buď šablonu Azure Resource Manager, nebo generátor šablon Azure Resource Manager. Po dokončení tohoto nástroje musí vývojář přidat typ prostředku do ValidateSet pro parametr **$ResourceType** a pole **$resourceTypes** v resource_retriever. ps1. Když přidáte typ prostředku do pole **$resourceTypes** , musí být přidán ve správném pořadí. Pořadí pole určuje pořadí, v jakém budou prostředky nasazeny, takže mějte na paměti, že jsou zachovány závislosti. A konečně, pokud vlastní procesor používá generátor šablon Azure Resource Manager, musí přidat název typu prostředku do pole **$customTypes** v **post_process. ps1**.
 
 ## <a name="run-azure-subscription-replicator"></a>Spustit Replikátor předplatných Azure
 

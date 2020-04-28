@@ -3,16 +3,16 @@ title: Co je nového v Marketplace centra Azure Stack
 description: Změny a aktualizace na tržišti Azure Stack hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 04/23/2020
+ms.date: 04/27/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 10/01/2019
-ms.openlocfilehash: 4efff54a69adc2150aec88791738a9d564df55ee
-ms.sourcegitcommit: 3809903f51e254fadfa8c653d5b441278540319e
+ms.openlocfilehash: 9852799c59e7ddf2c33a93f5af4feee69718d4ab
+ms.sourcegitcommit: e5b587216a137819444680ec619281c90f37bad9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82139473"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82166969"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Změny v tržišti centra Azure Stack
 
@@ -22,16 +22,13 @@ Tento článek popisuje poslední přidání, aktualizace, změny a odebrání [
 
 ## <a name="new-marketplace-items"></a>Nové položky Marketplace
 
-- 06/27/2019: s, edice clusteru DataKeeper
-- 06/27/2019: replikace Veeam Backup &
-- 06/27/2019: Windows Server 2019 Datacenter Server Core s kontejnery s průběžnými platbami
-- 06/27/2019: Windows Server 2019 Datacenter Server Core s kontejnery BYOL
-- 06/27/2019: průběžné platby Windows serveru 2019 Datacenter
-- 06/27/2019: Windows Server 2019 Datacenter BYOL
-- 06/27/2019: Windows Server 2019 Datacenter Server Core s průběžnými platbami
-- 06/27/2019: Windows Server 2019 Datacenter Server Core BYOL
-- 06/27/2019: Windows Server 2019 Datacenter s kontejnery s průběžnými platbami
-- 06/27/2019: Windows Server 2019 Datacenter s kontejnery BYOL
+- 01/21/2020: Teradici software pro přístup k cloudu
+- 12/26/2019: CloudGuard IaaS High Availability
+- 12/26/2019: Check Point CloudGuard IaaS Security Management
+- 12/26/2019: Check Point CloudGuard IaaS Single Gateway
+- 10/16/2019: s, edice clusteru DataKeeper
+- 08/19/2019: platforma pro datové vědy Iguazio
+- 08/09/2019: Oracle Linux
 - 08/05/2019: Bitnami Drupal
 - 08/05/2019: Bitnami etcd
 - 08/05/2019: Bitnami Grafana
@@ -43,13 +40,16 @@ Tento článek popisuje poslední přidání, aktualizace, změny a odebrání [
 - 08/05/2019: Bitnami NAT
 - 08/05/2019: Bitnamiá deska pro kontrolu
 - 08/05/2019: Bitnami sestavitel
-- 08/09/2019: Oracle Linux
-- 08/19/2019: platforma pro datové vědy Iguazio
-- 10/16/2019: s, edice clusteru DataKeeper
-- 12/26/2019: CloudGuard IaaS High Availability
-- 12/26/2019: Check Point CloudGuard IaaS Security Management
-- 12/26/2019: Check Point CloudGuard IaaS Single Gateway
-- 01/21/2020: Teradici software pro přístup k cloudu
+- 06/27/2019: s, edice clusteru DataKeeper
+- 06/27/2019: Windows Server 2019 Datacenter Server Core s kontejnery s průběžnými platbami
+- 06/27/2019: Windows Server 2019 Datacenter Server Core s kontejnery BYOL
+- 06/27/2019: průběžné platby Windows serveru 2019 Datacenter
+- 06/27/2019: Windows Server 2019 Datacenter BYOL
+- 06/27/2019: Windows Server 2019 Datacenter Server Core s průběžnými platbami
+- 06/27/2019: Windows Server 2019 Datacenter Server Core BYOL
+- 06/27/2019: Windows Server 2019 Datacenter s kontejnery s průběžnými platbami
+- 06/27/2019: Windows Server 2019 Datacenter s kontejnery BYOL
+- 06/27/2019: replikace Veeam Backup &
 
 ## <a name="deprecated-marketplace-items"></a>Zastaralé položky Marketplace
 
@@ -62,6 +62,16 @@ Tento článek popisuje poslední přidání, aktualizace, změny a odebrání [
 
 ## <a name="updated-marketplace-items"></a>Aktualizované položky Marketplace
 
+- 04/20/2020: Windows Server 2012 Datacenter – BYOL-Version 3.127.20190521
+- 04/20/2020: Windows Server 2012 R2 Datacenter – platíte při používání verze 4.127.20200205
+- 04/20/2020: Windows Server 2012 R2 Datacenter – BYOL-Version 4.127.20200205
+- 04/20/2020: Windows Server 2012 Datacenter – platíte při používání verze 3.127.20200205
+- 04/20/2020: Windows Server 2016 Datacenter – BYOL – verze 2020,01
+- 04/20/2020: Windows Server 2016 Datacenter Server Core – Plaťte podle používané verze 2020,01
+- 04/20/2020: Windows Server 2016 Datacenter Server Core-BYOL-Version 2020,01
+- 04/20/2020: Windows Server 2016 Datacenter s kontejnery – Plaťte podle používání – verze 2020,01
+- 04/20/2020: Windows Server 2016 Datacenter s kontejnery – BYOL – verze 2020,01
+- 04/20/2020: Windows Server 2016 Datacenter – Plaťte podle používání – verze 2020,01
 - 04/17/2020: Bitnami AbanteCart – verze 1.2.2002091007
 - 04/17/2020: Bitnami ActiveMQ – verze 5.15.2003260344
 - 04/17/2020: Bitnami Akeneo – verze 3.2.2004030743
@@ -202,7 +212,18 @@ Tento článek popisuje poslední přidání, aktualizace, změny a odebrání [
 - 04/17/2020: Bitnami MariaDB Galera cluster – verze 1.0.35
 - 04/17/2020: Bitnami Jenkinse cluster – verze 1.0.69
 - 04/17/2020: Bitnami RabbitMQ cluster – verze 1.0.37
-- 07/11/2019: Thales CipherTrust, správce Cloud Key Manager – verze 1.0.7
+- 10/1/2019: rozšíření Microsoft JsonADDomain Extension – verze 1.3.4
+- 09/25/2019: Debian 8 – verze 8.0.20190806
+- 09/24/2019: F5 – sítě s Big-IP Virtual Edition – verze 14.1.200000
+- 09/12/2019: Service Fabric 1.0.3 verze
+- 09/02/2019: AKS Base image – verze 2019.08.09 a verze 2019.08.21
+- 08/30/2019 Azure Stack: cluster Kubernetes hub – verze 0.5.1
+- 08/08/2019: rozšíření dodavatelů CloudLink SecureVM pro Linux – verze 6,8
+- 08/08/2019: rozšíření dodavatelů CloudLink SecureVM pro Windows – verze 6,8
+- 07/30/2019: SQLIaaSExtension-Version 1.3.20180
+- 07/30/2019: SQL Server 2017 (edice Express, Developer, Standard a Enterprise) – verze 14.0.20190410
+- 07/30/2019: SQL Server 2016 SP1 (edice Express, Developer, Standard a Enterprise) – 13.2.20190410 verze
+- 07/30/2019: SQL Server 2016 SP2 (edice Express, Developer, Standard a Enterprise) – 13.2.20190410 verze
 - 07/16/2019: Windows Server 2016 Datacenter Server Core BYOL-Version 2016.127.20190522
 - 07/16/2019: Windows Server 2016 Datacenter serveru s průběžnými platbami podle aktuálního využití – verze 2016.127.20190522
 - 07/16/2019: Windows Server 2016 Datacenter s kontejnery BYOL – verze 2016.127.20190522
@@ -213,19 +234,7 @@ Tento článek popisuje poslední přidání, aktualizace, změny a odebrání [
 - 07/16/2019: Windows Server 2008 R2 s průběžnými platbami podle aktuálního využití – verze 2.127.20190522
 - 07/16/2019: Windows Server 2012 R2 Datacenter BYOL-Version 4.127.20190522
 - 07/16/2019: Windows Server 2012 R2 Datacenter s průběžnými platbami podle aktuálního využití – verze 4.127.20190522
-- 07/30/2019: SQL Server 2016 SP1 (edice Express, Developer, Standard a Enterprise) – 13.2.20190410 verze
-- 07/30/2019: SQL Server 2016 SP2 (edice Express, Developer, Standard a Enterprise) – 13.2.20190410 verze
-- 07/30/2019: SQL Server 2017 (edice Express, Developer, Standard a Enterprise) – verze 14.0.20190410
-- 07/30/2019: SQLIaaSExtension-Version 1.3.20180
-- 08/08/2019: rozšíření dodavatelů CloudLink SecureVM pro Linux – verze 6,8
-- 08/08/2019: rozšíření dodavatelů CloudLink SecureVM pro Windows – verze 6,8
-- 08/30/2019 Azure Stack: cluster Kubernetes hub – verze 0.5.1
-- 09/02/2019: AKS Base image – verze 2019.08.09 a verze 2019.08.21
-- 09/12/2019: Service Fabric 1.0.3 verze
-- 09/24/2019: F5 – sítě s Big-IP Virtual Edition – verze 14.1.200000
-- 09/25/2019: Debian 8 – verze 8.0.20190806
-- 10/1/2019: rozšíření Microsoft JsonADDomain Extension – verze 1.3.4
-
+- 07/11/2019: Thales CipherTrust, správce Cloud Key Manager – verze 1.0.7
 
 ## <a name="next-steps"></a>Další kroky
 

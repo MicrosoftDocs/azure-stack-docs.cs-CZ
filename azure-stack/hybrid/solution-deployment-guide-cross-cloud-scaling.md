@@ -1,18 +1,18 @@
 ---
-title: Nasazení aplikace, která škáluje více cloudů pomocí Azure a centra Azure Stack
-description: Naučte se, jak nasadit aplikaci, která škáluje více cloudů pomocí Azure a centra Azure Stack.
+title: Nasazení aplikace, která škáluje mezi cloudy v Azure a centra Azure Stack
+description: Naučte se, jak nasadit aplikaci, která škáluje více cloudů v Azure a centra Azure Stack.
 author: BryanLa
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 41c6b4e5adf7b659bf9db30eb8a3906c257f5473
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: a95ce4d59e5374cab351c165405895f552478f6b
+ms.sourcegitcommit: e5b587216a137819444680ec619281c90f37bad9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "78366241"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82167071"
 ---
 # <a name="deploy-an-app-that-scales-cross-cloud-using-azure-and-azure-stack-hub"></a>Nasazení aplikace, která škáluje více cloudů pomocí Azure a centra Azure Stack
 
@@ -33,30 +33,22 @@ V tomto řešení sestavíte ukázkové prostředí pro:
 > ![Hybrid-Pillars. png](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
 > Centrum Microsoft Azure Stack je rozšířením Azure. Centrum Azure Stack přináší flexibilitu a inovace cloud computingu do místního prostředí. tím se umožní jenom hybridní cloud, který umožňuje vytvářet a nasazovat hybridní aplikace odkudkoli.  
 > 
-> Požadavky na [Návrh pro hybridní aplikace](overview-app-design-considerations.md) kontrolují pilíře kvality softwaru (umístění, škálovatelnost, dostupnost, odolnost, možnosti správy a zabezpečení) pro navrhování, nasazování a provozování hybridních aplikací. Pokyny k návrhu pomáhají při optimalizaci návrhu hybridní aplikace a minimalizaci výzev v produkčních prostředích.
+> Články [týkající se návrhu hybridní aplikace](overview-app-design-considerations.md) prověří pilíře kvality softwaru (umístění, škálovatelnost, dostupnost, odolnost, možnosti správy a zabezpečení) pro navrhování, nasazování a provozování hybridních aplikací. Pokyny k návrhu pomáhají při optimalizaci návrhu hybridní aplikace a minimalizaci výzev v produkčních prostředích.
 
 ## <a name="prerequisites"></a>Požadavky
 
--   Předplatné Azure. V případě potřeby vytvořte si [bezplatný účet](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) před tím, než začnete.
-
-- Integrovaný systém nebo nasazení Azure Stack Development Kit na rozbočovači Azure Stack.
-    - Pokyny k instalaci centra Azure Stack najdete v tématu [instalace Azure Stack Development Kit](../asdk/asdk-install.md).
-    - ASDK skript pro automatizaci po nasazení najdete tady:[https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1) 
-    - Dokončení této instalace může trvat několik hodin.
-
--   Nasaďte [App Service](../operator/azure-stack-app-service-deploy.md) služby PaaS do centra Azure Stack.
-
--   [Vytvořte plán nebo nabídky](../operator/service-plan-offer-subscription-overview.md) v prostředí Azure Stack hub.
-
--   [Vytvořte předplatné tenanta](../operator/azure-stack-subscribe-plan-provision-vm.md) v prostředí Azure Stack hub.
-
--   Vytvořte webovou aplikaci v rámci předplatného tenanta. Poznamenejte si novou adresu URL webové aplikace, abyste ji mohli později použít.
-
--   Nasaďte Azure Pipelines virtuální počítač (VM) v rámci předplatného tenanta.
-
--   Vyžaduje se virtuální počítač se systémem Windows Server 2016 s rozhraním .NET 3,5. Tento virtuální počítač bude sestaven v rámci předplatného tenanta na Azure Stack hub jako privátní agent sestavení.
-
--   [Windows Server 2016 s IMAGÍ SQL 2017 VM](../operator/azure-stack-add-vm-image.md) je k dispozici v tržišti Azure Stack hub. Pokud tento obrázek není k dispozici, pracujte s operátorem centra Azure Stack, abyste se ujistili, že je přidaný do prostředí.
+- Předplatné Azure. V případě potřeby vytvořte si [bezplatný účet](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) před tím, než začnete.
+- Integrovaný systém Azure Stack nebo nasazení Azure Stack Development Kit (ASDK) hub.
+  - Pokyny k instalaci centra Azure Stack najdete v tématu [instalace ASDK](../asdk/asdk-install.md).
+  - ASDK skript pro automatizaci po nasazení najdete tady:[https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1)
+  - Dokončení této instalace může trvat několik hodin.
+- Nasaďte [App Service](../operator/azure-stack-app-service-deploy.md) služby PaaS do centra Azure Stack.
+- [Vytvářejte plány/nabídky](../operator/service-plan-offer-subscription-overview.md) v prostředí Azure Stack hub.
+- [Vytvořte předplatné tenanta](../operator/azure-stack-subscribe-plan-provision-vm.md) v prostředí Azure Stack hub.
+- Vytvořte webovou aplikaci v rámci předplatného tenanta. Poznamenejte si novou adresu URL webové aplikace, abyste ji mohli později použít.
+- Nasaďte Azure Pipelines virtuální počítač (VM) v rámci předplatného tenanta.
+- Vyžaduje se virtuální počítač se systémem Windows Server 2016 s rozhraním .NET 3,5. Tento virtuální počítač bude sestaven v rámci předplatného tenanta na Azure Stack hub jako privátní agent sestavení.
+- [Windows Server 2016 s IMAGÍ SQL 2017 VM](../operator/azure-stack-add-vm-image.md) je k dispozici v tržišti Azure Stack hub. Pokud tento obrázek není k dispozici, pracujte s operátorem centra Azure Stack, abyste se ujistili, že je přidaný do prostředí.
 
 ## <a name="issues-and-considerations"></a>Problémy a důležité informace
 
@@ -74,22 +66,20 @@ Zajistěte, aby lokálně nasazené aplikace byly nakonfigurované pro vysokou d
 
 ## <a name="cross-cloud-scaling"></a>Škálování mezi různými cloudy
 
-### <a name="obtain-a-custom-domain-and-configure-dns"></a>Získání vlastní domény a konfigurace DNS
+### <a name="get-a-custom-domain-and-configure-dns"></a>Získat vlastní doménu a nakonfigurovat DNS
 
 Aktualizujte soubor zóny DNS pro doménu. Azure AD ověří vlastnictví vlastního názvu domény. Použijte [Azure DNS](https://docs.microsoft.com/azure/dns/dns-getstarted-portal) pro Azure/externí záznamy DNS v Azure, nebo přidejte položku DNS v [jiném registrátoru DNS](https://support.office.com/article/Create-DNS-records-for-Office-365-when-you-manage-your-DNS-records-b0f3fdca-8a80-4e8e-9ef3-61e8a2a9ab23/).
 
-1.  Zaregistrujte vlastní doménu s veřejným registrátorem.
-
-2.  Přihlaste se k registrátorovi názvu domény. K provedení aktualizací DNS může být nutný schválený správce.
-
-3.  Aktualizujte soubor zóny DNS pro doménu tak, že přidáte položku DNS, kterou poskytuje Azure AD. (Položka DNS nebude mít vliv na směrování pošty nebo chování webového hostování.)
+1. Zaregistrujte vlastní doménu s veřejným registrátorem.
+2. Přihlaste se k registrátorovi názvu domény. K provedení aktualizací DNS může být nutný schválený správce.
+3. Aktualizujte soubor zóny DNS pro doménu tak, že přidáte položku DNS, kterou poskytuje Azure AD. (Položka DNS nebude mít vliv na směrování e-mailu nebo na chování webového hostování.)
 
 ### <a name="create-a-default-multi-node-web-app-in-azure-stack-hub"></a>Vytvoření výchozí webové aplikace s více uzly v centru Azure Stack
 
 Nastavte hybridní průběžnou integraci a průběžné nasazování (CI/CD), abyste nasadili webové aplikace do Azure a Azure Stack hub a mohli do obou cloudů doručovat změny.
 
 > [!Note]  
-> Azure Stack centrum se správnými obrázky publikovanými pro spuštění (Windows Server a SQL) a vyžaduje se nasazení App Service. Další informace najdete v dokumentaci App Service [před zahájením práce s App Service v centru Azure Stack](../operator/azure-stack-app-service-before-you-get-started.md).
+> Azure Stack centrum se správnými obrázky publikovanými pro spuštění (Windows Server a SQL) a vyžaduje se nasazení App Service. Další informace najdete v dokumentaci App Service [předpoklady pro nasazení App Service na Azure Stack hub](../operator/azure-stack-app-service-before-you-get-started.md).
 
 ### <a name="add-code-to-azure-repos"></a>Přidat kód pro Azure Repos
 
@@ -107,13 +97,13 @@ Azure Repos
 
 ### <a name="create-self-contained-web-app-deployment-for-app-services-in-both-clouds"></a>Vytvoření samoobslužného nasazení webové aplikace pro App Services v obou cloudech
 
-1.  Upravte soubor **WebApplication. csproj** . Vyberte `Runtimeidentifier` a přidejte `win10-x64`. (Viz dokumentace k [samoobslužnému nasazení](https://docs.microsoft.com/dotnet/core/deploying/deploy-with-vs#simpleSelf) .) 
+1. Upravte soubor **WebApplication. csproj** . Vyberte `Runtimeidentifier` a přidejte `win10-x64`. (Viz dokumentace k [samoobslužnému nasazení](https://docs.microsoft.com/dotnet/core/deploying/deploy-with-vs#simpleSelf) .)
 
     ![Upravit soubor projektu webové aplikace](media/solution-deployment-guide-cross-cloud-scaling/image3.png)
 
-2.  Vrácením kódu se změnami Azure Repos používání Team Explorer.
+2. Vrácením kódu se změnami Azure Repos používání Team Explorer.
 
-3.  Ověřte, že je kód aplikace zkontrolovaný Azure Repos.
+3. Ověřte, že je kód aplikace zkontrolovaný Azure Repos.
 
 ## <a name="create-the-build-definition"></a>Vytvoření definice sestavení
 
@@ -135,7 +125,7 @@ Azure Pipelines a Azure DevOps Services poskytují vysoce konfigurovatelný a sp
 
 ## <a name="create-release-definition"></a>Vytvořit definici vydané verze
 
-1.  Kliknutím na tlačítko **plus** přidejte novou verzi na kartě **vydání** v části **sestavení a vydání** VSO.
+1. Kliknutím na tlačítko **plus** přidejte novou verzi na kartě **vydání** v části **sestavení a vydání** Azure DevOps Services.
 
     ![Vytvoření definice verze](media/solution-deployment-guide-cross-cloud-scaling/image5.png)
 
@@ -174,32 +164,30 @@ Azure Pipelines a Azure DevOps Services poskytují vysoce konfigurovatelný a sp
     ![Uložit změny v kanálu vydání](media/solution-deployment-guide-cross-cloud-scaling/image14.png)
 
 10. Přidejte nový artefakt, který vybírá sestavení pro aplikaci Azure Stack hub.
-    
+
     ![Přidat nový artefakt pro aplikaci Azure Stack hub](media/solution-deployment-guide-cross-cloud-scaling/image15.png)
 
-
 11. Přidejte další prostředí pomocí Azure App Service nasazení.
-    
+
     ![Přidání prostředí do nasazení Azure App Service](media/solution-deployment-guide-cross-cloud-scaling/image16.png)
 
-12. Pojmenujte nové prostředí Azure Stack.
-    
+12. Pojmenujte nové prostředí "Azure Stack".
+
     ![Název prostředí při nasazení Azure App Service](media/solution-deployment-guide-cross-cloud-scaling/image17.png)
 
 13. Na kartě **úloha** Najděte Azure Stack prostředí.
-    
+
     ![Azure Stack prostředí](media/solution-deployment-guide-cross-cloud-scaling/image18.png)
 
 14. Vyberte předplatné pro Azure Stack koncový bod.
-    
+
     ![Vyberte předplatné pro Azure Stack koncový bod.](media/solution-deployment-guide-cross-cloud-scaling/image19.png)
 
 15. Jako název služby App Service nastavte Azure Stack název webové aplikace.
-
     ![Nastavit Azure Stack název webové aplikace](media/solution-deployment-guide-cross-cloud-scaling/image20.png)
 
 16. Vyberte agenta Azure Stack.
-    
+
     ![Vybrat agenta Azure Stack](media/solution-deployment-guide-cross-cloud-scaling/image21.png)
 
 17. V části nasadit Azure App Service vyberte platný **balíček nebo složku** pro prostředí. Vyberte **OK** do umístění složky.
@@ -209,15 +197,15 @@ Azure Pipelines a Azure DevOps Services poskytují vysoce konfigurovatelný a sp
     ![Vyberte složku pro nasazení Azure App Service](media/solution-deployment-guide-cross-cloud-scaling/image23.png)
 
 18. V části karta proměnné přidejte proměnnou s `VSTS\_ARM\_REST\_IGNORE\_SSL\_ERRORS`názvem, nastavte její hodnotu na **true**a rozsah na Azure Stack.
-    
+
     ![Přidat proměnnou do nasazení aplikace Azure](media/solution-deployment-guide-cross-cloud-scaling/image24.png)
 
 19. V obou artefaktech vyberte ikonu triggeru **průběžného** nasazování a povolte aktivační událost **pokračování** nasazení.
-    
+
     ![Vybrat aktivační událost průběžného nasazování](media/solution-deployment-guide-cross-cloud-scaling/image25.png)
 
 20. Vyberte ikonu podmínky **před nasazením** v prostředí Azure Stack a nastavte Trigger na **po vydání.**
-    
+
     ![Vybrat podmínky předběžného nasazení](media/solution-deployment-guide-cross-cloud-scaling/image26.png)
 
 21. Uložte všechny změny.
@@ -227,60 +215,60 @@ Azure Pipelines a Azure DevOps Services poskytují vysoce konfigurovatelný a sp
 
 ## <a name="publish-to-azure-stack-hub-via-visual-studio"></a>Publikování do centra Azure Stack pomocí sady Visual Studio
 
-Vytvořením koncových bodů může sestavení Visual Studio Online (VSTO) nasazovat aplikace služby Azure do centra Azure Stack. Azure Pipelines se připojí k agentu sestavení, který se připojí k centru Azure Stack.
+Vytvořením koncových bodů může Azure DevOps Services Build nasazovat aplikace služby Azure do centra Azure Stack. Azure Pipelines se připojí k agentu sestavení, který se připojí k centru Azure Stack.
 
-1.  Přihlaste se ke službě VSTO a přejděte na stránku nastavení aplikace.
+1. Přihlaste se k Azure DevOps Services a přejdete na stránku nastavení aplikace.
 
-2.  V **Nastavení**vyberte **zabezpečení**.
+2. V **Nastavení**vyberte **zabezpečení**.
 
-3.  V **VSTS skupin**vyberte **Tvůrce koncových bodů**.
+3. V **VSTS skupin**vyberte **Tvůrce koncových bodů**.
 
-4.  Na kartě **Členové** vyberte **Přidat**.
+4. Na kartě **Členové** vyberte **Přidat**.
 
-5.  V části **Přidat uživatele a skupiny**zadejte uživatelské jméno a vyberte tohoto uživatele ze seznamu uživatelů.
+5. V části **Přidat uživatele a skupiny**zadejte uživatelské jméno a vyberte tohoto uživatele ze seznamu uživatelů.
 
-6.  Vyberte **Uložit změny**.
+6. Vyberte **Uložit změny**.
 
-7.  V seznamu **skupiny VSTS** vyberte možnost **Správci koncových bodů**.
+7. V seznamu **skupiny VSTS** vyberte možnost **Správci koncových bodů**.
 
-8.  Na kartě **Členové** vyberte **Přidat**.
+8. Na kartě **Členové** vyberte **Přidat**.
 
-9.  V části **Přidat uživatele a skupiny**zadejte uživatelské jméno a vyberte tohoto uživatele ze seznamu uživatelů.
+9. V části **Přidat uživatele a skupiny**zadejte uživatelské jméno a vyberte tohoto uživatele ze seznamu uživatelů.
 
 10. Vyberte **Uložit změny**.
 
-Teď, když existují informace o koncovém bodu, je Azure Pipelines připojení k rozbočovači Azure Stack připraveno k použití. Agent sestavení v centru Azure Stack získá pokyny od Azure Pipelines a potom agent přenáší informace koncového bodu pro komunikaci s centrem Azure Stack.
+Teď, když existují informace o koncovém bodu, je Azure Pipelines připojení k rozbočovači Azure Stack připraveno k použití. Agent sestavení v centru Azure Stack získá pokyny od Azure Pipelines a potom agent přenáší informace koncového bodu pro komunikaci se službou Azure Stack hub.
 
-## <a name="develop-the-application-build"></a>Vývoj sestavení aplikace
+## <a name="develop-the-app-build"></a>Vývoj buildu aplikace
 
 > [!Note]  
-> Azure Stack centrum se správnými obrázky publikovanými pro spuštění (Windows Server a SQL) a vyžaduje se nasazení App Service. Další informace najdete v dokumentaci App Service [před zahájením práce s App Service v centru Azure Stack](../operator/azure-stack-app-service-before-you-get-started.md).
+> Azure Stack centrum se správnými obrázky publikovanými pro spuštění (Windows Server a SQL) a vyžaduje se nasazení App Service. Další informace najdete v tématu [předpoklady pro nasazení App Service v centru Azure Stack](../operator/azure-stack-app-service-before-you-get-started.md).
 
 K nasazení do obou cloudů použijte [Azure Resource Manager šablony](https://azure.microsoft.com/resources/templates/) , jako je kód webové aplikace z Azure Repos.
 
 ### <a name="add-code-to-an-azure-repos-project"></a>Přidat kód do projektu Azure Repos
 
-1.  Přihlaste se k Azure Repos pomocí účtu, který má práva pro vytváření projektů v centru Azure Stack. Následující snímek obrazovky ukazuje, jak se připojit k projektu HybridCICD.
+1. Přihlaste se k Azure Repos pomocí účtu, který má práva pro vytváření projektů v centru Azure Stack.
 
-2.  **Naklonujte úložiště** vytvořením a otevřením výchozí webové aplikace.
+2. **Naklonujte úložiště** vytvořením a otevřením výchozí webové aplikace.
 
 #### <a name="create-self-contained-web-app-deployment-for-app-services-in-both-clouds"></a>Vytvoření samoobslužného nasazení webové aplikace pro App Services v obou cloudech
 
-1.  Upravte soubor **WebApplication. csproj** : vyberte `Runtimeidentifier` a pak přidejte `win10-x64`. Další informace najdete v dokumentaci k [samoobslužnému nasazení](https://docs.microsoft.com/dotnet/core/deploying/deploy-with-vs#simpleSelf) .
+1. Upravte soubor **WebApplication. csproj** : vyberte `Runtimeidentifier` a pak přidejte `win10-x64`. Další informace najdete v dokumentaci k [samoobslužnému nasazení](https://docs.microsoft.com/dotnet/core/deploying/deploy-with-vs#simpleSelf) .
 
-2.  Použijte Team Explorer ke kontrole kódu do Azure Repos.
+2. Použijte Team Explorer ke kontrole kódu do Azure Repos.
 
-3.  Potvrďte, že kód aplikace byl zkontrolován Azure Repos.
+3. Potvrďte, že kód aplikace byl zkontrolován Azure Repos.
 
 ### <a name="create-the-build-definition"></a>Vytvoření definice sestavení
 
-1.  Přihlaste se k Azure Pipelines pomocí účtu, který může vytvořit definici sestavení.
+1. Přihlaste se k Azure Pipelines pomocí účtu, který může vytvořit definici sestavení.
 
-2.  Přejděte na stránku **sestavení webové aplikace** pro projekt.
+2. Přejít na stránku **sestavení webové aplikace** pro projekt.
 
-3.  V **argumentech**přidejte kód **-r Win10-x64** . Tento dodatek je nutný k aktivaci samostatného nasazení pomocí .NET Core.
+3. V **argumentech**přidejte kód **-r Win10-x64** . Tento dodatek je nutný k aktivaci samostatného nasazení pomocí .NET Core.
 
-4.  Spusťte sestavení. Proces [sestavení samostatného nasazení](https://docs.microsoft.com/dotnet/core/deploying/deploy-with-vs#simpleSelf) bude publikovat artefakty, které se dají spouštět v Azure a centra Azure Stack.
+4. Spusťte sestavení. Proces [sestavení samostatného nasazení](https://docs.microsoft.com/dotnet/core/deploying/deploy-with-vs#simpleSelf) bude publikovat artefakty, které se dají spouštět v Azure a centra Azure Stack.
 
 #### <a name="use-an-azure-hosted-build-agent"></a>Použití hostovaného agenta sestavení Azure
 
@@ -288,29 +276,29 @@ Použití hostovaného agenta sestavení v Azure Pipelines je pohodlný způsob 
 
 ### <a name="configure-the-continuous-deployment-cd-process"></a>Konfigurace procesu průběžného nasazování (CD)
 
-Azure Pipelines a Azure DevOps Services poskytují vysoce konfigurovatelný a spravovatelný kanál pro vydání do více prostředí, jako je vývoj, příprava, kontrola kvality (QA) a produkce. Tento proces může zahrnovat vyžadování schválení v určitých fázích životního cyklu aplikace.
+Azure Pipelines a Azure DevOps Services poskytují vysoce konfigurovatelný a spravovatelný kanál pro vydání do více prostředí, jako je vývoj, příprava, zabezpečování kvality (QA) a produkce. Tento proces může zahrnovat vyžadování schválení v určitých fázích životního cyklu aplikace.
 
 #### <a name="create-release-definition"></a>Vytvořit definici vydané verze
 
 Vytvoření definice verze je posledním krokem v procesu sestavování aplikace. Tato definice verze slouží k vytvoření vydání a nasazení sestavení.
 
-1.  Přihlaste se k Azure Pipelines a přejděte k **sestavení a vydání** pro projekt.
+1. Přihlaste se k Azure Pipelines a v projektu klikněte na **sestavení a vydání** .
 
-2.  Na kartě **vydané verze** vyberte **[+]** a pak vyberte **vytvořit definici vydané verze**.
+2. Na kartě **vydané verze** vyberte **[+]** a pak vyberte **vytvořit definici vydané verze**.
 
-3.  V nabídce **Vybrat šablonu**zvolte **Azure App Service nasazení**a pak vyberte **použít**.
+3. V nabídce **Vybrat šablonu**zvolte **Azure App Service nasazení**a pak vyberte **použít**.
 
-4.  V části **Přidat artefakt**ze **zdroje (definice sestavení)** vyberte aplikaci Azure Cloud Build.
+4. V části **Přidat artefakt**ze **zdroje (definice sestavení)** vyberte aplikaci Azure Cloud Build.
 
-5.  Na kartě **kanál** vyberte odkaz **1 fáze**, **1 úloha** a **Zobrazte úlohy prostředí**.
+5. Na kartě **kanál** vyberte odkaz **1 fáze**, **1 úloha** a **Zobrazte úlohy prostředí**.
 
-6.  Na kartě **úlohy** zadejte Azure jako **Název prostředí** a vyberte AzureCloud Traders – web EP ze seznamu **předplatných Azure** .
+6. Na kartě **úlohy** zadejte Azure jako **Název prostředí** a vyberte AzureCloud Traders – web EP ze seznamu **předplatných Azure** .
 
-7.  Zadejte **název služby Azure App Service**, který je `northwindtraders` na následujícím snímku obrazovky.
+7. Zadejte **název služby Azure App Service**, který je `northwindtraders` na následujícím snímku obrazovky.
 
-8.  V případě fáze agenta vyberte možnost **hostované VS2017** ze seznamu **fronta agenta** .
+8. V případě fáze agenta vyberte možnost **hostované VS2017** ze seznamu **fronta agenta** .
 
-9.  V části **nasadit Azure App Service**Vyberte platný **balíček nebo složku** pro prostředí.
+9. V části **nasadit Azure App Service**Vyberte platný **balíček nebo složku** pro prostředí.
 
 10. V **oblasti** **Vybrat soubor nebo složku**vyberte **OK** .
 
@@ -345,31 +333,32 @@ Vytvoření definice verze je posledním krokem v procesu sestavování aplikace
 
 ## <a name="create-a-release"></a>Vytvoření vydané verze
 
-1.  Na kartě **kanál** otevřete seznam vydaných **verzí** a vyberte **vytvořit vydání**.
+1. Na kartě **kanál** otevřete seznam vydaných **verzí** a vyberte **vytvořit vydání**.
 
-2.  Zadejte popis vydané verze, zkontrolujte, že jsou vybrané správné artefakty, a pak vyberte **vytvořit**. Po chvíli se zobrazí banner s oznámením, že se vytvořila nová vydaná verze a že se název verze zobrazuje jako odkaz. Kliknutím na odkaz zobrazíte stránku se souhrnem vydání.
+2. Zadejte popis vydané verze, zkontrolujte, že jsou vybrané správné artefakty, a pak vyberte **vytvořit**. Po chvíli se zobrazí banner s oznámením, že se vytvořila nová vydaná verze a že se název verze zobrazuje jako odkaz. Kliknutím na odkaz zobrazíte stránku se souhrnem vydání.
 
-3.  Na stránce souhrnu vydání najdete podrobnosti o vydané verzi. Na následujícím snímku obrazovky "Release-2" v části **prostředí** se zobrazuje **stav nasazení** pro Azure jako probíhající a stav centra Azure Stack je "úspěch". Když se stav nasazení prostředí Azure změní na úspěšné, zobrazí se informační zpráva s oznámením, že verze je připravená ke schválení. Když nasazení čeká na vyřízení nebo se nezdařilo, zobrazí se ikona s modrou **(i)** informacemi. Když najedete myší na ikonu, zobrazí se automaticky otevírané okno, které obsahuje důvod zpoždění nebo chyby.
+3. Na stránce souhrnu vydání najdete podrobnosti o vydané verzi. Na následujícím snímku obrazovky "Release-2" v části **prostředí** se zobrazuje **stav nasazení** pro Azure jako probíhající a stav centra Azure Stack je "úspěch". Když se stav nasazení prostředí Azure změní na úspěšné, zobrazí se informační zpráva s oznámením, že verze je připravená ke schválení. Když nasazení čeká na vyřízení nebo se nezdařilo, zobrazí se ikona s modrou **(i)** informacemi. Když najedete myší na ikonu, zobrazí se automaticky otevírané okno, které obsahuje důvod zpoždění nebo chyby.
 
-4.  Další zobrazení, jako je například seznam vydání, zobrazují také ikonu, která indikuje schválení čeká na vyřízení. Automaticky otevírané okno pro tuto ikonu zobrazuje název prostředí a další podrobnosti týkající se nasazení. Správce může snadno zobrazit celkový průběh vydaných verzí a zjistit, které verze čekají na schválení.
+4. Další zobrazení, jako je například seznam vydání, zobrazují také ikonu, která indikuje, že schválení čeká na vyřízení. Automaticky otevírané okno pro tuto ikonu zobrazuje název prostředí a další podrobnosti týkající se nasazení. Správce může snadno zobrazit celkový průběh vydaných verzí a zjistit, které verze čekají na schválení.
 
 ## <a name="monitor-and-track-deployments"></a>Monitorování a sledování nasazení
 
-1.  Na stránce Souhrn **vydání 2** vyberte **protokoly**. Během nasazení se na této stránce zobrazuje živý protokol z agenta. V levém podokně se zobrazuje stav každé operace v nasazení pro každé prostředí.
+1. Na stránce Souhrn **vydání 2** vyberte **protokoly**. Během nasazení se na této stránce zobrazuje živý protokol z agenta. V levém podokně se zobrazuje stav každé operace v nasazení pro každé prostředí.
 
-2.  Vyberte ikonu osoby ve sloupci **Akce** pro schválení před nasazením nebo po nasazení, abyste viděli, kdo toto nasazení schválil (nebo zamítl), a zprávu, kterou poskytli.
+2. Vyberte ikonu osoby ve sloupci **Akce** pro schválení před nasazením nebo po nasazení, abyste viděli, kdo toto nasazení schválil (nebo zamítl), a zprávu, kterou poskytli.
 
-3.  Po dokončení nasazení se v pravém podokně zobrazí celý soubor protokolu. V levém podokně vyberte libovolný **Krok** , abyste viděli soubor protokolu pro jeden krok, například **inicializovat úlohu**. Možnost zobrazit jednotlivé protokoly usnadňuje trasování a ladění částí celkového nasazení. **Uložte** soubor protokolu pro krok nebo **stáhněte všechny protokoly jako soubor zip**.
+3. Po dokončení nasazení se v pravém podokně zobrazí celý soubor protokolu. V levém podokně vyberte libovolný **Krok** , abyste viděli soubor protokolu pro jeden krok, jako je například **Inicializace úlohy**. Možnost zobrazit jednotlivé protokoly usnadňuje trasování a ladění částí celkového nasazení. **Uložte** soubor protokolu pro krok nebo **stáhněte všechny protokoly jako soubor zip**.
 
-4.  Otevřete kartu **Souhrn** , kde najdete obecné informace o vydané verzi. Toto zobrazení obsahuje podrobnosti o sestavení, prostředích, do kterých byla nasazena, stav nasazení a další informace o vydané verzi.
+4. Otevřete kartu **Souhrn** , kde najdete obecné informace o vydané verzi. Toto zobrazení obsahuje podrobnosti o sestavení, prostředích, do kterých byla nasazena, stav nasazení a další informace o vydané verzi.
 
-5.  Vyberte odkaz prostředí (**Azure** nebo **centrum Azure Stack**), ve kterém se zobrazí informace o stávajících a nevyřízených nasazeních do konkrétního prostředí. Tato zobrazení slouží jako rychlý způsob, jak ověřit, že stejné sestavení bylo nasazeno do obou prostředí.
+5. Vyberte odkaz prostředí (**Azure** nebo **centrum Azure Stack**), ve kterém se zobrazí informace o stávajících a nevyřízených nasazeních do konkrétního prostředí. Tato zobrazení slouží jako rychlý způsob, jak kontrolovat, zda bylo stejné sestavení nasazeno v obou prostředích.
 
-6.  Otevřete **nasazenou produkční aplikaci** v prohlížeči. Například pro web Azure App Services otevřete adresu URL `https://[your-app-name\].azurewebsites.net`.
+6. Otevřete **nasazenou produkční aplikaci** v prohlížeči. Například pro web Azure App Services otevřete adresu URL `https://[your-app-name\].azurewebsites.net`.
 
-**Integrace Azure a centra Azure Stack přináší škálovatelné řešení mezi cloudy.**
+### <a name="integration-of-azure-and-azure-stack-hub-provides-a-scalable-cross-cloud-solution"></a>Integrace Azure a centra Azure Stack přináší škálovatelné řešení mezi cloudy.
 
 Flexibilní a robustní cloudová služba poskytuje zabezpečení dat, zálohování a redundanci, konzistentní a rychlé dostupnosti, škálovatelné úložiště a distribuci a směrování vyhovující geografickým požadavkům. Tento ručně aktivovaný proces zajišťuje spolehlivé a efektivní přepínání zatížení mezi hostovanými webovými aplikacemi a okamžitou dostupností důležitých dat.
 
 ## <a name="next-steps"></a>Další kroky
+
 - Další informace o vzorech cloudu Azure najdete v tématu [vzory návrhu cloudu](https://docs.microsoft.com/azure/architecture/patterns).

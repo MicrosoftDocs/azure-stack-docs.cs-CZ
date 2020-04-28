@@ -1,20 +1,20 @@
 ---
-title: Přímý provoz s geograficky distribuovanými aplikacemi pomocí Azure a centra Azure Stack
-description: Naučte se vytvářet geograficky distribuované aplikace pomocí Azure a centra Azure Stack, který směruje provoz do konkrétních koncových bodů.
+title: Přímý provoz s geograficky distribuovanou aplikací pomocí Azure a centra Azure Stack
+description: Naučte se směrovat provoz do konkrétních koncových bodů pomocí geograficky distribuované aplikace s využitím Azure a centra Azure Stack.
 author: BryanLa
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 22919a17f58cf83857dc24d154fcfd1ab3760e59
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: d219da5d219b5d341e5c62cfbf823be1334cc614
+ms.sourcegitcommit: e5b587216a137819444680ec619281c90f37bad9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80362209"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82167105"
 ---
-# <a name="create-a-geo-distributed-app-solution-to-direct-traffic-with-azure-and-azure-stack-hub"></a>Vytvoření geograficky distribuované aplikace pro směrování provozu pomocí Azure a centra Azure Stack
+# <a name="direct-traffic-with-a-geo-distributed-app-using-azure-and-azure-stack-hub"></a>Přímý provoz s geograficky distribuovanou aplikací pomocí Azure a centra Azure Stack
 
 Naučte se směrovat provoz do konkrétních koncových bodů na základě různých metrik pomocí vzoru geograficky distribuovaných aplikací. Když vytvoříte profil Traffic Manager s využitím geografického směrování a konfigurace koncového bodu, zajistíte směrování informací na koncové body na základě regionálních požadavků, podnikových a mezinárodních předpisů a vašich datových potřeb.
 
@@ -50,21 +50,21 @@ Stejně jako v případě, že se jedná o požadavky na škálovatelnost, toto 
 
 Před vytvořením kapacity distribuovaných aplikací vám pomůže tyto věci:
 
--   **Vlastní doména pro aplikaci:** Jaký je vlastní název domény, který budou zákazníci používat pro přístup k aplikaci? Pro ukázkovou aplikaci je vlastní název domény *\.www scalableasedemo.com.*
+- **Vlastní doména pro aplikaci:** Jaký je vlastní název domény, který budou zákazníci používat pro přístup k aplikaci? Pro ukázkovou aplikaci je vlastní název domény *\.www scalableasedemo.com.*
 
--   **Doména Traffic Manager:** Při vytváření [profilu Traffic Manager Azure](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-manage-profiles)se vybere název domény. Tento název se používá v kombinaci s příponou *trafficmanager.NET* k registraci položky domény spravované pomocí Traffic Manager. Pro ukázkovou aplikaci je zvolený název *škálovatelný-pomocný-demo*. Výsledkem je, že úplný název domény, který je spravovaný nástrojem Traffic Manager, je *Scalable-ASE-demo.trafficmanager.NET*.
+- **Doména Traffic Manager:** Při vytváření [profilu Traffic Manager Azure](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-manage-profiles)se vybere název domény. Tento název se používá v kombinaci s příponou *trafficmanager.NET* k registraci položky domény spravované pomocí Traffic Manager. Pro ukázkovou aplikaci je zvolený název *škálovatelný-pomocný-demo*. Výsledkem je, že úplný název domény, který je spravovaný nástrojem Traffic Manager, je *Scalable-ASE-demo.trafficmanager.NET*.
 
--   **Strategie škálování aplikace:** Rozhodněte se, jestli budou nároky na aplikace distribuované napříč několika App Service prostředími v jedné oblasti, několika oblastech nebo kombinací obou přístupů. Rozhodnutí by mělo být založené na očekáváních, kde se bude nacházet na provozu zákazníků, a na tom, jak se může dál škálovat i zbytek podpory back-endové infrastruktury aplikace. Například s bezstavovou aplikací 100% se dá aplikace hromadně škálovat s využitím kombinace více App Service prostředí na oblast Azure vynásobená App Service prostředími nasazenými napříč několika oblastmi Azure. Díky více než 15 globálním oblastem Azure, ze kterých si můžete vybrat, můžou zákazníci skutečně vytvořit vysoce škálovatelné nároky na aplikace na úrovni Hyper. Pro ukázkovou aplikaci, která se tady používá, se v jedné oblasti Azure (Střed USA – jih) vytvořila tři App Service prostředí.
+- **Strategie škálování aplikace:** Rozhodněte se, jestli budou nároky na aplikace distribuované napříč několika App Service prostředími v jedné oblasti, několika oblastech nebo kombinací obou přístupů. Rozhodnutí by mělo být založené na očekáváních, kde se bude nacházet na provozu zákazníků, a na tom, jak se může dál škálovat i zbytek podpory back-endové infrastruktury aplikace. Například s bezstavovou aplikací 100% se dá aplikace hromadně škálovat s využitím kombinace více App Service prostředí na oblast Azure vynásobená App Service prostředími nasazenými napříč několika oblastmi Azure. Díky více než 15 globálním oblastem Azure, ze kterých si můžete vybrat, můžou zákazníci skutečně vytvořit vysoce škálovatelné nároky na aplikace na úrovni Hyper. Pro ukázkovou aplikaci, která se tady používá, se v jedné oblasti Azure (Střed USA – jih) vytvořila tři App Service prostředí.
 
--   **Konvence pojmenování pro prostředí App Service:** Každý App Service Environment vyžaduje jedinečný název. Mimo jedno nebo dvě App Service prostředí je vhodné, abyste měli zásady vytváření názvů, které vám pomůžou identifikovat jednotlivé App Service Environment. Pro ukázkovou aplikaci, která se tady používá, se použila jednoduchá konvence pojmenování. Názvy tří App Service prostředí jsou *fe1ase*, *fe2ase*a *fe3ase*.
+- **Konvence pojmenování pro prostředí App Service:** Každé App Service prostředí vyžaduje jedinečný název. Mimo jedno nebo dvě App Service prostředí je vhodné, abyste měli zásady vytváření názvů, které vám pomůžou identifikovat každé App Service prostředí. Pro ukázkovou aplikaci, která se tady používá, se použila jednoduchá konvence pojmenování. Názvy tří App Service prostředí jsou *fe1ase*, *fe2ase*a *fe3ase*.
 
--   **Konvence pojmenování pro aplikace:** Vzhledem k tomu, že bude nasazeno několik instancí aplikace, je pro každou instanci nasazené aplikace nutné zadat název. V prostředí App Service se stejný název aplikace dá použít v několika prostředích. Vzhledem k tomu, že každý App Service Environment má jedinečnou příponu domény, můžou si vývojáři zvolit, že budou v každém prostředí znovu používat přesný název aplikace. Například vývojář může mít aplikace, které jsou pojmenovány takto: *MyApp.foo1.p.azurewebsites.NET*, *MyApp.foo2.p.azurewebsites.NET*, *MyApp.foo3.p.azurewebsites.NET*a tak dále. Pro aplikaci, která se tady používá, má každá instance aplikace jedinečný název. Používané názvy instancí aplikace jsou *webfrontend1*, *webfrontend2*a *webfrontend3*.
+- **Konvence pojmenování pro aplikace:** Vzhledem k tomu, že bude nasazeno několik instancí aplikace, je pro každou instanci nasazené aplikace nutné zadat název. S App Service Environment pro Power Apps je možné použít stejný název aplikace i v různých prostředích. Vzhledem k tomu, že každé App Service prostředí má jedinečnou příponu domény, mohou vývojáři zvolit, aby v každém prostředí znovu převedly stejný název aplikace. Například vývojář může mít aplikace, které jsou pojmenovány takto: *MyApp.foo1.p.azurewebsites.NET*, *MyApp.foo2.p.azurewebsites.NET*, *MyApp.foo3.p.azurewebsites.NET*a tak dále. Pro aplikaci, která se tady používá, má každá instance aplikace jedinečný název. Používané názvy instancí aplikace jsou *webfrontend1*, *webfrontend2*a *webfrontend3*.
 
 > [!Tip]  
 > ![Hybrid-Pillars. png](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
 > Centrum Microsoft Azure Stack je rozšířením Azure. Centrum Azure Stack přináší flexibilitu a inovace cloud computingu do místního prostředí. tím se umožní jenom hybridní cloud, který umožňuje vytvářet a nasazovat hybridní aplikace odkudkoli.  
 > 
-> Požadavky na [Návrh pro hybridní aplikace](overview-app-design-considerations.md) kontrolují pilíře kvality softwaru (umístění, škálovatelnost, dostupnost, odolnost, možnosti správy a zabezpečení) pro navrhování, nasazování a provozování hybridních aplikací. Pokyny k návrhu pomáhají při optimalizaci návrhu hybridní aplikace a minimalizaci výzev v produkčních prostředích.
+> Články [týkající se návrhu hybridní aplikace](overview-app-design-considerations.md) prověří pilíře kvality softwaru (umístění, škálovatelnost, dostupnost, odolnost, možnosti správy a zabezpečení) pro navrhování, nasazování a provozování hybridních aplikací. Pokyny k návrhu pomáhají při optimalizaci návrhu hybridní aplikace a minimalizaci výzev v produkčních prostředích.
 
 ## <a name="part-1-create-a-geo-distributed-app"></a>Část 1: vytvoření geografické distribuované aplikace
 
@@ -97,7 +97,7 @@ Aktualizujte soubor zóny DNS pro doménu. Azure AD pak může ověřit vlastnic
 Nastavte hybridní průběžnou integraci/průběžné doručování (CI/CD), abyste nasadili webovou aplikaci do Azure a centra Azure Stack a automaticky nastavili změny do obou cloudů.
 
 > [!Note]  
-> Azure Stack centrum se správnými obrázky publikovanými pro spuštění (Windows Server a SQL) a vyžaduje se nasazení App Service. Další informace najdete v tématu informace o tom, [jak začít s App Service v centru Azure Stack](../operator/azure-stack-app-service-before-you-get-started.md) v dokumentaci k operátorovi centra Azure Stack.
+> Azure Stack centrum se správnými obrázky publikovanými pro spuštění (Windows Server a SQL) a vyžaduje se nasazení App Service. Další informace najdete v tématu [předpoklady pro nasazení App Service v centru Azure Stack](../operator/azure-stack-app-service-before-you-get-started.md).
 
 #### <a name="add-code-to-azure-repos"></a>Přidat kód pro Azure Repos
 
@@ -113,13 +113,13 @@ Nastavte hybridní průběžnou integraci/průběžné doručování (CI/CD), ab
 
 ### <a name="create-web-app-deployment-in-both-clouds"></a>Vytvoření nasazení webové aplikace v obou cloudech
 
-1.  Upravte soubor **WebApplication. csproj** : vyberte `Runtimeidentifier` a přidejte `win10-x64`. (Viz dokumentace k [samoobslužnému nasazení](https://docs.microsoft.com/dotnet/core/deploying/deploy-with-vs#simpleSelf) .)
+1. Upravte soubor **WebApplication. csproj** : vyberte `Runtimeidentifier` a přidejte `win10-x64`. (Viz dokumentace k [samoobslužnému nasazení](https://docs.microsoft.com/dotnet/core/deploying/deploy-with-vs#simpleSelf) .)
 
     ![Upravit soubor projektu webové aplikace v aplikaci Visual Studio](media/solution-deployment-guide-geo-distributed/image3.png)
 
-1.  **Vrácením kódu se změnami Azure Repos** používání Team Explorer.
+2. **Vrácením kódu se změnami Azure Repos** používání Team Explorer.
 
-2.  Potvrďte, že **kód aplikace** byl zkontrolován do Azure Repos.
+3. Potvrďte, že **kód aplikace** byl zkontrolován do Azure Repos.
 
 ### <a name="create-the-build-definition"></a>Vytvoření definice sestavení
 
@@ -127,11 +127,11 @@ Nastavte hybridní průběžnou integraci/průběžné doručování (CI/CD), ab
 
 2. Přidejte `-r win10-x64` kód. Tento dodatek je nezbytný pro aktivaci samostatného nasazení pomocí .NET Core.
 
-    ![Přidat kód do definice sestavení](media/solution-deployment-guide-geo-distributed/image4.png)
+    ![Přidejte kód do definice sestavení v Azure Pipelines](media/solution-deployment-guide-geo-distributed/image4.png)
 
 3. **Spusťte sestavení**. Proces [sestavení samostatného nasazení](https://docs.microsoft.com/dotnet/core/deploying/deploy-with-vs#simpleSelf) bude publikovat artefakty, které se dají spouštět v Azure a centra Azure Stack.
 
-**Použití hostovaného agenta Azure**
+#### <a name="using-an-azure-hosted-agent"></a>Použití hostovaného agenta Azure
 
 Použití hostovaného agenta v Azure Pipelines je pohodlnou možností pro sestavování a nasazování webových aplikací. Údržba a upgrady se automaticky provádí Microsoft Azure, což umožňuje nepřerušované nasazení, testování a nasazování.
 
@@ -141,90 +141,90 @@ Azure DevOps Services poskytují vysoce konfigurovatelný a spravovatelný kaná
 
 ## <a name="create-release-definition"></a>Vytvořit definici vydané verze
 
-1.  Kliknutím na tlačítko **plus** přidejte novou verzi na kartě **vydání** v části **sestavení a vydání** VSO.
+1. Kliknutím na tlačítko **plus** přidejte novou verzi na kartě **vydání** v části **sestavení a vydání** Azure DevOps Services.
 
-    ![Vytvoření definice verze](media/solution-deployment-guide-geo-distributed/image5.png)
+    ![Vytvoření definice verze v Azure DevOps Services](media/solution-deployment-guide-geo-distributed/image5.png)
 
 2. Použijte šablonu nasazení Azure App Service.
 
-   ![Použít šablonu nasazení Azure App Service](meDia/solution-deployment-guide-geo-distributed/image6.png)
+   ![Použít šablonu nasazení Azure App Service v Azure DevOps Services](media/solution-deployment-guide-geo-distributed/image6.png)
 
 3. V části **Přidat artefakt**přidejte artefakt pro aplikaci Azure Cloud Build.
 
-   ![Přidání artefaktu do cloudového sestavení Azure](media/solution-deployment-guide-geo-distributed/image7.png)
+   ![Přidání artefaktu do cloudového sestavení Azure v Azure DevOps Services](media/solution-deployment-guide-geo-distributed/image7.png)
 
 4. Na kartě kanál vyberte **fáze,** odkaz na úlohu prostředí a nastavte hodnoty cloudového prostředí Azure.
 
-   ![Nastavení hodnot cloudového prostředí Azure](media/solution-deployment-guide-geo-distributed/image8.png)
+   ![Nastavení hodnot cloudového prostředí Azure v Azure DevOps Services](media/solution-deployment-guide-geo-distributed/image8.png)
 
 5. Nastavte **Název prostředí** a vyberte **předplatné Azure** pro koncový bod cloudu Azure.
 
-      ![Výběr předplatného Azure pro koncový bod cloudu Azure](media/solution-deployment-guide-geo-distributed/image9.png)
+      ![Vyberte předplatné Azure pro koncový bod cloudu Azure v Azure DevOps Services](media/solution-deployment-guide-geo-distributed/image9.png)
 
 6. V části **název služby App Service**nastavte požadovaný název služby Azure App Service.
 
-      ![Nastavit název služby Azure App Service](media/solution-deployment-guide-geo-distributed/image10.png)
+      ![Nastavte název služby Azure App Service v Azure DevOps Services](media/solution-deployment-guide-geo-distributed/image10.png)
 
 7. Do pole **fronta agenta** pro hostované cloudové prostředí Azure zadejte "hostované VS2017".
 
-      ![Nastavení fronty agenta pro hostované cloudové prostředí Azure](media/solution-deployment-guide-geo-distributed/image11.png)
+      ![Nastavte frontu agentů pro prostředí hostované v cloudu Azure v Azure DevOps Services](media/solution-deployment-guide-geo-distributed/image11.png)
 
 8. V nabídce nasadit Azure App Service vyberte pro prostředí platný **balíček nebo složku** . Vyberte **OK** do **umístění složky**.
   
-      ![Vyberte balíček nebo složku pro Azure App Service prostředí.](media/solution-deployment-guide-geo-distributed/image12.png)
+      ![Vyberte balíček nebo složku pro prostředí Azure App Service v Azure DevOps Services](media/solution-deployment-guide-geo-distributed/image12.png)
 
-      ![Vyberte balíček nebo složku pro Azure App Service prostředí.](media/solution-deployment-guide-geo-distributed/image13.png)
+      ![Vyberte balíček nebo složku pro prostředí Azure App Service v Azure DevOps Services](media/solution-deployment-guide-geo-distributed/image13.png)
 
 9. Uložte všechny změny a vraťte se do **kanálu uvolnění**.
 
-    ![Uložit změny v kanálu vydání](media/solution-deployment-guide-geo-distributed/image14.png)
+    ![Uložení změn v kanálu vydání v Azure DevOps Services](media/solution-deployment-guide-geo-distributed/image14.png)
 
 10. Přidejte nový artefakt, který vybírá sestavení pro aplikaci Azure Stack hub.
-    
-    ![Přidat nový artefakt pro aplikaci Azure Stack hub](media/solution-deployment-guide-geo-distributed/image15.png)
+
+    ![Přidání nového artefaktu pro aplikaci Azure Stackového centra v Azure DevOps Services](media/solution-deployment-guide-geo-distributed/image15.png)
 
 
 11. Přidejte další prostředí pomocí Azure App Service nasazení.
-    
-    ![Přidání prostředí do nasazení Azure App Service](media/solution-deployment-guide-geo-distributed/image16.png)
+
+    ![Přidání prostředí do nasazení Azure App Service v Azure DevOps Services](media/solution-deployment-guide-geo-distributed/image16.png)
 
 12. Pojmenujte nové prostředí Azure Stack hub.
-    
-    ![Název prostředí při nasazení Azure App Service](media/solution-deployment-guide-geo-distributed/image17.png)
+
+    ![Název prostředí při nasazení Azure App Service v Azure DevOps Services](media/solution-deployment-guide-geo-distributed/image17.png)
 
 13. Na kartě **úloha** najděte prostředí Azure Stack hub.
-    
-    ![Prostředí centra Azure Stack](media/solution-deployment-guide-geo-distributed/image18.png)
+
+    ![Azure Stack prostředí centra v Azure DevOps Services v Azure DevOps Services](media/solution-deployment-guide-geo-distributed/image18.png)
 
 14. Vyberte předplatné pro koncový bod centra Azure Stack.
-    
-    ![Vyberte předplatné pro koncový bod centra Azure Stack.](media/solution-deployment-guide-geo-distributed/image19.png)
+
+    ![Vyberte předplatné pro koncový bod centra Azure Stack v Azure DevOps Services](media/solution-deployment-guide-geo-distributed/image19.png)
 
 15. Jako název služby App Service nastavte název webové aplikace centra Azure Stack.
 
-    ![Nastavit název webové aplikace centra Azure Stack](media/solution-deployment-guide-geo-distributed/image20.png)
+    ![Nastavit název webové aplikace Azure Stack hub v Azure DevOps Services](media/solution-deployment-guide-geo-distributed/image20.png)
 
 16. Vyberte agenta centra Azure Stack.
-    
-    ![Vybrat agenta Azure Stack hub](media/solution-deployment-guide-geo-distributed/image21.png)
+
+    ![Vybrat agenta centra Azure Stack v Azure DevOps Services](media/solution-deployment-guide-geo-distributed/image21.png)
 
 17. V části nasadit Azure App Service vyberte platný **balíček nebo složku** pro prostředí. Vyberte **OK** do umístění složky.
 
-    ![Vyberte složku pro nasazení Azure App Service](media/solution-deployment-guide-geo-distributed/image22.png)
+    ![Vyberte složku pro nasazení Azure App Service v Azure DevOps Services](media/solution-deployment-guide-geo-distributed/image22.png)
 
-    ![Vyberte složku pro nasazení Azure App Service](media/solution-deployment-guide-geo-distributed/image23.png)
+    ![Vyberte složku pro nasazení Azure App Service v Azure DevOps Services](media/solution-deployment-guide-geo-distributed/image23.png)
 
 18. V části karta proměnné přidejte proměnnou s `VSTS\_ARM\_REST\_IGNORE\_SSL\_ERRORS`názvem, nastavte její hodnotu na **true**a obor na Azure Stack hub.
-    
-    ![Přidat proměnnou do nasazení aplikace Azure](media/solution-deployment-guide-geo-distributed/image24.png)
+
+    ![Přidání proměnné do nasazení aplikace Azure v Azure DevOps Services](media/solution-deployment-guide-geo-distributed/image24.png)
 
 19. V obou artefaktech vyberte ikonu triggeru **průběžného** nasazování a povolte aktivační událost **pokračování** nasazení.
-    
-    ![Vybrat aktivační událost průběžného nasazování](media/solution-deployment-guide-geo-distributed/image25.png)
+
+    ![Vyberte aktivační událost průběžného nasazování v Azure DevOps Services](media/solution-deployment-guide-geo-distributed/image25.png)
 
 20. Vyberte ikonu podmínky **před nasazením** v prostředí Azure Stack hub a nastavte Trigger na **po vydání.**
-    
-    ![Vybrat podmínky předběžného nasazení](media/solution-deployment-guide-geo-distributed/image26.png)
+
+    ![Vyberte podmínky předběžného nasazení v Azure DevOps Services](media/solution-deployment-guide-geo-distributed/image26.png)
 
 21. Uložte všechny změny.
 
@@ -233,7 +233,7 @@ Azure DevOps Services poskytují vysoce konfigurovatelný a spravovatelný kaná
 
 ## <a name="part-2-update-web-app-options"></a>Část 2: aktualizace možností webové aplikace
 
-[Azure App Service ](https://docs.microsoft.com/azure/app-service/overview) je vysoce škálovatelná služba s automatickými opravami pro hostování webů. 
+[Azure App Service ](https://docs.microsoft.com/azure/app-service/overview) je vysoce škálovatelná služba s automatickými opravami pro hostování webů.
 
 ![Azure App Service](media/solution-deployment-guide-geo-distributed/image27.png)
 
@@ -244,7 +244,7 @@ Azure DevOps Services poskytují vysoce konfigurovatelný a spravovatelný kaná
 ### <a name="map-an-existing-custom-dns-name-to-azure-web-apps"></a>Mapování existujícího vlastního názvu DNS na Azure Web Apps
 
 > [!Note]  
->  Použijte záznam CNAME pro všechny vlastní názvy DNS kromě kořenové domény (například northwind.com).
+> Použijte záznam CNAME pro všechny vlastní názvy DNS kromě kořenové domény (například northwind.com).
 
 Pokud chcete do služby App Service migrovat živý web a jeho název domény DNS, přečtěte si téma [Migrace aktivního názvu DNS do služby Azure App Service](https://docs.microsoft.com/azure/app-service/manage-custom-dns-migrate-domain).
 
@@ -252,24 +252,22 @@ Pokud chcete do služby App Service migrovat živý web a jeho název domény DN
 
 Dokončení tohoto řešení:
 
--   [Vytvořte aplikaci App Service](https://docs.microsoft.com/azure/app-service/)nebo použijte aplikaci vytvořenou pro jiné řešení.
+- [Vytvořte aplikaci App Service](https://docs.microsoft.com/azure/app-service/)nebo použijte aplikaci vytvořenou pro jiné řešení.
 
--   Zakupte název domény a zajistěte přístup k registru DNS pro poskytovatele domény.
+- Zakupte název domény a zajistěte přístup k registru DNS pro poskytovatele domény.
 
 Aktualizujte soubor zóny DNS pro doménu. Azure AD ověří vlastnictví vlastního názvu domény. Použijte [Azure DNS](https://docs.microsoft.com/azure/dns/dns-getstarted-portal) pro Azure/externí záznamy DNS v Azure, nebo přidejte položku DNS v [jiném registrátoru DNS](https://support.office.com/article/Create-DNS-records-for-Office-365-when-you-manage-your-DNS-records-b0f3fdca-8a80-4e8e-9ef3-61e8a2a9ab23/).
 
--   Zaregistrujte vlastní doménu s veřejným registrátorem.
+- Zaregistrujte vlastní doménu s veřejným registrátorem.
 
--   Přihlaste se k registrátorovi názvu domény. (K provedení aktualizací DNS může být nutný schválený správce.)
+- Přihlaste se k registrátorovi názvu domény. (K provedení aktualizací DNS může být nutný schválený správce.)
 
--   Aktualizujte soubor zóny DNS pro doménu tak, že přidáte položku DNS, kterou poskytuje Azure AD.
+- Aktualizujte soubor zóny DNS pro doménu tak, že přidáte položku DNS, kterou poskytuje Azure AD.
 
 Pokud například chcete přidat položky DNS pro northwindcloud.com a webové\.northwindcloud.com, NAKONFIGURUJTE nastavení DNS pro kořenovou doménu northwindcloud.com.
 
 > [!Note]  
->  Název domény může být zakoupen pomocí [Azure Portal](https://docs.microsoft.com/azure/app-service/manage-custom-dns-buy-domain). Abyste mohli mapovat vlastní název DNS na webovou aplikaci, [plán služby App Service](https://azure.microsoft.com/pricing/details/app-service/) příslušné webové aplikace musí být na placené úrovni (**Shared**, **Basic**, **Standard** nebo **Premium**).
-
-
+> Název domény může být zakoupen pomocí [Azure Portal](https://docs.microsoft.com/azure/app-service/manage-custom-dns-buy-domain). Abyste mohli mapovat vlastní název DNS na webovou aplikaci, [plán služby App Service](https://azure.microsoft.com/pricing/details/app-service/) příslušné webové aplikace musí být na placené úrovni (**Shared**, **Basic**, **Standard** nebo **Premium**).
 
 ### <a name="create-and-map-cname-and-a-records"></a>Vytvoření a mapování záznamů CNAME a a
 
@@ -278,9 +276,9 @@ Pokud například chcete přidat položky DNS pro northwindcloud.com a webové\.
 > [!Note]  
 >  Pomocí Azure DNS můžete nakonfigurovat vlastní název DNS pro Azure Web Apps. Další informace najdete v tématu popisujícím [použití Azure DNS k určení nastavení vlastní domény pro službu Azure](https://docs.microsoft.com/azure/dns/dns-custom-domain).
 
-1.  Přihlaste se na web hlavního poskytovatele.
+1. Přihlaste se na web hlavního poskytovatele.
 
-2.  Vyhledejte stránku pro správu záznamů DNS. Každý poskytovatel domény má vlastní rozhraní záznamů DNS. Hledejte oblasti webu označené jako **Domain Name** (Název domény), **DNS** nebo **Name Server Management** (Správa názvových serverů).
+2. Vyhledejte stránku pro správu záznamů DNS. Každý poskytovatel domény má vlastní rozhraní záznamů DNS. Hledejte oblasti webu označené jako **Domain Name** (Název domény), **DNS** nebo **Name Server Management** (Správa názvových serverů).
 
 Stránky záznamů DNS je možné zobrazit v **mých doménách**. Vyhledejte soubor s názvem **zóny**, **záznamy DNS**nebo **pokročilou konfiguraci**.
 
@@ -292,7 +290,7 @@ Následující snímek obrazovky obsahuje příklad stránky záznamů DNS:
 
 2. Přidejte záznam CNAME pro mapování subdomény na výchozí název hostitele aplikace.
 
-   V příkladech\.domény northwindcloud.com www přidejte záznam CNAME, který mapuje název na <název aplikace\_>. azurewebsites.NET.
+   V příkladech\.domény northwindcloud.com www přidejte záznam CNAME, na `<app_name>.azurewebsites.net`který se název mapuje.
 
 Po přidání CNAME bude stránka záznamů DNS vypadat jako v následujícím příkladu:
 
@@ -300,7 +298,7 @@ Po přidání CNAME bude stránka záznamů DNS vypadat jako v následujícím p
 
 ### <a name="enable-the-cname-record-mapping-in-azure"></a>Povolení mapování záznamu CNAME v Azure
 
-1. Na nové kartě se přihlaste k Azure Portal,
+1. Na nové kartě se přihlaste k Azure Portal.
 
 2. Přejděte na App Services.
 
@@ -310,7 +308,7 @@ Po přidání CNAME bude stránka záznamů DNS vypadat jako v následujícím p
 
 5. Vyberte **+** ikonu vedle **Přidat název hostitele**.
 
-6. Zadejte plně kvalifikovaný název domény, například `www.northwindcloud.com`.
+6. Zadejte plně kvalifikovaný název domény, třeba `www.northwindcloud.com`.
 
 7. Vyberte **Ověřit**.
 
@@ -318,7 +316,7 @@ Po přidání CNAME bude stránka záznamů DNS vypadat jako v následujícím p
 
    a.  Záznam **A** pro mapování na IP adresu aplikace.
 
-   b.  Záznam **txt** pro mapování na výchozí název hostitele aplikace <APP_NAME>. azurewebsites.NET. App Service používá tento záznam pouze v době konfigurace k ověření vlastního vlastnictví domény. Po ověření odstraňte záznam TXT.
+   b.  Záznam **TXT** pro mapování na výchozí název hostitele aplikace `<app_name>.azurewebsites.net`. App Service používá tento záznam pouze v době konfigurace k ověření vlastního vlastnictví domény. Po ověření odstraňte záznam TXT.
 
 9. Dokončete tuto úlohu na kartě registrátor domény a znovu ověřte, dokud není aktivováno tlačítko **Přidat název hostitele** .
 
@@ -326,7 +324,7 @@ Po přidání CNAME bude stránka záznamů DNS vypadat jako v následujícím p
 
 11. Vyberte **Přidat název hostitele**.
 
-12. Zadejte plně kvalifikovaný název domény, například `northwindcloud.com`.
+12. Zadejte plně kvalifikovaný název domény, třeba `northwindcloud.com`.
 
 13. Vyberte **Ověřit**. Je aktivováno **Přidání** .
 
@@ -338,7 +336,7 @@ Po přidání CNAME bude stránka záznamů DNS vypadat jako v následujícím p
   
     ![Vlastní domény](media/solution-deployment-guide-geo-distributed/image31.png) 
   
-    Pokud dojde k chybě, zobrazí se v dolní části stránky oznámení o chybě ověření. ![Chyba ověření](media/solution-deployment-guide-geo-distributed/image32.png)
+    Pokud dojde k chybě, zobrazí se v dolní části stránky oznámení o chybě ověření. ![Chyba ověřování domény](media/solution-deployment-guide-geo-distributed/image32.png)
 
 > [!Note]  
 >  Výše uvedené kroky se můžou opakovat, aby se namapovala\*doména se zástupnými znaky (. northwindcloud.com). To umožňuje přidání jakýchkoli dalších subdomén do této služby App Service, aniž by bylo nutné pro každé z nich vytvořit samostatný záznam CNAME. Nakonfigurujte toto nastavení podle pokynů registrátora.
@@ -363,24 +361,24 @@ V této části budeme:
 
 Dokončení tohoto řešení:
 
--   [Vytvořte aplikaci App Service.](https://docs.microsoft.com/azure/app-service/)
--   [Namapujte vlastní název DNS na webovou aplikaci.](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain)
--   Získejte certifikát SSL od důvěryhodné certifikační autority a použijte klíč k podepsání žádosti.
+- [Vytvořte aplikaci App Service.](https://docs.microsoft.com/azure/app-service/)
+- [Namapujte vlastní název DNS na webovou aplikaci.](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain)
+- Získejte certifikát SSL od důvěryhodné certifikační autority a použijte klíč k podepsání žádosti.
 
 ### <a name="requirements-for-your-ssl-certificate"></a>Požadavky na certifikát SSL
 
 Pokud chcete ve službě App Service použít certifikát, musí splňovat všechny následující požadavky:
 
--   Podepsáno důvěryhodnou certifikační autoritou.
+- Podepsáno důvěryhodnou certifikační autoritou.
 
--   Exportováno jako soubor PFX chráněný heslem.
+- Exportováno jako soubor PFX chráněný heslem.
 
--   Obsahuje privátní klíč minimálně 2048 bitů dlouhého.
+- Obsahuje privátní klíč minimálně 2048 bitů dlouhého.
 
--   Obsahuje všechny zprostředkující certifikáty v řetězu certifikátů.
+- Obsahuje všechny zprostředkující certifikáty v řetězu certifikátů.
 
 > [!Note]  
->  **Certifikáty ECC (eliptický Curve Cryptography)** fungují s App Service, ale nejsou součástí této příručky. Pomoc při vytváření certifikátů ECC získáte od certifikační autority. 
+> **Certifikáty ECC (eliptický Curve Cryptography)** fungují s App Service, ale nejsou součástí této příručky. Pomoc při vytváření certifikátů ECC získáte od certifikační autority.
 
 #### <a name="prepare-the-web-app"></a>Příprava webové aplikace
 
@@ -388,31 +386,31 @@ Aby bylo možné vytvořit navázání vlastního certifikátu SSL k webové apl
 
 #### <a name="sign-in-to-azure"></a>Přihlášení k Azure
 
-1.  Otevřete [Azure Portal](https://portal.azure.com/) a přejděte do webové aplikace.
+1. Otevřete [Azure Portal](https://portal.azure.com/) a pokračujte na webovou aplikaci.
 
-2.  V nabídce vlevo vyberte **App Services**a pak vyberte název webové aplikace.
+2. V nabídce vlevo vyberte **App Services**a pak vyberte název webové aplikace.
 
-![Výběr webové aplikace](media/solution-deployment-guide-geo-distributed/image33.png)
+![Vyberte možnost Webová aplikace v Azure Portal](media/solution-deployment-guide-geo-distributed/image33.png)
 
 #### <a name="check-the-pricing-tier"></a>Kontrola cenové úrovně
 
-1.  V levé navigační části stránky webové aplikace se posuňte do části **Nastavení** a vyberte **škálovat nahoru (App Service plán)**.
+1. V levé navigační části stránky webové aplikace se posuňte do části **Nastavení** a vyberte **škálovat nahoru (App Service plán)**.
 
-    ![Nabídka Vertikálně navýšit kapacitu](media/solution-deployment-guide-geo-distributed/image34.png)
+    ![Škálování nabídky ve webové aplikaci](media/solution-deployment-guide-geo-distributed/image34.png)
 
-1.  Ujistěte se, že webová aplikace není na úrovni **Free** nebo **Shared** . Aktuální úroveň webové aplikace je zvýrazněna v tmavě modrém poli.
+1. Ujistěte se, že webová aplikace není na úrovni **Free** nebo **Shared** . Aktuální úroveň webové aplikace je zvýrazněna v tmavě modrém poli.
 
-    ![Kontrola cenové úrovně](media/solution-deployment-guide-geo-distributed/image35.png)
+    ![Kontrolovat cenovou úroveň ve webové aplikaci](media/solution-deployment-guide-geo-distributed/image35.png)
 
 Vlastní protokol SSL není podporován na úrovni **Free** nebo **Shared** . Pokud chcete provést škálování, postupujte podle kroků v následující části nebo na stránce **vyberte cenovou úroveň** a přejděte k části [odeslání a vytvoření vazby certifikátu SSL](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl).
 
 #### <a name="scale-up-your-app-service-plan"></a>Vertikální navýšení kapacity plánu služby App Service
 
-1.  Vyberte některou z úrovní **Basic**, **Standard** nebo **Premium**.
+1. Vyberte některou z úrovní **Basic**, **Standard** nebo **Premium**.
 
-2.  Vyberte **Vybrat**.
+2. Vyberte **Vybrat**.
 
-![Výběr cenové úrovně](media/solution-deployment-guide-geo-distributed/image36.png)
+![Výběr cenové úrovně pro vaši webovou aplikaci](media/solution-deployment-guide-geo-distributed/image36.png)
 
 Operace škálování je dokončena, když se zobrazí oznámení.
 
@@ -424,7 +422,7 @@ Sloučí více certifikátů v řetězu.
 
 1. **Otevřete každý certifikát** , který jste obdrželi v textovém editoru.
 
-2. Vytvořte soubor *mergedcertificate.crt* pro sloučený certifikát. V textovém editoru zkopírujte do tohoto souboru obsah jednotlivých certifikátů. Pořadí certifikátů by mělo odpovídat jejich pořadí v řetězu certifikátů, počínaje vaším certifikátem a konče kořenovým certifikátem. Soubor bude vypadat jako v následujícím příkladu:
+2. Vytvořte soubor pro sloučený certifikát nazvaný *mergedcertificate. CRT*. V textovém editoru zkopírujte do tohoto souboru obsah jednotlivých certifikátů. Pořadí certifikátů by mělo odpovídat jejich pořadí v řetězu certifikátů, počínaje vaším certifikátem a konče kořenovým certifikátem. Soubor bude vypadat jako v následujícím příkladu:
 
     ```Text
 
@@ -457,7 +455,7 @@ Sloučí více certifikátů v řetězu.
 
 Exportujte sloučený certifikát SSL s privátním klíčem vygenerovaným certifikátem.
 
-Soubor privátního klíče se vytvoří prostřednictvím OpenSSL. Pokud chcete certifikát exportovat do PFX, spusťte následující příkaz a nahraďte zástupné symboly * \<Private-Key-File>* a * \<Merge-Certificate-File>* s cestou k privátním klíčem a sloučeným souborem certifikátu:
+Soubor privátního klíče se vytvoří prostřednictvím OpenSSL. Pokud chcete certifikát exportovat do souboru PFX, spusťte následující příkaz a nahraďte `<private-key-file>` zástupné `<merged-certificate-file>` symboly a cestu k privátnímu klíči a souborem sloučeného certifikátu:
 
 ```powershell
 openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-certificate-file>
@@ -479,7 +477,7 @@ Když se k vygenerování žádosti o certifikát použije služba IIS nebo **Ce
 
 5. Vyberte **nahrát**.
 
-![Nahrání certifikátu](media/solution-deployment-guide-geo-distributed/image38.png)
+    ![Odeslat certifikát SSL](media/solution-deployment-guide-geo-distributed/image38.png)
 
 Až App Service dokončí nahrávání certifikátu, zobrazí se na stránce **Nastavení SSL** .
 
@@ -487,26 +485,26 @@ Až App Service dokončí nahrávání certifikátu, zobrazí se na stránce **N
 
 #### <a name="bind-your-ssl-certificate"></a>Vytvoření vazby certifikátu SSL
 
-1.  V části **vazby SSL** vyberte **Přidat vazbu**.
+1. V části **vazby SSL** vyberte **Přidat vazbu**.
 
     > [!Note]  
     >  Pokud se certifikát nahrál, ale v rozevíracím seznamu název **hostitele** se nezobrazí v části názvy domén, zkuste aktualizovat stránku prohlížeče.
 
-1.  Na stránce **Přidat vazbu SSL** vyberte pomocí rozevíracích seznamu název domény, kterou chcete zabezpečit, a certifikát, který chcete použít.
+2. Na stránce **Přidat vazbu SSL** vyberte rozevírací seznam a vyberte název domény, který chcete zabezpečit, a certifikát, který chcete použít.
 
-1.  V části **Typ SSL** vyberte, jestli se má použít SSL na základě [**Indikace názvu serveru (SNI)**](https://en.wikipedia.org/wiki/Server_Name_Indication) nebo IP adresy.
+3. V části **Typ SSL** vyberte, jestli se má použít SSL na základě [**Indikace názvu serveru (SNI)**](https://en.wikipedia.org/wiki/Server_Name_Indication) nebo IP adresy.
 
     - **SSL založené na sni**: přidat se dá víc vazeb SSL založených na sni. Tato možnost umožňuje zabezpečení několika domén na stejné IP adrese pomocí několika certifikátů SSL. Většina moderních prohlížečů (včetně prohlížečů Internet Explorer, Chrome, Firefox a Opera) podporuje SNI (ucelenější informace o podpoře prohlížečů najdete v článku o [Indikaci názvu serveru](https://wikipedia.org/wiki/Server_Name_Indication)).
 
     - **SSL na základě IP adresy**: dá se přidat jenom jedna vazba SSL založená na IP adrese. Tato možnost umožňuje zabezpečení vyhrazené veřejné IP adresy pouze jedním certifikátem SSL. Chcete-li zabezpečit více domén, zabezpečte je pomocí stejného certifikátu SSL. Protokol SSL založený na protokolu IP je tradiční volbou pro vazby SSL.
 
-1. Vyberte **Přidat vazbu**.
+4. Vyberte **Přidat vazbu**.
 
     ![Přidat vazbu SSL](media/solution-deployment-guide-geo-distributed/image40.png)
 
 Až App Service dokončí nahrávání certifikátu, zobrazí se v oddílech **vazeb SSL** .
 
-![Vazby SSL](media/solution-deployment-guide-geo-distributed/image41.png)
+![Nahrávání vazeb SSL bylo dokončeno.](media/solution-deployment-guide-geo-distributed/image41.png)
 
 #### <a name="remap-the-a-record-for-ip-ssl"></a>Přemapování záznamu A pro IP SSL
 
@@ -520,7 +518,7 @@ Stránka **vlastní doména** je aktualizována novou vyhrazenou IP adresou. Zko
 
 #### <a name="test-https"></a>Test HTTPS
 
-V různých prohlížečích přejděte k https://<vaší. Custom.>domény, abyste zajistili, že se webová aplikace doručí.
+V různých prohlížečích přejdete `https://<your.custom.domain>` na adresu, abyste zajistili, že se webová aplikace doručí.
 
 ![Přejít k webové aplikaci](media/solution-deployment-guide-geo-distributed/image42.png)
 
@@ -537,45 +535,45 @@ Na stránce webová aplikace vyberte **Nastavení SL**. Pak v části **Pouze HT
 
 Po dokončení operace přejděte na libovolnou adresu URL protokolu HTTP, která odkazuje na aplikaci. Příklad:
 
--   https://<app_name>. azurewebsites.net
--   `https://northwindcloud.com`
--   <https://www.northwindcloud.com>
+- https://<app_name>. azurewebsites.net
+- `https://northwindcloud.com`
+- <https://www.northwindcloud.com>
 
 #### <a name="enforce-tls-1112"></a>Vynucení protokolu TLS 1.1/1.2
 
-Aplikace ve výchozím nastavení povolí protokol [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1,0, který se už nepovažuje za zabezpečený oborovou normou, jako je [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard). Pokud chcete vynucovat vyšší verze protokolu TLS, postupujte následovně:
+Aplikace ve výchozím nastavení povolí protokol [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1,0, který se už nepovažuje za zabezpečený oborovou normou (například [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard)). Pokud chcete vynucovat vyšší verze protokolu TLS, postupujte následovně:
 
-1.  Na stránce webová aplikace v levém navigačním panelu vyberte **Nastavení SSL**.
+1. Na stránce webová aplikace v levém navigačním panelu vyberte **Nastavení SSL**.
 
-2.  V části **verze TLS**vyberte minimální verzi TLS.
+2. V části **verze TLS**vyberte minimální verzi TLS.
 
-![Vynucení protokolu TLS 1.1 nebo 1.2](media/solution-deployment-guide-geo-distributed/image44.png)
+    ![Vynucení protokolu TLS 1.1 nebo 1.2](media/solution-deployment-guide-geo-distributed/image44.png)
 
 ### <a name="create-a-traffic-manager-profile"></a>Vytvoření profilu Traffic Manageru
 
-1.  Vyberte **vytvořit prostředek** > **sítě** > **Traffic Manager profil** > **vytvořit**.
+1. Vyberte **vytvořit prostředek** > **sítě** > **Traffic Manager profil** > **vytvořit**.
 
-2.  Část **Vytvořit profil služby Traffic Manager** vyplňte následovně:
+2. Část **Vytvořit profil služby Traffic Manager** vyplňte následovně:
 
-    1.  Do pole **název**zadejte název profilu. Tento název musí být jedinečný v rámci zóny přenosů manager.net a má za následek název DNS, přenos manager.net, který se používá pro přístup k profilu Traffic Manager.
+    1. Do pole **název**zadejte název profilu. Tento název musí být jedinečný v rámci zóny přenosů manager.net a má za následek název DNS, trafficmanager.net, který se používá pro přístup k profilu Traffic Manager.
 
-    2.  V části **způsob směrování**vyberte **metodu geografického směrování**.
+    2. V části **způsob směrování**vyberte **metodu geografického směrování**.
 
-    3.  V části **předplatné**vyberte předplatné, ve kterém chcete vytvořit tento profil.
+    3. V části **předplatné**vyberte předplatné, ve kterém chcete vytvořit tento profil.
 
-    4.  V části **Skupina prostředků** vytvořte novou skupinu prostředků, do které chcete profil umístit.
+    4. V části **Skupina prostředků** vytvořte novou skupinu prostředků, do které chcete profil umístit.
 
-    5.  V poli **Umístění skupiny prostředků** vyberte umístění skupiny prostředků. Toto nastavení odkazuje na umístění skupiny prostředků a nemá žádný vliv na globálně nasazený profil Traffic Manager.
+    5. V poli **Umístění skupiny prostředků** vyberte umístění skupiny prostředků. Toto nastavení odkazuje na umístění skupiny prostředků a nemá žádný vliv na globálně nasazený profil Traffic Manager.
 
-    6.  Vyberte **Vytvořit**.
+    6. Vyberte **Vytvořit**.
 
-    7.  Po dokončení globálního nasazení profilu Traffic Manager se v příslušné skupině prostředků zobrazí jako jeden z prostředků.
+    7. Po dokončení globálního nasazení profilu Traffic Manager se v příslušné skupině prostředků zobrazí jako jeden z prostředků.
 
-    ![Skupiny prostředků v profilu Create Traffic Manager](media/solution-deployment-guide-geo-distributed/image45.png)
+        ![Skupiny prostředků v profilu Create Traffic Manager](media/solution-deployment-guide-geo-distributed/image45.png)
 
 ### <a name="add-traffic-manager-endpoints"></a>Přidání koncových bodů služby Traffic Manager
 
-1. Na panelu hledání portálu vyhledejte název **profilu Traffic Manager** vytvořeného v předchozí části a v zobrazených výsledcích vyberte profil Traffic Manageru.
+1. Na panelu hledání na portálu vyhledejte název **profilu Traffic Manager** vytvořeného v předchozí části a v zobrazených výsledcích vyberte profil Traffic Manageru.
 
 2. V **Traffic Manager profil**v části **Nastavení** vyberte **koncové body**.
 
@@ -599,13 +597,13 @@ Aplikace ve výchozím nastavení povolí protokol [TLS](https://wikipedia.org/w
 
 12. Přidání Koncový bod Azure:
 
-    1.  Jako **typ**vyberte **koncový bod Azure**.
+    1. Jako **typ**vyberte **koncový bod Azure**.
 
-    2.  Zadejte **název** koncového bodu.
+    2. Zadejte **název** koncového bodu.
 
-    3.  Jako **typ cílového prostředku**vyberte **App Service**.
+    3. Jako **typ cílového prostředku**vyberte **App Service**.
 
-    4.  V části **cílový prostředek**vyberte **možnost zvolit službu App Service** , abyste zobrazili výpis Web Apps v rámci stejného předplatného. V části **prostředek**vyberte službu App Service, která se používá jako první koncový bod.
+    4. V části **cílový prostředek**vyberte **možnost zvolit službu App Service** , abyste zobrazili výpis Web Apps v rámci stejného předplatného. V části **prostředek**vyberte službu App Service, která se používá jako první koncový bod.
 
 13. V části geografické mapování vyberte oblast nebo kontinent, kde se prostředek nachází. Například **Severní Amerika/Střední Amerika/Karibská oblast.**
 
@@ -618,11 +616,11 @@ Aplikace ve výchozím nastavení povolí protokol [TLS](https://wikipedia.org/w
     > [!Note]  
     >  Vytvořte alespoň jeden koncový bod s geografickým rozsahem všech (World), který bude sloužit jako výchozí koncový bod pro daný prostředek.
 
-1. Když se dokončí přidávání obou koncových bodů, zobrazí se v **profilu Traffic Manager** spolu s jejich stavem monitorování jako **online**.
+17. Když se dokončí přidávání obou koncových bodů, zobrazí se v **profilu Traffic Manager** spolu s jejich stavem monitorování jako **online**.
 
     ![Stav koncového bodu profilu Traffic Manager](media/solution-deployment-guide-geo-distributed/image46.png)
 
-**Globální podnik spoléhá na možnosti geografické distribuce Azure**
+#### <a name="global-enterprise-relies-on-azure-geo-distribution-capabilities"></a>Globální podnik spoléhá na možnosti geografické distribuce Azure
 
 Přímý přenos dat prostřednictvím Azure Traffic Manager a koncových bodů specifických pro geografie umožňuje globálním podnikům dodržovat regionální předpisy a zachovat předpisy a zajistit jejich kompatibilitu a zabezpečení, což je zásadní pro úspěch místních i vzdálených obchodních umístění.
 
