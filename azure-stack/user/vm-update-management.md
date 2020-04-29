@@ -3,16 +3,16 @@ title: Automatizace aktualizací a správy virtuálních počítačů v centru A
 description: Naučte se používat řešení Azure Monitor pro virtuální počítače, Update Management, Change Tracking a inventarizace v Azure Automation ke správě virtuálních počítačů s Windows a Linux nasazených v Azure Stackm centru.
 author: mattbriggs
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 04/27/2020
 ms.author: mabrigg
 ms.reviewer: rtiberiu
-ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 733405cc09444b88d8b81750f73be805b339e1d3
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.lastreviewed: 04/27/2020
+ms.openlocfilehash: 7ef6b1fe7bcaa0cba1138c194847c40076f3ec6e
+ms.sourcegitcommit: 29734b4ca6917b86674c17de9f41b0aaf367a838
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81661486"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82223051"
 ---
 # <a name="vm-update-and-management-automation-in-azure-stack-hub"></a>Automatizace aktualizací a správy virtuálních počítačů v centru Azure Stack
 Ke správě virtuálních počítačů s Windows a Linux, které se nasazují pomocí centra Azure Stack, použijte následující Azure Automation řešení:
@@ -51,7 +51,7 @@ Dále musíte [vytvořit účet Automation](https://docs.microsoft.com/azure/aut
 
 5. Opakujte kroky 2-4 pro povolení všech tří řešení. 
 
-   [![](media/vm-update-management/1-sm.PNG "Enable Azure Automation account features")](media/vm-update-management/1-lg.PNG#lightbox)
+   [![](media//vm-update-management/1-sm.PNG "Enable Azure Automation account features")](media//vm-update-management/1-lg.PNG)
 
 ### <a name="enable-azure-monitor-for-vms"></a>Povolit Azure Monitor pro virtuální počítače
 
@@ -70,11 +70,11 @@ Po vytvoření pracovního prostoru Log Analytics povolte čítače výkonu v pr
 ### <a name="in-the-azure-stack-hub-administrator-portal"></a>Na portálu pro správu centra Azure Stack
 Po povolení Azure Automation řešení v Azure Portal se budete muset přihlásit k portálu Azure Stack správce centra jako správce cloudu a stáhnout **Azure monitor, správu aktualizací a konfigurací** a rozšíření **Azure monitor, aktualizace a konfigurace pro Linux** na webu centra pro správu Azure Stack.
 
-   ![Azure Monitor, aktualizace a rozšíření pro správu konfigurace – položka Marketplace](media/vm-update-management/2.PNG) 
+   ![Azure Monitor, aktualizace a rozšíření pro správu konfigurace – položka Marketplace](media//vm-update-management/2.PNG) 
 
 Pokud chcete povolit řešení Azure Monitor pro virtuální počítače map a získat přehled o závislostech sítě, Stáhněte si **Azure Monitor Dependency agent**:
 
-   ![Azure Monitor Dependency Agent](media/vm-update-management/2-dependency.PNG) 
+   ![Azure Monitor Dependency Agent](media//vm-update-management/2-dependency.PNG) 
 
 ## <a name="enable-update-management-for-azure-stack-hub-vms"></a>Povolit Update Management pro virtuální počítače centra Azure Stack
 Pomocí těchto kroků můžete povolit správu aktualizací pro virtuální počítače centra Azure Stack.
@@ -83,15 +83,15 @@ Pomocí těchto kroků můžete povolit správu aktualizací pro virtuální po�
 
 2. Na portálu Azure Stack User Portal přejděte do okna rozšíření virtuálních počítačů, pro které chcete tato řešení povolit, klikněte na **+ Přidat**, vyberte rozšíření **pro správu služby Azure Update a konfigurace** a pak klikněte na **vytvořit**:
 
-   [![](media/vm-update-management/3-sm.PNG "VM extension blade")](media/vm-update-management/3-lg.PNG#lightbox)
+   [![](media//vm-update-management/3-sm.PNG "VM extension blade")](media//vm-update-management/3-lg.PNG)
 
 3. Poskytněte dříve vytvořené ID pracovního prostoru a primární klíč k propojení agenta s pracovním prostorem LogAnalytics. Pak kliknutím na **OK** nasaďte rozšíření.
 
-   [![](media/vm-update-management/4-sm.PNG "Providing the WorkspaceID and Key")](media/vm-update-management/4-lg.PNG#lightbox) 
+   [![](media//vm-update-management/4-sm.PNG "Providing the WorkspaceID and Key")](media//vm-update-management/4-lg.PNG) 
 
 4. Jak je popsáno v [dokumentaci k Update Management](https://docs.microsoft.com/azure/automation/automation-update-management), je nutné povolit řešení Update Management pro každý virtuální počítač, který chcete spravovat. Chcete-li povolit řešení pro všechny virtuální počítače, které jsou podřízeny k pracovnímu prostoru, vyberte možnost **Správa aktualizací**, klikněte na položku **spravovat počítače**a potom vyberte možnost **Povolit u všech dostupných a budoucích počítačů** .
 
-   [![](media/vm-update-management/5-sm.PNG "Enable Update Management solution on all machines")](media/vm-update-management/5-lg.PNG#lightbox) 
+   [![](media//vm-update-management/5-sm.PNG "Enable Update Management solution on all machines")](media//vm-update-management/5-lg.PNG) 
 
    > [!TIP]
    > Zopakováním tohoto kroku povolíte každé řešení pro virtuální počítače Azure Stack centra, které nahlásíte do pracovního prostoru. 
@@ -100,12 +100,28 @@ Po povolení rozšíření pro správu služby Azure Update a konfigurace se kon
 
 Po prohledání virtuálních počítačů se tyto virtuální počítače zobrazí v Azure Automationm účtu v řešení Update Management: 
 
-   [![](media/vm-update-management/6-sm.PNG "Azure Automation account in Update Management")](media/vm-update-management/6-lg.PNG#lightbox) 
+   [![](media//vm-update-management/6-sm.PNG "Azure Automation account in Update Management")](media//vm-update-management/6-lg.PNG) 
 
 > [!IMPORTANT]
 > Zobrazení aktuálních dat o spravovaných počítačích může trvat 30 minut až 6 hodin.
 
 Virtuální počítače centra Azure Stack se teď dají zahrnout do plánovaných nasazení aktualizací společně s virtuálními počítači Azure.
+
+##  <a name="create-an-update-deployment-schedule"></a>Vytvořit plán nasazení aktualizace
+
+Pokud chcete vytvořit plán nasazení aktualizace, musíte k předání počítačů použít rutinu prostředí PowerShell nebo Azure REST API. K naplánování vašich počítačů použijte následující příklad PowerShellu. K vytvoření plánu můžete použít rutinu **[New-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationschedule)** s `ForUpdateConfiguration` parametrem. Pak použijte rutinu **[New-AzAutomationSoftwareUpdateConfiguration](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationsoftwareupdateconfiguration)** a předejte do `NonAzureComputer` parametru počítače Azure Stack hub. Pokud chcete tento skript spustit, budete muset použít globální [Azure PowerShell AZ Module](https://docs.microsoft.com/powershell/azure/).
+
+Následující příklad ukazuje, jak to provést:
+
+```Powershell  
+$nonAzurecomputers = @("server-01", "server-02")
+
+$startTime = ([DateTime]::Now).AddMinutes(10)
+
+$s = New-AzAutomationSchedule -ResourceGroupName mygroup -AutomationAccountName myaccount -Name myupdateconfig -Description test-OneTime -OneTime -StartTime $startTime -ForUpdateConfiguration
+
+New-AzAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
+```
 
 ## <a name="enable-azure-monitor-for-vms-running-on-azure-stack-hub"></a>Povolit Azure Monitor pro virtuální počítače běžící v centru Azure Stack
 Jakmile má virtuální počítač **Azure monitor, správu aktualizací a konfigurací**a nainstalují se rozšíření **Azure monitor Dependency agent** , začnou v řešení [Azure monitor pro virtuální počítače](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-overview) začít vytvářet data. 

@@ -3,16 +3,16 @@ title: Nasazení clusteru Kubernetes s modulem AKS v centru Azure Stack
 description: Postup nasazení clusteru Kubernetes na rozbočovači Azure Stack z virtuálního počítače klienta, na kterém běží modul AKS.
 author: mattbriggs
 ms.topic: article
-ms.date: 3/19/2020
+ms.date: 4/23/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 3/19/2020
-ms.openlocfilehash: 6edf0f42664f86ffca5bd25aef86892b017c98c9
-ms.sourcegitcommit: e5b587216a137819444680ec619281c90f37bad9
+ms.lastreviewed: 4/23/2020
+ms.openlocfilehash: 85f9e789db3ce86b04b490be83f355eb73e7329e
+ms.sourcegitcommit: c51e7787e36c49d34ee86cabf9f823fb98b61026
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82167088"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82218819"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>Nasazení clusteru Kubernetes s modulem AKS v centru Azure Stack
 
@@ -44,11 +44,7 @@ V této části se podíváme na vytvoření modelu rozhraní API pro váš clus
     > [!Note]  
     > Pokud nemáte nainstalovaný nano, můžete nainstalovat nano na Ubuntu: `sudo apt-get install nano`.
 
-3.  V souboru Kubernetes-azurestack. JSON Najděte `orchestratorRelease`. Vyberte jednu z podporovaných verzí Kubernetes. Například 1,14, 1,15. Verze jsou často aktualizace. Zadejte verzi jako x. xx místo x. xx. x. Seznam aktuálních verzí najdete v tématu [podporované verze Kubernetes](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions). Podporovanou verzi můžete zjistit spuštěním následujícího příkazu AKS Engine:
-
-    ```bash
-    aks-engine get-versions
-    ```
+3.  V souboru Kubernetes-azurestack. JSON Najděte orchestratorRelease a orchestratorVersion. Vyberte jednu z podporovaných verzí Kubernetes. Například pro `orchestratorRelease` použití 1,14 nebo 1,15 a pro `orchestratorVersion` použití 1.14.7 nebo 1.15.10. Zadejte `orchestratorRelease` jako x. XX a orchestratorVersion jako x. xx. x. Seznam aktuálních verzí najdete v tématu [podporované verze modulu AKS](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions) .
 
 4.  Vyhledejte `customCloudProfile` adresu URL portálu tenanta a poskytněte ji. Například, `https://portal.local.azurestack.external`. 
 

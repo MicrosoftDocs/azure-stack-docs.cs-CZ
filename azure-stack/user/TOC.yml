@@ -212,6 +212,8 @@
                       href: azure-stack-kubernetes-aks-engine-overview.md
                     - name: Zásady podpory
                       href: azure-stack-kubernetes-aks-engine-support.md
+                    - name: Poznámky k verzi pro modul AKS
+                      href: kubernetes-aks-engine-release-notes.md
                     - name: Nastavit požadavky
                       href: azure-stack-kubernetes-aks-engine-set-up.md
                     - name: Vytvořit klienta pro Linux
