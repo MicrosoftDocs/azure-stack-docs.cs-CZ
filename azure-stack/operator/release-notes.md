@@ -7,12 +7,12 @@ ms.date: 04/22/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: b57b58e9b245c912d7717cc05a3d8d4c20034f76
-ms.sourcegitcommit: a82a80eb6a110ca0c463add6131ad73cf51b06d3
+ms.openlocfilehash: 3411c1b81634f2bf37ec1724ebb96aedb485fd5d
+ms.sourcegitcommit: 54f98b666bea9226c78f26dc255ddbdda539565f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "82070149"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82556342"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Poznámky k verzi centra Azure Stack
 
@@ -137,7 +137,7 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 - Opravili jsme problém, který byl běžnou příčinou selhání aktualizace centra Azure Stack z důvodu přetížení paměti u role ERCS.
 - Opravili jsme chybu v okně aktualizace, ve kterém se stav aktualizace zobrazil jako **instalace** namísto **přípravy během** přípravného fáze Azure Stack aktualizace centra.
 - Opravili jsme problém, kdy funkce RSC na fyzických přepínačích vytvořila inconsistences a odstranila tok dat prostřednictvím nástroje pro vyrovnávání zatížení. Funkce RSC je teď ve výchozím nastavení zakázaná.
-- Opravili jsme problém, kdy přidání sekundární IP adresy do virtuálního počítače způsobilo problémy s protokolem RDP.
+- Opravili jsme problém, kdy více konfigurací IP na síťovém adaptéru způsobilo nesměrování provozu a odchozí připojení. 
 - Opravili jsme problém, kdy se adresa MAC síťové karty ukládala do mezipaměti a přiřazení této adresy jinému prostředku způsobilo selhání nasazení virtuálních počítačů.
 - Opravili jsme problém, kdy image virtuálních počítačů s Windows z MALOOBCHODNÍho kanálu nemohla aktivovat svou licenci pomocí AVMA.
 - Opravili jsme problém, kdy se virtuální počítače nepodaří vytvořit, pokud se počet virtuálních jader vyžadovaných virtuálním počítačem rovnal fyzickým jádrům uzlu. Virtuálním počítačům teď umožníme mít virtuální jádra větší nebo menší než fyzické jádra uzlu.

@@ -3,16 +3,16 @@ title: Použití privilegovaného koncového bodu v centru Azure Stack
 description: Naučte se používat privilegovaný koncový bod (PEP) v centru Azure Stack jako operátor.
 author: mattbriggs
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 04/28/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
-ms.lastreviewed: 1/8/2020
-ms.openlocfilehash: b82a776f67648ec882837dc44d51fe95b24aba4f
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.lastreviewed: 04/28/2020
+ms.openlocfilehash: 8c68e7dd4aa40d448e76050e4c657ee4cea9763b
+ms.sourcegitcommit: 54f98b666bea9226c78f26dc255ddbdda539565f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81661314"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82556405"
 ---
 # <a name="use-the-privileged-endpoint-in-azure-stack-hub"></a>Použití privilegovaného koncového bodu v centru Azure Stack
 
@@ -47,7 +47,7 @@ IP adresu můžete najít také na portálu pro správu centra Azure Stack. Otev
       - V integrovaném systému spusťte následující příkaz z relace se zvýšenými oprávněními Windows PowerShellu a přidejte PEP jako důvěryhodného hostitele na zesílený virtuální počítač, který běží na hostiteli životního cyklu hardwaru nebo na pracovní stanici privilegovaného přístupu.
 
       ```powershell  
-        winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
+    Set-Item WSMan:\localhost\Client\TrustedHosts -Value '<IP Address of Privileged Endpoint>' -Concatenate
       ```
 
       - Pokud používáte ASDK, přihlaste se k hostiteli vývojové sady.
@@ -109,7 +109,7 @@ IP adresu můžete najít také na portálu pro správu centra Azure Stack. Otev
    - Stop – AzureStack
    - Get-ClusterLog
 
-## <a name="tips-for-using-the-privileged-endpoint"></a>Tipy pro použití privilegovaného koncového bodu 
+## <a name="how-to-use-the-privileged-endpoint"></a>Použití privilegovaného koncového bodu 
 
 Jak je uvedeno výše, PEP je koncový bod [POWERSHELL JEA](https://docs.microsoft.com/powershell/scripting/learn/remoting/jea/overview) . Při poskytování silné bezpečnostní vrstvy JEA koncový bod omezuje některé základní funkce PowerShellu, jako je například skriptování nebo dokončování karet. Pokud se pokusíte použít nějaký typ operace skriptu, operace se nezdařila s chybou **ScriptsNotAllowed**. Toto selhání je očekávané chování.
 
@@ -119,7 +119,7 @@ Chcete-li například získat seznam parametrů pro danou rutinu, spusťte násl
     Get-Command <cmdlet_name> -Syntax
 ```
 
-Alternativně můžete pomocí rutiny [Import-PSSession](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Import-PSSession?view=powershell-5.1) importovat všechny rutiny Pep do aktuální relace na místním počítači. Díky tomu jsou teď všechny rutiny a funkce PEP dostupné na místním počítači, a to spolu s doplňováním tabulátoru a dalšími obecnými skriptováními.
+Alternativně můžete pomocí rutiny [**Import-PSSession**](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Import-PSSession?view=powershell-5.1) importovat všechny rutiny Pep do aktuální relace na místním počítači. Rutiny a funkce PEP jsou teď k dispozici na vašem místním počítači společně s doplňováním karet a obecně se jedná o skriptování. Můžete také spustit modul **[Get-Help](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/get-help)** a zkontrolovat pokyny k rutinám.
 
 Pokud chcete importovat relaci PEP na místním počítači, proveďte následující kroky:
 
@@ -197,4 +197,5 @@ Po úspěšném přenosu souborů protokolu přepisu do sdílené složky se aut
 
 ## <a name="next-steps"></a>Další kroky
 
-[Diagnostické nástroje centra Azure Stack](azure-stack-diagnostic-log-collection-overview-tzl.md)
+- [Diagnostické nástroje centra Azure Stack](azure-stack-diagnostic-log-collection-overview-tzl.md)
+- [Referenční informace k privilegovanému koncovému bodu centra Azure Stack](../reference/pep-2002/index.md)

@@ -3,16 +3,16 @@ title: Známé problémy centra Azure Stack
 description: Přečtěte si o známých problémech v Azure Stackch vydáních centra.
 author: sethmanheim
 ms.topic: article
-ms.date: 04/22/2020
+ms.date: 04/29/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 566ffc4f09906f703b19f16365eb721f6c595c6c
-ms.sourcegitcommit: 98f62c33469ba963ba266bd88e206e9144258ea3
+ms.openlocfilehash: df81020ce365f25587c406aaf13617281769834d
+ms.sourcegitcommit: 54f98b666bea9226c78f26dc255ddbdda539565f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "82032820"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82556416"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Známé problémy centra Azure Stack
 
@@ -36,7 +36,9 @@ Chcete-li získat přístup ke známým problémům pro jinou verzi, použijte r
 ::: moniker range="azs-2002"
 ## <a name="update"></a>Aktualizace
 
-Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešení potíží s aktualizacemi v centru Azure Stack](azure-stack-updates-troubleshoot.md).
+Po použití aktualizace 2002 se může na portálu pro správu nesprávně zobrazit upozornění pro "Neplatný zdroj času". Tato hodnota false – kladná výstraha může být ignorována a bude opravena v nadcházející verzi. 
+
+Další známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešení potíží s aktualizacemi v centru Azure Stack](azure-stack-updates-troubleshoot.md).
 
 ## <a name="portal"></a>Portál
 

@@ -7,12 +7,12 @@ ms.date: 3/19/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 3/19/2020
-ms.openlocfilehash: 23ffcd6e92ba442447dfa43459344904af514d14
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 5a6089a405e860bb25e52e61e273eb5094bc3647
+ms.sourcegitcommit: 54f98b666bea9226c78f26dc255ddbdda539565f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80069100"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82556435"
 ---
 # <a name="install-the-aks-engine-on-linux-in-azure-stack-hub"></a>Instalace modulu AKS v systému Linux v centru Azure Stack
 
@@ -33,13 +33,13 @@ Můžete nainstalovat klientský virtuální počítač pro správu clusteru Kub
 
 1. Vytvořte virtuální počítač se systémem Linux v centru Azure Stack. Pokyny najdete v tématu [rychlý Start: Vytvoření virtuálního počítače s Linux serverem pomocí portálu Azure Stack hub](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-linux-portal).
 2. Připojte se k VIRTUÁLNÍmu počítači.
-3. Vyhledá verzi AKS Engine v tabulce [podporovaných verzí Kubernetes](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions) . V tržišti centra Azure Stack musí být dostupná základní image AKS. Při spuštění příkazu je nutné zadat verzi `--version v0.43.0`. Pokud nezadáte verzi, příkaz nainstaluje nejnovější verzi, která může potřebovat image VHD, která není na vašem webu Marketplace k dispozici.
+3. Vyhledá verzi AKS Engine v tabulce [podporovaných verzí Kubernetes](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions) . V tržišti centra Azure Stack musí být dostupná základní image AKS. Při spuštění příkazu je nutné zadat verzi `--version v0.48.0`. Pokud nezadáte verzi, příkaz nainstaluje nejnovější verzi, která může potřebovat image VHD, která není na vašem webu Marketplace k dispozici.
 4. Spusťte následující příkaz:
 
     ```bash  
         curl -o get-akse.sh https://raw.githubusercontent.com/Azure/aks-engine/master/scripts/get-akse.sh
         chmod 700 get-akse.sh
-        ./get-akse.sh --version v0.43.0
+        ./get-akse.sh --version v0.48.0
     ```
 
     > [!Note]  

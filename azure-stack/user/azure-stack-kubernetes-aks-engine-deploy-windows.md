@@ -7,12 +7,12 @@ ms.date: 3/19/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 3/19/2020
-ms.openlocfilehash: ca48b252525ea6869233f23158a05962056aa7a4
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: efe8b85d9363e0c5e3c07bf4190314e030707a9a
+ms.sourcegitcommit: 54f98b666bea9226c78f26dc255ddbdda539565f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80069182"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82556445"
 ---
 # <a name="install-the-aks-engine-on-windows-in-azure-stack-hub"></a>Instalace stroje AKS ve Windows do centra Azure Stack
 
@@ -36,11 +36,11 @@ Můžete nainstalovat klientský virtuální počítač pro správu clusteru Kub
 3. [Nainstalujte čokolády pomocí instrukcí PowerShellu.](https://chocolatey.org/install#install-with-powershellexe) 
 
     Podle webu Chocolaty: čokoláda je správce balíčků pro Windows, jako je apt-get nebo Yumu, ale pro Windows. Byla navržena jako decentralizovaná architektura pro rychlé instalování aplikací a nástrojů, které potřebujete. Je postavená na infrastruktuře NuGet, která aktuálně používá PowerShell jako svůj fokus pro doručování balíčků z distribuce na vaše dvířka, Err, Computer.
-4. Vyhledá verzi AKS Engine v tabulce [podporovaných verzí Kubernetes](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions) . V tržišti centra Azure Stack musí být dostupný základní modul AKS. Při spuštění příkazu je nutné zadat verzi `--version v0.43.0`. Pokud nezadáte verzi, příkaz nainstaluje nejnovější verzi, která může potřebovat image VHD, která není na vašem webu Marketplace k dispozici.
+4. Vyhledá verzi AKS Engine v tabulce [podporovaných verzí Kubernetes](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions) . V tržišti centra Azure Stack musí být dostupný základní modul AKS. Při spuštění příkazu je nutné zadat verzi `--version v0.48.0`. Pokud nezadáte verzi, příkaz nainstaluje nejnovější verzi, která může potřebovat image VHD, která není na vašem webu Marketplace k dispozici.
 5. Z příkazového řádku se zvýšenými oprávněními spusťte následující příkaz a zahrňte číslo verze:
 
     ```PowerShell  
-        choco install aks-engine --version 0.43.0 -y
+        choco install aks-engine --version 0.48.0 -y
     ```
 
 > [!Note]  
@@ -65,7 +65,7 @@ Můžete nainstalovat klientský virtuální počítač pro správu clusteru Kub
 7.  Z příkazového řádku se zvýšenými oprávněními spusťte následující příkaz. Zahrnout správné číslo verze:
 
     ```PowerShell  
-        choco install aks-engine --version 0.43.0 -y
+        choco install aks-engine --version 0.48.0 -y
     ```
 
 ## <a name="verify-the-installation"></a>Ověření instalace
