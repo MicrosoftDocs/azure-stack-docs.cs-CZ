@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: justinha
 ms.reviewer: unknown
 ms.lastreviewed: 11/08/2019
-ms.openlocfilehash: dc5fa60f0ab1460a98ec21a0501c3cdcec6a6637
-ms.sourcegitcommit: a3ae6dd8670f8fb24224880df7eee256ebbcc4ef
+ms.openlocfilehash: a1e49ef9138c04557c8cd0a54b11ada30d97f334
+ms.sourcegitcommit: f2d80d705a222095c2ea785b9797bbac0cf96fcc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81772641"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82605627"
 ---
 # <a name="azure-stack-hub-overview"></a>Přehled centra Azure Stack
 
@@ -65,7 +65,7 @@ Pro odpojená nasazení centra Azure Stack musíte použít AD FS. Poskytovatel�
 
 Azure Stack hub používá stejný model operací jako Azure. Operátor centra Azure Stack může doručovat nejrůznější služby a aplikace uživatelům klientů, podobně jako Microsoft poskytuje služby Azure pro uživatele klientů. 
 
-![Diagram znázorňující Azure Stack role úloh centra](./media/azure-stack-overview/azure-stack-job-roles.png)
+![Diagram znázorňující Azure Stack role úloh centra](./media/azure-stack-overview/azure-stack-job-roles.svg)
 
 Centrum Azure Stack můžete spravovat pomocí portálu pro správu, portálu User Portal nebo [PowerShellu](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.7.1). Portály centra Azure Stack jsou každou zálohované samostatnými instancemi Azure Resource Manager. **Operátor centra Azure Stack** využívá portál pro správu ke správě centra Azure Stack a k provádění akcí, jako je vytváření nabídek tenantů, a udržování stavu a monitorování stavu integrovaného systému. Portál User Portal poskytuje samoobslužné prostředí pro využívání cloudových prostředků, jako jsou virtuální počítače, účty úložiště a webové aplikace.
 

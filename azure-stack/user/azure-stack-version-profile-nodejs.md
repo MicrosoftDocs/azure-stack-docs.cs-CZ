@@ -3,16 +3,16 @@ title: Používání profilů verzí rozhraní API s Node. js v Azure Stackovém
 description: Přečtěte si o používání profilů verzí rozhraní API pomocí Node. js v centru Azure Stack.
 author: mattbriggs
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 04/30/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 639c532d4ac105e434557fe18ef8070b656c0849
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.lastreviewed: 04/30/2020
+ms.openlocfilehash: b838afd49f53adc32af94559cebc5a65db3ee7ef
+ms.sourcegitcommit: 6de5b687197798302c3b1f08e4c82f049a99e49f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81660128"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82596801"
 ---
 # <a name="use-api-version-profiles-with-nodejs-software-development-kit-sdk-in-azure-stack-hub"></a>Použití profilů verzí rozhraní API s Node. js Software Development Kit (SDK) v centru Azure Stack
 
@@ -209,9 +209,9 @@ function main() {
 
 Následující ukázky můžete použít jako referenci pro vytváření řešení s využitím profilů rozhraní API pro Node. js a Azure Stack hub. Ukázky můžete získat z GitHubu v následujících úložištích:
 
-- [Začínáme s poskytovatelem prostředků uzlu úložiště](https://github.com/sijuman/storage-node-resource-provider-getting-started)
-- [Správa výpočetního uzlu](https://github.com/sijuman/compute-node-manage-vm)
-- [Prostředky a skupiny uzlu Resource Manageru](https://github.com/sijuman/resource-manager-node-resources-and-groups)
+- [Začínáme s poskytovatelem prostředků uzlu úložiště](https://github.com/Azure-Samples/hybrid-storage-nodejs-create-storageaccount)
+- [Správa výpočetního uzlu](https://github.com/Azure-Samples/Hybrid-compute-nodejs-create-vm)
+- [Prostředky a skupiny uzlu Resource Manageru](https://github.com/Azure-Samples/Hybrid-resourcegroups-nodejs-manageresources)
 
 ### <a name="sample-create-storage-account"></a>Ukázka vytvoření účtu úložiště 
 

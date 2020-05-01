@@ -7,12 +7,12 @@ ms.date: 04/07/2020
 ms.author: sethm
 ms.reviewer: scottnap
 ms.lastreviewed: 10/24/2019
-ms.openlocfilehash: c745325c720ed37f93b12fee844a6ebc0b829cca
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: c2c7dde1ef4da6b75be3d7c46228bd23ca8bf979
+ms.sourcegitcommit: 6de5b687197798302c3b1f08e4c82f049a99e49f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80812437"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82596818"
 ---
 # <a name="connect-azure-stack-hub-to-azure-using-vpn"></a>Připojení centra Azure Stack k Azure pomocí sítě VPN
 
@@ -50,7 +50,6 @@ Nejdřív vytvořte síťové prostředky pro Azure. Následující pokyny ukazu
 ### <a name="create-the-virtual-network-and-virtual-machine-vm-subnet"></a>Vytvoření virtuální sítě a podsítě virtuálních počítačů
 
 1. Přihlaste se k [Azure Portal](https://portal.azure.com/) pomocí svého účtu Azure.
-
 2. Na portálu User Portal vyberte **+ vytvořit prostředek**.
 3. Otevřete **web Marketplace**a pak vyberte **sítě**.
 4. Vyberte **virtuální síť**.

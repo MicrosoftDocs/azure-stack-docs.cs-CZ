@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2019
-ms.openlocfilehash: 1b68435317136afdbfcc5d1ade16b18a2210baad
-ms.sourcegitcommit: a3ae6dd8670f8fb24224880df7eee256ebbcc4ef
+ms.openlocfilehash: 5d2f30813cc0a7a42e376ec7fb9c76be1f7994eb
+ms.sourcegitcommit: f2d80d705a222095c2ea785b9797bbac0cf96fcc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81772699"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82605681"
 ---
 # <a name="connect-azure-stack-hub-to-azure-using-azure-expressroute"></a>Připojení centra Azure Stack k Azure pomocí Azure ExpressRoute
 
@@ -55,7 +55,7 @@ Následující obrázek ukazuje centrum Azure Stack a prostředí Azure po dokon
 
 Následující obrázek ukazuje, jak se více klientů připojuje z infrastruktury centra Azure Stack k Azure prostřednictvím směrovače ExpressRoute:
 
-![Připojení s více klienty pomocí ExpressRoute](media/azure-stack-connect-expressroute/Architecture.png)
+![Připojení s více klienty pomocí ExpressRoute](media/azure-stack-connect-expressroute/architecture.svg)
 
 V příkladu v tomto článku se používá stejná víceklientská architektura jako v tomto diagramu k připojení centra Azure Stack k Azure pomocí privátního partnerského vztahu ExpressRoute. Připojení se provádí pomocí připojení VPN typu Site-to-Site z brány virtuální sítě v Azure Stack hub ke směrovači ExpressRoute.
 
@@ -328,7 +328,7 @@ Opakujte tento postup pro všechny další virtuální sítě tenanta, které ch
 
 Jako vodítko pro konfiguraci směrovače ExpressRoute můžete použít následující diagram konfigurace směrovače ExpressRoute. Tento obrázek ukazuje dva klienty (klienta 1 a tenanta 2) s odpovídajícími okruhy ExpressRoute. Každý tenant je propojen s vlastním VRF (virtuální směrování a předávání) na straně sítě LAN a sítě WAN směrovače ExpressRoute. Tato konfigurace zajišťuje ucelenou izolaci mezi dvěma klienty. Poznamenejte si IP adresy používané v rozhraních směrovačů, jak budete postupovat podle příkladu konfigurace.
 
-![Konfigurace směrovače ExpressRoute](media/azure-stack-connect-expressroute/EndToEnd.png)
+![Konfigurace směrovače ExpressRoute](media/azure-stack-connect-expressroute/endtoend.svg)
 
 K ukončení připojení VPN typu Site-to-Site z centra Azure Stack můžete použít libovolný směrovač, který podporuje IKEv2 VPN a BGP. Stejný směrovač se používá pro připojení k Azure pomocí okruhu ExpressRoute.
 
