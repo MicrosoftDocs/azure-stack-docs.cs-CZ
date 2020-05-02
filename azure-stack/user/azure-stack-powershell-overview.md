@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: cf9d17bda49c1fe5d401481d79b61b18442ee7ef
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 76dd8c2275c0d75132a508d6849d8356ff2e1f67
+ms.sourcegitcommit: 3ee7e9ddffe2ca44af24052e60d808fbef42cf4c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77703804"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82643454"
 ---
 # <a name="get-started-with-powershell-in-azure-stack-hub"></a>Začínáme s PowerShellem v centru Azure Stack
 
@@ -20,7 +20,7 @@ PowerShell je určený pro správu a správu prostředků z příkazového řád
 
 Tento článek vám pomůže orientovat v různých modulech PowerShellu, které se používají v Azure Stack hub. Když v Azure Stackovém centru použijete PowerShell, můžete pracovat s kteroukoli ze čtyř sad rozhraní API, jak je znázorněno v následující tabulce:
 
-| Rozhraní API | PowerShell – reference | Referenční materiály k rozhraní REST |
+| Rozhraní API | Referenční informace prostředí | Referenční materiály k rozhraní REST |
 | --- | --- | --- |
 | Globální Azure Resource Manager | [Moduly Azure PowerShellu](https://github.com/Azure/azure-powershell/blob/master/documentation/azure-powershell-modules.md) | [Prohlížeč REST API](https://docs.microsoft.com/rest/api/) |
 | Správce prostředků centra Azure Stack | [Správa profilů verzí rozhraní API v centru Azure Stack](azure-stack-version-profiles.md) | [Správa profilů verzí rozhraní API v centru Azure Stack](azure-stack-version-profiles.md) |
@@ -35,7 +35,7 @@ Poskytovatelé prostředků poskytují funkce i ovládací prvky pro správu a k
 
 Následující blokový diagram znázorňuje vztahy mezi sadami modulů PowerShellu. Z počítače můžete načíst moduly PowerShellu a spravovat globální centrum Azure i Azure Stack.
 
-![Prostředí PowerShell centra Azure Stack](media/azure-stack-powershell-overview/Azure-Stack-PowerShell.png)
+![Prostředí PowerShell centra Azure Stack](media/azure-stack-powershell-overview/azure-stack-powerShell.svg)
 
 ### <a name="global-azure"></a>Globální Azure
 
@@ -69,5 +69,5 @@ Kontejnery Docker můžete použít k izolaci každé verze PowerShellu na míst
 ## <a name="next-steps"></a>Další kroky
 
 - Přečtěte si o [profilech rozhraní API pro PowerShell](azure-stack-version-profiles.md) v centru Azure Stack.
-- Nainstalujte [Powershell Azure Stack hub](../operator/azure-stack-powershell-install.md).
+- Nainstalujte [PowerShell Azure Stack hub](../operator/azure-stack-powershell-install.md).
 - Přečtěte si o vytváření [šablon Azure Resource Manager](azure-stack-develop-templates.md) pro cloudovou konzistenci.

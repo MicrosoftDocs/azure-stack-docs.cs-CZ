@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: f691ba0cfeadae0d359473db881601e90478276c
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 27442f9bc5107d9dbeb07b19f1f53b84facc5a06
+ms.sourcegitcommit: e591e8531e8fee07a8315fdca29cf8f45a766c81
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81660894"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82687380"
 ---
 # <a name="connect-to-iscsi-storage-with-azure-stack-hub"></a>Připojení k úložišti iSCSI pomocí centra Azure Stack
 
@@ -24,7 +24,7 @@ Pomocí šablony v tomto článku můžete připojit virtuální počítač cent
 
 Diagram zobrazuje virtuální počítač hostovaný v centru Azure Stack s připojeným diskem iSCSI z počítače s Windows místně (fyzický nebo virtuální) Azure Stack, což umožňuje, aby se externí úložiště připojilo k VIRTUÁLNÍmu počítači, který je hostitelem vašeho centra Azure Stack, přes protokol iSCSI.
 
-![alternativní text](./media/azure-stack-network-howto-iscsi-storage/overview.png)
+![alternativní text](./media/azure-stack-network-howto-iscsi-storage/overview-iscsi2.svg)
 
 ### <a name="requirements"></a>Požadavky
 
@@ -57,7 +57,7 @@ Diagram zobrazuje virtuální počítač hostovaný v centru Azure Stack s přip
 
 Diagram zobrazuje prostředky nasazené ze šablony za účelem vytvoření klienta iSCSI, který můžete použít pro připojení k cíli iSCSI. Tato šablona nasadí virtuální počítač a další prostředky, navíc spustí prepare-iSCSIClient. ps1 a virtuální počítač se restartuje.
 
-![alternativní text](./media/azure-stack-network-howto-iscsi-storage/iscsi-file-server.png)
+![alternativní text](./media/azure-stack-network-howto-iscsi-storage/iscsi-file-server.svg)
 
 ### <a name="the-deployment-process"></a>Proces nasazení
 
@@ -68,7 +68,7 @@ Diagram zobrazuje prostředky nasazené ze šablony za účelem vytvoření klie
 3. Pro `Create-iSCSITarget.ps1` skript v cíli iSCSI spusťte pomocí výstupů IP adresy a názvu serveru výstupy ze šablony jako parametry, které můžou být virtuálním počítačem nebo fyzickým serverem.
 4. Pro spuštění `Connect-toiSCSITarget.ps1` skriptu použijte externí IP adresu nebo adresy cílového serveru iSCSI jako vstupy. 
 
-![alternativní text](./media/azure-stack-network-howto-iscsi-storage/process.png)
+![alternativní text](./media/azure-stack-network-howto-iscsi-storage/process.svg)
 
 ### <a name="inputs-for-azuredeployjson"></a>Vstupy pro azuredeploy. JSON
 
@@ -79,7 +79,7 @@ Diagram zobrazuje prostředky nasazené ze šablony za účelem vytvoření klie
 |VMName                  |Souborového serveru        |název virtuálního počítače
 |adminUsername           |storageadmin      |Jméno správce nového virtuálního počítače
 |adminPassword           |                  |Heslo pro účet správce pro nové virtuální počítače. Výchozí hodnota je ID předplatného.
-|VNetName                |Storage           |Název virtuální sítě. Tato akce bude sloužit k označení prostředků.
+|VNetName                |Úložiště           |Název virtuální sítě. Tato akce bude sloužit k označení prostředků.
 |VNetAddressSpace        |10.10.0.0/23      |Adresní prostor pro virtuální síť
 |VNetInternalSubnetName  |Interní          |Název interní podsítě virtuální sítě
 |VNetInternalSubnetRange |10.10.1.0/24      |Rozsah adres pro interní podsíť virtuální sítě
@@ -97,7 +97,7 @@ Diagram zobrazuje prostředky nasazené ze šablony za účelem vytvoření klie
 
 Můžete také spustit skripty na existujícím virtuálním počítači a připojit se z klienta iSCSI k cíli iSCSI. Tento tok je v případě, že vytváříte cíl iSCSI sami. Tento diagram znázorňuje tok spouštění pro skripty PowerShellu. Tyto skripty najdete v adresáři skriptu:
 
-![alternativní text](./media/azure-stack-network-howto-iscsi-storage/script-flow.png)
+![alternativní text](./media/azure-stack-network-howto-iscsi-storage/script-flow.svg)
 
 ### <a name="prepare-iscsiclientps1"></a>Prepare-iSCSIClient. ps1
 

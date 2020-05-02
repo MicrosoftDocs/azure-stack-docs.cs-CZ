@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 01/07/2020
 ms.author: sethm
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 144dcd2ca714a1654bd7add2b415c0ce35126d9b
-ms.sourcegitcommit: 98f62c33469ba963ba266bd88e206e9144258ea3
+ms.openlocfilehash: a1cf522176e6943ad1975a402affbb81d1aeea4f
+ms.sourcegitcommit: 3ee7e9ddffe2ca44af24052e60d808fbef42cf4c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "82032769"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82643505"
 ---
 # <a name="configure-ipsecike-policy-for-site-to-site-vpn-connections"></a>Konfigurace zásad IPsec/IKE pro připojení site-to-site VPN
 
@@ -54,7 +54,7 @@ Tato část popisuje pracovní postup nutný k vytvoření a aktualizaci zásad 
 
 Pokyny v tomto článku vám pomůžou nastavit a nakonfigurovat zásady IPsec/IKE, jak je znázorněno na následujícím obrázku:
 
-![Nastavení a konfigurace zásad IPsec/IKE](media/azure-stack-vpn-s2s/site-to-site.png)
+![Nastavení a konfigurace zásad IPsec/IKE](media/azure-stack-vpn-s2s/site-to-site.svg)
 
 ## <a name="part-2---supported-cryptographic-algorithms-and-key-strengths"></a>Část 2 – podporované kryptografické algoritmy a síly klíčů
 
@@ -109,7 +109,7 @@ Další informace najdete na stránkách [RFC3526](https://tools.ietf.org/html/r
 
 V této části se seznámíte s postupem vytvoření připojení VPN typu Site-to-site pomocí zásad IPsec/IKE. V následujících krocích se vytvoří připojení, jak je znázorněno na následujícím obrázku:
 
-![Site-to-site – zásady](media/azure-stack-vpn-s2s/site-to-site.png)
+![Site-to-site – zásady](media/azure-stack-vpn-s2s/site-to-site.svg)
 
 Podrobnější pokyny pro vytvoření připojení VPN typu Site-to-site najdete v tématu [vytvoření připojení VPN typu Site-to-site](/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell).
 

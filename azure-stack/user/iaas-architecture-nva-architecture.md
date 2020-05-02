@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: 916e12061961b22c518d0048e8bc8c191f8542a1
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 4fc7269e81e021f30049f7b93a9651443f381d6b
+ms.sourcegitcommit: 3ee7e9ddffe2ca44af24052e60d808fbef42cf4c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81660067"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82643565"
 ---
 # <a name="deploy-highly-available-network-virtual-appliances-on-azure-stack-hub"></a>Nasazení vysoce dostupných síťových virtuálních zařízení v centru Azure Stack
 
@@ -40,7 +40,7 @@ Tento článek předpokládá základní znalost sítě Azure Stack hub.
 
 SÍŤOVÉ virtuální zařízení se dá nasadit do hraniční sítě v mnoha různých architekturách. Následující obrázek například znázorňuje použití samotného síťového virtuálního zařízení pro příchozí přenos dat.
 
-![Snímek obrazovky s popisem příspěvku na sociálních médiích, který se automaticky vygeneroval](./media/iaas-architecture-nva-architecture/image1.png)
+![Snímek obrazovky s popisem příspěvku na sociálních médiích, který se automaticky vygeneroval](./media/iaas-architecture-nva-architecture/iaas-architecture-nva-architecture-image1.svg)
 
 V této architektuře síťové virtuální zařízení poskytuje bezpečnou hranicí sítě tím, že kontroluje veškerý příchozí a výchozí provoz v síti a předává pouze provoz, který splňuje pravidla zabezpečení sítě. Skutečnost, že veškerý síťový provoz musí projít přes síťové virtuální zařízení, znamená, že síťové virtuální zařízení je jediným bodem selhání v síti. Pokud však síťové virtuální zařízení selže, jiná cesta pro provoz neexistuje a všechny back-endové podsítě budou nedostupné.
 
@@ -58,7 +58,7 @@ Následující architektury popisují nezbytné prostředky a konfiguraci pro vy
 
 Následující obrázek ukazuje architekturu s vysokou dostupností, která implementuje hraniční síť příchozího přenosu dat za internetovým nástrojem pro vyrovnávání zatížení. Tato architektura je navržená tak, aby poskytovala připojení k Azure Stack úloh centra pro přenos vrstvy 7, jako je HTTP nebo HTTPS:
 
-![Automaticky vygeneroval se snímek obrazovky s popisem mapy.](./media/iaas-architecture-nva-architecture/image2.png)
+![Automaticky vygeneroval se snímek obrazovky s popisem mapy.](./media/iaas-architecture-nva-architecture/iaas-architecture-nva-architecture-image2.svg)
 
 Výhodou této architektury je, že všechna síťová virtuální zařízení jsou aktivní, a pokud jedno z nich selže, nástroj pro vyrovnávání zatížení bude směrovat provoz na jiné síťové virtuální zařízení. Obě síťová virtuální zařízení směrují provoz na interní nástroj pro vyrovnávání zatížení, takže dokud je jedno síťové virtuální zařízení aktivní, tok provozu může pokračovat. Síťová virtuální zařízení mají povinnost ukončit provoz protokolu SSL určeného pro virtuální počítače webové vrstvy. Tyto síťová virtuální zařízení se nedají rozšířit tak, aby zpracovávala síťový provoz v podniku, protože provoz podnikové sítě vyžaduje jinou vyhrazenou sadu síťová virtuální zařízení s vlastními síťovými trasami.
 
@@ -66,7 +66,7 @@ Výhodou této architektury je, že všechna síťová virtuální zařízení j
 
 Možnost příchozího přenosu s síťová virtuální zařízení vrstvy 7 se dá rozšířit tak, aby poskytovala výstupní hraniční síť pro požadavky pocházející z úlohy centra Azure Stack. Následující architektura je navržena tak, aby poskytovala vysokou dostupnost síťová virtuální zařízení v hraniční síti pro přenos vrstvy 7, jako je například HTTP nebo HTTPS:
 
-![Automaticky se vygeneroval snímek obrazovky s popisem mobilního telefonu.](./media/iaas-architecture-nva-architecture/image3.png)
+![Automaticky se vygeneroval snímek obrazovky s popisem mobilního telefonu.](./media/iaas-architecture-nva-architecture/iaas-architecture-nva-architecture-image4.svg)
 
 V této architektuře se veškerý provoz pocházející z centra Azure Stack směruje do interního nástroje pro vyrovnávání zatížení. Nástroj pro vyrovnávání zatížení distribuuje odchozí žádosti mezi sadu síťových virtuálních zařízení. Tato síťová virtuální zařízení směrují pomocí jednotlivých veřejných IP adres provoz na internet.
 
@@ -74,7 +74,7 @@ V této architektuře se veškerý provoz pocházející z centra Azure Stack sm
 
 V obou architekturách příchozího a odchozího přenosu dat existovala samostatná hraniční síť pro příchozí a odchozí přenosy. Následující architektura ukazuje, jak vytvořit hraniční síť, která se dá použít pro příchozí i výstupní přenos dat vrstvy 7, jako je HTTP nebo HTTPS:
 
-![Snímek obrazovky s popisem příspěvku na sociálních médiích, který se automaticky vygeneroval](./media/iaas-architecture-nva-architecture/image4.png)
+![Snímek obrazovky s popisem příspěvku na sociálních médiích, který se automaticky vygeneroval](./media/iaas-architecture-nva-architecture/iaas-architecture-nva-architecture-image4.svg)
 
 V příchozím přenosu s architekturou vrstvy 7 Síťová virtuální zařízení proces síťová virtuální zařízení zpracovává příchozí požadavky z vrstvy 7 Load Balancer. Síťová virtuální zařízení v back-endovém fondu nástroje pro vyrovnávání zatížení zpracovávají také odchozí požadavky z úloh virtuálních počítačů. Vzhledem k tomu, že příchozí provoz je směrován pomocí nástroje pro vyrovnávání zatížení vrstvy 7 a odchozí přenosy jsou směrovány pomocí služby SLB (Azure Stack Load Balancer centrálního centra), zodpovídá za udržování spřažení relací síťová virtuální zařízení. To znamená, že nástroj pro vyrovnávání zatížení vrstvy 7 udržuje mapování příchozích a odchozích požadavků, aby mohl přesměrovat správnou odpověď původnímu žadateli. Interní nástroj pro vyrovnávání zatížení však nemá přístup k mapování nástroje pro vyrovnávání zatížení vrstvy 7 a pomocí vlastní logiky odesílá odpovědi do síťová virtuální zařízení. Je možné, že nástroj pro vyrovnávání zatížení pošle odpověď na síťové virtuální zařízení, která původně neobdržela žádost z nástroje pro vyrovnávání zatížení vrstvy 7. V takovém případě musí síťová virtuální zařízení komunikovat a přenášet odpověď mezi nimi, aby správně síťové virtuální zařízení mohla předat odpověď do nástroje pro vyrovnávání zatížení vrstvy 7.
 
