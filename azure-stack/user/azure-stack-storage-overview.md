@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: ee08259248a49eef08ce0012d60be2705cc4f877
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 69f47c34f55935d73ffb1349b8c90624d6311449
+ms.sourcegitcommit: 278aaeca069213a98b90751253f6b15423634849
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77704909"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82742371"
 ---
 # <a name="introduction-to-azure-stack-hub-storage"></a>Úvod do úložiště centra Azure Stack
 
@@ -23,11 +23,11 @@ ms.locfileid: "77704909"
 
 Úložiště centra Azure Stack poskytuje následující tři služby:
 
-- **Blob Storage**
+- **Úložiště objektů BLOB**
 
     Úložiště objektů BLOB ukládá nestrukturovaná data objektů. Objekt BLOB může být libovolný typ textu nebo binárních dat, jako je dokument, soubor médií nebo instalační program aplikace.
 
-- **Úložiště Table**
+- **Table Storage**
 
     Tabulkové úložiště slouží k ukládání strukturovaných datových sad. Table Storage je úložiště dat NoSQL klíčového atributu, které umožňuje rychlý vývoj a rychlý přístup k velkým objemům dat.
 
@@ -37,7 +37,7 @@ ms.locfileid: "77704909"
 
 Účet úložiště centra Azure Stack je zabezpečený účet, který poskytuje přístup ke službám v úložišti centra Azure Stack. Váš účet úložiště poskytuje jedinečný obor názvů pro vaše prostředky úložiště. Následující diagram znázorňuje vztahy mezi prostředky úložiště centra Azure Stack v účtu úložiště:
 
-![Přehled úložiště centra Azure Stack](media/azure-stack-storage-overview/AzureStackStorageOverview.png)
+![Přehled úložiště centra Azure Stack](media/azure-stack-storage-overview/azurestackstorageoverview.svg)
 
 ### <a name="blob-storage"></a>Blob Storage
 
@@ -66,7 +66,7 @@ Každý objekt blob se organizuje do kontejneru. Kontejnery také nabízejí pra
 
     Objekty blob stránky jsou optimalizované tak, aby představovaly disky IaaS a podporovaly náhodné zápisy o velikosti až 1 TB. IaaS disk, který je připojen k virtuálnímu počítači centra Azure Stack, je VHD uložený jako objekt blob stránky.
 
-### <a name="table-storage"></a>Úložiště Table
+### <a name="table-storage"></a>Table Storage
 
 Moderní aplikace často vyžadují úložiště dat s větší škálovatelností a flexibilitou než předchozí generace softwaru. Table Storage nabízí vysoce dostupné, široce škálovatelné úložiště, aby se vaše aplikace mohla automaticky škálovat tak, aby splňovala požadavky uživatelů. Table Storage je úložiště NoSQLch klíčů a atributů od Microsoftu – má návrh bez schématu, takže se liší od tradičních relačních databází. S úložištěm dat bez schématu je snadné přizpůsobit data podle potřeb vaší aplikace. Úložiště tabulek je snadno použitelné, takže vývojáři můžou rychle vytvářet aplikace.
 

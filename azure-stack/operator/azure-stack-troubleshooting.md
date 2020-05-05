@@ -4,16 +4,16 @@ titleSuffix: Azure Stack
 description: Naučte se řešit potíže s centrem Azure Stack, včetně problémů s virtuálními počítači, úložištěm a App Service.
 author: justinha
 ms.topic: article
-ms.date: 11/05/2019
+ms.date: 04/30/2020
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: fec8ac1797ef3fb6ce17b7173d813aff74ba3712
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: d85ee89edc6b36fb9eca84f59867621b37e8dd5a
+ms.sourcegitcommit: 21cdab346fc242b8848a04a124bc16c382ebc6f0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79512328"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82777878"
 ---
 # <a name="troubleshoot-issues-in-azure-stack-hub"></a>Řešení potíží v centru Azure Stack
 
@@ -33,6 +33,7 @@ Tyto části obsahují odkazy na dokumenty, které pokrývají běžné otázky 
 * [Použití diagnostických nástrojů v centru Azure Stack](azure-stack-diagnostics.md)
 * [Ověření stavu systému Azure Stack hub](azure-stack-diagnostic-test.md)
 * [Aktualizace tempo verze balíčku](azure-stack-servicing-policy.md#update-package-release-cadence)
+* [Ověření a řešení potíží se stavem uzlu](azure-stack-node-actions.md)
 
 ### <a name="supported-operating-systems-and-sizes-for-guest-vms"></a>Podporované operační systémy a velikosti pro virtuální počítače hosta
 

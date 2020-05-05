@@ -6,16 +6,16 @@ services: azure-stack
 documentationcenter: ''
 author: sethmanheim
 ms.topic: article
-ms.date: 01/27/2020
+ms.date: 05/01/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 02/26/2019
-ms.openlocfilehash: 9f7fbb8657ec13aa6c7768e1db4d62f36fbb46cb
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 1d5e6d9cbed6f3273cf2e6e18ffcb36d6a627a90
+ms.sourcegitcommit: 278aaeca069213a98b90751253f6b15423634849
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77696443"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82742419"
 ---
 # <a name="frequently-asked-questions-about-azure-stack-hub-usage"></a>Nejčastější dotazy týkající se využití centra Azure Stack
 
@@ -306,13 +306,13 @@ V současné době se můžete dotazovat pouze podle **nahlášeného času**.
 
 | **Stavový kód HTTP** | **Kód chyby** | **Popis** |
 | --- | --- | --- |
-| 400/Chybný požadavek |*NoApiVersion* |Chybí parametr dotazu *API-Version* . |
-| 400/Chybný požadavek |*InvalidProperty* |Vlastnost chybí nebo má neplatnou hodnotu. Zpráva v kódu chyby v těle odpovědi identifikuje chybějící vlastnost. |
-| 400/Chybný požadavek |*RequestEndTimeIsInFuture* |Hodnota pro *ReportedEndTime* je v budoucnosti. Hodnoty v budoucnu nejsou pro tento argument povoleny. |
-| 400/Chybný požadavek |*SubscriberIdIsNotDirectTenant* |Volání rozhraní API zprostředkovatele používá ID předplatného, které není platným klientem volajícího. |
-| 400/Chybný požadavek |*SubscriptionIdMissingInRequest* |Chybí ID předplatného volajícího. |
-| 400/Chybný požadavek |*InvalidAggregationGranularity* |Byla požadována neplatná členitost agregace. Platné hodnoty jsou denně a každou hodinu. |
-| 503 |*ServiceUnavailable* |Došlo k pokusu o opakovanou chybu, protože služba je zaneprázdněna nebo je volání omezeno. |
+| 400/Chybný požadavek |NoApiVersion |Parametr `api-version` dotazu nebyl nalezen. |
+| 400/Chybný požadavek |InvalidProperty |Vlastnost chybí nebo má neplatnou hodnotu. Zpráva v kódu chyby v těle odpovědi identifikuje chybějící vlastnost. |
+| 400/Chybný požadavek |RequestEndTimeIsInFuture |Hodnota pro `ReportedEndTime` je v budoucnu. Hodnoty v budoucnu nejsou pro tento argument povoleny. |
+| 400/Chybný požadavek |SubscriberIdIsNotDirectTenant |Volání rozhraní API zprostředkovatele používá ID předplatného, které není platným klientem volajícího. |
+| 400/Chybný požadavek |SubscriptionIdMissingInRequest |Chybí ID předplatného volajícího. |
+| 400/Chybný požadavek |InvalidAggregationGranularity |Byla požadována neplatná členitost agregace. Platné hodnoty jsou denně a každou hodinu. |
+| 503 |ServiceUnavailable |Došlo k pokusu o opakovanou chybu, protože služba je zaneprázdněna nebo je volání omezeno. |
 
 ## <a name="what-is-the-policy-for-charging-for-vms"></a>Jaké jsou zásady pro zpoplatnění pro virtuální počítače?
 

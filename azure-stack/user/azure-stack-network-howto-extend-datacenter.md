@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/13/2019
-ms.openlocfilehash: d6f93b5aa35a6475472df4ff213d98f684a4f7bb
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 99a8425901213d50c17175ab946aeff78a5aa81d
+ms.sourcegitcommit: 278aaeca069213a98b90751253f6b15423634849
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81661107"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82742607"
 ---
 # <a name="extending-storage-to-azure-stack-hub"></a>Rozšíření úložiště do centra Azure Stack
 
@@ -30,7 +30,7 @@ Díky tomu se zobrazí scénář, který se vám bude týkat. Jak můžete přip
 
 Diagram znázorňuje scénář, ve kterém se na jednom virtuálním počítači, spuštění úlohy, připojuje k a využívá externí úložiště (k VIRTUÁLNÍmu počítači a Azure Stack samotného centra) pro účely čtení a zápisu dat atd. V tomto článku se zaměříte na jednoduché načítání souborů, ale tento příklad můžete rozšířit pro složitější scénáře, jako je vzdálené úložiště databázových souborů.
 
-![](./media/azure-stack-network-howto-extend-datacenter/image1.png)
+![](./media/azure-stack-network-howto-extend-datacenter/azure-stack-network-howto-extend-datacenter-image1.svg)
 
 V diagramu uvidíte, že virtuální počítač v systému Azure Stack hub byl nasazen s více síťovými kartami. Z redundance, ale také z hlediska úložiště, je důležité mít více cest mezi cílem a cílem. V případě, že se něco stane složitějším, jsou virtuální počítače v Azure Stackovém rozbočovači jak veřejné, tak i soukromé IP adresy, stejně jako v Azure. Pokud externí úložiště potřebuje k přístupu k virtuálnímu počítači, může to provést jenom přes veřejnou IP adresu, protože privátní IP adresy se primárně používají v rámci systémů Azure Stack hub v rámci virtuální sítě a podsítí. Externí úložiště by nedokázalo komunikovat s privátním adresním prostorem virtuálního počítače, pokud ho neprojde lokalitou sítě VPN, aby se mohla vyseknout do samotné virtuální sítě. Proto se v tomto příkladu zaměříme na komunikaci prostřednictvím veřejného prostoru IP adres. Jednou z nich, jak si všimnout veřejné IP adresy v diagramu, je, že existuje 2 různých veřejných podsítí fondů IP adres. Ve výchozím nastavení služba Azure Stack hub vyžaduje jenom jeden fond pro účely veřejné IP adresy, ale pro redundantní směrování zvažte, že se může přidat druhý objekt. V tuto chvíli ale nemůžete vybrat IP adresu z konkrétního fondu, takže můžete mít ve skutečnosti virtuální počítače s veřejnými IP adresami ze stejného fondu na víc virtuálních síťových karet.
 

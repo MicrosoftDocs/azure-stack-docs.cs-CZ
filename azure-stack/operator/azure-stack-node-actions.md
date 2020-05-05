@@ -3,16 +3,16 @@ title: Škálování akcí uzlu jednotky v centru Azure Stack
 description: Seznamte se s akcemi uzlu jednotky škálování, včetně zapnutí, vypnutí, zakázání, obnovení a zobrazení stavu uzlu v integrovaných systémech Azure Stack hub.
 author: IngridAtMicrosoft
 ms.topic: how-to
-ms.date: 03/04/2020
+ms.date: 04/30/2020
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 4874b93acf9e869a3b8e66f42191d5419e48fece
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 17ecab0f42c89d6c25daba98652d8dc9d1a9e3b0
+ms.sourcegitcommit: 21cdab346fc242b8848a04a124bc16c382ebc6f0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79293975"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82777742"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack-hub"></a>Škálování akcí uzlu jednotky v centru Azure Stack
 
@@ -54,6 +54,35 @@ Zobrazení stavu jednotky škálování:
 | Opravíte | Uzel je aktivně opravován. |
 | Údržba | Uzel je pozastaven a není spuštěna žádná úloha aktivního uživatele. |
 | Vyžaduje nápravu | Zjistila se chyba, která vyžaduje, aby byl uzel opravený. |
+
+### <a name="azure-stack-hub-shows-adding-status-after-an-operation"></a>Azure Stack centrum zobrazuje přidání stavu po operaci.
+
+Centrum Azure Stack může zobrazit stav provozního uzlu, který se **přidává** po provedení operace jako vyprázdnění, obnovení, opravy, vypnutí nebo spuštění.
+K tomu může dojít, když se mezipaměť role poskytovatele prostředků infrastruktury po operaci neaktualizovala. 
+
+Před použitím následujících kroků zajistěte, aby aktuálně neprobíhala žádná operace. Aktualizujte koncový bod tak, aby odpovídal vašemu prostředí.
+
+1. Otevřete PowerShell a přidejte prostředí Azure Stack hub. To vyžaduje, [aby byl do počítače nainstalován Azure Stack hub PowerShell](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-install) .
+
+   ```powershell
+   Add-AzureRmEnvironment -Name AzureStack -ARMEndpoint https://adminmanagement.local.azurestack.external
+   Add-AzureRmAccount -Environment AzureStack
+   ```
+
+2. Spuštěním následujícího příkazu restartujte roli poskytovatele prostředků infrastruktury.
+
+   ```powershell
+   Restart-AzsInfrastructureRole -Name FabricResourceProvider
+   ```
+
+3. Ověří provozní stav uzlu jednotky škálování, který má vliv na **běhu**. Můžete použít portál pro správu nebo následující příkaz prostředí PowerShell:
+
+   ```powershell
+   Get-AzsScaleUnitNode |ft name,scaleunitnodestatus,powerstate
+   ```
+
+4. Pokud je provozní stav uzlu stále zobrazený, protože je **Přidání** pokračovat, otevřete incident podpory.
+
 
 ## <a name="scale-unit-node-actions"></a>Akce uzlu škálování jednotky
 
@@ -175,4 +204,6 @@ Pokud chcete spustit akci vypnutí, otevřete příkazový řádek prostředí P
 
 ## <a name="next-steps"></a>Další kroky
 
-[Seznamte se s modulem operátoru prostředků infrastruktury Azure Stack hub](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.6.0).
+- [Instalace Azure Stack PowerShellu](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-install)
+- [Seznamte se s modulem operátoru prostředků infrastruktury Azure Stack hub.](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.6.0)
+- [Monitorování operací přidání uzlu](https://docs.microsoft.com/azure-stack/operator/azure-stack-add-scale-node#monitor-add-node-operations)

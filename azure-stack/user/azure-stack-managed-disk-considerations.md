@@ -3,16 +3,16 @@ title: Azure Stack spravované disky centra; rozdíly a požadavky
 description: Přečtěte si o rozdílech a ohledech při práci se spravovanými disky a spravovanými imagemi v centru Azure Stack.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/22/2020
+ms.date: 05/04/2020
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 1abee3556ac45791831c6dcb9fc8dce05477e51e
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 335c6e39b067e9a95ec075866279d35b451d7c87
+ms.sourcegitcommit: 21cdab346fc242b8848a04a124bc16c382ebc6f0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80479297"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82777674"
 ---
 # <a name="azure-stack-hub-managed-disks-differences-and-considerations"></a>Azure Stack spravované disky centra: rozdíly a požadavky
 
@@ -21,7 +21,7 @@ Tento článek shrnuje rozdíly mezi [ *spravovanými disky* v centru Azure Stac
 Spravované disky zjednodušují správu disků pro virtuální počítače s IaaS pomocí správy [účtů úložiště](../operator/azure-stack-manage-storage-accounts.md) přidružených k DISKŮM virtuálních počítačů.
 
 > [!NOTE]  
-> Spravované disky v centru Azure Stack jsou k dispozici od aktualizace 1808. Počínaje aktualizací 1811 je funkce ve výchozím nastavení povolená při vytváření virtuálních počítačů pomocí portálu Azure Stack hub.
+> Spravované disky v centru Azure Stack byly k dispozici od aktualizace 1808. Počínaje aktualizací 1811 je funkce ve výchozím nastavení povolená při vytváření virtuálních počítačů pomocí portálu Azure Stack hub.
   
 ## <a name="cheat-sheet-managed-disk-differences"></a>List tahák: rozdíly spravovaného disku
 
@@ -54,7 +54,7 @@ Existují také rozdíly v metrikách úložiště:
 
 Spravované disky centra Azure Stack podporují následující verze rozhraní API:
 
-- 2017-03-30 
+- 2017-03-30
 - 2017-12-01 (pouze spravované image, žádné disky, žádné snímky)
 
 ## <a name="convert-to-managed-disks"></a>Převést na spravované disky

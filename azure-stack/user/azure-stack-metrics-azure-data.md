@@ -6,16 +6,16 @@ ms.topic: article
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.lastreviewed: 12/01/2019
-ms.openlocfilehash: 9abcc23505279f417e53f896e58e76dd9205691f
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 0676354bb902ccafed49281c12296440a8aa8c5e
+ms.sourcegitcommit: 278aaeca069213a98b90751253f6b15423634849
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77702325"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82742449"
 ---
 # <a name="use-azure-monitor-on-azure-stack-hub"></a>Použití Azure Monitor v centru Azure Stack
 
-Tento článek poskytuje přehled služby Azure Monitor v centru Azure Stack. Popisuje provoz Azure Monitor a další informace o tom, jak používat Azure Monitor v Azure Stack hub. 
+Tento článek poskytuje přehled služby Azure Monitor v centru Azure Stack. Popisuje provoz Azure Monitor a další informace o tom, jak používat Azure Monitor v Azure Stack hub.
 
 Přehled Azure Monitor najdete v tématu věnovaném celosvětovému článku Azure [Začínáme s Azure monitor v centru Azure Stack](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-get-started).
 
@@ -42,7 +42,7 @@ Podobně jako Azure Monitor v Azure Azure Monitor v Azure Stackovém centru posk
 
 ## <a name="azure-monitor-sources-compute-subset"></a>Azure Monitor sources: COMPUTE – dílčí sada
 
-![Azure Monitor v Azure Stackch hub sources – COMPUTE – dílčí sada](media//azure-stack-metrics-azure-data/azs-monitor-computersubset.png)
+![Azure Monitor v Azure Stackch hub sources – COMPUTE – dílčí sada](media//azure-stack-metrics-azure-data/azs-monitor-computersubset.svg)
 
 Poskytovatel prostředků **Microsoft. COMPUTE** v Azure Stack hub zahrnuje:
  - Virtuální počítače 
@@ -76,7 +76,7 @@ V protokolech aktivit můžete vyhledat informace o vašich výpočetních prost
 
 ## <a name="azure-monitor-sources-everything-else"></a>Zdroje Azure monitor: všechno ostatní
 
-![Azure Monitor v Azure Stack hub sources – všechno ostatní](media//azure-stack-metrics-azure-data/azs-monitor-othersubset.png)
+![Azure Monitor v Azure Stack hub sources – všechno ostatní](media//azure-stack-metrics-azure-data/azs-monitor-othersubset.svg)
 
 ### <a name="resources---metrics-and-diagnostics-logs"></a>Prostředky – metriky a diagnostické protokoly
 

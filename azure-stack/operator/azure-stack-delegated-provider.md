@@ -3,16 +3,16 @@ title: Delegování nabídek v centru Azure Stack
 description: Naučte se delegovat úlohy, jako je vytváření nabídek a registrace uživatelů.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/27/2020
+ms.date: 05/01/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 95b7ca9d6ed5bf0c8fed0019b4b3954fd3a7d458
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 4f32bc3e12689f75ad5c7e5b04e7fb36049271b3
+ms.sourcegitcommit: 278aaeca069213a98b90751253f6b15423634849
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77700234"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82742516"
 ---
 # <a name="delegate-offers-in-azure-stack-hub"></a>Delegování nabídek v centru Azure Stack
 
@@ -36,11 +36,11 @@ Následující role jsou součástí delegování:
 
 ## <a name="delegation-steps"></a>Postup delegování
 
-Existují dva základní kroky nastavení delegování:
+Existují dva kroky pro nastavení delegování:
 
-1. **Vytvoření předplatného delegovaného poskytovatele**: Přihlaste se k odběru nabídky, která obsahuje jenom službu předplatných. Uživatelé, kteří se přihlásí k odběru této nabídky, můžou rozšíření delegovaných nabídek přenést na jiné uživatele tak, že je přihlásíte pro tyto nabídky.
+1. **Vytvoření předplatného delegovaného poskytovatele**: Přihlaste se k odběru nabídky obsahující jenom službu předplatného. Uživatelé, kteří se přihlásí k odběru této nabídky, můžou rozšíření delegovaných nabídek přenést na jiné uživatele tak, že je přihlásíte pro tyto nabídky.
 
-2. **Delegování nabídky delegovanému zprostředkovateli**: Tato nabídka umožňuje delegovanému poskytovateli vytvářet předplatná nebo rozšiřuje nabídku na své uživatele. Delegovaný zprostředkovatel teď může nabídku převzít a nabídnout ji ostatním uživatelům.
+2. **Delegování nabídky delegovanému zprostředkovateli**: Tato nabídka umožňuje delegovanému poskytovateli vytvářet předplatná nebo rozšiřuje nabídku na své uživatele. Delegovaný zprostředkovatel teď může nabídku převzít a rozšiřuje ji i na jiné uživatele.
 
 Následující obrázek ukazuje postup nastavení delegování:
 
@@ -54,11 +54,11 @@ Po navázání tohoto vztahu může operátor centra Azure Stack delegovat nabí
 
 ## <a name="delegation-walkthrough"></a>Návod k delegování
 
-Následující části obsahují návod pro nastavení delegovaného zprostředkovatele, delegování nabídky a ověření, že se uživatelé mohou zaregistrovat k delegované nabídce.
+Následující části popisují postup nastavení delegovaného zprostředkovatele, delegování nabídky a ověření, že se uživatelé můžou zaregistrovat k delegované nabídce.
 
 ### <a name="set-up-roles"></a>Nastavení rolí
 
-Chcete-li použít tento návod, potřebujete kromě svého účtu operátora centra Azure Stack dva účty Azure AD. Pokud tyto dva účty nemáte, musíte je vytvořit. Účty můžou patřit do libovolného uživatele Azure AD a označují se jako delegovaný zprostředkovatel a uživatel.
+Chcete-li použít tento návod, potřebujete kromě svého účtu operátora centra Azure Stack dva účty Azure AD. Pokud tyto dva účty nemáte, musíte je vytvořit. Účty můžou patřit do libovolného uživatele Azure AD a označují se jako *delegovaný zprostředkovatel* a *uživatel*.
 
 | **Role** | **Práva organizace** |
 | --- | --- |
@@ -66,7 +66,7 @@ Chcete-li použít tento návod, potřebujete kromě svého účtu operátora ce
 | Uživatel |Uživatel |
 
  > [!NOTE]
- > V případě prodejců CSP by vytváření tohoto delegovaného zprostředkovatele vyžadovalo, aby tito uživatelé byli v adresáři tenanta (uživatel Azure AD). Operátor centra Azure Stack se musí [nejdřív](azure-stack-enable-multitenancy.md) připojit ke službě Azure AD a potom pomocí následujících [kroků](azure-stack-csp-howto-register-tenants.md)nastavit účtování a využití a fakturace.
+ > V případě prodejců CSP musí vytvoření tohoto delegovaného zprostředkovatele vyžadovat, aby tito uživatelé byli v adresáři tenanta (uživatel Azure AD). Operátor centra Azure Stack se musí [nejdřív](azure-stack-enable-multitenancy.md) připojit ke službě Azure AD a potom pomocí následujících [kroků](azure-stack-csp-howto-register-tenants.md)nastavit účtování a využití a fakturace.
 
 ### <a name="identify-the-delegated-provider"></a>Identifikace delegovaného zprostředkovatele
 

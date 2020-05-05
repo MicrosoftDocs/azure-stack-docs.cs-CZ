@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 03ead55141ff6a7b8aa9451b814d399b607ebb47
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 97fc89897d63d368cfface0f5fc7dece4b8480cd
+ms.sourcegitcommit: 278aaeca069213a98b90751253f6b15423634849
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77702172"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82742528"
 ---
 # <a name="vnet-peering-in-azure-stack-hub-with-vms"></a>VNET Peering v centru Azure Stack s virtuálními počítači
 
@@ -23,7 +23,7 @@ Tento vzor nasazení je základem, který umožní vytvořit tunely sítě VPN n
 Šablony najdete v úložišti [GitHub ve vzorcích Azure Intelligent Edge](https://github.com/Azure-Samples/azure-intelligent-edge-patterns
 ) . Šablona se nachází ve složce **S2SVPNTunnel** .
 
-![alternativní text](./media/azure-stack-network-howto-vnet-peering/overview.png)
+![alternativní text](./media/azure-stack-network-howto-vnet-peering/overview.svg)
 
 ## <a name="requirements"></a>Požadavky
 
@@ -51,7 +51,7 @@ Tento vzor nasazení je základem, který umožní vytvořit tunely sítě VPN n
 
 Šablona poskytuje výchozí hodnoty pro pojmenovávání virtuálních sítí a IP adresování. Vyžaduje heslo pro správce (rrasadmin) a také nabízí možnost používat vlastní objekt BLOB úložiště s tokenem SAS. Buďte opatrní, abyste tyto hodnoty zachovali v rámci platných rozsahů, protože nasazení může selhat. Balíček PowerShell DSC se spustí na každém virtuálním počítači RRAS a nainstaluje směrování a všechny požadované závislé služby a funkce. V případě potřeby můžete tento DSC přizpůsobit dál. Rozšíření vlastních skriptů spustí následující skript a `Add-Site2Site.ps1` nakonfiguruje tunel VPNS2S mezi dvěma servery RRAS se sdíleným klíčem. Pokud chcete zobrazit výsledky konfigurace tunelu VPN, můžete zobrazit podrobný výstup z rozšíření vlastních skriptů.
 
-![alternativní text](./media/azure-stack-network-howto-vnet-peering/s2svpntunnels2.png)
+![alternativní text](./media/azure-stack-network-howto-vnet-peering/s2svpntunnels2.svg)
 
 ## <a name="next-steps"></a>Další kroky
 

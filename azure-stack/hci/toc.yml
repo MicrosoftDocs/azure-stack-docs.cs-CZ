@@ -18,6 +18,8 @@
       href: manage/delete-volumes.md
     - name: Nahradit jednotky
       href: manage/replace-drives.md
+    - name: Použití Azure Site Recovery
+      href: manage/azure-site-recovery.md
     - name: Monitorování pomocí služby Azure Monitor
       href: manage/azure-monitor.md
     - name: Připojení GPU k virtuálnímu počítači se systémem Linux
