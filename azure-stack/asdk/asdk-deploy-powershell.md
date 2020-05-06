@@ -7,12 +7,12 @@ ms.date: 05/06/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 3c9c4fca443af34422d76bd30af4efe5de685936
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: d6c7e29f83700eb2eb897bcd4b8bfdd65c7dfb4c
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77695661"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82847142"
 ---
 # <a name="deploy-asdk-from-the-command-line-using-powershell"></a>Nasazení ASDK z příkazového řádku pomocí PowerShellu
 
@@ -158,7 +158,7 @@ Azure Stack s Azure je nutné zaregistrovat, aby bylo možné [stáhnout Azure M
 **[Registrace Azure Stack s využitím Azure](asdk-register.md)**
 
 ## <a name="next-steps"></a>Další kroky
-Blahopřejeme! Po dokončení tohoto postupu budete mít prostředí ASDK s portálem pro [správu](https://adminportal.local.azurestack.external) i [uživatele](https://portal.local.azurestack.external) . 
+Blahopřejeme! Po dokončení tohoto postupu budete mít prostředí ASDK s portálem pro správu `https://adminportal.local.azurestack.external` i uživatele. `https://portal.local.azurestack.external` 
 
 [Úlohy konfigurace instalace po ASDK](asdk-post-deploy.md)
 

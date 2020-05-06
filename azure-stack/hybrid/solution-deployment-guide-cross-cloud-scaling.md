@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: a95ce4d59e5374cab351c165405895f552478f6b
-ms.sourcegitcommit: e5b587216a137819444680ec619281c90f37bad9
+ms.openlocfilehash: 7ad15c36d2c3e8ae4442bd153cefd71bd26cc0bc
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82167071"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82847414"
 ---
 # <a name="deploy-an-app-that-scales-cross-cloud-using-azure-and-azure-stack-hub"></a>Nasazení aplikace, která škáluje více cloudů pomocí Azure a centra Azure Stack
 
@@ -40,7 +40,7 @@ V tomto řešení sestavíte ukázkové prostředí pro:
 - Předplatné Azure. V případě potřeby vytvořte si [bezplatný účet](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) před tím, než začnete.
 - Integrovaný systém Azure Stack nebo nasazení Azure Stack Development Kit (ASDK) hub.
   - Pokyny k instalaci centra Azure Stack najdete v tématu [instalace ASDK](../asdk/asdk-install.md).
-  - ASDK skript pro automatizaci po nasazení najdete tady:[https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1)
+  - ASDK skript pro automatizaci po nasazení najdete tady:[https://github.com/mattmcspirit/azurestack/](https://github.com/mattmcspirit/azurestack)
   - Dokončení této instalace může trvat několik hodin.
 - Nasaďte [App Service](../operator/azure-stack-app-service-deploy.md) služby PaaS do centra Azure Stack.
 - [Vytvářejte plány/nabídky](../operator/service-plan-offer-subscription-overview.md) v prostředí Azure Stack hub.

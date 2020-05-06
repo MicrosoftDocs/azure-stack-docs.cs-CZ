@@ -8,12 +8,12 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 08/20/2019
-ms.openlocfilehash: 44baf18b4e7b1acb39125a4ccdeb4228557de4d4
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 2e8a4e4fe4de85e981bb0f33366b003c5ee907f8
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77703515"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82847754"
 ---
 # <a name="app-service-on-azure-stack-hub-update-1-release-notes"></a>Zpráva k vydání verze Azure Stack centra aktualizace 1 App Service
 
@@ -26,14 +26,14 @@ Tyto poznámky k verzi popisují vylepšení, opravy a známé problémy v Azure
 
 App Service číslo buildu Azure Stack centra aktualizace 1 se **69.0.13698.9**.
 
-### <a name="prerequisites"></a>Požadavky
+## <a name="prerequisites"></a>Požadavky
 
 > [!IMPORTANT]
-> Nová nasazení Azure App Service v centru Azure Stack nyní vyžadují [certifikát se zástupným znakem tři subjektu](azure-stack-app-service-before-you-get-started.md#get-certificates) z důvodu vylepšení způsobu, jakým se v Azure App Service zpracovává jednotné přihlašování pro Kudu. Nový předmět je ** \*. SSO. AppService.\< oblast\>. \<název_domény\>. \<rozšíření\>**
+> Nová nasazení Azure App Service v centru Azure Stack nyní vyžadují certifikát se zástupným znakem tři subjektu z důvodu vylepšení způsobu, jakým se v Azure App Service zpracovává jednotné přihlašování pro Kudu. Nový předmět je ** \*. SSO. AppService.\< oblast\>. \<název_domény\>. \<rozšíření\>**
 
 Než začnete s nasazením, přečtěte si [požadavky pro nasazení App Service v centru Azure Stack](azure-stack-app-service-before-you-get-started.md) .
 
-### <a name="new-features-and-fixes"></a>Nové funkce a opravy
+## <a name="new-features-and-fixes"></a>Nové funkce a opravy
 
 Azure App Service v centru Azure Stack aktualizace 1 obsahuje následující vylepšení a opravy:
 
@@ -77,7 +77,7 @@ Azure App Service v centru Azure Stack aktualizace 1 obsahuje následující vyl
 
   - Přidání ověření připojení úložiště v nástroji pro výběr vlastního úložiště pro Azure Functions.
 
-#### <a name="fixes"></a>Opravy
+### <a name="fixes"></a>Opravy
 
 - Při vytváření offline balíčku pro nasazení se uživatelům už při otevření složky z instalačního programu App Service neobdrží chybová zpráva o odepření přístupu.
 
@@ -91,7 +91,7 @@ Azure App Service v centru Azure Stack aktualizace 1 obsahuje následující vyl
 
 - Opravil se nesprávný stav Azure Resource Manager, když se odstraní odběr, který obsahuje prostředky v oboru názvů Microsoft. Web.
 
-### <a name="known-issues-with-the-deployment-process"></a>Známé problémy s procesem nasazení
+## <a name="known-issues-with-the-deployment-process"></a>Známé problémy s procesem nasazení
 
 - Chyby ověření certifikátu.
 
@@ -101,11 +101,11 @@ Azure App Service v centru Azure Stack aktualizace 1 obsahuje následující vyl
 
     Chyba v Get-AzureStackRootCert. ps1 způsobila, že zákazníci při spouštění skriptu na počítači, ve kterém není nainstalován kořenový certifikát, nepodaří načíst kořenový certifikát centra Azure Stack. Nyní byl skript znovu vydán, což vyřeší tento problém. [Aktualizované pomocné skripty si můžete stáhnout tady](https://aka.ms/appsvconmashelpers). Pokud budete pokračovat v práci s načtením kořenového certifikátu s aktualizovaným skriptem, obraťte se na podporu.
 
-### <a name="known-issues-with-the-update-process"></a>Známé problémy s procesem aktualizace
+## <a name="known-issues-with-the-update-process"></a>Známé problémy s procesem aktualizace
 
 - Neexistují žádné známé problémy pro aktualizaci Azure App Service v centru Azure Stack Update 1.
 
-### <a name="known-issues-post-installation"></a>Známé problémy (po instalaci)
+## <a name="known-issues-post-installation"></a>Známé problémy (po instalaci)
 
 - Swap slotu nefunguje.
 
@@ -201,7 +201,7 @@ Pokud se rozhodnete nasadit do existující virtuální sítě a interní IP adr
 - Priorita: 700
 - Název: Outbound_Allow_SMB445
 
-### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Známé problémy pro Cloud Admins, které pracují Azure App Service v centru Azure Stack
+## <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Známé problémy pro Cloud Admins, které pracují Azure App Service v centru Azure Stack
 
 Informace najdete v dokumentaci k [verzi centra Azure Stack 1802](azure-stack-update-1903.md) .
 

@@ -3,16 +3,16 @@ title: Použití profilů verzí rozhraní API s nástrojem přejít v Azure Sta
 description: Naučte se používat profily verzí rozhraní API s nástrojem přejít v Azure Stack hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/23/2020
+ms.date: 05/05/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/26/2019
-ms.openlocfilehash: d008a30991e41be6abc3f21f888acfbc8d46d69e
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: e40c51d44f93fae4e7293113ab7f06bad03677e3
+ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77705232"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82836185"
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack-hub"></a>Použití profilů verzí rozhraní API s nástrojem přejít v Azure Stack hub
 
@@ -117,7 +117,7 @@ Chcete-li spustit ukázku kódu jazyka přejít v Azure Stackovém centru, postu
 
 Úplný příklad vytvoření virtuální sítě v centru Azure Stack s využitím profilu sady SDK na cestách najdete v [příkladu](#example).
 
-## <a name="authentication"></a>Ověřování
+## <a name="authentication"></a>Authentication
 
 Chcete-li získat vlastnost **autorizovat** z Azure Active Directory pomocí sady SDK, nainstalujte moduly automatického **REST** . Tyto moduly by měly být již nainstalovány s instalací sady SDK "Přejít na sadu SDK". Pokud ne, nainstalujte [ověřovací balíček z GitHubu](https://github.com/Azure/go-autorest/tree/master/autorest/adal).
 

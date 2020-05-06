@@ -4,16 +4,16 @@ description: Aktualizace 8 poznámky k verzi pro App Service v centru Azure Stac
 author: apwestgarth
 manager: stefsch
 ms.topic: article
-ms.date: 03/05/2020
+ms.date: 05/05/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/25/2019
-ms.openlocfilehash: ccbe8abd3a8d427005c34084d875af08ed3f5134
-ms.sourcegitcommit: 3fd4a38dc8446e0cdb97d51a0abce96280e2f7b7
+ms.openlocfilehash: 5bdf06b740d8a2c12f96494c52a683f50fe31340
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82580089"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82847805"
 ---
 # <a name="app-service-on-azure-stack-hub-update-8-release-notes"></a>Zpráva k vydání verze pro Azure Stack centra aktualizace 8 App Service
 
@@ -26,26 +26,31 @@ Tyto poznámky k verzi popisují nové funkce, opravy a známé problémy v Azur
 
 App Service číslo buildu Azure Stack centra aktualizace 8 je **86.0.2.13**.
 
-### <a name="prerequisites"></a>Požadavky
+## <a name="prerequisites"></a>Požadavky
 
 Než začnete s nasazením, přečtěte si téma [předpoklady pro nasazení App Service v centru Azure Stack](azure-stack-app-service-before-you-get-started.md) .
 
-Než začnete s upgradem Azure App Service v Azure Stack na 1,8:
+Než začnete s upgradem Azure App Service v centru Azure Stack na 1,8:
 
 - Ujistěte se, že všechny role jsou připravené v Azure App Service správě na portálu Azure Stack správce centra.
+
+- Zálohování App Service tajných kódů pomocí správy App Service na portálu pro správu centra Azure Stack
 
 - Zálohování App Service a hlavních databází:
   - AppService_Hosting;
   - AppService_Metering;
-  - Hlavní
+  - master
 
 - Zálohujte sdílenou složku obsahu aplikace tenanta.
 
-- Zasyndikátte si **rozšíření vlastních skriptů** **1.9.3** z webu centra pro správu Azure Stack.
+  > [!Important]
+  > Operátoři cloudu zodpovídají za údržbu a provoz souborového serveru a SQL Server.  Poskytovatel prostředků tyto prostředky nespravuje.  Operátor cloudu zodpovídá za zálohování databází App Service a sdílené složky obsahu tenanta.
 
-### <a name="new-features-and-fixes"></a>Nové funkce a opravy
+- Zasyndikátte si **rozšíření vlastních skriptů** **1.9.3** z Marketplace centra Azure Stack.
 
-Azure App Service na Azure Stack Update 8 obsahuje následující vylepšení a opravy:
+## <a name="new-features-and-fixes"></a>Nové funkce a opravy
+
+Azure App Service v centru Azure Stack aktualizace 8 obsahuje následující vylepšení a opravy:
 
 - Aktualizace pro **App Service tenanta, správce, funkcí portáls a nástroje Kudu** Konzistentní s Azure Stack verze sady SDK portálu.
 
@@ -83,7 +88,7 @@ Všechna nová nasazení Azure App Service v centru Azure Stack budou využívat
 
 Pro všechny aplikace se teď vynutilo **TLS 1,2** .
 
-### <a name="known-issues-upgrade"></a>Známé problémy (upgrade)
+## <a name="known-issues-upgrade"></a>Známé problémy (upgrade)
 
 - Upgrade se nepovede, pokud se při převzetí služeb při selhání v clusteru SQL Server Always na sekundární uzel.
 
@@ -97,14 +102,14 @@ Proveďte jednu z následujících akcí a v instalačním programu vyberte opak
 
 - Převzetí služeb při selhání clusterem SQL na předchozí aktivní uzel.
 
-### <a name="post-deployment-steps"></a>Kroky po nasazení
+## <a name="post-deployment-steps"></a>Kroky po nasazení
 
 > [!IMPORTANT]
 > Pokud jste poskytli App Service poskytovatele prostředků s instancí SQL Always On, je nutné [přidat databáze appservice_hosting a appservice_metering do skupiny dostupnosti](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) a synchronizovat databáze, aby nedošlo ke ztrátě služeb v případě převzetí služeb při selhání databáze.
 
-### <a name="known-issues-post-installation"></a>Známé problémy (po instalaci)
+## <a name="known-issues-post-installation"></a>Známé problémy (po instalaci)
 
-- Pokud je App Service nasazená ve stávající virtuální síti a souborový server je k dispozici pouze v privátní síti, je k dispozici pracovní proces, který se nemůže připojit k souborovému serveru, jak je uvedeno v dokumentaci k nasazení Azure Stack Azure App Service.
+- Pokud je App Service nasazená v existující virtuální síti a souborový server je k dispozici jenom v privátní síti, je k dispozici pracovní proces, který se nemůže připojit k souborovému serveru, jak je vyvoláno v dokumentaci k nasazení centra Azure Stack Azure App Service.
 
   Pokud se rozhodnete nasadit do existující virtuální sítě a interní IP adresu pro připojení k souborovému serveru, musíte přidat odchozí pravidlo zabezpečení, které povoluje provoz SMB mezi podsítí pracovních procesů a souborovým serverem. Na portálu pro správu přejdete na WorkersNsg a přidáte odchozí pravidlo zabezpečení s následujícími vlastnostmi:
 
@@ -182,6 +187,33 @@ Proveďte jednu z následujících akcí a v instalačním programu vyberte opak
     1. Migruje přihlášení pro uživatele databáze s omezením.
 
         ```sql
+        USE appservice_hosting
+        IF EXISTS(SELECT * FROM sys.databases WHERE Name=DB_NAME() AND containment = 1)
+        BEGIN
+        DECLARE @username sysname ;  
+        DECLARE user_cursor CURSOR  
+        FOR
+            SELECT dp.name
+            FROM sys.database_principals AS dp  
+            JOIN sys.server_principals AS sp
+                ON dp.sid = sp.sid  
+                WHERE dp.authentication_type = 1 AND dp.name NOT IN ('dbo','sys','guest','INFORMATION_SCHEMA');
+            OPEN user_cursor  
+            FETCH NEXT FROM user_cursor INTO @username  
+                WHILE @@FETCH_STATUS = 0  
+                BEGIN  
+                    EXECUTE sp_migrate_user_to_contained
+                    @username = @username,  
+                    @rename = N'copy_login_name',  
+                    @disablelogin = N'do_not_disable_login';  
+                FETCH NEXT FROM user_cursor INTO @username  
+            END  
+            CLOSE user_cursor ;  
+            DEALLOCATE user_cursor ;
+            END
+        GO
+
+        USE appservice_metering
         IF EXISTS(SELECT * FROM sys.databases WHERE Name=DB_NAME() AND containment = 1)
         BEGIN
         DECLARE @username sysname ;  
@@ -264,11 +296,11 @@ Proveďte jednu z následujících akcí a v instalačním programu vyberte opak
 
     ```
 
-### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Známé problémy pro cloudové správce pracující Azure App Service v Azure Stack
+## <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Známé problémy pro Cloud Admins, které pracují Azure App Service v centru Azure Stack
 
-Informace najdete v dokumentaci k [vydání verze Azure Stack 1907](azure-stack-release-notes-1907.md).
+Informace najdete v [poznámkách k verzi centra Azure Stack 1907](azure-stack-release-notes-1907.md).
 
 ## <a name="next-steps"></a>Další kroky
 
 - Přehled Azure App Service najdete v tématu [Azure App Service a Azure Functions v článku Přehled centra pro Azure Stack](azure-stack-app-service-overview.md).
-- Další informace o přípravě na nasazení App Service v Azure Stack najdete v tématu [předpoklady pro nasazení App Service na Azure Stack hub](azure-stack-app-service-before-you-get-started.md).
+- Další informace o přípravě nasazení App Service v centru Azure Stack najdete v tématu [předpoklady pro nasazení App Service na Azure Stack hub](azure-stack-app-service-before-you-get-started.md).

@@ -2,21 +2,21 @@
 title: Nasazení aplikace Java WAR na virtuální počítač v Azure Stackovém centru
 description: Nasaďte Java WAR do virtuálního počítače v Azure Stackovém centru.
 author: mattbriggs
-ms.topic: overview
-ms.date: 1/22/2020
+ms.topic: how-to
+ms.date: 05/05/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 7ab1370ef77a246b1ccda4ab525040edf9cb596a
-ms.sourcegitcommit: 4138a2a15f78e7db38b3a29acc963a71937146fd
+ms.lastreviewed: 05/05/2020
+ms.openlocfilehash: f252a369588dcf224a1eb7d965a7ff99381e13a6
+ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "77704144"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82836202"
 ---
 # <a name="deploy-a-java-web-app-to-a-vm-in-azure-stack-hub"></a>Nasazení webové aplikace v jazyce Java do virtuálního počítače v Azure Stackovém centru
 
-Můžete vytvořit virtuální počítač, který bude hostovat webovou aplikaci v Pythonu v centru Azure Stack. V tomto článku nainstalujete a nakonfigurujete server Apache Tomcat na virtuálním počítači se systémem Linux v centru Azure Stack. Poté načtete soubor prostředků webové aplikace Java (WAR) do serveru aplikace. Soubor WAR se používá k distribuci kolekce souborů archivu Java (JAR), komprimovaných souborů obsahujících prostředky Java, jako jsou třídy, text, obrázky, XML a další prostředky, které se používají k doručování webové aplikace.
+Můžete vytvořit virtuální počítač, který bude hostovat vaši webovou aplikaci v jazyce Java v centru Azure Stack. V tomto článku nainstalujete, otevřete správné porty a nakonfigurujete server Apache Tomcat na virtuálním počítači Linux v centru Azure Stack. Poté načtete soubor prostředků webové aplikace Java (WAR) do serveru aplikace. Soubor WAR se používá k distribuci kolekce souborů archivu Java (JAR), komprimovaných souborů obsahujících prostředky Java, jako jsou třídy, text, obrázky, XML a další prostředky, které se používají k doručování webové aplikace.
 
 ## <a name="create-a-vm"></a>Vytvoření virtuálního počítače
 

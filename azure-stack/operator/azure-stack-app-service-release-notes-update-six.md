@@ -8,12 +8,12 @@ ms.date: 06/24/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 08/20/2019
-ms.openlocfilehash: e90993c07692a19cc24cf9fab8171489edb270b0
-ms.sourcegitcommit: 3fd4a38dc8446e0cdb97d51a0abce96280e2f7b7
+ms.openlocfilehash: cf6895cac1c0be2b55c99ff51ebccc0f46350437
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82580114"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82847720"
 ---
 # <a name="app-service-on-azure-stack-hub-update-6-release-notes"></a>App Service zpráva k vydání verze Azure Stack centra pro aktualizaci 6
 
@@ -26,7 +26,7 @@ Tyto poznámky k verzi popisují nové funkce, opravy a známé problémy v Azur
 
 App Service číslo buildu Azure Stack centra aktualizace č. 6 je **82.0.1.50**.
 
-### <a name="prerequisites"></a>Požadavky
+## <a name="prerequisites"></a>Požadavky
 
 Než začnete s nasazením, přečtěte si téma [předpoklady pro nasazení App Service v centru Azure Stack](azure-stack-app-service-before-you-get-started.md) .
 
@@ -34,16 +34,21 @@ Než začnete s upgradem Azure App Service v centru Azure Stack na 1,6:
 
 - Ujistěte se, že všechny role jsou připravené v Azure App Service správě na portálu Azure Stack správce centra.
 
+- Zálohování App Service tajných kódů pomocí správy App Service na portálu pro správu centra Azure Stack
+
 - Zálohování App Service a hlavních databází:
   - AppService_Hosting;
   - AppService_Metering;
-  - Hlavní
+  - master
 
 - Zálohujte sdílenou složku obsahu aplikace tenanta.
 
-- Zasyndikátte si **rozšíření vlastních skriptů** **1.9.1** z webu centra pro správu Azure Stack.
+  > [!Important]
+  > Operátoři cloudu zodpovídají za údržbu a provoz souborového serveru a SQL Server.  Poskytovatel prostředků tyto prostředky nespravuje.  Operátor cloudu zodpovídá za zálohování databází App Service a sdílené složky obsahu tenanta.
 
-### <a name="new-features-and-fixes"></a>Nové funkce a opravy
+- Zasyndikátte si **rozšíření vlastních skriptů** **1.9.1** z Marketplace centra Azure Stack.
+
+## <a name="new-features-and-fixes"></a>Nové funkce a opravy
 
 Azure App Service v Azure Stack centra aktualizace 6 obsahuje následující vylepšení a opravy:
 
@@ -70,12 +75,12 @@ Azure App Service v Azure Stack centra aktualizace 6 obsahuje následující vyl
 - **Aktualizace základního operačního systému všech rolí**:
   - [2019-04 kumulativní aktualizace pro Windows Server 2016 pro systémy založené na platformě x64 (KB4493473)](https://support.microsoft.com/help/4493473/windows-10-update-kb4493473)
 
-### <a name="post-deployment-steps"></a>Kroky po nasazení
+## <a name="post-deployment-steps"></a>Kroky po nasazení
 
 > [!IMPORTANT]
 > Pokud jste poskytli App Service poskytovatele prostředků s instancí SQL Always On, je nutné [přidat databáze appservice_hosting a appservice_metering do skupiny dostupnosti](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) a synchronizovat databáze, aby nedošlo ke ztrátě služeb v případě převzetí služeb při selhání databáze.
 
-### <a name="known-issues-post-installation"></a>Známé problémy (po instalaci)
+## <a name="known-issues-post-installation"></a>Známé problémy (po instalaci)
 
 - Pokud je App Service nasazená v existující virtuální síti a souborový server je k dispozici jenom v privátní síti, je k dispozici pracovní proces, který se nemůže připojit k souborovému serveru, jak je vyvoláno v dokumentaci k nasazení centra Azure Stack Azure App Service.
 
@@ -91,11 +96,11 @@ Pokud se rozhodnete nasadit do existující virtuální sítě a interní IP adr
 * Priorita: 700
 * Název: Outbound_Allow_SMB445
 
-### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Známé problémy pro Cloud Admins, které pracují Azure App Service v centru Azure Stack
+## <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Známé problémy pro Cloud Admins, které pracují Azure App Service v centru Azure Stack
 
 Informace najdete v [poznámkách k verzi centra Azure Stack 1908](/azure-stack/operator/release-notes?view=azs-1908).
 
-### <a name="known-issues-for-tenants-deploying-apps-on-azure-app-service-on-azure-stack-hub"></a>Známé problémy pro klienty nasazující aplikace v Azure App Service v centru Azure Stack
+## <a name="known-issues-for-tenants-deploying-applications-on-azure-app-service-on-azure-stack-hub"></a>Známé problémy pro klienty nasazující aplikace v Azure App Service v centru Azure Stack
 
 - Centrum nasazení je šedé nebo není k dispozici.
 

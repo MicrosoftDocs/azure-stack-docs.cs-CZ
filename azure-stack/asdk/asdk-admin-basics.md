@@ -7,12 +7,12 @@ ms.date: 02/19/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: ab0f54d94b96a7bdd75d13f04fd9146146d42740
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 75e20d593f1fb07e55655a7128c12b5417835dfe
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79294272"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82846887"
 ---
 # <a name="asdk-admin-basics"></a>Základy správy ASDK
 Pokud s Azure Stack Development Kit (ASDK) nebudete mít jistotu, budete potřebovat několik věcí. Tento návod poskytuje přehled vaší role jako operátor Azure Stack ve zkušebním prostředí. Familiarizing se s těmito informacemi, zajistíte, aby vaši testovací uživatelé byli co nejrychleji produktivní.
@@ -33,7 +33,7 @@ K dispozici je několik důležitých informací o účtech, které byste měli 
 |
 
 ## <a name="what-tools-do-i-use-to-manage"></a>Jaké nástroje se používají ke správě?
-Ke správě Azure Stack můžete použít [portál správce Azure Stack](https://adminportal.local.azurestack.external) nebo PowerShell. Nejjednodušší způsob, jak se naučit základní koncepty, je prostřednictvím portálu. Pokud chcete používat PowerShell, musíte nainstalovat [PowerShell pro Azure Stack](asdk-post-deploy.md#install-azure-stack-powershell) a [stáhnout nástroje Azure Stack z GitHubu](asdk-post-deploy.md#download-the-azure-stack-tools).
+Ke správě Azure Stack můžete použít portál `https://adminportal.local.azurestack.external` správce Azure Stack nebo PowerShell. Nejjednodušší způsob, jak se naučit základní koncepty, je prostřednictvím portálu. Pokud chcete používat PowerShell, musíte nainstalovat [PowerShell pro Azure Stack](asdk-post-deploy.md#install-azure-stack-powershell) a [stáhnout nástroje Azure Stack z GitHubu](asdk-post-deploy.md#download-the-azure-stack-tools).
 
 Azure Stack používá Azure Resource Manager jako základní mechanismus nasazení, správy a organizace. Pokud se chystáte spravovat Azure Stack a pomáhat uživatelům podpory, měli byste se dozvědět víc o Azure Resource Manager. Další informace najdete v [Začínáme Azure Resource Manager dokumentu White Paper](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf).
 
@@ -41,7 +41,7 @@ Azure Stack používá Azure Resource Manager jako základní mechanismus nasaze
 Vaši uživatelé chtějí používat služby. Z perspektivy je hlavním úkolem, aby jim byly dostupné tyto služby. Pomocí ASDK můžete zjistit, které služby se mají nabízet, a jak tyto služby zpřístupnit [vytvořením plánů, nabídek a kvót](../operator/azure-stack-tutorial-tenant-vm.md). Budete také muset přidat položky na web Marketplace, například image virtuálních počítačů. Nejjednodušším způsobem je [stáhnout z Azure položky Marketplace](../operator/azure-stack-create-and-publish-marketplace-item.md) do Azure Stack.
 
 > [!NOTE]
-> Pokud chcete testovat vaše plány, nabídky a služby, měli byste použít [portál User Portal](https://portal.local.azurestack.external). Nejedná se o [portál pro správu](https://adminportal.local.azurestack.external).
+> Pokud chcete testovat vaše plány, nabídky a služby, měli byste použít portál User Portal `https://portal.local.azurestack.external`. Nejedná se o `https://adminportal.local.azurestack.external`portál pro správu.
 
 Kromě poskytování služeb se musíte postarat o všechny běžné povinnosti Azure Stackho operátora, abyste zachovali ASDK a provoz. Mezi tyto funkce patří následující věci:
 - Přidejte uživatelské účty pro nasazení Azure AD nebo AD FS.

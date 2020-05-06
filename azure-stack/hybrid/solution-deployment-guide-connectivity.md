@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: a810579dd3dd50b58b357921657e87103dbfe59a
-ms.sourcegitcommit: e5b587216a137819444680ec619281c90f37bad9
+ms.openlocfilehash: ff314d46e51af89207b1a6299771bd891a995e71
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82166986"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82847499"
 ---
 # <a name="configure-hybrid-cloud-connectivity-using-azure-and-azure-stack-hub"></a>Konfigurace hybridního cloudového připojení pomocí Azure a centra Azure Stack
 
@@ -43,7 +43,7 @@ K vytvoření hybridního nasazení připojení je potřeba pár součástí. U 
 
 Partner Azure pro výrobce OEM/hardware může nasadit produkční Azure Stack centrum a všichni uživatelé můžou nasadit Azure Stack Development Kit (ASDK).
 
-- Použijte své produkční Azure Stack centrum nebo nasaďte ASDK z https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1.
+- Využijte své produkční centrum Azure Stack nebo nasaďte rozhraní ASDK.
    >[!Note]
    >Nasazení ASDK může trvat až 7 hodin, takže by to mělo mít odpovídající plán.
 
@@ -57,7 +57,7 @@ Operátor centra Azure Stack musí nasadit App Service, vytvořit plány a nabí
 
 V tomto příkladu řešení se předpokládá, že máte základní znalosti Azure a centra Azure Stack. Pokud se chcete dozvědět víc, než začnete s řešením, přečtěte si následující články:
 
-- [Seznámení s Azure](https://azure.microsoft.com/overview/what-is-azure/)
+- [Úvod do Azure](https://azure.microsoft.com/overview/what-is-azure/)
 - [Klíčové koncepty centra Azure Stack](../operator/azure-stack-overview.md)
 
 ### <a name="before-you-begin"></a>Před zahájením
@@ -84,7 +84,7 @@ Specifikace připojení:
 
 IP adresa sítě a podsítě:
 
-| Připojení k rozbočovači Azure/Azure Stack | Název | Podsíť | IP adresa |
+| Připojení k rozbočovači Azure/Azure Stack | Name | Podsíť | IP adresa |
 |---|---|---|---|
 | Virtuální síť Azure | ApplicationvNet<br>10.100.102.9/23 | ApplicationSubnet<br>10.100.102.0/24 |  |
 |  |  | GatewaySubnet<br>10.100.103.0/24 |  |

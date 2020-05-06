@@ -3,16 +3,16 @@ title: Plánování kapacity pro role App Service serveru v centru Azure Stack
 description: Přečtěte si o plánování kapacity App Service rolích serveru v centru Azure Stack.
 author: BryanLa
 ms.topic: article
-ms.date: 03/13/2019
+ms.date: 05/05/2020
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 03/13/20192
-ms.openlocfilehash: 9e9447baf9f5676cac8555513682bab8da750bb2
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.lastreviewed: 04/13/2020
+ms.openlocfilehash: a0cfc16035d82eb230f61900bc0c971a51c86ea1
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77701169"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82847855"
 ---
 # <a name="capacity-planning-for-app-service-server-roles-in-azure-stack-hub"></a>Plánování kapacity pro role App Service serveru v centru Azure Stack
 
@@ -20,44 +20,49 @@ Pokud chcete nastavit nasazení Azure App Service připraveného pro produkční
 
 Tento článek poskytuje pokyny pro minimální počet výpočetních instancí a SKU výpočtů, které byste měli použít pro jakékoli provozní nasazení.
 
+> [!NOTE]
+> Doprovodné materiály k doporučené službě COMPUTE SKU pro role se aktualizovaly pomocí vydání 2020. Q2 Azure App Service v centru Azure Stack k zajištění standardních nasazení v souladu s nasazeními Azure.
+
 Pomocí těchto pokynů můžete naplánovat strategii App Service kapacity.
 
 | Role serveru App Service | Minimální doporučený počet instancí | Doporučená jednotka COMPUTE|
 | --- | --- | --- |
-| Kontrolér | 2 | A1 |
-| Front-end | 2 | A1 |
-| Správa | 2 | A3 |
-| Vydavatel | 2 | A1 |
-| Webové pracovníky – sdílené | 2 | A1 |
-| Webové pracovníky – vyhrazené | 2 na vrstvu | A1 |
+| Kontrolér | 2 | A4v2 |
+| Front-end | 2 | A4_v2 |
+| Správa | 2 | D3_v2 |
+| Vydavatel | 2 | A2_v2 |
+| Webové pracovníky – sdílené | 2 | A4_v2 |
+| Webové pracovníky – vyhrazené – malé | 2 na vrstvu | A1_v2 |
+| Webové pracovníky – vyhrazené – střední | 2 na vrstvu | A2_v2 |
+| Webové pracovníky – vyhrazené – velké | 2 na vrstvu | A4_v2 |
 
 ## <a name="controller-role"></a>Role kontroleru
 
-**Doporučené minimum**: dvě instance standardu a1
+**Doporučené minimum**: dvě instance A4v2
 
 Kontroler Azure App Service obvykle využívá nízkou spotřebu procesoru, paměti a síťových prostředků. Pro zajištění vysoké dostupnosti ale musíte mít dva řadiče. Maximální počet povolených řadičů je také dva řadiče. Během nasazování můžete vytvořit druhý kontroler webových serverů přímo z instalačního programu.
 
 ## <a name="front-end-role"></a>Role front-endu
 
-**Doporučené minimum**: dvě instance standardu a1
+**Doporučené minimum**: dvě instance A4v_2
 
 Front-end směruje požadavky na webové pracovníky v závislosti na dostupnosti webového pracovního procesu. Pro zajištění vysoké dostupnosti byste měli mít více než jeden front-end a můžete mít více než dvě. Pro účely plánování kapacity zvažte, že každý jádro může zpracovávat přibližně 100 požadavků za sekundu.
 
 ## <a name="management-role"></a>Role správy
 
-**Doporučené minimum**: dvě instance standardu a3
+**Doporučené minimum**: dvě instance D3v2
 
 Role modelu nasazení Classic pro Azure App zodpovídá za App Service Azure Resource Manager a koncové body rozhraní API, rozšíření portálu (správce, tenant, funkce portálu) a datovou službu. Role management server obvykle vyžaduje v produkčním prostředí pouze přibližně 4 GB paměti RAM. Pokud ale provádíte mnoho úloh správy (například vytváření webů), může docházet k vysokým úrovním CPU. Pro zajištění vysoké dostupnosti byste měli mít k této roli přiřazený víc než jeden server a aspoň dvě jádra na server.
 
 ## <a name="publisher-role"></a>Role vydavatele
 
-**Doporučené minimum**: dvě instance standardu a1
+**Doporučené minimum**: dvě instance A2v2
 
 Pokud je mnoho uživatelů současně publikováním, může mít role vydavatele těžké využití CPU. V případě vysoké dostupnosti se ujistěte, že je k dispozici více než jedna role vydavatele. Vydavatel zpracovává jenom přenosy FTP/FTPS.
 
 ## <a name="web-worker-role"></a>Role webového pracovního procesu
 
-**Doporučené minimum**: dvě instance standardu a1
+**Doporučené minimum**: dvě instance A4_v2
 
 Pro zajištění vysoké dostupnosti byste měli mít aspoň čtyři role webového pracovního procesu: dva pro sdílený režim webu a dvě pro každou vyhrazenou vrstvu pracovního procesu, kterou hodláte nabízet. Sdílené a vyhrazené výpočetní režimy poskytují klientům různé úrovně služeb. Pokud máte spoustu vašich zákazníků, možná budete potřebovat víc webových procesů:
 

@@ -82,7 +82,7 @@ Adresa portálu centra Azure Stack závisí na tom, k jakému produktu Azure Sta
     > [!Note]  
     > Ujistěte se, že jste pro tento klíč odebrali všechny úvodní a koncové prázdné znaky.
 
-   ![Ověřování](media/azure-stack-quick-linux-portal/image3.png)
+   ![Authentication](media/azure-stack-quick-linux-portal/image3.png)
 
 1. Jako velikost virtuálního počítače vyberte **D1_v2** .
 

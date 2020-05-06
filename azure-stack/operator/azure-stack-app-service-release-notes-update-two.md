@@ -8,12 +8,12 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 05/18/2019
-ms.openlocfilehash: 2c80aafe3665b6ecb31e701483a5e903d0471e42
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 9c9838a93c0ee46ce0556cd86e9f6ae8b4c7c9d4
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77703413"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82848043"
 ---
 # <a name="app-service-on-azure-stack-hub-update-2-release-notes"></a>Zpráva k vydání verze Azure Stack centra aktualizace 2 App Service
 
@@ -26,14 +26,14 @@ Tyto poznámky k verzi popisují vylepšení, opravy a známé problémy v Azure
 
 App Service číslo buildu Azure Stack centra aktualizace 2 je **72.0.13698.10**.
 
-### <a name="prerequisites"></a>Požadavky
+## <a name="prerequisites"></a>Požadavky
 
 > [!IMPORTANT]
-> Nová nasazení Azure App Service v centru Azure Stack nyní vyžadují [certifikát se zástupným znakem tři subjektu](azure-stack-app-service-before-you-get-started.md#get-certificates) z důvodu vylepšení způsobu, jakým se v Azure App Service zpracovává jednotné přihlašování pro Kudu. Nový předmět je: ** \*. SSO. AppService.\< oblast\>. \<název_domény\>. \<rozšíření\>**
+> Nová nasazení Azure App Service v centru Azure Stack nyní vyžadují certifikát se zástupným znakem tři subjektu z důvodu vylepšení způsobu, jakým se v Azure App Service zpracovává jednotné přihlašování pro Kudu. Nový předmět je: ** \*. SSO. AppService.\< oblast\>. \<název_domény\>. \<rozšíření\>**
 
 Než začnete s nasazením, přečtěte si [požadavky pro nasazení App Service v centru Azure Stack](azure-stack-app-service-before-you-get-started.md) .
 
-### <a name="new-features-and-fixes"></a>Nové funkce a opravy
+## <a name="new-features-and-fixes"></a>Nové funkce a opravy
 
 Azure App Service v Azure Stack centra aktualizace 2 obsahuje následující vylepšení a opravy:
 
@@ -67,7 +67,7 @@ Azure App Service v Azure Stack centra aktualizace 2 obsahuje následující vyl
   - Rotace přihlašovacích údajů systému
   - Rotace připojovacího řetězce
 
-### <a name="known-issues-post-installation"></a>Známé problémy (po instalaci)
+## <a name="known-issues-post-installation"></a>Známé problémy (po instalaci)
 
 - Pokud je App Service nasazená ve stávající virtuální síti a souborový server je k dispozici jenom v privátní síti, zaměstnanci nemůžou kontaktovat souborový server.
 
@@ -83,7 +83,7 @@ Pokud se rozhodnete nasadit do existující virtuální sítě a interní IP adr
 * Priorita: 700
 * Název: Outbound_Allow_SMB445
 
-### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Známé problémy pro Cloud Admins, které pracují Azure App Service v centru Azure Stack
+## <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Známé problémy pro Cloud Admins, které pracují Azure App Service v centru Azure Stack
 
 Informace najdete v dokumentaci k [verzi centra Azure Stack 1804](azure-stack-update-1903.md) .
 

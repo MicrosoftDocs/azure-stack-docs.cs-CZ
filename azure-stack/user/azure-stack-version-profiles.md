@@ -3,22 +3,22 @@ title: Správa profilů verzí rozhraní API v centru Azure Stack
 description: Přečtěte si o profilech verzí rozhraní API v centru Azure Stack.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/06/2020
+ms.date: 05/04/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 07/24/2019
-ms.openlocfilehash: 2e229c8add5b850384c7b46d05373c4ee19fd266
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: f72f0e79fe7b890c65c630ff00ec3870d4756c5e
+ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79294888"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82836219"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack-hub"></a>Správa profilů verzí rozhraní API v centru Azure Stack
 
 Profily rozhraní API určují poskytovatele prostředků Azure a verzi rozhraní API pro koncové body Azure REST. Pomocí profilů rozhraní API můžete vytvářet vlastní klienty v různých jazycích. Každý klient používá profil rozhraní API ke kontaktování správného poskytovatele prostředků a verze rozhraní API pro centrum Azure Stack.
 
-Můžete vytvořit aplikaci, která bude spolupracovat s poskytovateli prostředků Azure, aniž byste museli přesně seřadit, která verze rozhraní API poskytovatele prostředků je kompatibilní s Azure Stack hub. Stačí sjednotit aplikaci na profil a sada SDK se vrátí na správnou verzi rozhraní API.
+Můžete vytvořit aplikaci pro práci s poskytovateli prostředků Azure bez nutnosti přesně zjistit, která verze rozhraní API poskytovatele prostředků je kompatibilní s Azure Stack hub. Stačí sjednotit aplikaci na profil a sada SDK se vrátí na správnou verzi rozhraní API.
 
 Toto téma vám pomůže s těmito aktivitami:
 

@@ -19,7 +19,7 @@
   items:
     - name: Použití portálu pro správu
       href: azure-stack-manage-portals.md
-- name: Kurzy
+- name: Výukové kurzy
   items:
     - name: Nabídka služby uživatelům
       href: tutorial-offer-services.md
@@ -34,12 +34,16 @@
         - name: Compute
           href: azure-stack-capacity-planning-compute.md
         - name: Storage
-          href: azure-stack-capacity-planning-storage.md
+          items:
+            - name: Plánování kapacity úložiště
+              href: azure-stack-capacity-planning-storage.md
+            - name: Přehled infrastruktury úložiště
+              href: azure-stack-storage-infrastructure-overview.md
         - name: Capacity Planner centra Azure Stack
           href: azure-stack-capacity-planner.md
     - name: Integrace datových center
       items:
-        - name: Názorný postup
+        - name: Návod
           href: azure-stack-customer-journey.md
         - name: Obecné aspekty
           href: azure-stack-datacenter-integration.md
@@ -114,7 +118,7 @@
               href: azure-stack-integrate-security.md
             - name: Auditování zařízení
               href: azure-stack-integrate-physical-device-auditing.md
-- name: Návody
+- name: Praktičtí průvodci
   items:
     - name: Správa centra Azure Stack
       items:
@@ -168,8 +172,6 @@
                   href: azure-stack-update-monitor.md
                 - name: Použití privilegovaného koncového bodu
                   href: azure-stack-monitor-update.md
-            - name: Řešení potíží s aktualizacemi
-              href: azure-stack-updates-troubleshoot.md
         - name: Monitorování stavu a výstrah
           href: azure-stack-monitor-health.md
         - name: Monitorovat hardwarové součásti
@@ -187,7 +189,7 @@
             - name: Správa kapacity úložiště
               href: azure-stack-manage-storage-shares.md
             - name: Správa infrastruktury úložiště
-              href: azure-stack-storage-infrastructure-overview.md
+              href: azure-stack-manage-storage-infrastructure.md
             - name: Správa kapacity fyzické paměti
               href: azure-stack-manage-storage-physical-memory-capacity.md
             - name: Přidat uzly jednotek škálování
@@ -294,50 +296,52 @@
               href: azure-stack-app-service-overview.md
             - name: App Service plánování kapacity
               href: azure-stack-app-service-capacity-planning.md
-            - name: Než začnete
-              href: azure-stack-app-service-before-you-get-started.md
-            - name: Nasazení App Service
-              href: azure-stack-app-service-deploy.md
-            - name: Nasazení App Service pro vysokou dostupnost
-              href: app-service-deploy-ha.md
-            - name: Nasazení App Service offline
-              href: azure-stack-app-service-deploy-offline.md
-            - name: Aktualizovat App Service
-              href: azure-stack-app-service-update.md
-            - name: Aktualizovat App Service offline
-              href: azure-stack-app-service-update-offline.md
-            - name: Přidání rolí infrastruktury App Service
-              href: azure-stack-app-service-add-worker-roles.md
-            - name: Konfigurace zdrojů nasazení
-              href: azure-stack-app-service-configure-deployment-sources.md
-            - name: Otočení App Service tajných klíčů a certifikátů
-              href: app-service-rotate-certificates.md
-            - name: Zálohování App Service
-              href: app-service-back-up.md
-            - name: Obnovit App Service
-              href: app-service-recover.md
-            - name: Odebrat App Service
-              href: app-service-remove.md
             - name: Nejčastější dotazy k fakturaci App Service
               href: app-service-billing-faq.md
+            - name: Požadavky
+              href: azure-stack-app-service-before-you-get-started.md
+            - name: Nasazení
+              items:
+                - name: Nasazení App Service
+                  href: azure-stack-app-service-deploy.md
+                - name: Nasazení App Service pro vysokou dostupnost
+                  href: app-service-deploy-ha.md
+            - name: Správa životního cyklu
+              items:
+                - name: Aktualizovat App Service
+                  href: azure-stack-app-service-update.md
+                - name: Přidání rolí infrastruktury App Service
+                  href: azure-stack-app-service-add-worker-roles.md
+                - name: Konfigurace zdrojů nasazení
+                  href: azure-stack-app-service-configure-deployment-sources.md
+                - name: Otočení App Service tajných klíčů a certifikátů
+                  href: app-service-rotate-certificates.md
+                - name: Zálohování App Service
+                  href: app-service-back-up.md
+                - name: Obnovit App Service
+                  href: app-service-recover.md
+                - name: Odebrat App Service
+                  href: app-service-remove.md
             - name: App Service ve zprávách k vydání verze centra Azure Stack
               items:
-                - name: Zpráva k vydání verze Azure Stack centra aktualizace 1 App Service
-                  href: azure-stack-app-service-release-notes-update-one.md
-                - name: Zpráva k vydání verze Azure Stack centra aktualizace 2 App Service
-                  href: azure-stack-app-service-release-notes-update-two.md
-                - name: Zpráva k vydání verze App Service v centru Azure Stack Center Update 3
-                  href: azure-stack-app-service-release-notes-update-three.md
-                - name: Zpráva k vydání verze App Service ve Azure Stack centra pro aktualizaci 4
-                  href: azure-stack-app-service-release-notes-update-four.md
-                - name: Zpráva k vydání verze v App Service Azure Stack centra aktualizace 5
-                  href: azure-stack-app-service-release-notes-update-five.md
-                - name: App Service zpráva k vydání verze Azure Stack centra pro aktualizaci 6
-                  href: azure-stack-app-service-release-notes-update-six.md
-                - name: Zpráva k vydání verze pro Azure Stack centra aktualizace 7 App Service
-                  href: azure-stack-app-service-release-notes-update-seven.md
+                - name: App Service zpráva k vydání verze centra Azure Stack 2020 Q2
+                  href: app-service-release-notes-2020-Q2.md
                 - name: Zpráva k vydání verze pro Azure Stack centra aktualizace 8 App Service
                   href: azure-stack-app-service-release-notes-update-eight.md
+                - name: Zpráva k vydání verze pro Azure Stack centra aktualizace 7 App Service
+                  href: azure-stack-app-service-release-notes-update-seven.md
+                - name: App Service zpráva k vydání verze Azure Stack centra pro aktualizaci 6
+                  href: azure-stack-app-service-release-notes-update-six.md
+                - name: Zpráva k vydání verze v App Service Azure Stack centra aktualizace 5
+                  href: azure-stack-app-service-release-notes-update-five.md
+                - name: Zpráva k vydání verze App Service ve Azure Stack centra pro aktualizaci 4
+                  href: azure-stack-app-service-release-notes-update-four.md
+                - name: Zpráva k vydání verze App Service v centru Azure Stack Center Update 3
+                  href: azure-stack-app-service-release-notes-update-three.md
+                - name: Zpráva k vydání verze Azure Stack centra aktualizace 2 App Service
+                  href: azure-stack-app-service-release-notes-update-two.md
+                - name: Zpráva k vydání verze Azure Stack centra aktualizace 1 App Service
+                  href: azure-stack-app-service-release-notes-update-one.md
         - name: Event Hubs v centru Azure Stack
           items:
             - name: Přehled
@@ -490,9 +494,9 @@
                   href: azure-stack-get-azurestacklog.md
         - name: Ověřování centra Azure Stack
           href: azure-stack-diagnostic-test.md
-        - name: Řešení potíží
+        - name: Odstraňování potíží
           href: azure-stack-troubleshooting.md
-- name: Referenční informace
+- name: Reference
   items:
     - name: Prostředí PowerShell centra Azure Stack
       href: 'https://docs.microsoft.com/powershell/azure/azure-stack/overview'

@@ -8,12 +8,12 @@ ms.date: 10/11/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 08/20/2019
-ms.openlocfilehash: 8faeca7cf964ce459ebc10cc047c7b9475deeec4
-ms.sourcegitcommit: 3fd4a38dc8446e0cdb97d51a0abce96280e2f7b7
+ms.openlocfilehash: 824dd1304f027c1348eff2faad29d3f187e9732f
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82580078"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82847737"
 ---
 # <a name="app-service-on-azure-stack-hub-update-7-release-notes"></a>Zpráva k vydání verze pro Azure Stack centra aktualizace 7 App Service
 
@@ -26,7 +26,7 @@ Tyto poznámky k verzi popisují nové funkce, opravy a známé problémy v Azur
 
 App Service číslo buildu Azure Stack centra aktualizace 7 je **84.0.2.10**.
 
-### <a name="prerequisites"></a>Požadavky
+## <a name="prerequisites"></a>Požadavky
 
 Než začnete s nasazením, přečtěte si téma [předpoklady pro nasazení App Service v centru Azure Stack](azure-stack-app-service-before-you-get-started.md) .
 
@@ -34,16 +34,21 @@ Než začnete s upgradem Azure App Service v centru Azure Stack na 1,7:
 
 - Ujistěte se, že všechny role jsou připravené v Azure App Service správě na portálu Azure Stack správce centra.
 
+- Zálohování App Service tajných kódů pomocí správy App Service na portálu pro správu centra Azure Stack
+
 - Zálohování App Service a hlavních databází:
   - AppService_Hosting;
   - AppService_Metering;
-  - Hlavní
+  - master
 
 - Zálohujte sdílenou složku obsahu aplikace tenanta.
 
-- Zasyndikátte si **rozšíření vlastních skriptů** **1.9.3** z webu centra pro správu Azure Stack.
+  > [!Important]
+  > Operátoři cloudu zodpovídají za údržbu a provoz souborového serveru a SQL Server.  Poskytovatel prostředků tyto prostředky nespravuje.  Operátor cloudu zodpovídá za zálohování databází App Service a sdílené složky obsahu tenanta.
 
-### <a name="new-features-and-fixes"></a>Nové funkce a opravy
+- Zasyndikátte si **rozšíření vlastních skriptů** **1.9.3** z Marketplace centra Azure Stack.
+
+## <a name="new-features-and-fixes"></a>Nové funkce a opravy
 
 Azure App Service v centru Azure Stack s aktualizací Update 7 obsahuje následující vylepšení a opravy:
 
@@ -90,12 +95,12 @@ Azure App Service v centru Azure Stack s aktualizací Update 7 obsahuje následu
 
   **Existující** Nasazení – Pokud jste v řadiči změnili nastavení, hodnota se změní z **false** na **disabled** a předchozí hodnota **true** se změní na **automaticky**.
 
-### <a name="post-deployment-steps"></a>Kroky po nasazení
+## <a name="post-deployment-steps"></a>Kroky po nasazení
 
 > [!IMPORTANT]
 > Pokud jste poskytli App Service poskytovatele prostředků s instancí SQL Always On, je nutné [přidat databáze appservice_hosting a appservice_metering do skupiny dostupnosti](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) a synchronizovat databáze, aby nedošlo ke ztrátě služeb v případě převzetí služeb při selhání databáze.
 
-### <a name="known-issues-post-installation"></a>Známé problémy (po instalaci)
+## <a name="known-issues-post-installation"></a>Známé problémy (po instalaci)
 
 - Pokud je App Service nasazená v existující virtuální síti a souborový server je k dispozici jenom v privátní síti, je k dispozici pracovní proces, který se nemůže připojit k souborovému serveru, jak je vyvoláno v dokumentaci k nasazení centra Azure Stack Azure App Service.
 
@@ -111,7 +116,7 @@ Pokud se rozhodnete nasadit do existující virtuální sítě a interní IP adr
 * Priorita: 700
 * Název: Outbound_Allow_SMB445
 
-### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Známé problémy pro Cloud Admins, které pracují Azure App Service v centru Azure Stack
+## <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Známé problémy pro Cloud Admins, které pracují Azure App Service v centru Azure Stack
 
 Informace najdete v dokumentaci k [verzi centra Azure Stack 1907](azure-stack-release-notes-1907.md) .
 
