@@ -7,23 +7,23 @@ ms.date: 1/22/2020
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: a617efab5516fb2f6bad96e36c99f1b84852237c
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: d43c39aeed909946e852ccad37d92a2d47d3d889
+ms.sourcegitcommit: 519f4298dc1ed5c33f9c4fef811f61d61731dd84
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77698636"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82799760"
 ---
 # <a name="update-the-mysql-resource-provider-in-azure-stack-hub"></a>Aktualizace poskytovatele prostředků MySQL v Azure Stack hub
+
+> [!IMPORTANT]
+> Před aktualizací poskytovatele prostředků si přečtěte poznámky k verzi, kde najdete informace o nových funkcích, opravách a známých problémech, které by mohly mít vliv na nasazení. Zpráva k vydání verze také určuje minimální verzi centra Azure Stack požadovaná pro poskytovatele prostředků.
 
 Při aktualizaci Azure Stackch sestavení centra se může uvolnit nový adaptér poskytovatele prostředků MySQL. I když existující adaptér funguje i nadále, doporučujeme aktualizovat na nejnovější sestavení co nejdříve.
 
 Počínaje verzí 1.1.33.0 verze poskytovatele prostředků MySQL budou aktualizace kumulativní a nemusíte je instalovat v pořadí, ve kterém byly vydané, pokud začínáte z verze 1.1.24.0 nebo novější. Pokud například používáte verzi 1.1.24.0 poskytovatele prostředků MySQL, můžete upgradovat na verzi 1.1.33.0 nebo novější, aniž byste museli nejdřív nainstalovat verzi 1.1.30.0. Pokud chcete zkontrolovat dostupné verze poskytovatele prostředků a verzi centra Azure Stack, na které jsou podporované, přečtěte si téma seznam verzí v tématu [nasazení požadavků poskytovatele prostředků](./azure-stack-mysql-resource-provider-deploy.md#prerequisites).
 
 Chcete-li aktualizovat poskytovatele prostředků, použijte skript **UpdateMySQLProvider. ps1** . Proces se podobá procesu použitému k instalaci poskytovatele prostředků, jak je popsáno v části nasazení poskytovatele prostředků v tomto článku. Skript je součástí stahování poskytovatele prostředků. 
-
- > [!IMPORTANT]
- > Před upgradem poskytovatele prostředků si přečtěte poznámky k verzi, kde najdete informace o nových funkcích, opravách a známých problémech, které by mohly mít vliv na nasazení.
 
 ## <a name="update-script-processes"></a>Aktualizovat procesy skriptu
 
@@ -49,8 +49,8 @@ Když spustíte skript prostředí PowerShell **UpdateMySQLProvider. ps1** , zad
 | **DefaultSSLCertificatePassword** | Heslo pro certifikát. pfx. | _Požadováno_ | 
 | **MaxRetryCount** | Počet pokusů o opakování všech operací, pokud dojde k selhání.| 2 | 
 | **RetryDuration** | Interval časového limitu mezi opakovanými pokusy (v sekundách). | 120 | 
-| **Odinstalace** | Odebrání poskytovatele prostředků a všech přidružených prostředků (viz následující poznámky). | Ne | 
-| **DebugMode** | Zabraňuje automatickému vyčištění při selhání. | Ne | 
+| **Odinstalace** | Odebrání poskytovatele prostředků a všech přidružených prostředků (viz následující poznámky). | No | 
+| **DebugMode** | Zabraňuje automatickému vyčištění při selhání. | No | 
 | **AcceptLicense** | Přeskočí výzvu k přijetí licence GPL.  (https://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | | 
 
 ## <a name="update-script-example"></a>Příklad aktualizace skriptu

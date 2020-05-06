@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: justinha
 ms.reviewer: scottnap
 ms.lastreviewed: 09/10/2019
-ms.openlocfilehash: efa240fbec361657362b936594ccee4c79f70afe
-ms.sourcegitcommit: a3ae6dd8670f8fb24224880df7eee256ebbcc4ef
+ms.openlocfilehash: 8cd89a90cb29c802c79e900e07cdb50bfe9c0894
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81772478"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82847907"
 ---
 # <a name="add-public-ip-addresses"></a>Přidat veřejné IP adresy
 
@@ -36,7 +36,7 @@ První věc, kterou je potřeba udělat, je získání bloku adres, který chcet
 
 ## <a name="add-the-ip-address-range-to-azure-stack-hub"></a>Přidat rozsah IP adres do centra Azure Stack
 
-1. V prohlížeči přejdete na řídicí panel portálu pro správu. V tomto příkladu budeme používat https://adminportal.local.azurestack.external.
+1. V prohlížeči přejdete na řídicí panel portálu pro správu. V tomto příkladu budeme používat `https://adminportal.local.azurestack.external`.
 2. Přihlaste se k portálu správce Azure Stackového centra jako operátor cloudu.
 3. Na výchozím řídicím panelu najděte seznam Správa oblastí a vyberte oblast, kterou chcete spravovat. V tomto příkladu používáme místní.
 4. Vyhledejte dlaždici poskytovatelé prostředků a klikněte na poskytovatele síťových prostředků.

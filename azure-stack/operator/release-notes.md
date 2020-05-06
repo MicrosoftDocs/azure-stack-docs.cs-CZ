@@ -7,12 +7,12 @@ ms.date: 04/22/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 3411c1b81634f2bf37ec1724ebb96aedb485fd5d
-ms.sourcegitcommit: 54f98b666bea9226c78f26dc255ddbdda539565f
+ms.openlocfilehash: ccb21762eded64a5e1a5430c80ebfc4e69617375
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82556342"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82848247"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Poznámky k verzi centra Azure Stack
 
@@ -37,7 +37,7 @@ Před použitím této aktualizace se ujistěte, že si provedete následující
 - [Aktualizace zabezpečení](release-notes-security-updates.md)
 - [Kontrolní seznam aktivit před a po instalaci aktualizace](release-notes-checklist.md)
 
-Nápovědu k řešení potíží s aktualizacemi a procesu aktualizace najdete v tématu řešení potíží se [opravami a aktualizacemi pro centrum Azure Stack](azure-stack-updates-troubleshoot.md).
+Nápovědu k řešení potíží s aktualizacemi a procesu aktualizace najdete v tématu řešení potíží se [opravami a aktualizacemi pro centrum Azure Stack](azure-stack-troubleshooting.md).
 
 ## <a name="download-the-update"></a>Stáhnout aktualizaci
 
@@ -100,7 +100,7 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 
 - Následující rozhraní API pro správce jsou zastaralá:
 
-  | Poskytovatel prostředků       | Prostředek              | Version            |
+  | Poskytovatel prostředků       | Prostředek              | Verze            |
   |-------------------------|-----------------------|--------------------|
   | Microsoft. Storage. admin | Fare                 | 2015-12-01 – Preview |
   | Microsoft. Storage. admin | farmy a akvizice    | 2015-12-01 – Preview |
@@ -109,7 +109,7 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 
 - Následující rozhraní API pro správu byla nahrazena novější verzí (2018-09-01):
 
-  | Poskytovatel prostředků      | Prostředek              | Version    |
+  | Poskytovatel prostředků      | Prostředek              | Verze    |
   |------------------------|-----------------------|------------|
   | Microsoft. Backup. admin | backupLocation         | 2016-05-01 |
   | Microsoft. Backup. admin | vytvářet                | 2016-05-01 |

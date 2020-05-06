@@ -3,16 +3,16 @@ title: Použití profilů verzí rozhraní API pomocí Java v centru Azure Stack
 description: Naučte se používat profily verzí rozhraní API pomocí Java v centru Azure Stack.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/23/2020
+ms.date: 05/05/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: c0be80757eb12daac9d452f79ed7c0f5b7326120
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 6d072c061839c9d10f1f0d97c01ef9b2fa41e6a7
+ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "78231634"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82836151"
 ---
 # <a name="use-api-version-profiles-with-java-in-azure-stack-hub"></a>Použití profilů verzí rozhraní API pomocí Java v centru Azure Stack
 
@@ -103,7 +103,7 @@ Set AZURE_TENANT_ID=<Your_Tenant_ID>
 
 ### <a name="macos-linux-and-unix-based-systems"></a>Systémy MacOS, Linux a UNIX
 
-V počítačích se systémem UNIX použijte následující příkaz:
+V systémech UNIX použijte následující příkaz:
 
 ```shell
 Export AZURE_TENANT_ID=<Your_Tenant_ID>

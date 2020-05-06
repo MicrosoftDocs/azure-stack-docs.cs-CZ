@@ -4,16 +4,16 @@ description: Přečtěte si o fakturaci pro Azure App Service v centru Azure Sta
 author: apwestgarth
 manager: stefsch
 ms.topic: article
-ms.date: 06/10/2019
+ms.date: 05/05/2020
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: e5ab25785223d1361553f995d22196cd594a6f0a
-ms.sourcegitcommit: b185ab34c4c799892948536dd6d1d1b2fc31174e
+ms.lastreviewed: 04/13/2020
+ms.openlocfilehash: 3717308e28b7dfa62534ee1abd4e71ff06361d50
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82150278"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82847941"
 ---
 # <a name="azure-app-service-on-azure-stack-hub-billing-overview-and-faq"></a>Přehled a nejčastější dotazy týkající se fakturace centra Azure Stack Azure App Service
 
@@ -70,6 +70,9 @@ Jako operátor cloudu můžete zákazníkům používat vlastní cenový model. 
 ### <a name="as-a-csp-how-can-i-offer-free-and-shared-skus-for-customers-to-try-out-the-service"></a>Jak se jako CSP dá nabídnout zákazníkům bezplatné a sdílené skladové jednotky, aby si ji mohli vyzkoušet?
 
 Jako operátor cloudu se účtují náklady na bezplatné a sdílené skladové položky, protože jsou hostované ve sdílených pracovních procesech. K minimalizaci těchto nákladů můžete zvolit možnost horizontálního navýšení kapacity úrovně sdíleného pracovního procesu na minimum.
+
+> [!IMPORTANT] 
+> Výchozí hodnoty instalačního programu pro sdílené pracovní procesy se změnily v Azure App Service v Azure Stack centru 2020. Q2 pro nové instalace.  Ve výchozím nastavení se sdílené pracovní procesy zřídí pomocí A4_v2 skladové položky COMPUTE, kterou může operátor změnit v době instalace nebo po instalaci.
 
 Pokud například chcete nabízet bezplatné a sdílené skladové jednotky plánů App Service a nabízet funkce založené na spotřebě, potřebujete minimálně jednu dostupnou instanci a1. Sdílené pracovní procesy jsou víceklientské, takže mohou hostovat více zákaznických aplikací, jednotlivě izolované a chráněné App Service izolovaným prostorem (sandbox). Změnou měřítka sdílené pracovní vrstvy tímto způsobem můžete nákladům omezit na cenu jednoho vCPU měsíčně.
 

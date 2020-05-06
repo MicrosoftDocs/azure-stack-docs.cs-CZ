@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.lastreviewed: 08/23/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: c611d901c62765462d5bccaee6894f5f7c0b0b18
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 0adeafb421c30eaf8753c735b16b85471173a5fc
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "78367280"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82848128"
 ---
 # <a name="monitor-updates-in-azure-stack-hub-using-powershell"></a>Monitorování aktualizací v centru Azure Stack pomocí PowerShellu
 
@@ -43,6 +43,8 @@ Pokud se aktualizace nepovede, můžete pokračovat ve spuštění aktualizace, 
 ```powershell
 Get-AzsUpdateRun -Name 5173e9f4-3040-494f-b7a7-738a6331d55c -UpdateName Microsoft1.0.180305.1 | Resume-AzsUpdateRun
 ```
+## <a name="troubleshoot"></a>Odstraňování potíží
+Další informace o řešení potíží s aktualizacemi najdete v tématu [řešení potíží s Azure Stack](azure-stack-troubleshooting.md) .
 
 ## <a name="next-steps"></a>Další kroky
 

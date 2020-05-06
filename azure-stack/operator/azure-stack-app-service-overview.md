@@ -3,16 +3,16 @@ title: Přehled Azure App Service Azure Stack
 description: Přehled Azure App Service a Azure Functions v Azure Stackm centru.
 author: BryanLa
 ms.topic: article
-ms.date: 01/13/2020
+ms.date: 05/05/2020
 ms.author: BryanLa
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2019
-ms.openlocfilehash: ac9c6707e0b6e179fdae3dac0b4ec94bad11e6d7
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 8cf8f5c42eea1ce1884760c974881712954f1af7
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77688878"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82847822"
 ---
 # <a name="azure-app-service-and-azure-functions-on-azure-stack-hub-overview"></a>Přehled Azure App Service a Azure Functions v Azure Stackovém centru
 
@@ -34,7 +34,7 @@ App Service nabízí několik typů aplikací, z nichž každá je určena k hos
 
 - [Web Apps](/azure/app-service/overview) hostování webů a webových aplikací.
 - [API Apps](/azure/app-service/overview) pro hostování rozhraní REST API.
-- Azure Functions pro hostování řízených událostí a úloh bez serveru.
+- [Azure Functions v1](/azure/azure-functions) pro hostování řízených událostí a úloh bez serveru.
 
 *Aplikace Word odkazuje* na prostředky hostování vyhrazené pro spuštění úlohy. *Webová aplikace* jako příklad, pravděpodobně jste zvyklí vzít webovou aplikaci za výpočetní prostředky i kód aplikace, který společně doručí funkce prohlížeči. V Azure App Service je webová aplikace výpočetním prostředkem, který centrum Azure Stack poskytuje pro hostování kódu vaší aplikace.
 
@@ -52,7 +52,6 @@ Poskytovatel prostředků App Service používá stejný kód, jaký Azure App S
 V Azure jsou sdílené a vyhrazené pracovní procesy. Sdílený pracovní proces podporuje hostování s vysokou hustotou a víceklientské aplikace a existuje jenom jedna sada sdílených pracovních procesů. Vyhrazené servery používá jenom jeden tenant a jsou ve třech velikostech: malá, střední a velká. Potřeby místních zákazníků není možné vždy popsat pomocí těchto podmínek. V App Service v centru Azure Stack správci poskytovatele prostředků definují vrstvy pracovních procesů, které mají být k dispozici. Na základě jedinečných potřeb hostování můžete definovat několik sad sdílených pracovních procesů nebo různých sad vyhrazených pracovních procesů. Pomocí těchto definic pracovních vrstev můžou potom definovat své vlastní cenové SKU.
 
 ## <a name="portal-features"></a>Funkce portálu
-
 
 Azure App Service v centru Azure Stack používá stejné uživatelské rozhraní, které Azure App Service používá. Totéž platí pro back-end. Některé funkce jsou ale v Azure Stackovém centru zakázané. Očekávání nebo služby specifické pro Azure, které tyto funkce vyžadují, nejsou aktuálně k dispozici ve službě Azure Stack hub.
 

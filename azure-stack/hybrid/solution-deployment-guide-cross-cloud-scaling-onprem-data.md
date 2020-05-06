@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: ce9536548a7968f565cb653fb91cc2aa074f50ba
-ms.sourcegitcommit: e5b587216a137819444680ec619281c90f37bad9
+ms.openlocfilehash: 65b05acb5edc29fcb612ed614100ff6a71705006
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82167054"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82847635"
 ---
 # <a name="deploy-hybrid-app-with-on-premises-data-that-scales-cross-cloud"></a>Nasazení hybridní aplikace s místními daty, která škálují mezi cloudy
 
@@ -46,7 +46,7 @@ Tento kurz se zabývá následujícími úkony:
 
 V tomto kurzu se předpokládá, že máte základní znalosti globálního centra Azure a centra Azure Stack. Pokud se chcete dozvědět víc, než začnete s kurzem, přečtěte si tyto články:
 
-- [Seznámení s Azure](https://azure.microsoft.com/overview/what-is-azure/)
+- [Úvod do Azure](https://azure.microsoft.com/overview/what-is-azure/)
 - [Klíčové koncepty centra Azure Stack](../operator/azure-stack-overview.md)
 
 V tomto kurzu se taky předpokládá, že máte předplatné Azure. Pokud předplatné nemáte, [Vytvořte si bezplatný účet](https://azure.microsoft.com/free/) před tím, než začnete.

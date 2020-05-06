@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: fiseraci
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 943f391d709f772ec3ed5aa0c99bd738f5de679a
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 21d7b22181283a0e634cb0bdd0cc5912f8dac84c
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "78368120"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82848179"
 ---
 # <a name="monitor-updates-in-azure-stack-hub-using-the-privileged-endpoint"></a>Monitorování aktualizací v centru Azure Stack pomocí privilegovaného koncového bodu
 
@@ -157,9 +157,11 @@ Pokud se aktualizace nepovede, můžete pokračovat ve spuštění aktualizace, 
 Invoke-Command -Session $pepSession -ScriptBlock { Resume-AzureStackUpdate } 
 ```
 
-## <a name="troubleshoot"></a>Řešení potíží
+## <a name="troubleshoot"></a>Odstraňování potíží
 
 Privilegovaný koncový bod je k dispozici na všech virtuálních počítačích s ERCS v prostředí centra Azure Stack. Vzhledem k tomu, že připojení není navázáno na koncový bod s vysokou dostupností, může docházet k příležitostnému přerušení, varování nebo chybovým zprávám. Tyto zprávy mohou znamenat, že relace byla odpojena nebo došlo k chybě při komunikaci se službou EHK. Jde o očekávané chování. Operaci můžete opakovat za několik minut nebo vytvořit novou relaci privilegovaného koncového bodu na jednom z dalších virtuálních počítačů ERCS.
+
+Další informace o řešení potíží s aktualizacemi najdete v tématu [řešení potíží s Azure Stack](azure-stack-troubleshooting.md) .
 
 ## <a name="next-steps"></a>Další kroky
 

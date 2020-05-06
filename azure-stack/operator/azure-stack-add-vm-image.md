@@ -7,12 +7,12 @@ ms.date: 02/07/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/08/2019
-ms.openlocfilehash: 4d2f76e1af47800331aac44715b5b8630baceae1
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 167a9c9d46be7ac77e59e2be7ede1c09e43fda70
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77701424"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82847924"
 ---
 # <a name="add-a-custom-vm-image-to-azure-stack-hub"></a>Přidání vlastní image virtuálního počítače do centra Azure Stack
 
@@ -172,7 +172,7 @@ Než obrázek nahrajete, je důležité vzít v úvahu následující:
 
 ## <a name="remove-the-vm-image-as-an-azure-stack-hub-operator-using-the-portal"></a>Odebrání image virtuálního počítače jako operátora centra Azure Stack pomocí portálu
 
-1. Otevřete portál Azure Stack centrum pro [správu](https://adminportal.local.azurestack.external).
+1. Otevřete centrum Azure Stack [portál pro správu] `https://adminportal.local.azurestack.external`.
 
 2. Pokud má image virtuálního počítače přidruženou položku Marketplace, vyberte **Správa Marketplace**a pak vyberte položku virtuálního počítače, kterou chcete odstranit.
 

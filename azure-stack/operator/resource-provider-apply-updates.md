@@ -8,14 +8,17 @@ ms.topic: how-to
 ms.date: 11/18/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 11/18/2019
-ms.openlocfilehash: 13ea59064ff653ff24fac97a867725c5d9f036d0
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 5ec6f85fc2f2e526c4b85521337ab65dc2b939cc
+ms.sourcegitcommit: 519f4298dc1ed5c33f9c4fef811f61d61731dd84
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80424419"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82799862"
 ---
 # <a name="how-to-update-an-azure-stack-hub-resource-provider"></a>Postup aktualizace poskytovatele prostředků centra Azure Stack
+
+> [!IMPORTANT]
+> Než budete pokračovat, přečtěte si nejnovější poznámky k verzi poskytovatele prostředků, abyste se seznámili s novými funkcemi, opravami a všemi známými problémy, které by mohly mít vliv na nasazení. Zpráva k vydání verze může také určit minimální verzi centra Azure Stack požadovaná pro poskytovatele prostředků.
 
 Poskytovatelé prostředků nainstalovanou z Marketplace budou vyžadovat pravidelnou obsluhu. Obsluha se provádí pomocí aktualizací služby, které poskytuje společnost Microsoft pravidelně. Aktualizace mohou zahrnovat nové funkce i opravy.  
 

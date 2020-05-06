@@ -4,16 +4,16 @@ description: Přečtěte si o vylepšeních, opravách a známých problémech v
 author: bryanla
 manager: stefsch
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 05/05/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/25/2019
-ms.openlocfilehash: 42a87396caeb4392b14e88dd122f78396efb8ead
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 32dbed7c4cca981c04f904f61e9abea77cb5fc4a
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77695491"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82847788"
 ---
 # <a name="app-service-on-azure-stack-hub-update-5-release-notes"></a>Zpráva k vydání verze v App Service Azure Stack centra aktualizace 5
 
@@ -26,7 +26,7 @@ Tyto poznámky k verzi popisují vylepšení, opravy a známé problémy v Azure
 
 App Service číslo buildu Azure Stack centra aktualizace 5 je **80.0.2.15**.
 
-### <a name="prerequisites"></a>Požadavky
+## <a name="prerequisites"></a>Požadavky
 
 Než začnete s nasazením, přečtěte si [požadavky pro nasazení App Service v centru Azure Stack](azure-stack-app-service-before-you-get-started.md) .
 
@@ -34,16 +34,21 @@ Než začnete s upgradem Azure App Service v centru Azure Stack na 1,5:
 
 - Ujistěte se, že všechny role jsou připravené ve správě Azure App Service na portálu Azure Stack správce centra.
 
+- Zálohování App Service tajných kódů pomocí správy App Service na portálu pro správu centra Azure Stack
+
 - Zálohování App Service a hlavních databází:
   - AppService_Hosting;
   - AppService_Metering;
   - Hlavní
 
-- Zálohujte sdílenou složku obsahu aplikace tenanta.
+- Zálohování sdílené složky obsahu aplikace tenanta
+
+  > [!Important]
+  > Operátoři cloudu zodpovídají za údržbu a provoz souborového serveru a SQL Server.  Poskytovatel prostředků tyto prostředky nespravuje.  Operátor cloudu zodpovídá za zálohování databází App Service a sdílené složky obsahu tenanta.
 
 - Zasyndikátte si **rozšíření vlastních skriptů** **1.9.1** z Azure Marketplace.
 
-### <a name="new-features-and-fixes"></a>Nové funkce a opravy
+## <a name="new-features-and-fixes"></a>Nové funkce a opravy
 
 Azure App Service v centru Azure Stack s aktualizací Update 5 zahrnuje následující vylepšení a opravy:
 
@@ -64,12 +69,12 @@ Azure App Service v centru Azure Stack s aktualizací Update 5 zahrnuje následu
 - **Aktualizace základního operačního systému všech rolí**:
   - [2019-02 kumulativní aktualizace pro Windows Server 2016 pro systémy založené na platformě x64 (KB4487006)](https://support.microsoft.com/help/4487006/windows-10-update-kb4487006)
 
-### <a name="post-deployment-steps"></a>Kroky po nasazení
+## <a name="post-deployment-steps"></a>Kroky po nasazení
 
 > [!IMPORTANT]  
 > Pokud jste poskytli App Service poskytovatele prostředků s instancí SQL Always On, je *nutné* [přidat databáze appservice_hosting a appservice_metering do skupiny dostupnosti](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) a synchronizovat databáze, aby nedošlo ke ztrátě služeb v případě převzetí služeb při selhání databáze.
 
-### <a name="post-update-steps"></a>Kroky po aktualizaci
+## <a name="post-update-steps"></a>Kroky po aktualizaci
 
 Pro zákazníky, kteří chtějí migrovat na databázi s omezením na existující Azure App Service v nasazeních centra Azure Stack, proveďte tyto kroky po dokončení Azure App Service aktualizace Azure Stack centra 1,5:
 
@@ -132,6 +137,33 @@ Pro zákazníky, kteří chtějí migrovat na databázi s omezením na existují
 1. Migruje přihlášení pro uživatele databáze s omezením.
 
     ```sql
+        USE appservice_hosting
+        IF EXISTS(SELECT * FROM sys.databases WHERE Name=DB_NAME() AND containment = 1)
+        BEGIN
+        DECLARE @username sysname ;  
+        DECLARE user_cursor CURSOR  
+        FOR
+            SELECT dp.name
+            FROM sys.database_principals AS dp  
+            JOIN sys.server_principals AS sp
+                ON dp.sid = sp.sid  
+                WHERE dp.authentication_type = 1 AND dp.name NOT IN ('dbo','sys','guest','INFORMATION_SCHEMA');
+            OPEN user_cursor  
+            FETCH NEXT FROM user_cursor INTO @username  
+                WHILE @@FETCH_STATUS = 0  
+                BEGIN  
+                    EXECUTE sp_migrate_user_to_contained
+                    @username = @username,  
+                    @rename = N'copy_login_name',  
+                    @disablelogin = N'do_not_disable_login';  
+                FETCH NEXT FROM user_cursor INTO @username  
+            END  
+            CLOSE user_cursor ;  
+            DEALLOCATE user_cursor ;
+            END
+        GO
+
+        USE appservice_metering
         IF EXISTS(SELECT * FROM sys.databases WHERE Name=DB_NAME() AND containment = 1)
         BEGIN
         DECLARE @username sysname ;  
@@ -171,7 +203,7 @@ Pro zákazníky, kteří chtějí migrovat na databázi s omezením na existují
         SELECT containment FROM sys.databases WHERE NAME LIKE (SELECT DB_NAME())
     ```
 
-### <a name="known-issues-post-installation"></a>Známé problémy (po instalaci)
+## <a name="known-issues-post-installation"></a>Známé problémy (po instalaci)
 
 - Pokud je App Service nasazená ve stávající virtuální síti a souborový server je k dispozici jenom v privátní síti, zaměstnanci nemůžou kontaktovat souborový server. Tento problém se nazývá Azure App Service v dokumentaci k nasazení centra Azure Stack.
 
@@ -187,7 +219,7 @@ Pokud se rozhodnete nasadit do existující virtuální sítě a interní IP adr
  * Priorita: 700
  * Název: Outbound_Allow_SMB445
 
-### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Známé problémy pro Cloud Admins, které pracují Azure App Service v centru Azure Stack
+## <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Známé problémy pro Cloud Admins, které pracují Azure App Service v centru Azure Stack
 
 Informace najdete v [poznámkách k verzi centra Azure Stack 1809](azure-stack-update-1903.md).
 

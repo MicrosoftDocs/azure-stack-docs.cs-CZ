@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: d219da5d219b5d341e5c62cfbf823be1334cc614
-ms.sourcegitcommit: e5b587216a137819444680ec619281c90f37bad9
+ms.openlocfilehash: 650144e2c1079b65c2d71a47471e600fa9ec4520
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82167105"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82847618"
 ---
 # <a name="direct-traffic-with-a-geo-distributed-app-using-azure-and-azure-stack-hub"></a>Přímý provoz s geograficky distribuovanou aplikací pomocí Azure a centra Azure Stack
 
@@ -343,7 +343,7 @@ Po přidání CNAME bude stránka záznamů DNS vypadat jako v následujícím p
 
 #### <a name="test-in-a-browser"></a>Testování v prohlížeči
 
-Přejděte na názvy DNS, které jste nakonfigurovali dříve (například `northwindcloud.com` nebo www.northwindcloud.com).
+Přejděte na názvy DNS, které jste nakonfigurovali dříve (například `northwindcloud.com` nebo `www.northwindcloud.com`).
 
 ## <a name="part-3-bind-a-custom-ssl-cert"></a>Část 3: vazba vlastního certifikátu SSL
 
@@ -537,7 +537,7 @@ Po dokončení operace přejděte na libovolnou adresu URL protokolu HTTP, kter�
 
 - https://<app_name>. azurewebsites.net
 - `https://northwindcloud.com`
-- <https://www.northwindcloud.com>
+- `https://www.northwindcloud.com`
 
 #### <a name="enforce-tls-1112"></a>Vynucení protokolu TLS 1.1/1.2
 

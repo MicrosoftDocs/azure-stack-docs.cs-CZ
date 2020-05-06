@@ -8,23 +8,23 @@ ms.date: 11/11/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 43099dfb4bfb2ffe50e6c8ccdfc05633ff4f3a6e
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 2c6ad5acc7096f243334165032eb7c134fc5cae0
+ms.sourcegitcommit: 519f4298dc1ed5c33f9c4fef811f61d61731dd84
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77697157"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82799777"
 ---
 # <a name="update-the-sql-resource-provider"></a>Aktualizace poskytovatele prostředků SQL
+
+> [!IMPORTANT]
+> Před aktualizací poskytovatele prostředků si přečtěte poznámky k verzi, kde najdete informace o nových funkcích, opravách a známých problémech, které by mohly mít vliv na nasazení. Zpráva k vydání verze také určuje minimální verzi centra Azure Stack požadovaná pro poskytovatele prostředků.
 
 Nový poskytovatel prostředků SQL může být vydaný, když se Azure Stack centrum aktualizuje na nové sestavení. I když stávající poskytovatel prostředků i nadále funguje, doporučujeme aktualizovat na nejnovější sestavení co nejdříve.
 
 Od verze 1.1.33.0 verze poskytovatele prostředků SQL jsou aktualizace kumulativní a nemusíte je instalovat v pořadí, ve kterém byly vydané, pokud začínáte z verze 1.1.24.0 nebo novější. Například pokud používáte 1.1.24.0 verze poskytovatele prostředků SQL, můžete upgradovat na verzi 1.1.33.0 nebo novější, aniž byste museli nejdřív nainstalovat verzi 1.1.30.0. Pokud chcete zkontrolovat dostupné verze poskytovatele prostředků a verzi centra Azure Stack, na které jsou podporované, přečtěte si téma seznam verzí v tématu [nasazení požadavků poskytovatele prostředků](./azure-stack-sql-resource-provider-deploy.md#prerequisites).
 
 Chcete-li aktualizovat poskytovatele prostředků, použijte skript *UpdateSQLProvider. ps1* . Použijte účet služby s právy místního správce a je **vlastníkem** předplatného. Tento skript je součástí stažení nového poskytovatele prostředků SQL. Proces aktualizace je podobný procesu použitému k [nasazení poskytovatele prostředků](./azure-stack-sql-resource-provider-deploy.md). Skript aktualizace používá stejné argumenty jako skript DeploySqlProvider. ps1 a budete muset zadat informace o certifikátu.
-
- > [!IMPORTANT]
- > Před upgradem poskytovatele prostředků si přečtěte poznámky k verzi, kde najdete informace o nových funkcích, opravách a známých problémech, které by mohly mít vliv na nasazení.
 
 ## <a name="update-script-processes"></a>Aktualizovat procesy skriptu
 
@@ -54,8 +54,8 @@ Když spustíte skript prostředí PowerShell **UpdateSQLProvider. ps1** , můž
 | **DefaultSSLCertificatePassword** | Heslo pro certifikát. pfx. | _Požadováno_ |
 | **MaxRetryCount** | Počet pokusů o opakování všech operací, pokud dojde k selhání.| 2 |
 | **RetryDuration** |Interval časového limitu mezi opakovanými pokusy (v sekundách). | 120 |
-| **Odinstalace** | Odebere poskytovatele prostředků a všechny přidružené prostředky. | Ne |
-| **DebugMode** | Zabraňuje automatickému vyčištění při selhání. | Ne |
+| **Odinstalace** | Odebere poskytovatele prostředků a všechny přidružené prostředky. | No |
+| **DebugMode** | Zabraňuje automatickému vyčištění při selhání. | No |
 
 ## <a name="update-script-powershell-example"></a>Příklad aktualizace skriptu PowerShellu
 > [!NOTE]

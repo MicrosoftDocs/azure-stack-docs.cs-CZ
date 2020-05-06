@@ -9,12 +9,12 @@ ms.author: inhenkel
 ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: 3f9741019a28548e9f20308312d62ea68e757795
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: e8a8d2f156d2608db01a652225540a73722f16fc
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81308242"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82848213"
 ---
 # <a name="register-azure-stack-hub-with-azure"></a>Registrace centra Azure Stack s Azure
 
@@ -486,7 +486,7 @@ Set-AzsRegistration [-PrivilegedEndpointCredential] <PSCredential> [-PrivilegedE
 | ResourceGroupName | Řetězec |  |
 | ResourceGroupLocation | Řetězec |  |
 | BillingModel | Řetězec | Model fakturace, který používá vaše předplatné. Povolené hodnoty pro tento parametr jsou: Capacity, PayAsYouUse a vývoj. |
-| MarketplaceSyndicationEnabled | Pravda/nepravda | Určuje, jestli je na portálu dostupná funkce správy Marketplace. Nastavte na hodnotu true, pokud se registruje s připojením k Internetu. Nastavte na hodnotu false, pokud se registruje v odpojených prostředích. U odpojených registrací se dá [Nástroj pro offline syndikaci](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario) použít ke stažení položek Marketplace. |
+| MarketplaceSyndicationEnabled | Pravda/nepravda | Určuje, jestli je na portálu dostupná funkce správy Marketplace. Nastavte na hodnotu true, pokud se registruje s připojením k Internetu. Nastavte na hodnotu false, pokud se registruje v odpojených prostředích. U odpojených registrací se dá [Nástroj pro offline syndikaci](azure-stack-download-azure-marketplace-item.md?pivots=state-disconnected) použít ke stažení položek Marketplace. |
 | UsageReportingEnabled | Pravda/nepravda | Služba Azure Stack hub hlásí metriky využití ve výchozím nastavení. Obsluha použití kapacity, která využívá nebo podporuje odpojené prostředí, musí vypnout vytváření sestav využití. Povolené hodnoty pro tento parametr jsou: true, false. |
 | AgreementNumber | Řetězec | Číslo smlouvy EA, pod kterou byla objednána SKU kapacity pro tento Azure Stack. |
 | Registrace | Řetězec | Pokud spouštíte registrační skript ve více než jedné instanci centra Azure Stack s použitím stejného ID předplatného Azure, nastavte pro registraci jedinečný název. Parametr má výchozí hodnotu **AzureStackRegistration**. Pokud však použijete stejný název na více než jedné instanci centra Azure Stack, skript se nezdařil. |
@@ -532,7 +532,7 @@ Při pokusu o registraci centra Azure Stack se může zobrazit jedna z následuj
 ::: zone pivot="state-disconnected"
 - Správa na webu Marketplace stále žádá o registraci a aktivaci centra Azure Stack, a to i v případě, že jste už zaregistrovali své razítko pomocí odpojeného procesu.
 
-   Příčina: Jedná se o známý problém pro odpojená prostředí a vyžaduje, abyste [ověřili stav registrace](#verify-azure-stack-hub-registration). Pro použití správy Marketplace použijte [Nástroj offline](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario).
+   Příčina: Jedná se o známý problém pro odpojená prostředí a vyžaduje, abyste [ověřili stav registrace](#verify-azure-stack-hub-registration). Pro použití správy Marketplace použijte [Nástroj offline](azure-stack-download-azure-marketplace-item.md?pivots=state-disconnected).
 ::: zone-end
 
 ## <a name="next-steps"></a>Další kroky

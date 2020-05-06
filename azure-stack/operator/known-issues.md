@@ -3,16 +3,16 @@ title: Známé problémy centra Azure Stack
 description: Přečtěte si o známých problémech v Azure Stackch vydáních centra.
 author: sethmanheim
 ms.topic: article
-ms.date: 04/29/2020
+ms.date: 05/05/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: df81020ce365f25587c406aaf13617281769834d
-ms.sourcegitcommit: 54f98b666bea9226c78f26dc255ddbdda539565f
+ms.openlocfilehash: 35eeee27c2084d0ceec565dea5cecc1ce71ecf7f
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82556416"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82848094"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Známé problémy centra Azure Stack
 
@@ -38,7 +38,7 @@ Chcete-li získat přístup ke známým problémům pro jinou verzi, použijte r
 
 Po použití aktualizace 2002 se může na portálu pro správu nesprávně zobrazit upozornění pro "Neplatný zdroj času". Tato hodnota false – kladná výstraha může být ignorována a bude opravena v nadcházející verzi. 
 
-Další známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešení potíží s aktualizacemi v centru Azure Stack](azure-stack-updates-troubleshoot.md).
+Další známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešení potíží s aktualizacemi v centru Azure Stack](azure-stack-troubleshooting.md).
 
 ## <a name="portal"></a>Portál
 
@@ -74,6 +74,12 @@ Další známé problémy s aktualizacemi centra Azure Stack najdete [v tématu 
 - Platí: Tento problém se týká 1908 a novějších.
 - Příčina: když je kabel odpojený od síťového adaptéru, výstraha se na portálu pro správu nezobrazí. Příčinou této chyby je, že tato chyba je ve výchozím nastavení ve Windows serveru 2019 zakázaná.
 - Výskyt: běžné
+
+### <a name="access-control-iam"></a>Access Control (IAM)
+
+- Platí: Tento problém se vztahuje na všechny podporované verze.
+- Příčina: rozšíření IAM není aktuální. Portál Ibiza, který se dodává s centrem Azure Stack, zavádí nové chování, které způsobí selhání rozšíření RBAC, pokud uživatel otevírá okno **Access Control (IAM)** pro předplatné, které není vybrané v nástroji pro výběr globálního předplatného (**adresář + předplatné** na portálu User Portal). V okně se zobrazí **načítání** ve smyčce a uživatel nemůže do předplatného přidat nové role. Okno **Přidat** také zobrazuje **načítání** ve smyčce.
+- Náprava: Ujistěte se, že je předplatné zaškrtnuté v nabídce **adresář a předplatné** . K nabídce se dá dostat z horní části portálu, poblíž tlačítka **oznámení** nebo prostřednictvím zástupce v okně **všechny prostředky** , ve kterém se zobrazuje **předplatné nezobrazené? Otevřete nastavení adresář a předplatné**. V této nabídce je nutné vybrat odběr.
 
 ## <a name="networking"></a>Sítě
 
@@ -203,7 +209,7 @@ Další známé problémy s aktualizacemi centra Azure Stack najdete [v tématu 
 ::: moniker range="azs-1910"
 ## <a name="update"></a>Aktualizace
 
-Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešení potíží s aktualizacemi v centru Azure Stack](azure-stack-updates-troubleshoot.md).
+Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešení potíží s aktualizacemi v centru Azure Stack](azure-stack-troubleshooting.md).
 
 ## <a name="portal"></a>Portál
 
@@ -246,7 +252,6 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 - Příčina: na portálu User Portal se při pokusu o nahrání objektu BLOB v okně nahrávání dá vybrat možnost ověřování **AAD** nebo **klíč**, ale v centru Azure Stack se nepodporuje **AAD** .
 - Výskyt: běžné
 
-
 ### <a name="alert-for-network-interface-disconnected"></a>Výstraha pro síťové rozhraní odpojena
 
 - Platí: Tento problém se týká 1908 a novějších.
@@ -264,7 +269,6 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 - Platí: Tento problém se vztahuje na všechny podporované verze.
 - Příčina: na portálu User Portal se zobrazí funkce **řešení potíží s VPN** a **metriky** v prostředku brány sítě VPN, ale toto nastavení není v centru Azure Stack podporováno.
 - Výskyt: běžné
-
 
 ### <a name="delete-a-storage-container"></a>Odstranění kontejneru úložiště
 
@@ -489,7 +493,7 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 ### <a name="load-balancer"></a>Load Balancer
 
 - Platí: Tento problém se vztahuje na všechny podporované verze. 
-- Příčina: Když přidáváte virtuální počítače dostupnost sady do back-endu Load Balancer, na portálu se zobrazí chybová zpráva s oznámením, že **se nepovedlo Uložit fond back-endu nástroje pro vyrovnávání zatížení**. Jedná se o problém na portálu, ale funkce jsou pořád na místě a virtuální počítače se úspěšně přidají do fondu back-endu. 
+- Příčina: když do back-endu fondu Load Balancer přidáte virtuální počítače skupiny dostupnosti, na portálu se zobrazí chybová zpráva s oznámením, že **se nepovedlo Uložit fond back-endu nástroje pro vyrovnávání zatížení**. Jedná se o problém na portálu, ale funkce jsou pořád na místě a virtuální počítače se úspěšně přidají do fondu back-endu. 
 - Výskyt: běžné
 
 ### <a name="network-security-groups"></a>Network Security Groups (Skupiny zabezpečení sítě)
@@ -653,7 +657,7 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 ### <a name="load-balancer"></a>Load Balancer
 
 - Platí: Tento problém se vztahuje na všechny podporované verze. 
-- Příčina: Když přidáváte virtuální počítače dostupnost sady do back-endu Load Balancer, na portálu se zobrazí chybová zpráva s oznámením, že **se nepovedlo Uložit fond back-endu nástroje pro vyrovnávání zatížení**. Jedná se o problém na portálu, ale funkce jsou pořád na místě a virtuální počítače se úspěšně přidají do fondu back-endu. 
+- Příčina: když do back-endu fondu Load Balancer přidáte virtuální počítače skupiny dostupnosti, na portálu se zobrazí chybová zpráva s oznámením, že **se nepovedlo Uložit fond back-endu nástroje pro vyrovnávání zatížení**. Jedná se o problém na portálu, ale funkce jsou pořád na místě a virtuální počítače se úspěšně přidají do fondu back-endu. 
 - Výskyt: běžné
 
 ### <a name="network-security-groups"></a>Network Security Groups (Skupiny zabezpečení sítě)

@@ -8,34 +8,29 @@ ms.topic: how-to
 ms.date: 12/09/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 12/09/2019
-ms.openlocfilehash: e07d311c8edbe140834a020af489ae49d8380d86
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+zone_pivot_groups: state-connected-disconnected
+ms.openlocfilehash: d92c8c8514020d3b33e236232aa07b95ade9f798
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80423968"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82848196"
 ---
 # <a name="how-to-install-event-hubs-on-azure-stack-hub"></a>Postup instalace Event Hubs v centru Azure Stack
 
-[!INCLUDE [preview-banner](../includes/event-hubs-preview.md)]
+[!INCLUDE [preview banner](../includes/event-hubs-preview.md)]
 
 V tomto článku se dozvíte, jak stáhnout a nainstalovat poskytovatele prostředků Event Hubs a zpřístupnit ho zákazníkům pro předplatné.
 
 ## <a name="download-packages"></a>Stáhnout balíčky
 
-Než budete moct nainstalovat Event Hubs do centra Azure Stack, musíte stáhnout poskytovatele prostředků a jeho závislé balíčky. V závislosti na vaší situaci nebo požadavcích máte dvě možnosti:
-
-- Stažení Event Hubs v rámci připojeného scénáře.
-- Stažení Event Hubs v rámci odpojeného nebo částečně připojeného scénáře.
-
-Pokud nejste obeznámeni s funkcí **správy Marketplace** na portálu správce centra Azure Stack, věnujte si čas [na stažení položek Marketplace z Azure a publikování do centra Azure Stack](azure-stack-download-azure-marketplace-item.md). Tento článek vás provede procesem stahování položek z Azure do tržiště centra Azure Stack. Zahrnuje jak připojené, tak odpojené scénáře. 
-
-### <a name="download-event-hubs---connected-scenario"></a>Stáhnout scénář s připojením Event Hubs
+Než budete moct nainstalovat Event Hubs do centra Azure Stack, musíte stáhnout poskytovatele prostředků a jeho závislé balíčky pomocí funkce správy Marketplace. Pokud nejste obeznámeni se správou Marketplace, věnujte čas na [stažení položek Marketplace z Azure a publikování do centra Azure Stack](azure-stack-download-azure-marketplace-item.md). Tento článek vás provede procesem stahování položek z Azure do tržiště centra Azure Stack. Zahrnuje jak připojené, tak odpojené scénáře. 
 
 > [!NOTE]
 > Proces stahování může trvat 30 minut až 2 hodiny v závislosti na latenci sítě a existujících balíčcích vaší instance centra Azure Stack. 
 
-Pokud vaše Azure Stack rozbočovač má připojení k Internetu, postupujte podle těchto pokynů:
+::: zone pivot="state-connected"
+Postupujte podle těchto pokynů v propojeném scénáři:
 
 1. Přihlaste se k portálu pro správu centra Azure Stack.
 2. Na levé straně vyberte **Správa Marketplace** .
@@ -50,25 +45,23 @@ Všimněte si, že další balíčky softwaru se stáhnou spolu s Event Hubs, v�
 
 - POUZE interní doplněk Microsoft Azure Stack hub RP Windows serveru
 - Konfigurace požadovaného stavu prostředí PowerShell
+::: zone-end
 
-Po dokončení procesu stahování přejděte na [oddíl instalovat předpoklady](#install-prerequisites).
+::: zone pivot="state-disconnected"
+V případě odpojeného nebo částečně připojeného scénáře můžete balíčky stáhnout do svého místního počítače a pak je importovat do instance centra Azure Stack.
 
-### <a name="download-event-hubs---disconnected-or-partially-connected-scenario"></a>Stáhnout scénář Event Hubs – odpojeno nebo částečně připojeno
-
-Nejdřív si balíčky stáhnete do svého místního počítače a pak je naimportujete do své instance centra Azure Stack.
-
-1. Pokud jste to ještě neudělali, postupujte podle pokynů v části [stažení položek Marketplace – odpojené nebo částečně propojené scénáře](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario). Tady si stáhnete a spustíte nástroj pro syndikaci na webu Marketplace, který vám umožní stáhnout Event Hubs balíčky.
+1. Pokud jste to ještě neudělali, postupujte podle pokynů v části [stažení položek Marketplace – odpojené nebo částečně propojené scénáře](azure-stack-download-azure-marketplace-item.md?pivots=state-disconnected). Tady si stáhnete a spustíte nástroj pro syndikaci na webu Marketplace, který vám umožní stáhnout Event Hubs balíčky.
 2. Po otevření okna Azure Marketplace položky nástroje syndikace Najděte a vyberte "Event Hubs" a Stáhněte si požadované balíčky do místního počítače.
 3. Po dokončení stahování naimportujete balíčky do své instance centra Azure Stack a publikujete na Marketplace. 
+::: zone-end
 
 ## <a name="installation"></a>Instalace 
 
-1. Pokud jste to ještě neudělali, přihlaste se na portál pro správu centra Azure Stack.
-2. Na levé straně vyberte **Správa Marketplace** a pak vyberte **poskytovatelé prostředků**.
-3. Po stažení Event Hubs a dalšího požadovaného softwaru by měla **Správa Marketplace** zobrazovat balíčky "Event Hubs" se stavem "Nenainstalováno". Mohou existovat další balíčky, které zobrazují stav "staženo". Vyberte řádek Event Hubs, který chcete nainstalovat.
+1. Pokud jste to ještě neudělali, přihlaste se na portál pro správu centra Azure Stack, na levé straně vyberte **Správa Marketplace** a pak vyberte **poskytovatelé prostředků**.
+2. Po stažení Event Hubs a dalším požadovanému softwaru zobrazí **Správa Marketplace** balíčky "Event Hubs" se stavem "Nenainstalováno". Mohou existovat další balíčky, které zobrazují stav "staženo". Vyberte řádek Event Hubs, který chcete nainstalovat.
    [![Stažené balíčky správy Marketplace](media/event-hubs-rp-install/2-marketplace-management-downloaded.png)](media/event-hubs-rp-install/2-marketplace-management-downloaded.png#lightbox)
  
-4. Na stránce Event Hubs instalace balíčku by se měl zobrazit modrý banner v horní části. Vyberte banner a spusťte instalaci Event Hubs.
+3. Stránka Event Hubs instalace balíčku zobrazuje modrý banner v horní části. Vyberte banner a spusťte instalaci Event Hubs.
    [![Centra událostí správy Marketplace – spustit instalaci](media/event-hubs-rp-install/3-marketplace-management-install-ready.png)](media/event-hubs-rp-install/3-marketplace-management-install-ready.png#lightbox)
 
 ### <a name="install-prerequisites"></a>Požadavky na instalaci

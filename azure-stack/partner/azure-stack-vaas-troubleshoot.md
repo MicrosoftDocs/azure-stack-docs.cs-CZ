@@ -103,7 +103,7 @@ Pokud je prostředí v pořádku, ručně nahrajte pět imagí virtuálních po�
     | Nabídka | WindowsServer |
     | OS Type | Windows |
     | Skladová jednotka (SKU) | 2012-R2-Datacenter |
-    | Version | 1.0.0 |
+    | Verze | 1.0.0 |
     | Identifikátor URI objektu BLOB disku s operačním systémem | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/WindowsServer2012R2DatacenterBYOL.vhd |
 
 1. Vyberte tlačítko **Vytvořit**.
@@ -111,7 +111,7 @@ Pokud je prostředí v pořádku, ručně nahrajte pět imagí virtuálních po�
 
 Vlastnosti všech pěti imagí virtuálních počítačů jsou následující:
 
-| Vydavatel  | Nabídka  | OS Type | Skladová jednotka (SKU) | Version | Identifikátor URI objektu BLOB disku s operačním systémem |
+| Vydavatel  | Nabídka  | OS Type | Skladová jednotka (SKU) | Verze | Identifikátor URI objektu BLOB disku s operačním systémem |
 |---------|---------|---------|---------|---------|---------|
 | MicrosoftWindowsServer| WindowsServer | Windows | 2012-R2-Datacenter | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/WindowsServer2012R2DatacenterBYOL.vhd |
 | MicrosoftWindowsServer | WindowsServer | Windows | 2016 – Datacenter | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Server2016DatacenterFullBYOL.vhd |

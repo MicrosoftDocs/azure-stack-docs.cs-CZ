@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Přečtěte si o zásadách obsluhy centra Azure Stack a o tom, jak zachovat integrovaný systém v podporovaném stavu.
 author: sethmanheim
 ms.topic: article
-ms.date: 02/07/2020
+ms.date: 05/07/2020
 ms.author: sethm
 ms.reviewer: harik
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 9b1459fbb5e484e3fc0588e8c9717f8e09b6e309
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 479343623f59720cd330c3f9d8d8b8c7836a8a0e
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79512397"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82848145"
 ---
 # <a name="azure-stack-hub-servicing-policy"></a>Zásady obsluhy centra Azure Stack
 
@@ -80,13 +80,19 @@ Pokud je například poslední dostupná verze aktualizace 1904 a předchozí dv
 
 Balíčky aktualizací softwaru společnosti Microsoft jsou nekumulativní a vyžadují jako součást předchozí balíček aktualizace nebo opravu hotfix. Pokud se rozhodnete jednu nebo více aktualizací odložit, zvažte celkový modul runtime, pokud chcete získat nejnovější verzi.
 
+### <a name="resource-provider-version-support"></a>Podpora verze poskytovatele prostředků
+
+U poskytovatelů prostředků Azure Stack hub je důležité poznamenat, že je podporovaná jenom poslední vydaná verze daného poskytovatele prostředků, která je kompatibilní s vaší podporovanou verzí centra Azure Stack, i když používáte starší verzi Azure Stack centra, která je stále v okně podpory.
+
+Další informace o kompatibilitě poskytovatele prostředků najdete v poznámkách k verzi pro konkrétního poskytovatele prostředků.
+
 ## <a name="get-support"></a>Získání podpory
 
 Centrum Azure Stack se řídí stejným procesem podpory jako Azure. Podnikoví zákazníci mohou postupovat podle postupu popsaného v tématu [Postup vytvoření žádosti o podporu Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Pokud jste zákazníkem poskytovatele Cloud Solution Provider (CSP), požádejte o podporu svého CSP. Další informace najdete v nejčastějších dotazech k [podpoře Azure](https://azure.microsoft.com/support/faq/).
 
-Pomoc při řešení potíží s aktualizacemi najdete v tématu [osvědčené postupy pro řešení potíží s problémy s aktualizacemi centra Azure Stack a aktualizací](azure-stack-updates-troubleshoot.md).
+Pomoc při řešení potíží s aktualizacemi najdete v tématu [osvědčené postupy pro řešení potíží s problémy s aktualizacemi centra Azure Stack a aktualizací](azure-stack-troubleshooting.md).
 
 ## <a name="next-steps"></a>Další kroky
 
 - [Správa aktualizací v centru Azure Stack](azure-stack-updates.md)
-- [Osvědčené postupy pro řešení potíží s problémy s aktualizacemi a aktualizacemi centra Azure Stack](azure-stack-updates-troubleshoot.md)
+- [Osvědčené postupy pro řešení potíží s problémy s aktualizacemi a aktualizacemi centra Azure Stack](azure-stack-troubleshooting.md)

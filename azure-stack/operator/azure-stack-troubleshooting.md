@@ -8,12 +8,12 @@ ms.date: 04/30/2020
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: d85ee89edc6b36fb9eca84f59867621b37e8dd5a
-ms.sourcegitcommit: 21cdab346fc242b8848a04a124bc16c382ebc6f0
+ms.openlocfilehash: 4c3488ac0f8b022d7d0e21ce09cfb3160f346d5c
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82777878"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82848111"
 ---
 # <a name="troubleshoot-issues-in-azure-stack-hub"></a>Řešení potíží v centru Azure Stack
 
@@ -117,8 +117,32 @@ Může trvat až 14 hodin, než se kapacita uvolní, aby se na portálu zobrazov
 
 Pokud používáte integrovaný systém v odpojeném scénáři, doporučuje se používat certifikační autoritu (CA) organizace. Exportujte kořenový certifikát ve formátu Base-64 a pak ho importujte do Průzkumník služby Azure Storage. Nezapomeňte odebrat koncové lomítko (`/`) z správce prostředkůho koncového bodu. Další informace najdete v tématu [Příprava na připojení k centru Azure Stack](/azure-stack/user/azure-stack-storage-connect-se).
 
-## <a name="troubleshooting-app-service"></a>Řešení potíží s App Service
+## <a name="troubleshoot-app-service"></a>Řešení potíží s App Service
 
 ### <a name="create-aadidentityappps1-script-fails"></a>Skript Create-AADIdentityApp. ps1 se nezdařil
 
-Pokud skript Create-AADIdentityApp. ps1 vyžadovaný pro App Service selhává, nezapomeňte při spuštění skriptu zahrnout požadovaný `-AzureStackAdminCredential` parametr. Další informace najdete v tématu [předpoklady pro nasazení App Service v centru Azure Stack](azure-stack-app-service-before-you-get-started.md#create-an-azure-active-directory-app).
+Pokud skript Create-AADIdentityApp. ps1 vyžadovaný pro App Service selhává, nezapomeňte při spuštění skriptu zahrnout požadovaný `-AzureStackAdminCredential` parametr. Další informace najdete v tématu [předpoklady pro nasazení App Service v centru Azure Stack](azure-stack-app-service-before-you-get-started.md#create-an-azure-ad-app).
+
+## <a name="troubleshoot-azure-stack-hub-updates"></a>Řešení potíží s aktualizacemi centra Azure Stack
+
+Proces aktualizace a aktualizace centra Azure Stack slouží k tomu, aby operátoři mohli instalovat balíčky aktualizací konzistentním a efektivnějším způsobem. V neobvyklém případě mohou nastat problémy během procesu aktualizace a aktualizace. V následujících krocích se doporučuje, abyste při procesu aktualizace a aktualizace nastavili problém:
+
+0. **Požadavky**: Ujistěte se, že jste postupovali podle [kontrolního seznamu aktivity aktualizace](release-notes-checklist.md) a máte [nakonfigurované automatické shromažďování protokolů](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md).
+
+1. Postupujte podle kroků pro nápravu v upozornění na selhání vytvořeného při selhání aktualizace.
+
+2. Pokud jste tento problém nedokázali vyřešit, vytvořte [lístek podpory centra Azure Stack](azure-stack-help-and-support-overview-tzl.md). Ujistěte se, že máte [shromážděné protokoly](azure-stack-configure-on-demand-diagnostic-log-collection-portal-tzl.md) pro časové období, kdy k problému došlo.
+
+## <a name="common-azure-stack-hub-patch-and-update-issues"></a>Běžné problémy s opravou a aktualizacemi centra Azure Stack
+
+*Platí pro: Azure Stack integrovaných systémů centra*
+
+### <a name="preparationfailed"></a>PreparationFailed
+
+**Platí**: Tento problém se vztahuje na všechny podporované verze.
+
+**Příčina**: při pokusu o instalaci aktualizace centra Azure Stack se může stát, že se stav aktualizace nezdaří a změní se stav `PreparationFailed`na. Pro systémy připojené k Internetu je to obvykle informativní jako aktualizace balíčku aktualizace, který se nedá správně stáhnout z důvodu slabého připojení k Internetu. 
+
+**Náprava**: Tento problém můžete obejít tak, že znovu kliknete na **nainstalovat** . Pokud potíže potrvají, doporučujeme ručně odeslat balíček aktualizace pomocí oddílu [instalovat aktualizace](azure-stack-apply-updates.md?#install-updates-and-monitor-progress) .
+
+**Výskyt**: běžné

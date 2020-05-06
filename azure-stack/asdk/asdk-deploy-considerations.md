@@ -7,12 +7,12 @@ ms.date: 05/13/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 05/13/2019
-ms.openlocfilehash: 889180858826685150fadb7ad3bef0ffb789b8ec
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 98298b405bd818cb3cd1f67d52d1735a4cc3edd4
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79294415"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82846955"
 ---
 # <a name="asdk-requirements-and-considerations"></a>Požadavky a předpoklady pro ASDK
 
@@ -28,7 +28,9 @@ Před nasazením Azure Stack Development Kit (ASDK) se ujistěte, že váš host
 | Výpočetní služby: Paměť |192 – GB RAM. |256 – GB RAM. |
 | Výpočetní služby: BIOS |Je zapnutá technologie Hyper-V (s podporou SLAT). |Je zapnutá technologie Hyper-V (s podporou SLAT). |
 | Síť: NIC |Certifikace systému Windows Server 2012 R2. Nejsou vyžadovány žádné specializované funkce. | Certifikace systému Windows Server 2012 R2. Nejsou vyžadovány žádné specializované funkce. |
-| Hardwarová certifikace loga |[Certifikováno pro Windows Server 2012 R2](https://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0). |[Certifikováno pro Windows Server 2016](https://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0). |
+| Hardwarová certifikace loga |[Certifikováno pro Windows Server 2012 R2](https://www.windowsservercatalog.com/content.aspx?ctf=logo.htm). 
+|[Certifikováno pro Windows Server 2016](https://www.windowsservercatalog.com/content.aspx?ctf=logo.htm). 
+|
 
 <sup>*</sup>Pokud plánujete přidat spoustu [položek z webu Marketplace](../operator/azure-stack-create-and-publish-marketplace-item.md) z Azure, budete potřebovat víc než tuto doporučenou kapacitu.
 

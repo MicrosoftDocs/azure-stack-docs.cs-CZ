@@ -3,16 +3,16 @@ title: Verze rozhraní API poskytovatele prostředků podporované profily v cen
 description: Přečtěte si o verzích rozhraní API Azure Resource Manager podporovaných profily v centru Azure Stack.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/07/2020
+ms.date: 05/05/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/08/2019
-ms.openlocfilehash: 883a39ac7c0d3f11d3f9242a7efaa8549e41f4cf
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 6495f3c42294df313b570c70a11dbf8e1d86616e
+ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80302801"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82836253"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack-hub"></a>Verze rozhraní API poskytovatele prostředků podporované profily v centru Azure Stack
 
@@ -104,7 +104,7 @@ Rozhraní API Azure Compute poskytují programový přístup k virtuálním poč
 | Položky Galerie | 2015-04-01 |
 | Operace | 2015-04-01 |
 | Portál | 2015-04-01 |
-| Search | 2015-04-01 |
+| Vyhledávání | 2015-04-01 |
 | Navrhovat | 2015-04-01 |
 
 ### <a name="microsoftinsights"></a>Microsoft. Insights

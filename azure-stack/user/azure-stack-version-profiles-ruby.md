@@ -3,16 +3,16 @@ title: Použití profilů verzí rozhraní API s Ruby v Azure Stack hub
 description: Naučte se používat profily verzí rozhraní API s Ruby v Azure Stack hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/23/2020
+ms.date: 05/05/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 5b79c676b922f0e76ed75e3ad043f53c1fb9d6a5
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: b59adea78b5325a449bd52b211edc5e04ea5e566
+ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79294800"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82836236"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack-hub"></a>Použití profilů verzí rozhraní API s Ruby v Azure Stack hub
 
@@ -44,7 +44,7 @@ Profil rozhraní API je kombinací poskytovatelů prostředků a verzí služby.
 
 - Pokud není k dispozici, vytvořte odběr a uložte ID předplatného, které chcete použít později. Pokyny k vytvoření předplatného najdete v článku o [Vytvoření předplatných pro nabídky v Azure Stackovém centru](../operator/azure-stack-subscribe-plan-provision-vm.md) .
 - Vytvořte instanční objekt a uložte jeho ID a tajný klíč. Pokyny k vytvoření instančního objektu pro centrum Azure Stack jsou v článku [použití identity aplikace k přístupu k prostředkům](../operator/azure-stack-create-service-principals.md) .
-- Ujistěte se, že váš instanční objekt má přiřazenou roli Přispěvatel/vlastník v rámci vašeho předplatného. Pokyny k přiřazení role k instančnímu objektu jsou v tématu [použití identity aplikace pro přístup k prostředkům](../operator/azure-stack-create-service-principals.md).
+- Ujistěte se, že váš instanční objekt má přiřazenou roli Přispěvatel/vlastník v rámci vašeho předplatného. Pokyny, jak přiřadit roli k instančnímu objektu, najdete v článku [použití identity aplikace k přístupu k prostředkům](../operator/azure-stack-create-service-principals.md) .
 
 ## <a name="install-the-rubygem-packages"></a>Instalace balíčků RubyGem
 

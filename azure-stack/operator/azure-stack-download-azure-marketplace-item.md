@@ -3,16 +3,17 @@ title: Stažení položek z webu Marketplace z Azure a publikování do centra A
 description: Přečtěte si, jak stáhnout položky z webu Marketplace z Azure a publikovat do centra Azure Stack.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 04/08/2020
+ms.date: 04/13/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 12/23/2019
-ms.openlocfilehash: a37f8b14a1a21caa8f710afe54868f308971e422
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+zone_pivot_groups: state-connected-disconnected
+ms.openlocfilehash: 48b1d7e5c0b4d40b04ac27c872fd015f3b448913
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80979411"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82848264"
 ---
 # <a name="download-marketplace-items-to-azure-stack-hub"></a>Stažení položek z Marketplace do centra Azure Stack 
 
@@ -28,15 +29,14 @@ Existují dva scénáře stažení produktů z webu Marketplace:
 > [!NOTE]
 > Katalog se bude lišit v závislosti na cloudu, ke kterému je připojen systém Azure Stack hub. Cloudové prostředí se určuje pomocí předplatného Azure, které používáte k registraci centra Azure Stack.
 
-## <a name="connected-scenario"></a>Připojený scénář
+::: zone pivot="state-connected"
+Připojené nasazení umožňuje používat portál pro správu ke stažení položek Marketplace.
 
-Pokud se centrum Azure Stack připojuje k Internetu, můžete k stažení položek z Marketplace použít portál pro správu.
-
-### <a name="prerequisites"></a>Požadavky
+## <a name="prerequisites"></a>Požadavky
 
 Vaše nasazení centra Azure Stack musí mít připojení k Internetu a musí být zaregistrované v Azure.
 
-### <a name="use-the-portal-to-download-marketplace-items"></a>Stažení položek z Marketplace pomocí portálu
+## <a name="use-the-portal-to-download-marketplace-items"></a>Stažení položek z Marketplace pomocí portálu
 
 1. Přihlaste se k portálu pro správu centra Azure Stack.
 
@@ -61,10 +61,10 @@ Vaše nasazení centra Azure Stack musí mít připojení k Internetu a musí b�
 6. Vyberte položku, kterou chcete, a pak vyberte **Stáhnout**. Doba stahování se liší a závisí na připojení k síti. Po dokončení stahování můžete novou položku Marketplace nasadit jako operátor centra Azure Stack nebo uživatele.
 
 7. Pokud chcete staženou položku nasadit, vyberte **+ vytvořit prostředek**a potom vyhledejte kategorie nové položky Marketplace. Pak vyberte položku, která zahájí proces nasazení. Tento proces se liší pro různé položky Marketplace.
+::: zone-end
 
-## <a name="disconnected-or-a-partially-connected-scenario"></a>Odpojený nebo částečně připojený scénář
-
-Pokud centrum Azure Stack má omezené nebo žádné připojení k Internetu, můžete k stažení položek Marketplace na počítač s připojením k Internetu použít PowerShell a *Nástroj pro syndikaci na webu Marketplace* . Pak přenesete položky do prostředí Azure Stack hub. V odpojeném prostředí nemůžete stáhnout položky Marketplace pomocí portálu Azure Stack hub.
+::: zone pivot="state-disconnected"
+Pokud Azure Stack hub má omezené nebo žádné připojení k Internetu, můžete ke stažení položek Marketplace na počítač s připojením k Internetu použít PowerShell a *Nástroj pro syndikaci na webu Marketplace* . Pak přenesete položky do prostředí Azure Stack hub. V odpojeném prostředí nemůžete stáhnout položky Marketplace pomocí portálu Azure Stack hub.
 
 Nástroj syndikace na webu Marketplace se dá použít taky v připojeném scénáři.
 
@@ -73,7 +73,7 @@ Tento scénář obsahuje dvě části:
 - **Část 1**: stažení z položek Marketplace. V počítači s přístupem k Internetu konfigurujete PowerShell, stáhnete nástroj syndikace a pak stáhnete položky z Azure Marketplace.
 - **Část 2**: nahrání a publikování na tržišti Azure Stack hub. Soubory, které jste stáhli do prostředí centra Azure Stack, přesunete a pak je publikujete na webu služby Azure Stack hub Marketplace.
 
-### <a name="prerequisites"></a>Požadavky
+## <a name="prerequisites"></a>Požadavky
 
 - Připojené prostředí (nemusí být Azure Stack hub). Potřebujete připojení, abyste získali seznam produktů z Azure s jejich podrobnostmi a stáhli všechno místně. Až to uděláte, zbývající část postupu nevyžaduje připojení k Internetu. Vytvoří katalog položek, které jste předtím stáhli, abyste je mohli použít v odpojeném prostředí.
 
@@ -98,7 +98,7 @@ Po registraci Azure Stack můžete ignorovat následující zprávu, která se z
 
 ![Správa Marketplace](media/azure-stack-download-azure-marketplace-item/toolsmsg.png)
 
-### <a name="use-the-marketplace-syndication-tool-to-download-marketplace-items"></a>Stažení položek z Marketplace pomocí nástroje pro syndikaci na webu Marketplace
+## <a name="use-the-marketplace-syndication-tool-to-download-marketplace-items"></a>Stažení položek z Marketplace pomocí nástroje pro syndikaci na webu Marketplace
 
 > [!IMPORTANT]
 > Nezapomeňte si stáhnout nástroj syndikace webu Marketplace při každém stažení položek Marketplace v odpojeném scénáři. V tomto nástroji jsou k disopakující se změny a nejaktuálnější verze by se měla použít pro každé stažení.
@@ -168,7 +168,7 @@ Po registraci Azure Stack můžete ignorovat následující zprávu, která se z
     Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name Azs.Syndication.Admin -Path "Destination folder path in quotes" -Force
     ```
 
-### <a name="import-the-download-and-publish-to-azure-stack-hub-marketplace-using-powershell"></a>Import stažení a publikování do webu Azure Stack hub Marketplace pomocí prostředí PowerShell
+## <a name="import-the-download-and-publish-to-azure-stack-hub-marketplace-using-powershell"></a>Import stažení a publikování do webu Azure Stack hub Marketplace pomocí prostředí PowerShell
 
 1. Soubory, které jste [již dříve stáhli](#use-the-marketplace-syndication-tool-to-download-marketplace-items) , je nutné přesunout do počítače, který má připojení k prostředí centra Azure Stack. Nástroj pro syndikaci na webu Marketplace musí být také dostupný pro prostředí Azure Stack hub, protože k provedení operace importu je nutné použít nástroj.
 
@@ -187,3 +187,4 @@ Po registraci Azure Stack můžete ignorovat následující zprávu, která se z
     ```
 
 5. Po úspěšném dokončení skriptu by měly být položky Marketplace dostupné v tržišti Azure Stack hub.
+::: zone-end
