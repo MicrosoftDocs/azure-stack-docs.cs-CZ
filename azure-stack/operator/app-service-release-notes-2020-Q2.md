@@ -8,12 +8,12 @@ ms.date: 05/05/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 04/30/2020
-ms.openlocfilehash: 36c2fabf06df1725938b512752f40f70728dd8e9
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: 57cdd5ed496d0792f2d36f1e12d5fb8fce1d4370
+ms.sourcegitcommit: 8646eba1674ca708baf6699f4a4b56d134766e85
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 05/06/2020
-ms.locfileid: "82848280"
+ms.locfileid: "82861397"
 ---
 # <a name="app-service-on-azure-stack-hub-2020-q2-release-notes"></a>App Service zpráva k vydání verze centra Azure Stack 2020 Q2
 
@@ -84,16 +84,16 @@ Azure App Service na Azure Stack Update Q2 obsahuje následující vylepšení a
 
 - **Aktualizované výchozí hodnoty SKU virtuálního počítače a sady škálování pro nová nasazení**: aby byla zajištěna konzistence s naší veřejnou cloudovou službou, nové nasazení Azure App Service v centru Azure Stack budou používat následující SKU pro základní počítače a sady škálování používané pro provozování poskytovatele prostředků.
   
-  | Role | Minimální instance | Minimální SKU |
-  | --- | --- | --- |
-  | Kontrolér | 2 | Standard_A4_v2 – (4 jádra, 8192 MB) |
-  | Správa | 1 | Standard_D3_v2 – (4 jádra, 14336 MB) |
-  | Vydavatel | 1 | Standard_A2_v2 – (2 jádra, 4096 MB) |
-  | FrontEnd | 1 | Standard_A4_v2 – (4 jádra, 8192 MB) |
-  | Sdílený pracovní proces | 1 | Standard_A4_v2 – (4 jádra, 8192 MB) |
-  | Malý vyhrazený pracovní proces | 1 | Standard_A1_v2 – (1 jader, 2048 MB) |
-  | Střední vyhrazený pracovní proces | 1 | Standard_A2_v2 – (2 jádra, 4096 MB) |
-  | Velký vyhrazený pracovní proces | 1 | Standard_A4_v2 – (4 jádra, 8192 MB) |
+  | Role | Minimální SKU |
+  | --- | --- |
+  | Kontrolér | Standard_A4_v2 – (4 jádra, 8192 MB) |
+  | Správa | Standard_D3_v2 – (4 jádra, 14336 MB) |
+  | Vydavatel | Standard_A2_v2 – (2 jádra, 4096 MB) |
+  | FrontEnd | Standard_A4_v2 – (4 jádra, 8192 MB) |
+  | Sdílený pracovní proces | Standard_A4_v2 – (4 jádra, 8192 MB) |
+  | Malý vyhrazený pracovní proces | Standard_A1_v2 – (1 jader, 2048 MB) |
+  | Střední vyhrazený pracovní proces | Standard_A2_v2 – (2 jádra, 4096 MB) |
+  | Velký vyhrazený pracovní proces | Standard_A4_v2 – (4 jádra, 8192 MB) |
 
 U nasazení ASDK můžete škálovat instance na nižší skladové jednotky a snížit tak základní a úložné potvrzení, ale dojde k snížení výkonu.
 

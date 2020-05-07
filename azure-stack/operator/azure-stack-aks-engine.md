@@ -7,12 +7,12 @@ ms.date: 2/27/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: abbf82a61c27a58833d286639b281989d3a29fd7
-ms.sourcegitcommit: e5b587216a137819444680ec619281c90f37bad9
+ms.openlocfilehash: 5bebac9b3c604b2726cf5cd8f895fb17e0db3486
+ms.sourcegitcommit: 8646eba1674ca708baf6699f4a4b56d134766e85
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82166952"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82861380"
 ---
 # <a name="add-the-azure-kubernetes-services-aks-engine-prerequisites-to-the-azure-stack-hub-marketplace"></a>Přidání požadavků modulu Azure Kubernetes Services (AKS) do tržiště centra Azure Stack
 
@@ -38,7 +38,7 @@ Pokud pro službu správy identit používáte službu Active Directory federova
 
 ## <a name="add-the-aks-base-image"></a>Přidat základní image AKS
 
-Základní image AKS můžete na Marketplace přidat tak, že získáte položku z Azure. Pokud je ale vaše centrum Azure Stack odpojené, použijte tyto pokyny ke [stažení položky Marketplace z Azure](https://docs.microsoft.com/azure-stack/operator/azure-stack-download-azure-marketplace-item?view=azs-1908#disconnected-or-a-partially-connected-scenario) a přidejte položku. Přidejte položku určenou v kroku 5.
+Základní image AKS můžete na Marketplace přidat tak, že získáte položku z Azure. Pokud je ale vaše centrum Azure Stack odpojené, použijte tyto pokyny ke [stažení položky Marketplace z Azure](azure-stack-download-azure-marketplace-item.md?pivots=state-disconnected) a přidejte položku. Přidejte položku určenou v kroku 5.
 
 Do Marketplace přidejte následující položku:
 
@@ -61,7 +61,7 @@ Do Marketplace přidejte následující položku:
 
 ## <a name="add-a-custom-script-extension"></a>Přidání rozšíření vlastních skriptů
 
-Pomocí položky z Azure můžete přidat vlastní skript na Marketplace. Pokud je ale vaše centrum Azure Stack odpojené, přidejte položku pomocí pokynů ke [stažení položek z webu Marketplace z Azure](https://docs.microsoft.com/azure-stack/operator/azure-stack-download-azure-marketplace-item?view=azs-1908#disconnected-or-a-partially-connected-scenario) .  Přidejte položku určenou v kroku 5.
+Pomocí položky z Azure můžete přidat vlastní skript na Marketplace. Pokud je ale vaše centrum Azure Stack odpojené, přidejte položku pomocí pokynů ke [stažení položek z webu Marketplace z Azure](azure-stack-download-azure-marketplace-item.md?pivots=state-disconnected) .  Přidejte položku určenou v kroku 5.
 
 1. Otevřete [portál pro správu](https://adminportal.local.azurestack.external).
 

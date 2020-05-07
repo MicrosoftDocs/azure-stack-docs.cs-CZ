@@ -8,12 +8,12 @@ ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 04/13/2019
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: f24c75f90b466f72f980996fde03e791deb0a5f4
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: c3512a441116f57f74921cec38d5937b89a1978c
+ms.sourcegitcommit: d04b8f2d431ec1e12bcf5aa976fb06ec109caa25
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 05/06/2020
-ms.locfileid: "82847845"
+ms.locfileid: "82868468"
 ---
 # <a name="prerequisites-for-deploying-app-service-on-azure-stack-hub"></a>Předpoklady pro nasazení App Service v centru Azure Stack
 
@@ -113,7 +113,7 @@ Azure App Service vyžaduje použití souborového serveru. U produkčních nasa
 K dispozici je teď [Šablona pro rychlý Start referenční architektury](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/appservice-fileserver-sqlserver-ha) , která nasadí souborový server a SQL Server. Tato šablona podporuje infrastrukturu služby Active Directory ve virtuální síti nakonfigurované na podporu vysoce dostupného nasazení Azure App Service v centru Azure Stack.
 
 > [!NOTE]
-> Instance ASDK musí být schopná stáhnout prostředky z GitHubu, aby bylo možné dokončit nasazení.
+> Aby bylo možné dokončit nasazení, musí být integrovaná instance systému schopna stahovat prostředky z GitHubu.
 
 #### <a name="steps-to-deploy-a-custom-file-server"></a>Postup nasazení vlastního souborového serveru
 
