@@ -3,16 +3,16 @@ title: Vydávat požadavky rozhraní API na centrum Azure Stack
 description: Naučte se, jak načíst ověřování z Azure a vydávat požadavky rozhraní API na Azure Stack hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/23/2020
+ms.date: 05/06/2020
 ms.author: sethm
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: 3d7c4e7481b3054eaf44394e9b80f1e07bc75fa9
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: d44158342b1bca1aec575d51fb7144a8c88e88d1
+ms.sourcegitcommit: 9894804f31527234d43f4a93a9b7c106c8540435
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77703719"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82967739"
 ---
 <!--  cblackuk and charliejllewellyn. This is a community contribution by cblackuk-->
 
@@ -22,7 +22,7 @@ Rozhraní REST API služby Azure Stack Hub můžete použít k automatizaci oper
 
 Rozhraní API vyžadují, aby se váš klient ověřil na Microsoft Azure koncový bod přihlášení. Koncový bod vrátí token, který se použije v hlavičce všech požadavků odeslaných do rozhraní API centra Azure Stack. Microsoft Azure používá OAuth 2,0.
 
-Tento článek popisuje příklady, které používají **Nástroj pro** vytváření Azure Stackch požadavků centra. kudrlinkou je nástroj příkazového řádku s knihovnou pro přenos dat. Tyto příklady vás provedou procesem Načtení tokenu pro přístup k rozhraním API centra Azure Stack. Většina programovacích jazyků poskytuje knihovny OAuth 2,0, které mají robustní správu tokenů a zpracovávají úlohy, jako je například aktualizace tokenu.
+Tento článek popisuje příklady, které používají **Nástroj pro** vytváření Azure Stackch požadavků centra. kudrlinkou je nástroj příkazového řádku s knihovnou pro přenos dat. Tyto příklady popisují proces načítání tokenu pro přístup k rozhraním API centra Azure Stack. Většina programovacích jazyků poskytuje knihovny OAuth 2,0, které mají robustní správu tokenů a zpracovávají úlohy, jako je například aktualizace tokenu.
 
 Projděte si celý proces použití rozhraní REST API centra Azure Stack s obecným klientem REST, jako je například **kudrlinkou**, který vám pomůže pochopit základní požadavky a co můžete očekávat v datové části odpovědi.
 

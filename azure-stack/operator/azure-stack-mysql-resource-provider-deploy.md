@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/18/2019
-ms.openlocfilehash: 976d602cea47131bef68b38add07e0bcaeeb9617
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: a187937ded0f2f28bb9c772607cb21aad0021a3c
+ms.sourcegitcommit: 41195d1ee8ad14eda102cdd3fee3afccf1d83aca
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79294448"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82908503"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack-hub"></a>Nasazení poskytovatele prostředků MySQL do centra Azure Stack
 
@@ -49,7 +49,7 @@ Aby bylo možné nasadit poskytovatele prostředků MySQL Azure Stack hub, je nu
 
 * Ujistěte se, že jsou splněné předpoklady pro integraci Datacenter:
 
-    |Požadavek|Referenční informace|
+    |Požadavek|Reference|
     |-----|-----|
     |Podmíněné předávání DNS je nastaveno správně.|[Integrace centrálního centra Azure Stack – DNS](azure-stack-integrate-dns.md)|
     |Příchozí porty pro poskytovatele prostředků jsou otevřené.|[Integrace Datacenter centra Azure Stack – publikování koncových bodů](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|
@@ -130,8 +130,8 @@ Tyto parametry můžete zadat z příkazového řádku. Pokud ne, nebo pokud se 
 | **DefaultSSLCertificatePassword** | Heslo pro certifikát. pfx. | _Požadováno_ |
 | **MaxRetryCount** | Počet pokusů o opakování všech operací, pokud dojde k selhání.| 2 |
 | **RetryDuration** | Interval časového limitu mezi opakovanými pokusy (v sekundách). | 120 |
-| **Odinstalace** | Odebere poskytovatele prostředků a všechny přidružené prostředky (viz následující poznámky). | Ne |
-| **DebugMode** | Zabraňuje automatickému vyčištění při selhání. | Ne |
+| **Odinstalace** | Odebere poskytovatele prostředků a všechny přidružené prostředky (viz následující poznámky). | No |
+| **DebugMode** | Zabraňuje automatickému vyčištění při selhání. | No |
 | **AcceptLicense** | Přeskočí výzvu k přijetí licence GPL.  <https://www.gnu.org/licenses/old-licenses/gpl-2.0.html> | |
 
 ## <a name="deploy-the-mysql-resource-provider-using-a-custom-script"></a>Nasazení poskytovatele prostředků MySQL pomocí vlastního skriptu
@@ -166,19 +166,19 @@ $tempDir = 'C:\TEMP\MYSQLRP'
 
 # The service admin account (can be Azure Active Directory or Active Directory Federation Services).
 $serviceAdmin = "admin@mydomain.onmicrosoft.com"
-$AdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$AdminPass = ConvertTo-SecureString 'P@ssw0rd1' -AsPlainText -Force
 $AdminCreds = New-Object System.Management.Automation.PSCredential ($serviceAdmin, $AdminPass)
 
 # Set the credentials for the new resource provider VM local admin account
-$vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$vmLocalAdminPass = ConvertTo-SecureString 'P@ssw0rd1' -AsPlainText -Force
 $vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("mysqlrpadmin", $vmLocalAdminPass)
 
 # And the cloudadmin credential required for privileged endpoint access.
-$CloudAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$CloudAdminPass = ConvertTo-SecureString 'P@ssw0rd1' -AsPlainText -Force
 $CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domain\cloudadmin", $CloudAdminPass)
 
 # Change the following as appropriate.
-$PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$PfxPass = ConvertTo-SecureString 'P@ssw0rd1' -AsPlainText -Force
 
 # For version 1.1.47.0, the PowerShell modules used by the RP deployment are placed in C:\Program Files\SqlMySqlPsh,
 # The deployment script adds this path to the system $env:PSModulePath to ensure correct modules are used.

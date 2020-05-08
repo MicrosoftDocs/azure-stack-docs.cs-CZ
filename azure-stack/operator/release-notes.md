@@ -7,12 +7,12 @@ ms.date: 04/22/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: ccb21762eded64a5e1a5430c80ebfc4e69617375
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: 8226df545751176539bbd00932ab7ec0ec48ede4
+ms.sourcegitcommit: 41195d1ee8ad14eda102cdd3fee3afccf1d83aca
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82848247"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82908593"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Poznámky k verzi centra Azure Stack
 
@@ -272,7 +272,7 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 
 - Při stahování položek z webu Marketplace z Azure do centra Azure Stack je k dispozici nové uživatelské rozhraní, které umožňuje zadat verzi položky, pokud existuje více verzí. Nové uživatelské rozhraní je k dispozici v rámci připojených i odpojených scénářů. Další informace najdete v tématu [stažení položek Marketplace z Azure do centra Azure Stack](azure-stack-download-azure-marketplace-item.md).  
 
-- Počínaje verzí 1910 **vyžaduje** systém Azure Stack hub další/20 privátní interní IP místo.  Další informace najdete v tématu (plánování integrace sítě pro Azure Stack) [Azure-Stack-network.md].
+- Počínaje verzí 1910 **vyžaduje** systém Azure Stack hub další/20 privátní interní IP místo. Další informace najdete v tématu [Plánování integrace sítě pro Azure Stack](azure-stack-network.md) .
   
 - Služba zálohování infrastruktury odstraní částečně nahraná zálohovaná data v případě, že umístění externího úložiště během procesu nahrávání vyčerpá kapacitu.  
 

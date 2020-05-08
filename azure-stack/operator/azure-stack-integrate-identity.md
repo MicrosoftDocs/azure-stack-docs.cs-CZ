@@ -7,12 +7,12 @@ ms.date: 04/10/2020
 ms.author: bryanla
 ms.reviewer: thoroet
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: 38e3d36b5269dac3ee3c4190aff001b4ed4921b4
-ms.sourcegitcommit: d930d52e27073829b8bf8ac2d581ec2accfa37e3
+ms.openlocfilehash: f1217bacebc4c391347506720c760b947e363b3a
+ms.sourcegitcommit: 41195d1ee8ad14eda102cdd3fee3afccf1d83aca
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82173943"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82908594"
 ---
 # <a name="integrate-ad-fs-identity-with-your-azure-stack-hub-datacenter"></a>Integrace AD FS identity s vaším datacenterm centra Azure Stack
 
@@ -128,7 +128,7 @@ Pro parametry automatizace se jako vstup vyžadují tyto informace:
 |---------|---------|---------|---------|
 |CustomAdfsName|Název poskytovatele AD FS|Název zprostředkovatele deklarací identity.<br>Toto zobrazení se zobrazí na AD FS cílové stránce.|Contoso|
 |CustomAD<br>FSFederationMetadataEndpointUri|Identifikátor URI AD FS metadat|Odkaz federačních metadat| https:\//AD01.contoso.com/federationmetadata/2007-06/federationmetadata.XML |
-|SigningCertificateRevocationCheck|Není k dispozici|Volitelný parametr pro přeskočení kontroly CRL|Žádná|
+|SigningCertificateRevocationCheck|Není k dispozici|Volitelný parametr pro přeskočení kontroly CRL|Žádné|
 
 
 ### <a name="trigger-automation-to-configure-claims-provider-trust-in-azure-stack-hub"></a>Aktivace automatizace pro konfiguraci vztahu důvěryhodnosti zprostředkovatele deklarací v centru Azure Stack
@@ -219,7 +219,7 @@ Pomocný skript si můžete stáhnout z [Azure Stack nástrojů centra](https://
 
 Pokud se rozhodnete tyto příkazy spustit ručně, postupujte následovně:
 
-1. Zkopírujte následující obsah do souboru. txt (například uložený jako c:\ClaimRules.txt) do instance AD FS svého datového centra nebo člena farmy:
+1. Zkopírujte následující obsah do souboru. txt (například uložený jako c:\ClaimIssuanceRules.txt) do instance AD FS svého datového centra nebo člena farmy:
 
    ```text
    @RuleTemplate = "LdapClaims"

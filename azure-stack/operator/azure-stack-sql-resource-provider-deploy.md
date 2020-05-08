@@ -8,12 +8,12 @@ ms.date: 10/02/2019
 ms.lastreviewed: 03/18/2019
 ms.author: bryanla
 ms.reviewer: xiao
-ms.openlocfilehash: 086d8008e44e50268aec29ff4d2c28a8d65b88ab
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: bc59808b0b1ebb954812882442cb6dc2d8b02e83
+ms.sourcegitcommit: 41195d1ee8ad14eda102cdd3fee3afccf1d83aca
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80806859"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82908484"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack-hub"></a>Nasazení poskytovatele prostředků SQL Server v centru Azure Stack
 
@@ -45,7 +45,7 @@ Aby bylo možné nasadit poskytovatele prostředků SQL centra Azure Stack, je n
 
 - Ujistěte se, že jsou splněné předpoklady pro integraci Datacenter:
 
-    |Požadavek|Referenční informace|
+    |Požadavek|Reference|
     |-----|-----|
     |Podmíněné předávání DNS je nastaveno správně.|[Integrace centrálního centra Azure Stack – DNS](azure-stack-integrate-dns.md)|
     |Příchozí porty pro poskytovatele prostředků jsou otevřené.|[Integrace Datacenter centra Azure Stack – příchozí porty a protokoly](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|
@@ -126,8 +126,8 @@ Z příkazového řádku můžete zadat následující parametry. Pokud ne, nebo
 | **DefaultSSLCertificatePassword** | Heslo pro certifikát. pfx. | _Požadováno_ |
 | **MaxRetryCount** | Počet pokusů o opakování všech operací, pokud dojde k selhání.| 2 |
 | **RetryDuration** | Interval časového limitu mezi opakovanými pokusy (v sekundách). | 120 |
-| **Odinstalace** | Odebere poskytovatele prostředků a všechny přidružené prostředky (viz následující poznámky). | Ne |
-| **DebugMode** | Zabraňuje automatickému vyčištění při selhání. | Ne |
+| **Odinstalace** | Odebere poskytovatele prostředků a všechny přidružené prostředky (viz následující poznámky). | No |
+| **DebugMode** | Zabraňuje automatickému vyčištění při selhání. | No |
 
 ## <a name="deploy-the-sql-resource-provider-using-a-custom-script"></a>Nasazení poskytovatele prostředků SQL pomocí vlastního skriptu
 
@@ -161,19 +161,19 @@ $tempDir = 'C:\TEMP\SQLRP'
 
 # The service admin account can be Azure Active Directory or Active Directory Federation Services.
 $serviceAdmin = "admin@mydomain.onmicrosoft.com"
-$AdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$AdminPass = ConvertTo-SecureString 'P@ssw0rd1' -AsPlainText -Force
 $AdminCreds = New-Object System.Management.Automation.PSCredential ($serviceAdmin, $AdminPass)
 
 # Set credentials for the new resource provider VM local admin account.
-$vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$vmLocalAdminPass = ConvertTo-SecureString 'P@ssw0rd1' -AsPlainText -Force
 $vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("sqlrpadmin", $vmLocalAdminPass)
 
 # Add the cloudadmin credential that's required for privileged endpoint access.
-$CloudAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$CloudAdminPass = ConvertTo-SecureString 'P@ssw0rd1' -AsPlainText -Force
 $CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domain\cloudadmin", $CloudAdminPass)
 
 # Change the following as appropriate.
-$PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$PfxPass = ConvertTo-SecureString 'P@ssw0rd1' -AsPlainText -Force
 
 # For version 1.1.47.0, the PowerShell modules used by the RP deployment are placed in C:\Program Files\SqlMySqlPsh
 # The deployment script adds this path to the system $env:PSModulePath to ensure correct modules are used.

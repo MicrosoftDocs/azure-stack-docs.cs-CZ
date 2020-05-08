@@ -3,16 +3,16 @@ title: Co je nového v Marketplace centra Azure Stack
 description: Změny a aktualizace na tržišti Azure Stack hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 04/27/2020
+ms.date: 05/06/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 10/01/2019
-ms.openlocfilehash: 9852799c59e7ddf2c33a93f5af4feee69718d4ab
-ms.sourcegitcommit: e5b587216a137819444680ec619281c90f37bad9
+ms.openlocfilehash: db8eafe9aceeb9e1e901f0f2677f52535e70c0d3
+ms.sourcegitcommit: 41195d1ee8ad14eda102cdd3fee3afccf1d83aca
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82166969"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82908520"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Změny v tržišti centra Azure Stack
 
@@ -57,6 +57,7 @@ Tento článek popisuje poslední přidání, aktualizace, změny a odebrání [
 - Bitnami X2Engine Sales CRM
 - Bitnami SugarCRM
 - Cluster s vysokou dostupností Bitnami Node. js
+- Bitnami ProcessMaker Enterprise Edition
 - A10 vThunder: L4 – kontroler doručení aplikace L7, globální vyrovnávání zatížení serveru (GSLB), přehled SSL
 - Správa zabezpečení Check Point vSEC
 

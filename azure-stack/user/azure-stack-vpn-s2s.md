@@ -3,15 +3,15 @@ title: Konfigurace připojení VPN typu Site-to-site mezi lokalitami pomocí pro
 description: Přečtěte si o konfiguraci zásad IPsec/IKE pro připojení typu Site-to-Site VPN nebo VNet-to-VNet v centru Azure Stack.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/07/2020
+ms.date: 05/07/2020
 ms.author: sethm
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: a1cf522176e6943ad1975a402affbb81d1aeea4f
-ms.sourcegitcommit: 3ee7e9ddffe2ca44af24052e60d808fbef42cf4c
+ms.openlocfilehash: 2456bd234b8affaecf061871ca701f45088f17c4
+ms.sourcegitcommit: 9894804f31527234d43f4a93a9b7c106c8540435
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82643505"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82967790"
 ---
 # <a name="configure-ipsecike-policy-for-site-to-site-vpn-connections"></a>Konfigurace zásad IPsec/IKE pro připojení site-to-site VPN
 

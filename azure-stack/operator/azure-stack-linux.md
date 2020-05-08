@@ -3,16 +3,16 @@ title: Přidání imagí pro Linux do webu centra Azure Stack Marketplace
 description: Naučte se přidávat image Linux do Marketplace centra Azure Stack.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/23/2020
+ms.date: 05/07/2020
 ms.author: sethm
-ms.reviewer: unknown
+ms.reviewer: ''
 ms.lastreviewed: 11/16/2019
-ms.openlocfilehash: 532f61b2b306dab833c35dab403226e70950d43a
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 32cdb1ec98f9825a63b5acfa68e4c8e3f43089a7
+ms.sourcegitcommit: 9894804f31527234d43f4a93a9b7c106c8540435
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79294019"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82967722"
 ---
 # <a name="add-linux-images-to-the-azure-stack-hub-marketplace"></a>Přidání imagí pro Linux do webu centra Azure Stack Marketplace
 
@@ -22,11 +22,11 @@ Virtuální počítače se systémem Linux můžete do centra Azure Stack nasadi
 
 Pokud chcete stáhnout image ze systému Linux z Azure Marketplace, přečtěte si téma [stažení položek Marketplace z Azure do centra Azure Stack](azure-stack-download-azure-marketplace-item.md). Vyberte image pro Linux, které chcete uživatelům nabídnout v centru Azure Stack.
 
-Tyto image se často aktualizují, takže je Správa Marketplace často pořád aktuální.
+Tyto image se často aktualizují, proto je pravidelně Projděte.
 
 ## <a name="prepare-your-own-image"></a>Příprava vlastní image
 
-Kdykoli je to možné, stáhněte si image dostupné prostřednictvím Správy Marketplace. Tyto Image byly připraveny a testovány pro centrum Azure Stack.
+Pokud je to možné, Stáhněte si image dostupné prostřednictvím správy Marketplace. Tyto Image byly připraveny a testovány pro centrum Azure Stack.
 
 ### <a name="azure-linux-agent"></a>Agent Azure Linux
 
@@ -101,12 +101,12 @@ runcmd:
   - nodejs index.js
   ```
   
-### <a name="step-2-reference-the-cloud-inittxt-during-the-linux-vm-deployment"></a>Krok 2: odkazování na Cloud-init. txt během nasazování virtuálního počítače se systémem Linux
+### <a name="step-2-reference-cloud-inittxt-during-the-linux-vm-deployment"></a>Krok 2: Referenční dokumentace Cloud-init. txt během nasazování virtuálního počítače se systémem Linux
 
 Nahrajte soubor do účtu služby Azure Storage, Azure Stack účtu úložiště centra nebo úložiště GitHub dosažitelného pomocí virtuálního počítače Azure Stack hub Linux.
-V současné době se použití Cloud-init pro nasazení virtuálního počítače podporuje jenom na REST, PowerShellu a CLI a nemá přidružené uživatelské rozhraní portálu na Azure Stack hub.
+V současné době se použití Cloud-init pro nasazení virtuálního počítače podporuje jenom v REST, PowerShellu a rozhraní příkazového řádku a nemá přidružené uživatelské rozhraní portálu na Azure Stack hub.
 
-Podle [těchto](../user/azure-stack-quick-create-vm-linux-powershell.md) pokynů můžete vytvořit virtuální počítač Linux pomocí prostředí PowerShell, ale nezapomeňte odkazovat na Cloud-init. txt jako součást `-CustomData` příznaku:
+Podle [těchto pokynů](../user/azure-stack-quick-create-vm-linux-powershell.md) můžete vytvořit virtuální počítač Linux pomocí prostředí PowerShell, ale nezapomeňte odkazovat na Cloud-init. txt jako součást `-CustomData` příznaku:
 
 ```powershell
 $VirtualMachine =Set-AzureRmVMOperatingSystem -VM $VirtualMachine `
