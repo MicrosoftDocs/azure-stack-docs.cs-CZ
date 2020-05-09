@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: f3c952695d430befa69c4b3dc2ffaf7787ac8b31
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: 7a0777c218a27647214ada7b628cede5f7c01587
+ms.sourcegitcommit: 510bb047b0a78fcc29ac611a2a7094fc285249a1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82847159"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82988217"
 ---
 # <a name="configure-hybrid-cloud-identity-for-azure-and-azure-stack-hub-apps"></a>Konfigurace hybridní cloudové identity pro Azure a aplikace Azure Stack hub
 
@@ -41,11 +41,11 @@ Pro kroky v tomto řešení musíte mít oprávnění operátora centra Azure St
 
 ## <a name="create-a-service-principal-for-azure-ad-in-the-portal"></a>Vytvoření instančního objektu pro službu Azure AD na portálu
 
-Pokud jste nasadili Azure Stack hub pomocí Azure AD jako úložiště identit, můžete objekty služby vytvářet stejně jako v případě Azure. [Použití identity aplikace pro přístup k prostředkům](../operator/azure-stack-create-service-principals.md#manage-an-azure-ad-service-principal) ukazuje, jak provést kroky prostřednictvím portálu. Před zahájením se ujistěte, že máte [požadovaná oprávnění služby Azure AD](/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) .
+Pokud jste nasadili Azure Stack hub pomocí Azure AD jako úložiště identit, můžete objekty služby vytvářet stejně jako v případě Azure. [Použití identity aplikace pro přístup k prostředkům](../operator/azure-stack-create-service-principals.md#manage-an-azure-ad-app-identity) ukazuje, jak provést kroky prostřednictvím portálu. Před zahájením se ujistěte, že máte [požadovaná oprávnění služby Azure AD](/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) .
 
 ## <a name="create-a-service-principal-for-ad-fs-using-powershell"></a>Vytvoření instančního objektu pro AD FS s využitím PowerShellu
 
-Pokud jste nasadili Azure Stack centrum s AD FS, můžete k vytvoření instančního objektu použít PowerShell a přiřazovat roli pro přístup a přihlašovat se pomocí této identity z PowerShellu. [Použití identity aplikace pro přístup k prostředkům](../operator/azure-stack-create-service-principals.md#manage-an-ad-fs-service-principal) ukazuje, jak provést požadované kroky pomocí prostředí PowerShell.
+Pokud jste nasadili Azure Stack centrum s AD FS, můžete k vytvoření instančního objektu použít PowerShell a přiřazovat roli pro přístup a přihlašovat se pomocí této identity z PowerShellu. [Použití identity aplikace pro přístup k prostředkům](../operator/azure-stack-create-service-principals.md#manage-an-ad-fs-app-identity) ukazuje, jak provést požadované kroky pomocí prostředí PowerShell.
 
 ## <a name="using-the-azure-stack-hub-api"></a>Použití rozhraní API centra Azure Stack
 
