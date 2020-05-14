@@ -167,6 +167,10 @@
                       href: azure-stack-vpn-s2s.md
                     - name: Nastavení služby VPN Gateway
                       href: azure-stack-vpn-gateway-settings.md
+                    - name: Řešení potíží se síťovými virtuálními zařízení
+                      href: network-virtual-appliance.md
+                    - name: Řešení potíží s připojením site-to-site
+                      href: site-to-site.md
                 - name: IDN pro centrum Azure Stack
                   href: azure-stack-understanding-dns.md
                 - name: DNS v centru Azure Stack
@@ -231,7 +235,7 @@
                     - name: Řešení potíží s modulem AKS
                       href: azure-stack-kubernetes-aks-engine-troubleshoot.md
                     - name: Použití Azure Monitor pro kontejnery
-                      href: kubernetes-aks-engine-azure-monitor.md
+                      href: 'https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-hybrid-setup'
                 - name: Položka Marketplace
                   items:
                     - name: Nasazení clusteru Kubernetes
@@ -322,11 +326,11 @@
 - name: Referenční informace
   items:
     - name: Prostředí PowerShell centra Azure Stack
-      href: 'https://docs.microsoft.com/powershell/azure/azure-stack/overview'
-    - name: Prohlížeč REST API centra Azure Stack
-      href: /rest/api/
+      href: 'https://docs.microsoft.com/powershell/azure/azure-stack/overview?'
+    - name: Rozhraní REST API Správce centra Azure Stack
+      href: /rest/api/azure-stack/
     - name: Azure CLI
-      href: /cli/azure/reference-index?view=azure-cli-2017-03-09-profile
+      href: 'https://docs.microsoft.com/cli/azure/reference-index?'
 - name: Související
   items:
     - name: Dokumentace k operátorovi centra Azure Stack

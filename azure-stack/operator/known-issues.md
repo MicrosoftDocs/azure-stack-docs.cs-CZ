@@ -7,12 +7,12 @@ ms.date: 05/05/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 35eeee27c2084d0ceec565dea5cecc1ce71ecf7f
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: 94b90f8a3a648a466ac221a76099a71964e00f9a
+ms.sourcegitcommit: 4a8d7203fd06aeb2c3026d31ffec9d4fbd403613
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82848094"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83202438"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Známé problémy centra Azure Stack
 
@@ -36,7 +36,7 @@ Chcete-li získat přístup ke známým problémům pro jinou verzi, použijte r
 ::: moniker range="azs-2002"
 ## <a name="update"></a>Aktualizace
 
-Po použití aktualizace 2002 se může na portálu pro správu nesprávně zobrazit upozornění pro "Neplatný zdroj času". Tato hodnota false – kladná výstraha může být ignorována a bude opravena v nadcházející verzi. 
+Po instalaci aktualizace 2002 se může na portálu pro správu nesprávně zobrazit upozornění na neplatný zdroj času. Toto falešně pozitivní upozornění můžete ignorovat a v nadcházející verzi bude opravené. 
 
 Další známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešení potíží s aktualizacemi v centru Azure Stack](azure-stack-troubleshooting.md).
 
@@ -196,7 +196,7 @@ Další známé problémy s aktualizacemi centra Azure Stack najdete [v tématu 
 
 - Platí: Tento problém se týká verze 2002.
 - Příčina: Pokud razítko obsahuje App Service Resource Provider (RP) verze 1,7 a starší, po aktualizaci razítka se okna pro App Service nenačte.
-- Náprava: aktualizujte RP na verzi 1,8.
+- Náprava: aktualizujte RP na verzi [2020 F2](azure-stack-app-service-update.md).
 
 <!-- ## Storage -->
 <!-- ## SQL and MySQL-->
@@ -413,7 +413,7 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 
 - Platí: Tento problém se týká 1910 a starších verzí.
 - Příčina: k privilegovanému koncovému bodu (virtuálním počítačům s ERC) se nejde připojit z počítače, na kterém běží jiná než anglická verze Windows.
-- Náprava: Jedná se o známý problém, který byl vyřešen v vydáních později než 1910. Jako alternativní řešení můžete spustit rutiny prostředí PowerShell **New-PSSession** a **Enter-PSSession** pomocí jazykové verze **en-US** . v příkladech nastavte jazykovou verzi pomocí tohoto skriptu https://resources.oreilly.com/examples/9780596528492/blob/master/Use-Culture.ps1:.
+- Náprava: Jedná se o známý problém, který byl vyřešen v vydáních později než 1910. Jako alternativní řešení můžete spustit rutiny prostředí PowerShell **New-PSSession** a **Enter-PSSession** pomocí jazykové verze **en-US** . v příkladech nastavte jazykovou verzi pomocí tohoto skriptu: https://resources.oreilly.com/examples/9780596528492/blob/master/Use-Culture.ps1 .
 - Výskyt: vzácná
 
 ### <a name="virtual-machine-scale-set"></a>Škálovací sada virtuálních počítačů

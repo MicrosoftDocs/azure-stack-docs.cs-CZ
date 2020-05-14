@@ -1,5 +1,5 @@
 ---
-title: Monitorovat stav hardwaru centra Azure Stack
+title: Monitorování stavu hardwaru v centru Azure Stack
 description: Naučte se monitorovat stav hardwarových komponent centra Azure Stack.
 author: sethmanheim
 ms.topic: conceptual
@@ -7,12 +7,12 @@ ms.date: 02/24/2020
 ms.author: sethm
 ms.reviewer: thoroet
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: dc7be7e80f6277c6788c9b572ad2d74031d811f1
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: a4f5d82979e209eae124f930d1f59abc1bb88b98
+ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77699724"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83375182"
 ---
 # <a name="monitor-azure-stack-hub-hardware-components"></a>Monitorovat hardwarové součásti centra Azure Stack
 
@@ -26,7 +26,7 @@ Systém Azure Stackho centra stavů a monitorování sleduje stav subsystému ú
 - Spouštěcí jednotky
 
 > [!NOTE]
-> Před povolením této funkce je nutné ověřit u svého hardwarového partnera, že jsou připravené. K povolení této funkce v řadiči pro správu základní desky vám poskytne váš hardwarový partner také podrobný postup.
+> Než tuto funkci povolíte, musíte ověřit u svého hardwarového partnera, že jsou připravené. K povolení této funkce v řadiči pro správu základní desky vám poskytne váš hardwarový partner také podrobný postup.
 
 ## <a name="snmp-listener-scenario"></a>Scénář naslouchacího procesu SNMP
 
@@ -36,10 +36,10 @@ Odesílání depeší do naslouchacího procesu vyžaduje ověření a musí pou
 
 Při přijetí depeše SNMP na kterékoli ze tří ERCS instancí na portu TCP 162 se identifikátor OID spáruje interně a vyvolá se výstraha. Systém Azure Stack a monitorování stavu centra a systému přijímá pouze identifikátory OID definované hardwarovým partnerem. Pokud je identifikátor OID pro Azure Stack hub neznámý, neshoduje se s výstrahou.
 
-Jakmile je poškozená součást nahrazena, pošle se událost z řadiče pro správu základní desky do naslouchacího procesu SNMP, který indikuje změnu stavu a výstraha se automaticky zavře v Azure Stack hub.
+Jakmile je poškozená součást nahrazena, pošle se událost z řadiče pro správu základní desky do naslouchacího procesu SNMP, který indikuje změnu stavu. Výstraha se pak automaticky zavře v Azure Stackovém centru.
 
 > [!NOTE]
-> Existující výstrahy se při nahrazení celého uzlu nebo základní desky automaticky nezavřou. Totéž platí i v případě, že dojde ke ztrátě konfigurace řadiče pro správu základní desky. například kvůli obnovení továrního nastavení.
+> Existující výstrahy nebudou automaticky zavřeny, když je nahrazen celý uzel nebo základní deska. Totéž platí i v případě, že dojde ke ztrátě konfigurace řadiče pro správu základní desky. například kvůli obnovení továrního nastavení.
 
 ## <a name="next-steps"></a>Další kroky
 

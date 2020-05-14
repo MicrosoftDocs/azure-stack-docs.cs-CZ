@@ -8,12 +8,12 @@ ms.date: 06/24/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 08/20/2019
-ms.openlocfilehash: cf6895cac1c0be2b55c99ff51ebccc0f46350437
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: 974b338ff7da9bd4442d4aadc02d475bd01686df
+ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82847720"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83374626"
 ---
 # <a name="app-service-on-azure-stack-hub-update-6-release-notes"></a>App Service zpráva k vydání verze Azure Stack centra pro aktualizaci 6
 
@@ -22,7 +22,7 @@ Tyto poznámky k verzi popisují nové funkce, opravy a známé problémy v Azur
 > [!IMPORTANT]
 > Před nasazením Azure App Service 1,6 použijte aktualizaci 1904 pro integrovaný systém Azure Stack hub nebo nasaďte nejnovější Azure Stack Development Kit (ASDK).
 
-## <a name="build-reference"></a>Odkaz na sestavení
+## <a name="build-reference"></a>Referenční informace o buildu
 
 App Service číslo buildu Azure Stack centra aktualizace č. 6 je **82.0.1.50**.
 
@@ -108,7 +108,7 @@ Informace najdete v [poznámkách k verzi centra Azure Stack 1908](/azure-stack/
 
 - Možnosti nasazení a možnosti portálu přihlašovací údaje pro nasazení (Classic) nejsou k dispozici.
 
-    Aby se dosáhlo možností nasazení a přihlašovacích údajů k nasazení uživatelského rozhraní v nasazení centra Azure Stack, klienti by měli mít přístup k portálu pomocí `https://portal.&lt;*region*&gt;.&lt;*FQDN*&gt;/?websitesExtension_oldvsts=true` tohoto formátu adresy URL: – to znamená `https://portal.local.azurestack.external/?websitesExtension_oldvsts=true`, že by měl ASDK a pak přejít ke svým aplikacím.
+    Aby se dosáhlo možností nasazení a přihlašovacích údajů k nasazení uživatelského rozhraní v nasazení centra Azure Stack, klienti by měli mít přístup k portálu pomocí tohoto formátu adresy URL: `https://portal.&lt;*region*&gt;.&lt;*FQDN*&gt;/?websitesExtension_oldvsts=true` – to znamená, že by měl ASDK `https://portal.local.azurestack.external/?websitesExtension_oldvsts=true` a pak přejít ke svým aplikacím.
 
 - Azure Function monitor průběžně zobrazuje "načítání" na portálu.
 

@@ -7,12 +7,12 @@ ms.date: 11/06/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: b02ea9e241faea3aeaad76b85dbde9616e1edea5
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 90b20ddcc129b8077cf28fa1a1a758054795de60
+ms.sourcegitcommit: 4a8d7203fd06aeb2c3026d31ffec9d4fbd403613
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79294899"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83202507"
 ---
 # <a name="add-mysql-hosting-servers-in-azure-stack-hub"></a>Přidání hostitelských serverů MySQL do centra Azure Stack
 
@@ -23,13 +23,31 @@ Instanci hostitelského serveru MySQL můžete hostovat na virtuálním počíta
 
 Pro hostitelské servery lze použít verze MySQL 5,6, 5,7 a 8,0. MySQL RP nepodporuje caching_sha2_password ověřování. Servery MySQL 8,0 musí být nakonfigurovány tak, aby používaly mysql_native_password.
 
-## <a name="configure-external-access-to-the-mysql-hosting-server"></a>Konfigurace externího přístupu k hostitelskému serveru MySQL
+## <a name="prepare-a-mysql-hosting-server"></a>Příprava hostitelského serveru MySQL
 
-Než bude možné server MySQL přidat jako hostitele serveru MySQL Azure Stack hub, musí být povolený externí přístup. Využijte BitNami MySQL, který je k dispozici v tržišti centra Azure Stack jako příklad můžete nakonfigurovat externí přístup provedením následujících kroků.
+### <a name="create-a-network-security-group-rule"></a>Vytvoření pravidla skupiny zabezpečení sítě
+
+Ve výchozím nastavení není pro MySQL na hostitelském virtuálním počítači nakonfigurován žádný veřejný přístup. Aby mohl poskytovatel prostředků MySQL Azure Stack připojit a spravovat server MySQL, je nutné vytvořit pravidlo skupiny zabezpečení příchozí sítě (NSG).
+
+1. Na portálu pro správu přejdete do skupiny prostředků vytvořené při nasazení serveru MySQL a vyberete skupinu zabezpečení sítě (**výchozí-Subnet-SG**):
+
+   ![Vybrat skupinu zabezpečení sítě na portálu pro správu centra Azure Stack](media/azure-stack-tutorial-mysqlrp/img6.png)
+
+2. Vyberte **příchozí pravidla zabezpečení** a pak vyberte **Přidat**.
+
+    Do pole název **cílového portu** zadejte **3306** a v poli **název** a **Popis** volitelně zadejte popis.
+
+   ![open](media/azure-stack-tutorial-mysqlrp/img7.png)
+
+3. Výběrem **Přidat** zavřete dialog příchozí pravidlo zabezpečení.
+
+### <a name="configure-external-access-to-the-mysql-hosting-server"></a>Konfigurace externího přístupu k hostitelskému serveru MySQL
+
+Než bude možné server MySQL přidat jako hostitele serveru MySQL Azure Stack hub, musí být povolený externí přístup. Využijte Bitnami MySQL, který je k dispozici v tržišti centra Azure Stack jako příklad můžete nakonfigurovat externí přístup provedením následujících kroků.
 
 1. Pomocí klienta SSH (Tento příklad používá výstup [) se](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)přihlaste k serveru MySQL z počítače, který má přístup k veřejné IP adrese.
 
-    Použijte veřejnou IP adresu a přihlaste se k virtuálnímu počítači pomocí uživatelského jména **Bitnami** a hesla aplikace, které jste vytvořili dřív bez speciálních znaků.
+    Použijte veřejnou IP adresu a přihlaste se k virtuálnímu počítači pomocí uživatelského jména a hesla aplikace, které jste vytvořili dřív bez speciálních znaků.
 
    ![LinuxLogin](media/azure-stack-tutorial-mysqlrp/bitnami1.png)
 
@@ -39,11 +57,24 @@ Než bude možné server MySQL přidat jako hostitele serveru MySQL Azure Stack 
 
    ![Ověřit službu Bitnami](media/azure-stack-tutorial-mysqlrp/bitnami2.png)
 
-3. Vytvořte uživatelský účet vzdáleného přístupu, který má hostitelský server služby Azure Stack hub MySQL používat pro připojení k MySQL, a pak ukončete klienta SSH.
+3. Pokud je hostitelský server MySQL verze 8,0 nebo vyšší, je nutné změnit metodu ověřování na **mysql_native_password**. Pokud je verze MySQL nižší než 8,0, můžete tento krok přeskočit.
 
-    Spusťte následující příkazy, abyste se přihlásili do MySQL jako kořenový adresář pomocí dříve vytvořeného kořenového hesla. Vytvořte nového uživatele s oprávněními správce a nahraďte * \<uživatelské jméno\> * a * \<heslo\> * podle požadavků vašeho prostředí. V tomto příkladu je vytvořeným uživatelem název **sqlsa** a používá se silné heslo:
+   Bitnami MySQL jako příklad – konfigurační soubor je pod **/opt/Bitnami/MySQL/conf/my.CNF**. Nastavte vlastnost **default_authentication_plugin** hodnotou **mysql_native_password**.
+   ```
+   [mysqld]
+   default_authentication_plugin=mysql_native_password
+   ```
+   Restartujte službu Bitnami a ujistěte se, že služba Bitnami běží správně.
+   ```console
+   sudo service bitnami restart
+   sudo service bitnami status
+   ```
 
-   ```mysql
+4. Vytvořte uživatelský účet vzdáleného přístupu, který bude používat hostitelský server služby Azure Stack hub MySQL pro připojení k MySQL.
+
+    Spusťte následující příkazy, abyste se přihlásili do MySQL jako kořenový adresář pomocí kořenového hesla, které se zaznamenává v *~/bitnami_credentials*. Vytvořte nového uživatele s oprávněními správce a nahraďte * \< uživatelské jméno \> * a * \< heslo \> * podle požadavků vašeho prostředí. V tomto příkladu je vytvořeným uživatelem název **sqlsa** a používá se silné heslo:
+
+   ```sql
    mysql -u root -p
    create user <username>@'%' identified by '<password>';
    grant all privileges on *.* to <username>@'%' with grant option;
@@ -52,9 +83,15 @@ Než bude možné server MySQL přidat jako hostitele serveru MySQL Azure Stack 
 
    ![Vytvořit administrativního uživatele](media/azure-stack-tutorial-mysqlrp/bitnami3.png)
 
-4. Zaznamenejte nové informace o uživateli MySQL.
+5. Ujistěte se, že modul plug-in vytvořeného uživatele SQL **sqlsa** je **mysql_native_password** a pak ukončete klienta ssh.
+   
+   ```sql
+   SELECT user,host,plugin from mysql.user;
+   ```
+6. Zaznamenejte nové informace o uživateli MySQL.
 
-Toto uživatelské jméno a heslo budou použity, když Azure Stack operátor centra vytvoří hostitelský server MySQL pomocí tohoto serveru MySQL.
+   Toto uživatelské jméno a heslo budou použity, když Azure Stack operátor centra vytvoří hostitelský server MySQL pomocí tohoto serveru MySQL.
+
 
 ## <a name="connect-to-a-mysql-hosting-server"></a>Připojení k hostitelskému serveru MySQL
 
@@ -67,7 +104,7 @@ Chcete-li přidat hostitelský server, postupujte podle následujících kroků:
 
 1. Přihlaste se k portálu správce Azure Stackového centra jako správce služby.
 2. Vyberte **Všechny služby**.
-3. V kategorii **prostředky pro správu** vyberte možnost **MySQL hostingové servery** > **+ Přidat**. Otevře se dialogové okno **Přidat hostitelský server MySQL** , které se zobrazí na následujícím snímku obrazovky.
+3. V kategorii **prostředky pro správu** vyberte možnost **MySQL hostingové servery**  >  **+ Přidat**. Otevře se dialogové okno **Přidat hostitelský server MySQL** , které se zobrazí na následujícím snímku obrazovky.
 
    ![Konfigurace hostitelského serveru MySQL](./media/azure-stack-mysql-rp-deploy/mysql-add-hosting-server-2.png)
 
@@ -120,9 +157,9 @@ Osvědčeným postupem je, že všechny hostitelské servery v SKU by měly mít
 
 SKU nelze přiřadit konkrétním uživatelům nebo skupinám.
 
-Pokud chcete upravit SKU, otevřete **všechny služby** > **SKU****adaptéru** > MySQL. Vyberte SKLADOVOU položku, kterou chcete upravit, proveďte potřebné změny a uložte změny kliknutím na **Uložit** . 
+Pokud chcete upravit SKU, otevřete **všechny služby**  >  SKU**adaptéru MySQL**  >  **SKUs**. Vyberte SKLADOVOU položku, kterou chcete upravit, proveďte potřebné změny a uložte změny kliknutím na **Uložit** . 
 
-Pokud chcete odstranit SKU, které už nepotřebujete, přečtěte si **všechny služby** >  > **SKU****adaptéru MySQL**. Klikněte pravým tlačítkem na název SKU a vyberte **Odstranit** a odstraňte ho.
+Pokud chcete odstranit SKU, které už nepotřebujete, přečtěte si **všechny služby**  >  SKU**adaptéru MySQL**  >  **SKUs**. Klikněte pravým tlačítkem na název SKU a vyberte **Odstranit** a odstraňte ho.
 
 > [!IMPORTANT]
 > Může trvat až hodinu, než se nové SKU zpřístupní na portálu User Portal.

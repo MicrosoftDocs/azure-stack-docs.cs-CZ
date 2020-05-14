@@ -3,16 +3,16 @@ title: Správa aktualizací
 description: Naučte se spravovat aktualizace v centru Azure Stack.
 author: IngridAtMicrosoft
 ms.topic: how-to
-ms.date: 03/04/2020
+ms.date: 05/13/2020
 ms.author: inhenkel
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 48bc8e2df857b2e1c352ffaa55ef900672d4f78b
-ms.sourcegitcommit: a3ae6dd8670f8fb24224880df7eee256ebbcc4ef
+ms.openlocfilehash: cdf2ba4d3dd226ea727efe05dc8be671ba172f8b
+ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81772497"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83374617"
 ---
 # <a name="manage-updates-in-azure-stack-hub"></a>Správa aktualizací v centru Azure Stack
 
@@ -49,7 +49,7 @@ Tři typy aktualizací jsou vydány s následujícími tempo:
 
 Chcete-li nadále získávat podporu, je nutné zachovat prostředí Azure Stack hub v podporované verzi softwaru Azure Stack hub. Další informace najdete v tématu [zásady obsluhy centra Azure Stack](azure-stack-update-servicing-policy.md).
 
-## <a name="where-to-get-notice-of-an-update"></a>Kde získat upozornění na aktualizaci
+## <a name="how-to-know-an-update-is-available"></a>Jak ví, že je aktualizace k dispozici
 
 Oznámení aktualizací se liší v několika faktorech, například připojení k Internetu a typ aktualizace.
 

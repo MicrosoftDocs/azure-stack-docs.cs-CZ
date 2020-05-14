@@ -8,12 +8,12 @@ ms.date: 10/07/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/23/2019
-ms.openlocfilehash: 0c61abfab5615d265377341f6fb96fe5b4a18b29
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: bf9ed5ced7bfde80219f0d9bddcf285e76183361
+ms.sourcegitcommit: 4a8d7203fd06aeb2c3026d31ffec9d4fbd403613
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81478863"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83202422"
 ---
 # <a name="create-highly-available-sql-databases-with-azure-stack-hub"></a>Vytváření vysoce dostupných databází SQL pomocí centra Azure Stack
 
@@ -60,11 +60,11 @@ Pomocí kroků v této části nasaďte SQL Server skupinu dostupnosti AlwaysOn 
 1. 
    [!INCLUDE [azs-user-portal](../includes/azs-user-portal.md)]
 
-2. Vyberte **\+** **vytvořit prostředek** > **vlastní**a pak **template Deployment**.
+2. Vyberte **\+** **vytvořit prostředek**  >  **vlastní**a pak **template Deployment**.
 
    ![Nasazení vlastních šablon na portálu Azure Stack hub správce](media/azure-stack-tutorial-sqlrp/aoag-template-deployment-1.png)
 
-3. V okně **vlastní nasazení** vyberte Upravit šablonu **Edit template** > **rychlý Start** šablony a potom pomocí rozevíracího seznamu dostupných vlastních šablon vyberte šablonu **SQL-2016-AlwaysOn** . Vyberte **OK** a pak **Uložit**.
+3. V okně **vlastní nasazení** vyberte Upravit šablonu **Edit template**  >  **rychlý Start** šablony a potom pomocí rozevíracího seznamu dostupných vlastních šablon vyberte šablonu **SQL-2016-AlwaysOn** . Vyberte **OK** a pak **Uložit**.
 
    [![Upravit šablonu na portálu pro správu centra Azure Stack](media/azure-stack-tutorial-sqlrp/aoag-template-deployment-2.png "Vybrat šablonu pro rychlý Start")](media/azure-stack-tutorial-sqlrp/aoag-template-deployment-2.png#lightbox)
 
@@ -84,7 +84,7 @@ Pomocí kroků v této části nasaďte SQL Server skupinu dostupnosti AlwaysOn 
 
 6. Na portálu User Portal vyberte **skupiny prostředků** a potom název skupiny prostředků, kterou jste vytvořili pro vlastní nasazení (**Skupina prostředků** pro tento příklad). Zobrazte stav nasazení, aby se zajistilo, že se všechna nasazení úspěšně dokončila.
     
-    Dále zkontrolujte položky skupiny prostředků a vyberte položku veřejné IP **adresy\<SQLPIPsql název\> skupiny prostředků** . Poznamenejte si veřejnou IP adresu a celý plně kvalifikovaný název domény veřejné IP adresy nástroje pro vyrovnávání zatížení. Tuto možnost musíte poskytnout operátorovi centra Azure Stack, aby mohli vytvořit hostitelský server SQL, který využívá tuto skupinu dostupnosti SQL AlwaysOn.
+    Dále zkontrolujte položky skupiny prostředků a vyberte položku veřejné IP adresy **SQLPIPsql \< název \> skupiny prostředků** . Poznamenejte si veřejnou IP adresu a celý plně kvalifikovaný název domény veřejné IP adresy nástroje pro vyrovnávání zatížení. Tuto možnost musíte poskytnout operátorovi centra Azure Stack, aby mohli vytvořit hostitelský server SQL, který využívá tuto skupinu dostupnosti SQL AlwaysOn.
 
    > [!NOTE]
    > Dokončení nasazení šablony bude trvat několik hodin.
@@ -95,13 +95,18 @@ Po úspěšném nasazení šablony a konfiguraci skupiny dostupnosti AlwaysON se
 
 Když vytvoříte skupinu dostupnosti s automatickým osazením, SQL Server automaticky vytvoří sekundární repliky pro každou databázi ve skupině bez nutnosti jakéhokoli jiného ručního zásahu. Tato míra zajišťuje vysokou dostupnost databází AlwaysOn.
 
-Pomocí těchto příkazů SQL nakonfigurujte automatické osazení pro skupinu dostupnosti AlwaysOn. V `<InstanceName>` případě potřeby nahraďte primární instancí SQL Server `<availability_group_name>` názvem a s názvem skupiny dostupnosti AlwaysOn.
+Pomocí těchto příkazů SQL nakonfigurujte automatické osazení pro skupinu dostupnosti AlwaysOn. V případě potřeby nahraďte `<PrimaryInstanceName>` primární instancí SQL Server názvem, `<SecondaryInstanceName>` přičemž SQL Server název sekundární instance a `<availability_group_name>` s názvem skupiny dostupnosti AlwaysOn.
 
 Na primární instanci SQL:
 
   ```sql
   ALTER AVAILABILITY GROUP [<availability_group_name>]
-      MODIFY REPLICA ON '<InstanceName>'
+      MODIFY REPLICA ON '<PrimaryInstanceName>'
+      WITH (SEEDING_MODE = AUTOMATIC)
+  GO
+  
+  ALTER AVAILABILITY GROUP [<availability_group_name>]
+      MODIFY REPLICA ON '<SecondaryInstanceName>'
       WITH (SEEDING_MODE = AUTOMATIC)
   GO
   ```
@@ -136,7 +141,7 @@ Pomocí těchto příkazů nastavte možnost Server pro ověřování databáze 
 
 Po vytvoření a správné konfiguraci skupiny dostupnosti SQL Server AlwayOn je potřeba, aby operátor centra Azure Stack vytvořil hostitelský server SQL pro Azure Stack hub. Hostitelský server SQL zpřístupňuje uživatelům další kapacitu k vytváření databází.
 
-Nezapomeňte použít veřejnou IP adresu nebo plně kvalifikovaný název domény pro veřejnou IP adresu služby SQL Load Balancer zaznamenanou dříve, když se vytvořila skupina prostředků skupiny dostupnosti SQL AlwaysOn (**SQLPIPsql\<název\>skupiny prostředků**). Kromě toho potřebujete znát SQL Server přihlašovací údaje pro ověřování používané pro přístup k instancím SQL ve skupině dostupnosti AlwaysOn.
+Nezapomeňte použít veřejnou IP adresu nebo plně kvalifikovaný název domény pro veřejnou IP adresu služby SQL Load Balancer zaznamenanou dříve, když se vytvořila skupina prostředků skupiny dostupnosti SQL AlwaysOn (**SQLPIPsql \< název \> skupiny prostředků**). Kromě toho potřebujete znát SQL Server přihlašovací údaje pro ověřování používané pro přístup k instancím SQL ve skupině dostupnosti AlwaysOn.
 
 > [!NOTE]
 > Tento krok je potřeba spustit z portálu pro správu centra Azure Stack pomocí operátoru centra Azure Stack.
@@ -158,7 +163,7 @@ Po vytvoření, nakonfigurování a přidání skupiny dostupnosti SQL AlwaysOn 
 1. 
    [!INCLUDE [azs-user-portal](../includes/azs-user-portal.md)]
 
-2. Vyberte **\+** **vytvořit prostředek** > **úložiště dat \+ **a pak **SQL Database**.
+2. Vyberte **\+** **vytvořit prostředek**  >  ** \+ úložiště dat**a pak **SQL Database**.
 
     Zadejte požadované informace o vlastnosti databáze. Tyto informace zahrnují název, kolaci, maximální velikost a předplatné, skupinu prostředků a umístění, které se má pro nasazení použít.
 
@@ -168,7 +173,7 @@ Po vytvoření, nakonfigurování a přidání skupiny dostupnosti SQL AlwaysOn 
 
    ![Vybrat SKU na portálu Azure Stack User Portal](./media/azure-stack-tutorial-sqlrp/createdb2.png)
 
-4. Vyberte **přihlášení** > **vytvořit nové přihlášení** a potom zadejte přihlašovací údaje pro ověřování SQL, které se mají použít pro novou databázi. Po dokončení vyberte **OK** a pak **vytvořte** a zahajte proces nasazení databáze.
+4. Vyberte **přihlášení**  >  **vytvořit nové přihlášení** a potom zadejte přihlašovací údaje pro ověřování SQL, které se mají použít pro novou databázi. Po dokončení vyberte **OK** a pak **vytvořte** a zahajte proces nasazení databáze.
 
    ![Vytvoření přihlašovacích údajů v uživatelském portálu Azure Stack hub](./media/azure-stack-tutorial-sqlrp/createdb3.png)
 

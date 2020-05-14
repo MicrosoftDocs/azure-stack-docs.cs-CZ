@@ -4,16 +4,17 @@ titleSuffix: Azure Stack
 description: Naučte se spravovat infrastrukturu úložiště pro centrum Azure Stack.
 author: IngridAtMicrosoft
 ms.topic: article
-ms.date: 5/5/2020
+ms.date: 5/11/2020
 ms.author: inhenkel
 ms.lastreviewed: 5/5/2020
 ms.reviewer: jiaha
-ms.openlocfilehash: de6da5b42a88d2c1f9689fe8c43d898bc7a0bf5e
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.custom: contperfq4
+ms.openlocfilehash: 0712caec89d3a6e2203ca780b4877b330953c61c
+ms.sourcegitcommit: 4a8d7203fd06aeb2c3026d31ffec9d4fbd403613
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82848162"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83202491"
 ---
 # <a name="azure-stack-hub-storage-infrastructure-overview"></a>Přehled infrastruktury úložiště Azure Stack hub
 
@@ -41,7 +42,7 @@ Chování mezipaměti je určeno automaticky na základě typů jednotek, které
 
 ![Azure Stack infrastruktura úložiště centra](media/azure-stack-storage-infrastructure-overview/image3.png)
 
-K dispozici je konfigurace úložiště, kterou můžete vyhledat v Azure Stack partnerovi OEMhttps://azure.microsoft.com/overview/azure-stack/partners/) (pro podrobnou specifikaci).
+K dispozici je konfigurace úložiště, kterou můžete vyhledat v Azure Stack partnerovi OEM ( https://azure.microsoft.com/overview/azure-stack/partners/) pro podrobnou specifikaci).
 
 > [!Note]  
 > Zařízení centra Azure Stack lze doručovat v hybridním nasazení s jednotkami HDD i SSD (nebo NVMe). Jednotky rychlejšího typu se ale používají jako jednotky mezipaměti a všechny zbývající jednotky se jako fond používají jako jednotky kapacity. Data tenanta (objekty blob, tabulky, fronty a disky) se umístí na jednotky kapacity. Zřizování prémiových disků nebo výběr typu účtu Premium Storage nezaručí, že se objekty přidělují na jednotky SSD nebo NVMe.

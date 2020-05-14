@@ -7,12 +7,12 @@ ms.date: 04/09/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 04/09/2020
-ms.openlocfilehash: 39431c7e217410f7bae78fe114595ec6c90399b5
-ms.sourcegitcommit: b185ab34c4c799892948536dd6d1d1b2fc31174e
+ms.openlocfilehash: 3a39329ba8c99e919b2466705553e11b49424c45
+ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82150248"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83374731"
 ---
 # <a name="rotate-app-service-on-azure-stack-hub-secrets-and-certificates"></a>Otočení App Service v tajných klíčích a certifikátech centra Azure Stack
 
@@ -111,7 +111,7 @@ Aplikace identity se vytvoří pomocí operátoru před nasazením Azure App Ser
 
 1. Přejdete na **předplatná** a vyberte **výchozí předplatné poskytovatele**.
 
-1. Vyberte možnost **Access Control (IAM)** a vyberte **AzureStack-AppService-<guid> ** Application.
+1. Vyberte možnost **Access Control (IAM)** a vyberte **AzureStack-AppService- <guid> ** Application.
 
 1. Poznamenejte si **ID objektu**, tato hodnota je ID instančního objektu, který se musí aktualizovat v AD FS.
 

@@ -7,12 +7,12 @@ ms.date: 03/11/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: 1829d56488501e03a18f27e87f1fd0742626e3be
-ms.sourcegitcommit: 3fd4a38dc8446e0cdb97d51a0abce96280e2f7b7
+ms.openlocfilehash: f679f4a609f7be2798a664dc4a748e56f8b0d2fb
+ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82580154"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83374908"
 ---
 # <a name="configure-deployment-sources-for-app-services-on-azure-stack-hub"></a>Konfigurace zdrojů nasazení pro App Services v centru Azure Stack
 
@@ -20,7 +20,7 @@ App Service v centru Azure Stack podporuje nasazení na vyžádání od více po
 
 Kromě místního Gitu jsou podporovány následující poskytovatelé správy zdrojů:
 
-* GitHubu
+* GitHub
 * BitBucket
 * OneDrive
 * KLÁDACÍ
@@ -40,14 +40,14 @@ Kromě místního Gitu jsou podporovány následující poskytovatelé správy z
 
 K dokončení této úlohy musíte mít účet GitHub. Místo osobního účtu možná budete chtít použít účet pro vaši organizaci.
 
-1. Přihlaste se k GitHubu https://www.github.com/settings/developers, klikněte na a pak vyberte **zaregistrovat novou aplikaci**.
+1. Přihlaste se k GitHubu, klikněte na https://www.github.com/settings/developers a pak vyberte **zaregistrovat novou aplikaci**.
 
     ![GitHub – registrace nové aplikace][3]
 
 2. Zadejte **název aplikace**. Například **App Service v centru Azure Stack**.
 3. Zadejte **adresu URL domovské stránky**. Adresa URL domovské stránky musí být adresa portálu Azure Stack hub. Například, `https://portal.<region>.<FQDN>`. Další informace o plně kvalifikovaném názvu domény (FQDN) centra Azure Stack najdete v tématu [obor názvů DNS centra Azure Stack](azure-stack-integrate-dns.md#azure-stack-hub-dns-namespace).
 4. Zadejte **Popis aplikace**.
-5. Zadejte **adresu URL zpětného volání autorizace**. Ve výchozím nasazení centra Azure Stack je adresa URL ve formátu `https://portal.<region>.<FQDN>/TokenAuthorize`. 
+5. Zadejte **adresu URL zpětného volání autorizace**. Ve výchozím nasazení centra Azure Stack je adresa URL ve formátu `https://portal.<region>.<FQDN>/TokenAuthorize` . 
 6. Vyberte **Registrovat aplikaci**. Zobrazí se stránka s výpisem **ID klienta** a **tajného kódu klienta** pro aplikaci.
 
     ![Registrace aplikace dokončené na GitHubu][5]
@@ -72,7 +72,7 @@ K dokončení této úlohy musíte mít účet BitBucket. Místo osobního účt
 
 3. Zadejte **jméno** příjemce. Například **App Service v centru Azure Stack**.
 4. Zadejte **Popis** aplikace.
-5. Zadejte **adresu URL zpětného volání**. Ve výchozím nasazení centra Azure Stack je adresa URL zpětného volání ve tvaru `https://portal.<region>.<FQDN>/TokenAuthorize`. Aby byla integrace BitBucket úspěšná, musí adresa URL následovat po velkých písmenech, které jsou tady uvedené.
+5. Zadejte **adresu URL zpětného volání**. Ve výchozím nasazení centra Azure Stack je adresa URL zpětného volání ve tvaru `https://portal.<region>.<FQDN>/TokenAuthorize` . Aby byla integrace BitBucket úspěšná, musí adresa URL následovat po velkých písmenech, které jsou tady uvedené.
 6. Zadejte **adresu URL**. Tato adresa URL by měla být adresa URL portálu Azure Stack hub. Například, `https://portal.<region>.<FQDN>`.
 7. Vyberte požadovaná **oprávnění** :
 
@@ -108,14 +108,14 @@ Abyste mohli dokončit tuto úlohu, musíte mít účet Microsoft propojený s �
 
 5. V části **tajné kódy aplikací**vyberte **Generovat nové heslo**. Zaznamenejte si **nové vygenerované heslo**. Toto heslo je tajný kód vaší aplikace a nedá se získat po výběru **OK**.
 6. V části **platformy**vyberte **Přidat platformu** a pak vyberte **Web**.
-7. Zadejte **identifikátor URI přesměrování**. Ve výchozím nasazení centra Azure Stack je identifikátor URI přesměrování ve formátu `https://portal.<region>.<FQDN>/TokenAuthorize`.
+7. Zadejte **identifikátor URI přesměrování**. Ve výchozím nasazení centra Azure Stack je identifikátor URI přesměrování ve formátu `https://portal.<region>.<FQDN>/TokenAuthorize` .
 
     ![Aplikace OneDrive – přidat webovou platformu][12]
 
-8. Přidejte **Microsoft Graph oprávnění** - **delegovaná oprávnění**.
+8. Přidejte **Microsoft Graph oprávnění**  -  **delegovaná oprávnění**.
 
     - **Soubory. AppFolder.**
-    - **Uživatel: Čtení** ![aplikace OneDrive – oprávnění grafu][13]
+    - **Uživatel: Čtení** ![ aplikace OneDrive – oprávnění grafu][13]
 
 9. Vyberte **Uložit**.
 10. Na nové kartě nebo okně prohlížeče se přihlaste k portálu pro správu centra Azure Stack jako správce služby.
@@ -129,7 +129,7 @@ Abyste mohli dokončit tuto úlohu, musíte mít účet Microsoft propojený s �
 > [!NOTE]
 > K dokončení této úlohy musíte mít účet DropBox. Místo osobního účtu možná budete chtít použít účet pro vaši organizaci.
 
-1. Pokračujte a https://www.dropbox.com/developers/apps Přihlaste se pomocí přihlašovacích údajů k účtu Dropboxu.
+1. Pokračujte https://www.dropbox.com/developers/apps a přihlaste se pomocí přihlašovacích údajů k účtu Dropboxu.
 2. Vyberte **Vytvořit aplikaci**.
 
     ![Aplikace Dropboxu][14]
@@ -142,7 +142,7 @@ Abyste mohli dokončit tuto úlohu, musíte mít účet Microsoft propojený s �
 
 6. Vyberte **vytvořit aplikaci**. Zobrazí se stránka s přehledem nastavení aplikace, včetně **klíče aplikace** a **tajného kódu aplikace**.
 7. Ujistěte se, že je **název složky aplikace** nastavený na **App Service v centru Azure Stack**.
-8. Nastavte **identifikátor URI pro přesměrování OAuth 2** a pak vyberte **Přidat**. Ve výchozím nasazení centra Azure Stack je identifikátor URI přesměrování ve formátu `https://portal.<region>.<FQDN>/TokenAuthorize`.
+8. Nastavte **identifikátor URI pro přesměrování OAuth 2** a pak vyberte **Přidat**. Ve výchozím nasazení centra Azure Stack je identifikátor URI přesměrování ve formátu `https://portal.<region>.<FQDN>/TokenAuthorize` .
 
     ![Konfigurace aplikace Dropbox][16]
 

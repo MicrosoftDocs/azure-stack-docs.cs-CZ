@@ -8,12 +8,12 @@ ms.date: 05/05/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/25/2019
-ms.openlocfilehash: 5bdf06b740d8a2c12f96494c52a683f50fe31340
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: 27e7073d2b266cb5fa8c7c36739219bc29660e87
+ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82847805"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83374603"
 ---
 # <a name="app-service-on-azure-stack-hub-update-8-release-notes"></a>Zpráva k vydání verze pro Azure Stack centra aktualizace 8 App Service
 
@@ -22,7 +22,7 @@ Tyto poznámky k verzi popisují nové funkce, opravy a známé problémy v Azur
 > [!IMPORTANT]
 > Před nasazením Azure App Service 1,8 použijte aktualizaci 1910 na integrovaný systém Azure Stack nebo nasaďte nejnovější Azure Stack Development Kit (ASDK).
 
-## <a name="build-reference"></a>Odkaz na sestavení
+## <a name="build-reference"></a>Referenční informace o buildu
 
 App Service číslo buildu Azure Stack centra aktualizace 8 je **86.0.2.13**.
 

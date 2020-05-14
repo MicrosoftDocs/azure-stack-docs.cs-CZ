@@ -19,7 +19,7 @@
   items:
     - name: Použití portálu pro správu
       href: azure-stack-manage-portals.md
-- name: Výukové kurzy
+- name: Kurzy
   items:
     - name: Nabídka služby uživatelům
       href: tutorial-offer-services.md
@@ -43,7 +43,7 @@
           href: azure-stack-capacity-planner.md
     - name: Integrace datových center
       items:
-        - name: Návod
+        - name: Názorný postup
           href: azure-stack-customer-journey.md
         - name: Obecné aspekty
           href: azure-stack-datacenter-integration.md
@@ -118,7 +118,7 @@
               href: azure-stack-integrate-security.md
             - name: Auditování zařízení
               href: azure-stack-integrate-physical-device-auditing.md
-- name: Praktičtí průvodci
+- name: Návody
   items:
     - name: Správa centra Azure Stack
       items:
@@ -470,7 +470,7 @@
           href: azure-stack-backup-best-practices.md
         - name: Odkaz na zálohování
           href: azure-stack-backup-reference.md
-    - name: Získání podpory
+    - name: Získat podporu
       items:
         - name: Portál podpory & pro pomoc
           items:
@@ -494,17 +494,23 @@
                   href: azure-stack-get-azurestacklog.md
         - name: Ověřování centra Azure Stack
           href: azure-stack-diagnostic-test.md
-        - name: Odstraňování potíží
+        - name: Řešení potíží
           href: azure-stack-troubleshooting.md
-- name: Reference
+- name: Referenční informace
   items:
     - name: Prostředí PowerShell centra Azure Stack
-      href: 'https://docs.microsoft.com/powershell/azure/azure-stack/overview'
+      href: 'https://docs.microsoft.com/powershell/azure/azure-stack/overview?'
     - name: Privilegovaný koncový bod centra Azure Stack
       href: ../reference/pep-2002/
+    - name: Rozhraní REST API Správce centra Azure Stack
+      href: /rest/api/azure-stack/
+    - name: Azure CLI
+      href: 'https://docs.microsoft.com/cli/azure/reference-index?'
+- name: Související
+  items:
     - name: Dokumentace pro uživatele centra Azure Stack
       href: /azure-stack/user/
-    - name: Dokumentace k sadě ASDK
+    - name: Dokumentace k ASDK
       href: /azure-stack/asdk/
 - name: Zdroje a prostředky
   items:

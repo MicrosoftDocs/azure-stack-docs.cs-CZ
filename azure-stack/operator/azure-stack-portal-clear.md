@@ -1,18 +1,18 @@
 ---
-title: Vymažte data uživatelů portálu na vyžádání z centra Azure Stack.
-description: Jako operátor centra Azure Stack se naučíte, jak vymazat data uživatelů portálu, když to požadují uživatelé centra Azure Stack.
+title: Vymazat data uživatelů portálu na vyžádání z centra Azure Stack
+description: Naučte se, jak pomocí Azure Stack uživatelů centra vymazat data uživatelů portálu.
 author: sethmanheim
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: sethm
 ms.reviewer: troettinger
 ms.lastreviewed: 09/10/2019
-ms.openlocfilehash: 9acb9e391de7965aac281f08175d58635b5bb554
-ms.sourcegitcommit: 9894804f31527234d43f4a93a9b7c106c8540435
+ms.openlocfilehash: e419ebd632fabac6985b1a763b4661d75307e4ba
+ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82967756"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83375087"
 ---
 # <a name="clear-portal-user-data-from-azure-stack-hub"></a>Vymaže data uživatelů portálu z centra Azure Stack.
 
@@ -33,7 +33,7 @@ Odebrání uživatelských nastavení portálu by se mělo provádět jenom po o
 - Azure Stack přihlašovací údaje správce centra pro přístup ke koncovému bodu Správce prostředků správce.
 
 > [!NOTE]
-> Pokud se pokusíte odstranit informace o uživatelích portálu z uživatele, který byl pozván z adresáře hosta (víceklientské prostředí), musíte mít v tomto adresáři oprávnění ke čtení. Další informace najdete v části [scénář CSP dále v tomto článku](#clear-portal-user-data-in-guest-directory).
+> Pokud se pokusíte odstranit informace o uživatelích portálu z uživatele, který byl pozván z adresáře hosta (víceklientská architektura), musíte mít v tomto adresáři oprávnění ke čtení. Další informace najdete v části [scénář CSP dále v tomto článku](#clear-portal-user-data-in-guest-directory).
 
 ## <a name="clear-portal-user-data-using-a-user-principal-name"></a>Vymazání uživatelských dat portálu pomocí hlavního názvu uživatele
 
@@ -43,7 +43,7 @@ Než budete pokračovat, nezapomeňte [si stáhnout nejnovější verzi nástroj
 
 Pro účely tohoto postupu použijte počítač, který může komunikovat s Správce prostředků koncovým bodem Azure Stack centra pro správu.
 
-1. Otevřete relaci Windows PowerShellu se zvýšenými oprávněními (Spustit jako správce), přejděte do kořenové složky v adresáři **AzureStack-Tools-Master** a importujte požadovaný modul prostředí PowerShell:
+1. Otevřete relaci Windows PowerShellu se zvýšenými oprávněními (Spustit jako správce), do kořenové složky v adresáři **AzureStack-Tools-Master** a naimportujte požadovaný modul prostředí PowerShell:
 
    ```powershell
    Import-Module .\DatacenterIntegration\Portal\PortalUserDataUtilities.psm1
@@ -76,7 +76,7 @@ Pro účely tohoto postupu použijte počítač, který může komunikovat s Spr
 
 ## <a name="clear-portal-user-data-in-guest-directory"></a>Vymazání uživatelských dat portálu v adresáři hosta
 
-V tomto scénáři nemá operátor centra Azure Stack žádný přístup k adresáři hosta, ve kterém se nachází uživatel. Toto je běžný scénář, pokud jste poskytovatelem Cloud Solution Provider (CSP).
+V tomto scénáři nemá operátor centra Azure Stack žádný přístup k adresáři hosta, ve kterém se nachází uživatel. Toto je běžný scénář, když jste Cloud Solution Provider (CSP).
 
 Pro operátor centra Azure Stack pro odebrání uživatelských dat portálu je nutné zadat alespoň ID uživatelského objektu.
 
@@ -84,7 +84,7 @@ Uživatel musí zadat dotaz na ID objektu a poskytnout mu operátor centra Azure
 
 ### <a name="user-retrieves-the-user-object-id"></a>Uživatel načte ID objektu uživatele.
 
-1. Otevřete relaci Windows PowerShellu se zvýšenými oprávněními (Spustit jako správce), přejděte do kořenové složky v adresáři **AzureStack-Tools-Master** a pak importujte potřebný modul PowerShellu.
+1. Otevřete relaci Windows PowerShellu se zvýšenými oprávněními (Spustit jako správce), vyhledejte kořenovou složku v adresáři **AzureStack-Tools-Master** a pak importujte potřebný modul PowerShellu.
 
    ```powershell
    Import-Module .\DatacenterIntegration\Portal\PortalUserDataUtilities.psm1
@@ -114,7 +114,7 @@ Uživatel musí zadat dotaz na ID objektu a poskytnout mu operátor centra Azure
 
 Po přijetí ID objektu uživatele jako operátoru centra Azure Stack spusťte následující příkazy pro odebrání uživatelských dat portálu:
 
-1. Otevřete relaci Windows PowerShellu se zvýšenými oprávněními (Spustit jako správce), přejděte do kořenové složky v adresáři **AzureStack-Tools-Master** a pak importujte potřebný modul PowerShellu.
+1. Otevřete relaci Windows PowerShellu se zvýšenými oprávněními (Spustit jako správce), vyhledejte kořenovou složku v adresáři **AzureStack-Tools-Master** a pak importujte potřebný modul PowerShellu.
 
    ```powershell
    Import-Module .\DatacenterIntegration\Portal\PortalUserDataUtilities.psm1
