@@ -8,12 +8,12 @@ ms.date: 10/07/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/23/2019
-ms.openlocfilehash: bf9ed5ced7bfde80219f0d9bddcf285e76183361
-ms.sourcegitcommit: 4a8d7203fd06aeb2c3026d31ffec9d4fbd403613
+ms.openlocfilehash: be747a57b61b2d06a667bd577dd135c6220fc968
+ms.sourcegitcommit: e2ed259c0274abe930df1c7716c3f4c9f3a7b167
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83202422"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83403851"
 ---
 # <a name="create-highly-available-sql-databases-with-azure-stack-hub"></a>Vytváření vysoce dostupných databází SQL pomocí centra Azure Stack
 
@@ -35,8 +35,8 @@ Než začnete, ujistěte se, že [poskytovatel prostředků SQL Server](azure-st
 > [!IMPORTANT]
 > K použití šablony pro rychlý Start centra Azure Stack se vyžadují všechny níže uvedené.
 
-- Image na webu [Windows Server 2016 Datacenter](https://azuremarketplace.microsoft.com/marketplace/apps/MicrosoftWindowsServer.WindowsServer)
-- SQL Server 2016 SP1 nebo SP2 (Enterprise, Standard nebo Developer) na obrázku serveru Windows Server 2016. Tento článek používá bitovou kopii [SQL Server 2016 SP2 Enterprise v systému Windows Server 2016 na](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoftsqlserver.sql2016sp2-ws2016) webu Marketplace.
+- Image na webu Windows Server 2016 Datacenter
+- SQL Server 2016 SP1 nebo SP2 (Enterprise and Developer) na obrázku serveru Windows Server 2016. Tento článek používá bitovou kopii SQL Server 2016 SP2 Enterprise v systému Windows Server 2016 na webu Marketplace.
 - [SQL Server rozšíření IaaS](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension) verze 1.3.20180 nebo vyšší. Rozšíření SQL IaaS nainstaluje nezbytné komponenty, které jsou vyžadovány na webu Marketplace SQL Server pro všechny verze systému Windows. Umožňuje konfiguraci nastavení specifického pro SQL na virtuálních počítačích SQL (virtuálních počítačů). Pokud rozšíření není nainstalované na místním webu Marketplace, zřizování SQL se nezdaří.
 - [Rozšíření vlastních skriptů pro Windows](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.CustomScriptExtension) verze 1.9.1 nebo novější. Rozšíření vlastních skriptů je nástroj, který se dá použít k automatickému spuštění úloh přizpůsobení virtuálních počítačů po nasazení.
 - [Konfigurace požadovaného stavu PowerShellu (DSC)](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.DSC-arm) verze 2.76.0.0 nebo vyšší. DSC je platforma pro správu v prostředí Windows PowerShell, která umožňuje nasazovat a spravovat konfigurační data pro softwarové služby. Platforma také spravuje prostředí, ve kterém se tyto služby spouštějí.
@@ -45,7 +45,7 @@ Další informace o přidávání položek do webu Azure Stack Marketplace najde
 
 ## <a name="create-a-sql-server-alwayson-availability-group"></a>Vytvoření skupiny dostupnosti SQL Server AlwaysOn
 
-Pomocí kroků v této části nasaďte SQL Server skupinu dostupnosti AlwaysOn pomocí [šablony pro rychlý Start centra SQL-2016-alwayson Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/sql-2016-alwayson). Tato šablona nasadí dvě instance SQL Server Enterprise, Standard nebo vývojáře ve skupině dostupnosti Always On. Vytvoří následující prostředky:
+Pomocí kroků v této části nasaďte SQL Server skupinu dostupnosti AlwaysOn pomocí [šablony pro rychlý Start centra SQL-2016-alwayson Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/sql-2016-alwayson). Tato šablona nasadí dvě SQL Server Enterprise nebo vývojářské instance ve skupině dostupnosti Always On. Vytvoří následující prostředky:
 
 - Skupina zabezpečení sítě.
 - Virtuální síť.
@@ -53,7 +53,7 @@ Pomocí kroků v této části nasaďte SQL Server skupinu dostupnosti AlwaysOn 
 - Čtyři veřejné IP adresy (jeden pro AD, dva pro každý virtuální počítač SQL a jeden pro veřejný Nástroj pro vyrovnávání zatížení, vázaný na SQL AlwaysOn Listener).
 - Jeden externí nástroj pro vyrovnávání zatížení pro virtuální počítače SQL s veřejnou IP adresou, která je vázaná na naslouchací proces SQL AlwaysOn.
 - Jeden virtuální počítač (Windows Server 2016) nakonfigurovaný jako řadič domény pro novou doménovou strukturu s jednou doménou.
-- Dva virtuální počítače (Windows Server 2016) nakonfigurované s SQL Server 2016 SP1 nebo SP2 Enterprise, Standard nebo Developer Edition a CLUSTERED. Musí se jednat o image na Marketplace.
+- Dva virtuální počítače (Windows Server 2016) nakonfigurované s SQL Server 2016 SP1 nebo SP2 Enterprise nebo Developer Edition a CLUSTERED. Musí se jednat o image na Marketplace.
 - Jeden virtuální počítač (Windows Server 2016) nakonfigurovaný jako určující sdílená složka pro cluster.
 - Jedna skupina dostupnosti, která obsahuje virtuální počítače s kopií clusteru a sdílené složky pro SQL.
 

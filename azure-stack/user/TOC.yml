@@ -323,14 +323,14 @@
           href: iaas-architecture-sql-n-tier-multi-region.md
         - name: Síťová virtuální zařízení
           href: iaas-architecture-nva-architecture.md
-- name: Referenční informace
+- name: Odkaz
   items:
     - name: Prostředí PowerShell centra Azure Stack
-      href: 'https://docs.microsoft.com/powershell/azure/azure-stack/overview?'
+      href: 'https://docs.microsoft.com/powershell/azure/azure-stack/overview?view='
     - name: Rozhraní REST API Správce centra Azure Stack
       href: /rest/api/azure-stack/
     - name: Azure CLI
-      href: 'https://docs.microsoft.com/cli/azure/reference-index?'
+      href: 'https://docs.microsoft.com/cli/azure/reference-index?view='
 - name: Související
   items:
     - name: Dokumentace k operátorovi centra Azure Stack
