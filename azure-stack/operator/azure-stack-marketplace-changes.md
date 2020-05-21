@@ -3,16 +3,16 @@ title: Co je nového v tržišti Azure Stack hub
 description: Podívejte se, co je nového v tržišti Azure Stack hub, včetně nových, zastaralých a aktualizovaných položek Marketplace.
 author: sethmanheim
 ms.topic: article
-ms.date: 05/13/2020
+ms.date: 05/18/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 10/01/2019
-ms.openlocfilehash: 1899fa20bb274229b5da066d8d55eb0d97e2123e
-ms.sourcegitcommit: e2ed259c0274abe930df1c7716c3f4c9f3a7b167
+ms.openlocfilehash: 952c77069126288bfe41f9775140aea44071580a
+ms.sourcegitcommit: 458ffe9638bd358e6b5d9e79145b4c1b70c3bacd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83403879"
+ms.lasthandoff: 05/18/2020
+ms.locfileid: "83550142"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Změny v tržišti centra Azure Stack
 
@@ -63,6 +63,9 @@ V tomto článku jsou uvedeny nedávné dodatky, aktualizace, změny a odebrán�
 
 ## <a name="updated-marketplace-items"></a>Aktualizované položky Marketplace
 
+- 05/15/2020: Bitnami AbanteCart – verze 1.2.2004220207
+- 05/15/2020: Bitnami plátno pro 2020.5.2005120909u – verze
+- 05/15/2020: Bitnami Neos – verze 5.2.2005130917
 - 05/07/2020: Bitnami ActiveMQ – verze 5.15.2003260344
 - 05/07/2020: Bitnami Akeneo – verze 4 – 3.2.2004230142
 - 05/07/2020: Bitnami Alfresco Community – verze 201911.0.2004242008

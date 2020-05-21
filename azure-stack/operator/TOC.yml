@@ -6,7 +6,7 @@
       href: azure-stack-overview.md
     - name: Porovnání ekosystému Azure
       href: compare-azure-azure-stack.md
-    - name: Zpráva k vydání verze
+    - name: "Poznámky k\_verzi"
       items:
         - name: Aktualizace zabezpečení
           href: release-notes-security-updates.md
@@ -43,7 +43,7 @@
           href: azure-stack-capacity-planner.md
     - name: Integrace datových center
       items:
-        - name: Názorný postup
+        - name: Návod
           href: azure-stack-customer-journey.md
         - name: Obecné aspekty
           href: azure-stack-datacenter-integration.md
@@ -496,16 +496,16 @@
           href: azure-stack-diagnostic-test.md
         - name: Řešení potíží
           href: azure-stack-troubleshooting.md
-- name: Odkaz
+- name: Referenční informace
   items:
     - name: Prostředí PowerShell centra Azure Stack
-      href: 'https://docs.microsoft.com/powershell/azure/azure-stack/overview?view='
+      href: 'https://docs.microsoft.com/powershell/azure/azure-stack/overview'
     - name: Privilegovaný koncový bod centra Azure Stack
       href: ../reference/pep-2002/
     - name: Rozhraní REST API Správce centra Azure Stack
       href: /rest/api/azure-stack/
     - name: Azure CLI
-      href: 'https://docs.microsoft.com/cli/azure/reference-index?view='
+      href: 'https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest'
 - name: Související
   items:
     - name: Dokumentace pro uživatele centra Azure Stack
@@ -516,8 +516,8 @@
   items:
     - name: Školení a certifikace
       href: azure-stack-train-and-cert.md
-    - name: Plán centra Azure Stack
-      href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'
+    - name: Mapa cest centra Azure Stack
+      href: 'https://azure.microsoft.com/updates/?query=azure%20stack%20hub'
     - name: Fórum MSDN centra Azure Stack
       href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack'
     - name: Názory na dokumentaci centra Azure Stack

@@ -59,8 +59,8 @@
       href: /azure-stack/user/
 - name: Zdroje a prostředky
   items:
-    - name: Azure Stack plán
-      href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'
+    - name: Azure Stack silniční mapa
+      href: 'https://azure.microsoft.com/updates/?query=azure%20stack%20hub'
     - name: Azure Stack Fórum MSDN
       href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack'
     - name: Váš názor na dokumentaci Azure Stack

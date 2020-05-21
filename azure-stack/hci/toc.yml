@@ -18,6 +18,8 @@
       href: manage/delete-volumes.md
     - name: Nahradit jednotky
       href: manage/replace-drives.md
+    - name: Správa clusterů
+      href: manage/cluster.md
     - name: Použití Azure Site Recovery
       href: manage/azure-site-recovery.md
     - name: Monitorování pomocí služby Azure Monitor

@@ -7,12 +7,12 @@ ms.date: 11/27/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 11/27/2019
-ms.openlocfilehash: a37547a7c2e5a737685e370307a1ae8f37d5d363
-ms.sourcegitcommit: 4138a2a15f78e7db38b3a29acc963a71937146fd
+ms.openlocfilehash: 6e58e60e0863e2ef40abc95689430f8e378a4fd4
+ms.sourcegitcommit: e75218d2e04f41620cc09caf04473ad4c7289253
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "79294173"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83708189"
 ---
 # <a name="what-is-the-azure-stack-development-kit-asdk"></a>Co je Azure Stack Development Kit (ASDK)?
 Rozsah [integrovaných systémů centra Microsoft Azure Stack](../operator/azure-stack-overview.md) je velikost z uzlů 4-16 a jsou společně podporovány hardwarovým partnerem a společností Microsoft. Pomocí integrovaných systémů Azure Stack Hub můžete pro vaše produkční úlohy povolit nové scénáře. Pokud jste operátor centra Azure Stack, který spravuje infrastrukturu integrovaných systémů a nabízí služby, přečtěte si naši [dokumentaci k operátorovi](/azure-stack/operator).
@@ -67,7 +67,7 @@ V současné době jsou podporovány následující další služby platformy ja
 > Tyto služby vyžadují další konfiguraci, aby je bylo možné zpřístupnit uživatelům, a nejsou k dispozici ve výchozím nastavení při instalaci ASDK.
 
 ## <a name="service-roadmap"></a>Plán služby
-Centrum Azure Stack bude dál přidávat podporu dalších služeb Azure. Další informace o tom, co se chystá Azure Stack hub, najdete v tématu [Azure Stack](https://azure.microsoft.com/roadmap/?tag=azure-stack). 
+Centrum Azure Stack bude dál přidávat podporu dalších služeb Azure. Další informace o tom, co se chystá Azure Stack hub, najdete v tématu [Azure Stack](https://azure.microsoft.com/updates/?query=azure%20stack%20hub).
 
 
 ## <a name="next-steps"></a>Další kroky

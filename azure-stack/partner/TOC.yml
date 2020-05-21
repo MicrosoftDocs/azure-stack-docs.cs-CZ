@@ -50,8 +50,8 @@
       href: /azure/active-directory/
 - name: Zdroje a prostředky
   items:
-    - name: Plán centra Azure Stack
-      href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'
+    - name: Mapa cest centra Azure Stack
+      href: 'https://azure.microsoft.com/updates/?query=azure%20stack%20hub'
     - name: Fórum MSDN centra Azure Stack
       href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureStack'
     - name: Názory na dokumentaci centra Azure Stack

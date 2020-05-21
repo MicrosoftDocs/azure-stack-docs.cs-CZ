@@ -7,12 +7,12 @@ ms.date: 05/05/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 94b90f8a3a648a466ac221a76099a71964e00f9a
-ms.sourcegitcommit: 4a8d7203fd06aeb2c3026d31ffec9d4fbd403613
+ms.openlocfilehash: 31ef3ee64eb98b34160e95fee0a228fc32cee589
+ms.sourcegitcommit: 7c10a45a8de0c5c7649e5329ca5b69a0791e37b5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83202438"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83721874"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Známé problémy centra Azure Stack
 
@@ -264,12 +264,6 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 - Příčina: když v uživatelském portálu vyberete spravovaný disk s typem disku SSD úrovně Premium, zobrazí se v rozevíracím seznamu **disk s operačním systémem**. Popis vedle této možnosti říká, že **některé velikosti disků s operačním systémem můžou být dostupné zdarma s bezplatným účtem Azure**; to však není platné pro Azure Stack hub. Seznam navíc zahrnuje **bezplatný nárok na účet** , který není platný i pro centrum Azure Stack.
 - Výskyt: běžné
 
-### <a name="vpn-troubleshoot-and-metrics"></a>Řešení potíží a metriky sítě VPN
-
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: na portálu User Portal se zobrazí funkce **řešení potíží s VPN** a **metriky** v prostředku brány sítě VPN, ale toto nastavení není v centru Azure Stack podporováno.
-- Výskyt: běžné
-
 ### <a name="delete-a-storage-container"></a>Odstranění kontejneru úložiště
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
@@ -282,12 +276,6 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 - Platí: Tento problém se vztahuje na všechny podporované verze.
 - Příčina: když na portálu User Portal přejdete na **Virtual Machines** a pokusíte se aktualizovat pomocí tlačítka v horní části, stavy se nemůžou aktualizovat přesně.
 - Náprava: stav se automaticky aktualizuje každých 5 minut bez ohledu na to, zda bylo tlačítko Aktualizovat stisknuto nebo ne. Počkejte 5 minut a ověřte stav.
-- Výskyt: běžné
-
-### <a name="virtual-network-gateway"></a>Brána virtuální sítě
-
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: když v uživatelském portálu vytvoříte směrovací tabulku, **Virtual Network brána** se zobrazí jako jedna z možností dalšího typu segmentu směrování. To se ale v centru Azure Stack nepodporuje.
 - Výskyt: běžné
 
 ### <a name="storage-account-options"></a>Možnosti účtu úložiště
@@ -364,7 +352,13 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 
 ### <a name="virtual-network-gateway"></a>Brána virtuální sítě
 
-#### <a name="alerts"></a>Výstrahy
+#### <a name="next-hop-type"></a>Typ dalšího segmentu směrování
+
+- Platí: Tento problém se vztahuje na všechny podporované verze.
+- Příčina: když v uživatelském portálu vytvoříte směrovací tabulku, **Virtual Network brána** se zobrazí jako jedna z možností dalšího typu segmentu směrování. To se ale v centru Azure Stack nepodporuje.
+- Výskyt: běžné
+
+#### <a name="alerts"></a>Upozornění
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
 - Příčina: na portálu User Portal se v okně **Virtual Network brány** zobrazí možnost použít **výstrahy**. Tato funkce se v současnosti v centru Azure Stack nepodporuje.
@@ -380,6 +374,10 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
 - Příčina: na portálu User Portal zobrazí okno **připojení** funkci **s názvem Poradce při potížích s VPN**. Tato funkce se v současnosti v centru Azure Stack nepodporuje.
+- Výskyt: běžné
+
+- Platí: Tento problém se vztahuje na všechny podporované verze.
+- Příčina: na portálu User Portal se zobrazí funkce **řešení potíží s VPN** a **metriky** v prostředku brány sítě VPN, ale toto nastavení není v centru Azure Stack podporováno.
 - Výskyt: běžné
 
 #### <a name="documentation"></a>Dokumentace
@@ -526,7 +524,13 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 
 ### <a name="virtual-network-gateway"></a>Brána virtuální sítě
 
-#### <a name="alerts"></a>Výstrahy
+#### <a name="next-hop-type"></a>Typ dalšího segmentu směrování
+
+- Platí: Tento problém se vztahuje na všechny podporované verze.
+- Příčina: když v uživatelském portálu vytvoříte směrovací tabulku, **Virtual Network brána** se zobrazí jako jedna z možností dalšího typu segmentu směrování. To se ale v centru Azure Stack nepodporuje.
+- Výskyt: běžné
+
+#### <a name="alerts"></a>Upozornění
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
 - Příčina: na portálu User Portal se v okně **Virtual Network brány** zobrazí možnost použít **výstrahy**. Tato funkce se v současnosti v centru Azure Stack nepodporuje.
@@ -690,7 +694,13 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 
 ### <a name="virtual-network-gateway"></a>Brána virtuální sítě
 
-#### <a name="alerts"></a>Výstrahy
+#### <a name="next-hop-type"></a>Typ dalšího segmentu směrování
+
+- Platí: Tento problém se vztahuje na všechny podporované verze.
+- Příčina: když v uživatelském portálu vytvoříte směrovací tabulku, **Virtual Network brána** se zobrazí jako jedna z možností dalšího typu segmentu směrování. To se ale v centru Azure Stack nepodporuje.
+- Výskyt: běžné
+
+#### <a name="alerts"></a>Upozornění
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
 - Příčina: na portálu User Portal se v okně **Virtual Network brány** zobrazí možnost použít **výstrahy**. Tato funkce se v současnosti v centru Azure Stack nepodporuje.

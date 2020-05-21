@@ -3,25 +3,41 @@ title: Nasazení služby Azure Cognitive Services do centra Azure Stack
 description: Přečtěte si, jak nasadit Azure Cognitive Services do centra Azure Stack.
 author: mattbriggs
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 05/13/2020
 ms.author: mabrigg
 ms.reviewer: guanghu
-ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: ff5dd1ccb8193e9dae3d97401793773e3e28fb4d
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.lastreviewed: 05/13/2020
+ms.openlocfilehash: 857d934a9cb55052a5e27d15943f05f032d05d6c
+ms.sourcegitcommit: d5d89bbe8a3310acaff29a7a0cd7ac4f2cf5bfe7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81660173"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83554977"
 ---
 # <a name="deploy-azure-cognitive-services-to-azure-stack-hub"></a>Nasazení služby Azure Cognitive Services do centra Azure Stack
 
-> [!Note]  
-> Azure Cognitive Services v centru Azure Stack je ve verzi Preview.
-
-Můžete použít Azure Cognitive Services s podporou kontejneru v centru Azure Stack. Podpora kontejnerů v Azure Cognitive Services umožňuje používat stejná bohatá rozhraní API, která jsou k dispozici v Azure. Vaše používání kontejnerů umožňuje flexibilitu při nasazení a hostování služeb dodaných v [kontejnerech Docker](https://www.docker.com/what-container). Podpora kontejnerů je aktuálně dostupná ve verzi Preview pro podmnožinu Azure Cognitive Services, včetně částí [počítačové zpracování obrazu](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home), [obličeje](https://docs.microsoft.com/azure/cognitive-services/face/overview)a [Analýza textu](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview)a [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/luis-container-howto) (Luis).
+Můžete použít Azure Cognitive Services s podporou kontejneru v centru Azure Stack. Podpora kontejnerů v Azure Cognitive Services umožňuje používat stejná bohatá rozhraní API, která jsou k dispozici v Azure. Vaše používání kontejnerů umožňuje flexibilitu při nasazení a hostování služeb dodaných v [kontejnerech Docker](https://www.docker.com/what-container). 
 
 Kontejnering je přístup k distribuci softwaru, ve kterém se aplikace nebo služba, včetně jejích závislostí a konfigurace, balí jako image kontejneru. S minimální nebo žádnou úpravou můžete nasadit image do hostitele kontejneru. Každý kontejner je izolovaný od jiných kontejnerů a od základního operačního systému. Samotný systém má pouze součásti potřebné ke spuštění vaší image. Hostitel kontejneru má menší nároky, než je virtuální počítač. Můžete také vytvořit kontejnery z imagí pro krátkodobé úlohy a odstranit je, pokud už nepotřebujete.
+
+Podpora kontejnerů je aktuálně k dispozici pro podmnožinu Azure Cognitive Services:
+
+- Language Understanding
+- Analýza textu (mínění 3,0)
+
+> [!IMPORTANT]
+> Podmnožina Azure Cognitive Services pro centrum Azure Stack je aktuálně ve verzi Public Preview.
+> Revize verze se poskytuje bez smlouvy o úrovni služeb a nedoporučuje se pro produkční úlohy. Některé funkce se nemusí podporovat nebo mohou mít omezené možnosti. Další informace najdete v [dodatečných podmínkách použití pro verze Preview v Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Podpora kontejnerů je aktuálně ve verzi Public Preview pro podmnožinu Azure Cognitive Services:
+
+- Čtení (optické rozpoznávání znaků \[ OCR])
+- Extrakce klíčových frází
+- Rozpoznávání jazyka
+- Detektor anomálií
+- Nástroj pro rozpoznávání formulářů
+- Převod řeči na text (Custom, Standard)
+- Převod textu na řeč (vlastní, standardní)
 
 ## <a name="use-containers-with-cognitive-services-on-azure-stack-hub"></a>Použití kontejnerů s Cognitive Services v centru Azure Stack
 
@@ -141,12 +157,37 @@ Podrobnosti o klíčových polích:
 K nasazení kontejnerů služby pro rozpoznávání použijte následující příkaz:
 
 ```bash  
-    Kubectl apply -f <yamlFineName>
+    Kubectl apply -f <yamlFileName>
 ```
 Pomocí následujícího příkazu můžete monitorovat, jak se nasazuje: 
 ```bash  
     Kubectl get pod - watch
 ```
+
+## <a name="configure-http-proxy-settings"></a>Konfigurace nastavení proxy serveru HTTP
+
+Pracovní uzly potřebují proxy a SSL. Pokud chcete nakonfigurovat proxy server HTTP pro vytváření odchozích požadavků, použijte tyto dva argumenty:
+
+- **Http_proxy** – proxy server, který se má použít, například`https://proxy:8888`
+- **HTTP_PROXY_CREDS** – například jakékoli přihlašovací údaje potřebné k ověření vůči proxy serveru `username:password` .
+
+### <a name="set-up-the-proxy"></a>Nastavení proxy serveru
+
+1. Přidat `http-proxy.conf` soubor do obou umístění:
+    - `/etc/system/system/docker.service.d/`
+    - `/cat/etc/environment/`
+
+2. Ověřte, že se k kontejneru můžete přihlásit pomocí přihlašovacích údajů poskytnutých Cognitive Services týmem a udělat `docker pull` v následujícím kontejneru: 
+
+    `docker pull containerpreview.azurecr.io/microsoft/cognitive-services-read:latest`
+
+    Spuštěním příkazu
+
+    `docker run hello-world pull`
+
+### <a name="ssl-interception-setup"></a>Nastavení zachycení SSL
+
+1. Přidejte do úložiště certifikát pro **zachycení https** `/usr/local/share/ca-certificates` a aktualizujte ho `update-ca-certificates` . 
 
 ## <a name="test-the-cognitive-service"></a>Testování služby pro rozpoznávání
 
