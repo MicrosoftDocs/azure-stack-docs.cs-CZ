@@ -9,12 +9,12 @@ ms.author: inhenkel
 ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: cda4a78a507f94d5e40f723cb5489a9e79990d50
-ms.sourcegitcommit: 510bb047b0a78fcc29ac611a2a7094fc285249a1
+ms.openlocfilehash: 497a051c67b05683a874de955c069256c19bba9a
+ms.sourcegitcommit: d69eacbf48c06309b00d17c82ebe0ce2bc6552df
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82988288"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780792"
 ---
 # <a name="register-azure-stack-hub-with-azure"></a>Registrace centra Azure Stack s Azure
 
@@ -252,7 +252,7 @@ Pokud registrujete Azure Stack hub v odpojeném prostředí (bez připojení k I
 
 ### <a name="connect-to-azure-and-register"></a>Připojení k Azure a registrace
 
-V počítači, který je připojený k Internetu, proveďte stejný postup, abyste importovali modul RegisterWithAzure. psm1 a přihlásili se ke správnému kontextu Azure PowerShellu. Pak zavolejte Register-AzsEnvironment. Zadejte registrační token, který se má zaregistrovat v Azure. Pokud registrujete více než jednu instanci centra Azure Stack s použitím stejného ID předplatného Azure, zadejte jedinečný název registrace.
+V počítači připojeném k Internetu proveďte stejný postup, abyste importovali modul RegisterWithAzure. psm1 a přihlásili se ke správnému kontextu Azure PowerShell. Pak zavolejte Register-AzsEnvironment. Zadejte registrační token, který se má zaregistrovat v Azure. Pokud registrujete více než jednu instanci centra Azure Stack s použitím stejného ID předplatného Azure, zadejte jedinečný název registrace.
 
 Potřebujete svůj registrační token a jedinečný název tokenu.
 
@@ -357,22 +357,40 @@ Registraci je potřeba aktualizovat nebo obnovit v následujících případech:
 - Když změníte model fakturace.
 - Při škálování změn (přidávání nebo odebírání uzlů) pro účely fakturace na základě kapacity.
 
+### <a name="prerequisites"></a>Požadavky
+
+Chcete-li obnovit nebo změnit registraci, potřebujete následující informace z [portálu pro správu](#verify-azure-stack-hub-registration) :
+
+| Portál pro správu | Parametr rutiny | Poznámky | 
+|-----|-----|-----|
+| ID ODBĚRU REGISTRACE | Předplatné | ID předplatného použité během předchozí registrace |
+| SKUPINA PROSTŘEDKŮ REGISTRACE | ResourceGroupName | Skupina prostředků, pod kterou existuje předchozí registrační prostředek |
+| NÁZEV REGISTRACE | Registrace | Název registrace použitý při předchozí registraci |
+
 ### <a name="change-the-subscription-you-use"></a>Změna předplatného, které používáte
 
-Pokud chcete změnit předplatné, které používáte, musíte nejdřív spustit rutinu **Remove-AzsRegistration** a pak se ujistit, že jste přihlášeni ke správnému kontextu Azure PowerShell. Pak spusťte rutinu **set-AzsRegistration** se všemi změněnými parametry včetně `<billing model>`. Při spuštění **Remove-AzsRegistration**musíte být přihlášeni k předplatnému, které jste použili při registraci a použití hodnot `RegistrationName` parametrů `ResourceGroupName` a, jak je znázorněno na portálu pro správu [najít aktuální podrobnosti o registraci](#verify-azure-stack-hub-registration):
+Pokud chcete změnit předplatné, které používáte, musíte nejdřív spustit rutinu **Remove-AzsRegistration** a pak se ujistit, že jste přihlášeni ke správnému kontextu Azure PowerShell. Pak spusťte rutinu **set-AzsRegistration** se všemi změněnými parametry, včetně `<billing model>` . Při spuštění **Remove-AzsRegistration**musíte být přihlášeni k předplatnému, které jste použili při registraci a použití hodnot `RegistrationName` `ResourceGroupName` parametrů a, jak je znázorněno na [portálu pro správu](#verify-azure-stack-hub-registration):
 
   ```powershell  
+  # select the subscription used during the registration (shown in portal)
+  Select-AzureRmSubscription -Subscription '<Registration subscription ID from portal>'
+  # unregister using the parameter values from portal
   Remove-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -RegistrationName '<Registration name from portal>' -ResourceGroupName '<Registration resource group from portal>'
-  Set-AzureRmContext -SubscriptionId $NewSubscriptionId
-  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel <billing model> -RegistrationName $RegistrationName
+  # switch to new subscription id
+  Select-AzureRmSubscription -Subscription '<New subscription ID>'
+  # register 
+  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel '<Billing model>' -RegistrationName '<Registration name>' --ResourceGroupName '<Registration resource group name>'
   ```
 
-### <a name="change-the-billing-model-or-how-to-offer-features"></a>Změna modelu fakturace nebo nabízení funkcí
+### <a name="change-billing-model-how-features-are-offered-or-re-register-your-instance"></a>Změna modelu fakturace, způsobu nabízení funkcí nebo opětovné registrace instance
 
-Pokud chcete změnit model fakturace nebo jak nabízet funkce pro vaši instalaci, můžete zavolat funkci registrace a nastavit nové hodnoty. Nemusíte nejdřív odebrat aktuální registraci:
+Tato část platí v případě, že chcete změnit model fakturace, jak jsou nabízeny funkce, nebo chcete instanci znovu zaregistrovat. Pro všechny tyto případy zavolejte funkci registrace a nastavte nové hodnoty. Nemusíte nejdřív odebrat aktuální registraci. Přihlaste se k ID předplatného, které vidíte na [portálu pro správu](#verify-azure-stack-hub-registration), a pak znovu spusťte registraci s novou `BillingModel` hodnotou a zachová `RegistrationName` `ResourceGroupName` hodnoty parametrů a, jak je znázorněno na [portálu pro správu](#verify-azure-stack-hub-registration):
 
   ```powershell  
-  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel <billing model> -RegistrationName $RegistrationName
+  # select the subscription used during the registration
+  Select-AzureRmSubscription -Subscription '<Registration subscription ID from portal>'
+  # rerun registration with new BillingModel (or same billing model in case of re-registration) but using other parameters values from portal
+  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel '<New billing model>' -RegistrationName '<Registration name from portal>' -ResourceGroupName '<Registration resource group from portal>'
   ```
 ::: zone-end
 
@@ -389,7 +407,7 @@ Nejdřív je potřeba odebrat prostředek aktivace z centra Azure Stack a pak pr
 
 Pokud chcete odebrat prostředek aktivace v centru Azure Stack, spusťte v prostředí Azure Stack hub následující rutiny PowerShellu:  
 
-  ```Powershell
+  ```powershell
   Remove-AzsActivationResource -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint
   ```
 
@@ -397,21 +415,20 @@ Chcete-li odebrat registrační prostředek v Azure, ujistěte se, že jste na p
 
 Můžete použít registrační token použitý k vytvoření prostředku:  
 
-  ```Powershell
+  ```powershell
   $RegistrationToken = "<registration token>"
   Unregister-AzsEnvironment -RegistrationToken $RegistrationToken
   ```
 
-Můžete také použít název registrace:
+Případně můžete použít název registrace a název skupiny prostředků registrace z [portálu pro správu](#verify-azure-stack-hub-registration):
 
-  ```Powershell
-  $RegistrationName = "AzureStack-<unique-registration-name>"
-  Unregister-AzsEnvironment -RegistrationName $RegistrationName
+  ```powershell
+  Unregister-AzsEnvironment -RegistrationName '<Registration name from portal>' -ResourceGroupName '<Registration resource group from portal>'
   ```
 
 ### <a name="re-register-using-connected-steps"></a>Znovu zaregistrovat pomocí připojených kroků
 
-Pokud změníte fakturační model z kapacity fakturace v odpojeném stavu na vyúčtování spotřeby v připojeném stavu, znovu se zaregistrujete podle [kroků připojeného modelu](azure-stack-registration.md?pivots=state-connected#change-the-billing-model-or-how-to-offer-features). 
+Pokud změníte fakturační model z kapacity fakturace v odpojeném stavu na vyúčtování spotřeby v připojeném stavu, znovu se zaregistrujete podle [kroků připojeného modelu](azure-stack-registration.md?pivots=state-connected#change-billing-model-how-features-are-offered-or-re-register-your-instance). 
 
 >[!Note] 
 >Nemění se tím model vaší identity, jenom účetní mechanizmus a službu AD FS budete používat jako zdroj identity.
@@ -517,13 +534,13 @@ Get-AzsRegistrationToken [-PrivilegedEndpointCredential] <PSCredential> [-Privil
 
 Při pokusu o registraci centra Azure Stack se může zobrazit jedna z následujících chyb:
 
-- Nepovedlo se načíst povinné informace `$hostName`o hardwaru pro. Zkontrolujte fyzického hostitele a připojení a pak zkuste znovu spustit registraci.
+- Nepovedlo se načíst povinné informace o hardwaru pro `$hostName` . Zkontrolujte fyzického hostitele a připojení a pak zkuste znovu spustit registraci.
 
-- Nelze se připojit `$hostName` k a získat informace o hardwaru. Zkontrolujte fyzického hostitele a připojení a pak zkuste znovu spustit registraci.
+- Nelze se připojit k `$hostName` a získat informace o hardwaru. Zkontrolujte fyzického hostitele a připojení a pak zkuste znovu spustit registraci.
 
    Příčina: obvykle se snažíme z hostitelů získat podrobnosti o hardwaru, jako je UUID, BIOS a CPU, aby se pokusily o aktivaci a nebylo možné se připojit k fyzickému hostiteli.
 
-- Identifikátor cloudu`GUID`[] je již zaregistrován. Použití identifikátorů cloudu se znovu nepovoluje.
+- Identifikátor cloudu [ `GUID` ] je již zaregistrován. Použití identifikátorů cloudu se znovu nepovoluje.
 
    Příčina: k tomu dochází, pokud je vaše prostředí Azure Stack už zaregistrované. Pokud chcete své prostředí znovu zaregistrovat k jinému předplatnému nebo modelu fakturace, postupujte podle kroků pro [obnovení nebo změnu registrace](#renew-or-change-registration).
 

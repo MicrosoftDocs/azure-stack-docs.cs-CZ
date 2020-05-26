@@ -20,10 +20,16 @@
       href: manage/replace-drives.md
     - name: Správa clusterů
       href: manage/cluster.md
+    - name: Přidat nebo odebrat servery
+      href: manage/add-cluster.md
     - name: Použití Azure Site Recovery
       href: manage/azure-site-recovery.md
     - name: Monitorování pomocí služby Azure Monitor
       href: manage/azure-monitor.md
+    - name: Správa virtuálních počítačů
+      href: manage/vm.md
+    - name: Správa virtuálních počítačů pomocí PowerShellu
+      href: manage/vm-powershell.md
     - name: Připojení GPU k virtuálnímu počítači se systémem Linux
       href: manage/attach-gpu-to-linux-vm.md
 - name: Koncepty
@@ -38,7 +44,7 @@
       href: concepts/fault-tolerance.md
     - name: Kvorum clusteru a fondu úložiště
       href: concepts/quorum.md
-- name: Referenční informace
+- name: Odkaz
   items:
     - name: Příkazy prostředí PowerShell technologie Hyper-V
       href: /powershell/module/hyper-v

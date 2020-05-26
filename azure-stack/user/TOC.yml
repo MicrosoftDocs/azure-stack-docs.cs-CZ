@@ -97,6 +97,8 @@
           items:
             - name: Přehled
               href: azure-stack-version-profiles.md
+            - name: Rozhraní API pro poskytovatele prostředků podporovaná profily
+              href: azure-stack-profiles-azure-resource-manager-versions.md
             - name: .NET
               href: azure-stack-version-profiles-net.md
             - name: Java
@@ -109,8 +111,6 @@
               href: azure-stack-version-profiles-python.md
             - name: NodeJS
               href: azure-stack-version-profile-nodejs.md
-            - name: Rozhraní API pro poskytovatele prostředků podporovaná profily
-              href: azure-stack-profiles-azure-resource-manager-versions.md
     - name: Použití poskytovatelů prostředků
       items:
         - name: 'Zabezpečení, dodržování předpisů a identita'
@@ -323,7 +323,7 @@
           href: iaas-architecture-sql-n-tier-multi-region.md
         - name: Síťová virtuální zařízení
           href: iaas-architecture-nva-architecture.md
-- name: Referenční informace
+- name: Odkaz
   items:
     - name: Prostředí PowerShell centra Azure Stack
       href: 'https://docs.microsoft.com/powershell/azure/azure-stack/overview'
@@ -337,7 +337,7 @@
       href: /azure-stack/operator/
     - name: Dokumentace k ASDK
       href: /azure-stack/asdk/
-- name: Zdroje a prostředky
+- name: Prostředky
   items:
     - name: Mapa cest centra Azure Stack
       href: 'https://azure.microsoft.com/updates/?query=azure%20stack%20hub'

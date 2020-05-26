@@ -3,16 +3,16 @@ title: Nasazení služby Azure Cognitive Services do centra Azure Stack
 description: Přečtěte si, jak nasadit Azure Cognitive Services do centra Azure Stack.
 author: mattbriggs
 ms.topic: article
-ms.date: 05/13/2020
+ms.date: 05/21/2020
 ms.author: mabrigg
 ms.reviewer: guanghu
-ms.lastreviewed: 05/13/2020
-ms.openlocfilehash: 857d934a9cb55052a5e27d15943f05f032d05d6c
-ms.sourcegitcommit: d5d89bbe8a3310acaff29a7a0cd7ac4f2cf5bfe7
+ms.lastreviewed: 05/21/2020
+ms.openlocfilehash: 07af0665b2bc7993a90100edccc0a4831700c432
+ms.sourcegitcommit: d69eacbf48c06309b00d17c82ebe0ce2bc6552df
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83554977"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780771"
 ---
 # <a name="deploy-azure-cognitive-services-to-azure-stack-hub"></a>Nasazení služby Azure Cognitive Services do centra Azure Stack
 
@@ -174,7 +174,7 @@ Pracovní uzly potřebují proxy a SSL. Pokud chcete nakonfigurovat proxy server
 ### <a name="set-up-the-proxy"></a>Nastavení proxy serveru
 
 1. Přidat `http-proxy.conf` soubor do obou umístění:
-    - `/etc/system/system/docker.service.d/`
+    - `/etc/system/systemd/docker.service.d/`
     - `/cat/etc/environment/`
 
 2. Ověřte, že se k kontejneru můžete přihlásit pomocí přihlašovacích údajů poskytnutých Cognitive Services týmem a udělat `docker pull` v následujícím kontejneru: 

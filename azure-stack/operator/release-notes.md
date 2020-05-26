@@ -3,16 +3,16 @@ title: Poznámky k verzi centra Azure Stack
 description: Poznámky k verzi pro integrované systémy Azure Stack hub, včetně aktualizací a oprav chyb.
 author: sethmanheim
 ms.topic: article
-ms.date: 05/07/2020
+ms.date: 05/21/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 54f993cd76f0d850e0dd82a2e1b9817806f2c517
-ms.sourcegitcommit: 510bb047b0a78fcc29ac611a2a7094fc285249a1
+ms.openlocfilehash: d8da583fbf954857e2331ce963ec2ae7f0883ea2
+ms.sourcegitcommit: d69eacbf48c06309b00d17c82ebe0ce2bc6552df
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82988321"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780804"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Poznámky k verzi centra Azure Stack
 
@@ -86,7 +86,7 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 - Nástroj pro syndikaci offline byl aktualizován o vylepšení spolehlivosti. Nástroj už není dostupný na GitHubu a [přesunul se do galerie prostředí PowerShell](https://www.powershellgallery.com/packages/Azs.Syndication.Admin/). Další informace najdete v tématu [stažení položek Marketplace do centra Azure Stack](azure-stack-download-azure-marketplace-item.md).
 - Zavádí se nová funkce monitorování. Upozornění na nedostatek místa na disku pro fyzické hostitele a virtuální počítače infrastruktury bude automaticky opraveno platformou a jenom v případě, že tato akce selže, výstraha se zobrazí na portálu pro správu centra Azure Stack, aby mohl obsluhu provést akci.
 - Vylepšení [shromažďování protokolů diagnostiky](azure-stack-diagnostic-log-collection-overview-tzl.md). Nové prostředí zjednodušuje a zjednodušuje shromažďování protokolů diagnostiky tím, že v předem odebere nutnost konfigurace účtu BLOB Storage. Prostředí úložiště je předem nakonfigurované tak, aby bylo možné odesílat protokoly před otevřením případu podpory a strávíte méně času při volání podpory.
-- Čas potřebný pro  [proaktivní shromažďování protokolů i pro shromažďování protokolů na vyžádání](azure-stack-diagnostic-log-collection-overview-tzl.md)byl snížen o 80%. Doba shromažďování protokolů může trvat déle než tato očekávaná hodnota, ale nevyžaduje akci Azure Stack operátory centra, pokud není shromažďování protokolů úspěšné.
+- Čas potřebný pro [proaktivní shromažďování protokolů i pro shromažďování protokolů na vyžádání](azure-stack-diagnostic-log-collection-overview-tzl.md)   byl snížen o 80%. Doba shromažďování protokolů může trvat déle než tato očekávaná hodnota, ale nevyžaduje akci Azure Stack operátory centra, pokud není shromažďování protokolů úspěšné.
 - Průběh stahování balíčku aktualizace centra Azure Stack je teď v okně aktualizace po zahájení aktualizace viditelný. To platí jenom pro připojené systémy centra Azure Stack, které se rozhodnou [připravit balíčky aktualizací prostřednictvím automatického stažení](azure-stack-update-prepare-package.md#automatic-download-and-preparation-for-update-packages).
 - Vylepšení spolehlivosti agenta hostitele síťového adaptéru.
 - Představili jsme novou mikroslužbu nazvanou DNS Orchestrator, která během opravy a aktualizace vylepšuje logiku pro interní služby DNS.
@@ -162,7 +162,7 @@ Opravy hotfix centra Azure Stack se vztahují pouze na integrované systémy Azu
 Verze 2002 centra Azure Stack se musí použít ve verzi 1910 s následujícími opravami hotfix:
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [1.1910.37.132 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4550133)
+- [1.1910.40.138 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4558082)
 
 ### <a name="after-successfully-applying-the-2002-update"></a>Po úspěšné instalaci aktualizace 2002
 
@@ -195,7 +195,7 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 
 <!-- What's new, also net new experiences and features. -->
 
-- Portál pro správu nyní zobrazuje IP adresy privilegovaného koncového bodu v nabídce Vlastnosti oblasti pro snazší zjišťování. Kromě toho zobrazuje aktuální nakonfigurovaný časový server a servery DNS pro přeposílání. Další informace najdete v tématu [použití privilegovaného koncového bodu v centru Azure Stack](azure-stack-privileged-endpoint.md).
+- Portál pro správu nyní zobrazuje IP adresy privilegovaného koncového bodu v nabídce Vlastnosti oblasti pro snazší zjišťování. Kromě toho zobrazuje aktuální nakonfigurovaný časový server a servery DNS pro přeposílání. Další informace najdete v tématu [Použití privilegovaného koncového bodu ve službě Azure Stack Hub](azure-stack-privileged-endpoint.md).
 
 - Pokud dojde k chybě, může teď systém monitorování stavu a monitorování centra Azure Stack vyvolat výstrahy pro různé hardwarové součásti. Tyto výstrahy vyžadují další konfiguraci. Další informace najdete v tématu [monitorování hardwarových komponent centra Azure Stack](azure-stack-hardware-monitoring.md).
 
@@ -282,11 +282,11 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
    - **Nový modul Správce DRP**: poskytovatel prostředků nasazení (DRP) umožňuje Orchestrované nasazení poskytovatelů prostředků do centra Azure Stack. Tyto příkazy komunikují s Azure Resource Managerou vrstvou a komunikují s DRP.
    - **BRP**: <br />
            – Podporuje obnovení jedné role pro zálohování infrastruktury Azure Stack. <br />
-           – Přidejte parametr `RoleName` do rutiny `Restore-AzsBackup`.
-   - **FRP**: zásadní změny prostředků **jednotky** a **svazku** pomocí verze `2019-05-01`rozhraní API. Funkce jsou podporovány centrem Azure Stack 1910 a novějším: <br />
-            – Hodnota `ID`, `Name` `HealthStatus`, a `OperationalStatus` byla změněna. <br />
-            – Podporované nové vlastnosti `FirmwareVersion`, `IsIndicationEnabled` `Manufacturer`, a `StoragePool` pro prostředky **jednotky** . <br />
-            – Vlastnosti `CanPool` a `CannotPoolReason` prostředky **jednotky** jsou zastaralé; místo `OperationalStatus` toho použijte.
+           – Přidejte parametr `RoleName` do rutiny `Restore-AzsBackup` .
+   - **FRP**: zásadní změny prostředků **jednotky** a **svazku** pomocí verze rozhraní API `2019-05-01` . Funkce jsou podporovány centrem Azure Stack 1910 a novějším: <br />
+            – Hodnota,, `ID` `Name` a byla `HealthStatus` `OperationalStatus` změněna. <br />
+            – Podporované nové vlastnosti `FirmwareVersion` , `IsIndicationEnabled` , `Manufacturer` a `StoragePool` pro prostředky **jednotky** . <br />
+            – Vlastnosti `CanPool` a `CannotPoolReason` prostředky **jednotky** jsou zastaralé. `OperationalStatus` místo toho použijte.
 
 ### <a name="fixes"></a>Opravy
 
@@ -319,14 +319,14 @@ Opravy hotfix centra Azure Stack se vztahují pouze na integrované systémy Azu
 Verze 1910 centra Azure Stack se musí použít ve verzi 1908 s následujícími opravami hotfix:
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [1.1908.25.78 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4552361)
+- [1.1908.29.87 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4558083)
 
 ### <a name="after-successfully-applying-the-1910-update"></a>Po úspěšné instalaci aktualizace 1910
 
 Po instalaci této aktualizace nainstalujte všechny příslušné opravy hotfix. Další informace najdete v našich [zásadách obsluhy](azure-stack-servicing-policy.md).
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [1.1910.37.132 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4550133)
+- [1.1910.40.138 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4558082)
 ::: moniker-end
 
 ::: moniker range="azs-1908"
@@ -405,7 +405,7 @@ Aktualizace centra Azure Stack 1908 vyžaduje od poskytovatele hardwaru vašeho 
 Po instalaci této aktualizace nainstalujte všechny příslušné opravy hotfix. Další informace najdete v našich [zásadách obsluhy](azure-stack-servicing-policy.md).
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [1.1908.25.78 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4552361)
+- [1.1908.29.87 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4558083)
 ::: moniker-end
 
 ::: moniker range="azs-1907"
