@@ -20,6 +20,8 @@
       href: manage/replace-drives.md
     - name: Správa clusterů
       href: manage/cluster.md
+    - name: Správa clusterů pomocí PowerShellu
+      href: manage/cluster-powershell.md
     - name: Přidat nebo odebrat servery
       href: manage/add-cluster.md
     - name: Použití Azure Site Recovery
@@ -44,7 +46,7 @@
       href: concepts/fault-tolerance.md
     - name: Kvorum clusteru a fondu úložiště
       href: concepts/quorum.md
-- name: Odkaz
+- name: Referenční informace
   items:
     - name: Příkazy prostředí PowerShell technologie Hyper-V
       href: /powershell/module/hyper-v
