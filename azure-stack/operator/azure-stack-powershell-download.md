@@ -7,12 +7,12 @@ ms.date: 4/22/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 4/22/2020
-ms.openlocfilehash: 9faa562f9b8ff339016473f1b3c0df0512c90988
-ms.sourcegitcommit: 7b8e067cb449e67ca9c2935580684d78840ad495
+ms.openlocfilehash: c85982690578cbfbed65c83fb2c83792ce6b4fb2
+ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82106920"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84111181"
 ---
 # <a name="download-azure-stack-hub-tools-from-github"></a>Stažení nástrojů centra Azure Stack z GitHubu
 
@@ -20,7 +20,7 @@ ms.locfileid: "82106920"
 
 ## <a name="get-tools-for-azure-stack-hub-azurerm-module"></a>Získat nástroje pro modul AzureRM centra pro Azure Stack
 
-Pokud chcete tyto nástroje získat, naklonujte úložiště GitHub `master` z větve nebo Stáhněte složku **AzureStack-Tools** spuštěním následujícího skriptu:
+Pokud chcete tyto nástroje získat, naklonujte úložiště GitHub z `master` větve nebo Stáhněte složku **AzureStack-Tools** spuštěním následujícího skriptu:
 
 ```powershell
 # Change directory to the root directory.
@@ -45,25 +45,25 @@ Další informace o použití modulu AzureRM pro centrum Azure Stack najdete v t
 
 ## <a name="get-tools-for-azure-stack-hub-az-preview-module"></a>Získat nástroje pro centrum Azure Stack – modul AZ (Preview)
 
-Pokud chcete tyto nástroje získat, naklonujte úložiště GitHub `az` z větve nebo Stáhněte složku **AzureStack-Tools** spuštěním následujícího skriptu:
+Pokud chcete tyto nástroje získat, naklonujte úložiště GitHub z `az` větve nebo Stáhněte složku **AzureStack-Tools** spuštěním následujícího skriptu:
 
 ```powershell
 # Change directory to the root directory.
 cd \
 
 # Download the tools archive.
-[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
 invoke-webrequest `
   https://github.com/Azure/AzureStack-Tools/archive/az.zip `
-  -OutFile az.zip
+  -OutFile master.zip
 
 # Expand the downloaded files.
-expand-archive az.zip `
+expand-archive master.zip `
   -DestinationPath . `
   -Force
 
 # Change to the tools directory.
- cd AzureStack-Tools-az
+cd AzureStack-Tools-master
 
 ```
 
@@ -73,7 +73,7 @@ Další informace o použití modulu AZ Module for Azure Stack hub najdete v té
 
 Úložiště **AzureStack-Tools** obsahuje moduly prostředí PowerShell, které podporují následující funkce centra Azure Stack:  
 
-| Funkce | Popis | Kdo může používat tento modul? |
+| Funkce | Description | Kdo může používat tento modul? |
 | --- | --- | --- |
 | [Funkce cloudu](../user/azure-stack-validate-templates.md) | Tento modul slouží k získání cloudových možností cloudu. Můžete například získat cloudové možnosti, jako je verze rozhraní API a prostředky Azure Resource Manager. Můžete taky získat rozšíření virtuálních počítačů pro centra Azure Stack a cloudy Azure. | Operátoři cloudu a uživatelé |
 | [Zásady Správce prostředků pro centrum Azure Stack](../user/azure-stack-policy-module.md) | Pomocí tohoto modulu můžete nakonfigurovat předplatné Azure nebo skupinu prostředků Azure se stejnou dostupností verzí a služeb jako centrum Azure Stack. | Operátoři cloudu a uživatelé |

@@ -3,16 +3,16 @@ title: PowerShell v centru Azure Stack
 description: Prostředí PowerShell v centru Azure Stack má několik modulů a kontextů.
 author: mattbriggs
 ms.topic: article
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 76dd8c2275c0d75132a508d6849d8356ff2e1f67
-ms.sourcegitcommit: 3ee7e9ddffe2ca44af24052e60d808fbef42cf4c
+ms.openlocfilehash: b54e8a184c90408c0d27054446a91f09c34749fb
+ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82643454"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84111812"
 ---
 # <a name="get-started-with-powershell-in-azure-stack-hub"></a>Začínáme s PowerShellem v centru Azure Stack
 
@@ -51,7 +51,7 @@ Centrum Azure Stack zpřístupňuje sadu poskytovatelů prostředků pro operát
 
 ### <a name="azure-stack-hub-privileged-endpoint"></a>Privilegovaný koncový bod centra Azure Stack
 
-Pro aktivity operátora v centru Azure Stack, jako je testování instalace a přístup k protokolům, můžou operátory pracovat s privilegovaným koncovým bodem (PEP). PEP je předem nakonfigurovaná konzola vzdáleného prostředí PowerShell, která dává přístup k určitým úkolům pro obsluhu dostatečná. Koncový bod používá k vystavení omezené sady rutin prostředí PowerShell jenom dostatečná Správa (JEA). Další informace najdete v tématu [použití privilegovaného koncového bodu v centru Azure Stack](../operator/azure-stack-privileged-endpoint.md).
+Pro aktivity operátora v centru Azure Stack, jako je testování instalace a přístup k protokolům, můžou operátory pracovat s privilegovaným koncovým bodem (PEP). PEP je předem nakonfigurovaná konzola vzdáleného prostředí PowerShell, která dává přístup k určitým úkolům pro obsluhu dostatečná. Koncový bod používá k vystavení omezené sady rutin prostředí PowerShell jenom dostatečná Správa (JEA). Další informace najdete v tématu [Použití privilegovaného koncového bodu ve službě Azure Stack Hub](../operator/azure-stack-privileged-endpoint.md).
 
 ### <a name="azure-stack-hub-tools"></a>Nástroje centra Azure Stack
 

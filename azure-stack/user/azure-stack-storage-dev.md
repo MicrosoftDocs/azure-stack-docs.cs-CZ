@@ -3,16 +3,16 @@ title: Začínáme s nástroji pro vývoj pro úložiště Azure Stack hub
 description: Pokyny, jak začít s používáním nástrojů pro vývoj úložiště Azure Stack hub
 author: mattbriggs
 ms.author: mabrigg
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.topic: conceptual
 ms.reviewer: xiaofmao
 ms.lastreviewed: 02/27/2019
-ms.openlocfilehash: 939479350718ae2176f7d1531e64ad71301e0596
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: bc682604e5c57c3a878c7c5dc17a0bfc18e36e60
+ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80423810"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84111788"
 ---
 # <a name="get-started-with-azure-stack-hub-storage-development-tools"></a>Začínáme s nástroji pro vývoj pro úložiště Azure Stack hub
 
@@ -34,7 +34,7 @@ Pro klientské knihovny pro úložiště si pamatujte na verzi, která je kompat
 |----------------|-------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
 | .NET | 9.2.0 | Balíček NuGet:<br><https://www.nuget.org/packages/WindowsAzure.Storage/9.2.0><br> <br>Verze GitHubu:<br><https://github.com/Azure/azure-storage-net/releases/tag/v9.2.0> | soubor App. config |
 | Java | 7.0.0 | Balíček Maven:<br><https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/7.0.0><br> <br>Verze GitHubu:<br><https://github.com/Azure/azure-storage-java/releases/tag/v7.0.0> | Nastavení připojovacího řetězce |
-| Node.js | 2.8.3 | Odkaz na NPM:<br><https://www.npmjs.com/package/azure-storage><br>(Spustit: `npm install azure-storage@2.8.3`)<br> <br>Verze GitHubu:<br><https://github.com/Azure/azure-storage-node/releases/tag/v2.8.3> | Deklarace instance služby |
+| Node.js | 2.8.3 | Odkaz na NPM:<br><https://www.npmjs.com/package/azure-storage><br>(Spustit: `npm install azure-storage@2.8.3` )<br> <br>Verze GitHubu:<br><https://github.com/Azure/azure-storage-node/releases/tag/v2.8.3> | Deklarace instance služby |
 | C++ | 5.2.0 | Balíček NuGet:<br><https://www.nuget.org/packages/Microsoft.Azure.Storage.CPP.v140/5.2.0><br> <br>Verze GitHubu:<br><https://github.com/Azure/azure-storage-cpp/releases/tag/v5.2.0> | Nastavení připojovacího řetězce |
 | PHP | 1.2.0 | Verze GitHubu:<br>Obecný<https://github.com/Azure/azure-storage-php/releases/tag/v1.2.0-common><br>Příznaky<https://github.com/Azure/azure-storage-php/releases/tag/v1.2.0-blob><br>Provedených<br><https://github.com/Azure/azure-storage-php/releases/tag/v1.1.1-queue><br>Stolní<https://github.com/Azure/azure-storage-php/releases/tag/v1.1.0-table><br> <br>Instalovat přes skladatele (Další informace [najdete v podrobnostech níže](#install-php-client-via-composer---current)) | Nastavení připojovacího řetězce |
 | Python | 1.1.0 | Verze GitHubu:<br>Obecný<br><https://github.com/Azure/azure-storage-python/releases/tag/v1.1.0-common><br>Příznaky<br><https://github.com/Azure/azure-storage-python/releases/tag/v1.1.0-blob><br>Provedených<br><https://github.com/Azure/azure-storage-python/releases/tag/v1.1.0-queue> | Deklarace instance služby |
@@ -65,7 +65,7 @@ Instalace prostřednictvím skladatele: (jako příklad Vezměte objekt BLOB).
 |----------------|-------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
 | .NET | 8.7.0 | Balíček NuGet:<br><https://www.nuget.org/packages/WindowsAzure.Storage/8.7.0><br> <br>Verze GitHubu:<br><https://github.com/Azure/azure-storage-net/releases/tag/v8.7.0> | soubor App. config |
 | Java | 6.1.0 | Balíček Maven:<br><https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/6.1.0><br> <br>Verze GitHubu:<br><https://github.com/Azure/azure-storage-java/releases/tag/v6.1.0> | Nastavení připojovacího řetězce |
-| Node.js | 2.7.0 | Odkaz na NPM:<br><https://www.npmjs.com/package/azure-storage><br>(Spustit: `npm install azure-storage@2.7.0`)<br> <br>Verze GitHubu:<br><https://github.com/Azure/azure-storage-node/releases/tag/v2.7.0> | Deklarace instance služby |
+| Node.js | 2.7.0 | Odkaz na NPM:<br><https://www.npmjs.com/package/azure-storage><br>(Spustit: `npm install azure-storage@2.7.0` )<br> <br>Verze GitHubu:<br><https://github.com/Azure/azure-storage-node/releases/tag/v2.7.0> | Deklarace instance služby |
 | C++ | 3.1.0 | Balíček NuGet:<br><https://www.nuget.org/packages/wastorage.v140/3.1.0><br> <br>Verze GitHubu:<br><https://github.com/Azure/azure-storage-cpp/releases/tag/v3.1.0> | Nastavení připojovacího řetězce |
 | PHP | 1.0.0 | Verze GitHubu:<br>Obecný<https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-common><br>Příznaky<https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-blob><br>Provedených<br><https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-queue><br>Stolní<https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-table><br> <br>Nainstalujte přes skladatele (viz podrobnosti níže).) | Nastavení připojovacího řetězce |
 | Python | 1.0.0 | Verze GitHubu:<br>Obecný<br><https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-common><br>Příznaky<br><https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-blob><br>Provedených<br><https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-queue> | Deklarace instance služby |

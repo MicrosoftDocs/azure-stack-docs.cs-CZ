@@ -3,15 +3,15 @@ title: Použití Azure Monitor v centru Azure Stack
 description: Naučte se používat Azure Monitor v centru Azure Stack.
 author: mattbriggs
 ms.topic: article
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.lastreviewed: 12/01/2019
-ms.openlocfilehash: 0676354bb902ccafed49281c12296440a8aa8c5e
-ms.sourcegitcommit: 278aaeca069213a98b90751253f6b15423634849
+ms.openlocfilehash: ea2ccd33bc64c01b4ab5ba56024a54aa82453e63
+ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82742449"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84112029"
 ---
 # <a name="use-azure-monitor-on-azure-stack-hub"></a>Použití Azure Monitor v centru Azure Stack
 
@@ -100,7 +100,7 @@ Některá data monitorování se už v Azure Monitoru uchovávají a jsou po ur�
 
 Pro přístup k datům v systému nebo Azure Storage můžete použít příkazy rozhraní příkazového řádku (CLI) Azure Monitor REST API, rutiny prostředí PowerShell nebo rozhraní .NET SDK pro více platforem. 
 
-**Vizualizac**
+**Vizualizace**
 
 Vizualizace dat monitorování pomocí grafů a diagramů vám umožňuje rozpoznat trendy rychleji, než když prohlížíte samotná data. 
 

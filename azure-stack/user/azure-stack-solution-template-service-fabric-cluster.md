@@ -3,16 +3,16 @@ title: Nasazení zabezpečeného clusteru Service Fabric v centru Azure Stack
 description: Naučte se, jak nasadit zabezpečený Cluster Service Fabric v centru Azure Stack
 author: mattbriggs
 ms.topic: tutorial
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: shnatara
 ms.lastreviewed: 09/25/2019
-ms.openlocfilehash: b09e23fafdfcdff83329e70538cd8d072081a678
-ms.sourcegitcommit: bdd4d529bd3e115a9f76eece62b1613448d5d020
+ms.openlocfilehash: 4ccbdfe93f8ed960002c251e0d18e24f29a9b229
+ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "77687542"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84111859"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack-hub"></a>Nasazení clusteru Service Fabric v centru Azure Stack
 
@@ -116,7 +116,7 @@ Další informace najdete v tématu [správa Key Vault v centru Azure Stack pomo
 
 ## <a name="deploy-the-marketplace-item"></a>Nasadit položku Marketplace
 
-1. Na portálu User Portal přejít na **+ vytvořit prostředek** > **COMPUTE** > **Service Fabric cluster**. 
+1. Na portálu User Portal přejít na **+ vytvořit prostředek**  >  **COMPUTE**  >  **Service Fabric cluster**. 
 
    ![Vybrat Cluster Service Fabric](./media/azure-stack-solution-template-service-fabric-cluster/image2.png)
 
@@ -163,7 +163,7 @@ Ke clusteru Service Fabric můžete přistupovat pomocí Service Fabric Explorer
 ### <a name="use-service-fabric-explorer"></a>Použít Service Fabric Explorer
 1.  Zajistěte, aby prohlížeč měl přístup k vašemu klientskému certifikátu správce a mohl by se ověřit do vašeho clusteru Service Fabric.  
 
-    a. Otevřete Internet Explorer a přejít na**certifikáty** > **obsahu** >  **Možnosti Internetu**.
+    a. Otevřete Internet Explorer a přejít na certifikáty obsahu **Možnosti Internetu**  >  **Content**  >  **Certificates**.
   
     b. V části certifikáty vyberte **importovat** a spusťte *Průvodce importem certifikátu*a potom klikněte na **Další**. Na stránce *importovat soubor* klikněte na **Procházet**a vyberte **certifikát klienta správce** , který jste zadali pro šablonu Azure Resource Manager.
         
@@ -203,13 +203,13 @@ Ke clusteru Service Fabric můžete přistupovat pomocí Service Fabric Explorer
 
 1. Po dokončení instalace nakonfigurujte proměnné prostředí systému, aby se zajistilo, že jsou rutiny Service Fabric dostupné z PowerShellu.  
     
-    a. Otevřete **Ovládací panely** > **systém a zabezpečení** > **a pak**vyberte **Upřesnit nastavení systému**.  
+    a. Otevřete **Ovládací panely**  >  **systém a zabezpečení**  >  **System**a pak vyberte **Upřesnit nastavení systému**.  
     
       ![Ovládací panely](media/azure-stack-solution-template-service-fabric-cluster/image15.png) 
 
     b. Na kartě **Upřesnit** v okně *Vlastnosti systému*vyberte **proměnné prostředí**.  
 
-    c. V *případě systémových proměnných*upravte **cestu** a ujistěte se, že **C\\: program\\Files Microsoft\\Service Fabric\\bin\\Fabric Fabric Fabric. kód** je v horní části seznamu proměnných prostředí.  
+    c. V případě *systémových proměnných*upravte **cestu** a ujistěte se, že **C: \\ Program Files \\ Microsoft Service Fabric bin Fabric Fabric Fabric \\ \\ \\ . kód** je v horní části seznamu proměnných prostředí.  
 
       ![Seznam proměnných prostředí](media/azure-stack-solution-template-service-fabric-cluster/image16.png)
 

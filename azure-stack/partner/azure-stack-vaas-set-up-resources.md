@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: Naučte se nastavit prostředky Azure AD a úložiště pro Azure Stack ověřování pomocí centra jako služby.
 author: mattbriggs
 ms.topic: tutorial
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 779eeefa8b567cfb6b5c151c180a59b76468870a
-ms.sourcegitcommit: bdd4d529bd3e115a9f76eece62b1613448d5d020
+ms.openlocfilehash: 3b3cbaff12c4d4decb0d7204fa558dd5690fe638
+ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "77704541"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84112012"
 ---
 # <a name="tutorial-set-up-resources-for-validation-as-a-service"></a>Kurz: nastavení prostředků pro ověřování jako služby
 
@@ -34,7 +34,7 @@ Tenant Azure AD se používá k registraci organizace a ověřování uživatel�
 
 ### <a name="create-a-tenant"></a>Vytvoření tenanta
 
-Vytvořte tenanta, který bude vaše organizace používat pro přístup ke službám VaaS Services. Použijte popisný název (například `ContosoVaaS@onmicrosoft.com`).
+Vytvořte tenanta, který bude vaše organizace používat pro přístup ke službám VaaS Services. Použijte popisný název (například `ContosoVaaS@onmicrosoft.com` ).
 
 1. Vytvořte ve [Azure Portal](https://portal.azure.com)TENANTA Azure AD, nebo použijte existujícího tenanta. <!-- For instructions on creating new Azure AD tenants, see [Get started with Azure AD](https://docs.microsoft.com/azure/active-directory/get-started-azure-ad). -->
 
@@ -42,7 +42,7 @@ Vytvořte tenanta, který bude vaše organizace používat pro přístup ke slu�
 
     Udělte uživatelům ve vašem tenantovi, aby spouštěli akce v VaaS přiřazením jedné z následujících rolí:
 
-    | Název role | Popis |
+    | Název role | Description |
     |---------------------|------------------------------------------|
     | Vlastník | Má úplný přístup ke všem prostředkům. |
     | Čtenář | Může zobrazit všechny prostředky, ale nemůže vytvářet ani spravovat. |
@@ -50,9 +50,9 @@ Vytvořte tenanta, který bude vaše organizace používat pro přístup ke slu�
 
     Přiřazení rolí v aplikaci **služby ověřování centra Azure Stack** :
 
-   1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
-   2. V části **Identita** vyberte **všechny služby** > **Azure Active Directory** .
-   3. Vyberte **podnikové aplikace** > **Azure Stack aplikaci služby ověřování centra** .
+   1. Přihlaste se k [portálu Azure Portal](https://portal.azure.com).
+   2. V části Identita vyberte **všechny služby**  >  **Azure Active Directory** . **Identity**
+   3. Vyberte **podnikové aplikace**  >  **Azure Stack aplikaci služby ověřování centra** .
    4. Vyberte **Uživatelé a skupiny**. Okno **Azure Stack služby ověřování centra – uživatelé a skupiny** zobrazí seznam uživatelů, kteří mají oprávnění k používání aplikace.
    5. Vyberte **+ Přidat uživatele** a přidejte uživatele ze svého tenanta a přiřaďte roli.
 
@@ -62,9 +62,9 @@ Vytvořte tenanta, který bude vaše organizace používat pro přístup ke slu�
 
 Tento proces autorizuje vašeho tenanta pomocí aplikace Azure AD **služby Azure Stack hub pro ověřování centra** .
 
-1. Odeslat následující informace o tenantovi společnosti Microsoft na adrese [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com).
+1. Odeslat následující informace o tenantovi společnosti Microsoft na adrese [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com) .
 
-    | Data | Popis |
+    | Data | Description |
     |--------------------------------|---------------------------------------------------------------------------------------------|
     | Název organizace | Oficiální název organizace. |
     | Název adresáře tenanta Azure AD | Název adresáře tenanta Azure AD, který se zaregistruje. |
@@ -88,7 +88,7 @@ Během provádění testu VaaS výstupy pro diagnostické protokoly na účet Az
 
 Účet Azure Storage je hostovaný ve veřejném cloudu Azure, ne ve vašem prostředí Azure Stack hub.
 
-1. V Azure Portal vyberte **všechny služby** > **úložiště** > **účty úložiště**. V okně **účty úložiště** vyberte **Přidat**.
+1. V Azure Portal vyberte **všechny služby**  >  **úložiště**  >  **účty úložiště**. V okně **účty úložiště** vyberte **Přidat**.
 
 2. Vyberte předplatné, ve kterém chcete vytvořit účet úložiště.
 

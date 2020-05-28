@@ -3,16 +3,16 @@ title: Připojení k Azure Stack centra pomocí PowerShellu jako uživatel
 description: Přečtěte si, jak se připojit k centru Azure Stack pomocí PowerShellu.
 author: mattbriggs
 ms.topic: article
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 3656a5a6a992788ca8d4d975ac819f69793edb02
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: a8fa6f179b2ff310a291d10f40b2f9a5eaa4e2d9
+ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77702036"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84111775"
 ---
 # <a name="connect-to-azure-stack-hub-with-powershell-as-a-user"></a>Připojení k Azure Stack centra pomocí PowerShellu jako uživatel
 
@@ -36,7 +36,7 @@ Ujistěte se, že jste nahradili následující proměnné skriptu hodnotami z v
 - **Název tenanta Azure AD**  
   Název vašeho tenanta Azure AD, který se používá ke správě centra Azure Stack. Například yourdirectory.onmicrosoft.com.
 - **Azure Resource Manager koncový bod**  
-  Pro Azure Stack Development Kit je tato hodnota nastavená na https://management.local.azurestack.external. Pokud chcete získat tuto hodnotu pro integrované systémy Azure Stack hub, obraťte se na svého poskytovatele služeb.
+  Pro Azure Stack Development Kit je tato hodnota nastavená na https://management.local.azurestack.external . Pokud chcete získat tuto hodnotu pro integrované systémy Azure Stack hub, obraťte se na svého poskytovatele služeb.
 
 ## <a name="connect-to-azure-stack-hub-with-azure-ad"></a>Připojení k centru Azure Stack pomocí Azure AD
 

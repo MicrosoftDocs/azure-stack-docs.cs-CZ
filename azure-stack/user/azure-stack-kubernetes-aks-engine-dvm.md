@@ -3,16 +3,16 @@ title: Přesuňte svůj cluster položek Marketplace do modulu AKS v centru Azur
 description: Naučte se, jak přesunout svůj cluster položek Marketplace do modulu AKS na rozbočovači Azure Stack.
 author: mattbriggs
 ms.topic: article
-ms.date: 3/19/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 3/19/2020
-ms.openlocfilehash: f15c870a1b256ffa546672a3abde2fc68f9baa4f
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 7fd43ca4e9ccd6eda5f09198a7b2efe1e9da073a
+ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80069008"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84111408"
 ---
 # <a name="move-your-marketplace-item-cluster-to-the-aks-engine-on-azure-stack-hub"></a>Přesuňte svůj cluster položek Marketplace do modulu AKS v centru Azure Stack.
 
@@ -26,13 +26,18 @@ Po úspěšném dokončení nasazení iniciované Kubernetes Azure Stack centra 
 2.  Ve skupině prostředků Najděte virtuální počítač nasazení. Název začíná předponou: **VMD-**.
 3.  Vyberte virtuální počítač nasazení. V části Přehled * * Najděte veřejnou IP adresu. Tuto adresu a konzolovou aplikaci, jako je například výstup, použijte k navázání relace SSH k virtuálnímu počítači.
 4.  Ve vaší relaci na VIRTUÁLNÍm počítači pro nasazení najdete modul AKS v následující cestě:`./var/lib/waagent/custom-script/download/0/bin/aks-engine`
-5.  Vyhledejte `.json` soubor, který popisuje clustery používané jako vstup do modulu AKS. Soubor jako v `/var/lib/waagent/custom-script/download/0/bin/azurestack.json`. Všimněte si, že soubor obsahuje pověření instančního objektu použité k nasazení clusteru. Pokud se rozhodnete soubor zachovat, je nutné ho přenést do chráněného úložiště.
-6.  Vyhledejte výstupní adresář generovaný modulem AKS na adrese `/var/lib/waagent/custom-script/download/0/_output/<resource group name>`. V tomto adresáři Najděte výstup `apimodel.json` v cestě. `/var/lib/waagent/custom-script/download/0/bin/apimodel.json` Adresář a `apimodel.json` soubor obsahují všechny vygenerované certifikáty, klíče a přihlašovací údaje, které jste potřebovali k nasazení clusteru Kubernetes. Uložte tyto prostředky do zabezpečeného umístění.
-7.  Vyhledejte konfigurační soubor Kubernetes, který se často označuje jako soubor **kubeconfig** , v cestě `$HOME/<output dir>/kubeconfig/kubeconfing.<location>.json`, kde ** \<>umístění** odpovídá vašemu Azure Stackmu identifikátoru umístění centra. Tento soubor je užitečný v případě, že plánujete nastavit **kubectl** pro přístup ke clusteru Kubernetes.
+5.  Vyhledejte `.json` soubor, který popisuje clustery používané jako vstup do modulu AKS. Soubor jako v `/var/lib/waagent/custom-script/download/0/bin/azurestack.json` . Všimněte si, že soubor obsahuje pověření instančního objektu použité k nasazení clusteru. Pokud se rozhodnete soubor zachovat, je nutné ho přenést do chráněného úložiště.
+6.  Vyhledejte výstupní adresář generovaný modulem AKS na adrese `/var/lib/waagent/custom-script/download/0/_output/<resource group name>` . V tomto adresáři Najděte výstup v `apimodel.json` cestě `/var/lib/waagent/custom-script/download/0/bin/apimodel.json` . Adresář a `apimodel.json` soubor obsahují všechny vygenerované certifikáty, klíče a přihlašovací údaje, které jste potřebovali k nasazení clusteru Kubernetes. Uložte tyto prostředky do zabezpečeného umístění.
+<<<<<<< HEAD
+7.  Vyhledejte konfigurační soubor Kubernetes, který se často označuje jako soubor **kubeconfig** , v cestě `/var/lib/waagent/custom-script/download/0/_output/k8smpi00/kubeconfig/kubeconfig.<location>.json` , kde **<location>** odpovídá vašemu Azure Stack identifikátoru umístění centra. Tento soubor je užitečný v případě, že plánujete nastavit **kubectl** pro přístup ke clusteru Kubernetes.
+=======
+7.  Vyhledejte konfigurační soubor Kubernetes, který se často označuje jako soubor **kubeconfig** , v cestě `/var/lib/waagent/custom-script/download/0/_output/k8smpi00/kubeconfig/kubeconfig.<location>.json` , kde **`<location>`** odpovídá vašemu Azure Stack identifikátoru umístění centra. Tento soubor je užitečný v případě, že plánujete nastavit **kubectl** pro přístup ke clusteru Kubernetes.
+
+>>>>>>> bd9784471c39194c2918fd281a81b031ee90bafb
 
 ## <a name="use-the-aks-engine-with-your-newly-created-cluster"></a>Použití modulu AKS s nově vytvořeným clusterem
 
-Jakmile najdete soubor AKS, Input apimodel. JSON, výstupní adresář a výstupní soubor apimodel. JSON, uložte je do zabezpečeného umístění, můžete použít binární a výstupní `apimodel.json` modul AKS v jakémkoli virtuálním počítači se systémem Linux.
+Jakmile najdete soubor AKS, Input apimodel. JSON, výstupní adresář a výstupní soubor apimodel. JSON, uložte je do zabezpečeného umístění, můžete použít binární a výstupní modul AKS `apimodel.json` v jakémkoli virtuálním počítači se systémem Linux.
 
 1.  Pokud chcete i nadále používat modul AKS, abyste mohli provádět operace, jako je například **upgrade** a **škálování**, zkopírujte binární soubor **AKS-Engine** do cílového počítače. Pokud používáte stejný **VMD-** Machine do adresáře.
 

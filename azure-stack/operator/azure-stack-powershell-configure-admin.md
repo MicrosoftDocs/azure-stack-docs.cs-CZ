@@ -3,16 +3,16 @@ title: Připojení k centru Azure Stack pomocí PowerShellu
 description: Přečtěte si, jak se připojit k centru Azure Stack pomocí PowerShellu.
 author: mattbriggs
 ms.topic: article
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: 20f50ffdaee8ca24cfc0c0406d846d3f5e830396
-ms.sourcegitcommit: 510bb047b0a78fcc29ac611a2a7094fc285249a1
+ms.openlocfilehash: 56782d79483f544dc019b4c162ed9af1a1163e4b
+ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82988278"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84111228"
 ---
 # <a name="connect-to-azure-stack-hub-with-powershell"></a>Připojení k centru Azure Stack pomocí PowerShellu
 
@@ -49,7 +49,7 @@ Chcete-li nakonfigurovat prostředí operátora centra Azure Stack pomocí prost
 
 ## <a name="connect-with-ad-fs"></a>Připojení pomocí AD FS
 
-Připojte se k prostředí operátora centra Azure Stack pomocí PowerShellu s Azure Active Directory federované služby (Azure AD FS). Pro ASDK je tento koncový bod Azure Resource Manager nastaven na `https://adminmanagement.local.azurestack.external`hodnotu. Pokud chcete získat Azure Resource Manager koncový bod pro integrované systémy centra Azure Stack, obraťte se na svého poskytovatele služeb.
+Připojte se k prostředí operátora centra Azure Stack pomocí PowerShellu s Azure Active Directory federované služby (Azure AD FS). Pro ASDK je tento koncový bod Azure Resource Manager nastaven na hodnotu `https://adminmanagement.local.azurestack.external` . Pokud chcete získat Azure Resource Manager koncový bod pro integrované systémy centra Azure Stack, obraťte se na svého poskytovatele služeb.
 
   ```powershell  
   # Register an Azure Resource Manager environment that targets your Azure Stack Hub instance. Get your Azure Resource Manager endpoint value from your service provider.

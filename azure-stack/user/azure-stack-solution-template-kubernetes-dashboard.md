@@ -3,16 +3,16 @@ title: Přístup k řídicímu panelu Kubernetes v centru Azure Stack
 description: Přečtěte si, jak získat přístup k řídicímu panelu Kubernetes v centru Azure Stack.
 author: mattbriggs
 ms.topic: article
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 04d7935ca88c578c2019703855e79278211127d1
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 82c3a0c7c43494a3a1a2790ba4672c3d498a61cd
+ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80479311"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84111555"
 ---
 # <a name="access-the-kubernetes-dashboard-in-azure-stack-hub"></a>Přístup k řídicímu panelu Kubernetes v centru Azure Stack 
 
@@ -48,7 +48,7 @@ Adresu URL řídicího panelu můžete načíst z hlavního uzlu v clusteru.
 1. Z řídicího panelu centra Azure Stack Získejte veřejnou IP adresu a uživatelské jméno pro hlavní server vašeho clusteru. Získat tyto informace:
 
     - Přihlášení k [portálu centra Azure Stack](https://portal.local.azurestack.external/)
-    - Vyberte **všechny služby** > **všechny prostředky**. Ve vaší skupině prostředků clusteru Najděte hlavní server. Hlavní název je pojmenován `k8s-master-<sequence-of-numbers>`. 
+    - Vyberte **všechny služby**  >  **všechny prostředky**. Ve vaší skupině prostředků clusteru Najděte hlavní server. Hlavní název je pojmenován `k8s-master-<sequence-of-numbers>` . 
 
 2. Otevřete hlavní uzel na portálu. Zkopírujte **veřejnou IP** adresu. Kliknutím na **připojit** získáte své uživatelské jméno v poli **přihlášení pomocí místního účtu virtuálního počítače** . Toto je stejné uživatelské jméno, které jste nastavili při vytváření clusteru. Místo soukromé IP adresy uvedené v okně připojit použijte veřejnou IP adresu.
 
@@ -76,7 +76,7 @@ Adresu URL řídicího panelu můžete načíst z hlavního uzlu v clusteru.
     kubectl -n kube-system get secrets
     ```
 
-    Poznamenejte si hodnotu Kubernetes-Dashboard-token-\<xxxxx> Value. 
+    Poznamenejte si Kubernetes-Dashboard-token- \<XXXXX> Value. 
 
 8.  Získejte token a uložte ho. Aktualizujte `kubernetes-dashboard-token-<####>` hodnotu s tajnou hodnotou z předchozího kroku.
 
@@ -107,10 +107,10 @@ Adresu URL řídicího panelu můžete načíst z hlavního uzlu v clusteru.
 
 1. Zakažte blokování automaticky otevíraných oken ve webovém prohlížeči.
 
-2. Najeďte v prohlížeči na adresu URL, kterou jste si poznamenali při spuštění příkazu `kubectl cluster-info`. Například: https:\//azurestackdomainnamefork8sdashboard/API/v1/Namespaces/Kube-System/Services/https: Kubernetes-Dashboard:/proxy 
+2. Najeďte v prohlížeči na adresu URL, kterou jste si poznamenali při spuštění příkazu `kubectl cluster-info` . Například: https: \/ /azurestackdomainnamefork8sdashboard/API/v1/Namespaces/Kube-System/Services/https: Kubernetes-Dashboard:/proxy 
 3. Vyberte certifikát klienta.
 4. Zadejte token. 
-5. Znovu se připojte k příkazovému řádku bash na hlavním uzlu a udělte oprávnění `kubernetes-dashboard`. Spusťte následující příkaz:
+5. Znovu se připojte k příkazovému řádku bash na hlavním uzlu a udělte oprávnění `kubernetes-dashboard` . Spusťte následující příkaz:
 
     ```Bash  
     kubectl create clusterrolebinding kubernetes-dashboard --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard 

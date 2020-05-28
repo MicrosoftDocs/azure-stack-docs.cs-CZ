@@ -3,16 +3,16 @@ title: Nasazení pomocí Visual Studio Code pro Azure Stack centra
 description: Jako uživatel chci vytvořit šablonu Azure Resource Manager v Visual Studio Code a pomocí schématu nasazení připravit šablonu, která je kompatibilní s moji verzí centra Azure Stack.
 author: mattbriggs
 ms.topic: article
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/30/2019
-ms.openlocfilehash: d70c44b35612ffb7642a0ee79b5820dba7b66532
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 8f0205425b49ee9e828056e5613a8166d02d95d9
+ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77701883"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84111627"
 ---
 # <a name="deploy-with-visual-studio-code-to-azure-stack-hub"></a>Nasazení pomocí Visual Studio Code pro Azure Stack centra
 
@@ -45,14 +45,14 @@ Chcete-li nainstalovat rozšíření Správce prostředků Tools, použijte nás
 
 1. Otevřete Visual Studio Code.
 2. Stisknutím CTRL+SHIFT+X otevřete podokno Rozšíření.
-3. `Azure Resource Manager Tools`Vyhledejte a pak vyberte **nainstalovat**.
+3. Vyhledejte `Azure Resource Manager Tools` a pak vyberte **nainstalovat**.
 4. Instalaci rozšíření dokončíte výběrem **Znovu načíst**.
 
 ## <a name="get-a-template"></a>Získat šablonu
 
-Místo vytvoření zcela nové šablony otevřete šablonu z AzureStack-Start-Templates (https://github.com/Azure/AzureStack-QuickStart-Templates). AzureStack-Start-Templates je úložiště pro Správce prostředků šablony, které nasazují prostředky do centra Azure Stack. 
+Místo vytvoření zcela nové šablony otevřete šablonu z AzureStack-Start-Templates ( https://github.com/Azure/AzureStack-QuickStart-Templates) . AzureStack-Start-Templates je úložiště pro Správce prostředků šablony, které nasazují prostředky do centra Azure Stack. 
 
-Šablona v tomto článku se nazývá `101-vm-windows-create`. Šablona definuje základní nasazení virtuálního počítače s Windows pro Azure Stack hub.  Tato šablona také nasadí virtuální síť (s DNS), skupinu zabezpečení sítě a síťové rozhraní.
+Šablona v tomto článku se nazývá `101-vm-windows-create` . Šablona definuje základní nasazení virtuálního počítače s Windows pro Azure Stack hub.  Tato šablona také nasadí virtuální síť (s DNS), skupinu zabezpečení sítě a síťové rozhraní.
 
 1. Otevřete Visual Studio Code a přejděte do pracovní složky na vašem počítači.
 2. V Visual Studio Code otevřete terminál Git bash.
@@ -64,9 +64,9 @@ Místo vytvoření zcela nové šablony otevřete šablonu z AzureStack-Start-Te
     ```bash  
     CD AzureStack-QuickStart-Templates
     ```
-5. Výběrem **otevřít** otevřete soubor `/101-vm-windows-create/azuredeploy.json` v úložišti.
+5. Výběrem **otevřít** otevřete soubor v `/101-vm-windows-create/azuredeploy.json` úložišti.
 6. Uložte soubor do vlastního pracovního prostoru, nebo pokud jste vytvořili větev úložiště, můžete pracovat na místě.
-7. Když je soubor stále otevřený, změňte `$Schema` pole na. `https://schema.management.azure.com/schemas/2019-03-01-hybrid/deploymentTemplate.json#`
+7. Když je soubor stále otevřený, změňte `$Schema` pole na `https://schema.management.azure.com/schemas/2019-03-01-hybrid/deploymentTemplate.json#` .
 8. Můžete ověřit, zda schéma nasazení funguje tak, že vymažete hodnotu pole apiProfile.
     ```JSON  
     "apiProfile": ""

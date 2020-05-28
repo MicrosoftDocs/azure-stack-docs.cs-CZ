@@ -3,16 +3,16 @@ title: Přidání Fortinet FortiGate do tržiště centra Azure Stack
 description: Naučte se, jak přidat Fortinet FortiGate do svého tržiště centra Azure Stack a umožnit tak uživatelům vytvářet síťová řešení.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/30/2019
-ms.openlocfilehash: fb9c8bbb16bcbbee5e1316522aff99752354ef7f
-ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
+ms.openlocfilehash: 12dc8715b90aa257953b5dc13bf671c9264aea8d
+ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83375110"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84111173"
 ---
 # <a name="offer-a-network-solution-in-azure-stack-hub-with-fortinet-fortigate"></a>Nabídka síťového řešení v centru Azure Stack s FortiGate Fortinet
 

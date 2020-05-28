@@ -3,16 +3,16 @@ title: Připojení k centru Azure Stack
 description: Naučte se připojit centrum Azure Stack.
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: 0a3dfcc7d12baa6616f57908e87d24afaf1e927e
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 1b4db2cf67231f8660948af43d4935bbcf9c846c
+ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79294602"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84111893"
 ---
 # <a name="connect-to-azure-stack-hub"></a>Připojení k centru Azure Stack
 
@@ -28,7 +28,7 @@ S Připojení ke vzdálené ploše může jeden souběžný uživatel pracovat s
 
 2. V počítači vývojové sady otevřete Správce serveru, klikněte na **místní server**, vypněte rozšířené zabezpečení aplikace Internet Explorer a potom zavřete Správce serveru.
 
-3. Portál otevřete tak, že přejdete nahttps://portal.local.azurestack.external/) adresu (a přihlásíte se pomocí přihlašovacích údajů uživatele).
+3. Portál otevřete tak, že přejdete na adresu ( https://portal.local.azurestack.external/) a přihlásíte se pomocí přihlašovacích údajů uživatele).
 
 
 ## <a name="connect-to-azure-stack-hub-with-vpn"></a>Připojení k centru Azure Stack pomocí sítě VPN
@@ -76,7 +76,7 @@ Add-AzsVpnConnection `
 
 ```
 
-Pokud je nastavení úspěšné, zobrazí `azurestack` se v seznamu připojení VPN.
+Pokud je nastavení úspěšné, zobrazí se `azurestack` v seznamu připojení VPN.
 
 ![Síťová připojení](media/azure-stack-connect-azure-stack/image3.png)  
 
@@ -93,11 +93,11 @@ Připojte se k instanci centra Azure Stack pomocí některé z následujících 
 
   Po zobrazení výzvy Důvěřujte hostiteli centra Azure Stack a nainstalujte certifikát z **AzureStackCertificateAuthority** do úložiště certifikátů místního počítače. Výzva se může zobrazit za oknem relace PowerShellu. 
 
-* V místním počítači, přejít na **Nastavení** > sítě**VPN** > vyberte `azurestack`  >  **připojit**. Do příkazového řádku pro přihlášení zadejte uživatelské jméno (AzureStack\AzureStackAdmin) a heslo.
+* V místním počítači, přejít na **nastavení sítě**  >  **VPN** > vyberte `azurestack`  >  **připojit**. Do příkazového řádku pro přihlášení zadejte uživatelské jméno (AzureStack\AzureStackAdmin) a heslo.
 
 ### <a name="test-the-vpn-connectivity"></a>Testování připojení VPN
 
-Pokud chcete otestovat připojení k portálu, otevřete prohlížeč a navštivte Portál User Portal (https://portal.local.azurestack.external/), přihlaste se a pak vytvořte prostředky.  
+Pokud chcete otestovat připojení k portálu, otevřete prohlížeč a navštivte Portál User Portal ( https://portal.local.azurestack.external/) , přihlaste se a pak vytvořte prostředky.  
 
 ## <a name="next-steps"></a>Další kroky
 

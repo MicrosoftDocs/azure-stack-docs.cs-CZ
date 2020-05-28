@@ -3,16 +3,16 @@ title: Jak propojit dvě centra Azure Stack prostřednictvím partnerského vzta
 description: Přečtěte si, jak propojit dvě centra Azure Stack prostřednictvím partnerského vztahu virtuální sítě.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 97fc89897d63d368cfface0f5fc7dece4b8480cd
-ms.sourcegitcommit: 278aaeca069213a98b90751253f6b15423634849
+ms.openlocfilehash: 428c95a4f9d387cd298a1965f165278dfdc5a763
+ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82742528"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84111978"
 ---
 # <a name="vnet-peering-in-azure-stack-hub-with-vms"></a>VNET Peering v centru Azure Stack s virtuálními počítači
 

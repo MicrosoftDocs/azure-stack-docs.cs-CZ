@@ -2,17 +2,17 @@
 title: Rozdíly v sítích centra Azure Stack
 description: Přečtěte si o rozdílech a ohledech při práci se sítěmi v centru Azure Stack.
 author: mattbriggs
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.topic: article
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 07/10/2019
-ms.openlocfilehash: e1bdb6425848db2c796fed93520da3b5ef982ee3
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 2a71320a660c7dbf74ad885226bb7fcbfa78b35f
+ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81274068"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84111400"
 ---
 # <a name="differences-and-considerations-for-azure-stack-hub-networking"></a>Rozdíly a požadavky pro sítě Azure Stack hub
 
@@ -44,7 +44,7 @@ Tento článek obsahuje přehled jedinečných důležitých informací o sítí
 |  | Protokoly pravidel | TCP, UDP, ICMP, jakýkoli | Jenom TCP, UDP nebo Any |
 | Brány virtuálních sítí | Point-to-Site VPN Gateway | Podporuje se | Zatím se nepodporuje. |
 |  | Brána VNet-to-VNet | Podporuje se | Zatím se nepodporuje. |
-|  | Typ Virtual Network brány | Azure podporuje VPN<br> ExpressRoute <br> Síť Hyper. | Rozbočovač Azure Stack aktuálně podporuje pouze typ sítě VPN. |
+|  | Typ Virtual Network brány | Azure podporuje VPN<br> Express Route <br> Síť Hyper. | Rozbočovač Azure Stack aktuálně podporuje pouze typ sítě VPN. |
 |  | Skladové položky VPN Gateway | Podpora pro Basic, GW1, GW2, GW3, standard High Performance a vysoce vysoký výkon. | Podpora pro základní, standardní a vysoce výkonné skladové jednotky. |
 |  | Typ sítě VPN | Azure podporuje jak založené na zásadách, tak i směrování. | Centrum Azure Stack podporuje pouze směrování. |
 |  | Nastavení protokolu BGP | Azure podporuje konfiguraci partnerských adres protokolu BGP a váhy partnerského vztahu. | Adresa partnerského vztahu protokolu BGP a váha partnerského vztahu se automaticky konfigurují v Azure Stack hub. Neexistuje žádný způsob, jak by uživatel mohl konfigurovat tato nastavení s vlastními hodnotami. |
@@ -70,7 +70,7 @@ Tento článek obsahuje přehled jedinečných důležitých informací o sítí
 | CDN | Profily Content Delivery Network | Podporuje se | Zatím se nepodporuje. |
 | Application Gateway | Vyrovnávání zatížení vrstvy 7 | Podporuje se | Zatím se nepodporuje. |
 | Traffic Manager | Směrování příchozího provozu za účelem optimálního výkonu a spolehlivosti aplikací. | Podporuje se | Zatím se nepodporuje. |
-| ExpressRoute | Nastavte si rychlé privátní připojení ke cloudovým službám Microsoftu z vaší místní infrastruktury nebo zařízení v rámci umístění. | Podporuje se | Podpora připojení centra Azure Stack k okruhu Express Route. |
+| Express Route | Nastavte si rychlé privátní připojení ke cloudovým službám Microsoftu z vaší místní infrastruktury nebo zařízení v rámci umístění. | Podporuje se | Podpora připojení centra Azure Stack k okruhu Express Route. |
 
 ## <a name="api-versions"></a>Verze rozhraní API 
 

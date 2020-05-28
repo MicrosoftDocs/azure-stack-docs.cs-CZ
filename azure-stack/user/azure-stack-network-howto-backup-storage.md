@@ -3,16 +3,16 @@ title: Zálohování účtů úložiště v centru Azure Stack
 description: Přečtěte si, jak zálohovat účty úložiště v centru Azure Stack.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/19/2019
-ms.openlocfilehash: a945800e999ce825c11d5300d02baa58bbfba9b8
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 1af0a054c90369ba3f1e97d55dac7e5eec20ee43
+ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77703855"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84111961"
 ---
 # <a name="back-up-your-storage-accounts-on-azure-stack-hub"></a>Zálohování účtů úložiště v centru Azure Stack
 
@@ -117,7 +117,7 @@ Po nastavení Windows serveru budete muset nainstalovat [Azure Stack centrum Pow
 
 ## <a name="use-your-storage-account-in-a-disaster"></a>Použití účtu úložiště při havárii
 
-Každý účet úložiště centra Azure Stack má jedinečný název DNS odvozený od názvu samotné oblasti centra Azure Stack, například `https://krsource.blob.east.asicdc.com/`. Pokud je potřeba, aby se při havárii používal cílový účet, budou se aplikace zapisovat do a číst z tohoto názvu DNS, `https://krtarget.blob.west.asicdc.com/` aby se změnila Změna názvu DNS účtu úložiště.
+Každý účet úložiště centra Azure Stack má jedinečný název DNS odvozený od názvu samotné oblasti centra Azure Stack, například `https://krsource.blob.east.asicdc.com/` . Pokud je potřeba, aby se při havárii používal cílový účet, budou se aplikace zapisovat do a číst z tohoto názvu DNS, aby se změnila Změna názvu DNS účtu úložiště `https://krtarget.blob.west.asicdc.com/` .
 
 Připojovací řetězce aplikací lze upravit po havárii, která je deklarována pro přemístění objektů, nebo pokud se používá záznam CNAME před front-end zdrojového a cílového účtu úložiště pro vyrovnávání zatížení, může být Nástroj pro vyrovnávání zatížení nakonfigurován pomocí ručního algoritmu převzetí služeb při selhání, který umožní správci deklarovat cíl.
 

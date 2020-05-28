@@ -3,16 +3,16 @@ title: Nasazení virtuálního počítače centra Azure Stack pomocí hesla ulo�
 description: Naučte se, jak nasadit virtuální počítač pomocí hesla uloženého v trezoru klíčů centra Azure Stack.
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: 7c68c2b5ecc5a56449e67dd0ffa403b3363cfab9
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: f010700c86e4481063528bd1148d7898e8bd17fe
+ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77702886"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84111876"
 ---
 # <a name="deploy-an-azure-stack-hub-vm-using-a-password-stored-in-key-vault"></a>Nasazení virtuálního počítače centra Azure Stack pomocí hesla uloženého v Key Vault
 
@@ -42,7 +42,7 @@ Následující kroky popisují proces potřebný k vytvoření virtuálního po�
 
 ## <a name="create-a-key-vault-secret"></a>Vytvoření tajného klíče Key Vault
 
-Následující skript vytvoří Trezor klíčů a uloží heslo do trezoru klíčů jako tajný kód. Při vytváření `-EnabledForDeployment` trezoru klíčů použijte parametr. Tento parametr zajišťuje, že se Trezor klíčů může odkazovat z Azure Resource Manager šablon.
+Následující skript vytvoří Trezor klíčů a uloží heslo do trezoru klíčů jako tajný kód. `-EnabledForDeployment`Při vytváření trezoru klíčů použijte parametr. Tento parametr zajišťuje, že se Trezor klíčů může odkazovat z Azure Resource Manager šablon.
 
 ```powershell
 
@@ -70,7 +70,7 @@ Set-AzureKeyVaultSecret `
 
 ```
 
-Po spuštění předchozího skriptu obsahuje výstup identifikátor URI tajného kódu (Uniform Resource Identifier). Poznamenejte si tento identifikátor URI. Je nutné, abyste na něj odkazovali v rámci [nasazení virtuálního počítače s Windows pomocí hesla v šabloně trezoru klíčů](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-windows-create-passwordfromkv) . Stáhněte složku [101-VM-Secure-Password](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-windows-create-passwordfromkv) do vývojového počítače. Tato složka obsahuje soubory `azuredeploy.json` a `azuredeploy.parameters.json` , které budete potřebovat v dalších krocích.
+Po spuštění předchozího skriptu obsahuje výstup identifikátor URI tajného kódu (Uniform Resource Identifier). Poznamenejte si tento identifikátor URI. Je nutné, abyste na něj odkazovali v rámci [nasazení virtuálního počítače s Windows pomocí hesla v šabloně trezoru klíčů](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-windows-create-passwordfromkv) . Stáhněte složku [101-VM-Secure-Password](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-windows-create-passwordfromkv) do vývojového počítače. Tato složka obsahuje `azuredeploy.json` soubory a `azuredeploy.parameters.json` , které budete potřebovat v dalších krocích.
 
 Upravte `azuredeploy.parameters.json` soubor podle hodnot vašich prostředí. Parametry zvláštního zájmu jsou název trezoru, skupina prostředků trezoru a identifikátor URI tajného kódu (jak je vygenerován předchozí skript). Níže uvedený soubor je příkladem souboru parametrů.
 
