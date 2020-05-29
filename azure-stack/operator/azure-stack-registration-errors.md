@@ -7,12 +7,12 @@ ms.date: 05/01/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 06/27/2019
-ms.openlocfilehash: 4b193ada5c9a188b725ea88dc2d5f54905a5e537
-ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
+ms.openlocfilehash: d4cd7b00b00f4447f9ba9a8bc341452ae6464897
+ms.sourcegitcommit: 804f94f288859027b8249d138b14e8bc1501e009
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83375068"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84158329"
 ---
 # <a name="usage-and-billing-registration-error-codes"></a>Kódy chyb registrace využití a fakturace
 
@@ -23,7 +23,7 @@ Pokud jste poskytovatelem Cloud Solution Provider (CSP), můžou se při [Přid�
 | Chyba   | Podrobnosti  | Komentáře  |
 |---|---|---|
 | RegistrationNotFound | Poskytnutá registrace se nenašla. Ujistěte se, že byly správně poskytnuty následující informace:<br>1. identifikátor předplatného (zadaná hodnota: **identifikátor předplatného**),<br>2. skupina prostředků (zadaná hodnota: **Skupina prostředků**),<br>3. název registrace (zadaná hodnota: **název registrace**). | K této chybě obvykle dochází v případě, že informace ukazující na počáteční registraci nejsou správné. Pokud potřebujete ověřit skupinu prostředků a název registrace, najdete je v Azure Portal uvedením všech prostředků. Pokud najdete více než jeden registrační prostředek, podívejte se na **CloudDeploymentID** ve vlastnostech a vyberte registraci, jejíž **CloudDeploymentID** odpovídá vašemu cloudu. K vyhledání **CloudDeploymentID**můžete použít tento příkaz PowerShellu v centru Azure Stack:<br>`$azureStackStampInfo = Invoke-Command -Session $session -ScriptBlock { Get-AzureStackStampInformation }` |
-| BadCustomerSubscriptionId | Zadaný **identifikátor předplatného zákazníka** a identifikátor předplatného **názvu registrace** NEpatří stejnému zprostředkovateli CSP společnosti Microsoft. Ověřte správnost identifikátoru předplatného zákazníka. Pokud se problém opakuje, obraťte se na podporu. | K této chybě dochází v případě, že předplatné zákazníka je předplatným CSP, ale je jiné než partner CSP, který se liší od toho, k němuž se předplatné používané při prvotní registraci použijí. Tato kontrola se zabrání situaci, která by způsobila, že se bude účtovat partner CSP, který není zodpovědný za použití centra Azure Stack. |
+| BadCustomerSubscriptionId | Zadaný **identifikátor předplatného zákazníka** a identifikátor předplatného **názvu registrace** NEpatří stejnému zprostředkovateli CSP společnosti Microsoft. Ověřte správnost identifikátoru předplatného zákazníka. ID předplatného zákazníka rozlišuje velká a malá písmena. Pokud se problém opakuje, obraťte se na podporu. | K této chybě dochází v případě, že předplatné zákazníka je předplatným CSP, ale je jiné než partner CSP, který se liší od toho, k němuž se předplatné používané při prvotní registraci použijí. Tato kontrola se zabrání situaci, která by způsobila, že se bude účtovat partner CSP, který není zodpovědný za použití centra Azure Stack. |
 | InvalidCustomerSubscriptionId  | **Identifikátor předplatného zákazníka** není platný. Ujistěte se, že je k dispozici platné předplatné Azure. |   |
 | CustomerSubscriptionNotFound  | V **názvu registrace**se nenašel **identifikátor předplatného zákazníka** . Ujistěte se, že se používá platné předplatné Azure a že ID předplatného bylo přidáno k registraci pomocí operace PUT. | K této chybě dochází, když se pokusíte Verity, že se tenant přidal do předplatného, ale předplatné zákazníka se nezjistilo k registraci. Zákazník není přidaný k registraci nebo ID předplatného je nesprávně napsáno. |
 | UnauthorizedCspRegistration | Zadaný **název registrace** není schválený pro použití víceklientské architektury. Odešlete e-mail azstCSP@microsoft.com a zahrňte do něj název registrace, skupinu prostředků a identifikátor předplatného, který jste použili při registraci. | Aby bylo možné začít přidávat klienty do této služby, musí být registrace schválena pro více tenantů od Microsoftu. |

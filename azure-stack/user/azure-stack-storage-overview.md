@@ -3,15 +3,15 @@ title: Úvod do úložiště centra Azure Stack
 description: Přečtěte si o Azure Stack služby úložiště hub.
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: 69f47c34f55935d73ffb1349b8c90624d6311449
-ms.sourcegitcommit: 278aaeca069213a98b90751253f6b15423634849
+ms.openlocfilehash: d45b8069915ea920d6366daeefdfb53953301102
+ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82742371"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84146984"
 ---
 # <a name="introduction-to-azure-stack-hub-storage"></a>Úvod do úložiště centra Azure Stack
 
@@ -23,11 +23,11 @@ ms.locfileid: "82742371"
 
 Úložiště centra Azure Stack poskytuje následující tři služby:
 
-- **Úložiště objektů BLOB**
+- **Blob Storage**
 
     Úložiště objektů BLOB ukládá nestrukturovaná data objektů. Objekt BLOB může být libovolný typ textu nebo binárních dat, jako je dokument, soubor médií nebo instalační program aplikace.
 
-- **Table Storage**
+- **Úložiště tabulek**
 
     Tabulkové úložiště slouží k ukládání strukturovaných datových sad. Table Storage je úložiště dat NoSQL klíčového atributu, které umožňuje rychlý vývoj a rychlý přístup k velkým objemům dat.
 
@@ -66,7 +66,7 @@ Každý objekt blob se organizuje do kontejneru. Kontejnery také nabízejí pra
 
     Objekty blob stránky jsou optimalizované tak, aby představovaly disky IaaS a podporovaly náhodné zápisy o velikosti až 1 TB. IaaS disk, který je připojen k virtuálnímu počítači centra Azure Stack, je VHD uložený jako objekt blob stránky.
 
-### <a name="table-storage"></a>Table Storage
+### <a name="table-storage"></a>Úložiště Table
 
 Moderní aplikace často vyžadují úložiště dat s větší škálovatelností a flexibilitou než předchozí generace softwaru. Table Storage nabízí vysoce dostupné, široce škálovatelné úložiště, aby se vaše aplikace mohla automaticky škálovat tak, aby splňovala požadavky uživatelů. Table Storage je úložiště NoSQLch klíčů a atributů od Microsoftu – má návrh bez schématu, takže se liší od tradičních relačních databází. S úložištěm dat bez schématu je snadné přizpůsobit data podle potřeb vaší aplikace. Úložiště tabulek je snadno použitelné, takže vývojáři můžou rychle vytvářet aplikace.
 

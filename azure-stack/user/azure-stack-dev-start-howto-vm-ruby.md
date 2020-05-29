@@ -3,16 +3,16 @@ title: Nasazení aplikace v Ruby do virtuálního počítače v Azure Stackovém
 description: Nasaďte aplikaci Ruby do virtuálního počítače v Azure Stackovém centru.
 author: mattbriggs
 ms.topic: overview
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 2f4a9d31c1121387efc2310b25703344a85ea5ab
-ms.sourcegitcommit: 4138a2a15f78e7db38b3a29acc963a71937146fd
+ms.openlocfilehash: 58706a248036d38027208518177a89c69922591a
+ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "77704110"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84146831"
 ---
 # <a name="deploy-a-ruby-web-app-to-a-vm-in-azure-stack-hub"></a>Nasazení webové aplikace v Ruby do virtuálního počítače v Azure Stackovém centru
 
@@ -66,7 +66,7 @@ V tomto článku se používají webové rozhraní Ruby a Ruby na železnici.
     ```
 
     > [!Note]  
-    > Když instalujete závislosti Ruby na železnici, možná se budete muset opakovaně spouštět `sudo gem install bundler`. Pokud se instalace nezdařila, zkontrolujte protokoly chyb a vyřešte problémy.
+    > Když instalujete závislosti Ruby na železnici, možná se budete muset opakovaně spouštět `sudo gem install bundler` . Pokud se instalace nezdařila, zkontrolujte protokoly chyb a vyřešte problémy.
 
 4. Ověřte instalaci. I když jste stále připojeni k VIRTUÁLNÍmu počítači v relaci SSH, zadejte následující příkaz:
 

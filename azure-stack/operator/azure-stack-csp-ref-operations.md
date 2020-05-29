@@ -7,12 +7,12 @@ ms.date: 05/01/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/14/2019
-ms.openlocfilehash: b067428a9096855f38f8e1f33a601010dc27359c
-ms.sourcegitcommit: 278aaeca069213a98b90751253f6b15423634849
+ms.openlocfilehash: 89ef1d91ae2c6cb41a26bed04cb87abf33da1650
+ms.sourcegitcommit: 804f94f288859027b8249d138b14e8bc1501e009
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82742318"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84158363"
 ---
 # <a name="register-tenants-for-usage-tracking-in-azure-stack-hub"></a>Registrace tenantů pro sledování využití v centru Azure Stack
 
@@ -40,7 +40,7 @@ Další informace o centru Azure Stack a profilech rozhraní API najdete v téma
 | Parametr                  | Popis |
 |---                         | --- |
 | registrationSubscriptionID | Předplatné Azure, které se použilo pro prvotní registraci. |
-| customerSubscriptionID     | Předplatné Azure (ne Azure Stack centrum) patřící zákazníkovi, který se má zaregistrovat Musí se vytvořit v nabídce zprostředkovatel Cloud Solution Provider (CSP) prostřednictvím partnerského centra. Pokud má zákazník více než jednoho tenanta, vytvořte si předplatné pro tenanta, abyste se přihlásili ke službě Azure Stack hub. |
+| customerSubscriptionID     | Předplatné Azure (ne Azure Stack centrum) patřící zákazníkovi, který se má zaregistrovat Musí se vytvořit v nabídce zprostředkovatel Cloud Solution Provider (CSP) prostřednictvím partnerského centra. Pokud má zákazník více než jednoho tenanta, vytvořte si předplatné pro tenanta, abyste se přihlásili ke službě Azure Stack hub. ID předplatného zákazníka rozlišuje velká a malá písmena. |
 | resourceGroup              | Skupina prostředků v Azure, ve které je uložená vaše registrace. |
 | registrace           | Název registrace centra Azure Stack. Je to objekt uložený v Azure. Název je obvykle ve tvaru **azurestack-CloudID**, kde **CloudID** je ID cloudu vašeho nasazení centra Azure Stack. |
 
@@ -124,7 +124,7 @@ Můžete odebrat klienta, který byl přidán k registraci. Pokud tento tenant s
 | registrationSubscriptionId | ID předplatného pro registraci.   |
 | resourceGroup              | Skupina prostředků pro registraci.   |
 | registrace           | Název registrace.  |
-| customerSubscriptionId     | ID předplatného zákazníka.  |
+| customerSubscriptionId     | ID předplatného zákazníka. ID předplatného zákazníka rozlišuje velká a malá písmena.  |
 
 ### <a name="powershell"></a>PowerShell
 

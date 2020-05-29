@@ -3,16 +3,16 @@ title: Nasazení aplikace Java WAR na virtuální počítač v Azure Stackovém 
 description: Nasaďte Java WAR do virtuálního počítače v Azure Stackovém centru.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 05/05/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 05/05/2020
-ms.openlocfilehash: f252a369588dcf224a1eb7d965a7ff99381e13a6
-ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
+ms.openlocfilehash: 1a7915743314481630dc489f733b3123ae2fafe8
+ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82836202"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84147001"
 ---
 # <a name="deploy-a-java-web-app-to-a-vm-in-azure-stack-hub"></a>Nasazení webové aplikace v jazyce Java do virtuálního počítače v Azure Stackovém centru
 
@@ -188,13 +188,13 @@ Můžete vytvořit virtuální počítač, který bude hostovat vaši webovou ap
 
 1. Pokud chcete umožnění přístupu k rozhraní webové správy, nakonfigurujte server Tomcat. 
 
-   a. Upravte soubor *Tomcat-Users. XML* a definujte roli a uživatele, abyste se mohli přihlásit. Zadejte uživatele pro přístup k `manager-gui` a. `admin-gui`
+   a. Upravte soubor *Tomcat-Users. XML* a definujte roli a uživatele, abyste se mohli přihlásit. Zadejte uživatele pro přístup k `manager-gui` a `admin-gui` .
 
     ```bash  
         sudo nano /opt/tomcat/conf/tomcat-users.xml
     ```
 
-   b. Do `<tomcat-users>` oddílu přidejte následující prvky:
+   b. Do oddílu přidejte následující prvky `<tomcat-users>` :
 
     ```XML  
         <role rolename="tomcat"/>

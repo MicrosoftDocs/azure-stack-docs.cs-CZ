@@ -3,16 +3,16 @@ title: Použití uživatelského portálu Azure Stack hub
 description: Naučte se, jak získat přístup k portálu User Portal a používat ho v centru Azure Stack.
 author: mattbriggs
 ms.topic: article
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: efemmano
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: c5f3a357295647f557e0b4ef9819aa1781779434
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: f60094812a5bc0b27a05ec7e66ac7bf65d747d76
+ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77705300"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84147018"
 ---
 # <a name="use-the-azure-stack-hub-user-portal"></a>Použití uživatelského portálu Azure Stack hub
 
@@ -22,8 +22,8 @@ Pomocí portálu Azure Stack hub se přihlaste k odběru veřejných nabídek a 
 
 Váš operátor centra Azure Stack (ve vaší organizaci buď poskytovatel služeb nebo správce), vám umožní znát správnou adresu URL pro přístup k portálu.
 
-- V případě integrovaného systému se adresa URL liší v závislosti na oblasti vašeho operátoru a na externím názvu domény a bude ve formátu https://portal.&lt. *oblast*&gt;. &lt; *Plně kvalifikovaný název domény*&gt;.
-- Pokud používáte Azure Stack Development Kit (ASDK), adresa portálu je https://portal.local.azurestack.external.
+- V případě integrovaného systému se adresa URL liší v závislosti na oblasti vašeho operátoru a na externím názvu domény a bude ve formátu https://portal.&lt .* oblast* &gt; . &lt; *Plně kvalifikovaný název domény* &gt; .
+- Pokud používáte Azure Stack Development Kit (ASDK), adresa portálu je https://portal.local.azurestack.external .
 - Výchozí časové pásmo pro všechna nasazení centra Azure Stack je nastavené na koordinovaný světový čas (UTC). Při instalaci Azure Stackového centra můžete vybrat časové pásmo, ale při instalaci se automaticky obnoví na standard UTC.
 
 ## <a name="customize-the-dashboard"></a>Přizpůsobit řídicí panel
@@ -61,7 +61,7 @@ Pokud potřebujete Rady, jak používat dostupné služby, můžou vám být k d
 
       Dokumentaci k Azure můžete použít jako obecné referenční informace ke službě, ale musíte si být vědomi těchto rozdílů. Projistěte, aby se v dokumentaci na dlaždici úvodních **kurzů** v dokumentaci k Azure seznámila.
 
-## <a name="get-support"></a>Získání podpory
+## <a name="get-support"></a>Získat podporu
 
 Pokud potřebujete podporu, požádejte o pomoc svoji organizaci nebo poskytovatele služeb.
 

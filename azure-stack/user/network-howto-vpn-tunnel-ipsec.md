@@ -3,16 +3,16 @@ title: Postup vytvoření tunelu VPN pomocí protokolu IPSEC v centru Azure Stac
 description: Naučte se vytvořit tunel VPN pomocí protokolu IPSEC v centru Azure Stack.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: 37083997e7b204002bf9451e8cfd72018e981fa1
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 4a4a284b1f4e02399a8030e0338b83ccf44ae1fe
+ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77636263"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84146627"
 ---
 # <a name="how-to-create-a-vpn-tunnel-using-ipsec--in-azure-stack-hub"></a>Postup vytvoření tunelu VPN pomocí protokolu IPSEC v centru Azure Stack
 
@@ -43,7 +43,7 @@ Toto řešení je základem, který umožní vytvořit tunelové propojení VPN 
 - Tato šablona používá virtuální počítač DS3v2.  Služba RRAS nainstaluje a spustí interní SQL Server systému Windows.  To může způsobit problémy s pamětí, pokud je velikost virtuálního počítače příliš malá.  Než zmenšíte velikost virtuálního počítače, ověřte výkon.
 - Toto řešení není vysoce dostupné.  Pokud potřebujete řešení s více HA, můžete přidat druhý virtuální počítač. je třeba ručně změnit trasu v tabulce směrování na interní IP adresu sekundárního rozhraní.  Je také potřeba nakonfigurovat více tunelů pro vzájemné propojení.
 
-## <a name="optional"></a>Nepovinné
+## <a name="optional"></a>Volitelné
 
 - Pomocí parametrů _artifactsLocation a _artifactsLocationSasToken můžete použít vlastní účet úložiště objektů BLOB a token SAS.
 - Existují dva výstupy v této šabloně INTERNALSUBNETREFVNET1 a INTERNALSUBNETREFVNET2, což jsou ID prostředků pro interní podsítě, pokud je chcete použít ve vzoru nasazení stylu kanálu.

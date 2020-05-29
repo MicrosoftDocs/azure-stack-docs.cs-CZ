@@ -7,12 +7,12 @@ ms.date: 04/28/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/28/2020
-ms.openlocfilehash: 8c68e7dd4aa40d448e76050e4c657ee4cea9763b
-ms.sourcegitcommit: 54f98b666bea9226c78f26dc255ddbdda539565f
+ms.openlocfilehash: ff1a4f255f81c10c29c87320bdb71fcbaf9b234b
+ms.sourcegitcommit: 804f94f288859027b8249d138b14e8bc1501e009
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82556405"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84158346"
 ---
 # <a name="use-the-privileged-endpoint-in-azure-stack-hub"></a>Použití privilegovaného koncového bodu v centru Azure Stack
 
@@ -35,9 +35,9 @@ K PEP přistupujete prostřednictvím vzdálené relace PowerShellu na virtuáln
 
 Než zahájíte tento postup pro integrovaný systém, ujistěte se, že máte přístup k PEP buď podle IP adresy, nebo prostřednictvím DNS. Po počátečním nasazení centra Azure Stack můžete k PEP přistupovat jenom pomocí IP adresy, protože integrace DNS zatím není nastavená. Dodavatel hardwaru OEM vám poskytne soubor JSON s názvem **AzureStackStampDeploymentInfo** , který obsahuje IP adresy PEP.
 
-IP adresu můžete najít také na portálu pro správu centra Azure Stack. Otevřete portál, například `https://adminportal.local.azurestack.external`. Vyberte > **vlastnosti** **správy oblastí**.
+IP adresu můžete najít také na portálu pro správu centra Azure Stack. Otevřete portál, například `https://adminportal.local.azurestack.external` . Vyberte **Vlastnosti správy oblastí**  >  **Properties**.
 
-`en-US` Při spuštění privilegovaného koncového bodu budete potřebovat nastavit aktuální nastavení jazykové verze, jinak rutiny jako test-AzureStack nebo Get-AzureStackLog nebudou fungovat podle očekávání.
+`en-US`Při spuštění privilegovaného koncového bodu budete potřebovat nastavit aktuální nastavení jazykové verze, jinak rutiny jako test-AzureStack nebo Get-AzureStackLog nebudou fungovat podle očekávání.
 
 > [!NOTE]
 > Z bezpečnostních důvodů vyžadujeme, abyste se připojili ke službě PEP jenom z posíleného virtuálního počítače, který běží na hostiteli životního cyklu hardwaru, nebo z vyhrazeného a zabezpečeného počítače, jako je například [pracovní stanice privilegovaného přístupu](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations). Původní konfigurace hostitele životního cyklu hardwaru nesmí být upravena z původní konfigurace (včetně instalace nového softwaru) nebo používaná pro připojení k PEP.
@@ -63,7 +63,7 @@ IP adresu můžete najít také na portálu pro správu centra Azure Stack. Otev
     Enter-PSSession $pep
     ```
     
-    `ComputerName` Parametr může být buď IP adresa, nebo název DNS jednoho z virtuálních počítačů, které hostují PEP.
+    `ComputerName`Parametr může být buď IP adresa, nebo název DNS jednoho z virtuálních počítačů, které hostují PEP.
 
     > [!NOTE]  
     >Azure Stack centrum neprovádí vzdálené volání při ověřování přihlašovacích údajů PEP. K tomu se spoléhá na místně uložený veřejný klíč RSA.
@@ -79,14 +79,16 @@ IP adresu můžete najít také na portálu pro správu centra Azure Stack. Otev
     
    - Po zobrazení výzvy použijte následující přihlašovací údaje:
    
-       - **Uživatelské jméno**: zadejte účet CloudAdmin ve formátu ** &lt; *Azure Stack centrum doména*&gt;\cloudadmin**. (Pro ASDK se uživatelské jméno **azurestack\cloudadmin**.)
+       - **Uživatelské jméno**: zadejte účet CloudAdmin ve formátu ** &lt; *Azure Stack centrum doména* &gt; \cloudadmin**. (Pro ASDK se uživatelské jméno **azurestack\cloudadmin**.)
   
         - **Heslo**: zadejte stejné heslo, které bylo zadáno během instalace pro účet správce domény AzureStackAdmin.
 
       > [!NOTE]
       > Pokud se nemůžete připojit ke koncovému bodu ERCS, opakujte kroky jedna a dvě s jinou IP adresou virtuálního počítače ERCS.
 
-3. Po připojení se výzva změní na **[*IP adresa nebo název virtuálního počítače ERCS*]: PS>** nebo na **[AZS-ercs01]: PS>**, v závislosti na prostředí. Z tohoto místa spusťte `Get-Command` příkaz pro zobrazení seznamu dostupných rutin.
+3. Po připojení se výzva změní na **[*IP adresa nebo název virtuálního počítače ERCS*]: PS>** nebo na **[AZS-ercs01]: PS>**, v závislosti na prostředí. Z tohoto místa spusťte příkaz `Get-Command` pro zobrazení seznamu dostupných rutin.
+
+    Odkaz na rutiny najdete v [referenčních informacích o privilegovaném koncovém bodu Azure Stack hub](../reference/pep-2002/index.md) .
 
    Mnohé z těchto rutin jsou určené jenom pro integrovaná systémová prostředí (například rutiny související s integrací Datacenter). V ASDK byly ověřeny následující rutiny:
 
@@ -144,7 +146,7 @@ Pokud chcete importovat relaci PEP na místním počítači, proveďte následuj
           -ConfigurationName PrivilegedEndpoint -Credential $cred
       ```
     
-      `ComputerName` Parametr může být buď IP adresa, nebo název DNS jednoho z virtuálních počítačů, které hostují PEP.
+      `ComputerName`Parametr může být buď IP adresa, nebo název DNS jednoho z virtuálních počítačů, které hostují PEP.
 
     - Pokud používáte ASDK:
      
@@ -157,7 +159,7 @@ Pokud chcete importovat relaci PEP na místním počítači, proveďte následuj
 
      Po zobrazení výzvy použijte následující přihlašovací údaje:
 
-     - **Uživatelské jméno**: zadejte účet CloudAdmin ve formátu ** &lt; *Azure Stack centrum doména*&gt;\cloudadmin**. (Pro ASDK se uživatelské jméno **azurestack\cloudadmin**.)
+     - **Uživatelské jméno**: zadejte účet CloudAdmin ve formátu ** &lt; *Azure Stack centrum doména* &gt; \cloudadmin**. (Pro ASDK se uživatelské jméno **azurestack\cloudadmin**.)
      - **Heslo**: zadejte stejné heslo, které bylo zadáno během instalace pro účet správce domény AzureStackAdmin.
 
 3. Importujte relaci PEP do místního počítače:
@@ -183,7 +185,7 @@ Ukončení relace koncového bodu:
 
    Rutina používá parametry v následující tabulce:
 
-   | Parametr | Popis | Typ | Požaduje se |
+   | Parametr | Popis | Typ | Vyžadováno |
    |---------|---------|---------|---------|
    | *TranscriptsPathDestination* | Cesta k externímu sdílení souborů definovaná jako "fileshareIP\sharefoldername" | Řetězec | Ano|
    | *Přihlašovací údaj* | Přihlašovací údaje pro přístup ke sdílené složce souborů | SecureString |   Ano |
@@ -192,7 +194,7 @@ Ukončení relace koncového bodu:
 Po úspěšném přenosu souborů protokolu přepisu do sdílené složky se automaticky odstraní z PEP. 
 
 > [!NOTE]
-> Pokud zavřete relaci PEP pomocí rutin `Exit-PSSession` nebo `Exit`nebo pouze zavřete konzolu PowerShellu, protokoly přepisu se nepřenášejí do sdílené složky. Zůstávají v PEP. Při příštím spuštění `Close-PrivilegedEndpoint` a zahrnutí sdílené složky se také přenesou protokoly přepisu z předchozích relací. Nepoužívejte `Exit-PSSession` nebo `Exit` k zavření relace PEP; místo `Close-PrivilegedEndpoint` toho použijte.
+> Pokud zavřete relaci PEP pomocí rutin `Exit-PSSession` nebo `Exit` nebo pouze zavřete konzolu PowerShellu, protokoly přepisu se nepřenášejí do sdílené složky. Zůstávají v PEP. Při příštím spuštění `Close-PrivilegedEndpoint` a zahrnutí sdílené složky se také přenesou protokoly přepisu z předchozích relací. Nepoužívejte `Exit-PSSession` nebo `Exit` k ukončení relace PEP použijte `Close-PrivilegedEndpoint` místo toho.
 
 
 ## <a name="next-steps"></a>Další kroky

@@ -3,16 +3,16 @@ title: Jak používat veřejný klíč SSH s Azure Stack hub
 description: Jak používat veřejný klíč SSH
 author: mattbriggs
 ms.topic: overview
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 5f65b0ff096fbf84b140406b7cb98fdbdf5b0b11
-ms.sourcegitcommit: 4138a2a15f78e7db38b3a29acc963a71937146fd
+ms.openlocfilehash: 1b5a83d8fa6626233acc3abbde69494310cbd06e
+ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "79294151"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84146916"
 ---
 # <a name="use-an-ssh-public-key"></a>Použití veřejného klíče SSH
 
@@ -77,13 +77,13 @@ Než se připojíte, budete potřebovat:
 
     ![Podokno Konfigurace výstupu](media/azure-stack-dev-start-howto-ssh-public-key/002-putty-connect.png)
 
-2. Do pole **název hostitele (nebo IP adresa)** zadejte uživatelské jméno a veřejnou IP adresu počítače (například **username@192.XXX.XXX.XX**). 
+2. Do pole **název hostitele (nebo IP adresa)** zadejte uživatelské jméno a veřejnou IP adresu počítače (například **username@192.XXX.XXX.XX** ). 
 3. Ověřte, zda **Port** je port **22** a zda je **Typ připojení** **SSH**.
 4. Ve stromové struktuře **kategorie** rozbalte položku **SSH** a **auth**.
 
     ![Konfigurační podokno pro výstupy do výstupu – privátní klíč SSH](media/azure-stack-dev-start-howto-ssh-public-key/002-putty-set-private-key.png)
 
-5. Vedle pole **soubor privátního klíče pro ověřování** vyberte **Procházet**a vyhledejte soubor privátního klíče (*\<filename>. ppk*) vaší dvojice veřejného a privátního klíče.
+5. Vedle pole **soubor privátního klíče pro ověřování** vyberte **Procházet**a vyhledejte soubor privátního klíče (* \<filename> . ppk*) vašeho páru veřejného a privátního klíče.
 6. Ve stromové struktuře **kategorie** vyberte možnost **relace**.
 
     ![Pole "uložené relace" v podokně Konfigurace výstupu](media/azure-stack-dev-start-howto-ssh-public-key/003-puTTY-save-session.png)
@@ -100,7 +100,7 @@ Chcete-li přesunout soubory do a z počítače se systémem Linux, můžete pou
 
 1. [Stáhněte a nainstalujte FileZilly](https://filezilla-project.org/download.php).
 1. Otevřete FileZilly.
-1. Vyberte **soubor** > **Site Manager**.
+1. Vyberte **soubor**  >  **Site Manager**.
 
     ![Podokno Site Manager FileZilly](media/azure-stack-dev-start-howto-ssh-public-key/005-filezilla-file-manager.png)
 
@@ -109,18 +109,18 @@ Chcete-li přesunout soubory do a z počítače se systémem Linux, můžete pou
 1. V poli **typ přihlášení** vyberte **normální**.
 1. Zadejte uživatelské jméno a heslo.
 1. Vyberte **OK**.
-1. Vyberte **Upravit** > **Nastavení**.
+1. Vyberte **Upravit**  >  **Nastavení**.
 
     ![Podokno nastavení FileZilly](media/azure-stack-dev-start-howto-ssh-public-key/006-filezilla-add-private-key.png)
 
 1. Ve stromu pro **Výběr stránky** rozbalte položku **připojení**a pak vyberte **SFTP**.
-1. Vyberte **Přidat soubor klíče**a potom zadejte soubor privátního klíče (například * \<filename>. ppk*).
+1. Vyberte **Přidat soubor klíče**a pak zadejte svůj soubor privátního klíče (například * \<filename> . ppk*).
 1. Vyberte **OK**.
 
 ### <a name="open-your-connection"></a>Otevřete připojení
 
 1. Otevřete FileZilly.
-1. Vyberte **soubor** > **Site Manager**.
+1. Vyberte **soubor**  >  **Site Manager**.
 1. Vyberte název vaší lokality a pak vyberte **připojit**.
 
 ## <a name="next-steps"></a>Další kroky

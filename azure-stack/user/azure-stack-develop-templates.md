@@ -3,16 +3,16 @@ title: Vývoj šablon pro centrum Azure Stack
 description: Naučte se vyvíjet šablony Azure Resource Manager pro přenositelnost aplikací mezi Azure a centrum Azure Stack.
 author: mattbriggs
 ms.topic: article
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: unknown
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: ce9ee8a982ade764947af3c6e2fb2f880cefc217
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: dd43abbf1194aa4aaa3ca1cc75a3e2ff6262bbbc
+ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77702971"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84146746"
 ---
 # <a name="develop-templates-for-azure-stack-hub-with-azure-resource-manager"></a>Vývoj šablon pro centra Azure Stack s využitím Azure Resource Manager
 
@@ -24,7 +24,7 @@ Při vývoji aplikace je důležité mít přenositelnost šablon mezi Azure a A
 
 ## <a name="public-namespaces"></a>Veřejné obory názvů
 
-Vzhledem k tomu, že je centrum Azure Stack hostované ve vašem datovém centru, má jiné obory názvů koncového bodu služby než veřejný cloud Azure. V důsledku toho pevně zakódované veřejné koncové body v šablonách Azure Resource Manager selžou při pokusu o jejich nasazení do centra Azure Stack. Koncovým bodům služby můžete dynamicky sestavovat pomocí funkcí `reference` a `concatenate` k načtení hodnot od poskytovatele prostředků během nasazování. Například místo hardwarového kódování `blob.core.windows.net` ve vaší šabloně načtěte [objekt primaryEndpoints. blob](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-vm-windows-create/azuredeploy.json#L175) k dynamickému nastavení koncového bodu *osDisk. URI* :
+Vzhledem k tomu, že je centrum Azure Stack hostované ve vašem datovém centru, má jiné obory názvů koncového bodu služby než veřejný cloud Azure. V důsledku toho pevně zakódované veřejné koncové body v šablonách Azure Resource Manager selžou při pokusu o jejich nasazení do centra Azure Stack. Koncovým bodům služby můžete dynamicky sestavovat pomocí `reference` `concatenate` funkcí a k načtení hodnot od poskytovatele prostředků během nasazování. Například místo hardwarového kódování `blob.core.windows.net` ve vaší šabloně načtěte [objekt primaryEndpoints. blob](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-vm-windows-create/azuredeploy.json#L175) k dynamickému nastavení koncového bodu *osDisk. URI* :
 
 ```json
 "osDisk": {"name": "osdisk","vhd": {"uri":
@@ -54,7 +54,7 @@ Verze služeb Azure se můžou v centru Azure a Azure Stack lišit. Každý pros
 
 Tyto funkce nejsou k dispozici v centru Azure Stack:
 
-* Skip
+* Přeskočit
 * Take
 
 ## <a name="resource-location"></a>Umístění prostředku

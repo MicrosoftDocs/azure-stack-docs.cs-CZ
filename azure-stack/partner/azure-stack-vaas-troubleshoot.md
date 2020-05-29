@@ -9,12 +9,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1bcca404c451190ccf1d0b82e93aea655e069044
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 310a8a8d958428af2ce29f6c465a788e64870b8e
+ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81661392"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84146967"
 ---
 # <a name="troubleshoot-validation-as-a-service"></a>Řešení potíží s ověřováním jako službou
 
@@ -40,17 +40,26 @@ Pokud je proces agenta nekorektně vypnutý, bude se test, který na něm běže
 
 ## <a name="vm-images"></a>Image virtuálních počítačů
 
+### <a name="failure-occurs-when-uploading-vm-image-in-the-vaasprereq-script"></a>K selhání dojde při nahrávání image virtuálního počítače ve `VaaSPreReq` skriptu.
+Informace o **pomalém připojení k síti**najdete v části níže. Nabízí ruční kroky pro nahrání imagí virtuálních počítačů do Azure Stack razítkem.
+
 ### <a name="handle-slow-network-connectivity"></a>Zpracování pomalého připojení k síti
 
-Image PIR si můžete stáhnout do sdílené složky v místním datovém centru. A potom můžete image kontrolovat.
+#### <a name="1-verify-that-the-environment-is-healthy"></a>1. Ověřte, jestli je prostředí v pořádku.
+
+1. V poli DVM/skočit ověřte, že se můžete úspěšně přihlásit k portálu pro správu pomocí přihlašovacích údajů správce.
+
+2. Potvrďte, že nejsou k dispozici žádná upozornění nebo upozornění.
+
+3. Pokud je prostředí v pořádku, ručně nahrajte image virtuálních počítačů požadované pro testovací běhy VaaS, a to podle kroků v níže uvedené části.
 
 <!-- This is from the appendix to the Deploy local agent topic. -->
 
-#### <a name="download-pir-image-to-local-share-in-case-of-slow-network-traffic"></a>Stáhnout image PIR do místního sdílení v případě pomalého síťového provozu
+#### <a name="2-download-pir-image-to-local-share-in-case-of-slow-network-traffic"></a>2. Stáhněte si image PIR do místního sdílení v případě pomalého síťového provozu.
 
 1. Stáhněte si AzCopy z: [vaasexternaldependencies (AzCopy)](https://vaasexternaldependencies.blob.core.windows.net/prereqcomponents/AzCopy.zip).
 
-2. Extrahujte soubor AzCopy. zip a přejděte do adresáře `AzCopy.exe`obsahujícího.
+2. Extrahujte soubor AzCopy. zip a přejděte do adresáře obsahujícího `AzCopy.exe` .
 
 3. Otevřete Windows PowerShell z příkazového řádku se zvýšenými oprávněními. Spusťte následující příkazy:
 
@@ -67,7 +76,7 @@ Image PIR si můžete stáhnout do sdílené složky v místním datovém centru
 > [!Note]  
 > LocalFileShare je cesta ke sdílené složce nebo místní cesta.
 
-#### <a name="verifying-pir-image-file-hash-value"></a>Ověřuje se hodnota hash souboru obrázku PIR.
+#### <a name="3-verifying-pir-image-file-hash-value"></a>3. ověřování hodnoty hash souboru obrázku PIR
 
 Pomocí rutiny **Get-HashFile** můžete získat hodnotu hash pro stažené soubory imagí úložiště veřejných imagí a ověřit integritu imagí.
 
@@ -81,45 +90,54 @@ Pomocí rutiny **Get-HashFile** můžete získat hodnotu hash pro stažené soub
 | OpenLogic-CentOS-69-20180105. VHD | C8B874FE042E33B488110D9311AF1A5C7DC3B08E6796610BF18FDD6728C7913C |
 | Debian8_latest. VHD | 06F8C11531E195D0C90FC01DFF5DC396BB1DD73A54F8252291ED366CACD996C1 |
 
-### <a name="failure-happens-when-uploading-vm-image-in-the-vaasprereq-script"></a>K selhání dojde při nahrávání image virtuálního počítače `VaaSPreReq` ve skriptu.
+#### <a name="4-upload-vm-images-to-a-storage-account"></a>4. nahrání imagí virtuálních počítačů do účtu úložiště
 
-Nejdřív ověřte, že je prostředí v pořádku:
+1. Použijte existující účet úložiště nebo vytvořte nový účet úložiště v Azure.
 
-1. V poli DVM/skočit ověřte, že se můžete úspěšně přihlásit k portálu správce pomocí přihlašovacích údajů správce.
-1. Potvrďte, že nejsou k dispozici žádná upozornění nebo upozornění.
+2. Vytvořte kontejner, do kterého se mají nahrát obrázky.
 
-Pokud je prostředí v pořádku, ručně nahrajte pět imagí virtuálních počítačů potřebných pro testovací běhy VaaS:
+3. Pomocí nástroje AzCopy nahrajte image virtuálních počítačů z [*LocalFileShare*] výše (místo, kam jste stáhli image virtuálních počítačů do) do kontejneru, který jste právě vytvořili.
+    > [!IMPORTANT]
+    > Změňte úroveň veřejného přístupu kontejneru na BLOB (anonymní přístup pro čtení jenom pro objekty BLOB).
 
-1. Přihlaste se jako správce služby na portál správce. Adresu URL portálu pro správu najdete na webu EHK Store nebo v souboru s informacemi o razítku. Pokyny najdete v tématu [parametry prostředí](azure-stack-vaas-parameters.md#environment-parameters).
-1. Vyberte **Další služby** > **poskytovatelé** > prostředků**výpočetních** > **imagí virtuálních počítačů**.
-1. V horní části okna **image virtuálních počítačů** vyberte tlačítko **+ Přidat** .
-1. Upravte nebo ověřte hodnoty následujících polí pro první bitovou kopii virtuálního počítače:
+#### <a name="5-upload-vm-images-to-azure-stack-environment"></a>5. nahrání imagí virtuálních počítačů do prostředí Azure Stack
+
+1. Přihlaste se jako správce služby na portál pro správu. Adresu URL portálu pro správu najdete na webu EHK Store nebo v souboru s informacemi o razítku. Pokyny najdete v tématu [parametry prostředí](azure-stack-vaas-parameters.md#environment-parameters).
+
+2. Vyberte **Další služby**  >  **poskytovatelé prostředků**  >  **výpočetních**  >  **imagí virtuálních počítačů**.
+
+3. V horní části okna **image virtuálních počítačů** vyberte tlačítko **+ Přidat** .
+
+4. Upravte nebo ověřte hodnoty následujících polí pro první bitovou kopii virtuálního počítače:
+
     > [!IMPORTANT]
     > Ne všechny výchozí hodnoty jsou správné pro existující položku Marketplace.
 
     | Pole  | Hodnota  |
     |---------|---------|
-    | Vydavatel | MicrosoftWindowsServer |
+    | Publisher | MicrosoftWindowsServer |
     | Nabídka | WindowsServer |
     | OS Type | Windows |
-    | Skladová jednotka (SKU) | 2012-R2-Datacenter |
+    | SKU | 2012-R2-Datacenter |
     | Verze | 1.0.0 |
-    | Identifikátor URI objektu BLOB disku s operačním systémem | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/WindowsServer2012R2DatacenterBYOL.vhd |
+    | Identifikátor URI objektu BLOB disku s operačním systémem | https://<*Your storage account* >/< *název kontejneru* účtu úložiště>/windowsserver2012r2datacenterbyol.VHD |
 
-1. Vyberte tlačítko **Vytvořit**.
-1. Opakujte pro zbývající image virtuálních počítačů.
 
-Vlastnosti všech pěti imagí virtuálních počítačů jsou následující:
+5. Vyberte tlačítko **Vytvořit**.
 
-| Vydavatel  | Nabídka  | OS Type | Skladová jednotka (SKU) | Verze | Identifikátor URI objektu BLOB disku s operačním systémem |
+6. Opakujte pro zbývající image virtuálních počítačů.
+
+Vlastnosti všech požadovaných imagí virtuálních počítačů jsou následující:
+
+| Publisher  | Nabídka  | OS Type | SKU | Verze | Identifikátor URI objektu BLOB disku s operačním systémem |
 |---------|---------|---------|---------|---------|---------|
-| MicrosoftWindowsServer| WindowsServer | Windows | 2012-R2-Datacenter | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/WindowsServer2012R2DatacenterBYOL.vhd |
-| MicrosoftWindowsServer | WindowsServer | Windows | 2016 – Datacenter | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Server2016DatacenterFullBYOL.vhd |
-| MicrosoftWindowsServer | WindowsServer | Windows | 2016 – Datacenter – Server – jádro | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Server2016DatacenterCoreBYOL.vhd |
-| Canonical | UbuntuServer | Linux | 14.04.3 – LTS | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Ubuntu1404LTS.vhd |
-| Canonical | UbuntuServer | Linux | 16.04-LTS | 16.04.20170811 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Ubuntu1604-20170619.1.vhd |
-| OpenLogic | CentOS | Linux | 6.9 | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/OpenLogic-CentOS-69-20180105.vhd |
-| credativ | Debian | Linux | 8 | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Debian8_latest.vhd |
+| MicrosoftWindowsServer| WindowsServer | Windows | 2012-R2-Datacenter | 1.0.0 | https://[*účet úložiště*]/[*název kontejneru*]/WindowsServer2012R2DatacenterBYOL.VHD |
+| MicrosoftWindowsServer | WindowsServer | Windows | 2016 – Datacenter | 1.0.0 | https://[*účet úložiště*]/[*název kontejneru*]/Server2016DatacenterFullBYOL.VHD |
+| MicrosoftWindowsServer | WindowsServer | Windows | 2016 – Datacenter – Server – jádro | 1.0.0 | https://[*účet úložiště*]/[*název kontejneru*]/Server2016DatacenterCoreBYOL.VHD |
+| Canonical | UbuntuServer | Linux | 14.04.3 – LTS | 1.0.0 | https://[*účet úložiště*]/[*název kontejneru*]/Ubuntu1404LTS.VHD |
+| Canonical | UbuntuServer | Linux | 16.04-LTS | 16.04.20170811 | https://[*účet úložiště*]/[*název kontejneru*]/Ubuntu1604-20170619.1.VHD |
+| OpenLogic | CentOS | Linux | 6.9 | 1.0.0 | https://[*účet úložiště*]/[*název kontejneru*]/OpenLogic-CentOS-69-20180105.VHD |
+| Credativ | Debian | Linux | 8 | 1.0.0 | https://[*účet úložiště*]/[*název kontejneru*]/Debian8_latest. VHD |
 
 ## <a name="next-steps"></a>Další kroky
 

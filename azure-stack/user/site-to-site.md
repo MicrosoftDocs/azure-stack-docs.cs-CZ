@@ -7,12 +7,12 @@ ms.date: 05/12/2020
 ms.topic: article
 ms.reviewer: sranthar
 ms.lastreviewed: 05/12/2020
-ms.openlocfilehash: 5277e908fa9f3c5d8fbcebf28b4d766045d03187
-ms.sourcegitcommit: 999c6cd0ab64cd2d695feb8405a9c720c9ae755b
+ms.openlocfilehash: 773c8a0758d00ece537b6d80b0e0735655adb275
+ms.sourcegitcommit: 804f94f288859027b8249d138b14e8bc1501e009
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83342901"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84158397"
 ---
 # <a name="troubleshoot-site-to-site-vpn-connections"></a>Řešení potíží s připojením VPN typu Site-to-site
 
@@ -32,6 +32,8 @@ Výchozí parametry centra Azure Stack pro protokol IPsec/IKEV2 se [od verze 191
 - Ověřte, že je konfigurace sítě VPN založená na směrování (IKEv2). Centrum Azure Stack nepodporuje konfigurace založené na zásadách (IKEv1).
 
 - Ověřte, zda používáte [ověřené zařízení VPN a verzi operačního systému](/azure/vpn-gateway/vpn-gateway-about-vpn-devices#devicetable). Pokud se nejedná o ověřené zařízení VPN, možná budete muset kontaktovat výrobce zařízení a zjistit, jestli došlo k potížím s kompatibilitou.
+
+- Ověřte, že mezi virtuální sítí centra Azure Stack a místní sítí nejsou žádné překrývající se rozsahy IP adres. To může způsobit problémy s směrováním. 
 
 - Ověřte IP adresy partnerského uzlu sítě VPN:
 

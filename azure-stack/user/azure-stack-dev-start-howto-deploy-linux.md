@@ -3,16 +3,16 @@ title: Nasazení virtuálního počítače se systémem Linux do centra Azure St
 description: Nasaďte aplikaci do centra Azure Stack.
 author: mattbriggs
 ms.topic: overview
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 63fffbf1a9dcc5048286f93b18b20eb72174b8cd
-ms.sourcegitcommit: 4138a2a15f78e7db38b3a29acc963a71937146fd
+ms.openlocfilehash: 35863d41776ece59592d57264db6522e47ee4208
+ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "77704195"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84146950"
 ---
 # <a name="deploy-a-linux-vm-to-host-a-web-app-in-azure-stack-hub"></a>Nasazení virtuálního počítače se systémem Linux pro hostování webové aplikace v centru Azure Stack
 
@@ -44,7 +44,7 @@ Pokud chcete nasadit virtuální počítač, postupujte podle pokynů v následu
 ### <a name="create-your-vm"></a>Vytvoření virtuálního počítače
 
 1. Vytvořte veřejný klíč Secure Shell (SSH) pro váš server. Další informace najdete v tématu [Jak používat veřejný klíč SSH](azure-stack-dev-start-howto-ssh-public-key.md).
-1. Na portálu centra Azure Stack vyberte **vytvořit prostředek** > **COMPUTE** > **Ubuntu Server 16,04 LTS**.
+1. Na portálu centra Azure Stack vyberte **vytvořit prostředek**  >  **COMPUTE**  >  **Ubuntu Server 16,04 LTS**.
 
     ![Nasazení webové aplikace do virtuálního počítače centra Azure Stack](media/azure-stack-dev-start-howto-deploy-linux/001-portal-compute.png)
 
@@ -58,7 +58,7 @@ Pokud chcete nasadit virtuální počítač, postupujte podle pokynů v následu
 
     d. Jako **veřejný klíč SSH**vyberte **typ ověřování** .
 
-    e. Načtěte veřejný klíč SSH, který jste vytvořili. Otevřete ho v textovém editoru, zkopírujte klíč a vložte ho do pole **veřejný klíč SSH** . Zahrňte text z `---- BEGIN SSH2 PUBLIC KEY ----` do `---- END SSH2 PUBLIC KEY ----`. Vložte celý blok textu do pole klíče:
+    e. Načtěte veřejný klíč SSH, který jste vytvořili. Otevřete ho v textovém editoru, zkopírujte klíč a vložte ho do pole **veřejný klíč SSH** . Zahrňte text z `---- BEGIN SSH2 PUBLIC KEY ----` do `---- END SSH2 PUBLIC KEY ----` . Vložte celý blok textu do pole klíče:
 
     ```text  
     ---- BEGIN SSH2 PUBLIC KEY ----

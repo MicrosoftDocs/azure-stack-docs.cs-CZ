@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 3/19/2020
-ms.openlocfilehash: 7fd43ca4e9ccd6eda5f09198a7b2efe1e9da073a
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: 222212a26362a617322b65f93509a0cd2a313999
+ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84111408"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84146865"
 ---
 # <a name="move-your-marketplace-item-cluster-to-the-aks-engine-on-azure-stack-hub"></a>Přesuňte svůj cluster položek Marketplace do modulu AKS v centru Azure Stack.
 
@@ -28,12 +28,8 @@ Po úspěšném dokončení nasazení iniciované Kubernetes Azure Stack centra 
 4.  Ve vaší relaci na VIRTUÁLNÍm počítači pro nasazení najdete modul AKS v následující cestě:`./var/lib/waagent/custom-script/download/0/bin/aks-engine`
 5.  Vyhledejte `.json` soubor, který popisuje clustery používané jako vstup do modulu AKS. Soubor jako v `/var/lib/waagent/custom-script/download/0/bin/azurestack.json` . Všimněte si, že soubor obsahuje pověření instančního objektu použité k nasazení clusteru. Pokud se rozhodnete soubor zachovat, je nutné ho přenést do chráněného úložiště.
 6.  Vyhledejte výstupní adresář generovaný modulem AKS na adrese `/var/lib/waagent/custom-script/download/0/_output/<resource group name>` . V tomto adresáři Najděte výstup v `apimodel.json` cestě `/var/lib/waagent/custom-script/download/0/bin/apimodel.json` . Adresář a `apimodel.json` soubor obsahují všechny vygenerované certifikáty, klíče a přihlašovací údaje, které jste potřebovali k nasazení clusteru Kubernetes. Uložte tyto prostředky do zabezpečeného umístění.
-<<<<<<< HEAD
-7.  Vyhledejte konfigurační soubor Kubernetes, který se často označuje jako soubor **kubeconfig** , v cestě `/var/lib/waagent/custom-script/download/0/_output/k8smpi00/kubeconfig/kubeconfig.<location>.json` , kde **<location>** odpovídá vašemu Azure Stack identifikátoru umístění centra. Tento soubor je užitečný v případě, že plánujete nastavit **kubectl** pro přístup ke clusteru Kubernetes.
-=======
-7.  Vyhledejte konfigurační soubor Kubernetes, který se často označuje jako soubor **kubeconfig** , v cestě `/var/lib/waagent/custom-script/download/0/_output/k8smpi00/kubeconfig/kubeconfig.<location>.json` , kde **`<location>`** odpovídá vašemu Azure Stack identifikátoru umístění centra. Tento soubor je užitečný v případě, že plánujete nastavit **kubectl** pro přístup ke clusteru Kubernetes.
+7.  Vyhledejte konfigurační soubor Kubernetes, který se často označuje jako soubor **kubeconfig** , v cestě `/var/lib/waagent/custom-script/download/0/_output/k8smpi00/kubeconfig/kubeconfig.<location>.json` , kde **\<location>** odpovídá vašemu Azure Stack identifikátoru umístění centra. Tento soubor je užitečný v případě, že plánujete nastavit **kubectl** pro přístup ke clusteru Kubernetes.
 
->>>>>>> bd9784471c39194c2918fd281a81b031ee90bafb
 
 ## <a name="use-the-aks-engine-with-your-newly-created-cluster"></a>Použití modulu AKS s nově vytvořeným clusterem
 
@@ -47,4 +43,3 @@ Jakmile najdete soubor AKS, Input apimodel. JSON, výstupní adresář a výstup
 
 - Přečtěte si o modulu [AKS v centru Azure Stack](azure-stack-kubernetes-aks-engine-overview.md) .  
 - [Řešení potíží s modulem AKS v centru Azure Stack](azure-stack-kubernetes-aks-engine-troubleshoot.md)  
-
