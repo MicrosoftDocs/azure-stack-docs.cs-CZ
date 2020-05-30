@@ -6,12 +6,13 @@ ms.author: bryanla
 ms.topic: how-to
 ms.date: 05/07/2020
 ms.lastreviewed: 05/07/2020
-ms.openlocfilehash: 372df0bdb99ce06b22912e9e5c175af07620f5f4
-ms.sourcegitcommit: 510bb047b0a78fcc29ac611a2a7094fc285249a1
+ROBOTS: nosnippet
+ms.openlocfilehash: 572a550d6f9101fd8b118290d14deda96229b0f9
+ms.sourcegitcommit: b9f595d63969bfefc541daff07dc459441ec5b9a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82988313"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84214609"
 ---
 # <a name="use-an-app-identity-to-access-azure-stack-hub-resources"></a>Použití identity aplikace pro přístup k prostředkům Azure Stack hub
 
@@ -50,7 +51,7 @@ Pokud jste nasadili Azure Stack centrum s Azure AD jako službu pro správu iden
 V této části zaregistrujete aplikaci pomocí Azure Portal, která vytvoří objekt instančního objektu ve vašem tenantovi služby Azure AD. V tomto příkladu zadáte pověření tajného klíče klienta, ale portál podporuje také přihlašovací údaje x509 založené na certifikátech.
 
 1. Přihlaste se k [Azure Portal](https://portal.azure.com) pomocí svého účtu Azure.
-2. Vyberte **Azure Active Directory** > **Registrace aplikací** > **novou registraci**.
+2. Vyberte **Azure Active Directory**  >  **Registrace aplikací**  >  **novou registraci**.
 3. Zadejte **název** aplikace.
 4. Vyberte příslušné **podporované typy účtů**.
 5. V části **identifikátor URI pro přesměrování**vyberte jako typ aplikace **Web** a (volitelně) zadejte identifikátor URI přesměrování, pokud to vaše aplikace vyžaduje.
@@ -86,7 +87,7 @@ Po použití certifikátu použijte níže uvedený skript PowerShellu k registr
 | ----------- | ----------- | ------- |
 | \<PepVM\> | Název virtuálního počítače privilegovaného koncového bodu na instanci centra Azure Stack. | "AzS-ERCS01" |
 | \<YourCertificateLocation\> | Umístění certifikátu x509 v místním úložišti certifikátů. | "CERT: \ CurrentUser\My\AB5A8A3533CC7AA2025BF05120117E06DE407B34" |
-| \<Soubor YourAppName\> | Popisný název nové registrace aplikace | "Nástroj pro správu" |
+| \<YourAppName\> | Popisný název nové registrace aplikace | "Nástroj pro správu" |
 
 1. Otevřete relaci Windows PowerShellu se zvýšenými oprávněními a spusťte následující skript:
 
@@ -130,7 +131,7 @@ Po použití certifikátu použijte níže uvedený skript PowerShellu k registr
 
    ```
    
-2. Po dokončení skriptu se zobrazí informace o registraci aplikace, včetně přihlašovacích údajů instančního objektu. `ClientID` A `Thumbprint` jsou ověřeny a později autorizovány pro přístup k prostředkům spravovaným pomocí Azure Resource Manager.
+2. Po dokončení skriptu se zobrazí informace o registraci aplikace, včetně přihlašovacích údajů instančního objektu. `ClientID`A `Thumbprint` jsou ověřeny a později autorizovány pro přístup k prostředkům spravovaným pomocí Azure Resource Manager.
 
    ```shell
    ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356
@@ -142,7 +143,7 @@ Po použití certifikátu použijte níže uvedený skript PowerShellu k registr
    RunspaceId            : a78c76bb-8cae-4db4-a45a-c1420613e01b
    ```
 
-Udržujte relaci konzoly PowerShellu otevřenou, jak ji použijete `ApplicationIdentifier` s hodnotou v následující části.
+Udržujte relaci konzoly PowerShellu otevřenou, jak ji použijete s `ApplicationIdentifier` hodnotou v následující části.
 
 ### <a name="update-a-certificate-credential"></a>Aktualizace přihlašovacích údajů certifikátu
 
@@ -156,7 +157,7 @@ Aktualizujte přihlašovací údaje certifikátu pomocí PowerShellu a nahraďte
 | Zástupný symbol | Popis | Příklad |
 | ----------- | ----------- | ------- |
 | \<PepVM\> | Název virtuálního počítače privilegovaného koncového bodu na instanci centra Azure Stack. | "AzS-ERCS01" |
-| \<Soubor YourAppName\> | Popisný název nové registrace aplikace | "Nástroj pro správu" |
+| \<YourAppName\> | Popisný název nové registrace aplikace | "Nástroj pro správu" |
 | \<YourCertificateLocation\> | Umístění certifikátu x509 v místním úložišti certifikátů. | "CERT: \ CurrentUser\My\AB5A8A3533CC7AA2025BF05120117E06DE407B34" |
 | \<AppIdentifier\> | Identifikátor přiřazený k registraci aplikace | "S-1-5-21-1512385356-3796245103-1243299919-1356" |
 
@@ -201,7 +202,7 @@ Teď vytvoříte jinou registraci aplikace, ale tentokrát určíte přihlašova
 | Zástupný symbol | Popis | Příklad |
 | ----------- | ----------- | ------- |
 | \<PepVM\> | Název virtuálního počítače privilegovaného koncového bodu na instanci centra Azure Stack. | "AzS-ERCS01" |
-| \<Soubor YourAppName\> | Popisný název nové registrace aplikace | "Nástroj pro správu" |
+| \<YourAppName\> | Popisný název nové registrace aplikace | "Nástroj pro správu" |
 
 1. Otevřete relaci Windows PowerShellu se zvýšenými oprávněními a spusťte následující rutiny:
 
@@ -237,7 +238,7 @@ Teď vytvoříte jinou registraci aplikace, ale tentokrát určíte přihlašova
      $SpObject
      ```
 
-2. Po dokončení skriptu se zobrazí informace o registraci aplikace, včetně přihlašovacích údajů instančního objektu. `ClientID` A `ClientSecret` jsou ověřeny a později autorizovány pro přístup k prostředkům spravovaným pomocí Azure Resource Manager.
+2. Po dokončení skriptu se zobrazí informace o registraci aplikace, včetně přihlašovacích údajů instančního objektu. `ClientID`A `ClientSecret` jsou ověřeny a později autorizovány pro přístup k prostředkům spravovaným pomocí Azure Resource Manager.
 
      ```shell  
      ApplicationIdentifier : S-1-5-21-1634563105-1224503876-2692824315-2623
@@ -249,7 +250,7 @@ Teď vytvoříte jinou registraci aplikace, ale tentokrát určíte přihlašova
      RunspaceId            : 286daaa1-c9a6-4176-a1a8-03f543f90998
      ```
 
-Udržujte relaci konzoly PowerShellu otevřenou, jak ji použijete `ApplicationIdentifier` s hodnotou v následující části.
+Udržujte relaci konzoly PowerShellu otevřenou, jak ji použijete s `ApplicationIdentifier` hodnotou v následující části.
 
 ### <a name="update-a-client-secret"></a>Aktualizace tajného klíče klienta
 
@@ -337,7 +338,7 @@ Typ prostředku, který zvolíte, taky vytvoří *obor přístupu* pro aplikaci.
 3. Vyberte stránku **Access Control (IAM)** , která je univerzální napříč všemi prostředky, které podporují RBAC.
 4. Vybrat **+ Přidat**
 5. V části **role**vyberte roli, kterou chcete aplikaci přiřadit.
-6. V části **Vybrat**vyhledejte aplikaci pomocí úplného nebo částečného názvu aplikace. Během registrace se název aplikace generuje jako *Azurestack-\<soubor YourAppName\>-\<ClientID\>*. Pokud jste například použili název aplikace *app2*a ClientID *2bbe67d8-3fdb-4b62-87cf-cc41dd4344ff* byl během vytváření přiřazen, bude mít úplný název *Azurestack-app2-2bbe67d8-3fdb-4b62-87cf-cc41dd4344ff*. Můžete vyhledat přesný řetězec nebo část, jako je například *Azurestack* nebo *Azurestack-app2*.
+6. V části **Vybrat**vyhledejte aplikaci pomocí úplného nebo částečného názvu aplikace. Během registrace se název aplikace vygeneruje jako *Azurestack- \<YourAppName\> - \<ClientId\> *. Pokud jste například použili název aplikace *app2*a ClientID *2bbe67d8-3fdb-4b62-87cf-cc41dd4344ff* byl během vytváření přiřazen, bude mít úplný název *Azurestack-app2-2bbe67d8-3fdb-4b62-87cf-cc41dd4344ff*. Můžete vyhledat přesný řetězec nebo část, jako je například *Azurestack* nebo *Azurestack-app2*.
 7. Jakmile aplikaci najde, vyberte ji a zobrazí se v části **Vybraní členové**.
 8. Kliknutím na **Uložit** dokončete přiřazení role.
 
