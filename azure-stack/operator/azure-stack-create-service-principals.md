@@ -6,17 +6,15 @@ ms.author: bryanla
 ms.topic: how-to
 ms.date: 05/07/2020
 ms.lastreviewed: 05/07/2020
-ROBOTS: nosnippet
-ms.openlocfilehash: 572a550d6f9101fd8b118290d14deda96229b0f9
-ms.sourcegitcommit: b9f595d63969bfefc541daff07dc459441ec5b9a
+ms.openlocfilehash: 011018493cee92d23675369a9704f5bcf3503ebe
+ms.sourcegitcommit: fe9b2fae89e595c8e739251b7a0d6ea3a0d8659a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84214609"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84262663"
 ---
 # <a name="use-an-app-identity-to-access-azure-stack-hub-resources"></a>Použití identity aplikace pro přístup k prostředkům Azure Stack hub
-
-Aplikace, která potřebuje nasadit nebo nakonfigurovat prostředky prostřednictvím Azure Resource Manager musí být reprezentována vlastní identitou. Stejně jako uživatel je reprezentován objektem zabezpečení, který se nazývá hlavní název uživatele, je aplikace reprezentovaná instančním objektem. Instanční objekt poskytuje identitu vaší aplikace, což vám umožní delegovat jenom potřebná oprávnění k aplikaci.  
+<meta name="robots" content="nosnippet">Aplikace, která potřebuje nasadit nebo nakonfigurovat prostředky prostřednictvím Azure Resource Manager musí být reprezentována vlastní identitou. Stejně jako uživatel je reprezentován objektem zabezpečení, který se nazývá hlavní název uživatele, je aplikace reprezentovaná instančním objektem. Instanční objekt poskytuje identitu vaší aplikace, což vám umožní delegovat jenom potřebná oprávnění k aplikaci.  
 
 Můžete mít například aplikaci pro správu konfigurace, která používá Azure Resource Manager k inventarizaci prostředků Azure. V tomto scénáři můžete vytvořit instanční objekt, udělit tomuto instančnímu objektu roli Čtenář a omezit tak aplikaci pro správu konfigurace na přístup jen pro čtení.
 
