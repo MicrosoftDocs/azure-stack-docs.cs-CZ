@@ -7,12 +7,12 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 10/25/2019
-ms.openlocfilehash: cdbe5150b72a720fa527d3bb1b1e32f5a66a6955
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 0760e7d796c6e17c88089675fa6ff659eb684cc7
+ms.sourcegitcommit: 721b82b3a1711f2825ec76ab6d75964b4f508631
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79294932"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84301024"
 ---
 # <a name="infrastructure-backup-service-reference"></a>Odkaz na službu Infrastructure Backup
 
@@ -69,7 +69,7 @@ Mezi tyto požadavky patří:
 
 #### <a name="supported-smb-versions"></a>Podporované verze protokolu SMB
 
-| SMB | Version |
+| SMB | Verze |
 |-----|---------|
 | SMB | 3.x     |
 
@@ -105,12 +105,21 @@ Doporučujeme, abyste se v poslední době provedli zálohování v posledních 
 | uzly 4-16        | 20 GB                    | 280 GB                        |
 | ASDK              | 10 GB                    | 140 GB                        |
 
-### <a name="network-requirements"></a>Síťové požadavky
+### <a name="network-requirements"></a>Požadavky sítě
 
 | Umístění úložiště                                                                 | Podrobnosti                                                                                                                                                                                 |
 |----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Sdílená složka SMB hostovaná na úložném zařízení v rámci důvěryhodného síťového prostředí. | Port 445 se vyžaduje, pokud se instance centra Azure Stack nachází v prostředí s bránou firewall. Řadič Infrastructure Backup inicializuje připojení k souborovému serveru SMB přes port 445. |
 | Aby bylo možné použít plně kvalifikovaný název domény souborového serveru, musí být název přeložitelný z PEP.             |                                                                                                                                                                                         |
+
+#### <a name="firewall-rules"></a>Pravidla brány firewall
+Ujistěte se, že jste nastavili pravidla brány firewall, která umožní připojení mezi virtuálními počítači s ERCS do umístění externího úložiště. 
+
+| Zdroj | Cíl | Protokol/port |
+|------------------|-----------------------|--------------------------------|
+| VIRTUÁLNÍ POČÍTAČ ERCS 1        | Umístění úložiště      | 445/SMB                        |
+| VIRTUÁLNÍ POČÍTAČ ERCS 2        | Umístění úložiště      | 445/SMB                        |
+| VIRTUÁLNÍ POČÍTAČ ERCS 3        | Umístění úložiště      | 445/SMB                        |
 
 > [!Note]  
 > Nemusíte otevírat žádné příchozí porty.
