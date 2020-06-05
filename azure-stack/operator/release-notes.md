@@ -3,16 +3,16 @@ title: Poznámky k verzi centra Azure Stack
 description: Poznámky k verzi pro integrované systémy Azure Stack hub, včetně aktualizací a oprav chyb.
 author: sethmanheim
 ms.topic: article
-ms.date: 05/21/2020
+ms.date: 05/29/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: d8da583fbf954857e2331ce963ec2ae7f0883ea2
-ms.sourcegitcommit: d69eacbf48c06309b00d17c82ebe0ce2bc6552df
+ms.openlocfilehash: 39e6c3ce9b942398954c5c81cbce172095520d90
+ms.sourcegitcommit: c167bf3724139aafe40066f9533985ed7d919c0e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83780804"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84329210"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Poznámky k verzi centra Azure Stack
 
@@ -66,7 +66,7 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 
 <!-- The current theme (if any) of this release. -->
 
-### <a name="whats-new"></a>Co je nového
+### <a name="whats-new"></a>Novinky
 
 <!-- What's new, also net new experiences and features. -->
 
@@ -162,14 +162,14 @@ Opravy hotfix centra Azure Stack se vztahují pouze na integrované systémy Azu
 Verze 2002 centra Azure Stack se musí použít ve verzi 1910 s následujícími opravami hotfix:
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [1.1910.40.138 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4558082)
+- [1.1910.42.142 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4564874)
 
 ### <a name="after-successfully-applying-the-2002-update"></a>Po úspěšné instalaci aktualizace 2002
 
 Po instalaci této aktualizace nainstalujte všechny příslušné opravy hotfix. Další informace najdete v našich [zásadách obsluhy](azure-stack-servicing-policy.md).
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [1.2002.24.85 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4558081)
+- [1.2002.28.93 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4562966)
 ::: moniker-end
 
 ::: moniker range="azs-1910"
@@ -191,7 +191,7 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 
 <!-- The current theme (if any) of this release. -->
 
-### <a name="whats-new"></a>Co je nového
+### <a name="whats-new"></a>Novinky
 
 <!-- What's new, also net new experiences and features. -->
 
@@ -326,7 +326,7 @@ Verze 1910 centra Azure Stack se musí použít ve verzi 1908 s následujícími
 Po instalaci této aktualizace nainstalujte všechny příslušné opravy hotfix. Další informace najdete v našich [zásadách obsluhy](azure-stack-servicing-policy.md).
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [1.1910.40.138 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4558082)
+- [1.1910.42.142 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4564874)
 ::: moniker-end
 
 ::: moniker range="azs-1908"
@@ -350,7 +350,7 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 
 <!-- The current theme (if any) of this release. -->
 
-### <a name="whats-new"></a>Co je nového
+### <a name="whats-new"></a>Novinky
 
 <!-- What's new, also net new experiences and features. -->
 
@@ -425,7 +425,7 @@ Typ sestavení aktualizace centra Azure Stack 1907 je **Express**. Další infor
 
 <!-- The current theme (if any) of this release. -->
 
-### <a name="whats-new"></a>Co je nového
+### <a name="whats-new"></a>Novinky
 
 <!-- What's new, also net new experiences and features. -->
 
