@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: inhenkel
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: 15908ca3057cb347f1dd02c7ee5113c0e9d0b9de
-ms.sourcegitcommit: e75218d2e04f41620cc09caf04473ad4c7289253
+ms.openlocfilehash: 66760fd19b90e55ab27e2c1f2509f0a9b9cb51ae
+ms.sourcegitcommit: d943f7d6e665e3334125f8a15a0343fd28d8f2a9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83708292"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84452409"
 ---
 # <a name="manage-storage-capacity-for-azure-stack-hub"></a>Správa kapacity úložiště pro centrum Azure Stack
 
@@ -47,7 +47,7 @@ Když je na svazku úložiště objektů nedostatek volného místa a [akce pro 
 
 Informace o tom, jak uživatelé klienta pracují s úložištěm objektů BLOB v Azure Stackovém centru, najdete v tématu [služby úložiště Azure Stack hub](/azure-stack/user/azure-stack-storage-overview).
 
-### <a name="containers"></a>Containers
+### <a name="containers"></a>Kontejnery
 Uživatelé tenanta vytvářejí kontejnery, které se pak používají k ukládání dat objektů BLOB. I když se uživatelé rozhodují, ve kterém kontejneru umístit objekty blob, služba úložiště pomocí algoritmu určuje, který svazek se má vložit do kontejneru. Algoritmus obvykle zvolí svazek s největším množstvím dostupného místa.  
 
 Po umístění objektu blob do kontejneru může objekt BLOB zvětšit použití více místa. Při zvětšení nových objektů BLOB a zmenšení stávajících objektů BLOB se zmenší dostupné místo ve svazku, který obsahuje kontejner. 
@@ -152,7 +152,7 @@ Můžete uvolnit kapacitu, kterou používají účty klientů, které byly odst
 
 Další informace najdete v části "získání kapacity" v tématu [Správa účtů úložiště Azure Stack hub](azure-stack-manage-storage-accounts.md#reclaim).
 
-::: moniker range="<azs-2002"
+::: moniker range="<azs-1910"
 
 ### <a name="migrate-a-container-between-volumes"></a>Migrace kontejneru mezi svazky
 *Tato možnost se vztahuje jenom na systémy integrované s Azure Stack hub.*
@@ -242,7 +242,7 @@ Migrace slučuje všechny objekty blob kontejneru v nové sdílené složce.
 Největší způsob, jak spravovat prostor, zahrnuje přesun disků virtuálních počítačů. Vzhledem k tomu, že přesun připojeného kontejneru (který obsahuje disk virtuálního počítače) je složitý, požádejte o tuto akci podporu Microsoftu.
 
 ::: moniker-end
-::: moniker range=">=azs-2002"
+::: moniker range=">=azs-1910"
 
 ### <a name="migrate-a-managed-disk-between-volumes"></a>Migrace spravovaného disku mezi svazky
 *Tato možnost se vztahuje jenom na systémy integrované s Azure Stack hub.*
@@ -263,7 +263,10 @@ Můžete uvolnit místo na využívaném svazku tak, že ručně migrujete někt
    $StorageSubSystem = (Get-AzsStorageSubSystem -ScaleUnit $ScaleUnit.Name)[0]
    $Volumes = (Get-AzsVolume -ScaleUnit $ScaleUnit.Name -StorageSubSystem $StorageSubSystem.Name | Where-Object {$_.VolumeLabel -Like "ObjStore_*"})
    $SourceVolume  = ($Volumes | Sort-Object RemainingCapacityGB)[0]
-   $Disks = Get-AzsDisk -Status All -ScaleUnit $ScaleUnit.name -VolumeLabel $SourceVolume.VolumeLabel | Select-Object -First 10
+   $VolumeName = $SourceVolume.Name.Split("/")[2]
+   $VolumeName = $VolumeName.Substring($VolumeName.IndexOf(".")+1)
+   $MigrationSource = "\\SU1FileServer."+$VolumeName+"\SU1_"+$SourceVolume.VolumeLabel
+   $Disks = Get-AzsDisk -Status All -SharePath $MigrationSource | Select-Object -First 10
    ```
    Pak prověřte $disks:
 
@@ -277,13 +280,16 @@ Můžete uvolnit místo na využívaném svazku tak, že ručně migrujete někt
 
    ```powershell
    $DestinationVolume  = ($Volumes | Sort-Object RemainingCapacityGB -Descending)[0]
+   $VolumeName = $DestinationVolume.Name.Split("/")[2]
+   $VolumeName = $VolumeName.Substring($VolumeName.IndexOf(".")+1)
+   $MigrationTarget = "\\SU1FileServer."+$VolumeName+"\SU1_"+$DestinationVolume.VolumeLabel
    ```
 
 4. Spusťte migraci pro Managed disks. Migrace je asynchronní. Pokud zahájíte migraci dalších disků před dokončením první migrace, použijte název úlohy ke sledování stavu každé z nich.
 
    ```powershell
    $jobName = "MigratingDisk"
-   Start-AzsDiskMigrationJob -Disks $Disks -TargetScaleUnit $ScaleUnit.name -TargetVolumeLabel $DestinationVolume.VolumeLabel -Name $jobName
+   Start-AzsDiskMigrationJob -Disks $Disks -TargetShare $MigrationTarget -Name $jobName
    ```
 
 5. Ke kontrole stavu úlohy migrace použijte název úlohy. Po dokončení migrace disku se **MigrationStatus** nastaví na **dokončeno**.
