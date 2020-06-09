@@ -7,12 +7,12 @@ ms.date: 4/23/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 4/23/2020
-ms.openlocfilehash: 1e58943e4ff315d2b5c2a9370f623846e920443d
-ms.sourcegitcommit: c51e7787e36c49d34ee86cabf9f823fb98b61026
+ms.openlocfilehash: 9fd9671d4dbdad1dbf43b151c481fdbd9ca2c0ab
+ms.sourcegitcommit: f0ee2a3af78dd6d6e2806710681d52b763948967
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82220723"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84533684"
 ---
 # <a name="release-notes-for-the-aks-engine-on-azure-stack-hub"></a>Poznámky k verzi pro modul AKS v centru Azure Stack
 
@@ -56,7 +56,7 @@ Odhadovaná doba je od 12 do 15 minut na virtuální počítač v clusteru. Nap�
 
 Stáhněte si nové verze AKS Base Ubuntu image a AKS Engine.
 
-Jak je vysvětleno v dokumentaci ke službě AKS Engine for Azure Stack hub, nasazení clusteru Kubernetes vyžaduje dvě hlavní součásti: 
+Jak je vysvětleno v dokumentaci pro modul AKS pro Azure Stack centra, nasazení clusteru Kubernetes vyžaduje dvě hlavní součásti: 
 - Binární soubor AKS-Engine
 - AKS Base Ubuntu 16,04-LTS image distribuce
 
@@ -72,7 +72,7 @@ V této aktualizaci jsou k dispozici nové verze těchto verzí:
 
 ## <a name="kubernetes-version-upgrade-path"></a>Cesta upgradu verze Kubernetes
 
-Aktuální verzi a verzi upgradu najdete v následující tabulce pro Azure Stack hub. Nepoužívejte příkaz AKS-Engine `get-versions` , protože příkaz obsahuje taky verze podporované v globálním Azure. Následující tabulka verze a upgrade se vztahuje na cluster AKS Engine v centru Azure Stack.
+Aktuální verzi a verzi upgradu najdete v následující tabulce pro Azure Stack hub. Nepoužívejte příkaz AKS-Engine, `get-versions` protože příkaz obsahuje taky verze podporované v globálním Azure. Následující tabulka verze a upgrade se vztahuje na cluster AKS Engine v centru Azure Stack.
 
 | **Aktuální verze** | **Dostupný upgrade** |
 | --------------------| ----------------------|
@@ -83,38 +83,38 @@ Aktuální verzi a verzi upgradu najdete v následující tabulce pro Azure Stac
 
 ## <a name="whats-new"></a>Co je nového 
 
--   Podpora pro Kubernetes verze 1.15.10 ([\#2834](https://github.com/Azure/aks-engine/issues/2834)). Při nasazování nového clusteru Nezapomeňte zadat v souboru JSON modelu rozhraní API (a.k.s. definiční soubor clusteru) číslo verze vydání a číslo dílčí verze. Můžete najít příklad: [Kubernetes-azurestack. JSON](https://raw.githubusercontent.com/Azure/aks-engine/master/examples/azure-stack/kubernetes-azurestack.json):
+-   Podpora pro Kubernetes verze 1.15.10 ([ \# 2834](https://github.com/Azure/aks-engine/issues/2834)). Při nasazování nového clusteru Nezapomeňte zadat v souboru JSON modelu rozhraní API (a.k.s. definiční soubor clusteru) číslo verze vydání a číslo dílčí verze. Můžete najít příklad: [Kubernetes-azurestack. JSON](https://raw.githubusercontent.com/Azure/aks-engine/master/examples/azure-stack/kubernetes-azurestack.json):
 
     - `"orchestratorRelease": "1.15`,
 
     - `"orchestratorVersion": "1.15.10"`
 
     > [!Note]  
-    > Pokud se verze Kubernetes explicitně neposkytuje v souboru JSON modelu rozhraní API, použije se `1.15` verze ([\#2932](https://github.com/Azure/aks-engine/issues/2932)) a orchestratorVersion se nastaví na` 1.15.11`výchozí hodnotu, což způsobí chybu během nasazování clusteru.
+    > Pokud se verze Kubernetes explicitně neposkytuje v souboru JSON modelu rozhraní API, použije se verze `1.15` ([ \# 2932](https://github.com/Azure/aks-engine/issues/2932)) a orchestratorVersion se nastaví na výchozí hodnotu ` 1.15.11` , což způsobí chybu během nasazování clusteru.
 
--   Pomocí AKS-Engine v 0.43.1 se výchozí nastavení frekvence pro poskytovatele cloudu provede jeho kontrolní smyčka a další úkoly nefungují dobře s Správce prostředků mezními hodnotami Azure Stack centra pro příchozí požadavky. Tato aktualizace mění výchozí hodnoty pro centrum Azure Stack, aby se snížilo zatížení Azure Stack centra správce prostředků ([\#2861](https://github.com/Azure/aks-engine/issues/2861)).
+-   Pomocí AKS-Engine v 0.43.1 se výchozí nastavení frekvence pro poskytovatele cloudu provede jeho kontrolní smyčka a další úkoly nefungují dobře s Správce prostředků mezními hodnotami Azure Stack centra pro příchozí požadavky. Tato aktualizace mění výchozí hodnoty pro centrum Azure Stack, aby se snížilo zatížení Azure Stack centra Správce prostředků ([ \# 2861](https://github.com/Azure/aks-engine/issues/2861)).
 
--   Nový krok ověření v AKS-Engine bude mít za následek zastavení nebo zobrazení upozornění, pokud soubor JSON modelu rozhraní API obsahuje vlastnosti, které nepodporují Azure Stack hub ([\#2717](https://github.com/Azure/aks-engine/issues/2717)).
+-   Nový krok ověření v AKS-Engine bude mít za následek zastavení nebo zobrazení upozornění, pokud soubor JSON modelu rozhraní API obsahuje vlastnosti, které nepodporují Azure Stack hub ([ \# 2717](https://github.com/Azure/aks-engine/issues/2717)).
 
--   Při nové kontrole ověřování AKS modul ověří dostupnost verze základní image AKS, která je potřebná pro verzi AKS modulu ([\#2342](https://github.com/Azure/aks-engine/issues/2342)). K tomu dojde po analýze souboru modelu rozhraní API a před voláním Správce prostředků centra Azure Stack.
+-   Při nové kontrole ověřování AKS modul ověří dostupnost verze základní image AKS, která je potřebná pro verzi AKS modulu ([ \# 2342](https://github.com/Azure/aks-engine/issues/2342)). K tomu dojde po analýze souboru modelu rozhraní API a před voláním Správce prostředků centra Azure Stack.
 
--   New AKS – možnost "--Control-Only" v příkazu "upgrade" umožňuje uživateli provést upgrade operací pouze na hlavní Virtual Machines ([\#2635](https://github.com/Azure/aks-engine/issues/2635)).
+-   New AKS – možnost "--Control-Only" v příkazu "upgrade" umožňuje uživateli provést upgrade operací pouze na hlavní Virtual Machines ([ \# 2635](https://github.com/Azure/aks-engine/issues/2635)).
 
--   Aktualizace jádra Linux verze 4.15.0-1071-Azure pro Ubuntu 16,04-LTS. Podrobnosti najdete v části[Package: linux-image-4.15.0-1071-Azure (4.15.0- \[1071.76\]) Security](https://packages.ubuntu.com/xenial/linux-image-4.15.0-1071-azure).
+-   Aktualizace jádra Linux verze 4.15.0-1071-Azure pro Ubuntu 16,04-LTS. Podrobnosti najdete v části[Package: linux-image-4.15.0-1071-Azure (4.15.0-1071.76) \[ Security \] ](https://packages.ubuntu.com/xenial/linux-image-4.15.0-1071-azure).
 
 -   Nové aktualizace hyperkube pro podporu Kubernetes verzí 1.14.8 a 1.15.10.
 
 -   Aktualizujte kubectl tak, aby odpovídalo verzi Kubernetes pro cluster... Tato součást je k dispozici v hlavních uzlech clusteru Kubernetes, můžete ji spustit pomocí SSH do hlavní větve.
 
--   Aktualizace pro doplněk Azure Container monitor s nejnovější [verzí února 2020](https://github.com/microsoft/Docker-Provider/blob/ci_feature_prod/README.md) ([\#2850](https://github.com/Azure/aks-engine/issues/2850)).
+-   Aktualizace pro doplněk Azure Container monitor s nejnovější [verzí února 2020](https://github.com/microsoft/Docker-Provider/blob/ci_feature_prod/README.md) ([ \# 2850](https://github.com/Azure/aks-engine/issues/2850)).
 
--   Upgrade verze `coredns` na verzi v 1.6.6 ([\#2555](https://github.com/Azure/aks-engine/issues/2555)).
+-   Upgrade `coredns` verze na verzi v 1.6.6 ([ \# 2555](https://github.com/Azure/aks-engine/issues/2555)).
 
--   Upgradujte `etcd` na verzi 3.3.18 ([\#2462](https://github.com/Azure/aks-engine/issues/2462)).
+-   Upgradujte `etcd` na verzi 3.3.18 ([ \# 2462](https://github.com/Azure/aks-engine/issues/2462)).
 
--   Upgradujte `moby` na verzi 3.0.11 ([\#2887](https://github.com/Azure/aks-engine/issues/2887)).
+-   Upgradujte `moby` na verzi 3.0.11 ([ \# 2887](https://github.com/Azure/aks-engine/issues/2887)).
 
--   S tímto modulem AKS vydaných `k8s.gcr.io` verzí vycházejí závislosti z `Kubernetes MCR registry @ mcr.microsoft.com` k tomu, aby teď při sestavování imagí ([\#2722](https://github.com/Azure/aks-engine/issues/2722)) používali úředník.
+-   S tímto modulem AKS vydaných verzí vycházejí závislosti z k tomu, `k8s.gcr.io` aby teď `Kubernetes MCR registry @ mcr.microsoft.com` při sestavování imagí ([ \# 2722](https://github.com/Azure/aks-engine/issues/2722)) používali úředník.
 
 ## <a name="known-issues"></a>Známé problémy
 
@@ -130,17 +130,17 @@ Následuje seznam některých opravených chyb a také kompletní sada poznámek
 
 ### <a name="bug-fixes"></a>Opravy chyb
 
--   `userAssignedIdentityId`v systému `azure.json` Windows chybí uvozovky ([\#2327](https://github.com/Azure/aks-engine/issues/2327))
+-   `userAssignedIdentityId`v systému Windows `azure.json` chybí uvozovky ([ \# 2327](https://github.com/Azure/aks-engine/issues/2327))
 
--   Doplňky `update config` jsou jenom upgradované ([\#2282](https://github.com/Azure/aks-engine/issues/2282))
+-   Doplňky `update config` jsou jenom upgradované ([ \# 2282](https://github.com/Azure/aks-engine/issues/2282))
 
--   Časový limit pro získání IP adresy pro správu v uzlech Windows ([\#2284](https://github.com/Azure/aks-engine/issues/2284))
+-   Časový limit pro získání IP adresy pro správu v uzlech Windows ([ \# 2284](https://github.com/Azure/aks-engine/issues/2284))
 
--   Přidat 1.0.28 soubor zip Azure CNI do Windows VHD ([\#2268](https://github.com/Azure/aks-engine/issues/2268))
+-   Přidat 1.0.28 soubor zip Azure CNI do Windows VHD ([ \# 2268](https://github.com/Azure/aks-engine/issues/2268))
 
--   Správné pořadí výchozích hodnot pro nastavení IPAddressCount ([\#2358](https://github.com/Azure/aks-engine/issues/2358))
+-   Správné pořadí výchozích hodnot pro nastavení IPAddressCount ([ \# 2358](https://github.com/Azure/aks-engine/issues/2358))
 
--   Aktualizace pro použití jedné omsagent YAML pro všechny verze k8s, aby nedocházelo k ručním chybám a snadné údržbě ([\#2692](https://github.com/Azure/aks-engine/issues/2692))
+-   Aktualizace pro použití jedné omsagent YAML pro všechny verze k8s, aby nedocházelo k ručním chybám a snadné údržbě ([ \# 2692](https://github.com/Azure/aks-engine/issues/2692))
 
 ### <a name="release-notes"></a>Poznámky k verzi
 

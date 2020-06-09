@@ -3,16 +3,16 @@ title: Přidání požadavků modulu Azure Kubernetes Services (AKS) do tržišt
 description: Přečtěte si, jak přidat požadavky na modul AKS do tržiště centra Azure Stack.
 author: mattbriggs
 ms.topic: article
-ms.date: 2/27/2020
+ms.date: 6/08/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 5bebac9b3c604b2726cf5cd8f895fb17e0db3486
-ms.sourcegitcommit: 8646eba1674ca708baf6699f4a4b56d134766e85
+ms.lastreviewed: 6/08/2020
+ms.openlocfilehash: 77d2e6b826f6bc6517d0dd5ed941019a460557e9
+ms.sourcegitcommit: f0ee2a3af78dd6d6e2806710681d52b763948967
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82861380"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84533701"
 ---
 # <a name="add-the-azure-kubernetes-services-aks-engine-prerequisites-to-the-azure-stack-hub-marketplace"></a>Přidání požadavků modulu Azure Kubernetes Services (AKS) do tržiště centra Azure Stack
 
@@ -50,12 +50,12 @@ Do Marketplace přidejte následující položku:
 
 1. Zadejte `AKS Base`.
 
-1. Vyberte verzi image, která odpovídá verzi modulu AKS. Výpis základní image AKS můžete najít ve verzi AKS Engine v [podporovaných verzích Kubernetes](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions). 
+1. Vyberte verzi image, která odpovídá verzi modulu AKS. Výpis základní image AKS můžete najít ve verzi AKS Engine v [podporovaných verzích Kubernetes](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions). 
 
     V seznamu vyberte:
     - **Vydavatel**: Služba Azure Kubernetes
     - **Nabídka**: AKS
-    - **Verze**: AKS Base image 16,04-LTS image distribuce, říjen 2019 (2019.10.24 nebo verze, která se MAPUJE na AKS Engine)
+    - **Verze**: AKS Base Ubuntu 16,04-LTS image distribuce, březen 2020 (2020.03.19 nebo verze, která se MAPUJE na AKS Engine)
 
 1. Vyberte **Stáhnout.**
 

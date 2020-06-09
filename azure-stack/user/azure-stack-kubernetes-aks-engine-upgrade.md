@@ -7,12 +7,12 @@ ms.date: 4/23/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 4/23/2020
-ms.openlocfilehash: 4e7ef93f7199e9257fd602d54d3479a92ac8e8a8
-ms.sourcegitcommit: c51e7787e36c49d34ee86cabf9f823fb98b61026
+ms.openlocfilehash: 347d790a4e70e37e83be43019f25b875b7ff2302
+ms.sourcegitcommit: f0ee2a3af78dd6d6e2806710681d52b763948967
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82218802"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84533718"
 ---
 # <a name="upgrade-a-kubernetes-cluster-on-azure-stack-hub"></a>Upgrade clusteru Kubernetes na rozbočovači Azure Stack
 
@@ -32,7 +32,7 @@ Pro nasazení nasazených upgradů clusteru:
 
 Při upgradu produkčního clusteru Vezměte v úvahu:
 
--   Používáte pro cílový cluster správnou specifikaci clusteru (`apimodel.json`) a skupinu prostředků?
+-   Používáte pro cílový cluster správnou specifikaci clusteru ( `apimodel.json` ) a skupinu prostředků?
 -   Používáte pro klientský počítač spolehlivý počítač ke spuštění modulu AKS a ze kterého provádíte operace upgradu?
 -   Ujistěte se, že máte cluster pro zálohování a že je funkční.
 -   Pokud je to možné, spusťte příkaz z virtuálního počítače v prostředí Azure Stack hub, abyste snížili počet směrování sítě a potenciální problémy s připojením.
@@ -60,10 +60,10 @@ Následující pokyny používají minimální postup k provedení upgradu. Poku
 
 2. Shromážděte informace, které budete potřebovat ke spuštění `upgrade` příkazu. Upgrade používá následující parametry:
 
-    | Parametr | Příklad | Popis |
+    | Parametr | Příklad | Description |
     | --- | --- | --- |
-    | Azure – ENV | AzureStackCloud | K indikaci AKS Engine, že vaše cílová platforma je Azure Stack použití `AzureStackCloud`centra. |
-    | location | local | Název oblasti centra Azure Stack. Pro ASDK je oblast nastavena na `local`. |
+    | Azure – ENV | AzureStackCloud | K indikaci AKS Engine, že vaše cílová platforma je Azure Stack použití centra `AzureStackCloud` . |
+    | location | local | Název oblasti centra Azure Stack. Pro ASDK je oblast nastavena na `local` . |
     | resource-group | Kube – RG | Zadejte název nové skupiny prostředků nebo vyberte existující skupinu prostředků. Název prostředku musí být alfanumerický a malý. |
     | ID předplatného | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Zadejte ID předplatného. Další informace najdete v tématu [přihlášení k odběru nabídky](https://docs.microsoft.com/azure-stack/user/azure-stack-subscribe-services#subscribe-to-an-offer) . |
     | rozhraní API – model | ./kubernetes-azurestack.json | Cesta ke konfiguračnímu souboru clusteru nebo modelu rozhraní API. |
@@ -90,10 +90,10 @@ Následující pokyny používají minimální postup k provedení upgradu. Poku
 
 ## <a name="steps-to-only-upgrade-the-os-image"></a>Postup upgradu image operačního systému
 
-1. Projděte si [tabulku Supported-Kubernetes-Versions](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions) a určete, jestli máte naou verzi AKS a image AKS Base, kterou plánujete upgradovat. Chcete-li zobrazit verzi modulu AKS Runtime: `aks-engine version`.
+1. Projděte si [tabulku Supported-Kubernetes-Versions](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions) a určete, jestli máte naou verzi AKS a image AKS Base, kterou plánujete upgradovat. Chcete-li zobrazit verzi modulu AKS Runtime: `aks-engine version` .
 2. Upgradujte modul AKS odpovídajícím způsobem na počítači, kde jste nainstalovali AKS modul runtime: `./get-akse.sh --version vx.xx.x` nahraďte **x. xx. x** cílovou verzí.
 3. Požádejte svého operátora centra Azure Stack, aby přidal verzi AKS základního obrázku, kterou potřebujete na webu centra Azure Stack, který chcete použít.
-4. Spusťte `aks-engine upgrade` příkaz pomocí stejné verze Kubernetes, kterou jste již používali, ale přidejte `--force`. V takovém případě se můžete podívat na příklad [vynucení upgradu](#forcing-an-upgrade).
+4. Spusťte `aks-engine upgrade` příkaz pomocí stejné verze Kubernetes, kterou jste již používali, ale přidejte `--force` . V takovém případě se můžete podívat na příklad [vynucení upgradu](#forcing-an-upgrade).
 
 
 ## <a name="forcing-an-upgrade"></a>Vynucení upgradu

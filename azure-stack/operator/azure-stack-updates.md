@@ -3,18 +3,18 @@ title: Správa aktualizací
 description: Naučte se spravovat aktualizace v centru Azure Stack.
 author: IngridAtMicrosoft
 ms.topic: how-to
-ms.date: 05/13/2020
+ms.date: 06/04/2020
 ms.author: inhenkel
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: cdf2ba4d3dd226ea727efe05dc8be671ba172f8b
-ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
+ms.openlocfilehash: 03c233690ffa3148c04aabb49d69c6bc28f07eb1
+ms.sourcegitcommit: 0f1483e17d7e7fa5b4c5c457eab13373eb4b3fdc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83374617"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84506447"
 ---
-# <a name="manage-updates-in-azure-stack-hub"></a>Správa aktualizací v centru Azure Stack
+# <a name="manage-updates-in-azure-stack-hub"></a>Správa aktualizací ve službě Azure Stack Hub
 
 Úplné a expresní aktualizace, opravy hotfix a aktualizace ovladačů a firmwaru od výrobce OEM (Original Equipment Manufacturer), které vám pomůžou zajistit aktuálnost Azure Stack centra v aktuálním stavu. Tento článek popisuje různé typy aktualizací, kdy očekávat jejich vydání a kde najdete další informace o aktuální verzi.
 
@@ -49,7 +49,7 @@ Tři typy aktualizací jsou vydány s následujícími tempo:
 
 Chcete-li nadále získávat podporu, je nutné zachovat prostředí Azure Stack hub v podporované verzi softwaru Azure Stack hub. Další informace najdete v tématu [zásady obsluhy centra Azure Stack](azure-stack-update-servicing-policy.md).
 
-## <a name="how-to-know-an-update-is-available"></a>Jak ví, že je aktualizace k dispozici
+## <a name="how-to-know-an-update-is-available"></a>Jak poznat, že je k dispozici aktualizace
 
 Oznámení aktualizací se liší v několika faktorech, například připojení k Internetu a typ aktualizace.
 
@@ -63,7 +63,22 @@ Oznámení aktualizací se liší v několika faktorech, například připojení
 
     Aktualizace OEM budou záviset na výrobci. Budete muset vytvořit komunikační kanál s vaším výrobcem OEM, abyste si mohli uvědomit o aktualizacích od výrobce OEM, které je potřeba použít. Další informace o výrobci OEM a procesu aktualizace OEM najdete v tématu [použití aktualizací pro výrobce OEM (Original Equipment Manufacturer) v Azure Stack](azure-stack-update-oem.md).
 
-## <a name="update-processes"></a>Aktualizovat procesy
+### <a name="major-version-to-major-version"></a>Hlavní verze na hlavní verzi
+
+Aktualizace z hlavní verze na hlavní verzi musí být krok za krokem:
+
+- aktuální prostředí se dá aktualizovat jenom na další hlavní verzi.
+- nemůžete přeskočit aktualizaci hlavní verze.
+
+Pokud je například vaše prostředí 1. x, nejnovější dostupná verze aktualizace je 3. x, měli byste aktualizovat jako 1. x, 2. x, 3. x.
+
+### <a name="hotfixes-within-major-versions"></a>Opravy hotfix v hlavních verzích
+
+V rámci stejného hlavního čísla verze může Azure Stack vydávat několik oprav hotfix. Jak jsou opravy hotfix kumulativní, obsahuje nejnovější balíček aktualizace všechny minulé opravy hotfix. Aktualizaci na nejnovější opravu hotfix můžete proskokem čísel oprav hotfix.
+
+Například pokud jste ve verzi. MV. 1. x, nejnovější aktualizace je. MV. 4. x. I když existují aktualizace verze v nástroji. MV. 2. x a v. MV. 3. x můžete přímo nainstalovat do. MV. 4. x. Zobrazí se všechny opravy hotfix v nástroji v nástroji. MV. 2. x a v. MV. 3. x automaticky
+
+## <a name="update-process"></a>Aktualizovat proces
 
 Jakmile víte, že máte aktualizaci, použijte ji pomocí následujících kroků.
 
