@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: 995342f471ed7300d2fb9dd95a6623588a13d1a9
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 2d836c601f292b25a472b38d1afef464a3b22960
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79294503"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84630930"
 ---
 # <a name="manage-azure-stack-hub-storage-accounts"></a>Správa účtů úložiště Azure Stack hub
 
@@ -22,15 +22,15 @@ Naučte se spravovat účty úložiště Azure Stack hub. Vyhledávejte, obnovuj
 
 Seznam účtů úložiště v oblasti lze zobrazit v Azure Stack centru pomocí následujících kroků:
 
-1. Přihlaste se k [portálu pro správu](https://adminportal.local.azurestack.external).
+1. Přihlaste se k portálu pro správu `https://adminportal.local.azurestack.external` .
 
-2. Vyberte **všechny služby** > **úložiště** > **účty úložiště**.
+2. Vyberte **všechny služby**  >  **úložiště**  >  **účty úložiště**.
 
    ![Účty úložiště Azure Stack hub](media/azure-stack-manage-storage-accounts/image4.png)
 
 Ve výchozím nastavení se zobrazí prvních 10 účtů. Další možnosti získáte tak, že kliknete na odkaz **načíst další** v dolní části seznamu.
 
-NEBO
+OR
 
 Pokud vás zajímá konkrétní účet úložiště, můžete **filtrovat a načíst jenom příslušné účty** .
 
@@ -89,9 +89,9 @@ Nastavení doby uchovávání umožňuje operátorovi cloudu nastavit časové o
 
 **Postup změny doby uchování:**
 
-1. Přihlaste se k [portálu pro správu](https://adminportal.local.azurestack.external).
-2. V části **Správa**vyberte **všechny služby** > **Správa oblastí** .
-3. Vyberte **prostředky** > **Storage** > **Nastavení**úložiště poskytovatelé. Vaše cesta je domovská > *oblast* – poskytovatelé prostředků > úložiště.
+1. Přihlaste se k portálu pro správu `https://adminportal.local.azurestack.external` .
+2. V části Správa vyberte **všechny služby**  >  **Správa oblastí** . **Administration**
+3. Vyberte **prostředky**  >  **Storage**  >  **Nastavení**úložiště poskytovatelé. Vaše cesta je domovská > *oblast* – poskytovatelé prostředků > úložiště.
 4. Vyberte **Konfigurace** a pak upravte hodnotu Doba uchování.
 
    Nastavte počet dnů a pak ho uložte.

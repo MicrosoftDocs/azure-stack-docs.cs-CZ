@@ -8,12 +8,12 @@ ms.date: 04/03/2020
 ms.author: justinha
 ms.reviewer: thoroet
 ms.lastreviewed: 04/03/2020
-ms.openlocfilehash: 66fbcf3b94ae89f5f0946ee34582d69cea4ea97e
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 156a28bc0f1eccf096b7651f895e34a9a290d7a5
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80979354"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84630775"
 ---
 # <a name="azure-stack-hub-administration-basics"></a>Základy správy centra Azure Stack
 
@@ -49,7 +49,7 @@ Podporujeme následující další služby PaaS (Platform as a Service):
 - IoT Hub
 - Centrum událostí
 
-Tyto služby vyžadují další konfiguraci, abyste je mohli zpřístupnit uživatelům. Další informace najdete v tématech **kurzy** a návody, **které** > **nabízí služby** v [dokumentaci k operátorovi centra Azure Stack](https://docs.microsoft.com/azure-stack/operator/).
+Tyto služby vyžadují další konfiguraci, abyste je mohli zpřístupnit uživatelům. Další informace najdete v tématech **kurzy** a návody, **které**  >  **nabízí služby** v [dokumentaci k operátorovi centra Azure Stack](https://docs.microsoft.com/azure-stack/operator/).
 
 ### <a name="service-roadmap"></a>Plán služby
 
@@ -86,19 +86,19 @@ Kromě poskytování služeb je třeba provést běžné povinnosti operátora, 
 - [Nastavte přístupová oprávnění pomocí řízení přístupu na základě rolí](https://docs.microsoft.com/azure-stack/operator/azure-stack-manage-permissions). (Tato úloha není omezena na správce.)
 - [Monitorování stavu infrastruktury](https://docs.microsoft.com/azure-stack/operator/azure-stack-monitor-health)
 - Správa prostředků [sítě](https://docs.microsoft.com/azure-stack/operator/azure-stack-viewing-public-ip-address-consumption) a [úložiště](https://docs.microsoft.com/azure-stack/operator/azure-stack-manage-storage-accounts)
-- [Spusťte a zastavte centrum Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-start-and-stop&branch=release-tzl).
-- [Provoz rozšířeného úložiště](https://docs.microsoft.com/azure-stack/tdc/extended-storage-operator-guide&branch=release-tzl).
-- [Spravovat IoT Hub](https://docs.microsoft.com/azure-stack/operator/iot-hub-rp-overview?toc=%2Fazure-stack%2Ftdc%2Ftoc.json&.bc=%2Fazure-stack%2Fbreadcrumb%2Ftoc.json&view=azs-2002&branch=release-tzl).
+- [Spusťte a zastavte centrum Azure Stack](azure-stack-start-and-stop.md).
+- [Provoz rozšířeného úložiště](../user/azure-stack-network-howto-extend-datacenter.md).
+- [Spravovat IoT Hub](https://docs.microsoft.com/azure/iot-hub/about-iot-hub).
 - [Správa centra událostí](https://docs.microsoft.com/azure-stack/operator/event-hubs-rp-overview?toc=%2Fazure-stack%2Ftdc%2Ftoc.json&bc=%2Fazure-stack%2Fbreadcrumb%2Ftoc.json&view=azs-2002&branch=release-tzl).
 - [Spravovat App Service](https://docs.microsoft.com/azure-stack/operator/azure-stack-app-service-overview?toc=%2Fazure-stack%2Ftdc%2Ftoc.json&bc=%2Fazure-stack%2Fbreadcrumb%2Ftoc.json&view=azs-2002&branch=release-tzl).
-- Nahraďte špatný hardware. Tady je seznam [nahraditelných částí](https://docs.microsoft.com/azure-stack/tdc/cru-replaceable-parts&branch=release-tzl).
+- Nahraďte špatný hardware. Tady je seznam [nahraditelných částí](azure-stack-replace-component.md).
 - [Získejte podporu](https://docs.microsoft.com/azure-stack/operator/azure-stack-help-and-support-overview?toc=%2Fazure-stack%2Ftdc%2Ftoc.json&bc=%2Fazure-stack%2Fbreadcrumb%2Ftoc.json&view=azs-2002&branch=release-tzl).
 
 ## <a name="operator-tasks"></a>Úkoly operátora
 
 Tady je seznam každodenních, týdenních a měsíčních úloh pro operátor:
 
-# <a name="daily"></a>[denně](#tab/daily)
+# <a name="daily"></a>[Každý den](#tab/daily)
 
 1. Kontrolovat výstrahy.
 2. Ověřte stav zálohování.
@@ -106,12 +106,12 @@ Tady je seznam každodenních, týdenních a měsíčních úloh pro operátor:
 4. Zkontroluje stav systému Isilon a události v OneFS.
 5. Ověřte Isilonou kapacitu.
 
-# <a name="weekly"></a>[týdně](#tab/weekly)
+# <a name="weekly"></a>[Každý týden](#tab/weekly)
 
 1. Podívejte se na kapacitu.
 2. Spusťte `isi status –verbose` v Avocent připojení.
 
-# <a name="monthly"></a>[Nadpis](#tab/monthly)
+# <a name="monthly"></a>[Měsíčně](#tab/monthly)
 
 1. Použijte měsíční balíčky aktualizací (Microsoft & OEM).
 2. Ověřte zálohu pomocí ASDK.

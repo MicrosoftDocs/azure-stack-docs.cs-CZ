@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: be0457eaa1c8c72984e995a690e5d5c6c53f198f
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 17ba031e6aa1c9e7c0699309d98183ed38cbd4e7
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81660840"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84631375"
 ---
 # <a name="set-up-vpn-gateway-for-azure-stack-hub-using-fortigate-nva"></a>Nastavení brány sítě VPN pro centrum Azure Stack s využitím FortiGate síťové virtuální zařízení
 
@@ -34,7 +34,7 @@ Tento článek popisuje, jak vytvořit připojení VPN k rozbočovači Azure Sta
 
 -  K aktivaci FortiGate síťové virtuální zařízení budete potřebovat alespoň jeden dostupný soubor s licencí FortiGate. Informace o tom, jak tyto licence získat, najdete v článku knihovna dokumentů Fortinet [registrace a stažení vaší licence](https://docs2.fortinet.com/vm/azure/FortiGate/6.2/azure-cookbook/6.2.0/19071/registering-and-downloading-your-license).
 
-    Tato procedura používá [nasazení Single FortiGate-VM](ttps://docs2.fortinet.com/vm/azure/FortiGate/6.2/azure-cookbook/6.2.0/632940/single-FortiGate-vm-deployment). Postup, jak připojit FortiGate síťové virtuální zařízení k virtuální síti centra Azure Stack do místní sítě, najdete v tématu.
+    Tato procedura používá [nasazení Single FortiGate-VM](https://docs2.fortinet.com/vm/azure/FortiGate/6.2/azure-cookbook/6.2.0/632940/single-FortiGate-vm-deployment). Postup, jak připojit FortiGate síťové virtuální zařízení k virtuální síti centra Azure Stack do místní sítě, najdete v tématu.
 
     Další informace o tom, jak nasadit řešení FortiGate v nastavení aktivní – pasivní (HA), najdete v podrobnostech v knihovně dokumentů Fortinet článku [ha pro FortiGate-VM v Azure](https://docs2.fortinet.com/vm/azure/FortiGate/6.2/azure-cookbook/6.2.0/983245/ha-for-FortiGate-vm-on-azure).
 
@@ -56,7 +56,7 @@ Následující tabulka shrnuje parametry, které jsou v těchto nasazeních pou�
 | Předpona podsítě virtuální sítě | 172.16.1.0/24 * |
 | Velikost virtuálního počítače pro FortiGate síťové virtuální zařízení | Standardní F2s_v2 |
 | Název veřejné IP adresy | forti1-publicip1 |
-| Typ veřejné IP adresy | Statická |
+| Typ veřejné IP adresy | Static |
 
 > [!Note]
 > \*Vyberte jiný adresní prostor a předpony podsítě, pokud `172.16.0.0/16` se překrývají s místní sítí nebo fondem virtuálních IP adres centra Azure Stack.
@@ -67,7 +67,7 @@ Následující tabulka shrnuje parametry, které jsou v těchto nasazeních pou�
 
     ![](./media/azure-stack-network-howto-vnet-to-onprem/image5.png)
 
-1. Vyberte **vytvořit prostředek** a vyhledejte `FortiGate`.
+1. Vyberte **vytvořit prostředek** a vyhledejte `FortiGate` .
 
     ![](./media/azure-stack-network-howto-vnet-to-onprem/image6.png)
 
@@ -82,7 +82,7 @@ Následující tabulka shrnuje parametry, které jsou v těchto nasazeních pou�
 2. Zadejte podrobnosti o virtuální síti, podsítích a velikosti virtuálního počítače pomocí tabulky [parametrů nasazení](#deployment-parameters) .
 
     > [!Warning] 
-    > Pokud se místní síť překrývá s rozsahem `172.16.0.0/16`IP adres, musíte vybrat a nastavit jiný rozsah sítě a podsítě. Pokud chcete použít jiné názvy a rozsahy než ty, které jsou v tabulce [parametrů nasazení](#deployment-parameters) , použijte parametry, které **nebudou v konfliktu s** místní sítí. Při nastavování rozsahu IP adres virtuální sítě a rozsahů podsítí v rámci virtuální sítě se postarat. Nechcete, aby se rozsah překrýval s rozsahy IP adres, které existují ve vaší místní síti.
+    > Pokud se místní síť překrývá s rozsahem IP adres `172.16.0.0/16` , musíte vybrat a nastavit jiný rozsah sítě a podsítě. Pokud chcete použít jiné názvy a rozsahy než ty, které jsou v tabulce [parametrů nasazení](#deployment-parameters) , použijte parametry, které **nebudou v konfliktu s** místní sítí. Při nastavování rozsahu IP adres virtuální sítě a rozsahů podsítí v rámci virtuální sítě se postarat. Nechcete, aby se rozsah překrýval s rozsahy IP adres, které existují ve vaší místní síti.
 
 3. Vyberte **OK**.
 
@@ -100,7 +100,7 @@ Následující tabulka shrnuje parametry, které jsou v těchto nasazeních pou�
 
 1. Otevřete portál Azure Stack hub User Portal.
 
-2. Vyberte Skupiny prostředků. Zadejte `forti1-rg1` filtr a dvakrát klikněte na skupinu prostředků forti1-RG1.
+2. Vyberte Skupiny prostředků. Zadejte `forti1-rg1` Filtr a dvakrát klikněte na skupinu prostředků forti1-RG1.
 
     ![](./media/azure-stack-network-howto-vnet-to-onprem/image9.png)
 
@@ -118,11 +118,11 @@ Následující tabulka shrnuje parametry, které jsou v těchto nasazeních pou�
 
 6. Vyberte **Přidat** a přidejte novou trasu.
 
-7. Pojmenujte `to-onprem`trasu.
+7. Pojmenujte trasu `to-onprem` .
 
 8. Zadejte rozsah IP adres, který definuje rozsah sítě místní sítě, ke které se připojí síť VPN.
 
-9. Vyberte **virtuální zařízení** pro **typ dalšího** segmentu směrování `172.16.1.4`a. Rozsah IP adres použijte v případě, že používáte jiný rozsah IP adres.
+9. Vyberte **virtuální zařízení** pro **typ dalšího segmentu směrování** a `172.16.1.4` . Rozsah IP adres použijte v případě, že používáte jiný rozsah IP adres.
 
     ![](./media/azure-stack-network-howto-vnet-to-onprem/image12.png)
 
@@ -138,7 +138,7 @@ Po aktivaci služby síťová virtuální zařízení vytvořte tunel sítě VPN
 
 1. Otevřete portál Azure Stack hub User Portal.
 
-2. Vyberte Skupiny prostředků. Do `forti1` filtru zadejte a dvakrát klikněte na skupinu prostředků forti1.
+2. Vyberte Skupiny prostředků. `forti1`Do filtru zadejte a dvakrát klikněte na skupinu prostředků forti1.
 
 3. Dvakrát klikněte na virtuální počítač **forti1** v seznamu typů prostředků v okně Skupina prostředků.
 
@@ -150,17 +150,17 @@ Po aktivaci služby síťová virtuální zařízení vytvořte tunel sítě VPN
 
     ![](./media/azure-stack-network-howto-vnet-to-onprem/image14.png)
 
-6. Vyberte **systémové** > **firmware**.
+6. Vyberte **systémové**  >  **firmware**.
 
-7. Zaškrtněte políčko, které zobrazuje nejnovější firmware, například `FortiOS v6.2.0 build0866`.
+7. Zaškrtněte políčko, které zobrazuje nejnovější firmware, například `FortiOS v6.2.0 build0866` .
 
     ![](./media/azure-stack-network-howto-vnet-to-onprem/image15.png)
 
-8. Vyberte možnost **Konfigurace zálohování a** > **pokračovat**v upgradu.
+8. Vyberte možnost **Konfigurace zálohování a**  >  **pokračovat**v upgradu.
 
 9. SÍŤOVÉ virtuální zařízení aktualizuje svůj firmware na nejnovější sestavení a restartování. Tento proces trvá přibližně pět minut. Přihlaste se zpátky do webové konzoly FortiGate.
 
-10. Klikněte na**Průvodce protokolem IPSec** **sítě VPN** > .
+10. Klikněte **VPN**na  >  **Průvodce protokolem IPSec**sítě VPN.
 
 11. Zadejte název sítě VPN, například `conn1` v **Průvodci vytvořením sítě VPN**.
 
@@ -197,7 +197,7 @@ Po aktivaci služby síťová virtuální zařízení vytvořte tunel sítě VPN
 
 21. Vyberte **vytvořit** .
 
-22. Vyberte **Síťová** > **rozhraní**.
+22. Vyberte **Síťová**  >  **rozhraní**.
 
     ![](./media/azure-stack-network-howto-vnet-to-onprem/image19.png)
 
@@ -227,11 +227,11 @@ Jakmile je místní zařízení VPN správně nakonfigurované, může se teď v
 
 Z FortiGate síťové virtuální zařízení:
 
-1. Ve webové konzole forti1 Fortigate klikněte na **sledování** > monitorování**protokolu IPSec**.
+1. Ve webové konzole forti1 Fortigate klikněte na sledování monitorování **Monitor**  >  **protokolu IPSec**.
 
     ![](./media/azure-stack-network-howto-vnet-to-onprem/image20.png)
 
-2. Zvýrazněte **conn1** a vyberte **Bring Up** > **všechny selektory fáze 2**.
+2. Zvýrazněte **conn1** a vyberte **Bring Up**  >  **všechny selektory fáze 2**.
 
     ![](./media/azure-stack-network-howto-vnet-to-onprem/image21.png)
 
@@ -247,7 +247,7 @@ Ověření připojení:
 
 -  Virtuální počítač centra Azure Stack je umístěný na **INSIDESUBNET** virtuální sítě.
 
--  Místní systém se umístí do místní sítě v rámci definovaného rozsahu IP adres, jak je definováno v konfiguraci protokolu IPSec. Také zajistěte, aby se místnímu systému poskytovala IP adresa místního rozhraní místního zařízení VPN jako trasa, která se může přistihnout k síti VNET centra Azure Stack, například `172.16.0.0/16`.
+-  Místní systém se umístí do místní sítě v rámci definovaného rozsahu IP adres, jak je definováno v konfiguraci protokolu IPSec. Také zajistěte, aby se místnímu systému poskytovala IP adresa místního rozhraní místního zařízení VPN jako trasa, která se může přistihnout k síti VNET centra Azure Stack, například `172.16.0.0/16` .
 
 -  Při vytváření **nepoužívejte žádné** skupin zabezpečení sítě na virtuálním počítači centra Azure Stack. Pokud vytváříte virtuální počítač z portálu, možná budete muset odebrat NSG, který se ve výchozím nastavení přidá.
 

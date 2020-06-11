@@ -7,12 +7,12 @@ ms.date: 06/07/2019
 ms.author: justinha
 ms.reviewer: efemmano
 ms.lastreviewed: 06/07/2019
-ms.openlocfilehash: 358837da19ad34f82f81a94da0c89b165574ea49
-ms.sourcegitcommit: 4138a2a15f78e7db38b3a29acc963a71937146fd
+ms.openlocfilehash: 3ed7d53efe5a77362332d4a2216935fee4dd7270
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "77699248"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84630840"
 ---
 # <a name="use-the-administrator-portal-in-azure-stack-hub"></a>Použití portálu pro správu v centru Azure Stack
 
@@ -24,8 +24,8 @@ Pokud chcete získat přístup k portálu pro správu, přejděte na adresu URL 
 
 | Prostředí | Adresa URL portálu pro správu |   
 | -- | -- | 
-| ASDK| https://adminportal.local.azurestack.external  |
-| Integrované systémy | https://adminportal.&lt; *oblast*&gt;. &lt; *Plně kvalifikovaný název domény*&gt; | 
+| ASDK| `https://adminportal.local.azurestack.external`  |
+| Integrované systémy | https://adminportal.&lt; *oblast* &gt; . &lt; *Plně kvalifikovaný název domény*&gt; | 
 | | |
 
 > [!TIP]

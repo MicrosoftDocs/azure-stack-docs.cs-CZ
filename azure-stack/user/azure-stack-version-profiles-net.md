@@ -7,12 +7,12 @@ ms.date: 05/05/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: bb13b13f48aa9ccab231e255e0dcb5547b61615a
-ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
+ms.openlocfilehash: f7b0aaf51e8e1b5f14e54762c710cd24ed25d5f1
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82835913"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84631103"
 ---
 # <a name="use-api-version-profiles-with-net-in-azure-stack-hub"></a>Použití profilů verzí rozhraní API s .NET v Azure Stackovém centru
 
@@ -25,8 +25,8 @@ Profil rozhraní API je kombinací poskytovatelů prostředků a verzí rozhran�
 - Chcete-li používat nejnovější verze všech služeb, použijte **nejnovější** profil balíčků. Tento profil je součástí balíčku NuGet **Microsoft. Azure. Management** .
 
 - Pokud chcete používat služby kompatibilní s Azure Stack hub, použijte jeden z následujících balíčků:
-  - **Microsoft. Azure. Management. Profiles.\_Hybrid\_2019\_03 01. <*ResourceProvider*>.0.9.0-Preview. nupkg**
-  - **Microsoft. Azure. Management. Profiles.\_Hybrid\_2018\_03 01. <*ResourceProvider*>.0.9.0-Preview. nupkg**
+  - **Microsoft. Azure. Management. Profiles. Hybrid \_ 2019 \_ 03 \_ 01. <*ResourceProvider*>.0.9.0-Preview. nupkg**
+  - **Microsoft. Azure. Management. Profiles. Hybrid \_ 2018 \_ 03 \_ 01. <*ResourceProvider*>.0.9.0-Preview. nupkg**
 
   Zajistěte, aby se část **ResourceProvider** výše uvedeného balíčku NuGet změnila na správného poskytovatele.
 
@@ -44,9 +44,9 @@ Můžete zkombinovat všechny možnosti ve stejné aplikaci.
 
 - Balíčky, které je potřeba nainstalovat, závisí na verzi profilu, kterou chcete použít. Názvy balíčků pro verze profilu jsou:
 
-  - **Microsoft. Azure. Management. Profiles.\_Hybrid\_2019\_03 01. <*ResourceProvider*>.0.9.0-Preview. nupkg**
+  - **Microsoft. Azure. Management. Profiles. Hybrid \_ 2019 \_ 03 \_ 01. <*ResourceProvider*>.0.9.0-Preview. nupkg**
 
-  - **Microsoft. Azure. Management. Profiles.\_Hybrid\_2018\_03 01. <*ResourceProvider*>.0.9.0-Preview. nupkg**
+  - **Microsoft. Azure. Management. Profiles. Hybrid \_ 2018 \_ 03 \_ 01. <*ResourceProvider*>.0.9.0-Preview. nupkg**
 
 - Chcete-li nainstalovat správné balíčky NuGet pro Visual Studio Code, přečtěte si následující odkaz a Stáhněte si [pokyny správce balíčků NuGet][].
 
@@ -95,10 +95,10 @@ Informace o metadatech můžete získat z Správce prostředkůho koncového bod
 
 Vezměte na vědomí následující skutečnosti:
 
-- **ResourceManagerUrl** v Azure Stack Development Kit (ASDK) je: https://management.local.azurestack.external/.
+- **ResourceManagerUrl** v Azure Stack Development Kit (ASDK) je: `https://management.local.azurestack.external/` .
 
-- **ResourceManagerUrl** v integrovaných systémech je: `https://management.region.<fqdn>/`, kde `<fqdn>` je váš plně kvalifikovaný název domény.
-Načtení požadovaných metadat: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`.
+- **ResourceManagerUrl** v integrovaných systémech je: `https://management.region.<fqdn>/` , kde `<fqdn>` je váš plně kvalifikovaný název domény.
+Načtení požadovaných metadat: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` .
 
 Ukázkový soubor JSON:
 
@@ -117,9 +117,9 @@ Ukázkový soubor JSON:
 
 ## <a name="existing-api-profiles"></a>Existující profily rozhraní API
 
-- **Microsoft. Azure. Management. Profiles.\_Hybrid\_2019\_03 01. *<ResourceProvider*>.0.9.0-preview. nupkg**: nejnovější profil sestavený pro Azure Stack hub. Tento profil se používá pro služby, které jsou nejvíce kompatibilní s Azure Stack hub, pokud používáte verzi 1904 nebo novější.
+- **Microsoft. Azure. Management. Profiles. hybrid \_ 2019 \_ 03 \_ 01. <*ResourceProvider*>.0.9.0-Preview. nupkg**: nejnovější profil sestavený pro Azure Stack hub. Tento profil se používá pro služby, které jsou nejvíce kompatibilní s Azure Stack hub, pokud používáte verzi 1904 nebo novější.
 
-- **Microsoft. Azure. Management. Profiles.\_Hybrid\_2018\_03 01. *<ResourceProvider*>.0.9.0-Preview. nupkg**: použijte tento profil pro služby, aby byly kompatibilní s Azure Stack hub pro verze 1808 nebo novější.
+- **Microsoft. Azure. Management. Profiles. hybrid \_ 2018 \_ 03 \_ 01. <*ResourceProvider*>.0.9.0-Preview. nupkg**: použijte tento profil pro služby, aby byly kompatibilní s Azure Stack hub pro verze 1808 nebo novější.
 
 - **Nejnovější**: Profil skládající se z nejnovějších verzí všech služeb. Použijte nejnovější verze všech služeb. Tento profil je součástí balíčku NuGet **Microsoft. Azure. Management** .
 
@@ -136,14 +136,14 @@ var client = new ResourceManagementClient(armEndpoint, credentials)
 };
 ```
 
-Aby `credentials` bylo možné vytvořit instanci klienta, je nutné zadat parametr v tomto kódu. Následující kód vygeneruje ověřovací token podle ID tenanta a instančního objektu:
+`credentials`Aby bylo možné vytvořit instanci klienta, je nutné zadat parametr v tomto kódu. Následující kód vygeneruje ověřovací token podle ID tenanta a instančního objektu:
 
 ```csharp
 var azureStackSettings = getActiveDirectoryServiceSettings(armEndpoint);
 var credentials = ApplicationTokenProvider.LoginSilentAsync(tenantId, servicePrincipalId, servicePrincipalSecret, azureStackSettings).GetAwaiter().GetResult();
 ```
 
-`getActiveDirectoryServiceSettings` Volání v kódu načte z koncového bodu metadat koncové body centra Azure Stack. Uvádí proměnné prostředí z vytvořeného volání:
+`getActiveDirectoryServiceSettings`Volání v kódu načte z koncového bodu metadat koncové body centra Azure Stack. Uvádí proměnné prostředí z vytvořeného volání:
 
 ```csharp
 public static ActiveDirectoryServiceSettings getActiveDirectoryServiceSettings(string armEndpoint)

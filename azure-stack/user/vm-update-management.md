@@ -7,12 +7,12 @@ ms.date: 04/27/2020
 ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 04/27/2020
-ms.openlocfilehash: 7ef6b1fe7bcaa0cba1138c194847c40076f3ec6e
-ms.sourcegitcommit: 29734b4ca6917b86674c17de9f41b0aaf367a838
+ms.openlocfilehash: 838ce4ab909019ce14569a8c5ad5da0b19457a90
+ms.sourcegitcommit: f082a8aa7e9cfaeab21b750d58520db58147ff1a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82223051"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84679701"
 ---
 # <a name="vm-update-and-management-automation-in-azure-stack-hub"></a>Automatizace aktualizací a správy virtuálních počítačů v centru Azure Stack
 Ke správě virtuálních počítačů s Windows a Linux, které se nasazují pomocí centra Azure Stack, použijte následující Azure Automation řešení:
@@ -109,7 +109,7 @@ Virtuální počítače centra Azure Stack se teď dají zahrnout do plánovaný
 
 ##  <a name="create-an-update-deployment-schedule"></a>Vytvořit plán nasazení aktualizace
 
-Pokud chcete vytvořit plán nasazení aktualizace, musíte k předání počítačů použít rutinu prostředí PowerShell nebo Azure REST API. K naplánování vašich počítačů použijte následující příklad PowerShellu. K vytvoření plánu můžete použít rutinu **[New-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationschedule)** s `ForUpdateConfiguration` parametrem. Pak použijte rutinu **[New-AzAutomationSoftwareUpdateConfiguration](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationsoftwareupdateconfiguration)** a předejte do `NonAzureComputer` parametru počítače Azure Stack hub. Pokud chcete tento skript spustit, budete muset použít globální [Azure PowerShell AZ Module](https://docs.microsoft.com/powershell/azure/).
+Pokud chcete vytvořit plán nasazení aktualizace, musíte k předání počítačů použít rutinu prostředí PowerShell nebo Azure REST API. K naplánování vašich počítačů použijte následující příklad PowerShellu. K vytvoření plánu můžete použít rutinu **[New-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationschedule)** s `ForUpdateConfiguration` parametrem. Pak použijte rutinu **[New-AzAutomationSoftwareUpdateConfiguration](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationsoftwareupdateconfiguration)** a předejte do parametru počítače Azure Stack hub `NonAzureComputer` . Pokud chcete tento skript spustit, budete muset použít globální [Azure PowerShell AZ Module](https://docs.microsoft.com/powershell/azure/).
 
 Následující příklad ukazuje, jak to provést:
 

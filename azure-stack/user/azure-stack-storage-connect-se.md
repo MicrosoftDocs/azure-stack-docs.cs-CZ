@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 701b2a0c6bae3fa4f246877f49f73aca8482b0de
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: a72179e26ab4c873aa67ece9e207f4e6f4e71579
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81660382"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84631243"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-hub-subscription-or-a-storage-account"></a>Připojení Průzkumník služby Storage k předplatnému centra Azure Stack nebo účtu úložiště
 
@@ -46,9 +46,9 @@ Exportujte a pak importujte certifikát centra Azure Stack pro odpojené integro
 
 4.  V části **Konzola Root\Certificated (místní počítač) \Trusted Root Certification Authorities\Certificates** najít **AzureStackSelfSignedRootCert**.
 
-    ![Načtení kořenového certifikátu centra Azure Stack prostřednictvím konzoly MMC. exe](./media/azure-stack-storage-connect-se/add-certificate-azure-stack.png)
+    ![Načtení kořenového certifikátu centra Azure Stack prostřednictvím mmc.exe](./media/azure-stack-storage-connect-se/add-certificate-azure-stack.png)
 
-5. Klikněte pravým tlačítkem na certifikát, vyberte **všechny úlohy** > **exportovat**a pak podle pokynů exportujte certifikát se **zakódovaným X. 509 s kódováním Base-64 (. CER)**.
+5. Klikněte pravým tlačítkem na certifikát, vyberte **všechny úlohy**  >  **exportovat**a pak podle pokynů exportujte certifikát se **zakódovaným X. 509 s kódováním Base-64 (. CER)**.
 
     Vyexportovaný certifikát se použije v dalším kroku.
 
@@ -107,7 +107,7 @@ Pomocí následujících kroků se připojte Průzkumník služby Storage k pře
     | Pole | Poznámky |
     | ---   | ---   |
     | Název prostředí | Pole lze přizpůsobit uživatelem. |
-    | Azure Resource Manager koncový bod | Ukázky Azure Resource Manager koncových bodů prostředků Azure Stack Development Kit.<br>Pro operátory:https://adminmanagement.local.azurestack.external <br> Pro uživatele:https://management.local.azurestack.external |
+    | Azure Resource Manager koncový bod | Ukázky Azure Resource Manager koncových bodů prostředků Azure Stack Development Kit.<br>Pro operátory:`https://adminmanagement.local.azurestack.external` <br> Pro uživatele:`https://management.local.azurestack.external` |
 
     Pokud pracujete na Azure Stack integrovaném systému centra a neznáte koncový bod správy, obraťte se na svého operátora.
 
@@ -145,7 +145,7 @@ Můžete se také připojit k účtu úložiště Azure Stack hub pomocí názvu
 
     ![Připojit jméno a klíč](./media/azure-stack-storage-connect-se/azure-stack-attach-name-and-key.png)
 
-5. Vyberte **Connect** (Připojit).
+5. Vyberte **Připojit**.
 6. Po úspěšném připojení účtu úložiště se účet úložiště zobrazí s názvem (**externí, jiný**) připojeným k jeho názvu.
 
     ![VMWINDISK](./media/azure-stack-storage-connect-se/azure-stack-vmwindisk.png)

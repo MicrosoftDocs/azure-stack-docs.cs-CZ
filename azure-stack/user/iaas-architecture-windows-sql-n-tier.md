@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: e331be14abdeceeb2fef462fba47c4871a320e7f
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: ee2352e6e7ee6b6e6a7322bcdb66ea4d24797eb8
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81659893"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84631131"
 ---
 # <a name="windows-n-tier-application-on-azure-stack-hub-with-sql-server"></a>N-vrstvá aplikace Windows v centru Azure Stack s SQL Server
 
@@ -34,7 +34,7 @@ Tato architektura se skládá z následujících součástí.
 
 -   **Virtuální síť a podsítě**. Každý virtuální počítač Azure je nasazený do virtuální sítě, která se dá rozdělit do podsítí. Vytvořte pro každou vrstvu samostatnou podsíť.
 
--   **Load Balancer vrstvy 7.** Protože Application Gateway ještě není v centru Azure Stack k dispozici, jsou k dispozici alternativy na [trhu centra Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-marketplace-azure-items?view=azs-1908) , jako je: [kemp LoadMaster Load Balancer ADC Content Switch](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure)/ [F5 Big-IP Virtual Edition](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-big-ip-best) nebo [A10 vThunder ADC](https://azuremarketplace.microsoft.com/marketplace/apps/a10networks.vthunder-414-gr1)
+-   **Load Balancer vrstvy 7.** Protože Application Gateway ještě není v centru Azure Stack k dispozici, jsou k dispozici alternativy na [trhu centra Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-marketplace-azure-items?view=azs-1908) , jako je: [kemp LoadMaster Load Balancer ADC Content Switch](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure) /  [F5 Big-IP Virtual Edition](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-big-ip-best) nebo [A10 vThunder ADC](https://azuremarketplace.microsoft.com/marketplace/apps/a10networks.vthunder-414-gr1)
 
 -   Nástroje pro **Vyrovnávání zatížení**. Použijte [Azure Load Balancer ](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)k distribuci síťového provozu z webové vrstvy do obchodní vrstvy a z obchodní vrstvy na SQL Server.
 
@@ -80,7 +80,7 @@ Při navrhování podsítí myslete na požadované funkce a požadavky na zabez
 
 Nevystavujte virtuální počítače přímo na internetu, ale místo toho každému virtuálnímu počítači poskytněte privátní IP adresu. Klienti se připojují pomocí veřejné IP adresy přidružené k Load Balancer vrstvy 7.
 
-Definujte pravidla nástroje pro vyrovnávání zatížení, aby síťový provoz směroval na virtuální počítače. Pokud třeba chcete povolit přenosy HTTP, namapujte port 80 z front-endové konfigurace na port 80 ve fondu back-end adres. Když klient odešle žádost HTTP na port 80, nástroj pro vyrovnávání zatížení vybere back-endovou IP adresu použitím [algoritmu hash](/azure/load-balancer/concepts-limitations#load-balancer-concepts), který obsahuje zdrojovou IP adresu. Požadavky klientů jsou distribuovány napříč všemi virtuálními počítači ve fondu back-end adres.
+Definujte pravidla nástroje pro vyrovnávání zatížení, aby síťový provoz směroval na virtuální počítače. Pokud třeba chcete povolit přenosy HTTP, namapujte port 80 z front-endové konfigurace na port 80 ve fondu back-end adres. Když klient odešle žádost HTTP na port 80, nástroj pro vyrovnávání zatížení vybere back-endovou IP adresu použitím [algoritmu hash](https://docs.microsoft.com/azure/load-balancer/concepts#limitations), který obsahuje zdrojovou IP adresu. Požadavky klientů jsou distribuovány napříč všemi virtuálními počítači ve fondu back-end adres.
 
 ### <a name="network-security-groups"></a>Skupiny zabezpečení sítě
 

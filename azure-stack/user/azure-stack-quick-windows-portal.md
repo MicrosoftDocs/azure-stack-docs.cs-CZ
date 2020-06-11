@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 1/10/2020
-ms.openlocfilehash: b32ce924aae800360229ca1e309b568fdc6f5353
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 5e34a943984583ab1e6d3a83a4aa5e4e7d302d5c
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81660251"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84631246"
 ---
 # <a name="quickstart-create-a-windows-server-vm-with-the-azure-stack-hub-portal"></a>Rychlý Start: Vytvoření virtuálního počítače s Windows serverem pomocí portálu Azure Stack hub
 
@@ -26,12 +26,12 @@ Naučte se vytvořit virtuální počítač s Windows serverem 2016 pomocí port
 
 Přihlaste se k portálu centra Azure Stack. Adresa portálu centra Azure Stack závisí na tom, k jakému produktu Azure Stack centra se připojujete:
 
-* Pro Azure Stack Development Kit (ASDK), přejít na: https://portal.local.azurestack.external.
+* Pro Azure Stack Development Kit (ASDK), přejít na: `https://portal.local.azurestack.external` .
 * V případě integrovaného systému služby Azure Stack hub přejít na adresu URL, kterou poskytl váš operátor centra Azure Stack.
 
 ## <a name="create-a-vm"></a>Vytvoření virtuálního počítače
 
-1. Vyberte **vytvořit prostředek** > **COMPUTE**. Hledat` Windows Server 2016 Datacenter – Pay as you use`.
+1. Vyberte **vytvořit prostředek**  >  **COMPUTE**. Hledat ` Windows Server 2016 Datacenter – Pay as you use` .
     Pokud nevidíte položku **Windows Server 2016 Datacenter – průběžné platby** , obraťte se na svého operátora cloudu centra Azure Stack a požádejte ho o přidání image do tržiště centra Azure Stack. Pokyny, které může váš operátor cloudu použít k [Vytvoření a publikování vlastní položky na webu Marketplace centra Azure Stack](../operator/azure-stack-create-and-publish-marketplace-item.md).
 
     ![Windows Server 2016 Datacenter – Plaťte při používání](./media/azure-stack-quick-windows-portal/image1.png)

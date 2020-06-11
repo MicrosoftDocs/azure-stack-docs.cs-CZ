@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: efemmano
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: f60094812a5bc0b27a05ec7e66ac7bf65d747d76
-ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
+ms.openlocfilehash: 26225b1b6ba55ed0f5934130e361f1dbab4b664e
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84147018"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84631385"
 ---
 # <a name="use-the-azure-stack-hub-user-portal"></a>Použití uživatelského portálu Azure Stack hub
 
@@ -23,7 +23,7 @@ Pomocí portálu Azure Stack hub se přihlaste k odběru veřejných nabídek a 
 Váš operátor centra Azure Stack (ve vaší organizaci buď poskytovatel služeb nebo správce), vám umožní znát správnou adresu URL pro přístup k portálu.
 
 - V případě integrovaného systému se adresa URL liší v závislosti na oblasti vašeho operátoru a na externím názvu domény a bude ve formátu https://portal.&lt .* oblast* &gt; . &lt; *Plně kvalifikovaný název domény* &gt; .
-- Pokud používáte Azure Stack Development Kit (ASDK), adresa portálu je https://portal.local.azurestack.external .
+- Pokud používáte Azure Stack Development Kit (ASDK), adresa portálu je `https://portal.local.azurestack.external` .
 - Výchozí časové pásmo pro všechna nasazení centra Azure Stack je nastavené na koordinovaný světový čas (UTC). Při instalaci Azure Stackového centra můžete vybrat časové pásmo, ale při instalaci se automaticky obnoví na standard UTC.
 
 ## <a name="customize-the-dashboard"></a>Přizpůsobit řídicí panel

@@ -3,15 +3,15 @@ title: Použití modulu zásad centra Azure Stack
 description: Zjistěte, jak omezit předplatné Azure tak, aby se chovalo jako předplatné centra Azure Stack.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/07/2020
+ms.date: 06/09/2020
 ms.author: sethm
 ms.lastreviewed: 03/26/2019
-ms.openlocfilehash: 7af2662c52de8085b6b77fa0c9a2b36f401168fc
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: f39bbf689cd3b847b29c2d5b046721029078a5dd
+ms.sourcegitcommit: d91e47a51a02042f700c6a420f526f511a6db9a0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77703821"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84666477"
 ---
 # <a name="manage-azure-policy-using-the-azure-stack-hub-policy-module"></a>Správa zásad Azure pomocí modulu zásad služby Azure Stack hub
 
@@ -30,7 +30,7 @@ Modul zásad centra Azure Stack umožňuje nakonfigurovat předplatné Azure se 
 
 ## <a name="apply-policy-to-azure-subscription"></a>Použití zásad u předplatného Azure
 
-Pomocí následujících příkazů můžete u svého předplatného Azure použít výchozí zásady Azure Stack hub. Než tyto příkazy spustíte, nahraďte `Azure subscription name` názvem vašeho předplatného Azure:
+Pomocí následujících příkazů můžete pro své předplatné Azure použít výchozí zásadu centra Azure Stack. Než tyto příkazy spustíte, nahraďte `Azure subscription name` názvem vašeho předplatného Azure:
 
 ```powershell
 Add-AzureRmAccount

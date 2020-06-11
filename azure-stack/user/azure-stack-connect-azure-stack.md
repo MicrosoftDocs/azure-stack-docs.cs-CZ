@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: 1b4db2cf67231f8660948af43d4935bbcf9c846c
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: d94f9130825493ea521441a43a58aa053ff2cc05
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84111893"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84631406"
 ---
 # <a name="connect-to-azure-stack-hub"></a>Připojení k centru Azure Stack
 
@@ -28,7 +28,7 @@ S Připojení ke vzdálené ploše může jeden souběžný uživatel pracovat s
 
 2. V počítači vývojové sady otevřete Správce serveru, klikněte na **místní server**, vypněte rozšířené zabezpečení aplikace Internet Explorer a potom zavřete Správce serveru.
 
-3. Portál otevřete tak, že přejdete na adresu ( https://portal.local.azurestack.external/) a přihlásíte se pomocí přihlašovacích údajů uživatele).
+3. Pokud chcete portál otevřít, použijte `https://portal.local.azurestack.external/` přihlašovací údaje uživatele a přihlaste se.
 
 
 ## <a name="connect-to-azure-stack-hub-with-vpn"></a>Připojení k centru Azure Stack pomocí sítě VPN
@@ -97,7 +97,7 @@ Připojte se k instanci centra Azure Stack pomocí některé z následujících 
 
 ### <a name="test-the-vpn-connectivity"></a>Testování připojení VPN
 
-Pokud chcete otestovat připojení k portálu, otevřete prohlížeč a navštivte Portál User Portal ( https://portal.local.azurestack.external/) , přihlaste se a pak vytvořte prostředky.  
+Pokud chcete otestovat připojení k portálu, otevřete prohlížeč a pokračujte na portál User Portal `https://portal.local.azurestack.external/` , přihlaste se a pak vytvořte prostředky.  
 
 ## <a name="next-steps"></a>Další kroky
 

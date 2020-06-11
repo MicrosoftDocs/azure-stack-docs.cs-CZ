@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 1/10/2020
-ms.openlocfilehash: 75056bbadb3ab5792bd51ed3dcb348ef3d42aa3e
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 5a9d6902d317af76145dde564cef56ac2f42dce8
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81660426"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84631264"
 ---
 # <a name="quickstart-create-a-linux-server-vm-by-using-the-azure-stack-hub-portal"></a>Rychlý Start: Vytvoření virtuálního počítače s Linux serverem pomocí portálu Azure Stack hub
 
@@ -33,7 +33,7 @@ Virtuální počítač s Ubuntu serverem 16,04 LTS můžete vytvořit pomocí po
 
 * Přístup k klientovi SSH
 
-   Pokud používáte Azure Stack Development Kit (ASDK), možná nemáte přístup k klientovi Secure Shell (SSH). Pokud potřebujete klienta, obsahuje několik balíčků klienta SSH. Například výstup obsahuje klienta SSH a generátor klíčů SSH (PuTTYgen. exe). Další informace o dostupných balíčcích najdete v tématu [Jak používat veřejný klíč SSH](azure-stack-dev-start-howto-ssh-public-key.md).
+   Pokud používáte Azure Stack Development Kit (ASDK), možná nemáte přístup k klientovi Secure Shell (SSH). Pokud potřebujete klienta, obsahuje několik balíčků klienta SSH. Například výstup obsahuje klienta SSH a generátor klíčů SSH (puttygen.exe). Další informace o dostupných balíčcích najdete v tématu [Jak používat veřejný klíč SSH](azure-stack-dev-start-howto-ssh-public-key.md).
 
 * V tomto rychlém startu se k vygenerování klíčů SSH a připojení k virtuálnímu počítači serveru pro Linux používá výstup. [Stáhněte a nainstalujte PuTTY](https://www.putty.org).
 
@@ -63,13 +63,13 @@ Vytvoření páru klíčů SSH:
 
 Adresa portálu centra Azure Stack závisí na tom, k jakému produktu Azure Stack centra se připojujete:
 
-* Pro ASDK použijte https://portal.local.azurestack.external.
+* Pro ASDK použijte `https://portal.local.azurestack.external` .
 
 * V případě integrovaného systému služby Azure Stack hub přejít na adresu URL, kterou poskytl váš operátor centra Azure Stack.
 
 ## <a name="create-the-vm"></a>Vytvořte virtuální počítač.
 
-1. Vyberte **vytvořit prostředek** > **COMPUTE**. Vyhledejte `Ubuntu Server 16.04 LTS`. Vyberte název.
+1. Vyberte **vytvořit prostředek**  >  **COMPUTE**. Vyhledejte `Ubuntu Server 16.04 LTS`. Vyberte název.
 
    ![Vytvořit server Linux](media/azure-stack-quick-linux-portal/image1.png)
 
@@ -108,7 +108,7 @@ Adresa portálu centra Azure Stack závisí na tom, k jakému produktu Azure Sta
 
 1. V podokně **kategorie** se posuňte nahoru a vyberte možnost **relace**.
 
-1. Do pole **název hostitele (nebo IP adresa)** vložte připojovací řetězec, který je zobrazený na portálu centra Azure Stack. V tomto příkladu je *asadmin@192.168.102.34*řetězec.
+1. Do pole **název hostitele (nebo IP adresa)** vložte připojovací řetězec, který je zobrazený na portálu centra Azure Stack. V tomto příkladu je řetězec *asadmin@192.168.102.34* .
 
 1. Výběrem **otevřít** otevřete relaci pro virtuální počítač.
 
@@ -140,7 +140,7 @@ Skupina zabezpečení sítě (NSG) zabezpečuje příchozí a odchozí provoz. K
 
 1. V levém podokně v části **Nastavení**vyberte **příchozí pravidla zabezpečení**.
 
-1. Vyberte **Přidat**.
+1. Vyberte možnost **Přidat**.
 
 1. Do pole **název** zadejte **http**. 
 
@@ -152,7 +152,7 @@ Skupina zabezpečení sítě (NSG) zabezpečuje příchozí a odchozí provoz. K
 
 Když jste nainstalovali NGINX a na VIRTUÁLNÍm počítači jste otevřeli port 80, můžete k webovému serveru přistupovat pomocí veřejné IP adresy virtuálního počítače. (Veřejná IP adresa se zobrazí na stránce **Přehled** virtuálního počítače.)
 
-Otevřete webový prohlížeč a v *>veřejné IP adresy\<http:// *.
+Otevřete webový prohlížeč a pak navštivte *http:// \<public IP address> *.
 
 ![Úvodní stránka webového serveru NGINX](media/azure-stack-quick-linux-portal/linux-05a.png)
 

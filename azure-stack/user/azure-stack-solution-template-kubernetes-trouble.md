@@ -7,12 +7,12 @@ ms.author: mabrigg
 ms.date: 04/20/2020
 ms.reviewer: waltero
 ms.lastreviewed: 11/14/2019
-ms.openlocfilehash: 30743cf5a2edf880c155e443c0608dc7d3f8f55f
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 3f51aa2c8d1d2987d3823e8fefe953d4cc6cc890
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81660200"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84631078"
 ---
 # <a name="troubleshoot-kubernetes-deployment-to-azure-stack-hub"></a>Řešení potíží s nasazením Kubernetes do centra Azure Stack
 
@@ -48,7 +48,7 @@ Následující diagram ukazuje obecný proces nasazení clusteru.
         1. Načte koncový bod galerie z Azure Resource Manager koncového bodu metadat.
         2. Získá ID prostředku služby Active Directory z Azure Resource Manager koncového bodu metadat.
         3. Načte model rozhraní API pro modul AKS.
-        4. Nasadí modul AKS do clusteru Kubernetes a uloží cloudový profil centra Azure Stack do `/etc/kubernetes/azurestackcloud.json`.
+        4. Nasadí modul AKS do clusteru Kubernetes a uloží cloudový profil centra Azure Stack do `/etc/kubernetes/azurestackcloud.json` .
 3. Vytvořte hlavní virtuální počítače.
 
 4. Stáhněte a spusťte rozšíření vlastních skriptů.
@@ -93,7 +93,7 @@ Na virtuálních počítačích, které podporují cluster Kubernetes, můžete 
 
 Když nasadíte cluster Kubernetes, můžete zkontrolovat stav nasazení a zkontrolovat případné problémy.
 
-1. Otevřete [portál centra Azure Stack](https://portal.local.azurestack.external).
+1. Otevřete portál centra Azure Stack `https://portal.local.azurestack.external` .
 2. Vyberte **skupiny prostředků**a pak vyberte název skupiny prostředků, kterou jste použili při nasazování clusteru Kubernetes.
 3. Vyberte **nasazení**a potom vyberte **název nasazení**.
 
@@ -123,7 +123,7 @@ K počítači, který použijete ke správě centra Azure Stack, budete potřebo
 
 Pomocí těchto kroků můžete shromáždit a stáhnout protokoly clusteru:
 
-1. Otevřete příkazový řádek bash. Z počítače s Windows otevřete _Git bash_ nebo spusťte: `C:\Program Files\Git\git-bash.exe`.
+1. Otevřete příkazový řádek bash. Z počítače s Windows otevřete _Git bash_ nebo spusťte: `C:\Program Files\Git\git-bash.exe` .
 
 2. Spuštěním následujících příkazů v příkazovém řádku bash Stáhněte skript kolektoru protokolů:
 
@@ -138,10 +138,10 @@ Pomocí těchto kroků můžete shromáždit a stáhnout protokoly clusteru:
 
     | Parametr           | Popis                                                                                                      | Příklad                                                                       |
     |---------------------|------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
-    | -d,--VMD-Host      | Veřejná IP adresa nebo plně kvalifikovaný název domény (FQDN) pro DVM. Název virtuálního počítače začíná na `vmd-`. | IP ADRESA: 192.168.102.38<br>DNS: VMD-myk8s. Local. cloudapp. azurestack. external |
+    | -d,--VMD-Host      | Veřejná IP adresa nebo plně kvalifikovaný název domény (FQDN) pro DVM. Název virtuálního počítače začíná na `vmd-` . | IP ADRESA: 192.168.102.38<br>DNS: VMD-myk8s. Local. cloudapp. azurestack. external |
     | -h,--help  | Použití příkazu tisku. | |
     | -i,--identity-File | Cesta k souboru privátního klíče RSA předanému položce Marketplace při vytváření clusteru Kubernetes. Vyžaduje se pro vzdálené přihlášení k uzlům Kubernetes. | C:\data\ id_rsa. pem (do výstupu)<br>~/.ssh/id_rsa (SSH)
-    | -m,--Master-Host   | Veřejná IP adresa nebo plně kvalifikovaný název domény (FQDN) hlavního uzlu Kubernetes Název virtuálního počítače začíná na `k8s-master-`. | IP ADRESA: 192.168.102.37<br>Plně kvalifikovaný název domény: k8s-12345. Local. cloudapp. azurestack. external      |
+    | -m,--Master-Host   | Veřejná IP adresa nebo plně kvalifikovaný název domény (FQDN) hlavního uzlu Kubernetes Název virtuálního počítače začíná na `k8s-master-` . | IP ADRESA: 192.168.102.37<br>Plně kvalifikovaný název domény: k8s-12345. Local. cloudapp. azurestack. external      |
     | -u,--User          | Uživatelské jméno předané položce Marketplace při vytváření clusteru Kubernetes. Vyžaduje se pro vzdálené přihlášení k uzlům Kubernetes. | azureuser (výchozí hodnota) |
 
 
@@ -151,7 +151,7 @@ Pomocí těchto kroků můžete shromáždit a stáhnout protokoly clusteru:
     ./getkuberneteslogs.sh --identity-file "C:\id_rsa.pem" --user azureuser --vmd-host 192.168.102.37
      ```
 
-4. Po několika minutách skript vytvoří výstup shromážděných protokolů do adresáře s názvem `KubernetesLogs_{{time-stamp}}`. Pro každý virtuální počítač, který patří do clusteru, najdete adresář.
+4. Po několika minutách skript vytvoří výstup shromážděných protokolů do adresáře s názvem `KubernetesLogs_{{time-stamp}}` . Pro každý virtuální počítač, který patří do clusteru, najdete adresář.
 
     Skript kolektoru protokolů bude také vyhledávat chyby v souborech protokolu a zahrnovat kroky pro řešení potíží, pokud najde známý problém. Ujistěte se, že používáte nejnovější verzi skriptu, abyste zvýšili pravděpodobnost hledání známých problémů.
 

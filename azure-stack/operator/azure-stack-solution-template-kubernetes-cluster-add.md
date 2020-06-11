@@ -8,12 +8,12 @@ ms.date: 03/24/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 03/24/2020v
-ms.openlocfilehash: bd8867b4bd7fae79f82752a0f4cdbd1457efc0ef
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 092d73339eb2ea733cb0fb67404bf52cc9539343
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80229530"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84630762"
 ---
 # <a name="add-kubernetes-to-azure-stack-hub-marketplace"></a>Přidání Kubernetes do tržiště centra Azure Stack
 
@@ -28,7 +28,7 @@ Tento článek se zabývá používáním Azure Resource Manager šablony pro na
 
 Vytvořte plán, nabídku a předplatné pro položku Kubernetes Marketplace. Můžete také použít stávající plán a nabídku.
 
-1. Přihlaste se k [portálu pro správu.](https://adminportal.local.azurestack.external)
+1. Přihlaste se k portálu pro správu `https://adminportal.local.azurestack.external` .
 
 1. Vytvořte plán jako základní plán. Pokyny najdete v tématu [Vytvoření plánu v centru Azure Stack](azure-stack-create-plan.md).
 
@@ -40,7 +40,7 @@ Vytvořte plán, nabídku a předplatné pro položku Kubernetes Marketplace. M�
 
 1. Vyberte **změnit stav**. Vyberte možnost **veřejné**.
 
-1. Vyberte **+ vytvořit prostředek** > **nabídky a plány** > **předplatné** , abyste mohli vytvořit předplatné.
+1. Vyberte **+ vytvořit prostředek**  >  **nabídky a plány**  >  **předplatné** , abyste mohli vytvořit předplatné.
 
     a. Zadejte **Zobrazovaný název**.
 
@@ -60,7 +60,7 @@ Pokud pro službu správy identit používáte službu Active Directory federova
 
 Přidejte následující image serveru Ubuntu do tržiště centra Azure Stack:
 
-1. Přihlaste se k [portálu pro správu](https://adminportal.local.azurestack.external).
+1. Přihlaste se k portálu pro správu `https://adminportal.local.azurestack.external` .
 
 1. Vyberte **všechny služby**a potom v kategorii **Správa** vyberte **Správa Marketplace**.
 
@@ -80,7 +80,7 @@ Přidejte následující image serveru Ubuntu do tržiště centra Azure Stack:
 
 Přidejte Kubernetes z webu centra Azure Stack:
 
-1. Otevřete [portál pro správu](https://adminportal.local.azurestack.external).
+1. Otevřete portál pro správu `https://adminportal.local.azurestack.external` .
 
 1. Vyberte **všechny služby** a potom v kategorii **Správa** vyberte **Správa Marketplace**.
 
@@ -100,7 +100,7 @@ Přidejte Kubernetes z webu centra Azure Stack:
 
 ## <a name="add-kubernetes-to-the-marketplace"></a>Přidání Kubernetes do Marketplace
 
-1. Otevřete [portál pro správu](https://adminportal.local.azurestack.external).
+1. Otevřete portál pro správu `https://adminportal.local.azurestack.external` .
 
 1. Vyberte **všechny služby** a potom v kategorii **Správa** vyberte **Správa Marketplace**.
 
@@ -131,7 +131,7 @@ Odebrání položky Kubernetes:
     Get-AzsGalleryItem | Select Name
     ```
     
-3. Název aktuální položky, jako třeba `Microsoft.AzureStackKubernetesCluster.0.3.0`.
+3. Název aktuální položky, jako třeba `Microsoft.AzureStackKubernetesCluster.0.3.0` .
 
 4. Odeberte položku pomocí následující rutiny prostředí PowerShell:
 

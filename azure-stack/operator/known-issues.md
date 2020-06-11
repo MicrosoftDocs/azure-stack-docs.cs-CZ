@@ -3,16 +3,16 @@ title: Známé problémy centra Azure Stack
 description: Přečtěte si o známých problémech v Azure Stackch vydáních centra.
 author: sethmanheim
 ms.topic: article
-ms.date: 05/05/2020
+ms.date: 06/10/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 31ef3ee64eb98b34160e95fee0a228fc32cee589
-ms.sourcegitcommit: 7c10a45a8de0c5c7649e5329ca5b69a0791e37b5
+ms.openlocfilehash: 235b3232c9ace0ab95b8a041abb521ba1bba55ac
+ms.sourcegitcommit: d91e47a51a02042f700c6a420f526f511a6db9a0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83721874"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84666443"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Známé problémy centra Azure Stack
 
@@ -79,18 +79,27 @@ Další známé problémy s aktualizacemi centra Azure Stack najdete [v tématu 
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
 - Příčina: rozšíření IAM není aktuální. Portál Ibiza, který se dodává s centrem Azure Stack, zavádí nové chování, které způsobí selhání rozšíření RBAC, pokud uživatel otevírá okno **Access Control (IAM)** pro předplatné, které není vybrané v nástroji pro výběr globálního předplatného (**adresář + předplatné** na portálu User Portal). V okně se zobrazí **načítání** ve smyčce a uživatel nemůže do předplatného přidat nové role. Okno **Přidat** také zobrazuje **načítání** ve smyčce.
-- Náprava: Ujistěte se, že je předplatné zaškrtnuté v nabídce **adresář a předplatné** . K nabídce se dá dostat z horní části portálu, poblíž tlačítka **oznámení** nebo prostřednictvím zástupce v okně **všechny prostředky** , ve kterém se zobrazuje **předplatné nezobrazené? Otevřete nastavení adresář a předplatné**. V této nabídce je nutné vybrat odběr.
+- Náprava: Ujistěte se, že je předplatné zaškrtnuté v nabídce **adresář a předplatné** . Do této nabídky můžete přejít z horní části portálu vedle tlačítka **Oznámení** nebo přes zástupce v okně **Všechny prostředky** s textem **Nezobrazuje se předplatné? Otevřete nastavení Adresář a předplatné**. V této nabídce je potřeba vybrat předplatné.
 
 ## <a name="networking"></a>Sítě
 
-### <a name="network-security-groups"></a>Network Security Groups (Skupiny zabezpečení sítě)
+### <a name="denyalloutbound-rule-cannot-be-created"></a>Pravidlo DenyAllOutbound nejde vytvořit.
 
 - Platí: Tento problém se vztahuje na všechny podporované verze. 
 - Příčina: explicitní pravidlo **DenyAllOutbound** nejde vytvořit v NSG, protože to zabrání v dokončení veškeré interní komunikace s infrastrukturou, která je potřebná pro nasazení virtuálního počítače.
 - Výskyt: běžné
 
+### <a name="icmp-protocol-not-supported-for-nsg-rules"></a>Protokol ICMP není pro pravidla NSG podporován.
+
 - Platí: Tento problém se vztahuje na všechny podporované verze. 
 - Příčina: při vytváření příchozího nebo odchozího pravidla zabezpečení sítě zobrazí možnost **protokol možnost protokolu** **ICMP** . V tuto chvíli se v Azure Stackovém centru nepodporuje. Tento problém je opravený a v příští verzi Azure Stack centra se nezobrazí.
+- Výskyt: běžné
+
+### <a name="cannot-delete-an-nsg-if-nics-not-attached-to-running-vm"></a>Nejde odstranit NSG, pokud nejsou připojené síťové karty ke spuštěnému virtuálnímu počítači.
+
+- Platí: Tento problém se vztahuje na všechny podporované verze.
+- Příčina: při zrušení přidružení NSG a síťové karty, která není připojená ke spuštěnému virtuálnímu počítači, se operace aktualizace (PUT) pro tento objekt na vrstvě síťového adaptéru nezdařila. NSG se aktualizuje na vrstvu poskytovatele síťových prostředků, ale ne na síťovém adaptéru, takže NSG se přesune do stavu selhání.
+- Remdiation: Připojte síťové karty přidružené k NSG, které je třeba odebrat se spuštěnými virtuálními počítači, a zrušte přidružení NSG nebo odeberte všechny síťové karty, které byly přidruženy k NSG.
 - Výskyt: běžné
 
 ### <a name="network-interface"></a>Síťové rozhraní
@@ -301,7 +310,7 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
 - Příčina: rozšíření IAM není aktuální. Portál Ibiza, který se dodává s centrem Azure Stack, zavádí nové chování, které způsobí selhání rozšíření RBAC, pokud uživatel otevírá okno **Access Control (IAM)** pro předplatné, které není vybrané v nástroji pro výběr globálního předplatného (**adresář + předplatné** na portálu User Portal). V okně se zobrazí **načítání** ve smyčce a uživatel nemůže do předplatného přidat nové role. Okno **Přidat** také zobrazuje **načítání** ve smyčce.
-- Náprava: Ujistěte se, že je předplatné zaškrtnuté v nabídce **adresář a předplatné** . K nabídce se dá dostat z horní části portálu, poblíž tlačítka **oznámení** nebo prostřednictvím zástupce v okně **všechny prostředky** , ve kterém se zobrazuje **předplatné nezobrazené? Otevřete nastavení adresář a předplatné**. V této nabídce je nutné vybrat odběr.
+- Náprava: Ujistěte se, že je předplatné zaškrtnuté v nabídce **adresář a předplatné** . Do této nabídky můžete přejít z horní části portálu vedle tlačítka **Oznámení** nebo přes zástupce v okně **Všechny prostředky** s textem **Nezobrazuje se předplatné? Otevřete nastavení Adresář a předplatné**. V této nabídce je potřeba vybrat předplatné.
 
 ### <a name="sql-resource-provider"></a>Poskytovatel prostředků SQL
 
@@ -335,6 +344,13 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 - Příčina: na portálu User Portal zobrazuje okno **Virtual Network** možnost používat **koncové body služby**. Tato funkce se v současnosti v centru Azure Stack nepodporuje.
 - Výskyt: běžné
 
+### <a name="cannot-delete-an-nsg-if-nics-not-attached-to-running-vm"></a>Nejde odstranit NSG, pokud nejsou připojené síťové karty ke spuštěnému virtuálnímu počítači.
+
+- Platí: Tento problém se vztahuje na všechny podporované verze.
+- Příčina: při zrušení přidružení NSG a síťové karty, která není připojená ke spuštěnému virtuálnímu počítači, se operace aktualizace (PUT) pro tento objekt na vrstvě síťového adaptéru nezdařila. NSG se aktualizuje na vrstvu poskytovatele síťových prostředků, ale ne na síťovém adaptéru, takže NSG se přesune do stavu selhání.
+- Remdiation: Připojte síťové karty přidružené k NSG, které je třeba odebrat se spuštěnými virtuálními počítači, a zrušte přidružení NSG nebo odeberte všechny síťové karty, které byly přidruženy k NSG.
+- Výskyt: běžné
+
 ### <a name="network-interface"></a>Síťové rozhraní
 
 #### <a name="addingremoving-network-interface"></a>Přidávání/odebírání síťového rozhraní
@@ -358,7 +374,7 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 - Příčina: když v uživatelském portálu vytvoříte směrovací tabulku, **Virtual Network brána** se zobrazí jako jedna z možností dalšího typu segmentu směrování. To se ale v centru Azure Stack nepodporuje.
 - Výskyt: běžné
 
-#### <a name="alerts"></a>Upozornění
+#### <a name="alerts"></a>Výstrahy
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
 - Příčina: na portálu User Portal se v okně **Virtual Network brány** zobrazí možnost použít **výstrahy**. Tato funkce se v současnosti v centru Azure Stack nepodporuje.
@@ -506,6 +522,13 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 - Příčina: na portálu User Portal zobrazuje okno **Virtual Network** možnost používat **koncové body služby**. Tato funkce se v současnosti v centru Azure Stack nepodporuje.
 - Výskyt: běžné
 
+### <a name="cannot-delete-an-nsg-if-nics-not-attached-to-running-vm"></a>Nejde odstranit NSG, pokud nejsou připojené síťové karty ke spuštěnému virtuálnímu počítači.
+
+- Platí: Tento problém se vztahuje na všechny podporované verze.
+- Příčina: při zrušení přidružení NSG a síťové karty, která není připojená ke spuštěnému virtuálnímu počítači, se operace aktualizace (PUT) pro tento objekt na vrstvě síťového adaptéru nezdařila. NSG se aktualizuje na vrstvu poskytovatele síťových prostředků, ale ne na síťovém adaptéru, takže NSG se přesune do stavu selhání.
+- Remdiation: Připojte síťové karty přidružené k NSG, které je třeba odebrat se spuštěnými virtuálními počítači, a zrušte přidružení NSG nebo odeberte všechny síťové karty, které byly přidruženy k NSG.
+- Výskyt: běžné
+
 ### <a name="network-interface"></a>Síťové rozhraní
 
 #### <a name="addingremoving-network-interface"></a>Přidávání/odebírání síťového rozhraní
@@ -530,7 +553,7 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 - Příčina: když v uživatelském portálu vytvoříte směrovací tabulku, **Virtual Network brána** se zobrazí jako jedna z možností dalšího typu segmentu směrování. To se ale v centru Azure Stack nepodporuje.
 - Výskyt: běžné
 
-#### <a name="alerts"></a>Upozornění
+#### <a name="alerts"></a>Výstrahy
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
 - Příčina: na portálu User Portal se v okně **Virtual Network brány** zobrazí možnost použít **výstrahy**. Tato funkce se v současnosti v centru Azure Stack nepodporuje.
@@ -664,6 +687,13 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 - Příčina: když do back-endu fondu Load Balancer přidáte virtuální počítače skupiny dostupnosti, na portálu se zobrazí chybová zpráva s oznámením, že **se nepovedlo Uložit fond back-endu nástroje pro vyrovnávání zatížení**. Jedná se o problém na portálu, ale funkce jsou pořád na místě a virtuální počítače se úspěšně přidají do fondu back-endu. 
 - Výskyt: běžné
 
+### <a name="cannot-delete-an-nsg-if-nics-not-attached-to-running-vm"></a>Nejde odstranit NSG, pokud nejsou připojené síťové karty ke spuštěnému virtuálnímu počítači.
+
+- Platí: Tento problém se vztahuje na všechny podporované verze.
+- Příčina: při zrušení přidružení NSG a síťové karty, která není připojená ke spuštěnému virtuálnímu počítači, se operace aktualizace (PUT) pro tento objekt na vrstvě síťového adaptéru nezdařila. NSG se aktualizuje na vrstvu poskytovatele síťových prostředků, ale ne na síťovém adaptéru, takže NSG se přesune do stavu selhání.
+- Remdiation: Připojte síťové karty přidružené k NSG, které je třeba odebrat se spuštěnými virtuálními počítači, a zrušte přidružení NSG nebo odeberte všechny síťové karty, které byly přidruženy k NSG.
+- Výskyt: běžné
+
 ### <a name="network-security-groups"></a>Network Security Groups (Skupiny zabezpečení sítě)
 
 - Platí: Tento problém se vztahuje na všechny podporované verze. 
@@ -700,7 +730,7 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 - Příčina: když v uživatelském portálu vytvoříte směrovací tabulku, **Virtual Network brána** se zobrazí jako jedna z možností dalšího typu segmentu směrování. To se ale v centru Azure Stack nepodporuje.
 - Výskyt: běžné
 
-#### <a name="alerts"></a>Upozornění
+#### <a name="alerts"></a>Výstrahy
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
 - Příčina: na portálu User Portal se v okně **Virtual Network brány** zobrazí možnost použít **výstrahy**. Tato funkce se v současnosti v centru Azure Stack nepodporuje.

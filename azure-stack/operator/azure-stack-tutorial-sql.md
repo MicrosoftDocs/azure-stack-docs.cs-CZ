@@ -8,12 +8,12 @@ ms.date: 10/07/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/23/2019
-ms.openlocfilehash: be747a57b61b2d06a667bd577dd135c6220fc968
-ms.sourcegitcommit: e2ed259c0274abe930df1c7716c3f4c9f3a7b167
+ms.openlocfilehash: 6d5c80403a355186632c245baecd0796ac3acbf9
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83403851"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84630977"
 ---
 # <a name="create-highly-available-sql-databases-with-azure-stack-hub"></a>Vytváření vysoce dostupných databází SQL pomocí centra Azure Stack
 
@@ -35,8 +35,8 @@ Než začnete, ujistěte se, že [poskytovatel prostředků SQL Server](azure-st
 > [!IMPORTANT]
 > K použití šablony pro rychlý Start centra Azure Stack se vyžadují všechny níže uvedené.
 
-- Image na webu Windows Server 2016 Datacenter
-- SQL Server 2016 SP1 nebo SP2 (Enterprise and Developer) na obrázku serveru Windows Server 2016. Tento článek používá bitovou kopii SQL Server 2016 SP2 Enterprise v systému Windows Server 2016 na webu Marketplace.
+- Windows Server 2016 Datacenter.
+- SQL Server 2016 SP1 nebo SP2 (Enterprise, Standard nebo Developer) na obrázku serveru Windows Server 2016. 
 - [SQL Server rozšíření IaaS](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension) verze 1.3.20180 nebo vyšší. Rozšíření SQL IaaS nainstaluje nezbytné komponenty, které jsou vyžadovány na webu Marketplace SQL Server pro všechny verze systému Windows. Umožňuje konfiguraci nastavení specifického pro SQL na virtuálních počítačích SQL (virtuálních počítačů). Pokud rozšíření není nainstalované na místním webu Marketplace, zřizování SQL se nezdaří.
 - [Rozšíření vlastních skriptů pro Windows](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.CustomScriptExtension) verze 1.9.1 nebo novější. Rozšíření vlastních skriptů je nástroj, který se dá použít k automatickému spuštění úloh přizpůsobení virtuálních počítačů po nasazení.
 - [Konfigurace požadovaného stavu PowerShellu (DSC)](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.DSC-arm) verze 2.76.0.0 nebo vyšší. DSC je platforma pro správu v prostředí Windows PowerShell, která umožňuje nasazovat a spravovat konfigurační data pro softwarové služby. Platforma také spravuje prostředí, ve kterém se tyto služby spouštějí.
@@ -84,7 +84,7 @@ Pomocí kroků v této části nasaďte SQL Server skupinu dostupnosti AlwaysOn 
 
 6. Na portálu User Portal vyberte **skupiny prostředků** a potom název skupiny prostředků, kterou jste vytvořili pro vlastní nasazení (**Skupina prostředků** pro tento příklad). Zobrazte stav nasazení, aby se zajistilo, že se všechna nasazení úspěšně dokončila.
     
-    Dále zkontrolujte položky skupiny prostředků a vyberte položku veřejné IP adresy **SQLPIPsql \< název \> skupiny prostředků** . Poznamenejte si veřejnou IP adresu a celý plně kvalifikovaný název domény veřejné IP adresy nástroje pro vyrovnávání zatížení. Tuto možnost musíte poskytnout operátorovi centra Azure Stack, aby mohli vytvořit hostitelský server SQL, který využívá tuto skupinu dostupnosti SQL AlwaysOn.
+    Dále zkontrolujte položky skupiny prostředků a vyberte položku veřejné IP **adresy \<resource group name\> SQLPIPsql** . Poznamenejte si veřejnou IP adresu a celý plně kvalifikovaný název domény veřejné IP adresy nástroje pro vyrovnávání zatížení. Tuto možnost musíte poskytnout operátorovi centra Azure Stack, aby mohli vytvořit hostitelský server SQL, který využívá tuto skupinu dostupnosti SQL AlwaysOn.
 
    > [!NOTE]
    > Dokončení nasazení šablony bude trvat několik hodin.
@@ -141,7 +141,7 @@ Pomocí těchto příkazů nastavte možnost Server pro ověřování databáze 
 
 Po vytvoření a správné konfiguraci skupiny dostupnosti SQL Server AlwayOn je potřeba, aby operátor centra Azure Stack vytvořil hostitelský server SQL pro Azure Stack hub. Hostitelský server SQL zpřístupňuje uživatelům další kapacitu k vytváření databází.
 
-Nezapomeňte použít veřejnou IP adresu nebo plně kvalifikovaný název domény pro veřejnou IP adresu služby SQL Load Balancer zaznamenanou dříve, když se vytvořila skupina prostředků skupiny dostupnosti SQL AlwaysOn (**SQLPIPsql \< název \> skupiny prostředků**). Kromě toho potřebujete znát SQL Server přihlašovací údaje pro ověřování používané pro přístup k instancím SQL ve skupině dostupnosti AlwaysOn.
+Nezapomeňte použít veřejnou IP adresu nebo celý plně kvalifikovaný název domény pro veřejnou IP adresu služby SQL Load Balancer zaznamenanou dříve, když se vytvořila skupina prostředků skupiny dostupnosti SQL AlwaysOn **( \<resource group name\> SQLPIPsql**). Kromě toho potřebujete znát SQL Server přihlašovací údaje pro ověřování používané pro přístup k instancím SQL ve skupině dostupnosti AlwaysOn.
 
 > [!NOTE]
 > Tento krok je potřeba spustit z portálu pro správu centra Azure Stack pomocí operátoru centra Azure Stack.

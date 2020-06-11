@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/10/2019
-ms.openlocfilehash: fb10c078754e68c12cf79a4080544626885525fb
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: c64b95874e6718fd394796dd0254f38127211f68
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81660110"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84631163"
 ---
 # <a name="manage-and-deploy-resources-to-azure-stack-hub-with-azure-cli"></a>Správa a nasazení prostředků do centra Azure Stack pomocí Azure CLI
 
@@ -106,9 +106,9 @@ Pokud používáte ASDK, musíte na svém vzdáleném počítači důvěřovat k
 
 Pokud chcete důvěřovat kořenovému certifikátu certifikační autority centra Azure Stack, přidejte ho do stávajícího úložiště certifikátů Pythonu pro verzi Pythonu nainstalovanou pomocí Azure CLI. Možná budete pracovat s vlastní instancí Pythonu. Azure CLI obsahuje svou vlastní verzi Pythonu.
 
-1. Najděte umístění úložiště certifikátů na vašem počítači.  Umístění můžete najít spuštěním příkazu `az --version`.
+1. Najděte umístění úložiště certifikátů na vašem počítači.  Umístění můžete najít spuštěním příkazu `az --version` .
 
-2. Přejděte do složky, která obsahuje aplikaci CLI v Pythonu. Chcete spustit tuto verzi Pythonu. Pokud jste v systémové cestě nastavili Python, spustí Python svou vlastní verzi Pythonu. Místo toho chcete spustit verzi používanou rozhraním CLI a přidat do této verze svůj certifikát. Například rozhraní CLI Python může být v: `C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\`.
+2. Přejděte do složky, která obsahuje aplikaci CLI v Pythonu. Chcete spustit tuto verzi Pythonu. Pokud jste v systémové cestě nastavili Python, spustí Python svou vlastní verzi Pythonu. Místo toho chcete spustit verzi používanou rozhraním CLI a přidat do této verze svůj certifikát. Například rozhraní CLI Python může být v: `C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\` .
 
     Použijte následující příkazy:
 
@@ -152,14 +152,14 @@ Pokud chcete důvěřovat kořenovému certifikátu certifikační autority cent
 
 ### <a name="connect-to-azure-stack-hub"></a>Připojení k centru Azure Stack
 
-1. Zaregistrujte své prostředí Azure Stackového centra `az cloud register` spuštěním příkazu.
+1. Zaregistrujte své prostředí Azure Stackového centra spuštěním `az cloud register` příkazu.
 
-2. Zaregistrujte své prostředí. Při spuštění `az cloud register`použijte následující parametry:
+2. Zaregistrujte své prostředí. Při spuštění použijte následující parametry `az cloud register` :
 
     | Hodnota | Příklad | Popis |
     | --- | --- | --- |
-    | Název prostředí | AzureStackUser | Použijte `AzureStackUser` pro uživatelské prostředí. Pokud jste operátor, zadejte `AzureStackAdmin`. |
-    | Správce prostředků koncový bod | https://management.local.azurestack.external | **ResourceManagerUrl** v ASDK je: `https://management.local.azurestack.external/` **ResourceManagerUrl** v integrovaných systémech je: `https://management.<region>.<fqdn>/` Pokud máte dotaz týkající se integrovaného systémového koncového bodu, obraťte se na svého operátora cloudu. |
+    | Název prostředí | AzureStackUser | Použijte `AzureStackUser` pro uživatelské prostředí. Pokud jste operátor, zadejte `AzureStackAdmin` . |
+    | Správce prostředků koncový bod | `https://management.local.azurestack.external` | **ResourceManagerUrl** v ASDK je: `https://management.local.azurestack.external/` **ResourceManagerUrl** v integrovaných systémech je: `https://management.<region>.<fqdn>/` Pokud máte dotaz týkající se integrovaného systémového koncového bodu, obraťte se na svého operátora cloudu. |
     | Koncový bod úložiště | Local. azurestack. external | `local.azurestack.external`je pro rozhraní ASDK. Pro integrovaný systém použijte pro svůj systém koncový bod.  |
     | Přípona trezoru klíčů | . trezor. Local. azurestack. external | `.vault.local.azurestack.external`je pro rozhraní ASDK. Pro integrovaný systém použijte pro svůj systém koncový bod.  |
     | Koncový bod dokumentu aliasu pro image virtuálního počítače – | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | Identifikátor URI dokumentu, který obsahuje aliasy imagí virtuálních počítačů Další informace najdete v tématu [Nastavení koncového bodu aliasy virtuálních počítačů](#set-up-the-virtual-machine-aliases-endpoint). |
@@ -194,7 +194,7 @@ Pokud chcete důvěřovat kořenovému certifikátu certifikační autority cent
      ```
 
      > [!NOTE]
-     > Pokud má váš uživatelský účet povolený službu Multi-Factor Authentication `az login` , použijte příkaz bez `-u` zadání parametru. Spuštěním tohoto příkazu získáte adresu URL a kód, který je nutné použít k ověření.
+     > Pokud má váš uživatelský účet povolený službu Multi-Factor Authentication, použijte `az login` příkaz bez zadání `-u` parametru. Spuštěním tohoto příkazu získáte adresu URL a kód, který je nutné použít k ověření.
 
    - Přihlaste se jako *instanční objekt*: 
     
@@ -265,14 +265,14 @@ Pokud používáte ASDK, musíte na svém vzdáleném počítači důvěřovat k
 
 ### <a name="connect-to-azure-stack-hub"></a>Připojení k centru Azure Stack
 
-1. Zaregistrujte své prostředí Azure Stackového centra `az cloud register` spuštěním příkazu.
+1. Zaregistrujte své prostředí Azure Stackového centra spuštěním `az cloud register` příkazu.
 
-2. Zaregistrujte své prostředí. Při spuštění `az cloud register`použijte následující parametry:
+2. Zaregistrujte své prostředí. Při spuštění použijte následující parametry `az cloud register` :
 
     | Hodnota | Příklad | Popis |
     | --- | --- | --- |
-    | Název prostředí | AzureStackUser | Použijte `AzureStackUser` pro uživatelské prostředí. Pokud jste operátor, zadejte `AzureStackAdmin`. |
-    | Správce prostředků koncový bod | https://management.local.azurestack.external | **ResourceManagerUrl** v ASDK je: `https://management.local.azurestack.external/` **ResourceManagerUrl** v integrovaných systémech je: `https://management.<region>.<fqdn>/` Pokud máte dotaz týkající se integrovaného systémového koncového bodu, obraťte se na svého operátora cloudu. |
+    | Název prostředí | AzureStackUser | Použijte `AzureStackUser` pro uživatelské prostředí. Pokud jste operátor, zadejte `AzureStackAdmin` . |
+    | Správce prostředků koncový bod | `https://management.local.azurestack.external` | **ResourceManagerUrl** v ASDK je: `https://management.local.azurestack.external/` **ResourceManagerUrl** v integrovaných systémech je: `https://management.<region>.<fqdn>/` Pokud máte dotaz týkající se integrovaného systémového koncového bodu, obraťte se na svého operátora cloudu. |
     | Koncový bod úložiště | Local. azurestack. external | `local.azurestack.external`je pro rozhraní ASDK. Pro integrovaný systém použijte pro svůj systém koncový bod.  |
     | Přípona trezoru klíčů | . trezor. Local. azurestack. external | `.vault.local.azurestack.external`je pro rozhraní ASDK. Pro integrovaný systém použijte pro svůj systém koncový bod.  |
     | Koncový bod dokumentu aliasu pro image virtuálního počítače – | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | Identifikátor URI dokumentu, který obsahuje aliasy imagí virtuálních počítačů Další informace najdete v tématu [Nastavení koncového bodu aliasy virtuálních počítačů](#set-up-the-virtual-machine-aliases-endpoint). |
@@ -307,13 +307,13 @@ Pokud používáte ASDK, musíte na svém vzdáleném počítači důvěřovat k
      ```
 
      > [!NOTE]
-     > Pokud má váš uživatelský účet povolený službu Multi-Factor Authentication `az login` , použijte příkaz bez `-u` zadání parametru. Spuštěním tohoto příkazu získáte adresu URL a kód, který je nutné použít k ověření.
+     > Pokud má váš uživatelský účet povolený službu Multi-Factor Authentication, použijte `az login` příkaz bez zadání `-u` parametru. Spuštěním tohoto příkazu získáte adresu URL a kód, který je nutné použít k ověření.
 
    - Přihlaste se jako *instanční objekt*: 
     
      Připravte soubor. pem, který se má použít pro přihlašovací objekty instančního objektu.
 
-     V klientském počítači, v němž byl vytvořen objekt zabezpečení, exportujte certifikát instančního objektu jako PFX s privátním klíčem umístěným na adrese `cert:\CurrentUser\My`. Název certifikátu má stejný název jako objekt zabezpečení.
+     V klientském počítači, v němž byl vytvořen objekt zabezpečení, exportujte certifikát instančního objektu jako PFX s privátním klíčem umístěným na adrese `cert:\CurrentUser\My` . Název certifikátu má stejný název jako objekt zabezpečení.
 
      Převeďte PFX na PEM (použijte nástroj OpenSSL).
 
@@ -376,14 +376,14 @@ Důvěřování kořenovému certifikátu certifikační autority centra Azure S
 
 Pomocí následujících kroků se připojte k centru Azure Stack:
 
-1. Zaregistrujte své prostředí Azure Stackového centra `az cloud register` spuštěním příkazu.
+1. Zaregistrujte své prostředí Azure Stackového centra spuštěním `az cloud register` příkazu.
 
-2. Zaregistrujte své prostředí. Při spuštění `az cloud register`použijte následující parametry:
+2. Zaregistrujte své prostředí. Při spuštění použijte následující parametry `az cloud register` :
 
     | Hodnota | Příklad | Popis |
     | --- | --- | --- |
-    | Název prostředí | AzureStackUser | Použijte `AzureStackUser` pro uživatelské prostředí. Pokud jste operátor, zadejte `AzureStackAdmin`. |
-    | Správce prostředků koncový bod | https://management.local.azurestack.external | **ResourceManagerUrl** v ASDK je: `https://management.local.azurestack.external/` **ResourceManagerUrl** v integrovaných systémech je: `https://management.<region>.<fqdn>/` Pokud máte dotaz týkající se integrovaného systémového koncového bodu, obraťte se na svého operátora cloudu. |
+    | Název prostředí | AzureStackUser | Použijte `AzureStackUser` pro uživatelské prostředí. Pokud jste operátor, zadejte `AzureStackAdmin` . |
+    | Správce prostředků koncový bod | `https://management.local.azurestack.external` | **ResourceManagerUrl** v ASDK je: `https://management.local.azurestack.external/` **ResourceManagerUrl** v integrovaných systémech je: `https://management.<region>.<fqdn>/` Pokud máte dotaz týkající se integrovaného systémového koncového bodu, obraťte se na svého operátora cloudu. |
     | Koncový bod úložiště | Local. azurestack. external | `local.azurestack.external`je pro rozhraní ASDK. Pro integrovaný systém použijte pro svůj systém koncový bod.  |
     | Přípona trezoru klíčů | . trezor. Local. azurestack. external | `.vault.local.azurestack.external`je pro rozhraní ASDK. Pro integrovaný systém použijte pro svůj systém koncový bod.  |
     | Koncový bod dokumentu aliasu pro image virtuálního počítače – | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | Identifikátor URI dokumentu, který obsahuje aliasy imagí virtuálních počítačů Další informace najdete v tématu [Nastavení koncového bodu aliasy virtuálních počítačů](#set-up-the-virtual-machine-aliases-endpoint). |
@@ -482,14 +482,14 @@ Důvěřování kořenovému certifikátu certifikační autority centra Azure S
 
 Pomocí následujících kroků se připojte k centru Azure Stack:
 
-1. Zaregistrujte své prostředí Azure Stackového centra `az cloud register` spuštěním příkazu.
+1. Zaregistrujte své prostředí Azure Stackového centra spuštěním `az cloud register` příkazu.
 
-2. Zaregistrujte své prostředí. Při spuštění `az cloud register`použijte následující parametry.
+2. Zaregistrujte své prostředí. Při spuštění použijte následující parametry `az cloud register` .
 
     | Hodnota | Příklad | Popis |
     | --- | --- | --- |
-    | Název prostředí | AzureStackUser | Použijte `AzureStackUser` pro uživatelské prostředí. Pokud jste operátor, zadejte `AzureStackAdmin`. |
-    | Správce prostředků koncový bod | https://management.local.azurestack.external | **ResourceManagerUrl** v ASDK je: `https://management.local.azurestack.external/` **ResourceManagerUrl** v integrovaných systémech je: `https://management.<region>.<fqdn>/` Pokud máte dotaz týkající se integrovaného systémového koncového bodu, obraťte se na svého operátora cloudu. |
+    | Název prostředí | AzureStackUser | Použijte `AzureStackUser` pro uživatelské prostředí. Pokud jste operátor, zadejte `AzureStackAdmin` . |
+    | Správce prostředků koncový bod | `https://management.local.azurestack.external` | **ResourceManagerUrl** v ASDK je: `https://management.local.azurestack.external/` **ResourceManagerUrl** v integrovaných systémech je: `https://management.<region>.<fqdn>/` Pokud máte dotaz týkající se integrovaného systémového koncového bodu, obraťte se na svého operátora cloudu. |
     | Koncový bod úložiště | Local. azurestack. external | `local.azurestack.external`je pro rozhraní ASDK. Pro integrovaný systém použijte pro svůj systém koncový bod.  |
     | Přípona trezoru klíčů | . trezor. Local. azurestack. external | `.vault.local.azurestack.external`je pro rozhraní ASDK. Pro integrovaný systém použijte pro svůj systém koncový bod.  |
     | Koncový bod dokumentu aliasu pro image virtuálního počítače – | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | Identifikátor URI dokumentu, který obsahuje aliasy imagí virtuálních počítačů Další informace najdete v tématu [Nastavení koncového bodu aliasy virtuálních počítačů](#set-up-the-virtual-machine-aliases-endpoint). |
@@ -530,7 +530,7 @@ Pomocí následujících kroků se připojte k centru Azure Stack:
         
      Připravte soubor. pem, který se má použít pro přihlašovací objekty instančního objektu.
 
-      * V klientském počítači, v němž byl vytvořen objekt zabezpečení, exportujte certifikát instančního objektu jako PFX s privátním klíčem umístěným na adrese `cert:\CurrentUser\My`. Název certifikátu má stejný název jako objekt zabezpečení.
+      * V klientském počítači, v němž byl vytvořen objekt zabezpečení, exportujte certifikát instančního objektu jako PFX s privátním klíčem umístěným na adrese `cert:\CurrentUser\My` . Název certifikátu má stejný název jako objekt zabezpečení.
   
       * Převeďte PFX na PEM (použijte nástroj OpenSSL).
 
@@ -561,7 +561,7 @@ Pokud je skupina prostředků úspěšně vytvořená, předchozí příkaz vytv
 Při použití rozhraní příkazového řádku v Azure Stackovém centru jsou známé problémy:
 
  - Interaktivní režim rozhraní příkazového řádku Například `az interactive` příkaz není v Azure Stackovém centru dosud podporován.
- - Pokud chcete získat seznam imagí virtuálních počítačů, které jsou k dispozici v `az vm image list --all` Azure Stackovém centru, `az vm image list` použijte příkaz místo příkazu. Zadáním `--all` možnosti zajistíte, že odpověď vrátí pouze obrázky, které jsou k dispozici ve vašem prostředí Azure Stack hub.
+ - Pokud chcete získat seznam imagí virtuálních počítačů, které jsou k dispozici v Azure Stackovém centru, použijte `az vm image list --all` příkaz místo `az vm image list` příkazu. Zadáním `--all` možnosti zajistíte, že odpověď vrátí pouze obrázky, které jsou k dispozici ve vašem prostředí Azure Stack hub.
  - Aliasy imagí virtuálních počítačů, které jsou dostupné v Azure, se nedají použít pro centrum Azure Stack. Při použití imagí virtuálních počítačů musíte použít celý parametr URN (kanonický: UbuntuServer: 14.04.3-LTS: 1.0.0) místo aliasu image. Tento název URN se musí shodovat s specifikacemi obrázku odvozenými z `az vm images list` příkazu.
 
 ## <a name="next-steps"></a>Další kroky

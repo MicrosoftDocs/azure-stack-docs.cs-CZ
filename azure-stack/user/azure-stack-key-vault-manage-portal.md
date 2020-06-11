@@ -3,15 +3,15 @@ title: Správa Key Vault v centru Azure Stack pomocí portálu
 description: Naučte se spravovat Key Vault v centru Azure Stack pomocí portálu Azure Stack hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 06/09/2020
 ms.author: sethm
 ms.lastreviewed: 1/10/2020
-ms.openlocfilehash: 50348aff594b058606aae49981e497f8b3515235
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 5413c37b0574e022716a1a0d333c18e78a818937
+ms.sourcegitcommit: d91e47a51a02042f700c6a420f526f511a6db9a0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77702920"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84666378"
 ---
 # <a name="manage-key-vault-in-azure-stack-hub-using-the-portal"></a>Správa Key Vault v centru Azure Stack pomocí portálu
 
@@ -23,7 +23,7 @@ Musíte se přihlásit k odběru nabídky, která zahrnuje službu Azure Key Vau
 
 ## <a name="create-a-key-vault"></a>Vytvořte trezor klíčů
 
-1. Přihlaste se k [portálu User Portal](https://portal.local.azurestack.external).
+1. Přihlaste se k portálu User Portal `https://portal.local.azurestack.external` .
 
 2. Z řídicího panelu vyberte **+ vytvořit prostředek**a pak **Zabezpečení a identita**a pak **Key Vault**.
 
@@ -49,7 +49,7 @@ Po vytvoření trezoru klíčů použijte následující postup k vytvoření a 
 
 ### <a name="create-a-key"></a>Vytvoření klíče
 
-1. Přihlaste se k [portálu pro uživatele](https://portal.local.azurestack.external)centra Azure Stack.
+1. Přihlaste se k portálu pro uživatele centra Azure Stack `https://portal.local.azurestack.external` .
 
 2. Z řídicího panelu vyberte **všechny prostředky**, vyberte Trezor klíčů, který jste vytvořili dříve, a pak vyberte dlaždici **klíče** .
 
@@ -69,7 +69,7 @@ Po úspěšném vytvoření klíče ho můžete vybrat v části **klíče** a z
 
 ### <a name="create-a-secret"></a>Vytvoření tajného klíče
 
-1. Přihlaste se k [portálu User Portal](https://portal.local.azurestack.external).
+1. Přihlaste se k portálu User Portal `https://portal.local.azurestack.external` .
 
 2. Z řídicího panelu vyberte **všechny prostředky**, vyberte Trezor klíčů, který jste vytvořili dříve, a pak vyberte dlaždici **tajných** kódů.
 

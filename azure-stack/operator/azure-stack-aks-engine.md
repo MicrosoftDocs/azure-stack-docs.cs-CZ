@@ -7,12 +7,12 @@ ms.date: 6/08/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 6/08/2020
-ms.openlocfilehash: 77d2e6b826f6bc6517d0dd5ed941019a460557e9
-ms.sourcegitcommit: f0ee2a3af78dd6d6e2806710681d52b763948967
+ms.openlocfilehash: 7090ac774da41e8f7f1bc319a9956cba8f8b0f4a
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84533701"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84630430"
 ---
 # <a name="add-the-azure-kubernetes-services-aks-engine-prerequisites-to-the-azure-stack-hub-marketplace"></a>Přidání požadavků modulu Azure Kubernetes Services (AKS) do tržiště centra Azure Stack
 
@@ -42,7 +42,7 @@ Základní image AKS můžete na Marketplace přidat tak, že získáte položku
 
 Do Marketplace přidejte následující položku:
 
-1. Přihlaste se k [portálu pro správu](https://adminportal.local.azurestack.external).
+1. Přihlaste se k portálu pro správu `https://adminportal.local.azurestack.external` .
 
 1. Vyberte **všechny služby**a potom v kategorii **Správa** vyberte **Správa Marketplace**.
 
@@ -63,7 +63,7 @@ Do Marketplace přidejte následující položku:
 
 Pomocí položky z Azure můžete přidat vlastní skript na Marketplace. Pokud je ale vaše centrum Azure Stack odpojené, přidejte položku pomocí pokynů ke [stažení položek z webu Marketplace z Azure](azure-stack-download-azure-marketplace-item.md?pivots=state-disconnected) .  Přidejte položku určenou v kroku 5.
 
-1. Otevřete [portál pro správu](https://adminportal.local.azurestack.external).
+1. Otevřete portál pro správu `https://adminportal.local.azurestack.external` .
 
 1. Vyberte **všechny služby** a potom v kategorii **Správa** vyberte **Správa Marketplace**.
 

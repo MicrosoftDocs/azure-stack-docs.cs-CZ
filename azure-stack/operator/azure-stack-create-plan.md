@@ -7,12 +7,12 @@ ms.date: 06/11/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 06/11/2019
-ms.openlocfilehash: 20ee0c2b59f3a8038afc443f9b3c1b12d606d95d
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: c762f4c8c75fbfd6755c25877c52fbb68c88f7ca
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77700829"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84631121"
 ---
 # <a name="create-a-plan-in-azure-stack-hub"></a>Vytvoření plánu v centru Azure Stack
 
@@ -21,7 +21,7 @@ ms.locfileid: "77700829"
 ::: moniker range=">=azs-1902"
 ## <a name="create-a-plan-1902-and-later"></a>Vytvoření plánu (1902 a novější)
 
-1. Přihlaste se k [portálu pro správu centra Azure Stack](https://adminportal.local.azurestack.external).
+1. Přihlaste se k portálu pro správu centra Azure Stack `https://adminportal.local.azurestack.external` .
 
 2. Pokud chcete vytvořit plán a nabídku, ke kterým se uživatelé můžou přihlásit, vyberte **+ vytvořit prostředek**, pak **nabídky + plány**a pak na **naplánovat**.
   
@@ -65,7 +65,7 @@ ms.locfileid: "77700829"
 ::: moniker range="<=azs-1901"
 ## <a name="create-a-plan-1901-and-earlier"></a>Vytvoření plánu (1901 a starší)
 
-1. Přihlaste se k [portálu pro správu centra Azure Stack](https://adminportal.local.azurestack.external).
+1. Přihlaste se k portálu pro správu centra Azure Stack `https://adminportal.local.azurestack.external` .
 
 2. Pokud chcete vytvořit plán a nabídku, ke kterým se uživatelé můžou přihlásit, vyberte **+ Nový**, pak **nabídky + plány**a pak na **plán**.
   

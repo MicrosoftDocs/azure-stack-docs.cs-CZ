@@ -7,12 +7,12 @@ ms.date: 3/12/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 3/12/2020
-ms.openlocfilehash: adca3be6659d140dcf05776d04696ff7302a9ab3
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 2dbef9bd19fac12541f738fc530dbf58f5c85c35
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79313136"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84631221"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-hub-using-active-directory-federated-services"></a>Nasazení Kubernetes do centra Azure Stack pomocí federovaných služeb Active Directory
 
@@ -55,9 +55,9 @@ Abyste mohli nastavit instanční objekt při použití AD FS jako řešení ide
 
 ## <a name="deploy-kubernetes"></a>Nasazení Kubernetes
 
-1. Otevřete [portál centra Azure Stack](https://portal.local.azurestack.external).
+1. Otevřete portál centra Azure Stack `https://portal.local.azurestack.external` .
 
-1. Vyberte **+ vytvořit prostředek** > **COMPUTE** > **Kubernetes cluster**. Vyberte **Vytvořit**.
+1. Vyberte **+ vytvořit prostředek**  >  **COMPUTE**  >  **Kubernetes cluster**. Vyberte **Vytvořit**.
 
     ![Nasadit šablonu řešení](media/azure-stack-solution-template-kubernetes-deploy/01_kub_market_item.png)
 
@@ -83,7 +83,7 @@ Abyste mohli nastavit instanční objekt při použití AD FS jako řešení ide
 
 1. Zadejte **veřejný klíč SSH** , který se používá pro autorizaci pro všechny počítače se systémem Linux vytvořené jako součást clusteru KUBERNETES a DVM.
 
-1. Zadejte **předponu DNS hlavního profilu** , která je pro oblast jedinečná. Musí se jednat o jedinečný název oblasti, například `k8s-12345`. Zkuste zvolit stejný jako název skupiny prostředků jako osvědčený postup.
+1. Zadejte **předponu DNS hlavního profilu** , která je pro oblast jedinečná. Musí se jednat o jedinečný název oblasti, například `k8s-12345` . Zkuste zvolit stejný jako název skupiny prostředků jako osvědčený postup.
 
     > [!Note]  
     > Pro každý cluster použijte novou a jedinečnou předponu DNS hlavního profilu.

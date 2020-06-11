@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 10/13/2019
 ms.reviewer: shriramnat
 ms.lastreviewed: 10/06/2019
-ms.openlocfilehash: 2aae33b324be4828b514ffbd019992aae989f50b
-ms.sourcegitcommit: bdd4d529bd3e115a9f76eece62b1613448d5d020
+ms.openlocfilehash: b0dd6b5013a19c120d1d8e69594406292ee6ac6c
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "80423849"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84631362"
 ---
 # <a name="tutorial-test-a-service-offering"></a>Kurz: testování nabídky služeb
 
@@ -36,8 +36,8 @@ Před zahájením tohoto kurzu musíte splnit následující předpoklady:
 
 1. Přihlaste se k portálu User Portal pomocí uživatelského účtu. 
 
-   - V případě integrovaného systému se adresa URL liší v závislosti na oblasti vašeho operátoru a názvu externí domény ve formátu https://portal.&lt. *oblast*&gt;. &lt; *Plně kvalifikovaný název domény*&gt;.
-   - Pokud používáte Azure Stack Development Kit, adresa portálu je https://portal.local.azurestack.external.
+   - V případě integrovaného systému se adresa URL liší v závislosti na oblasti vašeho operátoru a názvu externí domény ve formátu https://portal.&lt .* oblast* &gt; . &lt; *Plně kvalifikovaný název domény* &gt; .
+   - Pokud používáte Azure Stack Development Kit, adresa portálu je `https://portal.local.azurestack.external` .
 
 1. Vyberte dlaždici **získat předplatné** .
 
@@ -76,8 +76,8 @@ Z portálu User Portal zřídíte virtuální počítač pomocí předplatného,
 
 1. Přihlaste se k portálu User Portal pomocí uživatelského účtu.
 
-1. Vyberte **+ vytvořit prostředek** > **COMPUTE** > ** \<image – název\>**, kde "image-Name" je název virtuálního počítače, který jste si stáhli v požadavcích.
-1. V části vytvoření **základních**informací o **virtuálním počítači** / zadejte tyto informace:
+1. Vyberte **+ vytvořit** > **výpočetní** prostředky > **\<image-name\>** , kde "image-Name" je název virtuálního počítače, který jste si stáhli v požadavcích.
+1. V části vytvoření základních informací o **virtuálním počítači** / **Basics**zadejte tyto informace:
   
    - Zadejte **Název** virtuálního počítače.
    - Zadejte **uživatelské jméno** pro účet správce.

@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: inhenkel
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: 66760fd19b90e55ab27e2c1f2509f0a9b9cb51ae
-ms.sourcegitcommit: d943f7d6e665e3334125f8a15a0343fd28d8f2a9
+ms.openlocfilehash: ecac1c8c69a8f332a85bf0a934f688f14dbcaddd
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84452409"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84631000"
 ---
 # <a name="manage-storage-capacity-for-azure-stack-hub"></a>Správa kapacity úložiště pro centrum Azure Stack
 
@@ -47,7 +47,7 @@ Když je na svazku úložiště objektů nedostatek volného místa a [akce pro 
 
 Informace o tom, jak uživatelé klienta pracují s úložištěm objektů BLOB v Azure Stackovém centru, najdete v tématu [služby úložiště Azure Stack hub](/azure-stack/user/azure-stack-storage-overview).
 
-### <a name="containers"></a>Kontejnery
+### <a name="containers"></a>Containers
 Uživatelé tenanta vytvářejí kontejnery, které se pak používají k ukládání dat objektů BLOB. I když se uživatelé rozhodují, ve kterém kontejneru umístit objekty blob, služba úložiště pomocí algoritmu určuje, který svazek se má vložit do kontejneru. Algoritmus obvykle zvolí svazek s největším množstvím dostupného místa.  
 
 Po umístění objektu blob do kontejneru může objekt BLOB zvětšit použití více místa. Při zvětšení nových objektů BLOB a zmenšení stávajících objektů BLOB se zmenší dostupné místo ve svazku, který obsahuje kontejner. 
@@ -90,7 +90,7 @@ Jako operátor cloudu můžete sledovat kapacitu úložiště sdílené složky 
 ### <a name="use-the-administrator-portal"></a>Použití portálu pro správu
 Jako operátor cloudu můžete pomocí portálu pro správu zobrazit kapacitu úložiště pro všechny sdílené složky.
 
-1. Přihlaste se k [portálu pro správu](https://adminportal.local.azurestack.external).
+1. Přihlaste se k portálu pro správu `https://adminportal.local.azurestack.external` .
 2. Výběrem položky **všechny služby** > **úložiště** > **sdílené složky** otevřete seznam sdílení souborů, kde můžete zobrazit informace o použití.
 
     ![Příklad: úložiště sdílené složky na portálu pro správu centra Azure Stack](media/azure-stack-manage-storage-shares/storage-file-shares.png)

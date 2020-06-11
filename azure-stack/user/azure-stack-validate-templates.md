@@ -3,20 +3,20 @@ title: Použití nástroje pro ověření šablony v Azure Stack hub
 description: Pomocí nástroje pro ověření šablony vyhledejte šablony pro nasazení do centra Azure Stack.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/24/2020
+ms.date: 06/09/2020
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/27/2019
-ms.openlocfilehash: 4c545c60c0890f87c87108101a3e30ab4c87d16d
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 7e003a8b42e479fcc732b8e1146fceb6128cf5f1
+ms.sourcegitcommit: d91e47a51a02042f700c6a420f526f511a6db9a0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77705283"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84666273"
 ---
 # <a name="use-the-template-validation-tool-in-azure-stack-hub"></a>Použití nástroje pro ověření šablony v Azure Stack hub
 
-Pomocí nástroje pro ověření šablony ověřte, jestli jsou [šablony](azure-stack-arm-templates.md) Azure Resource Manager připravené k nasazení do centra Azure Stack. Nástroj pro ověření šablony je k dispozici jako součást úložiště GitHub nástroje Azure Stack hub. Stáhněte si nástroje Azure Stack hub pomocí postupu popsaného v tématu [Stažení nástrojů z GitHubu](../operator/azure-stack-powershell-download.md).
+Pomocí nástroje pro ověření šablony ověřte, jestli jsou [šablony](azure-stack-arm-templates.md) Azure Resource Manager připravené k nasazení do centra Azure Stack. Nástroj pro ověření šablony je k dispozici v úložišti GitHub nástroje Azure Stack hub. Stáhněte si nástroje Azure Stack hub pomocí postupu popsaného v tématu [Stažení nástrojů z GitHubu](../operator/azure-stack-powershell-download.md).
 
 ## <a name="overview"></a>Přehled
 
@@ -29,7 +29,7 @@ Chcete-li ověřit šablonu, je nutné nejprve sestavit soubor možností cloudu
 
 Než použijete validátor šablon, spusťte modul PowerShellu **AzureRM. CloudCapabilities** a sestavte soubor JSON.
 
->[!NOTE]
+> [!NOTE]
 > Pokud aktualizujete integrovaný systém nebo přidáte jakékoli nové služby nebo virtuální rozšíření, měli byste tento modul spustit znovu.
 
 1. Ujistěte se, že máte připojení k rozbočovači Azure Stack. Tyto kroky se dají provést z hostitele Azure Stack Development Kit (ASDK), nebo můžete k připojení z pracovní stanice použít [VPN](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn) .
@@ -39,7 +39,7 @@ Než použijete validátor šablon, spusťte modul PowerShellu **AzureRM. CloudC
     Import-Module .\CloudCapabilities\AzureRM.CloudCapabilities.psm1
     ```
 
-3. Pomocí rutiny **Get-CloudCapabilities** načtěte verze služby a vytvořte soubor JSON cloudové možnosti. Pokud nezadáte `-OutputPath`, v aktuálním adresáři se vytvoří soubor **AzureCloudCapabilities. JSON** . Použijte své skutečné umístění v Azure:
+3. Pomocí rutiny **Get-CloudCapabilities** načtěte verze služby a vytvořte soubor JSON cloudové možnosti. Pokud nezadáte `-OutputPath` , soubor **AzureCloudCapabilities.jsv** je vytvořen v aktuálním adresáři. Použijte své skutečné umístění v Azure:
 
     ```powershell
     Get-AzureRMCloudCapability -Location <your location> -Verbose
@@ -72,15 +72,15 @@ V konzole PowerShellu se zobrazují upozornění a chyby ověřování šablony 
 
 Rutina pro validátor šablon podporuje následující parametry.
 
-| Parametr | Popis | Požaduje se |
+| Parametr | Popis | Vyžadováno |
 | ----- | -----| ----- |
-| `TemplatePath` | Určuje cestu k rekurzivnímu nalezení Azure Resource Manager šablon. | Ano |
-| `TemplatePattern` | Určuje názvy souborů šablon, které se mají spárovat. | Ne |
-| `CapabilitiesPath` | Určuje cestu k souboru JSON pro cloudové možnosti. | Ano |
-| `IncludeComputeCapabilities` | Zahrnuje vyhodnocení prostředků IaaS, jako jsou velikosti virtuálních počítačů a rozšíření virtuálních počítačů. | Ne |
-| `IncludeStorageCapabilities` | Zahrnuje vyhodnocení prostředků úložiště, například typů SKU. | Ne |
-| `Report` | Určuje název vygenerované sestavy jazyka HTML. | Ne |
-| `Verbose` | Zapisuje do konzoly chyby a upozornění. | Ne|
+| `TemplatePath` | Určuje cestu k rekurzivnímu nalezení Azure Resource Manager šablon. | Yes |
+| `TemplatePattern` | Určuje názvy souborů šablon, které se mají spárovat. | No |
+| `CapabilitiesPath` | Určuje cestu k souboru JSON pro cloudové možnosti. | Yes |
+| `IncludeComputeCapabilities` | Zahrnuje vyhodnocení prostředků IaaS, jako jsou velikosti virtuálních počítačů a rozšíření virtuálních počítačů. | No |
+| `IncludeStorageCapabilities` | Zahrnuje vyhodnocení prostředků úložiště, například typů SKU. | No |
+| `Report` | Určuje název vygenerované sestavy jazyka HTML. | No |
+| `Verbose` | Zapisuje do konzoly chyby a upozornění. | No|
 
 ### <a name="examples"></a>Příklady
 

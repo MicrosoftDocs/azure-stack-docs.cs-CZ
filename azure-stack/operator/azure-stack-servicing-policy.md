@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Přečtěte si o zásadách obsluhy centra Azure Stack a o tom, jak zachovat integrovaný systém v podporovaném stavu.
 author: sethmanheim
 ms.topic: article
-ms.date: 05/07/2020
+ms.date: 06/09/2020
 ms.author: sethm
-ms.reviewer: harik
+ms.reviewer: niy
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 479343623f59720cd330c3f9d8d8b8c7836a8a0e
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: 6b2a3a281e16ff658b7124071cdb83326d0cbbde
+ms.sourcegitcommit: 396f79ce073d99d14fcc71b85c4a4932334832a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82848145"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84636831"
 ---
 # <a name="azure-stack-hub-servicing-policy"></a>Zásady obsluhy centra Azure Stack
 
@@ -52,9 +52,9 @@ Informace o konkrétní aktualizaci, včetně toho, jak ji stáhnout, najdete v 
 
 ## <a name="hotfixes"></a>Opravy hotfix
 
-V některých případech společnost Microsoft poskytuje opravy pro Azure Stack centrum, které řeší konkrétní problém, který je často preventivní nebo časově citlivý. Každá oprava hotfix je vydána spolu s odpovídajícím článkem znalostní báze Microsoft Knowledge Base, který podrobně popisuje problém, příčinu a řešení.
+V některých případech společnost Microsoft poskytuje opravy pro Azure Stack centrum, které řeší konkrétní problém, který je často preventivní nebo časově citlivý. Každá oprava hotfix je vydána spolu s odpovídajícím článkem znalostní báze Microsoft Knowledge Base, který podrobně popisuje problémy řešené touto opravou hotfix.
 
-Opravy hotfix se stáhnou a nainstalují stejně jako běžné úplné balíčky aktualizací pro centrum Azure Stack. Na rozdíl od úplné aktualizace se ale opravy hotfix dají instalovat během několika minut. Při instalaci oprav hotfix doporučujeme použít operátory centra Azure Stack nastavení časových intervalů pro správu a údržbu. Opravy hotfix aktualizují verzi cloudu centra Azure Stack, abyste mohli snadno zjistit, jestli se tato oprava hotfix nastavila. Samostatná oprava hotfix je k dispozici pro každou verzi centra Azure Stack, která je stále v podpoře. Každá oprava konkrétní iterace je kumulativní a obsahuje předchozí aktualizace pro stejnou verzi. V příslušném článku znalostní báze si můžete přečíst další informace o použitelnosti konkrétní opravy hotfix. Viz odkazy na poznámky k verzi v předchozí části.
+Opravy hotfix se stáhnou a nainstalují stejně jako běžné úplné balíčky aktualizací pro centrum Azure Stack. Na rozdíl od úplné aktualizace se ale opravy hotfix dají instalovat během několika minut. Při instalaci oprav hotfix doporučujeme použít operátory centra Azure Stack nastavení časových intervalů pro správu a údržbu. Opravy hotfix aktualizují verzi cloudu centra Azure Stack, abyste mohli snadno zjistit, jestli se tato oprava hotfix nastavila. Samostatná oprava hotfix je k dispozici pro každou verzi centra Azure Stack, která je stále v podpoře. **Každá oprava hotfix pro konkrétní iterace je kumulativní a zahrnuje předchozí opravy hotfix pro stejnou verzi.** V příslušném článku znalostní báze si můžete přečíst další informace o použitelnosti konkrétní opravy hotfix. Viz odkazy na poznámky k verzi v předchozí části.
 
 Informace o aktuálně dostupných opravách hotfix naleznete v poznámkách k verzi této aktualizace:
 
@@ -86,7 +86,7 @@ U poskytovatelů prostředků Azure Stack hub je důležité poznamenat, že je 
 
 Další informace o kompatibilitě poskytovatele prostředků najdete v poznámkách k verzi pro konkrétního poskytovatele prostředků.
 
-## <a name="get-support"></a>Získání podpory
+## <a name="get-support"></a>Získat podporu
 
 Centrum Azure Stack se řídí stejným procesem podpory jako Azure. Podnikoví zákazníci mohou postupovat podle postupu popsaného v tématu [Postup vytvoření žádosti o podporu Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Pokud jste zákazníkem poskytovatele Cloud Solution Provider (CSP), požádejte o podporu svého CSP. Další informace najdete v nejčastějších dotazech k [podpoře Azure](https://azure.microsoft.com/support/faq/).
 
@@ -94,5 +94,5 @@ Pomoc při řešení potíží s aktualizacemi najdete v tématu [osvědčené p
 
 ## <a name="next-steps"></a>Další kroky
 
-- [Správa aktualizací v centru Azure Stack](azure-stack-updates.md)
+- [Správa aktualizací ve službě Azure Stack Hub](azure-stack-updates.md)
 - [Osvědčené postupy pro řešení potíží s problémy s aktualizacemi a aktualizacemi centra Azure Stack](azure-stack-troubleshooting.md)

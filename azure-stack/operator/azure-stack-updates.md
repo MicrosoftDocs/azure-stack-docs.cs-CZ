@@ -1,18 +1,18 @@
 ---
 title: Správa aktualizací
 description: Naučte se spravovat aktualizace v centru Azure Stack.
-author: IngridAtMicrosoft
+author: sethmanheim
 ms.topic: how-to
-ms.date: 06/04/2020
-ms.author: inhenkel
+ms.date: 06/09/2020
+ms.author: sethm
 ms.lastreviewed: 09/10/2019
-ms.reviewer: ppacent
-ms.openlocfilehash: 03c233690ffa3148c04aabb49d69c6bc28f07eb1
-ms.sourcegitcommit: 0f1483e17d7e7fa5b4c5c457eab13373eb4b3fdc
+ms.reviewer: niy
+ms.openlocfilehash: d3f365f825e30e03e74d2e822653ee3ccfdb9e58
+ms.sourcegitcommit: 396f79ce073d99d14fcc71b85c4a4932334832a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84506447"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84636865"
 ---
 # <a name="manage-updates-in-azure-stack-hub"></a>Správa aktualizací ve službě Azure Stack Hub
 
@@ -65,18 +65,13 @@ Oznámení aktualizací se liší v několika faktorech, například připojení
 
 ### <a name="major-version-to-major-version"></a>Hlavní verze na hlavní verzi
 
-Aktualizace z hlavní verze na hlavní verzi musí být krok za krokem:
+Aktualizace z hlavní verze na hlavní verzi musí být krok za krokem: aktuální prostředí lze aktualizovat pouze na další hlavní verzi a nemůžete přeskočit aktualizaci hlavní verze.
 
-- aktuální prostředí se dá aktualizovat jenom na další hlavní verzi.
-- nemůžete přeskočit aktualizaci hlavní verze.
-
-Pokud je například vaše prostředí 1. x, nejnovější dostupná verze aktualizace je 3. x, měli byste aktualizovat jako 1. x, 2. x, 3. x.
+Pokud je například prostředí centra Azure Stack 1908. x a nejnovější dostupná verze aktualizace je 2002. x, měli byste je aktualizovat z 1908 na 1910 a pak aktualizovat na 2002.
 
 ### <a name="hotfixes-within-major-versions"></a>Opravy hotfix v hlavních verzích
 
-V rámci stejného hlavního čísla verze může Azure Stack vydávat několik oprav hotfix. Jak jsou opravy hotfix kumulativní, obsahuje nejnovější balíček aktualizace všechny minulé opravy hotfix. Aktualizaci na nejnovější opravu hotfix můžete proskokem čísel oprav hotfix.
-
-Například pokud jste ve verzi. MV. 1. x, nejnovější aktualizace je. MV. 4. x. I když existují aktualizace verze v nástroji. MV. 2. x a v. MV. 3. x můžete přímo nainstalovat do. MV. 4. x. Zobrazí se všechny opravy hotfix v nástroji v nástroji. MV. 2. x a v. MV. 3. x automaticky
+V rámci stejného hlavního čísla verze může centra Azure Stack vydávat více oprav hotfix. Opravy hotfix jsou kumulativní; nejnovější balíček oprav hotfix zahrnuje všechny minulé opravy hotfix pro danou verzi. Další informace najdete v tématu [opravy hotfix](azure-stack-servicing-policy.md#hotfixes).
 
 ## <a name="update-process"></a>Aktualizovat proces
 

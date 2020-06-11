@@ -3,16 +3,16 @@ title: Poznámky k verzi centra Azure Stack
 description: Poznámky k verzi pro integrované systémy Azure Stack hub, včetně aktualizací a oprav chyb.
 author: sethmanheim
 ms.topic: article
-ms.date: 05/29/2020
+ms.date: 06/09/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 39e6c3ce9b942398954c5c81cbce172095520d90
-ms.sourcegitcommit: c167bf3724139aafe40066f9533985ed7d919c0e
+ms.openlocfilehash: 50ff7fc42cc6993c4ceeb009515cdad62ce980de
+ms.sourcegitcommit: 396f79ce073d99d14fcc71b85c4a4932334832a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84329210"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84636882"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Poznámky k verzi centra Azure Stack
 
@@ -157,6 +157,8 @@ Azure Stack centrum pravidelně vydává opravy hotfix. Před aktualizací centr
 
 Opravy hotfix centra Azure Stack se vztahují pouze na integrované systémy Azure Stack hub. Nepokoušejte se instalovat opravy hotfix na ASDK.
 
+Další informace o opravách hotfix najdete v tématu [zásady obsluhy centra Azure Stack](azure-stack-servicing-policy.md#hotfixes).
+
 ### <a name="prerequisites-before-applying-the-2002-update"></a>Požadavky: před instalací aktualizace 2002
 
 Verze 2002 centra Azure Stack se musí použít ve verzi 1910 s následujícími opravami hotfix:
@@ -166,7 +168,7 @@ Verze 2002 centra Azure Stack se musí použít ve verzi 1910 s následujícími
 
 ### <a name="after-successfully-applying-the-2002-update"></a>Po úspěšné instalaci aktualizace 2002
 
-Po instalaci této aktualizace nainstalujte všechny příslušné opravy hotfix. Další informace najdete v našich [zásadách obsluhy](azure-stack-servicing-policy.md).
+Po instalaci této aktualizace nainstalujte všechny příslušné opravy hotfix.
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
 - [1.2002.28.93 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4562966)

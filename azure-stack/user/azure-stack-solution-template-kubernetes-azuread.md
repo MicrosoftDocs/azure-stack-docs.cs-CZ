@@ -7,12 +7,12 @@ ms.date: 3/12/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 3/12/2020
-ms.openlocfilehash: e85df91b08c51ce8255e2b35c9d7ba31505b3d00
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: ee0410467a7e2608580da5c209a97f86a60b675a
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79313209"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84631202"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-hub-using-azure-active-directory"></a>Nasazení Kubernetes do centra Azure Stack pomocí Azure Active Directory
 
@@ -52,28 +52,28 @@ Nastavte instanční objekt v Azure. Instanční objekt poskytuje aplikaci pří
 1. Vytvořte aplikaci Azure AD.
 
     a. Přihlaste se ke svému účtu Azure prostřednictvím [Azure Portal](https://portal.azure.com).  
-    b. Vyberte **Azure Active Directory** > **Registrace aplikací** > **novou registraci**.  
+    b. Vyberte **Azure Active Directory**  >  **Registrace aplikací**  >  **novou registraci**.  
     c. Zadejte název a URL aplikace.  
     d. Vyberte **podporované typy účtů**.  
     e.  Přidejte `http://localhost` pro identifikátor URI pro aplikaci. Vyberte **Web** pro typ aplikace, kterou chcete vytvořit. Po nastavení hodnot vyberte **Registrovat**.
 
 1. Poznamenejte si **ID aplikace**. Při vytváření clusteru budete potřebovat ID. ID je odkazováno jako **ID klienta instančního objektu**.
 
-1. V okně pro princip služby vyberte **nový tajný klíč klienta**. **Settings** > **Klíče**nastavení. Pro princip služby musíte vygenerovat ověřovací klíč.
+1. V okně pro princip služby vyberte **nový tajný klíč klienta**. **Nastavení**  >  **Klíče**. Pro princip služby musíte vygenerovat ověřovací klíč.
 
     a. Zadejte **Popis**.
 
     b. Pro **vypršení platnosti**vyberte možnost **nikdy nevyprší platnost** .
 
-    c. Vyberte **Přidat**. Poznamenejte si řetězec klíče. Při vytváření clusteru budete potřebovat řetězec klíče. Na klíč se odkazuje jako na **tajný klíč klienta instančního objektu**.
+    c. Vyberte možnost **Přidat**. Poznamenejte si řetězec klíče. Při vytváření clusteru budete potřebovat řetězec klíče. Na klíč se odkazuje jako na **tajný klíč klienta instančního objektu**.
 
 ## <a name="give-the-service-principal-access"></a>Poskytnutí přístupu k instančnímu objektu
 
 Udělte instančnímu objektu přístup k vašemu předplatnému, aby objekt zabezpečení mohl vytvářet prostředky.
 
-1.  Přihlaste se k [portálu centra Azure Stack](https://portal.local.azurestack.external/).
+1.  Přihlaste se k portálu centra Azure Stack `https://portal.local.azurestack.external/` .
 
-1. Vyberte **všechny** > **odběry**služeb.
+1. Vyberte **všechny**  >  **odběry**služeb.
 
 1. Vyberte předplatné vytvořené vaším operátorem pro použití clusteru Kubernetes.
 
@@ -87,9 +87,9 @@ Udělte instančnímu objektu přístup k vašemu předplatnému, aby objekt zab
 
 ## <a name="deploy-kubernetes"></a>Nasazení Kubernetes
 
-1. Otevřete [portál centra Azure Stack](https://portal.local.azurestack.external).
+1. Otevřete portál centra Azure Stack `https://portal.local.azurestack.external` .
 
-1. Vyberte **+ vytvořit prostředek** > **COMPUTE** > **Kubernetes cluster**. Klikněte na **Vytvořit**.
+1. Vyberte **+ vytvořit prostředek**  >  **COMPUTE**  >  **Kubernetes cluster**. Klikněte na **Vytvořit**.
 
     ![Nasadit šablonu řešení](media/azure-stack-solution-template-kubernetes-deploy/01_kub_market_item.png)
 
@@ -115,7 +115,7 @@ Udělte instančnímu objektu přístup k vašemu předplatnému, aby objekt zab
 
 1. Zadejte **veřejný klíč SSH** , který se používá pro autorizaci pro všechny počítače se systémem Linux vytvořené jako součást clusteru KUBERNETES a DVM.
 
-1. Zadejte **předponu DNS hlavního profilu** , která je pro oblast jedinečná. Musí se jednat o jedinečný název oblasti, například `k8s-12345`. Zkuste zvolit stejný jako název skupiny prostředků jako osvědčený postup.
+1. Zadejte **předponu DNS hlavního profilu** , která je pro oblast jedinečná. Musí se jednat o jedinečný název oblasti, například `k8s-12345` . Zkuste zvolit stejný jako název skupiny prostředků jako osvědčený postup.
 
     > [!Note]  
     > Pro každý cluster použijte novou a jedinečnou předponu DNS hlavního profilu.

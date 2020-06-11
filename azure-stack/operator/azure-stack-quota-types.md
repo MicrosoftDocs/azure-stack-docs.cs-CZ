@@ -1,21 +1,20 @@
 ---
-title: Typy kvót v centru Azure Stack
-description: Zobrazení a úprava různých typů kvót, které jsou dostupné pro služby a prostředky v centru Azure Stack.
+title: Kvóty a typy kvót v centru Azure Stack
+description: Zobrazení a úprava různých kvót a typů kvót, které jsou k dispozici pro služby a prostředky v centru Azure Stack.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 01/07/2020
+ms.date: 06/09/2020
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2019
-ms.openlocfilehash: bc36b4fe7326596f4ef993ceb087818270cf1b5a
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 9556784a86ecca0d55b7cafa407a667b69efd8fd
+ms.sourcegitcommit: d91e47a51a02042f700c6a420f526f511a6db9a0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80423865"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84666379"
 ---
 # <a name="quota-types-in-azure-stack-hub"></a>Typy kvót v centru Azure Stack
-
 
 [Kvóty](service-plan-offer-subscription-overview.md#plans) definují omezení prostředků, které může předplatné uživatele zřizovat nebo využívat. Kvóta může například uživateli dovolit vytvořit až pět virtuálních počítačů (VM). Každý prostředek může mít své vlastní typy kvót.
 

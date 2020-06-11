@@ -7,12 +7,12 @@ ms.date: 06/11/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 06/11/2019
-ms.openlocfilehash: fe2cb87c666e8c3447eca46bdcb49c71514bccdc
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: ab12123410971dcbff3a4750650dd5508ca93efe
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77704484"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84631155"
 ---
 # <a name="create-an-offer-in-azure-stack-hub"></a>Vytvoření nabídky v centru Azure Stack
 
@@ -21,7 +21,7 @@ ms.locfileid: "77704484"
 ::: moniker range=">=azs-1902"
 ## <a name="create-an-offer-1902-and-later"></a>Vytvoření nabídky (1902 a novější)
 
-1. Přihlaste se k [portálu správce centra Azure Stack](https://adminportal.local.azurestack.external) a vyberte **+ vytvořit prostředek**, pak **nabídky + plány**a pak **nabídku**.
+1. Přihlaste se k portálu správce centra Azure Stack `https://adminportal.local.azurestack.external` a vyberte **+ vytvořit prostředek**, pak **nabídky + plány**a pak **nabídku**.
 
    ![Vytvoření nabídky v centru Azure Stack](media/azure-stack-create-offer/offers.png)
 
@@ -68,7 +68,7 @@ Existují dva způsoby, jak změnit stav nabídky:
 ::: moniker range="<=azs-1901"
 ## <a name="create-an-offer-1901-and-earlier"></a>Vytvoření nabídky (1901 a starší)
 
-1. Přihlaste se k [portálu pro správu centra Azure Stack](https://adminportal.local.azurestack.external) a vyberte **+ vytvořit prostředek**, pak **nabídky tenanta + plány**a potom **nabídku**.
+1. Přihlaste se k portálu pro správu centra Azure Stack `https://adminportal.local.azurestack.external` a vyberte **+ vytvořit prostředek**, pak **nabídky tenanta + plány**a potom **nabídku**.
 
    ![Vytvoření nabídky v centru Azure Stack](media/azure-stack-create-offer/image01.png)
   
