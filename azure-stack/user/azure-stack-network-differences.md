@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 07/10/2019
-ms.openlocfilehash: 2a71320a660c7dbf74ad885226bb7fcbfa78b35f
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: 459d6177015cbca40d2f8f830eba85dc87be18c7
+ms.sourcegitcommit: e79aafb05c5fc512a83f0ebc6d76503213ccbc70
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84111400"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84730675"
 ---
 # <a name="differences-and-considerations-for-azure-stack-hub-networking"></a>Rozdíly a požadavky pro sítě Azure Stack hub
 
@@ -22,7 +22,7 @@ Tento článek obsahuje přehled jedinečných důležitých informací o sítí
 
 ## <a name="cheat-sheet-networking-differences"></a>Tahák list: rozdíly v sítích
 
-| Služba | Funkce | Azure (Global) | Centrum Azure Stack |
+| Služba | Příznak | Azure (Global) | Centrum Azure Stack |
 |--------------------------|----------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
 | DNS | Víceklientské DNS | Podporuje se | Zatím nepodporováno |
 |  | Záznamy DNS AAAA | Podporuje se | Nepodporuje se |
@@ -52,12 +52,13 @@ Tento článek obsahuje přehled jedinečných důležitých informací o sítí
 |  | Změna velikosti brány | Azure podporuje změnu velikosti brány po nasazení. | Změna velikosti se nepodporuje. |
 |  | Konfigurace dostupnosti | Aktivní/aktivní | Aktivní/pasivní |
 |  | UsePolicyBasedTrafficSelectors | Azure podporuje selektory přenosu založené na zásadách s připojeními bran založenými na trasách. | Zatím se nepodporuje. |
-| Nástroj pro vyrovnávání zatížení | Skladová jednotka (SKU) | Podporují se základní a standardní nástroje pro vyrovnávání zatížení. | Podporuje se jenom základní Load Balancer.<br>Vlastnost SKU není podporována.<br>/Path/nástroje pro vyrovnávání zatížení základního SKU nemůže mít více než 5 konfigurací front-endové IP adresy.  |
+|  | Monitorování a výstrahy | Azure používá Azure Monitor k tomu, aby poskytovala možnost nastavit výstrahy pro prostředky sítě VPN. | Zatím se nepodporuje.|
+| Nástroj pro vyrovnávání zatížení | SKU | Podporují se základní a standardní nástroje pro vyrovnávání zatížení. | Podporuje se jenom základní Load Balancer.<br>Vlastnost SKU není podporována.<br>/Path/nástroje pro vyrovnávání zatížení základního SKU nemůže mít více než 5 konfigurací front-endové IP adresy.  |
 |  | Zóny | Zóny dostupnosti jsou podporovány. | Zatím nepodporováno |
 |  | Podpora pravidel příchozího překladu adres (NAT) pro koncové body služby | Azure podporuje určení koncových bodů služby pro pravidla příchozího překladu adres (NAT). | Centrum Azure Stack ještě nepodporuje koncové body služby, takže je nejde zadat. |
 |  | Protocol (Protokol) | Azure podporuje určení protokolu GRE nebo ESP. | Třída protokolu není v centru Azure Stack podporována. |
 | Veřejná IP adresa | Verze veřejné IP adresy | Azure podporuje IPv6 i IPv4. | Podporovaný je jenom protokol IPv4. |
-| | Skladová jednotka (SKU) | Azure podporuje základní a standardní. | Podporovaná je jenom základní. |
+| | SKU | Azure podporuje základní a standardní. | Podporovaná je jenom základní. |
 | Síťové rozhraní | Získat efektivní směrovací tabulku | Podporuje se | Zatím se nepodporuje. |
 |  | Získání efektivních seznamů ACL | Podporuje se | Zatím se nepodporuje. |
 |  | Povolit akcelerované síťové služby | Podporuje se | Zatím se nepodporuje. |

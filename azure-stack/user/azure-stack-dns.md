@@ -3,15 +3,15 @@ title: DNS v centru Azure Stack
 description: Přečtěte si o DNS v centru Azure Stack a vytváření a správě zón DNS.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/24/2020
+ms.date: 06/11/2020
 ms.author: sethm
 ms.lastreviewed: 01/05/2020
-ms.openlocfilehash: b9afba6322b80d487f4ba7d4324adcd42a8fd85a
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 7ab3775b0424a8cba0b84bc3d3ccb40705b192fb
+ms.sourcegitcommit: dd140b3a2ac8e558eae9f5f422711d2ba560da16
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77703005"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84744894"
 ---
 # <a name="use-dns-in-azure-stack-hub"></a>Použití DNS v centru Azure Stack
 
@@ -43,7 +43,7 @@ Máte k dispozici nástroj pro vyrovnávání zatížení, který zpracovává p
 
 Můžete vytvářet a spravovat zóny a záznamy DNS v centru Azure Stack.
 
-Služba Azure Stack hub poskytuje službu DNS podobnou Azure a používá rozhraní API, která jsou konzistentní s rozhraními API Azure DNS.  Hostováním domén v rámci služby DNS centra Azure Stack můžete spravovat záznamy DNS pomocí stejných přihlašovacích údajů, rozhraní API a nástrojů. Můžete také použít stejnou fakturaci a podporu jako vaše další služby Azure.
+Služba Azure Stack hub poskytuje službu DNS podobnou Azure a používá rozhraní API, která jsou konzistentní s rozhraními API Azure DNS. Hostováním domén v rámci služby DNS centra Azure Stack můžete spravovat záznamy DNS pomocí stejných přihlašovacích údajů, rozhraní API a nástrojů. Můžete také použít stejnou fakturaci a podporu jako vaše další služby Azure.
 
 Infrastruktura služby DNS centra Azure Stack je kompaktnější než Azure. Velikost a umístění nasazení centra Azure Stack ovlivňují rozsah DNS, škálování a výkon. To také znamená, že výkon, dostupnost, globální distribuce a vysoká dostupnost se mohou lišit od nasazení po nasazení.
 
@@ -53,9 +53,9 @@ Služba DNS v centru Azure Stack se podobá DNS v Azure, ale existuje několik d
 
 * Nepodporuje **záznamy AAAA**: Azure Stack centrum nepodporuje záznamy AAAA, protože centrum Azure Stack nepodporuje adresy IPv6. Jedná se o klíčový rozdíl mezi DNS v Azure a centra Azure Stack.
 
-* Není **Vícenásobný tenant**: Služba DNS v centru Azure Stack není víceklientské. Klienti nemůžou vytvořit stejnou zónu DNS. Pouze první předplatné, které se pokouší vytvořit zónu úspěšně, a pozdější požadavky selžou. Jedná se o další klíčový rozdíl mezi Azure a službou DNS centra Azure Stack.
+* Není **Vícenásobný tenant**: Služba DNS v centru Azure stacka není více tenantů. Klienti nemůžou vytvořit stejnou zónu DNS. Pouze první předplatné, které se pokouší vytvořit zónu úspěšně, a pozdější požadavky selžou. Jedná se o další klíčový rozdíl mezi Azure a službou DNS centra Azure Stack.
 
-* **Značky, metadata a značky ETag**: existují drobné rozdíly ve způsobu, jakým Azure Stack centrum zpracovává značky, metadata, značky ETag a omezení.
+* **Značky, metadata a ETag**: existují drobné rozdíly ve způsobu, jakým Azure Stack hub zpracovává značky, metadata, značky ETag a omezení.
 
 Další informace o Azure DNS najdete v tématu [zóny a záznamy DNS](/azure/dns/dns-zones-records).
 
@@ -77,9 +77,9 @@ Ve výchozím nastavení používají rutiny prostředí PowerShell služby DNS 
 
 Na úrovni REST API DNS centra Azure Stack jsou značky ETag zadány pomocí hlaviček protokolu HTTP. Jejich chování je popsané v následující tabulce:
 
-| Hlavička | Chování|
+| Záhlaví | Chování|
 |--------|---------|
-| Žádná   | VLOŽENÍ vždy proběhne úspěšně (žádné kontroly ETag).|
+| Žádné   | VLOŽENÍ vždy proběhne úspěšně (žádné kontroly ETag).|
 | If-Match| VLOŽENÍ se zdaří pouze v případě, že prostředek existuje a odpovídá ETag.|
 | If-Match *| Pokud prostředek existuje, operace PUT se podaří.|
 | If-None-Match *| Pokud prostředek neexistuje, operace PUT se podaří.|

@@ -3,15 +3,15 @@ title: Rozdíly mezi centrem Azure Stack a Azure při používání služeb a se
 description: Při používání služeb a sestavování aplikací je důležité pochopit rozdíly mezi Azure a Azure Stack hub.
 author: sethmanheim
 ms.topic: overview
-ms.date: 01/06/2020
+ms.date: 06/11/2020
 ms.author: sethm
 ms.lastreviewed: 12/27/2019
-ms.openlocfilehash: a6e2eda40a41c5ffbd7cd39789d993255a8603f9
-ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
+ms.openlocfilehash: 66a47e7eb896fbe8cd6e30ea5f6de8bdc71e77e5
+ms.sourcegitcommit: dd140b3a2ac8e558eae9f5f422711d2ba560da16
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84631340"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84744895"
 ---
 # <a name="differences-between-azure-stack-hub-and-azure-when-using-services-and-building-apps"></a>Rozdíly mezi centrem Azure Stack a Azure při používání služeb a sestavování aplikací
 

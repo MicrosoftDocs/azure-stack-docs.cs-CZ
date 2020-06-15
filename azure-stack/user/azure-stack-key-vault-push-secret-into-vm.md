@@ -3,15 +3,15 @@ title: Nasazení virtuálního počítače s zabezpečeným uloženým certifik�
 description: Přečtěte si, jak nasadit virtuální počítač a vložit do něj certifikát pomocí trezoru klíčů v centru Azure Stack.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 01/24/2020
+ms.date: 06/12/2020
 ms.author: sethm
 ms.lastreviewed: 12/27/2019
-ms.openlocfilehash: f808d3dca853ef114d215be08f3e6ae3f6737fb5
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 7f193a0a58018217d8b68758546de269f799b90e
+ms.sourcegitcommit: dd140b3a2ac8e558eae9f5f422711d2ba560da16
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77702784"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84744861"
 ---
 # <a name="deploy-a-vm-with-a-securely-stored-certificate-on-azure-stack-hub"></a>Nasazení virtuálního počítače s zabezpečeným uloženým certifikátem v centru Azure Stack
 
@@ -30,7 +30,7 @@ Certifikáty se používají v mnoha scénářích, jako je ověřování ve slu
 Následující kroky popisují proces vyžadovaný k odeslání certifikátu do virtuálního počítače:
 
 1. Vytvoření tajného klíče trezoru klíčů
-2. Aktualizujte soubor **azuredeploy. Parameters. JSON** .
+2. Aktualizuje **azuredeploy.parameters.jsv** souboru.
 3. Nasaďte šablonu.
 
 > [!NOTE]
@@ -47,7 +47,7 @@ Následující kroky popisují proces vyžadovaný k odeslání certifikátu do 
 Následující skript vytvoří certifikát ve formátu. pfx, vytvoří Trezor klíčů a uloží certifikát do trezoru klíčů jako tajný kód.
 
 > [!IMPORTANT]
-> Při vytváření trezoru `-EnabledForDeployment` klíčů musíte použít parametr. Tento parametr zajišťuje, aby se Trezor klíčů mohl odkazovat z Azure Resource Manager šablon.
+> `-EnabledForDeployment`Při vytváření trezoru klíčů musíte použít parametr. Tento parametr zajišťuje, aby se Trezor klíčů mohl odkazovat z Azure Resource Manager šablon.
 
 ```powershell
 # Create a certificate in the .pfx format
@@ -108,13 +108,13 @@ Set-AzureKeyVaultSecret `
    -SecretValue $secret
 ```
 
-Při spuštění tohoto skriptu obsahuje výstup identifikátor URI tajného kódu. Poznamenejte si tento identifikátor URI, protože ho musíte odkázat do [šablony push Certificate pro Windows Správce prostředků](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate). Stáhněte si do vývojového počítače složku [VM-push-Certificate-Windows](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate) Template. Tato složka obsahuje soubory **azuredeploy. JSON** a **azuredeploy. Parameters. JSON** , které potřebujete v následujících krocích.
+Při spuštění tohoto skriptu obsahuje výstup identifikátor URI tajného kódu. Poznamenejte si tento identifikátor URI, protože ho musíte odkázat do [šablony push Certificate pro Windows Správce prostředků](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate). Stáhněte si do vývojového počítače složku [VM-push-Certificate-Windows](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate) Template. Tato složka obsahuje **azuredeploy.js** a **azuredeploy.parameters.js** se soubory, které potřebujete v následujících krocích.
 
-Upravte soubor **azuredeploy. Parameters. JSON** podle hodnot vašich prostředí. Důležité parametry jsou název trezoru, skupina prostředků trezoru a identifikátor URI tajného kódu (jak je vygenerován předchozí skript). Následující část ukazuje příklad souboru parametrů.
+Upravte **azuredeploy.parameters.js** souboru podle hodnot vašich prostředí. Důležité parametry jsou název trezoru, skupina prostředků trezoru a identifikátor URI tajného kódu (jak je vygenerován předchozí skript). Následující část ukazuje příklad souboru parametrů.
 
-## <a name="update-the-azuredeployparametersjson-file"></a>Aktualizace souboru azuredeploy. Parameters. JSON
+## <a name="update-the-azuredeployparametersjson-file"></a>Aktualizovat azuredeploy.parameters.jsv souboru
 
-Aktualizujte soubor **azuredeploy. Parameters. JSON** pomocí identifikátoru URI `vaultName` `VmName`, tajného klíče, a dalších parametrů dle vašeho prostředí. Následující soubor JSON ukazuje příklad souboru parametrů šablony:
+Aktualizujte **azuredeploy.parameters.jsv** souboru pomocí `vaultName` identifikátoru URI, tajného klíče, `VmName` a dalších parametrů, které jsou na vašem prostředí. Následující soubor JSON ukazuje příklad souboru parametrů šablony:
 
 ```json
 {
@@ -175,7 +175,7 @@ Centrum Azure Stack během nasazování vloží certifikát do virtuálního po�
 
 Vyřazení certifikátů je součástí procesu správy certifikátů. Starší verzi certifikátu nelze odstranit, ale můžete ji zakázat pomocí `Set-AzureKeyVaultSecretAttribute` rutiny.
 
-Následující příklad ukazuje, jak zakázat certifikát. Použijte vlastní hodnoty pro parametry `VaultName`, `Name`a. `Version`
+Následující příklad ukazuje, jak zakázat certifikát. Použijte vlastní hodnoty pro `VaultName` `Name` parametry, a `Version` .
 
 ```powershell
 Set-AzureKeyVaultSecretAttribute -VaultName contosovault -Name servicecert -Version e3391a126b65414f93f6f9806743a1f7 -Enable 0
