@@ -3,16 +3,16 @@ title: Co je nového v tržišti Azure Stack hub
 description: Podívejte se, co je nového v tržišti Azure Stack hub, včetně nových, zastaralých a aktualizovaných položek Marketplace.
 author: sethmanheim
 ms.topic: article
-ms.date: 05/28/2020
+ms.date: 06/15/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 05/28/2020
-ms.openlocfilehash: 17a4a5d617332a38ac33af38b97452f5bd2975ff
-ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
+ms.openlocfilehash: 6625f45fcb593d510a8774d112199fc3d7ed1698
+ms.sourcegitcommit: 893d55bd3e680ec8b23358c04dec73efaa68a73e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84146814"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84783448"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Změny v tržišti centra Azure Stack
 
@@ -56,13 +56,14 @@ V tomto článku jsou uvedeny nedávné dodatky, aktualizace, změny a odebrán�
 - Bitnami Codiad
 - Bitnami X2Engine Sales CRM
 - Bitnami SugarCRM
-- Cluster s vysokou dostupností Bitnami Node. js
+- Bitnami Node.js cluster s vysokou dostupností
 - Bitnami ProcessMaker Enterprise Edition
 - A10 vThunder: L4 – kontroler doručení aplikace L7, globální vyrovnávání zatížení serveru (GSLB), přehled SSL
 - Správa zabezpečení Check Point vSEC
 
 ## <a name="updated-marketplace-items"></a>Aktualizované položky Marketplace
 
+- 6/12/2020: Bitnami Grafana – verze 6.7.2006040249
 - 5/21/2020: Ubuntu Server 16,04 LTS-Version 16.04.202004290
 - 5/21/2020: Ubuntu Server 18,04 LTS-version 18.04.202004080
 - 5/21/2020: Windows Server 2008 R2 SP1 BYOL-Version 7601.24552.2004101827
@@ -148,7 +149,7 @@ V tomto článku jsou uvedeny nedávné dodatky, aktualizace, změny a odebrán�
 - 05/07/2020: Bitnami Neo4j-Version. 4.0.2003311444
 - 05/07/2020: Bitnami NGINX open source verze 1.16.2004221209
 - 05/07/2020: Bitnami Noalyss – verze 7.3.2004220120
-- 05/07/2020: Bitnami Node. js – verze 12.16.2004281743
+- 05/07/2020: Bitnami Node.js – verze 12.16.2004281743
 - 05/07/2020: Bitnami sestavitele – verze 10.0.2004220137
 - 05/07/2020: Bitnami Odoo – verze 13.0.2004220418
 - 05/07/2020: Bitnami Open Atrium – verze 2.645.2004220952
