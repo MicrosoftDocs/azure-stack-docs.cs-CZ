@@ -7,12 +7,12 @@ ms.date: 04/17/2020
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 04/17/2020
-ms.openlocfilehash: e77252cf89d52291d7d4071d83981eb36bb062ef
-ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
+ms.openlocfilehash: 067817e29858113fc22b596aa394d6e0942e921a
+ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82836168"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84819427"
 ---
 # <a name="proactive-diagnostic-log-collection-in-azure-stack-hub"></a>Proaktivní shromažďování protokolů diagnostiky v centru Azure Stack
 
@@ -20,7 +20,7 @@ ms.locfileid: "82836168"
 
 Šetřete čas s zákaznickou podporou tím, že aktivně shromažďují protokoly diagnostiky, když se výstraha aktivuje na Azure Stackovém centru.
 
-Pokud je potřeba prozkoumat stav systému, protokoly je možné nahrát automaticky pro analýzu před otevřením případu podpory se službou zákaznické podpory Microsoftu (CSS).
+Pokud je nutné prozkoumat stav systému, protokoly je možné odeslat automaticky pro analýzu před otevřením případu podpory s podpora Microsoftu.
 
 ## <a name="steps-to-configure-proactive-log-collection"></a>Postup konfigurace proaktivní kolekce protokolů
 
@@ -41,13 +41,13 @@ Pomocí těchto kroků můžete nakonfigurovat proaktivní shromažďování pro
 
 Pro zjednodušení shromažďování protokolů a možnosti zákaznické podpory doporučujeme nakonfigurovat funkci automatického shromažďování protokolů diagnostiky.
 
-Pokud je potřeba prozkoumat stav systému, protokoly je možné automaticky nahrát k analýze prostřednictvím služeb zákaznické podpory Microsoftu (CSS).
+Pokud je nutné prozkoumat stav systému, protokoly lze automaticky odeslat pro účely analýzy podpora Microsoftu.
 
 ## <a name="create-an-azure-blob-container-sas-url"></a>Vytvoření adresy URL SAS kontejneru objektů BLOB v Azure
 
 Než budete moct nakonfigurovat automatické shromažďování protokolů, musíte pro kontejner objektů BLOB získat sdílený přístupový podpis (SAS). SAS umožňuje udělit přístup k prostředkům v účtu úložiště bez sdílení klíčů účtu.
 
-Soubory protokolu centra Azure Stack můžete ukládat do kontejneru objektů BLOB v Azure a pak zadat adresu URL SAS, kde může CSS shromažďovat protokoly.
+Soubory protokolů centra Azure Stack můžete ukládat do kontejneru objektů BLOB v Azure a pak zadat adresu URL SAS, kde podpora Microsoftu můžou shromažďovat protokoly.
 
 ### <a name="prerequisites"></a>Požadavky
 
@@ -58,7 +58,7 @@ Osvědčené postupy při výběru parametrů pro účet úložiště automatick
 ### <a name="create-a-blob-storage-account"></a>Vytvoření účtu úložiště BLOB
 
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
-1. Vyberte **účty** > úložiště **Přidat**.
+1. Vyberte **účty úložiště** > **Přidat**.
 1. Vytvořte kontejner objektů BLOB s těmito nastaveními:
 
    - **Předplatné**: vyberte předplatné Azure.
@@ -135,7 +135,7 @@ Historie protokolů shromážděných z centra Azure Stack se zobrazí na strán
 
 Je-li povoleno, služba proaktivní shromažďování protokolů odesílá protokoly pouze v případě, že je vyvolána jedna z následujících událostí.
 
-Například **Chyba aktualizace** je výstraha, která spouští proaktivní shromažďování protokolů diagnostiky. Pokud je povoleno, diagnostické protokoly budou aktivně zachyceny během chyby aktualizace, což usnadňuje řešení potíží se šablonou stylů CSS. Diagnostické protokoly jsou shromažďovány pouze v případě, že se vyvolá výstraha pro **aktualizaci** .
+Například **Chyba aktualizace** je výstraha, která spouští proaktivní shromažďování protokolů diagnostiky. Pokud je tato možnost povolena, diagnostické protokoly budou aktivně zachyceny během chyby aktualizace, což může pomoct podpora Microsoftu řešení problému. Diagnostické protokoly jsou shromažďovány pouze v případě, že se vyvolá výstraha pro **aktualizaci** .
 
 | Název výstrahy | FaultIdType |
 |---|---|

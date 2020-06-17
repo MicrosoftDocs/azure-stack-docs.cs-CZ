@@ -3,16 +3,16 @@ title: Přidání vlastní image virtuálního počítače do centra Azure Stack
 description: Přečtěte si, jak přidat nebo odebrat vlastní image virtuálního počítače do centra Azure Stack.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 02/07/2020
+ms.date: 06/15/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/08/2019
-ms.openlocfilehash: 167a9c9d46be7ac77e59e2be7ede1c09e43fda70
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: 7bd8a93c50038b7a593136df44e94b8a8f2f43d0
+ms.sourcegitcommit: c9737939f4e437f1d954e163db972d58b3f98ffd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82847924"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84813803"
 ---
 # <a name="add-a-custom-vm-image-to-azure-stack-hub"></a>Přidání vlastní image virtuálního počítače do centra Azure Stack
 
@@ -29,17 +29,17 @@ Vytvořte vlastní zobecněný virtuální pevný disk.
 **Pokud virtuální pevný disk pochází z Azure**, před ZOBECNĚNÍM virtuálního počítače se ujistěte, že máte následující:
 
 - Při zřizování virtuálního počítače v Azure použijte PowerShell a zřiďte ho bez `-ProvisionVMAgent` příznaku.
-- Před zobecněním virtuálního počítače v Azure odeberte všechna rozšíření virtuálních počítačů pomocí rutiny **Remove-AzureRmVMExtension** z virtuálního počítače. Rozšíření virtuálních počítačů, která se instalují, můžete zjistit tak `Windows (C:) > WindowsAzure > Logs > Plugins`, že na.
+- Před zobecněním virtuálního počítače v Azure odeberte všechna rozšíření virtuálních počítačů pomocí rutiny **Remove-AzureRmVMExtension** z virtuálního počítače. Rozšíření virtuálních počítačů, která se instalují, můžete zjistit tak, že na `Windows (C:) > WindowsAzure > Logs > Plugins` .
 
-```powershell
-Remove-AzureRmVMExtension -ResourceGroupName winvmrg1 -VMName windowsvm -Name "CustomScriptExtension"
-```
+   ```powershell
+   Remove-AzureRmVMExtension -ResourceGroupName winvmrg1 -VMName windowsvm -Name "CustomScriptExtension"
+   ```
 
 Podle pokynů v [tomto článku](/azure/virtual-machines/windows/download-vhd) proveďte správnou generalizaci a stažení virtuálního pevného disku, abyste ho mohli přenést do centra Azure Stack.
 
 ### <a name="linux"></a>Linux
 
-**Pokud je virtuální pevný disk mimo Azure**, postupujte podle příslušných pokynů k generalizaci VHD:
+Pokud je virtuální pevný disk mimo Azure, postupujte podle příslušných pokynů k generalizaci VHD:
 
 - [Distribuce založené na CentOS](/azure/virtual-machines/linux/create-upload-centos?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Debian Linux](/azure/virtual-machines/linux/debian-create-upload-vhd?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -57,33 +57,33 @@ Podle pokynů v [tomto článku](/azure/virtual-machines/windows/download-vhd) p
    logout
    ```
 
-   Mějte na paměti, že verze agenta Azure Linux pracují se službou Azure Stack hub, [jak je uvedeno zde](azure-stack-linux.md#azure-linux-agent). Ujistěte se, že image nástroje Sysprep má verzi agenta Azure Linux, která je kompatibilní s Azure Stack hub.
+   Verze agenta Azure Linux, které pracují s centrem Azure Stack, [jsou popsané tady](azure-stack-linux.md#azure-linux-agent). Ujistěte se, že image nástroje Sysprep má verzi agenta Azure Linux, která je kompatibilní s Azure Stack hub.
 
 2. Ukončí zrušení přidělení virtuálního počítače.
 
 3. Stáhněte si VHD.
 
-   1. Pokud chcete stáhnout soubor VHD, musíte vygenerovat adresu URL sdíleného přístupového podpisu (SAS). Po vygenerování adresy URL se adresa URL přiřadí čas vypršení platnosti.
+   1. Pokud chcete stáhnout soubor VHD, vygenerujte adresu URL sdíleného přístupového podpisu (SAS). Po vygenerování adresy URL se adresa URL přiřadí čas vypršení platnosti.
 
-   1. V nabídce okna pro virtuální počítač vyberte **disky**.
+   2. V nabídce okna pro virtuální počítač vyberte **disky**.
 
-   1. Vyberte disk s operačním systémem pro virtuální počítač a pak vyberte **exportovat disk**.
+   3. Vyberte disk s operačním systémem pro virtuální počítač a pak vyberte **exportovat disk**.
 
-   1. Nastavte čas vypršení platnosti adresy URL na 36000.
+   4. Nastavte čas vypršení platnosti adresy URL na 36000.
 
-   1. Vyberte **generovat adresu URL**.
+   5. Vyberte **generovat adresu URL**.
 
-   1. Vygenerujte adresu URL.
+   6. Vygenerujte adresu URL.
 
-   1. V části vygenerovaná adresa URL vyberte **Stáhnout soubor VHD**.
+   7. V části vygenerovaná adresa URL vyberte **Stáhnout soubor VHD**.
 
-   1. Možná budete muset vybrat **Uložit** v prohlížeči a zahájit stahování. Výchozí název souboru VHD je _abcd_.
+   8. Možná budete muset vybrat **Uložit** v prohlížeči a zahájit stahování. Výchozí název souboru VHD je **abcd**.
 
 ### <a name="considerations"></a>Požadavky
 
 Než obrázek nahrajete, je důležité vzít v úvahu následující:
 
-- Rozbočovač Azure Stack podporuje jenom generaci jednoho virtuálního počítače (1) ve formátu VHD s pevným diskem. Pevně daný logický disk se strukturuje v rámci souboru, takže posun disku *x* je uložený na posunu objektu BLOB *x*. Malé zápatí na konci objektu BLOB popisuje vlastnosti VHD. Pokud chcete ověřit, jestli je disk pevný, použijte rutinu **Get-VHD** PowerShellu.
+- Rozbočovač Azure Stack podporuje jenom virtuální počítače 1. generace ve formátu VHD s pevným diskem. Pevně daný logický disk se strukturuje v rámci souboru, takže posun disku **x** je uložený na posunu objektu BLOB **x**. Malé zápatí na konci objektu BLOB popisuje vlastnosti VHD. Pokud chcete ověřit, jestli je disk pevný, použijte rutinu **Get-VHD** PowerShellu.
 
 - Centrum Azure Stack nepodporuje virtuální pevné disky (VHD) dynamického disku.
 
@@ -93,21 +93,21 @@ Než obrázek nahrajete, je důležité vzít v úvahu následující:
 
 2. Přihlaste se k Azure Stack centrum jako operátor. Pokyny najdete v tématu [přihlášení do centra Azure Stack jako operátor](azure-stack-powershell-configure-admin.md).
 
-3. Na image musí být odkazováno pomocí identifikátoru URI úložiště objektů BLOB. Připravte bitovou kopii operačního systému Windows nebo Linux ve formátu VHD (ne VHDX) a pak obrázek nahrajte do účtu úložiště v centru Azure Stack.
+3. Na image musí odkazovat identifikátor URI úložiště objektů BLOB. Připravte bitovou kopii operačního systému Windows nebo Linux ve formátu VHD (ne VHDX) a pak obrázek nahrajte do účtu úložiště v centru Azure Stack.
 
    - Pokud je virtuální pevný disk v Azure, můžete pomocí nástroje, jako je například [AzCopy](/azure/storage/common/storage-use-azcopy) , přenést přímo virtuální pevný disk mezi Azure a účtem úložiště centra Azure Stack, pokud pracujete v připojeném centru Azure Stack.
 
-   - Pokud je váš virtuální pevný disk v Azure, musíte na odpojeném rozbočovači Azure Stack stáhnout virtuální pevný disk do počítače, který má připojení k rozbočovači Azure i Azure Stack. Pak zkopírujete virtuální pevný disk do tohoto počítače z Azure dřív, než přenesete virtuální pevný disk do centra Azure Stack pomocí některého z běžných [nástrojů pro přenos dat úložiště](../user/azure-stack-storage-transfer.md) , které se dají používat v Azure a centru Azure Stack.
+   - Pokud je váš virtuální pevný disk v Azure, musíte na odpojeném rozbočovači Azure Stack stáhnout virtuální pevný disk do počítače, který má připojení k rozbočovači Azure i Azure Stack. Pak zkopírujte virtuální pevný disk do tohoto počítače z Azure předtím, než přenesete virtuální pevný disk do centra Azure Stack pomocí kteréhokoliv z běžných [nástrojů pro přenos dat úložiště](../user/azure-stack-storage-transfer.md) , které se dají použít napříč Azure a Azure Stack centrem.
 
-     Jedním z těchto nástrojů, který se používá v tomto příkladu, je příkaz Add-AzureRmVHD, který odešle VHD do účtu úložiště na portálu pro správu centra Azure Stack.  
+     Jedním z těchto nástrojů, který se používá v tomto příkladu, je rutina **Add-AzureRmVHD** , která nahrává VHD do účtu úložiště na portálu pro správu centra Azure Stack.  
 
      ```powershell
      Add-AzureRmVhd -Destination "https://bash.blob.redmond.azurestack.com/sample/vhdtestingmgd.vhd" -LocalFilePath "C:\vhd\vhdtestingmgd.vhd"
      ```
 
-4. Poznamenejte si identifikátor URI úložiště objektů blob, do kterého nahráváte obrázek. Identifikátor URI úložiště objektů BLOB má následující formát: * &lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;*. VHD.
+4. Poznamenejte si identifikátor URI úložiště objektů blob, kam jste nahráli obrázek. Identifikátor URI úložiště objektů BLOB má formát `<storageAccount>/<blobContainer>/<targetVHDName>.vhd` .
 
-5. Pokud chcete objekt BLOB anonymně zpřístupnit, přečtěte si kontejner objektů BLOB účtu úložiště, ve kterém se nahrál virtuální pevný disk image virtuálního počítače. Vyberte **objekt BLOB**a potom vyberte **zásady přístupu**. Volitelně můžete pro kontejner vygenerovat sdílený přístupový podpis a zahrnout ho jako součást identifikátoru URI objektu BLOB. Tento krok zajistí, že je objekt BLOB dostupný pro použití. Pokud objekt BLOB není anonymně přístupný, vytvoří se image virtuálního počítače ve stavu selhání.
+5. Pokud chcete objekt BLOB anonymně zpřístupnit, přečtěte si kontejner objektů BLOB účtu úložiště, ve kterém se nahrál virtuální pevný disk image virtuálního počítače. Vyberte **objekt BLOB**a potom vyberte **zásady přístupu**. Volitelně můžete pro kontejner vygenerovat sdílený přístupový podpis a zahrnout ho jako součást identifikátoru URI objektu BLOB. Tento krok zpřístupňuje objekt BLOB k použití. Pokud objekt BLOB není anonymně přístupný, vytvoří se image virtuálního počítače ve stavu selhání.
 
    ![Přejít na objekty blob účtu úložiště](./media/azure-stack-add-vm-image/tca1.png)
 
@@ -117,17 +117,17 @@ Než obrázek nahrajete, je důležité vzít v úvahu následující:
 
 ## <a name="step-3-option-1-add-the-vm-image-as-an-azure-stack-hub-operator-using-the-portal"></a>Krok 3, možnost 1: Přidání image virtuálního počítače jako operátora Azure Stackového centra pomocí portálu
 
-1. Přihlaste se k Azure Stack centrum jako operátor. V nabídce vyberte **všechny služby** > **COMPUTE** v > části **image virtuálních počítačů****Přidat**.
+1. Přihlaste se k portálu centra Azure Stack jako operátor. Vyberte **všechny služby**a pak **COMPUTE** v části **image virtuálních počítačů**  >  **Přidat**.
 
    ![Vlastní uživatelské rozhraní pro zkušební načtení image](./media/azure-stack-add-vm-image/tca4.png)
 
-2. V části **vytvořit image**zadejte identifikátor URI objektu BLOB pro vydavatele, nabídku, SKU, verzi a disk s operačním systémem. Pak vyberte **vytvořit** a začněte vytvářet image virtuálního počítače.
+2. V části **vytvořit image**zadejte identifikátor URI objektu BLOB pro **vydavatele**, **nabídku**, **SKU**, **verzi**a disk s operačním systémem. Pak vyberte **vytvořit** a začněte vytvářet image virtuálního počítače.
 
    ![Vlastní uživatelské rozhraní pro zkušební načtení image](./media/azure-stack-add-vm-image/tca5.png)
 
    Po úspěšném vytvoření image se stav image virtuálního počítače změní na **úspěch**.
 
-3. Když přidáte obrázek, je k dispozici pouze pro šablony založené na Azure Resource Manager a nasazení prostředí PowerShell. Pokud chcete uživatelům zpřístupnit Image jako položku Marketplace, publikujte položku Marketplace pomocí kroků v článku [Vytvoření a publikování položky Marketplace](azure-stack-create-and-publish-marketplace-item.md). Nezapomeňte si poznamenat hodnoty **vydavatele**, **nabídky**, **SKU**a **verze** . Budete je potřebovat při úpravách šablony Správce prostředků a manifestu. JSON ve vašem vlastním. azpkg.
+3. Když přidáte obrázek, je k dispozici pouze pro šablony založené na Azure Resource Manager a nasazení prostředí PowerShell. Pokud chcete uživatelům zpřístupnit Image jako položku Marketplace, publikujte položku Marketplace pomocí kroků v článku [Vytvoření a publikování položky Marketplace](azure-stack-create-and-publish-marketplace-item.md). Nezapomeňte si poznamenat hodnoty **vydavatele**, **nabídky**, **SKU**a **verze** . Budete je potřebovat, když upravíte šablonu Správce prostředků a Manifest.jsna vlastní. azpkg.
 
 ## <a name="step-3-option-2-add-a-vm-image-as-an-azure-stack-hub-operator-using-powershell"></a>Krok 3, možnost 2: Přidání image virtuálního počítače jako operátora Azure Stackového centra pomocí PowerShellu
 
@@ -158,21 +158,21 @@ Než obrázek nahrajete, je důležité vzít v úvahu následující:
      Segment názvu **SKU** image virtuálního počítače, který uživatelé používají při nasazování image virtuálního počítače. Do tohoto pole nezahrnujte mezeru ani jiné speciální znaky.  
    - **znění**  
      Příklad: `1.0.0`  
-     Verze image virtuálního počítače, kterou uživatelé používají při nasazování image virtuálního počítače Tato verze je ve formátu * \#\#... \#*. Do tohoto pole nezahrnujte mezeru ani jiné speciální znaky.  
+     Verze image virtuálního počítače, kterou uživatelé používají při nasazování image virtuálního počítače Tato verze je ve formátu **#. #. #**. Do tohoto pole nezahrnujte mezeru ani jiné speciální znaky.  
    - **osType**  
      Příklad: `Linux`  
      **OsType** obrázku musí být buď **Windows** , nebo **Linux**.  
    - **OSUri**  
      Příklad: `https://storageaccount.blob.core.windows.net/vhds/Ubuntu1404.vhd`  
-     Pro můžete zadat identifikátor URI úložiště objektů BLOB `osDisk`.  
+     Pro můžete zadat identifikátor URI úložiště objektů BLOB `osDisk` .  
 
      Další informace najdete v referenčních informacích k prostředí PowerShell pro rutinu [Add-AzsPlatformimage](/powershell/module/azs.compute.admin/add-azsplatformimage) .
 
-4. Když přidáte obrázek, je k dispozici pouze pro šablony založené na Azure Resource Manager a nasazení prostředí PowerShell. Pokud chcete uživatelům zpřístupnit Image jako položku Marketplace, publikujte položku Marketplace pomocí kroků v článku [Vytvoření a publikování položky Marketplace](azure-stack-create-and-publish-marketplace-item.md). Nezapomeňte si poznamenat hodnoty **vydavatele**, **nabídky**, **SKU**a **verze** . Budete je potřebovat při úpravách šablony Resource Manageru a manifestu. JSON ve vašem vlastním. azpkg.
+4. Když přidáte obrázek, je k dispozici pouze pro šablony založené na Azure Resource Manager a nasazení prostředí PowerShell. Pokud chcete uživatelům zpřístupnit Image jako položku Marketplace, publikujte položku Marketplace pomocí kroků v článku [Vytvoření a publikování položky Marketplace](azure-stack-create-and-publish-marketplace-item.md). Nezapomeňte si poznamenat hodnoty **vydavatele**, **nabídky**, **SKU**a **verze** . Budete je potřebovat při úpravách šablony Resource Manageru a Manifest.jsve vašem vlastním. azpkg.
 
 ## <a name="remove-the-vm-image-as-an-azure-stack-hub-operator-using-the-portal"></a>Odebrání image virtuálního počítače jako operátora centra Azure Stack pomocí portálu
 
-1. Otevřete centrum Azure Stack [portál pro správu] `https://adminportal.local.azurestack.external`.
+1. Otevřete centrum Azure Stack [portál pro správu] `https://adminportal.local.azurestack.external` .
 
 2. Pokud má image virtuálního počítače přidruženou položku Marketplace, vyberte **Správa Marketplace**a pak vyberte položku virtuálního počítače, kterou chcete odstranit.
 
@@ -182,7 +182,7 @@ Než obrázek nahrajete, je důležité vzít v úvahu následující:
 
 ## <a name="remove-a-vm-image-as-an-azure-stack-hub-operator-using-powershell"></a>Odebrání image virtuálního počítače jako operátora centra Azure Stack pomocí PowerShellu
 
-Pokud už bitovou kopii virtuálního počítače, kterou jste nahráli, nepotřebujete, můžete ji odstranit z webu Marketplace pomocí následující rutiny:
+Pokud už bitovou kopii virtuálního počítače, kterou jste nahráli, nepotřebujete, můžete ji odstranit z webu Marketplace pomocí rutiny **Remove-AzsPlatformImage** :
 
 1. [Nainstalujte PowerShell pro centrum Azure Stack](azure-stack-powershell-install.md).
 
@@ -210,7 +210,7 @@ Pokud už bitovou kopii virtuálního počítače, kterou jste nahráli, nepotř
      Segment názvu **SKU** image virtuálního počítače, který uživatelé používají při nasazování image virtuálního počítače. Do tohoto pole nezahrnujte mezeru ani jiné speciální znaky.  
    - **znění**  
      Příklad: `1.0.0`  
-     Verze image virtuálního počítače, kterou uživatelé používají při nasazování image virtuálního počítače Tato verze je ve formátu * \#\#... \#*. Do tohoto pole nezahrnujte mezeru ani jiné speciální znaky.  
+     Verze image virtuálního počítače, kterou uživatelé používají při nasazování image virtuálního počítače Tato verze je ve formátu **#. #. #**. Do tohoto pole nezahrnujte mezeru ani jiné speciální znaky.  
 
      Další informace o rutině **Remove-AzsPlatformImage** najdete v [dokumentaci k modulu operátora centra Azure Stack](/powershell/module/)Microsoft PowerShellu.
 

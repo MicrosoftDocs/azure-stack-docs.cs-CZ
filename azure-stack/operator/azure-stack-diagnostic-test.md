@@ -7,16 +7,16 @@ ms.date: 01/10/2020
 ms.author: justinha
 ms.reviewer: adshar
 ms.lastreviewed: 01/10/2020
-ms.openlocfilehash: 9b082876dca1e39f99ac0b98a7e438aa1231b3c2
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: bb83d8dcf567bac6081083e34c0770a277879282
+ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79512537"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84819481"
 ---
 # <a name="validate-azure-stack-hub-system-state"></a>Ověřit stav systému centra Azure Stack
 
-Jako operátor centra Azure Stack je možné určit stav systému na vyžádání v podstatě. Nástroj pro ověření centra Azure Stack (**test-AzureStack**) je rutina prostředí PowerShell, která umožňuje spustit sérii testů v systému, aby bylo možné identifikovat chyby, pokud jsou k dispozici. Obvykle budete vyzváni ke spuštění tohoto nástroje prostřednictvím [privilegovaného koncového bodu (PEP)](azure-stack-privileged-endpoint.md) při kontaktování podpory zákaznických služeb Microsoftu (CSS) s problémem. Pomocí informací o stavu a stavu v rámci systému může šablona stylů CSS shromažďovat a analyzovat podrobné protokoly, soustředit se na oblast, ve které došlo k chybě, a s vámi vyřešit problémy.
+Jako operátor centra Azure Stack je možné určit stav systému na vyžádání v podstatě. Nástroj pro ověření centra Azure Stack (**test-AzureStack**) je rutina prostředí PowerShell, která umožňuje spustit sérii testů v systému, aby bylo možné identifikovat chyby, pokud jsou k dispozici. Obvykle budete požádáni o spuštění tohoto nástroje prostřednictvím [privilegovaného koncového bodu (PEP)](azure-stack-privileged-endpoint.md) při kontaktování podpory zákaznických služeb microsoftu (podpora Microsoftu) s problémem. Když jsou dostupné informace o stavu a stavu v rámci systému, podpora Microsoftu můžou shromažďovat a analyzovat podrobné protokoly, soustředit se na oblast, kde došlo k chybě, a spolupracovat s vámi, abyste problém vyřešili.
 
 ## <a name="running-the-validation-tool-and-accessing-results"></a>Spuštění nástroje pro ověření a přístup k výsledkům
 
@@ -47,11 +47,11 @@ Jak je uvedeno výše, nástroj pro ověření se spouští přes PEP. Každý t
 
    Další informace najdete v tématu věnovaném [parametrům](azure-stack-diagnostic-test.md#parameter-considerations) a [příkladům případu použití](azure-stack-diagnostic-test.md#use-case-examples).
 
-1. Pokud dojde k **selhání**jakékoli testy, `Get-AzureStackLog`spusťte příkaz. Pokyny k integrovanému systému najdete v tématu spuštění rutiny [Get-AzureStackLog v systémech integrovaných v centru Azure Stack](azure-stack-get-azurestacklog.md).
+1. Pokud dojde k **selhání**jakékoli testy, spusťte příkaz `Get-AzureStackLog` . Pokyny k integrovanému systému najdete v tématu spuštění rutiny [Get-AzureStackLog v systémech integrovaných v centru Azure Stack](azure-stack-get-azurestacklog.md).
 
-   Rutina shromáždí protokoly generované rutinou test-AzureStack. Doporučujeme, abyste neshromáždili protokoly a místo toho kontaktovali šablony stylů CSS, pokud testy **upozorňují**na zprávu.
+   Rutina shromáždí protokoly generované rutinou test-AzureStack. Doporučujeme, abyste protokoly neshromáždili a místo toho kontaktovali podpora Microsoftu, když testy hlásí **Upozornění**.
 
-1. Pokud jste požádali o spuštění nástroje pro ověření šablonou stylů CSS, vyžádá si zástupce šablon stylů CSS protokoly, které jste shromáždili, aby bylo možné pokračovat v řešení problému.
+1. Pokud jste vyzváni ke spuštění ověřovacího nástroje podpora Microsoftu, bude zástupce podpora Microsoftu požádat, aby shromážděné protokoly pokračovaly v řešení potíží.
 
 ## <a name="tests-available"></a>Dostupné testy
 

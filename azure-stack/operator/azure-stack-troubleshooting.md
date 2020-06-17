@@ -8,12 +8,12 @@ ms.date: 05/13/2020
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 15/13/2020
-ms.openlocfilehash: 4910a7aaa2462cb53c4ce89246c92a60f61d5017
-ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
+ms.openlocfilehash: de19e65866413ec4e498c9a21848c1f43af6d65a
+ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83375013"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84819522"
 ---
 # <a name="troubleshoot-issues-in-azure-stack-hub"></a>Řešení potíží v centru Azure Stack
 
@@ -21,7 +21,7 @@ Tento dokument poskytuje informace pro řešení potíží s integrovanými pros
 
 ## <a name="frequently-asked-questions"></a>Nejčastější dotazy
 
-Tyto části obsahují odkazy na dokumenty, které pokrývají běžné otázky odeslané službám Microsoft Customer Support Services (CSS).
+Tyto části obsahují odkazy na dokumenty, které pokrývají běžné otázky odeslané podpora Microsoftu.
 
 ### <a name="purchase-considerations"></a>Předpoklady nákupu
 
@@ -80,7 +80,7 @@ Vyberte typ účtu sdílených služeb, který používáte pro Azure Stack hub.
 
 ### <a name="get-scale-unit-metrics"></a>Získat metriky jednotek škálování
 
-Pomocí prostředí PowerShell můžete získat informace o využití razítka bez nutnosti pomáhat z šablon stylů CSS. Získání využití razítka:
+Pomocí PowerShellu můžete získat informace o využití razítka bez nutnosti pomáhat podpora Microsoftu. Získání využití razítka:
 
 1. Vytvořte relaci PEP.
 2. Spusťte `test-azurestack`.
@@ -119,9 +119,9 @@ Pokud používáte integrovaný systém v odpojeném scénáři, doporučuje se 
 
 ## <a name="troubleshoot-app-service"></a>Řešení potíží s App Service
 
-### <a name="create-aadidentityappps1-script-fails"></a>Skript Create-AADIdentityApp. ps1 se nezdařil
+### <a name="create-aadidentityappps1-script-fails"></a>Skript Create-AADIdentityApp.ps1 se nezdařil
 
-Pokud skript Create-AADIdentityApp. ps1 vyžadovaný pro App Service selhává, nezapomeňte `-AzureStackAdminCredential` při spuštění skriptu zahrnout požadovaný parametr. Další informace najdete v tématu [předpoklady pro nasazení App Service v centru Azure Stack](azure-stack-app-service-before-you-get-started.md#create-an-azure-ad-app).
+Pokud skript Create-AADIdentityApp.ps1, který je požadován pro App Service, se nezdařil, nezapomeňte `-AzureStackAdminCredential` při spuštění skriptu zahrnout požadovaný parametr. Další informace najdete v tématu [předpoklady pro nasazení App Service v centru Azure Stack](azure-stack-app-service-before-you-get-started.md#create-an-azure-ad-app).
 
 ## <a name="troubleshoot-azure-stack-hub-updates"></a>Řešení potíží s aktualizacemi centra Azure Stack
 

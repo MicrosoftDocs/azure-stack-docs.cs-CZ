@@ -3,19 +3,19 @@ title: Dovolit aplikacím přístup k tajným klíčům centra Azure Stack Key V
 description: Naučte se, jak spustit ukázkovou aplikaci, která načte klíče a tajné klíče z trezoru klíčů v Azure Stack hub.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 02/19/2020
+ms.date: 06/15/2020
 ms.author: sethm
 ms.lastreviewed: 04/08/2019
-ms.openlocfilehash: 16973c1c381cfecb611370f940f92a7695f9434f
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 2941adf109f9e8c142523f607bce969427127ec3
+ms.sourcegitcommit: c9737939f4e437f1d954e163db972d58b3f98ffd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77702767"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84813793"
 ---
 # <a name="allow-apps-to-access-azure-stack-hub-key-vault-secrets"></a>Dovolit aplikacím přístup k tajným klíčům centra Azure Stack Key Vault
 
-Postupujte podle kroků v tomto článku a spusťte ukázkovou aplikaci **HelloKeyVault** , která načte klíče a tajné kódy z trezoru klíčů v centru Azure Stack.
+Kroky v tomto článku popisují, jak spustit ukázkovou aplikaci **HelloKeyVault** , která načte klíče a tajné klíče z trezoru klíčů v centru Azure Stack.
 
 ## <a name="prerequisites"></a>Požadavky
 
@@ -36,7 +36,7 @@ Pro přípravu ukázkové aplikace použijte Azure Portal nebo PowerShell.
 > [!NOTE]
 > Ve výchozím nastavení vytvoří skript prostředí PowerShell novou aplikaci ve službě Active Directory. Můžete ale zaregistrovat jednu ze stávajících aplikací.
 
-Před spuštěním následujícího skriptu se ujistěte, že zadáváte hodnoty pro `aadTenantName` proměnné `applicationPassword` a. Pokud nezadáte hodnotu pro `applicationPassword`, tento skript vygeneruje náhodné heslo.
+Před spuštěním následujícího skriptu se ujistěte, že zadáváte hodnoty pro `aadTenantName` `applicationPassword` proměnné a. Pokud nezadáte hodnotu pro `applicationPassword` , tento skript vygeneruje náhodné heslo.
 
 ```powershell
 $vaultName           = 'myVault'
@@ -134,7 +134,7 @@ Stáhněte si ukázku trezoru klíčů ze stránky [ukázek klientů Azure Key V
 
 Načtení ukázky **HelloKeyVault** :
 
-1. Přejděte do složky **Microsoft. Azure. webtrezor.** > Samples. Samples**Samples** > **HelloKeyVault** .
+1. Přejděte do složky **Microsoft. Azure. webtrezor.** Samples. Samples  >  **Samples**  >  **HelloKeyVault** .
 2. Otevřete aplikaci **HelloKeyVault** v aplikaci Visual Studio.
 
 ### <a name="configure-the-sample-application"></a>Konfigurace ukázkové aplikace
@@ -142,7 +142,7 @@ Načtení ukázky **HelloKeyVault** :
 V aplikaci Visual Studio:
 
 1. Otevřete soubor HelloKeyVault\App.config a vyhledejte `<appSettings>` element.
-2. Aktualizujte klíče **VaultUrl**, **AuthClientId**a **AuthCertThumbprint** hodnotami vracenými při vytváření trezoru klíčů. Ve výchozím nastavení má soubor App. config zástupný symbol pro `AuthCertThumbprint`. Nahraďte tento zástupný `AuthClientSecret`symbol pomocí.
+2. Aktualizujte klíče **VaultUrl**, **AuthClientId**a **AuthCertThumbprint** hodnotami vracenými při vytváření trezoru klíčů. Ve výchozím nastavení má soubor App.config zástupný symbol pro `AuthCertThumbprint` . Nahraďte tento zástupný symbol pomocí `AuthClientSecret` .
 
    ```xml
    <appSettings>
@@ -158,7 +158,7 @@ V aplikaci Visual Studio:
 
 ## <a name="run-the-app"></a>Spuštění aplikace
 
-Když spustíte **HelloKeyVault**, aplikace se přihlásí do služby Azure AD a potom pomocí `AuthClientSecret` tokenu ověří na trezor klíčů v centru Azure Stack.
+Když spustíte **HelloKeyVault**, aplikace se přihlásí do služby Azure AD a potom pomocí `AuthClientSecret` tokenu ověří na Trezor klíčů v centru Azure Stack.
 
 Ukázku **HelloKeyVault** můžete použít k těmto akcím:
 

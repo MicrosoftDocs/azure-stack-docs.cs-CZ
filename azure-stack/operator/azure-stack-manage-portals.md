@@ -7,12 +7,12 @@ ms.date: 06/07/2019
 ms.author: justinha
 ms.reviewer: efemmano
 ms.lastreviewed: 06/07/2019
-ms.openlocfilehash: 3ed7d53efe5a77362332d4a2216935fee4dd7270
-ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
+ms.openlocfilehash: d7951500afe21ec0800328230d6b5f1653934c40
+ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84630840"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84819202"
 ---
 # <a name="use-the-administrator-portal-in-azure-stack-hub"></a>Použití portálu pro správu v centru Azure Stack
 
@@ -77,8 +77,8 @@ Pokud chcete získat přístup k dokumentaci k operátorovi centra Azure Stack, 
 
 Pokud kliknete na ikonu nápovědy (otazník) v pravém horním rohu portálu pro správu, klikněte na tlačítko **Nápověda a podpora**a potom klikněte na možnost **Nová žádost o podporu** v části **Podpora**, dojde k jednomu z následujících výsledků:
 
-- Pokud používáte integrovaný systém, tato akce otevře web, kde můžete přímo otevřít lístek podpory pomocí služeb zákaznické podpory Microsoftu (CSS). Přečtěte si, [kde získat podporu](azure-stack-manage-basics.md#where-to-get-support) pro pochopení, kdy byste měli projít podporu Microsoftu, nebo prostřednictvím podpory dodavatele hardwaru OEM (Original Equipment Manufacturer).
-- Pokud používáte ASDK, otevře se tato akce přímo na [webu fóra centra Azure Stack](https://social.msdn.microsoft.com/Forums/home?forum=AzureStack) . Tato fóra se pravidelně monitorují. Vzhledem k tomu, že ASDK je zkušební prostředí, není oficiální podpora nabídnuta prostřednictvím šablon stylů CSS společnosti Microsoft.
+- Pokud používáte integrovaný systém, tato akce otevře web, na kterém můžete přímo otevřít lístek podpory s podpora Microsoftu. Přečtěte si, [kde získat podporu](azure-stack-manage-basics.md#where-to-get-support) pro pochopení, kdy byste měli projít podporu Microsoftu, nebo prostřednictvím podpory dodavatele hardwaru OEM (Original Equipment Manufacturer).
+- Pokud používáte ASDK, otevře se tato akce přímo na [webu fóra centra Azure Stack](https://social.msdn.microsoft.com/Forums/home?forum=AzureStack) . Tato fóra se pravidelně monitorují. Vzhledem k tomu, že ASDK je zkušební prostředí, není k dispozici žádná oficiální podpora prostřednictvím podpora Microsoftu.
 
 ### <a name="quick-access-to-the-azure-roadmap"></a>Rychlý přístup k plánu Azure
 

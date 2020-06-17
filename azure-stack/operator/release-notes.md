@@ -7,12 +7,12 @@ ms.date: 06/09/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 50ff7fc42cc6993c4ceeb009515cdad62ce980de
-ms.sourcegitcommit: 396f79ce073d99d14fcc71b85c4a4932334832a8
+ms.openlocfilehash: adb3d5d995b9bb267dacf957a9a7f15582114484
+ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84636882"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84819458"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Poznámky k verzi centra Azure Stack
 
@@ -66,7 +66,7 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 
 <!-- The current theme (if any) of this release. -->
 
-### <a name="whats-new"></a>Novinky
+### <a name="whats-new"></a>Co je nového
 
 <!-- What's new, also net new experiences and features. -->
 
@@ -193,7 +193,7 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 
 <!-- The current theme (if any) of this release. -->
 
-### <a name="whats-new"></a>Novinky
+### <a name="whats-new"></a>Co je nového
 
 <!-- What's new, also net new experiences and features. -->
 
@@ -224,7 +224,7 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
     - Integrace se službou Azure ARC.
     - Integrace s Azure Monitor pro kontejnery.
   - Používejte kontejnery Windows s modulem AKS.
-  - Podpora šablon stylů CSS a inženýrství pro jejich nasazení.
+  - Dostávat podpora Microsoftu a technické podpory pro jejich nasazení.
 
 ### <a name="improvements"></a>Vylepšen
 
@@ -352,7 +352,7 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 
 <!-- The current theme (if any) of this release. -->
 
-### <a name="whats-new"></a>Novinky
+### <a name="whats-new"></a>Co je nového
 
 <!-- What's new, also net new experiences and features. -->
 
@@ -427,11 +427,11 @@ Typ sestavení aktualizace centra Azure Stack 1907 je **Express**. Další infor
 
 <!-- The current theme (if any) of this release. -->
 
-### <a name="whats-new"></a>Novinky
+### <a name="whats-new"></a>Co je nového
 
 <!-- What's new, also net new experiences and features. -->
 
-- Verze služby pro shromažďování protokolů diagnostiky centra Azure Stack pro obecné dostupnosti, která usnadňuje a vylepšuje shromažďování protokolů diagnostiky. Služba Shromažďování protokolů diagnostiky centra Azure Stack poskytuje zjednodušený způsob shromažďování a sdílení diagnostických protokolů pomocí služeb zákaznické podpory Microsoftu (CSS). Tato služba Shromažďování protokolů diagnostiky poskytuje nové prostředí uživatele na portálu pro správu centra Azure Stack, které umožňuje operátorům nastavit automatické nahrávání diagnostických protokolů do objektu BLOB úložiště při vyvolání určitých kritických výstrah. Službu je také možné použít k provedení stejné operace na vyžádání. Další informace naleznete v článku [shromažďování diagnostických protokolů](azure-stack-diagnostic-log-collection-overview.md) .
+- Verze služby pro shromažďování protokolů diagnostiky centra Azure Stack pro obecné dostupnosti, která usnadňuje a vylepšuje shromažďování protokolů diagnostiky. Služba Shromažďování protokolů diagnostiky centra Azure Stack poskytuje zjednodušený způsob shromažďování a sdílení diagnostických protokolů pomocí podpora Microsoftu. Tato služba Shromažďování protokolů diagnostiky poskytuje nové prostředí uživatele na portálu pro správu centra Azure Stack, které umožňuje operátorům nastavit automatické nahrávání diagnostických protokolů do objektu BLOB úložiště při vyvolání určitých kritických výstrah. Službu je také možné použít k provedení stejné operace na vyžádání. Další informace naleznete v článku [shromažďování diagnostických protokolů](azure-stack-diagnostic-log-collection-overview.md) .
 
 - Verze ověřování infrastruktury Azure Stack sítě centra pro obecné dostupnosti jako součást testovacího nástroje Azure Stack centra **pro ověřování – AzureStack**. Síťová infrastruktura centra Azure Stack bude součástí **AzureStack testu**, aby zjistila, jestli dojde k selhání v síťové infrastruktuře centra Azure Stack. Test kontroluje konektivitu síťové infrastruktury tím, že obchází síťovou síť definovanou Azure Stack hub. Ukazuje připojení z veřejné virtuální IP adresy k nakonfigurovaným serverům DNS pro přeposílání, serverům NTP a koncovým bodům identity. Také kontroluje připojení k Azure při použití Azure AD jako zprostředkovatele identity nebo federovaného serveru při používání služby AD FS. Další informace najdete v článku [Nástroj pro ověření centra Azure Stack](azure-stack-diagnostic-test.md) .
 

@@ -7,20 +7,20 @@ ms.date: 02/26/2020
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 02/26/2020
-ms.openlocfilehash: 2fcc31625fc0f508532c5c6a524f26e9cef31760
-ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
+ms.openlocfilehash: d3c6ecaa062f97aef76835d3c291b4ecaf405b11
+ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82836032"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84819473"
 ---
 # <a name="diagnostic-log-collection-in-azure-stack-hub"></a>Shromažďování protokolů diagnostiky v centru Azure Stack
 
 ::: moniker range=">= azs-2002"
 
-Centrum Azure Stack je rozsáhlá kolekce součástí Windows i místních služeb Azure, které vzájemně pracují. Všechny tyto komponenty a služby generují svou vlastní sadu protokolů. Abychom službě Microsoft Customer Support Services (CSS) umožnili diagnostikovat problémy efektivně, poskytujeme bezproblémové prostředí pro shromažďování protokolů diagnostiky.
+Centrum Azure Stack je rozsáhlá kolekce součástí Windows i místních služeb Azure, které vzájemně pracují. Všechny tyto komponenty a služby generují svou vlastní sadu protokolů. Abychom zajistili podpora Microsoftu pro efektivní diagnostiku problémů, poskytovali jsme bezproblémové prostředí pro shromažďování protokolů diagnostiky.
 
-Shromažďování diagnostických protokolů v **nápovědě a podpoře** pomáhá operátorům rychle shromažďovat a sdílet diagnostické protokoly pomocí šablon stylů CSS v jednoduchém uživatelském rozhraní, které nevyžaduje PowerShell. Protokoly se shromažďují i v případě, že jsou mimo provoz jiné služby infrastruktury.  
+Shromažďování diagnostických protokolů v **nápovědě a podpoře**   pomáhá operátorům rychle shromažďovat a sdílet diagnostické protokoly s podpora Microsoftu v jednoduchém uživatelském rozhraní, které nevyžaduje PowerShell. Protokoly se shromažďují i v případě, že jsou mimo provoz jiné služby infrastruktury.  
 
 Doporučuje se použít tento přístup ke shromažďování protokolů a použít ho jenom k [použití privilegovaného koncového bodu (PEP)](azure-stack-get-azurestacklog.md) , pokud není k dispozici okno portálu pro správu nebo **okna Help + support** .
 
@@ -35,7 +35,7 @@ Funkce shromažďování protokolů diagnostiky nabízí dvě možnosti odesíl�
 
 ### <a name="send-logs-proactively"></a>Proaktivní odesílání protokolů
 
-[Proaktivní shromažďování protokolů](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md) zjednodušuje a zjednodušuje shromažďování protokolů diagnostiky, takže zákazníci mohou před otevřením případu podpory Odeslat protokoly společnosti Microsoft. Diagnostické protokoly se proaktivně odesílají z centra Azure Stack k analýze. Tyto protokoly jsou shromažďovány pouze v případě, že je vyvolána [Výstraha o stavu systému](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md#proactive-diagnostic-log-collection-alerts) a k nim mají k dispozici pouze šablony stylů CSS v kontextu případu podpory.
+[Proaktivní shromažďování protokolů](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md) zjednodušuje a zjednodušuje shromažďování protokolů diagnostiky, takže zákazníci mohou před otevřením případu podpory Odeslat protokoly společnosti Microsoft. Diagnostické protokoly se proaktivně odesílají z centra Azure Stack k analýze. Tyto protokoly jsou shromažďovány pouze v případě, že je vyvolána [Výstraha o stavu systému](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md#proactive-diagnostic-log-collection-alerts) a že k nim přistupovali pouze podpora Microsoftu v kontextu případu podpory.
 
 #### <a name="how-the-data-is-handled"></a>Způsob zpracování dat
 
@@ -51,7 +51,7 @@ Protokoly shromážděné pomocí **proaktivní kolekce protokolů** se odesíla
 
 [Odeslat protokoly je teď](azure-stack-configure-on-demand-diagnostic-log-collection-portal-tzl.md) ruční možnost, kde se protokoly diagnostiky odesílají z centra Azure Stack jenom v případě, že jste (jako zákazník) zahájili shromažďování, obvykle před otevřením případu podpory.
 
-Operátoři Azure Stack můžou odesílat diagnostické protokoly na vyžádání do služeb Microsoft Customer Support Services (CSS) pomocí portálu pro správu nebo PowerShellu. Pokud je centrum Azure Stack připojené k Azure, doporučuje se [nyní použít možnost Odeslat protokoly na portálu pro správu](azure-stack-configure-on-demand-diagnostic-log-collection-portal-tzl.md) , protože se jedná o nejjednodušší způsob, jak odesílat protokoly přímo do Microsoftu. Pokud portál není dostupný, operátory by místo toho měli [odesílat protokoly pomocí PowerShellu](azure-stack-configure-on-demand-diagnostic-log-collection-powershell-tzl.md).
+Azure Stack operátory mohou odesílat diagnostické protokoly na vyžádání podpora Microsoftu pomocí portálu pro správu nebo PowerShellu. Pokud je centrum Azure Stack připojené k Azure, doporučuje se [nyní použít možnost Odeslat protokoly na portálu pro správu](azure-stack-configure-on-demand-diagnostic-log-collection-portal-tzl.md) , protože se jedná o nejjednodušší způsob, jak odesílat protokoly přímo do Microsoftu. Pokud portál není dostupný, operátory by místo toho měli [odesílat protokoly pomocí PowerShellu](azure-stack-configure-on-demand-diagnostic-log-collection-powershell-tzl.md).
 
 Pokud nejste připojení k Internetu, nebo chcete ukládat jenom protokoly místně, použijte k odesílání protokolů metodu [Get-AzureStackLog](azure-stack-get-azurestacklog.md) . Následující vývojový diagram znázorňuje, kterou možnost použít pro odesílání diagnostických protokolů v každém případě.
 
@@ -59,7 +59,7 @@ Pokud nejste připojení k Internetu, nebo chcete ukládat jenom protokoly míst
 
 #### <a name="how-the-data-is-handled"></a>Způsob zpracování dat
 
-Tím, že inicializujete shromažďování diagnostických protokolů z centra Azure Stack, potvrzujete a souhlasíte s odesláním těchto protokolů a jejich uchování v účtu úložiště Azure spravovaném a řízeným Microsoftem. Microsoft CSS má k těmto protokolům přístup hned s případem podpory bez nutnosti zapojení zákazníka do shromažďování protokolů.
+Tím, že inicializujete shromažďování diagnostických protokolů z centra Azure Stack, potvrzujete a souhlasíte s odesláním těchto protokolů a jejich uchování v účtu úložiště Azure spravovaném a řízeným Microsoftem. Podpora Microsoftu mají přístup k těmto protokolům hned s případem podpory bez nutnosti zapojení zákazníka do shromažďování protokolů.
 
 Data se použijí jenom pro řešení potíží s výstrahami týkající se stavu systému a nepoužijí se k marketingovým, reklamním ani jiným komerčním účelům bez vašeho souhlasu. Data je možné uchovávat až 90 dní a veškerá data shromážděná společností Microsoft se budou zpracovávat podle našich [standardních postupů ochrany osobních údajů](https://privacy.microsoft.com/).
 

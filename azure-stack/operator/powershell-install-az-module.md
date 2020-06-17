@@ -7,12 +7,12 @@ ms.date: 04/14/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 04/14/2020
-ms.openlocfilehash: d39bac1a99c2dc7d7a43f211a5fd3e5a7275de33
-ms.sourcegitcommit: d930d52e27073829b8bf8ac2d581ec2accfa37e3
+ms.openlocfilehash: 912e40cef34de0831a92817077ac9e33f33a0434
+ms.sourcegitcommit: c9737939f4e437f1d954e163db972d58b3f98ffd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82174011"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84813759"
 ---
 # <a name="install-powershell-az-preview-module-for-azure-stack-hub"></a>Instalace prostředí PowerShell AZ Preview Module pro Azure Stack hub
 
@@ -44,11 +44,11 @@ $PSVersionTable.PSVersion
 ```
 
 ### <a name="prerequisites-for-windows"></a>Předpoklady pro Windows
-Použití Azure PowerShell v prostředí PowerShell 5,1 ve Windows:
+Použití Azure PowerShellu v PowerShellu 5.1 ve Windows:
 
 1. V případě potřeby proveďte aktualizaci na [Windows PowerShell 5.1](https://docs.microsoft.com//powershell/scripting/install/installing-windows-powershell#upgrading-existing-windows-powershell). Pokud používáte Windows 10, máte už PowerShell 5.1 nainstalovaný.
 2. Nainstalujte si rozhraní [.NET Framework 4.7.2 nebo novější](https://docs.microsoft.com//dotnet/framework/install).
-3. Ujistěte se, že máte nejnovější verzi PowerShellGet. Spusťte `Install-Module PowerShellGet -MinimumVersion 2.2.3 -Force`. 
+3. Ujistěte se, že máte nejnovější verzi modulu PowerShellGet. Spusťte `Install-Module PowerShellGet -MinimumVersion 2.2.3 -Force`. 
 
 ## <a name="2-prerequisites-for-linux-and-mac"></a>2. předpoklady pro Linux a Mac
 Je potřeba PowerShell Core 6. x nebo novější verze. Pokyny najdete na tomto [odkazu](https://docs.microsoft.com//powershell/scripting/install/installing-powershell-core-on-windows) .
@@ -66,11 +66,11 @@ Před instalací požadované verze se ujistěte, že jste odinstalovali všechn
     ```
     Pokud se zobrazí chyba, například modul se už používá, zavřete relace PowerShellu, které moduly používají, a znovu spusťte výše uvedený skript.
 
-2. Odstraňte všechny složky `Azure`, které začínají na, `Az` nebo `Azs.` ze složky `C:\Program Files\WindowsPowerShell\Modules` a `C:\Users\{yourusername}\Documents\WindowsPowerShell\Modules` . Odstranění těchto složek odebere všechny existující moduly prostředí PowerShell.
+2. Odstraňte všechny složky, které začínají `Azure` na, `Az` nebo `Azs.` ze `C:\Program Files\WindowsPowerShell\Modules` složky a `C:\Users\{yourusername}\Documents\WindowsPowerShell\Modules` . Odstranění těchto složek odebere všechny existující moduly prostředí PowerShell.
 
 ## <a name="4-connected-install-with-internet-connectivity"></a>4. připojeno: instalace s připojením k Internetu
 
-Azure Stack AZ Module bude pracovat Azure Stack hub 2002 nebo novější. Kromě toho Azure Stack AZ Module bude pracovat s prostředím PowerShell 5,1 nebo vyšším na počítači s Windows, nebo PowerShell 6. x nebo vyšší na platformě Linux nebo macOS. Použití rutin PowerShellGet je upřednostňovanou metodou instalace. Tato metoda funguje stejně jako na podporovaných platformách.
+Azure Stack AZ Module bude pracovat Azure Stack hub 2002 nebo novější. Kromě toho Azure Stack AZ Module bude pracovat s prostředím PowerShell 5,1 nebo vyšším na počítači s Windows, nebo PowerShell 6. x nebo vyšší na platformě Linux nebo macOS. Upřednostňovanou metodou instalace je použití rutin PowerShellGet. Tato metoda funguje stejně jako na podporovaných platformách.
 
 Z relace PowerShellu spusťte následující příkaz:
 
@@ -105,16 +105,16 @@ Instalace má pět kroků:
 ::: moniker range=">=azs-2002"
 Azure Stack hub 2002 nebo novější.
 
-Můžete buď použít AzureRM nebo AZ Preview Module. Moduly RM najdete v pokynech v tématu [install PowerShell AzureRM Module](azure-stack-powershell-install.md).
+Můžete buď použít AzureRM nebo AZ Preview Module. Moduly RM najdete v pokynech v tématu [install PowerShell AzureRM Module](azure-stack-powershell-install.md). Následující kód ukládá moduly z důvěryhodného online úložiště https://www.powershellgallery.com/ .
 
 ```powershell
 
 Install-module -Name PowerShellGet -MinimumVersion 2.2.3 -Force
 Import-Module -Name PackageManagement -ErrorAction Stop
 
-$Path = "<Path that is used to save the packages>"
-Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name Az -Path $Path -Force -RequiredVersion 0.10.0-preview
-Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 2.0.0-preview
+$savedModulesPath = "<Path that is used to save the packages>"
+Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name Az -Path $savedModulesPath -Force -RequiredVersion 0.10.0-preview
+Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $savedModulesPath -Force -RequiredVersion 2.0.0-preview
 ```
 ::: moniker-end
 
@@ -180,7 +180,7 @@ Ve scénářích, které vyžadují proxy server pro přístup k Internetu, mus�
 
 ## <a name="7-use-the-az-module"></a>7. použijte modul AZ Module
 
-Můžete použít rutiny a ukázky kódu založené na AzureRM. Nicméně budete chtít změnit název modulů a rutin. Názvy modulů se změnily tak, že `AzureRM` a Azure se `Az`stanou a jsou stejné pro rutiny. Například `AzureRM.Compute` modul byl přejmenován na `Az.Compute`.` New-AzureRMVM` se změnilo na ` New-AzVM` a `Get-AzureStorageBlob` je teď `Get-AzStorageBlob`.
+Můžete použít rutiny a ukázky kódu založené na AzureRM. Nicméně budete chtít změnit název modulů a rutin. Názvy modulů se změnily tak, že `AzureRM` a Azure se stanou a `Az` jsou stejné pro rutiny. Například `AzureRM.Compute` modul byl přejmenován na `Az.Compute` .` New-AzureRMVM` se změnilo na ` New-AzVM` a `Get-AzureStorageBlob` je teď `Get-AzStorageBlob`.
 
 Důkladnější diskuzi a pokyny pro přesunutí skriptu AzurRM k AZ a průlom Changes in the Azure Stack hub 's hub najdete v tématu [migrace z AzureRM na Azure PowerShell AZ](migrate-azurerm-az.md).
 

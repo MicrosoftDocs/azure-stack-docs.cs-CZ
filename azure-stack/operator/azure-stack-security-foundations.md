@@ -8,12 +8,12 @@ ms.date: 06/10/2019
 ms.author: justinha
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/07/2020
-ms.openlocfilehash: 2d1b97bc17543e4fbdc1a1f79c39a01f188332df
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 35b4fbd97032df00236a67dd5b776a2f3fada8ea
+ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80891075"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84819254"
 ---
 # <a name="azure-stack-hub-infrastructure-security-controls"></a>Ovládací prvky zabezpečení infrastruktury centra Azure Stack
 
@@ -48,17 +48,15 @@ Další informace o tom, jak vynutilit TLS 1,2 na vnějších koncových bodech 
 
 ## <a name="secret-management"></a>Správa tajných klíčů
 
-Infrastruktura centra Azure Stack používá velké množství tajných kódů, jako jsou hesla, aby fungovala. Většina z nich se často automaticky otáčí, protože seskupují účty spravované služby (gMSA), které se v každé 24 hodinách střídají.
-
-Zbývající tajné kódy, které nejsou gMSA, je možné ručně otočit pomocí skriptu v privilegovaném koncovém bodu.
+Infrastruktura centra Azure Stack používá k fungování velké množství tajných kódů, jako jsou hesla a certifikáty. Většina hesel přidružených k interním účtům služeb je automaticky otočená každých 24 hodin, protože [seskupují účty spravované služby (gMSA)](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview), což je typ účtu domény, který je spravovaný přímo interním řadičem domény.
 
 Infrastruktura centra Azure Stack používá pro všechny své interní certifikáty 4096 klíčů RSA. Pro externí koncové body lze také použít stejné certifikáty klíčů. Další informace o tajných klíčích a rotaci certifikátů najdete [v tématu otočení tajných kódů v centru Azure Stack](azure-stack-rotate-secrets.md).
 
 ## <a name="windows-defender-application-control"></a>Řízení aplikací programu Windows Defender
 
-Centrum Azure Stack využívá nejnovější funkce zabezpečení Windows serveru. Jedním z nich je řízení aplikací v programu Windows Defender (WDAC dřív označované jako integrita kódu), které poskytuje seznam povolených spustitelných souborů a zajišťuje, že v infrastruktuře centra Azure Stack běží jenom ověřený kód.
+Azure Stack Hub využívá nejnovější funkce zabezpečení Windows Serveru. Jednou z nich je Řízení aplikací v programu Windows Defender (WDAC, dříve označované jako Integrita Kódu), které nabízí přidávání spustitelných souborů na seznam povolených a zajišťuje, aby se v rámci infrastruktury služby Azure Stack Hub spouštěl pouze autorizovaný kód.
 
-Autorizovaný kód je podepsaný Microsoftem nebo partnerem OEM. Podepsaný autorizovaný kód je zahrnutý v seznamu povoleného softwaru zadaného v zásadě definované Microsoftem. Jinými slovy, lze spustit pouze software, který byl schválen ke spuštění v infrastruktuře centra Azure Stack. Všechny pokusy o spuštění neoprávněného kódu jsou zablokované a vygeneruje se výstraha. Centrum Azure Stack vynutilo jak integritu kódu v uživatelském režimu (UMCI), tak i celistvost kódu hypervisoru (HYPERVISOREM HVCI).
+Autorizovaný kód je podepsaný Microsoftem nebo partnerem OEM. Podepsaný autorizovaný kód je zahrnutý v seznamu povoleného softwaru zadaného v zásadě definované Microsoftem. Jinými slovy, lze spustit pouze software, který byl schválen ke spuštění v infrastruktuře centra Azure Stack. Jakýkoli pokus o spuštění neautorizovaného kódu se zablokuje a vygeneruje se upozornění. Azure Stack Hub vynucuje integritu kódu v uživatelském režimu (UMCI) i integritu kódu na úrovni hypervisoru (HVCI).
 
 Zásady WDAC také zabrání spuštění agentů nebo softwaru třetích stran v infrastruktuře centra Azure Stack.
 Další informace o WDAC najdete v tématu [řízení aplikací v programu Windows Defender a ochrana integrity kódu na základě virtualizace](https://docs.microsoft.com/windows/security/threat-protection/device-guard/introduction-to-device-guard-virtualization-based-security-and-windows-defender-application-control).
@@ -67,7 +65,7 @@ Další informace o WDAC najdete v tématu [řízení aplikací v programu Windo
 
 Další funkcí zabezpečení Windows serveru v centru Azure Stack je ochrana Credential Guard v programu Windows Defender, která se používá k ochraně přihlašovacích údajů infrastruktury centra Azure Stack z útoků pass-the-hash a Pass-The-Ticket.
 
-## <a name="antimalware"></a>Antimalware
+## <a name="antimalware"></a>antimalware
 
 Každá součást centra Azure Stack (hostitelé Hyper-V a virtuální počítače) je chráněná pomocí antivirové ochrany v programu Windows Defender.
 

@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 06/11/2020
 ms.author: sethm
 ms.lastreviewed: 12/27/2019
-ms.openlocfilehash: 66a47e7eb896fbe8cd6e30ea5f6de8bdc71e77e5
-ms.sourcegitcommit: dd140b3a2ac8e558eae9f5f422711d2ba560da16
+ms.openlocfilehash: fb5f30d97d1c12a94b5366a358dc21450965fd93
+ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84744895"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84819532"
 ---
 # <a name="differences-between-azure-stack-hub-and-azure-when-using-services-and-building-apps"></a>Rozdíly mezi centrem Azure Stack a Azure při používání služeb a sestavování aplikací
 
@@ -37,7 +37,7 @@ Následující tabulka popisuje rozdíly vysoké úrovně mezi Azure Stack hub a
 | Oblast | Azure (Global) | Centrum Azure Stack |
 | -------- | ------------- | ----------|
 | Kdo to funguje? | Microsoft | Vaše organizace nebo poskytovatel služeb.|
-| Koho se obrátíte na podporu? | Microsoft | V případě integrovaného systému kontaktujte operátor centra Azure Stack (ve vaší organizaci nebo poskytovateli služeb) pro podporu.<br><br>Podporu Azure Stack Development Kit (ASDK) najdete na [fórech Microsoftu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack). Vzhledem k tomu, že vývojová sada je zkušební prostředí, není oficiální podpora nabídnuta prostřednictvím služeb Microsoft Customer Support Services (CSS).
+| Koho se obrátíte na podporu? | Microsoft | V případě integrovaného systému kontaktujte operátor centra Azure Stack (ve vaší organizaci nebo poskytovateli služeb) pro podporu.<br><br>Podporu Azure Stack Development Kit (ASDK) najdete na [fórech Microsoftu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack). Vzhledem k tomu, že vývojová sada je zkušební prostředí, není k dispozici žádná oficiální podpora prostřednictvím podpora Microsoftu.
 | Dostupné služby | Podívejte se na seznam [produktů Azure](https://azure.microsoft.com/services/?b=17.04b). Dostupné služby se liší podle oblasti Azure. | Centrum Azure Stack podporuje podmnožinu služeb Azure. Skutečné služby se budou lišit v závislosti na tom, co vaše organizace nebo poskytovatel služeb zvolí jako nabídky.
 | Azure Resource Manager koncový bod * | `https://management.azure.com` | Pro integrovaný systém Azure Stack hub použijte koncový bod, který poskytuje váš operátor centra Azure Stack.<br><br>Pro vývojovou sadu použijte: `https://management.local.azurestack.external` .
 | Adresa URL portálu * | [https://portal.azure.com](https://portal.azure.com) | Pro integrovaný systém Azure Stack hub použijte adresu URL, kterou poskytuje operátor centra Azure Stack.<br><br>Pro vývojovou sadu použijte: `https://portal.local.azurestack.external` .

@@ -3,16 +3,16 @@ title: Vytvoření virtuálního počítače pomocí šablony komunity
 description: Naučte se používat Azure Stack Development Kit (ASDK) k vytvoření virtuálního počítače pomocí předdefinované šablony a vlastní šablony GitHubu.
 author: sethmanheim
 ms.topic: tutorial
-ms.date: 01/23/2020
+ms.date: 06/15/2020
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/13/2019
-ms.openlocfilehash: 9e8df158444b0cbb2b6efaea6f99766f36b26241
-ms.sourcegitcommit: bdd4d529bd3e115a9f76eece62b1613448d5d020
+ms.openlocfilehash: dc666d486f0b36a043ba8da969312879ad785e50
+ms.sourcegitcommit: c9737939f4e437f1d954e163db972d58b3f98ffd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "77704331"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84813827"
 ---
 # <a name="tutorial-create-a-vm-using-a-community-template"></a>Kurz: Vytvoření virtuálního počítače pomocí šablony komunity
 
@@ -31,7 +31,7 @@ V tomto kurzu se naučíte:
 
 V průběhu času se k úložišti přispělo spousta uživatelů GitHubu, což vedlo ke kolekci více než 400 šablon nasazení. Toto úložiště je dobrým výchozím bodem pro porozumění, jak můžete nasadit různé druhy prostředí do centra Azure Stack.
 
->[!IMPORTANT]
+> [!IMPORTANT]
 > Některé z těchto šablon vytváří členové komunity a ne společnost Microsoft. Každá šablona je licencovaná v rámci licenční smlouvy od jejího vlastníka, nikoli od společnosti Microsoft. Společnost Microsoft není zodpovědná za tyto šablony a není na obrazovce pro zabezpečení, kompatibilitu nebo výkon. Šablony komunity nejsou podporované v rámci žádného programu nebo služby podpory společnosti Microsoft a jsou dostupné "tak, jak jsou", bez záruky jakéhokoli druhu.
 
 Pokud chcete přispívat Azure Resource Manager šablon do GitHubu, udělejte svůj příspěvek do úložiště [šablon AzureStack-Starter](https://github.com/Azure/AzureStack-QuickStart-Templates) . Další informace o tomto úložišti a o tom, jak na něj přispívat, najdete v [souboru Readme](https://aka.ms/aa6zktg).
@@ -100,7 +100,7 @@ Teď, když byl virtuální počítač se systémem Linux úspěšně vytvořen,
 
     ![Připojit](media/azure-stack-create-vm-template/9.PNG)
 
-2. Z příkazového řádku se zvýšenými oprávněními spusťte příkaz **mstsc. exe** a otevřete připojení ke vzdálené ploše a připojte se k veřejné IP adrese virtuálního počítače se systémem Linux zjištěné v předchozím kroku. Po zobrazení výzvy k přihlášení k xRDP použijte přihlašovací údaje, které jste zadali při vytváření virtuálního počítače.
+2. Z příkazového řádku se zvýšenými oprávněními spusťte **mstsc.exe** a otevřete připojení ke vzdálené ploše a připojte se k veřejné IP adrese virtuálního počítače se systémem Linux zjištěné v předchozím kroku. Po zobrazení výzvy k přihlášení k xRDP použijte přihlašovací údaje, které jste zadali při vytváření virtuálního počítače.
 
     ![Remote](media/azure-stack-create-vm-template/10.PNG)
 
@@ -118,7 +118,7 @@ Teď, když byl virtuální počítač se systémem Linux úspěšně vytvořen,
 
     ![Řídicí panel](media/azure-stack-create-vm-template/12.PNG)
 
-5. Pokud chcete nasadit ukázkovou aplikaci, přejděte na stránku oficiální dokumentace Kubernetes a přeskočte oddíl "vytvořit Minikube cluster", protože jste ho už vytvořili. Přejděte do oddílu "Vytvoření aplikace Node. js" na adrese https://kubernetes.io/docs/tutorials/stateless-application/hello-minikube/.
+5. Pokud chcete nasadit ukázkovou aplikaci, přejděte na stránku oficiální dokumentace Kubernetes a přeskočte oddíl "vytvořit Minikube cluster", protože jste ho už vytvořili. V části [vytvořte aplikaci Node.js](https://kubernetes.io/docs/tutorials/stateless-application/hello-minikube/).
 
 ## <a name="next-steps"></a>Další kroky
 
