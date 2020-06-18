@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/09/2019
-ms.openlocfilehash: c90231d96f3f076b0824222fba43c8d9ef680fa5
-ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
+ms.openlocfilehash: 4559eb88c044d38182a14f1bafecf2f7019cd5cb
+ms.sourcegitcommit: 7df4f3fbb211063e9eef6ac1e2734de72dc6078b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84146780"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84977134"
 ---
 # <a name="azure-stack-hub-vm-features"></a>Funkce virtuálního počítače centra Azure Stack
 
@@ -20,7 +20,7 @@ Virtuální počítače centra Azure Stack poskytují škálovatelné výpočetn
 
 ## <a name="vm-differences"></a>Rozdíly virtuálních počítačů
 
-| Příznak | Azure (Global) | Centrum Azure Stack |
+| Funkce | Azure (Global) | Centrum Azure Stack |
 | --- | --- | --- |
 | Image virtuálních počítačů | Azure Marketplace obsahuje obrázky, které můžete použít k vytvoření virtuálního počítače. Pokud chcete zobrazit seznam imagí, které jsou k dispozici v Azure Marketplace, zobrazte stránku [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/compute?subcategories=virtual-machine-images&page=1) . | Ve výchozím nastavení nejsou k dispozici žádné image v tržišti Azure Stack hub. Aby ho uživatelé mohli používat, musí správce cloudu Azure Stack publikovat nebo stahovat image na webu Centrum Azure Stack. |
 | Generování VHD | Generace dvou virtuálních počítačů podporuje klíčové funkce, které nejsou podporované v generaci jednoho virtuálního počítače. Mezi tyto funkce patří zvýšené množství paměti, rozšíření Intel software Guard (Intel SGX) a virtualizovaná trvalá paměť (vPMEM). Generace dvou virtuálních počítačů spuštěných v místním prostředí obsahuje některé funkce, které ještě nejsou v Azure podporované. Další informace najdete v tématu [Podpora virtuálních počítačů 2. generace v Azure](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2) .  | Centrum Azure Stack podporuje jenom jednu generaci virtuálních počítačů. Generaci jednoho virtuálního počítače můžete převést z VHDX na formát souboru VHD a z dynamického rozšiřování na disk s pevnou velikostí. Nemůžete změnit generaci virtuálního počítače. Další informace najdete v tématu [Podpora pro virtuální počítače 2. generace v Azure](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2). |
@@ -31,11 +31,12 @@ Virtuální počítače centra Azure Stack poskytují škálovatelné výpočetn
 | Úložiště virtuálního počítače | Podporuje [spravované disky.](/azure/virtual-machines/windows/managed-disks-overview) | Spravované disky jsou podporované v Azure Stackovém centru s verzí 1808 a novější. |
 | Výkon disku virtuálního počítače | Závisí na typu a velikosti disku. | Závisí na velikosti virtuálního počítače, ke kterému jsou disky připojené. Další informace najdete v článku o [velikostech virtuálních počítačů podporovaných v článku centra Azure Stack](azure-stack-vm-sizes.md) .
 | Verze rozhraní API | Azure má vždycky nejnovější verze rozhraní API pro všechny funkce virtuálních počítačů. | Centrum Azure Stack podporuje pro tyto služby specifické služby Azure a konkrétní verze rozhraní API. Pokud chcete zobrazit seznam podporovaných verzí rozhraní API, přečtěte si část [verze rozhraní API](#api-versions) tohoto článku. |
-| Instance Metadata Service Azure | Azure Instance Metadata Service poskytuje informace o spuštěných instancích virtuálních počítačů, které se dají použít ke správě a nastavení virtuálního počítače.  | Azure Instance Metadata Service se v centru Azure Stack nepodporuje. |
+| Azure Instance Metadata Service | Azure Instance Metadata Service poskytuje informace o spuštěných instancích virtuálních počítačů, které se dají použít ke správě a nastavení virtuálního počítače.  | Azure Instance Metadata Service se v centru Azure Stack nepodporuje. |
 | Skupiny dostupnosti virtuálních počítačů|Více domén selhání (2 nebo 3 podle oblasti).<br>Více aktualizačních domén.|Více domén selhání (2 nebo 3 podle oblasti).<br>Jediná aktualizační doména s migrací za provozu k ochraně úloh během aktualizace. 20 aktualizačních domén podporovaných pro kompatibilitu šablon.<br>Skupina virtuálních počítačů a dostupnosti by měla být ve stejném umístění a skupině prostředků.|
 | Škálovací sady virtuálních počítačů|Automatické škálování je podporováno.|Automatické škálování se nepodporuje.<br><br>Přidejte další instance do sady škálování pomocí portálu, Správce prostředků šablon nebo PowerShellu. |
 | Disk s kopií cloudu | Vyberte koncové body z vlastností účtu úložiště, které jsou k dispozici v Azure Stack hub. | [Určující Cloud](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness) je typ určujícího disku kvora clusteru s podporou převzetí služeb při selhání, který používá Microsoft Azure k poskytnutí hlasu kvora clusteru.<br>Koncové body v globálním Azure v porovnání s Azure Stack hub můžou vypadat takto:<br>Pro globální Azure:<br>`https://mywitness.blob.core.windows.net/`<br>Pro centrum Azure Stack:<br>`https://mywitness.blob.<region>.<FQDN>/`|
 | Diagnostika virtuálního počítače | Diagnostika virtuálního počítače se systémem Linux je podporována. | Diagnostika virtuálního počítače se systémem Linux není v centru Azure Stack podporována. Když nasadíte virtuální počítač se systémem Linux s povoleným diagnostikou virtuálních počítačů, nasazení se nezdařilo. Nasazení se také nepovede, pokud povolíte základní metriky virtuálního počítače se systémem Linux prostřednictvím nastavení diagnostiky. |
+| Vnořené velikosti virtuálních počítačů virtualizace | Podporuje se | Nepodporuje se |
 
 ## <a name="vm-sizes"></a>Velikost virtuálních počítačů
 

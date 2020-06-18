@@ -3,16 +3,16 @@ title: Známé problémy centra Azure Stack
 description: Přečtěte si o známých problémech v Azure Stackch vydáních centra.
 author: sethmanheim
 ms.topic: article
-ms.date: 06/10/2020
+ms.date: 06/17/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 198e6441daae7331eda2502ad7dfc2aea32a08b3
-ms.sourcegitcommit: 9c4c3487ca79b4e077b415611051cd4ad471277c
+ms.openlocfilehash: 68b83e78f29e60d4dac2b980dd9fd4aefb3bcf66
+ms.sourcegitcommit: 7df4f3fbb211063e9eef6ac1e2734de72dc6078b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84766350"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84977168"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Známé problémy centra Azure Stack
 
@@ -141,7 +141,8 @@ Další známé problémy s aktualizacemi centra Azure Stack najdete [v tématu 
 ### <a name="cannot-create-a-vmss-with-standard_ds2_v2-vm-size-on-portal"></a>Nejde vytvořit VMSS s velikostí virtuálního počítače Standard_DS2_v2 na portálu.
 
 - Platí: Tento problém se týká verze 2002.
-- Příčina: došlo k chybě portálu, která znemožňuje vytvoření VMSS s velikostí virtuálního počítače Standard_DS2_v2. Při jeho vytváření dojde k chybě: "{" Code ":" DeploymentFailed "," Message ":" nejméně jedna operace nasazení prostředků se nezdařila. Podrobnosti najdete ve výpisu operací nasazení. Podrobnosti o https://aka.ms/arm-debug využití najdete v podrobnostech o použití. "," Details ": [{" Code ":" důvodu chybného požadavku "," Message ":" {\r\n \" Error \" : {\r\n \" Code \" : \" NetworkProfileValidationError \" , \r\n \" zpráva \" : \" Velikost virtuálního počítače Standard_DS2_v2 není v seznamu povolených velikostí virtuálních počítačů pro urychlené síťové služby na virtuálním počítači v indexu 0 pro/Subscriptions/x/resourceGroups/RGVMSS/Providers/Microsoft.COMPUTE/virtualMachineScaleSets/VMSS. VM Scale set. Povolené velikosti:. \" \r\n} \r\n} "}]}" Oprava: vytvoření VMSS pomocí PowerShellu nebo šablony Resource Manageru.
+- Příčina: došlo k chybě portálu, která znemožňuje vytvoření VMSS s velikostí virtuálního počítače Standard_DS2_v2. Při jeho vytváření dojde k chybě: "{" Code ":" DeploymentFailed "," Message ":" nejméně jedna operace nasazení prostředků se nezdařila. Podrobnosti najdete ve výpisu operací nasazení. Podrobnosti o https://aka.ms/arm-debug využití najdete v podrobnostech o použití. "," Details ": [{" Code ":" důvodu chybného požadavku "," Message ":" {\r\n \" Error \" : {\r\n \" Code \" : \" NetworkProfileValidationError \" , \r\n \" zpráva \" : \" Velikost virtuálního počítače Standard_DS2_v2 není v seznamu povolených velikostí virtuálních počítačů pro urychlené síťové služby na virtuálním počítači v indexu 0 pro/Subscriptions/x/resourceGroups/RGVMSS/Providers/Microsoft.COMPUTE/virtualMachineScaleSets/VMSS. VM Scale set. Povolené velikosti:. \" \r\n} \r\n} "}]}"
+- Náprava: Vytvořte VMSS pomocí PowerShellu nebo šablony Resource Manageru.
 
 ### <a name="vm-overview-blade-does-not-show-correct-computer-name"></a>Okno s přehledem virtuálních počítačů nezobrazuje správný název počítače
 
@@ -151,7 +152,7 @@ Další známé problémy s aktualizacemi centra Azure Stack najdete [v tématu 
 
 ### <a name="nvv4-vm-size-on-portal"></a>Velikost virtuálního počítače NVv4 na portálu
 
-- Platí: Tento problém se týká 2002 a novějších verzí.
+- Platí: Tento problém se týká verze 2002 a novější.
 - Příčina: při přechodu přes prostředí pro vytváření virtuálních počítačů se zobrazí velikost virtuálního počítače: NV4as_v4. Zákazníci, kteří mají k dispozici hardware potřebný pro procesory GPU Azure Stack v systému AMD ve verzi Preview, mohou mít úspěšné nasazení virtuálního počítače. U všech ostatních zákazníků dojde k neúspěšnému nasazení virtuálního počítače pomocí této velikosti virtuálního počítače.
 - Náprava: návrh při přípravě na rozhraní Azure Stack hub GPU ve verzi Preview.
 
@@ -162,6 +163,7 @@ Další známé problémy s aktualizacemi centra Azure Stack najdete [v tématu 
 - Náprava: vytvořte znovu účet úložiště se stejným názvem, který jste použili dříve.
 - Výskyt: běžné
 
+### <a name="vm-boot-diagnostics"></a>Diagnostika spouštění virtuálních počítačů
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
 - Příčina: při pokusu o spuštění virtuálního počítače, který není přidělen, se může zobrazit následující chyba: **účet úložiště diagnostiky virtuálních počítačů ' diagnosticstorageaccount ' nebyl nalezen. Ujistěte se, že se účet úložiště neodstranil**. K této chybě dojde, pokud se pokusíte spustit virtuální počítač s povolenou diagnostikou spouštění, ale odkazovaný účet úložiště diagnostiky spouštění se odstraní.
@@ -395,6 +397,8 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 - Platí: Tento problém se vztahuje na všechny podporované verze.
 - Příčina: na portálu User Portal zobrazí okno **připojení** funkci **s názvem Poradce při potížích s VPN**. Tato funkce se v současnosti v centru Azure Stack nepodporuje.
 - Výskyt: běžné
+
+#### <a name="vpn-troubleshooter"></a>Poradce při potížích s VPN
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
 - Příčina: na portálu User Portal se zobrazí funkce **řešení potíží s VPN** a **metriky** v prostředku brány sítě VPN, ale toto nastavení není v centru Azure Stack podporováno.
