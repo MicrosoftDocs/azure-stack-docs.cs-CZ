@@ -7,12 +7,12 @@ ms.date: 05/04/2020
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: da3ba321eee4c71549fb84a61d3010803e5e6349
-ms.sourcegitcommit: 85c373fd8f9e8888a7ba25bedce2f640c93de1e5
+ms.openlocfilehash: bfa7abf0d481e8791c4e35d80d391de95b8a5b97
+ms.sourcegitcommit: 874ad1cf8ce7e9b3615d6d69651419642d5012b4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84334157"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85107184"
 ---
 # <a name="azure-stack-hub-managed-disks-differences-and-considerations"></a>Azure Stack spravované disky centra: rozdíly a požadavky
 
@@ -25,7 +25,7 @@ Spravované disky zjednodušují správu disků pro virtuální počítače s Ia
   
 ## <a name="cheat-sheet-managed-disk-differences"></a>List tahák: rozdíly spravovaného disku
 
-| Příznak | Azure (Global) | Centrum Azure Stack |
+| Funkce | Azure (Global) | Centrum Azure Stack |
 | --- | --- | --- |
 |Šifrování pro neaktivní uložená data |Šifrování služby Azure Storage (SSE), Azure Disk Encryption (ADE).     |BitLocker 128-bitové šifrování AES      |
 |Image          | Spravovaná vlastní image |Podporuje se|
@@ -36,7 +36,7 @@ Spravované disky zjednodušují správu disků pro virtuální počítače s Ia
 |Prémiové disky IOPs  |Závisí na velikosti disku.  |2300 IOPs na disk |
 |Propustnost prémiových disků |Závisí na velikosti disku. |145 MB za sekundu na disk |
 |Velikost disku  |Disk Azure Premium: P4 (32 GiB) do P80 (32 TiB)<br>Disk Azure SSD úrovně Standard: E10 (128 GiB) do E80 (32 TiB)<br>Disk Azure HDD úrovně Standard: S4 (32 GiB) do S80 (32 TiB) |M4:32 GiB<br>M6:64 GiB<br>M10:128 GiB<br>M15:256 GiB<br>M20:512 GiB<br>M30:1023 GiB |
-|Kopie snímku disků|Snímky Azure – spravované disky připojené k běžícímu virtuálnímu počítači.|Zatím nepodporováno |
+|Kopie snímku disků|Snímky Azure Managed disks připojené k běžícímu virtuálnímu počítači se podporují.|Zatím nepodporováno |
 |Analytické nástroje pro výkon disků |Jsou podporovány agregované metriky a metriky na disku. |Zatím nepodporováno |
 |Migrace      |Poskytněte Nástroj pro migraci z existujících nespravovaných virtuálních počítačů Azure Resource Manager bez nutnosti znovu vytvořit virtuální počítač.  |Zatím nepodporováno |
 
@@ -210,7 +210,7 @@ Add-AzureRmVMNetworkInterface -Id $Nic.Id
 New-AzureRmVM -ResourceGroupName $ResourceGroupName -Location $Location -VM $VmConfig
 ```
 
-Portál můžete použít také k vytvoření virtuálního počítače ze spravované image. Další informace najdete v článcích o imagí spravovaných v Azure [Vytvoření spravované image zobecněného virtuálního počítače v Azure](/azure/virtual-machines/windows/capture-image-resource) a [Vytvoření virtuálního počítače ze spravované image](/azure/virtual-machines/windows/create-vm-generalized-managed).
+Portál můžete použít také k vytvoření virtuálního počítače ze spravované image. Další informace najdete v článcích o spravovaných bitových kopiích Azure [Vytvoření spravované image zobecněného virtuálního počítače v Azure](/azure/virtual-machines/windows/capture-image-resource) a [Vytvoření virtuálního počítače ze spravované image](/azure/virtual-machines/windows/create-vm-generalized-managed).
 
 ## <a name="configuration"></a>Konfigurace
 
@@ -219,7 +219,7 @@ Po použití aktualizace 1808 nebo novější je nutné před použitím spravov
 - Pokud bylo předplatné vytvořeno před aktualizací 1808, postupujte podle následujících kroků a aktualizujte předplatné. V opačném případě může nasazení virtuálních počítačů v tomto předplatném selhat s chybovou zprávou "vnitřní chyba ve Správci disků".
    1. V uživatelském portálu centra Azure Stack klikněte na **předplatná** a vyhledejte předplatné. Klikněte na **poskytovatelé prostředků**, potom klikněte na **Microsoft. COMPUTE**a pak klikněte na **znovu registrovat**.
    2. V rámci stejného předplatného, přejít na **Access Control (IAM)** a ověřte, že je v seznamu uveden **Azure Stack disk spravovaný** centrem.
-- Pokud používáte víceklientské prostředí, požádejte svého operátora cloudu (který může být ve vaší organizaci nebo od poskytovatele služeb) a překonfigurujte každý adresář hosta podle kroků v [tomto článku](../operator/azure-stack-enable-multitenancy.md#registering-azure-stack-hub-with-the-guest-directory). V opačném případě může dojít k selhání nasazení virtuálních počítačů v rámci předplatného přidružených k tomuto adresáři hosta s chybovou zprávou "vnitřní chyba ve Správci disků".
+- Pokud používáte víceklientské prostředí, požádejte svého operátora cloudu (který může být ve vaší organizaci nebo od poskytovatele služeb) a překonfigurujte každý adresář hosta podle kroků v [tomto článku](../operator/azure-stack-enable-multitenancy.md#register-azure-stack-hub-with-the-guest-directory). V opačném případě může dojít k selhání nasazení virtuálních počítačů v rámci předplatného přidružených k tomuto adresáři hosta s chybovou zprávou "vnitřní chyba ve Správci disků".
 
 ## <a name="next-steps"></a>Další kroky
 

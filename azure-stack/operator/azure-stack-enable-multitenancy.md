@@ -3,16 +3,16 @@ title: Konfigurace víceklientské architektury v centru Azure Stack
 description: Naučte se, jak povolit a zakázat více Azure Active Directory tenantů v centru Azure Stack.
 author: BryanLa
 ms.topic: how-to
-ms.date: 03/04/2020
+ms.date: 06/18/2020
 ms.author: bryanla
 ms.reviewer: bryanr
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: ffad503fec50952eca492e16ca0051e69d1c1f14
-ms.sourcegitcommit: d930d52e27073829b8bf8ac2d581ec2accfa37e3
+ms.openlocfilehash: 16b8ca5999507bd64d3416c3ee22fdd5c827c8b5
+ms.sourcegitcommit: 874ad1cf8ce7e9b3615d6d69651419642d5012b4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82173875"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85107157"
 ---
 # <a name="configure-multi-tenancy-in-azure-stack-hub"></a>Konfigurace víceklientské architektury v centru Azure Stack
 
@@ -76,7 +76,7 @@ Register-AzSGuestDirectoryTenant -AdminResourceManagerEndpoint $adminARMEndpoint
 
 Jakmile operátor centra Azure Stack povolí, aby se adresář Fabrikam používal s centrem Azure Stack, musí Marie zaregistrovat Azure Stackho centra s tenant adresáře společnosti Fabrikam.
 
-#### <a name="registering-azure-stack-hub-with-the-guest-directory"></a>Registrace centra Azure Stack s adresářem hosta
+#### <a name="register-azure-stack-hub-with-the-guest-directory"></a>Registrace centra Azure Stack s adresářem hosta
 
 Marie (Správce adresáře společnosti Fabrikam) spustí v adresáři hosta fabrikam.onmicrosoft.com následující příkazy:
 
@@ -94,7 +94,7 @@ Register-AzSWithMyDirectoryTenant `
 ```
 
 > [!IMPORTANT]
-> Pokud správce centra Azure Stack v budoucnu nainstaluje nové služby nebo aktualizace, možná budete muset tento skript spustit znovu.
+> Pokud váš správce centra Azure Stack v budoucnu nainstaluje nové služby nebo aktualizace, možná budete muset tento skript spustit znovu.
 >
 > Spusťte tento skript kdykoli znovu, abyste zkontrolovali stav aplikací centra Azure Stack ve vašem adresáři.
 >
@@ -102,9 +102,9 @@ Register-AzSWithMyDirectoryTenant `
 
 ### <a name="direct-users-to-sign-in"></a>Přímé přihlašování uživatelů
 
-Teď, když jste vy a Marie dokončili kroky k zařazení adresáře Marie, může uživatel s názvem Marie nasměrovat uživatele společnosti Fabrikam, aby se přihlásili. Uživatelé společnosti Fabrikam (uživatelé s příponou fabrikam.onmicrosoft.com) se přihlásí návštěvou https\://Portal.Local.azurestack.external.
+Teď, když jste vy a Marie dokončili kroky k zařazení adresáře Marie, může uživatel s názvem Marie nasměrovat uživatele společnosti Fabrikam, aby se přihlásili. Uživatelé společnosti Fabrikam (uživatelé s příponou fabrikam.onmicrosoft.com) se přihlásí návštěvou https \: //Portal.Local.azurestack.external.
 
-Marie bude směrovat jakékoli [cizí objekty zabezpečení](/azure/role-based-access-control/rbac-and-directory-admin-roles) v adresáři Fabrikam (uživatelé v adresáři Fabrikam bez přípony Fabrikam.onmicrosoft.com), aby se mohli přihlásit pomocí protokolu HTTPS\://Portal.Local.azurestack.external/Fabrikam.onmicrosoft.com. Pokud tuto adresu URL nepoužívají, odešlou se jejich výchozímu adresáři (Fabrikam) a zobrazí se chyba oznamující, že správce nesouhlasí.
+Marie bude směrovat jakékoli [cizí objekty zabezpečení](/azure/role-based-access-control/rbac-and-directory-admin-roles) v adresáři Fabrikam (uživatelé v adresáři Fabrikam bez přípony Fabrikam.onmicrosoft.com), aby se mohli přihlásit pomocí protokolu HTTPS \: //Portal.Local.azurestack.external/Fabrikam.onmicrosoft.com. Pokud tuto adresu URL nepoužívají, odešlou se jejich výchozímu adresáři (Fabrikam) a zobrazí se chyba oznamující, že správce nesouhlasí.
 
 ## <a name="disable-multi-tenancy"></a>Zakázat víceklientské architektury
 
@@ -125,7 +125,7 @@ Pokud již nechcete více tenantů v centru Azure Stack, můžete zakázat více
      -Verbose 
     ```
 
-2. Jako správce služby centra Azure Stack (v tomto scénáři) spusťte příkaz *zrušit registraci – AzSGuestDirectoryTenant*.
+2. Jako správce služby Azure Stackového centra (v tomto scénáři) spusťte příkaz *zrušit registraci – AzSGuestDirectoryTenant*.
 
     ``` PowerShell
     ## The following Azure Resource Manager endpoint is for the ASDK. If you're in a multinode environment, contact your operator or service provider to get the endpoint.
@@ -148,6 +148,42 @@ Pokud již nechcete více tenantů v centru Azure Stack, můžete zakázat více
 
     > [!WARNING]
     > Kroky pro vypnutí víceklientské architektury se musí provádět v daném pořadí. Krok #1 se nezdařil, pokud je nejprve dokončen krok #2.
+
+## <a name="retrieve-azure-stack-hub-identity-health-report"></a>Načíst sestavu stavu identity centra Azure Stack 
+
+Nahraďte `<region>` `<domain>` `<homeDirectoryTenant>` zástupné symboly, a pak spusťte následující rutinu jako správce centra Azure Stack.
+
+```powershell
+
+$AdminResourceManagerEndpoint = "https://adminmanagement.<region>.<domain>"
+$DirectoryName = "<homeDirectoryTenant>.onmicrosoft.com"
+$healthReport = Get-AzsHealthReport -AdminResourceManagerEndpoint $AdminResourceManagerEndpoint -DirectoryTenantName $DirectoryName
+Write-Host "Healthy directories: "
+$healthReport.directoryTenants | Where status -EQ 'Healthy' | Select -Property tenantName,tenantId,status | ft
+
+
+Write-Host "Unhealthy directories: "
+$healthReport.directoryTenants | Where status -NE 'Healthy' | Select -Property tenantName,tenantId,status | ft
+```
+
+### <a name="update-azure-ad-tenant-permissions"></a>Aktualizovat oprávnění tenanta Azure AD
+
+Tato akce vymaže výstrahu v centru Azure Stack, což značí, že adresář vyžaduje aktualizaci. Ve složce **Azurestack-Tools-Master/identity** spusťte následující příkazy:
+
+```powershell
+Import-Module ..\Connect\AzureStack.Connect.psm1
+Import-Module ..\Identity\AzureStack.Identity.psm1
+
+$adminResourceManagerEndpoint = "https://adminmanagement.<region>.<domain>"
+
+# This is the primary tenant Azure Stack is registered to:
+$homeDirectoryTenantName = "<homeDirectoryTenant>.onmicrosoft.com"
+
+Update-AzsHomeDirectoryTenant -AdminResourceManagerEndpoint $adminResourceManagerEndpoint `
+   -DirectoryTenantName $homeDirectoryTenantName -Verbose
+```
+
+Skript vás vyzve k zadání přihlašovacích údajů správce v tenantovi Azure AD a spuštění trvá několik minut. Výstraha by se měla po spuštění rutiny vymazat.
 
 ## <a name="next-steps"></a>Další kroky
 
