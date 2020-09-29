@@ -3,16 +3,16 @@ title: Známé problémy centra Azure Stack
 description: Přečtěte si o známých problémech v Azure Stackch vydáních centra.
 author: sethmanheim
 ms.topic: article
-ms.date: 09/18/2020
+ms.date: 09/28/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 08/13/2020
-ms.openlocfilehash: d86149b041abd3737ed03696e2c041bbd24f0392
-ms.sourcegitcommit: d197e8d3c3b69c20d09de4c43d8089ec0a993baf
+ms.openlocfilehash: b52944255569197e9390db879f690f9e5d5a21d5
+ms.sourcegitcommit: 703be61f2f1565bf478b8c184753869c29e5c33c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/21/2020
-ms.locfileid: "90836484"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91495775"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Známé problémy centra Azure Stack
 
@@ -20,11 +20,11 @@ V tomto článku jsou uvedené známé problémy v části vydání centra Azure
 
 Chcete-li získat přístup ke známým problémům pro jinou verzi, použijte rozevírací nabídku selektor verzí nad obsahem vlevo.
 
-::: moniker range=">=azs-1908"
+::: moniker range=">=azs-1910"
 > [!IMPORTANT]  
 > Před použitím této aktualizace si přečtěte tento oddíl.
 ::: moniker-end
-::: moniker range="<azs-1908"
+::: moniker range="<azs-1910"
 > [!IMPORTANT]  
 > Pokud je vaše instance centra Azure Stack za více než dvěma aktualizacemi, je považována za nedodržující předpisy. Aby bylo možné [získat podporu, musíte aktualizovat aspoň minimální podporovanou verzi](azure-stack-servicing-policy.md#keep-your-system-under-support). 
 ::: moniker-end
@@ -595,196 +595,7 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 <!-- ### Marketplace -->
 ::: moniker-end
 
-::: moniker range="azs-1908"
-## <a name="1908-update-process"></a>proces aktualizace 1908
-
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: při pokusu o instalaci aktualizace centra Azure Stack se může stát, že se stav aktualizace nezdaří a změní se stav na **PreparationFailed**. To je způsobeno tím, že poskytovatel prostředků aktualizace (URP) nemůže správně přenést soubory z kontejneru úložiště do interní sdílené složky infrastruktury pro zpracování.
-- Náprava: od verze 1901 (1.1901.0.95) můžete tento problém obejít tak, že znovu kliknete na **aktualizovat** ( **nepokračovat**). URP pak vyčistí soubory z předchozího pokusu a restartuje soubor ke stažení. Pokud potíže potrvají, doporučujeme ručně odeslat balíček aktualizace pomocí [oddílu instalovat aktualizace](azure-stack-apply-updates.md#install-updates-and-monitor-progress).
-- Výskyt: běžné
-
-## <a name="portal"></a>Portál
-
-### <a name="administrative-subscriptions"></a>Předplatná pro správu
-
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: nemusíte používat dvě předplatná pro správu, která byla představena s verzí 1804. Typy předplatného jsou odběry **měření** a předplatné **spotřeby** .
-- Náprava: Pokud máte na těchto dvou předplatných prostředky, znovu je vytvořte v předplatných uživatele.
-- Výskyt: běžné
-
-### <a name="subscriptions-properties-blade"></a>Okno vlastností předplatných
-
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: na portálu pro správu se okno **vlastnosti** pro odběry nenačte správně.
-- Náprava: tyto vlastnosti předplatného můžete zobrazit v podokně **základy** v okně s **přehledem předplatných** .
-- Výskyt: běžné
-
-### <a name="duplicate-subscription-button-in-lock-blade"></a>Tlačítko Duplikovat předplatné v okně zámku
-
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: na portálu pro správu má okno **zámku** pro předplatné uživatele dvě tlačítka označená **předplatným**.
-- Výskyt: běžné
-
-### <a name="subscription-permissions"></a>Oprávnění předplatného
-
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: k předplatnému nemůžete pomocí portálů Azure Stack hub zobrazit oprávnění.
-- Náprava: [k ověření oprávnění použijte PowerShell](/powershell/module/azurerm.resources/get-azurermroleassignment).
-- Výskyt: běžné
-
-### <a name="storage-account-settings"></a>Nastavení účtu úložiště
-
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: na portálu User Portal zobrazuje okno **Konfigurace** účtu úložiště možnost změny **typu přenosu zabezpečení**. Tato funkce v současnosti není v centru Azure Stack podporována.
-- Výskyt: běžné
-
-### <a name="upload-blob"></a>Nahrát objekt BLOB
-
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: při pokusu o nahrání objektu BLOB pomocí možnosti **OAuth (Preview)** na portálu User Portal se úloha nezdařila s chybovou zprávou.
-- Náprava: Nahrajte objekt BLOB pomocí možnosti SAS.
-- Výskyt: běžné
-
-### <a name="alert-for-network-interface-disconnected"></a>Výstraha pro síťové rozhraní odpojena
-
-- Platí: Tento problém se týká verze 1908.
-- Příčina: když je kabel odpojený od síťového adaptéru, výstraha se na portálu pro správu nezobrazí. Příčinou této chyby je, že tato chyba je ve výchozím nastavení ve Windows serveru 2019 zakázaná.
-- Výskyt: běžné
-
-## <a name="networking"></a>Sítě
-
-### <a name="load-balancer"></a>Load Balancer
-
-- Platí: Tento problém se vztahuje na všechny podporované verze. 
-- Příčina: když do back-endu fondu Load Balancer přidáte virtuální počítače skupiny dostupnosti, na portálu se zobrazí chybová zpráva s oznámením, že **se nepovedlo Uložit fond back-endu nástroje pro vyrovnávání zatížení**. Jedná se o problém na portálu, ale funkce jsou pořád na místě a virtuální počítače se úspěšně přidají do fondu back-endu. 
-- Výskyt: běžné
-
-### <a name="network-security-groups"></a>Network Security Groups (Skupiny zabezpečení sítě)
-
-- Platí: Tento problém se vztahuje na všechny podporované verze. 
-- Příčina: explicitní pravidlo **DenyAllOutbound** nejde vytvořit v NSG, protože to zabrání v dokončení veškeré interní komunikace s infrastrukturou, která je potřebná pro nasazení virtuálního počítače.
-- Výskyt: běžné
-
-### <a name="service-endpoints"></a>Koncové body služby
-
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: na portálu User Portal zobrazuje okno **Virtual Network** možnost používat **koncové body služby**. Tato funkce se v současnosti v centru Azure Stack nepodporuje.
-- Výskyt: běžné
-
-### <a name="cannot-delete-an-nsg-if-nics-not-attached-to-running-vm"></a>Nejde odstranit NSG, pokud nejsou připojené síťové karty ke spuštěnému virtuálnímu počítači.
-
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: při zrušení přidružení NSG a síťové karty, která není připojená ke spuštěnému virtuálnímu počítači, se operace aktualizace (PUT) pro tento objekt na vrstvě síťového adaptéru nezdařila. NSG se aktualizuje na vrstvu poskytovatele síťových prostředků, ale ne na síťovém adaptéru, takže NSG se přesune do stavu selhání.
-- Remdiation: Připojte síťové karty přidružené k NSG, které je třeba odebrat se spuštěnými virtuálními počítači, a zrušte přidružení NSG nebo odeberte všechny síťové karty, které byly přidruženy k NSG.
-- Výskyt: běžné
-
-### <a name="network-interface"></a>Síťové rozhraní
-
-#### <a name="addingremoving-network-interface"></a>Přidávání/odebírání síťového rozhraní
-
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: nové síťové rozhraní se nedá přidat do virtuálního počítače, který je ve **spuštěném** stavu.
-- Náprava: před přidáním nebo odebráním síťového rozhraní zastavte virtuální počítač.
-- Výskyt: běžné
-
-#### <a name="primary-network-interface"></a>Primární síťové rozhraní
-
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: nové síťové rozhraní se nedá přidat do virtuálního počítače, který je ve **spuštěném** stavu.
-- Náprava: před přidáním nebo odebráním síťového rozhraní zastavte virtuální počítač.
-- Výskyt: běžné
-
-### <a name="virtual-network-gateway"></a>Brána virtuální sítě
-
-#### <a name="next-hop-type"></a>Typ dalšího segmentu směrování
-
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: když v uživatelském portálu vytvoříte směrovací tabulku, **Virtual Network brána** se zobrazí jako jedna z možností dalšího typu segmentu směrování. To se ale v centru Azure Stack nepodporuje.
-- Výskyt: běžné
-
-#### <a name="alerts"></a>Výstrahy
-
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: na portálu User Portal se v okně **Virtual Network brány** zobrazí možnost použít **výstrahy**. Tato funkce se v současnosti v centru Azure Stack nepodporuje.
-- Výskyt: běžné
-
-#### <a name="active-active"></a>Aktivní–aktivní
-
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: na portálu User Portal při vytváření a v nabídce prostředků **služby Virtual Network Gateway**se zobrazí možnost povolit konfiguraci **typu aktivní-aktivní** . Tato funkce se v současnosti v centru Azure Stack nepodporuje.
-- Výskyt: běžné
-
-#### <a name="vpn-troubleshooter"></a>Poradce při potížích s VPN
-
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: na portálu User Portal zobrazuje okno **připojení** funkci **s názvem Poradce při potížích s VPN**. Tato funkce se v současnosti v centru Azure Stack nepodporuje.
-- Výskyt: běžné
-
-#### <a name="documentation"></a>Dokumentace
-
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: dokumentace k dokumentaci na stránce Přehled na Virtual Network bráně odkazuje na Azure místo centra Azure Stack. Pro dokumentaci centra Azure Stack použijte následující odkazy:
-
-  - [Skladové položky brány](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-skus)
-  - [Připojení s vysokou dostupností](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-availability)
-  - [Konfigurace protokolu BGP v centru Azure Stack](../user/azure-stack-vpn-gateway-settings.md#gateway-requirements)
-  - [Okruhy ExpressRoute](azure-stack-connect-expressroute.md)
-  - [Zadat vlastní zásady IPsec/IKE](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
-
-## <a name="compute"></a>Compute
-
-### <a name="vm-boot-diagnostics"></a>Diagnostika spouštění virtuálních počítačů
-
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: Když vytváříte nový virtuální počítač s Windows, může se zobrazit následující chyba: **nepovedlo se spustit virtuální počítač s názvem VM-Name. Chyba: nepovedlo se aktualizovat nastavení sériového výstupu pro virtuální počítač s názvem VM-Name**. K této chybě dojde, pokud povolíte diagnostiku spouštění na virtuálním počítači, ale odstraníte účet úložiště diagnostiky spouštění.
-- Náprava: vytvořte znovu účet úložiště se stejným názvem, který jste použili dříve.
-- Výskyt: běžné
-
-### <a name="virtual-machine-scale-set"></a>Škálovací sada virtuálních počítačů
-
-#### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-hub-environments"></a>Vytváření selhání během opravy a aktualizace v prostředích centra Azure Stack se čtyřmi uzly
-
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: vytváření virtuálních počítačů ve skupině dostupnosti 3 domén selhání a vytvoření instance sady škálování virtuálního počítače selže s chybou **FabricVmPlacementErrorUnsupportedFaultDomainSize** během procesu aktualizace v prostředí centra Azure Stack se 4 uzly.
-- Náprava: můžete vytvořit jeden virtuální počítač ve skupině dostupnosti se dvěma doménami selhání úspěšně. Vytvoření instance sady škálování však není během procesu aktualizace na 4 uzlech Azure Stackch prostředcích stále k dispozici.
-
-### <a name="ubuntu-ssh-access"></a>Přístup SSH Ubuntu
-
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: virtuální počítač s Ubuntu 18,04 vytvořený s povoleným autorizací SSH vám neumožňuje používat klíče SSH k přihlášení.
-- Náprava: pomocí přístupu k virtuálnímu počítači pro rozšíření pro Linux implementujte klíče SSH po zřízení nebo použijte ověřování pomocí hesla.
-- Výskyt: běžné
-
-### <a name="virtual-machine-scale-set-reset-password-does-not-work"></a>Resetování hesla sady škálování virtuálního počítače nefunguje
-
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: v uživatelském rozhraní sady škálování se zobrazí nové okno pro resetování hesla, ale centrum Azure Stack v sadě škálování ještě nepodporuje heslo pro obnovení.
-- Náprava: žádné.
-- Výskyt: běžné
-
-### <a name="rainy-cloud-on-scale-set-diagnostics"></a>Diagnostika deště v diagnostice sady škálování
-
-- Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: na stránce s přehledem sady škálování virtuálního počítače se zobrazuje prázdný graf. Když kliknete na prázdný graf, otevře se okno "deště Cloud". Toto je graf pro diagnostické informace sady škálování, jako je procento využití procesoru, a není funkce podporovaná v aktuálním sestavení centra Azure Stack.
-- Náprava: žádné.
-- Výskyt: běžné
-
-### <a name="virtual-machine-diagnostic-settings-blade"></a>Okno nastavení diagnostiky virtuálního počítače
-
-- Platí: Tento problém se vztahuje na všechny podporované verze.    
-- Příčina: okno nastavení diagnostiky virtuálního počítače má kartu **jímka** , která žádá o **účet Application**Insights. Toto je výsledek nového okna a zatím není v Azure Stackovém centru podporován.
-- Náprava: žádné.
-- Výskyt: běžné
-
-<!-- ## Storage -->
-<!-- ## SQL and MySQL-->
-<!-- ## App Service -->
-<!-- ## Usage -->
-<!-- ### Identity -->
-<!-- ### Marketplace -->
-::: moniker-end
-
-::: moniker range=">=azs-1908"
+::: moniker range=">=azs-1910"
 ## <a name="archive"></a>Archiv
 
 Chcete-li získat přístup k archivovaným známým problémům pro starší verzi, použijte rozevírací nabídku selektor verzí nad obsahem vlevo a vyberte verzi, kterou chcete zobrazit.
@@ -798,6 +609,9 @@ Chcete-li získat přístup k archivovaným známým problémům pro starší ve
 <!------------------------------------------------------------>
 <!------------------- UNSUPPORTED VERSIONS ------------------->
 <!------------------------------------------------------------>
+::: moniker range="azs-1908"
+## <a name="1908-archived-known-issues"></a>1908 archivovaných známých problémů
+::: moniker-end
 ::: moniker range="azs-1907"
 ## <a name="1907-archived-known-issues"></a>1907 archivovaných známých problémů
 ::: moniker-end
@@ -844,6 +658,6 @@ Chcete-li získat přístup k archivovaným známým problémům pro starší ve
 ## <a name="1802-archived-known-issues"></a>1802 archivovaných známých problémů
 ::: moniker-end
 
-::: moniker range="<azs-1908"
+::: moniker range="<azs-1910"
 Ke [známým problémům centra Azure Stack můžete přistupovat v Galerii TechNet](https://aka.ms/azsarchivedrelnotes). Tyto archivované dokumenty jsou k dispozici pouze pro referenční účely a neznamenají podporu těchto verzí. Informace o podpoře centra Azure Stack najdete v tématu [zásady obsluhy centra Azure Stack](azure-stack-servicing-policy.md). Pokud potřebujete další pomoc, obraťte se na službu zákaznické podpory společnosti Microsoft.
 ::: moniker-end

@@ -1,18 +1,18 @@
 ---
 title: Publikování služby Azure Stack hub ve vašem datovém centru
 description: Naučte se publikovat Azure Stack služby centra ve svém datovém centru.
-author: daniellefoto
+author: myoung
 ms.topic: article
 ms.date: 09/24/2020
-ms.author: justinha
+ms.author: v-myoung
 ms.reviewer: wamota
 ms.lastreviewed: 09/24/2020
-ms.openlocfilehash: 860c254c5f013f72e18fd2e9727d8bac66c1742f
-ms.sourcegitcommit: 034e61836038ca75199a0180337257189601cd12
+ms.openlocfilehash: ed9f2a8eeeeb2cfdfcc4e96c1672d7da8fff64b2
+ms.sourcegitcommit: 703be61f2f1565bf478b8c184753869c29e5c33c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91230593"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91495741"
 ---
 # <a name="publish-azure-stack-hub-services-in-your-datacenter"></a>Publikování služby Azure Stack hub ve vašem datovém centru
 
@@ -93,7 +93,7 @@ Zachycení provozu SSL není [podporované](azure-stack-firewall.md#ssl-intercep
 |GC PROTOKOLU LDAP|Doménová struktura služby Active Directory poskytnutá pro integraci grafu|TCP|3268|Veřejná VIP-/27|
 |PROTOKOL SSL GC PROTOKOLU LDAP|Doménová struktura služby Active Directory poskytnutá pro integraci grafu|TCP|3269|Veřejná VIP-/27|
 |AD FS|Pro integraci AD FS AD FS poskytnutý koncový bod metadat|TCP|443|Veřejná VIP-/27|
-| Shromažďování protokolů diagnostiky |https://azsdiagprdlocalwestus02.blob.core.windows.net<br>https://azsdiagprdwestusfrontend.westus.cloudapp.azure.com<br>https://azsdiagprdwestusfrontend.westus.cloudapp.azure.com | HTTPS | 443 | Veřejná VIP-/27 |
+| Shromažďování protokolů diagnostiky |https://*. blob. Core. Windows. NET<br>https://azsdiagprdlocalwestus02.blob.core.windows.net<br>https://azsdiagprdwestusfrontend.westus.cloudapp.azure.com<br>https://azsdiagprdwestusfrontend.westus.cloudapp.azure.com | HTTPS | 443 | Veřejná VIP-/27 |
 |     |     |     |     |     |
 
 Odchozí adresy URL využívají vyrovnávání zatížení pomocí Azure Traffic Manageru a poskytují nejlepší možné připojení na základě geografického umístění. V případě adres URL s vyrovnáváním zatížení může Microsoft aktualizovat koncové body back-endu, aniž by to ovlivnilo zákazníky Microsoft nesdílí seznam IP adres pro adresy URL s vyrovnáváním zatížení. Použijte zařízení, které podporuje filtrování podle adresy URL, nikoli podle IP adresy.

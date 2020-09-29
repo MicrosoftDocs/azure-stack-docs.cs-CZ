@@ -3,16 +3,16 @@ title: Poznámky k verzi centra Azure Stack
 description: Poznámky k verzi pro integrované systémy Azure Stack hub, včetně aktualizací a oprav chyb.
 author: sethmanheim
 ms.topic: article
-ms.date: 09/24/2020
+ms.date: 09/28/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 08/11/2020
-ms.openlocfilehash: 65b8abb532b9016a23fffe4ec2515df022bfb526
-ms.sourcegitcommit: f2d16c3148da50d679940e024267995b85ce6332
+ms.openlocfilehash: cff17c92a44bec23d0a10620d6c182ad5240c451
+ms.sourcegitcommit: 703be61f2f1565bf478b8c184753869c29e5c33c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91407782"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91495792"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Poznámky k verzi centra Azure Stack
 
@@ -20,11 +20,11 @@ Tento článek popisuje obsah balíčků aktualizací centra Azure Stack. Tato a
 
 Pokud chcete získat přístup k poznámkám k verzi pro jinou verzi, použijte rozevírací nabídku selektor verzí nad obsahem vlevo.
 
-::: moniker range=">=azs-1908"
+::: moniker range=">=azs-1910"
 > [!IMPORTANT]  
 > Tento balíček aktualizace je určen pouze pro integrované systémy Azure Stack hub. Tento balíček aktualizace nepoužívejte na Azure Stack Development Kit (ASDK).
 ::: moniker-end
-::: moniker range="<azs-1908"
+::: moniker range="<azs-1910"
 > [!IMPORTANT]  
 > Pokud je vaše instance centra Azure Stack za více než dvěma aktualizacemi, je považována za nedodržující předpisy. Aby bylo možné [získat podporu, musíte aktualizovat aspoň minimální podporovanou verzi](azure-stack-servicing-policy.md#keep-your-system-under-support).
 ::: moniker-end
@@ -50,9 +50,6 @@ Balíček aktualizace centra Azure Stack můžete stáhnout pomocí [nástroje A
 ## <a name="2005-build-reference"></a>2005 – odkaz na sestavení
 
 Číslo buildu aktualizace centra Azure Stack 2005 je **1.2005.6.53**.
-
-> [!IMPORTANT]  
-> Díky [vydání 2002](release-notes.md?view=azs-2002) Azure Stack centra a podpoře našich zákazníků po celém světě, kteří reagují na COVID-19 a kteří mohou provádět důležitá rozhodnutí týkající se svých systémů Azure Stackch rozbočovačů, společnost Microsoft dočasně rozšířila své zásady podpory, aby zahrnovala tři předchozí verze aktualizací (N-3). S verzí 2005 budeme pokračovat v tomto rozšíření o dalších 45 dní (do 25. září 2020). V důsledku toho bude podporována nově vydaná aktualizace 2005 a kterákoli ze tří předchozích verzí aktualizace (2002, 1910 a 1908 nebo N-3). Po uplynutí 45 dnů (po 25. září 2020) se vrátíme k naší standardní zásadě podpory, což znamená, že podporované verze budou 2005, 2002 a 1910 nebo N-2.
 
 ### <a name="update-type"></a>Typ aktualizace
 
@@ -436,88 +433,12 @@ Po instalaci této aktualizace nainstalujte všechny příslušné opravy hotfix
 - [1.1910.63.186 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4574735)
 ::: moniker-end
 
-::: moniker range="azs-1908"
-## <a name="1908-build-reference"></a>1908 – odkaz na sestavení
-
-Číslo buildu aktualizace centra Azure Stack 1908 je **1.1908.4.33**.
-
-### <a name="update-type"></a>Typ aktualizace
-
-V 1908 se základní operační systém, na kterém Azure Stack centra spouští, aktualizoval na Windows Server 2019. Tato aktualizace umožňuje základní základní vylepšení a možnost přinášet další možnosti do centra Azure Stack.
-
-Typ sestavení aktualizace centra Azure Stack 1908 je **plný**. V důsledku toho má aktualizace 1908 delší dobu běhu než expresní aktualizace jako 1906 a 1907. Přesné moduly runtime pro úplné aktualizace obvykle závisí na počtu uzlů, které vaše instance centra Azure Stack obsahuje, na kapacitě používané v systému podle úloh klientů, na síťovém připojení vašeho systému (Pokud je připojené k Internetu) a na hardwarové konfiguraci systému. Aktualizace 1908 měla během interního testování následující očekávané moduly runtime: 4 uzly-42 hodiny, 8 uzlů – 50 hodin, 12 uzlů – 60 hodiny, 16 uzlů – 70 hodin. Aktualizační moduly, které trvají déle než tyto očekávané hodnoty, nejsou Neběžné a nevyžadují akci Azure Stack operátory centra, pokud se aktualizace nezdařila.
-
-Další informace o typech sestavení aktualizací najdete v tématu [Správa aktualizací v centru Azure Stack](azure-stack-updates.md).
-
-- Přesné běhové moduly pro aktualizaci jsou obvykle závislé na kapacitě používané systémem v rámci úloh klientů, připojení k systémové síti (Pokud je připojeno k Internetu) a hardwarové konfiguraci systému.
-- Běhové moduly trvající déle než neočekávané jsou Neběžné a nevyžadují akci Azure Stack operátory centra, pokud se aktualizace nezdařila.
-- Tato přibližná doba běhu je specifická pro aktualizaci 1908 a neměla by se porovnávat s jinými aktualizacemi centra Azure Stack.
-
-<!-- ## What's in this update -->
-
-<!-- The current theme (if any) of this release. -->
-
-### <a name="whats-new"></a>Co je nového
-
-<!-- What's new, also net new experiences and features. -->
-
-- Pro 1908 si všimněte, že základní operační systém, na kterém Azure Stack centra běžela, byl aktualizován na Windows Server 2019. Tato aktualizace umožňuje základní základní vylepšení a možnost přinášet další možnosti do centra Azure Stack.
-- Všechny součásti infrastruktury centra Azure Stack nyní fungují v režimu FIPS 140-2.
-- Operátory centra Azure Stack teď můžou odebrat uživatelská data portálu. Další informace najdete v tématu [vymazání uživatelských dat portálu z centra Azure Stack](azure-stack-portal-clear.md).
-
-### <a name="improvements"></a>Vylepšen
-
-<!-- Changes and product improvements with tangible customer-facing value. -->
-- Vylepšení v oblasti šifrování uložených dat v Azure Stackovém centru pro zachování tajných kódů do čipu TPM (Trusted Platform Module) fyzických uzlů.
-
-### <a name="changes"></a>Změny
-
-- Poskytovatelé hardwaru budou vycházet z balíčku rozšíření OEM 2,1 nebo novějšího ve stejnou dobu jako centrum Azure Stack verze 1908. Balíček rozšíření OEM 2,1 nebo novější je předpokladem pro Azure Stack centra verze 1908. Další informace o tom, jak stáhnout balíček rozšíření OEM 2,1 nebo novější, získáte od poskytovatele hardwaru vašeho systému a v článku věnovaném [aktualizacím OEM](azure-stack-update-oem.md#oem-contact-information) .  
-
-### <a name="fixes"></a>Opravy
-
-- Opravili jsme problém s kompatibilitou s budoucími aktualizacemi OEM centra Azure Stack a problémem s nasazením virtuálního počítače pomocí uživatelských imagí zákazníka. Tento problém byl nalezen v 1907 a opraven v opravě hotfix [KB4517473](https://support.microsoft.com/en-us/help/4517473/azure-stack-hotfix-1-1907-12-44)  
-- Opravili jsme problém s aktualizací firmwaru OEM a opravili jsme chybnou diagnostiku v test-AzureStack pro Fabric Ring stav. Tento problém byl nalezen v 1907 a opraven v opravě hotfix [KB4515310](https://support.microsoft.com/en-us/help/4515310/azure-stack-hotfix-1-1907-7-35)
-- Opravili jsme problém s procesem aktualizace firmwaru OEM. Tento problém byl nalezen v 1907 a opraven v opravě hotfix [KB4515650](https://support.microsoft.com/en-us/help/4515650/azure-stack-hotfix-1-1907-8-37)
-
-<!-- Product fixes that came up from customer deployments worth highlighting, especially if there's an SR/ICM associated to it. -->
-
-## <a name="security-updates"></a>Aktualizace zabezpečení
-
-Informace o aktualizacích zabezpečení v této aktualizaci centra Azure Stack najdete v tématu [aktualizace zabezpečení centra Azure Stack](release-notes-security-updates.md).
-
-Zprávu o ohrožení zabezpečení Qualys pro tuto verzi je možné stáhnout z [webu Qualys](https://www.qualys.com/azure-stack/).
-
-## <a name="download-the-update"></a>Stáhnout aktualizaci
-
-Balíček aktualizace centra Azure Stack 1908 můžete stáhnout ze [stránky pro stažení centra Azure Stack](https://aka.ms/azurestackupdatedownload).
-
-## <a name="hotfixes"></a>Opravy hotfix
-
-Azure Stack centrum pravidelně vydává opravy hotfix. Před aktualizací centra Azure Stack na 1908 se ujistěte, že jste nainstalovali nejnovější opravu hotfix centra Azure Stack pro 1907.
-
-Opravy hotfix centra Azure Stack se vztahují pouze na integrované systémy Azure Stack hub. Nepokoušejte se instalovat opravy hotfix na ASDK.
-
-### <a name="prerequisites-before-applying-the-1908-update"></a>Požadavky: před instalací aktualizace 1908
-
-Verze 1908 centra Azure Stack se musí použít ve verzi 1907 s následujícími opravami hotfix:
-
-<!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [1.1907.29.80 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4555650)
-
-Aktualizace centra Azure Stack 1908 vyžaduje od poskytovatele hardwaru vašeho systému **Azure Stack centra OEM verze 2,1 nebo novější** . Aktualizace OEM zahrnují aktualizace ovladačů a firmwaru do vašeho systémového hardwaru Azure Stack hub. Další informace o použití aktualizací OEM naleznete v tématu [apply Azure Stack Center Original Equipment Update Manufacturer Updates](azure-stack-update-oem.md) .
-
-### <a name="after-successfully-applying-the-1908-update"></a>Po úspěšné instalaci aktualizace 1908
-
-Po instalaci této aktualizace nainstalujte všechny příslušné opravy hotfix. Další informace najdete v našich [zásadách obsluhy](azure-stack-servicing-policy.md).
-
-<!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [1.1908.51.133 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4574734)
-::: moniker-end
-
 <!------------------------------------------------------------>
 <!------------------- UNSUPPORTED VERSIONS ------------------->
 <!------------------------------------------------------------>
+::: moniker range="azs-1908"
+## <a name="1908-archived-release-notes"></a>1908 archivované poznámky k verzi
+::: moniker-end
 ::: moniker range="azs-1907"
 ## <a name="1907-archived-release-notes"></a>1907 archivované poznámky k verzi
 ::: moniker-end
@@ -564,6 +485,6 @@ Po instalaci této aktualizace nainstalujte všechny příslušné opravy hotfix
 ## <a name="1802-archived-release-notes"></a>1802 archivované poznámky k verzi
 ::: moniker-end
 
-::: moniker range="<azs-1908"
+::: moniker range="<azs-1910"
 Do Galerie TechNet můžete získat přístup ke [starším verzím poznámky k verzi centra Azure Stack](https://aka.ms/azsarchivedrelnotes). Tyto archivované dokumenty jsou k dispozici pouze pro referenční účely a neznamenají podporu těchto verzí. Informace o podpoře centra Azure Stack najdete v tématu [zásady obsluhy centra Azure Stack](azure-stack-servicing-policy.md). Pokud potřebujete další pomoc, obraťte se na službu zákaznické podpory společnosti Microsoft.
 ::: moniker-end
