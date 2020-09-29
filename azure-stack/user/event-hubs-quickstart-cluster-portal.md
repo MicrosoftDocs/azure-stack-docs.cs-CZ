@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 01/22/2020
 ms.reviewer: bryanla
 ms.lastreviewed: 01/22/2020
-ms.openlocfilehash: 6af9ef6f562c9b31d7310b7f35d7b6b0533472ea
-ms.sourcegitcommit: 4138a2a15f78e7db38b3a29acc963a71937146fd
+ms.openlocfilehash: 7a2b8504a247048a4f90f7ec70772ff52b5ae9dc
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "80479255"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91107243"
 ---
 # <a name="quickstart-create-an-event-hubs-cluster-using-the-azure-stack-hub-portal"></a>Rychlý Start: Vytvoření clusteru Event Hubs pomocí portálu centra Azure Stack
 
@@ -44,19 +44,19 @@ V tomto rychlém startu se dozvíte, jak pomocí portálu Azure Stack User Porta
 Cluster Event Hubs poskytuje jedinečný obor kontejneru, ve kterém můžete vytvořit jeden nebo více oborů názvů. Provedením následujících kroků vytvořte cluster Event Hubs: 
 
 1. Přihlaste se k portálu pro uživatele centra Azure Stack.
-2. V levém navigačním podokně vyberte **všechny služby** , do vyhledávacího panelu zadejte "Event Hubs clustery" a vyberte položku **Event Hubs clustery** ze seznamu výsledků.
+2. V levém navigačním podokně vyberte **všechny služby**   , do vyhledávacího panelu zadejte "Event Hubs clustery" a vyberte položku **Event Hubs clustery** ze seznamu výsledků.
 3. Jednou na stránce **Event Hubs clustery** vyberte v horní nabídce **+ Přidat** . Otevře se panel **vytvořit Event Hubs cluster** na pravé straně.
-4. Na kartě **základy** stránky **vytvořit Event Hubs clusteru** :  
+4. Na kartě **základy** stránky **vytvořit Event Hubs clusteru**   :  
    - **Název clusteru**: zadejte název. Systém okamžitě kontroluje, jestli je název dostupný. Pokud je k dispozici, zobrazí se značka zaškrtnutí na pravé straně pole. 
    - **Předplatné**: vyberte předplatné, ve kterém chcete cluster vytvořit. 
    - **Skupina prostředků**: Vytvořte nebo vyberte skupinu prostředků, ve které chcete cluster vytvořit. 
-   - Pokračujte výběrem tlačítka **Další: značky >**  v dolní části stránky. Je možné, že budete muset počkat, až systém bude plně zřizovat prostředky. 
+   - Pokračujte výběrem tlačítka **Další: značky >**   v dolní části stránky. Je možné, že budete muset počkat, až systém bude plně zřizovat prostředky. 
 
    [![Vytvoření základních informací o clusteru centra událostí](media/event-hubs-quickstart-cluster-portal/1-create-cluster-basics.png)](media/event-hubs-quickstart-cluster-portal/1-create-cluster-basics.png#lightbox)
 
 5. Na kartě **značky** : 
    - Volitelně můžete zadat páry název/hodnota pro značky prostředku.  
-   - Pokračujte výběrem tlačítka **Další: zkontrolovat + vytvořit >**  . 
+   - Pokračujte výběrem tlačítka **Další: zkontrolovat + vytvořit >**   . 
 
    [![Vytvoření značek clusteru centra událostí – značky](media/event-hubs-quickstart-cluster-portal/1-create-cluster-tags.png)](media/event-hubs-quickstart-cluster-portal/1-create-cluster-tags.png#lightbox)
 
@@ -76,7 +76,7 @@ Cluster Event Hubs poskytuje jedinečný obor kontejneru, ve kterém můžete vy
 
 Nyní vytvoříte obor názvů v rámci nového clusteru:
 
-1. Na stránce **Přehled** **Event Hubs clusteru**v horní nabídce vyberte **+ obor názvů** . 
+1. Na stránce **přehled** **Event Hubs clusteru**v horní nabídce vyberte **+ obor názvů**   . 
 
    [![Clustery Event Hubs – výběr clusteru](media/event-hubs-quickstart-cluster-portal/2-view-cluster.png)](media/event-hubs-quickstart-cluster-portal/2-view-cluster.png#lightbox)
 
@@ -89,7 +89,7 @@ Nyní vytvoříte obor názvů v rámci nového clusteru:
      - Umístění 
      - Název clusteru 
 
-   - Vyberte **vytvořit** a vytvořte obor názvů:
+   - Vyberte **vytvořit**   a vytvořte obor názvů:
 
    [![Clustery Event Hubs – vytvoření oboru názvů](media/event-hubs-quickstart-cluster-portal/2-view-cluster-create-namespace.png)](media/event-hubs-quickstart-cluster-portal/2-view-cluster-create-namespace.png#lightbox)
 
@@ -105,7 +105,7 @@ Nyní vytvoříte obor názvů v rámci nového clusteru:
 
 2. Na panelu **vytvořit centrum událostí** :
    - **Název**: zadejte název centra událostí. Název může obsahovat jenom písmena, číslice, tečky, spojovníky a podtržítka. Název musí začínat a končit písmenem nebo číslicí. Systém okamžitě kontroluje, jestli je název dostupný. Pokud je k dispozici, zobrazí se značka zaškrtnutí na pravé straně pole.
-   - Vyberte **vytvořit** a vytvořte centrum událostí.
+   - Vyberte **vytvořit**   a vytvořte centrum událostí.
 
    [![Event Hubs – Přehled oboru názvů vytvoření centra událostí](media/event-hubs-quickstart-cluster-portal/3-event-hubs-namespace-overview-create-event-hub.png)](media/event-hubs-quickstart-cluster-portal/3-event-hubs-namespace-overview-create-event-hub.png#lightbox)
 
@@ -113,15 +113,15 @@ Nyní vytvoříte obor názvů v rámci nového clusteru:
 
 Postup odstranění clusteru:
 
-1. Znovu vyberte **všechny služby** z levého navigačního podokna. Do panelu vyhledávání zadejte "Event Hubs clustery" a vyberte položku **Event Hubs clustery** ze seznamu výsledků.
+1. Znovu vyberte **všechny služby**   z levého navigačního podokna. Do panelu vyhledávání zadejte "Event Hubs clustery" a vyberte položku **Event Hubs clustery** ze seznamu výsledků.
 2. Na stránce **clustery centra událostí** vyhledejte a vyberte cluster, který jste vytvořili dříve.
 
-   [![Clustery Event Hubs – odstranění clusteru](media/event-hubs-quickstart-cluster-portal/4-delete-cluster-clusters.png)](media/event-hubs-quickstart-cluster-portal/4-delete-cluster-clusters.png#lightbox)
+   [![Snímek obrazovky, který ukazuje, jak vybrat cluster, který se má odstranit](media/event-hubs-quickstart-cluster-portal/4-delete-cluster-clusters.png)](media/event-hubs-quickstart-cluster-portal/4-delete-cluster-clusters.png#lightbox)
 
 3. Na stránce **přehled** **Event Hubs clusteru**:
-   - V horní nabídce vyberte **Odstranit** .  
+   -  **Delete**   V horní nabídce vyberte Odstranit.  
    - Na pravé straně se otevře panel **Odstranit cluster** s potvrzovací zprávou o odstranění. 
-   - Zadejte název clusteru a vyberte **Odstranit** , aby se cluster odstranil. 
+   - Zadejte název clusteru a vyberte **Odstranit**,   aby se cluster odstranil. 
 
    [![Clustery Event Hubs – odstranění clusteru](media/event-hubs-quickstart-cluster-portal/4-delete-cluster-delete.png)](media/event-hubs-quickstart-cluster-portal/4-delete-cluster-delete.png#lightbox)
 

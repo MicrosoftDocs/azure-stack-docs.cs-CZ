@@ -7,12 +7,12 @@ ms.date: 06/11/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 06/11/2019
-ms.openlocfilehash: c762f4c8c75fbfd6755c25877c52fbb68c88f7ca
-ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
+ms.openlocfilehash: 12de836d74382f26efd49ec8873aaa99a919ecd5
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84631121"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91107086"
 ---
 # <a name="create-a-plan-in-azure-stack-hub"></a>Vytvoření plánu v centru Azure Stack
 
@@ -25,37 +25,37 @@ ms.locfileid: "84631121"
 
 2. Pokud chcete vytvořit plán a nabídku, ke kterým se uživatelé můžou přihlásit, vyberte **+ vytvořit prostředek**, pak **nabídky + plány**a pak na **naplánovat**.
   
-   ![Vybrat plán na portálu pro správu Azure Stack hub](media/azure-stack-create-plan/select-plan.png)
+   ![Snímek obrazovky, který ukazuje, jak vybrat plán na portálu pro správu centra Azure Stack.](media/azure-stack-create-plan/select-plan.png)
 
 3. Zobrazí se uživatelské rozhraní s kartami, které umožňuje zadat název plánu, přidat služby a definovat kvóty pro každou z vybraných služeb. Nejdůležitější je, že před tím, než se rozhodnete vytvořit, si můžete prohlédnout podrobnosti nabídky, kterou vytvoříte.
 
    Na kartě **základy** v novém okně **plánu** zadejte **Zobrazovaný název** a **název prostředku**. Zobrazovaný název je popisný název plánu, který mohou operátoři vidět. V portálu pro správu se podrobnosti o plánu zobrazují jenom pro operátory.
 
-   ![Zadejte podrobnosti nového plánu v centru Azure Stack.](media/azure-stack-create-plan/plan-name.png)
+   ![Snímek obrazovky, který ukazuje, jak zadat podrobnosti nového plánu v centru Azure Stack.](media/azure-stack-create-plan/plan-name.png)
 
 4. Vytvořte novou **skupinu prostředků**nebo vyberte existující jako kontejner pro plán.
 
-   ![Zadejte skupinu prostředků pro nový plán v centru Azure Stack.](media/azure-stack-create-plan/resource-group.png)
+   ![Snímek obrazovky, který ukazuje, jak určit skupinu prostředků pro nový plán v centru Azure Stack.](media/azure-stack-create-plan/resource-group.png)
 
 5. Vyberte kartu **služby** nebo klikněte na tlačítko **další: služby >** a potom zaškrtněte políčko pro **Microsoft. COMPUTE**, **Microsoft. Network**a **Microsoft. Storage**.
   
-   ![Vyberte služby pro nový plán v centru Azure Stack.](media/azure-stack-create-plan/services.png)
+   ![Snímek obrazovky, který ukazuje, jak vybrat služby pro nový plán v centru Azure Stack.](media/azure-stack-create-plan/services.png)
 
 6. Vyberte kartu **kvóty** nebo klikněte na tlačítko **další: kvóty >** . V části **Microsoft. Storage**zvolte buď výchozí kvótu z rozevíracího pole, nebo vyberte **vytvořit novou** a vytvořte přizpůsobenou kvótu.
   
-   ![Zadejte kvóty pro nový plán v centru Azure Stack](media/azure-stack-create-plan/quotas.png)
+   ![Snímek obrazovky, který ukazuje, jak zadat kvóty pro nový plán v centru Azure Stack](media/azure-stack-create-plan/quotas.png)
 
 7. Pokud vytváříte novou kvótu, zadejte její **název** a zadejte hodnoty kvót. Vyberte **OK** a vytvořte kvótu.
 
-   ![Vytvořit novou kvótu pro nový plán v centru Azure Stack](media/azure-stack-create-plan/new-quota.png)
+   ![Snímek obrazovky, který ukazuje, jak vytvořit novou kvótu pro nový plán v centru Azure Stack.](media/azure-stack-create-plan/new-quota.png)
 
 8. Opakováním kroků 6 a 7 vytvořte a přiřaďte kvóty pro **Microsoft. Network** a **Microsoft. COMPUTE**. Pokud mají všechny tři služby přiřazené kvóty, budou vypadat podobně jako v následujícím příkladu.
 
-   ![Dokončete přiřazení kvót pro nový plán v centru Azure Stack.](media/azure-stack-create-plan/all-quotas-assigned.png)
+   ![Snímek obrazovky, který ukazuje, jak dokončit přiřazování kvót pro nový plán v centru Azure Stack.](media/azure-stack-create-plan/all-quotas-assigned.png)
 
 9. Vyberte možnost **zkontrolovat + vytvořit** a Prohlédněte si plán. Zkontrolujte všechny hodnoty a kvóty, abyste měli jistotu, že jsou správné. Rozhraní vám umožní rozšířit kvóty ve vybraných plánech po jednom, aby se zobrazily podrobnosti o každé kvótě v plánu. Můžete se také vrátit, abyste provedli nezbytné úpravy.
 
-   ![Vytvoření plánu v centru Azure Stack](media/azure-stack-create-plan/create.png)
+   ![Snímek obrazovky, který ukazuje, jak vytvořit plán v centru Azure Stack.](media/azure-stack-create-plan/create.png)
 
 10. Až budete připraveni, vyberte **vytvořit** a vytvořte plán.
 

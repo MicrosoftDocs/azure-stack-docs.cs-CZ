@@ -1,0 +1,86 @@
+---
+title: Virtuální počítač GPU (Graphics Processing Unit) na rozbočovači Azure Stack
+description: Referenční informace o výpočetním prostředí GPU v Azure Stack hub.
+author: mattbriggs
+ms.author: mabrigg
+ms.service: azure-stack
+ms.topic: reference
+ms.date: 07/07/2020
+ms.reviewer: kivenkat
+ms.lastreviewed: 07/07/2020
+ms.openlocfilehash: 4d1b6df185225a244996246b3e6883b09ac32d8e
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90574223"
+---
+# <a name="graphics-processing-unit-gpu-virtual-machine-vm-on-azure-stack-hub"></a>Virtuální počítač GPU (Graphics Processing Unit) na rozbočovači Azure Stack
+
+*Platí pro: Azure Stack integrovaných systémů*
+
+V tomto článku se dozvíte, které modely GPU (Graphics Processing Unit) jsou podporované v systému s více uzly Azure Stack hub. Můžete si také najít pokyny k instalaci ovladačů používaných s grafickými procesory. Podpora GPU v centru Azure Stack umožňuje řešení, jako jsou umělá inteligentní analýza, školení, odvozování a vizualizace dat. AMD Radeon Instinct MI25 se dá použít k podpoře aplikací náročných na grafiku, jako je Autodesk AutoCAD.
+
+V období veřejné verze Preview si můžete vybrat ze tří modelů GPU. Jsou k dispozici v NVIDIA V100, NVIDIA T4 a AMD MI25 GPU. Tyto fyzické GPU se zarovnají s následujícími typy virtuálních počítačů Azure N-Series následujícím způsobem:
+- [NCv3](https://docs.microsoft.com/azure/virtual-machines/ncv3-series)
+- [NVv4 (AMD MI25)](https://docs.microsoft.com/azure/virtual-machines/nvv4-series)
+- NCas_v4
+
+> [!IMPORTANT]  
+> Podpora GPU centra Azure Stack je v současné době ve verzi Public Preview. Chcete-li se zúčastnit verze Preview, vyplňte formulář na adrese [aka.MS/azurestackhubgpupreview](https://aka.ms/azurestackhubgpupreview).
+> Tato verze Preview se poskytuje bez smlouvy o úrovni služeb a nedoporučuje se pro úlohy v produkčním prostředí. Některé funkce se nemusí podporovat nebo mohou mít omezené možnosti. Další informace najdete v [dodatečných podmínkách použití pro verze Preview v Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+## <a name="ncv3"></a>NCv3
+
+Virtuální počítače řady NCv3-Series využívají grafické procesory NVIDIA Tesla V100. Zákazníci můžou využít těchto aktualizovaných GPU pro tradiční úlohy HPC, jako je modelování zásobníku, sekvence DNA, analýza bílkovin, simulace Monte Carlo a další. 
+
+| Velikost | Virtuální procesory | Paměť: GiB | Dočasné úložiště (SSD): GiB | GPU | Paměť GPU: GiB | Max. datových disků | Maximální počet síťových karet |
+|---|---|---|---|---|---|---|---|---|
+| Standard_NC6s_v3    | 6  | 112 | 736  | 1 | 16 | 12 | 4 |
+| Standard_NC12s_v3   | 12 | 224 | 1474 | 2 | 32 | 24 | 8 |
+| Standard_NC24s_v3   | 24 | 448 | 2948 | 4 | 64 | 32 | 8 |
+
+## <a name="nvv4"></a>NVv4
+
+Virtuální počítače řady NVv4-Series využívají GPU technologie [AMD Radeon Instinct MI25](https://www.amd.com/en/products/professional-graphics/instinct-MI25) . Pomocí centra Azure Stack řady NVv4-Series Představujeme virtuální počítače s využitím částečných procesorů GPU. Tato velikost se dá použít pro akcelerované grafické aplikace GPU a virtuální plochy. Virtuální počítače s NVv4 v současné době podporují jenom hostovaný operační systém Windows. 
+
+| Velikost | Virtuální procesory | Paměť: GiB | Dočasné úložiště (SSD): GiB | GPU | Paměť GPU: GiB | Max. datových disků | Maximální počet síťových karet | 
+| --- | --- | --- | --- | --- | --- | --- | --- |   
+| Standard_NV4as_v4 |4 |14 |88 | 1/8 | 2 | 4 | 2 | 
+
+## <a name="ncas_v4"></a>NCas_v4
+
+Tato nová velikost virtuálního počítače NVIDIA T4 umožňuje spouštět úlohy týkající se odvození a vizualizace na základě Azure Stackového centra. V současné době není tato velikost virtuálního počítače na portálu k *dispozici pro* nasazení a PowerShell/CLI bude nutné použít místo toho.
+
+
+| Velikost | Virtuální procesory | Paměť: GiB | GPU | Paměť GPU: GiB | Max. datových disků | Maximální počet síťových karet | 
+| --- | --- | --- | --- | --- | --- | --- |
+| Standard_NC4as_v4 |4 |28 | 1 | 16 | 8 | 4 | 
+| Standard_NC8as_v4 |8 |56 | 1 | 16 | 16 | 8 | 
+| Standard_NC16as_v4 |16 |112 | 1 | 16 | 32 | 8 | 
+| Standard_NC64as_v4 |64 |448 | 4 | 64 | 32 | 8 | 
+
+
+## <a name="patch-and-update-fru-behavior-of-vms"></a>Oprava a aktualizace, chování funkce FRU virtuálních počítačů 
+
+Virtuální počítače GPU budou podléhat výpadkům během operací, jako je třeba patch and Update (PnU), a také nahrazení hardwaru (FRU) centra Azure Stack. Následující tabulka přechází do stavu virtuálního počítače, jak se zjistila během těchto aktivit, a také ruční akci, kterou může uživatel udělat, aby tyto virtuální počítače znovu vyúčtovaly tyto operace. 
+
+| Operace | PnU – expresní aktualizace | PnU – úplná aktualizace, OEM Update | JEDNOTKA | 
+| --- | --- | --- | --- | 
+| Stav virtuálního počítače  | Během a po aktualizaci bez operace ručního spuštění není k dispozici. | Během aktualizace není k dispozici. Dostupná aktualizace po aktualizaci s ruční operací | Během aktualizace není k dispozici. Dostupná aktualizace po aktualizaci s ruční operací| 
+| Ruční operace | Pokud je potřeba virtuální počítač zpřístupnit během aktualizace, pokud jsou dostupné oddíly GPU, můžete virtuální počítač restartovat z portálu kliknutím na tlačítko **restartovat** . Restartování virtuálního počítače po aktualizaci z portálu pomocí tlačítka **restartovat** | Virtuální počítač nejde během aktualizace zpřístupnit. Po dokončení aktualizace se musí virtuální počítač zastavit a zrušit jeho přidělení pomocí tlačítka **stop** a spustit zálohování pomocí tlačítka Spustit. | Virtuální počítač nejde během aktualizace zpřístupnit. Po dokončení aktualizace se musí virtuální počítač zastavit a zrušit jeho přidělení pomocí tlačítka **zastavit** a spustit zálohování pomocí tlačítka **Start** .| 
+
+## <a name="guest-driver-installation"></a>Instalace ovladače hosta 
+
+### <a name="amd-mi25"></a>AMD MI25
+V článku [instalace ovladačů AMD GPU na virtuálních počítačích řady N-Series, na kterých běží Windows](https://docs.microsoft.com/azure/virtual-machines/windows/n-series-amd-driver-setup) , najdete pokyny k instalaci ovladače pro AMD Radeon Instinct MI25 uvnitř virtuálního počítače NVv4 GPU-P s povolenými kroky, jak ověřit instalaci ovladače. Toto rozšíření funguje pouze v připojeném režimu.
+
+### <a name="nvidia"></a>GRAF
+
+Aby bylo možné spouštět úlohy CUDA nebo GRID na virtuálním počítači, jsou vyžadovány ovladače NVIDIA. Než použijete rozšíření k instalaci ovladačů mřížky do virtuálního počítače, ujistěte se prosím, že máte příslušné licence pro MŘÍŽKu a také nastavený licenční server. [Tato](https://docs.nvidia.com/grid/ls/latest/grid-license-server-user-guide/index.html) možnost slouží k získání informací o tom, jak nastavit licenční server. Ovladače CUDA nepotřebují licenční server.
+
+Na virtuálním počítači bude potřeba ručně nainstalovat CUDA sušičky a ovladače pro MŘÍŽKu NVIDIA. Ovladače Tesla CUDA lze získat z [webu pro stažení](https://www.nvidia.com/Download/index.aspx)NVIDIA. Ovladače mřížky je možné stáhnout prostřednictvím centra aplikací NVIDIA, pokud máte požadované licence.
+
+## <a name="next-steps"></a>Další kroky 
+
+[Funkce Azure Stack virtuálního počítače](azure-stack-vm-considerations.md) 

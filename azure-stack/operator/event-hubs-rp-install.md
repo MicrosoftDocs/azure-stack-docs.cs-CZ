@@ -9,12 +9,12 @@ ms.date: 12/09/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 12/09/2019
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: d92c8c8514020d3b33e236232aa07b95ade9f798
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: f7eb790506c5dbbb7d49fc469dd61d394fb1f0fc
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82848196"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91106849"
 ---
 # <a name="how-to-install-event-hubs-on-azure-stack-hub"></a>Postup instalace Event Hubs v centru Azure Stack
 
@@ -32,7 +32,7 @@ Než budete moct nainstalovat Event Hubs do centra Azure Stack, musíte stáhnou
 ::: zone pivot="state-connected"
 Postupujte podle těchto pokynů v propojeném scénáři:
 
-1. Přihlaste se k portálu pro správu centra Azure Stack.
+1. Přihlaste se k portálu pro správu služby Azure Stack Hub.
 2. Na levé straně vyberte **Správa Marketplace** .
 3. Vyberte **Poskytovatelé prostředků**.
 4. Vyberte **+ Přidat z Azure**.
@@ -62,12 +62,12 @@ V případě odpojeného nebo částečně připojeného scénáře můžete bal
    [![Stažené balíčky správy Marketplace](media/event-hubs-rp-install/2-marketplace-management-downloaded.png)](media/event-hubs-rp-install/2-marketplace-management-downloaded.png#lightbox)
  
 3. Stránka Event Hubs instalace balíčku zobrazuje modrý banner v horní části. Vyberte banner a spusťte instalaci Event Hubs.
-   [![Centra událostí správy Marketplace – spustit instalaci](media/event-hubs-rp-install/3-marketplace-management-install-ready.png)](media/event-hubs-rp-install/3-marketplace-management-install-ready.png#lightbox)
+   [![Snímek obrazovky, který ukazuje, jak spustit instalaci v centrech událostí správy Marketplace.](media/event-hubs-rp-install/3-marketplace-management-install-ready.png)](media/event-hubs-rp-install/3-marketplace-management-install-ready.png#lightbox)
 
 ### <a name="install-prerequisites"></a>Požadavky na instalaci
 
 1. Dál jste přenesli na stránku instalace. Kliknutím na **instalovat požadavky** zahajte proces instalace.
-   ![Centra událostí správy Marketplace – požadavky](media/event-hubs-rp-install/4-marketplace-management-install-prereqs-start.png)
+   ![Snímek obrazovky, který ukazuje, jak nainstalovat požadavky do centra událostí správy Marketplace.](media/event-hubs-rp-install/4-marketplace-management-install-prereqs-start.png)
  
 2. Počkejte, dokud nebude instalace požadovaných součástí úspěšná. Před pokračováním na další krok by se měla zobrazit zelená značka zaškrtnutí vedle políčka **nainstalovat požadavky** .
 

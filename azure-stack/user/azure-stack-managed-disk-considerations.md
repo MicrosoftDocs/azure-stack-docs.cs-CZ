@@ -1,18 +1,18 @@
 ---
-title: Azure Stack spravované disky centra; rozdíly a požadavky
+title: Rozdíly a požadavky na spravované disky centra Azure Stack
 description: Přečtěte si o rozdílech a ohledech při práci se spravovanými disky a spravovanými imagemi v centru Azure Stack.
 author: sethmanheim
 ms.topic: article
-ms.date: 05/04/2020
+ms.date: 08/27/2020
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: bfa7abf0d481e8791c4e35d80d391de95b8a5b97
-ms.sourcegitcommit: 874ad1cf8ce7e9b3615d6d69651419642d5012b4
+ms.openlocfilehash: d8ddebe5fccf03a47db3d6ab190b77296b34734b
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85107184"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90574257"
 ---
 # <a name="azure-stack-hub-managed-disks-differences-and-considerations"></a>Azure Stack spravované disky centra: rozdíly a požadavky
 
@@ -20,15 +20,14 @@ Tento článek shrnuje rozdíly mezi [ *spravovanými disky* v centru Azure Stac
 
 Spravované disky zjednodušují správu disků pro virtuální počítače s IaaS pomocí správy [účtů úložiště](../operator/azure-stack-manage-storage-accounts.md) přidružených k DISKŮM virtuálních počítačů.
 
-> [!NOTE]  
-> Spravované disky v centru Azure Stack byly k dispozici od aktualizace 1808. Počínaje aktualizací 1811 je funkce ve výchozím nastavení povolená při vytváření virtuálních počítačů pomocí portálu Azure Stack hub.
+Spravované disky jsou ve výchozím nastavení povolené při vytváření virtuálních počítačů pomocí portálu Azure Stack hub.
   
 ## <a name="cheat-sheet-managed-disk-differences"></a>List tahák: rozdíly spravovaného disku
 
-| Funkce | Azure (Global) | Centrum Azure Stack |
+| Příznak | Azure (Global) | Azure Stack Hub |
 | --- | --- | --- |
 |Šifrování pro neaktivní uložená data |Šifrování služby Azure Storage (SSE), Azure Disk Encryption (ADE).     |BitLocker 128-bitové šifrování AES      |
-|Image          | Spravovaná vlastní image |Podporuje se|
+|Image          | Spravovaná vlastní image |Podporováno|
 |Možnosti zálohování | Služba Azure Backup |Zatím nepodporováno |
 |Možnosti zotavení po havárii | Azure Site Recovery |Zatím nepodporováno|
 |Typy disků     |SSD úrovně Premium, SSD úrovně Standard a HDD úrovně Standard. |SSD úrovně Premium HDD úrovně Standard |
@@ -204,6 +203,7 @@ $Image = Get-AzureRmImage -ResourceGroupName $ImageRG -ImageName $ImageName
 $VmConfig = New-AzureRmVMConfig -VMName $VirtualMachineName -VMSize "Standard_D1" | `
 Set-AzureRmVMOperatingSystem -Linux -ComputerName $VirtualMachineName -Credential $Cred | `
 Set-AzureRmVMSourceImage -Id $Image.Id | `
+Set-AzureRmVMOSDisk -VM $VmConfig -CreateOption FromImage -Linux | `
 Add-AzureRmVMNetworkInterface -Id $Nic.Id
 
 # Create a virtual machine

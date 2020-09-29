@@ -3,18 +3,18 @@ title: Připojení GPU k virtuálnímu počítači se systémem Linux v Azure St
 description: Jak používat GPU s úlohami AI běžícími v Ubuntu Linuxm VIRTUÁLNÍm počítači v Azure Stack HCL.
 author: khdownie
 ms.author: v-kedow
-ms.topic: article
-ms.date: 03/24/2020
-ms.openlocfilehash: c1f1ddbfb9f362261a8e55d32a0d8c28b7b64629
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.topic: how-to
+ms.date: 07/01/2020
+ms.openlocfilehash: 1d881db2d8802e93611437cbc14fe9782540be16
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80402865"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91106953"
 ---
 # <a name="attaching-a-gpu-to-an-ubuntu-linux-vm-on-azure-stack-hci"></a>Připojení GPU k virtuálnímu počítači s Ubuntu Linux v Azure Stack HCI
 
-> Platí pro: Windows Server 2019
+> Platí pro: Azure Stack HCI, verze 20H2; Windows Server 2019
 
 V tomto tématu najdete podrobné pokyny k instalaci a konfiguraci grafického procesoru (GPU) NVIDIA s Azure Stackm HCI pomocí technologie DDA (diskrétního přiřazení zařízení) pro virtuální počítač s Ubuntu (VM).
 V tomto dokumentu se předpokládá, že máte nasazený cluster Azure Stack HCI a virtuální počítače jsou nainstalované.
@@ -28,7 +28,7 @@ V tomto dokumentu se předpokládá, že máte nasazený cluster Azure Stack HCI
 5. Kliknutím pravým tlačítkem myši na 3D video Controller zobrazte stránku **vlastností** . Klikněte na tlačítko **Podrobnosti**. V rozevíracím seznamu pod položkou **vlastnost**vyberte možnost cesty umístění.
 6. Všimněte si hodnoty pomocí řetězce PCIRoot, jak je zvýrazněno na snímku obrazovky níže. Klikněte pravým tlačítkem na **hodnotu** a zkopírujte nebo uložte.
     :::image type="content" source="media/attach-gpu-to-linux-vm/pciroot.png" alt-text="Snímek cesty k umístění":::
-7. Otevřete prostředí Windows PowerShell se zvýšenými oprávněními a `Dismount-VMHostAssignableDevice` spusťte rutinu, která odpojí zařízení GPU pro položku DDA s virtuálním počítačem. Hodnotu *LocationPath* nahraďte hodnotou svého zařízení získaného v kroku 6.
+7. Otevřete prostředí Windows PowerShell se zvýšenými oprávněními a spusťte `Dismount-VMHostAssignableDevice` rutinu, která odpojí zařízení GPU pro položku DDA s virtuálním počítačem. Hodnotu *LocationPath* nahraďte hodnotou svého zařízení získaného v kroku 6.
     ```PowerShell
     Dismount-VMHostAssignableDevice -LocationPath "PCIROOT(16)#PCI(0000)#PCI(0000)" -force
     ```
@@ -54,7 +54,7 @@ V tomto dokumentu se předpokládá, že máte nasazený cluster Azure Stack HCI
     Get-VMAssignableDevice -VMName Ubuntu
     ```
 
-    Úspěšné přiřazení GPU k virtuálnímu počítači zobrazí výstup níže: :::image type="content" source="media/attach-gpu-to-linux-vm/assign-gpu.png" alt-text="přiřadit obrázek GPU":::
+    Úspěšné přiřazení GPU k virtuálnímu počítači zobrazí výstup níže:  :::image type="content" source="media/attach-gpu-to-linux-vm/assign-gpu.png" alt-text="přiřadit obrázek GPU":::
 
     Další hodnoty nakonfigurujte v dokumentaci GPU [tady](/windows-server/virtualization/hyper-v/deploy/deploying-graphics-devices-using-dda):
 
@@ -84,7 +84,7 @@ V tomto dokumentu se předpokládá, že máte nasazený cluster Azure Stack HCI
 
 8. Vyhledejte adresu TCP/IP pro instalaci Ubuntu pomocí příkazu **ifconfig** a zkopírujte IP adresu pro rozhraní **eth0** .
 
-9. Pomocí klienta SSH, jako je [například výstup, se připojte](https://www.chiark.greenend.org.uk/~sgtatham/putty/) k virtuálnímu počítači s Ubuntu pro další konfiguraci.
+9. Použijte klienta SSH, jako je OpenSSH ssh.exe (ve výchozím nastavení nainstalovaný s Windows 10) [, nebo zadejte výstup pro](https://www.chiark.greenend.org.uk/~sgtatham/putty/) připojení k virtuálnímu počítači Ubuntu pro další konfiguraci.
 
 10. Při přihlášení pomocí klienta SSH vydejte příkaz **lspci** a ověřte, jestli je grafický procesor NVIDIA uvedený jako "3D Controller".
 
@@ -94,7 +94,7 @@ V tomto dokumentu se předpokládá, že máte nasazený cluster Azure Stack HCI
 11. V rámci virtuálního počítače vyhledejte a otevřete **aktualizace softwaru &**. Přejděte na **Další ovladače**a pak zvolte nejnovější ovladače NVIDIA GPU uvedené v seznamu. Dokončete instalaci ovladače kliknutím na tlačítko **použít změny** .
     :::image type="content" source="media/attach-gpu-to-linux-vm/driver-install.png" alt-text="Snímek instalace ovladače":::
 
-12. Po dokončení instalace ovladače restartujte virtuální počítač Ubuntu. Jakmile se virtuální počítač spustí, připojte se přes klienta SSH a vydejte příkaz **NVIDIA-SMI** , který ověří, jestli se instalace ovladače NVIDIA GPU úspěšně dokončila. Výstup by měl vypadat podobně jako na následujícím snímku obrazovky: :::image type="content" source="media/attach-gpu-to-linux-vm/nvidia-smi.png" alt-text="NVIDIA-SMI screenshot":::
+12. Po dokončení instalace ovladače restartujte virtuální počítač Ubuntu. Jakmile se virtuální počítač spustí, připojte se přes klienta SSH a vydejte příkaz **NVIDIA-SMI** , který ověří, jestli se instalace ovladače NVIDIA GPU úspěšně dokončila. Výstup by měl být podobný snímku obrazovky níže: :::image type="content" source="media/attach-gpu-to-linux-vm/nvidia-smi.png" alt-text="snímek obrazovky, který zobrazuje výstup z příkazu NVIDIA-SMI.":::
 
 13. Pomocí klienta SSH nastavte úložiště a nainstalujte modul Docker CE:
 
@@ -188,7 +188,7 @@ Pro přípravu této konfigurace si přečtěte nejčastější dotazy, které n
     sudo docker run --runtime=nvidia --rm nvidia/cuda:9.0-base nvidia-smi
     ```
 
-    Úspěšná instalace bude vypadat jako výstup na snímku obrazovky níže: :::image type="content" source="media/attach-gpu-to-linux-vm/docker.png" alt-text="úspěšné instalace Docker instalačního snímku":::
+    Úspěšná instalace bude vypadat jako výstup na snímku obrazovky níže:  :::image type="content" source="media/attach-gpu-to-linux-vm/docker.png" alt-text="úspěšné instalace Docker instalačního snímku":::
 
 5. Podle pokynů uvedených tady pokračujte v instalaci Azure IoT Edge a přeskočí se instalace modulu runtime:
 
@@ -263,7 +263,7 @@ Pro přípravu této konfigurace si přečtěte nejčastější dotazy, které n
 
     :::image type="content" source="media/attach-gpu-to-linux-vm/custom-streams.png" alt-text="Snímek obrazovky vlastních streamů":::
 
-11. V adresáři custom_configs/var/deepstream/vytvořte nový soubor s názvem test5_config_file_src_infer_azure_iotedge_edited. txt. Pomocí textového editoru otevřete soubor a vložte následující kód a soubor uložte a zavřete.
+11. Vytvořte nový soubor s názvem test5_config_file_src_infer_azure_iotedge_edited.txt v adresáři custom_configs/var/deepstream/. Pomocí textového editoru otevřete soubor a vložte následující kód a soubor uložte a zavřete.
 
     ```shell
     # Copyright (c) 2018 NVIDIA Corporation.  All rights reserved.
@@ -273,12 +273,12 @@ Pro přípravu této konfigurace si přečtěte nejčastější dotazy, které n
     # and any modifications thereto.  Any use, reproduction, disclosure or
     # distribution of this software and related documentation without an express
     # license agreement from NVIDIA Corporation is strictly prohibited.
-    
+
     [application]
     enable-perf-measurement=1
     perf-measurement-interval-sec=5
     #gie-kitti-output-dir=streamscl
-    
+
     [tiled-display]
     enable=1
     rows=2
@@ -292,7 +292,7 @@ Pro přípravu této konfigurace si přečtěte nejčastější dotazy, které n
     #(3): nvbuf-mem-cuda-unified - Allocate Unified cuda memory, applicable for Tesla
     #(4): nvbuf-mem-surface-array - Allocate Surface Array memory, applicable for Jetson
     nvbuf-memory-type=0
-    
+
     [source0]
     enable=1
     #Type - 1=CameraV4L2 2=URI 3=MultiURI
@@ -301,7 +301,7 @@ Pro přípravu této konfigurace si přečtěte nejčastější dotazy, které n
     num-sources=2
     gpu-id=0
     nvbuf-memory-type=0
-    
+
     [source1]
     enable=1
     #Type - 1=CameraV4L2 2=URI 3=MultiURI
@@ -310,10 +310,10 @@ Pro přípravu této konfigurace si přečtěte nejčastější dotazy, které n
     num-sources=2
     gpu-id=0
     nvbuf-memory-type=0
-    
+
     [sink0]
     enable=0
-    
+
     [sink3]
     enable=1
     #Type - 1=FakeSink 2=EglSink 3=File 4=RTSPStreaming
@@ -325,7 +325,7 @@ Pro přípravu této konfigurace si přečtěte nejčastější dotazy, které n
     # set below properties in case of RTSPStreaming
     rtsp-port=8554
     udp-port=5400
-    
+
     [sink1]
     enable=1
     #Type - 1=FakeSink 2=EglSink 3=File 4=UDPSink 5=nvoverlaysink 6=MsgConvBroker
@@ -340,7 +340,7 @@ Pro přípravu této konfigurace si přečtěte nejčastější dotazy, které n
     topic=mytopic
     #Optional:
     #msg-broker-config=../../../../libs/azure_protocol_adaptor/module_client/cfg_azure.txt
-    
+
     [sink2]
     enable=0
     type=3
@@ -353,7 +353,7 @@ Pro přípravu této konfigurace si přečtěte nejčastější dotazy, které n
     bitrate=2000000
     output-file=out.mp4
     source-id=0
-    
+
     [osd]
     enable=1
     gpu-id=0
@@ -368,7 +368,7 @@ Pro přípravu této konfigurace si přečtěte nejčastější dotazy, které n
     clock-text-size=12
     clock-color=1;0;0;0
     nvbuf-memory-type=0
-    
+
     [streammux]
     gpu-id=0
     ##Boolean property to inform muxer that sources are live
@@ -384,7 +384,7 @@ Pro přípravu této konfigurace si přečtěte nejčastější dotazy, které n
     ##along with width, height properties
     enable-padding=0
     nvbuf-memory-type=0
-    
+
     [primary-gie]
     enable=1
     gpu-id=0
@@ -401,7 +401,7 @@ Pro přípravu této konfigurace si přečtěte nejčastější dotazy, které n
     labelfile-path=../../../../../samples/models/Primary_Detector/labels.txt
     config-file=../../../../../samples/configs/deepstream-app/config_infer_primary.txt
     #infer-raw-output-dir=../../../../../samples/primary_detector_raw_output/
-    
+
     [tracker]
     enable=1
     tracker-width=600
@@ -413,7 +413,7 @@ Pro přípravu této konfigurace si přečtěte nejčastější dotazy, které n
     gpu-id=0
     #enable-batch-process applicable to DCF only
     enable-batch-process=0
-    
+
     [tests]
     file-loop=1
     ```
@@ -486,7 +486,7 @@ Pro přípravu této konfigurace si přečtěte nejčastější dotazy, které n
     sudo iotedge list
     ```
 
-    :::image type="content" source="media/attach-gpu-to-linux-vm/verify-modules-sudo.png" alt-text="snímek obrazovky seznamu iotedge":::
+    :::image type="content" source="media/attach-gpu-to-linux-vm/verify-modules-sudo.png" alt-text="Snímek obrazovky, který zobrazuje výstup ze seznamu iotedge.":::
 
     ```shell
     nvidia-smi
@@ -503,19 +503,19 @@ Pro přípravu této konfigurace si přečtěte nejčastější dotazy, které n
     sudo iotedge list
     ```
 
-    :::image type="content" source="media/attach-gpu-to-linux-vm/verify1.png" alt-text="snímek obrazovky seznamu iotedge":::
+    :::image type="content" source="media/attach-gpu-to-linux-vm/verify1.png" alt-text="Snímek obrazovky s výstupem zobrazujícím kontejner NvdiaDeepStreem je funkční.":::
 
     ```shell
     sudo iotedge logs -f NVIDIADeepStreamSDK
     ```
 
-    :::image type="content" source="media/attach-gpu-to-linux-vm/verify2.png" alt-text="snímek obrazovky seznamu iotedge":::
+    :::image type="content" source="media/attach-gpu-to-linux-vm/verify2.png" alt-text="Snímek obrazovky, který zobrazuje výstup pro příkaz iotedge logs-f NVIDIADeepStreamSDK.":::
 
     ```shell
     nvidia-smi
     ```
 
-    :::image type="content" source="media/attach-gpu-to-linux-vm/verify3.png" alt-text="snímek obrazovky seznamu iotedge":::
+    :::image type="content" source="media/attach-gpu-to-linux-vm/verify3.png" alt-text="Snímek obrazovky, který zobrazuje další výstup pro příkaz NVIDIA-SMI.":::
 
 21. Pomocí příkazu **ifconfig** potvrďte adresu TCP/IP pro virtuální počítač s Ubuntu a vyhledejte adresu TCP/IP vedle rozhraní **eth0** .
 

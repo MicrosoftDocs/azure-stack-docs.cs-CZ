@@ -1,0 +1,63 @@
+### YamlMime:Landing
+title: Dokumentace ke službě Azure Kubernetes v Azure Stack HCL
+summary: Služba Azure Kubernetes v Azure Stack HCI je místní implementace oblíbeného nástroje Azure Kubernetes Service (AKS) Orchestrator, který automatizuje spouštění kontejnerových aplikací ve velkém měřítku. Služba Azure Kubernetes je teď ve verzi Preview na Azure Stack HCI. díky tomu je rychlejší začít s hostováním kontejnerů pro Linux a Windows ve vašem datovém centru.
+metadata:
+  title: Dokumentace ke službě Azure Kubernetes v Azure Stack HCL
+  description: Služba Azure Kubernetes v Azure Stack HCI je místní implementace oblíbeného nástroje Azure Kubernetes Service (AKS) Orchestrator, který automatizuje spouštění kontejnerových aplikací ve velkém měřítku. Služba Azure Kubernetes je teď ve verzi Preview na Azure Stack HCI. díky tomu je rychlejší začít s hostováním kontejnerů pro Linux a Windows ve vašem datovém centru.
+  ms.topic: landing-page
+  author: jasongerend
+  ms.author: jgerend
+  ms.date: 09/22/2020
+  ms.openlocfilehash: 25ac5eecb2f198613c3402a269c1aeafd7df4cc0
+  ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
+  ms.translationtype: MT
+  ms.contentlocale: cs-CZ
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "90949002"
+landingContent:
+- title: O službě Azure Kubernetes
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Co je služba Azure Kubernetes v Azure Stack HCI?
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: Základní koncepce Kubernetes pro AKS
+      url: kubernetes-concepts.md
+- title: Začínáme
+  linkLists:
+  - linkListType: deploy
+    links:
+    - text: Ověřit požadavky na systém
+      url: system-requirements.md
+  - linkListType: quickstart
+    links:
+    - text: Nastavení AKS s centrem pro správu Windows
+      url: setup.md
+    - text: Nastavení AKS pomocí PowerShellu
+      url: setup-powershell.md
+    - text: Vytvoření clusteru Kubernetes s centrem pro správu Windows
+      url: create-kubernetes-cluster.md
+    - text: Vytvoření clusteru Kubernetes pomocí prostředí PowerShell
+      url: create-kubernetes-cluster-powershell.md
+- title: Nasazení aplikací pro Windows a Linux
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Použití kontejnerů s Windows Serverem
+      url: deploy-windows-application.md
+    - text: Použití kontejnerů Linux
+      url: deploy-linux-application.md
+  - linkListType: how-to-guide
+    links:
+    - text: Přizpůsobení aplikací pro clustery Kubernetes se smíšeným operačním systémem
+      url: adapt-apps-mixed-os-clusters.md
+    - text: Použití trvalého úložiště v kontejneru Windows a příprava na gMSA
+      url: persistent-storage-windows-nodes.md
+- title: Integrace s Azure
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Připojení ke službě Azure ARC pro Kubernetes
+      url: connect-to-arc.md

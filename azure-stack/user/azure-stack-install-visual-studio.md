@@ -7,12 +7,12 @@ ms.date: 06/11/2020
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/04/2020
-ms.openlocfilehash: c9d8ad6293735db1a65d6f24e7a53a869535af6d
-ms.sourcegitcommit: dd140b3a2ac8e558eae9f5f422711d2ba560da16
+ms.openlocfilehash: 686a2b1a976df23e91cd38df61267b95008f993a
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84744925"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91107106"
 ---
 # <a name="install-visual-studio-and-connect-to-azure-stack-hub"></a>Instalace sady Visual Studio a připojení k centru Azure Stack
 
@@ -42,7 +42,7 @@ Pomocí sady Visual Studio můžete zapisovat a nasazovat [šablony](azure-stack
 
 3. Vyberte **Spravovat účty**a potom v podokně nový se přihlaste pomocí přihlašovacích údajů pro Azure Active Directory (Azure AD).  
 
-    ![Snímek obrazovky aplikace Cloud Explorer po přihlášení a připojení k rozbočovači Azure Stack](./media/azure-stack-install-visual-studio/image2.png)
+    ![Snímek obrazovky thas zobrazuje Průzkumníka cloudu po přihlášení a připojení k rozbočovači Azure Stack.](./media/azure-stack-install-visual-studio/image2.png)
 
 Po přihlášení můžete [nasadit šablony](azure-stack-deploy-template-visual-studio.md) nebo procházet dostupné typy prostředků a skupiny prostředků a vytvořit vlastní šablony.  
 
@@ -58,11 +58,11 @@ Po přihlášení můžete [nasadit šablony](azure-stack-deploy-template-visual
 
     ![Přidat nový koncový bod Azure Cloud Discovery](./media/azure-stack-install-visual-studio/image5.png)
 
-5. Vyberte možnost **Přidat**.  
+5. Vyberte **Přidat**.  
 
     Visual Studio volá správce prostředků Azure a zjišťuje koncové body, včetně koncového bodu ověřování pro Azure Directory federovaným Services (AD FS).
 
-    ![Snímek obrazovky aplikace Cloud Explorer po přihlášení a připojení k rozbočovači Azure Stack](./media/azure-stack-install-visual-studio/image6.png)
+    ![Snímek obrazovky zobrazující koncové body pro federované služby Azure Directory](./media/azure-stack-install-visual-studio/image6.png)
 
 6. V nabídce **zobrazení** vyberte **Průzkumník cloudu** .
 

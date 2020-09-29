@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/19/2019
-ms.openlocfilehash: 1af0a054c90369ba3f1e97d55dac7e5eec20ee43
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: 3a14c50413ddd431f6a8db8815d0147ef9d173e7
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84111961"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91107225"
 ---
 # <a name="back-up-your-storage-accounts-on-azure-stack-hub"></a>Zálohování účtů úložiště v centru Azure Stack
 
@@ -22,17 +22,17 @@ Tento článek se zabývá ochranou a obnovením účtů úložiště v rámci �
 
 V této části se prohlíží celková struktura řešení a hlavních částí.
 
-![Azure Stack zálohování úložiště centra](./media/azure-stack-network-howto-backup-storage/azure-stack-storage-backup.png)
+![Diagram, který zobrazuje celkovou strukturu Azure Stack zálohování úložiště centra.](./media/azure-stack-network-howto-backup-storage/azure-stack-storage-backup.png)
 
 ### <a name="application-layer"></a>Aplikační vrstva
 
-Data se dají replikovat mezi účty úložiště v různých jednotkách škálování centra Azure Stack, a to vyvoláním několika operací [Put BLOB](https://docs.microsoft.com/rest/api/storageservices/put-blob) nebo [Put](https://docs.microsoft.com/rest/api/storageservices/put-block) pro zápis objektů do více umístění. Alternativně může aplikace vydat operaci [kopírování](https://docs.microsoft.com/rest/api/storageservices/copy-blob) objektu BLOB pro zkopírování objektu blob do účtu úložiště hostovaného v samostatné jednotce škálování po dokončení operace PUT s primárním účtem.
+Data se dají replikovat mezi účty úložiště v různých jednotkách škálování centra Azure Stack, a to vyvoláním několika operací [Put BLOB](/rest/api/storageservices/put-blob) nebo [Put](/rest/api/storageservices/put-block) pro zápis objektů do více umístění. Alternativně může aplikace vydat operaci [kopírování](/rest/api/storageservices/copy-blob) objektu BLOB pro zkopírování objektu blob do účtu úložiště hostovaného v samostatné jednotce škálování po dokončení operace PUT s primárním účtem.
 
 ### <a name="scheduled-copy-task"></a>Úloha plánovaného kopírování
 
 AzCopy je skvělý nástroj, který se dá využít ke kopírování dat z místních systémů souborů, Azure Cloud Storage Azure Stack, úložiště centra a S3. AzCopy v současné době nemůže kopírovat data mezi dvěma účty úložiště centra Azure Stack. Kopírování objektů ze zdrojového účtu úložiště Azure Stack do cílového účtu úložiště Azure Stack hub vyžaduje zprostředkující místní systém souborů.
 
-Další informace najdete v tématu AzCopy v článku [použití nástrojů pro přenos dat v Azure Stack centra](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-transfer?view=azs-1908#azcopy) .
+Další informace najdete v tématu AzCopy v článku [použití nástrojů pro přenos dat v Azure Stack centra](./azure-stack-storage-transfer.md?view=azs-1908#azcopy) .
 
 ### <a name="azure-stack-hub-source"></a>Centrum Azure Stack (zdroj)
 
@@ -54,13 +54,13 @@ Jako zprostředkující server můžete vytvořit Linux nebo Windows Server. Ser
 - Pokyny k nastavení serveru pro Linux najdete v tématu [Vytvoření virtuálního počítače s Linux serverem pomocí portálu Azure Stack hub](azure-stack-quick-linux-portal.md).  
 - Pokyny k nastavení Windows serveru najdete v tématu [Vytvoření virtuálního počítače s Windows serverem pomocí portálu Azure Stack hub](azure-stack-quick-windows-portal.md).  
 
-Po nastavení Windows serveru budete muset nainstalovat [Azure Stack centrum PowerShell](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-install?toc=https%3A%2F%2Fdocs.microsoft.com%2FFazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2FFazure-stack%2Fbreadcrumb%2Ftoc.json) a [nástroje Azure Stack hub](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-download?toc=https%3A%2F%2Fdocs.microsoft.com%2FFazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2FFazure-stack%2Fbreadcrumb%2Ftoc.json).
+Po nastavení Windows serveru budete muset nainstalovat [Azure Stack centrum PowerShell](../operator/azure-stack-powershell-install.md?toc=https%3A%2F%2Fdocs.microsoft.com%2FFazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2FFazure-stack%2Fbreadcrumb%2Ftoc.json) a [nástroje Azure Stack hub](../operator/azure-stack-powershell-download.md?toc=https%3A%2F%2Fdocs.microsoft.com%2FFazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2FFazure-stack%2Fbreadcrumb%2Ftoc.json).
 
 ## <a name="set-up-backup-for-storage-accounts"></a>Nastavení zálohování pro účty úložiště
 
 1. Načtěte koncový bod objektu BLOB pro zdrojové a cílové účty úložiště.
 
-    ![Azure Stack zálohování úložiště centra](./media/azure-stack-network-howto-backup-storage/back-up-step1.png)
+    ![Snímek obrazovky, který zobrazuje primární koncový bod objektu BLOB pro zdrojové a cílové účty úložiště.](./media/azure-stack-network-howto-backup-storage/back-up-step1.png)
 
 2. Vytvořte a zaznamenejte tokeny SAS pro zdrojové a cílové účty úložiště.
 
@@ -102,7 +102,7 @@ Po nastavení Windows serveru budete muset nainstalovat [Azure Stack centrum Pow
     schtasks /CREATE /SC minute /MO 5 /TN "AzCopy Script" /TR C:\\&lt;script name>.bat
     ```
 
-    | Parametr | Poznámka | 
+    | parametr | Poznámka | 
     | ---- | ---- |
     | /SC | Použijte minutový plán. |
     | /MO | Interval v *XX* minutách. |
@@ -112,7 +112,7 @@ Po nastavení Windows serveru budete muset nainstalovat [Azure Stack centrum Pow
 
     - Pro Windows Server:
 
-    Informace o použití plánu úlohy Windows najdete v tématu [Plánovač úloh pro vývojáře](https://docs.microsoft.com/windows/win32/taskschd/task-scheduler-start-page) .
+    Informace o použití plánu úlohy Windows najdete v tématu [Plánovač úloh pro vývojáře](/windows/win32/taskschd/task-scheduler-start-page) .
     
 
 ## <a name="use-your-storage-account-in-a-disaster"></a>Použití účtu úložiště při havárii

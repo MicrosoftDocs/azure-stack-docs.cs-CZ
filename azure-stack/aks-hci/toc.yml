@@ -1,0 +1,65 @@
+- name: Dokumentace ke službě Azure Kubernetes v Azure Stack HCL
+  href: index.yml
+- name: Přehled
+  items:
+    - name: Služba Azure Kubernetes na Azure Stack HCL
+      href: overview.md
+- name: Rychlé starty
+  expanded: true
+  items:
+    - name: Nastavení služby Azure Kubernetes v Azure Stack HCI
+      items:
+        - name: Použití centra pro správu Windows
+          href: setup.md
+        - name: Pomocí prostředí PowerShell
+          href: setup-powershell.md
+    - name: Vytvoření clusteru Kubernetes
+      items:
+        - name: Použití centra pro správu Windows
+          href: create-kubernetes-cluster.md
+        - name: Pomocí prostředí PowerShell
+          href: create-kubernetes-cluster-powershell.md
+- name: Kurzy
+  items:
+    - name: Použití kontejnerů s Windows Serverem
+      href: deploy-windows-application.md
+    - name: Použití kontejnerů Linux
+      href: deploy-linux-application.md
+- name: Koncepty
+  items:
+    - name: Koncepty Azure Kubernetes on Azure Stack HCL
+      href: kubernetes-concepts.md
+    - name: Požadavky na systém
+      href: system-requirements.md
+- name: Návody
+  items:
+    - name: Připojení ke službě Azure ARC pro Kubernetes
+      href: connect-to-arc.md
+    - name: Přizpůsobení aplikací pro clustery Kubernetes se smíšeným operačním systémem
+      href: adapt-apps-mixed-os-clusters.md
+    - name: Použití trvalého úložiště v kontejneru Windows a příprava na gMSA
+      href: persistent-storage-windows-nodes.md
+    - name: Řešení potíží
+      href: troubleshoot.md
+- name: Související
+  items:
+    - name: Azure Stack HCI
+      href: ../hci/index.yml
+    - name: Centrum pro správu systému Windows
+      href: /windows-server/manage/windows-admin-center/understand/windows-admin-center
+    - name: Hybridní cloud Azure
+      href: /hybrid
+    - name: Windows Server
+      href: /windows-server/
+- name: Zdroje a prostředky
+  items:
+    - name: "Poznámky k\_verzi"
+      href: 'https://aka.ms/aks-hci-relnotes/'
+    - name: Známé problémy
+      href: known-issues.md
+    - name: Plány Azure do budoucna
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: AKS na Azure Stack Průvodce HCI
+      href: 'https://aka.ms/aks-hci-roadmap/'
+    - name: Chyby souborů
+      href: 'https://aka.ms/aks-hci-issues/'

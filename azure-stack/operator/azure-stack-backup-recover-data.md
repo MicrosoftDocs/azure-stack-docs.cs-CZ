@@ -7,12 +7,12 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 245951e86128fb71e6820f3b57bdf2723506d4bc
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 7f57336cdb15be2f55fdcd3756f5f3714f51b1af
+ms.sourcegitcommit: d197e8d3c3b69c20d09de4c43d8089ec0a993baf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "78935058"
+ms.lasthandoff: 09/21/2020
+ms.locfileid: "90836501"
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>Obnovení z katastrofické ztráty dat
 
@@ -24,7 +24,7 @@ Tento scénář řeší celou instalaci, pokud dojde k selhání a opětovnému 
 
 | Scénář                                                           | Ztráta dat                            | Požadavky                                                             |
 |--------------------------------------------------------------------|--------------------------------------|----------------------------------------------------------------------------|
-| Zotavení z závažné ztráty dat kvůli havárii nebo chybě produktu. | Všechna data infrastruktury a uživatelů a aplikací. | Uživatelská aplikace a data jsou chráněny odděleně od dat infrastruktury. |
+| Zotavení z závažné ztráty dat kvůli havárii nebo chybě produktu. | Všechna data infrastruktury a uživatelů a aplikací. | Může obnovit jiný výrobce OEM.<br/> Může obnovit na jinou generaci hardwaru.<br/> Můžete obnovit na jiný počet uzlů jednotky škálování.<br/> Uživatelská aplikace a data jsou chráněny odděleně od dat infrastruktury. |
 
 ## <a name="workflows"></a>Pracovní postupy
 
@@ -52,10 +52,10 @@ Pokud dojde k havárii, která vykreslí nepoužitelný hardware, je možné zno
 Centrum Azure Stack podporuje typ nasazení s názvem režim Cloud Recovery. Tento režim se používá jenom v případě, že se rozhodnete pro obnovení centra Azure Stack po havárii nebo chybě produktu, že řešení není možné obnovit. Tento režim nasazení neobnovuje žádná uživatelská data uložená v řešení. Rozsah tohoto režimu nasazení je omezený na obnovení následujících dat:
 
  - Vstupy nasazení
- - Interní data služby identity (nasazení ADFS).
+ - Data služby interní identity
  - Konfigurace federovaného určení (nasazení ADFS)
  - Kořenové certifikáty používané interní certifikační autoritou
- - Azure Resource Manager konfigurační data uživatelů, jako jsou předplatná, plány, nabídky, kvóty úložiště, síťové kvóty a výpočetní prostředky.
+ - Azure Resource Manager konfigurační data uživatelů, jako jsou předplatná, plány, nabídky, skupiny prostředků, značky, kvóty úložiště, síťové kvóty a výpočetní prostředky.
  - Key Vault tajných klíčů a trezorů.
  - Přiřazení zásad RBAC a přiřazení rolí
 

@@ -8,12 +8,12 @@ ms.date: 10/05/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 06/11/2019
-ms.openlocfilehash: 2fd22acfe6f47d3a12502d5528e1f3fd96294460
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 29ae7acf1954dfafad1583bf037603f8ccac7514
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77696477"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91106801"
 ---
 # <a name="create-add-on-plans-in-azure-stack-hub"></a>Vytvoření doplňkových plánů v centru Azure Stack
 
@@ -35,19 +35,19 @@ Plány doplňku jsou [vytvořeny stejným způsobem](azure-stack-create-plan.md)
 2. Použijte stejný postup, který slouží k [Vytvoření nového základního plánu](azure-stack-create-plan.md) pro vytvoření nového plánu, který nabízí služby, které nebyly dříve nabídnuty.
 3. Na portálu pro správu vyberte **nabídky** a potom vyberte nabídku, která se má aktualizovat pomocí doplňkového plánu.
 
-   ![Vyberte nabídku, která se má aktualizovat pomocí doplňku plán na portálu Azure Stack správce.](media/create-add-on-plan/add-on1.png)
+   ![Snímek obrazovky, který ukazuje, jak vybrat nabídku, která se má aktualizovat pomocí doplňku plán na portálu Azure Stack správce.](media/create-add-on-plan/add-on1.png)
 
 4. V dolní části vlastností nabídky vyberte možnost **plány doplňku**. Vyberte **Přidat**.
 
-    ![Výběr doplňkových plánů na portálu pro správu Azure Stack](media/create-add-on-plan/add-on2.png)
+    ![Snímek obrazovky, který ukazuje, jak vybrat plány doplňků na portálu Azure Stack správce.](media/create-add-on-plan/add-on2.png)
 
 5. Vyberte plán, který chcete přidat. V tomto příkladu se plán nazývá **20-storageaccounts**. Po výběru plánu klikněte na **Vybrat** a přidejte plán do nabídky. Měli byste obdržet oznámení, že plán byl úspěšně přidán do nabídky.
 
-    ![Výběr plánu doplňku pro přidání na portál Azure Stack správce](media/create-add-on-plan/add-on3.png)
+    ![Snímek obrazovky, který ukazuje, jak vybrat plán doplňku pro přidání na portál pro správu Azure Stack.](media/create-add-on-plan/add-on3.png)
 
 6. Zkontrolujte seznam doplňkových plánů, který je součástí nabídky, a ověřte, že je uvedený nový plán doplňku.
 
-    ![[Kontrola seznamu doplňkových plánů na portálu pro správu Azure Stack] (Media/Create-Add-on-Plan/Add-on4. png "vytvořit doplněk plán")](media/create-add-on-plan/add-on4lg.png#lightbox)
+    ![Snímek obrazovky, který zobrazuje seznam plánů doplňku pro kontrolu na portálu Azure Stack správce.](media/create-add-on-plan/add-on4.png "Vytvořit plán doplňku")] (Media/Create-Add-on-Plan/add-on4lg.png # Lightbox)
 ::: moniker-end
 
 ::: moniker range="<=azs-1901"

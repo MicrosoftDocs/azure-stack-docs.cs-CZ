@@ -4,49 +4,125 @@
   items:
     - name: Co je Azure Stack HCI?
       href: overview.md
+    - name: Známé problémy
+      href: known-issues.md
+    - name: "Poznámky k\_verzi"
+      href: release-notes.md
 - name: Začínáme
   items:
     - name: Použití Azure Stack HCL s centrem pro správu Windows
       href: get-started.md
+- name: Nasazení
+  items:
+    - name: Přehled nasazení
+      href: deploy/deployment-overview.md
+    - name: Než začnete
+      href: deploy/before-you-start.md
+    - name: Nasazení operačního systému Azure Stack HCI
+      href: deploy/operating-system.md
+    - name: Vytvoření clusteru
+      href: deploy/create-cluster.md
+    - name: Vytvoření clusteru pomocí prostředí PowerShell
+      href: deploy/create-cluster-powershell.md
+    - name: Nastavení určujícího clusteru
+      href: deploy/witness.md
+    - name: Registrace v Azure
+      href: deploy/register-with-azure.md
+    - name: Ověřit cluster
+      href: deploy/validate.md
+    - name: Nasazení síťového adaptéru
+      href: deploy/network-controller-powershell.md
 - name: Spravovat
   items:
-    - name: Vytváření svazků
-      href: manage/create-volumes.md
-    - name: Rozšiřování svazků
-      href: manage/extend-volumes.md
-    - name: Odstranit svazky
-      href: manage/delete-volumes.md
-    - name: Nahradit jednotky
-      href: manage/replace-drives.md
-    - name: Správa clusterů
-      href: manage/cluster.md
-    - name: Správa clusterů pomocí PowerShellu
-      href: manage/cluster-powershell.md
-    - name: Přidat nebo odebrat servery
-      href: manage/add-cluster.md
-    - name: Použití Azure Site Recovery
-      href: manage/azure-site-recovery.md
-    - name: Monitorování pomocí služby Azure Monitor
-      href: manage/azure-monitor.md
     - name: Správa virtuálních počítačů
-      href: manage/vm.md
-    - name: Správa virtuálních počítačů pomocí PowerShellu
-      href: manage/vm-powershell.md
-    - name: Připojení GPU k virtuálnímu počítači se systémem Linux
-      href: manage/attach-gpu-to-linux-vm.md
+      items:
+        - name: Správa virtuálních počítačů
+          href: manage/vm.md
+        - name: Správa virtuálních počítačů pomocí PowerShellu
+          href: manage/vm-powershell.md
+        - name: Vytvořit pravidla spřažení virtuálních počítačů
+          href: manage/vm-affinity.md
+        - name: Připojení GPU k virtuálnímu počítači se systémem Linux
+          href: manage/attach-gpu-to-linux-vm.md
+    - name: Správa úložiště
+      items:
+        - name: Vytváření svazků
+          href: manage/create-volumes.md
+        - name: Vytvoření roztaženého svazku
+          href: manage/create-stretched-volumes.md
+        - name: Chránit svazky
+          href: manage/volume-encryption-deduplication.md
+        - name: Rozšiřování svazků
+          href: manage/extend-volumes.md
+        - name: Odstranit svazky
+          href: manage/delete-volumes.md
+        - name: Nahradit jednotky
+          href: manage/replace-drives.md
+        - name: Použít mezipaměť pro čtení v paměti sdíleného svazku clusteru
+          href: manage/use-csv-cache.md
+    - name: Správa clusteru
+      items:
+        - name: Správa clusteru
+          href: manage/cluster.md
+        - name: Správa clusterů pomocí PowerShellu
+          href: manage/cluster-powershell.md
+        - name: Aktualizace clusteru
+          href: manage/update-cluster.md
+        - name: Monitorování clusteru
+          href: manage/monitor-cluster.md
+        - name: Přidat nebo odebrat servery
+          href: manage/add-cluster.md
+        - name: Správa registrace Azure
+          href: manage/manage-azure-registration.md
+        - name: Změnit jazyky
+          href: manage/languages.md
+        - name: Řešení potíží s vytvářením sestav ověření clusteru
+          href: manage/validate-qos.md
+        - name: Řešení CredSSP
+          href: manage/troubleshoot-credssp.md
+    - name: Správa služeb Azure
+      items:
+        - name: Registrace centra pro správu Windows pomocí Azure
+          href: manage/register-windows-admin-center.md
+        - name: Použití webu Azure Portal
+          href: manage/azure-portal.md
+        - name: Monitorování pomocí služby Azure Monitor
+          href: manage/azure-monitor.md
+        - name: Použití Azure Site Recovery
+          href: manage/azure-site-recovery.md
+        - name: Použití služby Azure Backup
+          href: manage/use-azure-backup.md
+        - name: Použít síťový adaptér Azure
+          href: manage/use-azure-network-adapter.md
 - name: Koncepty
   items:
+    - name: Roztažené clustery
+      href: concepts/stretched-clusters.md
+    - name: Fakturace
+      href: concepts/billing.md
+    - name: Aktualizace a upgrady
+      href: concepts/updates.md
     - name: Zvolit jednotky
       href: concepts/choose-drives.md
+    - name: Požadavky na symetrii jednotky
+      href: concepts/drive-symmetry-considerations.md
     - name: Plánování svazků
       href: concepts/plan-volumes.md
-    - name: Pochopení mezipaměti
+    - name: Softwarově definované sítě
+      href: concepts/software-defined-networking.md
+    - name: Pochopení mezipaměti fondu úložiště
       href: concepts/cache.md
     - name: Odolnost proti chybám a efektivita úložiště
       href: concepts/fault-tolerance.md
     - name: Kvorum clusteru a fondu úložiště
       href: concepts/quorum.md
-- name: Referenční informace
+    - name: Plánování infrastruktury SDN
+      href: concepts/plan-software-defined-networking-infrastructure.md
+    - name: Síťový adaptér
+      href: concepts/network-controller.md
+    - name: Důležité informace o zabezpečení
+      href: concepts/security.md
+- name: Odkaz
   items:
     - name: Příkazy prostředí PowerShell technologie Hyper-V
       href: /powershell/module/hyper-v
@@ -66,25 +142,25 @@
       href: /powershell/module/dcbqos
 - name: Související
   items:
+    - name: Služba Azure Kubernetes na Azure Stack HCL
+      href: ../aks-hci/overview.md
     - name: Řada Azure Stack
       href: ../index.yml
-    - name: Centrum Azure Stack
-      href: /azure-stack/operator/azure-stack-overview?view=azs-2002
-    - name: Azure Stack Edge
-      href: /azure/databox-online/data-box-edge-overview
+    - name: Hybridní cloud Azure
+      href: /hybrid
     - name: Windows Server
       href: /windows-server/
     - name: Centrum pro správu systému Windows
       href: /windows-server/manage/windows-admin-center/understand/windows-admin-center
-    - name: Služba Azure Hybrid Services
-      href: /windows-server/manage/windows-admin-center/azure
-    - name: Prostory úložiště – přímé
-      href: /windows-server/storage/storage-spaces/storage-spaces-direct-overview
-    - name: Clustering s podporou převzetí služeb při selhání
-      href: /windows-server/failover-clustering/failover-clustering-overview
-    - name: Hyper-V
-      href: /windows-server/virtualization/hyper-v/hyper-v-on-windows-server
     - name: Softwarově definované sítě
       href: /windows-server/networking/sdn
     - name: System Center
       href: /system-center/
+- name: Zdroje a prostředky
+  items:
+    - name: Stránka produktu Azure Stack HCL
+      href: 'https://azure.com/hci'
+    - name: Průvodce vyvyhodnocením Azure Stack HCL
+      href: 'https://github.com/Azure/AzureStackHCI-EvalGuide/blob/main/README.md'
+    - name: Azure Stack ceny HCI
+      href: 'https://azure.microsoft.com/en-us/pricing/details/azure-stack/hci/'

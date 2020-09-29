@@ -1,22 +1,25 @@
 ---
-title: Přidání požadavků modulu Azure Kubernetes Services (AKS) do tržiště centra Azure Stack
+title: Přidání požadavků modulu Azure Kubernetes Services (AKS) do webu služby Azure Stack hub Marketplace
 description: Přečtěte si, jak přidat požadavky na modul AKS do tržiště centra Azure Stack.
 author: mattbriggs
 ms.topic: article
-ms.date: 6/08/2020
+ms.date: 09/16/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 6/08/2020
-ms.openlocfilehash: 7090ac774da41e8f7f1bc319a9956cba8f8b0f4a
-ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
+ms.lastreviewed: 09/16/2020
+ms.openlocfilehash: 810aa253eb4872a58ea2e52070bb42eaaa1f6aaa
+ms.sourcegitcommit: 719569bb9e3f9924494a9229b4f2d211ae3f4f74
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84630430"
+ms.lasthandoff: 09/17/2020
+ms.locfileid: "90717984"
 ---
 # <a name="add-the-azure-kubernetes-services-aks-engine-prerequisites-to-the-azure-stack-hub-marketplace"></a>Přidání požadavků modulu Azure Kubernetes Services (AKS) do tržiště centra Azure Stack
 
-Přidáním položek popsaných v tomto článku do centra Azure Stack můžete uživatelům povolit, aby si nastavili modul Azure Kubernetes Services (AKS). Uživatelé pak mohou nasadit cluster Kubernetes v rámci jediné koordinované operace. Tento článek vás provede kroky potřebnými k tomu, aby byl modul AKS k dispozici pro vaše uživatele v připojených i odpojených prostředích. Modul AKS závisí na identitě služby a na webu Marketplace, ve vlastním rozšíření skriptu a na základní imagi AKS. Modul AKS vyžaduje, abyste spustili [Azure Stack Hub 1910](release-notes.md?view=azs-1910) nebo vyšší.
+Můžete nastavit modul AKS (Azure Kubernetes Services) pro vaše uživatele. Přidejte položky popsané v tomto článku do centra Azure Stack. Uživatelé pak mohou nasadit cluster Kubernetes v rámci jediné koordinované operace. Tento článek vás provede kroky potřebnými k tomu, aby byl modul AKS k dispozici pro vaše uživatele v připojených i odpojených prostředích. Modul AKS závisí na identitě služby a na webu Marketplace, ve vlastním rozšíření skriptu a na základní imagi AKS. Modul AKS vyžaduje, abyste spustili [Azure Stack Hub 1910](release-notes.md?view=azs-1910&preserve-view=true) nebo vyšší.
+
+> [!NOTE]  
+> Mapování Azure Stackho centra na číslo verze modulu AKS najdete v [poznámkách k verzi modulu AKS](/azure-stack/user/kubernetes-aks-engine-release-notes#aks-engine-and-azure-stack-version-mapping).
 
 ## <a name="check-your-users-service-offering"></a>Ověření nabídky služeb uživatele
 
@@ -55,7 +58,8 @@ Do Marketplace přidejte následující položku:
     V seznamu vyberte:
     - **Vydavatel**: Služba Azure Kubernetes
     - **Nabídka**: AKS
-    - **Verze**: AKS Base Ubuntu 16,04-LTS image distribuce, březen 2020 (2020.03.19 nebo verze, která se MAPUJE na AKS Engine)
+    - **Název**: AKS Base Ubuntu 16,04-LTS image distribuce, srpen 2020 (2020.09.14 nebo verze, která se MAPUJE na AKS Engine)
+    - **Verze**: 2020.09.14
 
 1. Vyberte **Stáhnout.**
 

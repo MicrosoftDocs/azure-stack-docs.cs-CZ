@@ -1,5 +1,5 @@
 ---
-title: Nasazení aplikace Java WAR na virtuální počítač v Azure Stackovém centru
+title: Nasazení Java WAR do virtuálního počítače v Azure Stackovém centru
 description: Nasaďte Java WAR do virtuálního počítače v Azure Stackovém centru.
 author: mattbriggs
 ms.topic: how-to
@@ -7,12 +7,13 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 05/05/2020
-ms.openlocfilehash: 1a7915743314481630dc489f733b3123ae2fafe8
-ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
+ms.custom: conteperfq4
+ms.openlocfilehash: a7efe4a1329ba96ab9365c9c17022fc647b868a5
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84147001"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91107201"
 ---
 # <a name="deploy-a-java-web-app-to-a-vm-in-azure-stack-hub"></a>Nasazení webové aplikace v jazyce Java do virtuálního počítače v Azure Stackovém centru
 
@@ -24,7 +25,7 @@ Můžete vytvořit virtuální počítač, který bude hostovat vaši webovou ap
 
 2. V podokně síť virtuálních počítačů se ujistěte, že jsou dostupné tyto porty:
 
-    | Port | Protocol (Protokol) | Popis |
+    | Port | Protokol | Popis |
     | --- | --- | --- |
     | 80 | HTTP | HTTP (Hypertext Transfer Protocol) je protokol, který se používá k doručování webových stránek ze serverů. Klienti se připojují přes protokol HTTP s názvem DNS nebo IP adresou. |
     | 443 | HTTPS | Protokol HTTPS (Hypertext Transfer Protocol Secure) je zabezpečená verze protokolu HTTP, která vyžaduje certifikát zabezpečení a umožňuje šifrovaný přenos informací. |
@@ -160,7 +161,7 @@ Můžete vytvořit virtuální počítač, který bude hostovat vaši webovou ap
         sudo systemctl start tomcat
     ```
 
-    g. Zadáním těchto akcí ověřte, zda bylo spuštěno bez chyb.
+    například Zadáním těchto akcí ověřte, zda bylo spuštěno bez chyb.
 
     ```bash  
         sudo systemctl status tomcat
@@ -176,7 +177,7 @@ Můžete vytvořit virtuální počítač, který bude hostovat vaši webovou ap
 
 1. Otevřete prohlížeč ve stejné síti jako centrum Azure Stack a pak otevřete Server, *yourmachine. Local. cloudapp. azurestack. external: 8080*.
 
-    ![Apache Tomcat na virtuálním počítači centra Azure Stack](media/azure-stack-dev-start-howto-vm-java/apache-tomcat.png)
+    ![Snímek obrazovky zobrazující stránku Apache Tomcat](media/azure-stack-dev-start-howto-vm-java/apache-tomcat.png)
 
     Načte se stránka Apache Tomcat na vašem serveru. Dále nakonfigurujete server, který vám umožní přístup k stavu serveru, aplikaci správce a správci hostitele.
 
@@ -188,7 +189,7 @@ Můžete vytvořit virtuální počítač, který bude hostovat vaši webovou ap
 
 1. Pokud chcete umožnění přístupu k rozhraní webové správy, nakonfigurujte server Tomcat. 
 
-   a. Upravte soubor *Tomcat-Users. XML* a definujte roli a uživatele, abyste se mohli přihlásit. Zadejte uživatele pro přístup k `manager-gui` a `admin-gui` .
+   a. Upravte soubor *tomcat-users.xml* a definujte roli a uživatele, abyste se mohli přihlásit. Zadejte uživatele pro přístup k `manager-gui` a `admin-gui` .
 
     ```bash  
         sudo nano /opt/tomcat/conf/tomcat-users.xml
@@ -215,9 +216,9 @@ Můžete vytvořit virtuální počítač, který bude hostovat vaši webovou ap
 
     c. Uložte soubor a zavřete ho.
 
-1. Tomcat omezuje přístup k aplikacím *správce* a *hosta* do připojení přicházejících ze serveru. Vzhledem k tomu, že instalujete Tomcat na virtuální počítač v centru Azure Stack, budete chtít toto omezení odebrat. Upravte omezení IP adres v těchto aplikacích úpravou příslušných souborů *Context. XML* .
+1. Tomcat omezuje přístup k aplikacím *správce* a *hosta* do připojení přicházejících ze serveru. Vzhledem k tomu, že instalujete Tomcat na virtuální počítač v centru Azure Stack, budete chtít toto omezení odebrat. Upravte na těchto aplikacích omezení IP adres úpravou příslušných souborů *context.xml* .
 
-    a. Aktualizace *Context. XML* v aplikaci Správce:
+    a. Aktualizace *context.xml* v aplikaci Správce:
 
     ```bash  
         sudo nano /opt/tomcat/webapps/manager/META-INF/context.xml
@@ -234,7 +235,7 @@ Můžete vytvořit virtuální počítač, který bude hostovat vaši webovou ap
 
     c. Uložte soubor a zavřete ho.
 
-    d. Aktualizace *Context. XML* aplikace Správce hostitele s podobnou aktualizací:
+    d. Aktualizujte  *context.xml* aplikaci Správce hostitele s podobnou aktualizací:
 
     ```bash  
         sudo nano /opt/tomcat/webapps/host-manager/META-INF/context.xml

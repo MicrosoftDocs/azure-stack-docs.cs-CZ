@@ -3,16 +3,16 @@ title: Připojení k centru Azure Stack pomocí rozšíření účtu Azure v Vis
 description: Jako vývojář se můžete připojit k centru Azure Stack pomocí rozšíření účtu Azure v Visual Studio Code
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 04/20/2020
+ms.date: 09/21/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 768b93c2ef2d984fcc75f6893be6260a1c4fbb1c
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.lastreviewed: 09/21/2020
+ms.openlocfilehash: 66a4a8f846002cc126d4861e1acc52b672e78dc5
+ms.sourcegitcommit: 68c00d9ee7c5a9e7da6d41e2f753c0f93d26238e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81661059"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91211155"
 ---
 # <a name="connect-to-azure-stack-hub-using-azure-account-extension-in-visual-studio-code"></a>Připojení k centru Azure Stack pomocí rozšíření účtu Azure v Visual Studio Code
 
@@ -20,7 +20,7 @@ V tomto článku Vás provedeme postupem připojení k centru Azure Stack pomoc�
 
 VS Code je zjednodušený editor pro sestavování a ladění webových a cloudových aplikací. ASP.NET Core, Python, NodeJS, přejít a další vývojáři používají VS Code. Pomocí rozšíření účtu Azure můžete použít jedno přihlášení Azure s filtrováním předplatného pro další rozšíření Azure. Rozšíření zpřístupňuje Azure Cloud Shell v terminálu integrovaném s VS Code. Pomocí tohoto rozšíření se můžete ke svému předplatnému centra Azure Stack připojit pomocí Azure AD (Azure AD) i služby Active Directory federovaných služeb (AD FS) pro správce identit. Můžete se přihlásit do centra Azure Stack, vybrat své předplatné a otevřít nový příkazový řádek ve službě cloud Shell. 
 
-> [!Note]  
+> [!NOTE]  
 > Kroky v tomto článku můžete použít pro prostředí služby Active Directory federované služby (AD FS). Použijte své AD FS přihlašovací údaje a koncové body.
 
 ## <a name="pre-requisites-for-the-azure-account-extension"></a>Předpoklady pro rozšíření účtu Azure
@@ -62,13 +62,13 @@ VS Code je zjednodušený editor pro sestavování a ladění webových a cloudo
 7. Načtěte metadata pro připojení k Azure Resource Manager v centru Azure Stack. 
     
     Microsoft Azure Správce prostředků je rozhraní pro správu, které umožňuje nasazovat, spravovat a monitorovat prostředky Azure.
-    - Správce prostředků adresa URL pro Azure Stack Development Kit (ASDK) je:`https://management.local.azurestack.external/` 
-    - Adresa URL Správce prostředků pro integrovaný systém je: `https://management.region.<fqdn>/`, kde `<fqdn>` je váš plně kvalifikovaný název domény.
-    - Přidejte do adresy URL následující text pro přístup k metadatům:`<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
+    - Správce prostředků adresa URL pro Azure Stack Development Kit (ASDK) je: `https://management.local.azurestack.external/` 
+    - Adresa URL Správce prostředků pro integrovaný systém je: `https://management.region.<fqdn>/` , kde `<fqdn>` je váš plně kvalifikovaný název domény.
+    - Přidejte do adresy URL následující text pro přístup k metadatům: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
 
-    Například adresa URL pro načtení metadat pro váš koncový bod Azure Resource Manager může vypadat přibližně takto:`https://management.local.azurestack.external/metadata/endpoints?api-version=1.0`
+    Například adresa URL pro načtení metadat pro váš koncový bod Azure Resource Manager může vypadat přibližně takto: `https://management.local.azurestack.external/metadata/endpoints?api-version=1.0`
 
-    Poznamenejte si návratový kód JSON. Budete potřebovat hodnoty pro vlastnost `loginEndpoint` a. `audiences`
+    Poznamenejte si návratový kód JSON. Budete potřebovat hodnoty pro `loginEndpoint` `audiences` vlastnost a.
 
 8. Stiskněte **kombinaci kláves CTRL + SHIFT + P** a vyberte **Předvolby: otevřít uživatelské nastavení (JSON)**.
 
@@ -81,7 +81,8 @@ VS Code je zjednodušený editor pro sestavování a ladění webových a cloudo
         | `tenant-ID` | Hodnota [ID tenanta](../operator/azure-stack-identity-overview.md)centra Azure Stack. |
         | `activeDirectoryEndpointUrl` | Toto je adresa URL z vlastnosti loginEndpoint. |
         | `activeDirectoryResourceId` | Toto je adresa URL z vlastnosti cílové skupiny.
-        | `resourceManagerEndpointUrl` | Toto je kořenová adresa URL Azure Resource Manager pro centrum Azure Stack. | 
+        | `resourceManagerEndpointUrl` | Toto je kořenová adresa URL Azure Resource Manager pro centrum Azure Stack. |
+        | `validateAuthority` | Pokud používáte Azure AD jako správce identity, můžete tento parametr ponechat. Přidejte parametr s hodnotou, pokud používáte `false` AD FS. |
 
     - Fragment kódu JSON:
 
@@ -91,6 +92,7 @@ VS Code je zjednodušený editor pro sestavování a ladění webových a cloudo
           "activeDirectoryEndpointUrl": "Login endpoint",
           "activeDirectoryResourceId": "This is the URL from the audiences property.",
           "resourceManagerEndpointUrl": "Aure Resource Management Endpoint",
+          "validateAuthority" : false, 
       },
       "azure.cloud": "AzurePPE"
       ```
@@ -109,11 +111,11 @@ VS Code je zjednodušený editor pro sestavování a ladění webových a cloudo
 | Azure: Přihlaste se ke cloudu Azure. | Přihlaste se k předplatnému Azure v jednom z cloudů z svrchovaného prostředí. |
 | Azure: odhlásit se | Odhlaste se od předplatného Azure. |
 | Azure: výběr předplatných | Vyberte sadu odběrů, se kterými chcete pracovat. Rozšíření zobrazuje pouze prostředky v rámci filtrovaných odběrů. |
-| Azure: vytvoření účtu | Pokud účet Azure nemáte, můžete si ho [zaregistrovat](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-azure-account&mktingSource=vscode-azure-account) ještě dnes a získat \$200 na bezplatné kredity. |
+| Azure: vytvoření účtu | Pokud účet Azure nemáte, můžete si ho [zaregistrovat](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-azure-account&mktingSource=vscode-azure-account) ještě dnes a získat \$ 200 na bezplatné kredity. |
 | Azure: Otevřete bash v Cloud Shell | V Cloud Shell otevřete nový terminál s operačním systémem bash. |
 | Azure: Otevřete PowerShell v Cloud Shell | Otevřete v Cloud Shell nový terminál, na kterém běží PowerShell. |
 | Azure: nahrání do Cloud Shell | Nahrajte soubor do svého účtu úložiště Cloud Shell. |
 
 ## <a name="next-steps"></a>Další kroky
 
-[Nastavení vývojového prostředí v centru Azure Stack](azure-stack-dev-start.md)
+[Nastavení vývojového prostředí v centru Azure Stack ](azure-stack-dev-start.md)

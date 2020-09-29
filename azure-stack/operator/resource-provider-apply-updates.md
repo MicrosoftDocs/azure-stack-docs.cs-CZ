@@ -1,5 +1,5 @@
 ---
-title: Jak použít aktualizace pro poskytovatele prostředků centra Azure Stack.
+title: Použít aktualizace pro poskytovatele prostředků centra Azure Stack
 description: Naučte se, jak použít aktualizaci služby pro poskytovatele prostředků v centru Azure Stack.
 author: BryanLa
 ms.author: bryanla
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/18/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 11/18/2019
-ms.openlocfilehash: 5ec6f85fc2f2e526c4b85521337ab65dc2b939cc
-ms.sourcegitcommit: 519f4298dc1ed5c33f9c4fef811f61d61731dd84
+ms.openlocfilehash: ff1a6258e682d3230ea7968a97b9e392991ca72b
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82799862"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91107118"
 ---
 # <a name="how-to-update-an-azure-stack-hub-resource-provider"></a>Postup aktualizace poskytovatele prostředků centra Azure Stack
 
@@ -26,13 +26,13 @@ Poskytovatelé prostředků nainstalovanou z Marketplace budou vyžadovat pravid
 
 Poskytovatelé prostředků se aktualizují pomocí stejné funkce aktualizace, která se používá k instalaci aktualizací centra Azure Stack.
 
-1. Přihlaste se k portálu pro správu centra Azure Stack.
+1. Přihlaste se k portálu pro správu služby Azure Stack Hub.
 2. Na levé straně vyberte odkaz **všechny služby** a v části **Správa** vyberte **aktualizace**.
    ![Stránka všechny služby](media/resource-provider-apply-updates/1-all-services.png)
 
 3. Na stránce **aktualizace** najdete v části **poskytovatel prostředků** aktualizace pro poskytovatele prostředků.
 
-   [![Stránka aktualizace k dispozici](media/resource-provider-apply-updates/3-update-available.png)](media/resource-provider-apply-updates/3-update-available.png#lightbox)
+   [![Snímek obrazovky, který ukazuje oddíl poskytovatele prostředků.](media/resource-provider-apply-updates/3-update-available.png)](media/resource-provider-apply-updates/3-update-available.png#lightbox)
 
 ## <a name="apply-an-update"></a>Použít aktualizaci
 

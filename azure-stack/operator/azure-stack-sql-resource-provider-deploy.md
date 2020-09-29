@@ -8,12 +8,12 @@ ms.date: 10/02/2019
 ms.lastreviewed: 03/18/2019
 ms.author: bryanla
 ms.reviewer: xiao
-ms.openlocfilehash: bc59808b0b1ebb954812882442cb6dc2d8b02e83
-ms.sourcegitcommit: 41195d1ee8ad14eda102cdd3fee3afccf1d83aca
+ms.openlocfilehash: adc2288d8886c5b952f26da4798fccd731738733
+ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82908484"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90946411"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack-hub"></a>Nasazení poskytovatele prostředků SQL Server v centru Azure Stack
 
@@ -30,26 +30,21 @@ Aby bylo možné nasadit poskytovatele prostředků SQL centra Azure Stack, je n
 
 - Přidejte požadovaný virtuální počítač s Windows serverem do centra Azure Stack hub tak, že stáhnete hlavní bitovou kopii **Windows serveru 2016 Datacenter-Server** .
 
-- Stáhněte si binární soubor poskytovatele prostředků SQL a potom spusťte samočinný extrahování a extrahujte obsah do dočasného adresáře. Poskytovatel prostředků má minimálně odpovídající sestavení centra Azure Stack.
+- Stáhněte si podporovanou verzi binárního souboru poskytovatele prostředků SQL podle níže uvedené tabulky mapování verzí. Spusťte samočinného extrahování pro extrakci staženého obsahu do dočasného adresáře. 
 
-  |Minimální verze centra Azure Stack|Verze SQL RP|
+  |Podporovaná verze centra Azure Stack|Verze SQL RP|
   |-----|-----|
-  |Verze 1910 (1.1910.0.58)|[SQL RP verze 1.1.47.0](https://aka.ms/azurestacksqlrp11470)|
-  |Verze 1808 (1.1808.0.97)|[SQL RP verze 1.1.33.0](https://aka.ms/azurestacksqlrp11330)|  
-  |Verze 1808 (1.1808.0.97)|[SQL RP verze 1.1.30.0](https://aka.ms/azurestacksqlrp11300)|  
-  |Verze 1804 (1.0.180513.1)|[SQL RP verze 1.1.24.0](https://aka.ms/azurestacksqlrp11240)  
+  |2005, 2002, 1910|[SQL RP verze 1.1.47.0](https://aka.ms/azurestacksqlrp11470)|
+  |1908|[SQL RP verze 1.1.33.0](https://aka.ms/azurestacksqlrp11330)| 
   |     |     |
-
-> [!IMPORTANT]
-> Před nasazením poskytovatele prostředků SQL verze 1.1.47.0 by měl být systém centra Azure Stack upgradován na verzi 1910 Update nebo novější. Verze poskytovatele prostředků SQL 1.1.47.0 v předchozích nepodporovaných verzích centra Azure Stack nefunguje.
 
 - Ujistěte se, že jsou splněné předpoklady pro integraci Datacenter:
 
-    |Požadavek|Reference|
+    |Požadavek|Odkaz|
     |-----|-----|
     |Podmíněné předávání DNS je nastaveno správně.|[Integrace centrálního centra Azure Stack – DNS](azure-stack-integrate-dns.md)|
     |Příchozí porty pro poskytovatele prostředků jsou otevřené.|[Integrace Datacenter centra Azure Stack – příchozí porty a protokoly](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|
-    |Subjekt certifikátu PKI a síť SAN jsou nastavené správně.|[Povinné předpoklady PKI pro nasazení centra Azure Stack](azure-stack-pki-certs.md#mandatory-certificates)<br>[PaaS požadavky na certifikát nasazení centra Azure Stack](azure-stack-pki-certs.md#optional-paas-certificates)|
+    |Subjekt certifikátu PKI a síť SAN jsou nastavené správně.|[Povinné předpoklady PKI pro nasazení centra Azure Stack](azure-stack-pki-certs.md)<br>[PaaS požadavky na certifikát nasazení centra Azure Stack](azure-stack-pki-certs.md)|
     |     |     |
 
 V odpojeném scénáři proveďte následující kroky a stáhněte požadované moduly PowerShellu a zaregistrujte úložiště ručně.
@@ -62,8 +57,8 @@ Import-Module -Name PackageManagement -ErrorAction Stop
 
 # path to save the packages, c:\temp\azs1.6.0 as an example here
 $Path = "c:\temp\azs1.6.0"
-Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.3.0
-Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.6.0
+Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.5.0
+Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.8.2
 ```
 
 2. Stažené balíčky pak zkopírujete do zařízení USB.
@@ -88,18 +83,21 @@ New-Item -Path $env:ProgramFiles -name "SqlMySqlPsh" -ItemType "Directory"
 
 ### <a name="certificates"></a>Certifikáty
 
-_Pouze pro instalace integrovaných systémů_. Musíte zadat certifikát PKI SQL PaaS, který je popsaný v části volitelné certifikáty PaaS v tématu [požadavky na infrastrukturu veřejných klíčů nasazení v centru Azure Stack](./azure-stack-pki-certs.md#optional-paas-certificates). Soubor. pfx umístěte do umístění zadaného parametrem **DependencyFilesLocalPath** . Neposkytněte certifikát pro systémy ASDK.
+_Pouze pro instalace integrovaných systémů_. Musíte zadat certifikát PKI SQL PaaS, který je popsaný v části volitelné certifikáty PaaS v tématu [požadavky na infrastrukturu veřejných klíčů nasazení v centru Azure Stack](./azure-stack-pki-certs.md). Soubor. pfx umístěte do umístění zadaného parametrem **DependencyFilesLocalPath** . Neposkytněte certifikát pro systémy ASDK.
 
 ## <a name="deploy-the-sql-resource-provider"></a>Nasazení poskytovatele prostředků SQL
 
-Po dokončení instalace všech požadovaných součástí spusťte skript **DeploySqlProvider. ps1** z počítače, který má Azure Stack přístup ke koncovému bodu správy prostředků Azure Resource admin a s privilegovaným koncovým bodem pro nasazení poskytovatele prostředků SQL. Skript DeploySqlProvider. ps1 je extrahován jako součást binárního souboru poskytovatele prostředků SQL, který jste stáhli pro vaši verzi centra Azure Stack.
+Po instalaci všech požadovaných součástí spusťte skript **DeploySqlProvider.ps1** z počítače, který má Azure Stack přístup ke koncovému bodu správy prostředků Azure Resource admin a s privilegovaným koncovým bodem pro nasazení poskytovatele prostředků SQL. Skript DeploySqlProvider.ps1 se extrahuje jako součást binárního souboru poskytovatele prostředků SQL, který jste si stáhli pro vaši verzi centra Azure Stack.
 
  > [!IMPORTANT]
  > Před nasazením poskytovatele prostředků si přečtěte poznámky k verzi, kde najdete informace o nových funkcích, opravách a známých problémech, které by mohly mít vliv na nasazení.
 
-Pokud chcete nasadit poskytovatele prostředků SQL, otevřete **nové** okno prostředí PowerShell se zvýšenými oprávněními (ne PowerShell ISE) a přejděte do adresáře, do kterého jste extrahovali binární soubory poskytovatele prostředků SQL. Doporučujeme použít nové okno prostředí PowerShell, aby nedocházelo k potenciálním problémům způsobeným moduly prostředí PowerShell, které jsou již načteny.
+Pokud chcete nasadit poskytovatele prostředků SQL, otevřete **nové** okno prostředí PowerShell se zvýšenými oprávněními (ne PowerShell ISE) a přejděte do adresáře, do kterého jste extrahovali binární soubory poskytovatele prostředků SQL. 
 
-Spusťte skript DeploySqlProvider. ps1, který dokončí následující úlohy:
+> [!IMPORTANT]
+> Doporučujeme použít nové okno prostředí PowerShell, aby nedocházelo k potenciálním problémům způsobeným moduly prostředí PowerShell, které jsou již načteny. Nebo můžete před spuštěním skriptu aktualizace vymazat mezipaměť pomocí azurermcontext Clear-.
+
+Spusťte skript DeploySqlProvider.ps1, který dokončí následující úkoly:
 
 - Nahraje certifikáty a jiné artefakty do účtu úložiště v Azure Stackovém centru.
 - Publikuje balíčky galerie, takže můžete nasadit databáze SQL pomocí galerie.
@@ -111,7 +109,7 @@ Spusťte skript DeploySqlProvider. ps1, který dokončí následující úlohy:
 > [!NOTE]
 > Po spuštění nasazení poskytovatele prostředků SQL se vytvoří skupina prostředků **System. Local. sqladapter** . Dokončení požadovaných nasazení do této skupiny prostředků může trvat až 75 minut. Neměli byste umístit žádné další prostředky do skupiny prostředků **System. Local. sqladapter** .
 
-### <a name="deploysqlproviderps1-parameters"></a>DeploySqlProvider. ps1 – parametry
+### <a name="deploysqlproviderps1-parameters"></a>Parametry DeploySqlProvider.ps1
 
 Z příkazového řádku můžete zadat následující parametry. Pokud ne, nebo pokud se nějaké ověření parametru nepodaří, budete vyzváni k zadání požadovaných parametrů.
 
@@ -126,8 +124,8 @@ Z příkazového řádku můžete zadat následující parametry. Pokud ne, nebo
 | **DefaultSSLCertificatePassword** | Heslo pro certifikát. pfx. | _Požadováno_ |
 | **MaxRetryCount** | Počet pokusů o opakování všech operací, pokud dojde k selhání.| 2 |
 | **RetryDuration** | Interval časového limitu mezi opakovanými pokusy (v sekundách). | 120 |
-| **Odinstalace** | Odebere poskytovatele prostředků a všechny přidružené prostředky (viz následující poznámky). | No |
-| **DebugMode** | Zabraňuje automatickému vyčištění při selhání. | No |
+| **Odinstalace** | Odebere poskytovatele prostředků a všechny přidružené prostředky (viz následující poznámky). | Ne |
+| **DebugMode** | Zabraňuje automatickému vyčištění při selhání. | Ne |
 
 ## <a name="deploy-the-sql-resource-provider-using-a-custom-script"></a>Nasazení poskytovatele prostředků SQL pomocí vlastního skriptu
 
@@ -196,15 +194,10 @@ Po dokončení instalačního skriptu poskytovatele prostředků aktualizujte pr
 
 ## <a name="verify-the-deployment-using-the-azure-stack-hub-portal"></a>Ověření nasazení pomocí portálu Azure Stack hub
 
-Pomocí následujících kroků můžete ověřit, jestli je poskytovatel prostředků SQL úspěšně nasazený.
-
 1. Přihlaste se k portálu pro správu jako správce služby.
-2. Vyberte **skupiny prostředků**.
-3. Vyberte **systém.\< Location\>. sqladapter** skupina prostředků.
+2. Vyberte **Skupiny prostředků**.
+3. Vyberte **systém. \<location\> . ** skupina prostředků sqladapter
 4. Na stránce Souhrn pro skupinu prostředků by se neměla nasazovat žádná neúspěšná nasazení.
-
-    ![Ověření nasazení poskytovatele prostředků SQL na portálu pro správu centra Azure Stack](./media/azure-stack-sql-rp-deploy/sqlrp-verify.png)
-
 5. Nakonec vyberte **virtuální počítače** na portálu pro správu, abyste ověřili, že se virtuální počítač poskytovatele prostředků SQL úspěšně vytvořil a běží.
 
 ## <a name="next-steps"></a>Další kroky

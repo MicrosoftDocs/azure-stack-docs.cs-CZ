@@ -1,18 +1,18 @@
 ---
-title: Postup nasazení F5 v rámci dvou instancí centra Azure Stack
+title: Nasazení F5 ve dvou instancích centra Azure Stack
 description: Naučte se nasazovat F5 v rámci dvou Azure Stackch instancí centra.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: cfbd828923c7653da0f0bfd86ee74703897996c7
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 3512584e4109d86a9ee6a0d71924d560b9ecba92
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81661448"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90574206"
 ---
 # <a name="how-to-deploy-f5-across-two-azure-stack-hub-instances"></a>Postup nasazení F5 v rámci dvou instancí centra Azure Stack
 
@@ -32,7 +32,7 @@ Centrum Azure Stack má samostatné tržiště z Azure. Přidávají se jenom ur
 
 -  Stáhněte si soubor **F5 Big-IP ve všech (BYOL, 2 Boot Locations)** do každého portálu Azure Stack hub Marketplace. Pokud je nemáte k dispozici na portálu, obraťte se na svého operátora cloudu.
 
--  Šablonu Azure Resource Manager můžete najít v následujícím úložišti GitHub: https://github.com/Mikej81/f5-azurestack-gslb.
+-  Šablonu Azure Resource Manager můžete najít v následujícím úložišti GitHub: https://github.com/Mikej81/f5-azurestack-gslb .
 
 ## <a name="deploy-f5-big-ip-ve-on-each-instance"></a>Nasazení F5 BIG-IP v každé instanci
 
@@ -42,27 +42,27 @@ Nasaďte do Azure Stack a instance centra a instanci B.
 
 2. Vyberte **+ vytvořit prostředek**.
 
-3. Vyhledejte na webu Marketplace zadáním `F5`.
+3. Vyhledejte na webu Marketplace zadáním `F5` .
 
 4. Vyberte **F5 Big-IP ve – All (BYOL, 2 spouštěcí umístění)**.
 
-    ![](./media/network-howto-f5/image1.png)
+    ![Dialogové okno "řídicí panel > nové > Marketplace > vše > F5 BIG-IP in-ALL (spouštěcí umístění (BYOL, 2)) zobrazí v poli hledání klávesu F5. Jeden výsledek hledání je "F5 BIG-IP in – ALL (BYOL, 2 spouštěcí umístění)".](./media/network-howto-f5/image1.png)
 
 5. V dolní části Další stránky vyberte **vytvořit**.
 
-    ![](./media/network-howto-f5/image2.png)
+    ![Dialogové okno "F5 BIG-IP v-ALL (BYOL, 2 Boot Locations)" poskytuje informace o velkých IP adresách a modulech, které můžete nasadit v závislosti na vaší licenci. Existuje tlačítko vytvořit.](./media/network-howto-f5/image2.png)
 
 6. Vytvořte novou skupinu prostředků s názvem **F5-GSLB**.
 
 7. Použijte následující hodnoty jako příklad k dokončení nasazení:
 
-    ![](./media/network-howto-f5/image3.png)
+    ![Na stránce vstupy v dialogovém okně Microsoft. template se zobrazí 15 textových polí, například VIRTUALMACHINENAME a ADMINUSERNAME, které obsahují hodnoty pro příklad nasazení.](./media/network-howto-f5/image3.png)
 
 8. Ověřte, že se nasazení úspěšně dokončilo.
 
-    ![](./media/network-howto-f5/image4.png)
+    ![Stránka Přehled v dialogovém okně Microsoft. template oznamuje, že vaše nasazení je hotové, a poskytuje podrobnosti o nasazení.](./media/network-howto-f5/image4.png)
 
-    > [!Note]  
+    > [!NOTE]  
     > Každé nasazení ve velkém protokolu IP by mělo trvat přibližně 20 minut.
 
 ## <a name="configure-big-ip-appliances"></a>Konfigurace zařízení se BIG-IP
@@ -71,7 +71,7 @@ Postupujte podle těchto kroků pro Azure Stack hub a i B.
 
 1. Přihlaste se k portálu Azure Stackho centra uživatelů v instanci centra Azure Stack A Zkontrolujte prostředky vytvořené z nasazení šablony BIG-IP.
 
-    ![](./media/network-howto-f5/image18.png)
+    ![Na stránce Přehled v dialogovém okně F5 – GSLB jsou uvedené nasazené prostředky a související informace.](./media/network-howto-f5/image18.png)
 
 2. Postupujte podle pokynů na adrese F5 pro [položky konfigurace Big-IP](https://clouddocs.f5.com/training/community/dns/html/class1/class1.html). 
 
@@ -79,8 +79,8 @@ Postupujte podle těchto kroků pro Azure Stack hub a i B.
 
 
 4. Ověří převzetí služeb při selhání zařízení se BIG-IP. V testovacím systému nakonfigurujte servery DNS tak, aby používaly následující:
-    - Instance centra Azure Stack A = `f5stack1-ext` veřejná IP adresa
-    - Azure Stack hub instance B = `f5stack1-ext` veřejná IP adresa
+    - Instance centra Azure Stack A = `f5stack1-ext` Veřejná IP adresa
+    - Azure Stack hub instance B = `f5stack1-ext` Veřejná IP adresa
 
 5. Přejděte do `www.contoso.com` okna a v prohlížeči se načte výchozí stránka Nginx.
 
@@ -90,18 +90,18 @@ Postupujte podle těchto kroků pro Azure Stack hub a i B.
 
 1. Přihlaste se ke službě BIG-IP a vytvořte skupinu synchronizace DNS. Pokyny najdete v tématu [Vytvoření skupiny synchronizace služby DNS s velkým objemem IP adres](https://f5-dns-automation-demo-12-1-x.readthedocs.io/en/latest/lab2/sync-group.html).
 
-    > [!Note]  
+    > [!NOTE]  
     > Místní IP adresu zařízení BIP-IP najdete ve skupině prostředků **F5-GSLB** . Síťové rozhraní je "f5stack1-ext" a Vy se chcete připojit k veřejné nebo soukromé IP adrese (v závislosti na přístupu).
 
-    ![](./media/network-howto-f5/image5.png)
+    ![Dialogové okno "DNS >> GSLB: datová centra: seznam datových Center) obsahuje seznam datových center a stavů. Pro vybraná datová centra se použijí tlačítka povolit, zakázat a odstranit.](./media/network-howto-f5/image5.png)
           
-    ![](./media/network-howto-f5/image6.png)
+    ![Dialogové okno "DNS >> GSLB: servery: seznam serverů" obsahuje seznam serverů a stavů. Pro vybrané servery je možné použít tlačítka povolit, zakázat, odstranit a znovu připojit.](./media/network-howto-f5/image6.png)
 
 1. Vyberte novou skupinu prostředků **F5-GSLB** a vyberte virtuální počítač **F5stack1** v části **Nastavení** vyberte **síť**.
 
 ## <a name="post-install-configurations"></a>Konfigurace po instalaci
 
-Po instalaci nástroje je potřeba nakonfigurovat skupin zabezpečení sítě centra pro Azure Stack a uzamknout zdrojové IP adresy.
+Po instalaci budete muset nakonfigurovat skupin zabezpečení sítě centra pro Azure Stack a uzamknout zdrojové IP adresy.
 
 1. Po navázání vztahu důvěryhodnosti zakažte port 22.
 
@@ -109,20 +109,20 @@ Po instalaci nástroje je potřeba nakonfigurovat skupin zabezpečení sítě ce
 
 3. GTM_DNS pravidlo je nastavené tak, aby povolovalo provoz na portu 53 (DNS), a překladač BIG-IP začne pracovat jednou. Naslouchací procesy jsou vytvořeny.
 
-    ![](./media/network-howto-f5/image7.png)
+    ![Stránka fStack1-EXT v dialogovém okně síťové rozhraní zobrazuje informace o rozhraní fStack1-EXT a o jeho NSG, fStack1-EXT-NSG. K dispozici jsou karty, na kterých můžete vybrat buď pravidla portů pro příchozí spojení, nebo pravidla odchozího portu.](./media/network-howto-f5/image7.png)
 
 4. Nasaďte základní úlohu webové aplikace v prostředí Azure Stack hub, abyste vyrovnali zatížení za velkou IP adresou. Příklad použití serveru NGNIX najdete v části [nasazení Nginx a Nginx plus v Docker](https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-docker/).
 
-    > [!Note]  
+    > [!NOTE]  
     > Nasaďte instanci NGNIX do centra Azure Stack a a Azure Stack Hub B.
 
 5. Po nasazení NGINX v kontejneru Docker na virtuálním počítači s Ubuntu v rámci každé instance centra Azure Stack ověřte, že se můžete dostat k výchozí webové stránce na serverech.
 
-    ![](./media/network-howto-f5/image8.png)
+    !["Vítejte na Nginx!" indikuje, že webový server Nginx byl úspěšně nainstalován a že je vyžadována další konfigurace. Existují dva odkazy, které vedou k podpoře informací.](./media/network-howto-f5/image8.png)
 
 6. Přihlaste se k rozhraní pro správu zařízení BIG-IP. V tomto příkladu použijte veřejnou IP adresu **F5-stack1-EXT** .
 
-    ![](./media/network-howto-f5/image9.png)
+    ![Přihlašovací obrazovka pro nástroj pro konfiguraci BIG-IP vyžaduje uživatelské jméno a heslo.](./media/network-howto-f5/image9.png)
 
 7. Publikujte přístup k NGINX prostřednictvím BIG-IP.
     
@@ -132,55 +132,55 @@ Po instalaci nástroje je potřeba nakonfigurovat skupin zabezpečení sítě ce
 
 9. Vyberte své síťové rozhraní NGINX.
 
-    ![](./media/network-howto-f5/image10.png)
+    ![Na stránce Přehled v dialogovém okně > skupiny prostředků řídicího panelu > NGINX > ubuntu2673 se zobrazí informace o síťovém rozhraní ubuntu2673.](./media/network-howto-f5/image10.png)
 
-10. V konzole BIG-IP vyberte **místní přenosy > fondy > seznam fondů** a vyberte **+**. Nakonfigurujte fond pomocí hodnot v tabulce. Ponechte všechna ostatní pole na výchozí hodnoty.
+10. V konzole BIG-IP vyberte **místní přenosy > fondy > seznam fondů** a vyberte **+** . Nakonfigurujte fond pomocí hodnot v tabulce. Ponechte všechna ostatní pole na výchozí hodnoty.
 
-    ![](./media/network-howto-f5/image11.png)
+    ![V levém podokně můžete přejít na možnost vytvořit nový fond. V pravém podokně se zobrazuje "místní provoz >> fondy: Seznam fondů >> nový fond" a poskytuje možnosti pro zadání informací o novém fondu. Tlačítko je hotové.](./media/network-howto-f5/image11.png)
     
     | Klíč | Hodnota |
     | --- | --- |
     | Název | NGINX_Pool |
     | Monitor stavu | HTTPS |
     | Název uzlu | NGINX |
-    | Adresa | \<privátní IP adresa NGINX> |
+    | Adresa | \<your NGINX private IP address> |
     | Port služby | 443 |
 
 11. Vyberte **dokončeno**. Pokud je stav fondu správně nakonfigurovaný, je zelený.
 
-    ![](./media/network-howto-f5/image12.png)
+    ![V pravém podokně se nachází "místní přenosy >> fondy: Seznam fondů" a nově vytvořený fond je jedinou položkou v seznamu.](./media/network-howto-f5/image12.png)
 
     Teď je potřeba nakonfigurovat virtuální server. Abyste to mohli udělat, musíte nejdřív najít soukromou IP adresu vaší aplikace F5 BIG-IP.
 
 12. V konzole BIG-IP navštivte **síť > osobní** IP adresy a poznamenejte si IP adresu.
 
-    ![](./media/network-howto-f5/image13.png)
+    ![V levém podokně máte možnost přejít na adresu IP a zobrazit tak osobní IP adresy. V pravém podokně se nachází "sítě >> osobní IP adresy". V seznamu jsou uvedeny dvě osobní IP adresy a první, self_2nic, je zvýrazněna.](./media/network-howto-f5/image13.png)
 
-13. Vytvořte virtuální server tak, že v**seznamu** přesunete virtuální server virtuální**servery** >  **místní provoz** > a vyberete. **+** Nakonfigurujte fond pomocí hodnot v tabulce. Ponechte všechna ostatní pole na výchozí hodnoty.
+13. Vytvořte virtuální server tak, že v seznamu přesunete virtuální server virtuální servery **místní provoz**  >  **Virtual Servers**  >  **Virtual Server List** a vyberete **+** . Nakonfigurujte fond pomocí hodnot v tabulce. Ponechte všechna ostatní pole na výchozí hodnoty.
 
     | Klíč | Hodnota |
     | --- | --- |
     |Název | NGINX |
-    |Cílová adresa | \<Samostatná IP adresa> pro velký objem IP adres |
+    |Cílová adresa | \<Self IP address of the BIG-IP> |
     |Port služby | 443 |
     |Profil SSL (klient) | clientssl |
     |Překlad zdrojového adres | Automatická mapa |
         
-    ![](./media/network-howto-f5/image14.png)
+    ![Levé podokno se používá k procházení pravého podokna na místní provoz >> virtuální servery: seznam virtuálních serverů >> NGINX, kde se zadaly požadované informace.](./media/network-howto-f5/image14.png)
 
-    ![](./media/network-howto-f5/image15.png)
+    ![Tato stránka poskytuje možnost zadat další informace. Existují tlačítka Update a DELETE.](./media/network-howto-f5/image15.png)
 
 14. Právě jste dokončili konfiguraci BIG-IP pro aplikaci NGINX. Chcete-li ověřit správné fungování, přejděte na lokalitu a ověřte statistiku F5.
 
 15. Otevřete prohlížeč `https://<F5-public-VIP-IP>` a ujistěte se, že se zobrazuje vaše výchozí stránka Nginx.
 
-    ![](./media/network-howto-f5/image16.png)
+    !["Vítejte na Nginx!" označuje, že webový server Nginx je úspěšně nainstalován a že je vyžadována další konfigurace. Existují dva odkazy, které vedou k podpoře informací.](./media/network-howto-f5/image16.png)
 
 16. Teď zkontrolujte statistiku svého virtuálního serveru a ověřte tok přenosů, a to tak, že přejdete na **statistika > statistiku modulu > místní provoz**.
 
 17. V části **typ statistiky**vyberte **virtuální servery**.
 
-    ![](./media/network-howto-f5/image17.png)
+    ![V levém podokně se přešlo do pravého podokna "Statistika >> modulu Statistika: místní provoz >> virtuální servery" a v seznamu se zobrazuje virtuální server NGINX a další. NGINX je zvýrazněný.](./media/network-howto-f5/image17.png)
 
 
 ## <a name="for-more-information"></a>Další informace

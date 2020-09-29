@@ -1,18 +1,18 @@
 ---
 title: Nasazení pomocí Visual Studio Code pro Azure Stack centra
-description: Jako uživatel chci vytvořit šablonu Azure Resource Manager v Visual Studio Code a pomocí schématu nasazení připravit šablonu, která je kompatibilní s moji verzí centra Azure Stack.
+description: Vytvořte šablonu Azure Resource Manager v Visual Studio Code a pomocí schématu nasazení Připravte šablonu kompatibilní s moji verzí centra Azure Stack.
 author: mattbriggs
 ms.topic: article
 ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/30/2019
-ms.openlocfilehash: 8f0205425b49ee9e828056e5613a8166d02d95d9
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: 3f97ec57900119543e37b0d99a7d82e30c900f42
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84111627"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90574240"
 ---
 # <a name="deploy-with-visual-studio-code-to-azure-stack-hub"></a>Nasazení pomocí Visual Studio Code pro Azure Stack centra
 
@@ -37,7 +37,7 @@ Schéma nasazení centra Azure Stack podporuje hybridní profily prostřednictv�
 
 - [Visual Studio Code](https://code.visualstudio.com/)
 - Přístup k centru Azure Stack
-- [Prostředí PowerShell centra Azure Stack nainstalované](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-install?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fbreadcrumb%2Ftoc.json) na počítači, který dosáhne koncových bodů správy
+- [Prostředí PowerShell centra Azure Stack nainstalované](../operator/azure-stack-powershell-install.md?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fbreadcrumb%2Ftoc.json) na počítači, který dosáhne koncových bodů správy
 
 ## <a name="install-resource-manager-tools-extension"></a>Rozšíření pro instalaci Správce prostředků nástrojů
 

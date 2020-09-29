@@ -3,16 +3,16 @@ title: Instalace modulu AKS v systému Linux v centru Azure Stack
 description: Naučte se, jak pomocí počítače se systémem Linux v centru Azure Stack hostovat modul AKS, aby bylo možné nasadit a spravovat cluster Kubernetes.
 author: mattbriggs
 ms.topic: article
-ms.date: 3/19/2020
+ms.date: 09/16/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 3/19/2020
-ms.openlocfilehash: 9b99f0d7184030d513d2fab375ebb9040ec370c8
-ms.sourcegitcommit: f0ee2a3af78dd6d6e2806710681d52b763948967
+ms.lastreviewed: 09/16/2020
+ms.openlocfilehash: 49855cbe926dc29b20c3309e4fc3a084ee5a5e70
+ms.sourcegitcommit: 719569bb9e3f9924494a9229b4f2d211ae3f4f74
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84533667"
+ms.lasthandoff: 09/17/2020
+ms.locfileid: "90717955"
 ---
 # <a name="install-the-aks-engine-on-linux-in-azure-stack-hub"></a>Instalace modulu AKS v systému Linux v centru Azure Stack
 
@@ -31,18 +31,18 @@ Při volbě klientského počítače zvažte následující:
 
 Můžete nainstalovat klientský virtuální počítač pro správu clusteru Kubernetes na rozbočovači Azure Stack připojeném k Internetu.
 
-1. Vytvořte virtuální počítač se systémem Linux v centru Azure Stack. Pokyny najdete v tématu [rychlý Start: Vytvoření virtuálního počítače s Linux serverem pomocí portálu Azure Stack hub](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-linux-portal).
+1. Vytvořte virtuální počítač se systémem Linux v centru Azure Stack. Pokyny najdete v tématu [rychlý Start: Vytvoření virtuálního počítače s Linux serverem pomocí portálu Azure Stack hub](./azure-stack-quick-linux-portal.md).
 2. Připojte se k VIRTUÁLNÍmu počítači.
-3. Vyhledá verzi AKS Engine v tabulce [podporovaných verzí Kubernetes](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions) . V tržišti centra Azure Stack musí být dostupná základní image AKS. Při spuštění příkazu je nutné zadat verzi `--version v0.48.0` . Pokud nezadáte verzi, příkaz nainstaluje nejnovější verzi, která může potřebovat image VHD, která není na vašem webu Marketplace k dispozici.
+3. Vyhledá verzi AKS Engine v tabulce [podporovaných verzí Kubernetes](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions) . V tržišti centra Azure Stack musí být dostupná základní image AKS. Při spuštění příkazu je nutné zadat verzi `--version v0.55.4` . Pokud nezadáte verzi, příkaz nainstaluje nejnovější verzi, která může potřebovat bitovou kopii VHD, která není na vašem webu Marketplace k dispozici.
 4. Spusťte následující příkaz:
 
     ```bash  
         curl -o get-akse.sh https://raw.githubusercontent.com/Azure/aks-engine/master/scripts/get-akse.sh
         chmod 700 get-akse.sh
-        ./get-akse.sh --version v0.48.0
+        ./get-akse.sh --version 0.55.4
     ```
 
-    > [!Note]  
+    > [!NOTE]  
     > Pokud se metoda instalace nezdařila, můžete vyzkoušet postup v [odpojeném prostředí](#install-in-a-disconnected-environment)nebo [vyzkoušet GoFish](azure-stack-kubernetes-aks-engine-troubleshoot.md#try-gofish), jiného správce balíčků.
 
 ## <a name="install-in-a-disconnected-environment"></a>Instalace v odpojeném prostředí
@@ -51,9 +51,9 @@ Můžete nainstalovat klientský virtuální počítač pro správu clusteru Kub
 
 1.  Z počítače s přístupem k Internetu přejděte na GitHub [Azure/AKS-Engine](https://github.com/Azure/aks-engine/releases/latest). Stáhněte si archiv (*. tar. gz) pro počítač se systémem Linux, například `aks-engine-v0.xx.x-linux-amd64.tar.gz` .
 
-2.  Vytvořte účet úložiště v instanci centra Azure Stack, abyste nahráli archivní soubor (*. tar. gz) s binárním modulem AKS. Pokyny k používání Průzkumník služby Azure Storage najdete v tématu [Průzkumník služby Azure Storage pomocí centra Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-connect-se).
+2.  Vytvořte účet úložiště v instanci centra Azure Stack, abyste nahráli archivní soubor (*. tar. gz) s binárním modulem AKS. Pokyny k používání Průzkumník služby Azure Storage najdete v tématu [Průzkumník služby Azure Storage pomocí centra Azure Stack](./azure-stack-storage-connect-se.md).
 
-3. Vytvořte virtuální počítač se systémem Linux v centru Azure Stack. Pokyny najdete v tématu [rychlý Start: Vytvoření virtuálního počítače s Linux serverem pomocí portálu Azure Stack hub](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-linux-portal).
+3. Vytvořte virtuální počítač se systémem Linux v centru Azure Stack. Pokyny najdete v tématu [rychlý Start: Vytvoření virtuálního počítače s Linux serverem pomocí portálu Azure Stack hub](./azure-stack-quick-linux-portal.md).
 
 3.  Z adresy URL objektu BLOB účtu úložiště centra Azure Stack, kam jste nahráli archivní soubor (*. tar. gz), Stáhněte soubor na virtuální počítač pro správu. Extrahujte archiv do adresáře `/usr/local/bin` .
 

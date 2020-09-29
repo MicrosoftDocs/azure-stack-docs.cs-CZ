@@ -3,21 +3,21 @@ title: Nasazení Kubernetes do centra Azure Stack pomocí služby Active Directo
 description: Naučte se, jak nasadit Kubernetes do centra Azure Stack pomocí služby Active Directory federované služby (AD FS).
 author: mattbriggs
 ms.topic: article
-ms.date: 3/12/2020
+ms.date: 07/24/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 3/12/2020
-ms.openlocfilehash: 2dbef9bd19fac12541f738fc530dbf58f5c85c35
-ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
+ms.openlocfilehash: 85c1814264b11b40c815ea1089c92113b0b035b1
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84631221"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91106726"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-hub-using-active-directory-federated-services"></a>Nasazení Kubernetes do centra Azure Stack pomocí federovaných služeb Active Directory
 
-> [!Note]  
-> K nasazení clusterů jako zkušebního konceptu použijte jenom položku Kubernetes Azure Stack Marketplace.Pro podporované Kubernetes clustery v Azure Stack použijte [modul AKS](azure-stack-kubernetes-aks-engine-overview.md).
+> [!NOTE]  
+> K nasazení clusterů jako zkušebního konceptu použijte jenom položku Kubernetes Azure Stack Marketplace. Pro podporované Kubernetes clustery v Azure Stack použijte [modul AKS](azure-stack-kubernetes-aks-engine-overview.md).
 
 Pro nasazení a nastavení prostředků pro Kubernetes můžete postupovat podle kroků v tomto článku. Tyto kroky použijte, když je služba Active Directory federované služby (AD FS) vaší službou správy identit.
 
@@ -59,13 +59,13 @@ Abyste mohli nastavit instanční objekt při použití AD FS jako řešení ide
 
 1. Vyberte **+ vytvořit prostředek**  >  **COMPUTE**  >  **Kubernetes cluster**. Vyberte **Vytvořit**.
 
-    ![Nasadit šablonu řešení](media/azure-stack-solution-template-kubernetes-deploy/01_kub_market_item.png)
+    ![Snímek obrazovky zobrazující stránku, kde se vytváří cluster Kubernetes.](media/azure-stack-solution-template-kubernetes-deploy/01_kub_market_item.png)
 
 ### <a name="1-basics"></a>1. základní informace
 
 1. V vytváření clusteru Kubernetes vyberte **základy** .
 
-    ![Nasadit šablonu řešení](media/azure-stack-solution-template-kubernetes-deploy/02_kub_config_basic.png)
+    ![Snímek obrazovky, který ukazuje, kde můžete přidat základní informace o clusteru Kubernetes.](media/azure-stack-solution-template-kubernetes-deploy/02_kub_config_basic.png)
 
 1. Vyberte ID vašeho **předplatného** .
 
@@ -77,7 +77,7 @@ Abyste mohli nastavit instanční objekt při použití AD FS jako řešení ide
 
 1. V Kubernetes vytvořit cluster Kubernetes vyberte **Nastavení clusteru** .
 
-    ![Nasadit šablonu řešení](media/azure-stack-solution-template-kubernetes-deploy/03_kub_config_settings-adfs.png)
+    ![Snímek obrazovky, který ukazuje krok, ve kterém nakonfigurujete nastavení clusteru Kubernetes.](media/azure-stack-solution-template-kubernetes-deploy/03_kub_config_settings-adfs.png)
 
 1. Zadejte **uživatelské jméno správce virtuálního počítače se systémem Linux**. Uživatelské jméno pro Linux Virtual Machines, které jsou součástí clusteru Kubernetes a DVM.
 
@@ -85,7 +85,7 @@ Abyste mohli nastavit instanční objekt při použití AD FS jako řešení ide
 
 1. Zadejte **předponu DNS hlavního profilu** , která je pro oblast jedinečná. Musí se jednat o jedinečný název oblasti, například `k8s-12345` . Zkuste zvolit stejný jako název skupiny prostředků jako osvědčený postup.
 
-    > [!Note]  
+    > [!NOTE]  
     > Pro každý cluster použijte novou a jedinečnou předponu DNS hlavního profilu.
 
 1. Vyberte **počet profilů hlavního fondu Kubernetes**. Počet obsahuje počet uzlů v hlavním fondu. Může být od 1 do 7. Tato hodnota by měla být lichá číslice.

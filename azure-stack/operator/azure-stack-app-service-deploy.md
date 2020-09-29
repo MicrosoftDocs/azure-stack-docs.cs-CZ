@@ -1,5 +1,5 @@
 ---
-title: Nasazení App Service v centru Azure Stack
+title: Nasazení služby App Service ve službě Azure Stack Hub
 description: Přečtěte si, jak nasadit App Service v centru Azure Stack.
 author: bryanla
 ms.topic: article
@@ -8,14 +8,14 @@ ms.author: bryanla
 ms.reviewer: anwestg
 ms.lastreviewed: 04/13/2019
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: 4f9bdf84f73bf06c42f3b6910e0faad83a9bbd80
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: d8b5be96bf3e150308faf01c161d20e180beeb69
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82847979"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91106975"
 ---
-# <a name="deploy-app-service-in-azure-stack-hub"></a>Nasazení App Service v centru Azure Stack
+# <a name="deploy-app-service-in-azure-stack-hub"></a>Nasazení služby App Service ve službě Azure Stack Hub
 
 [!INCLUDE [Azure Stack hub update reminder](../includes/app-service-hub-update-banner.md)]
 
@@ -45,11 +45,11 @@ Instalace poskytovatele prostředků App Service trvá alespoň hodinu. Doba pot
 
 Pokud chcete nasadit poskytovatele prostředků App Service, postupujte takto:
 
-1. Spusťte AppService. exe jako správce z počítače, který má přístup ke koncovému bodu správy prostředků Azure pro správu centra Azure Stack.
+1. Spusťte appservice.exe jako správce z počítače, který má přístup ke koncovému bodu správy prostředků Azure pro správu centra Azure Stack.
 
 2. Vyberte **nasadit App Service nebo upgradujte na nejnovější verzi**.
 
-    ![Instalační služba App Service][1]
+    ![Snímek obrazovky znázorňující hlavní obrazovku instalační služby Azure App Service.][1]
 
 3. Zkontrolujte a přijměte licenční podmínky pro software společnosti Microsoft a potom vyberte možnost **Další**.
 
@@ -57,16 +57,16 @@ Pokud chcete nasadit poskytovatele prostředků App Service, postupujte takto:
 
 5. Ujistěte se, že jsou informace o konfiguraci cloudu App Service správné. Pokud jste během nasazení ASDK použili výchozí nastavení, můžete přijmout výchozí hodnoty. Pokud jste ale přizpůsobili možnosti, když jste nasadili ASDK nebo nasazujete v integrovaném systému Azure Stack hub, musíte upravit hodnoty v tomto okně, aby odrážely rozdíly.
 
-   Pokud například použijete příponu domény mycloud.com, Azure Resource Manager koncový bod klienta centra Azure Stack musí změnit na správu. &lt;region&gt;. MyCloud.com. Zkontrolujte tato nastavení a kliknutím na tlačítko **Další** uložte nastavení.
+   Pokud například použijete příponu domény mycloud.com, Azure Resource Manager koncový bod klienta centra Azure Stack musí změnit na správu. &lt; region &gt; . MyCloud.com. Zkontrolujte tato nastavení a kliknutím na tlačítko **Další** uložte nastavení.
 
-   ![Instalační služba App Service][2]
+   ![Snímek obrazovky, který zobrazuje obrazovku pro určení koncových bodů ARM pro App Service.][2]
 
 6. Na další stránce instalačního programu App Service se připojíte ke svému centru Azure Stack:
 
     1. Vyberte metodu připojení, kterou chcete použít – **Credential** nebo **instanční objekt** .
  
         - **Přihlašovací údaj**
-            - Pokud používáte Azure Active Directory (Azure AD), zadejte účet správce Azure AD a heslo, které jste zadali při nasazení centra Azure Stack. Vyberte **Connect** (Připojit).
+            - Pokud používáte Azure Active Directory (Azure AD), zadejte účet správce Azure AD a heslo, které jste zadali při nasazení centra Azure Stack. Vyberte **Připojit**.
             - Pokud používáte Active Directory Federation Services (AD FS) (AD FS), zadejte účet správce. Například, cloudadmin@azurestack.local. Zadejte heslo a pak vyberte **připojit**.
 
         - **Instanční objekt**
@@ -77,7 +77,7 @@ Pokud chcete nasadit poskytovatele prostředků App Service, postupujte takto:
 
     1. V **umístění centra Azure Stack**vyberte umístění, které odpovídá oblasti, do které nasazujete. Pokud například nasazujete na ASDK, vyberte **místní** .
 
-    ![Instalační služba App Service][3]
+    ![Snímek obrazovky, který ukazuje, kde zadáte informace o předplatném centra Azure Stack v instalačním programu App Service][3]
 
 7. Nyní můžete nasadit do existující virtuální sítě, kterou jste nakonfigurovali [pomocí těchto kroků](azure-stack-app-service-before-you-get-started.md#virtual-network), nebo nechat instalační program App Service vytvořit novou virtuální síť a podsítě. Virtuální síť vytvoříte pomocí následujících kroků:
 
@@ -90,14 +90,14 @@ Pokud chcete nasadit poskytovatele prostředků App Service, postupujte takto:
      - Vyberte správné hodnoty **podsítí** pro každou z požadovaných podsítí rolí.
      - Vyberte **Další**.
 
-   ![Instalační služba App Service][4]
+   ![Snímek obrazovky zobrazující obrazovku, kde můžete nakonfigurovat virtuální síť v instalačním programu App Service.][4]
 
-8. Zadejte informace pro sdílenou složku a potom vyberte **Další**. Adresa sdílené složky musí používat plně kvalifikovaný název domény (FQDN) nebo IP adresu vašeho souborového serveru. Například \\\appservicefileserver.Local.cloudapp.azurestack.external\websites nebo \\\10.0.0.1\websites.  Pokud používáte souborový server, který je připojený k doméně, musíte zadat úplné uživatelské jméno včetně domény. Například myfileserverdomain\FileShareOwner.
+8. Zadejte informace pro sdílenou složku a potom vyberte **Další**. Adresa sdílené složky musí používat plně kvalifikovaný název domény (FQDN) nebo IP adresu vašeho souborového serveru. Například \\ \appservicefileserver.Local.cloudapp.azurestack.external\websites nebo \\ \10.0.0.1\websites.  Pokud používáte souborový server, který je připojený k doméně, musíte zadat úplné uživatelské jméno včetně domény. Například myfileserverdomain\FileShareOwner.
 
    >[!NOTE]
    >Instalační program se před pokračováním pokusí otestovat připojení ke sdílení souborů. Pokud však nasazujete do existující virtuální sítě, může tento test připojení selhat. Zobrazí se upozornění a výzva k pokračování. Pokud jsou informace o sdílené složce správné, pokračujte v nasazení.
 
-   ![Instalační služba App Service][7]
+   ![Snímek obrazovky, který zobrazuje konfiguraci sdílení souborů v instalačním programu App Service.][7]
 
 9. Na další stránce Instalační služby App Service proveďte následující kroky:
 
@@ -111,7 +111,7 @@ Pokud chcete nasadit poskytovatele prostředků App Service, postupujte takto:
 
    e. Vyberte **Další**.
 
-   ![Instalační služba App Service][9]
+   ![Snímek obrazovky, který ukazuje, kam zadat informace o aplikaci identity v instalačním programu App Service.][9]
 
 10. U každého ze tří polí certifikátu vyberte **Procházet** a přejděte na příslušný soubor certifikátu. Je nutné zadat heslo pro každý certifikát. Tyto certifikáty jsou ty, které jste vytvořili v části [požadavky na nasazení App Service v centru Azure Stack](azure-stack-app-service-before-you-get-started.md). Po zadání všech informací vyberte **Další** .
 
@@ -123,11 +123,11 @@ Pokud chcete nasadit poskytovatele prostředků App Service, postupujte takto:
 
     Pokud jste při vytváření certifikátů použili jinou příponu domény, názvy souborů certifikátu nepoužívají *místní. AzureStack. external*. Místo toho použijte vlastní informace o doméně.
 
-    ![Instalační služba App Service][10]
+    ![Snímek obrazovky, který ukazuje, kam zadat umístění certifikátů a hesla v instalačním programu App Service.][10]
 
 11. Zadejte podrobnosti SQL Server pro instanci serveru, která se používá k hostování App Service databáze poskytovatele prostředků, a pak vyberte **Další**. Instalační program ověří vlastnosti připojení SQL.<br><br>Instalační program App Service se před pokračováním pokusí otestovat připojení k SQL Server. Pokud nasazujete do existující virtuální sítě, může tento test připojení selhat. Zobrazí se upozornění a výzva k pokračování. Pokud jsou informace o SQL Server správné, pokračujte v nasazení.
 
-    ![Instalační služba App Service][11]
+    ![Snímek obrazovky, který ukazuje, kam zadat informace o konfiguraci SQL v instalačním programu App Service.][11]
 
 12. Zkontrolujte možnosti instance role a SKU. Výchozí hodnoty se naplní minimálním počtem instancí a minimální SKU pro každou roli v produkčním nasazení.  Pro nasazení ASDK můžete škálovat instance na nižší skladové jednotky a snížit tak základní hodnoty a potvrzení o paměti, ale budete mít k dispozici snížení výkonu. Shrnutí požadavků na vCPU a paměť je k dispozici pro plánování nasazení. Po provedení výběru vyberte **Další**.
 
@@ -138,11 +138,11 @@ Pokud chcete nasadit poskytovatele prostředků App Service, postupujte takto:
     | --- | --- | --- | --- |
     | Kontrolér | 2 | Standard_A4_v2 – (4 jádra, 8192 MB) | Spravuje a udržuje stav cloudu App Service. |
     | Správa | 1 | Standard_D3_v2 – (4 jádra, 14336 MB) | Spravuje App Service Azure Resource Manager a koncové body rozhraní API, rozšíření portálu (správce, tenant, funkce portálu) a datovou službu. Pokud chcete převzetí služeb při selhání podporovat, zvyšte Doporučené instance na 2. |
-    | Vydavatel | 1 | Standard_A2_v2 – (2 jádra, 4096 MB) | Publikuje obsah prostřednictvím FTP a nasazení webu. |
+    | Publisher | 1 | Standard_A2_v2 – (2 jádra, 4096 MB) | Publikuje obsah prostřednictvím FTP a nasazení webu. |
     | FrontEnd | 1 | Standard_A4_v2 – (4 jádra, 8192 MB) | Směruje požadavky na aplikace App Service. |
     | Sdílený pracovní proces | 1 | Standard_A4_v2 – (4 jádra, 8192 MB) | Hostuje webové aplikace nebo aplikace API a aplikace Azure Functions. Možná budete chtít přidat další instance. Jako operátor můžete definovat svou nabídku a zvolit libovolnou úroveň SKU. Vrstvy musí mít minimálně jeden vCPU. |
 
-    ![Instalační služba App Service][13]
+    ![Snímek obrazovky, který ukazuje, kde můžete nakonfigurovat role pracovních procesů v instalačním programu App Service.][13]
 
     > [!NOTE]
     > **Windows Server 2016 Core není podporovaná image platformy pro použití s Azure App Service v centru Azure Stack.  Nepoužívejte zkušební image pro produkční nasazení.**
@@ -157,7 +157,7 @@ Pokud chcete nasadit poskytovatele prostředků App Service, postupujte takto:
 
      c. Vyberte **Další**.
 
-    ![Instalační služba App Service][15]
+    ![Snímek obrazovky, který ukazuje, kde nakonfigurovat přihlašovací údaje role pracovního procesu v instalačním programu App Service][15]
 
 15. Na stránce Souhrn instalační služby App Service proveďte následující kroky:
 
@@ -167,20 +167,20 @@ Pokud chcete nasadit poskytovatele prostředků App Service, postupujte takto:
 
     c. Pokud chcete spustit nasazení, vyberte **Další**.
 
-    ![Instalační služba App Service][16]
+    ![Snímek obrazovky zobrazující souhrnné informace o nasazení zásobníku v instalačním programu App Service.][16]
 
 16. Na další stránce Instalační služby App Service proveďte následující kroky:
 
     a. Sledujte průběh instalace. Nasazení App Service v centru Azure Stack může trvat až 240 minut, než se nasadí na základě výchozích výběrů a stáří základní image Windows 2016 Datacenter.
 
-    b. Po úspěšném dokončení instalačního programu vyberte možnost **ukončit**.
+    b. Po úspěšném dokončení instalačního programu vyberte možnost  **ukončit**.
 
-    ![Instalační služba App Service][17]
+    ![Snímek obrazovky, který ukazuje průběh nasazení v instalačním programu App Service.][17]
 
 ## <a name="post-deployment-steps"></a>Kroky po nasazení
 
 > [!IMPORTANT]
-> Pokud jste poskytli App Service RP s instancí SQL Always On, je **nutné** [přidat databáze appservice_hosting a appservice_metering do skupiny dostupnosti](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) a synchronizovat databáze, aby nedošlo ke ztrátě služeb v případě převzetí služeb při selhání databáze.
+> Pokud jste poskytli App Service RP s instancí SQL Always On, je **nutné** [přidat databáze appservice_hosting a appservice_metering do skupiny dostupnosti](/sql/database-engine/availability-groups/windows/availability-group-add-a-database) a synchronizovat databáze, aby nedošlo ke ztrátě služeb v případě převzetí služeb při selhání databáze.
 
 Pokud nasazujete do existující virtuální sítě a pomocí interní IP adresy se připojíte k souborovému serveru, musíte přidat odchozí pravidlo zabezpečení. Toto pravidlo povoluje provoz protokolu SMB mezi podsítí pracovních procesů a souborovým serverem. Na portálu pro správu přejdete do skupiny zabezpečení sítě WorkersNsg a přidáte odchozí pravidlo zabezpečení s následujícími vlastnostmi:
 
@@ -202,7 +202,7 @@ Pokud nasazujete do existující virtuální sítě a pomocí interní IP adresy
 
     ![Správa App Service](media/azure-stack-app-service-deploy/image12.png)
 
-## <a name="test-drive-app-service-on-azure-stack-hub"></a>App Service testovacích jednotek v centru Azure Stack
+## <a name="test-drive-app-service-on-azure-stack-hub"></a>Testovací verze služby App Service ve službě Azure Stack Hub
 
 Až nasadíte a zaregistrujete poskytovatele prostředků App Service, otestujte ho a ujistěte se, že uživatelé můžou nasazovat webové aplikace a aplikace API.
 
@@ -216,17 +216,17 @@ Až nasadíte a zaregistrujete poskytovatele prostředků App Service, otestujte
 
 Chcete-li vytvořit testovací webovou aplikaci, postupujte podle následujících kroků:
 
-1. V uživatelském portálu Azure Stack hub vyberte **+ vytvořit prostředek** > **web a mobilní zařízení** > **webovou aplikaci**.
+1. V uživatelském portálu Azure Stack hub vyberte **+ vytvořit prostředek**  >  **web a mobilní zařízení**  >  **webovou aplikaci**.
 
 2. V části **Webová aplikace**zadejte název do **webové aplikace**.
 
 3. V části **Skupina prostředků**vyberte **Nový**. Zadejte název **skupiny prostředků**.
 
-4. Vyberte **App Service plán/umístění** > **vytvořit nový**.
+4. Vyberte **App Service plán/umístění**  >  **vytvořit nový**.
 
 5. V části **plán App Service**zadejte název **App Serviceho plánu**.
 
-6. Vyberte **cenovou úroveň** > **Free-Shared** nebo **Shared-Shared** > **a vyberte** > **OK** > **vytvořit**.
+6. Vyberte **cenovou úroveň**  >  **Free-Shared** nebo **Shared-Shared**a  >  **Vyberte**  >  **OK**  >  **vytvořit**.
 
 7. Na řídicím panelu se zobrazí dlaždice nové webové aplikace. Vyberte dlaždici.
 
@@ -234,9 +234,9 @@ Chcete-li vytvořit testovací webovou aplikaci, postupujte podle následující
 
 ## <a name="deploy-a-wordpress-dnn-or-django-website-optional"></a>Nasazení webu WordPress, DNN nebo Django (volitelné)
 
-1. Na portálu Azure Stack User Portal vyberte **+**, přejít na Azure Marketplace, nasaďte web Django a potom počkejte na dokončení nasazení. Webová platforma Django používá databázi založenou na systému souborů. Nevyžaduje žádné další poskytovatele prostředků, jako je SQL nebo MySQL.
+1. Na portálu Azure Stack User Portal vyberte **+** , přejít na Azure Marketplace, nasaďte web Django a potom počkejte na dokončení nasazení. Webová platforma Django používá databázi založenou na systému souborů. Nevyžaduje žádné další poskytovatele prostředků, jako je SQL nebo MySQL.
 
-2. Pokud jste nasadili také poskytovatele prostředků MySQL, můžete web WordPress nasadit z webu Marketplace. Po zobrazení výzvy k zadání parametrů databáze zadejte uživatelské jméno jako *Uživatel1\@Server1*s uživatelským jménem a názvem serveru podle vašeho výběru.
+2. Pokud jste nasadili také poskytovatele prostředků MySQL, můžete web WordPress nasadit z webu Marketplace. Po zobrazení výzvy k zadání parametrů databáze zadejte uživatelské jméno jako *Uživatel1 \@ Server1*s uživatelským jménem a názvem serveru podle vašeho výběru.
 
 3. Pokud jste nasadili také poskytovatele prostředků SQL Server, můžete web DNN nasadit z webu Marketplace. Po zobrazení výzvy k zadání parametrů databáze vyberte databázi v počítači se systémem SQL Server připojeném k poskytovateli prostředků.
 ::: zone-end
@@ -254,15 +254,15 @@ Chcete-li přidat poskytovatele prostředků Azure App Service do nasazení Azur
 1. Dokončete požadované [kroky](azure-stack-app-service-before-you-get-started.md) (jako je nákup certifikátů), což může trvat několik dní.
 2. [Stáhněte a extrahujte instalační a pomocné soubory](azure-stack-app-service-before-you-get-started.md) do počítače připojeného k Internetu.
 3. Vytvořte instalační balíček offline.
-4. Spusťte instalační soubor AppService. exe.
+4. Spusťte instalační soubor appservice.exe.
 
 ## <a name="create-an-offline-installation-package"></a>Vytvoření instalačního balíčku offline
 
 Pokud chcete nasadit Azure App Service v offline prostředí, nejdřív vytvořte instalační balíček offline na počítači, který je připojený k Internetu.
 
-1. Spusťte instalační program AppService. exe na počítači, který je připojený k Internetu. 
+1. Spusťte instalační program AppService.exe na počítači, který je připojený k Internetu. 
 
-2. Vyberte **Upřesnit** > **vytvořit balíček pro offline instalaci**. Dokončení tohoto kroku bude trvat několik minut.
+2. Vyberte **Upřesnit**  >  **vytvořit balíček pro offline instalaci**. Dokončení tohoto kroku bude trvat několik minut.
 
     ![Vytvoření offline balíčku v instalačním programu Azure App Service][31]
 
@@ -270,13 +270,13 @@ Pokud chcete nasadit Azure App Service v offline prostředí, nejdřív vytvořt
 
     ![Instalační balíček offline se úspěšně vygeneroval v instalačním programu Azure App Service](media/azure-stack-app-service-deploy-offline/image02.png)
 
-4. Zkopírujte instalační program (AppService. exe) a instalační balíček offline na počítač, který má připojení k vašemu centru Azure Stack.
+4. Zkopírujte instalační program (AppService.exe) a offline instalační balíček do počítače, který má připojení k vašemu centru Azure Stack.
 
 ## <a name="complete-the-offline-installation-of-azure-app-service-on-azure-stack-hub"></a>Dokončení offline instalace Azure App Service v centru Azure Stack
 
-1. Spusťte AppService. exe jako správce z počítače, který se může připojit ke koncovému bodu správy prostředků Azure pro správu centra Azure Stack.
+1. Spusťte appservice.exe jako správce z počítače, který se může připojit ke koncovému bodu správy prostředků Azure pro správu centra Azure Stack.
 
-1. Vyberte **Upřesnit** > **kompletní offline instalaci**.
+1. Vyberte **Upřesnit**  >  **kompletní offline instalaci**.
 
     ![Dokončení offline instalace v instalačním programu Azure App Service][32]
 
@@ -289,7 +289,7 @@ Pokud chcete nasadit Azure App Service v offline prostředí, nejdřív vytvořt
 1. Přečtěte si a přijměte licenční podmínky třetí strany a pak vyberte **Další**.
 
 
-1. Ujistěte se, že jsou informace o konfiguraci cloudu Azure App Service správné. Pokud jste během nasazení ASDK použili výchozí nastavení, můžete zde přijmout výchozí hodnoty. Pokud jste však přizpůsobili možnosti při nasazení centra Azure Stack nebo nasazení v integrovaném systému, je nutné upravit hodnoty v tomto okně, aby odrážely tyto změny. Pokud například použijete příponu domény mycloud.com, Azure Resource Manager koncový bod klienta centra Azure Stack musí změnit na `management.<region>.mycloud.com`. Po potvrzení vašich informací vyberte **Další**.
+1. Ujistěte se, že jsou informace o konfiguraci cloudu Azure App Service správné. Pokud jste během nasazení ASDK použili výchozí nastavení, můžete zde přijmout výchozí hodnoty. Pokud jste však přizpůsobili možnosti při nasazení centra Azure Stack nebo nasazení v integrovaném systému, je nutné upravit hodnoty v tomto okně, aby odrážely tyto změny. Pokud například použijete příponu domény mycloud.com, Azure Resource Manager koncový bod klienta centra Azure Stack musí změnit na `management.<region>.mycloud.com` . Po potvrzení vašich informací vyberte **Další**.
 
     ![Konfigurace Azure App Serviceho cloudu v Azure App Service instalační program][33]
 
@@ -297,7 +297,7 @@ Pokud chcete nasadit Azure App Service v offline prostředí, nejdřív vytvořt
 
     1. Vyberte metodu připojení, kterou chcete použít – **Credential** nebo **instanční objekt** .
         - **Přihlašovací údaj**
-            - Pokud používáte Azure Active Directory (Azure AD), zadejte účet správce Azure AD a heslo, které jste zadali při nasazení centra Azure Stack. Vyberte **Connect** (Připojit).
+            - Pokud používáte Azure Active Directory (Azure AD), zadejte účet správce Azure AD a heslo, které jste zadali při nasazení centra Azure Stack. Vyberte **Připojit**.
             - Pokud používáte Active Directory Federation Services (AD FS) (AD FS), zadejte účet správce. Například, cloudadmin@azurestack.local. Zadejte heslo a pak vyberte **připojit**.
         - **Instanční objekt**
             - Instanční objekt, který použijete, **musí** mít práva **vlastníka** na **předplatném výchozího zprostředkovatele** .
@@ -317,7 +317,7 @@ Pokud chcete nasadit Azure App Service v offline prostředí, nejdřív vytvořt
 
       ![Informace o virtuální síti a podsíti v Instalační službě Azure App Service][35]
 
-1. Zadejte informace pro sdílenou složku a potom vyberte **Další**. Adresa sdílené složky musí používat plně kvalifikovaný název domény (FQDN) nebo IP adresu vašeho souborového serveru. Například: \\\appservicefileserver.Local.cloudapp.azurestack.external\websites nebo \\\10.0.0.1\websites.  Pokud používáte souborový server, který je připojený k doméně, musíte zadat úplné uživatelské jméno včetně domény. Například: `<myfileserverdomain>\<FileShareOwner>`.
+1. Zadejte informace pro sdílenou složku a potom vyberte **Další**. Adresa sdílené složky musí používat plně kvalifikovaný název domény (FQDN) nebo IP adresu vašeho souborového serveru. Například: \\ \appservicefileserver.Local.cloudapp.azurestack.external\websites nebo \\ \10.0.0.1\websites.  Pokud používáte souborový server, který je připojený k doméně, musíte zadat úplné uživatelské jméno včetně domény. Například: `<myfileserverdomain>\<FileShareOwner>`.
 
     > [!NOTE]
     > Instalační program se před pokračováním pokusí otestovat připojení ke sdílení souborů. Pokud se ale rozhodnete nasadit do existující virtuální sítě, instalační program se nemusí připojit ke sdílené složce a zobrazí upozornění s dotazem, zda chcete pokračovat. Ověřte informace o sdílené složce a pokračujte, pokud je správná.
@@ -376,7 +376,7 @@ Pokud chcete nasadit Azure App Service v offline prostředí, nejdřív vytvořt
     | --- | --- | --- | --- |
     | Kontrolér | 2 | Standard_A4_v2 – (4 jádra, 8192 MB) | Spravuje a udržuje stav cloudu App Service. |
     | Správa | 1 | Standard_D3_v2 – (4 jádra, 14336 MB) | Spravuje App Service Azure Resource Manager a koncové body rozhraní API, rozšíření portálu (správce, tenant, funkce portálu) a datovou službu. Pokud chcete převzetí služeb při selhání podporovat, zvyšte Doporučené instance na 2. |
-    | Vydavatel | 1 | Standard_A2_v2 – (2 jádra, 4096 MB) | Publikuje obsah prostřednictvím FTP a nasazení webu. |
+    | Publisher | 1 | Standard_A2_v2 – (2 jádra, 4096 MB) | Publikuje obsah prostřednictvím FTP a nasazení webu. |
     | FrontEnd | 1 | Standard_A4_v2 – (4 jádra, 8192 MB) | Směruje požadavky na aplikace App Service. |
     | Sdílený pracovní proces | 1 | Standard_A4_v2 – (4 jádra, 8192 MB) | Hostuje webové aplikace nebo aplikace API a aplikace Azure Functions. Možná budete chtít přidat další instance. Jako operátor můžete definovat svou nabídku a zvolit libovolnou úroveň SKU. Vrstvy musí mít minimálně jeden vCPU. |
 
@@ -418,7 +418,7 @@ Pokud chcete nasadit Azure App Service v offline prostředí, nejdřív vytvořt
 ## <a name="post-deployment-steps"></a>Kroky po nasazení
 
 > [!IMPORTANT]
-> Pokud jste poskytli Azure App Service RP s instancí SQL Always On, je **nutné** [přidat databáze appservice_hosting a appservice_metering do skupiny dostupnosti](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database). Je také nutné synchronizovat databáze, aby nedošlo ke ztrátě služeb v případě převzetí služeb při selhání databáze.
+> Pokud jste poskytli Azure App Service RP s instancí SQL Always On, je **nutné** [přidat databáze appservice_hosting a appservice_metering do skupiny dostupnosti](/sql/database-engine/availability-groups/windows/availability-group-add-a-database). Je také nutné synchronizovat databáze, aby nedošlo ke ztrátě služeb v případě převzetí služeb při selhání databáze.
 
 Pokud se rozhodnete nasadit do existující virtuální sítě a interní IP adresu pro připojení k souborovému serveru, musíte přidat odchozí pravidlo zabezpečení, které povoluje provoz SMB mezi podsítí pracovních procesů a souborovým serverem. Na portálu pro správu přejdete do skupiny zabezpečení sítě WorkersNsg a přidáte odchozí pravidlo zabezpečení s následujícími vlastnostmi:
 
@@ -451,17 +451,17 @@ Až nasadíte a zaregistrujete poskytovatele prostředků Azure App Service, ote
 >
 > Od třetí verze Technical Preview, pokud chcete vytvářet webové aplikace, rozhraní API a Azure Functions aplikace, musíte použít portál User Portal a mít předplatné tenanta.
 
-1. V uživatelském portálu Azure Stack hub vyberte **+ vytvořit prostředek** > **web a mobilní zařízení** > **webovou aplikaci**.
+1. V uživatelském portálu Azure Stack hub vyberte **+ vytvořit prostředek**  >  **web a mobilní zařízení**  >  **webovou aplikaci**.
 
 1. V okně **Webová aplikace** zadejte název do pole **Webová aplikace** .
 
 1. V části **Skupina prostředků**vyberte **Nový**. Do pole **Skupina prostředků** zadejte název.
 
-1. Vyberte **App Service plán/umístění** > **vytvořit nový**.
+1. Vyberte **App Service plán/umístění**  >  **vytvořit nový**.
 
 1. V okně **plán App Service** zadejte název do pole **App Service plán** .
 
-1. Vyberte **cenovou úroveň** > **Free-Shared** nebo **Shared-Shared** > **a vyberte** > **OK** > **vytvořit**.
+1. Vyberte **cenovou úroveň**  >  **Free-Shared** nebo **Shared-Shared**a  >  **Vyberte**  >  **OK**  >  **vytvořit**.
 
 1. Za míň než minutu se na řídicím panelu zobrazí dlaždice nové webové aplikace. Vyberte dlaždici.
 
@@ -469,9 +469,9 @@ Až nasadíte a zaregistrujete poskytovatele prostředků Azure App Service, ote
 
 ## <a name="deploy-a-wordpress-dnn-or-django-website-optional"></a>Nasazení webu WordPress, DNN nebo Django (volitelné)
 
-1. Na portálu Azure Stack hub User Portal vyberte **+**, přejít na Azure Marketplace, nasaďte web Django a počkejte na úspěšné dokončení. Webová platforma Django používá databázi založenou na systému souborů. Nevyžaduje žádné další poskytovatele prostředků, jako je SQL nebo MySQL.
+1. Na portálu Azure Stack hub User Portal vyberte **+** , přejít na Azure Marketplace, nasaďte web Django a počkejte na úspěšné dokončení. Webová platforma Django používá databázi založenou na systému souborů. Nevyžaduje žádné další poskytovatele prostředků, jako je SQL nebo MySQL.
 
-1. Pokud jste nasadili také poskytovatele prostředků MySQL, můžete web WordPress nasadit z Azure Marketplace. Po zobrazení výzvy k zadání parametrů databáze zadejte uživatelské jméno jako *Uživatel1\@Server1*s uživatelským jménem a názvem serveru podle vašeho výběru.
+1. Pokud jste nasadili také poskytovatele prostředků MySQL, můžete web WordPress nasadit z Azure Marketplace. Po zobrazení výzvy k zadání parametrů databáze zadejte uživatelské jméno jako *Uživatel1 \@ Server1*s uživatelským jménem a názvem serveru podle vašeho výběru.
 
 1. Pokud jste nasadili také poskytovatele prostředků SQL Server, můžete nasadit web DNN z Azure Marketplace. Po zobrazení výzvy k zadání parametrů databáze vyberte databázi na počítači se systémem SQL Server připojeném k poskytovateli prostředků.
 

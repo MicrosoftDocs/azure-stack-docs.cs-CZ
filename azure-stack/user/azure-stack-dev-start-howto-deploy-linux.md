@@ -1,18 +1,18 @@
 ---
 title: Nasazení virtuálního počítače se systémem Linux do centra Azure Stack
-description: Nasaďte aplikaci do centra Azure Stack.
+description: Nasazení virtuálního počítače se systémem Linux s imagí Ubuntu pro hostování webové aplikace v centru Azure Stack.
 author: mattbriggs
 ms.topic: overview
 ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 35863d41776ece59592d57264db6522e47ee4208
-ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
+ms.openlocfilehash: 90467f57cdae2b12038c8f237fcbe5e41fb1c039
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84146950"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90574053"
 ---
 # <a name="deploy-a-linux-vm-to-host-a-web-app-in-azure-stack-hub"></a>Nasazení virtuálního počítače se systémem Linux pro hostování webové aplikace v centru Azure Stack
 
@@ -69,7 +69,7 @@ Pokud chcete nasadit virtuální počítač, postupujte podle pokynů v následu
 
     f. Vyberte předplatné pro vaši instanci centra Azure Stack.
 
-    g. Vytvořte novou skupinu prostředků nebo použijte existující, v závislosti na tom, jak chcete organizovat prostředky pro vaši aplikaci.
+    například Vytvořte novou skupinu prostředků nebo použijte existující, v závislosti na tom, jak chcete organizovat prostředky pro vaši aplikaci.
 
     h. Vyberte své umístění. Azure Stack Development Kit (ASDK) je obvykle v *místní* oblasti. Umístění závisí na vaší instanci centra Azure Stack.
 1. Pro **2. Velikost**, zadejte:
@@ -87,7 +87,7 @@ Pokud chcete nasadit virtuální počítač, postupujte podle pokynů v následu
 
     b. V případě **úložiště**vyberte **disky úrovně Premium (SSD)** nebo **standardní disky (HDD)**. Disky úrovně Premium (SSD) jsou založené na jednotkách Solid-State a nabízejí konzistentní výkon s nízkou latencí. Poskytují nejlepší rovnováhu mezi cenou a výkonem a jsou ideální pro aplikace náročné na vstupně-výstupní operace a produkční úlohy. Standardní disky jsou zajištěny pomocí magnetických jednotek a jsou vhodnější pro aplikace, ve kterých se k datům přistupovalo zřídka. Redundantní disky v zóně jsou založené na zóně redundantního úložiště (ZRS), které replikují vaše data napříč několika zónami a jsou k dispozici i v případě, že je jedna zóna mimo provoz. 
 
-    c. Vyberte **použít spravované disky**. Když tuto funkci povolíte, Azure automaticky spravuje dostupnost disků. Výhodou je redundance dat a odolnost proti chybám, aniž byste museli vytvářet a spravovat účty úložiště sami. Spravované disky nemusí být k dispozici ve všech oblastech. Další informace najdete v tématu [Úvod do služby Azure Managed disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview).
+    c. Vyberte **použít spravované disky**. Když tuto funkci povolíte, Azure automaticky spravuje dostupnost disků. Výhodou je redundance dat a odolnost proti chybám, aniž byste museli vytvářet a spravovat účty úložiště sami. Spravované disky nemusí být k dispozici ve všech oblastech. Další informace najdete v tématu [Úvod do služby Azure Managed disks](/azure/virtual-machines/windows/managed-disks-overview).
 
     d. Chcete-li konfigurovat síť, vyberte možnost **virtuální síť**. Virtuální sítě jsou od sebe logicky izolované v Azure. V datovém centru můžete nakonfigurovat rozsahy IP adres, podsítě, směrovací tabulky, brány a nastavení zabezpečení, podobně jako tradiční síť. Virtuální počítače ve stejné virtuální síti můžou ve výchozím nastavení přistupovat ke druhému. 
 
@@ -95,7 +95,7 @@ Pokud chcete nasadit virtuální počítač, postupujte podle pokynů v následu
 
     f. Pokud chcete nakonfigurovat přístup ke svému VIRTUÁLNÍmu počítači nebo ke službám běžícím na vašem VIRTUÁLNÍm počítači, vyberte **Veřejná IP adresa**. Pomocí veřejné IP adresy můžete komunikovat s virtuálním počítačem mimo virtuální síť. 
 
-    g. Vyberte **Skupina zabezpečení sítě**, **základní**nebo **Rozšířená**. Nastavte pravidla, která povolují nebo zakazují síťový provoz na virtuálním počítači. 
+    například Vyberte **Skupina zabezpečení sítě**, **základní**nebo **Rozšířená**. Nastavte pravidla, která povolují nebo zakazují síťový provoz na virtuálním počítači. 
 
     h. Pokud chcete pro virtuální počítač nastavit přístup pro běžné nebo vlastní protokoly, vyberte **veřejné příchozí porty**. Služba Určuje cílový protokol a rozsah portů pro toto pravidlo. Můžete zvolit předdefinovanou službu, například protokol RDP (Remote Desktop Protocol) (RDP) nebo SSH, nebo zadat vlastní rozsah portů. 
         Pro webový server použijte protokol HTTP (80), HTTPS (443) a SSH (22) Open. Pokud plánujete spravovat počítač pomocí připojení RDP, otevřete port 3389.

@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: Naučte se vytvářet interaktivní testy pro ověřování funkcí pro Azure Stack centra s ověřováním jako službou.
 author: mattbriggs
 ms.topic: tutorial
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5529164b909099156219086dd8a4895c223ed5a3
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 1e7e87073518ab5a040cc96ec1af5b7db5f808d9
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81661292"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91107251"
 ---
 # <a name="interactive-feature-verification-testing"></a>Testování ověřování interaktivních funkcí  
 
@@ -48,7 +48,7 @@ Pokud nemáte k dispozici existující testovací průchod, postupujte podle pok
     > [!Note]  
     > Verze testu se zvýší, protože jsou provedeny vylepšení testovacích materiálů. Nejvyšší verze by měla být vždy použita, pokud společnost Microsoft neurčí jinak.
 
-    ![Test identifikace disku – interaktivní testování v centru Azure Stack](media/azure-stack-vaas-interactive-feature-verification/image4.png)
+    ![Snímek obrazovky, který zobrazuje test identifikace disku – interaktivní testování v centru Azure Stack.](media/azure-stack-vaas-interactive-feature-verification/image4.png)
 
 2. Vyberte **Upravit** a zadejte uživatelské jméno a heslo správce domény.
 

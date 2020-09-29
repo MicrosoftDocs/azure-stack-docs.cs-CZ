@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: inhenkel
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: ecac1c8c69a8f332a85bf0a934f688f14dbcaddd
-ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
+ms.openlocfilehash: f2b51ad2bff721c2a8be6490902cf3bb07559fb2
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84631000"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91106821"
 ---
 # <a name="manage-storage-capacity-for-azure-stack-hub"></a>Správa kapacity úložiště pro centrum Azure Stack
 
@@ -45,7 +45,7 @@ Vzhledem k tomu, že objekty úložiště (objekty blob atd.) jsou jednotlivě o
 
 Když je na svazku úložiště objektů nedostatek volného místa a [akce pro uvolnění](#reclaim-capacity) místa není úspěšná nebo nedostupná, Azure Stack operátoři cloudového centra můžou migrovat objekty úložiště z jednoho svazku do druhého.
 
-Informace o tom, jak uživatelé klienta pracují s úložištěm objektů BLOB v Azure Stackovém centru, najdete v tématu [služby úložiště Azure Stack hub](/azure-stack/user/azure-stack-storage-overview).
+Informace o tom, jak uživatelé klienta pracují s úložištěm objektů BLOB v Azure Stackovém centru, najdete v tématu [služby úložiště Azure Stack hub](../user/azure-stack-storage-overview.md).
 
 ### <a name="containers"></a>Containers
 Uživatelé tenanta vytvářejí kontejnery, které se pak používají k ukládání dat objektů BLOB. I když se uživatelé rozhodují, ve kterém kontejneru umístit objekty blob, služba úložiště pomocí algoritmu určuje, který svazek se má vložit do kontejneru. Algoritmus obvykle zvolí svazek s největším množstvím dostupného místa.  
@@ -173,7 +173,7 @@ Migrace slučuje všechny objekty blob kontejneru v nové sdílené složce.
 > Migrace objektů BLOB pro kontejner je offline operace, která vyžaduje použití PowerShellu. Dokud nebude migrace dokončená, všechny objekty blob pro kontejner, které migrujete, zůstávají offline a nejde je použít. Měli byste se také vyhnout upgradu centra Azure Stack, dokud nebude dokončena veškerá nepřetržitá migrace.
 
 #### <a name="migrate-containers-by-using-powershell"></a>Migrace kontejnerů pomocí PowerShellu
-1. Potvrďte, že máte [nainstalovanou a nakonfigurovanou Azure PowerShell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/). Další informace najdete v tématu [Správa prostředků Azure pomocí Azure PowerShell](https://go.microsoft.com/fwlink/?LinkId=394767).
+1. Potvrďte, že máte [nainstalovanou a nakonfigurovanou Azure PowerShell](/powershell/azure/). Další informace najdete v tématu [Správa prostředků Azure pomocí Azure PowerShell](https://go.microsoft.com/fwlink/?LinkId=394767).
 2. Projděte si kontejner, abyste pochopili, jaká data jsou ve sdílené složce, kterou plánujete migrovat. K určení nejlepšího kontejneru kandidátů pro migraci ve svazku použijte `Get-AzsStorageContainer` rutinu:
 
    ```powershell  
@@ -222,7 +222,7 @@ Migrace slučuje všechny objekty blob kontejneru v nové sdílené složce.
    Get-AzsStorageContainerMigrationStatus -JobId $job_id -FarmName $farm_name
    ```
 
-   ![Příklad: stav migrace](media/azure-stack-manage-storage-shares/migration-status1.png)
+   ![Snímek obrazovky zobrazující stav migrace](media/azure-stack-manage-storage-shares/migration-status1.png)
 
 6. Probíhající úlohu migrace můžete zrušit. Zrušené úlohy migrace se zpracovávají asynchronně. Zrušení můžete sledovat pomocí $jobid:
 
@@ -234,7 +234,7 @@ Migrace slučuje všechny objekty blob kontejneru v nové sdílené složce.
 
 7. Můžete znovu spustit příkaz z kroku 6, dokud nebude stav migrace *zrušený*:  
 
-    ![Příklad: zrušený stav](media/azure-stack-manage-storage-shares/cancelled.png)
+    ![Snímek obrazovky, který ukazuje příklad stavu zrušené migrace.](media/azure-stack-manage-storage-shares/cancelled.png)
 
 ### <a name="move-vm-disks"></a>Přesunutí disků virtuálního počítače
 *Tato možnost se vztahuje jenom na systémy integrované s Azure Stack hub.*
@@ -324,4 +324,4 @@ Největší způsob správy prostoru zahrnuje přesun nespravovaných disků. Po
 ::: moniker-end
 
 ## <a name="next-steps"></a>Další kroky
-Další informace o nabídce virtuálních počítačů pro uživatele najdete v tématu [Správa kapacity úložiště pro centrum Azure Stack](azure-stack-tutorial-tenant-vm.md).
+Další informace o nabídce virtuálních počítačů pro uživatele najdete v tématu [Správa kapacity úložiště pro centrum Azure Stack](./tutorial-offer-services.md?view=azs-2002).

@@ -9,12 +9,12 @@ ms.author: inhenkel
 ms.lastreviewed: 5/5/2020
 ms.reviewer: jiaha
 ms.custom: contperfq4
-ms.openlocfilehash: a8bc501587c4f4450a07704734391a8e889e3296
-ms.sourcegitcommit: 7d4c28353bc138bbae744d9dbca79fe934c2e94b
+ms.openlocfilehash: a60de3bf059522b980d7a3e74295736118334773
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83624586"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91106439"
 ---
 # <a name="azure-stack-hub-storage-infrastructure-overview"></a>Přehled infrastruktury úložiště Azure Stack hub
 
@@ -50,12 +50,12 @@ Jednotky mohou být seskupeny do nasazení "all-Flash" nebo "hybrid".
 
 Nasazení all-Flash se zaměřuje na maximalizaci výkonu úložiště a nezahrnují rotaci HDD.
 
-![Azure Stack infrastruktura úložiště centra](media/azure-stack-storage-infrastructure-overview/image1.png)
+![Diagram, který obsahuje seskupení nasazení all-Flash.](media/azure-stack-storage-infrastructure-overview/image1.png)
 
 
 Hybridní nasazení mají za cíl vyvážit výkon a kapacitu nebo maximalizovat kapacitu a zahrnout rotační Hddy.
 
-![Azure Stack infrastruktura úložiště centra](media/azure-stack-storage-infrastructure-overview/image2.png)
+![Diagram, který zobrazuje seskupení hybridního nasazení.](media/azure-stack-storage-infrastructure-overview/image2.png)
 
 ### <a name="caching-behavior"></a>Chování při ukládání do mezipaměti
 
@@ -65,7 +65,7 @@ Chování mezipaměti je určeno automaticky na základě typů jednotek. Při u
 
 Při ukládání do mezipaměti pro HDD (jako je například ukládání do mezipaměti SSD pro HDD) jsou čtení i zápisy ukládány do mezipaměti, aby se zajistila latence s podobným rozhraním Flash (často/~ 10x) pro obojí.
 
-![Azure Stack infrastruktura úložiště centra](media/azure-stack-storage-infrastructure-overview/image3.svg)
+![Diagram, který zobrazuje Azure Stack chování při ukládání do mezipaměti úložiště centra.](media/azure-stack-storage-infrastructure-overview/image3.svg)
 
 K dispozici je konfigurace úložiště, kterou můžete vyhledat v Azure Stack partnerovi OEM ( https://azure.microsoft.com/overview/azure-stack/partners/) pro podrobnou specifikaci).
 
@@ -76,7 +76,7 @@ K dispozici je konfigurace úložiště, kterou můžete vyhledat v Azure Stack 
 
 *Služba úložiště* rozdělí dostupné úložiště na samostatné svazky, které jsou přiděleny k uchování dat systému a klienta. Svazky spojují jednotky ve fondu úložiště, aby poskytovaly odolnost proti chybám, škálovatelnost a výkonnostní výhody Prostory úložiště s přímým přístupem.
 
-![Azure Stack infrastruktura úložiště centra](media/azure-stack-storage-infrastructure-overview/image4.svg)
+![Diagram, který zobrazuje Azure Stack oddíly služby úložiště centra](media/azure-stack-storage-infrastructure-overview/image4.svg)
 
 ### <a name="volume-types"></a>Typy svazků
 
@@ -99,7 +99,7 @@ Počet dočasnou svazky virtuálního počítače a svazky úložiště objektů
 - Počet svazků zůstává stejný i v případě, že uzel nefunguje nebo je odebraný.
 
 > [!NOTE]
-> Pokud používáte [Azure Stack Development Kit (ASDK)](https://docs.microsoft.com/azure-stack/asdk/), existuje jeden svazek s více [sdílenými](azure-stack-manage-storage-shares.md)složkami.
+> Pokud používáte [Azure Stack Development Kit (ASDK)](../asdk/index.yml), existuje jeden svazek s více [sdílenými](azure-stack-manage-storage-shares.md)složkami.
 
 ### <a name="fault-tolerance-and-mirroring"></a>Odolnost proti chybám a zrcadlení
 
@@ -111,7 +111,7 @@ Nasazení centra Azure Stack používá k zajištění odolnosti dat trojrozměr
 
 Tři kopie dat tenanta se zapisují na různé servery, kde se nacházejí v mezipaměti:
 
-![Azure Stack infrastruktura úložiště centra](media/azure-stack-storage-infrastructure-overview/image5.png)
+![Diagram, který ukazuje, jak jsou tři kopie dat tenanta zapisovány na různé servery.](media/azure-stack-storage-infrastructure-overview/image5.png)
 
 ## <a name="next-step"></a>Další krok
 

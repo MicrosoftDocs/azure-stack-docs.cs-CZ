@@ -3,25 +3,26 @@ title: Co je nového v tržišti Azure Stack hub
 description: Podívejte se, co je nového v tržišti Azure Stack hub, včetně nových, zastaralých a aktualizovaných položek Marketplace.
 author: sethmanheim
 ms.topic: article
-ms.date: 06/19/2020
+ms.date: 09/23/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 05/28/2020
-ms.openlocfilehash: 61ee34b016ec75964ac2f6535779bce7e1d5184a
-ms.sourcegitcommit: 0098896ba958169f378c0ef38b83b90d8e52c681
+ms.openlocfilehash: 1647c49115cb9f27c1485e59d1b85eb9a9bc1146
+ms.sourcegitcommit: 849be7ebd02a1e54e8d0ec59736c9917c67e309e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85111372"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91134759"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Změny v tržišti centra Azure Stack
 
-V tomto článku jsou uvedeny nedávné dodatky, aktualizace, změny a odebrání [položek centra pro Azure Stack na webu Marketplace](azure-stack-marketplace-azure-items.md) za poslední tři měsíce. Informace v této části se často aktualizují, proto se můžete podívat na časté změny.
+V tomto článku najdete seznam nedávných přidání, aktualizací, změn a odebrání [položek z webu Marketplace pro Azure Stack hub](azure-stack-marketplace-azure-items.md). Informace v této části se často aktualizují, proto se můžete podívat na časté změny.
 
 Článek o [položkách na webu Marketplace centra Azure Stack](azure-stack-marketplace-azure-items.md) vždy obsahuje nejaktuálnější seznam dostupných položek centra Azure Stack na webu Marketplace.
 
 ## <a name="new-marketplace-items"></a>Nové položky Marketplace
 
+- 09/08/2020: zařízení virtuálního skeneru Qualys
 - 01/21/2020: Teradici software pro přístup k cloudu
 - 12/26/2019: CloudGuard IaaS High Availability
 - 12/26/2019: Check Point CloudGuard IaaS Security Management
@@ -53,6 +54,12 @@ V tomto článku jsou uvedeny nedávné dodatky, aktualizace, změny a odebrán�
 
 ## <a name="deprecated-marketplace-items"></a>Zastaralé položky Marketplace
 
+- Bitnami Shopware
+- SQL Server 2017 standard v SUSE Linux Enterprise Server (SLES) 12 SP2
+- Bezplatná licence: vývojář SQL Server 2017 na SUSE Linux Enterprise Server (SLES) 12 SP2
+- Bezplatná licence: SQL Server 2017 Express v SUSE Linux Enterprise Server (SLES) 12 SP2
+- SQL Server 2017 Enterprise v SUSE Linux Enterprise Server (SLES) 12 SP2
+- SQL Server 2017 web v SUSE Linux Enterprise Server (SLES) 12 SP2
 - Bitnami Codiad
 - Bitnami X2Engine Sales CRM
 - Bitnami SugarCRM
@@ -63,11 +70,184 @@ V tomto článku jsou uvedeny nedávné dodatky, aktualizace, změny a odebrán�
 
 ## <a name="updated-marketplace-items"></a>Aktualizované položky Marketplace
 
+- 09/21/2020: Brána CentOS pro připojení k aplikacím – verze 7.2.0
+- 09/09/2020: FortiGate NGFW – nasazení s jedním virtuálním počítačem (BYOL) – verze 1.0.2
+- 09/04/2020: CentOS-based 6,10 – verze 6.10.2020042900
+- 09/04/2020: CentOS-based 7,4 – verze 7.4.20200220
+- 09/04/2020: CentOS-based 7,5 – verze 7.5.201808150
+- 09/04/2020: CentOS-based 7,6 – verze 7.6.201909120
+- 09/04/2020: CentOS-based 7,7 – verze 7.7.2020062400
+- 09/04/2020: CentOS-based 8,0 – verze 8.0.201912060
+- 09/03/2020: [smalldisk] Windows Server 2008 R2 SP1 – průběžné platby – verze 7601.24559.2008080510
+- 09/03/2020: [smalldisk] Windows Server 2008 R2 SP1 – zajistěte si vlastní licenci – verze 7601.24559.2008080510
+- 09/03/2020: Windows Server 2008 R2 SP1 – průběžné platby – 7601.24559.2008080510 verze
+- 09/03/2020: Windows Server 2008 R2 SP1 – zajistěte si vlastní licenci na verzi 7601.24559.2008080510
+- 09/03/2020: Windows Server 2012 Datacenter – průběžné platby – verze 9200.23121.2008080510
+- 09/03/2020: Windows Server 2012 Datacenter – Přineste si vlastní licenci na verzi 9200.23121.2008080510
+- 09/03/2020: [smalldisk] Windows Server 2012 Datacenter – průběžné platby – verze 9200.23121.2008080510
+- 09/03/2020: [smalldisk] Windows Server 2012 Datacenter – Přineste si vlastní licenci – verze 9200.23121.2008080510
+- 09/03/2020: [smalldisk] Windows Server 2012 R2 Datacenter – průběžné platby – verze 9600.19785.2008100926
+- 09/03/2020: [smalldisk] Windows Server 2012 R2 Datacenter – Přineste si vlastní licenci – verze 9600.19785.2008100926
+- 09/03/2020: Windows Server 2012 R2 Datacenter – průběžné platby – 9600.19785.2008100926 verze
+- 09/03/2020: Windows Server 2012 R2 Datacenter – Přineste si vlastní licenci na verzi 9600.19785.2008100926
+- 09/03/2020: Windows 10 Enterprise N 2016 LTSB-Přineste si vlastní licenci na verzi 14393.3866.2008081933
+- 09/03/2020: Windows 10 Enterprise 2016 LTSB-Přineste si vlastní licenci – verze 14393.3866.2008081933
+- 09/03/2020: [smalldisk] Windows Server 2016 Datacenter – Server Core – průběžné platby – verze 14393.3866.2008081933
+- 09/03/2020: [smalldisk] Windows Server 2016 Datacenter – Server Core – uvedení vlastní licence na verzi 14393.3866.2008081933
+- 09/03/2020: [smalldisk] Windows Server 2016 Datacenter – průběžné platby – verze 14393.3866.2008081933
+- 09/03/2020: [smalldisk] Windows Server 2016 Datacenter – Přineste si vlastní licenci – verze 14393.3866.2008081933
+- 09/03/2020: Windows Server 2016 Datacenter – Server Core – průběžné platby – 14393.3866.2008081933 verze
+- 09/03/2020: Windows Server 2016 Datacenter – Server Core – Přineste si vlastní licenci na verzi 14393.3866.2008081933
+- 09/03/2020: Windows Server 2016 Datacenter – průběžné platby – verze 14393.3866.2008081933
+- 09/03/2020: Windows Server 2016 Datacenter – Přineste si vlastní licenci na verzi 14393.3866.2008081933
+- 09/03/2020: Windows 10 Enterprise, verze 1809 – uvedení vlastní licence na verzi 17763.1397.2008070242
+- 09/03/2020: Windows 10 pro, verze 1809 – uvedení vlastní licence na verzi 17763.1397.2008070242
+- 09/03/2020: Windows 10 pro N, verze 1809 – Přineste si vlastní licenci na verzi 17763.1397.2008070242
+- 09/03/2020: Windows 10 Enterprise 2019 LTSC-Přineste si vlastní licenci – verze 17763.1397.2008070242
+- 09/03/2020: Windows 10 Enterprise multi-session verze 1809 – přinese si vlastní 17763.1397.2008070242 verze licence
+- 09/03/2020: Windows 10 Enterprise N, verze 1809 – Přineste si vlastní licenci na verzi 17763.1397.2008070242
+- 09/03/2020: Windows 10 Enterprise N 2019 LTSC-Přineste si vlastní licenci na verzi 17763.1397.2008070242
+- 09/03/2020: Windows Server 2019 Datacenter Server Core – průběžné platby – 17763.1397.2008070242 verze
+- 09/03/2020: Windows Server 2019 Datacenter Server Core – uvedení vlastní licence na verzi 17763.1397.2008070242
+- 09/03/2020: [smalldisk] Windows Server 2019 Datacenter Server Core s kontejnery – průběžné platby – verze 17763.1397.2008070242
+- 09/03/2020: [smalldisk] Windows Server 2019 Datacenter Server Core s kontejnery – Přineste si vlastní licenci – verze 17763.1397.2008070242
+- 09/03/2020: Windows Server 2019 Datacenter – průběžné platby – verze 17763.1397.2008070242
+- 09/03/2020: Windows Server 2019 Datacenter – Přineste si vlastní licenci na verzi 17763.1397.2008070242
+- 09/03/2020: [smalldisk] Windows Server, verze 1809 s kontejnery – průběžné platby – verze 17763.1397.2008070242
+- 09/03/2020: [smalldisk] Windows Server, verze 1809 s kontejnery – Přineste si vlastní licenci – verze 17763.1397.2008070242
+- 09/03/2020: [smalldisk] Windows Server 2019 Datacenter Server Core – průběžné platby – verze 17763.1397.2008070242
+- 09/03/2020: [smalldisk] Windows Server 2019 Datacenter Server Core – uvedení vlastní licence na verzi 17763.1397.2008070242
+- 09/03/2020: [smalldisk] Windows Server 2019 Datacenter – průběžné platby – verze 17763.1397.2008070242
+- 09/03/2020: [smalldisk] Windows Server 2019 Datacenter – Přineste si vlastní licenci – verze 17763.1397.2008070242
+- 09/03/2020: Windows Server 2019 Datacenter s kontejnery – průběžné platby – verze 17763.1397.2008070242
+- 09/03/2020: Windows Server 2019 Datacenter s kontejnery – Přineste si vlastní licenci verze 17763.1397.2008070242
+- 09/03/2020: Windows Server 2019 Datacenter Server Core s kontejnery – průběžné platby – verze 17763.1397.2008070242
+- 09/03/2020: Windows Server 2019 Datacenter Server Core s kontejnery – Přineste si vlastní licenci – verze 17763.1397.2008070242
+- 09/03/2020: [smalldisk] Windows Server 2019 Datacenter s kontejnery – průběžné platby – verze 17763.1397.2008070242
+- 09/03/2020: [smalldisk] Windows Server 2019 Datacenter s kontejnery – Přineste si vlastní licenci – verze 17763.1397.2008070242
+- 09/03/2020: Windows 10 Enterprise multi-session verze 1903 – přinese si vlastní 18362.1016.2008062123 verze licence
+- 09/03/2020: Windows 10 Enterprise N, verze 1903 – Přineste si vlastní licenci na verzi 18362.1016.2008062123
+- 09/03/2020: Windows 10 Enterprise, verze 1903 – uvedení vlastní licence na verzi 18362.1016.2008062123
+- 09/03/2020: Windows 10 pro N, verze 1903 – Přineste si vlastní licenci na verzi 18362.1016.2008062123
+- 09/03/2020: Windows 10 pro, verze 1903 – uvedení vlastní licence na verzi 18362.1016.2008062123
+- 09/03/2020: [smalldisk] Windows Server, verze 1903 s kontejnery – průběžné platby – verze 18362.1016.2008062123
+- 09/03/2020: [smalldisk] Windows Server, verze 1903 s kontejnery – Přineste si vlastní licenci – verze 18362.1016.2008062123
+- 09/03/2020: Windows 10 Enterprise N, verze 1909 – Přineste si vlastní licenci na verzi 18363.1016.2008070242
+- 09/03/2020: Windows 10 Enterprise, verze 1909 – uvedení vlastní licence na verzi 18363.1016.2008070242
+- 09/03/2020: Windows 10 Enterprise multi-session verze 1909 – přinese si vlastní 18363.1016.2008070242 verze licence
+- 09/03/2020: Windows 10 pro, verze 1909 – uvedení vlastní licence na verzi 18363.1016.2008070242
+- 09/03/2020: Windows 10 pro N, verze 1909 – Přineste si vlastní licenci na verzi 18363.1016.2008070242
+- 09/03/2020: [smalldisk] Windows Server, verze 1909 s kontejnery – průběžné platby – verze 18363.1016.2008070242
+- 09/03/2020: [smalldisk] Windows Server, verze 1909 s kontejnery – Přineste si vlastní licenci – verze 18363.1016.2008070242
+- 09/03/2020: Windows 10 Enterprise multi-session verze 2004 – přinese si vlastní 19041.450.2008080726 verze licence
+- 09/03/2020: Windows 10 Enterprise, verze 2004 – uvedení vlastní licence na verzi 19041.450.2008080726
+- 09/03/2020: [smalldisk] Windows Server, verze 2004 s kontejnery – průběžné platby – verze 19041.450.2008080726
+- 09/03/2020: [smalldisk] Windows Server, verze 2004 s kontejnery – Přineste si vlastní licenci – verze 19041.450.2008080726
+- 08/31/2020: AKS Base Ubuntu 16,04-LTS image distribuce, srpen 2020 – verze 2020.08.24
+- 08/21/2020: Windows 10 Enterprise, verze 1903 – uvedení vlastní licence na verzi 18362.959.2007101755
+- 08/21/2020: Windows 10 pro, verze 1903 – uvedení vlastní licence na verzi 18362.959.2007101755
+- 08/21/2020: Windows 10 Enterprise, verze 1909 – uvedení vlastní licence na verzi 18363.959.2007101752
+- 08/21/2020: Windows 10 pro, verze 1909 – uvedení vlastní licence na verzi 18363.959.2007101752
+- 08/21/2020: Windows 10 Enterprise, verze 2004 – uvedení vlastní licence na verzi 19041.388.2007101729
+- 08/21/2020: Windows 10 Enterprise 2016 LTSB-Přineste si vlastní licenci – verze 14393.3808.2007101707
+- 08/21/2020: Windows 10 Enterprise 2019 LTSC-Přineste si vlastní licenci – verze 17763.1339.2007101755
+- 08/21/2020: Windows 10 pro, verze 1809 – uvedení vlastní licence na verzi 17763.1339.2007101755
+- 08/21/2020: Windows Server 2008 R2 SP1 – průběžné platby – 7601.24557.2007101756 verze
+- 08/21/2020: [smalldisk] Windows Server 2008 R2 SP1 – průběžné platby – verze 7601.24557.2007101756
+- 08/21/2020: Windows Server 2012 Datacenter – průběžné platby – verze 9200.23086.2007131700
+- 08/21/2020: [smalldisk] Windows Server 2012 Datacenter – průběžné platby – verze 9200.23086.2007131700
+- 08/21/2020: Windows Server 2012 R2 Datacenter – průběžné platby – 9600.19756.2007111612 verze
+- 08/21/2020: [smalldisk] Windows Server 2012 R2 Datacenter – průběžné platby – verze 9600.19756.2007111612
+- 08/21/2020: Windows Server 2016 Datacenter – průběžné platby – verze 14393.3808.2007101707
+- 08/21/2020: Windows Server 2016 Datacenter – Server Core – průběžné platby – 14393.3808.2007101707 verze
+- 08/21/2020: [smalldisk] Windows Server 2016 Datacenter – Server Core – průběžné platby – verze 14393.3808.2007101707
+- 08/21/2020: [smalldisk] Windows Server 2016 Datacenter – průběžné platby – verze 14393.3808.2007101707
+- 08/21/2020: Windows Server 2019 Datacenter Server Core – průběžné platby – 17763.1339.2007101755 verze
+- 08/21/2020: [smalldisk] Windows Server 2019 Datacenter Server Core – průběžné platby – verze 17763.1339.2007101755
+- 08/21/2020: Windows Server 2019 Datacenter Server Core s kontejnery – průběžné platby – verze 17763.1339.2007101755
+- 08/21/2020: [smalldisk] Windows Server 2019 Datacenter Server Core s kontejnery – průběžné platby – verze 17763.1339.2007101755
+- 08/21/2020: Windows Server 2019 Datacenter – průběžné platby – verze 17763.1339.2007101755
+- 08/21/2020: [smalldisk] Windows Server 2019 Datacenter – průběžné platby – verze 17763.1339.2007101755
+- 08/21/2020: Windows Server 2019 Datacenter s kontejnery – průběžné platby – verze 17763.1339.2007101755
+- 08/21/2020: [smalldisk] Windows Server 2019 Datacenter s kontejnery – průběžné platby – verze 17763.1339.2007101755
+- 08/21/2020: [smalldisk] Windows Server, verze 1809 s kontejnery – průběžné platby – verze 17763.1339.2007101755
+- 08/21/2020: [smalldisk] Windows Server, verze 1903 s kontejnery – průběžné platby – verze 18362.959.2007101755
+- 08/21/2020: [smalldisk] Windows Server, verze 1909 s kontejnery – průběžné platby – verze 18363.959.2007101752
+- 08/21/2020: [smalldisk] Windows Server, verze 2004 s kontejnery – průběžné platby – verze 19041.388.2007101729
+- 08/04/2020: Windows Server 2008 R2 SP1 – zajistěte si vlastní licenci na verzi 7601.24556.2006050139
+- 08/04/2020: Windows Server 2008 R2 SP1 – průběžné platby – 7601.24556.2006050139 verze
+- 08/04/2020: [smalldisk] Windows Server 2008 R2 SP1 – zajistěte si vlastní licenci – verze 7601.24556.2006050139
+- 08/04/2020: [smalldisk] Windows Server 2008 R2 SP1 – průběžné platby – verze 7601.24556.2006050139
+- 08/04/2020: Windows Server 2012 Datacenter – Přineste si vlastní licenci na verzi 9200.23066.2006051749
+- 08/04/2020: Windows Server 2012 Datacenter – průběžné platby – verze 9200.23066.2006051749
+- 08/04/2020: [smalldisk] Windows Server 2012 Datacenter – Přineste si vlastní licenci – verze 9200.23066.2006051749
+- 08/04/2020: [smalldisk] Windows Server 2012 Datacenter – průběžné platby – verze 9200.23066.2006051749
+- 08/04/2020: Windows Server 2012 R2 Datacenter – Přineste si vlastní licenci na verzi 9600.19728.2006050139
+- 08/04/2020: Windows Server 2012 R2 Datacenter – průběžné platby – 9600.19728.2006050139 verze
+- 08/04/2020: [smalldisk] Windows Server 2012 R2 Datacenter – Přineste si vlastní licenci – verze 9600.19728.2006050139
+- 08/04/2020: [smalldisk] Windows Server 2012 R2 Datacenter – průběžné platby – verze 9600.19728.2006050139
+- 08/04/2020: Windows Server 2016 Datacenter – Přineste si vlastní licenci na verzi 14393.3750.2006031549
+- 08/04/2020: Windows Server 2016 Datacenter – průběžné platby – verze 14393.3750.2006031549
+- 08/04/2020: Windows Server 2016 Datacenter – Server Core – Přineste si vlastní licenci na verzi 14393.3750.2006031549
+- 08/04/2020: Windows Server 2016 Datacenter – Server Core – průběžné platby – 14393.3750.2006031549 verze
+- 08/04/2020: [smalldisk] Windows Server 2016 Datacenter – Server Core – uvedení vlastní licence na verzi 14393.3750.2006031549
+- 08/04/2020: [smalldisk] Windows Server 2016 Datacenter – Server Core – průběžné platby – verze 14393.3750.2006031549
+- 08/04/2020: [smalldisk] Windows Server 2016 Datacenter – Přineste si vlastní licenci – verze 14393.3750.2006031549
+- 08/04/2020: [smalldisk] Windows Server 2016 Datacenter – průběžné platby – verze 14393.3750.2006031549
+- 08/04/2020: Windows Server 2019 Datacenter – Přineste si vlastní licenci na verzi 17763.1282.2006061952
+- 08/04/2020: Windows Server 2019 Datacenter Server Core – uvedení vlastní licence na verzi 17763.1282.2006061952
+- 08/04/2020: Windows Server 2019 Datacenter Server Core – průběžné platby – 17763.1282.2006061952 verze
+- 08/04/2020: [smalldisk] Windows Server 2019 Datacenter Server Core – uvedení vlastní licence na verzi 17763.1282.2006061952
+- 08/04/2020: [smalldisk] Windows Server 2019 Datacenter Server Core – průběžné platby – verze 17763.1282.2006061952
+- 08/04/2020: Windows Server 2019 Datacenter Server Core s kontejnery – Přineste si vlastní licenci – verze 17763.1282.2006061952
+- 08/04/2020: Windows Server 2019 Datacenter Server Core s kontejnery – průběžné platby – verze 17763.1282.2006061952
+- 08/04/2020: [smalldisk] Windows Server 2019 Datacenter Server Core s kontejnery – Přineste si vlastní licenci – verze 17763.1282.2006061952
+- 08/04/2020: [smalldisk] Windows Server 2019 Datacenter Server Core s kontejnery – průběžné platby – verze 17763.1282.2006061952
+- 08/04/2020: Windows Server 2019 Datacenter – průběžné platby – verze 17763.1282.2006061952
+- 08/04/2020: [smalldisk] Windows Server 2019 Datacenter – Přineste si vlastní licenci – verze 17763.1282.2006061952
+- 08/04/2020: [smalldisk] Windows Server 2019 Datacenter – průběžné platby – verze 17763.1282.2006061952
+- 08/04/2020: Windows Server 2019 Datacenter s kontejnery – Přineste si vlastní licenci verze 17763.1282.2006061952
+- 08/04/2020: Windows Server 2019 Datacenter s kontejnery – průběžné platby – verze 17763.1282.2006061952
+- 08/04/2020: [smalldisk] Windows Server 2019 Datacenter s kontejnery – Přineste si vlastní licenci – verze 17763.1282.2006061952
+- 08/04/2020: [smalldisk] Windows Server 2019 Datacenter s kontejnery – průběžné platby – verze 17763.1282.2006061952
+- 08/04/2020: [smalldisk] Windows Server, verze 1809 s kontejnery – Přineste si vlastní licenci – verze 17763.1282.2006061952
+- 08/04/2020: [smalldisk] Windows Server, verze 1809 s kontejnery – průběžné platby – verze 17763.1282.2006061952
+- 08/04/2020: [smalldisk] Windows Server, verze 1903 s kontejnery – Přineste si vlastní licenci – verze 18362.900.2006061800
+- 08/04/2020: [smalldisk] Windows Server, verze 1903 s kontejnery – průběžné platby – verze 18362.900.2006061800
+- 08/04/2020: [smalldisk] Windows Server, verze 2004 s kontejnery – Přineste si vlastní licenci – verze 19041.329.2006042019
+- 08/04/2020: Windows 10 Enterprise 2016 LTSB-Přineste si vlastní licenci – verze 14393.3750.2006031549
+- 08/04/2020: Windows 10 Enterprise 2019 LTSC-Přineste si vlastní licenci – verze 17763.1282.2006061952
+- 08/04/2020: Windows 10 Enterprise, verze 1809 – uvedení vlastní licence na verzi 17763.1282.2006061952
+- 08/04/2020: Windows 10 pro, verze 1809 – uvedení vlastní licence na verzi 17763.1282.2006061952
+- 08/04/2020: Windows 10 Enterprise, verze 1903 – uvedení vlastní licence na verzi 18362.900.2006061800
+- 08/04/2020: Windows 10 pro, verze 1903 – uvedení vlastní licence na verzi 18362.900.2006061800
+- 08/04/2020: Windows 10 Enterprise, verze 1909 – uvedení vlastní licence na verzi 18363.900.2006061800
+- 08/04/2020: Windows 10 pro, verze 1909 – uvedení vlastní licence na verzi 18363.900.2006061800
+- 08/04/2020: Windows 10 Enterprise, verze 2004 – uvedení vlastní licence na verzi 19041.329.2006042019
+- 07/27/2020: Ubuntu Server 20,04 LTS – verze 20.04.202007080
+- 07/27/2020: Ubuntu Server 20,04 LTS – verze 20.04.202007160
+- 07/27/2020: Ubuntu Server 20,04 LTS – verze 20.04.202004230
+- 07/27/2020: Ubuntu Server 16,04 LTS – verze 16.04.202007080
+- 07/27/2020: Ubuntu Server 18,04 LTS – verze 16.04.202007080
+- 07/21/2020: {WS-PAYG} licence k bezplatné verzi: SQL Server 2016 SP2 Developer v systému Windows Server 2016 – verze 13.2.20200513
+- 07/21/2020: {WS-PAYG} licence k bezplatné verzi: SQL Server 2016 SP2 Express v systému Windows Server 2016 – verze 13.2.20200514
+- 07/21/2020: {WS-PAYG} licence k bezplatnému SQL Server: SQL Server 2017 Developer v systému Windows Server 2016 – verze 14.0.20200513
+- 07/21/2020: {WS-PAYG} licence k bezplatnému SQL Server: SQL Server 2017 Express v systému Windows Server 2016 – verze 14.0.20200514
+- 07/21/2020: {WS-PAYG} SQL Server 2016 SP2 Enterprise v systému Windows Server 2016 – verze 13.2.20200513
+- 07/21/2020: {WS-PAYG} SQL Server 2016 SP2 Standard v systému Windows Server 2016 – verze 13.2.20200514
+- 07/21/2020: {WS-PAYG} SQL Server 2017 Enterprise Windows Server 2016 – verze 14.0.20200513
+- 07/21/2020: {WS-PAYG} SQL Server 2017 standard v systému Windows Server 2016 – verze 14.0.20200514
+- 07/22/2020: {WS-BYOL} licence k bezplatné verzi: SQL Server 2016 SP2 Developer v systému Windows Server 2016 – verze 13.2.20200513
+- 07/22/2020: {WS-BYOL} licence k bezplatné verzi: SQL Server 2016 SP2 Express v systému Windows Server 2016 – verze 13.2.20200514
+- 07/22/2020: {WS-BYOL} licence k bezplatnému SQL Server: SQL Server 2017 Developer v systému Windows Server 2016 – verze 14.0.20200513
+- 07/22/2020: {WS-BYOL} licence k bezplatnému SQL Server: SQL Server 2017 Express v systému Windows Server 2016 – verze 14.0.20200514
+- 07/22/2020: {WS-BYOL} SQL Server 2016 SP2 Enterprise v systému Windows Server 2016 – verze 13.2.20200513
+- 07/22/2020: {WS-BYOL} SQL Server 2016 SP2 Standard v systému Windows Server 2016 – verze 13.2.20200514
+- 07/22/2020: {WS-BYOL} SQL Server 2017 Enterprise Windows Server 2016 – verze 14.0.20200513
+- 07/22/2020: {WS-BYOL} SQL Server 2017 standard v systému Windows Server 2016 – verze 14.0.20200514
 - 6/19/2020: Bitnami GitLab CE – verze 13.0.2006110322
 - 6/16/2020: SQLIaaSExtension – verze 1.3.20370
 - 6/12/2020: Bitnami Grafana – verze 6.7.2006040249
-- 5/21/2020: Ubuntu Server 16,04 LTS-Version 16.04.202004290
-- 5/21/2020: Ubuntu Server 18,04 LTS-version 18.04.202004080
 - 5/21/2020: Windows Server 2008 R2 SP1 BYOL-Version 7601.24552.2004101827
 - 5/21/2020: Windows Server 2008 R2 SP1 platíte při používání verze 7601.24552.2004101827
 - 5/21/2020: Windows Server 2012 Datacenter BYOL-Version 9200.23016.2004101828
@@ -84,173 +264,11 @@ V tomto článku jsou uvedeny nedávné dodatky, aktualizace, změny a odebrán�
 - 5/21/2020: Windows Server 2019 Datacenter platíte při používání verze 17763.1158.2004131759
 - 5/21/2020: Windows Server 2019 Datacenter s kontejnery BYOL – verze 17763.1158.2004131759
 - 5/21/2020: Windows Server 2019 Datacenter s kontejnery platit při používání verze 17763.1158.2004131759
-- 05/15/2020: Bitnami AbanteCart – verze 1.2.2004220207
-- 05/15/2020: Bitnami plátno pro 2020.5.2005120909u – verze
-- 05/15/2020: Bitnami Neos – verze 5.2.2005130917
-- 05/07/2020: Bitnami ActiveMQ – verze 5.15.2003260344
-- 05/07/2020: Bitnami Akeneo – verze 4 – 3.2.2004230142
-- 05/07/2020: Bitnami Alfresco Community – verze 201911.0.2004242008
-- 05/07/2020: Bitnami Apache Solr – verze 8.5.2004201607
-- 05/07/2020: Bitnami JFrog Artifactory Open Source-Version 6.19.2005041054
-- 05/07/2020: Bitnami Cassandra – verze 3.11.2003302002
-- 05/07/2020: Bitnami CiviCRM – verze 5.24.2004230742
-- 05/07/2020: v Bitnami CMS se udělala jednoduchá verze 2.2.2004220149.
-- 05/07/2020: Bitnami concrete5 – verze 8.5.2004220952
-- 05/07/2020: Bitnami HashiCorp Consul – verze 1.7.2003252309
-- 05/07/2020: Bitnami Coppermine – verze 1.6.2004220101
-- 05/07/2020: Bitnami CouchDB – verze 3.0.2004090905
-- 05/07/2020: Bitnami diaspora – verze 0.7.2004220228
-- 05/07/2020: Bitnami-2.4.2004222352 – verze
-- 05/07/2020: Bitnami Django – verze 2.2.2004220952
-- 05/07/2020: Bitnami DokuWiki – verze 20180422.0.2004220151
-- 05/07/2020: Bitnami Dolibarr – verze 11.0.2004220907
-- 05/07/2020: Bitnami DreamFactory – verze 4.1.2004221304
-- 05/07/2020: Bitnami Drupal – verze 8.8.2004220309
-- 05/07/2020: Bitnami Elasticsearch – verze 7.6.2003312054
-- 05/07/2020: Bitnami ELK – verze 7.6.2003312108
-- 05/07/2020: Bitnami ERPNext-Version-12.7.2004231458
-- 05/07/2020: Bitnami EspoCRM – verze 5.8.2004220156
-- 05/07/2020: Bitnami etcd – verze 3.4.2004020147
-- 05/07/2020: Bitnami eXo Platform – verze 5.2.2004241913
-- 05/07/2020: Bitnami FAT zdarma CRM – verze 0.18.2004220211
-- 05/07/2020: Bitnami Ghost – verze 3.14.2005041054
-- 05/07/2020: Bitnami GitLab CE – verze 12.10.2004241755
-- 05/07/2020: Bitnami Grafana – verze 6.7.2004231501
-- 05/07/2020: Bitnami Apache guacamole – verze 1.1.2003260344
-- 05/07/2020: Bitnami Hadoop – verze 3.2.2004242040
-- 05/07/2020: Bitnami HHVM – verze 3.30.2004220056
-- 05/07/2020: Bitnami Horde Groupware webmail – verze 5.2.2004220952
-- 05/07/2020: Bitnami JasperReports – verze 7.5.2004220219
-- 05/07/2020: Bitnami Jenkinse – verze 2.204.2003061428
-- 05/07/2020: Bitnami Joomla! verze 3.9.2004220511
-- 05/07/2020: Bitnami JRuby – verze 9.2.2004241917
-- 05/07/2020: Bitnami Kafka – verze 2.5.2004152349
-- 05/07/2020: Bitnami pro jiné verze 2.0.2004232326
-- 05/07/2020: Bitnami Kubernetes Sandbox – verze 1.18.2004090333
-- 05/07/2020: Bitnami LAMPa – verze 7.3.2004241853
-- 05/07/2020: Bitnami LAPP – verze 7.3.2004241251
-- 05/07/2020: Bitnami chat – verze 0.4.2004221148
-- 05/07/2020: Bitnami Liferay – verze 7.3.2004231024
-- 05/07/2020: Bitnami LimeSurvey – verze 4.2.2005041206
-- 05/07/2020: chat Bitnami live helper – verze 3.31.2004220209
-- 05/07/2020: Bitnami Magento – verze 2.3.2004220952
-- 05/07/2020: Bitnami Mahara – verze 10 – 19.10.2004220207
-- 05/07/2020: Bitnami Mantis – verze 2.24.2004220951
-- 05/07/2020: Bitnami MariaDB – verze 10.4.2003252212
-- 05/07/2020: Bitnami Mattermost Team Edition – verze 5.22.2005041054
-- 05/07/2020: Bitnami Mautic – verze 2.16.2004220323
-- 05/07/2020: Bitnami střední verze 4.2.2004281603
-- 05/07/2020: Bitnami MediaWiki – verze 1.34.2004220952
-- 05/07/2020: Bitnami memcached – verze 1.6.2004132340
-- 05/07/2020: Bitnami MODX – verze 2.7.2004220204
-- 05/07/2020: Bitnami MongoDB – verze 4.2.2004170936
-- 05/07/2020: Bitnami Moodle – verze 3.8.2004220952
-- 05/07/2020: Bitnami MyBB – verze 1.8.2004230613
-- 05/07/2020: Bitnami MySQL – verze 8.0.2003252232
-- 05/07/2020: Bitnami NAT – verze 2.1.2004010828
-- 05/07/2020: Bitnami Neo4j-Version. 4.0.2003311444
-- 05/07/2020: Bitnami NGINX open source verze 1.16.2004221209
-- 05/07/2020: Bitnami Noalyss – verze 7.3.2004220120
-- 05/07/2020: Bitnami Node.js – verze 12.16.2004281743
-- 05/07/2020: Bitnami sestavitele – verze 10.0.2004220137
-- 05/07/2020: Bitnami Odoo – verze 13.0.2004220418
-- 05/07/2020: Bitnami Open Atrium – verze 2.645.2004220952
-- 05/07/2020: Bitnami OpenCart – verze 3.0.2004230142
-- 05/07/2020: Bitnami Open edX – verze 576663.2.2004250743
-- 05/07/2020: Bitnami Openfire – verze 4.5.2004241829
-- 05/07/2020: Bitnami OpenProject – verze 10.3.2004220618
-- 05/07/2020: Bitnami OrangeHRM – verze 4.3.2004220223
-- 05/07/2020: Bitnami OroCRM – verze 4.0.2004220319
-- 05/07/2020: Bitnami Osclass – verze 3.9.2004221629
-- 05/07/2020: Bitnami ownCloud – verze 10.4.2004231341
-- 05/07/2020: Bitnami OXID eShop – verze 6.2.2004220516
-- 05/07/2020: Bitnami Parse Server – verze 4.2.2004091706
-- 05/07/2020: Bitnami Phabricator – verze 2020.7.2004220220
-- 05/07/2020: Bitnami phpBB – verze 3.3.2004220456
-- 05/07/2020: Bitnami phpList – verze 3.5.2004240140
-- 05/07/2020: Bitnami Pimcore – verze 6.6.2004220524
-- 05/07/2020: Bitnami Matomo – verze 3.13.2004221147
-- 05/07/2020: Bitnami Plone – verze 5.2.2004231024
-- 05/07/2020: Bitnami Pootle – verze 2.8.2004221629
-- 05/07/2020: Bitnami PostgreSQL – verze 12.2.2003252203
-- 05/07/2020: Bitnami PrestaShop – verze 1.7.2004220522
-- 05/07/2020: Bitnami ProcessMaker Community – verze 3.3.2004220909
-- 05/07/2020: Bitnami ProcessWire – verze 3.0.2004230142
-- 05/07/2020: Bitnami Publify – verze 9.1.2004220128
-- 05/07/2020: Bitnami RabbitMQ – verze 3.8.2003252248
-- 05/07/2020: Bitnami znovu: pomlčka – verze 8.0.2004231503
-- 05/07/2020: Bitnami Redis – verze 5.0.2004271447
-- 05/07/2020: Bitnami Redmine – verze 4.1.2004220530
-- 05/07/2020: Bitnami ReportServer Community – verze 3.1.2004220515
-- 05/07/2020: Bitnami ResourceSpace – verze 9.2.2004240738
-- 05/07/2020: Bitnami kontrola desky – verze 3.0.2004220506
-- 05/07/2020: Bitnami Roundcube – verze 1.4.2004220454
-- 05/07/2020: Bitnami Ruby – verze 2.5.2004220936
-- 05/07/2020: panel Bitnami SEO – verze 4.3.2004220952
-- 05/07/2020: Bitnami Shopware – verze 6.1.2004231024
-- 05/07/2020: Bitnami SilverStripe – verze 4.5.2004220952
-- 05/07/2020: Fórum Bitnami Simple Machines – verze 2.0.2004220454
-- 05/07/2020: Bitnami SonarQube – verze 4 – 8.2.2004250108
-- 05/07/2020: Bitnami Spree – verze 4.1.2004220518
-- 05/07/2020: Bitnami dílčí verze – verze 1.13.2004220556
-- 05/07/2020: Bitnami SuiteCRM – verze 7.11.2004220532
-- 05/07/2020: Bitnami TensorFlow obsluhující – verze 2.1.2004131848
-- 05/07/2020: Bitnami TestLink – verze 1.9.2004220510
-- 05/07/2020: Bitnami Tiki wiki CMS Groupware – verze 21.0.2004221629
-- 05/07/2020: Bitnami Tiny RSS – verze 202004.0.2004220952
-- 05/07/2020: Bitnami Tomcat – verze 8.5.2004091906
-- 05/07/2020: Bitnami polož – verze 1.4.2004220504
-- 05/07/2020: Bitnami TYPO3 – verze 9.5.2004221628
-- 05/07/2020: Bitnami webpozdě-Version 4.0.2004231024
-- 05/07/2020: Bitnami WildFly – verze 19.0.2004011057
-- 05/07/2020: Bitnami WordPress – verze 5.4.2004221628
-- 05/07/2020: Bitnami WordPress ve více lokalitách – verze 5.4.2004221629
-- 05/07/2020: Bitnami WordPress s NGINX a SSL-Version 5.4.2004221147
-- 05/07/2020: Bitnami XOOPS – verze 2.5.2004220506
-- 05/07/2020: Bitnami ZooKeeper – verze 3.6.2004302354
-- 05/07/2020: Bitnami Zurmo – verze 3.2.2004220512
-- 04/20/2020: Windows Server 2019 Datacenter BYOL-Version 2019.127.20200213
-- 04/20/2020: Windows Server 2019 Datacenter PAYG-Version 2019.127.20200213
-- 04/20/2020: Windows Server 2019 Datacenter Server Core BYOL-Version 2019.127.20200204
-- 04/20/2020: Windows Server 2019 Datacenter Server Core PAYG-Version 2019.127.20200204
-- 04/20/2020: Windows Server 2019 Datacenter s kontejnery BYOL – verze 2019.127.20200204
-- 04/20/2020: Windows Server 2019 Datacenter s kontejnery PAYG – verze 2019.127.20200204
-- 04/20/2020: Windows Server 2019 Datacenter Core s kontejnery BYOL – verze 2019.127.20200204
-- 04/20/2020: Windows Server 2019 Datacenter Core s kontejnery PAYG – verze 2019.127.20200204
-- 04/20/2020: Windows Server 2016 Datacenter – BYOL-Version 2016.127.20200131
-- 04/20/2020: Windows Server 2016 Datacenter – platíte při používání verze 2016.127.20200131
-- 04/20/2020: Windows Server 2016 Datacenter Server Core-BYOL-Version 2016.127.20200131
-- 04/20/2020: Windows Server 2016 Datacenter Server Core – Plaťte při použití verze 2016.127.20200131
-- 04/20/2020: Windows Server 2016 Datacenter s kontejnery – BYOL-Version 2016.127.20200131
-- 04/20/2020: Windows Server 2016 Datacenter s kontejnery – Plaťte podle použití – verze 2016.127.20200131
-- 04/20/2020: Windows Server 2012 Datacenter – BYOL-Version 3.127.20200205
-- 04/20/2020: Windows Server 2012 R2 Datacenter – platíte při používání verze 4.127.20200205
-- 04/20/2020: Windows Server 2012 R2 Datacenter – BYOL-Version 4.127.20200205
-- 04/20/2020: Windows Server 2012 Datacenter – platíte při používání verze 3.127.20200205
-- 04/20/2020: Windows Server 2012 R2 Datacenter BYOL-Version 4.127.20200205
-- 04/20/2020: Windows Server 2012 R2 Datacenter platíte při používání verze 4.127.20200205
-- 04/20/2020: Windows Server 2012 Datacenter BYOL-Version 3.127.20200205
-- 04/20/2020: Windows Server 2012 Datacenter platíte při používání verze 3.127.20200205
-- 04/20/2020: Windows Server 2008 R2 SP1 BYOL-Version 2.127.20200206
-- 04/20/2020: Windows Server 2008 R2 SP1 platíte při používání verze 2.127.20200206
-- 10/1/2019: rozšíření Microsoft JsonADDomain Extension – verze 1.3.4
-- 09/25/2019: Debian 8 – verze 8.0.20190806
-- 09/24/2019: F5 – sítě s Big-IP Virtual Edition – verze 14.1.200000
-- 09/12/2019: Service Fabric 1.0.3 verze
-- 09/02/2019: AKS Base image – verze 2019.08.09 a verze 2019.08.21
-- 08/30/2019 Azure Stack: cluster Kubernetes hub – verze 0.5.1
-- 08/08/2019: rozšíření dodavatelů CloudLink SecureVM pro Linux – verze 6,8
-- 08/08/2019: rozšíření dodavatelů CloudLink SecureVM pro Windows – verze 6,8
-- 07/30/2019: SQLIaaSExtension-Version 1.3.20180
-- 07/30/2019: SQL Server 2017 (edice Express, Developer, Standard a Enterprise) – verze 14.0.20190410
-- 07/30/2019: SQL Server 2016 SP1 (edice Express, Developer, Standard a Enterprise) – 13.2.20190410 verze
-- 07/30/2019: SQL Server 2016 SP2 (edice Express, Developer, Standard a Enterprise) – 13.2.20190410 verze
-- 07/11/2019: Thales CipherTrust, správce Cloud Key Manager – verze 1.0.7
 
 ## <a name="next-steps"></a>Další kroky
 
 Další informace o tržišti centra Azure Stack najdete v následujících článcích:
 
 - [Přehled Azure Marketplace](azure-stack-marketplace.md)
-- [Azure Marketplace dostupné položky pro centrum Azure Stack](azure-stack-marketplace-azure-items.md)
+- [Dostupné položky Azure Marketplace pro službu Azure Stack Hub](azure-stack-marketplace-azure-items.md)
 - [Vytvoření a publikování položky na webu Marketplace centra Azure Stack](azure-stack-create-and-publish-marketplace-item.md)

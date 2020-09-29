@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/30/2019
-ms.openlocfilehash: 12dc8715b90aa257953b5dc13bf671c9264aea8d
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: a145a95207fb923d736582f79a315ae625d7223b
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84111173"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91107010"
 ---
 # <a name="offer-a-network-solution-in-azure-stack-hub-with-fortinet-fortigate"></a>Nabídka síťového řešení v centru Azure Stack s FortiGate Fortinet
 
@@ -30,7 +30,7 @@ Další informace o FortiGate v Azure Marketplace najdete v tématu [Fortinet Fo
     - Fortinet FortiGate – virtuální počítač pro Azure BYOL
     - FortiGate NGFW – nasazení s jedním virtuálním počítačem (BYOL)
 
-    ![Fortinet centra Azure Stack FortiGate](./media/azure-stack-network-solutions-enable/azure-stack-marketplace-FortiGate-fortinet.png)
+    ![Snímek obrazovky zobrazující stažené položky k dispozici](./media/azure-stack-network-solutions-enable/azure-stack-marketplace-FortiGate-fortinet.png)
 
 4. Počkejte, dokud nebudou položky Marketplace ve stavu **staženo**. Stažení položek může trvat několik minut.
 

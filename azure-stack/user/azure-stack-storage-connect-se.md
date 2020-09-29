@@ -3,20 +3,20 @@ title: Připojení Průzkumník služby Storage k předplatnému centra Azure St
 description: Informace o tom, jak připojit Průzkumník služby Storage k předplatnému centra Azure Stack
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: a72179e26ab4c873aa67ece9e207f4e6f4e71579
-ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
+ms.openlocfilehash: 773d80909c167f328e6e3eb0868cb99c7d52ffd7
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84631243"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91107142"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-hub-subscription-or-a-storage-account"></a>Připojení Průzkumník služby Storage k předplatnému centra Azure Stack nebo účtu úložiště
 
-V tomto článku se dozvíte, jak se připojit k předplatným centra Azure Stack a účtům úložiště pomocí [Průzkumník služby Azure Storage](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer). Průzkumník služby Storage je samostatná aplikace, která umožňuje snadnou práci s daty úložiště Azure Stack hub v systémech Windows, macOS a Linux.
+V tomto článku se dozvíte, jak se připojit k předplatným centra Azure Stack a účtům úložiště pomocí [Průzkumník služby Azure Storage](/azure/vs-azure-tools-storage-manage-with-storage-explorer). Průzkumník služby Storage je samostatná aplikace, která umožňuje snadnou práci s daty úložiště Azure Stack hub v systémech Windows, macOS a Linux.
 
 > [!NOTE]  
 > K dispozici je několik nástrojů pro přesun dat do a z Azure Stack úložiště centra. Další informace najdete v tématu [Nástroje pro přenos dat pro úložiště Azure Stack hub](azure-stack-storage-transfer.md).
@@ -29,7 +29,7 @@ Po připojení k předplatnému centra Azure Stack nebo účtu úložiště mů�
 
 Aby Průzkumník služby Storage přístup k předplatnému centra Azure Stack, potřebujete přímý přístup k centru Azure Stack nebo připojení k síti VPN. Informace o tom, jak nastavit připojení VPN pro Azure Stack hub, najdete v tématu [připojení k Azure Stackmu centru pomocí sítě VPN](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn).
 
-> [!Note]  
+> [!NOTE]  
 > Pokud se ASDK připojujete k ASDK prostřednictvím sítě VPN, nepoužívejte kořenový certifikát (CA. cer), který byl vytvořen během procesu instalace sítě VPN.  Toto je certifikát s kódováním DER, který neumožňuje Průzkumník služby Storage načíst odběry centra Azure Stack. Pomocí následujících kroků exportujte certifikát s kódováním Base-64 pro použití s Průzkumník služby Storage.
 
 V případě integrovaných systémů, které jsou odpojené a pro ASDK, doporučujeme použít interní podnikovou certifikační autoritu k exportu kořenového certifikátu ve formátu Base-64 a pak ho naimportovat do Průzkumník služby Azure Storage.  
@@ -89,14 +89,15 @@ Pomocí následujících kroků se připojte Průzkumník služby Storage k pře
 
 ## <a name="connect-to-an-azure-stack-hub-subscription-with-ad-fs-account"></a>Připojení k předplatnému centra Azure Stack s účtem AD FS
 
-> [!Note]  
+> [!NOTE]  
 > Prostředí pro přihlašování k federované službě Azure (AD FS) podporuje Průzkumník služby Storage 1.2.0 nebo novější verze pomocí centra Azure Stack 1804 nebo novější aktualizace.
+
 Pomocí následujících kroků se připojte Průzkumník služby Storage k předplatnému centra Azure Stack, které patří k účtu AD FS.
 
 1. Vyberte **Spravovat účty**. V Průzkumníkovi jsou uvedena předplatná Microsoft, ke kterým jste se přihlásili.
 2. Vyberte **Přidat účet** pro připojení k předplatnému centra Azure Stack.
 
-    ![Přidat účet – Průzkumník služby Storage](media/azure-stack-storage-connect-se/add-an-account.png)
+    ![Snímek obrazovky, který ukazuje, jak přidat účet do Průzkumník služby Storage.](media/azure-stack-storage-connect-se/add-an-account.png)
 
 3. Vyberte **Další**. V dialogovém okně připojit k Azure Storage v části **prostředí Azure**vyberte **použít vlastní prostředí**a pak klikněte na **Další**.
 
@@ -107,7 +108,7 @@ Pomocí následujících kroků se připojte Průzkumník služby Storage k pře
     | Pole | Poznámky |
     | ---   | ---   |
     | Název prostředí | Pole lze přizpůsobit uživatelem. |
-    | Azure Resource Manager koncový bod | Ukázky Azure Resource Manager koncových bodů prostředků Azure Stack Development Kit.<br>Pro operátory:`https://adminmanagement.local.azurestack.external` <br> Pro uživatele:`https://management.local.azurestack.external` |
+    | Azure Resource Manager koncový bod | Ukázky Azure Resource Manager koncových bodů prostředků Azure Stack Development Kit.<br>Pro operátory: `https://adminmanagement.local.azurestack.external` <br> Pro uživatele: `https://management.local.azurestack.external` |
 
     Pokud pracujete na Azure Stack integrovaném systému centra a neznáte koncový bod správy, obraťte se na svého operátora.
 

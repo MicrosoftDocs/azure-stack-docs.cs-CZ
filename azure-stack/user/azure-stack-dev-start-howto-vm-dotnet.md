@@ -3,16 +3,16 @@ title: Nasazení webové aplikace v C# ASP.NET do virtuálního počítače v ce
 description: Nasaďte webovou aplikaci v C# ASP.NET do virtuálního počítače v Azure Stackovém centru.
 author: mattbriggs
 ms.topic: overview
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 1f986c1d09397fae9d765f2a64a7fda267f4ac98
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: c28a5bbb50b4694358eec4375db6c20a00ba9e99
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81661078"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90574189"
 ---
 # <a name="deploy-a-c-aspnet-web-app-to-a-vm-in-azure-stack-hub"></a>Nasazení webové aplikace v C# ASP.NET do virtuálního počítače v centru Azure Stack
 
@@ -53,7 +53,7 @@ Tento článek používá aplikaci C# 6,0, která používá ASP.NET Core 2,2 sp
 
     e. Přidejte příchozí pravidlo zabezpečení pro následující porty:
 
-    | Port | Protocol (Protokol) | Popis |
+    | Port | Protokol | Popis |
     | --- | --- | --- |
     | 80 | HTTP | HTTP (Hypertext Transfer Protocol) je protokol používaný k doručování webových stránek ze serverů. Klienti se připojují přes protokol HTTP s názvem DNS nebo IP adresou. |
     | 443 | HTTPS | Protokol HTTPS (Hypertext Transfer Protocol Secure) je zabezpečená verze protokolu HTTP, která vyžaduje certifikát zabezpečení a umožňuje šifrovaný přenos informací.  |
@@ -65,7 +65,7 @@ Tento článek používá aplikaci C# 6,0, která používá ASP.NET Core 2,2 sp
 
     a. Jako **zdroj**vyberte **libovolný**.
 
-    b. Jako **rozsah zdrojového portu**zadejte hvězdičku (**\***).
+    b. Jako **rozsah zdrojového portu**zadejte hvězdičku ( **\*** ).
 
     c. Jako **cíl**vyberte **libovolný**.
 
@@ -75,7 +75,7 @@ Tento článek používá aplikaci C# 6,0, která používá ASP.NET Core 2,2 sp
 
     f. V části **Akce** vyberte **Povolit**.
 
-    g. V poli **Priorita**ponechte výchozí výběr.
+    například V poli **Priorita**ponechte výchozí výběr.
 
     h. Zadejte **název** a **Popis** , který vám pomůžete mít na paměti, proč je port otevřený.
 
@@ -97,8 +97,7 @@ Tento článek používá aplikaci C# 6,0, která používá ASP.NET Core 2,2 sp
 
 ## <a name="create-an-app"></a>Vytvoření aplikace 
 
-V aplikaci Visual Studio můžete použít vlastní webovou aplikaci nebo příklad [publikování aplikace ASP.NET Core do Azure](https://docs.microsoft.com/aspnet/core/tutorials/razor-pages/razor-pages-start?view=aspnetcore-2.2&tabs=visual-studio
-). Tento článek popisuje, jak vytvořit a publikovat webovou aplikaci v ASP.NET na virtuálním počítači Azure pomocí funkce publikování v Azure Virtual Machines v aplikaci Visual Studio 2017. Po instalaci a zajistěte, aby vaše aplikace běžela místně, aktualizujte svůj cíl publikování na virtuální počítač s Windows ve vaší instanci centra Azure Stack.
+V aplikaci Visual Studio můžete použít vlastní webovou aplikaci nebo příklad [publikování aplikace ASP.NET Core do Azure](/aspnet/core/tutorials/razor-pages/razor-pages-start?tabs=visual-studio&view=aspnetcore-2.2). Tento článek popisuje, jak vytvořit a publikovat webovou aplikaci v ASP.NET na virtuálním počítači Azure pomocí funkce publikování v Azure Virtual Machines v aplikaci Visual Studio 2017. Po instalaci a zajistěte, aby vaše aplikace běžela místně, aktualizujte svůj cíl publikování na virtuální počítač s Windows ve vaší instanci centra Azure Stack.
 
 ## <a name="deploy-and-run-the-app"></a>Nasazení a spuštění aplikace
 
@@ -136,4 +135,4 @@ Vytvořte cíl publikování na VIRTUÁLNÍm počítači v centru Azure Stack.
 
 - Přečtěte si, jak [nastavit vývojové prostředí v Azure Stack hub](azure-stack-dev-start.md).
 - Přečtěte si o [běžných nasazeních centra Azure Stack jako IaaS](azure-stack-dev-start-deploy-app.md).
-- Informace o programovacím jazyce C# a hledání dalších prostředků pro C# najdete v [Průvodci c#](https://docs.microsoft.com/dotnet/csharp/) .
+- Informace o programovacím jazyce C# a hledání dalších prostředků pro C# najdete v [Průvodci c#](/dotnet/csharp/) .

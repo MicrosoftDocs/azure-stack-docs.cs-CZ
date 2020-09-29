@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/16/2019
 ms.reviewer: shriramnat
 ms.lastreviewed: 10/16/2019
-ms.openlocfilehash: 772871cffa3d5394d1d8b939fa22ae91bc90d4ac
-ms.sourcegitcommit: bdd4d529bd3e115a9f76eece62b1613448d5d020
+ms.openlocfilehash: f2716bfbdab58c90401e3c6b10908c35f774feed
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "80423891"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91107185"
 ---
 # <a name="create-a-service-offering-for-users-in-azure-stack-hub"></a>Vytvoření nabídky služeb pro uživatele v centru Azure Stack
 
@@ -58,7 +58,7 @@ Základní služby jsou podporovány následujícími poskytovateli prostředků
 >[!NOTE]
 > Aby bylo možné nabídnout službu pro přidávání hodnot, musí být nejprve na webu služby Azure Stack hub Marketplace nainstalován odpovídající poskytovatel prostředků. Po nainstalování se prostředky uživatelům nabídnou stejným způsobem jako základní služby. V části s návody pro aktuální sadu poskytovatelů prostředků, které podporují nabídky služby Value-Add, se podívejte na část s **návody k průvodcům** v obsahu.
 
-Poskytovatelé prostředků, kteří jsou nainstalováni po nasazení centra Azure Stack, podporují služby Value-Add. Příklady obsahují:
+Poskytovatelé prostředků, kteří jsou nainstalováni po nasazení centra Azure Stack, podporují služby Value-Add. Příklady:
 
 | Poskytovatel prostředků | Příklady prostředků |
 | ----------------- | ------------------------- |
@@ -75,30 +75,30 @@ Během procesu vytváření nabídky vytvoříte nabídku i plán. Plán se pou�
 
 1. Přihlaste se k portálu pro správu pomocí účtu správce cloudu.
 
-    - V případě integrovaného systému se adresa URL liší v závislosti na oblasti a názvu externí domény vašeho operátora. Adresa URL používá formát `https://adminportal.<region>.<FQDN>`.
-    - Pokud používáte Azure Stack Development Kit, adresa URL je `https://adminportal.local.azurestack.external`.
+    - V případě integrovaného systému se adresa URL liší v závislosti na oblasti a názvu externí domény vašeho operátora. Adresa URL používá formát `https://adminportal.<region>.<FQDN>` .
+    - Pokud používáte Azure Stack Development Kit, adresa URL je `https://adminportal.local.azurestack.external` .
 
     Pak vyberte **+ vytvořit prostředek** > **nabídky + plány** > **nabídky**.
 
-    ![Nová nabídka na portálu pro správu centra Azure Stack](media/tutorial-offer-services/1-create-resource-offer.png)
+    ![Snímek obrazovky, který ukazuje, jak vytvořit novou nabídku na portálu pro správu centra Azure Stack.](media/tutorial-offer-services/1-create-resource-offer.png)
 
 1. V části **vytvořit novou nabídku** na kartě **základy** zadejte **Zobrazovaný název**, **název prostředku**a vyberte existující nebo vytvořte novou **skupinu prostředků**. Zobrazovaný název je popisný název nabídky. Pouze operátor cloudu může zobrazit název prostředku, což je název, který správci používají pro práci s nabídkou jako s prostředkem Azure Resource Manager.
 
-   ![Zobrazovaný název na portálu pro správu centra Azure Stack](media/tutorial-offer-services/2-create-new-offer.png)
+   ![Snímek obrazovky, který ukazuje, kde přidat základní informace na portálu pro správu centra Azure Stack.](media/tutorial-offer-services/2-create-new-offer.png)
 
 1. Vyberte kartu **základní plány** a pak výběrem **vytvořit nový plán** vytvořte nový plán. Plán se také přidá do nabídky jako základní plán.
 
-   ![Přidání plánu na portálu pro správu centra Azure Stack](media/tutorial-offer-services/3-create-new-offer-base-plans.png)
+   ![Snímek obrazovky, který ukazuje, jak přidat plán na portálu pro správu centra Azure Stack.](media/tutorial-offer-services/3-create-new-offer-base-plans.png)
 
 1. V části **Nový plán** na kartě **základy** zadejte **Zobrazovaný název** a **název prostředku**. Zobrazovaný název je popisný název plánu, který se uživatelům zobrazí. Pouze operátor cloudu může zobrazit název prostředku, což je název, který operátory cloudu používají pro práci s plánem jako s Azure Resource Managerm prostředkem. **Skupina prostředků** se nastaví na hodnotu zadanou pro nabídku.
 
-   ![Zobrazovaný název plánu na portálu pro správu centra Azure Stack](media/tutorial-offer-services/4-create-new-plan-basics.png)
+   ![Snímek obrazovky, který zobrazuje zobrazovaný název plánu na portálu pro správu centra Azure Stack.](media/tutorial-offer-services/4-create-new-plan-basics.png)
 
 1. Vyberte kartu **služby** a zobrazí se seznam služeb, které jsou k dispozici od instalovaných poskytovatelů prostředků. Vyberte **Microsoft. COMPUTE**, **Microsoft. Network**a **Microsoft. Storage**.
 
-   ![Plánování služeb na portálu pro správu centra Azure Stack](media/tutorial-offer-services/5-create-new-plan-services.png)
+   ![Snímek obrazovky, který ukazuje plán služby na portálu pro správu centra Azure Stack.](media/tutorial-offer-services/5-create-new-plan-services.png)
 
-1. Vyberte kartu **kvóty** a zobrazí se seznam služeb, které jste pro tento plán povolili. Vyberte **vytvořit novou** a zadejte vlastní kvótu pro **Microsoft. COMPUTE**. **Název** kvóty je povinný. můžete přijmout nebo změnit každou hodnotu kvóty. Po dokončení vyberte **OK** a potom tento postup opakujte pro zbývající služby.
+1. Vyberte kartu **kvóty** a zobrazí se seznam služeb, které jste pro tento plán povolili. Vyberte  **vytvořit novou** a zadejte vlastní kvótu pro **Microsoft. COMPUTE**. **Název** kvóty je povinný. můžete přijmout nebo změnit každou hodnotu kvóty. Po dokončení vyberte **OK** a potom tento postup opakujte pro zbývající služby.
 
    ![Vytvoření kvóty COMPUTE na portálu pro správu centra Azure Stack](media/tutorial-offer-services/6-create-new-plan-quotas.png)
 
@@ -132,8 +132,8 @@ Během procesu vytváření nabídky vytvoříte nabídku i plán. Plán se pou�
 
 1. Přihlaste se k portálu pro správu pomocí účtu správce cloudu.
 
-    - V případě integrovaného systému se adresa URL liší v závislosti na oblasti vašeho operátoru a názvu externí domény pomocí formátu `https://adminportal.<region>.<FQDN>`.
-    - Pokud používáte Azure Stack Development Kit, adresa URL je <https://adminportal.local.azurestack.external>.
+    - V případě integrovaného systému se adresa URL liší v závislosti na oblasti vašeho operátoru a názvu externí domény pomocí formátu `https://adminportal.<region>.<FQDN>` .
+    - Pokud používáte Azure Stack Development Kit, adresa URL je `https://adminportal.local.azurestack.external` .
 
     Pak vyberte **+ vytvořit prostředek** > **nabídky + plány** > **nabídky**.
 
@@ -151,7 +151,7 @@ Během procesu vytváření nabídky vytvoříte nabídku i plán. Plán se pou�
 
    ![Zobrazovaný název plánu na portálu pro správu centra Azure Stack](media/tutorial-offer-services/image04.png)
 
-1. Vyberte **služby**. V seznamu služeb vyberte **Microsoft. COMPUTE**, **Microsoft. Network**a **Microsoft. Storage**. Zvolte **Vybrat** a přidejte tyto služby do plánu.
+1. Vyberte **služby**. V seznamu služeb vyberte  **Microsoft. COMPUTE**, **Microsoft. Network**a **Microsoft. Storage**. Zvolte **Vybrat** a přidejte tyto služby do plánu.
 
    ![Plánování služeb na portálu pro správu centra Azure Stack](media/tutorial-offer-services/image05.png)
 
