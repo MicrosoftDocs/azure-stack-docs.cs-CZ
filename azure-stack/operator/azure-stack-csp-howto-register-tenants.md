@@ -3,16 +3,16 @@ title: Přidání tenantů pro použití a fakturaci do centra Azure Stack
 description: Naučte se, jak přidat tenanta pro využití a fakturace do centra Azure Stack.
 author: sethmanheim
 ms.topic: article
-ms.date: 5/28/2020
+ms.date: 9/02/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 5/28/2020
-ms.openlocfilehash: 08185a25c608c735aa99ca7f7d2b060c8b67042b
-ms.sourcegitcommit: 804f94f288859027b8249d138b14e8bc1501e009
+ms.openlocfilehash: e0d426ac19645cbbc318f66b827946534539d125
+ms.sourcegitcommit: 7c01ab4b2e2250a7acd67d1c5ba27d15c1e8bce0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84158380"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89448567"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack-hub"></a>Přidat tenanta pro využití a fakturace do centra Azure Stack
 
@@ -74,7 +74,7 @@ V následující části jsou popsány parametry pro rutinu **New-AzureRmResourc
 |registrationSubscriptionID | Předplatné Azure, které se použilo při prvotní registraci centra Azure Stack.|
 | customerSubscriptionID | Předplatné Azure (ne Azure Stack centrum) patřící zákazníkovi, který se má zaregistrovat Musí být vytvořen v nabídce CSP. V praxi to znamená prostřednictvím partnerského centra. Pokud má zákazník více než jednoho klienta Azure Active Directory, musí být toto předplatné vytvořeno v tenantovi, které se bude používat k přihlášení do centra Azure Stack. ID předplatného zákazníka rozlišuje velká a malá písmena. |
 | resourceGroup | Skupina prostředků v Azure, ve které je uložená vaše registrace. |
-| registrace | Název registrace centra Azure Stack. Je to objekt uložený v Azure. 
+| registrace | Název registrace centra Azure Stack. Je to objekt uložený v Azure.
 
 > [!NOTE]  
 > Klienti musí být zaregistrované u každého Azure Stackho centra, které používají. Pokud máte dvě nasazení centra Azure Stack a klient používá oba z nich, je nutné aktualizovat počáteční registraci každého nasazení u předplatného tenanta.

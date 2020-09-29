@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Naučte se aktualizovat poskytovatele prostředků SQL centra Azure Stack.
 author: bryanla
 ms.topic: article
-ms.date: 11/11/2019
+ms.date: 8/19/2020
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 2c6ad5acc7096f243334165032eb7c134fc5cae0
-ms.sourcegitcommit: 519f4298dc1ed5c33f9c4fef811f61d61731dd84
+ms.openlocfilehash: 1c6a7e39131dc9d422a68161b3022ac1acc28f7e
+ms.sourcegitcommit: b80d529ff47b15b8b612d8a787340c7b0f68165b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82799777"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89472870"
 ---
 # <a name="update-the-sql-resource-provider"></a>Aktualizace poskytovatele prostředků SQL
 
@@ -22,18 +22,24 @@ ms.locfileid: "82799777"
 
 Nový poskytovatel prostředků SQL může být vydaný, když se Azure Stack centrum aktualizuje na nové sestavení. I když stávající poskytovatel prostředků i nadále funguje, doporučujeme aktualizovat na nejnovější sestavení co nejdříve.
 
+ |Podporovaná verze centra Azure Stack|Verze SQL RP|
+  |-----|-----|
+  |2005, 2002, 1910|[SQL RP verze 1.1.47.0](https://aka.ms/azurestacksqlrp11470)|
+  |1908|[SQL RP verze 1.1.33.0](https://aka.ms/azurestacksqlrp11330)| 
+  |     |     |
+
 Od verze 1.1.33.0 verze poskytovatele prostředků SQL jsou aktualizace kumulativní a nemusíte je instalovat v pořadí, ve kterém byly vydané, pokud začínáte z verze 1.1.24.0 nebo novější. Například pokud používáte 1.1.24.0 verze poskytovatele prostředků SQL, můžete upgradovat na verzi 1.1.33.0 nebo novější, aniž byste museli nejdřív nainstalovat verzi 1.1.30.0. Pokud chcete zkontrolovat dostupné verze poskytovatele prostředků a verzi centra Azure Stack, na které jsou podporované, přečtěte si téma seznam verzí v tématu [nasazení požadavků poskytovatele prostředků](./azure-stack-sql-resource-provider-deploy.md#prerequisites).
 
-Chcete-li aktualizovat poskytovatele prostředků, použijte skript *UpdateSQLProvider. ps1* . Použijte účet služby s právy místního správce a je **vlastníkem** předplatného. Tento skript je součástí stažení nového poskytovatele prostředků SQL. Proces aktualizace je podobný procesu použitému k [nasazení poskytovatele prostředků](./azure-stack-sql-resource-provider-deploy.md). Skript aktualizace používá stejné argumenty jako skript DeploySqlProvider. ps1 a budete muset zadat informace o certifikátu.
+Chcete-li aktualizovat poskytovatele prostředků, použijte skript *UpdateSQLProvider.ps1* . Použijte účet služby s právy místního správce a je **vlastníkem** předplatného. Tento skript je součástí stažení nového poskytovatele prostředků SQL. Proces aktualizace je podobný procesu použitému k [nasazení poskytovatele prostředků](./azure-stack-sql-resource-provider-deploy.md). Skript aktualizace používá stejné argumenty jako skript DeploySqlProvider.ps1 a budete muset zadat informace o certifikátu.
 
 ## <a name="update-script-processes"></a>Aktualizovat procesy skriptu
 
-Skript *UpdateSQLProvider. ps1* vytvoří nový virtuální počítač (VM) s nejnovějším kódem poskytovatele prostředků.
+Skript *UpdateSQLProvider.ps1* vytvoří nový virtuální počítač (VM) s nejnovějším kódem poskytovatele prostředků.
 
 > [!NOTE]
 > Doporučujeme stáhnout si nejnovější image Windows serveru 2016 Core ze správy Marketplace. Pokud potřebujete nainstalovat aktualizaci, můžete do cesty místní závislosti umístit **jeden** balíček MSU. Pokud je v tomto umístění více než jeden soubor MSU, skript se nezdaří.
 
-Po vytvoření nového virtuálního počítače pomocí skriptu *UpdateSQLProvider. ps1* migruje skript následující nastavení z původního virtuálního počítače poskytovatele:
+Když skript *UpdateSQLProvider.ps1* vytvoří nový virtuální počítač, skript migruje následující nastavení z původního virtuálního počítače poskytovatele:
 
 * informace o databázi
 * informace o hostitelském serveru
@@ -41,7 +47,7 @@ Po vytvoření nového virtuálního počítače pomocí skriptu *UpdateSQLProvi
 
 ## <a name="update-script-parameters"></a>Aktualizovat parametry skriptu
 
-Když spustíte skript prostředí PowerShell **UpdateSQLProvider. ps1** , můžete zadat následující parametry z příkazového řádku. Pokud ne, nebo pokud se nějaké ověření parametru nepodaří, budete vyzváni k zadání požadovaných parametrů.
+Při spuštění skriptu **UpdateSQLProvider.ps1** PowerShellu můžete zadat následující parametry z příkazového řádku. Pokud ne, nebo pokud se nějaké ověření parametru nepodaří, budete vyzváni k zadání požadovaných parametrů.
 
 | Název parametru | Popis | Komentář nebo výchozí hodnota |
 | --- | --- | --- |
@@ -54,8 +60,8 @@ Když spustíte skript prostředí PowerShell **UpdateSQLProvider. ps1** , můž
 | **DefaultSSLCertificatePassword** | Heslo pro certifikát. pfx. | _Požadováno_ |
 | **MaxRetryCount** | Počet pokusů o opakování všech operací, pokud dojde k selhání.| 2 |
 | **RetryDuration** |Interval časového limitu mezi opakovanými pokusy (v sekundách). | 120 |
-| **Odinstalace** | Odebere poskytovatele prostředků a všechny přidružené prostředky. | No |
-| **DebugMode** | Zabraňuje automatickému vyčištění při selhání. | No |
+| **Odinstalace** | Odebere poskytovatele prostředků a všechny přidružené prostředky. | Ne |
+| **DebugMode** | Zabraňuje automatickému vyčištění při selhání. | Ne |
 
 ## <a name="update-script-powershell-example"></a>Příklad aktualizace skriptu PowerShellu
 > [!NOTE]
@@ -68,13 +74,13 @@ Pokud aktualizujete verzi poskytovatele prostředků SQL na 1.1.33.0 nebo předc
 # Note that this might not be the most currently available version of Azure Stack Hub PowerShell.
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
-Install-Module -Name AzureStack -RequiredVersion 1.6.0
+Install-Module -Name AzureStack -RequiredVersion 1.8.2
 ```
 
 > [!NOTE]
 > V odpojeném scénáři je nutné stáhnout požadované moduly prostředí PowerShell a zaregistrovat úložiště ručně v rámci požadavků. Další informace můžete získat v [nasazení poskytovatele prostředků SQL](azure-stack-sql-resource-provider-deploy.md) .
 
-Následuje příklad použití skriptu *UpdateSQLProvider. ps1* , který můžete spustit z konzoly PowerShell se zvýšenými oprávněními. Nezapomeňte změnit informace o proměnné a hesla podle potřeby:  
+Následuje příklad použití skriptu *UpdateSQLProvider.ps1* , který můžete spustit z konzoly PowerShellu se zvýšenými oprávněními. Nezapomeňte změnit informace o proměnné a hesla podle potřeby:  
 
 ```powershell
 # Use the NetBIOS name for the Azure Stack Hub domain. On the Azure Stack Hub SDK, the default is AzureStack but this might have been changed at installation.
@@ -119,7 +125,6 @@ $env:PSModulePath = $env:PSModulePath + ";" + $rpModulePath
   -AzureEnvironment $AzureEnvironment `
   -DefaultSSLCertificatePassword $PfxPass `
   -DependencyFilesLocalPath $tempDir\cert
-
  ```
 
 Po dokončení skriptu aktualizace poskytovatele prostředků zavřete aktuální relaci PowerShellu.

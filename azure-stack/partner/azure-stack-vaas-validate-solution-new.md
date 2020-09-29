@@ -3,17 +3,17 @@ title: Ověření řešení v centru Azure Stack
 description: Naučte se, jak ověřit nové řešení centra Azure Stack pomocí pracovního postupu ověřování řešení.
 author: mattbriggs
 ms.topic: quickstart
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 2d47450af602928eb9220238ae945610fd9f0477
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 65984da8615d9146db98800c710efee004f021c2
+ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81661164"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88764881"
 ---
 # <a name="validate-a-solution-in-azure-stack-hub"></a>Ověření řešení v centru Azure Stack
 
@@ -21,7 +21,7 @@ ms.locfileid: "81661164"
 
 Naučte se používat pracovní postup **ověření řešení** k ověření nových řešení centra Azure Stack.
 
-Řešení centra Azure Stack je hardwarový soupis materiálu (BoM), který se společně dohodl mezi společností Microsoft a partnerem po splnění požadavků certifikace loga Windows serveru. Řešení musí být znovu certifikováno, pokud došlo ke změně hardwarového kusovníku. Pokud chcete získat další otázky týkající se znovu ověření řešení, obraťte se na [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com)tým na adrese.
+Řešení centra Azure Stack je hardwarový soupis materiálu (BoM), který se společně dohodl mezi společností Microsoft a partnerem po splnění požadavků certifikace loga Windows serveru. Řešení musí být znovu certifikováno, pokud došlo ke změně hardwarového kusovníku. Pokud chcete získat další otázky týkající se znovu ověření řešení, obraťte se na tým na adrese [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com) .
 
 Chcete-li ověřit své řešení, spusťte pracovní postup ověření řešení dvakrát. Spusťte ji jednou pro *minimální* podporovanou konfiguraci. Spusťte ji podruhé pro *maximální* podporovanou konfiguraci. Microsoft ověřuje řešení, pokud obě konfigurace přejdou všechny testy.
 

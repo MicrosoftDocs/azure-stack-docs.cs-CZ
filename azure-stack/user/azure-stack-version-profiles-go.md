@@ -3,16 +3,16 @@ title: Použití profilů verzí rozhraní API s nástrojem přejít v Azure Sta
 description: Naučte se používat profily verzí rozhraní API s nástrojem přejít v Azure Stack hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 05/05/2020
+ms.date: 09/02/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/26/2019
-ms.openlocfilehash: e40c51d44f93fae4e7293113ab7f06bad03677e3
-ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
+ms.openlocfilehash: 3b8df9de2975c7ba0e6eefdb10a2731cd5d47ca6
+ms.sourcegitcommit: 7c01ab4b2e2250a7acd67d1c5ba27d15c1e8bce0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82836185"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89448669"
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack-hub"></a>Použití profilů verzí rozhraní API s nástrojem přejít v Azure Stack hub
 
@@ -60,7 +60,7 @@ Chcete-li spustit ukázku kódu jazyka přejít v Azure Stackovém centru, postu
    > [!NOTE]  
    > **ResourceManagerUrl** v Azure Stack Development Kit (ASDK) je:`https://management.local.azurestack.external/`  
    > **ResourceManagerUrl** v integrovaných systémech je:`https://management.<region>.<fqdn>/`  
-   > Načtení požadovaných metadat:`<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
+   > Načtení požadovaných metadat: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
   
    Ukázkový soubor JSON:
 
@@ -222,7 +222,7 @@ Tento příklad ukazuje ukázku kódu pro přechod, který vytváří virtuáln�
    }
    ```
 
-4. Přidejte `main` metodu. `main` Metoda nejprve získá token pomocí metody, která je definována v předchozím kroku. Pak vytvoří klienta pomocí síťového modulu z profilu. Nakonec vytvoří virtuální síť.
+4. Přidejte `main` metodu. `main`Metoda nejprve získá token pomocí metody, která je definována v předchozím kroku. Pak vytvoří klienta pomocí síťového modulu z profilu. Nakonec vytvoří virtuální síť.
 
    ```go
    package main

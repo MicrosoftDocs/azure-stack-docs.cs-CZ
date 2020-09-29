@@ -1,81 +1,62 @@
 ---
-title: Princip mezipaměti v Azure Stack HCI
+title: Principy mezipaměti fondu úložiště v Azure Stack HCL
 description: Způsob ukládání do mezipaměti pro čtení a zápis funguje v Prostory úložiště s přímým přístupem a Azure Stack HCI.
 author: khdownie
 ms.author: v-kedow
-ms.topic: article
-ms.date: 02/28/2020
-ms.openlocfilehash: f1fc40a6475b8e51a063491cc120e2c4236cbeea
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.topic: conceptual
+ms.service: azure-stack
+ms.subservice: azure-stack-hci
+ms.date: 09/04/2020
+ms.openlocfilehash: 9a15b953ffe2229d7f92bea998392b8570f481de
+ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79025664"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89742527"
 ---
-# <a name="understanding-the-cache-in-azure-stack-hci"></a>Princip mezipaměti v Azure Stack HCI
+# <a name="understanding-the-storage-pool-cache-in-azure-stack-hci"></a>Principy mezipaměti fondu úložiště v Azure Stack HCL
 
->Platí pro: Windows Server 2019
+> Platí pro: Azure Stack HCI, verze 20H2; Windows Server 2019
 
-[Prostory úložiště s přímým přístupem](/windows-server/storage/storage-spaces/storage-spaces-direct-overview) nabízí integrovanou mezipaměť na straně serveru pro zajištění maximálního výkonu úložiště. Je to velká, Trvalá mezipaměť pro čtení *a* zápis v reálném čase. Mezipaměť se konfiguruje automaticky, když je povolená Prostory úložiště s přímým přístupem. Ve většině případů se nevyžaduje žádná ruční Správa.
-Způsob fungování mezipaměti závisí na typech jednotek, které jsou k dispozici.
+Azure Stack HCI obsahuje integrovanou mezipaměť na straně serveru pro zajištění maximálního výkonu úložiště. Je to velká, Trvalá mezipaměť pro čtení *a* zápis v reálném čase. Mezipaměť se konfiguruje automaticky při nasazení Azure Stack HCL. Ve většině případů se nevyžaduje žádná ruční Správa. Způsob fungování mezipaměti závisí na typech jednotek, které jsou k dispozici.
 
-Následující video se dohlíží na Další informace o tom, jak funguje ukládání do mezipaměti pro Prostory úložiště s přímým přístupem a další informace o návrhu.
+Následující video se dohlíží na Další informace o tom, jak funguje ukládání do mezipaměti pro Prostory úložiště s přímým přístupem, základní virtualizační technologie úložiště na Azure Stack HCI a také další informace o návrhu.
 
 <strong>Prostory úložiště s přímým přístupem požadavky na návrh</strong><br>(20 minut)<br>
 <iframe src="https://channel9.msdn.com/Blogs/windowsserver/Design-Considerations-for-Storage-Spaces-Direct/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
 
 ## <a name="drive-types-and-deployment-options"></a>Typy jednotek a možnosti nasazení
 
-Prostory úložiště s přímým přístupem aktuálně funguje se třemi typy úložných zařízení:
+Azure Stack HCL aktuálně pracuje se čtyřmi typy jednotek:
 
-<table>
-    <tr style="border: 0;">
-        <td style="padding: 10px; border: 0; width:70px">
-            <img src="media/cache/NVMe-100px.png">
-        </td>
-        <td style="padding: 10px; border: 0;" valign="middle">
-            NVMe (non-volatile paměť Express)
-        </td>
-    </tr>
-    <tr style="border: 0;">
-        <td style="padding: 10px; border: 0; width:70px">
-            <img src="media/cache/SSD-100px.png">
-        </td>
-        <td style="padding: 10px; border: 0;" valign="middle">
-            SATA/SAS SSD (Solid-State Drive)
-        </td>
-    </tr>
-    <tr style="border: 0;">
-        <td style="padding: 10px; border: 0; width:70px">
-            <img src="media/cache/HDD-100px.png">
-        </td>
-        <td style="padding: 10px; border: 0;" valign="middle">
-            HDD (pevný disk)
-        </td>
-    </tr>
-</table>
+| Typ jednotky | Popis |
+|----------------------|--------------------------|
+|![PMem](media/choose-drives/pmem-100px.png)|**PMem** odkazuje na trvalou paměť, což je nový typ úložiště s nízkou latencí a vysokým výkonem.|
+|![NVMe](media/choose-drives/NVMe-100-px.png)|**NVMe** (nestálá paměť Express) odkazuje na jednotky Solid-State, které přímo sedí na sběrnici PCIe. Obecné faktory pro formuláře jsou 2,5 "U. 2, PCIe Add-in-Card (AIC) a M. 2. NVMe nabízí vyšší propustnost vstupně-výstupních operací za sekundu s nižší latencí než jakýkoli jiný typ disku, který podporujeme dnes s výjimkou PMem.|
+|![SSD](media/choose-drives/SSD-100-px.png)|**SSD** odkazuje na jednotky SSD, které se připojují prostřednictvím konvenčního SATA nebo SAS.|
+|![HDD](media/choose-drives/HDD-100-px.png)|**HDD** odkazuje na rotační a magnetické jednotky pevného disku, které nabízejí obrovské kapacity úložiště.|
 
-Dají se kombinovat šest způsobů, které jsme seskupují do dvou kategorií: "all-Flash" a "hybrid".
+Můžou se kombinovat různými způsoby, které jsme seskupují do dvou kategorií: "all-Flash" a "hybrid".
 
 ### <a name="all-flash-deployment-possibilities"></a>Možnosti nasazení all-Flash
 
 Nasazení all-Flash se zaměřuje na maximalizaci výkonu úložiště a nezahrnují jednotky pevného disku (HDD).
 
-![Vše – možnosti nasazení – bliknutí](media/cache/All-Flash-Deployment-Possibilities.png)
+![Diagram zobrazuje všechna nasazení v prostředí Flash, včetně N V M e pro kapacitu, N V M e pro mezipaměť s s s D pro kapacitu a s S D pro kapacitu.](media/cache/All-Flash-Deployment-Possibilities.png)
 
 ### <a name="hybrid-deployment-possibilities"></a>Možnosti hybridního nasazení
 
 Hybridní nasazení mají za cíl vyvážit výkon a kapacitu nebo maximalizovat kapacitu a zahrnout rotační jednotky pevného disku (HDD).
 
-![Hybridní nasazení – možnosti](media/cache/Hybrid-Deployment-Possibilities.png)
+![Diagram zobrazuje hybridní nasazení, včetně N V M e pro mezipaměť s H D pro kapacitu, s. s D pro mezipaměť s H D d pro kapacitu a N V M e pro mezipaměť s h d d + s D pro kapacitu.](media/cache/Hybrid-Deployment-Possibilities.png)
 
 ## <a name="cache-drives-are-selected-automatically"></a>Automaticky se vyberou jednotky mezipaměti.
 
-V nasazení s více typy jednotek Prostory úložiště s přímým přístupem automaticky používá všechny jednotky "nejrychlejší" typ pro ukládání do mezipaměti. Zbývající jednotky se použijí k ukládání.
+V nasazeních s více typy jednotek Azure Stack HCI automaticky používá všechny jednotky "nejrychlejší" typ pro ukládání do mezipaměti. Zbývající jednotky se použijí k ukládání.
 
 Typ "nejrychlejší" je určen podle následující hierarchie.
 
-![Typ jednotky – hierarchie](media/cache/Drive-Type-Hierarchy.png)
+![Diagram znázorňuje typy disků uspořádané rychleji na pomalejší v pořadí N V M e, S D, neoznačený disk představující H D d.](media/cache/Drive-Type-Hierarchy.png)
 
 Pokud máte například NVMe a SSD, bude NVMe ukládat do mezipaměti pro SSD.
 
@@ -93,7 +74,7 @@ Pokud jsou všechny jednotky stejného typu, není žádná mezipaměť nakonfig
 
 Chování mezipaměti je určeno automaticky na základě typů jednotek, které jsou ukládány do mezipaměti pro. Při ukládání do mezipaměti pro jednotky SSD (například NVMe caching pro SSD) se do mezipaměti ukládají pouze zápisy. Při ukládání do mezipaměti pro jednotky pevného disku (například ukládání do mezipaměti SSD pro HDD) jsou čtení i zápisy ukládány do mezipaměti.
 
-![Cache-čtení-zápis – chování](media/cache/Cache-Read-Write-Behavior.png)
+![Diagram, který porovnává ukládání do mezipaměti pro všechny-Flash, kde jsou zápisy do mezipaměti a čtení nejsou, s hybridem, kde jsou čtení i zápisy ukládány do mezipaměti.](media/cache/Cache-Read-Write-Behavior.png)
 
 ### <a name="write-only-caching-for-all-flash-deployments"></a>Ukládání do mezipaměti jen pro zápis pro nasazení ve všech bliknutích
 
@@ -107,13 +88,13 @@ Výsledkem je, že se vlastnosti zápisu, jako je latence zápisu, načtou jedno
 
 Při ukládání do mezipaměti pro jednotky pevného disku (HDD) jsou čtení *i* zápisy ukládány do mezipaměti, aby se zajistila latence s podobným rozhraním Flash (často ~ 10x lepší) pro obě. Mezipaměť pro čtení ukládá poslední a často načtená data pro rychlý přístup a minimalizuje náhodný provoz do HDD. (Vzhledem k prodlevám při hledání a rotaci je doba latence a ztráty způsobená náhodným přístupem k disku velká.) Zápisy jsou ukládány do mezipaměti za účelem zvýšení zátěže a stejně jako dříve, pro sloučení zápisů a opětovného zápisu a minimalizaci kumulativního provozu na kapacitní jednotky.
 
-Prostory úložiště s přímým přístupem implementuje algoritmus, který rozpustí zápisy před rozbalením, aby emuluje vzor vstupně-výstupní operace s diskem, který se jeví jako sekvenční, i když je skutečná vstupně-výstupní operace přicházející z úlohy (například virtuální počítače) náhodná. Tím se maximalizuje IOPS a propustnost do HDD.
+Azure Stack HCI implementuje algoritmus, který rozpustí zápisy před rozbalením, aby emuluje vzor vstupně-výstupní operace s diskem, který se jeví jako sekvenční, i když je skutečná vstupně-výstupní operace přicházející z úlohy (například virtuální počítače) náhodná. Tím se maximalizuje IOPS a propustnost do HDD.
 
-### <a name="caching-in-deployments-with-drives-of-all-three-types"></a>Ukládání do mezipaměti v nasazeních pomocí jednotek všech tří typů
+### <a name="caching-in-deployments-with-nvme-ssd-and-hdd"></a>Ukládání do mezipaměti v nasazeních pomocí NVMe, SSD a HDD
 
 Pokud jsou přítomny jednotky všech tří typů, NVMe jednotky poskytují ukládání do mezipaměti pro SSD a HDD. Chování je popsané výše: pouze zápisy jsou ukládány do mezipaměti pro SSD a čtení i zápisy jsou ukládány do mezipaměti pro HDD. Zatížení mezipaměti pro HDD se rovnoměrně rozděluje mezi jednotky mezipaměti.
 
-## <a name="summary"></a>Souhrn
+## <a name="summary"></a>Shrnutí
 
 Tato tabulka shrnuje, které jednotky se používají pro ukládání do mezipaměti, které se používají pro kapacitu, a to, co je chování ukládání do mezipaměti pro jednotlivé možnosti nasazení.
 
@@ -132,9 +113,9 @@ Mezipaměť je implementována na úrovni jednotky: jednotlivé jednotky mezipam
 
 Vzhledem k tomu, že mezipaměť je pod zbývající částí zásobníku úložiště definovaného softwarem Windows, nemá ani žádné povědomí o konceptech, jako jsou prostory úložiště nebo odolnost proti chybám. Můžete si ho představit jako vytvoření "hybrid" (část Flash, část disku), která se pak zobrazí v systému Windows. Stejně jako u skutečné hybridní jednotky je pohyb mezi horkou a studenou daty mezi rychlejší a pomalejší částí fyzického média skoro neviditelný i mimo něj.
 
-Vzhledem k tom, že odolnost v Prostory úložiště s přímým přístupem je aspoň na úrovni serveru (to znamená, že kopie dat se vždycky zapisují na různé servery. maximálně jednu kopii na server), data v mezipaměti těží ze stejné odolnosti jako data, která nejsou v mezipaměti.
+Vzhledem k tom, že odolnost v Azure Stack HCI je alespoň na úrovni serveru (to znamená, že kopie dat se vždycky zapisují na různé servery. maximálně jedna kopie na server), data v mezipaměti těží ze stejné odolnosti jako data, která nejsou v mezipaměti.
 
-![Mezipaměť – architektura na straně serveru](media/cache/Cache-Server-Side-Architecture.png)
+![Diagram představuje tři servery, které jsou spojeny pomocí trojrozměrného zrcadlení ve vrstvě prostoru úložiště, který přistupuje k vrstvě mezipaměti N V M e, které mají přístup k neoznačeným jednotkám kapacity.](media/cache/Cache-Server-Side-Architecture.png)
 
 Například při použití trojrozměrného zrcadlení se tři kopie dat zapisují na různé servery, kde se nacházejí v mezipaměti. Bez ohledu na to, zda jsou později v nezpracované fázi nebo ne, budou vždy existovat tři kopie.
 
@@ -142,7 +123,7 @@ Například při použití trojrozměrného zrcadlení se tři kopie dat zapisuj
 
 Vazba mezi mezipamětí a úložnými jednotkami může mít libovolný poměr, od 1:1 do 1:12 nebo po. Přizpůsobuje se dynamicky při každém přidání nebo odebrání jednotek, například při vertikálním navýšení nebo po selhání. To znamená, že kdykoli budete chtít, můžete přidat jednotky mezipaměti nebo jednotky kapacity samostatně.
 
-![Dynamická vazba](media/cache/Dynamic-Binding.gif)
+![Animovaný diagram zobrazuje dvě jednotky mezipaměti N V M V, dynamicky namapovány na první čtyři, tedy na šest a pak na osm kapacitních jednotek.](media/cache/Dynamic-Binding.gif)
 
 Pro symetrii doporučujeme, abyste si vynásobení počtu kapacitních jednotek a několika jednotek mezipaměti. Pokud máte například 4 jednotky mezipaměti, budete mít více i výkon s 8 jednotkami kapacity (1:2) než 7 nebo 9.
 
@@ -154,7 +135,7 @@ Pro krátkou dobu se na diskové jednotky, které byly vázány na jednotku ztra
 
 Tento scénář vyžaduje, aby na jeden server bylo nutné zadat minimálně dvě jednotky mezipaměti, aby se zajistil výkon.
 
-![Zpracování – chyba](media/cache/Handling-Failure.gif)
+![Animovaný diagram znázorňuje dvě jednotky mezipaměti S S D namapované na šest kapacitních jednotek, dokud jedna jednotka mezipaměti neprojde, což způsobí, že všechny šesti jednotky budou namapovány na zbývající jednotku mezipaměti.](media/cache/Handling-Failure.gif)
 
 Pak můžete jednotku mezipaměti nahradit stejně jako jakoukoli jinou náhradu jednotky.
 
@@ -165,13 +146,13 @@ Pak můžete jednotku mezipaměti nahradit stejně jako jakoukoli jinou náhradu
 
 V zásobníku úložiště definovaném softwarem Windows je několik dalších nesouvisejících mezipamětí. Příklady zahrnují mezipaměť se zpětným zápisem pro prostory úložiště a mezipaměť pro čtení v paměti sdílený svazek clusteru (CSV).
 
-U Prostory úložiště s přímým přístupem by se mezipaměť se zpětným zápisem do mezipaměti úložiště neměla upravovat z výchozího chování. Například parametry, jako je například **-WriteCacheSize** v rutině **New-Volume** , by neměly být používány.
+Při Azure Stack HCI by se mezipaměť se zpětným zápisem do mezipaměti úložiště neměla měnit z výchozího chování. Například parametry, jako je například **-WriteCacheSize** v rutině **New-Volume** , by neměly být používány.
 
-Můžete použít mezipaměť sdíleného svazku clusteru, nebo ne – to je až na sebe. Ve výchozím nastavení je ve Prostory úložiště s přímým přístupem vypnutá, ale nekoliduje s novou mezipamětí popsanou v tomto tématu jakýmkoli způsobem. V některých scénářích může poskytovat cenné výhody výkonu. Další informace najdete v tématu [Jak povolit mezipaměť sdíleného svazku clusteru](/windows-server/failover-clustering/failover-cluster-csvs#enable-the-csv-cache-for-read-intensive-workloads-optional).
+Můžete použít mezipaměť sdíleného svazku clusteru, nebo ne – to je až na sebe. Ve výchozím nastavení je ve Azure Stack HCI, ale nekoliduje s mezipamětí popsanou v tomto tématu. V některých scénářích může poskytovat cenné výhody výkonu. Další informace najdete v tématu [použití mezipaměti pro čtení v paměti sdíleného svazku clusteru s Azure Stack HCL](../manage/use-csv-cache.md).
 
 ## <a name="manual-configuration"></a>Ruční konfigurace
 
-U většiny nasazení není nutná ruční konfigurace. V případě potřeby si přečtěte následující oddíly. 
+U většiny nasazení není nutná ruční konfigurace. V případě potřeby si přečtěte následující oddíly.
 
 Pokud po instalaci potřebujete změnit model zařízení mezipaměti, upravte dokument podpory součástí Health Service, jak je popsáno v [Health Service přehledu](/windows-server/failover-clustering/health-service-overview#supported-components-document).
 
@@ -179,7 +160,7 @@ Pokud po instalaci potřebujete změnit model zařízení mezipaměti, upravte d
 
 V nasazeních, kde jsou všechny jednotky stejného typu, jako jsou všechna nasazení NVMe nebo All-SSD, není nakonfigurovaná žádná mezipaměť, protože systém Windows nemůže rozlišovat vlastnosti, jako je například dlouhodobá doba zápisu, a to automaticky mezi jednotky stejného typu.
 
-Chcete-li použít jednotky s vyšší životností pro ukládání do mezipaměti pro jednotky s nižší životností stejného typu, můžete určit, který model jednotky bude použit s parametrem **-CacheDeviceModel** rutiny **Enable-ClusterS2D** . Po povolení Prostory úložiště s přímým přístupem se všechny jednotky tohoto modelu použijí pro ukládání do mezipaměti.
+Chcete-li použít jednotky s vyšší životností pro ukládání do mezipaměti pro jednotky s nižší životností stejného typu, můžete určit, který model jednotky bude použit s parametrem **-CacheDeviceModel** rutiny **Enable-ClusterS2D** . Všechny jednotky tohoto modelu budou použity pro ukládání do mezipaměti.
 
    >[!TIP]
    > Ujistěte se, že odpovídáte řetězci modelu přesně tak, jak se zobrazuje ve výstupu **Get-fyzický disk**.
@@ -213,13 +194,13 @@ Můžete ověřit, jestli se jednotky, které jste chtěli použít pro ukládá
 
 Ruční konfigurace umožňuje následující možnosti nasazení:
 
-![Exotické – možnosti nasazení](media/cache/Exotic-Deployment-Possibilities.png)
+![Diagram zobrazuje možnosti nasazení, včetně N V M e pro mezipaměť i kapacitu, S S D pro mezipaměť i kapacitu, a s D pro kapacitu cache a Mixed S S d a H d d pro kapacitu.](media/cache/Exotic-Deployment-Possibilities.png)
 
 ### <a name="set-cache-behavior"></a>Nastavení chování mezipaměti
 
 Je možné přepsat výchozí chování mezipaměti. Například můžete nastavit, aby čtení mezipaměti bylo i v případě nasazení typu all-Flash. Nemůžeme změnit chování, pokud neurčíte, že výchozí hodnota nevyhovuje vašim úlohám.
 
-Chcete-li toto chování přepsat, použijte rutinu **set-ClusterStorageSpacesDirect** a parametry **CacheModeSSD** a **-CacheModeHDD** . Parametr **CacheModeSSD** nastaví chování mezipaměti při ukládání do mezipaměti pro jednotky Solid-State. Parametr **CacheModeHDD** nastaví chování mezipaměti při ukládání do mezipaměti pro jednotky pevného disku. To lze provést kdykoli po povolení Prostory úložiště s přímým přístupem.
+Chcete-li toto chování přepsat, použijte rutinu **set-ClusterStorageSpacesDirect** a parametry **CacheModeSSD** a **-CacheModeHDD** . Parametr **CacheModeSSD** nastaví chování mezipaměti při ukládání do mezipaměti pro jednotky Solid-State. Parametr **CacheModeHDD** nastaví chování mezipaměti při ukládání do mezipaměti pro jednotky pevného disku.
 
 K ověření, zda je chování nastaveno, lze použít **příkaz Get-ClusterStorageSpacesDirect** .
 
@@ -259,7 +240,7 @@ Mezipaměť by měla být upravena tak, aby vyhovovala pracovní sadě (data, kt
 
 To je zvlášť důležité v hybridních nasazeních s pevnými disky. Pokud aktivní pracovní sada překročí velikost mezipaměti, nebo pokud aktivní pracovní sada přesáhne příliš rychlou rychlost, Neúspěšné přístupy do mezipaměti pro čtení se budou muset prodloužit a neubližujeme celkový výkon.
 
-Pomocí integrovaného nástroje Performance Monitor (PerfMon. exe) v systému Windows můžete zkontrolovat četnost neúspěšných přístupů do mezipaměti. Konkrétně můžete porovnat počet **neúspěšných přístupů do mezipaměti** z čítače **hybridního disku úložiště clusteru** , který je nastavený na celkový počet IOPS čtení vašeho nasazení. Každý "hybridní disk" odpovídá jedné jednotce kapacity.
+Pomocí integrovaného nástroje sledování výkonu (PerfMon.exe) v systému Windows můžete zkontrolovat četnost neúspěšných přístupů do mezipaměti. Konkrétně můžete porovnat počet **neúspěšných přístupů do mezipaměti** z čítače **hybridního disku úložiště clusteru** , který je nastavený na celkový počet IOPS čtení vašeho nasazení. Každý "hybridní disk" odpovídá jedné jednotce kapacity.
 
 Například 2 jednotky mezipaměti vázané na 4 jednotky kapacity mají za následek 4 instance objektů hybridního disku na jeden server.
 

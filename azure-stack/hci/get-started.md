@@ -3,28 +3,28 @@ title: Začínáme se službou Azure Stack HCI a centrem pro správu Windows
 description: Rychle se připojte ke stávajícímu clusteru Azure Stack HCI a pomocí centra pro správu systému Windows monitorujte výkon clusteru a úložiště.
 author: khdownie
 ms.author: v-kedow
-ms.topic: article
-ms.date: 04/08/2020
-ms.openlocfilehash: efd0922639f628bfea0f2c78755b10de0053bc1f
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.topic: how-to
+ms.service: azure-stack
+ms.subservice: azure-stack-hci
+ms.date: 09/09/2020
+ms.openlocfilehash: 67ba53d7daf5bb335283f328579439f192d0020b
+ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80986386"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89742426"
 ---
 # <a name="get-started-with-azure-stack-hci-and-windows-admin-center"></a>Začínáme se službou Azure Stack HCI a centrem pro správu Windows
 
-> Platí pro: Windows Server 2019
+> Platí pro: Azure Stack HCI, verze 20H2; Windows Server 2019
 
-Toto téma poskytuje pokyny pro instalaci centra pro správu systému Windows, připojení k Azure Stack clusteru HCI a monitorování výkonu clusteru a úložiště.
+Toto téma poskytuje pokyny pro připojení k Azure Stack clusteru HCI a pro monitorování výkonu clusteru a úložiště. Pokud jste ještě cluster nevytvořili, [Stáhněte si Azure Stack HCI](https://azure.microsoft.com/en-us/products/azure-stack/hci/hci-download/) a podívejte se na [Přehled nasazení](deploy/deployment-overview.md) .
 
 ## <a name="install-windows-admin-center"></a>Nainstalovat centrum pro správu Windows
 
-Nejjednodušší způsob, jak nainstalovat centrum pro správu Windows, je na místním počítači s Windows 10, i když musíte být členem skupiny místních správců.
+Centrum pro správu Windows je místně nasazená aplikace založená na prohlížeči pro správu Azure Stack HCI. Nejjednodušší způsob, jak [nainstalovat centrum pro správu Windows](/windows-server/manage/windows-admin-center/deploy/install) , je na místním počítači pro správu (desktopový režim), ale můžete ho taky nainstalovat na server (režim služby).
 
-1. Stáhněte si [Centrum pro správu Windows](https://www.microsoft.com/evalcenter/evaluate-windows-admin-center) z centra Microsoft Evaluation Center. I když říká "zahájit zkušební období", "Toto je všeobecně dostupná verze pro produkční použití, která je součástí licence Windows serveru.
-2. Spusťte soubor WindowsAdminCenter. msi, který chcete nainstalovat.
-3. Při prvním spuštění centra pro správu systému Windows se v oznamovací oblasti plochy zobrazí ikona. Klikněte na tuto ikonu pravým tlačítkem a výběrem možnosti Otevřít otevřete nástroj ve výchozím prohlížeči. Po zobrazení výzvy k výběru certifikátu nezapomeňte vybrat klientský certifikát centra pro správu systému Windows.
+Pokud nainstalujete centrum pro správu Windows na server, úlohy vyžadující CredSSP, jako je vytvoření clusteru a instalace aktualizací a rozšíření, vyžadují použití účtu, který je členem skupiny Správci brány na serveru centra pro správu systému Windows. Další informace najdete v prvním dvou částech [Konfigurace uživatelských Access Control a oprávnění](/windows-server/manage/windows-admin-center/configure/user-access-control#gateway-access-role-definitions).
 
 ## <a name="add-and-connect-to-an-azure-stack-hci-cluster"></a>Přidání a připojení k Azure Stack clusteru HCI
 
@@ -35,7 +35,7 @@ Po dokončení instalace centra pro správu systému Windows můžete přidat cl
     :::image type="content" source="media/get-started/addcluster.png" alt-text="[Přidat snímek clusteru":::
 
 2. Vyberte, pokud chcete přidat cluster Windows serveru:
-    
+
     :::image type="content" source="media/get-started/chooseconnectiontype.png" alt-text="Vybrat typ připojení snímek obrazovky":::
 
 3. Zadejte název clusteru, který chcete spravovat, a klikněte na **Přidat**. Cluster se přidá do vašeho seznamu připojení na stránce Přehled.
@@ -112,7 +112,7 @@ Pomocí nástroje sledování výkonu můžete zobrazit a porovnat čítače vý
 
 ## <a name="use-azure-monitor-for-monitoring-and-alerts"></a>Použití Azure Monitor pro monitorování a výstrahy
 
-Můžete také použít [Azure monitor](/windows-server/manage/windows-admin-center/azure/azure-monitor) (vyžaduje předplatné Azure) ke shromáždění událostí a čítačů výkonu pro účely analýzy a vytváření sestav, provedení akce při zjištění konkrétní podmínky a příjem oznámení prostřednictvím e-mailu. V nabídce **nástroje** klikněte na **Azure monitor** a připojte se přímo k Azure z centra pro správu Windows.
+Pomocí [Azure monitor](manage/azure-monitor.md) můžete také shromažďovat události a čítače výkonu pro účely analýzy a vytváření sestav, provádět akce při zjištění konkrétní podmínky a přijímat oznámení prostřednictvím e-mailu. V nabídce **nástroje** klikněte na **Azure monitor** a připojte se přímo k Azure z centra pro správu Windows.
 
 ## <a name="collect-diagnostics-information"></a>Shromažďovat diagnostické informace
 
@@ -120,7 +120,7 @@ V nabídce **nástroje** vyberte **Diagnostika** a shromážděte informace pro 
 
 ## <a name="next-steps"></a>Další kroky
 
-Hlubší podrobně na sledování výkonu najdete zde:
+Pro hlubší podrobněi, jak sledovat clustery Azure Stack HCI, se podívejte na také:
 
 - [Historie výkonu pro Prostory úložiště s přímým přístupem](/windows-server/storage/storage-spaces/performance-history)
 - [Monitorování Azure Stack HCL pomocí Azure Monitor](manage/azure-monitor.md)

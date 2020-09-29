@@ -3,39 +3,39 @@ title: Plánování svazků v Azure Stack HCI
 description: Jak naplánovat svazky úložiště v Azure Stack HCL.
 author: khdownie
 ms.author: v-kedow
-ms.topic: article
-ms.date: 03/06/2020
-ms.openlocfilehash: c6410e4f0d60138ce773f7f0abfae1a5c1850bd2
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.topic: conceptual
+ms.date: 07/27/2020
+ms.openlocfilehash: 49124c0112d2ecba8c621520cfb1b6c293418401
+ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79095012"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89742544"
 ---
-# <a name="planning-volumes-in-storage-spaces-direct"></a>Plánování svazků v Prostory úložiště s přímým přístupem
+# <a name="plan-volumes-in-azure-stack-hci"></a>Plánování svazků v Azure Stack HCI
 
-> Platí pro: Windows Server 2019
+> Platí pro: Azure Stack HCI, verze 20H2; Windows Server 2019
 
-Toto téma obsahuje informace o tom, jak naplánovat svazky v Prostory úložiště s přímým přístupem tak, aby splňovaly požadavky na výkon a kapacitu vašich úloh, včetně volby jejich systému souborů, typu odolnosti a velikosti.
+Toto téma obsahuje informace o tom, jak naplánovat svazky v Azure Stack HCI tak, aby splňovaly požadavky na výkon a kapacitu vašich úloh, včetně volby jejich systému souborů, typu odolnosti a velikosti.
 
 ## <a name="review-what-are-volumes"></a>Kontrola: co jsou svazky
 
-Na svazcích se ukládají soubory, které vaše úlohy potřebují, například soubory VHD nebo VHDX pro virtuální počítače s technologií Hyper-V. Svazky spojují jednotky ve fondu úložiště, aby zavedly odolnost proti chybám, škálovatelnost a výkonnostní výhody Prostory úložiště s přímým přístupem.
+Na svazcích se ukládají soubory, které vaše úlohy potřebují, například soubory VHD nebo VHDX pro virtuální počítače s technologií Hyper-V. Svazky spojují jednotky ve fondu úložiště, aby zavedly odolnost proti chybám, škálovatelnost a výkonnostní výhody [prostory úložiště s přímým přístupem](/windows-server/storage/storage-spaces/storage-spaces-direct-overview), což je softwarově definovaná technologie úložiště, na které se Azure Stack HCL nachází.
 
    >[!NOTE]
    > V celé dokumentaci pro Prostory úložiště s přímým přístupem používáme pojem "Volume", který společně odkazuje na svazek a virtuální disk, včetně funkcí poskytovaných jinými integrovanými funkcemi Windows, jako jsou sdílené svazky clusteru (CSV) a ReFS. Porozumění těmto rozdílům na úrovni implementace není nutné k naplánování a nasazení Prostory úložiště s přímým přístupem úspěšné.
 
-![Co jsou svazky](media/plan-volumes/what-are-volumes.png)
+![Diagram zobrazuje tři složky označené jako svazky, které jsou přidružené k virtuálnímu disku označenému jako svazky, a to vše přidružené ke společnému fondu úložiště disků.](media/plan-volumes/what-are-volumes.png)
 
-Všechny svazky jsou přístupné pro všechny servery v clusteru ve stejnou dobu. Po vytvoření se zobrazí v **C:\ClusterStorage\\ ** na všech serverech.
+Všechny svazky jsou přístupné pro všechny servery v clusteru ve stejnou dobu. Po vytvoření se zobrazí v **C:\ClusterStorage \\ ** na všech serverech.
 
-![CSV – složka – snímek obrazovky](media/plan-volumes/csv-folder-screenshot.png)
+![Snímek obrazovky zobrazuje okno Průzkumníka souborů s názvem ClusterStorage, které obsahuje svazky s názvem Volume1, Volume2 a Volume3.](media/plan-volumes/csv-folder-screenshot.png)
 
 ## <a name="choosing-how-many-volumes-to-create"></a>Volba počtu svazků, které se mají vytvořit
 
 Doporučujeme, abyste v clusteru provedli počet svazků násobkem počtu serverů. Pokud máte třeba 4 servery, budete mít jednotnější výkon se 4 celkovými objemy než 3 nebo 5. Díky tomu může cluster distribuovat svazek "vlastnictví" (jeden server zpracovává orchestraci metadat pro každý svazek) rovnoměrně mezi servery.
 
-Pro Windows Server 2019 doporučujeme omezit celkový počet svazků na 64 svazků na cluster.
+Pro každý cluster doporučujeme omezit celkový počet svazků na 64 svazků.
 
 ## <a name="choosing-the-filesystem"></a>Výběr systému souborů
 
@@ -55,21 +55,21 @@ Svazky v Prostory úložiště s přímým přístupem poskytují odolnost proti
 
 ### <a name="with-two-servers"></a>Se dvěma servery
 
-Se dvěma servery v clusteru můžete použít obousměrné zrcadlení. Pokud používáte Windows Server 2019, můžete také použít vnořenou odolnost.
+Se dvěma servery v clusteru můžete použít obousměrné zrcadlení nebo můžete použít vnořenou odolnost.
 
 Obousměrné zrcadlení uchovává dvě kopie všech dat, jednu kopii na jednotkách na každém serveru. Efektivita úložiště je 50%; Pokud chcete zapsat 1 TB dat, budete potřebovat minimálně 2 TB kapacity fyzického úložiště ve fondu úložiště. Obousměrné zrcadlení může bezpečně tolerovat jednu selhání hardwaru v čase (jeden server nebo jednotka).
 
-![dvoucestné zrcadlení](media/plan-volumes/two-way-mirror.png)
+![Diagram zobrazuje svazky označené jako data a kopírují je pomocí kruhových šipek a oba svazky jsou přidruženy k bance disků na serverech.](media/plan-volumes/two-way-mirror.png)
 
-Vnořená odolnost (k dispozici pouze v systému Windows Server 2019) zajišťuje odolnost dat mezi servery s obousměrným zrcadlením a přidává odolnost na serveru s obousměrným zrcadlením nebo paritou podporující zrcadlení. Vnořování zajišťuje odolnost dat i v případě, že je jeden server restartován nebo není k dispozici. Jeho efektivita úložiště je 25 procent s vnořeným obousměrným zrcadlením a přibližně 35-40 procent pro paritní zrcadlením. Vnořená odolnost může bezpečně tolerovat dvě chyby hardwaru (dvě jednotky nebo server a jednotku na zbývajícím serveru). Kvůli této přidané odolnosti dat doporučujeme používat pro produkční nasazení clusterů se dvěma servery vnořenou odolnost, pokud používáte Windows Server 2019. Další informace najdete v tématu [vnořená odolnost](/windows-server/storage/storage-spaces/nested-resiliency).
+Vnořená odolnost poskytuje odolnost proti chybám dat mezi servery s obousměrným zrcadlením a pak přidává odolnost na serveru s obousměrným zrcadlením nebo paritou podporující zrcadlení. Vnořování zajišťuje odolnost dat i v případě, že je jeden server restartován nebo není k dispozici. Jeho efektivita úložiště je 25 procent s vnořeným obousměrným zrcadlením a přibližně 35-40 procent pro paritní zrcadlením. Vnořená odolnost může bezpečně tolerovat dvě chyby hardwaru (dvě jednotky nebo server a jednotku na zbývajícím serveru). Kvůli této přidané odolnosti dat doporučujeme používat pro produkční nasazení clusterů se dvěma servery vnořenou odolnost. Další informace najdete v tématu [vnořená odolnost](/windows-server/storage/storage-spaces/nested-resiliency).
 
-![Vnořená zrcadlení – akcelerovaná parita](media/plan-volumes/nested-mirror-accelerated-parity.png)
+![Diagram zobrazuje paritní zrcadlené zrcadlení s obousměrným zrcadlem mezi servery přidruženými k dvojúrovňovému zrcadlu na každém serveru, který odpovídá vrstvě parity v rámci každého serveru.](media/plan-volumes/nested-mirror-accelerated-parity.png)
 
 ### <a name="with-three-servers"></a>Se třemi servery
 
 U tří serverů byste měli použít trojrozměrné zrcadlení pro lepší odolnost proti chybám a výkon. Trojrozměrné zrcadlení udržuje tři kopie všech dat, jednu kopii na jednotkách na každém serveru. Efektivita úložiště je 33,3% – pro zápis 1 TB dat potřebujete minimálně 3 TB kapacity fyzického úložiště ve fondu úložiště. Třícestný zrcadlení může bezpečně tolerovat [alespoň dva problémy s hardwarem (na disku nebo na serveru)](/windows-server/storage/storage-spaces/storage-spaces-fault-tolerance#examples). Pokud 2 uzly nebudou k dispozici, fond úložiště ztratí kvorum, protože 2/3 disků není k dispozici a virtuální disky nebudou přístupné. Uzel ale může být mimo provoz a jeden nebo víc disků na jiném uzlu se může zdařit a virtuální disky zůstanou online. Pokud například restartujete jeden server, když dojde k výpadku jiné jednotky nebo serveru, všechna data zůstanou bezpečná a nepřetržitě dostupná.
 
-![Třícestný zrcadlový svazek](media/plan-volumes/three-way-mirror.png)
+![Diagram znázorňuje svazek označený daty a dvě kopie s popisky propojenými kruhovými šipkami s každým svazkem přidruženým k serveru, který obsahuje fyzické disky.](media/plan-volumes/three-way-mirror.png)
 
 ### <a name="with-four-or-more-servers"></a>Se čtyřmi nebo více servery
 
@@ -77,11 +77,11 @@ Se čtyřmi nebo více servery si můžete zvolit pro každý svazek, jestli se 
 
 Duální parita poskytuje stejnou odolnost proti chybám jako trojrozměrné zrcadlení, ale s lepší efektivitou úložiště. Se čtyřmi servery je efektivita úložiště 50,0%; Pokud chcete uložit 2 TB dat, budete potřebovat 4 TB kapacity fyzického úložiště ve fondu úložiště. Zvyšuje se tím 66,7% efektivita úložiště s sedmi servery a pokračuje až do 80,0 procenta efektivity úložiště. Kompromisy jsou tím, že kódování parity je náročné na výpočetní výkon, což může omezit jeho výkon.
 
-![Duální parita](media/plan-volumes/dual-parity.png)
+![Diagram zobrazuje dva svazky s označením dat a dvě označené parity připojené kruhovými šipkami s každým svazkem přidruženým k serveru, který obsahuje fyzické disky.](media/plan-volumes/dual-parity.png)
 
 Typ odolnosti, který se použije, závisí na potřebách vaší úlohy. Tady je tabulka, která shrnuje, které úlohy jsou vhodné pro každý typ odolnosti, a také efektivitu výkonu a úložiště každého typu odolnosti.
 
-| Typ odolnosti | Efektivita kapacity | Rychlost | Úkoly |
+| Typ odolnosti | Efektivita kapacity | Rychlost | Úlohy |
 | ------------------- | ----------------------  | --------- | ------------- |
 | **Zrcadlení**         | ![Efektivita úložiště zobrazující 33%](media/plan-volumes/3-way-mirror-storage-efficiency.png)<br>Třícestný zrcadlový svazek: 33% <br>Dvoucestné zrcadlení: 50%     |![Výkon ukazující 100%](media/plan-volumes/three-way-mirror-perf.png)<br> Nejvyšší výkon  | Virtualizované úlohy<br> Databáze<br>Další úlohy s vysokým výkonem |
 | **Zrcadlení – urychlené parity** |![Efektivita úložiště znázorňující přibližně 50%](media/plan-volumes/mirror-accelerated-parity-storage-efficiency.png)<br> Závisí na poměru zrcadlení a parity. | ![Výkon znázorňující přibližně 20%](media/plan-volumes/mirror-accelerated-parity-perf.png)<br>Mnohem pomalejší než Zrcadlová, ale až dvakrát jako rychlá jako duální parita<br> Nejlepší pro velké sekvenční zápisy a čtení | Archivace a zálohování<br> Infrastruktura virtualizovaných ploch     |
@@ -131,7 +131,7 @@ Velikost se liší od kapacity svazku *, což*je celková kapacita fyzického ú
 
 Nároky na vaše svazky se musí vejít do fondu úložiště.
 
-![velikost – oproti](media/plan-volumes/size-versus-footprint.png)
+![Diagram zobrazuje objem 2 TB v porovnání s kapacitou 6 TB ve fondu úložiště s násobitelem tří zadaných hodnot.](media/plan-volumes/size-versus-footprint.png)
 
 ### <a name="reserve-capacity"></a>Rezervní kapacita
 
@@ -139,7 +139,7 @@ Když se v nepřidělené kapacitě fondu úložiště zachová nějaká kapacit
 
 Doporučujeme, abyste zavedli ekvivalent jedné jednotky kapacity na server, až 4 jednotky. Můžete si vyhradit Další informace podle vašeho uvážení, ale toto minimální doporučení zaručuje okamžitou a místní opravu, může po selhání jakékoli jednotky být úspěšné.
 
-![rezervační](media/plan-volumes/reserve.png)
+![Diagram znázorňuje svazek přidružený k několika diskům ve fondu úložiště a nesouvisející disky označené jako rezerva.](media/plan-volumes/reserve.png)
 
 Například pokud máte 2 servery a používáte 1 TB kapacitních jednotek, nastavte vyhrazené množství 2 × 1 = 2 TB fondu jako rezerva. Pokud máte 3 servery a 1 TB kapacitních jednotek, nastavte rezervovat 3 x 1 = 3 TB. Pokud máte minimálně 4 servery a kapacitu na 1 TB, nastavte rezervu na 4 x 1 = 4 TB.
 
@@ -176,7 +176,7 @@ Nepotřebujeme, aby měly všechny svazky stejnou velikost, ale pro jednoduchost
 
 Čtyři svazky přesně vyhovují kapacitě fyzického úložiště, která je k dispozici ve vašem fondu. Ideální!
 
-![příklad](media/plan-volumes/example.png)
+![Diagram znázorňuje 2 12 TB trojrozměrného zrcadlového svazku, ke kterému se přiřadí 36 TB úložiště a 2 12 TB Dual parity, které jsou spojené s 24 TB, a to vše, co zabere ve fondu úložiště 120 TB.](media/plan-volumes/example.png)
 
    >[!TIP]
    > Nemusíte vytvářet všechny svazky hned. Svazky můžete kdykoli roztáhnout nebo vytvořit nové svazky později.
@@ -191,6 +191,5 @@ Viz [vytváření svazků v Azure Stack HCI](../manage/create-volumes.md).
 
 Další informace najdete v tématu také:
 
-- [Přehled Azure Stack HCI](../overview.md)
 - [Výběr jednotek pro Prostory úložiště s přímým přístupem](choose-drives.md)
 - [Odolnost proti chybám a efektivita úložiště](fault-tolerance.md)

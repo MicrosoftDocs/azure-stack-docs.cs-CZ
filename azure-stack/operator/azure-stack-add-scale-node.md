@@ -3,16 +3,16 @@ title: Přidání uzlů jednotek škálování do centra Azure Stack
 description: Naučte se přidávat uzly jednotek škálování do jednotek škálování v Azure Stackovém centru.
 author: mattbriggs
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 09/09/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: c264e0abc0fdc5a382b83a23158f860a56aea260
-ms.sourcegitcommit: a3ae6dd8670f8fb24224880df7eee256ebbcc4ef
+ms.lastreviewed: 08/03/2020
+ms.openlocfilehash: bf1cbd3dc999a90fb53ef30b48dc6f06e82f4d5a
+ms.sourcegitcommit: 69c859a89941ee554d438d5472308eece6766bdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81772605"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89621295"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack-hub"></a>Přidání dalších uzlů jednotek škálování do centra Azure Stack
 
@@ -27,14 +27,14 @@ Následující vývojový diagram znázorňuje obecný proces přidání uzlu je
 
 Dokončení operace přidání nového uzlu může trvat několik hodin nebo dní. V systému není žádný vliv na spuštěné úlohy, zatímco je přidaný další uzel jednotky škálování.
 
-> [!Note]  
+> [!NOTE]  
 > Neprovádějte žádnou z následujících operací, pokud již probíhá operace přidání uzlu jednotky škálování:
 >
 >  - Aktualizace centra Azure Stack
 >  - Rotace certifikátů
 >  - Zastavit Azure Stack centra
 >  - Opravit uzel jednotky škálování
-
+>  - Přidat další uzel (probíhá i předchozí selhání akce přidat uzel)
 
 ## <a name="add-scale-unit-nodes"></a>Přidat uzly jednotek škálování
 
@@ -51,23 +51,23 @@ Následující kroky jsou nejdůležitějším přehledem o tom, jak přidat uze
 
 K přidání nových uzlů můžete použít portál pro správu nebo PowerShell. Operace přidat uzel nejprve přidá nový uzel jednotky škálování jako dostupnou výpočetní kapacitu a pak automaticky rozšíří kapacitu úložiště. Kapacita se automaticky rozbalí, protože Azure Stack hub je prosblížený systém, ve kterém se navzájem provádí *Výpočet* a škálování *úložiště* .
 
-### <a name="use-the-administrator-portal"></a>Použití portálu pro správu
+### <a name="administrator-portal"></a>[Portál správce](#tab/portal)
 
 1. Přihlaste se k portálu Azure Stackového centra pro správu jako operátor služby Azure Stack.
-2. Přejděte na **+ vytvořit** > **Capacity** > **uzel jednotka škálování**kapacity prostředku.
+2. Přejděte na **+ vytvořit**  >  **Capacity**  >  **uzel jednotka škálování**kapacity prostředku.
    ![Uzel jednotky škálování](media/azure-stack-add-scale-node/select-node1.png)
 3. V podokně **přidat uzel** vyberte *oblast*a potom vyberte *jednotku škálování* , do které chcete uzel přidat. Zadejte také *IP adresu řadiče pro správu základní desky* pro uzel jednotky škálování, který přidáváte. Najednou můžete přidat jenom jeden uzel.
    ![Přidat podrobnosti uzlu](media/azure-stack-add-scale-node/select-node2.png)
  
 
-### <a name="use-powershell"></a>Použití prostředí PowerShell
+### <a name="powershell-azurerm"></a>[Modul AzureRM PowerShellu](#tab/AzureRM)
 
 K přidání uzlu použijte rutinu **New-AzsScaleUnitNodeObject** .  
 
 Před použitím některého z následujících ukázkových skriptů PowerShellu nahraďte *názvy uzlů* a *IP adresy* hodnotami z vašeho prostředí Azure Stack hub.
 
   > [!Note]  
-  > Při pojmenovávání uzlu musíte zachovat název kratší než 15 znaků. Nemůžete také `\`použít název, který obsahuje mezery nebo obsahuje některý z následujících znaků:, `/`, `:`, `*`, `?`, `"`, `<`, `>`, `|`, `\`, `~`,, `!`, `@`, `#`, `$`, `%`, `^`, `&`, `(`, `)`, `{`, `}`, `_`,,,,,,,,,,,.
+  > Při pojmenovávání uzlu musíte zachovat název kratší než 15 znaků. Nemůžete také použít název, který obsahuje mezery nebo obsahuje některý z následujících znaků: `\` , `/` , `:` , `*` , `?` , `"` , `<` , `>` , `|` ,,,,, `\` ,, `~` `!` `@` `#` `$` `%` `^` `&` `(` `)` `{` `}` `_` ,,,,,,,,,,,,,,,,,,,.
 
 **Přidat uzel:**
   ```powershell
@@ -77,11 +77,28 @@ Před použitím některého z následujících ukázkových skriptů PowerShell
   Add-AzsScaleUnitNode -NodeList $NewNode -ScaleUnit "<name_of_scale_unit_cluster>" 
   ```  
 
+### <a name="powershell-az"></a>[Modul Az PowerShellu](#tab/Az)
+
+K přidání uzlu použijte rutinu **Add-AzsScaleUnitNode** .  
+
+Před použitím některého z následujících ukázkových skriptů PowerShellu nahraďte hodnoty *name_of_new_node*,  *name_of_scale_unit_cluster* *BMCIP_address_of_new_node* hodnotami z vašeho prostředí Azure Stack hub.
+
+  > [!Note]  
+  > Při pojmenovávání uzlu musíte zachovat název kratší než 15 znaků. Nemůžete také použít název, který obsahuje mezery nebo obsahuje některý z následujících znaků: `\` , `/` , `:` , `*` , `?` , `"` , `<` , `>` , `|` ,,,,, `\` ,, `~` `!` `@` `#` `$` `%` `^` `&` `(` `)` `{` `}` `_` ,,,,,,,,,,,,,,,,,,,.
+
+**Přidat uzel:**
+  ```powershell
+  ## Add a single Node 
+    Add-AzsScaleUnitNode -BMCIPv4Address "<BMCIP_address_of_new_node>" -computername "<name_of_new_node>" -ScaleUnit "<name_of_scale_unit_cluster>" 
+  ```  
+
+---
+
 ## <a name="monitor-add-node-operations"></a>Monitorování operací přidání uzlu 
 K získání stavu operace přidání uzlu použijte portál pro správu nebo PowerShell. Dokončení operací přidání uzlu může trvat několik hodin.
 
 ### <a name="use-the-administrator-portal"></a>Použití portálu pro správu 
-Chcete-li monitorovat přidání nového uzlu, Projděte si část jednotka škálování nebo objekty uzlu jednotky škálování na portálu pro správu. Provedete to tak, že přejdete na > **jednotky škálování** **správy oblastí**. V dalším kroku vyberte jednotku škálování nebo uzel jednotky škálování, který chcete zkontrolovat. 
+Chcete-li monitorovat přidání nového uzlu, Projděte si část jednotka škálování nebo objekty uzlu jednotky škálování na portálu pro správu. Provedete to tak, **Region management**že přejdete na  >  **jednotky škálování**správy oblastí. V dalším kroku vyberte jednotku škálování nebo uzel jednotky škálování, který chcete zkontrolovat. 
 
 ### <a name="use-powershell"></a>Použití prostředí PowerShell
 Stav jednotky škálování a uzly jednotek škálování se dají načíst pomocí PowerShellu následujícím způsobem:

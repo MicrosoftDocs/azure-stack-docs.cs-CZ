@@ -7,12 +7,12 @@ ms.date: 05/21/2020
 ms.author: mabrigg
 ms.reviewer: guanghu
 ms.lastreviewed: 05/21/2020
-ms.openlocfilehash: 07af0665b2bc7993a90100edccc0a4831700c432
-ms.sourcegitcommit: d69eacbf48c06309b00d17c82ebe0ce2bc6552df
+ms.openlocfilehash: 8a1c71a86f5b0fe6290bddab35726eca5bda0144
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83780771"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920623"
 ---
 # <a name="deploy-azure-cognitive-services-to-azure-stack-hub"></a>Nasazení služby Azure Cognitive Services do centra Azure Stack
 
@@ -55,7 +55,7 @@ Podpora kontejnerů je aktuálně ve verzi Public Preview pro podmnožinu Azure 
 
 Pomocí centra Azure Stack nasaďte Cognitive Services kontejnery v clusteru Kubernetes spolu s kontejnery aplikací pro zajištění vysoké dostupnosti a elastického škálování. Můžete vyvíjet aplikace kombinováním služeb rozpoznávání se součástmi postavenými na App Services, funkcích, BLOB Storage, SQL nebo mySQL databáze.
 
-Další podrobnosti o Cognitive Services kontejnerech najdete [v podpoře kontejnerů ve službě Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-container-support).
+Další podrobnosti o Cognitive Services kontejnerech najdete [v podpoře kontejnerů ve službě Azure Cognitive Services](/azure/cognitive-services/cognitive-services-container-support).
 
 ## <a name="deploy-the-azure-face-api"></a>Nasazení Azure Face API
 
@@ -65,7 +65,7 @@ Tento článek popisuje, jak nasadit Azure Face API v clusteru Kubernetes v cent
 
 Než začnete, budete potřebovat:
 
-1.  Vyžádejte si přístup k registru kontejneru, který načte image kontejneru z Azure Cognitive Services Container Registry. Podrobnosti najdete v tématu [vyžádání přístupu k privátnímu registru kontejneru](https://docs.microsoft.com/azure/cognitive-services/face/face-how-to-install-containers#request-access-to-the-private-container-registry).
+1.  Vyžádejte si přístup k registru kontejneru, který načte image kontejneru z Azure Cognitive Services Container Registry. Podrobnosti najdete v tématu [vyžádání přístupu k privátnímu registru kontejneru](/azure/cognitive-services/face/face-how-to-install-containers#request-access-to-the-private-container-registry).
 
 2.  Připravte cluster Kubernetes na rozbočovači Azure Stack. Můžete postupovat podle článku [nasazení Kubernetes do centra Azure Stack](azure-stack-solution-template-kubernetes-deploy.md).
 
@@ -73,9 +73,9 @@ Než začnete, budete potřebovat:
 
 Vytvořte v Azure prostředek služby pro rozpoznávání, ve kterém můžete zobrazit Rozpoznávání textu LUIS kontejnery. K vytvoření instance kontejnerů služby pro rozpoznávání bude nutné použít klíč předplatného a adresu URL koncového bodu z prostředku.
 
-1. Vytvořte prostředek Azure v Azure Portal. Pokud chcete zobrazit náhled kontejnerů obličeje, musíte nejprve vytvořit odpovídající prostředek Face v Azure Portal. Další informace najdete v tématu [rychlý Start: vytvoření účtu Cognitive Services v Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
+1. Vytvořte prostředek Azure v Azure Portal. Pokud chcete zobrazit náhled kontejnerů obličeje, musíte nejprve vytvořit odpovídající prostředek Face v Azure Portal. Další informace najdete v tématu [rychlý Start: vytvoření účtu Cognitive Services v Azure Portal](/azure/cognitive-services/cognitive-services-apis-create-account).
 
-   > [!Note]
+   > [!NOTE]
    >  Prostředek Face nebo Počítačové zpracování obrazu musí používat cenovou úroveň F0.
 
 2. Získejte adresu URL koncového bodu a klíč předplatného pro prostředek Azure. Po vytvoření prostředku Azure použijte klíč předplatného a adresu URL koncového bodu z tohoto prostředku k vytvoření instance odpovídajícího kontejneru Face, LUIS nebo Rozpoznávání textu pro verzi Preview.
@@ -147,7 +147,7 @@ Podrobnosti o klíčových polích:
 | Pole | Poznámky |
 | --- | --- |
 | replicaNumber | Definuje počáteční repliky instancí, které se mají vytvořit. Můžete ho škálovat později po nasazení. |
-| ImageLocation | Označuje umístění konkrétního obrazu kontejneru služby rozpoznávání v ACR. Například služba obličeje:`aicpppe.azurecr.io/microsoft/cognitive-services-face` |
+| ImageLocation | Označuje umístění konkrétního obrazu kontejneru služby rozpoznávání v ACR. Například služba obličeje: `aicpppe.azurecr.io/microsoft/cognitive-services-face` |
 | BillingURL |Adresa URL koncového bodu, kterou jste si poznamenali v kroku [vytvoření prostředku Azure](#create-azure-resources) |
 | ApiKey | Klíč předplatného, který jste si poznamenali v kroku [vytvoření prostředku Azure](#create-azure-resources) |
 | SecretName | Název tajného klíče, který jste vytvořili v kroku, [vytvoří tajný klíč Kubernetes](#create-a-kubernetes-secret) . |
@@ -168,7 +168,7 @@ Pomocí následujícího příkazu můžete monitorovat, jak se nasazuje:
 
 Pracovní uzly potřebují proxy a SSL. Pokud chcete nakonfigurovat proxy server HTTP pro vytváření odchozích požadavků, použijte tyto dva argumenty:
 
-- **Http_proxy** – proxy server, který se má použít, například`https://proxy:8888`
+- **Http_proxy** – proxy server, který se má použít, například `https://proxy:8888`
 - **HTTP_PROXY_CREDS** – například jakékoli přihlašovací údaje potřebné k ověření vůči proxy serveru `username:password` .
 
 ### <a name="set-up-the-proxy"></a>Nastavení proxy serveru
@@ -181,7 +181,7 @@ Pracovní uzly potřebují proxy a SSL. Pokud chcete nakonfigurovat proxy server
 
     `docker pull containerpreview.azurecr.io/microsoft/cognitive-services-read:latest`
 
-    Spuštěním příkazu
+    Spusťte tento příkaz:
 
     `docker run hello-world pull`
 
@@ -205,7 +205,7 @@ Externí IP adresu můžete získat z následujícího příkazu:
 
 ## <a name="try-the-services-with-python"></a>Vyzkoušejte si služby pomocí Pythonu
 
-Můžete se pokusit ověřit službu rozpoznávání na svém Azure Stackovém centru spuštěním některých jednoduchých skriptů Pythonu. K dispozici jsou oficiální úvodní ukázky Pythonu pro [počítačové zpracování obrazu](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home), [obličej](https://docs.microsoft.com/azure/cognitive-services/face/overview), [Analýza textu](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview)a [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/luis-container-howto) (Luis) pro váš odkaz.
+Můžete se pokusit ověřit službu rozpoznávání na svém Azure Stackovém centru spuštěním některých jednoduchých skriptů Pythonu. K dispozici jsou oficiální úvodní ukázky Pythonu pro [počítačové zpracování obrazu](/azure/cognitive-services/computer-vision/home), [obličej](/azure/cognitive-services/face/overview), [Analýza textu](/azure/cognitive-services/text-analytics/overview)a [Language Understanding](/azure/cognitive-services/luis/luis-container-howto) (Luis) pro váš odkaz.
 
 Existují dvě věci, které je potřeba vzít v úvahu při ověřování služeb spuštěných v kontejnerech pomocí aplikací v Pythonu: 
 1. Vyměnitelné služby v kontejnerech nepotřebují pro ověřování podklíče, ale pro splnění sady SDK stále vyžadují libovolný řetězec jako zástupný text. 
@@ -234,10 +234,10 @@ print(faces)
 
 ## <a name="next-steps"></a>Další kroky
 
-[Jak nainstalovat a spustit rozhraní API pro počítačové zpracování obrazu kontejnery.](https://docs.microsoft.com/azure/cognitive-services/computer-vision/computer-vision-how-to-install-containers)
+[Jak nainstalovat a spustit rozhraní API pro počítačové zpracování obrazu kontejnery.](/azure/cognitive-services/computer-vision/computer-vision-how-to-install-containers)
 
-[Jak nainstalovat a spustit Face API kontejnery](https://docs.microsoft.com/azure/cognitive-services/face/face-how-to-install-containers)
+[Jak nainstalovat a spustit Face API kontejnery](/azure/cognitive-services/face/face-how-to-install-containers)
 
-[Jak nainstalovat a spustit rozhraní API pro analýzu textu kontejnery](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-install-containers)
+[Jak nainstalovat a spustit rozhraní API pro analýzu textu kontejnery](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-install-containers)
 
-[Instalace a spuštění kontejnerů Language Understanding (LIUS)](https://docs.microsoft.com/azure/cognitive-services/luis/luis-container-howto)
+[Instalace a spuštění kontejnerů Language Understanding (LIUS)](/azure/cognitive-services/luis/luis-container-howto)

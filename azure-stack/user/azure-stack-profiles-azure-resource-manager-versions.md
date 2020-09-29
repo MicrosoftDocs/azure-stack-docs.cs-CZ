@@ -4,16 +4,16 @@ description: Přečtěte si o verzích rozhraní API Azure Resource Manager podp
 author: sethmanheim
 ms.custom: contperfq4
 ms.topic: article
-ms.date: 05/21/2020
+ms.date: 08/28/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/08/2019
-ms.openlocfilehash: a70ef2865b43732dcc7f546106d6584284762f88
-ms.sourcegitcommit: d69eacbf48c06309b00d17c82ebe0ce2bc6552df
+ms.openlocfilehash: 16e34ffaeb32e4652c83a3ee668235e79190b74d
+ms.sourcegitcommit: 28894abb31423046f6775aadef490c467f1b1820
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83780741"
+ms.lasthandoff: 08/29/2020
+ms.locfileid: "89089656"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack-hub"></a>Verze rozhraní API poskytovatele prostředků podporované profily v centru Azure Stack
 
@@ -87,7 +87,7 @@ Rozhraní API Azure Compute poskytují programový přístup k virtuálním poč
 | Umístění/použití | 2017-12-01 |
 | Umístění/povolených velikostí | 2017-12-01 |
 | Operace | 2017-12-01 |
-| Virtuální počítače | 2017-12-01 |
+| Virtual Machines | 2017-12-01 |
 | Virtual Machines/rozšíření | 2017-12-01 |
 | Virtual Machine Scale Sets | 2017-12-01 |
 | Virtual Machine Scale Sets/rozšíření | 2017-12-01 |
@@ -106,7 +106,7 @@ Rozhraní API Azure Compute poskytují programový přístup k virtuálním poč
 | Operace | 2015-04-01 |
 | Portál | 2015-04-01 |
 | Search | 2015-04-01 |
-| Navrhovat | 2015-04-01 |
+| Návrh | 2015-04-01 |
 
 ### <a name="microsoftinsights"></a>Microsoft. Insights
 
@@ -115,7 +115,7 @@ Rozhraní API Azure Compute poskytují programový přístup k virtuálním poč
 | Operace | 2015-04-01 |
 | Typy událostí | 2015-04-01 |
 | Kategorie událostí | 2015-04-01 |
-| Definice metriky | 2018-01-01 |
+| Definice metrik | 2018-01-01 |
 | Metriky | 2018-01-01 |
 | Nastavení diagnostiky | 2017-05-01 – Preview |
 | Kategorie nastavení diagnostiky | 2017-05-01 – Preview |
@@ -164,9 +164,9 @@ Azure Resource Manager vám umožní nasadit a spravovat infrastrukturu pro vaš
 | Odkazy | 2018-05-01 |
 | Umístění | 2018-05-01 |
 | Operace | 2018-05-01 |
-| Poskytovatelé | 2018-05-01 |
+| Zprostředkovatelé | 2018-05-01 |
 | SkupinyProstředků| 2018-05-01 |
-| Prostředky | 2018-05-01 |
+| Zdroje a prostředky | 2018-05-01 |
 | Předplatná | 2018-05-01 |
 | Předplatná/umístění | 2016-06-01 |
 | Předplatná/operationresults | 2018-05-01 |

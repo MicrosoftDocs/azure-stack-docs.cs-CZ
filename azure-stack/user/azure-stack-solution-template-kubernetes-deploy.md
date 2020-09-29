@@ -7,16 +7,16 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 789f516355407a5b1c69c4c359b8377a63e06123
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: 38b73bb6237b8467f04ff21fd6769e26a49a8b63
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84111424"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920130"
 ---
 # <a name="deploy-kubernetes-to-use-containers-with-azure-stack-hub"></a>Nasazení Kubernetes pro použití kontejnerů pomocí centra Azure Stack
 
-> [!Note]  
+> [!NOTE]  
 > K nasazení clusterů jako zkušebního konceptu použijte jenom položku Kubernetes Azure Stack Marketplace. Pro podporované Kubernetes clustery v Azure Stack použijte [modul AKS](azure-stack-kubernetes-aks-engine-overview.md).
 
 Postup v tomto článku můžete použít k nasazení a nastavení prostředků pro Kubernetes v rámci jediné koordinované operace. Kroky používají šablonu řešení Azure Resource Manager. Budete potřebovat shromáždit požadované informace o instalaci centra Azure Stack, vytvořit šablonu a pak ji nasadit do svého cloudu. Šablona centra Azure Stack nepoužívá stejnou spravovanou službu AKS nabízenou v globálním Azure.
@@ -59,4 +59,4 @@ Můžete také najít správce balíčků **Helm** , který je užitečný pro i
 
 [Nasazení Kubernetes do centra Azure Stack pomocí služby Active Directory federované služby (AD FS)](azure-stack-solution-template-kubernetes-adfs.md)
 
-[Kubernetes v Azure](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)
+[Kubernetes v Azure](/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)

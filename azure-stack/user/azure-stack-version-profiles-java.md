@@ -3,22 +3,22 @@ title: Použití profilů verzí rozhraní API pomocí Java v centru Azure Stack
 description: Naučte se používat profily verzí rozhraní API pomocí Java v centru Azure Stack.
 author: sethmanheim
 ms.topic: article
-ms.date: 05/05/2020
+ms.date: 09/03/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 6d072c061839c9d10f1f0d97c01ef9b2fa41e6a7
-ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
+ms.openlocfilehash: 2e37d8f977a89e9a0207ef094273e9838a54d23a
+ms.sourcegitcommit: 7c01ab4b2e2250a7acd67d1c5ba27d15c1e8bce0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82836151"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89448652"
 ---
 # <a name="use-api-version-profiles-with-java-in-azure-stack-hub"></a>Použití profilů verzí rozhraní API pomocí Java v centru Azure Stack
 
 Sada Java SDK pro centrum Azure Stack Správce prostředků poskytuje nástroje, které vám pomůžou sestavovat a spravovat infrastrukturu. Poskytovatelé prostředků v sadě SDK zahrnují výpočetní prostředky, sítě, úložiště, App Services a [Key Vault](/azure/key-vault/key-vault-whatis).
 
-Java SDK zahrnuje profily rozhraní API, včetně závislostí v souboru **pom. XML** , který načte správné moduly v souboru **. Java** . Jako profil Azure ale můžete přidat několik profilů jako závislosti, jako je například **2019-03-01 – hybridní**nebo **nejnovější**. Pomocí těchto závislostí načtete správný modul, takže když vytvoříte typ prostředku, můžete si z těchto profilů vybrat verzi rozhraní API, kterou chcete použít. To vám umožní používat v Azure nejnovější verze, ale vyvíjí se s nejaktuálnější verzí rozhraní API pro Azure Stack hub.
+Sada Java SDK zahrnuje profily rozhraní API zahrnutím závislostí do souboru **Pom.xml** , který načte správné moduly do souboru **. Java** . Jako profil Azure ale můžete přidat několik profilů jako závislosti, jako je například **2019-03-01 – hybridní**nebo **nejnovější**. Pomocí těchto závislostí načtete správný modul, takže když vytvoříte typ prostředku, můžete si z těchto profilů vybrat verzi rozhraní API, kterou chcete použít. To vám umožní používat v Azure nejnovější verze, ale vyvíjí se s nejaktuálnější verzí rozhraní API pro Azure Stack hub.
 
 Použití sady Java SDK umožňuje skutečné prostředí pro vývojáře hybridního cloudu. Profily rozhraní API v Java SDK umožňují vývoj hybridního cloudu tím, že vám pomůže přepínat mezi globálním prostředky a prostředky Azure v centru Azure Stack.
 
@@ -30,9 +30,9 @@ Profil rozhraní API je kombinací poskytovatelů prostředků a verzí rozhran�
 
   - Pokud chcete použít nejnovější profil, je tato závislost **com. Microsoft. Azure**.
 
-  - Pokud chcete používat nejnovější podporované služby, které jsou dostupné v Azure Stack hub, použijte **hybridní profil com. Microsoft\_.\_Azure\_.\_Profile 2019 03 01** .
+  - Pokud chcete používat nejnovější podporované služby, které jsou dostupné v Azure Stack hub, použijte **hybridní profil com. Microsoft. Azure. profile \_ 2019 \_ 03 \_ 01 \_ ** .
 
-    - Profil je zadán v souboru **pom. XML** jako závislost, která automaticky načítá moduly, pokud zvolíte správnou třídu v rozevíracím seznamu (stejně jako v případě rozhraní .NET).
+    - Profil je zadán v souboru **Pom.xml** jako závislost, která automaticky načítá moduly, pokud zvolíte správnou třídu v rozevíracím seznamu (stejně jako v případě rozhraní .NET).
 
   - Závislosti se zobrazí takto:
 
@@ -54,9 +54,9 @@ Pomocí těchto kroků nainstalujete Java SDK:
 
 1. Pomocí oficiálních pokynů nainstalujte Git. Viz [Začínáme – instalace Gitu](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 
-2. Postupujte podle pokynů a nainstalujte [sadu Java SDK](https://zulu.org/download/) a [Maven](https://maven.apache.org/). Správná verze je verze 8 sady Java Developer Kit. Správná verze Apache Maven je 3,0 nebo vyšší. Pro dokončení rychlého startu musí být `JAVA_HOME` proměnná prostředí nastavena na umístění instalace sady Java Development Kit. Další informace najdete v tématu [Vytvoření první funkce pomocí jazyků Java a Maven](/azure/azure-functions/functions-create-first-java-maven).
+2. Postupujte podle pokynů a nainstalujte [sadu Java SDK](https://zulu.org/download/) a [Maven](https://maven.apache.org/). Správná verze je verze 8 sady Java Developer Kit. Správná verze Apache Maven je 3,0 nebo vyšší. Pro dokončení rychlého startu `JAVA_HOME` musí být proměnná prostředí nastavena na umístění instalace sady Java Development Kit. Další informace najdete v tématu [Vytvoření první funkce pomocí jazyků Java a Maven](/azure/azure-functions/functions-create-first-java-maven).
 
-3. Chcete-li nainstalovat správné balíčky závislostí, otevřete soubor **pom. XML** v aplikaci Java. Přidejte závislost, jak je znázorněno v následujícím kódu:
+3. Chcete-li nainstalovat správné balíčky závislostí, otevřete soubor **Pom.xml** v aplikaci Java. Přidejte závislost, jak je znázorněno v následujícím kódu:
 
    ```xml  
    <dependency>
@@ -68,7 +68,7 @@ Pomocí těchto kroků nainstalujete Java SDK:
 
 4. Sada balíčků, které je třeba nainstalovat, závisí na verzi profilu, kterou chcete použít. Názvy balíčků pro verze profilu jsou:
 
-   - **model COM. Microsoft. Azure.\_profile\_2019\_\_03 01 Hybrid**
+   - **model COM. Microsoft. Azure. Profile \_ 2019 \_ 03 \_ 01 \_ Hybrid**
    - **com. Microsoft. Azure**
      - **nejnovější**
 
@@ -117,7 +117,7 @@ Pokud používáte Azure Stack Development Kit (ASDK), musíte důvěřovat koř
 
 1. Exportujte certifikát podepsaný svým držitelem Azure Stack do vaší plochy.
 
-1. V příkazovém řádku změňte adresář na `%JAVA_HOME%\bin`.
+1. V příkazovém řádku změňte adresář na `%JAVA_HOME%\bin` .
 
 1. Spusťte následující příkaz:
 
@@ -133,11 +133,11 @@ Informace o metadatech můžete získat z Správce prostředkůho koncového bod
 
 Vezměte na vědomí následující skutečnosti:
 
-- **ResourceManagerUrl** v ASDK je: `https://management.local.azurestack.external/`.
+- **ResourceManagerUrl** v ASDK je: `https://management.local.azurestack.external/` .
 
-- **ResourceManagerUrl** v integrovaných systémech je: `https://management.region.<fqdn>/`, kde `<fqdn>` je váš plně kvalifikovaný název domény.
+- **ResourceManagerUrl** v integrovaných systémech je: `https://management.region.<fqdn>/` , kde `<fqdn>` je váš plně kvalifikovaný název domény.
 
-Načtení požadovaných metadat: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`.
+Načtení požadovaných metadat: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` .
 
 Ukázkový soubor JSON:
 
@@ -156,9 +156,9 @@ Ukázkový soubor JSON:
 
 ## <a name="existing-api-profiles"></a>Existující profily rozhraní API
 
-- **com. Microsoft. Azure.\_Profile\_2019\_03\_01 Hybrid**: nejnovější profil sestavený pro Azure Stack hub. Tento profil se používá pro služby, které jsou nejvíce kompatibilní s Azure Stack hub, pokud jste na 1904 nebo novějším.
+- **com. Microsoft. Azure. profile \_ 2019 \_ 03 \_ 01 \_ Hybrid**: nejnovější profil sestavený pro Azure Stack hub. Tento profil se používá pro služby, které jsou nejvíce kompatibilní s Azure Stack hub, pokud jste na 1904 nebo novějším.
 
-- **model COM. Microsoft. Azure.\_Profile\_2018\_\_03 01 Hybrid**: Profil sestavený pro Azure Stack hub. Tento profil se používá pro služby, které jsou kompatibilní s Azure Stack centra verze 1808 nebo novější.
+- **model COM. Microsoft. Azure. profile \_ 2018 \_ 03 \_ 01 \_ Hybrid**: Profil sestavený pro Azure Stack hub. Tento profil se používá pro služby, které jsou kompatibilní s Azure Stack centra verze 1808 nebo novější.
 
 - **com. Microsoft. Azure**: Profil skládající se z nejnovějších verzí všech služeb. Použijte nejnovější verze všech služeb.
 
@@ -200,7 +200,7 @@ AzureEnvironment AZURE_STACK = new AzureEnvironment(new HashMap<String, String>(
             });
 ```
 
-`getActiveDirectorySettings` Volání v předchozím kódu načte koncové body z koncových bodů metadat. Uvádí proměnné prostředí z vytvořeného volání:
+`getActiveDirectorySettings`Volání v předchozím kódu načte koncové body z koncových bodů metadat. Uvádí proměnné prostředí z vytvořeného volání:
 
 ```java
 public static HashMap<String, String> getActiveDirectorySettings(String armEndpoint) {
@@ -293,7 +293,7 @@ Následující ukázky GitHubu použijte jako referenční materiály k vytvář
     final HashMap<String, String> settings = getActiveDirectorySettings(armEndpoint);
     ```
 
-6. V souboru **pom. XML** přidejte následující závislost pro použití **2019-03-01-Hybrid** profile pro centrum Azure Stack. Tato závislost instaluje moduly přidružené k tomuto profilu pro poskytovatele prostředků COMPUTE, sítě, úložiště, Key Vault a App Services:
+6. V souboru **Pom.xml** přidejte následující závislost pro použití **2019-03-01-hybridní** profil pro centrum Azure Stack. Tato závislost instaluje moduly přidružené k tomuto profilu pro poskytovatele prostředků COMPUTE, sítě, úložiště, Key Vault a App Services:
 
     ```xml
     <dependency>

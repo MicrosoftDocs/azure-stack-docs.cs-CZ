@@ -7,12 +7,12 @@ ms.date: 11/26/2019
 ms.author: justinha
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/26/2019
-ms.openlocfilehash: cf116e392cc75119eabe8fbea9ccb37f72f4b1a0
-ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
+ms.openlocfilehash: 5bc03134a859182909e62c60159049d639eb8ffe
+ms.sourcegitcommit: 08a421ab5792ab19cc06b849763be22f051e6d78
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83375148"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89364673"
 ---
 # <a name="mysql-resource-provider-11470-release-notes"></a>Poznámky k verzi pro poskytovatele prostředků MySQL 1.1.47.0
 
@@ -39,7 +39,7 @@ Doporučuje se použít opravu hotfix poskytovatele prostředků MySQL 1.1.47.0 
 
 ## <a name="known-issues"></a>Známé problémy
 
-Žádné
+Při [střídání certifikátu](azure-stack-mysql-resource-provider-maintain.md#secrets-rotation) pro integrované systémy Azure Stack hub je argument KeyVaultPfxPassword mendatory, a to i v případě, že neexistují žádné záměry aktualizovat heslo certifikátu Key Vault.
 
 ## <a name="next-steps"></a>Další kroky
 

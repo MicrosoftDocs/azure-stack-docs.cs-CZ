@@ -6,24 +6,24 @@ ms.topic: article
 ms.date: 5/27/2020
 ms.author: mabrigg
 ms.lastreviewed: 12/01/2019
-ms.openlocfilehash: ea2ccd33bc64c01b4ab5ba56024a54aa82453e63
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: 7d0a11f8a559f1f40ae797392f27caa815129c69
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84112029"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920775"
 ---
 # <a name="use-azure-monitor-on-azure-stack-hub"></a>Použití Azure Monitor v centru Azure Stack
 
 Tento článek poskytuje přehled služby Azure Monitor v centru Azure Stack. Popisuje provoz Azure Monitor a další informace o tom, jak používat Azure Monitor v Azure Stack hub.
 
-Přehled Azure Monitor najdete v tématu věnovaném celosvětovému článku Azure [Začínáme s Azure monitor v centru Azure Stack](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-get-started).
+Přehled Azure Monitor najdete v tématu věnovaném celosvětovému článku Azure [Začínáme s Azure monitor v centru Azure Stack](/azure/monitoring-and-diagnostics/monitoring-get-started).
 
 ![Okno monitorování centra Azure Stack](./media/azure-stack-metrics-azure-data/azs-monitor.png)
 
 Azure Monitor je služba platformy, která poskytuje jeden zdroj pro monitorování prostředků Azure. Azure Monitor vám umožňuje vizualizovat, dotazovat, směrovat, archivovat a provádět další akce s metrikami a protokoly, které pocházejí z prostředků v Azure. S těmito daty můžete pracovat pomocí portálu Azure Stack správce centra, monitorovat rutiny PowerShellu, rozhraní příkazového řádku pro více platforem nebo rozhraní API REST Azure Monitor. Konkrétní připojení, které podporuje centrum Azure Stack, najdete v tématu [jak spotřebovávat data monitorování z centra Azure Stack](azure-stack-metrics-monitor.md).
 
-> [!Note]
+> [!NOTE]
 > Metriky a diagnostické protokoly nejsou pro Azure Stack Development Kit k dispozici.
 
 ## <a name="prerequisites-for-azure-monitor-on-azure-stack-hub"></a>Předpoklady pro Azure Monitor v centru Azure Stack
@@ -62,7 +62,7 @@ Mezi typy měr patří:
  - Výpisy stavu systému
  - Protokoly chyb zákazníků
 
-> [!Note]  
+> [!NOTE]  
 > Rozšíření diagnostiky Linux není v centru Azure Stack podporováno.
 
 ### <a name="host-and-guest-vm-metrics"></a>Metriky virtuálního počítače hostitele a hosta
@@ -71,7 +71,7 @@ Výše uvedené výpočetní prostředky mají vyhrazený hostitelský virtuáln
 
 ### <a name="activity-log"></a>Protokol aktivit
 
-V protokolech aktivit můžete vyhledat informace o vašich výpočetních prostředcích, jak je vidět v infrastruktuře centra Azure Stack. Tento protokol obsahuje informace, jako jsou třeba časy, kdy se prostředky vytvořily nebo zničily. Protokoly aktivit v centru Azure Stack jsou konzistentní s Azure. Další informace najdete v tématu [Přehled protokolu aktivit v Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs). 
+V protokolech aktivit můžete vyhledat informace o vašich výpočetních prostředcích, jak je vidět v infrastruktuře centra Azure Stack. Tento protokol obsahuje informace, jako jsou třeba časy, kdy se prostředky vytvořily nebo zničily. Protokoly aktivit v centru Azure Stack jsou konzistentní s Azure. Další informace najdete v tématu [Přehled protokolu aktivit v Azure](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs). 
 
 
 ## <a name="azure-monitor-sources-everything-else"></a>Zdroje Azure monitor: všechno ostatní
@@ -100,7 +100,7 @@ Některá data monitorování se už v Azure Monitoru uchovávají a jsou po ur�
 
 Pro přístup k datům v systému nebo Azure Storage můžete použít příkazy rozhraní příkazového řádku (CLI) Azure Monitor REST API, rutiny prostředí PowerShell nebo rozhraní .NET SDK pro více platforem. 
 
-**Vizualizace**
+**Vizualizac**
 
 Vizualizace dat monitorování pomocí grafů a diagramů vám umožňuje rozpoznat trendy rychleji, než když prohlížíte samotná data. 
 
@@ -113,10 +113,10 @@ Mezi možné způsoby vizualizace patří:
 
 Pomocí jedné z následujících metod můžete pracovat se sledováním, směrováním a načítáním dat. Některé způsoby ale nemusí být dostupné pro všechny akce nebo typy dat. 
 
- - [Portál uživatele centra Azure Stack](azure-stack-use-portal.md)
- - [PowerShell](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-powershell-samples)
- - [Rozhraní příkazového řádku pro různé platformy (CLI)](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-cli-samples)
- - [REST API](https://docs.microsoft.com/rest/api/monitor)
+ - [Portál uživatele centra Azure Stack ](azure-stack-use-portal.md)
+ - [PowerShell](/azure/monitoring-and-diagnostics/insights-powershell-samples)
+ - [Rozhraní příkazového řádku pro různé platformy (CLI)](/azure/monitoring-and-diagnostics/insights-cli-samples)
+ - [REST API](/rest/api/monitor)
  - [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor)
 
 > [!Important]  

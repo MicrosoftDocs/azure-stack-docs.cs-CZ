@@ -3,16 +3,16 @@ title: Zpřístupnění sady škálování virtuálních počítačů v centru A
 description: Přečtěte si, jak operátor cloudu může přidat sady škálování virtuálních počítačů do webu Azure Stack hub Marketplace.
 author: sethmanheim
 ms.topic: article
-ms.date: 05/04/2020
+ms.date: 08/28/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/22/2019
-ms.openlocfilehash: d4383a9848ff2fd3e5f5da1fb71d88c71056bbd2
-ms.sourcegitcommit: 21cdab346fc242b8848a04a124bc16c382ebc6f0
+ms.openlocfilehash: 3714b69e2a65baeb0a5b0ba9a029a5b3144bee1a
+ms.sourcegitcommit: 28894abb31423046f6775aadef490c467f1b1820
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82777827"
+ms.lasthandoff: 08/29/2020
+ms.locfileid: "89089690"
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack-hub"></a>Zpřístupnění sady škálování virtuálních počítačů v centru Azure Stack
 
@@ -34,16 +34,13 @@ V Azure Stackovém centru nepodporuje Virtual Machine Scale Sets automatické š
 
 ## <a name="use-the-azure-stack-hub-portal"></a>Použití portálu centra Azure Stack
 
->[!IMPORTANT]  
-> Informace v této části se vztahují na použití centra Azure Stack verze 1808 nebo novější.
-
 1. Přihlaste se k portálu centra Azure Stack. Pak klikněte na **všechny služby**, pak na **Virtual Machine Scale Sets**a potom v části **COMPUTE**vyberte **Virtual Machine Scale Sets**.
    ![Výběr sady škálování virtuálních počítačů](media/azure-stack-compute-add-scalesets/all-services.png)
 
 2. Vyberte ***vytvořit Virtual Machine Scale Sets***.
    ![Vytvoření škálovací sady virtuálních počítačů](media/azure-stack-compute-add-scalesets/create-scale-set.png)
 
-3. Vyplňte prázdná pole a vyberte z rozevíracích seznamů pro **image disku s operačním systémem**, **předplatné**a **velikost instance**. Vyberte **Ano** , pokud chcete **používat spravované disky**. Poté klikněte na možnost **Vytvořit**.
+3. Vyplňte prázdná pole a vyberte z rozevíracích seznamů pro **image disku s operačním systémem**, **předplatné**a **velikost instance**. Vyberte **Ano** , pokud chcete **používat spravované disky**. Potom klikněte na **Vytvořit**.
     ![Konfigurace a vytvoření sady škálování pro virtuální počítače](media/azure-stack-compute-add-scalesets/create.png)
 
 4. Pokud chcete zobrazit novou sadu škálování virtuálních počítačů, přejděte na **všechny prostředky**, vyhledejte název sady škálování virtuálního počítače a potom vyberte jeho název ve vyhledávání.
@@ -55,9 +52,9 @@ Po vytvoření sady škálování virtuálních počítačů můžou uživatelé
 
 1. Šablona nasazení sady škálování virtuálního počítače určuje **nejnovější** **verzi**pro:  
 
-   Když `version` je v `imageReference` části šablony pro sadu škálování nastavená na **nejnovější** , pro operace škálování v sadě škálování použijte nejnovější dostupnou verzi image pro instance sady škálování. Po dokončení škálování můžete odstranit starší instance sady Virtual Machine Scale Sets. Hodnoty pro `publisher`, `offer`a `sku` zůstávají beze změny.
+   Když `version` je v části šablony pro sadu škálování nastavená na **nejnovější** `imageReference` , pro operace škálování v sadě škálování použijte nejnovější dostupnou verzi image pro instance sady škálování. Po dokončení škálování můžete odstranit starší instance sady Virtual Machine Scale Sets. Hodnoty pro `publisher` , `offer` a `sku` zůstávají beze změny.
 
-   Následující příklad JSON Určuje `latest`:  
+   Následující příklad JSON Určuje `latest` :  
 
     ```json  
     "imageReference": {

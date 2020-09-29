@@ -4,16 +4,16 @@ titleSuffix: Azure Stack
 description: Naučte se řešit potíže s centrem Azure Stack, včetně problémů s virtuálními počítači, úložištěm a App Service.
 author: justinha
 ms.topic: article
-ms.date: 05/13/2020
+ms.date: 07/21/2020
 ms.author: justinha
 ms.reviewer: prchint
-ms.lastreviewed: 15/13/2020
-ms.openlocfilehash: de19e65866413ec4e498c9a21848c1f43af6d65a
-ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
+ms.lastreviewed: 07/21/2020
+ms.openlocfilehash: 8072a868106de26be3cbb2b2918d97696647df77
+ms.sourcegitcommit: 03aad17afe8519536066c735c59ad1bdfe8de083
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84819522"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89041617"
 ---
 # <a name="troubleshoot-issues-in-azure-stack-hub"></a>Řešení potíží v centru Azure Stack
 
@@ -23,26 +23,26 @@ Tento dokument poskytuje informace pro řešení potíží s integrovanými pros
 
 Tyto části obsahují odkazy na dokumenty, které pokrývají běžné otázky odeslané podpora Microsoftu.
 
-### <a name="purchase-considerations"></a>Předpoklady nákupu
+### <a name="purchase-considerations"></a>Důležité informace o nákupu
 
 * [Možnosti nákupu](https://azure.microsoft.com/overview/azure-stack/how-to-buy/)
 * [Přehled centra Azure Stack](azure-stack-overview.md)
 
 ### <a name="updates-and-diagnostics"></a>Aktualizace a diagnostika
 
-* [Použití diagnostických nástrojů v centru Azure Stack](azure-stack-diagnostics.md)
+* [Použití diagnostických nástrojů v centru Azure Stack](./azure-stack-configure-on-demand-diagnostic-log-collection-portal.md?view=azs-2002)
 * [Ověření stavu systému Azure Stack hub](azure-stack-diagnostic-test.md)
 * [Aktualizace tempo verze balíčku](azure-stack-servicing-policy.md#update-package-release-cadence)
 * [Ověření a řešení potíží se stavem uzlu](azure-stack-node-actions.md)
 
 ### <a name="supported-operating-systems-and-sizes-for-guest-vms"></a>Podporované operační systémy a velikosti pro virtuální počítače hosta
 
-* [Hostované operační systémy podporované v centru Azure Stack](azure-stack-supported-os.md)
+* [Podporované hostované operační systémy ve službě Azure Stack Hub](azure-stack-supported-os.md)
 * [Podporované velikosti virtuálních počítačů v centru Azure Stack](../user/azure-stack-vm-sizes.md)
 
 ### <a name="azure-marketplace"></a>Azure Marketplace
 
-* [Azure Marketplace dostupné položky pro centrum Azure Stack](azure-stack-marketplace-azure-items.md)
+* [Dostupné položky Azure Marketplace pro službu Azure Stack Hub](azure-stack-marketplace-azure-items.md)
 
 ### <a name="manage-capacity"></a>Správa kapacity
 
@@ -66,7 +66,7 @@ Uživatel v centru Azure Stack může být čtenářem, vlastníkem nebo přisp�
 
 Pokud předdefinované role pro prostředky Azure nesplňují konkrétní požadavky vaší organizace, můžete si vytvořit vlastní role. V tomto kurzu pomocí Azure PowerShellu vytvoříte vlastní roli Čtenář lístků podpory.
 
-* [Kurz: Vytvoření vlastní role pro prostředky Azure pomocí Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/tutorial-custom-role-powershell)
+* [Kurz: Vytvoření vlastní role pro prostředky Azure pomocí Azure PowerShell](/azure/role-based-access-control/tutorial-custom-role-powershell)
 
 ### <a name="manage-usage-and-billing-as-a-csp"></a>Správa využití a fakturace jako poskytovatel CSP
 
@@ -92,6 +92,78 @@ Další informace najdete v tématu [Diagnostika centra Azure Stack](azure-stack
 
 ## <a name="troubleshoot-virtual-machines-vms"></a>Řešení potíží s virtuálními počítači
 
+### <a name="reset-linux-vm-password"></a>Resetování hesla virtuálního počítače s Linuxem
+
+Pokud zapomenete heslo pro virtuální počítač se systémem Linux a možnost **resetovat heslo** nefunguje kvůli problémům s rozšířením VMAccess, můžete provést resetování pomocí následujících kroků:
+
+1. Vyberte virtuální počítač se systémem Linux, který chcete použít jako virtuální počítač pro obnovení.
+
+1. Přihlaste se k portálu User Portal:
+   1. Poznamenejte si velikost virtuálního počítače, síťovou kartu, veřejnou IP adresu, NSG a datové disky.
+   1. Zastavte ovlivněný virtuální počítač.
+   1. Odeberte ovlivněný virtuální počítač.
+   1. Připojte disk z ovlivněného virtuálního počítače jako datový disk na virtuálním počítači pro obnovení (k dispozici může trvat několik minut, než bude disk dostupný).
+
+1. Přihlaste se k virtuálnímu počítači pro obnovení a spusťte následující příkaz:
+
+   ```
+   sudo su –
+   mkdir /tempmount
+   fdisk -l
+   mount /dev/sdc2 /tempmount /*adjust /dev/sdc2 as necessary*/
+   chroot /tempmount/
+   passwd root /*substitute root with the user whose password you want to reset*/
+   rm -f /.autorelabel /*Remove the .autorelabel file to prevent a time consuming SELinux relabel of the disk*/
+   exit /*to exit the chroot environment*/
+   umount /tempmount
+   ```
+
+1. Přihlaste se k portálu User Portal:
+
+   1. Odpojte disk od virtuálního počítače pro obnovení.
+   1. Znovu vytvořte virtuální počítač z disku.
+   1. Nezapomeňte přenést veřejnou IP adresu z předchozího virtuálního počítače, připojit datové disky atd.
+
+
+Můžete také pořídit snímek původního disku a vytvořit z něj nový disk místo toho, aby se změny prováděly přímo na původním disku. Další informace najdete v těchto tématech:
+
+- [Resetování hesla](/azure/virtual-machines/troubleshooting/reset-password)
+- [Vytvoření disku ze snímku](/azure/virtual-machines/troubleshooting/troubleshoot-recovery-disks-portal-linux#create-a-disk-from-the-snapshot)
+- [Změna a resetování hesla root](https://access.redhat.com/documentation/red_hat_enterprise_linux/7/html/system_administrators_guide/sec-terminal_menu_editing_during_boot#sec-Changing_and_Resetting_the_Root_Password)
+
+
+### <a name="license-activation-fails-for-windows-server-2012-r2-during-provisioning"></a>Aktivace licence pro Windows Server 2012 R2 během zřizování se nezdařila.
+
+V takovém případě se Windows nepodaří aktivovat a v pravém dolním rohu obrazovky se zobrazí vodoznak. Protokoly WaSetup.xml nacházející se v C:\Windows\Panther obsahuje následující událost:
+
+```xml
+<Event time="2019-05-16T21:32:58.660Z" category="ERROR" source="Unattend">
+    <UnhandledError>
+        <Message>InstrumentProcedure: Failed to execute 'Call ConfigureLicensing()'. Will raise error to caller</Message>
+        <Number>-2147221500</Number>
+        <Description>Could not find the VOLUME_KMSCLIENT product</Description>
+        <Source>Licensing.wsf</Source>
+    </UnhandledError>
+</Event>
+```
+
+
+Licenci aktivujete tak, že zkopírujete klíč automatických aktivací virtuálního počítače (AVMA) pro SKLADOVOU položku, kterou chcete aktivovat.
+
+|Edice|AVMA klíč|
+|-|-|
+|Datové centrum|Y4TGP-NPTV9-HTC2H-7MGQ3-DV4TW|
+|Standard|DBGBW-NPF86-BJVTX-K3WKJ-MTB6V|
+|Základy|K2XGM-NMBT3-2R6Q8-WF2FK-P36R2|
+
+Na virtuálním počítači spusťte následující příkaz:
+
+```powershell
+slmgr /ipk <AVMA_key>
+```
+
+Úplné podrobnosti najdete v tématu [aktivace virtuálního počítače](/windows-server/get-started-19/vm-activation-19).
+
 ### <a name="default-image-and-gallery-item"></a>Výchozí položka obrázku a galerie
 
 Před nasazením virtuálních počítačů do centra Azure Stack je třeba přidat položku galerie a image Windows serveru.
@@ -115,7 +187,7 @@ Může trvat až 14 hodin, než se kapacita uvolní, aby se na portálu zobrazov
 
 ### <a name="azure-storage-explorer-not-working-with-azure-stack-hub"></a>Průzkumník služby Azure Storage nepracuje se službou Azure Stack hub
 
-Pokud používáte integrovaný systém v odpojeném scénáři, doporučuje se používat certifikační autoritu (CA) organizace. Exportujte kořenový certifikát ve formátu Base-64 a pak ho importujte do Průzkumník služby Azure Storage. Nezapomeňte odebrat koncové lomítko ( `/` ) z správce prostředkůho koncového bodu. Další informace najdete v tématu [Příprava na připojení k centru Azure Stack](/azure-stack/user/azure-stack-storage-connect-se).
+Pokud používáte integrovaný systém v odpojeném scénáři, doporučuje se používat certifikační autoritu (CA) organizace. Exportujte kořenový certifikát ve formátu Base-64 a pak ho importujte do Průzkumník služby Azure Storage. Nezapomeňte odebrat koncové lomítko ( `/` ) z správce prostředkůho koncového bodu. Další informace najdete v tématu [Příprava na připojení k centru Azure Stack](../user/azure-stack-storage-connect-se.md).
 
 ## <a name="troubleshoot-app-service"></a>Řešení potíží s App Service
 
@@ -127,11 +199,11 @@ Pokud skript Create-AADIdentityApp.ps1, který je požadován pro App Service, s
 
 Proces aktualizace a aktualizace centra Azure Stack slouží k tomu, aby operátoři mohli instalovat balíčky aktualizací konzistentním a efektivnějším způsobem. V neobvyklém případě mohou nastat problémy během procesu aktualizace a aktualizace. V následujících krocích se doporučuje, abyste při procesu aktualizace a aktualizace nastavili problém:
 
-0. **Požadavky**: Ujistěte se, že jste následovali [Kontrolní seznam aktivity aktualizace](release-notes-checklist.md) a [povolili proaktivní shromažďování protokolů](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md).
+0. **Požadavky**: Ujistěte se, že jste následovali [Kontrolní seznam aktivity aktualizace](release-notes-checklist.md) a [povolili proaktivní shromažďování protokolů](./azure-stack-configure-automatic-diagnostic-log-collection.md?view=azs-2002).
 
 1. Postupujte podle kroků pro nápravu v upozornění na selhání vytvořeného při selhání aktualizace.
 
-2. Pokud jste tento problém nedokázali vyřešit, vytvořte [lístek podpory centra Azure Stack](azure-stack-help-and-support-overview-tzl.md). Ujistěte se, že máte [shromážděné protokoly](azure-stack-configure-on-demand-diagnostic-log-collection-portal-tzl.md) pro časové období, kdy k problému došlo.
+2. Pokud jste tento problém nedokázali vyřešit, vytvořte [lístek podpory centra Azure Stack](./azure-stack-help-and-support-overview.md?view=azs-2002). Ujistěte se, že máte [shromážděné protokoly](./azure-stack-configure-on-demand-diagnostic-log-collection-portal.md?view=azs-2002) pro časové období, kdy k problému došlo.
 
 ## <a name="common-azure-stack-hub-patch-and-update-issues"></a>Běžné problémy s opravou a aktualizacemi centra Azure Stack
 
@@ -146,3 +218,13 @@ Proces aktualizace a aktualizace centra Azure Stack slouží k tomu, aby operát
 **Náprava**: Tento problém můžete obejít tak, že znovu kliknete na **nainstalovat** . Pokud potíže potrvají, doporučujeme ručně odeslat balíček aktualizace pomocí oddílu [instalovat aktualizace](azure-stack-apply-updates.md?#install-updates-and-monitor-progress) .
 
 **Výskyt**: běžné
+
+::: moniker range="azs-2002"
+### <a name="2002-update-failed"></a>aktualizace 2002 se nezdařila
+
+**Použitelné**: Tento problém se týká jenom verze 2002.
+
+**Příčina**: při pokusu o aktualizaci 2002 může aktualizace selhat a poskytnout tuto zprávu: `The private network parameter is missing from cloud parameters. Please use set-azsprivatenetwork cmdlet to set private networkTrace` .
+
+**Náprava**: [nastavte privátní interní síť](https://docs.microsoft.com/azure-stack/operator/azure-stack-network?view=azs-2002#private-network).
+::: moniker-end

@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: Řešení potíží s ověřováním jako služby pro centrum Azure Stack.
 author: mattbriggs
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 310a8a8d958428af2ce29f6c465a788e64870b8e
-ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
+ms.openlocfilehash: 06e9958d2311d456e977d72fe37eb88d18008092
+ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84146967"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88764796"
 ---
 # <a name="troubleshoot-validation-as-a-service"></a>Řešení potíží s ověřováním jako službou
 
@@ -59,7 +59,7 @@ Informace o **pomalém připojení k síti**najdete v části níže. Nabízí r
 
 1. Stáhněte si AzCopy z: [vaasexternaldependencies (AzCopy)](https://vaasexternaldependencies.blob.core.windows.net/prereqcomponents/AzCopy.zip).
 
-2. Extrahujte soubor AzCopy. zip a přejděte do adresáře obsahujícího `AzCopy.exe` .
+2. Extrahujte AzCopy.zip a přejděte do adresáře obsahujícího `AzCopy.exe` .
 
 3. Otevřete Windows PowerShell z příkazového řádku se zvýšenými oprávněními. Spusťte následující příkazy:
 
@@ -117,7 +117,7 @@ Pomocí rutiny **Get-HashFile** můžete získat hodnotu hash pro stažené soub
     |---------|---------|
     | Publisher | MicrosoftWindowsServer |
     | Nabídka | WindowsServer |
-    | OS Type | Windows |
+    | Typ operačního systému | Windows |
     | SKU | 2012-R2-Datacenter |
     | Verze | 1.0.0 |
     | Identifikátor URI objektu BLOB disku s operačním systémem | https://<*Your storage account* >/< *název kontejneru* účtu úložiště>/windowsserver2012r2datacenterbyol.VHD |
@@ -129,7 +129,7 @@ Pomocí rutiny **Get-HashFile** můžete získat hodnotu hash pro stažené soub
 
 Vlastnosti všech požadovaných imagí virtuálních počítačů jsou následující:
 
-| Publisher  | Nabídka  | OS Type | SKU | Verze | Identifikátor URI objektu BLOB disku s operačním systémem |
+| Publisher  | Nabídka  | Typ operačního systému | SKU | Verze | Identifikátor URI objektu BLOB disku s operačním systémem |
 |---------|---------|---------|---------|---------|---------|
 | MicrosoftWindowsServer| WindowsServer | Windows | 2012-R2-Datacenter | 1.0.0 | https://[*účet úložiště*]/[*název kontejneru*]/WindowsServer2012R2DatacenterBYOL.VHD |
 | MicrosoftWindowsServer | WindowsServer | Windows | 2016 – Datacenter | 1.0.0 | https://[*účet úložiště*]/[*název kontejneru*]/Server2016DatacenterFullBYOL.VHD |

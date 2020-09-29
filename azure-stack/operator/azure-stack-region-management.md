@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Přehled správy oblastí v centru Azure Stack.
 author: sethmanheim
 ms.topic: article
-ms.date: 05/04/2020
+ms.date: 08/27/2020
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 11/27/2019
-ms.openlocfilehash: e04f6a6baca7b834a248bc40835d05f0773fd5b4
-ms.sourcegitcommit: 21cdab346fc242b8848a04a124bc16c382ebc6f0
+ms.openlocfilehash: e40d79dcac58035172d4e292461fd0950ee77979
+ms.sourcegitcommit: 03aad17afe8519536066c735c59ad1bdfe8de083
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82777844"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89041634"
 ---
 # <a name="region-management-in-azure-stack-hub"></a>Správa oblastí v centru Azure Stack
 
@@ -23,7 +23,7 @@ Jediné nasazení integrovaného systému (označované jako *cloudové centrum 
 
 ## <a name="information-available-through-the-region-management-tile"></a>Informace dostupné prostřednictvím dlaždice Správa oblastí
 
-Centrum Azure Stack má na dlaždici **Správa oblastí** k dispozici sadu možností správy oblastí. Tato dlaždice je k dispozici pro operátor centra Azure Stack na výchozím řídicím panelu na portálu pro správu. Na této dlaždici můžete monitorovat a aktualizovat oblast centra Azure Stack a její součásti, které jsou specifické pro oblast.
+Centrum Azure Stack má na dlaždici **Správa oblastí** k dispozici sadu možností správy oblastí. Tato dlaždice je k dispozici pro operátor centra Azure Stack na výchozím řídicím panelu na portálu pro správu. Na této obrazovce můžete monitorovat a aktualizovat oblast centra Azure Stack a její součásti, které jsou specifické pro oblast.
 
 ![Dlaždice správy oblastí na portálu správce centra Azure Stack](media/azure-stack-region-management/image1.png)
 
@@ -45,5 +45,5 @@ Pokud vyberete oblast na dlaždici **Správa oblastí** , můžete získat pří
 
 ## <a name="next-steps"></a>Další kroky
 
-- [Monitorování stavu a výstrah v centru Azure Stack](azure-stack-monitor-health.md)
-- [Správa aktualizací v centru Azure Stack](azure-stack-updates.md)
+- [Monitorování stavu a upozornění ve službě Azure Stack Hub](azure-stack-monitor-health.md)
+- [Správa aktualizací ve službě Azure Stack Hub](azure-stack-updates.md)

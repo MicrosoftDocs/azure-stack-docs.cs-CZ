@@ -7,12 +7,12 @@ ms.date: 12/23/2019
 ms.author: justinha
 ms.reviewer: thoroet
 ms.lastreviewed: 12/23/2019
-ms.openlocfilehash: f74f35a8b1124ed9678e6b4bc254d4d2cd05a84e
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 0960e2519fbeb476aa55fbb8a27a58a59ccb99c9
+ms.sourcegitcommit: 9557a5029cf329599f5b523c68e8305b876108d7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77699265"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88965071"
 ---
 # <a name="set-access-permissions-using-role-based-access-control"></a>Nastavení oprávnění k přístupu pomocí řízení přístupu na základě role
 
@@ -23,12 +23,12 @@ Uživatel v centru Azure Stack může být čtenářem, vlastníkem nebo přisp�
  - Vlastník: uživatel může spravovat všechno, včetně přístupu k prostředkům.
  - Vlastní: uživatel má omezený konkrétní přístup k prostředkům.
 
- Další informace o vytvoření vlastní role najdete v tématu [vlastní role pro prostředky Azure](https://docs.microsoft.com/azure/role-based-access-control/custom-roles).
+ Další informace o vytvoření vlastní role najdete v tématu [vlastní role pro prostředky Azure](/azure/role-based-access-control/custom-roles).
 
 ## <a name="set-access-permissions-for-a-user"></a>Nastavení přístupových oprávnění pro uživatele
 
 1. Přihlaste se pomocí účtu, který má oprávnění vlastníka k prostředku, který chcete spravovat.
-2. V okně prostředku klikněte na ikonu ![](media/azure-stack-manage-permissions/image1.png) **přístupu** .
+2. V okně pro daný prostředek klikněte na ikonu **přístupu** ![ . ikona přístupu je osnovou vedoucího a plece dvou lidí. ](media/azure-stack-manage-permissions/image1.png)
 3. V okně **Uživatelé** klikněte na **role**.
 4. V okně **role** kliknutím na **Přidat** přidejte oprávnění pro uživatele.
 
@@ -38,7 +38,7 @@ Uživatel v centru Azure Stack může být čtenářem, vlastníkem nebo přisp�
 > Platí jenom pro federované služby Active Directory (AD FS).
 
 1. Přihlaste se pomocí účtu, který má oprávnění vlastníka k prostředku, který chcete spravovat.
-2. V okně prostředku klikněte na ikonu ![](media/azure-stack-manage-permissions/image1.png) **přístupu** .
+2. V okně pro daný prostředek klikněte na ikonu **přístupu** ![ . ikona přístupu je osnovou vedoucího a plece dvou lidí. ](media/azure-stack-manage-permissions/image1.png)
 3. V okně **Uživatelé** klikněte na **role**.
 4. V okně **role** kliknutím na **Přidat** přidejte oprávnění pro skupinu služby Active Directory univerzální skupiny.
 

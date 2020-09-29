@@ -7,12 +7,12 @@ ms.date: 12/18/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 10/01/2019
-ms.openlocfilehash: a5776189c1792844b6d9bf2ec229ec02936f82c1
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 076ea0efb7307ce9a87b04c19608a5b3c723d3f4
+ms.sourcegitcommit: e6665cfb15fae57218e58cd6de6053f16c1f9044
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80423885"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89274071"
 ---
 # <a name="azure-stack-hub-services-plans-offers-subscriptions-overview"></a>Přehled služeb Azure Stack hub, plánů, nabídek a předplatných
 
@@ -75,6 +75,9 @@ Plány představují seskupení jedné nebo více služeb. Jako operátor centra
 
 Při vytváření nabídky může správce služby zahrnovat základní plán. Tyto základní plány jsou standardně zahrnuté, když se uživatel přihlásí k odběru této nabídky. Když se uživatel přihlásí k odběru, má přístup ke všem poskytovatelům prostředků, které jsou uvedené v těchto základních plánech (s odpovídajícími kvótami).
 
+> [!NOTE]
+> Pokud má nabídka více základních plánů, kombinovaná kapacita úložiště plánů nemůže překročit kvótu úložiště.
+
 ### <a name="add-on-plans"></a>Plány doplňku
 
 Plány doplňku jsou volitelné plány, které do nabídky přidáte. V předplatném nejsou ve výchozím nastavení zahrnuty plány doplňku. Doplňkové plány jsou další plány (s kvótami) dostupné v nabídce, kterou může předplatitel přidat ke svým předplatným. Můžete například nabídnout základní plán s omezenými prostředky pro zkušební verzi a plán doplňku s většími prostředky pro zákazníky, kteří se rozhodnou tuto službu přijmout.
@@ -98,6 +101,10 @@ Při plánování nabídek mějte na paměti následující body:
 Předplatná umožňují uživatelům přístup k Vašim nabídkám. Pokud jste operátorem Azure Stackového centra pro poskytovatele služeb, vaši uživatelé (klienti) si své služby kupují pomocí přihlášení k odběru vašich nabídek. Pokud jste operátor centra Azure Stack v organizaci, uživatelé (zaměstnanci) se můžou přihlásit k odběru služeb, které nabízíte bez placení.
 
 Uživatelé vytvoří nové odběry a získají přístup k existujícím předplatným, když se přihlásí k centru Azure Stack. Každé předplatné představuje přidružení s jednou nabídkou. Nabídku (a její plány a kvóty) přiřazené k jednomu předplatnému nejde sdílet s ostatními předplatnými. Každý prostředek, který uživatel vytvoří, je přidružený k jednomu předplatnému.
+
+Jako operátor centra Azure Stack se můžete podívat na informace o předplatných tenanta, ale nemůžete získat přístup k obsahu těchto předplatných, pokud správce tenanta daného předplatného nepřidáte explicitně prostřednictvím RBAC. Díky tomu můžou klienti vymáhat oddělení výkonu a zodpovědnosti mezi Azure Stackm operátorem centra a prostorem klienta. 
+
+Výjimkou z tohoto případu je, že vlastník předplatného není schopen poskytnout operátorovi přístup k předplatnému, který vyžaduje, aby správce převzal vlastnictví předplatného, jak je popsáno v tématu [Změna majitele fakturace pro předplatné uživatele centra Azure Stack](azure-stack-change-subscription-owner.md).
 
 ### <a name="default-provider-subscription"></a>Předplatné výchozího poskytovatele
 

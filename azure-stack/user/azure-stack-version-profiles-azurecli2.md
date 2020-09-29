@@ -3,16 +3,16 @@ title: Správa centra Azure Stack pomocí Azure CLI
 description: Naučte se používat rozhraní příkazového řádku (CLI) pro různé platformy ke správě a nasazení prostředků v centru Azure Stack.
 author: mattbriggs
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/10/2019
-ms.openlocfilehash: c64b95874e6718fd394796dd0254f38127211f68
-ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
+ms.openlocfilehash: 1fb17516e5ef0b4e3a670703a34e1e895c847b52
+ms.sourcegitcommit: 65a115d1499b5fe16b6fe1c31cce43be21d05ef8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84631163"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88818840"
 ---
 # <a name="manage-and-deploy-resources-to-azure-stack-hub-with-azure-cli"></a>Správa a nasazení prostředků do centra Azure Stack pomocí Azure CLI
 
@@ -81,7 +81,7 @@ Můžete nastavit veřejně přístupný koncový bod, který hostuje soubor s a
 
 ### <a name="install-or-upgrade-cli"></a>Instalace nebo upgrade rozhraní příkazového řádku
 
-Přihlaste se k vývojové pracovní stanici a nainstalujte rozhraní příkazového řádku. Azure Stack hub vyžaduje Azure CLI verze 2,0 nebo novější. Nejnovější verze profilů rozhraní API vyžaduje aktuální verzi rozhraní příkazového řádku. Rozhraní příkazového řádku nainstalujete pomocí postupu popsaného v článku [instalace Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) . 
+Přihlaste se k vývojové pracovní stanici a nainstalujte rozhraní příkazového řádku. Azure Stack hub vyžaduje Azure CLI verze 2,0 nebo novější. Nejnovější verze profilů rozhraní API vyžaduje aktuální verzi rozhraní příkazového řádku. Rozhraní příkazového řádku nainstalujete pomocí postupu popsaného v článku [instalace Azure CLI](/cli/azure/install-azure-cli) . 
 
 1. Chcete-li ověřit, zda byla instalace úspěšná, otevřete okno terminálu nebo příkazového řádku a spusťte následující příkaz:
 
@@ -106,7 +106,7 @@ Pokud používáte ASDK, musíte na svém vzdáleném počítači důvěřovat k
 
 Pokud chcete důvěřovat kořenovému certifikátu certifikační autority centra Azure Stack, přidejte ho do stávajícího úložiště certifikátů Pythonu pro verzi Pythonu nainstalovanou pomocí Azure CLI. Možná budete pracovat s vlastní instancí Pythonu. Azure CLI obsahuje svou vlastní verzi Pythonu.
 
-1. Najděte umístění úložiště certifikátů na vašem počítači.  Umístění můžete najít spuštěním příkazu `az --version` .
+1. Najděte umístění úložiště certifikátů na vašem počítači.  Umístění můžete najít spuštěním příkazu  `az --version` .
 
 2. Přejděte do složky, která obsahuje aplikaci CLI v Pythonu. Chcete spustit tuto verzi Pythonu. Pokud jste v systémové cestě nastavili Python, spustí Python svou vlastní verzi Pythonu. Místo toho chcete spustit verzi používanou rozhraním CLI a přidat do této verze svůj certifikát. Například rozhraní CLI Python může být v: `C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\` .
 
@@ -158,10 +158,10 @@ Pokud chcete důvěřovat kořenovému certifikátu certifikační autority cent
 
     | Hodnota | Příklad | Popis |
     | --- | --- | --- |
-    | Název prostředí | AzureStackUser | Použijte `AzureStackUser` pro uživatelské prostředí. Pokud jste operátor, zadejte `AzureStackAdmin` . |
+    | Název prostředí | AzureStackUser | Použijte `AzureStackUser`  pro uživatelské prostředí. Pokud jste operátor, zadejte `AzureStackAdmin` . |
     | Správce prostředků koncový bod | `https://management.local.azurestack.external` | **ResourceManagerUrl** v ASDK je: `https://management.local.azurestack.external/` **ResourceManagerUrl** v integrovaných systémech je: `https://management.<region>.<fqdn>/` Pokud máte dotaz týkající se integrovaného systémového koncového bodu, obraťte se na svého operátora cloudu. |
-    | Koncový bod úložiště | Local. azurestack. external | `local.azurestack.external`je pro rozhraní ASDK. Pro integrovaný systém použijte pro svůj systém koncový bod.  |
-    | Přípona trezoru klíčů | . trezor. Local. azurestack. external | `.vault.local.azurestack.external`je pro rozhraní ASDK. Pro integrovaný systém použijte pro svůj systém koncový bod.  |
+    | Koncový bod úložiště | Local. azurestack. external | `local.azurestack.external` je pro rozhraní ASDK. Pro integrovaný systém použijte pro svůj systém koncový bod.  |
+    | Přípona trezoru klíčů | . trezor. Local. azurestack. external | `.vault.local.azurestack.external` je pro rozhraní ASDK. Pro integrovaný systém použijte pro svůj systém koncový bod.  |
     | Koncový bod dokumentu aliasu pro image virtuálního počítače – | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | Identifikátor URI dokumentu, který obsahuje aliasy imagí virtuálních počítačů Další informace najdete v tématu [Nastavení koncového bodu aliasy virtuálních počítačů](#set-up-the-virtual-machine-aliases-endpoint). |
 
     ```azurecli  
@@ -198,7 +198,7 @@ Pokud chcete důvěřovat kořenovému certifikátu certifikační autority cent
 
    - Přihlaste se jako *instanční objekt*: 
     
-     Než se přihlásíte, [vytvořte instanční objekt pomocí Azure Portal nebo rozhraní](azure-stack-create-service-principals.md) příkazového řádku a přiřaďte mu roli. Teď se přihlaste pomocí následujícího příkazu:
+     Než se přihlásíte, [vytvořte instanční objekt pomocí Azure Portal nebo rozhraní](../operator/azure-stack-create-service-principals.md?view=azs-2002) příkazového řádku a přiřaďte mu roli. Teď se přihlaste pomocí následujícího příkazu:
 
      ```azurecli  
      az login --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com> --service-principal -u <Application Id of the Service Principal> -p <Key generated for the Service Principal>
@@ -271,10 +271,10 @@ Pokud používáte ASDK, musíte na svém vzdáleném počítači důvěřovat k
 
     | Hodnota | Příklad | Popis |
     | --- | --- | --- |
-    | Název prostředí | AzureStackUser | Použijte `AzureStackUser` pro uživatelské prostředí. Pokud jste operátor, zadejte `AzureStackAdmin` . |
+    | Název prostředí | AzureStackUser | Použijte `AzureStackUser`  pro uživatelské prostředí. Pokud jste operátor, zadejte `AzureStackAdmin` . |
     | Správce prostředků koncový bod | `https://management.local.azurestack.external` | **ResourceManagerUrl** v ASDK je: `https://management.local.azurestack.external/` **ResourceManagerUrl** v integrovaných systémech je: `https://management.<region>.<fqdn>/` Pokud máte dotaz týkající se integrovaného systémového koncového bodu, obraťte se na svého operátora cloudu. |
-    | Koncový bod úložiště | Local. azurestack. external | `local.azurestack.external`je pro rozhraní ASDK. Pro integrovaný systém použijte pro svůj systém koncový bod.  |
-    | Přípona trezoru klíčů | . trezor. Local. azurestack. external | `.vault.local.azurestack.external`je pro rozhraní ASDK. Pro integrovaný systém použijte pro svůj systém koncový bod.  |
+    | Koncový bod úložiště | Local. azurestack. external | `local.azurestack.external` je pro rozhraní ASDK. Pro integrovaný systém použijte pro svůj systém koncový bod.  |
+    | Přípona trezoru klíčů | . trezor. Local. azurestack. external | `.vault.local.azurestack.external` je pro rozhraní ASDK. Pro integrovaný systém použijte pro svůj systém koncový bod.  |
     | Koncový bod dokumentu aliasu pro image virtuálního počítače – | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | Identifikátor URI dokumentu, který obsahuje aliasy imagí virtuálních počítačů Další informace najdete v tématu [Nastavení koncového bodu aliasy virtuálních počítačů](#set-up-the-virtual-machine-aliases-endpoint). |
 
     ```azurecli  
@@ -382,10 +382,10 @@ Pomocí následujících kroků se připojte k centru Azure Stack:
 
     | Hodnota | Příklad | Popis |
     | --- | --- | --- |
-    | Název prostředí | AzureStackUser | Použijte `AzureStackUser` pro uživatelské prostředí. Pokud jste operátor, zadejte `AzureStackAdmin` . |
+    | Název prostředí | AzureStackUser | Použijte `AzureStackUser`  pro uživatelské prostředí. Pokud jste operátor, zadejte `AzureStackAdmin` . |
     | Správce prostředků koncový bod | `https://management.local.azurestack.external` | **ResourceManagerUrl** v ASDK je: `https://management.local.azurestack.external/` **ResourceManagerUrl** v integrovaných systémech je: `https://management.<region>.<fqdn>/` Pokud máte dotaz týkající se integrovaného systémového koncového bodu, obraťte se na svého operátora cloudu. |
-    | Koncový bod úložiště | Local. azurestack. external | `local.azurestack.external`je pro rozhraní ASDK. Pro integrovaný systém použijte pro svůj systém koncový bod.  |
-    | Přípona trezoru klíčů | . trezor. Local. azurestack. external | `.vault.local.azurestack.external`je pro rozhraní ASDK. Pro integrovaný systém použijte pro svůj systém koncový bod.  |
+    | Koncový bod úložiště | Local. azurestack. external | `local.azurestack.external` je pro rozhraní ASDK. Pro integrovaný systém použijte pro svůj systém koncový bod.  |
+    | Přípona trezoru klíčů | . trezor. Local. azurestack. external | `.vault.local.azurestack.external` je pro rozhraní ASDK. Pro integrovaný systém použijte pro svůj systém koncový bod.  |
     | Koncový bod dokumentu aliasu pro image virtuálního počítače – | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | Identifikátor URI dokumentu, který obsahuje aliasy imagí virtuálních počítačů Další informace najdete v tématu [Nastavení koncového bodu aliasy virtuálních počítačů](#set-up-the-virtual-machine-aliases-endpoint). |
 
     ```azurecli  
@@ -424,7 +424,7 @@ Pomocí následujících kroků se připojte k centru Azure Stack:
    
    * Přihlášení jako *instanční objekt*
     
-     Než se přihlásíte, [vytvořte instanční objekt pomocí Azure Portal nebo rozhraní](azure-stack-create-service-principals.md) příkazového řádku a přiřaďte mu roli. Teď se přihlaste pomocí následujícího příkazu:
+     Než se přihlásíte, [vytvořte instanční objekt pomocí Azure Portal nebo rozhraní](../operator/azure-stack-create-service-principals.md?view=azs-2002) příkazového řádku a přiřaďte mu roli. Teď se přihlaste pomocí následujícího příkazu:
 
      ```azurecli  
      az login \
@@ -488,10 +488,10 @@ Pomocí následujících kroků se připojte k centru Azure Stack:
 
     | Hodnota | Příklad | Popis |
     | --- | --- | --- |
-    | Název prostředí | AzureStackUser | Použijte `AzureStackUser` pro uživatelské prostředí. Pokud jste operátor, zadejte `AzureStackAdmin` . |
+    | Název prostředí | AzureStackUser | Použijte `AzureStackUser`  pro uživatelské prostředí. Pokud jste operátor, zadejte `AzureStackAdmin` . |
     | Správce prostředků koncový bod | `https://management.local.azurestack.external` | **ResourceManagerUrl** v ASDK je: `https://management.local.azurestack.external/` **ResourceManagerUrl** v integrovaných systémech je: `https://management.<region>.<fqdn>/` Pokud máte dotaz týkající se integrovaného systémového koncového bodu, obraťte se na svého operátora cloudu. |
-    | Koncový bod úložiště | Local. azurestack. external | `local.azurestack.external`je pro rozhraní ASDK. Pro integrovaný systém použijte pro svůj systém koncový bod.  |
-    | Přípona trezoru klíčů | . trezor. Local. azurestack. external | `.vault.local.azurestack.external`je pro rozhraní ASDK. Pro integrovaný systém použijte pro svůj systém koncový bod.  |
+    | Koncový bod úložiště | Local. azurestack. external | `local.azurestack.external` je pro rozhraní ASDK. Pro integrovaný systém použijte pro svůj systém koncový bod.  |
+    | Přípona trezoru klíčů | . trezor. Local. azurestack. external | `.vault.local.azurestack.external` je pro rozhraní ASDK. Pro integrovaný systém použijte pro svůj systém koncový bod.  |
     | Koncový bod dokumentu aliasu pro image virtuálního počítače – | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | Identifikátor URI dokumentu, který obsahuje aliasy imagí virtuálních počítačů Další informace najdete v tématu [Nastavení koncového bodu aliasy virtuálních počítačů](#set-up-the-virtual-machine-aliases-endpoint). |
 
     ```azurecli  

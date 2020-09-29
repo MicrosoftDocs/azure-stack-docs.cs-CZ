@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: Zjistěte, jak ověřit balíčky OEM pomocí ověřování centra Azure Stack jako služby.
 author: mattbriggs
 ms.topic: tutorial
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4d62dcd1414edbc38b4407d980b7af974190c390
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: e475b498895d2c1398ffddb13b1af7baa10d2e90
+ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81661413"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88764864"
 ---
 # <a name="validate-oem-packages"></a>Ověřit balíčky OEM
 
@@ -48,7 +48,7 @@ Vytvořte kontejner v účtu úložiště pro objekty blob balíčku. Tento kont
 1. Připravte balíček, který chcete ověřit. Jedná se o `.zip` soubor, jehož obsah se musí shodovat s strukturou popsanou v tématu [Vytvoření balíčku OEM](azure-stack-vaas-create-oem-package.md).
 
     > [!NOTE]
-    > Ujistěte se prosím, `.zip` že obsah je umístěný v kořenu `.zip` souboru. V balíčku by neměly být žádné podadresáře.
+    > Ujistěte se prosím, že `.zip` obsah je umístěný v kořenu `.zip` souboru. V balíčku by neměly být žádné podadresáře.
 
 1. V [Azure Portal](https://portal.azure.com)vyberte kontejner balíčku a nahrajte balíček tak, že na řádku nabídek vyberete **nahrát** .
 
@@ -62,12 +62,12 @@ Když vytváříte pracovní postup **ověření balíčku** na portálu VaaS, m
 
 Minimální úroveň přístupu, kterou vyžaduje VaaS, závisí na tom, jestli vytváříte pracovní postup ověření balíčku nebo plánujete *interaktivní* test.
 
-V případě úrovní přístupu **Private** a **BLOB** musíte dočasně udělit přístup k objektu BLOB balíčku poskytnutím VaaS [sdíleného přístupového podpisu](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1?) (SAS). Úroveň přístupu **kontejneru** nevyžaduje, abyste vygenerovali adresy URL SAS, ale umožňuje neověřený přístup ke kontejneru a jeho objektům blob.
+V případě úrovní přístupu **Private** a **BLOB** musíte dočasně udělit přístup k objektu BLOB balíčku poskytnutím VaaS [sdíleného přístupového podpisu](/azure/storage/common/storage-dotnet-shared-access-signature-part-1) (SAS). Úroveň přístupu **kontejneru** nevyžaduje, abyste vygenerovali adresy URL SAS, ale umožňuje neověřený přístup ke kontejneru a jeho objektům blob.
 
 |Úroveň přístupu | Požadavek pracovního postupu | Požadavek testu |
 |---|---------|---------|
-|Private | Vygenerujte adresu URL SAS na jeden objekt BLOB balíčku ([možnost 1](#option-1-generate-a-blob-sas-url)). | Vygenerujte adresu URL SAS na úrovni účtu a ručně přidejte název objektu BLOB balíčku ([možnost 2](#option-2-construct-a-container-sas-url)). |
-|Objekt blob | Zadejte vlastnost URL objektu BLOB ([možnost 3](#option-3-grant-public-read-access)). | Vygenerujte adresu URL SAS na úrovni účtu a ručně přidejte název objektu BLOB balíčku ([možnost 2](#option-2-construct-a-container-sas-url)). |
+|Soukromé | Vygenerujte adresu URL SAS na jeden objekt BLOB balíčku ([možnost 1](#option-1-generate-a-blob-sas-url)). | Vygenerujte adresu URL SAS na úrovni účtu a ručně přidejte název objektu BLOB balíčku ([možnost 2](#option-2-construct-a-container-sas-url)). |
+|Blob | Zadejte vlastnost URL objektu BLOB ([možnost 3](#option-3-grant-public-read-access)). | Vygenerujte adresu URL SAS na úrovni účtu a ručně přidejte název objektu BLOB balíčku ([možnost 2](#option-2-construct-a-container-sas-url)). |
 |Kontejner | Zadejte vlastnost URL objektu BLOB ([možnost 3](#option-3-grant-public-read-access)). | Zadejte vlastnost URL objektu BLOB ([možnost 3](#option-3-grant-public-read-access)).
 
 Možnosti pro udělení přístupu k vašim balíčkům jsou seřazené z minimálního přístupu k největšímu přístupu.
@@ -106,9 +106,9 @@ Tuto možnost použijte, pokud je úroveň přístupu kontejneru úložiště na
 1. Vyberte možnost **čas spuštění** jako aktuální a **koncový čas** do alespoň 14 dnů od **počátečního času**. Pokud budete spouštět další testy se stejným balíčkem, zvažte zvýšení **koncové doby** pro délku testování. Jakékoli testy naplánované prostřednictvím VaaS po **čase ukončení** selžou a bude nutné vygenerovat nové SAS.
 
 1. [!INCLUDE [azure-stack-vaas-sas-step_generate](includes/azure-stack-vaas-sas-step_generate.md)]
-    Formát by měl vypadat takto:`https://storageaccountname.blob.core.windows.net/?sv=2016-05-31&ss=b&srt=co&sp=rl&se=2017-05-11T21:41:05Z&st=2017-05-11T13:41:05Z&spr=https`
+    Formát by měl vypadat takto: `https://storageaccountname.blob.core.windows.net/?sv=2016-05-31&ss=b&srt=co&sp=rl&se=2017-05-11T21:41:05Z&st=2017-05-11T13:41:05Z&spr=https`
 
-1. Upravte vygenerovanou adresu URL SAS tak, aby zahrnovala `{containername}`kontejner balíčku, a název objektu BLOB balíčku `{mypackage.zip}`. Nějak tak:`https://storageaccountname.blob.core.windows.net/{containername}/{mypackage.zip}?sv=2016-05-31&ss=b&srt=co&sp=rl&se=2017-05-11T21:41:05Z&st=2017-05-11T13:41:05Z&spr=https`
+1. Upravte vygenerovanou adresu URL SAS tak, aby zahrnovala kontejner balíčku, `{containername}` a název objektu BLOB balíčku `{mypackage.zip}` . Nějak tak: `https://storageaccountname.blob.core.windows.net/{containername}/{mypackage.zip}?sv=2016-05-31&ss=b&srt=co&sp=rl&se=2017-05-11T21:41:05Z&st=2017-05-11T13:41:05Z&spr=https`
 
     Tuto hodnotu použijte při poskytování adres URL objektů BLOB balíčku na portál.
 
@@ -119,7 +119,7 @@ Tuto možnost použijte, pokud je přijatelné dovolit přístupu neověřeným 
 > [!CAUTION]
 > Tato možnost otevře objekty blob pro anonymní přístup s oprávněním jen pro čtení.
 
-1. Nastavte úroveň přístupu kontejneru balíčku na **objekt BLOB** nebo **kontejner**. Další informace najdete v tématu [udělení oprávnění anonymních uživatelů k kontejnerům a](https://docs.microsoft.com/azure/storage/storage-manage-access-to-resources#grant-anonymous-users-permissions-to-containers-and-blobs)objektům blob.
+1. Nastavte úroveň přístupu kontejneru balíčku na **objekt BLOB** nebo **kontejner**. Další informace najdete v tématu [udělení oprávnění anonymních uživatelů k kontejnerům a](/azure/storage/storage-manage-access-to-resources#grant-anonymous-users-permissions-to-containers-and-blobs)objektům blob.
 
     > [!NOTE]
     > Pokud poskytujete URL balíčku pro *interaktivní* test, je nutné všem kontejnerům udělit **úplný veřejný přístup pro čtení** , aby bylo možné pokračovat v testování.
@@ -149,7 +149,7 @@ Tuto možnost použijte, pokud je přijatelné dovolit přístupu neověřeným 
     > [!NOTE]
     > Zkopírujte aktualizace centra Azure Stack a aktualizaci OEM na **2 samostatné** adresáře.
 
-8. `RequireDigitalSignature`– Zadejte hodnotu **true** , pokud potřebujete, aby byl balíček podepsaný Microsoftem (spouští se ověřovací pracovní postup OEM). Pokud ověřujete balíček podepsaný společností Microsoft v nejnovější aktualizaci centra Azure Stack, nastavte tuto hodnotu na false (probíhá měsíční ověření aktualizace centra Azure Stack).
+8. `RequireDigitalSignature` – Zadejte hodnotu **true** , pokud potřebujete, aby byl balíček podepsaný Microsoftem (spouští se ověřovací pracovní postup OEM). Pokud ověřujete balíček podepsaný společností Microsoft v nejnovější aktualizaci centra Azure Stack, nastavte tuto hodnotu na false (probíhá měsíční ověření aktualizace centra Azure Stack).
 
 9. [!INCLUDE [azure-stack-vaas-workflow-step_test-params](includes/azure-stack-vaas-workflow-step_test-params.md)]
 
@@ -185,7 +185,7 @@ Pro ověření balíčku OEM se musí spustit následující testy:
 
 5. Zkontrolujte výsledky **požadovaných** testů.
 
-Pokud chcete odeslat žádost o podepsání balíčku, odešlete [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com) e-mail s názvem řešení a názvem ověření balíčku, který je přidružený k tomuto spuštění.
+Pokud chcete odeslat žádost o podepsání balíčku, odešlete e-mail [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com) s názvem řešení a názvem ověření balíčku, který je přidružený k tomuto spuštění.
 
 ## <a name="next-steps"></a>Další kroky
 

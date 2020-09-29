@@ -3,16 +3,16 @@ title: Nastavení vývojového prostředí v centru Azure Stack
 description: Začněte vyvíjet aplikace pro centrum Azure Stack.
 author: mattbriggs
 ms.topic: overview
-ms.date: 04/20/2020
+ms.date: 7/23/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: d86797e7239b32e779567942b2c53c1ae58d94c8
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: f54c8a442b9df31ff112f1e385b15c441c7c0ffd
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81661006"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920674"
 ---
 # <a name="set-up-a-development-environment-in-azure-stack-hub"></a>Nastavení vývojového prostředí v centru Azure Stack 
 
@@ -106,7 +106,7 @@ Pokud používáte počítač s Windows 10, můžete pracovat s PowerShellem 5,0
 
 Pokud používáte počítač se systémem Linux, můžete pracovat s rozhraním příkazového řádku Azure CLI, Visual Studio Codem nebo vlastním preferovaným integrovaným vývojovým prostředím. 
 
-> [!Note]   
+> [!NOTE]   
 > Pokud používáte počítač se systémem Linux s ASDK, musí být vzdálený počítač ve stejné síti jako ASDK. Nebudete se moct připojit pomocí připojení k virtuální privátní síti. 
 
 ### <a name="set-up-your-tools"></a>Nastavení nástrojů 
@@ -135,7 +135,7 @@ Pokud používáte počítač se systémem Linux, můžete pracovat s rozhraním
 
 MacOS počítač vám umožní pracovat s Azure CLI a Visual Studio Code nebo vlastním preferovaným vývojovým prostředím. 
 
-> [!Note]   
+> [!NOTE]   
 > Pokud používáte počítač s macOS s ASDK, musí být váš vzdálený počítač ve stejné síti jako ASDK. Nebudete se moct připojit pomocí připojení k virtuální privátní síti. 
 
 ### <a name="set-up-your-tools"></a>Nastavení nástrojů 

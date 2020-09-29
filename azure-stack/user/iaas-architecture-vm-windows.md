@@ -3,16 +3,16 @@ title: Spuštění virtuálního počítače s Windows na rozbočovači Azure St
 description: Přečtěte si, jak spustit virtuální počítač s Windows na rozbočovači Azure Stack.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 3/9/2020
+ms.date: 7/24/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 3/9/2020
-ms.openlocfilehash: b3619d0096b7c14ec6f15aaf37f9bee774213e6a
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 3419e701aede4864cac62ace216a574a6dcc1226
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79025224"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920164"
 ---
 # <a name="run-a-windows-virtual-machine-on-azure-stack-hub"></a>Spuštění virtuálního počítače s Windows na rozbočovači Azure Stack
 
@@ -22,25 +22,25 @@ Zřizování virtuálního počítače v Azure Stackovém centru vyžaduje někt
 
 ## <a name="resource-group"></a>Skupina prostředků
 
-[Skupina prostředků](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) je logický kontejner, který obsahuje související prostředky centra Azure Stack. Obecně je potřeba seskupit prostředky na základě jejich životního cyklu a spravovat je.
+[Skupina prostředků](/azure/azure-resource-manager/resource-group-overview) je logický kontejner, který obsahuje související prostředky centra Azure Stack. Obecně je potřeba seskupit prostředky na základě jejich životního cyklu a spravovat je.
 
-Do jedné [skupiny prostředků](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) byste měli umístit úzce související prostředky, které mají stejný životní cyklus. Skupiny prostředků umožňují nasadit a monitorovat prostředky jako skupinu a sledovat fakturační náklady podle skupin prostředků. Prostředky můžete také odstranit jako sadu, což je užitečné pro testovací nasazení. Přiřaďte prostředkům smysluplné názvy a zjednodušte tak vyhledání konkrétních prostředků a pochopení jejich rolí. Další informace najdete v tématu [Doporučené zásady vytváření názvů pro prostředky Azure](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).
+Do jedné [skupiny prostředků](/azure/azure-resource-manager/resource-group-overview) byste měli umístit úzce související prostředky, které mají stejný životní cyklus. Skupiny prostředků umožňují nasadit a monitorovat prostředky jako skupinu a sledovat fakturační náklady podle skupin prostředků. Prostředky můžete také odstranit jako sadu, což je užitečné pro testovací nasazení. Přiřaďte prostředkům smysluplné názvy a zjednodušte tak vyhledání konkrétních prostředků a pochopení jejich rolí. Další informace najdete v tématu [Doporučené zásady vytváření názvů pro prostředky Azure](/azure/architecture/best-practices/naming-conventions).
 
 ## <a name="virtual-machine"></a>Virtuální počítač
 
 Virtuální počítač můžete zřídit ze seznamu publikovaných imagí nebo z vlastního spravovaného Image nebo souboru virtuálního pevného disku (VHD), který se nahrál do úložiště objektů BLOB centra Azure Stack.
 
-Centrum Azure Stack nabízí různé velikosti virtuálních počítačů z Azure. Další informace najdete v tématu [velikosti pro virtuální počítače v centru Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes). Pokud přesouváte existující úlohu do centra Azure Stack, začněte s velikostí virtuálního počítače, která je nejvhodnější pro vaše místní servery nebo Azure. Pak změřte výkon vaší skutečné úlohy z hlediska využití procesoru, paměti a diskových vstupně-výstupních operací za sekundu (IOPS) a podle potřeby upravte velikost.
+Centrum Azure Stack nabízí různé velikosti virtuálních počítačů z Azure. Další informace najdete v tématu [velikosti pro virtuální počítače v centru Azure Stack](./azure-stack-vm-sizes.md). Pokud přesouváte existující úlohu do centra Azure Stack, začněte s velikostí virtuálního počítače, která je nejvhodnější pro vaše místní servery nebo Azure. Pak změřte výkon vaší skutečné úlohy z hlediska využití procesoru, paměti a diskových vstupně-výstupních operací za sekundu (IOPS) a podle potřeby upravte velikost.
 
 ## <a name="disks"></a>Disky
 
 Náklady závisí na kapacitě zřízeného disku. VSTUPNĚ-výstupní operace a propustnost (tj. přenos dat) závisí na velikosti virtuálního počítače, takže při zřizování disku Zvažte všechny tři faktory (kapacita, IOPS a propustnost).
 
-Disk IOPS (vstupně-výstupní operace za sekundu) na rozbočovači Azure Stack je funkce [velikosti virtuálního počítače](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes) místo typu disku. To znamená, že pro virtuální počítač s Standard_Fs Series bez ohledu na to, jestli pro daný typ disku zvolíte SSD nebo HDD, je limit IOPS pro jeden další datový disk 2300 IOPS. Stanovený limit IOPS je limit (maximální možný), aby se zabránilo sousedním sousedům. Nejedná se o záruku za IOPS, kterou získáte na konkrétní velikosti virtuálního počítače.
+Disk IOPS (vstupně-výstupní operace za sekundu) na rozbočovači Azure Stack je funkce [velikosti virtuálního počítače](./azure-stack-vm-sizes.md) místo typu disku. To znamená, že pro virtuální počítač s Standard_Fs Series bez ohledu na to, jestli pro daný typ disku zvolíte SSD nebo HDD, je limit IOPS pro jeden další datový disk 2300 IOPS. Stanovený limit IOPS je limit (maximální možný), aby se zabránilo sousedním sousedům. Nejedná se o záruku za IOPS, kterou získáte na konkrétní velikosti virtuálního počítače.
 
-Doporučujeme také použít [Managed disks](https://docs.microsoft.com/azure-stack/user/azure-stack-managed-disk-considerations). Spravované disky zjednodušují správu disků tím, že vám úložiště vycházejí. Spravované disky nevyžadují účet úložiště. Jednoduše zadáte velikost a typ disku a disk se potom nasadí jako prostředek s vysokou dostupností.
+Doporučujeme také použít [Managed disks](./azure-stack-managed-disk-considerations.md). Spravované disky zjednodušují správu disků tím, že vám úložiště vycházejí. Spravované disky nevyžadují účet úložiště. Jednoduše zadáte velikost a typ disku a disk se potom nasadí jako prostředek s vysokou dostupností.
 
-Disk s operačním systémem je virtuální pevný disk uložený v Azure Stack úložiště objektů BLOB centra, takže zůstane i v případě, že je hostitelský počítač mimo provoz. Doporučujeme také vytvořit jeden nebo více [datových disků](https://docs.microsoft.com/azure-stack/user/azure-stack-manage-vm-disks), což jsou trvalé virtuální pevné disky používané pro data aplikací. Pokud je to možné, instalujte aplikace na datový disk, nikoli na disk operačního systému. U některých starších aplikací může být potřeba nainstalovat komponenty na jednotku C:; v takovém případě můžete s použitím PowerShellu [změnit velikost disku operačního systému](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-expand-os-disk).
+Disk s operačním systémem je virtuální pevný disk uložený v Azure Stack úložiště objektů BLOB centra, takže zůstane i v případě, že je hostitelský počítač mimo provoz. Doporučujeme také vytvořit jeden nebo více [datových disků](./azure-stack-manage-vm-disks.md), což jsou trvalé virtuální pevné disky používané pro data aplikací. Pokud je to možné, instalujte aplikace na datový disk, nikoli na disk operačního systému. U některých starších aplikací může být potřeba nainstalovat komponenty na jednotku C:; v takovém případě můžete s použitím PowerShellu [změnit velikost disku operačního systému](/azure/virtual-machines/windows/expand-os-disk).
 
 Virtuální počítač je také vytvořen s dočasným diskem (jednotka D: ve Windows). Tento disk je uložený na dočasném svazku v Azure Stack infrastruktury úložiště centra. Může se odstranit během restartování a dalších událostí životního cyklu virtuálního počítače. Tento disk používejte jenom pro dočasná data, jako jsou stránkovací nebo odkládací soubory.
 
@@ -48,25 +48,25 @@ Virtuální počítač je také vytvořen s dočasným diskem (jednotka D: ve Wi
 
 Síťové komponenty zahrnují následující prostředky:
 
--   **Virtuální síť**. Každý virtuální počítač je nasazený do virtuální sítě, která se dá rozdělit do několika podsítí.
+-   **Virtuální síť:** Každý virtuální počítač je nasazený do virtuální sítě, která se dá rozdělit do několika podsítí.
 
--   **Síťové rozhraní (NIC):** Síťové rozhraní umožňuje virtuálnímu počítači komunikovat s virtuální sítí. Pokud pro virtuální počítač potřebujete více síťových rozhraní, uvědomte si, že pro jednotlivé [velikosti virtuálních počítačů](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes)je definován maximální počet síťových adaptérů.
+-   **Síťové rozhraní (NIC):** Síťové rozhraní umožňuje virtuálnímu počítači komunikovat s virtuální sítí. Pokud pro virtuální počítač potřebujete více síťových rozhraní, uvědomte si, že pro jednotlivé  [velikosti virtuálních počítačů](./azure-stack-vm-sizes.md)je definován maximální počet síťových adaptérů.
 
 -   **Veřejná IP adresa/VIP**. Veřejná IP adresa je potřeba ke komunikaci s VIRTUÁLNÍm počítačem – například prostřednictvím vzdálené plochy (RDP). Veřejná IP adresa může být dynamická nebo statická. Ve výchozím nastavení je dynamická.
 
--   Rezervujte [STATICKOU IP](https://docs.microsoft.com/azure/virtual-network/virtual-networks-reserved-public-ip) adresu, pokud potřebujete pevnou IP adresu, která se nemění, třeba pokud potřebujete vytvořit záznam DNS ' a ' nebo přidat IP adresu do seznamu bezpečných adres.
+-   Rezervujte [STATICKOU IP](/azure/virtual-network/virtual-networks-reserved-public-ip) adresu, pokud potřebujete pevnou IP adresu, která se nemění, třeba pokud potřebujete vytvořit záznam DNS ' a ' nebo přidat IP adresu do seznamu bezpečných adres.
 
--   Pro IP adresu můžete také vytvořit plně kvalifikovaný název domény (FQDN). Potom můžete v DNS zaregistrovat [záznam CNAME](https://en.wikipedia.org/wiki/CNAME_record), který na tento plně kvalifikovaný název odkazuje. Další informace najdete v tématu [Vytvoření plně kvalifikovaného názvu domény v Azure Portal](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-portal-create-fqdn).
+-   Pro IP adresu můžete také vytvořit plně kvalifikovaný název domény (FQDN). Potom můžete v DNS zaregistrovat [záznam CNAME](https://en.wikipedia.org/wiki/CNAME_record), který na tento plně kvalifikovaný název odkazuje. Další informace najdete v tématu [Vytvoření plně kvalifikovaného názvu domény v Azure Portal](/azure/virtual-machines/windows/portal-create-fqdn).
 
 -   **Skupina zabezpečení sítě (NSG)**. Skupin zabezpečení sítě slouží k povolení nebo zamítnutí síťového provozu do virtuálních počítačů. Skupin zabezpečení sítě je možné přidružit buď k podsítím, nebo k jednotlivým instancím virtuálních počítačů.
 
-Každá skupina zabezpečení sítě obsahuje sadu [výchozích pravidel](https://docs.microsoft.com/azure/virtual-network/security-overview#default-security-rules), včetně pravidla, které blokuje veškerou příchozí internetovou komunikaci. Výchozí pravidla nejde odstranit, ale ostatní pravidla je mohou potlačit. Pokud chcete povolit internetovou komunikaci, vytvořte pravidla, která povolí příchozí provoz na konkrétní porty, například port 80 pro protokol HTTP. Pokud chcete povolit RDP, přidejte pravidlo NSG, které povoluje příchozí přenosy na TCP port 3389.
+Každá skupina zabezpečení sítě obsahuje sadu [výchozích pravidel](/azure/virtual-network/security-overview#default-security-rules), včetně pravidla, které blokuje veškerou příchozí internetovou komunikaci. Výchozí pravidla nejde odstranit, ale ostatní pravidla je mohou potlačit. Pokud chcete povolit internetovou komunikaci, vytvořte pravidla, která povolí příchozí provoz na konkrétní porty, například port 80 pro protokol HTTP. Pokud chcete povolit RDP, přidejte pravidlo NSG, které povoluje příchozí přenosy na TCP port 3389.
 
 ## <a name="operations"></a>Operace
 
-**Diagnostika**. Povolte monitorování a diagnostiku, včetně základních metrik stavu, diagnostických protokolů infrastruktury a [diagnostiky spouštění](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/). Diagnostika spouštění vám pomůže zjistit chyby spouštění, pokud se virtuální počítač dostane do stavu, kdy ho nebude možné spustit. Vytvořte účet Azure Storage pro ukládání protokolů. Pro diagnostické protokoly stačí standardní účet místně redundantního úložiště (LRS). Další informace najdete v tématu [Povolení monitorování a diagnostiky](https://docs.microsoft.com/azure-stack/user/azure-stack-metrics-azure-data).
+**Diagnostika**. Povolte monitorování a diagnostiku, včetně základních metrik stavu, diagnostických protokolů infrastruktury a  [diagnostiky spouštění](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/). Diagnostika spouštění vám pomůže zjistit chyby spouštění, pokud se virtuální počítač dostane do stavu, kdy ho nebude možné spustit. Vytvořte účet Azure Storage pro ukládání protokolů. Pro diagnostické protokoly stačí standardní účet místně redundantního úložiště (LRS). Další informace najdete v tématu [Povolení monitorování a diagnostiky](./azure-stack-metrics-azure-data.md).
 
-**Dostupnost**. Váš virtuální počítač může být vystavený restartováním z důvodu plánované údržby, která je naplánována operátorem centra Azure Stack. Pro zajištění vysoké dostupnosti produkčního systému více virtuálních počítačů v Azure jsou virtuální počítače umístěné ve [skupině dostupnosti](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) , která je rozšíří napříč více doménami selhání a aktualizačními doménami. V menším měřítku centra Azure Stack se doména selhání ve skupině dostupnosti definuje jako jeden uzel v jednotce škálování.  
+**Dostupnost**. Váš virtuální počítač může být vystavený restartováním z důvodu plánované údržby, která je naplánována operátorem centra Azure Stack. Pro zajištění vysoké dostupnosti produkčního systému více virtuálních počítačů v Azure jsou virtuální počítače umístěné ve [skupině dostupnosti](/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) , která je rozšíří napříč více doménami selhání a aktualizačními doménami. V menším měřítku centra Azure Stack se doména selhání ve skupině dostupnosti definuje jako jeden uzel v jednotce škálování.  
 
 I když je infrastruktura centra Azure Stack už odolná vůči selháním, pak základní technologie (Clustering s podporou převzetí služeb při selhání) stále způsobí nějaké výpadky virtuálních počítačů na ovlivněném fyzickém serveru, pokud dojde k selhání hardwaru. Centrum Azure Stack podporuje skupinu dostupnosti s maximálním počtem tří domén selhání pro zajištění konzistence s Azure.
 
@@ -81,25 +81,25 @@ I když je infrastruktura centra Azure Stack už odolná vůči selháním, pak 
 
 **Odstraňuje se virtuální počítač**. Pokud odstraníte virtuální počítač, disky virtuálních počítačů se neodstraní. To znamená, že virtuální počítač můžete bezpečně odstranit bez obav ze ztráty dat. Bude se vám ale účtovat poplatek za úložiště. Disk virtuálního počítače odstraníte tak, že odstraníte objekt spravovaného disku. Pokud chcete zabránit neúmyslnému odstranění, použijte *zámek prostředku* a uzamkněte celou skupinu prostředků nebo jenom vybrané prostředky, jako je třeba virtuální počítač.
 
-## <a name="security-considerations"></a>Aspekty zabezpečení
+## <a name="security-considerations"></a>Důležité informace o zabezpečení
 
-Připojte virtuální počítače k [Azure Security Center](https://docs.microsoft.com/azure/security-center/quick-onboard-azure-stack) , abyste získali centrální pohled na stav zabezpečení vašich prostředků Azure. Security Center monitoruje potenciální potíže se zabezpečením a poskytuje ucelený přehled o stavu zabezpečení vašeho nasazení. Služba Security Center se konfiguruje na základě předplatného Azure. Povolte shromažďování dat zabezpečení, jak je popsáno v tématu připojení [předplatného Azure k Security Center Standard](https://docs.microsoft.com/azure/security-center/security-center-get-started). Když je povolené shromažďování dat, Security Center automaticky prohledává všechny virtuální počítače vytvořené v rámci příslušného předplatného.
+Připojte virtuální počítače k [Azure Security Center](/azure/security-center/quick-onboard-azure-stack) , abyste získali centrální pohled na stav zabezpečení vašich prostředků Azure. Security Center monitoruje potenciální potíže se zabezpečením a poskytuje ucelený přehled o stavu zabezpečení vašeho nasazení. Služba Security Center se konfiguruje na základě předplatného Azure. Povolte shromažďování dat zabezpečení, jak je popsáno v tématu připojení [předplatného Azure k Security Center Standard](/azure/security-center/security-center-get-started). Když je povolené shromažďování dat, Security Center automaticky prohledává všechny virtuální počítače vytvořené v rámci příslušného předplatného.
 
-**Správa oprav**. Informace o konfiguraci správy oprav na VIRTUÁLNÍm počítači najdete v [tomto](https://docs.microsoft.com/azure-stack/user/vm-update-management) článku. Pokud je povolené centrum Security Center, kontroluje, jestli nechybí žádné aktualizace zabezpečení a důležité aktualizace. K povolení automatických aktualizací systému použijte [nastavení zásad skupiny](https://docs.microsoft.com/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates) na virtuálním počítači.
+**Správa oprav**. Informace o konfiguraci správy oprav na VIRTUÁLNÍm počítači najdete v [tomto](./vm-update-management.md) článku. Pokud je povolené centrum Security Center, kontroluje, jestli nechybí žádné aktualizace zabezpečení a důležité aktualizace. K povolení automatických aktualizací systému použijte [nastavení zásad skupiny](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates) na virtuálním počítači.
 
 **Antimalwarový software**. Pokud je povolené centrum Security Center, kontroluje, jestli je nainstalovaný software ochrany před malwarem. Security Center můžete použít také k instalaci antimalwarového softwaru z portálu Azure Portal.
 
-**Řízení přístupu**. K řízení přístupu k prostředkům Azure použijte [řízení přístupu na základě role (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is) . RBAC umožňuje přiřazovat autorizační role jednotlivým členům vaše týmu DevOps. Třeba role čtenáře může zobrazovat prostředky Azure, ale nemůže je vytvářet, spravovat ani odstraňovat. Některá oprávnění jsou specifická pro typ prostředku Azure. Třeba role Přispěvatel virtuálních počítačů může restartovat nebo zrušit přidělení virtuálního počítače, resetovat heslo správce, vytvořit nový virtuální počítač a tak dále. Mezi další [předdefinované role RBAC](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles), které můžou být užitečné pro tuto referenční architekturu, patří role [Uživatel služby DevTest Labs](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#devtest-labs-user) a [Přispěvatel sítě](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#network-contributor).
+**Řízení přístupu**. K řízení přístupu k prostředkům Azure použijte [řízení přístupu na základě role (RBAC)](/azure/active-directory/role-based-access-control-what-is) . RBAC umožňuje přiřazovat autorizační role jednotlivým členům vaše týmu DevOps. Třeba role čtenáře může zobrazovat prostředky Azure, ale nemůže je vytvářet, spravovat ani odstraňovat. Některá oprávnění jsou specifická pro typ prostředku Azure. Třeba role Přispěvatel virtuálních počítačů může restartovat nebo zrušit přidělení virtuálního počítače, resetovat heslo správce, vytvořit nový virtuální počítač a tak dále. Mezi další [předdefinované role RBAC](/azure/active-directory/role-based-access-built-in-roles), které můžou být užitečné pro tuto referenční architekturu, patří role [Uživatel služby DevTest Labs](/azure/active-directory/role-based-access-built-in-roles#devtest-labs-user) a [Přispěvatel sítě](/azure/active-directory/role-based-access-built-in-roles#network-contributor).
 
-> [!Note]  
+> [!NOTE]  
 > RBAC neomezuje akce, které může uživatel přihlášený k virtuálnímu počítači provést. Tato oprávnění určuje typ účtu v hostovaném operačním systému.
 
-**Protokoly auditu**. Pomocí [protokolů aktivit](https://docs.microsoft.com/azure-stack/user/azure-stack-metrics-azure-data?#activity-log) můžete zobrazit akce zřizování a další události virtuálních počítačů.
+**Protokoly auditu**. Pomocí [protokolů aktivit](./azure-stack-metrics-azure-data.md?#activity-log) můžete zobrazit akce zřizování a další události virtuálních počítačů.
 
-**Šifrování dat**. Azure Stack hub používá šifrování AES 128-bit AES k ochraně dat uživatelů a infrastruktury v klidovém subsystému úložiště. Další informace najdete v tématu [šifrování dat v klidovém umístění v Azure Stackovém centru](https://docs.microsoft.com/azure-stack/operator/azure-stack-security-bitlocker).
+**Šifrování dat:** Azure Stack hub používá šifrování AES 128-bit AES k ochraně dat uživatelů a infrastruktury v klidovém subsystému úložiště. Další informace najdete v tématu [šifrování dat v klidovém umístění v Azure Stackovém centru](../operator/azure-stack-security-bitlocker.md).
 
 
 ## <a name="next-steps"></a>Další kroky
 
 - Další informace o virtuálních počítačích centra Azure Stack najdete v tématu [funkce virtuálních počítačů centra Azure Stack](azure-stack-vm-considerations.md).  
-- Další informace o vzorech cloudu Azure najdete v tématu [vzory návrhu cloudu](https://docs.microsoft.com/azure/architecture/patterns).
+- Další informace o vzorech cloudu Azure najdete v tématu [vzory návrhu cloudu](/azure/architecture/patterns).

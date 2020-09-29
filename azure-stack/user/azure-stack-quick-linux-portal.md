@@ -3,16 +3,16 @@ title: Vytvoření virtuálního počítače se systémem Linux pomocí centra A
 description: Vytvořte virtuální počítač s Linux serverem pomocí centra Azure Stack.
 author: mattbriggs
 ms.topic: quickstart
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 1/10/2020
-ms.openlocfilehash: 5a9d6902d317af76145dde564cef56ac2f42dce8
-ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
+ms.openlocfilehash: 0d75607eb111762fc49e6e3ccbef05353a5fab5f
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84631264"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920657"
 ---
 # <a name="quickstart-create-a-linux-server-vm-by-using-the-azure-stack-hub-portal"></a>Rychlý Start: Vytvoření virtuálního počítače s Linux serverem pomocí portálu Azure Stack hub
 
@@ -67,7 +67,7 @@ Adresa portálu centra Azure Stack závisí na tom, k jakému produktu Azure Sta
 
 * V případě integrovaného systému služby Azure Stack hub přejít na adresu URL, kterou poskytl váš operátor centra Azure Stack.
 
-## <a name="create-the-vm"></a>Vytvořte virtuální počítač.
+## <a name="create-the-vm"></a>Vytvoření virtuálního počítače
 
 1. Vyberte **vytvořit prostředek**  >  **COMPUTE**. Vyhledejte `Ubuntu Server 16.04 LTS`. Vyberte název.
 
@@ -79,7 +79,7 @@ Adresa portálu centra Azure Stack závisí na tom, k jakému produktu Azure Sta
 
 1. Zadejte informace o virtuálním počítači. Jako typ ověřování vyberte **veřejný klíč SSH** a vložte veřejný klíč SSH, který jste uložili, a pak vyberte **OK**.
 
-    > [!Note]  
+    > [!NOTE]  
     > Ujistěte se, že jste pro tento klíč odebrali všechny úvodní a koncové prázdné znaky.
 
    ![Authentication](media/azure-stack-quick-linux-portal/image3.png)
@@ -140,7 +140,7 @@ Skupina zabezpečení sítě (NSG) zabezpečuje příchozí a odchozí provoz. K
 
 1. V levém podokně v části **Nastavení**vyberte **příchozí pravidla zabezpečení**.
 
-1. Vyberte možnost **Přidat**.
+1. Vyberte **Přidat**.
 
 1. Do pole **název** zadejte **http**. 
 

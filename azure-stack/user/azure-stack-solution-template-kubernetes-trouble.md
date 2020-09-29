@@ -4,19 +4,19 @@ description: Naučte se řešit potíže s nasazením Kubernetes do centra Azure
 author: mattbriggs
 ms.topic: article
 ms.author: mabrigg
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.reviewer: waltero
 ms.lastreviewed: 11/14/2019
-ms.openlocfilehash: 3f51aa2c8d1d2987d3823e8fefe953d4cc6cc890
-ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
+ms.openlocfilehash: 9a88b6ff0e759c38ad62e6455cbee25eaa9be9eb
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84631078"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920759"
 ---
 # <a name="troubleshoot-kubernetes-deployment-to-azure-stack-hub"></a>Řešení potíží s nasazením Kubernetes do centra Azure Stack
 
-> [!Note]  
+> [!NOTE]  
 > K nasazení clusterů jako konceptu Kubernetes použijte jenom položku tržiště centra Azure Stack. Pro podporované clustery Kubernetes v centru Azure Stack použijte [modul AKS](azure-stack-kubernetes-aks-engine-overview.md).
 
 Tento článek popisuje, jak řešit potíže s clusterem Kubernetes. Chcete-li zahájit odstraňování potíží, zkontrolujte prvky požadované pro nasazení. Možná budete muset shromáždit protokoly nasazení z centra Azure Stack nebo virtuálních počítačů se systémem Linux, které hostují Kubernetes. Pokud chcete načíst protokoly z koncového bodu správy, obraťte se na správce centra Azure Stack.
@@ -155,7 +155,7 @@ Pomocí těchto kroků můžete shromáždit a stáhnout protokoly clusteru:
 
     Skript kolektoru protokolů bude také vyhledávat chyby v souborech protokolu a zahrnovat kroky pro řešení potíží, pokud najde známý problém. Ujistěte se, že používáte nejnovější verzi skriptu, abyste zvýšili pravděpodobnost hledání známých problémů.
 
-> [!Note]  
+> [!NOTE]  
 > Další informace o skriptu kolektoru protokolů najdete v tomto [úložišti](https://github.com/msazurestackworkloads/azurestack-gallery/tree/master/diagnosis) GitHub.
 
 ## <a name="next-steps"></a>Další kroky
@@ -164,4 +164,4 @@ Pomocí těchto kroků můžete shromáždit a stáhnout protokoly clusteru:
 
 [Přidání clusteru Kubernetes do Marketplace (pro operátor centra Azure Stack)](../operator/azure-stack-solution-template-kubernetes-cluster-add.md)
 
-[Kubernetes v Azure](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)
+[Kubernetes v Azure](/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)

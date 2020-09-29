@@ -3,16 +3,16 @@ title: Použití profilů verzí rozhraní API s Pythonem v Azure Stackovém cen
 description: Naučte se používat profily verzí rozhraní API s Pythonem v Azure Stack hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 05/05/2020
+ms.date: 09/03/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 42a00b997031850a61077ec59a92d5df5b6776ef
-ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
+ms.openlocfilehash: 88c2ecd1448a210daddd1d7da34ffea03c67a6b1
+ms.sourcegitcommit: 7c01ab4b2e2250a7acd67d1c5ba27d15c1e8bce0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82835896"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89448635"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack-hub"></a>Použití profilů verzí rozhraní API s Pythonem v Azure Stackovém centru
 
@@ -37,7 +37,7 @@ Python SDK podporuje následující profily rozhraní API:
 
 ## <a name="install-the-azure-python-sdk"></a>Instalace sady Azure Python SDK
 
-1. Nainstalujte git z [oficiální lokality](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
+1. [Nainstalujte Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 2. Pokyny k instalaci sady Python SDK najdete v tématu [Azure pro vývojáře v Pythonu](/python/azure/python-sdk-azure-install?view=azure-python).
 3. Pokud není k dispozici, vytvořte odběr a uložte ID předplatného, které chcete později použít. Pokyny k vytvoření předplatného najdete [v tématu Vytvoření předplatných nabídek v centru Azure Stack](../operator/azure-stack-subscribe-plan-provision-vm.md).
 4. Vytvořte instanční objekt a uložte jeho ID a tajný klíč. Pokyny k vytvoření instančního objektu pro centrum Azure Stack najdete v tématu [poskytnutí přístupu aplikací k centru Azure Stack](../operator/azure-stack-create-service-principals.md).
@@ -102,7 +102,7 @@ Pokud používáte ASDK, musíte explicitně důvěřovat kořenovému certifik�
     ```
 
 > [!NOTE]  
-> Pokud používáte **virtualenv** pro vývoj pomocí sady Python SDK, jak je uvedeno v následující části [spuštění ukázky Pythonu](#run-the-python-sample) , musíte do úložiště certifikátů virtuálního prostředí přidat předchozí certifikát. Cesta může vypadat podobně jako: `..\mytestenv\Lib\site-packages\certifi\cacert.pem`.
+> Pokud používáte **virtualenv** pro vývoj pomocí sady Python SDK, jak je uvedeno v následující části [spuštění ukázky Pythonu](#run-the-python-sample) , musíte do úložiště certifikátů virtuálního prostředí přidat předchozí certifikát. Cesta může vypadat podobně jako: `..\mytestenv\Lib\site-packages\certifi\cacert.pem` .
 
 ## <a name="python-samples-for-azure-stack-hub"></a>Ukázky Pythonu pro centrum Azure Stack
 
@@ -187,6 +187,6 @@ Každá operace má jasně popisek s komentářem a funkcí tisku. Příklady ne
 
 ## <a name="next-steps"></a>Další kroky
 
-- [Centrum pro vývoj v Pythonu pro Azure](https://azure.microsoft.com/develop/python/)
+- [Středisko pro vývojáře v Pythonu pro Azure](https://azure.microsoft.com/develop/python/)
 - [Dokumentace k Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/)
 - [Studijní cesta pro Virtual Machines](/learn/paths/deploy-a-website-with-azure-virtual-machines/)

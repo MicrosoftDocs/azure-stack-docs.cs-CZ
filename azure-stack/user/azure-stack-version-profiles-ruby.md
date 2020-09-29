@@ -3,16 +3,16 @@ title: Použití profilů verzí rozhraní API s Ruby v Azure Stack hub
 description: Naučte se používat profily verzí rozhraní API s Ruby v Azure Stack hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 05/05/2020
+ms.date: 09/03/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: b59adea78b5325a449bd52b211edc5e04ea5e566
-ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
+ms.openlocfilehash: 6813bf18656e034688255bcdb46b9b943359ce9c
+ms.sourcegitcommit: 7c01ab4b2e2250a7acd67d1c5ba27d15c1e8bce0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82836236"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89448618"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack-hub"></a>Použití profilů verzí rozhraní API s Ruby v Azure Stack hub
 
@@ -38,7 +38,7 @@ Profil rozhraní API je kombinací poskytovatelů prostředků a verzí služby.
   - Po zobrazení výzvy při instalaci Ruby nainstalujte vývojovou sadu.
   - Dále nainstalujte sadu prostředků pomocí následujícího příkazu: 
 
-       ```Ruby
+       ```ruby
        Gem install bundler
        ```
 
@@ -50,7 +50,7 @@ Profil rozhraní API je kombinací poskytovatelů prostředků a verzí služby.
 
 Balíčky Azure RubyGem můžete nainstalovat přímo.
 
-```Ruby  
+```ruby  
 gem install azure_mgmt_compute
 gem install azure_mgmt_storage
 gem install azure_mgmt_resources
@@ -59,7 +59,7 @@ gem install azure_mgmt_network
 
 Případně je můžete použít ve své Gemfile.
 
-```Ruby
+```ruby
 gem 'azure_mgmt_storage'
 gem 'azure_mgmt_compute'
 gem 'azure_mgmt_resources'
@@ -70,11 +70,11 @@ Sada Azure Resource Manager Ruby SDK je ve verzi Preview a pravděpodobně bude 
 
 ## <a name="use-the-azure_sdk-gem"></a>Použití azure_sdk Gem
 
-**Azure_sdk** Gem je souhrn všech podporovaných Gems v sadě Ruby SDK. Tento Gem se skládá z **nejnovějšího** profilu, který podporuje nejnovější verzi všech služeb. Zahrnuje profily se správou verzí **V2017_03_09** a **V2019_03_01_Hybrid**, které jsou sestavené pro Azure Stack hub.
+**Azure_sdk** Gem je souhrn všech podporovaných Gems v sadě Ruby SDK. Tento Gem se skládá z **nejnovějšího**   profilu, který podporuje nejnovější verzi všech služeb. Zahrnuje profily se správou verzí **V2017_03_09** a **V2019_03_01_Hybrid**, které jsou sestavené pro Azure Stack hub.
 
 Gem kumulativního azure_sdk můžete nainstalovat pomocí následujícího příkazu:  
 
-```Ruby  
+```ruby  
 gem install 'azure_sdk'
 ```
 
@@ -97,8 +97,8 @@ Microsoft Azure Správce prostředků je rozhraní pro správu, které správců
 Informace o metadatech můžete získat z Správce prostředkůho koncového bodu. Koncový bod vrátí soubor JSON s informacemi potřebnými ke spuštění vašeho kódu.
 
  > [!NOTE]  
- > **ResourceManagerUrl** v Azure Stack Development Kit (ASDK) `https://management.local.azurestack.external/` je: **ResourceManagerUrl** v integrovaných systémech je: `https://management.region.<fqdn>/`, kde `<fqdn>` je váš plně kvalifikovaný název domény.  
- > Načtení požadovaných metadat:`<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
+ > **ResourceManagerUrl** v Azure Stack Development Kit (ASDK) je: `https://management.local.azurestack.external/` **ResourceManagerUrl** v integrovaných systémech je: `https://management.region.<fqdn>/` , kde `<fqdn>` je váš plně kvalifikovaný název domény.  
+ > Načtení požadovaných metadat: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
   
  Ukázkový soubor JSON:
 
@@ -120,7 +120,7 @@ Informace o metadatech můžete získat z Správce prostředkůho koncového bod
 
 Chcete-li nastavit proměnné prostředí, použijte následující formát v příkazovém řádku systému Windows:
 
-```shell
+```console
 set AZURE_TENANT_ID=<YOUR_TENANT_ID>
 ```
 
@@ -146,7 +146,7 @@ Další informace o centru Azure Stack a profilech rozhraní API najdete v téma
 
 Pomocí následujícího kódu vytvořte instanci klienta profilu. Tento parametr je vyžadován pouze pro Azure Stack rozbočovač nebo jiné privátní cloudy. Globální Azure už má tato nastavení ve výchozím nastavení.
 
-```Ruby  
+```ruby  
 active_directory_settings = get_active_directory_settings(ENV['ARM_ENDPOINT'])
 
 provider = MsRestAzure::ApplicationTokenProvider.new(
@@ -169,7 +169,7 @@ client = Azure::Resources::Profiles::V2019_03_01_Hybrid::Mgmt::Client.new(option
 
 Profilový klient se dá použít pro přístup k jednotlivým poskytovatelům prostředků, jako jsou výpočetní prostředky, úložiště a síť:
 
-```Ruby  
+```ruby  
 # To access the operations associated with Compute
 profile_client.compute.virtual_machines.get 'RESOURCE_GROUP_NAME', 'VIRTUAL_MACHINE_NAME'
 
@@ -183,9 +183,9 @@ purchase_plan_obj = Azure::Profiles::V2019_03_01_Hybrid::Compute::Mgmt::Models::
 
 ## <a name="define-azure-stack-hub-environment-setting-functions"></a>Definování funkcí nastavení prostředí centra Azure Stack
 
-Chcete-li ověřit instanční objekt v prostředí Azure Stack hub, definujte koncové body pomocí `get_active_directory_settings()`. Tato metoda používá proměnnou prostředí **ARM_Endpoint** , kterou jste nastavili dříve:
+Chcete-li ověřit instanční objekt v prostředí Azure Stack hub, definujte koncové body pomocí `get_active_directory_settings()` . Tato metoda používá proměnnou prostředí **ARM_Endpoint** , kterou jste nastavili dříve:
 
-```Ruby  
+```ruby  
 # Get Authentication endpoints using Arm Metadata Endpoints
 def get_active_directory_settings(armEndpoint)
   settings = MsRestAzure::ActiveDirectoryServiceSettings.new
@@ -220,13 +220,13 @@ Pokud chcete ukázku spustit, ujistěte se, že máte nainstalovanou Ruby. Pokud
 
 1. Naklonujte úložiště:
 
-   ```bash
+   ```console
    git clone https://github.com/Azure-Samples/Hybrid-Resource-Manager-Ruby-Resources-And-Groups.git
    ```
 
 2. Nainstalujte závislosti pomocí sady prostředků:
 
-   ```Bash
+   ```console
    cd Hybrid-Resource-Manager-Ruby-Resources-And-Groups
    bundle install
    ```
@@ -252,13 +252,13 @@ Pokud chcete ukázku spustit, ujistěte se, že máte nainstalovanou Ruby. Pokud
    - `export ARM_ENDPOINT={your Azure Stack Hub Resource Manager URL}`
 
    > [!NOTE]  
-   > Ve Windows použijte `set` místo `export`.
+   > Ve Windows použijte `set` místo `export` .
 
-4. Zajistěte, aby byla proměnná umístění nastavena na umístění centra Azure Stack. například `LOCAL="local"`.
+4. Zajistěte, aby byla proměnná umístění nastavena na umístění centra Azure Stack. například `LOCAL="local"` .
 
 5. Pokud chcete cílit na správné koncové body služby Active Directory, přidejte následující řádek kódu, pokud používáte Azure Stack hub nebo jiné privátní cloudy:
 
-   ```Ruby  
+   ```ruby  
    active_directory_settings = get_active_directory_settings(ENV['ARM_ENDPOINT'])
    ```
 
@@ -300,7 +300,7 @@ Pokud chcete ukázku spustit, ujistěte se, že máte nainstalovanou Ruby. Pokud
 
 9. Spusťte ukázku.
 
-   ```Ruby
+   ```ruby
    bundle exec ruby example.rb
    ```
 

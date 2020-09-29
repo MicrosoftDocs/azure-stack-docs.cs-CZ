@@ -3,20 +3,20 @@ title: Použití Azure Monitor pro kontejnery v centru Azure Stack
 description: Naučte se používat Azure Monitor pro kontejnery v centru Azure Stack.
 author: mattbriggs
 ms.topic: article
-ms.date: 3/19/2020
+ms.date: 9/2/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 3/19/2020
-ms.openlocfilehash: ae72fcbeccdb4500cf9182c01e2913188abd2895
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.lastreviewed: 9/2/2020
+ms.openlocfilehash: 3535a60a7689250e88b9839a071265d8f28eb92a
+ms.sourcegitcommit: b80d529ff47b15b8b612d8a787340c7b0f68165b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80068996"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89472774"
 ---
 # <a name="use-azure-monitor-for-containers-on-azure-stack-hub"></a>Použití Azure Monitor pro kontejnery v centru Azure Stack
 
-K monitorování kontejnerů v AKS nasazeném clusteru Kubernetes v centru Azure Stack můžete použít [Azure monitor](https://docs.microsoft.com/azure/azure-monitor/) pro kontejnery. 
+K monitorování kontejnerů v AKS nasazeném clusteru Kubernetes v centru Azure Stack můžete použít [Azure monitor](/azure/azure-monitor/) pro kontejnery. 
 
 > [!IMPORTANT]
 > Azure Monitor pro kontejnery v centru Azure Stack je aktuálně ve verzi Public Preview.
@@ -38,7 +38,7 @@ Pomocí grafu [Helm](https://helm.sh/) můžete také nainstalovat agenty monito
 
 **Doplněk** můžete zadat v souboru JSON specifikace clusteru AKS Engine. Tento soubor se označuje také jako model rozhraní API. V tomto doplňku zajistěte, aby byla v tomto doplňku zakódovaná verze **WorkspaceGUID** a **WorkspaceKey** pracovního prostoru služby Azure Log Analytics, kde budou uloženy informace o monitorování.
 
-Podporované definice rozhraní API pro cluster centra Azure Stack najdete v tomto příkladu: [Kubernetes-Container-monitoring_existing_workspace_id_and_key. JSON](https://github.com/Azure/aks-engine/blob/master/examples/addons/container-monitoring/kubernetes-container-monitoring_existing_workspace_id_and_key.json). Konkrétně Najděte vlastnost **Doplňky** v **kubernetesConfig**:
+Podporované definice rozhraní API pro cluster centra Azure Stack najdete v tomto příkladu: [kubernetes-container-monitoring_existing_workspace_id_and_key.jsna](https://github.com/Azure/aks-engine/blob/master/examples/addons/container-monitoring/kubernetes-container-monitoring_existing_workspace_id_and_key.json). Konkrétně Najděte vlastnost **Doplňky** v **kubernetesConfig**:
 
 ```JSON  
  "orchestratorType": "Kubernetes",
@@ -59,4 +59,4 @@ Podporované definice rozhraní API pro cluster centra Azure Stack najdete v tom
 ## <a name="next-steps"></a>Další kroky
 
 - Přečtěte si o modulu [AKS v centru Azure Stack](azure-stack-kubernetes-aks-engine-overview.md) .  
-- Přehled o [Azure monitor for Containers](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview)
+- Přehled o [Azure monitor for Containers](/azure/azure-monitor/insights/container-insights-overview)

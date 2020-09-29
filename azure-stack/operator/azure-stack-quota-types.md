@@ -7,12 +7,12 @@ ms.date: 06/09/2020
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2019
-ms.openlocfilehash: 9556784a86ecca0d55b7cafa407a667b69efd8fd
-ms.sourcegitcommit: d91e47a51a02042f700c6a420f526f511a6db9a0
+ms.openlocfilehash: af5aa752d48fd51712695056d771ddf333a34df0
+ms.sourcegitcommit: e6665cfb15fae57218e58cd6de6053f16c1f9044
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84666379"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89274105"
 ---
 # <a name="quota-types-in-azure-stack-hub"></a>Typy kvót v centru Azure Stack
 
@@ -43,7 +43,7 @@ ms.locfileid: "84666379"
 | Celkový počet účtů úložiště |20 |Maximální počet účtů úložiště, které může předplatné vytvořit v tomto umístění. |
 
 > [!NOTE]
-> Pokud se v jednom předplatném překročila **Maximální kapacita (GB)** , nemůžete v tomto předplatném vytvořit nový prostředek úložiště. Ale v rámci virtuálních počítačů můžete nepřetržitě používat nespravované disky vytvořené v tomto předplatném, což může způsobit, že se nad rámec kvóty omezí celková využitá kapacita.<br>Maximální kapacita spravovaných disků je oddělená od celkové kvóty úložiště. Tuto hodnotu můžete nastavit v **výpočetních kvótách**.
+> Při překročení **maximální kapacity (GB)** předplatného nemůžete vytvořit nový prostředek úložiště v předplatném. I když stále můžete vytvářet virtuální počítače s nespravovanými disky, může to způsobit, že vaše celková využitá kapacita překročila limit kvóty.<br>Maximální kapacita spravovaných disků je oddělená od celkové kvóty úložiště. V **výpočetních kvótách**můžete nastavit celkovou kvótu úložiště.
 
 ## <a name="network-quota-types"></a>Typy kvót sítě
 

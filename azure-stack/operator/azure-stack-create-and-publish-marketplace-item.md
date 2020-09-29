@@ -3,16 +3,16 @@ title: Vytvoření a publikování položky Marketplace v centru Azure Stack
 description: Naučte se vytvářet a publikovat položku na webu Marketplace centra Azure Stack.
 author: sethmanheim
 ms.topic: article
-ms.date: 06/11/2020
+ms.date: 08/18/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 16ea5f5873e7904931fb05d6113c0b6cb74f9612
-ms.sourcegitcommit: bc246d59f4ad42cc2cc997884f9d52c5097f0964
+ms.openlocfilehash: 672071c93d5f227ae6ec9bfccedc043e6838ac61
+ms.sourcegitcommit: 69c859a89941ee554d438d5472308eece6766bdf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85069124"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89621312"
 ---
 # <a name="create-and-publish-a-custom-azure-stack-hub-marketplace-item"></a>Vytvoření a publikování položky Marketplace pro vlastní Azure Stack centra
 
@@ -22,10 +22,14 @@ Každá položka publikovaná na tržišti centra Azure Stack používá formát
 
 Příklady v tomto článku ukazují, jak vytvořit jednu nabídku tržiště virtuálního počítače typu Windows nebo Linux.
 
-## <a name="create-a-marketplace-item"></a>Vytvořit položku Marketplace
+### <a name="prerequisites"></a>Požadavky
 
-> [!IMPORTANT]
-> Než vytvoříte položku virtuálního počítače Marketplace, nahrajte vlastní image virtuálního počítače na portál centra Azure Stack podle pokynů v části [Přidání image virtuálního počítače do centra Azure Stack](azure-stack-add-vm-image.md). Pak postupujte podle pokynů v tomto článku a zabalením Image (vytvořte soubor. azpkg) a nahrajte ho do tržiště centra Azure Stack.
+Než vytvoříte položku Marketplace pro virtuální počítače, udělejte toto:
+
+1. Nahrajte vlastní image virtuálního počítače na portál centra Azure Stack podle pokynů v části [Přidání image virtuálního počítače do centra Azure Stack](azure-stack-add-vm-image.md). 
+2. Postupujte podle pokynů v tomto článku a zabalite Image (vytvořte soubor. azpkg) a nahrajte ho do tržiště centra Azure Stack.
+
+## <a name="create-a-marketplace-item"></a>Vytvořit položku Marketplace
 
 Pokud chcete vytvořit vlastní položku Marketplace, udělejte toto:
 
@@ -41,10 +45,12 @@ Pokud chcete vytvořit vlastní položku Marketplace, udělejte toto:
 
    ![Snímek obrazovky struktury šablon nasazení](media/azure-stack-create-and-publish-marketplace-item/gallerypkg2.png)
 
-4. Nahraďte následující zvýrazněné hodnoty (s čísly) v Manifest.jsu šablony hodnotou, kterou jste zadali při [nahrávání vlastní image](azure-stack-add-vm-image.md).
+4. Nahraďte následující zvýrazněné hodnoty (s čísly) v Manifest.jsu šablony hodnotou, kterou jste zadali při [nahrávání vlastní image](azure-stack-add-vm-image.md#add-a-platform-image).
 
    > [!NOTE]  
    > Nikdy nepoužívejte v šabloně Azure Resource Manager žádné tajné kódy, jako jsou kódy Product Key, heslo nebo žádné informace o zákazníkovi. Soubory JSON šablon jsou přístupné bez nutnosti ověřování po publikování v galerii. Ukládejte všechna tajná klíče v [Key Vault](/azure/azure-resource-manager/resource-manager-keyvault-parameter) a volejte je v rámci šablony.
+
+   Doporučuje se, abyste před publikováním vlastní šablony zkusili ukázku publikovat tak, jak jsou, a ujistěte se, že funguje ve vašem prostředí. Jakmile ověříte, že tento krok funguje, odstraňte vzorek z galerie a udělejte iterativní změny, dokud nebudete s výsledkem spokojeni.
 
    Následující šablona je ukázka Manifest.jsv souboru:
 
@@ -61,29 +67,19 @@ Pokud chcete vytvořit vlastní položku Marketplace, udělejte toto:
        "longSummary": "ms-resource:longSummary",
        "description": "ms-resource:description",
        "longDescription": "ms-resource:description",
-       "uiDefinition": {
-          "path": "UIDefinition.json" (7)
-          },
        "links": [
         { "displayName": "ms-resource:documentationLink", "uri": "http://go.microsoft.com/fwlink/?LinkId=532898" }
         ],
        "artifacts": [
           {
-             "name": "<Template name>",
-             "type": "Template",
-             "path": "DeploymentTemplates\\<Template name>.json", (8)
              "isDefault": true
           }
        ],
-       "categories":[ (9)
-          "Custom",
-          "<Template name>"
-          ],
        "images": [{
           "context": "ibiza",
           "items": [{
              "id": "small",
-             "path": "icons\\Small.png", (10)
+             "path": "icons\\Small.png", (7)
              "type": "icon"
              },
              {
@@ -113,10 +109,7 @@ Pokud chcete vytvořit vlastní položku Marketplace, udělejte toto:
     - (4) – název, který se zákazníkům zobrazí.
     - (5) – název vydavatele, který se zobrazí zákazníkům.
     - (6) – právní jméno vydavatele.
-    - (7) – cesta k umístění, kam se má **UIDefinition.jsv** souboru ukládat.  
-    - (8) – cesta a název souboru hlavní šablony JSON.
-    - (9) – názvy kategorií, ve kterých se tato šablona zobrazuje
-    - (10) – cesta a název pro každou ikonu.
+    - (7) – cesta a název pro každou ikonu.
 
 5. U všech polí odkazujících na **MS-Resource**je nutné změnit příslušné hodnoty uvnitř **řetězců nebo resources.jsv** souboru:
 
@@ -130,8 +123,6 @@ Pokud chcete vytvořit vlastní položku Marketplace, udělejte toto:
     "documentationLink": "Documentation"
     }
     ```
-
-    ![Zobrazení balíčku zobrazení balíčku ](media/azure-stack-create-and-publish-marketplace-item/pkg1.png) ![](media/azure-stack-create-and-publish-marketplace-item/pkg2.png)
 
 6. Chcete-li zajistit, aby bylo možné prostředek nasadit úspěšně, otestujte šablonu pomocí [rozhraní API centra Azure Stack](../user/azure-stack-profiles-azure-resource-manager-versions.md).
 
@@ -186,12 +177,12 @@ Pokud chcete vytvořit vlastní položku Marketplace, udělejte toto:
 
 6. Po úspěšném publikování položky na webu Marketplace můžete obsah odstranit z účtu úložiště.
 
-   > [!CAUTION]  
-   > Všechny výchozí artefakty galerie a vaše vlastní artefakty galerie jsou teď dostupné bez ověřování v těchto adresách URL:  
-   `https://adminportal.[Region].[external FQDN]:30015/artifact/20161101/[Template Name]/DeploymentTemplates/Template.json`
-   `https://portal.[Region].[external FQDN]:30015/artifact/20161101/[Template Name]/DeploymentTemplates/Template.json`
+   Všechny výchozí artefakty galerie a vaše vlastní artefakty galerie jsou teď dostupné bez ověřování v těchto adresách URL:
 
-6. Položku Marketplace můžete odebrat pomocí rutiny **Remove-AzureRMGalleryItem** . Příklad:
+   - `https://galleryartifacts.adminhosting.[Region].[externalFQDN]/artifact/20161101/[TemplateName]/DeploymentTemplates/Template.json`
+   - `https://galleryartifacts.hosting.[Region].[externalFQDN]/artifact/20161101/[TemplateName]/DeploymentTemplates/Template.json`
+
+7. Položku Marketplace můžete odebrat pomocí rutiny **Remove-AzureRMGalleryItem** . Příklad:
 
    ```powershell
    Remove-AzsGalleryItem -Name <Gallery package name> -Verbose
@@ -206,28 +197,28 @@ Pokud chcete vytvořit vlastní položku Marketplace, udělejte toto:
 
 ### <a name="identity-information"></a>Informace o identitě
 
-| Name | Požaduje se | Typ | Omezení | Popis |
+| Název | Požaduje se | Typ | Omezení | Popis |
 | --- | --- | --- | --- | --- |
-| Name |× |Řetězec |[A-za-Z0-9] + | |
-| Publisher |× |Řetězec |[A-za-Z0-9] + | |
-| Verze |× |Řetězec |[SemVer v2](https://semver.org/) | |
+| Název |X |Řetězec |[A-za-Z0-9] + | |
+| Publisher |X |Řetězec |[A-za-Z0-9] + | |
+| Verze |X |Řetězec |[SemVer v2](https://semver.org/) | |
 
 ### <a name="metadata"></a>Metadata
 
-| Name | Požaduje se | Typ | Omezení | Popis |
+| Název | Požaduje se | Typ | Omezení | Popis |
 | --- | --- | --- | --- | --- |
-| DisplayName |× |Řetězec |Doporučení 80 znaků |Portál nemusí správně zobrazit název položky, pokud je delší než 80 znaků. |
-| PublisherDisplayName |× |Řetězec |Doporučení 30 znaků |Portál nemusí správně zobrazit název vašeho vydavatele, pokud je delší než 30 znaků. |
-| PublisherLegalName |× |Řetězec |Maximálně 256 znaků | |
-| Souhrn |× |Řetězec |60 až 100 znaků | |
-| LongSummary |× |Řetězec |140 až 256 znaků |Ještě neplatí v Azure Stack hub. |
-| Popis |× |[HTML](https://github.com/Azure/portaldocs/blob/master/gallery-sdk/generated/index-gallery.md#gallery-item-metadata-html-sanitization) |500 až 5 000 znaků | |
+| DisplayName |X |Řetězec |Doporučení 80 znaků |Portál nemusí správně zobrazit název položky, pokud je delší než 80 znaků. |
+| PublisherDisplayName |X |Řetězec |Doporučení 30 znaků |Portál nemusí správně zobrazit název vašeho vydavatele, pokud je delší než 30 znaků. |
+| PublisherLegalName |X |Řetězec |Maximálně 256 znaků | |
+| Shrnutí |X |Řetězec |60 až 100 znaků | |
+| LongSummary |X |Řetězec |140 až 256 znaků |Ještě neplatí v Azure Stack hub. |
+| Popis |X |[HTML](https://github.com/Azure/portaldocs/blob/master/gallery-sdk/generated/index-gallery.md#gallery-item-metadata-html-sanitization) |500 až 5 000 znaků | |
 
 ### <a name="images"></a>Image
 
 Tržiště používá následující ikony:
 
-| Name | impulzu | Vlastnost Height | Poznámky |
+| Název | Width (Šířka) | Height (Výška) | Poznámky |
 | --- | --- | --- | --- |
 | Rozlehlý |255 px |115 px |Vždy vyžadováno |
 | Velká |115 px |115 px |Vždy vyžadováno |
@@ -243,19 +234,19 @@ Každá položka Marketplace by měla být označena kategorií, která identifi
 
 Každá položka na webu Marketplace může obsahovat různé odkazy na další obsah. Odkazy jsou zadány jako seznam názvů a identifikátorů URI:
 
-| Name | Požaduje se | Typ | Omezení | Popis |
+| Název | Požaduje se | Typ | Omezení | Popis |
 | --- | --- | --- | --- | --- |
-| DisplayName |× |Řetězec |Maximálně 64 znaků. | |
-| Identifikátor URI |× |Identifikátor URI | | |
+| DisplayName |X |Řetězec |Maximálně 64 znaků. | |
+| Identifikátor URI |X |Identifikátor URI | | |
 
 ### <a name="additional-properties"></a>Další vlastnosti
 
 Kromě předchozích metadat mohou autoři na webu Marketplace poskytovat vlastní data párů klíč/hodnota v následujícím tvaru:
 
-| Name | Požaduje se | Typ | Omezení | Popis |
+| Název | Požaduje se | Typ | Omezení | Popis |
 | --- | --- | --- | --- | --- |
-| DisplayName |× |Řetězec |Maximálně 25 znaků. | |
-| Hodnota |× |Řetězec |Maximálně 30 znaků. | |
+| DisplayName |X |Řetězec |Maximálně 25 znaků. | |
+| Hodnota |X |Řetězec |Maximálně 30 znaků. | |
 
 ### <a name="html-sanitization"></a>Upravení HTML
 

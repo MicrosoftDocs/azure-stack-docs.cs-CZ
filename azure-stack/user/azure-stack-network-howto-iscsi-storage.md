@@ -3,16 +3,16 @@ title: Jak se připojit k úložišti iSCSI pomocí centra Azure Stack
 description: Přečtěte si, jak se připojit k úložišti iSCSI pomocí centra Azure Stack.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: 27442f9bc5107d9dbeb07b19f1f53b84facc5a06
-ms.sourcegitcommit: e591e8531e8fee07a8315fdca29cf8f45a766c81
+ms.openlocfilehash: 214b1d2cd06f70e9787c36c974ae4d1d18225924
+ms.sourcegitcommit: 9557a5029cf329599f5b523c68e8305b876108d7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82687380"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88965122"
 ---
 # <a name="connect-to-iscsi-storage-with-azure-stack-hub"></a>Připojení k úložišti iSCSI pomocí centra Azure Stack
 
@@ -24,7 +24,7 @@ Pomocí šablony v tomto článku můžete připojit virtuální počítač cent
 
 Diagram zobrazuje virtuální počítač hostovaný v centru Azure Stack s připojeným diskem iSCSI z počítače s Windows místně (fyzický nebo virtuální) Azure Stack, což umožňuje, aby se externí úložiště připojilo k VIRTUÁLNÍmu počítači, který je hostitelem vašeho centra Azure Stack, přes protokol iSCSI.
 
-![alternativní text](./media/azure-stack-network-howto-iscsi-storage/overview-iscsi2.svg)
+![Diagram zobrazuje virtuální počítač hostovaný v centru Azure Stack, který přistupuje k externímu připojenému disku iSCSI.](./media/azure-stack-network-howto-iscsi-storage/overview-iscsi2.svg)
 
 ### <a name="requirements"></a>Požadavky
 
@@ -55,9 +55,9 @@ Diagram zobrazuje virtuální počítač hostovaný v centru Azure Stack s přip
 
 ### <a name="resource-group-template-iscsi-client"></a>Šablona skupiny prostředků (klient iSCSI)
 
-Diagram zobrazuje prostředky nasazené ze šablony za účelem vytvoření klienta iSCSI, který můžete použít pro připojení k cíli iSCSI. Tato šablona nasadí virtuální počítač a další prostředky, navíc spustí prepare-iSCSIClient. ps1 a virtuální počítač se restartuje.
+Diagram zobrazuje prostředky nasazené ze šablony za účelem vytvoření klienta iSCSI, který můžete použít pro připojení k cíli iSCSI. Tato šablona nasadí virtuální počítač a další prostředky. tím se navíc spustí prepare-iSCSIClient.ps1 a virtuální počítač se restartuje.
 
-![alternativní text](./media/azure-stack-network-howto-iscsi-storage/iscsi-file-server.svg)
+![Diagram zobrazuje prostředky nasazené ze šablony, aby bylo možné vytvořit klienta iSCSI pro připojení k cíli iSCSI. Zobrazuje souborový server s interní podsítí a síťovou kartou (síťová karta), interním PIP (Private Internet Protocol) a NSG (skupina zabezpečení sítě).](./media/azure-stack-network-howto-iscsi-storage/iscsi-file-server.svg)
 
 ### <a name="the-deployment-process"></a>Proces nasazení
 
@@ -65,21 +65,21 @@ Diagram zobrazuje prostředky nasazené ze šablony za účelem vytvoření klie
 
 1. Nasaďte šablonu infrastruktury.
 2. Nasaďte virtuální počítač centra Azure Stack do virtuálního počítače hostovaného jinde ve vašem datovém centru. 
-3. Pro `Create-iSCSITarget.ps1` skript v cíli iSCSI spusťte pomocí výstupů IP adresy a názvu serveru výstupy ze šablony jako parametry, které můžou být virtuálním počítačem nebo fyzickým serverem.
-4. Pro spuštění `Connect-toiSCSITarget.ps1` skriptu použijte externí IP adresu nebo adresy cílového serveru iSCSI jako vstupy. 
+3. `Create-iSCSITarget.ps1`Pro skript v cíli iSCSI spusťte pomocí výstupů IP adresy a názvu serveru výstupy ze šablony jako parametry, které můžou být virtuálním počítačem nebo fyzickým serverem.
+4. Pro spuštění skriptu použijte externí IP adresu nebo adresy cílového serveru iSCSI jako vstupy `Connect-toiSCSITarget.ps1` . 
 
-![alternativní text](./media/azure-stack-network-howto-iscsi-storage/process.svg)
+![Diagram zobrazuje první tři ze čtyř kroků uvedených výše a obsahuje vstupy a výstupy. Postup: nasazení infrastruktury, vytvoření cíle iSCSI a připojení k iSCSI.](./media/azure-stack-network-howto-iscsi-storage/process.svg)
 
-### <a name="inputs-for-azuredeployjson"></a>Vstupy pro azuredeploy. JSON
+### <a name="inputs-for-azuredeployjson"></a>Vstupy pro azuredeploy.jsv
 
-|**Parametry**|**default**|**název**|
+|**Parametry**|**výchozí**|**název**|
 |------------------|---------------|------------------------------|
 |WindowsImageSKU         |2019 – Datacenter   |Vyberte prosím základní image virtuálního počítače s Windows.
 |VMSize                  |Standard_D2_v2    |Zadejte prosím velikost virtuálního počítače.
 |VMName                  |Souborového serveru        |název virtuálního počítače
 |adminUsername           |storageadmin      |Jméno správce nového virtuálního počítače
 |adminPassword           |                  |Heslo pro účet správce pro nové virtuální počítače. Výchozí hodnota je ID předplatného.
-|VNetName                |Úložiště           |Název virtuální sítě. Tato akce bude sloužit k označení prostředků.
+|VNetName                |Storage           |Název virtuální sítě. Tato akce bude sloužit k označení prostředků.
 |VNetAddressSpace        |10.10.0.0/23      |Adresní prostor pro virtuální síť
 |VNetInternalSubnetName  |Interní          |Název interní podsítě virtuální sítě
 |VNetInternalSubnetRange |10.10.1.0/24      |Rozsah adres pro interní podsíť virtuální sítě
@@ -89,19 +89,19 @@ Diagram zobrazuje prostředky nasazené ze šablony za účelem vytvoření klie
 
 ### <a name="deployment-steps"></a>Kroky nasazení
 
-1. Nasazení infrastruktury klienta iSCSI pomocí`azuredeploy.json`
-2. Spusťte `Create-iSCSITarget.ps1` v cíli iSCSI na místním serveru. Až se šablona dokončí, budete muset spustit Create-iSCSITarget. ps1 na cílovém serveru iSCSI na místním serveru pomocí výstupů z prvního kroku.
-3. Spustit `Connect-toiSCSITarget.ps1` na klientovi iSCSI. zruší Connect-toiSCSITarget. ps1 na klientovi iSCSI s podrobnostmi o cíli iSCSI.
+1. Nasazení infrastruktury klienta iSCSI pomocí `azuredeploy.json`
+2. Spusťte `Create-iSCSITarget.ps1` v cíli iSCSI na místním serveru. Až se šablona dokončí, budete muset spustit Create-iSCSITarget.ps1 v cíli iSCSI na místním serveru s výstupy z prvního kroku.
+3. Spustit `Connect-toiSCSITarget.ps1` na klientovi iSCSI. zrušení Connect-toiSCSITarget.ps1 v klientovi iSCSI s podrobnostmi o cíli iSCSI
 
 ## <a name="adding-iscsi-storage-to-existing-vms"></a>Přidání úložiště iSCSI do stávajících virtuálních počítačů
 
 Můžete také spustit skripty na existujícím virtuálním počítači a připojit se z klienta iSCSI k cíli iSCSI. Tento tok je v případě, že vytváříte cíl iSCSI sami. Tento diagram znázorňuje tok spouštění pro skripty PowerShellu. Tyto skripty najdete v adresáři skriptu:
 
-![alternativní text](./media/azure-stack-network-howto-iscsi-storage/script-flow.svg)
+![Diagram znázorňuje tři skripty, které jsou popsány níže. V pořadí spouštění jsou: Prepare-iSCSIClient.ps1, (spuštěno v klientovi), vytvořit iSCSITarget.ps1 (spuštěno na cílech) a Connect-toiSCSITarget.ps1 (exectutes na klientovi).](./media/azure-stack-network-howto-iscsi-storage/script-flow.svg)
 
-### <a name="prepare-iscsiclientps1"></a>Prepare-iSCSIClient. ps1
+### <a name="prepare-iscsiclientps1"></a>Prepare-iSCSIClient.ps1
 
-`Prepare-iSCSIClient.ps1` Skript nainstaluje požadavky na klienta iSCSI, mezi které patří:
+`Prepare-iSCSIClient.ps1`Skript nainstaluje požadavky na klienta iSCSI, mezi které patří:
 - instalace služeb Multipath-v/v
 - nastavení služby iniciátoru iSCSI na automatické spuštění
 - povolení podpory funkce Multipath MPIO pro iSCSI
@@ -110,11 +110,11 @@ Můžete také spustit skripty na existujícím virtuálním počítači a přip
 
 Po instalaci těchto požadavků je důležité restartovat systém. Zásady vyrovnávání zatížení funkce MPIO vyžadují restart, aby bylo možné je nastavit.
 
-### <a name="create-iscsitargetps1"></a>Create-iSCSITarget. ps1
+### <a name="create-iscsitargetps1"></a>Create-iSCSITarget.ps1
 
-`Create-iSCSITarget.ps1 `Skript musí být spuštěný v systému, který obsluhuje úložiště. Můžete vytvořit více disků a cílů omezených iniciátory. Tento skript můžete spustit vícekrát, abyste mohli vytvořit mnoho virtuálních disků, které můžete připojit k různým cílům. Můžete připojit více disků k jednomu cíli. 
+`Create-iSCSITarget.ps1`Skript se spustí na serveru úložiště. Můžete vytvořit více disků a cílů omezených iniciátory. Tento skript můžete spustit vícekrát, abyste mohli vytvořit mnoho virtuálních disků, které můžete připojit k různým cílům. Můžete připojit více disků k jednomu cíli. 
 
-|**Vstup**|**default**|**název**|
+|**Vstup**|**výchozí**|**název**|
 |------------------|---------------|------------------------------|
 |Vzdálený_server         |Souborového serveru               |Název serveru připojujícího se k cíli iSCSI
 |RemoteServerIPs      |1.1.1.1                  |IP adresa, ze které bude přenosy iSCSI přijít
@@ -122,19 +122,19 @@ Po instalaci těchto požadavků je důležité restartovat systém. Zásady vyr
 |DiskName             |DiskName                 |Název souboru VHDX disku
 |DiskSize             |5 GB                      |Velikost disku VHDX
 |TargetName           |RemoteTarget01           |Cílový název, který slouží k definování cílové konfigurace pro klienta iSCSI. 
-|Následujícího příkazu         |uživatelské jméno                 |Uživatelské jméno pro ověřování protokolem CHAP
+|Následujícího příkazu         |username                 |Uživatelské jméno pro ověřování protokolem CHAP
 |ChapPassword         |userP@ssw0rd!            |Název hesla pro ověřování protokolem CHAP. Musí mít 12 až 16 znaků.
 
-### <a name="connect-toiscsitargetps1"></a>Connect-toiSCSITarget. ps1
+### <a name="connect-toiscsitargetps1"></a>Connect-toiSCSITarget.ps1
 
-`Connect-toiSCSITarget.ps1` Je konečný skript, který je spuštěn na klientovi iSCSI a připojuje disk prezentovaný cílem iSCSI do klienta iSCSI.
+`Connect-toiSCSITarget.ps1`Je konečný skript, který je spuštěn na klientovi iSCSI a připojuje disk prezentovaný cílem iSCSI do klienta iSCSI.
 
-|**Vstup**|**default**|**název**|
+|**Vstup**|**výchozí**|**název**|
 |------------------|---------------|------------------------------|
 |TargetiSCSIAddresses   |"2.2.2.2","2.2.2.3"    |IP adresy cíle iSCSI
 |LocalIPAddresses       |"10.10.1.4"            |Jedná se o interní IP adresu, ze které budou přenosy iSCSI přijít.
 |LoadBalancePolicy      |C:\iSCSIVirtualDisks   |IP adresa, ze které bude přenosy iSCSI přijít
-|Následujícího příkazu           |uživatelské jméno               |Uživatelské jméno pro ověřování protokolem CHAP
+|Následujícího příkazu           |username               |Uživatelské jméno pro ověřování protokolem CHAP
 |ChapPassword           |userP@ssw0rd!          |Název hesla pro ověřování protokolem CHAP. Musí mít 12 až 16 znaků.
 
 ## <a name="next-steps"></a>Další kroky

@@ -1,46 +1,49 @@
 ---
-title: Výběr jednotek pro Azure Stack HCI
-description: Postup výběru jednotek pro Prostory úložiště s přímým přístupem v Azure Stack HCI
+title: Zvolit jednotky pro Azure Stack HCI
+description: Postup výběru jednotek pro Azure Stack HCI
 author: khdownie
 ms.author: v-kedow
-ms.topic: article
-ms.date: 03/06/2020
-ms.openlocfilehash: ee51dc973c26335cfb6c75de991508a6063e0993
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.topic: conceptual
+ms.service: azure-stack
+ms.subservice: azure-stack-hci
+ms.date: 09/01/2020
+ms.openlocfilehash: a1283982ba04acd8de0b54c02fbc0bb88da9ebc6
+ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80806680"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89742296"
 ---
-# <a name="choosing-drives-for-azure-stack-hci"></a>Výběr jednotek pro Azure Stack HCI
+# <a name="choose-drives-for-azure-stack-hci"></a>Zvolit jednotky pro Azure Stack HCI
 
->Platí pro: Windows Server 2019
+> Platí pro: Azure Stack HCI, verze 20H2; Windows Server 2019
 
-V tomto tématu najdete pokyny k výběru jednotek [prostory úložiště s přímým přístupem](/windows-server/storage/storage-spaces/storage-spaces-direct-overview) pro splnění požadavků na výkon a kapacitu pro Azure Stack HCI.
+V tomto tématu najdete pokyny k výběru jednotek pro splnění požadavků na výkon a kapacitu pro Azure Stack HCI.
 
 ## <a name="drive-types"></a>Typy jednotek
 
-Prostory úložiště s přímým přístupem aktuálně funguje se třemi typy jednotek:
+Azure Stack HCL aktuálně pracuje se čtyřmi typy jednotek:
 
-|||
+| Typ jednotky | Popis |
 |----------------------|--------------------------|
-|![NVMe](media/choose-drives/NVMe-100-px.png)|**NVMe** (nestálá paměť Express) odkazuje na jednotky Solid-State, které přímo sedí na sběrnici PCIe. Obecné faktory pro formuláře jsou 2,5 "U. 2, PCIe Add-in-Card (AIC) a M. 2. NVMe nabízí vyšší propustnost vstupně-výstupních operací za sekundu s nižší latencí než jakýkoli jiný typ jednotky, který dnes podporujeme.|
+|![PMem](media/choose-drives/pmem-100px.png)|**PMem** odkazuje na trvalou paměť, což je nový typ úložiště s nízkou latencí a vysokým výkonem.|
+|![NVMe](media/choose-drives/NVMe-100-px.png)|**NVMe** (nestálá paměť Express) odkazuje na jednotky Solid-State, které přímo sedí na sběrnici PCIe. Obecné faktory pro formuláře jsou 2,5 "U. 2, PCIe Add-in-Card (AIC) a M. 2. NVMe nabízí vyšší propustnost vstupně-výstupních operací za sekundu s nižší latencí než jakýkoli jiný typ disku, který podporujeme dnes s výjimkou PMem.|
 |![SSD](media/choose-drives/SSD-100-px.png)|**SSD** odkazuje na jednotky SSD, které se připojují prostřednictvím konvenčního SATA nebo SAS.|
 |![HDD](media/choose-drives/HDD-100-px.png)|**HDD** odkazuje na rotační a magnetické jednotky pevného disku, které nabízejí obrovské kapacity úložiště.|
 
 ## <a name="built-in-cache"></a>Integrovaná mezipaměť
 
-Prostory úložiště s přímým přístupem funkce obsahuje integrovanou mezipaměť na straně serveru. Je to velká, Trvalá mezipaměť pro čtení a zápis v reálném čase. V nasazeních s více typy jednotek je automaticky nakonfigurováno pro použití všech jednotek typu "nejrychlejší". Zbývající jednotky se použijí k ukládání.
+Azure Stack HCI obsahuje integrovanou mezipaměť na straně serveru. Je to velká, Trvalá mezipaměť pro čtení a zápis v reálném čase. V nasazeních s více typy jednotek je automaticky nakonfigurováno pro použití všech jednotek typu "nejrychlejší". Zbývající jednotky se použijí k ukládání.
 
-Další informace najdete [v části Principy mezipaměti v prostory úložiště s přímým přístupem](/windows-server/storage/storage-spaces/understand-the-cache).
+Další informace najdete [v části Principy mezipaměti v Azure Stack HCI](cache.md).
 
 ## <a name="option-1--maximizing-performance"></a>Možnost 1 – maximalizace výkonu
 
-Pokud chcete dosáhnout předvídatelné a jednotné latence v milisekundách mezi náhodným čtením a zápisem do jakýchkoli dat, nebo pokud chcete dosáhnout extrémně vysokého počtu vstupně-výstupních operací (provedli jsme [více než 6 000 000](https://www.youtube.com/watch?v=0LviCzsudGY&t=28m)!) nebo [propustnost v/v,](https://www.youtube.com/watch?v=-LK2ViRGbWs&t=16m50s)měli byste přejít "all-Flash".
+Pokud chcete dosáhnout předvídatelné a jednotné latence v milisekundách mezi náhodným čtením a zápisem do libovolných dat, nebo pokud chcete dosáhnout extrémně vysokého počtu vstupně-výstupních operací (bylo provedeno [více než 13 000 000](https://techcommunity.microsoft.com/t5/storage-at-microsoft/the-new-hci-industry-record-13-7-million-iops-with-windows/ba-p/428314)!) nebo propustnost v/500 v, měli byste jít o "vše-bliknutí".
 
-Existují v současné době tři způsoby, jak to provést:
+To lze provést několika způsoby:
 
-![Vše – možnosti nasazení – bliknutí](media/choose-drives/All-Flash-Deployment-Possibilities.png)
+![Diagram zobrazuje možnosti nasazení, včetně všech N V M e pro kapacitu, N V M e pro mezipaměť s s s D pro kapacitu a všechny S D pro kapacitu.](media/choose-drives/All-Flash-Deployment-Possibilities.png)
 
 1. **Všechny NVMe.** Použití všech NVMe poskytuje neodpovídající výkon, včetně nejpředvídatelné nízké latence. Pokud jsou všechny jednotky stejného modelu, neexistuje mezipaměť. Můžete také kombinovat vyšší životnost a nižší dlouhodobé modely NVMe a nakonfigurovat původní mezipaměť na zápisy do mezipaměti pro druhé ([vyžaduje nastavení](/windows-server/storage/storage-spaces/understand-the-cache#manual-configuration)).
 
@@ -55,7 +58,7 @@ Existují v současné době tři způsoby, jak to provést:
 
 U prostředí s nejrůznějšími aplikacemi a úlohami, které jsou s přísnými nároky na výkon a ostatními, které vyžadují značnou kapacitu úložiště, byste měli začít "hybrid" pomocí NVMe nebo SSD caching pro větší HDD.
 
-![Hybridní nasazení – možnosti](media/choose-drives/Hybrid-Deployment-Possibilities.png)
+![Diagram zobrazuje možnosti nasazení, včetně N V M e pro mezipaměť s H D d pro kapacitu, s D pro mezipaměť s H D d pro kapacitu, a N V M E pro mezipaměť se smíšenou příponou D a H + D pro kapacitu.](media/choose-drives/Hybrid-Deployment-Possibilities.png)
 
 1. **NVMe + HDD**. Jednotky NVMe urychlují čtení a zápisy ukládáním do mezipaměti. Čtení do mezipaměti umožňuje HDD Zaměřte se na zápisy. Zápisy do mezipaměti absorbují shluky a umožňují zápisy do COALESCE a mají být v případě potřeby v uměle serializovaném stavu, který maximalizuje vstupně-výstupní operace HDD a propustnost vstupně-výstupních operací. To poskytuje NVMeelné charakteristiky pro zápis a často i nedávno čtená data, a to i v NVMe, jako jsou vlastnosti čtení.
 
@@ -63,7 +66,7 @@ U prostředí s nejrůznějšími aplikacemi a úlohami, které jsou s přísný
 
     Existuje jedna další, spíše neexotická možnost: pro použití jednotek *všech tří* typů.
 
-3. **NVMe + SSD + HDD.** S jednotkami všech tří typů NVMe jednotky mezipaměť pro SSD a HDD. Opravou je, že můžete vytvářet svazky na SSD a svazky na HDD, vedle sebe ve stejném clusteru, a to vše urychlené NVMe. Bývalé jsou přesně stejné jako v nasazení "all-Flash" a druhá je přesně stejná jako v nasazeních "hybrid" popsaných výše. Tato funkce se koncepčně podobá dvěma fondům s převážně nezávislou správou kapacity, cykly selhání a oprav a tak dále.
+3. **NVMe + SSD + HDD.** S jednotkami všech tří typů NVMe jednotky mezipaměť pro SSD a HDD. Opravou je, že můžete vytvářet svazky na SSD a svazky na HDD vedle sebe ve stejném clusteru, a to vše urychlené NVMe. Bývalé jsou přesně stejné jako v nasazení "all-Flash" a druhá je přesně stejná jako v nasazeních "hybrid" popsaných výše. Tato funkce se koncepčně podobá dvěma fondům s převážně nezávislou správou kapacity, cykly selhání a oprav a tak dále.
 
    >[!IMPORTANT]
    > K umístění většiny úloh citlivých na výkon na všech bliknutích doporučujeme použít vrstvu SSD.
@@ -85,18 +88,19 @@ Pro úlohy, které vyžadují rozsáhlou kapacitu a zápis, jako je archivace, c
 
 Každý server musí mít alespoň dvě jednotky mezipaměti (minimální vyžaduje se pro redundanci). Doporučujeme, abyste si počet kapacitních jednotek vynásobí násobkem počtu jednotek mezipaměti. Pokud máte například 4 jednotky mezipaměti, budete mít jednotnější výkon s 8 jednotkami kapacity (1:2 poměr) než 7 nebo 9.
 
-Mezipaměť by měla být upravena tak, aby vyhovovala pracovní sadě vašich aplikací a úloh, to znamená všechna data, která jsou v daném okamžiku aktivně čtena a zapsána. Není potřeba žádné požadavky na velikost mezipaměti nad rámec těchto požadavků. U nasazení s HDD je spravedlivým počátečním místem 10 procent kapacity – například pokud každý server má 4 × 4 TB HDD = 16 TB kapacity, pak 2 × 800 GB SSD = 1,6 TB mezipaměti na jeden server. U nasazení ve všech počítačích, zejména s velmi [vysokou životností](https://blogs.technet.microsoft.com/filecab/2017/08/11/understanding-dwpd-tbw/) SSD, může být spravedlivé začít přiblížit k 5 procentům kapacity – například pokud každý server má 24 × 1,2 TB SSD = 28,8 TB kapacity, pak 2 x 750 GB NVMe = 1,5 TB mezipaměti na jeden server. Jednotky mezipaměti můžete kdykoli přidat nebo odebrat později, abyste je mohli upravit.
+Mezipaměť by měla být upravena tak, aby vyhovovala pracovní sadě vašich aplikací a úloh, to znamená všechna data, která jsou v daném okamžiku aktivně čtena a zapsána. Není potřeba žádné požadavky na velikost mezipaměti nad rámec těchto požadavků. U nasazení s HDD je spravedlivým počátečním místem 10 procent kapacity – například pokud každý server má 4 × 4 TB HDD = 16 TB kapacity, pak 2 × 800 GB SSD = 1,6 TB mezipaměti na jeden server. U nasazení ve všech počítačích, zejména s velmi [vysokou životností](https://techcommunity.microsoft.com/t5/storage-at-microsoft/understanding-ssd-endurance-drive-writes-per-day-dwpd-terabytes/ba-p/426024) SSD, může být spravedlivé začít přiblížit k 5 procentům kapacity – například pokud každý server má 24 × 1,2 TB SSD = 28,8 TB kapacity, pak 2 x 750 GB NVMe = 1,5 TB mezipaměti na jeden server. Jednotky mezipaměti můžete kdykoli přidat nebo odebrat později, abyste je mohli upravit.
 
 ### <a name="general"></a>Obecné
 
-Doporučujeme omezit celkovou kapacitu úložiště na jeden server na přibližně 400 terabajtů (TB). Čím větší kapacita úložiště na server, tím déle bude doba potřebná k opětovné synchronizaci dat po výpadku nebo restartování, například při použití aktualizací softwaru. Aktuální maximální velikost na jeden fond úložiště je 4 řádu petabajtů (PB) (4 000 TB) pro Windows Server 2019.
+Doporučujeme omezit celkovou kapacitu úložiště na jeden server na přibližně 400 terabajtů (TB). Čím větší kapacita úložiště na server, tím déle bude doba potřebná k opětovné synchronizaci dat po výpadku nebo restartování, například při použití aktualizací softwaru. Aktuální maximální velikost na jeden fond úložiště je 4 petabajty (PB) (4 000 TB) pro Windows Server 2019.
 
 ## <a name="next-steps"></a>Další kroky
 
 Další informace najdete v tématu také:
 
-- [Přehled Azure Stack HCI](../overview.md)
-- [Pochopení mezipaměti v Azure Stack HCI](cache.md)
-- [Prostory úložiště s přímým přístupem požadavky na hardware](/windows-server/storage/storage-spaces/storage-spaces-direct-hardware-requirements)
-- [Plánování svazků v Azure Stack HCI](plan-volumes.md)
+- [Pochopení mezipaměti](cache.md)
+- [Určení hardwarových požadavků](../deploy/before-you-start.md#determine-hardware-requirements)
+- [Požadavky na symetrii jednotky](drive-symmetry-considerations.md)
+- [Plánování svazků](plan-volumes.md)
 - [Odolnost proti chybám a efektivita úložiště](fault-tolerance.md)
+- [Pochopení a nasazení trvalé paměti](/windows-server/storage/storage-spaces/deploy-pmem)

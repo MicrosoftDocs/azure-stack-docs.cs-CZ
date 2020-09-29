@@ -3,16 +3,16 @@ title: Upgrade clusteru Kubernetes na rozbočovači Azure Stack
 description: Naučte se upgradovat cluster Kubernetes na rozbočovači Azure Stack.
 author: mattbriggs
 ms.topic: article
-ms.date: 4/23/2020
+ms.date: 09/02/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 4/23/2020
-ms.openlocfilehash: 347d790a4e70e37e83be43019f25b875b7ff2302
-ms.sourcegitcommit: f0ee2a3af78dd6d6e2806710681d52b763948967
+ms.lastreviewed: 09/02/2020
+ms.openlocfilehash: 7cfde51b5cfbdaf6d6ad752951ad4df3e4f95823
+ms.sourcegitcommit: b80d529ff47b15b8b612d8a787340c7b0f68165b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84533718"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89473040"
 ---
 # <a name="upgrade-a-kubernetes-cluster-on-azure-stack-hub"></a>Upgrade clusteru Kubernetes na rozbočovači Azure Stack
 
@@ -42,7 +42,7 @@ Při upgradu produkčního clusteru Vezměte v úvahu:
 
 ## <a name="steps-to-upgrade-to-a-newer-kubernetes-version"></a>Postup upgradu na novější verzi Kubernetes
 
-> [!Note]  
+> [!NOTE]  
 > Základní bitová kopie AKS bude upgradována i v případě, že používáte novější verzi modulu AKS a bitová kopie je k dispozici na webu Marketplace.
 
 Následující pokyny používají minimální postup k provedení upgradu. Pokud chcete další podrobnosti, přečtěte si článek [upgrade Kubernetes clusterů](https://github.com/Azure/aks-engine/blob/master/docs/topics/upgrade.md).
@@ -50,23 +50,22 @@ Následující pokyny používají minimální postup k provedení upgradu. Poku
 1. Nejdřív musíte určit verze, které můžete pro upgrade cílit. Tato verze závisí na verzi, kterou máte aktuálně k dispozici, a potom k provedení upgradu použijte tuto hodnotu verze. Verze Kubernetes podporované v nejnovější aktualizaci jsou 1.14.7 a 1.15.10. Pro dostupné upgrady použijte tuto tabulku:
 
 | Aktuální verze | Dostupný upgrade |
-| --- | --- |
-|1.14.7 | 1.15.10 |
-|1.14.8 | 1.15.10 |
-|1.15.4 | 1.15.10 |
-|1.15.5 | 1.15.10 |
+| ------------------------- | ----------------------- |
+| 1.15.10 | 1.15.12 |
+| 1.15.12, 1.16.8, 1.16.9 | 1.16.14 |
+| 1.16.8, 1.16.9, 1.16.14 | 1.17.11 |
 
 Úplné mapování modulu AKS, verze AKS Base image a Kubernetes najdete v článku [podporované verze modulu AKS](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions).
 
 2. Shromážděte informace, které budete potřebovat ke spuštění `upgrade` příkazu. Upgrade používá následující parametry:
 
-    | Parametr | Příklad | Description |
+    | parametr | Příklad | Popis |
     | --- | --- | --- |
     | Azure – ENV | AzureStackCloud | K indikaci AKS Engine, že vaše cílová platforma je Azure Stack použití centra `AzureStackCloud` . |
     | location | local | Název oblasti centra Azure Stack. Pro ASDK je oblast nastavena na `local` . |
     | resource-group | Kube – RG | Zadejte název nové skupiny prostředků nebo vyberte existující skupinu prostředků. Název prostředku musí být alfanumerický a malý. |
-    | ID předplatného | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Zadejte ID předplatného. Další informace najdete v tématu [přihlášení k odběru nabídky](https://docs.microsoft.com/azure-stack/user/azure-stack-subscribe-services#subscribe-to-an-offer) . |
-    | rozhraní API – model | ./kubernetes-azurestack.json | Cesta ke konfiguračnímu souboru clusteru nebo modelu rozhraní API. |
+    | ID předplatného | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Zadejte ID předplatného. Další informace najdete v tématu [přihlášení k odběru nabídky](./azure-stack-subscribe-services.md#subscribe-to-an-offer) . |
+    | rozhraní API – model | ./kubernetes-azurestack.jsna | Cesta ke konfiguračnímu souboru clusteru nebo modelu rozhraní API. |
     | ID klienta | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Zadejte identifikátor GUID instančního objektu služby. ID klienta identifikované jako ID aplikace, když správce centra Azure Stack vytvořil instanční objekt. |
     | tajný kód klienta | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Zadejte tajný klíč objektu služby. Toto je tajný kód klienta, který jste nastavili při vytváření služby. |
     | Identita – systém | službou | Nepovinný parametr. Pokud používáte federované služby Active Directory (AD FS), zadejte svoje řešení pro správu identit. |

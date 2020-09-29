@@ -4,16 +4,16 @@ titleSuffix: Azure Stack
 description: Referenční informace o rozhraních API pro využití prostředků, které načítají informace o využití centra Azure Stack.
 author: sethmanheim
 ms.topic: article
-ms.date: 05/01/2020
+ms.date: 08/25/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: b38b6ac920fefa808ed5f9ee21f93d06d58098d4
-ms.sourcegitcommit: 278aaeca069213a98b90751253f6b15423634849
+ms.openlocfilehash: 25bb94429624a1fde1ec8e1a963250837eebd0d9
+ms.sourcegitcommit: d73637146daaba0ef0ab1729683bb52c65466099
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82742293"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88857559"
 ---
 # <a name="tenant-resource-usage-api-reference"></a>Referenční informace k rozhraní API využití prostředků tenanta
 
@@ -33,9 +33,9 @@ Požadavek získá podrobnosti o spotřebě pro požadovaná předplatná a pro 
 
 ### <a name="parameters"></a>Parametry
 
-| **Ukazatele** | **Popis** |
+| **Parametr** | **Popis** |
 | --- | --- |
-| Armendpoint |Azure Resource Manager koncový bod vašeho prostředí centra Azure Stack. Azure Stack konvence centra je název Azure Resource Manager koncového bodu ve formátu `https://management.{domain-name}`. Například pro vývojovou sadu je název domény Local. azurestack. external a pak je `https://management.local.azurestack.external`koncový bod správce prostředků. |
+| Armendpoint |Azure Resource Manager koncový bod vašeho prostředí centra Azure Stack. Azure Stack konvence centra je název Azure Resource Manager koncového bodu ve formátu `https://management.{domain-name}` . Například pro vývojovou sadu je název domény Local. azurestack. external a pak je koncový bod Správce prostředků `https://management.local.azurestack.external` . |
 | subId |ID předplatného uživatele, který provádí volání. Toto rozhraní API můžete použít jenom k dotazování na použití jednoho předplatného. Poskytovatelé můžou použít rozhraní API využití prostředků poskytovatele k dotazování na využití pro všechny klienty. |
 | reportedStartTime |Počáteční čas dotazu. Hodnota pro *DateTime* by měla být v UTC a na začátku hodiny; například 13:00. U denní agregace nastavte tuto hodnotu na půlnoc UTC. Formát je řídicí. ISO 8601; Příklad **: 2015-06-16T18% 3A53% 3a11% 2b00% 3a00Z**, kde dvojtečka je uvozená na% 3a a plus je uvozena na% 2b, aby bylo uživatelsky přívětivé URI. |
 | reportedEndTime |Koncový čas dotazu. Omezení vztahující se na **reportedStartTime** platí také pro tento parametr. Hodnota pro **reportedEndTime** nemůže být v budoucnu. |
@@ -76,11 +76,11 @@ GET
 
 ### <a name="response-details"></a>Podrobnosti odpovědi
 
-| **Ukazatele** | **Popis** |
+| **Parametr** | **Popis** |
 | --- | --- |
 | id |Jedinečné ID agregace využití |
-| jméno |Název agregace použití |
-| type |Definice prostředků. |
+| name |Název agregace použití |
+| typ |Definice prostředků. |
 | subscriptionId |Identifikátor předplatného uživatele Azure |
 | usageStartTime |Čas spuštění v čase UTC sady, do které patří agregace tohoto využití. |
 | usageEndTime |Čas ukončení UTC intervalu použití, do kterého patří agregace tohoto využití. |

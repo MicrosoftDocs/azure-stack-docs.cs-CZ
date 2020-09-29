@@ -7,12 +7,12 @@ ms.date: 04/10/2020
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: 0bc19bf584f482d2ec67758368afa11c91ae456e
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 231e4ac3b0bc8e0d43c608ff252f7d4c274e84a8
+ms.sourcegitcommit: 1c5e7d8419037c0f3ef6fe9d8e6bfb6a59659c84
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81243856"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89428545"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack-hub"></a>Integrace řešení pro externí monitorování pomocí centra Azure Stack
 
@@ -69,6 +69,9 @@ Modul plug-in je napsaný v Pythonu a využívá poskytovatele prostředků stav
 
 S verzí 1,2 Azure Stack hub – modul plug-in Nagios využívá knihovnu Microsoft ADAL Library a podporuje ověřování pomocí instančního objektu s tajným kódem nebo certifikátem. Konfigurace byla také zjednodušená pomocí jednoho konfiguračního souboru s novými parametry. Teď podporuje Azure Stack nasazení centra pomocí Azure AD a AD FS jako systém identit.
 
+> [!IMPORTANT]
+> AD FS podporuje pouze interaktivní přihlašovací relace. Pokud vyžadujete neinteraktivní přihlášení k automatizovanému scénáři, je nutné použít hlavní název služby (SPN).
+
 Modul plug-in funguje s Nagios 4x a XI. Pokud chcete stáhnout modul plug-in, přečtěte si téma [monitorování výstrah centra Azure Stack](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details). Lokalita ke stažení obsahuje také podrobnosti o instalaci a konfiguraci.
 
 ### <a name="requirements-for-nagios"></a>Požadavky na Nagios
@@ -97,9 +100,9 @@ samples/etc/azurestack_hosts.cfg
 samples/etc/azurestack_services.cfg
 ```
 
-1. Zkopírujte modul plug `azurestack_plugin.py` -in do následujícího adresáře `/usr/local/nagios/libexec`:.
+1. Zkopírujte modul plug-in `azurestack_plugin.py` do následujícího adresáře: `/usr/local/nagios/libexec` .
 
-2. Zkopírujte obslužnou rutinu `azurestack_handler.sh` do následujícího adresáře: `/usr/local/nagios/libexec/eventhandlers`.
+2. Zkopírujte obslužnou rutinu `azurestack_handler.sh` do následujícího adresáře: `/usr/local/nagios/libexec/eventhandlers` .
 
 3. Ujistěte se, že je soubor modulu plug-in nastavený jako spustitelný:
 
@@ -114,19 +117,19 @@ Následující parametry jsou k dispozici pro konfiguraci v souboru azurestack. 
 
 Další informace o tom, jak vytvořit hlavní název služby (SPN), najdete v tématu [použití identity aplikace pro přístup k prostředkům](azure-stack-create-service-principals.md).
 
-| Parametr | Popis | Ověřování |
+| Parametr | Popis | Authentication |
 | --- | --- | --- |
 | * * External_domain_fqdn * * | Plně kvalifikovaný název domény externí domény |    |
 | * * oblast: * * | Název oblasti |    |
 | * * tenant_id: * * | ID tenanta\* |    |
 | client_id: | ID klienta | SPN s tajným klíčem |
 | client_secret: | Heslo klienta | SPN s tajným klíčem |
-| client_cert\*\*: | Cesta k certifikátu | Hlavní název služby s certifikátem |
-| client_cert_thumbprint\*\*: | Kryptografický otisk certifikátu | Hlavní název služby s certifikátem |
+| client_cert \* \* : | Cesta k certifikátu | Hlavní název služby s certifikátem |
+| client_cert_thumbprint \* \* : | Kryptografický otisk certifikátu | Hlavní název služby s certifikátem |
 
 \*ID tenanta se nevyžaduje pro Azure Stack nasazení centra pomocí AD FS.
 
-\*\*Tajný klíč klienta a klientský certifikát se vzájemně vylučují.
+\*\* Tajný klíč klienta a klientský certifikát se vzájemně vylučují.
 
 Ostatní konfigurační soubory obsahují volitelná nastavení konfigurace, která je možné nakonfigurovat i v Nagios.
 
@@ -144,7 +147,7 @@ Ostatní konfigurační soubory obsahují volitelná nastavení konfigurace, kte
 
 1. Upravte konfigurační soubor.
 
-2. Zkopírujte upravené konfigurační soubory do následující složky: `/usr/local/nagios/etc/objects`.
+2. Zkopírujte upravené konfigurační soubory do následující složky: `/usr/local/nagios/etc/objects` .
 
 ### <a name="update-nagios-configuration"></a>Aktualizovat konfiguraci Nagios
 
@@ -198,7 +201,7 @@ Výstrahu můžete také uzavřít pomocí terminálu s následujícím příkaz
 
 Pokud nepoužíváte Operations Manager, Nagios nebo řešení založené na Nagios, můžete pomocí PowerShellu povolit širokou škálu řešení monitorování pro integraci se službou Azure Stack hub.
 
-1. Pokud chcete používat PowerShell, ujistěte se, že máte [nainstalovaný PowerShell a nakonfigurovat](azure-stack-powershell-install.md) ho pro prostředí operátora centra Azure Stack. Nainstalujte PowerShell do místního počítače, který se může připojit ke koncovému bodu Správce prostředků (https://adminmanagementsprávce) (. [ oblast]. [External_FQDN]).
+1. Pokud chcete používat PowerShell, ujistěte se, že máte [nainstalovaný PowerShell a nakonfigurovat](azure-stack-powershell-install.md) ho pro prostředí operátora centra Azure Stack. Nainstalujte PowerShell do místního počítače, který se může připojit ke koncovému bodu Správce prostředků (správce) ( https://adminmanagement . [ oblast]. [External_FQDN]).
 
 2. Spusťte následující příkazy, které se připojí k prostředí Azure Stack hub jako operátor centra Azure Stack:
 

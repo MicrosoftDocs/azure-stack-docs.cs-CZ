@@ -3,16 +3,16 @@ title: Řešení potíží s modulem AKS v centru Azure Stack
 description: Tento článek obsahuje postup řešení potíží pro modul AKS v centru Azure Stack.
 author: mattbriggs
 ms.topic: article
-ms.date: 4/17/2020
+ms.date: 09/08/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 4/17/2020
-ms.openlocfilehash: 8768628e246c439c86bba80f4faac2ff9ae1973d
-ms.sourcegitcommit: 355e21dd9b8c3f44e14abaae0b4f176443cf7495
+ms.lastreviewed: 09/08/2020
+ms.openlocfilehash: e9e1e09d40be623dfb973503295274790a86dfb8
+ms.sourcegitcommit: 2407498dc34158a49959d9f87f84d6a1cde0cca6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81624974"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89560959"
 ---
 # <a name="troubleshoot-the-aks-engine-on-azure-stack-hub"></a>Řešení potíží s modulem AKS v centru Azure Stack
 
@@ -70,21 +70,21 @@ Další informace najdete v článku [věnovaném řešení potíží](https://g
 
 ## <a name="collect-aks-engine-logs"></a>Shromažďovat protokoly modulu AKS
 
-Můžete získat přístup k informacím o kontrole, které vytvořil modul AKS. Modul AKS hlásí stav a chyby při spuštění aplikace. Výstup můžete buď předat do textového souboru, nebo ho zkopírovat přímo z konzoly příkazového řádku. Přečtěte si seznam kódů chyb aktivovaných modulem AKS na stránce [Kontrola kódů chyb rozšíření vlastních skriptů](#review-custom-script-extension-error-codes).
+Můžete zkontrolovat informace vytvořené modulem AKS. Modul AKS hlásí stav a chyby při spuštění aplikace. Výstup můžete buď předat do textového souboru, nebo ho zkopírovat přímo z konzoly příkazového řádku. Přečtěte si seznam kódů chyb aktivovaných modulem AKS na stránce [Kontrola kódů chyb rozšíření vlastních skriptů](#review-custom-script-extension-error-codes).
 
 1.  Shromáždí standardní výstup a chybu z informací zobrazených v nástroji příkazového řádku AKS Engine.
 
-2. Získá protokoly z místního souboru. Můžete nastavit výstupní adresář s parametrem **--Output-Directory** .
+2. Získá protokoly z místního souboru. Výstupní adresář můžete nastavit pomocí `get-logs` příkazu **pro nastavení--Output-Directory** .
 
     Nastavení místní cesty pro protokoly:
 
     ```bash  
-    aks-engine --output-directory <path to the directory>
+    aks-engine get-logs --output-directory <path to the directory>
     ```
 
 ## <a name="collect-kubernetes-logs"></a>Shromažďovat protokoly Kubernetes
 
-Kromě protokolů modulu AKS generují komponenty Kubernetes stav a chybové zprávy. Tyto protokoly můžete shromažďovat pomocí skriptu bash [getkuberneteslogs.sh](https://github.com/msazurestackworkloads/azurestack-gallery/releases/tag/diagnosis-v0.1.3).
+Kromě toho do protokolů modulu AKS generují komponenty Kubernetes stav a chybové zprávy. Tyto protokoly můžete shromažďovat pomocí skriptu bash [getkuberneteslogs.sh](https://github.com/msazurestackworkloads/azurestack-gallery/releases/tag/diagnosis-v0.1.3).
 
 Tento skript automatizuje proces shromažďování následujících protokolů: 
 
@@ -102,8 +102,8 @@ Bez tohoto skriptu byste se museli připojit k jednotlivým uzlům v clusteru, v
 Požadavky:
 
  - Virtuální počítač Linux, Git bash nebo bash ve Windows.
- - Rozhraní příkazového [řádku Azure](azure-stack-version-profiles-azurecli2.md) je nainstalované v počítači, ze kterého se skript spustí.
- - Identita instančního objektu se přihlásila k relaci Azure CLI a Azure Stack hub. Vzhledem k tomu, že skript má schopnost zjistit a vytvořit prostředky ARM, aby fungoval, vyžaduje Azure CLI a identitu instančního objektu.
+ - Rozhraní příkazového [řádku Azure](azure-stack-version-profiles-azurecli2.md) je nainstalované na počítači, na kterém se skript spustí.
+ - Identita instančního objektu se přihlásila k relaci Azure CLI a Azure Stack hub. Vzhledem k tomu, že skript má schopnost zjišťování a vytváření Azure Stackch prostředků Správce prostředků, aby fungoval, vyžaduje Azure CLI a identitu instančního objektu.
  - Uživatelský účet (předplatné), kde je v prostředí již vybraný cluster Kubernetes. 
 1. Stáhněte si nejnovější verzi souboru tar Script do svého klientského virtuálního počítače, počítače, který má přístup ke clusteru Kubernetes nebo ke stejnému počítači, který jste použili k nasazení clusteru s modulem AKS.
 
@@ -118,14 +118,14 @@ Požadavky:
 
 2. Vyhledejte parametry vyžadované `getkuberneteslogs.sh` skriptem. Skript bude používat následující parametry:
 
-    | Parametr | Popis | Požaduje se | Příklad |
+    | Parametr | Popis | Povinné | Příklad |
     | --- | --- | --- | --- |
     | -h,--help | Použití příkazu tisku. | ne | 
     -u,--uživatel | Uživatelské jméno správce pro virtuální počítače clusteru | ano | azureuser<br>(výchozí hodnota) |
-    | -i,--identity-File | Privátní klíč RSA vázaný k veřejnému klíči, který se používá k vytvoření clusteru Kubernetes (někdy s názvem "id_rsa")  | ano | `./rsa.pem`PuTTY<br>`~/.ssh/id_rsa`PROTOKOLY |
+    | -i,--identity-File | Privátní klíč RSA vázaný k veřejnému klíči, který se používá k vytvoření clusteru Kubernetes (někdy s názvem "id_rsa")  | ano | `./rsa.pem` PuTTY<br>`~/.ssh/id_rsa` PROTOKOLY |
     |   -g,--Resource-Group    | Skupina prostředků clusteru Kubernetes | ano | k8sresourcegroup |
-    |   -n,--User-Namespace               | Shromažďovat protokoly z kontejnerů v zadaných oborech názvů (Kube – systémové protokoly se vždycky shromažďují) | ne |   sledovaný |
-    |       --API-model                    | Uchovává soubor apimodel. JSON v účtu úložiště centra Azure Stack. Nahrání souboru apimodel. JSON do účtu úložiště se stane, když je k dispozici i parametr--upload-Logs. | ne | `./apimodel.json` |
+    |   -n,--User-Namespace               | Shromažďovat protokoly z kontejnerů v zadaných oborech názvů (Kube – systémové protokoly se vždycky shromažďují) | ne |   Monitorování |
+    |       --API-model                    | Nadále apimodel.jssoubory v účtu úložiště Azure Stack hub. Nahrávání apimodel.jssouboru do účtu úložiště se stane, když je také zadán parametr--upload-Logs. | ne | `./apimodel.json` |
     | --všechny – obory názvů               | Shromažďování protokolů z kontejnerů ve všech oborech názvů. Přepisuje nastavení--User-Namespace. | ne | |
     | --upload-logs                  | Uchovává načtené protokoly v účtu úložiště Azure Stack hub. Protokoly najdete ve skupině prostředků KubernetesLogs. | ne | |
     --Disable-host-key-kontrola    | Nastaví možnost StrictHostKeyChecking SSH na ne, zatímco se skript spustí. Používejte pouze v bezpečném prostředí. | ne | |
@@ -146,13 +146,13 @@ Můžete se obrátit na seznam kódů chyb vytvořených pomocí rozšíření v
 
 ### <a name="providing-kubernetes-logs-to-a-microsoft-support-engineer"></a>Poskytování protokolů Kubernetes technickému pracovníkovi podpory Microsoftu
 
-Pokud po shromáždění a prozkoumání protokolů stále nemůžete problém vyřešit, možná budete chtít zahájit proces vytváření lístku podpory a poskytnout protokoly, které jste shromáždili spuštěním `getkuberneteslogs.sh` příkazu se sadou `--upload-logs` parametrů. 
+Pokud po shromáždění a prozkoumání protokolů stále nemůžete problém vyřešit, možná budete chtít zahájit proces vytváření lístku podpory a poskytnout protokoly, které jste shromáždili spuštěním příkazu `getkuberneteslogs.sh` se `--upload-logs` sadou parametrů. 
 
 Obraťte se na svého operátora centra Azure Stack. Váš operátor používá informace od vašich protokolů k vytvoření případu podpory.
 
-Během procesu řešení potíží s podporou může pracovník podpory Microsoftu požádat, aby váš operátor centra Azure Stack shromažďovat protokoly systému Azure Stack hub. Je možné, že budete muset poskytnout operátor s informacemi o účtu úložiště, kam jste nahráli protokoly `getkuberneteslogs.sh`Kubernetes spuštěním.
+Během procesu řešení potíží s podporou může pracovník podpory Microsoftu požádat, aby váš operátor centra Azure Stack shromažďovat protokoly systému Azure Stack hub. Je možné, že budete muset poskytnout operátor s informacemi o účtu úložiště, kam jste nahráli protokoly Kubernetes spuštěním `getkuberneteslogs.sh` .
 
-Operátor může spustit PowerShell rutiny **Get-AzureStackLog** . Tento příkaz používá parametr (`-InputSaSUri`), který určuje účet úložiště, kam jste uložili protokoly Kubernetes.
+Operátor může spustit PowerShell rutiny **Get-AzureStackLog** . Tento příkaz používá parametr ( `-InputSaSUri` ), který určuje účet úložiště, kam jste uložili protokoly Kubernetes.
 
 Operátor může kombinovat vytvořené protokoly spolu s jinými systémovými protokoly, které může podporovat společnost Microsoft, a zpřístupnit je společnosti Microsoft.
 
@@ -161,12 +161,12 @@ Operátor může kombinovat vytvořené protokoly spolu s jinými systémovými 
 Pokud nemůžete vyřešit chybu nasazení, můžete otevřít problém GitHubu. 
 
 1. V úložišti modulu AKS otevřete [problém GitHubu](https://github.com/Azure/aks-engine/issues/new) .
-2. Přidejte název pomocí následujícího formátu: C`SE error: exit code <INSERT_YOUR_EXIT_CODE>`.
+2. Přidejte název pomocí následujícího formátu: C `SE error: exit code <INSERT_YOUR_EXIT_CODE>` .
 3. Do tohoto problému zahrňte tyto informace:
 
-    - Konfigurační soubor clusteru, `apimodel json`který se používá k nasazení clusteru. Před odesláním na GitHubu odeberte všechny tajné klíče a klíče.  
+    - Konfigurační soubor clusteru, který se `apimodel json` používá k nasazení clusteru. Před odesláním na GitHubu odeberte všechny tajné klíče a klíče.  
      - Výstup následujícího příkazu **kubectl** `get nodes`  
-     - Obsah `/var/log/azure/cluster-provision.log` a`/var/log/cloud-init-output.log`
+     - Obsah `/var/log/azure/cluster-provision.log` a `/var/log/cloud-init-output.log`
 
 ## <a name="next-steps"></a>Další kroky
 

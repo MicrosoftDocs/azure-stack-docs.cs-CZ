@@ -3,16 +3,16 @@ title: Stažení nástrojů centra Azure Stack z GitHubu
 description: Naučte se stahovat nástroje potřebné pro práci s Azure Stack hub.
 author: mattbriggs
 ms.topic: article
-ms.date: 6/13/2020
+ms.date: 8/28/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 6/13/2020
-ms.openlocfilehash: 2ab627803b1c811f131694ab58a8c53da6104774
-ms.sourcegitcommit: 9c4c3487ca79b4e077b415611051cd4ad471277c
+ms.lastreviewed: 8/28/2020
+ms.openlocfilehash: 8aa2c3cad35af9d6c887217ea977a92eae7428cf
+ms.sourcegitcommit: 7c01ab4b2e2250a7acd67d1c5ba27d15c1e8bce0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84766366"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89448448"
 ---
 # <a name="download-azure-stack-hub-tools-from-github"></a>Stažení nástrojů centra Azure Stack z GitHubu
 
@@ -20,7 +20,7 @@ ms.locfileid: "84766366"
 
 ## <a name="get-tools-for-azure-stack-hub-azurerm-module"></a>Získat nástroje pro modul AzureRM centra pro Azure Stack
 
-Pokud chcete tyto nástroje získat, naklonujte úložiště GitHub z `master` větve nebo Stáhněte složku **AzureStack-Tools** spuštěním následujícího skriptu:
+Pokud chcete tyto nástroje získat, naklonujte úložiště GitHub z `master` větve nebo Stáhněte složku **AzureStack-Tools** spuštěním následujícího skriptu na příkazovém řádku PowerShellu se zvýšenými oprávněními:
 
 ```powershell
 # Change directory to the root directory.
@@ -55,10 +55,10 @@ cd \
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
 invoke-webrequest `
   https://github.com/Azure/AzureStack-Tools/archive/az.zip `
-  -OutFile master.zip
+  -OutFile az.zip
 
 # Expand the downloaded files.
-expand-archive master.zip `
+expand-archive az.zip `
   -DestinationPath . `
   -Force
 
@@ -73,7 +73,7 @@ Další informace o použití modulu AZ Module for Azure Stack hub najdete v té
 
 Úložiště **AzureStack-Tools** obsahuje moduly prostředí PowerShell, které podporují následující funkce centra Azure Stack:  
 
-| Funkce | Description | Kdo může používat tento modul? |
+| Funkce | Popis | Kdo může používat tento modul? |
 | --- | --- | --- |
 | [Funkce cloudu](../user/azure-stack-validate-templates.md) | Tento modul slouží k získání cloudových možností cloudu. Můžete například získat cloudové možnosti, jako je verze rozhraní API a prostředky Azure Resource Manager. Můžete taky získat rozšíření virtuálních počítačů pro centra Azure Stack a cloudy Azure. | Operátoři cloudu a uživatelé |
 | [Zásady Správce prostředků pro centrum Azure Stack](../user/azure-stack-policy-module.md) | Pomocí tohoto modulu můžete nakonfigurovat předplatné Azure nebo skupinu prostředků Azure se stejnou dostupností verzí a služeb jako centrum Azure Stack. | Operátoři cloudu a uživatelé |

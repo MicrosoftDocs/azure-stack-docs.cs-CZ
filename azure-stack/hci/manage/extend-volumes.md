@@ -3,19 +3,20 @@ title: Rozšiřování svazků v Azure Stack HCI
 description: Postup změny velikosti svazků v Azure Stack HCI pomocí centra pro správu Windows a PowerShellu
 author: khdownie
 ms.author: v-kedow
-ms.topic: article
-ms.date: 03/10/2020
-ms.openlocfilehash: 703931b0dccb533b2b924847eb3302f0efa46d1a
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.topic: how-to
+ms.date: 07/21/2020
+ms.openlocfilehash: c6f874fb7bd8641933722631d9faac0dc513b5e3
+ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79089289"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89742280"
 ---
-# <a name="extending-volumes-in-storage-spaces-direct"></a>Rozšíření svazků v Prostory úložiště s přímým přístupem
-> Platí pro: Windows Server 2019
+# <a name="extending-volumes-in-azure-stack-hci"></a>Rozšíření svazků v Azure Stack HCI
 
-Toto téma poskytuje pokyny pro změnu velikosti svazků v [prostory úložiště s přímým přístupemm](/windows-server/storage/storage-spaces/storage-spaces-direct-overview) clusteru pomocí centra pro správu systému Windows.
+> Platí pro: Azure Stack HCI, verze 20H2; Windows Server 2019
+
+Toto téma poskytuje pokyny pro změnu velikosti svazků v Azure Stack clusteru HCI pomocí centra pro správu systému Windows.
 
 > [!WARNING]
 > **Nepodporováno: Změna velikosti podkladového úložiště používaného Prostory úložiště s přímým přístupem.** Pokud používáte Prostory úložiště s přímým přístupem v prostředí virtualizovaného úložiště, včetně v Azure, změna velikosti nebo změny vlastností úložných zařízení používaných virtuálními počítači není podporované a způsobí, že data nebudou přístupná. Místo toho postupujte podle pokynů v části [Přidání serverů nebo jednotek](/windows-server/storage/storage-spaces/add-nodes) a přidejte další kapacitu před rozšířením svazků.
@@ -26,7 +27,7 @@ Podívejte se na rychlé video o tom, jak změnit velikost svazku.
 
 ## <a name="extending-volumes-using-windows-admin-center"></a>Rozšíření svazků pomocí centra pro správu Windows
 
-1. V centru pro správu Windows se připojte ke clusteru Prostory úložiště s přímým přístupem a potom v podokně **nástroje** vyberte **svazky** .
+1. V centru pro správu Windows se připojte k Azure Stack clusteru HCI a pak v podokně **nástroje** vyberte **svazky** .
 2. Na stránce **svazky** vyberte kartu **inventář** a potom vyberte svazek, u kterého chcete změnit velikost.
 
     Na stránce s podrobnostmi o svazku je uvedena kapacita úložiště pro daný svazek. Můžete také otevřít stránku podrobností o svazcích přímo z řídicího panelu. Na řídicím panelu v podokně výstrahy vyberte výstrahu, která vás upozorní na to, jestli na svazku není dostatek úložné kapacity, a pak vyberte **Přejít na svazek**.
@@ -46,7 +47,7 @@ Než začnete měnit velikost svazku, ujistěte se, že máte ve fondu úložiš
 
 V Prostory úložiště s přímým přístupem se každý svazek skládá z několika skládaných objektů: sdílený svazek clusteru (CSV), což je svazek. oddíl; disk, což je virtuální disk; a jednu nebo více úrovní úložiště (Pokud je k dispozici). Chcete-li změnit velikost svazku, budete muset změnit velikost několika těchto objektů.
 
-![svazky v rozhraní SMAPI](media/extend-volumes/volumes-in-smapi.png)
+![Diagram znázorňuje vrstvy svazku, včetně svazku horizontálních oddílů clusteru, svazku, oddílu, disku, virtuálního disku a vrstev úložiště.](media/extend-volumes/volumes-in-smapi.png)
 
 Pokud se s nimi chcete seznámit, zkuste spustit **příkaz Get –** s odpovídajícím podstatným účelem v prostředí PowerShell.
 
@@ -61,7 +62,7 @@ Pokud chcete sledovat přidružení mezi objekty v zásobníku, přesměrujte je
 Tady je příklad, jak získat z virtuálního disku až po jeho svazek:
 
 ```PowerShell
-Get-VirtualDisk <FriendlyName> | Get-Disk | Get-Partition | Get-Volume 
+Get-VirtualDisk <FriendlyName> | Get-Disk | Get-Partition | Get-Volume
 ```
 
 ### <a name="step-1--resize-the-virtual-disk"></a>Krok 1 – Změna velikosti virtuálního disku
@@ -71,7 +72,7 @@ Virtuální disk může používat vrstvy úložiště, nebo ne, v závislosti n
 Pro kontrolu spusťte následující rutinu:
 
 ```PowerShell
-Get-VirtualDisk <FriendlyName> | Get-StorageTier 
+Get-VirtualDisk <FriendlyName> | Get-StorageTier
 ```
 
 Pokud rutina nevrátí žádnou hodnotu, virtuální disk nepoužívá vrstvy úložiště.
@@ -88,7 +89,7 @@ Get-VirtualDisk <FriendlyName> | Resize-VirtualDisk -Size <Size>
 
 Při změně velikosti **VirtualDisk**se **disk** automaticky a zároveň změní jeho velikost.
 
-![Změna velikosti – VirtualDisk](media/extend-volumes/Resize-VirtualDisk.gif)
+![Animovaný diagram ukazuje, že virtuální disk svazku se bude zvětšovat, zatímco vrstva disku hned nad ním bude automaticky větší, jako výsledek.](media/extend-volumes/Resize-VirtualDisk.gif)
 
 #### <a name="with-storage-tiers"></a>S vrstvami úložiště
 
@@ -111,7 +112,7 @@ Get-StorageTier <FriendlyName> | Resize-StorageTier -Size <Size>
 
 Když změníte velikost **StorageTier**(y), **VirtualDisk** a **disk** se dodrží automaticky a změní se také velikost.
 
-![Resize-StorageTier](media/extend-volumes/Resize-StorageTier.gif)
+![Animovaný diagram zobrazuje nejprve další úroveň úložiště, která se stane velkou, zatímco vrstva virtuálního disku a vrstva disku výše se zvětšují také.](media/extend-volumes/Resize-StorageTier.gif)
 
 ### <a name="step-2--resize-the-partition"></a>Krok 2 – Změna velikosti oddílu
 
@@ -126,13 +127,13 @@ $VirtualDisk = Get-VirtualDisk <FriendlyName>
 # Get its partition
 $Partition = $VirtualDisk | Get-Disk | Get-Partition | Where PartitionNumber -Eq 2
 
-# Resize to its maximum supported size 
+# Resize to its maximum supported size
 $Partition | Resize-Partition -Size ($Partition | Get-PartitionSupportedSize).SizeMax
 ```
 
 Když změníte velikost **oddílu**, **svazek** a **ClusterSharedVolume** se automaticky dodrží a změní se také velikost.
 
-![Změna velikosti – oddíl](media/extend-volumes/Resize-Partition.gif)
+![Animovaný diagram zobrazuje vrstvu virtuálních disků ve spodní části svazku a zvětšuje se tak větší s každou vrstvou, která je větší a roste.](media/extend-volumes/Resize-Partition.gif)
 
 A to je vše!
 
@@ -143,6 +144,6 @@ A to je vše!
 
 Podrobné pokyny pro další důležité úlohy správy úložiště najdete tady:
 
-- [Plánování svazků v Prostory úložiště s přímým přístupem](/windows-server/storage/storage-spaces/plan-volumes)
-- [Vytváření svazků v Prostory úložiště s přímým přístupem](/windows-server/storage/storage-spaces/create-volumes)
-- [Odstraňování svazků v Prostory úložiště s přímým přístupem](/windows-server/storage/storage-spaces/delete-volumes)
+- [Plánování svazků](../concepts/plan-volumes.md)
+- [Vytváření svazků](create-volumes.md)
+- [Odstranit svazky](delete-volumes.md)

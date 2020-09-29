@@ -3,16 +3,16 @@ title: Nasazení základních vzorů do centra Azure Stack
 description: Naučte se nasazovat základní modely pomocí centra Azure Stack.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: b41b0fd7d9ce86a8e56fb8f445e52c224df65a65
-ms.sourcegitcommit: f0ee2a3af78dd6d6e2806710681d52b763948967
+ms.openlocfilehash: df603935dc192894dcb96837dc92fa4bc88f239e
+ms.sourcegitcommit: 65a115d1499b5fe16b6fe1c31cce43be21d05ef8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84533752"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88818398"
 ---
 # <a name="deploy-foundational-patterns-overview"></a>Přehled nasazení základních vzorů
 
@@ -29,7 +29,7 @@ Každý článek se zabývá běžnými aspekty, jako například:
 - Zabezpečení
 - Kontinuita podnikových procesů
 
-|  Partnerské vztahy virtuálních sítí  |  Síť VPN  |  Nástroj pro vyrovnávání zatížení  |
+|  Partnerský vztah virtuální sítě  |  Síť VPN  |  Nástroj pro vyrovnávání zatížení  |
 | --- | --- | --- |
 | ![Partnerský vztah virtuální sítě s virtuálními počítači](media/deploy-foundational-patterns/icon-networking-61-virtual-networks.svg)<br>[Partnerský vztah virtuální sítě s virtuálními počítači](azure-stack-network-howto-vnet-peering.md) | ![Nastavení sítě VPN na Prem](media/deploy-foundational-patterns/icon-networking-63-virtual-network-gateways.svg)<br>[Nastavit VPN na Prem](azure-stack-network-howto-vnet-to-onprem.md) | ![F5 pro vyrovnávání zatížení](media/deploy-foundational-patterns/icon-networking-62-load-balancers.svg)<br>[F5 pro vyrovnávání zatížení](network-howto-f5.md) |
 | ![Partnerský vztah virtuální sítě s FortiGate](media/deploy-foundational-patterns/icon-networking-61-virtual-networks.svg)<br>[Partnerský vztah virtuální sítě s FortiGate](azure-stack-network-howto-vnet-to-vnet.md) | ![Virtuální privátní síť](media/deploy-foundational-patterns/icon-networking-63-virtual-network-gateways.svg)<br>[Připojení virtuální sítě k virtuální síti](azure-stack-network-howto-vnet-to-vnet-stacks.md) |  |
@@ -43,7 +43,7 @@ Každý článek se zabývá běžnými aspekty, jako například:
 Pomocí vzorů úložiště zvyšte možnosti úložiště pomocí centra Azure Stack. V Azure Stack je úložiště centra omezené. Připojte se k prostředkům v existujícím datovém centru. Přečtěte si pokyny k vytvoření virtuálního počítače s Windows v centru Azure Stack pro připojení k externímu cíli iSCSI. Informace o tom, jak povolit klíčové funkce, jako je funkce Multipath I/O (MPIO), vám umožní optimalizovat výkon a možnosti připojení mezi virtuálním počítačem a externím úložištěm.
 
 | úložiště iSCSI | Rozšiřování úložiště |
-| --- | --- | --- |
+| --- | --- |
 | ![Připojení k úložišti iSCSI](media/deploy-foundational-patterns/icon-storage-87-storage-accounts-classic.svg)<br>[Připojení k úložišti iSCSI](azure-stack-network-howto-iscsi-storage.md) | ![Rozšiřování datacentra](media/deploy-foundational-patterns/icon-storage-88-recovery-services-vaults.svg)<br>[Rozšiřování datacentra](azure-stack-network-howto-extend-datacenter.md) |
 
 ## <a name="backup"></a>Backup
@@ -53,9 +53,9 @@ K kopírování všech prostředků v předplatném do Azure nebo jiné instance
 
 
 |  Zálohování  |  Kopírovat  |
-| --- | --- | --- |
+| --- | --- |
 | ![Zálohování virtuálního počítače v Azure Stack hub pomocí CommVault](media/deploy-foundational-patterns/icon-storage-100-import-export-jobs.svg)<br>[Zálohování virtuálního počítače v Azure Stack hub pomocí CommVault](azure-stack-network-howto-backup-commvault.md) | ![Kopírovat prostředky předplatného](media/deploy-foundational-patterns/icon-storage-94-data-box.svg)<br>[Kopírovat prostředky předplatného](azure-stack-network-howto-backup-replicator.md) |
-|  | ![Zálohování účtů úložiště v centru Azure Stack](media/deploy-foundational-patterns/icon-storage-93-storage-sync-services.svg)<br>[Zálohování účtů úložiště v centru Azure Stack](azure-stack-network-howto-backup-storage.md)  |
+|  ![Zálohování účtů úložiště v centru Azure Stack](media/deploy-foundational-patterns/icon-storage-93-storage-sync-services.svg)<br>[Zálohování účtů úložiště v centru Azure Stack](azure-stack-network-howto-backup-storage.md)  | |
 
 ## <a name="github-samples"></a>Ukázky Githubu
 
@@ -63,4 +63,4 @@ K kopírování všech prostředků v předplatném do Azure nebo jiné instance
 
 ## <a name="next-steps"></a>Další kroky
 
-[Dokumentace k hybridním vzorům a řešením Azure](\hybrid\app-solutions)
+[Dokumentace k hybridním vzorům a řešením Azure](/hybrid/app-solutions)

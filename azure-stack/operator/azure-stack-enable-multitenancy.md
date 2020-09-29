@@ -7,12 +7,12 @@ ms.date: 06/18/2020
 ms.author: bryanla
 ms.reviewer: bryanr
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: 16b8ca5999507bd64d3416c3ee22fdd5c827c8b5
-ms.sourcegitcommit: 874ad1cf8ce7e9b3615d6d69651419642d5012b4
+ms.openlocfilehash: e99c1cc09f3dc6b0a04ff22f5b5dc96004ba305e
+ms.sourcegitcommit: d73637146daaba0ef0ab1729683bb52c65466099
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85107157"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88857497"
 ---
 # <a name="configure-multi-tenancy-in-azure-stack-hub"></a>Konfigurace víceklientské architektury v centru Azure Stack
 
@@ -24,16 +24,17 @@ Centrum Azure Stack můžete nakonfigurovat tak, aby podporovalo uživatele z v�
 
 Tato příručka popisuje požadované kroky v souvislosti s tímto scénářem ke konfiguraci víceklientské architektury v Azure Stackovém centru. V tomto scénáři je nutné provést kroky, aby se uživatelé ze společnosti Fabrikam mohli přihlašovat a využívat služby z nasazení centra Azure Stack ve společnosti Contoso.
 
+Pokud jste poskytovatelem Cloud Solution Provider (CSP), máte k dispozici další způsoby, jak můžete [Konfigurovat a spravovat Azure Stackho centra pro více tenantů](azure-stack-add-manage-billing-as-a-csp.md). 
+
 ## <a name="enable-multi-tenancy"></a>Povolení víceklientské architektury
 
 Předtím, než nakonfigurujete víceklientské architektury v Azure Stackovém centru, je nutné mít na zřeteli několik požadavků:
   
  - A Marie musí koordinovat kroky správy v rámci adresáře Azure Stackho centra, který je nainstalovaný v (Contoso), a v adresáři hosta (Fabrikam).
  - Ujistěte se, že jste [nainstalovali](azure-stack-powershell-install.md) a [nakonfigurovali](azure-stack-powershell-configure-admin.md) PowerShell pro Azure Stack hub.
- - [Stáhněte si nástroje Azure Stack hub](azure-stack-powershell-download.md)a importujte moduly připojení a identita:
+ - [Stáhněte si nástroje Azure Stack hub](azure-stack-powershell-download.md)a importujte moduly identity:
 
     ```powershell
-    Import-Module .\Connect\AzureStack.Connect.psm1
     Import-Module .\Identity\AzureStack.Identity.psm1
     ```
 
@@ -168,10 +169,9 @@ $healthReport.directoryTenants | Where status -NE 'Healthy' | Select -Property t
 
 ### <a name="update-azure-ad-tenant-permissions"></a>Aktualizovat oprávnění tenanta Azure AD
 
-Tato akce vymaže výstrahu v centru Azure Stack, což značí, že adresář vyžaduje aktualizaci. Ve složce **Azurestack-Tools-Master/identity** spusťte následující příkazy:
+Tato akce vymaže výstrahu v centru Azure Stack, což značí, že adresář vyžaduje aktualizaci. Ze složky **Azurestack-Tools-Master/identity** spusťte následující příkaz:
 
 ```powershell
-Import-Module ..\Connect\AzureStack.Connect.psm1
 Import-Module ..\Identity\AzureStack.Identity.psm1
 
 $adminResourceManagerEndpoint = "https://adminmanagement.<region>.<domain>"

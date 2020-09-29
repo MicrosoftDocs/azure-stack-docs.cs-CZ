@@ -3,16 +3,16 @@ title: Registrace tenantů pro sledování využití v centru Azure Stack
 description: Naučte se, jak registrovat klienty a jak je využití tenanta sledováno v Azure Stack hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 05/01/2020
+ms.date: 09/01/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/14/2019
-ms.openlocfilehash: 89ef1d91ae2c6cb41a26bed04cb87abf33da1650
-ms.sourcegitcommit: 804f94f288859027b8249d138b14e8bc1501e009
+ms.openlocfilehash: 66a21943e19cef13aa7a3986b6a058f69cc85793
+ms.sourcegitcommit: 0714ce748e20065b52f8283d5dbba7ab068978d1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84158363"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89285494"
 ---
 # <a name="register-tenants-for-usage-tracking-in-azure-stack-hub"></a>Registrace tenantů pro sledování využití v centru Azure Stack
 
@@ -37,7 +37,7 @@ Další informace o centru Azure Stack a profilech rozhraní API najdete v téma
 
 ### <a name="parameters"></a>Parametry
 
-| Parametr                  | Popis |
+| parametr                  | Popis |
 |---                         | --- |
 | registrationSubscriptionID | Předplatné Azure, které se použilo pro prvotní registraci. |
 | customerSubscriptionID     | Předplatné Azure (ne Azure Stack centrum) patřící zákazníkovi, který se má zaregistrovat Musí se vytvořit v nabídce zprostředkovatel Cloud Solution Provider (CSP) prostřednictvím partnerského centra. Pokud má zákazník více než jednoho tenanta, vytvořte si předplatné pro tenanta, abyste se přihlásili ke službě Azure Stack hub. ID předplatného zákazníka rozlišuje velká a malá písmena. |
@@ -49,7 +49,7 @@ Další informace o centru Azure Stack a profilech rozhraní API najdete v téma
 
 ### <a name="powershell"></a>PowerShell
 
-K přidání tenanta použijte rutinu **New-AzureRmResource** . [Připojte se k centru Azure Stack](azure-stack-powershell-configure-admin.md)a potom z výzvy se zvýšenými oprávněními použijte následující rutinu:
+K přidání tenanta použijte rutinu **New-AzureRmResource** . [Připojte se k Azure](/powershell/azure/get-started-azureps)a pak na příkazovém řádku se zvýšenými oprávněními spusťte následující příkaz:
 
 ```powershell  
 New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01
@@ -58,7 +58,7 @@ New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/reso
 ### <a name="api-call"></a>Volání rozhraní API
 
 **Operace**: Put  
-**RequestURI**:`subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}?api-version=2017-06-01 HTTP/1.1`  
+**RequestURI**: `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}?api-version=2017-06-01 HTTP/1.1`  
 **Odpověď**: 201 vytvořeno  
 **Tělo odpovědi**: prázdné  
 
@@ -71,7 +71,7 @@ Získá seznam všech tenantů, které byly přidány k registraci.
 
 ### <a name="parameters"></a>Parametry
 
-| Parametr                  | Popis          |
+| parametr                  | Popis          |
 |---                         | ---                  |
 | registrationSubscriptionId | Předplatné Azure, které se použilo pro prvotní registraci.   |
 | resourceGroup              | Skupina prostředků v Azure, ve které je uložená vaše registrace.    |
@@ -90,7 +90,7 @@ Get-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/reso
 Můžete získat seznam mapování všech klientů pomocí operace GET.
 
 **Operace**: Get  
-**RequestURI**:`subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions?api-version=2017-06-01 HTTP/1.1`  
+**RequestURI**: `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions?api-version=2017-06-01 HTTP/1.1`  
 **Odpověď**: 200  
 **Tělo odpovědi**:
 
@@ -119,7 +119,7 @@ Můžete odebrat klienta, který byl přidán k registraci. Pokud tento tenant s
 
 ### <a name="parameters"></a>Parametry
 
-| Parametr                  | Popis          |
+| parametr                  | Popis          |
 |---                         | ---                  |
 | registrationSubscriptionId | ID předplatného pro registraci.   |
 | resourceGroup              | Skupina prostředků pro registraci.   |
@@ -139,7 +139,7 @@ Remove-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/r
 Mapování klientů můžete odebrat pomocí operace DELETE.
 
 **Operace**: odstranit  
-**RequestURI**:`subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}?api-version=2017-06-01 HTTP/1.1`  
+**RequestURI**: `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}?api-version=2017-06-01 HTTP/1.1`  
 **Odpověď**: 204 bez obsahu  
 **Tělo odpovědi**: prázdné
 

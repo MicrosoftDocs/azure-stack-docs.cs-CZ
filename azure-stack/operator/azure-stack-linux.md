@@ -3,20 +3,20 @@ title: Přidání imagí pro Linux do webu centra Azure Stack Marketplace
 description: Naučte se přidávat image Linux do Marketplace centra Azure Stack.
 author: sethmanheim
 ms.topic: article
-ms.date: 05/07/2020
+ms.date: 08/24/2020
 ms.author: sethm
 ms.reviewer: ''
 ms.lastreviewed: 11/16/2019
-ms.openlocfilehash: 32cdb1ec98f9825a63b5acfa68e4c8e3f43089a7
-ms.sourcegitcommit: 9894804f31527234d43f4a93a9b7c106c8540435
+ms.openlocfilehash: 32e16bac548193a7c0af517c3a60e78a3e52f3ce
+ms.sourcegitcommit: d73637146daaba0ef0ab1729683bb52c65466099
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82967722"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88857531"
 ---
 # <a name="add-linux-images-to-the-azure-stack-hub-marketplace"></a>Přidání imagí pro Linux do webu centra Azure Stack Marketplace
 
-Virtuální počítače se systémem Linux můžete do centra Azure Stack nasadit přidáním image založené na systému Linux do webu centra Azure Stack hub. Nejjednodušší způsob, jak přidat image pro Linux do centra Azure Stack, je prostřednictvím správy Marketplace. Tyto Image byly připraveny a testovány kvůli kompatibilitě s Azure Stackm centrem.
+Virtuální počítače se systémem Linux můžete do centra Azure Stack nasadit přidáním image založené na systému Linux na tržiště Azure Stack hub. Nejjednodušší způsob, jak přidat image pro Linux do centra Azure Stack, je prostřednictvím správy Marketplace. Tyto Image byly připraveny a testovány kvůli kompatibilitě s Azure Stackm centrem.
 
 ## <a name="marketplace-management"></a>Správa Marketplace
 
@@ -30,7 +30,7 @@ Pokud je to možné, Stáhněte si image dostupné prostřednictvím správy Mar
 
 ### <a name="azure-linux-agent"></a>Agent Azure Linux
 
-Je vyžadován agent Azure Linux (obvykle označovaný jako **WALinuxAgent** nebo **WALinuxAgent**) a ne všechny verze agenta fungují v centru Azure Stack. Verze mezi 2.2.21 a 2.2.34 (včetně) se v Azure Stackovém centru nepodporují. Pokud chcete použít nejnovější verze agenta výše než 2.2.35, použijte opravu hotfix 1901 hotfix/1902 nebo aktualizujte centrum Azure Stack na verzi 1903 (nebo vyšší). Všimněte si, že [Cloud-init](https://cloud-init.io/) se podporuje v Azure Stackch vydáních centra nad rámec 1910.
+Je vyžadován agent Azure Linux (obvykle označovaný jako **WALinuxAgent** nebo **WALinuxAgent**) a ne všechny verze agenta fungují v centru Azure Stack. Verze mezi 2.2.21 a 2.2.34 (včetně) se v Azure Stackovém centru nepodporují. Pokud chcete použít nejnovější verze agenta výše než 2.2.35, použijte opravu hotfix 1901 hotfix/1902 nebo aktualizujte centrum Azure Stack na verzi 1903 (nebo novější). Všimněte si, že [Cloud-init](https://cloud-init.io/) se podporuje v Azure Stack vydáních centra později než 1910.
 
 | Sestavování centra Azure Stack | Sestavení agenta Azure Linux |
 | ------------- | ------------- |
@@ -40,7 +40,7 @@ Je vyžadován agent Azure Linux (obvykle označovaný jako **WALinuxAgent** neb
 | 1.1902.2.73  | 2.2.35 nebo novější |
 | 1.1903.0.35  | 2.2.35 nebo novější |
 | Build po 1903 | 2.2.35 nebo novější |
-| Nepodporuje se | 2.2.21-2.2.34 |
+| Nepodporováno | 2.2.21-2.2.34 |
 | Build po 1910 | Všechny verze agenta Azure WALA|
 
 Vlastní image pro Linux můžete připravit pomocí následujících pokynů:
@@ -53,11 +53,11 @@ Vlastní image pro Linux můžete připravit pomocí následujících pokynů:
 
 ## <a name="cloud-init"></a>Cloud-init
 
-[Cloud-init](https://cloud-init.io/) se podporuje v Azure Stackch vydáních centra nad 1910. Pokud chcete použít Cloud-init k přizpůsobení virtuálního počítače se systémem Linux, můžete použít následující pokyny prostředí PowerShell.
+[Cloud-init](https://cloud-init.io/) se podporuje v Azure Stack vydání centra později než 1910. Pokud chcete použít Cloud-init k přizpůsobení virtuálního počítače se systémem Linux, můžete použít následující pokyny prostředí PowerShell.
 
-### <a name="step-1-create-a-cloud-inittxt-file-with-your-cloud-config"></a>Krok 1: vytvoření souboru Cloud-init. txt pomocí cloudové konfigurace
+### <a name="step-1-create-a-cloud-inittxt-file-with-your-cloud-config"></a>Krok 1: vytvoření souboru cloud-init.txt s cloudovou konfigurací
 
-Vytvořte soubor s názvem Cloud-init. txt a vložte následující konfiguraci cloudu:
+Vytvořte soubor s názvem cloud-init.txt a vložte následující konfiguraci cloudu:
 
 ```yaml
 #cloud-config
@@ -101,12 +101,12 @@ runcmd:
   - nodejs index.js
   ```
   
-### <a name="step-2-reference-cloud-inittxt-during-the-linux-vm-deployment"></a>Krok 2: Referenční dokumentace Cloud-init. txt během nasazování virtuálního počítače se systémem Linux
+### <a name="step-2-reference-cloud-inittxt-during-the-linux-vm-deployment"></a>Krok 2: referenční cloud-init.txt během nasazování virtuálního počítače se systémem Linux
 
 Nahrajte soubor do účtu služby Azure Storage, Azure Stack účtu úložiště centra nebo úložiště GitHub dosažitelného pomocí virtuálního počítače Azure Stack hub Linux.
 V současné době se použití Cloud-init pro nasazení virtuálního počítače podporuje jenom v REST, PowerShellu a rozhraní příkazového řádku a nemá přidružené uživatelské rozhraní portálu na Azure Stack hub.
 
-Podle [těchto pokynů](../user/azure-stack-quick-create-vm-linux-powershell.md) můžete vytvořit virtuální počítač Linux pomocí prostředí PowerShell, ale nezapomeňte odkazovat na Cloud-init. txt jako součást `-CustomData` příznaku:
+Podle [těchto pokynů](../user/azure-stack-quick-create-vm-linux-powershell.md) můžete vytvořit virtuální počítač Linux pomocí prostředí PowerShell, ale nezapomeňte na cloud-init.txt odkazovat jako na součást `-CustomData` příznaku:
 
 ```powershell
 $VirtualMachine =Set-AzureRmVMOperatingSystem -VM $VirtualMachine `
@@ -117,7 +117,7 @@ $VirtualMachine =Set-AzureRmVMOperatingSystem -VM $VirtualMachine `
 
 ## <a name="add-your-image-to-marketplace"></a>Přidání image do Marketplace
 
-Postupujte podle pokynů [Přidat obrázek na Marketplace](azure-stack-add-vm-image.md). Ujistěte se, že `OSType` je parametr nastaven na `Linux`hodnotu.
+Postupujte podle pokynů [Přidat obrázek na Marketplace](azure-stack-add-vm-image.md). Ujistěte se, že `OSType` je parametr nastaven na hodnotu `Linux` .
 
 Po přidání image na Marketplace se vytvoří položka Marketplace a uživatelé můžou nasadit virtuální počítač se systémem Linux.
 

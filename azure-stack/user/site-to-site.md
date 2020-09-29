@@ -7,20 +7,23 @@ ms.date: 05/12/2020
 ms.topic: article
 ms.reviewer: sranthar
 ms.lastreviewed: 05/12/2020
-ms.openlocfilehash: 361fefb0cfac67d5d55c9b3391da68877d695da3
-ms.sourcegitcommit: f4c2d5b87bc86ac4accb4d4df5b731b67d1a346c
+ms.openlocfilehash: e4385f7b1ac22f36f069e9ac4d5b35011e290982
+ms.sourcegitcommit: 593a6c9cff741af24aac28a3328605fe071129ea
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84203115"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89510934"
 ---
-# <a name="troubleshoot-site-to-site-vpn-connections"></a>Řešení potíží s připojením VPN typu Site-to-site
+# <a name="troubleshoot-site-to-site-vpn-connections"></a>Řešení potíží s připojeními site-to-site VPN
 
 Tento článek popisuje kroky, které můžete provést po konfiguraci připojení VPN typu Site-to-Site (S2S) mezi místní sítí a virtuální sítí centra Azure Stack, a připojení se náhle zastaví a nedá se znovu připojit.
 
 Pokud se problém s centrem Azure Stack nezabývá v tomto článku, můžete navštívit [fórum služby Azure Stack centra MSDN](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack).
 
 Můžete také odeslat žádost o podporu Azure. Podívejte se prosím na [podporu centra Azure Stack](../operator/azure-stack-manage-basics.md#where-to-get-support).
+
+> [!NOTE]
+> Mezi dvěma nasazeními centra Azure Stack lze vytvořit pouze jedno připojení typu Site-to-Site VPN. Důvodem je omezení platformy, která umožňuje jenom jedno připojení VPN ke stejné IP adrese. Vzhledem k tomu, že centrum Azure Stack využívá víceklientské brány, která používá jednu veřejnou IP adresu pro všechny brány VPN v systému služby Azure Stack hub, může být mezi dvěma Azure Stackmi systémy pouze jedno připojení VPN. Toto omezení platí i pro připojení více než jednoho připojení VPN typu Site-to-site k libovolné bráně VPN, která používá jednu IP adresu. Centrum Azure Stack neumožňuje vytvoření více než jednoho prostředku brány místní sítě pomocí stejné IP adresy.
 
 ## <a name="initial-troubleshooting-steps"></a>První kroky při řešení potíží
 
@@ -77,4 +80,4 @@ Výchozí parametry centra Azure Stack pro protokol IPsec/IKEV2 se [od verze 191
 
 ## <a name="create-a-support-ticket"></a>Vytvoření lístku podpory
 
-Pokud žádný z předchozích kroků problém nevyřeší, vytvořte prosím [lístek podpory](../operator/azure-stack-manage-basics.md#where-to-get-support) a použijte [Nástroj pro shromažďování protokolů na vyžádání](../operator/azure-stack-configure-on-demand-diagnostic-log-collection.md) k poskytnutí protokolů.
+Pokud žádný z předchozích kroků problém nevyřeší, vytvořte prosím [lístek podpory](../operator/azure-stack-manage-basics.md#where-to-get-support) a použijte [Nástroj pro shromažďování protokolů na vyžádání](../operator/azure-stack-diagnostic-log-collection-overview.md) k poskytnutí protokolů.
