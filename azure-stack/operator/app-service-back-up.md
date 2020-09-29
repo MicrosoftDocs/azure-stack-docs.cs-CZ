@@ -1,5 +1,5 @@
 ---
-title: Zálohování App Service v centru Azure Stack
+title: Zálohování služby App Service ve službě Azure Stack Hub
 description: Naučte se, jak zálohovat App Services v centru Azure Stack.
 author: bryanla
 ms.topic: article
@@ -7,14 +7,14 @@ ms.date: 04/23/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/21/2019
-ms.openlocfilehash: c559a90234b486f8501eeb7b0b8249e41dcdb8fa
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 3b12c794550c3d39809369ae86117d9c684e1a53
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77701475"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86489789"
 ---
-# <a name="back-up-app-service-on-azure-stack-hub"></a>Zálohování App Service v centru Azure Stack
+# <a name="back-up-app-service-on-azure-stack-hub"></a>Zálohování služby App Service ve službě Azure Stack Hub
 
 Tento dokument poskytuje pokyny, jak zálohovat App Service v centru Azure Stack.
 
@@ -34,13 +34,13 @@ Použijte portál pro správu k zálohování tajných kódů App Service pomoc�
 
 1. Přihlaste se k portálu správce Azure Stackového centra jako správce služby.
 
-2. Vyhledejte **App Service** -> **tajných**kódů. 
+2. Vyhledejte **App Service**  ->  **tajných**kódů. 
 
 3. Vyberte **Stáhnout tajné**kódy.
 
    ![Stažení tajných kódů na portálu pro správu centra Azure Stack](./media/app-service-back-up/download-secrets.png)
 
-4. Až budou tajná klíčová místa připravená ke stažení, klikněte na **Uložit** a uložte soubor App Service tajných kódů (**SystemSecrets. JSON**) do bezpečného umístění. 
+4. Až budou tajná klíčová místa připravená ke stažení, klikněte na **Uložit** a uložte soubor App Service tajných kódů (**SystemSecrets.JSon**) do bezpečného umístění. 
 
    ![Uložení tajných klíčů na portále správce centra Azure Stack](./media/app-service-back-up/save-secrets.png)
 
@@ -61,7 +61,7 @@ K ručnímu zálohování těchto databází při přihlášení k SQL Server po
   ```
 
 > [!NOTE]
-> Pokud potřebujete zálohovat databáze SQL AlwaysOn, postupujte podle [těchto pokynů](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-backup-on-availability-replicas-sql-server?view=sql-server-2017). 
+> Pokud potřebujete zálohovat databáze SQL AlwaysOn, postupujte podle [těchto pokynů](/sql/database-engine/availability-groups/windows/configure-backup-on-availability-replicas-sql-server?view=sql-server-2017). 
 
 Po úspěšném zálohování všech databází zkopírujte soubory. bak do bezpečného umístění spolu s informacemi App Service tajných kódů.
 

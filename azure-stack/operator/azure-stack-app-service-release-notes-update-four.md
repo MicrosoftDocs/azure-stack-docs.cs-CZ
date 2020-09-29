@@ -8,12 +8,12 @@ ms.date: 05/05/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 08/20/2019
-ms.openlocfilehash: 908589061e1038f92a014cf62de216b4c52dce8d
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: 636d4834b391055911ffc37a005fe40d253ec1d6
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82847771"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86489670"
 ---
 # <a name="app-service-on-azure-stack-hub-update-4-release-notes"></a>Zpráva k vydání verze App Service ve Azure Stack centra pro aktualizaci 4
 
@@ -22,7 +22,7 @@ Tyto poznámky k verzi popisují vylepšení, opravy a známé problémy v Azure
 > [!IMPORTANT]
 > Před nasazením Azure App Service 1,4 použijte aktualizaci 1809 pro integrovaný systém Azure Stack hub nebo nasaďte nejnovější Azure Stack Development Kit (ASDK).
 
-## <a name="build-reference"></a>Odkaz na sestavení
+## <a name="build-reference"></a>Referenční informace o buildu
 
 App Service číslo buildu v Azure Stack centra aktualizace 4 je **78.0.13698.5**
 
@@ -94,7 +94,7 @@ Azure App Service v centru Azure Stack s aktualizací Update 4 zahrnuje následu
 ## <a name="post-deployment-steps"></a>Kroky po nasazení
 
 > [!IMPORTANT]  
-> Pokud jste poskytli App Service poskytovatele prostředků s instancí SQL Always On, je *nutné* [přidat databáze appservice_hosting a appservice_metering do skupiny dostupnosti](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) a synchronizovat databáze, aby nedošlo ke ztrátě služeb v případě převzetí služeb při selhání databáze.
+> Pokud jste poskytli App Service poskytovatele prostředků s instancí SQL Always On, je *nutné* [přidat databáze appservice_hosting a appservice_metering do skupiny dostupnosti](/sql/database-engine/availability-groups/windows/availability-group-add-a-database) a synchronizovat databáze, aby nedošlo ke ztrátě služeb v případě převzetí služeb při selhání databáze.
 
 ## <a name="post-update-steps-optional"></a>Kroky po aktualizaci (volitelné)
 
@@ -103,7 +103,7 @@ Pro zákazníky, kteří chtějí migrovat na databázi s omezením na existují
 > [!IMPORTANT]
 > Postup migrace trvá přibližně 5-10 minut. Tento postup zahrnuje ukončení stávajících přihlašovacích relací databáze. Naplánujte výpadky migrace a ověření Azure App Service v příspěvku Azure Stack centra po migraci. Pokud jste tyto kroky dokončili po aktualizaci na Azure App Service v centru Azure Stack 1,3, tyto kroky se nevyžadují.
 
-1. Přidejte [databáze AppService (appservice_hosting a appservice_metering) do skupiny dostupnosti](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database).
+1. Přidejte [databáze AppService (appservice_hosting a appservice_metering) do skupiny dostupnosti](/sql/database-engine/availability-groups/windows/availability-group-add-a-database).
 
 1. Povoluje databázi s omezením.
     ```sql
@@ -243,7 +243,7 @@ Pokud se rozhodnete nasadit do existující virtuální sítě a interní IP adr
 
 ## <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Známé problémy pro Cloud Admins, které pracují Azure App Service v centru Azure Stack
 
-Informace najdete v dokumentaci k [verzi centra Azure Stack 1809](azure-stack-update-1903.md) .
+Informace najdete v dokumentaci k [verzi centra Azure Stack 1809](./release-notes.md?view=azs-2002) .
 
 ## <a name="next-steps"></a>Další kroky
 

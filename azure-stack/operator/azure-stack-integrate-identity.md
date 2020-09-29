@@ -7,12 +7,13 @@ ms.date: 04/10/2020
 ms.author: bryanla
 ms.reviewer: thoroet
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: f1217bacebc4c391347506720c760b947e363b3a
-ms.sourcegitcommit: 41195d1ee8ad14eda102cdd3fee3afccf1d83aca
+ms.custom: conteperfq4
+ms.openlocfilehash: 8e6ec9fcb6428b9f8dad7c4f78acde54291b30f1
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82908594"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86488616"
 ---
 # <a name="integrate-ad-fs-identity-with-your-azure-stack-hub-datacenter"></a>Integrace AD FS identity s vaším datacenterm centra Azure Stack
 
@@ -31,7 +32,7 @@ Ověřování je jedna část identity. Pokud chcete spravovat řízení příst
 
 Stávající AD FS je služba tokenů zabezpečení (STS) účtu, která odesílá deklarace do centra Azure Stack AD FS (prostředek STS). V centru Azure Stack Automation vytvoří vztah důvěryhodnosti zprostředkovatele deklarací identity s koncovým bodem metadat pro existující AD FS.
 
-U stávajících AD FS je nutné nakonfigurovat vztah důvěryhodnosti předávající strany. Tento krok není proveden automatizací a musí být nakonfigurován pomocí operátoru. Koncový bod VIP Azure Stack centra pro AD FS se dá vytvořit pomocí vzoru `https://adfs.<Region>.<ExternalFQDN>/`.
+U stávajících AD FS je nutné nakonfigurovat vztah důvěryhodnosti předávající strany. Tento krok není proveden automatizací a musí být nakonfigurován pomocí operátoru. Koncový bod VIP Azure Stack centra pro AD FS se dá vytvořit pomocí vzoru `https://adfs.<Region>.<ExternalFQDN>/` .
 
 Konfigurace vztahu důvěryhodnosti předávající strany také vyžaduje, abyste nakonfigurovali pravidla transformace deklarace identity, která poskytuje Microsoft.
 
@@ -52,7 +53,7 @@ Graf podporuje pouze integraci s jednou doménovou strukturou služby Active Dir
 
 Jako vstupy pro parametry automatizace se vyžadují tyto informace:
 
-|Parametr|Parametr listu nasazení|Popis|Příklad|
+|parametr|Parametr listu nasazení|Popis|Příklad|
 |---------|---------|---------|---------|
 |`CustomADGlobalCatalog`|AD FS plně kvalifikovaný název domény doménové struktury|Plně kvalifikovaný název domény cílové doménové struktury služby Active Directory, se kterou chcete integrovat|Contoso.com|
 |`CustomADAdminCredentials`| |Uživatel s oprávněním ke čtení protokolu LDAP|YOURDOMAIN\graphservice|
@@ -63,7 +64,7 @@ Pro nasazení služby Active Directory s více lokalitami nakonfigurujte nejbli�
 
 Přidejte [síť veřejných virtuálních IP adres](azure-stack-network.md#public-vip-network) centra Azure Stack k lokalitě služby Active Directory nejbližší k centru Azure Stack. Řekněme například, že vaše služba Active Directory má dvě lokality: Seattle a Redmond. Pokud je v lokalitě Praha nasazený Azure Stack hub, přidáte do lokality služby Active Directory pro Seattle síť veřejnou virtuální IP adresu centra Azure Stack.
 
-Další informace o lokalitách služby Active Directory najdete v tématu [navrhování topologie lokality](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology).
+Další informace o lokalitách služby Active Directory najdete v tématu [navrhování topologie lokality](/windows-server/identity/ad-ds/plan/designing-the-site-topology).
 
 > [!Note]  
 > Pokud se vaše služba Active Directory skládá z jedné lokality, můžete tento krok přeskočit. Pokud máte nakonfigurované nastavení catch-All Subnet, ověřte, že není součástí podsítě sítě veřejných VIP centra Azure Stack.
@@ -113,7 +114,7 @@ Služba Graph Service v centru Azure Stack používá následující protokoly a
 
 Služba Graph Service v centru Azure Stack používá ke komunikaci s cílovou službou Active Directory následující protokoly a porty:
 
-|Typ|Port|Protocol (Protokol)|
+|Typ|Port|Protokol|
 |---------|---------|---------|
 |LDAP|389|TCP & UDP|
 |PROTOKOL LDAP SSL|636|TCP|
@@ -124,10 +125,10 @@ Služba Graph Service v centru Azure Stack používá ke komunikaci s cílovou s
 
 Pro parametry automatizace se jako vstup vyžadují tyto informace:
 
-|Parametr|Parametr listu nasazení|Popis|Příklad|
+|parametr|Parametr listu nasazení|Popis|Příklad|
 |---------|---------|---------|---------|
 |CustomAdfsName|Název poskytovatele AD FS|Název zprostředkovatele deklarací identity.<br>Toto zobrazení se zobrazí na AD FS cílové stránce.|Contoso|
-|CustomAD<br>FSFederationMetadataEndpointUri|Identifikátor URI AD FS metadat|Odkaz federačních metadat| https:\//AD01.contoso.com/federationmetadata/2007-06/federationmetadata.XML |
+|CustomAD<br>FSFederationMetadataEndpointUri|Identifikátor URI AD FS metadat|Odkaz federačních metadat| https: \/ /ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml |
 |SigningCertificateRevocationCheck|Není k dispozici|Volitelný parametr pro přeskočení kontroly CRL|Žádné|
 
 
@@ -219,7 +220,7 @@ Pomocný skript si můžete stáhnout z [Azure Stack nástrojů centra](https://
 
 Pokud se rozhodnete tyto příkazy spustit ručně, postupujte následovně:
 
-1. Zkopírujte následující obsah do souboru. txt (například uložený jako c:\ClaimIssuanceRules.txt) do instance AD FS svého datového centra nebo člena farmy:
+1. Zkopírujte následující obsah do souboru. txt (například uložený jako c:\ClaimIssuanceRules.txt) do instance AD FS vašeho datového centra nebo člena farmy:
 
    ```text
    @RuleTemplate = "LdapClaims"
@@ -259,7 +260,7 @@ Pokud se rozhodnete tyto příkazy spustit ručně, postupujte následovně:
    ```
 
     > [!Note]  
-    > Pro vaše nasazení AD FS můžou být zastaralá podporovaná řetězce uživatelského agenta Windows Integrated Authentication (WIA) a můžou vyžadovat aktualizaci pro podporu nejnovějších klientů. Další informace o aktualizaci řetězců uživatelského agenta podporovaného zařízením WIA najdete v článku [Konfigurace ověřování na základě intranetových formulářů pro zařízení, která nepodporují WIA](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-intranet-forms-based-authentication-for-devices-that-do-not-support-wia).<br><br>Postup pro povolení zásad ověřování na základě formulářů najdete v tématu [Konfigurace zásad ověřování](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-authentication-policies).
+    > Pro vaše nasazení AD FS můžou být zastaralá podporovaná řetězce uživatelského agenta Windows Integrated Authentication (WIA) a můžou vyžadovat aktualizaci pro podporu nejnovějších klientů. Další informace o aktualizaci řetězců uživatelského agenta podporovaného zařízením WIA najdete v článku [Konfigurace ověřování na základě intranetových formulářů pro zařízení, která nepodporují WIA](/windows-server/identity/ad-fs/operations/configure-intranet-forms-based-authentication-for-devices-that-do-not-support-wia).<br><br>Postup pro povolení zásad ověřování na základě formulářů najdete v tématu [Konfigurace zásad ověřování](/windows-server/identity/ad-fs/operations/configure-authentication-policies).
 
 3. Chcete-li přidat vztah důvěryhodnosti předávající strany, spusťte následující příkaz prostředí Windows PowerShell na instanci AD FS nebo členu farmy. Nezapomeňte aktualizovat koncový bod AD FS a Ukázat na soubor vytvořený v kroku 1.
 

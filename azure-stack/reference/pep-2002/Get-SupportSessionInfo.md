@@ -7,12 +7,12 @@ ms.date: 04/27/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/27/2020
-ms.openlocfilehash: d18e27b7b491af767dc094529d5247804fa851a6
-ms.sourcegitcommit: 54f98b666bea9226c78f26dc255ddbdda539565f
+ms.openlocfilehash: e23735e2a8fcf65a1cf5894e5fb909628ed7944f
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82562528"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86487035"
 ---
 # <a name="get-supportsessioninfo"></a>Get-SupportSessionInfo
 
@@ -41,7 +41,7 @@ Accept wildcard characters: False
 
 ## <a name="inputs"></a>Vstupy
 
-### <a name="none"></a>Žádná
+### <a name="none"></a>Žádné
 
 ## <a name="outputs"></a>Výstupy
 
@@ -50,4 +50,4 @@ Accept wildcard characters: False
 
 ## <a name="next-steps"></a>Další kroky
 
-Informace o přístupu a používání privilegovaného koncového bodu najdete v tématu [použití privilegovaného koncového bodu v centru Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-privileged-endpoint).
+Informace o přístupu a používání privilegovaného koncového bodu najdete v tématu [použití privilegovaného koncového bodu v centru Azure Stack](../../operator/azure-stack-privileged-endpoint.md).

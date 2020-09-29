@@ -8,12 +8,12 @@ ms.date: 1/22/2020
 ms.author: inhenkel
 ms.reviewer: scottnap
 ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: f210f5939f60eb996f7c72b9552cf09d11f8de91
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: b96485e74286cbbbd2ff20f2378dc7c452849b52
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77696205"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86487392"
 ---
 # <a name="manage-network-resources-in-azure-stack-hub"></a>Správa síťových prostředků v centru Azure Stack
 
@@ -29,7 +29,7 @@ Azure Stack hub používá ke automatickému vygenerování a přiřazování ad
 
 V závislosti na tom, jak se virtuální sítě připojí k existujícím firemním sítím, můžete očekávat duplicitní adresy MAC virtuálních počítačů.
 
-Další informace najdete v části využití fondu adres MAC pomocí rutiny [Get-AzsMacAddressPool](https://docs.microsoft.com/powershell/module/azs.fabric.admin/get-azsmacaddresspool) v modulu PowerShell pro správce centra Azure Stack.
+Další informace najdete v části využití fondu adres MAC pomocí rutiny [Get-AzsMacAddressPool](/powershell/module/azs.fabric.admin/get-azsmacaddresspool) v modulu PowerShell pro správce centra Azure Stack.
 
 ## <a name="view-public-ip-address-consumption-in-azure-stack-hub"></a>Zobrazení spotřeby veřejných IP adres v centru Azure Stack
 
@@ -42,7 +42,7 @@ Na dlaždici **využití fondů veřejné IP** adresy se zobrazuje počet veřej
 
 Účelem dlaždice je poskytnout operátorům Azure Stackového rozbočovače smysl počtu veřejných IP adres, které se používají v tomto umístění. Číslo pomáhá správcům určit, jestli mají nedostatek na tomto prostředku.
 
-Položka nabídky **veřejné IP adresy** v části **prostředky tenanta** uvádí jenom veřejné IP adresy, které byly *explicitně vytvořené klienty*. Položku nabídky najdete v podokně -> **síť** **poskytovatelé prostředků**. Počet **použitých** veřejných IP adres na dlaždici **využití fondů veřejné IP** adresy se vždycky liší od (větší než) čísla na dlaždici **veřejné IP adresy** v části **prostředky tenanta**.
+Položka nabídky **veřejné IP adresy** v části **prostředky tenanta** uvádí jenom veřejné IP adresy, které byly *explicitně vytvořené klienty*. Položku nabídky najdete v podokně síť **poskytovatelé prostředků**  ->  **Network** . Počet **použitých** veřejných IP adres na dlaždici **využití fondů veřejné IP** adresy se vždycky liší od (větší než) čísla na dlaždici **veřejné IP adresy** v části **prostředky tenanta**.
 
 ### <a name="view-the-public-ip-address-usage-information"></a>Zobrazit informace o využití veřejné IP adresy
 
@@ -75,7 +75,7 @@ V různých případech jsou k disadrese veřejné IP adresy, které určují, j
 | Dynamická veřejná IP adresa přiřazená síťovému rozhraní nebo nástroji pro vyrovnávání zatížení. |Ano |Ano |
 | Statická veřejná IP adresa přiřazená síťové kartě klienta nebo nástroji pro vyrovnávání zatížení. |Ano |Ano |
 | Statická veřejná IP adresa přiřazená ke koncovému bodu služby infrastruktury prostředků infrastruktury. |Ano |Ne |
-| Veřejná IP adresa se implicitně vytvořila pro instance virtuálních počítačů s IaaS a používá se pro odchozí překlad adres (NAT) ve virtuální síti. Ty se vytvářejí na pozadí vždy, když tenant vytvoří instanci virtuálního počítače, aby virtuální počítače mohli odesílat informace na Internet. |Ano |Ne |
+| Veřejná IP adresa se implicitně vytvořila pro instance virtuálních počítačů s IaaS a používá se pro odchozí překlad adres (NAT) ve virtuální síti. Ty se vytvářejí na pozadí vždy, když tenant vytvoří instanci virtuálního počítače, aby virtuální počítače mohli odesílat informace na Internet. |Ano |No |
 
 ## <a name="next-steps"></a>Další kroky
 

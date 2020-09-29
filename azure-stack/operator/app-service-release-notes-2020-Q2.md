@@ -8,12 +8,12 @@ ms.date: 05/05/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 04/30/2020
-ms.openlocfilehash: 57cdd5ed496d0792f2d36f1e12d5fb8fce1d4370
-ms.sourcegitcommit: 8646eba1674ca708baf6699f4a4b56d134766e85
+ms.openlocfilehash: 9a04f99df8093f0f37d68137dfbe9ff18664d385
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82861397"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86489738"
 ---
 # <a name="app-service-on-azure-stack-hub-2020-q2-release-notes"></a>App Service zpráva k vydání verze centra Azure Stack 2020 Q2
 
@@ -21,7 +21,7 @@ Tyto poznámky k verzi popisují vylepšení a opravy v Azure App Service v Azur
 
 [!INCLUDE [Azure Stack Hub update reminder](../includes/app-service-hub-update-banner.md)]
 
-## <a name="build-reference"></a>Odkaz na sestavení
+## <a name="build-reference"></a>Referenční informace o buildu
 
 App Service číslo buildu v centru Azure Stack 2020.2 – 2. **87.0.2.10**
 
@@ -88,7 +88,7 @@ Azure App Service na Azure Stack Update Q2 obsahuje následující vylepšení a
   | --- | --- |
   | Kontrolér | Standard_A4_v2 – (4 jádra, 8192 MB) |
   | Správa | Standard_D3_v2 – (4 jádra, 14336 MB) |
-  | Vydavatel | Standard_A2_v2 – (2 jádra, 4096 MB) |
+  | Publisher | Standard_A2_v2 – (2 jádra, 4096 MB) |
   | FrontEnd | Standard_A4_v2 – (4 jádra, 8192 MB) |
   | Sdílený pracovní proces | Standard_A4_v2 – (4 jádra, 8192 MB) |
   | Malý vyhrazený pracovní proces | Standard_A1_v2 – (1 jader, 2048 MB) |
@@ -119,7 +119,7 @@ Projděte si [známé problémy s aktualizací](#known-issues-update) a proveďt
 ## <a name="post-deployment-steps"></a>Kroky po nasazení
 
 > [!IMPORTANT]
-> Pokud jste poskytli App Service poskytovatele prostředků s instancí SQL Always On, je nutné [přidat databáze appservice_hosting a appservice_metering do skupiny dostupnosti](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) a synchronizovat databáze, aby nedošlo ke ztrátě služeb v případě převzetí služeb při selhání databáze.
+> Pokud jste poskytli App Service poskytovatele prostředků s instancí SQL Always On, je nutné [přidat databáze appservice_hosting a appservice_metering do skupiny dostupnosti](/sql/database-engine/availability-groups/windows/availability-group-add-a-database) a synchronizovat databáze, aby nedošlo ke ztrátě služeb v případě převzetí služeb při selhání databáze.
 
 ## <a name="known-issues-update"></a>Známé problémy (aktualizace)
 

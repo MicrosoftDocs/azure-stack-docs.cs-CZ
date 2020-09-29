@@ -7,16 +7,17 @@ ms.date: 04/28/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/28/2020
-ms.openlocfilehash: ff1a4f255f81c10c29c87320bdb71fcbaf9b234b
-ms.sourcegitcommit: 804f94f288859027b8249d138b14e8bc1501e009
+ms.custom: conteperfq4
+ms.openlocfilehash: 2906846b3f9aac2a748955032d8f9bce060f14cd
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84158346"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86488242"
 ---
 # <a name="use-the-privileged-endpoint-in-azure-stack-hub"></a>Použití privilegovaného koncového bodu v centru Azure Stack
 
-Jako operátor centra Azure Stack byste pro většinu každodenních úloh správy měli používat rozhraní API pro správu portálu, PowerShell nebo Azure Resource Manager. U některých méně běžných operací ale potřebujete použít *privilegovaný koncový bod* (PEP). PEP je předem nakonfigurovaná konzola vzdáleného prostředí PowerShell, která poskytuje dostatek možností, které vám pomůžou provést požadovanou úlohu. Koncový bod používá [prostředí POWERSHELL JEA (jen dostatečná Správa)](https://docs.microsoft.com/powershell/scripting/learn/remoting/jea/overview) k zobrazení pouze omezené sady rutin. Pokud chcete získat přístup k PEP a vyvolat omezenou sadu rutin, použije se účet s nízkými oprávněními. Nejsou vyžadovány žádné účty správců. Pro zvýšení zabezpečení není skriptování povoleno.
+Jako operátor centra Azure Stack byste pro většinu každodenních úloh správy měli používat rozhraní API pro správu portálu, PowerShell nebo Azure Resource Manager. U některých méně běžných operací ale potřebujete použít *privilegovaný koncový bod* (PEP). PEP je předem nakonfigurovaná konzola vzdáleného prostředí PowerShell, která poskytuje dostatek možností, které vám pomůžou provést požadovanou úlohu. Koncový bod používá [prostředí POWERSHELL JEA (jen dostatečná Správa)](/powershell/scripting/learn/remoting/jea/overview) k zobrazení pouze omezené sady rutin. Pokud chcete získat přístup k PEP a vyvolat omezenou sadu rutin, použije se účet s nízkými oprávněními. Nejsou vyžadovány žádné účty správců. Pro zvýšení zabezpečení není skriptování povoleno.
 
 K provedení těchto úloh můžete použít PEP:
 
@@ -40,7 +41,7 @@ IP adresu můžete najít také na portálu pro správu centra Azure Stack. Otev
 `en-US`Při spuštění privilegovaného koncového bodu budete potřebovat nastavit aktuální nastavení jazykové verze, jinak rutiny jako test-AzureStack nebo Get-AzureStackLog nebudou fungovat podle očekávání.
 
 > [!NOTE]
-> Z bezpečnostních důvodů vyžadujeme, abyste se připojili ke službě PEP jenom z posíleného virtuálního počítače, který běží na hostiteli životního cyklu hardwaru, nebo z vyhrazeného a zabezpečeného počítače, jako je například [pracovní stanice privilegovaného přístupu](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations). Původní konfigurace hostitele životního cyklu hardwaru nesmí být upravena z původní konfigurace (včetně instalace nového softwaru) nebo používaná pro připojení k PEP.
+> Z bezpečnostních důvodů vyžadujeme, abyste se připojili ke službě PEP jenom z posíleného virtuálního počítače, který běží na hostiteli životního cyklu hardwaru, nebo z vyhrazeného a zabezpečeného počítače, jako je například [pracovní stanice privilegovaného přístupu](/windows-server/identity/securing-privileged-access/privileged-access-workstations). Původní konfigurace hostitele životního cyklu hardwaru nesmí být upravena z původní konfigurace (včetně instalace nového softwaru) nebo používaná pro připojení k PEP.
 
 1. Vytvořte vztah důvěryhodnosti.
 
@@ -113,7 +114,7 @@ IP adresu můžete najít také na portálu pro správu centra Azure Stack. Otev
 
 ## <a name="how-to-use-the-privileged-endpoint"></a>Použití privilegovaného koncového bodu 
 
-Jak je uvedeno výše, PEP je koncový bod [POWERSHELL JEA](https://docs.microsoft.com/powershell/scripting/learn/remoting/jea/overview) . Při poskytování silné bezpečnostní vrstvy JEA koncový bod omezuje některé základní funkce PowerShellu, jako je například skriptování nebo dokončování karet. Pokud se pokusíte použít nějaký typ operace skriptu, operace se nezdařila s chybou **ScriptsNotAllowed**. Toto selhání je očekávané chování.
+Jak je uvedeno výše, PEP je koncový bod [POWERSHELL JEA](/powershell/scripting/learn/remoting/jea/overview) . Při poskytování silné bezpečnostní vrstvy JEA koncový bod omezuje některé základní funkce PowerShellu, jako je například skriptování nebo dokončování karet. Pokud se pokusíte použít nějaký typ operace skriptu, operace se nezdařila s chybou **ScriptsNotAllowed**. Toto selhání je očekávané chování.
 
 Chcete-li například získat seznam parametrů pro danou rutinu, spusťte následující příkaz:
 
@@ -121,7 +122,7 @@ Chcete-li například získat seznam parametrů pro danou rutinu, spusťte násl
     Get-Command <cmdlet_name> -Syntax
 ```
 
-Alternativně můžete pomocí rutiny [**Import-PSSession**](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Import-PSSession?view=powershell-5.1) importovat všechny rutiny Pep do aktuální relace na místním počítači. Rutiny a funkce PEP jsou teď k dispozici na vašem místním počítači společně s doplňováním karet a obecně se jedná o skriptování. Můžete také spustit modul **[Get-Help](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/get-help)** a zkontrolovat pokyny k rutinám.
+Alternativně můžete pomocí rutiny [**Import-PSSession**](/powershell/module/microsoft.powershell.utility/import-pssession?view=powershell-5.1) importovat všechny rutiny Pep do aktuální relace na místním počítači. Rutiny a funkce PEP jsou teď k dispozici na vašem místním počítači společně s doplňováním karet a obecně se jedná o skriptování. Můžete také spustit modul **[Get-Help](/powershell/module/microsoft.powershell.core/get-help)** a zkontrolovat pokyny k rutinám.
 
 Pokud chcete importovat relaci PEP na místním počítači, proveďte následující kroky:
 
@@ -172,7 +173,7 @@ Pokud chcete importovat relaci PEP na místním počítači, proveďte následuj
 
 ## <a name="close-the-privileged-endpoint-session"></a>Zavřít privilegovanou relaci koncového bodu
 
- Jak bylo zmíněno dříve, PEP protokoluje každou akci (a odpovídající výstup), kterou provedete v relaci PowerShellu. Relaci musíte uzavřít pomocí `Close-PrivilegedEndpoint` rutiny. Tato rutina správně ukončí koncový bod a přenáší soubory protokolu do externí sdílené složky pro uchování.
+ Jak bylo zmíněno dříve, PEP protokoluje každou akci (a odpovídající výstup), kterou provedete v relaci PowerShellu. Relaci musíte uzavřít pomocí  `Close-PrivilegedEndpoint` rutiny. Tato rutina správně ukončí koncový bod a přenáší soubory protokolu do externí sdílené složky pro uchování.
 
 Ukončení relace koncového bodu:
 
@@ -199,5 +200,5 @@ Po úspěšném přenosu souborů protokolu přepisu do sdílené složky se aut
 
 ## <a name="next-steps"></a>Další kroky
 
-- [Diagnostické nástroje centra Azure Stack](azure-stack-diagnostic-log-collection-overview-tzl.md)
+- [Diagnostické nástroje centra Azure Stack](./azure-stack-diagnostic-log-collection-overview.md?view=azs-2002)
 - [Referenční informace k privilegovanému koncovému bodu centra Azure Stack](../reference/pep-2002/index.md)

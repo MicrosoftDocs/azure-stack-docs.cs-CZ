@@ -7,12 +7,12 @@ ms.date: 04/25/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 03/14/2019
-ms.openlocfilehash: 2369ffbd1d3fc72c9d2df7ff87be6131f7aabcd7
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 01f02fcf624db0a8ce47084ec5aa331e0831014b
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77703311"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86489279"
 ---
 # <a name="enable-backup-for-azure-stack-hub-with-powershell"></a>Povolení zálohování centra Azure Stack pomocí PowerShellu
 
@@ -42,7 +42,7 @@ Ve stejné relaci prostředí PowerShell upravte následující skript prostřed
 | `$frequencyInHours` | Frekvence v hodinách určuje, jak často se vytvářejí zálohy. Výchozí hodnota je 12. Scheduler podporuje maximálně 12 a minimálně 4.|
 | `$retentionPeriodInDays` | Doba uchování ve dnech určuje, kolik dní zálohování se uchová na externím umístění. Výchozí hodnota je 7. Scheduler podporuje maximálně 14 a minimálně 2. Zálohy starší než doba uchování se automaticky odstraní z externího umístění.|
 | `$encryptioncertpath` | Platí pro 1901 a novější. Parametr je k dispozici v modulu Azure Stack hub verze 1,7 a novější. Cesta k šifrovacímu certifikátu určuje cestu k souboru. Soubor CER s veřejným klíčem, který se používá pro šifrování dat |
-| `$encryptionkey` | Platí pro Build 1811 nebo starší. Parametr je k dispozici v modulu Azure Stack hub verze 1,6 nebo starší. Šifrovací klíč se používá k šifrování dat. K vygenerování nového klíče použijte rutinu [New-AzsEncryptionKeyBase64](https://docs.microsoft.com/powershell/module/azs.backup.admin/new-azsencryptionkeybase64) . |
+| `$encryptionkey` | Platí pro Build 1811 nebo starší. Parametr je k dispozici v modulu Azure Stack hub verze 1,6 nebo starší. Šifrovací klíč se používá k šifrování dat. K vygenerování nového klíče použijte rutinu [New-AzsEncryptionKeyBase64](/powershell/module/azs.backup.admin/new-azsencryptionkeybase64) . |
 |     |     |
 
 ### <a name="enable-backup-on-1901-and-later-using-certificate"></a>Povolit zálohování v 1901 a novějším pomocí certifikátu

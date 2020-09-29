@@ -8,12 +8,12 @@ ms.date: 05/05/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/25/2019
-ms.openlocfilehash: 27e7073d2b266cb5fa8c7c36739219bc29660e87
-ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
+ms.openlocfilehash: f19d64331e7ef64095bc91a04eb817e2f056d3a9
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83374603"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86489704"
 ---
 # <a name="app-service-on-azure-stack-hub-update-8-release-notes"></a>Zpráva k vydání verze pro Azure Stack centra aktualizace 8 App Service
 
@@ -98,14 +98,14 @@ Proveďte jednu z následujících akcí a v instalačním programu vyberte opak
 
 - Zkopírujte `appservice_hostingAdmin` přihlašovací údaje z nyní sekundárního uzlu SQL.
 
-    **ANI**
+    **OR**
 
 - Převzetí služeb při selhání clusterem SQL na předchozí aktivní uzel.
 
 ## <a name="post-deployment-steps"></a>Kroky po nasazení
 
 > [!IMPORTANT]
-> Pokud jste poskytli App Service poskytovatele prostředků s instancí SQL Always On, je nutné [přidat databáze appservice_hosting a appservice_metering do skupiny dostupnosti](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) a synchronizovat databáze, aby nedošlo ke ztrátě služeb v případě převzetí služeb při selhání databáze.
+> Pokud jste poskytli App Service poskytovatele prostředků s instancí SQL Always On, je nutné [přidat databáze appservice_hosting a appservice_metering do skupiny dostupnosti](/sql/database-engine/availability-groups/windows/availability-group-add-a-database) a synchronizovat databáze, aby nedošlo ke ztrátě služeb v případě převzetí služeb při selhání databáze.
 
 ## <a name="known-issues-post-installation"></a>Známé problémy (po instalaci)
 
@@ -130,7 +130,7 @@ Proveďte jednu z následujících akcí a v instalačním programu vyberte opak
     > [!IMPORTANT]
     > Tento postup trvá přibližně 5-10 minut. Tento postup zahrnuje ukončení stávajících přihlašovacích relací databáze. Naplánujte výpadky migrace a ověření Azure App Service v příspěvku Azure Stack centra po migraci.
 
-    1. Přidejte [databáze AppService (appservice_hosting a appservice_metering) do skupiny dostupnosti](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database).
+    1. Přidejte [databáze AppService (appservice_hosting a appservice_metering) do skupiny dostupnosti](/sql/database-engine/availability-groups/windows/availability-group-add-a-database).
 
     1. Povoluje databázi s omezením.
 
@@ -298,7 +298,7 @@ Proveďte jednu z následujících akcí a v instalačním programu vyberte opak
 
 ## <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Známé problémy pro Cloud Admins, které pracují Azure App Service v centru Azure Stack
 
-Informace najdete v [poznámkách k verzi centra Azure Stack 1907](azure-stack-release-notes-1907.md).
+Informace najdete v [poznámkách k verzi centra Azure Stack 1907](./release-notes.md?view=azs-2002).
 
 ## <a name="next-steps"></a>Další kroky
 

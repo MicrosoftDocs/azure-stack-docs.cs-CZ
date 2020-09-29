@@ -8,12 +8,12 @@ ms.date: 10/11/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 08/20/2019
-ms.openlocfilehash: b29b5963326a49b5e74c786f22b53e20e32c2bd6
-ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
+ms.openlocfilehash: 449c1dac3e983aacefe4d69581ee854239d435ae
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83374701"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86489602"
 ---
 # <a name="app-service-on-azure-stack-hub-update-7-release-notes"></a>Zpráva k vydání verze pro Azure Stack centra aktualizace 7 App Service
 
@@ -75,7 +75,7 @@ Azure App Service v centru Azure Stack s aktualizací Update 7 obsahuje následu
   - [2019-08 kumulativní aktualizace pro Windows Server 2016 pro systémy založené na platformě x64 (KB4512495)](https://support.microsoft.com/help/4512495)
 
 - **Na portálu User Portal jsou nyní povolena omezení přístupu**:
-  - Uživatelé teď můžou nakonfigurovat omezení přístupu pro svoje aplikace Web/API/Functions podle dokumentace publikované v dokumentaci – [Azure App Service omezení přístupu](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions).
+  - Uživatelé teď můžou nakonfigurovat omezení přístupu pro svoje aplikace Web/API/Functions podle dokumentace publikované v dokumentaci – [Azure App Service omezení přístupu](/azure/app-service/app-service-ip-restrictions).
   
   > [!NOTE]
   > Azure App Service v centru Azure Stack nepodporuje koncové body služby.
@@ -98,7 +98,7 @@ Azure App Service v centru Azure Stack s aktualizací Update 7 obsahuje následu
 ## <a name="post-deployment-steps"></a>Kroky po nasazení
 
 > [!IMPORTANT]
-> Pokud jste poskytli App Service poskytovatele prostředků s instancí SQL Always On, je nutné [přidat databáze appservice_hosting a appservice_metering do skupiny dostupnosti](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) a synchronizovat databáze, aby nedošlo ke ztrátě služeb v případě převzetí služeb při selhání databáze.
+> Pokud jste poskytli App Service poskytovatele prostředků s instancí SQL Always On, je nutné [přidat databáze appservice_hosting a appservice_metering do skupiny dostupnosti](/sql/database-engine/availability-groups/windows/availability-group-add-a-database) a synchronizovat databáze, aby nedošlo ke ztrátě služeb v případě převzetí služeb při selhání databáze.
 
 ## <a name="known-issues-post-installation"></a>Známé problémy (po instalaci)
 
@@ -118,7 +118,7 @@ Pokud se rozhodnete nasadit do existující virtuální sítě a interní IP adr
 
 ## <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Známé problémy pro Cloud Admins, které pracují Azure App Service v centru Azure Stack
 
-Informace najdete v dokumentaci k [verzi centra Azure Stack 1907](azure-stack-release-notes-1907.md) .
+Informace najdete v dokumentaci k [verzi centra Azure Stack 1907](./release-notes.md?view=azs-2002) .
 
 ## <a name="next-steps"></a>Další kroky
 

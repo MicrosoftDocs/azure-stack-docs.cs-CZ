@@ -8,12 +8,12 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 08/20/2019
-ms.openlocfilehash: 2e8a4e4fe4de85e981bb0f33366b003c5ee907f8
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: 48ba500c7b9315c4fbc8a622b99d4707f4eb86a7
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82847754"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86489619"
 ---
 # <a name="app-service-on-azure-stack-hub-update-1-release-notes"></a>Zpráva k vydání verze Azure Stack centra aktualizace 1 App Service
 
@@ -22,14 +22,14 @@ Tyto poznámky k verzi popisují vylepšení, opravy a známé problémy v Azure
 > [!IMPORTANT]
 > Před nasazením Azure App Service použijte aktualizaci 1802 pro integrovaný systém Azure Stack hub nebo nasaďte nejnovější Azure Stack Development Kit (ASDK).
 
-## <a name="build-reference"></a>Odkaz na sestavení
+## <a name="build-reference"></a>Referenční informace o buildu
 
 App Service číslo buildu Azure Stack centra aktualizace 1 se **69.0.13698.9**.
 
 ## <a name="prerequisites"></a>Požadavky
 
 > [!IMPORTANT]
-> Nová nasazení Azure App Service v centru Azure Stack nyní vyžadují certifikát se zástupným znakem tři subjektu z důvodu vylepšení způsobu, jakým se v Azure App Service zpracovává jednotné přihlašování pro Kudu. Nový předmět je ** \*. SSO. AppService.\< oblast\>. \<název_domény\>. \<rozšíření\>**
+> Nová nasazení Azure App Service v centru Azure Stack nyní vyžadují certifikát se zástupným znakem tři subjektu z důvodu vylepšení způsobu, jakým se v Azure App Service zpracovává jednotné přihlašování pro Kudu. Nový předmět je ** \* . SSO. AppService. \<region\> . \<domainname\> . \<extension\> **
 
 Než začnete s nasazením, přečtěte si [požadavky pro nasazení App Service v centru Azure Stack](azure-stack-app-service-before-you-get-started.md) .
 
@@ -47,7 +47,7 @@ Azure App Service v centru Azure Stack aktualizace 1 obsahuje následující vyl
 
 - **Aktualizace následujících aplikačních architektur a nástrojů**:
     - Přidala se podpora **.NET Core 2,0** .
-    - Přidané verze **Node. js** :
+    - Přidané verze **Node.JS** :
         - 6.11.2
         - 6.11.5
         - 7.10.1
@@ -99,7 +99,7 @@ Azure App Service v centru Azure Stack aktualizace 1 obsahuje následující vyl
 
 - Při načítání kořenového certifikátu centra Azure Stack z integrovaného systému došlo k potížím.
 
-    Chyba v Get-AzureStackRootCert. ps1 způsobila, že zákazníci při spouštění skriptu na počítači, ve kterém není nainstalován kořenový certifikát, nepodaří načíst kořenový certifikát centra Azure Stack. Nyní byl skript znovu vydán, což vyřeší tento problém. [Aktualizované pomocné skripty si můžete stáhnout tady](https://aka.ms/appsvconmashelpers). Pokud budete pokračovat v práci s načtením kořenového certifikátu s aktualizovaným skriptem, obraťte se na podporu.
+    Chyba v Get-AzureStackRootCert.ps1 způsobila, že zákazníci při spouštění skriptu na počítači, ve kterém není nainstalován kořenový certifikát, nepodaří načíst kořenový certifikát centra Azure Stack. Nyní byl skript znovu vydán, což vyřeší tento problém. [Aktualizované pomocné skripty si můžete stáhnout tady](https://aka.ms/appsvconmashelpers). Pokud budete pokračovat v práci s načtením kořenového certifikátu s aktualizovaným skriptem, obraťte se na podporu.
 
 ## <a name="known-issues-with-the-update-process"></a>Známé problémy s procesem aktualizace
 
@@ -203,7 +203,7 @@ Pokud se rozhodnete nasadit do existující virtuální sítě a interní IP adr
 
 ## <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Známé problémy pro Cloud Admins, které pracují Azure App Service v centru Azure Stack
 
-Informace najdete v dokumentaci k [verzi centra Azure Stack 1802](azure-stack-update-1903.md) .
+Informace najdete v dokumentaci k [verzi centra Azure Stack 1802](./release-notes.md?view=azs-2002) .
 
 ## <a name="next-steps"></a>Další kroky
 

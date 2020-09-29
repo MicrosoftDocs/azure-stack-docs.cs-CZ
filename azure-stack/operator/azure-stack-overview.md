@@ -7,16 +7,17 @@ ms.date: 04/20/2020
 ms.author: justinha
 ms.reviewer: unknown
 ms.lastreviewed: 11/08/2019
-ms.openlocfilehash: a1e49ef9138c04557c8cd0a54b11ada30d97f334
-ms.sourcegitcommit: f2d80d705a222095c2ea785b9797bbac0cf96fcc
+ms.custom: conteperfq4
+ms.openlocfilehash: 5acbe557c58d33785e0c227c2014264fbcd06a06
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82605627"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86488412"
 ---
 # <a name="azure-stack-hub-overview"></a>Přehled centra Azure Stack
 
-Centrum Azure Stack je rozšíření Azure, které poskytuje způsob, jak spouštět aplikace v místním prostředí a poskytovat služby Azure ve vašem datovém centru. S konzistentní cloudovou platformou můžou organizace bez obav dělat rozhodování o technologiích na základě podnikových požadavků, a ne podle obchodních rozhodnutí založených na omezeních technologie.
+Azure Stack Hub je rozšíření Azure, které poskytuje způsob, jak spouštět aplikace v místním prostředí a doručovat služby Azure ve vašem datacentru. S konzistentní cloudovou platformou můžou organizace bez obav dělat rozhodování o technologiích na základě podnikových požadavků, a ne podle obchodních rozhodnutí založených na omezeních technologie.
 
 ## <a name="why-use-azure-stack-hub"></a>Proč používat centrum Azure Stack?
 
@@ -67,13 +68,13 @@ Azure Stack hub používá stejný model operací jako Azure. Operátor centra A
 
 ![Diagram znázorňující Azure Stack role úloh centra](./media/azure-stack-overview/azure-stack-job-roles.svg)
 
-Centrum Azure Stack můžete spravovat pomocí portálu pro správu, portálu User Portal nebo [PowerShellu](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.7.1). Portály centra Azure Stack jsou každou zálohované samostatnými instancemi Azure Resource Manager. **Operátor centra Azure Stack** využívá portál pro správu ke správě centra Azure Stack a k provádění akcí, jako je vytváření nabídek tenantů, a udržování stavu a monitorování stavu integrovaného systému. Portál User Portal poskytuje samoobslužné prostředí pro využívání cloudových prostředků, jako jsou virtuální počítače, účty úložiště a webové aplikace.
+Centrum Azure Stack můžete spravovat pomocí portálu pro správu, portálu User Portal nebo [PowerShellu](/powershell/azure/azure-stack/overview?view=azurestackps-1.7.1). Portály centra Azure Stack jsou každou zálohované samostatnými instancemi Azure Resource Manager. **Operátor centra Azure Stack** využívá portál pro správu ke správě centra Azure Stack a k provádění akcí, jako je vytváření nabídek tenantů, a udržování stavu a monitorování stavu integrovaného systému. Portál User Portal poskytuje samoobslužné prostředí pro využívání cloudových prostředků, jako jsou virtuální počítače, účty úložiště a webové aplikace.
 
 > Další informace o správě centra Azure Stack pomocí portálu pro správu najdete v tématu [rychlý Start k portálu pro správu centra Azure Stack](azure-stack-manage-portals.md).
 
-Jako operátor centra Azure Stack můžete doručovat [virtuální počítače](azure-stack-tutorial-tenant-vm.md), [webové aplikace](azure-stack-app-service-overview.md), vysoce dostupné databáze [SQL Server](azure-stack-tutorial-sql.md)a [MySQL serveru](azure-stack-tutorial-mysql.md) . K nasazení SharePointu, Exchange a dalších šablon můžete také použít [rychlý Start centra Azure Stack Azure Resource Manager](https://github.com/Azure/AzureStack-QuickStart-Templates) .
+Jako operátor centra Azure Stack můžete doručovat [virtuální počítače](./tutorial-offer-services.md?view=azs-2002), [webové aplikace](azure-stack-app-service-overview.md), vysoce dostupné databáze [SQL Server](azure-stack-tutorial-sql.md)a [MySQL serveru](azure-stack-tutorial-mysql.md) . K nasazení SharePointu, Exchange a dalších šablon můžete také použít [rychlý Start centra Azure Stack Azure Resource Manager](https://github.com/Azure/AzureStack-QuickStart-Templates) .
 
-Operátor může spravovat Azure Stack hub pomocí portálu pro [správu](azure-stack-manage-portals.md) nebo [PowerShellu](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.7.1). Centrum Azure Stack můžete nakonfigurovat tak, aby [poskytovala služby](service-plan-offer-subscription-overview.md) klientům pomocí plánů, kvót, nabídek a předplatných. Uživatelé tenanta se můžou přihlásit k odběru několika nabídek. Nabídky mohou mít jeden nebo více plánů a plány můžou mít jednu nebo více služeb. Operátoři také spravují kapacitu a reagují na výstrahy.
+Operátor může spravovat Azure Stack hub pomocí portálu pro [správu](azure-stack-manage-portals.md) nebo [PowerShellu](/powershell/azure/azure-stack/overview?view=azurestackps-1.7.1). Centrum Azure Stack můžete nakonfigurovat tak, aby [poskytovala služby](service-plan-offer-subscription-overview.md) klientům pomocí plánů, kvót, nabídek a předplatných. Uživatelé tenanta se můžou přihlásit k odběru několika nabídek. Nabídky mohou mít jeden nebo více plánů a plány můžou mít jednu nebo více služeb. Operátoři také spravují kapacitu a reagují na výstrahy.
 
 Uživatelé využívají služby, které nabízí operátor. Uživatelé můžou zřizovat, monitorovat a spravovat služby, ke kterým se přihlásili, jako jsou webové aplikace, úložiště a virtuální počítače. Uživatelé můžou spravovat centrum Azure Stack pomocí portálu User Portal nebo PowerShellu.
 
@@ -89,7 +90,7 @@ Existují tři poskytovatelé prostředků pro základní IaaS:
 
 - **COMPUTE**: poskytovatel výpočetních prostředků umožňuje Azure Stack klientům centra vytvářet vlastní virtuální počítače. Poskytovatel výpočetních prostředků zahrnuje možnost vytvářet virtuální počítače i rozšíření virtuálních počítačů. Služba rozšíření virtuálních počítačů pomáhá poskytovat funkce IaaS pro virtuální počítače s Windows a Linux. Jako příklad můžete pomocí zprostředkovatele prostředků služby COMPUTE zřídit virtuální počítač pro Linux a spustit skripty bash během nasazování a nakonfigurovat virtuální počítač.
 - **Poskytovatel síťových prostředků**: poskytovatel síťových prostředků nabízí řadu funkcí Software Defined Networking (SDN) a virtualizace síťových funkcí (NFV) pro privátní cloud. Poskytovatele síťových prostředků můžete použít k vytvoření prostředků, jako jsou nástroje pro vyrovnávání zatížení softwaru, veřejné IP adresy, skupiny zabezpečení sítě a virtuální sítě.
-- **Poskytovatel prostředků úložiště**: poskytovatel prostředků úložiště nabízí čtyři služby úložiště konzistentní s Azure: objekty [BLOB](https://docs.microsoft.com/azure/storage/common/storage-introduction#blob-storage), [front](https://docs.microsoft.com/azure/storage/common/storage-introduction#queue-storage), [tabulek](https://docs.microsoft.com/azure/storage/common/storage-introduction#table-storage)a [Key Vault](https://docs.microsoft.com/azure/key-vault/) poskytující správu a auditování tajných kódů, jako jsou hesla a certifikáty. Poskytovatel prostředků úložiště nabízí cloudovou službu pro správu úložiště, která usnadňuje správu služeb úložiště konzistentních od Azure. Azure Storage poskytuje flexibilitu pro ukládání a načítání velkých objemů nestrukturovaných dat, jako jsou dokumenty a mediální soubory s objekty blob Azure a strukturovaná data založená na NoSQL s tabulkami Azure.
+- **Poskytovatel prostředků úložiště**: poskytovatel prostředků úložiště nabízí čtyři služby úložiště konzistentní s Azure: objekty [BLOB](/azure/storage/common/storage-introduction#blob-storage), [front](/azure/storage/common/storage-introduction#queue-storage), [tabulek](/azure/storage/common/storage-introduction#table-storage)a [Key Vault](/azure/key-vault/) poskytující správu a auditování tajných kódů, jako jsou hesla a certifikáty. Poskytovatel prostředků úložiště nabízí cloudovou službu pro správu úložiště, která usnadňuje správu služeb úložiště konzistentních od Azure. Azure Storage poskytuje flexibilitu pro ukládání a načítání velkých objemů nestrukturovaných dat, jako jsou dokumenty a mediální soubory s objekty blob Azure a strukturovaná data založená na NoSQL s tabulkami Azure.
 
 ### <a name="optional-resource-providers"></a>Volitelní poskytovatelé prostředků
 

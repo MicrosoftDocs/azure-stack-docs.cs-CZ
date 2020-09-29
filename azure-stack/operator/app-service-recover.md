@@ -1,5 +1,5 @@
 ---
-title: App Service obnovení v centru Azure Stack
+title: Obnovení služby App Service ve službě Azure Stack Hub
 description: Přečtěte si o zotavení po havárii pro App Service v centru Azure Stack.
 author: bryanla
 ms.topic: article
@@ -7,14 +7,14 @@ ms.date: 03/21/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/21/2019
-ms.openlocfilehash: e04fa2f3e9d03f1982ef67d4d19549b7b73a1f1a
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: ba57de42f882ce62d433768f4fd2a265b862459c
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77701679"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86489755"
 ---
-# <a name="app-service-recovery-on-azure-stack-hub"></a>App Service obnovení v centru Azure Stack
+# <a name="app-service-recovery-on-azure-stack-hub"></a>Obnovení služby App Service ve službě Azure Stack Hub
 
 V tomto tématu najdete pokyny k tomu, jaké akce se App Service zotavení po havárii.
 
@@ -39,7 +39,7 @@ Po [přípravě instance SQL Server](azure-stack-app-service-before-you-get-star
 3. Ověřte, zda byla úspěšně obnovena a ukončena SQL Server Management Studio databáze App Service.
 
 > [!NOTE]
-> Chcete-li provést obnovení z instance clusteru s podporou převzetí služeb při selhání, přečtěte si téma [obnovení z neúspěšné instance](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/recover-from-failover-cluster-instance-failure?view=sql-server-2017) 
+> Chcete-li provést obnovení z instance clusteru s podporou převzetí služeb při selhání, přečtěte si téma [obnovení z neúspěšné instance](/sql/sql-server/failover-clusters/windows/recover-from-failover-cluster-instance-failure?view=sql-server-2017) 
 
 ## <a name="restore-the-app-service-file-share-content"></a>Obnovení obsahu App Service sdílené složky
 Po [přípravě souborového serveru](azure-stack-app-service-before-you-get-started.md#prepare-the-file-server) pro hostování App Service sdílené složky musíte obnovit obsah sdílené složky klienta ze zálohy. Můžete použít libovolnou metodu, kterou máte k dispozici ke zkopírování souborů do nově vytvořené App Service umístění sdílené složky. Po spuštění tohoto příkladu na souborovém serveru se k připojení ke vzdálené sdílené složce a zkopírování souborů do sdílené složky použijí PowerShell a Robocopy:
@@ -60,7 +60,7 @@ Po obnovení databází App Service a obsahu sdílené složky souborů je dál 
 1. Přihlaste se k řadiči App Service **CN0-VM** VM jako **roleadmin** pomocí hesla, které jste zadali během instalace App Service. 
     > [!TIP]
     > Aby bylo možné připojení RDP, je nutné upravit skupinu zabezpečení sítě virtuálního počítače. 
-2. Zkopírujte soubor **SystemSecrets. JSON** místně do virtuálního počítače kontroleru. V dalším kroku musíte zadat cestu k tomuto souboru jako `$pathToExportedSecretFile` parametr.
+2. Zkopírujte **SystemSecrets.JS** do souboru místně do virtuálního počítače kontroleru. V dalším kroku musíte zadat cestu k tomuto souboru jako `$pathToExportedSecretFile` parametr.
 3. Pomocí následujících příkazů v okně konzoly PowerShellu se zvýšenými oprávněními obnovte App Service role a služby:
 
     ```powershell

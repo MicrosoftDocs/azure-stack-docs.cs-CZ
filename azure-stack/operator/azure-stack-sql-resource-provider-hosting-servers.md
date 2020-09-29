@@ -8,12 +8,12 @@ ms.date: 10/02/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2019
-ms.openlocfilehash: a30c3a4f745e46a5e7b58d4355f1c193d8702e28
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 0345c3290b717385d8080dc6be771660ea22a2e1
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79294679"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86487902"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Přidání hostujících serverů pro poskytovatele prostředků SQL
 
@@ -41,7 +41,7 @@ Před přidáním hostitelského serveru SQL zkontrolujte následující povinn�
 
 Image virtuálních počítačů s IaaS SQL jsou k dispozici prostřednictvím funkce správy Marketplace. Tyto image jsou stejné jako virtuální počítače SQL, které jsou k dispozici v Azure.
 
-Před nasazením virtuálního počítače SQL pomocí položky Marketplace si nezapomeňte vždycky stáhnout nejnovější verzi **rozšíření SQL IaaS** . Rozšíření IaaS a odpovídající vylepšení portálu poskytují další funkce, jako jsou automatické opravy a zálohování. Další informace o tomto rozšíření najdete v tématu [Automatizace úloh správy na virtuálních počítačích Azure s rozšířením agenta SQL Server](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension).
+Před nasazením virtuálního počítače SQL pomocí položky Marketplace si nezapomeňte vždycky stáhnout nejnovější verzi **rozšíření SQL IaaS** . Rozšíření IaaS a odpovídající vylepšení portálu poskytují další funkce, jako jsou automatické opravy a zálohování. Další informace o tomto rozšíření najdete v tématu [Automatizace úloh správy na virtuálních počítačích Azure s rozšířením agenta SQL Server](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension).
 
 > [!NOTE]
 > Pro všechny image SQL na webu Marketplace se _vyžaduje_ rozšíření SQL IaaS. Pokud jste rozšíření nestáhli, virtuální počítač se nepodaří nasadit. Nepoužívá se pro image virtuálních počítačů SQL se systémem Linux.
@@ -58,7 +58,7 @@ Můžete vytvořit uživatele s oprávněním správce s nižšími oprávnění
 * Databáze: vytvořit, změnit s omezením (jenom pro Always On), vyřadit, zálohovat
 * Skupina dostupnosti: změnit, připojit, přidat nebo odebrat databázi
 * Přihlášení: vytvořit, vybrat, změnit, zrušit, odvolat
-* Vyberte operace: \[hlavní\]Server. \[sys\]. \[availability_group_listeners\] (AlwaysOn), sys. availability_replicas (AlwaysOn), sys. \[databases\], Master. \[sys\]. \[dm_os_sys_memory\], ServerProperty, \[hlavní\]. \[sys\]. \[availability_groups\] (AlwaysOn), sys. master_files
+* Vyberte operace: \[ hlavní server \] . \[ sys \] . \[ availability_group_listeners \] (AlwaysOn), sys. availability_replicas (AlwaysOn), sys. databases, \[ Master \] . \[ sys \] . \[ dm_os_sys_memory \] , ServerProperty, \[ hlavní \] . \[ sys \] . \[ availability_groups \] (AlwaysOn), sys. master_files
 
 ### <a name="additional-security-information"></a>Další informace o zabezpečení
 
@@ -66,7 +66,7 @@ Následující informace poskytují další pokyny k zabezpečení:
 
 * Všechna Azure Stacková úložiště centra se šifrují pomocí nástroje BitLocker, takže jakákoli instance SQL v centru Azure Stack bude používat šifrované úložiště objektů BLOB.
 * Poskytovatel prostředků SQL plně podporuje TLS 1,2. Zajistěte, aby všechny SQL Server spravované prostřednictvím SQL RP byly nakonfigurované _jenom_ pro TLS 1,2 a RP na to bude mít výchozí hodnotu. Všechny podporované verze SQL Server podporují protokol TLS 1,2. Další informace najdete v tématu [Podpora TLS 1,2 pro Microsoft SQL Server](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server).
-* Pomocí SQL Server Configuration Manager nastavte možnost **ForceEncryption** , aby se zajistilo, že veškerá komunikace s SQL serverem je vždycky šifrovaná. Další informace najdete v tématu [Konfigurace serveru pro vynucení šifrovaných připojení](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine?view=sql-server-2017#to-configure-the-server-to-force-encrypted-connections).
+* Pomocí SQL Server Configuration Manager nastavte možnost **ForceEncryption** , aby se zajistilo, že veškerá komunikace s SQL serverem je vždycky šifrovaná. Další informace najdete v tématu [Konfigurace serveru pro vynucení šifrovaných připojení](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine?view=sql-server-2017#to-configure-the-server-to-force-encrypted-connections).
 * Zajistěte, aby všechny klientské aplikace komunikovaly i přes šifrované připojení.
 * RP je nakonfigurován tak, aby důvěřoval certifikátů, které používá instance SQL Server.
 
@@ -104,17 +104,17 @@ Chcete-li přidat samostatný hostitelský server, který je již nastaven, post
 
 ## <a name="provide-high-availability-using-sql-always-on-availability-groups"></a>Zajištění vysoké dostupnosti pomocí skupin dostupnosti Always On SQL serveru
 
-Konfigurace instancí SQL Always On vyžaduje další kroky a vyžaduje tři virtuální počítače (nebo fyzické počítače). V tomto článku se předpokládá, že už máte plnou znalost skupin dostupnosti Always On. Další informace najdete v těchto článcích:
+Konfigurace instancí SQL Always On vyžaduje další kroky a vyžaduje tři virtuální počítače (nebo fyzické počítače). V tomto článku se předpokládá, že už máte plnou znalost skupin dostupnosti Always On. Další informace najdete v následujících článcích:
 
-* [Představujeme SQL Server skupiny dostupnosti Always On na virtuálních počítačích Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview)
-* [Skupiny dostupnosti Always On (SQL Server)](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-2017)
+* [Představujeme SQL Server skupiny dostupnosti Always On na virtuálních počítačích Azure](/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview)
+* [Skupiny dostupnosti Always On (SQL Server)](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-2017)
 
 > [!NOTE]
 > Poskytovatel prostředků SQL adaptéru podporuje _jenom_ instance SQL 2016 SP1 Enterprise nebo novější pro skupiny dostupnosti Always On. Tato konfigurace adaptéru vyžaduje nové funkce SQL, jako je automatické osazení.
 
 ### <a name="automatic-seeding"></a>Automatické osazení
 
-Pro každou instanci SQL Server musíte povolit [Automatické osazení](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) pro každou skupinu dostupnosti.
+Pro každou instanci SQL Server musíte povolit [Automatické osazení](/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) pro každou skupinu dostupnosti.
 
 Pokud chcete povolit automatické osazení u všech instancí, upravte a pak spusťte následující příkaz SQL na primární replice pro každou sekundární instanci:
 
@@ -136,7 +136,7 @@ Na sekundárních uzlech spusťte následující příkaz SQL:
 
 ### <a name="configure-contained-database-authentication"></a>Konfigurovat ověřování databáze s omezením
 
-Před přidáním databáze s omezením do skupiny dostupnosti zajistěte, aby byla v každé instanci serveru, která hostuje repliku dostupnosti pro skupinu dostupnosti, nastavená možnost Server pro ověřování databáze s omezením na hodnotu 1. Další informace najdete v tématu věnovaném [Možnosti konfigurace serveru pro ověřování databáze](https://docs.microsoft.com/sql/database-engine/configure-windows/contained-database-authentication-server-configuration-option?view=sql-server-2017).
+Před přidáním databáze s omezením do skupiny dostupnosti zajistěte, aby byla v každé instanci serveru, která hostuje repliku dostupnosti pro skupinu dostupnosti, nastavená možnost Server pro ověřování databáze s omezením na hodnotu 1. Další informace najdete v tématu věnovaném [Možnosti konfigurace serveru pro ověřování databáze](/sql/database-engine/configure-windows/contained-database-authentication-server-configuration-option?view=sql-server-2017).
 
 Pomocí těchto příkazů nastavte u každé instance možnost Server pro ověřování databáze s omezením:
 
@@ -151,7 +151,7 @@ Pomocí těchto příkazů nastavte u každé instance možnost Server pro ově�
 
 1. Přihlaste se k portálu správce Azure Stackového centra jako správce služby.
 
-2. Vyberte **Procházet** &gt; **prostředky** &gt; pro správu **hostitelské servery** &gt; SQL **a přidat**.
+2. Vyberte **Procházet** &gt; **prostředky pro správu** &gt; **hostitelské servery SQL** &gt; **a přidat**.
 
    V části **hostitelské servery SQL**můžete poskytovatele prostředků SQL Server připojit k skutečným instancím SQL Server, které slouží jako back-end poskytovatele prostředků.
 
@@ -179,9 +179,9 @@ SKU nelze přiřadit konkrétním uživatelům nebo skupinám.
 
 SKU může trvat až hodinu, než se na portálu zobrazí. Uživatelé nemůžou vytvořit databázi, dokud se SKU nevytvoří úplně.
 
-Chcete-li upravit SKU, klikněte na položku **všechny služby** >  > **SKU****adaptéru SQL**. Vyberte SKLADOVOU položku, kterou chcete upravit, proveďte potřebné změny a uložte změny kliknutím na **Uložit** . 
+Chcete-li upravit SKU, klikněte na položku **všechny služby**  >  SKU**adaptéru SQL**  >  **SKUs**. Vyberte SKLADOVOU položku, kterou chcete upravit, proveďte potřebné změny a uložte změny kliknutím na **Uložit** . 
 
-Pokud chcete odstranit SKU, které už nepotřebujete, přečtěte si **všechny** >  > **skladové**položky**adaptéru SQL**. Klikněte pravým tlačítkem na název SKU a vyberte **Odstranit** a odstraňte ho.
+Pokud chcete odstranit SKU, které už nepotřebujete, přečtěte si **všechny**  >  skladové položky**adaptéru SQL**  >  **SKUs**. Klikněte pravým tlačítkem na název SKU a vyberte **Odstranit** a odstraňte ho.
 
 > [!IMPORTANT]
 > Může trvat až hodinu, než se nové SKU zpřístupní na portálu User Portal.

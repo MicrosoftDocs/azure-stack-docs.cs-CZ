@@ -7,12 +7,12 @@ ms.date: 04/27/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/27/2020
-ms.openlocfilehash: 3be9ed04027f908bc4b3bacfb6b981c7edfc1559
-ms.sourcegitcommit: 54f98b666bea9226c78f26dc255ddbdda539565f
+ms.openlocfilehash: e19afc5f15c5345282cdaa84748b1c8cea9e03fa
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82562506"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86487171"
 ---
 # <a name="get-cloudadminuserlist"></a>Get-CloudAdminUserList
 
@@ -42,4 +42,4 @@ Accept wildcard characters: False
 
 ## <a name="next-steps"></a>Další kroky
 
-Informace o přístupu a používání privilegovaného koncového bodu najdete v tématu [použití privilegovaného koncového bodu v centru Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-privileged-endpoint).
+Informace o přístupu a používání privilegovaného koncového bodu najdete v tématu [použití privilegovaného koncového bodu v centru Azure Stack](../../operator/azure-stack-privileged-endpoint.md).

@@ -8,18 +8,18 @@ ms.date: 10/07/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/23/2019
-ms.openlocfilehash: 6d5c80403a355186632c245baecd0796ac3acbf9
-ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
+ms.openlocfilehash: ce3f6e0542678fe2d399e101a90a916cf412599f
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84630977"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86487715"
 ---
 # <a name="create-highly-available-sql-databases-with-azure-stack-hub"></a>Vytváření vysoce dostupných databází SQL pomocí centra Azure Stack
 
 Jako operátor centra Azure Stack můžete nakonfigurovat virtuální počítače serveru pro hostování SQL Serverch databází. Po vytvoření a správě hostitelského serveru SQL pomocí centra Azure Stack mohou uživatelé, kteří se přihlásili k odběru služeb SQL, snadno vytvořit databáze SQL.
 
-V tomto článku se dozvíte, jak pomocí šablony pro rychlý Start centra Azure Stack vytvořit [skupinu dostupnosti SQL Server AlwaysOn](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server?view=sql-server-2017), přidat ji Azure Stack jako hostitelský server SQL centra a pak vytvořit vysoce DOSTUPNOU databázi SQL.
+V tomto článku se dozvíte, jak pomocí šablony pro rychlý Start centra Azure Stack vytvořit [skupinu dostupnosti SQL Server AlwaysOn](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server?view=sql-server-2017), přidat ji Azure Stack jako hostitelský server SQL centra a pak vytvořit vysoce DOSTUPNOU databázi SQL.
 
 Naučíte se:
 
@@ -37,7 +37,7 @@ Než začnete, ujistěte se, že [poskytovatel prostředků SQL Server](azure-st
 
 - Windows Server 2016 Datacenter.
 - SQL Server 2016 SP1 nebo SP2 (Enterprise, Standard nebo Developer) na obrázku serveru Windows Server 2016. 
-- [SQL Server rozšíření IaaS](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension) verze 1.3.20180 nebo vyšší. Rozšíření SQL IaaS nainstaluje nezbytné komponenty, které jsou vyžadovány na webu Marketplace SQL Server pro všechny verze systému Windows. Umožňuje konfiguraci nastavení specifického pro SQL na virtuálních počítačích SQL (virtuálních počítačů). Pokud rozšíření není nainstalované na místním webu Marketplace, zřizování SQL se nezdaří.
+- [SQL Server rozšíření IaaS](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension) verze 1.3.20180 nebo vyšší. Rozšíření SQL IaaS nainstaluje nezbytné komponenty, které jsou vyžadovány na webu Marketplace SQL Server pro všechny verze systému Windows. Umožňuje konfiguraci nastavení specifického pro SQL na virtuálních počítačích SQL (virtuálních počítačů). Pokud rozšíření není nainstalované na místním webu Marketplace, zřizování SQL se nezdaří.
 - [Rozšíření vlastních skriptů pro Windows](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.CustomScriptExtension) verze 1.9.1 nebo novější. Rozšíření vlastních skriptů je nástroj, který se dá použít k automatickému spuštění úloh přizpůsobení virtuálních počítačů po nasazení.
 - [Konfigurace požadovaného stavu PowerShellu (DSC)](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.DSC-arm) verze 2.76.0.0 nebo vyšší. DSC je platforma pro správu v prostředí Windows PowerShell, která umožňuje nasazovat a spravovat konfigurační data pro softwarové služby. Platforma také spravuje prostředí, ve kterém se tyto služby spouštějí.
 
@@ -91,7 +91,7 @@ Pomocí kroků v této části nasaďte SQL Server skupinu dostupnosti AlwaysOn 
 
 ### <a name="enable-automatic-seeding"></a>Povolit automatické osazení
 
-Po úspěšném nasazení šablony a konfiguraci skupiny dostupnosti AlwaysON serveru SQL je nutné povolit [Automatické osazení](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) u každé instance SQL Server ve skupině dostupnosti.
+Po úspěšném nasazení šablony a konfiguraci skupiny dostupnosti AlwaysON serveru SQL je nutné povolit [Automatické osazení](/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) u každé instance SQL Server ve skupině dostupnosti.
 
 Když vytvoříte skupinu dostupnosti s automatickým osazením, SQL Server automaticky vytvoří sekundární repliky pro každou databázi ve skupině bez nutnosti jakéhokoli jiného ručního zásahu. Tato míra zajišťuje vysokou dostupnost databází AlwaysOn.
 
@@ -124,7 +124,7 @@ Sekundární instance SQL:
 
 ### <a name="configure-contained-database-authentication"></a>Konfigurovat ověřování databáze s omezením
 
-Před přidáním databáze s omezením do skupiny dostupnosti zajistěte, aby byla v každé instanci serveru, která hostuje repliku dostupnosti pro skupinu dostupnosti, nastavená možnost Server pro ověřování databáze s omezením na hodnotu 1. Další informace najdete v tématu věnovaném [ověřování databáze](https://docs.microsoft.com/sql/database-engine/configure-windows/contained-database-authentication-server-configuration-option?view=sql-server-2017).
+Před přidáním databáze s omezením do skupiny dostupnosti zajistěte, aby byla v každé instanci serveru, která hostuje repliku dostupnosti pro skupinu dostupnosti, nastavená možnost Server pro ověřování databáze s omezením na hodnotu 1. Další informace najdete v tématu věnovaném [ověřování databáze](/sql/database-engine/configure-windows/contained-database-authentication-server-configuration-option?view=sql-server-2017).
 
 Pomocí těchto příkazů nastavte možnost Server pro ověřování databáze pro každou instanci SQL Server ve skupině dostupnosti:
 

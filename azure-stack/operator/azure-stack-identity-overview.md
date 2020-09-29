@@ -7,12 +7,12 @@ ms.date: 04/10/2020
 ms.author: bryanla
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: b078158bebf83835e4a0a0eb6d92ba90b4679ca9
-ms.sourcegitcommit: d930d52e27073829b8bf8ac2d581ec2accfa37e3
+ms.openlocfilehash: dac1902747c79b68116c0341f50c47c3e0998c0f
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82173960"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86488786"
 ---
 # <a name="overview-of-identity-providers-for-azure-stack-hub"></a>Přehled zprostředkovatelů identity pro centrum Azure Stack
 
@@ -51,12 +51,12 @@ Způsob vytváření a správy uživatelů a skupin závisí na používaném ř
 
 V Azure Stackovém centru jsou uživatelské účty:
 
-- Jsou vytvořeny ve formátu *Doména\@uživatelské_jméno* . I když AD FS mapuje uživatelské účty k instanci služby Active Directory, AD FS nepodporuje použití * \\ \<>ho formátu>\\ \<aliasu domény* .
+- Jsou vytvořeny ve formátu * \@ doména uživatelské_jméno* . I když AD FS mapuje uživatelské účty k instanci služby Active Directory, AD FS nepodporuje použití *\\\<domain>\\\<alias>* formátu.
 - Dá se nastavit tak, aby používal službu Multi-Factor Authentication.
 - Jsou omezeny na adresář, ve kterém jsou poprvé registrována, což je adresář organizace.
-- Dá se importovat z vašich místních adresářů. Další informace najdete v tématu [Integrace místních adresářů s Azure Active Directory](/azure/active-directory/connect/active-directory-aadconnect).
+- Dá se importovat z vašich místních adresářů. Další informace najdete v tématu  [Integrace místních adresářů s Azure Active Directory](/azure/active-directory/connect/active-directory-aadconnect).
 
-Když se přihlásíte k portálu User Portal vaší organizace, použijete adresu URL *https:\//Portal.Local.azurestack.external* . Při přihlašování k portálu centra Azure Stack z jiných domén, než je ta, která se používá k registraci Azure Stackho centra, musí být název domény, který se používá k registraci centra Azure Stack, připojený k adrese URL portálu. Pokud jste například Azure Stack centrum zaregistrovali v fabrikam.onmicrosoft.com a uživatelský účet přihlášení je admin@contoso.com, adresa URL, která se má použít pro přihlášení k portálu User Portal, by byla: https:\//Portal.Local.azurestack.external/Fabrikam.onmicrosoft.com.
+Když se přihlásíte k portálu User Portal vaší organizace, použijete adresu URL *https: \/ /Portal.Local.azurestack.external* . Při přihlašování k portálu centra Azure Stack z jiných domén, než je ta, která se používá k registraci Azure Stackho centra, musí být název domény, který se používá k registraci centra Azure Stack, připojený k adrese URL portálu. Pokud jste například Azure Stack centrum zaregistrovali v fabrikam.onmicrosoft.com a uživatelský účet přihlášení je admin@contoso.com , adresa URL, která se má použít pro přihlášení k portálu User Portal, by byla: https: \/ /Portal.Local.azurestack.external/Fabrikam.onmicrosoft.com.
 
 ### <a name="guest-users"></a>Uživatelé s účtem Host
 
@@ -64,9 +64,9 @@ Uživatelé typu Host jsou uživatelské účty z jiných tenantů adresářů, 
 
 K pozvání uživatelů typu Host můžou používat cloudové operátory a uživatelé [Azure AD spolupráci B2B](/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b). Pozvaní uživatelé získají přístup k dokumentům, prostředkům a aplikacím z vašeho adresáře a Vy si udržujete kontrolu nad svými vlastními prostředky a daty.
 
-Jako uživatel typu Host se můžete přihlásit k tenantovi adresáře jiné organizace. Uděláte to tak, že název adresáře této organizace připojíte k adrese URL portálu. Pokud například patříte do organizace contoso a chcete se přihlásit k adresáři Fabrikam, použijte protokol https:\//Portal.Local.azurestack.external/Fabrikam.onmicrosoft.com.
+Jako uživatel typu Host se můžete přihlásit k tenantovi adresáře jiné organizace. Uděláte to tak, že název adresáře této organizace připojíte k adrese URL portálu. Pokud například patříte do organizace contoso a chcete se přihlásit k adresáři Fabrikam, použijte protokol https: \/ /Portal.Local.azurestack.external/Fabrikam.onmicrosoft.com.
 
-### <a name="apps"></a>Aplikace
+### <a name="apps"></a>Apps
 
 Aplikace můžete registrovat do služby Azure AD nebo AD FS a pak je nabízet uživatelům ve vaší organizaci.
 
@@ -137,7 +137,7 @@ Pro aplikace a uživatele je architektura centra Azure Stack popsaná čtyřmi v
 |Vrstva    |Ověřování mezi vrstvami  |
 |---------|---------|
 |Nástroje a klienti, jako je například portál pro správu     | Chcete-li získat přístup k prostředku v Azure Stackovém centru, nástroje a klienti používají [JSON web token](/azure/active-directory/develop/active-directory-token-and-claims) k umístění volání Azure Resource Manager. <br>Azure Resource Manager ověří JSON Web Token a prohlédne *deklarace identity* v vystaveném tokenu, aby bylo možné odhadnout úroveň oprávnění, které má uživatel nebo instanční objekt v centru Azure Stack. |
-|Azure Resource Manager a jeho základní služby     |Azure Resource Manager komunikuje s poskytovateli prostředků pro přenos komunikace od uživatelů. <br> Přenáší použití *přímých imperativních* volání nebo *deklarativních* volání prostřednictvím [šablon Azure Resource Manager](/azure-stack/user/azure-stack-arm-templates).|
+|Azure Resource Manager a jeho základní služby     |Azure Resource Manager komunikuje s poskytovateli prostředků pro přenos komunikace od uživatelů. <br> Přenáší použití *přímých imperativních* volání nebo *deklarativních* volání prostřednictvím [šablon Azure Resource Manager](../user/azure-stack-arm-templates.md).|
 |Poskytovatelé prostředků     |Volání předaná poskytovatelům prostředků jsou zabezpečena pomocí ověřování založeného na certifikátech. <br>Azure Resource Manager a poskytovatel prostředků pak zůstanou v komunikaci prostřednictvím rozhraní API. Pro každé volání, které je přijato od Azure Resource Manager poskytovatel prostředků ověřuje volání s tímto certifikátem.|
 |Infrastruktura a obchodní logika     |Poskytovatelé prostředků komunikují s obchodní logikou a infrastrukturou pomocí režimu ověřování podle svého výběru. Výchozí poskytovatelé prostředků dodávajících Azure Stack hub používají k zabezpečení této komunikace ověřování systému Windows.|
 
@@ -147,10 +147,10 @@ Pro aplikace a uživatele je architektura centra Azure Stack popsaná čtyřmi v
 
 Chcete-li provést ověření u poskytovatele identity a získat JSON Web Token, je nutné mít následující informace:
 
-1. **Adresa URL pro systém identity (autorita)**: adresa URL, na které je možné získat poskytovatele identity. Například *https:\//Login.Windows.NET*.
+1. **Adresa URL pro systém identity (autorita)**: adresa URL, na které je možné získat poskytovatele identity. Například *https: \/ /Login.Windows.NET*.
 2. **Identifikátor URI ID aplikace pro Azure Resource Manager**: jedinečný identifikátor pro Azure Resource Manager zaregistrovaný u vašeho poskytovatele identity. Je také jedinečné pro každou instalaci centra Azure Stack.
 3. **Přihlašovací údaje**: přihlašovací údaje, které používáte k ověření u poskytovatele identity.
-4. **Adresa URL pro Azure Resource Manager**: adresa URL je umístění služby Azure Resource Manager. Například *https\/:/Management.Azure.com* nebo *\/https:/Management.Local.azurestack.external*.
+4. **Adresa URL pro Azure Resource Manager**: adresa URL je umístění služby Azure Resource Manager. Například *https: \/ /Management.Azure.com* nebo *https: \/ /Management.Local.azurestack.external*.
 
 Když objekt zabezpečení (klient, aplikace nebo uživatel) odešle požadavek na ověření k přístupu k prostředku, požadavek musí zahrnovat:
 
@@ -188,7 +188,7 @@ Podrobnosti o používání Azure PowerShell k ověřování pomocí centra Azur
 
 ### <a name="authenticate-with-azure-cli"></a>Ověřování pomocí Azure CLI
 
-Informace o použití Azure PowerShell k ověřování pomocí centra Azure Stack najdete v tématu [instalace a konfigurace rozhraní příkazového řádku Azure CLI pro použití s Azure Stack hub](/azure-stack/user/azure-stack-version-profiles-azurecli2).
+Informace o použití Azure PowerShell k ověřování pomocí centra Azure Stack najdete v tématu [instalace a konfigurace rozhraní příkazového řádku Azure CLI pro použití s Azure Stack hub](../user/azure-stack-version-profiles-azurecli2.md).
 
 ## <a name="next-steps"></a>Další kroky
 

@@ -1,40 +1,57 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Dokumentace k partnerovi centra Azure Stack
+summary: Naučte se, jak ověřit hardware pro hostování centra Azure Stack. Ověřování jako služba je nativní služba Azure navržená pro použití v partnerech řešení, kteří jsou spoluinženýrské nabídky s Microsoftem.
 metadata:
-  title: 'D\documentation Partner centra pro Azure Stack – kurzy, API R\reference'
-  description: 'Naučte se, jak ověřit hardware pro hostování centra Azure Stack. Ověřování jako služba je nativní služba Azure určená pro partnery řešení, kteří jsou spolustrojírenství Azure Stack nabídky centra s Microsoftem.'
-  services: azure-stack
-  author: mattbriggs
-  manager: femila
+  title: Partner centra Azure Stack
+  description: Naučte se, jak ověřit hardware pro hostování centra Azure Stack. Ověřování jako služba je nativní služba Azure navržená pro použití v partnerech řešení, kteří jsou spoluinženýrské nabídky s Microsoftem.
   ms.service: azure-stack
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: partner
   ms.topic: landing-page
-  ms.date: 07/25/2018
+  author: mattbriggs
   ms.author: mabrigg
-  ms.reviewer: johnhas
-abstract:
-  description: 'Ověřování jako službu můžete použít ke kontrole hardwaru pro použití s Azure Stack hub. Tato služba je nativní službou Azure určenou pro použití partnery pro řešení, kteří jsou spolustrojírenství v Azure Stack centra pro spolupráci s Microsoftem.'
-sections:
-  - title: Zprovoznění během 5 minut
-    items:
-      - type: paragraph
-        text: Naučte se používat ověřování jako portál služby k naplánování testů na hardware.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: media/i_account-management.svg
-            text: Použití ověřování jako portálu služby k naplánování prvního testu
-            href: azure-stack-vaas-schedule-test-pass.md
-  - title: Podrobné kurzy
-    items:
-      - type: paragraph
-        text: 'Zjistěte, jak ověřit hardware centra Azure Stack.'
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure-stack/partner/azure-stack-vaas-validate-solution-new">Ověřit nové řešení centra Azure Stack</a>
-          - html: <a href="/azure-stack/partner/azure-stack-vaas-validate-oem-package">Ověřit balíčky OEM</a>
-          - html: <a href="/azure-stack/partner/azure-stack-vaas-validate-microsoft-updates">Ověřit aktualizace softwaru od Microsoftu</a>
+  ms.date: 06/22/2020
+  ms.openlocfilehash: 1e1deb2af682bbe732d374873e0b0ccbd292fce7
+  ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
+  ms.translationtype: MT
+  ms.contentlocale: cs-CZ
+  ms.lasthandoff: 06/22/2020
+  ms.locfileid: "85197017"
+landingContent:
+- title: O ověřování jako služby pro centrum Azure Stack
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Co je ověřování jako služba?
+      url: azure-stack-vaas-overview.md
+  - linkListType: whats-new
+    links:
+    - text: Poznámky k verzi
+      url: azure-stack-vaas-release-notes.md
+- title: Začínáme
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Naučte se používat ověřování jako portál služby.
+      url: azure-stack-vaas-schedule-test-pass.md
+    - text: Ověření řešení
+      url: azure-stack-vaas-validate-solution-new.md
+- title: Způsob použití
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Ověřit nové řešení centra Azure Stack
+      url: azure-stack-vaas-validate-solution-new.md
+    - text: Ověřit balíčky OEM
+      url: azure-stack-vaas-validate-oem-package.md
+    - text: Ověřit aktualizace softwaru od Microsoftu
+      url: azure-stack-vaas-validate-microsoft-updates.md
+    - text: Řešení potíží s ověřováním jako službou
+      url: azure-stack-vaas-troubleshoot.md
+  - linkListType: concept
+    links:
+    - text: Klíčové koncepty
+      url: azure-stack-vaas-key-concepts.md
+    - text: Osvědčené postupy
+      url: azure-stack-vaas-best-practice.md
+    - text: Společné parametry
+      url: azure-stack-vaas-parameters.md

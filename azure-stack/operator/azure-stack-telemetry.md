@@ -8,12 +8,12 @@ ms.date: 1/16/2020
 ms.author: inhenkel
 ms.reviewer: comartin
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: 6bc12104ef8ce325fe9b1773373ef235a33919e5
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: afaf8f4716443631ae0d2bbe1b82cd84b9d0e424
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77696953"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86487732"
 ---
 # <a name="configure-azure-stack-hub-telemetry"></a>Konfigurace telemetrie centra Azure Stack
 
@@ -24,10 +24,10 @@ V případě operátoru centra Azure Stack může telemetrie poskytovat cenné p
 > [!NOTE]
 > Můžete také nakonfigurovat centrum Azure Stack k přeposílání informací o využití do Azure pro účely fakturace. Tato možnost je vyžadována pro zákazníky s více Azure Stack uzly, kteří používají účtování s průběžnými platbami. Vytváření sestav o využití se řídí nezávisle na telemetrie a není vyžadováno pro zákazníky s více uzly, kteří volí model kapacity nebo pro Azure Stack Development Kit uživatele. V těchto scénářích lze vytváření sestav využití vypnout [pomocí registračního skriptu](azure-stack-usage-reporting.md).
 
-Telemetrie centra Azure Stack je založená na komponentě Windows Server 2016 s připojeným uživatelským prostředím a telemetrie. Tato součást používá technologii [trasování událostí pro Windows (ETW)](https://msdn.microsoft.com/library/dn904632(v=vs.85).aspx) TraceLogging k shromažďování a ukládání událostí a dat. Azure Stack komponenty používají stejnou technologii pro publikování událostí a dat shromážděných pomocí protokolu událostí veřejného operačního systému a rozhraní API pro trasování. Mezi tyto součásti Azure Stack centra patří například tito poskytovatelé: síťový prostředek, prostředek úložiště, monitorovací prostředek a prostředek aktualizace. Rozhraní připojené uživatele a komponenta telemetrie šifrují data pomocí protokolu SSL a pomocí připnutí certifikátů odesílá data přes HTTPS službě Microsoft Správa dat Service.
+Telemetrie centra Azure Stack je založená na komponentě Windows Server 2016 s připojeným uživatelským prostředím a telemetrie. Tato součást používá technologii [trasování událostí pro Windows (ETW)](/windows/win32/tracelogging/trace-logging-about) TraceLogging k shromažďování a ukládání událostí a dat. Azure Stack komponenty používají stejnou technologii pro publikování událostí a dat shromážděných pomocí protokolu událostí veřejného operačního systému a rozhraní API pro trasování. Mezi tyto součásti Azure Stack centra patří například tito poskytovatelé: síťový prostředek, prostředek úložiště, monitorovací prostředek a prostředek aktualizace. Rozhraní připojené uživatele a komponenta telemetrie šifrují data pomocí protokolu SSL a pomocí připnutí certifikátů odesílá data přes HTTPS službě Microsoft Správa dat Service.
 
 > [!IMPORTANT]
-> Aby bylo možné tok dat telemetrie povolit, musí být ve vaší síti otevřený port 443 (HTTPS). Komponenta s připojeným uživatelským prostředím a telemetrie se připojí ke službě `https://v10.events.data.microsoft.com`Microsoft Správa dat na adrese. Prostředí připojené uživatele a komponenta telemetrie se také připojí `https://settings-win.data.microsoft.com` ke stažení informací o konfiguraci. Další služby diagnostických dat `https://watson.telemetry.microsoft.com` se připojují pro zasílání zpráv o chybách.
+> Aby bylo možné tok dat telemetrie povolit, musí být ve vaší síti otevřený port 443 (HTTPS). Komponenta s připojeným uživatelským prostředím a telemetrie se připojí ke službě Microsoft Správa dat na adrese `https://v10.events.data.microsoft.com` . Prostředí připojené uživatele a komponenta telemetrie se také připojí ke `https://settings-win.data.microsoft.com` stažení informací o konfiguraci. Další služby diagnostických dat se připojují `https://watson.telemetry.microsoft.com` pro zasílání zpráv o chybách.
 
 ## <a name="privacy-considerations"></a>Aspekty ochrany osobních údajů
 
@@ -71,7 +71,7 @@ Pouze data zabezpečení. Informace, které jsou potřebné k zajištění zabez
 **1 (základní)**</br>
 Data zabezpečení a základní data o stavu a kvalitě. Základní informace o zařízení, včetně dat týkajících se kvality, kompatibility aplikací, dat o využití aplikací a dat z úrovně **zabezpečení** . Nastavení úrovně telemetrie na Basic umožňuje telemetrii centra Azure Stack. Data shromážděná na této úrovni zahrnují:
 
-- *Základní informace o zařízení* , které poskytují porozumění typům a konfiguracím nativních a virtuálních instancí Windows Server 2016 v ekosystému To zahrnuje:
+- *Základní informace o zařízení* , které poskytují porozumění typům a konfiguracím nativních a virtuálních instancí Windows Server 2016 v ekosystému Sem patří:
 
   - Atributy počítače, jako je například výrobce OEM a model.
   - Síťové atributy, například počet síťových adaptérů a jejich rychlost.
@@ -117,12 +117,12 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies
 
 Pokud chcete povolit nebo zakázat telemetrii po nasazení, potřebujete přístup k privilegovanému koncovému bodu (PEP), který je vystavený na virtuálních počítačích ERCS.
 
-- Povolení:`Set-Telemetry -Enable`
-- Chcete-li zakázat:`Set-Telemetry -Disable`
+- Povolení: `Set-Telemetry -Enable`
+- Chcete-li zakázat: `Set-Telemetry -Disable`
 
 Podrobnosti parametru:
-- `.PARAMETER Enable`-Zapnout nahrávání dat telemetrie
-- `.PARAMETER Disable`-Vypnout nahrávání dat telemetrie  
+- `.PARAMETER Enable` -Zapnout nahrávání dat telemetrie
+- `.PARAMETER Disable` -Vypnout nahrávání dat telemetrie  
 
 **Skript pro povolení telemetrie:**
 

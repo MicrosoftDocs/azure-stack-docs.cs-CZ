@@ -7,12 +7,12 @@ ms.date: 04/27/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/27/2020
-ms.openlocfilehash: e9bd1d8fa51108f6384b29f33cf6cc0ea8cc166e
-ms.sourcegitcommit: 54f98b666bea9226c78f26dc255ddbdda539565f
+ms.openlocfilehash: b0a9aeb2e7ec1035f24d89409f5fa23ef13500fb
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82563012"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86486610"
 ---
 # <a name="new-graphapplication"></a>New-GraphApplication
 
@@ -39,7 +39,7 @@ New-GraphApplication -Name $ApplicationName -ClientRedirectUris $redirectUri -Cl
 ## <a name="parameters"></a>Parametry
 
 ### <a name="-name"></a>-Name
-Název aplikace s maximální délkou 50 znaků, bude změněn jako `Azurestack-$Name-$({guid}::{NewGuid}())`a je vrácen funkcí.
+Název aplikace s maximální délkou 50 znaků, bude změněn jako `Azurestack-$Name-$({guid}::{NewGuid}())` a je vrácen funkcí.
 
 ```yaml
 Type: Object
@@ -115,4 +115,4 @@ Accept wildcard characters: False
 
 ## <a name="next-steps"></a>Další kroky
 
-Informace o přístupu a používání privilegovaného koncového bodu najdete v tématu [použití privilegovaného koncového bodu v centru Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-privileged-endpoint).
+Informace o přístupu a používání privilegovaného koncového bodu najdete v tématu [použití privilegovaného koncového bodu v centru Azure Stack](../../operator/azure-stack-privileged-endpoint.md).

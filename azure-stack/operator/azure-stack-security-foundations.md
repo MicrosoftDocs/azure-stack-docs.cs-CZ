@@ -8,12 +8,12 @@ ms.date: 06/10/2019
 ms.author: justinha
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/07/2020
-ms.openlocfilehash: 35b4fbd97032df00236a67dd5b776a2f3fada8ea
-ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
+ms.openlocfilehash: 27ba6098755d93ef1de902a9a4e052f1ff6b53d5
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84819254"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86487868"
 ---
 # <a name="azure-stack-hub-infrastructure-security-controls"></a>Ovládací prvky zabezpečení infrastruktury centra Azure Stack
 
@@ -46,9 +46,9 @@ Všechny koncové body externí infrastruktury, jako jsou koncové body REST neb
 I když se certifikáty podepsané svým držitelem dají použít pro tyto externí koncové body, Microsoft je při jejich používání důrazně doporučuje.
 Další informace o tom, jak vynutilit TLS 1,2 na vnějších koncových bodech centra Azure Stack, najdete v tématu [Konfigurace řízení Azure Stack zabezpečení centra](azure-stack-security-configuration.md).
 
-## <a name="secret-management"></a>Správa tajných klíčů
+## <a name="secret-management"></a>Správa tajných kódů
 
-Infrastruktura centra Azure Stack používá k fungování velké množství tajných kódů, jako jsou hesla a certifikáty. Většina hesel přidružených k interním účtům služeb je automaticky otočená každých 24 hodin, protože [seskupují účty spravované služby (gMSA)](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview), což je typ účtu domény, který je spravovaný přímo interním řadičem domény.
+Infrastruktura centra Azure Stack používá k fungování velké množství tajných kódů, jako jsou hesla a certifikáty. Většina hesel přidružených k interním účtům služeb je automaticky otočená každých 24 hodin, protože [seskupují účty spravované služby (gMSA)](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview), což je typ účtu domény, který je spravovaný přímo interním řadičem domény.
 
 Infrastruktura centra Azure Stack používá pro všechny své interní certifikáty 4096 klíčů RSA. Pro externí koncové body lze také použít stejné certifikáty klíčů. Další informace o tajných klíčích a rotaci certifikátů najdete [v tématu otočení tajných kódů v centru Azure Stack](azure-stack-rotate-secrets.md).
 
@@ -59,7 +59,7 @@ Azure Stack Hub využívá nejnovější funkce zabezpečení Windows Serveru. J
 Autorizovaný kód je podepsaný Microsoftem nebo partnerem OEM. Podepsaný autorizovaný kód je zahrnutý v seznamu povoleného softwaru zadaného v zásadě definované Microsoftem. Jinými slovy, lze spustit pouze software, který byl schválen ke spuštění v infrastruktuře centra Azure Stack. Jakýkoli pokus o spuštění neautorizovaného kódu se zablokuje a vygeneruje se upozornění. Azure Stack Hub vynucuje integritu kódu v uživatelském režimu (UMCI) i integritu kódu na úrovni hypervisoru (HVCI).
 
 Zásady WDAC také zabrání spuštění agentů nebo softwaru třetích stran v infrastruktuře centra Azure Stack.
-Další informace o WDAC najdete v tématu [řízení aplikací v programu Windows Defender a ochrana integrity kódu na základě virtualizace](https://docs.microsoft.com/windows/security/threat-protection/device-guard/introduction-to-device-guard-virtualization-based-security-and-windows-defender-application-control).
+Další informace o WDAC najdete v tématu [řízení aplikací v programu Windows Defender a ochrana integrity kódu na základě virtualizace](/windows/security/threat-protection/device-guard/introduction-to-device-guard-virtualization-based-security-and-windows-defender-application-control).
 
 ## <a name="credential-guard"></a>Ochrana přihlašovacích údajů Credential Guard
 

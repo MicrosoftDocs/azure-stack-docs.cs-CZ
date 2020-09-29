@@ -7,12 +7,12 @@ ms.date: 04/27/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/27/2020
-ms.openlocfilehash: e2c3b6213d31880b262501eb123d37eab7ec0a48
-ms.sourcegitcommit: 54f98b666bea9226c78f26dc255ddbdda539565f
+ms.openlocfilehash: 4b64f3fa38b474fddb930915059f6406d25fd3c8
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82563364"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86485947"
 ---
 # <a name="test-azurestack"></a>Test-AzureStack
 
@@ -29,8 +29,8 @@ Test-AzureStack [-BackupShareCredential <Object>] [-Include <Object>] [-Detailed
 ```
 
 ## <a name="description"></a>Popis
-Pokud se nezjistí žádné chyby, vrátí `$true`test-AzureStack.
-Pokud se zjistí chyby, vrátí `$false`se.
+Pokud se nezjistí žádné chyby, vrátí test-AzureStack `$true` .
+Pokud se zjistí chyby, vrátí se `$false` .
 
 ## <a name="examples"></a>Příklady
 
@@ -306,4 +306,4 @@ Accept wildcard characters: False
 
 ## <a name="next-steps"></a>Další kroky
 
-Informace o přístupu a používání privilegovaného koncového bodu najdete v tématu [použití privilegovaného koncového bodu v centru Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-privileged-endpoint).
+Informace o přístupu a používání privilegovaného koncového bodu najdete v tématu [použití privilegovaného koncového bodu v centru Azure Stack](../../operator/azure-stack-privileged-endpoint.md).

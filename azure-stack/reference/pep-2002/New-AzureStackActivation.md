@@ -7,12 +7,12 @@ ms.date: 04/27/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/27/2020
-ms.openlocfilehash: fdd30f54973d5e1d6485e89b30c1ae811c950822
-ms.sourcegitcommit: 54f98b666bea9226c78f26dc255ddbdda539565f
+ms.openlocfilehash: 01182266cd53c060114e5ea555d9839a2b1b90bf
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82563056"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86486763"
 ---
 # <a name="new-azurestackactivation"></a>New-AzureStackActivation
 
@@ -74,4 +74,4 @@ Accept wildcard characters: False
 
 ## <a name="next-steps"></a>Další kroky
 
-Informace o přístupu a používání privilegovaného koncového bodu najdete v tématu [použití privilegovaného koncového bodu v centru Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-privileged-endpoint).
+Informace o přístupu a používání privilegovaného koncového bodu najdete v tématu [použití privilegovaného koncového bodu v centru Azure Stack](../../operator/azure-stack-privileged-endpoint.md).

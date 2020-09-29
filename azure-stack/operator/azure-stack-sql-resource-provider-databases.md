@@ -8,12 +8,12 @@ ms.date: 1/22/2020
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2019
-ms.openlocfilehash: 0d1e58fffc7bc5fcc6a2c54ad409752314d1d36b
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 0f011fe3017d33627259f58e51795193257e3956
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77697395"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86487919"
 ---
 # <a name="create-sql-databases"></a>Vytvoření databází SQL
 
@@ -56,7 +56,7 @@ V části **Essentials**, která se zobrazí po nasazení databáze, si poznamen
 
 ## <a name="sql-always-on-databases"></a>Databáze SQL Always On
 
-V databázích, které jsou vždy zpracovávány, jsou databáze vždy zpracovávány jinak než v samostatném serverovém prostředí. Další informace najdete v tématu [představení skupin dostupnosti Always on SQL Server na virtuálních počítačích Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview).
+V databázích, které jsou vždy zpracovávány, jsou databáze vždy zpracovávány jinak než v samostatném serverovém prostředí. Další informace najdete v tématu [představení skupin dostupnosti Always on SQL Server na virtuálních počítačích Azure](/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview).
 
 ### <a name="verify-sql-always-on-databases"></a>Ověření databází SQL Always On
 

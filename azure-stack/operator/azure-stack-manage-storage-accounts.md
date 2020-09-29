@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: 2d836c601f292b25a472b38d1afef464a3b22960
-ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
+ms.openlocfilehash: a99339b2a8708bac8c20b5f2fb507e42fc7588de
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84630930"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86488650"
 ---
 # <a name="manage-azure-stack-hub-storage-accounts"></a>Správa účtů úložiště Azure Stack hub
 
@@ -28,9 +28,9 @@ Seznam účtů úložiště v oblasti lze zobrazit v Azure Stack centru pomocí 
 
    ![Účty úložiště Azure Stack hub](media/azure-stack-manage-storage-accounts/image4.png)
 
-Ve výchozím nastavení se zobrazí prvních 10 účtů. Další možnosti získáte tak, že kliknete na odkaz **načíst další** v dolní části seznamu.
+Ve výchozím nastavení se zobrazí prvních 10 účtů. Další možnosti získáte tak, že kliknete na odkaz  **načíst další** v dolní části seznamu.
 
-OR
+NEBO
 
 Pokud vás zajímá konkrétní účet úložiště, můžete **filtrovat a načíst jenom příslušné účty** .
 
@@ -65,7 +65,7 @@ V centru Azure Stack existuje jednoduchý způsob, jak to provést:
 3. Ověřte *stav* účtu. Měl by se jednat o **odstranění**.
 4. Vyberte účet, který otevře podokno Podrobnosti o účtu.
 5. V horní části tohoto podokna najděte tlačítko **obnovit** a vyberte ho.
-6. Výběrem **Ano** potvrďte.
+6. Akci potvrďte výběrem **Ano**.
 
    ![Potvrzení obnovení účtu úložiště](media/azure-stack-manage-storage-accounts/image8.png)
 
@@ -123,7 +123,7 @@ Pomocí prostředí PowerShell můžete také explicitně přepsat dobu uchován
 **Postup uvolnění kapacity pomocí prostředí PowerShell:**
 
 1. Potvrďte, že máte nainstalovanou a nakonfigurovanou Azure PowerShell. V takovém případě postupujte podle následujících pokynů: 
-   * Pokud chcete nainstalovat nejnovější verzi Azure PowerShell a přidružit ji k předplatnému Azure, přečtěte si téma [Jak nainstalovat a nakonfigurovat Azure PowerShell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
+   * Pokud chcete nainstalovat nejnovější verzi Azure PowerShell a přidružit ji k předplatnému Azure, přečtěte si téma [Jak nainstalovat a nakonfigurovat Azure PowerShell](/powershell/azure/).
    Další informace o rutinách Azure Resource Manager najdete v tématu [použití Azure PowerShell s Azure Resource Manager](https://go.microsoft.com/fwlink/?LinkId=394767).
 2. Spusťte následující rutiny:
 
@@ -135,7 +135,7 @@ Pomocí prostředí PowerShell můžete také explicitně přepsat dobu uchován
     Start-AzsReclaimStorageCapacity -FarmName $farm_name
 ```
 
-Další informace najdete v [dokumentaci k prostředí PowerShell centra Azure Stack](https://docs.microsoft.com/powershell/azure/azure-stack/overview).
+Další informace najdete v [dokumentaci k prostředí PowerShell centra Azure Stack](/powershell/azure/azure-stack/overview).
  
 
 ## <a name="next-steps"></a>Další kroky

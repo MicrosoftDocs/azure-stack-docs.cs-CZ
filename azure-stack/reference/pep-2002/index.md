@@ -7,12 +7,12 @@ ms.date: 04/27/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/27/2020
-ms.openlocfilehash: 218aff04912abcce97cf0f3568b6bff1321b4cba
-ms.sourcegitcommit: 54f98b666bea9226c78f26dc255ddbdda539565f
+ms.openlocfilehash: 76eb340da04e9254bcf8d8a626822c65362f44d2
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82563265"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86486032"
 ---
 # <a name="azure-stack-hub-privileged-endpoint-reference"></a>Referenční informace k privilegovanému koncovému bodu centra Azure Stack
 
@@ -69,4 +69,4 @@ Prostředí PowerShell Azure Stack privilegovaným koncovým bodem (PEP) je pře
 
 ## <a name="next-steps"></a>Další kroky
 
-Další informace o privilegovaném koncovém bodu v centru Azure Stack najdete v tématu [použití privilegovaného koncového bodu v Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-privileged-endpoint).
+Další informace o privilegovaném koncovém bodu v centru Azure Stack najdete v tématu [použití privilegovaného koncového bodu v Azure Stack](../../operator/azure-stack-privileged-endpoint.md).

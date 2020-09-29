@@ -8,16 +8,16 @@ ms.date: 12/04/2019
 ms.author: justinha
 ms.reviewer: fiseraci
 ms.lastreviewed: 12/04/2019
-ms.openlocfilehash: 8f0ad292f8d9772c53c332d2cad7af8bd606594a
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 31ef55554646065a5d61cc21abf4e72b7fcb4eda
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77697735"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86488089"
 ---
 # <a name="update-windows-defender-antivirus-on-azure-stack-hub"></a>Aktualizace antivirové ochrany v programu Windows Defender v centru Azure Stack
 
-[Antivirová ochrana v programu Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10) je antimalwarové řešení, které zajišťuje zabezpečení a antivirovou ochranu. Každá součást infrastruktury centra Azure Stack (hostitelé a virtuální počítače Hyper-V) je chráněná pomocí antivirové ochrany v programu Windows Defender. V případě aktuálnosti ochrany budete potřebovat pravidelné aktualizace definic, strojů a platforem v programu Windows Defender. Způsob použití aktualizací závisí na konfiguraci.
+[Antivirová ochrana v programu Windows Defender](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10) je antimalwarové řešení, které zajišťuje zabezpečení a antivirovou ochranu. Každá součást infrastruktury centra Azure Stack (hostitelé a virtuální počítače Hyper-V) je chráněná pomocí antivirové ochrany v programu Windows Defender. V případě aktuálnosti ochrany budete potřebovat pravidelné aktualizace definic, strojů a platforem v programu Windows Defender. Způsob použití aktualizací závisí na konfiguraci.
 
 ## <a name="connected-scenario"></a>Připojený scénář
 
@@ -59,8 +59,8 @@ Následující postup ukazuje, jak nastavit ruční aktualizaci v programu Windo
 
 2. Stáhněte si dva balíčky aktualizací v programu Windows Defender a uložte je do umístění, které je dostupné na portálu pro správu centra Azure Stack.  
 
-   * Mpam-FE. exe z[https://go.microsoft.com/fwlink/?LinkId=121721&arch=x64](https://go.microsoft.com/fwlink/?LinkId=121721&arch=x64) 
-   * nis_full. exe z[https://go.microsoft.com/fwlink/?LinkId=197094](https://go.microsoft.com/fwlink/?LinkId=197094) 
+   * mpam-fe.exe od [https://go.microsoft.com/fwlink/?LinkId=121721&arch=x64](https://go.microsoft.com/fwlink/?LinkId=121721&arch=x64) 
+   * nis_full.exe od [https://go.microsoft.com/fwlink/?LinkId=197094](https://go.microsoft.com/fwlink/?LinkId=197094) 
 
    > [!NOTE] 
    > Tyto dva soubory budete muset stáhnout **pokaždé** , když chcete aktualizovat signatury Defenderu. 
@@ -83,13 +83,13 @@ Následující postup ukazuje, jak nastavit ruční aktualizaci v programu Windo
 
    ![Centrum Azure Stack Defender – nahrání](./media/azure-stack-security-av/image4.png) 
 
-8. V části **nahrát objekt BLOB**klikněte na ikonu složky, vyhledejte soubory aktualizace *Mpam-FE. exe* v programu Windows Defender a pak klikněte na **otevřít** v okně Průzkumník souborů. 
+8. V části **nahrát objekt BLOB**klikněte na ikonu složky, vyhledejte *mpam-fe.exe* soubory aktualizace programu Windows Defender a potom v okně Průzkumníka souborů klikněte na **otevřít** . 
 
 9. V části **nahrát objekt BLOB**klikněte na **nahrát**. 
 
    ![Centrum Azure Stack Defender – nahrání blob1](./media/azure-stack-security-av/image5.png) 
 
-1. Opakujte kroky 8 a 9 pro soubor *nis_full. exe* . 
+1. Opakujte kroky 8 a 9 pro soubor *nis_full.exe* . 
 
    ![Centrum Azure Stack Defender – nahrání blob2](./media/azure-stack-security-av/image6.png)
 

@@ -8,12 +8,12 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: 2c8211606ae797b4a88da1c268a7fb36b7de214b
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 730e4dd823509f7a8c738f3d02bd10c82529834c
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79512367"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86487783"
 ---
 # <a name="start-and-stop-azure-stack-hub"></a>Spuštění a zastavení centra Azure Stack
 
@@ -66,7 +66,7 @@ Následující kroky proveďte v případě, že se infrastruktura a služby ten
 
 1. Otevřete privilegovanou relaci koncového bodu z počítače se síťovým přístupem k ERCSm virtuálním počítačům centra Azure Stack.
 
-2. Spuštěním příkazu
+2. Spusťte tento příkaz:
 
     ```powershell
       Test-AzureStack
@@ -74,7 +74,7 @@ Následující kroky proveďte v případě, že se infrastruktura a služby ten
 
 3. Zkontrolujte výstup a vyřešte všechny chyby stavu. Další informace najdete v tématu [spuštění ověřovacího testu centra Azure Stack](azure-stack-diagnostic-test.md).
 
-4. Spuštěním příkazu
+4. Spusťte tento příkaz:
 
     ```powershell
       Start-AzureStack
@@ -84,4 +84,4 @@ Následující kroky proveďte v případě, že se infrastruktura a služby ten
 
 ## <a name="next-steps"></a>Další kroky
 
-Další informace o [diagnostických nástrojích centra Azure Stack](azure-stack-diagnostic-log-collection-overview-tzl.md)
+Další informace o [diagnostických nástrojích centra Azure Stack](./azure-stack-diagnostic-log-collection-overview.md?view=azs-2002)
