@@ -4,22 +4,22 @@ description: Seznamte se s kroky a nástroji pro migraci skriptů z modulu Azure
 author: mattbriggs
 ms.author: mabrigg
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 08/24/2020
 ms.reviewer: sijuman
 ms.lastreviewed: 04/14/2020
-ms.openlocfilehash: bcfd4b467013a6f207efa37bc02917d3800e3eb0
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 9b41f2f25e2c9c727d397dedd3f95e9683080e25
+ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81395143"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88764745"
 ---
 # <a name="migrate-from-azurerm-to-azure-powershell-az-in-azure-stack-hub"></a>Migrace z AzureRM na Azure PowerShell AZ in Azure Stack hub
 
 Modul Az zajišťuje paritu funkcí s AzureRM, ale používá kratší a konzistentnější názvy rutin.
 Skripty napsané pro AzureRM nebudou automaticky fungovat s novým modulem. Pro usnadnění tohoto přechodu Az nabízí nástroje, které umožňují spouštět stávající skripty s využitím AzureRM. Migrace na novou sadu příkazů není nikdy nic příjemného, ale tento článek vám pomůže začít s přechodem na nový modul.
 
-Úplný seznam všech zásadních změn mezi AzureRM a Az najdete v tématu [Průvodce migrací pro Az 1.0.0](https://docs.microsoft.com/powershell/azure/migrate-az-1.0.0).
+Úplný seznam všech zásadních změn mezi AzureRM a Az najdete v tématu [Průvodce migrací pro Az 1.0.0](/powershell/azure/migrate-az-1.0.0).
 
 ## <a name="check-for-installed-versions-of-azurerm"></a>Kontrola nainstalovaných verzí AzureRM
 
@@ -43,7 +43,7 @@ Při instalaci modulu Az Azure PowerShellu postupujte takto:
 
 * __Doporučené__: [odinstalujte modul AzureRM](/powershell/azure/uninstall-az-ps#uninstall-the-azurerm-module).
   Ujistěte se, že jste odebrali _všechny_ nainstalované verze AzureRM, ne jenom nejnovější verzi.
-* [Instalace modulu Az](https://docs.microsoft.com/powershell/azure/install-az-ps)
+* [Instalace modulu Az](/powershell/azure/install-az-ps)
 
 ## <a name="enable-azurerm-compatibility-aliases"></a>Povolení aliasů kompatibility s AzureRM 
 
@@ -80,7 +80,7 @@ Pro tuto změnu pojmenování existují výjimky, o kterých byste měli vědět
 | AzureRM.UsageAggregates | Az.Billing | Ne |
 | AzureRM.Consumption | Az.Billing | Ne |
 
-## <a name="summary"></a>Souhrn
+## <a name="summary"></a>Shrnutí
 
 Pomocí tohoto postupu můžete aktualizovat všechny vaše stávající skripty tak, aby používaly nový modul. Pokud máte jakékoli dotazy nebo problémy s těmito kroky, které vaši migraci ztížily, přidejte k tomuto článku komentáře, abychom mohli uvedené pokyny vylepšit.
 
@@ -92,7 +92,7 @@ Tento dokument obsahuje podrobné informace o změnách mezi AzureRM 6.x a nový
 
 Tato část podrobně popisuje obecné zásadní změny v souvislosti s přepracováním modulu Az.
 
-### <a name="cmdlet-noun-prefix-changes"></a>Změny předpon rutin
+### <a name="cmdlet-noun-prefix-changes"></a>Změny předpony podstatného názvu rutiny
 
 V modulu AzureRM rutiny jako předponu používaly `AzureRM` nebo `Azure`.  Az názvy rutin zjednodušuje a normalizuje, aby všechny rutiny jako předponu používaly Az. Příklad:
 
@@ -225,7 +225,7 @@ Nástroje pro tyto služby se už aktivně nepodporují.  Doporučujeme zákazn�
 
 K používání Az s PowerShellem 5.1 pro Windows se vyžaduje instalace rozhraní .NET Framework 4.7.2. K používání PowerShellu Core 6.x nebo novějšího se rozhraní .NET Framework nevyžaduje.
 
-### <a name="temporary-removal-of-user-login-using-pscredential"></a>Dočasné odebrání možnosti přihlášení uživatele pomocí objektu PSCredential
+### <a name="temporary-removal-of-user-login-using-pscredential"></a>Dočasné odebrání přihlášení uživatele pomocí PSCredential
 
 Kvůli změnám v toku ověřování pro .NET Standard dočasně odebíráme možnost přihlášení uživatele prostřednictvím objektu PSCredential. Tato možnost bude znovu zavedená ve verzi PowerShellu 5.1 pro Windows vydané 15. 1. 2019. Podrobnosti najdete u [tohoto problému na GitHubu](https://github.com/Azure/azure-powershell/issues/7430).
 

@@ -1,17 +1,17 @@
 ---
 title: Ochrana Azure Stack virtuálních počítačů HCI pomocí Azure Site Recovery
 description: Použijte centrum pro správu systému Windows k ochraně Azure Stack virtuálních počítačů HCI pomocí Azure Site Recovery.
-ms.topic: article
+ms.topic: how-to
 author: davannaw-msft
 ms.author: dawhite
 ms.date: 04/30/2020
 ms.localizationpriority: low
-ms.openlocfilehash: 01b6f16b3812b5f11f95d9d11f6563a1631fd690
-ms.sourcegitcommit: 21cdab346fc242b8848a04a124bc16c382ebc6f0
+ms.openlocfilehash: d66948092d97ac42ef9484d47e9b584ed6a80a90
+ms.sourcegitcommit: a15a0f955bac922cebb7bf90a72384fd84ddfe56
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82783932"
+ms.lasthandoff: 07/22/2020
+ms.locfileid: "86947567"
 ---
 # <a name="protect-azure-stack-hci-vms-using-azure-site-recovery"></a>Ochrana Azure Stack virtuálních počítačů HCI pomocí Azure Site Recovery
 
@@ -24,7 +24,7 @@ V tomto článku se dozvíte, jak pomocí Azure Site Recovery nakonfigurovat nas
 Další informace najdete v tématu [propojení Windows serveru s Azure Hybrid Services](/windows-server/manage/windows-admin-center/azure/).
 
 ## <a name="how-azure-site-recovery-works-with-windows-admin-center"></a>Jak Azure Site Recovery funguje s centrem pro správu Windows
-*Azure Site Recovery* je služba Azure, která replikuje úlohy běžící na virtuálních počítačích, aby byla vaše důležitá firemní infrastruktura chráněná před havárií. Další informace najdete v tématu [o Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview).
+*Azure Site Recovery* je služba Azure, která replikuje úlohy běžící na virtuálních počítačích, aby byla vaše důležitá firemní infrastruktura chráněná před havárií. Další informace najdete v tématu [o Site Recovery](/azure/site-recovery/site-recovery-overview).
 
 Azure Site Recovery se skládá ze dvou součástí: *replikace* a *převzetí služeb při selhání*. Část replikace chrání vaše virtuální počítače před havárií tím, že replikuje virtuální pevný disk cílového virtuálního počítače do účtu služby Azure Storage. Potom můžete virtuální počítače převzít služby při selhání a v případě havárie je spouštět v Azure. Testovací převzetí služeb při selhání můžete provést i bez vlivu na vaše primární virtuální počítače a otestovat tak proces obnovení v Azure.
 
@@ -36,8 +36,8 @@ Dokončení instalace komponenty replikace je dostatečné pro ochranu virtuáln
 K provedení kroků v tomto článku jsou potřeba následující:
 
 - Cílové servery, které hostují virtuální počítače, které chcete chránit, musí mít přístup k Internetu, aby je bylo možné replikovat do Azure.
-- Připojení z centra pro správu Windows do Azure. Další informace najdete v tématu [Konfigurace integrace Azure](https://docs.microsoft.com/windows-server/manage/windows-admin-center/azure/azure-integration).
-- Projděte si nástroj pro plánování kapacity a vyhodnoťte požadavky na úspěšnou replikaci a převzetí služeb při selhání. Další informace najdete v tématu [o Plánovač nasazení služby Azure Site Recovery zotavení po havárii technologie Hyper-V do Azure](https://docs.microsoft.com/azure/site-recovery/hyper-v-site-walkthrough-capacity).
+- Připojení z centra pro správu Windows do Azure. Další informace najdete v tématu [Konfigurace integrace Azure](/windows-server/manage/windows-admin-center/azure/azure-integration).
+- Projděte si nástroj pro plánování kapacity a vyhodnoťte požadavky na úspěšnou replikaci a převzetí služeb při selhání. Další informace najdete v tématu [o Plánovač nasazení služby Azure Site Recovery zotavení po havárii technologie Hyper-V do Azure](/azure/site-recovery/hyper-v-site-walkthrough-capacity).
 
 ## <a name="step-1-set-up-vm-protection-on-your-target-host"></a>Krok 1: nastavení ochrany virtuálních počítačů na cílovém hostiteli
 Proveďte následující kroky jednou pro každý hostitelský server nebo cluster obsahující virtuální počítače, které chcete zacílit na ochranu:
@@ -53,13 +53,13 @@ Proveďte následující kroky jednou pro každý hostitelský server nebo clust
 
    - **Předplatné:** Předplatné Azure, které chcete použít pro replikaci virtuálních počítačů na tomto hostiteli.
    - **Skupina prostředků:** Název nové skupiny prostředků.
-   - **Recovery Services trezor:** Název trezoru Azure Site Recovery pro chráněné virtuální počítače na tomto hostiteli.  
+   - **Recovery Services trezor:** Název trezoru Azure Site Recovery pro chráněné virtuální počítače na tomto hostiteli.
    - **Umístění:** Oblast Azure, ve které by se měly vytvořit prostředky Azure Site Recovery.
 
     :::image type="content" source="media/azure-site-recovery/set-up-host-with-asr.png" alt-text="Stránka nastavení hostitele s Azure Site Recovery v centru pro správu systému Windows.":::
 
 1. Počkejte, dokud neuvidíte oznámení: **nastavení Site Recovery dokončeno**.
- 
+
 Tento proces může trvat až 10 minut. Průběh můžete sledovat tak, že přejdete na **oznámení** (ikona zvonku v pravém horním rohu centra pro správu systému Windows).
 
 >[!NOTE]
@@ -68,36 +68,36 @@ Tento proces může trvat až 10 minut. Průběh můžete sledovat tak, že pře
 ## <a name="step-2-select-vms-to-protect"></a>Krok 2: vyberte virtuální počítače, které chcete chránit.
 K ochraně virtuálních počítačů proveďte následující kroky:
 1. V centru pro správu systému Windows se vraťte k serveru nebo clusteru, který jste nakonfigurovali v předchozím úkolu.
-1. V části **nástroje**vyberte **virtuální počítače**a pak vyberte kartu **inventář** .
+1. V části **nástroje**vyberte **virtuální počítače**a pak vyberte kartu  **inventář** .
 1. Vyberte virtuální počítač, který chcete chránit, rozbalte podnabídku **Další** a pak vyberte **chránit virtuální počítač**.
 
     :::image type="content" source="media/azure-site-recovery/protect-vm-setting.png" alt-text="Možnost chránit nastavení virtuálního počítače v centru pro správu systému Windows.":::
 
-1. Zkontrolujte požadavky na kapacitu pro ochranu virtuálního počítače. Další informace najdete v tématu [plánování kapacity pro zotavení po havárii virtuálního počítače Hyper-V](https://docs.microsoft.com/azure/site-recovery/site-recovery-capacity-planner).
+1. Zkontrolujte požadavky na kapacitu pro ochranu virtuálního počítače. Další informace najdete v tématu [plánování kapacity pro zotavení po havárii virtuálního počítače Hyper-V](/azure/site-recovery/site-recovery-capacity-planner).
 
-    Pokud chcete použít účet Premium Storage, vytvořte ho v Azure Portal. Další informace najdete v části **SSD úrovně Premium** o tom, [Jaké typy disků jsou dostupné v Azure?](https://docs.microsoft.com/azure/storage/common/storage-premium-storage) Možnost **vytvořit novou** v centru pro správu Windows vytvoří účet úložiště úrovně Standard.
+    Pokud chcete použít účet Premium Storage, vytvořte ho v Azure Portal. Další informace najdete v části **SSD úrovně Premium** o tom, [Jaké typy disků jsou dostupné v Azure?](/azure/storage/common/storage-premium-storage) Možnost **vytvořit novou** v centru pro správu Windows vytvoří účet úložiště úrovně Standard.
 
 1. Zadejte název **účtu úložiště** , který se má použít pro replikaci tohoto virtuálního počítače, a pak vyberte **chránit virtuální počítač** pro povolení replikace pro virtuální počítač.
 
     :::image type="content" source="media/azure-site-recovery/protect-vm-setting-asr.png" alt-text="Definování účtu úložiště pro Azure Site Recovery pro ochranu virtuálního počítače v centru pro správu systému Windows.":::
 
-    Azure Site Recovery spustí proces replikace. Virtuální počítač je chráněný, pokud se hodnota v **chráněném** sloupci **skladové mřížky virtuálního počítače** změní na **Ano**. Může to trvat několik minut.  
+    Azure Site Recovery spustí proces replikace. Virtuální počítač je chráněný, pokud se hodnota v **chráněném** sloupci **skladové mřížky virtuálního počítače** změní na **Ano**. Může to trvat několik minut.
 
 ## <a name="step-3-configure-and-run-a-test-failover-in-the-azure-portal"></a>Krok 3: konfigurace a spuštění testovacího převzetí služeb při selhání v Azure Portal
 Před spuštěním replikace virtuálního počítače není nutné tento krok dokončit. Virtuální počítač je chráněný pouze replikací. Při nastavování Azure Site Recovery však doporučujeme nakonfigurovat nastavení převzetí služeb při selhání.
- 
+
 Při přípravě převzetí služeb při selhání na virtuální počítač Azure proveďte následující kroky:
-1. Nastavte síť Azure, kterou se pro virtuální počítač s podporou převzetí služeb při selhání připojí k této virtuální síti. Další informace najdete v tématu [Nastavení zotavení po havárii místních virtuálních počítačů Hyper-V do Azure](https://docs.microsoft.com/azure/site-recovery/hyper-v-site-walkthrough-prepare-azure).
+1. Nastavte síť Azure, kterou se pro virtuální počítač s podporou převzetí služeb při selhání připojí k této virtuální síti. Další informace najdete v tématu [Nastavení zotavení po havárii místních virtuálních počítačů Hyper-V do Azure](/azure/site-recovery/hyper-v-site-walkthrough-prepare-azure).
 
     >[!NOTE]
     > Centrum pro správu systému Windows automaticky dokončí kroky v tomto prostředku. Stačí nastavit síť Azure.
 
-1. Spusťte testovací převzetí služeb při selhání. Další informace najdete v tématu [spuštění postupu zotavení po havárii do Azure](https://docs.microsoft.com/azure/site-recovery/hyper-v-site-walkthrough-test-failover).
+1. Spusťte testovací převzetí služeb při selhání. Další informace najdete v tématu [spuštění postupu zotavení po havárii do Azure](/azure/site-recovery/hyper-v-site-walkthrough-test-failover).
 
 ## <a name="step-4-create-recovery-plans"></a>Krok 4: vytvoření plánů obnovení
 Plány obnovení v Azure Site Recovery umožňují převzít služby při selhání a obnovit kolekci virtuálních počítačů celé aplikace. Chráněné virtuální počítače je možné obnovit jednotlivě. Lepším způsobem je přidat do svého plánu obnovení virtuální počítače aplikace. V rámci plánu obnovení pak můžete převzít služby při selhání celé aplikace. K otestování obnovení aplikace můžete použít také funkci testovací převzetí služeb při selhání v plánu obnovení.
 
-Plány obnovení umožňují seskupovat virtuální počítače, sekvencovat pořadí, ve kterém by se měly začít během převzetí služeb při selhání, a automatizovat další kroky obnovení. Po provedení ochrany virtuálních počítačů můžete v Azure Portal přejít do trezoru Azure Site Recovery a vytvořit tak pro ně plány obnovení. Další informace najdete v tématu [Vytvoření a přizpůsobení plánů obnovení](https://docs.microsoft.com/azure/site-recovery/site-recovery-create-recovery-plans).
+Plány obnovení umožňují seskupovat virtuální počítače, sekvencovat pořadí, ve kterém by se měly začít během převzetí služeb při selhání, a automatizovat další kroky obnovení. Po provedení ochrany virtuálních počítačů můžete v Azure Portal přejít do trezoru Azure Site Recovery a vytvořit tak pro ně plány obnovení. Další informace najdete v tématu [Vytvoření a přizpůsobení plánů obnovení](/azure/site-recovery/site-recovery-create-recovery-plans).
 
 ## <a name="step-5-monitor-replicated-vms-in-azure"></a>Krok 5: monitorování replikovaných virtuálních počítačů v Azure
 Pokud nechcete v procesu registrace serveru ověřit žádné chyby, otevřete **Azure Portal**, vyberte **všechny prostředky**, vyberte **Recovery Services trezor**, vyberte **úlohy**a pak vyberte **Site Recovery úlohy**. Název **trezoru Recovery Services** je ten, který jste zadali v kroku 6 prvního úkolu v tomto článku.
@@ -112,4 +112,4 @@ Pokud zaregistrujete Azure Site Recovery s clusterem, pokud se uzel nepovede nai
 ## <a name="next-steps"></a>Další kroky
 Další informace o Azure Site Recovery najdete v tématu také:
 
-- [Obecné otázky týkající se Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-faq)
+- [Obecné dotazy ke službě Azure Site Recovery](/azure/site-recovery/site-recovery-faq)

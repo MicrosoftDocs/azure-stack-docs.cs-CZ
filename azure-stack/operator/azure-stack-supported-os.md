@@ -1,21 +1,21 @@
 ---
-title: Hostované operační systémy podporované v centru Azure Stack
+title: Podporované hostované operační systémy ve službě Azure Stack Hub
 titleSuffix: Azure Stack
 description: Seznamte se s hostovanými operačními systémy, které se dají použít v Azure Stack hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 07/27/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/06/2019
-ms.openlocfilehash: 17af4430f84f744a6ff4c8994ff453939fadb747
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 2275f00f8df77b3822537ca73ec35b342b477617
+ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81661248"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87250295"
 ---
-# <a name="guest-operating-systems-supported-on-azure-stack-hub"></a>Hostované operační systémy podporované v centru Azure Stack
+# <a name="guest-operating-systems-supported-on-azure-stack-hub"></a>Podporované hostované operační systémy ve službě Azure Stack Hub
 
 ## <a name="windows"></a>Windows
 
@@ -48,7 +48,7 @@ Distribuce systému Linux uvedené jako dostupné na webu centra Azure Stack zah
 >
 > [Cloud-init](https://cloud-init.io/) se podporuje v Azure Stack hub 1910 a vyšší.
 
-| Distribuce | Popis | Vydavatel | Tržiště centra Azure Stack |
+| Distribuce | Popis | Publisher | Tržiště centra Azure Stack |
 | --- | --- | --- | --- |
 | CentOS-based 6,9 | 64bitová | Neautorizovaný Wave | Ano |
 | CentOS-based 7,5 | 64bitová | Neautorizovaný Wave | Ano |

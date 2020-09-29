@@ -7,12 +7,12 @@ ms.date: 06/14/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 06/14/2019
-ms.openlocfilehash: e93b5b16d30017dd7a1ea50d2f990ee983c8f124
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: 4795b7abbd5c1f0dd9dfc1c3064aefa9371725a2
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82847125"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86490010"
 ---
 # <a name="register-the-asdk-with-azure"></a>Registrace ASDKu s využitím Azure
 
@@ -209,7 +209,7 @@ Po dokončení aktivace by se měla zobrazit zpráva podobná: **vašemu prostř
 
 Pomocí dlaždice **Správa oblastí** můžete ověřit, že byla registrace Azure Stack úspěšná. Tato dlaždice je k dispozici na výchozím řídicím panelu na portálu pro správu.
 
-1. Přihlaste se k portálu `https://adminportal.local.azurestack.external`správce Azure Stack.
+1. Přihlaste se k portálu správce Azure Stack `https://adminportal.local.azurestack.external` .
 
 2. Z řídicího panelu vyberte **Správa oblastí**.
 
@@ -218,7 +218,7 @@ Pomocí dlaždice **Správa oblastí** můžete ověřit, že byla registrace Az
 3. Vyberte **Vlastnosti**. Toto okno zobrazuje stav a podrobnosti vašeho prostředí. Stav lze **zaregistrovat** nebo **není zaregistrován**. Pokud je zaregistrované, zobrazí se také ID předplatného Azure, které jste použili k registraci Azure Stack, spolu se skupinou prostředků registrace a názvem.
 
 ## <a name="move-a-registration-resource"></a>Přesunutí prostředku registrace
-Přesunutí prostředku registrace mezi skupinami prostředků v rámci stejného předplatného **je** podporováno. Další informace o přesouvání prostředků do nové skupiny prostředků najdete v tématu [Přesunutí prostředků do nové skupiny prostředků nebo předplatného](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
+Přesunutí prostředku registrace mezi skupinami prostředků v rámci stejného předplatného **je** podporováno. Další informace o přesouvání prostředků do nové skupiny prostředků najdete v tématu [Přesunutí prostředků do nové skupiny prostředků nebo předplatného](/azure/azure-resource-manager/resource-group-move-resources).
 
 
 ## <a name="next-steps"></a>Další kroky

@@ -3,16 +3,16 @@ title: Podporované velikosti virtuálních počítačů v centru Azure Stack
 description: Referenční informace o podporovaných velikostech virtuálních počítačů v centru Azure Stack.
 author: mattbriggs
 ms.topic: reference
-ms.date: 03/23/2020
+ms.date: 07/24/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 03/23/2020
-ms.openlocfilehash: cce150e9e7698ea98035dc4f9104595100686cb7
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 3eb2a58c3ab915be9cf8cf1139880409830429f7
+ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80152186"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87250754"
 ---
 # <a name="vm-sizes-supported-in-azure-stack-hub"></a>Podporované velikosti virtuálních počítačů v centru Azure Stack
 
@@ -43,7 +43,7 @@ Velikosti virtuálních počítačů pro obecné účely představují vyvážen
 |Velikost     |Virtuální procesory     |Paměť (GiB) | Dočasné úložiště (GiB)  | Maximální propustnost disku s operačním systémem (IOPS) | Maximální propustnost dočasného úložiště (IOPS) | Maximální počet datových disků/propustnost (IOPS) | Maximální počet síťových karet |    
 |----------------|--|------|----|----|----|-------|---------|
 |**Standard_A0** |1 |0,768 |20  |500 |500 |1×500  |2 |
-|**Standard_A1** |1 |1,75  |70  |500 |500 |2×500  |2 |
+|**Standard_A1** |1 |1.75  |70  |500 |500 |2×500  |2 |
 |**Standard_A2** |2 |3,5   |135 |500 |500 |4×500  |2 |
 |**Standard_A3** |4 |7     |285 |500 |500 |8×500  |2 |
 |**Standard_A4** |8 |14    |605 |500 |500 |16×500 |4 |

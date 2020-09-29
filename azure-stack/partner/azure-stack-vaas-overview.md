@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: Přehled Azure Stack ověřování centra jako služby.
 author: mattbriggs
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7c42c9029e1e1292865f0da239d3dafcb78e5543
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 777a87094f9e950da5a301ec328d253cb5f7a7c1
+ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81661213"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88764711"
 ---
 # <a name="what-is-validation-as-a-service-for-azure-stack-hub"></a>Co je ověřování jako služba pro centrum Azure Stack?
 

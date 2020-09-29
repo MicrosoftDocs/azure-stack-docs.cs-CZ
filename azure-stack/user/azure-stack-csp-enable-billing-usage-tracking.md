@@ -3,16 +3,16 @@ title: Umožněte vašemu poskytovateli cloudového řešení spravovat předpla
 description: Naučte se, jak umožněte poskytovateli Cloud Solution Provider (CSP) spravovat předplatné centra Azure Stack.
 author: sethmanheim
 ms.topic: article
-ms.date: 04/24/2020
+ms.date: 07/27/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/20/2019
-ms.openlocfilehash: 1d325f8c1b48db33c8607dbbc04c480c00c54de0
-ms.sourcegitcommit: e5b587216a137819444680ec619281c90f37bad9
+ms.openlocfilehash: fd0caa7e841b960f4bdab6d5712fd3563710ef20
+ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82167122"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87251043"
 ---
 # <a name="let-your-cloud-solution-provider-manage-your-azure-stack-hub-subscription"></a>Umožněte vašemu poskytovateli cloudového řešení spravovat předplatné centra Azure Stack.
 

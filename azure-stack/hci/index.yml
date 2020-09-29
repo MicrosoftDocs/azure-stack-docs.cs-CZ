@@ -1,19 +1,19 @@
 ### YamlMime:Landing
 title: Dokumentace k Azure Stack HCI
-summary: Azure Stack HCI je vysoce sblížený cluster s Windows serverem 2019, který používá ověřený hardware ke spouštění virtualizovaných úloh v místním prostředí, což zákazníkům usnadňuje konsolidaci infrastruktury a připojení k Azure pro cloudové služby.
+summary: Azure Stack HCI je vysoce sblížený cluster, který používá ověřený hardware ke spouštění virtualizovaných úloh místně a usnadňuje zákazníkům konsolidovat infrastrukturu pro stárnutí a připojit se k Azure pro cloudové služby.
 metadata:
   title: Dokumentace k Azure Stack HCI
-  description: Azure Stack HCI je vysoce sblížený cluster s Windows serverem 2019, který používá ověřený hardware ke spouštění virtualizovaných úloh místně.
+  description: Azure Stack HCI je vysoce sblížený cluster, který používá ověřený hardware ke spouštění virtualizovaných úloh místně.
   ms.topic: landing-page
   author: khdownie
   ms.author: v-kedow
-  ms.date: 04/17/2020
-  ms.openlocfilehash: f277947b8de05c0a038c01bf9ab994510aa95b4f
-  ms.sourcegitcommit: 355e21dd9b8c3f44e14abaae0b4f176443cf7495
+  ms.date: 07/21/2020
+  ms.openlocfilehash: 439e41651800ddb6ee478bfad083890193aef5da
+  ms.sourcegitcommit: e675eafd12b044a6d8ae3790d1874e935f80f7cb
   ms.translationtype: MT
   ms.contentlocale: cs-CZ
-  ms.lasthandoff: 04/17/2020
-  ms.locfileid: "81624954"
+  ms.lasthandoff: 07/22/2020
+  ms.locfileid: "86891964"
 landingContent:
 - title: Informace o Azure Stack HCL
   linkLists:
@@ -25,33 +25,89 @@ landingContent:
     links:
     - text: Použití Azure Stack HCL s centrem pro správu Windows
       url: get-started.md
-- title: Spravovat Azure Stack HCI
+- title: Nasazení Azure Stack HCL
+  linkLists:
+  - linkListType: deploy
+    links:
+    - text: Než začnete
+      url: deploy/before-you-start.md
+    - text: Nasazení operačního systému Azure Stack HCI
+      url: deploy/operating-system.md
+    - text: Vytvoření clusteru
+      url: deploy/create-cluster.md
+    - text: Nastavení určujícího clusteru
+      url: deploy/witness.md
+    - text: Registrace v Azure
+      url: deploy/register-with-azure.md
+    - text: Ověření Azure Stack clusteru HCI
+      url: deploy/validate.md
+- title: Správa úložiště
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Vytváření svazků
       url: manage/create-volumes.md
+    - text: Vytvoření roztaženého svazku
+      url: manage/create-stretched-volumes.md
     - text: Rozšiřování svazků
       url: manage/extend-volumes.md
     - text: Odstranit svazky
       url: manage/delete-volumes.md
     - text: Nahradit jednotky
       url: manage/replace-drives.md
-    - text: Monitorování pomocí služby Azure Monitor
-      url: manage/azure-monitor.md
-    - text: Připojení GPU k virtuálnímu počítači se systémem Linux
-      url: manage/attach-gpu-to-linux-vm.md
+- title: Správa virtuálních počítačů
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Správa virtuálních počítačů pomocí centra pro správu Windows
+      url: manage/vm.md
+    - text: Správa virtuálních počítačů pomocí PowerShellu
+      url: manage/vm-powershell.md
+    - text: Nastavení pravidel spřažení virtuálních počítačů
+      url: deploy/before-you-start.md
+- title: Správa clusteru
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Správa clusteru pomocí centra pro správu Windows
+      url: manage/cluster.md
+    - text: Správa clusteru pomocí prostředí PowerShell
+      url: manage/cluster-powershell.md
+    - text: Přidat nebo odebrat servery
+      url: manage/add-cluster.md
+    - text: Aktualizovat cluster
+      url: manage/update-cluster.md
+    - text: Změnit jazyky
+      url: manage/vm-powershell.md
 - title: Azure Stack koncepty HCI
   linkLists:
   - linkListType: concept
     links:
+    - text: Roztažené clustery
+      url: concepts/stretched-clusters.md
+    - text: Fakturace
+      url: concepts/billing.md
+    - text: Aktualizace a upgrady
+      url: concepts/updates.md
     - text: Zvolit jednotky
       url: concepts/choose-drives.md
     - text: Plánování svazků
       url: concepts/plan-volumes.md
-    - text: Pochopení mezipaměti
-      url: concepts/cache.md
     - text: Odolnost proti chybám a efektivita úložiště
       url: concepts/fault-tolerance.md
-    - text: Kvorum clusteru a fondu úložiště
-      url: concepts/quorum.md
+    - text: Důležité informace o zabezpečení
+      url: concepts/security.md
+- title: Připojení k Azure
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Registrace centra pro správu Windows pomocí Azure
+      url: manage/register-windows-admin-center.md
+    - text: Použití Azure Site Recovery
+      url: manage/azure-site-recovery.md
+    - text: Monitorování pomocí služby Azure Monitor
+      url: manage/azure-monitor.md
+    - text: Použít síťový adaptér Azure
+      url: manage/use-azure-network-adapter.md
+    - text: Použití služby Azure Backup
+      url: manage/use-azure-backup.md

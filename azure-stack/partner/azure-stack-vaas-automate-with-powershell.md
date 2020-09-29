@@ -4,21 +4,21 @@ titleSuffix: Azure Stack Hub
 description: Naučte se automatizovat Azure Stack ověřování pomocí PowerShellu.
 author: mattbriggs
 ms.topic: tutorial
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: a3b7919f920dc173a3378328bbfff427b9820d48
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 4d6cb5cdfe6cd294e54ae9f2fa5fc78e6d71548a
+ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81661434"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88764728"
 ---
 # <a name="automate-azure-stack-hub-validation-with-powershell"></a>Automatizace ověřování centra Azure Stack pomocí PowerShellu
 
-Ověřování jako služba (VaaS) poskytuje možnost automatizovat spouštění testů pomocí skriptu **RunVaaSAutomation. ps1** .
+Ověřování jako služba (VaaS) poskytuje možnost automatizovat spouštění testů pomocí skriptu **RunVaaSAutomation.ps1** .
 
 Tento skript se dá použít k těmto akcím:
 

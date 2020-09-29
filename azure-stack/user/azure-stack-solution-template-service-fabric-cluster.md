@@ -7,20 +7,20 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: shnatara
 ms.lastreviewed: 09/25/2019
-ms.openlocfilehash: 4ccbdfe93f8ed960002c251e0d18e24f29a9b229
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: 5347225398e6494d89ba70d6468a6657d13b58e0
+ms.sourcegitcommit: 34db213dc6549f21662ed44d090f55359cfe8469
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84111859"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88564764"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack-hub"></a>Nasazení clusteru Service Fabric v centru Azure Stack
 
 Pomocí položky **Service Fabric clusteru** z Azure Marketplace nasaďte zabezpečený Service Fabric Cluster v Azure Stack hub. 
 
-Další informace o práci s Service Fabric najdete v tématu Přehled [scénářů zabezpečení](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) [azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) a Service Fabric v dokumentaci k Azure.
+Další informace o práci s Service Fabric najdete v tématu Přehled [scénářů zabezpečení](/azure/service-fabric/service-fabric-cluster-security) [azure Service Fabric](/azure/service-fabric/service-fabric-overview) a Service Fabric v dokumentaci k Azure.
 
-Cluster Service Fabric v centru Azure Stack nepoužívá poskytovatele prostředků Microsoft. ServiceFabric. Místo toho se v centru Azure Stack Service Fabric cluster používá sada škálování virtuálních počítačů s předinstalovaným softwarem pomocí [Konfigurace požadovaného stavu (DSC)](https://docs.microsoft.com/powershell/scripting/dsc/overview/overview).
+Cluster Service Fabric v centru Azure Stack nepoužívá poskytovatele prostředků Microsoft. ServiceFabric. Místo toho se v centru Azure Stack Service Fabric cluster používá sada škálování virtuálních počítačů s předinstalovaným softwarem pomocí [Konfigurace požadovaného stavu (DSC)](/powershell/scripting/dsc/overview/overview).
 
 ## <a name="prerequisites"></a>Požadavky
 
@@ -29,13 +29,13 @@ K nasazení Service Fabric clusteru se vyžadují tyto požadavky:
    Jedná se o certifikát serveru X. 509, který přidáte do Key Vault při nasazování Service Fabric. 
    - **Propojené sítě** v tomto certifikátu se musí shodovat s plně kvalifikovaným názvem domény (FQDN) Service Fabricho clusteru, který vytvoříte. 
    - Formát certifikátu musí být PFX, protože jsou vyžadovány veřejné i privátní klíče. 
-     Viz [požadavky](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) pro vytvoření tohoto certifikátu na straně serveru.
+     Viz [požadavky](/azure/service-fabric/service-fabric-cluster-security) pro vytvoření tohoto certifikátu na straně serveru.
 
      > [!NOTE]  
      > Pro účely testování můžete použít místo certifikátu serveru X. 509 podepsaného svým držitelem (samo-signed certificate). Certifikáty podepsané svým držitelem nemusí odpovídat plně kvalifikovanému názvu domény clusteru.
 
 1. **Certifikát klienta správce**  
-   Jedná se o certifikát, který klient používá k ověření v clusteru Service Fabric, který může být podepsaný svým držitelem. Viz [požadavky](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) pro vytvoření certifikátu klienta.
+   Jedná se o certifikát, který klient používá k ověření v clusteru Service Fabric, který může být podepsaný svým držitelem. Viz [požadavky](/azure/service-fabric/service-fabric-cluster-security) pro vytvoření certifikátu klienta.
 
 1. **V tržišti centra Azure Stack musí být k dispozici následující položky:**
     - **Windows server 2016** – šablona používá k vytvoření clusteru image Windows serveru 2016.  
@@ -125,8 +125,8 @@ Další informace najdete v tématu [správa Key Vault v centru Azure Stack pomo
     Pro nasazení do odpojeného centra Azure Stack nebo pro nasazení jiné verze Service Fabric si Stáhněte balíček Service Fabric pro nasazení a jeho odpovídající balíček runtime a zahostte ho v Azure Stack objekt BLOB centra. Zadejte tyto hodnoty do polí **Adresa URL balíčku pro nasazení Service Fabric** a **Adresa URL balíčku za běhu Service Fabric** .
     > [!NOTE]  
     > Existují problémy s kompatibilitou mezi nejnovějším vydáním Service Fabric a odpovídající sadou SDK. Dokud se tento problém nevyřeší, zadejte prosím následující parametry URL balíčku pro nasazení a adresu URL balíčku za běhu. V opačném případě se nasazení nezdaří.
-    > - Adresa URL balíčku pro nasazení Service Fabric:<https://download.microsoft.com/download/8/3/6/836E3E99-A300-4714-8278-96BC3E8B5528/6.5.641.9590/Microsoft.Azure.ServiceFabric.WindowsServer.6.5.641.9590.zip>
-    > - Adresa URL balíčku Service Fabric Runtime:<https://download.microsoft.com/download/B/0/B/B0BCCAC5-65AA-4BE3-AB13-D5FF5890F4B5/6.5.641.9590/MicrosoftAzureServiceFabric.6.5.641.9590.cab>
+    > - Adresa URL balíčku pro nasazení Service Fabric: <https://download.microsoft.com/download/8/3/6/836E3E99-A300-4714-8278-96BC3E8B5528/6.5.641.9590/Microsoft.Azure.ServiceFabric.WindowsServer.6.5.641.9590.zip>
+    > - Adresa URL balíčku Service Fabric Runtime: <https://download.microsoft.com/download/B/0/B/B0BCCAC5-65AA-4BE3-AB13-D5FF5890F4B5/6.5.641.9590/MicrosoftAzureServiceFabric.6.5.641.9590.cab>
     >
     > V případě odpojených nasazení stáhněte tyto balíčky ze zadaného umístění a hostovat je místně na Azure Stackovém objektu BLOB centra.
 
@@ -188,7 +188,7 @@ Ke clusteru Service Fabric můžete přistupovat pomocí Service Fabric Explorer
 
 1. Pokud chcete najít adresu URL pro Service Fabric Explorer a koncový bod připojení klienta, Projděte si výsledky Template deployment.
 
-1. V prohlížeči přejděte na <https://*FQDN*:19080>. V kroku 2 nahraďte *plně kvalifikovaný název* domény plně kvalifikovaným názvem domény vašeho clusteru Service Fabric.   
+1. V prohlížeči přejděte na `https://*FQDN*:19080`. V kroku 2 nahraďte *plně kvalifikovaný název* domény plně kvalifikovaným názvem domény vašeho clusteru Service Fabric.   
    Pokud jste použili certifikát podepsaný svým držitelem, zobrazí se upozornění, že připojení není zabezpečené. Chcete-li pokračovat na web, vyberte **Další informace**a potom **přejděte na webovou stránku**. 
 
 1. Chcete-li provést ověření v lokalitě, je nutné vybrat certifikát, který chcete použít. Vyberte **Další možnosti**, vyberte příslušný certifikát a potom se kliknutím na tlačítko **OK** připojte k Service Fabric Explorer. 
@@ -199,7 +199,7 @@ Ke clusteru Service Fabric můžete přistupovat pomocí Service Fabric Explorer
 
 ### <a name="use-service-fabric-powershell"></a>Použití prostředí Service Fabric PowerShell
 
-1. Nainstalujte *sadu Microsoft Azure Service Fabric SDK* z části [Příprava vývojového prostředí ve Windows](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started#install-the-sdk-and-tools) v dokumentaci k Azure Service Fabric.  
+1. Nainstalujte *sadu Microsoft Azure Service Fabric SDK* z části [Příprava vývojového prostředí ve Windows](/azure/service-fabric/service-fabric-get-started#install-the-sdk-and-tools) v dokumentaci k Azure Service Fabric.  
 
 1. Po dokončení instalace nakonfigurujte proměnné prostředí systému, aby se zajistilo, že jsou rutiny Service Fabric dostupné z PowerShellu.  
     

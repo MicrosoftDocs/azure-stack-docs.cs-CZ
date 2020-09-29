@@ -3,20 +3,20 @@ title: Odstranění svazků v Azure Stack HCI
 description: Postup odstranění svazků v Azure Stack HCI pomocí centra pro správu Windows a PowerShellu
 author: khdownie
 ms.author: v-kedow
-ms.topic: article
-ms.date: 03/17/2020
-ms.openlocfilehash: cf556a9b6c130907e8607d8e5b9436b71756a3d4
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.topic: how-to
+ms.date: 07/21/2020
+ms.openlocfilehash: 7a90948cccb75bb8bb1578101d530c46852e99d6
+ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79511891"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86866518"
 ---
 # <a name="deleting-volumes-in-azure-stack-hci"></a>Odstraňování svazků v Azure Stack HCI
 
-> Platí pro: Windows Server 2019
+> Platí pro: Azure Stack HCI, verze 20H2; Windows Server 2019
 
-Toto téma poskytuje pokyny pro odstranění svazků v [prostory úložiště s přímým přístupemm](/windows-server/storage/storage-spaces/storage-spaces-direct-overview) clusteru pomocí centra pro správu systému Windows.
+Toto téma poskytuje pokyny pro odstranění svazků v Azure Stack clusteru HCI pomocí centra pro správu systému Windows.
 
 Podívejte se na rychlé video o tom, jak odstranit svazek pomocí centra pro správu Windows.
 
@@ -33,7 +33,7 @@ Podívejte se na rychlé video o tom, jak odstranit svazek pomocí centra pro sp
 
 Pomocí rutiny **Remove-VirtualDisk** odstraňte svazky v prostory úložiště s přímým přístupem. Tato rutina slouží k odstranění objektu **VirtualDisk** a vrácení místa, které se použilo ve fondu úložiště, který zpřístupňuje objekt **VirtualDisk** .
 
-Nejdřív na počítači pro správu spusťte PowerShell a spuštěním rutiny **Get-VirtualDisk** s parametrem **CimSession** , který je názvem prostory úložiště s přímým přístupem clusteru nebo uzlu serveru, například *clustername.Microsoft.com*: 
+Nejdřív na počítači pro správu spusťte PowerShell a spuštěním rutiny **Get-VirtualDisk** s parametrem **CimSession** , který je názvem prostory úložiště s přímým přístupem clusteru nebo uzlu serveru, například *clustername.Microsoft.com*:
 
 ```PowerShell
 Get-VirtualDisk -CimSession clustername.microsoft.com
@@ -58,6 +58,6 @@ Zobrazí se výzva k potvrzení, že chcete provést akci a vymazat všechna dat
 
 Podrobné pokyny pro další důležité úlohy správy úložiště najdete tady:
 
-- [Plánování svazků v Prostory úložiště s přímým přístupem](../concepts/plan-volumes.md)
-- [Vytváření svazků v Prostory úložiště s přímým přístupem](create-volumes.md)
-- [Rozšíření svazků v Prostory úložiště s přímým přístupem](extend-volumes.md)
+- [Plánování svazků](../concepts/plan-volumes.md)
+- [Vytváření svazků](create-volumes.md)
+- [Rozšiřování svazků](extend-volumes.md)

@@ -6,14 +6,14 @@ author: mattbriggs
 ms.topic: conceptual
 ms.date: 5/27/2020
 ms.author: mabrigg
-ms.reviwer: xiaofmao
-ms.lastreviewed: 01/30/2020
-ms.openlocfilehash: 4206ebb6e8195c43ad043f09567d0911222c1e20
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.reviwer: jiahan
+ms.lastreviewed: 08/12/2020
+ms.openlocfilehash: 3f4ed6bd83414d158ef80996cadf024653956d38
+ms.sourcegitcommit: 7d518629bd55f24e7459404bb19b7db8a54f4b94
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84111927"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88145382"
 ---
 # <a name="azure-stack-hub-storage-differences-and-considerations"></a>Úložiště centra Azure Stack: rozdíly a požadavky
 
@@ -23,7 +23,7 @@ Tento článek shrnuje známé rozdíly v úložištích Azure Stack centra od s
 
 ## <a name="cheat-sheet-storage-differences"></a>Tahák list: rozdíly v úložišti
 
-| Funkce | Azure (Global) | Centrum Azure Stack |
+| Příznak | Azure (Global) | Azure Stack Hub |
 | --- | --- | --- |
 |File Storage|Podporuje cloudové sdílené složky SMB. | Zatím se nepodporuje.
 |Šifrování služby Azure Storage pro neaktivní neaktivní data|256 šifrování AES. Podpora šifrování pomocí klíčů spravovaných zákazníkem v Key Vault.|BitLocker 128-bit AES Encryption. Šifrování pomocí klíčů spravovaných zákazníkem se nepodporuje.
@@ -57,41 +57,46 @@ Azure Stack úložiště centra podporuje následující verze:
 
 Rozhraní API služby Azure Storage Services:
 
-1811 aktualizace nebo novější verze:
+2005 aktualizace nebo novější verze:
 
-- [2017-11-09](https://docs.microsoft.com/rest/api/storageservices/version-2017-11-09)
-- [2017-07-29](https://docs.microsoft.com/rest/api/storageservices/version-2017-07-29)
-- [2017-04-17](https://docs.microsoft.com/rest/api/storageservices/version-2017-04-17)
-- [2016-05-31](https://docs.microsoft.com/rest/api/storageservices/version-2016-05-31)
-- [2015-12-11](https://docs.microsoft.com/rest/api/storageservices/version-2015-12-11)
-- [2015-07-08](https://docs.microsoft.com/rest/api/storageservices/version-2015-07-08)
-- [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
+- [2019-02-02](/rest/api/storageservices/version-2019-02-02)
+- [2018-11-09](/rest/api/storageservices/version-2018-11-09)
+- [2018-03-28](/rest/api/storageservices/version-2018-03-28)
+- [2017-11-09](/rest/api/storageservices/version-2017-11-09)
+- [2017-07-29](/rest/api/storageservices/version-2017-07-29)
+- [2017-04-17](/rest/api/storageservices/version-2017-04-17)
+- [2016-05-31](/rest/api/storageservices/version-2016-05-31)
+- [2015-12-11](/rest/api/storageservices/version-2015-12-11)
+- [2015-07-08](/rest/api/storageservices/version-2015-07-08)
+- [2015-04-05](/rest/api/storageservices/version-2015-04-05)
 
 Předchozí verze:
 
-- [2017-04-17](https://docs.microsoft.com/rest/api/storageservices/version-2017-04-17)
-- [2016-05-31](https://docs.microsoft.com/rest/api/storageservices/version-2016-05-31)
-- [2015-12-11](https://docs.microsoft.com/rest/api/storageservices/version-2015-12-11)
-- [2015-07-08](https://docs.microsoft.com/rest/api/storageservices/version-2015-07-08)
-- [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
+- [2017-11-09](/rest/api/storageservices/version-2017-11-09)
+- [2017-07-29](/rest/api/storageservices/version-2017-07-29)
+- [2017-04-17](/rest/api/storageservices/version-2017-04-17)
+- [2016-05-31](/rest/api/storageservices/version-2016-05-31)
+- [2015-12-11](/rest/api/storageservices/version-2015-12-11)
+- [2015-07-08](/rest/api/storageservices/version-2015-07-08)
+- [2015-04-05](/rest/api/storageservices/version-2015-04-05)
 
 Rozhraní API pro správu služby Azure Storage Services:
 
 1811 aktualizace nebo novější verze:
 
-- [2017-10-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
-- [2017-06-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
-- [2016-12-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
-- [2016-05-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
-- [2016-01-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
-- [2015-06-15](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
-- [2015-05-01 – Preview](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+- [2017-10-01](/rest/api/storagerp/)
+- [2017-06-01](/rest/api/storagerp/)
+- [2016-12-01](/rest/api/storagerp/)
+- [2016-05-01](/rest/api/storagerp/)
+- [2016-01-01](/rest/api/storagerp/)
+- [2015-06-15](/rest/api/storagerp/)
+- [2015-05-01 – Preview](/rest/api/storagerp/)
 
 Předchozí verze:
 
-- [2016-01-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
-- [2015-06-15](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
-- [2015-05-01 – Preview](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+- [2016-01-01](/rest/api/storagerp/)
+- [2015-06-15](/rest/api/storagerp/)
+- [2015-05-01 – Preview](/rest/api/storagerp/)
 
 ## <a name="powershell-version"></a>Verze prostředí PowerShell
 

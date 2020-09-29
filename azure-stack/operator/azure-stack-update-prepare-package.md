@@ -1,27 +1,27 @@
 ---
 title: Příprava balíčku aktualizace v centru Azure Stack
 description: Naučte se připravit balíček aktualizace v centru Azure Stack.
-author: IngridAtMicrosoft
+author: sethmanheim
 ms.topic: how-to
-ms.date: 03/04/2020
-ms.author: inhenkel
+ms.date: 07/22/2020
+ms.author: sethm
 ms.lastreviewed: 09/10/2019
-ms.reviewer: ppacent
-ms.openlocfilehash: 4e6ce21088a95677907c978abf5e89612488381f
-ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
+ms.reviewer: sranthar
+ms.openlocfilehash: e0ad221764e116bb2b5f73601da3ac6917681ff0
+ms.sourcegitcommit: 34db213dc6549f21662ed44d090f55359cfe8469
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83374658"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88564781"
 ---
 # <a name="prepare-an-azure-stack-hub-update-package"></a>Příprava balíčku aktualizace centra Azure Stack
 
-Tento článek poskytuje přehled o přípravě balíčků aktualizací centra Azure Stack, aby se mohly použít k aktualizaci prostředí Azure Stack hub. Tento proces se skládá z těchto součástí:
+Tento článek poskytuje přehled o přípravě balíčků aktualizací centra Azure Stack, aby se mohly použít k aktualizaci prostředí Azure Stack hub. Tento proces se skládá z následujících kroků:
 
-- [Stahuje se balíček aktualizace](#download-the-update-package).
-- [Import balíčku aktualizací do prostředí Azure Stack hub prostřednictvím portálu Azure Stack správce centra](#import-and-install-updates).
+- [Stáhněte balíček aktualizace](#download-the-update-package).
+- [Importujte balíček aktualizace do prostředí Azure Stack hub pomocí portálu Azure Stack správce centra](#import-and-install-updates).
 
-V systémech, které se můžou připojit k koncovým bodům automatických aktualizací, se automaticky stahují a připravují aktualizace softwaru centra Azure Stack a opravy hotfix. V systémech bez připojení a v případě jakékoli aktualizace od výrobce OEM musí být balíček aktualizace připravený, jak je vysvětleno v tomto tématu.  
+V systémech, které se můžou připojit k koncovým bodům automatických aktualizací, se automaticky stahují a připravují aktualizace softwaru centra Azure Stack a opravy hotfix. V systémech bez připojení a v případě jakékoli aktualizace od výrobce OEM (Original Equipment Manufacturer) musí být balíček aktualizace připravený, jak je vysvětleno v tomto článku.  
 
 Následující tabulka ukazuje, kdy balíčky aktualizací vyžadují ruční přípravu a když se automaticky připravují.
 
@@ -36,42 +36,42 @@ Následující tabulka ukazuje, kdy balíčky aktualizací vyžadují ruční p�
 
 ## <a name="download-the-update-package"></a>Stáhnout balíček aktualizací
 
-Balíček aktualizace pro Azure Stack aktualizace centra a opravy hotfix jsou k dispozici v okně aktualizace pro připojené systémy. Pokud aktualizujete balíček OEM nebo Pokud podporujete odpojený systém, Stáhněte balíček a přesuňte balíček do umístění, které je dostupné pro vaši instanci centra Azure Stack. Pokud používáte systém se přerušovaným připojením, možná budete muset stáhnout balíček a pak ho nahrát do přístupného umístění.
+Balíček aktualizace pro Azure Stack aktualizace centra a opravy hotfix jsou k dispozici pro připojené systémy přes okno aktualizace na portálu. Pokud aktualizujete balíček OEM nebo Pokud podporujete odpojený systém, Stáhněte balíček a přesuňte balíček do umístění, které je dostupné pro vaši instanci centra Azure Stack. Pokud používáte systém se přerušovaným připojením, možná budete muset stáhnout balíček a pak ho nahrát do přístupného umístění.
 
 Zkontrolujte obsah balíčku. Balíček aktualizace se obvykle skládá z následujících souborů:
 
-- **Samorozbalovací \< Soubor>. zip s balíčkem**. Tento soubor obsahuje datovou část pro aktualizaci.
-- **Soubor metadata. XML**. Tento soubor obsahuje základní informace o aktualizaci. Fr příklad: adresa URL vydavatele, název, požadavek, velikost a cesta k podpoře.
+- **Samorozbalovací \<PackageName> soubor. zip**. Tento soubor obsahuje datovou část pro aktualizaci.
+- **Soubor Metadata.xml**. Tento soubor obsahuje základní informace o aktualizaci. například adresa URL vydavatele, název, požadavek, velikost a podpora.
 
 ### <a name="automatic-download-and-preparation-for-update-packages"></a>Automatické stahování aktualizací a příprava na aktualizace
 
-Aktualizace softwaru centra Azure Stack a opravy hotfix se automaticky připravují pro systémy s připojením ke **koncovým bodům automatických aktualizací centra Azure Stack**: <https://*.azureedge.net> a <https://aka.ms/azurestackautomaticupdate> . Další informace o nastavení připojení k **koncovým bodům automatických aktualizací centra Azure Stack**najdete v tématu **opravy a aktualizace** koncových bodů popsaných v tématu [Integrace brány firewall centra Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-integrate-endpoints#ports-and-urls-outbound).
+Aktualizace softwaru centra Azure Stack a opravy hotfix se automaticky připravují pro systémy s připojením ke **koncovým bodům automatických aktualizací centra Azure Stack**: `https://*.azureedge.net` a `https://aka.ms/azurestackautomaticupdate` . Další informace o nastavení připojení k **koncovým bodům automatických aktualizací centra Azure Stack**najdete v tématu **opravy a aktualizace** koncových bodů popsaných v tématu [Integrace brány firewall centra Azure Stack](./azure-stack-integrate-endpoints.md#ports-and-urls-outbound).
 
 ### <a name="where-to-download-azure-stack-hub-update-packages"></a>Kde stahovat balíčky aktualizací Azure Stack centra
 
-Aktualizace centra Azure Stack pro [úplné a expresní aktualizace](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates#update-package-types) se hostují na zabezpečeném koncovém bodu Azure. Operátory centra Azure Stack s připojenými instancemi uvidí [aktualizace centra Azure Stack se automaticky zobrazí na portálu pro správu](https://docs.microsoft.com/azure-stack/operator/azure-stack-update-prepare-package#automatic-download-and-preparation-for-update-packages). V případě systémů odpojených přes Internet nebo systémů s slabým připojením k Internetu je možné balíčky aktualizací stáhnout pomocí [nástroje Azure Stack Center pro stažení aktualizací](https://aka.ms/azurestackupdatedownload). Balíčky aktualizací softwaru centra Azure Stack můžou obsahovat aktualizace pro Azure Stack služby centra a aktualizace operačního systému jednotek škálování centra Azure Stack.
+Aktualizace centra Azure Stack pro [úplné a expresní aktualizace](./azure-stack-updates.md#update-package-types) se hostují na zabezpečeném koncovém bodu Azure. Když budou aktualizace k dispozici, Azure Stack operátoři rozbočovače s připojenými instancemi uvidí [automaticky aktualizace centra Azure Stack se zobrazí na portálu pro správu](#automatic-download-and-preparation-for-update-packages). V případě odpojených systémů nebo systémů se slabým připojením k Internetu je možné balíčky aktualizací stáhnout pomocí [nástroje Azure Stack hub pro stažení aktualizací](https://aka.ms/azurestackupdatedownload). Balíčky aktualizací softwaru centra Azure Stack můžou obsahovat aktualizace pro Azure Stack služby centra a aktualizace operačního systému jednotek škálování centra Azure Stack.
 
 >[!NOTE]
 >Samotný balíček aktualizace a jeho obsah (například binární soubory, skripty prostředí PowerShell atd.) se podepisují pomocí certifikátů vlastněných společností Microsoft. Manipulace s balíčkem způsobí, že signatura není platná.
 
 ### <a name="where-to-download-azure-stack-hub-hotfix-packages"></a>Kde stahovat balíčky oprav hotfix centra Azure Stack
 
-Balíčky pro [opravy hotfix centra Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates#update-package-types) se hostují v rámci stejného zabezpečeného koncového bodu Azure jako pro Azure Stack aktualizace centra. Operátory centra Azure Stack s připojenými instancemi uvidí [aktualizace centra Azure Stack se automaticky zobrazí na portálu pro správu](https://docs.microsoft.com/azure-stack/operator/azure-stack-update-prepare-package#automatic-download-and-preparation-for-update-packages). Můžete si je stáhnout pomocí integrovaných odkazů v každé z příslušných článků s opravou hotfix KB, jako je [Azure Stack centra 1.1906.11.52 hotfix](https://support.microsoft.com/help/4515650). Opravy hotfix najdete v poznámkách k verzi odpovídající vaší verzi centra Azure Stack.
+Balíčky pro [opravy hotfix centra Azure Stack](./azure-stack-updates.md#update-package-types) se hostují v rámci stejného zabezpečeného koncového bodu Azure jako aktualizace centra Azure Stack. Operátory centra Azure Stack s připojenými instancemi uvidí [aktualizace centra Azure Stack se automaticky zobrazí na portálu pro správu](#automatic-download-and-preparation-for-update-packages) , jakmile budou k dispozici. Můžete si je stáhnout pomocí integrovaných odkazů v každé z příslušných článků s opravou hotfix KB, například [Azure Stack 1.1906.11.52 centra hotfix](https://support.microsoft.com/help/4515650). Odkazy na opravy hotfix můžete najít také v poznámkách k verzi odpovídající vaší verzi centra Azure Stack.
 
 ### <a name="where-to-download-oem-update-packages"></a>Kam stáhnout balíčky aktualizací OEM
 
-Dodavatel OEM bude také vydávat aktualizace, jako jsou ovladače a aktualizace firmwaru. I když dodavatel hardwaru doručí tyto aktualizace jako samostatné [aktualizace balíčku OEM](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates#update-package-types) , naimportují se, nainstalují a spravují stejným způsobem jako balíčky aktualizací od Microsoftu. Seznam kontaktních odkazů dodavatele najdete v části [použití aktualizací od centra OEM Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-update-oem#oem-contact-information).
+Dodavatel OEM může také vydávat aktualizace, jako jsou ovladače a aktualizace firmwaru. I když dodavatel hardwaru doručí tyto aktualizace jako samostatné [aktualizace balíčku OEM](./azure-stack-updates.md#update-package-types) , naimportují se, nainstalují a spravují stejným způsobem jako balíčky aktualizací od Microsoftu. V článku najdete seznam kontaktních odkazů dodavatele v tématu [Azure Stack aktualizace od výrobce OEM](./azure-stack-update-oem.md#oem-contact-information).
 
 ## <a name="import-and-install-updates"></a>Import a instalace aktualizací
 
 Následující postup ukazuje, jak importovat a instalovat balíčky aktualizací na portálu pro správu.
 
-> [!Important]  
-> Upozorněte uživatele na jakékoli operace údržby a nezapomeňte naplánovat normální časová období údržby během nepracovních hodin co nejvíc. Operace údržby mohou ovlivnit úlohy uživatelů i operace portálu.
+> [!IMPORTANT]  
+> Upozorněte uživatele na jakékoli operace údržby a nezapomeňte naplánovat normální časová období údržby v době, kdy je to možné, co nejvíc nepracovních hodin. Operace údržby mohou ovlivnit úlohy uživatelů i operace portálu.
 
-1. Na portálu pro správu vyberte **všechny služby**. Pak v části kategorie **úložiště dat + úložiště** vyberte **účty úložiště**. (Nebo do pole Filtr začněte psát **účty úložiště**a vyberte ho.)
+1. Na portálu pro správu vyberte **všechny služby**. Pak v části kategorie **úložiště dat + úložiště** vyberte **účty úložiště**. Nebo do pole Filtr začněte psát **účty úložiště**a vyberte ho.
 
-    ![Aktualizace centra Azure Stack](./media/azure-stack-update-prepare-package/image1.png) 
+    ![Aktualizace centra Azure Stack](./media/azure-stack-update-prepare-package/image1.png)
 
 2. Do pole Filtr zadejte Update ( **aktualizovat**) a vyberte účet úložiště **updateadminaccount** .
 
@@ -79,7 +79,7 @@ Následující postup ukazuje, jak importovat a instalovat balíčky aktualizac�
 
     ![Aktualizace centra Azure Stack – BLOB](./media/azure-stack-update-prepare-package/image2.png)
 
-4. V části **BLOB Service**vyberte **+ kontejner** a vytvořte kontejner. Zadejte název (například *Update-1811*) a pak vyberte **OK**.
+4. V části **BLOB Service**vyberte **+ kontejner** a vytvořte kontejner. Zadejte název (například **Update-1811**) a pak vyberte **OK**.
 
     ![Aktualizace centra Azure Stack – kontejner](./media/azure-stack-update-prepare-package/image3.png)
 
@@ -93,19 +93,19 @@ Následující postup ukazuje, jak importovat a instalovat balíčky aktualizac�
 
     ![Aktualizace centra Azure Stack – nahrání objektu BLOB](./media/azure-stack-update-prepare-package/image5.png)
 
-8. Opakujte kroky 6 a 7 pro `Metadata.xml` soubor a další soubory. zip v balíčku aktualizace. Neimportujte `Supplemental Notice.txt ` soubor, pokud je zahrnutý.
+8. Opakujte kroky 6 a 7 pro soubor **Metadata.xml** a další soubory. zip v balíčku aktualizace. Neimportujte **doplňkový Notice.txt** soubor, pokud je zahrnutý.
 
-9. Až budete hotovi, můžete si prohlédnout oznámení (ikona zvonku v pravém horním rohu portálu). Oznámení by měla značit, že nahrání bylo dokončeno.
+9. Až budete hotovi, můžete si prohlédnout oznámení (vyberte ikonu zvonku v pravém horním rohu portálu). Oznámení by mělo značit, že nahrání bylo dokončeno.
 
-10. Vraťte se na řídicí panel na okno aktualizace. Okno by mělo značit, že je k dispozici aktualizace. To znamená, že aktualizace byla úspěšně připravena. Výběrem okna si můžete prohlédnout nově přidaný balíček aktualizace.
+10. Vraťte se na řídicí panel na okno **aktualizace** . Okno by mělo značit, že je k dispozici aktualizace. To znamená, že aktualizace byla úspěšně připravena. Výběrem okna si můžete prohlédnout nově přidaný balíček aktualizace.
 
-11. Pokud chcete nainstalovat aktualizaci, vyberte balíček označený jako **připravený** a buď klikněte pravým tlačítkem na balíček a vyberte **aktualizovat hned**, nebo vyberte akci **aktualizovat hned** v horní části.
+11. Pokud chcete nainstalovat aktualizaci, vyberte balíček označený jako **připravený**a buď klikněte pravým tlačítkem na balíček a vyberte **aktualizovat hned**, nebo vyberte akci **aktualizovat hned** v horní části.
 
 12. Když vyberete instalaci balíčku aktualizace, můžete zobrazit stav v oblasti **aktualizace podrobností o spuštění** . Odsud můžete také vybrat **Stáhnout souhrn** a stáhnout soubory protokolu. Protokoly z aktualizačních běhů jsou k dispozici po dobu šesti měsíců od ukončení pokusu.
 
 13. Po dokončení aktualizace se zobrazí okno aktualizace s aktualizovanou verzí centra Azure Stack.
 
-Aktualizace můžete ručně odstranit z účtu úložiště po jejich instalaci do centra Azure Stack. Centrum Azure Stack pravidelně kontroluje starší balíčky aktualizací a odebírá je ze služby Storage. Odebrání starých balíčků může trvat Azure Stack centra za dva týdny.
+Aktualizace můžete ručně odstranit z účtu úložiště po jejich instalaci do centra Azure Stack. Centrum Azure Stack pravidelně kontroluje starší balíčky aktualizací a odebírá je ze služby Storage. Odebrání starých balíčků může trvat Azure Stack až dvou týdnů.
 
 ## <a name="next-steps"></a>Další kroky
 

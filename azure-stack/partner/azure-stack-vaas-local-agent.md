@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: Naučte se nasadit místního agenta pro Azure Stack ověřování centra jako služby.
 author: mattbriggs
 ms.topic: quickstart
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: ff20f82244adbbf4b1aebebd31bbf99e716bd6ce
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 7661177ec292d7c0b678f05d95c33d90f8e57c2c
+ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81661278"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88764779"
 ---
 # <a name="deploy-the-local-agent"></a>Nasazení místního agenta
 
@@ -79,7 +79,7 @@ Ověřte, že váš počítač splňuje následující kritéria:
     ```
 
 > [!Note]  
-> `Install-VaaSPrerequisites`rutina stahuje velké soubory imagí virtuálních počítačů. Pokud máte pomalou rychlost sítě, můžete si stáhnout soubory na místní souborový server a ručně přidat image virtuálních počítačů do testovacího environemntu. Další informace najdete v tématu [zpracování pomalých síťových připojení](azure-stack-vaas-troubleshoot.md#handle-slow-network-connectivity).
+> `Install-VaaSPrerequisites` rutina stahuje velké soubory imagí virtuálních počítačů. Pokud máte pomalou rychlost sítě, můžete si stáhnout soubory na místní souborový server a ručně přidat image virtuálních počítačů do testovacího environemntu. Další informace najdete v tématu [zpracování pomalých síťových připojení](azure-stack-vaas-troubleshoot.md#handle-slow-network-connectivity).
 
 **Parametry**
 
@@ -102,7 +102,7 @@ Testy spouštějí vzdálené operace. Počítač, který spouští testy, musí
     nslookup adminmanagement.<EXTERNALFQDN>
     ```
 
-2. Otevřete prohlížeč a pokračujte na `https://adminportal.<EXTERNALFQDN>` to, abyste zkontrolovali, že je možné získat přístup k portálu MAS.
+2. Otevřete prohlížeč a pokračujte na to `https://adminportal.<EXTERNALFQDN>` , abyste zkontrolovali, že je možné získat přístup k portálu MAS.
 
 3. Přihlaste se pomocí hodnoty jméno a heslo správce služby Azure AD, které jste zadali při vytváření testovacího průchodu.
 
@@ -132,11 +132,11 @@ Testy spouštějí vzdálené operace. Počítač, který spouští testy, musí
     | --- | --- |
     | `CloudAdminUserName` | Uživatel s oprávněním správce cloudu, který má přístup k povoleným příkazům v rámci privilegovaného koncového bodu Příklad: AzusreStack\CloudAdmin. Další informace najdete v tématu [společné parametry pracovních postupů pro VaaS](azure-stack-vaas-parameters.md) . |
     | `CloudAdminPassword` | Heslo pro účet správce cloudu.|
-    | `VaaSUserId` | ID uživatele, které se používá pro přihlášení na portál pro ověřování centra Azure Stack. Příklad: UserName\@contoso.com). |
+    | `VaaSUserId` | ID uživatele, které se používá pro přihlášení na portál pro ověřování centra Azure Stack. Příklad: UserName \@ contoso.com). |
     | `VaaSTenantId` | ID tenanta Azure AD pro účet Azure zaregistrovaný k ověřování jako služba |
 
     > [!Note]  
-    > Když spustíte agenta, aktuální pracovní adresář musí být umístěním spustitelného souboru hostitele modulu úloh, **Microsoft. VaaSOnPrem. TaskEngineHost. exe.**
+    > Když spustíte agenta, aktuální pracovní adresář musí být umístěním spustitelného souboru hostitele modulu úloh **Microsoft.VaaSOnPrem.TaskEngineHost.exe.**
 
 Pokud se nezobrazí žádné chyby, místní Agent byl úspěšný. Následující vzorový text se zobrazí v okně konzoly.
 

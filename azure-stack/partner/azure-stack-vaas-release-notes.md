@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: Poznámky k verzi pro ověřování centra Azure Stack jako službu.
 author: mattbriggs
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5c5aa3342acd37708231720663d10eacc7c2388b
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 6f51b4720655159cc1b191c28b640daa74f71a6e
+ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81661183"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88764626"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>Poznámky k verzi pro ověřování jako službu
 
@@ -70,14 +70,14 @@ V tomto článku najdete poznámky k verzi pro ověřování centra Azure Stack 
   - Opravili jsme problém, kdy se nepovedlo spustit měsíční Azure Stack ověření aktualizace centra, pokud soubor Update. zip obsahuje speciální znaky.
 
 - Známé problémy
-  - Testy VaaS selžou, pokud se nenalezne MSTest. exe. Alternativní řešení:
+  - Pokud se mstest.exe nenajde, testy VaaS selžou. Alternativní řešení:
     1. CTRL + C agent v okně PowerShellu
-    1. Zadejte MSTest. exe, abyste ověřili, že MSTest. exe je rozpoznaný program.
-    1. Pokud MSTest. exe nerozpoznáte, zavřete aktuální okno prostředí PowerShell.
+    1. Zadejte mstest.exe a ověřte, že mstest.exe je rozpoznaný program.
+    1. Pokud mstest.exe nerozpoznáte, zavřete aktuální okno prostředí PowerShell.
     1. Klikněte na Start (ne na hlavním panelu prostředí PowerShell), najděte PowerShell a otevřete ho jako správce.
-    1. Zadejte MSTest. exe a ověřte, že je k dispozici jako příkaz.
+    1. Zadejte mstest.exe a ověřte, že je k dispozici jako příkaz.
     1. Restartujte agenta a spusťte test znovu.
-  - Občas modul pro simulaci cloudu ohlásí selhání \*s testy virtuálních počítačů. Před vaashelp@microsoft.com pokusem o spuštění znovu kontaktujte.
+  - Občas modul pro simulaci cloudu ohlásí selhání s \* testy virtuálních počítačů. vaashelp@microsoft.comPřed pokusem o spuštění znovu kontaktujte.
 
 
 2019. října 29
@@ -96,7 +96,7 @@ V tomto článku najdete poznámky k verzi pro ověřování centra Azure Stack 
 - Modul pro simulaci cloudu v pracovním postupu ověření balíčku OEM a pracovní postup aktualizace centra Azure Stack (verze 5.1.30.0-> 5.1.46.0) vyžaduje, aby testy byly naplánovány v následujícím pořadí – měsíčně Azure Stack test ověření aktualizace centra rozšíření OEM, test ověření balíčku rozšíření OEM a nakonec modul simulace cloudu.
 - Aktualizace agenta VaaS: aktualizovaný agent VaaS teď používá přihlašovací údaje správce cloudu Azure Stack centra pro dotazování razítka k získání informací o razítku, aby bylo možné automaticky naplnit pracovní postupy.
 
-    Tato aktualizace vyžaduje, aby všichni agenti aktualizovali a restartovali. Informace o tom, jak aktualizovat agenta VaaS, najdete v těchto pokynech:https://docs.microsoft.com/azure-stack/partner/azure-stack-vaas-local-agent
+    Tato aktualizace vyžaduje, aby všichni agenti aktualizovali a restartovali. Informace o tom, jak aktualizovat agenta VaaS, najdete v těchto pokynech: https://docs.microsoft.com/azure-stack/partner/azure-stack-vaas-local-agent
 - Aktualizace uživatelského rozhraní portálu VaaS: tabulka výběru agenta se přesunula nad podokno testovací plánování, aby se usnadnilo testování.
 
     Při plánování úlohy už nemusíte zadávat informace o razítkě, pokud byly agenti VaaS správně aktualizované.
@@ -126,7 +126,7 @@ Pokud používáte pracovní postup měsíčního ověření aktualizace centra 
 1. Spusťte aktualizaci OEM jako normální.
 2. Po úspěšném použití balíčku spusťte test-AzureStack a uložte výstup.
 3. Zrušte test.
-4. Odešlete uložený výstup VaaSHelp@microsoft.com do pro příjem výsledků pro spuštění.
+4. Odešlete uložený výstup do VaaSHelp@microsoft.com pro příjem výsledků pro spuštění.
 
 ## <a name="version-402"></a>4.0.2 verze
 
@@ -140,7 +140,7 @@ Pokud používáte pracovní postup měsíčního ověření aktualizace centra 
 
 - Předpoklady pro VaaS:
 
-    `Install-VaaSPrerequisites`už nevyžaduje přihlašovací údaje správce cloudu. Pokud používáte nejnovější verzi této rutiny, přečtěte si téma [Stažení a instalace místního agenta](azure-stack-vaas-local-agent.md#download-and-install-the-local-agent) pro revidované příkazy pro instalaci požadovaných součástí. Tady jsou příkazy:
+    `Install-VaaSPrerequisites` už nevyžaduje přihlašovací údaje správce cloudu. Pokud používáte nejnovější verzi této rutiny, přečtěte si téma [Stažení a instalace místního agenta](azure-stack-vaas-local-agent.md#download-and-install-the-local-agent) pro revidované příkazy pro instalaci požadovaných součástí. Tady jsou příkazy:
 
     ```powershell
     $ServiceAdminCreds = New-Object System.Management.Automation.PSCredential "<aadServiceAdminUser>", (ConvertTo-SecureString "<aadServiceAdminPassword>" -AsPlainText -Force)
@@ -157,7 +157,7 @@ Pokud používáte pracovní postup měsíčního ověření aktualizace centra 
 
 - VaaS předpoklady a aktualizace VHD:
 
-    `Install-VaaSPrerequisites`nyní vyžaduje přihlašovací údaje správce cloudu k vyřešení problému při ověřování balíčku. Dokumentace ke [Stažení a instalaci místního agenta](azure-stack-vaas-local-agent.md#download-and-install-the-local-agent) byla aktualizována pomocí následujícího kódu:
+    `Install-VaaSPrerequisites` nyní vyžaduje přihlašovací údaje správce cloudu k vyřešení problému při ověřování balíčku. Dokumentace ke [Stažení a instalaci místního agenta](azure-stack-vaas-local-agent.md#download-and-install-the-local-agent) byla aktualizována pomocí následujícího kódu:
 
     ```powershell
     $ServiceAdminCreds = New-Object System.Management.Automation.PSCredential "<aadServiceAdminUser>", (ConvertTo-SecureString "<aadServiceAdminPassword>" -AsPlainText -Force)
@@ -170,7 +170,7 @@ Pokud používáte pracovní postup měsíčního ověření aktualizace centra 
                               -CloudAdminCredentials $CloudAdminCreds
     ```
     > [!NOTE]
-    > `$CloudAdminCreds` Vyžadovaná skriptem jsou pro ověřování instance centra Azure Stack. Nejedná se o Azure Active Directory přihlašovací údaje, které používá tenant VaaS.
+    > `$CloudAdminCreds`Vyžadovaná skriptem jsou pro ověřování instance centra Azure Stack. Nejedná se o Azure Active Directory přihlašovací údaje, které používá tenant VaaS.
 
 - Aktualizace místního agenta:
 
@@ -178,7 +178,7 @@ Pokud používáte pracovní postup měsíčního ověření aktualizace centra 
 
 - Aktualizace automatizace PowerShellu:
 
-    Ve skriptech `LaunchVaaSTests` PowerShellu, které vyžadují nejnovější verzi skriptovacích balíčků, byly provedeny změny. Pokyny k instalaci nejnovější verze balíčku Scripting najdete v tématu [spuštění pracovního postupu test Pass](azure-stack-vaas-automate-with-powershell.md) .
+    `LaunchVaaSTests`Ve skriptech PowerShellu, které vyžadují nejnovější verzi skriptovacích balíčků, byly provedeny změny. Pokyny k instalaci nejnovější verze balíčku Scripting najdete v tématu [spuštění pracovního postupu test Pass](azure-stack-vaas-automate-with-powershell.md) .
 
 - Ověřování jako portál služby:
 
@@ -192,7 +192,7 @@ Pokud používáte pracovní postup měsíčního ověření aktualizace centra 
 
   - Ověřování interaktivních funkcí:
 
-    Možnost poskytnout fokus na určité funkce je teď dostupná v pracovním postupu test Pass. `OEM Update on Azure Stack Hub 1806 RC Validation 5.1.4.0` Test zkontroluje, zda byly konkrétní aktualizace správně aplikovány, a poté shromáždí zpětnou vazbu.
+    Možnost poskytnout fokus na určité funkce je teď dostupná v pracovním postupu test Pass. `OEM Update on Azure Stack Hub 1806 RC Validation 5.1.4.0`Test zkontroluje, zda byly konkrétní aktualizace správně aplikovány, a poté shromáždí zpětnou vazbu.
 
 ## <a name="next-steps"></a>Další kroky
 

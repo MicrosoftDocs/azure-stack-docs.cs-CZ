@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Seznam nejčastějších dotazů k webu centra Azure Stack pro Windows Server.
 author: sethmanheim
 ms.topic: article
-ms.date: 03/19/2020
+ms.date: 07/23/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 08/29/2019
-ms.openlocfilehash: 95719c6b0651932ab41cef5321db06b77eb4fc63
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: fff299a0d537bb4190e66a57eb642db7e8b9824d
+ms.sourcegitcommit: f2a5ce52fcf69e05fe89be8211b7360de46f4a94
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80069445"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87133635"
 ---
 # <a name="azure-stack-hub-marketplace-faq"></a>Nejčastější dotazy k webu Azure Stack hub Marketplace
 
@@ -23,7 +23,7 @@ Tento článek obsahuje odpovědi na některé nejčastější dotazy týkajíc�
 
 ### <a name="who-should-i-contact-for-support-issues-with-azure-stack-hub-marketplace-items"></a>Koho se mám obrátit na problémy podpory s položkami Azure Stack centra Marketplace?
 
-Pokyny k podpoře Azure Marketplace se týkají také položek centra pro Azure Stack na webu Marketplace. Vydavatelé zodpovídají za poskytování technické podpory svých produktů na webu centra Azure Stack. Další informace o pokynech k podpoře pro Azure Marketplace položky najdete v [části věnované podpoře](/azure/marketplace/marketplace-faq-publisher-guide#customer-support) v článku Azure Marketplace Nejčastější dotazy.
+Pokyny k podpoře Azure Marketplace se týkají také položek centra pro Azure Stack na webu Marketplace. Vydavatelé zodpovídají za poskytování technické podpory svých produktů na webu centra Azure Stack. Další informace o pokynech k podpoře pro Azure Marketplace položky najdete v [části věnované podpoře v článku Azure Marketplace Nejčastější dotazy](/azure/marketplace/marketplace-faq-publisher-guide#customer-support).
 
 ### <a name="how-do-i-update-to-a-newer-windows-image"></a>Návody aktualizaci na novější bitovou kopii Windows?
 
@@ -31,16 +31,16 @@ Nejdřív Zjistěte, jestli některé šablony Azure Resource Manager odkazují 
 
 Pokud navíc některé sady škálování virtuálních počítačů odkazují na konkrétní verzi, měli byste uvažovat o tom, jestli se budou škálovat později, a rozhodnout se, jestli chcete zachovat starší verze. Pokud se nepoužijí žádné z těchto podmínek, před stažením novějších verzí odstraňte starší image na webu Azure Stack hub Marketplace. Pomocí správy Marketplace je odstraňte, pokud je to způsob stažení originálu. Pak stáhněte novější verzi.
 
-### <a name="what-are-the-licensing-options-for-windows-server-marketplace-images-on-azure-stack-hub"></a>Jaké jsou možnosti licencování pro image Windows serveru Marketplace v centru Azure Stack?
+### <a name="what-are-the-licensing-options-for-windows-server-images-on-azure-stack-hub-marketplace"></a>Jaké jsou možnosti licencování pro image Windows serveru na webu Marketplace centra Azure Stack?
 
 Microsoft nabízí dvě verze imagí Windows serveru prostřednictvím tržiště centra Azure Stack. V prostředí Azure Stack hub se dá použít jenom jedna verze této image.  
 
-- **Průběžné platby dle aktuálního využití (PAYG)**: tyto image spouštějí celé ceny Windows měřičů.
+- **Průběžné platby (PAYG)**: tyto image spouštějí měřiče Windows s plnou cenou.
    Kdo má použít tuto možnost: zákazníci smlouva Enterprise (EA), kteří používají *Model fakturace spotřeby*; CSP, kteří nechtějí používat licencování SPLA
 - **Přineste si vlastní licenci (BYOL)**: tyto image spouštějí základní měřiče.
    Kdo má použít tuto možnost: zákazníci se smlouvou EA s licencí k Windows serveru; CSP, kteří používají licencování SPLA.
 
-Zvýhodněné hybridní využití Azure (AHUB) se u centra Azure Stack nepodporuje. Zákazníci, kteří mají licenci prostřednictvím modelu "Capacity", musí používat Image BYOL. Pokud testujete pomocí Azure Stack Development Kit (ASDK), můžete použít kteroukoli z těchto možností.
+Zvýhodněné hybridní využití Azure (AHUB) se v centru Azure Stack nepodporuje. Zákazníci, kteří mají licenci prostřednictvím modelu "Capacity", musí používat Image BYOL. Pokud testujete pomocí Azure Stack Development Kit (ASDK), můžete použít kteroukoli z těchto možností.
 
 ### <a name="what-if-i-downloaded-the-wrong-version-to-offer-my-tenantsusers"></a>Co když jsem stáhl špatnou verzi, aby nabízela své klienty/uživatele?
 
@@ -58,7 +58,7 @@ $vm.LicenseType = "None"
 Update-AzureRmVM -ResourceGroupName "<your RG>" -VM $vm
 ```
 
-Typ licence vašeho virtuálního počítače můžete ověřit spuštěním následujících příkazů. Pokud licenční model uvádí **Windows_Server**, bude se vám účtovat cena za BYOL. V opačném případě se vám bude účtovat měřič Windows podle modelu PAYG:
+Typ licence vašeho virtuálního počítače můžete ověřit spuštěním následujícího příkazu. Pokud licenční model uvádí **Windows_Server**, bude se vám účtovat cena za BYOL. V opačném případě se vám bude účtovat měřič Windows podle modelu PAYG:
 
 ```powershell
 $vm | ft Name, VmId,LicenseType,ProvisioningState
@@ -78,7 +78,7 @@ Update-AzureRmVM -ResourceGroupName "<your RG>" -VM $vm
 
 Tyto image používají parametr **LicenseType** , aby byly PAYG. Tento parametr můžete nastavit (viz předchozí odpověď na nejčastější dotazy). To platí jenom pro software Windows serveru, ne pro vrstvené produkty, jako je SQL, což vyžaduje, abyste si mohli přenést vlastní licenci. Licencování PAYG se nevztahuje na vrstvené softwarové produkty.
 
-Vlastnost **LicenseType** pro image SQL Server můžete změnit jenom z webu služby Azure Stack hub Marketplace, pokud je verze xx. X. 20190410 nebo vyšší. Pokud používáte starší verzi SQL Server imagí z webu služby Azure Stack hub Marketplace, nemůžete změnit atribut **LicenseType** a musíte ho znovu nasadit pomocí nejnovějších SQL Server imagí z webu centra pro Azure Stack.
+Vlastnost **LicenseType** pro image SQL Server můžete změnit jenom z webu služby Azure Stack hub Marketplace, pokud je verze **xx. X. 20190410** nebo vyšší. Pokud používáte starší verzi SQL Server imagí z webu služby Azure Stack hub Marketplace, nemůžete změnit atribut **LicenseType** a musíte ho znovu nasadit pomocí nejnovějších SQL Server imagí z webu centra pro Azure Stack.
 
 ### <a name="i-have-an-enterprise-agreement-ea-and-will-be-using-my-ea-windows-server-license-how-do-i-make-sure-images-are-billed-correctly"></a>Mám smlouva Enterprise (EA) a bude používat licenci na Windows Server pro EA. Jak zajistím, aby se obrázky správně účtují?
 
@@ -113,9 +113,9 @@ Klíče, které se mají použít pro vaši image, najdete v článku věnované
 
 ### <a name="i-create-my-own-windows-server-images-how-can-i-make-sure-they-use-avma"></a>Můžu vytvořit vlastní image Windows serveru, jak se dá zajistit, aby používali AVMA?
 
-Před spuštěním `slmgr /ipk` `sysprep` příkazu doporučujeme spustit příkazový řádek s příslušným klíčem. Případně zahrňte klíč AVMA do libovolného instalačního souboru Unattend. exe.
+`slmgr /ipk`Před spuštěním příkazu doporučujeme spustit příkazový řádek s příslušným klíčem `sysprep` . Případně zahrňte klíč AVMA do libovolného souboru instalačního programu Unattend.exe.
 
-### <a name="i-am-trying-to-use-my-windows-server-2016-image-created-on-azure-and-its-not-activating-or-using-kms-activation"></a>Snažím se použít bitovou kopii Windows serveru 2016 vytvořenou v Azure a aktivace pomocí služby správy klíčů se neaktivuje.
+### <a name="i-am-trying-to-use-my-windows-server-2016-image-created-on-azure-and-its-not-activating-or-using-kms-activation"></a>Snažím se použít Windows Server 2016 image vytvořenou v Azure a aktivace pomocí služby správy klíčů se neaktivuje.
 
 Spusťte příkaz `slmgr /ipk`. Image Azure se nemusí správně vracet do AVMA, ale pokud se můžou dostat do systému správy klíčů Azure, aktivují se. Doporučuje se, abyste zajistili, že jsou tyto virtuální počítače nastavené na používání AVMA.
 
@@ -129,7 +129,7 @@ Obraťte se na dodavatele hardwaru a ověřte, zda byly nainstalovány správné
 
 ## <a name="next-steps"></a>Další kroky
 
-Další informace najdete v těchto článcích:
+Další informace najdete v následujících článcích:
 
 - [Přehled centra Azure Stack Marketplace](azure-stack-marketplace.md)
 - [Stažení položek z webu Marketplace z Azure do centra Azure Stack](azure-stack-download-azure-marketplace-item.md)

@@ -10,12 +10,12 @@ metadata:
   author: justinha
   ms.author: justinha
   ms.date: 04/13/2020
-  ms.openlocfilehash: 16a63e28a67b6dfc9d68b29df343e130ae4abca0
-  ms.sourcegitcommit: bdd4d529bd3e115a9f76eece62b1613448d5d020
+  ms.openlocfilehash: e344e301c9fa5d83caa03a857e529a43266b4cdb
+  ms.sourcegitcommit: f2a5ce52fcf69e05fe89be8211b7360de46f4a94
   ms.translationtype: MT
   ms.contentlocale: cs-CZ
-  ms.lasthandoff: 04/14/2020
-  ms.locfileid: "81274085"
+  ms.lasthandoff: 07/24/2020
+  ms.locfileid: "87133567"
 landingContent:
 - title: O centru Azure Stack
   linkLists:
@@ -24,13 +24,13 @@ landingContent:
     - text: Co je centrum Azure Stack?
       url: azure-stack-overview.md
     - text: Co je Azure Stack HCI?
-      url: azure-stack-hci-overview.md
+      url: ../hci/overview.md
   - linkListType: whats-new
     links:
     - text: Aktualizace zabezpečení
-      url: azure-stack-release-notes-security-updates.md
+      url: ./release-notes-security-updates.md?view=azs-2002
     - text: Poznámky k verzi
-      url: azure-stack-release-notes-1908.md
+      url: ./release-notes.md?view=azs-2002
     - text: Capacity Planner centra Azure Stack
       url: azure-stack-capacity-planning-overview.md
 - title: Začínáme
@@ -59,6 +59,8 @@ landingContent:
       url: azure-stack-powershell-download.md
     - text: Instalace Azure Stack PowerShellu
       url: azure-stack-powershell-install.md
+    - text: Použití Docker ke spuštění PowerShellu
+      url: ../user/azure-stack-powershell-user-docker.md
     - text: Připojení pomocí Azure Stack PowerShellu
       url: azure-stack-powershell-configure-admin.md
     - text: Stažení Azure Stack Development Kit (ASDK)
@@ -78,12 +80,12 @@ landingContent:
   - linkListType: deploy
     links:
     - text: Vytvoření nabídky pro virtuální počítač
-      url: azure-stack-tutorial-tenant-vm.md
+      url: ./tutorial-offer-services.md?view=azs-2002
     - text: Vytvoření vysoce dostupné databáze MySQL
       url: azure-stack-tutorial-mysql.md
     - text: Vytváření aplikací pro libovolnou platformu
       url: azure-stack-app-service-overview.md
-- title: Správa centra Azure Stack
+- title: Správa služby Azure Stack Hub
   linkLists:
   - linkListType: how-to-guide
     links:

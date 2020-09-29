@@ -3,16 +3,16 @@ title: Co je centrum Azure Stack pro uživatele?
 description: Naučte se používat centrum Azure Stack jako vývojáře.
 author: mattbriggs
 ms.topic: article
-ms.date: 3/19/2020
+ms.date: 7/24/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 3/19/2020
-ms.openlocfilehash: 96a4fb569660c14cc864518406effa8a733d5111
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 7c930b823fd82854499433bbe5bda8654b481877
+ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80108398"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87250890"
 ---
 # <a name="what-is-azure-stack-hub"></a>Co je centrum Azure Stack?
 
@@ -20,9 +20,9 @@ Centrum Azure Stack je hybridní cloudová platforma, která umožňuje použív
 
 ## <a name="how-to-use-azure-stack-hub"></a>Použití centra Azure Stack
 
-Pokud jste operátor centra Azure Stack, který spravuje infrastrukturu a nabízí služby, přečtěte si [dokumentaci k operátorovi](https://docs.microsoft.com/azure-stack/operator/).
+Pokud jste operátor centra Azure Stack, který spravuje infrastrukturu a nabízí služby, přečtěte si [dokumentaci k operátorovi](../operator/index.yml).
 
-Pokud jste uživatelem centra Azure Stack zajímáte Azure Stack Development Kit (ASDK), nasazení v jednom uzlu Azure Stackho centra, které si můžete stáhnout a používat zdarma, přečtěte si dokumentaci k [ASDK](https://docs.microsoft.com/azure-stack/asdk/).
+Pokud jste uživatelem centra Azure Stack zajímáte Azure Stack Development Kit (ASDK), nasazení v jednom uzlu Azure Stackho centra, které si můžete stáhnout a používat zdarma, přečtěte si dokumentaci k [ASDK](../asdk/index.yml).
 
 ## <a name="next-steps"></a>Další kroky
 

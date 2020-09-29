@@ -8,12 +8,12 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 08/20/2019
-ms.openlocfilehash: ed14d3a482a61b3daad827d559ef96926b65c551
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: e2b53b4b99b02267a6f88b22a2ee373695445081
+ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82848060"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87250193"
 ---
 # <a name="app-service-on-azure-stack-hub-update-3-release-notes"></a>Zpráva k vydání verze App Service v centru Azure Stack Center Update 3
 
@@ -22,7 +22,7 @@ Tyto poznámky k verzi popisují vylepšení, opravy a známé problémy v Azure
 > [!IMPORTANT]
 > Před nasazením Azure App Service 1,3 použijte aktualizaci 1807 pro integrovaný systém Azure Stack hub nebo nasaďte nejnovější Azure Stack Development Kit (ASDK).
 
-## <a name="build-reference"></a>Odkaz na sestavení
+## <a name="build-reference"></a>Referenční informace o buildu
 
 App Service číslo buildu Azure Stack centra aktualizace 3 je **74.0.13698.31**.
 
@@ -75,7 +75,7 @@ Pro zákazníky, kteří chtějí migrovat na databázi s omezením na existují
 >
 >
 
-1. Přidejte [databáze AppService (appservice_hosting a appservice_metering) do skupiny dostupnosti](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database).
+1. Přidejte [databáze AppService (appservice_hosting a appservice_metering) do skupiny dostupnosti](/sql/database-engine/availability-groups/windows/availability-group-add-a-database).
 
 1. Povoluje databázi s omezením.
     ```sql
@@ -126,9 +126,9 @@ Pro zákazníky, kteří chtějí migrovat na databázi s omezením na existují
             GO  
 
             /********[appservice_hosting] Migration End********/
-    '''
+    ```
 
-1. Migrate logins to contained database users.
+1. Migruje přihlášení pro uživatele databáze s omezením.
 
     ```sql
         IF EXISTS(SELECT * FROM sys.databases WHERE Name=DB_NAME() AND containment = 1)

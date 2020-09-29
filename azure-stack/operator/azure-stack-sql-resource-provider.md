@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Naučte se používat poskytovatele prostředků SQL Server k poskytování databází SQL jako služby v centru Azure Stack.
 author: bryanla
 ms.topic: article
-ms.date: 10/02/2019
+ms.date: 8/19/2020
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/25/2019
-ms.openlocfilehash: 15eaf26162b0d3f647d65dfab66e3d9327b2f357
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: c0f599d8a63f0a1ea16e5a39303391cb1b0790a0
+ms.sourcegitcommit: 8079220917523ab9ddb824e4bba3e9b091f38a9f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77697140"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661584"
 ---
 # <a name="use-sql-databases-on-azure-stack-hub"></a>Použití databází SQL v centru Azure Stack
 
@@ -28,6 +28,7 @@ Omezení, která je třeba zvážit před instalací poskytovatele prostředků 
 - Váš operátor centra Azure Stack zodpovídá za nasazení, aktualizaci, zabezpečení, konfiguraci a údržbu serverů a hostitelů služby SQL Database. Služba RP neposkytuje žádné funkce správy instancí hostitele a databázového serveru.
 - Databáze od různých uživatelů v různých předplatných můžou být umístěné ve stejné instanci databázového serveru. RP neposkytuje žádný mechanismus pro izolaci databází na různých hostitelích nebo instancích databázových serverů.
 - RP neposkytuje žádné sestavy o využití databáze pro tenanta.
+- Hostitelský server SQL můžete přesunout jenom do jiného předplatného v globálním Azure. Centrum Azure Stack nepodporuje přesun hostitelského serveru SQL na jiné předplatné.
 
 Pro tradiční SQL Server úlohy v místním prostředí se doporučuje SQL Server virtuální počítač v Azure Stack hub.
 

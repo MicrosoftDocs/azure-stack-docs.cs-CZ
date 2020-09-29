@@ -7,12 +7,12 @@ ms.date: 08/13/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 04/25/2019
-ms.openlocfilehash: 3c8c8b424d6ce555b19f4a77dbb8275b731f488e
-ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
+ms.openlocfilehash: 3ceea390376610ca1354a1b015ca91a5edd096e5
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82836122"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86566290"
 ---
 # <a name="delete-quotas-plans-offers-and-subscriptions"></a>Odstranění kvót, plánů, nabídek a předplatných
 
@@ -53,14 +53,15 @@ Plán se taky nedá z předplatného odebrat, pokud se jedná o jediný zdroj da
 
 ## <a name="edit-and-delete-a-quota"></a>Úprava a odstranění kvóty
 
-Stávající kvóty můžete zobrazit a upravit pomocí portálu pro správu: vyberte **Správa oblastí**, pak vyberte relevantního poskytovatele prostředků a pak vyberte **kvóty**. Můžete také odstranit kvóty pro určité poskytovatele prostředků.
+Stávající kvóty můžete zobrazit a upravit pomocí portálu pro správu: vyberte **Správa oblastí**, pak vyberte relevantního poskytovatele prostředků a pak vyberte  **kvóty**. Můžete také odstranit kvóty pro určité poskytovatele prostředků.
 
 ![Odstranění kvót na portálu pro správu centra Azure Stack](media/azure-stack-delete-offer/delsub3.png)
 
 Můžete také odstranit některé kvóty pomocí těchto rozhraní REST API:
 
-- [Compute](/rest/api/azurestack/quotas%20(compute)/delete)
+- [Výpočetní služby](/rest/api/azurestack/quotas/delete)
 - [Síť](/rest/api/azurestack/quotas%20(network)/delete)
+- [Storage](/rest/api/azurestack/storagequotas/delete)
 
 > [!NOTE]
 > Kvótu nemůžete odstranit, pokud existují nějaké aktuální plány, které ji používají. Nejdříve je nutné odstranit plán, který odkazuje na kvótu.

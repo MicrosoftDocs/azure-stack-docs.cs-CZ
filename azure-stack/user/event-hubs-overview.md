@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/27/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 11/27/2019
-ms.openlocfilehash: c7c1d11d2ef432ddc8b750fde5cb6970c4076db4
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: b2e03617b8409e321edb3b2d924f5f0762ad9b9f
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80614374"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86566409"
 ---
 # <a name="event-hubs-on-azure-stack-hub-overview"></a>Přehled Event Hubs v centru Azure Stack
 
@@ -42,7 +42,7 @@ Sestavujte hybridní řešení, která ingestují a zpracovávají data Edge mí
 
 Edice Event Hubs (v centru Azure Stack a v Azure) nabízejí vysoký stupeň parity funkcí. Tato parita znamená, že sady SDK, ukázky, PowerShellu, rozhraní příkazového řádku a portálů nabízejí podobné prostředí s několika rozdíly. Následující tabulka shrnuje rozdíly vysoké úrovně v dostupnosti funkcí, které existují mezi edicemi.  
 
-| Funkce | Event Hubs v centru Azure Stack | Azure Event Hubs |
+| Příznak | Event Hubs v Azure Stack Hubu | Azure Event Hubs |
 |-|-|-|-|
 | Činnost správce operátorů | ✔ | ✘ |
 | Podpora Kafka | ✔ | ✔ |
@@ -66,7 +66,7 @@ Operace správy prostředků Azure je možné provádět taky pomocí Azure Reso
 
 ### <a name="operator-documentation"></a>Dokumentace k operátorovi 
  
-Další informace o Event Hubs v prostředí operátorů centra Azure Stack najdete v [dokumentaci k operátoru Event Hubs](/azure-stack/operator/event-hubs-rp-overview). Tato dokumentace poskytuje informace o aktivitách, jako jsou:
+Další informace o Event Hubs v prostředí operátorů centra Azure Stack najdete v [dokumentaci k operátoru Event Hubs](../operator/event-hubs-rp-overview.md). Tato dokumentace poskytuje informace o aktivitách, jako jsou:
 
 - Probíhá instalace Event Hubs.
 - Zpřístupnění Event Hubs uživatelům.

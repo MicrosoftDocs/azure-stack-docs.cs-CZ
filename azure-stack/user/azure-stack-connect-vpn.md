@@ -1,24 +1,24 @@
 ---
-title: Připojení centra Azure Stack k Azure pomocí sítě VPN
+title: Připojení služby Azure Stack Hub k Azure s využitím sítě VPN
 description: Postup připojení virtuálních sítí ve službě Azure Stack hub k virtuálním sítím v Azure pomocí sítě VPN.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 04/07/2020
+ms.date: 07/23/2020
 ms.author: sethm
-ms.reviewer: scottnap
+ms.reviewer: TBD
 ms.lastreviewed: 10/24/2019
-ms.openlocfilehash: 186559752531021ff74833ac71184e692d40a04d
-ms.sourcegitcommit: 3ee7e9ddffe2ca44af24052e60d808fbef42cf4c
+ms.openlocfilehash: 2ea7dfcccf2b2f4590e09f60db4530d7ebe6d319
+ms.sourcegitcommit: f2a5ce52fcf69e05fe89be8211b7360de46f4a94
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82643593"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87133754"
 ---
-# <a name="connect-azure-stack-hub-to-azure-using-vpn"></a>Připojení centra Azure Stack k Azure pomocí sítě VPN
+# <a name="connect-azure-stack-hub-to-azure-using-vpn"></a>Připojení služby Azure Stack Hub k Azure s využitím sítě VPN
 
 Tento článek popisuje, jak vytvořit síť VPN typu Site-to-site pro připojení virtuální sítě v Azure Stackovém centru k virtuální síti v Azure.
 
-## <a name="before-you-begin"></a>Před zahájením
+## <a name="before-you-begin"></a>Než začnete
 
 Pokud chcete dokončit konfiguraci připojení, ujistěte se, že máte následující položky, než začnete:
 
@@ -35,7 +35,7 @@ Následující obrázek ukazuje, co by konfigurace připojení měla vypadat, ja
 
 Tabulka příklady konfigurace sítě obsahuje hodnoty, které se používají v příkladech v tomto článku. Tyto hodnoty můžete použít, nebo je můžete vykázat, abyste lépe porozuměli příkladům v tomto článku:
 
-|   |Centrum Azure Stack|Azure|
+| Hodnota   |Azure Stack Hub|Azure|
 |---------|---------|---------|
 |Název virtuální sítě     |AZS – VNet|AzureVNet |
 |Adresní prostor virtuální sítě |10.1.0.0/16|10.100.0.0/16|
@@ -119,9 +119,9 @@ Vzhledem k tomu, že se u [sestavení 1910 a novějších](azure-stack-vpn-gatew
 1. Vytvoření vlastní zásady:
 
    ```powershell
-     $IPSecPolicy = New-AzIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup ECP384  `
-     -IpsecEncryption GCMAES256 -IpsecIntegrity GCMAES256 -PfsGroup ECP384 -SALifeTimeSeconds 27000 `
-     -SADataSizeKilobytes 102400000 
+   $IPSecPolicy = New-AzIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup ECP384  `
+   -IpsecEncryption GCMAES256 -IpsecIntegrity GCMAES256 -PfsGroup ECP384 -SALifeTimeSeconds 27000 `
+   -SADataSizeKilobytes 102400000
    ```
 
 2. Použít zásady na připojení:
@@ -202,7 +202,7 @@ Správce služeb se může přihlásit jako uživatel, aby otestoval plány, nab
 
 ### <a name="create-the-local-network-gateway"></a>Vytvoření brány místní sítě
 
-Koncept *brány místní sítě* v centru Azure Stack je trochu jiný než v nasazení Azure.
+Koncept *brány místní sítě* v centru Azure Stack se liší od nasazení Azure.
 
 V nasazení Azure představuje brána místní sítě místně (v umístění uživatele) fyzické zařízení, které se připojujete k bráně virtuální sítě v Azure. V Azure Stack hub na obou koncích připojení ale jsou brány virtuální sítě.
 
@@ -256,8 +256,8 @@ Po navázání připojení Site-to-site byste měli ověřit, že můžete v obo
 * Přihlaste se k virtuálnímu počítači, který jste vytvořili v centru Azure Stack a otestujte virtuální počítač v Azure.
 * Přihlaste se k virtuálnímu počítači, který jste vytvořili v Azure, a otestujte virtuální počítač v Azure Stackovém centru.
 
->[!NOTE]
->Abyste se ujistili, že odesíláte přenosy přes připojení typu Site-to-site, otestujte adresu IP (DIP) virtuálního počítače ve vzdálené podsíti, nikoli VIP.
+> [!NOTE]
+> Abyste se ujistili, že odesíláte přenosy přes připojení typu Site-to-site, otestujte adresu IP (DIP) virtuálního počítače ve vzdálené podsíti, nikoli VIP.
 
 ### <a name="sign-in-to-the-user-vm-in-azure-stack-hub"></a>Přihlaste se k virtuálnímu počítači uživatele v centru Azure Stack.
 
@@ -318,4 +318,4 @@ Pokud chcete zjistit, kolik dat prochází přes připojení mezi lokalitami, js
 
 ## <a name="next-steps"></a>Další kroky
 
-* [Nasazení aplikací do Azure a centra Azure Stack](azure-stack-solution-pipeline.md)
+* [Nasazení aplikací do Azure a centra Azure Stack](https://github.com/Azure-Samples/azure-intelligent-edge-patterns/tree/master/hybrid-devops)

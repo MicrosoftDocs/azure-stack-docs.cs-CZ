@@ -3,16 +3,16 @@ title: Přehled centra Azure Stack Marketplace
 description: Přehled položek centra Azure Stack Marketplace a Marketplace.
 author: sethmanheim
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 07/27/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 638ffe45cef9301059fd9e9e39b74b793e2ba86a
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: b9f01cb8237a3a6764b6ce450e279700a17eea01
+ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81661347"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87250805"
 ---
 # <a name="azure-stack-hub-marketplace-overview"></a>Přehled centra Azure Stack Marketplace
 

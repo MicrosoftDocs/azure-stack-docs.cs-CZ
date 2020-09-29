@@ -7,13 +7,13 @@ ms.topic: how-to
 ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: fiseraci
-ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: 19680b9e8317e419c0b696d79213f29bcbee2263
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.lastreviewed: 08/06/2020
+ms.openlocfilehash: 2aa24a852e5388a36b1103c2a61f5aa70930d84d
+ms.sourcegitcommit: 1ab1293b594fe8ffc00dc800c663cf1323dc41ce
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "78367602"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87939526"
 ---
 # <a name="data-at-rest-encryption-in-azure-stack-hub"></a>Šifrování neaktivních dat v centru Azure Stack
 
@@ -35,14 +35,14 @@ Načtení klíčů pro obnovení BitLockeru vyžaduje přístup k [privilegovan�
 
 ```powershell
 ##This cmdlet retrieves the recovery keys for all the volumes that are encrypted with BitLocker.
-Get-AzsRecoveryKeys
+Get-AzsRecoveryKeys -raw
 ```
 
-Volitelné parametry pro rutinu *Get-AzsRecoveryKeys* :
+Parametry pro rutinu *Get-AzsRecoveryKeys* :
 
-| Parametr | Popis | Typ | Požaduje se |
+| Parametr | Popis | Typ | Vyžadováno |
 |---------|---------|---------|---------|
-|*získání* | Vrátí nezpracovaná data mapování mezi obnovovacím klíčem, názvem počítače a ID hesel každého zašifrovaného svazku.  | Přepínač | Ne (navržené pro scénáře podpory)|
+|*získání* | Vrátí mapování dat mezi obnovovacím klíčem, názvem počítače a ID hesel každého zašifrovaného svazku.  | Přepínač | Ne, ale doporučeno |
 
 ## <a name="troubleshoot-issues"></a>Řešení potíží
 
@@ -56,4 +56,4 @@ Pokud máte podezření, že v systému dochází k problémům s BitLockerem, j
 ## <a name="next-steps"></a>Další kroky
 
 - [Přečtěte si další informace o Azure Stack zabezpečení centra](azure-stack-security-foundations.md).
-- Další informace o tom, jak BitLocker chrání CSV, najdete v tématu [Ochrana sdílených svazků clusteru a sítí SAN pomocí nástroje BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/protecting-cluster-shared-volumes-and-storage-area-networks-with-bitlocker).
+- Další informace o tom, jak BitLocker chrání CSV, najdete v tématu [Ochrana sdílených svazků clusteru a sítí SAN pomocí nástroje BitLocker](/windows/security/information-protection/bitlocker/protecting-cluster-shared-volumes-and-storage-area-networks-with-bitlocker).

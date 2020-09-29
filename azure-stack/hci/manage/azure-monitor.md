@@ -3,18 +3,18 @@ title: Monitorování Azure Stack HCL pomocí Azure Monitor
 description: Monitorujte servery a nakonfigurujte výstrahy pomocí Azure Monitor z centra pro správu Windows.
 author: khdownie
 ms.author: v-kedow
-ms.topic: article
-ms.date: 04/03/2020
-ms.openlocfilehash: 9dcb6050b4980b476d15552c92ff5445c72bbc55
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.topic: how-to
+ms.date: 07/21/2020
+ms.openlocfilehash: f721b16d6742cde5e27fae8b81d8d256c7defa2a
+ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80750691"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86866803"
 ---
 # <a name="monitor-azure-stack-hci-with-azure-monitor"></a>Monitorování Azure Stack HCL pomocí Azure Monitor
 
-> Platí pro: Windows Server 2019
+> Platí pro: Azure Stack HCI, verze 20H2; Windows Server 2019
 
 [Azure monitor](/azure/azure-monitor/overview) shromažďuje, analyzuje a funguje na telemetrie z nejrůznějších prostředků, včetně serverů Windows a virtuálních počítačů (VM), místních i cloudových. I když Azure Monitor vyžádá data z virtuálních počítačů Azure a dalších prostředků Azure, Tento článek se zaměřuje na to, jak Azure Monitor pracuje s místními servery a virtuálními počítači běžícími na Azure Stack HCL, konkrétně v centru pro správu Windows.
 
@@ -24,11 +24,11 @@ Data generovaná z místních Windows serverů se shromažďují v Log Analytics
 
 Když povolíte řešení monitorování v pracovním prostoru Log Analytics, všechny servery, které do tohoto pracovního prostoru nahlásí, začnou shromažďovat data relevantní pro toto řešení, takže řešení může vygenerovat přehledy pro všechny servery v pracovním prostoru.
 
-Pokud chcete shromažďovat data telemetrie na místním serveru a vkládat je do pracovního prostoru Log Analytics, Azure Monitor vyžaduje instalaci Microsoft Monitoring Agent (MMA). Některá řešení monitorování také vyžadují sekundárního agenta. Například Azure Monitor pro virtuální počítače také závisí na agentovi ServiceMap pro další funkce, které toto řešení poskytuje.
+Pro shromažďování diagnostických dat na místním serveru a jejich odesílání do pracovního prostoru Log Analytics Azure Monitor vyžaduje instalaci Microsoft Monitoring Agent (MMA). Některá řešení monitorování také vyžadují sekundárního agenta. Například Azure Monitor pro virtuální počítače také závisí na agentovi ServiceMap pro další funkce, které toto řešení poskytuje.
 
 Některá řešení, jako je například Azure Update Management, závisí také na Azure Automation, která umožňují centrálně spravovat prostředky v prostředích Azure a mimo Azure. Například Azure Update Management používá Azure Automation k naplánování a orchestraci instalace aktualizací napříč počítači ve vašem prostředí, a to centrálně z Azure Portal.
 
-## <a name="what-data-does-azure-monitor-collect"></a>Jaká data služba Azure Monitor shromažďuje?
+## <a name="what-data-does-azure-monitor-collect"></a>Jaká data shromažďuje služba Azure Monitor?
 
 Všechna data shromažďovaná Azure Monitor se vejdou do jednoho ze dvou základních typů: metriky a protokoly.
 
@@ -58,9 +58,9 @@ Například pokud nejprve přejdete na nástroj **aktualizace** a nakonfigurujet
 
 Pokud chcete přidat další řešení monitorování z centra pro správu Windows na stejný server, centrum pro správu systému Windows jednoduše nainstaluje toto řešení do existujícího pracovního prostoru, ke kterému je tento server připojen. Centrum pro správu systému Windows nainstaluje také další potřebné agenty.
 
-Pokud se připojujete k jinému serveru, ale už jste nastavili pracovní prostor Log Analytics (buď prostřednictvím centra pro správu Windows, nebo ručně na webu Azure Portal), můžete na server nainstalovat taky MMA a připojit ho k existujícímu pracovnímu prostoru. Když připojíte Server k pracovnímu prostoru, automaticky se spustí shromažďování dat a vytváření sestav do řešení instalovaných v daném pracovním prostoru.
+Pokud se připojujete k jinému serveru, ale již jste nastavili pracovní prostor Log Analytics (buď prostřednictvím centra pro správu systému Windows, nebo ručně v Azure Portal), můžete MMA také nainstalovat na server a připojit ho k existujícímu pracovnímu prostoru. Když připojíte Server k pracovnímu prostoru, automaticky se spustí shromažďování dat a vytváření sestav do řešení instalovaných v daném pracovním prostoru.
 
-## <a name="azure-monitor-for-virtual-machines-aka-virtual-machine-insights"></a>Azure Monitor pro virtuální počítače (označované také jako Přehledy pro Virtual Machine Insights)
+## <a name="azure-monitor-for-virtual-machines-virtual-machine-insights"></a>Azure Monitor pro virtuální počítače (přehledy služby Virtual Machine Insights)
 
 Když nastavíte Azure Monitor pro virtuální počítače v **nastavení serveru**, centrum pro správu systému Windows umožní řešení Azure monitor pro virtuální počítače, označované také jako přehled služby Virtual Machine Insights. Toto řešení vám umožňuje monitorovat stav serveru a události, vytvářet e-mailová upozornění, získat konsolidované zobrazení výkonu serveru napříč vaším prostředím a vizualizovat aplikace, systémy a služby připojené k danému serveru.
 
@@ -108,11 +108,11 @@ K získání přehledu [Azure Log Analytics](/azure/azure-monitor/platform/agent
 
 Abyste lépe porozuměli podporované konfiguraci, přečtěte si o [podporovaných operačních systémech Windows](/azure/azure-monitor/platform/log-analytics-agent#supported-windows-operating-systems) a [konfiguraci síťové brány firewall](/azure/azure-monitor/platform/log-analytics-agent#network-firewall-requirements).
 
-Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) před tím, než začnete.
+Pokud ještě nemáte předplatné Azure, vytvořte si napřed [bezplatný účet](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-#### <a name="login-in-to-azure-portal"></a>Přihlášení k webu Azure Portal
+#### <a name="log-in-to-azure-portal"></a>Přihlášení k webu Azure Portal
 
-Přihlaste se k Azure Portal [https://portal.azure.com](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)v.
+Přihlaste se k Azure Portal v [https://portal.azure.com](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 #### <a name="create-a-workspace"></a>Vytvoření pracovního prostoru
 
@@ -120,22 +120,22 @@ Další podrobnosti o níže uvedených krocích najdete v [dokumentaci k Azure 
 
 1. Na webu Azure Portal klikněte na **Všechny služby**. V seznamu prostředků zadejte **Log Analytics**. Seznam se průběžně filtruje podle zadávaného textu. Vyberte **Log Analytics**.
 
-    :::image type="content" source="media/monitor/azure-portal-01.png" alt-text="portál Azure":::
+    :::image type="content" source="media/monitor/azure-portal-01.png" alt-text="Azure Portal":::
 
 2. Klikněte na **Vytvořit** a podle potřeby změňte hodnoty následujících položek:
 
-   * Zadejte název nového **pracovního prostoru Log Analytics**, například *DefaultLAWorkspace*. 
+   * Zadejte název nového **pracovního prostoru Log Analytics**, například *DefaultLAWorkspace*.
    * Vyberte **předplatné**, které má být cílem propojení, výběrem z rozevíracího seznamu, pokud výchozí vybrané předplatné není vhodné.
    * Jako **skupinu prostředků** vyberte existující skupinu prostředků, která obsahuje jeden nebo několik virtuálních počítačů Azure.
 
     :::image type="content" source="media/monitor/create-loganalytics-workspace-02.png" alt-text="Okno pro vytvoření Log Analytics prostředku":::
 
-3. Po zadání požadovaných informací v podokně **log Analyticsho pracovního prostoru** klikněte na tlačítko **OK**.  
+3. Po zadání požadovaných informací v podokně **log Analyticsho pracovního prostoru** klikněte na tlačítko **OK**.
 
 Během ověřování informací a vytváření pracovního prostoru můžete průběh zpracování sledovat prostřednictvím položky nabídky **Oznámení**.
 
 #### <a name="obtain-workspace-id-and-key"></a>Získání ID a klíče pracovního prostoru
-Než nainstalujete MMA pro Windows, budete potřebovat ID a klíč pracovního prostoru pro váš pracovní prostor Log Analytics.  Tyto informace vyžaduje průvodce instalací ke správné konfiguraci agenta a zajištění, aby agent mohl úspěšně komunikovat s Log Analytics.  
+Než nainstalujete MMA pro Windows, budete potřebovat ID a klíč pracovního prostoru pro váš pracovní prostor Log Analytics.  Tyto informace vyžaduje průvodce instalací ke správné konfiguraci agenta a zajištění, aby agent mohl úspěšně komunikovat s Log Analytics.
 
 1. Na webu Azure Portal klikněte v levém horním rohu na **Všechny služby**. V seznamu prostředků zadejte **Log Analytics**. Seznam se průběžně filtruje podle zadávaného textu. Vyberte **Log Analytics**.
 2. V seznamu pracovních prostorů Log Analytics vyberte *DefaultLAWorkspace* vytvořený dříve.
@@ -156,7 +156,7 @@ Následující postup nainstaluje a nakonfiguruje Microsoft Monitoring Agent.
 4. Na stránce **Licenční podmínky** si přečtěte licenční podmínky a pak klikněte na **Souhlasím**.
 5. Na stránce **Cílová složka** změňte nebo ponechte výchozí instalační složku a pak klikněte na **Další**.
 6. Na stránce **Možnosti instalace agenta** zvolte připojení agenta k Azure Log Analytics a pak klikněte na **Další**.
-7. Na stránce **Azure Log Analytics** vložte **ID pracovního prostoru** a **klíč pracovního prostoru (primární klíč)** , který jste zkopírovali dříve. Pokud počítač potřebuje komunikovat se službou Log Analytics přes proxy server, klikněte na **Upřesnit** a zadejte adresu URL a číslo portu proxy serveru. Pokud váš proxy server vyžaduje ověření, zadejte uživatelské jméno a heslo pro ověření proxy serveru a pak klikněte na **Další**.  
+7. Na stránce **Azure Log Analytics** vložte **ID pracovního prostoru** a **klíč pracovního prostoru (primární klíč)** , který jste zkopírovali dříve. Pokud počítač potřebuje komunikovat se službou Log Analytics přes proxy server, klikněte na **Upřesnit** a zadejte adresu URL a číslo portu proxy serveru. Pokud váš proxy server vyžaduje ověření, zadejte uživatelské jméno a heslo pro ověření proxy serveru a pak klikněte na **Další**.
 8. Jakmile dokončíte zadávání nezbytných nastavení konfigurace, klikněte na **Další**.
     :::image type="content" source="media/monitor/log-analytics-mma-setup-laworkspace.png" alt-text="vložení ID pracovního prostoru a primárního klíče":::
 9. Na stránce **Připraveno k instalaci** zkontrolujte zvolené volby a pak klikněte na **Nainstalovat**.
@@ -170,9 +170,9 @@ Abyste lépe porozuměli podporované konfiguraci, přečtěte si o [podporovan�
 
 ## <a name="setting-up-alerts-using-windows-admin-center"></a>Nastavení výstrah pomocí centra pro správu Windows
 
-Po připojení serveru k Azure Monitor můžete pomocí inteligentních hypertextových odkazů na stránce **nastavení > monitorování a výstrahy** přejít na portál Azure Portal. V centru pro správu systému Windows můžete snadno nakonfigurovat výchozí výstrahy, které budou platit pro všechny servery v pracovním prostoru Log Analytics. Centrum pro správu systému Windows automaticky umožňuje shromažďování čítačů výkonu, takže můžete [vytvořit novou výstrahu](/azure/azure-monitor/platform/alerts-log) přizpůsobením jednoho z mnoha předem definovaných dotazů nebo napsat vlastní.
+Po připojení serveru k Azure Monitor můžete pomocí inteligentních hypertextových odkazů na stránce **nastavení > monitorování a výstrahy** přejít na Azure Portal. V centru pro správu systému Windows můžete snadno nakonfigurovat výchozí výstrahy, které budou platit pro všechny servery v pracovním prostoru Log Analytics. Centrum pro správu systému Windows automaticky umožňuje shromažďování čítačů výkonu, takže můžete [vytvořit novou výstrahu](/azure/azure-monitor/platform/alerts-log) přizpůsobením jednoho z mnoha předem definovaných dotazů nebo napsat vlastní.
 
-:::image type="content" source="media/monitor/setup1.gif" alt-text="Obrázek konfigurace výstrah – snímek obrazovky":::
+:::image type="content" source="media/monitor/setup1.gif" alt-text="Snímek obrazovky konfigurace výstrah":::
 
 Jedná se o výstrahy a jejich výchozí podmínky, se kterými se můžete rozhodnout:
 
@@ -181,32 +181,32 @@ Jedná se o výstrahy a jejich výchozí podmínky, se kterými se můžete rozh
 | Využití procesoru           | Více než 85% po dobu 10 minut                            |
 | Využití kapacity disku | Více než 85% po dobu 10 minut                            |
 | Využití paměti        | Dostupná paměť méně než 100 MB po dobu 10 minut   |
-| Prezenční signál                 | Méně než 2 Beats po dobu 5 minut                   |
+| Tep                 | Méně než 2 Beats po dobu 5 minut                   |
 | Kritická chyba systému     | Veškerá kritická výstraha v protokolu systémových událostí clusteru |
 | Výstraha služby Health Service      | Jakákoli chyba služby Health Service v clusteru            |
 
 Po nakonfigurování výstrah v centru pro správu systému Windows můžete výstrahy zobrazit v pracovním prostoru Log Analytics v Azure.
 
-:::image type="content" source="media/monitor/setup2.gif" alt-text="Zobrazit snímek obrazovky s výstrahami":::
+:::image type="content" source="media/monitor/setup2.gif" alt-text="Zobrazit snímek obrazovky výstrahy":::
 
 ### <a name="collecting-event-and-performance-data"></a>Shromažďování dat o událostech a výkonu
 
-Log Analytics může shromažďovat události z protokolu událostí Windows a z čítačů výkonu, které určíte pro dlouhodobější analýzu a generování sestav, a provést akci při zjištění konkrétní podmínky. Postupujte podle těchto kroků a pro začátek nakonfigurujte shromažďování událostí z protokolu událostí Windows a několika běžných čítačů výkonu.  
+Log Analytics může shromažďovat události z protokolu událostí Windows a z čítačů výkonu, které určíte pro dlouhodobější analýzu a generování sestav, a provést akci při zjištění konkrétní podmínky. Postupujte podle těchto kroků a pro začátek nakonfigurujte shromažďování událostí z protokolu událostí Windows a několika běžných čítačů výkonu.
 
 1. Na webu Azure Portal klikněte v levém dolním rohu na **Další služby**. V seznamu prostředků zadejte **Log Analytics**. Seznam se průběžně filtruje podle zadávaného textu. Vyberte **Log Analytics**.
 2. Vyberte **Upřesňující nastavení**.
     :::image type="content" source="media/monitor/log-analytics-advanced-settings-01.png" alt-text="Log Analytics Upřesnit nastavení":::
-3. Vyberte **Data** a pak vyberte **Protokoly událostí systému Windows**.  
-4. Sem přidejte Health Service kanál událostí, a to tak, že zadáte následující název a kliknete na **+** symbol plus.  
+3. Vyberte **Data** a pak vyberte **Protokoly událostí systému Windows**.
+4. Sem přidejte Health Service kanál událostí, a to tak, že zadáte následující název a kliknete na symbol plus **+** .
    ```
    Event Channel: Microsoft-Windows-Health/Operational
    ```
-5. V tabulce zaškrtněte závažnosti **Chyby** a **Upozornění**.   
+5. V tabulce zaškrtněte závažnosti **Chyby** a **Upozornění**.
 6. Uložte konfiguraci kliknutím na **Uložit** v horní části stránky.
-7. Pokud chcete povolit shromažďování čítačů výkonu na počítači s Windows, vyberte **čítače výkonu systému Windows** . 
+7. Pokud chcete povolit shromažďování čítačů výkonu na počítači s Windows, vyberte **čítače výkonu systému Windows** .
 8. Při první konfiguraci čítačů výkonu Windows pro nový pracovní prostor služby Log Analytics máte možnost rychle vytvořit několik běžných čítačů. Jsou zobrazené v seznamu a vedle každého je zaškrtávací políčko.
     :::image type="content" source="media/monitor/windows-perfcounters-default.png" alt-text="[Vybrané výchozí čítače výkonu Windows":::
-    Klikněte na **Přidat vybrané čítače výkonu**.  Čítače se přidají a přednastaví s použitím ukázkového desetisekundového intervalu shromažďování.  
+    Klikněte na **Přidat vybrané čítače výkonu**.  Čítače se přidají a přednastaví s použitím ukázkového desetisekundového intervalu shromažďování.
 9. Uložte konfiguraci kliknutím na **Uložit** v horní části stránky.
 
 ## <a name="create-queries-and-alerts-based-on-log-data"></a>Vytváření dotazů a upozornění na základě dat protokolu
@@ -220,7 +220,7 @@ Začněte tím, že otevřete portál pro **prohledávání protokolů** .
 1. Na webu Azure Portal klikněte na **Všechny služby**. V seznamu prostředků zadejte **Monitor**. Seznam se průběžně filtruje podle zadávaného textu. Vyberte **Monitor**.
 2. V navigační nabídce **monitorování** vyberte **Log Analytics** a pak vyberte pracovní prostor.
 
-Nejrychlejší způsob načtení nějakých dat, se kterými můžeme pracovat, je použít tento jednoduchý dotaz, který vrátí všechny záznamy v tabulce. Do vyhledávacího pole zadejte následující dotazy a klikněte na tlačítko Hledat.  
+Nejrychlejší způsob načtení nějakých dat, se kterými můžeme pracovat, je použít tento jednoduchý dotaz, který vrátí všechny záznamy v tabulce. Do vyhledávacího pole zadejte následující dotazy a klikněte na tlačítko Hledat.
 
 ```
 Event
@@ -238,7 +238,7 @@ Zaškrtněte políčko vedle položky **Chyba** v **EVENTLEVELNAME** nebo zadejt
 Event | where (EventLevelName == "Error")
 ```
 
-:::image type="content" source="media/monitor/log-analytics-portal-eventlist-02.png" alt-text="Filtrovat snímek obrazovky":::
+:::image type="content" source="media/monitor/log-analytics-portal-eventlist-02.png" alt-text="Snímek obrazovky filtru":::
 
 Jakmile budete mít vhodné dotazy vytvořené pro události, které vás zajímají, uložte je pro další krok.
 
@@ -247,42 +247,40 @@ Nyní se podívejme na příklad vytvoření výstrahy.
 
 1. Na webu Azure Portal klikněte na **Všechny služby**. V seznamu prostředků zadejte **Log Analytics**. Seznam se průběžně filtruje podle zadávaného textu. Vyberte **Log Analytics**.
 2. V levém podokně vyberte **Upozornění** a potom nahoře na stránce klikněte na **Nové pravidlo upozornění** a vytvořte nové upozornění.
-    :::image type="content" source="media/monitor/alert-rule-02.png" alt-text="Snímek obrazovky vytvoření nového pravidla výstrahy":::
+    :::image type="content" source="media/monitor/alert-rule-02.png" alt-text="Snímek obrazovky pro vytvoření nového pravidla výstrahy":::
 3. V prvním kroku v části **vytvořit výstrahu** zvolíte pracovní prostor Log Analytics jako prostředek, protože se jedná o signál výstrahy založený na protokolu.  Filtrování výsledků výběrem konkrétního **předplatného** z rozevíracího seznamu, pokud máte více než jeden, který obsahuje Log Analytics pracovního prostoru, který jste vytvořili dříve.  Vyfiltrujte **typ prostředku** tím, že v rozevíracím seznamu vyberete **Log Analytics**.  Nakonec vyberte v poli **Prostředek položku ** **DefaultLAWorkspace** a pak klikněte na **Hotovo**.
-    :::image type="content" source="media/monitor/alert-rule-03.png" alt-text="Vytvoření nového pravidla výstrahy krok 1 – snímek obrazovky":::
+    :::image type="content" source="media/monitor/alert-rule-03.png" alt-text="Vytvořit nové pravidlo upozornění krok 1 snímek obrazovky":::
 4. V části **kritéria upozornění**klikněte na **Přidat kritéria** a vyberte uložený dotaz a pak zadejte logiku, které pravidlo výstrahy sleduje.
-5. Nakonfigurujte upozornění podle následujících informací:  
-   a. Z rozevíracího seznamu na **základě** vyberte **měření metriky**.  Měření metriky vytvoří pro každý objekt dotazu upozornění s hodnotou, která překračuje zadanou prahovou hodnotu.  
-   b. V případě **podmínky**vyberte **větší než** a zadejte prahovou hodnotu.  
-   c. Pak definujte, kdy se má výstraha aktivovat. Můžete například vybrat možnost **po sobě jdoucí porušení** a v rozevíracím seznamu vybrat hodnotu **větší než** 3.  
-   d. V části vyhodnocení na základě oddílu změňte hodnotu **perioda** na **30** minut a **četnost** na 5. Pravidlo se spustí každých pět minut a vrátí záznamy vytvořené za posledních třicet minut od aktuálního času.  Nastavení delšího období zvyšuje potenciál latence dat a zajišťuje, aby dotaz vrátil data a aby se zabránilo falešně negativním hodnotám, kdy se výstraha nespustí.  
+5. Nakonfigurujte upozornění podle následujících informací: a. Z rozevíracího seznamu na **základě** vyberte **měření metriky**.  Měření metriky vytvoří pro každý objekt dotazu upozornění s hodnotou, která překračuje zadanou prahovou hodnotu.
+   b. V případě **podmínky**vyberte **větší než** a zadejte prahovou hodnotu.
+   c. Pak definujte, kdy se má výstraha aktivovat. Můžete například vybrat možnost **po sobě jdoucí porušení** a v rozevíracím seznamu vybrat hodnotu **větší než** 3.
+   d. V části vyhodnocení na základě oddílu změňte hodnotu **perioda** na **30** minut a **četnost** na 5. Pravidlo se spustí každých pět minut a vrátí záznamy vytvořené za posledních třicet minut od aktuálního času.  Nastavení delšího období zvyšuje potenciál latence dat a zajišťuje, aby dotaz vrátil data a aby se zabránilo falešně negativním hodnotám, kdy se výstraha nespustí.
 6. Klikněte na **Hotovo** a dokončete pravidlo upozornění.
-    :::image type="content" source="media/monitor/alert-signal-logic-02.png" alt-text="Obrázek konfigurace signálu výstrahy – snímek obrazovky":::
+    :::image type="content" source="media/monitor/alert-signal-logic-02.png" alt-text="Obrázek konfigurace signálu výstrahy":::
 7. Teď se přesunete na druhý krok, v poli **název pravidla výstrahy** zadejte název vaší výstrahy, jako je například **výstraha pro všechny chybové události**.  Do pole **Popis** zadejte podrobné informace o upozornění a v poli **Závažnost** vyberte **Kritické (záv. 0)**.
 8. Pokud chcete vytvořené pravidlo ihned aktivovat, potvrďte výchozí hodnotu přepínače **Po vytvoření povolit pravidlo**.
-9. Ve třetím a posledním kroku zadejte **Skupinu akcí**, abyste zajistili, že se při každé aktivaci upozornění provedou stejné akce. Skupinu akcí můžete použít pro každé definované pravidlo. Ke konfiguraci nové skupiny akcí použijte následující informace:  
-   a. Vyberte **Nová skupina akcí**. Zobrazí se podokno **Přidat skupinu akcí**.  
-   b. Do pole **Název skupiny akcí** zadejte název, třeba **Operace IT – oznámení** a do pole **Krátký název** zadejte třeba **itop-ozn**.  
+9. Ve třetím a posledním kroku zadejte **Skupinu akcí**, abyste zajistili, že se při každé aktivaci upozornění provedou stejné akce. Skupinu akcí můžete použít pro každé definované pravidlo. Ke konfiguraci nové skupiny akcí použijte následující informace: a. Vyberte **Nová skupina akcí**. Zobrazí se podokno **Přidat skupinu akcí**.
+   b. Do pole **Název skupiny akcí** zadejte název, třeba **Operace IT – oznámení** a do pole **Krátký název** zadejte třeba **itop-ozn**.
    c. Zkontrolujte správnost výchozích hodnot v polích **Předplatné** a **Skupina prostředků**. Pokud nejsou správné, vyberte správné hodnoty v rozevíracím seznamu.
-   d. V oddílu Akce zadejte název akce, třeba **Poslat e-mail** a jako **Typ akce** vyberte v rozevíracím seznamu **E-mail/SMS/Vytažení/Hlasová**. Vpravo se otevře podokno vlastností **E-mail/SMS/Vytažení/Hlasová**, kde můžete zadat další informace.  
-   e. V podokně **e-mail/SMS/nabízení/hlas** vyberte a nastavte svou předvolbu. Například povolte **e-mail** a zadejte platnou e-mailovou adresu SMTP pro doručení zprávy do.  
-   f. Klikněte na tlačítko **OK** a uložte změny.<br><br> 
+   d. V oddílu Akce zadejte název akce, třeba **Poslat e-mail** a jako **Typ akce** vyberte v rozevíracím seznamu **E-mail/SMS/Vytažení/Hlasová**. Vpravo se otevře podokno vlastností **E-mail/SMS/Vytažení/Hlasová**, kde můžete zadat další informace.
+   e. V podokně **e-mail/SMS/nabízení/hlas** vyberte a nastavte svou předvolbu. Například povolte **e-mail** a zadejte platnou e-mailovou adresu SMTP pro doručení zprávy do.
+   f. Klikněte na tlačítko **OK** a uložte změny.<br><br>
 
-    :::image type="content" source="media/monitor/action-group-properties-01.png" alt-text="Vytvořit novou skupinu akcí snímek obrazovky":::
+    :::image type="content" source="media/monitor/action-group-properties-01.png" alt-text="Snímek obrazovky pro vytvoření nové skupiny akcí":::
 
-10. Skupinu akcí dokončete kliknutím na **OK**. 
+10. Skupinu akcí dokončete kliknutím na **OK**.
 11. K dokončení pravidla upozornění klikněte na **Vytvořit pravidlo upozornění**. Pravidlo se okamžitě spustí.
-    :::image type="content" source="media/monitor/alert-rule-01.png" alt-text="Dokončit vytvoření nového snímku obrazovky pravidla výstrahy":::
+    :::image type="content" source="media/monitor/alert-rule-01.png" alt-text="Snímek obrazovky dokončení vytváření nového pravidla výstrahy":::
 
 ### <a name="example-alert"></a>Příklad upozornění
 
 V případě, že se jedná o referenci, vypadá v Azure příklad výstrahy.
 
-:::image type="content" source="media/monitor/alert.gif" alt-text="Snímek obrazovky s výstrahou Azure":::
+:::image type="content" source="media/monitor/alert.gif" alt-text="Snímek obrazovky Azure s upozorněním":::
 
 Níže je příklad e-mailu, který budete odesílat pomocí Azure Monitor:
 
-:::image type="content" source="media/monitor/warning.png" alt-text="Příklad snímku obrazovky s upozorněním na výstrahu":::
+:::image type="content" source="media/monitor/warning.png" alt-text="Ukázka snímku e-mailu s výstrahou":::
 
 ## <a name="create-custom-kusto-queries-in-log-analytics"></a>Vytváření vlastních dotazů Kusto v Log Analytics
 
@@ -301,7 +299,7 @@ Když centrum pro správu systému Windows zaregistruje server do řešení Virt
 
 ## <a name="disabling-monitoring"></a>Zákaz monitorování
 
-Pokud chcete server úplně odpojit od Log Analytics pracovního prostoru, odinstalujte MMA. To znamená, že tento server už nebude odesílat data do pracovního prostoru a všechna řešení nainstalovaná v tomto pracovním prostoru už nebudou shromažďovat a zpracovávat data z tohoto serveru. To ale nemá vliv na samotný pracovní prostor. všechny prostředky, které nahlásí do tohoto pracovního prostoru, budou i nadále pokračovat. Pokud chcete agenta MMA odinstalovat v WAC, přejděte na **aplikace & funkce**, najděte **Microsoft Monitoring Agent**a klikněte na **odinstalovat**.
+Pokud chcete server úplně odpojit od Log Analytics pracovního prostoru, odinstalujte MMA. To znamená, že tento server už nebude odesílat data do pracovního prostoru a všechna řešení nainstalovaná v tomto pracovním prostoru už nebudou shromažďovat a zpracovávat data z tohoto serveru. To ale nemá vliv na samotný pracovní prostor. všechny prostředky, které nahlásí do tohoto pracovního prostoru, budou i nadále pokračovat. Pokud chcete agenta MMA odinstalovat v centru pro správu Windows, připojte se k serveru a pak přejít na **nainstalované aplikace**, Najděte Microsoft Monitoring Agent a pak vyberte **Odebrat**.
 
 Pokud chcete vypnout konkrétní řešení v rámci pracovního prostoru, budete muset [odebrat řešení monitorování z Azure Portal](/azure/azure-monitor/insights/solutions#remove-a-management-solution). Odebrání řešení monitorování znamená, že přehledy vytvořené tímto řešením už nebudou vygenerované pro _žádné_ servery, které do tohoto pracovního prostoru nahlásí. Pokud například odinstalujete řešení Azure Monitor pro virtuální počítače, nebudete už zobrazovat informace o výkonu virtuálního počítače nebo serveru z libovolného počítače připojeného k vašemu pracovnímu prostoru.
 

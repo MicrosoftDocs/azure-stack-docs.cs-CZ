@@ -7,16 +7,16 @@ ms.date: 09/16/2019
 ms.author: Justinha
 ms.reviewer: scottnap
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 3209c3a51b491bcdf2779e95c58f41cb124cd3f3
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 466e44156181e53a92181ecb462b8b4ff0074317
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77704858"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86566528"
 ---
 # <a name="use-idns-in-azure-stack-hub"></a>Použití IDN v centru Azure Stack 
 
-IDN je funkce sítě centra pro Azure Stack, která umožňuje překládat externí názvy DNS (například https:\//www.Bing.com.) Umožňuje taky registraci interních názvů virtuálních sítí. Provedete to tak, že virtuální počítače ve stejné virtuální síti vyřešíte spíše pomocí názvu než IP adresy. Tento přístup odebere nutnost zadat vlastní položky serveru DNS. Další informace o DNS najdete v [přehledu Azure DNS](https://docs.microsoft.com/azure/dns/dns-overview).
+IDN je funkce sítě centra pro Azure Stack, která umožňuje překládat externí názvy DNS (například https: \/ /www.Bing.com.) Umožňuje taky registraci interních názvů virtuálních sítí. Provedete to tak, že virtuální počítače ve stejné virtuální síti vyřešíte spíše pomocí názvu než IP adresy. Tento přístup odebere nutnost zadat vlastní položky serveru DNS. Další informace o DNS najdete v [přehledu Azure DNS](/azure/dns/dns-overview).
 
 ## <a name="what-does-idns-do"></a>Co IDN dělat?
 
@@ -24,7 +24,7 @@ Pomocí IDN v centru Azure Stack získáte následující možnosti, aniž byste
 
 - Sdílené služby překladu názvů DNS pro zatížení klientů.
 - Autoritativní služba DNS pro překlad názvů a registraci DNS v rámci virtuální sítě tenanta
-- Rekurzivní služba DNS pro rozlišení internetových názvů z virtuálních počítačů klientů. Klienti již nemusí určovat vlastní záznamy DNS pro překlad internetových názvů (například www\.Bing.com).
+- Rekurzivní služba DNS pro rozlišení internetových názvů z virtuálních počítačů klientů. Klienti již nemusí určovat vlastní záznamy DNS pro překlad internetových názvů (například www \. Bing.com).
 
 Pořád můžete využívat vlastní DNS a používat vlastní servery DNS. Pomocí IDN ale můžete přeložit internetové názvy DNS a připojit se k ostatním virtuálním počítačům ve stejné virtuální síti, aniž byste museli vytvářet vlastní záznamy DNS.
 
@@ -63,7 +63,7 @@ Toto je jednoduché prostředí, které předvádí, jak to funguje. Vytvořili 
 |VIRTUÁLNÍ POČÍTAČ – B1 |VNetB   | 10.0.0.4    |172.31.12.57 |VM-B1-Label. lnv1. cloudapp. azscss. external |
  
  
-|VNet  |GUID                                 |Řetězec přípony DNS                                                  |
+|VNet  |Identifikátor GUID                                 |Řetězec přípony DNS                                                  |
 |------|-------------------------------------|-------------------------------------------------------------------|
 |Partnerském |e71e1db5-0a38-460d-8539-705457a4cf75 |e71e1db5-0a38-460d-8539-705457a4cf75. Internal. lnv1. azurestack. Local|
 |VNetB |e8a6e386-bc7a-43e1-a640-61591b5c76dd |e8a6e386-bc7a-43e1-a640-61591b5c76dd. Internal. lnv1. azurestack. Local|
@@ -171,7 +171,7 @@ Address:  172.31.12.76
 V krátkém případě uvidíte z výše uvedeného:
  
 *   Každá virtuální síť má svou vlastní zónu obsahující záznamy všech privátních IP adres, které se skládají z názvu virtuálního počítače a přípony DNS virtuální sítě (což je identifikátor GUID).
-    *   \<VMName>. \<vnetGUID\>. Internal. \<> oblasti \<stackinternalFQDN>
+    *   \<vmname>.\<vnetGUID\>. interní. \<region> ..\<stackinternalFQDN>
     *   To se provádí automaticky.
 *   Pokud používáte veřejné IP adresy, můžete pro ně také vytvořit popisky DNS. Jsou vyřešeny jako jakákoli jiná externí adresa.
  

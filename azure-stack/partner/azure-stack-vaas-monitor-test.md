@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: Naučte se spravovat testy na portálu pro ověřování centra Azure Stack.
 author: mattbriggs
 ms.topic: tutorial
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 68c3ec6dadd71c5e72ecf0c9efa3592f9c4f9ec7
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 28791e9687dead6a571097e23258fb5b6aff1200
+ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81661230"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88764762"
 ---
 # <a name="monitor-and-manage-tests-in-the-vaas-portal"></a>Monitorování a Správa testů na portálu VaaS
 
@@ -65,9 +65,9 @@ Každá plánovaná instance testu zobrazuje následující informace:
 | Název testu | Název a verze testu. |
 | Kategorie | Účel testu. |
 | Vytvořeno | Čas, kdy byl test naplánován. |
-| Bylo zahájeno | Čas spuštění testu. |
+| Zahájeno | Čas spuštění testu. |
 | Doba trvání | Doba, po kterou byl test spuštěn. |
-| Status | Stav nebo výsledek testu. Předběžné spuštění nebo průběžné stavy jsou: `Pending`,. `Running` Stavy terminálů jsou: `Cancelled`, `Failed`, `Aborted`, `Succeeded`. |
+| Status | Stav nebo výsledek testu. Předběžné spuštění nebo průběžné stavy jsou: `Pending` , `Running` . Stavy terminálů jsou: `Cancelled` , `Failed` , `Aborted` , `Succeeded` . |
 | Název agenta | Název agenta, který test spustil. |
 | Celkem operací | Celkový počet operací, které se během testu pokoušely. |
 | Úspěšné operace | Počet operací, které byly během testu úspěšné. |
@@ -85,7 +85,7 @@ Chcete-li zobrazit obecné informace o definici testu, vyberte možnost **Zobraz
 | -- | -- |
 | Název testu | Název testu. |
 | Testovací verze | Verze testu. |
-| Vydavatel | Vydavatel testu. |
+| Publisher | Vydavatel testu. |
 | Kategorie |  Účel testu. |
 | Cílové služby | Testované služby centra Azure Stack. |
 | Popis | Popis testu |
@@ -112,7 +112,7 @@ Výběrem **Zobrazit operace** z kontextové nabídky zobrazíte podrobný stav 
 
 #### <a name="download-logs-for-a-completed-test-instance"></a>Stažení protokolů pro dokončenou instanci testu
 
-Vyberte možnost **Stáhnout protokoly** z kontextové nabídky a Stáhněte si `.zip` soubor výstupů protokolů během provádění testu. Tato akce je k dispozici pouze pro testy, které byly dokončeny, což znamená, že `Cancelled`mají `Failed`stav `Aborted`buď, `Succeeded`, nebo.
+Vyberte možnost **Stáhnout protokoly** z kontextové nabídky a Stáhněte si `.zip` soubor výstupů protokolů během provádění testu. Tato akce je k dispozici pouze pro testy, které byly dokončeny, což znamená, že mají stav buď `Cancelled` , `Failed` , `Aborted` nebo `Succeeded` .
 
 #### <a name="reschedule-a-test-instance-or-schedule-a-test"></a>Změna plánu instance testu nebo Naplánování testu
 
@@ -134,7 +134,7 @@ V pracovním postupu test Pass **přeplánuje** instance testu znovu stejnou sad
 
 #### <a name="cancel-a-test-instance"></a>Zrušení instance testu
 
-Plánovaný test lze zrušit, pokud je `Pending` jeho stav nebo. `Running`  
+Plánovaný test lze zrušit, pokud je jeho stav `Pending` nebo `Running` .  
 
 1. V místní nabídce vyberte **Zrušit** a otevřete tak výzvu pro zrušení testovací instance.
 

@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: efc23ad5694ba7828c2dc5c5ba5de09be3591e04
-ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
+ms.openlocfilehash: bc828444a67e1489f2d5b4b51fc0cbd18e6f0641
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84819286"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86489925"
 ---
 # <a name="troubleshoot-the-asdk"></a>Řešení potíží s ASDK
 Tento článek poskytuje běžné informace pro řešení potíží s Azure Stack Development Kit (ASDK). Nápovědu k Azure Stack integrovaným systémům najdete v tématu [řešení potíží s Microsoft Azure Stack](../operator/azure-stack-troubleshooting.md). 
@@ -22,7 +22,7 @@ Vzhledem k tomu, že ASDK je zkušební prostředí, podpora Microsoftu neposkyt
 
 ## <a name="deployment"></a>Nasazení
 ### <a name="deployment-failure"></a>Selhání nasazení
-Pokud při instalaci dojde k chybě, můžete restartovat nasazení z neúspěšného kroku pomocí možnosti-znovu spustit ve skriptu nasazení. Například:
+Pokud při instalaci dojde k chybě, můžete restartovat nasazení z neúspěšného kroku pomocí možnosti-znovu spustit ve skriptu nasazení. Příklad:
 
   ```powershell
   cd C:\CloudDeployment\Setup
@@ -36,10 +36,10 @@ Toto chování je pravděpodobně pouze výsledkem výchozího chování příka
 
 Pokud se během ověřování šablony zobrazí chybová zpráva, že parametr osProfile není povolen, ujistěte se, že používáte správné verze rozhraní API pro tyto komponenty:
 
-- [Compute](https://docs.microsoft.com/azure-stack/user/azure-stack-profiles-azure-resource-manager-versions#microsoftcompute)
-- [Síť](https://docs.microsoft.com/azure-stack/user/azure-stack-profiles-azure-resource-manager-versions#microsoftnetwork)
+- [Výpočetní služby](../user/azure-stack-profiles-azure-resource-manager-versions.md#microsoftcompute)
+- [Síť](../user/azure-stack-profiles-azure-resource-manager-versions.md#microsoftnetwork)
 
-Pokud chcete zkopírovat VHD z Azure do Azure Stack, použijte [AzCopy 7.3.0](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-transfer#download-and-install-azcopy). Spolupracujte se svým dodavatelem, abyste mohli vyřešit problémy s samotným obrázkem. Další informace o požadavcích na WALinuxAgent pro Azure Stack najdete v tématu [Agent Azure Linux](../operator/azure-stack-linux.md#azure-linux-agent).
+Pokud chcete zkopírovat VHD z Azure do Azure Stack, použijte [AzCopy 7.3.0](../user/azure-stack-storage-transfer.md#download-and-install-azcopy). Spolupracujte se svým dodavatelem, abyste mohli vyřešit problémy s samotným obrázkem. Další informace o požadavcích na WALinuxAgent pro Azure Stack najdete v tématu [Agent Azure Linux](../operator/azure-stack-linux.md#azure-linux-agent).
 
 ### <a name="deployment-fails-due-to-lack-of-external-access"></a>Nasazení se nezdařilo z důvodu nedostatku externího přístupu.
 Pokud se nasazení nezdaří ve fázích, kde je vyžadován externí přístup, bude vrácena výjimka jako v následujícím příkladu:

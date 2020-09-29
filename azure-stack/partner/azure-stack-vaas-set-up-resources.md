@@ -9,12 +9,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3b3cbaff12c4d4decb0d7204fa558dd5690fe638
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: 1076dc69190b79728d28be99c7b84629e80b5709
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84112012"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86490163"
 ---
 # <a name="tutorial-set-up-resources-for-validation-as-a-service"></a>Kurz: nastavení prostředků pro ověřování jako služby
 
@@ -30,19 +30,19 @@ V tomto kurzu se naučíte:
 
 ## <a name="configure-an-azure-ad-tenant"></a>Konfigurace tenanta Azure AD
 
-Tenant Azure AD se používá k registraci organizace a ověřování uživatelů pomocí VaaS. Partner bude pomocí funkcí řízení přístupu na základě rolí (RBAC) tenanta spravovat, kdo v partnerské organizaci může používat VaaS. Další informace najdete v tématu [Co je Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis).
+Tenant Azure AD se používá k registraci organizace a ověřování uživatelů pomocí VaaS. Partner bude pomocí funkcí řízení přístupu na základě rolí (RBAC) tenanta spravovat, kdo v partnerské organizaci může používat VaaS. Další informace najdete v tématu [Co je Azure Active Directory?](/azure/active-directory/fundamentals/active-directory-whatis).
 
 ### <a name="create-a-tenant"></a>Vytvoření tenanta
 
 Vytvořte tenanta, který bude vaše organizace používat pro přístup ke službám VaaS Services. Použijte popisný název (například `ContosoVaaS@onmicrosoft.com` ).
 
-1. Vytvořte ve [Azure Portal](https://portal.azure.com)TENANTA Azure AD, nebo použijte existujícího tenanta. <!-- For instructions on creating new Azure AD tenants, see [Get started with Azure AD](https://docs.microsoft.com/azure/active-directory/get-started-azure-ad). -->
+1. Vytvořte ve [Azure Portal](https://portal.azure.com)TENANTA Azure AD, nebo použijte existujícího tenanta. <!-- For instructions on creating new Azure AD tenants, see [Get started with Azure AD](/azure/active-directory/get-started-azure-ad). -->
 
 2. Přidejte do tenanta členy vaší organizace. Tito uživatelé budou odpovědni za používání služby k zobrazení nebo plánování testů. Po dokončení registrace definujete úrovně přístupu uživatelů.
 
     Udělte uživatelům ve vašem tenantovi, aby spouštěli akce v VaaS přiřazením jedné z následujících rolí:
 
-    | Název role | Description |
+    | Název role | Popis |
     |---------------------|------------------------------------------|
     | Vlastník | Má úplný přístup ke všem prostředkům. |
     | Čtenář | Může zobrazit všechny prostředky, ale nemůže vytvářet ani spravovat. |
@@ -50,7 +50,7 @@ Vytvořte tenanta, který bude vaše organizace používat pro přístup ke slu�
 
     Přiřazení rolí v aplikaci **služby ověřování centra Azure Stack** :
 
-   1. Přihlaste se k [portálu Azure Portal](https://portal.azure.com).
+   1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
    2. V části Identita vyberte **všechny služby**  >  **Azure Active Directory** . **Identity**
    3. Vyberte **podnikové aplikace**  >  **Azure Stack aplikaci služby ověřování centra** .
    4. Vyberte **Uživatelé a skupiny**. Okno **Azure Stack služby ověřování centra – uživatelé a skupiny** zobrazí seznam uživatelů, kteří mají oprávnění k používání aplikace.
@@ -64,11 +64,11 @@ Tento proces autorizuje vašeho tenanta pomocí aplikace Azure AD **služby Azur
 
 1. Odeslat následující informace o tenantovi společnosti Microsoft na adrese [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com) .
 
-    | Data | Description |
+    | Data | Popis |
     |--------------------------------|---------------------------------------------------------------------------------------------|
     | Název organizace | Oficiální název organizace. |
     | Název adresáře tenanta Azure AD | Název adresáře tenanta Azure AD, který se zaregistruje. |
-    | ID adresáře tenanta Azure AD | Identifikátor GUID adresáře klienta služby Azure AD, který je přidružený k adresáři. Informace o tom, jak najít ID adresáře tenanta Azure AD, najdete v tématu [získání ID tenanta](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#get-values-for-signing-in). |
+    | ID adresáře tenanta Azure AD | Identifikátor GUID adresáře klienta služby Azure AD, který je přidružený k adresáři. Informace o tom, jak najít ID adresáře tenanta Azure AD, najdete v tématu [získání ID tenanta](/azure/azure-resource-manager/resource-group-create-service-principal-portal#get-values-for-signing-in). |
 
 2. Počkejte na potvrzení od ověřovacího týmu centra Azure Stack, abyste zkontrolovali, jestli váš tenant může používat portál pro ověřování centra Azure Stack.
 
@@ -82,7 +82,7 @@ Jako správce Azure AD udělte aplikaci VaaS Azure AD požadovaná oprávnění 
 
 3 Pokud se zobrazí výzva k udělení VaaS oprávnění k Azure AD, přijměte podmínky.
 
-## <a name="create-an-azure-storage-account"></a>Vytvoření účtu služby Azure Storage
+## <a name="create-an-azure-storage-account"></a>Vytvoření účtu Azure Storage
 
 Během provádění testu VaaS výstupy pro diagnostické protokoly na účet Azure Storage. Kromě protokolů testů se taky může účet úložiště použít k nahrání balíčků rozšíření OEM pro pracovní postup ověření balíčku.
 

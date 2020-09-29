@@ -7,12 +7,12 @@ ms.date: 07/31/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 07/31/2019
-ms.openlocfilehash: 8c0cd14dbeda4e2b7844aefaf10f4a8cf685d60d
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 9417d3b691e3394d254ce1d599748233bf78213a
+ms.sourcegitcommit: af7f169c7e204ffdf344f47c07ab8426e2afbd1d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79294437"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87865128"
 ---
 # <a name="post-deployment-configurations-for-asdk"></a>Konfigurace po nasazení pro ASDK
 
@@ -47,7 +47,7 @@ Nejnovější modul Azure Stack PowerShell můžete nainstalovat s nebo bez při
 
   # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
   Use-AzureRmProfile -Profile 2019-03-01-hybrid -Force
-  Install-Module -Name AzureStack -RequiredVersion 1.8.0
+  Install-Module -Name AzureStack -RequiredVersion 1.8.2
   ```
 
   Pokud je instalace úspěšná, zobrazí se ve výstupu moduly AzureRM a AzureStack.
@@ -104,8 +104,8 @@ Pokud chcete mít jistotu, že vaše nasazení ASDK bylo úspěšné, použijte 
 
 1. Přihlaste se jako AzureStack\AzureStackAdmin na hostitelském počítači ASDK.
 2. Otevřete PowerShell jako správce (ne PowerShell ISE).
-3. Spouštěl`Enter-PSSession -ComputerName AzS-ERCS01 -ConfigurationName PrivilegedEndpoint`
-4. Spouštěl`Test-AzureStack`
+3. Spouštěl `Enter-PSSession -ComputerName AzS-ERCS01 -ConfigurationName PrivilegedEndpoint`
+4. Spouštěl `Test-AzureStack`
 
 Dokončení testů trvá několik minut. Pokud byla instalace úspěšná, výstup vypadá nějak takto:
 
@@ -118,7 +118,7 @@ Pokud dojde k selhání, získáte nápovědu pomocí kroků pro řešení potí
 Pro nasazení, která používají Azure AD, musíte pro instalaci ASDK [Povolit víceklientské](../operator/azure-stack-enable-multitenancy.md#enable-multi-tenancy) prostředí.
 
 > [!NOTE]
-> Pokud se k přihlášení na portál Azure Stack používá účet správce nebo uživatelské účty z jiných domén, než je ta, která se používá k registraci Azure Stack, musí být název domény, který se používá k registraci Azure Stack, připojený k adrese URL portálu. Pokud je například Azure Stack zaregistrován v fabrikam.onmicrosoft.com a uživatelský účet přihlášení je admin@contoso.com, adresa URL použitá pro přihlášení k portálu User Portal by byla: https//Portal.Local.azurestack.external/Fabrikam.onmicrosoft.com.\:
+> Pokud se k přihlášení na portál Azure Stack používá účet správce nebo uživatelské účty z jiných domén, než je ta, která se používá k registraci Azure Stack, musí být název domény, který se používá k registraci Azure Stack, připojený k adrese URL portálu. Pokud je například Azure Stack zaregistrován v fabrikam.onmicrosoft.com a uživatelský účet přihlášení je admin@contoso.com , adresa URL použitá pro přihlášení k portálu User Portal by byla: https \: //Portal.Local.azurestack.external/Fabrikam.onmicrosoft.com.
 
 ## <a name="next-steps"></a>Další kroky
 

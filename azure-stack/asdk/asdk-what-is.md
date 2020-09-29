@@ -7,15 +7,15 @@ ms.date: 11/27/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 11/27/2019
-ms.openlocfilehash: 197d1b47b3127b21f3b843a77a57642894270a71
-ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
+ms.openlocfilehash: 38aaf52936d09c999765118e36bfcde909409cdd
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84819227"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86489908"
 ---
 # <a name="what-is-the-azure-stack-development-kit-asdk"></a>Co je Azure Stack Development Kit (ASDK)?
-Rozsah [integrovaných systémů centra Microsoft Azure Stack](../operator/azure-stack-overview.md) je velikost z uzlů 4-16 a jsou společně podporovány hardwarovým partnerem a společností Microsoft. Pomocí integrovaných systémů Azure Stack Hub můžete pro vaše produkční úlohy povolit nové scénáře. Pokud jste operátor centra Azure Stack, který spravuje infrastrukturu integrovaných systémů a nabízí služby, přečtěte si naši [dokumentaci k operátorovi](/azure-stack/operator).
+Rozsah [integrovaných systémů centra Microsoft Azure Stack](../operator/azure-stack-overview.md) je velikost z uzlů 4-16 a jsou společně podporovány hardwarovým partnerem a společností Microsoft. Pomocí integrovaných systémů Azure Stack Hub můžete pro vaše produkční úlohy povolit nové scénáře. Pokud jste operátor centra Azure Stack, který spravuje infrastrukturu integrovaných systémů a nabízí služby, přečtěte si naši [dokumentaci k operátorovi](../operator/index.yml).
 
 ASDK je nasazení centra Azure Stack s jedním uzlem, které můžete **zdarma**stáhnout a používat. Všechny součásti ASDK jsou nainstalovány na virtuálních počítačích běžících na jednom hostitelském počítači, který musí splňovat nebo překročit [minimální požadavky na hardware](asdk-deploy-considerations.md#hardware). ASDK má poskytovat prostředí, ve kterém můžete vyhodnotit Azure Stack hub a vyvíjet moderní aplikace pomocí rozhraní API a nástrojů konzistentních s Azure v *neprodukčním* prostředí. 
 
@@ -38,7 +38,7 @@ Nasazení ASDK s jedním uzlem se liší od nasazení na více uzlech Azure Stac
 
 |Popis|ASDK|Rozbočovač Azure Stack s více uzly|
 |-----|-----|-----|
-|**Měřítko**|Všechny komponenty jsou nainstalovány v počítači serveru s jedním uzlem.|Velikost může být v rozsahu od 4-16 uzlů.|
+|**Škálování**|Všechny komponenty jsou nainstalovány v počítači serveru s jedním uzlem.|Velikost může být v rozsahu od 4-16 uzlů.|
 |**Odolnost**|Konfigurace s jedním uzlem neposkytuje vysokou dostupnost.|Podporují se možnosti vysoké dostupnosti.|
 |**Sítě**|Hostitel ASDK směruje všechny síťové přenosy ASDK. Neexistují žádné další požadavky na přepínač.|Složitější [infrastruktura síťového směrování](../operator/azure-stack-network.md#network-infrastructure) v nasazeních s více uzly je nezbytná, včetně přepínačů "rozvaděče", řadiče pro správu základní desky (BMC) a hraniční sítě (síť datacenter).|
 |**Proces opravy a aktualizace**|Chcete-li přejít na novou verzi nástroje ASDK, je nutné znovu nasadit ASDK na hostitelském počítači ASDK.|Proces [opravy a aktualizace](../operator/azure-stack-updates.md) , který se používá k aktualizaci nainstalované verze centra Azure Stack.|

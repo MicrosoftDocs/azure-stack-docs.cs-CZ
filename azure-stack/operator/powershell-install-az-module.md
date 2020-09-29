@@ -3,20 +3,22 @@ title: Instalace prostředí PowerShell AZ Module pro Azure Stack hub
 description: Přečtěte si, jak nainstalovat PowerShell pro centrum Azure Stack.
 author: mattbriggs
 ms.topic: article
-ms.date: 04/14/2020
+ms.date: 06/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 04/14/2020
-ms.openlocfilehash: 912e40cef34de0831a92817077ac9e33f33a0434
-ms.sourcegitcommit: c9737939f4e437f1d954e163db972d58b3f98ffd
+ms.lastreviewed: 06/22/2020
+ms.openlocfilehash: bc10f4dc985172deccef997d55520d656121867a
+ms.sourcegitcommit: af7f169c7e204ffdf344f47c07ab8426e2afbd1d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84813759"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87865162"
 ---
 # <a name="install-powershell-az-preview-module-for-azure-stack-hub"></a>Instalace prostředí PowerShell AZ Preview Module pro Azure Stack hub
 
 Tento článek vysvětluje, jak nainstalovat Azure PowerShell AZ a Compatible Azure Stack správce centra pomocí PowerShellGet. Moduly AZ lze nainstalovat na platformy Windows, macOS a Linux.
+
+Můžete také spustit příkaz AZ modules for Azure Stack hub v kontejneru Docker. Pokyny najdete v tématu [použití Docker ke spuštění PowerShellu pro Azure Stack hub](../user/azure-stack-powershell-user-docker.md).
 
 Pokud chcete nainstalovat modul PowerShell AzureRM pro centrum Azure Stack, přečtěte si téma [Instalace modulu PowerShell AzureRM pro centrum Azure Stack](azure-stack-powershell-install.md).
 
@@ -33,9 +35,9 @@ Prostředí PowerShellu kompatibilní s centrem Azure Stack AZ moduls můžete n
 
 ## <a name="1-verify-your-prerequisites"></a>1. ověřte požadavky.
 
-AZ modules se podporuje jenom v [Azure Stackovém centru s aktualizací Update 2002](https://docs.microsoft.com/azure-stack/operator/release-notes?view=azs-2002#2002-build-reference) a nejnovější [opravou hotfix](https://docs.microsoft.com/azure-stack/operator/release-notes?view=azs-2002#hotfixes).
+AZ modules se podporuje jenom v [Azure Stackovém centru s aktualizací Update 2002](./release-notes.md?view=azs-2002#2002-build-reference) a nejnovější [opravou hotfix](./release-notes.md?view=azs-2002#hotfixes).
 
-Azure PowerShell funguje s PowerShellem 5.1 nebo novějším ve Windows nebo PowerShellem Core 6.x nebo novějším na všech platformách. Měli byste nainstalovat [nejnovější verzi prostředí PowerShell Core](https://docs.microsoft.com/powershell/scripting/install/installing-powershell#powershell-core) , která je k dispozici pro váš operační systém. Azure PowerShell nemá žádné další požadavky při spuštění v prostředí PowerShell Core.
+Azure PowerShell funguje s PowerShellem 5.1 nebo novějším ve Windows nebo PowerShellem Core 6.x nebo novějším na všech platformách. Měli byste nainstalovat [nejnovější verzi prostředí PowerShell Core](/powershell/scripting/install/installing-powershell#powershell-core) , která je k dispozici pro váš operační systém. Azure PowerShell nemá žádné další požadavky při spuštění v prostředí PowerShell Core.
 
 Pokud chcete zkontrolovat verzi PowerShellu, spusťte následující příkaz:
 
@@ -46,12 +48,12 @@ $PSVersionTable.PSVersion
 ### <a name="prerequisites-for-windows"></a>Předpoklady pro Windows
 Použití Azure PowerShellu v PowerShellu 5.1 ve Windows:
 
-1. V případě potřeby proveďte aktualizaci na [Windows PowerShell 5.1](https://docs.microsoft.com//powershell/scripting/install/installing-windows-powershell#upgrading-existing-windows-powershell). Pokud používáte Windows 10, máte už PowerShell 5.1 nainstalovaný.
-2. Nainstalujte si rozhraní [.NET Framework 4.7.2 nebo novější](https://docs.microsoft.com//dotnet/framework/install).
+1. V případě potřeby proveďte aktualizaci na [Windows PowerShell 5.1](/powershell/scripting/windows-powershell/install/installing-windows-powershell#upgrading-existing-windows-powershell). Pokud používáte Windows 10, máte už PowerShell 5.1 nainstalovaný.
+2. Nainstalujte si rozhraní [.NET Framework 4.7.2 nebo novější](/dotnet/framework/install).
 3. Ujistěte se, že máte nejnovější verzi modulu PowerShellGet. Spusťte `Install-Module PowerShellGet -MinimumVersion 2.2.3 -Force`. 
 
 ## <a name="2-prerequisites-for-linux-and-mac"></a>2. předpoklady pro Linux a Mac
-Je potřeba PowerShell Core 6. x nebo novější verze. Pokyny najdete na tomto [odkazu](https://docs.microsoft.com//powershell/scripting/install/installing-powershell-core-on-windows) .
+Je potřeba PowerShell Core 6. x nebo novější verze. Pokyny najdete na tomto [odkazu](/powershell/scripting/install/installing-powershell-core-on-windows) .
 
 ## <a name="3-uninstall-existing-versions-of-the-azure-stack-hub-powershell-modules"></a>3. odinstalujte existující verze modulů prostředí PowerShell centra Azure Stack.
 
@@ -77,14 +79,14 @@ Z relace PowerShellu spusťte následující příkaz:
 ```powershell  
 Install-Module -Name Az.BootStrapper -Force -AllowPrerelease
 Install-AzProfile -Profile 2019-03-01-hybrid -Force
-Install-Module -Name AzureStack -RequiredVersion 2.0.0-preview -AllowPrerelease
+Install-Module -Name AzureStack -RequiredVersion 2.0.2-preview -AllowPrerelease
 ```
 
 > [!Note]  
 > 2.0.0 pro modul centra Azure Stack je zásadní změna. Podrobnosti najdete [v tématu Migrace z AzureRM na adresu Azure PowerShell AZ in Azure Stack hub](migrate-azurerm-az.md) .
 
 > [!WARNING]
-> Pro PowerShell 5.1 pro Windows nemůžete mít nainstalované moduly AzureRM a Az současně. Pokud ve svém systému potřebujete zachovat AzureRM, nainstalujte si modul Az pro PowerShell Core 6.x nebo novější. Pokud to chcete provést, [nainstalujte si PowerShell Core 6.x nebo novější](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows) a pak postupujte podle těchto pokynů v terminálu PowerShellu Core.
+> Pro PowerShell 5.1 pro Windows nemůžete mít nainstalované moduly AzureRM a Az současně. Pokud ve svém systému potřebujete zachovat AzureRM, nainstalujte si modul Az pro PowerShell Core 6.x nebo novější. Pokud to chcete provést, [nainstalujte si PowerShell Core 6.x nebo novější](/powershell/scripting/install/installing-powershell-core-on-windows) a pak postupujte podle těchto pokynů v terminálu PowerShellu Core.
 
 ## <a name="5-disconnected-install-without-internet-connection"></a>5. odpojeno: instalace bez připojení k Internetu
 
@@ -114,7 +116,7 @@ Import-Module -Name PackageManagement -ErrorAction Stop
 
 $savedModulesPath = "<Path that is used to save the packages>"
 Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name Az -Path $savedModulesPath -Force -RequiredVersion 0.10.0-preview
-Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $savedModulesPath -Force -RequiredVersion 2.0.0-preview
+Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $savedModulesPath -Force -RequiredVersion 2.0.1-preview
 ```
 ::: moniker-end
 
@@ -130,7 +132,7 @@ Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v
 
 2. Přihlaste se k odpojené pracovní stanici a zkopírujte balíčky ze zařízení USB do umístění v pracovní stanici.
 
-3. Ručně nabootstrap zprostředkovatele NuGet na odpojené pracovní stanici. Pokyny najdete v tématu [Ruční zavedení zprostředkovatele NuGet na počítači, který není připojený k Internetu](https://docs.microsoft.com/powershell/scripting/gallery/how-to/getting-support/bootstrapping-nuget#manually-bootstrapping-the-nuget-provider-on-a-machine-that-is-not-connected-to-the-internet).
+3. Ručně nabootstrap zprostředkovatele NuGet na odpojené pracovní stanici. Pokyny najdete v tématu [Ruční zavedení zprostředkovatele NuGet na počítači, který není připojený k Internetu](/powershell/scripting/gallery/how-to/getting-support/bootstrapping-nuget#manually-bootstrapping-the-nuget-provider-on-a-machine-that-is-not-connected-to-the-internet).
 
 4. Zaregistrujte toto umístění jako výchozí úložiště a nainstalujte AzureRM a `AzureStack` moduly z tohoto úložiště:
 
@@ -145,13 +147,9 @@ Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v
 
    Register-PSRepository -Name $RepoName -SourceLocation $SourceLocation -InstallationPolicy Trusted
 
-   Install-Module -Name Az.BootStrapper -Repository $RepoName -Scope AllUsers -AllowPrerelease
+   Install-Module -Name AzureStack -Repository $RepoName -RequiredVersion 2.0.2-preview -AllowPrerelease -Scope AllUsers
 
-   Set-BootstrapRepo -Repo $RepoName
-
-   Install-AzProfile -Profile '2019-03-01-hybrid' -Force -Scope AllUsers
-
-   Install-Module -Name AzureStack -Repository $RepoName -RequiredVersion 2.0.0-preview -AllowPrerelease -Scope AllUsers
+   Install-Module -Name Az -Repository $RepoName -RequiredVersion 0.10.0-preview -AllowPrerelease -Scope AllUsers
    ```
 
 ### <a name="confirm-the-installation-of-powershell"></a>Potvrzení instalace PowerShellu

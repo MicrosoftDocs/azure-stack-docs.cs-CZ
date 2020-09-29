@@ -1,18 +1,18 @@
 ---
-title: Nasazení clusteru Kubernetes do vlastní virtuální sítě v centru Azure Stack
-description: Naučte se, jak nasadit cluster Kubernetes do vlastní virtuální sítě v centru Azure Stack.
+title: Vytvoření klíče SSH pro Linux v centru Azure Stack
+description: Naučte se vytvořit klíč SSH pro Linux v centru Azure Stack.
 author: mattbriggs
 ms.topic: article
-ms.date: 2/28/2020
+ms.date: 7/24/2020
 ms.author: mabrigg
-ms.reviewer: waltero
+ms.reviewer: sijuman
 ms.lastreviewed: 2/28/2020
-ms.openlocfilehash: b8bc4c1a9e56f363fa604e8df7a1fa0dbe37fcb0
-ms.sourcegitcommit: 355e21dd9b8c3f44e14abaae0b4f176443cf7495
+ms.openlocfilehash: 8b6ddaa6dab41cccce5759622ec15f4e5e886956
+ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81624975"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87250737"
 ---
 # <a name="create-an-ssh-key-for-linux-on-azure-stack-hub"></a>Vytvoření klíče SSH pro Linux v centru Azure Stack
 
@@ -21,7 +21,7 @@ Můžete vytvořit klíč SSH (Secure Shell) pro počítač se systémem Linux n
 ## <a name="open-bash-on-windows"></a>Otevřít bash ve Windows
 
 1. Pokud na svém počítači nemáte nainstalovaný podsystém Windows pro Linux, nainstalujte v[systému Windows Ubuntu](https://www.microsoft.com/en-us/p/ubuntu/9nblggh4msv6?activetab=pivot:overviewtab).  
-    Další informace o používání subsystému Windows pro Linux najdete v dokumentaci k subsystému [Windows pro Linux](https://docs.microsoft.com/windows/wsl/about).
+    Další informace o používání subsystému Windows pro Linux najdete v dokumentaci k subsystému [Windows pro Linux](/windows/wsl/about).
 
 2. Na panelu nástrojů zadejte **Ubuntu** a vyberte **otevřít**.
 
@@ -84,9 +84,9 @@ Můžete vytvořit klíč SSH (Secure Shell) pro počítač se systémem Linux n
     aignia880qOtQrvNEvyhgZOM5oDhgE3IJ username@machine
     ```
 
-4. Zkopírujte text `ssh-rsa [...]` do `username@machinename`. Ujistěte se, že text neobsahuje žádné návratové znaky. Tento text můžete použít při vytváření virtuálního počítače nebo clusteru Kubernetes pomocí modulu AKS.
+4. Zkopírujte text `ssh-rsa [...]` do `username@machinename` . Ujistěte se, že text neobsahuje žádné návratové znaky. Tento text můžete použít při vytváření virtuálního počítače nebo clusteru Kubernetes pomocí modulu AKS.
 
-5. Pokud jste na počítači s Windows, můžete získat přístup k souborům Linux pomocí ** \\ \\WSL $**.
+5. Pokud jste na počítači s Windows, můžete získat přístup k souborům Linux pomocí ** \\ \\ WSL $**.
 
     1. Zadejte `\\wsl$` na panelu nástrojů. Výchozí okno, ve kterém je vaše distribuce otevřená
 

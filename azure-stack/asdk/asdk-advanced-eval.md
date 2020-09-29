@@ -7,12 +7,12 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/16/2019
-ms.openlocfilehash: 2c4a83ea024f83c0181cfe77c598519746deaeed
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: d8a97ea33b810c258e81ed42ace9a571f5de7bfd
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77695355"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86489857"
 ---
 # <a name="advanced-asdk-evaluation-tasks"></a>Pokročilé úlohy hodnocení ASDK
 Po zjištění zkušeností s funkcemi a možnostmi služby Basic Azure Stack Development Kit (ASDK) můžete své porozumění Azure Stack dále prohloubit otestováním pokročilejších scénářů. Tyto pokročilejší úkoly hodnocení jsou plně dokumentovány v dokumentaci k operátoru Azure Stack.
@@ -28,12 +28,12 @@ Jako operátor Azure Stack často chcete dát ostatním lidem na starosti vytvá
 ## <a name="make-sql-databases-available-to-your-azure-stack-users"></a>Zpřístupnit databáze SQL vašim uživatelům Azure Stack
 Jako operátor Azure Stack můžete vytvořit nabídky, které umožní vašim uživatelům (klientům) vytvářet databáze SQL, které mohou používat se svými nativními aplikacemi, weby a úlohami v cloudu. Když uživatelům poskytnete tyto vlastní cloudové databáze na vyžádání, ušetříte tím čas a prostředky.
 
-Pomocí adaptéru poskytovatele prostředků SQL Server můžete [zpřístupnit databáze SQL pro vaše Azure Stack uživatele](../operator/azure-stack-tutorial-sql-server.md) jako službu Azure Stack. Po instalaci poskytovatele prostředků ho připojíte k jedné nebo více instancím SQL Server.
+Pomocí adaptéru poskytovatele prostředků SQL Server můžete [zpřístupnit databáze SQL pro vaše Azure Stack uživatele](../operator/azure-stack-sql-resource-provider.md?view=azs-2002) jako službu Azure Stack. Po instalaci poskytovatele prostředků ho připojíte k jedné nebo více instancím SQL Server.
 
 ## <a name="make-web-and-api-apps-available-to-your-azure-stack-users"></a>Zpřístupnění webových a API Apps vašim uživatelům Azure Stack
 Jako operátor Azure Stack můžete vytvořit nabídky, které umožní vašim uživatelům (klientům) vytvářet Azure Functions a webové aplikace a aplikace API. Poskytnutím přístupu k těmto uživatelům na vyžádání a cloudovým aplikacím můžete ušetřit čas a prostředky.
 
-Nasaďte poskytovatele prostředků App Service, aby [weby a aplikace API byly dostupné pro vaše Azure Stack uživatele](../operator/azure-stack-tutorial-app-service.md).
+Nasaďte poskytovatele prostředků App Service, aby [weby a aplikace API byly dostupné pro vaše Azure Stack uživatele](../operator/azure-stack-app-service-overview.md?view=azs-2002).
 
 ## <a name="next-steps"></a>Další kroky
 

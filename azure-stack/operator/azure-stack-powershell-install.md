@@ -3,16 +3,16 @@ title: Nainstalovat modul PowerShellu AzureRM pro centrum Azure Stack
 description: Přečtěte si, jak nainstalovat PowerShell pro centrum Azure Stack.
 author: mattbriggs
 ms.topic: article
-ms.date: 04/14/2020
+ms.date: 08/04/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 04/14/2020
-ms.openlocfilehash: d2c40307daa37b8f522fde9010a3d285eebff0fc
-ms.sourcegitcommit: 7b8e067cb449e67ca9c2935580684d78840ad495
+ms.lastreviewed: 08/04/2020
+ms.openlocfilehash: 246554e669bfac47fb8f65845a1addbf786cc11d
+ms.sourcegitcommit: af7f169c7e204ffdf344f47c07ab8426e2afbd1d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82106937"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87865179"
 ---
 # <a name="install-powershell-azurerm-module-for-azure-stack-hub"></a>Nainstalovat modul PowerShellu AzureRM pro centrum Azure Stack
 
@@ -24,12 +24,14 @@ Profily rozhraní API poskytují způsob, jak spravovat rozdíly mezi verzemi Az
 
 Můžete nainstalovat moduly prostředí PowerShell kompatibilní s centrem Azure Stack ve scénářích připojených k Internetu, částečně propojených nebo odpojených. Tento článek vás provede podrobnými pokyny pro tyto scénáře.
 
+V kontejneru Docker můžete také spustit moduly AzureRM pro Azure Stack hub. Pokyny najdete v tématu [použití Docker ke spuštění PowerShellu pro Azure Stack hub](../user/azure-stack-powershell-user-docker.md).
+
 ## <a name="1-verify-your-prerequisites"></a>1. ověřte požadavky.
 
 Než začnete s Azure Stack hub a modulem PowerShell AzureRM, musíte mít následující požadavky:
 
 - **PowerShell verze 5,1** <br>
-Pokud chcete zjistit verzi, spusťte **$PSVersionTable. PSVersion** a porovnejte **hlavní** verzi. Pokud nemáte PowerShell 5,1, postupujte podle pokynů pro [instalaci Windows PowerShellu](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell#upgrading-existing-windows-powershell).
+Pokud chcete zjistit verzi, spusťte **$PSVersionTable. PSVersion** a porovnejte **hlavní** verzi. Pokud nemáte PowerShell 5,1, postupujte podle pokynů pro [instalaci Windows PowerShellu](/powershell/scripting/install/installing-windows-powershell#upgrading-existing-windows-powershell).
 
   > [!Note]
   > Prostředí PowerShell 5,1 vyžaduje počítač se systémem Windows.
@@ -75,7 +77,7 @@ Před instalací požadované verze se ujistěte, že jste odinstalovali všechn
 
     Pokud se zobrazí chyba, například modul se už používá, zavřete relace PowerShellu, které moduly používají, a znovu spusťte výše uvedený skript.
 
-2. Odstraňte všechny složky `Azure`, které začínají na, `Az` nebo `Azs.` ze složky `C:\Program Files\WindowsPowerShell\Modules` a `C:\Users\{yourusername}\Documents\WindowsPowerShell\Modules` . Odstranění těchto složek odebere všechny existující moduly prostředí PowerShell.
+2. Odstraňte všechny složky, které začínají `Azure` na, `Az` nebo `Azs.` ze `C:\Program Files\WindowsPowerShell\Modules` složky a `C:\Users\{yourusername}\Documents\WindowsPowerShell\Modules` . Odstranění těchto složek odebere všechny existující moduly prostředí PowerShell.
 
 ## <a name="4-connected-install-powershell-for-azure-stack-hub-with-internet-connectivity"></a>4. připojeno: instalace PowerShellu pro centrum Azure Stack s připojením k Internetu
 
@@ -88,7 +90,7 @@ Spusťte následující skript PowerShellu, který nainstaluje tyto moduly na sv
 ::: moniker range=">=azs-2002"
 Pro Azure Stack hub 2002 nebo novější:
 
-Mohli jste buď moduly AzureRm uživatele, nebo AZ Preview Module. Použití modulů AZ modules vyžaduje Azure Stack hub 2002 a nejnovější opravu hotfix.
+Můžete použít buď moduly AzureRm uživatelů, nebo AZ Preview Module. Použití modulů AZ modules vyžaduje Azure Stack hub 2002 a nejnovější opravu hotfix.
 
 Pokud chcete použít moduly AZ Preview, postupujte podle pokynů v tématu [instalace PowerShellu AZ Module](powershell-install-az-module.md).
 
@@ -98,7 +100,7 @@ Install-Module -Name AzureRM.BootStrapper
 
 # Install and import the API Version Profile required by Azure Stack Hub into the current PowerShell session.
 Use-AzureRmProfile -Profile 2019-03-01-hybrid -Force
-Install-Module -Name AzureStack -RequiredVersion 1.8.1
+Install-Module -Name AzureStack -RequiredVersion 1.8.2
 ```
 
 ::: moniker-end
@@ -144,7 +146,7 @@ Get-Module -Name "Azure*" -ListAvailable
 Get-Module -Name "Azs*" -ListAvailable
 ```
 
-Pokud je instalace úspěšná, zobrazí se `AzureRm` ve `AzureStack` výstupu moduly a.
+Pokud je instalace úspěšná, zobrazí se `AzureRm` `AzureStack` ve výstupu moduly a.
 
 ## <a name="5-disconnected-install-powershell-without-an-internet-connection"></a>5. odpojeno: instalace PowerShellu bez připojení k Internetu
 
@@ -174,7 +176,7 @@ Import-Module -Name PackageManagement -ErrorAction Stop
 
 $Path = "<Path that is used to save the packages>"
 Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.5.0
-Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.8.1
+Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.8.2
 ```
 ::: moniker-end
 
@@ -223,7 +225,7 @@ Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v
 
 2. Přihlaste se k odpojené pracovní stanici a zkopírujte balíčky ze zařízení USB do umístění v pracovní stanici.
 
-3. Ručně nabootstrap zprostředkovatele NuGet na odpojené pracovní stanici. Pokyny najdete v tématu [Ruční zavedení zprostředkovatele NuGet na počítači, který není připojený k Internetu](https://docs.microsoft.com/powershell/scripting/gallery/how-to/getting-support/bootstrapping-nuget#manually-bootstrapping-the-nuget-provider-on-a-machine-that-is-not-connected-to-the-internet).
+3. Ručně nabootstrap zprostředkovatele NuGet na odpojené pracovní stanici. Pokyny najdete v tématu [Ruční zavedení zprostředkovatele NuGet na počítači, který není připojený k Internetu](/powershell/scripting/gallery/how-to/getting-support/bootstrapping-nuget#manually-bootstrapping-the-nuget-provider-on-a-machine-that-is-not-connected-to-the-internet).
 
 4. Zaregistrujte toto umístění jako výchozí úložiště a nainstalujte AzureRM a `AzureStack` moduly z tohoto úložiště:
 
@@ -266,6 +268,25 @@ Ve scénářích, které vyžadují proxy server pro přístup k Internetu, mus�
    #Alternatively, to prompt for separate credentials that can be used for #proxy authentication
    [System.Net.WebRequest]::DefaultWebProxy.Credentials = Get-Credential
    ```
+
+## <a name="known-issue"></a>Známý problém
+
+###  <a name="method-get_serializationsettings-error"></a>Chyba get_SerializationSettings metody 
+
+- Příčina: moduly PowerShell AZ Module a PowerShell AzureRM nejsou kompatibilní.
+
+    Následující chyba znamená, že moduly AzureRM a AZ modules jsou načteny do stejné relace: 
+
+    ```powershell  
+    >  Method 'get_SerializationSettings' in type 'Microsoft.Azure.Management.Internal.Resources.ResourceManagementClient' from assembly 'Microsoft.Azure.Commands.ResourceManager.Common, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' does 
+    not have an implementation.
+    ```
+
+- Náprava: odinstalujte konfliktní moduly. 
+
+  Chcete-li použít moduly AzureRM, odinstalujte moduly AZ Modules. Nebo odinstalujte AzureRM, chcete-li použít moduly AZ. Zavřete relaci prostředí PowerShell a odinstalujte moduly AZ nebo AzureRM. 
+  
+  Pokyny najdete v tématu [odinstalace existujících verzí modulů prostředí PowerShell centra Azure Stack](#3-uninstall-existing-versions-of-the-azure-stack-hub-powershell-modules).
 
 ## <a name="next-steps"></a>Další kroky
 

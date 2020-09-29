@@ -3,15 +3,15 @@ title: Úvod do Key Vault v centru Azure Stack
 description: Přečtěte si, jak Key Vault spravuje klíče a tajné kódy v centru Azure Stack.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 06/09/2020
+ms.date: 08/10/2020
 ms.author: sethm
-ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: 9842d0aa2892218b9d3e8ef527df8f83574487b8
-ms.sourcegitcommit: d91e47a51a02042f700c6a420f526f511a6db9a0
+ms.lastreviewed: 08/10/2020
+ms.openlocfilehash: 7387778055a50b138766cc7f8c416b206f4b9db9
+ms.sourcegitcommit: 77f53d8f4188feea7dd2197650ee860104b1e2aa
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84666460"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88501071"
 ---
 # <a name="introduction-to-key-vault-in-azure-stack-hub"></a>Úvod do Key Vault v centru Azure Stack
 
@@ -39,7 +39,7 @@ Kdokoli s předplatným centra Azure Stack může vytvářet a používat trezor
 * Udělte uživatelům nebo aplikacím přístup k trezoru klíčů, aby mohli spravovat nebo používat jeho klíče a tajné kódy.
 * Nakonfigurujte použití klíče (například podpis nebo šifrování).
 
-Operátor pak může poskytnout vývojářům pomocí identifikátorů URI (Uniform Resource Identifier) pro volání ze svých aplikací. Operátoři můžou taky poskytovat správcům zabezpečení informace o protokolování použití klíče.
+Operátor pak může poskytnout vývojářům pomocí identifikátorů URI (Uniform Resource Identifier) pro volání ze svých aplikací.
 
 Vývojáři můžou klíče spravovat i přímo pomocí rozhraní API. Další informace najdete v příručce pro [vývojáře Key Vault](/azure/key-vault/key-vault-developers-guide).
 

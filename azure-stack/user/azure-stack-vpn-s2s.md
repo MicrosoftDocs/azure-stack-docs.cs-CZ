@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 05/21/2020
 ms.author: sethm
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: fdc1f71e5d4c5afa8b3989b69795d150cf96de67
-ms.sourcegitcommit: d69eacbf48c06309b00d17c82ebe0ce2bc6552df
+ms.openlocfilehash: 88013fbde291d05daa41adf0c65db563c867ff5a
+ms.sourcegitcommit: 52b33ea180c38a5ecce150f5a9ea4a026344cc3d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83780686"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88074294"
 ---
 # <a name="configure-ipsecike-policy-for-site-to-site-vpn-connections"></a>Konfigurace zásad IPsec/IKE pro připojení site-to-site VPN
 
@@ -73,12 +73,14 @@ Následující tabulka uvádí podporované kryptografické algoritmy a síly kl
 |------------------------------------------------------|--------------------------------------------------------------------------|
 | Šifrování protokolem IKEv2                                     | AES256, AES192, AES128, DES3, DES                                        |
 | Integrita protokolu IKEv2                                      | SHA384, SHA256, SHA1, MD5                                                |
-| Skupina DH                                             | ECP384, ECP256, DHGroup24, DHGroup14, DHGroup2, DHGroup1                 |
+| Skupina DH                                             | ECP384, DHGroup14, DHGroup2, DHGroup1, ECP256 *, DHGroup24*             |
 | Šifrování protokolem IPsec                                     | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, Žádné |
-| Integrita protokolu IPsec                                      | GCMASE256, GCMAES192, GCMAES128                                          |
+| Integrita protokolu IPsec                                      | GCMAES256, GCMAES192, GCMAES128                                          |
 | Skupina PFS                                            | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, PFSMM, None                  |
 | Doba života přidružení zabezpečení v rychlém režimu                                       | (Volitelné: použijí se výchozí hodnoty, pokud není zadaný)<br />                         Sekundy (integer; min. 300 / výchozí hodnota 27 000 sekund)<br />                         Kilobajty (integer; min. 1024 / výchozí hodnota 102 400 000 kilobajtů) |
 | Selektor provozu                                     | Selektory přenosu na základě zásad nejsou v Azure Stackovém centru podporovány.         |
+
+\* Tyto parametry jsou k dispozici pouze v sestaveních 2002 a vyšších. 
 
 - Konfigurace vašeho místního zařízení VPN musí odpovídat zásadám brány Azure VPN Gateway nebo musí obsahovat následující algoritmy a parametry, které zadáte v zásadách IPsec/IKE Azure:
 
@@ -111,6 +113,8 @@ V následující tabulce jsou uvedeny odpovídající skupiny Diffie-Hellman pod
 | 19                   | ECP256    | ECP256        | 256bitová skupina ECP   |
 | 20                   | ECP384    | ECP384        | 384bitová skupina ECP   |
 | 24                   | DHGroup24 | PFS24         | 2048bitová skupina MODP |
+
+\* Tyto parametry jsou k dispozici pouze v sestaveních 2002 a vyšších. 
 
 Další informace najdete na stránkách [RFC3526](https://tools.ietf.org/html/rfc3526) a [RFC5114](https://tools.ietf.org/html/rfc5114).
 

@@ -7,18 +7,18 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: f162a244e97d2346851ff4b13b6bdd04033e33fb
-ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
+ms.openlocfilehash: fa94f2bb29b75a2fcbbdbc7707a69d9ba2f8d0cf
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84146848"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86567599"
 ---
 # <a name="common-deployments-for-azure-stack-hub"></a>Společná nasazení pro centrum Azure Stack
 
 Centrum Azure Stack podporuje infrastrukturu jako službu (IaaS) a platformu jako službu (PaaS). Tento článek obsahuje seznam zdrojů pro nastavení virtuálního počítače a jeho nasazení do centra Azure Stack.
 
-## <a name="before-you-begin"></a>Před zahájením
+## <a name="before-you-begin"></a>Než začnete
 
 Než začnete nasazovat aplikaci do centra Azure Stack, nastavte svůj vývojový počítač. Pokyny, jak začít pracovat s centrem Azure Stack jako vývojář, najdete [v tématu Nastavení vývojového prostředí v centru Azure Stack](azure-stack-dev-start.md).
 
@@ -36,4 +36,4 @@ V následujících článcích s postupy se nastavuje virtuální počítač (VM
 ## <a name="next-steps"></a>Další kroky
 
 - Nastavte [vývojové prostředí v Azure Stack hub](azure-stack-dev-start.md).
-- Nastavení [kanálu průběžné integrace nebo průběžného doručování (CI/CD) do centra Azure Stack](azure-stack-solution-pipeline.md).
+- Nastavení [kanálu průběžné integrace nebo průběžného doručování (CI/CD) do centra Azure Stack](https://github.com/Azure-Samples/azure-intelligent-edge-patterns/tree/master/hybrid-devops).

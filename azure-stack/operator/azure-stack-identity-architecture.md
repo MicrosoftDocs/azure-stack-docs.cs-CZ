@@ -3,28 +3,28 @@ title: Architektura identity pro centrum Azure Stack
 description: Seznamte se s architekturou identity pro centrum Azure Stack a rozdíly mezi Azure AD a AD FS.
 author: BryanLa
 ms.topic: conceptual
-ms.date: 04/10/2020
+ms.date: 07/20/2020
 ms.author: bryanla
 ms.reviewer: fiseraci
-ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: d21df4d1a16f7ea56ec02a1aa1e7821bb7fe4484
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.lastreviewed: 07/20/2020
+ms.openlocfilehash: fa79df515e2676655ea98b6024179d3f56c41fbf
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82848230"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86566188"
 ---
 # <a name="identity-architecture-for-azure-stack-hub"></a>Architektura identity pro centrum Azure Stack
 
 Při volbě zprostředkovatele identity, který se má používat s Azure Stack hub, byste měli pochopit důležité rozdíly mezi možnostmi Azure Active Directory (Azure AD) a Active Directory Federation Services (AD FS) (AD FS).
 
-## <a name="capabilities-and-limitations"></a>Možnosti a omezení
+## <a name="capabilities-and-limitations"></a>Funkce a omezení
 
 Vámi zvolený poskytovatel identity může omezit vaše možnosti, včetně podpory pro víceklientské prostředí.
 
 |Funkce nebo scénář        |Azure AD  |AD FS  |
 |------------------------------|----------|-------|
-|Připojeno k Internetu     |Ano       |Nepovinné|
+|Připojeno k Internetu     |Ano       |Volitelné|
 |Podpora víceklientské architektury     |Ano       |Ne      |
 |Nabídky položek na webu Marketplace |Ano       |Ano (vyžaduje použití nástroje pro [syndikaci offline Marketplace](azure-stack-download-azure-marketplace-item.md?pivots=state-disconnected) )|
 |Podpora pro Active Directory Authentication Library (ADAL) |Ano |Ano|
@@ -34,6 +34,7 @@ Vámi zvolený poskytovatel identity může omezit vaše možnosti, včetně pod
 |Vytváření instančních objektů s tajnými kódy (klíče)    |Ano |Ano|
 |Aplikace mohou používat službu Graph Service           |Ano |Ne|
 |Aplikace můžou poskytovatele identity použít k přihlášení. |Ano |Ano (vyžaduje, aby se aplikace federovat s místními instancemi AD FS) |
+| Spravované systémové identity | Ne | Ne |
 
 ## <a name="topologies"></a>Topologie
 
